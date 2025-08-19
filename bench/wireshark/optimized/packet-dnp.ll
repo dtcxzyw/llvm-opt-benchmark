@@ -1743,7 +1743,7 @@ define internal noundef i32 @dissect_dnp3_message(ptr noundef %0, ptr noundef %1
 67:                                               ; preds = %66, %64
   %68 = and i32 %17, 16
   %.not327 = icmp eq i32 %68, 0
-  br i1 %.not327, label %76, label %.sink.split408
+  br i1 %.not327, label %76, label %.sink.split432
 
 69:                                               ; preds = %54
   br i1 %.not322, label %71, label %70
@@ -1764,14 +1764,14 @@ define internal noundef i32 @dissect_dnp3_message(ptr noundef %0, ptr noundef %1
 74:                                               ; preds = %73, %71
   %75 = and i32 %17, 16
   %.not324 = icmp eq i32 %75, 0
-  br i1 %.not324, label %76, label %.sink.split408
+  br i1 %.not324, label %76, label %.sink.split432
 
-.sink.split408:                                   ; preds = %74, %67
-  %.str.896.sink409 = phi ptr [ @.str.894, %67 ], [ @.str.896, %74 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull %.str.896.sink409)
+.sink.split432:                                   ; preds = %74, %67
+  %.str.896.sink433 = phi ptr [ @.str.894, %67 ], [ @.str.896, %74 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull %.str.896.sink433)
   br label %76
 
-76:                                               ; preds = %.sink.split408, %74, %67
+76:                                               ; preds = %.sink.split432, %74, %67
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.899, ptr noundef %22)
   %77 = load i32, ptr @ett_dnp3_dl_ctl, align 4
   %78 = call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %77)
@@ -3052,7 +3052,7 @@ proto_item_set_generated.exit1252:                ; preds = %153, %155, %158
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %216 = load i32, ptr @ett_dnp3_al_obj_point, align 4
   %217 = call ptr @proto_tree_add_subtree(ptr noundef %45, ptr noundef nonnull %0, i32 noundef %.11334, i32 noundef -1, i32 noundef %216, ptr noundef nonnull %9, ptr noundef nonnull %.str.942..str.943)
-  switch i8 %49, label %default.unreachable1337 [
+  switch i8 %49, label %default.unreachable1359 [
     i8 0, label %218
     i8 1, label %228
     i8 2, label %233
@@ -3122,7 +3122,7 @@ proto_item_set_generated.exit1252:                ; preds = %153, %155, %158
   %255 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %254, ptr noundef nonnull %0, i32 noundef %.11334, i32 noundef 4, i32 noundef -2147483648)
   br label %dnp3_al_obj_procprefix.exit
 
-default.unreachable1337:                          ; preds = %215
+default.unreachable1359:                          ; preds = %215
   unreachable
 
 256:                                              ; preds = %238, %233, %228, %224, %221, %218
@@ -3659,17 +3659,17 @@ switch.lookup:                                    ; preds = %select.unfold
   %419 = call ptr @val_to_str_ext(i32 noundef %417, ptr noundef nonnull @dnp3_al_dbi_vals_ext, ptr noundef nonnull @.str.952)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %418, ptr noundef nonnull @.str.951, ptr noundef %419)
   %420 = icmp ult i8 %.011921333, 4
-  br i1 %420, label %switch.lookup1382, label %424
+  br i1 %420, label %switch.lookup1404, label %424
 
-switch.lookup1382:                                ; preds = %411
+switch.lookup1404:                                ; preds = %411
   %421 = zext nneg i8 %.011921333 to i64
-  %switch.gep1383 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dnp3_al_process_object.1, i64 0, i64 %421
-  %switch.load1384 = load ptr, ptr %switch.gep1383, align 8
-  %422 = load i32, ptr %switch.load1384, align 4
+  %switch.gep1405 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dnp3_al_process_object.1, i64 0, i64 %421
+  %switch.load1406 = load ptr, ptr %switch.gep1405, align 8
+  %422 = load i32, ptr %switch.load1406, align 4
   %423 = call ptr @proto_tree_add_uint(ptr noundef %217, i32 noundef %422, ptr noundef nonnull %0, i32 noundef %.11334, i32 noundef 1, i32 noundef %413)
   br label %424
 
-424:                                              ; preds = %411, %switch.lookup1382
+424:                                              ; preds = %411, %switch.lookup1404
   %425 = load ptr, ptr %9, align 8
   %426 = add nuw nsw i32 %.0208217.i, 1
   call void @proto_item_set_len(ptr noundef %425, i32 noundef %426)
@@ -3686,22 +3686,22 @@ switch.lookup1382:                                ; preds = %411
 432:                                              ; preds = %381, %381, %381, %381
   %433 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %298)
   switch i16 %.01197, label %436 [
-    i16 258, label %.sink.split1345
-    i16 513, label %.sink.split1345
+    i16 258, label %.sink.split1367
+    i16 513, label %.sink.split1367
     i16 2562, label %434
     i16 2817, label %434
   ]
 
 434:                                              ; preds = %432, %432
-  br label %.sink.split1345
+  br label %.sink.split1367
 
-.sink.split1345:                                  ; preds = %432, %432, %434
-  %.sink1346 = phi i32 [ 2, %434 ], [ 0, %432 ], [ 0, %432 ]
+.sink.split1367:                                  ; preds = %432, %432, %434
+  %.sink1368 = phi i32 [ 2, %434 ], [ 0, %432 ], [ 0, %432 ]
   %435 = load ptr, ptr %9, align 8
-  call fastcc void @dnp3_al_obj_quality(ptr noundef %0, i32 noundef %298, i8 noundef zeroext %433, ptr noundef %217, ptr noundef %435, i32 noundef %.sink1346)
+  call fastcc void @dnp3_al_obj_quality(ptr noundef %0, i32 noundef %298, i8 noundef zeroext %433, ptr noundef %217, ptr noundef %435, i32 noundef %.sink1368)
   br label %436
 
-436:                                              ; preds = %.sink.split1345, %432
+436:                                              ; preds = %.sink.split1367, %432
   %437 = add i32 %298, 1
   %438 = load ptr, ptr %9, align 8
   %.lobit1228 = lshr i8 %433, 7
@@ -3730,20 +3730,20 @@ switch.lookup1382:                                ; preds = %411
 452:                                              ; preds = %381, %381
   %453 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %298)
   switch i16 %.01197, label %456 [
-    i16 514, label %.sink.split1347
+    i16 514, label %.sink.split1369
     i16 2818, label %454
   ]
 
 454:                                              ; preds = %452
-  br label %.sink.split1347
+  br label %.sink.split1369
 
-.sink.split1347:                                  ; preds = %452, %454
-  %.sink1348 = phi i32 [ 2, %454 ], [ 0, %452 ]
+.sink.split1369:                                  ; preds = %452, %454
+  %.sink1370 = phi i32 [ 2, %454 ], [ 0, %452 ]
   %455 = load ptr, ptr %9, align 8
-  call fastcc void @dnp3_al_obj_quality(ptr noundef %0, i32 noundef %298, i8 noundef zeroext %453, ptr noundef %217, ptr noundef %455, i32 noundef %.sink1348)
+  call fastcc void @dnp3_al_obj_quality(ptr noundef %0, i32 noundef %298, i8 noundef zeroext %453, ptr noundef %217, ptr noundef %455, i32 noundef %.sink1370)
   br label %456
 
-456:                                              ; preds = %.sink.split1347, %452
+456:                                              ; preds = %.sink.split1369, %452
   %457 = add i32 %298, 1
   %458 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %457)
   %459 = add i32 %298, 3
@@ -4025,10 +4025,10 @@ default.unreachable:                              ; preds = %615
 
 630:                                              ; preds = %627, %623, %619, %616
   %hf_dnp3_al_anaoutdbl.sink = phi ptr [ @hf_dnp3_al_anaoutdbl, %627 ], [ @hf_dnp3_al_anaoutflt, %623 ], [ @hf_dnp3_al_anaout16, %619 ], [ @hf_dnp3_al_anaout32, %616 ]
-  %.sink1351 = phi i32 [ 8, %627 ], [ 4, %623 ], [ 2, %619 ], [ 4, %616 ]
+  %.sink1373 = phi i32 [ 8, %627 ], [ 4, %623 ], [ 2, %619 ], [ 4, %616 ]
   %631 = load i32, ptr %hf_dnp3_al_anaoutdbl.sink, align 4
-  %632 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %631, ptr noundef nonnull %0, i32 noundef %298, i32 noundef %.sink1351, i32 noundef -2147483648)
-  %633 = add i32 %298, %.sink1351
+  %632 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %631, ptr noundef nonnull %0, i32 noundef %298, i32 noundef %.sink1373, i32 noundef -2147483648)
+  %633 = add i32 %298, %.sink1373
   %634 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %633)
   %635 = and i8 %634, 127
   %636 = zext nneg i8 %635 to i32
@@ -4107,25 +4107,25 @@ default.unreachable:                              ; preds = %615
   %651 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %.41207)
   %652 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %652, ptr noundef nonnull @.str.962, i32 noundef %651)
-  br label %.sink.split1352
+  br label %.sink.split1374
 
 653:                                              ; preds = %649, %649, %649, %649, %649, %649, %649, %649, %649, %649, %649, %649, %649, %649, %649, %649, %649, %649
   %654 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %.41207)
   %655 = load ptr, ptr %9, align 8
   %656 = zext i16 %654 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %655, ptr noundef nonnull @.str.962, i32 noundef %656)
-  br label %.sink.split1352
+  br label %.sink.split1374
 
-.sink.split1352:                                  ; preds = %650, %653
+.sink.split1374:                                  ; preds = %650, %653
   %hf_dnp3_al_cnt16.sink = phi ptr [ @hf_dnp3_al_cnt16, %653 ], [ @hf_dnp3_al_cnt32, %650 ]
-  %.sink1355 = phi i32 [ 2, %653 ], [ 4, %650 ]
+  %.sink1377 = phi i32 [ 2, %653 ], [ 4, %650 ]
   %657 = load i32, ptr %hf_dnp3_al_cnt16.sink, align 4
-  %658 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %657, ptr noundef nonnull %0, i32 noundef %.41207, i32 noundef %.sink1355, i32 noundef -2147483648)
-  %659 = add i32 %.41207, %.sink1355
+  %658 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %657, ptr noundef nonnull %0, i32 noundef %.41207, i32 noundef %.sink1377, i32 noundef -2147483648)
+  %659 = add i32 %.41207, %.sink1377
   br label %660
 
-660:                                              ; preds = %.sink.split1352, %649
-  %.5 = phi i32 [ %.41207, %649 ], [ %659, %.sink.split1352 ]
+660:                                              ; preds = %.sink.split1374, %649
+  %.5 = phi i32 [ %.41207, %649 ], [ %659, %.sink.split1374 ]
   switch i16 %.01197, label %679 [
     i16 5381, label %661
     i16 5382, label %661
@@ -4231,55 +4231,55 @@ default.unreachable:                              ; preds = %615
   %689 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %.7)
   %690 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %690, ptr noundef nonnull @.str.947, i32 noundef %689)
-  br label %.sink.split1356
+  br label %.sink.split1378
 
 691:                                              ; preds = %687, %687, %687, %687, %687, %687, %687, %687, %687, %687
   %692 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %.7)
   %693 = load ptr, ptr %9, align 8
   %694 = sext i16 %692 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %693, ptr noundef nonnull @.str.947, i32 noundef %694)
-  br label %.sink.split1356
+  br label %.sink.split1378
 
 695:                                              ; preds = %687, %687, %687, %687, %687, %687, %687
   %696 = call float @tvb_get_letohieee_float(ptr noundef nonnull %0, i32 noundef %.7)
   %697 = load ptr, ptr %9, align 8
   %698 = fpext float %696 to double
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %697, ptr noundef nonnull @.str.948, double noundef %698)
-  br label %.sink.split1356
+  br label %.sink.split1378
 
 699:                                              ; preds = %687, %687, %687, %687, %687, %687
   %700 = call double @tvb_get_letohieee_double(ptr noundef nonnull %0, i32 noundef %.7)
   %701 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %701, ptr noundef nonnull @.str.948, double noundef %700)
-  br label %.sink.split1356
+  br label %.sink.split1378
 
-.sink.split1356:                                  ; preds = %688, %691, %695, %699
+.sink.split1378:                                  ; preds = %688, %691, %695, %699
   %hf_dnp3_al_anadbl.sink = phi ptr [ @hf_dnp3_al_anadbl, %699 ], [ @hf_dnp3_al_anaflt, %695 ], [ @hf_dnp3_al_ana16, %691 ], [ @hf_dnp3_al_ana32, %688 ]
-  %.sink1359 = phi i32 [ 8, %699 ], [ 4, %695 ], [ 2, %691 ], [ 4, %688 ]
+  %.sink1381 = phi i32 [ 8, %699 ], [ 4, %695 ], [ 2, %691 ], [ 4, %688 ]
   %702 = load i32, ptr %hf_dnp3_al_anadbl.sink, align 4
-  %703 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %702, ptr noundef nonnull %0, i32 noundef %.7, i32 noundef %.sink1359, i32 noundef -2147483648)
-  %704 = add i32 %.7, %.sink1359
+  %703 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %702, ptr noundef nonnull %0, i32 noundef %.7, i32 noundef %.sink1381, i32 noundef -2147483648)
+  %704 = add i32 %.7, %.sink1381
   br label %705
 
-705:                                              ; preds = %.sink.split1356, %687
-  %.8 = phi i32 [ %.7, %687 ], [ %704, %.sink.split1356 ]
+705:                                              ; preds = %.sink.split1378, %687
+  %.8 = phi i32 [ %.7, %687 ], [ %704, %.sink.split1378 ]
   switch i16 %.01197, label %724 [
-    i16 8195, label %.sink.split1360
-    i16 8196, label %.sink.split1360
-    i16 8199, label %.sink.split1360
-    i16 8200, label %.sink.split1360
-    i16 8451, label %.sink.split1360
-    i16 8452, label %.sink.split1360
-    i16 8455, label %.sink.split1360
-    i16 8456, label %.sink.split1360
+    i16 8195, label %.sink.split1382
+    i16 8196, label %.sink.split1382
+    i16 8199, label %.sink.split1382
+    i16 8200, label %.sink.split1382
+    i16 8451, label %.sink.split1382
+    i16 8452, label %.sink.split1382
+    i16 8455, label %.sink.split1382
+    i16 8456, label %.sink.split1382
     i16 7939, label %706
     i16 7940, label %706
   ]
 
 706:                                              ; preds = %705, %705
-  br label %.sink.split1360
+  br label %.sink.split1382
 
-.sink.split1360:                                  ; preds = %705, %705, %705, %705, %705, %705, %705, %705, %706
+.sink.split1382:                                  ; preds = %705, %705, %705, %705, %705, %705, %705, %705, %706
   %.str.963.sink = phi ptr [ @.str.963, %706 ], [ @.str.961, %705 ], [ @.str.961, %705 ], [ @.str.961, %705 ], [ @.str.961, %705 ], [ @.str.961, %705 ], [ @.str.961, %705 ], [ @.str.961, %705 ], [ @.str.961, %705 ]
   %707 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %.8)
   %708 = add i32 %.8, 2
@@ -4303,8 +4303,8 @@ default.unreachable:                              ; preds = %615
   %723 = add i32 %.8, 6
   br label %724
 
-724:                                              ; preds = %.sink.split1360, %705
-  %.9 = phi i32 [ %.8, %705 ], [ %723, %.sink.split1360 ]
+724:                                              ; preds = %.sink.split1382, %705
+  %.9 = phi i32 [ %.8, %705 ], [ %723, %.sink.split1382 ]
   %725 = load ptr, ptr %9, align 8
   %726 = sub i32 %.9, %.11334
   call void @proto_item_set_len(ptr noundef %725, i32 noundef %726)
@@ -4334,39 +4334,39 @@ default.unreachable:                              ; preds = %615
   %732 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %730)
   %733 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %733, ptr noundef nonnull @.str.947, i32 noundef %732)
-  br label %.sink.split1377
+  br label %.sink.split1399
 
 734:                                              ; preds = %727, %727, %727
   %735 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %730)
   %736 = load ptr, ptr %9, align 8
   %737 = sext i16 %735 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %736, ptr noundef nonnull @.str.947, i32 noundef %737)
-  br label %.sink.split1377
+  br label %.sink.split1399
 
 738:                                              ; preds = %727, %727, %727
   %739 = call float @tvb_get_letohieee_float(ptr noundef nonnull %0, i32 noundef %730)
   %740 = load ptr, ptr %9, align 8
   %741 = fpext float %739 to double
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %740, ptr noundef nonnull @.str.948, double noundef %741)
-  br label %.sink.split1377
+  br label %.sink.split1399
 
 742:                                              ; preds = %727, %727, %727
   %743 = call double @tvb_get_letohieee_double(ptr noundef nonnull %0, i32 noundef %730)
   %744 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %744, ptr noundef nonnull @.str.948, double noundef %743)
-  br label %.sink.split1377
+  br label %.sink.split1399
 
-.sink.split1377:                                  ; preds = %731, %734, %738, %742
-  %hf_dnp3_al_anaoutdbl.sink1381 = phi ptr [ @hf_dnp3_al_anaoutdbl, %742 ], [ @hf_dnp3_al_anaoutflt, %738 ], [ @hf_dnp3_al_anaout16, %734 ], [ @hf_dnp3_al_anaout32, %731 ]
-  %.sink1380 = phi i32 [ 8, %742 ], [ 4, %738 ], [ 2, %734 ], [ 4, %731 ]
-  %.sink1378 = phi i32 [ 9, %742 ], [ 5, %738 ], [ 3, %734 ], [ 5, %731 ]
-  %745 = load i32, ptr %hf_dnp3_al_anaoutdbl.sink1381, align 4
-  %746 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %745, ptr noundef nonnull %0, i32 noundef %730, i32 noundef %.sink1380, i32 noundef -2147483648)
-  %747 = add i32 %298, %.sink1378
+.sink.split1399:                                  ; preds = %731, %734, %738, %742
+  %hf_dnp3_al_anaoutdbl.sink1403 = phi ptr [ @hf_dnp3_al_anaoutdbl, %742 ], [ @hf_dnp3_al_anaoutflt, %738 ], [ @hf_dnp3_al_anaout16, %734 ], [ @hf_dnp3_al_anaout32, %731 ]
+  %.sink1402 = phi i32 [ 8, %742 ], [ 4, %738 ], [ 2, %734 ], [ 4, %731 ]
+  %.sink1400 = phi i32 [ 9, %742 ], [ 5, %738 ], [ 3, %734 ], [ 5, %731 ]
+  %745 = load i32, ptr %hf_dnp3_al_anaoutdbl.sink1403, align 4
+  %746 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %745, ptr noundef nonnull %0, i32 noundef %730, i32 noundef %.sink1402, i32 noundef -2147483648)
+  %747 = add i32 %298, %.sink1400
   br label %748
 
-748:                                              ; preds = %.sink.split1377, %727
-  %.10 = phi i32 [ %730, %727 ], [ %747, %.sink.split1377 ]
+748:                                              ; preds = %.sink.split1399, %727
+  %.10 = phi i32 [ %730, %727 ], [ %747, %.sink.split1399 ]
   switch i16 %.01197, label %767 [
     i16 10755, label %749
     i16 10756, label %749
@@ -4683,16 +4683,16 @@ default.unreachable:                              ; preds = %615
   %976 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %975)
   %switch.tableidx = add i8 %976, -1
   %977 = icmp ult i8 %switch.tableidx, 6
-  br i1 %977, label %switch.lookup1385, label %979
+  br i1 %977, label %switch.lookup1407, label %979
 
-switch.lookup1385:                                ; preds = %963
+switch.lookup1407:                                ; preds = %963
   %978 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep1386 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dnp3_al_process_object.2, i64 0, i64 %978
-  %switch.load1387 = load i32, ptr %switch.gep1386, align 4
+  %switch.gep1408 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.dnp3_al_process_object.2, i64 0, i64 %978
+  %switch.load1409 = load i32, ptr %switch.gep1408, align 4
   br label %979
 
-979:                                              ; preds = %963, %switch.lookup1385
-  %.01198 = phi i32 [ %switch.load1387, %switch.lookup1385 ], [ 0, %963 ]
+979:                                              ; preds = %963, %switch.lookup1407
+  %.01198 = phi i32 [ %switch.load1409, %switch.lookup1407 ], [ 0, %963 ]
   %980 = load i32, ptr @hf_dnp3_al_sa_mal, align 4
   %981 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %980, ptr noundef nonnull %0, i32 noundef %975, i32 noundef 1, i32 noundef -2147483648)
   %982 = add i32 %298, 9
@@ -4989,7 +4989,7 @@ define internal fastcc void @dnp3_al_obj_quality(ptr noundef nonnull %0, i32 nou
   br label %28
 
 28:                                               ; preds = %26, %24
-  switch i32 %5, label %default.unreachable81 [
+  switch i32 %5, label %default.unreachable82 [
     i32 0, label %29
     i32 1, label %29
     i32 2, label %36
@@ -5076,7 +5076,7 @@ define internal fastcc void @dnp3_al_obj_quality(ptr noundef nonnull %0, i32 nou
   %59 = load i32, ptr @hf_dnp3_al_ctrq_b7, align 4
   br label %60
 
-default.unreachable81:                            ; preds = %28
+default.unreachable82:                            ; preds = %28
   unreachable
 
 60:                                               ; preds = %33, %58, %48, %46, %36

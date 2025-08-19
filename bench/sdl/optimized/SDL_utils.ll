@@ -939,12 +939,12 @@ switch.lookup:                                    ; preds = %28
   br i1 %.not.i, label %.lr.ph160.preheader, label %.lr.ph.i, !llvm.loop !11
 
 PrefixMatch.exit:                                 ; preds = %.lr.ph.i, %93
-  %.not192 = icmp eq i32 %.015.i, 0
-  br i1 %.not192, label %.critedge128, label %.lr.ph160.preheader
+  %.not207 = icmp eq i32 %.015.i, 0
+  br i1 %.not207, label %.critedge128, label %.lr.ph160.preheader
 
 .lr.ph160.preheader:                              ; preds = %100, %86, %PrefixMatch.exit
-  %.010.i177 = phi i32 [ %.015.i, %PrefixMatch.exit ], [ 5, %86 ], [ %103, %100 ]
-  %105 = zext nneg i32 %.010.i177 to i64
+  %.010.i192 = phi i32 [ %.015.i, %PrefixMatch.exit ], [ 5, %86 ], [ %103, %100 ]
+  %105 = zext nneg i32 %.010.i192 to i64
   br label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %.lr.ph160.preheader, %112

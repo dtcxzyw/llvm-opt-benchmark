@@ -259,8 +259,8 @@ _ZNK7obj_mapI3astPS0_E5beginEv.exit:              ; preds = %.lr.ph.i.i.i.i, %9,
   %32 = icmp ugt i32 %21, 16
   %33 = mul i32 %21, 3
   %34 = icmp ugt i32 %31, %33
-  %or.cond16.i.i = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond16.i.i, label %35, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond18.i.i, label %35, label %._crit_edge.thread.i.i
 
 35:                                               ; preds = %._crit_edge.i.i
   %36 = icmp eq ptr %20, null
@@ -3855,15 +3855,15 @@ _ZN6vectorIP3astLb0EjE13expand_vectorEv.exit258:  ; preds = %652, %692
   br label %.critedgethread-pre-split
 
 .sink.split.sink.split:                           ; preds = %.preheader.i.i.i.i216, %.preheader.i.i.i.i192, %.preheader.i.i.i.i159, %.preheader.i.i.i.i, %.lr.ph.i.i.i.i212, %.lr.ph39.i.i.i.i218, %640, %.lr.ph.i.i.i.i188, %.lr.ph39.i.i.i.i194, %511, %.lr.ph.i.i.i.i155, %.lr.ph39.i.i.i.i161, %340, %.lr.ph.i.i.i.i, %.lr.ph39.i.i.i.i, %211
-  %.0123556.sink.ph = phi ptr [ %181, %211 ], [ %181, %.lr.ph39.i.i.i.i ], [ %181, %.lr.ph.i.i.i.i ], [ %.0125, %340 ], [ %.0125, %.lr.ph39.i.i.i.i161 ], [ %.0125, %.lr.ph.i.i.i.i155 ], [ %481, %511 ], [ %481, %.lr.ph39.i.i.i.i194 ], [ %481, %.lr.ph.i.i.i.i188 ], [ %.0123, %640 ], [ %.0123, %.lr.ph39.i.i.i.i218 ], [ %.0123, %.lr.ph.i.i.i.i212 ], [ %181, %.preheader.i.i.i.i ], [ %.0125, %.preheader.i.i.i.i159 ], [ %481, %.preheader.i.i.i.i192 ], [ %.0123, %.preheader.i.i.i.i216 ]
+  %.0123639.sink.ph = phi ptr [ %181, %211 ], [ %181, %.lr.ph39.i.i.i.i ], [ %181, %.lr.ph.i.i.i.i ], [ %.0125, %340 ], [ %.0125, %.lr.ph39.i.i.i.i161 ], [ %.0125, %.lr.ph.i.i.i.i155 ], [ %481, %511 ], [ %481, %.lr.ph39.i.i.i.i194 ], [ %481, %.lr.ph.i.i.i.i188 ], [ %.0123, %640 ], [ %.0123, %.lr.ph39.i.i.i.i218 ], [ %.0123, %.lr.ph.i.i.i.i212 ], [ %181, %.preheader.i.i.i.i ], [ %.0125, %.preheader.i.i.i.i159 ], [ %481, %.preheader.i.i.i.i192 ], [ %.0123, %.preheader.i.i.i.i216 ]
   %709 = load i32, ptr %26, align 8, !tbaa !129
   %710 = add i32 %709, 1
   store i32 %710, ptr %26, align 8, !tbaa !129
   br label %.sink.split
 
 .sink.split:                                      ; preds = %610, %.lr.ph390, %_ZNK10quantifier9get_childEj.exit, %176, %.sink.split.sink.split
-  %.0123556.sink = phi ptr [ %.0123556.sink.ph, %.sink.split.sink.split ], [ %181, %176 ], [ %.0125, %_ZNK10quantifier9get_childEj.exit ], [ %481, %.lr.ph390 ], [ %.0123, %610 ]
-  call void @_ZN15ast_translation10push_frameEP3ast(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.0123556.sink)
+  %.0123639.sink = phi ptr [ %.0123639.sink.ph, %.sink.split.sink.split ], [ %181, %176 ], [ %.0125, %_ZNK10quantifier9get_childEj.exit ], [ %481, %.lr.ph390 ], [ %.0123, %610 ]
+  call void @_ZN15ast_translation10push_frameEP3ast(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.0123639.sink)
   br label %711
 
 711:                                              ; preds = %.sink.split, %167, %120
@@ -3933,7 +3933,7 @@ _ZN6vectorIP4exprLb0EjE5resetEv.exit:             ; preds = %4, %7
   br i1 %12, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread:      ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit
-  %.pre1720 = load ptr, ptr %0, align 8, !tbaa !192
+  %.pre1722 = load ptr, ptr %0, align 8, !tbaa !192
   br label %._crit_edge
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4exprLb0EjE5resetEv.exit
@@ -3959,12 +3959,12 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %_ZN6vectorIP4exprLb
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread, %._crit_edge.loopexit14, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
-  %.0.i21 = phi i32 [ %14, %._crit_edge.loopexit14 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread ], [ %14, %.lr.ph ]
+  %.0.i23 = phi i32 [ %14, %._crit_edge.loopexit14 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread ], [ %14, %.lr.ph ]
   %19 = phi ptr [ %34, %._crit_edge.loopexit14 ], [ %11, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ], [ null, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread ], [ %11, %.lr.ph ]
-  %20 = phi ptr [ %.pre16, %._crit_edge.loopexit14 ], [ %.pre17, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ], [ %.pre1720, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread ], [ %.pre17, %.lr.ph ]
+  %20 = phi ptr [ %.pre16, %._crit_edge.loopexit14 ], [ %.pre17, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit ], [ %.pre1722, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.thread ], [ %.pre17, %.lr.ph ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !36
-  %23 = tail call noundef ptr @_ZN11ast_manager7mk_joinEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %22, i32 noundef %.0.i21, ptr noundef %19)
+  %23 = tail call noundef ptr @_ZN11ast_manager7mk_joinEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %22, i32 noundef %.0.i23, ptr noundef %19)
   br label %36
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN15ast_translationclI4exprEEPT_PKS2_.exit
@@ -4103,8 +4103,8 @@ _ZN14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE
   %31 = icmp ugt i32 %3, 16
   %32 = mul nuw nsw i32 %3, 3
   %33 = icmp ugt i32 %30, %32
-  %or.cond16.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond16.i, label %34, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond18.i, label %34, label %._crit_edge.thread.i
 
 34:                                               ; preds = %._crit_edge.i
   %35 = icmp eq ptr %20, null

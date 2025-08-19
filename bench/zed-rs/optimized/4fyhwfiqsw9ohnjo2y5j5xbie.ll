@@ -1309,16 +1309,16 @@ default.unreachable:                              ; preds = %56, %39
   unreachable
 
 _ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117.sink.split: ; preds = %81, %82
-  %.sroa.13.0.ph299.ph = phi ptr [ %46, %81 ], [ %63, %82 ]
+  %.sroa.13.0.ph303.ph = phi ptr [ %46, %81 ], [ %63, %82 ]
   store i8 1, ptr %37, align 8
   br label %_ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117
 
 _ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117: ; preds = %_ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117.sink.split, %88, %83
-  %.sroa.8.0.ph300 = phi ptr [ %84, %88 ], [ %84, %83 ], [ null, %_ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117.sink.split ]
-  %.sroa.13.0.ph299 = phi ptr [ %85, %88 ], [ %85, %83 ], [ %.sroa.13.0.ph299.ph, %_ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117.sink.split ]
-  store ptr %.sroa.8.0.ph300, ptr %9, align 8
+  %.sroa.8.0.ph304 = phi ptr [ %84, %88 ], [ %84, %83 ], [ null, %_ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117.sink.split ]
+  %.sroa.13.0.ph303 = phi ptr [ %85, %88 ], [ %85, %83 ], [ %.sroa.13.0.ph303.ph, %_ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117.sink.split ]
+  store ptr %.sroa.8.0.ph304, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sroa.13.0.ph299, ptr %.sroa.2.0..sroa_idx, align 8
+  store ptr %.sroa.13.0.ph303, ptr %.sroa.2.0..sroa_idx, align 8
   br label %93
 
 93:                                               ; preds = %93, %_ZN10async_task5utils14abort_on_panic17ha3680473efb4603aE.exit117

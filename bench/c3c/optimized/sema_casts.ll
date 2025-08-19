@@ -251,23 +251,23 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 95:                                               ; preds = %81
   %96 = load i32, ptr %92, align 8
   %97 = icmp eq i32 %96, 23
-  br i1 %97, label %98, label %.preheader136
+  br i1 %97, label %98, label %.preheader145
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %100 = load ptr, ptr %99, align 8
   %101 = load i32, ptr %100, align 8
-  switch i32 %101, label %.preheader136 [
+  switch i32 %101, label %.preheader145 [
     i32 33, label %.loopexit131
     i32 37, label %.loopexit131
   ]
 
-.preheader136:                                    ; preds = %95, %98
+.preheader145:                                    ; preds = %95, %98
   br label %102
 
-102:                                              ; preds = %.preheader136, %.backedge132
-  %103 = phi i32 [ %.pre133, %.backedge132 ], [ %96, %.preheader136 ]
-  %.0100 = phi ptr [ %.0100.be, %.backedge132 ], [ %92, %.preheader136 ]
+102:                                              ; preds = %.preheader145, %.backedge132
+  %103 = phi i32 [ %.pre133, %.backedge132 ], [ %96, %.preheader145 ]
+  %.0100 = phi ptr [ %.0100.be, %.backedge132 ], [ %92, %.preheader145 ]
   switch i32 %103, label %.critedge122 [
     i32 31, label %104
     i32 40, label %.backedge132
@@ -341,8 +341,8 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br label %.backedge
 
 .backedge:                                        ; preds = %121, %121, %121, %121, %121, %121, %123
-  %.sink135 = phi i64 [ 8, %123 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.098, i64 %.sink135
+  %.sink144 = phi i64 [ 8, %123 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ]
+  %124 = getelementptr inbounds nuw i8, ptr %.098, i64 %.sink144
   %.098.be = load ptr, ptr %124, align 8
   %.pre134 = load i32, ptr %.098.be, align 8
   br label %121
@@ -449,23 +449,23 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
 21:                                               ; preds = %5
   %22 = load i32, ptr %18, align 8
   %23 = icmp eq i32 %22, 23
-  br i1 %23, label %24, label %.preheader61
+  br i1 %23, label %24, label %.preheader63
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
-  switch i32 %27, label %.preheader61 [
+  switch i32 %27, label %.preheader63 [
     i32 33, label %.loopexit57
     i32 37, label %.loopexit57
   ]
 
-.preheader61:                                     ; preds = %21, %24
+.preheader63:                                     ; preds = %21, %24
   br label %28
 
-28:                                               ; preds = %.preheader61, %.backedge58
-  %29 = phi i32 [ %.pre, %.backedge58 ], [ %22, %.preheader61 ]
-  %.048 = phi ptr [ %.048.be, %.backedge58 ], [ %18, %.preheader61 ]
+28:                                               ; preds = %.preheader63, %.backedge58
+  %29 = phi i32 [ %.pre, %.backedge58 ], [ %22, %.preheader63 ]
+  %.048 = phi ptr [ %.048.be, %.backedge58 ], [ %18, %.preheader63 ]
   switch i32 %29, label %.critedge [
     i32 31, label %30
     i32 40, label %.backedge58
@@ -538,8 +538,8 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.backedge
 
 .backedge:                                        ; preds = %45, %45, %45, %45, %45, %45, %47
-  %.sink60 = phi i64 [ 8, %47 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.046, i64 %.sink60
+  %.sink62 = phi i64 [ 8, %47 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.046, i64 %.sink62
   %.046.be = load ptr, ptr %48, align 8
   %.pre59 = load i32, ptr %.046.be, align 8
   br label %45
@@ -686,23 +686,23 @@ type_flatten.exit85:                              ; preds = %20
 44:                                               ; preds = %39
   %45 = load i32, ptr %41, align 8
   %46 = icmp eq i32 %45, 23
-  br i1 %46, label %47, label %.preheader103
+  br i1 %46, label %47, label %.preheader107
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 8
-  switch i32 %50, label %.preheader103 [
+  switch i32 %50, label %.preheader107 [
     i32 33, label %.loopexit86
     i32 37, label %.loopexit86
   ]
 
-.preheader103:                                    ; preds = %44, %47
+.preheader107:                                    ; preds = %44, %47
   br label %51
 
-51:                                               ; preds = %.preheader103, %.backedge87
-  %52 = phi i32 [ %.pre, %.backedge87 ], [ %45, %.preheader103 ]
-  %.068 = phi ptr [ %.068.be, %.backedge87 ], [ %41, %.preheader103 ]
+51:                                               ; preds = %.preheader107, %.backedge87
+  %52 = phi i32 [ %.pre, %.backedge87 ], [ %45, %.preheader107 ]
+  %.068 = phi ptr [ %.068.be, %.backedge87 ], [ %41, %.preheader107 ]
   switch i32 %52, label %.critedge [
     i32 31, label %53
     i32 40, label %.backedge87
@@ -775,8 +775,8 @@ type_flatten.exit85:                              ; preds = %20
   br label %.backedge
 
 .backedge:                                        ; preds = %69, %69, %69, %69, %69, %69, %71
-  %.sink98 = phi i64 [ 8, %71 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.066, i64 %.sink98
+  %.sink102 = phi i64 [ 8, %71 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.066, i64 %.sink102
   %.066.be = load ptr, ptr %72, align 8
   %.pre94 = load i32, ptr %.066.be, align 8
   br label %69
@@ -813,8 +813,8 @@ type_flatten.exit85:                              ; preds = %20
   unreachable
 
 .sink.split:                                      ; preds = %82, %36
-  %.sink99 = phi ptr [ %2, %36 ], [ %81, %82 ]
-  %88 = tail call ptr @type_get_optional(ptr noundef nonnull %.sink99) #10
+  %.sink103 = phi ptr [ %2, %36 ], [ %81, %82 ]
+  %88 = tail call ptr @type_get_optional(ptr noundef nonnull %.sink103) #10
   br label %89
 
 89:                                               ; preds = %.sink.split, %82, %80, %36, %35
@@ -1197,8 +1197,8 @@ thread-pre-split:                                 ; preds = %6, %8
   br i1 %.not109, label %.loopexit, label %.preheader123
 
 thread-pre-split120:                              ; preds = %.preheader123, %30
-  %.sink133 = phi i64 [ 56, %30 ], [ 8, %.preheader123 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.in, i64 %.sink133
+  %.sink137 = phi i64 [ 56, %30 ], [ 8, %.preheader123 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.in, i64 %.sink137
   %.096.ph = load ptr, ptr %28, align 8
   br label %.preheader123
 
@@ -1367,8 +1367,8 @@ type_flatten.exit117:                             ; preds = %.preheader122
   unreachable
 
 .critedge.sink.split:                             ; preds = %92, %85, %80, %61, %42, %35
-  %.sink134 = phi ptr [ %34, %35 ], [ %41, %42 ], [ %60, %61 ], [ %79, %80 ], [ %84, %85 ], [ %91, %92 ]
-  %96 = tail call ptr @type_get_optional(ptr noundef nonnull %.sink134) #10
+  %.sink138 = phi ptr [ %34, %35 ], [ %41, %42 ], [ %60, %61 ], [ %79, %80 ], [ %84, %85 ], [ %91, %92 ]
+  %96 = tail call ptr @type_get_optional(ptr noundef nonnull %.sink138) #10
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %.critedge.sink.split, %92, %88, %85, %83, %80, %type_flatten.exit117, %61, %type_flatten.exit, %42, %38, %35, %33
@@ -1659,8 +1659,8 @@ define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %5
 
-5:                                                ; preds = %.backedge84, %3
-  %.0.i.in = phi ptr [ %4, %3 ], [ %.0.i.in.be, %.backedge84 ]
+5:                                                ; preds = %.backedge91, %3
+  %.0.i.in = phi ptr [ %4, %3 ], [ %.0.i.in.be, %.backedge91 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1677,13 +1677,13 @@ define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext 
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br label %.backedge84
+  br label %.backedge91
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  br label %.backedge84
+  br label %.backedge91
 
-.backedge84:                                      ; preds = %15, %9
+.backedge91:                                      ; preds = %15, %9
   %.0.i.in.be = phi ptr [ %14, %9 ], [ %16, %15 ]
   br label %5
 
@@ -2627,23 +2627,23 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
 34:                                               ; preds = %22
   %35 = load i32, ptr %31, align 8
   %36 = icmp eq i32 %35, 23
-  br i1 %36, label %37, label %.preheader76
+  br i1 %36, label %37, label %.preheader79
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 8
-  switch i32 %40, label %.preheader76 [
+  switch i32 %40, label %.preheader79 [
     i32 33, label %.loopexit72
     i32 37, label %.loopexit72
   ]
 
-.preheader76:                                     ; preds = %34, %37
+.preheader79:                                     ; preds = %34, %37
   br label %41
 
-41:                                               ; preds = %.preheader76, %.backedge73
-  %42 = phi i32 [ %.pre, %.backedge73 ], [ %35, %.preheader76 ]
-  %.062 = phi ptr [ %.062.be, %.backedge73 ], [ %31, %.preheader76 ]
+41:                                               ; preds = %.preheader79, %.backedge73
+  %42 = phi i32 [ %.pre, %.backedge73 ], [ %35, %.preheader79 ]
+  %.062 = phi ptr [ %.062.be, %.backedge73 ], [ %31, %.preheader79 ]
   switch i32 %42, label %.critedge [
     i32 31, label %43
     i32 40, label %.backedge73
@@ -2721,8 +2721,8 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   br label %.backedge
 
 .backedge:                                        ; preds = %62, %62, %62, %62, %62, %62, %64
-  %.sink75 = phi i64 [ 8, %64 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.058, i64 %.sink75
+  %.sink78 = phi i64 [ 8, %64 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.058, i64 %.sink78
   %.058.be = load ptr, ptr %65, align 8
   %.pre74 = load i32, ptr %.058.be, align 8
   br label %62
@@ -3271,23 +3271,23 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 66:                                               ; preds = %56
   %67 = load i32, ptr %63, align 8
   %68 = icmp eq i32 %67, 23
-  br i1 %68, label %69, label %.preheader98
+  br i1 %68, label %69, label %.preheader105
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %71, align 8
-  switch i32 %72, label %.preheader98 [
+  switch i32 %72, label %.preheader105 [
     i32 33, label %.loopexit
     i32 37, label %.loopexit
   ]
 
-.preheader98:                                     ; preds = %66, %69
+.preheader105:                                    ; preds = %66, %69
   br label %73
 
-73:                                               ; preds = %.preheader98, %.backedge89
-  %74 = phi i32 [ %.pre, %.backedge89 ], [ %67, %.preheader98 ]
-  %.077 = phi ptr [ %.077.be, %.backedge89 ], [ %63, %.preheader98 ]
+73:                                               ; preds = %.preheader105, %.backedge89
+  %74 = phi i32 [ %.pre, %.backedge89 ], [ %67, %.preheader105 ]
+  %.077 = phi ptr [ %.077.be, %.backedge89 ], [ %63, %.preheader105 ]
   switch i32 %74, label %.loopexit.sink.split [
     i32 31, label %75
     i32 40, label %.backedge89
@@ -3304,16 +3304,16 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br label %.backedge89
 
 .backedge89:                                      ; preds = %73, %73, %73, %73, %73, %73, %75
-  %.sink91 = phi i64 [ 8, %75 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.077, i64 %.sink91
+  %.sink98 = phi i64 [ 8, %75 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.077, i64 %.sink98
   %.077.be = load ptr, ptr %76, align 8
   %.pre = load i32, ptr %.077.be, align 8
   br label %73
 
 .loopexit.sink.split:                             ; preds = %73, %52
-  %.sink95 = phi i32 [ %46, %52 ], [ %67, %73 ]
+  %.sink102 = phi i32 [ %46, %52 ], [ %67, %73 ]
   %.ph = phi ptr [ %40, %52 ], [ %61, %73 ]
-  %77 = zext i32 %.sink95 to i64
+  %77 = zext i32 %.sink102 to i64
   %78 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4
   br label %.loopexit
@@ -3395,23 +3395,23 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 19:                                               ; preds = %10
   %20 = load i32, ptr %16, align 8
   %21 = icmp eq i32 %20, 23
-  br i1 %21, label %22, label %.preheader118
+  br i1 %21, label %22, label %.preheader124
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 8
-  switch i32 %25, label %.preheader118 [
+  switch i32 %25, label %.preheader124 [
     i32 33, label %.loopexit110
     i32 37, label %.loopexit110
   ]
 
-.preheader118:                                    ; preds = %19, %22
+.preheader124:                                    ; preds = %19, %22
   br label %26
 
-26:                                               ; preds = %.preheader118, %.backedge111
-  %27 = phi i32 [ %.pre114, %.backedge111 ], [ %20, %.preheader118 ]
-  %.085 = phi ptr [ %.085.be, %.backedge111 ], [ %16, %.preheader118 ]
+26:                                               ; preds = %.preheader124, %.backedge111
+  %27 = phi i32 [ %.pre114, %.backedge111 ], [ %20, %.preheader124 ]
+  %.085 = phi ptr [ %.085.be, %.backedge111 ], [ %16, %.preheader124 ]
   switch i32 %27, label %.critedge [
     i32 31, label %28
     i32 40, label %.backedge111
@@ -3488,8 +3488,8 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br label %.backedge
 
 .backedge:                                        ; preds = %46, %46, %46, %46, %46, %46, %48
-  %.sink116 = phi i64 [ 8, %48 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.091, i64 %.sink116
+  %.sink122 = phi i64 [ 8, %48 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.091, i64 %.sink122
   %.091.be = load ptr, ptr %49, align 8
   %.pre115 = load i32, ptr %.091.be, align 8
   br label %46
@@ -3584,23 +3584,23 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 98:                                               ; preds = %88
   %99 = load i32, ptr %95, align 8
   %100 = icmp eq i32 %99, 23
-  br i1 %100, label %101, label %.preheader119
+  br i1 %100, label %101, label %.preheader125
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 56
   %103 = load ptr, ptr %102, align 8
   %104 = load i32, ptr %103, align 8
-  switch i32 %104, label %.preheader119 [
+  switch i32 %104, label %.preheader125 [
     i32 33, label %.loopexit112
     i32 37, label %.loopexit112
   ]
 
-.preheader119:                                    ; preds = %98, %101
+.preheader125:                                    ; preds = %98, %101
   br label %105
 
-105:                                              ; preds = %.preheader119, %.backedge113
-  %106 = phi i32 [ %.pre, %.backedge113 ], [ %99, %.preheader119 ]
-  %.089 = phi ptr [ %.089.be, %.backedge113 ], [ %95, %.preheader119 ]
+105:                                              ; preds = %.preheader125, %.backedge113
+  %106 = phi i32 [ %.pre, %.backedge113 ], [ %99, %.preheader125 ]
+  %.089 = phi ptr [ %.089.be, %.backedge113 ], [ %95, %.preheader125 ]
   switch i32 %106, label %.critedge104 [
     i32 31, label %107
     i32 40, label %.backedge113
@@ -3617,8 +3617,8 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br label %.backedge113
 
 .backedge113:                                     ; preds = %105, %105, %105, %105, %105, %105, %107
-  %.sink117 = phi i64 [ 8, %107 ], [ 56, %105 ], [ 56, %105 ], [ 56, %105 ], [ 56, %105 ], [ 56, %105 ], [ 56, %105 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.089, i64 %.sink117
+  %.sink123 = phi i64 [ 8, %107 ], [ 56, %105 ], [ 56, %105 ], [ 56, %105 ], [ 56, %105 ], [ 56, %105 ], [ 56, %105 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.089, i64 %.sink123
   %.089.be = load ptr, ptr %108, align 8
   %.pre = load i32, ptr %.089.be, align 8
   br label %105
@@ -3738,23 +3738,23 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 36:                                               ; preds = %27
   %37 = load i32, ptr %33, align 8
   %38 = icmp eq i32 %37, 23
-  br i1 %38, label %39, label %.preheader80
+  br i1 %38, label %39, label %.preheader83
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
-  switch i32 %42, label %.preheader80 [
+  switch i32 %42, label %.preheader83 [
     i32 33, label %.thread
     i32 37, label %.thread
   ]
 
-.preheader80:                                     ; preds = %36, %39
+.preheader83:                                     ; preds = %36, %39
   br label %43
 
-43:                                               ; preds = %.preheader80, %.backedge77
-  %44 = phi i32 [ %.pre, %.backedge77 ], [ %37, %.preheader80 ]
-  %.064 = phi ptr [ %.064.be, %.backedge77 ], [ %33, %.preheader80 ]
+43:                                               ; preds = %.preheader83, %.backedge77
+  %44 = phi i32 [ %.pre, %.backedge77 ], [ %37, %.preheader83 ]
+  %.064 = phi ptr [ %.064.be, %.backedge77 ], [ %33, %.preheader83 ]
   switch i32 %44, label %48 [
     i32 31, label %45
     i32 40, label %.backedge77
@@ -3840,8 +3840,8 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %.backedge
 
 .backedge:                                        ; preds = %68, %68, %68, %68, %68, %68, %70
-  %.sink79 = phi i64 [ 8, %70 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.060, i64 %.sink79
+  %.sink82 = phi i64 [ 8, %70 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.060, i64 %.sink82
   %.060.be = load ptr, ptr %71, align 8
   %.pre78 = load i32, ptr %.060.be, align 8
   br label %68
@@ -4407,7 +4407,7 @@ report_cast_error.exit27:                         ; preds = %44, %47, %50
 define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  br i1 %1, label %.preheader51, label %6
+  br i1 %1, label %.preheader53, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -4416,7 +4416,7 @@ define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroex
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 32768
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %.preheader51
+  br i1 %.not, label %12, label %.preheader53
 
 12:                                               ; preds = %6
   br i1 %2, label %cast_is_allowed.exit, label %13
@@ -4428,13 +4428,13 @@ define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroex
   %16 = getelementptr i8, ptr %0, i64 24
   %.val45 = load ptr, ptr %16, align 8
   tail call fastcc void @report_cast_error(ptr %.val, ptr %.val45, i1 noundef zeroext %14)
-  br label %.preheader51
+  br label %.preheader53
 
-.preheader51:                                     ; preds = %13, %6, %3
+.preheader53:                                     ; preds = %13, %6, %3
   br label %17
 
-17:                                               ; preds = %.preheader51, %30
-  %.0.i = phi ptr [ %.1.i, %30 ], [ %5, %.preheader51 ]
+17:                                               ; preds = %.preheader53, %30
+  %.0.i = phi ptr [ %.1.i, %30 ], [ %5, %.preheader53 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
@@ -4664,23 +4664,23 @@ type_flatten.exit:                                ; preds = %30
 48:                                               ; preds = %type_flatten.exit
   %49 = load i32, ptr %45, align 8
   %50 = icmp eq i32 %49, 23
-  br i1 %50, label %51, label %.preheader95
+  br i1 %50, label %51, label %.preheader101
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %53, align 8
-  switch i32 %54, label %.preheader95 [
+  switch i32 %54, label %.preheader101 [
     i32 33, label %.thread
     i32 37, label %.thread
   ]
 
-.preheader95:                                     ; preds = %48, %51
+.preheader101:                                    ; preds = %48, %51
   br label %55
 
-55:                                               ; preds = %.preheader95, %.backedge88
-  %56 = phi i32 [ %.pre, %.backedge88 ], [ %49, %.preheader95 ]
-  %.066 = phi ptr [ %.066.be, %.backedge88 ], [ %45, %.preheader95 ]
+55:                                               ; preds = %.preheader101, %.backedge88
+  %56 = phi i32 [ %.pre, %.backedge88 ], [ %49, %.preheader101 ]
+  %.066 = phi ptr [ %.066.be, %.backedge88 ], [ %45, %.preheader101 ]
   switch i32 %56, label %59 [
     i32 31, label %57
     i32 40, label %.backedge88
@@ -4796,8 +4796,8 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   br label %.backedge
 
 .backedge:                                        ; preds = %89, %89, %89, %89, %89, %89, %91
-  %.sink93 = phi i64 [ 8, %91 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.062, i64 %.sink93
+  %.sink99 = phi i64 [ 8, %91 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.062, i64 %.sink99
   %.062.be = load ptr, ptr %92, align 8
   %.pre91 = load i32, ptr %.062.be, align 8
   br label %89
@@ -7035,8 +7035,8 @@ type_flatten.exit:                                ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %19
 
-19:                                               ; preds = %.backedge86, %type_flatten.exit
-  %.0.i24.in = phi ptr [ %18, %type_flatten.exit ], [ %.0.i24.in.be, %.backedge86 ]
+19:                                               ; preds = %.backedge88, %type_flatten.exit
+  %.0.i24.in = phi ptr [ %18, %type_flatten.exit ], [ %.0.i24.in.be, %.backedge88 ]
   %.0.i24 = load ptr, ptr %.0.i24.in, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -7053,13 +7053,13 @@ type_flatten.exit:                                ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  br label %.backedge86
+  br label %.backedge88
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  br label %.backedge86
+  br label %.backedge88
 
-.backedge86:                                      ; preds = %29, %23
+.backedge88:                                      ; preds = %29, %23
   %.0.i24.in.be = phi ptr [ %28, %23 ], [ %30, %29 ]
   br label %19
 
@@ -9014,7 +9014,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %88 = add i32 %.051, -3
   %89 = icmp ult i32 %88, 10
   %90 = getelementptr inbounds nuw i8, ptr %.053, i64 24
-  br i1 %89, label %.preheader, label %.preheader109
+  br i1 %89, label %.preheader, label %.preheader114
 
 .preheader:                                       ; preds = %87, %103
   %.0.i = phi ptr [ %.1.i, %103 ], [ %1, %87 ]
@@ -9053,7 +9053,7 @@ type_flatten.exit:                                ; preds = %.preheader
   %.053.64 = select i1 %104, ptr %.053, ptr null
   br label %.loopexit72
 
-.preheader109:                                    ; preds = %87, %117
+.preheader114:                                    ; preds = %87, %117
   %.0.i66 = phi ptr [ %.1.i68, %117 ], [ %1, %87 ]
   %105 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 8
   %106 = load ptr, ptr %105, align 8
@@ -9064,7 +9064,7 @@ type_flatten.exit:                                ; preds = %.preheader
     i32 31, label %116
   ]
 
-108:                                              ; preds = %.preheader109
+108:                                              ; preds = %.preheader114
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 96
@@ -9072,20 +9072,20 @@ type_flatten.exit:                                ; preds = %.preheader
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   br label %117
 
-114:                                              ; preds = %.preheader109
+114:                                              ; preds = %.preheader114
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 56
   br label %117
 
-116:                                              ; preds = %.preheader109
+116:                                              ; preds = %.preheader114
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
   unreachable
 
 117:                                              ; preds = %114, %108
   %.1.in.i67 = phi ptr [ %113, %108 ], [ %115, %114 ]
   %.1.i68 = load ptr, ptr %.1.in.i67, align 8
-  br label %.preheader109
+  br label %.preheader114
 
-type_flatten.exit69:                              ; preds = %.preheader109
+type_flatten.exit69:                              ; preds = %.preheader114
   %118 = tail call zeroext i1 @expr_const_float_fits_type(ptr noundef nonnull %90, i32 noundef %107) #10
   %..053 = select i1 %118, ptr null, ptr %.053
   br label %.loopexit72

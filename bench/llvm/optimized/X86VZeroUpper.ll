@@ -596,7 +596,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118VZeroUpperInserter10BlockStateEE6resi
   br i1 %105, label %226, label %._crit_edge..loopexit_crit_edge.i
 
 ._crit_edge..loopexit_crit_edge.i:                ; preds = %._crit_edge.i, %98
-  %.0.lcssa88.i = phi i32 [ %.1.i, %._crit_edge.i ], [ 0, %98 ]
+  %.0.lcssa95.i = phi i32 [ %.1.i, %._crit_edge.i ], [ 0, %98 ]
   %.val44.pre.i = load ptr, ptr %65, align 8, !tbaa !25
   br label %_ZN12_GLOBAL__N_118VZeroUpperInserter17processBasicBlockERN4llvm17MachineBasicBlockE.exit
 
@@ -918,11 +918,11 @@ _ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBl
 
 _ZN12_GLOBAL__N_118VZeroUpperInserter17processBasicBlockERN4llvm17MachineBasicBlockE.exit: ; preds = %_ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBlockE.exit.i, %._crit_edge..loopexit_crit_edge.i, %226
   %.val.i118 = phi ptr [ %.val44.pre.i, %._crit_edge..loopexit_crit_edge.i ], [ %.val44.pre83.i, %226 ], [ %.val.i81.i, %_ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBlockE.exit.i ]
-  %.0.lcssa87.i = phi i32 [ %.0.lcssa88.i, %._crit_edge..loopexit_crit_edge.i ], [ 2, %226 ], [ 2, %_ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBlockE.exit.i ]
+  %.0.lcssa94.i = phi i32 [ %.0.lcssa95.i, %._crit_edge..loopexit_crit_edge.i ], [ 2, %226 ], [ 2, %_ZN12_GLOBAL__N_118VZeroUpperInserter17addDirtySuccessorERN4llvm17MachineBasicBlockE.exit.i ]
   %257 = load i32, ptr %100, align 8, !tbaa !349
   %258 = sext i32 %257 to i64
   %259 = getelementptr inbounds nuw %"struct.(anonymous namespace)::VZeroUpperInserter::BlockState", ptr %.val.i118, i64 %258
-  store i32 %.0.lcssa87.i, ptr %259, align 8, !tbaa !417
+  store i32 %.0.lcssa94.i, ptr %259, align 8, !tbaa !417
   %260 = getelementptr inbounds nuw i8, ptr %.sroa.073.0101, i64 8
   %.sroa.073.0 = load ptr, ptr %260, align 8, !tbaa !348
   %.not85 = icmp eq ptr %.sroa.073.0, %93

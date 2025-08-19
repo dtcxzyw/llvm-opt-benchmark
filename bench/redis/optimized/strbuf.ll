@@ -62,7 +62,7 @@ define internal void @die(ptr noundef readonly captures(none) %0, ...) unnamed_a
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noalias noundef ptr @strbuf_new(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @strbuf_new(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #12
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split5, label %.split

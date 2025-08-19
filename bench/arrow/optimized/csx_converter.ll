@@ -923,11 +923,11 @@ _ZSt7advanceIPKlmEvRT_T0_.exit.i.i:               ; preds = %297
 
 _ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.i:           ; preds = %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.0287.2356.i, ptr noundef nonnull align 8 dereferenceable(1) %22, i64 %299, i1 false)
-  %gepdiff431.i = sub nuw nsw i64 16, %299
+  %gepdiff471.i = sub nuw nsw i64 16, %299
   br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i
 
 _ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.thread.i:    ; preds = %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.i, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i
-  %302 = phi i64 [ %gepdiff431.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.i ], [ 16, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i ]
+  %302 = phi i64 [ %gepdiff471.i, %_ZSt4copyIPKlPlET0_T_S4_S3_.exit18.i.i ], [ 16, %_ZSt7advanceIPKlmEvRT_T0_.exit.i.i ]
   %.sink.i.i25.i.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %299
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %.sroa.12.1355.i, ptr nonnull align 8 %.sink.i.i25.i.ptr.i, i64 %302, i1 false)
   %303 = getelementptr inbounds nuw i8, ptr %.sroa.12.1355.i, i64 %302
@@ -1052,13 +1052,13 @@ _ZNK5arrow6Tensor20CalculateValueOffsetERKSt6vectorIlSaIlEE.exit.i: ; preds = %3
   %339 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 1
   %340 = load i8, ptr %339, align 1, !tbaa !45
   %.not312.i = icmp eq i8 %340, 0
-  br i1 %.not312.i, label %341, label %.loopexit.i.loopexit.split.loop.exit88
+  br i1 %.not312.i, label %341, label %.loopexit.i.loopexit.split.loop.exit136
 
 341:                                              ; preds = %338
   %342 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
   %343 = load i8, ptr %342, align 1, !tbaa !45
   %.not313.i = icmp eq i8 %343, 0
-  br i1 %.not313.i, label %344, label %.loopexit.i.loopexit.split.loop.exit86
+  br i1 %.not313.i, label %344, label %.loopexit.i.loopexit.split.loop.exit134
 
 344:                                              ; preds = %341
   %345 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 3
@@ -1111,16 +1111,16 @@ _ZNK5arrow6Tensor20CalculateValueOffsetERKSt6vectorIlSaIlEE.exit.i: ; preds = %3
   %362 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 3
   br label %.loopexit.i
 
-.loopexit.i.loopexit.split.loop.exit86:           ; preds = %341
+.loopexit.i.loopexit.split.loop.exit134:          ; preds = %341
   %363 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 2
   br label %.loopexit.i
 
-.loopexit.i.loopexit.split.loop.exit88:           ; preds = %338
+.loopexit.i.loopexit.split.loop.exit136:          ; preds = %338
   %364 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 1
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i, %.loopexit.i.loopexit.split.loop.exit, %.loopexit.i.loopexit.split.loop.exit86, %.loopexit.i.loopexit.split.loop.exit88, %360, %356, %352
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %352 ], [ %.1.i.i.i.i.i.i, %356 ], [ %.2.i.i.i.i.i.i, %360 ], [ %362, %.loopexit.i.loopexit.split.loop.exit ], [ %363, %.loopexit.i.loopexit.split.loop.exit86 ], [ %364, %.loopexit.i.loopexit.split.loop.exit88 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i, %.loopexit.i.loopexit.split.loop.exit, %.loopexit.i.loopexit.split.loop.exit134, %.loopexit.i.loopexit.split.loop.exit136, %360, %356, %352
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %352 ], [ %.1.i.i.i.i.i.i, %356 ], [ %.2.i.i.i.i.i.i, %360 ], [ %362, %.loopexit.i.loopexit.split.loop.exit ], [ %363, %.loopexit.i.loopexit.split.loop.exit134 ], [ %364, %.loopexit.i.loopexit.split.loop.exit136 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not318.i = icmp eq ptr %335, %.028.i.i.i.i.i.i
   br i1 %.not318.i, label %.thread.i, label %365
 

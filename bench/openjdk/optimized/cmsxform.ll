@@ -681,11 +681,11 @@ IsProperColorSpace.exit106.thread:                ; preds = %98, %IsProperColorS
   %104 = icmp eq i32 %.3, 1380401696
   %105 = and i32 %8, 7
   %106 = icmp eq i32 %105, 2
-  %or.cond128 = and i1 %104, %106
+  %or.cond141 = and i1 %104, %106
   %107 = and i32 %36, 256
   %.not88 = icmp eq i32 %107, 0
-  %or.cond129 = and i1 %or.cond128, %.not88
-  br i1 %or.cond129, label %108, label %115
+  %or.cond142 = and i1 %or.cond141, %.not88
+  br i1 %or.cond142, label %108, label %115
 
 108:                                              ; preds = %IsProperColorSpace.exit106.thread
   %109 = load ptr, ptr %2, align 8
@@ -795,9 +795,9 @@ IsProperColorSpace.exit106.thread:                ; preds = %98, %IsProperColorS
   br i1 %.not94, label %169, label %.sink.split
 
 .sink.split:                                      ; preds = %163, %161
-  %.sink134 = phi i32 [ 1668050804, %161 ], [ 1668051572, %163 ]
+  %.sink147 = phi i32 [ 1668050804, %161 ], [ 1668051572, %163 ]
   %165 = load ptr, ptr %139, align 8
-  %166 = call ptr @cmsReadTag(ptr noundef %165, i32 noundef %.sink134) #11
+  %166 = call ptr @cmsReadTag(ptr noundef %165, i32 noundef %.sink147) #11
   %167 = call ptr @cmsDupNamedColorList(ptr noundef %166) #11
   %168 = getelementptr inbounds nuw i8, ptr %128, i64 136
   store ptr %167, ptr %168, align 8

@@ -1496,12 +1496,12 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$$u5b$mini_lsm_mvcc..lsm_sto
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h388912e1abd575efE.llvm.14689451251361528239.exit.i.invoke": ; preds = %.lr.ph, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h388912e1abd575efE.llvm.14689451251361528239.exit.i"
   %30 = phi ptr [ %27, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h388912e1abd575efE.llvm.14689451251361528239.exit.i" ], [ %8, %.lr.ph ]
   %.in = phi ptr [ %28, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h388912e1abd575efE.llvm.14689451251361528239.exit.i" ], [ %9, %.lr.ph ]
-  %.in30 = phi ptr [ %29, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h388912e1abd575efE.llvm.14689451251361528239.exit.i" ], [ %10, %.lr.ph ]
+  %.in31 = phi ptr [ %29, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h388912e1abd575efE.llvm.14689451251361528239.exit.i" ], [ %10, %.lr.ph ]
   %.pn.in = phi ptr [ %6, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h388912e1abd575efE.llvm.14689451251361528239.exit.i" ], [ %4, %.lr.ph ]
   %.pn = load ptr, ptr %.pn.in, align 8, !alias.scope !193, !nonnull !4, !align !24, !noundef !4
-  %.in31 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
-  %31 = load ptr, ptr %.in31, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %32 = load i64, ptr %.in30, align 8, !alias.scope !193, !noundef !4
+  %.in32 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
+  %31 = load ptr, ptr %.in32, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %32 = load i64, ptr %.in31, align 8, !alias.scope !193, !noundef !4
   %33 = load ptr, ptr %.in, align 8, !alias.scope !193, !noundef !4
   invoke void %31(ptr noalias noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %33, i64 noundef %32)
           to label %"_ZN4core3ptr92drop_in_place$LT$mini_lsm_mvcc..lsm_storage..WriteBatchRecord$LT$bytes..bytes..Bytes$GT$$GT$17hc800b990f0d328c5E.llvm.14689451251361528239.exit" unwind label %39
@@ -6040,8 +6040,8 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
   unreachable
 
 36:                                               ; preds = %._crit_edge.i.i.i, %._crit_edge.thread.i.i.i
-  %.in12.i.i.i = load ptr, ptr %9, align 8, !nonnull !4, !align !24, !noundef !4
-  %37 = load ptr, ptr %.in12.i.i.i, align 8, !nonnull !4, !align !24, !noundef !4
+  %.in18.i.i.i = load ptr, ptr %9, align 8, !nonnull !4, !align !24, !noundef !4
+  %37 = load ptr, ptr %.in18.i.i.i, align 8, !nonnull !4, !align !24, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !1688)
   %38 = load ptr, ptr %37, align 8, !alias.scope !1691, !noundef !4
   %39 = icmp eq ptr %38, null
@@ -13159,8 +13159,8 @@ define internal fastcc void @"_ZN4core3ptr249drop_in_place$LT$moka..cht..segment
   unreachable
 
 36:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.in12.i = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
-  %37 = load ptr, ptr %.in12.i, align 8, !nonnull !4, !align !24, !noundef !4
+  %.in18.i = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
+  %37 = load ptr, ptr %.in18.i, align 8, !nonnull !4, !align !24, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !3974)
   %38 = load ptr, ptr %37, align 8, !alias.scope !3977, !noundef !4
   %39 = icmp eq ptr %38, null
@@ -29295,8 +29295,8 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
   unreachable
 
 39:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.in36 = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
-  %40 = load ptr, ptr %.in36, align 8, !nonnull !4, !align !24, !noundef !4
+  %.in42 = load ptr, ptr %10, align 8, !nonnull !4, !align !24, !noundef !4
+  %40 = load ptr, ptr %.in42, align 8, !nonnull !4, !align !24, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !8479)
   %41 = load ptr, ptr %40, align 8, !alias.scope !8482, !noundef !4
   %42 = icmp eq ptr %41, null

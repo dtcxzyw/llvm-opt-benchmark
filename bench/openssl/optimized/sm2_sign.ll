@@ -359,12 +359,12 @@ define internal fastcc ptr @sm2_compute_msg_hash(ptr noundef %0, ptr noundef %1,
   br i1 %34, label %.sink.split, label %35
 
 .sink.split:                                      ; preds = %32, %24, %26, %28, %30, %18, %12, %6
-  %.sink45 = phi i32 [ 164, %6 ], [ 168, %12 ], [ 178, %18 ], [ 192, %30 ], [ 192, %28 ], [ 192, %26 ], [ 192, %24 ], [ 198, %32 ]
+  %.sink50 = phi i32 [ 164, %6 ], [ 168, %12 ], [ 178, %18 ], [ 192, %30 ], [ 192, %28 ], [ 192, %26 ], [ 192, %24 ], [ 198, %32 ]
   %.sink = phi i32 [ 102, %6 ], [ 524294, %12 ], [ 786691, %18 ], [ 524294, %30 ], [ 524294, %28 ], [ 524294, %26 ], [ 524294, %24 ], [ 786691, %32 ]
   %.033.ph = phi ptr [ null, %6 ], [ null, %12 ], [ null, %18 ], [ %20, %30 ], [ %20, %28 ], [ %20, %26 ], [ %20, %24 ], [ %20, %32 ]
   %.0.ph = phi ptr [ null, %6 ], [ null, %12 ], [ %16, %18 ], [ %16, %30 ], [ %16, %28 ], [ %16, %26 ], [ %16, %24 ], [ %16, %32 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink45, ptr noundef nonnull @__func__.sm2_compute_msg_hash) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink50, ptr noundef nonnull @__func__.sm2_compute_msg_hash) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 53, i32 noundef %.sink, ptr noundef null) #4
   br label %35
 
@@ -491,13 +491,13 @@ define internal fastcc ptr @sm2_sig_gen(ptr noundef %0, ptr noundef nonnull %1) 
   br label %55
 
 ._crit_edge:                                      ; preds = %37, %40, %42, %44, %46, %32, %.lr.ph, %25, %27, %.backedge, %50, %.preheader, %18, %12, %9, %2
-  %.sink99 = phi i32 [ 225, %2 ], [ 230, %9 ], [ 240, %12 ], [ 252, %18 ], [ 267, %.preheader ], [ 306, %50 ], [ 267, %.backedge ], [ 275, %27 ], [ 275, %25 ], [ 275, %.lr.ph ], [ 284, %32 ], [ 296, %46 ], [ 296, %44 ], [ 296, %42 ], [ 296, %40 ], [ 296, %37 ]
+  %.sink104 = phi i32 [ 225, %2 ], [ 230, %9 ], [ 240, %12 ], [ 252, %18 ], [ 267, %.preheader ], [ 306, %50 ], [ 267, %.backedge ], [ 275, %27 ], [ 275, %25 ], [ 275, %.lr.ph ], [ 284, %32 ], [ 296, %46 ], [ 296, %44 ], [ 296, %42 ], [ 296, %40 ], [ 296, %37 ]
   %.sink = phi i32 [ 524304, %2 ], [ 524291, %9 ], [ 524291, %12 ], [ 524291, %18 ], [ 786691, %.preheader ], [ 524330, %50 ], [ 786691, %.backedge ], [ 786691, %27 ], [ 786691, %25 ], [ 786691, %.lr.ph ], [ 786691, %32 ], [ 524291, %46 ], [ 524291, %44 ], [ 524291, %42 ], [ 524291, %40 ], [ 524291, %37 ]
   %.071.ph = phi ptr [ null, %2 ], [ null, %9 ], [ %10, %12 ], [ %10, %18 ], [ %10, %.preheader ], [ %10, %50 ], [ %10, %.backedge ], [ %10, %27 ], [ %10, %25 ], [ %10, %.lr.ph ], [ %10, %32 ], [ %10, %46 ], [ %10, %44 ], [ %10, %42 ], [ %10, %40 ], [ %10, %37 ]
   %.070.ph = phi ptr [ null, %2 ], [ null, %9 ], [ null, %12 ], [ %19, %18 ], [ %19, %.preheader ], [ %19, %50 ], [ %19, %.backedge ], [ %19, %27 ], [ %19, %25 ], [ %19, %.lr.ph ], [ %19, %32 ], [ %19, %46 ], [ %19, %44 ], [ %19, %42 ], [ %19, %40 ], [ %19, %37 ]
   %.069.ph = phi ptr [ null, %2 ], [ null, %9 ], [ null, %12 ], [ %20, %18 ], [ %20, %.preheader ], [ %20, %50 ], [ %20, %.backedge ], [ %20, %27 ], [ %20, %25 ], [ %20, %.lr.ph ], [ %20, %32 ], [ %20, %46 ], [ %20, %44 ], [ %20, %42 ], [ %20, %40 ], [ %20, %37 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink99, ptr noundef nonnull @__func__.sm2_sig_gen) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink104, ptr noundef nonnull @__func__.sm2_sig_gen) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 53, i32 noundef %.sink, ptr noundef null) #4
   tail call void @BN_free(ptr noundef %.070.ph) #4
   tail call void @BN_free(ptr noundef %.069.ph) #4

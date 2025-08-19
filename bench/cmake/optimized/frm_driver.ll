@@ -3343,7 +3343,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef captures(addr
   %139 = load i16, ptr %138, align 2, !tbaa !58
   %140 = sext i16 %139 to i64
   %141 = icmp sgt i16 %136, -1
-  br i1 %141, label %.lr.ph.preheader.i, label %Buffer_To_Window.exit.thread201
+  br i1 %141, label %.lr.ph.preheader.i, label %Buffer_To_Window.exit.thread211
 
 .lr.ph.preheader.i:                               ; preds = %.thread.i
   %142 = load ptr, ptr %19, align 8, !tbaa !52
@@ -3388,19 +3388,19 @@ After_End_Of_Data.exit.i:                         ; preds = %147, %145
 Buffer_To_Window.exit:                            ; preds = %159
   %.pr.pre = load ptr, ptr %120, align 8, !tbaa !4
   %.not178 = icmp eq ptr %.pr.pre, null
-  br i1 %.not178, label %Buffer_To_Window.exit.thread, label %Buffer_To_Window.exit.thread201
+  br i1 %.not178, label %Buffer_To_Window.exit.thread, label %Buffer_To_Window.exit.thread211
 
-Buffer_To_Window.exit.thread201:                  ; preds = %.thread.i, %Buffer_To_Window.exit
-  %.pr204 = phi ptr [ %.pr.pre, %Buffer_To_Window.exit ], [ %134, %.thread.i ]
-  %161 = getelementptr inbounds nuw i8, ptr %.pr204, i64 4
+Buffer_To_Window.exit.thread211:                  ; preds = %.thread.i, %Buffer_To_Window.exit
+  %.pr214 = phi ptr [ %.pr.pre, %Buffer_To_Window.exit ], [ %134, %.thread.i ]
+  %161 = getelementptr inbounds nuw i8, ptr %.pr214, i64 4
   %162 = load i16, ptr %161, align 4, !tbaa !35
   %163 = sext i16 %162 to i32
   %164 = add nsw i32 %163, 1
   br label %Buffer_To_Window.exit.thread
 
-Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Window.exit.thread201, %Buffer_To_Window.exit
-  %165 = phi ptr [ %.pr204, %Buffer_To_Window.exit.thread201 ], [ null, %Buffer_To_Window.exit ], [ null, %119 ]
-  %166 = phi i32 [ %164, %Buffer_To_Window.exit.thread201 ], [ -1, %Buffer_To_Window.exit ], [ -1, %119 ]
+Buffer_To_Window.exit.thread:                     ; preds = %119, %Buffer_To_Window.exit.thread211, %Buffer_To_Window.exit
+  %165 = phi ptr [ %.pr214, %Buffer_To_Window.exit.thread211 ], [ null, %Buffer_To_Window.exit ], [ null, %119 ]
+  %166 = phi i32 [ %164, %Buffer_To_Window.exit.thread211 ], [ -1, %Buffer_To_Window.exit ], [ -1, %119 ]
   %167 = tail call i32 @wtouchln(ptr noundef %165, i32 noundef 0, i32 noundef %166, i32 noundef 0) #13
   %168 = load ptr, ptr %120, align 8, !tbaa !4
   %169 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -6692,10 +6692,10 @@ After_Last_Whitespace_Character.exit:             ; preds = %72, %74
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %27, %85
-  %.sink84.in = phi ptr [ %28, %27 ], [ %86, %85 ]
-  %.sink84 = load ptr, ptr %.sink84.in, align 8, !tbaa !4
-  %95 = tail call i32 @wmove(ptr noundef %.sink84, i32 noundef %1, i32 noundef %3) #13
-  %.sink = load ptr, ptr %.sink84.in, align 8, !tbaa !4
+  %.sink92.in = phi ptr [ %28, %27 ], [ %86, %85 ]
+  %.sink92 = load ptr, ptr %.sink92.in, align 8, !tbaa !4
+  %95 = tail call i32 @wmove(ptr noundef %.sink92, i32 noundef %1, i32 noundef %3) #13
+  %.sink = load ptr, ptr %.sink92.in, align 8, !tbaa !4
   %96 = tail call i32 @winsnstr(ptr noundef %.sink, ptr noundef nonnull %26, i32 noundef 1) #13
   br label %.thread
 

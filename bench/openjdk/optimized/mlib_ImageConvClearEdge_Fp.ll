@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   %wide.trip.count297 = zext nneg i32 %.0173 to i64
   %wide.trip.count292 = zext nneg i32 %.val to i64
   %brmerge = select i1 %24, i1 true, i1 %23
-  %brmerge308 = select i1 %27, i1 true, i1 %26
+  %brmerge311 = select i1 %27, i1 true, i1 %26
   br label %32
 
 32:                                               ; preds = %.lr.ph234, %.loopexit
@@ -139,19 +139,19 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %26, label %.loopexit, label %.preheader185.us.preheader
 
 .preheader185.us.preheader:                       ; preds = %.preheader185.lr.ph
-  %invariant.gep303 = getelementptr float, ptr %.val181, i64 %indvars.iv.next300
+  %invariant.gep306 = getelementptr float, ptr %.val181, i64 %indvars.iv.next300
   br label %.preheader185.us
 
 .preheader185.us:                                 ; preds = %.preheader185.us.preheader, %._crit_edge.us226
   %indvars.iv284 = phi i64 [ 0, %.preheader185.us.preheader ], [ %indvars.iv.next285, %._crit_edge.us226 ]
   %63 = mul nsw i64 %indvars.iv284, %29
-  %gep304 = getelementptr float, ptr %invariant.gep303, i64 %63
+  %gep307 = getelementptr float, ptr %invariant.gep306, i64 %63
   br label %64
 
 64:                                               ; preds = %.preheader185.us, %64
   %indvars.iv279 = phi i64 [ 0, %.preheader185.us ], [ %indvars.iv.next280, %64 ]
   %65 = mul nuw nsw i64 %indvars.iv279, %31
-  %66 = getelementptr float, ptr %gep304, i64 %65
+  %66 = getelementptr float, ptr %gep307, i64 %65
   store float %38, ptr %66, align 4
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
@@ -163,7 +163,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %exitcond288.not, label %.preheader188, label %.preheader185.us, !llvm.loop !12
 
 .preheader188:                                    ; preds = %._crit_edge.us226, %.preheader189
-  br i1 %brmerge308, label %.loopexit, label %.preheader.us.preheader
+  br i1 %brmerge311, label %.loopexit, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader188
   %67 = getelementptr float, ptr %.val181, i64 %indvars.iv.next300
@@ -223,8 +223,8 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   %wide.trip.count = zext nneg i32 %.val to i64
   %wide.trip.count266 = zext nneg i32 %.0173 to i64
   %wide.trip.count261 = zext nneg i32 %.val to i64
-  %brmerge311 = select i1 %86, i1 true, i1 %85
-  %brmerge314 = select i1 %89, i1 true, i1 %88
+  %brmerge314 = select i1 %86, i1 true, i1 %85
+  %brmerge317 = select i1 %89, i1 true, i1 %88
   br label %94
 
 94:                                               ; preds = %.lr.ph, %.loopexit197
@@ -271,7 +271,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %exitcond.not, label %.preheader199, label %.preheader195.us, !llvm.loop !17
 
 .preheader199:                                    ; preds = %._crit_edge.us, %97
-  br i1 %brmerge311, label %.preheader198, label %.preheader194.us.preheader
+  br i1 %brmerge314, label %.preheader198, label %.preheader194.us.preheader
 
 .preheader194.us.preheader:                       ; preds = %.preheader199
   %111 = trunc nuw nsw i64 %indvars.iv.next269 to i32
@@ -333,7 +333,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %exitcond257.not, label %.preheader196, label %.preheader193.us, !llvm.loop !21
 
 .preheader196:                                    ; preds = %._crit_edge.us208, %.preheader198
-  br i1 %brmerge314, label %.loopexit197, label %.preheader192.us.preheader
+  br i1 %brmerge317, label %.loopexit197, label %.preheader192.us.preheader
 
 .preheader192.us.preheader:                       ; preds = %.preheader196
   %128 = getelementptr double, ptr %.val182, i64 %indvars.iv.next269

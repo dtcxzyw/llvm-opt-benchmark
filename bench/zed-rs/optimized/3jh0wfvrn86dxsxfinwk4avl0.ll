@@ -7447,14 +7447,14 @@ define internal { i64, ptr } @"_ZN85_$LT$live_kit_client..test..TestApiClient$u2
   %17 = alloca [24 x i8], align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load i8, ptr %18, align 8, !range !76, !noundef !5
-  switch i8 %19, label %default.unreachable39 [
+  switch i8 %19, label %default.unreachable48 [
     i8 0, label %20
     i8 1, label %54
     i8 2, label %55
     i8 3, label %56
   ]
 
-default.unreachable39:                            ; preds = %56, %2
+default.unreachable48:                            ; preds = %56, %2
   unreachable
 
 20:                                               ; preds = %2
@@ -7551,7 +7551,7 @@ default.unreachable39:                            ; preds = %56, %2
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  switch i8 %.pre, label %default.unreachable39 [
+  switch i8 %.pre, label %default.unreachable48 [
     i8 0, label %58
     i8 1, label %157
     i8 2, label %158
@@ -8096,14 +8096,14 @@ define internal { i64, ptr } @"_ZN85_$LT$live_kit_client..test..TestApiClient$u2
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i8, ptr %11, align 8, !range !76, !noundef !5
-  switch i8 %12, label %default.unreachable40 [
+  switch i8 %12, label %default.unreachable48 [
     i8 0, label %13
     i8 1, label %47
     i8 2, label %48
     i8 3, label %49
   ]
 
-default.unreachable40:                            ; preds = %49, %2
+default.unreachable48:                            ; preds = %49, %2
   unreachable
 
 13:                                               ; preds = %2
@@ -8198,7 +8198,7 @@ default.unreachable40:                            ; preds = %49, %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  switch i8 %.pre, label %default.unreachable40 [
+  switch i8 %.pre, label %default.unreachable48 [
     i8 0, label %51
     i8 1, label %114
     i8 2, label %115
@@ -8610,14 +8610,14 @@ define internal { i64, ptr } @"_ZN85_$LT$live_kit_client..test..TestApiClient$u2
   %16 = alloca [24 x i8], align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load i8, ptr %17, align 8, !range !76, !noundef !5
-  switch i8 %18, label %default.unreachable48 [
+  switch i8 %18, label %default.unreachable66 [
     i8 0, label %19
     i8 1, label %56
     i8 2, label %57
     i8 3, label %58
   ]
 
-default.unreachable48:                            ; preds = %58, %2
+default.unreachable66:                            ; preds = %58, %2
   unreachable
 
 19:                                               ; preds = %2
@@ -8731,7 +8731,7 @@ default.unreachable48:                            ; preds = %58, %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  switch i8 %.pre, label %default.unreachable48 [
+  switch i8 %.pre, label %default.unreachable66 [
     i8 0, label %60
     i8 1, label %196
     i8 2, label %197
@@ -9438,14 +9438,14 @@ define internal { i64, ptr } @"_ZN85_$LT$live_kit_client..test..TestApiClient$u2
   %15 = alloca [24 x i8], align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %17 = load i8, ptr %16, align 1, !range !76, !noundef !5
-  switch i8 %17, label %default.unreachable52 [
+  switch i8 %17, label %default.unreachable67 [
     i8 0, label %18
     i8 1, label %56
     i8 2, label %57
     i8 3, label %58
   ]
 
-default.unreachable52:                            ; preds = %58, %2
+default.unreachable67:                            ; preds = %58, %2
   unreachable
 
 18:                                               ; preds = %2
@@ -9563,7 +9563,7 @@ default.unreachable52:                            ; preds = %58, %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 125
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  switch i8 %.pre, label %default.unreachable52 [
+  switch i8 %.pre, label %default.unreachable67 [
     i8 0, label %60
     i8 1, label %175
     i8 2, label %176

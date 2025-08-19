@@ -612,8 +612,8 @@ define internal i32 @drbg_kcapi_seed(ptr noundef %0, ptr noundef %1, i32 noundef
   %112 = getelementptr inbounds nuw i8, ptr %99, i64 5
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
-  %reass.add24 = add nuw nsw i32 %111, %114
-  %115 = shl nuw nsw i32 %reass.add24, 1
+  %reass.add37 = add nuw nsw i32 %111, %114
+  %115 = shl nuw nsw i32 %reass.add37, 1
   %116 = add nuw nsw i32 %115, %114
   %117 = add nuw nsw i32 %116, %111
   %118 = add nuw nsw i32 %117, %114
@@ -861,11 +861,11 @@ define internal fastcc i32 @drbg_seed(ptr noundef %0, ptr noundef %1, i1 noundef
   br label %45
 
 45:                                               ; preds = %26, %36, %21
-  %.sink8 = phi ptr [ %4, %36 ], [ %23, %21 ], [ %4, %26 ]
+  %.sink12 = phi ptr [ %4, %36 ], [ %23, %21 ], [ %4, %26 ]
   %.sink = phi i64 [ %38, %36 ], [ %25, %21 ], [ %32, %26 ]
   %46 = phi i32 [ %31, %36 ], [ 2, %21 ], [ %31, %26 ]
   %47 = phi i32 [ %29, %36 ], [ %switch.select2, %21 ], [ %29, %26 ]
-  store ptr %.sink8, ptr %5, align 8
+  store ptr %.sink12, ptr %5, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sink, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1437,24 +1437,24 @@ define internal i32 @drbg_hmac_generate(ptr noundef readonly captures(address_is
 90:                                               ; preds = %.loopexit
   %91 = load ptr, ptr %34, align 8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread, label %.thread25
+  br i1 %92, label %.thread, label %.thread38
 
-.thread25:                                        ; preds = %90
+.thread38:                                        ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 5
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = sub i32 %2, %62
-  %.not26 = icmp ugt i32 %96, %95
-  br i1 %.not26, label %97, label %.thread
+  %.not39 = icmp ugt i32 %96, %95
+  br i1 %.not39, label %97, label %.thread
 
-97:                                               ; preds = %.thread25
+97:                                               ; preds = %.thread38
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 5
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   br label %.thread
 
-.thread:                                          ; preds = %90, %.thread25, %97
-  %101 = phi i32 [ %100, %97 ], [ %96, %.thread25 ], [ 0, %90 ]
+.thread:                                          ; preds = %90, %.thread38, %97
+  %101 = phi i32 [ %100, %97 ], [ %96, %.thread38 ], [ 0, %90 ]
   %102 = sext i32 %62 to i64
   %103 = getelementptr i8, ptr %1, i64 %102
   %104 = load ptr, ptr %16, align 8

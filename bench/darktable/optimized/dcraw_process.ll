@@ -752,9 +752,9 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
     i32 11, label %338
     i32 1, label %341
     i32 10, label %342
-    i32 2, label %.invoke168
-    i32 3, label %.invoke168
-    i32 9, label %.invoke168
+    i32 2, label %.invoke184
+    i32 3, label %.invoke184
+    i32 9, label %.invoke184
     i32 4, label %343
     i32 5, label %343
     i32 6, label %344
@@ -766,7 +766,7 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %347 unwind label %339
 
-339:                                              ; preds = %.invoke168, %346, %345, %344, %343, %342, %341, %338
+339:                                              ; preds = %.invoke184, %346, %345, %344, %343, %342, %341, %338
   %340 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_end_catch() #8
@@ -780,7 +780,7 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %347 unwind label %339
 
-.invoke168:                                       ; preds = %335, %335, %335
+.invoke184:                                       ; preds = %335, %335, %335
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %347 unwind label %339
 
@@ -800,8 +800,8 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
   invoke void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
           to label %347 unwind label %339
 
-347:                                              ; preds = %.invoke168, %335, %346, %345, %344, %343, %342, %341, %338
-  %.2 = phi i32 [ -100013, %338 ], [ -100007, %341 ], [ -100012, %342 ], [ -100009, %343 ], [ -100010, %344 ], [ -100011, %345 ], [ -2, %346 ], [ -1, %335 ], [ -100008, %.invoke168 ]
+347:                                              ; preds = %.invoke184, %335, %346, %345, %344, %343, %342, %341, %338
+  %.2 = phi i32 [ -100013, %338 ], [ -100007, %341 ], [ -100012, %342 ], [ -100009, %343 ], [ -100010, %344 ], [ -100011, %345 ], [ -2, %346 ], [ -1, %335 ], [ -100008, %.invoke184 ]
   call void @__cxa_end_catch() #8
   br label %350
 

@@ -159,13 +159,13 @@ define internal range(i32 -2147483648, 1) i32 @smush_read_header(ptr noundef %0)
 60:                                               ; preds = %58
   %61 = tail call i32 @avio_rl32(ptr noundef %6) #5
   %.not156 = icmp eq i32 %61, 0
-  br i1 %.not156, label %.thread, label %.thread186
+  br i1 %.not156, label %.thread, label %.thread197
 
-.thread186:                                       ; preds = %60
+.thread197:                                       ; preds = %60
   %62 = add i32 %57, -8
   %63 = zext i32 %62 to i64
   %64 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %63) #5
-  %.2129190 = add i32 %57, %53
+  %.2129201 = add i32 %57, %53
   br label %._crit_edge
 
 65:                                               ; preds = %55, %55
@@ -176,11 +176,11 @@ define internal range(i32 -2147483648, 1) i32 @smush_read_header(ptr noundef %0)
   %69 = icmp ult i32 %68, %51
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %65, %.thread186, %50
-  %.0127.lcssa = phi i32 [ 0, %50 ], [ %.2129190, %.thread186 ], [ %.2129, %65 ]
-  %.2125.lcssa = phi i32 [ undef, %50 ], [ %59, %.thread186 ], [ undef, %65 ]
-  %.1121.lcssa = phi i32 [ undef, %50 ], [ %61, %.thread186 ], [ undef, %65 ]
-  %.not153.lcssa = phi i1 [ true, %50 ], [ false, %.thread186 ], [ true, %65 ]
+._crit_edge:                                      ; preds = %65, %.thread197, %50
+  %.0127.lcssa = phi i32 [ 0, %50 ], [ %.2129201, %.thread197 ], [ %.2129, %65 ]
+  %.2125.lcssa = phi i32 [ undef, %50 ], [ %59, %.thread197 ], [ undef, %65 ]
+  %.1121.lcssa = phi i32 [ undef, %50 ], [ %61, %.thread197 ], [ undef, %65 ]
+  %.not153.lcssa = phi i1 [ true, %50 ], [ false, %.thread197 ], [ true, %65 ]
   %70 = sub i32 %51, %.0127.lcssa
   br label %72
 
@@ -189,7 +189,7 @@ define internal range(i32 -2147483648, 1) i32 @smush_read_header(ptr noundef %0)
   br label %.thread
 
 72:                                               ; preds = %23, %27, %._crit_edge
-  %.sink199 = phi i32 [ %70, %._crit_edge ], [ %28, %27 ], [ %15, %23 ]
+  %.sink210 = phi i32 [ %70, %._crit_edge ], [ %28, %27 ], [ %15, %23 ]
   %.0135 = phi i32 [ %43, %._crit_edge ], [ 0, %27 ], [ 0, %23 ]
   %.0134 = phi i32 [ %44, %._crit_edge ], [ 0, %27 ], [ 0, %23 ]
   %.0130 = phi i1 [ %.not153.lcssa, %._crit_edge ], [ true, %27 ], [ true, %23 ]
@@ -198,7 +198,7 @@ define internal range(i32 -2147483648, 1) i32 @smush_read_header(ptr noundef %0)
   %.1119 = phi i32 [ 15, %._crit_edge ], [ %spec.store.select, %27 ], [ 15, %23 ]
   %.0117 = phi i32 [ %39, %._crit_edge ], [ %16, %27 ], [ %16, %23 ]
   %.0114 = phi i32 [ %40, %._crit_edge ], [ %17, %27 ], [ %17, %23 ]
-  %73 = zext i32 %.sink199 to i64
+  %73 = zext i32 %.sink210 to i64
   %74 = tail call i64 @avio_skip(ptr noundef %6, i64 noundef %73) #5
   %75 = tail call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #5
   %.not159 = icmp eq ptr %75, null
@@ -313,8 +313,8 @@ define internal range(i32 -2147483648, 1) i32 @smush_read_packet(ptr noundef rea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = tail call i32 @avio_feof(ptr noundef %6) #5
-  %.not4354 = icmp eq i32 %13, 0
-  br i1 %.not4354, label %.lr.ph, label %.thread
+  %.not4356 = icmp eq i32 %13, 0
+  br i1 %.not4356, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %50
   %14 = tail call i32 @avio_rb32(ptr noundef %6) #5

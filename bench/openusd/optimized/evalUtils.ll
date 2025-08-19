@@ -6879,19 +6879,19 @@ define internal fastcc { double, double } @_ZN32pxrInternal_v0_24__pxrReserved__
   br label %43
 
 43:                                               ; preds = %31, %.thread67
-  %.sink81 = phi double [ %42, %31 ], [ %30, %.thread67 ]
+  %.sink86 = phi double [ %42, %31 ], [ %30, %.thread67 ]
   %.072 = phi double [ %.0, %31 ], [ %.073, %.thread67 ]
   %.04070 = phi double [ %.141, %31 ], [ %.04071, %.thread67 ]
-  %44 = fcmp ogt double %.sink81, 0xFFF0000000000000
-  %45 = select i1 %44, double %.sink81, double 0xFFF0000000000000
+  %44 = fcmp ogt double %.sink86, 0xFFF0000000000000
+  %45 = select i1 %44, double %.sink86, double 0xFFF0000000000000
   %46 = fcmp oeq double %.04070, 1.000000e+00
   br i1 %46, label %47, label %54
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %49 = load double, ptr %48, align 8
-  %50 = fcmp olt double %.sink81, %49
-  %51 = select i1 %50, double %.sink81, double %49
+  %50 = fcmp olt double %.sink86, %49
+  %51 = select i1 %50, double %.sink86, double %49
   %52 = fcmp olt double %45, %49
   %53 = select i1 %52, double %49, double %45
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -6914,8 +6914,8 @@ define internal fastcc { double, double } @_ZN32pxrInternal_v0_24__pxrReserved__
   %63 = tail call double @llvm.fmuladd.f64(double %.04070, double %60, double %62)
   %64 = load double, ptr %55, align 8
   %65 = tail call noundef double @llvm.fmuladd.f64(double %.04070, double %63, double %64)
-  %66 = fcmp olt double %.sink81, %65
-  %67 = select i1 %66, double %.sink81, double %65
+  %66 = fcmp olt double %.sink86, %65
+  %67 = select i1 %66, double %.sink86, double %65
   %68 = fcmp olt double %45, %65
   %69 = select i1 %68, double %65, double %45
   br label %70
@@ -7758,19 +7758,19 @@ define internal fastcc <2 x float> @_ZN32pxrInternal_v0_24__pxrReserved__L15_Get
   br label %48
 
 48:                                               ; preds = %31, %.thread67
-  %.sink86 = phi float [ %47, %31 ], [ %30, %.thread67 ]
+  %.sink91 = phi float [ %47, %31 ], [ %30, %.thread67 ]
   %.072 = phi double [ %.0, %31 ], [ %.073, %.thread67 ]
   %.04070 = phi double [ %.141, %31 ], [ %.04071, %.thread67 ]
-  %49 = fcmp ogt float %.sink86, 0xFFF0000000000000
-  %50 = select i1 %49, float %.sink86, float 0xFFF0000000000000
+  %49 = fcmp ogt float %.sink91, 0xFFF0000000000000
+  %50 = select i1 %49, float %.sink91, float 0xFFF0000000000000
   %51 = fcmp oeq double %.04070, 1.000000e+00
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %54 = load float, ptr %53, align 4
-  %55 = fcmp olt float %.sink86, %54
-  %56 = select i1 %55, float %.sink86, float %54
+  %55 = fcmp olt float %.sink91, %54
+  %56 = select i1 %55, float %.sink91, float %54
   %57 = fcmp olt float %50, %54
   %58 = select i1 %57, float %54, float %50
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -7801,8 +7801,8 @@ define internal fastcc <2 x float> @_ZN32pxrInternal_v0_24__pxrReserved__L15_Get
   %73 = fpext float %72 to double
   %74 = tail call double @llvm.fmuladd.f64(double %.04070, double %71, double %73)
   %75 = fptrunc double %74 to float
-  %76 = fcmp olt float %.sink86, %75
-  %77 = select i1 %76, float %.sink86, float %75
+  %76 = fcmp olt float %.sink91, %75
+  %77 = select i1 %76, float %.sink91, float %75
   %78 = fcmp olt float %50, %75
   %79 = select i1 %78, float %75, float %50
   br label %80
@@ -8591,10 +8591,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit68: ; preds = %267, %_ZN32
   ret void
 
 .body:                                            ; preds = %277, %213, %275, %148, %84, %146
-  %.sink88 = phi ptr [ %11, %146 ], [ %11, %84 ], [ %11, %148 ], [ %15, %275 ], [ %15, %213 ], [ %15, %277 ]
+  %.sink95 = phi ptr [ %11, %146 ], [ %11, %84 ], [ %11, %148 ], [ %15, %275 ], [ %15, %213 ], [ %15, %277 ]
   %.sink = phi ptr [ %10, %146 ], [ %10, %84 ], [ %10, %148 ], [ %14, %275 ], [ %14, %213 ], [ %14, %277 ]
   %.pn59.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %85, %84 ], [ %149, %148 ], [ %276, %275 ], [ %214, %213 ], [ %278, %277 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink88) #21
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink95) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #21
   resume { ptr, i32 } %.pn59.pn.pn
 }
@@ -9185,10 +9185,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit68: ; preds = %284, %_ZN32
   ret void
 
 .body:                                            ; preds = %294, %230, %292, %160, %96, %158
-  %.sink88 = phi ptr [ %11, %158 ], [ %11, %96 ], [ %11, %160 ], [ %15, %292 ], [ %15, %230 ], [ %15, %294 ]
+  %.sink95 = phi ptr [ %11, %158 ], [ %11, %96 ], [ %11, %160 ], [ %15, %292 ], [ %15, %230 ], [ %15, %294 ]
   %.sink = phi ptr [ %10, %158 ], [ %10, %96 ], [ %10, %160 ], [ %14, %292 ], [ %14, %230 ], [ %14, %294 ]
   %.pn59.pn.pn = phi { ptr, i32 } [ %159, %158 ], [ %97, %96 ], [ %161, %160 ], [ %293, %292 ], [ %231, %230 ], [ %295, %294 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink88) #21
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink95) #21
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #21
   resume { ptr, i32 } %.pn59.pn.pn
 }

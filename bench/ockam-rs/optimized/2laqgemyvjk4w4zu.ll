@@ -569,14 +569,14 @@ define hidden void @"_ZN137_$LT$alloc..collections..vec_deque..into_iter..IntoIt
 "_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9try_rfold17h2c39a243e24dfa16E.exit": ; preds = %.noexc10, %.thread
   %37 = phi ptr [ %25, %.thread ], [ %27, %.noexc10 ]
   %38 = phi ptr [ %24, %.thread ], [ %26, %.noexc10 ]
-  %.sroa.5.0.i27 = phi i64 [ %.sroa.5.0.i.ph, %.thread ], [ %19, %.noexc10 ]
-  %.sroa.0.0.i26 = phi i64 [ %.sroa.0.0.i.ph, %.thread ], [ %.0.i.i, %.noexc10 ]
+  %.sroa.5.0.i31 = phi i64 [ %.sroa.5.0.i.ph, %.thread ], [ %19, %.noexc10 ]
+  %.sroa.0.0.i30 = phi i64 [ %.sroa.0.0.i.ph, %.thread ], [ %.0.i.i, %.noexc10 ]
   %39 = phi i64 [ 0, %.thread ], [ %35, %.noexc10 ]
-  %40 = icmp eq i64 %.sroa.0.0.i26, %.sroa.5.0.i27
+  %40 = icmp eq i64 %.sroa.0.0.i30, %.sroa.5.0.i31
   br i1 %40, label %"_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9try_rfold17hf9f404f6084e32eaE.exit", label %.lr.ph.i.i12.preheader
 
 .lr.ph.i.i12.preheader:                           ; preds = %"_ZN117_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9try_rfold17h2c39a243e24dfa16E.exit"
-  %41 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %38, i64 %.sroa.5.0.i27
+  %41 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %38, i64 %.sroa.5.0.i31
   %42 = load ptr, ptr %1, align 8, !alias.scope !190, !noalias !195, !nonnull !10, !align !11, !noundef !10
   br label %.lr.ph.i.i12
 
@@ -1984,10 +1984,10 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %.sroa.10.1.i.i = phi ptr [ %.sroa.6.0.i.i, %31 ], [ %.sroa.10.0.i.i, %29 ]
   %.sroa.8.1.i.i = phi ptr [ %.sroa.6.0.i.i, %31 ], [ %.sroa.8.0.i.i, %29 ]
   %.sroa.6.1.i.i = phi ptr [ %.sroa.10.0.i.i, %31 ], [ %.sroa.6.0.i.i, %29 ]
-  %.sink6.i.i.i = phi ptr [ %.sroa.8.0.i.i, %31 ], [ %.sroa.0.0.i.i, %29 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink6.i.i.i, i64 32
+  %.sink9.i.i.i = phi ptr [ %.sroa.8.0.i.i, %31 ], [ %.sroa.0.0.i.i, %29 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !608
-  store ptr %.sink6.i.i.i, ptr %3, align 8, !noalias !608
+  store ptr %.sink9.i.i.i, ptr %3, align 8, !noalias !608
   %35 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h49f50a17945b1c4cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e176beb17d48736771cb3db34f36bf5.16.llvm.2123743330159991533), !noalias !612
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !608
   br label %29
@@ -3053,8 +3053,8 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   br label %45
 
 45:                                               ; preds = %1, %44
-  %.sink27 = phi i64 [ %.sink, %44 ], [ %3, %1 ]
-  %46 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %9, i64 %.sink27
+  %.sink30 = phi i64 [ %.sink, %44 ], [ %3, %1 ]
+  %46 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %9, i64 %.sink30
   %47 = insertvalue { ptr, i64 } poison, ptr %46, 0
   %48 = insertvalue { ptr, i64 } %47, i64 %7, 1
   ret { ptr, i64 } %48

@@ -4500,7 +4500,7 @@ define internal fastcc i32 @ext4_finish_convert_inline_dir(ptr noundef %0, ptr n
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 1280
   %33 = load ptr, ptr %32, align 64
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %.thread14, !prof !7
+  br i1 %34, label %35, label %.thread18, !prof !7
 
 35:                                               ; preds = %31
   tail call void asm sideeffect "465: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 465b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 465) #9, !srcloc !62
@@ -4513,9 +4513,9 @@ define internal fastcc i32 @ext4_finish_convert_inline_dir(ptr noundef %0, ptr n
   %.pre10 = load i32, ptr %.phi.trans.insert9, align 4
   %.pre11 = and i32 %.pre10, 1024
   %36 = icmp eq i32 %.pre11, 0
-  br i1 %36, label %.thread, label %.thread14
+  br i1 %36, label %.thread, label %.thread18
 
-.thread14:                                        ; preds = %31, %35
+.thread18:                                        ; preds = %31, %35
   %37 = phi ptr [ %.pre, %35 ], [ %24, %31 ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1280
   %39 = load ptr, ptr %38, align 64
@@ -4524,9 +4524,9 @@ define internal fastcc i32 @ext4_finish_convert_inline_dir(ptr noundef %0, ptr n
   %spec.select = select i1 %40, i32 0, i32 -12
   br label %.thread
 
-.thread:                                          ; preds = %5, %.thread14, %35
-  %41 = phi i1 [ true, %35 ], [ %40, %.thread14 ], [ true, %5 ]
-  %42 = phi i32 [ 0, %35 ], [ %spec.select, %.thread14 ], [ 0, %5 ]
+.thread:                                          ; preds = %5, %.thread18, %35
+  %41 = phi i1 [ true, %35 ], [ %40, %.thread18 ], [ true, %5 ]
+  %42 = phi i32 [ 0, %35 ], [ %spec.select, %.thread18 ], [ 0, %5 ]
   %43 = load ptr, ptr %8, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i64, ptr %44, align 8

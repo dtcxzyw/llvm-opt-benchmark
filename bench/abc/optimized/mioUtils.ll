@@ -1112,7 +1112,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not56, label %.critedge, label %53
 
 53:                                               ; preds = %.thread, %52
-  %.val125128 = phi i32 [ %51, %.thread ], [ 0, %52 ]
+  %.val125136 = phi i32 [ %51, %.thread ], [ 0, %52 ]
   call void @free(ptr noundef nonnull %21) #30
   br label %.loopexit
 
@@ -1191,7 +1191,7 @@ Vec_PtrPush.exit68:                               ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %53
-  %.val = phi i32 [ %85, %..loopexit_crit_edge ], [ %.val125128, %53 ]
+  %.val = phi i32 [ %85, %..loopexit_crit_edge ], [ %.val125136, %53 ]
   %86 = icmp sgt i32 %.val, 0
   br i1 %86, label %.lr.ph89, label %.critedge
 
@@ -1244,18 +1244,18 @@ Vec_PtrPush.exit68:                               ; preds = %.Vec_PtrGrow.exit11
 
 .critedge:                                        ; preds = %._crit_edge83, %52, %.preheader, %.loopexit
   %110 = phi i1 [ false, %.loopexit ], [ false, %.preheader ], [ false, %52 ], [ true, %._crit_edge83 ]
-  %.val130 = phi i32 [ %.val, %.loopexit ], [ 0, %.preheader ], [ 0, %52 ], [ %.val, %._crit_edge83 ]
+  %.val138 = phi i32 [ %.val, %.loopexit ], [ 0, %.preheader ], [ 0, %52 ], [ %.val, %._crit_edge83 ]
   %.050.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %52 ], [ %93, %._crit_edge83 ]
   %.049.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %52 ], [ %.1.lcssa, %._crit_edge83 ]
   %.0.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.preheader ], [ 0, %52 ], [ %103, %._crit_edge83 ]
   %111 = load ptr, ptr %1, align 8, !tbaa !3
   %112 = call ptr (...) @Extra_TimeStamp() #30
-  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %111, i32 noundef %.val130, ptr noundef %112) #30
+  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %111, i32 noundef %.val138, ptr noundef %112) #30
   %.pre = load ptr, ptr %10, align 8, !tbaa !49
   br i1 %110, label %.lr.ph95, label %.critedge2
 
 .lr.ph95:                                         ; preds = %.critedge
-  %wide.trip.count122 = zext nneg i32 %.val130 to i64
+  %wide.trip.count122 = zext nneg i32 %.val138 to i64
   br label %114
 
 114:                                              ; preds = %.lr.ph95, %114
@@ -1649,7 +1649,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not34, label %.loopexit, label %53
 
 53:                                               ; preds = %.thread, %52
-  %.val36102107 = phi i32 [ %51, %.thread ], [ 0, %52 ]
+  %.val36102120 = phi i32 [ %51, %.thread ], [ 0, %52 ]
   call void @free(ptr noundef nonnull %21) #30
   br label %.loopexit
 
@@ -1728,7 +1728,7 @@ Vec_PtrPush.exit44:                               ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %..loopexit_crit_edge, %53, %52
-  %.val36 = phi i32 [ 0, %.preheader ], [ %85, %..loopexit_crit_edge ], [ %.val36102107, %53 ], [ 0, %52 ]
+  %.val36 = phi i32 [ 0, %.preheader ], [ %85, %..loopexit_crit_edge ], [ %.val36102120, %53 ], [ 0, %52 ]
   %86 = load ptr, ptr %1, align 8, !tbaa !3
   %87 = call ptr (...) @Extra_TimeStamp() #30
   %88 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef %86, i32 noundef %.val36, ptr noundef %87) #30
@@ -2218,12 +2218,12 @@ Mio_CompareTwoGates.exit.thread:                  ; preds = %95, %61, %Mio_Compa
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %Mio_LibraryHasProfile.exit.thread, %119, %._crit_edge
-  %.052.lcssa88 = phi i32 [ %.1, %119 ], [ %.1, %._crit_edge ], [ 0, %Mio_LibraryHasProfile.exit.thread ]
+  %.052.lcssa95 = phi i32 [ %.1, %119 ], [ %.1, %._crit_edge ], [ 0, %Mio_LibraryHasProfile.exit.thread ]
   %.not58 = icmp eq ptr %4, null
   br i1 %.not58, label %122, label %121
 
 121:                                              ; preds = %._crit_edge.thread
-  store i32 %.052.lcssa88, ptr %4, align 4, !tbaa !72
+  store i32 %.052.lcssa95, ptr %4, align 4, !tbaa !72
   br label %122
 
 122:                                              ; preds = %121, %._crit_edge.thread
@@ -3045,9 +3045,9 @@ Mio_CompareTwo2.exit:                             ; preds = %90
   br label %Mio_CompareTwo2.exit.thread.sink.split
 
 Mio_CompareTwo2.exit.thread.sink.split:           ; preds = %Mio_CompareTwo2.exit, %76, %84, %98, %102, %106
-  %.lcssa206.sink = phi ptr [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %69, %84 ], [ %69, %76 ], [ %69, %Mio_CompareTwo2.exit ]
+  %.lcssa222.sink = phi ptr [ %109, %106 ], [ %105, %102 ], [ %101, %98 ], [ %69, %84 ], [ %69, %76 ], [ %69, %Mio_CompareTwo2.exit ]
   %.1111.ph = phi i32 [ %107, %106 ], [ %.0110159, %102 ], [ %.0110159, %98 ], [ %.0110159, %84 ], [ %.0110159, %76 ], [ %.0110159, %Mio_CompareTwo2.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.lcssa206.sink, ptr noundef nonnull align 8 dereferenceable(80) %.0114157, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.lcssa222.sink, ptr noundef nonnull align 8 dereferenceable(80) %.0114157, i64 80, i1 false)
   br label %Mio_CompareTwo2.exit.thread
 
 Mio_CompareTwo2.exit.thread:                      ; preds = %Mio_CompareTwo2.exit.thread.sink.split, %90, %82, %Mio_CompareTwo2.exit
@@ -4578,8 +4578,8 @@ define void @Nf_ManPreparePrint(i32 noundef %0, ptr noundef readonly captures(no
 .preheader.us.us.us:                              ; preds = %._crit_edge97.us.us.us, %.preheader76.us.us
   %.499.us.us.us = phi i64 [ %.3104.us.us, %.preheader76.us.us ], [ %indvars.iv.next139, %._crit_edge97.us.us.us ]
   %.16798.us.us.us = phi i32 [ 0, %.preheader76.us.us ], [ %64, %._crit_edge97.us.us.us ]
-  %sext144 = shl i64 %.499.us.us.us, 32
-  %58 = ashr exact i64 %sext144, 32
+  %sext146 = shl i64 %.499.us.us.us, 32
+  %58 = ashr exact i64 %sext146, 32
   br label %59
 
 59:                                               ; preds = %59, %.preheader.us.us.us
@@ -4783,17 +4783,17 @@ Vec_WrdFree.exit:                                 ; preds = %._crit_edge, %77
 
 79:                                               ; preds = %Vec_WrdFree.exit, %78
   %.not77 = icmp eq ptr %24, null
-  br i1 %.not77, label %.preheader113, label %80
+  br i1 %.not77, label %.preheader120, label %80
 
 80:                                               ; preds = %79
   call void @free(ptr noundef nonnull %24) #30
-  br label %.preheader113
+  br label %.preheader120
 
-.preheader113:                                    ; preds = %79, %80
+.preheader120:                                    ; preds = %79, %80
   br label %81
 
-81:                                               ; preds = %.preheader113, %85
-  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %85 ], [ 2, %.preheader113 ]
+81:                                               ; preds = %.preheader120, %85
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %85 ], [ 2, %.preheader120 ]
   %82 = getelementptr inbounds nuw [7 x ptr], ptr %4, i64 0, i64 %indvars.iv104
   %83 = load ptr, ptr %82, align 8, !tbaa !185
   %.not79 = icmp eq ptr %83, null

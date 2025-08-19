@@ -708,8 +708,8 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef wr
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.not314152 = icmp eq ptr %10, %8
-  %.not3141 = select i1 %.not, i1 true, i1 %.not314152
+  %.not314156 = icmp eq ptr %10, %8
+  %.not3141 = select i1 %.not, i1 true, i1 %.not314156
   br i1 %.not3141, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %14
@@ -737,8 +737,8 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef wr
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 40
   %24 = load ptr, ptr %23, align 8
   %.not34 = icmp eq ptr %24, null
-  %.not354353 = icmp eq ptr %24, %22
-  %.not3543 = select i1 %.not34, i1 true, i1 %.not354353
+  %.not354357 = icmp eq ptr %24, %22
+  %.not3543 = select i1 %.not34, i1 true, i1 %.not354357
   br i1 %.not3543, label %.loopexit, label %.lr.ph46.preheader
 
 .lr.ph46.preheader:                               ; preds = %21
@@ -764,14 +764,14 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef wr
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.144, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not35 = icmp eq ptr %33, %22
-  br i1 %.not35, label %.loopexit.loopexit.split.loop.exit58, label %.lr.ph46, !llvm.loop !13
+  br i1 %.not35, label %.loopexit.loopexit.split.loop.exit62, label %.lr.ph46, !llvm.loop !13
 
-.loopexit.loopexit.split.loop.exit58:             ; preds = %31
+.loopexit.loopexit.split.loop.exit62:             ; preds = %31
   %34 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %14, %.lr.ph46, %.loopexit.loopexit.split.loop.exit58, %3, %21, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %21 ], [ 0, %3 ], [ %34, %.loopexit.loopexit.split.loop.exit58 ], [ %smax, %.lr.ph46 ], [ 0, %14 ]
+.loopexit:                                        ; preds = %14, %.lr.ph46, %.loopexit.loopexit.split.loop.exit62, %3, %21, %17
+  %.0 = phi i32 [ 0, %17 ], [ 0, %21 ], [ 0, %3 ], [ %34, %.loopexit.loopexit.split.loop.exit62 ], [ %smax, %.lr.ph46 ], [ 0, %14 ]
   %35 = load ptr, ptr @MainLWLockArray, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 3584
   tail call void @LWLockRelease(ptr noundef nonnull %36) #12
@@ -1959,8 +1959,8 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   %.pre.i = load i32, ptr %100, align 4
   %.pre34.i = load i32, ptr %101, align 4
   %116 = icmp eq i32 %.pre.i, %.pre34.i
-  %or.cond35.i = select i1 %.not26.i, i1 %116, i1 false
-  br i1 %or.cond35.i, label %120, label %117
+  %or.cond36.i = select i1 %.not26.i, i1 %116, i1 false
+  br i1 %or.cond36.i, label %120, label %117
 
 117:                                              ; preds = %113
   %118 = icmp eq i32 %.pre.i, -1
@@ -2486,8 +2486,8 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
   %139 = getelementptr i8, ptr %138, i64 25216
   call void @LWLockRelease(ptr noundef nonnull %139) #12
   %indvars.iv.next93.i = add nsw i64 %indvars.iv92.i, -1
-  %.not95.i = icmp eq i64 %indvars.iv92.i, 0
-  br i1 %.not95.i, label %140, label %136, !llvm.loop !23
+  %.not102.i = icmp eq i64 %indvars.iv92.i, 0
+  br i1 %.not102.i, label %140, label %136, !llvm.loop !23
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr @MainLWLockArray, align 8
@@ -2866,9 +2866,9 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %._crit_edge.i, %132
   br i1 %174, label %.sink.split, label %175
 
 .sink.split:                                      ; preds = %173, %172
-  %.sink93 = phi ptr [ %27, %172 ], [ %23, %173 ]
+  %.sink103 = phi ptr [ %27, %172 ], [ %23, %173 ]
   %.sink.ph = phi ptr [ %23, %172 ], [ %27, %173 ]
-  call void @LWLockRelease(ptr noundef nonnull %.sink93) #12
+  call void @LWLockRelease(ptr noundef nonnull %.sink103) #12
   br label %175
 
 175:                                              ; preds = %.sink.split, %173
@@ -3112,8 +3112,8 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   %78 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %79 = load ptr, ptr %78, align 8
   %.not81 = icmp eq ptr %79, null
-  %.not82127166 = icmp eq ptr %79, %77
-  %.not82127 = select i1 %.not81, i1 true, i1 %.not82127166
+  %.not82127188 = icmp eq ptr %79, %77
+  %.not82127 = select i1 %.not81, i1 true, i1 %.not82127188
   br i1 %.not82127, label %.loopexit126, label %.lr.ph
 
 .lr.ph:                                           ; preds = %76, %ReleaseRWConflict.exit
@@ -3181,8 +3181,8 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
   %105 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %106 = load ptr, ptr %105, align 8
   %.not85 = icmp eq ptr %106, null
-  %.not86131167 = icmp eq ptr %106, %104
-  %.not86131 = select i1 %.not85, i1 true, i1 %.not86131167
+  %.not86131189 = icmp eq ptr %106, %104
+  %.not86131 = select i1 %.not85, i1 true, i1 %.not86131189
   br i1 %.not86131, label %._crit_edge, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %103, %157
@@ -3298,8 +3298,8 @@ ReleaseRWConflict.exit114:                        ; preds = %.critedge, %154
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 56
   %161 = load ptr, ptr %160, align 8
   %.not87 = icmp eq ptr %161, null
-  %.not88138168 = icmp eq ptr %161, %159
-  %.not88138 = select i1 %.not87, i1 true, i1 %.not88138168
+  %.not88138190 = icmp eq ptr %161, %159
+  %.not88138 = select i1 %.not87, i1 true, i1 %.not88138190
   br i1 %.not88138, label %._crit_edge143, label %.lr.ph142
 
 .lr.ph142:                                        ; preds = %._crit_edge, %185
@@ -3368,8 +3368,8 @@ ReleaseRWConflict.exit115:                        ; preds = %169, %182
   %188 = getelementptr inbounds nuw i8, ptr %.pre161.pre163, i64 136
   %189 = load ptr, ptr %188, align 8
   %.not89 = icmp eq ptr %189, null
-  %.not90146169 = icmp eq ptr %189, %187
-  %.not90146 = select i1 %.not89, i1 true, i1 %.not90146169
+  %.not90146191 = icmp eq ptr %189, %187
+  %.not90146 = select i1 %.not89, i1 true, i1 %.not90146191
   br i1 %.not90146, label %.loopexit, label %.lr.ph151.preheader
 
 .lr.ph151.preheader:                              ; preds = %186
@@ -3562,8 +3562,8 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   %278 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %279 = load ptr, ptr %278, align 8
   %.not.i118 = icmp eq ptr %279, null
-  %.not131924.i = icmp eq ptr %279, %277
-  %.not1319.i = select i1 %.not.i118, i1 true, i1 %.not131924.i
+  %.not131929.i = icmp eq ptr %279, %277
+  %.not1319.i = select i1 %.not.i118, i1 true, i1 %.not131929.i
   br i1 %.not1319.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %276
@@ -3754,8 +3754,8 @@ dlist_push_tail.exit:                             ; preds = %346, %353
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load ptr, ptr %373, align 8
   %.not.i120 = icmp eq ptr %374, null
-  %.not415367.i = icmp eq ptr %374, %372
-  %.not4153.i = or i1 %.not.i120, %.not415367.i
+  %.not415371.i = icmp eq ptr %374, %372
+  %.not4153.i = or i1 %.not.i120, %.not415371.i
   br i1 %.not4153.i, label %.thread.i, label %.lr.ph.i121
 
 .lr.ph.i121:                                      ; preds = %365, %415
@@ -4210,8 +4210,8 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %131 = load ptr, ptr %130, align 8
   %.not66 = icmp eq ptr %131, null
-  %.not678399 = icmp eq ptr %131, %129
-  %.not6783 = select i1 %.not66, i1 true, i1 %.not678399
+  %.not6783104 = icmp eq ptr %131, %129
+  %.not6783 = select i1 %.not66, i1 true, i1 %.not6783104
   br i1 %.not6783, label %.loopexit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %128, %ReleaseRWConflict.exit
@@ -4270,8 +4270,8 @@ ReleaseRWConflict.exit:                           ; preds = %138, %153
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %158 = load ptr, ptr %157, align 8
   %.not68 = icmp eq ptr %158, null
-  %.not6991100 = icmp eq ptr %158, %156
-  %.not6991 = select i1 %.not68, i1 true, i1 %.not6991100
+  %.not6991105 = icmp eq ptr %158, %156
+  %.not6991 = select i1 %.not68, i1 true, i1 %.not6991105
   br i1 %.not6991, label %._crit_edge96, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.loopexit, %ReleaseRWConflict.exit75
@@ -5732,8 +5732,8 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not29 = icmp eq ptr %41, null
-  %.not304152 = icmp eq ptr %41, %39
-  %.not3041 = select i1 %.not29, i1 true, i1 %.not304152
+  %.not304160 = icmp eq ptr %41, %39
+  %.not3041 = select i1 %.not29, i1 true, i1 %.not304160
   br i1 %.not3041, label %.loopexit37, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %38
@@ -5823,8 +5823,8 @@ RWConflictExists.exit:                            ; preds = %.lr.ph.i, %.loopexi
   %77 = getelementptr i8, ptr %76, i64 25216
   call void @LWLockRelease(ptr noundef nonnull %77) #12
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
-  %.not53 = icmp eq i64 %indvars.iv48, 0
-  br i1 %.not53, label %78, label %74, !llvm.loop !46
+  %.not61 = icmp eq i64 %indvars.iv48, 0
+  br i1 %.not61, label %78, label %74, !llvm.loop !46
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr @MainLWLockArray, align 8
@@ -5872,8 +5872,8 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not25 = icmp eq ptr %22, null
-  %.not264346 = icmp eq ptr %22, %20
-  %.not2643 = select i1 %.not25, i1 true, i1 %.not264346
+  %.not264350 = icmp eq ptr %22, %20
+  %.not2643 = select i1 %.not25, i1 true, i1 %.not264350
   br i1 %.not2643, label %._crit_edge, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %19, %.loopexit
@@ -5891,8 +5891,8 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %31 = load ptr, ptr %30, align 8
   %.not29 = icmp eq ptr %31, null
-  %.not304147 = icmp eq ptr %31, %29
-  %.not3041 = select i1 %.not29, i1 true, i1 %.not304147
+  %.not304151 = icmp eq ptr %31, %29
+  %.not3041 = select i1 %.not29, i1 true, i1 %.not304151
   br i1 %.not3041, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %51
@@ -5990,8 +5990,8 @@ define dso_local void @AtPrepare_PredicateLocks() local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  %.not111214 = icmp eq ptr %16, %14
-  %.not1112 = select i1 %.not, i1 true, i1 %.not111214
+  %.not111215 = icmp eq ptr %16, %14
+  %.not1112 = select i1 %.not, i1 true, i1 %.not111215
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph

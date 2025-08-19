@@ -169,42 +169,42 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr @trackpoint_disconnect, ptr %62, align 8
   %63 = icmp eq i8 %10, 1
-  br i1 %63, label %64, label %.thread3.sink.split
+  br i1 %63, label %64, label %.thread6.sink.split
 
 64:                                               ; preds = %20
   store i8 75, ptr %5, align 1
   %65 = call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 4578) #7
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %.thread3.sink.split.sink.split
+  br i1 %66, label %67, label %.thread6.sink.split.sink.split
 
 67:                                               ; preds = %64
   %68 = load i8, ptr %5, align 1
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %.thread3.sink.split.sink.split, label %70
+  br i1 %69, label %.thread6.sink.split.sink.split, label %70
 
 70:                                               ; preds = %67
   %71 = and i8 %68, 15
   %72 = icmp samesign ugt i8 %71, 2
-  br i1 %72, label %.thread3, label %77
+  br i1 %72, label %.thread6, label %77
 
-.thread3.sink.split.sink.split:                   ; preds = %67, %64
+.thread6.sink.split.sink.split:                   ; preds = %67, %64
   %.str.2.sink = phi ptr [ @.str.1, %64 ], [ @.str.2, %67 ]
   %73 = load ptr, ptr %6, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 344
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %74, ptr noundef nonnull %.str.2.sink) #9
-  br label %.thread3.sink.split
+  br label %.thread6.sink.split
 
-.thread3.sink.split:                              ; preds = %.thread3.sink.split.sink.split, %20
+.thread6.sink.split:                              ; preds = %.thread6.sink.split.sink.split, %20
   store i8 51, ptr %5, align 1
-  br label %.thread3
+  br label %.thread6
 
-.thread3:                                         ; preds = %.thread3.sink.split, %70
+.thread6:                                         ; preds = %.thread6.sink.split, %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8
   call void @input_set_capability(ptr noundef %76, i32 noundef 1, i32 noundef 274) #7
   br label %77
 
-77:                                               ; preds = %.thread3, %70
+77:                                               ; preds = %.thread6, %70
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32

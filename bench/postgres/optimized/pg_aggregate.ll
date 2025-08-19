@@ -632,7 +632,7 @@ switch.early.test:                                ; preds = %77
 
 316:                                              ; preds = %315
   %.not357 = icmp eq i32 %4, 1
-  br i1 %.not357, label %.thread394, label %317
+  br i1 %.not357, label %.thread423, label %317
 
 317:                                              ; preds = %316
   %318 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -642,7 +642,7 @@ switch.early.test:                                ; preds = %77
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 578, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
-.thread394:                                       ; preds = %316
+.thread423:                                       ; preds = %316
   %321 = load i32, ptr %42, align 4
   %322 = call i32 @LookupOperName(ptr noundef null, ptr noundef nonnull %24, i32 noundef %321, i32 noundef %321, i1 noundef zeroext false, i32 noundef -1) #9
   br label %.lr.ph.preheader
@@ -651,8 +651,8 @@ switch.early.test:                                ; preds = %77
   %324 = icmp sgt i32 %4, 0
   br i1 %324, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.thread394, %323
-  %.0294397 = phi i32 [ %322, %.thread394 ], [ 0, %323 ]
+.lr.ph.preheader:                                 ; preds = %.thread423, %323
+  %.0294426 = phi i32 [ %322, %.thread423 ], [ 0, %323 ]
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
@@ -676,7 +676,7 @@ switch.early.test:                                ; preds = %77
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %331, %323
-  %.0294396 = phi i32 [ 0, %323 ], [ %.0294397, %331 ]
+  %.0294425 = phi i32 [ 0, %323 ], [ %.0294426, %331 ]
   %332 = call i32 @GetUserId() #9
   %333 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %25, i32 noundef %332, i64 noundef 256) #9
   %.not358 = icmp eq i32 %333, 0
@@ -772,7 +772,7 @@ switch.early.test:                                ; preds = %77
   %381 = sext i8 %23 to i64
   %382 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store i64 %381, ptr %382, align 16
-  %383 = zext i32 %.0294396 to i64
+  %383 = zext i32 %.0294425 to i64
   %384 = getelementptr inbounds nuw i8, ptr %35, i64 120
   store i64 %383, ptr %384, align 8
   %385 = zext i32 %25 to i64
@@ -982,12 +982,12 @@ switch.early.test:                                ; preds = %77
   br label %457
 
 457:                                              ; preds = %456, %455
-  %.not373 = icmp eq i32 %.0294396, 0
+  %.not373 = icmp eq i32 %.0294425, 0
   br i1 %.not373, label %459, label %458
 
 458:                                              ; preds = %457
   store i32 2617, ptr %40, align 4
-  store i32 %.0294396, ptr %442, align 4
+  store i32 %.0294425, ptr %442, align 4
   store i32 0, ptr %443, align 4
   call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %441) #9
   br label %459

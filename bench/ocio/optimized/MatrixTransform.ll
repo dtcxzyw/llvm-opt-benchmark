@@ -698,8 +698,8 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr
 
 .thread:                                          ; preds = %14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
-  %.not56108 = icmp eq ptr %1, null
-  br i1 %.not56108, label %.split.us.split, label %.split.split.preheader
+  %.not56116 = icmp eq ptr %1, null
+  br i1 %.not56116, label %.split.us.split, label %.split.split.preheader
 
 .split.split.preheader:                           ; preds = %.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
@@ -741,8 +741,8 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr
   %33 = load double, ptr %32, align 8, !tbaa !67
   %34 = fsub double %31, %33
   %35 = fdiv double %34, %27
-  %.idx107 = mul nuw nsw i64 %indvars.iv99, 40
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx107
+  %.idx115 = mul nuw nsw i64 %indvars.iv99, 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx115
   store double %35, ptr %36, align 8, !tbaa !67
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 4

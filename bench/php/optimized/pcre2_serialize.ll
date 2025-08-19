@@ -117,7 +117,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   %5 = select i1 %.not, ptr @_pcre2_default_compile_context_8, ptr %3
   %6 = icmp eq ptr %2, null

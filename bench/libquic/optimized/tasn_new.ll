@@ -189,9 +189,9 @@ ASN1_template_new.exit:                           ; preds = %35
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %64 = load i64, ptr %63, align 8, !tbaa !29
-  %calloc130 = tail call ptr @calloc(i64 1, i64 %64)
-  store ptr %calloc130, ptr %0, align 8, !tbaa !6
-  %.not93 = icmp eq ptr %calloc130, null
+  %calloc138 = tail call ptr @calloc(i64 1, i64 %64)
+  store ptr %calloc138, ptr %0, align 8, !tbaa !6
+  %.not93 = icmp eq ptr %calloc138, null
   br i1 %.not93, label %.loopexit, label %65
 
 65:                                               ; preds = %62
@@ -398,14 +398,14 @@ tailrecurse:                                      ; preds = %18, %2
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !11
-  %.not17.i20 = icmp eq ptr %23, null
-  br i1 %.not17.i20, label %.critedge.i, label %24
+  %.not17.i24 = icmp eq ptr %23, null
+  br i1 %.not17.i24, label %.critedge.i, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !34
-  %.not18.i21 = icmp eq ptr %26, null
-  br i1 %.not18.i21, label %28, label %27
+  %.not18.i25 = icmp eq ptr %26, null
+  br i1 %.not18.i25, label %28, label %27
 
 27:                                               ; preds = %24
   tail call void %26(ptr noundef %0, ptr noundef nonnull %8) #5
@@ -420,7 +420,7 @@ tailrecurse:                                      ; preds = %18, %2
   %30 = load i64, ptr %29, align 8, !tbaa !36
   %31 = and i64 %30, 4294967295
   %32 = icmp eq i64 %31, 1
-  br i1 %32, label %33, label %.critedge19.i22
+  br i1 %32, label %33, label %.critedge19.i26
 
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -429,7 +429,7 @@ tailrecurse:                                      ; preds = %18, %2
   store i32 %36, ptr %0, align 4, !tbaa !37
   br label %asn1_item_clear.exit
 
-.critedge19.i22:                                  ; preds = %.critedge.i
+.critedge19.i26:                                  ; preds = %.critedge.i
   store ptr null, ptr %0, align 8, !tbaa !6
   br label %asn1_item_clear.exit
 
@@ -461,7 +461,7 @@ tailrecurse:                                      ; preds = %18, %2
   store ptr null, ptr %0, align 8, !tbaa !6
   br label %asn1_item_clear.exit
 
-asn1_item_clear.exit:                             ; preds = %6, %.critedge19.i22, %33, %28, %27, %45, %17, %16, %43, %44, %.critedge19.i, %5
+asn1_item_clear.exit:                             ; preds = %6, %.critedge19.i26, %33, %28, %27, %45, %17, %16, %43, %44, %.critedge19.i, %5
   ret void
 }
 

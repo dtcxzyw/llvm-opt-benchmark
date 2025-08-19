@@ -246,21 +246,21 @@ lean_dec.exit40:                                  ; preds = %82, %81, %79, %lean
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit40, %lean_dec.exit
-  %.sink70 = phi ptr [ %51, %lean_dec.exit ], [ %83, %lean_dec.exit40 ]
-  %.sink67 = phi i32 [ 131096, %lean_dec.exit ], [ 16908312, %lean_dec.exit40 ]
-  %.sink64 = phi ptr [ %25, %lean_dec.exit ], [ %57, %lean_dec.exit40 ]
+  %.sink75 = phi ptr [ %51, %lean_dec.exit ], [ %83, %lean_dec.exit40 ]
+  %.sink72 = phi i32 [ 131096, %lean_dec.exit ], [ 16908312, %lean_dec.exit40 ]
+  %.sink69 = phi ptr [ %25, %lean_dec.exit ], [ %57, %lean_dec.exit40 ]
   %.sink = phi ptr [ %27, %lean_dec.exit ], [ %59, %lean_dec.exit40 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sink70, i64 4
-  store i32 1, ptr %.sink70, align 4, !tbaa !4
-  store i32 %.sink67, ptr %86, align 4
-  %87 = getelementptr inbounds nuw i8, ptr %.sink70, i64 8
-  store ptr %.sink64, ptr %87, align 8, !tbaa !9
-  %88 = getelementptr inbounds nuw i8, ptr %.sink70, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.sink75, i64 4
+  store i32 1, ptr %.sink75, align 4, !tbaa !4
+  store i32 %.sink72, ptr %86, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %.sink75, i64 8
+  store ptr %.sink69, ptr %87, align 8, !tbaa !9
+  %88 = getelementptr inbounds nuw i8, ptr %.sink75, i64 16
   store ptr %.sink, ptr %88, align 8, !tbaa !9
   br label %89
 
 89:                                               ; preds = %.sink.split, %54, %22
-  %.1 = phi ptr [ %11, %22 ], [ %11, %54 ], [ %.sink70, %.sink.split ]
+  %.1 = phi ptr [ %11, %22 ], [ %11, %54 ], [ %.sink75, %.sink.split ]
   ret ptr %.1
 }
 
@@ -391,7 +391,7 @@ define ptr @l___private_Lean_Elab_PreDefinition_MkInhabitant_0__Lean_Elab_withIn
   br label %lean_nat_add.exit
 
 21:                                               ; preds = %13
-  %22 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %15) #4
+  %22 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %10
@@ -1651,7 +1651,7 @@ define ptr @l___private_Lean_Elab_PreDefinition_MkInhabitant_0__Lean_Elab_withIn
   br label %l___private_Lean_Elab_PreDefinition_MkInhabitant_0__Lean_Elab_withInhabitedInstances_go___rarg___lambda__1.exit
 
 21:                                               ; preds = %13
-  %22 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %15) #4
+  %22 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %l___private_Lean_Elab_PreDefinition_MkInhabitant_0__Lean_Elab_withInhabitedInstances_go___rarg___lambda__1.exit
 
 .critedge.i.i:                                    ; preds = %10
@@ -3110,7 +3110,7 @@ lean_dec.exit1052:                                ; preds = %286, %285, %283, %l
   br label %lean_dec.exit1051
 
 295:                                              ; preds = %287
-  %296 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %289) #4
+  %296 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_dec.exit1051
 
 297:                                              ; preds = %lean_dec.exit1052
@@ -6420,7 +6420,7 @@ lean_dec.exit986:                                 ; preds = %1487, %1486, %1484,
   br label %lean_dec.exit985
 
 1496:                                             ; preds = %1488
-  %1497 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %1490) #4
+  %1497 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_dec.exit985
 
 1498:                                             ; preds = %lean_dec.exit986
@@ -12377,18 +12377,18 @@ _init_l_Lean_throwMaxRecDepthAt___at___private_Lean_Elab_PreDefinition_MkInhabit
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_throwMaxRecDepthAt___at___private_Lean_Elab_PreDefinition_MkInhabitant_0__Lean_Elab_mkInhabitantForAux_x3f___spec__1___closed__6.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %85, %_init_l_Lean_throwMaxRecDepthAt___at___private_Lean_Elab_PreDefinition_MkInhabitant_0__Lean_Elab_mkInhabitantForAux_x3f___spec__1___closed__6.exit ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink24 = phi ptr [ %4, %3 ], [ %85, %_init_l_Lean_throwMaxRecDepthAt___at___private_Lean_Elab_PreDefinition_MkInhabitant_0__Lean_Elab_mkInhabitantForAux_x3f___spec__1___closed__6.exit ]
+  %88 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !4
   store i32 131096, ptr %88, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %89, align 8, !tbaa !9
-  %90 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %90, align 8, !tbaa !9
   br label %91
 
 91:                                               ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

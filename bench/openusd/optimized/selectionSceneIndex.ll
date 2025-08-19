@@ -5725,9 +5725,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %3, %9
 .thread:                                          ; preds = %38
   %63 = load i32, ptr %5, align 4
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.thread26, label %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i.thread
+  br i1 %64, label %.thread43, label %_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleELb1EKNS_12Sdf_PathNodeEEC2ERKS7_.exit.i.i.thread
 
-.thread26:                                        ; preds = %.thread
+.thread43:                                        ; preds = %.thread
   %65 = load i32, ptr %25, align 4
   store i32 %65, ptr %20, align 4
   br label %101
@@ -5799,7 +5799,7 @@ thread-pre-split20:                               ; preds = %80, %94
   %.not.i13 = icmp eq i32 %99, 0
   br i1 %.not.i13, label %101, label %111
 
-101:                                              ; preds = %.thread26, %98
+101:                                              ; preds = %.thread43, %98
   %102 = load ptr, ptr %4, align 8
   %103 = load ptr, ptr %26, align 8
   %104 = icmp ne ptr %102, %103
@@ -5873,7 +5873,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelect
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesESaIS2_EE9push_backEOS2_.exit unwind label %.loopexit.split-lp
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i, %125, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
-  %.not.i1328 = phi i1 [ false, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i ], [ false, %125 ], [ true, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
+  %.not.i1345 = phi i1 [ false, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i ], [ false, %125 ], [ true, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #21
   %126 = load i32, ptr %6, align 8
   %.not.i.i.i17 = icmp eq i32 %126, 0
@@ -5906,7 +5906,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesD2Ev.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesESaIS2_EE9push_backEOS2_.exit, %127, %140
-  br i1 %.not.i1328, label %144, label %30, !llvm.loop !12
+  br i1 %.not.i1345, label %144, label %30, !llvm.loop !12
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %121, %58
   %.pn = phi { ptr, i32 } [ %59, %58 ], [ %122, %121 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -6398,8 +6398,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceINS_7SdfPathEE4CastERKSt10shared_ptrINS_16HdDataSourceBaseEE.exit, %88, %101, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %.pr55 = load ptr, ptr %7, align 8
-  %.not49 = icmp eq ptr %.pr55, null
+  %.pr76 = load ptr, ptr %7, align 8
+  %.not49 = icmp eq ptr %.pr76, null
   br i1 %.not49, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.thread
 
 106:                                              ; preds = %52
@@ -6408,7 +6408,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   br label %216
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.thread: ; preds = %62, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit
-  %108 = phi ptr [ %.pr55, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit ], [ %61, %62 ]
+  %108 = phi ptr [ %.pr76, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit ], [ %61, %62 ]
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load ptr, ptr %110, align 8
@@ -15921,9 +15921,9 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionScen
   br label %73
 
 68:                                               ; preds = %.body, %.body.thread
-  %.sink42 = phi { ptr, i32 } [ %63, %.body ], [ %33, %.body.thread ]
+  %.sink47 = phi { ptr, i32 } [ %63, %.body ], [ %33, %.body.thread ]
   %.0.lpad-body38 = phi ptr [ %35, %.body ], [ %22, %.body.thread ]
-  %69 = extractvalue { ptr, i32 } %.sink42, 0
+  %69 = extractvalue { ptr, i32 } %.sink47, 0
   %70 = tail call ptr @__cxa_begin_catch(ptr %69) #21
   invoke void @_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__34UsdImagingSelectionSceneIndex_Impl16_InstanceIndicesES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %22, ptr noundef nonnull %.0.lpad-body38, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %73 unwind label %71

@@ -322,7 +322,7 @@ define hidden void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3
   br label %79
 
 ._crit_edge114:                                   ; preds = %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit, %60
-  %.073.lcssa = phi double [ 0.000000e+00, %60 ], [ %.1.lcssa171, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
+  %.073.lcssa = phi double [ 0.000000e+00, %60 ], [ %.1.lcssa177, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
   %73 = fdiv double 1.000000e+00, %.073.lcssa
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !21
@@ -337,7 +337,7 @@ define hidden void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3
 
 79:                                               ; preds = %.lr.ph113, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit
   %indvars.iv150 = phi i64 [ %71, %.lr.ph113 ], [ %indvars.iv.next151, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
-  %.073110 = phi double [ 0.000000e+00, %.lr.ph113 ], [ %.1.lcssa171, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
+  %.073110 = phi double [ 0.000000e+00, %.lr.ph113 ], [ %.1.lcssa177, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit ]
   %80 = load i32, ptr %64, align 4, !tbaa !19
   %81 = zext i32 %80 to i64
   %82 = icmp slt i32 %80, 0
@@ -472,7 +472,7 @@ _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc81
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit:                ; preds = %.preheader, %._crit_edge99, %._crit_edge107
-  %.1.lcssa171 = phi double [ %.1.lcssa, %._crit_edge107 ], [ %.073110, %._crit_edge99 ], [ %138, %.preheader ]
+  %.1.lcssa177 = phi double [ %.1.lcssa, %._crit_edge107 ], [ %.073110, %._crit_edge99 ], [ %138, %.preheader ]
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
   %lftr.wideiv153 = trunc i64 %indvars.iv.next151 to i32
   %exitcond154.not = icmp eq i32 %72, %lftr.wideiv153
@@ -535,7 +535,7 @@ define hidden void @_ZN2cv9Histogram26extractBackGroundHistogramERSt6vectorINS_3
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79.split.us.preheader, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
   %indvars.iv129 = phi i64 [ %25, %.lr.ph79.split.us.preheader ], [ %indvars.iv.next130, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
-  %.04278.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.preheader ], [ %.us-phi.us153, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
+  %.04278.us = phi double [ 0.000000e+00, %.lr.ph79.split.us.preheader ], [ %.us-phi.us159, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ]
   %28 = load i32, ptr %15, align 4, !tbaa !19
   %.fr = freeze i32 %28
   %29 = zext i32 %.fr to i64
@@ -564,7 +564,7 @@ _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i.us: ; preds = %.noexc
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
 
 _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.split.split.us.us, %._crit_edge65.us
-  %.us-phi.us153 = phi double [ %.2.us.us, %._crit_edge65.us ], [ %75, %._crit_edge65.split.split.us.us ], [ %.2.us85, %36 ]
+  %.us-phi.us159 = phi double [ %.2.us.us, %._crit_edge65.us ], [ %75, %._crit_edge65.split.split.us.us ], [ %.2.us85, %36 ]
   %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
   %lftr.wideiv132 = trunc i64 %indvars.iv.next130 to i32
   %exitcond133.not = icmp eq i32 %9, %lftr.wideiv132
@@ -623,12 +623,12 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   br label %38
 
 .lr.ph64.split.us89:                              ; preds = %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.us
-  %.not45.us143 = icmp slt i64 %indvars.iv129, %26
-  %.not46.us144 = icmp sgt i64 %indvars.iv129, %27
-  %invariant.op.us145 = or i1 %.not45.us143, %.not46.us144
-  %invariant.op.fr.us146 = freeze i1 %invariant.op.us145
+  %.not45.us149 = icmp slt i64 %indvars.iv129, %26
+  %.not46.us150 = icmp sgt i64 %indvars.iv129, %27
+  %invariant.op.us151 = or i1 %.not45.us149, %.not46.us150
+  %invariant.op.fr.us152 = freeze i1 %invariant.op.us151
   %54 = load ptr, ptr %18, align 8
-  br i1 %invariant.op.fr.us146, label %.lr.ph64.split.split.us.us, label %.lr.ph64.split.split.us90
+  br i1 %invariant.op.fr.us152, label %.lr.ph64.split.split.us.us, label %.lr.ph64.split.split.us90
 
 .lr.ph64.split.us.us:                             ; preds = %.lr.ph64.split.us.us.preheader, %55
   %indvars.iv122 = phi i64 [ %22, %.lr.ph64.split.us.us.preheader ], [ %indvars.iv.next123, %55 ]
@@ -692,7 +692,7 @@ _ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us:             ; preds = %36, %._crit_edge65.
   br label %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us, %10
-  %.042.lcssa = phi double [ 0.000000e+00, %10 ], [ %.us-phi.us153, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ], [ 0.000000e+00, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+  %.042.lcssa = phi double [ 0.000000e+00, %10 ], [ %.us-phi.us159, %_ZNSt6vectorIPKhSaIS1_EED2Ev.exit.us ], [ 0.000000e+00, %_ZNSt6vectorIPKhSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %77 = fdiv double 1.000000e+00, %.042.lcssa
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !21
@@ -2455,7 +2455,7 @@ define hidden void @_ZN2cv7Segment26getRegularizedSegmentationERNS_3MatES2_S2_S2
   %117 = sext i32 %107 to i64
   %118 = zext nneg i32 %104 to i64
   %119 = add nuw i32 %104, 1
-  %invariant.gep371 = getelementptr double, ptr %111, i64 %118
+  %invariant.gep373 = getelementptr double, ptr %111, i64 %118
   br label %.lr.ph
 
 ._crit_edge356:                                   ; preds = %._crit_edge, %.._crit_edge356_crit_edge
@@ -2481,7 +2481,7 @@ define hidden void @_ZN2cv7Segment26getRegularizedSegmentationERNS_3MatES2_S2_S2
   %129 = mul i64 %114, %128
   %130 = mul nsw i64 %indvars.iv361, %indvars.iv361
   %131 = trunc nsw i64 %130 to i32
-  %gep372 = getelementptr i8, ptr %invariant.gep371, i64 %129
+  %gep374 = getelementptr i8, ptr %invariant.gep373, i64 %129
   br label %132
 
 ._crit_edge:                                      ; preds = %132
@@ -2501,7 +2501,7 @@ define hidden void @_ZN2cv7Segment26getRegularizedSegmentationERNS_3MatES2_S2_S2
   %138 = fdiv double %137, %115
   %139 = call double @exp(double noundef %138) #18, !tbaa !20
   %140 = fdiv double %139, %116
-  %gep = getelementptr double, ptr %gep372, i64 %indvars.iv
+  %gep = getelementptr double, ptr %gep374, i64 %indvars.iv
   store double %140, ptr %gep, align 8, !tbaa !22
   %141 = fadd double %.1184350, %140
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

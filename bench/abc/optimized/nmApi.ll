@@ -360,14 +360,14 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %38, %40, %30, %32
-  %.sink15 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %39, %38 ], [ %41, %40 ]
+  %.sink18 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %39, %38 ], [ %41, %40 ]
   %.sink = phi i32 [ 16, %30 ], [ 16, %32 ], [ %35, %38 ], [ %35, %40 ]
-  store ptr %.sink15, ptr %12, align 8, !tbaa !29
+  store ptr %.sink18, ptr %12, align 8, !tbaa !29
   store i32 %.sink, ptr %4, align 8, !tbaa !28
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %21
-  %.pre.i14 = phi ptr [ %17, %21 ], [ %.sink15, %Vec_IntPush.exit.sink.split ]
+  %.pre.i14 = phi ptr [ %17, %21 ], [ %.sink18, %Vec_IntPush.exit.sink.split ]
   %42 = add nsw i32 %24, 1
   store i32 %42, ptr %6, align 4, !tbaa !25
   %43 = sext i32 %24 to i64

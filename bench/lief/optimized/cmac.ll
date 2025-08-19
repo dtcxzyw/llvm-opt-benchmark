@@ -317,7 +317,7 @@ define hidden i32 @mbedtls_cipher_cmac_finish(ptr noundef %0, ptr noundef writeo
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   %.0.i3959.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.0.i3959.sroa.gep93 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.0.i3959.sroa.gep100 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %7, label %78, label %8
 
 8:                                                ; preds = %2
@@ -429,11 +429,11 @@ cmac_pad.exit:                                    ; preds = %cmac_pad.exit.prehe
 .lr.ph:                                           ; preds = %.preheader57, %.lr.ph
   %52 = phi i64 [ %55, %.lr.ph ], [ 8, %.preheader57 ]
   %.0.i3959.sroa.phi = phi ptr [ %.0.i3959.sroa.gep, %.lr.ph ], [ %5, %.preheader57 ]
-  %.0.i3959.sroa.phi92 = phi ptr [ %.0.i3959.sroa.gep93, %.lr.ph ], [ %3, %.preheader57 ]
+  %.0.i3959.sroa.phi99 = phi ptr [ %.0.i3959.sroa.gep100, %.lr.ph ], [ %3, %.preheader57 ]
   %.0.i3959 = phi i64 [ 8, %.lr.ph ], [ 0, %.preheader57 ]
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 %.0.i3959
   %.0.copyload.i49 = load i64, ptr %53, align 1
-  %.0.copyload.i48 = load i64, ptr %.0.i3959.sroa.phi92, align 8
+  %.0.copyload.i48 = load i64, ptr %.0.i3959.sroa.phi99, align 8
   %54 = xor i64 %.0.copyload.i48, %.0.copyload.i49
   store i64 %54, ptr %.0.i3959.sroa.phi, align 8
   %55 = add nuw nsw i64 %52, 8
@@ -895,7 +895,7 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
   br i1 %.not38, label %23, label %22
 
 22:                                               ; preds = %20
-  br i1 %.not, label %41, label %.sink.split80
+  br i1 %.not, label %41, label %.sink.split87
 
 23:                                               ; preds = %20
   %24 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %8, ptr noundef %2, i32 noundef %3, i32 noundef 1) #12
@@ -913,7 +913,7 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
   br i1 %.not, label %39, label %.sink.split
 
 29:                                               ; preds = %25
-  br i1 %.not, label %41, label %.sink.split80
+  br i1 %.not, label %41, label %.sink.split87
 
 30:                                               ; preds = %23
   %31 = call fastcc i32 @cmac_generate_subkeys(ptr noundef %8, ptr noundef %9, ptr noundef %10)
@@ -921,7 +921,7 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
   br i1 %.not40, label %33, label %32
 
 32:                                               ; preds = %30
-  br i1 %.not, label %41, label %.sink.split80
+  br i1 %.not, label %41, label %.sink.split87
 
 33:                                               ; preds = %30
   %34 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %4, i64 noundef %14) #14
@@ -935,7 +935,7 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
 
 37:                                               ; preds = %35, %33
   %.1 = phi i32 [ %34, %33 ], [ %36, %35 ]
-  br i1 %.not, label %41, label %.sink.split80
+  br i1 %.not, label %41, label %.sink.split87
 
 38:                                               ; preds = %35
   br i1 %.not, label %39, label %.sink.split
@@ -951,14 +951,14 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
   %exitcond.not = icmp eq i32 %40, 4
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !25
 
-.sink.split80:                                    ; preds = %37, %32, %29, %22
+.sink.split87:                                    ; preds = %37, %32, %29, %22
   %str.1.sink = phi ptr [ @str.5, %22 ], [ @str.5, %29 ], [ @str.11, %32 ], [ @str.11, %37 ]
   %.030.ph = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.1, %37 ]
   %puts43 = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
   br label %41
 
-41:                                               ; preds = %.sink.split80, %37, %32, %29, %22
-  %.030 = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.1, %37 ], [ %.030.ph, %.sink.split80 ]
+41:                                               ; preds = %.sink.split87, %37, %32, %29, %22
+  %.030 = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.1, %37 ], [ %.030.ph, %.sink.split87 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %8) #12
   br label %.loopexit
 

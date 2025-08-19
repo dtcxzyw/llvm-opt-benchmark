@@ -390,11 +390,11 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #1 {
   store i32 %48, ptr %49, align 4, !tbaa !31
   %50 = icmp eq i32 %46, 8
   %spec.select = select i1 %50, ptr @maskfun8, ptr @maskfun16
-  %spec.select64 = select i1 %50, ptr @getsum8, ptr @getsum16
+  %spec.select70 = select i1 %50, ptr @getsum8, ptr @getsum16
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store ptr %spec.select, ptr %51, align 8, !tbaa !64
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr %spec.select64, ptr %52, align 8, !tbaa !55
+  store ptr %spec.select70, ptr %52, align 8, !tbaa !55
   %53 = load i32, ptr %14, align 8, !tbaa !61
   %54 = load i32, ptr %33, align 4, !tbaa !62
   %55 = tail call ptr @ff_get_video_buffer(ptr noundef nonnull %0, i32 noundef %53, i32 noundef %54) #8

@@ -211,12 +211,12 @@ define dso_local void @_ZNK4llvm6object20MachOUniversalBinary13ObjectForArch15ge
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %.sink = select i1 %12, i64 %19, i64 %14
-  %.sink18 = select i1 %12, i64 %22, i64 %16
+  %.sink19 = select i1 %12, i64 %22, i64 %16
   %.0.in.v = select i1 %12, i64 12, i64 32
   %.0.in = getelementptr inbounds nuw i8, ptr %1, i64 %.0.in.v
   %.sroa.speculated4.i8 = tail call i64 @llvm.umin.i64(i64 %8, i64 %.sink)
   %23 = sub i64 %8, %.sroa.speculated4.i8
-  %.sroa.speculated.i9 = tail call i64 @llvm.umin.i64(i64 %23, i64 %.sink18)
+  %.sroa.speculated.i9 = tail call i64 @llvm.umin.i64(i64 %23, i64 %.sink19)
   %24 = extractvalue { ptr, i64 } %7, 0
   %.sroa.012.0 = getelementptr inbounds nuw i8, ptr %24, i64 %.sroa.speculated4.i8
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !21
@@ -1262,9 +1262,9 @@ _ZN4llvm5ErrorD2Ev.exit487:                       ; preds = %321, %333, %340
   store i8 2, ptr %352, align 8, !tbaa !43, !alias.scope !82
   %353 = getelementptr inbounds nuw i8, ptr %96, i64 33
   store i8 3, ptr %353, align 1, !tbaa !39, !alias.scope !82
-  %.sroa.gep499.val782 = load i32, ptr %.sroa.gep499, align 8
-  %.sroa.gep500.val783 = load i32, ptr %.sroa.gep500, align 4
-  %.0.i275 = select i1 %288, i32 %.sroa.gep499.val782, i32 %.sroa.gep500.val783
+  %.sroa.gep499.val790 = load i32, ptr %.sroa.gep499, align 8
+  %.sroa.gep500.val791 = load i32, ptr %.sroa.gep500, align 4
+  %.0.i275 = select i1 %288, i32 %.sroa.gep499.val790, i32 %.sroa.gep500.val791
   %354 = and i32 %.0.i275, 16777215
   %.sroa.0665.0.insert.ext = zext nneg i32 %354 to i64
   %355 = inttoptr i64 %.sroa.0665.0.insert.ext to ptr
@@ -1981,12 +1981,12 @@ define dso_local void @_ZNK4llvm6object20MachOUniversalBinary21getMachOObjectFor
   %27 = load i32, ptr %26, align 8, !noalias !214
   %28 = zext i32 %27 to i64
   %.sink.i = select i1 %18, i64 %25, i64 %20
-  %.sink18.i = select i1 %18, i64 %28, i64 %22
+  %.sink19.i = select i1 %18, i64 %28, i64 %22
   %.0.in.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %18, i64 12, i64 32
   %.0.in.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %.0.in.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %.sroa.speculated4.i8.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %.sink.i)
   %29 = sub i64 %15, %.sroa.speculated4.i8.i
-  %.sroa.speculated.i9.i = tail call i64 @llvm.umin.i64(i64 %29, i64 %.sink18.i)
+  %.sroa.speculated.i9.i = tail call i64 @llvm.umin.i64(i64 %29, i64 %.sink19.i)
   %30 = extractvalue { ptr, i64 } %14, 0
   %.sroa.012.0.i = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.speculated4.i8.i
   %.0.i = load i32, ptr %.0.in.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !21, !noalias !214

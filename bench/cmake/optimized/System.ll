@@ -99,7 +99,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
 36:                                               ; preds = %34
   %.not54.i = icmp eq i32 %.042113.i.ph, 0
   %spec.select.i = select i1 %.not54.i, i32 1, i32 %.046111.i
-  %spec.select130.i = zext i1 %.not54.i to i32
+  %spec.select146.i = zext i1 %.not54.i to i32
   br label %.loopexit
 
 37:                                               ; preds = %34
@@ -108,9 +108,9 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br i1 %or.cond4.i, label %40, label %39
 
 39:                                               ; preds = %37
-  %spec.select131.i = select i1 %13, i32 %.046111.i, i32 1
+  %spec.select147.i = select i1 %13, i32 %.046111.i, i32 1
   %not..i = xor i1 %13, true
-  %spec.select132.i = zext i1 %not..i to i32
+  %spec.select148.i = zext i1 %not..i to i32
   br label %.loopexit
 
 40:                                               ; preds = %37
@@ -201,25 +201,25 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
 
 .sink.split.sink.split.i:                         ; preds = %.thread.i86.i, %.thread.i77.i, %.thread.i.i
   %.sink.i = phi i32 [ %75, %.thread.i86.i ], [ %58, %.thread.i77.i ], [ %26, %.thread.i.i ]
-  %.sink134.ph.i = phi ptr [ %80, %.thread.i86.i ], [ %63, %.thread.i77.i ], [ %31, %.thread.i.i ]
+  %.sink150.ph.i = phi ptr [ %80, %.thread.i86.i ], [ %63, %.thread.i77.i ], [ %31, %.thread.i.i ]
   store i32 %.sink.i, ptr %8, align 4, !tbaa !4
   br label %.thread
 
 .loopexit:                                        ; preds = %47, %32, %64, %39, %36
-  %.2.i = phi i32 [ 0, %64 ], [ %spec.select.i, %36 ], [ %spec.select131.i, %39 ], [ %.046111.i, %32 ], [ 0, %47 ]
+  %.2.i = phi i32 [ 0, %64 ], [ %spec.select.i, %36 ], [ %spec.select147.i, %39 ], [ %.046111.i, %32 ], [ 0, %47 ]
   %.145.i = phi i32 [ 0, %64 ], [ 0, %36 ], [ 0, %39 ], [ 1, %32 ], [ 0, %47 ]
-  %.143.i = phi i32 [ 0, %64 ], [ %spec.select130.i, %36 ], [ 0, %39 ], [ %.042113.i.ph, %32 ], [ %.042113.i.ph, %47 ]
-  %.141.i = phi i32 [ 0, %64 ], [ 0, %36 ], [ %spec.select132.i, %39 ], [ %.040114.i.ph, %32 ], [ %.040114.i.ph, %47 ]
+  %.143.i = phi i32 [ 0, %64 ], [ %spec.select146.i, %36 ], [ 0, %39 ], [ %.042113.i.ph, %32 ], [ %.042113.i.ph, %47 ]
+  %.141.i = phi i32 [ 0, %64 ], [ 0, %36 ], [ %spec.select148.i, %39 ], [ %.040114.i.ph, %32 ], [ %.040114.i.ph, %47 ]
   %81 = getelementptr inbounds nuw i8, ptr %.038115.i, i64 1
   %82 = load i8, ptr %81, align 1, !tbaa !13
   %.not.i = icmp eq i8 %82, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.outer, !llvm.loop !18
 
 .thread:                                          ; preds = %17, %49, %66, %.sink.split.sink.split.i
-  %.sink134.i = phi ptr [ %18, %17 ], [ %50, %49 ], [ %67, %66 ], [ %.sink134.ph.i, %.sink.split.sink.split.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sink134.i, i64 1
+  %.sink150.i = phi ptr [ %18, %17 ], [ %50, %49 ], [ %67, %66 ], [ %.sink150.ph.i, %.sink.split.sink.split.i ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sink150.i, i64 1
   store ptr %83, ptr %10, align 8, !tbaa !11
-  store i8 %16, ptr %.sink134.i, align 1, !tbaa !13
+  store i8 %16, ptr %.sink150.i, align 1, !tbaa !13
   %84 = getelementptr inbounds nuw i8, ptr %.038115.i, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !13
   %.not.i8 = icmp eq i8 %85, 0
@@ -271,7 +271,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br i1 %.not69.i, label %.loopexit.i, label %.lr.ph119.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %.lr.ph119.i, %97, %.preheader.i
-  %.0128.i = phi ptr [ %95, %97 ], [ null, %.preheader.i ], [ null, %.lr.ph119.i ]
+  %.0144.i = phi ptr [ %95, %97 ], [ null, %.preheader.i ], [ null, %.lr.ph119.i ]
   %103 = phi ptr [ %90, %97 ], [ %96, %.preheader.i ], [ %96, %.lr.ph119.i ]
   %.not70.i = icmp eq ptr %103, %3
   br i1 %.not70.i, label %105, label %104
@@ -301,7 +301,7 @@ kwsysSystem__ParseUnixCommand.exit:               ; preds = %105, %107
   br label %108
 
 108:                                              ; preds = %2, %kwsysSystem__ParseUnixCommand.exit
-  %.0 = phi ptr [ %.0128.i, %kwsysSystem__ParseUnixCommand.exit ], [ null, %2 ]
+  %.0 = phi ptr [ %.0144.i, %kwsysSystem__ParseUnixCommand.exit ], [ null, %2 ]
   ret ptr %.0
 }
 

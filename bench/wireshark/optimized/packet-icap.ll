@@ -248,8 +248,8 @@ is_icap_message.exit84:                           ; preds = %42
   ]
 
 79:                                               ; preds = %78
-  %.not147 = icmp ult ptr %72, %46
-  br i1 %.not147, label %.lr.ph, label %.thread, !llvm.loop !6
+  %.not160 = icmp ult ptr %72, %46
+  br i1 %.not160, label %.lr.ph, label %.thread, !llvm.loop !6
 
 is_icap_message.exit84.thread:                    ; preds = %78, %.thread15.sink.split.i82, %69, %64, %58, %51, %is_icap_message.exit84
   %.2111 = phi i32 [ %.0103128, %is_icap_message.exit84 ], [ %.0103128, %69 ], [ %.0103128, %64 ], [ %.0103128, %58 ], [ %.0103128, %51 ], [ %.sink.i83, %.thread15.sink.split.i82 ], [ %.0103128, %78 ]
@@ -322,8 +322,8 @@ is_icap_message.exit84.thread:                    ; preds = %78, %.thread15.sink
   br i1 %.not5.i93, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %107, %101, %95, %89
-  %.sink146 = phi ptr [ %91, %89 ], [ %97, %95 ], [ %103, %101 ], [ %109, %107 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.sink146, i64 28
+  %.sink159 = phi ptr [ %91, %89 ], [ %97, %95 ], [ %103, %101 ], [ %109, %107 ]
+  %110 = getelementptr inbounds nuw i8, ptr %.sink159, i64 28
   %111 = load i32, ptr %110, align 4
   %112 = or i32 %111, 1
   store i32 %112, ptr %110, align 4

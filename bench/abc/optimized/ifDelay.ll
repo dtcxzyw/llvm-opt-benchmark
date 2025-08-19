@@ -424,14 +424,14 @@ If_CutPinDelayMax.exit.loopexit.us.i46:           ; preds = %104
   br i1 %105, label %.lr.ph.preheader.i.us.i36, label %If_LogPinDelaysMulti.exit, !llvm.loop !58
 
 If_LogPinDelaysMulti.exit:                        ; preds = %If_CutPinDelayMax.exit.loopexit.us.i46, %15, %._crit_edge
-  %.1.lcssa138 = phi i32 [ %.2, %._crit_edge ], [ %.027110, %15 ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
+  %.1.lcssa153 = phi i32 [ %.2, %._crit_edge ], [ %.027110, %15 ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
   %106 = load i64, ptr %6, align 16, !tbaa !52
   %107 = sext i32 %.096108 to i64
   %108 = getelementptr inbounds i64, ptr %7, i64 %107
   store i64 %106, ptr %108, align 8, !tbaa !52
   %109 = add nsw i32 %.096108, 1
   %110 = getelementptr inbounds i32, ptr %9, i64 %107
-  store i32 %.1.lcssa138, ptr %110, align 4, !tbaa !26
+  store i32 %.1.lcssa153, ptr %110, align 4, !tbaa !26
   %111 = icmp sgt i32 %.096108, 0
   br i1 %111, label %.preheader.i48, label %If_LogCounterPinDelays.exit76
 
@@ -664,13 +664,13 @@ If_CutPinDelayMax.exit.loopexit.us.i91:           ; preds = %221
   br i1 %222, label %.lr.ph.preheader.i.us.i81, label %If_LogPinDelaysMulti.exit92, !llvm.loop !58
 
 If_LogPinDelaysMulti.exit92:                      ; preds = %If_CutPinDelayMax.exit.loopexit.us.i91, %.preheader, %.critedge, %If_CutPinDelayMax.exit.preheader.i79
-  %.027.lcssa141 = phi i32 [ %188, %.critedge ], [ %188, %If_CutPinDelayMax.exit.preheader.i79 ], [ 0, %.preheader ], [ %188, %If_CutPinDelayMax.exit.loopexit.us.i91 ]
+  %.027.lcssa156 = phi i32 [ %188, %.critedge ], [ %188, %If_CutPinDelayMax.exit.preheader.i79 ], [ 0, %.preheader ], [ %188, %If_CutPinDelayMax.exit.loopexit.us.i91 ]
   %223 = load i64, ptr %7, align 16, !tbaa !52
   store i64 %223, ptr %4, align 8, !tbaa !52
   br label %224
 
 224:                                              ; preds = %5, %If_LogPinDelaysMulti.exit92
-  %.0 = phi i32 [ %.027.lcssa141, %If_LogPinDelaysMulti.exit92 ], [ -1, %5 ]
+  %.0 = phi i32 [ %.027.lcssa156, %If_LogPinDelaysMulti.exit92 ], [ -1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1097,9 +1097,9 @@ Vec_IntPush.exit12.sink.split.i.i:                ; preds = %Vec_IntPush.exit.i.
   %113 = shl nuw nsw i32 %109, 1
   %114 = zext nneg i32 %113 to i64
   %115 = shl nuw nsw i64 %114, 2
-  %.sink8.i = select i1 %112, i64 64, i64 %115
+  %.sink10.i = select i1 %112, i64 64, i64 %115
   %.sink.i.i = select i1 %112, i32 16, i32 %113
-  %116 = tail call ptr @realloc(ptr noundef nonnull %104, i64 noundef %.sink8.i) #12
+  %116 = tail call ptr @realloc(ptr noundef nonnull %104, i64 noundef %.sink10.i) #12
   store ptr %116, ptr %.phi.trans.insert.i.i.i168, align 8, !tbaa !43
   store i32 %.sink.i.i, ptr %3, align 8, !tbaa !65
   %.pre.i165 = load i32, ptr %17, align 4, !tbaa !35
@@ -1333,9 +1333,9 @@ Vec_IntPush.exit12.sink.split.i.i171:             ; preds = %Vec_IntPush.exit.i.
   %228 = shl nuw nsw i32 %224, 1
   %229 = zext nneg i32 %228 to i64
   %230 = shl nuw nsw i64 %229, 2
-  %.sink8.i172 = select i1 %227, i64 64, i64 %230
+  %.sink10.i172 = select i1 %227, i64 64, i64 %230
   %.sink.i.i173 = select i1 %227, i32 16, i32 %228
-  %231 = tail call ptr @realloc(ptr noundef nonnull %219, i64 noundef %.sink8.i172) #12
+  %231 = tail call ptr @realloc(ptr noundef nonnull %219, i64 noundef %.sink10.i172) #12
   store ptr %231, ptr %.phi.trans.insert.i.i.i168, align 8, !tbaa !43
   store i32 %.sink.i.i173, ptr %3, align 8, !tbaa !65
   %.pre.i174 = load i32, ptr %17, align 4, !tbaa !35
@@ -1488,9 +1488,9 @@ Vec_IntPush.exit12.sink.split.i.i184:             ; preds = %Vec_IntPush.exit.i.
   %296 = shl nuw nsw i32 %292, 1
   %297 = zext nneg i32 %296 to i64
   %298 = shl nuw nsw i64 %297, 2
-  %.sink8.i185 = select i1 %295, i64 64, i64 %298
+  %.sink10.i185 = select i1 %295, i64 64, i64 %298
   %.sink.i.i186 = select i1 %295, i32 16, i32 %296
-  %299 = tail call ptr @realloc(ptr noundef nonnull %287, i64 noundef %.sink8.i185) #12
+  %299 = tail call ptr @realloc(ptr noundef nonnull %287, i64 noundef %.sink10.i185) #12
   store ptr %299, ptr %.phi.trans.insert.i.i.i168, align 8, !tbaa !43
   store i32 %.sink.i.i186, ptr %3, align 8, !tbaa !65
   %.pre.i187 = load i32, ptr %17, align 4, !tbaa !35
@@ -1512,15 +1512,15 @@ If_LogCreateAndXor.exit191:                       ; preds = %Vec_IntPush.exit.i.
   br i1 %308, label %.lr.ph.i125, label %.thread.i141, !llvm.loop !67
 
 .split66:                                         ; preds = %._crit_edge.thread, %._crit_edge
-  %.153.lcssa247 = phi i32 [ %.052214, %._crit_edge.thread ], [ %.2, %._crit_edge ]
-  %.054.lcssa245 = phi i32 [ -1, %._crit_edge.thread ], [ %256, %._crit_edge ]
+  %.153.lcssa285 = phi i32 [ %.052214, %._crit_edge.thread ], [ %.2, %._crit_edge ]
+  %.054.lcssa283 = phi i32 [ -1, %._crit_edge.thread ], [ %256, %._crit_edge ]
   %309 = load i32, ptr %6, align 4, !tbaa !26
-  %310 = add nsw i32 %.054.lcssa245, %309
+  %310 = add nsw i32 %.054.lcssa283, %309
   store i32 %310, ptr %6, align 4, !tbaa !26
   %.pre.i128 = sext i32 %.0199212 to i64
   %311 = add nsw i32 %.0199212, 1
   %312 = getelementptr inbounds i32, ptr %10, i64 %.pre.i128
-  store i32 %.153.lcssa247, ptr %312, align 4, !tbaa !26
+  store i32 %.153.lcssa285, ptr %312, align 4, !tbaa !26
   %313 = icmp sgt i32 %.0199212, 0
   br i1 %313, label %.preheader.split.us.i130, label %If_LogCounterAddAig.exit138
 
@@ -1570,7 +1570,7 @@ If_LogCreateAndXor.exit191:                       ; preds = %Vec_IntPush.exit.i.
   br i1 %334, label %.lr.ph.us.i135, label %.loopexit.us.i133, !llvm.loop !64
 
 .thread.i141:                                     ; preds = %If_LogCreateAndXor.exit191, %._crit_edge.thread, %257
-  %.153.lcssa246250 = phi i32 [ %.2, %257 ], [ %.052214, %._crit_edge.thread ], [ %.2, %If_LogCreateAndXor.exit191 ]
+  %.153.lcssa284288 = phi i32 [ %.2, %257 ], [ %.052214, %._crit_edge.thread ], [ %.2, %If_LogCreateAndXor.exit191 ]
   %335 = load i32, ptr %9, align 16, !tbaa !26
   %336 = xor i32 %335, 1
   %.pre.i140 = sext i32 %.0199212 to i64
@@ -1578,7 +1578,7 @@ If_LogCreateAndXor.exit191:                       ; preds = %Vec_IntPush.exit.i.
   store i32 %336, ptr %337, align 4, !tbaa !26
   %338 = add nsw i32 %.0199212, 1
   %339 = getelementptr inbounds i32, ptr %10, i64 %.pre.i140
-  store i32 %.153.lcssa246250, ptr %339, align 4, !tbaa !26
+  store i32 %.153.lcssa284288, ptr %339, align 4, !tbaa !26
   %340 = icmp sgt i32 %.0199212, 0
   br i1 %340, label %.preheader.split.i143, label %If_LogCounterAddAig.exit138
 
@@ -1658,8 +1658,8 @@ If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.p
   br i1 %.not, label %392, label %378
 
 .critedge.thread:                                 ; preds = %.preheader
-  %.not254 = icmp eq ptr %3, null
-  br i1 %.not254, label %392, label %If_LogCreateAndXorMulti.exit164
+  %.not292 = icmp eq ptr %3, null
+  br i1 %.not292, label %392, label %If_LogCreateAndXorMulti.exit164
 
 378:                                              ; preds = %.critedge
   %379 = icmp sgt i32 %.0.i129.sink, 1
@@ -1683,7 +1683,7 @@ If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.p
   br i1 %387, label %.lr.ph.i161, label %If_LogCreateAndXorMulti.exit164, !llvm.loop !67
 
 If_LogCreateAndXorMulti.exit164:                  ; preds = %.lr.ph.i161, %.critedge.thread, %378
-  %.052.lcssa257262 = phi i32 [ %375, %378 ], [ 0, %.critedge.thread ], [ %375, %.lr.ph.i161 ]
+  %.052.lcssa295300 = phi i32 [ %375, %378 ], [ 0, %.critedge.thread ], [ %375, %.lr.ph.i161 ]
   %388 = load i32, ptr %11, align 16, !tbaa !26
   %389 = xor i32 %388, 1
   store i32 %389, ptr %4, align 4, !tbaa !26
@@ -1695,16 +1695,16 @@ If_LogCreateAndXorMulti.exit164:                  ; preds = %.lr.ph.i161, %.crit
   br label %396
 
 392:                                              ; preds = %.critedge.thread, %.critedge
-  %.052.lcssa258 = phi i32 [ 0, %.critedge.thread ], [ %375, %.critedge ]
-  %.val79.lcssa255 = phi i32 [ %.val80, %.critedge.thread ], [ %.val79.pr, %.critedge ]
-  %393 = add i32 %.val79.lcssa255, -1
+  %.052.lcssa296 = phi i32 [ 0, %.critedge.thread ], [ %375, %.critedge ]
+  %.val79.lcssa293 = phi i32 [ %.val80, %.critedge.thread ], [ %.val79.pr, %.critedge ]
+  %393 = add i32 %.val79.lcssa293, -1
   %394 = load i32, ptr %6, align 4, !tbaa !26
   %395 = add nsw i32 %393, %394
   store i32 %395, ptr %6, align 4, !tbaa !26
   br label %396
 
 396:                                              ; preds = %If_LogCreateAndXorMulti.exit164, %392, %7
-  %.056 = phi i32 [ -1, %7 ], [ %.052.lcssa258, %392 ], [ %.052.lcssa257262, %If_LogCreateAndXorMulti.exit164 ]
+  %.056 = phi i32 [ -1, %7 ], [ %.052.lcssa296, %392 ], [ %.052.lcssa295300, %If_LogCreateAndXorMulti.exit164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2291,8 +2291,8 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %49
-  %indvars.iv.tr83 = trunc i64 %indvars.iv to i32
-  %64 = shl i32 %indvars.iv.tr83, 1
+  %indvars.iv.tr86 = trunc i64 %indvars.iv to i32
+  %64 = shl i32 %indvars.iv.tr86, 1
   %65 = shl nuw i32 1, %64
   br label %73
 
@@ -3125,9 +3125,9 @@ Vec_IntPush.exit12.sink.split.i:                  ; preds = %Vec_IntPush.exit.i
   %39 = shl nuw nsw i32 %35, 1
   %40 = zext nneg i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 2
-  %.sink8 = select i1 %38, i64 64, i64 %41
+  %.sink10 = select i1 %38, i64 64, i64 %41
   %.sink.i = select i1 %38, i32 16, i32 %39
-  %42 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %.sink8) #12
+  %42 = tail call ptr @realloc(ptr noundef nonnull %30, i64 noundef %.sink10) #12
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %42, ptr %43, align 8, !tbaa !43
   store i32 %.sink.i, ptr %0, align 8, !tbaa !65

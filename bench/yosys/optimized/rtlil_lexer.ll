@@ -386,9 +386,9 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
     i32 0, label %134
     i32 1, label %.loopexit
     i32 2, label %.loopexit315
-    i32 3, label %.loopexit475
-    i32 4, label %.loopexit555
-    i32 5, label %.loopexit675
+    i32 3, label %.loopexit497
+    i32 4, label %.loopexit577
+    i32 5, label %.loopexit697
     i32 6, label %474
     i32 7, label %138
     i32 8, label %139
@@ -896,7 +896,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i153, %326
 
 351:                                              ; preds = %262
   %352 = tail call fastcc noundef i32 @_ZL18yy_get_next_bufferv()
-  switch i32 %352, label %default.unreachable454 [
+  switch i32 %352, label %default.unreachable476 [
     i32 1, label %_ZL21yy_get_previous_statev.exit169
     i32 0, label %353
     i32 2, label %408
@@ -1091,7 +1091,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i153, %326
   %464 = icmp ult ptr %463, %417
   br i1 %464, label %.lr.ph26.i171, label %.preheader.outer.backedge, !llvm.loop !40
 
-default.unreachable454:                           ; preds = %351
+default.unreachable476:                           ; preds = %351
   unreachable
 
 _ZL21yy_get_previous_statev.exit169:              ; preds = %351
@@ -1116,17 +1116,17 @@ _ZL21yy_get_previous_statev.exit169:              ; preds = %351
 .loopexit315:                                     ; preds = %.loopexit189
   br label %474
 
-.loopexit475:                                     ; preds = %.loopexit189
+.loopexit497:                                     ; preds = %.loopexit189
   br label %474
 
-.loopexit555:                                     ; preds = %.loopexit189
+.loopexit577:                                     ; preds = %.loopexit189
   br label %474
 
-.loopexit675:                                     ; preds = %.loopexit189
+.loopexit697:                                     ; preds = %.loopexit189
   br label %474
 
-474:                                              ; preds = %.loopexit189, %.loopexit675, %.loopexit555, %.loopexit475, %.loopexit315, %.loopexit, %247, %237, %236, %232, %184, %172, %169, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138
-  %.0 = phi i32 [ 264, %138 ], [ 292, %139 ], [ 265, %140 ], [ 296, %141 ], [ 289, %142 ], [ 293, %143 ], [ 266, %144 ], [ 267, %145 ], [ 268, %146 ], [ 269, %147 ], [ 270, %148 ], [ 271, %149 ], [ 272, %150 ], [ 273, %151 ], [ 274, %152 ], [ 275, %153 ], [ 276, %154 ], [ 277, %155 ], [ 278, %156 ], [ 279, %157 ], [ 280, %158 ], [ 281, %159 ], [ 282, %160 ], [ 283, %161 ], [ 284, %162 ], [ 285, %163 ], [ 286, %164 ], [ 287, %165 ], [ 258, %166 ], [ 258, %169 ], [ 259, %172 ], [ %.1, %184 ], [ 260, %232 ], [ 288, %236 ], [ %240, %237 ], [ 0, %247 ], [ 262, %.loopexit ], [ 263, %.loopexit315 ], [ 291, %.loopexit475 ], [ 290, %.loopexit555 ], [ 294, %.loopexit675 ], [ 295, %.loopexit189 ]
+474:                                              ; preds = %.loopexit189, %.loopexit697, %.loopexit577, %.loopexit497, %.loopexit315, %.loopexit, %247, %237, %236, %232, %184, %172, %169, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138
+  %.0 = phi i32 [ 264, %138 ], [ 292, %139 ], [ 265, %140 ], [ 296, %141 ], [ 289, %142 ], [ 293, %143 ], [ 266, %144 ], [ 267, %145 ], [ 268, %146 ], [ 269, %147 ], [ 270, %148 ], [ 271, %149 ], [ 272, %150 ], [ 273, %151 ], [ 274, %152 ], [ 275, %153 ], [ 276, %154 ], [ 277, %155 ], [ 278, %156 ], [ 279, %157 ], [ 280, %158 ], [ 281, %159 ], [ 282, %160 ], [ 283, %161 ], [ 284, %162 ], [ 285, %163 ], [ 286, %164 ], [ 287, %165 ], [ 258, %166 ], [ 258, %169 ], [ 259, %172 ], [ %.1, %184 ], [ 260, %232 ], [ 288, %236 ], [ %240, %237 ], [ 0, %247 ], [ 262, %.loopexit ], [ 263, %.loopexit315 ], [ 291, %.loopexit497 ], [ 290, %.loopexit577 ], [ 294, %.loopexit697 ], [ 295, %.loopexit189 ]
   ret i32 %.0
 }
 
@@ -1570,7 +1570,7 @@ _Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread: ; preds = %5
   %18 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread15
+  br i1 %20, label %21, label %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread17
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -1584,9 +1584,9 @@ _Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread: ; preds = %5
   store ptr %26, ptr @rtlil_frontend_yyin, align 8, !tbaa !13
   %27 = load i8, ptr %25, align 1, !tbaa !29
   store i8 %27, ptr @_ZL12yy_hold_char, align 1, !tbaa !29
-  br label %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread15
+  br label %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread17
 
-_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread15: ; preds = %16, %21
+_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread17: ; preds = %16, %21
   store ptr %1, ptr %0, align 8, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %28, align 4, !tbaa !42
@@ -1599,7 +1599,7 @@ _Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit: ; preds = %2
   %.not = icmp eq ptr %.pr.pre, null
   br i1 %.not, label %.critedge, label %30
 
-30:                                               ; preds = %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread15, %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit
+30:                                               ; preds = %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit.thread17, %_Z30rtlil_frontend_yy_flush_bufferP15yy_buffer_state.exit
   %31 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !20
@@ -2281,7 +2281,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL7yyinputv() #3 {
   %18 = load ptr, ptr @rtlil_frontend_yytext, align 8, !tbaa !6
   store ptr %15, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !6
   %19 = tail call fastcc noundef i32 @_ZL18yy_get_next_bufferv()
-  switch i32 %19, label %default.unreachable8 [
+  switch i32 %19, label %default.unreachable10 [
     i32 2, label %20
     i32 1, label %38
     i32 0, label %.critedge
@@ -2303,7 +2303,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL7yyinputv() #3 {
   %.pre = load i8, ptr %27, align 1, !tbaa !29
   br label %28
 
-default.unreachable8:                             ; preds = %17
+default.unreachable10:                            ; preds = %17
   unreachable
 
 28:                                               ; preds = %.critedge, %0

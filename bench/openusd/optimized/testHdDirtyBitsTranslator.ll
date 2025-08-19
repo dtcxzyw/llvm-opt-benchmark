@@ -1105,7 +1105,7 @@ _ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEP
 
 29:                                               ; preds = %27
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %46, label %.invoke38
+  br i1 %.not, label %46, label %.invoke46
 
 30:                                               ; preds = %0
   %31 = landingpad { ptr, i32 }
@@ -1141,7 +1141,7 @@ _ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEE
   call void @__clang_call_terminate(ptr %43) #17
   unreachable
 
-44:                                               ; preds = %.invoke38, %.invoke, %_ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEED2Ev.exit, %46, %48, %27
+44:                                               ; preds = %.invoke46, %.invoke, %_ZNSt8functionIFvRKN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEPjEED2Ev.exit, %46, %48, %27
   %45 = landingpad { ptr, i32 }
           cleanup
   br label %137
@@ -1157,14 +1157,14 @@ _ZNSt8functionIFvjPN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetEE
 
 51:                                               ; preds = %48
   %52 = icmp eq i32 %50, 0
-  br i1 %52, label %.invoke38, label %56
+  br i1 %52, label %.invoke46, label %56
 
-.invoke38:                                        ; preds = %29, %51
+.invoke46:                                        ; preds = %29, %51
   %53 = phi ptr [ @.str.1, %51 ], [ @.str, %29 ]
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %53)
           to label %.invoke unwind label %44
 
-.invoke:                                          ; preds = %.invoke38
+.invoke:                                          ; preds = %.invoke46
   %55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev.exit unwind label %44
 

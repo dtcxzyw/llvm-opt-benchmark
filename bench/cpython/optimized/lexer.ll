@@ -565,7 +565,7 @@ tok_nextc.exit297.i.i:                            ; preds = %137, %151, %142, %1
   br label %193
 
 .preheader.i.i:                                   ; preds = %.backedge.i.i
-  %190 = icmp sgt i32 %.1237566.i.i, 0
+  %190 = icmp sgt i32 %.1237606.i.i, 0
   br i1 %190, label %.lr.ph480.i.i, label %.preheader.i.._crit_edge481.i_crit_edge.i
 
 .preheader.i.._crit_edge481.i_crit_edge.i:        ; preds = %.preheader.i.i
@@ -583,9 +583,9 @@ tok_nextc.exit297.i.i:                            ; preds = %137, %151, %142, %1
   br label %489
 
 193:                                              ; preds = %.backedge.i.i, %.lr.ph478.i.i
-  %.3476.i.i = phi i32 [ undef, %.lr.ph478.i.i ], [ %.4567.i.i, %.backedge.i.i ]
-  %.0236475.i.i = phi i32 [ 0, %.lr.ph478.i.i ], [ %.1237566.i.i, %.backedge.i.i ]
-  %.0239474.i.i = phi i32 [ 0, %.lr.ph478.i.i ], [ %.1240564.i.i, %.backedge.i.i ]
+  %.3476.i.i = phi i32 [ undef, %.lr.ph478.i.i ], [ %.4607.i.i, %.backedge.i.i ]
+  %.0236475.i.i = phi i32 [ 0, %.lr.ph478.i.i ], [ %.1237606.i.i, %.backedge.i.i ]
+  %.0239474.i.i = phi i32 [ 0, %.lr.ph478.i.i ], [ %.1240605.i.i, %.backedge.i.i ]
   %.pre.i301.i.i = load ptr, ptr %13, align 8, !tbaa !4
   %.pre39.i302.i.i = load ptr, ptr %22, align 8, !tbaa !26
   br label %194
@@ -1247,11 +1247,11 @@ tok_backup.exit352.i.i:                           ; preds = %470
   ]
 
 .backedge.i.i:                                    ; preds = %409, %440, %484, %484, %483, %482, %479, %454, %445, %435, %423, %414, %408, %286, %284
-  %.4567.i.i = phi i32 [ %.8.i.i, %484 ], [ %.8.i.i, %484 ], [ %.3476.i.i, %284 ], [ %.8.i.i, %483 ], [ %.3476.i.i, %286 ], [ %.3476.i.i, %479 ], [ %.3476.i.i, %482 ], [ %.3476.i.i, %414 ], [ %.3476.i.i, %423 ], [ %.3476.i.i, %408 ], [ %.3476.i.i, %445 ], [ %.3476.i.i, %454 ], [ %.3476.i.i, %435 ], [ %.3476.i.i, %440 ], [ %.3476.i.i, %409 ]
-  %.1237566.i.i = phi i32 [ 0, %484 ], [ 0, %484 ], [ %285, %284 ], [ 0, %483 ], [ 0, %286 ], [ 0, %479 ], [ 0, %482 ], [ 0, %414 ], [ 0, %423 ], [ 0, %408 ], [ 0, %445 ], [ 0, %454 ], [ 0, %435 ], [ 0, %440 ], [ 0, %409 ]
-  %.1240564.i.i = phi i32 [ %.0239474.i.i, %484 ], [ %.0239474.i.i, %484 ], [ %.0239474.i.i, %284 ], [ %.0239474.i.i, %483 ], [ %.0239474.i.i, %286 ], [ 1, %479 ], [ %.0239474.i.i, %482 ], [ %.0239474.i.i, %414 ], [ %.0239474.i.i, %423 ], [ %.0239474.i.i, %408 ], [ %.0239474.i.i, %445 ], [ %.0239474.i.i, %454 ], [ %.0239474.i.i, %435 ], [ %.0239474.i.i, %440 ], [ %.0239474.i.i, %409 ]
+  %.4607.i.i = phi i32 [ %.8.i.i, %484 ], [ %.8.i.i, %484 ], [ %.3476.i.i, %284 ], [ %.8.i.i, %483 ], [ %.3476.i.i, %286 ], [ %.3476.i.i, %479 ], [ %.3476.i.i, %482 ], [ %.3476.i.i, %414 ], [ %.3476.i.i, %423 ], [ %.3476.i.i, %408 ], [ %.3476.i.i, %445 ], [ %.3476.i.i, %454 ], [ %.3476.i.i, %435 ], [ %.3476.i.i, %440 ], [ %.3476.i.i, %409 ]
+  %.1237606.i.i = phi i32 [ 0, %484 ], [ 0, %484 ], [ %285, %284 ], [ 0, %483 ], [ 0, %286 ], [ 0, %479 ], [ 0, %482 ], [ 0, %414 ], [ 0, %423 ], [ 0, %408 ], [ 0, %445 ], [ 0, %454 ], [ 0, %435 ], [ 0, %440 ], [ 0, %409 ]
+  %.1240605.i.i = phi i32 [ %.0239474.i.i, %484 ], [ %.0239474.i.i, %484 ], [ %.0239474.i.i, %284 ], [ %.0239474.i.i, %483 ], [ %.0239474.i.i, %286 ], [ 1, %479 ], [ %.0239474.i.i, %482 ], [ %.0239474.i.i, %414 ], [ %.0239474.i.i, %423 ], [ %.0239474.i.i, %408 ], [ %.0239474.i.i, %445 ], [ %.0239474.i.i, %454 ], [ %.0239474.i.i, %435 ], [ %.0239474.i.i, %440 ], [ %.0239474.i.i, %409 ]
   %485 = load i32, ptr %118, align 8, !tbaa !32
-  %.not264.i.i = icmp eq i32 %.1237566.i.i, %485
+  %.not264.i.i = icmp eq i32 %.1237606.i.i, %485
   br i1 %.not264.i.i, label %.preheader.i.i, label %193, !llvm.loop !42
 
 ._crit_edge481.i.i:                               ; preds = %tok_backup.exit355.i.i, %.lr.ph480.i.i, %.preheader.i.._crit_edge481.i_crit_edge.i, %182
@@ -1286,7 +1286,7 @@ tok_backup.exit355.i.i:                           ; preds = %494
   %498 = add i32 %497, -1
   store i32 %498, ptr %19, align 4, !tbaa !24
   %499 = add nuw nsw i32 %.0479.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %499, %.1237566.i.i
+  %exitcond.not.i.i = icmp eq i32 %499, %.1237606.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge481.i.i, label %489, !llvm.loop !45
 
 tok_get.exit:                                     ; preds = %484, %10, %102, %105, %176, %223, %240, %tok_backup.exit310.i.i, %275, %277, %298, %354, %361, %364, %402, %._crit_edge481.i.i
@@ -1341,12 +1341,12 @@ define internal fastcc i32 @tok_get_normal_mode(ptr noundef initializes((56, 64)
   %.pre2244 = load ptr, ptr %7, align 8, !tbaa !4
   br label %.thread1463
 
-.critedge2990:                                    ; preds = %586
+.critedge3099:                                    ; preds = %586
   store ptr null, ptr %4, align 8, !tbaa !19
   store i32 -1, ptr %5, align 8, !tbaa !25
   br label %27
 
-27:                                               ; preds = %.critedge2990, %3
+27:                                               ; preds = %.critedge3099, %3
   store i32 0, ptr %6, align 8, !tbaa !46
   br label %.outer
 
@@ -1740,19 +1740,19 @@ tok_backup.exit1242.preheader:                    ; preds = %167, %172, %181, %1
   %.pre.i1243.pre.ph = phi ptr [ %162, %193 ], [ %162, %166 ], [ %183, %181 ], [ %173, %172 ], [ %162, %167 ]
   br label %tok_backup.exit1242
 
-tok_backup.exit1242:                              ; preds = %tok_backup.exit1242.preheader, %1393
-  %.pre39.i1244.pre = phi ptr [ %.pre39.i1244.pre.pre, %1393 ], [ %.pre39.i1244.pre.ph, %tok_backup.exit1242.preheader ]
-  %.pre.i1243.pre = phi ptr [ %.pre.i1243.pre.pre, %1393 ], [ %.pre.i1243.pre.ph, %tok_backup.exit1242.preheader ]
+tok_backup.exit1242:                              ; preds = %tok_backup.exit1242.preheader, %1392
+  %.pre39.i1244.pre = phi ptr [ %.pre39.i1244.pre.pre, %1392 ], [ %.pre39.i1244.pre.ph, %tok_backup.exit1242.preheader ]
+  %.pre.i1243.pre = phi ptr [ %.pre.i1243.pre.pre, %1392 ], [ %.pre.i1243.pre.ph, %tok_backup.exit1242.preheader ]
   store ptr null, ptr %4, align 8, !tbaa !19
   br label %.critedge15.outer
 
 .critedge15.outer:                                ; preds = %tok_backup.exit1242, %206
   %.pre39.i12442246.ph = phi ptr [ %.pre39.i1244.pre, %tok_backup.exit1242 ], [ %208, %206 ]
-  %.ph3146 = phi ptr [ %.pre.i1243.pre, %tok_backup.exit1242 ], [ %207, %206 ]
+  %.ph3255 = phi ptr [ %.pre.i1243.pre, %tok_backup.exit1242 ], [ %207, %206 ]
   br label %.critedge15
 
 .critedge15:                                      ; preds = %.critedge15.backedge, %.critedge15.outer
-  %194 = phi ptr [ %.ph3146, %.critedge15.outer ], [ %217, %.critedge15.backedge ]
+  %194 = phi ptr [ %.ph3255, %.critedge15.outer ], [ %217, %.critedge15.backedge ]
   %.not.i1245 = icmp eq ptr %194, %.pre39.i12442246.ph
   br i1 %.not.i1245, label %199, label %195
 
@@ -1835,19 +1835,19 @@ tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exi
   %.pre39.i1252 = phi ptr [ %.pre39.i1252.be, %.preheader1581.backedge ], [ %.pre39.i12632249, %tok_nextc.exit1250.thread ]
   %.pre.i1251 = phi ptr [ %.pre.i1251.be, %.preheader1581.backedge ], [ %220, %tok_nextc.exit1250.thread ]
   %.11002 = phi i32 [ %.11002.be, %.preheader1581.backedge ], [ 35, %tok_nextc.exit1250.thread ]
-  switch i32 %.11002, label %.preheader2676 [
+  switch i32 %.11002, label %.preheader2785 [
     i32 -1, label %.critedge19
     i32 13, label %.critedge19
     i32 10, label %.critedge19
   ]
 
-.preheader2676:                                   ; preds = %.preheader1581, %242
+.preheader2785:                                   ; preds = %.preheader1581, %242
   %.pre39.i12522336 = phi ptr [ %244, %242 ], [ %.pre39.i1252, %.preheader1581 ]
   %.pre.i12512333 = phi ptr [ %243, %242 ], [ %.pre.i1251, %.preheader1581 ]
   %.not.i1253 = icmp eq ptr %.pre.i12512333, %.pre39.i12522336
   br i1 %.not.i1253, label %235, label %226
 
-226:                                              ; preds = %.preheader2676
+226:                                              ; preds = %.preheader2785
   %227 = load i32, ptr %12, align 4, !tbaa !24
   %228 = icmp ugt i32 %227, 2147483646
   br i1 %228, label %229, label %230
@@ -1871,7 +1871,7 @@ tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exi
   %234 = zext i8 %233 to i32
   br label %.preheader1581.backedge
 
-235:                                              ; preds = %.preheader2676
+235:                                              ; preds = %.preheader2785
   %236 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1255 = icmp eq i32 %236, 10
   br i1 %.not21.i1255, label %237, label %.preheader1581.backedge, !llvm.loop !55
@@ -1896,7 +1896,7 @@ tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exi
   %247 = sub i64 %245, %246
   %248 = tail call ptr @memchr(ptr noundef readonly %243, i32 noundef 0, i64 noundef %247) #8
   %.not24.i1257 = icmp eq ptr %248, null
-  br i1 %.not24.i1257, label %.preheader2676, label %249
+  br i1 %.not24.i1257, label %.preheader2785, label %249
 
 249:                                              ; preds = %242
   %250 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -1987,7 +1987,7 @@ tok_nextc.exit1250.thread:                        ; preds = %199, %tok_nextc.exi
 
 283:                                              ; preds = %278
   %284 = load i8, ptr %279, align 1, !tbaa !29
-  %285 = trunc i32 %.11002 to i8
+  %285 = trunc nuw i32 %.11002 to i8
   %.not6.i1260 = icmp eq i8 %284, %285
   br i1 %.not6.i1260, label %287, label %286
 
@@ -2029,15 +2029,15 @@ tok_backup.exit1261:                              ; preds = %.critedge21, %287
   br i1 %303, label %.critedge1217, label %.critedge1215
 
 .critedge1217:                                    ; preds = %293, %298
-  br i1 %.not1162, label %330, label %.preheader2675
+  br i1 %.not1162, label %330, label %.preheader2784
 
-.preheader2675:                                   ; preds = %.critedge1217, %320
+.preheader2784:                                   ; preds = %.critedge1217, %320
   %304 = phi ptr [ %322, %320 ], [ %.pre39.i1252, %.critedge1217 ]
   %305 = phi ptr [ %321, %320 ], [ %290, %.critedge1217 ]
   %.not.i1264 = icmp eq ptr %305, %304
   br i1 %.not.i1264, label %313, label %306
 
-306:                                              ; preds = %.preheader2675
+306:                                              ; preds = %.preheader2784
   %307 = load i32, ptr %12, align 4, !tbaa !24
   %308 = icmp ugt i32 %307, 2147483646
   br i1 %308, label %309, label %310
@@ -2053,7 +2053,7 @@ tok_backup.exit1261:                              ; preds = %.critedge21, %287
   store ptr %312, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1269
 
-313:                                              ; preds = %.preheader2675
+313:                                              ; preds = %.preheader2784
   %314 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1266 = icmp eq i32 %314, 10
   br i1 %.not21.i1266, label %315, label %tok_nextc.exit1269
@@ -2078,7 +2078,7 @@ tok_backup.exit1261:                              ; preds = %.critedge21, %287
   %325 = sub i64 %323, %324
   %326 = tail call ptr @memchr(ptr noundef readonly %321, i32 noundef 0, i64 noundef %325) #8
   %.not24.i1268 = icmp eq ptr %326, null
-  br i1 %.not24.i1268, label %.preheader2675, label %327
+  br i1 %.not24.i1268, label %.preheader2784, label %327
 
 327:                                              ; preds = %320
   %328 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -2121,7 +2121,7 @@ tok_nextc.exit1269:                               ; preds = %313, %309, %310, %3
 
 341:                                              ; preds = %336
   %342 = load i8, ptr %337, align 1, !tbaa !29
-  %343 = trunc i32 %.11002 to i8
+  %343 = trunc nuw i32 %.11002 to i8
   %.not6.i1271 = icmp eq i8 %342, %343
   br i1 %.not6.i1271, label %345, label %344
 
@@ -2176,7 +2176,7 @@ tok_backup.exit1272:                              ; preds = %335, %345
 366:                                              ; preds = %356
   %367 = add nsw i32 %.01001, -97
   %or.cond25 = icmp ult i32 %367, 26
-  br i1 %or.cond25, label %.preheader3145, label %368
+  br i1 %or.cond25, label %.preheader3254, label %368
 
 368:                                              ; preds = %366
   %369 = add nsw i32 %.01001, -65
@@ -2185,19 +2185,19 @@ tok_backup.exit1272:                              ; preds = %335, %345
   %or.cond29 = or i1 %370, %or.cond27
   %371 = icmp sgt i32 %.01001, 127
   %or.cond31 = or i1 %371, %or.cond29
-  br i1 %or.cond31, label %.preheader3145, label %551
+  br i1 %or.cond31, label %.preheader3254, label %551
 
-.preheader3145:                                   ; preds = %368, %366
+.preheader3254:                                   ; preds = %368, %366
   br label %372
 
-372:                                              ; preds = %.preheader3145, %tok_nextc.exit1280
-  %.pre39.i1274 = phi ptr [ %.pre39.i12742282, %tok_nextc.exit1280 ], [ %.pre39.i1295, %.preheader3145 ]
-  %.pre.i1273 = phi ptr [ %.pre.i12732279, %tok_nextc.exit1280 ], [ %.pre.i1294, %.preheader3145 ]
-  %.01098 = phi i32 [ %.11099, %tok_nextc.exit1280 ], [ 0, %.preheader3145 ]
-  %.01096 = phi i32 [ %.11097, %tok_nextc.exit1280 ], [ 0, %.preheader3145 ]
-  %.01092 = phi i32 [ %.11093, %tok_nextc.exit1280 ], [ 0, %.preheader3145 ]
-  %.01090 = phi i32 [ %.11091, %tok_nextc.exit1280 ], [ 0, %.preheader3145 ]
-  %.21003 = phi i32 [ %.0.i1276, %tok_nextc.exit1280 ], [ %.01001, %.preheader3145 ]
+372:                                              ; preds = %.preheader3254, %tok_nextc.exit1280
+  %.pre39.i1274 = phi ptr [ %.pre39.i12742282, %tok_nextc.exit1280 ], [ %.pre39.i1295, %.preheader3254 ]
+  %.pre.i1273 = phi ptr [ %.pre.i12732279, %tok_nextc.exit1280 ], [ %.pre.i1294, %.preheader3254 ]
+  %.01098 = phi i32 [ %.11099, %tok_nextc.exit1280 ], [ 0, %.preheader3254 ]
+  %.01096 = phi i32 [ %.11097, %tok_nextc.exit1280 ], [ 0, %.preheader3254 ]
+  %.01092 = phi i32 [ %.11093, %tok_nextc.exit1280 ], [ 0, %.preheader3254 ]
+  %.01090 = phi i32 [ %.11091, %tok_nextc.exit1280 ], [ 0, %.preheader3254 ]
+  %.21003 = phi i32 [ %.0.i1276, %tok_nextc.exit1280 ], [ %.01001, %.preheader3254 ]
   %373 = or i32 %.01090, %.01096
   %or.cond33 = icmp ne i32 %373, 0
   %374 = icmp ne i32 %.01098, 0
@@ -2304,7 +2304,7 @@ tok_nextc.exit1280:                               ; preds = %393, %387, %388, %3
 
 410:                                              ; preds = %tok_nextc.exit1280, %tok_nextc.exit1280
   %.not1192 = icmp eq i32 %.11099, 0
-  br i1 %.not1192, label %1177, label %.thread1486
+  br i1 %.not1192, label %1176, label %.thread1486
 
 .preheader:                                       ; preds = %380, %.preheader.backedge
   %.pre39.i1282 = phi ptr [ %.pre39.i1282.be, %.preheader.backedge ], [ %.pre39.i1274, %380 ]
@@ -2660,15 +2660,15 @@ verify_identifier.exit:                           ; preds = %545, %542, %540, %4
 
 551:                                              ; preds = %368
   %552 = icmp eq i32 %.01001, 13
-  br i1 %552, label %.preheader2677, label %tok_nextc.exit1301
+  br i1 %552, label %.preheader2786, label %tok_nextc.exit1301
 
-.preheader2677:                                   ; preds = %551, %571
+.preheader2786:                                   ; preds = %551, %571
   %553 = phi ptr [ %573, %571 ], [ %.pre39.i1295, %551 ]
   %554 = phi ptr [ %572, %571 ], [ %.pre.i1294, %551 ]
   %.not.i1296 = icmp eq ptr %554, %553
   br i1 %.not.i1296, label %564, label %555
 
-555:                                              ; preds = %.preheader2677
+555:                                              ; preds = %.preheader2786
   %556 = load i32, ptr %12, align 4, !tbaa !24
   %557 = icmp ugt i32 %556, 2147483646
   br i1 %557, label %558, label %559
@@ -2686,7 +2686,7 @@ verify_identifier.exit:                           ; preds = %545, %542, %540, %4
   %563 = zext i8 %562 to i32
   br label %tok_nextc.exit1301
 
-564:                                              ; preds = %.preheader2677
+564:                                              ; preds = %.preheader2786
   %565 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1298 = icmp eq i32 %565, 10
   br i1 %.not21.i1298, label %566, label %.thread1494
@@ -2711,7 +2711,7 @@ verify_identifier.exit:                           ; preds = %545, %542, %540, %4
   %576 = sub i64 %574, %575
   %577 = tail call ptr @memchr(ptr noundef readonly %572, i32 noundef 0, i64 noundef %576) #8
   %.not24.i1300 = icmp eq ptr %577, null
-  br i1 %.not24.i1300, label %.preheader2677, label %578
+  br i1 %.not24.i1300, label %.preheader2786, label %578
 
 578:                                              ; preds = %571
   %579 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -2725,7 +2725,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   %.71008 = phi i32 [ %.01001, %551 ], [ %563, %559 ]
   switch i32 %.71008, label %653 [
     i32 10, label %582
-    i32 46, label %.preheader2674
+    i32 46, label %.preheader2783
   ]
 
 582:                                              ; preds = %tok_nextc.exit1301
@@ -2740,7 +2740,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
 586:                                              ; preds = %583, %582
   %587 = load i32, ptr %21, align 4, !tbaa !54
   %.not1190 = icmp eq i32 %587, 0
-  br i1 %.not1190, label %.critedge2990, label %588
+  br i1 %.not1190, label %.critedge3099, label %588
 
 588:                                              ; preds = %586
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 17264
@@ -2785,13 +2785,13 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   %605 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 4, ptr noundef %603, ptr noundef %604) #9
   br label %.thread1472
 
-.preheader2674:                                   ; preds = %tok_nextc.exit1301, %624
+.preheader2783:                                   ; preds = %tok_nextc.exit1301, %624
   %606 = phi ptr [ %626, %624 ], [ %.pre39.i1303, %tok_nextc.exit1301 ]
   %607 = phi ptr [ %625, %624 ], [ %581, %tok_nextc.exit1301 ]
   %.not.i1304 = icmp eq ptr %607, %606
   br i1 %.not.i1304, label %617, label %608
 
-608:                                              ; preds = %.preheader2674
+608:                                              ; preds = %.preheader2783
   %609 = load i32, ptr %12, align 4, !tbaa !24
   %610 = icmp ugt i32 %609, 2147483646
   br i1 %610, label %611, label %612
@@ -2809,7 +2809,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   %616 = zext i8 %615 to i32
   br label %tok_nextc.exit1309
 
-617:                                              ; preds = %.preheader2674
+617:                                              ; preds = %.preheader2783
   %618 = load i32, ptr %9, align 8, !tbaa !20
   %.not21.i1306 = icmp eq i32 %618, 10
   br i1 %.not21.i1306, label %619, label %tok_nextc.exit1309
@@ -2834,7 +2834,7 @@ tok_nextc.exit1301:                               ; preds = %559, %551
   %629 = sub i64 %627, %628
   %630 = tail call ptr @memchr(ptr noundef readonly %625, i32 noundef 0, i64 noundef %629) #8
   %.not24.i1308 = icmp eq ptr %630, null
-  br i1 %.not24.i1308, label %.preheader2674, label %631
+  br i1 %.not24.i1308, label %.preheader2783, label %631
 
 631:                                              ; preds = %624
   %632 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
@@ -2850,7 +2850,7 @@ tok_nextc.exit1309:                               ; preds = %617, %611, %612, %6
   %637 = load i32, ptr %636, align 4, !tbaa !51
   %638 = and i32 %637, 4
   %.not1180 = icmp eq i32 %638, 0
-  br i1 %.not1180, label %639, label %974
+  br i1 %.not1180, label %639, label %973
 
 639:                                              ; preds = %tok_nextc.exit1309
   %640 = icmp eq i32 %.0.i1305, 46
@@ -2880,286 +2880,285 @@ tok_nextc.exit1309:                               ; preds = %617, %611, %612, %6
   br label %.thread1472
 
 653:                                              ; preds = %tok_nextc.exit1301
-  %654 = and i32 %.71008, 255
-  %655 = zext nneg i32 %654 to i64
-  %656 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %655
-  %657 = load i32, ptr %656, align 4, !tbaa !51
-  %658 = and i32 %657, 4
-  %.not1164 = icmp eq i32 %658, 0
-  br i1 %.not1164, label %.thread1486, label %659
+  %654 = zext nneg i32 %.71008 to i64
+  %655 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %654
+  %656 = load i32, ptr %655, align 4, !tbaa !51
+  %657 = and i32 %656, 4
+  %.not1164 = icmp eq i32 %657, 0
+  br i1 %.not1164, label %.thread1486, label %658
 
 .thread1494:                                      ; preds = %564, %569, %578, %558
   %.pre39.i13592286 = phi ptr [ %570, %569 ], [ %580, %578 ], [ %553, %558 ], [ %553, %564 ]
   %.pre.i13582284 = phi ptr [ %570, %569 ], [ %580, %578 ], [ %554, %558 ], [ %554, %564 ]
   br i1 %.not11641496, label %.thread1486, label %.thread1498
 
-659:                                              ; preds = %653
-  %660 = icmp eq i32 %.71008, 48
-  br i1 %660, label %661, label %.thread1498
+658:                                              ; preds = %653
+  %659 = icmp eq i32 %.71008, 48
+  br i1 %659, label %660, label %.thread1498
 
-661:                                              ; preds = %659
-  %662 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  %663 = and i32 %662, -33
-  switch i32 %663, label %.preheader1572 [
-    i32 88, label %664
-    i32 79, label %743
-    i32 66, label %831
+660:                                              ; preds = %658
+  %661 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  %662 = and i32 %661, -33
+  switch i32 %662, label %.preheader1572 [
+    i32 88, label %663
+    i32 79, label %742
+    i32 66, label %830
   ]
 
-664:                                              ; preds = %661
-  %665 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  br label %666
+663:                                              ; preds = %660
+  %664 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  br label %665
 
-666:                                              ; preds = %737, %664
-  %.91010 = phi i32 [ %665, %664 ], [ 95, %737 ]
-  %667 = icmp eq i32 %.91010, 95
-  br i1 %667, label %668, label %tok_nextc.exit1317
+665:                                              ; preds = %736, %663
+  %.91010 = phi i32 [ %664, %663 ], [ 95, %736 ]
+  %666 = icmp eq i32 %.91010, 95
+  br i1 %666, label %667, label %tok_nextc.exit1317
 
-668:                                              ; preds = %666
+667:                                              ; preds = %665
   %.pre.i1310 = load ptr, ptr %7, align 8, !tbaa !4
   %.pre39.i1311 = load ptr, ptr %8, align 8, !tbaa !26
-  br label %669
+  br label %668
 
-669:                                              ; preds = %688, %668
-  %670 = phi ptr [ %690, %688 ], [ %.pre39.i1311, %668 ]
-  %671 = phi ptr [ %689, %688 ], [ %.pre.i1310, %668 ]
-  %.not.i1312 = icmp eq ptr %671, %670
-  br i1 %.not.i1312, label %681, label %672
+668:                                              ; preds = %687, %667
+  %669 = phi ptr [ %689, %687 ], [ %.pre39.i1311, %667 ]
+  %670 = phi ptr [ %688, %687 ], [ %.pre.i1310, %667 ]
+  %.not.i1312 = icmp eq ptr %670, %669
+  br i1 %.not.i1312, label %680, label %671
 
-672:                                              ; preds = %669
-  %673 = load i32, ptr %12, align 4, !tbaa !24
-  %674 = icmp ugt i32 %673, 2147483646
-  br i1 %674, label %675, label %676
+671:                                              ; preds = %668
+  %672 = load i32, ptr %12, align 4, !tbaa !24
+  %673 = icmp ugt i32 %672, 2147483646
+  br i1 %673, label %674, label %675
 
-675:                                              ; preds = %672
+674:                                              ; preds = %671
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1317
 
-676:                                              ; preds = %672
-  %677 = add nuw nsw i32 %673, 1
-  store i32 %677, ptr %12, align 4, !tbaa !24
-  %678 = getelementptr i8, ptr %671, i64 1
-  store ptr %678, ptr %7, align 8, !tbaa !4
-  %679 = load i8, ptr %671, align 1, !tbaa !29
-  %680 = zext i8 %679 to i32
+675:                                              ; preds = %671
+  %676 = add nuw nsw i32 %672, 1
+  store i32 %676, ptr %12, align 4, !tbaa !24
+  %677 = getelementptr i8, ptr %670, i64 1
+  store ptr %677, ptr %7, align 8, !tbaa !4
+  %678 = load i8, ptr %670, align 1, !tbaa !29
+  %679 = zext i8 %678 to i32
   br label %tok_nextc.exit1317
 
-681:                                              ; preds = %669
-  %682 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1314 = icmp eq i32 %682, 10
-  br i1 %.not21.i1314, label %683, label %tok_nextc.exit1317
+680:                                              ; preds = %668
+  %681 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1314 = icmp eq i32 %681, 10
+  br i1 %.not21.i1314, label %682, label %tok_nextc.exit1317
 
-683:                                              ; preds = %681
-  %684 = load ptr, ptr %10, align 8, !tbaa !27
-  %685 = tail call i32 %684(ptr noundef nonnull %0) #9
-  %.not22.i1315 = icmp eq i32 %685, 0
-  br i1 %.not22.i1315, label %686, label %688
+682:                                              ; preds = %680
+  %683 = load ptr, ptr %10, align 8, !tbaa !27
+  %684 = tail call i32 %683(ptr noundef nonnull %0) #9
+  %.not22.i1315 = icmp eq i32 %684, 0
+  br i1 %.not22.i1315, label %685, label %687
 
-686:                                              ; preds = %683
-  %687 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %687, ptr %7, align 8, !tbaa !4
+685:                                              ; preds = %682
+  %686 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %686, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1317
 
-688:                                              ; preds = %683
-  %689 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %689, ptr %11, align 8, !tbaa !28
-  %690 = load ptr, ptr %8, align 8, !tbaa !26
-  %691 = ptrtoint ptr %690 to i64
-  %692 = ptrtoint ptr %689 to i64
-  %693 = sub i64 %691, %692
-  %694 = tail call ptr @memchr(ptr noundef readonly %689, i32 noundef 0, i64 noundef %693) #8
-  %.not24.i1316 = icmp eq ptr %694, null
-  br i1 %.not24.i1316, label %669, label %695
+687:                                              ; preds = %682
+  %688 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %688, ptr %11, align 8, !tbaa !28
+  %689 = load ptr, ptr %8, align 8, !tbaa !26
+  %690 = ptrtoint ptr %689 to i64
+  %691 = ptrtoint ptr %688 to i64
+  %692 = sub i64 %690, %691
+  %693 = tail call ptr @memchr(ptr noundef readonly %688, i32 noundef 0, i64 noundef %692) #8
+  %.not24.i1316 = icmp eq ptr %693, null
+  br i1 %.not24.i1316, label %668, label %694
 
-695:                                              ; preds = %688
-  %696 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %697 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %697, ptr %7, align 8, !tbaa !4
+694:                                              ; preds = %687
+  %695 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %696 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %696, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1317
 
-tok_nextc.exit1317:                               ; preds = %681, %695, %686, %676, %675, %666
-  %.101011 = phi i32 [ %.91010, %666 ], [ -1, %675 ], [ %680, %676 ], [ -1, %695 ], [ -1, %686 ], [ -1, %681 ]
-  %698 = and i32 %.101011, 255
-  %699 = zext nneg i32 %698 to i64
-  %700 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %699
-  %701 = load i32, ptr %700, align 4, !tbaa !51
-  %702 = and i32 %701, 16
-  %.not1177 = icmp eq i32 %702, 0
-  br i1 %.not1177, label %703, label %.preheader1573.preheader
+tok_nextc.exit1317:                               ; preds = %680, %694, %685, %675, %674, %665
+  %.101011 = phi i32 [ %.91010, %665 ], [ -1, %674 ], [ %679, %675 ], [ -1, %694 ], [ -1, %685 ], [ -1, %680 ]
+  %697 = and i32 %.101011, 255
+  %698 = zext nneg i32 %697 to i64
+  %699 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %698
+  %700 = load i32, ptr %699, align 4, !tbaa !51
+  %701 = and i32 %700, 16
+  %.not1177 = icmp eq i32 %701, 0
+  br i1 %.not1177, label %702, label %.preheader1573.preheader
 
 .preheader1573.preheader:                         ; preds = %tok_nextc.exit1317
   %.pre.i1318.pre = load ptr, ptr %7, align 8, !tbaa !4
   %.pre39.i1319.pre = load ptr, ptr %8, align 8, !tbaa !26
   br label %.preheader1573
 
-703:                                              ; preds = %tok_nextc.exit1317
+702:                                              ; preds = %tok_nextc.exit1317
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %.101011)
-  %704 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #9
-  %705 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %704, ptr noundef null, ptr noundef null) #9
+  %703 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #9
+  %704 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %703, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
 .preheader1573:                                   ; preds = %.preheader1573.backedge, %.preheader1573.preheader
   %.pre39.i13192267 = phi ptr [ %.pre39.i1319.pre, %.preheader1573.preheader ], [ %.pre39.i13192267.be, %.preheader1573.backedge ]
   %.pre.i13182264 = phi ptr [ %.pre.i1318.pre, %.preheader1573.preheader ], [ %.pre.i13182264.be, %.preheader1573.backedge ]
   %.not.i1320 = icmp eq ptr %.pre.i13182264, %.pre39.i13192267
-  br i1 %.not.i1320, label %715, label %706
+  br i1 %.not.i1320, label %714, label %705
 
-706:                                              ; preds = %.preheader1573
-  %707 = load i32, ptr %12, align 4, !tbaa !24
-  %708 = icmp ugt i32 %707, 2147483646
-  br i1 %708, label %709, label %710
+705:                                              ; preds = %.preheader1573
+  %706 = load i32, ptr %12, align 4, !tbaa !24
+  %707 = icmp ugt i32 %706, 2147483646
+  br i1 %707, label %708, label %709
 
-709:                                              ; preds = %706
+708:                                              ; preds = %705
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1325
 
-710:                                              ; preds = %706
-  %711 = add nuw nsw i32 %707, 1
-  store i32 %711, ptr %12, align 4, !tbaa !24
-  %712 = getelementptr i8, ptr %.pre.i13182264, i64 1
-  store ptr %712, ptr %7, align 8, !tbaa !4
-  %713 = load i8, ptr %.pre.i13182264, align 1, !tbaa !29
-  %714 = zext i8 %713 to i32
+709:                                              ; preds = %705
+  %710 = add nuw nsw i32 %706, 1
+  store i32 %710, ptr %12, align 4, !tbaa !24
+  %711 = getelementptr i8, ptr %.pre.i13182264, i64 1
+  store ptr %711, ptr %7, align 8, !tbaa !4
+  %712 = load i8, ptr %.pre.i13182264, align 1, !tbaa !29
+  %713 = zext i8 %712 to i32
   br label %tok_nextc.exit1325
 
-715:                                              ; preds = %.preheader1573
-  %716 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1322 = icmp eq i32 %716, 10
-  br i1 %.not21.i1322, label %717, label %tok_nextc.exit1325
+714:                                              ; preds = %.preheader1573
+  %715 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1322 = icmp eq i32 %715, 10
+  br i1 %.not21.i1322, label %716, label %tok_nextc.exit1325
 
-717:                                              ; preds = %715
-  %718 = load ptr, ptr %10, align 8, !tbaa !27
-  %719 = tail call i32 %718(ptr noundef nonnull %0) #9
-  %.not22.i1323 = icmp eq i32 %719, 0
-  br i1 %.not22.i1323, label %720, label %722
+716:                                              ; preds = %714
+  %717 = load ptr, ptr %10, align 8, !tbaa !27
+  %718 = tail call i32 %717(ptr noundef nonnull %0) #9
+  %.not22.i1323 = icmp eq i32 %718, 0
+  br i1 %.not22.i1323, label %719, label %721
 
-720:                                              ; preds = %717
-  %721 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %721, ptr %7, align 8, !tbaa !4
+719:                                              ; preds = %716
+  %720 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %720, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1325
 
-722:                                              ; preds = %717
-  %723 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %723, ptr %11, align 8, !tbaa !28
-  %724 = load ptr, ptr %8, align 8, !tbaa !26
-  %725 = ptrtoint ptr %724 to i64
-  %726 = ptrtoint ptr %723 to i64
-  %727 = sub i64 %725, %726
-  %728 = tail call ptr @memchr(ptr noundef readonly %723, i32 noundef 0, i64 noundef %727) #8
-  %.not24.i1324 = icmp eq ptr %728, null
-  br i1 %.not24.i1324, label %.preheader1573.backedge, label %729
+721:                                              ; preds = %716
+  %722 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %722, ptr %11, align 8, !tbaa !28
+  %723 = load ptr, ptr %8, align 8, !tbaa !26
+  %724 = ptrtoint ptr %723 to i64
+  %725 = ptrtoint ptr %722 to i64
+  %726 = sub i64 %724, %725
+  %727 = tail call ptr @memchr(ptr noundef readonly %722, i32 noundef 0, i64 noundef %726) #8
+  %.not24.i1324 = icmp eq ptr %727, null
+  br i1 %.not24.i1324, label %.preheader1573.backedge, label %728
 
-.preheader1573.backedge:                          ; preds = %722, %tok_nextc.exit1325
-  %.pre39.i13192267.be = phi ptr [ %724, %722 ], [ %.pre39.i13192266, %tok_nextc.exit1325 ]
-  %.pre.i13182264.be = phi ptr [ %723, %722 ], [ %.pre.i13182263, %tok_nextc.exit1325 ]
+.preheader1573.backedge:                          ; preds = %721, %tok_nextc.exit1325
+  %.pre39.i13192267.be = phi ptr [ %723, %721 ], [ %.pre39.i13192266, %tok_nextc.exit1325 ]
+  %.pre.i13182264.be = phi ptr [ %722, %721 ], [ %.pre.i13182263, %tok_nextc.exit1325 ]
   br label %.preheader1573, !llvm.loop !72
 
-729:                                              ; preds = %722
-  %730 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %731 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %731, ptr %7, align 8, !tbaa !4
+728:                                              ; preds = %721
+  %729 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %730 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %730, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1325
 
-tok_nextc.exit1325:                               ; preds = %715, %709, %710, %720, %729
-  %.pre39.i13192266 = phi ptr [ %.pre39.i13192267, %709 ], [ %.pre39.i13192267, %710 ], [ %731, %729 ], [ %721, %720 ], [ %.pre39.i13192267, %715 ]
-  %.pre.i13182263 = phi ptr [ %.pre.i13182264, %709 ], [ %712, %710 ], [ %731, %729 ], [ %721, %720 ], [ %.pre.i13182264, %715 ]
-  %.0.i1321 = phi i32 [ -1, %709 ], [ %714, %710 ], [ -1, %729 ], [ -1, %720 ], [ -1, %715 ]
-  %732 = and i32 %.0.i1321, 255
-  %733 = zext nneg i32 %732 to i64
-  %734 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %733
-  %735 = load i32, ptr %734, align 4, !tbaa !51
-  %736 = and i32 %735, 16
-  %.not1178 = icmp eq i32 %736, 0
-  br i1 %.not1178, label %737, label %.preheader1573.backedge
+tok_nextc.exit1325:                               ; preds = %714, %708, %709, %719, %728
+  %.pre39.i13192266 = phi ptr [ %.pre39.i13192267, %708 ], [ %.pre39.i13192267, %709 ], [ %730, %728 ], [ %720, %719 ], [ %.pre39.i13192267, %714 ]
+  %.pre.i13182263 = phi ptr [ %.pre.i13182264, %708 ], [ %711, %709 ], [ %730, %728 ], [ %720, %719 ], [ %.pre.i13182264, %714 ]
+  %.0.i1321 = phi i32 [ -1, %708 ], [ %713, %709 ], [ -1, %728 ], [ -1, %719 ], [ -1, %714 ]
+  %731 = and i32 %.0.i1321, 255
+  %732 = zext nneg i32 %731 to i64
+  %733 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %732
+  %734 = load i32, ptr %733, align 4, !tbaa !51
+  %735 = and i32 %734, 16
+  %.not1178 = icmp eq i32 %735, 0
+  br i1 %.not1178, label %736, label %.preheader1573.backedge
 
-737:                                              ; preds = %tok_nextc.exit1325
-  %738 = icmp eq i32 %.0.i1321, 95
-  br i1 %738, label %666, label %739, !llvm.loop !73
+736:                                              ; preds = %tok_nextc.exit1325
+  %737 = icmp eq i32 %.0.i1321, 95
+  br i1 %737, label %665, label %738, !llvm.loop !73
 
-739:                                              ; preds = %737
-  %740 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.0.i1321, ptr noundef nonnull @.str.2)
-  %.not1179 = icmp eq i32 %740, 0
-  br i1 %.not1179, label %741, label %.thread1518
+738:                                              ; preds = %736
+  %739 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.0.i1321, ptr noundef nonnull @.str.2)
+  %.not1179 = icmp eq i32 %739, 0
+  br i1 %.not1179, label %740, label %.thread1518
 
-741:                                              ; preds = %739
-  %742 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+740:                                              ; preds = %738
+  %741 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-743:                                              ; preds = %661
-  %744 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  br label %745
+742:                                              ; preds = %660
+  %743 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  br label %744
 
-745:                                              ; preds = %817, %743
-  %.111012 = phi i32 [ %744, %743 ], [ 95, %817 ]
-  %746 = icmp eq i32 %.111012, 95
-  br i1 %746, label %747, label %tok_nextc.exit1333
+744:                                              ; preds = %816, %742
+  %.111012 = phi i32 [ %743, %742 ], [ 95, %816 ]
+  %745 = icmp eq i32 %.111012, 95
+  br i1 %745, label %746, label %tok_nextc.exit1333
 
-747:                                              ; preds = %745
+746:                                              ; preds = %744
   %.pre.i1326 = load ptr, ptr %7, align 8, !tbaa !4
   %.pre39.i1327 = load ptr, ptr %8, align 8, !tbaa !26
-  br label %748
+  br label %747
 
-748:                                              ; preds = %767, %747
-  %749 = phi ptr [ %769, %767 ], [ %.pre39.i1327, %747 ]
-  %750 = phi ptr [ %768, %767 ], [ %.pre.i1326, %747 ]
-  %.not.i1328 = icmp eq ptr %750, %749
-  br i1 %.not.i1328, label %760, label %751
+747:                                              ; preds = %766, %746
+  %748 = phi ptr [ %768, %766 ], [ %.pre39.i1327, %746 ]
+  %749 = phi ptr [ %767, %766 ], [ %.pre.i1326, %746 ]
+  %.not.i1328 = icmp eq ptr %749, %748
+  br i1 %.not.i1328, label %759, label %750
 
-751:                                              ; preds = %748
-  %752 = load i32, ptr %12, align 4, !tbaa !24
-  %753 = icmp ugt i32 %752, 2147483646
-  br i1 %753, label %754, label %755
+750:                                              ; preds = %747
+  %751 = load i32, ptr %12, align 4, !tbaa !24
+  %752 = icmp ugt i32 %751, 2147483646
+  br i1 %752, label %753, label %754
 
-754:                                              ; preds = %751
+753:                                              ; preds = %750
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1333.thread
 
-755:                                              ; preds = %751
-  %756 = add nuw nsw i32 %752, 1
-  store i32 %756, ptr %12, align 4, !tbaa !24
-  %757 = getelementptr i8, ptr %750, i64 1
-  store ptr %757, ptr %7, align 8, !tbaa !4
-  %758 = load i8, ptr %750, align 1, !tbaa !29
-  %759 = zext i8 %758 to i32
+754:                                              ; preds = %750
+  %755 = add nuw nsw i32 %751, 1
+  store i32 %755, ptr %12, align 4, !tbaa !24
+  %756 = getelementptr i8, ptr %749, i64 1
+  store ptr %756, ptr %7, align 8, !tbaa !4
+  %757 = load i8, ptr %749, align 1, !tbaa !29
+  %758 = zext i8 %757 to i32
   br label %tok_nextc.exit1333
 
-760:                                              ; preds = %748
-  %761 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1330 = icmp eq i32 %761, 10
-  br i1 %.not21.i1330, label %762, label %tok_nextc.exit1333.thread
+759:                                              ; preds = %747
+  %760 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1330 = icmp eq i32 %760, 10
+  br i1 %.not21.i1330, label %761, label %tok_nextc.exit1333.thread
 
-762:                                              ; preds = %760
-  %763 = load ptr, ptr %10, align 8, !tbaa !27
-  %764 = tail call i32 %763(ptr noundef nonnull %0) #9
-  %.not22.i1331 = icmp eq i32 %764, 0
-  br i1 %.not22.i1331, label %765, label %767
+761:                                              ; preds = %759
+  %762 = load ptr, ptr %10, align 8, !tbaa !27
+  %763 = tail call i32 %762(ptr noundef nonnull %0) #9
+  %.not22.i1331 = icmp eq i32 %763, 0
+  br i1 %.not22.i1331, label %764, label %766
 
-765:                                              ; preds = %762
-  %766 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %766, ptr %7, align 8, !tbaa !4
+764:                                              ; preds = %761
+  %765 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %765, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1333.thread
 
-767:                                              ; preds = %762
-  %768 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %768, ptr %11, align 8, !tbaa !28
-  %769 = load ptr, ptr %8, align 8, !tbaa !26
-  %770 = ptrtoint ptr %769 to i64
-  %771 = ptrtoint ptr %768 to i64
-  %772 = sub i64 %770, %771
-  %773 = tail call ptr @memchr(ptr noundef readonly %768, i32 noundef 0, i64 noundef %772) #8
-  %.not24.i1332 = icmp eq ptr %773, null
-  br i1 %.not24.i1332, label %748, label %774
+766:                                              ; preds = %761
+  %767 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %767, ptr %11, align 8, !tbaa !28
+  %768 = load ptr, ptr %8, align 8, !tbaa !26
+  %769 = ptrtoint ptr %768 to i64
+  %770 = ptrtoint ptr %767 to i64
+  %771 = sub i64 %769, %770
+  %772 = tail call ptr @memchr(ptr noundef readonly %767, i32 noundef 0, i64 noundef %771) #8
+  %.not24.i1332 = icmp eq ptr %772, null
+  br i1 %.not24.i1332, label %747, label %773
 
-774:                                              ; preds = %767
-  %775 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %776 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %776, ptr %7, align 8, !tbaa !4
+773:                                              ; preds = %766
+  %774 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %775 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %775, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1333.thread
 
-tok_nextc.exit1333:                               ; preds = %755, %745
-  %.121013 = phi i32 [ %.111012, %745 ], [ %759, %755 ]
-  %777 = add nsw i32 %.121013, -56
-  %or.cond73 = icmp ult i32 %777, -8
+tok_nextc.exit1333:                               ; preds = %754, %744
+  %.121013 = phi i32 [ %.111012, %744 ], [ %758, %754 ]
+  %776 = add nsw i32 %.121013, -56
+  %or.cond73 = icmp ult i32 %776, -8
   br i1 %or.cond73, label %tok_nextc.exit1333.thread, label %.preheader1574.preheader
 
 .preheader1574.preheader:                         ; preds = %tok_nextc.exit1333
@@ -3167,1067 +3166,1067 @@ tok_nextc.exit1333:                               ; preds = %755, %745
   %.pre39.i1335.pre = load ptr, ptr %8, align 8, !tbaa !26
   br label %.preheader1574.outer
 
-tok_nextc.exit1333.thread:                        ; preds = %tok_nextc.exit1333, %760, %765, %774, %754
-  %.1210131502 = phi i32 [ -1, %754 ], [ -1, %774 ], [ -1, %765 ], [ -1, %760 ], [ %.121013, %tok_nextc.exit1333 ]
-  %778 = and i32 %.1210131502, 255
-  %779 = zext nneg i32 %778 to i64
-  %780 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %779
-  %781 = load i32, ptr %780, align 4, !tbaa !51
-  %782 = and i32 %781, 4
-  %.not1176 = icmp eq i32 %782, 0
-  br i1 %.not1176, label %786, label %783
+tok_nextc.exit1333.thread:                        ; preds = %tok_nextc.exit1333, %759, %764, %773, %753
+  %.1210131502 = phi i32 [ -1, %753 ], [ -1, %773 ], [ -1, %764 ], [ -1, %759 ], [ %.121013, %tok_nextc.exit1333 ]
+  %777 = and i32 %.1210131502, 255
+  %778 = zext nneg i32 %777 to i64
+  %779 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %778
+  %780 = load i32, ptr %779, align 4, !tbaa !51
+  %781 = and i32 %780, 4
+  %.not1176 = icmp eq i32 %781, 0
+  br i1 %.not1176, label %785, label %782
 
-783:                                              ; preds = %tok_nextc.exit1333.thread
-  %784 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %.1210131502) #9
-  %785 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %784, ptr noundef null, ptr noundef null) #9
+782:                                              ; preds = %tok_nextc.exit1333.thread
+  %783 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %.1210131502) #9
+  %784 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %783, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-786:                                              ; preds = %tok_nextc.exit1333.thread
+785:                                              ; preds = %tok_nextc.exit1333.thread
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %.1210131502)
-  %787 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #9
-  %788 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %787, ptr noundef null, ptr noundef null) #9
+  %786 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #9
+  %787 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %786, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
 .preheader1574:                                   ; preds = %.preheader1574.outer, %tok_nextc.exit1341
-  %789 = phi ptr [ %812, %tok_nextc.exit1341 ], [ %.ph3081, %.preheader1574.outer ]
-  %.not.i1336 = icmp eq ptr %789, %.pre39.i13352261.ph
-  br i1 %.not.i1336, label %794, label %790
+  %788 = phi ptr [ %811, %tok_nextc.exit1341 ], [ %.ph3190, %.preheader1574.outer ]
+  %.not.i1336 = icmp eq ptr %788, %.pre39.i13352261.ph
+  br i1 %.not.i1336, label %793, label %789
 
-790:                                              ; preds = %.preheader1574
-  %791 = load i32, ptr %12, align 4, !tbaa !24
-  %792 = icmp ugt i32 %791, 2147483646
-  br i1 %792, label %793, label %tok_nextc.exit1341
+789:                                              ; preds = %.preheader1574
+  %790 = load i32, ptr %12, align 4, !tbaa !24
+  %791 = icmp ugt i32 %790, 2147483646
+  br i1 %791, label %792, label %tok_nextc.exit1341
 
-793:                                              ; preds = %790
+792:                                              ; preds = %789
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %.thread1505
 
-794:                                              ; preds = %.preheader1574
-  %795 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1338 = icmp eq i32 %795, 10
-  br i1 %.not21.i1338, label %796, label %.thread1505
+793:                                              ; preds = %.preheader1574
+  %794 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1338 = icmp eq i32 %794, 10
+  br i1 %.not21.i1338, label %795, label %.thread1505
 
-796:                                              ; preds = %794
-  %797 = load ptr, ptr %10, align 8, !tbaa !27
-  %798 = tail call i32 %797(ptr noundef nonnull %0) #9
-  %.not22.i1339 = icmp eq i32 %798, 0
-  br i1 %.not22.i1339, label %799, label %801
+795:                                              ; preds = %793
+  %796 = load ptr, ptr %10, align 8, !tbaa !27
+  %797 = tail call i32 %796(ptr noundef nonnull %0) #9
+  %.not22.i1339 = icmp eq i32 %797, 0
+  br i1 %.not22.i1339, label %798, label %800
 
-799:                                              ; preds = %796
-  %800 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %800, ptr %7, align 8, !tbaa !4
+798:                                              ; preds = %795
+  %799 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %799, ptr %7, align 8, !tbaa !4
   br label %.thread1505
 
-801:                                              ; preds = %796
-  %802 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %802, ptr %11, align 8, !tbaa !28
-  %803 = load ptr, ptr %8, align 8, !tbaa !26
-  %804 = ptrtoint ptr %803 to i64
-  %805 = ptrtoint ptr %802 to i64
-  %806 = sub i64 %804, %805
-  %807 = tail call ptr @memchr(ptr noundef readonly %802, i32 noundef 0, i64 noundef %806) #8
-  %.not24.i1340 = icmp eq ptr %807, null
-  br i1 %.not24.i1340, label %.preheader1574.outer, label %808
+800:                                              ; preds = %795
+  %801 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %801, ptr %11, align 8, !tbaa !28
+  %802 = load ptr, ptr %8, align 8, !tbaa !26
+  %803 = ptrtoint ptr %802 to i64
+  %804 = ptrtoint ptr %801 to i64
+  %805 = sub i64 %803, %804
+  %806 = tail call ptr @memchr(ptr noundef readonly %801, i32 noundef 0, i64 noundef %805) #8
+  %.not24.i1340 = icmp eq ptr %806, null
+  br i1 %.not24.i1340, label %.preheader1574.outer, label %807
 
-.preheader1574.outer:                             ; preds = %.preheader1574.preheader, %801
-  %.pre39.i13352261.ph = phi ptr [ %.pre39.i1335.pre, %.preheader1574.preheader ], [ %803, %801 ]
-  %.ph3081 = phi ptr [ %.pre.i1334.pre, %.preheader1574.preheader ], [ %802, %801 ]
+.preheader1574.outer:                             ; preds = %.preheader1574.preheader, %800
+  %.pre39.i13352261.ph = phi ptr [ %.pre39.i1335.pre, %.preheader1574.preheader ], [ %802, %800 ]
+  %.ph3190 = phi ptr [ %.pre.i1334.pre, %.preheader1574.preheader ], [ %801, %800 ]
   br label %.preheader1574
 
-808:                                              ; preds = %801
-  %809 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %810 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %810, ptr %7, align 8, !tbaa !4
+807:                                              ; preds = %800
+  %808 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %809 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %809, ptr %7, align 8, !tbaa !4
   br label %.thread1505
 
-tok_nextc.exit1341:                               ; preds = %790
-  %811 = add nuw nsw i32 %791, 1
-  store i32 %811, ptr %12, align 4, !tbaa !24
-  %812 = getelementptr i8, ptr %789, i64 1
-  store ptr %812, ptr %7, align 8, !tbaa !4
-  %813 = load i8, ptr %789, align 1, !tbaa !29
-  %814 = zext i8 %813 to i32
-  %815 = and i32 %814, 248
-  %816 = icmp eq i32 %815, 48
-  br i1 %816, label %.preheader1574, label %817, !llvm.loop !74
+tok_nextc.exit1341:                               ; preds = %789
+  %810 = add nuw nsw i32 %790, 1
+  store i32 %810, ptr %12, align 4, !tbaa !24
+  %811 = getelementptr i8, ptr %788, i64 1
+  store ptr %811, ptr %7, align 8, !tbaa !4
+  %812 = load i8, ptr %788, align 1, !tbaa !29
+  %813 = zext i8 %812 to i32
+  %814 = and i32 %813, 248
+  %815 = icmp eq i32 %814, 48
+  br i1 %815, label %.preheader1574, label %816, !llvm.loop !74
 
-817:                                              ; preds = %tok_nextc.exit1341
-  %818 = icmp eq i8 %813, 95
-  br i1 %818, label %745, label %.thread1505, !llvm.loop !75
+816:                                              ; preds = %tok_nextc.exit1341
+  %817 = icmp eq i8 %812, 95
+  br i1 %817, label %744, label %.thread1505, !llvm.loop !75
 
-.thread1505:                                      ; preds = %817, %794, %793, %808, %799
-  %.0.i133715041507 = phi i32 [ -1, %799 ], [ -1, %808 ], [ -1, %793 ], [ -1, %794 ], [ %814, %817 ]
-  %819 = and i32 %.0.i133715041507, 255
-  %820 = zext nneg i32 %819 to i64
-  %821 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %820
-  %822 = load i32, ptr %821, align 4, !tbaa !51
-  %823 = and i32 %822, 4
-  %.not1174 = icmp eq i32 %823, 0
-  br i1 %.not1174, label %827, label %824
+.thread1505:                                      ; preds = %816, %793, %792, %807, %798
+  %.0.i133715041507 = phi i32 [ -1, %798 ], [ -1, %807 ], [ -1, %792 ], [ -1, %793 ], [ %813, %816 ]
+  %818 = and i32 %.0.i133715041507, 255
+  %819 = zext nneg i32 %818 to i64
+  %820 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %819
+  %821 = load i32, ptr %820, align 4, !tbaa !51
+  %822 = and i32 %821, 4
+  %.not1174 = icmp eq i32 %822, 0
+  br i1 %.not1174, label %826, label %823
 
-824:                                              ; preds = %.thread1505
-  %825 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %.0.i133715041507) #9
-  %826 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %825, ptr noundef null, ptr noundef null) #9
+823:                                              ; preds = %.thread1505
+  %824 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %.0.i133715041507) #9
+  %825 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %824, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-827:                                              ; preds = %.thread1505
-  %828 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.0.i133715041507, ptr noundef nonnull @.str.5)
-  %.not1175 = icmp eq i32 %828, 0
-  br i1 %.not1175, label %829, label %.thread1518
+826:                                              ; preds = %.thread1505
+  %827 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.0.i133715041507, ptr noundef nonnull @.str.5)
+  %.not1175 = icmp eq i32 %827, 0
+  br i1 %.not1175, label %828, label %.thread1518
 
-829:                                              ; preds = %827
-  %830 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+828:                                              ; preds = %826
+  %829 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-831:                                              ; preds = %661
-  %832 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  br label %833
+830:                                              ; preds = %660
+  %831 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  br label %832
 
-833:                                              ; preds = %879, %831
-  %.131014 = phi i32 [ %832, %831 ], [ 95, %879 ]
-  %834 = icmp eq i32 %.131014, 95
-  br i1 %834, label %835, label %837
+832:                                              ; preds = %878, %830
+  %.131014 = phi i32 [ %831, %830 ], [ 95, %878 ]
+  %833 = icmp eq i32 %.131014, 95
+  br i1 %833, label %834, label %836
 
-835:                                              ; preds = %833
-  %836 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  br label %837
+834:                                              ; preds = %832
+  %835 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  br label %836
 
-837:                                              ; preds = %835, %833
-  %.141015 = phi i32 [ %836, %835 ], [ %.131014, %833 ]
-  %838 = add nsw i32 %.141015, -50
-  %or.cond77 = icmp ult i32 %838, -2
-  br i1 %or.cond77, label %839, label %.preheader1577.preheader
+836:                                              ; preds = %834, %832
+  %.141015 = phi i32 [ %835, %834 ], [ %.131014, %832 ]
+  %837 = add nsw i32 %.141015, -50
+  %or.cond77 = icmp ult i32 %837, -2
+  br i1 %or.cond77, label %838, label %.preheader1577.preheader
 
-.preheader1577.preheader:                         ; preds = %837
+.preheader1577.preheader:                         ; preds = %836
   %.pre.i1342.pre = load ptr, ptr %7, align 8, !tbaa !4
   %.pre39.i1343.pre = load ptr, ptr %8, align 8, !tbaa !26
   br label %.preheader1577.outer
 
-839:                                              ; preds = %837
-  %840 = and i32 %.141015, 255
-  %841 = zext nneg i32 %840 to i64
-  %842 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %841
-  %843 = load i32, ptr %842, align 4, !tbaa !51
-  %844 = and i32 %843, 4
-  %.not1173 = icmp eq i32 %844, 0
-  br i1 %.not1173, label %848, label %845
+838:                                              ; preds = %836
+  %839 = and i32 %.141015, 255
+  %840 = zext nneg i32 %839 to i64
+  %841 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %840
+  %842 = load i32, ptr %841, align 4, !tbaa !51
+  %843 = and i32 %842, 4
+  %.not1173 = icmp eq i32 %843, 0
+  br i1 %.not1173, label %847, label %844
 
-845:                                              ; preds = %839
-  %846 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %.141015) #9
-  %847 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %846, ptr noundef null, ptr noundef null) #9
+844:                                              ; preds = %838
+  %845 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %.141015) #9
+  %846 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %845, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-848:                                              ; preds = %839
+847:                                              ; preds = %838
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %.141015)
-  %849 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #9
-  %850 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %849, ptr noundef null, ptr noundef null) #9
+  %848 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #9
+  %849 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %848, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
 .preheader1577:                                   ; preds = %.preheader1577.outer, %tok_nextc.exit1349
-  %851 = phi ptr [ %874, %tok_nextc.exit1349 ], [ %.ph3095, %.preheader1577.outer ]
-  %.not.i1344 = icmp eq ptr %851, %.pre39.i13432258.ph
-  br i1 %.not.i1344, label %856, label %852
+  %850 = phi ptr [ %873, %tok_nextc.exit1349 ], [ %.ph3204, %.preheader1577.outer ]
+  %.not.i1344 = icmp eq ptr %850, %.pre39.i13432258.ph
+  br i1 %.not.i1344, label %855, label %851
 
-852:                                              ; preds = %.preheader1577
-  %853 = load i32, ptr %12, align 4, !tbaa !24
-  %854 = icmp ugt i32 %853, 2147483646
-  br i1 %854, label %855, label %tok_nextc.exit1349
+851:                                              ; preds = %.preheader1577
+  %852 = load i32, ptr %12, align 4, !tbaa !24
+  %853 = icmp ugt i32 %852, 2147483646
+  br i1 %853, label %854, label %tok_nextc.exit1349
 
-855:                                              ; preds = %852
+854:                                              ; preds = %851
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %.thread1510
 
-856:                                              ; preds = %.preheader1577
-  %857 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1346 = icmp eq i32 %857, 10
-  br i1 %.not21.i1346, label %858, label %.thread1510
+855:                                              ; preds = %.preheader1577
+  %856 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1346 = icmp eq i32 %856, 10
+  br i1 %.not21.i1346, label %857, label %.thread1510
 
-858:                                              ; preds = %856
-  %859 = load ptr, ptr %10, align 8, !tbaa !27
-  %860 = tail call i32 %859(ptr noundef nonnull %0) #9
-  %.not22.i1347 = icmp eq i32 %860, 0
-  br i1 %.not22.i1347, label %861, label %863
+857:                                              ; preds = %855
+  %858 = load ptr, ptr %10, align 8, !tbaa !27
+  %859 = tail call i32 %858(ptr noundef nonnull %0) #9
+  %.not22.i1347 = icmp eq i32 %859, 0
+  br i1 %.not22.i1347, label %860, label %862
 
-861:                                              ; preds = %858
-  %862 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %862, ptr %7, align 8, !tbaa !4
+860:                                              ; preds = %857
+  %861 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %861, ptr %7, align 8, !tbaa !4
   br label %.thread1510
 
-863:                                              ; preds = %858
-  %864 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %864, ptr %11, align 8, !tbaa !28
-  %865 = load ptr, ptr %8, align 8, !tbaa !26
-  %866 = ptrtoint ptr %865 to i64
-  %867 = ptrtoint ptr %864 to i64
-  %868 = sub i64 %866, %867
-  %869 = tail call ptr @memchr(ptr noundef readonly %864, i32 noundef 0, i64 noundef %868) #8
-  %.not24.i1348 = icmp eq ptr %869, null
-  br i1 %.not24.i1348, label %.preheader1577.outer, label %870
+862:                                              ; preds = %857
+  %863 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %863, ptr %11, align 8, !tbaa !28
+  %864 = load ptr, ptr %8, align 8, !tbaa !26
+  %865 = ptrtoint ptr %864 to i64
+  %866 = ptrtoint ptr %863 to i64
+  %867 = sub i64 %865, %866
+  %868 = tail call ptr @memchr(ptr noundef readonly %863, i32 noundef 0, i64 noundef %867) #8
+  %.not24.i1348 = icmp eq ptr %868, null
+  br i1 %.not24.i1348, label %.preheader1577.outer, label %869
 
-.preheader1577.outer:                             ; preds = %.preheader1577.preheader, %863
-  %.pre39.i13432258.ph = phi ptr [ %.pre39.i1343.pre, %.preheader1577.preheader ], [ %865, %863 ]
-  %.ph3095 = phi ptr [ %.pre.i1342.pre, %.preheader1577.preheader ], [ %864, %863 ]
+.preheader1577.outer:                             ; preds = %.preheader1577.preheader, %862
+  %.pre39.i13432258.ph = phi ptr [ %.pre39.i1343.pre, %.preheader1577.preheader ], [ %864, %862 ]
+  %.ph3204 = phi ptr [ %.pre.i1342.pre, %.preheader1577.preheader ], [ %863, %862 ]
   br label %.preheader1577
 
-870:                                              ; preds = %863
-  %871 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %872 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %872, ptr %7, align 8, !tbaa !4
+869:                                              ; preds = %862
+  %870 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %871 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %871, ptr %7, align 8, !tbaa !4
   br label %.thread1510
 
-tok_nextc.exit1349:                               ; preds = %852
-  %873 = add nuw nsw i32 %853, 1
-  store i32 %873, ptr %12, align 4, !tbaa !24
-  %874 = getelementptr i8, ptr %851, i64 1
-  store ptr %874, ptr %7, align 8, !tbaa !4
-  %875 = load i8, ptr %851, align 1, !tbaa !29
-  %876 = zext i8 %875 to i32
-  %877 = and i32 %876, 254
-  %878 = icmp eq i32 %877, 48
-  br i1 %878, label %.preheader1577, label %879, !llvm.loop !76
+tok_nextc.exit1349:                               ; preds = %851
+  %872 = add nuw nsw i32 %852, 1
+  store i32 %872, ptr %12, align 4, !tbaa !24
+  %873 = getelementptr i8, ptr %850, i64 1
+  store ptr %873, ptr %7, align 8, !tbaa !4
+  %874 = load i8, ptr %850, align 1, !tbaa !29
+  %875 = zext i8 %874 to i32
+  %876 = and i32 %875, 254
+  %877 = icmp eq i32 %876, 48
+  br i1 %877, label %.preheader1577, label %878, !llvm.loop !76
 
-879:                                              ; preds = %tok_nextc.exit1349
-  %880 = icmp eq i8 %875, 95
-  br i1 %880, label %833, label %.thread1510, !llvm.loop !77
+878:                                              ; preds = %tok_nextc.exit1349
+  %879 = icmp eq i8 %874, 95
+  br i1 %879, label %832, label %.thread1510, !llvm.loop !77
 
-.thread1510:                                      ; preds = %879, %856, %855, %870, %861
-  %.0.i134515091512 = phi i32 [ -1, %861 ], [ -1, %870 ], [ -1, %855 ], [ -1, %856 ], [ %876, %879 ]
-  %881 = and i32 %.0.i134515091512, 255
-  %882 = zext nneg i32 %881 to i64
-  %883 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %882
-  %884 = load i32, ptr %883, align 4, !tbaa !51
-  %885 = and i32 %884, 4
-  %.not1171 = icmp eq i32 %885, 0
-  br i1 %.not1171, label %889, label %886
+.thread1510:                                      ; preds = %878, %855, %854, %869, %860
+  %.0.i134515091512 = phi i32 [ -1, %860 ], [ -1, %869 ], [ -1, %854 ], [ -1, %855 ], [ %875, %878 ]
+  %880 = and i32 %.0.i134515091512, 255
+  %881 = zext nneg i32 %880 to i64
+  %882 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %881
+  %883 = load i32, ptr %882, align 4, !tbaa !51
+  %884 = and i32 %883, 4
+  %.not1171 = icmp eq i32 %884, 0
+  br i1 %.not1171, label %888, label %885
 
-886:                                              ; preds = %.thread1510
-  %887 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %.0.i134515091512) #9
-  %888 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %887, ptr noundef null, ptr noundef null) #9
+885:                                              ; preds = %.thread1510
+  %886 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %.0.i134515091512) #9
+  %887 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %886, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-889:                                              ; preds = %.thread1510
-  %890 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.0.i134515091512, ptr noundef nonnull @.str.8)
-  %.not1172 = icmp eq i32 %890, 0
-  br i1 %.not1172, label %891, label %.thread1518
+888:                                              ; preds = %.thread1510
+  %889 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.0.i134515091512, ptr noundef nonnull @.str.8)
+  %.not1172 = icmp eq i32 %889, 0
+  br i1 %.not1172, label %890, label %.thread1518
 
-891:                                              ; preds = %889
-  %892 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+890:                                              ; preds = %888
+  %891 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-.preheader1572:                                   ; preds = %661, %.preheader1572.backedge
-  %.151016 = phi i32 [ %.151016.be, %.preheader1572.backedge ], [ %662, %661 ]
-  %893 = icmp eq i32 %.151016, 95
-  br i1 %893, label %894, label %904
+.preheader1572:                                   ; preds = %660, %.preheader1572.backedge
+  %.151016 = phi i32 [ %.151016.be, %.preheader1572.backedge ], [ %661, %660 ]
+  %892 = icmp eq i32 %.151016, 95
+  br i1 %892, label %893, label %903
 
-894:                                              ; preds = %.preheader1572
-  %895 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  %896 = and i32 %895, 255
-  %897 = zext nneg i32 %896 to i64
-  %898 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %897
-  %899 = load i32, ptr %898, align 4, !tbaa !51
-  %900 = and i32 %899, 4
-  %.not1165 = icmp eq i32 %900, 0
-  br i1 %.not1165, label %901, label %904
+893:                                              ; preds = %.preheader1572
+  %894 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  %895 = and i32 %894, 255
+  %896 = zext nneg i32 %895 to i64
+  %897 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %896
+  %898 = load i32, ptr %897, align 4, !tbaa !51
+  %899 = and i32 %898, 4
+  %.not1165 = icmp eq i32 %899, 0
+  br i1 %.not1165, label %900, label %903
 
-901:                                              ; preds = %894
-  tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %895)
-  %902 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #9
-  %903 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %902, ptr noundef null, ptr noundef null) #9
+900:                                              ; preds = %893
+  tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %894)
+  %901 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #9
+  %902 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %901, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-904:                                              ; preds = %894, %.preheader1572
-  %.161017 = phi i32 [ %895, %894 ], [ %.151016, %.preheader1572 ]
+903:                                              ; preds = %893, %.preheader1572
+  %.161017 = phi i32 [ %894, %893 ], [ %.151016, %.preheader1572 ]
   %.not1166 = icmp eq i32 %.161017, 48
   %.pre.i1350 = load ptr, ptr %7, align 8, !tbaa !4
-  br i1 %.not1166, label %905, label %935
+  br i1 %.not1166, label %904, label %934
 
-905:                                              ; preds = %904
+904:                                              ; preds = %903
   %.pre39.i1351 = load ptr, ptr %8, align 8, !tbaa !26
-  br label %906
+  br label %905
 
-906:                                              ; preds = %925, %905
-  %907 = phi ptr [ %927, %925 ], [ %.pre39.i1351, %905 ]
-  %908 = phi ptr [ %926, %925 ], [ %.pre.i1350, %905 ]
-  %.not.i1352 = icmp eq ptr %908, %907
-  br i1 %.not.i1352, label %918, label %909
+905:                                              ; preds = %924, %904
+  %906 = phi ptr [ %926, %924 ], [ %.pre39.i1351, %904 ]
+  %907 = phi ptr [ %925, %924 ], [ %.pre.i1350, %904 ]
+  %.not.i1352 = icmp eq ptr %907, %906
+  br i1 %.not.i1352, label %917, label %908
 
-909:                                              ; preds = %906
-  %910 = load i32, ptr %12, align 4, !tbaa !24
-  %911 = icmp ugt i32 %910, 2147483646
-  br i1 %911, label %912, label %913
+908:                                              ; preds = %905
+  %909 = load i32, ptr %12, align 4, !tbaa !24
+  %910 = icmp ugt i32 %909, 2147483646
+  br i1 %910, label %911, label %912
 
-912:                                              ; preds = %909
+911:                                              ; preds = %908
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %.preheader1572.backedge
 
-.preheader1572.backedge:                          ; preds = %918, %912, %913, %923, %932
-  %.151016.be = phi i32 [ -1, %912 ], [ %917, %913 ], [ -1, %932 ], [ -1, %923 ], [ -1, %918 ]
+.preheader1572.backedge:                          ; preds = %917, %911, %912, %922, %931
+  %.151016.be = phi i32 [ -1, %911 ], [ %916, %912 ], [ -1, %931 ], [ -1, %922 ], [ -1, %917 ]
   br label %.preheader1572
 
-913:                                              ; preds = %909
-  %914 = add nuw nsw i32 %910, 1
-  store i32 %914, ptr %12, align 4, !tbaa !24
-  %915 = getelementptr i8, ptr %908, i64 1
-  store ptr %915, ptr %7, align 8, !tbaa !4
-  %916 = load i8, ptr %908, align 1, !tbaa !29
-  %917 = zext i8 %916 to i32
+912:                                              ; preds = %908
+  %913 = add nuw nsw i32 %909, 1
+  store i32 %913, ptr %12, align 4, !tbaa !24
+  %914 = getelementptr i8, ptr %907, i64 1
+  store ptr %914, ptr %7, align 8, !tbaa !4
+  %915 = load i8, ptr %907, align 1, !tbaa !29
+  %916 = zext i8 %915 to i32
   br label %.preheader1572.backedge
 
-918:                                              ; preds = %906
-  %919 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1354 = icmp eq i32 %919, 10
-  br i1 %.not21.i1354, label %920, label %.preheader1572.backedge
+917:                                              ; preds = %905
+  %918 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1354 = icmp eq i32 %918, 10
+  br i1 %.not21.i1354, label %919, label %.preheader1572.backedge
 
-920:                                              ; preds = %918
-  %921 = load ptr, ptr %10, align 8, !tbaa !27
-  %922 = tail call i32 %921(ptr noundef nonnull %0) #9
-  %.not22.i1355 = icmp eq i32 %922, 0
-  br i1 %.not22.i1355, label %923, label %925
+919:                                              ; preds = %917
+  %920 = load ptr, ptr %10, align 8, !tbaa !27
+  %921 = tail call i32 %920(ptr noundef nonnull %0) #9
+  %.not22.i1355 = icmp eq i32 %921, 0
+  br i1 %.not22.i1355, label %922, label %924
 
-923:                                              ; preds = %920
-  %924 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %924, ptr %7, align 8, !tbaa !4
+922:                                              ; preds = %919
+  %923 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %923, ptr %7, align 8, !tbaa !4
   br label %.preheader1572.backedge
 
-925:                                              ; preds = %920
-  %926 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %926, ptr %11, align 8, !tbaa !28
-  %927 = load ptr, ptr %8, align 8, !tbaa !26
-  %928 = ptrtoint ptr %927 to i64
-  %929 = ptrtoint ptr %926 to i64
-  %930 = sub i64 %928, %929
-  %931 = tail call ptr @memchr(ptr noundef readonly %926, i32 noundef 0, i64 noundef %930) #8
-  %.not24.i1356 = icmp eq ptr %931, null
-  br i1 %.not24.i1356, label %906, label %932
+924:                                              ; preds = %919
+  %925 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %925, ptr %11, align 8, !tbaa !28
+  %926 = load ptr, ptr %8, align 8, !tbaa !26
+  %927 = ptrtoint ptr %926 to i64
+  %928 = ptrtoint ptr %925 to i64
+  %929 = sub i64 %927, %928
+  %930 = tail call ptr @memchr(ptr noundef readonly %925, i32 noundef 0, i64 noundef %929) #8
+  %.not24.i1356 = icmp eq ptr %930, null
+  br i1 %.not24.i1356, label %905, label %931
 
-932:                                              ; preds = %925
-  %933 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %934 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %934, ptr %7, align 8, !tbaa !4
+931:                                              ; preds = %924
+  %932 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %933 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %933, ptr %7, align 8, !tbaa !4
   br label %.preheader1572.backedge
 
-935:                                              ; preds = %904
-  %936 = and i32 %.161017, 255
-  %937 = zext nneg i32 %936 to i64
-  %938 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %937
-  %939 = load i32, ptr %938, align 4, !tbaa !51
-  %940 = and i32 %939, 4
-  %.not1167 = icmp eq i32 %940, 0
-  br i1 %.not1167, label %946, label %941
+934:                                              ; preds = %903
+  %935 = and i32 %.161017, 255
+  %936 = zext nneg i32 %935 to i64
+  %937 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %936
+  %938 = load i32, ptr %937, align 4, !tbaa !51
+  %939 = and i32 %938, 4
+  %.not1167 = icmp eq i32 %939, 0
+  br i1 %.not1167, label %945, label %940
 
-941:                                              ; preds = %935
-  %942 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %0)
-  %943 = icmp eq i32 %942, 0
-  br i1 %943, label %944, label %946
+940:                                              ; preds = %934
+  %941 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %0)
+  %942 = icmp eq i32 %941, 0
+  br i1 %942, label %943, label %945
 
-944:                                              ; preds = %941
-  %945 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+943:                                              ; preds = %940
+  %944 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-946:                                              ; preds = %941, %935
-  %.181019 = phi i32 [ %942, %941 ], [ %.161017, %935 ]
-  %947 = icmp eq i32 %.181019, 46
-  br i1 %947, label %.sink.split, label %948
+945:                                              ; preds = %940, %934
+  %.181019 = phi i32 [ %941, %940 ], [ %.161017, %934 ]
+  %946 = icmp eq i32 %.181019, 46
+  br i1 %946, label %.sink.split, label %947
 
-948:                                              ; preds = %946
-  %949 = and i32 %.181019, -33
-  switch i32 %949, label %950 [
+947:                                              ; preds = %945
+  %948 = and i32 %.181019, -33
+  switch i32 %948, label %949 [
     i32 69, label %.thread1526
-    i32 74, label %1018
+    i32 74, label %1017
   ]
 
-950:                                              ; preds = %948
-  br i1 %.not1167, label %966, label %951
+949:                                              ; preds = %947
+  br i1 %.not1167, label %965, label %950
 
-951:                                              ; preds = %950
-  %952 = load i32, ptr %21, align 4, !tbaa !54
-  %.not1169 = icmp eq i32 %952, 0
-  br i1 %.not1169, label %953, label %966
+950:                                              ; preds = %949
+  %951 = load i32, ptr %21, align 4, !tbaa !54
+  %.not1169 = icmp eq i32 %951, 0
+  br i1 %.not1169, label %952, label %965
 
-953:                                              ; preds = %951
+952:                                              ; preds = %950
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %.181019)
-  %954 = load ptr, ptr %4, align 8, !tbaa !19
-  %955 = getelementptr i8, ptr %954, i64 1
-  %956 = load ptr, ptr %11, align 8, !tbaa !28
+  %953 = load ptr, ptr %4, align 8, !tbaa !19
+  %954 = getelementptr i8, ptr %953, i64 1
+  %955 = load ptr, ptr %11, align 8, !tbaa !28
+  %956 = ptrtoint ptr %954 to i64
   %957 = ptrtoint ptr %955 to i64
-  %958 = ptrtoint ptr %956 to i64
-  %959 = sub i64 %957, %958
-  %960 = trunc i64 %959 to i32
-  %961 = ptrtoint ptr %.pre.i1350 to i64
-  %962 = sub i64 %961, %958
-  %963 = trunc i64 %962 to i32
-  %964 = tail call i32 (ptr, i32, i32, ptr, ...) @_PyTokenizer_syntaxerror_known_range(ptr noundef nonnull %0, i32 noundef %960, i32 noundef %963, ptr noundef nonnull @.str.10) #9
-  %965 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %964, ptr noundef null, ptr noundef null) #9
+  %958 = sub i64 %956, %957
+  %959 = trunc i64 %958 to i32
+  %960 = ptrtoint ptr %.pre.i1350 to i64
+  %961 = sub i64 %960, %957
+  %962 = trunc i64 %961 to i32
+  %963 = tail call i32 (ptr, i32, i32, ptr, ...) @_PyTokenizer_syntaxerror_known_range(ptr noundef nonnull %0, i32 noundef %959, i32 noundef %962, ptr noundef nonnull @.str.10) #9
+  %964 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %963, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-966:                                              ; preds = %950, %951
-  %967 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.181019, ptr noundef nonnull @.str.11)
-  %.not1170 = icmp eq i32 %967, 0
-  br i1 %.not1170, label %968, label %.thread1518
+965:                                              ; preds = %949, %950
+  %966 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.181019, ptr noundef nonnull @.str.11)
+  %.not1170 = icmp eq i32 %966, 0
+  br i1 %.not1170, label %967, label %.thread1518
 
-968:                                              ; preds = %966
-  %969 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+967:                                              ; preds = %965
+  %968 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-.thread1498:                                      ; preds = %.thread1494, %659
-  %970 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %0)
-  switch i32 %970, label %985 [
-    i32 0, label %971
+.thread1498:                                      ; preds = %.thread1494, %658
+  %969 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %0)
+  switch i32 %969, label %984 [
+    i32 0, label %970
     i32 46, label %.sink.split
   ]
 
-971:                                              ; preds = %.thread1498
-  %972 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+970:                                              ; preds = %.thread1498
+  %971 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-.sink.split:                                      ; preds = %.thread1498, %946
-  %973 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  br label %974
+.sink.split:                                      ; preds = %.thread1498, %945
+  %972 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  br label %973
 
-974:                                              ; preds = %.sink.split, %tok_nextc.exit1309
-  %.81009 = phi i32 [ %.0.i1305, %tok_nextc.exit1309 ], [ %973, %.sink.split ]
-  %975 = and i32 %.81009, 255
-  %976 = zext nneg i32 %975 to i64
-  %977 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %976
-  %978 = load i32, ptr %977, align 4, !tbaa !51
-  %979 = and i32 %978, 4
-  %.not1181 = icmp eq i32 %979, 0
-  br i1 %.not1181, label %985, label %980
+973:                                              ; preds = %.sink.split, %tok_nextc.exit1309
+  %.81009 = phi i32 [ %.0.i1305, %tok_nextc.exit1309 ], [ %972, %.sink.split ]
+  %974 = and i32 %.81009, 255
+  %975 = zext nneg i32 %974 to i64
+  %976 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %975
+  %977 = load i32, ptr %976, align 4, !tbaa !51
+  %978 = and i32 %977, 4
+  %.not1181 = icmp eq i32 %978, 0
+  br i1 %.not1181, label %984, label %979
 
-980:                                              ; preds = %974
-  %981 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %0)
-  %982 = icmp eq i32 %981, 0
-  br i1 %982, label %983, label %985
+979:                                              ; preds = %973
+  %980 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %0)
+  %981 = icmp eq i32 %980, 0
+  br i1 %981, label %982, label %984
 
-983:                                              ; preds = %980
-  %984 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+982:                                              ; preds = %979
+  %983 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-985:                                              ; preds = %.thread1498, %974, %980
-  %.22 = phi i32 [ %981, %980 ], [ %.81009, %974 ], [ %970, %.thread1498 ]
-  %986 = and i32 %.22, -33
-  %or.cond83 = icmp eq i32 %986, 69
-  br i1 %or.cond83, label %.thread1526, label %1017
+984:                                              ; preds = %.thread1498, %973, %979
+  %.22 = phi i32 [ %980, %979 ], [ %.81009, %973 ], [ %969, %.thread1498 ]
+  %985 = and i32 %.22, -33
+  %or.cond83 = icmp eq i32 %985, 69
+  br i1 %or.cond83, label %.thread1526, label %1016
 
-.thread1526:                                      ; preds = %948, %985
-  %.201021 = phi i32 [ %.22, %985 ], [ %.181019, %948 ]
-  %987 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  switch i32 %987, label %998 [
-    i32 45, label %988
-    i32 43, label %988
+.thread1526:                                      ; preds = %947, %984
+  %.201021 = phi i32 [ %.22, %984 ], [ %.181019, %947 ]
+  %986 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  switch i32 %986, label %997 [
+    i32 45, label %987
+    i32 43, label %987
   ]
 
-988:                                              ; preds = %.thread1526, %.thread1526
-  %989 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  %990 = and i32 %989, 255
-  %991 = zext nneg i32 %990 to i64
-  %992 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %991
-  %993 = load i32, ptr %992, align 4, !tbaa !51
-  %994 = and i32 %993, 4
-  %.not1184 = icmp eq i32 %994, 0
-  br i1 %.not1184, label %995, label %1012
+987:                                              ; preds = %.thread1526, %.thread1526
+  %988 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  %989 = and i32 %988, 255
+  %990 = zext nneg i32 %989 to i64
+  %991 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %990
+  %992 = load i32, ptr %991, align 4, !tbaa !51
+  %993 = and i32 %992, 4
+  %.not1184 = icmp eq i32 %993, 0
+  br i1 %.not1184, label %994, label %1011
 
-995:                                              ; preds = %988
-  tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %989)
-  %996 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #9
-  %997 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %996, ptr noundef null, ptr noundef null) #9
+994:                                              ; preds = %987
+  tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %988)
+  %995 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #9
+  %996 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %995, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-998:                                              ; preds = %.thread1526
-  %999 = and i32 %987, 255
-  %1000 = zext nneg i32 %999 to i64
-  %1001 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %1000
-  %1002 = load i32, ptr %1001, align 4, !tbaa !51
-  %1003 = and i32 %1002, 4
-  %.not1182 = icmp eq i32 %1003, 0
-  br i1 %.not1182, label %1004, label %1012
+997:                                              ; preds = %.thread1526
+  %998 = and i32 %986, 255
+  %999 = zext nneg i32 %998 to i64
+  %1000 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %999
+  %1001 = load i32, ptr %1000, align 4, !tbaa !51
+  %1002 = and i32 %1001, 4
+  %.not1182 = icmp eq i32 %1002, 0
+  br i1 %.not1182, label %1003, label %1011
 
-1004:                                             ; preds = %998
-  tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %987)
-  %1005 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.201021, ptr noundef nonnull @.str.11)
-  %.not1183 = icmp eq i32 %1005, 0
-  br i1 %.not1183, label %1006, label %1008
+1003:                                             ; preds = %997
+  tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %986)
+  %1004 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.201021, ptr noundef nonnull @.str.11)
+  %.not1183 = icmp eq i32 %1004, 0
+  br i1 %.not1183, label %1005, label %1007
 
-1006:                                             ; preds = %1004
-  %1007 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1005:                                             ; preds = %1003
+  %1006 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1008:                                             ; preds = %1004
+1007:                                             ; preds = %1003
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %.201021)
-  %1009 = load ptr, ptr %4, align 8, !tbaa !19
-  %1010 = load ptr, ptr %7, align 8, !tbaa !4
-  %1011 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef %1009, ptr noundef %1010) #9
+  %1008 = load ptr, ptr %4, align 8, !tbaa !19
+  %1009 = load ptr, ptr %7, align 8, !tbaa !4
+  %1010 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef %1008, ptr noundef %1009) #9
   br label %.thread1472
 
-1012:                                             ; preds = %998, %988
-  %1013 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %0)
-  %1014 = icmp eq i32 %1013, 0
-  br i1 %1014, label %1015, label %._crit_edge2342
+1011:                                             ; preds = %997, %987
+  %1012 = tail call fastcc i32 @tok_decimal_tail(ptr noundef nonnull %0)
+  %1013 = icmp eq i32 %1012, 0
+  br i1 %1013, label %1014, label %._crit_edge2342
 
-._crit_edge2342:                                  ; preds = %1012
-  %.pre2343 = and i32 %1013, -33
-  br label %1017
+._crit_edge2342:                                  ; preds = %1011
+  %.pre2343 = and i32 %1012, -33
+  br label %1016
 
-1015:                                             ; preds = %1012
-  %1016 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1014:                                             ; preds = %1011
+  %1015 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1017:                                             ; preds = %._crit_edge2342, %985
-  %.pre-phi2344 = phi i32 [ %.pre2343, %._crit_edge2342 ], [ %986, %985 ]
-  %.23 = phi i32 [ %1013, %._crit_edge2342 ], [ %.22, %985 ]
+1016:                                             ; preds = %._crit_edge2342, %984
+  %.pre-phi2344 = phi i32 [ %.pre2343, %._crit_edge2342 ], [ %985, %984 ]
+  %.23 = phi i32 [ %1012, %._crit_edge2342 ], [ %.22, %984 ]
   %or.cond87 = icmp eq i32 %.pre-phi2344, 74
-  br i1 %or.cond87, label %1018, label %1023
+  br i1 %or.cond87, label %1017, label %1022
 
-1018:                                             ; preds = %948, %1017
-  %1019 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
-  %1020 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %1019, ptr noundef nonnull @.str.12)
-  %.not1186 = icmp eq i32 %1020, 0
-  br i1 %.not1186, label %1021, label %.thread1518
+1017:                                             ; preds = %947, %1016
+  %1018 = tail call fastcc i32 @tok_nextc(ptr noundef nonnull %0)
+  %1019 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %1018, ptr noundef nonnull @.str.12)
+  %.not1186 = icmp eq i32 %1019, 0
+  br i1 %.not1186, label %1020, label %.thread1518
 
-1021:                                             ; preds = %1018
-  %1022 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1020:                                             ; preds = %1017
+  %1021 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1023:                                             ; preds = %1017
-  %1024 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.23, ptr noundef nonnull @.str.11)
-  %.not1185 = icmp eq i32 %1024, 0
-  br i1 %.not1185, label %1025, label %.thread1518
+1022:                                             ; preds = %1016
+  %1023 = tail call fastcc i32 @verify_end_of_number(ptr noundef nonnull %0, i32 noundef %.23, ptr noundef nonnull @.str.11)
+  %.not1185 = icmp eq i32 %1023, 0
+  br i1 %.not1185, label %1024, label %.thread1518
 
-1025:                                             ; preds = %1023
-  %1026 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1024:                                             ; preds = %1022
+  %1025 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-.thread1518:                                      ; preds = %966, %1018, %1023, %739, %889, %827
-  %.211022 = phi i32 [ %1019, %1018 ], [ %.23, %1023 ], [ %.0.i1321, %739 ], [ %.0.i133715041507, %827 ], [ %.0.i134515091512, %889 ], [ %.181019, %966 ]
+.thread1518:                                      ; preds = %965, %1017, %1022, %738, %888, %826
+  %.211022 = phi i32 [ %1018, %1017 ], [ %.23, %1022 ], [ %.0.i1321, %738 ], [ %.0.i133715041507, %826 ], [ %.0.i134515091512, %888 ], [ %.181019, %965 ]
   tail call fastcc void @tok_backup(ptr noundef nonnull %0, i32 noundef %.211022)
-  %1027 = load ptr, ptr %4, align 8, !tbaa !19
-  %1028 = load ptr, ptr %7, align 8, !tbaa !4
-  %1029 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef %1027, ptr noundef %1028) #9
+  %1026 = load ptr, ptr %4, align 8, !tbaa !19
+  %1027 = load ptr, ptr %7, align 8, !tbaa !4
+  %1028 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef %1026, ptr noundef %1027) #9
   br label %.thread1472
 
 .thread1486:                                      ; preds = %410, %.thread1494, %653
   %.pre39.i1359 = phi ptr [ %.pre39.i1303, %653 ], [ %.pre39.i13592286, %.thread1494 ], [ %.pre39.i12742282, %410 ]
   %.pre.i1358 = phi ptr [ %581, %653 ], [ %.pre.i13582284, %.thread1494 ], [ %.pre.i12732279, %410 ]
   %.51006 = phi i32 [ %.71008, %653 ], [ -1, %.thread1494 ], [ %.0.i1276, %410 ]
-  %1030 = load ptr, ptr %4, align 8, !tbaa !19
-  %1031 = load i8, ptr %1030, align 1, !tbaa !29
-  %1032 = zext i8 %1031 to i64
-  %1033 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %1032
-  %1034 = load i8, ptr %1033, align 1, !tbaa !29
-  switch i8 %1034, label %1177 [
-    i8 102, label %1035
-    i8 114, label %1035
+  %1029 = load ptr, ptr %4, align 8, !tbaa !19
+  %1030 = load i8, ptr %1029, align 1, !tbaa !29
+  %1031 = zext i8 %1030 to i64
+  %1032 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %1031
+  %1033 = load i8, ptr %1032, align 1, !tbaa !29
+  switch i8 %1033, label %1176 [
+    i8 102, label %1034
+    i8 114, label %1034
   ]
 
-1035:                                             ; preds = %.thread1486, %.thread1486
-  switch i32 %.51006, label %1177 [
-    i32 39, label %1036
-    i32 34, label %1036
+1034:                                             ; preds = %.thread1486, %.thread1486
+  switch i32 %.51006, label %1176 [
+    i32 39, label %1035
+    i32 34, label %1035
   ]
 
-1036:                                             ; preds = %1035, %1035
-  %1037 = load i32, ptr %15, align 8, !tbaa !22
-  %1038 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  store i32 %1037, ptr %1038, align 4, !tbaa !23
-  %1039 = load ptr, ptr %11, align 8, !tbaa !28
-  %1040 = getelementptr inbounds nuw i8, ptr %0, i64 2776
-  store ptr %1039, ptr %1040, align 8, !tbaa !36
-  br label %1041
+1035:                                             ; preds = %1034, %1034
+  %1036 = load i32, ptr %15, align 8, !tbaa !22
+  %1037 = getelementptr inbounds nuw i8, ptr %0, i64 516
+  store i32 %1036, ptr %1037, align 4, !tbaa !23
+  %1038 = load ptr, ptr %11, align 8, !tbaa !28
+  %1039 = getelementptr inbounds nuw i8, ptr %0, i64 2776
+  store ptr %1038, ptr %1039, align 8, !tbaa !36
+  br label %1040
 
-1041:                                             ; preds = %1060, %1036
-  %1042 = phi ptr [ %1062, %1060 ], [ %.pre39.i1359, %1036 ]
-  %1043 = phi ptr [ %1061, %1060 ], [ %.pre.i1358, %1036 ]
-  %.not.i1360 = icmp eq ptr %1043, %1042
-  br i1 %.not.i1360, label %1053, label %1044
+1040:                                             ; preds = %1059, %1035
+  %1041 = phi ptr [ %1061, %1059 ], [ %.pre39.i1359, %1035 ]
+  %1042 = phi ptr [ %1060, %1059 ], [ %.pre.i1358, %1035 ]
+  %.not.i1360 = icmp eq ptr %1042, %1041
+  br i1 %.not.i1360, label %1052, label %1043
 
-1044:                                             ; preds = %1041
-  %1045 = load i32, ptr %12, align 4, !tbaa !24
-  %1046 = icmp ugt i32 %1045, 2147483646
-  br i1 %1046, label %1047, label %1048
+1043:                                             ; preds = %1040
+  %1044 = load i32, ptr %12, align 4, !tbaa !24
+  %1045 = icmp ugt i32 %1044, 2147483646
+  br i1 %1045, label %1046, label %1047
 
-1047:                                             ; preds = %1044
+1046:                                             ; preds = %1043
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1365
 
-1048:                                             ; preds = %1044
-  %1049 = add nuw nsw i32 %1045, 1
-  store i32 %1049, ptr %12, align 4, !tbaa !24
-  %1050 = getelementptr i8, ptr %1043, i64 1
-  store ptr %1050, ptr %7, align 8, !tbaa !4
-  %1051 = load i8, ptr %1043, align 1, !tbaa !29
-  %1052 = zext i8 %1051 to i32
+1047:                                             ; preds = %1043
+  %1048 = add nuw nsw i32 %1044, 1
+  store i32 %1048, ptr %12, align 4, !tbaa !24
+  %1049 = getelementptr i8, ptr %1042, i64 1
+  store ptr %1049, ptr %7, align 8, !tbaa !4
+  %1050 = load i8, ptr %1042, align 1, !tbaa !29
+  %1051 = zext i8 %1050 to i32
   br label %tok_nextc.exit1365
 
-1053:                                             ; preds = %1041
-  %1054 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1362 = icmp eq i32 %1054, 10
-  br i1 %.not21.i1362, label %1055, label %tok_nextc.exit1365
+1052:                                             ; preds = %1040
+  %1053 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1362 = icmp eq i32 %1053, 10
+  br i1 %.not21.i1362, label %1054, label %tok_nextc.exit1365
 
-1055:                                             ; preds = %1053
-  %1056 = load ptr, ptr %10, align 8, !tbaa !27
-  %1057 = tail call i32 %1056(ptr noundef nonnull %0) #9
-  %.not22.i1363 = icmp eq i32 %1057, 0
-  br i1 %.not22.i1363, label %1058, label %1060
+1054:                                             ; preds = %1052
+  %1055 = load ptr, ptr %10, align 8, !tbaa !27
+  %1056 = tail call i32 %1055(ptr noundef nonnull %0) #9
+  %.not22.i1363 = icmp eq i32 %1056, 0
+  br i1 %.not22.i1363, label %1057, label %1059
 
-1058:                                             ; preds = %1055
-  %1059 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1059, ptr %7, align 8, !tbaa !4
+1057:                                             ; preds = %1054
+  %1058 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1058, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1365
 
-1060:                                             ; preds = %1055
-  %1061 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1061, ptr %11, align 8, !tbaa !28
-  %1062 = load ptr, ptr %8, align 8, !tbaa !26
-  %1063 = ptrtoint ptr %1062 to i64
-  %1064 = ptrtoint ptr %1061 to i64
-  %1065 = sub i64 %1063, %1064
-  %1066 = tail call ptr @memchr(ptr noundef readonly %1061, i32 noundef 0, i64 noundef %1065) #8
-  %.not24.i1364 = icmp eq ptr %1066, null
-  br i1 %.not24.i1364, label %1041, label %1067
+1059:                                             ; preds = %1054
+  %1060 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1060, ptr %11, align 8, !tbaa !28
+  %1061 = load ptr, ptr %8, align 8, !tbaa !26
+  %1062 = ptrtoint ptr %1061 to i64
+  %1063 = ptrtoint ptr %1060 to i64
+  %1064 = sub i64 %1062, %1063
+  %1065 = tail call ptr @memchr(ptr noundef readonly %1060, i32 noundef 0, i64 noundef %1064) #8
+  %.not24.i1364 = icmp eq ptr %1065, null
+  br i1 %.not24.i1364, label %1040, label %1066
 
-1067:                                             ; preds = %1060
-  %1068 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1069 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1069, ptr %7, align 8, !tbaa !4
+1066:                                             ; preds = %1059
+  %1067 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1068 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1068, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1365
 
-tok_nextc.exit1365:                               ; preds = %1053, %1047, %1048, %1058, %1067
-  %.pre39.i1367 = phi ptr [ %1042, %1047 ], [ %1042, %1048 ], [ %1069, %1067 ], [ %1059, %1058 ], [ %1042, %1053 ]
-  %.pre.i1366 = phi ptr [ %1043, %1047 ], [ %1050, %1048 ], [ %1069, %1067 ], [ %1059, %1058 ], [ %1043, %1053 ]
-  %.0.i1361 = phi i32 [ -1, %1047 ], [ %1052, %1048 ], [ -1, %1067 ], [ -1, %1058 ], [ -1, %1053 ]
-  %1070 = icmp eq i32 %.0.i1361, %.51006
-  br i1 %1070, label %.preheader2670, label %tok_backup.exit1379.thread
+tok_nextc.exit1365:                               ; preds = %1052, %1046, %1047, %1057, %1066
+  %.pre39.i1367 = phi ptr [ %1041, %1046 ], [ %1041, %1047 ], [ %1068, %1066 ], [ %1058, %1057 ], [ %1041, %1052 ]
+  %.pre.i1366 = phi ptr [ %1042, %1046 ], [ %1049, %1047 ], [ %1068, %1066 ], [ %1058, %1057 ], [ %1042, %1052 ]
+  %.0.i1361 = phi i32 [ -1, %1046 ], [ %1051, %1047 ], [ -1, %1066 ], [ -1, %1057 ], [ -1, %1052 ]
+  %1069 = icmp eq i32 %.0.i1361, %.51006
+  br i1 %1069, label %.preheader2779, label %tok_backup.exit1379.thread
 
-.preheader2670:                                   ; preds = %tok_nextc.exit1365, %1089
-  %1071 = phi ptr [ %1091, %1089 ], [ %.pre39.i1367, %tok_nextc.exit1365 ]
-  %1072 = phi ptr [ %1090, %1089 ], [ %.pre.i1366, %tok_nextc.exit1365 ]
-  %.not.i1368 = icmp eq ptr %1072, %1071
-  br i1 %.not.i1368, label %1082, label %1073
+.preheader2779:                                   ; preds = %tok_nextc.exit1365, %1088
+  %1070 = phi ptr [ %1090, %1088 ], [ %.pre39.i1367, %tok_nextc.exit1365 ]
+  %1071 = phi ptr [ %1089, %1088 ], [ %.pre.i1366, %tok_nextc.exit1365 ]
+  %.not.i1368 = icmp eq ptr %1071, %1070
+  br i1 %.not.i1368, label %1081, label %1072
 
-1073:                                             ; preds = %.preheader2670
-  %1074 = load i32, ptr %12, align 4, !tbaa !24
-  %1075 = icmp ugt i32 %1074, 2147483646
-  br i1 %1075, label %1076, label %1077
+1072:                                             ; preds = %.preheader2779
+  %1073 = load i32, ptr %12, align 4, !tbaa !24
+  %1074 = icmp ugt i32 %1073, 2147483646
+  br i1 %1074, label %1075, label %1076
 
-1076:                                             ; preds = %1073
+1075:                                             ; preds = %1072
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1373
 
-1077:                                             ; preds = %1073
-  %1078 = add nuw nsw i32 %1074, 1
-  store i32 %1078, ptr %12, align 4, !tbaa !24
-  %1079 = getelementptr i8, ptr %1072, i64 1
-  store ptr %1079, ptr %7, align 8, !tbaa !4
-  %1080 = load i8, ptr %1072, align 1, !tbaa !29
-  %1081 = zext i8 %1080 to i32
+1076:                                             ; preds = %1072
+  %1077 = add nuw nsw i32 %1073, 1
+  store i32 %1077, ptr %12, align 4, !tbaa !24
+  %1078 = getelementptr i8, ptr %1071, i64 1
+  store ptr %1078, ptr %7, align 8, !tbaa !4
+  %1079 = load i8, ptr %1071, align 1, !tbaa !29
+  %1080 = zext i8 %1079 to i32
   br label %tok_nextc.exit1373
 
-1082:                                             ; preds = %.preheader2670
-  %1083 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1370 = icmp eq i32 %1083, 10
-  br i1 %.not21.i1370, label %1084, label %tok_nextc.exit1373
+1081:                                             ; preds = %.preheader2779
+  %1082 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1370 = icmp eq i32 %1082, 10
+  br i1 %.not21.i1370, label %1083, label %tok_nextc.exit1373
 
-1084:                                             ; preds = %1082
-  %1085 = load ptr, ptr %10, align 8, !tbaa !27
-  %1086 = tail call i32 %1085(ptr noundef nonnull %0) #9
-  %.not22.i1371 = icmp eq i32 %1086, 0
-  br i1 %.not22.i1371, label %1087, label %1089
+1083:                                             ; preds = %1081
+  %1084 = load ptr, ptr %10, align 8, !tbaa !27
+  %1085 = tail call i32 %1084(ptr noundef nonnull %0) #9
+  %.not22.i1371 = icmp eq i32 %1085, 0
+  br i1 %.not22.i1371, label %1086, label %1088
 
-1087:                                             ; preds = %1084
-  %1088 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1088, ptr %7, align 8, !tbaa !4
+1086:                                             ; preds = %1083
+  %1087 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1087, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1373
 
-1089:                                             ; preds = %1084
-  %1090 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1090, ptr %11, align 8, !tbaa !28
-  %1091 = load ptr, ptr %8, align 8, !tbaa !26
-  %1092 = ptrtoint ptr %1091 to i64
-  %1093 = ptrtoint ptr %1090 to i64
-  %1094 = sub i64 %1092, %1093
-  %1095 = tail call ptr @memchr(ptr noundef readonly %1090, i32 noundef 0, i64 noundef %1094) #8
-  %.not24.i1372 = icmp eq ptr %1095, null
-  br i1 %.not24.i1372, label %.preheader2670, label %1096
+1088:                                             ; preds = %1083
+  %1089 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1089, ptr %11, align 8, !tbaa !28
+  %1090 = load ptr, ptr %8, align 8, !tbaa !26
+  %1091 = ptrtoint ptr %1090 to i64
+  %1092 = ptrtoint ptr %1089 to i64
+  %1093 = sub i64 %1091, %1092
+  %1094 = tail call ptr @memchr(ptr noundef readonly %1089, i32 noundef 0, i64 noundef %1093) #8
+  %.not24.i1372 = icmp eq ptr %1094, null
+  br i1 %.not24.i1372, label %.preheader2779, label %1095
 
-1096:                                             ; preds = %1089
-  %1097 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1098 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1098, ptr %7, align 8, !tbaa !4
+1095:                                             ; preds = %1088
+  %1096 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1097 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1097, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1373
 
-tok_nextc.exit1373:                               ; preds = %1082, %1076, %1077, %1087, %1096
-  %1099 = phi ptr [ %1072, %1076 ], [ %1079, %1077 ], [ %1098, %1096 ], [ %1088, %1087 ], [ %1072, %1082 ]
-  %.0.i1369 = phi i32 [ -1, %1076 ], [ %1081, %1077 ], [ -1, %1096 ], [ -1, %1087 ], [ -1, %1082 ]
-  %1100 = icmp eq i32 %.0.i1369, %.51006
-  br i1 %1100, label %tok_backup.exit1382, label %1101
+tok_nextc.exit1373:                               ; preds = %1081, %1075, %1076, %1086, %1095
+  %1098 = phi ptr [ %1071, %1075 ], [ %1078, %1076 ], [ %1097, %1095 ], [ %1087, %1086 ], [ %1071, %1081 ]
+  %.0.i1369 = phi i32 [ -1, %1075 ], [ %1080, %1076 ], [ -1, %1095 ], [ -1, %1086 ], [ -1, %1081 ]
+  %1099 = icmp eq i32 %.0.i1369, %.51006
+  br i1 %1099, label %tok_backup.exit1382, label %1100
 
-1101:                                             ; preds = %tok_nextc.exit1373
+1100:                                             ; preds = %tok_nextc.exit1373
   %.not.i1374 = icmp eq i32 %.0.i1369, -1
-  br i1 %.not.i1374, label %tok_backup.exit1376, label %1102
+  br i1 %.not.i1374, label %tok_backup.exit1376, label %1101
 
-1102:                                             ; preds = %1101
-  %1103 = getelementptr i8, ptr %1099, i64 -1
-  store ptr %1103, ptr %7, align 8, !tbaa !4
-  %1104 = load ptr, ptr %0, align 8, !tbaa !30
-  %1105 = icmp ult ptr %1103, %1104
-  br i1 %1105, label %1106, label %1107
+1101:                                             ; preds = %1100
+  %1102 = getelementptr i8, ptr %1098, i64 -1
+  store ptr %1102, ptr %7, align 8, !tbaa !4
+  %1103 = load ptr, ptr %0, align 8, !tbaa !30
+  %1104 = icmp ult ptr %1102, %1103
+  br i1 %1104, label %1105, label %1106
 
-1106:                                             ; preds = %1102
+1105:                                             ; preds = %1101
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.26) #10
   unreachable
 
-1107:                                             ; preds = %1102
-  %1108 = load i8, ptr %1103, align 1, !tbaa !29
-  %1109 = trunc nuw i32 %.0.i1369 to i8
-  %.not6.i1375 = icmp eq i8 %1108, %1109
-  br i1 %.not6.i1375, label %1111, label %1110
+1106:                                             ; preds = %1101
+  %1107 = load i8, ptr %1102, align 1, !tbaa !29
+  %1108 = trunc nuw i32 %.0.i1369 to i8
+  %.not6.i1375 = icmp eq i8 %1107, %1108
+  br i1 %.not6.i1375, label %1110, label %1109
 
-1110:                                             ; preds = %1107
+1109:                                             ; preds = %1106
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.27) #10
   unreachable
 
-1111:                                             ; preds = %1107
-  %1112 = load i32, ptr %12, align 4, !tbaa !24
-  %1113 = add i32 %1112, -1
-  store i32 %1113, ptr %12, align 4, !tbaa !24
+1110:                                             ; preds = %1106
+  %1111 = load i32, ptr %12, align 4, !tbaa !24
+  %1112 = add i32 %1111, -1
+  store i32 %1112, ptr %12, align 4, !tbaa !24
   br label %tok_backup.exit1376
 
-tok_backup.exit1376:                              ; preds = %1101, %1111
-  %1114 = phi ptr [ %1099, %1101 ], [ %1103, %1111 ]
+tok_backup.exit1376:                              ; preds = %1100, %1110
+  %1113 = phi ptr [ %1098, %1100 ], [ %1102, %1110 ]
   %.not.i1377 = icmp eq i32 %.51006, -1
-  br i1 %.not.i1377, label %tok_backup.exit1382, label %1115
+  br i1 %.not.i1377, label %tok_backup.exit1382, label %1114
 
-1115:                                             ; preds = %tok_backup.exit1376
-  %1116 = getelementptr i8, ptr %1114, i64 -1
-  store ptr %1116, ptr %7, align 8, !tbaa !4
-  %1117 = load ptr, ptr %0, align 8, !tbaa !30
-  %1118 = icmp ult ptr %1116, %1117
-  br i1 %1118, label %1119, label %1120
+1114:                                             ; preds = %tok_backup.exit1376
+  %1115 = getelementptr i8, ptr %1113, i64 -1
+  store ptr %1115, ptr %7, align 8, !tbaa !4
+  %1116 = load ptr, ptr %0, align 8, !tbaa !30
+  %1117 = icmp ult ptr %1115, %1116
+  br i1 %1117, label %1118, label %1119
 
-1119:                                             ; preds = %1115
+1118:                                             ; preds = %1114
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.26) #10
   unreachable
 
-1120:                                             ; preds = %1115
-  %1121 = load i8, ptr %1116, align 1, !tbaa !29
-  %1122 = trunc i32 %.51006 to i8
-  %.not6.i1378 = icmp eq i8 %1121, %1122
-  br i1 %.not6.i1378, label %tok_backup.exit1382.sink.split, label %1123
+1119:                                             ; preds = %1114
+  %1120 = load i8, ptr %1115, align 1, !tbaa !29
+  %1121 = trunc nuw i32 %.51006 to i8
+  %.not6.i1378 = icmp eq i8 %1120, %1121
+  br i1 %.not6.i1378, label %tok_backup.exit1382.sink.split, label %1122
 
-1123:                                             ; preds = %1120
+1122:                                             ; preds = %1119
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.27) #10
   unreachable
 
 tok_backup.exit1379.thread:                       ; preds = %tok_nextc.exit1365
   %.not.i1380 = icmp eq i32 %.0.i1361, -1
-  br i1 %.not.i1380, label %tok_backup.exit1382, label %1124
+  br i1 %.not.i1380, label %tok_backup.exit1382, label %1123
 
-1124:                                             ; preds = %tok_backup.exit1379.thread
-  %1125 = getelementptr i8, ptr %.pre.i1366, i64 -1
-  store ptr %1125, ptr %7, align 8, !tbaa !4
-  %1126 = load ptr, ptr %0, align 8, !tbaa !30
-  %1127 = icmp ult ptr %1125, %1126
-  br i1 %1127, label %1128, label %1129
+1123:                                             ; preds = %tok_backup.exit1379.thread
+  %1124 = getelementptr i8, ptr %.pre.i1366, i64 -1
+  store ptr %1124, ptr %7, align 8, !tbaa !4
+  %1125 = load ptr, ptr %0, align 8, !tbaa !30
+  %1126 = icmp ult ptr %1124, %1125
+  br i1 %1126, label %1127, label %1128
 
-1128:                                             ; preds = %1124
+1127:                                             ; preds = %1123
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.26) #10
   unreachable
 
-1129:                                             ; preds = %1124
-  %1130 = load i8, ptr %1125, align 1, !tbaa !29
-  %1131 = trunc nuw i32 %.0.i1361 to i8
-  %.not6.i1381 = icmp eq i8 %1130, %1131
-  br i1 %.not6.i1381, label %tok_backup.exit1382.sink.split, label %1132
+1128:                                             ; preds = %1123
+  %1129 = load i8, ptr %1124, align 1, !tbaa !29
+  %1130 = trunc nuw i32 %.0.i1361 to i8
+  %.not6.i1381 = icmp eq i8 %1129, %1130
+  br i1 %.not6.i1381, label %tok_backup.exit1382.sink.split, label %1131
 
-1132:                                             ; preds = %1129
+1131:                                             ; preds = %1128
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.27) #10
   unreachable
 
-tok_backup.exit1382.sink.split:                   ; preds = %1129, %1120
-  %.ph2662 = phi ptr [ %1116, %1120 ], [ %1125, %1129 ]
-  %1133 = load i32, ptr %12, align 4, !tbaa !24
-  %1134 = add i32 %1133, -1
-  store i32 %1134, ptr %12, align 4, !tbaa !24
+tok_backup.exit1382.sink.split:                   ; preds = %1128, %1119
+  %.ph2771 = phi ptr [ %1115, %1119 ], [ %1124, %1128 ]
+  %1132 = load i32, ptr %12, align 4, !tbaa !24
+  %1133 = add i32 %1132, -1
+  store i32 %1133, ptr %12, align 4, !tbaa !24
   br label %tok_backup.exit1382
 
 tok_backup.exit1382:                              ; preds = %tok_backup.exit1382.sink.split, %tok_nextc.exit1373, %tok_backup.exit1376, %tok_backup.exit1379.thread
-  %1135 = phi ptr [ %.pre.i1366, %tok_backup.exit1379.thread ], [ %1099, %tok_nextc.exit1373 ], [ %1114, %tok_backup.exit1376 ], [ %.ph2662, %tok_backup.exit1382.sink.split ]
+  %1134 = phi ptr [ %.pre.i1366, %tok_backup.exit1379.thread ], [ %1098, %tok_nextc.exit1373 ], [ %1113, %tok_backup.exit1376 ], [ %.ph2771, %tok_backup.exit1382.sink.split ]
   %.010941532 = phi i32 [ 1, %tok_backup.exit1379.thread ], [ 3, %tok_nextc.exit1373 ], [ 1, %tok_backup.exit1376 ], [ 1, %tok_backup.exit1382.sink.split ]
-  %1136 = load ptr, ptr %4, align 8, !tbaa !19
-  %1137 = getelementptr inbounds nuw i8, ptr %0, i64 17256
-  %1138 = load i32, ptr %1137, align 8, !tbaa !13
-  %1139 = add i32 %1138, 1
-  %1140 = icmp sgt i32 %1139, 149
-  br i1 %1140, label %1141, label %1144
+  %1135 = load ptr, ptr %4, align 8, !tbaa !19
+  %1136 = getelementptr inbounds nuw i8, ptr %0, i64 17256
+  %1137 = load i32, ptr %1136, align 8, !tbaa !13
+  %1138 = add i32 %1137, 1
+  %1139 = icmp sgt i32 %1138, 149
+  br i1 %1139, label %1140, label %1143
 
-1141:                                             ; preds = %tok_backup.exit1382
-  %1142 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #9
-  %1143 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1142, ptr noundef %1136, ptr noundef %1135) #9
+1140:                                             ; preds = %tok_backup.exit1382
+  %1141 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #9
+  %1142 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1141, ptr noundef %1135, ptr noundef %1134) #9
   br label %.thread1472
 
-1144:                                             ; preds = %tok_backup.exit1382
-  %1145 = getelementptr inbounds nuw i8, ptr %0, i64 2856
-  store i32 %1139, ptr %1137, align 8, !tbaa !13
-  %1146 = sext i32 %1139 to i64
-  %1147 = getelementptr [150 x %struct._tokenizer_mode], ptr %1145, i64 0, i64 %1146
-  store i32 1, ptr %1147, align 8, !tbaa !21
-  %1148 = trunc nuw i32 %.51006 to i8
-  %1149 = getelementptr inbounds nuw i8, ptr %1147, i64 12
-  store i8 %1148, ptr %1149, align 4, !tbaa !35
-  %1150 = getelementptr inbounds nuw i8, ptr %1147, i64 16
-  store i32 %.010941532, ptr %1150, align 8, !tbaa !32
-  %1151 = getelementptr inbounds nuw i8, ptr %1147, i64 24
-  store ptr %1136, ptr %1151, align 8, !tbaa !39
-  %1152 = load ptr, ptr %11, align 8, !tbaa !28
-  %1153 = getelementptr inbounds nuw i8, ptr %1147, i64 32
-  store ptr %1152, ptr %1153, align 8, !tbaa !40
-  %1154 = load i32, ptr %15, align 8, !tbaa !22
-  %1155 = getelementptr inbounds nuw i8, ptr %1147, i64 40
-  store i32 %1154, ptr %1155, align 8, !tbaa !41
-  %1156 = getelementptr inbounds nuw i8, ptr %1147, i64 48
-  %1157 = getelementptr inbounds nuw i8, ptr %1147, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1156, i8 -1, i64 16, i1 false)
-  store ptr null, ptr %1157, align 8, !tbaa !14
-  %1158 = getelementptr inbounds nuw i8, ptr %1147, i64 64
-  store i64 0, ptr %1158, align 8, !tbaa !18
-  %1159 = getelementptr inbounds nuw i8, ptr %1147, i64 72
-  store i64 -1, ptr %1159, align 8, !tbaa !17
-  %1160 = getelementptr inbounds nuw i8, ptr %1147, i64 92
-  store i32 0, ptr %1160, align 4, !tbaa !37
-  %1161 = getelementptr inbounds nuw i8, ptr %1147, i64 88
-  store i32 0, ptr %1161, align 8, !tbaa !78
-  %1162 = load i8, ptr %1136, align 1, !tbaa !29
-  switch i8 %1162, label %1171 [
-    i8 70, label %1163
-    i8 102, label %1163
-    i8 82, label %1172
-    i8 114, label %1172
+1143:                                             ; preds = %tok_backup.exit1382
+  %1144 = getelementptr inbounds nuw i8, ptr %0, i64 2856
+  store i32 %1138, ptr %1136, align 8, !tbaa !13
+  %1145 = sext i32 %1138 to i64
+  %1146 = getelementptr [150 x %struct._tokenizer_mode], ptr %1144, i64 0, i64 %1145
+  store i32 1, ptr %1146, align 8, !tbaa !21
+  %1147 = trunc nuw i32 %.51006 to i8
+  %1148 = getelementptr inbounds nuw i8, ptr %1146, i64 12
+  store i8 %1147, ptr %1148, align 4, !tbaa !35
+  %1149 = getelementptr inbounds nuw i8, ptr %1146, i64 16
+  store i32 %.010941532, ptr %1149, align 8, !tbaa !32
+  %1150 = getelementptr inbounds nuw i8, ptr %1146, i64 24
+  store ptr %1135, ptr %1150, align 8, !tbaa !39
+  %1151 = load ptr, ptr %11, align 8, !tbaa !28
+  %1152 = getelementptr inbounds nuw i8, ptr %1146, i64 32
+  store ptr %1151, ptr %1152, align 8, !tbaa !40
+  %1153 = load i32, ptr %15, align 8, !tbaa !22
+  %1154 = getelementptr inbounds nuw i8, ptr %1146, i64 40
+  store i32 %1153, ptr %1154, align 8, !tbaa !41
+  %1155 = getelementptr inbounds nuw i8, ptr %1146, i64 48
+  %1156 = getelementptr inbounds nuw i8, ptr %1146, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1155, i8 -1, i64 16, i1 false)
+  store ptr null, ptr %1156, align 8, !tbaa !14
+  %1157 = getelementptr inbounds nuw i8, ptr %1146, i64 64
+  store i64 0, ptr %1157, align 8, !tbaa !18
+  %1158 = getelementptr inbounds nuw i8, ptr %1146, i64 72
+  store i64 -1, ptr %1158, align 8, !tbaa !17
+  %1159 = getelementptr inbounds nuw i8, ptr %1146, i64 92
+  store i32 0, ptr %1159, align 4, !tbaa !37
+  %1160 = getelementptr inbounds nuw i8, ptr %1146, i64 88
+  store i32 0, ptr %1160, align 8, !tbaa !78
+  %1161 = load i8, ptr %1135, align 1, !tbaa !29
+  switch i8 %1161, label %1170 [
+    i8 70, label %1162
+    i8 102, label %1162
+    i8 82, label %1171
+    i8 114, label %1171
   ]
 
-1163:                                             ; preds = %1144, %1144
-  %1164 = getelementptr i8, ptr %1136, i64 1
-  %1165 = load i8, ptr %1164, align 1, !tbaa !29
-  %1166 = zext i8 %1165 to i64
-  %1167 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %1166
-  %1168 = load i8, ptr %1167, align 1, !tbaa !29
-  %1169 = icmp eq i8 %1168, 114
-  %1170 = zext i1 %1169 to i32
-  br label %1172
+1162:                                             ; preds = %1143, %1143
+  %1163 = getelementptr i8, ptr %1135, i64 1
+  %1164 = load i8, ptr %1163, align 1, !tbaa !29
+  %1165 = zext i8 %1164 to i64
+  %1166 = getelementptr [256 x i8], ptr @_Py_ctype_tolower, i64 0, i64 %1165
+  %1167 = load i8, ptr %1166, align 1, !tbaa !29
+  %1168 = icmp eq i8 %1167, 114
+  %1169 = zext i1 %1168 to i32
+  br label %1171
 
-1171:                                             ; preds = %1144
+1170:                                             ; preds = %1143
   unreachable
 
-1172:                                             ; preds = %1144, %1144, %1163
-  %.sink2665 = phi i32 [ %1170, %1163 ], [ 1, %1144 ], [ 1, %1144 ]
-  %1173 = getelementptr inbounds nuw i8, ptr %1147, i64 20
-  store i32 %.sink2665, ptr %1173, align 4, !tbaa !44
-  %1174 = getelementptr inbounds nuw i8, ptr %1147, i64 4
-  store i32 0, ptr %1174, align 4, !tbaa !43
-  %1175 = getelementptr inbounds nuw i8, ptr %1147, i64 8
-  store i32 -1, ptr %1175, align 8, !tbaa !31
-  %1176 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 59, ptr noundef nonnull %1136, ptr noundef %1135) #9
+1171:                                             ; preds = %1143, %1143, %1162
+  %.sink2774 = phi i32 [ %1169, %1162 ], [ 1, %1143 ], [ 1, %1143 ]
+  %1172 = getelementptr inbounds nuw i8, ptr %1146, i64 20
+  store i32 %.sink2774, ptr %1172, align 4, !tbaa !44
+  %1173 = getelementptr inbounds nuw i8, ptr %1146, i64 4
+  store i32 0, ptr %1173, align 4, !tbaa !43
+  %1174 = getelementptr inbounds nuw i8, ptr %1146, i64 8
+  store i32 -1, ptr %1174, align 8, !tbaa !31
+  %1175 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 59, ptr noundef nonnull %1135, ptr noundef %1134) #9
   br label %.thread1472
 
-1177:                                             ; preds = %410, %1035, %.thread1486
-  %.pre39.i1384 = phi ptr [ %.pre39.i1359, %1035 ], [ %.pre39.i1359, %.thread1486 ], [ %.pre39.i12742282, %410 ]
-  %.pre.i1383 = phi ptr [ %.pre.i1358, %1035 ], [ %.pre.i1358, %.thread1486 ], [ %.pre.i12732279, %410 ]
-  %.61007 = phi i32 [ %.51006, %1035 ], [ %.51006, %.thread1486 ], [ %.0.i1276, %410 ]
-  switch i32 %.61007, label %1394 [
-    i32 39, label %1178
-    i32 34, label %1178
-    i32 92, label %1388
+1176:                                             ; preds = %410, %1034, %.thread1486
+  %.pre39.i1384 = phi ptr [ %.pre39.i1359, %1034 ], [ %.pre39.i1359, %.thread1486 ], [ %.pre39.i12742282, %410 ]
+  %.pre.i1383 = phi ptr [ %.pre.i1358, %1034 ], [ %.pre.i1358, %.thread1486 ], [ %.pre.i12732279, %410 ]
+  %.61007 = phi i32 [ %.51006, %1034 ], [ %.51006, %.thread1486 ], [ %.0.i1276, %410 ]
+  switch i32 %.61007, label %1393 [
+    i32 39, label %1177
+    i32 34, label %1177
+    i32 92, label %1387
   ]
 
-1178:                                             ; preds = %1177, %1177
-  %1179 = load i32, ptr %15, align 8, !tbaa !22
-  %1180 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  store i32 %1179, ptr %1180, align 4, !tbaa !23
-  %1181 = load ptr, ptr %11, align 8, !tbaa !28
-  %1182 = getelementptr inbounds nuw i8, ptr %0, i64 2776
-  store ptr %1181, ptr %1182, align 8, !tbaa !36
-  br label %1183
+1177:                                             ; preds = %1176, %1176
+  %1178 = load i32, ptr %15, align 8, !tbaa !22
+  %1179 = getelementptr inbounds nuw i8, ptr %0, i64 516
+  store i32 %1178, ptr %1179, align 4, !tbaa !23
+  %1180 = load ptr, ptr %11, align 8, !tbaa !28
+  %1181 = getelementptr inbounds nuw i8, ptr %0, i64 2776
+  store ptr %1180, ptr %1181, align 8, !tbaa !36
+  br label %1182
 
-1183:                                             ; preds = %1202, %1178
-  %1184 = phi ptr [ %1204, %1202 ], [ %.pre39.i1384, %1178 ]
-  %1185 = phi ptr [ %1203, %1202 ], [ %.pre.i1383, %1178 ]
-  %.not.i1385 = icmp eq ptr %1185, %1184
-  br i1 %.not.i1385, label %1195, label %1186
+1182:                                             ; preds = %1201, %1177
+  %1183 = phi ptr [ %1203, %1201 ], [ %.pre39.i1384, %1177 ]
+  %1184 = phi ptr [ %1202, %1201 ], [ %.pre.i1383, %1177 ]
+  %.not.i1385 = icmp eq ptr %1184, %1183
+  br i1 %.not.i1385, label %1194, label %1185
 
-1186:                                             ; preds = %1183
-  %1187 = load i32, ptr %12, align 4, !tbaa !24
-  %1188 = icmp ugt i32 %1187, 2147483646
-  br i1 %1188, label %1189, label %1190
+1185:                                             ; preds = %1182
+  %1186 = load i32, ptr %12, align 4, !tbaa !24
+  %1187 = icmp ugt i32 %1186, 2147483646
+  br i1 %1187, label %1188, label %1189
 
-1189:                                             ; preds = %1186
+1188:                                             ; preds = %1185
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1390
 
-1190:                                             ; preds = %1186
-  %1191 = add nuw nsw i32 %1187, 1
-  store i32 %1191, ptr %12, align 4, !tbaa !24
-  %1192 = getelementptr i8, ptr %1185, i64 1
-  store ptr %1192, ptr %7, align 8, !tbaa !4
-  %1193 = load i8, ptr %1185, align 1, !tbaa !29
-  %1194 = zext i8 %1193 to i32
+1189:                                             ; preds = %1185
+  %1190 = add nuw nsw i32 %1186, 1
+  store i32 %1190, ptr %12, align 4, !tbaa !24
+  %1191 = getelementptr i8, ptr %1184, i64 1
+  store ptr %1191, ptr %7, align 8, !tbaa !4
+  %1192 = load i8, ptr %1184, align 1, !tbaa !29
+  %1193 = zext i8 %1192 to i32
   br label %tok_nextc.exit1390
 
-1195:                                             ; preds = %1183
-  %1196 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1387 = icmp eq i32 %1196, 10
-  br i1 %.not21.i1387, label %1197, label %tok_nextc.exit1390
+1194:                                             ; preds = %1182
+  %1195 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1387 = icmp eq i32 %1195, 10
+  br i1 %.not21.i1387, label %1196, label %tok_nextc.exit1390
 
-1197:                                             ; preds = %1195
-  %1198 = load ptr, ptr %10, align 8, !tbaa !27
-  %1199 = tail call i32 %1198(ptr noundef nonnull %0) #9
-  %.not22.i1388 = icmp eq i32 %1199, 0
-  br i1 %.not22.i1388, label %1200, label %1202
+1196:                                             ; preds = %1194
+  %1197 = load ptr, ptr %10, align 8, !tbaa !27
+  %1198 = tail call i32 %1197(ptr noundef nonnull %0) #9
+  %.not22.i1388 = icmp eq i32 %1198, 0
+  br i1 %.not22.i1388, label %1199, label %1201
 
-1200:                                             ; preds = %1197
-  %1201 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1201, ptr %7, align 8, !tbaa !4
+1199:                                             ; preds = %1196
+  %1200 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1200, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1390
 
-1202:                                             ; preds = %1197
-  %1203 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1203, ptr %11, align 8, !tbaa !28
-  %1204 = load ptr, ptr %8, align 8, !tbaa !26
-  %1205 = ptrtoint ptr %1204 to i64
-  %1206 = ptrtoint ptr %1203 to i64
-  %1207 = sub i64 %1205, %1206
-  %1208 = tail call ptr @memchr(ptr noundef readonly %1203, i32 noundef 0, i64 noundef %1207) #8
-  %.not24.i1389 = icmp eq ptr %1208, null
-  br i1 %.not24.i1389, label %1183, label %1209
+1201:                                             ; preds = %1196
+  %1202 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1202, ptr %11, align 8, !tbaa !28
+  %1203 = load ptr, ptr %8, align 8, !tbaa !26
+  %1204 = ptrtoint ptr %1203 to i64
+  %1205 = ptrtoint ptr %1202 to i64
+  %1206 = sub i64 %1204, %1205
+  %1207 = tail call ptr @memchr(ptr noundef readonly %1202, i32 noundef 0, i64 noundef %1206) #8
+  %.not24.i1389 = icmp eq ptr %1207, null
+  br i1 %.not24.i1389, label %1182, label %1208
 
-1209:                                             ; preds = %1202
-  %1210 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1211 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1211, ptr %7, align 8, !tbaa !4
+1208:                                             ; preds = %1201
+  %1209 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1210 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1210, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1390
 
-tok_nextc.exit1390:                               ; preds = %1195, %1189, %1190, %1200, %1209
-  %.pre39.i1392 = phi ptr [ %1184, %1189 ], [ %1184, %1190 ], [ %1211, %1209 ], [ %1201, %1200 ], [ %1184, %1195 ]
-  %.pre.i1391 = phi ptr [ %1185, %1189 ], [ %1192, %1190 ], [ %1211, %1209 ], [ %1201, %1200 ], [ %1185, %1195 ]
-  %.0.i1386 = phi i32 [ -1, %1189 ], [ %1194, %1190 ], [ -1, %1209 ], [ -1, %1200 ], [ -1, %1195 ]
-  %1212 = icmp eq i32 %.0.i1386, %.61007
-  br i1 %1212, label %.preheader2669, label %1243
+tok_nextc.exit1390:                               ; preds = %1194, %1188, %1189, %1199, %1208
+  %.pre39.i1392 = phi ptr [ %1183, %1188 ], [ %1183, %1189 ], [ %1210, %1208 ], [ %1200, %1199 ], [ %1183, %1194 ]
+  %.pre.i1391 = phi ptr [ %1184, %1188 ], [ %1191, %1189 ], [ %1210, %1208 ], [ %1200, %1199 ], [ %1184, %1194 ]
+  %.0.i1386 = phi i32 [ -1, %1188 ], [ %1193, %1189 ], [ -1, %1208 ], [ -1, %1199 ], [ -1, %1194 ]
+  %1211 = icmp eq i32 %.0.i1386, %.61007
+  br i1 %1211, label %.preheader2778, label %1242
 
-.preheader2669:                                   ; preds = %tok_nextc.exit1390, %1231
-  %1213 = phi ptr [ %1233, %1231 ], [ %.pre39.i1392, %tok_nextc.exit1390 ]
-  %1214 = phi ptr [ %1232, %1231 ], [ %.pre.i1391, %tok_nextc.exit1390 ]
-  %.not.i1393 = icmp eq ptr %1214, %1213
-  br i1 %.not.i1393, label %1224, label %1215
+.preheader2778:                                   ; preds = %tok_nextc.exit1390, %1230
+  %1212 = phi ptr [ %1232, %1230 ], [ %.pre39.i1392, %tok_nextc.exit1390 ]
+  %1213 = phi ptr [ %1231, %1230 ], [ %.pre.i1391, %tok_nextc.exit1390 ]
+  %.not.i1393 = icmp eq ptr %1213, %1212
+  br i1 %.not.i1393, label %1223, label %1214
 
-1215:                                             ; preds = %.preheader2669
-  %1216 = load i32, ptr %12, align 4, !tbaa !24
-  %1217 = icmp ugt i32 %1216, 2147483646
-  br i1 %1217, label %1218, label %1219
+1214:                                             ; preds = %.preheader2778
+  %1215 = load i32, ptr %12, align 4, !tbaa !24
+  %1216 = icmp ugt i32 %1215, 2147483646
+  br i1 %1216, label %1217, label %1218
 
-1218:                                             ; preds = %1215
+1217:                                             ; preds = %1214
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1398
 
-1219:                                             ; preds = %1215
-  %1220 = add nuw nsw i32 %1216, 1
-  store i32 %1220, ptr %12, align 4, !tbaa !24
-  %1221 = getelementptr i8, ptr %1214, i64 1
-  store ptr %1221, ptr %7, align 8, !tbaa !4
-  %1222 = load i8, ptr %1214, align 1, !tbaa !29
-  %1223 = zext i8 %1222 to i32
+1218:                                             ; preds = %1214
+  %1219 = add nuw nsw i32 %1215, 1
+  store i32 %1219, ptr %12, align 4, !tbaa !24
+  %1220 = getelementptr i8, ptr %1213, i64 1
+  store ptr %1220, ptr %7, align 8, !tbaa !4
+  %1221 = load i8, ptr %1213, align 1, !tbaa !29
+  %1222 = zext i8 %1221 to i32
   br label %tok_nextc.exit1398
 
-1224:                                             ; preds = %.preheader2669
-  %1225 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1395 = icmp eq i32 %1225, 10
-  br i1 %.not21.i1395, label %1226, label %tok_nextc.exit1398
+1223:                                             ; preds = %.preheader2778
+  %1224 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1395 = icmp eq i32 %1224, 10
+  br i1 %.not21.i1395, label %1225, label %tok_nextc.exit1398
 
-1226:                                             ; preds = %1224
-  %1227 = load ptr, ptr %10, align 8, !tbaa !27
-  %1228 = tail call i32 %1227(ptr noundef nonnull %0) #9
-  %.not22.i1396 = icmp eq i32 %1228, 0
-  br i1 %.not22.i1396, label %1229, label %1231
+1225:                                             ; preds = %1223
+  %1226 = load ptr, ptr %10, align 8, !tbaa !27
+  %1227 = tail call i32 %1226(ptr noundef nonnull %0) #9
+  %.not22.i1396 = icmp eq i32 %1227, 0
+  br i1 %.not22.i1396, label %1228, label %1230
 
-1229:                                             ; preds = %1226
-  %1230 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1230, ptr %7, align 8, !tbaa !4
+1228:                                             ; preds = %1225
+  %1229 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1229, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1398
 
-1231:                                             ; preds = %1226
-  %1232 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1232, ptr %11, align 8, !tbaa !28
-  %1233 = load ptr, ptr %8, align 8, !tbaa !26
-  %1234 = ptrtoint ptr %1233 to i64
-  %1235 = ptrtoint ptr %1232 to i64
-  %1236 = sub i64 %1234, %1235
-  %1237 = tail call ptr @memchr(ptr noundef readonly %1232, i32 noundef 0, i64 noundef %1236) #8
-  %.not24.i1397 = icmp eq ptr %1237, null
-  br i1 %.not24.i1397, label %.preheader2669, label %1238
+1230:                                             ; preds = %1225
+  %1231 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1231, ptr %11, align 8, !tbaa !28
+  %1232 = load ptr, ptr %8, align 8, !tbaa !26
+  %1233 = ptrtoint ptr %1232 to i64
+  %1234 = ptrtoint ptr %1231 to i64
+  %1235 = sub i64 %1233, %1234
+  %1236 = tail call ptr @memchr(ptr noundef readonly %1231, i32 noundef 0, i64 noundef %1235) #8
+  %.not24.i1397 = icmp eq ptr %1236, null
+  br i1 %.not24.i1397, label %.preheader2778, label %1237
 
-1238:                                             ; preds = %1231
-  %1239 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1240 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1240, ptr %7, align 8, !tbaa !4
+1237:                                             ; preds = %1230
+  %1238 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1239 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1239, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1398
 
-tok_nextc.exit1398:                               ; preds = %1224, %1218, %1219, %1229, %1238
-  %.pre39.i14032306 = phi ptr [ %1213, %1218 ], [ %1213, %1219 ], [ %1240, %1238 ], [ %1230, %1229 ], [ %1213, %1224 ]
-  %1241 = phi ptr [ %1214, %1218 ], [ %1221, %1219 ], [ %1240, %1238 ], [ %1230, %1229 ], [ %1214, %1224 ]
-  %.0.i1394 = phi i32 [ -1, %1218 ], [ %1223, %1219 ], [ -1, %1238 ], [ -1, %1229 ], [ -1, %1224 ]
-  %1242 = icmp eq i32 %.0.i1394, %.61007
-  %not. = xor i1 %1242, true
-  %.1225 = select i1 %1242, i32 3, i32 1
+tok_nextc.exit1398:                               ; preds = %1223, %1217, %1218, %1228, %1237
+  %.pre39.i14032306 = phi ptr [ %1212, %1217 ], [ %1212, %1218 ], [ %1239, %1237 ], [ %1229, %1228 ], [ %1212, %1223 ]
+  %1240 = phi ptr [ %1213, %1217 ], [ %1220, %1218 ], [ %1239, %1237 ], [ %1229, %1228 ], [ %1213, %1223 ]
+  %.0.i1394 = phi i32 [ -1, %1217 ], [ %1222, %1218 ], [ -1, %1237 ], [ -1, %1228 ], [ -1, %1223 ]
+  %1241 = icmp eq i32 %.0.i1394, %.61007
+  %not. = xor i1 %1241, true
+  %.1225 = select i1 %1241, i32 3, i32 1
   %.1226 = zext i1 %not. to i32
-  br label %1243
+  br label %1242
 
-1243:                                             ; preds = %tok_nextc.exit1398, %tok_nextc.exit1390
+1242:                                             ; preds = %tok_nextc.exit1398, %tok_nextc.exit1390
   %.pre39.i14032305 = phi ptr [ %.pre39.i1392, %tok_nextc.exit1390 ], [ %.pre39.i14032306, %tok_nextc.exit1398 ]
-  %1244 = phi ptr [ %.pre.i1391, %tok_nextc.exit1390 ], [ %1241, %tok_nextc.exit1398 ]
-  %1245 = phi i1 [ true, %tok_nextc.exit1390 ], [ %not., %tok_nextc.exit1398 ]
-  %1246 = phi i1 [ false, %tok_nextc.exit1390 ], [ %1242, %tok_nextc.exit1398 ]
+  %1243 = phi ptr [ %.pre.i1391, %tok_nextc.exit1390 ], [ %1240, %tok_nextc.exit1398 ]
+  %1244 = phi i1 [ true, %tok_nextc.exit1390 ], [ %not., %tok_nextc.exit1398 ]
+  %1245 = phi i1 [ false, %tok_nextc.exit1390 ], [ %1241, %tok_nextc.exit1398 ]
   %.01086 = phi i32 [ 1, %tok_nextc.exit1390 ], [ %.1225, %tok_nextc.exit1398 ]
   %.01083 = phi i32 [ 0, %tok_nextc.exit1390 ], [ %.1226, %tok_nextc.exit1398 ]
   %.24 = phi i32 [ %.0.i1386, %tok_nextc.exit1390 ], [ %.0.i1394, %tok_nextc.exit1398 ]
   %.not1205 = icmp eq i32 %.24, %.61007
   %.not.i1399 = icmp eq i32 %.24, -1
   %or.cond1570 = or i1 %.not1205, %.not.i1399
-  br i1 %or.cond1570, label %tok_backup.exit1401, label %1247
+  br i1 %or.cond1570, label %tok_backup.exit1401, label %1246
 
-1247:                                             ; preds = %1243
-  %1248 = getelementptr i8, ptr %1244, i64 -1
-  store ptr %1248, ptr %7, align 8, !tbaa !4
-  %1249 = load ptr, ptr %0, align 8, !tbaa !30
-  %1250 = icmp ult ptr %1248, %1249
-  br i1 %1250, label %1251, label %1252
+1246:                                             ; preds = %1242
+  %1247 = getelementptr i8, ptr %1243, i64 -1
+  store ptr %1247, ptr %7, align 8, !tbaa !4
+  %1248 = load ptr, ptr %0, align 8, !tbaa !30
+  %1249 = icmp ult ptr %1247, %1248
+  br i1 %1249, label %1250, label %1251
 
-1251:                                             ; preds = %1247
+1250:                                             ; preds = %1246
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.26) #10
   unreachable
 
-1252:                                             ; preds = %1247
-  %1253 = load i8, ptr %1248, align 1, !tbaa !29
-  %1254 = trunc nuw i32 %.24 to i8
-  %.not6.i1400 = icmp eq i8 %1253, %1254
-  br i1 %.not6.i1400, label %1256, label %1255
+1251:                                             ; preds = %1246
+  %1252 = load i8, ptr %1247, align 1, !tbaa !29
+  %1253 = trunc nuw i32 %.24 to i8
+  %.not6.i1400 = icmp eq i8 %1252, %1253
+  br i1 %.not6.i1400, label %1255, label %1254
 
-1255:                                             ; preds = %1252
+1254:                                             ; preds = %1251
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.27) #10
   unreachable
 
-1256:                                             ; preds = %1252
-  %1257 = load i32, ptr %12, align 4, !tbaa !24
-  %1258 = add i32 %1257, -1
-  store i32 %1258, ptr %12, align 4, !tbaa !24
+1255:                                             ; preds = %1251
+  %1256 = load i32, ptr %12, align 4, !tbaa !24
+  %1257 = add i32 %1256, -1
+  store i32 %1257, ptr %12, align 4, !tbaa !24
   br label %tok_backup.exit1401
 
-tok_backup.exit1401:                              ; preds = %1256, %1243
-  %.pre.i14022298 = phi ptr [ %1248, %1256 ], [ %1244, %1243 ]
+tok_backup.exit1401:                              ; preds = %1255, %1242
+  %.pre.i14022298 = phi ptr [ %1247, %1255 ], [ %1243, %1242 ]
   %.not12062012 = icmp eq i32 %.01083, %.01086
   br i1 %.not12062012, label %tok_nextc.exit1409._crit_edge, label %.lr.ph2015
 
 .lr.ph2015:                                       ; preds = %tok_backup.exit1401
-  %1259 = icmp eq i32 %.61007, -1
-  br label %1260
+  %1258 = icmp eq i32 %.61007, -1
+  br label %1259
 
-1260:                                             ; preds = %.lr.ph2015, %tok_nextc.exit1425
+1259:                                             ; preds = %.lr.ph2015, %tok_nextc.exit1425
   %.pre39.i14192323 = phi ptr [ %.pre39.i14032305, %.lr.ph2015 ], [ %.pre39.i14192324, %tok_nextc.exit1425 ]
   %.pre39.i14112313 = phi ptr [ %.pre39.i14032305, %.lr.ph2015 ], [ %.pre39.i14112314, %tok_nextc.exit1425 ]
   %.pre.i14102307 = phi ptr [ %.pre.i14022298, %.lr.ph2015 ], [ %.pre.i14102308, %tok_nextc.exit1425 ]
@@ -4235,868 +4234,868 @@ tok_backup.exit1401:                              ; preds = %1256, %1243
   %.pre.i1402 = phi ptr [ %.pre.i14022298, %.lr.ph2015 ], [ %.pre.i14022295, %tok_nextc.exit1425 ]
   %.010802014 = phi i32 [ 0, %.lr.ph2015 ], [ %.11081, %tok_nextc.exit1425 ]
   %.110842013 = phi i32 [ %.01083, %.lr.ph2015 ], [ %.21085, %tok_nextc.exit1425 ]
-  br label %1261
+  br label %1260
 
-1261:                                             ; preds = %1277, %1260
-  %.pre39.i14192322 = phi ptr [ %1279, %1277 ], [ %.pre39.i14192323, %1260 ]
-  %.pre39.i14112319 = phi ptr [ %1279, %1277 ], [ %.pre39.i14112313, %1260 ]
-  %.pre.i14102312 = phi ptr [ %1278, %1277 ], [ %.pre.i14102307, %1260 ]
-  %.pre39.i14032301 = phi ptr [ %1279, %1277 ], [ %.pre39.i1403, %1260 ]
-  %.pre.i14022293 = phi ptr [ %1278, %1277 ], [ %.pre.i1402, %1260 ]
+1260:                                             ; preds = %1276, %1259
+  %.pre39.i14192322 = phi ptr [ %1278, %1276 ], [ %.pre39.i14192323, %1259 ]
+  %.pre39.i14112319 = phi ptr [ %1278, %1276 ], [ %.pre39.i14112313, %1259 ]
+  %.pre.i14102312 = phi ptr [ %1277, %1276 ], [ %.pre.i14102307, %1259 ]
+  %.pre39.i14032301 = phi ptr [ %1278, %1276 ], [ %.pre39.i1403, %1259 ]
+  %.pre.i14022293 = phi ptr [ %1277, %1276 ], [ %.pre.i1402, %1259 ]
   %.not.i1404 = icmp eq ptr %.pre.i14022293, %.pre39.i14032301
-  br i1 %.not.i1404, label %1270, label %1262
+  br i1 %.not.i1404, label %1269, label %1261
 
-1262:                                             ; preds = %1261
-  %1263 = load i32, ptr %12, align 4, !tbaa !24
-  %1264 = icmp ugt i32 %1263, 2147483646
-  br i1 %1264, label %.thread1536, label %1265
+1261:                                             ; preds = %1260
+  %1262 = load i32, ptr %12, align 4, !tbaa !24
+  %1263 = icmp ugt i32 %1262, 2147483646
+  br i1 %1263, label %.thread1536, label %1264
 
-.thread1536:                                      ; preds = %1262
+.thread1536:                                      ; preds = %1261
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %.loopexit
 
-1265:                                             ; preds = %1262
-  %1266 = add nuw nsw i32 %1263, 1
-  store i32 %1266, ptr %12, align 4, !tbaa !24
-  %1267 = getelementptr i8, ptr %.pre.i14022293, i64 1
-  store ptr %1267, ptr %7, align 8, !tbaa !4
-  %1268 = load i8, ptr %.pre.i14022293, align 1, !tbaa !29
-  %1269 = zext i8 %1268 to i32
+1264:                                             ; preds = %1261
+  %1265 = add nuw nsw i32 %1262, 1
+  store i32 %1265, ptr %12, align 4, !tbaa !24
+  %1266 = getelementptr i8, ptr %.pre.i14022293, i64 1
+  store ptr %1266, ptr %7, align 8, !tbaa !4
+  %1267 = load i8, ptr %.pre.i14022293, align 1, !tbaa !29
+  %1268 = zext i8 %1267 to i32
   br label %tok_nextc.exit1409thread-pre-split
 
-1270:                                             ; preds = %1261
-  %1271 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1406 = icmp eq i32 %1271, 10
-  br i1 %.not21.i1406, label %1272, label %tok_nextc.exit1409
+1269:                                             ; preds = %1260
+  %1270 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1406 = icmp eq i32 %1270, 10
+  br i1 %.not21.i1406, label %1271, label %tok_nextc.exit1409
 
-1272:                                             ; preds = %1270
-  %1273 = load ptr, ptr %10, align 8, !tbaa !27
-  %1274 = tail call i32 %1273(ptr noundef nonnull %0) #9
-  %.not22.i1407 = icmp eq i32 %1274, 0
-  br i1 %.not22.i1407, label %1275, label %1277
+1271:                                             ; preds = %1269
+  %1272 = load ptr, ptr %10, align 8, !tbaa !27
+  %1273 = tail call i32 %1272(ptr noundef nonnull %0) #9
+  %.not22.i1407 = icmp eq i32 %1273, 0
+  br i1 %.not22.i1407, label %1274, label %1276
 
-1275:                                             ; preds = %1272
-  %1276 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1276, ptr %7, align 8, !tbaa !4
+1274:                                             ; preds = %1271
+  %1275 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1275, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1409thread-pre-split
 
-1277:                                             ; preds = %1272
-  %1278 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1278, ptr %11, align 8, !tbaa !28
-  %1279 = load ptr, ptr %8, align 8, !tbaa !26
-  %1280 = ptrtoint ptr %1279 to i64
-  %1281 = ptrtoint ptr %1278 to i64
-  %1282 = sub i64 %1280, %1281
-  %1283 = tail call ptr @memchr(ptr noundef readonly %1278, i32 noundef 0, i64 noundef %1282) #8
-  %.not24.i1408 = icmp eq ptr %1283, null
-  br i1 %.not24.i1408, label %1261, label %1284
+1276:                                             ; preds = %1271
+  %1277 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1277, ptr %11, align 8, !tbaa !28
+  %1278 = load ptr, ptr %8, align 8, !tbaa !26
+  %1279 = ptrtoint ptr %1278 to i64
+  %1280 = ptrtoint ptr %1277 to i64
+  %1281 = sub i64 %1279, %1280
+  %1282 = tail call ptr @memchr(ptr noundef readonly %1277, i32 noundef 0, i64 noundef %1281) #8
+  %.not24.i1408 = icmp eq ptr %1282, null
+  br i1 %.not24.i1408, label %1260, label %1283
 
-1284:                                             ; preds = %1277
-  %1285 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1286 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1286, ptr %7, align 8, !tbaa !4
+1283:                                             ; preds = %1276
+  %1284 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1285 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1285, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1409thread-pre-split
 
-tok_nextc.exit1409thread-pre-split:               ; preds = %1284, %1275, %1265
-  %.pre39.i14192321 = phi ptr [ %1276, %1275 ], [ %1286, %1284 ], [ %.pre39.i14192322, %1265 ]
-  %.pre39.i14112318 = phi ptr [ %1276, %1275 ], [ %1286, %1284 ], [ %.pre39.i14112319, %1265 ]
-  %.pre39.i14032300 = phi ptr [ %1276, %1275 ], [ %1286, %1284 ], [ %.pre39.i14032301, %1265 ]
-  %.pre.i14022297 = phi ptr [ %1276, %1275 ], [ %1286, %1284 ], [ %1267, %1265 ]
-  %.0.i1405.ph = phi i32 [ -1, %1275 ], [ -1, %1284 ], [ %1269, %1265 ]
+tok_nextc.exit1409thread-pre-split:               ; preds = %1283, %1274, %1264
+  %.pre39.i14192321 = phi ptr [ %1275, %1274 ], [ %1285, %1283 ], [ %.pre39.i14192322, %1264 ]
+  %.pre39.i14112318 = phi ptr [ %1275, %1274 ], [ %1285, %1283 ], [ %.pre39.i14112319, %1264 ]
+  %.pre39.i14032300 = phi ptr [ %1275, %1274 ], [ %1285, %1283 ], [ %.pre39.i14032301, %1264 ]
+  %.pre.i14022297 = phi ptr [ %1275, %1274 ], [ %1285, %1283 ], [ %1266, %1264 ]
+  %.0.i1405.ph = phi i32 [ -1, %1274 ], [ -1, %1283 ], [ %1268, %1264 ]
   %.pr1533 = load i32, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1409
 
-tok_nextc.exit1409:                               ; preds = %1270, %tok_nextc.exit1409thread-pre-split
-  %.pre39.i14192320 = phi ptr [ %.pre39.i14192321, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14192322, %1270 ]
-  %.pre39.i1411 = phi ptr [ %.pre39.i14112318, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14112319, %1270 ]
-  %.pre.i1410 = phi ptr [ %.pre.i14022297, %tok_nextc.exit1409thread-pre-split ], [ %.pre.i14102312, %1270 ]
-  %.pre39.i14032299 = phi ptr [ %.pre39.i14032300, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14032301, %1270 ]
-  %.pre.i14022292 = phi ptr [ %.pre.i14022297, %tok_nextc.exit1409thread-pre-split ], [ %.pre.i14022293, %1270 ]
-  %1287 = phi i32 [ %.pr1533, %tok_nextc.exit1409thread-pre-split ], [ %1271, %1270 ]
-  %.0.i1405 = phi i32 [ %.0.i1405.ph, %tok_nextc.exit1409thread-pre-split ], [ -1, %1270 ]
-  switch i32 %1287, label %1290 [
-    i32 17, label %1288
+tok_nextc.exit1409:                               ; preds = %1269, %tok_nextc.exit1409thread-pre-split
+  %.pre39.i14192320 = phi ptr [ %.pre39.i14192321, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14192322, %1269 ]
+  %.pre39.i1411 = phi ptr [ %.pre39.i14112318, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14112319, %1269 ]
+  %.pre.i1410 = phi ptr [ %.pre.i14022297, %tok_nextc.exit1409thread-pre-split ], [ %.pre.i14102312, %1269 ]
+  %.pre39.i14032299 = phi ptr [ %.pre39.i14032300, %tok_nextc.exit1409thread-pre-split ], [ %.pre39.i14032301, %1269 ]
+  %.pre.i14022292 = phi ptr [ %.pre.i14022297, %tok_nextc.exit1409thread-pre-split ], [ %.pre.i14022293, %1269 ]
+  %1286 = phi i32 [ %.pr1533, %tok_nextc.exit1409thread-pre-split ], [ %1270, %1269 ]
+  %.0.i1405 = phi i32 [ %.0.i1405.ph, %tok_nextc.exit1409thread-pre-split ], [ -1, %1269 ]
+  switch i32 %1286, label %1289 [
+    i32 17, label %1287
     i32 22, label %tok_nextc.exit1409._crit_edge
   ]
 
-1288:                                             ; preds = %tok_nextc.exit1409
-  %1289 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1287:                                             ; preds = %tok_nextc.exit1409
+  %1288 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1290:                                             ; preds = %tok_nextc.exit1409
-  %1291 = icmp eq i32 %.0.i1405, -1
-  %1292 = icmp eq i32 %.0.i1405, 10
-  %or.cond93 = select i1 %1245, i1 %1292, i1 false
-  %or.cond1227 = select i1 %1291, i1 true, i1 %or.cond93
-  br i1 %or.cond1227, label %.loopexit, label %1327
+1289:                                             ; preds = %tok_nextc.exit1409
+  %1290 = icmp eq i32 %.0.i1405, -1
+  %1291 = icmp eq i32 %.0.i1405, 10
+  %or.cond93 = select i1 %1244, i1 %1291, i1 false
+  %or.cond1227 = select i1 %1290, i1 true, i1 %or.cond93
+  br i1 %or.cond1227, label %.loopexit, label %1326
 
-.loopexit:                                        ; preds = %1290, %.thread1536
-  %1293 = phi i1 [ false, %.thread1536 ], [ %1292, %1290 ]
-  %1294 = load ptr, ptr %4, align 8, !tbaa !19
-  %1295 = getelementptr i8, ptr %1294, i64 1
-  store ptr %1295, ptr %7, align 8, !tbaa !4
-  %1296 = load ptr, ptr %1182, align 8, !tbaa !36
-  store ptr %1296, ptr %11, align 8, !tbaa !28
-  %1297 = load i32, ptr %15, align 8, !tbaa !22
-  %1298 = load i32, ptr %1180, align 4, !tbaa !23
-  store i32 %1298, ptr %15, align 8, !tbaa !22
-  %1299 = getelementptr inbounds nuw i8, ptr %0, i64 17256
-  %1300 = load i32, ptr %1299, align 8, !tbaa !13
-  %1301 = icmp sgt i32 %1300, 0
-  br i1 %1301, label %1302, label %.thread1541
+.loopexit:                                        ; preds = %1289, %.thread1536
+  %1292 = phi i1 [ false, %.thread1536 ], [ %1291, %1289 ]
+  %1293 = load ptr, ptr %4, align 8, !tbaa !19
+  %1294 = getelementptr i8, ptr %1293, i64 1
+  store ptr %1294, ptr %7, align 8, !tbaa !4
+  %1295 = load ptr, ptr %1181, align 8, !tbaa !36
+  store ptr %1295, ptr %11, align 8, !tbaa !28
+  %1296 = load i32, ptr %15, align 8, !tbaa !22
+  %1297 = load i32, ptr %1179, align 4, !tbaa !23
+  store i32 %1297, ptr %15, align 8, !tbaa !22
+  %1298 = getelementptr inbounds nuw i8, ptr %0, i64 17256
+  %1299 = load i32, ptr %1298, align 8, !tbaa !13
+  %1300 = icmp sgt i32 %1299, 0
+  br i1 %1300, label %1301, label %.thread1541
 
-1302:                                             ; preds = %.loopexit
-  %1303 = getelementptr inbounds nuw i8, ptr %0, i64 2856
-  %1304 = zext nneg i32 %1300 to i64
-  %1305 = getelementptr [150 x %struct._tokenizer_mode], ptr %1303, i64 0, i64 %1304
-  %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 12
-  %1307 = load i8, ptr %1306, align 4, !tbaa !35
-  %1308 = sext i8 %1307 to i32
-  %1309 = icmp eq i32 %.61007, %1308
-  br i1 %1309, label %1310, label %.thread1541
+1301:                                             ; preds = %.loopexit
+  %1302 = getelementptr inbounds nuw i8, ptr %0, i64 2856
+  %1303 = zext nneg i32 %1299 to i64
+  %1304 = getelementptr [150 x %struct._tokenizer_mode], ptr %1302, i64 0, i64 %1303
+  %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 12
+  %1306 = load i8, ptr %1305, align 4, !tbaa !35
+  %1307 = sext i8 %1306 to i32
+  %1308 = icmp eq i32 %.61007, %1307
+  br i1 %1308, label %1309, label %.thread1541
 
-1310:                                             ; preds = %1302
-  %1311 = getelementptr inbounds nuw i8, ptr %1305, i64 16
-  %1312 = load i32, ptr %1311, align 8, !tbaa !32
-  %1313 = icmp eq i32 %1312, %.01086
-  br i1 %1313, label %1314, label %.thread1541
+1309:                                             ; preds = %1301
+  %1310 = getelementptr inbounds nuw i8, ptr %1304, i64 16
+  %1311 = load i32, ptr %1310, align 8, !tbaa !32
+  %1312 = icmp eq i32 %1311, %.01086
+  br i1 %1312, label %1313, label %.thread1541
 
-1314:                                             ; preds = %1310
-  %1315 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i32 noundef %1297) #9
-  %1316 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1315, ptr noundef null, ptr noundef null) #9
+1313:                                             ; preds = %1309
+  %1314 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i32 noundef %1296) #9
+  %1315 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1314, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-.thread1541:                                      ; preds = %1302, %1310, %.loopexit
-  br i1 %1246, label %1317, label %1322
+.thread1541:                                      ; preds = %1301, %1309, %.loopexit
+  br i1 %1245, label %1316, label %1321
 
-1317:                                             ; preds = %.thread1541
-  %1318 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i32 noundef %1297) #9
-  br i1 %1293, label %1320, label %1319
+1316:                                             ; preds = %.thread1541
+  %1317 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, i32 noundef %1296) #9
+  br i1 %1292, label %1319, label %1318
 
-1319:                                             ; preds = %1317
+1318:                                             ; preds = %1316
   store i32 23, ptr %9, align 8, !tbaa !20
-  br label %1320
+  br label %1319
 
-1320:                                             ; preds = %1319, %1317
-  %1321 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1319:                                             ; preds = %1318, %1316
+  %1320 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1322:                                             ; preds = %.thread1541
+1321:                                             ; preds = %.thread1541
   %.not1207 = icmp eq i32 %.010802014, 0
   %.str.17..str.16 = select i1 %.not1207, ptr @.str.17, ptr @.str.16
-  %1323 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull %.str.17..str.16, i32 noundef %1297) #9
-  br i1 %1293, label %1325, label %1324
+  %1322 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull %.str.17..str.16, i32 noundef %1296) #9
+  br i1 %1292, label %1324, label %1323
 
-1324:                                             ; preds = %1322
+1323:                                             ; preds = %1321
   store i32 24, ptr %9, align 8, !tbaa !20
-  br label %1325
+  br label %1324
 
-1325:                                             ; preds = %1324, %1322
-  %1326 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1324:                                             ; preds = %1323, %1321
+  %1325 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1327:                                             ; preds = %1290
-  %1328 = icmp eq i32 %.0.i1405, %.61007
-  br i1 %1328, label %1329, label %1331
+1326:                                             ; preds = %1289
+  %1327 = icmp eq i32 %.0.i1405, %.61007
+  br i1 %1327, label %1328, label %1330
 
-1329:                                             ; preds = %1327
-  %1330 = add i32 %.110842013, 1
+1328:                                             ; preds = %1326
+  %1329 = add i32 %.110842013, 1
   br label %tok_nextc.exit1425
 
-1331:                                             ; preds = %1327
-  %1332 = icmp eq i32 %.0.i1405, 92
-  br i1 %1332, label %.preheader2668, label %tok_nextc.exit1425
+1330:                                             ; preds = %1326
+  %1331 = icmp eq i32 %.0.i1405, 92
+  br i1 %1331, label %.preheader2777, label %tok_nextc.exit1425
 
-.preheader2668:                                   ; preds = %1331, %1344
-  %.pre39.i1419 = phi ptr [ %1346, %1344 ], [ %.pre39.i14192320, %1331 ]
-  %.pre39.i14112316 = phi ptr [ %1346, %1344 ], [ %.pre39.i1411, %1331 ]
-  %.pre.i14102310 = phi ptr [ %1345, %1344 ], [ %.pre.i1410, %1331 ]
+.preheader2777:                                   ; preds = %1330, %1343
+  %.pre39.i1419 = phi ptr [ %1345, %1343 ], [ %.pre39.i14192320, %1330 ]
+  %.pre39.i14112316 = phi ptr [ %1345, %1343 ], [ %.pre39.i1411, %1330 ]
+  %.pre.i14102310 = phi ptr [ %1344, %1343 ], [ %.pre.i1410, %1330 ]
   %.not.i1412 = icmp eq ptr %.pre.i14102310, %.pre39.i14112316
-  br i1 %.not.i1412, label %1337, label %1333
+  br i1 %.not.i1412, label %1336, label %1332
 
-1333:                                             ; preds = %.preheader2668
-  %1334 = load i32, ptr %12, align 4, !tbaa !24
-  %1335 = icmp ugt i32 %1334, 2147483646
-  br i1 %1335, label %1336, label %tok_nextc.exit1417
+1332:                                             ; preds = %.preheader2777
+  %1333 = load i32, ptr %12, align 4, !tbaa !24
+  %1334 = icmp ugt i32 %1333, 2147483646
+  br i1 %1334, label %1335, label %tok_nextc.exit1417
 
-1336:                                             ; preds = %1333
+1335:                                             ; preds = %1332
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1417.thread
 
-1337:                                             ; preds = %.preheader2668
-  %1338 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1414 = icmp eq i32 %1338, 10
-  br i1 %.not21.i1414, label %1339, label %tok_nextc.exit1417.thread
+1336:                                             ; preds = %.preheader2777
+  %1337 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1414 = icmp eq i32 %1337, 10
+  br i1 %.not21.i1414, label %1338, label %tok_nextc.exit1417.thread
 
-1339:                                             ; preds = %1337
-  %1340 = load ptr, ptr %10, align 8, !tbaa !27
-  %1341 = tail call i32 %1340(ptr noundef nonnull %0) #9
-  %.not22.i1415 = icmp eq i32 %1341, 0
-  br i1 %.not22.i1415, label %1342, label %1344
+1338:                                             ; preds = %1336
+  %1339 = load ptr, ptr %10, align 8, !tbaa !27
+  %1340 = tail call i32 %1339(ptr noundef nonnull %0) #9
+  %.not22.i1415 = icmp eq i32 %1340, 0
+  br i1 %.not22.i1415, label %1341, label %1343
 
-1342:                                             ; preds = %1339
-  %1343 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1343, ptr %7, align 8, !tbaa !4
+1341:                                             ; preds = %1338
+  %1342 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1342, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1417.thread
 
-1344:                                             ; preds = %1339
-  %1345 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1345, ptr %11, align 8, !tbaa !28
-  %1346 = load ptr, ptr %8, align 8, !tbaa !26
-  %1347 = ptrtoint ptr %1346 to i64
-  %1348 = ptrtoint ptr %1345 to i64
-  %1349 = sub i64 %1347, %1348
-  %1350 = tail call ptr @memchr(ptr noundef readonly %1345, i32 noundef 0, i64 noundef %1349) #8
-  %.not24.i1416 = icmp eq ptr %1350, null
-  br i1 %.not24.i1416, label %.preheader2668, label %1351
+1343:                                             ; preds = %1338
+  %1344 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1344, ptr %11, align 8, !tbaa !28
+  %1345 = load ptr, ptr %8, align 8, !tbaa !26
+  %1346 = ptrtoint ptr %1345 to i64
+  %1347 = ptrtoint ptr %1344 to i64
+  %1348 = sub i64 %1346, %1347
+  %1349 = tail call ptr @memchr(ptr noundef readonly %1344, i32 noundef 0, i64 noundef %1348) #8
+  %.not24.i1416 = icmp eq ptr %1349, null
+  br i1 %.not24.i1416, label %.preheader2777, label %1350
 
-1351:                                             ; preds = %1344
-  %1352 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1353 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1353, ptr %7, align 8, !tbaa !4
+1350:                                             ; preds = %1343
+  %1351 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1352 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1352, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1417.thread
 
-tok_nextc.exit1417.thread:                        ; preds = %1337, %1336, %1351, %1342
-  %.pre39.i14192326 = phi ptr [ %.pre39.i1419, %1336 ], [ %1353, %1351 ], [ %1343, %1342 ], [ %.pre39.i1419, %1337 ]
-  %.pre39.i14112315 = phi ptr [ %.pre39.i14112316, %1336 ], [ %1353, %1351 ], [ %1343, %1342 ], [ %.pre39.i14112316, %1337 ]
-  %.pre.i14102309 = phi ptr [ %.pre.i14102310, %1336 ], [ %1353, %1351 ], [ %1343, %1342 ], [ %.pre.i14102310, %1337 ]
-  %spec.select12281545 = select i1 %1259, i32 1, i32 %.010802014
+tok_nextc.exit1417.thread:                        ; preds = %1336, %1335, %1350, %1341
+  %.pre39.i14192326 = phi ptr [ %.pre39.i1419, %1335 ], [ %1352, %1350 ], [ %1342, %1341 ], [ %.pre39.i1419, %1336 ]
+  %.pre39.i14112315 = phi ptr [ %.pre39.i14112316, %1335 ], [ %1352, %1350 ], [ %1342, %1341 ], [ %.pre39.i14112316, %1336 ]
+  %.pre.i14102309 = phi ptr [ %.pre.i14102310, %1335 ], [ %1352, %1350 ], [ %1342, %1341 ], [ %.pre.i14102310, %1336 ]
+  %spec.select12281545 = select i1 %1258, i32 1, i32 %.010802014
   br label %tok_nextc.exit1425
 
-tok_nextc.exit1417:                               ; preds = %1333
-  %1354 = add nuw nsw i32 %1334, 1
-  store i32 %1354, ptr %12, align 4, !tbaa !24
-  %1355 = getelementptr i8, ptr %.pre.i14102310, i64 1
-  store ptr %1355, ptr %7, align 8, !tbaa !4
-  %1356 = load i8, ptr %.pre.i14102310, align 1, !tbaa !29
-  %1357 = zext i8 %1356 to i32
-  %1358 = icmp eq i32 %.61007, %1357
-  %spec.select1228 = select i1 %1358, i32 1, i32 %.010802014
-  %1359 = icmp eq i8 %1356, 13
-  br i1 %1359, label %.preheader2667, label %tok_nextc.exit1425
+tok_nextc.exit1417:                               ; preds = %1332
+  %1353 = add nuw nsw i32 %1333, 1
+  store i32 %1353, ptr %12, align 4, !tbaa !24
+  %1354 = getelementptr i8, ptr %.pre.i14102310, i64 1
+  store ptr %1354, ptr %7, align 8, !tbaa !4
+  %1355 = load i8, ptr %.pre.i14102310, align 1, !tbaa !29
+  %1356 = zext i8 %1355 to i32
+  %1357 = icmp eq i32 %.61007, %1356
+  %spec.select1228 = select i1 %1357, i32 1, i32 %.010802014
+  %1358 = icmp eq i8 %1355, 13
+  br i1 %1358, label %.preheader2776, label %tok_nextc.exit1425
 
-.preheader2667:                                   ; preds = %tok_nextc.exit1417, %1375
-  %.pre39.i14192325 = phi ptr [ %1377, %1375 ], [ %.pre39.i1419, %tok_nextc.exit1417 ]
-  %1360 = phi ptr [ %1376, %1375 ], [ %1355, %tok_nextc.exit1417 ]
-  %.not.i1420 = icmp eq ptr %1360, %.pre39.i14192325
-  br i1 %.not.i1420, label %1368, label %1361
+.preheader2776:                                   ; preds = %tok_nextc.exit1417, %1374
+  %.pre39.i14192325 = phi ptr [ %1376, %1374 ], [ %.pre39.i1419, %tok_nextc.exit1417 ]
+  %1359 = phi ptr [ %1375, %1374 ], [ %1354, %tok_nextc.exit1417 ]
+  %.not.i1420 = icmp eq ptr %1359, %.pre39.i14192325
+  br i1 %.not.i1420, label %1367, label %1360
 
-1361:                                             ; preds = %.preheader2667
-  %1362 = load i32, ptr %12, align 4, !tbaa !24
-  %1363 = icmp ugt i32 %1362, 2147483646
-  br i1 %1363, label %1364, label %1365
+1360:                                             ; preds = %.preheader2776
+  %1361 = load i32, ptr %12, align 4, !tbaa !24
+  %1362 = icmp ugt i32 %1361, 2147483646
+  br i1 %1362, label %1363, label %1364
 
-1364:                                             ; preds = %1361
+1363:                                             ; preds = %1360
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1425
 
-1365:                                             ; preds = %1361
-  %1366 = add nuw nsw i32 %1362, 1
-  store i32 %1366, ptr %12, align 4, !tbaa !24
-  %1367 = getelementptr i8, ptr %1360, i64 1
-  store ptr %1367, ptr %7, align 8, !tbaa !4
+1364:                                             ; preds = %1360
+  %1365 = add nuw nsw i32 %1361, 1
+  store i32 %1365, ptr %12, align 4, !tbaa !24
+  %1366 = getelementptr i8, ptr %1359, i64 1
+  store ptr %1366, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1425
 
-1368:                                             ; preds = %.preheader2667
-  %1369 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1422 = icmp eq i32 %1369, 10
-  br i1 %.not21.i1422, label %1370, label %tok_nextc.exit1425
+1367:                                             ; preds = %.preheader2776
+  %1368 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1422 = icmp eq i32 %1368, 10
+  br i1 %.not21.i1422, label %1369, label %tok_nextc.exit1425
 
-1370:                                             ; preds = %1368
-  %1371 = load ptr, ptr %10, align 8, !tbaa !27
-  %1372 = tail call i32 %1371(ptr noundef nonnull %0) #9
-  %.not22.i1423 = icmp eq i32 %1372, 0
-  br i1 %.not22.i1423, label %1373, label %1375
+1369:                                             ; preds = %1367
+  %1370 = load ptr, ptr %10, align 8, !tbaa !27
+  %1371 = tail call i32 %1370(ptr noundef nonnull %0) #9
+  %.not22.i1423 = icmp eq i32 %1371, 0
+  br i1 %.not22.i1423, label %1372, label %1374
 
-1373:                                             ; preds = %1370
-  %1374 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1374, ptr %7, align 8, !tbaa !4
+1372:                                             ; preds = %1369
+  %1373 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1373, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1425
 
-1375:                                             ; preds = %1370
-  %1376 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1376, ptr %11, align 8, !tbaa !28
-  %1377 = load ptr, ptr %8, align 8, !tbaa !26
-  %1378 = ptrtoint ptr %1377 to i64
-  %1379 = ptrtoint ptr %1376 to i64
-  %1380 = sub i64 %1378, %1379
-  %1381 = tail call ptr @memchr(ptr noundef readonly %1376, i32 noundef 0, i64 noundef %1380) #8
-  %.not24.i1424 = icmp eq ptr %1381, null
-  br i1 %.not24.i1424, label %.preheader2667, label %1382
+1374:                                             ; preds = %1369
+  %1375 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1375, ptr %11, align 8, !tbaa !28
+  %1376 = load ptr, ptr %8, align 8, !tbaa !26
+  %1377 = ptrtoint ptr %1376 to i64
+  %1378 = ptrtoint ptr %1375 to i64
+  %1379 = sub i64 %1377, %1378
+  %1380 = tail call ptr @memchr(ptr noundef readonly %1375, i32 noundef 0, i64 noundef %1379) #8
+  %.not24.i1424 = icmp eq ptr %1380, null
+  br i1 %.not24.i1424, label %.preheader2776, label %1381
 
-1382:                                             ; preds = %1375
-  %1383 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1384 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1384, ptr %7, align 8, !tbaa !4
+1381:                                             ; preds = %1374
+  %1382 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1383 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1383, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1425
 
-tok_nextc.exit1425:                               ; preds = %1368, %1382, %1373, %1365, %1364, %tok_nextc.exit1417.thread, %1331, %tok_nextc.exit1417, %1329
-  %.pre39.i14192324 = phi ptr [ %.pre39.i14192320, %1329 ], [ %.pre39.i1419, %tok_nextc.exit1417 ], [ %.pre39.i14192320, %1331 ], [ %.pre39.i14192326, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1364 ], [ %.pre39.i14192325, %1365 ], [ %1374, %1373 ], [ %1384, %1382 ], [ %.pre39.i14192325, %1368 ]
-  %.pre39.i14112314 = phi ptr [ %.pre39.i1411, %1329 ], [ %.pre39.i14112316, %tok_nextc.exit1417 ], [ %.pre39.i1411, %1331 ], [ %.pre39.i14112315, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1364 ], [ %.pre39.i14192325, %1365 ], [ %1374, %1373 ], [ %1384, %1382 ], [ %.pre39.i14192325, %1368 ]
-  %.pre.i14102308 = phi ptr [ %.pre.i1410, %1329 ], [ %1355, %tok_nextc.exit1417 ], [ %.pre.i1410, %1331 ], [ %.pre.i14102309, %tok_nextc.exit1417.thread ], [ %1360, %1364 ], [ %1367, %1365 ], [ %1374, %1373 ], [ %1384, %1382 ], [ %1360, %1368 ]
-  %.pre39.i14032303 = phi ptr [ %.pre39.i14032299, %1329 ], [ %.pre39.i14112316, %tok_nextc.exit1417 ], [ %.pre39.i14032299, %1331 ], [ %.pre39.i14112315, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1364 ], [ %.pre39.i14192325, %1365 ], [ %1374, %1373 ], [ %1384, %1382 ], [ %.pre39.i14192325, %1368 ]
-  %.pre.i14022295 = phi ptr [ %.pre.i14022292, %1329 ], [ %1355, %tok_nextc.exit1417 ], [ %.pre.i14022292, %1331 ], [ %.pre.i14102309, %tok_nextc.exit1417.thread ], [ %1360, %1364 ], [ %1367, %1365 ], [ %1374, %1373 ], [ %1384, %1382 ], [ %1360, %1368 ]
-  %.21085 = phi i32 [ %1330, %1329 ], [ 0, %tok_nextc.exit1417 ], [ 0, %1331 ], [ 0, %tok_nextc.exit1417.thread ], [ 0, %1364 ], [ 0, %1365 ], [ 0, %1373 ], [ 0, %1382 ], [ 0, %1368 ]
-  %.11081 = phi i32 [ %.010802014, %1329 ], [ %spec.select1228, %tok_nextc.exit1417 ], [ %.010802014, %1331 ], [ %spec.select12281545, %tok_nextc.exit1417.thread ], [ %spec.select1228, %1364 ], [ %spec.select1228, %1365 ], [ %spec.select1228, %1373 ], [ %spec.select1228, %1382 ], [ %spec.select1228, %1368 ]
+tok_nextc.exit1425:                               ; preds = %1367, %1381, %1372, %1364, %1363, %tok_nextc.exit1417.thread, %1330, %tok_nextc.exit1417, %1328
+  %.pre39.i14192324 = phi ptr [ %.pre39.i14192320, %1328 ], [ %.pre39.i1419, %tok_nextc.exit1417 ], [ %.pre39.i14192320, %1330 ], [ %.pre39.i14192326, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %.pre39.i14192325, %1367 ]
+  %.pre39.i14112314 = phi ptr [ %.pre39.i1411, %1328 ], [ %.pre39.i14112316, %tok_nextc.exit1417 ], [ %.pre39.i1411, %1330 ], [ %.pre39.i14112315, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %.pre39.i14192325, %1367 ]
+  %.pre.i14102308 = phi ptr [ %.pre.i1410, %1328 ], [ %1354, %tok_nextc.exit1417 ], [ %.pre.i1410, %1330 ], [ %.pre.i14102309, %tok_nextc.exit1417.thread ], [ %1359, %1363 ], [ %1366, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %1359, %1367 ]
+  %.pre39.i14032303 = phi ptr [ %.pre39.i14032299, %1328 ], [ %.pre39.i14112316, %tok_nextc.exit1417 ], [ %.pre39.i14032299, %1330 ], [ %.pre39.i14112315, %tok_nextc.exit1417.thread ], [ %.pre39.i14192325, %1363 ], [ %.pre39.i14192325, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %.pre39.i14192325, %1367 ]
+  %.pre.i14022295 = phi ptr [ %.pre.i14022292, %1328 ], [ %1354, %tok_nextc.exit1417 ], [ %.pre.i14022292, %1330 ], [ %.pre.i14102309, %tok_nextc.exit1417.thread ], [ %1359, %1363 ], [ %1366, %1364 ], [ %1373, %1372 ], [ %1383, %1381 ], [ %1359, %1367 ]
+  %.21085 = phi i32 [ %1329, %1328 ], [ 0, %tok_nextc.exit1417 ], [ 0, %1330 ], [ 0, %tok_nextc.exit1417.thread ], [ 0, %1363 ], [ 0, %1364 ], [ 0, %1372 ], [ 0, %1381 ], [ 0, %1367 ]
+  %.11081 = phi i32 [ %.010802014, %1328 ], [ %spec.select1228, %tok_nextc.exit1417 ], [ %.010802014, %1330 ], [ %spec.select12281545, %tok_nextc.exit1417.thread ], [ %spec.select1228, %1363 ], [ %spec.select1228, %1364 ], [ %spec.select1228, %1372 ], [ %spec.select1228, %1381 ], [ %spec.select1228, %1367 ]
   %.not1206 = icmp eq i32 %.21085, %.01086
-  br i1 %.not1206, label %tok_nextc.exit1409._crit_edge, label %1260, !llvm.loop !79
+  br i1 %.not1206, label %tok_nextc.exit1409._crit_edge, label %1259, !llvm.loop !79
 
 tok_nextc.exit1409._crit_edge:                    ; preds = %tok_nextc.exit1425, %tok_nextc.exit1409, %tok_backup.exit1401
-  %1385 = phi ptr [ %.pre.i14022298, %tok_backup.exit1401 ], [ %.pre.i14102308, %tok_nextc.exit1425 ], [ %.pre.i1410, %tok_nextc.exit1409 ]
-  %1386 = load ptr, ptr %4, align 8, !tbaa !19
-  %1387 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 3, ptr noundef %1386, ptr noundef %1385) #9
+  %1384 = phi ptr [ %.pre.i14022298, %tok_backup.exit1401 ], [ %.pre.i14102308, %tok_nextc.exit1425 ], [ %.pre.i1410, %tok_nextc.exit1409 ]
+  %1385 = load ptr, ptr %4, align 8, !tbaa !19
+  %1386 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 3, ptr noundef %1385, ptr noundef %1384) #9
   br label %.thread1472
 
-1388:                                             ; preds = %1177
-  %1389 = tail call fastcc i32 @tok_continuation_line(ptr noundef nonnull %0)
-  %1390 = icmp eq i32 %1389, -1
-  br i1 %1390, label %1391, label %1393
+1387:                                             ; preds = %1176
+  %1388 = tail call fastcc i32 @tok_continuation_line(ptr noundef nonnull %0)
+  %1389 = icmp eq i32 %1388, -1
+  br i1 %1389, label %1390, label %1392
 
-1391:                                             ; preds = %1388
-  %1392 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1390:                                             ; preds = %1387
+  %1391 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1393:                                             ; preds = %1388
+1392:                                             ; preds = %1387
   store i32 1, ptr %25, align 8, !tbaa !71
   %.pre.i1243.pre.pre = load ptr, ptr %7, align 8, !tbaa !4
   %.pre39.i1244.pre.pre = load ptr, ptr %8, align 8, !tbaa !26
   br label %tok_backup.exit1242
 
-1394:                                             ; preds = %1177
-  %1395 = icmp eq i32 %.61007, 58
-  %1396 = icmp eq i32 %.61007, 125
-  switch i32 %.61007, label %1439 [
+1393:                                             ; preds = %1176
+  %1394 = icmp eq i32 %.61007, 58
+  %1395 = icmp eq i32 %.61007, 125
+  switch i32 %.61007, label %1438 [
     i32 125, label %.critedge1230
     i32 58, label %.critedge1230
     i32 33, label %.critedge1230
     i32 123, label %.critedge1230
   ]
 
-.critedge1230:                                    ; preds = %1394, %1394, %1394, %1394
-  %1397 = getelementptr inbounds nuw i8, ptr %0, i64 17256
-  %1398 = load i32, ptr %1397, align 8, !tbaa !13
-  %1399 = icmp sgt i32 %1398, 0
-  br i1 %1399, label %1400, label %1439
+.critedge1230:                                    ; preds = %1393, %1393, %1393, %1393
+  %1396 = getelementptr inbounds nuw i8, ptr %0, i64 17256
+  %1397 = load i32, ptr %1396, align 8, !tbaa !13
+  %1398 = icmp sgt i32 %1397, 0
+  br i1 %1398, label %1399, label %1438
 
-1400:                                             ; preds = %.critedge1230
-  %1401 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1402 = load i32, ptr %1401, align 8, !tbaa !31
-  %1403 = icmp sgt i32 %1402, -1
-  br i1 %1403, label %1404, label %1439
+1399:                                             ; preds = %.critedge1230
+  %1400 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1401 = load i32, ptr %1400, align 8, !tbaa !31
+  %1402 = icmp sgt i32 %1401, -1
+  br i1 %1402, label %1403, label %1438
 
-1404:                                             ; preds = %1400
-  %1405 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1406 = load i32, ptr %1405, align 4, !tbaa !43
-  %1407 = icmp ne i32 %.61007, 123
-  %.neg = sext i1 %1407 to i32
-  %1408 = add i32 %1406, %.neg
-  %1409 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %1410 = icmp eq i32 %1408, 1
-  br i1 %1410, label %1411, label %1418
+1403:                                             ; preds = %1399
+  %1404 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1405 = load i32, ptr %1404, align 4, !tbaa !43
+  %1406 = icmp ne i32 %.61007, 123
+  %.neg = sext i1 %1406 to i32
+  %1407 = add i32 %1405, %.neg
+  %1408 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %1409 = icmp eq i32 %1407, 1
+  br i1 %1409, label %1410, label %1417
 
-1411:                                             ; preds = %1404
-  %1412 = load i32, ptr %1409, align 4, !tbaa !37
-  %1413 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %1414 = load i32, ptr %1413, align 8, !tbaa !78
-  %1415 = icmp ne i32 %1414, 0
-  %1416 = icmp ne i32 %1412, 0
-  %1417 = select i1 %1415, i1 true, i1 %1416
-  br label %1418
+1410:                                             ; preds = %1403
+  %1411 = load i32, ptr %1408, align 4, !tbaa !37
+  %1412 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %1413 = load i32, ptr %1412, align 8, !tbaa !78
+  %1414 = icmp ne i32 %1413, 0
+  %1415 = icmp ne i32 %1411, 0
+  %1416 = select i1 %1414, i1 true, i1 %1415
+  br label %1417
 
-1418:                                             ; preds = %1411, %1404
-  %1419 = phi i1 [ false, %1404 ], [ %1417, %1411 ]
-  %1420 = icmp eq i32 %1408, 0
-  %1421 = select i1 %1420, i1 true, i1 %1419
-  br i1 %1421, label %1422, label %.thread1546
+1417:                                             ; preds = %1410, %1403
+  %1418 = phi i1 [ false, %1403 ], [ %1416, %1410 ]
+  %1419 = icmp eq i32 %1407, 0
+  %1420 = select i1 %1419, i1 true, i1 %1418
+  br i1 %1420, label %1421, label %.thread1546
 
-1422:                                             ; preds = %1418
-  %1423 = trunc nuw nsw i32 %.61007 to i8
-  %1424 = tail call i32 @_PyLexer_update_fstring_expr(ptr noundef nonnull %0, i8 noundef signext %1423)
-  %.not1195 = icmp eq i32 %1424, 0
-  br i1 %.not1195, label %1425, label %1427
+1421:                                             ; preds = %1417
+  %1422 = trunc nuw nsw i32 %.61007 to i8
+  %1423 = tail call i32 @_PyLexer_update_fstring_expr(ptr noundef nonnull %0, i8 noundef signext %1422)
+  %.not1195 = icmp eq i32 %1423, 0
+  br i1 %.not1195, label %1424, label %1426
 
-1425:                                             ; preds = %1422
-  %1426 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef null, ptr noundef null) #9
+1424:                                             ; preds = %1421
+  %1425 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1427:                                             ; preds = %1422
-  br i1 %1407, label %1428, label %.thread1546._crit_edge
+1426:                                             ; preds = %1421
+  br i1 %1406, label %1427, label %.thread1546._crit_edge
 
-1428:                                             ; preds = %1427
-  %1429 = tail call fastcc i32 @set_fstring_expr(ptr noundef nonnull %0, ptr noundef %2)
-  %.not1196 = icmp eq i32 %1429, 0
-  br i1 %.not1196, label %.thread1546, label %1430
+1427:                                             ; preds = %1426
+  %1428 = tail call fastcc i32 @set_fstring_expr(ptr noundef nonnull %0, ptr noundef %2)
+  %.not1196 = icmp eq i32 %1428, 0
+  br i1 %.not1196, label %.thread1546, label %1429
 
-1430:                                             ; preds = %1428
-  %1431 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
+1429:                                             ; preds = %1427
+  %1430 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 64, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-.thread1546:                                      ; preds = %1418, %1428
-  br i1 %1395, label %1432, label %.thread1546._crit_edge
+.thread1546:                                      ; preds = %1417, %1427
+  br i1 %1394, label %1431, label %.thread1546._crit_edge
 
-.thread1546._crit_edge:                           ; preds = %1427, %.thread1546
+.thread1546._crit_edge:                           ; preds = %1426, %.thread1546
   %.pre.i1426.pre = load ptr, ptr %7, align 8, !tbaa !4
+  br label %1438
+
+1431:                                             ; preds = %.thread1546
+  %1432 = load i32, ptr %1400, align 8, !tbaa !31
+  %1433 = icmp eq i32 %1407, %1432
+  %.pre.i1426.pre2328 = load ptr, ptr %7, align 8, !tbaa !4
+  br i1 %1433, label %1434, label %1438
+
+1434:                                             ; preds = %1431
+  store i32 1, ptr %1, align 8, !tbaa !21
+  store i32 1, ptr %1408, align 4, !tbaa !37
+  %1435 = load ptr, ptr %4, align 8, !tbaa !19
+  %1436 = tail call i32 @_PyToken_OneChar(i32 noundef 58) #9
+  %1437 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1436, ptr noundef %1435, ptr noundef %.pre.i1426.pre2328) #9
+  br label %.thread1472
+
+1438:                                             ; preds = %.thread1546._crit_edge, %1431, %1393, %1399, %.critedge1230
+  %.pre.i1426 = phi ptr [ %.pre.i1426.pre, %.thread1546._crit_edge ], [ %.pre.i1426.pre2328, %1431 ], [ %.pre.i1383, %1393 ], [ %.pre.i1383, %1399 ], [ %.pre.i1383, %.critedge1230 ]
+  %.pre39.i1427 = load ptr, ptr %8, align 8, !tbaa !26
   br label %1439
 
-1432:                                             ; preds = %.thread1546
-  %1433 = load i32, ptr %1401, align 8, !tbaa !31
-  %1434 = icmp eq i32 %1408, %1433
-  %.pre.i1426.pre2328 = load ptr, ptr %7, align 8, !tbaa !4
-  br i1 %1434, label %1435, label %1439
+1439:                                             ; preds = %1458, %1438
+  %1440 = phi ptr [ %1460, %1458 ], [ %.pre39.i1427, %1438 ]
+  %1441 = phi ptr [ %1459, %1458 ], [ %.pre.i1426, %1438 ]
+  %.not.i1428 = icmp eq ptr %1441, %1440
+  br i1 %.not.i1428, label %1451, label %1442
 
-1435:                                             ; preds = %1432
-  store i32 1, ptr %1, align 8, !tbaa !21
-  store i32 1, ptr %1409, align 4, !tbaa !37
-  %1436 = load ptr, ptr %4, align 8, !tbaa !19
-  %1437 = tail call i32 @_PyToken_OneChar(i32 noundef 58) #9
-  %1438 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1437, ptr noundef %1436, ptr noundef %.pre.i1426.pre2328) #9
-  br label %.thread1472
+1442:                                             ; preds = %1439
+  %1443 = load i32, ptr %12, align 4, !tbaa !24
+  %1444 = icmp ugt i32 %1443, 2147483646
+  br i1 %1444, label %1445, label %1446
 
-1439:                                             ; preds = %.thread1546._crit_edge, %1432, %1394, %1400, %.critedge1230
-  %.pre.i1426 = phi ptr [ %.pre.i1426.pre, %.thread1546._crit_edge ], [ %.pre.i1426.pre2328, %1432 ], [ %.pre.i1383, %1394 ], [ %.pre.i1383, %1400 ], [ %.pre.i1383, %.critedge1230 ]
-  %.pre39.i1427 = load ptr, ptr %8, align 8, !tbaa !26
-  br label %1440
-
-1440:                                             ; preds = %1459, %1439
-  %1441 = phi ptr [ %1461, %1459 ], [ %.pre39.i1427, %1439 ]
-  %1442 = phi ptr [ %1460, %1459 ], [ %.pre.i1426, %1439 ]
-  %.not.i1428 = icmp eq ptr %1442, %1441
-  br i1 %.not.i1428, label %1452, label %1443
-
-1443:                                             ; preds = %1440
-  %1444 = load i32, ptr %12, align 4, !tbaa !24
-  %1445 = icmp ugt i32 %1444, 2147483646
-  br i1 %1445, label %1446, label %1447
-
-1446:                                             ; preds = %1443
+1445:                                             ; preds = %1442
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1433
 
-1447:                                             ; preds = %1443
-  %1448 = add nuw nsw i32 %1444, 1
-  store i32 %1448, ptr %12, align 4, !tbaa !24
-  %1449 = getelementptr i8, ptr %1442, i64 1
-  store ptr %1449, ptr %7, align 8, !tbaa !4
-  %1450 = load i8, ptr %1442, align 1, !tbaa !29
-  %1451 = zext i8 %1450 to i32
+1446:                                             ; preds = %1442
+  %1447 = add nuw nsw i32 %1443, 1
+  store i32 %1447, ptr %12, align 4, !tbaa !24
+  %1448 = getelementptr i8, ptr %1441, i64 1
+  store ptr %1448, ptr %7, align 8, !tbaa !4
+  %1449 = load i8, ptr %1441, align 1, !tbaa !29
+  %1450 = zext i8 %1449 to i32
   br label %tok_nextc.exit1433
 
-1452:                                             ; preds = %1440
-  %1453 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1430 = icmp eq i32 %1453, 10
-  br i1 %.not21.i1430, label %1454, label %tok_nextc.exit1433
+1451:                                             ; preds = %1439
+  %1452 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1430 = icmp eq i32 %1452, 10
+  br i1 %.not21.i1430, label %1453, label %tok_nextc.exit1433
 
-1454:                                             ; preds = %1452
-  %1455 = load ptr, ptr %10, align 8, !tbaa !27
-  %1456 = tail call i32 %1455(ptr noundef nonnull %0) #9
-  %.not22.i1431 = icmp eq i32 %1456, 0
-  br i1 %.not22.i1431, label %1457, label %1459
+1453:                                             ; preds = %1451
+  %1454 = load ptr, ptr %10, align 8, !tbaa !27
+  %1455 = tail call i32 %1454(ptr noundef nonnull %0) #9
+  %.not22.i1431 = icmp eq i32 %1455, 0
+  br i1 %.not22.i1431, label %1456, label %1458
 
-1457:                                             ; preds = %1454
-  %1458 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1458, ptr %7, align 8, !tbaa !4
+1456:                                             ; preds = %1453
+  %1457 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1457, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1433
 
-1459:                                             ; preds = %1454
-  %1460 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1460, ptr %11, align 8, !tbaa !28
-  %1461 = load ptr, ptr %8, align 8, !tbaa !26
-  %1462 = ptrtoint ptr %1461 to i64
-  %1463 = ptrtoint ptr %1460 to i64
-  %1464 = sub i64 %1462, %1463
-  %1465 = tail call ptr @memchr(ptr noundef readonly %1460, i32 noundef 0, i64 noundef %1464) #8
-  %.not24.i1432 = icmp eq ptr %1465, null
-  br i1 %.not24.i1432, label %1440, label %1466
+1458:                                             ; preds = %1453
+  %1459 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1459, ptr %11, align 8, !tbaa !28
+  %1460 = load ptr, ptr %8, align 8, !tbaa !26
+  %1461 = ptrtoint ptr %1460 to i64
+  %1462 = ptrtoint ptr %1459 to i64
+  %1463 = sub i64 %1461, %1462
+  %1464 = tail call ptr @memchr(ptr noundef readonly %1459, i32 noundef 0, i64 noundef %1463) #8
+  %.not24.i1432 = icmp eq ptr %1464, null
+  br i1 %.not24.i1432, label %1439, label %1465
 
-1466:                                             ; preds = %1459
-  %1467 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1468 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1468, ptr %7, align 8, !tbaa !4
+1465:                                             ; preds = %1458
+  %1466 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1467 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1467, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1433
 
-tok_nextc.exit1433:                               ; preds = %1452, %1446, %1447, %1457, %1466
-  %.0.i1429 = phi i32 [ -1, %1446 ], [ %1451, %1447 ], [ -1, %1466 ], [ -1, %1457 ], [ -1, %1452 ]
-  %1469 = tail call i32 @_PyToken_TwoChars(i32 noundef %.61007, i32 noundef %.0.i1429) #9
-  %.not1197 = icmp eq i32 %1469, 55
-  br i1 %.not1197, label %1514, label %1470
+tok_nextc.exit1433:                               ; preds = %1451, %1445, %1446, %1456, %1465
+  %.0.i1429 = phi i32 [ -1, %1445 ], [ %1450, %1446 ], [ -1, %1465 ], [ -1, %1456 ], [ -1, %1451 ]
+  %1468 = tail call i32 @_PyToken_TwoChars(i32 noundef %.61007, i32 noundef %.0.i1429) #9
+  %.not1197 = icmp eq i32 %1468, 55
+  br i1 %.not1197, label %1513, label %1469
 
-1470:                                             ; preds = %tok_nextc.exit1433
+1469:                                             ; preds = %tok_nextc.exit1433
   %.pre.i1434 = load ptr, ptr %7, align 8, !tbaa !4
   %.pre39.i1435 = load ptr, ptr %8, align 8, !tbaa !26
-  br label %1471
+  br label %1470
 
-1471:                                             ; preds = %1490, %1470
-  %1472 = phi ptr [ %1492, %1490 ], [ %.pre39.i1435, %1470 ]
-  %1473 = phi ptr [ %1491, %1490 ], [ %.pre.i1434, %1470 ]
-  %.not.i1436 = icmp eq ptr %1473, %1472
-  br i1 %.not.i1436, label %1483, label %1474
+1470:                                             ; preds = %1489, %1469
+  %1471 = phi ptr [ %1491, %1489 ], [ %.pre39.i1435, %1469 ]
+  %1472 = phi ptr [ %1490, %1489 ], [ %.pre.i1434, %1469 ]
+  %.not.i1436 = icmp eq ptr %1472, %1471
+  br i1 %.not.i1436, label %1482, label %1473
 
-1474:                                             ; preds = %1471
-  %1475 = load i32, ptr %12, align 4, !tbaa !24
-  %1476 = icmp ugt i32 %1475, 2147483646
-  br i1 %1476, label %1477, label %1478
+1473:                                             ; preds = %1470
+  %1474 = load i32, ptr %12, align 4, !tbaa !24
+  %1475 = icmp ugt i32 %1474, 2147483646
+  br i1 %1475, label %1476, label %1477
 
-1477:                                             ; preds = %1474
+1476:                                             ; preds = %1473
   store i32 29, ptr %9, align 8, !tbaa !20
   br label %tok_nextc.exit1441
 
-1478:                                             ; preds = %1474
-  %1479 = add nuw nsw i32 %1475, 1
-  store i32 %1479, ptr %12, align 4, !tbaa !24
-  %1480 = getelementptr i8, ptr %1473, i64 1
-  store ptr %1480, ptr %7, align 8, !tbaa !4
-  %1481 = load i8, ptr %1473, align 1, !tbaa !29
-  %1482 = zext i8 %1481 to i32
+1477:                                             ; preds = %1473
+  %1478 = add nuw nsw i32 %1474, 1
+  store i32 %1478, ptr %12, align 4, !tbaa !24
+  %1479 = getelementptr i8, ptr %1472, i64 1
+  store ptr %1479, ptr %7, align 8, !tbaa !4
+  %1480 = load i8, ptr %1472, align 1, !tbaa !29
+  %1481 = zext i8 %1480 to i32
   br label %tok_nextc.exit1441
 
-1483:                                             ; preds = %1471
-  %1484 = load i32, ptr %9, align 8, !tbaa !20
-  %.not21.i1438 = icmp eq i32 %1484, 10
-  br i1 %.not21.i1438, label %1485, label %tok_nextc.exit1441
+1482:                                             ; preds = %1470
+  %1483 = load i32, ptr %9, align 8, !tbaa !20
+  %.not21.i1438 = icmp eq i32 %1483, 10
+  br i1 %.not21.i1438, label %1484, label %tok_nextc.exit1441
 
-1485:                                             ; preds = %1483
-  %1486 = load ptr, ptr %10, align 8, !tbaa !27
-  %1487 = tail call i32 %1486(ptr noundef nonnull %0) #9
-  %.not22.i1439 = icmp eq i32 %1487, 0
-  br i1 %.not22.i1439, label %1488, label %1490
+1484:                                             ; preds = %1482
+  %1485 = load ptr, ptr %10, align 8, !tbaa !27
+  %1486 = tail call i32 %1485(ptr noundef nonnull %0) #9
+  %.not22.i1439 = icmp eq i32 %1486, 0
+  br i1 %.not22.i1439, label %1487, label %1489
 
-1488:                                             ; preds = %1485
-  %1489 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1489, ptr %7, align 8, !tbaa !4
+1487:                                             ; preds = %1484
+  %1488 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1488, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1441
 
-1490:                                             ; preds = %1485
-  %1491 = load ptr, ptr %7, align 8, !tbaa !4
-  store ptr %1491, ptr %11, align 8, !tbaa !28
-  %1492 = load ptr, ptr %8, align 8, !tbaa !26
-  %1493 = ptrtoint ptr %1492 to i64
-  %1494 = ptrtoint ptr %1491 to i64
-  %1495 = sub i64 %1493, %1494
-  %1496 = tail call ptr @memchr(ptr noundef readonly %1491, i32 noundef 0, i64 noundef %1495) #8
-  %.not24.i1440 = icmp eq ptr %1496, null
-  br i1 %.not24.i1440, label %1471, label %1497
+1489:                                             ; preds = %1484
+  %1490 = load ptr, ptr %7, align 8, !tbaa !4
+  store ptr %1490, ptr %11, align 8, !tbaa !28
+  %1491 = load ptr, ptr %8, align 8, !tbaa !26
+  %1492 = ptrtoint ptr %1491 to i64
+  %1493 = ptrtoint ptr %1490 to i64
+  %1494 = sub i64 %1492, %1493
+  %1495 = tail call ptr @memchr(ptr noundef readonly %1490, i32 noundef 0, i64 noundef %1494) #8
+  %.not24.i1440 = icmp eq ptr %1495, null
+  br i1 %.not24.i1440, label %1470, label %1496
 
-1497:                                             ; preds = %1490
-  %1498 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
-  %1499 = load ptr, ptr %8, align 8, !tbaa !26
-  store ptr %1499, ptr %7, align 8, !tbaa !4
+1496:                                             ; preds = %1489
+  %1497 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #9
+  %1498 = load ptr, ptr %8, align 8, !tbaa !26
+  store ptr %1498, ptr %7, align 8, !tbaa !4
   br label %tok_nextc.exit1441
 
-tok_nextc.exit1441:                               ; preds = %1483, %1477, %1478, %1488, %1497
-  %.0.i1437 = phi i32 [ -1, %1477 ], [ %1482, %1478 ], [ -1, %1497 ], [ -1, %1488 ], [ -1, %1483 ]
-  %1500 = tail call i32 @_PyToken_ThreeChars(i32 noundef %.61007, i32 noundef %.0.i1429, i32 noundef %.0.i1437) #9
-  %.not1198 = icmp eq i32 %1500, 55
-  br i1 %.not1198, label %1501, label %tok_nextc.exit1441.tok_backup.exit1447_crit_edge
+tok_nextc.exit1441:                               ; preds = %1482, %1476, %1477, %1487, %1496
+  %.0.i1437 = phi i32 [ -1, %1476 ], [ %1481, %1477 ], [ -1, %1496 ], [ -1, %1487 ], [ -1, %1482 ]
+  %1499 = tail call i32 @_PyToken_ThreeChars(i32 noundef %.61007, i32 noundef %.0.i1429, i32 noundef %.0.i1437) #9
+  %.not1198 = icmp eq i32 %1499, 55
+  br i1 %.not1198, label %1500, label %tok_nextc.exit1441.tok_backup.exit1447_crit_edge
 
 tok_nextc.exit1441.tok_backup.exit1447_crit_edge: ; preds = %tok_nextc.exit1441
   %.pre2330 = load ptr, ptr %7, align 8, !tbaa !4
   br label %tok_backup.exit1447
 
-1501:                                             ; preds = %tok_nextc.exit1441
+1500:                                             ; preds = %tok_nextc.exit1441
   %.not.i1442 = icmp eq i32 %.0.i1437, -1
   %.pre2331 = load ptr, ptr %7, align 8, !tbaa !4
-  br i1 %.not.i1442, label %tok_backup.exit1447, label %1502
+  br i1 %.not.i1442, label %tok_backup.exit1447, label %1501
 
-1502:                                             ; preds = %1501
-  %1503 = getelementptr i8, ptr %.pre2331, i64 -1
-  store ptr %1503, ptr %7, align 8, !tbaa !4
-  %1504 = load ptr, ptr %0, align 8, !tbaa !30
-  %1505 = icmp ult ptr %1503, %1504
-  br i1 %1505, label %1506, label %1507
+1501:                                             ; preds = %1500
+  %1502 = getelementptr i8, ptr %.pre2331, i64 -1
+  store ptr %1502, ptr %7, align 8, !tbaa !4
+  %1503 = load ptr, ptr %0, align 8, !tbaa !30
+  %1504 = icmp ult ptr %1502, %1503
+  br i1 %1504, label %1505, label %1506
 
-1506:                                             ; preds = %1502
+1505:                                             ; preds = %1501
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.26) #10
   unreachable
 
-1507:                                             ; preds = %1502
-  %1508 = load i8, ptr %1503, align 1, !tbaa !29
-  %1509 = trunc nuw i32 %.0.i1437 to i8
-  %.not6.i1443 = icmp eq i8 %1508, %1509
-  br i1 %.not6.i1443, label %1511, label %1510
+1506:                                             ; preds = %1501
+  %1507 = load i8, ptr %1502, align 1, !tbaa !29
+  %1508 = trunc nuw i32 %.0.i1437 to i8
+  %.not6.i1443 = icmp eq i8 %1507, %1508
+  br i1 %.not6.i1443, label %1510, label %1509
 
-1510:                                             ; preds = %1507
+1509:                                             ; preds = %1506
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.27) #10
   unreachable
 
-1511:                                             ; preds = %1507
-  %1512 = load i32, ptr %12, align 4, !tbaa !24
-  %1513 = add i32 %1512, -1
-  store i32 %1513, ptr %12, align 4, !tbaa !24
+1510:                                             ; preds = %1506
+  %1511 = load i32, ptr %12, align 4, !tbaa !24
+  %1512 = add i32 %1511, -1
+  store i32 %1512, ptr %12, align 4, !tbaa !24
   br label %tok_backup.exit1447
 
-1514:                                             ; preds = %tok_nextc.exit1433
+1513:                                             ; preds = %tok_nextc.exit1433
   %.not.i1445 = icmp eq i32 %.0.i1429, -1
-  br i1 %.not.i1445, label %tok_backup.exit1447.thread, label %1515
+  br i1 %.not.i1445, label %tok_backup.exit1447.thread, label %1514
 
-1515:                                             ; preds = %1514
-  %1516 = load ptr, ptr %7, align 8, !tbaa !4
-  %1517 = getelementptr i8, ptr %1516, i64 -1
-  store ptr %1517, ptr %7, align 8, !tbaa !4
-  %1518 = load ptr, ptr %0, align 8, !tbaa !30
-  %1519 = icmp ult ptr %1517, %1518
-  br i1 %1519, label %1520, label %1521
+1514:                                             ; preds = %1513
+  %1515 = load ptr, ptr %7, align 8, !tbaa !4
+  %1516 = getelementptr i8, ptr %1515, i64 -1
+  store ptr %1516, ptr %7, align 8, !tbaa !4
+  %1517 = load ptr, ptr %0, align 8, !tbaa !30
+  %1518 = icmp ult ptr %1516, %1517
+  br i1 %1518, label %1519, label %1520
 
-1520:                                             ; preds = %1515
+1519:                                             ; preds = %1514
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.26) #10
   unreachable
 
-1521:                                             ; preds = %1515
-  %1522 = load i8, ptr %1517, align 1, !tbaa !29
-  %1523 = trunc nuw i32 %.0.i1429 to i8
-  %.not6.i1446 = icmp eq i8 %1522, %1523
-  br i1 %.not6.i1446, label %1525, label %1524
+1520:                                             ; preds = %1514
+  %1521 = load i8, ptr %1516, align 1, !tbaa !29
+  %1522 = trunc nuw i32 %.0.i1429 to i8
+  %.not6.i1446 = icmp eq i8 %1521, %1522
+  br i1 %.not6.i1446, label %1524, label %1523
 
-1524:                                             ; preds = %1521
+1523:                                             ; preds = %1520
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.tok_backup, ptr noundef nonnull @.str.27) #10
   unreachable
 
-1525:                                             ; preds = %1521
-  %1526 = load i32, ptr %12, align 4, !tbaa !24
-  %1527 = add i32 %1526, -1
-  store i32 %1527, ptr %12, align 4, !tbaa !24
+1524:                                             ; preds = %1520
+  %1525 = load i32, ptr %12, align 4, !tbaa !24
+  %1526 = add i32 %1525, -1
+  store i32 %1526, ptr %12, align 4, !tbaa !24
   br label %tok_backup.exit1447.thread
 
-tok_backup.exit1447:                              ; preds = %tok_nextc.exit1441.tok_backup.exit1447_crit_edge, %1501, %1511
-  %1528 = phi ptr [ %.pre2330, %tok_nextc.exit1441.tok_backup.exit1447_crit_edge ], [ %.pre2331, %1501 ], [ %1503, %1511 ]
-  %.01028 = phi i32 [ %1500, %tok_nextc.exit1441.tok_backup.exit1447_crit_edge ], [ %1469, %1501 ], [ %1469, %1511 ]
-  %1529 = load ptr, ptr %4, align 8, !tbaa !19
-  %1530 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %.01028, ptr noundef %1529, ptr noundef %1528) #9
+tok_backup.exit1447:                              ; preds = %tok_nextc.exit1441.tok_backup.exit1447_crit_edge, %1500, %1510
+  %1527 = phi ptr [ %.pre2330, %tok_nextc.exit1441.tok_backup.exit1447_crit_edge ], [ %.pre2331, %1500 ], [ %1502, %1510 ]
+  %.01028 = phi i32 [ %1499, %tok_nextc.exit1441.tok_backup.exit1447_crit_edge ], [ %1468, %1500 ], [ %1468, %1510 ]
+  %1528 = load ptr, ptr %4, align 8, !tbaa !19
+  %1529 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %.01028, ptr noundef %1528, ptr noundef %1527) #9
   br label %.thread1472
 
-tok_backup.exit1447.thread:                       ; preds = %1514, %1525
-  switch i32 %.61007, label %1640 [
-    i32 40, label %1531
-    i32 91, label %1531
-    i32 123, label %1531
-    i32 41, label %1566
-    i32 93, label %1566
-    i32 125, label %1566
+tok_backup.exit1447.thread:                       ; preds = %1513, %1524
+  switch i32 %.61007, label %1639 [
+    i32 40, label %1530
+    i32 91, label %1530
+    i32 123, label %1530
+    i32 41, label %1565
+    i32 93, label %1565
+    i32 125, label %1565
   ]
 
-1531:                                             ; preds = %tok_backup.exit1447.thread, %tok_backup.exit1447.thread, %tok_backup.exit1447.thread
-  %1532 = load i32, ptr %16, align 8, !tbaa !49
-  %1533 = icmp sgt i32 %1532, 199
-  br i1 %1533, label %1534, label %1537
+1530:                                             ; preds = %tok_backup.exit1447.thread, %tok_backup.exit1447.thread, %tok_backup.exit1447.thread
+  %1531 = load i32, ptr %16, align 8, !tbaa !49
+  %1532 = icmp sgt i32 %1531, 199
+  br i1 %1532, label %1533, label %1536
 
-1534:                                             ; preds = %1531
-  %1535 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #9
-  %1536 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1535, ptr noundef null, ptr noundef null) #9
+1533:                                             ; preds = %1530
+  %1534 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #9
+  %1535 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1534, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1537:                                             ; preds = %1531
-  %1538 = trunc nuw nsw i32 %.61007 to i8
-  %1539 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %1540 = sext i32 %1532 to i64
-  %1541 = getelementptr [200 x i8], ptr %1539, i64 0, i64 %1540
-  store i8 %1538, ptr %1541, align 1, !tbaa !29
-  %1542 = load i32, ptr %15, align 8, !tbaa !22
-  %1543 = getelementptr inbounds nuw i8, ptr %0, i64 732
-  %1544 = load i32, ptr %16, align 8, !tbaa !49
-  %1545 = sext i32 %1544 to i64
-  %1546 = getelementptr [200 x i32], ptr %1543, i64 0, i64 %1545
-  store i32 %1542, ptr %1546, align 4, !tbaa !51
-  %1547 = load ptr, ptr %4, align 8, !tbaa !19
-  %1548 = load ptr, ptr %11, align 8, !tbaa !28
+1536:                                             ; preds = %1530
+  %1537 = trunc nuw nsw i32 %.61007 to i8
+  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 532
+  %1539 = sext i32 %1531 to i64
+  %1540 = getelementptr [200 x i8], ptr %1538, i64 0, i64 %1539
+  store i8 %1537, ptr %1540, align 1, !tbaa !29
+  %1541 = load i32, ptr %15, align 8, !tbaa !22
+  %1542 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  %1543 = load i32, ptr %16, align 8, !tbaa !49
+  %1544 = sext i32 %1543 to i64
+  %1545 = getelementptr [200 x i32], ptr %1542, i64 0, i64 %1544
+  store i32 %1541, ptr %1545, align 4, !tbaa !51
+  %1546 = load ptr, ptr %4, align 8, !tbaa !19
+  %1547 = load ptr, ptr %11, align 8, !tbaa !28
+  %1548 = ptrtoint ptr %1546 to i64
   %1549 = ptrtoint ptr %1547 to i64
-  %1550 = ptrtoint ptr %1548 to i64
-  %1551 = sub i64 %1549, %1550
-  %1552 = trunc i64 %1551 to i32
-  %1553 = getelementptr inbounds nuw i8, ptr %0, i64 1532
-  %1554 = load i32, ptr %16, align 8, !tbaa !49
-  %1555 = sext i32 %1554 to i64
-  %1556 = getelementptr [200 x i32], ptr %1553, i64 0, i64 %1555
-  store i32 %1552, ptr %1556, align 4, !tbaa !51
-  %1557 = load i32, ptr %16, align 8, !tbaa !49
-  %1558 = add i32 %1557, 1
-  store i32 %1558, ptr %16, align 8, !tbaa !49
-  %1559 = getelementptr inbounds nuw i8, ptr %0, i64 17256
-  %1560 = load i32, ptr %1559, align 8, !tbaa !13
-  %1561 = icmp sgt i32 %1560, 0
-  br i1 %1561, label %1562, label %1640
+  %1550 = sub i64 %1548, %1549
+  %1551 = trunc i64 %1550 to i32
+  %1552 = getelementptr inbounds nuw i8, ptr %0, i64 1532
+  %1553 = load i32, ptr %16, align 8, !tbaa !49
+  %1554 = sext i32 %1553 to i64
+  %1555 = getelementptr [200 x i32], ptr %1552, i64 0, i64 %1554
+  store i32 %1551, ptr %1555, align 4, !tbaa !51
+  %1556 = load i32, ptr %16, align 8, !tbaa !49
+  %1557 = add i32 %1556, 1
+  store i32 %1557, ptr %16, align 8, !tbaa !49
+  %1558 = getelementptr inbounds nuw i8, ptr %0, i64 17256
+  %1559 = load i32, ptr %1558, align 8, !tbaa !13
+  %1560 = icmp sgt i32 %1559, 0
+  br i1 %1560, label %1561, label %1639
 
-1562:                                             ; preds = %1537
-  %1563 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1564 = load i32, ptr %1563, align 4, !tbaa !43
-  %1565 = add i32 %1564, 1
-  store i32 %1565, ptr %1563, align 4, !tbaa !43
-  br label %1640
+1561:                                             ; preds = %1536
+  %1562 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1563 = load i32, ptr %1562, align 4, !tbaa !43
+  %1564 = add i32 %1563, 1
+  store i32 %1564, ptr %1562, align 4, !tbaa !43
+  br label %1639
 
-1566:                                             ; preds = %tok_backup.exit1447.thread, %tok_backup.exit1447.thread, %tok_backup.exit1447.thread
-  %1567 = getelementptr inbounds nuw i8, ptr %0, i64 17256
-  %1568 = load i32, ptr %1567, align 8, !tbaa !13
-  %1569 = icmp sgt i32 %1568, 0
-  br i1 %1569, label %1570, label %1577
+1565:                                             ; preds = %tok_backup.exit1447.thread, %tok_backup.exit1447.thread, %tok_backup.exit1447.thread
+  %1566 = getelementptr inbounds nuw i8, ptr %0, i64 17256
+  %1567 = load i32, ptr %1566, align 8, !tbaa !13
+  %1568 = icmp sgt i32 %1567, 0
+  br i1 %1568, label %1569, label %1576
 
-1570:                                             ; preds = %1566
-  %1571 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1572 = load i32, ptr %1571, align 4, !tbaa !43
-  %1573 = icmp eq i32 %1572, 0
-  %or.cond101 = and i1 %1396, %1573
-  br i1 %or.cond101, label %1574, label %1577
+1569:                                             ; preds = %1565
+  %1570 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1571 = load i32, ptr %1570, align 4, !tbaa !43
+  %1572 = icmp eq i32 %1571, 0
+  %or.cond101 = and i1 %1395, %1572
+  br i1 %or.cond101, label %1573, label %1576
 
-1574:                                             ; preds = %1570
-  %1575 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #9
-  %1576 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1575, ptr noundef null, ptr noundef null) #9
+1573:                                             ; preds = %1569
+  %1574 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #9
+  %1575 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1574, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1577:                                             ; preds = %1570, %1566
-  %1578 = load i32, ptr %21, align 4, !tbaa !54
-  %.not1199 = icmp eq i32 %1578, 0
-  %1579 = load i32, ptr %16, align 8, !tbaa !49
-  br i1 %.not1199, label %1580, label %.thread1560
+1576:                                             ; preds = %1569, %1565
+  %1577 = load i32, ptr %21, align 4, !tbaa !54
+  %.not1199 = icmp eq i32 %1577, 0
+  %1578 = load i32, ptr %16, align 8, !tbaa !49
+  br i1 %.not1199, label %1579, label %.thread1560
 
-1580:                                             ; preds = %1577
-  %.not1200 = icmp eq i32 %1579, 0
-  br i1 %.not1200, label %1581, label %1584
+1579:                                             ; preds = %1576
+  %.not1200 = icmp eq i32 %1578, 0
+  br i1 %.not1200, label %1580, label %1583
 
-1581:                                             ; preds = %1580
-  %1582 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %.61007) #9
-  %1583 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1582, ptr noundef null, ptr noundef null) #9
+1580:                                             ; preds = %1579
+  %1581 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %.61007) #9
+  %1582 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1581, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1584:                                             ; preds = %1580
-  %1585 = icmp sgt i32 %1579, 0
-  br i1 %1585, label %1588, label %.thread1565
+1583:                                             ; preds = %1579
+  %1584 = icmp sgt i32 %1578, 0
+  br i1 %1584, label %1587, label %.thread1565
 
-.thread1560:                                      ; preds = %1577
-  %1586 = icmp sgt i32 %1579, 0
-  br i1 %1586, label %.thread1561, label %.thread1565
+.thread1560:                                      ; preds = %1576
+  %1585 = icmp sgt i32 %1578, 0
+  br i1 %1585, label %.thread1561, label %.thread1565
 
 .thread1561:                                      ; preds = %.thread1560
-  %1587 = add nsw i32 %1579, -1
-  store i32 %1587, ptr %16, align 8, !tbaa !49
+  %1586 = add nsw i32 %1578, -1
+  store i32 %1586, ptr %16, align 8, !tbaa !49
   br label %.thread1565
 
-1588:                                             ; preds = %1584
-  %1589 = add nsw i32 %1579, -1
-  store i32 %1589, ptr %16, align 8, !tbaa !49
-  %1590 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %1591 = zext nneg i32 %1589 to i64
-  %1592 = getelementptr [200 x i8], ptr %1590, i64 0, i64 %1591
-  %1593 = load i8, ptr %1592, align 1, !tbaa !29
-  %1594 = sext i8 %1593 to i32
-  %1595 = icmp eq i8 %1593, 40
-  %1596 = icmp eq i32 %.61007, 41
-  %or.cond103 = and i1 %1596, %1595
-  br i1 %or.cond103, label %.thread1565, label %1597
+1587:                                             ; preds = %1583
+  %1588 = add nsw i32 %1578, -1
+  store i32 %1588, ptr %16, align 8, !tbaa !49
+  %1589 = getelementptr inbounds nuw i8, ptr %0, i64 532
+  %1590 = zext nneg i32 %1588 to i64
+  %1591 = getelementptr [200 x i8], ptr %1589, i64 0, i64 %1590
+  %1592 = load i8, ptr %1591, align 1, !tbaa !29
+  %1593 = sext i8 %1592 to i32
+  %1594 = icmp eq i8 %1592, 40
+  %1595 = icmp eq i32 %.61007, 41
+  %or.cond103 = and i1 %1595, %1594
+  br i1 %or.cond103, label %.thread1565, label %1596
 
-1597:                                             ; preds = %1588
-  %1598 = icmp eq i8 %1593, 91
-  %1599 = icmp eq i32 %.61007, 93
-  %or.cond105 = and i1 %1599, %1598
-  br i1 %or.cond105, label %.thread1565, label %1600
+1596:                                             ; preds = %1587
+  %1597 = icmp eq i8 %1592, 91
+  %1598 = icmp eq i32 %.61007, 93
+  %or.cond105 = and i1 %1598, %1597
+  br i1 %or.cond105, label %.thread1565, label %1599
 
-1600:                                             ; preds = %1597
-  %1601 = icmp eq i8 %1593, 123
-  %or.cond107 = and i1 %1396, %1601
-  br i1 %or.cond107, label %.thread1565, label %1602
+1599:                                             ; preds = %1596
+  %1600 = icmp eq i8 %1592, 123
+  %or.cond107 = and i1 %1395, %1600
+  br i1 %or.cond107, label %.thread1565, label %1601
 
-1602:                                             ; preds = %1600
-  %or.cond109 = and i1 %1569, %1601
-  br i1 %or.cond109, label %1603, label %1611
+1601:                                             ; preds = %1599
+  %or.cond109 = and i1 %1568, %1600
+  br i1 %or.cond109, label %1602, label %1610
 
-1603:                                             ; preds = %1602
-  %1604 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1605 = load i32, ptr %1604, align 4, !tbaa !43
-  %1606 = add i32 %1605, -1
-  %1607 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1608 = load i32, ptr %1607, align 8, !tbaa !31
-  %.not1202 = icmp eq i32 %1606, %1608
-  br i1 %.not1202, label %.thread1562, label %1611
+1602:                                             ; preds = %1601
+  %1603 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1604 = load i32, ptr %1603, align 4, !tbaa !43
+  %1605 = add i32 %1604, -1
+  %1606 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1607 = load i32, ptr %1606, align 8, !tbaa !31
+  %.not1202 = icmp eq i32 %1605, %1607
+  br i1 %.not1202, label %.thread1562, label %1610
 
-.thread1562:                                      ; preds = %1603
-  %1609 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %.61007) #9
-  %1610 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1609, ptr noundef null, ptr noundef null) #9
+.thread1562:                                      ; preds = %1602
+  %1608 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %.61007) #9
+  %1609 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1608, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1611:                                             ; preds = %1603, %1602
-  %1612 = getelementptr inbounds nuw i8, ptr %0, i64 732
-  %1613 = zext nneg i32 %1589 to i64
-  %1614 = getelementptr [200 x i32], ptr %1612, i64 0, i64 %1613
-  %1615 = load i32, ptr %1614, align 4, !tbaa !51
-  %1616 = load i32, ptr %15, align 8, !tbaa !22
-  %.not1203 = icmp eq i32 %1615, %1616
-  br i1 %.not1203, label %1620, label %1617
+1610:                                             ; preds = %1602, %1601
+  %1611 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  %1612 = zext nneg i32 %1588 to i64
+  %1613 = getelementptr [200 x i32], ptr %1611, i64 0, i64 %1612
+  %1614 = load i32, ptr %1613, align 4, !tbaa !51
+  %1615 = load i32, ptr %15, align 8, !tbaa !22
+  %.not1203 = icmp eq i32 %1614, %1615
+  br i1 %.not1203, label %1619, label %1616
 
-1617:                                             ; preds = %1611
-  %1618 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, i32 noundef %.61007, i32 noundef %1594, i32 noundef %1615) #9
-  %1619 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1618, ptr noundef null, ptr noundef null) #9
+1616:                                             ; preds = %1610
+  %1617 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, i32 noundef %.61007, i32 noundef %1593, i32 noundef %1614) #9
+  %1618 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1617, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1620:                                             ; preds = %1611
-  %1621 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %.61007, i32 noundef %1594) #9
-  %1622 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1621, ptr noundef null, ptr noundef null) #9
+1619:                                             ; preds = %1610
+  %1620 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %.61007, i32 noundef %1593) #9
+  %1621 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1620, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-.thread1565:                                      ; preds = %.thread1561, %1588, %1597, %1600, %.thread1560, %1584
-  br i1 %1569, label %1623, label %1640
+.thread1565:                                      ; preds = %.thread1561, %1587, %1596, %1599, %.thread1560, %1583
+  br i1 %1568, label %1622, label %1639
 
-1623:                                             ; preds = %.thread1565
-  %1624 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %1625 = load i32, ptr %1624, align 4, !tbaa !43
-  %1626 = add i32 %1625, -1
-  store i32 %1626, ptr %1624, align 4, !tbaa !43
-  %1627 = icmp slt i32 %1626, 0
-  br i1 %1627, label %1628, label %1631
+1622:                                             ; preds = %.thread1565
+  %1623 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %1624 = load i32, ptr %1623, align 4, !tbaa !43
+  %1625 = add i32 %1624, -1
+  store i32 %1625, ptr %1623, align 4, !tbaa !43
+  %1626 = icmp slt i32 %1625, 0
+  br i1 %1626, label %1627, label %1630
 
-1628:                                             ; preds = %1623
-  %1629 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %.61007) #9
-  %1630 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1629, ptr noundef null, ptr noundef null) #9
+1627:                                             ; preds = %1622
+  %1628 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i32 noundef %.61007) #9
+  %1629 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1628, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1631:                                             ; preds = %1623
-  br i1 %1396, label %1632, label %1640
+1630:                                             ; preds = %1622
+  br i1 %1395, label %1631, label %1639
 
-1632:                                             ; preds = %1631
-  %1633 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1634 = load i32, ptr %1633, align 8, !tbaa !31
-  %1635 = icmp eq i32 %1626, %1634
-  br i1 %1635, label %1636, label %1640
+1631:                                             ; preds = %1630
+  %1632 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1633 = load i32, ptr %1632, align 8, !tbaa !31
+  %1634 = icmp eq i32 %1625, %1633
+  br i1 %1634, label %1635, label %1639
 
-1636:                                             ; preds = %1632
-  %1637 = add i32 %1625, -2
-  store i32 %1637, ptr %1633, align 8, !tbaa !31
+1635:                                             ; preds = %1631
+  %1636 = add i32 %1624, -2
+  store i32 %1636, ptr %1632, align 8, !tbaa !31
   store i32 1, ptr %1, align 8, !tbaa !21
-  %1638 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 0, ptr %1638, align 4, !tbaa !37
-  %1639 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 0, ptr %1639, align 8, !tbaa !78
-  br label %1640
+  %1637 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 0, ptr %1637, align 4, !tbaa !37
+  %1638 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i32 0, ptr %1638, align 8, !tbaa !78
+  br label %1639
 
-1640:                                             ; preds = %tok_backup.exit1447.thread, %.thread1565, %1636, %1632, %1631, %1537, %1562
-  %1641 = tail call i32 @_PyUnicode_IsPrintable(i32 noundef %.61007) #9
-  %.not1204 = icmp eq i32 %1641, 0
-  br i1 %.not1204, label %1642, label %1645
+1639:                                             ; preds = %tok_backup.exit1447.thread, %.thread1565, %1635, %1631, %1630, %1536, %1561
+  %1640 = tail call i32 @_PyUnicode_IsPrintable(i32 noundef %.61007) #9
+  %.not1204 = icmp eq i32 %1640, 0
+  br i1 %.not1204, label %1641, label %1644
 
-1642:                                             ; preds = %1640
-  %1643 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %.61007) #9
-  %1644 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1643, ptr noundef null, ptr noundef null) #9
+1641:                                             ; preds = %1639
+  %1642 = tail call i32 (ptr, ptr, ...) @_PyTokenizer_syntaxerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %.61007) #9
+  %1643 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1642, ptr noundef null, ptr noundef null) #9
   br label %.thread1472
 
-1645:                                             ; preds = %1640
-  %1646 = icmp eq i32 %.61007, 61
-  br i1 %1646, label %1647, label %1653
+1644:                                             ; preds = %1639
+  %1645 = icmp eq i32 %.61007, 61
+  br i1 %1645, label %1646, label %1652
 
-1647:                                             ; preds = %1645
-  %1648 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1649 = load i32, ptr %1648, align 8, !tbaa !31
-  %1650 = icmp sgt i32 %1649, -1
-  br i1 %1650, label %1651, label %1653
+1646:                                             ; preds = %1644
+  %1647 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1648 = load i32, ptr %1647, align 8, !tbaa !31
+  %1649 = icmp sgt i32 %1648, -1
+  br i1 %1649, label %1650, label %1652
 
-1651:                                             ; preds = %1647
-  %1652 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 1, ptr %1652, align 8, !tbaa !78
-  br label %1653
+1650:                                             ; preds = %1646
+  %1651 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i32 1, ptr %1651, align 8, !tbaa !78
+  br label %1652
 
-1653:                                             ; preds = %1651, %1647, %1645
-  %1654 = load ptr, ptr %4, align 8, !tbaa !19
-  %1655 = load ptr, ptr %7, align 8, !tbaa !4
-  %1656 = tail call i32 @_PyToken_OneChar(i32 noundef %.61007) #9
-  %1657 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1656, ptr noundef %1654, ptr noundef %1655) #9
+1652:                                             ; preds = %1650, %1646, %1644
+  %1653 = load ptr, ptr %4, align 8, !tbaa !19
+  %1654 = load ptr, ptr %7, align 8, !tbaa !4
+  %1655 = tail call i32 @_PyToken_OneChar(i32 noundef %.61007) #9
+  %1656 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %1655, ptr noundef %1653, ptr noundef %1654) #9
   br label %.thread1472
 
-.thread1472:                                      ; preds = %tok_backup.exit1447, %1425, %1435, %1430, %953, %968, %944, %901, %546, %verify_identifier.exit, %330, %.critedge1215, %tok_backup.exit1272, %1617, %1620, %.thread1562, %1314, %69, %101, %109, %114, %.critedge.thread, %141, %1288, %tok_nextc.exit1409._crit_edge, %1325, %1320, %1141, %1172, %1653, %1642, %1628, %1581, %1574, %1534, %1391, %.thread1518, %1025, %1021, %1015, %1008, %1006, %995, %983, %971, %891, %886, %848, %845, %829, %824, %786, %783, %741, %703, %649, %644, %602, %600, %592, %362, %360, %354, %156, %150
-  %.3 = phi i32 [ %152, %150 ], [ %158, %156 ], [ %355, %354 ], [ %361, %360 ], [ %365, %362 ], [ %1392, %1391 ], [ %1657, %1653 ], [ %1644, %1642 ], [ %1536, %1534 ], [ %1576, %1574 ], [ %1630, %1628 ], [ %1583, %1581 ], [ %1530, %tok_backup.exit1447 ], [ %594, %592 ], [ %601, %600 ], [ %605, %602 ], [ %984, %983 ], [ %1016, %1015 ], [ %1029, %.thread1518 ], [ %1022, %1021 ], [ %1026, %1025 ], [ %997, %995 ], [ %1011, %1008 ], [ %1007, %1006 ], [ %647, %644 ], [ %652, %649 ], [ %742, %741 ], [ %705, %703 ], [ %785, %783 ], [ %788, %786 ], [ %826, %824 ], [ %830, %829 ], [ %847, %845 ], [ %850, %848 ], [ %888, %886 ], [ %892, %891 ], [ %972, %971 ], [ %1143, %1141 ], [ %1176, %1172 ], [ %1289, %1288 ], [ %1387, %tok_nextc.exit1409._crit_edge ], [ %1321, %1320 ], [ %1326, %1325 ], [ %1316, %1314 ], [ %70, %69 ], [ %103, %101 ], [ %110, %109 ], [ %116, %114 ], [ %137, %.critedge.thread ], [ %143, %141 ], [ %1619, %1617 ], [ %1622, %1620 ], [ %1610, %.thread1562 ], [ %334, %.critedge1215 ], [ %332, %330 ], [ %350, %tok_backup.exit1272 ], [ %547, %546 ], [ %550, %verify_identifier.exit ], [ %965, %953 ], [ %969, %968 ], [ %945, %944 ], [ %903, %901 ], [ %1426, %1425 ], [ %1438, %1435 ], [ %1431, %1430 ]
+.thread1472:                                      ; preds = %tok_backup.exit1447, %1424, %1434, %1429, %952, %967, %943, %900, %546, %verify_identifier.exit, %330, %.critedge1215, %tok_backup.exit1272, %1616, %1619, %.thread1562, %1313, %69, %101, %109, %114, %.critedge.thread, %141, %1287, %tok_nextc.exit1409._crit_edge, %1324, %1319, %1140, %1171, %1652, %1641, %1627, %1580, %1573, %1533, %1390, %.thread1518, %1024, %1020, %1014, %1007, %1005, %994, %982, %970, %890, %885, %847, %844, %828, %823, %785, %782, %740, %702, %649, %644, %602, %600, %592, %362, %360, %354, %156, %150
+  %.3 = phi i32 [ %152, %150 ], [ %158, %156 ], [ %355, %354 ], [ %361, %360 ], [ %365, %362 ], [ %1391, %1390 ], [ %1656, %1652 ], [ %1643, %1641 ], [ %1535, %1533 ], [ %1575, %1573 ], [ %1629, %1627 ], [ %1582, %1580 ], [ %1529, %tok_backup.exit1447 ], [ %594, %592 ], [ %601, %600 ], [ %605, %602 ], [ %983, %982 ], [ %1015, %1014 ], [ %1028, %.thread1518 ], [ %1021, %1020 ], [ %1025, %1024 ], [ %996, %994 ], [ %1010, %1007 ], [ %1006, %1005 ], [ %647, %644 ], [ %652, %649 ], [ %741, %740 ], [ %704, %702 ], [ %784, %782 ], [ %787, %785 ], [ %825, %823 ], [ %829, %828 ], [ %846, %844 ], [ %849, %847 ], [ %887, %885 ], [ %891, %890 ], [ %971, %970 ], [ %1142, %1140 ], [ %1175, %1171 ], [ %1288, %1287 ], [ %1386, %tok_nextc.exit1409._crit_edge ], [ %1320, %1319 ], [ %1325, %1324 ], [ %1315, %1313 ], [ %70, %69 ], [ %103, %101 ], [ %110, %109 ], [ %116, %114 ], [ %137, %.critedge.thread ], [ %143, %141 ], [ %1618, %1616 ], [ %1621, %1619 ], [ %1609, %.thread1562 ], [ %334, %.critedge1215 ], [ %332, %330 ], [ %350, %tok_backup.exit1272 ], [ %547, %546 ], [ %550, %verify_identifier.exit ], [ %964, %952 ], [ %968, %967 ], [ %944, %943 ], [ %902, %900 ], [ %1425, %1424 ], [ %1437, %1434 ], [ %1430, %1429 ]
   ret i32 %.3
 }
 
@@ -5226,15 +5225,15 @@ tok_nextc.exit:                                   ; preds = %9
   store ptr %26, ptr %2, align 8, !tbaa !4
   %27 = load i8, ptr %8, align 1, !tbaa !29
   %28 = icmp eq i8 %27, 13
-  br i1 %28, label %.preheader86, label %tok_nextc.exit23
+  br i1 %28, label %.preheader94, label %tok_nextc.exit23
 
-.preheader86:                                     ; preds = %tok_nextc.exit, %43
+.preheader94:                                     ; preds = %tok_nextc.exit, %43
   %29 = phi ptr [ %45, %43 ], [ %.pre39.i17, %tok_nextc.exit ]
   %30 = phi ptr [ %44, %43 ], [ %26, %tok_nextc.exit ]
   %.not.i18 = icmp eq ptr %30, %29
   br i1 %.not.i18, label %38, label %31
 
-31:                                               ; preds = %.preheader86
+31:                                               ; preds = %.preheader94
   %32 = load i32, ptr %10, align 4, !tbaa !24
   %33 = icmp ugt i32 %32, 2147483646
   br i1 %33, label %tok_nextc.exit23.thread, label %34
@@ -5247,7 +5246,7 @@ tok_nextc.exit:                                   ; preds = %9
   %37 = load i8, ptr %30, align 1, !tbaa !29
   br label %tok_nextc.exit23
 
-38:                                               ; preds = %.preheader86
+38:                                               ; preds = %.preheader94
   %39 = load i32, ptr %4, align 8, !tbaa !20
   %.not21.i20 = icmp eq i32 %39, 10
   br i1 %.not21.i20, label %40, label %tok_nextc.exit23.thread
@@ -5267,7 +5266,7 @@ tok_nextc.exit:                                   ; preds = %9
   %48 = sub i64 %46, %47
   %49 = tail call ptr @memchr(ptr noundef readonly %44, i32 noundef 0, i64 noundef %48) #8
   %.not24.i22 = icmp eq ptr %49, null
-  br i1 %.not24.i22, label %.preheader86, label %tok_nextc.exit23.thread.sink.split.sink.split
+  br i1 %.not24.i22, label %.preheader94, label %tok_nextc.exit23.thread.sink.split.sink.split
 
 tok_nextc.exit23:                                 ; preds = %34, %tok_nextc.exit
   %.pre39.i25 = phi ptr [ %.pre39.i17, %tok_nextc.exit ], [ %29, %34 ]

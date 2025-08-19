@@ -1049,12 +1049,12 @@ define hidden void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef readonl
 
 mbedtls_mpi_core_sub.exit:                        ; preds = %.lr.ph.i, %._crit_edge.thread
   %35 = phi i64 [ %12, %._crit_edge.thread ], [ %21, %.lr.ph.i ]
-  %.0.lcssa91 = phi ptr [ %7, %._crit_edge.thread ], [ %79, %.lr.ph.i ]
+  %.0.lcssa96 = phi ptr [ %7, %._crit_edge.thread ], [ %79, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ 0, %._crit_edge.thread ], [ %31, %.lr.ph.i ]
   %36 = xor i64 %.0.lcssa.i, %35
   %37 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %36) #10, !srcloc !12
   %38 = shl i64 %5, 3
-  tail call void @mbedtls_ct_memcpy_if(i64 noundef %37, ptr noundef %0, ptr noundef nonnull %.0.lcssa91, ptr noundef null, i64 noundef %38) #10
+  tail call void @mbedtls_ct_memcpy_if(i64 noundef %37, ptr noundef %0, ptr noundef nonnull %.0.lcssa96, ptr noundef null, i64 noundef %38) #10
   ret void
 
 39:                                               ; preds = %.lr.ph, %mbedtls_mpi_core_mla.exit66

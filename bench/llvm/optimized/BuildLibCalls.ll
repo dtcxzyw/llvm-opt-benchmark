@@ -4499,9 +4499,9 @@ _ZN4llvm11SmallStringILj20EEpLEc.exit.sink.split.i: ; preds = %_ZN4llvm11SmallSt
   br label %_ZN4llvm11SmallStringILj20EEpLEc.exit.i
 
 _ZN4llvm11SmallStringILj20EEpLEc.exit.i:          ; preds = %_ZN4llvm11SmallStringILj20EEpLEc.exit.sink.split.i, %_ZN4llvm11SmallStringILj20EEpLENS_9StringRefE.exit.i
-  %.sink15.i = phi i64 [ %.pre.i.i11.i, %_ZN4llvm11SmallStringILj20EEpLEc.exit.sink.split.i ], [ %26, %_ZN4llvm11SmallStringILj20EEpLENS_9StringRefE.exit.i ]
+  %.sink17.i = phi i64 [ %.pre.i.i11.i, %_ZN4llvm11SmallStringILj20EEpLEc.exit.sink.split.i ], [ %26, %_ZN4llvm11SmallStringILj20EEpLENS_9StringRefE.exit.i ]
   %32 = load ptr, ptr %7, align 8, !tbaa !204
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.sink15.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.sink17.i
   store i8 %..i, ptr %33, align 1
   %storemerge.in.i = load i64, ptr %10, align 8, !tbaa !205
   %storemerge.i = add i64 %storemerge.in.i, 1
@@ -4682,9 +4682,9 @@ _ZN4llvm11SmallStringILj20EEpLEc.exit.sink.split.i: ; preds = %_ZN4llvm11SmallSt
   br label %_ZN4llvm11SmallStringILj20EEpLEc.exit.i
 
 _ZN4llvm11SmallStringILj20EEpLEc.exit.i:          ; preds = %_ZN4llvm11SmallStringILj20EEpLEc.exit.sink.split.i, %_ZN4llvm11SmallStringILj20EEpLENS_9StringRefE.exit.i
-  %.sink15.i = phi i64 [ %.pre.i.i11.i, %_ZN4llvm11SmallStringILj20EEpLEc.exit.sink.split.i ], [ %27, %_ZN4llvm11SmallStringILj20EEpLENS_9StringRefE.exit.i ]
+  %.sink17.i = phi i64 [ %.pre.i.i11.i, %_ZN4llvm11SmallStringILj20EEpLEc.exit.sink.split.i ], [ %27, %_ZN4llvm11SmallStringILj20EEpLENS_9StringRefE.exit.i ]
   %33 = load ptr, ptr %8, align 8, !tbaa !204
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.sink15.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.sink17.i
   store i8 %..i, ptr %34, align 1
   %storemerge.in.i = load i64, ptr %11, align 8, !tbaa !205
   %storemerge.i = add i64 %storemerge.in.i, 1

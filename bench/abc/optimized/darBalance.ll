@@ -64,10 +64,10 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %12 = zext nneg i32 %.val to i64
-  %.val4494 = load ptr, ptr %11, align 8, !tbaa !13
-  %13 = load ptr, ptr %.val4494, align 8, !tbaa !14
+  %.val4498 = load ptr, ptr %11, align 8, !tbaa !13
+  %13 = load ptr, ptr %.val4498, align 8, !tbaa !14
   %14 = icmp eq i32 %.val, 1
-  br i1 %14, label %.split.us, label %.lr.ph98
+  br i1 %14, label %.split.us, label %.lr.ph102
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %28
   %.058.us = phi i32 [ %.2.us, %28 ], [ 0, %.lr.ph ]
@@ -105,7 +105,7 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
   br i1 %29, label %.lr.ph.split.us, label %.critedge2, !llvm.loop !15
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %.lr.ph.split.preheader
-  %.us-phi = phi ptr [ %.val4494, %.lr.ph.split.preheader ], [ %.val44, %.lr.ph.split ], [ %.val44.us, %.lr.ph.split.us ]
+  %.us-phi = phi ptr [ %.val4498, %.lr.ph.split.preheader ], [ %.val44, %.lr.ph.split ], [ %.val44.us, %.lr.ph.split.us ]
   %.us-phi59 = phi ptr [ %13, %.lr.ph.split.preheader ], [ %46, %.lr.ph.split ], [ %17, %.lr.ph.split.us ]
   %.us-phi60 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.2, %.lr.ph.split ], [ %.058.us, %.lr.ph.split.us ]
   %30 = add nsw i32 %.us-phi60, 1
@@ -114,12 +114,12 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
   store ptr %.us-phi59, ptr %32, align 8, !tbaa !14
   br label %.critedge2
 
-.lr.ph98:                                         ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %indvars.iv.next97 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 1, %.lr.ph.split.preheader ]
+.lr.ph102:                                        ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %indvars.iv.next101 = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 1, %.lr.ph.split.preheader ]
   %33 = phi ptr [ %46, %.lr.ph.split ], [ %13, %.lr.ph.split.preheader ]
-  %.val4496 = phi ptr [ %.val44, %.lr.ph.split ], [ %.val4494, %.lr.ph.split.preheader ]
-  %.05895 = phi i32 [ %.2, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
-  %34 = getelementptr inbounds nuw ptr, ptr %.val4496, i64 %indvars.iv.next97
+  %.val44100 = phi ptr [ %.val44, %.lr.ph.split ], [ %.val4498, %.lr.ph.split.preheader ]
+  %.05899 = phi i32 [ %.2, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %34 = getelementptr inbounds nuw ptr, ptr %.val44100, i64 %indvars.iv.next101
   %35 = load ptr, ptr %34, align 8, !tbaa !14
   %36 = ptrtoint ptr %35 to i64
   %37 = xor i64 %36, 1
@@ -127,28 +127,28 @@ Vec_PtrSort.exit:                                 ; preds = %3, %.sink.split.i
   %39 = icmp eq ptr %33, %38
   br i1 %39, label %.critedge2, label %40
 
-40:                                               ; preds = %.lr.ph98
+40:                                               ; preds = %.lr.ph102
   %.not40 = icmp eq ptr %33, %35
   br i1 %.not40, label %.lr.ph.split, label %41
 
 41:                                               ; preds = %40
-  %42 = add nsw i32 %.05895, 1
-  %43 = sext i32 %.05895 to i64
-  %44 = getelementptr inbounds ptr, ptr %.val4496, i64 %43
+  %42 = add nsw i32 %.05899, 1
+  %43 = sext i32 %.05899 to i64
+  %44 = getelementptr inbounds ptr, ptr %.val44100, i64 %43
   store ptr %33, ptr %44, align 8, !tbaa !14
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %40, %41
-  %.2 = phi i32 [ %42, %41 ], [ %.05895, %40 ]
+  %.2 = phi i32 [ %42, %41 ], [ %.05899, %40 ]
   %.val44 = load ptr, ptr %11, align 8, !tbaa !13
-  %45 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv.next97
+  %45 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv.next101
   %46 = load ptr, ptr %45, align 8, !tbaa !14
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv.next97, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv.next101, 1
   %47 = icmp eq i64 %indvars.iv.next, %12
-  br i1 %47, label %.split.us, label %.lr.ph98
+  br i1 %47, label %.split.us, label %.lr.ph102
 
-.critedge2:                                       ; preds = %28, %.lr.ph98, %.split.us, %Vec_PtrSort.exit
-  %.1.sink = phi i32 [ 0, %Vec_PtrSort.exit ], [ %30, %.split.us ], [ 0, %.lr.ph98 ], [ %.2.us, %28 ]
+.critedge2:                                       ; preds = %28, %.lr.ph102, %.split.us, %Vec_PtrSort.exit
+  %.1.sink = phi i32 [ 0, %Vec_PtrSort.exit ], [ %30, %.split.us ], [ 0, %.lr.ph102 ], [ %.2.us, %28 ]
   store i32 %.1.sink, ptr %4, align 4, !tbaa !11
   ret void
 }

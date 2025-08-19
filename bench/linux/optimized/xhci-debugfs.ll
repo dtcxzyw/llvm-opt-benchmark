@@ -732,7 +732,7 @@ define internal fastcc void @xhci_debugfs_extcap_regset(ptr noundef %0, i32 noun
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @xhci_debugfs_regset(ptr noundef %0, i32 noundef %35, ptr noundef %2, i64 noundef %43, ptr noundef %44, ptr noundef nonnull @.str.180, ptr noundef %4, i32 noundef %36)
   %45 = and i32 %35, -17
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %.preheader37
+  br i1 %46, label %47, label %.preheader49
 
 47:                                               ; preds = %.split.us
   %48 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #14, !srcloc !9
@@ -743,14 +743,14 @@ define internal fastcc void @xhci_debugfs_extcap_regset(ptr noundef %0, i32 noun
   %51 = lshr i32 %48, 14
   %52 = and i32 %51, 262140
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.thread, label %.preheader37
+  br i1 %53, label %.thread, label %.preheader49
 
-.preheader37:                                     ; preds = %50, %.split.us
+.preheader49:                                     ; preds = %50, %.split.us
   %.ph = phi i32 [ %52, %50 ], [ %35, %.split.us ]
   br label %54
 
-54:                                               ; preds = %.preheader37, %65
-  %55 = phi i32 [ %69, %65 ], [ %.ph, %.preheader37 ]
+54:                                               ; preds = %.preheader49, %65
+  %55 = phi i32 [ %69, %65 ], [ %.ph, %.preheader49 ]
   %56 = zext i32 %55 to i64
   %57 = getelementptr i8, ptr %7, i64 %56
   %58 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57) #14, !srcloc !9
@@ -784,7 +784,7 @@ define internal fastcc void @xhci_debugfs_extcap_regset(ptr noundef %0, i32 noun
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @xhci_debugfs_regset(ptr noundef %0, i32 noundef %74, ptr noundef %2, i64 noundef %3, ptr noundef %76, ptr noundef nonnull @.str.180, ptr noundef %4, i32 noundef %75)
   %77 = and i32 %74, -17
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %.preheader40
+  br i1 %78, label %79, label %.preheader52
 
 79:                                               ; preds = %.split
   %80 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #14, !srcloc !9
@@ -795,14 +795,14 @@ define internal fastcc void @xhci_debugfs_extcap_regset(ptr noundef %0, i32 noun
   %83 = lshr i32 %80, 14
   %84 = and i32 %83, 262140
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.thread, label %.preheader40
+  br i1 %85, label %.thread, label %.preheader52
 
-.preheader40:                                     ; preds = %82, %.split
-  %.ph41 = phi i32 [ %84, %82 ], [ %74, %.split ]
+.preheader52:                                     ; preds = %82, %.split
+  %.ph53 = phi i32 [ %84, %82 ], [ %74, %.split ]
   br label %86
 
-86:                                               ; preds = %.preheader40, %97
-  %87 = phi i32 [ %101, %97 ], [ %.ph41, %.preheader40 ]
+86:                                               ; preds = %.preheader52, %97
+  %87 = phi i32 [ %101, %97 ], [ %.ph53, %.preheader52 ]
   %88 = zext i32 %87 to i64
   %89 = getelementptr i8, ptr %7, i64 %88
   %90 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %89) #14, !srcloc !9

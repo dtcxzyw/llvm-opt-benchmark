@@ -742,11 +742,11 @@ encode_15_7_sl.exit.i.i.i.i:                      ; preds = %encode_15_7_sl.exit
   br label %.lr.ph114.split.i.i.i.i
 
 .lr.ph114.splitthread-pre-split.i.i.i.i:          ; preds = %encode_15_7_sl.exit59.i.i.i.i
-  %.pr150.i.i.i.i = load i8, ptr %239, align 1, !tbaa !72
+  %.pr154.i.i.i.i = load i8, ptr %239, align 1, !tbaa !72
   br label %.lr.ph114.split.i.i.i.i
 
 .lr.ph114.split.i.i.i.i:                          ; preds = %.lr.ph114.splitthread-pre-split.i.i.i.i, %.lr.ph114.split.preheader.i.i.i.i
-  %345 = phi i8 [ %.pr150.i.i.i.i, %.lr.ph114.splitthread-pre-split.i.i.i.i ], [ %341, %.lr.ph114.split.preheader.i.i.i.i ]
+  %345 = phi i8 [ %.pr154.i.i.i.i, %.lr.ph114.splitthread-pre-split.i.i.i.i ], [ %341, %.lr.ph114.split.preheader.i.i.i.i ]
   %346 = phi i8 [ %421, %.lr.ph114.splitthread-pre-split.i.i.i.i ], [ %337, %.lr.ph114.split.preheader.i.i.i.i ]
   %347 = phi i8 [ %422, %.lr.ph114.splitthread-pre-split.i.i.i.i ], [ %333, %.lr.ph114.split.preheader.i.i.i.i ]
   %indvars.iv140.i.i.i.i = phi i64 [ %indvars.iv.next141.i.i.i.i, %.lr.ph114.splitthread-pre-split.i.i.i.i ], [ %343, %.lr.ph114.split.preheader.i.i.i.i ]
@@ -891,11 +891,11 @@ encode_15_7_sl.exit59.i.i.i.i:                    ; preds = %encode_15_7_sl.exit
   br label %.lr.ph123.split.i.i.i.i
 
 .lr.ph123.splitthread-pre-split.i.i.i.i:          ; preds = %encode_15_7_sl.exit74.i.i.i.i
-  %.pr151.i.i.i.i = load i8, ptr %239, align 1, !tbaa !72
+  %.pr155.i.i.i.i = load i8, ptr %239, align 1, !tbaa !72
   br label %.lr.ph123.split.i.i.i.i
 
 .lr.ph123.split.i.i.i.i:                          ; preds = %.lr.ph123.splitthread-pre-split.i.i.i.i, %.lr.ph123.split.preheader.i.i.i.i
-  %437 = phi i8 [ %.pr151.i.i.i.i, %.lr.ph123.splitthread-pre-split.i.i.i.i ], [ %433, %.lr.ph123.split.preheader.i.i.i.i ]
+  %437 = phi i8 [ %.pr155.i.i.i.i, %.lr.ph123.splitthread-pre-split.i.i.i.i ], [ %433, %.lr.ph123.split.preheader.i.i.i.i ]
   %438 = phi i8 [ %512, %.lr.ph123.splitthread-pre-split.i.i.i.i ], [ %430, %.lr.ph123.split.preheader.i.i.i.i ]
   %indvars.iv144.i.i.i.i = phi i64 [ %indvars.iv.next145.i.i.i.i, %.lr.ph123.splitthread-pre-split.i.i.i.i ], [ %435, %.lr.ph123.split.preheader.i.i.i.i ]
   %.2121.i.i.i.i = phi ptr [ %513, %.lr.ph123.splitthread-pre-split.i.i.i.i ], [ %.1.lcssa.i.i.i.i, %.lr.ph123.split.preheader.i.i.i.i ]
@@ -1143,9 +1143,9 @@ encode_bgr.exit.i.i.i:                            ; preds = %._crit_edge54.loope
   br label %encode_15_7.exit.i.i.i
 
 encode_15_7.exit.i.i.i:                           ; preds = %encode_15_7_sl.exit74.i.i.i.i, %encode_bgr.exit.i.i.i, %.lr.ph123.i.i.i.i, %._crit_edge115.i.i.i.i
-  %.sink120.i.i.i = phi ptr [ %584, %encode_bgr.exit.i.i.i ], [ %.1.lcssa.i.i.i.i, %._crit_edge115.i.i.i.i ], [ %.1.lcssa.i.i.i.i, %.lr.ph123.i.i.i.i ], [ %513, %encode_15_7_sl.exit74.i.i.i.i ]
+  %.sink129.i.i.i = phi ptr [ %584, %encode_bgr.exit.i.i.i ], [ %.1.lcssa.i.i.i.i, %._crit_edge115.i.i.i.i ], [ %.1.lcssa.i.i.i.i, %.lr.ph123.i.i.i.i ], [ %513, %encode_15_7_sl.exit74.i.i.i.i ]
   %585 = load ptr, ptr %195, align 8, !tbaa !84
-  %586 = ptrtoint ptr %.sink120.i.i.i to i64
+  %586 = ptrtoint ptr %.sink129.i.i.i to i64
   %587 = ptrtoint ptr %585 to i64
   %588 = sub i64 %586, %587
   %589 = trunc i64 %588 to i32
@@ -1774,7 +1774,7 @@ define internal fastcc void @init_blocks(ptr noundef readonly captures(none) %0,
   %63 = load i32, ptr %17, align 8, !tbaa !52
   %64 = trunc i32 %63 to i8
   %65 = and i32 %63, 255
-  %invariant.gep85 = getelementptr inbounds nuw %struct.Block, ptr %1, i64 %indvars.iv74
+  %invariant.gep86 = getelementptr inbounds nuw %struct.Block, ptr %1, i64 %indvars.iv74
   br label %66
 
 66:                                               ; preds = %78, %.lr.ph.split.us.us
@@ -1782,8 +1782,8 @@ define internal fastcc void @init_blocks(ptr noundef readonly captures(none) %0,
   %.147.us.us = phi ptr [ %90, %78 ], [ %.053.us, %.lr.ph.split.us.us ]
   %.14445.us.us = phi ptr [ %94, %78 ], [ %.04350.us, %.lr.ph.split.us.us ]
   %67 = mul nuw nsw i64 %indvars.iv69, %22
-  %gep86 = getelementptr inbounds nuw %struct.Block, ptr %invariant.gep85, i64 %67
-  %68 = getelementptr inbounds nuw i8, ptr %gep86, i64 53
+  %gep87 = getelementptr inbounds nuw %struct.Block, ptr %invariant.gep86, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %gep87, i64 53
   store i8 %64, ptr %68, align 1, !tbaa !72
   %69 = icmp samesign ult i64 %indvars.iv69, %23
   br i1 %69, label %76, label %70
@@ -1805,15 +1805,15 @@ define internal fastcc void @init_blocks(ptr noundef readonly captures(none) %0,
   %.pre-phi = phi i32 [ %.pre, %76 ], [ %73, %70 ]
   %79 = phi i32 [ %77, %76 ], [ %75, %70 ]
   %80 = trunc i32 %79 to i8
-  %81 = getelementptr inbounds nuw i8, ptr %gep86, i64 54
+  %81 = getelementptr inbounds nuw i8, ptr %gep87, i64 54
   store i8 %80, ptr %81, align 2, !tbaa !81
   %82 = trunc i32 %.pre-phi to i8
-  %83 = getelementptr inbounds nuw i8, ptr %gep86, i64 52
+  %83 = getelementptr inbounds nuw i8, ptr %gep87, i64 52
   store i8 %82, ptr %83, align 4, !tbaa !106
-  %84 = getelementptr inbounds nuw i8, ptr %gep86, i64 51
+  %84 = getelementptr inbounds nuw i8, ptr %gep87, i64 51
   store i8 %26, ptr %84, align 1, !tbaa !105
-  store ptr %.147.us.us, ptr %gep86, align 8, !tbaa !84
-  %85 = getelementptr inbounds nuw i8, ptr %gep86, i64 32
+  store ptr %.147.us.us, ptr %gep87, align 8, !tbaa !84
+  %85 = getelementptr inbounds nuw i8, ptr %gep87, i64 32
   store ptr %.14445.us.us, ptr %85, align 8, !tbaa !95
   %86 = and i32 %79, 255
   %87 = mul nuw nsw i32 %86, %65

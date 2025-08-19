@@ -692,8 +692,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 234:                                              ; preds = %227
   %235 = getelementptr inbounds nuw i8, ptr %182, i64 10
   %236 = load i8, ptr %235, align 2, !tbaa !76
-  %switch536.i = icmp ult i8 %236, 2
-  br i1 %switch536.i, label %248, label %.thread441.i
+  %switch559.i = icmp ult i8 %236, 2
+  br i1 %switch559.i, label %248, label %.thread441.i
 
 237:                                              ; preds = %215
   %238 = load i32, ptr %180, align 4, !tbaa !65

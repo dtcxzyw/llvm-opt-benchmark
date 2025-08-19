@@ -850,9 +850,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h5e1937b492ec0710E.exit.threa
 
 ._crit_edge.i.i11:                                ; preds = %191
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %24, i64 16)
-  %spec.select35.i = tail call i64 @llvm.umin.i64(i64 %24, i64 16)
+  %spec.select39.i = tail call i64 @llvm.umin.i64(i64 %24, i64 16)
   %177 = getelementptr inbounds i8, ptr %.val.i9, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %177, ptr nonnull align 1 %.val.i9, i64 %spec.select35.i, i1 false), !noalias !154
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %177, ptr nonnull align 1 %.val.i9, i64 %spec.select39.i, i1 false), !noalias !154
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !154
   %178 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN4core3ptr165drop_in_place$LT$$LP$diesel..connection..statement_cache..StatementCacheKey$LT$diesel..mysql..backend..Mysql$GT$$C$diesel..mysql..connection..stmt..Statement$RP$$GT$17hb32ea4b5b1d56ea7E.llvm.10237324351089278644", ptr %178, align 8, !noalias !154

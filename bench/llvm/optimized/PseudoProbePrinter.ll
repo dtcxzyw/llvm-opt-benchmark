@@ -72,10 +72,10 @@ define dso_local void @_ZN4llvm18PseudoProbeHandler15emitPseudoProbeEmmmmPKNS_10
   store i32 0, ptr %13, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 8, ptr %14, align 4, !tbaa !10
-  %.not59 = icmp eq ptr %5, null
-  br i1 %.not59, label %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread55, label %18
+  %.not65 = icmp eq ptr %5, null
+  br i1 %.not65, label %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread61, label %18
 
-_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread55: ; preds = %6
+_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread61: ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %15, ptr %11, align 8, !tbaa !3
@@ -357,8 +357,8 @@ _ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i: ; preds = %_ZNK4ll
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i
   %138 = phi ptr [ %123, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread ], [ %118, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ]
-  %.pre-phi.i.i48 = phi i64 [ %.pre11.i.i, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ]
-  %139 = getelementptr inbounds nuw %"class.std::tuple", ptr %138, i64 %.pre-phi.i.i48
+  %.pre-phi.i.i54 = phi i64 [ %.pre11.i.i, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ]
+  %139 = getelementptr inbounds nuw %"class.std::tuple", ptr %138, i64 %.pre-phi.i.i54
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
@@ -374,12 +374,12 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16re
   %.pre10.i.i = load i32, ptr %119, align 8, !tbaa !9
   br label %_ZN4llvm11SmallVectorISt5tupleIJmjEELj8EEC2ISt16reverse_iteratorIPS2_EEERKNS_14iterator_rangeIT_EE.exit
 
-_ZN4llvm11SmallVectorISt5tupleIJmjEELj8EEC2ISt16reverse_iteratorIPS2_EEERKNS_14iterator_rangeIT_EE.exit: ; preds = %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread55, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i
-  %142 = phi ptr [ %119, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ %119, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ %16, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread55 ]
-  %143 = phi ptr [ %118, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ %118, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ %15, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread55 ]
-  %.053 = phi i64 [ %.0.ph, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ %.0.ph, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread55 ]
-  %144 = phi i32 [ %.pr, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread55 ]
-  %145 = phi i32 [ %.pre10.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread55 ]
+_ZN4llvm11SmallVectorISt5tupleIJmjEELj8EEC2ISt16reverse_iteratorIPS2_EEERKNS_14iterator_rangeIT_EE.exit: ; preds = %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread61, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i
+  %142 = phi ptr [ %119, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ %119, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ %16, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread61 ]
+  %143 = phi ptr [ %118, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ %118, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ %15, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread61 ]
+  %.059 = phi i64 [ %.0.ph, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ %.0.ph, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread61 ]
+  %144 = phi i32 [ %.pr, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread61 ]
+  %145 = phi i32 [ %.pre10.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE18uninitialized_copyISt16reverse_iteratorIPS2_ES6_EEvT_S8_T0_.exit.loopexit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread61 ]
   %146 = add i32 %145, %144
   store i32 %146, ptr %142, align 8, !tbaa !9
   %147 = load ptr, ptr %0, align 8, !tbaa !52
@@ -390,7 +390,7 @@ _ZN4llvm11SmallVectorISt5tupleIJmjEELj8EEC2ISt16reverse_iteratorIPS2_EEERKNS_14i
   %152 = load ptr, ptr %149, align 8, !tbaa !170
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 1280
   %154 = load ptr, ptr %153, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(296) %149, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %.053, ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef %151) #7
+  call void %154(ptr noundef nonnull align 8 dereferenceable(296) %149, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %.059, ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef %151) #7
   %155 = load ptr, ptr %11, align 8, !tbaa !3
   %156 = icmp eq ptr %155, %143
   br i1 %156, label %_ZN4llvm11SmallVectorISt5tupleIJmjEELj8EED2Ev.exit, label %157

@@ -1317,7 +1317,7 @@ _ZNSt5dequeIN9Stockfish9StateInfoESaIS1_EE4backEv.exit: ; preds = %_ZNSt11_Deque
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %56 = icmp eq i32 %.lcssa, 1
-  br i1 %56, label %.critedge14, label %79
+  br i1 %56, label %.critedge20, label %79
 
 57:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
@@ -1350,7 +1350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %70 = icmp slt i64 %indvars.iv.next, %69
   br i1 %70, label %57, label %.preheader, !llvm.loop !13
 
-.critedge14:                                      ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %.preheader
+.critedge20:                                      ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %.preheader
   %71 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr i8, ptr %72, i64 -24
@@ -1359,11 +1359,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %76 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %75) #21
   br i1 %76, label %77, label %79
 
-77:                                               ; preds = %.critedge14
+77:                                               ; preds = %.critedge20
   %78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.26) #21
   br label %79
 
-79:                                               ; preds = %77, %.critedge14, %.preheader
+79:                                               ; preds = %77, %.critedge20, %.preheader
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(120) %11, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 8) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %80 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @_ZSt6skipwsRSt8ios_base) #21
@@ -1605,7 +1605,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   %214 = load i32, ptr %48, align 8
   %215 = icmp eq i32 %214, 1
   %or.cond = select i1 %213, i1 %215, i1 false
-  br i1 %or.cond, label %.critedge14, label %.critedge, !llvm.loop !14
+  br i1 %or.cond, label %.critedge20, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
   %216 = load ptr, ptr %5, align 8

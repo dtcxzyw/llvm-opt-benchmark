@@ -2440,8 +2440,8 @@ _ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.exit: ; preds = %24
 .lr.ph.preheader.i.i49:                           ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %41, i64 %43, i1 false), !noalias !447
   %.0..0..0..sroa.064.0.copyload65.pre = load ptr, ptr %4, align 8, !noalias !448
-  %.8..8..8..sroa_idx76 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.8..8..8..sroa.566.0.copyload68.pre = load i56, ptr %.8..8..8..sroa_idx76, align 8, !noalias !448
+  %.8..8..8..sroa_idx81 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.8..8..8..sroa.566.0.copyload68.pre = load i56, ptr %.8..8..8..sroa_idx81, align 8, !noalias !448
   %47 = zext i56 %.8..8..8..sroa.566.0.copyload68.pre to i64
   br label %48
 
@@ -2800,8 +2800,8 @@ _ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.exit: ; preds = %23
 .lr.ph.preheader.i.i45:                           ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %40, i64 %42, i1 false), !noalias !513
   %.0..0..0..sroa.061.0.copyload62.pre = load ptr, ptr %4, align 8, !noalias !514
-  %.8..8..8..sroa_idx73 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.8..8..8..sroa.563.0.copyload65.pre = load i56, ptr %.8..8..8..sroa_idx73, align 8, !noalias !514
+  %.8..8..8..sroa_idx75 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.8..8..8..sroa.563.0.copyload65.pre = load i56, ptr %.8..8..8..sroa_idx75, align 8, !noalias !514
   %46 = zext i56 %.8..8..8..sroa.563.0.copyload65.pre to i64
   br label %47
 

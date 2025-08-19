@@ -2972,9 +2972,9 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
   call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %5, ptr noundef %3)
   %91 = load i32, ptr %3, align 4, !tbaa !3
   %92 = icmp eq i32 %91, 15
-  br i1 %92, label %.thread156, label %99
+  br i1 %92, label %.thread171, label %99
 
-.thread156:                                       ; preds = %90
+.thread171:                                       ; preds = %90
   store i32 0, ptr %3, align 4, !tbaa !3
   %93 = load ptr, ptr %66, align 8, !tbaa !94
   %94 = ptrtoint ptr %93 to i64
@@ -3002,8 +3002,8 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
   %109 = icmp slt i32 %108, 1
   br i1 %109, label %.thread136, label %.thread139
 
-110:                                              ; preds = %.thread156, %99
-  %111 = phi i32 [ %98, %.thread156 ], [ %105, %99 ]
+110:                                              ; preds = %.thread171, %99
+  %111 = phi i32 [ %98, %.thread171 ], [ %105, %99 ]
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %..thread136_crit_edge
 
@@ -3282,8 +3282,8 @@ define void @ucnv_convertEx_77(ptr noundef %0, ptr noundef %1, ptr noundef captu
   %.0165 = phi ptr [ %58, %57 ], [ %9, %66 ]
   %.0164 = phi ptr [ %15, %57 ], [ %7, %66 ]
   %.0163 = phi ptr [ %14, %57 ], [ %6, %66 ]
-  %.0163.sroa.phi237 = getelementptr inbounds nuw i8, ptr %.0163, i64 2
-  %.0163.sroa.phi235 = getelementptr inbounds nuw i8, ptr %.0163, i64 64
+  %.0163.sroa.phi258 = getelementptr inbounds nuw i8, ptr %.0163, i64 2
+  %.0163.sroa.phi256 = getelementptr inbounds nuw i8, ptr %.0163, i64 64
   br i1 %.not186, label %72, label %71
 
 71:                                               ; preds = %70
@@ -3391,7 +3391,7 @@ define void @ucnv_convertEx_77(ptr noundef %0, ptr noundef %1, ptr noundef captu
   %127 = sub i64 %125, %126
   %128 = icmp sgt i64 %127, 64
   %or.cond218 = select i1 %.not193, i1 %128, i1 false
-  %.1 = select i1 %or.cond218, ptr %.0163.sroa.phi235, ptr %.0165
+  %.1 = select i1 %or.cond218, ptr %.0163.sroa.phi256, ptr %.0165
   %129 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %0, ptr %129, align 8, !tbaa !31
   %130 = getelementptr inbounds nuw i8, ptr %18, i64 2
@@ -3536,8 +3536,8 @@ define void @ucnv_convertEx_77(ptr noundef %0, ptr noundef %1, ptr noundef captu
   br i1 %202, label %212, label %203
 
 203:                                              ; preds = %200
-  store ptr %.0163.sroa.phi237, ptr %.0166, align 8, !tbaa !53
-  store ptr %.0163.sroa.phi237, ptr %.0164, align 8, !tbaa !53
+  store ptr %.0163.sroa.phi258, ptr %.0166, align 8, !tbaa !53
+  store ptr %.0163.sroa.phi258, ptr %.0164, align 8, !tbaa !53
   br label %.backedge.backedge
 
 204:                                              ; preds = %198
@@ -4043,35 +4043,31 @@ ucnv_getName_77.exit.i:                           ; preds = %16, %14
   %24 = load ptr, ptr %23, align 16, !tbaa !112
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.08.i.i, ptr noundef nonnull dereferenceable(1) %24) #18
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %_ZL17ucnv_getAmbiguousPK10UConverter.exit, label %21
+  br i1 %26, label %.lr.ph.preheader, label %21
 
-_ZL17ucnv_getAmbiguousPK10UConverter.exit:        ; preds = %22
+.lr.ph.preheader:                                 ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %28 = load i16, ptr %27, align 8, !tbaa !114
-  %29 = icmp sgt i32 %2, 0
-  br i1 %29, label %.lr.ph.preheader, label %_ZL17ucnv_getAmbiguousPK10UConverter.exit.thread
-
-.lr.ph.preheader:                                 ; preds = %_ZL17ucnv_getAmbiguousPK10UConverter.exit
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %34
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %30 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  %31 = load i16, ptr %30, align 2, !tbaa !88
-  %32 = icmp eq i16 %31, %28
-  br i1 %32, label %33, label %34
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %33
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
+  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %30 = load i16, ptr %29, align 2, !tbaa !88
+  %31 = icmp eq i16 %30, %28
+  br i1 %31, label %32, label %33
 
-33:                                               ; preds = %.lr.ph
-  store i16 92, ptr %30, align 2, !tbaa !88
-  br label %34
+32:                                               ; preds = %.lr.ph
+  store i16 92, ptr %29, align 2, !tbaa !88
+  br label %33
 
-34:                                               ; preds = %.lr.ph, %33
+33:                                               ; preds = %.lr.ph, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZL17ucnv_getAmbiguousPK10UConverter.exit.thread, label %.lr.ph, !llvm.loop !115
 
-_ZL17ucnv_getAmbiguousPK10UConverter.exit.thread: ; preds = %21, %34, %_ZL17ucnv_getAmbiguousPK10UConverter.exit, %3
+_ZL17ucnv_getAmbiguousPK10UConverter.exit.thread: ; preds = %21, %33, %3
   ret void
 }
 
@@ -4276,11 +4272,11 @@ define noundef ptr @ucnv_detectUnicodeSignature_77(ptr noundef readonly captures
 20:                                               ; preds = %17, %14
   %.0112 = phi i32 [ %19, %17 ], [ %1, %14 ]
   %21 = icmp sgt i32 %.0112, 0
-  br i1 %21, label %._crit_edge, label %.thread164
+  br i1 %21, label %._crit_edge, label %.thread167
 
-.thread164:                                       ; preds = %20
-  %.2..2..sroa_idx175 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %.2..2.169 = load i8, ptr %.2..2..sroa_idx175, align 1
+.thread167:                                       ; preds = %20
+  %.2..2..sroa_idx178 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.2..2.172 = load i8, ptr %.2..2..sroa_idx178, align 1
   br label %40
 
 ._crit_edge:                                      ; preds = %20
@@ -4309,11 +4305,11 @@ define noundef ptr @ucnv_detectUnicodeSignature_77(ptr noundef readonly captures
   br i1 %or.cond9, label %30, label %35
 
 30:                                               ; preds = %27
-  %.2..2..sroa_idx174 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %.2..2.149 = load i8, ptr %.2..2..sroa_idx174, align 1, !tbaa !7
+  %.2..2..sroa_idx177 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.2..2.149 = load i8, ptr %.2..2..sroa_idx177, align 1, !tbaa !7
   %31 = icmp eq i8 %.2..2.149, 0
-  %.3..3..sroa_idx176 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %.3..3.151 = load i8, ptr %.3..3..sroa_idx176, align 1
+  %.3..3..sroa_idx179 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %.3..3.151 = load i8, ptr %.3..3..sroa_idx179, align 1
   %32 = icmp eq i8 %.3..3.151, 0
   %or.cond13 = select i1 %31, i1 %32, i1 false
   br i1 %or.cond13, label %33, label %34
@@ -4349,15 +4345,15 @@ define noundef ptr @ucnv_detectUnicodeSignature_77(ptr noundef readonly captures
   store i32 3, ptr %2, align 4, !tbaa !26
   br label %.cont143
 
-40:                                               ; preds = %.thread164, %35
-  %.2.173 = phi i8 [ %.2..2.169, %.thread164 ], [ %.2..2., %35 ]
-  %.0.158162172 = phi i8 [ -91, %.thread164 ], [ %.0..0..pre, %35 ]
-  %.1.157163171 = phi i8 [ -91, %.thread164 ], [ %.1..1..pre, %35 ]
-  %41 = phi i1 [ false, %.thread164 ], [ %29, %35 ]
-  %42 = icmp eq i8 %.0.158162172, 0
-  %43 = icmp eq i8 %.1.157163171, 0
+40:                                               ; preds = %.thread167, %35
+  %.2.176 = phi i8 [ %.2..2.172, %.thread167 ], [ %.2..2., %35 ]
+  %.0.161165175 = phi i8 [ -91, %.thread167 ], [ %.0..0..pre, %35 ]
+  %.1.160166174 = phi i8 [ -91, %.thread167 ], [ %.1..1..pre, %35 ]
+  %41 = phi i1 [ false, %.thread167 ], [ %29, %35 ]
+  %42 = icmp eq i8 %.0.161165175, 0
+  %43 = icmp eq i8 %.1.160166174, 0
   %or.cond25 = select i1 %42, i1 %43, i1 false
-  %44 = icmp eq i8 %.2.173, -2
+  %44 = icmp eq i8 %.2.176, -2
   %or.cond29 = select i1 %or.cond25, i1 %44, i1 false
   %.3..3..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 3
   %.3..3. = load i8, ptr %.3..3..sroa_idx, align 1
@@ -4373,9 +4369,9 @@ define noundef ptr @ucnv_detectUnicodeSignature_77(ptr noundef readonly captures
   br label %.cont143
 
 47:                                               ; preds = %40
-  %48 = icmp eq i8 %.0.158162172, 14
+  %48 = icmp eq i8 %.0.161165175, 14
   %or.cond37 = select i1 %48, i1 %41, i1 false
-  %49 = icmp eq i8 %.2.173, -1
+  %49 = icmp eq i8 %.2.176, -1
   %or.cond41 = select i1 %or.cond37, i1 %49, i1 false
   br i1 %or.cond41, label %50, label %51
 
@@ -4387,10 +4383,10 @@ define noundef ptr @ucnv_detectUnicodeSignature_77(ptr noundef readonly captures
   br label %.cont143
 
 51:                                               ; preds = %47
-  %52 = icmp eq i8 %.0.158162172, -5
-  %53 = icmp eq i8 %.1.157163171, -18
+  %52 = icmp eq i8 %.0.161165175, -5
+  %53 = icmp eq i8 %.1.160166174, -18
   %or.cond45 = select i1 %52, i1 %53, i1 false
-  %54 = icmp eq i8 %.2.173, 40
+  %54 = icmp eq i8 %.2.176, 40
   %or.cond49 = select i1 %or.cond45, i1 %54, i1 false
   br i1 %or.cond49, label %55, label %56
 
@@ -4402,10 +4398,10 @@ define noundef ptr @ucnv_detectUnicodeSignature_77(ptr noundef readonly captures
   br label %.cont143
 
 56:                                               ; preds = %51
-  %57 = icmp eq i8 %.0.158162172, 43
-  %58 = icmp eq i8 %.1.157163171, 47
+  %57 = icmp eq i8 %.0.161165175, 43
+  %58 = icmp eq i8 %.1.160166174, 47
   %or.cond53 = select i1 %57, i1 %58, i1 false
-  %59 = icmp eq i8 %.2.173, 118
+  %59 = icmp eq i8 %.2.176, 118
   %or.cond57 = select i1 %or.cond53, i1 %59, i1 false
   br i1 %or.cond57, label %60, label %66
 
@@ -4440,10 +4436,10 @@ define noundef ptr @ucnv_detectUnicodeSignature_77(ptr noundef readonly captures
   br label %.cont143
 
 66:                                               ; preds = %56
-  %67 = icmp eq i8 %.0.158162172, -35
-  %68 = icmp eq i8 %.1.157163171, 115
+  %67 = icmp eq i8 %.0.161165175, -35
+  %68 = icmp eq i8 %.1.160166174, 115
   %or.cond77 = select i1 %67, i1 %68, i1 false
-  %69 = icmp eq i8 %.2.173, 102
+  %69 = icmp eq i8 %.2.176, 102
   %or.cond81 = select i1 %or.cond77, i1 %69, i1 false
   %70 = icmp eq i8 %.3..3., 115
   %or.cond85 = select i1 %or.cond81, i1 %70, i1 false

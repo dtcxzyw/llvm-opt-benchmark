@@ -111,9 +111,9 @@ define internal i32 @dissect_lapb(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %13
 
 13:                                               ; preds = %4, %12, %11
-  %.str.28.sink56 = phi ptr [ @.str.28, %12 ], [ @.str.27, %11 ], [ @.str.26, %4 ]
+  %.str.28.sink57 = phi ptr [ @.str.28, %12 ], [ @.str.27, %11 ], [ @.str.26, %4 ]
   %.str.28.sink = phi ptr [ @.str.28, %12 ], [ @.str.26, %11 ], [ @.str.27, %4 ]
-  tail call void @col_set_str(ptr noundef %10, i32 noundef 20, ptr noundef nonnull %.str.28.sink56)
+  tail call void @col_set_str(ptr noundef %10, i32 noundef 20, ptr noundef nonnull %.str.28.sink57)
   %14 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 18, ptr noundef nonnull %.str.28.sink)
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)

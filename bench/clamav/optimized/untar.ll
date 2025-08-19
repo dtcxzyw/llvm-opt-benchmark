@@ -203,11 +203,11 @@ testchecksum.exit:                                ; preds = %73
 testchecksum.exit.thread:                         ; preds = %58, %testchecksum.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #11
   %77 = icmp eq i32 %.0138, 0
-  br i1 %77, label %78, label %.thread303
+  br i1 %77, label %78, label %.thread309
 
 78:                                               ; preds = %testchecksum.exit.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #11
-  br label %.thread303
+  br label %.thread309
 
 79:                                               ; preds = %testchecksum.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7, i32 noundef %.0.i.i) #11
@@ -233,13 +233,13 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
     i8 0, label %87
     i8 55, label %87
     i8 77, label %87
-    i8 49, label %.thread303
-    i8 53, label %.thread303
-    i8 50, label %.thread303
-    i8 51, label %.thread303
-    i8 52, label %.thread303
-    i8 54, label %.thread303
-    i8 86, label %.thread303
+    i8 49, label %.thread309
+    i8 53, label %.thread309
+    i8 50, label %.thread309
+    i8 51, label %.thread309
+    i8 52, label %.thread309
+    i8 54, label %.thread309
+    i8 86, label %.thread309
     i8 75, label %89
     i8 76, label %89
     i8 78, label %89
@@ -318,7 +318,7 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #11
   %109 = and i64 %105, 2147483647
   %110 = add i64 %109, %38
-  br label %.thread303
+  br label %.thread309
 
 111:                                              ; preds = %99
   %112 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %spec.select, i64 noundef 100) #11
@@ -414,7 +414,7 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   %144 = icmp ne i64 %.4111, 0
   br label %.backedge.backedge
 
-.thread303:                                       ; preds = %83, %83, %83, %83, %83, %83, %83, %108, %testchecksum.exit.thread, %78
+.thread309:                                       ; preds = %83, %83, %83, %83, %83, %83, %83, %108, %testchecksum.exit.thread, %78
   %.2140.ph.ph = phi i32 [ 1, %78 ], [ 1, %testchecksum.exit.thread ], [ 0, %108 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ], [ 0, %83 ]
   %.2135.ph.ph = phi i32 [ %.0133, %78 ], [ %.0133, %testchecksum.exit.thread ], [ %.3136211, %108 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ], [ %.0133, %83 ]
   %.2130.ph.ph = phi i32 [ %.0128, %78 ], [ %.0128, %testchecksum.exit.thread ], [ %.3131.ph, %108 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ], [ %.0128, %83 ]
@@ -424,15 +424,15 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.thread303, %.thread
-  %.0148.be = phi i32 [ %.4152, %.thread ], [ %.2150, %.thread303 ]
-  %.0143.be = phi i1 [ %144, %.thread ], [ false, %.thread303 ]
-  %.0138.be = phi i32 [ %.4142, %.thread ], [ %.2140.ph.ph, %.thread303 ]
-  %.0133.be = phi i32 [ %.4137, %.thread ], [ %.2135.ph.ph, %.thread303 ]
-  %.0128.be = phi i32 [ %.4132, %.thread ], [ %.2130.ph.ph, %.thread303 ]
-  %.0123.be = phi i64 [ %38, %.thread ], [ %.2125.ph.ph, %.thread303 ]
-  %.0119.be = phi i64 [ %.2121, %.thread ], [ 0, %.thread303 ]
-  %.0107.be = phi i64 [ %.4111, %.thread ], [ %.2109.ph.ph, %.thread303 ]
+.backedge.backedge:                               ; preds = %.thread309, %.thread
+  %.0148.be = phi i32 [ %.4152, %.thread ], [ %.2150, %.thread309 ]
+  %.0143.be = phi i1 [ %144, %.thread ], [ false, %.thread309 ]
+  %.0138.be = phi i32 [ %.4142, %.thread ], [ %.2140.ph.ph, %.thread309 ]
+  %.0133.be = phi i32 [ %.4137, %.thread ], [ %.2135.ph.ph, %.thread309 ]
+  %.0128.be = phi i32 [ %.4132, %.thread ], [ %.2130.ph.ph, %.thread309 ]
+  %.0123.be = phi i64 [ %38, %.thread ], [ %.2125.ph.ph, %.thread309 ]
+  %.0119.be = phi i64 [ %.2121, %.thread ], [ 0, %.thread309 ]
+  %.0107.be = phi i64 [ %.4111, %.thread ], [ %.2109.ph.ph, %.thread309 ]
   br label %.backedge
 
 .thread251.thread:                                ; preds = %51

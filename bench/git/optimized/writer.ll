@@ -572,9 +572,9 @@ st_mult.exit.i:                                   ; preds = %39
   %46 = load i64, ptr %24, align 8, !tbaa !61
   %47 = add i64 %46, 1
   %48 = icmp ugt i64 %47, %spec.select
-  br i1 %48, label %.thread51, label %49
+  br i1 %48, label %.thread58, label %49
 
-.thread51:                                        ; preds = %st_mult.exit.i
+.thread58:                                        ; preds = %st_mult.exit.i
   call void @reftable_free(ptr noundef %spec.select50) #12
   store ptr null, ptr %38, align 8, !tbaa !64
   store i64 0, ptr %34, align 8, !tbaa !65
@@ -595,8 +595,8 @@ st_mult.exit.i:                                   ; preds = %39
   store i64 %5, ptr %54, align 8, !tbaa !12
   br label %.thread
 
-.thread:                                          ; preds = %12, %10, %.thread51, %49, %26, %51
-  %.1 = phi i32 [ 0, %51 ], [ 0, %26 ], [ -13, %49 ], [ -13, %.thread51 ], [ %17, %12 ], [ -13, %10 ]
+.thread:                                          ; preds = %12, %10, %.thread58, %49, %26, %51
+  %.1 = phi i32 [ 0, %51 ], [ 0, %26 ], [ -13, %49 ], [ -13, %.thread58 ], [ %17, %12 ], [ -13, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
@@ -1632,9 +1632,9 @@ st_mult.exit.i.i:                                 ; preds = %89
   %96 = load i64, ptr %84, align 8, !tbaa !43
   %97 = add i64 %96, 1
   %98 = icmp ugt i64 %97, %spec.select.i
-  br i1 %98, label %.thread72.i, label %99
+  br i1 %98, label %.thread81.i, label %99
 
-.thread72.i:                                      ; preds = %st_mult.exit.i.i
+.thread81.i:                                      ; preds = %st_mult.exit.i.i
   tail call void @reftable_free(ptr noundef %spec.select69.i) #12
   store ptr null, ptr %88, align 8, !tbaa !42
   store i64 0, ptr %82, align 8, !tbaa !95
@@ -1677,8 +1677,8 @@ st_mult.exit.i.i:                                 ; preds = %89
   store ptr null, ptr %3, align 8, !tbaa !35
   br label %writer_flush_nonempty_block.exit
 
-writer_flush_nonempty_block.exit:                 ; preds = %9, %62, %65, %padded_write.exit.i, %.thread72.i, %99, %101, %111
-  %.0.i = phi i32 [ 0, %111 ], [ %12, %9 ], [ %79, %padded_write.exit.i ], [ -13, %99 ], [ %109, %101 ], [ -1, %62 ], [ %72, %65 ], [ -13, %.thread72.i ]
+writer_flush_nonempty_block.exit:                 ; preds = %9, %62, %65, %padded_write.exit.i, %.thread81.i, %99, %101, %111
+  %.0.i = phi i32 [ 0, %111 ], [ %12, %9 ], [ %79, %padded_write.exit.i ], [ -13, %99 ], [ %109, %101 ], [ -1, %62 ], [ %72, %65 ], [ -13, %.thread81.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %121
 

@@ -122,8 +122,8 @@ define dso_local void @_ZN5clang6format28IntegerLiteralSeparatorFixer7processERK
   %20 = icmp ult i8 %switch.tableidx, 6
   %switch.shifted = lshr i8 47, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond194 = select i1 %20, i1 %switch.lobit, i1 false
-  br i1 %or.cond194, label %switch.lookup, label %21
+  %or.cond206 = select i1 %20, i1 %switch.lobit, i1 false
+  br i1 %or.cond206, label %switch.lookup, label %21
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -466,29 +466,29 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %150, %154
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.055.0.copyload, i64 1
   %164 = load i8, ptr %163, align 1, !tbaa !295
-  %switch.tableidx196 = add i8 %164, -66
-  %165 = icmp ult i8 %switch.tableidx196, 55
+  %switch.tableidx208 = add i8 %164, -66
+  %165 = icmp ult i8 %switch.tableidx208, 55
   br i1 %165, label %switch.hole_check, label %_ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi.exit.thread
 
 switch.hole_check:                                ; preds = %162
-  %switch.maskindex = zext nneg i8 %switch.tableidx196 to i64
-  %switch.shifted198 = lshr i64 18014402808643585, %switch.maskindex
-  %switch.lobit199 = trunc i64 %switch.shifted198 to i1
-  br i1 %switch.lobit199, label %switch.lookup197, label %_ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi.exit.thread
+  %switch.maskindex = zext nneg i8 %switch.tableidx208 to i64
+  %switch.shifted210 = lshr i64 18014402808643585, %switch.maskindex
+  %switch.lobit211 = trunc i64 %switch.shifted210 to i1
+  br i1 %switch.lobit211, label %switch.lookup209, label %_ZNK5clang6format28IntegerLiteralSeparatorFixer14checkSeparatorEN4llvm9StringRefEi.exit.thread
 
-switch.lookup197:                                 ; preds = %switch.hole_check
-  %switch.cast200 = zext nneg i8 %switch.tableidx196 to i55
-  %switch.downshift202 = lshr i55 4294967297, %switch.cast200
-  %switch.masked203 = trunc i55 %switch.downshift202 to i1
-  %switch.cast204 = zext nneg i8 %switch.tableidx196 to i55
-  %switch.downshift206 = lshr i55 -18014398505287680, %switch.cast204
-  %switch.masked207 = trunc i55 %switch.downshift206 to i1
+switch.lookup209:                                 ; preds = %switch.hole_check
+  %switch.cast212 = zext nneg i8 %switch.tableidx208 to i55
+  %switch.downshift214 = lshr i55 4294967297, %switch.cast212
+  %switch.masked215 = trunc i55 %switch.downshift214 to i1
+  %switch.cast216 = zext nneg i8 %switch.tableidx208 to i55
+  %switch.downshift218 = lshr i55 -18014398505287680, %switch.cast216
+  %switch.masked219 = trunc i55 %switch.downshift218 to i1
   br label %_ZN5clang6formatL7getBaseEN4llvm9StringRefE.exit
 
-_ZN5clang6formatL7getBaseEN4llvm9StringRefE.exit: ; preds = %switch.lookup197, %159
-  %or.cond7 = phi i1 [ %35, %159 ], [ false, %switch.lookup197 ]
-  %166 = phi i1 [ false, %159 ], [ %switch.masked203, %switch.lookup197 ]
-  %167 = phi i1 [ false, %159 ], [ %switch.masked207, %switch.lookup197 ]
+_ZN5clang6formatL7getBaseEN4llvm9StringRefE.exit: ; preds = %switch.lookup209, %159
+  %or.cond7 = phi i1 [ %35, %159 ], [ false, %switch.lookup209 ]
+  %166 = phi i1 [ false, %159 ], [ %switch.masked215, %switch.lookup209 ]
+  %167 = phi i1 [ false, %159 ], [ %switch.masked219, %switch.lookup209 ]
   %or.cond5 = and i1 %34, %166
   %or.cond134 = select i1 %or.cond5, i1 true, i1 %or.cond7
   %or.cond9 = select i1 %167, i1 %36, i1 false

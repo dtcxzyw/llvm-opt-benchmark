@@ -1028,7 +1028,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 
 430:                                              ; preds = %.preheader47
   %431 = icmp eq i32 %427, 0
-  br i1 %431, label %465, label %.preheader143
+  br i1 %431, label %465, label %.preheader164
 
 .thread30:                                        ; preds = %415
   %432 = load i64, ptr %296, align 8
@@ -1044,9 +1044,9 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %439 = add i32 %437, %438
   br label %.loopexit46
 
-.preheader143:                                    ; preds = %430, %.preheader143
-  %440 = phi i64 [ %447, %.preheader143 ], [ 0, %430 ]
-  %441 = phi i32 [ %446, %.preheader143 ], [ 0, %430 ]
+.preheader164:                                    ; preds = %430, %.preheader164
+  %440 = phi i64 [ %447, %.preheader164 ], [ 0, %430 ]
+  %441 = phi i32 [ %446, %.preheader164 ], [ 0, %430 ]
   %442 = getelementptr [3 x i8], ptr %296, i64 0, i64 %440
   %443 = load i8, ptr %442, align 1
   %444 = zext i8 %443 to i32
@@ -1054,11 +1054,11 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %446 = add i32 %445, %441
   %447 = add nuw nsw i64 %440, 1
   %448 = icmp eq i64 %447, 3
-  br i1 %448, label %.preheader174, label %.preheader143, !llvm.loop !7
+  br i1 %448, label %.preheader195, label %.preheader164, !llvm.loop !7
 
-.preheader174:                                    ; preds = %.preheader143, %.preheader174
-  %449 = phi i64 [ %456, %.preheader174 ], [ 0, %.preheader143 ]
-  %450 = phi i32 [ %455, %.preheader174 ], [ 0, %.preheader143 ]
+.preheader195:                                    ; preds = %.preheader164, %.preheader195
+  %449 = phi i64 [ %456, %.preheader195 ], [ 0, %.preheader164 ]
+  %450 = phi i32 [ %455, %.preheader195 ], [ 0, %.preheader164 ]
   %451 = getelementptr [3 x i8], ptr %296, i64 0, i64 %449
   %452 = load i8, ptr %451, align 1
   %453 = zext i8 %452 to i32
@@ -1066,9 +1066,9 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %455 = add i32 %454, %450
   %456 = add nuw nsw i64 %449, 1
   %457 = icmp eq i64 %456, 3
-  br i1 %457, label %.loopexit46.loopexit, label %.preheader174, !llvm.loop !7
+  br i1 %457, label %.loopexit46.loopexit, label %.preheader195, !llvm.loop !7
 
-.loopexit46.loopexit:                             ; preds = %.preheader174
+.loopexit46.loopexit:                             ; preds = %.preheader195
   %458 = zext i16 %416 to i32
   %459 = add nsw i32 %458, -1
   %460 = add i32 %459, %446
@@ -1301,8 +1301,8 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %616 = icmp samesign ult i64 %598, %615
   %617 = zext i8 %612 to i64
   %618 = icmp samesign ult i64 %613, %617
-  %or.cond141 = select i1 %616, i1 %618, i1 false
-  br i1 %or.cond141, label %619, label %663
+  %or.cond162 = select i1 %616, i1 %618, i1 false
+  br i1 %or.cond162, label %619, label %663
 
 619:                                              ; preds = %611
   %620 = load i8, ptr %594, align 1
@@ -1472,7 +1472,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 
 726:                                              ; preds = %.preheader51
   %727 = icmp eq i32 %723, 0
-  br i1 %727, label %761, label %.preheader145
+  br i1 %727, label %761, label %.preheader166
 
 .thread34:                                        ; preds = %.thread33
   %728 = load i64, ptr %716, align 8
@@ -1488,9 +1488,9 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %735 = add i32 %733, %734
   br label %.loopexit50
 
-.preheader145:                                    ; preds = %726, %.preheader145
-  %736 = phi i64 [ %743, %.preheader145 ], [ 0, %726 ]
-  %737 = phi i32 [ %742, %.preheader145 ], [ 0, %726 ]
+.preheader166:                                    ; preds = %726, %.preheader166
+  %736 = phi i64 [ %743, %.preheader166 ], [ 0, %726 ]
+  %737 = phi i32 [ %742, %.preheader166 ], [ 0, %726 ]
   %738 = getelementptr [3 x i8], ptr %716, i64 0, i64 %736
   %739 = load i8, ptr %738, align 1
   %740 = zext i8 %739 to i32
@@ -1498,11 +1498,11 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %742 = add i32 %741, %737
   %743 = add nuw nsw i64 %736, 1
   %744 = icmp eq i64 %743, 3
-  br i1 %744, label %.preheader185, label %.preheader145, !llvm.loop !7
+  br i1 %744, label %.preheader206, label %.preheader166, !llvm.loop !7
 
-.preheader185:                                    ; preds = %.preheader145, %.preheader185
-  %745 = phi i64 [ %752, %.preheader185 ], [ 0, %.preheader145 ]
-  %746 = phi i32 [ %751, %.preheader185 ], [ 0, %.preheader145 ]
+.preheader206:                                    ; preds = %.preheader166, %.preheader206
+  %745 = phi i64 [ %752, %.preheader206 ], [ 0, %.preheader166 ]
+  %746 = phi i32 [ %751, %.preheader206 ], [ 0, %.preheader166 ]
   %747 = getelementptr [3 x i8], ptr %716, i64 0, i64 %745
   %748 = load i8, ptr %747, align 1
   %749 = zext i8 %748 to i32
@@ -1510,9 +1510,9 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %751 = add i32 %750, %746
   %752 = add nuw nsw i64 %745, 1
   %753 = icmp eq i64 %752, 3
-  br i1 %753, label %.loopexit50.loopexit, label %.preheader185, !llvm.loop !7
+  br i1 %753, label %.loopexit50.loopexit, label %.preheader206, !llvm.loop !7
 
-.loopexit50.loopexit:                             ; preds = %.preheader185
+.loopexit50.loopexit:                             ; preds = %.preheader206
   %754 = zext i16 %710 to i32
   %755 = add nsw i32 %754, -1
   %756 = add i32 %755, %742
@@ -1808,14 +1808,14 @@ define internal fastcc void @hsw_sseu_info_init(ptr noundef captures(none) initi
   %21 = tail call i32 %20(ptr noundef %18, i32 37148, i1 noundef zeroext true) #11
   %22 = lshr i32 %21, 16
   %23 = and i32 %22, 3
-  switch i32 %23, label %default.unreachable23 [
+  switch i32 %23, label %default.unreachable27 [
     i32 0, label %27
     i32 1, label %25
     i32 2, label %26
     i32 3, label %24
   ]
 
-default.unreachable23:                            ; preds = %14
+default.unreachable27:                            ; preds = %14
   unreachable
 
 24:                                               ; preds = %14

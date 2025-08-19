@@ -1482,13 +1482,13 @@ _ZN2cv5utils5trace7details15getTraceManagerEv.exit: ; preds = %26, %29, %32
   br label %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i134
 
 _ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i134: ; preds = %51, %53
-  %.0.i133207.in = phi ptr [ %58, %53 ], [ %52, %51 ]
+  %.0.i133226.in = phi ptr [ %58, %53 ], [ %52, %51 ]
   %60 = phi ptr [ %59, %53 ], [ %41, %51 ]
   %61 = getelementptr inbounds i8, ptr %60, i64 -16
   br label %_ZNK2cv5utils5trace7details23TraceManagerThreadLocal16stackTopLocationEv.exit
 
 _ZNK2cv5utils5trace7details23TraceManagerThreadLocal16stackTopLocationEv.exit: ; preds = %48, %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i134
-  %.0.i133185.in = phi ptr [ %49, %48 ], [ %.0.i133207.in, %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i134 ]
+  %.0.i133185.in = phi ptr [ %49, %48 ], [ %.0.i133226.in, %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i134 ]
   %.0.in.i135 = phi ptr [ %50, %48 ], [ %61, %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i134 ]
   %.0.i133185 = load ptr, ptr %.0.i133185.in, align 8, !tbaa !104
   %.0.i136 = load ptr, ptr %.0.in.i135, align 8, !tbaa !105
@@ -1538,13 +1538,13 @@ _ZNK2cv5utils5trace7details23TraceManagerThreadLocal16stackTopLocationEv.exit: ;
   br label %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i141
 
 _ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i141: ; preds = %80, %82
-  %.0.i139211.in = phi ptr [ %87, %82 ], [ %81, %80 ]
+  %.0.i139230.in = phi ptr [ %87, %82 ], [ %81, %80 ]
   %89 = phi ptr [ %88, %82 ], [ %70, %80 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 -16
   br label %_ZNK2cv5utils5trace7details23TraceManagerThreadLocal16stackTopLocationEv.exit144
 
 _ZNK2cv5utils5trace7details23TraceManagerThreadLocal16stackTopLocationEv.exit144: ; preds = %77, %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i141
-  %.0.i139189.in = phi ptr [ %78, %77 ], [ %.0.i139211.in, %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i141 ]
+  %.0.i139189.in = phi ptr [ %78, %77 ], [ %.0.i139230.in, %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i141 ]
   %.0.in.i142 = phi ptr [ %79, %77 ], [ %90, %_ZNKSt5dequeIN2cv5utils5trace7details23TraceManagerThreadLocal10StackEntryESaIS5_EE4backEv.exit.i141 ]
   %.0.i139189 = load ptr, ptr %.0.i139189.in, align 8, !tbaa !104
   %.0.i143 = load ptr, ptr %.0.in.i142, align 8, !tbaa !105

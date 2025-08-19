@@ -901,9 +901,9 @@ _ZN14regex_automata4util4iter8Searcher7advance17h9f6a0ed8ffab89a4E.exit.i.i: ; p
   br label %194
 
 194:                                              ; preds = %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h6af6adf9f5a52a22E.exit.i.i.i.i.i, %_ZN14regex_automata4util4iter8Searcher7advance17h9f6a0ed8ffab89a4E.exit.i.i, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63d253830ebc0089E.exit.i", %186
-  %.sink41 = phi i64 [ 72, %186 ], [ 8, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63d253830ebc0089E.exit.i" ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17h9f6a0ed8ffab89a4E.exit.i.i ], [ 8, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h6af6adf9f5a52a22E.exit.i.i.i.i.i ]
+  %.sink50 = phi i64 [ 72, %186 ], [ 8, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63d253830ebc0089E.exit.i" ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17h9f6a0ed8ffab89a4E.exit.i.i ], [ 8, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h6af6adf9f5a52a22E.exit.i.i.i.i.i ]
   %.sink = phi i64 [ %188, %186 ], [ 2, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63d253830ebc0089E.exit.i" ], [ 2, %_ZN14regex_automata4util4iter8Searcher7advance17h9f6a0ed8ffab89a4E.exit.i.i ], [ 2, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17h6af6adf9f5a52a22E.exit.i.i.i.i.i ]
-  %.sroa.46.sroa.4.sroa.11.0..sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink41
+  %.sroa.46.sroa.4.sroa.11.0..sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50
   store i64 %.sink, ptr %.sroa.46.sroa.4.sroa.11.0..sroa.46.sroa.4.0..sroa.46.0..sroa_idx.sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -6147,8 +6147,8 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
   br label %376
 
 376:                                              ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229", %372, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195"
-  %.sink646 = phi i64 [ 1, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229" ], [ 3, %372 ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195" ]
-  store i64 %.sink646, ptr %24, align 8
+  %.sink676 = phi i64 [ 1, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit229" ], [ 3, %372 ], [ 0, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.exit195" ]
+  store i64 %.sink676, ptr %24, align 8
   %377 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1134, !noalias !1137, !noundef !9
   %378 = load i64, ptr %35, align 8, !alias.scope !1134, !noalias !1137, !noundef !9
   %379 = icmp eq i64 %377, %378
@@ -6199,9 +6199,9 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
           to label %398 unwind label %74
 
 .sink.split:                                      ; preds = %.noexc200, %259, %.noexc198, %255
-  %.sink651 = phi i64 [ %.pre.i197, %.noexc198 ], [ %.ph, %255 ], [ %.pre.i199, %.noexc200 ], [ %.ph, %259 ]
+  %.sink681 = phi i64 [ %.pre.i197, %.noexc198 ], [ %.ph, %255 ], [ %.pre.i199, %.noexc200 ], [ %.ph, %259 ]
   %394 = load ptr, ptr %108, align 8, !nonnull !9, !noundef !9
-  %395 = getelementptr inbounds i8, ptr %394, i64 %.sink651
+  %395 = getelementptr inbounds i8, ptr %394, i64 %.sink681
   store i8 %253, ptr %395, align 1
   %396 = load i64, ptr %109, align 8, !noundef !9
   %397 = add i64 %396, 1
@@ -6594,7 +6594,7 @@ define noundef zeroext i1 @"_ZN101_$LT$actix_web..http..header..content_disposit
   %23 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %24 = alloca ptr, align 8
   %25 = load i64, ptr %0, align 8, !range !362, !noundef !9
-  switch i64 %25, label %default.unreachable32 [
+  switch i64 %25, label %default.unreachable35 [
     i64 0, label %26
     i64 1, label %56
     i64 2, label %34
@@ -6602,7 +6602,7 @@ define noundef zeroext i1 @"_ZN101_$LT$actix_web..http..header..content_disposit
     i64 4, label %42
   ]
 
-default.unreachable32:                            ; preds = %2
+default.unreachable35:                            ; preds = %2
   unreachable
 
 26:                                               ; preds = %2

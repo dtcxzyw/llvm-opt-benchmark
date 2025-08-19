@@ -272,10 +272,10 @@ switch.lookup:                                    ; preds = %13
   br label %97
 
 ._crit_edge246.thread:                            ; preds = %._crit_edge, %._crit_edge246
-  %.090.lcssa269 = phi i32 [ %.191, %._crit_edge246 ], [ 0, %._crit_edge ]
-  %.0102.lcssa268 = phi double [ %91, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge ]
-  %.0112.lcssa267 = phi double [ %93, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge ]
-  %96 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.090.lcssa269, double noundef %.0102.lcssa268, double noundef %.0112.lcssa267) #13
+  %.090.lcssa273 = phi i32 [ %.191, %._crit_edge246 ], [ 0, %._crit_edge ]
+  %.0102.lcssa272 = phi double [ %91, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge ]
+  %.0112.lcssa271 = phi double [ %93, %._crit_edge246 ], [ 0.000000e+00, %._crit_edge ]
+  %96 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.090.lcssa273, double noundef %.0102.lcssa272, double noundef %.0112.lcssa271) #13
   br label %97
 
 97:                                               ; preds = %._crit_edge246.thread, %94
@@ -482,15 +482,15 @@ define dso_local void @thrmgr_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %40, label %.thread, label %43
 
 .thread:                                          ; preds = %.lr.ph.i.preheader, %36
-  %.029.i.lcssa3941 = phi ptr [ %.0.i, %36 ], [ %.026.i, %.lr.ph.i.preheader ]
-  %41 = getelementptr inbounds nuw i8, ptr %.029.i.lcssa3941, i64 8
+  %.029.i.lcssa4043 = phi ptr [ %.0.i, %36 ], [ %.026.i, %.lr.ph.i.preheader ]
+  %41 = getelementptr inbounds nuw i8, ptr %.029.i.lcssa4043, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !17
   store ptr %42, ptr @pools, align 8, !tbaa !4
   br label %43
 
 43:                                               ; preds = %.thread, %36
-  %.029.i.lcssa3942 = phi ptr [ %.029.i.lcssa3941, %.thread ], [ %.0.i, %36 ]
-  tail call void @free(ptr noundef nonnull %.029.i.lcssa3942) #13
+  %.029.i.lcssa4042 = phi ptr [ %.029.i.lcssa4043, %.thread ], [ %.0.i, %36 ]
+  tail call void @free(ptr noundef nonnull %.029.i.lcssa4042) #13
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %45 = load ptr, ptr %44, align 8, !tbaa !47
   %.not2230.i = icmp eq ptr %45, null

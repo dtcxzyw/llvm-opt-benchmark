@@ -742,7 +742,7 @@ define void @_ZN6duckdb17ExecuteExpressionEmRKNS_15LambdaFunctions10ColumnInfoER
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %16 = load i8, ptr %15, align 8, !tbaa !72, !range !83, !noundef !84
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %.invoke40
+  br i1 %17, label %18, label %.invoke45
 
 18:                                               ; preds = %5
   %19 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 0)
@@ -750,19 +750,19 @@ define void @_ZN6duckdb17ExecuteExpressionEmRKNS_15LambdaFunctions10ColumnInfoER
 
 20:                                               ; preds = %18
   invoke void @_ZN6duckdb6Vector9ReferenceERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %19, ptr noundef nonnull align 8 dereferenceable(104) %3)
-          to label %.invoke40 unwind label %21
+          to label %.invoke45 unwind label %21
 
-21:                                               ; preds = %.invoke40, %.invoke, %20, %18
+21:                                               ; preds = %.invoke45, %.invoke, %20, %18
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %89
 
-.invoke40:                                        ; preds = %20, %5
+.invoke45:                                        ; preds = %20, %5
   %23 = phi i64 [ 0, %5 ], [ 1, %20 ]
   %24 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %23)
           to label %.invoke unwind label %21
 
-.invoke:                                          ; preds = %.invoke40
+.invoke:                                          ; preds = %.invoke45
   invoke void @_ZN6duckdb6Vector9ReferenceERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %24, ptr noundef nonnull align 8 dereferenceable(104) %7)
           to label %25 unwind label %21
 
@@ -809,9 +809,9 @@ define void @_ZN6duckdb17ExecuteExpressionEmRKNS_15LambdaFunctions10ColumnInfoER
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %45, align 8, !tbaa !14
-  br label %.invoke39
+  br label %.invoke44
 
-48:                                               ; preds = %.invoke39, %63, %58, %66, %_ZNSt6vectorIN6duckdb6VectorESaIS1_EE12emplace_backIJRKSt17reference_wrapperIS1_ERKNS0_15SelectionVectorERKmEEEvDpOT_.exit, %52, %50, %44, %41, %35
+48:                                               ; preds = %.invoke44, %63, %58, %66, %_ZNSt6vectorIN6duckdb6VectorESaIS1_EE12emplace_backIJRKSt17reference_wrapperIS1_ERKNS0_15SelectionVectorERKmEEEvDpOT_.exit, %52, %50, %44, %41, %35
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %88
@@ -854,15 +854,15 @@ _ZNSt6vectorIN6duckdb6VectorESaIS1_EE12emplace_backIJRKSt17reference_wrapperIS1_
 
 66:                                               ; preds = %_ZNSt6vectorIN6duckdb6VectorESaIS1_EE12emplace_backIJRKSt17reference_wrapperIS1_ERKNS0_15SelectionVectorERKmEEEvDpOT_.exit
   %67 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %.invoke39 unwind label %48
+          to label %.invoke44 unwind label %48
 
-.invoke39:                                        ; preds = %66, %46
+.invoke44:                                        ; preds = %66, %46
   %68 = phi ptr [ %43, %46 ], [ %65, %66 ]
   %69 = phi ptr [ %47, %46 ], [ %67, %66 ]
   invoke void @_ZN6duckdb6Vector9ReferenceERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %68, ptr noundef nonnull align 8 dereferenceable(104) %69)
           to label %70 unwind label %48
 
-70:                                               ; preds = %.invoke39
+70:                                               ; preds = %.invoke44
   %71 = add nuw i64 %.038, 1
   %72 = load ptr, ptr %29, align 8, !tbaa !10
   %73 = load ptr, ptr %2, align 8, !tbaa !85
@@ -3598,8 +3598,8 @@ _ZN6duckdb15LambdaFunctions10ColumnInfoC2ERNS_6VectorE.exit: ; preds = %_ZN6duck
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.not187 = icmp eq i64 %53, 0
-  br i1 %.not187, label %_ZN6duckdb17ListFilterFunctor17ReserveNewLengthsERNS_6vectorImLb1EEEm.exit, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
+  %.not221 = icmp eq i64 %53, 0
+  br i1 %.not221, label %_ZN6duckdb17ListFilterFunctor17ReserveNewLengthsERNS_6vectorImLb1EEEm.exit, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %56
   %58 = shl nuw nsw i64 %53, 3
@@ -6808,12 +6808,12 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit51: ; preds = %_ZSt8_Destroy
   br label %.loopexit
 
 .body40:                                          ; preds = %.body59.thread, %.body59
-  %eh.lpad-body6071 = phi { ptr, i32 } [ %120, %.body59.thread ], [ %115, %.body59 ]
+  %eh.lpad-body6094 = phi { ptr, i32 } [ %120, %.body59.thread ], [ %115, %.body59 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body40, %135
-  %.pn23 = phi { ptr, i32 } [ %136, %135 ], [ %eh.lpad-body6071, %.body40 ]
+  %.pn23 = phi { ptr, i32 } [ %136, %135 ], [ %eh.lpad-body6094, %.body40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %139
 

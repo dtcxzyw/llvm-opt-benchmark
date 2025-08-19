@@ -4830,8 +4830,8 @@ _ZNSt5dequeIPhSaIS0_EED2Ev.exit324:               ; preds = %_ZNSt5dequeIPhSaIS0
   %873 = load ptr, ptr %18, align 8, !tbaa !124
   %.not.i.i325 = icmp eq ptr %873, %52
   %874 = icmp eq ptr %873, null
-  %or.cond500 = or i1 %.not.i.i325, %874
-  br i1 %or.cond500, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit, label %875
+  %or.cond556 = or i1 %.not.i.i325, %874
+  br i1 %or.cond556, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit, label %875
 
 875:                                              ; preds = %_ZNSt5dequeIPhSaIS0_EED2Ev.exit324
   call void @_ZdaPv(ptr noundef nonnull %873) #19
@@ -4842,8 +4842,8 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %875, %_ZNSt5dequeIP
   %876 = load ptr, ptr %17, align 8, !tbaa !124
   %.not.i.i327 = icmp eq ptr %876, %50
   %877 = icmp eq ptr %876, null
-  %or.cond501 = or i1 %.not.i.i327, %877
-  br i1 %or.cond501, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit329, label %878
+  %or.cond557 = or i1 %.not.i.i327, %877
+  br i1 %or.cond557, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit329, label %878
 
 878:                                              ; preds = %_ZN2cv10AutoBufferIsLm520EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %876) #19
@@ -4890,8 +4890,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit331:    ; preds = %_ZN2cv10AutoBufferI
   %888 = load ptr, ptr %31, align 8, !tbaa !143
   %.not.i.i332 = icmp eq ptr %888, %189
   %889 = icmp eq ptr %888, null
-  %or.cond502 = or i1 %.not.i.i332, %889
-  br i1 %or.cond502, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit333, label %890
+  %or.cond558 = or i1 %.not.i.i332, %889
+  br i1 %or.cond558, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit333, label %890
 
 890:                                              ; preds = %887
   call void @_ZdaPv(ptr noundef nonnull %888) #19
@@ -4935,8 +4935,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit333:          ; preds = %890, %887, %205
   %897 = load ptr, ptr %18, align 8, !tbaa !124
   %.not.i.i334 = icmp eq ptr %897, %52
   %898 = icmp eq ptr %897, null
-  %or.cond503 = or i1 %.not.i.i334, %898
-  br i1 %or.cond503, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit336, label %899
+  %or.cond559 = or i1 %.not.i.i334, %898
+  br i1 %or.cond559, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit336, label %899
 
 899:                                              ; preds = %896
   call void @_ZdaPv(ptr noundef nonnull %897) #19
@@ -4947,8 +4947,8 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit336:          ; preds = %899, %896
   %900 = load ptr, ptr %17, align 8, !tbaa !124
   %.not.i.i337 = icmp eq ptr %900, %50
   %901 = icmp eq ptr %900, null
-  %or.cond504 = or i1 %.not.i.i337, %901
-  br i1 %or.cond504, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit339, label %902
+  %or.cond560 = or i1 %.not.i.i337, %901
+  br i1 %or.cond560, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit339, label %902
 
 902:                                              ; preds = %_ZN2cv10AutoBufferIsLm520EED2Ev.exit336
   call void @_ZdaPv(ptr noundef nonnull %900) #19
@@ -5743,7 +5743,7 @@ _ZNSt5dequeIPhSaIS0_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %117, %12
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds ptr, ptr %111, i64 %77
+  %140 = getelementptr inbounds nuw ptr, ptr %111, i64 %77
   br label %_ZStplRKSt15_Deque_iteratorIPhRS0_PS0_El.exit
 
 141:                                              ; preds = %137
@@ -7148,11 +7148,11 @@ _ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53:  ; preds = %167, %161
   br i1 %176, label %.lr.ph.i43, label %_ZSt14__copy_move_a1ILb0EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit21, !llvm.loop !341
 
 _ZSt14__copy_move_a1ILb0EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit21: ; preds = %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53, %135, %._crit_edge
-  %.sink84 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
+  %.sink98 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
   %.sink = phi ptr [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
   %.sroa.8.2.sink = phi ptr [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
   %.sroa.12.2.sink = phi ptr [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
-  store ptr %.sink84, ptr %0, align 8, !tbaa !39
+  store ptr %.sink98, ptr %0, align 8, !tbaa !39
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %177, align 8, !tbaa !45
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7963,11 +7963,11 @@ _ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53:  ; preds = %167, %161
   br i1 %176, label %.lr.ph.i43, label %_ZSt14__copy_move_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit21, !llvm.loop !446
 
 _ZSt14__copy_move_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit21: ; preds = %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53, %135, %._crit_edge
-  %.sink84 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
+  %.sink98 = phi ptr [ %61, %._crit_edge ], [ %137, %135 ], [ %storemerge.i.i54, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %storemerge.i.i20, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
   %.sink = phi ptr [ %60, %._crit_edge ], [ %139, %135 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %.sroa.459.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
   %.sroa.8.2.sink = phi ptr [ %59, %._crit_edge ], [ %141, %135 ], [ %.sroa.8.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %.sroa.860.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
   %.sroa.12.2.sink = phi ptr [ %58, %._crit_edge ], [ %143, %135 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i53 ], [ %.sroa.1262.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EpLEl.exit.i19 ]
-  store ptr %.sink84, ptr %0, align 8, !tbaa !39
+  store ptr %.sink98, ptr %0, align 8, !tbaa !39
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %177, align 8, !tbaa !45
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8035,17 +8035,17 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPhRS0_PS0_St15_Dequ
 
 35:                                               ; preds = %30, %.thread.i
   %.pre28.i.pre-phi = phi i64 [ %34, %30 ], [ %.pre107, %.thread.i ]
-  %.sroa.speculated36.i = phi i64 [ %.sroa.speculated.i, %30 ], [ %29, %.thread.i ]
-  %.0935.i = phi ptr [ %.sroa.088.0, %30 ], [ %28, %.thread.i ]
-  %36 = sub nsw i64 0, %.sroa.speculated36.i
-  %.idx38.i = shl nsw i64 %36, 3
-  %37 = getelementptr inbounds i8, ptr %.018.i, i64 %.idx38.i
-  %gepdiff.i = sub nsw i64 0, %.idx38.i
+  %.sroa.speculated39.i = phi i64 [ %.sroa.speculated.i, %30 ], [ %29, %.thread.i ]
+  %.0938.i = phi ptr [ %.sroa.088.0, %30 ], [ %28, %.thread.i ]
+  %36 = sub nsw i64 0, %.sroa.speculated39.i
+  %.idx41.i = shl nsw i64 %36, 3
+  %37 = getelementptr inbounds i8, ptr %.018.i, i64 %.idx41.i
+  %gepdiff.i = sub nsw i64 0, %.idx41.i
   %38 = ashr exact i64 %gepdiff.i, 3
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds ptr, ptr %.0935.i, i64 %39
+  %40 = getelementptr inbounds ptr, ptr %.0938.i, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !457
-  %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated36.i
+  %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated39.i
   %42 = icmp sgt i64 %41, -1
   br i1 %42, label %43, label %49
 
@@ -8080,7 +8080,7 @@ _ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i:    ; preds = %51, %45
   %.sroa.990.1 = phi ptr [ %.sroa.990.0, %45 ], [ %55, %51 ]
   %.sroa.1291.1 = phi ptr [ %.sroa.1291.0, %45 ], [ %53, %51 ]
   %storemerge.i.i.i = phi ptr [ %46, %45 ], [ %58, %51 ]
-  %59 = sub nsw i64 %.01617.i, %.sroa.speculated36.i
+  %59 = sub nsw i64 %.01617.i, %.sroa.speculated39.i
   %60 = icmp sgt i64 %59, 0
   br i1 %60, label %.lr.ph.i, label %_ZSt23__copy_move_backward_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit, !llvm.loop !460
 
@@ -8145,17 +8145,17 @@ _ZSt23__copy_move_backward_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_rand
 
 87:                                               ; preds = %82, %.thread.i26
   %.pre28.i23.pre-phi = phi i64 [ %86, %82 ], [ %.pre111, %.thread.i26 ]
-  %.sroa.speculated36.i14 = phi i64 [ %.sroa.speculated.i13, %82 ], [ %81, %.thread.i26 ]
-  %.0935.i15 = phi ptr [ %.sroa.076.0, %82 ], [ %80, %.thread.i26 ]
-  %88 = sub nsw i64 0, %.sroa.speculated36.i14
-  %.idx38.i16 = shl nsw i64 %88, 3
-  %89 = getelementptr inbounds i8, ptr %.018.i10, i64 %.idx38.i16
-  %gepdiff.i17 = sub nsw i64 0, %.idx38.i16
+  %.sroa.speculated39.i14 = phi i64 [ %.sroa.speculated.i13, %82 ], [ %81, %.thread.i26 ]
+  %.0938.i15 = phi ptr [ %.sroa.076.0, %82 ], [ %80, %.thread.i26 ]
+  %88 = sub nsw i64 0, %.sroa.speculated39.i14
+  %.idx41.i16 = shl nsw i64 %88, 3
+  %89 = getelementptr inbounds i8, ptr %.018.i10, i64 %.idx41.i16
+  %gepdiff.i17 = sub nsw i64 0, %.idx41.i16
   %90 = ashr exact i64 %gepdiff.i17, 3
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds ptr, ptr %.0935.i15, i64 %91
+  %92 = getelementptr inbounds ptr, ptr %.0938.i15, i64 %91
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !461
-  %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated36.i14
+  %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated39.i14
   %94 = icmp sgt i64 %93, -1
   br i1 %94, label %95, label %101
 
@@ -8190,7 +8190,7 @@ _ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i24:  ; preds = %103, %97
   %.sroa.978.1 = phi ptr [ %.sroa.978.0, %97 ], [ %107, %103 ]
   %.sroa.477.1 = phi ptr [ %77, %97 ], [ %106, %103 ]
   %storemerge.i.i.i25 = phi ptr [ %98, %97 ], [ %110, %103 ]
-  %111 = sub nsw i64 %.01617.i11, %.sroa.speculated36.i14
+  %111 = sub nsw i64 %.01617.i11, %.sroa.speculated39.i14
   %112 = icmp sgt i64 %111, 0
   br i1 %112, label %.lr.ph.i8, label %_ZSt23__copy_move_backward_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit27, !llvm.loop !460
 
@@ -8235,17 +8235,17 @@ _ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i24:  ; preds = %103, %97
 
 130:                                              ; preds = %125, %.thread.i49
   %.pre28.i46.pre-phi = phi i64 [ %129, %125 ], [ %.pre115, %.thread.i49 ]
-  %.sroa.speculated36.i37 = phi i64 [ %.sroa.speculated.i36, %125 ], [ %124, %.thread.i49 ]
-  %.0935.i38 = phi ptr [ %.sroa.082.0, %125 ], [ %123, %.thread.i49 ]
-  %131 = sub nsw i64 0, %.sroa.speculated36.i37
-  %.idx38.i39 = shl nsw i64 %131, 3
-  %132 = getelementptr inbounds i8, ptr %.018.i33, i64 %.idx38.i39
-  %gepdiff.i40 = sub nsw i64 0, %.idx38.i39
+  %.sroa.speculated39.i37 = phi i64 [ %.sroa.speculated.i36, %125 ], [ %124, %.thread.i49 ]
+  %.0938.i38 = phi ptr [ %.sroa.082.0, %125 ], [ %123, %.thread.i49 ]
+  %131 = sub nsw i64 0, %.sroa.speculated39.i37
+  %.idx41.i39 = shl nsw i64 %131, 3
+  %132 = getelementptr inbounds i8, ptr %.018.i33, i64 %.idx41.i39
+  %gepdiff.i40 = sub nsw i64 0, %.idx41.i39
   %133 = ashr exact i64 %gepdiff.i40, 3
   %134 = sub nsw i64 0, %133
-  %135 = getelementptr inbounds ptr, ptr %.0935.i38, i64 %134
+  %135 = getelementptr inbounds ptr, ptr %.0938.i38, i64 %134
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !464
-  %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated36.i37
+  %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated39.i37
   %137 = icmp sgt i64 %136, -1
   br i1 %137, label %138, label %144
 
@@ -8280,7 +8280,7 @@ _ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i47:  ; preds = %146, %140
   %.sroa.8.1 = phi ptr [ %.sroa.8.0, %140 ], [ %150, %146 ]
   %.sroa.483.1 = phi ptr [ %120, %140 ], [ %149, %146 ]
   %storemerge.i.i.i48 = phi ptr [ %141, %140 ], [ %153, %146 ]
-  %154 = sub nsw i64 %.01617.i34, %.sroa.speculated36.i37
+  %154 = sub nsw i64 %.01617.i34, %.sroa.speculated39.i37
   %155 = icmp sgt i64 %154, 0
   br i1 %155, label %119, label %_ZSt23__copy_move_backward_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit50, !llvm.loop !460
 
@@ -8342,17 +8342,17 @@ _ZSt23__copy_move_backward_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_rand
 
 182:                                              ; preds = %177, %.thread.i72
   %.pre28.i69.pre-phi = phi i64 [ %181, %177 ], [ %.pre103, %.thread.i72 ]
-  %.sroa.speculated36.i60 = phi i64 [ %.sroa.speculated.i59, %177 ], [ %176, %.thread.i72 ]
-  %.0935.i61 = phi ptr [ %.sroa.0.0, %177 ], [ %175, %.thread.i72 ]
-  %183 = sub nsw i64 0, %.sroa.speculated36.i60
-  %.idx38.i62 = shl nsw i64 %183, 3
-  %184 = getelementptr inbounds i8, ptr %.018.i56, i64 %.idx38.i62
-  %gepdiff.i63 = sub nsw i64 0, %.idx38.i62
+  %.sroa.speculated39.i60 = phi i64 [ %.sroa.speculated.i59, %177 ], [ %176, %.thread.i72 ]
+  %.0938.i61 = phi ptr [ %.sroa.0.0, %177 ], [ %175, %.thread.i72 ]
+  %183 = sub nsw i64 0, %.sroa.speculated39.i60
+  %.idx41.i62 = shl nsw i64 %183, 3
+  %184 = getelementptr inbounds i8, ptr %.018.i56, i64 %.idx41.i62
+  %gepdiff.i63 = sub nsw i64 0, %.idx41.i62
   %185 = ashr exact i64 %gepdiff.i63, 3
   %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds ptr, ptr %.0935.i61, i64 %186
+  %187 = getelementptr inbounds ptr, ptr %.0938.i61, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !468
-  %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated36.i60
+  %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated39.i60
   %189 = icmp sgt i64 %188, -1
   br i1 %189, label %190, label %196
 
@@ -8387,16 +8387,16 @@ _ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i70:  ; preds = %198, %192
   %.sroa.9.1 = phi ptr [ %.sroa.9.0, %192 ], [ %202, %198 ]
   %.sroa.4.1 = phi ptr [ %172, %192 ], [ %201, %198 ]
   %storemerge.i.i.i71 = phi ptr [ %193, %192 ], [ %205, %198 ]
-  %206 = sub nsw i64 %.01617.i57, %.sroa.speculated36.i60
+  %206 = sub nsw i64 %.01617.i57, %.sroa.speculated39.i60
   %207 = icmp sgt i64 %206, 0
   br i1 %207, label %.lr.ph.i54, label %_ZSt23__copy_move_backward_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit27, !llvm.loop !460
 
 _ZSt23__copy_move_backward_a1ILb1EPPhS0_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RS6_PS6_EE6__typeES4_S4_S9_.exit27: ; preds = %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i24, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i70, %157, %._crit_edge
-  %.sink117 = phi ptr [ %68, %._crit_edge ], [ %160, %157 ], [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i70 ], [ %storemerge.i.i.i25, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i24 ]
+  %.sink138 = phi ptr [ %68, %._crit_edge ], [ %160, %157 ], [ %storemerge.i.i.i71, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i70 ], [ %storemerge.i.i.i25, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i24 ]
   %.sink = phi ptr [ %67, %._crit_edge ], [ %162, %157 ], [ %.sroa.4.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i70 ], [ %.sroa.477.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i24 ]
   %.sroa.9.2.sink = phi ptr [ %66, %._crit_edge ], [ %164, %157 ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i70 ], [ %.sroa.978.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i24 ]
   %.sroa.12.2.sink = phi ptr [ %65, %._crit_edge ], [ %166, %157 ], [ %.sroa.12.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i70 ], [ %.sroa.1279.1, %_ZNSt15_Deque_iteratorIPhRS0_PS0_EmIEl.exit.i24 ]
-  store ptr %.sink117, ptr %0, align 8, !tbaa !39
+  store ptr %.sink138, ptr %0, align 8, !tbaa !39
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %208, align 8, !tbaa !45
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 16

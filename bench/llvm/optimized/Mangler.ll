@@ -416,10 +416,10 @@ switch.lookup:                                    ; preds = %4
   %33 = extractvalue { ptr, i64 } %31, 1
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %35 = load i32, ptr %34, align 8, !tbaa !3
-  %switch.cast87 = zext i32 %35 to i64
-  %switch.shiftamt88 = shl nuw nsw i64 %switch.cast87, 3
-  %switch.downshift89 = lshr i64 408028119040, %switch.shiftamt88
-  %switch.masked90 = trunc i64 %switch.downshift89 to i8
+  %switch.cast95 = zext i32 %35 to i64
+  %switch.shiftamt96 = shl nuw nsw i64 %switch.cast95, 3
+  %switch.downshift97 = lshr i64 408028119040, %switch.shiftamt96
+  %switch.masked98 = trunc i64 %switch.downshift97 to i8
   %36 = tail call noundef ptr @_ZNK4llvm11GlobalValue16getAliaseeObjectEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #14
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionEKNS_12GlobalObjectEEEDaPT0_.exit, label %37
@@ -494,12 +494,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit45.thread63: ; preds = %_ZNK4llvm9Strin
   store ptr %32, ptr %8, align 8, !tbaa !60
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %33, ptr %57, align 8, !tbaa !60
-  call fastcc void @_ZL21getNameWithPrefixImplRN4llvm11raw_ostreamERKNS_5TwineEN12_GLOBAL__N_115ManglerPrefixTyERKNS_10DataLayoutEc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(496) %13, i8 noundef signext %switch.masked90)
+  call fastcc void @_ZL21getNameWithPrefixImplRN4llvm11raw_ostreamERKNS_5TwineEN12_GLOBAL__N_115ManglerPrefixTyERKNS_10DataLayoutEc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(496) %13, i8 noundef signext %switch.masked98)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL18hasByteCountSuffixj.exit
 
 58:                                               ; preds = %54, %.fold.split, %53
-  %.034 = phi i8 [ 0, %54 ], [ 64, %53 ], [ %switch.masked90, %.fold.split ]
+  %.034 = phi i8 [ 0, %54 ], [ 64, %53 ], [ %switch.masked98, %.fold.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 5, ptr %59, align 8, !tbaa !59
@@ -1431,11 +1431,11 @@ _ZN4llvm11raw_ostream5flushEv.exit85:             ; preds = %_ZN4llvm11raw_ostre
   %297 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm11GlobalValue13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #14
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
   %299 = load i32, ptr %298, align 8, !tbaa !3
-  %switch.cast113 = zext i32 %299 to i64
-  %switch.shiftamt114 = shl nuw nsw i64 %switch.cast113, 3
-  %switch.downshift115 = lshr i64 408028119040, %switch.shiftamt114
-  %switch.masked116 = trunc i64 %switch.downshift115 to i8
-  %300 = icmp eq i8 %296, %switch.masked116
+  %switch.cast132 = zext i32 %299 to i64
+  %switch.shiftamt133 = shl nuw nsw i64 %switch.cast132, 3
+  %switch.downshift134 = lshr i64 408028119040, %switch.shiftamt133
+  %switch.masked135 = trunc i64 %switch.downshift134 to i8
+  %300 = icmp eq i8 %296, %switch.masked135
   br i1 %300, label %301, label %330
 
 301:                                              ; preds = %_ZN4llvm11raw_ostream5flushEv.exit85

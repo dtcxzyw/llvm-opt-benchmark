@@ -9497,18 +9497,18 @@ _init_l_Lean_Linter___aux__Lean__Linter__Sets______elabRules__Lean__Linter__comm
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Linter___aux__Lean__Linter__Sets______elabRules__Lean__Linter__command__Register__linter__set___x3a_x3d____1___closed__40.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %422, %_init_l_Lean_Linter___aux__Lean__Linter__Sets______elabRules__Lean__Linter__command__Register__linter__set___x3a_x3d____1___closed__40.exit ]
-  %425 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink52 = phi ptr [ %4, %3 ], [ %422, %_init_l_Lean_Linter___aux__Lean__Linter__Sets______elabRules__Lean__Linter__command__Register__linter__set___x3a_x3d____1___closed__40.exit ]
+  %425 = getelementptr inbounds nuw i8, ptr %.sink52, i64 4
+  store i32 1, ptr %.sink52, align 4, !tbaa !4
   store i32 131096, ptr %425, align 4
-  %426 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %426 = getelementptr inbounds nuw i8, ptr %.sink52, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %426, align 8, !tbaa !9
-  %427 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %427 = getelementptr inbounds nuw i8, ptr %.sink52, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %427, align 8, !tbaa !9
   br label %428
 
 428:                                              ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink52, %.sink.split ]
   ret ptr %.0
 }
 

@@ -29,24 +29,24 @@ define dso_local ptr @CleanQuerytext(ptr noundef readonly captures(ret: address,
   br i1 %10, label %11, label %.lr.ph.preheader
 
 11:                                               ; preds = %3, %6
-  %.sink61 = phi ptr [ %9, %6 ], [ %0, %3 ]
+  %.sink63 = phi ptr [ %9, %6 ], [ %0, %3 ]
   %.023 = phi i32 [ %4, %6 ], [ 0, %3 ]
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink61) #8
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink63) #8
   %13 = trunc i64 %12 to i32
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.preheader, label %.critedge2
 
 .lr.ph.preheader:                                 ; preds = %6, %11
-  %.049 = phi i32 [ %13, %11 ], [ %7, %6 ]
-  %.02348 = phi i32 [ %.023, %11 ], [ %4, %6 ]
-  %.02547 = phi ptr [ %.sink61, %11 ], [ %9, %6 ]
-  %15 = add nuw i32 %.049, %.02348
+  %.051 = phi i32 [ %13, %11 ], [ %7, %6 ]
+  %.02350 = phi i32 [ %.023, %11 ], [ %4, %6 ]
+  %.02549 = phi ptr [ %.sink63, %11 ], [ %9, %6 ]
+  %15 = add nuw i32 %.051, %.02350
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.131 = phi i32 [ %21, %18 ], [ %.049, %.lr.ph.preheader ]
-  %.12430 = phi i32 [ %20, %18 ], [ %.02348, %.lr.ph.preheader ]
-  %.12629 = phi ptr [ %19, %18 ], [ %.02547, %.lr.ph.preheader ]
+  %.131 = phi i32 [ %21, %18 ], [ %.051, %.lr.ph.preheader ]
+  %.12430 = phi i32 [ %20, %18 ], [ %.02350, %.lr.ph.preheader ]
+  %.12629 = phi ptr [ %19, %18 ], [ %.02549, %.lr.ph.preheader ]
   %16 = load i8, ptr %.12629, align 1
   %17 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %16) #9
   br i1 %17, label %18, label %.lr.ph39.preheader
@@ -68,24 +68,24 @@ define dso_local ptr @CleanQuerytext(ptr noundef readonly captures(ret: address,
   %25 = getelementptr i8, ptr %24, i64 -1
   %26 = load i8, ptr %25, align 1
   %27 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %26) #9
-  br i1 %27, label %28, label %.critedge2.loopexit.split.loop.exit59
+  br i1 %27, label %28, label %.critedge2.loopexit.split.loop.exit61
 
 28:                                               ; preds = %.lr.ph39
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %29 = icmp sgt i64 %indvars.iv, 1
   br i1 %29, label %.lr.ph39, label %.critedge2, !llvm.loop !6
 
-.critedge2.loopexit.split.loop.exit59:            ; preds = %.lr.ph39
+.critedge2.loopexit.split.loop.exit61:            ; preds = %.lr.ph39
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %18, %28, %.critedge2.loopexit.split.loop.exit59, %11
-  %.124.lcssa54 = phi i32 [ %.023, %11 ], [ %.12430, %.critedge2.loopexit.split.loop.exit59 ], [ %.12430, %28 ], [ %15, %18 ]
-  %.126.lcssa53 = phi ptr [ %.sink61, %11 ], [ %.12629, %.critedge2.loopexit.split.loop.exit59 ], [ %.12629, %28 ], [ %19, %18 ]
-  %.2.lcssa = phi i32 [ %13, %11 ], [ %30, %.critedge2.loopexit.split.loop.exit59 ], [ 0, %28 ], [ 0, %18 ]
-  store i32 %.124.lcssa54, ptr %1, align 4
+.critedge2:                                       ; preds = %18, %28, %.critedge2.loopexit.split.loop.exit61, %11
+  %.124.lcssa56 = phi i32 [ %.023, %11 ], [ %.12430, %.critedge2.loopexit.split.loop.exit61 ], [ %.12430, %28 ], [ %15, %18 ]
+  %.126.lcssa55 = phi ptr [ %.sink63, %11 ], [ %.12629, %.critedge2.loopexit.split.loop.exit61 ], [ %.12629, %28 ], [ %19, %18 ]
+  %.2.lcssa = phi i32 [ %13, %11 ], [ %30, %.critedge2.loopexit.split.loop.exit61 ], [ 0, %28 ], [ 0, %18 ]
+  store i32 %.124.lcssa56, ptr %1, align 4
   store i32 %.2.lcssa, ptr %2, align 4
-  ret ptr %.126.lcssa53
+  ret ptr %.126.lcssa55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -1758,7 +1758,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
 ._crit_edge:                                      ; preds = %38
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre66 = load i64, ptr %.phi.trans.insert, align 8
-  br label %56
+  br label %.lr.ph.i41
 
 41:                                               ; preds = %38
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
@@ -1800,74 +1800,53 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   %.pre = phi ptr [ %.pre65, %41 ], [ %.pre.pre, %AppendJumble.exit40.loopexit ]
   %.022.lcssa.i39 = phi i64 [ %45, %41 ], [ %53, %AppendJumble.exit40.loopexit ]
   store i64 %.022.lcssa.i39, ptr %44, align 8
-  br label %56
-
-56:                                               ; preds = %._crit_edge, %AppendJumble.exit40
-  %57 = phi i64 [ %.022.lcssa.i39, %AppendJumble.exit40 ], [ %.pre66, %._crit_edge ]
-  %58 = phi ptr [ %.pre, %AppendJumble.exit40 ], [ %.pre65, %._crit_edge ]
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i41
 
-.lr.ph.i41:                                       ; preds = %64, %56
-  %.026.i42 = phi ptr [ %69, %64 ], [ %59, %56 ]
-  %.02125.i43 = phi i64 [ %70, %64 ], [ 1, %56 ]
-  %.02224.i44 = phi i64 [ %68, %64 ], [ %57, %56 ]
-  %61 = icmp ugt i64 %.02224.i44, 1023
-  br i1 %61, label %62, label %64
+.lr.ph.i41:                                       ; preds = %AppendJumble.exit40, %._crit_edge
+  %56 = phi i64 [ %.022.lcssa.i39, %AppendJumble.exit40 ], [ %.pre66, %._crit_edge ]
+  %57 = phi ptr [ %.pre, %AppendJumble.exit40 ], [ %.pre65, %._crit_edge ]
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %60 = icmp ugt i64 %56, 1023
+  br i1 %60, label %.lr.ph.i49.thread, label %.lr.ph.i49
 
-62:                                               ; preds = %.lr.ph.i41
-  %63 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %63, ptr %58, align 1
-  br label %64
+.lr.ph.i49.thread:                                ; preds = %.lr.ph.i41
+  %61 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %61, ptr %57, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %63 = load i8, ptr %58, align 1
+  store i8 %63, ptr %62, align 1
+  store i64 9, ptr %59, align 8
+  %64 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit56
 
-64:                                               ; preds = %62, %.lr.ph.i41
-  %.1.i45 = phi i64 [ 8, %62 ], [ %.02224.i44, %.lr.ph.i41 ]
-  %65 = sub nuw nsw i64 1024, %.1.i45
-  %66 = tail call i64 @llvm.umin.i64(i64 %.02125.i43, i64 %65)
-  %67 = getelementptr inbounds nuw i8, ptr %58, i64 %.1.i45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %.026.i42, i64 %66, i1 false)
-  %68 = add nuw nsw i64 %66, %.1.i45
-  %69 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %66
-  %70 = sub i64 %.02125.i43, %66
-  %.not.i46 = icmp eq i64 %70, 0
-  br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !7
+.lr.ph.i49:                                       ; preds = %.lr.ph.i41
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 %56
+  %66 = load i8, ptr %58, align 1
+  store i8 %66, ptr %65, align 1
+  %67 = add nuw nsw i64 %56, 1
+  store i64 %67, ptr %59, align 8
+  %68 = load ptr, ptr %0, align 8
+  %69 = icmp eq i64 %56, 1023
+  br i1 %69, label %70, label %AppendJumble.exit56
 
-AppendJumble.exit48:                              ; preds = %64
-  store i64 %68, ptr %60, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %72 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i49
+70:                                               ; preds = %.lr.ph.i49
+  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %71, ptr %68, align 1
+  br label %AppendJumble.exit56
 
-.lr.ph.i49:                                       ; preds = %76, %AppendJumble.exit48
-  %.026.i50 = phi ptr [ %81, %76 ], [ %71, %AppendJumble.exit48 ]
-  %.02125.i51 = phi i64 [ %82, %76 ], [ 1, %AppendJumble.exit48 ]
-  %.02224.i52 = phi i64 [ %80, %76 ], [ %68, %AppendJumble.exit48 ]
-  %73 = icmp ugt i64 %.02224.i52, 1023
-  br i1 %73, label %74, label %76
-
-74:                                               ; preds = %.lr.ph.i49
-  %75 = tail call i64 @hash_bytes_extended(ptr noundef %72, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %75, ptr %72, align 1
-  br label %76
-
-76:                                               ; preds = %74, %.lr.ph.i49
-  %.1.i53 = phi i64 [ 8, %74 ], [ %.02224.i52, %.lr.ph.i49 ]
-  %77 = sub nuw nsw i64 1024, %.1.i53
-  %78 = tail call i64 @llvm.umin.i64(i64 %.02125.i51, i64 %77)
-  %79 = getelementptr inbounds nuw i8, ptr %72, i64 %.1.i53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %79, ptr noundef nonnull align 1 dereferenceable(1) %.026.i50, i64 %78, i1 false)
-  %80 = add nuw nsw i64 %78, %.1.i53
-  %81 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %78
-  %82 = sub i64 %.02125.i51, %78
-  %.not.i54 = icmp eq i64 %82, 0
-  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !7
-
-AppendJumble.exit56:                              ; preds = %76
-  store i64 %80, ptr %60, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %84 = load ptr, ptr %83, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %84)
+AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %70, %.lr.ph.i49.thread
+  %72 = phi ptr [ %68, %70 ], [ %68, %.lr.ph.i49 ], [ %64, %.lr.ph.i49.thread ]
+  %.1.i53 = phi i64 [ 8, %70 ], [ %67, %.lr.ph.i49 ], [ 9, %.lr.ph.i49.thread ]
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 %.1.i53
+  %75 = load i8, ptr %73, align 1
+  store i8 %75, ptr %74, align 1
+  %76 = add nuw nsw i64 %.1.i53, 1
+  store i64 %76, ptr %59, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %78 = load ptr, ptr %77, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %78)
   ret void
 }
 
@@ -2008,7 +1987,7 @@ AppendJumble.exit28:                              ; preds = %35
   %43 = load ptr, ptr %42, align 8
   %.not20 = icmp eq ptr %43, null
   %.pre52 = load ptr, ptr %0, align 8
-  br i1 %.not20, label %57, label %44
+  br i1 %.not20, label %.lr.ph.i38, label %44
 
 44:                                               ; preds = %AppendJumble.exit28
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #8
@@ -2048,40 +2027,27 @@ AppendJumble.exit37:                              ; preds = %AppendJumble.exit37
   %.pre = phi ptr [ %.pre52, %44 ], [ %.pre.pre, %AppendJumble.exit37.loopexit ]
   %.022.lcssa.i36 = phi i64 [ %39, %44 ], [ %54, %AppendJumble.exit37.loopexit ]
   store i64 %.022.lcssa.i36, ptr %30, align 8
-  br label %57
-
-57:                                               ; preds = %AppendJumble.exit37, %AppendJumble.exit28
-  %58 = phi i64 [ %.022.lcssa.i36, %AppendJumble.exit37 ], [ %39, %AppendJumble.exit28 ]
-  %59 = phi ptr [ %.pre, %AppendJumble.exit37 ], [ %.pre52, %AppendJumble.exit28 ]
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %.lr.ph.i38
 
-.lr.ph.i38:                                       ; preds = %64, %57
-  %.026.i39 = phi ptr [ %69, %64 ], [ %60, %57 ]
-  %.02125.i40 = phi i64 [ %70, %64 ], [ 1, %57 ]
-  %.02224.i41 = phi i64 [ %68, %64 ], [ %58, %57 ]
-  %61 = icmp ugt i64 %.02224.i41, 1023
-  br i1 %61, label %62, label %64
+.lr.ph.i38:                                       ; preds = %AppendJumble.exit28, %AppendJumble.exit37
+  %57 = phi i64 [ %.022.lcssa.i36, %AppendJumble.exit37 ], [ %39, %AppendJumble.exit28 ]
+  %58 = phi ptr [ %.pre, %AppendJumble.exit37 ], [ %.pre52, %AppendJumble.exit28 ]
+  %59 = icmp samesign ugt i64 %57, 1023
+  br i1 %59, label %60, label %AppendJumble.exit45
 
-62:                                               ; preds = %.lr.ph.i38
-  %63 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %63, ptr %59, align 1
-  br label %64
+60:                                               ; preds = %.lr.ph.i38
+  %61 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %61, ptr %58, align 1
+  br label %AppendJumble.exit45
 
-64:                                               ; preds = %62, %.lr.ph.i38
-  %.1.i42 = phi i64 [ 8, %62 ], [ %.02224.i41, %.lr.ph.i38 ]
-  %65 = sub nuw nsw i64 1024, %.1.i42
-  %66 = tail call i64 @llvm.umin.i64(i64 %.02125.i40, i64 %65)
-  %67 = getelementptr inbounds nuw i8, ptr %59, i64 %.1.i42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %.026.i39, i64 %66, i1 false)
-  %68 = add nuw nsw i64 %66, %.1.i42
-  %69 = getelementptr inbounds nuw i8, ptr %.026.i39, i64 %66
-  %70 = sub i64 %.02125.i40, %66
-  %.not.i43 = icmp eq i64 %70, 0
-  br i1 %.not.i43, label %AppendJumble.exit45, label %.lr.ph.i38, !llvm.loop !7
-
-AppendJumble.exit45:                              ; preds = %64
-  store i64 %68, ptr %30, align 8
+AppendJumble.exit45:                              ; preds = %.lr.ph.i38, %60
+  %.1.i42 = phi i64 [ 8, %60 ], [ %57, %.lr.ph.i38 ]
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 %.1.i42
+  %64 = load i8, ptr %62, align 1
+  store i8 %64, ptr %63, align 1
+  %65 = add nuw nsw i64 %.1.i42, 1
+  store i64 %65, ptr %30, align 8
   ret void
 }
 
@@ -2590,43 +2556,30 @@ define internal fastcc void @_jumbleWindowFuncRunCondition(ptr noundef %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i7, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i7:                                        ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i7
+  %17 = load ptr, ptr %0, align 8
+  %18 = icmp samesign ugt i64 %14, 1023
+  br i1 %18, label %19, label %AppendJumble.exit13
 
-.lr.ph.i7:                                        ; preds = %22, %AppendJumble.exit
-  %.026.i8 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i9 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i10 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %19, label %20, label %22
+19:                                               ; preds = %.lr.ph.i7
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %20, ptr %17, align 1
+  br label %AppendJumble.exit13
 
-20:                                               ; preds = %.lr.ph.i7
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %20 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %23 = sub nuw nsw i64 1024, %.1.i11
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i11
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
-  %28 = sub i64 %.02125.i9, %24
-  %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
-
-AppendJumble.exit13:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
+AppendJumble.exit13:                              ; preds = %.lr.ph.i7, %19
+  %.1.i11 = phi i64 [ 8, %19 ], [ %14, %.lr.ph.i7 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i11
+  %23 = load i8, ptr %21, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = add nuw nsw i64 %.1.i11, 1
+  store i64 %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
   ret void
 }
 
@@ -2944,43 +2897,30 @@ define internal fastcc void @_jumbleScalarArrayOpExpr(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i7, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i7:                                        ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i7
+  %17 = load ptr, ptr %0, align 8
+  %18 = icmp samesign ugt i64 %14, 1023
+  br i1 %18, label %19, label %AppendJumble.exit13
 
-.lr.ph.i7:                                        ; preds = %22, %AppendJumble.exit
-  %.026.i8 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i9 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i10 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %19, label %20, label %22
+19:                                               ; preds = %.lr.ph.i7
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %20, ptr %17, align 1
+  br label %AppendJumble.exit13
 
-20:                                               ; preds = %.lr.ph.i7
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %20 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %23 = sub nuw nsw i64 1024, %.1.i11
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i11
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
-  %28 = sub i64 %.02125.i9, %24
-  %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
-
-AppendJumble.exit13:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load ptr, ptr %29, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
+AppendJumble.exit13:                              ; preds = %.lr.ph.i7, %19
+  %.1.i11 = phi i64 [ 8, %19 ], [ %14, %.lr.ph.i7 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i11
+  %23 = load i8, ptr %21, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = add nuw nsw i64 %.1.i11, 1
+  store i64 %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = load ptr, ptr %25, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
   ret void
 }
 
@@ -3593,9 +3533,9 @@ define internal fastcc void @_jumbleXmlExpr(ptr noundef %0, ptr noundef nonnull 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i9:                                        ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
@@ -3603,37 +3543,24 @@ AppendJumble.exit:                                ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %22 = load ptr, ptr %0, align 8
-  %23 = load i64, ptr %5, align 8
-  br label %.lr.ph.i9
+  %21 = load ptr, ptr %0, align 8
+  %22 = load i64, ptr %5, align 8
+  %23 = icmp ugt i64 %22, 1023
+  br i1 %23, label %24, label %AppendJumble.exit15
 
-.lr.ph.i9:                                        ; preds = %27, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %32, %27 ], [ %21, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %33, %27 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %31, %27 ], [ %23, %AppendJumble.exit ]
-  %24 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %24, label %25, label %27
+24:                                               ; preds = %.lr.ph.i9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %25, ptr %21, align 1
+  br label %AppendJumble.exit15
 
-25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %26, ptr %22, align 1
-  br label %27
-
-27:                                               ; preds = %25, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %25 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %28 = sub nuw nsw i64 1024, %.1.i13
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i13
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
-  %33 = sub i64 %.02125.i11, %29
-  %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit15:                              ; preds = %27
-  store i64 %31, ptr %5, align 8
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %24
+  %.1.i13 = phi i64 [ 8, %24 ], [ %22, %.lr.ph.i9 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i13
+  %28 = load i8, ptr %26, align 1
+  store i8 %28, ptr %27, align 1
+  %29 = add nuw nsw i64 %.1.i13, 1
+  store i64 %29, ptr %5, align 8
   ret void
 }
 
@@ -3818,9 +3745,9 @@ define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr noun
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i15, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i15:                                       ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -3837,64 +3764,43 @@ AppendJumble.exit:                                ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %0, align 8
   %27 = load i64, ptr %5, align 8
-  br label %.lr.ph.i15
+  %28 = icmp ugt i64 %27, 1023
+  br i1 %28, label %.lr.ph.i22.thread, label %.lr.ph.i22
 
-.lr.ph.i15:                                       ; preds = %31, %AppendJumble.exit
-  %.026.i16 = phi ptr [ %36, %31 ], [ %25, %AppendJumble.exit ]
-  %.02125.i17 = phi i64 [ %37, %31 ], [ 1, %AppendJumble.exit ]
-  %.02224.i18 = phi i64 [ %35, %31 ], [ %27, %AppendJumble.exit ]
-  %28 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %28, label %29, label %31
+.lr.ph.i22.thread:                                ; preds = %.lr.ph.i15
+  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %29, ptr %26, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %31 = load i8, ptr %25, align 1
+  store i8 %31, ptr %30, align 1
+  store i64 9, ptr %5, align 8
+  %32 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit28
 
-29:                                               ; preds = %.lr.ph.i15
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %30, ptr %26, align 1
-  br label %31
-
-31:                                               ; preds = %29, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %29 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %32 = sub nuw nsw i64 1024, %.1.i19
-  %33 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %32)
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %33, i1 false)
-  %35 = add nuw nsw i64 %33, %.1.i19
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %33
-  %37 = sub i64 %.02125.i17, %33
-  %.not.i20 = icmp eq i64 %37, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
-
-AppendJumble.exit21:                              ; preds = %31
+.lr.ph.i22:                                       ; preds = %.lr.ph.i15
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %34 = load i8, ptr %25, align 1
+  store i8 %34, ptr %33, align 1
+  %35 = add nuw nsw i64 %27, 1
   store i64 %35, ptr %5, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %39 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i22
+  %36 = load ptr, ptr %0, align 8
+  %37 = icmp eq i64 %27, 1023
+  br i1 %37, label %38, label %AppendJumble.exit28
 
-.lr.ph.i22:                                       ; preds = %43, %AppendJumble.exit21
-  %.026.i23 = phi ptr [ %48, %43 ], [ %38, %AppendJumble.exit21 ]
-  %.02125.i24 = phi i64 [ %49, %43 ], [ 1, %AppendJumble.exit21 ]
-  %.02224.i25 = phi i64 [ %47, %43 ], [ %35, %AppendJumble.exit21 ]
-  %40 = icmp ugt i64 %.02224.i25, 1023
-  br i1 %40, label %41, label %43
+38:                                               ; preds = %.lr.ph.i22
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %39, ptr %36, align 1
+  br label %AppendJumble.exit28
 
-41:                                               ; preds = %.lr.ph.i22
-  %42 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %42, ptr %39, align 1
-  br label %43
-
-43:                                               ; preds = %41, %.lr.ph.i22
-  %.1.i26 = phi i64 [ 8, %41 ], [ %.02224.i25, %.lr.ph.i22 ]
-  %44 = sub nuw nsw i64 1024, %.1.i26
-  %45 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %44)
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 %.1.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %45, i1 false)
-  %47 = add nuw nsw i64 %45, %.1.i26
-  %48 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %45
-  %49 = sub i64 %.02125.i24, %45
-  %.not.i27 = icmp eq i64 %49, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
-
-AppendJumble.exit28:                              ; preds = %43
-  store i64 %47, ptr %5, align 8
+AppendJumble.exit28:                              ; preds = %.lr.ph.i22, %38, %.lr.ph.i22.thread
+  %40 = phi ptr [ %36, %38 ], [ %36, %.lr.ph.i22 ], [ %32, %.lr.ph.i22.thread ]
+  %.1.i26 = phi i64 [ 8, %38 ], [ %35, %.lr.ph.i22 ], [ 9, %.lr.ph.i22.thread ]
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %.1.i26
+  %43 = load i8, ptr %41, align 1
+  store i8 %43, ptr %42, align 1
+  %44 = add nuw nsw i64 %.1.i26, 1
+  store i64 %44, ptr %5, align 8
   ret void
 }
 
@@ -3934,40 +3840,27 @@ define internal fastcc void @_jumbleJsonIsPredicate(ptr noundef %0, ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %14
+.lr.ph.i9:                                        ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %22 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i9
+  %21 = load ptr, ptr %0, align 8
+  %22 = icmp samesign ugt i64 %18, 1023
+  br i1 %22, label %23, label %AppendJumble.exit15
 
-.lr.ph.i9:                                        ; preds = %26, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %31, %26 ], [ %21, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %32, %26 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %30, %26 ], [ %18, %AppendJumble.exit ]
-  %23 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %23, label %24, label %26
+23:                                               ; preds = %.lr.ph.i9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %24, ptr %21, align 1
+  br label %AppendJumble.exit15
 
-24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
-
-26:                                               ; preds = %24, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %24 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %27 = sub nuw nsw i64 1024, %.1.i13
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i13
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
-  %32 = sub i64 %.02125.i11, %28
-  %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit15:                              ; preds = %26
-  store i64 %30, ptr %9, align 8
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %23
+  %.1.i13 = phi i64 [ 8, %23 ], [ %18, %.lr.ph.i9 ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i13
+  %27 = load i8, ptr %25, align 1
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %.1.i13, 1
+  store i64 %28, ptr %9, align 8
   ret void
 }
 
@@ -4001,44 +3894,31 @@ define internal fastcc void @_jumbleJsonBehavior(ptr noundef %0, ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i7, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i7:                                        ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %0, align 8
-  %21 = load i64, ptr %5, align 8
-  br label %.lr.ph.i7
+  %19 = load ptr, ptr %0, align 8
+  %20 = load i64, ptr %5, align 8
+  %21 = icmp ugt i64 %20, 1023
+  br i1 %21, label %22, label %AppendJumble.exit13
 
-.lr.ph.i7:                                        ; preds = %25, %AppendJumble.exit
-  %.026.i8 = phi ptr [ %30, %25 ], [ %19, %AppendJumble.exit ]
-  %.02125.i9 = phi i64 [ %31, %25 ], [ 1, %AppendJumble.exit ]
-  %.02224.i10 = phi i64 [ %29, %25 ], [ %21, %AppendJumble.exit ]
-  %22 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %22, label %23, label %25
+22:                                               ; preds = %.lr.ph.i7
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %23, ptr %19, align 1
+  br label %AppendJumble.exit13
 
-23:                                               ; preds = %.lr.ph.i7
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %24, ptr %20, align 1
-  br label %25
-
-25:                                               ; preds = %23, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %23 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %26 = sub nuw nsw i64 1024, %.1.i11
-  %27 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %26)
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %27, i1 false)
-  %29 = add nuw nsw i64 %27, %.1.i11
-  %30 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %27
-  %31 = sub i64 %.02125.i9, %27
-  %.not.i12 = icmp eq i64 %31, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
-
-AppendJumble.exit13:                              ; preds = %25
-  store i64 %29, ptr %5, align 8
+AppendJumble.exit13:                              ; preds = %.lr.ph.i7, %22
+  %.1.i11 = phi i64 [ 8, %22 ], [ %20, %.lr.ph.i7 ]
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 %.1.i11
+  %26 = load i8, ptr %24, align 1
+  store i8 %26, ptr %25, align 1
+  %27 = add nuw nsw i64 %.1.i11, 1
+  store i64 %27, ptr %5, align 8
   ret void
 }
 
@@ -4079,7 +3959,7 @@ AppendJumble.exit:                                ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %33, label %19
+  br i1 %.not, label %.lr.ph.i40, label %19
 
 19:                                               ; preds = %AppendJumble.exit
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
@@ -4115,184 +3995,150 @@ AppendJumble.exit:                                ; preds = %10
 AppendJumble.exit39:                              ; preds = %26, %19
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
   store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %33
-
-33:                                               ; preds = %AppendJumble.exit39, %AppendJumble.exit
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load ptr, ptr %36, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %37)
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %39 = load ptr, ptr %38, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %39)
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %41 = load ptr, ptr %40, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %41)
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %43 = load ptr, ptr %42, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %43)
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %45 = load ptr, ptr %44, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %45)
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %47 = load ptr, ptr %46, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %47)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %49 = load ptr, ptr %48, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %49)
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %51 = load ptr, ptr %0, align 8
-  %52 = load i64, ptr %5, align 8
   br label %.lr.ph.i40
 
-.lr.ph.i40:                                       ; preds = %56, %33
-  %.026.i41 = phi ptr [ %61, %56 ], [ %50, %33 ]
-  %.02125.i42 = phi i64 [ %62, %56 ], [ 1, %33 ]
-  %.02224.i43 = phi i64 [ %60, %56 ], [ %52, %33 ]
-  %53 = icmp ugt i64 %.02224.i43, 1023
-  br i1 %53, label %54, label %56
+.lr.ph.i40:                                       ; preds = %AppendJumble.exit, %AppendJumble.exit39
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load ptr, ptr %33, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %36 = load ptr, ptr %35, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %38 = load ptr, ptr %37, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %40 = load ptr, ptr %39, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %40)
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %42 = load ptr, ptr %41, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %42)
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %44 = load ptr, ptr %43, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %46 = load ptr, ptr %45, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %46)
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %48 = load ptr, ptr %47, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %48)
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %50 = load ptr, ptr %0, align 8
+  %51 = load i64, ptr %5, align 8
+  %52 = icmp ugt i64 %51, 1023
+  br i1 %52, label %.lr.ph.i48.thread, label %.lr.ph.i48
 
-54:                                               ; preds = %.lr.ph.i40
-  %55 = tail call i64 @hash_bytes_extended(ptr noundef %51, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %55, ptr %51, align 1
-  br label %56
+.lr.ph.i48.thread:                                ; preds = %.lr.ph.i40
+  %53 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %53, ptr %50, align 1
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %55 = load i8, ptr %49, align 1
+  store i8 %55, ptr %54, align 1
+  store i64 9, ptr %5, align 8
+  %56 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit55
 
-56:                                               ; preds = %54, %.lr.ph.i40
-  %.1.i44 = phi i64 [ 8, %54 ], [ %.02224.i43, %.lr.ph.i40 ]
-  %57 = sub nuw nsw i64 1024, %.1.i44
-  %58 = tail call i64 @llvm.umin.i64(i64 %.02125.i42, i64 %57)
-  %59 = getelementptr inbounds nuw i8, ptr %51, i64 %.1.i44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %59, ptr noundef nonnull align 1 dereferenceable(1) %.026.i41, i64 %58, i1 false)
-  %60 = add nuw nsw i64 %58, %.1.i44
-  %61 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %58
-  %62 = sub i64 %.02125.i42, %58
-  %.not.i45 = icmp eq i64 %62, 0
-  br i1 %.not.i45, label %AppendJumble.exit47, label %.lr.ph.i40, !llvm.loop !7
+.lr.ph.i48:                                       ; preds = %.lr.ph.i40
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 %51
+  %58 = load i8, ptr %49, align 1
+  store i8 %58, ptr %57, align 1
+  %59 = add nuw nsw i64 %51, 1
+  store i64 %59, ptr %5, align 8
+  %60 = load ptr, ptr %0, align 8
+  %61 = icmp eq i64 %51, 1023
+  br i1 %61, label %62, label %AppendJumble.exit55
 
-AppendJumble.exit47:                              ; preds = %56
-  store i64 %60, ptr %5, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 81
-  %64 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i48
+62:                                               ; preds = %.lr.ph.i48
+  %63 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %63, ptr %60, align 1
+  br label %AppendJumble.exit55
 
-.lr.ph.i48:                                       ; preds = %68, %AppendJumble.exit47
-  %.026.i49 = phi ptr [ %73, %68 ], [ %63, %AppendJumble.exit47 ]
-  %.02125.i50 = phi i64 [ %74, %68 ], [ 1, %AppendJumble.exit47 ]
-  %.02224.i51 = phi i64 [ %72, %68 ], [ %60, %AppendJumble.exit47 ]
-  %65 = icmp ugt i64 %.02224.i51, 1023
-  br i1 %65, label %66, label %68
-
-66:                                               ; preds = %.lr.ph.i48
-  %67 = tail call i64 @hash_bytes_extended(ptr noundef %64, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %67, ptr %64, align 1
-  br label %68
-
-68:                                               ; preds = %66, %.lr.ph.i48
-  %.1.i52 = phi i64 [ 8, %66 ], [ %.02224.i51, %.lr.ph.i48 ]
-  %69 = sub nuw nsw i64 1024, %.1.i52
-  %70 = tail call i64 @llvm.umin.i64(i64 %.02125.i50, i64 %69)
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 %.1.i52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %.026.i49, i64 %70, i1 false)
-  %72 = add nuw nsw i64 %70, %.1.i52
-  %73 = getelementptr inbounds nuw i8, ptr %.026.i49, i64 %70
-  %74 = sub i64 %.02125.i50, %70
-  %.not.i53 = icmp eq i64 %74, 0
-  br i1 %.not.i53, label %AppendJumble.exit55, label %.lr.ph.i48, !llvm.loop !7
-
-AppendJumble.exit55:                              ; preds = %68
-  store i64 %72, ptr %5, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %76 = load ptr, ptr %0, align 8
+AppendJumble.exit55:                              ; preds = %.lr.ph.i48, %62, %.lr.ph.i48.thread
+  %64 = phi ptr [ %60, %62 ], [ %60, %.lr.ph.i48 ], [ %56, %.lr.ph.i48.thread ]
+  %.1.i52 = phi i64 [ 8, %62 ], [ %59, %.lr.ph.i48 ], [ 9, %.lr.ph.i48.thread ]
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 81
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %.1.i52
+  %67 = load i8, ptr %65, align 1
+  store i8 %67, ptr %66, align 1
+  %68 = add nuw nsw i64 %.1.i52, 1
+  store i64 %68, ptr %5, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %70 = load ptr, ptr %0, align 8
   br label %.lr.ph.i56
 
-.lr.ph.i56:                                       ; preds = %80, %AppendJumble.exit55
-  %.026.i57 = phi ptr [ %85, %80 ], [ %75, %AppendJumble.exit55 ]
-  %.02125.i58 = phi i64 [ %86, %80 ], [ 4, %AppendJumble.exit55 ]
-  %.02224.i59 = phi i64 [ %84, %80 ], [ %72, %AppendJumble.exit55 ]
-  %77 = icmp ugt i64 %.02224.i59, 1023
-  br i1 %77, label %78, label %80
+.lr.ph.i56:                                       ; preds = %74, %AppendJumble.exit55
+  %.026.i57 = phi ptr [ %79, %74 ], [ %69, %AppendJumble.exit55 ]
+  %.02125.i58 = phi i64 [ %80, %74 ], [ 4, %AppendJumble.exit55 ]
+  %.02224.i59 = phi i64 [ %78, %74 ], [ %68, %AppendJumble.exit55 ]
+  %71 = icmp ugt i64 %.02224.i59, 1023
+  br i1 %71, label %72, label %74
 
-78:                                               ; preds = %.lr.ph.i56
-  %79 = tail call i64 @hash_bytes_extended(ptr noundef %76, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %79, ptr %76, align 1
-  br label %80
+72:                                               ; preds = %.lr.ph.i56
+  %73 = tail call i64 @hash_bytes_extended(ptr noundef %70, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %73, ptr %70, align 1
+  br label %74
 
-80:                                               ; preds = %78, %.lr.ph.i56
-  %.1.i60 = phi i64 [ 8, %78 ], [ %.02224.i59, %.lr.ph.i56 ]
-  %81 = sub nuw nsw i64 1024, %.1.i60
-  %82 = tail call i64 @llvm.umin.i64(i64 %.02125.i58, i64 %81)
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 %.1.i60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef nonnull align 1 dereferenceable(1) %.026.i57, i64 %82, i1 false)
-  %84 = add nuw nsw i64 %82, %.1.i60
-  %85 = getelementptr inbounds nuw i8, ptr %.026.i57, i64 %82
-  %86 = sub i64 %.02125.i58, %82
-  %.not.i61 = icmp eq i64 %86, 0
-  br i1 %.not.i61, label %AppendJumble.exit63, label %.lr.ph.i56, !llvm.loop !7
+74:                                               ; preds = %72, %.lr.ph.i56
+  %.1.i60 = phi i64 [ 8, %72 ], [ %.02224.i59, %.lr.ph.i56 ]
+  %75 = sub nuw nsw i64 1024, %.1.i60
+  %76 = tail call i64 @llvm.umin.i64(i64 %.02125.i58, i64 %75)
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 %.1.i60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %77, ptr noundef nonnull align 1 dereferenceable(1) %.026.i57, i64 %76, i1 false)
+  %78 = add nuw nsw i64 %76, %.1.i60
+  %79 = getelementptr inbounds nuw i8, ptr %.026.i57, i64 %76
+  %80 = sub i64 %.02125.i58, %76
+  %.not.i61 = icmp eq i64 %80, 0
+  br i1 %.not.i61, label %.lr.ph.i64, label %.lr.ph.i56, !llvm.loop !7
 
-AppendJumble.exit63:                              ; preds = %80
-  store i64 %84, ptr %5, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %88 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i64
+.lr.ph.i64:                                       ; preds = %74
+  store i64 %78, ptr %5, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %82 = load ptr, ptr %0, align 8
+  %83 = icmp samesign ugt i64 %78, 1023
+  br i1 %83, label %84, label %AppendJumble.exit71
 
-.lr.ph.i64:                                       ; preds = %92, %AppendJumble.exit63
-  %.026.i65 = phi ptr [ %97, %92 ], [ %87, %AppendJumble.exit63 ]
-  %.02125.i66 = phi i64 [ %98, %92 ], [ 1, %AppendJumble.exit63 ]
-  %.02224.i67 = phi i64 [ %96, %92 ], [ %84, %AppendJumble.exit63 ]
-  %89 = icmp ugt i64 %.02224.i67, 1023
-  br i1 %89, label %90, label %92
+84:                                               ; preds = %.lr.ph.i64
+  %85 = tail call i64 @hash_bytes_extended(ptr noundef %82, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %85, ptr %82, align 1
+  br label %AppendJumble.exit71
 
-90:                                               ; preds = %.lr.ph.i64
-  %91 = tail call i64 @hash_bytes_extended(ptr noundef %88, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %91, ptr %88, align 1
-  br label %92
-
-92:                                               ; preds = %90, %.lr.ph.i64
-  %.1.i68 = phi i64 [ 8, %90 ], [ %.02224.i67, %.lr.ph.i64 ]
-  %93 = sub nuw nsw i64 1024, %.1.i68
-  %94 = tail call i64 @llvm.umin.i64(i64 %.02125.i66, i64 %93)
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 %.1.i68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %95, ptr noundef nonnull align 1 dereferenceable(1) %.026.i65, i64 %94, i1 false)
-  %96 = add nuw nsw i64 %94, %.1.i68
-  %97 = getelementptr inbounds nuw i8, ptr %.026.i65, i64 %94
-  %98 = sub i64 %.02125.i66, %94
-  %.not.i69 = icmp eq i64 %98, 0
-  br i1 %.not.i69, label %AppendJumble.exit71, label %.lr.ph.i64, !llvm.loop !7
-
-AppendJumble.exit71:                              ; preds = %92
-  store i64 %96, ptr %5, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %100 = load ptr, ptr %0, align 8
+AppendJumble.exit71:                              ; preds = %.lr.ph.i64, %84
+  %.1.i68 = phi i64 [ 8, %84 ], [ %78, %.lr.ph.i64 ]
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %.1.i68
+  %87 = load i8, ptr %81, align 1
+  store i8 %87, ptr %86, align 1
+  %88 = add nuw nsw i64 %.1.i68, 1
+  store i64 %88, ptr %5, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %90 = load ptr, ptr %0, align 8
   br label %.lr.ph.i72
 
-.lr.ph.i72:                                       ; preds = %104, %AppendJumble.exit71
-  %.026.i73 = phi ptr [ %109, %104 ], [ %99, %AppendJumble.exit71 ]
-  %.02125.i74 = phi i64 [ %110, %104 ], [ 4, %AppendJumble.exit71 ]
-  %.02224.i75 = phi i64 [ %108, %104 ], [ %96, %AppendJumble.exit71 ]
-  %101 = icmp ugt i64 %.02224.i75, 1023
-  br i1 %101, label %102, label %104
+.lr.ph.i72:                                       ; preds = %94, %AppendJumble.exit71
+  %.026.i73 = phi ptr [ %99, %94 ], [ %89, %AppendJumble.exit71 ]
+  %.02125.i74 = phi i64 [ %100, %94 ], [ 4, %AppendJumble.exit71 ]
+  %.02224.i75 = phi i64 [ %98, %94 ], [ %88, %AppendJumble.exit71 ]
+  %91 = icmp ugt i64 %.02224.i75, 1023
+  br i1 %91, label %92, label %94
 
-102:                                              ; preds = %.lr.ph.i72
-  %103 = tail call i64 @hash_bytes_extended(ptr noundef %100, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %103, ptr %100, align 1
-  br label %104
+92:                                               ; preds = %.lr.ph.i72
+  %93 = tail call i64 @hash_bytes_extended(ptr noundef %90, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %93, ptr %90, align 1
+  br label %94
 
-104:                                              ; preds = %102, %.lr.ph.i72
-  %.1.i76 = phi i64 [ 8, %102 ], [ %.02224.i75, %.lr.ph.i72 ]
-  %105 = sub nuw nsw i64 1024, %.1.i76
-  %106 = tail call i64 @llvm.umin.i64(i64 %.02125.i74, i64 %105)
-  %107 = getelementptr inbounds nuw i8, ptr %100, i64 %.1.i76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %107, ptr noundef nonnull align 1 dereferenceable(1) %.026.i73, i64 %106, i1 false)
-  %108 = add nuw nsw i64 %106, %.1.i76
-  %109 = getelementptr inbounds nuw i8, ptr %.026.i73, i64 %106
-  %110 = sub i64 %.02125.i74, %106
-  %.not.i77 = icmp eq i64 %110, 0
+94:                                               ; preds = %92, %.lr.ph.i72
+  %.1.i76 = phi i64 [ 8, %92 ], [ %.02224.i75, %.lr.ph.i72 ]
+  %95 = sub nuw nsw i64 1024, %.1.i76
+  %96 = tail call i64 @llvm.umin.i64(i64 %.02125.i74, i64 %95)
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 %.1.i76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %97, ptr noundef nonnull align 1 dereferenceable(1) %.026.i73, i64 %96, i1 false)
+  %98 = add nuw nsw i64 %96, %.1.i76
+  %99 = getelementptr inbounds nuw i8, ptr %.026.i73, i64 %96
+  %100 = sub i64 %.02125.i74, %96
+  %.not.i77 = icmp eq i64 %100, 0
   br i1 %.not.i77, label %AppendJumble.exit79, label %.lr.ph.i72, !llvm.loop !7
 
-AppendJumble.exit79:                              ; preds = %104
-  store i64 %108, ptr %5, align 8
+AppendJumble.exit79:                              ; preds = %94
+  store i64 %98, ptr %5, align 8
   ret void
 }
 
@@ -4350,105 +4196,93 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonTablePathScan(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp ugt i64 %7, 1023
+  br i1 %8, label %9, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %12, %2
-  %.026.i = phi ptr [ %17, %12 ], [ %5, %2 ]
-  %.02125.i = phi i64 [ %18, %12 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %16, %12 ], [ %8, %2 ]
-  %9 = icmp ugt i64 %.02224.i, 1023
-  br i1 %9, label %10, label %12
+9:                                                ; preds = %.lr.ph.i
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %10, ptr %5, align 1
+  br label %AppendJumble.exit
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %11, ptr %6, align 1
-  br label %12
-
-12:                                               ; preds = %10, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %10 ], [ %.02224.i, %.lr.ph.i ]
-  %13 = sub nuw nsw i64 1024, %.1.i
-  %14 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %13)
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %14, i1 false)
-  %16 = add nuw nsw i64 %14, %.1.i
-  %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
-  %18 = sub i64 %.02125.i, %14
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %12
-  store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load ptr, ptr %19, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %22 = load ptr, ptr %0, align 8
-  %23 = load i64, ptr %7, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
+  %.1.i = phi i64 [ 8, %9 ], [ %7, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i
+  %12 = load i8, ptr %4, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %.1.i, 1
+  store i64 %13, ptr %6, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load ptr, ptr %14, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %15)
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %17 = load ptr, ptr %0, align 8
+  %18 = load i64, ptr %6, align 8
   br label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %27, %AppendJumble.exit
-  %.026.i12 = phi ptr [ %32, %27 ], [ %21, %AppendJumble.exit ]
-  %.02125.i13 = phi i64 [ %33, %27 ], [ 4, %AppendJumble.exit ]
-  %.02224.i14 = phi i64 [ %31, %27 ], [ %23, %AppendJumble.exit ]
-  %24 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %24, label %25, label %27
+.lr.ph.i11:                                       ; preds = %22, %AppendJumble.exit
+  %.026.i12 = phi ptr [ %27, %22 ], [ %16, %AppendJumble.exit ]
+  %.02125.i13 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
+  %.02224.i14 = phi i64 [ %26, %22 ], [ %18, %AppendJumble.exit ]
+  %19 = icmp ugt i64 %.02224.i14, 1023
+  br i1 %19, label %20, label %22
 
-25:                                               ; preds = %.lr.ph.i11
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %26, ptr %22, align 1
-  br label %27
+20:                                               ; preds = %.lr.ph.i11
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %21, ptr %17, align 1
+  br label %22
 
-27:                                               ; preds = %25, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %25 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %28 = sub nuw nsw i64 1024, %.1.i15
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i15
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %29
-  %33 = sub i64 %.02125.i13, %29
-  %.not.i16 = icmp eq i64 %33, 0
+22:                                               ; preds = %20, %.lr.ph.i11
+  %.1.i15 = phi i64 [ 8, %20 ], [ %.02224.i14, %.lr.ph.i11 ]
+  %23 = sub nuw nsw i64 1024, %.1.i15
+  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %23)
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %24, i1 false)
+  %26 = add nuw nsw i64 %24, %.1.i15
+  %27 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %24
+  %28 = sub i64 %.02125.i13, %24
+  %.not.i16 = icmp eq i64 %28, 0
   br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
 
-AppendJumble.exit17:                              ; preds = %27
-  store i64 %31, ptr %7, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %35 = load ptr, ptr %0, align 8
+AppendJumble.exit17:                              ; preds = %22
+  store i64 %26, ptr %6, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i18
 
-.lr.ph.i18:                                       ; preds = %39, %AppendJumble.exit17
-  %.026.i19 = phi ptr [ %44, %39 ], [ %34, %AppendJumble.exit17 ]
-  %.02125.i20 = phi i64 [ %45, %39 ], [ 4, %AppendJumble.exit17 ]
-  %.02224.i21 = phi i64 [ %43, %39 ], [ %31, %AppendJumble.exit17 ]
-  %36 = icmp ugt i64 %.02224.i21, 1023
-  br i1 %36, label %37, label %39
+.lr.ph.i18:                                       ; preds = %34, %AppendJumble.exit17
+  %.026.i19 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit17 ]
+  %.02125.i20 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit17 ]
+  %.02224.i21 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit17 ]
+  %31 = icmp ugt i64 %.02224.i21, 1023
+  br i1 %31, label %32, label %34
 
-37:                                               ; preds = %.lr.ph.i18
-  %38 = tail call i64 @hash_bytes_extended(ptr noundef %35, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %38, ptr %35, align 1
-  br label %39
+32:                                               ; preds = %.lr.ph.i18
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %33, ptr %30, align 1
+  br label %34
 
-39:                                               ; preds = %37, %.lr.ph.i18
-  %.1.i22 = phi i64 [ 8, %37 ], [ %.02224.i21, %.lr.ph.i18 ]
-  %40 = sub nuw nsw i64 1024, %.1.i22
-  %41 = tail call i64 @llvm.umin.i64(i64 %.02125.i20, i64 %40)
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 %.1.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %.026.i19, i64 %41, i1 false)
-  %43 = add nuw nsw i64 %41, %.1.i22
-  %44 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %41
-  %45 = sub i64 %.02125.i20, %41
-  %.not.i23 = icmp eq i64 %45, 0
+34:                                               ; preds = %32, %.lr.ph.i18
+  %.1.i22 = phi i64 [ 8, %32 ], [ %.02224.i21, %.lr.ph.i18 ]
+  %35 = sub nuw nsw i64 1024, %.1.i22
+  %36 = tail call i64 @llvm.umin.i64(i64 %.02125.i20, i64 %35)
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %.026.i19, i64 %36, i1 false)
+  %38 = add nuw nsw i64 %36, %.1.i22
+  %39 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %36
+  %40 = sub i64 %.02125.i20, %36
+  %.not.i23 = icmp eq i64 %40, 0
   br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
 
-AppendJumble.exit24:                              ; preds = %39
-  store i64 %43, ptr %7, align 8
+AppendJumble.exit24:                              ; preds = %34
+  store i64 %38, ptr %6, align 8
   ret void
 }
 
@@ -5012,43 +4846,30 @@ define internal fastcc void @_jumbleReturningExpr(ptr noundef %0, ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i7, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i7:                                        ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i7
+  %17 = load ptr, ptr %0, align 8
+  %18 = icmp samesign ugt i64 %14, 1023
+  br i1 %18, label %19, label %AppendJumble.exit13
 
-.lr.ph.i7:                                        ; preds = %22, %AppendJumble.exit
-  %.026.i8 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i9 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i10 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %19, label %20, label %22
+19:                                               ; preds = %.lr.ph.i7
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %20, ptr %17, align 1
+  br label %AppendJumble.exit13
 
-20:                                               ; preds = %.lr.ph.i7
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %20 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %23 = sub nuw nsw i64 1024, %.1.i11
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i11
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
-  %28 = sub i64 %.02125.i9, %24
-  %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
-
-AppendJumble.exit13:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
+AppendJumble.exit13:                              ; preds = %.lr.ph.i7, %19
+  %.1.i11 = phi i64 [ 8, %19 ], [ %14, %.lr.ph.i7 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i11
+  %23 = load i8, ptr %21, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = add nuw nsw i64 %.1.i11, 1
+  store i64 %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
   ret void
 }
 
@@ -5189,80 +5010,67 @@ define internal fastcc void @_jumbleJoinExpr(ptr noundef %0, ptr noundef nonnull
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i13, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i13:                                       ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i13
-
-.lr.ph.i13:                                       ; preds = %22, %AppendJumble.exit
-  %.026.i14 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i15 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i16 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i16, 1023
-  br i1 %19, label %20, label %22
+  %19 = icmp samesign ugt i64 %14, 1023
+  br i1 %19, label %20, label %AppendJumble.exit19
 
 20:                                               ; preds = %.lr.ph.i13
   %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
   store i64 %21, ptr %18, align 1
-  br label %22
+  br label %AppendJumble.exit19
 
-22:                                               ; preds = %20, %.lr.ph.i13
-  %.1.i17 = phi i64 [ 8, %20 ], [ %.02224.i16, %.lr.ph.i13 ]
-  %23 = sub nuw nsw i64 1024, %.1.i17
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i17
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %24
-  %28 = sub i64 %.02125.i15, %24
-  %.not.i18 = icmp eq i64 %28, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
-
-AppendJumble.exit19:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
+AppendJumble.exit19:                              ; preds = %.lr.ph.i13, %20
+  %.1.i17 = phi i64 [ 8, %20 ], [ %14, %.lr.ph.i13 ]
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i17
+  %23 = load i8, ptr %17, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = add nuw nsw i64 %.1.i17, 1
+  store i64 %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = load ptr, ptr %27, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %28)
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load ptr, ptr %31, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %36 = load ptr, ptr %0, align 8
-  %37 = load i64, ptr %5, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %32 = load ptr, ptr %0, align 8
+  %33 = load i64, ptr %5, align 8
   br label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %41, %AppendJumble.exit19
-  %.026.i21 = phi ptr [ %46, %41 ], [ %35, %AppendJumble.exit19 ]
-  %.02125.i22 = phi i64 [ %47, %41 ], [ 4, %AppendJumble.exit19 ]
-  %.02224.i23 = phi i64 [ %45, %41 ], [ %37, %AppendJumble.exit19 ]
-  %38 = icmp ugt i64 %.02224.i23, 1023
-  br i1 %38, label %39, label %41
+.lr.ph.i20:                                       ; preds = %37, %AppendJumble.exit19
+  %.026.i21 = phi ptr [ %42, %37 ], [ %31, %AppendJumble.exit19 ]
+  %.02125.i22 = phi i64 [ %43, %37 ], [ 4, %AppendJumble.exit19 ]
+  %.02224.i23 = phi i64 [ %41, %37 ], [ %33, %AppendJumble.exit19 ]
+  %34 = icmp ugt i64 %.02224.i23, 1023
+  br i1 %34, label %35, label %37
 
-39:                                               ; preds = %.lr.ph.i20
-  %40 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %40, ptr %36, align 1
-  br label %41
+35:                                               ; preds = %.lr.ph.i20
+  %36 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %36, ptr %32, align 1
+  br label %37
 
-41:                                               ; preds = %39, %.lr.ph.i20
-  %.1.i24 = phi i64 [ 8, %39 ], [ %.02224.i23, %.lr.ph.i20 ]
-  %42 = sub nuw nsw i64 1024, %.1.i24
-  %43 = tail call i64 @llvm.umin.i64(i64 %.02125.i22, i64 %42)
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %.1.i24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %.026.i21, i64 %43, i1 false)
-  %45 = add nuw nsw i64 %43, %.1.i24
-  %46 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 %43
-  %47 = sub i64 %.02125.i22, %43
-  %.not.i25 = icmp eq i64 %47, 0
+37:                                               ; preds = %35, %.lr.ph.i20
+  %.1.i24 = phi i64 [ 8, %35 ], [ %.02224.i23, %.lr.ph.i20 ]
+  %38 = sub nuw nsw i64 1024, %.1.i24
+  %39 = tail call i64 @llvm.umin.i64(i64 %.02125.i22, i64 %38)
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 %.1.i24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 1 dereferenceable(1) %.026.i21, i64 %39, i1 false)
+  %41 = add nuw nsw i64 %39, %.1.i24
+  %42 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 %39
+  %43 = sub i64 %.02125.i22, %39
+  %.not.i25 = icmp eq i64 %43, 0
   br i1 %.not.i25, label %AppendJumble.exit26, label %.lr.ph.i20, !llvm.loop !7
 
-AppendJumble.exit26:                              ; preds = %41
-  store i64 %45, ptr %5, align 8
+AppendJumble.exit26:                              ; preds = %37
+  store i64 %41, ptr %5, align 8
   ret void
 }
 
@@ -5421,9 +5229,9 @@ define internal fastcc void @_jumbleQuery(ptr noundef %0, ptr noundef nonnull re
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i45, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i45:                                       ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
@@ -5458,92 +5266,79 @@ AppendJumble.exit:                                ; preds = %10
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %38 = load ptr, ptr %0, align 8
   %39 = load i64, ptr %5, align 8
-  br label %.lr.ph.i45
-
-.lr.ph.i45:                                       ; preds = %43, %AppendJumble.exit
-  %.026.i46 = phi ptr [ %48, %43 ], [ %37, %AppendJumble.exit ]
-  %.02125.i47 = phi i64 [ %49, %43 ], [ 1, %AppendJumble.exit ]
-  %.02224.i48 = phi i64 [ %47, %43 ], [ %39, %AppendJumble.exit ]
-  %40 = icmp ugt i64 %.02224.i48, 1023
-  br i1 %40, label %41, label %43
+  %40 = icmp ugt i64 %39, 1023
+  br i1 %40, label %41, label %AppendJumble.exit51
 
 41:                                               ; preds = %.lr.ph.i45
   %42 = tail call i64 @hash_bytes_extended(ptr noundef %38, i32 noundef 1024, i64 noundef 0) #9
   store i64 %42, ptr %38, align 1
-  br label %43
+  br label %AppendJumble.exit51
 
-43:                                               ; preds = %41, %.lr.ph.i45
-  %.1.i49 = phi i64 [ 8, %41 ], [ %.02224.i48, %.lr.ph.i45 ]
-  %44 = sub nuw nsw i64 1024, %.1.i49
-  %45 = tail call i64 @llvm.umin.i64(i64 %.02125.i47, i64 %44)
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 %.1.i49
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %.026.i46, i64 %45, i1 false)
-  %47 = add nuw nsw i64 %45, %.1.i49
-  %48 = getelementptr inbounds nuw i8, ptr %.026.i46, i64 %45
-  %49 = sub i64 %.02125.i47, %45
-  %.not.i50 = icmp eq i64 %49, 0
-  br i1 %.not.i50, label %AppendJumble.exit51, label %.lr.ph.i45, !llvm.loop !7
-
-AppendJumble.exit51:                              ; preds = %43
-  store i64 %47, ptr %5, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 176
+AppendJumble.exit51:                              ; preds = %.lr.ph.i45, %41
+  %.1.i49 = phi i64 [ 8, %41 ], [ %39, %.lr.ph.i45 ]
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %.1.i49
+  %44 = load i8, ptr %37, align 1
+  store i8 %44, ptr %43, align 1
+  %45 = add nuw nsw i64 %.1.i49, 1
+  store i64 %45, ptr %5, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %47 = load ptr, ptr %46, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %47)
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %49 = load ptr, ptr %48, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %49)
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %51 = load ptr, ptr %50, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %51)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %55 = load ptr, ptr %54, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %55)
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %57 = load ptr, ptr %56, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %57)
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %59 = load ptr, ptr %58, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %59)
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %61 = load ptr, ptr %60, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %61)
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %63 = load ptr, ptr %62, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %63)
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %65 = load ptr, ptr %0, align 8
-  %66 = load i64, ptr %5, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %61 = load ptr, ptr %0, align 8
+  %62 = load i64, ptr %5, align 8
   br label %.lr.ph.i52
 
-.lr.ph.i52:                                       ; preds = %70, %AppendJumble.exit51
-  %.026.i53 = phi ptr [ %75, %70 ], [ %64, %AppendJumble.exit51 ]
-  %.02125.i54 = phi i64 [ %76, %70 ], [ 4, %AppendJumble.exit51 ]
-  %.02224.i55 = phi i64 [ %74, %70 ], [ %66, %AppendJumble.exit51 ]
-  %67 = icmp ugt i64 %.02224.i55, 1023
-  br i1 %67, label %68, label %70
+.lr.ph.i52:                                       ; preds = %66, %AppendJumble.exit51
+  %.026.i53 = phi ptr [ %71, %66 ], [ %60, %AppendJumble.exit51 ]
+  %.02125.i54 = phi i64 [ %72, %66 ], [ 4, %AppendJumble.exit51 ]
+  %.02224.i55 = phi i64 [ %70, %66 ], [ %62, %AppendJumble.exit51 ]
+  %63 = icmp ugt i64 %.02224.i55, 1023
+  br i1 %63, label %64, label %66
 
-68:                                               ; preds = %.lr.ph.i52
-  %69 = tail call i64 @hash_bytes_extended(ptr noundef %65, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %69, ptr %65, align 1
-  br label %70
+64:                                               ; preds = %.lr.ph.i52
+  %65 = tail call i64 @hash_bytes_extended(ptr noundef %61, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %65, ptr %61, align 1
+  br label %66
 
-70:                                               ; preds = %68, %.lr.ph.i52
-  %.1.i56 = phi i64 [ 8, %68 ], [ %.02224.i55, %.lr.ph.i52 ]
-  %71 = sub nuw nsw i64 1024, %.1.i56
-  %72 = tail call i64 @llvm.umin.i64(i64 %.02125.i54, i64 %71)
-  %73 = getelementptr inbounds nuw i8, ptr %65, i64 %.1.i56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 1 dereferenceable(1) %.026.i53, i64 %72, i1 false)
-  %74 = add nuw nsw i64 %72, %.1.i56
-  %75 = getelementptr inbounds nuw i8, ptr %.026.i53, i64 %72
-  %76 = sub i64 %.02125.i54, %72
-  %.not.i57 = icmp eq i64 %76, 0
+66:                                               ; preds = %64, %.lr.ph.i52
+  %.1.i56 = phi i64 [ 8, %64 ], [ %.02224.i55, %.lr.ph.i52 ]
+  %67 = sub nuw nsw i64 1024, %.1.i56
+  %68 = tail call i64 @llvm.umin.i64(i64 %.02125.i54, i64 %67)
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 %.1.i56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull align 1 dereferenceable(1) %.026.i53, i64 %68, i1 false)
+  %70 = add nuw nsw i64 %68, %.1.i56
+  %71 = getelementptr inbounds nuw i8, ptr %.026.i53, i64 %68
+  %72 = sub i64 %.02125.i54, %68
+  %.not.i57 = icmp eq i64 %72, 0
   br i1 %.not.i57, label %AppendJumble.exit58, label %.lr.ph.i52, !llvm.loop !7
 
-AppendJumble.exit58:                              ; preds = %70
-  store i64 %74, ptr %5, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %78 = load ptr, ptr %77, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %78)
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %80 = load ptr, ptr %79, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %80)
+AppendJumble.exit58:                              ; preds = %66
+  store i64 %70, ptr %5, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %74 = load ptr, ptr %73, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %74)
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %76 = load ptr, ptr %75, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %76)
   ret void
 }
 
@@ -5580,107 +5375,86 @@ define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr noundef nonnull
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i15, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %12
+.lr.ph.i15:                                       ; preds = %12
   store i64 %16, ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i15
+  %21 = icmp samesign ugt i64 %16, 1023
+  br i1 %21, label %.lr.ph.i22.thread, label %.lr.ph.i22
 
-.lr.ph.i15:                                       ; preds = %24, %AppendJumble.exit
-  %.026.i16 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
-  %.02125.i17 = phi i64 [ %30, %24 ], [ 1, %AppendJumble.exit ]
-  %.02224.i18 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %21, label %22, label %24
+.lr.ph.i22.thread:                                ; preds = %.lr.ph.i15
+  %22 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %22, ptr %20, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %24 = load i8, ptr %19, align 1
+  store i8 %24, ptr %23, align 1
+  store i64 9, ptr %7, align 8
+  %25 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit28
 
-22:                                               ; preds = %.lr.ph.i15
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %23, ptr %20, align 1
-  br label %24
-
-24:                                               ; preds = %22, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %22 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %25 = sub nuw nsw i64 1024, %.1.i19
-  %26 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %25)
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %26, i1 false)
-  %28 = add nuw nsw i64 %26, %.1.i19
-  %29 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %26
-  %30 = sub i64 %.02125.i17, %26
-  %.not.i20 = icmp eq i64 %30, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
-
-AppendJumble.exit21:                              ; preds = %24
+.lr.ph.i22:                                       ; preds = %.lr.ph.i15
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %16
+  %27 = load i8, ptr %19, align 1
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %16, 1
   store i64 %28, ptr %7, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %32 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i22
+  %29 = load ptr, ptr %0, align 8
+  %30 = icmp eq i64 %16, 1023
+  br i1 %30, label %31, label %AppendJumble.exit28
 
-.lr.ph.i22:                                       ; preds = %36, %AppendJumble.exit21
-  %.026.i23 = phi ptr [ %41, %36 ], [ %31, %AppendJumble.exit21 ]
-  %.02125.i24 = phi i64 [ %42, %36 ], [ 1, %AppendJumble.exit21 ]
-  %.02224.i25 = phi i64 [ %40, %36 ], [ %28, %AppendJumble.exit21 ]
-  %33 = icmp ugt i64 %.02224.i25, 1023
-  br i1 %33, label %34, label %36
+31:                                               ; preds = %.lr.ph.i22
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %32, ptr %29, align 1
+  br label %AppendJumble.exit28
 
-34:                                               ; preds = %.lr.ph.i22
-  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %35, ptr %32, align 1
-  br label %36
-
-36:                                               ; preds = %34, %.lr.ph.i22
-  %.1.i26 = phi i64 [ 8, %34 ], [ %.02224.i25, %.lr.ph.i22 ]
-  %37 = sub nuw nsw i64 1024, %.1.i26
-  %38 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %37)
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 %.1.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %38, i1 false)
-  %40 = add nuw nsw i64 %38, %.1.i26
-  %41 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %38
-  %42 = sub i64 %.02125.i24, %38
-  %.not.i27 = icmp eq i64 %42, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
-
-AppendJumble.exit28:                              ; preds = %36
-  store i64 %40, ptr %7, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %44 = load ptr, ptr %43, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %46 = load ptr, ptr %0, align 8
-  %47 = load i64, ptr %7, align 8
+AppendJumble.exit28:                              ; preds = %.lr.ph.i22, %31, %.lr.ph.i22.thread
+  %33 = phi ptr [ %29, %31 ], [ %29, %.lr.ph.i22 ], [ %25, %.lr.ph.i22.thread ]
+  %.1.i26 = phi i64 [ 8, %31 ], [ %28, %.lr.ph.i22 ], [ 9, %.lr.ph.i22.thread ]
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 21
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.1.i26
+  %36 = load i8, ptr %34, align 1
+  store i8 %36, ptr %35, align 1
+  %37 = add nuw nsw i64 %.1.i26, 1
+  store i64 %37, ptr %7, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %39 = load ptr, ptr %38, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %39)
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %41 = load ptr, ptr %0, align 8
+  %42 = load i64, ptr %7, align 8
   br label %.lr.ph.i29
 
-.lr.ph.i29:                                       ; preds = %51, %AppendJumble.exit28
-  %.026.i30 = phi ptr [ %56, %51 ], [ %45, %AppendJumble.exit28 ]
-  %.02125.i31 = phi i64 [ %57, %51 ], [ 4, %AppendJumble.exit28 ]
-  %.02224.i32 = phi i64 [ %55, %51 ], [ %47, %AppendJumble.exit28 ]
-  %48 = icmp ugt i64 %.02224.i32, 1023
-  br i1 %48, label %49, label %51
+.lr.ph.i29:                                       ; preds = %46, %AppendJumble.exit28
+  %.026.i30 = phi ptr [ %51, %46 ], [ %40, %AppendJumble.exit28 ]
+  %.02125.i31 = phi i64 [ %52, %46 ], [ 4, %AppendJumble.exit28 ]
+  %.02224.i32 = phi i64 [ %50, %46 ], [ %42, %AppendJumble.exit28 ]
+  %43 = icmp ugt i64 %.02224.i32, 1023
+  br i1 %43, label %44, label %46
 
-49:                                               ; preds = %.lr.ph.i29
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %50, ptr %46, align 1
-  br label %51
+44:                                               ; preds = %.lr.ph.i29
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %45, ptr %41, align 1
+  br label %46
 
-51:                                               ; preds = %49, %.lr.ph.i29
-  %.1.i33 = phi i64 [ 8, %49 ], [ %.02224.i32, %.lr.ph.i29 ]
-  %52 = sub nuw nsw i64 1024, %.1.i33
-  %53 = tail call i64 @llvm.umin.i64(i64 %.02125.i31, i64 %52)
-  %54 = getelementptr inbounds nuw i8, ptr %46, i64 %.1.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 1 dereferenceable(1) %.026.i30, i64 %53, i1 false)
-  %55 = add nuw nsw i64 %53, %.1.i33
-  %56 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %53
-  %57 = sub i64 %.02125.i31, %53
-  %.not.i34 = icmp eq i64 %57, 0
+46:                                               ; preds = %44, %.lr.ph.i29
+  %.1.i33 = phi i64 [ 8, %44 ], [ %.02224.i32, %.lr.ph.i29 ]
+  %47 = sub nuw nsw i64 1024, %.1.i33
+  %48 = tail call i64 @llvm.umin.i64(i64 %.02125.i31, i64 %47)
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 %.1.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %.026.i30, i64 %48, i1 false)
+  %50 = add nuw nsw i64 %48, %.1.i33
+  %51 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %48
+  %52 = sub i64 %.02125.i31, %48
+  %.not.i34 = icmp eq i64 %52, 0
   br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
 
-AppendJumble.exit35:                              ; preds = %51
-  store i64 %55, ptr %7, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %59 = load ptr, ptr %58, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %59)
+AppendJumble.exit35:                              ; preds = %46
+  store i64 %50, ptr %7, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %54 = load ptr, ptr %53, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %54)
   ret void
 }
 
@@ -5769,265 +5543,243 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleA_Const(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %7, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %.lr.ph.i
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %8, ptr %3, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
+  %.1.i = phi i64 [ 8, %7 ], [ %5, %.lr.ph.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i
+  %10 = load i8, ptr %2, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %4, align 8
+  %12 = load i8, ptr %2, align 8, !range !8, !noundef !9
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %104, label %14
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = load i8, ptr %3, align 8, !range !8, !noundef !9
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %114, label %19
-
-19:                                               ; preds = %AppendJumble.exit
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %0, align 8
+14:                                               ; preds = %AppendJumble.exit
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = load ptr, ptr %0, align 8
   br label %.lr.ph.i28
 
-.lr.ph.i28:                                       ; preds = %25, %19
-  %.026.i29 = phi ptr [ %30, %25 ], [ %20, %19 ]
-  %.02125.i30 = phi i64 [ %31, %25 ], [ 4, %19 ]
-  %.02224.i31 = phi i64 [ %29, %25 ], [ %14, %19 ]
-  %22 = icmp ugt i64 %.02224.i31, 1023
-  br i1 %22, label %23, label %25
+.lr.ph.i28:                                       ; preds = %20, %14
+  %.026.i29 = phi ptr [ %25, %20 ], [ %15, %14 ]
+  %.02125.i30 = phi i64 [ %26, %20 ], [ 4, %14 ]
+  %.02224.i31 = phi i64 [ %24, %20 ], [ %11, %14 ]
+  %17 = icmp ugt i64 %.02224.i31, 1023
+  br i1 %17, label %18, label %20
 
-23:                                               ; preds = %.lr.ph.i28
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %24, ptr %21, align 1
-  br label %25
+18:                                               ; preds = %.lr.ph.i28
+  %19 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %19, ptr %16, align 1
+  br label %20
 
-25:                                               ; preds = %23, %.lr.ph.i28
-  %.1.i32 = phi i64 [ 8, %23 ], [ %.02224.i31, %.lr.ph.i28 ]
-  %26 = sub nuw nsw i64 1024, %.1.i32
-  %27 = tail call i64 @llvm.umin.i64(i64 %.02125.i30, i64 %26)
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 1 dereferenceable(1) %.026.i29, i64 %27, i1 false)
-  %29 = add nuw nsw i64 %27, %.1.i32
-  %30 = getelementptr inbounds nuw i8, ptr %.026.i29, i64 %27
-  %31 = sub i64 %.02125.i30, %27
-  %.not.i33 = icmp eq i64 %31, 0
+20:                                               ; preds = %18, %.lr.ph.i28
+  %.1.i32 = phi i64 [ 8, %18 ], [ %.02224.i31, %.lr.ph.i28 ]
+  %21 = sub nuw nsw i64 1024, %.1.i32
+  %22 = tail call i64 @llvm.umin.i64(i64 %.02125.i30, i64 %21)
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 %.1.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %.026.i29, i64 %22, i1 false)
+  %24 = add nuw nsw i64 %22, %.1.i32
+  %25 = getelementptr inbounds nuw i8, ptr %.026.i29, i64 %22
+  %26 = sub i64 %.02125.i30, %22
+  %.not.i33 = icmp eq i64 %26, 0
   br i1 %.not.i33, label %AppendJumble.exit34, label %.lr.ph.i28, !llvm.loop !7
 
-AppendJumble.exit34:                              ; preds = %25
-  store i64 %29, ptr %5, align 8
-  %32 = load i32, ptr %20, align 8
-  switch i32 %32, label %110 [
-    i32 464, label %33
-    i32 465, label %46
-    i32 466, label %63
-    i32 467, label %76
-    i32 468, label %93
+AppendJumble.exit34:                              ; preds = %20
+  store i64 %24, ptr %4, align 8
+  %27 = load i32, ptr %15, align 8
+  switch i32 %27, label %100 [
+    i32 464, label %28
+    i32 465, label %41
+    i32 466, label %.lr.ph.i49
+    i32 467, label %66
+    i32 468, label %83
   ]
 
-33:                                               ; preds = %AppendJumble.exit34
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %35 = load ptr, ptr %0, align 8
+28:                                               ; preds = %AppendJumble.exit34
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %30 = load ptr, ptr %0, align 8
   br label %.lr.ph.i35
 
-.lr.ph.i35:                                       ; preds = %39, %33
-  %.026.i36 = phi ptr [ %44, %39 ], [ %34, %33 ]
-  %.02125.i37 = phi i64 [ %45, %39 ], [ 4, %33 ]
-  %.02224.i38 = phi i64 [ %43, %39 ], [ %29, %33 ]
-  %36 = icmp ugt i64 %.02224.i38, 1023
-  br i1 %36, label %37, label %39
+.lr.ph.i35:                                       ; preds = %34, %28
+  %.026.i36 = phi ptr [ %39, %34 ], [ %29, %28 ]
+  %.02125.i37 = phi i64 [ %40, %34 ], [ 4, %28 ]
+  %.02224.i38 = phi i64 [ %38, %34 ], [ %24, %28 ]
+  %31 = icmp ugt i64 %.02224.i38, 1023
+  br i1 %31, label %32, label %34
 
-37:                                               ; preds = %.lr.ph.i35
-  %38 = tail call i64 @hash_bytes_extended(ptr noundef %35, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %38, ptr %35, align 1
-  br label %39
+32:                                               ; preds = %.lr.ph.i35
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %33, ptr %30, align 1
+  br label %34
 
-39:                                               ; preds = %37, %.lr.ph.i35
-  %.1.i39 = phi i64 [ 8, %37 ], [ %.02224.i38, %.lr.ph.i35 ]
-  %40 = sub nuw nsw i64 1024, %.1.i39
-  %41 = tail call i64 @llvm.umin.i64(i64 %.02125.i37, i64 %40)
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 %.1.i39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %.026.i36, i64 %41, i1 false)
-  %43 = add nuw nsw i64 %41, %.1.i39
-  %44 = getelementptr inbounds nuw i8, ptr %.026.i36, i64 %41
-  %45 = sub i64 %.02125.i37, %41
-  %.not.i40 = icmp eq i64 %45, 0
+34:                                               ; preds = %32, %.lr.ph.i35
+  %.1.i39 = phi i64 [ 8, %32 ], [ %.02224.i38, %.lr.ph.i35 ]
+  %35 = sub nuw nsw i64 1024, %.1.i39
+  %36 = tail call i64 @llvm.umin.i64(i64 %.02125.i37, i64 %35)
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %.026.i36, i64 %36, i1 false)
+  %38 = add nuw nsw i64 %36, %.1.i39
+  %39 = getelementptr inbounds nuw i8, ptr %.026.i36, i64 %36
+  %40 = sub i64 %.02125.i37, %36
+  %.not.i40 = icmp eq i64 %40, 0
   br i1 %.not.i40, label %.sink.split, label %.lr.ph.i35, !llvm.loop !7
 
-46:                                               ; preds = %AppendJumble.exit34
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %.not27 = icmp eq ptr %48, null
-  br i1 %.not27, label %114, label %49
+41:                                               ; preds = %AppendJumble.exit34
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %.not27 = icmp eq ptr %43, null
+  br i1 %.not27, label %104, label %44
 
-49:                                               ; preds = %46
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #8
-  %51 = add i64 %50, 1
-  %52 = load ptr, ptr %0, align 8
-  %.not23.i = icmp eq i64 %51, 0
+44:                                               ; preds = %41
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #8
+  %46 = add i64 %45, 1
+  %47 = load ptr, ptr %0, align 8
+  %.not23.i = icmp eq i64 %46, 0
   br i1 %.not23.i, label %.sink.split, label %.lr.ph.i42
 
-.lr.ph.i42:                                       ; preds = %49, %56
-  %.026.i43 = phi ptr [ %61, %56 ], [ %48, %49 ]
-  %.02125.i44 = phi i64 [ %62, %56 ], [ %51, %49 ]
-  %.02224.i45 = phi i64 [ %60, %56 ], [ %29, %49 ]
-  %53 = icmp ugt i64 %.02224.i45, 1023
-  br i1 %53, label %54, label %56
+.lr.ph.i42:                                       ; preds = %44, %51
+  %.026.i43 = phi ptr [ %56, %51 ], [ %43, %44 ]
+  %.02125.i44 = phi i64 [ %57, %51 ], [ %46, %44 ]
+  %.02224.i45 = phi i64 [ %55, %51 ], [ %24, %44 ]
+  %48 = icmp ugt i64 %.02224.i45, 1023
+  br i1 %48, label %49, label %51
 
-54:                                               ; preds = %.lr.ph.i42
-  %55 = tail call i64 @hash_bytes_extended(ptr noundef %52, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %55, ptr %52, align 1
-  br label %56
+49:                                               ; preds = %.lr.ph.i42
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %50, ptr %47, align 1
+  br label %51
 
-56:                                               ; preds = %54, %.lr.ph.i42
-  %.1.i46 = phi i64 [ 8, %54 ], [ %.02224.i45, %.lr.ph.i42 ]
-  %57 = sub nuw nsw i64 1024, %.1.i46
-  %58 = tail call i64 @llvm.umin.i64(i64 %.02125.i44, i64 %57)
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 %.1.i46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %59, ptr noundef nonnull align 1 dereferenceable(1) %.026.i43, i64 %58, i1 false)
-  %60 = add nuw nsw i64 %58, %.1.i46
-  %61 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %58
-  %62 = sub i64 %.02125.i44, %58
-  %.not.i47 = icmp eq i64 %62, 0
+51:                                               ; preds = %49, %.lr.ph.i42
+  %.1.i46 = phi i64 [ 8, %49 ], [ %.02224.i45, %.lr.ph.i42 ]
+  %52 = sub nuw nsw i64 1024, %.1.i46
+  %53 = tail call i64 @llvm.umin.i64(i64 %.02125.i44, i64 %52)
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %.1.i46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 1 dereferenceable(1) %.026.i43, i64 %53, i1 false)
+  %55 = add nuw nsw i64 %53, %.1.i46
+  %56 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %53
+  %57 = sub i64 %.02125.i44, %53
+  %.not.i47 = icmp eq i64 %57, 0
   br i1 %.not.i47, label %.sink.split, label %.lr.ph.i42, !llvm.loop !7
 
-63:                                               ; preds = %AppendJumble.exit34
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %65 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i49
+.lr.ph.i49:                                       ; preds = %AppendJumble.exit34
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %59 = load ptr, ptr %0, align 8
+  %60 = icmp samesign ugt i64 %24, 1023
+  br i1 %60, label %61, label %AppendJumble.exit56
 
-.lr.ph.i49:                                       ; preds = %69, %63
-  %.026.i50 = phi ptr [ %74, %69 ], [ %64, %63 ]
-  %.02125.i51 = phi i64 [ %75, %69 ], [ 1, %63 ]
-  %.02224.i52 = phi i64 [ %73, %69 ], [ %29, %63 ]
-  %66 = icmp ugt i64 %.02224.i52, 1023
-  br i1 %66, label %67, label %69
+61:                                               ; preds = %.lr.ph.i49
+  %62 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %62, ptr %59, align 1
+  br label %AppendJumble.exit56
 
-67:                                               ; preds = %.lr.ph.i49
-  %68 = tail call i64 @hash_bytes_extended(ptr noundef %65, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %68, ptr %65, align 1
-  br label %69
+AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
+  %.1.i53 = phi i64 [ 8, %61 ], [ %24, %.lr.ph.i49 ]
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 %.1.i53
+  %64 = load i8, ptr %58, align 1
+  store i8 %64, ptr %63, align 1
+  %65 = add nuw nsw i64 %.1.i53, 1
+  br label %.sink.split
 
-69:                                               ; preds = %67, %.lr.ph.i49
-  %.1.i53 = phi i64 [ 8, %67 ], [ %.02224.i52, %.lr.ph.i49 ]
-  %70 = sub nuw nsw i64 1024, %.1.i53
-  %71 = tail call i64 @llvm.umin.i64(i64 %.02125.i51, i64 %70)
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 %.1.i53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull align 1 dereferenceable(1) %.026.i50, i64 %71, i1 false)
-  %73 = add nuw nsw i64 %71, %.1.i53
-  %74 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %71
-  %75 = sub i64 %.02125.i51, %71
-  %.not.i54 = icmp eq i64 %75, 0
-  br i1 %.not.i54, label %.sink.split, label %.lr.ph.i49, !llvm.loop !7
+66:                                               ; preds = %AppendJumble.exit34
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %.not26 = icmp eq ptr %68, null
+  br i1 %.not26, label %104, label %69
 
-76:                                               ; preds = %AppendJumble.exit34
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %.not26 = icmp eq ptr %78, null
-  br i1 %.not26, label %114, label %79
-
-79:                                               ; preds = %76
-  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #8
-  %81 = add i64 %80, 1
-  %82 = load ptr, ptr %0, align 8
-  %.not23.i57 = icmp eq i64 %81, 0
+69:                                               ; preds = %66
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #8
+  %71 = add i64 %70, 1
+  %72 = load ptr, ptr %0, align 8
+  %.not23.i57 = icmp eq i64 %71, 0
   br i1 %.not23.i57, label %.sink.split, label %.lr.ph.i58
 
-.lr.ph.i58:                                       ; preds = %79, %86
-  %.026.i59 = phi ptr [ %91, %86 ], [ %78, %79 ]
-  %.02125.i60 = phi i64 [ %92, %86 ], [ %81, %79 ]
-  %.02224.i61 = phi i64 [ %90, %86 ], [ %29, %79 ]
-  %83 = icmp ugt i64 %.02224.i61, 1023
-  br i1 %83, label %84, label %86
+.lr.ph.i58:                                       ; preds = %69, %76
+  %.026.i59 = phi ptr [ %81, %76 ], [ %68, %69 ]
+  %.02125.i60 = phi i64 [ %82, %76 ], [ %71, %69 ]
+  %.02224.i61 = phi i64 [ %80, %76 ], [ %24, %69 ]
+  %73 = icmp ugt i64 %.02224.i61, 1023
+  br i1 %73, label %74, label %76
 
-84:                                               ; preds = %.lr.ph.i58
-  %85 = tail call i64 @hash_bytes_extended(ptr noundef %82, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %85, ptr %82, align 1
-  br label %86
+74:                                               ; preds = %.lr.ph.i58
+  %75 = tail call i64 @hash_bytes_extended(ptr noundef %72, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %75, ptr %72, align 1
+  br label %76
 
-86:                                               ; preds = %84, %.lr.ph.i58
-  %.1.i62 = phi i64 [ 8, %84 ], [ %.02224.i61, %.lr.ph.i58 ]
-  %87 = sub nuw nsw i64 1024, %.1.i62
-  %88 = tail call i64 @llvm.umin.i64(i64 %.02125.i60, i64 %87)
-  %89 = getelementptr inbounds nuw i8, ptr %82, i64 %.1.i62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %89, ptr noundef nonnull align 1 dereferenceable(1) %.026.i59, i64 %88, i1 false)
-  %90 = add nuw nsw i64 %88, %.1.i62
-  %91 = getelementptr inbounds nuw i8, ptr %.026.i59, i64 %88
-  %92 = sub i64 %.02125.i60, %88
-  %.not.i63 = icmp eq i64 %92, 0
+76:                                               ; preds = %74, %.lr.ph.i58
+  %.1.i62 = phi i64 [ 8, %74 ], [ %.02224.i61, %.lr.ph.i58 ]
+  %77 = sub nuw nsw i64 1024, %.1.i62
+  %78 = tail call i64 @llvm.umin.i64(i64 %.02125.i60, i64 %77)
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 %.1.i62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %79, ptr noundef nonnull align 1 dereferenceable(1) %.026.i59, i64 %78, i1 false)
+  %80 = add nuw nsw i64 %78, %.1.i62
+  %81 = getelementptr inbounds nuw i8, ptr %.026.i59, i64 %78
+  %82 = sub i64 %.02125.i60, %78
+  %.not.i63 = icmp eq i64 %82, 0
   br i1 %.not.i63, label %.sink.split, label %.lr.ph.i58, !llvm.loop !7
 
-93:                                               ; preds = %AppendJumble.exit34
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %.not = icmp eq ptr %95, null
-  br i1 %.not, label %114, label %96
+83:                                               ; preds = %AppendJumble.exit34
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %85 = load ptr, ptr %84, align 8
+  %.not = icmp eq ptr %85, null
+  br i1 %.not, label %104, label %86
 
-96:                                               ; preds = %93
-  %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %95) #8
-  %98 = add i64 %97, 1
-  %99 = load ptr, ptr %0, align 8
-  %.not23.i66 = icmp eq i64 %98, 0
+86:                                               ; preds = %83
+  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #8
+  %88 = add i64 %87, 1
+  %89 = load ptr, ptr %0, align 8
+  %.not23.i66 = icmp eq i64 %88, 0
   br i1 %.not23.i66, label %.sink.split, label %.lr.ph.i67
 
-.lr.ph.i67:                                       ; preds = %96, %103
-  %.026.i68 = phi ptr [ %108, %103 ], [ %95, %96 ]
-  %.02125.i69 = phi i64 [ %109, %103 ], [ %98, %96 ]
-  %.02224.i70 = phi i64 [ %107, %103 ], [ %29, %96 ]
-  %100 = icmp ugt i64 %.02224.i70, 1023
-  br i1 %100, label %101, label %103
+.lr.ph.i67:                                       ; preds = %86, %93
+  %.026.i68 = phi ptr [ %98, %93 ], [ %85, %86 ]
+  %.02125.i69 = phi i64 [ %99, %93 ], [ %88, %86 ]
+  %.02224.i70 = phi i64 [ %97, %93 ], [ %24, %86 ]
+  %90 = icmp ugt i64 %.02224.i70, 1023
+  br i1 %90, label %91, label %93
 
-101:                                              ; preds = %.lr.ph.i67
-  %102 = tail call i64 @hash_bytes_extended(ptr noundef %99, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %102, ptr %99, align 1
-  br label %103
+91:                                               ; preds = %.lr.ph.i67
+  %92 = tail call i64 @hash_bytes_extended(ptr noundef %89, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %92, ptr %89, align 1
+  br label %93
 
-103:                                              ; preds = %101, %.lr.ph.i67
-  %.1.i71 = phi i64 [ 8, %101 ], [ %.02224.i70, %.lr.ph.i67 ]
-  %104 = sub nuw nsw i64 1024, %.1.i71
-  %105 = tail call i64 @llvm.umin.i64(i64 %.02125.i69, i64 %104)
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 %.1.i71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %106, ptr noundef nonnull align 1 dereferenceable(1) %.026.i68, i64 %105, i1 false)
-  %107 = add nuw nsw i64 %105, %.1.i71
-  %108 = getelementptr inbounds nuw i8, ptr %.026.i68, i64 %105
-  %109 = sub i64 %.02125.i69, %105
-  %.not.i72 = icmp eq i64 %109, 0
+93:                                               ; preds = %91, %.lr.ph.i67
+  %.1.i71 = phi i64 [ 8, %91 ], [ %.02224.i70, %.lr.ph.i67 ]
+  %94 = sub nuw nsw i64 1024, %.1.i71
+  %95 = tail call i64 @llvm.umin.i64(i64 %.02125.i69, i64 %94)
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 %.1.i71
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %96, ptr noundef nonnull align 1 dereferenceable(1) %.026.i68, i64 %95, i1 false)
+  %97 = add nuw nsw i64 %95, %.1.i71
+  %98 = getelementptr inbounds nuw i8, ptr %.026.i68, i64 %95
+  %99 = sub i64 %.02125.i69, %95
+  %.not.i72 = icmp eq i64 %99, 0
   br i1 %.not.i72, label %.sink.split, label %.lr.ph.i67, !llvm.loop !7
 
-110:                                              ; preds = %AppendJumble.exit34
-  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %111)
-  %112 = load i32, ptr %20, align 8
-  %113 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %112) #9
+100:                                              ; preds = %AppendJumble.exit34
+  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %101)
+  %102 = load i32, ptr %15, align 8
+  %103 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %102) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__._jumbleA_Const) #9
   unreachable
 
-.sink.split:                                      ; preds = %103, %86, %69, %56, %39, %96, %79, %49
-  %.lcssa.sink = phi i64 [ %29, %49 ], [ %29, %79 ], [ %29, %96 ], [ %43, %39 ], [ %60, %56 ], [ %73, %69 ], [ %90, %86 ], [ %107, %103 ]
-  store i64 %.lcssa.sink, ptr %5, align 8
-  br label %114
+.sink.split:                                      ; preds = %93, %76, %51, %34, %86, %69, %44, %AppendJumble.exit56
+  %.lcssa.sink = phi i64 [ %65, %AppendJumble.exit56 ], [ %24, %44 ], [ %24, %69 ], [ %24, %86 ], [ %38, %34 ], [ %55, %51 ], [ %80, %76 ], [ %97, %93 ]
+  store i64 %.lcssa.sink, ptr %4, align 8
+  br label %104
 
-114:                                              ; preds = %.sink.split, %46, %76, %93, %AppendJumble.exit
+104:                                              ; preds = %.sink.split, %41, %66, %83, %AppendJumble.exit
   ret void
 }
 
@@ -6134,216 +5886,182 @@ AppendJumble.exit13:                              ; preds = %26, %19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %9, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %12 = load ptr, ptr %11, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %7)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = load ptr, ptr %8, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %9)
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load ptr, ptr %10, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %11)
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp ugt i64 %15, 1023
+  br i1 %16, label %.lr.ph.i21.thread, label %.lr.ph.i21
 
-.lr.ph.i:                                         ; preds = %20, %2
-  %.026.i = phi ptr [ %25, %20 ], [ %13, %2 ]
-  %.02125.i = phi i64 [ %26, %20 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %24, %20 ], [ %16, %2 ]
-  %17 = icmp ugt i64 %.02224.i, 1023
-  br i1 %17, label %18, label %20
+.lr.ph.i21.thread:                                ; preds = %.lr.ph.i
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %13, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %17, ptr %13, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %19 = load i8, ptr %12, align 1
+  store i8 %19, ptr %18, align 1
+  store i64 9, ptr %14, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 49
+  %21 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i28.thread
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %19, ptr %14, align 1
-  br label %20
+.lr.ph.i21:                                       ; preds = %.lr.ph.i
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 %15
+  %23 = load i8, ptr %12, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = add nuw nsw i64 %15, 1
+  store i64 %24, ptr %14, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 49
+  %26 = load ptr, ptr %0, align 8
+  %27 = icmp eq i64 %15, 1023
+  br i1 %27, label %28, label %.lr.ph.i28
 
-20:                                               ; preds = %18, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %18 ], [ %.02224.i, %.lr.ph.i ]
-  %21 = sub nuw nsw i64 1024, %.1.i
-  %22 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %21)
-  %23 = getelementptr inbounds nuw i8, ptr %14, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %22, i1 false)
-  %24 = add nuw nsw i64 %22, %.1.i
-  %25 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %22
-  %26 = sub i64 %.02125.i, %22
-  %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+28:                                               ; preds = %.lr.ph.i21
+  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %29, ptr %26, align 1
+  br label %.lr.ph.i28.thread
 
-AppendJumble.exit:                                ; preds = %20
-  store i64 %24, ptr %15, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 49
-  %28 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i21
+.lr.ph.i28.thread:                                ; preds = %28, %.lr.ph.i21.thread
+  %.ph = phi ptr [ %21, %.lr.ph.i21.thread ], [ %26, %28 ]
+  %.ph62 = phi ptr [ %20, %.lr.ph.i21.thread ], [ %25, %28 ]
+  %.1.i25.ph = phi i64 [ 9, %.lr.ph.i21.thread ], [ 8, %28 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.1.i25.ph
+  %31 = load i8, ptr %.ph62, align 1
+  store i8 %31, ptr %30, align 1
+  %32 = add nuw nsw i64 %.1.i25.ph, 1
+  store i64 %32, ptr %14, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 50
+  %34 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i35.thread
 
-.lr.ph.i21:                                       ; preds = %32, %AppendJumble.exit
-  %.026.i22 = phi ptr [ %37, %32 ], [ %27, %AppendJumble.exit ]
-  %.02125.i23 = phi i64 [ %38, %32 ], [ 1, %AppendJumble.exit ]
-  %.02224.i24 = phi i64 [ %36, %32 ], [ %24, %AppendJumble.exit ]
-  %29 = icmp ugt i64 %.02224.i24, 1023
-  br i1 %29, label %30, label %32
+.lr.ph.i28:                                       ; preds = %.lr.ph.i21
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 %24
+  %36 = load i8, ptr %25, align 1
+  store i8 %36, ptr %35, align 1
+  %37 = add nuw nsw i64 %15, 2
+  store i64 %37, ptr %14, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 50
+  %39 = load ptr, ptr %0, align 8
+  %40 = icmp ugt i64 %15, 1021
+  br i1 %40, label %41, label %.lr.ph.i35
 
-30:                                               ; preds = %.lr.ph.i21
-  %31 = tail call i64 @hash_bytes_extended(ptr noundef %28, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %31, ptr %28, align 1
-  br label %32
+41:                                               ; preds = %.lr.ph.i28
+  %42 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %42, ptr %39, align 1
+  br label %.lr.ph.i35.thread
 
-32:                                               ; preds = %30, %.lr.ph.i21
-  %.1.i25 = phi i64 [ 8, %30 ], [ %.02224.i24, %.lr.ph.i21 ]
-  %33 = sub nuw nsw i64 1024, %.1.i25
-  %34 = tail call i64 @llvm.umin.i64(i64 %.02125.i23, i64 %33)
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.1.i25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 1 dereferenceable(1) %.026.i22, i64 %34, i1 false)
-  %36 = add nuw nsw i64 %34, %.1.i25
-  %37 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 %34
-  %38 = sub i64 %.02125.i23, %34
-  %.not.i26 = icmp eq i64 %38, 0
-  br i1 %.not.i26, label %AppendJumble.exit27, label %.lr.ph.i21, !llvm.loop !7
+.lr.ph.i35.thread:                                ; preds = %41, %.lr.ph.i28.thread
+  %.ph64 = phi ptr [ %34, %.lr.ph.i28.thread ], [ %39, %41 ]
+  %.ph65 = phi ptr [ %33, %.lr.ph.i28.thread ], [ %38, %41 ]
+  %.1.i32.ph = phi i64 [ %32, %.lr.ph.i28.thread ], [ 8, %41 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.ph64, i64 %.1.i32.ph
+  %44 = load i8, ptr %.ph65, align 1
+  store i8 %44, ptr %43, align 1
+  %45 = add nuw nsw i64 %.1.i32.ph, 1
+  store i64 %45, ptr %14, align 8
+  %46 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit41
 
-AppendJumble.exit27:                              ; preds = %32
-  store i64 %36, ptr %15, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 50
-  %40 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i28
+.lr.ph.i35:                                       ; preds = %.lr.ph.i28
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 %37
+  %48 = load i8, ptr %38, align 1
+  store i8 %48, ptr %47, align 1
+  %49 = add nuw nsw i64 %15, 3
+  store i64 %49, ptr %14, align 8
+  %50 = load ptr, ptr %0, align 8
+  %51 = icmp eq i64 %15, 1021
+  br i1 %51, label %52, label %AppendJumble.exit41
 
-.lr.ph.i28:                                       ; preds = %44, %AppendJumble.exit27
-  %.026.i29 = phi ptr [ %49, %44 ], [ %39, %AppendJumble.exit27 ]
-  %.02125.i30 = phi i64 [ %50, %44 ], [ 1, %AppendJumble.exit27 ]
-  %.02224.i31 = phi i64 [ %48, %44 ], [ %36, %AppendJumble.exit27 ]
-  %41 = icmp ugt i64 %.02224.i31, 1023
-  br i1 %41, label %42, label %44
+52:                                               ; preds = %.lr.ph.i35
+  %53 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %53, ptr %50, align 1
+  br label %AppendJumble.exit41
 
-42:                                               ; preds = %.lr.ph.i28
-  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %43, ptr %40, align 1
-  br label %44
-
-44:                                               ; preds = %42, %.lr.ph.i28
-  %.1.i32 = phi i64 [ 8, %42 ], [ %.02224.i31, %.lr.ph.i28 ]
-  %45 = sub nuw nsw i64 1024, %.1.i32
-  %46 = tail call i64 @llvm.umin.i64(i64 %.02125.i30, i64 %45)
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 %.1.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 1 dereferenceable(1) %.026.i29, i64 %46, i1 false)
-  %48 = add nuw nsw i64 %46, %.1.i32
-  %49 = getelementptr inbounds nuw i8, ptr %.026.i29, i64 %46
-  %50 = sub i64 %.02125.i30, %46
-  %.not.i33 = icmp eq i64 %50, 0
-  br i1 %.not.i33, label %AppendJumble.exit34, label %.lr.ph.i28, !llvm.loop !7
-
-AppendJumble.exit34:                              ; preds = %44
-  store i64 %48, ptr %15, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 51
-  %52 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i35
-
-.lr.ph.i35:                                       ; preds = %56, %AppendJumble.exit34
-  %.026.i36 = phi ptr [ %61, %56 ], [ %51, %AppendJumble.exit34 ]
-  %.02125.i37 = phi i64 [ %62, %56 ], [ 1, %AppendJumble.exit34 ]
-  %.02224.i38 = phi i64 [ %60, %56 ], [ %48, %AppendJumble.exit34 ]
-  %53 = icmp ugt i64 %.02224.i38, 1023
-  br i1 %53, label %54, label %56
-
-54:                                               ; preds = %.lr.ph.i35
-  %55 = tail call i64 @hash_bytes_extended(ptr noundef %52, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %55, ptr %52, align 1
-  br label %56
-
-56:                                               ; preds = %54, %.lr.ph.i35
-  %.1.i39 = phi i64 [ 8, %54 ], [ %.02224.i38, %.lr.ph.i35 ]
-  %57 = sub nuw nsw i64 1024, %.1.i39
-  %58 = tail call i64 @llvm.umin.i64(i64 %.02125.i37, i64 %57)
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 %.1.i39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %59, ptr noundef nonnull align 1 dereferenceable(1) %.026.i36, i64 %58, i1 false)
-  %60 = add nuw nsw i64 %58, %.1.i39
-  %61 = getelementptr inbounds nuw i8, ptr %.026.i36, i64 %58
-  %62 = sub i64 %.02125.i37, %58
-  %.not.i40 = icmp eq i64 %62, 0
-  br i1 %.not.i40, label %AppendJumble.exit41, label %.lr.ph.i35, !llvm.loop !7
-
-AppendJumble.exit41:                              ; preds = %56
-  store i64 %60, ptr %15, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %64 = load ptr, ptr %0, align 8
+AppendJumble.exit41:                              ; preds = %.lr.ph.i35, %52, %.lr.ph.i35.thread
+  %54 = phi ptr [ %50, %52 ], [ %50, %.lr.ph.i35 ], [ %46, %.lr.ph.i35.thread ]
+  %.1.i39 = phi i64 [ 8, %52 ], [ %49, %.lr.ph.i35 ], [ %45, %.lr.ph.i35.thread ]
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 51
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %.1.i39
+  %57 = load i8, ptr %55, align 1
+  store i8 %57, ptr %56, align 1
+  %58 = add nuw nsw i64 %.1.i39, 1
+  store i64 %58, ptr %14, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %60 = load ptr, ptr %0, align 8
   br label %.lr.ph.i42
 
-.lr.ph.i42:                                       ; preds = %68, %AppendJumble.exit41
-  %.026.i43 = phi ptr [ %73, %68 ], [ %63, %AppendJumble.exit41 ]
-  %.02125.i44 = phi i64 [ %74, %68 ], [ 4, %AppendJumble.exit41 ]
-  %.02224.i45 = phi i64 [ %72, %68 ], [ %60, %AppendJumble.exit41 ]
-  %65 = icmp ugt i64 %.02224.i45, 1023
-  br i1 %65, label %66, label %68
+.lr.ph.i42:                                       ; preds = %64, %AppendJumble.exit41
+  %.026.i43 = phi ptr [ %69, %64 ], [ %59, %AppendJumble.exit41 ]
+  %.02125.i44 = phi i64 [ %70, %64 ], [ 4, %AppendJumble.exit41 ]
+  %.02224.i45 = phi i64 [ %68, %64 ], [ %58, %AppendJumble.exit41 ]
+  %61 = icmp ugt i64 %.02224.i45, 1023
+  br i1 %61, label %62, label %64
 
-66:                                               ; preds = %.lr.ph.i42
-  %67 = tail call i64 @hash_bytes_extended(ptr noundef %64, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %67, ptr %64, align 1
-  br label %68
+62:                                               ; preds = %.lr.ph.i42
+  %63 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %63, ptr %60, align 1
+  br label %64
 
-68:                                               ; preds = %66, %.lr.ph.i42
-  %.1.i46 = phi i64 [ 8, %66 ], [ %.02224.i45, %.lr.ph.i42 ]
-  %69 = sub nuw nsw i64 1024, %.1.i46
-  %70 = tail call i64 @llvm.umin.i64(i64 %.02125.i44, i64 %69)
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 %.1.i46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %.026.i43, i64 %70, i1 false)
-  %72 = add nuw nsw i64 %70, %.1.i46
-  %73 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %70
-  %74 = sub i64 %.02125.i44, %70
-  %.not.i47 = icmp eq i64 %74, 0
+64:                                               ; preds = %62, %.lr.ph.i42
+  %.1.i46 = phi i64 [ 8, %62 ], [ %.02224.i45, %.lr.ph.i42 ]
+  %65 = sub nuw nsw i64 1024, %.1.i46
+  %66 = tail call i64 @llvm.umin.i64(i64 %.02125.i44, i64 %65)
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 %.1.i46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %.026.i43, i64 %66, i1 false)
+  %68 = add nuw nsw i64 %66, %.1.i46
+  %69 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %66
+  %70 = sub i64 %.02125.i44, %66
+  %.not.i47 = icmp eq i64 %70, 0
   br i1 %.not.i47, label %AppendJumble.exit48, label %.lr.ph.i42, !llvm.loop !7
 
-AppendJumble.exit48:                              ; preds = %68
-  store i64 %72, ptr %15, align 8
+AppendJumble.exit48:                              ; preds = %64
+  store i64 %68, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleA_Indices(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp ugt i64 %4, 1023
+  br i1 %5, label %6, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+6:                                                ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %2, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %6
+  %.1.i = phi i64 [ 8, %6 ], [ %4, %.lr.ph.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %.1.i
+  %10 = load i8, ptr %8, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %3, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %13)
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %15)
   ret void
 }
 
@@ -6695,202 +6413,157 @@ AppendJumble.exit37:                              ; preds = %52
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeSubselect(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp ugt i64 %4, 1023
+  br i1 %5, label %6, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+6:                                                ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %2, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %6
+  %.1.i = phi i64 [ 8, %6 ], [ %4, %.lr.ph.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %.1.i
+  %10 = load i8, ptr %8, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %3, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %13)
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %15)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %.lr.ph.i13.thread, label %.lr.ph.i13
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+.lr.ph.i13.thread:                                ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %3, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load i8, ptr %2, align 1
+  store i8 %9, ptr %8, align 1
+  store i64 9, ptr %4, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %11 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i20.thread
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+.lr.ph.i13:                                       ; preds = %.lr.ph.i
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %5
+  %13 = load i8, ptr %2, align 1
+  store i8 %13, ptr %12, align 1
+  %14 = add nuw nsw i64 %5, 1
+  store i64 %14, ptr %4, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %16 = load ptr, ptr %0, align 8
+  %17 = icmp eq i64 %5, 1023
+  br i1 %17, label %18, label %.lr.ph.i20
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+18:                                               ; preds = %.lr.ph.i13
+  %19 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %19, ptr %16, align 1
+  br label %.lr.ph.i20.thread
 
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i13
+.lr.ph.i20.thread:                                ; preds = %18, %.lr.ph.i13.thread
+  %.ph = phi ptr [ %11, %.lr.ph.i13.thread ], [ %16, %18 ]
+  %.ph34 = phi ptr [ %10, %.lr.ph.i13.thread ], [ %15, %18 ]
+  %.1.i17.ph = phi i64 [ 9, %.lr.ph.i13.thread ], [ 8, %18 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.1.i17.ph
+  %21 = load i8, ptr %.ph34, align 1
+  store i8 %21, ptr %20, align 1
+  %22 = add nuw nsw i64 %.1.i17.ph, 1
+  store i64 %22, ptr %4, align 8
+  %23 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit26
 
-.lr.ph.i13:                                       ; preds = %22, %AppendJumble.exit
-  %.026.i14 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i15 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i16 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i16, 1023
-  br i1 %19, label %20, label %22
+.lr.ph.i20:                                       ; preds = %.lr.ph.i13
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 %14
+  %25 = load i8, ptr %15, align 1
+  store i8 %25, ptr %24, align 1
+  %26 = add nuw nsw i64 %5, 2
+  store i64 %26, ptr %4, align 8
+  %27 = load ptr, ptr %0, align 8
+  %28 = icmp ugt i64 %5, 1021
+  br i1 %28, label %29, label %AppendJumble.exit26
 
-20:                                               ; preds = %.lr.ph.i13
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
+29:                                               ; preds = %.lr.ph.i20
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %30, ptr %27, align 1
+  br label %AppendJumble.exit26
 
-22:                                               ; preds = %20, %.lr.ph.i13
-  %.1.i17 = phi i64 [ 8, %20 ], [ %.02224.i16, %.lr.ph.i13 ]
-  %23 = sub nuw nsw i64 1024, %.1.i17
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i17
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %24
-  %28 = sub i64 %.02125.i15, %24
-  %.not.i18 = icmp eq i64 %28, 0
-  br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
-
-AppendJumble.exit19:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %30 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i20
-
-.lr.ph.i20:                                       ; preds = %34, %AppendJumble.exit19
-  %.026.i21 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit19 ]
-  %.02125.i22 = phi i64 [ %40, %34 ], [ 1, %AppendJumble.exit19 ]
-  %.02224.i23 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit19 ]
-  %31 = icmp ugt i64 %.02224.i23, 1023
-  br i1 %31, label %32, label %34
-
-32:                                               ; preds = %.lr.ph.i20
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %33, ptr %30, align 1
-  br label %34
-
-34:                                               ; preds = %32, %.lr.ph.i20
-  %.1.i24 = phi i64 [ 8, %32 ], [ %.02224.i23, %.lr.ph.i20 ]
-  %35 = sub nuw nsw i64 1024, %.1.i24
-  %36 = tail call i64 @llvm.umin.i64(i64 %.02125.i22, i64 %35)
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %.026.i21, i64 %36, i1 false)
-  %38 = add nuw nsw i64 %36, %.1.i24
-  %39 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 %36
-  %40 = sub i64 %.02125.i22, %36
-  %.not.i25 = icmp eq i64 %40, 0
-  br i1 %.not.i25, label %AppendJumble.exit26, label %.lr.ph.i20, !llvm.loop !7
-
-AppendJumble.exit26:                              ; preds = %34
-  store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load ptr, ptr %41, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %42)
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = load ptr, ptr %43, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %46 = load ptr, ptr %45, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %46)
+AppendJumble.exit26:                              ; preds = %.lr.ph.i20, %29, %.lr.ph.i20.thread
+  %31 = phi ptr [ %27, %29 ], [ %27, %.lr.ph.i20 ], [ %23, %.lr.ph.i20.thread ]
+  %.1.i24 = phi i64 [ 8, %29 ], [ %26, %.lr.ph.i20 ], [ %22, %.lr.ph.i20.thread ]
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %.1.i24
+  %34 = load i8, ptr %32, align 1
+  store i8 %34, ptr %33, align 1
+  %35 = add nuw nsw i64 %.1.i24, 1
+  store i64 %35, ptr %4, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %37)
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %39 = load ptr, ptr %38, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %39)
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %41 = load ptr, ptr %40, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %41)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRangeTableFunc(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp ugt i64 %4, 1023
+  br i1 %5, label %6, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+6:                                                ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %2, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load ptr, ptr %21, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load ptr, ptr %23, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %6
+  %.1.i = phi i64 [ 8, %6 ], [ %4, %.lr.ph.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %.1.i
+  %10 = load i8, ptr %8, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %3, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %13)
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %15)
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = load ptr, ptr %16, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %17)
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = load ptr, ptr %18, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %19)
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %21 = load ptr, ptr %20, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %21)
   ret void
 }
 
@@ -6899,7 +6572,7 @@ define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %5
+  br i1 %.not, label %.lr.ph.i15, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -6937,80 +6610,59 @@ define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nounde
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
   store i64 %.022.lcssa.i, ptr %9, align 8
-  br label %21
-
-21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8
   br label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %31, %21
-  %.026.i16 = phi ptr [ %36, %31 ], [ %24, %21 ]
-  %.02125.i17 = phi i64 [ %37, %31 ], [ 1, %21 ]
-  %.02224.i18 = phi i64 [ %35, %31 ], [ %27, %21 ]
-  %28 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %28, label %29, label %31
+.lr.ph.i15:                                       ; preds = %2, %AppendJumble.exit
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %22)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = icmp ugt i64 %26, 1023
+  br i1 %27, label %.lr.ph.i23.thread, label %.lr.ph.i23
 
-29:                                               ; preds = %.lr.ph.i15
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %30, ptr %25, align 1
-  br label %31
+.lr.ph.i23.thread:                                ; preds = %.lr.ph.i15
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %28, ptr %24, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load i8, ptr %23, align 1
+  store i8 %30, ptr %29, align 1
+  store i64 9, ptr %25, align 8
+  %31 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit30
 
-31:                                               ; preds = %29, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %29 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %32 = sub nuw nsw i64 1024, %.1.i19
-  %33 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %32)
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %33, i1 false)
-  %35 = add nuw nsw i64 %33, %.1.i19
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %33
-  %37 = sub i64 %.02125.i17, %33
-  %.not.i20 = icmp eq i64 %37, 0
-  br i1 %.not.i20, label %AppendJumble.exit22, label %.lr.ph.i15, !llvm.loop !7
+.lr.ph.i23:                                       ; preds = %.lr.ph.i15
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %26
+  %33 = load i8, ptr %23, align 1
+  store i8 %33, ptr %32, align 1
+  %34 = add nuw nsw i64 %26, 1
+  store i64 %34, ptr %25, align 8
+  %35 = load ptr, ptr %0, align 8
+  %36 = icmp eq i64 %26, 1023
+  br i1 %36, label %37, label %AppendJumble.exit30
 
-AppendJumble.exit22:                              ; preds = %31
-  store i64 %35, ptr %26, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %39 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i23
+37:                                               ; preds = %.lr.ph.i23
+  %38 = tail call i64 @hash_bytes_extended(ptr noundef %35, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %38, ptr %35, align 1
+  br label %AppendJumble.exit30
 
-.lr.ph.i23:                                       ; preds = %43, %AppendJumble.exit22
-  %.026.i24 = phi ptr [ %48, %43 ], [ %38, %AppendJumble.exit22 ]
-  %.02125.i25 = phi i64 [ %49, %43 ], [ 1, %AppendJumble.exit22 ]
-  %.02224.i26 = phi i64 [ %47, %43 ], [ %35, %AppendJumble.exit22 ]
-  %40 = icmp ugt i64 %.02224.i26, 1023
-  br i1 %40, label %41, label %43
-
-41:                                               ; preds = %.lr.ph.i23
-  %42 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %42, ptr %39, align 1
-  br label %43
-
-43:                                               ; preds = %41, %.lr.ph.i23
-  %.1.i27 = phi i64 [ 8, %41 ], [ %.02224.i26, %.lr.ph.i23 ]
-  %44 = sub nuw nsw i64 1024, %.1.i27
-  %45 = tail call i64 @llvm.umin.i64(i64 %.02125.i25, i64 %44)
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 %.1.i27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %.026.i24, i64 %45, i1 false)
-  %47 = add nuw nsw i64 %45, %.1.i27
-  %48 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %45
-  %49 = sub i64 %.02125.i25, %45
-  %.not.i28 = icmp eq i64 %49, 0
-  br i1 %.not.i28, label %AppendJumble.exit30, label %.lr.ph.i23, !llvm.loop !7
-
-AppendJumble.exit30:                              ; preds = %43
-  store i64 %47, ptr %26, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %51 = load ptr, ptr %50, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %51)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %53 = load ptr, ptr %52, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
+AppendJumble.exit30:                              ; preds = %.lr.ph.i23, %37, %.lr.ph.i23.thread
+  %39 = phi ptr [ %35, %37 ], [ %35, %.lr.ph.i23 ], [ %31, %.lr.ph.i23.thread ]
+  %.1.i27 = phi i64 [ 8, %37 ], [ %34, %.lr.ph.i23 ], [ 9, %.lr.ph.i23.thread ]
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.1.i27
+  %42 = load i8, ptr %40, align 1
+  store i8 %42, ptr %41, align 1
+  %43 = add nuw nsw i64 %.1.i27, 1
+  store i64 %43, ptr %25, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %45 = load ptr, ptr %44, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %45)
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %47 = load ptr, ptr %46, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %47)
   ret void
 }
 
@@ -7162,283 +6814,234 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   %54 = getelementptr inbounds nuw i8, ptr %.026.i57, i64 %51
   %55 = sub i64 %.02125.i58, %51
   %.not.i61 = icmp eq i64 %55, 0
-  br i1 %.not.i61, label %AppendJumble.exit63, label %.lr.ph.i56, !llvm.loop !7
+  br i1 %.not.i61, label %.lr.ph.i64, label %.lr.ph.i56, !llvm.loop !7
 
-AppendJumble.exit63:                              ; preds = %49
+.lr.ph.i64:                                       ; preds = %49
   store i64 %53, ptr %45, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %57 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i64
+  %58 = icmp samesign ugt i64 %53, 1023
+  br i1 %58, label %.lr.ph.i72.thread, label %.lr.ph.i72
 
-.lr.ph.i64:                                       ; preds = %61, %AppendJumble.exit63
-  %.026.i65 = phi ptr [ %66, %61 ], [ %56, %AppendJumble.exit63 ]
-  %.02125.i66 = phi i64 [ %67, %61 ], [ 1, %AppendJumble.exit63 ]
-  %.02224.i67 = phi i64 [ %65, %61 ], [ %53, %AppendJumble.exit63 ]
-  %58 = icmp ugt i64 %.02224.i67, 1023
-  br i1 %58, label %59, label %61
+.lr.ph.i72.thread:                                ; preds = %.lr.ph.i64
+  %59 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %59, ptr %57, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %61 = load i8, ptr %56, align 1
+  store i8 %61, ptr %60, align 1
+  store i64 9, ptr %45, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 35
+  %63 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i80.thread
 
-59:                                               ; preds = %.lr.ph.i64
-  %60 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %60, ptr %57, align 1
-  br label %61
+.lr.ph.i72:                                       ; preds = %.lr.ph.i64
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 %53
+  %65 = load i8, ptr %56, align 1
+  store i8 %65, ptr %64, align 1
+  %66 = add nuw nsw i64 %53, 1
+  store i64 %66, ptr %45, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 35
+  %68 = load ptr, ptr %0, align 8
+  %69 = icmp eq i64 %53, 1023
+  br i1 %69, label %70, label %.lr.ph.i80
 
-61:                                               ; preds = %59, %.lr.ph.i64
-  %.1.i68 = phi i64 [ 8, %59 ], [ %.02224.i67, %.lr.ph.i64 ]
-  %62 = sub nuw nsw i64 1024, %.1.i68
-  %63 = tail call i64 @llvm.umin.i64(i64 %.02125.i66, i64 %62)
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 %.1.i68
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %.026.i65, i64 %63, i1 false)
-  %65 = add nuw nsw i64 %63, %.1.i68
-  %66 = getelementptr inbounds nuw i8, ptr %.026.i65, i64 %63
-  %67 = sub i64 %.02125.i66, %63
-  %.not.i69 = icmp eq i64 %67, 0
-  br i1 %.not.i69, label %AppendJumble.exit71, label %.lr.ph.i64, !llvm.loop !7
+70:                                               ; preds = %.lr.ph.i72
+  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %71, ptr %68, align 1
+  br label %.lr.ph.i80.thread
 
-AppendJumble.exit71:                              ; preds = %61
-  store i64 %65, ptr %45, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 35
-  %69 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i72
+.lr.ph.i80.thread:                                ; preds = %70, %.lr.ph.i72.thread
+  %.ph = phi ptr [ %63, %.lr.ph.i72.thread ], [ %68, %70 ]
+  %.ph169 = phi ptr [ %62, %.lr.ph.i72.thread ], [ %67, %70 ]
+  %.1.i76.ph = phi i64 [ 9, %.lr.ph.i72.thread ], [ 8, %70 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.1.i76.ph
+  %73 = load i8, ptr %.ph169, align 1
+  store i8 %73, ptr %72, align 1
+  %74 = add nuw nsw i64 %.1.i76.ph, 1
+  store i64 %74, ptr %45, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %76 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i88.thread
 
-.lr.ph.i72:                                       ; preds = %73, %AppendJumble.exit71
-  %.026.i73 = phi ptr [ %78, %73 ], [ %68, %AppendJumble.exit71 ]
-  %.02125.i74 = phi i64 [ %79, %73 ], [ 1, %AppendJumble.exit71 ]
-  %.02224.i75 = phi i64 [ %77, %73 ], [ %65, %AppendJumble.exit71 ]
-  %70 = icmp ugt i64 %.02224.i75, 1023
-  br i1 %70, label %71, label %73
-
-71:                                               ; preds = %.lr.ph.i72
-  %72 = tail call i64 @hash_bytes_extended(ptr noundef %69, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %72, ptr %69, align 1
-  br label %73
-
-73:                                               ; preds = %71, %.lr.ph.i72
-  %.1.i76 = phi i64 [ 8, %71 ], [ %.02224.i75, %.lr.ph.i72 ]
-  %74 = sub nuw nsw i64 1024, %.1.i76
-  %75 = tail call i64 @llvm.umin.i64(i64 %.02125.i74, i64 %74)
-  %76 = getelementptr inbounds nuw i8, ptr %69, i64 %.1.i76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %76, ptr noundef nonnull align 1 dereferenceable(1) %.026.i73, i64 %75, i1 false)
-  %77 = add nuw nsw i64 %75, %.1.i76
-  %78 = getelementptr inbounds nuw i8, ptr %.026.i73, i64 %75
-  %79 = sub i64 %.02125.i74, %75
-  %.not.i77 = icmp eq i64 %79, 0
-  br i1 %.not.i77, label %AppendJumble.exit79, label %.lr.ph.i72, !llvm.loop !7
-
-AppendJumble.exit79:                              ; preds = %73
-  store i64 %77, ptr %45, align 8
+.lr.ph.i80:                                       ; preds = %.lr.ph.i72
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 %66
+  %78 = load i8, ptr %67, align 1
+  store i8 %78, ptr %77, align 1
+  %79 = add nuw nsw i64 %53, 2
+  store i64 %79, ptr %45, align 8
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %81 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i80
-
-.lr.ph.i80:                                       ; preds = %85, %AppendJumble.exit79
-  %.026.i81 = phi ptr [ %90, %85 ], [ %80, %AppendJumble.exit79 ]
-  %.02125.i82 = phi i64 [ %91, %85 ], [ 1, %AppendJumble.exit79 ]
-  %.02224.i83 = phi i64 [ %89, %85 ], [ %77, %AppendJumble.exit79 ]
-  %82 = icmp ugt i64 %.02224.i83, 1023
-  br i1 %82, label %83, label %85
+  %82 = icmp samesign ugt i64 %53, 1021
+  br i1 %82, label %83, label %.lr.ph.i88
 
 83:                                               ; preds = %.lr.ph.i80
   %84 = tail call i64 @hash_bytes_extended(ptr noundef %81, i32 noundef 1024, i64 noundef 0) #9
   store i64 %84, ptr %81, align 1
-  br label %85
+  br label %.lr.ph.i88.thread
 
-85:                                               ; preds = %83, %.lr.ph.i80
-  %.1.i84 = phi i64 [ 8, %83 ], [ %.02224.i83, %.lr.ph.i80 ]
-  %86 = sub nuw nsw i64 1024, %.1.i84
-  %87 = tail call i64 @llvm.umin.i64(i64 %.02125.i82, i64 %86)
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 %.1.i84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %88, ptr noundef nonnull align 1 dereferenceable(1) %.026.i81, i64 %87, i1 false)
-  %89 = add nuw nsw i64 %87, %.1.i84
-  %90 = getelementptr inbounds nuw i8, ptr %.026.i81, i64 %87
-  %91 = sub i64 %.02125.i82, %87
-  %.not.i85 = icmp eq i64 %91, 0
-  br i1 %.not.i85, label %AppendJumble.exit87, label %.lr.ph.i80, !llvm.loop !7
+.lr.ph.i88.thread:                                ; preds = %83, %.lr.ph.i80.thread
+  %.ph171 = phi ptr [ %76, %.lr.ph.i80.thread ], [ %81, %83 ]
+  %.ph172 = phi ptr [ %75, %.lr.ph.i80.thread ], [ %80, %83 ]
+  %.1.i84.ph = phi i64 [ %74, %.lr.ph.i80.thread ], [ 8, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.ph171, i64 %.1.i84.ph
+  %86 = load i8, ptr %.ph172, align 1
+  store i8 %86, ptr %85, align 1
+  %87 = add nuw nsw i64 %.1.i84.ph, 1
+  store i64 %87, ptr %45, align 8
+  %88 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit95
 
-AppendJumble.exit87:                              ; preds = %85
-  store i64 %89, ptr %45, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 37
-  %93 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i88
+.lr.ph.i88:                                       ; preds = %.lr.ph.i80
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %79
+  %90 = load i8, ptr %80, align 1
+  store i8 %90, ptr %89, align 1
+  %91 = add nuw nsw i64 %53, 3
+  store i64 %91, ptr %45, align 8
+  %92 = load ptr, ptr %0, align 8
+  %93 = icmp eq i64 %53, 1021
+  br i1 %93, label %94, label %AppendJumble.exit95
 
-.lr.ph.i88:                                       ; preds = %97, %AppendJumble.exit87
-  %.026.i89 = phi ptr [ %102, %97 ], [ %92, %AppendJumble.exit87 ]
-  %.02125.i90 = phi i64 [ %103, %97 ], [ 1, %AppendJumble.exit87 ]
-  %.02224.i91 = phi i64 [ %101, %97 ], [ %89, %AppendJumble.exit87 ]
-  %94 = icmp ugt i64 %.02224.i91, 1023
-  br i1 %94, label %95, label %97
+94:                                               ; preds = %.lr.ph.i88
+  %95 = tail call i64 @hash_bytes_extended(ptr noundef %92, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %95, ptr %92, align 1
+  br label %AppendJumble.exit95
 
-95:                                               ; preds = %.lr.ph.i88
-  %96 = tail call i64 @hash_bytes_extended(ptr noundef %93, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %96, ptr %93, align 1
-  br label %97
+AppendJumble.exit95:                              ; preds = %.lr.ph.i88, %94, %.lr.ph.i88.thread
+  %96 = phi ptr [ %92, %94 ], [ %92, %.lr.ph.i88 ], [ %88, %.lr.ph.i88.thread ]
+  %.1.i92 = phi i64 [ 8, %94 ], [ %91, %.lr.ph.i88 ], [ %87, %.lr.ph.i88.thread ]
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 37
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 %.1.i92
+  %99 = load i8, ptr %97, align 1
+  store i8 %99, ptr %98, align 1
+  %100 = add nuw nsw i64 %.1.i92, 1
+  store i64 %100, ptr %45, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %102 = load ptr, ptr %101, align 8
+  %.not46 = icmp eq ptr %102, null
+  br i1 %.not46, label %.lr.ph.i105, label %103
 
-97:                                               ; preds = %95, %.lr.ph.i88
-  %.1.i92 = phi i64 [ 8, %95 ], [ %.02224.i91, %.lr.ph.i88 ]
-  %98 = sub nuw nsw i64 1024, %.1.i92
-  %99 = tail call i64 @llvm.umin.i64(i64 %.02125.i90, i64 %98)
-  %100 = getelementptr inbounds nuw i8, ptr %93, i64 %.1.i92
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr noundef nonnull align 1 dereferenceable(1) %.026.i89, i64 %99, i1 false)
-  %101 = add nuw nsw i64 %99, %.1.i92
-  %102 = getelementptr inbounds nuw i8, ptr %.026.i89, i64 %99
-  %103 = sub i64 %.02125.i90, %99
-  %.not.i93 = icmp eq i64 %103, 0
-  br i1 %.not.i93, label %AppendJumble.exit95, label %.lr.ph.i88, !llvm.loop !7
-
-AppendJumble.exit95:                              ; preds = %97
-  store i64 %101, ptr %45, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %105 = load ptr, ptr %104, align 8
-  %.not46 = icmp eq ptr %105, null
-  br i1 %.not46, label %120, label %106
-
-106:                                              ; preds = %AppendJumble.exit95
-  %107 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #8
-  %108 = add i64 %107, 1
-  %109 = load ptr, ptr %0, align 8
-  %.not23.i96 = icmp eq i64 %108, 0
+103:                                              ; preds = %AppendJumble.exit95
+  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #8
+  %105 = add i64 %104, 1
+  %106 = load ptr, ptr %0, align 8
+  %.not23.i96 = icmp eq i64 %105, 0
   br i1 %.not23.i96, label %AppendJumble.exit104, label %.lr.ph.i97
 
-.lr.ph.i97:                                       ; preds = %106, %113
-  %.026.i98 = phi ptr [ %118, %113 ], [ %105, %106 ]
-  %.02125.i99 = phi i64 [ %119, %113 ], [ %108, %106 ]
-  %.02224.i100 = phi i64 [ %117, %113 ], [ %101, %106 ]
-  %110 = icmp ugt i64 %.02224.i100, 1023
-  br i1 %110, label %111, label %113
+.lr.ph.i97:                                       ; preds = %103, %110
+  %.026.i98 = phi ptr [ %115, %110 ], [ %102, %103 ]
+  %.02125.i99 = phi i64 [ %116, %110 ], [ %105, %103 ]
+  %.02224.i100 = phi i64 [ %114, %110 ], [ %100, %103 ]
+  %107 = icmp ugt i64 %.02224.i100, 1023
+  br i1 %107, label %108, label %110
 
-111:                                              ; preds = %.lr.ph.i97
-  %112 = tail call i64 @hash_bytes_extended(ptr noundef %109, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %112, ptr %109, align 1
-  br label %113
+108:                                              ; preds = %.lr.ph.i97
+  %109 = tail call i64 @hash_bytes_extended(ptr noundef %106, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %109, ptr %106, align 1
+  br label %110
 
-113:                                              ; preds = %111, %.lr.ph.i97
-  %.1.i101 = phi i64 [ 8, %111 ], [ %.02224.i100, %.lr.ph.i97 ]
-  %114 = sub nuw nsw i64 1024, %.1.i101
-  %115 = tail call i64 @llvm.umin.i64(i64 %.02125.i99, i64 %114)
-  %116 = getelementptr inbounds nuw i8, ptr %109, i64 %.1.i101
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %116, ptr noundef nonnull align 1 dereferenceable(1) %.026.i98, i64 %115, i1 false)
-  %117 = add nuw nsw i64 %115, %.1.i101
-  %118 = getelementptr inbounds nuw i8, ptr %.026.i98, i64 %115
-  %119 = sub i64 %.02125.i99, %115
-  %.not.i102 = icmp eq i64 %119, 0
+110:                                              ; preds = %108, %.lr.ph.i97
+  %.1.i101 = phi i64 [ 8, %108 ], [ %.02224.i100, %.lr.ph.i97 ]
+  %111 = sub nuw nsw i64 1024, %.1.i101
+  %112 = tail call i64 @llvm.umin.i64(i64 %.02125.i99, i64 %111)
+  %113 = getelementptr inbounds nuw i8, ptr %106, i64 %.1.i101
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %113, ptr noundef nonnull align 1 dereferenceable(1) %.026.i98, i64 %112, i1 false)
+  %114 = add nuw nsw i64 %112, %.1.i101
+  %115 = getelementptr inbounds nuw i8, ptr %.026.i98, i64 %112
+  %116 = sub i64 %.02125.i99, %112
+  %.not.i102 = icmp eq i64 %116, 0
   br i1 %.not.i102, label %AppendJumble.exit104, label %.lr.ph.i97, !llvm.loop !7
 
-AppendJumble.exit104:                             ; preds = %113, %106
-  %.022.lcssa.i103 = phi i64 [ %101, %106 ], [ %117, %113 ]
+AppendJumble.exit104:                             ; preds = %110, %103
+  %.022.lcssa.i103 = phi i64 [ %100, %103 ], [ %114, %110 ]
   store i64 %.022.lcssa.i103, ptr %45, align 8
-  br label %120
-
-120:                                              ; preds = %AppendJumble.exit104, %AppendJumble.exit95
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %122 = load ptr, ptr %121, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %122)
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %124 = load ptr, ptr %123, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %124)
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %126 = load ptr, ptr %0, align 8
-  %127 = load i64, ptr %45, align 8
   br label %.lr.ph.i105
 
-.lr.ph.i105:                                      ; preds = %131, %120
-  %.026.i106 = phi ptr [ %136, %131 ], [ %125, %120 ]
-  %.02125.i107 = phi i64 [ %137, %131 ], [ 1, %120 ]
-  %.02224.i108 = phi i64 [ %135, %131 ], [ %127, %120 ]
-  %128 = icmp ugt i64 %.02224.i108, 1023
-  br i1 %128, label %129, label %131
+.lr.ph.i105:                                      ; preds = %AppendJumble.exit95, %AppendJumble.exit104
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %118 = load ptr, ptr %117, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %118)
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %120 = load ptr, ptr %119, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %120)
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %122 = load ptr, ptr %0, align 8
+  %123 = load i64, ptr %45, align 8
+  %124 = icmp ugt i64 %123, 1023
+  br i1 %124, label %125, label %.lr.ph.i113
 
-129:                                              ; preds = %.lr.ph.i105
-  %130 = tail call i64 @hash_bytes_extended(ptr noundef %126, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %130, ptr %126, align 1
-  br label %131
-
-131:                                              ; preds = %129, %.lr.ph.i105
-  %.1.i109 = phi i64 [ 8, %129 ], [ %.02224.i108, %.lr.ph.i105 ]
-  %132 = sub nuw nsw i64 1024, %.1.i109
-  %133 = tail call i64 @llvm.umin.i64(i64 %.02125.i107, i64 %132)
-  %134 = getelementptr inbounds nuw i8, ptr %126, i64 %.1.i109
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %134, ptr noundef nonnull align 1 dereferenceable(1) %.026.i106, i64 %133, i1 false)
-  %135 = add nuw nsw i64 %133, %.1.i109
-  %136 = getelementptr inbounds nuw i8, ptr %.026.i106, i64 %133
-  %137 = sub i64 %.02125.i107, %133
-  %.not.i110 = icmp eq i64 %137, 0
-  br i1 %.not.i110, label %AppendJumble.exit112, label %.lr.ph.i105, !llvm.loop !7
-
-AppendJumble.exit112:                             ; preds = %131
-  store i64 %135, ptr %45, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %139 = load ptr, ptr %138, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %139)
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %141 = load ptr, ptr %0, align 8
-  %142 = load i64, ptr %45, align 8
+125:                                              ; preds = %.lr.ph.i105
+  %126 = tail call i64 @hash_bytes_extended(ptr noundef %122, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %126, ptr %122, align 1
   br label %.lr.ph.i113
 
-.lr.ph.i113:                                      ; preds = %146, %AppendJumble.exit112
-  %.026.i114 = phi ptr [ %151, %146 ], [ %140, %AppendJumble.exit112 ]
-  %.02125.i115 = phi i64 [ %152, %146 ], [ 1, %AppendJumble.exit112 ]
-  %.02224.i116 = phi i64 [ %150, %146 ], [ %142, %AppendJumble.exit112 ]
-  %143 = icmp ugt i64 %.02224.i116, 1023
-  br i1 %143, label %144, label %146
+.lr.ph.i113:                                      ; preds = %125, %.lr.ph.i105
+  %.1.i109 = phi i64 [ 8, %125 ], [ %123, %.lr.ph.i105 ]
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 %.1.i109
+  %128 = load i8, ptr %121, align 1
+  store i8 %128, ptr %127, align 1
+  %129 = add nuw nsw i64 %.1.i109, 1
+  store i64 %129, ptr %45, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %131 = load ptr, ptr %130, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %131)
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %133 = load ptr, ptr %0, align 8
+  %134 = load i64, ptr %45, align 8
+  %135 = icmp ugt i64 %134, 1023
+  br i1 %135, label %136, label %AppendJumble.exit120
 
-144:                                              ; preds = %.lr.ph.i113
-  %145 = tail call i64 @hash_bytes_extended(ptr noundef %141, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %145, ptr %141, align 1
-  br label %146
+136:                                              ; preds = %.lr.ph.i113
+  %137 = tail call i64 @hash_bytes_extended(ptr noundef %133, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %137, ptr %133, align 1
+  br label %AppendJumble.exit120
 
-146:                                              ; preds = %144, %.lr.ph.i113
-  %.1.i117 = phi i64 [ 8, %144 ], [ %.02224.i116, %.lr.ph.i113 ]
-  %147 = sub nuw nsw i64 1024, %.1.i117
-  %148 = tail call i64 @llvm.umin.i64(i64 %.02125.i115, i64 %147)
-  %149 = getelementptr inbounds nuw i8, ptr %141, i64 %.1.i117
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %149, ptr noundef nonnull align 1 dereferenceable(1) %.026.i114, i64 %148, i1 false)
-  %150 = add nuw nsw i64 %148, %.1.i117
-  %151 = getelementptr inbounds nuw i8, ptr %.026.i114, i64 %148
-  %152 = sub i64 %.02125.i115, %148
-  %.not.i118 = icmp eq i64 %152, 0
-  br i1 %.not.i118, label %AppendJumble.exit120, label %.lr.ph.i113, !llvm.loop !7
-
-AppendJumble.exit120:                             ; preds = %146
-  store i64 %150, ptr %45, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %154 = load ptr, ptr %153, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %154)
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %156 = load ptr, ptr %0, align 8
-  %157 = load i64, ptr %45, align 8
+AppendJumble.exit120:                             ; preds = %.lr.ph.i113, %136
+  %.1.i117 = phi i64 [ 8, %136 ], [ %134, %.lr.ph.i113 ]
+  %138 = getelementptr inbounds nuw i8, ptr %133, i64 %.1.i117
+  %139 = load i8, ptr %132, align 1
+  store i8 %139, ptr %138, align 1
+  %140 = add nuw nsw i64 %.1.i117, 1
+  store i64 %140, ptr %45, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %142 = load ptr, ptr %141, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %142)
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %144 = load ptr, ptr %0, align 8
+  %145 = load i64, ptr %45, align 8
   br label %.lr.ph.i121
 
-.lr.ph.i121:                                      ; preds = %161, %AppendJumble.exit120
-  %.026.i122 = phi ptr [ %166, %161 ], [ %155, %AppendJumble.exit120 ]
-  %.02125.i123 = phi i64 [ %167, %161 ], [ 4, %AppendJumble.exit120 ]
-  %.02224.i124 = phi i64 [ %165, %161 ], [ %157, %AppendJumble.exit120 ]
-  %158 = icmp ugt i64 %.02224.i124, 1023
-  br i1 %158, label %159, label %161
+.lr.ph.i121:                                      ; preds = %149, %AppendJumble.exit120
+  %.026.i122 = phi ptr [ %154, %149 ], [ %143, %AppendJumble.exit120 ]
+  %.02125.i123 = phi i64 [ %155, %149 ], [ 4, %AppendJumble.exit120 ]
+  %.02224.i124 = phi i64 [ %153, %149 ], [ %145, %AppendJumble.exit120 ]
+  %146 = icmp ugt i64 %.02224.i124, 1023
+  br i1 %146, label %147, label %149
 
-159:                                              ; preds = %.lr.ph.i121
-  %160 = tail call i64 @hash_bytes_extended(ptr noundef %156, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %160, ptr %156, align 1
-  br label %161
+147:                                              ; preds = %.lr.ph.i121
+  %148 = tail call i64 @hash_bytes_extended(ptr noundef %144, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %148, ptr %144, align 1
+  br label %149
 
-161:                                              ; preds = %159, %.lr.ph.i121
-  %.1.i125 = phi i64 [ 8, %159 ], [ %.02224.i124, %.lr.ph.i121 ]
-  %162 = sub nuw nsw i64 1024, %.1.i125
-  %163 = tail call i64 @llvm.umin.i64(i64 %.02125.i123, i64 %162)
-  %164 = getelementptr inbounds nuw i8, ptr %156, i64 %.1.i125
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %164, ptr noundef nonnull align 1 dereferenceable(1) %.026.i122, i64 %163, i1 false)
-  %165 = add nuw nsw i64 %163, %.1.i125
-  %166 = getelementptr inbounds nuw i8, ptr %.026.i122, i64 %163
-  %167 = sub i64 %.02125.i123, %163
-  %.not.i126 = icmp eq i64 %167, 0
+149:                                              ; preds = %147, %.lr.ph.i121
+  %.1.i125 = phi i64 [ 8, %147 ], [ %.02224.i124, %.lr.ph.i121 ]
+  %150 = sub nuw nsw i64 1024, %.1.i125
+  %151 = tail call i64 @llvm.umin.i64(i64 %.02125.i123, i64 %150)
+  %152 = getelementptr inbounds nuw i8, ptr %144, i64 %.1.i125
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %152, ptr noundef nonnull align 1 dereferenceable(1) %.026.i122, i64 %151, i1 false)
+  %153 = add nuw nsw i64 %151, %.1.i125
+  %154 = getelementptr inbounds nuw i8, ptr %.026.i122, i64 %151
+  %155 = sub i64 %.02125.i123, %151
+  %.not.i126 = icmp eq i64 %155, 0
   br i1 %.not.i126, label %AppendJumble.exit128, label %.lr.ph.i121, !llvm.loop !7
 
-AppendJumble.exit128:                             ; preds = %161
-  store i64 %165, ptr %45, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %169 = load ptr, ptr %168, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %169)
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %171 = load ptr, ptr %170, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %171)
+AppendJumble.exit128:                             ; preds = %149
+  store i64 %153, ptr %45, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %157 = load ptr, ptr %156, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %157)
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %159 = load ptr, ptr %158, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %159)
   ret void
 }
 
@@ -7907,9 +7510,9 @@ define internal fastcc void @_jumbleXmlSerialize(ptr noundef %0, ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i9:                                        ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -7917,37 +7520,24 @@ AppendJumble.exit:                                ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %20)
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load ptr, ptr %0, align 8
-  %23 = load i64, ptr %5, align 8
-  br label %.lr.ph.i9
+  %21 = load ptr, ptr %0, align 8
+  %22 = load i64, ptr %5, align 8
+  %23 = icmp ugt i64 %22, 1023
+  br i1 %23, label %24, label %AppendJumble.exit15
 
-.lr.ph.i9:                                        ; preds = %27, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %32, %27 ], [ %21, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %33, %27 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %31, %27 ], [ %23, %AppendJumble.exit ]
-  %24 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %24, label %25, label %27
+24:                                               ; preds = %.lr.ph.i9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %25, ptr %21, align 1
+  br label %AppendJumble.exit15
 
-25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %26, ptr %22, align 1
-  br label %27
-
-27:                                               ; preds = %25, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %25 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %28 = sub nuw nsw i64 1024, %.1.i13
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i13
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
-  %33 = sub i64 %.02125.i11, %29
-  %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit15:                              ; preds = %27
-  store i64 %31, ptr %5, align 8
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %24
+  %.1.i13 = phi i64 [ 8, %24 ], [ %22, %.lr.ph.i9 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i13
+  %28 = load i8, ptr %26, align 1
+  store i8 %28, ptr %27, align 1
+  %29 = add nuw nsw i64 %.1.i13, 1
+  store i64 %29, ptr %5, align 8
   ret void
 }
 
@@ -8051,137 +7641,117 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePartitionBoundSpec(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %.lr.ph.i15.thread, label %.lr.ph.i15
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+.lr.ph.i15.thread:                                ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %3, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load i8, ptr %2, align 1
+  store i8 %9, ptr %8, align 1
+  store i64 9, ptr %4, align 8
+  %10 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit21
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+.lr.ph.i15:                                       ; preds = %.lr.ph.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %5
+  %12 = load i8, ptr %2, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %5, 1
+  store i64 %13, ptr %4, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = icmp eq i64 %5, 1023
+  br i1 %15, label %16, label %AppendJumble.exit21
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+16:                                               ; preds = %.lr.ph.i15
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %17, ptr %14, align 1
+  br label %AppendJumble.exit21
 
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i15
-
-.lr.ph.i15:                                       ; preds = %22, %AppendJumble.exit
-  %.026.i16 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i17 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i18 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %.lr.ph.i15
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %20 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %23 = sub nuw nsw i64 1024, %.1.i19
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i19
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %24
-  %28 = sub i64 %.02125.i17, %24
-  %.not.i20 = icmp eq i64 %28, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
-
-AppendJumble.exit21:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %0, align 8
+AppendJumble.exit21:                              ; preds = %.lr.ph.i15, %16, %.lr.ph.i15.thread
+  %18 = phi ptr [ %14, %16 ], [ %14, %.lr.ph.i15 ], [ %10, %.lr.ph.i15.thread ]
+  %.1.i19 = phi i64 [ 8, %16 ], [ %13, %.lr.ph.i15 ], [ 9, %.lr.ph.i15.thread ]
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i19
+  %21 = load i8, ptr %19, align 1
+  store i8 %21, ptr %20, align 1
+  %22 = add nuw nsw i64 %.1.i19, 1
+  store i64 %22, ptr %4, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %0, align 8
   br label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %34, %AppendJumble.exit21
-  %.026.i23 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit21 ]
-  %.02125.i24 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit21 ]
-  %.02224.i25 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit21 ]
-  %31 = icmp ugt i64 %.02224.i25, 1023
-  br i1 %31, label %32, label %34
+.lr.ph.i22:                                       ; preds = %28, %AppendJumble.exit21
+  %.026.i23 = phi ptr [ %33, %28 ], [ %23, %AppendJumble.exit21 ]
+  %.02125.i24 = phi i64 [ %34, %28 ], [ 4, %AppendJumble.exit21 ]
+  %.02224.i25 = phi i64 [ %32, %28 ], [ %22, %AppendJumble.exit21 ]
+  %25 = icmp ugt i64 %.02224.i25, 1023
+  br i1 %25, label %26, label %28
 
-32:                                               ; preds = %.lr.ph.i22
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %33, ptr %30, align 1
-  br label %34
+26:                                               ; preds = %.lr.ph.i22
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %27, ptr %24, align 1
+  br label %28
 
-34:                                               ; preds = %32, %.lr.ph.i22
-  %.1.i26 = phi i64 [ 8, %32 ], [ %.02224.i25, %.lr.ph.i22 ]
-  %35 = sub nuw nsw i64 1024, %.1.i26
-  %36 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %35)
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %36, i1 false)
-  %38 = add nuw nsw i64 %36, %.1.i26
-  %39 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %36
-  %40 = sub i64 %.02125.i24, %36
-  %.not.i27 = icmp eq i64 %40, 0
+28:                                               ; preds = %26, %.lr.ph.i22
+  %.1.i26 = phi i64 [ 8, %26 ], [ %.02224.i25, %.lr.ph.i22 ]
+  %29 = sub nuw nsw i64 1024, %.1.i26
+  %30 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %29)
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %30, i1 false)
+  %32 = add nuw nsw i64 %30, %.1.i26
+  %33 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %30
+  %34 = sub i64 %.02125.i24, %30
+  %.not.i27 = icmp eq i64 %34, 0
   br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
 
-AppendJumble.exit28:                              ; preds = %34
-  store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %42 = load ptr, ptr %0, align 8
+AppendJumble.exit28:                              ; preds = %28
+  store i64 %32, ptr %4, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %36 = load ptr, ptr %0, align 8
   br label %.lr.ph.i29
 
-.lr.ph.i29:                                       ; preds = %46, %AppendJumble.exit28
-  %.026.i30 = phi ptr [ %51, %46 ], [ %41, %AppendJumble.exit28 ]
-  %.02125.i31 = phi i64 [ %52, %46 ], [ 4, %AppendJumble.exit28 ]
-  %.02224.i32 = phi i64 [ %50, %46 ], [ %38, %AppendJumble.exit28 ]
-  %43 = icmp ugt i64 %.02224.i32, 1023
-  br i1 %43, label %44, label %46
+.lr.ph.i29:                                       ; preds = %40, %AppendJumble.exit28
+  %.026.i30 = phi ptr [ %45, %40 ], [ %35, %AppendJumble.exit28 ]
+  %.02125.i31 = phi i64 [ %46, %40 ], [ 4, %AppendJumble.exit28 ]
+  %.02224.i32 = phi i64 [ %44, %40 ], [ %32, %AppendJumble.exit28 ]
+  %37 = icmp ugt i64 %.02224.i32, 1023
+  br i1 %37, label %38, label %40
 
-44:                                               ; preds = %.lr.ph.i29
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %45, ptr %42, align 1
-  br label %46
+38:                                               ; preds = %.lr.ph.i29
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %39, ptr %36, align 1
+  br label %40
 
-46:                                               ; preds = %44, %.lr.ph.i29
-  %.1.i33 = phi i64 [ 8, %44 ], [ %.02224.i32, %.lr.ph.i29 ]
-  %47 = sub nuw nsw i64 1024, %.1.i33
-  %48 = tail call i64 @llvm.umin.i64(i64 %.02125.i31, i64 %47)
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %.026.i30, i64 %48, i1 false)
-  %50 = add nuw nsw i64 %48, %.1.i33
-  %51 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %48
-  %52 = sub i64 %.02125.i31, %48
-  %.not.i34 = icmp eq i64 %52, 0
+40:                                               ; preds = %38, %.lr.ph.i29
+  %.1.i33 = phi i64 [ 8, %38 ], [ %.02224.i32, %.lr.ph.i29 ]
+  %41 = sub nuw nsw i64 1024, %.1.i33
+  %42 = tail call i64 @llvm.umin.i64(i64 %.02125.i31, i64 %41)
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %.1.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %.026.i30, i64 %42, i1 false)
+  %44 = add nuw nsw i64 %42, %.1.i33
+  %45 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %42
+  %46 = sub i64 %.02125.i31, %42
+  %.not.i34 = icmp eq i64 %46, 0
   br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
 
-AppendJumble.exit35:                              ; preds = %46
-  store i64 %50, ptr %5, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %54 = load ptr, ptr %53, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %54)
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = load ptr, ptr %55, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %56)
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %58 = load ptr, ptr %57, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %58)
+AppendJumble.exit35:                              ; preds = %40
+  store i64 %44, ptr %4, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = load ptr, ptr %47, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %48)
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load ptr, ptr %49, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %50)
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %52 = load ptr, ptr %51, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %52)
   ret void
 }
 
@@ -8227,44 +7797,32 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumblePartitionCmd(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp ugt i64 %8, 1023
+  br i1 %9, label %10, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+10:                                               ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %6, align 1
+  br label %AppendJumble.exit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
-
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %10
+  %.1.i = phi i64 [ 8, %10 ], [ %8, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
+  %14 = load i8, ptr %12, align 1
+  store i8 %14, ptr %13, align 1
+  %15 = add nuw nsw i64 %.1.i, 1
+  store i64 %15, ptr %7, align 8
   ret void
 }
 
@@ -8328,238 +7886,212 @@ AppendJumble.exit:                                ; preds = %10
   %27 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %24
   %28 = sub i64 %.02125.i35, %24
   %.not.i38 = icmp eq i64 %28, 0
-  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !7
+  br i1 %.not.i38, label %.lr.ph.i40, label %.lr.ph.i33, !llvm.loop !7
 
-AppendJumble.exit39:                              ; preds = %22
+.lr.ph.i40:                                       ; preds = %22
   store i64 %26, ptr %5, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i40
-
-.lr.ph.i40:                                       ; preds = %34, %AppendJumble.exit39
-  %.026.i41 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit39 ]
-  %.02125.i42 = phi i64 [ %40, %34 ], [ 1, %AppendJumble.exit39 ]
-  %.02224.i43 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit39 ]
-  %31 = icmp ugt i64 %.02224.i43, 1023
-  br i1 %31, label %32, label %34
+  %31 = icmp samesign ugt i64 %26, 1023
+  br i1 %31, label %32, label %AppendJumble.exit46
 
 32:                                               ; preds = %.lr.ph.i40
   %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
   store i64 %33, ptr %30, align 1
-  br label %34
+  br label %AppendJumble.exit46
 
-34:                                               ; preds = %32, %.lr.ph.i40
-  %.1.i44 = phi i64 [ 8, %32 ], [ %.02224.i43, %.lr.ph.i40 ]
-  %35 = sub nuw nsw i64 1024, %.1.i44
-  %36 = tail call i64 @llvm.umin.i64(i64 %.02125.i42, i64 %35)
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %.026.i41, i64 %36, i1 false)
-  %38 = add nuw nsw i64 %36, %.1.i44
-  %39 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %36
-  %40 = sub i64 %.02125.i42, %36
-  %.not.i45 = icmp eq i64 %40, 0
-  br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !7
-
-AppendJumble.exit46:                              ; preds = %34
-  store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %42 = load ptr, ptr %41, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %42)
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %44 = load ptr, ptr %43, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %46 = load ptr, ptr %0, align 8
-  %47 = load i64, ptr %5, align 8
+AppendJumble.exit46:                              ; preds = %.lr.ph.i40, %32
+  %.1.i44 = phi i64 [ 8, %32 ], [ %26, %.lr.ph.i40 ]
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i44
+  %35 = load i8, ptr %29, align 1
+  store i8 %35, ptr %34, align 1
+  %36 = add nuw nsw i64 %.1.i44, 1
+  store i64 %36, ptr %5, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %38 = load ptr, ptr %37, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %40 = load ptr, ptr %39, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %40)
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %42 = load ptr, ptr %0, align 8
+  %43 = load i64, ptr %5, align 8
   br label %.lr.ph.i47
 
-.lr.ph.i47:                                       ; preds = %51, %AppendJumble.exit46
-  %.026.i48 = phi ptr [ %56, %51 ], [ %45, %AppendJumble.exit46 ]
-  %.02125.i49 = phi i64 [ %57, %51 ], [ 4, %AppendJumble.exit46 ]
-  %.02224.i50 = phi i64 [ %55, %51 ], [ %47, %AppendJumble.exit46 ]
-  %48 = icmp ugt i64 %.02224.i50, 1023
-  br i1 %48, label %49, label %51
+.lr.ph.i47:                                       ; preds = %47, %AppendJumble.exit46
+  %.026.i48 = phi ptr [ %52, %47 ], [ %41, %AppendJumble.exit46 ]
+  %.02125.i49 = phi i64 [ %53, %47 ], [ 4, %AppendJumble.exit46 ]
+  %.02224.i50 = phi i64 [ %51, %47 ], [ %43, %AppendJumble.exit46 ]
+  %44 = icmp ugt i64 %.02224.i50, 1023
+  br i1 %44, label %45, label %47
 
-49:                                               ; preds = %.lr.ph.i47
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %50, ptr %46, align 1
-  br label %51
+45:                                               ; preds = %.lr.ph.i47
+  %46 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %46, ptr %42, align 1
+  br label %47
 
-51:                                               ; preds = %49, %.lr.ph.i47
-  %.1.i51 = phi i64 [ 8, %49 ], [ %.02224.i50, %.lr.ph.i47 ]
-  %52 = sub nuw nsw i64 1024, %.1.i51
-  %53 = tail call i64 @llvm.umin.i64(i64 %.02125.i49, i64 %52)
-  %54 = getelementptr inbounds nuw i8, ptr %46, i64 %.1.i51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 1 dereferenceable(1) %.026.i48, i64 %53, i1 false)
-  %55 = add nuw nsw i64 %53, %.1.i51
-  %56 = getelementptr inbounds nuw i8, ptr %.026.i48, i64 %53
-  %57 = sub i64 %.02125.i49, %53
-  %.not.i52 = icmp eq i64 %57, 0
-  br i1 %.not.i52, label %AppendJumble.exit53, label %.lr.ph.i47, !llvm.loop !7
+47:                                               ; preds = %45, %.lr.ph.i47
+  %.1.i51 = phi i64 [ 8, %45 ], [ %.02224.i50, %.lr.ph.i47 ]
+  %48 = sub nuw nsw i64 1024, %.1.i51
+  %49 = tail call i64 @llvm.umin.i64(i64 %.02125.i49, i64 %48)
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 1 dereferenceable(1) %.026.i48, i64 %49, i1 false)
+  %51 = add nuw nsw i64 %49, %.1.i51
+  %52 = getelementptr inbounds nuw i8, ptr %.026.i48, i64 %49
+  %53 = sub i64 %.02125.i49, %49
+  %.not.i52 = icmp eq i64 %53, 0
+  br i1 %.not.i52, label %.lr.ph.i54, label %.lr.ph.i47, !llvm.loop !7
 
-AppendJumble.exit53:                              ; preds = %51
-  store i64 %55, ptr %5, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %59 = load ptr, ptr %58, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %59)
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %61 = load ptr, ptr %0, align 8
-  %62 = load i64, ptr %5, align 8
-  br label %.lr.ph.i54
+.lr.ph.i54:                                       ; preds = %47
+  store i64 %51, ptr %5, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %55 = load ptr, ptr %54, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %55)
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %57 = load ptr, ptr %0, align 8
+  %58 = load i64, ptr %5, align 8
+  %59 = icmp ugt i64 %58, 1023
+  br i1 %59, label %60, label %AppendJumble.exit60
 
-.lr.ph.i54:                                       ; preds = %66, %AppendJumble.exit53
-  %.026.i55 = phi ptr [ %71, %66 ], [ %60, %AppendJumble.exit53 ]
-  %.02125.i56 = phi i64 [ %72, %66 ], [ 1, %AppendJumble.exit53 ]
-  %.02224.i57 = phi i64 [ %70, %66 ], [ %62, %AppendJumble.exit53 ]
-  %63 = icmp ugt i64 %.02224.i57, 1023
-  br i1 %63, label %64, label %66
+60:                                               ; preds = %.lr.ph.i54
+  %61 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %61, ptr %57, align 1
+  br label %AppendJumble.exit60
 
-64:                                               ; preds = %.lr.ph.i54
-  %65 = tail call i64 @hash_bytes_extended(ptr noundef %61, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %65, ptr %61, align 1
-  br label %66
-
-66:                                               ; preds = %64, %.lr.ph.i54
-  %.1.i58 = phi i64 [ 8, %64 ], [ %.02224.i57, %.lr.ph.i54 ]
-  %67 = sub nuw nsw i64 1024, %.1.i58
-  %68 = tail call i64 @llvm.umin.i64(i64 %.02125.i56, i64 %67)
-  %69 = getelementptr inbounds nuw i8, ptr %61, i64 %.1.i58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull align 1 dereferenceable(1) %.026.i55, i64 %68, i1 false)
-  %70 = add nuw nsw i64 %68, %.1.i58
-  %71 = getelementptr inbounds nuw i8, ptr %.026.i55, i64 %68
-  %72 = sub i64 %.02125.i56, %68
-  %.not.i59 = icmp eq i64 %72, 0
-  br i1 %.not.i59, label %AppendJumble.exit60, label %.lr.ph.i54, !llvm.loop !7
-
-AppendJumble.exit60:                              ; preds = %66
-  store i64 %70, ptr %5, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %74 = load ptr, ptr %73, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %74)
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %76 = load ptr, ptr %75, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %76)
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %78 = load ptr, ptr %77, align 8
-  %.not = icmp eq ptr %78, null
+AppendJumble.exit60:                              ; preds = %.lr.ph.i54, %60
+  %.1.i58 = phi i64 [ 8, %60 ], [ %58, %.lr.ph.i54 ]
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 %.1.i58
+  %63 = load i8, ptr %56, align 1
+  store i8 %63, ptr %62, align 1
+  %64 = add nuw nsw i64 %.1.i58, 1
+  store i64 %64, ptr %5, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %66 = load ptr, ptr %65, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %66)
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %68 = load ptr, ptr %67, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %68)
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %70 = load ptr, ptr %69, align 8
+  %.not = icmp eq ptr %70, null
   %.pre99 = load ptr, ptr %0, align 8
   %.pre100 = load i64, ptr %5, align 8
-  br i1 %.not, label %92, label %79
+  br i1 %.not, label %84, label %71
 
-79:                                               ; preds = %AppendJumble.exit60
-  %80 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #8
-  %81 = add i64 %80, 1
-  %.not23.i = icmp eq i64 %81, 0
+71:                                               ; preds = %AppendJumble.exit60
+  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #8
+  %73 = add i64 %72, 1
+  %.not23.i = icmp eq i64 %73, 0
   br i1 %.not23.i, label %AppendJumble.exit67, label %.lr.ph.i61
 
-.lr.ph.i61:                                       ; preds = %79, %85
-  %.026.i62 = phi ptr [ %90, %85 ], [ %78, %79 ]
-  %.02125.i63 = phi i64 [ %91, %85 ], [ %81, %79 ]
-  %.02224.i64 = phi i64 [ %89, %85 ], [ %.pre100, %79 ]
-  %82 = icmp ugt i64 %.02224.i64, 1023
-  br i1 %82, label %83, label %85
+.lr.ph.i61:                                       ; preds = %71, %77
+  %.026.i62 = phi ptr [ %82, %77 ], [ %70, %71 ]
+  %.02125.i63 = phi i64 [ %83, %77 ], [ %73, %71 ]
+  %.02224.i64 = phi i64 [ %81, %77 ], [ %.pre100, %71 ]
+  %74 = icmp ugt i64 %.02224.i64, 1023
+  br i1 %74, label %75, label %77
 
-83:                                               ; preds = %.lr.ph.i61
-  %84 = tail call i64 @hash_bytes_extended(ptr noundef %.pre99, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %84, ptr %.pre99, align 1
-  br label %85
+75:                                               ; preds = %.lr.ph.i61
+  %76 = tail call i64 @hash_bytes_extended(ptr noundef %.pre99, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %76, ptr %.pre99, align 1
+  br label %77
 
-85:                                               ; preds = %83, %.lr.ph.i61
-  %.1.i65 = phi i64 [ 8, %83 ], [ %.02224.i64, %.lr.ph.i61 ]
-  %86 = sub nuw nsw i64 1024, %.1.i65
-  %87 = tail call i64 @llvm.umin.i64(i64 %.02125.i63, i64 %86)
-  %88 = getelementptr inbounds nuw i8, ptr %.pre99, i64 %.1.i65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %88, ptr noundef nonnull align 1 dereferenceable(1) %.026.i62, i64 %87, i1 false)
-  %89 = add nuw nsw i64 %87, %.1.i65
-  %90 = getelementptr inbounds nuw i8, ptr %.026.i62, i64 %87
-  %91 = sub i64 %.02125.i63, %87
-  %.not.i66 = icmp eq i64 %91, 0
+77:                                               ; preds = %75, %.lr.ph.i61
+  %.1.i65 = phi i64 [ 8, %75 ], [ %.02224.i64, %.lr.ph.i61 ]
+  %78 = sub nuw nsw i64 1024, %.1.i65
+  %79 = tail call i64 @llvm.umin.i64(i64 %.02125.i63, i64 %78)
+  %80 = getelementptr inbounds nuw i8, ptr %.pre99, i64 %.1.i65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %80, ptr noundef nonnull align 1 dereferenceable(1) %.026.i62, i64 %79, i1 false)
+  %81 = add nuw nsw i64 %79, %.1.i65
+  %82 = getelementptr inbounds nuw i8, ptr %.026.i62, i64 %79
+  %83 = sub i64 %.02125.i63, %79
+  %.not.i66 = icmp eq i64 %83, 0
   br i1 %.not.i66, label %AppendJumble.exit67.loopexit, label %.lr.ph.i61, !llvm.loop !7
 
-AppendJumble.exit67.loopexit:                     ; preds = %85
+AppendJumble.exit67.loopexit:                     ; preds = %77
   %.pre.pre = load ptr, ptr %0, align 8
   br label %AppendJumble.exit67
 
-AppendJumble.exit67:                              ; preds = %AppendJumble.exit67.loopexit, %79
-  %.pre = phi ptr [ %.pre99, %79 ], [ %.pre.pre, %AppendJumble.exit67.loopexit ]
-  %.022.lcssa.i = phi i64 [ %.pre100, %79 ], [ %89, %AppendJumble.exit67.loopexit ]
+AppendJumble.exit67:                              ; preds = %AppendJumble.exit67.loopexit, %71
+  %.pre = phi ptr [ %.pre99, %71 ], [ %.pre.pre, %AppendJumble.exit67.loopexit ]
+  %.022.lcssa.i = phi i64 [ %.pre100, %71 ], [ %81, %AppendJumble.exit67.loopexit ]
   store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %92
+  br label %84
 
-92:                                               ; preds = %AppendJumble.exit67, %AppendJumble.exit60
-  %93 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit67 ], [ %.pre100, %AppendJumble.exit60 ]
-  %94 = phi ptr [ %.pre, %AppendJumble.exit67 ], [ %.pre99, %AppendJumble.exit60 ]
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 152
+84:                                               ; preds = %AppendJumble.exit67, %AppendJumble.exit60
+  %85 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit67 ], [ %.pre100, %AppendJumble.exit60 ]
+  %86 = phi ptr [ %.pre, %AppendJumble.exit67 ], [ %.pre99, %AppendJumble.exit60 ]
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 152
   br label %.lr.ph.i68
 
-.lr.ph.i68:                                       ; preds = %99, %92
-  %.026.i69 = phi ptr [ %104, %99 ], [ %95, %92 ]
-  %.02125.i70 = phi i64 [ %105, %99 ], [ 4, %92 ]
-  %.02224.i71 = phi i64 [ %103, %99 ], [ %93, %92 ]
-  %96 = icmp ugt i64 %.02224.i71, 1023
-  br i1 %96, label %97, label %99
+.lr.ph.i68:                                       ; preds = %91, %84
+  %.026.i69 = phi ptr [ %96, %91 ], [ %87, %84 ]
+  %.02125.i70 = phi i64 [ %97, %91 ], [ 4, %84 ]
+  %.02224.i71 = phi i64 [ %95, %91 ], [ %85, %84 ]
+  %88 = icmp ugt i64 %.02224.i71, 1023
+  br i1 %88, label %89, label %91
 
-97:                                               ; preds = %.lr.ph.i68
-  %98 = tail call i64 @hash_bytes_extended(ptr noundef %94, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %98, ptr %94, align 1
-  br label %99
+89:                                               ; preds = %.lr.ph.i68
+  %90 = tail call i64 @hash_bytes_extended(ptr noundef %86, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %90, ptr %86, align 1
+  br label %91
 
-99:                                               ; preds = %97, %.lr.ph.i68
-  %.1.i72 = phi i64 [ 8, %97 ], [ %.02224.i71, %.lr.ph.i68 ]
-  %100 = sub nuw nsw i64 1024, %.1.i72
-  %101 = tail call i64 @llvm.umin.i64(i64 %.02125.i70, i64 %100)
-  %102 = getelementptr inbounds nuw i8, ptr %94, i64 %.1.i72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef nonnull align 1 dereferenceable(1) %.026.i69, i64 %101, i1 false)
-  %103 = add nuw nsw i64 %101, %.1.i72
-  %104 = getelementptr inbounds nuw i8, ptr %.026.i69, i64 %101
-  %105 = sub i64 %.02125.i70, %101
-  %.not.i73 = icmp eq i64 %105, 0
+91:                                               ; preds = %89, %.lr.ph.i68
+  %.1.i72 = phi i64 [ 8, %89 ], [ %.02224.i71, %.lr.ph.i68 ]
+  %92 = sub nuw nsw i64 1024, %.1.i72
+  %93 = tail call i64 @llvm.umin.i64(i64 %.02125.i70, i64 %92)
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 %.1.i72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %94, ptr noundef nonnull align 1 dereferenceable(1) %.026.i69, i64 %93, i1 false)
+  %95 = add nuw nsw i64 %93, %.1.i72
+  %96 = getelementptr inbounds nuw i8, ptr %.026.i69, i64 %93
+  %97 = sub i64 %.02125.i70, %93
+  %.not.i73 = icmp eq i64 %97, 0
   br i1 %.not.i73, label %AppendJumble.exit75, label %.lr.ph.i68, !llvm.loop !7
 
-AppendJumble.exit75:                              ; preds = %99
-  store i64 %103, ptr %5, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %107 = load ptr, ptr %106, align 8
-  %.not32 = icmp eq ptr %107, null
-  br i1 %.not32, label %122, label %108
+AppendJumble.exit75:                              ; preds = %91
+  store i64 %95, ptr %5, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %99 = load ptr, ptr %98, align 8
+  %.not32 = icmp eq ptr %99, null
+  br i1 %.not32, label %114, label %100
 
-108:                                              ; preds = %AppendJumble.exit75
-  %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #8
-  %110 = add i64 %109, 1
-  %111 = load ptr, ptr %0, align 8
-  %.not23.i76 = icmp eq i64 %110, 0
+100:                                              ; preds = %AppendJumble.exit75
+  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #8
+  %102 = add i64 %101, 1
+  %103 = load ptr, ptr %0, align 8
+  %.not23.i76 = icmp eq i64 %102, 0
   br i1 %.not23.i76, label %AppendJumble.exit84, label %.lr.ph.i77
 
-.lr.ph.i77:                                       ; preds = %108, %115
-  %.026.i78 = phi ptr [ %120, %115 ], [ %107, %108 ]
-  %.02125.i79 = phi i64 [ %121, %115 ], [ %110, %108 ]
-  %.02224.i80 = phi i64 [ %119, %115 ], [ %103, %108 ]
-  %112 = icmp ugt i64 %.02224.i80, 1023
-  br i1 %112, label %113, label %115
+.lr.ph.i77:                                       ; preds = %100, %107
+  %.026.i78 = phi ptr [ %112, %107 ], [ %99, %100 ]
+  %.02125.i79 = phi i64 [ %113, %107 ], [ %102, %100 ]
+  %.02224.i80 = phi i64 [ %111, %107 ], [ %95, %100 ]
+  %104 = icmp ugt i64 %.02224.i80, 1023
+  br i1 %104, label %105, label %107
 
-113:                                              ; preds = %.lr.ph.i77
-  %114 = tail call i64 @hash_bytes_extended(ptr noundef %111, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %114, ptr %111, align 1
-  br label %115
+105:                                              ; preds = %.lr.ph.i77
+  %106 = tail call i64 @hash_bytes_extended(ptr noundef %103, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %106, ptr %103, align 1
+  br label %107
 
-115:                                              ; preds = %113, %.lr.ph.i77
-  %.1.i81 = phi i64 [ 8, %113 ], [ %.02224.i80, %.lr.ph.i77 ]
-  %116 = sub nuw nsw i64 1024, %.1.i81
-  %117 = tail call i64 @llvm.umin.i64(i64 %.02125.i79, i64 %116)
-  %118 = getelementptr inbounds nuw i8, ptr %111, i64 %.1.i81
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %118, ptr noundef nonnull align 1 dereferenceable(1) %.026.i78, i64 %117, i1 false)
-  %119 = add nuw nsw i64 %117, %.1.i81
-  %120 = getelementptr inbounds nuw i8, ptr %.026.i78, i64 %117
-  %121 = sub i64 %.02125.i79, %117
-  %.not.i82 = icmp eq i64 %121, 0
+107:                                              ; preds = %105, %.lr.ph.i77
+  %.1.i81 = phi i64 [ 8, %105 ], [ %.02224.i80, %.lr.ph.i77 ]
+  %108 = sub nuw nsw i64 1024, %.1.i81
+  %109 = tail call i64 @llvm.umin.i64(i64 %.02125.i79, i64 %108)
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 %.1.i81
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %110, ptr noundef nonnull align 1 dereferenceable(1) %.026.i78, i64 %109, i1 false)
+  %111 = add nuw nsw i64 %109, %.1.i81
+  %112 = getelementptr inbounds nuw i8, ptr %.026.i78, i64 %109
+  %113 = sub i64 %.02125.i79, %109
+  %.not.i82 = icmp eq i64 %113, 0
   br i1 %.not.i82, label %AppendJumble.exit84, label %.lr.ph.i77, !llvm.loop !7
 
-AppendJumble.exit84:                              ; preds = %115, %108
-  %.022.lcssa.i83 = phi i64 [ %103, %108 ], [ %119, %115 ]
+AppendJumble.exit84:                              ; preds = %107, %100
+  %.022.lcssa.i83 = phi i64 [ %95, %100 ], [ %111, %107 ]
   store i64 %.022.lcssa.i83, ptr %5, align 8
-  br label %122
+  br label %114
 
-122:                                              ; preds = %AppendJumble.exit84, %AppendJumble.exit75
+114:                                              ; preds = %AppendJumble.exit84, %AppendJumble.exit75
   ret void
 }
 
@@ -8593,109 +8125,96 @@ define internal fastcc void @_jumbleRTEPermissionInfo(ptr noundef %0, ptr nounde
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i15, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i15:                                       ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i15
-
-.lr.ph.i15:                                       ; preds = %22, %AppendJumble.exit
-  %.026.i16 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i17 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i18 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %19, label %20, label %22
+  %19 = icmp samesign ugt i64 %14, 1023
+  br i1 %19, label %20, label %AppendJumble.exit21
 
 20:                                               ; preds = %.lr.ph.i15
   %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
   store i64 %21, ptr %18, align 1
-  br label %22
+  br label %AppendJumble.exit21
 
-22:                                               ; preds = %20, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %20 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %23 = sub nuw nsw i64 1024, %.1.i19
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i19
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %24
-  %28 = sub i64 %.02125.i17, %24
-  %.not.i20 = icmp eq i64 %28, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
-
-AppendJumble.exit21:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %0, align 8
+AppendJumble.exit21:                              ; preds = %.lr.ph.i15, %20
+  %.1.i19 = phi i64 [ 8, %20 ], [ %14, %.lr.ph.i15 ]
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i19
+  %23 = load i8, ptr %17, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = add nuw nsw i64 %.1.i19, 1
+  store i64 %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %0, align 8
   br label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %34, %AppendJumble.exit21
-  %.026.i23 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit21 ]
-  %.02125.i24 = phi i64 [ %40, %34 ], [ 8, %AppendJumble.exit21 ]
-  %.02224.i25 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit21 ]
-  %31 = icmp ugt i64 %.02224.i25, 1023
-  br i1 %31, label %32, label %34
+.lr.ph.i22:                                       ; preds = %30, %AppendJumble.exit21
+  %.026.i23 = phi ptr [ %35, %30 ], [ %25, %AppendJumble.exit21 ]
+  %.02125.i24 = phi i64 [ %36, %30 ], [ 8, %AppendJumble.exit21 ]
+  %.02224.i25 = phi i64 [ %34, %30 ], [ %24, %AppendJumble.exit21 ]
+  %27 = icmp ugt i64 %.02224.i25, 1023
+  br i1 %27, label %28, label %30
 
-32:                                               ; preds = %.lr.ph.i22
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %33, ptr %30, align 1
-  br label %34
+28:                                               ; preds = %.lr.ph.i22
+  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %29, ptr %26, align 1
+  br label %30
 
-34:                                               ; preds = %32, %.lr.ph.i22
-  %.1.i26 = phi i64 [ 8, %32 ], [ %.02224.i25, %.lr.ph.i22 ]
-  %35 = sub nuw nsw i64 1024, %.1.i26
-  %36 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %35)
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %36, i1 false)
-  %38 = add nuw nsw i64 %36, %.1.i26
-  %39 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %36
-  %40 = sub i64 %.02125.i24, %36
-  %.not.i27 = icmp eq i64 %40, 0
+30:                                               ; preds = %28, %.lr.ph.i22
+  %.1.i26 = phi i64 [ 8, %28 ], [ %.02224.i25, %.lr.ph.i22 ]
+  %31 = sub nuw nsw i64 1024, %.1.i26
+  %32 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %31)
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 %.1.i26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %33, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %32, i1 false)
+  %34 = add nuw nsw i64 %32, %.1.i26
+  %35 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %32
+  %36 = sub i64 %.02125.i24, %32
+  %.not.i27 = icmp eq i64 %36, 0
   br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
 
-AppendJumble.exit28:                              ; preds = %34
-  store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %42 = load ptr, ptr %0, align 8
+AppendJumble.exit28:                              ; preds = %30
+  store i64 %34, ptr %5, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %38 = load ptr, ptr %0, align 8
   br label %.lr.ph.i29
 
-.lr.ph.i29:                                       ; preds = %46, %AppendJumble.exit28
-  %.026.i30 = phi ptr [ %51, %46 ], [ %41, %AppendJumble.exit28 ]
-  %.02125.i31 = phi i64 [ %52, %46 ], [ 4, %AppendJumble.exit28 ]
-  %.02224.i32 = phi i64 [ %50, %46 ], [ %38, %AppendJumble.exit28 ]
-  %43 = icmp ugt i64 %.02224.i32, 1023
-  br i1 %43, label %44, label %46
+.lr.ph.i29:                                       ; preds = %42, %AppendJumble.exit28
+  %.026.i30 = phi ptr [ %47, %42 ], [ %37, %AppendJumble.exit28 ]
+  %.02125.i31 = phi i64 [ %48, %42 ], [ 4, %AppendJumble.exit28 ]
+  %.02224.i32 = phi i64 [ %46, %42 ], [ %34, %AppendJumble.exit28 ]
+  %39 = icmp ugt i64 %.02224.i32, 1023
+  br i1 %39, label %40, label %42
 
-44:                                               ; preds = %.lr.ph.i29
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %45, ptr %42, align 1
-  br label %46
+40:                                               ; preds = %.lr.ph.i29
+  %41 = tail call i64 @hash_bytes_extended(ptr noundef %38, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %41, ptr %38, align 1
+  br label %42
 
-46:                                               ; preds = %44, %.lr.ph.i29
-  %.1.i33 = phi i64 [ 8, %44 ], [ %.02224.i32, %.lr.ph.i29 ]
-  %47 = sub nuw nsw i64 1024, %.1.i33
-  %48 = tail call i64 @llvm.umin.i64(i64 %.02125.i31, i64 %47)
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %.026.i30, i64 %48, i1 false)
-  %50 = add nuw nsw i64 %48, %.1.i33
-  %51 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %48
-  %52 = sub i64 %.02125.i31, %48
-  %.not.i34 = icmp eq i64 %52, 0
+42:                                               ; preds = %40, %.lr.ph.i29
+  %.1.i33 = phi i64 [ 8, %40 ], [ %.02224.i32, %.lr.ph.i29 ]
+  %43 = sub nuw nsw i64 1024, %.1.i33
+  %44 = tail call i64 @llvm.umin.i64(i64 %.02125.i31, i64 %43)
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 %.1.i33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 1 dereferenceable(1) %.026.i30, i64 %44, i1 false)
+  %46 = add nuw nsw i64 %44, %.1.i33
+  %47 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %44
+  %48 = sub i64 %.02125.i31, %44
+  %.not.i34 = icmp eq i64 %48, 0
   br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
 
-AppendJumble.exit35:                              ; preds = %46
-  store i64 %50, ptr %5, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
+AppendJumble.exit35:                              ; preds = %42
+  store i64 %46, ptr %5, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %50 = load ptr, ptr %49, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %50)
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %52 = load ptr, ptr %51, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %52)
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %54 = load ptr, ptr %53, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %54)
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %56 = load ptr, ptr %55, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %56)
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %58 = load ptr, ptr %57, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %58)
   ret void
 }
 
@@ -8822,7 +8341,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not16 = icmp eq ptr %36, null
-  br i1 %.not16, label %51, label %37
+  br i1 %.not16, label %.lr.ph.i33, label %37
 
 37:                                               ; preds = %33
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #8
@@ -8858,43 +8377,30 @@ AppendJumble.exit23:                              ; preds = %26, %19
 AppendJumble.exit32:                              ; preds = %44, %37
   %.022.lcssa.i31 = phi i64 [ %34, %37 ], [ %48, %44 ]
   store i64 %.022.lcssa.i31, ptr %5, align 8
-  br label %51
-
-51:                                               ; preds = %AppendJumble.exit32, %33
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %53 = load ptr, ptr %52, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %55 = load ptr, ptr %0, align 8
-  %56 = load i64, ptr %5, align 8
   br label %.lr.ph.i33
 
-.lr.ph.i33:                                       ; preds = %60, %51
-  %.026.i34 = phi ptr [ %65, %60 ], [ %54, %51 ]
-  %.02125.i35 = phi i64 [ %66, %60 ], [ 1, %51 ]
-  %.02224.i36 = phi i64 [ %64, %60 ], [ %56, %51 ]
-  %57 = icmp ugt i64 %.02224.i36, 1023
-  br i1 %57, label %58, label %60
+.lr.ph.i33:                                       ; preds = %33, %AppendJumble.exit32
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %52 = load ptr, ptr %51, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %52)
+  %53 = load ptr, ptr %0, align 8
+  %54 = load i64, ptr %5, align 8
+  %55 = icmp ugt i64 %54, 1023
+  br i1 %55, label %56, label %AppendJumble.exit40
 
-58:                                               ; preds = %.lr.ph.i33
-  %59 = tail call i64 @hash_bytes_extended(ptr noundef %55, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %59, ptr %55, align 1
-  br label %60
+56:                                               ; preds = %.lr.ph.i33
+  %57 = tail call i64 @hash_bytes_extended(ptr noundef %53, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %57, ptr %53, align 1
+  br label %AppendJumble.exit40
 
-60:                                               ; preds = %58, %.lr.ph.i33
-  %.1.i37 = phi i64 [ 8, %58 ], [ %.02224.i36, %.lr.ph.i33 ]
-  %61 = sub nuw nsw i64 1024, %.1.i37
-  %62 = tail call i64 @llvm.umin.i64(i64 %.02125.i35, i64 %61)
-  %63 = getelementptr inbounds nuw i8, ptr %55, i64 %.1.i37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 1 dereferenceable(1) %.026.i34, i64 %62, i1 false)
-  %64 = add nuw nsw i64 %62, %.1.i37
-  %65 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %62
-  %66 = sub i64 %.02125.i35, %62
-  %.not.i38 = icmp eq i64 %66, 0
-  br i1 %.not.i38, label %AppendJumble.exit40, label %.lr.ph.i33, !llvm.loop !7
-
-AppendJumble.exit40:                              ; preds = %60
-  store i64 %64, ptr %5, align 8
+AppendJumble.exit40:                              ; preds = %.lr.ph.i33, %56
+  %.1.i37 = phi i64 [ 8, %56 ], [ %54, %.lr.ph.i33 ]
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 %.1.i37
+  %60 = load i8, ptr %58, align 1
+  store i8 %60, ptr %59, align 1
+  %61 = add nuw nsw i64 %.1.i37, 1
+  store i64 %61, ptr %5, align 8
   ret void
 }
 
@@ -8988,70 +8494,44 @@ AppendJumble.exit17:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %36
   %40 = sub i64 %.02125.i20, %36
   %.not.i23 = icmp eq i64 %40, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
+  br i1 %.not.i23, label %.lr.ph.i25, label %.lr.ph.i18, !llvm.loop !7
 
-AppendJumble.exit24:                              ; preds = %34
+.lr.ph.i25:                                       ; preds = %34
   store i64 %38, ptr %5, align 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i25
-
-.lr.ph.i25:                                       ; preds = %46, %AppendJumble.exit24
-  %.026.i26 = phi ptr [ %51, %46 ], [ %41, %AppendJumble.exit24 ]
-  %.02125.i27 = phi i64 [ %52, %46 ], [ 1, %AppendJumble.exit24 ]
-  %.02224.i28 = phi i64 [ %50, %46 ], [ %38, %AppendJumble.exit24 ]
-  %43 = icmp ugt i64 %.02224.i28, 1023
-  br i1 %43, label %44, label %46
+  %43 = icmp samesign ugt i64 %38, 1023
+  br i1 %43, label %44, label %.lr.ph.i32
 
 44:                                               ; preds = %.lr.ph.i25
   %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
   store i64 %45, ptr %42, align 1
-  br label %46
-
-46:                                               ; preds = %44, %.lr.ph.i25
-  %.1.i29 = phi i64 [ 8, %44 ], [ %.02224.i28, %.lr.ph.i25 ]
-  %47 = sub nuw nsw i64 1024, %.1.i29
-  %48 = tail call i64 @llvm.umin.i64(i64 %.02125.i27, i64 %47)
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %.026.i26, i64 %48, i1 false)
-  %50 = add nuw nsw i64 %48, %.1.i29
-  %51 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %48
-  %52 = sub i64 %.02125.i27, %48
-  %.not.i30 = icmp eq i64 %52, 0
-  br i1 %.not.i30, label %AppendJumble.exit31, label %.lr.ph.i25, !llvm.loop !7
-
-AppendJumble.exit31:                              ; preds = %46
-  store i64 %50, ptr %5, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %54 = load ptr, ptr %0, align 8
   br label %.lr.ph.i32
 
-.lr.ph.i32:                                       ; preds = %58, %AppendJumble.exit31
-  %.026.i33 = phi ptr [ %63, %58 ], [ %53, %AppendJumble.exit31 ]
-  %.02125.i34 = phi i64 [ %64, %58 ], [ 1, %AppendJumble.exit31 ]
-  %.02224.i35 = phi i64 [ %62, %58 ], [ %50, %AppendJumble.exit31 ]
-  %55 = icmp ugt i64 %.02224.i35, 1023
-  br i1 %55, label %56, label %58
+.lr.ph.i32:                                       ; preds = %44, %.lr.ph.i25
+  %.1.i29 = phi i64 [ 8, %44 ], [ %38, %.lr.ph.i25 ]
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i29
+  %47 = load i8, ptr %41, align 1
+  store i8 %47, ptr %46, align 1
+  %48 = add nuw nsw i64 %.1.i29, 1
+  store i64 %48, ptr %5, align 8
+  %49 = load ptr, ptr %0, align 8
+  %50 = icmp eq i64 %.1.i29, 1023
+  br i1 %50, label %51, label %AppendJumble.exit38
 
-56:                                               ; preds = %.lr.ph.i32
-  %57 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %57, ptr %54, align 1
-  br label %58
+51:                                               ; preds = %.lr.ph.i32
+  %52 = tail call i64 @hash_bytes_extended(ptr noundef %49, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %52, ptr %49, align 1
+  br label %AppendJumble.exit38
 
-58:                                               ; preds = %56, %.lr.ph.i32
-  %.1.i36 = phi i64 [ 8, %56 ], [ %.02224.i35, %.lr.ph.i32 ]
-  %59 = sub nuw nsw i64 1024, %.1.i36
-  %60 = tail call i64 @llvm.umin.i64(i64 %.02125.i34, i64 %59)
-  %61 = getelementptr inbounds nuw i8, ptr %54, i64 %.1.i36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %.026.i33, i64 %60, i1 false)
-  %62 = add nuw nsw i64 %60, %.1.i36
-  %63 = getelementptr inbounds nuw i8, ptr %.026.i33, i64 %60
-  %64 = sub i64 %.02125.i34, %60
-  %.not.i37 = icmp eq i64 %64, 0
-  br i1 %.not.i37, label %AppendJumble.exit38, label %.lr.ph.i32, !llvm.loop !7
-
-AppendJumble.exit38:                              ; preds = %58
-  store i64 %62, ptr %5, align 8
+AppendJumble.exit38:                              ; preds = %.lr.ph.i32, %51
+  %.1.i36 = phi i64 [ 8, %51 ], [ %48, %.lr.ph.i32 ]
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %.1.i36
+  %55 = load i8, ptr %53, align 1
+  store i8 %55, ptr %54, align 1
+  %56 = add nuw nsw i64 %.1.i36, 1
+  store i64 %56, ptr %5, align 8
   ret void
 }
 
@@ -9225,80 +8705,55 @@ AppendJumble.exit15:                              ; preds = %22
   %39 = getelementptr inbounds nuw i8, ptr %.026.i17, i64 %36
   %40 = sub i64 %.02125.i18, %36
   %.not.i21 = icmp eq i64 %40, 0
-  br i1 %.not.i21, label %AppendJumble.exit22, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %.not.i21, label %.lr.ph.i23, label %.lr.ph.i16, !llvm.loop !7
 
-AppendJumble.exit22:                              ; preds = %34
+.lr.ph.i23:                                       ; preds = %34
   store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i23
+  %41 = load ptr, ptr %0, align 8
+  %42 = icmp samesign ugt i64 %38, 1023
+  br i1 %42, label %43, label %AppendJumble.exit29
 
-.lr.ph.i23:                                       ; preds = %46, %AppendJumble.exit22
-  %.026.i24 = phi ptr [ %51, %46 ], [ %41, %AppendJumble.exit22 ]
-  %.02125.i25 = phi i64 [ %52, %46 ], [ 1, %AppendJumble.exit22 ]
-  %.02224.i26 = phi i64 [ %50, %46 ], [ %38, %AppendJumble.exit22 ]
-  %43 = icmp ugt i64 %.02224.i26, 1023
-  br i1 %43, label %44, label %46
+43:                                               ; preds = %.lr.ph.i23
+  %44 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %44, ptr %41, align 1
+  br label %AppendJumble.exit29
 
-44:                                               ; preds = %.lr.ph.i23
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %45, ptr %42, align 1
-  br label %46
-
-46:                                               ; preds = %44, %.lr.ph.i23
-  %.1.i27 = phi i64 [ 8, %44 ], [ %.02224.i26, %.lr.ph.i23 ]
-  %47 = sub nuw nsw i64 1024, %.1.i27
-  %48 = tail call i64 @llvm.umin.i64(i64 %.02125.i25, i64 %47)
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %.026.i24, i64 %48, i1 false)
-  %50 = add nuw nsw i64 %48, %.1.i27
-  %51 = getelementptr inbounds nuw i8, ptr %.026.i24, i64 %48
-  %52 = sub i64 %.02125.i25, %48
-  %.not.i28 = icmp eq i64 %52, 0
-  br i1 %.not.i28, label %AppendJumble.exit29, label %.lr.ph.i23, !llvm.loop !7
-
-AppendJumble.exit29:                              ; preds = %46
-  store i64 %50, ptr %5, align 8
+AppendJumble.exit29:                              ; preds = %.lr.ph.i23, %43
+  %.1.i27 = phi i64 [ 8, %43 ], [ %38, %.lr.ph.i23 ]
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 %.1.i27
+  %47 = load i8, ptr %45, align 1
+  store i8 %47, ptr %46, align 1
+  %48 = add nuw nsw i64 %.1.i27, 1
+  store i64 %48, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleWithClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp ugt i64 %6, 1023
+  br i1 %7, label %8, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %12, %2
-  %.026.i = phi ptr [ %17, %12 ], [ %5, %2 ]
-  %.02125.i = phi i64 [ %18, %12 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %16, %12 ], [ %8, %2 ]
-  %9 = icmp ugt i64 %.02224.i, 1023
-  br i1 %9, label %10, label %12
+8:                                                ; preds = %.lr.ph.i
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %9, ptr %4, align 1
+  br label %AppendJumble.exit
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %11, ptr %6, align 1
-  br label %12
-
-12:                                               ; preds = %10, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %10 ], [ %.02224.i, %.lr.ph.i ]
-  %13 = sub nuw nsw i64 1024, %.1.i
-  %14 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %13)
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %14, i1 false)
-  %16 = add nuw nsw i64 %14, %.1.i
-  %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
-  %18 = sub i64 %.02125.i, %14
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %12
-  store i64 %16, ptr %7, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %8
+  %.1.i = phi i64 [ 8, %8 ], [ %6, %.lr.ph.i ]
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
+  %12 = load i8, ptr %10, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %.1.i, 1
+  store i64 %13, ptr %5, align 8
   ret void
 }
 
@@ -9405,83 +8860,71 @@ AppendJumble.exit:                                ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCTESearchClause(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp ugt i64 %7, 1023
+  br i1 %8, label %9, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %12, %2
-  %.026.i = phi ptr [ %17, %12 ], [ %5, %2 ]
-  %.02125.i = phi i64 [ %18, %12 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %16, %12 ], [ %8, %2 ]
-  %9 = icmp ugt i64 %.02224.i, 1023
-  br i1 %9, label %10, label %12
+9:                                                ; preds = %.lr.ph.i
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %10, ptr %5, align 1
+  br label %AppendJumble.exit
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %11, ptr %6, align 1
-  br label %12
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
+  %.1.i = phi i64 [ 8, %9 ], [ %7, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i
+  %12 = load i8, ptr %4, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %.1.i, 1
+  store i64 %13, ptr %6, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %30, label %16
 
-12:                                               ; preds = %10, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %10 ], [ %.02224.i, %.lr.ph.i ]
-  %13 = sub nuw nsw i64 1024, %.1.i
-  %14 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %13)
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %14, i1 false)
-  %16 = add nuw nsw i64 %14, %.1.i
-  %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
-  %18 = sub i64 %.02125.i, %14
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %12
-  store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %35, label %21
-
-21:                                               ; preds = %AppendJumble.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
-  %23 = add i64 %22, 1
-  %24 = load ptr, ptr %0, align 8
-  %.not23.i = icmp eq i64 %23, 0
+16:                                               ; preds = %AppendJumble.exit
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #8
+  %18 = add i64 %17, 1
+  %19 = load ptr, ptr %0, align 8
+  %.not23.i = icmp eq i64 %18, 0
   br i1 %.not23.i, label %AppendJumble.exit15, label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %21, %28
-  %.026.i10 = phi ptr [ %33, %28 ], [ %20, %21 ]
-  %.02125.i11 = phi i64 [ %34, %28 ], [ %23, %21 ]
-  %.02224.i12 = phi i64 [ %32, %28 ], [ %16, %21 ]
-  %25 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %25, label %26, label %28
+.lr.ph.i9:                                        ; preds = %16, %23
+  %.026.i10 = phi ptr [ %28, %23 ], [ %15, %16 ]
+  %.02125.i11 = phi i64 [ %29, %23 ], [ %18, %16 ]
+  %.02224.i12 = phi i64 [ %27, %23 ], [ %13, %16 ]
+  %20 = icmp ugt i64 %.02224.i12, 1023
+  br i1 %20, label %21, label %23
 
-26:                                               ; preds = %.lr.ph.i9
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %27, ptr %24, align 1
-  br label %28
+21:                                               ; preds = %.lr.ph.i9
+  %22 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %22, ptr %19, align 1
+  br label %23
 
-28:                                               ; preds = %26, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %26 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %29 = sub nuw nsw i64 1024, %.1.i13
-  %30 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %29)
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %30, i1 false)
-  %32 = add nuw nsw i64 %30, %.1.i13
-  %33 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %30
-  %34 = sub i64 %.02125.i11, %30
-  %.not.i14 = icmp eq i64 %34, 0
+23:                                               ; preds = %21, %.lr.ph.i9
+  %.1.i13 = phi i64 [ 8, %21 ], [ %.02224.i12, %.lr.ph.i9 ]
+  %24 = sub nuw nsw i64 1024, %.1.i13
+  %25 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %24)
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.1.i13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %25, i1 false)
+  %27 = add nuw nsw i64 %25, %.1.i13
+  %28 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %25
+  %29 = sub i64 %.02125.i11, %25
+  %.not.i14 = icmp eq i64 %29, 0
   br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
 
-AppendJumble.exit15:                              ; preds = %28, %21
-  %.022.lcssa.i = phi i64 [ %16, %21 ], [ %32, %28 ]
-  store i64 %.022.lcssa.i, ptr %7, align 8
-  br label %35
+AppendJumble.exit15:                              ; preds = %23, %16
+  %.022.lcssa.i = phi i64 [ %13, %16 ], [ %27, %23 ]
+  store i64 %.022.lcssa.i, ptr %6, align 8
+  br label %30
 
-35:                                               ; preds = %AppendJumble.exit15, %AppendJumble.exit
+30:                                               ; preds = %AppendJumble.exit15, %AppendJumble.exit
   ret void
 }
 
@@ -10020,7 +9463,7 @@ define internal fastcc void @_jumbleTriggerTransition(ptr noundef captures(none)
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre30 = load i64, ptr %.phi.trans.insert, align 8
-  br label %20
+  br label %.lr.ph.i9
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -10062,71 +9505,50 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre29, %5 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %9, %5 ], [ %17, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %8, align 8
-  br label %20
-
-20:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %21 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre30, %._crit_edge ]
-  %22 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre29, %._crit_edge ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %28, %20
-  %.026.i10 = phi ptr [ %33, %28 ], [ %23, %20 ]
-  %.02125.i11 = phi i64 [ %34, %28 ], [ 1, %20 ]
-  %.02224.i12 = phi i64 [ %32, %28 ], [ %21, %20 ]
-  %25 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %25, label %26, label %28
+.lr.ph.i9:                                        ; preds = %AppendJumble.exit, %._crit_edge
+  %20 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre30, %._crit_edge ]
+  %21 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre29, %._crit_edge ]
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = icmp ugt i64 %20, 1023
+  br i1 %24, label %.lr.ph.i17.thread, label %.lr.ph.i17
 
-26:                                               ; preds = %.lr.ph.i9
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %27, ptr %22, align 1
-  br label %28
+.lr.ph.i17.thread:                                ; preds = %.lr.ph.i9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %25, ptr %21, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %27 = load i8, ptr %22, align 1
+  store i8 %27, ptr %26, align 1
+  store i64 9, ptr %23, align 8
+  %28 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit24
 
-28:                                               ; preds = %26, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %26 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %29 = sub nuw nsw i64 1024, %.1.i13
-  %30 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %29)
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %30, i1 false)
-  %32 = add nuw nsw i64 %30, %.1.i13
-  %33 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %30
-  %34 = sub i64 %.02125.i11, %30
-  %.not.i14 = icmp eq i64 %34, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
+.lr.ph.i17:                                       ; preds = %.lr.ph.i9
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 %20
+  %30 = load i8, ptr %22, align 1
+  store i8 %30, ptr %29, align 1
+  %31 = add nuw nsw i64 %20, 1
+  store i64 %31, ptr %23, align 8
+  %32 = load ptr, ptr %0, align 8
+  %33 = icmp eq i64 %20, 1023
+  br i1 %33, label %34, label %AppendJumble.exit24
 
-AppendJumble.exit16:                              ; preds = %28
-  store i64 %32, ptr %24, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %36 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i17
+34:                                               ; preds = %.lr.ph.i17
+  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %35, ptr %32, align 1
+  br label %AppendJumble.exit24
 
-.lr.ph.i17:                                       ; preds = %40, %AppendJumble.exit16
-  %.026.i18 = phi ptr [ %45, %40 ], [ %35, %AppendJumble.exit16 ]
-  %.02125.i19 = phi i64 [ %46, %40 ], [ 1, %AppendJumble.exit16 ]
-  %.02224.i20 = phi i64 [ %44, %40 ], [ %32, %AppendJumble.exit16 ]
-  %37 = icmp ugt i64 %.02224.i20, 1023
-  br i1 %37, label %38, label %40
-
-38:                                               ; preds = %.lr.ph.i17
-  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %39, ptr %36, align 1
-  br label %40
-
-40:                                               ; preds = %38, %.lr.ph.i17
-  %.1.i21 = phi i64 [ 8, %38 ], [ %.02224.i20, %.lr.ph.i17 ]
-  %41 = sub nuw nsw i64 1024, %.1.i21
-  %42 = tail call i64 @llvm.umin.i64(i64 %.02125.i19, i64 %41)
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %.1.i21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %.026.i18, i64 %42, i1 false)
-  %44 = add nuw nsw i64 %42, %.1.i21
-  %45 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %42
-  %46 = sub i64 %.02125.i19, %42
-  %.not.i22 = icmp eq i64 %46, 0
-  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
-
-AppendJumble.exit24:                              ; preds = %40
-  store i64 %44, ptr %24, align 8
+AppendJumble.exit24:                              ; preds = %.lr.ph.i17, %34, %.lr.ph.i17.thread
+  %36 = phi ptr [ %32, %34 ], [ %32, %.lr.ph.i17 ], [ %28, %.lr.ph.i17.thread ]
+  %.1.i21 = phi i64 [ 8, %34 ], [ %31, %.lr.ph.i17 ], [ 9, %.lr.ph.i17.thread ]
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.1.i21
+  %39 = load i8, ptr %37, align 1
+  store i8 %39, ptr %38, align 1
+  %40 = add nuw nsw i64 %.1.i21, 1
+  store i64 %40, ptr %23, align 8
   ret void
 }
 
@@ -10405,56 +9827,44 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonTable(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %9, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %12 = load ptr, ptr %11, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr %13, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %14)
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %7)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = load ptr, ptr %8, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %9)
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load ptr, ptr %10, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %11)
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %13 = load ptr, ptr %12, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %13)
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = icmp ugt i64 %16, 1023
+  br i1 %17, label %18, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %22, %2
-  %.026.i = phi ptr [ %27, %22 ], [ %15, %2 ]
-  %.02125.i = phi i64 [ %28, %22 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %26, %22 ], [ %18, %2 ]
-  %19 = icmp ugt i64 %.02224.i, 1023
-  br i1 %19, label %20, label %22
+18:                                               ; preds = %.lr.ph.i
+  %19 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %19, ptr %14, align 1
+  br label %AppendJumble.exit
 
-20:                                               ; preds = %.lr.ph.i
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %16, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %20 ], [ %.02224.i, %.lr.ph.i ]
-  %23 = sub nuw nsw i64 1024, %.1.i
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %24
-  %28 = sub i64 %.02125.i, %24
-  %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %22
-  store i64 %26, ptr %17, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %18
+  %.1.i = phi i64 [ 8, %18 ], [ %16, %.lr.ph.i ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %.1.i
+  %22 = load i8, ptr %20, align 1
+  store i8 %22, ptr %21, align 1
+  %23 = add nuw nsw i64 %.1.i, 1
+  store i64 %23, ptr %15, align 8
   ret void
 }
 
@@ -10629,44 +10039,32 @@ define internal fastcc void @_jumbleJsonKeyValue(ptr noundef %0, ptr noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonParseExpr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp ugt i64 %8, 1023
+  br i1 %9, label %10, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+10:                                               ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %6, align 1
+  br label %AppendJumble.exit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
-
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %10
+  %.1.i = phi i64 [ 8, %10 ], [ %8, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
+  %14 = load i8, ptr %12, align 1
+  store i8 %14, ptr %13, align 1
+  %15 = add nuw nsw i64 %.1.i, 1
+  store i64 %15, ptr %7, align 8
   ret void
 }
 
@@ -10694,163 +10092,119 @@ define internal fastcc void @_jumbleJsonSerializeExpr(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonObjectConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ugt i64 %9, 1023
+  br i1 %10, label %.lr.ph.i9.thread, label %.lr.ph.i9
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+.lr.ph.i9.thread:                                 ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %7, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = load i8, ptr %6, align 1
+  store i8 %13, ptr %12, align 1
+  store i64 9, ptr %8, align 8
+  %14 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit15
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
+.lr.ph.i9:                                        ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %16 = load i8, ptr %6, align 1
+  store i8 %16, ptr %15, align 1
+  %17 = add nuw nsw i64 %9, 1
+  store i64 %17, ptr %8, align 8
+  %18 = load ptr, ptr %0, align 8
+  %19 = icmp eq i64 %9, 1023
+  br i1 %19, label %20, label %AppendJumble.exit15
 
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+20:                                               ; preds = %.lr.ph.i9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %21, ptr %18, align 1
+  br label %AppendJumble.exit15
 
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %22 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i9
-
-.lr.ph.i9:                                        ; preds = %26, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %31, %26 ], [ %21, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %32, %26 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %30, %26 ], [ %18, %AppendJumble.exit ]
-  %23 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %23, label %24, label %26
-
-24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
-
-26:                                               ; preds = %24, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %24 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %27 = sub nuw nsw i64 1024, %.1.i13
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i13
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
-  %32 = sub i64 %.02125.i11, %28
-  %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit15:                              ; preds = %26
-  store i64 %30, ptr %9, align 8
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %20, %.lr.ph.i9.thread
+  %22 = phi ptr [ %18, %20 ], [ %18, %.lr.ph.i9 ], [ %14, %.lr.ph.i9.thread ]
+  %.1.i13 = phi i64 [ 8, %20 ], [ %17, %.lr.ph.i9 ], [ 9, %.lr.ph.i9.thread ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
+  %25 = load i8, ptr %23, align 1
+  store i8 %25, ptr %24, align 1
+  %26 = add nuw nsw i64 %.1.i13, 1
+  store i64 %26, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonArrayConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp ugt i64 %8, 1023
+  br i1 %9, label %10, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+10:                                               ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %6, align 1
+  br label %AppendJumble.exit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
-
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %10
+  %.1.i = phi i64 [ 8, %10 ], [ %8, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
+  %14 = load i8, ptr %12, align 1
+  store i8 %14, ptr %13, align 1
+  %15 = add nuw nsw i64 %.1.i, 1
+  store i64 %15, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonArrayQueryConstructor(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %7)
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ugt i64 %10, 1023
+  br i1 %11, label %12, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %16, %2
-  %.026.i = phi ptr [ %21, %16 ], [ %9, %2 ]
-  %.02125.i = phi i64 [ %22, %16 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %20, %16 ], [ %12, %2 ]
-  %13 = icmp ugt i64 %.02224.i, 1023
-  br i1 %13, label %14, label %16
+12:                                               ; preds = %.lr.ph.i
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %13, ptr %8, align 1
+  br label %AppendJumble.exit
 
-14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %15, ptr %10, align 1
-  br label %16
-
-16:                                               ; preds = %14, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %14 ], [ %.02224.i, %.lr.ph.i ]
-  %17 = sub nuw nsw i64 1024, %.1.i
-  %18 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %17)
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %18, i1 false)
-  %20 = add nuw nsw i64 %18, %.1.i
-  %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
-  %22 = sub i64 %.02125.i, %18
-  %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %16
-  store i64 %20, ptr %11, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %12
+  %.1.i = phi i64 [ 8, %12 ], [ %10, %.lr.ph.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
+  %16 = load i8, ptr %14, align 1
+  store i8 %16, ptr %15, align 1
+  %17 = add nuw nsw i64 %.1.i, 1
+  store i64 %17, ptr %9, align 8
   ret void
 }
 
@@ -10873,117 +10227,85 @@ define internal fastcc void @_jumbleJsonAggConstructor(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonObjectAgg(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ugt i64 %9, 1023
+  br i1 %10, label %.lr.ph.i9.thread, label %.lr.ph.i9
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+.lr.ph.i9.thread:                                 ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %7, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = load i8, ptr %6, align 1
+  store i8 %13, ptr %12, align 1
+  store i64 9, ptr %8, align 8
+  %14 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit15
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
+.lr.ph.i9:                                        ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %16 = load i8, ptr %6, align 1
+  store i8 %16, ptr %15, align 1
+  %17 = add nuw nsw i64 %9, 1
+  store i64 %17, ptr %8, align 8
+  %18 = load ptr, ptr %0, align 8
+  %19 = icmp eq i64 %9, 1023
+  br i1 %19, label %20, label %AppendJumble.exit15
 
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+20:                                               ; preds = %.lr.ph.i9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %21, ptr %18, align 1
+  br label %AppendJumble.exit15
 
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %22 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i9
-
-.lr.ph.i9:                                        ; preds = %26, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %31, %26 ], [ %21, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %32, %26 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %30, %26 ], [ %18, %AppendJumble.exit ]
-  %23 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %23, label %24, label %26
-
-24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
-
-26:                                               ; preds = %24, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %24 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %27 = sub nuw nsw i64 1024, %.1.i13
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i13
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
-  %32 = sub i64 %.02125.i11, %28
-  %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit15:                              ; preds = %26
-  store i64 %30, ptr %9, align 8
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %20, %.lr.ph.i9.thread
+  %22 = phi ptr [ %18, %20 ], [ %18, %.lr.ph.i9 ], [ %14, %.lr.ph.i9.thread ]
+  %.1.i13 = phi i64 [ 8, %20 ], [ %17, %.lr.ph.i9 ], [ 9, %.lr.ph.i9.thread ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
+  %25 = load i8, ptr %23, align 1
+  store i8 %25, ptr %24, align 1
+  %26 = add nuw nsw i64 %.1.i13, 1
+  store i64 %26, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleJsonArrayAgg(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp ugt i64 %8, 1023
+  br i1 %9, label %10, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+10:                                               ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %6, align 1
+  br label %AppendJumble.exit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
-
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %10
+  %.1.i = phi i64 [ 8, %10 ], [ %8, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
+  %14 = load i8, ptr %12, align 1
+  store i8 %14, ptr %13, align 1
+  %15 = add nuw nsw i64 %.1.i, 1
+  store i64 %15, ptr %7, align 8
   ret void
 }
 
@@ -11110,178 +10432,153 @@ define internal fastcc void @_jumbleMergeStmt(ptr noundef %0, ptr noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleSelectStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %9, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %10)
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %12 = load ptr, ptr %11, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %12)
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr %13, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %14)
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %7)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = load ptr, ptr %8, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %9)
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load ptr, ptr %10, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %11)
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %13 = load ptr, ptr %12, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %13)
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %15 = load ptr, ptr %0, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i64, ptr %16, align 8
+  %18 = icmp ugt i64 %17, 1023
+  br i1 %18, label %19, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %22, %2
-  %.026.i = phi ptr [ %27, %22 ], [ %15, %2 ]
-  %.02125.i = phi i64 [ %28, %22 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %26, %22 ], [ %18, %2 ]
-  %19 = icmp ugt i64 %.02224.i, 1023
-  br i1 %19, label %20, label %22
+19:                                               ; preds = %.lr.ph.i
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %15, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %20, ptr %15, align 1
+  br label %AppendJumble.exit
 
-20:                                               ; preds = %.lr.ph.i
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %16, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %20 ], [ %.02224.i, %.lr.ph.i ]
-  %23 = sub nuw nsw i64 1024, %.1.i
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %24
-  %28 = sub i64 %.02125.i, %24
-  %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %22
-  store i64 %26, ptr %17, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %30 = load ptr, ptr %29, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %32 = load ptr, ptr %31, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %36 = load ptr, ptr %35, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %40 = load ptr, ptr %39, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %40)
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %42 = load ptr, ptr %0, align 8
-  %43 = load i64, ptr %17, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %19
+  %.1.i = phi i64 [ 8, %19 ], [ %17, %.lr.ph.i ]
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 %.1.i
+  %22 = load i8, ptr %14, align 1
+  store i8 %22, ptr %21, align 1
+  %23 = add nuw nsw i64 %.1.i, 1
+  store i64 %23, ptr %16, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %25 = load ptr, ptr %24, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %25)
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %27 = load ptr, ptr %26, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %27)
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %29 = load ptr, ptr %28, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %29)
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %31 = load ptr, ptr %30, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %31)
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %33 = load ptr, ptr %32, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %33)
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %35 = load ptr, ptr %34, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %37 = load ptr, ptr %0, align 8
+  %38 = load i64, ptr %16, align 8
   br label %.lr.ph.i41
 
-.lr.ph.i41:                                       ; preds = %47, %AppendJumble.exit
-  %.026.i42 = phi ptr [ %52, %47 ], [ %41, %AppendJumble.exit ]
-  %.02125.i43 = phi i64 [ %53, %47 ], [ 4, %AppendJumble.exit ]
-  %.02224.i44 = phi i64 [ %51, %47 ], [ %43, %AppendJumble.exit ]
-  %44 = icmp ugt i64 %.02224.i44, 1023
-  br i1 %44, label %45, label %47
+.lr.ph.i41:                                       ; preds = %42, %AppendJumble.exit
+  %.026.i42 = phi ptr [ %47, %42 ], [ %36, %AppendJumble.exit ]
+  %.02125.i43 = phi i64 [ %48, %42 ], [ 4, %AppendJumble.exit ]
+  %.02224.i44 = phi i64 [ %46, %42 ], [ %38, %AppendJumble.exit ]
+  %39 = icmp ugt i64 %.02224.i44, 1023
+  br i1 %39, label %40, label %42
 
-45:                                               ; preds = %.lr.ph.i41
-  %46 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %46, ptr %42, align 1
-  br label %47
+40:                                               ; preds = %.lr.ph.i41
+  %41 = tail call i64 @hash_bytes_extended(ptr noundef %37, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %41, ptr %37, align 1
+  br label %42
 
-47:                                               ; preds = %45, %.lr.ph.i41
-  %.1.i45 = phi i64 [ 8, %45 ], [ %.02224.i44, %.lr.ph.i41 ]
-  %48 = sub nuw nsw i64 1024, %.1.i45
-  %49 = tail call i64 @llvm.umin.i64(i64 %.02125.i43, i64 %48)
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 1 dereferenceable(1) %.026.i42, i64 %49, i1 false)
-  %51 = add nuw nsw i64 %49, %.1.i45
-  %52 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %49
-  %53 = sub i64 %.02125.i43, %49
-  %.not.i46 = icmp eq i64 %53, 0
+42:                                               ; preds = %40, %.lr.ph.i41
+  %.1.i45 = phi i64 [ 8, %40 ], [ %.02224.i44, %.lr.ph.i41 ]
+  %43 = sub nuw nsw i64 1024, %.1.i45
+  %44 = tail call i64 @llvm.umin.i64(i64 %.02125.i43, i64 %43)
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %.1.i45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 1 dereferenceable(1) %.026.i42, i64 %44, i1 false)
+  %46 = add nuw nsw i64 %44, %.1.i45
+  %47 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %44
+  %48 = sub i64 %.02125.i43, %44
+  %.not.i46 = icmp eq i64 %48, 0
   br i1 %.not.i46, label %AppendJumble.exit47, label %.lr.ph.i41, !llvm.loop !7
 
-AppendJumble.exit47:                              ; preds = %47
-  store i64 %51, ptr %17, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %55 = load ptr, ptr %54, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %55)
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %57 = load ptr, ptr %56, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %57)
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %59 = load ptr, ptr %0, align 8
-  %60 = load i64, ptr %17, align 8
+AppendJumble.exit47:                              ; preds = %42
+  store i64 %46, ptr %16, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %50 = load ptr, ptr %49, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %50)
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %52 = load ptr, ptr %51, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %52)
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %54 = load ptr, ptr %0, align 8
+  %55 = load i64, ptr %16, align 8
   br label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %64, %AppendJumble.exit47
-  %.026.i49 = phi ptr [ %69, %64 ], [ %58, %AppendJumble.exit47 ]
-  %.02125.i50 = phi i64 [ %70, %64 ], [ 4, %AppendJumble.exit47 ]
-  %.02224.i51 = phi i64 [ %68, %64 ], [ %60, %AppendJumble.exit47 ]
-  %61 = icmp ugt i64 %.02224.i51, 1023
-  br i1 %61, label %62, label %64
+.lr.ph.i48:                                       ; preds = %59, %AppendJumble.exit47
+  %.026.i49 = phi ptr [ %64, %59 ], [ %53, %AppendJumble.exit47 ]
+  %.02125.i50 = phi i64 [ %65, %59 ], [ 4, %AppendJumble.exit47 ]
+  %.02224.i51 = phi i64 [ %63, %59 ], [ %55, %AppendJumble.exit47 ]
+  %56 = icmp ugt i64 %.02224.i51, 1023
+  br i1 %56, label %57, label %59
 
-62:                                               ; preds = %.lr.ph.i48
-  %63 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %63, ptr %59, align 1
-  br label %64
+57:                                               ; preds = %.lr.ph.i48
+  %58 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %58, ptr %54, align 1
+  br label %59
 
-64:                                               ; preds = %62, %.lr.ph.i48
-  %.1.i52 = phi i64 [ 8, %62 ], [ %.02224.i51, %.lr.ph.i48 ]
-  %65 = sub nuw nsw i64 1024, %.1.i52
-  %66 = tail call i64 @llvm.umin.i64(i64 %.02125.i50, i64 %65)
-  %67 = getelementptr inbounds nuw i8, ptr %59, i64 %.1.i52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %.026.i49, i64 %66, i1 false)
-  %68 = add nuw nsw i64 %66, %.1.i52
-  %69 = getelementptr inbounds nuw i8, ptr %.026.i49, i64 %66
-  %70 = sub i64 %.02125.i50, %66
-  %.not.i53 = icmp eq i64 %70, 0
-  br i1 %.not.i53, label %AppendJumble.exit54, label %.lr.ph.i48, !llvm.loop !7
+59:                                               ; preds = %57, %.lr.ph.i48
+  %.1.i52 = phi i64 [ 8, %57 ], [ %.02224.i51, %.lr.ph.i48 ]
+  %60 = sub nuw nsw i64 1024, %.1.i52
+  %61 = tail call i64 @llvm.umin.i64(i64 %.02125.i50, i64 %60)
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 %.1.i52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.026.i49, i64 %61, i1 false)
+  %63 = add nuw nsw i64 %61, %.1.i52
+  %64 = getelementptr inbounds nuw i8, ptr %.026.i49, i64 %61
+  %65 = sub i64 %.02125.i50, %61
+  %.not.i53 = icmp eq i64 %65, 0
+  br i1 %.not.i53, label %.lr.ph.i55, label %.lr.ph.i48, !llvm.loop !7
 
-AppendJumble.exit54:                              ; preds = %64
-  store i64 %68, ptr %17, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %72 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i55
+.lr.ph.i55:                                       ; preds = %59
+  store i64 %63, ptr %16, align 8
+  %66 = load ptr, ptr %0, align 8
+  %67 = icmp samesign ugt i64 %63, 1023
+  br i1 %67, label %68, label %AppendJumble.exit61
 
-.lr.ph.i55:                                       ; preds = %76, %AppendJumble.exit54
-  %.026.i56 = phi ptr [ %81, %76 ], [ %71, %AppendJumble.exit54 ]
-  %.02125.i57 = phi i64 [ %82, %76 ], [ 1, %AppendJumble.exit54 ]
-  %.02224.i58 = phi i64 [ %80, %76 ], [ %68, %AppendJumble.exit54 ]
-  %73 = icmp ugt i64 %.02224.i58, 1023
-  br i1 %73, label %74, label %76
+68:                                               ; preds = %.lr.ph.i55
+  %69 = tail call i64 @hash_bytes_extended(ptr noundef %66, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %69, ptr %66, align 1
+  br label %AppendJumble.exit61
 
-74:                                               ; preds = %.lr.ph.i55
-  %75 = tail call i64 @hash_bytes_extended(ptr noundef %72, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %75, ptr %72, align 1
-  br label %76
-
-76:                                               ; preds = %74, %.lr.ph.i55
-  %.1.i59 = phi i64 [ 8, %74 ], [ %.02224.i58, %.lr.ph.i55 ]
-  %77 = sub nuw nsw i64 1024, %.1.i59
-  %78 = tail call i64 @llvm.umin.i64(i64 %.02125.i57, i64 %77)
-  %79 = getelementptr inbounds nuw i8, ptr %72, i64 %.1.i59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %79, ptr noundef nonnull align 1 dereferenceable(1) %.026.i56, i64 %78, i1 false)
-  %80 = add nuw nsw i64 %78, %.1.i59
-  %81 = getelementptr inbounds nuw i8, ptr %.026.i56, i64 %78
-  %82 = sub i64 %.02125.i57, %78
-  %.not.i60 = icmp eq i64 %82, 0
-  br i1 %.not.i60, label %AppendJumble.exit61, label %.lr.ph.i55, !llvm.loop !7
-
-AppendJumble.exit61:                              ; preds = %76
-  store i64 %80, ptr %17, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %84 = load ptr, ptr %83, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %84)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %86 = load ptr, ptr %85, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %86)
+AppendJumble.exit61:                              ; preds = %.lr.ph.i55, %68
+  %.1.i59 = phi i64 [ 8, %68 ], [ %63, %.lr.ph.i55 ]
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 140
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 %.1.i59
+  %72 = load i8, ptr %70, align 1
+  store i8 %72, ptr %71, align 1
+  %73 = add nuw nsw i64 %.1.i59, 1
+  store i64 %73, ptr %16, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %75 = load ptr, ptr %74, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %75)
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %77 = load ptr, ptr %76, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %77)
   ret void
 }
 
@@ -11315,46 +10612,33 @@ define internal fastcc void @_jumbleSetOperationStmt(ptr noundef %0, ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i9:                                        ; preds = %10
   store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i9
+  %17 = load ptr, ptr %0, align 8
+  %18 = icmp samesign ugt i64 %14, 1023
+  br i1 %18, label %19, label %AppendJumble.exit15
 
-.lr.ph.i9:                                        ; preds = %22, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %19, label %20, label %22
+19:                                               ; preds = %.lr.ph.i9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %20, ptr %17, align 1
+  br label %AppendJumble.exit15
 
-20:                                               ; preds = %.lr.ph.i9
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %20 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %23 = sub nuw nsw i64 1024, %.1.i13
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i13
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %24
-  %28 = sub i64 %.02125.i11, %24
-  %.not.i14 = icmp eq i64 %28, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit15:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load ptr, ptr %31, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %19
+  %.1.i13 = phi i64 [ 8, %19 ], [ %14, %.lr.ph.i9 ]
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i13
+  %23 = load i8, ptr %21, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = add nuw nsw i64 %.1.i13, 1
+  store i64 %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = load ptr, ptr %27, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %28)
   ret void
 }
 
@@ -11450,7 +10734,7 @@ define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %5
+  br i1 %.not, label %.lr.ph.i11, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -11488,47 +10772,34 @@ define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr noundef
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
   store i64 %.022.lcssa.i, ptr %9, align 8
-  br label %21
-
-21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8
   br label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %33, %21
-  %.026.i12 = phi ptr [ %38, %33 ], [ %26, %21 ]
-  %.02125.i13 = phi i64 [ %39, %33 ], [ 1, %21 ]
-  %.02224.i14 = phi i64 [ %37, %33 ], [ %29, %21 ]
-  %30 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %30, label %31, label %33
+.lr.ph.i11:                                       ; preds = %2, %AppendJumble.exit
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %22)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %24)
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp ugt i64 %27, 1023
+  br i1 %28, label %29, label %AppendJumble.exit18
 
-31:                                               ; preds = %.lr.ph.i11
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %32, ptr %27, align 1
-  br label %33
+29:                                               ; preds = %.lr.ph.i11
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %30, ptr %25, align 1
+  br label %AppendJumble.exit18
 
-33:                                               ; preds = %31, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %31 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %34 = sub nuw nsw i64 1024, %.1.i15
-  %35 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %34)
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %35, i1 false)
-  %37 = add nuw nsw i64 %35, %.1.i15
-  %38 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %35
-  %39 = sub i64 %.02125.i13, %35
-  %.not.i16 = icmp eq i64 %39, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
-
-AppendJumble.exit18:                              ; preds = %33
-  store i64 %37, ptr %28, align 8
+AppendJumble.exit18:                              ; preds = %.lr.ph.i11, %29
+  %.1.i15 = phi i64 [ 8, %29 ], [ %27, %.lr.ph.i11 ]
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.1.i15
+  %33 = load i8, ptr %31, align 1
+  store i8 %33, ptr %32, align 1
+  %34 = add nuw nsw i64 %.1.i15, 1
+  store i64 %34, ptr %26, align 8
   ret void
 }
 
@@ -11568,119 +10839,94 @@ define internal fastcc void @_jumbleAlterTableStmt(ptr noundef %0, ptr noundef n
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %14
+.lr.ph.i9:                                        ; preds = %14
   store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %22 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i9
+  %21 = load ptr, ptr %0, align 8
+  %22 = icmp samesign ugt i64 %18, 1023
+  br i1 %22, label %23, label %AppendJumble.exit15
 
-.lr.ph.i9:                                        ; preds = %26, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %31, %26 ], [ %21, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %32, %26 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %30, %26 ], [ %18, %AppendJumble.exit ]
-  %23 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %23, label %24, label %26
+23:                                               ; preds = %.lr.ph.i9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %24, ptr %21, align 1
+  br label %AppendJumble.exit15
 
-24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
-
-26:                                               ; preds = %24, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %24 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %27 = sub nuw nsw i64 1024, %.1.i13
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i13
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
-  %32 = sub i64 %.02125.i11, %28
-  %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit15:                              ; preds = %26
-  store i64 %30, ptr %9, align 8
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %23
+  %.1.i13 = phi i64 [ 8, %23 ], [ %18, %.lr.ph.i9 ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i13
+  %27 = load i8, ptr %25, align 1
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %.1.i13, 1
+  store i64 %28, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleReplicaIdentityStmt(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %7, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %.lr.ph.i
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %8, ptr %3, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
+  %.1.i = phi i64 [ 8, %7 ], [ %5, %.lr.ph.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i
+  %10 = load i8, ptr %2, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %4, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %28, label %14
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %33, label %19
-
-19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
-  %21 = add i64 %20, 1
-  %22 = load ptr, ptr %0, align 8
-  %.not23.i = icmp eq i64 %21, 0
+14:                                               ; preds = %AppendJumble.exit
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
+  %16 = add i64 %15, 1
+  %17 = load ptr, ptr %0, align 8
+  %.not23.i = icmp eq i64 %16, 0
   br i1 %.not23.i, label %AppendJumble.exit13, label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %19, %26
-  %.026.i8 = phi ptr [ %31, %26 ], [ %18, %19 ]
-  %.02125.i9 = phi i64 [ %32, %26 ], [ %21, %19 ]
-  %.02224.i10 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %23, label %24, label %26
+.lr.ph.i7:                                        ; preds = %14, %21
+  %.026.i8 = phi ptr [ %26, %21 ], [ %13, %14 ]
+  %.02125.i9 = phi i64 [ %27, %21 ], [ %16, %14 ]
+  %.02224.i10 = phi i64 [ %25, %21 ], [ %11, %14 ]
+  %18 = icmp ugt i64 %.02224.i10, 1023
+  br i1 %18, label %19, label %21
 
-24:                                               ; preds = %.lr.ph.i7
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
+19:                                               ; preds = %.lr.ph.i7
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %20, ptr %17, align 1
+  br label %21
 
-26:                                               ; preds = %24, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %24 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %27 = sub nuw nsw i64 1024, %.1.i11
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i11
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %28
-  %32 = sub i64 %.02125.i9, %28
-  %.not.i12 = icmp eq i64 %32, 0
+21:                                               ; preds = %19, %.lr.ph.i7
+  %.1.i11 = phi i64 [ 8, %19 ], [ %.02224.i10, %.lr.ph.i7 ]
+  %22 = sub nuw nsw i64 1024, %.1.i11
+  %23 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %22)
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %23, i1 false)
+  %25 = add nuw nsw i64 %23, %.1.i11
+  %26 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %23
+  %27 = sub i64 %.02125.i9, %23
+  %.not.i12 = icmp eq i64 %27, 0
   br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
 
-AppendJumble.exit13:                              ; preds = %26, %19
-  %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
-  store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %33
+AppendJumble.exit13:                              ; preds = %21, %14
+  %.022.lcssa.i = phi i64 [ %11, %14 ], [ %25, %21 ]
+  store i64 %.022.lcssa.i, ptr %4, align 8
+  br label %28
 
-33:                                               ; preds = %AppendJumble.exit13, %AppendJumble.exit
+28:                                               ; preds = %AppendJumble.exit13, %AppendJumble.exit
   ret void
 }
 
@@ -11829,434 +11075,351 @@ AppendJumble.exit33:                              ; preds = %39
   %61 = getelementptr inbounds nuw i8, ptr %.026.i35, i64 %58
   %62 = sub i64 %.02125.i36, %58
   %.not.i39 = icmp eq i64 %62, 0
-  br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !7
+  br i1 %.not.i39, label %.lr.ph.i42, label %.lr.ph.i34, !llvm.loop !7
 
-AppendJumble.exit41:                              ; preds = %56
+.lr.ph.i42:                                       ; preds = %56
   store i64 %60, ptr %5, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %64 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i42
+  %65 = icmp samesign ugt i64 %60, 1023
+  br i1 %65, label %.lr.ph.i50.thread, label %.lr.ph.i50
 
-.lr.ph.i42:                                       ; preds = %68, %AppendJumble.exit41
-  %.026.i43 = phi ptr [ %73, %68 ], [ %63, %AppendJumble.exit41 ]
-  %.02125.i44 = phi i64 [ %74, %68 ], [ 1, %AppendJumble.exit41 ]
-  %.02224.i45 = phi i64 [ %72, %68 ], [ %60, %AppendJumble.exit41 ]
-  %65 = icmp ugt i64 %.02224.i45, 1023
-  br i1 %65, label %66, label %68
+.lr.ph.i50.thread:                                ; preds = %.lr.ph.i42
+  %66 = tail call i64 @hash_bytes_extended(ptr noundef %64, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %66, ptr %64, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %68 = load i8, ptr %63, align 1
+  store i8 %68, ptr %67, align 1
+  store i64 9, ptr %5, align 8
+  %69 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit57
 
-66:                                               ; preds = %.lr.ph.i42
-  %67 = tail call i64 @hash_bytes_extended(ptr noundef %64, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %67, ptr %64, align 1
-  br label %68
-
-68:                                               ; preds = %66, %.lr.ph.i42
-  %.1.i46 = phi i64 [ 8, %66 ], [ %.02224.i45, %.lr.ph.i42 ]
-  %69 = sub nuw nsw i64 1024, %.1.i46
-  %70 = tail call i64 @llvm.umin.i64(i64 %.02125.i44, i64 %69)
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 %.1.i46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %.026.i43, i64 %70, i1 false)
-  %72 = add nuw nsw i64 %70, %.1.i46
-  %73 = getelementptr inbounds nuw i8, ptr %.026.i43, i64 %70
-  %74 = sub i64 %.02125.i44, %70
-  %.not.i47 = icmp eq i64 %74, 0
-  br i1 %.not.i47, label %AppendJumble.exit49, label %.lr.ph.i42, !llvm.loop !7
-
-AppendJumble.exit49:                              ; preds = %68
+.lr.ph.i50:                                       ; preds = %.lr.ph.i42
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 %60
+  %71 = load i8, ptr %63, align 1
+  store i8 %71, ptr %70, align 1
+  %72 = add nuw nsw i64 %60, 1
   store i64 %72, ptr %5, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 45
-  %76 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i50
+  %73 = load ptr, ptr %0, align 8
+  %74 = icmp eq i64 %60, 1023
+  br i1 %74, label %75, label %AppendJumble.exit57
 
-.lr.ph.i50:                                       ; preds = %80, %AppendJumble.exit49
-  %.026.i51 = phi ptr [ %85, %80 ], [ %75, %AppendJumble.exit49 ]
-  %.02125.i52 = phi i64 [ %86, %80 ], [ 1, %AppendJumble.exit49 ]
-  %.02224.i53 = phi i64 [ %84, %80 ], [ %72, %AppendJumble.exit49 ]
-  %77 = icmp ugt i64 %.02224.i53, 1023
-  br i1 %77, label %78, label %80
+75:                                               ; preds = %.lr.ph.i50
+  %76 = tail call i64 @hash_bytes_extended(ptr noundef %73, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %76, ptr %73, align 1
+  br label %AppendJumble.exit57
 
-78:                                               ; preds = %.lr.ph.i50
-  %79 = tail call i64 @hash_bytes_extended(ptr noundef %76, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %79, ptr %76, align 1
-  br label %80
-
-80:                                               ; preds = %78, %.lr.ph.i50
-  %.1.i54 = phi i64 [ 8, %78 ], [ %.02224.i53, %.lr.ph.i50 ]
-  %81 = sub nuw nsw i64 1024, %.1.i54
-  %82 = tail call i64 @llvm.umin.i64(i64 %.02125.i52, i64 %81)
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 %.1.i54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %83, ptr noundef nonnull align 1 dereferenceable(1) %.026.i51, i64 %82, i1 false)
-  %84 = add nuw nsw i64 %82, %.1.i54
-  %85 = getelementptr inbounds nuw i8, ptr %.026.i51, i64 %82
-  %86 = sub i64 %.02125.i52, %82
-  %.not.i55 = icmp eq i64 %86, 0
-  br i1 %.not.i55, label %AppendJumble.exit57, label %.lr.ph.i50, !llvm.loop !7
-
-AppendJumble.exit57:                              ; preds = %80
-  store i64 %84, ptr %5, align 8
+AppendJumble.exit57:                              ; preds = %.lr.ph.i50, %75, %.lr.ph.i50.thread
+  %77 = phi ptr [ %73, %75 ], [ %73, %.lr.ph.i50 ], [ %69, %.lr.ph.i50.thread ]
+  %.1.i54 = phi i64 [ 8, %75 ], [ %72, %.lr.ph.i50 ], [ 9, %.lr.ph.i50.thread ]
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 45
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %.1.i54
+  %80 = load i8, ptr %78, align 1
+  store i8 %80, ptr %79, align 1
+  %81 = add nuw nsw i64 %.1.i54, 1
+  store i64 %81, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterDomainStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %7, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %.lr.ph.i
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %8, ptr %3, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
+  %.1.i = phi i64 [ 8, %7 ], [ %5, %.lr.ph.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i
+  %10 = load i8, ptr %2, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %4, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %13)
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %31, label %16
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %36, label %21
-
-21:                                               ; preds = %AppendJumble.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
-  %23 = add i64 %22, 1
-  %24 = load ptr, ptr %0, align 8
-  %25 = load i64, ptr %5, align 8
-  %.not23.i = icmp eq i64 %23, 0
+16:                                               ; preds = %AppendJumble.exit
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #8
+  %18 = add i64 %17, 1
+  %19 = load ptr, ptr %0, align 8
+  %20 = load i64, ptr %4, align 8
+  %.not23.i = icmp eq i64 %18, 0
   br i1 %.not23.i, label %AppendJumble.exit21, label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %21, %29
-  %.026.i16 = phi ptr [ %34, %29 ], [ %20, %21 ]
-  %.02125.i17 = phi i64 [ %35, %29 ], [ %23, %21 ]
-  %.02224.i18 = phi i64 [ %33, %29 ], [ %25, %21 ]
-  %26 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %26, label %27, label %29
+.lr.ph.i15:                                       ; preds = %16, %24
+  %.026.i16 = phi ptr [ %29, %24 ], [ %15, %16 ]
+  %.02125.i17 = phi i64 [ %30, %24 ], [ %18, %16 ]
+  %.02224.i18 = phi i64 [ %28, %24 ], [ %20, %16 ]
+  %21 = icmp ugt i64 %.02224.i18, 1023
+  br i1 %21, label %22, label %24
 
-27:                                               ; preds = %.lr.ph.i15
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %28, ptr %24, align 1
-  br label %29
+22:                                               ; preds = %.lr.ph.i15
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %23, ptr %19, align 1
+  br label %24
 
-29:                                               ; preds = %27, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %27 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %30 = sub nuw nsw i64 1024, %.1.i19
-  %31 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %30)
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %31, i1 false)
-  %33 = add nuw nsw i64 %31, %.1.i19
-  %34 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %31
-  %35 = sub i64 %.02125.i17, %31
-  %.not.i20 = icmp eq i64 %35, 0
+24:                                               ; preds = %22, %.lr.ph.i15
+  %.1.i19 = phi i64 [ 8, %22 ], [ %.02224.i18, %.lr.ph.i15 ]
+  %25 = sub nuw nsw i64 1024, %.1.i19
+  %26 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %25)
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %.1.i19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %26, i1 false)
+  %28 = add nuw nsw i64 %26, %.1.i19
+  %29 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %26
+  %30 = sub i64 %.02125.i17, %26
+  %.not.i20 = icmp eq i64 %30, 0
   br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
 
-AppendJumble.exit21:                              ; preds = %29, %21
-  %.022.lcssa.i = phi i64 [ %25, %21 ], [ %33, %29 ]
-  store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %36
+AppendJumble.exit21:                              ; preds = %24, %16
+  %.022.lcssa.i = phi i64 [ %20, %16 ], [ %28, %24 ]
+  store i64 %.022.lcssa.i, ptr %4, align 8
+  br label %31
 
-36:                                               ; preds = %AppendJumble.exit21, %AppendJumble.exit
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %40 = load ptr, ptr %0, align 8
-  %41 = load i64, ptr %5, align 8
+31:                                               ; preds = %AppendJumble.exit21, %AppendJumble.exit
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load ptr, ptr %32, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %33)
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %35 = load ptr, ptr %0, align 8
+  %36 = load i64, ptr %4, align 8
   br label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %45, %36
-  %.026.i23 = phi ptr [ %50, %45 ], [ %39, %36 ]
-  %.02125.i24 = phi i64 [ %51, %45 ], [ 4, %36 ]
-  %.02224.i25 = phi i64 [ %49, %45 ], [ %41, %36 ]
-  %42 = icmp ugt i64 %.02224.i25, 1023
-  br i1 %42, label %43, label %45
+.lr.ph.i22:                                       ; preds = %40, %31
+  %.026.i23 = phi ptr [ %45, %40 ], [ %34, %31 ]
+  %.02125.i24 = phi i64 [ %46, %40 ], [ 4, %31 ]
+  %.02224.i25 = phi i64 [ %44, %40 ], [ %36, %31 ]
+  %37 = icmp ugt i64 %.02224.i25, 1023
+  br i1 %37, label %38, label %40
 
-43:                                               ; preds = %.lr.ph.i22
-  %44 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %44, ptr %40, align 1
-  br label %45
+38:                                               ; preds = %.lr.ph.i22
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %35, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %39, ptr %35, align 1
+  br label %40
 
-45:                                               ; preds = %43, %.lr.ph.i22
-  %.1.i26 = phi i64 [ 8, %43 ], [ %.02224.i25, %.lr.ph.i22 ]
-  %46 = sub nuw nsw i64 1024, %.1.i26
-  %47 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %46)
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 %.1.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %47, i1 false)
-  %49 = add nuw nsw i64 %47, %.1.i26
-  %50 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %47
-  %51 = sub i64 %.02125.i24, %47
-  %.not.i27 = icmp eq i64 %51, 0
-  br i1 %.not.i27, label %AppendJumble.exit29, label %.lr.ph.i22, !llvm.loop !7
+40:                                               ; preds = %38, %.lr.ph.i22
+  %.1.i26 = phi i64 [ 8, %38 ], [ %.02224.i25, %.lr.ph.i22 ]
+  %41 = sub nuw nsw i64 1024, %.1.i26
+  %42 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %41)
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 %.1.i26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %42, i1 false)
+  %44 = add nuw nsw i64 %42, %.1.i26
+  %45 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %42
+  %46 = sub i64 %.02125.i24, %42
+  %.not.i27 = icmp eq i64 %46, 0
+  br i1 %.not.i27, label %.lr.ph.i30, label %.lr.ph.i22, !llvm.loop !7
 
-AppendJumble.exit29:                              ; preds = %45
-  store i64 %49, ptr %5, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %53 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i30
+.lr.ph.i30:                                       ; preds = %40
+  store i64 %44, ptr %4, align 8
+  %47 = load ptr, ptr %0, align 8
+  %48 = icmp samesign ugt i64 %44, 1023
+  br i1 %48, label %49, label %AppendJumble.exit37
 
-.lr.ph.i30:                                       ; preds = %57, %AppendJumble.exit29
-  %.026.i31 = phi ptr [ %62, %57 ], [ %52, %AppendJumble.exit29 ]
-  %.02125.i32 = phi i64 [ %63, %57 ], [ 1, %AppendJumble.exit29 ]
-  %.02224.i33 = phi i64 [ %61, %57 ], [ %49, %AppendJumble.exit29 ]
-  %54 = icmp ugt i64 %.02224.i33, 1023
-  br i1 %54, label %55, label %57
+49:                                               ; preds = %.lr.ph.i30
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %50, ptr %47, align 1
+  br label %AppendJumble.exit37
 
-55:                                               ; preds = %.lr.ph.i30
-  %56 = tail call i64 @hash_bytes_extended(ptr noundef %53, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %56, ptr %53, align 1
-  br label %57
-
-57:                                               ; preds = %55, %.lr.ph.i30
-  %.1.i34 = phi i64 [ 8, %55 ], [ %.02224.i33, %.lr.ph.i30 ]
-  %58 = sub nuw nsw i64 1024, %.1.i34
-  %59 = tail call i64 @llvm.umin.i64(i64 %.02125.i32, i64 %58)
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 %.1.i34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull align 1 dereferenceable(1) %.026.i31, i64 %59, i1 false)
-  %61 = add nuw nsw i64 %59, %.1.i34
-  %62 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %59
-  %63 = sub i64 %.02125.i32, %59
-  %.not.i35 = icmp eq i64 %63, 0
-  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !7
-
-AppendJumble.exit37:                              ; preds = %57
-  store i64 %61, ptr %5, align 8
+AppendJumble.exit37:                              ; preds = %.lr.ph.i30, %49
+  %.1.i34 = phi i64 [ 8, %49 ], [ %44, %.lr.ph.i30 ]
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 %.1.i34
+  %53 = load i8, ptr %51, align 1
+  store i8 %53, ptr %52, align 1
+  %54 = add nuw nsw i64 %.1.i34, 1
+  store i64 %54, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleGrantStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %7, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %.lr.ph.i
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %8, ptr %3, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %0, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
+  %.1.i = phi i64 [ 8, %7 ], [ %5, %.lr.ph.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i
+  %10 = load i8, ptr %2, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %4, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %0, align 8
   br label %.lr.ph.i19
 
-.lr.ph.i19:                                       ; preds = %22, %AppendJumble.exit
-  %.026.i20 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i21 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
-  %.02224.i22 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i22, 1023
-  br i1 %19, label %20, label %22
+.lr.ph.i19:                                       ; preds = %17, %AppendJumble.exit
+  %.026.i20 = phi ptr [ %22, %17 ], [ %12, %AppendJumble.exit ]
+  %.02125.i21 = phi i64 [ %23, %17 ], [ 4, %AppendJumble.exit ]
+  %.02224.i22 = phi i64 [ %21, %17 ], [ %11, %AppendJumble.exit ]
+  %14 = icmp ugt i64 %.02224.i22, 1023
+  br i1 %14, label %15, label %17
 
-20:                                               ; preds = %.lr.ph.i19
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
+15:                                               ; preds = %.lr.ph.i19
+  %16 = tail call i64 @hash_bytes_extended(ptr noundef %13, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %16, ptr %13, align 1
+  br label %17
 
-22:                                               ; preds = %20, %.lr.ph.i19
-  %.1.i23 = phi i64 [ 8, %20 ], [ %.02224.i22, %.lr.ph.i19 ]
-  %23 = sub nuw nsw i64 1024, %.1.i23
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i21, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i20, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i23
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i20, i64 %24
-  %28 = sub i64 %.02125.i21, %24
-  %.not.i24 = icmp eq i64 %28, 0
+17:                                               ; preds = %15, %.lr.ph.i19
+  %.1.i23 = phi i64 [ 8, %15 ], [ %.02224.i22, %.lr.ph.i19 ]
+  %18 = sub nuw nsw i64 1024, %.1.i23
+  %19 = tail call i64 @llvm.umin.i64(i64 %.02125.i21, i64 %18)
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %.1.i23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %.026.i20, i64 %19, i1 false)
+  %21 = add nuw nsw i64 %19, %.1.i23
+  %22 = getelementptr inbounds nuw i8, ptr %.026.i20, i64 %19
+  %23 = sub i64 %.02125.i21, %19
+  %.not.i24 = icmp eq i64 %23, 0
   br i1 %.not.i24, label %AppendJumble.exit25, label %.lr.ph.i19, !llvm.loop !7
 
-AppendJumble.exit25:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %30 = load ptr, ptr %0, align 8
+AppendJumble.exit25:                              ; preds = %17
+  store i64 %21, ptr %4, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %25 = load ptr, ptr %0, align 8
   br label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %34, %AppendJumble.exit25
-  %.026.i27 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit25 ]
-  %.02125.i28 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit25 ]
-  %.02224.i29 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit25 ]
-  %31 = icmp ugt i64 %.02224.i29, 1023
-  br i1 %31, label %32, label %34
+.lr.ph.i26:                                       ; preds = %29, %AppendJumble.exit25
+  %.026.i27 = phi ptr [ %34, %29 ], [ %24, %AppendJumble.exit25 ]
+  %.02125.i28 = phi i64 [ %35, %29 ], [ 4, %AppendJumble.exit25 ]
+  %.02224.i29 = phi i64 [ %33, %29 ], [ %21, %AppendJumble.exit25 ]
+  %26 = icmp ugt i64 %.02224.i29, 1023
+  br i1 %26, label %27, label %29
 
-32:                                               ; preds = %.lr.ph.i26
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %33, ptr %30, align 1
-  br label %34
+27:                                               ; preds = %.lr.ph.i26
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %28, ptr %25, align 1
+  br label %29
 
-34:                                               ; preds = %32, %.lr.ph.i26
-  %.1.i30 = phi i64 [ 8, %32 ], [ %.02224.i29, %.lr.ph.i26 ]
-  %35 = sub nuw nsw i64 1024, %.1.i30
-  %36 = tail call i64 @llvm.umin.i64(i64 %.02125.i28, i64 %35)
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 1 dereferenceable(1) %.026.i27, i64 %36, i1 false)
-  %38 = add nuw nsw i64 %36, %.1.i30
-  %39 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %36
-  %40 = sub i64 %.02125.i28, %36
-  %.not.i31 = icmp eq i64 %40, 0
-  br i1 %.not.i31, label %AppendJumble.exit32, label %.lr.ph.i26, !llvm.loop !7
+29:                                               ; preds = %27, %.lr.ph.i26
+  %.1.i30 = phi i64 [ 8, %27 ], [ %.02224.i29, %.lr.ph.i26 ]
+  %30 = sub nuw nsw i64 1024, %.1.i30
+  %31 = tail call i64 @llvm.umin.i64(i64 %.02125.i28, i64 %30)
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.1.i30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.026.i27, i64 %31, i1 false)
+  %33 = add nuw nsw i64 %31, %.1.i30
+  %34 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %31
+  %35 = sub i64 %.02125.i28, %31
+  %.not.i31 = icmp eq i64 %35, 0
+  br i1 %.not.i31, label %.lr.ph.i33, label %.lr.ph.i26, !llvm.loop !7
 
-AppendJumble.exit32:                              ; preds = %34
-  store i64 %38, ptr %5, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load ptr, ptr %41, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %42)
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %44 = load ptr, ptr %43, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %46 = load ptr, ptr %45, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %46)
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %48 = load ptr, ptr %0, align 8
-  %49 = load i64, ptr %5, align 8
-  br label %.lr.ph.i33
+.lr.ph.i33:                                       ; preds = %29
+  store i64 %33, ptr %4, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %37 = load ptr, ptr %36, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %37)
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %39 = load ptr, ptr %38, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %39)
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %41 = load ptr, ptr %40, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %41)
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %43 = load ptr, ptr %0, align 8
+  %44 = load i64, ptr %4, align 8
+  %45 = icmp ugt i64 %44, 1023
+  br i1 %45, label %46, label %AppendJumble.exit39
 
-.lr.ph.i33:                                       ; preds = %53, %AppendJumble.exit32
-  %.026.i34 = phi ptr [ %58, %53 ], [ %47, %AppendJumble.exit32 ]
-  %.02125.i35 = phi i64 [ %59, %53 ], [ 1, %AppendJumble.exit32 ]
-  %.02224.i36 = phi i64 [ %57, %53 ], [ %49, %AppendJumble.exit32 ]
-  %50 = icmp ugt i64 %.02224.i36, 1023
-  br i1 %50, label %51, label %53
+46:                                               ; preds = %.lr.ph.i33
+  %47 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %47, ptr %43, align 1
+  br label %AppendJumble.exit39
 
-51:                                               ; preds = %.lr.ph.i33
-  %52 = tail call i64 @hash_bytes_extended(ptr noundef %48, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %52, ptr %48, align 1
-  br label %53
-
-53:                                               ; preds = %51, %.lr.ph.i33
-  %.1.i37 = phi i64 [ 8, %51 ], [ %.02224.i36, %.lr.ph.i33 ]
-  %54 = sub nuw nsw i64 1024, %.1.i37
-  %55 = tail call i64 @llvm.umin.i64(i64 %.02125.i35, i64 %54)
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 %.1.i37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %.026.i34, i64 %55, i1 false)
-  %57 = add nuw nsw i64 %55, %.1.i37
-  %58 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %55
-  %59 = sub i64 %.02125.i35, %55
-  %.not.i38 = icmp eq i64 %59, 0
-  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !7
-
-AppendJumble.exit39:                              ; preds = %53
-  store i64 %57, ptr %5, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %61 = load ptr, ptr %60, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %61)
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %63 = load ptr, ptr %0, align 8
-  %64 = load i64, ptr %5, align 8
+AppendJumble.exit39:                              ; preds = %.lr.ph.i33, %46
+  %.1.i37 = phi i64 [ 8, %46 ], [ %44, %.lr.ph.i33 ]
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %.1.i37
+  %49 = load i8, ptr %42, align 1
+  store i8 %49, ptr %48, align 1
+  %50 = add nuw nsw i64 %.1.i37, 1
+  store i64 %50, ptr %4, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %52 = load ptr, ptr %51, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %52)
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %54 = load ptr, ptr %0, align 8
+  %55 = load i64, ptr %4, align 8
   br label %.lr.ph.i40
 
-.lr.ph.i40:                                       ; preds = %68, %AppendJumble.exit39
-  %.026.i41 = phi ptr [ %73, %68 ], [ %62, %AppendJumble.exit39 ]
-  %.02125.i42 = phi i64 [ %74, %68 ], [ 4, %AppendJumble.exit39 ]
-  %.02224.i43 = phi i64 [ %72, %68 ], [ %64, %AppendJumble.exit39 ]
-  %65 = icmp ugt i64 %.02224.i43, 1023
-  br i1 %65, label %66, label %68
+.lr.ph.i40:                                       ; preds = %59, %AppendJumble.exit39
+  %.026.i41 = phi ptr [ %64, %59 ], [ %53, %AppendJumble.exit39 ]
+  %.02125.i42 = phi i64 [ %65, %59 ], [ 4, %AppendJumble.exit39 ]
+  %.02224.i43 = phi i64 [ %63, %59 ], [ %55, %AppendJumble.exit39 ]
+  %56 = icmp ugt i64 %.02224.i43, 1023
+  br i1 %56, label %57, label %59
 
-66:                                               ; preds = %.lr.ph.i40
-  %67 = tail call i64 @hash_bytes_extended(ptr noundef %63, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %67, ptr %63, align 1
-  br label %68
+57:                                               ; preds = %.lr.ph.i40
+  %58 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %58, ptr %54, align 1
+  br label %59
 
-68:                                               ; preds = %66, %.lr.ph.i40
-  %.1.i44 = phi i64 [ 8, %66 ], [ %.02224.i43, %.lr.ph.i40 ]
-  %69 = sub nuw nsw i64 1024, %.1.i44
-  %70 = tail call i64 @llvm.umin.i64(i64 %.02125.i42, i64 %69)
-  %71 = getelementptr inbounds nuw i8, ptr %63, i64 %.1.i44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, ptr noundef nonnull align 1 dereferenceable(1) %.026.i41, i64 %70, i1 false)
-  %72 = add nuw nsw i64 %70, %.1.i44
-  %73 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %70
-  %74 = sub i64 %.02125.i42, %70
-  %.not.i45 = icmp eq i64 %74, 0
+59:                                               ; preds = %57, %.lr.ph.i40
+  %.1.i44 = phi i64 [ 8, %57 ], [ %.02224.i43, %.lr.ph.i40 ]
+  %60 = sub nuw nsw i64 1024, %.1.i44
+  %61 = tail call i64 @llvm.umin.i64(i64 %.02125.i42, i64 %60)
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 %.1.i44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.026.i41, i64 %61, i1 false)
+  %63 = add nuw nsw i64 %61, %.1.i44
+  %64 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %61
+  %65 = sub i64 %.02125.i42, %61
+  %.not.i45 = icmp eq i64 %65, 0
   br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !7
 
-AppendJumble.exit46:                              ; preds = %68
-  store i64 %72, ptr %5, align 8
+AppendJumble.exit46:                              ; preds = %59
+  store i64 %63, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleObjectWithArgs(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %7)
+  %8 = load ptr, ptr %0, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i64, ptr %9, align 8
+  %11 = icmp ugt i64 %10, 1023
+  br i1 %11, label %12, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %16, %2
-  %.026.i = phi ptr [ %21, %16 ], [ %9, %2 ]
-  %.02125.i = phi i64 [ %22, %16 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %20, %16 ], [ %12, %2 ]
-  %13 = icmp ugt i64 %.02224.i, 1023
-  br i1 %13, label %14, label %16
+12:                                               ; preds = %.lr.ph.i
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %13, ptr %8, align 1
+  br label %AppendJumble.exit
 
-14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %15, ptr %10, align 1
-  br label %16
-
-16:                                               ; preds = %14, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %14 ], [ %.02224.i, %.lr.ph.i ]
-  %17 = sub nuw nsw i64 1024, %.1.i
-  %18 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %17)
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %18, i1 false)
-  %20 = add nuw nsw i64 %18, %.1.i
-  %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
-  %22 = sub i64 %.02125.i, %18
-  %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %16
-  store i64 %20, ptr %11, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %12
+  %.1.i = phi i64 [ 8, %12 ], [ %10, %.lr.ph.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
+  %16 = load i8, ptr %14, align 1
+  store i8 %16, ptr %15, align 1
+  %17 = add nuw nsw i64 %.1.i, 1
+  store i64 %17, ptr %9, align 8
   ret void
 }
 
@@ -12314,81 +11477,69 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleGrantRoleStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ugt i64 %9, 1023
+  br i1 %10, label %11, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+11:                                               ; preds = %.lr.ph.i
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %12, ptr %7, align 1
+  br label %AppendJumble.exit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
-
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %22 = load ptr, ptr %21, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load ptr, ptr %23, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %26 = load ptr, ptr %0, align 8
-  %27 = load i64, ptr %9, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %11
+  %.1.i = phi i64 [ 8, %11 ], [ %9, %.lr.ph.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %.1.i
+  %14 = load i8, ptr %6, align 1
+  store i8 %14, ptr %13, align 1
+  %15 = add nuw nsw i64 %.1.i, 1
+  store i64 %15, ptr %8, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %17 = load ptr, ptr %16, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %17)
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %19 = load ptr, ptr %18, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %19)
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %21 = load ptr, ptr %0, align 8
+  %22 = load i64, ptr %8, align 8
   br label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %31, %AppendJumble.exit
-  %.026.i14 = phi ptr [ %36, %31 ], [ %25, %AppendJumble.exit ]
-  %.02125.i15 = phi i64 [ %37, %31 ], [ 4, %AppendJumble.exit ]
-  %.02224.i16 = phi i64 [ %35, %31 ], [ %27, %AppendJumble.exit ]
-  %28 = icmp ugt i64 %.02224.i16, 1023
-  br i1 %28, label %29, label %31
+.lr.ph.i13:                                       ; preds = %26, %AppendJumble.exit
+  %.026.i14 = phi ptr [ %31, %26 ], [ %20, %AppendJumble.exit ]
+  %.02125.i15 = phi i64 [ %32, %26 ], [ 4, %AppendJumble.exit ]
+  %.02224.i16 = phi i64 [ %30, %26 ], [ %22, %AppendJumble.exit ]
+  %23 = icmp ugt i64 %.02224.i16, 1023
+  br i1 %23, label %24, label %26
 
-29:                                               ; preds = %.lr.ph.i13
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %30, ptr %26, align 1
-  br label %31
+24:                                               ; preds = %.lr.ph.i13
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %25, ptr %21, align 1
+  br label %26
 
-31:                                               ; preds = %29, %.lr.ph.i13
-  %.1.i17 = phi i64 [ 8, %29 ], [ %.02224.i16, %.lr.ph.i13 ]
-  %32 = sub nuw nsw i64 1024, %.1.i17
-  %33 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %32)
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 %.1.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %33, i1 false)
-  %35 = add nuw nsw i64 %33, %.1.i17
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %33
-  %37 = sub i64 %.02125.i15, %33
-  %.not.i18 = icmp eq i64 %37, 0
+26:                                               ; preds = %24, %.lr.ph.i13
+  %.1.i17 = phi i64 [ 8, %24 ], [ %.02224.i16, %.lr.ph.i13 ]
+  %27 = sub nuw nsw i64 1024, %.1.i17
+  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %27)
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %28, i1 false)
+  %30 = add nuw nsw i64 %28, %.1.i17
+  %31 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %28
+  %32 = sub i64 %.02125.i15, %28
+  %.not.i18 = icmp eq i64 %32, 0
   br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
 
-AppendJumble.exit19:                              ; preds = %31
-  store i64 %35, ptr %9, align 8
+AppendJumble.exit19:                              ; preds = %26
+  store i64 %30, ptr %8, align 8
   ret void
 }
 
@@ -12405,125 +11556,105 @@ define internal fastcc void @_jumbleAlterDefaultPrivilegesStmt(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCopyStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %7)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = load ptr, ptr %0, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = icmp ugt i64 %11, 1023
+  br i1 %12, label %.lr.ph.i19.thread, label %.lr.ph.i19
 
-.lr.ph.i:                                         ; preds = %16, %2
-  %.026.i = phi ptr [ %21, %16 ], [ %9, %2 ]
-  %.02125.i = phi i64 [ %22, %16 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %20, %16 ], [ %12, %2 ]
-  %13 = icmp ugt i64 %.02224.i, 1023
-  br i1 %13, label %14, label %16
+.lr.ph.i19.thread:                                ; preds = %.lr.ph.i
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %9, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %13, ptr %9, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %15 = load i8, ptr %8, align 1
+  store i8 %15, ptr %14, align 1
+  store i64 9, ptr %10, align 8
+  %16 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit25
 
-14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %15, ptr %10, align 1
-  br label %16
+.lr.ph.i19:                                       ; preds = %.lr.ph.i
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %11
+  %18 = load i8, ptr %8, align 1
+  store i8 %18, ptr %17, align 1
+  %19 = add nuw nsw i64 %11, 1
+  store i64 %19, ptr %10, align 8
+  %20 = load ptr, ptr %0, align 8
+  %21 = icmp eq i64 %11, 1023
+  br i1 %21, label %22, label %AppendJumble.exit25
 
-16:                                               ; preds = %14, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %14 ], [ %.02224.i, %.lr.ph.i ]
-  %17 = sub nuw nsw i64 1024, %.1.i
-  %18 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %17)
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %18, i1 false)
-  %20 = add nuw nsw i64 %18, %.1.i
-  %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
-  %22 = sub i64 %.02125.i, %18
-  %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+22:                                               ; preds = %.lr.ph.i19
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %23, ptr %20, align 1
+  br label %AppendJumble.exit25
 
-AppendJumble.exit:                                ; preds = %16
-  store i64 %20, ptr %11, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %24 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i19
+AppendJumble.exit25:                              ; preds = %.lr.ph.i19, %22, %.lr.ph.i19.thread
+  %24 = phi ptr [ %20, %22 ], [ %20, %.lr.ph.i19 ], [ %16, %.lr.ph.i19.thread ]
+  %.1.i23 = phi i64 [ 8, %22 ], [ %19, %.lr.ph.i19 ], [ 9, %.lr.ph.i19.thread ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i23
+  %27 = load i8, ptr %25, align 1
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %.1.i23, 1
+  store i64 %28, ptr %10, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %45, label %31
 
-.lr.ph.i19:                                       ; preds = %28, %AppendJumble.exit
-  %.026.i20 = phi ptr [ %33, %28 ], [ %23, %AppendJumble.exit ]
-  %.02125.i21 = phi i64 [ %34, %28 ], [ 1, %AppendJumble.exit ]
-  %.02224.i22 = phi i64 [ %32, %28 ], [ %20, %AppendJumble.exit ]
-  %25 = icmp ugt i64 %.02224.i22, 1023
-  br i1 %25, label %26, label %28
-
-26:                                               ; preds = %.lr.ph.i19
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %27, ptr %24, align 1
-  br label %28
-
-28:                                               ; preds = %26, %.lr.ph.i19
-  %.1.i23 = phi i64 [ 8, %26 ], [ %.02224.i22, %.lr.ph.i19 ]
-  %29 = sub nuw nsw i64 1024, %.1.i23
-  %30 = tail call i64 @llvm.umin.i64(i64 %.02125.i21, i64 %29)
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %.026.i20, i64 %30, i1 false)
-  %32 = add nuw nsw i64 %30, %.1.i23
-  %33 = getelementptr inbounds nuw i8, ptr %.026.i20, i64 %30
-  %34 = sub i64 %.02125.i21, %30
-  %.not.i24 = icmp eq i64 %34, 0
-  br i1 %.not.i24, label %AppendJumble.exit25, label %.lr.ph.i19, !llvm.loop !7
-
-AppendJumble.exit25:                              ; preds = %28
-  store i64 %32, ptr %11, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %.not = icmp eq ptr %36, null
-  br i1 %.not, label %51, label %37
-
-37:                                               ; preds = %AppendJumble.exit25
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #8
-  %39 = add i64 %38, 1
-  %40 = load ptr, ptr %0, align 8
-  %.not23.i = icmp eq i64 %39, 0
+31:                                               ; preds = %AppendJumble.exit25
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #8
+  %33 = add i64 %32, 1
+  %34 = load ptr, ptr %0, align 8
+  %.not23.i = icmp eq i64 %33, 0
   br i1 %.not23.i, label %AppendJumble.exit32, label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %37, %44
-  %.026.i27 = phi ptr [ %49, %44 ], [ %36, %37 ]
-  %.02125.i28 = phi i64 [ %50, %44 ], [ %39, %37 ]
-  %.02224.i29 = phi i64 [ %48, %44 ], [ %32, %37 ]
-  %41 = icmp ugt i64 %.02224.i29, 1023
-  br i1 %41, label %42, label %44
+.lr.ph.i26:                                       ; preds = %31, %38
+  %.026.i27 = phi ptr [ %43, %38 ], [ %30, %31 ]
+  %.02125.i28 = phi i64 [ %44, %38 ], [ %33, %31 ]
+  %.02224.i29 = phi i64 [ %42, %38 ], [ %28, %31 ]
+  %35 = icmp ugt i64 %.02224.i29, 1023
+  br i1 %35, label %36, label %38
 
-42:                                               ; preds = %.lr.ph.i26
-  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %43, ptr %40, align 1
-  br label %44
+36:                                               ; preds = %.lr.ph.i26
+  %37 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %37, ptr %34, align 1
+  br label %38
 
-44:                                               ; preds = %42, %.lr.ph.i26
-  %.1.i30 = phi i64 [ 8, %42 ], [ %.02224.i29, %.lr.ph.i26 ]
-  %45 = sub nuw nsw i64 1024, %.1.i30
-  %46 = tail call i64 @llvm.umin.i64(i64 %.02125.i28, i64 %45)
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 %.1.i30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %47, ptr noundef nonnull align 1 dereferenceable(1) %.026.i27, i64 %46, i1 false)
-  %48 = add nuw nsw i64 %46, %.1.i30
-  %49 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %46
-  %50 = sub i64 %.02125.i28, %46
-  %.not.i31 = icmp eq i64 %50, 0
+38:                                               ; preds = %36, %.lr.ph.i26
+  %.1.i30 = phi i64 [ 8, %36 ], [ %.02224.i29, %.lr.ph.i26 ]
+  %39 = sub nuw nsw i64 1024, %.1.i30
+  %40 = tail call i64 @llvm.umin.i64(i64 %.02125.i28, i64 %39)
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %.1.i30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 1 dereferenceable(1) %.026.i27, i64 %40, i1 false)
+  %42 = add nuw nsw i64 %40, %.1.i30
+  %43 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %40
+  %44 = sub i64 %.02125.i28, %40
+  %.not.i31 = icmp eq i64 %44, 0
   br i1 %.not.i31, label %AppendJumble.exit32, label %.lr.ph.i26, !llvm.loop !7
 
-AppendJumble.exit32:                              ; preds = %44, %37
-  %.022.lcssa.i = phi i64 [ %32, %37 ], [ %48, %44 ]
-  store i64 %.022.lcssa.i, ptr %11, align 8
-  br label %51
+AppendJumble.exit32:                              ; preds = %38, %31
+  %.022.lcssa.i = phi i64 [ %28, %31 ], [ %42, %38 ]
+  store i64 %.022.lcssa.i, ptr %10, align 8
+  br label %45
 
-51:                                               ; preds = %AppendJumble.exit32, %AppendJumble.exit25
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %53 = load ptr, ptr %52, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %55 = load ptr, ptr %54, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %55)
+45:                                               ; preds = %AppendJumble.exit32, %AppendJumble.exit25
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %47 = load ptr, ptr %46, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %47)
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %49 = load ptr, ptr %48, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %49)
   ret void
 }
 
@@ -12607,95 +11738,82 @@ AppendJumble.exit20:                              ; preds = %26, %19
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i8, ptr %35, align 8, !range !8, !noundef !9
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %41
+  br i1 %37, label %38, label %.lr.ph.i21
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %40)
   %.pre = load i64, ptr %5, align 8
-  br label %41
-
-41:                                               ; preds = %38, %33
-  %42 = phi i64 [ %.pre, %38 ], [ %34, %33 ]
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %44 = load ptr, ptr %0, align 8
   br label %.lr.ph.i21
 
-.lr.ph.i21:                                       ; preds = %48, %41
-  %.026.i22 = phi ptr [ %53, %48 ], [ %43, %41 ]
-  %.02125.i23 = phi i64 [ %54, %48 ], [ 1, %41 ]
-  %.02224.i24 = phi i64 [ %52, %48 ], [ %42, %41 ]
-  %45 = icmp ugt i64 %.02224.i24, 1023
-  br i1 %45, label %46, label %48
+.lr.ph.i21:                                       ; preds = %33, %38
+  %41 = phi i64 [ %.pre, %38 ], [ %34, %33 ]
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %43 = load ptr, ptr %0, align 8
+  %44 = icmp ugt i64 %41, 1023
+  br i1 %44, label %45, label %AppendJumble.exit28
 
-46:                                               ; preds = %.lr.ph.i21
-  %47 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %47, ptr %44, align 1
-  br label %48
+45:                                               ; preds = %.lr.ph.i21
+  %46 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %46, ptr %43, align 1
+  br label %AppendJumble.exit28
 
-48:                                               ; preds = %46, %.lr.ph.i21
-  %.1.i25 = phi i64 [ 8, %46 ], [ %.02224.i24, %.lr.ph.i21 ]
-  %49 = sub nuw nsw i64 1024, %.1.i25
-  %50 = tail call i64 @llvm.umin.i64(i64 %.02125.i23, i64 %49)
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 %.1.i25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %.026.i22, i64 %50, i1 false)
-  %52 = add nuw nsw i64 %50, %.1.i25
-  %53 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 %50
-  %54 = sub i64 %.02125.i23, %50
-  %.not.i26 = icmp eq i64 %54, 0
-  br i1 %.not.i26, label %AppendJumble.exit28, label %.lr.ph.i21, !llvm.loop !7
+AppendJumble.exit28:                              ; preds = %.lr.ph.i21, %45
+  %.1.i25 = phi i64 [ 8, %45 ], [ %41, %.lr.ph.i21 ]
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.1.i25
+  %48 = load i8, ptr %42, align 1
+  store i8 %48, ptr %47, align 1
+  %49 = add nuw nsw i64 %.1.i25, 1
+  store i64 %49, ptr %5, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp sgt i32 %51, -1
+  br i1 %52, label %53, label %RecordConstLocation.exit
 
-AppendJumble.exit28:                              ; preds = %48
-  store i64 %52, ptr %5, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %58, label %RecordConstLocation.exit
+53:                                               ; preds = %AppendJumble.exit28
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %57 = load i32, ptr %56, align 8
+  %.not.i29 = icmp slt i32 %55, %57
+  br i1 %.not.i29, label %._crit_edge.i, label %58
 
-58:                                               ; preds = %AppendJumble.exit28
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load i32, ptr %61, align 8
-  %.not.i29 = icmp slt i32 %60, %62
-  br i1 %.not.i29, label %._crit_edge.i, label %63
-
-._crit_edge.i:                                    ; preds = %58
+._crit_edge.i:                                    ; preds = %53
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %70
+  br label %65
 
-63:                                               ; preds = %58
-  %64 = shl i32 %62, 1
-  store i32 %64, ptr %61, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = sext i32 %64 to i64
-  %68 = shl nsw i64 %67, 3
-  %69 = tail call ptr @repalloc(ptr noundef %66, i64 noundef %68) #9
-  store ptr %69, ptr %65, align 8
-  %.pre13.i = load i32, ptr %59, align 4
-  br label %70
+58:                                               ; preds = %53
+  %59 = shl i32 %57, 1
+  store i32 %59, ptr %56, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %61 = load ptr, ptr %60, align 8
+  %62 = sext i32 %59 to i64
+  %63 = shl nsw i64 %62, 3
+  %64 = tail call ptr @repalloc(ptr noundef %61, i64 noundef %63) #9
+  store ptr %64, ptr %60, align 8
+  %.pre13.i = load i32, ptr %54, align 4
+  br label %65
 
-70:                                               ; preds = %63, %._crit_edge.i
-  %71 = phi i32 [ %60, %._crit_edge.i ], [ %.pre13.i, %63 ]
-  %72 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %69, %63 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds %struct.LocationLen, ptr %72, i64 %74
-  store i32 %56, ptr %75, align 4
-  %76 = load ptr, ptr %73, align 8
-  %77 = load i32, ptr %59, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.LocationLen, ptr %76, i64 %78, i32 1
-  store i32 -1, ptr %79, align 4
-  %80 = load i32, ptr %59, align 4
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %59, align 4
+65:                                               ; preds = %58, %._crit_edge.i
+  %66 = phi i32 [ %55, %._crit_edge.i ], [ %.pre13.i, %58 ]
+  %67 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %64, %58 ]
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = sext i32 %66 to i64
+  %70 = getelementptr inbounds %struct.LocationLen, ptr %67, i64 %69
+  store i32 %51, ptr %70, align 4
+  %71 = load ptr, ptr %68, align 8
+  %72 = load i32, ptr %54, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds %struct.LocationLen, ptr %71, i64 %73, i32 1
+  store i32 -1, ptr %74, align 4
+  %75 = load i32, ptr %54, align 4
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %54, align 4
   br label %RecordConstLocation.exit
 
-RecordConstLocation.exit:                         ; preds = %AppendJumble.exit28, %70
+RecordConstLocation.exit:                         ; preds = %AppendJumble.exit28, %65
   ret void
 }
 
@@ -12859,7 +11977,7 @@ AppendJumble.exit39:                              ; preds = %AppendJumble.exit39
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %53 = load ptr, ptr %52, align 8
   %.not32 = icmp eq ptr %53, null
-  br i1 %.not32, label %67, label %54
+  br i1 %.not32, label %.lr.ph.i49, label %54
 
 54:                                               ; preds = %50
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #8
@@ -12899,40 +12017,27 @@ AppendJumble.exit48:                              ; preds = %AppendJumble.exit48
   %.pre = phi ptr [ %.pre63, %54 ], [ %.pre.pre, %AppendJumble.exit48.loopexit ]
   %.022.lcssa.i47 = phi i64 [ %51, %54 ], [ %64, %AppendJumble.exit48.loopexit ]
   store i64 %.022.lcssa.i47, ptr %23, align 8
-  br label %67
-
-67:                                               ; preds = %AppendJumble.exit48, %50
-  %68 = phi i64 [ %.022.lcssa.i47, %AppendJumble.exit48 ], [ %51, %50 ]
-  %69 = phi ptr [ %.pre, %AppendJumble.exit48 ], [ %.pre63, %50 ]
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %.lr.ph.i49
 
-.lr.ph.i49:                                       ; preds = %74, %67
-  %.026.i50 = phi ptr [ %79, %74 ], [ %70, %67 ]
-  %.02125.i51 = phi i64 [ %80, %74 ], [ 1, %67 ]
-  %.02224.i52 = phi i64 [ %78, %74 ], [ %68, %67 ]
-  %71 = icmp ugt i64 %.02224.i52, 1023
-  br i1 %71, label %72, label %74
+.lr.ph.i49:                                       ; preds = %50, %AppendJumble.exit48
+  %67 = phi i64 [ %.022.lcssa.i47, %AppendJumble.exit48 ], [ %51, %50 ]
+  %68 = phi ptr [ %.pre, %AppendJumble.exit48 ], [ %.pre63, %50 ]
+  %69 = icmp samesign ugt i64 %67, 1023
+  br i1 %69, label %70, label %AppendJumble.exit56
 
-72:                                               ; preds = %.lr.ph.i49
-  %73 = tail call i64 @hash_bytes_extended(ptr noundef %69, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %73, ptr %69, align 1
-  br label %74
+70:                                               ; preds = %.lr.ph.i49
+  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %71, ptr %68, align 1
+  br label %AppendJumble.exit56
 
-74:                                               ; preds = %72, %.lr.ph.i49
-  %.1.i53 = phi i64 [ 8, %72 ], [ %.02224.i52, %.lr.ph.i49 ]
-  %75 = sub nuw nsw i64 1024, %.1.i53
-  %76 = tail call i64 @llvm.umin.i64(i64 %.02125.i51, i64 %75)
-  %77 = getelementptr inbounds nuw i8, ptr %69, i64 %.1.i53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %77, ptr noundef nonnull align 1 dereferenceable(1) %.026.i50, i64 %76, i1 false)
-  %78 = add nuw nsw i64 %76, %.1.i53
-  %79 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %76
-  %80 = sub i64 %.02125.i51, %76
-  %.not.i54 = icmp eq i64 %80, 0
-  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !7
-
-AppendJumble.exit56:                              ; preds = %74
-  store i64 %78, ptr %23, align 8
+AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %70
+  %.1.i53 = phi i64 [ 8, %70 ], [ %67, %.lr.ph.i49 ]
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 %.1.i53
+  %74 = load i8, ptr %72, align 1
+  store i8 %74, ptr %73, align 1
+  %75 = add nuw nsw i64 %.1.i53, 1
+  store i64 %75, ptr %23, align 8
   ret void
 }
 
@@ -12974,7 +12079,7 @@ AppendJumble.exit:                                ; preds = %10
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   %.pre310 = load ptr, ptr %0, align 8
-  br i1 %.not, label %32, label %19
+  br i1 %.not, label %.lr.ph.i94, label %19
 
 19:                                               ; preds = %AppendJumble.exit
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
@@ -13014,744 +12119,647 @@ AppendJumble.exit93:                              ; preds = %AppendJumble.exit93
   %.pre = phi ptr [ %.pre310, %19 ], [ %.pre.pre, %AppendJumble.exit93.loopexit ]
   %.022.lcssa.i = phi i64 [ %14, %19 ], [ %29, %AppendJumble.exit93.loopexit ]
   store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %32
-
-32:                                               ; preds = %AppendJumble.exit93, %AppendJumble.exit
-  %33 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit93 ], [ %14, %AppendJumble.exit ]
-  %34 = phi ptr [ %.pre, %AppendJumble.exit93 ], [ %.pre310, %AppendJumble.exit ]
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i94
 
-.lr.ph.i94:                                       ; preds = %39, %32
-  %.026.i95 = phi ptr [ %44, %39 ], [ %35, %32 ]
-  %.02125.i96 = phi i64 [ %45, %39 ], [ 1, %32 ]
-  %.02224.i97 = phi i64 [ %43, %39 ], [ %33, %32 ]
-  %36 = icmp ugt i64 %.02224.i97, 1023
-  br i1 %36, label %37, label %39
+.lr.ph.i94:                                       ; preds = %AppendJumble.exit, %AppendJumble.exit93
+  %32 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit93 ], [ %14, %AppendJumble.exit ]
+  %33 = phi ptr [ %.pre, %AppendJumble.exit93 ], [ %.pre310, %AppendJumble.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = icmp samesign ugt i64 %32, 1023
+  br i1 %35, label %.lr.ph.i102.thread, label %.lr.ph.i102
 
-37:                                               ; preds = %.lr.ph.i94
-  %38 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %38, ptr %34, align 1
-  br label %39
+.lr.ph.i102.thread:                               ; preds = %.lr.ph.i94
+  %36 = tail call i64 @hash_bytes_extended(ptr noundef %33, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %36, ptr %33, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %38 = load i8, ptr %34, align 1
+  store i8 %38, ptr %37, align 1
+  store i64 9, ptr %5, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %40 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i110.thread
 
-39:                                               ; preds = %37, %.lr.ph.i94
-  %.1.i98 = phi i64 [ 8, %37 ], [ %.02224.i97, %.lr.ph.i94 ]
-  %40 = sub nuw nsw i64 1024, %.1.i98
-  %41 = tail call i64 @llvm.umin.i64(i64 %.02125.i96, i64 %40)
-  %42 = getelementptr inbounds nuw i8, ptr %34, i64 %.1.i98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull align 1 dereferenceable(1) %.026.i95, i64 %41, i1 false)
-  %43 = add nuw nsw i64 %41, %.1.i98
-  %44 = getelementptr inbounds nuw i8, ptr %.026.i95, i64 %41
-  %45 = sub i64 %.02125.i96, %41
-  %.not.i99 = icmp eq i64 %45, 0
-  br i1 %.not.i99, label %AppendJumble.exit101, label %.lr.ph.i94, !llvm.loop !7
-
-AppendJumble.exit101:                             ; preds = %39
+.lr.ph.i102:                                      ; preds = %.lr.ph.i94
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 %32
+  %42 = load i8, ptr %34, align 1
+  store i8 %42, ptr %41, align 1
+  %43 = add nuw nsw i64 %32, 1
   store i64 %43, ptr %5, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %47 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i102
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %45 = load ptr, ptr %0, align 8
+  %46 = icmp eq i64 %32, 1023
+  br i1 %46, label %47, label %.lr.ph.i110
 
-.lr.ph.i102:                                      ; preds = %51, %AppendJumble.exit101
-  %.026.i103 = phi ptr [ %56, %51 ], [ %46, %AppendJumble.exit101 ]
-  %.02125.i104 = phi i64 [ %57, %51 ], [ 1, %AppendJumble.exit101 ]
-  %.02224.i105 = phi i64 [ %55, %51 ], [ %43, %AppendJumble.exit101 ]
-  %48 = icmp ugt i64 %.02224.i105, 1023
-  br i1 %48, label %49, label %51
+47:                                               ; preds = %.lr.ph.i102
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %45, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %48, ptr %45, align 1
+  br label %.lr.ph.i110.thread
 
-49:                                               ; preds = %.lr.ph.i102
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %50, ptr %47, align 1
-  br label %51
+.lr.ph.i110.thread:                               ; preds = %47, %.lr.ph.i102.thread
+  %.ph = phi ptr [ %40, %.lr.ph.i102.thread ], [ %45, %47 ]
+  %.ph357 = phi ptr [ %39, %.lr.ph.i102.thread ], [ %44, %47 ]
+  %.1.i106.ph = phi i64 [ 9, %.lr.ph.i102.thread ], [ 8, %47 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.1.i106.ph
+  %50 = load i8, ptr %.ph357, align 1
+  store i8 %50, ptr %49, align 1
+  %51 = add nuw nsw i64 %.1.i106.ph, 1
+  store i64 %51, ptr %5, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %53 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i118.thread
 
-51:                                               ; preds = %49, %.lr.ph.i102
-  %.1.i106 = phi i64 [ 8, %49 ], [ %.02224.i105, %.lr.ph.i102 ]
-  %52 = sub nuw nsw i64 1024, %.1.i106
-  %53 = tail call i64 @llvm.umin.i64(i64 %.02125.i104, i64 %52)
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %.1.i106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 1 dereferenceable(1) %.026.i103, i64 %53, i1 false)
-  %55 = add nuw nsw i64 %53, %.1.i106
-  %56 = getelementptr inbounds nuw i8, ptr %.026.i103, i64 %53
-  %57 = sub i64 %.02125.i104, %53
-  %.not.i107 = icmp eq i64 %57, 0
-  br i1 %.not.i107, label %AppendJumble.exit109, label %.lr.ph.i102, !llvm.loop !7
+.lr.ph.i110:                                      ; preds = %.lr.ph.i102
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 %43
+  %55 = load i8, ptr %44, align 1
+  store i8 %55, ptr %54, align 1
+  %56 = add nuw nsw i64 %32, 2
+  store i64 %56, ptr %5, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %58 = load ptr, ptr %0, align 8
+  %59 = icmp ugt i64 %32, 1021
+  br i1 %59, label %60, label %.lr.ph.i118
 
-AppendJumble.exit109:                             ; preds = %51
-  store i64 %55, ptr %5, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %59 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i110
+60:                                               ; preds = %.lr.ph.i110
+  %61 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %61, ptr %58, align 1
+  br label %.lr.ph.i118.thread
 
-.lr.ph.i110:                                      ; preds = %63, %AppendJumble.exit109
-  %.026.i111 = phi ptr [ %68, %63 ], [ %58, %AppendJumble.exit109 ]
-  %.02125.i112 = phi i64 [ %69, %63 ], [ 1, %AppendJumble.exit109 ]
-  %.02224.i113 = phi i64 [ %67, %63 ], [ %55, %AppendJumble.exit109 ]
-  %60 = icmp ugt i64 %.02224.i113, 1023
-  br i1 %60, label %61, label %63
+.lr.ph.i118.thread:                               ; preds = %60, %.lr.ph.i110.thread
+  %.ph359 = phi ptr [ %53, %.lr.ph.i110.thread ], [ %58, %60 ]
+  %.ph360 = phi ptr [ %52, %.lr.ph.i110.thread ], [ %57, %60 ]
+  %.1.i114.ph = phi i64 [ %51, %.lr.ph.i110.thread ], [ 8, %60 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.ph359, i64 %.1.i114.ph
+  %63 = load i8, ptr %.ph360, align 1
+  store i8 %63, ptr %62, align 1
+  %64 = add nuw nsw i64 %.1.i114.ph, 1
+  store i64 %64, ptr %5, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 19
+  %66 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i126.thread
 
-61:                                               ; preds = %.lr.ph.i110
-  %62 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %62, ptr %59, align 1
-  br label %63
-
-63:                                               ; preds = %61, %.lr.ph.i110
-  %.1.i114 = phi i64 [ 8, %61 ], [ %.02224.i113, %.lr.ph.i110 ]
-  %64 = sub nuw nsw i64 1024, %.1.i114
-  %65 = tail call i64 @llvm.umin.i64(i64 %.02125.i112, i64 %64)
-  %66 = getelementptr inbounds nuw i8, ptr %59, i64 %.1.i114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 1 dereferenceable(1) %.026.i111, i64 %65, i1 false)
-  %67 = add nuw nsw i64 %65, %.1.i114
-  %68 = getelementptr inbounds nuw i8, ptr %.026.i111, i64 %65
-  %69 = sub i64 %.02125.i112, %65
-  %.not.i115 = icmp eq i64 %69, 0
-  br i1 %.not.i115, label %AppendJumble.exit117, label %.lr.ph.i110, !llvm.loop !7
-
-AppendJumble.exit117:                             ; preds = %63
-  store i64 %67, ptr %5, align 8
+.lr.ph.i118:                                      ; preds = %.lr.ph.i110
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 %56
+  %68 = load i8, ptr %57, align 1
+  store i8 %68, ptr %67, align 1
+  %69 = add nuw nsw i64 %32, 3
+  store i64 %69, ptr %5, align 8
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %71 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i118
-
-.lr.ph.i118:                                      ; preds = %75, %AppendJumble.exit117
-  %.026.i119 = phi ptr [ %80, %75 ], [ %70, %AppendJumble.exit117 ]
-  %.02125.i120 = phi i64 [ %81, %75 ], [ 1, %AppendJumble.exit117 ]
-  %.02224.i121 = phi i64 [ %79, %75 ], [ %67, %AppendJumble.exit117 ]
-  %72 = icmp ugt i64 %.02224.i121, 1023
-  br i1 %72, label %73, label %75
+  %72 = icmp eq i64 %32, 1021
+  br i1 %72, label %73, label %.lr.ph.i126
 
 73:                                               ; preds = %.lr.ph.i118
   %74 = tail call i64 @hash_bytes_extended(ptr noundef %71, i32 noundef 1024, i64 noundef 0) #9
   store i64 %74, ptr %71, align 1
-  br label %75
+  br label %.lr.ph.i126.thread
 
-75:                                               ; preds = %73, %.lr.ph.i118
-  %.1.i122 = phi i64 [ 8, %73 ], [ %.02224.i121, %.lr.ph.i118 ]
-  %76 = sub nuw nsw i64 1024, %.1.i122
-  %77 = tail call i64 @llvm.umin.i64(i64 %.02125.i120, i64 %76)
-  %78 = getelementptr inbounds nuw i8, ptr %71, i64 %.1.i122
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef nonnull align 1 dereferenceable(1) %.026.i119, i64 %77, i1 false)
-  %79 = add nuw nsw i64 %77, %.1.i122
-  %80 = getelementptr inbounds nuw i8, ptr %.026.i119, i64 %77
-  %81 = sub i64 %.02125.i120, %77
-  %.not.i123 = icmp eq i64 %81, 0
-  br i1 %.not.i123, label %AppendJumble.exit125, label %.lr.ph.i118, !llvm.loop !7
+.lr.ph.i126.thread:                               ; preds = %73, %.lr.ph.i118.thread
+  %.ph362 = phi ptr [ %66, %.lr.ph.i118.thread ], [ %71, %73 ]
+  %.ph363 = phi ptr [ %65, %.lr.ph.i118.thread ], [ %70, %73 ]
+  %.1.i122.ph = phi i64 [ %64, %.lr.ph.i118.thread ], [ 8, %73 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.ph362, i64 %.1.i122.ph
+  %76 = load i8, ptr %.ph363, align 1
+  store i8 %76, ptr %75, align 1
+  %77 = add nuw nsw i64 %.1.i122.ph, 1
+  store i64 %77, ptr %5, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %79 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i134.thread
 
-AppendJumble.exit125:                             ; preds = %75
-  store i64 %79, ptr %5, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %83 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i126
+.lr.ph.i126:                                      ; preds = %.lr.ph.i118
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 %69
+  %81 = load i8, ptr %70, align 1
+  store i8 %81, ptr %80, align 1
+  %82 = add nuw nsw i64 %32, 4
+  store i64 %82, ptr %5, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %84 = load ptr, ptr %0, align 8
+  %85 = icmp ugt i64 %32, 1019
+  br i1 %85, label %86, label %.lr.ph.i134
 
-.lr.ph.i126:                                      ; preds = %87, %AppendJumble.exit125
-  %.026.i127 = phi ptr [ %92, %87 ], [ %82, %AppendJumble.exit125 ]
-  %.02125.i128 = phi i64 [ %93, %87 ], [ 1, %AppendJumble.exit125 ]
-  %.02224.i129 = phi i64 [ %91, %87 ], [ %79, %AppendJumble.exit125 ]
-  %84 = icmp ugt i64 %.02224.i129, 1023
-  br i1 %84, label %85, label %87
+86:                                               ; preds = %.lr.ph.i126
+  %87 = tail call i64 @hash_bytes_extended(ptr noundef %84, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %87, ptr %84, align 1
+  br label %.lr.ph.i134.thread
 
-85:                                               ; preds = %.lr.ph.i126
-  %86 = tail call i64 @hash_bytes_extended(ptr noundef %83, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %86, ptr %83, align 1
-  br label %87
+.lr.ph.i134.thread:                               ; preds = %86, %.lr.ph.i126.thread
+  %.ph365 = phi ptr [ %79, %.lr.ph.i126.thread ], [ %84, %86 ]
+  %.ph366 = phi ptr [ %78, %.lr.ph.i126.thread ], [ %83, %86 ]
+  %.1.i130.ph = phi i64 [ %77, %.lr.ph.i126.thread ], [ 8, %86 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.ph365, i64 %.1.i130.ph
+  %89 = load i8, ptr %.ph366, align 1
+  store i8 %89, ptr %88, align 1
+  %90 = add nuw nsw i64 %.1.i130.ph, 1
+  store i64 %90, ptr %5, align 8
+  %91 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit141
 
-87:                                               ; preds = %85, %.lr.ph.i126
-  %.1.i130 = phi i64 [ 8, %85 ], [ %.02224.i129, %.lr.ph.i126 ]
-  %88 = sub nuw nsw i64 1024, %.1.i130
-  %89 = tail call i64 @llvm.umin.i64(i64 %.02125.i128, i64 %88)
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 %.1.i130
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 1 dereferenceable(1) %.026.i127, i64 %89, i1 false)
-  %91 = add nuw nsw i64 %89, %.1.i130
-  %92 = getelementptr inbounds nuw i8, ptr %.026.i127, i64 %89
-  %93 = sub i64 %.02125.i128, %89
-  %.not.i131 = icmp eq i64 %93, 0
-  br i1 %.not.i131, label %AppendJumble.exit133, label %.lr.ph.i126, !llvm.loop !7
-
-AppendJumble.exit133:                             ; preds = %87
-  store i64 %91, ptr %5, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 21
+.lr.ph.i134:                                      ; preds = %.lr.ph.i126
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 %82
+  %93 = load i8, ptr %83, align 1
+  store i8 %93, ptr %92, align 1
+  %94 = add nuw nsw i64 %32, 5
+  store i64 %94, ptr %5, align 8
   %95 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i134
-
-.lr.ph.i134:                                      ; preds = %99, %AppendJumble.exit133
-  %.026.i135 = phi ptr [ %104, %99 ], [ %94, %AppendJumble.exit133 ]
-  %.02125.i136 = phi i64 [ %105, %99 ], [ 1, %AppendJumble.exit133 ]
-  %.02224.i137 = phi i64 [ %103, %99 ], [ %91, %AppendJumble.exit133 ]
-  %96 = icmp ugt i64 %.02224.i137, 1023
-  br i1 %96, label %97, label %99
+  %96 = icmp eq i64 %32, 1019
+  br i1 %96, label %97, label %AppendJumble.exit141
 
 97:                                               ; preds = %.lr.ph.i134
   %98 = tail call i64 @hash_bytes_extended(ptr noundef %95, i32 noundef 1024, i64 noundef 0) #9
   store i64 %98, ptr %95, align 1
-  br label %99
+  br label %AppendJumble.exit141
 
-99:                                               ; preds = %97, %.lr.ph.i134
-  %.1.i138 = phi i64 [ 8, %97 ], [ %.02224.i137, %.lr.ph.i134 ]
-  %100 = sub nuw nsw i64 1024, %.1.i138
-  %101 = tail call i64 @llvm.umin.i64(i64 %.02125.i136, i64 %100)
-  %102 = getelementptr inbounds nuw i8, ptr %95, i64 %.1.i138
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef nonnull align 1 dereferenceable(1) %.026.i135, i64 %101, i1 false)
-  %103 = add nuw nsw i64 %101, %.1.i138
-  %104 = getelementptr inbounds nuw i8, ptr %.026.i135, i64 %101
-  %105 = sub i64 %.02125.i136, %101
-  %.not.i139 = icmp eq i64 %105, 0
-  br i1 %.not.i139, label %AppendJumble.exit141, label %.lr.ph.i134, !llvm.loop !7
-
-AppendJumble.exit141:                             ; preds = %99
+AppendJumble.exit141:                             ; preds = %.lr.ph.i134, %97, %.lr.ph.i134.thread
+  %99 = phi ptr [ %95, %97 ], [ %95, %.lr.ph.i134 ], [ %91, %.lr.ph.i134.thread ]
+  %.1.i138 = phi i64 [ 8, %97 ], [ %94, %.lr.ph.i134 ], [ %90, %.lr.ph.i134.thread ]
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 21
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.1.i138
+  %102 = load i8, ptr %100, align 1
+  store i8 %102, ptr %101, align 1
+  %103 = add nuw nsw i64 %.1.i138, 1
   store i64 %103, ptr %5, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %105 = load ptr, ptr %104, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %105)
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %107 = load ptr, ptr %106, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %107)
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %109 = load ptr, ptr %108, align 8
-  %.not83 = icmp eq ptr %109, null
+  %.not83 = icmp eq ptr %107, null
   %.pre312 = load ptr, ptr %0, align 8
   %.pre313 = load i64, ptr %5, align 8
-  br i1 %.not83, label %123, label %110
+  br i1 %.not83, label %.lr.ph.i151, label %108
 
-110:                                              ; preds = %AppendJumble.exit141
-  %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #8
-  %112 = add i64 %111, 1
-  %.not23.i142 = icmp eq i64 %112, 0
+108:                                              ; preds = %AppendJumble.exit141
+  %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #8
+  %110 = add i64 %109, 1
+  %.not23.i142 = icmp eq i64 %110, 0
   br i1 %.not23.i142, label %AppendJumble.exit150, label %.lr.ph.i143
 
-.lr.ph.i143:                                      ; preds = %110, %116
-  %.026.i144 = phi ptr [ %121, %116 ], [ %109, %110 ]
-  %.02125.i145 = phi i64 [ %122, %116 ], [ %112, %110 ]
-  %.02224.i146 = phi i64 [ %120, %116 ], [ %.pre313, %110 ]
-  %113 = icmp ugt i64 %.02224.i146, 1023
-  br i1 %113, label %114, label %116
+.lr.ph.i143:                                      ; preds = %108, %114
+  %.026.i144 = phi ptr [ %119, %114 ], [ %107, %108 ]
+  %.02125.i145 = phi i64 [ %120, %114 ], [ %110, %108 ]
+  %.02224.i146 = phi i64 [ %118, %114 ], [ %.pre313, %108 ]
+  %111 = icmp ugt i64 %.02224.i146, 1023
+  br i1 %111, label %112, label %114
 
-114:                                              ; preds = %.lr.ph.i143
-  %115 = tail call i64 @hash_bytes_extended(ptr noundef %.pre312, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %115, ptr %.pre312, align 1
-  br label %116
+112:                                              ; preds = %.lr.ph.i143
+  %113 = tail call i64 @hash_bytes_extended(ptr noundef %.pre312, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %113, ptr %.pre312, align 1
+  br label %114
 
-116:                                              ; preds = %114, %.lr.ph.i143
-  %.1.i147 = phi i64 [ 8, %114 ], [ %.02224.i146, %.lr.ph.i143 ]
-  %117 = sub nuw nsw i64 1024, %.1.i147
-  %118 = tail call i64 @llvm.umin.i64(i64 %.02125.i145, i64 %117)
-  %119 = getelementptr inbounds nuw i8, ptr %.pre312, i64 %.1.i147
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %119, ptr noundef nonnull align 1 dereferenceable(1) %.026.i144, i64 %118, i1 false)
-  %120 = add nuw nsw i64 %118, %.1.i147
-  %121 = getelementptr inbounds nuw i8, ptr %.026.i144, i64 %118
-  %122 = sub i64 %.02125.i145, %118
-  %.not.i148 = icmp eq i64 %122, 0
+114:                                              ; preds = %112, %.lr.ph.i143
+  %.1.i147 = phi i64 [ 8, %112 ], [ %.02224.i146, %.lr.ph.i143 ]
+  %115 = sub nuw nsw i64 1024, %.1.i147
+  %116 = tail call i64 @llvm.umin.i64(i64 %.02125.i145, i64 %115)
+  %117 = getelementptr inbounds nuw i8, ptr %.pre312, i64 %.1.i147
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %117, ptr noundef nonnull align 1 dereferenceable(1) %.026.i144, i64 %116, i1 false)
+  %118 = add nuw nsw i64 %116, %.1.i147
+  %119 = getelementptr inbounds nuw i8, ptr %.026.i144, i64 %116
+  %120 = sub i64 %.02125.i145, %116
+  %.not.i148 = icmp eq i64 %120, 0
   br i1 %.not.i148, label %AppendJumble.exit150.loopexit, label %.lr.ph.i143, !llvm.loop !7
 
-AppendJumble.exit150.loopexit:                    ; preds = %116
+AppendJumble.exit150.loopexit:                    ; preds = %114
   %.pre311.pre = load ptr, ptr %0, align 8
   br label %AppendJumble.exit150
 
-AppendJumble.exit150:                             ; preds = %AppendJumble.exit150.loopexit, %110
-  %.pre311 = phi ptr [ %.pre312, %110 ], [ %.pre311.pre, %AppendJumble.exit150.loopexit ]
-  %.022.lcssa.i149 = phi i64 [ %.pre313, %110 ], [ %120, %AppendJumble.exit150.loopexit ]
+AppendJumble.exit150:                             ; preds = %AppendJumble.exit150.loopexit, %108
+  %.pre311 = phi ptr [ %.pre312, %108 ], [ %.pre311.pre, %AppendJumble.exit150.loopexit ]
+  %.022.lcssa.i149 = phi i64 [ %.pre313, %108 ], [ %118, %AppendJumble.exit150.loopexit ]
   store i64 %.022.lcssa.i149, ptr %5, align 8
-  br label %123
-
-123:                                              ; preds = %AppendJumble.exit150, %AppendJumble.exit141
-  %124 = phi i64 [ %.022.lcssa.i149, %AppendJumble.exit150 ], [ %.pre313, %AppendJumble.exit141 ]
-  %125 = phi ptr [ %.pre311, %AppendJumble.exit150 ], [ %.pre312, %AppendJumble.exit141 ]
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.lr.ph.i151
 
-.lr.ph.i151:                                      ; preds = %130, %123
-  %.026.i152 = phi ptr [ %135, %130 ], [ %126, %123 ]
-  %.02125.i153 = phi i64 [ %136, %130 ], [ 1, %123 ]
-  %.02224.i154 = phi i64 [ %134, %130 ], [ %124, %123 ]
-  %127 = icmp ugt i64 %.02224.i154, 1023
-  br i1 %127, label %128, label %130
+.lr.ph.i151:                                      ; preds = %AppendJumble.exit141, %AppendJumble.exit150
+  %121 = phi i64 [ %.022.lcssa.i149, %AppendJumble.exit150 ], [ %.pre313, %AppendJumble.exit141 ]
+  %122 = phi ptr [ %.pre311, %AppendJumble.exit150 ], [ %.pre312, %AppendJumble.exit141 ]
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %124 = icmp ugt i64 %121, 1023
+  br i1 %124, label %.lr.ph.i159.thread, label %.lr.ph.i159
 
-128:                                              ; preds = %.lr.ph.i151
-  %129 = tail call i64 @hash_bytes_extended(ptr noundef %125, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %129, ptr %125, align 1
-  br label %130
+.lr.ph.i159.thread:                               ; preds = %.lr.ph.i151
+  %125 = tail call i64 @hash_bytes_extended(ptr noundef %122, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %125, ptr %122, align 1
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %127 = load i8, ptr %123, align 1
+  store i8 %127, ptr %126, align 1
+  store i64 9, ptr %5, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %129 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i167.thread
 
-130:                                              ; preds = %128, %.lr.ph.i151
-  %.1.i155 = phi i64 [ 8, %128 ], [ %.02224.i154, %.lr.ph.i151 ]
-  %131 = sub nuw nsw i64 1024, %.1.i155
-  %132 = tail call i64 @llvm.umin.i64(i64 %.02125.i153, i64 %131)
-  %133 = getelementptr inbounds nuw i8, ptr %125, i64 %.1.i155
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %133, ptr noundef nonnull align 1 dereferenceable(1) %.026.i152, i64 %132, i1 false)
-  %134 = add nuw nsw i64 %132, %.1.i155
-  %135 = getelementptr inbounds nuw i8, ptr %.026.i152, i64 %132
-  %136 = sub i64 %.02125.i153, %132
-  %.not.i156 = icmp eq i64 %136, 0
-  br i1 %.not.i156, label %AppendJumble.exit158, label %.lr.ph.i151, !llvm.loop !7
+.lr.ph.i159:                                      ; preds = %.lr.ph.i151
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 %121
+  %131 = load i8, ptr %123, align 1
+  store i8 %131, ptr %130, align 1
+  %132 = add nuw nsw i64 %121, 1
+  store i64 %132, ptr %5, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %134 = load ptr, ptr %0, align 8
+  %135 = icmp eq i64 %121, 1023
+  br i1 %135, label %136, label %.lr.ph.i167
 
-AppendJumble.exit158:                             ; preds = %130
-  store i64 %134, ptr %5, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %138 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i159
+136:                                              ; preds = %.lr.ph.i159
+  %137 = tail call i64 @hash_bytes_extended(ptr noundef %134, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %137, ptr %134, align 1
+  br label %.lr.ph.i167.thread
 
-.lr.ph.i159:                                      ; preds = %142, %AppendJumble.exit158
-  %.026.i160 = phi ptr [ %147, %142 ], [ %137, %AppendJumble.exit158 ]
-  %.02125.i161 = phi i64 [ %148, %142 ], [ 1, %AppendJumble.exit158 ]
-  %.02224.i162 = phi i64 [ %146, %142 ], [ %134, %AppendJumble.exit158 ]
-  %139 = icmp ugt i64 %.02224.i162, 1023
-  br i1 %139, label %140, label %142
-
-140:                                              ; preds = %.lr.ph.i159
-  %141 = tail call i64 @hash_bytes_extended(ptr noundef %138, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %141, ptr %138, align 1
-  br label %142
-
-142:                                              ; preds = %140, %.lr.ph.i159
-  %.1.i163 = phi i64 [ 8, %140 ], [ %.02224.i162, %.lr.ph.i159 ]
-  %143 = sub nuw nsw i64 1024, %.1.i163
-  %144 = tail call i64 @llvm.umin.i64(i64 %.02125.i161, i64 %143)
-  %145 = getelementptr inbounds nuw i8, ptr %138, i64 %.1.i163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %145, ptr noundef nonnull align 1 dereferenceable(1) %.026.i160, i64 %144, i1 false)
-  %146 = add nuw nsw i64 %144, %.1.i163
-  %147 = getelementptr inbounds nuw i8, ptr %.026.i160, i64 %144
-  %148 = sub i64 %.02125.i161, %144
-  %.not.i164 = icmp eq i64 %148, 0
-  br i1 %.not.i164, label %AppendJumble.exit166, label %.lr.ph.i159, !llvm.loop !7
-
-AppendJumble.exit166:                             ; preds = %142
-  store i64 %146, ptr %5, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %150 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i167
-
-.lr.ph.i167:                                      ; preds = %154, %AppendJumble.exit166
-  %.026.i168 = phi ptr [ %159, %154 ], [ %149, %AppendJumble.exit166 ]
-  %.02125.i169 = phi i64 [ %160, %154 ], [ 1, %AppendJumble.exit166 ]
-  %.02224.i170 = phi i64 [ %158, %154 ], [ %146, %AppendJumble.exit166 ]
-  %151 = icmp ugt i64 %.02224.i170, 1023
-  br i1 %151, label %152, label %154
-
-152:                                              ; preds = %.lr.ph.i167
-  %153 = tail call i64 @hash_bytes_extended(ptr noundef %150, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %153, ptr %150, align 1
-  br label %154
-
-154:                                              ; preds = %152, %.lr.ph.i167
-  %.1.i171 = phi i64 [ 8, %152 ], [ %.02224.i170, %.lr.ph.i167 ]
-  %155 = sub nuw nsw i64 1024, %.1.i171
-  %156 = tail call i64 @llvm.umin.i64(i64 %.02125.i169, i64 %155)
-  %157 = getelementptr inbounds nuw i8, ptr %150, i64 %.1.i171
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %157, ptr noundef nonnull align 1 dereferenceable(1) %.026.i168, i64 %156, i1 false)
-  %158 = add nuw nsw i64 %156, %.1.i171
-  %159 = getelementptr inbounds nuw i8, ptr %.026.i168, i64 %156
-  %160 = sub i64 %.02125.i169, %156
-  %.not.i172 = icmp eq i64 %160, 0
-  br i1 %.not.i172, label %AppendJumble.exit174, label %.lr.ph.i167, !llvm.loop !7
-
-AppendJumble.exit174:                             ; preds = %154
-  store i64 %158, ptr %5, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %162 = load ptr, ptr %161, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %162)
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %164 = load ptr, ptr %0, align 8
-  %165 = load i64, ptr %5, align 8
+.lr.ph.i167.thread:                               ; preds = %136, %.lr.ph.i159.thread
+  %.ph369 = phi ptr [ %129, %.lr.ph.i159.thread ], [ %134, %136 ]
+  %.ph370 = phi ptr [ %128, %.lr.ph.i159.thread ], [ %133, %136 ]
+  %.1.i163.ph = phi i64 [ 9, %.lr.ph.i159.thread ], [ 8, %136 ]
+  %138 = getelementptr inbounds nuw i8, ptr %.ph369, i64 %.1.i163.ph
+  %139 = load i8, ptr %.ph370, align 1
+  store i8 %139, ptr %138, align 1
+  %140 = add nuw nsw i64 %.1.i163.ph, 1
+  store i64 %140, ptr %5, align 8
+  %141 = load ptr, ptr %0, align 8
   br label %.lr.ph.i175
 
-.lr.ph.i175:                                      ; preds = %169, %AppendJumble.exit174
-  %.026.i176 = phi ptr [ %174, %169 ], [ %163, %AppendJumble.exit174 ]
-  %.02125.i177 = phi i64 [ %175, %169 ], [ 1, %AppendJumble.exit174 ]
-  %.02224.i178 = phi i64 [ %173, %169 ], [ %165, %AppendJumble.exit174 ]
-  %166 = icmp ugt i64 %.02224.i178, 1023
-  br i1 %166, label %167, label %169
+.lr.ph.i167:                                      ; preds = %.lr.ph.i159
+  %142 = getelementptr inbounds nuw i8, ptr %134, i64 %132
+  %143 = load i8, ptr %133, align 1
+  store i8 %143, ptr %142, align 1
+  %144 = add nuw nsw i64 %121, 2
+  store i64 %144, ptr %5, align 8
+  %145 = load ptr, ptr %0, align 8
+  %146 = icmp ugt i64 %121, 1021
+  br i1 %146, label %147, label %.lr.ph.i175
 
-167:                                              ; preds = %.lr.ph.i175
-  %168 = tail call i64 @hash_bytes_extended(ptr noundef %164, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %168, ptr %164, align 1
-  br label %169
+147:                                              ; preds = %.lr.ph.i167
+  %148 = tail call i64 @hash_bytes_extended(ptr noundef %145, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %148, ptr %145, align 1
+  br label %.lr.ph.i175
 
-169:                                              ; preds = %167, %.lr.ph.i175
-  %.1.i179 = phi i64 [ 8, %167 ], [ %.02224.i178, %.lr.ph.i175 ]
-  %170 = sub nuw nsw i64 1024, %.1.i179
-  %171 = tail call i64 @llvm.umin.i64(i64 %.02125.i177, i64 %170)
-  %172 = getelementptr inbounds nuw i8, ptr %164, i64 %.1.i179
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %172, ptr noundef nonnull align 1 dereferenceable(1) %.026.i176, i64 %171, i1 false)
-  %173 = add nuw nsw i64 %171, %.1.i179
-  %174 = getelementptr inbounds nuw i8, ptr %.026.i176, i64 %171
-  %175 = sub i64 %.02125.i177, %171
-  %.not.i180 = icmp eq i64 %175, 0
-  br i1 %.not.i180, label %AppendJumble.exit182, label %.lr.ph.i175, !llvm.loop !7
+.lr.ph.i175:                                      ; preds = %.lr.ph.i167.thread, %147, %.lr.ph.i167
+  %149 = phi ptr [ %145, %147 ], [ %145, %.lr.ph.i167 ], [ %141, %.lr.ph.i167.thread ]
+  %.1.i171 = phi i64 [ 8, %147 ], [ %144, %.lr.ph.i167 ], [ %140, %.lr.ph.i167.thread ]
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 %.1.i171
+  %152 = load i8, ptr %150, align 1
+  store i8 %152, ptr %151, align 1
+  %153 = add nuw nsw i64 %.1.i171, 1
+  store i64 %153, ptr %5, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %155 = load ptr, ptr %154, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %155)
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %157 = load ptr, ptr %0, align 8
+  %158 = load i64, ptr %5, align 8
+  %159 = icmp ugt i64 %158, 1023
+  br i1 %159, label %160, label %AppendJumble.exit182
 
-AppendJumble.exit182:                             ; preds = %169
-  store i64 %173, ptr %5, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %177 = load ptr, ptr %176, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %177)
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %179 = load ptr, ptr %178, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %179)
-  %180 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %181 = load ptr, ptr %180, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %181)
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %183 = load ptr, ptr %182, align 8
-  %.not84 = icmp eq ptr %183, null
+160:                                              ; preds = %.lr.ph.i175
+  %161 = tail call i64 @hash_bytes_extended(ptr noundef %157, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %161, ptr %157, align 1
+  br label %AppendJumble.exit182
+
+AppendJumble.exit182:                             ; preds = %.lr.ph.i175, %160
+  %.1.i179 = phi i64 [ 8, %160 ], [ %158, %.lr.ph.i175 ]
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 %.1.i179
+  %163 = load i8, ptr %156, align 1
+  store i8 %163, ptr %162, align 1
+  %164 = add nuw nsw i64 %.1.i179, 1
+  store i64 %164, ptr %5, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %166 = load ptr, ptr %165, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %166)
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %168 = load ptr, ptr %167, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %168)
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %170 = load ptr, ptr %169, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %170)
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %172 = load ptr, ptr %171, align 8
+  %.not84 = icmp eq ptr %172, null
   %.pre315.pre319 = load ptr, ptr %0, align 8
   %.pre316.pre = load i64, ptr %5, align 8
-  br i1 %.not84, label %197, label %184
+  br i1 %.not84, label %186, label %173
 
-184:                                              ; preds = %AppendJumble.exit182
-  %185 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %183) #8
-  %186 = add i64 %185, 1
-  %.not23.i183 = icmp eq i64 %186, 0
+173:                                              ; preds = %AppendJumble.exit182
+  %174 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %172) #8
+  %175 = add i64 %174, 1
+  %.not23.i183 = icmp eq i64 %175, 0
   br i1 %.not23.i183, label %AppendJumble.exit191, label %.lr.ph.i184
 
-.lr.ph.i184:                                      ; preds = %184, %190
-  %.026.i185 = phi ptr [ %195, %190 ], [ %183, %184 ]
-  %.02125.i186 = phi i64 [ %196, %190 ], [ %186, %184 ]
-  %.02224.i187 = phi i64 [ %194, %190 ], [ %.pre316.pre, %184 ]
-  %187 = icmp ugt i64 %.02224.i187, 1023
-  br i1 %187, label %188, label %190
+.lr.ph.i184:                                      ; preds = %173, %179
+  %.026.i185 = phi ptr [ %184, %179 ], [ %172, %173 ]
+  %.02125.i186 = phi i64 [ %185, %179 ], [ %175, %173 ]
+  %.02224.i187 = phi i64 [ %183, %179 ], [ %.pre316.pre, %173 ]
+  %176 = icmp ugt i64 %.02224.i187, 1023
+  br i1 %176, label %177, label %179
 
-188:                                              ; preds = %.lr.ph.i184
-  %189 = tail call i64 @hash_bytes_extended(ptr noundef %.pre315.pre319, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %189, ptr %.pre315.pre319, align 1
-  br label %190
+177:                                              ; preds = %.lr.ph.i184
+  %178 = tail call i64 @hash_bytes_extended(ptr noundef %.pre315.pre319, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %178, ptr %.pre315.pre319, align 1
+  br label %179
 
-190:                                              ; preds = %188, %.lr.ph.i184
-  %.1.i188 = phi i64 [ 8, %188 ], [ %.02224.i187, %.lr.ph.i184 ]
-  %191 = sub nuw nsw i64 1024, %.1.i188
-  %192 = tail call i64 @llvm.umin.i64(i64 %.02125.i186, i64 %191)
-  %193 = getelementptr inbounds nuw i8, ptr %.pre315.pre319, i64 %.1.i188
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %193, ptr noundef nonnull align 1 dereferenceable(1) %.026.i185, i64 %192, i1 false)
-  %194 = add nuw nsw i64 %192, %.1.i188
-  %195 = getelementptr inbounds nuw i8, ptr %.026.i185, i64 %192
-  %196 = sub i64 %.02125.i186, %192
-  %.not.i189 = icmp eq i64 %196, 0
+179:                                              ; preds = %177, %.lr.ph.i184
+  %.1.i188 = phi i64 [ 8, %177 ], [ %.02224.i187, %.lr.ph.i184 ]
+  %180 = sub nuw nsw i64 1024, %.1.i188
+  %181 = tail call i64 @llvm.umin.i64(i64 %.02125.i186, i64 %180)
+  %182 = getelementptr inbounds nuw i8, ptr %.pre315.pre319, i64 %.1.i188
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %182, ptr noundef nonnull align 1 dereferenceable(1) %.026.i185, i64 %181, i1 false)
+  %183 = add nuw nsw i64 %181, %.1.i188
+  %184 = getelementptr inbounds nuw i8, ptr %.026.i185, i64 %181
+  %185 = sub i64 %.02125.i186, %181
+  %.not.i189 = icmp eq i64 %185, 0
   br i1 %.not.i189, label %AppendJumble.exit191.loopexit, label %.lr.ph.i184, !llvm.loop !7
 
-AppendJumble.exit191.loopexit:                    ; preds = %190
+AppendJumble.exit191.loopexit:                    ; preds = %179
   %.pre315.pre.pre = load ptr, ptr %0, align 8
   br label %AppendJumble.exit191
 
-AppendJumble.exit191:                             ; preds = %AppendJumble.exit191.loopexit, %184
-  %.pre315.pre = phi ptr [ %.pre315.pre319, %184 ], [ %.pre315.pre.pre, %AppendJumble.exit191.loopexit ]
-  %.022.lcssa.i190 = phi i64 [ %.pre316.pre, %184 ], [ %194, %AppendJumble.exit191.loopexit ]
+AppendJumble.exit191:                             ; preds = %AppendJumble.exit191.loopexit, %173
+  %.pre315.pre = phi ptr [ %.pre315.pre319, %173 ], [ %.pre315.pre.pre, %AppendJumble.exit191.loopexit ]
+  %.022.lcssa.i190 = phi i64 [ %.pre316.pre, %173 ], [ %183, %AppendJumble.exit191.loopexit ]
   store i64 %.022.lcssa.i190, ptr %5, align 8
-  br label %197
+  br label %186
 
-197:                                              ; preds = %AppendJumble.exit182, %AppendJumble.exit191
+186:                                              ; preds = %AppendJumble.exit182, %AppendJumble.exit191
   %.pre316 = phi i64 [ %.pre316.pre, %AppendJumble.exit182 ], [ %.022.lcssa.i190, %AppendJumble.exit191 ]
   %.pre315 = phi ptr [ %.pre315.pre319, %AppendJumble.exit182 ], [ %.pre315.pre, %AppendJumble.exit191 ]
-  %198 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %199 = load ptr, ptr %198, align 8
-  %.not85 = icmp eq ptr %199, null
-  br i1 %.not85, label %213, label %200
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %188 = load ptr, ptr %187, align 8
+  %.not85 = icmp eq ptr %188, null
+  br i1 %.not85, label %.lr.ph.i201, label %189
 
-200:                                              ; preds = %197
-  %201 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %199) #8
-  %202 = add i64 %201, 1
-  %.not23.i192 = icmp eq i64 %202, 0
+189:                                              ; preds = %186
+  %190 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %188) #8
+  %191 = add i64 %190, 1
+  %.not23.i192 = icmp eq i64 %191, 0
   br i1 %.not23.i192, label %AppendJumble.exit200, label %.lr.ph.i193
 
-.lr.ph.i193:                                      ; preds = %200, %206
-  %.026.i194 = phi ptr [ %211, %206 ], [ %199, %200 ]
-  %.02125.i195 = phi i64 [ %212, %206 ], [ %202, %200 ]
-  %.02224.i196 = phi i64 [ %210, %206 ], [ %.pre316, %200 ]
-  %203 = icmp ugt i64 %.02224.i196, 1023
-  br i1 %203, label %204, label %206
+.lr.ph.i193:                                      ; preds = %189, %195
+  %.026.i194 = phi ptr [ %200, %195 ], [ %188, %189 ]
+  %.02125.i195 = phi i64 [ %201, %195 ], [ %191, %189 ]
+  %.02224.i196 = phi i64 [ %199, %195 ], [ %.pre316, %189 ]
+  %192 = icmp ugt i64 %.02224.i196, 1023
+  br i1 %192, label %193, label %195
 
-204:                                              ; preds = %.lr.ph.i193
-  %205 = tail call i64 @hash_bytes_extended(ptr noundef %.pre315, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %205, ptr %.pre315, align 1
-  br label %206
+193:                                              ; preds = %.lr.ph.i193
+  %194 = tail call i64 @hash_bytes_extended(ptr noundef %.pre315, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %194, ptr %.pre315, align 1
+  br label %195
 
-206:                                              ; preds = %204, %.lr.ph.i193
-  %.1.i197 = phi i64 [ 8, %204 ], [ %.02224.i196, %.lr.ph.i193 ]
-  %207 = sub nuw nsw i64 1024, %.1.i197
-  %208 = tail call i64 @llvm.umin.i64(i64 %.02125.i195, i64 %207)
-  %209 = getelementptr inbounds nuw i8, ptr %.pre315, i64 %.1.i197
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %209, ptr noundef nonnull align 1 dereferenceable(1) %.026.i194, i64 %208, i1 false)
-  %210 = add nuw nsw i64 %208, %.1.i197
-  %211 = getelementptr inbounds nuw i8, ptr %.026.i194, i64 %208
-  %212 = sub i64 %.02125.i195, %208
-  %.not.i198 = icmp eq i64 %212, 0
+195:                                              ; preds = %193, %.lr.ph.i193
+  %.1.i197 = phi i64 [ 8, %193 ], [ %.02224.i196, %.lr.ph.i193 ]
+  %196 = sub nuw nsw i64 1024, %.1.i197
+  %197 = tail call i64 @llvm.umin.i64(i64 %.02125.i195, i64 %196)
+  %198 = getelementptr inbounds nuw i8, ptr %.pre315, i64 %.1.i197
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %198, ptr noundef nonnull align 1 dereferenceable(1) %.026.i194, i64 %197, i1 false)
+  %199 = add nuw nsw i64 %197, %.1.i197
+  %200 = getelementptr inbounds nuw i8, ptr %.026.i194, i64 %197
+  %201 = sub i64 %.02125.i195, %197
+  %.not.i198 = icmp eq i64 %201, 0
   br i1 %.not.i198, label %AppendJumble.exit200.loopexit, label %.lr.ph.i193, !llvm.loop !7
 
-AppendJumble.exit200.loopexit:                    ; preds = %206
+AppendJumble.exit200.loopexit:                    ; preds = %195
   %.pre314.pre = load ptr, ptr %0, align 8
   br label %AppendJumble.exit200
 
-AppendJumble.exit200:                             ; preds = %AppendJumble.exit200.loopexit, %200
-  %.pre314 = phi ptr [ %.pre315, %200 ], [ %.pre314.pre, %AppendJumble.exit200.loopexit ]
-  %.022.lcssa.i199 = phi i64 [ %.pre316, %200 ], [ %210, %AppendJumble.exit200.loopexit ]
+AppendJumble.exit200:                             ; preds = %AppendJumble.exit200.loopexit, %189
+  %.pre314 = phi ptr [ %.pre315, %189 ], [ %.pre314.pre, %AppendJumble.exit200.loopexit ]
+  %.022.lcssa.i199 = phi i64 [ %.pre316, %189 ], [ %199, %AppendJumble.exit200.loopexit ]
   store i64 %.022.lcssa.i199, ptr %5, align 8
-  br label %213
-
-213:                                              ; preds = %AppendJumble.exit200, %197
-  %214 = phi i64 [ %.022.lcssa.i199, %AppendJumble.exit200 ], [ %.pre316, %197 ]
-  %215 = phi ptr [ %.pre314, %AppendJumble.exit200 ], [ %.pre315, %197 ]
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %.lr.ph.i201
 
-.lr.ph.i201:                                      ; preds = %220, %213
-  %.026.i202 = phi ptr [ %225, %220 ], [ %216, %213 ]
-  %.02125.i203 = phi i64 [ %226, %220 ], [ 1, %213 ]
-  %.02224.i204 = phi i64 [ %224, %220 ], [ %214, %213 ]
-  %217 = icmp ugt i64 %.02224.i204, 1023
-  br i1 %217, label %218, label %220
+.lr.ph.i201:                                      ; preds = %186, %AppendJumble.exit200
+  %202 = phi i64 [ %.022.lcssa.i199, %AppendJumble.exit200 ], [ %.pre316, %186 ]
+  %203 = phi ptr [ %.pre314, %AppendJumble.exit200 ], [ %.pre315, %186 ]
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %205 = icmp ugt i64 %202, 1023
+  br i1 %205, label %206, label %AppendJumble.exit208
 
-218:                                              ; preds = %.lr.ph.i201
-  %219 = tail call i64 @hash_bytes_extended(ptr noundef %215, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %219, ptr %215, align 1
-  br label %220
+206:                                              ; preds = %.lr.ph.i201
+  %207 = tail call i64 @hash_bytes_extended(ptr noundef %203, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %207, ptr %203, align 1
+  br label %AppendJumble.exit208
 
-220:                                              ; preds = %218, %.lr.ph.i201
-  %.1.i205 = phi i64 [ 8, %218 ], [ %.02224.i204, %.lr.ph.i201 ]
-  %221 = sub nuw nsw i64 1024, %.1.i205
-  %222 = tail call i64 @llvm.umin.i64(i64 %.02125.i203, i64 %221)
-  %223 = getelementptr inbounds nuw i8, ptr %215, i64 %.1.i205
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %223, ptr noundef nonnull align 1 dereferenceable(1) %.026.i202, i64 %222, i1 false)
-  %224 = add nuw nsw i64 %222, %.1.i205
-  %225 = getelementptr inbounds nuw i8, ptr %.026.i202, i64 %222
-  %226 = sub i64 %.02125.i203, %222
-  %.not.i206 = icmp eq i64 %226, 0
-  br i1 %.not.i206, label %AppendJumble.exit208, label %.lr.ph.i201, !llvm.loop !7
+AppendJumble.exit208:                             ; preds = %.lr.ph.i201, %206
+  %.1.i205 = phi i64 [ 8, %206 ], [ %202, %.lr.ph.i201 ]
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 %.1.i205
+  %209 = load i8, ptr %204, align 1
+  store i8 %209, ptr %208, align 1
+  %210 = add nuw nsw i64 %.1.i205, 1
+  store i64 %210, ptr %5, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %212 = load ptr, ptr %211, align 8
+  %.not86 = icmp eq ptr %212, null
+  br i1 %.not86, label %.lr.ph.i218, label %213
 
-AppendJumble.exit208:                             ; preds = %220
-  store i64 %224, ptr %5, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %228 = load ptr, ptr %227, align 8
-  %.not86 = icmp eq ptr %228, null
-  br i1 %.not86, label %243, label %229
-
-229:                                              ; preds = %AppendJumble.exit208
-  %230 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #8
-  %231 = add i64 %230, 1
-  %232 = load ptr, ptr %0, align 8
-  %.not23.i209 = icmp eq i64 %231, 0
+213:                                              ; preds = %AppendJumble.exit208
+  %214 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #8
+  %215 = add i64 %214, 1
+  %216 = load ptr, ptr %0, align 8
+  %.not23.i209 = icmp eq i64 %215, 0
   br i1 %.not23.i209, label %AppendJumble.exit217, label %.lr.ph.i210
 
-.lr.ph.i210:                                      ; preds = %229, %236
-  %.026.i211 = phi ptr [ %241, %236 ], [ %228, %229 ]
-  %.02125.i212 = phi i64 [ %242, %236 ], [ %231, %229 ]
-  %.02224.i213 = phi i64 [ %240, %236 ], [ %224, %229 ]
-  %233 = icmp ugt i64 %.02224.i213, 1023
-  br i1 %233, label %234, label %236
+.lr.ph.i210:                                      ; preds = %213, %220
+  %.026.i211 = phi ptr [ %225, %220 ], [ %212, %213 ]
+  %.02125.i212 = phi i64 [ %226, %220 ], [ %215, %213 ]
+  %.02224.i213 = phi i64 [ %224, %220 ], [ %210, %213 ]
+  %217 = icmp ugt i64 %.02224.i213, 1023
+  br i1 %217, label %218, label %220
 
-234:                                              ; preds = %.lr.ph.i210
-  %235 = tail call i64 @hash_bytes_extended(ptr noundef %232, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %235, ptr %232, align 1
-  br label %236
+218:                                              ; preds = %.lr.ph.i210
+  %219 = tail call i64 @hash_bytes_extended(ptr noundef %216, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %219, ptr %216, align 1
+  br label %220
 
-236:                                              ; preds = %234, %.lr.ph.i210
-  %.1.i214 = phi i64 [ 8, %234 ], [ %.02224.i213, %.lr.ph.i210 ]
-  %237 = sub nuw nsw i64 1024, %.1.i214
-  %238 = tail call i64 @llvm.umin.i64(i64 %.02125.i212, i64 %237)
-  %239 = getelementptr inbounds nuw i8, ptr %232, i64 %.1.i214
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %239, ptr noundef nonnull align 1 dereferenceable(1) %.026.i211, i64 %238, i1 false)
-  %240 = add nuw nsw i64 %238, %.1.i214
-  %241 = getelementptr inbounds nuw i8, ptr %.026.i211, i64 %238
-  %242 = sub i64 %.02125.i212, %238
-  %.not.i215 = icmp eq i64 %242, 0
+220:                                              ; preds = %218, %.lr.ph.i210
+  %.1.i214 = phi i64 [ 8, %218 ], [ %.02224.i213, %.lr.ph.i210 ]
+  %221 = sub nuw nsw i64 1024, %.1.i214
+  %222 = tail call i64 @llvm.umin.i64(i64 %.02125.i212, i64 %221)
+  %223 = getelementptr inbounds nuw i8, ptr %216, i64 %.1.i214
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %223, ptr noundef nonnull align 1 dereferenceable(1) %.026.i211, i64 %222, i1 false)
+  %224 = add nuw nsw i64 %222, %.1.i214
+  %225 = getelementptr inbounds nuw i8, ptr %.026.i211, i64 %222
+  %226 = sub i64 %.02125.i212, %222
+  %.not.i215 = icmp eq i64 %226, 0
   br i1 %.not.i215, label %AppendJumble.exit217, label %.lr.ph.i210, !llvm.loop !7
 
-AppendJumble.exit217:                             ; preds = %236, %229
-  %.022.lcssa.i216 = phi i64 [ %224, %229 ], [ %240, %236 ]
+AppendJumble.exit217:                             ; preds = %220, %213
+  %.022.lcssa.i216 = phi i64 [ %210, %213 ], [ %224, %220 ]
   store i64 %.022.lcssa.i216, ptr %5, align 8
-  br label %243
-
-243:                                              ; preds = %AppendJumble.exit217, %AppendJumble.exit208
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %245 = load ptr, ptr %244, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %245)
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %247 = load ptr, ptr %246, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %247)
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %249 = load ptr, ptr %248, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %249)
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %251 = load ptr, ptr %250, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %251)
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %253 = load ptr, ptr %0, align 8
-  %254 = load i64, ptr %5, align 8
   br label %.lr.ph.i218
 
-.lr.ph.i218:                                      ; preds = %258, %243
-  %.026.i219 = phi ptr [ %263, %258 ], [ %252, %243 ]
-  %.02125.i220 = phi i64 [ %264, %258 ], [ 1, %243 ]
-  %.02224.i221 = phi i64 [ %262, %258 ], [ %254, %243 ]
-  %255 = icmp ugt i64 %.02224.i221, 1023
-  br i1 %255, label %256, label %258
+.lr.ph.i218:                                      ; preds = %AppendJumble.exit208, %AppendJumble.exit217
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %228 = load ptr, ptr %227, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %228)
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %230 = load ptr, ptr %229, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %230)
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %232 = load ptr, ptr %231, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %232)
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %234 = load ptr, ptr %233, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %234)
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %236 = load ptr, ptr %0, align 8
+  %237 = load i64, ptr %5, align 8
+  %238 = icmp ugt i64 %237, 1023
+  br i1 %238, label %.lr.ph.i226.thread, label %.lr.ph.i226
 
-256:                                              ; preds = %.lr.ph.i218
-  %257 = tail call i64 @hash_bytes_extended(ptr noundef %253, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %257, ptr %253, align 1
-  br label %258
+.lr.ph.i226.thread:                               ; preds = %.lr.ph.i218
+  %239 = tail call i64 @hash_bytes_extended(ptr noundef %236, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %239, ptr %236, align 1
+  %240 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %241 = load i8, ptr %235, align 1
+  store i8 %241, ptr %240, align 1
+  store i64 9, ptr %5, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 153
+  %243 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i234.thread
 
-258:                                              ; preds = %256, %.lr.ph.i218
-  %.1.i222 = phi i64 [ 8, %256 ], [ %.02224.i221, %.lr.ph.i218 ]
-  %259 = sub nuw nsw i64 1024, %.1.i222
-  %260 = tail call i64 @llvm.umin.i64(i64 %.02125.i220, i64 %259)
-  %261 = getelementptr inbounds nuw i8, ptr %253, i64 %.1.i222
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %261, ptr noundef nonnull align 1 dereferenceable(1) %.026.i219, i64 %260, i1 false)
-  %262 = add nuw nsw i64 %260, %.1.i222
-  %263 = getelementptr inbounds nuw i8, ptr %.026.i219, i64 %260
-  %264 = sub i64 %.02125.i220, %260
-  %.not.i223 = icmp eq i64 %264, 0
-  br i1 %.not.i223, label %AppendJumble.exit225, label %.lr.ph.i218, !llvm.loop !7
+.lr.ph.i226:                                      ; preds = %.lr.ph.i218
+  %244 = getelementptr inbounds nuw i8, ptr %236, i64 %237
+  %245 = load i8, ptr %235, align 1
+  store i8 %245, ptr %244, align 1
+  %246 = add nuw nsw i64 %237, 1
+  store i64 %246, ptr %5, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 153
+  %248 = load ptr, ptr %0, align 8
+  %249 = icmp eq i64 %237, 1023
+  br i1 %249, label %250, label %.lr.ph.i234
 
-AppendJumble.exit225:                             ; preds = %258
-  store i64 %262, ptr %5, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 153
-  %266 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i226
+250:                                              ; preds = %.lr.ph.i226
+  %251 = tail call i64 @hash_bytes_extended(ptr noundef %248, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %251, ptr %248, align 1
+  br label %.lr.ph.i234.thread
 
-.lr.ph.i226:                                      ; preds = %270, %AppendJumble.exit225
-  %.026.i227 = phi ptr [ %275, %270 ], [ %265, %AppendJumble.exit225 ]
-  %.02125.i228 = phi i64 [ %276, %270 ], [ 1, %AppendJumble.exit225 ]
-  %.02224.i229 = phi i64 [ %274, %270 ], [ %262, %AppendJumble.exit225 ]
-  %267 = icmp ugt i64 %.02224.i229, 1023
-  br i1 %267, label %268, label %270
+.lr.ph.i234.thread:                               ; preds = %250, %.lr.ph.i226.thread
+  %.ph373 = phi ptr [ %243, %.lr.ph.i226.thread ], [ %248, %250 ]
+  %.ph374 = phi ptr [ %242, %.lr.ph.i226.thread ], [ %247, %250 ]
+  %.1.i230.ph = phi i64 [ 9, %.lr.ph.i226.thread ], [ 8, %250 ]
+  %252 = getelementptr inbounds nuw i8, ptr %.ph373, i64 %.1.i230.ph
+  %253 = load i8, ptr %.ph374, align 1
+  store i8 %253, ptr %252, align 1
+  %254 = add nuw nsw i64 %.1.i230.ph, 1
+  store i64 %254, ptr %5, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 154
+  %256 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i242.thread
 
-268:                                              ; preds = %.lr.ph.i226
-  %269 = tail call i64 @hash_bytes_extended(ptr noundef %266, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %269, ptr %266, align 1
-  br label %270
+.lr.ph.i234:                                      ; preds = %.lr.ph.i226
+  %257 = getelementptr inbounds nuw i8, ptr %248, i64 %246
+  %258 = load i8, ptr %247, align 1
+  store i8 %258, ptr %257, align 1
+  %259 = add nuw nsw i64 %237, 2
+  store i64 %259, ptr %5, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 154
+  %261 = load ptr, ptr %0, align 8
+  %262 = icmp ugt i64 %237, 1021
+  br i1 %262, label %263, label %.lr.ph.i242
 
-270:                                              ; preds = %268, %.lr.ph.i226
-  %.1.i230 = phi i64 [ 8, %268 ], [ %.02224.i229, %.lr.ph.i226 ]
-  %271 = sub nuw nsw i64 1024, %.1.i230
-  %272 = tail call i64 @llvm.umin.i64(i64 %.02125.i228, i64 %271)
-  %273 = getelementptr inbounds nuw i8, ptr %266, i64 %.1.i230
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %273, ptr noundef nonnull align 1 dereferenceable(1) %.026.i227, i64 %272, i1 false)
-  %274 = add nuw nsw i64 %272, %.1.i230
-  %275 = getelementptr inbounds nuw i8, ptr %.026.i227, i64 %272
-  %276 = sub i64 %.02125.i228, %272
-  %.not.i231 = icmp eq i64 %276, 0
-  br i1 %.not.i231, label %AppendJumble.exit233, label %.lr.ph.i226, !llvm.loop !7
+263:                                              ; preds = %.lr.ph.i234
+  %264 = tail call i64 @hash_bytes_extended(ptr noundef %261, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %264, ptr %261, align 1
+  br label %.lr.ph.i242.thread
 
-AppendJumble.exit233:                             ; preds = %270
-  store i64 %274, ptr %5, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %1, i64 154
-  %278 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i234
+.lr.ph.i242.thread:                               ; preds = %263, %.lr.ph.i234.thread
+  %.ph376 = phi ptr [ %256, %.lr.ph.i234.thread ], [ %261, %263 ]
+  %.ph377 = phi ptr [ %255, %.lr.ph.i234.thread ], [ %260, %263 ]
+  %.1.i238.ph = phi i64 [ %254, %.lr.ph.i234.thread ], [ 8, %263 ]
+  %265 = getelementptr inbounds nuw i8, ptr %.ph376, i64 %.1.i238.ph
+  %266 = load i8, ptr %.ph377, align 1
+  store i8 %266, ptr %265, align 1
+  %267 = add nuw nsw i64 %.1.i238.ph, 1
+  store i64 %267, ptr %5, align 8
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 155
+  %269 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i250.thread
 
-.lr.ph.i234:                                      ; preds = %282, %AppendJumble.exit233
-  %.026.i235 = phi ptr [ %287, %282 ], [ %277, %AppendJumble.exit233 ]
-  %.02125.i236 = phi i64 [ %288, %282 ], [ 1, %AppendJumble.exit233 ]
-  %.02224.i237 = phi i64 [ %286, %282 ], [ %274, %AppendJumble.exit233 ]
-  %279 = icmp ugt i64 %.02224.i237, 1023
-  br i1 %279, label %280, label %282
+.lr.ph.i242:                                      ; preds = %.lr.ph.i234
+  %270 = getelementptr inbounds nuw i8, ptr %261, i64 %259
+  %271 = load i8, ptr %260, align 1
+  store i8 %271, ptr %270, align 1
+  %272 = add nuw nsw i64 %237, 3
+  store i64 %272, ptr %5, align 8
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 155
+  %274 = load ptr, ptr %0, align 8
+  %275 = icmp eq i64 %237, 1021
+  br i1 %275, label %276, label %.lr.ph.i250
 
-280:                                              ; preds = %.lr.ph.i234
-  %281 = tail call i64 @hash_bytes_extended(ptr noundef %278, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %281, ptr %278, align 1
-  br label %282
+276:                                              ; preds = %.lr.ph.i242
+  %277 = tail call i64 @hash_bytes_extended(ptr noundef %274, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %277, ptr %274, align 1
+  br label %.lr.ph.i250.thread
 
-282:                                              ; preds = %280, %.lr.ph.i234
-  %.1.i238 = phi i64 [ 8, %280 ], [ %.02224.i237, %.lr.ph.i234 ]
-  %283 = sub nuw nsw i64 1024, %.1.i238
-  %284 = tail call i64 @llvm.umin.i64(i64 %.02125.i236, i64 %283)
-  %285 = getelementptr inbounds nuw i8, ptr %278, i64 %.1.i238
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %285, ptr noundef nonnull align 1 dereferenceable(1) %.026.i235, i64 %284, i1 false)
-  %286 = add nuw nsw i64 %284, %.1.i238
-  %287 = getelementptr inbounds nuw i8, ptr %.026.i235, i64 %284
-  %288 = sub i64 %.02125.i236, %284
-  %.not.i239 = icmp eq i64 %288, 0
-  br i1 %.not.i239, label %AppendJumble.exit241, label %.lr.ph.i234, !llvm.loop !7
+.lr.ph.i250.thread:                               ; preds = %276, %.lr.ph.i242.thread
+  %.ph379 = phi ptr [ %269, %.lr.ph.i242.thread ], [ %274, %276 ]
+  %.ph380 = phi ptr [ %268, %.lr.ph.i242.thread ], [ %273, %276 ]
+  %.1.i246.ph = phi i64 [ %267, %.lr.ph.i242.thread ], [ 8, %276 ]
+  %278 = getelementptr inbounds nuw i8, ptr %.ph379, i64 %.1.i246.ph
+  %279 = load i8, ptr %.ph380, align 1
+  store i8 %279, ptr %278, align 1
+  %280 = add nuw nsw i64 %.1.i246.ph, 1
+  store i64 %280, ptr %5, align 8
+  %281 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit257
 
-AppendJumble.exit241:                             ; preds = %282
-  store i64 %286, ptr %5, align 8
-  %289 = getelementptr inbounds nuw i8, ptr %1, i64 155
-  %290 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i242
+.lr.ph.i250:                                      ; preds = %.lr.ph.i242
+  %282 = getelementptr inbounds nuw i8, ptr %274, i64 %272
+  %283 = load i8, ptr %273, align 1
+  store i8 %283, ptr %282, align 1
+  %284 = add nuw nsw i64 %237, 4
+  store i64 %284, ptr %5, align 8
+  %285 = load ptr, ptr %0, align 8
+  %286 = icmp ugt i64 %237, 1019
+  br i1 %286, label %287, label %AppendJumble.exit257
 
-.lr.ph.i242:                                      ; preds = %294, %AppendJumble.exit241
-  %.026.i243 = phi ptr [ %299, %294 ], [ %289, %AppendJumble.exit241 ]
-  %.02125.i244 = phi i64 [ %300, %294 ], [ 1, %AppendJumble.exit241 ]
-  %.02224.i245 = phi i64 [ %298, %294 ], [ %286, %AppendJumble.exit241 ]
-  %291 = icmp ugt i64 %.02224.i245, 1023
-  br i1 %291, label %292, label %294
+287:                                              ; preds = %.lr.ph.i250
+  %288 = tail call i64 @hash_bytes_extended(ptr noundef %285, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %288, ptr %285, align 1
+  br label %AppendJumble.exit257
 
-292:                                              ; preds = %.lr.ph.i242
-  %293 = tail call i64 @hash_bytes_extended(ptr noundef %290, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %293, ptr %290, align 1
-  br label %294
-
-294:                                              ; preds = %292, %.lr.ph.i242
-  %.1.i246 = phi i64 [ 8, %292 ], [ %.02224.i245, %.lr.ph.i242 ]
-  %295 = sub nuw nsw i64 1024, %.1.i246
-  %296 = tail call i64 @llvm.umin.i64(i64 %.02125.i244, i64 %295)
-  %297 = getelementptr inbounds nuw i8, ptr %290, i64 %.1.i246
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %297, ptr noundef nonnull align 1 dereferenceable(1) %.026.i243, i64 %296, i1 false)
-  %298 = add nuw nsw i64 %296, %.1.i246
-  %299 = getelementptr inbounds nuw i8, ptr %.026.i243, i64 %296
-  %300 = sub i64 %.02125.i244, %296
-  %.not.i247 = icmp eq i64 %300, 0
-  br i1 %.not.i247, label %AppendJumble.exit249, label %.lr.ph.i242, !llvm.loop !7
-
-AppendJumble.exit249:                             ; preds = %294
-  store i64 %298, ptr %5, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  %302 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i250
-
-.lr.ph.i250:                                      ; preds = %306, %AppendJumble.exit249
-  %.026.i251 = phi ptr [ %311, %306 ], [ %301, %AppendJumble.exit249 ]
-  %.02125.i252 = phi i64 [ %312, %306 ], [ 1, %AppendJumble.exit249 ]
-  %.02224.i253 = phi i64 [ %310, %306 ], [ %298, %AppendJumble.exit249 ]
-  %303 = icmp ugt i64 %.02224.i253, 1023
-  br i1 %303, label %304, label %306
-
-304:                                              ; preds = %.lr.ph.i250
-  %305 = tail call i64 @hash_bytes_extended(ptr noundef %302, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %305, ptr %302, align 1
-  br label %306
-
-306:                                              ; preds = %304, %.lr.ph.i250
-  %.1.i254 = phi i64 [ 8, %304 ], [ %.02224.i253, %.lr.ph.i250 ]
-  %307 = sub nuw nsw i64 1024, %.1.i254
-  %308 = tail call i64 @llvm.umin.i64(i64 %.02125.i252, i64 %307)
-  %309 = getelementptr inbounds nuw i8, ptr %302, i64 %.1.i254
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %309, ptr noundef nonnull align 1 dereferenceable(1) %.026.i251, i64 %308, i1 false)
-  %310 = add nuw nsw i64 %308, %.1.i254
-  %311 = getelementptr inbounds nuw i8, ptr %.026.i251, i64 %308
-  %312 = sub i64 %.02125.i252, %308
-  %.not.i255 = icmp eq i64 %312, 0
-  br i1 %.not.i255, label %AppendJumble.exit257, label %.lr.ph.i250, !llvm.loop !7
-
-AppendJumble.exit257:                             ; preds = %306
-  store i64 %310, ptr %5, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %314 = load ptr, ptr %313, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %314)
-  %315 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %316 = load ptr, ptr %315, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %316)
-  %317 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %318 = load ptr, ptr %0, align 8
-  %319 = load i64, ptr %5, align 8
+AppendJumble.exit257:                             ; preds = %.lr.ph.i250, %287, %.lr.ph.i250.thread
+  %289 = phi ptr [ %285, %287 ], [ %285, %.lr.ph.i250 ], [ %281, %.lr.ph.i250.thread ]
+  %.1.i254 = phi i64 [ 8, %287 ], [ %284, %.lr.ph.i250 ], [ %280, %.lr.ph.i250.thread ]
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 156
+  %291 = getelementptr inbounds nuw i8, ptr %289, i64 %.1.i254
+  %292 = load i8, ptr %290, align 1
+  store i8 %292, ptr %291, align 1
+  %293 = add nuw nsw i64 %.1.i254, 1
+  store i64 %293, ptr %5, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %295 = load ptr, ptr %294, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %295)
+  %296 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %297 = load ptr, ptr %296, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %297)
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %299 = load ptr, ptr %0, align 8
+  %300 = load i64, ptr %5, align 8
   br label %.lr.ph.i258
 
-.lr.ph.i258:                                      ; preds = %323, %AppendJumble.exit257
-  %.026.i259 = phi ptr [ %328, %323 ], [ %317, %AppendJumble.exit257 ]
-  %.02125.i260 = phi i64 [ %329, %323 ], [ 4, %AppendJumble.exit257 ]
-  %.02224.i261 = phi i64 [ %327, %323 ], [ %319, %AppendJumble.exit257 ]
-  %320 = icmp ugt i64 %.02224.i261, 1023
-  br i1 %320, label %321, label %323
+.lr.ph.i258:                                      ; preds = %304, %AppendJumble.exit257
+  %.026.i259 = phi ptr [ %309, %304 ], [ %298, %AppendJumble.exit257 ]
+  %.02125.i260 = phi i64 [ %310, %304 ], [ 4, %AppendJumble.exit257 ]
+  %.02224.i261 = phi i64 [ %308, %304 ], [ %300, %AppendJumble.exit257 ]
+  %301 = icmp ugt i64 %.02224.i261, 1023
+  br i1 %301, label %302, label %304
 
-321:                                              ; preds = %.lr.ph.i258
-  %322 = tail call i64 @hash_bytes_extended(ptr noundef %318, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %322, ptr %318, align 1
-  br label %323
+302:                                              ; preds = %.lr.ph.i258
+  %303 = tail call i64 @hash_bytes_extended(ptr noundef %299, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %303, ptr %299, align 1
+  br label %304
 
-323:                                              ; preds = %321, %.lr.ph.i258
-  %.1.i262 = phi i64 [ 8, %321 ], [ %.02224.i261, %.lr.ph.i258 ]
-  %324 = sub nuw nsw i64 1024, %.1.i262
-  %325 = tail call i64 @llvm.umin.i64(i64 %.02125.i260, i64 %324)
-  %326 = getelementptr inbounds nuw i8, ptr %318, i64 %.1.i262
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %326, ptr noundef nonnull align 1 dereferenceable(1) %.026.i259, i64 %325, i1 false)
-  %327 = add nuw nsw i64 %325, %.1.i262
-  %328 = getelementptr inbounds nuw i8, ptr %.026.i259, i64 %325
-  %329 = sub i64 %.02125.i260, %325
-  %.not.i263 = icmp eq i64 %329, 0
+304:                                              ; preds = %302, %.lr.ph.i258
+  %.1.i262 = phi i64 [ 8, %302 ], [ %.02224.i261, %.lr.ph.i258 ]
+  %305 = sub nuw nsw i64 1024, %.1.i262
+  %306 = tail call i64 @llvm.umin.i64(i64 %.02125.i260, i64 %305)
+  %307 = getelementptr inbounds nuw i8, ptr %299, i64 %.1.i262
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %307, ptr noundef nonnull align 1 dereferenceable(1) %.026.i259, i64 %306, i1 false)
+  %308 = add nuw nsw i64 %306, %.1.i262
+  %309 = getelementptr inbounds nuw i8, ptr %.026.i259, i64 %306
+  %310 = sub i64 %.02125.i260, %306
+  %.not.i263 = icmp eq i64 %310, 0
   br i1 %.not.i263, label %AppendJumble.exit265, label %.lr.ph.i258, !llvm.loop !7
 
-AppendJumble.exit265:                             ; preds = %323
-  store i64 %327, ptr %5, align 8
+AppendJumble.exit265:                             ; preds = %304
+  store i64 %308, ptr %5, align 8
   ret void
 }
 
@@ -13865,7 +12873,7 @@ define internal fastcc void @_jumbleDropTableSpaceStmt(ptr noundef captures(none
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre18 = load i64, ptr %.phi.trans.insert, align 8
-  br label %20
+  br label %.lr.ph.i7
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -13907,41 +12915,28 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre17, %5 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %9, %5 ], [ %17, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %8, align 8
-  br label %20
-
-20:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %21 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre18, %._crit_edge ]
-  %22 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre17, %._crit_edge ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %27, %20
-  %.026.i8 = phi ptr [ %32, %27 ], [ %23, %20 ]
-  %.02125.i9 = phi i64 [ %33, %27 ], [ 1, %20 ]
-  %.02224.i10 = phi i64 [ %31, %27 ], [ %21, %20 ]
-  %24 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %24, label %25, label %27
+.lr.ph.i7:                                        ; preds = %AppendJumble.exit, %._crit_edge
+  %20 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre18, %._crit_edge ]
+  %21 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre17, %._crit_edge ]
+  %22 = icmp ugt i64 %20, 1023
+  br i1 %22, label %23, label %AppendJumble.exit14
 
-25:                                               ; preds = %.lr.ph.i7
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %26, ptr %22, align 1
-  br label %27
+23:                                               ; preds = %.lr.ph.i7
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %24, ptr %21, align 1
+  br label %AppendJumble.exit14
 
-27:                                               ; preds = %25, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %25 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %28 = sub nuw nsw i64 1024, %.1.i11
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i11
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %29
-  %33 = sub i64 %.02125.i9, %29
-  %.not.i12 = icmp eq i64 %33, 0
-  br i1 %.not.i12, label %AppendJumble.exit14, label %.lr.ph.i7, !llvm.loop !7
-
-AppendJumble.exit14:                              ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %34, align 8
+AppendJumble.exit14:                              ; preds = %.lr.ph.i7, %23
+  %.1.i11 = phi i64 [ 8, %23 ], [ %20, %.lr.ph.i7 ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i11
+  %27 = load i8, ptr %25, align 1
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %.1.i11, 1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %28, ptr %29, align 8
   ret void
 }
 
@@ -13950,7 +12945,7 @@ define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, p
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %5
+  br i1 %.not, label %.lr.ph.i9, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -13988,44 +12983,31 @@ define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, p
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
   store i64 %.022.lcssa.i, ptr %9, align 8
-  br label %21
-
-21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %31, %21
-  %.026.i10 = phi ptr [ %36, %31 ], [ %24, %21 ]
-  %.02125.i11 = phi i64 [ %37, %31 ], [ 1, %21 ]
-  %.02224.i12 = phi i64 [ %35, %31 ], [ %27, %21 ]
-  %28 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %28, label %29, label %31
+.lr.ph.i9:                                        ; preds = %2, %AppendJumble.exit
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %22)
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp ugt i64 %25, 1023
+  br i1 %26, label %27, label %AppendJumble.exit16
 
-29:                                               ; preds = %.lr.ph.i9
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %30, ptr %25, align 1
-  br label %31
+27:                                               ; preds = %.lr.ph.i9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %28, ptr %23, align 1
+  br label %AppendJumble.exit16
 
-31:                                               ; preds = %29, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %29 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %32 = sub nuw nsw i64 1024, %.1.i13
-  %33 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %32)
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %33, i1 false)
-  %35 = add nuw nsw i64 %33, %.1.i13
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %33
-  %37 = sub i64 %.02125.i11, %33
-  %.not.i14 = icmp eq i64 %37, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit16:                              ; preds = %31
-  store i64 %35, ptr %26, align 8
+AppendJumble.exit16:                              ; preds = %.lr.ph.i9, %27
+  %.1.i13 = phi i64 [ 8, %27 ], [ %25, %.lr.ph.i9 ]
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %.1.i13
+  %31 = load i8, ptr %29, align 1
+  store i8 %31, ptr %30, align 1
+  %32 = add nuw nsw i64 %.1.i13, 1
+  store i64 %32, ptr %24, align 8
   ret void
 }
 
@@ -14125,7 +13107,7 @@ AppendJumble.exit24:                              ; preds = %28
   %.not16 = icmp eq ptr %38, null
   %.pre51 = load ptr, ptr %0, align 8
   %.pre52 = load i64, ptr %24, align 8
-  br i1 %.not16, label %52, label %39
+  br i1 %.not16, label %.lr.ph.i34, label %39
 
 39:                                               ; preds = %AppendJumble.exit24
   %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #8
@@ -14165,40 +13147,27 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
   %.pre50 = phi ptr [ %.pre51, %39 ], [ %.pre50.pre, %AppendJumble.exit33.loopexit ]
   %.022.lcssa.i32 = phi i64 [ %.pre52, %39 ], [ %49, %AppendJumble.exit33.loopexit ]
   store i64 %.022.lcssa.i32, ptr %24, align 8
-  br label %52
-
-52:                                               ; preds = %AppendJumble.exit33, %AppendJumble.exit24
-  %53 = phi i64 [ %.022.lcssa.i32, %AppendJumble.exit33 ], [ %.pre52, %AppendJumble.exit24 ]
-  %54 = phi ptr [ %.pre50, %AppendJumble.exit33 ], [ %.pre51, %AppendJumble.exit24 ]
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.lr.ph.i34
 
-.lr.ph.i34:                                       ; preds = %59, %52
-  %.026.i35 = phi ptr [ %64, %59 ], [ %55, %52 ]
-  %.02125.i36 = phi i64 [ %65, %59 ], [ 1, %52 ]
-  %.02224.i37 = phi i64 [ %63, %59 ], [ %53, %52 ]
-  %56 = icmp ugt i64 %.02224.i37, 1023
-  br i1 %56, label %57, label %59
+.lr.ph.i34:                                       ; preds = %AppendJumble.exit24, %AppendJumble.exit33
+  %52 = phi i64 [ %.022.lcssa.i32, %AppendJumble.exit33 ], [ %.pre52, %AppendJumble.exit24 ]
+  %53 = phi ptr [ %.pre50, %AppendJumble.exit33 ], [ %.pre51, %AppendJumble.exit24 ]
+  %54 = icmp ugt i64 %52, 1023
+  br i1 %54, label %55, label %AppendJumble.exit41
 
-57:                                               ; preds = %.lr.ph.i34
-  %58 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %58, ptr %54, align 1
-  br label %59
+55:                                               ; preds = %.lr.ph.i34
+  %56 = tail call i64 @hash_bytes_extended(ptr noundef %53, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %56, ptr %53, align 1
+  br label %AppendJumble.exit41
 
-59:                                               ; preds = %57, %.lr.ph.i34
-  %.1.i38 = phi i64 [ 8, %57 ], [ %.02224.i37, %.lr.ph.i34 ]
-  %60 = sub nuw nsw i64 1024, %.1.i38
-  %61 = tail call i64 @llvm.umin.i64(i64 %.02125.i36, i64 %60)
-  %62 = getelementptr inbounds nuw i8, ptr %54, i64 %.1.i38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.026.i35, i64 %61, i1 false)
-  %63 = add nuw nsw i64 %61, %.1.i38
-  %64 = getelementptr inbounds nuw i8, ptr %.026.i35, i64 %61
-  %65 = sub i64 %.02125.i36, %61
-  %.not.i39 = icmp eq i64 %65, 0
-  br i1 %.not.i39, label %AppendJumble.exit41, label %.lr.ph.i34, !llvm.loop !7
-
-AppendJumble.exit41:                              ; preds = %59
-  store i64 %63, ptr %24, align 8
+AppendJumble.exit41:                              ; preds = %.lr.ph.i34, %55
+  %.1.i38 = phi i64 [ 8, %55 ], [ %52, %.lr.ph.i34 ]
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 %.1.i38
+  %59 = load i8, ptr %57, align 1
+  store i8 %59, ptr %58, align 1
+  %60 = add nuw nsw i64 %.1.i38, 1
+  store i64 %60, ptr %24, align 8
   ret void
 }
 
@@ -14213,7 +13182,7 @@ define internal fastcc void @_jumbleCreateExtensionStmt(ptr noundef %0, ptr noun
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8
-  br label %20
+  br label %.lr.ph.i9
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -14255,44 +13224,31 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre19, %5 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %9, %5 ], [ %17, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %8, align 8
-  br label %20
-
-20:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %21 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre20, %._crit_edge ]
-  %22 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre19, %._crit_edge ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %27, %20
-  %.026.i10 = phi ptr [ %32, %27 ], [ %23, %20 ]
-  %.02125.i11 = phi i64 [ %33, %27 ], [ 1, %20 ]
-  %.02224.i12 = phi i64 [ %31, %27 ], [ %21, %20 ]
-  %24 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %24, label %25, label %27
+.lr.ph.i9:                                        ; preds = %AppendJumble.exit, %._crit_edge
+  %20 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre20, %._crit_edge ]
+  %21 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre19, %._crit_edge ]
+  %22 = icmp ugt i64 %20, 1023
+  br i1 %22, label %23, label %AppendJumble.exit16
 
-25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %26, ptr %22, align 1
-  br label %27
+23:                                               ; preds = %.lr.ph.i9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %24, ptr %21, align 1
+  br label %AppendJumble.exit16
 
-27:                                               ; preds = %25, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %25 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %28 = sub nuw nsw i64 1024, %.1.i13
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i13
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
-  %33 = sub i64 %.02125.i11, %29
-  %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit16:                              ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load ptr, ptr %35, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
+AppendJumble.exit16:                              ; preds = %.lr.ph.i9, %23
+  %.1.i13 = phi i64 [ 8, %23 ], [ %20, %.lr.ph.i9 ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i13
+  %27 = load i8, ptr %25, align 1
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %.1.i13, 1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = load ptr, ptr %30, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %31)
   ret void
 }
 
@@ -14740,7 +13696,7 @@ AppendJumble.exit44:                              ; preds = %AppendJumble.exit44
 ._crit_edge:                                      ; preds = %56
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre71 = load i64, ptr %.phi.trans.insert, align 8
-  br label %74
+  br label %.lr.ph.i54
 
 59:                                               ; preds = %56
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #8
@@ -14782,44 +13738,31 @@ AppendJumble.exit53:                              ; preds = %AppendJumble.exit53
   %.pre = phi ptr [ %.pre70, %59 ], [ %.pre.pre, %AppendJumble.exit53.loopexit ]
   %.022.lcssa.i52 = phi i64 [ %63, %59 ], [ %71, %AppendJumble.exit53.loopexit ]
   store i64 %.022.lcssa.i52, ptr %62, align 8
-  br label %74
-
-74:                                               ; preds = %._crit_edge, %AppendJumble.exit53
-  %75 = phi i64 [ %.022.lcssa.i52, %AppendJumble.exit53 ], [ %.pre71, %._crit_edge ]
-  %76 = phi ptr [ %.pre, %AppendJumble.exit53 ], [ %.pre70, %._crit_edge ]
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.lr.ph.i54
 
-.lr.ph.i54:                                       ; preds = %81, %74
-  %.026.i55 = phi ptr [ %86, %81 ], [ %77, %74 ]
-  %.02125.i56 = phi i64 [ %87, %81 ], [ 1, %74 ]
-  %.02224.i57 = phi i64 [ %85, %81 ], [ %75, %74 ]
-  %78 = icmp ugt i64 %.02224.i57, 1023
-  br i1 %78, label %79, label %81
+.lr.ph.i54:                                       ; preds = %AppendJumble.exit53, %._crit_edge
+  %74 = phi i64 [ %.022.lcssa.i52, %AppendJumble.exit53 ], [ %.pre71, %._crit_edge ]
+  %75 = phi ptr [ %.pre, %AppendJumble.exit53 ], [ %.pre70, %._crit_edge ]
+  %76 = icmp ugt i64 %74, 1023
+  br i1 %76, label %77, label %AppendJumble.exit61
 
-79:                                               ; preds = %.lr.ph.i54
-  %80 = tail call i64 @hash_bytes_extended(ptr noundef %76, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %80, ptr %76, align 1
-  br label %81
+77:                                               ; preds = %.lr.ph.i54
+  %78 = tail call i64 @hash_bytes_extended(ptr noundef %75, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %78, ptr %75, align 1
+  br label %AppendJumble.exit61
 
-81:                                               ; preds = %79, %.lr.ph.i54
-  %.1.i58 = phi i64 [ 8, %79 ], [ %.02224.i57, %.lr.ph.i54 ]
-  %82 = sub nuw nsw i64 1024, %.1.i58
-  %83 = tail call i64 @llvm.umin.i64(i64 %.02125.i56, i64 %82)
-  %84 = getelementptr inbounds nuw i8, ptr %76, i64 %.1.i58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %84, ptr noundef nonnull align 1 dereferenceable(1) %.026.i55, i64 %83, i1 false)
-  %85 = add nuw nsw i64 %83, %.1.i58
-  %86 = getelementptr inbounds nuw i8, ptr %.026.i55, i64 %83
-  %87 = sub i64 %.02125.i56, %83
-  %.not.i59 = icmp eq i64 %87, 0
-  br i1 %.not.i59, label %AppendJumble.exit61, label %.lr.ph.i54, !llvm.loop !7
-
-AppendJumble.exit61:                              ; preds = %81
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %85, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %90 = load ptr, ptr %89, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %90)
+AppendJumble.exit61:                              ; preds = %.lr.ph.i54, %77
+  %.1.i58 = phi i64 [ 8, %77 ], [ %74, %.lr.ph.i54 ]
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 %.1.i58
+  %81 = load i8, ptr %79, align 1
+  store i8 %81, ptr %80, align 1
+  %82 = add nuw nsw i64 %.1.i58, 1
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %82, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %85 = load ptr, ptr %84, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %85)
   ret void
 }
 
@@ -14872,7 +13815,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not14 = icmp eq ptr %23, null
-  br i1 %.not14, label %40, label %24
+  br i1 %.not14, label %.lr.ph.i24, label %24
 
 24:                                               ; preds = %21
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
@@ -14910,44 +13853,31 @@ AppendJumble.exit:                                ; preds = %14, %5
 AppendJumble.exit23:                              ; preds = %33, %24
   %.022.lcssa.i22 = phi i64 [ %29, %24 ], [ %37, %33 ]
   store i64 %.022.lcssa.i22, ptr %28, align 8
-  br label %40
-
-40:                                               ; preds = %AppendJumble.exit23, %21
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %42 = load ptr, ptr %41, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %42)
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load i64, ptr %45, align 8
   br label %.lr.ph.i24
 
-.lr.ph.i24:                                       ; preds = %50, %40
-  %.026.i25 = phi ptr [ %55, %50 ], [ %43, %40 ]
-  %.02125.i26 = phi i64 [ %56, %50 ], [ 1, %40 ]
-  %.02224.i27 = phi i64 [ %54, %50 ], [ %46, %40 ]
-  %47 = icmp ugt i64 %.02224.i27, 1023
-  br i1 %47, label %48, label %50
+.lr.ph.i24:                                       ; preds = %21, %AppendJumble.exit23
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %41 = load ptr, ptr %40, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %41)
+  %42 = load ptr, ptr %0, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp ugt i64 %44, 1023
+  br i1 %45, label %46, label %AppendJumble.exit31
 
-48:                                               ; preds = %.lr.ph.i24
-  %49 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %49, ptr %44, align 1
-  br label %50
+46:                                               ; preds = %.lr.ph.i24
+  %47 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %47, ptr %42, align 1
+  br label %AppendJumble.exit31
 
-50:                                               ; preds = %48, %.lr.ph.i24
-  %.1.i28 = phi i64 [ 8, %48 ], [ %.02224.i27, %.lr.ph.i24 ]
-  %51 = sub nuw nsw i64 1024, %.1.i28
-  %52 = tail call i64 @llvm.umin.i64(i64 %.02125.i26, i64 %51)
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 %.1.i28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 1 dereferenceable(1) %.026.i25, i64 %52, i1 false)
-  %54 = add nuw nsw i64 %52, %.1.i28
-  %55 = getelementptr inbounds nuw i8, ptr %.026.i25, i64 %52
-  %56 = sub i64 %.02125.i26, %52
-  %.not.i29 = icmp eq i64 %56, 0
-  br i1 %.not.i29, label %AppendJumble.exit31, label %.lr.ph.i24, !llvm.loop !7
-
-AppendJumble.exit31:                              ; preds = %50
-  store i64 %54, ptr %45, align 8
+AppendJumble.exit31:                              ; preds = %.lr.ph.i24, %46
+  %.1.i28 = phi i64 [ 8, %46 ], [ %44, %.lr.ph.i24 ]
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i28
+  %50 = load i8, ptr %48, align 1
+  store i8 %50, ptr %49, align 1
+  %51 = add nuw nsw i64 %.1.i28, 1
+  store i64 %51, ptr %43, align 8
   ret void
 }
 
@@ -15064,7 +13994,7 @@ AppendJumble.exit47:                              ; preds = %AppendJumble.exit47
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %53 = load ptr, ptr %52, align 8
   %.not39 = icmp eq ptr %53, null
-  br i1 %.not39, label %67, label %54
+  br i1 %.not39, label %.lr.ph.i57, label %54
 
 54:                                               ; preds = %50
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #8
@@ -15104,85 +14034,72 @@ AppendJumble.exit56:                              ; preds = %AppendJumble.exit56
   %.pre = phi ptr [ %.pre82, %54 ], [ %.pre.pre, %AppendJumble.exit56.loopexit ]
   %.022.lcssa.i55 = phi i64 [ %51, %54 ], [ %64, %AppendJumble.exit56.loopexit ]
   store i64 %.022.lcssa.i55, ptr %23, align 8
-  br label %67
-
-67:                                               ; preds = %AppendJumble.exit56, %50
-  %68 = phi i64 [ %.022.lcssa.i55, %AppendJumble.exit56 ], [ %51, %50 ]
-  %69 = phi ptr [ %.pre, %AppendJumble.exit56 ], [ %.pre82, %50 ]
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %.lr.ph.i57
 
-.lr.ph.i57:                                       ; preds = %74, %67
-  %.026.i58 = phi ptr [ %79, %74 ], [ %70, %67 ]
-  %.02125.i59 = phi i64 [ %80, %74 ], [ 1, %67 ]
-  %.02224.i60 = phi i64 [ %78, %74 ], [ %68, %67 ]
-  %71 = icmp ugt i64 %.02224.i60, 1023
-  br i1 %71, label %72, label %74
+.lr.ph.i57:                                       ; preds = %50, %AppendJumble.exit56
+  %67 = phi i64 [ %.022.lcssa.i55, %AppendJumble.exit56 ], [ %51, %50 ]
+  %68 = phi ptr [ %.pre, %AppendJumble.exit56 ], [ %.pre82, %50 ]
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %70 = icmp samesign ugt i64 %67, 1023
+  br i1 %70, label %71, label %AppendJumble.exit64
 
-72:                                               ; preds = %.lr.ph.i57
-  %73 = tail call i64 @hash_bytes_extended(ptr noundef %69, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %73, ptr %69, align 1
-  br label %74
+71:                                               ; preds = %.lr.ph.i57
+  %72 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %72, ptr %68, align 1
+  br label %AppendJumble.exit64
 
-74:                                               ; preds = %72, %.lr.ph.i57
-  %.1.i61 = phi i64 [ 8, %72 ], [ %.02224.i60, %.lr.ph.i57 ]
-  %75 = sub nuw nsw i64 1024, %.1.i61
-  %76 = tail call i64 @llvm.umin.i64(i64 %.02125.i59, i64 %75)
-  %77 = getelementptr inbounds nuw i8, ptr %69, i64 %.1.i61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %77, ptr noundef nonnull align 1 dereferenceable(1) %.026.i58, i64 %76, i1 false)
-  %78 = add nuw nsw i64 %76, %.1.i61
-  %79 = getelementptr inbounds nuw i8, ptr %.026.i58, i64 %76
-  %80 = sub i64 %.02125.i59, %76
-  %.not.i62 = icmp eq i64 %80, 0
-  br i1 %.not.i62, label %AppendJumble.exit64, label %.lr.ph.i57, !llvm.loop !7
+AppendJumble.exit64:                              ; preds = %.lr.ph.i57, %71
+  %.1.i61 = phi i64 [ 8, %71 ], [ %67, %.lr.ph.i57 ]
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 %.1.i61
+  %74 = load i8, ptr %69, align 1
+  store i8 %74, ptr %73, align 1
+  %75 = add nuw nsw i64 %.1.i61, 1
+  store i64 %75, ptr %23, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %77 = load ptr, ptr %76, align 8
+  %.not40 = icmp eq ptr %77, null
+  br i1 %.not40, label %92, label %78
 
-AppendJumble.exit64:                              ; preds = %74
-  store i64 %78, ptr %23, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %82 = load ptr, ptr %81, align 8
-  %.not40 = icmp eq ptr %82, null
-  br i1 %.not40, label %97, label %83
-
-83:                                               ; preds = %AppendJumble.exit64
-  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #8
-  %85 = add i64 %84, 1
-  %86 = load ptr, ptr %0, align 8
-  %.not23.i65 = icmp eq i64 %85, 0
+78:                                               ; preds = %AppendJumble.exit64
+  %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #8
+  %80 = add i64 %79, 1
+  %81 = load ptr, ptr %0, align 8
+  %.not23.i65 = icmp eq i64 %80, 0
   br i1 %.not23.i65, label %AppendJumble.exit73, label %.lr.ph.i66
 
-.lr.ph.i66:                                       ; preds = %83, %90
-  %.026.i67 = phi ptr [ %95, %90 ], [ %82, %83 ]
-  %.02125.i68 = phi i64 [ %96, %90 ], [ %85, %83 ]
-  %.02224.i69 = phi i64 [ %94, %90 ], [ %78, %83 ]
-  %87 = icmp ugt i64 %.02224.i69, 1023
-  br i1 %87, label %88, label %90
+.lr.ph.i66:                                       ; preds = %78, %85
+  %.026.i67 = phi ptr [ %90, %85 ], [ %77, %78 ]
+  %.02125.i68 = phi i64 [ %91, %85 ], [ %80, %78 ]
+  %.02224.i69 = phi i64 [ %89, %85 ], [ %75, %78 ]
+  %82 = icmp ugt i64 %.02224.i69, 1023
+  br i1 %82, label %83, label %85
 
-88:                                               ; preds = %.lr.ph.i66
-  %89 = tail call i64 @hash_bytes_extended(ptr noundef %86, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %89, ptr %86, align 1
-  br label %90
+83:                                               ; preds = %.lr.ph.i66
+  %84 = tail call i64 @hash_bytes_extended(ptr noundef %81, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %84, ptr %81, align 1
+  br label %85
 
-90:                                               ; preds = %88, %.lr.ph.i66
-  %.1.i70 = phi i64 [ 8, %88 ], [ %.02224.i69, %.lr.ph.i66 ]
-  %91 = sub nuw nsw i64 1024, %.1.i70
-  %92 = tail call i64 @llvm.umin.i64(i64 %.02125.i68, i64 %91)
-  %93 = getelementptr inbounds nuw i8, ptr %86, i64 %.1.i70
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %93, ptr noundef nonnull align 1 dereferenceable(1) %.026.i67, i64 %92, i1 false)
-  %94 = add nuw nsw i64 %92, %.1.i70
-  %95 = getelementptr inbounds nuw i8, ptr %.026.i67, i64 %92
-  %96 = sub i64 %.02125.i68, %92
-  %.not.i71 = icmp eq i64 %96, 0
+85:                                               ; preds = %83, %.lr.ph.i66
+  %.1.i70 = phi i64 [ 8, %83 ], [ %.02224.i69, %.lr.ph.i66 ]
+  %86 = sub nuw nsw i64 1024, %.1.i70
+  %87 = tail call i64 @llvm.umin.i64(i64 %.02125.i68, i64 %86)
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 %.1.i70
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %88, ptr noundef nonnull align 1 dereferenceable(1) %.026.i67, i64 %87, i1 false)
+  %89 = add nuw nsw i64 %87, %.1.i70
+  %90 = getelementptr inbounds nuw i8, ptr %.026.i67, i64 %87
+  %91 = sub i64 %.02125.i68, %87
+  %.not.i71 = icmp eq i64 %91, 0
   br i1 %.not.i71, label %AppendJumble.exit73, label %.lr.ph.i66, !llvm.loop !7
 
-AppendJumble.exit73:                              ; preds = %90, %83
-  %.022.lcssa.i72 = phi i64 [ %78, %83 ], [ %94, %90 ]
+AppendJumble.exit73:                              ; preds = %85, %78
+  %.022.lcssa.i72 = phi i64 [ %75, %78 ], [ %89, %85 ]
   store i64 %.022.lcssa.i72, ptr %23, align 8
-  br label %97
+  br label %92
 
-97:                                               ; preds = %AppendJumble.exit73, %AppendJumble.exit64
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %99 = load ptr, ptr %98, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %99)
+92:                                               ; preds = %AppendJumble.exit73, %AppendJumble.exit64
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %94 = load ptr, ptr %93, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %94)
   ret void
 }
 
@@ -15200,7 +14117,7 @@ define internal fastcc void @_jumbleCreateUserMappingStmt(ptr noundef %0, ptr no
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre22 = load i64, ptr %.phi.trans.insert, align 8
-  br label %22
+  br label %.lr.ph.i11
 
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
@@ -15242,44 +14159,31 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre21, %7 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %11, %7 ], [ %19, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %10, align 8
-  br label %22
-
-22:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %23 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre22, %._crit_edge ]
-  %24 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre21, %._crit_edge ]
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %29, %22
-  %.026.i12 = phi ptr [ %34, %29 ], [ %25, %22 ]
-  %.02125.i13 = phi i64 [ %35, %29 ], [ 1, %22 ]
-  %.02224.i14 = phi i64 [ %33, %29 ], [ %23, %22 ]
-  %26 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %26, label %27, label %29
+.lr.ph.i11:                                       ; preds = %AppendJumble.exit, %._crit_edge
+  %22 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre22, %._crit_edge ]
+  %23 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre21, %._crit_edge ]
+  %24 = icmp ugt i64 %22, 1023
+  br i1 %24, label %25, label %AppendJumble.exit18
 
-27:                                               ; preds = %.lr.ph.i11
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %28, ptr %24, align 1
-  br label %29
+25:                                               ; preds = %.lr.ph.i11
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %26, ptr %23, align 1
+  br label %AppendJumble.exit18
 
-29:                                               ; preds = %27, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %27 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %30 = sub nuw nsw i64 1024, %.1.i15
-  %31 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %30)
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %31, i1 false)
-  %33 = add nuw nsw i64 %31, %.1.i15
-  %34 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %31
-  %35 = sub i64 %.02125.i13, %31
-  %.not.i16 = icmp eq i64 %35, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
-
-AppendJumble.exit18:                              ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %33, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
+AppendJumble.exit18:                              ; preds = %.lr.ph.i11, %25
+  %.1.i15 = phi i64 [ 8, %25 ], [ %22, %.lr.ph.i11 ]
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %.1.i15
+  %29 = load i8, ptr %27, align 1
+  store i8 %29, ptr %28, align 1
+  %30 = add nuw nsw i64 %.1.i15, 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %33 = load ptr, ptr %32, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %33)
   ret void
 }
 
@@ -15352,7 +14256,7 @@ define internal fastcc void @_jumbleDropUserMappingStmt(ptr noundef %0, ptr noun
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8
-  br label %22
+  br label %.lr.ph.i9
 
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
@@ -15394,41 +14298,28 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre19, %7 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %11, %7 ], [ %19, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %10, align 8
-  br label %22
-
-22:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %23 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre20, %._crit_edge ]
-  %24 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre19, %._crit_edge ]
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %29, %22
-  %.026.i10 = phi ptr [ %34, %29 ], [ %25, %22 ]
-  %.02125.i11 = phi i64 [ %35, %29 ], [ 1, %22 ]
-  %.02224.i12 = phi i64 [ %33, %29 ], [ %23, %22 ]
-  %26 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %26, label %27, label %29
+.lr.ph.i9:                                        ; preds = %AppendJumble.exit, %._crit_edge
+  %22 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre20, %._crit_edge ]
+  %23 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre19, %._crit_edge ]
+  %24 = icmp ugt i64 %22, 1023
+  br i1 %24, label %25, label %AppendJumble.exit16
 
-27:                                               ; preds = %.lr.ph.i9
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %28, ptr %24, align 1
-  br label %29
+25:                                               ; preds = %.lr.ph.i9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %26, ptr %23, align 1
+  br label %AppendJumble.exit16
 
-29:                                               ; preds = %27, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %27 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %30 = sub nuw nsw i64 1024, %.1.i13
-  %31 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %30)
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %31, i1 false)
-  %33 = add nuw nsw i64 %31, %.1.i13
-  %34 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %31
-  %35 = sub i64 %.02125.i11, %31
-  %.not.i14 = icmp eq i64 %35, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit16:                              ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %33, ptr %36, align 8
+AppendJumble.exit16:                              ; preds = %.lr.ph.i9, %25
+  %.1.i13 = phi i64 [ 8, %25 ], [ %22, %.lr.ph.i9 ]
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %.1.i13
+  %29 = load i8, ptr %27, align 1
+  store i8 %29, ptr %28, align 1
+  %30 = add nuw nsw i64 %.1.i13, 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %30, ptr %31, align 8
   ret void
 }
 
@@ -15685,7 +14576,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 ._crit_edge:                                      ; preds = %21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre43 = load i64, ptr %.phi.trans.insert, align 8
-  br label %41
+  br label %.lr.ph.i30
 
 26:                                               ; preds = %21
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
@@ -15727,50 +14618,37 @@ AppendJumble.exit29:                              ; preds = %AppendJumble.exit29
   %.pre = phi ptr [ %.pre42, %26 ], [ %.pre.pre, %AppendJumble.exit29.loopexit ]
   %.022.lcssa.i28 = phi i64 [ %30, %26 ], [ %38, %AppendJumble.exit29.loopexit ]
   store i64 %.022.lcssa.i28, ptr %29, align 8
-  br label %41
-
-41:                                               ; preds = %._crit_edge, %AppendJumble.exit29
-  %42 = phi i64 [ %.022.lcssa.i28, %AppendJumble.exit29 ], [ %.pre43, %._crit_edge ]
-  %43 = phi ptr [ %.pre, %AppendJumble.exit29 ], [ %.pre42, %._crit_edge ]
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %.lr.ph.i30
 
-.lr.ph.i30:                                       ; preds = %48, %41
-  %.026.i31 = phi ptr [ %53, %48 ], [ %44, %41 ]
-  %.02125.i32 = phi i64 [ %54, %48 ], [ 1, %41 ]
-  %.02224.i33 = phi i64 [ %52, %48 ], [ %42, %41 ]
-  %45 = icmp ugt i64 %.02224.i33, 1023
-  br i1 %45, label %46, label %48
+.lr.ph.i30:                                       ; preds = %AppendJumble.exit29, %._crit_edge
+  %41 = phi i64 [ %.022.lcssa.i28, %AppendJumble.exit29 ], [ %.pre43, %._crit_edge ]
+  %42 = phi ptr [ %.pre, %AppendJumble.exit29 ], [ %.pre42, %._crit_edge ]
+  %43 = icmp ugt i64 %41, 1023
+  br i1 %43, label %44, label %AppendJumble.exit37
 
-46:                                               ; preds = %.lr.ph.i30
-  %47 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %47, ptr %43, align 1
-  br label %48
+44:                                               ; preds = %.lr.ph.i30
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %45, ptr %42, align 1
+  br label %AppendJumble.exit37
 
-48:                                               ; preds = %46, %.lr.ph.i30
-  %.1.i34 = phi i64 [ 8, %46 ], [ %.02224.i33, %.lr.ph.i30 ]
-  %49 = sub nuw nsw i64 1024, %.1.i34
-  %50 = tail call i64 @llvm.umin.i64(i64 %.02125.i32, i64 %49)
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 %.1.i34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %.026.i31, i64 %50, i1 false)
-  %52 = add nuw nsw i64 %50, %.1.i34
-  %53 = getelementptr inbounds nuw i8, ptr %.026.i31, i64 %50
-  %54 = sub i64 %.02125.i32, %50
-  %.not.i35 = icmp eq i64 %54, 0
-  br i1 %.not.i35, label %AppendJumble.exit37, label %.lr.ph.i30, !llvm.loop !7
-
-AppendJumble.exit37:                              ; preds = %48
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %52, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %57 = load ptr, ptr %56, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %57)
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %59 = load ptr, ptr %58, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %59)
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %61 = load ptr, ptr %60, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %61)
+AppendJumble.exit37:                              ; preds = %.lr.ph.i30, %44
+  %.1.i34 = phi i64 [ 8, %44 ], [ %41, %.lr.ph.i30 ]
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 %.1.i34
+  %48 = load i8, ptr %46, align 1
+  store i8 %48, ptr %47, align 1
+  %49 = add nuw nsw i64 %.1.i34, 1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %49, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %52 = load ptr, ptr %51, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %52)
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %54 = load ptr, ptr %53, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %54)
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %56 = load ptr, ptr %55, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %56)
   ret void
 }
 
@@ -15840,7 +14718,7 @@ define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %5
+  br i1 %.not, label %.lr.ph.i9, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -15878,326 +14756,259 @@ define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr noundef non
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
   store i64 %.022.lcssa.i, ptr %9, align 8
-  br label %21
-
-21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %31, %21
-  %.026.i10 = phi ptr [ %36, %31 ], [ %24, %21 ]
-  %.02125.i11 = phi i64 [ %37, %31 ], [ 1, %21 ]
-  %.02224.i12 = phi i64 [ %35, %31 ], [ %27, %21 ]
-  %28 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %28, label %29, label %31
+.lr.ph.i9:                                        ; preds = %2, %AppendJumble.exit
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %22)
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp ugt i64 %25, 1023
+  br i1 %26, label %27, label %AppendJumble.exit16
 
-29:                                               ; preds = %.lr.ph.i9
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %30, ptr %25, align 1
-  br label %31
+27:                                               ; preds = %.lr.ph.i9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %28, ptr %23, align 1
+  br label %AppendJumble.exit16
 
-31:                                               ; preds = %29, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %29 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %32 = sub nuw nsw i64 1024, %.1.i13
-  %33 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %32)
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %33, i1 false)
-  %35 = add nuw nsw i64 %33, %.1.i13
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %33
-  %37 = sub i64 %.02125.i11, %33
-  %.not.i14 = icmp eq i64 %37, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit16:                              ; preds = %31
-  store i64 %35, ptr %26, align 8
+AppendJumble.exit16:                              ; preds = %.lr.ph.i9, %27
+  %.1.i13 = phi i64 [ 8, %27 ], [ %25, %.lr.ph.i9 ]
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 %.1.i13
+  %31 = load i8, ptr %29, align 1
+  store i8 %31, ptr %30, align 1
+  %32 = add nuw nsw i64 %.1.i13, 1
+  store i64 %32, ptr %24, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateTrigStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %.lr.ph.i33.thread, label %.lr.ph.i33
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+.lr.ph.i33.thread:                                ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %3, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load i8, ptr %2, align 1
+  store i8 %9, ptr %8, align 1
+  store i64 9, ptr %4, align 8
+  %10 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit39
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+.lr.ph.i33:                                       ; preds = %.lr.ph.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %5
+  %12 = load i8, ptr %2, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %5, 1
+  store i64 %13, ptr %4, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = icmp eq i64 %5, 1023
+  br i1 %15, label %16, label %AppendJumble.exit39
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+16:                                               ; preds = %.lr.ph.i33
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %17, ptr %14, align 1
+  br label %AppendJumble.exit39
 
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i33
+AppendJumble.exit39:                              ; preds = %.lr.ph.i33, %16, %.lr.ph.i33.thread
+  %18 = phi ptr [ %14, %16 ], [ %14, %.lr.ph.i33 ], [ %10, %.lr.ph.i33.thread ]
+  %.1.i37 = phi i64 [ 8, %16 ], [ %13, %.lr.ph.i33 ], [ 9, %.lr.ph.i33.thread ]
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i37
+  %21 = load i8, ptr %19, align 1
+  store i8 %21, ptr %20, align 1
+  %22 = add nuw nsw i64 %.1.i37, 1
+  store i64 %22, ptr %4, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %.lr.ph.i47, label %25
 
-.lr.ph.i33:                                       ; preds = %22, %AppendJumble.exit
-  %.026.i34 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i35 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i36 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i36, 1023
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %.lr.ph.i33
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i33
-  %.1.i37 = phi i64 [ 8, %20 ], [ %.02224.i36, %.lr.ph.i33 ]
-  %23 = sub nuw nsw i64 1024, %.1.i37
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i35, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i34, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i37
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %24
-  %28 = sub i64 %.02125.i35, %24
-  %.not.i38 = icmp eq i64 %28, 0
-  br i1 %.not.i38, label %AppendJumble.exit39, label %.lr.ph.i33, !llvm.loop !7
-
-AppendJumble.exit39:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %45, label %31
-
-31:                                               ; preds = %AppendJumble.exit39
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #8
-  %33 = add i64 %32, 1
-  %34 = load ptr, ptr %0, align 8
-  %.not23.i = icmp eq i64 %33, 0
+25:                                               ; preds = %AppendJumble.exit39
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #8
+  %27 = add i64 %26, 1
+  %28 = load ptr, ptr %0, align 8
+  %.not23.i = icmp eq i64 %27, 0
   br i1 %.not23.i, label %AppendJumble.exit46, label %.lr.ph.i40
 
-.lr.ph.i40:                                       ; preds = %31, %38
-  %.026.i41 = phi ptr [ %43, %38 ], [ %30, %31 ]
-  %.02125.i42 = phi i64 [ %44, %38 ], [ %33, %31 ]
-  %.02224.i43 = phi i64 [ %42, %38 ], [ %26, %31 ]
-  %35 = icmp ugt i64 %.02224.i43, 1023
-  br i1 %35, label %36, label %38
+.lr.ph.i40:                                       ; preds = %25, %32
+  %.026.i41 = phi ptr [ %37, %32 ], [ %24, %25 ]
+  %.02125.i42 = phi i64 [ %38, %32 ], [ %27, %25 ]
+  %.02224.i43 = phi i64 [ %36, %32 ], [ %22, %25 ]
+  %29 = icmp ugt i64 %.02224.i43, 1023
+  br i1 %29, label %30, label %32
 
-36:                                               ; preds = %.lr.ph.i40
-  %37 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %37, ptr %34, align 1
-  br label %38
+30:                                               ; preds = %.lr.ph.i40
+  %31 = tail call i64 @hash_bytes_extended(ptr noundef %28, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %31, ptr %28, align 1
+  br label %32
 
-38:                                               ; preds = %36, %.lr.ph.i40
-  %.1.i44 = phi i64 [ 8, %36 ], [ %.02224.i43, %.lr.ph.i40 ]
-  %39 = sub nuw nsw i64 1024, %.1.i44
-  %40 = tail call i64 @llvm.umin.i64(i64 %.02125.i42, i64 %39)
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %.1.i44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 1 dereferenceable(1) %.026.i41, i64 %40, i1 false)
-  %42 = add nuw nsw i64 %40, %.1.i44
-  %43 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %40
-  %44 = sub i64 %.02125.i42, %40
-  %.not.i45 = icmp eq i64 %44, 0
+32:                                               ; preds = %30, %.lr.ph.i40
+  %.1.i44 = phi i64 [ 8, %30 ], [ %.02224.i43, %.lr.ph.i40 ]
+  %33 = sub nuw nsw i64 1024, %.1.i44
+  %34 = tail call i64 @llvm.umin.i64(i64 %.02125.i42, i64 %33)
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.1.i44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 1 dereferenceable(1) %.026.i41, i64 %34, i1 false)
+  %36 = add nuw nsw i64 %34, %.1.i44
+  %37 = getelementptr inbounds nuw i8, ptr %.026.i41, i64 %34
+  %38 = sub i64 %.02125.i42, %34
+  %.not.i45 = icmp eq i64 %38, 0
   br i1 %.not.i45, label %AppendJumble.exit46, label %.lr.ph.i40, !llvm.loop !7
 
-AppendJumble.exit46:                              ; preds = %38, %31
-  %.022.lcssa.i = phi i64 [ %26, %31 ], [ %42, %38 ]
-  store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %45
-
-45:                                               ; preds = %AppendJumble.exit46, %AppendJumble.exit39
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %47 = load ptr, ptr %46, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %47)
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = load ptr, ptr %48, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %49)
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %51 = load ptr, ptr %50, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %51)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %53 = load ptr, ptr %0, align 8
-  %54 = load i64, ptr %5, align 8
+AppendJumble.exit46:                              ; preds = %32, %25
+  %.022.lcssa.i = phi i64 [ %22, %25 ], [ %36, %32 ]
+  store i64 %.022.lcssa.i, ptr %4, align 8
   br label %.lr.ph.i47
 
-.lr.ph.i47:                                       ; preds = %58, %45
-  %.026.i48 = phi ptr [ %63, %58 ], [ %52, %45 ]
-  %.02125.i49 = phi i64 [ %64, %58 ], [ 1, %45 ]
-  %.02224.i50 = phi i64 [ %62, %58 ], [ %54, %45 ]
-  %55 = icmp ugt i64 %.02224.i50, 1023
-  br i1 %55, label %56, label %58
+.lr.ph.i47:                                       ; preds = %AppendJumble.exit39, %AppendJumble.exit46
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %40 = load ptr, ptr %39, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %40)
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %42 = load ptr, ptr %41, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %42)
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %44 = load ptr, ptr %43, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %44)
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %46 = load ptr, ptr %0, align 8
+  %47 = load i64, ptr %4, align 8
+  %48 = icmp ugt i64 %47, 1023
+  br i1 %48, label %49, label %AppendJumble.exit54
 
-56:                                               ; preds = %.lr.ph.i47
-  %57 = tail call i64 @hash_bytes_extended(ptr noundef %53, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %57, ptr %53, align 1
-  br label %58
+49:                                               ; preds = %.lr.ph.i47
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %50, ptr %46, align 1
+  br label %AppendJumble.exit54
 
-58:                                               ; preds = %56, %.lr.ph.i47
-  %.1.i51 = phi i64 [ 8, %56 ], [ %.02224.i50, %.lr.ph.i47 ]
-  %59 = sub nuw nsw i64 1024, %.1.i51
-  %60 = tail call i64 @llvm.umin.i64(i64 %.02125.i49, i64 %59)
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 %.1.i51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %.026.i48, i64 %60, i1 false)
-  %62 = add nuw nsw i64 %60, %.1.i51
-  %63 = getelementptr inbounds nuw i8, ptr %.026.i48, i64 %60
-  %64 = sub i64 %.02125.i49, %60
-  %.not.i52 = icmp eq i64 %64, 0
-  br i1 %.not.i52, label %AppendJumble.exit54, label %.lr.ph.i47, !llvm.loop !7
-
-AppendJumble.exit54:                              ; preds = %58
-  store i64 %62, ptr %5, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %66 = load ptr, ptr %0, align 8
+AppendJumble.exit54:                              ; preds = %.lr.ph.i47, %49
+  %.1.i51 = phi i64 [ 8, %49 ], [ %47, %.lr.ph.i47 ]
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 %.1.i51
+  %52 = load i8, ptr %45, align 1
+  store i8 %52, ptr %51, align 1
+  %53 = add nuw nsw i64 %.1.i51, 1
+  store i64 %53, ptr %4, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  %55 = load ptr, ptr %0, align 8
   br label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %70, %AppendJumble.exit54
-  %.026.i56 = phi ptr [ %75, %70 ], [ %65, %AppendJumble.exit54 ]
-  %.02125.i57 = phi i64 [ %76, %70 ], [ 2, %AppendJumble.exit54 ]
-  %.02224.i58 = phi i64 [ %74, %70 ], [ %62, %AppendJumble.exit54 ]
-  %67 = icmp ugt i64 %.02224.i58, 1023
-  br i1 %67, label %68, label %70
+.lr.ph.i55:                                       ; preds = %59, %AppendJumble.exit54
+  %.026.i56 = phi ptr [ %64, %59 ], [ %54, %AppendJumble.exit54 ]
+  %.02125.i57 = phi i64 [ %65, %59 ], [ 2, %AppendJumble.exit54 ]
+  %.02224.i58 = phi i64 [ %63, %59 ], [ %53, %AppendJumble.exit54 ]
+  %56 = icmp ugt i64 %.02224.i58, 1023
+  br i1 %56, label %57, label %59
 
-68:                                               ; preds = %.lr.ph.i55
-  %69 = tail call i64 @hash_bytes_extended(ptr noundef %66, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %69, ptr %66, align 1
-  br label %70
+57:                                               ; preds = %.lr.ph.i55
+  %58 = tail call i64 @hash_bytes_extended(ptr noundef %55, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %58, ptr %55, align 1
+  br label %59
 
-70:                                               ; preds = %68, %.lr.ph.i55
-  %.1.i59 = phi i64 [ 8, %68 ], [ %.02224.i58, %.lr.ph.i55 ]
-  %71 = sub nuw nsw i64 1024, %.1.i59
-  %72 = tail call i64 @llvm.umin.i64(i64 %.02125.i57, i64 %71)
-  %73 = getelementptr inbounds nuw i8, ptr %66, i64 %.1.i59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 1 dereferenceable(1) %.026.i56, i64 %72, i1 false)
-  %74 = add nuw nsw i64 %72, %.1.i59
-  %75 = getelementptr inbounds nuw i8, ptr %.026.i56, i64 %72
-  %76 = sub i64 %.02125.i57, %72
-  %.not.i60 = icmp eq i64 %76, 0
+59:                                               ; preds = %57, %.lr.ph.i55
+  %.1.i59 = phi i64 [ 8, %57 ], [ %.02224.i58, %.lr.ph.i55 ]
+  %60 = sub nuw nsw i64 1024, %.1.i59
+  %61 = tail call i64 @llvm.umin.i64(i64 %.02125.i57, i64 %60)
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 %.1.i59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %.026.i56, i64 %61, i1 false)
+  %63 = add nuw nsw i64 %61, %.1.i59
+  %64 = getelementptr inbounds nuw i8, ptr %.026.i56, i64 %61
+  %65 = sub i64 %.02125.i57, %61
+  %.not.i60 = icmp eq i64 %65, 0
   br i1 %.not.i60, label %AppendJumble.exit62, label %.lr.ph.i55, !llvm.loop !7
 
-AppendJumble.exit62:                              ; preds = %70
-  store i64 %74, ptr %5, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %78 = load ptr, ptr %0, align 8
+AppendJumble.exit62:                              ; preds = %59
+  store i64 %63, ptr %4, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %67 = load ptr, ptr %0, align 8
   br label %.lr.ph.i63
 
-.lr.ph.i63:                                       ; preds = %82, %AppendJumble.exit62
-  %.026.i64 = phi ptr [ %87, %82 ], [ %77, %AppendJumble.exit62 ]
-  %.02125.i65 = phi i64 [ %88, %82 ], [ 2, %AppendJumble.exit62 ]
-  %.02224.i66 = phi i64 [ %86, %82 ], [ %74, %AppendJumble.exit62 ]
-  %79 = icmp ugt i64 %.02224.i66, 1023
-  br i1 %79, label %80, label %82
+.lr.ph.i63:                                       ; preds = %71, %AppendJumble.exit62
+  %.026.i64 = phi ptr [ %76, %71 ], [ %66, %AppendJumble.exit62 ]
+  %.02125.i65 = phi i64 [ %77, %71 ], [ 2, %AppendJumble.exit62 ]
+  %.02224.i66 = phi i64 [ %75, %71 ], [ %63, %AppendJumble.exit62 ]
+  %68 = icmp ugt i64 %.02224.i66, 1023
+  br i1 %68, label %69, label %71
 
-80:                                               ; preds = %.lr.ph.i63
-  %81 = tail call i64 @hash_bytes_extended(ptr noundef %78, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %81, ptr %78, align 1
-  br label %82
+69:                                               ; preds = %.lr.ph.i63
+  %70 = tail call i64 @hash_bytes_extended(ptr noundef %67, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %70, ptr %67, align 1
+  br label %71
 
-82:                                               ; preds = %80, %.lr.ph.i63
-  %.1.i67 = phi i64 [ 8, %80 ], [ %.02224.i66, %.lr.ph.i63 ]
-  %83 = sub nuw nsw i64 1024, %.1.i67
-  %84 = tail call i64 @llvm.umin.i64(i64 %.02125.i65, i64 %83)
-  %85 = getelementptr inbounds nuw i8, ptr %78, i64 %.1.i67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %85, ptr noundef nonnull align 1 dereferenceable(1) %.026.i64, i64 %84, i1 false)
-  %86 = add nuw nsw i64 %84, %.1.i67
-  %87 = getelementptr inbounds nuw i8, ptr %.026.i64, i64 %84
-  %88 = sub i64 %.02125.i65, %84
-  %.not.i68 = icmp eq i64 %88, 0
-  br i1 %.not.i68, label %AppendJumble.exit70, label %.lr.ph.i63, !llvm.loop !7
+71:                                               ; preds = %69, %.lr.ph.i63
+  %.1.i67 = phi i64 [ 8, %69 ], [ %.02224.i66, %.lr.ph.i63 ]
+  %72 = sub nuw nsw i64 1024, %.1.i67
+  %73 = tail call i64 @llvm.umin.i64(i64 %.02125.i65, i64 %72)
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 %.1.i67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull align 1 dereferenceable(1) %.026.i64, i64 %73, i1 false)
+  %75 = add nuw nsw i64 %73, %.1.i67
+  %76 = getelementptr inbounds nuw i8, ptr %.026.i64, i64 %73
+  %77 = sub i64 %.02125.i65, %73
+  %.not.i68 = icmp eq i64 %77, 0
+  br i1 %.not.i68, label %.lr.ph.i71, label %.lr.ph.i63, !llvm.loop !7
 
-AppendJumble.exit70:                              ; preds = %82
-  store i64 %86, ptr %5, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %90 = load ptr, ptr %89, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %90)
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %92 = load ptr, ptr %91, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %92)
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %94 = load ptr, ptr %93, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %94)
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %96 = load ptr, ptr %0, align 8
-  %97 = load i64, ptr %5, align 8
-  br label %.lr.ph.i71
+.lr.ph.i71:                                       ; preds = %71
+  store i64 %75, ptr %4, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %79 = load ptr, ptr %78, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %79)
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %81 = load ptr, ptr %80, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %81)
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %83 = load ptr, ptr %82, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %83)
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %85 = load ptr, ptr %0, align 8
+  %86 = load i64, ptr %4, align 8
+  %87 = icmp ugt i64 %86, 1023
+  br i1 %87, label %.lr.ph.i79.thread, label %.lr.ph.i79
 
-.lr.ph.i71:                                       ; preds = %101, %AppendJumble.exit70
-  %.026.i72 = phi ptr [ %106, %101 ], [ %95, %AppendJumble.exit70 ]
-  %.02125.i73 = phi i64 [ %107, %101 ], [ 1, %AppendJumble.exit70 ]
-  %.02224.i74 = phi i64 [ %105, %101 ], [ %97, %AppendJumble.exit70 ]
-  %98 = icmp ugt i64 %.02224.i74, 1023
-  br i1 %98, label %99, label %101
+.lr.ph.i79.thread:                                ; preds = %.lr.ph.i71
+  %88 = tail call i64 @hash_bytes_extended(ptr noundef %85, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %88, ptr %85, align 1
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %90 = load i8, ptr %84, align 1
+  store i8 %90, ptr %89, align 1
+  store i64 9, ptr %4, align 8
+  %91 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit86
 
-99:                                               ; preds = %.lr.ph.i71
-  %100 = tail call i64 @hash_bytes_extended(ptr noundef %96, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %100, ptr %96, align 1
-  br label %101
+.lr.ph.i79:                                       ; preds = %.lr.ph.i71
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 %86
+  %93 = load i8, ptr %84, align 1
+  store i8 %93, ptr %92, align 1
+  %94 = add nuw nsw i64 %86, 1
+  store i64 %94, ptr %4, align 8
+  %95 = load ptr, ptr %0, align 8
+  %96 = icmp eq i64 %86, 1023
+  br i1 %96, label %97, label %AppendJumble.exit86
 
-101:                                              ; preds = %99, %.lr.ph.i71
-  %.1.i75 = phi i64 [ 8, %99 ], [ %.02224.i74, %.lr.ph.i71 ]
-  %102 = sub nuw nsw i64 1024, %.1.i75
-  %103 = tail call i64 @llvm.umin.i64(i64 %.02125.i73, i64 %102)
-  %104 = getelementptr inbounds nuw i8, ptr %96, i64 %.1.i75
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %104, ptr noundef nonnull align 1 dereferenceable(1) %.026.i72, i64 %103, i1 false)
-  %105 = add nuw nsw i64 %103, %.1.i75
-  %106 = getelementptr inbounds nuw i8, ptr %.026.i72, i64 %103
-  %107 = sub i64 %.02125.i73, %103
-  %.not.i76 = icmp eq i64 %107, 0
-  br i1 %.not.i76, label %AppendJumble.exit78, label %.lr.ph.i71, !llvm.loop !7
+97:                                               ; preds = %.lr.ph.i79
+  %98 = tail call i64 @hash_bytes_extended(ptr noundef %95, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %98, ptr %95, align 1
+  br label %AppendJumble.exit86
 
-AppendJumble.exit78:                              ; preds = %101
-  store i64 %105, ptr %5, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 73
-  %109 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i79
-
-.lr.ph.i79:                                       ; preds = %113, %AppendJumble.exit78
-  %.026.i80 = phi ptr [ %118, %113 ], [ %108, %AppendJumble.exit78 ]
-  %.02125.i81 = phi i64 [ %119, %113 ], [ 1, %AppendJumble.exit78 ]
-  %.02224.i82 = phi i64 [ %117, %113 ], [ %105, %AppendJumble.exit78 ]
-  %110 = icmp ugt i64 %.02224.i82, 1023
-  br i1 %110, label %111, label %113
-
-111:                                              ; preds = %.lr.ph.i79
-  %112 = tail call i64 @hash_bytes_extended(ptr noundef %109, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %112, ptr %109, align 1
-  br label %113
-
-113:                                              ; preds = %111, %.lr.ph.i79
-  %.1.i83 = phi i64 [ 8, %111 ], [ %.02224.i82, %.lr.ph.i79 ]
-  %114 = sub nuw nsw i64 1024, %.1.i83
-  %115 = tail call i64 @llvm.umin.i64(i64 %.02125.i81, i64 %114)
-  %116 = getelementptr inbounds nuw i8, ptr %109, i64 %.1.i83
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %116, ptr noundef nonnull align 1 dereferenceable(1) %.026.i80, i64 %115, i1 false)
-  %117 = add nuw nsw i64 %115, %.1.i83
-  %118 = getelementptr inbounds nuw i8, ptr %.026.i80, i64 %115
-  %119 = sub i64 %.02125.i81, %115
-  %.not.i84 = icmp eq i64 %119, 0
-  br i1 %.not.i84, label %AppendJumble.exit86, label %.lr.ph.i79, !llvm.loop !7
-
-AppendJumble.exit86:                              ; preds = %113
-  store i64 %117, ptr %5, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %121 = load ptr, ptr %120, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %121)
+AppendJumble.exit86:                              ; preds = %.lr.ph.i79, %97, %.lr.ph.i79.thread
+  %99 = phi ptr [ %95, %97 ], [ %95, %.lr.ph.i79 ], [ %91, %.lr.ph.i79.thread ]
+  %.1.i83 = phi i64 [ 8, %97 ], [ %94, %.lr.ph.i79 ], [ 9, %.lr.ph.i79.thread ]
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 73
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.1.i83
+  %102 = load i8, ptr %100, align 1
+  store i8 %102, ptr %101, align 1
+  %103 = add nuw nsw i64 %.1.i83, 1
+  store i64 %103, ptr %4, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %105 = load ptr, ptr %104, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %105)
   ret void
 }
 
@@ -16311,7 +15122,7 @@ define internal fastcc void @_jumbleAlterEventTrigStmt(ptr noundef captures(none
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre18 = load i64, ptr %.phi.trans.insert, align 8
-  br label %20
+  br label %.lr.ph.i7
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -16353,160 +15164,122 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre17, %5 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %9, %5 ], [ %17, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %8, align 8
-  br label %20
-
-20:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %21 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre18, %._crit_edge ]
-  %22 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre17, %._crit_edge ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %27, %20
-  %.026.i8 = phi ptr [ %32, %27 ], [ %23, %20 ]
-  %.02125.i9 = phi i64 [ %33, %27 ], [ 1, %20 ]
-  %.02224.i10 = phi i64 [ %31, %27 ], [ %21, %20 ]
-  %24 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %24, label %25, label %27
+.lr.ph.i7:                                        ; preds = %AppendJumble.exit, %._crit_edge
+  %20 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre18, %._crit_edge ]
+  %21 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre17, %._crit_edge ]
+  %22 = icmp ugt i64 %20, 1023
+  br i1 %22, label %23, label %AppendJumble.exit14
 
-25:                                               ; preds = %.lr.ph.i7
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %26, ptr %22, align 1
-  br label %27
+23:                                               ; preds = %.lr.ph.i7
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %24, ptr %21, align 1
+  br label %AppendJumble.exit14
 
-27:                                               ; preds = %25, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %25 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %28 = sub nuw nsw i64 1024, %.1.i11
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i11
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %29
-  %33 = sub i64 %.02125.i9, %29
-  %.not.i12 = icmp eq i64 %33, 0
-  br i1 %.not.i12, label %AppendJumble.exit14, label %.lr.ph.i7, !llvm.loop !7
-
-AppendJumble.exit14:                              ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %34, align 8
+AppendJumble.exit14:                              ; preds = %.lr.ph.i7, %23
+  %.1.i11 = phi i64 [ 8, %23 ], [ %20, %.lr.ph.i7 ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i11
+  %27 = load i8, ptr %25, align 1
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %.1.i11, 1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %28, ptr %29, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreatePLangStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %7, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %.lr.ph.i
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %8, ptr %3, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
+  %.1.i = phi i64 [ 8, %7 ], [ %5, %.lr.ph.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i
+  %10 = load i8, ptr %2, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %4, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %.lr.ph.i22, label %14
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %33, label %19
-
-19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
-  %21 = add i64 %20, 1
-  %22 = load ptr, ptr %0, align 8
-  %.not23.i = icmp eq i64 %21, 0
+14:                                               ; preds = %AppendJumble.exit
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
+  %16 = add i64 %15, 1
+  %17 = load ptr, ptr %0, align 8
+  %.not23.i = icmp eq i64 %16, 0
   br i1 %.not23.i, label %AppendJumble.exit21, label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %19, %26
-  %.026.i16 = phi ptr [ %31, %26 ], [ %18, %19 ]
-  %.02125.i17 = phi i64 [ %32, %26 ], [ %21, %19 ]
-  %.02224.i18 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %23, label %24, label %26
+.lr.ph.i15:                                       ; preds = %14, %21
+  %.026.i16 = phi ptr [ %26, %21 ], [ %13, %14 ]
+  %.02125.i17 = phi i64 [ %27, %21 ], [ %16, %14 ]
+  %.02224.i18 = phi i64 [ %25, %21 ], [ %11, %14 ]
+  %18 = icmp ugt i64 %.02224.i18, 1023
+  br i1 %18, label %19, label %21
 
-24:                                               ; preds = %.lr.ph.i15
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
+19:                                               ; preds = %.lr.ph.i15
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %20, ptr %17, align 1
+  br label %21
 
-26:                                               ; preds = %24, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %24 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %27 = sub nuw nsw i64 1024, %.1.i19
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i19
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %28
-  %32 = sub i64 %.02125.i17, %28
-  %.not.i20 = icmp eq i64 %32, 0
+21:                                               ; preds = %19, %.lr.ph.i15
+  %.1.i19 = phi i64 [ 8, %19 ], [ %.02224.i18, %.lr.ph.i15 ]
+  %22 = sub nuw nsw i64 1024, %.1.i19
+  %23 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %22)
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %23, i1 false)
+  %25 = add nuw nsw i64 %23, %.1.i19
+  %26 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %23
+  %27 = sub i64 %.02125.i17, %23
+  %.not.i20 = icmp eq i64 %27, 0
   br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
 
-AppendJumble.exit21:                              ; preds = %26, %19
-  %.022.lcssa.i = phi i64 [ %14, %19 ], [ %30, %26 ]
-  store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %33
-
-33:                                               ; preds = %AppendJumble.exit21, %AppendJumble.exit
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load ptr, ptr %36, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %37)
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %39 = load ptr, ptr %38, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %39)
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %41 = load ptr, ptr %0, align 8
-  %42 = load i64, ptr %5, align 8
+AppendJumble.exit21:                              ; preds = %21, %14
+  %.022.lcssa.i = phi i64 [ %11, %14 ], [ %25, %21 ]
+  store i64 %.022.lcssa.i, ptr %4, align 8
   br label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %46, %33
-  %.026.i23 = phi ptr [ %51, %46 ], [ %40, %33 ]
-  %.02125.i24 = phi i64 [ %52, %46 ], [ 1, %33 ]
-  %.02224.i25 = phi i64 [ %50, %46 ], [ %42, %33 ]
-  %43 = icmp ugt i64 %.02224.i25, 1023
-  br i1 %43, label %44, label %46
+.lr.ph.i22:                                       ; preds = %AppendJumble.exit, %AppendJumble.exit21
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = load ptr, ptr %28, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %29)
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = load ptr, ptr %30, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %31)
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %33 = load ptr, ptr %32, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %33)
+  %34 = load ptr, ptr %0, align 8
+  %35 = load i64, ptr %4, align 8
+  %36 = icmp ugt i64 %35, 1023
+  br i1 %36, label %37, label %AppendJumble.exit29
 
-44:                                               ; preds = %.lr.ph.i22
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %45, ptr %41, align 1
-  br label %46
+37:                                               ; preds = %.lr.ph.i22
+  %38 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %38, ptr %34, align 1
+  br label %AppendJumble.exit29
 
-46:                                               ; preds = %44, %.lr.ph.i22
-  %.1.i26 = phi i64 [ 8, %44 ], [ %.02224.i25, %.lr.ph.i22 ]
-  %47 = sub nuw nsw i64 1024, %.1.i26
-  %48 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %47)
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 %.1.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %48, i1 false)
-  %50 = add nuw nsw i64 %48, %.1.i26
-  %51 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %48
-  %52 = sub i64 %.02125.i24, %48
-  %.not.i27 = icmp eq i64 %52, 0
-  br i1 %.not.i27, label %AppendJumble.exit29, label %.lr.ph.i22, !llvm.loop !7
-
-AppendJumble.exit29:                              ; preds = %46
-  store i64 %50, ptr %5, align 8
+AppendJumble.exit29:                              ; preds = %.lr.ph.i22, %37
+  %.1.i26 = phi i64 [ 8, %37 ], [ %35, %.lr.ph.i22 ]
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 %.1.i26
+  %41 = load i8, ptr %39, align 1
+  store i8 %41, ptr %40, align 1
+  %42 = add nuw nsw i64 %.1.i26, 1
+  store i64 %42, ptr %4, align 8
   ret void
 }
 
@@ -16692,41 +15465,29 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDropRoleStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp ugt i64 %6, 1023
+  br i1 %7, label %8, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %12, %2
-  %.026.i = phi ptr [ %17, %12 ], [ %5, %2 ]
-  %.02125.i = phi i64 [ %18, %12 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %16, %12 ], [ %8, %2 ]
-  %9 = icmp ugt i64 %.02224.i, 1023
-  br i1 %9, label %10, label %12
+8:                                                ; preds = %.lr.ph.i
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %9, ptr %4, align 1
+  br label %AppendJumble.exit
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %11, ptr %6, align 1
-  br label %12
-
-12:                                               ; preds = %10, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %10 ], [ %.02224.i, %.lr.ph.i ]
-  %13 = sub nuw nsw i64 1024, %.1.i
-  %14 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %13)
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %14, i1 false)
-  %16 = add nuw nsw i64 %14, %.1.i
-  %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
-  %18 = sub i64 %.02125.i, %14
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %12
-  store i64 %16, ptr %7, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %8
+  %.1.i = phi i64 [ 8, %8 ], [ %6, %.lr.ph.i ]
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
+  %12 = load i8, ptr %10, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %.1.i, 1
+  store i64 %13, ptr %5, align 8
   ret void
 }
 
@@ -16766,143 +15527,102 @@ define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr noundef no
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i11, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %14
+.lr.ph.i11:                                       ; preds = %14
   store i64 %18, ptr %9, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i11
+  %23 = icmp samesign ugt i64 %18, 1023
+  br i1 %23, label %.lr.ph.i18.thread, label %.lr.ph.i18
 
-.lr.ph.i11:                                       ; preds = %26, %AppendJumble.exit
-  %.026.i12 = phi ptr [ %31, %26 ], [ %21, %AppendJumble.exit ]
-  %.02125.i13 = phi i64 [ %32, %26 ], [ 1, %AppendJumble.exit ]
-  %.02224.i14 = phi i64 [ %30, %26 ], [ %18, %AppendJumble.exit ]
-  %23 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %23, label %24, label %26
+.lr.ph.i18.thread:                                ; preds = %.lr.ph.i11
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %24, ptr %22, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = load i8, ptr %21, align 1
+  store i8 %26, ptr %25, align 1
+  store i64 9, ptr %9, align 8
+  %27 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit24
 
-24:                                               ; preds = %.lr.ph.i11
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
-
-26:                                               ; preds = %24, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %24 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %27 = sub nuw nsw i64 1024, %.1.i15
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i15
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %28
-  %32 = sub i64 %.02125.i13, %28
-  %.not.i16 = icmp eq i64 %32, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
-
-AppendJumble.exit17:                              ; preds = %26
+.lr.ph.i18:                                       ; preds = %.lr.ph.i11
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %18
+  %29 = load i8, ptr %21, align 1
+  store i8 %29, ptr %28, align 1
+  %30 = add nuw nsw i64 %18, 1
   store i64 %30, ptr %9, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %34 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i18
+  %31 = load ptr, ptr %0, align 8
+  %32 = icmp eq i64 %18, 1023
+  br i1 %32, label %33, label %AppendJumble.exit24
 
-.lr.ph.i18:                                       ; preds = %38, %AppendJumble.exit17
-  %.026.i19 = phi ptr [ %43, %38 ], [ %33, %AppendJumble.exit17 ]
-  %.02125.i20 = phi i64 [ %44, %38 ], [ 1, %AppendJumble.exit17 ]
-  %.02224.i21 = phi i64 [ %42, %38 ], [ %30, %AppendJumble.exit17 ]
-  %35 = icmp ugt i64 %.02224.i21, 1023
-  br i1 %35, label %36, label %38
+33:                                               ; preds = %.lr.ph.i18
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %34, ptr %31, align 1
+  br label %AppendJumble.exit24
 
-36:                                               ; preds = %.lr.ph.i18
-  %37 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %37, ptr %34, align 1
-  br label %38
-
-38:                                               ; preds = %36, %.lr.ph.i18
-  %.1.i22 = phi i64 [ 8, %36 ], [ %.02224.i21, %.lr.ph.i18 ]
-  %39 = sub nuw nsw i64 1024, %.1.i22
-  %40 = tail call i64 @llvm.umin.i64(i64 %.02125.i20, i64 %39)
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %.1.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 1 dereferenceable(1) %.026.i19, i64 %40, i1 false)
-  %42 = add nuw nsw i64 %40, %.1.i22
-  %43 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %40
-  %44 = sub i64 %.02125.i20, %40
-  %.not.i23 = icmp eq i64 %44, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
-
-AppendJumble.exit24:                              ; preds = %38
-  store i64 %42, ptr %9, align 8
+AppendJumble.exit24:                              ; preds = %.lr.ph.i18, %33, %.lr.ph.i18.thread
+  %35 = phi ptr [ %31, %33 ], [ %31, %.lr.ph.i18 ], [ %27, %.lr.ph.i18.thread ]
+  %.1.i22 = phi i64 [ 8, %33 ], [ %30, %.lr.ph.i18 ], [ 9, %.lr.ph.i18.thread ]
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %.1.i22
+  %38 = load i8, ptr %36, align 1
+  store i8 %38, ptr %37, align 1
+  %39 = add nuw nsw i64 %.1.i22, 1
+  store i64 %39, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterSeqStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ugt i64 %9, 1023
+  br i1 %10, label %.lr.ph.i9.thread, label %.lr.ph.i9
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+.lr.ph.i9.thread:                                 ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %7, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = load i8, ptr %6, align 1
+  store i8 %13, ptr %12, align 1
+  store i64 9, ptr %8, align 8
+  %14 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit15
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
+.lr.ph.i9:                                        ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %9
+  %16 = load i8, ptr %6, align 1
+  store i8 %16, ptr %15, align 1
+  %17 = add nuw nsw i64 %9, 1
+  store i64 %17, ptr %8, align 8
+  %18 = load ptr, ptr %0, align 8
+  %19 = icmp eq i64 %9, 1023
+  br i1 %19, label %20, label %AppendJumble.exit15
 
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+20:                                               ; preds = %.lr.ph.i9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %21, ptr %18, align 1
+  br label %AppendJumble.exit15
 
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %22 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i9
-
-.lr.ph.i9:                                        ; preds = %26, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %31, %26 ], [ %21, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %32, %26 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %30, %26 ], [ %18, %AppendJumble.exit ]
-  %23 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %23, label %24, label %26
-
-24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
-
-26:                                               ; preds = %24, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %24 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %27 = sub nuw nsw i64 1024, %.1.i13
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i13
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %28
-  %32 = sub i64 %.02125.i11, %28
-  %.not.i14 = icmp eq i64 %32, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit15:                              ; preds = %26
-  store i64 %30, ptr %9, align 8
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %20, %.lr.ph.i9.thread
+  %22 = phi ptr [ %18, %20 ], [ %18, %.lr.ph.i9 ], [ %14, %.lr.ph.i9.thread ]
+  %.1.i13 = phi i64 [ 8, %20 ], [ %17, %.lr.ph.i9 ], [ 9, %.lr.ph.i9.thread ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
+  %25 = load i8, ptr %23, align 1
+  store i8 %25, ptr %24, align 1
+  %26 = add nuw nsw i64 %.1.i13, 1
+  store i64 %26, ptr %8, align 8
   ret void
 }
 
@@ -16936,110 +15656,76 @@ define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i15, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i15:                                       ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i15
-
-.lr.ph.i15:                                       ; preds = %22, %AppendJumble.exit
-  %.026.i16 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i17 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i18 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %19, label %20, label %22
+  %19 = icmp samesign ugt i64 %14, 1023
+  br i1 %19, label %20, label %.lr.ph.i22
 
 20:                                               ; preds = %.lr.ph.i15
   %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
   store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %20 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %23 = sub nuw nsw i64 1024, %.1.i19
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i19
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %24
-  %28 = sub i64 %.02125.i17, %24
-  %.not.i20 = icmp eq i64 %28, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
-
-AppendJumble.exit21:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load ptr, ptr %31, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %36 = load ptr, ptr %0, align 8
-  %37 = load i64, ptr %5, align 8
   br label %.lr.ph.i22
 
-.lr.ph.i22:                                       ; preds = %41, %AppendJumble.exit21
-  %.026.i23 = phi ptr [ %46, %41 ], [ %35, %AppendJumble.exit21 ]
-  %.02125.i24 = phi i64 [ %47, %41 ], [ 1, %AppendJumble.exit21 ]
-  %.02224.i25 = phi i64 [ %45, %41 ], [ %37, %AppendJumble.exit21 ]
-  %38 = icmp ugt i64 %.02224.i25, 1023
-  br i1 %38, label %39, label %41
+.lr.ph.i22:                                       ; preds = %20, %.lr.ph.i15
+  %.1.i19 = phi i64 [ 8, %20 ], [ %14, %.lr.ph.i15 ]
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i19
+  %23 = load i8, ptr %17, align 1
+  store i8 %23, ptr %22, align 1
+  %24 = add nuw nsw i64 %.1.i19, 1
+  store i64 %24, ptr %5, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = load ptr, ptr %27, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %28)
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %30 = load ptr, ptr %29, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %32 = load ptr, ptr %0, align 8
+  %33 = load i64, ptr %5, align 8
+  %34 = icmp ugt i64 %33, 1023
+  br i1 %34, label %.lr.ph.i29.thread, label %.lr.ph.i29
 
-39:                                               ; preds = %.lr.ph.i22
-  %40 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %40, ptr %36, align 1
-  br label %41
+.lr.ph.i29.thread:                                ; preds = %.lr.ph.i22
+  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %35, ptr %32, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %37 = load i8, ptr %31, align 1
+  store i8 %37, ptr %36, align 1
+  store i64 9, ptr %5, align 8
+  %38 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit35
 
-41:                                               ; preds = %39, %.lr.ph.i22
-  %.1.i26 = phi i64 [ 8, %39 ], [ %.02224.i25, %.lr.ph.i22 ]
-  %42 = sub nuw nsw i64 1024, %.1.i26
-  %43 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %42)
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %.1.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %43, i1 false)
-  %45 = add nuw nsw i64 %43, %.1.i26
-  %46 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %43
-  %47 = sub i64 %.02125.i24, %43
-  %.not.i27 = icmp eq i64 %47, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
+.lr.ph.i29:                                       ; preds = %.lr.ph.i22
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 %33
+  %40 = load i8, ptr %31, align 1
+  store i8 %40, ptr %39, align 1
+  %41 = add nuw nsw i64 %33, 1
+  store i64 %41, ptr %5, align 8
+  %42 = load ptr, ptr %0, align 8
+  %43 = icmp eq i64 %33, 1023
+  br i1 %43, label %44, label %AppendJumble.exit35
 
-AppendJumble.exit28:                              ; preds = %41
-  store i64 %45, ptr %5, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %49 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i29
+44:                                               ; preds = %.lr.ph.i29
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %45, ptr %42, align 1
+  br label %AppendJumble.exit35
 
-.lr.ph.i29:                                       ; preds = %53, %AppendJumble.exit28
-  %.026.i30 = phi ptr [ %58, %53 ], [ %48, %AppendJumble.exit28 ]
-  %.02125.i31 = phi i64 [ %59, %53 ], [ 1, %AppendJumble.exit28 ]
-  %.02224.i32 = phi i64 [ %57, %53 ], [ %45, %AppendJumble.exit28 ]
-  %50 = icmp ugt i64 %.02224.i32, 1023
-  br i1 %50, label %51, label %53
-
-51:                                               ; preds = %.lr.ph.i29
-  %52 = tail call i64 @hash_bytes_extended(ptr noundef %49, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %52, ptr %49, align 1
-  br label %53
-
-53:                                               ; preds = %51, %.lr.ph.i29
-  %.1.i33 = phi i64 [ 8, %51 ], [ %.02224.i32, %.lr.ph.i29 ]
-  %54 = sub nuw nsw i64 1024, %.1.i33
-  %55 = tail call i64 @llvm.umin.i64(i64 %.02125.i31, i64 %54)
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 %.1.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %.026.i30, i64 %55, i1 false)
-  %57 = add nuw nsw i64 %55, %.1.i33
-  %58 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %55
-  %59 = sub i64 %.02125.i31, %55
-  %.not.i34 = icmp eq i64 %59, 0
-  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
-
-AppendJumble.exit35:                              ; preds = %53
-  store i64 %57, ptr %5, align 8
+AppendJumble.exit35:                              ; preds = %.lr.ph.i29, %44, %.lr.ph.i29.thread
+  %46 = phi ptr [ %42, %44 ], [ %42, %.lr.ph.i29 ], [ %38, %.lr.ph.i29.thread ]
+  %.1.i33 = phi i64 [ 8, %44 ], [ %41, %.lr.ph.i29 ], [ 9, %.lr.ph.i29.thread ]
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.1.i33
+  %49 = load i8, ptr %47, align 1
+  store i8 %49, ptr %48, align 1
+  %50 = add nuw nsw i64 %.1.i33, 1
+  store i64 %50, ptr %5, align 8
   ret void
 }
 
@@ -17071,7 +15757,7 @@ define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %25, label %9
+  br i1 %.not, label %.lr.ph.i15, label %9
 
 9:                                                ; preds = %2
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
@@ -17109,47 +15795,34 @@ define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nounde
 AppendJumble.exit:                                ; preds = %18, %9
   %.022.lcssa.i = phi i64 [ %14, %9 ], [ %22, %18 ]
   store i64 %.022.lcssa.i, ptr %13, align 8
-  br label %25
-
-25:                                               ; preds = %AppendJumble.exit, %2
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = load ptr, ptr %26, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %27)
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %29 = load ptr, ptr %28, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %29)
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8
   br label %.lr.ph.i15
 
-.lr.ph.i15:                                       ; preds = %37, %25
-  %.026.i16 = phi ptr [ %42, %37 ], [ %30, %25 ]
-  %.02125.i17 = phi i64 [ %43, %37 ], [ 1, %25 ]
-  %.02224.i18 = phi i64 [ %41, %37 ], [ %33, %25 ]
-  %34 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %34, label %35, label %37
+.lr.ph.i15:                                       ; preds = %2, %AppendJumble.exit
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = load ptr, ptr %25, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %26)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %28 = load ptr, ptr %27, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %28)
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp ugt i64 %31, 1023
+  br i1 %32, label %33, label %AppendJumble.exit22
 
-35:                                               ; preds = %.lr.ph.i15
-  %36 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %36, ptr %31, align 1
-  br label %37
+33:                                               ; preds = %.lr.ph.i15
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %34, ptr %29, align 1
+  br label %AppendJumble.exit22
 
-37:                                               ; preds = %35, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %35 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %38 = sub nuw nsw i64 1024, %.1.i19
-  %39 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %38)
-  %40 = getelementptr inbounds nuw i8, ptr %31, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %39, i1 false)
-  %41 = add nuw nsw i64 %39, %.1.i19
-  %42 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %39
-  %43 = sub i64 %.02125.i17, %39
-  %.not.i20 = icmp eq i64 %43, 0
-  br i1 %.not.i20, label %AppendJumble.exit22, label %.lr.ph.i15, !llvm.loop !7
-
-AppendJumble.exit22:                              ; preds = %37
-  store i64 %41, ptr %32, align 8
+AppendJumble.exit22:                              ; preds = %.lr.ph.i15, %33
+  %.1.i19 = phi i64 [ 8, %33 ], [ %31, %.lr.ph.i15 ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 %.1.i19
+  %37 = load i8, ptr %35, align 1
+  store i8 %37, ptr %36, align 1
+  %38 = add nuw nsw i64 %.1.i19, 1
+  store i64 %38, ptr %30, align 8
   ret void
 }
 
@@ -17299,7 +15972,7 @@ define internal fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef %0, ptr nounde
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre22 = load i64, ptr %.phi.trans.insert, align 8
-  br label %22
+  br label %.lr.ph.i11
 
 7:                                                ; preds = %2
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
@@ -17341,44 +16014,31 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre21, %7 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %11, %7 ], [ %19, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %10, align 8
-  br label %22
-
-22:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %23 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre22, %._crit_edge ]
-  %24 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre21, %._crit_edge ]
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %29, %22
-  %.026.i12 = phi ptr [ %34, %29 ], [ %25, %22 ]
-  %.02125.i13 = phi i64 [ %35, %29 ], [ 1, %22 ]
-  %.02224.i14 = phi i64 [ %33, %29 ], [ %23, %22 ]
-  %26 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %26, label %27, label %29
+.lr.ph.i11:                                       ; preds = %AppendJumble.exit, %._crit_edge
+  %22 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre22, %._crit_edge ]
+  %23 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre21, %._crit_edge ]
+  %24 = icmp ugt i64 %22, 1023
+  br i1 %24, label %25, label %AppendJumble.exit18
 
-27:                                               ; preds = %.lr.ph.i11
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %28, ptr %24, align 1
-  br label %29
+25:                                               ; preds = %.lr.ph.i11
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %26, ptr %23, align 1
+  br label %AppendJumble.exit18
 
-29:                                               ; preds = %27, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %27 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %30 = sub nuw nsw i64 1024, %.1.i15
-  %31 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %30)
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %31, i1 false)
-  %33 = add nuw nsw i64 %31, %.1.i15
-  %34 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %31
-  %35 = sub i64 %.02125.i13, %31
-  %.not.i16 = icmp eq i64 %35, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
-
-AppendJumble.exit18:                              ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %33, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
+AppendJumble.exit18:                              ; preds = %.lr.ph.i11, %25
+  %.1.i15 = phi i64 [ 8, %25 ], [ %22, %.lr.ph.i11 ]
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %.1.i15
+  %29 = load i8, ptr %27, align 1
+  store i8 %29, ptr %28, align 1
+  %30 = add nuw nsw i64 %.1.i15, 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %33 = load ptr, ptr %32, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %33)
   ret void
 }
 
@@ -17445,140 +16105,102 @@ AppendJumble.exit:                                ; preds = %12
   %29 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %26
   %30 = sub i64 %.02125.i13, %26
   %.not.i16 = icmp eq i64 %30, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
+  br i1 %.not.i16, label %.lr.ph.i18, label %.lr.ph.i11, !llvm.loop !7
 
-AppendJumble.exit17:                              ; preds = %24
+.lr.ph.i18:                                       ; preds = %24
   store i64 %28, ptr %7, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i18
-
-.lr.ph.i18:                                       ; preds = %36, %AppendJumble.exit17
-  %.026.i19 = phi ptr [ %41, %36 ], [ %31, %AppendJumble.exit17 ]
-  %.02125.i20 = phi i64 [ %42, %36 ], [ 1, %AppendJumble.exit17 ]
-  %.02224.i21 = phi i64 [ %40, %36 ], [ %28, %AppendJumble.exit17 ]
-  %33 = icmp ugt i64 %.02224.i21, 1023
-  br i1 %33, label %34, label %36
+  %33 = icmp samesign ugt i64 %28, 1023
+  br i1 %33, label %34, label %.lr.ph.i25
 
 34:                                               ; preds = %.lr.ph.i18
   %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
   store i64 %35, ptr %32, align 1
-  br label %36
-
-36:                                               ; preds = %34, %.lr.ph.i18
-  %.1.i22 = phi i64 [ 8, %34 ], [ %.02224.i21, %.lr.ph.i18 ]
-  %37 = sub nuw nsw i64 1024, %.1.i22
-  %38 = tail call i64 @llvm.umin.i64(i64 %.02125.i20, i64 %37)
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 %.1.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 1 dereferenceable(1) %.026.i19, i64 %38, i1 false)
-  %40 = add nuw nsw i64 %38, %.1.i22
-  %41 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %38
-  %42 = sub i64 %.02125.i20, %38
-  %.not.i23 = icmp eq i64 %42, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
-
-AppendJumble.exit24:                              ; preds = %36
-  store i64 %40, ptr %7, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %44 = load ptr, ptr %0, align 8
   br label %.lr.ph.i25
 
-.lr.ph.i25:                                       ; preds = %48, %AppendJumble.exit24
-  %.026.i26 = phi ptr [ %53, %48 ], [ %43, %AppendJumble.exit24 ]
-  %.02125.i27 = phi i64 [ %54, %48 ], [ 1, %AppendJumble.exit24 ]
-  %.02224.i28 = phi i64 [ %52, %48 ], [ %40, %AppendJumble.exit24 ]
-  %45 = icmp ugt i64 %.02224.i28, 1023
-  br i1 %45, label %46, label %48
+.lr.ph.i25:                                       ; preds = %34, %.lr.ph.i18
+  %.1.i22 = phi i64 [ 8, %34 ], [ %28, %.lr.ph.i18 ]
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.1.i22
+  %37 = load i8, ptr %31, align 1
+  store i8 %37, ptr %36, align 1
+  %38 = add nuw nsw i64 %.1.i22, 1
+  store i64 %38, ptr %7, align 8
+  %39 = load ptr, ptr %0, align 8
+  %40 = icmp eq i64 %.1.i22, 1023
+  br i1 %40, label %41, label %AppendJumble.exit31
 
-46:                                               ; preds = %.lr.ph.i25
-  %47 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %47, ptr %44, align 1
-  br label %48
+41:                                               ; preds = %.lr.ph.i25
+  %42 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %42, ptr %39, align 1
+  br label %AppendJumble.exit31
 
-48:                                               ; preds = %46, %.lr.ph.i25
-  %.1.i29 = phi i64 [ 8, %46 ], [ %.02224.i28, %.lr.ph.i25 ]
-  %49 = sub nuw nsw i64 1024, %.1.i29
-  %50 = tail call i64 @llvm.umin.i64(i64 %.02125.i27, i64 %49)
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 %.1.i29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %.026.i26, i64 %50, i1 false)
-  %52 = add nuw nsw i64 %50, %.1.i29
-  %53 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %50
-  %54 = sub i64 %.02125.i27, %50
-  %.not.i30 = icmp eq i64 %54, 0
-  br i1 %.not.i30, label %AppendJumble.exit31, label %.lr.ph.i25, !llvm.loop !7
-
-AppendJumble.exit31:                              ; preds = %48
-  store i64 %52, ptr %7, align 8
+AppendJumble.exit31:                              ; preds = %.lr.ph.i25, %41
+  %.1.i29 = phi i64 [ 8, %41 ], [ %38, %.lr.ph.i25 ]
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 %.1.i29
+  %45 = load i8, ptr %43, align 1
+  store i8 %45, ptr %44, align 1
+  %46 = add nuw nsw i64 %.1.i29, 1
+  store i64 %46, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleTruncateStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp ugt i64 %7, 1023
+  br i1 %8, label %9, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %12, %2
-  %.026.i = phi ptr [ %17, %12 ], [ %5, %2 ]
-  %.02125.i = phi i64 [ %18, %12 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %16, %12 ], [ %8, %2 ]
-  %9 = icmp ugt i64 %.02224.i, 1023
-  br i1 %9, label %10, label %12
+9:                                                ; preds = %.lr.ph.i
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %10, ptr %5, align 1
+  br label %AppendJumble.exit
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %11, ptr %6, align 1
-  br label %12
-
-12:                                               ; preds = %10, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %10 ], [ %.02224.i, %.lr.ph.i ]
-  %13 = sub nuw nsw i64 1024, %.1.i
-  %14 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %13)
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %14, i1 false)
-  %16 = add nuw nsw i64 %14, %.1.i
-  %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
-  %18 = sub i64 %.02125.i, %14
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %12
-  store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %20 = load ptr, ptr %0, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
+  %.1.i = phi i64 [ 8, %9 ], [ %7, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i
+  %12 = load i8, ptr %4, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %.1.i, 1
+  store i64 %13, ptr %6, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %15 = load ptr, ptr %0, align 8
   br label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %24, %AppendJumble.exit
-  %.026.i8 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
-  %.02125.i9 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
-  %.02224.i10 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %21, label %22, label %24
+.lr.ph.i7:                                        ; preds = %19, %AppendJumble.exit
+  %.026.i8 = phi ptr [ %24, %19 ], [ %14, %AppendJumble.exit ]
+  %.02125.i9 = phi i64 [ %25, %19 ], [ 4, %AppendJumble.exit ]
+  %.02224.i10 = phi i64 [ %23, %19 ], [ %13, %AppendJumble.exit ]
+  %16 = icmp ugt i64 %.02224.i10, 1023
+  br i1 %16, label %17, label %19
 
-22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %23, ptr %20, align 1
-  br label %24
+17:                                               ; preds = %.lr.ph.i7
+  %18 = tail call i64 @hash_bytes_extended(ptr noundef %15, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %18, ptr %15, align 1
+  br label %19
 
-24:                                               ; preds = %22, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %22 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %25 = sub nuw nsw i64 1024, %.1.i11
-  %26 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %25)
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %26, i1 false)
-  %28 = add nuw nsw i64 %26, %.1.i11
-  %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
-  %30 = sub i64 %.02125.i9, %26
-  %.not.i12 = icmp eq i64 %30, 0
+19:                                               ; preds = %17, %.lr.ph.i7
+  %.1.i11 = phi i64 [ 8, %17 ], [ %.02224.i10, %.lr.ph.i7 ]
+  %20 = sub nuw nsw i64 1024, %.1.i11
+  %21 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %20)
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 %.1.i11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %21, i1 false)
+  %23 = add nuw nsw i64 %21, %.1.i11
+  %24 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %21
+  %25 = sub i64 %.02125.i9, %21
+  %.not.i12 = icmp eq i64 %25, 0
   br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
 
-AppendJumble.exit13:                              ; preds = %24
-  store i64 %28, ptr %7, align 8
+AppendJumble.exit13:                              ; preds = %19
+  store i64 %23, ptr %6, align 8
   ret void
 }
 
@@ -18000,7 +16622,7 @@ AppendJumble.exit17:                              ; preds = %22
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   %.pre39 = load ptr, ptr %0, align 8
-  br i1 %.not, label %44, label %31
+  br i1 %.not, label %.lr.ph.i25, label %31
 
 31:                                               ; preds = %AppendJumble.exit17
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #8
@@ -18040,40 +16662,27 @@ AppendJumble.exit24:                              ; preds = %AppendJumble.exit24
   %.pre = phi ptr [ %.pre39, %31 ], [ %.pre.pre, %AppendJumble.exit24.loopexit ]
   %.022.lcssa.i = phi i64 [ %26, %31 ], [ %41, %AppendJumble.exit24.loopexit ]
   store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %44
-
-44:                                               ; preds = %AppendJumble.exit24, %AppendJumble.exit17
-  %45 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit24 ], [ %26, %AppendJumble.exit17 ]
-  %46 = phi ptr [ %.pre, %AppendJumble.exit24 ], [ %.pre39, %AppendJumble.exit17 ]
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.lr.ph.i25
 
-.lr.ph.i25:                                       ; preds = %51, %44
-  %.026.i26 = phi ptr [ %56, %51 ], [ %47, %44 ]
-  %.02125.i27 = phi i64 [ %57, %51 ], [ 1, %44 ]
-  %.02224.i28 = phi i64 [ %55, %51 ], [ %45, %44 ]
-  %48 = icmp ugt i64 %.02224.i28, 1023
-  br i1 %48, label %49, label %51
+.lr.ph.i25:                                       ; preds = %AppendJumble.exit17, %AppendJumble.exit24
+  %44 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit24 ], [ %26, %AppendJumble.exit17 ]
+  %45 = phi ptr [ %.pre, %AppendJumble.exit24 ], [ %.pre39, %AppendJumble.exit17 ]
+  %46 = icmp samesign ugt i64 %44, 1023
+  br i1 %46, label %47, label %AppendJumble.exit32
 
-49:                                               ; preds = %.lr.ph.i25
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %50, ptr %46, align 1
-  br label %51
+47:                                               ; preds = %.lr.ph.i25
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %45, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %48, ptr %45, align 1
+  br label %AppendJumble.exit32
 
-51:                                               ; preds = %49, %.lr.ph.i25
-  %.1.i29 = phi i64 [ 8, %49 ], [ %.02224.i28, %.lr.ph.i25 ]
-  %52 = sub nuw nsw i64 1024, %.1.i29
-  %53 = tail call i64 @llvm.umin.i64(i64 %.02125.i27, i64 %52)
-  %54 = getelementptr inbounds nuw i8, ptr %46, i64 %.1.i29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 1 dereferenceable(1) %.026.i26, i64 %53, i1 false)
-  %55 = add nuw nsw i64 %53, %.1.i29
-  %56 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %53
-  %57 = sub i64 %.02125.i27, %53
-  %.not.i30 = icmp eq i64 %57, 0
-  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !7
-
-AppendJumble.exit32:                              ; preds = %51
-  store i64 %55, ptr %5, align 8
+AppendJumble.exit32:                              ; preds = %.lr.ph.i25, %47
+  %.1.i29 = phi i64 [ 8, %47 ], [ %44, %.lr.ph.i25 ]
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 %.1.i29
+  %51 = load i8, ptr %49, align 1
+  store i8 %51, ptr %50, align 1
+  %52 = add nuw nsw i64 %.1.i29, 1
+  store i64 %52, ptr %5, align 8
   ret void
 }
 
@@ -18401,340 +17010,262 @@ AppendJumble.exit115:                             ; preds = %121
   %138 = getelementptr inbounds nuw i8, ptr %.026.i117, i64 %135
   %139 = sub i64 %.02125.i118, %135
   %.not.i121 = icmp eq i64 %139, 0
-  br i1 %.not.i121, label %AppendJumble.exit123, label %.lr.ph.i116, !llvm.loop !7
+  br i1 %.not.i121, label %.lr.ph.i124, label %.lr.ph.i116, !llvm.loop !7
 
-AppendJumble.exit123:                             ; preds = %133
+.lr.ph.i124:                                      ; preds = %133
   store i64 %137, ptr %93, align 8
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %141 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i124
-
-.lr.ph.i124:                                      ; preds = %145, %AppendJumble.exit123
-  %.026.i125 = phi ptr [ %150, %145 ], [ %140, %AppendJumble.exit123 ]
-  %.02125.i126 = phi i64 [ %151, %145 ], [ 1, %AppendJumble.exit123 ]
-  %.02224.i127 = phi i64 [ %149, %145 ], [ %137, %AppendJumble.exit123 ]
-  %142 = icmp ugt i64 %.02224.i127, 1023
-  br i1 %142, label %143, label %145
+  %142 = icmp samesign ugt i64 %137, 1023
+  br i1 %142, label %143, label %.lr.ph.i132
 
 143:                                              ; preds = %.lr.ph.i124
   %144 = tail call i64 @hash_bytes_extended(ptr noundef %141, i32 noundef 1024, i64 noundef 0) #9
   store i64 %144, ptr %141, align 1
-  br label %145
-
-145:                                              ; preds = %143, %.lr.ph.i124
-  %.1.i128 = phi i64 [ 8, %143 ], [ %.02224.i127, %.lr.ph.i124 ]
-  %146 = sub nuw nsw i64 1024, %.1.i128
-  %147 = tail call i64 @llvm.umin.i64(i64 %.02125.i126, i64 %146)
-  %148 = getelementptr inbounds nuw i8, ptr %141, i64 %.1.i128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %148, ptr noundef nonnull align 1 dereferenceable(1) %.026.i125, i64 %147, i1 false)
-  %149 = add nuw nsw i64 %147, %.1.i128
-  %150 = getelementptr inbounds nuw i8, ptr %.026.i125, i64 %147
-  %151 = sub i64 %.02125.i126, %147
-  %.not.i129 = icmp eq i64 %151, 0
-  br i1 %.not.i129, label %AppendJumble.exit131, label %.lr.ph.i124, !llvm.loop !7
-
-AppendJumble.exit131:                             ; preds = %145
-  store i64 %149, ptr %93, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 105
-  %153 = load ptr, ptr %0, align 8
   br label %.lr.ph.i132
 
-.lr.ph.i132:                                      ; preds = %157, %AppendJumble.exit131
-  %.026.i133 = phi ptr [ %162, %157 ], [ %152, %AppendJumble.exit131 ]
-  %.02125.i134 = phi i64 [ %163, %157 ], [ 1, %AppendJumble.exit131 ]
-  %.02224.i135 = phi i64 [ %161, %157 ], [ %149, %AppendJumble.exit131 ]
-  %154 = icmp ugt i64 %.02224.i135, 1023
-  br i1 %154, label %155, label %157
+.lr.ph.i132:                                      ; preds = %143, %.lr.ph.i124
+  %.1.i128 = phi i64 [ 8, %143 ], [ %137, %.lr.ph.i124 ]
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 %.1.i128
+  %146 = load i8, ptr %140, align 1
+  store i8 %146, ptr %145, align 1
+  %147 = add nuw nsw i64 %.1.i128, 1
+  store i64 %147, ptr %93, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 105
+  %149 = load ptr, ptr %0, align 8
+  %150 = icmp eq i64 %.1.i128, 1023
+  br i1 %150, label %151, label %.lr.ph.i140
 
-155:                                              ; preds = %.lr.ph.i132
-  %156 = tail call i64 @hash_bytes_extended(ptr noundef %153, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %156, ptr %153, align 1
-  br label %157
-
-157:                                              ; preds = %155, %.lr.ph.i132
-  %.1.i136 = phi i64 [ 8, %155 ], [ %.02224.i135, %.lr.ph.i132 ]
-  %158 = sub nuw nsw i64 1024, %.1.i136
-  %159 = tail call i64 @llvm.umin.i64(i64 %.02125.i134, i64 %158)
-  %160 = getelementptr inbounds nuw i8, ptr %153, i64 %.1.i136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %160, ptr noundef nonnull align 1 dereferenceable(1) %.026.i133, i64 %159, i1 false)
-  %161 = add nuw nsw i64 %159, %.1.i136
-  %162 = getelementptr inbounds nuw i8, ptr %.026.i133, i64 %159
-  %163 = sub i64 %.02125.i134, %159
-  %.not.i137 = icmp eq i64 %163, 0
-  br i1 %.not.i137, label %AppendJumble.exit139, label %.lr.ph.i132, !llvm.loop !7
-
-AppendJumble.exit139:                             ; preds = %157
-  store i64 %161, ptr %93, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 106
-  %165 = load ptr, ptr %0, align 8
+151:                                              ; preds = %.lr.ph.i132
+  %152 = tail call i64 @hash_bytes_extended(ptr noundef %149, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %152, ptr %149, align 1
   br label %.lr.ph.i140
 
-.lr.ph.i140:                                      ; preds = %169, %AppendJumble.exit139
-  %.026.i141 = phi ptr [ %174, %169 ], [ %164, %AppendJumble.exit139 ]
-  %.02125.i142 = phi i64 [ %175, %169 ], [ 1, %AppendJumble.exit139 ]
-  %.02224.i143 = phi i64 [ %173, %169 ], [ %161, %AppendJumble.exit139 ]
-  %166 = icmp ugt i64 %.02224.i143, 1023
-  br i1 %166, label %167, label %169
+.lr.ph.i140:                                      ; preds = %151, %.lr.ph.i132
+  %.1.i136 = phi i64 [ 8, %151 ], [ %147, %.lr.ph.i132 ]
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 %.1.i136
+  %154 = load i8, ptr %148, align 1
+  store i8 %154, ptr %153, align 1
+  %155 = add nuw nsw i64 %.1.i136, 1
+  store i64 %155, ptr %93, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 106
+  %157 = load ptr, ptr %0, align 8
+  %158 = icmp ugt i64 %.1.i136, 1022
+  br i1 %158, label %159, label %.lr.ph.i148
 
-167:                                              ; preds = %.lr.ph.i140
-  %168 = tail call i64 @hash_bytes_extended(ptr noundef %165, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %168, ptr %165, align 1
-  br label %169
-
-169:                                              ; preds = %167, %.lr.ph.i140
-  %.1.i144 = phi i64 [ 8, %167 ], [ %.02224.i143, %.lr.ph.i140 ]
-  %170 = sub nuw nsw i64 1024, %.1.i144
-  %171 = tail call i64 @llvm.umin.i64(i64 %.02125.i142, i64 %170)
-  %172 = getelementptr inbounds nuw i8, ptr %165, i64 %.1.i144
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %172, ptr noundef nonnull align 1 dereferenceable(1) %.026.i141, i64 %171, i1 false)
-  %173 = add nuw nsw i64 %171, %.1.i144
-  %174 = getelementptr inbounds nuw i8, ptr %.026.i141, i64 %171
-  %175 = sub i64 %.02125.i142, %171
-  %.not.i145 = icmp eq i64 %175, 0
-  br i1 %.not.i145, label %AppendJumble.exit147, label %.lr.ph.i140, !llvm.loop !7
-
-AppendJumble.exit147:                             ; preds = %169
-  store i64 %173, ptr %93, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 107
-  %177 = load ptr, ptr %0, align 8
+159:                                              ; preds = %.lr.ph.i140
+  %160 = tail call i64 @hash_bytes_extended(ptr noundef %157, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %160, ptr %157, align 1
   br label %.lr.ph.i148
 
-.lr.ph.i148:                                      ; preds = %181, %AppendJumble.exit147
-  %.026.i149 = phi ptr [ %186, %181 ], [ %176, %AppendJumble.exit147 ]
-  %.02125.i150 = phi i64 [ %187, %181 ], [ 1, %AppendJumble.exit147 ]
-  %.02224.i151 = phi i64 [ %185, %181 ], [ %173, %AppendJumble.exit147 ]
-  %178 = icmp ugt i64 %.02224.i151, 1023
-  br i1 %178, label %179, label %181
+.lr.ph.i148:                                      ; preds = %159, %.lr.ph.i140
+  %.1.i144 = phi i64 [ 8, %159 ], [ %155, %.lr.ph.i140 ]
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 %.1.i144
+  %162 = load i8, ptr %156, align 1
+  store i8 %162, ptr %161, align 1
+  %163 = add nuw nsw i64 %.1.i144, 1
+  store i64 %163, ptr %93, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 107
+  %165 = load ptr, ptr %0, align 8
+  %166 = icmp ugt i64 %.1.i144, 1022
+  br i1 %166, label %167, label %.lr.ph.i156
 
-179:                                              ; preds = %.lr.ph.i148
-  %180 = tail call i64 @hash_bytes_extended(ptr noundef %177, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %180, ptr %177, align 1
-  br label %181
-
-181:                                              ; preds = %179, %.lr.ph.i148
-  %.1.i152 = phi i64 [ 8, %179 ], [ %.02224.i151, %.lr.ph.i148 ]
-  %182 = sub nuw nsw i64 1024, %.1.i152
-  %183 = tail call i64 @llvm.umin.i64(i64 %.02125.i150, i64 %182)
-  %184 = getelementptr inbounds nuw i8, ptr %177, i64 %.1.i152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %184, ptr noundef nonnull align 1 dereferenceable(1) %.026.i149, i64 %183, i1 false)
-  %185 = add nuw nsw i64 %183, %.1.i152
-  %186 = getelementptr inbounds nuw i8, ptr %.026.i149, i64 %183
-  %187 = sub i64 %.02125.i150, %183
-  %.not.i153 = icmp eq i64 %187, 0
-  br i1 %.not.i153, label %AppendJumble.exit155, label %.lr.ph.i148, !llvm.loop !7
-
-AppendJumble.exit155:                             ; preds = %181
-  store i64 %185, ptr %93, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %189 = load ptr, ptr %0, align 8
+167:                                              ; preds = %.lr.ph.i148
+  %168 = tail call i64 @hash_bytes_extended(ptr noundef %165, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %168, ptr %165, align 1
   br label %.lr.ph.i156
 
-.lr.ph.i156:                                      ; preds = %193, %AppendJumble.exit155
-  %.026.i157 = phi ptr [ %198, %193 ], [ %188, %AppendJumble.exit155 ]
-  %.02125.i158 = phi i64 [ %199, %193 ], [ 1, %AppendJumble.exit155 ]
-  %.02224.i159 = phi i64 [ %197, %193 ], [ %185, %AppendJumble.exit155 ]
-  %190 = icmp ugt i64 %.02224.i159, 1023
-  br i1 %190, label %191, label %193
+.lr.ph.i156:                                      ; preds = %167, %.lr.ph.i148
+  %.1.i152 = phi i64 [ 8, %167 ], [ %163, %.lr.ph.i148 ]
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 %.1.i152
+  %170 = load i8, ptr %164, align 1
+  store i8 %170, ptr %169, align 1
+  %171 = add nuw nsw i64 %.1.i152, 1
+  store i64 %171, ptr %93, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %173 = load ptr, ptr %0, align 8
+  %174 = icmp ugt i64 %.1.i152, 1022
+  br i1 %174, label %.lr.ph.i164.thread, label %.lr.ph.i164
 
-191:                                              ; preds = %.lr.ph.i156
-  %192 = tail call i64 @hash_bytes_extended(ptr noundef %189, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %192, ptr %189, align 1
-  br label %193
+.lr.ph.i164.thread:                               ; preds = %.lr.ph.i156
+  %175 = tail call i64 @hash_bytes_extended(ptr noundef %173, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %175, ptr %173, align 1
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %177 = load i8, ptr %172, align 1
+  store i8 %177, ptr %176, align 1
+  store i64 9, ptr %93, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 109
+  %179 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i172.thread
 
-193:                                              ; preds = %191, %.lr.ph.i156
-  %.1.i160 = phi i64 [ 8, %191 ], [ %.02224.i159, %.lr.ph.i156 ]
-  %194 = sub nuw nsw i64 1024, %.1.i160
-  %195 = tail call i64 @llvm.umin.i64(i64 %.02125.i158, i64 %194)
-  %196 = getelementptr inbounds nuw i8, ptr %189, i64 %.1.i160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %196, ptr noundef nonnull align 1 dereferenceable(1) %.026.i157, i64 %195, i1 false)
-  %197 = add nuw nsw i64 %195, %.1.i160
-  %198 = getelementptr inbounds nuw i8, ptr %.026.i157, i64 %195
-  %199 = sub i64 %.02125.i158, %195
-  %.not.i161 = icmp eq i64 %199, 0
-  br i1 %.not.i161, label %AppendJumble.exit163, label %.lr.ph.i156, !llvm.loop !7
+.lr.ph.i164:                                      ; preds = %.lr.ph.i156
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 %171
+  %181 = load i8, ptr %172, align 1
+  store i8 %181, ptr %180, align 1
+  %182 = add nuw nsw i64 %.1.i152, 2
+  store i64 %182, ptr %93, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 109
+  %184 = load ptr, ptr %0, align 8
+  %185 = icmp eq i64 %.1.i152, 1022
+  br i1 %185, label %186, label %.lr.ph.i172
 
-AppendJumble.exit163:                             ; preds = %193
-  store i64 %197, ptr %93, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 109
-  %201 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i164
+186:                                              ; preds = %.lr.ph.i164
+  %187 = tail call i64 @hash_bytes_extended(ptr noundef %184, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %187, ptr %184, align 1
+  br label %.lr.ph.i172.thread
 
-.lr.ph.i164:                                      ; preds = %205, %AppendJumble.exit163
-  %.026.i165 = phi ptr [ %210, %205 ], [ %200, %AppendJumble.exit163 ]
-  %.02125.i166 = phi i64 [ %211, %205 ], [ 1, %AppendJumble.exit163 ]
-  %.02224.i167 = phi i64 [ %209, %205 ], [ %197, %AppendJumble.exit163 ]
-  %202 = icmp ugt i64 %.02224.i167, 1023
-  br i1 %202, label %203, label %205
+.lr.ph.i172.thread:                               ; preds = %186, %.lr.ph.i164.thread
+  %.ph = phi ptr [ %179, %.lr.ph.i164.thread ], [ %184, %186 ]
+  %.ph278 = phi ptr [ %178, %.lr.ph.i164.thread ], [ %183, %186 ]
+  %.1.i168.ph = phi i64 [ 9, %.lr.ph.i164.thread ], [ 8, %186 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.1.i168.ph
+  %189 = load i8, ptr %.ph278, align 1
+  store i8 %189, ptr %188, align 1
+  %190 = add nuw nsw i64 %.1.i168.ph, 1
+  store i64 %190, ptr %93, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 110
+  %192 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i180.thread
 
-203:                                              ; preds = %.lr.ph.i164
-  %204 = tail call i64 @hash_bytes_extended(ptr noundef %201, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %204, ptr %201, align 1
-  br label %205
+.lr.ph.i172:                                      ; preds = %.lr.ph.i164
+  %193 = getelementptr inbounds nuw i8, ptr %184, i64 %182
+  %194 = load i8, ptr %183, align 1
+  store i8 %194, ptr %193, align 1
+  %195 = add nuw nsw i64 %.1.i152, 3
+  store i64 %195, ptr %93, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 110
+  %197 = load ptr, ptr %0, align 8
+  %198 = icmp ugt i64 %.1.i152, 1020
+  br i1 %198, label %199, label %.lr.ph.i180
 
-205:                                              ; preds = %203, %.lr.ph.i164
-  %.1.i168 = phi i64 [ 8, %203 ], [ %.02224.i167, %.lr.ph.i164 ]
-  %206 = sub nuw nsw i64 1024, %.1.i168
-  %207 = tail call i64 @llvm.umin.i64(i64 %.02125.i166, i64 %206)
-  %208 = getelementptr inbounds nuw i8, ptr %201, i64 %.1.i168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %208, ptr noundef nonnull align 1 dereferenceable(1) %.026.i165, i64 %207, i1 false)
-  %209 = add nuw nsw i64 %207, %.1.i168
-  %210 = getelementptr inbounds nuw i8, ptr %.026.i165, i64 %207
-  %211 = sub i64 %.02125.i166, %207
-  %.not.i169 = icmp eq i64 %211, 0
-  br i1 %.not.i169, label %AppendJumble.exit171, label %.lr.ph.i164, !llvm.loop !7
+199:                                              ; preds = %.lr.ph.i172
+  %200 = tail call i64 @hash_bytes_extended(ptr noundef %197, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %200, ptr %197, align 1
+  br label %.lr.ph.i180.thread
 
-AppendJumble.exit171:                             ; preds = %205
-  store i64 %209, ptr %93, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 110
-  %213 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i172
+.lr.ph.i180.thread:                               ; preds = %199, %.lr.ph.i172.thread
+  %.ph280 = phi ptr [ %192, %.lr.ph.i172.thread ], [ %197, %199 ]
+  %.ph281 = phi ptr [ %191, %.lr.ph.i172.thread ], [ %196, %199 ]
+  %.1.i176.ph = phi i64 [ %190, %.lr.ph.i172.thread ], [ 8, %199 ]
+  %201 = getelementptr inbounds nuw i8, ptr %.ph280, i64 %.1.i176.ph
+  %202 = load i8, ptr %.ph281, align 1
+  store i8 %202, ptr %201, align 1
+  %203 = add nuw nsw i64 %.1.i176.ph, 1
+  store i64 %203, ptr %93, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 111
+  %205 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i188.thread
 
-.lr.ph.i172:                                      ; preds = %217, %AppendJumble.exit171
-  %.026.i173 = phi ptr [ %222, %217 ], [ %212, %AppendJumble.exit171 ]
-  %.02125.i174 = phi i64 [ %223, %217 ], [ 1, %AppendJumble.exit171 ]
-  %.02224.i175 = phi i64 [ %221, %217 ], [ %209, %AppendJumble.exit171 ]
-  %214 = icmp ugt i64 %.02224.i175, 1023
-  br i1 %214, label %215, label %217
+.lr.ph.i180:                                      ; preds = %.lr.ph.i172
+  %206 = getelementptr inbounds nuw i8, ptr %197, i64 %195
+  %207 = load i8, ptr %196, align 1
+  store i8 %207, ptr %206, align 1
+  %208 = add nuw nsw i64 %.1.i152, 4
+  store i64 %208, ptr %93, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 111
+  %210 = load ptr, ptr %0, align 8
+  %211 = icmp eq i64 %.1.i152, 1020
+  br i1 %211, label %212, label %.lr.ph.i188
 
-215:                                              ; preds = %.lr.ph.i172
-  %216 = tail call i64 @hash_bytes_extended(ptr noundef %213, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %216, ptr %213, align 1
-  br label %217
+212:                                              ; preds = %.lr.ph.i180
+  %213 = tail call i64 @hash_bytes_extended(ptr noundef %210, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %213, ptr %210, align 1
+  br label %.lr.ph.i188.thread
 
-217:                                              ; preds = %215, %.lr.ph.i172
-  %.1.i176 = phi i64 [ 8, %215 ], [ %.02224.i175, %.lr.ph.i172 ]
-  %218 = sub nuw nsw i64 1024, %.1.i176
-  %219 = tail call i64 @llvm.umin.i64(i64 %.02125.i174, i64 %218)
-  %220 = getelementptr inbounds nuw i8, ptr %213, i64 %.1.i176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %220, ptr noundef nonnull align 1 dereferenceable(1) %.026.i173, i64 %219, i1 false)
-  %221 = add nuw nsw i64 %219, %.1.i176
-  %222 = getelementptr inbounds nuw i8, ptr %.026.i173, i64 %219
-  %223 = sub i64 %.02125.i174, %219
-  %.not.i177 = icmp eq i64 %223, 0
-  br i1 %.not.i177, label %AppendJumble.exit179, label %.lr.ph.i172, !llvm.loop !7
+.lr.ph.i188.thread:                               ; preds = %212, %.lr.ph.i180.thread
+  %.ph283 = phi ptr [ %205, %.lr.ph.i180.thread ], [ %210, %212 ]
+  %.ph284 = phi ptr [ %204, %.lr.ph.i180.thread ], [ %209, %212 ]
+  %.1.i184.ph = phi i64 [ %203, %.lr.ph.i180.thread ], [ 8, %212 ]
+  %214 = getelementptr inbounds nuw i8, ptr %.ph283, i64 %.1.i184.ph
+  %215 = load i8, ptr %.ph284, align 1
+  store i8 %215, ptr %214, align 1
+  %216 = add nuw nsw i64 %.1.i184.ph, 1
+  store i64 %216, ptr %93, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %218 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i196.thread
 
-AppendJumble.exit179:                             ; preds = %217
+.lr.ph.i188:                                      ; preds = %.lr.ph.i180
+  %219 = getelementptr inbounds nuw i8, ptr %210, i64 %208
+  %220 = load i8, ptr %209, align 1
+  store i8 %220, ptr %219, align 1
+  %221 = add nuw nsw i64 %.1.i152, 5
   store i64 %221, ptr %93, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 111
-  %225 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i180
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %223 = load ptr, ptr %0, align 8
+  %224 = icmp ugt i64 %.1.i152, 1018
+  br i1 %224, label %225, label %.lr.ph.i196
 
-.lr.ph.i180:                                      ; preds = %229, %AppendJumble.exit179
-  %.026.i181 = phi ptr [ %234, %229 ], [ %224, %AppendJumble.exit179 ]
-  %.02125.i182 = phi i64 [ %235, %229 ], [ 1, %AppendJumble.exit179 ]
-  %.02224.i183 = phi i64 [ %233, %229 ], [ %221, %AppendJumble.exit179 ]
-  %226 = icmp ugt i64 %.02224.i183, 1023
-  br i1 %226, label %227, label %229
+225:                                              ; preds = %.lr.ph.i188
+  %226 = tail call i64 @hash_bytes_extended(ptr noundef %223, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %226, ptr %223, align 1
+  br label %.lr.ph.i196.thread
 
-227:                                              ; preds = %.lr.ph.i180
-  %228 = tail call i64 @hash_bytes_extended(ptr noundef %225, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %228, ptr %225, align 1
-  br label %229
+.lr.ph.i196.thread:                               ; preds = %225, %.lr.ph.i188.thread
+  %.ph286 = phi ptr [ %218, %.lr.ph.i188.thread ], [ %223, %225 ]
+  %.ph287 = phi ptr [ %217, %.lr.ph.i188.thread ], [ %222, %225 ]
+  %.1.i192.ph = phi i64 [ %216, %.lr.ph.i188.thread ], [ 8, %225 ]
+  %227 = getelementptr inbounds nuw i8, ptr %.ph286, i64 %.1.i192.ph
+  %228 = load i8, ptr %.ph287, align 1
+  store i8 %228, ptr %227, align 1
+  %229 = add nuw nsw i64 %.1.i192.ph, 1
+  store i64 %229, ptr %93, align 8
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 113
+  %231 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i204.thread
 
-229:                                              ; preds = %227, %.lr.ph.i180
-  %.1.i184 = phi i64 [ 8, %227 ], [ %.02224.i183, %.lr.ph.i180 ]
-  %230 = sub nuw nsw i64 1024, %.1.i184
-  %231 = tail call i64 @llvm.umin.i64(i64 %.02125.i182, i64 %230)
-  %232 = getelementptr inbounds nuw i8, ptr %225, i64 %.1.i184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %232, ptr noundef nonnull align 1 dereferenceable(1) %.026.i181, i64 %231, i1 false)
-  %233 = add nuw nsw i64 %231, %.1.i184
-  %234 = getelementptr inbounds nuw i8, ptr %.026.i181, i64 %231
-  %235 = sub i64 %.02125.i182, %231
-  %.not.i185 = icmp eq i64 %235, 0
-  br i1 %.not.i185, label %AppendJumble.exit187, label %.lr.ph.i180, !llvm.loop !7
+.lr.ph.i196:                                      ; preds = %.lr.ph.i188
+  %232 = getelementptr inbounds nuw i8, ptr %223, i64 %221
+  %233 = load i8, ptr %222, align 1
+  store i8 %233, ptr %232, align 1
+  %234 = add nuw nsw i64 %.1.i152, 6
+  store i64 %234, ptr %93, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 113
+  %236 = load ptr, ptr %0, align 8
+  %237 = icmp eq i64 %.1.i152, 1018
+  br i1 %237, label %238, label %.lr.ph.i204
 
-AppendJumble.exit187:                             ; preds = %229
-  store i64 %233, ptr %93, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %237 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i188
+238:                                              ; preds = %.lr.ph.i196
+  %239 = tail call i64 @hash_bytes_extended(ptr noundef %236, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %239, ptr %236, align 1
+  br label %.lr.ph.i204.thread
 
-.lr.ph.i188:                                      ; preds = %241, %AppendJumble.exit187
-  %.026.i189 = phi ptr [ %246, %241 ], [ %236, %AppendJumble.exit187 ]
-  %.02125.i190 = phi i64 [ %247, %241 ], [ 1, %AppendJumble.exit187 ]
-  %.02224.i191 = phi i64 [ %245, %241 ], [ %233, %AppendJumble.exit187 ]
-  %238 = icmp ugt i64 %.02224.i191, 1023
-  br i1 %238, label %239, label %241
+.lr.ph.i204.thread:                               ; preds = %238, %.lr.ph.i196.thread
+  %.ph289 = phi ptr [ %231, %.lr.ph.i196.thread ], [ %236, %238 ]
+  %.ph290 = phi ptr [ %230, %.lr.ph.i196.thread ], [ %235, %238 ]
+  %.1.i200.ph = phi i64 [ %229, %.lr.ph.i196.thread ], [ 8, %238 ]
+  %240 = getelementptr inbounds nuw i8, ptr %.ph289, i64 %.1.i200.ph
+  %241 = load i8, ptr %.ph290, align 1
+  store i8 %241, ptr %240, align 1
+  %242 = add nuw nsw i64 %.1.i200.ph, 1
+  store i64 %242, ptr %93, align 8
+  %243 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit211
 
-239:                                              ; preds = %.lr.ph.i188
-  %240 = tail call i64 @hash_bytes_extended(ptr noundef %237, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %240, ptr %237, align 1
-  br label %241
+.lr.ph.i204:                                      ; preds = %.lr.ph.i196
+  %244 = getelementptr inbounds nuw i8, ptr %236, i64 %234
+  %245 = load i8, ptr %235, align 1
+  store i8 %245, ptr %244, align 1
+  %246 = add nuw nsw i64 %.1.i152, 7
+  store i64 %246, ptr %93, align 8
+  %247 = load ptr, ptr %0, align 8
+  %248 = icmp ugt i64 %.1.i152, 1016
+  br i1 %248, label %249, label %AppendJumble.exit211
 
-241:                                              ; preds = %239, %.lr.ph.i188
-  %.1.i192 = phi i64 [ 8, %239 ], [ %.02224.i191, %.lr.ph.i188 ]
-  %242 = sub nuw nsw i64 1024, %.1.i192
-  %243 = tail call i64 @llvm.umin.i64(i64 %.02125.i190, i64 %242)
-  %244 = getelementptr inbounds nuw i8, ptr %237, i64 %.1.i192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %244, ptr noundef nonnull align 1 dereferenceable(1) %.026.i189, i64 %243, i1 false)
-  %245 = add nuw nsw i64 %243, %.1.i192
-  %246 = getelementptr inbounds nuw i8, ptr %.026.i189, i64 %243
-  %247 = sub i64 %.02125.i190, %243
-  %.not.i193 = icmp eq i64 %247, 0
-  br i1 %.not.i193, label %AppendJumble.exit195, label %.lr.ph.i188, !llvm.loop !7
+249:                                              ; preds = %.lr.ph.i204
+  %250 = tail call i64 @hash_bytes_extended(ptr noundef %247, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %250, ptr %247, align 1
+  br label %AppendJumble.exit211
 
-AppendJumble.exit195:                             ; preds = %241
-  store i64 %245, ptr %93, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 113
-  %249 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i196
-
-.lr.ph.i196:                                      ; preds = %253, %AppendJumble.exit195
-  %.026.i197 = phi ptr [ %258, %253 ], [ %248, %AppendJumble.exit195 ]
-  %.02125.i198 = phi i64 [ %259, %253 ], [ 1, %AppendJumble.exit195 ]
-  %.02224.i199 = phi i64 [ %257, %253 ], [ %245, %AppendJumble.exit195 ]
-  %250 = icmp ugt i64 %.02224.i199, 1023
-  br i1 %250, label %251, label %253
-
-251:                                              ; preds = %.lr.ph.i196
-  %252 = tail call i64 @hash_bytes_extended(ptr noundef %249, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %252, ptr %249, align 1
-  br label %253
-
-253:                                              ; preds = %251, %.lr.ph.i196
-  %.1.i200 = phi i64 [ 8, %251 ], [ %.02224.i199, %.lr.ph.i196 ]
-  %254 = sub nuw nsw i64 1024, %.1.i200
-  %255 = tail call i64 @llvm.umin.i64(i64 %.02125.i198, i64 %254)
-  %256 = getelementptr inbounds nuw i8, ptr %249, i64 %.1.i200
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %256, ptr noundef nonnull align 1 dereferenceable(1) %.026.i197, i64 %255, i1 false)
-  %257 = add nuw nsw i64 %255, %.1.i200
-  %258 = getelementptr inbounds nuw i8, ptr %.026.i197, i64 %255
-  %259 = sub i64 %.02125.i198, %255
-  %.not.i201 = icmp eq i64 %259, 0
-  br i1 %.not.i201, label %AppendJumble.exit203, label %.lr.ph.i196, !llvm.loop !7
-
-AppendJumble.exit203:                             ; preds = %253
-  store i64 %257, ptr %93, align 8
-  %260 = getelementptr inbounds nuw i8, ptr %1, i64 114
-  %261 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i204
-
-.lr.ph.i204:                                      ; preds = %265, %AppendJumble.exit203
-  %.026.i205 = phi ptr [ %270, %265 ], [ %260, %AppendJumble.exit203 ]
-  %.02125.i206 = phi i64 [ %271, %265 ], [ 1, %AppendJumble.exit203 ]
-  %.02224.i207 = phi i64 [ %269, %265 ], [ %257, %AppendJumble.exit203 ]
-  %262 = icmp ugt i64 %.02224.i207, 1023
-  br i1 %262, label %263, label %265
-
-263:                                              ; preds = %.lr.ph.i204
-  %264 = tail call i64 @hash_bytes_extended(ptr noundef %261, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %264, ptr %261, align 1
-  br label %265
-
-265:                                              ; preds = %263, %.lr.ph.i204
-  %.1.i208 = phi i64 [ 8, %263 ], [ %.02224.i207, %.lr.ph.i204 ]
-  %266 = sub nuw nsw i64 1024, %.1.i208
-  %267 = tail call i64 @llvm.umin.i64(i64 %.02125.i206, i64 %266)
-  %268 = getelementptr inbounds nuw i8, ptr %261, i64 %.1.i208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %268, ptr noundef nonnull align 1 dereferenceable(1) %.026.i205, i64 %267, i1 false)
-  %269 = add nuw nsw i64 %267, %.1.i208
-  %270 = getelementptr inbounds nuw i8, ptr %.026.i205, i64 %267
-  %271 = sub i64 %.02125.i206, %267
-  %.not.i209 = icmp eq i64 %271, 0
-  br i1 %.not.i209, label %AppendJumble.exit211, label %.lr.ph.i204, !llvm.loop !7
-
-AppendJumble.exit211:                             ; preds = %265
-  store i64 %269, ptr %93, align 8
+AppendJumble.exit211:                             ; preds = %.lr.ph.i204, %249, %.lr.ph.i204.thread
+  %251 = phi ptr [ %247, %249 ], [ %247, %.lr.ph.i204 ], [ %243, %.lr.ph.i204.thread ]
+  %.1.i208 = phi i64 [ 8, %249 ], [ %246, %.lr.ph.i204 ], [ %242, %.lr.ph.i204.thread ]
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 114
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 %.1.i208
+  %254 = load i8, ptr %252, align 1
+  store i8 %254, ptr %253, align 1
+  %255 = add nuw nsw i64 %.1.i208, 1
+  store i64 %255, ptr %93, align 8
   ret void
 }
 
@@ -18761,7 +17292,7 @@ define internal fastcc void @_jumbleCreateStatsStmt(ptr noundef %0, ptr noundef 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre38 = load i64, ptr %.phi.trans.insert, align 8
-  br label %28
+  br label %.lr.ph.i17
 
 13:                                               ; preds = %2
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #8
@@ -18803,71 +17334,50 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre37, %13 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %17, %13 ], [ %25, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %16, align 8
-  br label %28
-
-28:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %29 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre38, %._crit_edge ]
-  %30 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre37, %._crit_edge ]
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %36, %28
-  %.026.i18 = phi ptr [ %41, %36 ], [ %31, %28 ]
-  %.02125.i19 = phi i64 [ %42, %36 ], [ 1, %28 ]
-  %.02224.i20 = phi i64 [ %40, %36 ], [ %29, %28 ]
-  %33 = icmp ugt i64 %.02224.i20, 1023
-  br i1 %33, label %34, label %36
+.lr.ph.i17:                                       ; preds = %AppendJumble.exit, %._crit_edge
+  %28 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre38, %._crit_edge ]
+  %29 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre37, %._crit_edge ]
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = icmp ugt i64 %28, 1023
+  br i1 %32, label %.lr.ph.i25.thread, label %.lr.ph.i25
 
-34:                                               ; preds = %.lr.ph.i17
-  %35 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %35, ptr %30, align 1
-  br label %36
+.lr.ph.i25.thread:                                ; preds = %.lr.ph.i17
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %33, ptr %29, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %35 = load i8, ptr %30, align 1
+  store i8 %35, ptr %34, align 1
+  store i64 9, ptr %31, align 8
+  %36 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit32
 
-36:                                               ; preds = %34, %.lr.ph.i17
-  %.1.i21 = phi i64 [ 8, %34 ], [ %.02224.i20, %.lr.ph.i17 ]
-  %37 = sub nuw nsw i64 1024, %.1.i21
-  %38 = tail call i64 @llvm.umin.i64(i64 %.02125.i19, i64 %37)
-  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %.1.i21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 1 dereferenceable(1) %.026.i18, i64 %38, i1 false)
-  %40 = add nuw nsw i64 %38, %.1.i21
-  %41 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %38
-  %42 = sub i64 %.02125.i19, %38
-  %.not.i22 = icmp eq i64 %42, 0
-  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
+.lr.ph.i25:                                       ; preds = %.lr.ph.i17
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 %28
+  %38 = load i8, ptr %30, align 1
+  store i8 %38, ptr %37, align 1
+  %39 = add nuw nsw i64 %28, 1
+  store i64 %39, ptr %31, align 8
+  %40 = load ptr, ptr %0, align 8
+  %41 = icmp eq i64 %28, 1023
+  br i1 %41, label %42, label %AppendJumble.exit32
 
-AppendJumble.exit24:                              ; preds = %36
-  store i64 %40, ptr %32, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 49
-  %44 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i25
+42:                                               ; preds = %.lr.ph.i25
+  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %43, ptr %40, align 1
+  br label %AppendJumble.exit32
 
-.lr.ph.i25:                                       ; preds = %48, %AppendJumble.exit24
-  %.026.i26 = phi ptr [ %53, %48 ], [ %43, %AppendJumble.exit24 ]
-  %.02125.i27 = phi i64 [ %54, %48 ], [ 1, %AppendJumble.exit24 ]
-  %.02224.i28 = phi i64 [ %52, %48 ], [ %40, %AppendJumble.exit24 ]
-  %45 = icmp ugt i64 %.02224.i28, 1023
-  br i1 %45, label %46, label %48
-
-46:                                               ; preds = %.lr.ph.i25
-  %47 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %47, ptr %44, align 1
-  br label %48
-
-48:                                               ; preds = %46, %.lr.ph.i25
-  %.1.i29 = phi i64 [ 8, %46 ], [ %.02224.i28, %.lr.ph.i25 ]
-  %49 = sub nuw nsw i64 1024, %.1.i29
-  %50 = tail call i64 @llvm.umin.i64(i64 %.02125.i27, i64 %49)
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 %.1.i29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %.026.i26, i64 %50, i1 false)
-  %52 = add nuw nsw i64 %50, %.1.i29
-  %53 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %50
-  %54 = sub i64 %.02125.i27, %50
-  %.not.i30 = icmp eq i64 %54, 0
-  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !7
-
-AppendJumble.exit32:                              ; preds = %48
-  store i64 %52, ptr %32, align 8
+AppendJumble.exit32:                              ; preds = %.lr.ph.i25, %42, %.lr.ph.i25.thread
+  %44 = phi ptr [ %40, %42 ], [ %40, %.lr.ph.i25 ], [ %36, %.lr.ph.i25.thread ]
+  %.1.i29 = phi i64 [ 8, %42 ], [ %39, %.lr.ph.i25 ], [ 9, %.lr.ph.i25.thread ]
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 49
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %.1.i29
+  %47 = load i8, ptr %45, align 1
+  store i8 %47, ptr %46, align 1
+  %48 = add nuw nsw i64 %.1.i29, 1
+  store i64 %48, ptr %31, align 8
   ret void
 }
 
@@ -18925,126 +17435,94 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleAlterStatsStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp ugt i64 %8, 1023
+  br i1 %9, label %10, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+10:                                               ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %6, align 1
+  br label %AppendJumble.exit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
-
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %10
+  %.1.i = phi i64 [ 8, %10 ], [ %8, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
+  %14 = load i8, ptr %12, align 1
+  store i8 %14, ptr %13, align 1
+  %15 = add nuw nsw i64 %.1.i, 1
+  store i64 %15, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateFunctionStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %.lr.ph.i15.thread, label %.lr.ph.i15
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+.lr.ph.i15.thread:                                ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %3, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load i8, ptr %2, align 1
+  store i8 %9, ptr %8, align 1
+  store i64 9, ptr %4, align 8
+  %10 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit21
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+.lr.ph.i15:                                       ; preds = %.lr.ph.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %5
+  %12 = load i8, ptr %2, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %5, 1
+  store i64 %13, ptr %4, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = icmp eq i64 %5, 1023
+  br i1 %15, label %16, label %AppendJumble.exit21
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+16:                                               ; preds = %.lr.ph.i15
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %17, ptr %14, align 1
+  br label %AppendJumble.exit21
 
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i15
-
-.lr.ph.i15:                                       ; preds = %22, %AppendJumble.exit
-  %.026.i16 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i17 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i18 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %.lr.ph.i15
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %20 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %23 = sub nuw nsw i64 1024, %.1.i19
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i19
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %24
-  %28 = sub i64 %.02125.i17, %24
-  %.not.i20 = icmp eq i64 %28, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
-
-AppendJumble.exit21:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+AppendJumble.exit21:                              ; preds = %.lr.ph.i15, %16, %.lr.ph.i15.thread
+  %18 = phi ptr [ %14, %16 ], [ %14, %.lr.ph.i15 ], [ %10, %.lr.ph.i15.thread ]
+  %.1.i19 = phi i64 [ 8, %16 ], [ %13, %.lr.ph.i15 ], [ 9, %.lr.ph.i15.thread ]
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i19
+  %21 = load i8, ptr %19, align 1
+  store i8 %21, ptr %20, align 1
+  %22 = add nuw nsw i64 %.1.i19, 1
+  store i64 %22, ptr %4, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = load ptr, ptr %25, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %26)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %28 = load ptr, ptr %27, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %28)
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load ptr, ptr %31, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %32)
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %34)
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %36 = load ptr, ptr %35, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
   ret void
 }
 
@@ -19382,40 +17860,27 @@ AppendJumble.exit45:                              ; preds = %AppendJumble.exit45
   %76 = getelementptr inbounds nuw i8, ptr %.026.i47, i64 %73
   %77 = sub i64 %.02125.i48, %73
   %.not.i51 = icmp eq i64 %77, 0
-  br i1 %.not.i51, label %AppendJumble.exit53, label %.lr.ph.i46, !llvm.loop !7
+  br i1 %.not.i51, label %.lr.ph.i54, label %.lr.ph.i46, !llvm.loop !7
 
-AppendJumble.exit53:                              ; preds = %71
+.lr.ph.i54:                                       ; preds = %71
   store i64 %75, ptr %5, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %79 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i54
+  %78 = load ptr, ptr %0, align 8
+  %79 = icmp samesign ugt i64 %75, 1023
+  br i1 %79, label %80, label %AppendJumble.exit61
 
-.lr.ph.i54:                                       ; preds = %83, %AppendJumble.exit53
-  %.026.i55 = phi ptr [ %88, %83 ], [ %78, %AppendJumble.exit53 ]
-  %.02125.i56 = phi i64 [ %89, %83 ], [ 1, %AppendJumble.exit53 ]
-  %.02224.i57 = phi i64 [ %87, %83 ], [ %75, %AppendJumble.exit53 ]
-  %80 = icmp ugt i64 %.02224.i57, 1023
-  br i1 %80, label %81, label %83
+80:                                               ; preds = %.lr.ph.i54
+  %81 = tail call i64 @hash_bytes_extended(ptr noundef %78, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %81, ptr %78, align 1
+  br label %AppendJumble.exit61
 
-81:                                               ; preds = %.lr.ph.i54
-  %82 = tail call i64 @hash_bytes_extended(ptr noundef %79, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %82, ptr %79, align 1
-  br label %83
-
-83:                                               ; preds = %81, %.lr.ph.i54
-  %.1.i58 = phi i64 [ 8, %81 ], [ %.02224.i57, %.lr.ph.i54 ]
-  %84 = sub nuw nsw i64 1024, %.1.i58
-  %85 = tail call i64 @llvm.umin.i64(i64 %.02125.i56, i64 %84)
-  %86 = getelementptr inbounds nuw i8, ptr %79, i64 %.1.i58
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %86, ptr noundef nonnull align 1 dereferenceable(1) %.026.i55, i64 %85, i1 false)
-  %87 = add nuw nsw i64 %85, %.1.i58
-  %88 = getelementptr inbounds nuw i8, ptr %.026.i55, i64 %85
-  %89 = sub i64 %.02125.i56, %85
-  %.not.i59 = icmp eq i64 %89, 0
-  br i1 %.not.i59, label %AppendJumble.exit61, label %.lr.ph.i54, !llvm.loop !7
-
-AppendJumble.exit61:                              ; preds = %83
-  store i64 %87, ptr %5, align 8
+AppendJumble.exit61:                              ; preds = %.lr.ph.i54, %80
+  %.1.i58 = phi i64 [ 8, %80 ], [ %75, %.lr.ph.i54 ]
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 %.1.i58
+  %84 = load i8, ptr %82, align 1
+  store i8 %84, ptr %83, align 1
+  %85 = add nuw nsw i64 %.1.i58, 1
+  store i64 %85, ptr %5, align 8
   ret void
 }
 
@@ -19449,9 +17914,9 @@ define internal fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i11, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i11:                                       ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -19462,37 +17927,24 @@ AppendJumble.exit:                                ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %22)
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load ptr, ptr %0, align 8
-  %25 = load i64, ptr %5, align 8
-  br label %.lr.ph.i11
+  %23 = load ptr, ptr %0, align 8
+  %24 = load i64, ptr %5, align 8
+  %25 = icmp ugt i64 %24, 1023
+  br i1 %25, label %26, label %AppendJumble.exit17
 
-.lr.ph.i11:                                       ; preds = %29, %AppendJumble.exit
-  %.026.i12 = phi ptr [ %34, %29 ], [ %23, %AppendJumble.exit ]
-  %.02125.i13 = phi i64 [ %35, %29 ], [ 1, %AppendJumble.exit ]
-  %.02224.i14 = phi i64 [ %33, %29 ], [ %25, %AppendJumble.exit ]
-  %26 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %26, label %27, label %29
+26:                                               ; preds = %.lr.ph.i11
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %27, ptr %23, align 1
+  br label %AppendJumble.exit17
 
-27:                                               ; preds = %.lr.ph.i11
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %28, ptr %24, align 1
-  br label %29
-
-29:                                               ; preds = %27, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %27 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %30 = sub nuw nsw i64 1024, %.1.i15
-  %31 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %30)
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %31, i1 false)
-  %33 = add nuw nsw i64 %31, %.1.i15
-  %34 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %31
-  %35 = sub i64 %.02125.i13, %31
-  %.not.i16 = icmp eq i64 %35, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
-
-AppendJumble.exit17:                              ; preds = %29
-  store i64 %33, ptr %5, align 8
+AppendJumble.exit17:                              ; preds = %.lr.ph.i11, %26
+  %.1.i15 = phi i64 [ 8, %26 ], [ %24, %.lr.ph.i11 ]
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %.1.i15
+  %30 = load i8, ptr %28, align 1
+  store i8 %30, ptr %29, align 1
+  %31 = add nuw nsw i64 %.1.i15, 1
+  store i64 %31, ptr %5, align 8
   ret void
 }
 
@@ -19541,7 +17993,7 @@ AppendJumble.exit:                                ; preds = %10
   %.not = icmp eq ptr %22, null
   %.pre32 = load ptr, ptr %0, align 8
   %.pre33 = load i64, ptr %5, align 8
-  br i1 %.not, label %36, label %23
+  br i1 %.not, label %.lr.ph.i20, label %23
 
 23:                                               ; preds = %AppendJumble.exit
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #8
@@ -19581,40 +18033,27 @@ AppendJumble.exit19:                              ; preds = %AppendJumble.exit19
   %.pre = phi ptr [ %.pre32, %23 ], [ %.pre.pre, %AppendJumble.exit19.loopexit ]
   %.022.lcssa.i = phi i64 [ %.pre33, %23 ], [ %33, %AppendJumble.exit19.loopexit ]
   store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %36
-
-36:                                               ; preds = %AppendJumble.exit19, %AppendJumble.exit
-  %37 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit19 ], [ %.pre33, %AppendJumble.exit ]
-  %38 = phi ptr [ %.pre, %AppendJumble.exit19 ], [ %.pre32, %AppendJumble.exit ]
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %.lr.ph.i20
 
-.lr.ph.i20:                                       ; preds = %43, %36
-  %.026.i21 = phi ptr [ %48, %43 ], [ %39, %36 ]
-  %.02125.i22 = phi i64 [ %49, %43 ], [ 1, %36 ]
-  %.02224.i23 = phi i64 [ %47, %43 ], [ %37, %36 ]
-  %40 = icmp ugt i64 %.02224.i23, 1023
-  br i1 %40, label %41, label %43
+.lr.ph.i20:                                       ; preds = %AppendJumble.exit, %AppendJumble.exit19
+  %36 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit19 ], [ %.pre33, %AppendJumble.exit ]
+  %37 = phi ptr [ %.pre, %AppendJumble.exit19 ], [ %.pre32, %AppendJumble.exit ]
+  %38 = icmp ugt i64 %36, 1023
+  br i1 %38, label %39, label %AppendJumble.exit27
 
-41:                                               ; preds = %.lr.ph.i20
-  %42 = tail call i64 @hash_bytes_extended(ptr noundef %38, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %42, ptr %38, align 1
-  br label %43
+39:                                               ; preds = %.lr.ph.i20
+  %40 = tail call i64 @hash_bytes_extended(ptr noundef %37, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %40, ptr %37, align 1
+  br label %AppendJumble.exit27
 
-43:                                               ; preds = %41, %.lr.ph.i20
-  %.1.i24 = phi i64 [ 8, %41 ], [ %.02224.i23, %.lr.ph.i20 ]
-  %44 = sub nuw nsw i64 1024, %.1.i24
-  %45 = tail call i64 @llvm.umin.i64(i64 %.02125.i22, i64 %44)
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 %.1.i24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 1 dereferenceable(1) %.026.i21, i64 %45, i1 false)
-  %47 = add nuw nsw i64 %45, %.1.i24
-  %48 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 %45
-  %49 = sub i64 %.02125.i22, %45
-  %.not.i25 = icmp eq i64 %49, 0
-  br i1 %.not.i25, label %AppendJumble.exit27, label %.lr.ph.i20, !llvm.loop !7
-
-AppendJumble.exit27:                              ; preds = %43
-  store i64 %47, ptr %5, align 8
+AppendJumble.exit27:                              ; preds = %.lr.ph.i20, %39
+  %.1.i24 = phi i64 [ 8, %39 ], [ %36, %.lr.ph.i20 ]
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 %.1.i24
+  %43 = load i8, ptr %41, align 1
+  store i8 %43, ptr %42, align 1
+  %44 = add nuw nsw i64 %.1.i24, 1
+  store i64 %44, ptr %5, align 8
   ret void
 }
 
@@ -19766,74 +18205,48 @@ AppendJumble.exit:                                ; preds = %16, %7
   %38 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %35
   %39 = sub i64 %.02125.i19, %35
   %.not.i22 = icmp eq i64 %39, 0
-  br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
+  br i1 %.not.i22, label %.lr.ph.i25, label %.lr.ph.i17, !llvm.loop !7
 
-AppendJumble.exit24:                              ; preds = %33
+.lr.ph.i25:                                       ; preds = %33
   store i64 %37, ptr %28, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %41 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i25
-
-.lr.ph.i25:                                       ; preds = %45, %AppendJumble.exit24
-  %.026.i26 = phi ptr [ %50, %45 ], [ %40, %AppendJumble.exit24 ]
-  %.02125.i27 = phi i64 [ %51, %45 ], [ 1, %AppendJumble.exit24 ]
-  %.02224.i28 = phi i64 [ %49, %45 ], [ %37, %AppendJumble.exit24 ]
-  %42 = icmp ugt i64 %.02224.i28, 1023
-  br i1 %42, label %43, label %45
+  %42 = icmp samesign ugt i64 %37, 1023
+  br i1 %42, label %43, label %.lr.ph.i33
 
 43:                                               ; preds = %.lr.ph.i25
   %44 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
   store i64 %44, ptr %41, align 1
-  br label %45
-
-45:                                               ; preds = %43, %.lr.ph.i25
-  %.1.i29 = phi i64 [ 8, %43 ], [ %.02224.i28, %.lr.ph.i25 ]
-  %46 = sub nuw nsw i64 1024, %.1.i29
-  %47 = tail call i64 @llvm.umin.i64(i64 %.02125.i27, i64 %46)
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 %.1.i29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr noundef nonnull align 1 dereferenceable(1) %.026.i26, i64 %47, i1 false)
-  %49 = add nuw nsw i64 %47, %.1.i29
-  %50 = getelementptr inbounds nuw i8, ptr %.026.i26, i64 %47
-  %51 = sub i64 %.02125.i27, %47
-  %.not.i30 = icmp eq i64 %51, 0
-  br i1 %.not.i30, label %AppendJumble.exit32, label %.lr.ph.i25, !llvm.loop !7
-
-AppendJumble.exit32:                              ; preds = %45
-  store i64 %49, ptr %28, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %53 = load ptr, ptr %52, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %53)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %55 = load ptr, ptr %0, align 8
-  %56 = load i64, ptr %28, align 8
   br label %.lr.ph.i33
 
-.lr.ph.i33:                                       ; preds = %60, %AppendJumble.exit32
-  %.026.i34 = phi ptr [ %65, %60 ], [ %54, %AppendJumble.exit32 ]
-  %.02125.i35 = phi i64 [ %66, %60 ], [ 1, %AppendJumble.exit32 ]
-  %.02224.i36 = phi i64 [ %64, %60 ], [ %56, %AppendJumble.exit32 ]
-  %57 = icmp ugt i64 %.02224.i36, 1023
-  br i1 %57, label %58, label %60
+.lr.ph.i33:                                       ; preds = %43, %.lr.ph.i25
+  %.1.i29 = phi i64 [ 8, %43 ], [ %37, %.lr.ph.i25 ]
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 %.1.i29
+  %46 = load i8, ptr %40, align 1
+  store i8 %46, ptr %45, align 1
+  %47 = add nuw nsw i64 %.1.i29, 1
+  store i64 %47, ptr %28, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %49 = load ptr, ptr %48, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %49)
+  %50 = load ptr, ptr %0, align 8
+  %51 = load i64, ptr %28, align 8
+  %52 = icmp ugt i64 %51, 1023
+  br i1 %52, label %53, label %AppendJumble.exit40
 
-58:                                               ; preds = %.lr.ph.i33
-  %59 = tail call i64 @hash_bytes_extended(ptr noundef %55, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %59, ptr %55, align 1
-  br label %60
+53:                                               ; preds = %.lr.ph.i33
+  %54 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %54, ptr %50, align 1
+  br label %AppendJumble.exit40
 
-60:                                               ; preds = %58, %.lr.ph.i33
-  %.1.i37 = phi i64 [ 8, %58 ], [ %.02224.i36, %.lr.ph.i33 ]
-  %61 = sub nuw nsw i64 1024, %.1.i37
-  %62 = tail call i64 @llvm.umin.i64(i64 %.02125.i35, i64 %61)
-  %63 = getelementptr inbounds nuw i8, ptr %55, i64 %.1.i37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 1 dereferenceable(1) %.026.i34, i64 %62, i1 false)
-  %64 = add nuw nsw i64 %62, %.1.i37
-  %65 = getelementptr inbounds nuw i8, ptr %.026.i34, i64 %62
-  %66 = sub i64 %.02125.i35, %62
-  %.not.i38 = icmp eq i64 %66, 0
-  br i1 %.not.i38, label %AppendJumble.exit40, label %.lr.ph.i33, !llvm.loop !7
-
-AppendJumble.exit40:                              ; preds = %60
-  store i64 %64, ptr %28, align 8
+AppendJumble.exit40:                              ; preds = %.lr.ph.i33, %53
+  %.1.i37 = phi i64 [ 8, %53 ], [ %51, %.lr.ph.i33 ]
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 %.1.i37
+  %57 = load i8, ptr %55, align 1
+  store i8 %57, ptr %56, align 1
+  %58 = add nuw nsw i64 %.1.i37, 1
+  store i64 %58, ptr %28, align 8
   ret void
 }
 
@@ -20054,9 +18467,9 @@ define internal fastcc void @_jumbleTransactionStmt(ptr noundef %0, ptr noundef 
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i9:                                        ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -20064,82 +18477,69 @@ AppendJumble.exit:                                ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %0, align 8
   %21 = load i64, ptr %5, align 8
-  br label %.lr.ph.i9
-
-.lr.ph.i9:                                        ; preds = %25, %AppendJumble.exit
-  %.026.i10 = phi ptr [ %30, %25 ], [ %19, %AppendJumble.exit ]
-  %.02125.i11 = phi i64 [ %31, %25 ], [ 1, %AppendJumble.exit ]
-  %.02224.i12 = phi i64 [ %29, %25 ], [ %21, %AppendJumble.exit ]
-  %22 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %22, label %23, label %25
+  %22 = icmp ugt i64 %21, 1023
+  br i1 %22, label %23, label %AppendJumble.exit15
 
 23:                                               ; preds = %.lr.ph.i9
   %24 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
   store i64 %24, ptr %20, align 1
-  br label %25
+  br label %AppendJumble.exit15
 
-25:                                               ; preds = %23, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %23 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %26 = sub nuw nsw i64 1024, %.1.i13
-  %27 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %26)
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %27, i1 false)
-  %29 = add nuw nsw i64 %27, %.1.i13
-  %30 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %27
-  %31 = sub i64 %.02125.i11, %27
-  %.not.i14 = icmp eq i64 %31, 0
-  br i1 %.not.i14, label %AppendJumble.exit15, label %.lr.ph.i9, !llvm.loop !7
+AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %23
+  %.1.i13 = phi i64 [ 8, %23 ], [ %21, %.lr.ph.i9 ]
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.1.i13
+  %26 = load i8, ptr %19, align 1
+  store i8 %26, ptr %25, align 1
+  %27 = add nuw nsw i64 %.1.i13, 1
+  store i64 %27, ptr %5, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %31, label %RecordConstLocation.exit
 
-AppendJumble.exit15:                              ; preds = %25
-  store i64 %29, ptr %5, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
+31:                                               ; preds = %AppendJumble.exit15
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4
-  %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %35, label %RecordConstLocation.exit
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = load i32, ptr %34, align 8
+  %.not.i16 = icmp slt i32 %33, %35
+  br i1 %.not.i16, label %._crit_edge.i, label %36
 
-35:                                               ; preds = %AppendJumble.exit15
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load i32, ptr %38, align 8
-  %.not.i16 = icmp slt i32 %37, %39
-  br i1 %.not.i16, label %._crit_edge.i, label %40
-
-._crit_edge.i:                                    ; preds = %35
+._crit_edge.i:                                    ; preds = %31
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %47
+  br label %43
 
-40:                                               ; preds = %35
-  %41 = shl i32 %39, 1
-  store i32 %41, ptr %38, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %41 to i64
-  %45 = shl nsw i64 %44, 3
-  %46 = tail call ptr @repalloc(ptr noundef %43, i64 noundef %45) #9
-  store ptr %46, ptr %42, align 8
-  %.pre13.i = load i32, ptr %36, align 4
-  br label %47
+36:                                               ; preds = %31
+  %37 = shl i32 %35, 1
+  store i32 %37, ptr %34, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = sext i32 %37 to i64
+  %41 = shl nsw i64 %40, 3
+  %42 = tail call ptr @repalloc(ptr noundef %39, i64 noundef %41) #9
+  store ptr %42, ptr %38, align 8
+  %.pre13.i = load i32, ptr %32, align 4
+  br label %43
 
-47:                                               ; preds = %40, %._crit_edge.i
-  %48 = phi i32 [ %37, %._crit_edge.i ], [ %.pre13.i, %40 ]
-  %49 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %46, %40 ]
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = sext i32 %48 to i64
-  %52 = getelementptr inbounds %struct.LocationLen, ptr %49, i64 %51
-  store i32 %33, ptr %52, align 4
-  %53 = load ptr, ptr %50, align 8
-  %54 = load i32, ptr %36, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.LocationLen, ptr %53, i64 %55, i32 1
-  store i32 -1, ptr %56, align 4
-  %57 = load i32, ptr %36, align 4
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %36, align 4
+43:                                               ; preds = %36, %._crit_edge.i
+  %44 = phi i32 [ %33, %._crit_edge.i ], [ %.pre13.i, %36 ]
+  %45 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %42, %36 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = sext i32 %44 to i64
+  %48 = getelementptr inbounds %struct.LocationLen, ptr %45, i64 %47
+  store i32 %29, ptr %48, align 4
+  %49 = load ptr, ptr %46, align 8
+  %50 = load i32, ptr %32, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds %struct.LocationLen, ptr %49, i64 %51, i32 1
+  store i32 -1, ptr %52, align 4
+  %53 = load i32, ptr %32, align 4
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %32, align 4
   br label %RecordConstLocation.exit
 
-RecordConstLocation.exit:                         ; preds = %AppendJumble.exit15, %47
+RecordConstLocation.exit:                         ; preds = %AppendJumble.exit15, %43
   ret void
 }
 
@@ -20288,7 +18688,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
 ._crit_edge:                                      ; preds = %40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre66 = load i64, ptr %.phi.trans.insert, align 8
-  br label %58
+  br label %.lr.ph.i41
 
 43:                                               ; preds = %40
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #8
@@ -20330,151 +18730,118 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   %.pre = phi ptr [ %.pre65, %43 ], [ %.pre.pre, %AppendJumble.exit40.loopexit ]
   %.022.lcssa.i39 = phi i64 [ %47, %43 ], [ %55, %AppendJumble.exit40.loopexit ]
   store i64 %.022.lcssa.i39, ptr %46, align 8
-  br label %58
-
-58:                                               ; preds = %._crit_edge, %AppendJumble.exit40
-  %59 = phi i64 [ %.022.lcssa.i39, %AppendJumble.exit40 ], [ %.pre66, %._crit_edge ]
-  %60 = phi ptr [ %.pre, %AppendJumble.exit40 ], [ %.pre65, %._crit_edge ]
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i41
 
-.lr.ph.i41:                                       ; preds = %66, %58
-  %.026.i42 = phi ptr [ %71, %66 ], [ %61, %58 ]
-  %.02125.i43 = phi i64 [ %72, %66 ], [ 1, %58 ]
-  %.02224.i44 = phi i64 [ %70, %66 ], [ %59, %58 ]
-  %63 = icmp ugt i64 %.02224.i44, 1023
-  br i1 %63, label %64, label %66
+.lr.ph.i41:                                       ; preds = %AppendJumble.exit40, %._crit_edge
+  %58 = phi i64 [ %.022.lcssa.i39, %AppendJumble.exit40 ], [ %.pre66, %._crit_edge ]
+  %59 = phi ptr [ %.pre, %AppendJumble.exit40 ], [ %.pre65, %._crit_edge ]
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %62 = icmp ugt i64 %58, 1023
+  br i1 %62, label %.lr.ph.i49.thread, label %.lr.ph.i49
 
-64:                                               ; preds = %.lr.ph.i41
-  %65 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %65, ptr %60, align 1
-  br label %66
+.lr.ph.i49.thread:                                ; preds = %.lr.ph.i41
+  %63 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %63, ptr %59, align 1
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %65 = load i8, ptr %60, align 1
+  store i8 %65, ptr %64, align 1
+  store i64 9, ptr %61, align 8
+  %66 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit56
 
-66:                                               ; preds = %64, %.lr.ph.i41
-  %.1.i45 = phi i64 [ 8, %64 ], [ %.02224.i44, %.lr.ph.i41 ]
-  %67 = sub nuw nsw i64 1024, %.1.i45
-  %68 = tail call i64 @llvm.umin.i64(i64 %.02125.i43, i64 %67)
-  %69 = getelementptr inbounds nuw i8, ptr %60, i64 %.1.i45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr noundef nonnull align 1 dereferenceable(1) %.026.i42, i64 %68, i1 false)
-  %70 = add nuw nsw i64 %68, %.1.i45
-  %71 = getelementptr inbounds nuw i8, ptr %.026.i42, i64 %68
-  %72 = sub i64 %.02125.i43, %68
-  %.not.i46 = icmp eq i64 %72, 0
-  br i1 %.not.i46, label %AppendJumble.exit48, label %.lr.ph.i41, !llvm.loop !7
+.lr.ph.i49:                                       ; preds = %.lr.ph.i41
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 %58
+  %68 = load i8, ptr %60, align 1
+  store i8 %68, ptr %67, align 1
+  %69 = add nuw nsw i64 %58, 1
+  store i64 %69, ptr %61, align 8
+  %70 = load ptr, ptr %0, align 8
+  %71 = icmp eq i64 %58, 1023
+  br i1 %71, label %72, label %AppendJumble.exit56
 
-AppendJumble.exit48:                              ; preds = %66
-  store i64 %70, ptr %62, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %74 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i49
+72:                                               ; preds = %.lr.ph.i49
+  %73 = tail call i64 @hash_bytes_extended(ptr noundef %70, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %73, ptr %70, align 1
+  br label %AppendJumble.exit56
 
-.lr.ph.i49:                                       ; preds = %78, %AppendJumble.exit48
-  %.026.i50 = phi ptr [ %83, %78 ], [ %73, %AppendJumble.exit48 ]
-  %.02125.i51 = phi i64 [ %84, %78 ], [ 1, %AppendJumble.exit48 ]
-  %.02224.i52 = phi i64 [ %82, %78 ], [ %70, %AppendJumble.exit48 ]
-  %75 = icmp ugt i64 %.02224.i52, 1023
-  br i1 %75, label %76, label %78
-
-76:                                               ; preds = %.lr.ph.i49
-  %77 = tail call i64 @hash_bytes_extended(ptr noundef %74, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %77, ptr %74, align 1
-  br label %78
-
-78:                                               ; preds = %76, %.lr.ph.i49
-  %.1.i53 = phi i64 [ 8, %76 ], [ %.02224.i52, %.lr.ph.i49 ]
-  %79 = sub nuw nsw i64 1024, %.1.i53
-  %80 = tail call i64 @llvm.umin.i64(i64 %.02125.i51, i64 %79)
-  %81 = getelementptr inbounds nuw i8, ptr %74, i64 %.1.i53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 1 dereferenceable(1) %.026.i50, i64 %80, i1 false)
-  %82 = add nuw nsw i64 %80, %.1.i53
-  %83 = getelementptr inbounds nuw i8, ptr %.026.i50, i64 %80
-  %84 = sub i64 %.02125.i51, %80
-  %.not.i54 = icmp eq i64 %84, 0
-  br i1 %.not.i54, label %AppendJumble.exit56, label %.lr.ph.i49, !llvm.loop !7
-
-AppendJumble.exit56:                              ; preds = %78
-  store i64 %82, ptr %62, align 8
+AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %72, %.lr.ph.i49.thread
+  %74 = phi ptr [ %70, %72 ], [ %70, %.lr.ph.i49 ], [ %66, %.lr.ph.i49.thread ]
+  %.1.i53 = phi i64 [ 8, %72 ], [ %69, %.lr.ph.i49 ], [ 9, %.lr.ph.i49.thread ]
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %.1.i53
+  %77 = load i8, ptr %75, align 1
+  store i8 %77, ptr %76, align 1
+  %78 = add nuw nsw i64 %.1.i53, 1
+  store i64 %78, ptr %61, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleViewStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %8)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = load ptr, ptr %6, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %7)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = load ptr, ptr %0, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = icmp ugt i64 %11, 1023
+  br i1 %12, label %13, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %16, %2
-  %.026.i = phi ptr [ %21, %16 ], [ %9, %2 ]
-  %.02125.i = phi i64 [ %22, %16 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %20, %16 ], [ %12, %2 ]
-  %13 = icmp ugt i64 %.02224.i, 1023
-  br i1 %13, label %14, label %16
+13:                                               ; preds = %.lr.ph.i
+  %14 = tail call i64 @hash_bytes_extended(ptr noundef %9, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %14, ptr %9, align 1
+  br label %AppendJumble.exit
 
-14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %15, ptr %10, align 1
-  br label %16
-
-16:                                               ; preds = %14, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %14 ], [ %.02224.i, %.lr.ph.i ]
-  %17 = sub nuw nsw i64 1024, %.1.i
-  %18 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %17)
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %18, i1 false)
-  %20 = add nuw nsw i64 %18, %.1.i
-  %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
-  %22 = sub i64 %.02125.i, %18
-  %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %16
-  store i64 %20, ptr %11, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load ptr, ptr %23, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %26 = load ptr, ptr %0, align 8
-  %27 = load i64, ptr %11, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %13
+  %.1.i = phi i64 [ 8, %13 ], [ %11, %.lr.ph.i ]
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %.1.i
+  %16 = load i8, ptr %8, align 1
+  store i8 %16, ptr %15, align 1
+  %17 = add nuw nsw i64 %.1.i, 1
+  store i64 %17, ptr %10, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %19 = load ptr, ptr %18, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %19)
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %21 = load ptr, ptr %0, align 8
+  %22 = load i64, ptr %10, align 8
   br label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %31, %AppendJumble.exit
-  %.026.i14 = phi ptr [ %36, %31 ], [ %25, %AppendJumble.exit ]
-  %.02125.i15 = phi i64 [ %37, %31 ], [ 4, %AppendJumble.exit ]
-  %.02224.i16 = phi i64 [ %35, %31 ], [ %27, %AppendJumble.exit ]
-  %28 = icmp ugt i64 %.02224.i16, 1023
-  br i1 %28, label %29, label %31
+.lr.ph.i13:                                       ; preds = %26, %AppendJumble.exit
+  %.026.i14 = phi ptr [ %31, %26 ], [ %20, %AppendJumble.exit ]
+  %.02125.i15 = phi i64 [ %32, %26 ], [ 4, %AppendJumble.exit ]
+  %.02224.i16 = phi i64 [ %30, %26 ], [ %22, %AppendJumble.exit ]
+  %23 = icmp ugt i64 %.02224.i16, 1023
+  br i1 %23, label %24, label %26
 
-29:                                               ; preds = %.lr.ph.i13
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %30, ptr %26, align 1
-  br label %31
+24:                                               ; preds = %.lr.ph.i13
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %25, ptr %21, align 1
+  br label %26
 
-31:                                               ; preds = %29, %.lr.ph.i13
-  %.1.i17 = phi i64 [ 8, %29 ], [ %.02224.i16, %.lr.ph.i13 ]
-  %32 = sub nuw nsw i64 1024, %.1.i17
-  %33 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %32)
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 %.1.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %33, i1 false)
-  %35 = add nuw nsw i64 %33, %.1.i17
-  %36 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %33
-  %37 = sub i64 %.02125.i15, %33
-  %.not.i18 = icmp eq i64 %37, 0
+26:                                               ; preds = %24, %.lr.ph.i13
+  %.1.i17 = phi i64 [ 8, %24 ], [ %.02224.i16, %.lr.ph.i13 ]
+  %27 = sub nuw nsw i64 1024, %.1.i17
+  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %27)
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %28, i1 false)
+  %30 = add nuw nsw i64 %28, %.1.i17
+  %31 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %28
+  %32 = sub i64 %.02125.i15, %28
+  %.not.i18 = icmp eq i64 %32, 0
   br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
 
-AppendJumble.exit19:                              ; preds = %31
-  store i64 %35, ptr %11, align 8
+AppendJumble.exit19:                              ; preds = %26
+  store i64 %30, ptr %10, align 8
   ret void
 }
 
@@ -20739,7 +19106,7 @@ define internal fastcc void @_jumbleDropdbStmt(ptr noundef %0, ptr noundef nonnu
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre20 = load i64, ptr %.phi.trans.insert, align 8
-  br label %20
+  br label %.lr.ph.i9
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -20781,44 +19148,31 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre19, %5 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %9, %5 ], [ %17, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %8, align 8
-  br label %20
-
-20:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %21 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre20, %._crit_edge ]
-  %22 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre19, %._crit_edge ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %27, %20
-  %.026.i10 = phi ptr [ %32, %27 ], [ %23, %20 ]
-  %.02125.i11 = phi i64 [ %33, %27 ], [ 1, %20 ]
-  %.02224.i12 = phi i64 [ %31, %27 ], [ %21, %20 ]
-  %24 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %24, label %25, label %27
+.lr.ph.i9:                                        ; preds = %AppendJumble.exit, %._crit_edge
+  %20 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre20, %._crit_edge ]
+  %21 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre19, %._crit_edge ]
+  %22 = icmp ugt i64 %20, 1023
+  br i1 %22, label %23, label %AppendJumble.exit16
 
-25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %26, ptr %22, align 1
-  br label %27
+23:                                               ; preds = %.lr.ph.i9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %24, ptr %21, align 1
+  br label %AppendJumble.exit16
 
-27:                                               ; preds = %25, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %25 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %28 = sub nuw nsw i64 1024, %.1.i13
-  %29 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %28)
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %29, i1 false)
-  %31 = add nuw nsw i64 %29, %.1.i13
-  %32 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %29
-  %33 = sub i64 %.02125.i11, %29
-  %.not.i14 = icmp eq i64 %33, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit16:                              ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load ptr, ptr %35, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %36)
+AppendJumble.exit16:                              ; preds = %.lr.ph.i9, %23
+  %.1.i13 = phi i64 [ 8, %23 ], [ %20, %.lr.ph.i9 ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i13
+  %27 = load i8, ptr %25, align 1
+  store i8 %27, ptr %26, align 1
+  %28 = add nuw nsw i64 %.1.i13, 1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %28, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = load ptr, ptr %30, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %31)
   ret void
 }
 
@@ -20879,44 +19233,32 @@ AppendJumble.exit:                                ; preds = %16, %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleVacuumStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %6)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %5)
+  %6 = load ptr, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp ugt i64 %8, 1023
+  br i1 %9, label %10, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %14, %2
-  %.026.i = phi ptr [ %19, %14 ], [ %7, %2 ]
-  %.02125.i = phi i64 [ %20, %14 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %18, %14 ], [ %10, %2 ]
-  %11 = icmp ugt i64 %.02224.i, 1023
-  br i1 %11, label %12, label %14
+10:                                               ; preds = %.lr.ph.i
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %11, ptr %6, align 1
+  br label %AppendJumble.exit
 
-12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %13, ptr %8, align 1
-  br label %14
-
-14:                                               ; preds = %12, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %12 ], [ %.02224.i, %.lr.ph.i ]
-  %15 = sub nuw nsw i64 1024, %.1.i
-  %16 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %15)
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %16, i1 false)
-  %18 = add nuw nsw i64 %16, %.1.i
-  %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
-  %20 = sub i64 %.02125.i, %16
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %14
-  store i64 %18, ptr %9, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %10
+  %.1.i = phi i64 [ 8, %10 ], [ %8, %.lr.ph.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
+  %14 = load i8, ptr %12, align 1
+  store i8 %14, ptr %13, align 1
+  %15 = add nuw nsw i64 %.1.i, 1
+  store i64 %15, ptr %7, align 8
   ret void
 }
 
@@ -21010,140 +19352,99 @@ define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %16
   %20 = sub i64 %.02125.i, %16
   %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i11, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %14
+.lr.ph.i11:                                       ; preds = %14
   store i64 %18, ptr %9, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i11
+  %23 = icmp samesign ugt i64 %18, 1023
+  br i1 %23, label %.lr.ph.i18.thread, label %.lr.ph.i18
 
-.lr.ph.i11:                                       ; preds = %26, %AppendJumble.exit
-  %.026.i12 = phi ptr [ %31, %26 ], [ %21, %AppendJumble.exit ]
-  %.02125.i13 = phi i64 [ %32, %26 ], [ 1, %AppendJumble.exit ]
-  %.02224.i14 = phi i64 [ %30, %26 ], [ %18, %AppendJumble.exit ]
-  %23 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %23, label %24, label %26
+.lr.ph.i18.thread:                                ; preds = %.lr.ph.i11
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %24, ptr %22, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = load i8, ptr %21, align 1
+  store i8 %26, ptr %25, align 1
+  store i64 9, ptr %9, align 8
+  %27 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit24
 
-24:                                               ; preds = %.lr.ph.i11
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %25, ptr %22, align 1
-  br label %26
-
-26:                                               ; preds = %24, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %24 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %27 = sub nuw nsw i64 1024, %.1.i15
-  %28 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %27)
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %28, i1 false)
-  %30 = add nuw nsw i64 %28, %.1.i15
-  %31 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %28
-  %32 = sub i64 %.02125.i13, %28
-  %.not.i16 = icmp eq i64 %32, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
-
-AppendJumble.exit17:                              ; preds = %26
+.lr.ph.i18:                                       ; preds = %.lr.ph.i11
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %18
+  %29 = load i8, ptr %21, align 1
+  store i8 %29, ptr %28, align 1
+  %30 = add nuw nsw i64 %18, 1
   store i64 %30, ptr %9, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %34 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i18
+  %31 = load ptr, ptr %0, align 8
+  %32 = icmp eq i64 %18, 1023
+  br i1 %32, label %33, label %AppendJumble.exit24
 
-.lr.ph.i18:                                       ; preds = %38, %AppendJumble.exit17
-  %.026.i19 = phi ptr [ %43, %38 ], [ %33, %AppendJumble.exit17 ]
-  %.02125.i20 = phi i64 [ %44, %38 ], [ 1, %AppendJumble.exit17 ]
-  %.02224.i21 = phi i64 [ %42, %38 ], [ %30, %AppendJumble.exit17 ]
-  %35 = icmp ugt i64 %.02224.i21, 1023
-  br i1 %35, label %36, label %38
+33:                                               ; preds = %.lr.ph.i18
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %34, ptr %31, align 1
+  br label %AppendJumble.exit24
 
-36:                                               ; preds = %.lr.ph.i18
-  %37 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %37, ptr %34, align 1
-  br label %38
-
-38:                                               ; preds = %36, %.lr.ph.i18
-  %.1.i22 = phi i64 [ 8, %36 ], [ %.02224.i21, %.lr.ph.i18 ]
-  %39 = sub nuw nsw i64 1024, %.1.i22
-  %40 = tail call i64 @llvm.umin.i64(i64 %.02125.i20, i64 %39)
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %.1.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 1 dereferenceable(1) %.026.i19, i64 %40, i1 false)
-  %42 = add nuw nsw i64 %40, %.1.i22
-  %43 = getelementptr inbounds nuw i8, ptr %.026.i19, i64 %40
-  %44 = sub i64 %.02125.i20, %40
-  %.not.i23 = icmp eq i64 %44, 0
-  br i1 %.not.i23, label %AppendJumble.exit24, label %.lr.ph.i18, !llvm.loop !7
-
-AppendJumble.exit24:                              ; preds = %38
-  store i64 %42, ptr %9, align 8
+AppendJumble.exit24:                              ; preds = %.lr.ph.i18, %33, %.lr.ph.i18.thread
+  %35 = phi ptr [ %31, %33 ], [ %31, %.lr.ph.i18 ], [ %27, %.lr.ph.i18.thread ]
+  %.1.i22 = phi i64 [ 8, %33 ], [ %30, %.lr.ph.i18 ], [ 9, %.lr.ph.i18.thread ]
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 %.1.i22
+  %38 = load i8, ptr %36, align 1
+  store i8 %38, ptr %37, align 1
+  %39 = add nuw nsw i64 %.1.i22, 1
+  store i64 %39, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleRefreshMatViewStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %.lr.ph.i7.thread, label %.lr.ph.i7
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+.lr.ph.i7.thread:                                 ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %3, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load i8, ptr %2, align 1
+  store i8 %9, ptr %8, align 1
+  store i64 9, ptr %4, align 8
+  %10 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit13
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+.lr.ph.i7:                                        ; preds = %.lr.ph.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %5
+  %12 = load i8, ptr %2, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %5, 1
+  store i64 %13, ptr %4, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = icmp eq i64 %5, 1023
+  br i1 %15, label %16, label %AppendJumble.exit13
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+16:                                               ; preds = %.lr.ph.i7
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %17, ptr %14, align 1
+  br label %AppendJumble.exit13
 
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %18 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i7
-
-.lr.ph.i7:                                        ; preds = %22, %AppendJumble.exit
-  %.026.i8 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
-  %.02125.i9 = phi i64 [ %28, %22 ], [ 1, %AppendJumble.exit ]
-  %.02224.i10 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %19, label %20, label %22
-
-20:                                               ; preds = %.lr.ph.i7
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %21, ptr %18, align 1
-  br label %22
-
-22:                                               ; preds = %20, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %20 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %23 = sub nuw nsw i64 1024, %.1.i11
-  %24 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %23)
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %24, i1 false)
-  %26 = add nuw nsw i64 %24, %.1.i11
-  %27 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %24
-  %28 = sub i64 %.02125.i9, %24
-  %.not.i12 = icmp eq i64 %28, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
-
-AppendJumble.exit13:                              ; preds = %22
-  store i64 %26, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %30)
+AppendJumble.exit13:                              ; preds = %.lr.ph.i7, %16, %.lr.ph.i7.thread
+  %18 = phi ptr [ %14, %16 ], [ %14, %.lr.ph.i7 ], [ %10, %.lr.ph.i7.thread ]
+  %.1.i11 = phi i64 [ 8, %16 ], [ %13, %.lr.ph.i7 ], [ 9, %.lr.ph.i7.thread ]
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.1.i11
+  %21 = load i8, ptr %19, align 1
+  store i8 %21, ptr %20, align 1
+  %22 = add nuw nsw i64 %.1.i11, 1
+  store i64 %22, ptr %4, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %24)
   ret void
 }
 
@@ -21217,80 +19518,55 @@ define internal fastcc void @_jumbleLockStmt(ptr noundef %0, ptr noundef nonnull
   %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
   %18 = sub i64 %.02125.i, %14
   %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i7, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %12
+.lr.ph.i7:                                        ; preds = %12
   store i64 %16, ptr %7, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %20 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i7
+  %19 = load ptr, ptr %0, align 8
+  %20 = icmp samesign ugt i64 %16, 1023
+  br i1 %20, label %21, label %AppendJumble.exit13
 
-.lr.ph.i7:                                        ; preds = %24, %AppendJumble.exit
-  %.026.i8 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
-  %.02125.i9 = phi i64 [ %30, %24 ], [ 1, %AppendJumble.exit ]
-  %.02224.i10 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i10, 1023
-  br i1 %21, label %22, label %24
+21:                                               ; preds = %.lr.ph.i7
+  %22 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %22, ptr %19, align 1
+  br label %AppendJumble.exit13
 
-22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %23, ptr %20, align 1
-  br label %24
-
-24:                                               ; preds = %22, %.lr.ph.i7
-  %.1.i11 = phi i64 [ 8, %22 ], [ %.02224.i10, %.lr.ph.i7 ]
-  %25 = sub nuw nsw i64 1024, %.1.i11
-  %26 = tail call i64 @llvm.umin.i64(i64 %.02125.i9, i64 %25)
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %.1.i11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 1 dereferenceable(1) %.026.i8, i64 %26, i1 false)
-  %28 = add nuw nsw i64 %26, %.1.i11
-  %29 = getelementptr inbounds nuw i8, ptr %.026.i8, i64 %26
-  %30 = sub i64 %.02125.i9, %26
-  %.not.i12 = icmp eq i64 %30, 0
-  br i1 %.not.i12, label %AppendJumble.exit13, label %.lr.ph.i7, !llvm.loop !7
-
-AppendJumble.exit13:                              ; preds = %24
-  store i64 %28, ptr %7, align 8
+AppendJumble.exit13:                              ; preds = %.lr.ph.i7, %21
+  %.1.i11 = phi i64 [ 8, %21 ], [ %16, %.lr.ph.i7 ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %.1.i11
+  %25 = load i8, ptr %23, align 1
+  store i8 %25, ptr %24, align 1
+  %26 = add nuw nsw i64 %.1.i11, 1
+  store i64 %26, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleConstraintsSetStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %3)
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp ugt i64 %6, 1023
+  br i1 %7, label %8, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %12, %2
-  %.026.i = phi ptr [ %17, %12 ], [ %5, %2 ]
-  %.02125.i = phi i64 [ %18, %12 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %16, %12 ], [ %8, %2 ]
-  %9 = icmp ugt i64 %.02224.i, 1023
-  br i1 %9, label %10, label %12
+8:                                                ; preds = %.lr.ph.i
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %9, ptr %4, align 1
+  br label %AppendJumble.exit
 
-10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %11, ptr %6, align 1
-  br label %12
-
-12:                                               ; preds = %10, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %10 ], [ %.02224.i, %.lr.ph.i ]
-  %13 = sub nuw nsw i64 1024, %.1.i
-  %14 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %13)
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %14, i1 false)
-  %16 = add nuw nsw i64 %14, %.1.i
-  %17 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %14
-  %18 = sub i64 %.02125.i, %14
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %12
-  store i64 %16, ptr %7, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %8
+  %.1.i = phi i64 [ 8, %8 ], [ %6, %.lr.ph.i ]
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
+  %12 = load i8, ptr %10, align 1
+  store i8 %12, ptr %11, align 1
+  %13 = add nuw nsw i64 %.1.i, 1
+  store i64 %13, ptr %5, align 8
   ret void
 }
 
@@ -21432,7 +19708,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not16 = icmp eq ptr %25, null
-  br i1 %.not16, label %42, label %26
+  br i1 %.not16, label %.lr.ph.i26, label %26
 
 26:                                               ; preds = %23
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
@@ -21470,44 +19746,31 @@ AppendJumble.exit:                                ; preds = %16, %7
 AppendJumble.exit25:                              ; preds = %35, %26
   %.022.lcssa.i24 = phi i64 [ %31, %26 ], [ %39, %35 ]
   store i64 %.022.lcssa.i24, ptr %30, align 8
-  br label %42
-
-42:                                               ; preds = %AppendJumble.exit25, %23
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %44 = load ptr, ptr %43, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %44)
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load i64, ptr %47, align 8
   br label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %52, %42
-  %.026.i27 = phi ptr [ %57, %52 ], [ %45, %42 ]
-  %.02125.i28 = phi i64 [ %58, %52 ], [ 1, %42 ]
-  %.02224.i29 = phi i64 [ %56, %52 ], [ %48, %42 ]
-  %49 = icmp ugt i64 %.02224.i29, 1023
-  br i1 %49, label %50, label %52
+.lr.ph.i26:                                       ; preds = %23, %AppendJumble.exit25
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %43 = load ptr, ptr %42, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %43)
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load i64, ptr %45, align 8
+  %47 = icmp ugt i64 %46, 1023
+  br i1 %47, label %48, label %AppendJumble.exit33
 
-50:                                               ; preds = %.lr.ph.i26
-  %51 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %51, ptr %46, align 1
-  br label %52
+48:                                               ; preds = %.lr.ph.i26
+  %49 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %49, ptr %44, align 1
+  br label %AppendJumble.exit33
 
-52:                                               ; preds = %50, %.lr.ph.i26
-  %.1.i30 = phi i64 [ 8, %50 ], [ %.02224.i29, %.lr.ph.i26 ]
-  %53 = sub nuw nsw i64 1024, %.1.i30
-  %54 = tail call i64 @llvm.umin.i64(i64 %.02125.i28, i64 %53)
-  %55 = getelementptr inbounds nuw i8, ptr %46, i64 %.1.i30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %55, ptr noundef nonnull align 1 dereferenceable(1) %.026.i27, i64 %54, i1 false)
-  %56 = add nuw nsw i64 %54, %.1.i30
-  %57 = getelementptr inbounds nuw i8, ptr %.026.i27, i64 %54
-  %58 = sub i64 %.02125.i28, %54
-  %.not.i31 = icmp eq i64 %58, 0
-  br i1 %.not.i31, label %AppendJumble.exit33, label %.lr.ph.i26, !llvm.loop !7
-
-AppendJumble.exit33:                              ; preds = %52
-  store i64 %56, ptr %47, align 8
+AppendJumble.exit33:                              ; preds = %.lr.ph.i26, %48
+  %.1.i30 = phi i64 [ 8, %48 ], [ %46, %.lr.ph.i26 ]
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 %.1.i30
+  %52 = load i8, ptr %50, align 1
+  store i8 %52, ptr %51, align 1
+  %53 = add nuw nsw i64 %.1.i30, 1
+  store i64 %53, ptr %45, align 8
   ret void
 }
 
@@ -21550,129 +19813,104 @@ define internal fastcc void @_jumbleCreateCastStmt(ptr noundef %0, ptr noundef n
   %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %18
   %22 = sub i64 %.02125.i, %18
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i11, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %16
+.lr.ph.i11:                                       ; preds = %16
   store i64 %20, ptr %11, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %24 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i11
+  %23 = load ptr, ptr %0, align 8
+  %24 = icmp samesign ugt i64 %20, 1023
+  br i1 %24, label %25, label %AppendJumble.exit17
 
-.lr.ph.i11:                                       ; preds = %28, %AppendJumble.exit
-  %.026.i12 = phi ptr [ %33, %28 ], [ %23, %AppendJumble.exit ]
-  %.02125.i13 = phi i64 [ %34, %28 ], [ 1, %AppendJumble.exit ]
-  %.02224.i14 = phi i64 [ %32, %28 ], [ %20, %AppendJumble.exit ]
-  %25 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %25, label %26, label %28
+25:                                               ; preds = %.lr.ph.i11
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %26, ptr %23, align 1
+  br label %AppendJumble.exit17
 
-26:                                               ; preds = %.lr.ph.i11
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %27, ptr %24, align 1
-  br label %28
-
-28:                                               ; preds = %26, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %26 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %29 = sub nuw nsw i64 1024, %.1.i15
-  %30 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %29)
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %30, i1 false)
-  %32 = add nuw nsw i64 %30, %.1.i15
-  %33 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %30
-  %34 = sub i64 %.02125.i13, %30
-  %.not.i16 = icmp eq i64 %34, 0
-  br i1 %.not.i16, label %AppendJumble.exit17, label %.lr.ph.i11, !llvm.loop !7
-
-AppendJumble.exit17:                              ; preds = %28
-  store i64 %32, ptr %11, align 8
+AppendJumble.exit17:                              ; preds = %.lr.ph.i11, %25
+  %.1.i15 = phi i64 [ 8, %25 ], [ %20, %.lr.ph.i11 ]
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 %.1.i15
+  %29 = load i8, ptr %27, align 1
+  store i8 %29, ptr %28, align 1
+  %30 = add nuw nsw i64 %.1.i15, 1
+  store i64 %30, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleCreateTransformStmt(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %7, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %.lr.ph.i
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %8, ptr %3, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
+  %.1.i = phi i64 [ 8, %7 ], [ %5, %.lr.ph.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i
+  %10 = load i8, ptr %2, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %4, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %13)
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %31, label %16
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %18)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %36, label %21
-
-21:                                               ; preds = %AppendJumble.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
-  %23 = add i64 %22, 1
-  %24 = load ptr, ptr %0, align 8
-  %25 = load i64, ptr %5, align 8
-  %.not23.i = icmp eq i64 %23, 0
+16:                                               ; preds = %AppendJumble.exit
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #8
+  %18 = add i64 %17, 1
+  %19 = load ptr, ptr %0, align 8
+  %20 = load i64, ptr %4, align 8
+  %.not23.i = icmp eq i64 %18, 0
   br i1 %.not23.i, label %AppendJumble.exit19, label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %21, %29
-  %.026.i14 = phi ptr [ %34, %29 ], [ %20, %21 ]
-  %.02125.i15 = phi i64 [ %35, %29 ], [ %23, %21 ]
-  %.02224.i16 = phi i64 [ %33, %29 ], [ %25, %21 ]
-  %26 = icmp ugt i64 %.02224.i16, 1023
-  br i1 %26, label %27, label %29
+.lr.ph.i13:                                       ; preds = %16, %24
+  %.026.i14 = phi ptr [ %29, %24 ], [ %15, %16 ]
+  %.02125.i15 = phi i64 [ %30, %24 ], [ %18, %16 ]
+  %.02224.i16 = phi i64 [ %28, %24 ], [ %20, %16 ]
+  %21 = icmp ugt i64 %.02224.i16, 1023
+  br i1 %21, label %22, label %24
 
-27:                                               ; preds = %.lr.ph.i13
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %28, ptr %24, align 1
-  br label %29
+22:                                               ; preds = %.lr.ph.i13
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %23, ptr %19, align 1
+  br label %24
 
-29:                                               ; preds = %27, %.lr.ph.i13
-  %.1.i17 = phi i64 [ 8, %27 ], [ %.02224.i16, %.lr.ph.i13 ]
-  %30 = sub nuw nsw i64 1024, %.1.i17
-  %31 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %30)
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %31, i1 false)
-  %33 = add nuw nsw i64 %31, %.1.i17
-  %34 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %31
-  %35 = sub i64 %.02125.i15, %31
-  %.not.i18 = icmp eq i64 %35, 0
+24:                                               ; preds = %22, %.lr.ph.i13
+  %.1.i17 = phi i64 [ 8, %22 ], [ %.02224.i16, %.lr.ph.i13 ]
+  %25 = sub nuw nsw i64 1024, %.1.i17
+  %26 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %25)
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 %.1.i17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %26, i1 false)
+  %28 = add nuw nsw i64 %26, %.1.i17
+  %29 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %26
+  %30 = sub i64 %.02125.i15, %26
+  %.not.i18 = icmp eq i64 %30, 0
   br i1 %.not.i18, label %AppendJumble.exit19, label %.lr.ph.i13, !llvm.loop !7
 
-AppendJumble.exit19:                              ; preds = %29, %21
-  %.022.lcssa.i = phi i64 [ %25, %21 ], [ %33, %29 ]
-  store i64 %.022.lcssa.i, ptr %5, align 8
-  br label %36
+AppendJumble.exit19:                              ; preds = %24, %16
+  %.022.lcssa.i = phi i64 [ %20, %16 ], [ %28, %24 ]
+  store i64 %.022.lcssa.i, ptr %4, align 8
+  br label %31
 
-36:                                               ; preds = %AppendJumble.exit19, %AppendJumble.exit
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %38)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %40 = load ptr, ptr %39, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %40)
+31:                                               ; preds = %AppendJumble.exit19, %AppendJumble.exit
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load ptr, ptr %32, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %33)
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %35 = load ptr, ptr %34, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef nonnull %0, ptr noundef %35)
   ret void
 }
 
@@ -21785,86 +20023,74 @@ AppendJumble.exit:                                ; preds = %14, %5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleDeallocateStmt(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %3 = load ptr, ptr %0, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8
+  %6 = icmp ugt i64 %5, 1023
+  br i1 %6, label %7, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+7:                                                ; preds = %.lr.ph.i
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %8, ptr %3, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
+  %.1.i = phi i64 [ 8, %7 ], [ %5, %.lr.ph.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i
+  %10 = load i8, ptr %2, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %4, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp sgt i32 %13, -1
+  br i1 %14, label %15, label %RecordConstLocation.exit
 
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+15:                                               ; preds = %AppendJumble.exit
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %17 = load i32, ptr %16, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load i32, ptr %18, align 8
+  %.not.i5 = icmp slt i32 %17, %19
+  br i1 %.not.i5, label %._crit_edge.i, label %20
 
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %20, label %RecordConstLocation.exit
-
-20:                                               ; preds = %AppendJumble.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i32, ptr %23, align 8
-  %.not.i5 = icmp slt i32 %22, %24
-  br i1 %.not.i5, label %._crit_edge.i, label %25
-
-._crit_edge.i:                                    ; preds = %20
+._crit_edge.i:                                    ; preds = %15
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %32
+  br label %27
 
-25:                                               ; preds = %20
-  %26 = shl i32 %24, 1
-  store i32 %26, ptr %23, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = sext i32 %26 to i64
-  %30 = shl nsw i64 %29, 3
-  %31 = tail call ptr @repalloc(ptr noundef %28, i64 noundef %30) #9
-  store ptr %31, ptr %27, align 8
-  %.pre13.i = load i32, ptr %21, align 4
-  br label %32
+20:                                               ; preds = %15
+  %21 = shl i32 %19, 1
+  store i32 %21, ptr %18, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %24 = sext i32 %21 to i64
+  %25 = shl nsw i64 %24, 3
+  %26 = tail call ptr @repalloc(ptr noundef %23, i64 noundef %25) #9
+  store ptr %26, ptr %22, align 8
+  %.pre13.i = load i32, ptr %16, align 4
+  br label %27
 
-32:                                               ; preds = %25, %._crit_edge.i
-  %33 = phi i32 [ %22, %._crit_edge.i ], [ %.pre13.i, %25 ]
-  %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %31, %25 ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds %struct.LocationLen, ptr %34, i64 %36
-  store i32 %18, ptr %37, align 4
-  %38 = load ptr, ptr %35, align 8
-  %39 = load i32, ptr %21, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.LocationLen, ptr %38, i64 %40, i32 1
-  store i32 -1, ptr %41, align 4
-  %42 = load i32, ptr %21, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %21, align 4
+27:                                               ; preds = %20, %._crit_edge.i
+  %28 = phi i32 [ %17, %._crit_edge.i ], [ %.pre13.i, %20 ]
+  %29 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %26, %20 ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = sext i32 %28 to i64
+  %32 = getelementptr inbounds %struct.LocationLen, ptr %29, i64 %31
+  store i32 %13, ptr %32, align 4
+  %33 = load ptr, ptr %30, align 8
+  %34 = load i32, ptr %16, align 4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds %struct.LocationLen, ptr %33, i64 %35, i32 1
+  store i32 -1, ptr %36, align 4
+  %37 = load i32, ptr %16, align 4
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %16, align 4
   br label %RecordConstLocation.exit
 
-RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, %32
+RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, %27
   ret void
 }
 
@@ -21960,9 +20186,9 @@ define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
   %16 = sub i64 %.02125.i, %12
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %.lr.ph.i15, label %.lr.ph.i, !llvm.loop !7
 
-AppendJumble.exit:                                ; preds = %10
+.lr.ph.i15:                                       ; preds = %10
   store i64 %14, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -21976,94 +20202,72 @@ AppendJumble.exit:                                ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %0, align 8
   %25 = load i64, ptr %5, align 8
-  br label %.lr.ph.i15
+  %26 = icmp ugt i64 %25, 1023
+  br i1 %26, label %.lr.ph.i22.thread, label %.lr.ph.i22
 
-.lr.ph.i15:                                       ; preds = %29, %AppendJumble.exit
-  %.026.i16 = phi ptr [ %34, %29 ], [ %23, %AppendJumble.exit ]
-  %.02125.i17 = phi i64 [ %35, %29 ], [ 1, %AppendJumble.exit ]
-  %.02224.i18 = phi i64 [ %33, %29 ], [ %25, %AppendJumble.exit ]
-  %26 = icmp ugt i64 %.02224.i18, 1023
-  br i1 %26, label %27, label %29
+.lr.ph.i22.thread:                                ; preds = %.lr.ph.i15
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %27, ptr %24, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %29 = load i8, ptr %23, align 1
+  store i8 %29, ptr %28, align 1
+  store i64 9, ptr %5, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %31 = load ptr, ptr %0, align 8
+  br label %.lr.ph.i29.thread
 
-27:                                               ; preds = %.lr.ph.i15
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %28, ptr %24, align 1
-  br label %29
+.lr.ph.i22:                                       ; preds = %.lr.ph.i15
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %25
+  %33 = load i8, ptr %23, align 1
+  store i8 %33, ptr %32, align 1
+  %34 = add nuw nsw i64 %25, 1
+  store i64 %34, ptr %5, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %36 = load ptr, ptr %0, align 8
+  %37 = icmp eq i64 %25, 1023
+  br i1 %37, label %38, label %.lr.ph.i29
 
-29:                                               ; preds = %27, %.lr.ph.i15
-  %.1.i19 = phi i64 [ 8, %27 ], [ %.02224.i18, %.lr.ph.i15 ]
-  %30 = sub nuw nsw i64 1024, %.1.i19
-  %31 = tail call i64 @llvm.umin.i64(i64 %.02125.i17, i64 %30)
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.1.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.026.i16, i64 %31, i1 false)
-  %33 = add nuw nsw i64 %31, %.1.i19
-  %34 = getelementptr inbounds nuw i8, ptr %.026.i16, i64 %31
-  %35 = sub i64 %.02125.i17, %31
-  %.not.i20 = icmp eq i64 %35, 0
-  br i1 %.not.i20, label %AppendJumble.exit21, label %.lr.ph.i15, !llvm.loop !7
+38:                                               ; preds = %.lr.ph.i22
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %39, ptr %36, align 1
+  br label %.lr.ph.i29.thread
 
-AppendJumble.exit21:                              ; preds = %29
-  store i64 %33, ptr %5, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %37 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i22
+.lr.ph.i29.thread:                                ; preds = %38, %.lr.ph.i22.thread
+  %.ph = phi ptr [ %31, %.lr.ph.i22.thread ], [ %36, %38 ]
+  %.ph46 = phi ptr [ %30, %.lr.ph.i22.thread ], [ %35, %38 ]
+  %.1.i26.ph = phi i64 [ 9, %.lr.ph.i22.thread ], [ 8, %38 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.1.i26.ph
+  %41 = load i8, ptr %.ph46, align 1
+  store i8 %41, ptr %40, align 1
+  %42 = add nuw nsw i64 %.1.i26.ph, 1
+  store i64 %42, ptr %5, align 8
+  %43 = load ptr, ptr %0, align 8
+  br label %AppendJumble.exit35
 
-.lr.ph.i22:                                       ; preds = %41, %AppendJumble.exit21
-  %.026.i23 = phi ptr [ %46, %41 ], [ %36, %AppendJumble.exit21 ]
-  %.02125.i24 = phi i64 [ %47, %41 ], [ 1, %AppendJumble.exit21 ]
-  %.02224.i25 = phi i64 [ %45, %41 ], [ %33, %AppendJumble.exit21 ]
-  %38 = icmp ugt i64 %.02224.i25, 1023
-  br i1 %38, label %39, label %41
+.lr.ph.i29:                                       ; preds = %.lr.ph.i22
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %34
+  %45 = load i8, ptr %35, align 1
+  store i8 %45, ptr %44, align 1
+  %46 = add nuw nsw i64 %25, 2
+  store i64 %46, ptr %5, align 8
+  %47 = load ptr, ptr %0, align 8
+  %48 = icmp ugt i64 %25, 1021
+  br i1 %48, label %49, label %AppendJumble.exit35
 
-39:                                               ; preds = %.lr.ph.i22
-  %40 = tail call i64 @hash_bytes_extended(ptr noundef %37, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %40, ptr %37, align 1
-  br label %41
+49:                                               ; preds = %.lr.ph.i29
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %50, ptr %47, align 1
+  br label %AppendJumble.exit35
 
-41:                                               ; preds = %39, %.lr.ph.i22
-  %.1.i26 = phi i64 [ 8, %39 ], [ %.02224.i25, %.lr.ph.i22 ]
-  %42 = sub nuw nsw i64 1024, %.1.i26
-  %43 = tail call i64 @llvm.umin.i64(i64 %.02125.i24, i64 %42)
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %.1.i26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 1 dereferenceable(1) %.026.i23, i64 %43, i1 false)
-  %45 = add nuw nsw i64 %43, %.1.i26
-  %46 = getelementptr inbounds nuw i8, ptr %.026.i23, i64 %43
-  %47 = sub i64 %.02125.i24, %43
-  %.not.i27 = icmp eq i64 %47, 0
-  br i1 %.not.i27, label %AppendJumble.exit28, label %.lr.ph.i22, !llvm.loop !7
-
-AppendJumble.exit28:                              ; preds = %41
-  store i64 %45, ptr %5, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %49 = load ptr, ptr %0, align 8
-  br label %.lr.ph.i29
-
-.lr.ph.i29:                                       ; preds = %53, %AppendJumble.exit28
-  %.026.i30 = phi ptr [ %58, %53 ], [ %48, %AppendJumble.exit28 ]
-  %.02125.i31 = phi i64 [ %59, %53 ], [ 1, %AppendJumble.exit28 ]
-  %.02224.i32 = phi i64 [ %57, %53 ], [ %45, %AppendJumble.exit28 ]
-  %50 = icmp ugt i64 %.02224.i32, 1023
-  br i1 %50, label %51, label %53
-
-51:                                               ; preds = %.lr.ph.i29
-  %52 = tail call i64 @hash_bytes_extended(ptr noundef %49, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %52, ptr %49, align 1
-  br label %53
-
-53:                                               ; preds = %51, %.lr.ph.i29
-  %.1.i33 = phi i64 [ 8, %51 ], [ %.02224.i32, %.lr.ph.i29 ]
-  %54 = sub nuw nsw i64 1024, %.1.i33
-  %55 = tail call i64 @llvm.umin.i64(i64 %.02125.i31, i64 %54)
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 %.1.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %.026.i30, i64 %55, i1 false)
-  %57 = add nuw nsw i64 %55, %.1.i33
-  %58 = getelementptr inbounds nuw i8, ptr %.026.i30, i64 %55
-  %59 = sub i64 %.02125.i31, %55
-  %.not.i34 = icmp eq i64 %59, 0
-  br i1 %.not.i34, label %AppendJumble.exit35, label %.lr.ph.i29, !llvm.loop !7
-
-AppendJumble.exit35:                              ; preds = %53
-  store i64 %57, ptr %5, align 8
+AppendJumble.exit35:                              ; preds = %.lr.ph.i29, %49, %.lr.ph.i29.thread
+  %51 = phi ptr [ %47, %49 ], [ %47, %.lr.ph.i29 ], [ %43, %.lr.ph.i29.thread ]
+  %.1.i33 = phi i64 [ 8, %49 ], [ %46, %.lr.ph.i29 ], [ %42, %.lr.ph.i29.thread ]
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %.1.i33
+  %54 = load i8, ptr %52, align 1
+  store i8 %54, ptr %53, align 1
+  %55 = add nuw nsw i64 %.1.i33, 1
+  store i64 %55, ptr %5, align 8
   ret void
 }
 
@@ -22168,7 +20372,7 @@ define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr no
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %5
+  br i1 %.not, label %.lr.ph.i11, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -22206,47 +20410,34 @@ define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr no
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
   store i64 %.022.lcssa.i, ptr %9, align 8
-  br label %21
-
-21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8
   br label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %33, %21
-  %.026.i12 = phi ptr [ %38, %33 ], [ %26, %21 ]
-  %.02125.i13 = phi i64 [ %39, %33 ], [ 1, %21 ]
-  %.02224.i14 = phi i64 [ %37, %33 ], [ %29, %21 ]
-  %30 = icmp ugt i64 %.02224.i14, 1023
-  br i1 %30, label %31, label %33
+.lr.ph.i11:                                       ; preds = %2, %AppendJumble.exit
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %22)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %24)
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp ugt i64 %27, 1023
+  br i1 %28, label %29, label %AppendJumble.exit18
 
-31:                                               ; preds = %.lr.ph.i11
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %32, ptr %27, align 1
-  br label %33
+29:                                               ; preds = %.lr.ph.i11
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %30, ptr %25, align 1
+  br label %AppendJumble.exit18
 
-33:                                               ; preds = %31, %.lr.ph.i11
-  %.1.i15 = phi i64 [ 8, %31 ], [ %.02224.i14, %.lr.ph.i11 ]
-  %34 = sub nuw nsw i64 1024, %.1.i15
-  %35 = tail call i64 @llvm.umin.i64(i64 %.02125.i13, i64 %34)
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 %.1.i15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %.026.i12, i64 %35, i1 false)
-  %37 = add nuw nsw i64 %35, %.1.i15
-  %38 = getelementptr inbounds nuw i8, ptr %.026.i12, i64 %35
-  %39 = sub i64 %.02125.i13, %35
-  %.not.i16 = icmp eq i64 %39, 0
-  br i1 %.not.i16, label %AppendJumble.exit18, label %.lr.ph.i11, !llvm.loop !7
-
-AppendJumble.exit18:                              ; preds = %33
-  store i64 %37, ptr %28, align 8
+AppendJumble.exit18:                              ; preds = %.lr.ph.i11, %29
+  %.1.i15 = phi i64 [ 8, %29 ], [ %27, %.lr.ph.i11 ]
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 %.1.i15
+  %33 = load i8, ptr %31, align 1
+  store i8 %33, ptr %32, align 1
+  %34 = add nuw nsw i64 %.1.i15, 1
+  store i64 %34, ptr %26, align 8
   ret void
 }
 
@@ -22255,7 +20446,7 @@ define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %21, label %5
+  br i1 %.not, label %.lr.ph.i13, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -22293,77 +20484,64 @@ define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr nou
 AppendJumble.exit:                                ; preds = %14, %5
   %.022.lcssa.i = phi i64 [ %10, %5 ], [ %18, %14 ]
   store i64 %.022.lcssa.i, ptr %9, align 8
-  br label %21
-
-21:                                               ; preds = %AppendJumble.exit, %2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %23)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8
-  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %25)
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8
   br label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %33, %21
-  %.026.i14 = phi ptr [ %38, %33 ], [ %26, %21 ]
-  %.02125.i15 = phi i64 [ %39, %33 ], [ 1, %21 ]
-  %.02224.i16 = phi i64 [ %37, %33 ], [ %29, %21 ]
-  %30 = icmp ugt i64 %.02224.i16, 1023
-  br i1 %30, label %31, label %33
+.lr.ph.i13:                                       ; preds = %2, %AppendJumble.exit
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %22)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8
+  tail call fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %24)
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp ugt i64 %28, 1023
+  br i1 %29, label %30, label %AppendJumble.exit20
 
-31:                                               ; preds = %.lr.ph.i13
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %32, ptr %27, align 1
-  br label %33
+30:                                               ; preds = %.lr.ph.i13
+  %31 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %31, ptr %26, align 1
+  br label %AppendJumble.exit20
 
-33:                                               ; preds = %31, %.lr.ph.i13
-  %.1.i17 = phi i64 [ 8, %31 ], [ %.02224.i16, %.lr.ph.i13 ]
-  %34 = sub nuw nsw i64 1024, %.1.i17
-  %35 = tail call i64 @llvm.umin.i64(i64 %.02125.i15, i64 %34)
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 %.1.i17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %.026.i14, i64 %35, i1 false)
-  %37 = add nuw nsw i64 %35, %.1.i17
-  %38 = getelementptr inbounds nuw i8, ptr %.026.i14, i64 %35
-  %39 = sub i64 %.02125.i15, %35
-  %.not.i18 = icmp eq i64 %39, 0
-  br i1 %.not.i18, label %AppendJumble.exit20, label %.lr.ph.i13, !llvm.loop !7
-
-AppendJumble.exit20:                              ; preds = %33
-  store i64 %37, ptr %28, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %41 = load ptr, ptr %0, align 8
+AppendJumble.exit20:                              ; preds = %.lr.ph.i13, %30
+  %.1.i17 = phi i64 [ 8, %30 ], [ %28, %.lr.ph.i13 ]
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %.1.i17
+  %33 = load i8, ptr %25, align 1
+  store i8 %33, ptr %32, align 1
+  %34 = add nuw nsw i64 %.1.i17, 1
+  store i64 %34, ptr %27, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %36 = load ptr, ptr %0, align 8
   br label %.lr.ph.i21
 
-.lr.ph.i21:                                       ; preds = %45, %AppendJumble.exit20
-  %.026.i22 = phi ptr [ %50, %45 ], [ %40, %AppendJumble.exit20 ]
-  %.02125.i23 = phi i64 [ %51, %45 ], [ 4, %AppendJumble.exit20 ]
-  %.02224.i24 = phi i64 [ %49, %45 ], [ %37, %AppendJumble.exit20 ]
-  %42 = icmp ugt i64 %.02224.i24, 1023
-  br i1 %42, label %43, label %45
+.lr.ph.i21:                                       ; preds = %40, %AppendJumble.exit20
+  %.026.i22 = phi ptr [ %45, %40 ], [ %35, %AppendJumble.exit20 ]
+  %.02125.i23 = phi i64 [ %46, %40 ], [ 4, %AppendJumble.exit20 ]
+  %.02224.i24 = phi i64 [ %44, %40 ], [ %34, %AppendJumble.exit20 ]
+  %37 = icmp ugt i64 %.02224.i24, 1023
+  br i1 %37, label %38, label %40
 
-43:                                               ; preds = %.lr.ph.i21
-  %44 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %44, ptr %41, align 1
-  br label %45
+38:                                               ; preds = %.lr.ph.i21
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %39, ptr %36, align 1
+  br label %40
 
-45:                                               ; preds = %43, %.lr.ph.i21
-  %.1.i25 = phi i64 [ 8, %43 ], [ %.02224.i24, %.lr.ph.i21 ]
-  %46 = sub nuw nsw i64 1024, %.1.i25
-  %47 = tail call i64 @llvm.umin.i64(i64 %.02125.i23, i64 %46)
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 %.1.i25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %48, ptr noundef nonnull align 1 dereferenceable(1) %.026.i22, i64 %47, i1 false)
-  %49 = add nuw nsw i64 %47, %.1.i25
-  %50 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 %47
-  %51 = sub i64 %.02125.i23, %47
-  %.not.i26 = icmp eq i64 %51, 0
+40:                                               ; preds = %38, %.lr.ph.i21
+  %.1.i25 = phi i64 [ 8, %38 ], [ %.02224.i24, %.lr.ph.i21 ]
+  %41 = sub nuw nsw i64 1024, %.1.i25
+  %42 = tail call i64 @llvm.umin.i64(i64 %.02125.i23, i64 %41)
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %.1.i25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %.026.i22, i64 %42, i1 false)
+  %44 = add nuw nsw i64 %42, %.1.i25
+  %45 = getelementptr inbounds nuw i8, ptr %.026.i22, i64 %42
+  %46 = sub i64 %.02125.i23, %42
+  %.not.i26 = icmp eq i64 %46, 0
   br i1 %.not.i26, label %AppendJumble.exit28, label %.lr.ph.i21, !llvm.loop !7
 
-AppendJumble.exit28:                              ; preds = %45
-  store i64 %49, ptr %28, align 8
+AppendJumble.exit28:                              ; preds = %40
+  store i64 %44, ptr %27, align 8
   ret void
 }
 
@@ -22605,7 +20783,7 @@ define internal fastcc void @_jumbleDropSubscriptionStmt(ptr noundef captures(no
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre30 = load i64, ptr %.phi.trans.insert, align 8
-  br label %20
+  br label %.lr.ph.i9
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
@@ -22647,71 +20825,58 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   %.pre = phi ptr [ %.pre29, %5 ], [ %.pre.pre, %AppendJumble.exit.loopexit ]
   %.022.lcssa.i = phi i64 [ %9, %5 ], [ %17, %AppendJumble.exit.loopexit ]
   store i64 %.022.lcssa.i, ptr %8, align 8
-  br label %20
-
-20:                                               ; preds = %._crit_edge, %AppendJumble.exit
-  %21 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre30, %._crit_edge ]
-  %22 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre29, %._crit_edge ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %28, %20
-  %.026.i10 = phi ptr [ %33, %28 ], [ %23, %20 ]
-  %.02125.i11 = phi i64 [ %34, %28 ], [ 1, %20 ]
-  %.02224.i12 = phi i64 [ %32, %28 ], [ %21, %20 ]
-  %25 = icmp ugt i64 %.02224.i12, 1023
-  br i1 %25, label %26, label %28
+.lr.ph.i9:                                        ; preds = %AppendJumble.exit, %._crit_edge
+  %20 = phi i64 [ %.022.lcssa.i, %AppendJumble.exit ], [ %.pre30, %._crit_edge ]
+  %21 = phi ptr [ %.pre, %AppendJumble.exit ], [ %.pre29, %._crit_edge ]
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = icmp ugt i64 %20, 1023
+  br i1 %24, label %25, label %AppendJumble.exit16
 
-26:                                               ; preds = %.lr.ph.i9
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %27, ptr %22, align 1
-  br label %28
+25:                                               ; preds = %.lr.ph.i9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %26, ptr %21, align 1
+  br label %AppendJumble.exit16
 
-28:                                               ; preds = %26, %.lr.ph.i9
-  %.1.i13 = phi i64 [ 8, %26 ], [ %.02224.i12, %.lr.ph.i9 ]
-  %29 = sub nuw nsw i64 1024, %.1.i13
-  %30 = tail call i64 @llvm.umin.i64(i64 %.02125.i11, i64 %29)
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %.026.i10, i64 %30, i1 false)
-  %32 = add nuw nsw i64 %30, %.1.i13
-  %33 = getelementptr inbounds nuw i8, ptr %.026.i10, i64 %30
-  %34 = sub i64 %.02125.i11, %30
-  %.not.i14 = icmp eq i64 %34, 0
-  br i1 %.not.i14, label %AppendJumble.exit16, label %.lr.ph.i9, !llvm.loop !7
-
-AppendJumble.exit16:                              ; preds = %28
-  store i64 %32, ptr %24, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %36 = load ptr, ptr %0, align 8
+AppendJumble.exit16:                              ; preds = %.lr.ph.i9, %25
+  %.1.i13 = phi i64 [ 8, %25 ], [ %20, %.lr.ph.i9 ]
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %.1.i13
+  %28 = load i8, ptr %22, align 1
+  store i8 %28, ptr %27, align 1
+  %29 = add nuw nsw i64 %.1.i13, 1
+  store i64 %29, ptr %23, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %31 = load ptr, ptr %0, align 8
   br label %.lr.ph.i17
 
-.lr.ph.i17:                                       ; preds = %40, %AppendJumble.exit16
-  %.026.i18 = phi ptr [ %45, %40 ], [ %35, %AppendJumble.exit16 ]
-  %.02125.i19 = phi i64 [ %46, %40 ], [ 4, %AppendJumble.exit16 ]
-  %.02224.i20 = phi i64 [ %44, %40 ], [ %32, %AppendJumble.exit16 ]
-  %37 = icmp ugt i64 %.02224.i20, 1023
-  br i1 %37, label %38, label %40
+.lr.ph.i17:                                       ; preds = %35, %AppendJumble.exit16
+  %.026.i18 = phi ptr [ %40, %35 ], [ %30, %AppendJumble.exit16 ]
+  %.02125.i19 = phi i64 [ %41, %35 ], [ 4, %AppendJumble.exit16 ]
+  %.02224.i20 = phi i64 [ %39, %35 ], [ %29, %AppendJumble.exit16 ]
+  %32 = icmp ugt i64 %.02224.i20, 1023
+  br i1 %32, label %33, label %35
 
-38:                                               ; preds = %.lr.ph.i17
-  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %39, ptr %36, align 1
-  br label %40
+33:                                               ; preds = %.lr.ph.i17
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %34, ptr %31, align 1
+  br label %35
 
-40:                                               ; preds = %38, %.lr.ph.i17
-  %.1.i21 = phi i64 [ 8, %38 ], [ %.02224.i20, %.lr.ph.i17 ]
-  %41 = sub nuw nsw i64 1024, %.1.i21
-  %42 = tail call i64 @llvm.umin.i64(i64 %.02125.i19, i64 %41)
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %.1.i21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %.026.i18, i64 %42, i1 false)
-  %44 = add nuw nsw i64 %42, %.1.i21
-  %45 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %42
-  %46 = sub i64 %.02125.i19, %42
-  %.not.i22 = icmp eq i64 %46, 0
+35:                                               ; preds = %33, %.lr.ph.i17
+  %.1.i21 = phi i64 [ 8, %33 ], [ %.02224.i20, %.lr.ph.i17 ]
+  %36 = sub nuw nsw i64 1024, %.1.i21
+  %37 = tail call i64 @llvm.umin.i64(i64 %.02125.i19, i64 %36)
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 %.1.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %.026.i18, i64 %37, i1 false)
+  %39 = add nuw nsw i64 %37, %.1.i21
+  %40 = getelementptr inbounds nuw i8, ptr %.026.i18, i64 %37
+  %41 = sub i64 %.02125.i19, %37
+  %.not.i22 = icmp eq i64 %41, 0
   br i1 %.not.i22, label %AppendJumble.exit24, label %.lr.ph.i17, !llvm.loop !7
 
-AppendJumble.exit24:                              ; preds = %40
-  store i64 %44, ptr %24, align 8
+AppendJumble.exit24:                              ; preds = %35
+  store i64 %39, ptr %23, align 8
   ret void
 }
 
@@ -22859,38 +21024,26 @@ AppendJumble.exit:                                ; preds = %11, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_jumbleBoolean(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
-  br label %.lr.ph.i
+.lr.ph.i:
+  %2 = load ptr, ptr %0, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8
+  %5 = icmp ugt i64 %4, 1023
+  br i1 %5, label %6, label %AppendJumble.exit
 
-.lr.ph.i:                                         ; preds = %10, %2
-  %.026.i = phi ptr [ %15, %10 ], [ %3, %2 ]
-  %.02125.i = phi i64 [ %16, %10 ], [ 1, %2 ]
-  %.02224.i = phi i64 [ %14, %10 ], [ %6, %2 ]
-  %7 = icmp ugt i64 %.02224.i, 1023
-  br i1 %7, label %8, label %10
+6:                                                ; preds = %.lr.ph.i
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #9
+  store i64 %7, ptr %2, align 1
+  br label %AppendJumble.exit
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
-  store i64 %9, ptr %4, align 1
-  br label %10
-
-10:                                               ; preds = %8, %.lr.ph.i
-  %.1.i = phi i64 [ 8, %8 ], [ %.02224.i, %.lr.ph.i ]
-  %11 = sub nuw nsw i64 1024, %.1.i
-  %12 = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 1 dereferenceable(1) %.026.i, i64 %12, i1 false)
-  %14 = add nuw nsw i64 %12, %.1.i
-  %15 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %16 = sub i64 %.02125.i, %12
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %AppendJumble.exit, label %.lr.ph.i, !llvm.loop !7
-
-AppendJumble.exit:                                ; preds = %10
-  store i64 %14, ptr %5, align 8
+AppendJumble.exit:                                ; preds = %.lr.ph.i, %6
+  %.1.i = phi i64 [ 8, %6 ], [ %4, %.lr.ph.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %.1.i
+  %10 = load i8, ptr %8, align 1
+  store i8 %10, ptr %9, align 1
+  %11 = add nuw nsw i64 %.1.i, 1
+  store i64 %11, ptr %3, align 8
   ret void
 }
 

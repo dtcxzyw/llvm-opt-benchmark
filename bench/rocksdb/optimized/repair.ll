@@ -1358,7 +1358,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt
   %.val.i16.i810.i.i = load ptr, ptr %35, align 8
   %bcmp.i.i.i18.i.i.i = tail call i32 @bcmp(ptr readonly %.val.i16.i810.i.i, ptr %12, i64 %.fr45.i.i)
   %36 = icmp eq i32 %bcmp.i.i.i18.i.i.i, 0
-  br i1 %36, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit36", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit19.thread52.i.i.i"
+  br i1 %36, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit38", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit19.thread52.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit19.thread52.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit19.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit.thread51.i.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit.thread51.i.i.i"
   %37 = getelementptr i8, ptr %.sroa.042.079.i.i.i, i64 1736
@@ -1371,7 +1371,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt
   %.val.i20.i.i.i = load ptr, ptr %39, align 8
   %bcmp.i.i.i22.i.i.i = tail call i32 @bcmp(ptr readonly %.val.i20.i.i.i, ptr %12, i64 %.fr45.i.i)
   %40 = icmp eq i32 %bcmp.i.i.i22.i.i.i, 0
-  br i1 %40, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit23.thread53.i.thread.i.i"
+  br i1 %40, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit23.thread53.i.thread.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit23.thread53.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit19.thread52.i.i.i"
   %41 = getelementptr i8, ptr %.sroa.042.079.i.i.i, i64 2600
@@ -1390,7 +1390,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt
   %.val.i24.i1316.i.i = load ptr, ptr %45, align 8
   %bcmp.i.i.i26.i.i.i = tail call i32 @bcmp(ptr readonly %.val.i24.i1316.i.i, ptr %12, i64 %.fr45.i.i)
   %46 = icmp eq i32 %bcmp.i.i.i26.i.i.i, 0
-  br i1 %46, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit34", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit27.thread54.i.i.i"
+  br i1 %46, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit36", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit27.thread54.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit27.thread54.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit27.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit23.thread53.i.thread.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit23.thread53.i.i.i"
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.042.079.i.i.i, i64 3456
@@ -1489,20 +1489,20 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.042.079.i.us.i.i, i64 1728
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit23.i.i.i"
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit23.i.i.i"
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.042.079.i.i.i, i64 1728
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit34": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit27.i.i.i"
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit36": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit27.i.i.i"
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.042.079.i.i.i, i64 2592
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit36": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit19.i.i.i"
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit38": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit19.i.i.i"
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.042.079.i.i.i, i64 864
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit.i.i.i", %.lr.ph.i.split.us.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit34", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit36", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit25.split.us.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit29.split.us.i.i", %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit31.i.i.i", %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit35.i.i.i", %73, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit39.i.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit27.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.042.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit31.i.i.i" ], [ %.sroa.042.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit35.i.i.i" ], [ %.sroa.042.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit39.i.i.i" ], [ %.sroa.042.0.lcssa.i.i.i, %55 ], [ %.sroa.042.1.i.i.i, %64 ], [ %.sroa.042.2.i.i.i, %73 ], [ %19, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit25.split.us.i.i" ], [ %77, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit27.i.i" ], [ %24, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit29.split.us.i.i" ], [ %78, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit" ], [ %79, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit34" ], [ %80, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit28.split.loop.exit36" ], [ %.sroa.042.079.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %.sroa.042.079.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit.i.i.i" ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit.i.i.i", %.lr.ph.i.split.us.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit36", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit38", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit25.split.us.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit29.split.us.i.i", %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit31.i.i.i", %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit35.i.i.i", %73, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit39.i.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit27.i.i"
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.042.0.lcssa.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit31.i.i.i" ], [ %.sroa.042.1.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit35.i.i.i" ], [ %.sroa.042.2.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit39.i.i.i" ], [ %.sroa.042.0.lcssa.i.i.i, %55 ], [ %.sroa.042.1.i.i.i, %64 ], [ %.sroa.042.2.i.i.i, %73 ], [ %19, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit25.split.us.i.i" ], [ %77, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit27.i.i" ], [ %24, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0EEET_SJ_SJ_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit29.split.us.i.i" ], [ %78, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit" ], [ %79, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit36" ], [ %80, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.loopexit30.split.loop.exit38" ], [ %.sroa.042.079.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %.sroa.042.079.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN7rocksdb12_GLOBAL__N_119GetDefaultCFOptionsERKSt6vectorINS2_22ColumnFamilyDescriptorESaIS5_EEPNS2_19ColumnFamilyOptionsEE3$_0EclINS_17__normal_iteratorIPKS5_S7_EEEEbT_.exit.i.i.i" ]
   %81 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %.8.val
   br i1 %81, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN7rocksdb22ColumnFamilyDescriptorESt6vectorIS3_SaIS3_EEEEZNS2_12_GLOBAL__N_119GetDefaultCFOptionsERKS8_PNS2_19ColumnFamilyOptionsEE3$_0ET_SG_SG_T0_.exit.thread", label %84
 
@@ -7482,7 +7482,7 @@ _ZN7rocksdb5SliceC2EPKc.exit.i:                   ; preds = %1949, %1947
 .noexc155.i:                                      ; preds = %_ZN7rocksdb5SliceC2EPKc.exit.i
   %1952 = load ptr, ptr %1583, align 8, !tbaa !25, !noalias !603
   %1953 = icmp eq ptr %1952, %1584
-  br i1 %1953, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i139, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i
+  br i1 %1953, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i139, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i139: ; preds = %.noexc155.i
   %1954 = load i64, ptr %1585, align 8, !tbaa !28, !noalias !603
@@ -7492,13 +7492,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %1957 = icmp eq ptr %1956, %1610
   br i1 %1957, label %1960, label %.thread.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i: ; preds = %.noexc155.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i: ; preds = %.noexc155.i
   %1958 = load ptr, ptr %4, align 8, !tbaa !25, !noalias !603
   %1959 = icmp eq ptr %1958, %1610
   br i1 %1959, label %1960, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i
 
-1960:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i139
-  %1961 = phi ptr [ %1958, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i ], [ %1956, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i139 ]
+1960:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i139
+  %1961 = phi ptr [ %1958, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i ], [ %1956, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i139 ]
   %1962 = load i64, ptr %1611, align 8, !tbaa !28, !noalias !603
   %1963 = icmp ult i64 %1962, 16
   call void @llvm.assume(i1 %1963)
@@ -7533,7 +7533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
   store i64 %1971, ptr %1584, align 8, !tbaa !29, !noalias !603
   br label %1976
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
   %1972 = load i64, ptr %1584, align 8, !tbaa !29, !noalias !603
   store ptr %1958, ptr %1583, align 8, !tbaa !25, !noalias !603
   %1973 = load i64, ptr %1611, align 8, !tbaa !28, !noalias !603
@@ -8281,12 +8281,12 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit196.i
 
 _ZN7rocksdb6StatusD2Ev.exit196.i:                 ; preds = %.thread, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i195.i, %2215
-  %.pn104.i349 = phi { ptr, i32 } [ %.pn104.i.ph, %.thread ], [ %.pn104.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i195.i ], [ %.pn104.i, %2215 ]
+  %.pn104.i602 = phi { ptr, i32 } [ %.pn104.i.ph, %.thread ], [ %.pn104.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i195.i ], [ %.pn104.i, %2215 ]
   call void @_ZN7rocksdb18VersionStorageInfoD1Ev(ptr noundef nonnull align 16 dereferenceable(4120) %11) #27, !noalias !603
   br label %_ZN7rocksdb17OffpeakTimeOptionD2Ev.exit142.i
 
 _ZN7rocksdb17OffpeakTimeOptionD2Ev.exit142.i:     ; preds = %_ZN7rocksdb6StatusD2Ev.exit196.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i140.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i141.i, %1868
-  %.pn104.pn.pn.i = phi { ptr, i32 } [ %.pn104.i349, %_ZN7rocksdb6StatusD2Ev.exit196.i ], [ %1869, %1868 ], [ %1871, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i141.i ], [ %1871, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i140.i ]
+  %.pn104.pn.pn.i = phi { ptr, i32 } [ %.pn104.i602, %_ZN7rocksdb6StatusD2Ev.exit196.i ], [ %1869, %1868 ], [ %1871, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i141.i ], [ %1871, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i140.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !603
   call void @_ZN7rocksdb14VersionBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #27, !noalias !603
   br label %2216
@@ -18243,7 +18243,7 @@ _ZN7rocksdb5SliceC2EPKc.exit.i.i:                 ; preds = %616, %614
 .noexc71.i.i:                                     ; preds = %_ZN7rocksdb5SliceC2EPKc.exit.i.i
   %619 = load ptr, ptr %157, align 8, !tbaa !25, !noalias !986
   %620 = icmp eq ptr %619, %158
-  br i1 %620, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i
+  br i1 %620, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70.i.i: ; preds = %.noexc71.i.i
   %621 = load i64, ptr %159, align 8, !tbaa !28, !noalias !986
@@ -18253,13 +18253,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
   %624 = icmp eq ptr %623, %185
   br i1 %624, label %627, label %.thread.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i: ; preds = %.noexc71.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i: ; preds = %.noexc71.i.i
   %625 = load ptr, ptr %8, align 8, !tbaa !25, !noalias !986
   %626 = icmp eq ptr %625, %185
   br i1 %626, label %627, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i
 
-627:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70.i.i
-  %628 = phi ptr [ %625, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i ], [ %623, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70.i.i ]
+627:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70.i.i
+  %628 = phi ptr [ %625, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i ], [ %623, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70.i.i ]
   %629 = load i64, ptr %186, align 8, !tbaa !28, !noalias !986
   %630 = icmp ult i64 %629, 16
   call void @llvm.assume(i1 %630)
@@ -18294,7 +18294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.
   store i64 %638, ptr %158, align 8, !tbaa !29, !noalias !986
   br label %643
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i
   %639 = load i64, ptr %158, align 8, !tbaa !29, !noalias !986
   store ptr %625, ptr %157, align 8, !tbaa !25, !noalias !986
   %640 = load i64, ptr %186, align 8, !tbaa !28, !noalias !986
@@ -19841,11 +19841,11 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit200.i:           ; preds = %1127, %_ZNSt10uniqu
   br label %1160
 
 .thread228.ithread-pre-split:                     ; preds = %386, %797, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread219.i, %.thread222.i, %_ZN7rocksdb11ReadOptionsD2Ev.exit194.i
-  %.pr228 = load ptr, ptr %318, align 8, !tbaa !342, !noalias !968
+  %.pr369 = load ptr, ptr %318, align 8, !tbaa !342, !noalias !968
   br label %.thread228.i
 
 .thread228.i:                                     ; preds = %.thread228.ithread-pre-split, %354
-  %1132 = phi ptr [ %.pr228, %.thread228.ithread-pre-split ], [ null, %354 ]
+  %1132 = phi ptr [ %.pr369, %.thread228.ithread-pre-split ], [ null, %354 ]
   %.not.i.i201.i = icmp eq ptr %1132, null
   br i1 %.not.i.i201.i, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %1133
 
@@ -24870,15 +24870,15 @@ define linkonce_odr void @_ZN7rocksdb10autovectorINS0_IPNS_11VersionEditELm8EEEL
   br i1 %.not.i.i.i.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %23, %50
-  %.sink9 = phi ptr [ %33, %50 ], [ %9, %23 ]
-  %.sink6 = phi ptr [ %52, %50 ], [ %25, %23 ]
+  %.sink14 = phi ptr [ %33, %50 ], [ %9, %23 ]
+  %.sink11 = phi ptr [ %52, %50 ], [ %25, %23 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %51, %50 ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sink9, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %.sink14, i64 96
   %27 = load ptr, ptr %26, align 8, !tbaa !1131
   %28 = ptrtoint ptr %27 to i64
-  %29 = ptrtoint ptr %.sink6 to i64
+  %29 = ptrtoint ptr %.sink11 to i64
   %30 = sub i64 %28, %29
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink6, i64 noundef %30) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink11, i64 noundef %30) #26
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %50, %23

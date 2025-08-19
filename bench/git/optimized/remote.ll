@@ -3365,8 +3365,8 @@ _.exit33.i:                                       ; preds = %48, %_.exit30.i
   %55 = load ptr, ptr %23, align 8, !tbaa !120
   %.not2346.i = icmp eq ptr %55, null
   %56 = load i64, ptr %28, align 8
-  %.not19 = icmp eq i64 %56, 0
-  %or.cond = select i1 %.not2346.i, i1 true, i1 %.not19
+  %.not25 = icmp eq i64 %56, 0
+  %or.cond = select i1 %.not2346.i, i1 true, i1 %.not25
   br i1 %or.cond, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_.exit33.i, %.lr.ph.i
@@ -3392,17 +3392,17 @@ _.exit33.i:                                       ; preds = %48, %_.exit30.i
   %69 = load ptr, ptr %23, align 8, !tbaa !120
   %.not2449.i = icmp eq ptr %69, null
   %70 = load i64, ptr %28, align 8
-  %.not61.i = icmp eq i64 %70, 0
-  %or.cond.i = select i1 %.not2449.i, i1 true, i1 %.not61.i
+  %.not65.i = icmp eq i64 %70, 0
+  %or.cond.i = select i1 %.not2449.i, i1 true, i1 %.not65.i
   br i1 %or.cond.i, label %.critedge2.i, label %.lr.ph56.i
 
 .thread.i:                                        ; preds = %.critedge.i
   %71 = load ptr, ptr %23, align 8, !tbaa !120
-  %.not244963.i = icmp eq ptr %71, null
+  %.not244967.i = icmp eq ptr %71, null
   %72 = load i64, ptr %28, align 8
-  %.not60.i = icmp eq i64 %72, 0
-  %or.cond69.i = select i1 %.not244963.i, i1 true, i1 %.not60.i
-  br i1 %or.cond69.i, label %.critedge2.i, label %.lr.ph54.i
+  %.not64.i = icmp eq i64 %72, 0
+  %or.cond73.i = select i1 %.not244967.i, i1 true, i1 %.not64.i
+  br i1 %or.cond73.i, label %.critedge2.i, label %.lr.ph54.i
 
 .lr.ph56.i:                                       ; preds = %65, %abbrev_ref.exit45.us.i
   %.150.us55.i = phi ptr [ %85, %abbrev_ref.exit45.us.i ], [ %69, %65 ]
@@ -3489,7 +3489,7 @@ abbrev_ref.exit.i:                                ; preds = %96, %95
   br i1 %106, label %.lr.ph54.i, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %abbrev_ref.exit.i, %abbrev_ref.exit45.us.i, %.thread.i, %65
-  %.02065.i = phi i32 [ 0, %.thread.i ], [ %68, %65 ], [ %68, %abbrev_ref.exit45.us.i ], [ 0, %abbrev_ref.exit.i ]
+  %.02069.i = phi i32 [ 0, %.thread.i ], [ %68, %65 ], [ %68, %abbrev_ref.exit45.us.i ], [ 0, %abbrev_ref.exit.i ]
   %107 = load ptr, ptr @the_repository, align 8, !tbaa !26
   %108 = call ptr @get_main_ref_store(ptr noundef %107) #19
   %109 = load ptr, ptr @stdout, align 8, !tbaa !87
@@ -3498,7 +3498,7 @@ abbrev_ref.exit.i:                                ; preds = %96, %95
   br label %prune_remote.exit
 
 prune_remote.exit:                                ; preds = %_.exit.i, %.critedge2.i
-  %.0.i = phi i32 [ %.02065.i, %.critedge2.i ], [ 0, %_.exit.i ]
+  %.0.i = phi i32 [ %.02069.i, %.critedge2.i ], [ 0, %_.exit.i ]
   call void @string_list_clear(ptr noundef nonnull %29, i32 noundef 0) #19
   call void @string_list_clear(ptr noundef nonnull %30, i32 noundef 0) #19
   call void @string_list_clear(ptr noundef nonnull %23, i32 noundef 1) #19
@@ -4101,11 +4101,11 @@ define internal noundef i32 @config_read_branches(ptr noundef %0, ptr noundef %1
   %12 = getelementptr i8, ptr %0, i64 %8
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %12, ptr noundef nonnull readonly dereferenceable(7) @.str.74, i64 7)
   %.not.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not.i.i, label %strip_suffix.exit, label %.thread87
+  br i1 %.not.i.i, label %strip_suffix.exit, label %.thread91
 
 13:                                               ; preds = %6
-  %.not92 = icmp eq i64 %8, 6
-  br i1 %.not92, label %14, label %strip_suffix.exit58.thread
+  %.not96 = icmp eq i64 %8, 6
+  br i1 %.not96, label %14, label %strip_suffix.exit58.thread
 
 14:                                               ; preds = %13
   %15 = add nsw i64 %8, -6
@@ -4114,14 +4114,14 @@ define internal noundef i32 @config_read_branches(ptr noundef %0, ptr noundef %1
   %.not.i.i48 = icmp eq i32 %bcmp.i.i47, 0
   br i1 %.not.i.i48, label %strip_suffix.exit, label %22
 
-.thread87:                                        ; preds = %10
+.thread91:                                        ; preds = %10
   %17 = add i64 %8, -6
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
-  %bcmp.i.i4788 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %18, ptr noundef nonnull readonly dereferenceable(6) @.str.75, i64 6)
-  %.not.i.i4889 = icmp eq i32 %bcmp.i.i4788, 0
-  br i1 %.not.i.i4889, label %strip_suffix.exit, label %19
+  %bcmp.i.i4792 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %18, ptr noundef nonnull readonly dereferenceable(6) @.str.75, i64 6)
+  %.not.i.i4893 = icmp eq i32 %bcmp.i.i4792, 0
+  br i1 %.not.i.i4893, label %strip_suffix.exit, label %19
 
-19:                                               ; preds = %.thread87
+19:                                               ; preds = %.thread91
   %20 = add i64 %8, -7
   %21 = getelementptr i8, ptr %0, i64 %8
   %bcmp.i.i51 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(7) %21, ptr noundef nonnull readonly dereferenceable(7) @.str.76, i64 7)
@@ -4139,9 +4139,9 @@ define internal noundef i32 @config_read_branches(ptr noundef %0, ptr noundef %1
   %.not.i.i56 = icmp eq i32 %bcmp.i.i55, 0
   br i1 %.not.i.i56, label %strip_suffix.exit, label %strip_suffix.exit58.thread
 
-strip_suffix.exit:                                ; preds = %.thread87, %24, %19, %14, %10
-  %.0 = phi i64 [ %11, %10 ], [ %15, %14 ], [ %20, %19 ], [ %25, %24 ], [ %17, %.thread87 ]
-  %.041 = phi i32 [ 0, %10 ], [ 1, %14 ], [ 2, %19 ], [ 3, %24 ], [ 1, %.thread87 ]
+strip_suffix.exit:                                ; preds = %.thread91, %24, %19, %14, %10
+  %.0 = phi i64 [ %11, %10 ], [ %15, %14 ], [ %20, %19 ], [ %25, %24 ], [ %17, %.thread91 ]
+  %.041 = phi i32 [ 0, %10 ], [ 1, %14 ], [ 2, %19 ], [ 3, %24 ], [ 1, %.thread91 ]
   %27 = tail call ptr @xmemdupz(ptr noundef nonnull %7, i64 noundef %.0) #19
   %28 = tail call ptr @string_list_insert(ptr noundef nonnull @branch_list, ptr noundef %27) #19
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4156,7 +4156,7 @@ strip_suffix.exit:                                ; preds = %.thread87, %24, %19
 
 33:                                               ; preds = %31, %strip_suffix.exit
   %34 = phi ptr [ %32, %31 ], [ %30, %strip_suffix.exit ]
-  switch i32 %.041, label %default.unreachable85 [
+  switch i32 %.041, label %default.unreachable89 [
     i32 0, label %35
     i32 1, label %43
     i32 2, label %69
@@ -4302,7 +4302,7 @@ _.exit71:                                         ; preds = %80, %82
   store ptr %85, ptr %78, align 8, !tbaa !70
   br label %86
 
-default.unreachable85:                            ; preds = %33
+default.unreachable89:                            ; preds = %33
   unreachable
 
 86:                                               ; preds = %69, %_.exit68, %84, %._crit_edge, %41

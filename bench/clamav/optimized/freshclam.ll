@@ -1697,15 +1697,15 @@ define dso_local i32 @perform_database_update(ptr noundef %0, i32 noundef %1, pt
   br i1 %exitcond157.not, label %._crit_edge143, label %.lr.ph142
 
 ._crit_edge143:                                   ; preds = %.lr.ph142, %.preheader.thread, %.preheader
-  %.0104164175 = phi i32 [ 15, %.preheader.thread ], [ %.0104, %.preheader ], [ %.0104, %.lr.ph142 ]
-  %.0101165174 = phi i32 [ 0, %.preheader.thread ], [ %.0101, %.preheader ], [ %.0101, %.lr.ph142 ]
-  %.096166173 = phi ptr [ %38, %.preheader.thread ], [ %.197, %.preheader ], [ %.197, %.lr.ph142 ]
-  call void @free(ptr noundef nonnull %.096166173) #17
+  %.0104185196 = phi i32 [ 15, %.preheader.thread ], [ %.0104, %.preheader ], [ %.0104, %.lr.ph142 ]
+  %.0101186195 = phi i32 [ 0, %.preheader.thread ], [ %.0101, %.preheader ], [ %.0101, %.lr.ph142 ]
+  %.096187194 = phi ptr [ %38, %.preheader.thread ], [ %.197, %.preheader ], [ %.197, %.lr.ph142 ]
+  call void @free(ptr noundef nonnull %.096187194) #17
   br label %.thread
 
 .thread:                                          ; preds = %40, %29, %22, %._crit_edge143, %108
-  %.0101134 = phi i32 [ %.0101165174, %._crit_edge143 ], [ %.0101, %108 ], [ 0, %22 ], [ 0, %29 ], [ 0, %40 ]
-  %.0104133 = phi i32 [ %.0104164175, %._crit_edge143 ], [ %.0104, %108 ], [ 16, %22 ], [ 16, %29 ], [ 15, %40 ]
+  %.0101134 = phi i32 [ %.0101186195, %._crit_edge143 ], [ %.0101, %108 ], [ 0, %22 ], [ 0, %29 ], [ 0, %40 ]
+  %.0104133 = phi i32 [ %.0104185196, %._crit_edge143 ], [ %.0104, %108 ], [ 16, %22 ], [ 16, %29 ], [ 15, %40 ]
   %111 = call i32 @lstat(ptr noundef nonnull @g_freshclamTempDirectory, ptr noundef nonnull %20) #17
   %112 = icmp ne i32 %111, -1
   %113 = load i8, ptr @g_freshclamTempDirectory, align 16
@@ -2197,10 +2197,10 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %122, %116, %113
-  %.str.107.sink295.i = phi ptr [ @.str.109, %122 ], [ @.str.108, %116 ], [ @.str.107, %113 ]
+  %.str.107.sink303.i = phi ptr [ @.str.109, %122 ], [ @.str.108, %116 ], [ @.str.107, %113 ]
   %.780.ph.i = phi ptr [ %120, %122 ], [ %.477.i, %116 ], [ %.477.i, %113 ]
   %.0.i60.ph.i = phi i32 [ 15, %122 ], [ 15, %116 ], [ 16, %113 ]
-  tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.107.sink295.i) #17
+  tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.107.sink303.i) #17
   tail call void @free(ptr noundef %114) #17
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.168) #17
   br label %.thread101.i
@@ -2448,7 +2448,7 @@ get_database_server_list.exit:                    ; preds = %99, %128
 
 204:                                              ; preds = %195
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.78) #17
-  br label %.thread390
+  br label %.thread423
 
 205:                                              ; preds = %195
   %206 = call ptr @optget(ptr noundef nonnull %52, ptr noundef nonnull @.str.79) #17
@@ -2887,7 +2887,7 @@ get_database_server_list.exit:                    ; preds = %99, %128
   %.4.ph = phi i32 [ 9, %.thread282 ], [ 2, %307 ], [ 17, %421 ], [ 9, %356 ], [ 14, %300 ], [ 9, %291 ], [ 9, %278 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %.thread390
+  br label %.thread423
 
 449:                                              ; preds = %345
   %450 = load ptr, ptr @stderr, align 8, !tbaa !24
@@ -2905,7 +2905,7 @@ get_database_server_list.exit:                    ; preds = %99, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %.thread390
+  br label %.thread423
 
 .thread298:                                       ; preds = %34, %61, %69, %28, %54, %.thread294, %264
   %.0259.ph = phi ptr [ null, %34 ], [ null, %61 ], [ null, %69 ], [ null, %54 ], [ null, %28 ], [ %.1260, %.thread294 ], [ %.1260, %264 ]
@@ -2921,19 +2921,19 @@ get_database_server_list.exit:                    ; preds = %99, %128
   %.0257 = phi i32 [ %.1258, %267 ], [ 0, %136 ], [ %.1258, %.thread ], [ %.1258, %.thread273 ]
   %.0129 = phi i32 [ %266, %267 ], [ %.034116.i.ph, %136 ], [ %.1.ph, %.thread ], [ %.3.ph, %.thread273 ]
   %464 = icmp ugt i32 %.0129, 1
-  br i1 %464, label %.thread390, label %474
+  br i1 %464, label %.thread423, label %474
 
-.thread390:                                       ; preds = %.thread291, %204, %449, %463
-  %.0129396 = phi i32 [ %.0129, %463 ], [ %.4.ph, %.thread291 ], [ 2, %204 ], [ 9, %449 ]
-  %.0257395 = phi i32 [ %.0257, %463 ], [ %.1258, %.thread291 ], [ %.1258, %204 ], [ %.1258, %449 ]
-  %.0259394 = phi ptr [ %.0259, %463 ], [ %.1260, %.thread291 ], [ %.1260, %204 ], [ %.1260, %449 ]
+.thread423:                                       ; preds = %.thread291, %204, %449, %463
+  %.0129429 = phi i32 [ %.0129, %463 ], [ %.4.ph, %.thread291 ], [ 2, %204 ], [ 9, %449 ]
+  %.0257428 = phi i32 [ %.0257, %463 ], [ %.1258, %.thread291 ], [ %.1258, %204 ], [ %.1258, %449 ]
+  %.0259427 = phi ptr [ %.0259, %463 ], [ %.1260, %.thread291 ], [ %.1260, %204 ], [ %.1260, %449 ]
   %465 = call ptr @optget(ptr noundef nonnull %52, ptr noundef nonnull @.str.101) #17
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 32
   %467 = load i32, ptr %466, align 8, !tbaa !17
   %.not211 = icmp eq i32 %467, 0
   br i1 %.not211, label %474, label %468
 
-468:                                              ; preds = %.thread390
+468:                                              ; preds = %.thread423
   %469 = getelementptr inbounds nuw i8, ptr %465, i64 16
   %470 = load ptr, ptr %469, align 8, !tbaa !23
   %471 = call ptr @optget(ptr noundef nonnull %52, ptr noundef nonnull @.str.81) #17
@@ -2942,13 +2942,13 @@ get_database_server_list.exit:                    ; preds = %99, %128
   call void @execute(ptr noundef nonnull @.str.101, ptr noundef %470, i32 noundef %473) #17
   br label %474
 
-474:                                              ; preds = %.thread298, %.thread390, %468, %463
-  %475 = phi i1 [ %462, %.thread298 ], [ true, %.thread390 ], [ true, %468 ], [ true, %463 ]
-  %.0129309 = phi i32 [ %.0129.ph, %.thread298 ], [ %.0129396, %.thread390 ], [ %.0129396, %468 ], [ %.0129, %463 ]
-  %.0135308 = phi ptr [ %.0135.ph, %.thread298 ], [ %51, %.thread390 ], [ %51, %468 ], [ %51, %463 ]
-  %.0140307 = phi ptr [ %.0140.ph, %.thread298 ], [ %52, %.thread390 ], [ %52, %468 ], [ %52, %463 ]
-  %.0257306 = phi i32 [ %.0257.ph, %.thread298 ], [ %.0257395, %.thread390 ], [ %.0257395, %468 ], [ %.0257, %463 ]
-  %.0259305 = phi ptr [ %.0259.ph, %.thread298 ], [ %.0259394, %.thread390 ], [ %.0259394, %468 ], [ %.0259, %463 ]
+474:                                              ; preds = %.thread298, %.thread423, %468, %463
+  %475 = phi i1 [ %462, %.thread298 ], [ true, %.thread423 ], [ true, %468 ], [ true, %463 ]
+  %.0129309 = phi i32 [ %.0129.ph, %.thread298 ], [ %.0129429, %.thread423 ], [ %.0129429, %468 ], [ 1, %463 ]
+  %.0135308 = phi ptr [ %.0135.ph, %.thread298 ], [ %51, %.thread423 ], [ %51, %468 ], [ %51, %463 ]
+  %.0140307 = phi ptr [ %.0140.ph, %.thread298 ], [ %52, %.thread423 ], [ %52, %468 ], [ %52, %463 ]
+  %.0257306 = phi i32 [ %.0257.ph, %.thread298 ], [ %.0257428, %.thread423 ], [ %.0257428, %468 ], [ %.0257, %463 ]
+  %.0259305 = phi ptr [ %.0259.ph, %.thread298 ], [ %.0259427, %.thread423 ], [ %.0259427, %468 ], [ %.0259, %463 ]
   call void @logg_close() #17
   %476 = load ptr, ptr @g_pidfile, align 8, !tbaa !15
   %.not212 = icmp eq ptr %476, null

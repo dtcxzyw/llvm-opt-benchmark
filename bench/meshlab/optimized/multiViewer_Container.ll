@@ -238,13 +238,13 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   br i1 %23, label %._crit_edge.thread.i.i, label %28
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #22
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #22
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   %.pre82.i = load i32, ptr %.08.i, align 4
@@ -253,12 +253,12 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 28:                                               ; preds = %26, %._crit_edge.i.i
   %29 = phi i32 [ %.pre82.i, %26 ], [ %19, %._crit_edge.i.i ]
   %30 = phi i32 [ %.pre81.i, %26 ], [ %22, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
@@ -1074,16 +1074,16 @@ _ZN21MultiViewer_Container13updateCurrentEi.exit: ; preds = %.noexc32, %49
   br label %.invoke
 
 .invoke:                                          ; preds = %70, %84
-  %.sink77.in = phi ptr [ %73, %70 ], [ %86, %84 ]
-  %.sink76.in = phi ptr [ %72, %70 ], [ %87, %84 ]
-  %.sink74 = phi ptr [ %9, %70 ], [ %11, %84 ]
-  %.sink76 = load i32, ptr %.sink76.in, align 4
-  %.sink77 = load i32, ptr %.sink77.in, align 4
-  %88 = add i32 %.sink77, 1
-  %89 = sub i32 %88, %.sink76
+  %.sink80.in = phi ptr [ %73, %70 ], [ %86, %84 ]
+  %.sink79.in = phi ptr [ %72, %70 ], [ %87, %84 ]
+  %.sink77 = phi ptr [ %9, %70 ], [ %11, %84 ]
+  %.sink79 = load i32, ptr %.sink79.in, align 4
+  %.sink80 = load i32, ptr %.sink80.in, align 4
+  %88 = add i32 %.sink80, 1
+  %89 = sub i32 %88, %.sink79
   %90 = sdiv i32 %89, 2
-  store i32 %90, ptr %.sink74, align 4
-  invoke void @_ZN5QListIiE6appendERKi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %.sink74)
+  store i32 %90, ptr %.sink77, align 4
+  invoke void @_ZN5QListIiE6appendERKi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %.sink77)
           to label %91 unwind label %74
 
 91:                                               ; preds = %.invoke
@@ -1243,7 +1243,7 @@ _Z12qobject_castIP8SplitterET_P7QObject.exit:     ; preds = %_ZN21MultiViewer_Co
   %147 = load ptr, ptr %136, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 20
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 28
-  br label %.invoke78
+  br label %.invoke81
 
 150:                                              ; preds = %133, %131, %130, %127, %125
   %151 = landingpad { ptr, i32 }
@@ -1256,7 +1256,7 @@ _Z12qobject_castIP8SplitterET_P7QObject.exit:     ; preds = %_ZN21MultiViewer_Co
   call void @_ZdlPv(ptr noundef nonnull %128) #19
   br label %202
 
-154:                                              ; preds = %.invoke78, %185, %.noexc51, %.noexc50, %183, %.noexc48, %175, %_ZN21MultiViewer_Container13updateCurrentEi.exit54, %174, %173, %172, %171, %156, %138
+154:                                              ; preds = %.invoke81, %185, %.noexc51, %.noexc50, %183, %.noexc48, %175, %_ZN21MultiViewer_Container13updateCurrentEi.exit54, %174, %173, %172, %171, %156, %138
   %155 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #20
@@ -1278,22 +1278,22 @@ _Z12qobject_castIP8SplitterET_P7QObject.exit:     ; preds = %_ZN21MultiViewer_Co
   %165 = load ptr, ptr %136, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 32
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  br label %.invoke78
+  br label %.invoke81
 
-.invoke78:                                        ; preds = %146, %164
-  %.sink82.in = phi ptr [ %149, %146 ], [ %166, %164 ]
-  %.sink81.in = phi ptr [ %148, %146 ], [ %167, %164 ]
-  %.sink79 = phi ptr [ %16, %146 ], [ %18, %164 ]
-  %.sink81 = load i32, ptr %.sink81.in, align 4
-  %.sink82 = load i32, ptr %.sink82.in, align 4
-  %168 = add i32 %.sink82, 1
-  %169 = sub i32 %168, %.sink81
+.invoke81:                                        ; preds = %146, %164
+  %.sink85.in = phi ptr [ %149, %146 ], [ %166, %164 ]
+  %.sink84.in = phi ptr [ %148, %146 ], [ %167, %164 ]
+  %.sink82 = phi ptr [ %16, %146 ], [ %18, %164 ]
+  %.sink84 = load i32, ptr %.sink84.in, align 4
+  %.sink85 = load i32, ptr %.sink85.in, align 4
+  %168 = add i32 %.sink85, 1
+  %169 = sub i32 %168, %.sink84
   %170 = sdiv i32 %169, 2
-  store i32 %170, ptr %.sink79, align 4
-  invoke void @_ZN5QListIiE6appendERKi(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %.sink79)
+  store i32 %170, ptr %.sink82, align 4
+  invoke void @_ZN5QListIiE6appendERKi(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 4 dereferenceable(4) %.sink82)
           to label %171 unwind label %154
 
-171:                                              ; preds = %.invoke78
+171:                                              ; preds = %.invoke81
   invoke void @_ZN9QSplitter8setSizesERK5QListIiE(ptr noundef nonnull align 8 dereferenceable(48) %124, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %172 unwind label %154
 
@@ -3604,7 +3604,7 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDa
   %.not14 = icmp eq ptr %23, null
   br i1 %.not14, label %common.ret, label %24
 
-common.ret15:                                     ; preds = %24, %common.ret
+common.ret16:                                     ; preds = %24, %common.ret
   ret ptr %5
 
 24:                                               ; preds = %21
@@ -3616,12 +3616,12 @@ common.ret15:                                     ; preds = %24, %common.ret
   %29 = ptrtoint ptr %5 to i64
   %30 = or i64 %28, %29
   store i64 %30, ptr %25, align 8
-  br label %common.ret15
+  br label %common.ret16
 
 common.ret:                                       ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %31, align 8
-  br label %common.ret15
+  br label %common.ret16
 }
 
 declare void @_ZN12QMapDataBase18recalcMostLeftNodeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0

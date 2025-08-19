@@ -3427,7 +3427,7 @@ psqlscan_emit.exit1164:                           ; preds = %1457, %1443, %1441,
   %1620 = getelementptr i8, ptr %1596, i64 %indvars.iv2137
   %1621 = getelementptr i8, ptr %1620, i64 -2
   %1622 = load i8, ptr %1621, align 1
-  switch i8 %1622, label %.critedge.loopexit.split.loop.exit2505 [
+  switch i8 %1622, label %.critedge.loopexit.split.loop.exit2692 [
     i8 43, label %.critedge30.backedge
     i8 45, label %.critedge30.backedge
   ]
@@ -3437,12 +3437,12 @@ psqlscan_emit.exit1164:                           ; preds = %1457, %1443, %1441,
   %1624 = icmp sgt i32 %1623, 3
   br i1 %1624, label %.lr.ph1860, label %.critedge
 
-.critedge.loopexit.split.loop.exit2505:           ; preds = %.lr.ph1860
+.critedge.loopexit.split.loop.exit2692:           ; preds = %.lr.ph1860
   %indvars.le = trunc i64 %indvars.iv.next2138 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit2505, %.critedge30.preheader, %1608, %1594
-  %.1714 = phi i32 [ %.0713, %1594 ], [ %.0713, %1608 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit2505 ], [ 1, %.critedge30.backedge ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit2692, %.critedge30.preheader, %1608, %1594
+  %.1714 = phi i32 [ %.0713, %1594 ], [ %.0713, %1608 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit2692 ], [ 1, %.critedge30.backedge ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ], [ %.0713, %.lr.ph ]
   %1625 = icmp slt i32 %.1714, %1595
   br i1 %1625, label %1626, label %1631
 
@@ -4918,10 +4918,10 @@ yy_get_previous_state.exit:                       ; preds = %2218, %2199
   br label %2366
 
 2366:                                             ; preds = %.critedge2.i, %2261
-  %.sink196.in.i = phi ptr [ %2365, %.critedge2.i ], [ %2262, %2261 ]
+  %.sink203.in.i = phi ptr [ %2365, %.critedge2.i ], [ %2262, %2261 ]
   %.sink.i1365 = phi i32 [ %2362, %.critedge2.i ], [ 0, %2261 ]
-  %.sink196.i = load ptr, ptr %.sink196.in.i, align 8
-  %2367 = getelementptr inbounds nuw i8, ptr %.sink196.i, i64 28
+  %.sink203.i = load ptr, ptr %.sink203.in.i, align 8
+  %2367 = getelementptr inbounds nuw i8, ptr %.sink203.i, i64 28
   store i32 %.sink.i1365, ptr %2367, align 4
   %2368 = load i32, ptr %85, align 4
   %2369 = icmp eq i32 %2368, 0
@@ -5024,7 +5024,7 @@ yy_get_next_buffer.exit:                          ; preds = %2380, %2409
   %2434 = getelementptr inbounds nuw i8, ptr %2433, i64 8
   %2435 = load ptr, ptr %2434, align 8
   store ptr %2435, ptr %81, align 8
-  switch i32 %.0135.i, label %default.unreachable2155 [
+  switch i32 %.0135.i, label %default.unreachable2342 [
     i32 1, label %yy_get_previous_state.exit1377
     i32 0, label %2437
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1397_crit_edge
@@ -5112,7 +5112,7 @@ yy_get_next_buffer.exit.thread1397:               ; preds = %2243, %yy_get_next_
   %exitcond.not.i1384 = icmp eq ptr %2479, %2463
   br i1 %exitcond.not.i1384, label %.loopexit1401.backedge, label %.lr.ph.i1380, !llvm.loop !12
 
-default.unreachable2155:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable2342:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit1377:                   ; preds = %yy_get_next_buffer.exit, %2243
@@ -6359,9 +6359,9 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
   br label %.thread
 
 .thread:                                          ; preds = %psql_yyensure_buffer_stack.exit, %51, %32
-  %.pr36 = phi ptr [ %.pr.pre, %51 ], [ %.pr.pre, %32 ], [ %28, %psql_yyensure_buffer_stack.exit ]
+  %.pr40 = phi ptr [ %.pr.pre, %51 ], [ %.pr.pre, %32 ], [ %28, %psql_yyensure_buffer_stack.exit ]
   %53 = phi i64 [ %52, %51 ], [ %.pre30, %32 ], [ %27, %psql_yyensure_buffer_stack.exit ]
-  %54 = getelementptr inbounds nuw ptr, ptr %.pr36, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %53
   store ptr %0, ptr %54, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = load i64, ptr %29, align 8
@@ -7336,7 +7336,7 @@ define dso_local noundef ptr @psqlscan_prepare_buffer(ptr noundef readonly captu
   %29 = add i32 %26, -1
   %30 = icmp sgt i32 %29, 0
   %31 = icmp slt i32 %.132, %2
-  %32 = and i1 %30, %31
+  %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %22
@@ -7431,7 +7431,7 @@ define dso_local range(i32 0, 4) i32 @psql_scan(ptr noundef captures(none) initi
   tail call void @psql_yy_switch_to_buffer(ptr noundef %.sink, ptr noundef %8)
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i32 @psql_yylex(ptr noundef null, ptr noundef %9)
-  switch i32 %10, label %default.unreachable30 [
+  switch i32 %10, label %default.unreachable31 [
     i32 0, label %11
     i32 1, label %32
     i32 2, label %31
@@ -7471,7 +7471,7 @@ define dso_local range(i32 0, 4) i32 @psql_scan(ptr noundef captures(none) initi
   %24 = load i64, ptr %23, align 8
   %.not29 = icmp ne i64 %24, 0
   %. = zext i1 %.not29 to i32
-  %.33 = select i1 %.not29, i32 3, i32 2
+  %.34 = select i1 %.not29, i32 3, i32 2
   br label %32
 
 25:                                               ; preds = %11
@@ -7492,13 +7492,13 @@ define dso_local range(i32 0, 4) i32 @psql_scan(ptr noundef captures(none) initi
 31:                                               ; preds = %3
   br label %32
 
-default.unreachable30:                            ; preds = %3
+default.unreachable31:                            ; preds = %3
   unreachable
 
 32:                                               ; preds = %3, %11, %11, %11, %11, %11, %22, %18, %14, %25, %26, %27, %31
-  %.sink32 = phi i32 [ 2, %25 ], [ 4, %26 ], [ 5, %27 ], [ 0, %31 ], [ 6, %14 ], [ 1, %18 ], [ %., %22 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 0, %3 ]
-  %.0 = phi i32 [ 2, %25 ], [ 2, %26 ], [ 2, %27 ], [ 1, %31 ], [ 2, %14 ], [ 2, %18 ], [ %.33, %22 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 0, %3 ]
-  store i32 %.sink32, ptr %2, align 4
+  %.sink33 = phi i32 [ 2, %25 ], [ 4, %26 ], [ 5, %27 ], [ 0, %31 ], [ 6, %14 ], [ 1, %18 ], [ %., %22 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 3, %11 ], [ 0, %3 ]
+  %.0 = phi i32 [ 2, %25 ], [ 2, %26 ], [ 2, %27 ], [ 1, %31 ], [ 2, %14 ], [ 2, %18 ], [ %.34, %22 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 2, %11 ], [ 0, %3 ]
+  store i32 %.sink33, ptr %2, align 4
   ret i32 %.0
 }
 

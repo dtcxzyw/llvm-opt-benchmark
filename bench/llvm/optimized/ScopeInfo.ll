@@ -826,15 +826,15 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 tailrecurse.backedge.sink.split.sink.split:       ; preds = %tailrecurse, %17
   %.sink = phi i64 [ 24, %17 ], [ 32, %tailrecurse ]
-  %.sink224.ph = phi i64 [ 48, %17 ], [ 40, %tailrecurse ]
+  %.sink228.ph = phi i64 [ 48, %17 ], [ 40, %tailrecurse ]
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink
   %14 = load ptr, ptr %13, align 8, !tbaa !176
   tail call void @_ZN5clang4sema17FunctionScopeInfo15markSafeWeakUseEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef %14)
   br label %tailrecurse.backedge.sink.split
 
 tailrecurse.backedge.sink.split:                  ; preds = %tailrecurse.backedge.sink.split.sink.split, %tailrecurse
-  %.sink224 = phi i64 [ 16, %tailrecurse ], [ %.sink224.ph, %tailrecurse.backedge.sink.split.sink.split ]
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink224
+  %.sink228 = phi i64 [ 16, %tailrecurse ], [ %.sink228.ph, %tailrecurse.backedge.sink.split.sink.split ]
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink228
   %16 = load ptr, ptr %15, align 8, !tbaa !166
   br label %tailrecurse.backedge
 
@@ -1067,13 +1067,13 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %117, %121
   %150 = getelementptr inbounds i8, ptr %146, i64 -16
   %.0.copyload.i.i.i.i.i2.i.i.i.i = load i64, ptr %150, align 8, !noalias !189
   %151 = icmp eq i64 %.0.copyload.i.i.i.i.i2.i.i.i.i, %143
-  br i1 %151, label %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit217, label %152
+  br i1 %151, label %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit221, label %152
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds i8, ptr %146, i64 -24
   %.0.copyload.i.i.i.i.i4.i.i.i.i = load i64, ptr %153, align 8, !noalias !189
   %154 = icmp eq i64 %.0.copyload.i.i.i.i.i4.i.i.i.i, %143
-  br i1 %154, label %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit215, label %155
+  br i1 %154, label %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit219, label %155
 
 155:                                              ; preds = %152
   %156 = getelementptr inbounds i8, ptr %146, i64 -32
@@ -1126,16 +1126,16 @@ _ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionSc
   %172 = getelementptr inbounds i8, ptr %146, i64 -24
   br label %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit215: ; preds = %152
+_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit219: ; preds = %152
   %173 = getelementptr inbounds i8, ptr %146, i64 -16
   br label %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit217: ; preds = %149
+_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit221: ; preds = %149
   %174 = getelementptr inbounds i8, ptr %146, i64 -8
   br label %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit215, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit217, %163, %._crit_edge.i._crit_edge.i.i.i, %._crit_edge.i._crit_edge19.i.i.i
-  %.sink.i.i.i.i = phi ptr [ %162, %163 ], [ %166, %._crit_edge.i._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge.i._crit_edge19.i.i.i ], [ %172, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %173, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit215 ], [ %174, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit217 ], [ %146, %.lr.ph.i.i.i.i ]
+_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit219, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit221, %163, %._crit_edge.i._crit_edge.i.i.i, %._crit_edge.i._crit_edge19.i.i.i
+  %.sink.i.i.i.i = phi ptr [ %162, %163 ], [ %166, %._crit_edge.i._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge.i._crit_edge19.i.i.i ], [ %172, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %173, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit219 ], [ %174, %_ZN4llvm4findINS_14iterator_rangeISt16reverse_iteratorIPN5clang4sema17FunctionScopeInfo9WeakUseTyEEEES6_EEDaOT_RKT0_.exit.loopexit.split.loop.exit221 ], [ %146, %.lr.ph.i.i.i.i ]
   %175 = icmp eq ptr %.sink.i.i.i.i, %137
   br i1 %175, label %.critedge73, label %176
 

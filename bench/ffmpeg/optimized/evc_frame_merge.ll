@@ -167,7 +167,7 @@ thread-pre-split:                                 ; preds = %38, %35, %33
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %64
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %69) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.6, i32 noundef -1) #7
   br label %parse_nal_unit.exit.thread
 
 72:                                               ; preds = %64

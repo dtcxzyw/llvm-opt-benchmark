@@ -158,8 +158,8 @@ define void @ff_fetch_timestamp(ptr noundef captures(none) %0, i32 noundef %1, i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.not4770 = icmp eq i32 %2, 0
-  br i1 %.not4770, label %.split.us.split.us, label %.split.us.split
+  %.not4782 = icmp eq i32 %2, 0
+  br i1 %.not4782, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us, %.split.us.split.us.backedge
   %.048.us.us = phi i32 [ %.048.us.us.be, %.split.us.split.us.backedge ], [ 0, %.split.us ]
@@ -909,9 +909,9 @@ define range(i32 -22, 1) i32 @ff_combine_frame(ptr noundef %0, i32 noundef %1, p
 
 90:                                               ; preds = %.thread, %67
   %91 = icmp slt i32 %spec.store.select, -8
-  br i1 %91, label %.thread97, label %94
+  br i1 %91, label %.thread102, label %94
 
-.thread97:                                        ; preds = %90
+.thread102:                                       ; preds = %90
   %92 = load i32, ptr %5, align 4, !tbaa !72
   %reass.sub96 = sub i32 %92, %spec.store.select
   %93 = add i32 %reass.sub96, -8
@@ -922,8 +922,8 @@ define range(i32 -22, 1) i32 @ff_combine_frame(ptr noundef %0, i32 noundef %1, p
   %95 = icmp slt i32 %spec.store.select, 0
   br i1 %95, label %.lr.ph93, label %.loopexit
 
-.lr.ph93:                                         ; preds = %.thread97, %94
-  %.08099 = phi i32 [ -8, %.thread97 ], [ %spec.store.select, %94 ]
+.lr.ph93:                                         ; preds = %.thread102, %94
+  %.080104 = phi i32 [ -8, %.thread102 ], [ %spec.store.select, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %97 = load ptr, ptr %0, align 8, !tbaa !74
   %98 = load i32, ptr %30, align 4, !tbaa !79
@@ -934,7 +934,7 @@ define range(i32 -22, 1) i32 @ff_combine_frame(ptr noundef %0, i32 noundef %1, p
   %100 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 -8)
   %smax = sext i32 %100 to i64
   %101 = sext i32 %98 to i64
-  %102 = sub i32 %100, %.08099
+  %102 = sub i32 %100, %.080104
   %invariant.gep = getelementptr i8, ptr %97, i64 %101
   br label %103
 

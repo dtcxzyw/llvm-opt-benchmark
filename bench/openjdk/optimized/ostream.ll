@@ -317,13 +317,13 @@ sub_1:                                            ; preds = %sub_0
   %39 = sext i32 %38 to i64
   %40 = icmp ugt i64 %spec.select, %39
   %41 = add i64 %spec.select, -1
-  %spec.select62 = select i1 %40, i64 %39, i64 %41
-  %spec.select63 = select i1 %40, i64 %39, i64 %41
+  %spec.select64 = select i1 %40, i64 %39, i64 %41
+  %spec.select65 = select i1 %40, i64 %39, i64 %41
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.tail.thread, %11, %36
-  %.sink = phi i64 [ %37, %36 ], [ %12, %11 ], [ %spec.select62, %.tail.thread ]
-  %.ph = phi i64 [ %37, %36 ], [ %12, %11 ], [ %spec.select63, %.tail.thread ]
+  %.sink = phi i64 [ %37, %36 ], [ %12, %11 ], [ %spec.select64, %.tail.thread ]
+  %.ph = phi i64 [ %37, %36 ], [ %12, %11 ], [ %spec.select65, %.tail.thread ]
   %.047.ph = phi ptr [ %34, %36 ], [ %2, %11 ], [ %0, %.tail.thread ]
   store i64 %.sink, ptr %5, align 8
   br label %42
@@ -414,8 +414,8 @@ define hidden void @_ZN12outputStream22do_vsnprintf_and_writeEPKcP13__va_list_ta
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
-  %or.cond10 = select i1 %or.cond, i1 %16, i1 false
-  br i1 %or.cond10, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit
+  %or.cond11 = select i1 %or.cond, i1 %16, i1 false
+  br i1 %or.cond11, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit
 
 .preheader.i.i:                                   ; preds = %4, %.preheader.i.i
   %.0.i.i = phi i32 [ %22, %.preheader.i.i ], [ %15, %4 ]
@@ -2802,14 +2802,14 @@ _ZN13defaultStream12has_log_fileEv.exit:          ; preds = %16, %20, %22
 
 .outer:                                           ; preds = %.thread, %.lr.ph.i
   %.ph = phi i64 [ %50, %.thread ], [ %.promoted14.i, %.lr.ph.i ]
-  %.ph31 = phi i32 [ 0, %.thread ], [ %.promoted.i, %.lr.ph.i ]
+  %.ph36 = phi i32 [ 0, %.thread ], [ %.promoted.i, %.lr.ph.i ]
   %.013.i.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph.i ]
   %.01012.i.ph = phi i64 [ %51, %.thread ], [ 0, %.lr.ph.i ]
   br label %31
 
 31:                                               ; preds = %.outer, %44
   %32 = phi i64 [ %45, %44 ], [ %.ph, %.outer ]
-  %33 = phi i32 [ %46, %44 ], [ %.ph31, %.outer ]
+  %33 = phi i32 [ %46, %44 ], [ %.ph36, %.outer ]
   %.01012.i = phi i64 [ %47, %44 ], [ %.01012.i.ph, %.outer ]
   %34 = getelementptr inbounds i8, ptr %1, i64 %.01012.i
   %35 = load i8, ptr %34, align 1
@@ -2848,8 +2848,8 @@ _ZN13defaultStream12has_log_fileEv.exit:          ; preds = %16, %20, %22
   store i64 %50, ptr %30, align 8
   store i32 0, ptr %29, align 8
   %51 = add nuw i64 %.01012.i, 1
-  %exitcond.not.i28 = icmp eq i64 %51, %2
-  br i1 %exitcond.not.i28, label %_ZN12outputStream15update_positionEPKcm.exit.thread, label %.outer, !llvm.loop !6
+  %exitcond.not.i33 = icmp eq i64 %51, %2
+  br i1 %exitcond.not.i33, label %_ZN12outputStream15update_positionEPKcm.exit.thread, label %.outer, !llvm.loop !6
 
 _ZN12outputStream15update_positionEPKcm.exit:     ; preds = %44
   br i1 %.013.i.ph, label %_ZN12outputStream15update_positionEPKcm.exit.thread, label %_ZN12outputStream15update_positionEPKcm.exit22

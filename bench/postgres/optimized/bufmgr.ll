@@ -1194,7 +1194,7 @@ BufferAlloc.exit:                                 ; preds = %79
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %74, %BufferAlloc.exit
-  %.0.i1127 = phi ptr [ %77, %74 ], [ %97, %BufferAlloc.exit ]
+  %.0.i1133 = phi ptr [ %77, %74 ], [ %97, %BufferAlloc.exit ]
   %100 = load i64, ptr @pgBufferUsage, align 8
   %101 = add i64 %100, 1
   store i64 %101, ptr @pgBufferUsage, align 8
@@ -1204,7 +1204,7 @@ BufferAlloc.exit:                                 ; preds = %79
   %.pre1923 = phi i8 [ 1, %50 ], [ 0, %46 ], [ 1, %99 ], [ 0, %BufferAlloc.exit ], [ 0, %BufferAlloc.exit.thread ], [ 0, %74 ]
   %.0.i17 = phi i32 [ 1, %50 ], [ 1, %46 ], [ 0, %99 ], [ 0, %BufferAlloc.exit ], [ 0, %BufferAlloc.exit.thread ], [ 0, %74 ]
   %.029.i815 = phi i32 [ 3, %50 ], [ 3, %46 ], [ %54, %99 ], [ %54, %BufferAlloc.exit ], [ %54, %BufferAlloc.exit.thread ], [ %54, %74 ]
-  %.030.i = phi ptr [ %47, %50 ], [ %47, %46 ], [ %.0.i1127, %99 ], [ %97, %BufferAlloc.exit ], [ %84, %BufferAlloc.exit.thread ], [ %77, %74 ]
+  %.030.i = phi ptr [ %47, %50 ], [ %47, %46 ], [ %.0.i1133, %99 ], [ %97, %BufferAlloc.exit ], [ %84, %BufferAlloc.exit.thread ], [ %77, %74 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %104 = load ptr, ptr %103, align 8
   %.not32.i = icmp eq ptr %104, null
@@ -1239,9 +1239,9 @@ BufferAlloc.exit:                                 ; preds = %79
 117:                                              ; preds = %115
   %118 = load ptr, ptr %103, align 8
   %.not33.i = icmp eq ptr %118, null
-  br i1 %.not33.i, label %122, label %.thread29, !prof !7
+  br i1 %.not33.i, label %122, label %.thread35, !prof !7
 
-.thread29:                                        ; preds = %117
+.thread35:                                        ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 120
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, 1
@@ -1265,7 +1265,7 @@ BufferAlloc.exit:                                 ; preds = %79
   store i64 %130, ptr %128, align 8
   br i1 %127, label %.thread, label %PinBufferForBlock.exit
 
-.thread:                                          ; preds = %122, %.thread29, %126
+.thread:                                          ; preds = %122, %.thread35, %126
   call void @pgstat_count_io_op(i32 noundef %.0.i17, i32 noundef %.029.i815, i32 noundef 2, i32 noundef 1, i64 noundef 0) #16
   %131 = load i8, ptr @VacuumCostActive, align 1, !range !5, !noundef !6
   %132 = trunc nuw i8 %131 to i1
@@ -1425,7 +1425,7 @@ BufferAlloc.exit:                                 ; preds = %45
   br i1 %63, label %64, label %PinBufferForBlock.exit
 
 64:                                               ; preds = %40, %BufferAlloc.exit
-  %.0.i18 = phi ptr [ %43, %40 ], [ %62, %BufferAlloc.exit ]
+  %.0.i20 = phi ptr [ %43, %40 ], [ %62, %BufferAlloc.exit ]
   %65 = load i64, ptr @pgBufferUsage, align 8
   %66 = add i64 %65, 1
   store i64 %66, ptr @pgBufferUsage, align 8
@@ -1442,7 +1442,7 @@ BufferAlloc.exit:                                 ; preds = %45
   br label %PinBufferForBlock.exit
 
 PinBufferForBlock.exit:                           ; preds = %40, %BufferAlloc.exit, %BufferAlloc.exit.thread, %64, %69
-  %.0.i1517 = phi ptr [ %.0.i18, %64 ], [ %.0.i18, %69 ], [ %62, %BufferAlloc.exit ], [ %50, %BufferAlloc.exit.thread ], [ %43, %40 ]
+  %.0.i1517 = phi ptr [ %.0.i20, %64 ], [ %.0.i20, %69 ], [ %62, %BufferAlloc.exit ], [ %50, %BufferAlloc.exit.thread ], [ %43, %40 ]
   %73 = phi i1 [ true, %64 ], [ true, %69 ], [ false, %BufferAlloc.exit ], [ false, %BufferAlloc.exit.thread ], [ false, %40 ]
   %74 = getelementptr i8, ptr %.0.i1517, i64 20
   %.0.i.val = load i32, ptr %74, align 4
@@ -1624,12 +1624,12 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br i1 %.not203.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %LimitAdditionalPins.exit.i, %LimitAdditionalPins.exit.thread.i
-  %.2234.i = phi i32 [ %spec.select174.i, %LimitAdditionalPins.exit.thread.i ], [ 1, %LimitAdditionalPins.exit.i ]
-  %wide.trip.count.i = zext nneg i32 %.2234.i to i64
+  %.2238.i = phi i32 [ %spec.select174.i, %LimitAdditionalPins.exit.thread.i ], [ 1, %LimitAdditionalPins.exit.i ]
+  %wide.trip.count.i = zext nneg i32 %.2238.i to i64
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %LimitAdditionalPins.exit.i
-  %.2235.i = phi i32 [ 0, %LimitAdditionalPins.exit.i ], [ %.2234.i, %.lr.ph.i ]
+  %.2239.i = phi i32 [ 0, %LimitAdditionalPins.exit.i ], [ %.2238.i, %.lr.ph.i ]
   %31 = and i32 %3, 1
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %43, label %44
@@ -1681,14 +1681,14 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 51:                                               ; preds = %._crit_edge229.i
   %52 = icmp ugt i32 %50, %5
   %53 = zext i32 %50 to i64
-  %54 = zext nneg i32 %.2235.i to i64
+  %54 = zext nneg i32 %.2239.i to i64
   %55 = add nuw nsw i64 %53, %54
   %56 = zext i32 %5 to i64
   %57 = icmp samesign ugt i64 %55, %56
   %58 = sub i32 %5, %50
-  %spec.select175.i = select i1 %57, i32 %58, i32 %.2235.i
+  %spec.select175.i = select i1 %57, i32 %58, i32 %.2239.i
   %.1.i = select i1 %52, i32 0, i32 %spec.select175.i
-  %59 = icmp ult i32 %.1.i, %.2235.i
+  %59 = icmp ult i32 %.1.i, %.2239.i
   br i1 %59, label %.lr.ph190.preheader.i, label %._crit_edge191.i
 
 .lr.ph190.preheader.i:                            ; preds = %51
@@ -1717,7 +1717,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   tail call fastcc void @UnpinBufferNoOwner(ptr noundef %66)
   %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next216.i to i32
-  %exitcond218.not.i = icmp eq i32 %.2235.i, %lftr.wideiv.i
+  %exitcond218.not.i = icmp eq i32 %.2239.i, %lftr.wideiv.i
   br i1 %exitcond218.not.i, label %._crit_edge191.i, label %.lr.ph190.i, !llvm.loop !14
 
 71:                                               ; preds = %._crit_edge191.i
@@ -1729,7 +1729,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 
 .critedge.i:                                      ; preds = %._crit_edge191.i, %..critedge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre231.i, %..critedge_crit_edge.i ], [ %53, %._crit_edge191.i ]
-  %.0.i = phi i32 [ %.2235.i, %..critedge_crit_edge.i ], [ %spec.select175.i, %._crit_edge191.i ]
+  %.0.i = phi i32 [ %.2239.i, %..critedge_crit_edge.i ], [ %spec.select175.i, %._crit_edge191.i ]
   %73 = zext i32 %.0.i to i64
   %74 = add nuw nsw i64 %.pre-phi.i, %73
   %75 = icmp samesign ugt i64 %74, 4294967293
@@ -2524,7 +2524,7 @@ BufferAlloc.exit:                                 ; preds = %141
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %136, %BufferAlloc.exit
-  %.0.i5281 = phi ptr [ %139, %136 ], [ %159, %BufferAlloc.exit ]
+  %.0.i5292 = phi ptr [ %139, %136 ], [ %159, %BufferAlloc.exit ]
   %162 = load i64, ptr @pgBufferUsage, align 8
   %163 = add i64 %162, 1
   store i64 %163, ptr @pgBufferUsage, align 8
@@ -2534,7 +2534,7 @@ BufferAlloc.exit:                                 ; preds = %141
   %.pre7276 = phi i8 [ 1, %112 ], [ 0, %108 ], [ 1, %161 ], [ 0, %BufferAlloc.exit ], [ 0, %BufferAlloc.exit.thread ], [ 0, %136 ]
   %.0.i59 = phi i32 [ 1, %112 ], [ 1, %108 ], [ 0, %161 ], [ 0, %BufferAlloc.exit ], [ 0, %BufferAlloc.exit.thread ], [ 0, %136 ]
   %.029.i4957 = phi i32 [ 3, %112 ], [ 3, %108 ], [ %116, %161 ], [ %116, %BufferAlloc.exit ], [ %116, %BufferAlloc.exit.thread ], [ %116, %136 ]
-  %.030.i = phi ptr [ %109, %112 ], [ %109, %108 ], [ %.0.i5281, %161 ], [ %159, %BufferAlloc.exit ], [ %146, %BufferAlloc.exit.thread ], [ %139, %136 ]
+  %.030.i = phi ptr [ %109, %112 ], [ %109, %108 ], [ %.0.i5292, %161 ], [ %159, %BufferAlloc.exit ], [ %146, %BufferAlloc.exit.thread ], [ %139, %136 ]
   br i1 %.not.i, label %192, label %165
 
 165:                                              ; preds = %164
@@ -2915,7 +2915,7 @@ BufferAlloc.exit:                                 ; preds = %82
   br i1 %108, label %109, label %112
 
 109:                                              ; preds = %77, %BufferAlloc.exit
-  %.0.i645 = phi ptr [ %80, %77 ], [ %107, %BufferAlloc.exit ]
+  %.0.i652 = phi ptr [ %80, %77 ], [ %107, %BufferAlloc.exit ]
   %110 = load i64, ptr @pgBufferUsage, align 8
   %111 = add i64 %110, 1
   store i64 %111, ptr @pgBufferUsage, align 8
@@ -2925,7 +2925,7 @@ BufferAlloc.exit:                                 ; preds = %82
   %.pre3741 = phi i8 [ 1, %37 ], [ 0, %33 ], [ 1, %109 ], [ 0, %BufferAlloc.exit ], [ 0, %BufferAlloc.exit.thread ], [ 0, %77 ]
   %.0.i13 = phi i32 [ 1, %37 ], [ 1, %33 ], [ 0, %109 ], [ 0, %BufferAlloc.exit ], [ 0, %BufferAlloc.exit.thread ], [ 0, %77 ]
   %.029.i11 = phi i32 [ 3, %37 ], [ 3, %33 ], [ %41, %109 ], [ %41, %BufferAlloc.exit ], [ %41, %BufferAlloc.exit.thread ], [ %41, %77 ]
-  %.030.i = phi ptr [ %34, %37 ], [ %34, %33 ], [ %.0.i645, %109 ], [ %107, %BufferAlloc.exit ], [ %87, %BufferAlloc.exit.thread ], [ %80, %77 ]
+  %.030.i = phi ptr [ %34, %37 ], [ %34, %33 ], [ %.0.i652, %109 ], [ %107, %BufferAlloc.exit ], [ %87, %BufferAlloc.exit.thread ], [ %80, %77 ]
   %.not.i4 = icmp eq ptr %26, null
   br i1 %.not.i4, label %140, label %113
 
@@ -3288,7 +3288,7 @@ BufferAlloc.exit:                                 ; preds = %77
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %72, %BufferAlloc.exit
-  %.0.i644 = phi ptr [ %75, %72 ], [ %102, %BufferAlloc.exit ]
+  %.0.i650 = phi ptr [ %75, %72 ], [ %102, %BufferAlloc.exit ]
   %105 = load i64, ptr @pgBufferUsage, align 8
   %106 = add i64 %105, 1
   store i64 %106, ptr @pgBufferUsage, align 8
@@ -3298,7 +3298,7 @@ BufferAlloc.exit:                                 ; preds = %77
   %.pre3640 = phi i8 [ 1, %32 ], [ 0, %28 ], [ 1, %104 ], [ 0, %BufferAlloc.exit ], [ 0, %BufferAlloc.exit.thread ], [ 0, %72 ]
   %.0.i13 = phi i32 [ 1, %32 ], [ 1, %28 ], [ 0, %104 ], [ 0, %BufferAlloc.exit ], [ 0, %BufferAlloc.exit.thread ], [ 0, %72 ]
   %.029.i11 = phi i32 [ 3, %32 ], [ 3, %28 ], [ %36, %104 ], [ %36, %BufferAlloc.exit ], [ %36, %BufferAlloc.exit.thread ], [ %36, %72 ]
-  %.030.i = phi ptr [ %29, %32 ], [ %29, %28 ], [ %.0.i644, %104 ], [ %102, %BufferAlloc.exit ], [ %82, %BufferAlloc.exit.thread ], [ %75, %72 ]
+  %.030.i = phi ptr [ %29, %32 ], [ %29, %28 ], [ %.0.i650, %104 ], [ %102, %BufferAlloc.exit ], [ %82, %BufferAlloc.exit.thread ], [ %75, %72 ]
   %.not.i4 = icmp eq ptr %22, null
   br i1 %.not.i4, label %135, label %108
 
@@ -3607,9 +3607,9 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
   %104 = load volatile i32, ptr %103, align 4
   %105 = and i32 %104, 16777216
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %.thread137, label %.critedge
+  br i1 %106, label %.thread147, label %.critedge
 
-.thread137:                                       ; preds = %WaitReadBuffersCanStartIO.exit84
+.thread147:                                       ; preds = %WaitReadBuffersCanStartIO.exit84
   %107 = sext i32 %.079111 to i64
   %108 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %107
   store i32 %85, ptr %108, align 4
@@ -3632,9 +3632,9 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
   %118 = icmp slt i32 %.pre136, 0
   br i1 %118, label %119, label %127
 
-119:                                              ; preds = %.thread137, %109
-  %120 = phi i64 [ %107, %.thread137 ], [ %116, %109 ]
-  %121 = phi i32 [ %85, %.thread137 ], [ %.pre136, %109 ]
+119:                                              ; preds = %.thread147, %109
+  %120 = phi i64 [ %107, %.thread147 ], [ %116, %109 ]
+  %121 = phi i32 [ %85, %.thread147 ], [ %.pre136, %109 ]
   %122 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %123 = xor i32 %121, -1
   %124 = zext nneg i32 %123 to i64
@@ -3662,8 +3662,8 @@ BufferGetBlock.exit86:                            ; preds = %119, %127
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 .critedge.sink.split:                             ; preds = %.split21.us.i, %.loopexit.split.us.i
-  %.sink158 = phi i32 [ -4194305, %.loopexit.split.us.i ], [ -71303169, %.split21.us.i ]
-  %137 = and i32 %.lcssa.i.us.i, %.sink158
+  %.sink168 = phi i32 [ -4194305, %.loopexit.split.us.i ], [ -71303169, %.split21.us.i ]
+  %137 = and i32 %.lcssa.i.us.i, %.sink168
   store volatile i32 %137, ptr %93, align 4
   br label %.critedge
 
@@ -4960,7 +4960,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %83, label %.lr.ph118.i, label %._crit_edge119.i
 
 .lr.ph118.i:                                      ; preds = %._crit_edge113.i
-  %84 = sitofp i32 %.1.i to double
+  %84 = uitofp nneg i32 %.1.i to double
   %wide.trip.count134.i = zext nneg i32 %.186.i to i64
   br label %85
 
@@ -5310,7 +5310,7 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
 
 .preheader77:                                     ; preds = %4
   %7 = icmp sgt i32 %2, 0
-  br i1 %7, label %.lr.ph84.preheader, label %.thread123
+  br i1 %7, label %.lr.ph84.preheader, label %.thread124
 
 .lr.ph84.preheader:                               ; preds = %.preheader77
   %wide.trip.count102 = zext nneg i32 %2 to i64
@@ -5371,11 +5371,11 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
   %31 = icmp ult i64 %26, %30
   br i1 %31, label %.lr.ph86.preheader, label %.thread
 
-.thread123:                                       ; preds = %.preheader77
-  %.pre117120 = load i32, ptr @NBuffers, align 4
-  %.pre117120.off = add i32 %.pre117120, 31
-  %.not129 = icmp ult i32 %.pre117120.off, 63
-  br i1 %.not129, label %.thread, label %.loopexit
+.thread124:                                       ; preds = %.preheader77
+  %.pre117121 = load i32, ptr @NBuffers, align 4
+  %.pre117121.off = add i32 %.pre117121, 31
+  %.not130 = icmp ult i32 %.pre117121.off, 63
+  br i1 %.not130, label %.thread, label %.loopexit
 
 .lr.ph86.preheader:                               ; preds = %28
   %wide.trip.count107 = zext nneg i32 %2 to i64
@@ -5398,8 +5398,8 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
   %.pre = load i32, ptr @NBuffers, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.thread123, %.thread.loopexit, %28, %._crit_edge
-  %38 = phi i32 [ %.pre, %.thread.loopexit ], [ %.pre117, %28 ], [ %.pre117, %._crit_edge ], [ %.pre117120, %.thread123 ]
+.thread:                                          ; preds = %.thread124, %.thread.loopexit, %28, %._crit_edge
+  %38 = phi i32 [ %.pre, %.thread.loopexit ], [ %.pre117, %28 ], [ %.pre117, %._crit_edge ], [ %.pre117121, %.thread124 ]
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph91, label %.loopexit
 
@@ -5516,7 +5516,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %45, %50, %.thread74
   %79 = icmp slt i64 %indvars.iv.next115, %78
   br i1 %79, label %45, label %.loopexit, !llvm.loop !33
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph86, %BufTagMatchesRelFileLocator.exit.thread, %.thread123, %.thread, %8
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph86, %BufTagMatchesRelFileLocator.exit.thread, %.thread124, %.thread, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -5894,7 +5894,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   %26 = shl nsw i64 %25, 4
   %27 = tail call ptr @palloc(i64 noundef %26) #16
   %28 = icmp sgt i32 %.1100, 0
-  br i1 %28, label %.preheader132, label %.thread203
+  br i1 %28, label %.preheader132, label %.thread206
 
 .preheader132:                                    ; preds = %24, %44
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %44 ], [ 0, %24 ]
@@ -5942,11 +5942,11 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   %50 = icmp ult i64 %.2103, %49
   br i1 %50, label %.preheader.preheader, label %._crit_edge143
 
-.thread203:                                       ; preds = %24
+.thread206:                                       ; preds = %24
   %51 = load i32, ptr @NBuffers, align 4
   %.off = add i32 %51, 31
-  %.not211 = icmp ult i32 %.off, 63
-  br i1 %.not211, label %._crit_edge143, label %._crit_edge158
+  %.not214 = icmp ult i32 %.off, 63
+  br i1 %.not214, label %._crit_edge143, label %._crit_edge158
 
 .preheader.preheader:                             ; preds = %46
   %wide.trip.count192 = zext nneg i32 %.1100 to i64
@@ -5984,12 +5984,12 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   %exitcond188.not = icmp eq i64 %indvars.iv.next186, 4
   br i1 %exitcond188.not, label %54, label %55, !llvm.loop !39
 
-._crit_edge158:                                   ; preds = %54, %.thread203
+._crit_edge158:                                   ; preds = %54, %.thread206
   tail call void @pfree(ptr noundef %27) #16
   tail call void @pfree(ptr noundef %8) #16
   br label %136
 
-._crit_edge143:                                   ; preds = %37, %.thread203, %46
+._crit_edge143:                                   ; preds = %37, %.thread206, %46
   tail call void @pfree(ptr noundef %27) #16
   %62 = mul nsw i64 %25, 12
   %63 = tail call ptr @palloc(i64 noundef %62) #16

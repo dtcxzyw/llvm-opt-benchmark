@@ -736,19 +736,19 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   %118 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv209
   %119 = load i64, ptr %118, align 8, !tbaa !49
   %.not115 = icmp eq i64 %119, 0
-  br i1 %.not115, label %120, label %._crit_edge.split.loop.exit247
+  br i1 %.not115, label %120, label %._crit_edge.split.loop.exit257
 
 120:                                              ; preds = %.lr.ph
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count
   br i1 %exitcond212.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
-._crit_edge.split.loop.exit247:                   ; preds = %.lr.ph
+._crit_edge.split.loop.exit257:                   ; preds = %.lr.ph
   %121 = trunc nuw nsw i64 %indvars.iv209 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %120, %._crit_edge.split.loop.exit247
-  %.0109.lcssa.ph = phi i32 [ %121, %._crit_edge.split.loop.exit247 ], [ %smax, %120 ]
+._crit_edge:                                      ; preds = %120, %._crit_edge.split.loop.exit257
+  %.0109.lcssa.ph = phi i32 [ %121, %._crit_edge.split.loop.exit257 ], [ %smax, %120 ]
   %122 = icmp eq i32 %.0109.lcssa.ph, %104
   br i1 %122, label %.critedge2, label %.lr.ph180.preheader
 
@@ -762,19 +762,19 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   %123 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv213
   %124 = load i64, ptr %123, align 8, !tbaa !49
   %.not116 = icmp eq i64 %124, -1
-  br i1 %.not116, label %125, label %._crit_edge181.split.loop.exit249
+  br i1 %.not116, label %125, label %._crit_edge181.split.loop.exit259
 
 125:                                              ; preds = %.lr.ph180
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count217
   br i1 %exitcond218.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !71
 
-._crit_edge181.split.loop.exit249:                ; preds = %.lr.ph180
+._crit_edge181.split.loop.exit259:                ; preds = %.lr.ph180
   %126 = trunc nuw nsw i64 %indvars.iv213 to i32
   br label %._crit_edge181
 
-._crit_edge181:                                   ; preds = %125, %._crit_edge181.split.loop.exit249
-  %.1110.lcssa.ph = phi i32 [ %126, %._crit_edge181.split.loop.exit249 ], [ %smax215, %125 ]
+._crit_edge181:                                   ; preds = %125, %._crit_edge181.split.loop.exit259
+  %.1110.lcssa.ph = phi i32 [ %126, %._crit_edge181.split.loop.exit259 ], [ %smax215, %125 ]
   %127 = icmp eq i32 %.1110.lcssa.ph, %104
   br i1 %127, label %.critedge2, label %._crit_edge181.thread
 
@@ -1352,19 +1352,19 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   %98 = getelementptr inbounds nuw i64, ptr %95, i64 %indvars.iv197
   %99 = load i64, ptr %98, align 8, !tbaa !49
   %.not113 = icmp eq i64 %99, 0
-  br i1 %.not113, label %100, label %._crit_edge.split.loop.exit232
+  br i1 %.not113, label %100, label %._crit_edge.split.loop.exit242
 
 100:                                              ; preds = %.lr.ph
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
   br i1 %exitcond200.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
-._crit_edge.split.loop.exit232:                   ; preds = %.lr.ph
+._crit_edge.split.loop.exit242:                   ; preds = %.lr.ph
   %101 = trunc nuw nsw i64 %indvars.iv197 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %100, %._crit_edge.split.loop.exit232
-  %.0105.lcssa.ph = phi i32 [ %101, %._crit_edge.split.loop.exit232 ], [ %smax, %100 ]
+._crit_edge:                                      ; preds = %100, %._crit_edge.split.loop.exit242
+  %.0105.lcssa.ph = phi i32 [ %101, %._crit_edge.split.loop.exit242 ], [ %smax, %100 ]
   %102 = icmp eq i32 %.0105.lcssa.ph, %88
   br i1 %102, label %.critedge2, label %.lr.ph173.preheader
 
@@ -1378,19 +1378,19 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   %103 = getelementptr inbounds nuw i64, ptr %95, i64 %indvars.iv201
   %104 = load i64, ptr %103, align 8, !tbaa !49
   %.not114 = icmp eq i64 %104, -1
-  br i1 %.not114, label %105, label %._crit_edge174.split.loop.exit234
+  br i1 %.not114, label %105, label %._crit_edge174.split.loop.exit244
 
 105:                                              ; preds = %.lr.ph173
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count205
   br i1 %exitcond206.not, label %._crit_edge174, label %.lr.ph173, !llvm.loop !81
 
-._crit_edge174.split.loop.exit234:                ; preds = %.lr.ph173
+._crit_edge174.split.loop.exit244:                ; preds = %.lr.ph173
   %106 = trunc nuw nsw i64 %indvars.iv201 to i32
   br label %._crit_edge174
 
-._crit_edge174:                                   ; preds = %105, %._crit_edge174.split.loop.exit234
-  %.1106.lcssa.ph = phi i32 [ %106, %._crit_edge174.split.loop.exit234 ], [ %smax203, %105 ]
+._crit_edge174:                                   ; preds = %105, %._crit_edge174.split.loop.exit244
+  %.1106.lcssa.ph = phi i32 [ %106, %._crit_edge174.split.loop.exit244 ], [ %smax203, %105 ]
   %107 = icmp eq i32 %.1106.lcssa.ph, %88
   br i1 %107, label %.critedge2, label %._crit_edge174.thread
 

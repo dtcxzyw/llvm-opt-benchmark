@@ -127,19 +127,19 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !43
   %.not75 = icmp sgt i8 %24, -1
-  br i1 %.not75, label %.critedge.loopexit.split.loop.exit100, label %25
+  br i1 %.not75, label %.critedge.loopexit.split.loop.exit104, label %25
 
 25:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !44
 
-.critedge.loopexit.split.loop.exit100:            ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit104:            ; preds = %.lr.ph
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %25, %.critedge.loopexit.split.loop.exit100, %20
-  %.069.lcssa = phi i32 [ 1, %20 ], [ %26, %.critedge.loopexit.split.loop.exit100 ], [ %6, %25 ]
+.critedge:                                        ; preds = %25, %.critedge.loopexit.split.loop.exit104, %20
+  %.069.lcssa = phi i32 [ 1, %20 ], [ %26, %.critedge.loopexit.split.loop.exit104 ], [ %6, %25 ]
   %27 = add nuw nsw i32 %.069.lcssa, 1
   %.not76 = icmp slt i32 %27, %6
   br i1 %.not76, label %29, label %28

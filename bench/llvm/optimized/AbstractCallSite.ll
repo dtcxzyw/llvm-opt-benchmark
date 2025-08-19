@@ -355,7 +355,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %76, %82
   %.idx = shl nuw nsw i64 %.sroa.3.0.i.i, 3
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.idx
   %.not5992 = icmp eq i64 %.sroa.3.0.i.i, 0
-  br i1 %.not5992, label %.loopexit113, label %.lr.ph
+  br i1 %.not5992, label %.loopexit129, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm6MDNode8operandsEv.exit
   %90 = and i64 %72, 4294967295
@@ -364,7 +364,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %76, %82
 91:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
   %92 = getelementptr inbounds nuw i8, ptr %.05093, i64 8
   %.not59 = icmp eq ptr %92, %89
-  br i1 %.not59, label %.loopexit113, label %93
+  br i1 %.not59, label %.loopexit129, label %93
 
 93:                                               ; preds = %.lr.ph, %91
   %.05093 = phi ptr [ %.sroa.0.0.i.i, %.lr.ph ], [ %92, %91 ]
@@ -402,7 +402,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %98, %101
   %.not60.not = icmp eq i64 %.0.i.i67, %90
   br i1 %.not60.not, label %._crit_edge, label %91
 
-.loopexit113:                                     ; preds = %91, %_ZNK4llvm6MDNode8operandsEv.exit
+.loopexit129:                                     ; preds = %91, %_ZNK4llvm6MDNode8operandsEv.exit
   store ptr null, ptr %0, align 8, !tbaa !60
   br label %.loopexit
 
@@ -599,7 +599,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit82: ; preds = %.lr.ph10
   %exitcond103.not = icmp eq i32 %220, %124
   br i1 %exitcond103.not, label %.loopexit, label %.lr.ph100, !llvm.loop !97
 
-.loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit82, %.thread, %_ZNK4llvm5Value9hasOneUseEv.exit, %16, %21, %204, %38, %thread-pre-split, %56, %.loopexit113, %_ZNK4llvm6MDNode10getOperandEj.exit79, %._crit_edge97, %_ZNK4llvm5Value11getMetadataEj.exit.thread
+.loopexit:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit82, %.thread, %_ZNK4llvm5Value9hasOneUseEv.exit, %16, %21, %204, %38, %thread-pre-split, %56, %.loopexit129, %_ZNK4llvm6MDNode10getOperandEj.exit79, %._crit_edge97, %_ZNK4llvm5Value11getMetadataEj.exit.thread
   ret void
 }
 

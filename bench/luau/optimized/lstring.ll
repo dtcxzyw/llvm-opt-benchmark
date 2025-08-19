@@ -14,9 +14,9 @@ define hidden noundef i32 @_Z9luaS_hashPKcm(ptr noundef readonly captures(none) 
   br i1 %.not43, label %._crit_edge, label %.lr.ph46.preheader
 
 .lr.ph46.preheader:                               ; preds = %.lr.ph, %.preheader
-  %.031.lcssa57 = phi ptr [ %0, %.preheader ], [ %17, %.lr.ph ]
-  %.032.lcssa56 = phi i64 [ %1, %.preheader ], [ %18, %.lr.ph ]
-  %.034.lcssa55 = phi i32 [ %3, %.preheader ], [ %16, %.lr.ph ]
+  %.031.lcssa58 = phi ptr [ %0, %.preheader ], [ %17, %.lr.ph ]
+  %.032.lcssa57 = phi i64 [ %1, %.preheader ], [ %18, %.lr.ph ]
+  %.034.lcssa56 = phi i32 [ %3, %.preheader ], [ %16, %.lr.ph ]
   br label %.lr.ph46
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -52,12 +52,12 @@ define hidden noundef i32 @_Z9luaS_hashPKcm(ptr noundef readonly captures(none) 
   ret i32 %.1.lcssa
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
-  %.045 = phi i64 [ %29, %.lr.ph46 ], [ %.032.lcssa56, %.lr.ph46.preheader ]
-  %.144 = phi i32 [ %28, %.lr.ph46 ], [ %.034.lcssa55, %.lr.ph46.preheader ]
+  %.045 = phi i64 [ %29, %.lr.ph46 ], [ %.032.lcssa57, %.lr.ph46.preheader ]
+  %.144 = phi i32 [ %28, %.lr.ph46 ], [ %.034.lcssa56, %.lr.ph46.preheader ]
   %20 = shl i32 %.144, 5
   %21 = lshr i32 %.144, 2
   %22 = add i32 %20, %21
-  %23 = getelementptr i8, ptr %.031.lcssa57, i64 %.045
+  %23 = getelementptr i8, ptr %.031.lcssa58, i64 %.045
   %24 = getelementptr i8, ptr %23, i64 -1
   %25 = load i8, ptr %24, align 1, !tbaa !6
   %26 = zext i8 %25 to i32
@@ -201,9 +201,9 @@ define hidden noundef ptr @_Z14luaS_buffinishP9lua_StateP7TString(ptr noundef %0
   br i1 %.not43.i, label %_Z9luaS_hashPKcm.exit, label %.lr.ph46.preheader.i
 
 .lr.ph46.preheader.i:                             ; preds = %.lr.ph.i, %.preheader.i
-  %.031.lcssa57.i = phi ptr [ %3, %.preheader.i ], [ %20, %.lr.ph.i ]
-  %.032.lcssa56.i = phi i64 [ %6, %.preheader.i ], [ %21, %.lr.ph.i ]
-  %.034.lcssa55.i = phi i32 [ %5, %.preheader.i ], [ %19, %.lr.ph.i ]
+  %.031.lcssa58.i = phi ptr [ %3, %.preheader.i ], [ %20, %.lr.ph.i ]
+  %.032.lcssa57.i = phi i64 [ %6, %.preheader.i ], [ %21, %.lr.ph.i ]
+  %.034.lcssa56.i = phi i32 [ %5, %.preheader.i ], [ %19, %.lr.ph.i ]
   br label %.lr.ph46.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
@@ -235,12 +235,12 @@ define hidden noundef ptr @_Z14luaS_buffinishP9lua_StateP7TString(ptr noundef %0
   br i1 %22, label %.lr.ph.i, label %.lr.ph46.preheader.i, !llvm.loop !4
 
 .lr.ph46.i:                                       ; preds = %.lr.ph46.i, %.lr.ph46.preheader.i
-  %.045.i = phi i64 [ %32, %.lr.ph46.i ], [ %.032.lcssa56.i, %.lr.ph46.preheader.i ]
-  %.144.i = phi i32 [ %31, %.lr.ph46.i ], [ %.034.lcssa55.i, %.lr.ph46.preheader.i ]
+  %.045.i = phi i64 [ %32, %.lr.ph46.i ], [ %.032.lcssa57.i, %.lr.ph46.preheader.i ]
+  %.144.i = phi i32 [ %31, %.lr.ph46.i ], [ %.034.lcssa56.i, %.lr.ph46.preheader.i ]
   %23 = shl i32 %.144.i, 5
   %24 = lshr i32 %.144.i, 2
   %25 = add i32 %23, %24
-  %26 = getelementptr i8, ptr %.031.lcssa57.i, i64 %.045.i
+  %26 = getelementptr i8, ptr %.031.lcssa58.i, i64 %.045.i
   %27 = getelementptr i8, ptr %26, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !6
   %29 = zext i8 %28 to i32
@@ -407,9 +407,9 @@ define hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr n
   br i1 %.not43.i, label %_Z9luaS_hashPKcm.exit, label %.lr.ph46.preheader.i
 
 .lr.ph46.preheader.i:                             ; preds = %.lr.ph.i, %.preheader.i
-  %.031.lcssa57.i = phi ptr [ %1, %.preheader.i ], [ %18, %.lr.ph.i ]
-  %.032.lcssa56.i = phi i64 [ %2, %.preheader.i ], [ %19, %.lr.ph.i ]
-  %.034.lcssa55.i = phi i32 [ %4, %.preheader.i ], [ %17, %.lr.ph.i ]
+  %.031.lcssa58.i = phi ptr [ %1, %.preheader.i ], [ %18, %.lr.ph.i ]
+  %.032.lcssa57.i = phi i64 [ %2, %.preheader.i ], [ %19, %.lr.ph.i ]
+  %.034.lcssa56.i = phi i32 [ %4, %.preheader.i ], [ %17, %.lr.ph.i ]
   br label %.lr.ph46.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
@@ -441,12 +441,12 @@ define hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr n
   br i1 %20, label %.lr.ph.i, label %.lr.ph46.preheader.i, !llvm.loop !4
 
 .lr.ph46.i:                                       ; preds = %.lr.ph46.i, %.lr.ph46.preheader.i
-  %.045.i = phi i64 [ %30, %.lr.ph46.i ], [ %.032.lcssa56.i, %.lr.ph46.preheader.i ]
-  %.144.i = phi i32 [ %29, %.lr.ph46.i ], [ %.034.lcssa55.i, %.lr.ph46.preheader.i ]
+  %.045.i = phi i64 [ %30, %.lr.ph46.i ], [ %.032.lcssa57.i, %.lr.ph46.preheader.i ]
+  %.144.i = phi i32 [ %29, %.lr.ph46.i ], [ %.034.lcssa56.i, %.lr.ph46.preheader.i ]
   %21 = shl i32 %.144.i, 5
   %22 = lshr i32 %.144.i, 2
   %23 = add i32 %21, %22
-  %24 = getelementptr i8, ptr %.031.lcssa57.i, i64 %.045.i
+  %24 = getelementptr i8, ptr %.031.lcssa58.i, i64 %.045.i
   %25 = getelementptr i8, ptr %24, i64 -1
   %26 = load i8, ptr %25, align 1, !tbaa !6
   %27 = zext i8 %26 to i32

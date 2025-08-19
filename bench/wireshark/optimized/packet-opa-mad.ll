@@ -5645,9 +5645,9 @@ parse_RID.exit.i:                                 ; preds = %285, %116
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %54, %400
-  %.sink94 = phi i32 [ %404, %400 ], [ %55, %54 ]
+  %.sink101 = phi i32 [ %404, %400 ], [ %55, %54 ]
   %408 = load i32, ptr %3, align 4
-  %409 = add i32 %408, %.sink94
+  %409 = add i32 %408, %.sink101
   store i32 %409, ptr %3, align 4
   br label %.loopexit
 
@@ -5800,9 +5800,9 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %53, %90
-  %.sink67 = phi i32 [ %95, %90 ], [ %54, %53 ]
+  %.sink69 = phi i32 [ %95, %90 ], [ %54, %53 ]
   %96 = load i32, ptr %3, align 4
-  %97 = add i32 %96, %.sink67
+  %97 = add i32 %96, %.sink69
   store i32 %97, ptr %3, align 4
   br label %98
 
@@ -6488,9 +6488,9 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %489 = load i32, ptr @hf_opa_ErrorPortInfo, align 4
   %switch.selectcmp.i.i = icmp eq i8 %.val, 2
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 40, i32 32
-  %switch.selectcmp5.i.i = icmp eq i8 %.val, -127
-  %switch.select6.i.i = select i1 %switch.selectcmp5.i.i, i32 -1, i32 %switch.select.i.i
-  %490 = call ptr @proto_tree_add_item(ptr noundef nonnull %12, i32 noundef %489, ptr noundef %2, i32 noundef %28, i32 noundef %switch.select6.i.i, i32 noundef 0)
+  %switch.selectcmp8.i.i = icmp eq i8 %.val, -127
+  %switch.select9.i.i = select i1 %switch.selectcmp8.i.i, i32 -1, i32 %switch.select.i.i
+  %490 = call ptr @proto_tree_add_item(ptr noundef nonnull %12, i32 noundef %489, ptr noundef %2, i32 noundef %28, i32 noundef %switch.select9.i.i, i32 noundef 0)
   %491 = load i32, ptr @ett_errorportinfo, align 4
   %492 = call ptr @proto_item_add_subtree(ptr noundef %490, i32 noundef %491)
   %493 = load i32, ptr @hf_opa_ErrorPortInfo_PortSelectMask, align 4
@@ -6508,7 +6508,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
 
 500:                                              ; preds = %498
   %501 = icmp ugt i32 %486, 33554431
-  %or.cond.i39.i = select i1 %switch.selectcmp5.i.i, i1 %501, i1 false
+  %or.cond.i39.i = select i1 %switch.selectcmp8.i.i, i1 %501, i1 false
   br i1 %or.cond.i39.i, label %502, label %505
 
 502:                                              ; preds = %500
@@ -9669,12 +9669,12 @@ define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef
 
 .lr.ph.preheader:                                 ; preds = %.thread, %15
   %21 = phi i32 [ %14, %.thread ], [ %20, %15 ]
-  %.05111 = phi i32 [ %13, %.thread ], [ %19, %15 ]
+  %.05113 = phi i32 [ %13, %.thread ], [ %19, %15 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %.0496 = phi i32 [ %41, %38 ], [ %.0.val, %.lr.ph.preheader ]
-  %.0535 = phi i32 [ %39, %38 ], [ %.05111, %.lr.ph.preheader ]
+  %.0535 = phi i32 [ %39, %38 ], [ %.05113, %.lr.ph.preheader ]
   %22 = load i32, ptr @hf_opa_BufferControlTable, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %22, ptr noundef %1, i32 noundef %.0496, i32 noundef 132, i32 noundef 0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.2361, i32 noundef %.0535)

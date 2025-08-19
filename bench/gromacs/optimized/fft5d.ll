@@ -774,11 +774,11 @@ _ZL4vmaxPKii.exit430:                             ; preds = %.lr.ph.i424, %_ZL4v
   br label %304
 
 304:                                              ; preds = %_ZL4vmaxPKii.exit430, %_ZL4vmaxPKii.exit370
-  %.sink561 = phi i32 [ %303, %_ZL4vmaxPKii.exit430 ], [ %241, %_ZL4vmaxPKii.exit370 ]
-  %.sink560 = phi ptr [ %104, %_ZL4vmaxPKii.exit430 ], [ %99, %_ZL4vmaxPKii.exit370 ]
-  %.sink559 = phi ptr [ %110, %_ZL4vmaxPKii.exit430 ], [ %109, %_ZL4vmaxPKii.exit370 ]
-  %.sink558 = phi ptr [ %107, %_ZL4vmaxPKii.exit430 ], [ %106, %_ZL4vmaxPKii.exit370 ]
-  %.sink557 = phi ptr [ %113, %_ZL4vmaxPKii.exit430 ], [ %112, %_ZL4vmaxPKii.exit370 ]
+  %.sink572 = phi i32 [ %303, %_ZL4vmaxPKii.exit430 ], [ %241, %_ZL4vmaxPKii.exit370 ]
+  %.sink571 = phi ptr [ %104, %_ZL4vmaxPKii.exit430 ], [ %99, %_ZL4vmaxPKii.exit370 ]
+  %.sink570 = phi ptr [ %110, %_ZL4vmaxPKii.exit430 ], [ %109, %_ZL4vmaxPKii.exit370 ]
+  %.sink569 = phi ptr [ %107, %_ZL4vmaxPKii.exit430 ], [ %106, %_ZL4vmaxPKii.exit370 ]
+  %.sink568 = phi ptr [ %113, %_ZL4vmaxPKii.exit430 ], [ %112, %_ZL4vmaxPKii.exit370 ]
   %305 = phi i32 [ %.0269, %_ZL4vmaxPKii.exit430 ], [ %.0268, %_ZL4vmaxPKii.exit370 ]
   %306 = phi i32 [ %.0.lcssa.i391, %_ZL4vmaxPKii.exit430 ], [ %.0.lcssa.i331, %_ZL4vmaxPKii.exit370 ]
   %307 = phi i32 [ %.0.lcssa.i371461, %_ZL4vmaxPKii.exit430 ], [ %.0.lcssa.i458, %_ZL4vmaxPKii.exit370 ]
@@ -791,11 +791,11 @@ _ZL4vmaxPKii.exit430:                             ; preds = %.lr.ph.i424, %_ZL4v
   %314 = phi i32 [ %.fr, %_ZL4vmaxPKii.exit430 ], [ %.fr493, %_ZL4vmaxPKii.exit370 ]
   %315 = phi i32 [ %.fr493, %_ZL4vmaxPKii.exit430 ], [ %.fr, %_ZL4vmaxPKii.exit370 ]
   %316 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 %.sink561, ptr %316, align 4, !tbaa !4
-  call void @free(ptr noundef nonnull %.sink560) #12
-  call void @free(ptr noundef nonnull %.sink559) #12
-  call void @free(ptr noundef nonnull %.sink558) #12
-  call void @free(ptr noundef nonnull %.sink557) #12
+  store i32 %.sink572, ptr %316, align 4, !tbaa !4
+  call void @free(ptr noundef nonnull %.sink571) #12
+  call void @free(ptr noundef nonnull %.sink570) #12
+  call void @free(ptr noundef nonnull %.sink569) #12
+  call void @free(ptr noundef nonnull %.sink568) #12
   %317 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 -1, ptr %317, align 4, !tbaa !4
   %318 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -911,38 +911,38 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %357
   br i1 %.not291, label %379, label %374
 
 374:                                              ; preds = %_ZNSt5mutex4lockEv.exit
-  br i1 %.not306, label %.thread537, label %376
+  br i1 %.not306, label %.thread548, label %376
 
-.thread537:                                       ; preds = %374
+.thread548:                                       ; preds = %374
   %375 = shl nsw i32 %.0262, 1
   br label %380
 
 376:                                              ; preds = %374
-  br i1 %.not294, label %.thread527.thread, label %.thread527.thread551
+  br i1 %.not294, label %.thread538.thread, label %.thread538.thread562
 
-.thread527.thread:                                ; preds = %376
+.thread538.thread:                                ; preds = %376
   %377 = shl nsw i32 %.0268, 1
   br label %392
 
-.thread527.thread551:                             ; preds = %376
+.thread538.thread562:                             ; preds = %376
   %378 = shl nsw i32 %.0269, 1
   br label %395
 
 379:                                              ; preds = %_ZNSt5mutex4lockEv.exit
-  br i1 %.not306, label %380, label %.thread527
+  br i1 %.not306, label %380, label %.thread538
 
-380:                                              ; preds = %.thread537, %379
-  %.0267544 = phi i32 [ %375, %.thread537 ], [ %.0262, %379 ]
+380:                                              ; preds = %.thread548, %379
+  %.0267555 = phi i32 [ %375, %.thread548 ], [ %.0262, %379 ]
   store i32 %.0269, ptr %33, align 16, !tbaa !25
   %381 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %.0268, ptr %381, align 4, !tbaa !25
   %382 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i32 %0, ptr %382, align 8, !tbaa !25
-  %383 = mul nsw i32 %.0267544, %.0268
+  %383 = mul nsw i32 %.0267555, %.0268
   %384 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %383, ptr %384, align 4, !tbaa !27
   %385 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 %.0267544, ptr %385, align 16, !tbaa !27
+  store i32 %.0267555, ptr %385, align 16, !tbaa !27
   %386 = getelementptr inbounds nuw i8, ptr %33, i64 28
   store i32 1, ptr %386, align 4, !tbaa !27
   %387 = mul nsw i32 %.0262, %.0269
@@ -958,19 +958,19 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %357
   store i32 %.0269.sink, ptr %391, align 16, !tbaa !28
   br i1 %.not291, label %.thread465, label %398
 
-.thread527:                                       ; preds = %379
+.thread538:                                       ; preds = %379
   br i1 %.not294, label %392, label %395
 
-392:                                              ; preds = %.thread527.thread, %.thread527
-  %.0266535548 = phi i32 [ %377, %.thread527.thread ], [ %.0268, %.thread527 ]
+392:                                              ; preds = %.thread538.thread, %.thread538
+  %.0266546559 = phi i32 [ %377, %.thread538.thread ], [ %.0268, %.thread538 ]
   %393 = mul nsw i32 %.0262, %.0268
-  %394 = mul nsw i32 %.0266535548, %.0269
+  %394 = mul nsw i32 %.0266546559, %.0269
   br label %400
 
-395:                                              ; preds = %.thread527.thread551, %.thread527
-  %.0265536555 = phi i32 [ %378, %.thread527.thread551 ], [ %.0269, %.thread527 ]
+395:                                              ; preds = %.thread538.thread562, %.thread538
+  %.0265547566 = phi i32 [ %378, %.thread538.thread562 ], [ %.0269, %.thread538 ]
   %396 = mul nsw i32 %.0262, %.0268
-  %397 = mul nsw i32 %.0265536555, %.0262
+  %397 = mul nsw i32 %.0265547566, %.0262
   br label %400
 
 398:                                              ; preds = %380
@@ -985,7 +985,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %357
   %.sink513 = phi i32 [ %393, %392 ], [ 1, %395 ]
   %.sink512 = phi i32 [ %.0262, %392 ], [ %396, %395 ]
   %.sink511 = phi i32 [ %394, %392 ], [ %397, %395 ]
-  %.0265.sink = phi i32 [ %.0266535548, %392 ], [ %.0265536555, %395 ]
+  %.0265.sink = phi i32 [ %.0266546559, %392 ], [ %.0265547566, %395 ]
   store i32 %.0268.sink, ptr %33, align 16, !tbaa !25
   %401 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %.0262.sink515, ptr %401, align 4, !tbaa !25
@@ -1010,15 +1010,15 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %357
   br label %413
 
 .thread465:                                       ; preds = %380, %400
-  %.pre-phi533 = phi i32 [ 0, %380 ], [ %.pre525, %400 ]
-  %411 = add nsw i32 %.pre-phi533, -1
+  %.pre-phi544 = phi i32 [ 0, %380 ], [ %.pre525, %400 ]
+  %411 = add nsw i32 %.pre-phi544, -1
   %412 = call ptr @fftwf_plan_guru_dft(i32 noundef 3, ptr noundef nonnull %33, i32 noundef 0, ptr noundef null, ptr noundef %.0453, ptr noundef %.0456, i32 noundef %411, i32 noundef %373)
   br label %413
 
 413:                                              ; preds = %398, %.thread465, %409
-  %.sink563 = phi ptr [ %399, %398 ], [ %412, %.thread465 ], [ %410, %409 ]
+  %.sink574 = phi ptr [ %399, %398 ], [ %412, %.thread465 ], [ %410, %409 ]
   %414 = getelementptr inbounds nuw i8, ptr %345, i64 56
-  store ptr %.sink563, ptr %414, align 8, !tbaa !29
+  store ptr %.sink574, ptr %414, align 8, !tbaa !29
   %415 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %417
@@ -1107,11 +1107,11 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %357
   %448 = load ptr, ptr %3, align 8, !tbaa !8
   %449 = load ptr, ptr %31, align 8, !tbaa !23
   %. = select i1 %.not316, i64 72, i64 64
-  %.570 = select i1 %.not316, i64 64, i64 72
+  %.581 = select i1 %.not316, i64 64, i64 72
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 %.
   store ptr %448, ptr %450, align 8, !tbaa !8
   %451 = load ptr, ptr %42, align 8, !tbaa !8
-  %452 = getelementptr inbounds nuw i8, ptr %449, i64 %.570
+  %452 = getelementptr inbounds nuw i8, ptr %449, i64 %.581
   store ptr %451, ptr %452, align 8, !tbaa !8
   store ptr %.0453, ptr %449, align 8, !tbaa !37
   %453 = getelementptr inbounds nuw i8, ptr %449, i64 8
@@ -1862,13 +1862,13 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %163, %164
   %196 = load i32, ptr %195, align 4, !tbaa !4
   %197 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %198 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %.sink370.in = select i1 %194, ptr %66, ptr %197
-  %.sink369.in = select i1 %194, ptr %198, ptr %69
-  %.sink369 = load i32, ptr %.sink369.in, align 4, !tbaa !4
-  %.sink370 = load i32, ptr %.sink370.in, align 4, !tbaa !4
+  %.sink394.in = select i1 %194, ptr %66, ptr %197
+  %.sink393.in = select i1 %194, ptr %198, ptr %69
+  %.sink393 = load i32, ptr %.sink393.in, align 4, !tbaa !4
+  %.sink394 = load i32, ptr %.sink394.in, align 4, !tbaa !4
   %199 = shl i32 %196, 1
-  %200 = mul i32 %199, %.sink370
-  %201 = mul i32 %200, %.sink369
+  %200 = mul i32 %199, %.sink394
+  %201 = mul i32 %200, %.sink393
   %202 = load ptr, ptr %54, align 8, !tbaa !8
   %203 = tail call noundef i32 @_Z13tMPI_AlltoallPKviP14tmpi_datatype_PviS2_P10tmpi_comm_(ptr noundef %9, i32 noundef %201, ptr noundef %49, ptr noundef %11, i32 noundef %201, ptr noundef %49, ptr noundef %202)
   br i1 %42, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %204
@@ -2244,19 +2244,19 @@ define internal fastcc void @_ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7
   %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8 = select i1 %.not.i, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5, ptr @switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8
   %17 = zext nneg i32 %2 to i64
-  %switch.gep62 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6, i64 0, i64 %17
-  %switch.load63 = load i32, ptr %switch.gep62, align 4
+  %switch.gep67 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.6, i64 0, i64 %17
+  %switch.load68 = load i32, ptr %switch.gep67, align 4
   %18 = zext nneg i32 %2 to i64
-  %switch.gep64 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7, i64 0, i64 %18
-  %switch.load65 = load i32, ptr %switch.gep64, align 4
+  %switch.gep69 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.4.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.7, i64 0, i64 %18
+  %switch.load70 = load i32, ptr %switch.gep69, align 4
   %19 = zext nneg i32 %2 to i64
-  %switch.gep66 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8, i64 0, i64 %19
-  %switch.load67 = load i32, ptr %switch.gep66, align 4
-  store i32 %switch.load63, ptr %5, align 4, !tbaa !4
+  %switch.gep71 = getelementptr inbounds nuw [3 x i32], ptr %switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.5.switch.table._ZL15print_localdataPK9t_complexPKciP12fft5d_plan_t.8, i64 0, i64 %19
+  %switch.load72 = load i32, ptr %switch.gep71, align 4
+  store i32 %switch.load68, ptr %5, align 4, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %switch.load65, ptr %20, align 4, !tbaa !4
+  store i32 %switch.load70, ptr %20, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %switch.load67, ptr %21, align 4, !tbaa !4
+  store i32 %switch.load72, ptr %21, align 4, !tbaa !4
   %22 = zext nneg i32 %2 to i64
   %23 = getelementptr inbounds nuw i32, ptr %14, i64 %22
   %24 = getelementptr inbounds nuw i32, ptr %12, i64 %22

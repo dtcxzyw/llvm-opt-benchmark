@@ -454,21 +454,21 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit: ; preds = %_ZN4llvm16dy
   switch i32 %57, label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread [
     i32 8, label %_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit
     i32 7, label %_ZN4llvm7objcarc16CanAlterRefCountEPKNS_11InstructionEPKNS_5ValueERNS0_18ProvenanceAnalysisENS0_11ARCInstKindE.exit
-    i32 0, label %.preheader51
-    i32 1, label %.preheader51
+    i32 0, label %.preheader64
+    i32 1, label %.preheader64
   ]
 
-.preheader51:                                     ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit
+.preheader64:                                     ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit
   br label %58
 
-58:                                               ; preds = %.preheader51, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i
-  %.sink6.i = phi ptr [ %65, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i ], [ %1, %.preheader51 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 4
+58:                                               ; preds = %.preheader64, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i
+  %.sink7.i = phi ptr [ %65, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i ], [ %1, %.preheader64 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 134217727
   %62 = zext nneg i32 %61 to i64
   %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds %"class.llvm::Use", ptr %.sink6.i, i64 %63
+  %64 = getelementptr inbounds %"class.llvm::Use", ptr %.sink7.i, i64 %63
   %.0.i.i.i = load ptr, ptr %64, align 8, !tbaa !14
   %65 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i) #7
   %66 = load i8, ptr %65, align 8, !tbaa !20
@@ -550,13 +550,13 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31: ; preds = %_ZN4llvm16
   br i1 %switch27, label %.preheader, label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31.thread
 
 .preheader:                                       ; preds = %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i34
-  %.sink6.i32 = phi ptr [ %110, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i34 ], [ %1, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sink6.i32, i64 4
+  %.sink7.i32 = phi ptr [ %110, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i.i34 ], [ %1, %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit31 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.sink7.i32, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 134217727
   %107 = zext nneg i32 %106 to i64
   %108 = sub nsw i64 0, %107
-  %109 = getelementptr inbounds %"class.llvm::Use", ptr %.sink6.i32, i64 %108
+  %109 = getelementptr inbounds %"class.llvm::Use", ptr %.sink7.i32, i64 %108
   %.0.i.i.i33 = load ptr, ptr %109, align 8, !tbaa !14
   %110 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i33) #7
   %111 = load i8, ptr %110, align 8, !tbaa !20

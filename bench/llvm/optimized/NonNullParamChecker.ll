@@ -2863,7 +2863,7 @@ _ZNK5clang7AnyCall10parametersEv.exit.i:          ; preds = %274, %269, %263
   br label %315
 
 ._crit_edge.i:                                    ; preds = %368, %_ZNK5clang7AnyCall10parametersEv.exit.i, %267, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i
-  %.sroa.09.62581.i = phi i64 [ %.sroa.09.624.i, %_ZNK5clang7AnyCall10parametersEv.exit.i ], [ %.sroa.09.3.i, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ], [ %.sroa.09.624.i, %267 ], [ %.sroa.09.624.i, %368 ]
+  %.sroa.09.625102.i = phi i64 [ %.sroa.09.624.i, %_ZNK5clang7AnyCall10parametersEv.exit.i ], [ %.sroa.09.3.i, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ], [ %.sroa.09.624.i, %267 ], [ %.sroa.09.624.i, %368 ]
   %.sroa.011.0.lcssa.i = phi ptr [ %33, %_ZNK5clang7AnyCall10parametersEv.exit.i ], [ %33, %_ZN12_GLOBAL__N_136setBitsAccordingToFunctionAttributesIN5clang7AnyCallEEEvRKT_RN4llvm14SmallBitVectorE.exit.i.i.i ], [ %33, %267 ], [ %.sroa.011.2.i, %368 ]
   %.not.i.i34.i = icmp eq ptr %.sroa.011.0.lcssa.i, null
   br i1 %.not.i.i34.i, label %287, label %.thread.i.i
@@ -2927,13 +2927,13 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %304, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, %287
-  %305 = and i64 %.sroa.09.62581.i, 1
+  %305 = and i64 %.sroa.09.625102.i, 1
   %.not.i40.i = icmp eq i64 %305, 0
   br i1 %.not.i40.i, label %306, label %_ZN4llvm14SmallBitVectorD2Ev.exit.i
 
 306:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
-  %307 = inttoptr i64 %.sroa.09.62581.i to ptr
-  %308 = icmp eq i64 %.sroa.09.62581.i, 0
+  %307 = inttoptr i64 %.sroa.09.625102.i to ptr
+  %308 = icmp eq i64 %.sroa.09.625102.i, 0
   br i1 %308, label %_ZN4llvm14SmallBitVectorD2Ev.exit.i, label %309
 
 309:                                              ; preds = %306
@@ -2986,9 +2986,9 @@ _ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i: ; preds = %322, %315
   br label %_ZNK4llvm14SmallBitVector4testEj.exit.i
 
 _ZNK4llvm14SmallBitVector4testEj.exit.i:          ; preds = %325, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i
-  %.sink98.i = phi i32 [ %330, %325 ], [ %324, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i ]
+  %.sink119.i = phi i32 [ %330, %325 ], [ %324, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i ]
   %.sink.i = phi i64 [ %331, %325 ], [ %285, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit.i ]
-  %332 = zext nneg i32 %.sink98.i to i64
+  %332 = zext nneg i32 %.sink119.i to i64
   %333 = shl nuw i64 1, %332
   %334 = and i64 %333, %.sink.i
   %.0.i.i.not.i = icmp eq i64 %334, 0

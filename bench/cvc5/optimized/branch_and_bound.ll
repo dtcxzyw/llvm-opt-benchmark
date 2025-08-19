@@ -826,23 +826,23 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %_ZN4cvc58internal8R
   br i1 %283, label %.invoke, label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit, !prof !240
 
 .invoke:                                          ; preds = %282, %274
-  %.sink1581 = phi i64 [ %269, %274 ], [ %277, %282 ]
-  %.sink1580 = phi ptr [ %268, %274 ], [ %257, %282 ]
-  %284 = or i64 %.sink1581, 1152920405095219200
-  store i64 %284, ptr %.sink1580, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink1580)
+  %.sink1729 = phi i64 [ %269, %274 ], [ %277, %282 ]
+  %.sink1728 = phi ptr [ %268, %274 ], [ %257, %282 ]
+  %284 = or i64 %.sink1729, 1152920405095219200
+  store i64 %284, ptr %.sink1728, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink1728)
           to label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit unwind label %590
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit.sink.split: ; preds = %276, %.noexc452
-  %.sink1577 = phi i32 [ %272, %.noexc452 ], [ %280, %276 ]
+  %.sink1725 = phi i32 [ %272, %.noexc452 ], [ %280, %276 ]
   %.sink = phi i64 [ %269, %.noexc452 ], [ %277, %276 ]
-  %.sink1572 = phi ptr [ %268, %.noexc452 ], [ %257, %276 ]
-  %285 = add nuw nsw i32 %.sink1577, 1
+  %.sink1720 = phi ptr [ %268, %.noexc452 ], [ %257, %276 ]
+  %285 = add nuw nsw i32 %.sink1725, 1
   %286 = zext nneg i32 %285 to i64
   %287 = shl nuw nsw i64 %286, 40
   %288 = and i64 %.sink, -1152920405095219201
   %289 = or i64 %287, %288
-  store i64 %289, ptr %.sink1572, align 8
+  store i64 %289, ptr %.sink1720, align 8
   br label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %.invoke, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit.sink.split, %282, %274
@@ -5392,9 +5392,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1093: ; preds = %_ZN4cvc58internal
   br label %2081
 
 2081:                                             ; preds = %2051, %2053, %2080
-  %.sink1578 = phi ptr [ %106, %2080 ], [ %107, %2053 ], [ %107, %2051 ]
+  %.sink1726 = phi ptr [ %106, %2080 ], [ %107, %2053 ], [ %107, %2051 ]
   %.pn355.pn.pn.pn = phi { ptr, i32 } [ %.pn355.pn.pn, %2080 ], [ %2054, %2053 ], [ %2052, %2051 ]
-  call void @_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1578) #22
+  call void @_ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink1726) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %104) #22
   br label %2082

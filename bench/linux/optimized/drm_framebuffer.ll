@@ -514,7 +514,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 52
   br label %126
 
-.thread74:                                        ; preds = %.thread75, %205, %215, %217
+.thread88:                                        ; preds = %.thread89, %205, %215, %217
   %113 = add nuw nsw i64 %127, 1
   %114 = load i8, ptr %99, align 1
   %115 = zext i8 %114 to i32
@@ -522,7 +522,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   %117 = icmp samesign ult i64 %113, %116
   br i1 %117, label %126, label %118, !llvm.loop !7
 
-118:                                              ; preds = %.thread74
+118:                                              ; preds = %.thread88
   %119 = icmp ult i8 %114, 4
   br i1 %119, label %.thread, label %.loopexit
 
@@ -535,9 +535,9 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   %125 = zext nneg i32 %120 to i64
   br label %233
 
-126:                                              ; preds = %.thread74, %102
-  %127 = phi i64 [ 0, %102 ], [ %113, %.thread74 ]
-  %128 = phi i32 [ %103, %102 ], [ %115, %.thread74 ]
+126:                                              ; preds = %.thread88, %102
+  %127 = phi i64 [ 0, %102 ], [ %113, %.thread88 ]
+  %128 = phi i32 [ %103, %102 ], [ %115, %.thread88 ]
   %129 = load i32, ptr %17, align 4
   br i1 %.not, label %.thread17, label %130
 
@@ -557,8 +557,8 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
 
 .thread18:                                        ; preds = %130
   %140 = load i32, ptr %36, align 8
-  %.not71 = icmp eq i32 %128, 0
-  %spec.select = select i1 %.not71, i32 0, i32 %140
+  %.not85 = icmp eq i32 %128, 0
+  %spec.select = select i1 %.not85, i32 0, i32 %140
   br label %.thread17
 
 141:                                              ; preds = %132
@@ -660,7 +660,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br i1 %197, label %205, label %199
 
 199:                                              ; preds = %194
-  br i1 %198, label %200, label %.thread72
+  br i1 %198, label %200, label %.thread86
 
 200:                                              ; preds = %199
   br i1 %108, label %203, label %201
@@ -675,19 +675,19 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   br label %.thread20
 
 205:                                              ; preds = %194
-  br i1 %198, label %.thread74, label %.thread75
+  br i1 %198, label %.thread88, label %.thread89
 
-.thread72:                                        ; preds = %199
+.thread86:                                        ; preds = %199
   %206 = load i64, ptr %107, align 8
   %207 = icmp eq i64 %196, %206
   br i1 %207, label %215, label %210
 
-.thread75:                                        ; preds = %205
+.thread89:                                        ; preds = %205
   %208 = load i64, ptr %107, align 8
   %209 = icmp eq i64 %196, %208
-  br i1 %209, label %.thread74, label %210
+  br i1 %209, label %.thread88, label %210
 
-210:                                              ; preds = %.thread75, %.thread72
+210:                                              ; preds = %.thread89, %.thread86
   br i1 %108, label %213, label %211
 
 211:                                              ; preds = %210
@@ -699,9 +699,9 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %214, i32 noundef 2, ptr noundef nonnull @.str.31, i64 noundef %196, i32 noundef %152) #6
   br label %.thread20
 
-215:                                              ; preds = %.thread72
+215:                                              ; preds = %.thread86
   %216 = icmp eq i64 %196, 288230376151711745
-  br i1 %216, label %217, label %.thread74
+  br i1 %216, label %217, label %.thread88
 
 217:                                              ; preds = %215
   %218 = load i32, ptr %66, align 4
@@ -714,7 +714,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   %225 = or i32 %224, %223
   %226 = icmp eq i32 %225, 0
   %227 = select i1 %222, i1 %226, i1 false
-  br i1 %227, label %.thread74, label %228
+  br i1 %227, label %.thread88, label %228
 
 228:                                              ; preds = %217
   br i1 %108, label %231, label %229
@@ -2380,8 +2380,8 @@ define dso_local void @drm_framebuffer_print_info(ptr noundef %0, i32 noundef %1
 
 .thread5:                                         ; preds = %30
   %41 = load i32, ptr %13, align 4
-  %.not7 = icmp eq i8 %27, 0
-  %spec.select = select i1 %.not7, i32 0, i32 %41
+  %.not11 = icmp eq i8 %27, 0
+  %spec.select = select i1 %.not11, i32 0, i32 %41
   br label %.thread
 
 42:                                               ; preds = %32

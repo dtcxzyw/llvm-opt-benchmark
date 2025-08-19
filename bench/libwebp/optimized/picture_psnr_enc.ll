@@ -52,8 +52,8 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   %34 = icmp sgt i32 %5, 0
   %35 = icmp sgt i32 %4, 0
-  %or.cond99 = and i1 %34, %35
-  br i1 %or.cond99, label %.preheader.us.preheader, label %.loopexit
+  %or.cond113 = and i1 %34, %35
+  br i1 %or.cond113, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %31
   %36 = zext nneg i32 %4 to i64
@@ -273,7 +273,7 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   %36 = mul nsw i64 %34, %22
   %37 = zext nneg i32 %.1.lcssa to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %35
-  %invariant.gep156 = getelementptr i8, ptr %2, i64 %36
+  %invariant.gep164 = getelementptr i8, ptr %2, i64 %36
   br label %44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -302,8 +302,8 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
   %45 = add nsw i64 %indvars.iv, -3
   %46 = load ptr, ptr @VP8SSIMGet, align 8, !tbaa !14
   %gep = getelementptr i8, ptr %invariant.gep, i64 %45
-  %gep157 = getelementptr i8, ptr %invariant.gep156, i64 %45
-  %47 = tail call double %46(ptr noundef %gep, i32 noundef %1, ptr noundef %gep157, i32 noundef %3) #6
+  %gep165 = getelementptr i8, ptr %invariant.gep164, i64 %45
+  %47 = tail call double %46(ptr noundef %gep, i32 noundef %1, ptr noundef %gep165, i32 noundef %3) #6
   %48 = fadd double %.486107, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

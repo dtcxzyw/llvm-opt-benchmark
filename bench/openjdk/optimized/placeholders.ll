@@ -804,21 +804,21 @@ _ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit: ; preds = %37, 
   %55 = load ptr, ptr %49, align 8
   store ptr null, ptr %49, align 8
   %.not.i.i2.i = icmp eq ptr %55, null
-  br i1 %.not.i.i2.i, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit
+  br i1 %.not.i.i2.i, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread19, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit
 
 _ZN16PlaceholderEntry13set_supernameEP6Symbol.exit: ; preds = %54
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %55) #12
   %.pr.pre = load ptr, ptr %51, align 8
   %56 = icmp eq ptr %.pr.pre, null
-  br i1 %56, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread
+  br i1 %56, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread19, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread
 
-_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16: ; preds = %54, %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit
+_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread19: ; preds = %54, %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread
 
-60:                                               ; preds = %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16
+60:                                               ; preds = %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread19
   %61 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
@@ -834,7 +834,7 @@ _ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16: ; preds = %54, %_ZN
   tail call fastcc void @_ZL12remove_entryP6SymbolP15ClassLoaderData(ptr noundef nonnull %0, ptr noundef %1)
   br label %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread
 
-_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread: ; preds = %_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit, %68, %64, %60, %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread16, %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit
+_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread: ; preds = %_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit, %68, %64, %60, %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit.thread19, %_ZN16PlaceholderEntry13set_supernameEP6Symbol.exit
   ret void
 }
 

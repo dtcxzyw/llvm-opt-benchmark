@@ -737,11 +737,11 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit:           ; preds = %19
   %29 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   %30 = icmp eq i32 %29, 1
   %31 = or i1 %spec.select.i, %30
-  %.not63 = xor i1 %31, true
+  %.not72 = xor i1 %31, true
   %32 = icmp ne i32 %29, 2
-  %33 = and i1 %32, %.not63
-  %or.cond64 = and i1 %33, %26
-  br i1 %or.cond64, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %34
+  %33 = and i1 %32, %.not72
+  %or.cond73 = and i1 %33, %26
+  br i1 %or.cond73, label %_ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit.thread, label %34
 
 34:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit
   %35 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
@@ -1885,8 +1885,8 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit.i81:       ; preds = %456
   %469 = load i8, ptr @UseJVMCICompiler, align 1
   %470 = trunc i8 %469 to i1
   %471 = select i1 %or.cond92.not, i1 true, i1 %463
-  %or.cond101 = select i1 %471, i1 true, i1 %470
-  br i1 %or.cond101, label %_ZN14CompilerConfig9is_tieredEv.exit84.thread, label %472
+  %or.cond131 = select i1 %471, i1 true, i1 %470
+  br i1 %or.cond131, label %_ZN14CompilerConfig9is_tieredEv.exit84.thread, label %472
 
 472:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i81
   %473 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 330) #11

@@ -658,8 +658,8 @@ define internal fastcc void @generate_spread_table(ptr noundef readonly captures
   %34 = tail call nsz float @llvm.log.f32(float %33)
   %35 = tail call nsz float @llvm.fabs.f32(float %34)
   %.not = icmp slt i64 %indvars.iv, %25
-  %.110 = select i1 %.not, float -8.000000e+01, float -4.000000e+01
-  %36 = fmul nsz float %35, %.110
+  %.113 = select i1 %.not, float -8.000000e+01, float -4.000000e+01
+  %36 = fmul nsz float %35, %.113
   %37 = tail call nsz float @llvm.exp.f32(float %36)
   %38 = fadd nsz float %.07177, %37
   %39 = add i32 %.reass, %30
@@ -1138,8 +1138,8 @@ c2r.exit.i.i:                                     ; preds = %r2c.exit.i.i
   br label %213
 
 206:                                              ; preds = %199
-  %.idx128.i.i.i = shl nsw i64 %indvars.iv119.i.i.i, 3
-  %207 = getelementptr inbounds i8, ptr %69, i64 %.idx128.i.i.i
+  %.idx130.i.i.i = shl nsw i64 %indvars.iv119.i.i.i, 3
+  %207 = getelementptr inbounds i8, ptr %69, i64 %.idx130.i.i.i
   %208 = load float, ptr %207, align 4, !tbaa !57
   %209 = getelementptr i8, ptr %207, i64 4
   %210 = load float, ptr %209, align 4, !tbaa !57
@@ -1500,8 +1500,8 @@ r2c.exit300.i.i:                                  ; preds = %.lr.ph14.i295.i.i, 
   %374 = fdiv nsz float %365, %370
   store float %374, ptr %364, align 4, !tbaa !57
   %375 = sub nsw i64 %353, %indvars.iv.i305.i.i
-  %.idx53.i.i.i = shl nsw i64 %375, 3
-  %376 = getelementptr inbounds i8, ptr %69, i64 %.idx53.i.i.i
+  %.idx56.i.i.i = shl nsw i64 %375, 3
+  %376 = getelementptr inbounds i8, ptr %69, i64 %.idx56.i.i.i
   %377 = load float, ptr %376, align 4, !tbaa !57
   %378 = fdiv nsz float %377, %370
   store float %378, ptr %376, align 4, !tbaa !57
@@ -1613,9 +1613,9 @@ limit_clip_spectrum.exit.i.i:                     ; preds = %383, %._crit_edge.i
   br label %428
 
 428:                                              ; preds = %424, %417
-  %.sink414.i.i = phi float [ %427, %424 ], [ %401, %417 ]
-  %429 = fcmp nsz olt float %.sink414.i.i, 0x3FF1F3B640000000
-  %430 = select nsz i1 %429, float 0x3FF1F3B640000000, float %.sink414.i.i
+  %.sink445.i.i = phi float [ %427, %424 ], [ %401, %417 ]
+  %429 = fcmp nsz olt float %.sink445.i.i, 0x3FF1F3B640000000
+  %430 = select nsz i1 %429, float 0x3FF1F3B640000000, float %.sink445.i.i
   %431 = fadd nsz float %430, -1.000000e+00
   %432 = fpext nsz float %431 to double
   br label %433

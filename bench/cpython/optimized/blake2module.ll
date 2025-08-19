@@ -1961,8 +1961,8 @@ type_to_impl.exit:                                ; preds = %53
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !63
   %139 = select i1 %129, i64 64, i64 32
   %140 = icmp ugt i64 %.pre, %139
-  %or.cond121 = select i1 %.not99, i1 %140, i1 false
-  br i1 %or.cond121, label %141, label %._crit_edge
+  %or.cond134 = select i1 %.not99, i1 %140, i1 false
+  br i1 %or.cond134, label %141, label %._crit_edge
 
 141:                                              ; preds = %136
   %142 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55

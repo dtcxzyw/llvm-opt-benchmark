@@ -268,8 +268,8 @@ do_getc.exit66.i:                                 ; preds = %97, %94, %85
   %or.cond11.i = icmp ult i32 %101, 10
   %or.cond58.i = or i1 %or.cond11.i, %or.cond57.i
   %102 = icmp eq i32 %92, 95
-  %or.cond99.i = or i1 %102, %or.cond58.i
-  br i1 %or.cond99.i, label %.critedge.backedge.i, label %103
+  %or.cond108.i = or i1 %102, %or.cond58.i
+  br i1 %or.cond108.i, label %.critedge.backedge.i, label %103
 
 .critedge.backedge.i:                             ; preds = %do_getc.exit66.i
   %.pre.i = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
@@ -366,8 +366,8 @@ do_getc.exit66.i:                                 ; preds = %97, %94, %85
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %.._crit_edge.thread.i_crit_edge.i
   %143 = phi ptr [ %126, %._crit_edge.i.i ], [ %.pre98.i, %.._crit_edge.thread.i_crit_edge.i ]
-  %.021.lcssa9.i.i = phi i64 [ %.223.i.i, %._crit_edge.i.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ]
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %.021.lcssa9.i.i
+  %.021.lcssa11.i.i = phi i64 [ %.223.i.i, %._crit_edge.i.i ], [ 0, %.._crit_edge.thread.i_crit_edge.i ]
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %.021.lcssa11.i.i
   %145 = load ptr, ptr %144, align 8, !tbaa !4
   %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %145, ptr noundef nonnull readonly dereferenceable(1) %123) #12
   %147 = icmp eq i32 %146, 0
@@ -397,7 +397,7 @@ do_ungetc.exit.thread88.i:                        ; preds = %107, %106
 do_ungetc.exit.i:                                 ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i, %121
   %160 = load ptr, ptr @stdout, align 8, !tbaa !19
   %161 = tail call i32 @putc(i32 noundef 36, ptr noundef %160)
-  br i1 %.not.not7378.i, label %162, label %.critedge102.i
+  br i1 %.not.not7378.i, label %162, label %.critedge111.i
 
 162:                                              ; preds = %do_ungetc.exit.i
   %163 = load ptr, ptr @stdout, align 8, !tbaa !19
@@ -434,14 +434,14 @@ do_ungetc.exit71.i:                               ; preds = %172, %171
   %182 = tail call i32 @putc(i32 noundef %57, ptr noundef %181)
   br label %note_variables.exit.backedge
 
-.critedge102.i:                                   ; preds = %do_ungetc.exit.i
+.critedge111.i:                                   ; preds = %do_ungetc.exit.i
   %183 = load ptr, ptr @subst_from_stdin.buffer, align 8, !tbaa !4
   %184 = load i64, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
   %185 = load ptr, ptr @stdout, align 8, !tbaa !19
   %186 = tail call i64 @fwrite(ptr noundef %183, i64 noundef %184, i64 noundef 1, ptr noundef %185)
   br label %note_variables.exit.backedge
 
-note_variables.exit.backedge:                     ; preds = %.critedge102.i, %180, %177, %do_ungetc.exit71.i, %162, %do_ungetc.exit.thread88.i, %149, %.critedge60.i
+note_variables.exit.backedge:                     ; preds = %.critedge111.i, %180, %177, %do_ungetc.exit71.i, %162, %do_ungetc.exit.thread88.i, %149, %.critedge60.i
   br label %note_variables.exit
 
 187:                                              ; preds = %2

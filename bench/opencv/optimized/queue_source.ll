@@ -629,12 +629,12 @@ _ZN2cv4util3anyD2Ev.exit39:                       ; preds = %_ZNKSt7__cxx1112bas
   br label %66
 
 66:                                               ; preds = %_ZN2cv4util3anyD2Ev.exit39, %_ZN2cv4util3anyD2Ev.exit33
-  %.sink54 = phi ptr [ %31, %_ZN2cv4util3anyD2Ev.exit39 ], [ %8, %_ZN2cv4util3anyD2Ev.exit33 ]
+  %.sink59 = phi ptr [ %31, %_ZN2cv4util3anyD2Ev.exit39 ], [ %8, %_ZN2cv4util3anyD2Ev.exit33 ]
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %_ZN2cv4util3anyD2Ev.exit39 ], [ %.pn, %_ZN2cv4util3anyD2Ev.exit33 ]
-  %67 = load ptr, ptr %.sink54, align 8, !tbaa !3
+  %67 = load ptr, ptr %.sink59, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(8) %.sink54) #22
+  call void %69(ptr noundef nonnull align 8 dereferenceable(8) %.sink59) #22
   resume { ptr, i32 } %.pn9.pn
 }
 

@@ -910,11 +910,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %60
 
 _ZNSt10unique_ptrIN2cv4gapi5fluid13BorderHandlerESt14default_deleteIS3_EE5resetEPS3_.exit.sink.split: ; preds = %39, %32, %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit.i
-  %.sink20 = phi ptr [ %27, %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit.i ], [ %34, %32 ], [ %41, %39 ]
-  %57 = load ptr, ptr %.sink20, align 8, !tbaa !13
+  %.sink25 = phi ptr [ %27, %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit.i ], [ %34, %32 ], [ %41, %39 ]
+  %57 = load ptr, ptr %.sink25, align 8, !tbaa !13
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink20) #32
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(12) %.sink25) #32
   br label %_ZNSt10unique_ptrIN2cv4gapi5fluid13BorderHandlerESt14default_deleteIS3_EE5resetEPS3_.exit
 
 _ZNSt10unique_ptrIN2cv4gapi5fluid13BorderHandlerESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %_ZNSt10unique_ptrIN2cv4gapi5fluid13BorderHandlerESt14default_deleteIS3_EE5resetEPS3_.exit.sink.split, %39, %32, %_ZN2cv4gapi5fluid13BorderHandlerC2Ei.exit.i
@@ -4743,8 +4743,8 @@ _ZN2cv4gapi3ownL8saturateIsivEET_T0_.exit.us:     ; preds = %.preheader.us, %_ZN
   %16 = tail call noundef double @llvm.round.f64(double %15)
   %17 = fptosi double %16 to i32
   %18 = tail call i32 @llvm.smax.i32(i32 %17, i32 -32768)
-  %.sink37 = tail call i32 @llvm.smin.i32(i32 %18, i32 32767)
-  %.sink = trunc nsw i32 %.sink37 to i16
+  %.sink39 = tail call i32 @llvm.smin.i32(i32 %18, i32 32767)
+  %.sink = trunc nsw i32 %.sink39 to i16
   %19 = add nuw nsw i64 %indvars.iv, %13
   %20 = getelementptr inbounds nuw i16, ptr %0, i64 %19
   store i16 %.sink, ptr %20, align 2, !tbaa !207
@@ -4791,8 +4791,8 @@ _ZN2cv4gapi3ownL8saturateItivEET_T0_.exit.us:     ; preds = %.preheader.us, %_ZN
   %16 = tail call noundef double @llvm.round.f64(double %15)
   %17 = fptosi double %16 to i32
   %18 = icmp slt i32 %17, 0
-  %spec.select36 = tail call i32 @llvm.umin.i32(i32 %17, i32 65535)
-  %spec.select = trunc nuw i32 %spec.select36 to i16
+  %spec.select38 = tail call i32 @llvm.umin.i32(i32 %17, i32 65535)
+  %spec.select = trunc nuw i32 %spec.select38 to i16
   %.sink = select i1 %18, i16 0, i16 %spec.select
   %19 = add nuw nsw i64 %indvars.iv, %13
   %20 = getelementptr inbounds nuw i16, ptr %0, i64 %19
@@ -5544,7 +5544,7 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_120fillBorderReflectRowIhEEvPhiii(
   %17 = sub nuw nsw i64 -2, %indvars.iv35
   %18 = mul nsw i64 %17, %13
   %invariant.gep = getelementptr i8, ptr %0, i64 %15
-  %invariant.gep40 = getelementptr i8, ptr %8, i64 %18
+  %invariant.gep41 = getelementptr i8, ptr %8, i64 %18
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -5554,8 +5554,8 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_120fillBorderReflectRowIhEEvPhiii(
   %21 = add nuw nsw i64 %indvars.iv, %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   store i8 %20, ptr %22, align 1, !tbaa !69
-  %gep41 = getelementptr i8, ptr %invariant.gep40, i64 %indvars.iv
-  %23 = load i8, ptr %gep41, align 1, !tbaa !69
+  %gep42 = getelementptr i8, ptr %invariant.gep41, i64 %indvars.iv
+  %23 = load i8, ptr %gep42, align 1, !tbaa !69
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 %21
   store i8 %23, ptr %24, align 1, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5598,7 +5598,7 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_120fillBorderReflectRowIsEEvPhiii(
   %17 = sub nuw nsw i64 -2, %indvars.iv35
   %18 = mul nsw i64 %17, %13
   %invariant.gep = getelementptr i16, ptr %0, i64 %15
-  %invariant.gep40 = getelementptr i16, ptr %8, i64 %18
+  %invariant.gep41 = getelementptr i16, ptr %8, i64 %18
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -5608,8 +5608,8 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_120fillBorderReflectRowIsEEvPhiii(
   %21 = add nuw nsw i64 %indvars.iv, %16
   %22 = getelementptr inbounds nuw i16, ptr %0, i64 %21
   store i16 %20, ptr %22, align 2, !tbaa !207
-  %gep41 = getelementptr i16, ptr %invariant.gep40, i64 %indvars.iv
-  %23 = load i16, ptr %gep41, align 2, !tbaa !207
+  %gep42 = getelementptr i16, ptr %invariant.gep41, i64 %indvars.iv
+  %23 = load i16, ptr %gep42, align 2, !tbaa !207
   %24 = getelementptr inbounds nuw i16, ptr %8, i64 %21
   store i16 %23, ptr %24, align 2, !tbaa !207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5652,7 +5652,7 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_120fillBorderReflectRowItEEvPhiii(
   %17 = sub nuw nsw i64 -2, %indvars.iv35
   %18 = mul nsw i64 %17, %13
   %invariant.gep = getelementptr i16, ptr %0, i64 %15
-  %invariant.gep40 = getelementptr i16, ptr %8, i64 %18
+  %invariant.gep41 = getelementptr i16, ptr %8, i64 %18
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -5662,8 +5662,8 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_120fillBorderReflectRowItEEvPhiii(
   %21 = add nuw nsw i64 %indvars.iv, %16
   %22 = getelementptr inbounds nuw i16, ptr %0, i64 %21
   store i16 %20, ptr %22, align 2, !tbaa !207
-  %gep41 = getelementptr i16, ptr %invariant.gep40, i64 %indvars.iv
-  %23 = load i16, ptr %gep41, align 2, !tbaa !207
+  %gep42 = getelementptr i16, ptr %invariant.gep41, i64 %indvars.iv
+  %23 = load i16, ptr %gep42, align 2, !tbaa !207
   %24 = getelementptr inbounds nuw i16, ptr %8, i64 %21
   store i16 %23, ptr %24, align 2, !tbaa !207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5706,7 +5706,7 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_120fillBorderReflectRowIfEEvPhiii(
   %17 = sub nuw nsw i64 -2, %indvars.iv35
   %18 = mul nsw i64 %17, %13
   %invariant.gep = getelementptr float, ptr %0, i64 %15
-  %invariant.gep40 = getelementptr float, ptr %8, i64 %18
+  %invariant.gep41 = getelementptr float, ptr %8, i64 %18
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -5716,8 +5716,8 @@ define internal void @_ZN2cv4gapi12_GLOBAL__N_120fillBorderReflectRowIfEEvPhiii(
   %21 = add nuw nsw i64 %indvars.iv, %16
   %22 = getelementptr inbounds nuw float, ptr %0, i64 %21
   store float %20, ptr %22, align 4, !tbaa !213
-  %gep41 = getelementptr float, ptr %invariant.gep40, i64 %indvars.iv
-  %23 = load float, ptr %gep41, align 4, !tbaa !213
+  %gep42 = getelementptr float, ptr %invariant.gep41, i64 %indvars.iv
+  %23 = load float, ptr %gep42, align 4, !tbaa !213
   %24 = getelementptr inbounds nuw float, ptr %8, i64 %21
   store float %23, ptr %24, align 4, !tbaa !213
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5976,13 +5976,13 @@ define linkonce_odr void @_ZNSt6vectorIPKhSaIS1_EE17_M_default_appendEm(ptr noun
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !60
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPKhmS1_ET_S3_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPKhmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !60
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -6076,13 +6076,13 @@ define linkonce_odr void @_ZNSt6vectorIPhSaIS0_EE17_M_default_appendEm(ptr nound
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !60
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPhmS0_ET_S2_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPhmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPhmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !60
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

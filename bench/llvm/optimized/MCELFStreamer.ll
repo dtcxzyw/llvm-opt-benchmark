@@ -491,23 +491,23 @@ define dso_local noundef zeroext i1 @_ZN4llvm13MCELFStreamer19emitSymbolAttribut
 10:                                               ; preds = %3
   %11 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #18
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZL18CombineSymbolTypesjj.exit, label %.lr.ph130
+  br i1 %12, label %_ZL18CombineSymbolTypesjj.exit, label %.lr.ph146
 
-13:                                               ; preds = %.lr.ph130
-  %.017.add.i = add nuw nsw i64 %.017.idx25.i129, 4
+13:                                               ; preds = %.lr.ph146
+  %.017.add.i = add nuw nsw i64 %.017.idx25.i145, 4
   %.017.ptr.i = getelementptr inbounds nuw i8, ptr @constinit, i64 %.017.add.i
   %14 = load i32, ptr %.017.ptr.i, align 4, !tbaa !286
   %15 = icmp eq i32 %11, %14
-  br i1 %15, label %_ZL18CombineSymbolTypesjj.exit, label %.lr.ph130
+  br i1 %15, label %_ZL18CombineSymbolTypesjj.exit, label %.lr.ph146
 
-.lr.ph130:                                        ; preds = %10, %13
+.lr.ph146:                                        ; preds = %10, %13
   %16 = phi i32 [ %14, %13 ], [ 0, %10 ]
-  %.017.idx25.i129 = phi i64 [ %.017.add.i, %13 ], [ 0, %10 ]
+  %.017.idx25.i145 = phi i64 [ %.017.add.i, %13 ], [ 0, %10 ]
   %.not24.i = icmp eq i32 %16, 1
   br i1 %.not24.i, label %_ZL18CombineSymbolTypesjj.exit, label %13
 
-_ZL18CombineSymbolTypesjj.exit:                   ; preds = %.lr.ph130, %13, %10
-  %spec.select.i.ph = phi i32 [ 1, %10 ], [ %11, %.lr.ph130 ], [ 1, %13 ]
+_ZL18CombineSymbolTypesjj.exit:                   ; preds = %.lr.ph146, %13, %10
+  %spec.select.i.ph = phi i32 [ 1, %10 ], [ %11, %.lr.ph146 ], [ 1, %13 ]
   tail call void @_ZNK4llvm11MCSymbolELF7setTypeEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %spec.select.i.ph) #18
   tail call void @_ZNK4llvm11MCSymbolELF10setBindingEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 10) #18
   %17 = load ptr, ptr %7, align 8, !tbaa !76
@@ -694,46 +694,46 @@ _ZNK4llvm8MCSymbol7getNameEv.exit59:              ; preds = %_ZNK4llvm10MCStream
 96:                                               ; preds = %3
   %97 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #18
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %_ZL18CombineSymbolTypesjj.exit66, label %.lr.ph125
+  br i1 %98, label %_ZL18CombineSymbolTypesjj.exit66, label %.lr.ph141
 
-99:                                               ; preds = %.lr.ph125
-  %.017.add.i63 = add nuw nsw i64 %.017.idx25.i60124, 4
+99:                                               ; preds = %.lr.ph141
+  %.017.add.i63 = add nuw nsw i64 %.017.idx25.i60140, 4
   %.017.ptr.i61 = getelementptr inbounds nuw i8, ptr @constinit, i64 %.017.add.i63
   %100 = load i32, ptr %.017.ptr.i61, align 4, !tbaa !286
   %101 = icmp eq i32 %97, %100
-  br i1 %101, label %_ZL18CombineSymbolTypesjj.exit66, label %.lr.ph125
+  br i1 %101, label %_ZL18CombineSymbolTypesjj.exit66, label %.lr.ph141
 
-.lr.ph125:                                        ; preds = %96, %99
+.lr.ph141:                                        ; preds = %96, %99
   %102 = phi i32 [ %100, %99 ], [ 0, %96 ]
-  %.017.idx25.i60124 = phi i64 [ %.017.add.i63, %99 ], [ 0, %96 ]
+  %.017.idx25.i60140 = phi i64 [ %.017.add.i63, %99 ], [ 0, %96 ]
   %.not24.i62 = icmp eq i32 %102, 2
   br i1 %.not24.i62, label %_ZL18CombineSymbolTypesjj.exit66, label %99
 
-_ZL18CombineSymbolTypesjj.exit66:                 ; preds = %.lr.ph125, %99, %96
-  %spec.select.i65.ph = phi i32 [ 2, %96 ], [ %97, %.lr.ph125 ], [ 2, %99 ]
+_ZL18CombineSymbolTypesjj.exit66:                 ; preds = %.lr.ph141, %99, %96
+  %spec.select.i65.ph = phi i32 [ 2, %96 ], [ %97, %.lr.ph141 ], [ 2, %99 ]
   tail call void @_ZNK4llvm11MCSymbolELF7setTypeEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %spec.select.i65.ph) #18
   br label %140
 
 103:                                              ; preds = %3
   %104 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #18
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %_ZL18CombineSymbolTypesjj.exit73, label %.lr.ph120
+  br i1 %105, label %_ZL18CombineSymbolTypesjj.exit73, label %.lr.ph136
 
-106:                                              ; preds = %.lr.ph120
-  %.017.add.i70 = add nuw nsw i64 %.017.idx25.i67119, 4
+106:                                              ; preds = %.lr.ph136
+  %.017.add.i70 = add nuw nsw i64 %.017.idx25.i67135, 4
   %.017.ptr.i68 = getelementptr inbounds nuw i8, ptr @constinit, i64 %.017.add.i70
   %107 = load i32, ptr %.017.ptr.i68, align 4, !tbaa !286
   %108 = icmp eq i32 %104, %107
-  br i1 %108, label %_ZL18CombineSymbolTypesjj.exit73, label %.lr.ph120
+  br i1 %108, label %_ZL18CombineSymbolTypesjj.exit73, label %.lr.ph136
 
-.lr.ph120:                                        ; preds = %103, %106
+.lr.ph136:                                        ; preds = %103, %106
   %109 = phi i32 [ %107, %106 ], [ 0, %103 ]
-  %.017.idx25.i67119 = phi i64 [ %.017.add.i70, %106 ], [ 0, %103 ]
+  %.017.idx25.i67135 = phi i64 [ %.017.add.i70, %106 ], [ 0, %103 ]
   %.not24.i69 = icmp eq i32 %109, 10
   br i1 %.not24.i69, label %_ZL18CombineSymbolTypesjj.exit73, label %106
 
-_ZL18CombineSymbolTypesjj.exit73:                 ; preds = %.lr.ph120, %106, %103
-  %spec.select.i72.ph = phi i32 [ 10, %103 ], [ %104, %.lr.ph120 ], [ 10, %106 ]
+_ZL18CombineSymbolTypesjj.exit73:                 ; preds = %.lr.ph136, %106, %103
+  %spec.select.i72.ph = phi i32 [ 10, %103 ], [ %104, %.lr.ph136 ], [ 10, %106 ]
   tail call void @_ZNK4llvm11MCSymbolELF7setTypeEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %spec.select.i72.ph) #18
   %110 = load ptr, ptr %7, align 8, !tbaa !76
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -745,46 +745,46 @@ _ZL18CombineSymbolTypesjj.exit73:                 ; preds = %.lr.ph120, %106, %1
 114:                                              ; preds = %3
   %115 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #18
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %_ZL18CombineSymbolTypesjj.exit80, label %.lr.ph115
+  br i1 %116, label %_ZL18CombineSymbolTypesjj.exit80, label %.lr.ph131
 
-117:                                              ; preds = %.lr.ph115
-  %.017.add.i77 = add nuw nsw i64 %.017.idx25.i74114, 4
+117:                                              ; preds = %.lr.ph131
+  %.017.add.i77 = add nuw nsw i64 %.017.idx25.i74130, 4
   %.017.ptr.i75 = getelementptr inbounds nuw i8, ptr @constinit, i64 %.017.add.i77
   %118 = load i32, ptr %.017.ptr.i75, align 4, !tbaa !286
   %119 = icmp eq i32 %115, %118
-  br i1 %119, label %_ZL18CombineSymbolTypesjj.exit80, label %.lr.ph115
+  br i1 %119, label %_ZL18CombineSymbolTypesjj.exit80, label %.lr.ph131
 
-.lr.ph115:                                        ; preds = %114, %117
+.lr.ph131:                                        ; preds = %114, %117
   %120 = phi i32 [ %118, %117 ], [ 0, %114 ]
-  %.017.idx25.i74114 = phi i64 [ %.017.add.i77, %117 ], [ 0, %114 ]
+  %.017.idx25.i74130 = phi i64 [ %.017.add.i77, %117 ], [ 0, %114 ]
   %.not24.i76 = icmp eq i32 %120, 1
   br i1 %.not24.i76, label %_ZL18CombineSymbolTypesjj.exit80, label %117
 
-_ZL18CombineSymbolTypesjj.exit80:                 ; preds = %.lr.ph115, %117, %114
-  %spec.select.i79.ph = phi i32 [ 1, %114 ], [ %115, %.lr.ph115 ], [ 1, %117 ]
+_ZL18CombineSymbolTypesjj.exit80:                 ; preds = %.lr.ph131, %117, %114
+  %spec.select.i79.ph = phi i32 [ 1, %114 ], [ %115, %.lr.ph131 ], [ 1, %117 ]
   tail call void @_ZNK4llvm11MCSymbolELF7setTypeEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %spec.select.i79.ph) #18
   br label %140
 
 121:                                              ; preds = %3
   %122 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #18
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %_ZL18CombineSymbolTypesjj.exit87, label %.lr.ph110
+  br i1 %123, label %_ZL18CombineSymbolTypesjj.exit87, label %.lr.ph126
 
-124:                                              ; preds = %.lr.ph110
-  %.017.add.i84 = add nuw nsw i64 %.017.idx25.i81109, 4
+124:                                              ; preds = %.lr.ph126
+  %.017.add.i84 = add nuw nsw i64 %.017.idx25.i81125, 4
   %.017.ptr.i82 = getelementptr inbounds nuw i8, ptr @constinit, i64 %.017.add.i84
   %125 = load i32, ptr %.017.ptr.i82, align 4, !tbaa !286
   %126 = icmp eq i32 %122, %125
-  br i1 %126, label %_ZL18CombineSymbolTypesjj.exit87, label %.lr.ph110
+  br i1 %126, label %_ZL18CombineSymbolTypesjj.exit87, label %.lr.ph126
 
-.lr.ph110:                                        ; preds = %121, %124
+.lr.ph126:                                        ; preds = %121, %124
   %127 = phi i32 [ %125, %124 ], [ 0, %121 ]
-  %.017.idx25.i81109 = phi i64 [ %.017.add.i84, %124 ], [ 0, %121 ]
+  %.017.idx25.i81125 = phi i64 [ %.017.add.i84, %124 ], [ 0, %121 ]
   %.not24.i83 = icmp eq i32 %127, 6
   br i1 %.not24.i83, label %_ZL18CombineSymbolTypesjj.exit87, label %124
 
-_ZL18CombineSymbolTypesjj.exit87:                 ; preds = %.lr.ph110, %124, %121
-  %spec.select.i86.ph = phi i32 [ 6, %121 ], [ %122, %.lr.ph110 ], [ 6, %124 ]
+_ZL18CombineSymbolTypesjj.exit87:                 ; preds = %.lr.ph126, %124, %121
+  %spec.select.i86.ph = phi i32 [ 6, %121 ], [ %122, %.lr.ph126 ], [ 6, %124 ]
   tail call void @_ZNK4llvm11MCSymbolELF7setTypeEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %spec.select.i86.ph) #18
   br label %140
 
@@ -794,7 +794,7 @@ _ZL18CombineSymbolTypesjj.exit87:                 ; preds = %.lr.ph110, %124, %1
   br i1 %130, label %_ZL18CombineSymbolTypesjj.exit94, label %.lr.ph
 
 131:                                              ; preds = %.lr.ph
-  %.017.add.i91 = add nuw nsw i64 %.017.idx25.i88106, 4
+  %.017.add.i91 = add nuw nsw i64 %.017.idx25.i88122, 4
   %.017.ptr.i89 = getelementptr inbounds nuw i8, ptr @constinit, i64 %.017.add.i91
   %132 = load i32, ptr %.017.ptr.i89, align 4, !tbaa !286
   %133 = icmp eq i32 %129, %132
@@ -802,7 +802,7 @@ _ZL18CombineSymbolTypesjj.exit87:                 ; preds = %.lr.ph110, %124, %1
 
 .lr.ph:                                           ; preds = %128, %131
   %134 = phi i32 [ %132, %131 ], [ 0, %128 ]
-  %.017.idx25.i88106 = phi i64 [ %.017.add.i91, %131 ], [ 0, %128 ]
+  %.017.idx25.i88122 = phi i64 [ %.017.add.i91, %131 ], [ 0, %128 ]
   %.not24.i90 = icmp eq i32 %134, 1
   br i1 %.not24.i90, label %_ZL18CombineSymbolTypesjj.exit94, label %131
 
@@ -2760,7 +2760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %41 = load ptr, ptr %40, align 8, !tbaa !419
   %42 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 32
   %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %44 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 24
@@ -2771,13 +2771,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %48 = icmp eq ptr %47, %23
   br i1 %48, label %51, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %49 = load ptr, ptr %9, align 8, !tbaa !419
   %50 = icmp eq ptr %49, %23
   br i1 %50, label %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-51:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %52 = phi ptr [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+51:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %52 = phi ptr [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %53 = load i64, ptr %37, align 8, !tbaa !420
   %54 = icmp ult i64 %53, 16
   call void @llvm.assume(i1 %54)
@@ -2817,7 +2817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %64, ptr %42, align 8, !tbaa !286
   br label %70
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %65 = load i64, ptr %42, align 8, !tbaa !286
   store ptr %49, ptr %40, align 8, !tbaa !419
   %66 = load i64, ptr %37, align 8, !tbaa !420
@@ -3089,7 +3089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %43 = load ptr, ptr %42, align 8, !tbaa !419
   %44 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 32
   %45 = icmp eq ptr %43, %44
-  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %46 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 24
@@ -3100,13 +3100,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %50 = icmp eq ptr %49, %25
   br i1 %50, label %53, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %51 = load ptr, ptr %10, align 8, !tbaa !419
   %52 = icmp eq ptr %51, %25
   br i1 %52, label %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-53:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %54 = phi ptr [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+53:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %54 = phi ptr [ %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %55 = load i64, ptr %39, align 8, !tbaa !420
   %56 = icmp ult i64 %55, 16
   call void @llvm.assume(i1 %56)
@@ -3146,7 +3146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %66, ptr %44, align 8, !tbaa !286
   br label %72
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %67 = load i64, ptr %44, align 8, !tbaa !286
   store ptr %51, ptr %42, align 8, !tbaa !419
   %68 = load i64, ptr %39, align 8, !tbaa !420

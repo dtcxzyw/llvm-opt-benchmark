@@ -189,8 +189,8 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   %50 = load i32, ptr %40, align 4, !tbaa !12
   %51 = load ptr, ptr %21, align 8, !tbaa !25
   %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next48
-  %.lcssa56. = tail call i32 @llvm.smin.i32(i32 %27, i32 %50)
-  %53 = add nsw i32 %.lcssa56., -1
+  %.lcssa59. = tail call i32 @llvm.smin.i32(i32 %27, i32 %50)
+  %53 = add nsw i32 %.lcssa59., -1
   store i32 %53, ptr %52, align 4, !tbaa !15
   br label %.lr.ph.i13.preheader.us
 
@@ -756,8 +756,8 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %106, label %minWord3.exit.sink.split, label %minWord3.exit
 
 minWord3.exit.sink.split:                         ; preds = %104, %101
-  %.sink246 = phi ptr [ %1, %101 ], [ %0, %104 ]
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink246, i32 noundef %6) #11
+  %.sink254 = phi ptr [ %1, %101 ], [ %0, %104 ]
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink254, i32 noundef %6) #11
   br label %minWord3.exit
 
 minWord3.exit:                                    ; preds = %minWord3.exit.sink.split, %104, %101, %97, %62, %.lr.ph198
@@ -835,8 +835,8 @@ minWord3.exit:                                    ; preds = %minWord3.exit.sink.
   br i1 %148, label %minWord3.exit175.sink.split, label %minWord3.exit175
 
 minWord3.exit175.sink.split:                      ; preds = %146, %143
-  %.sink247 = phi ptr [ %1, %143 ], [ %0, %146 ]
-  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink247, i32 noundef %6) #11
+  %.sink255 = phi ptr [ %1, %143 ], [ %0, %146 ]
+  tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %.sink255, i32 noundef %6) #11
   br label %minWord3.exit175
 
 minWord3.exit175:                                 ; preds = %minWord3.exit175.sink.split, %146, %143, %139, %110, %.lr.ph201

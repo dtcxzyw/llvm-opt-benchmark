@@ -259,7 +259,7 @@ define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr noundef
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4392
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4400
-  %spec.select113 = select i1 %22, i64 2, i64 4
+  %spec.select119 = select i1 %22, i64 2, i64 4
   br label %26
 
 26:                                               ; preds = %.lr.ph, %149
@@ -315,7 +315,7 @@ define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr noundef
 
 .thread21.i.sink.split:                           ; preds = %35, %.thread14.i, %34
   %.sink = phi i64 [ %.0.ph.i, %34 ], [ %39, %.thread14.i ], [ %37, %35 ]
-  %.19.i.ph = phi i64 [ 4, %34 ], [ 4, %.thread14.i ], [ %spec.select113, %35 ]
+  %.19.i.ph = phi i64 [ 4, %34 ], [ 4, %.thread14.i ], [ %spec.select119, %35 ]
   %40 = load i64, ptr %24, align 8
   %41 = load ptr, ptr %25, align 8
   %42 = ptrtoint ptr %29 to i64

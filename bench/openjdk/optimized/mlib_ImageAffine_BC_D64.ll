@@ -62,8 +62,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr noundef readonly capt
   br i1 %.not448, label %50, label %45
 
 45:                                               ; preds = %35
-  %.idx575 = shl nsw i64 %indvars.iv, 3
-  %46 = getelementptr inbounds i8, ptr %17, i64 %.idx575
+  %.idx581 = shl nsw i64 %indvars.iv, 3
+  %46 = getelementptr inbounds i8, ptr %17, i64 %.idx581
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr i8, ptr %46, i64 4
   %49 = load i32, ptr %48, align 4

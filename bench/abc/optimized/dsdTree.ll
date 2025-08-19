@@ -1174,7 +1174,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %38 = load i32, ptr %12, align 4, !tbaa !46
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %12, align 4, !tbaa !46
-  br label %.sink.split83
+  br label %.sink.split106
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1372,11 +1372,11 @@ Vec_StrPush.exit48:                               ; preds = %.Vec_StrGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_StrPush.exit34, %Vec_StrPush.exit48, %Vec_StrPush.exit41
-  %.sink82 = phi i32 [ %96, %Vec_StrPush.exit41 ], [ %125, %Vec_StrPush.exit48 ], [ %67, %Vec_StrPush.exit34 ]
-  %.sink80 = phi ptr [ %95, %Vec_StrPush.exit41 ], [ %124, %Vec_StrPush.exit48 ], [ %66, %Vec_StrPush.exit34 ]
+  %.sink105 = phi i32 [ %96, %Vec_StrPush.exit41 ], [ %125, %Vec_StrPush.exit48 ], [ %67, %Vec_StrPush.exit34 ]
+  %.sink103 = phi ptr [ %95, %Vec_StrPush.exit41 ], [ %124, %Vec_StrPush.exit48 ], [ %66, %Vec_StrPush.exit34 ]
   %.sink = phi i8 [ 40, %Vec_StrPush.exit41 ], [ 91, %Vec_StrPush.exit48 ], [ 123, %Vec_StrPush.exit34 ]
-  %127 = sext i32 %.sink82 to i64
-  %128 = getelementptr inbounds i8, ptr %.sink80, i64 %127
+  %127 = sext i32 %.sink105 to i64
+  %128 = getelementptr inbounds i8, ptr %.sink103, i64 %127
   store i8 %.sink, ptr %128, align 1, !tbaa !51
   br label %129
 
@@ -1546,7 +1546,7 @@ Vec_StrPush.exit62:                               ; preds = %.Vec_StrGrow.exit10
   %202 = load i32, ptr %176, align 4, !tbaa !46
   %203 = add nsw i32 %202, 1
   store i32 %203, ptr %176, align 4, !tbaa !46
-  br label %.sink.split83
+  br label %.sink.split106
 
 204:                                              ; preds = %._crit_edge
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1611,7 +1611,7 @@ Vec_StrPush.exit69:                               ; preds = %.Vec_StrGrow.exit10
   %231 = load i32, ptr %205, align 4, !tbaa !46
   %232 = add nsw i32 %231, 1
   store i32 %232, ptr %205, align 4, !tbaa !46
-  br label %.sink.split83
+  br label %.sink.split106
 
 233:                                              ; preds = %._crit_edge
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1676,18 +1676,18 @@ Vec_StrPush.exit76:                               ; preds = %.Vec_StrGrow.exit10
   %260 = load i32, ptr %234, align 4, !tbaa !46
   %261 = add nsw i32 %260, 1
   store i32 %261, ptr %234, align 4, !tbaa !46
-  br label %.sink.split83
+  br label %.sink.split106
 
-.sink.split83:                                    ; preds = %Vec_StrPush.exit, %Vec_StrPush.exit62, %Vec_StrPush.exit76, %Vec_StrPush.exit69
-  %.sink88 = phi i32 [ %231, %Vec_StrPush.exit69 ], [ %260, %Vec_StrPush.exit76 ], [ %202, %Vec_StrPush.exit62 ], [ %38, %Vec_StrPush.exit ]
-  %.sink86 = phi ptr [ %230, %Vec_StrPush.exit69 ], [ %259, %Vec_StrPush.exit76 ], [ %201, %Vec_StrPush.exit62 ], [ %37, %Vec_StrPush.exit ]
-  %.sink84 = phi i8 [ 41, %Vec_StrPush.exit69 ], [ 93, %Vec_StrPush.exit76 ], [ 125, %Vec_StrPush.exit62 ], [ %11, %Vec_StrPush.exit ]
-  %262 = sext i32 %.sink88 to i64
-  %263 = getelementptr inbounds i8, ptr %.sink86, i64 %262
-  store i8 %.sink84, ptr %263, align 1, !tbaa !51
+.sink.split106:                                   ; preds = %Vec_StrPush.exit, %Vec_StrPush.exit62, %Vec_StrPush.exit76, %Vec_StrPush.exit69
+  %.sink111 = phi i32 [ %231, %Vec_StrPush.exit69 ], [ %260, %Vec_StrPush.exit76 ], [ %202, %Vec_StrPush.exit62 ], [ %38, %Vec_StrPush.exit ]
+  %.sink109 = phi ptr [ %230, %Vec_StrPush.exit69 ], [ %259, %Vec_StrPush.exit76 ], [ %201, %Vec_StrPush.exit62 ], [ %37, %Vec_StrPush.exit ]
+  %.sink107 = phi i8 [ 41, %Vec_StrPush.exit69 ], [ 93, %Vec_StrPush.exit76 ], [ 125, %Vec_StrPush.exit62 ], [ %11, %Vec_StrPush.exit ]
+  %262 = sext i32 %.sink111 to i64
+  %263 = getelementptr inbounds i8, ptr %.sink109, i64 %262
+  store i8 %.sink107, ptr %263, align 1, !tbaa !51
   br label %264
 
-264:                                              ; preds = %.sink.split83, %._crit_edge
+264:                                              ; preds = %.sink.split106, %._crit_edge
   ret void
 }
 
@@ -1999,7 +1999,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %38 = load i32, ptr %12, align 4, !tbaa !46
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %12, align 4, !tbaa !46
-  br label %.sink.split85
+  br label %.sink.split108
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2197,11 +2197,11 @@ Vec_StrPush.exit50:                               ; preds = %.Vec_StrGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_StrPush.exit36, %Vec_StrPush.exit50, %Vec_StrPush.exit43
-  %.sink84 = phi i32 [ %96, %Vec_StrPush.exit43 ], [ %125, %Vec_StrPush.exit50 ], [ %67, %Vec_StrPush.exit36 ]
-  %.sink82 = phi ptr [ %95, %Vec_StrPush.exit43 ], [ %124, %Vec_StrPush.exit50 ], [ %66, %Vec_StrPush.exit36 ]
+  %.sink107 = phi i32 [ %96, %Vec_StrPush.exit43 ], [ %125, %Vec_StrPush.exit50 ], [ %67, %Vec_StrPush.exit36 ]
+  %.sink105 = phi ptr [ %95, %Vec_StrPush.exit43 ], [ %124, %Vec_StrPush.exit50 ], [ %66, %Vec_StrPush.exit36 ]
   %.sink = phi i8 [ 40, %Vec_StrPush.exit43 ], [ 91, %Vec_StrPush.exit50 ], [ 123, %Vec_StrPush.exit36 ]
-  %127 = sext i32 %.sink84 to i64
-  %128 = getelementptr inbounds i8, ptr %.sink82, i64 %127
+  %127 = sext i32 %.sink107 to i64
+  %128 = getelementptr inbounds i8, ptr %.sink105, i64 %127
   store i8 %.sink, ptr %128, align 1, !tbaa !51
   br label %129
 
@@ -2377,7 +2377,7 @@ Vec_StrPush.exit64:                               ; preds = %.Vec_StrGrow.exit10
   %209 = load i32, ptr %183, align 4, !tbaa !46
   %210 = add nsw i32 %209, 1
   store i32 %210, ptr %183, align 4, !tbaa !46
-  br label %.sink.split85
+  br label %.sink.split108
 
 211:                                              ; preds = %._crit_edge
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2442,7 +2442,7 @@ Vec_StrPush.exit71:                               ; preds = %.Vec_StrGrow.exit10
   %238 = load i32, ptr %212, align 4, !tbaa !46
   %239 = add nsw i32 %238, 1
   store i32 %239, ptr %212, align 4, !tbaa !46
-  br label %.sink.split85
+  br label %.sink.split108
 
 240:                                              ; preds = %._crit_edge
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2507,18 +2507,18 @@ Vec_StrPush.exit78:                               ; preds = %.Vec_StrGrow.exit10
   %267 = load i32, ptr %241, align 4, !tbaa !46
   %268 = add nsw i32 %267, 1
   store i32 %268, ptr %241, align 4, !tbaa !46
-  br label %.sink.split85
+  br label %.sink.split108
 
-.sink.split85:                                    ; preds = %Vec_StrPush.exit, %Vec_StrPush.exit64, %Vec_StrPush.exit78, %Vec_StrPush.exit71
-  %.sink90 = phi i32 [ %238, %Vec_StrPush.exit71 ], [ %267, %Vec_StrPush.exit78 ], [ %209, %Vec_StrPush.exit64 ], [ %38, %Vec_StrPush.exit ]
-  %.sink88 = phi ptr [ %237, %Vec_StrPush.exit71 ], [ %266, %Vec_StrPush.exit78 ], [ %208, %Vec_StrPush.exit64 ], [ %37, %Vec_StrPush.exit ]
-  %.sink86 = phi i8 [ 41, %Vec_StrPush.exit71 ], [ 93, %Vec_StrPush.exit78 ], [ 125, %Vec_StrPush.exit64 ], [ %11, %Vec_StrPush.exit ]
-  %269 = sext i32 %.sink90 to i64
-  %270 = getelementptr inbounds i8, ptr %.sink88, i64 %269
-  store i8 %.sink86, ptr %270, align 1, !tbaa !51
+.sink.split108:                                   ; preds = %Vec_StrPush.exit, %Vec_StrPush.exit64, %Vec_StrPush.exit78, %Vec_StrPush.exit71
+  %.sink113 = phi i32 [ %238, %Vec_StrPush.exit71 ], [ %267, %Vec_StrPush.exit78 ], [ %209, %Vec_StrPush.exit64 ], [ %38, %Vec_StrPush.exit ]
+  %.sink111 = phi ptr [ %237, %Vec_StrPush.exit71 ], [ %266, %Vec_StrPush.exit78 ], [ %208, %Vec_StrPush.exit64 ], [ %37, %Vec_StrPush.exit ]
+  %.sink109 = phi i8 [ 41, %Vec_StrPush.exit71 ], [ 93, %Vec_StrPush.exit78 ], [ 125, %Vec_StrPush.exit64 ], [ %11, %Vec_StrPush.exit ]
+  %269 = sext i32 %.sink113 to i64
+  %270 = getelementptr inbounds i8, ptr %.sink111, i64 %269
+  store i8 %.sink109, ptr %270, align 1, !tbaa !51
   br label %271
 
-271:                                              ; preds = %.sink.split85, %._crit_edge
+271:                                              ; preds = %.sink.split108, %._crit_edge
   ret void
 }
 
@@ -3230,7 +3230,7 @@ define i64 @Dsd_TreeFunc2Truth_rec(ptr noundef %0, ptr noundef %1) local_unnamed
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
   %8 = icmp eq ptr %1, %7
-  br i1 %8, label %common.ret37, label %.lr.ph
+  br i1 %8, label %common.ret38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %.tr1823 = phi ptr [ %14, %tailrecurse ], [ %1, %2 ]
@@ -3251,9 +3251,9 @@ tailrecurse:                                      ; preds = %10
   %16 = icmp eq i64 %13, %6
   br i1 %16, label %._crit_edge.loopexit, label %.lr.ph
 
-common.ret37:                                     ; preds = %._crit_edge.loopexit, %2, %17
-  %common.ret37.op = phi i64 [ %accumulator.ret.tr, %17 ], [ 0, %2 ], [ %37, %._crit_edge.loopexit ]
-  ret i64 %common.ret37.op
+common.ret38:                                     ; preds = %._crit_edge.loopexit, %2, %17
+  %common.ret38.op = phi i64 [ %accumulator.ret.tr, %17 ], [ 0, %2 ], [ %37, %._crit_edge.loopexit ]
+  ret i64 %common.ret38.op
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -3276,13 +3276,13 @@ common.ret37:                                     ; preds = %._crit_edge.loopexi
   %35 = and i64 %27, %34
   %36 = or i64 %33, %35
   %accumulator.ret.tr = xor i64 %36, %accumulator.tr22
-  br label %common.ret37
+  br label %common.ret38
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %tailrecurse
   %accumulator.tr.lcssa.ph = phi i64 [ %15, %tailrecurse ], [ %accumulator.tr22, %.lr.ph ]
   %.0.ph = phi i64 [ 0, %tailrecurse ], [ -1, %.lr.ph ]
   %37 = xor i64 %.0.ph, %accumulator.tr.lcssa.ph
-  br label %common.ret37
+  br label %common.ret38
 }
 
 ; Function Attrs: nounwind uwtable

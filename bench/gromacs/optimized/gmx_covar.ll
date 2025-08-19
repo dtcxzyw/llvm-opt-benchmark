@@ -1770,10 +1770,10 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph911, %_ZL13gm
   br i1 %701, label %.preheader847.preheader, label %.preheader845
 
 .preheader847.preheader:                          ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571, %.loopexit848
-  %.01062 = phi ptr [ %353, %.loopexit848 ], [ %682, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571 ]
-  %.pre-phi10551060 = phi i64 [ %.pre1054, %.loopexit848 ], [ %684, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571 ]
-  %.pn1085 = uitofp nneg i32 %561 to double
-  %.in = fdiv double 1.000000e+00, %.pn1085
+  %.01192 = phi ptr [ %353, %.loopexit848 ], [ %682, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571 ]
+  %.pre-phi10551190 = phi i64 [ %.pre1054, %.loopexit848 ], [ %684, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571 ]
+  %.pn1215 = uitofp nneg i32 %561 to double
+  %.in = fdiv double 1.000000e+00, %.pn1215
   %702 = fptrunc double %.in to float
   br label %.preheader847
 
@@ -1799,7 +1799,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph911, %_ZL13gm
 
 711:                                              ; preds = %714
   %712 = add nuw nsw i64 %.10416913.us, 1
-  %713 = icmp slt i64 %712, %.pre-phi10551060
+  %713 = icmp slt i64 %712, %.pre-phi10551190
   br i1 %713, label %708, label %._crit_edge915.us, !llvm.loop !78
 
 714:                                              ; preds = %714, %708
@@ -1823,11 +1823,11 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph911, %_ZL13gm
 
 .split.us917:                                     ; preds = %._crit_edge915.us
   %722 = add nuw nsw i64 %.1401918, 1
-  %exitcond1017.not = icmp eq i64 %722, %.pre-phi10551060
+  %exitcond1017.not = icmp eq i64 %722, %.pre-phi10551190
   br i1 %exitcond1017.not, label %.preheader845, label %.preheader847, !llvm.loop !81
 
 .preheader845:                                    ; preds = %.split.us917, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571.preheader, %.loopexit848
-  %.01061 = phi ptr [ %353, %.loopexit848 ], [ %682, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571.preheader ], [ %.01062, %.split.us917 ]
+  %.01191 = phi ptr [ %353, %.loopexit848 ], [ %682, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571.preheader ], [ %.01192, %.split.us917 ]
   %723 = icmp sgt i32 %354, 0
   br i1 %723, label %.preheader844.preheader, label %._crit_edge924
 
@@ -3016,7 +3016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit704: ; preds = %_Z
   %1144 = trunc nuw i8 %.3383 to i1
   %1145 = load i8, ptr @_ZZ9gmx_covariPPcE2bM, align 1, !tbaa !29, !range !31, !noundef !32
   %1146 = trunc nuw i8 %1145 to i1
-  invoke void @_Z18write_eigenvectorsPKciPKfbiiiPA3_S1_bS4_bS2_(ptr noundef %128, i32 noundef %.pre1053, ptr noundef %369, i1 noundef zeroext true, i32 noundef 1, i32 noundef %1143, i32 noundef %.0393, ptr noundef %350, i1 noundef zeroext %1144, ptr noundef %.01061, i1 noundef zeroext %1146, ptr noundef %1016)
+  invoke void @_Z18write_eigenvectorsPKciPKfbiiiPA3_S1_bS4_bS2_(ptr noundef %128, i32 noundef %.pre1053, ptr noundef %369, i1 noundef zeroext true, i32 noundef 1, i32 noundef %1143, i32 noundef %.0393, ptr noundef %350, i1 noundef zeroext %1144, ptr noundef %.01191, i1 noundef zeroext %1146, ptr noundef %1016)
           to label %1147 unwind label %1140
 
 1147:                                             ; preds = %.loopexit

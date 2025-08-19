@@ -337,8 +337,8 @@ au_read_annotation.exit:                          ; preds = %21, %50
   br i1 %.not87, label %109, label %101
 
 101:                                              ; preds = %98
-  %102 = sext i32 %10 to i64
-  %103 = shl nsw i64 %102, 3
+  %102 = zext nneg i32 %10 to i64
+  %103 = shl nuw nsw i64 %102, 3
   %104 = zext i32 %15 to i64
   %105 = sext i32 %.076 to i64
   %106 = mul nsw i64 %105, %104

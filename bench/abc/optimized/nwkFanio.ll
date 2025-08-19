@@ -221,19 +221,19 @@ define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanin(ptr noundef read
 
 11:                                               ; preds = %8
   %12 = icmp eq ptr %10, %1
-  br i1 %12, label %.critedge.loopexit.split.loop.exit18, label %13
+  br i1 %12, label %.critedge.loopexit.split.loop.exit19, label %13
 
 13:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !25
 
-.critedge.loopexit.split.loop.exit18:             ; preds = %11
+.critedge.loopexit.split.loop.exit19:             ; preds = %11
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %8, %13, %.critedge.loopexit.split.loop.exit18, %2
-  %.08 = phi i32 [ -1, %2 ], [ %14, %.critedge.loopexit.split.loop.exit18 ], [ -1, %13 ], [ -1, %8 ]
+.critedge:                                        ; preds = %8, %13, %.critedge.loopexit.split.loop.exit19, %2
+  %.08 = phi i32 [ -1, %2 ], [ %14, %.critedge.loopexit.split.loop.exit19 ], [ -1, %13 ], [ -1, %8 ]
   ret i32 %.08
 }
 
@@ -263,19 +263,19 @@ define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanout(ptr noundef rea
 
 13:                                               ; preds = %11
   %14 = icmp eq ptr %12, %1
-  br i1 %14, label %.critedge.loopexit.split.loop.exit19, label %15
+  br i1 %14, label %.critedge.loopexit.split.loop.exit20, label %15
 
 15:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !26
 
-.critedge.loopexit.split.loop.exit19:             ; preds = %13
+.critedge.loopexit.split.loop.exit20:             ; preds = %13
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %11, %15, %.critedge.loopexit.split.loop.exit19, %2
-  %.09 = phi i32 [ -1, %2 ], [ %16, %.critedge.loopexit.split.loop.exit19 ], [ -1, %15 ], [ -1, %11 ]
+.critedge:                                        ; preds = %11, %15, %.critedge.loopexit.split.loop.exit20, %2
+  %.09 = phi i32 [ -1, %2 ], [ %16, %.critedge.loopexit.split.loop.exit20 ], [ -1, %15 ], [ -1, %11 ]
   ret i32 %.09
 }
 
@@ -477,8 +477,8 @@ define void @Nwk_ObjDeleteFanin(ptr noundef captures(address) %0, ptr noundef ca
   %28 = getelementptr inbounds ptr, ptr %.pre52.pre, i64 %indvars.iv47
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   %.not34 = icmp eq ptr %29, %0
-  %or.cond56 = select i1 %.not, i1 %.not34, i1 false
-  br i1 %or.cond56, label %33, label %._crit_edge53
+  %or.cond58 = select i1 %.not, i1 %.not34, i1 false
+  br i1 %or.cond58, label %33, label %._crit_edge53
 
 ._crit_edge53:                                    ; preds = %27
   %30 = add nsw i32 %.23041, 1

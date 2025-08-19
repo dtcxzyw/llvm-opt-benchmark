@@ -816,20 +816,20 @@ entry:
   %0 = load i64, ptr %d1, align 8, !tbaa !39
   %1 = load i64, ptr %d2, align 8, !tbaa !39
   %cmp.i = icmp eq i64 %0, %1
-  br i1 %cmp.i, label %common.ret170, label %if.else
+  br i1 %cmp.i, label %common.ret201, label %if.else
 
 if.else:                                          ; preds = %entry
   %cmp.i25 = icmp slt i64 %1, %0
   br i1 %cmp.i25, label %if.then3, label %if.end5
 
-common.ret170:                                    ; preds = %entry, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit, %if.then3
-  %common.ret170.op = phi double [ %fneg, %if.then3 ], [ %yearFractionSum.0.lcssa159, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit ], [ 0.000000e+00, %entry ]
-  ret double %common.ret170.op
+common.ret201:                                    ; preds = %entry, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit, %if.then3
+  %common.ret201.op = phi double [ %fneg, %if.then3 ], [ %yearFractionSum.0.lcssa190, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit ], [ 0.000000e+00, %entry ]
+  ret double %common.ret201.op
 
 if.then3:                                         ; preds = %if.else
   %call4 = tail call noundef double @_ZNK8QuantLib12ActualActual9ISMA_Impl12yearFractionERKNS_4DateES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %d2, ptr noundef nonnull align 8 dereferenceable(8) %d1, ptr noundef nonnull align 8 dereferenceable(8) %d3, ptr noundef nonnull align 8 dereferenceable(8) %d4)
   %fneg = fneg double %call4
-  br label %common.ret170
+  br label %common.ret201
 
 if.end5:                                          ; preds = %if.else
   call void @llvm.lifetime.start.p0(ptr nonnull %couponDates)
@@ -1509,19 +1509,19 @@ for.cond.cleanup:                                 ; preds = %if.end98
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.cond.cleanup.thread, %for.cond.cleanup
-  %sub.ptr.rhs.cast.i.lcssa161 = phi i64 [ %sub.ptr.rhs.cast.i139, %for.cond.cleanup.thread ], [ %sub.ptr.rhs.cast.i, %for.cond.cleanup ]
-  %.lcssa160 = phi ptr [ %44, %for.cond.cleanup.thread ], [ %114, %for.cond.cleanup ]
-  %yearFractionSum.0.lcssa158 = phi double [ 0.000000e+00, %for.cond.cleanup.thread ], [ %yearFractionSum.1, %for.cond.cleanup ]
+  %sub.ptr.rhs.cast.i.lcssa192 = phi i64 [ %sub.ptr.rhs.cast.i139, %for.cond.cleanup.thread ], [ %sub.ptr.rhs.cast.i, %for.cond.cleanup ]
+  %.lcssa191 = phi ptr [ %44, %for.cond.cleanup.thread ], [ %114, %for.cond.cleanup ]
+  %yearFractionSum.0.lcssa189 = phi double [ 0.000000e+00, %for.cond.cleanup.thread ], [ %yearFractionSum.1, %for.cond.cleanup ]
   %80 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %80 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.lcssa161
-  call void @_ZdlPvm(ptr noundef nonnull %.lcssa160, i64 noundef %sub.ptr.sub.i.i) #22
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.lcssa192
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa191, i64 noundef %sub.ptr.sub.i.i) #22
   br label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit:   ; preds = %for.cond.cleanup, %if.then.i.i.i
-  %yearFractionSum.0.lcssa159 = phi double [ %yearFractionSum.1, %for.cond.cleanup ], [ %yearFractionSum.0.lcssa158, %if.then.i.i.i ]
+  %yearFractionSum.0.lcssa190 = phi double [ %yearFractionSum.1, %for.cond.cleanup ], [ %yearFractionSum.0.lcssa189, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %couponDates)
-  br label %common.ret170
+  br label %common.ret201
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end98
   %81 = phi ptr [ %114, %if.end98 ], [ %44, %for.cond.preheader ]
@@ -1857,20 +1857,20 @@ entry:
   %0 = load i64, ptr %d1, align 8, !tbaa !39
   %1 = load i64, ptr %d2, align 8, !tbaa !39
   %cmp.i = icmp eq i64 %0, %1
-  br i1 %cmp.i, label %common.ret163, label %if.end
+  br i1 %cmp.i, label %common.ret187, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp.i48 = icmp sgt i64 %0, %1
   br i1 %cmp.i48, label %if.then3, label %if.end5
 
-common.ret163:                                    ; preds = %entry, %cleanup154, %if.then3
-  %common.ret163.op = phi double [ %fneg, %if.then3 ], [ %retval.1, %cleanup154 ], [ 0.000000e+00, %entry ]
-  ret double %common.ret163.op
+common.ret187:                                    ; preds = %entry, %cleanup154, %if.then3
+  %common.ret187.op = phi double [ %fneg, %if.then3 ], [ %retval.1, %cleanup154 ], [ 0.000000e+00, %entry ]
+  ret double %common.ret187.op
 
 if.then3:                                         ; preds = %if.end
   %call4 = tail call noundef double @_ZNK8QuantLib12ActualActual13Old_ISMA_Impl12yearFractionERKNS_4DateES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %d2, ptr noundef nonnull align 8 dereferenceable(8) %d1, ptr noundef nonnull align 8 dereferenceable(8) %d3, ptr noundef nonnull align 8 dereferenceable(8) %d4)
   %fneg = fneg double %call4
-  br label %common.ret163
+  br label %common.ret187
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %refPeriodStart)
@@ -2359,7 +2359,7 @@ cleanup154:                                       ; preds = %for.end, %cleanup, 
   %retval.1 = phi double [ %div76, %if.then72 ], [ %retval.2, %cleanup ], [ %add149, %for.end ]
   call void @llvm.lifetime.end.p0(ptr nonnull %refPeriodEnd)
   call void @llvm.lifetime.end.p0(ptr nonnull %refPeriodStart)
-  br label %common.ret163
+  br label %common.ret187
 
 ehcleanup159:                                     ; preds = %ehcleanup124, %ehcleanup55
   %.pn42.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn42.pn.pn.pn, %ehcleanup124 ], [ %.pn.pn.pn.pn, %ehcleanup55 ]

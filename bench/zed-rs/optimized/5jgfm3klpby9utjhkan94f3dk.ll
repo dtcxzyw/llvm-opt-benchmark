@@ -186,10 +186,10 @@ define hidden noundef align 8 ptr @"_ZN100_$LT$async_lock..semaphore..AcquireInn
           to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit.sink.split" unwind label %.body.i, !noalias !19
 
 common.resume:                                    ; preds = %.body, %.body.i
-  %.lcssa24.sink = phi ptr [ %25, %.body ], [ %10, %.body.i ]
+  %.lcssa28.sink = phi ptr [ %25, %.body ], [ %10, %.body.i ]
   %storemerge = phi ptr [ %24, %.body ], [ null, %.body.i ]
   %common.resume.op = phi { ptr, i32 } [ %28, %.body ], [ %20, %.body.i ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa24.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa28.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %storemerge, ptr %4, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -474,7 +474,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %28
 
-28:                                               ; preds = %.backedge166, %.preheader
+28:                                               ; preds = %.backedge180, %.preheader
   %29 = load ptr, ptr %6, align 8, !noundef !4
   %30 = icmp eq ptr %29, null
   br i1 %30, label %43, label %34
@@ -506,10 +506,10 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
           to label %50 unwind label %.body.i, !noalias !82
 
 common.resume:                                    ; preds = %48, %96, %.body.i55, %.body.i
-  %.lcssa115.sink = phi ptr [ %80, %.body.i55 ], [ %29, %.body.i ], [ %93, %96 ], [ %45, %48 ]
+  %.lcssa129.sink = phi ptr [ %80, %.body.i55 ], [ %29, %.body.i ], [ %93, %96 ], [ %45, %48 ]
   %.sink = phi ptr [ null, %.body.i55 ], [ null, %.body.i ], [ %92, %96 ], [ %44, %48 ]
   %common.resume.op = phi { ptr, i32 } [ %90, %.body.i55 ], [ %42, %.body.i ], [ %97, %96 ], [ %49, %48 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.lcssa115.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  call void @__rust_dealloc(ptr noundef nonnull %.lcssa129.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %.sink, ptr %6, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -572,9 +572,9 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %63 = extractvalue { i64, i32 } %61, 1
   %64 = icmp ugt i32 %63, 500000
   %.sroa.030.0 = select i1 %.not.not, i1 true, i1 %64
-  br i1 %.sroa.030.0, label %.loopexit, label %.backedge166
+  br i1 %.sroa.030.0, label %.loopexit, label %.backedge180
 
-.backedge166:                                     ; preds = %60, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
+.backedge180:                                     ; preds = %60, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
   br label %28
 
 65:                                               ; preds = %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit"
@@ -592,7 +592,7 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %.sroa.08.0.i50 = extractvalue { i64, i1 } %68, 0
   switch i64 %.sroa.08.0.i50, label %.loopexit [
     i64 0, label %69
-    i64 1, label %.backedge166
+    i64 1, label %.backedge180
   ]
 
 69:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
@@ -613,12 +613,12 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   unreachable
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split": ; preds = %69, %54, %111, %102
-  %.sink134 = phi ptr [ %103, %102 ], [ %112, %111 ], [ %55, %54 ], [ %70, %69 ]
-  %76 = atomicrmw sub ptr %.sink134, i64 2 release, align 8
+  %.sink148 = phi ptr [ %103, %102 ], [ %112, %111 ], [ %55, %54 ], [ %70, %69 ]
+  %76 = atomicrmw sub ptr %.sink148, i64 2 release, align 8
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit68", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit62", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit52", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit"
-  %.sroa.0.0 = phi ptr [ %55, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit" ], [ %70, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit52" ], [ %103, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit62" ], [ %112, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit68" ], [ %.sink134, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
+  %.sroa.0.0 = phi ptr [ %55, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit" ], [ %70, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit52" ], [ %103, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit62" ], [ %112, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h8482c6f155e6cc47E.exit68" ], [ %.sink148, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -795,7 +795,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %28
 
-28:                                               ; preds = %.backedge166, %.preheader
+28:                                               ; preds = %.backedge180, %.preheader
   %29 = load ptr, ptr %6, align 8, !noundef !4
   %30 = icmp eq ptr %29, null
   br i1 %30, label %43, label %34
@@ -827,10 +827,10 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
           to label %50 unwind label %.body.i, !noalias !163
 
 common.resume:                                    ; preds = %48, %96, %.body.i55, %.body.i
-  %.lcssa115.sink = phi ptr [ %80, %.body.i55 ], [ %29, %.body.i ], [ %93, %96 ], [ %45, %48 ]
+  %.lcssa129.sink = phi ptr [ %80, %.body.i55 ], [ %29, %.body.i ], [ %93, %96 ], [ %45, %48 ]
   %.sink = phi ptr [ null, %.body.i55 ], [ null, %.body.i ], [ %92, %96 ], [ %44, %48 ]
   %common.resume.op = phi { ptr, i32 } [ %90, %.body.i55 ], [ %42, %.body.i ], [ %97, %96 ], [ %49, %48 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.lcssa115.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  call void @__rust_dealloc(ptr noundef nonnull %.lcssa129.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %.sink, ptr %6, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -893,9 +893,9 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %63 = extractvalue { i64, i32 } %61, 1
   %64 = icmp ugt i32 %63, 500000
   %.sroa.030.0 = select i1 %.not.not, i1 true, i1 %64
-  br i1 %.sroa.030.0, label %.loopexit, label %.backedge166
+  br i1 %.sroa.030.0, label %.loopexit, label %.backedge180
 
-.backedge166:                                     ; preds = %60, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
+.backedge180:                                     ; preds = %60, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
   br label %28
 
 65:                                               ; preds = %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit"
@@ -913,7 +913,7 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %.sroa.08.0.i50 = extractvalue { i64, i1 } %68, 0
   switch i64 %.sroa.08.0.i50, label %.loopexit [
     i64 0, label %69
-    i64 1, label %.backedge166
+    i64 1, label %.backedge180
   ]
 
 69:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
@@ -934,12 +934,12 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   unreachable
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split": ; preds = %69, %54, %111, %102
-  %.sink134 = phi ptr [ %103, %102 ], [ %112, %111 ], [ %55, %54 ], [ %70, %69 ]
-  %76 = atomicrmw sub ptr %.sink134, i64 2 release, align 8
+  %.sink148 = phi ptr [ %103, %102 ], [ %112, %111 ], [ %55, %54 ], [ %70, %69 ]
+  %76 = atomicrmw sub ptr %.sink148, i64 2 release, align 8
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit68", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit62", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit52", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit"
-  %.sroa.0.0 = phi ptr [ %55, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit" ], [ %70, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit52" ], [ %103, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit62" ], [ %112, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit68" ], [ %.sink134, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
+  %.sroa.0.0 = phi ptr [ %55, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit" ], [ %70, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit52" ], [ %103, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit62" ], [ %112, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h4499d77934c5da98E.exit68" ], [ %.sink148, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -1116,7 +1116,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %28
 
-28:                                               ; preds = %.backedge166, %.preheader
+28:                                               ; preds = %.backedge180, %.preheader
   %29 = load ptr, ptr %6, align 8, !noundef !4
   %30 = icmp eq ptr %29, null
   br i1 %30, label %43, label %34
@@ -1148,10 +1148,10 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
           to label %50 unwind label %.body.i, !noalias !244
 
 common.resume:                                    ; preds = %48, %96, %.body.i55, %.body.i
-  %.lcssa115.sink = phi ptr [ %80, %.body.i55 ], [ %29, %.body.i ], [ %93, %96 ], [ %45, %48 ]
+  %.lcssa129.sink = phi ptr [ %80, %.body.i55 ], [ %29, %.body.i ], [ %93, %96 ], [ %45, %48 ]
   %.sink = phi ptr [ null, %.body.i55 ], [ null, %.body.i ], [ %92, %96 ], [ %44, %48 ]
   %common.resume.op = phi { ptr, i32 } [ %90, %.body.i55 ], [ %42, %.body.i ], [ %97, %96 ], [ %49, %48 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.lcssa115.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  call void @__rust_dealloc(ptr noundef nonnull %.lcssa129.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %.sink, ptr %6, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -1214,9 +1214,9 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %63 = extractvalue { i64, i32 } %61, 1
   %64 = icmp ugt i32 %63, 500000
   %.sroa.030.0 = select i1 %.not.not, i1 true, i1 %64
-  br i1 %.sroa.030.0, label %.loopexit, label %.backedge166
+  br i1 %.sroa.030.0, label %.loopexit, label %.backedge180
 
-.backedge166:                                     ; preds = %60, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
+.backedge180:                                     ; preds = %60, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
   br label %28
 
 65:                                               ; preds = %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit"
@@ -1234,7 +1234,7 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %.sroa.08.0.i50 = extractvalue { i64, i1 } %68, 0
   switch i64 %.sroa.08.0.i50, label %.loopexit [
     i64 0, label %69
-    i64 1, label %.backedge166
+    i64 1, label %.backedge180
   ]
 
 69:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
@@ -1255,12 +1255,12 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   unreachable
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split": ; preds = %69, %54, %111, %102
-  %.sink134 = phi ptr [ %103, %102 ], [ %112, %111 ], [ %55, %54 ], [ %70, %69 ]
-  %76 = atomicrmw sub ptr %.sink134, i64 2 release, align 8
+  %.sink148 = phi ptr [ %103, %102 ], [ %112, %111 ], [ %55, %54 ], [ %70, %69 ]
+  %76 = atomicrmw sub ptr %.sink148, i64 2 release, align 8
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit68", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit62", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit52", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit"
-  %.sroa.0.0 = phi ptr [ %55, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit" ], [ %70, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit52" ], [ %103, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit62" ], [ %112, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit68" ], [ %.sink134, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
+  %.sroa.0.0 = phi ptr [ %55, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit" ], [ %70, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit52" ], [ %103, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit62" ], [ %112, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17hfa722195479cb05aE.exit68" ], [ %.sink148, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -1437,7 +1437,7 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %28
 
-28:                                               ; preds = %.backedge166, %.preheader
+28:                                               ; preds = %.backedge180, %.preheader
   %29 = load ptr, ptr %6, align 8, !noundef !4
   %30 = icmp eq ptr %29, null
   br i1 %30, label %43, label %34
@@ -1469,10 +1469,10 @@ define hidden noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..AcquireSlow$LT
           to label %50 unwind label %.body.i, !noalias !325
 
 common.resume:                                    ; preds = %48, %96, %.body.i55, %.body.i
-  %.lcssa115.sink = phi ptr [ %80, %.body.i55 ], [ %29, %.body.i ], [ %93, %96 ], [ %45, %48 ]
+  %.lcssa129.sink = phi ptr [ %80, %.body.i55 ], [ %29, %.body.i ], [ %93, %96 ], [ %45, %48 ]
   %.sink = phi ptr [ null, %.body.i55 ], [ null, %.body.i ], [ %92, %96 ], [ %44, %48 ]
   %common.resume.op = phi { ptr, i32 } [ %90, %.body.i55 ], [ %42, %.body.i ], [ %97, %96 ], [ %49, %48 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.lcssa115.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  call void @__rust_dealloc(ptr noundef nonnull %.lcssa129.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %.sink, ptr %6, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -1535,9 +1535,9 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %63 = extractvalue { i64, i32 } %61, 1
   %64 = icmp ugt i32 %63, 500000
   %.sroa.030.0 = select i1 %.not.not, i1 true, i1 %64
-  br i1 %.sroa.030.0, label %.loopexit, label %.backedge166
+  br i1 %.sroa.030.0, label %.loopexit, label %.backedge180
 
-.backedge166:                                     ; preds = %60, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
+.backedge180:                                     ; preds = %60, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
   br label %28
 
 65:                                               ; preds = %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit"
@@ -1555,7 +1555,7 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   %.sroa.08.0.i50 = extractvalue { i64, i1 } %68, 0
   switch i64 %.sroa.08.0.i50, label %.loopexit [
     i64 0, label %69
-    i64 1, label %.backedge166
+    i64 1, label %.backedge180
   ]
 
 69:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
@@ -1576,12 +1576,12 @@ common.resume:                                    ; preds = %48, %96, %.body.i55
   unreachable
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split": ; preds = %69, %54, %111, %102
-  %.sink134 = phi ptr [ %103, %102 ], [ %112, %111 ], [ %55, %54 ], [ %70, %69 ]
-  %76 = atomicrmw sub ptr %.sink134, i64 2 release, align 8
+  %.sink148 = phi ptr [ %103, %102 ], [ %112, %111 ], [ %55, %54 ], [ %70, %69 ]
+  %76 = atomicrmw sub ptr %.sink148, i64 2 release, align 8
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit68", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit62", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit52", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit"
-  %.sroa.0.0 = phi ptr [ %55, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit" ], [ %70, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit52" ], [ %103, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit62" ], [ %112, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit68" ], [ %.sink134, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
+  %.sroa.0.0 = phi ptr [ %55, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit" ], [ %70, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit52" ], [ %103, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit62" ], [ %112, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17he9177ecaef383319E.exit68" ], [ %.sink148, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 
@@ -1758,7 +1758,7 @@ define internal fastcc noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..Acqui
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %26
 
-26:                                               ; preds = %.backedge98, %.preheader
+26:                                               ; preds = %.backedge112, %.preheader
   %27 = load ptr, ptr %4, align 8, !noundef !4
   %28 = icmp eq ptr %27, null
   br i1 %28, label %41, label %32
@@ -1791,10 +1791,10 @@ define internal fastcc noundef align 8 ptr @"_ZN108_$LT$async_lock..mutex..Acqui
           to label %48 unwind label %.body.i, !noalias !406
 
 common.resume:                                    ; preds = %46, %94, %.body.i55, %.body.i
-  %.lcssa47.sink = phi ptr [ %78, %.body.i55 ], [ %27, %.body.i ], [ %91, %94 ], [ %43, %46 ]
+  %.lcssa61.sink = phi ptr [ %78, %.body.i55 ], [ %27, %.body.i ], [ %91, %94 ], [ %43, %46 ]
   %.sink = phi ptr [ null, %.body.i55 ], [ null, %.body.i ], [ %90, %94 ], [ %42, %46 ]
   %common.resume.op = phi { ptr, i32 } [ %88, %.body.i55 ], [ %40, %.body.i ], [ %95, %94 ], [ %47, %46 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.lcssa47.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  call void @__rust_dealloc(ptr noundef nonnull %.lcssa61.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %.sink, ptr %4, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -1857,9 +1857,9 @@ common.resume:                                    ; preds = %46, %94, %.body.i55
   %61 = extractvalue { i64, i32 } %59, 1
   %62 = icmp ugt i32 %61, 500000
   %.sroa.030.0 = select i1 %.not.not, i1 true, i1 %62
-  br i1 %.sroa.030.0, label %.loopexit, label %.backedge98
+  br i1 %.sroa.030.0, label %.loopexit, label %.backedge112
 
-.backedge98:                                      ; preds = %58, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
+.backedge112:                                     ; preds = %58, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
   br label %26
 
 63:                                               ; preds = %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit"
@@ -1877,7 +1877,7 @@ common.resume:                                    ; preds = %46, %94, %.body.i55
   %.sroa.08.0.i50 = extractvalue { i64, i1 } %66, 0
   switch i64 %.sroa.08.0.i50, label %.loopexit [
     i64 0, label %67
-    i64 1, label %.backedge98
+    i64 1, label %.backedge112
   ]
 
 67:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h0deeaa36735813c5E.llvm.18440006897943885896.exit"
@@ -1898,12 +1898,12 @@ common.resume:                                    ; preds = %46, %94, %.body.i55
   unreachable
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split": ; preds = %67, %52, %109, %100
-  %.sink66 = phi ptr [ %101, %100 ], [ %110, %109 ], [ %53, %52 ], [ %68, %67 ]
-  %74 = atomicrmw sub ptr %.sink66, i64 2 release, align 8
+  %.sink80 = phi ptr [ %101, %100 ], [ %110, %109 ], [ %53, %52 ], [ %68, %67 ]
+  %74 = atomicrmw sub ptr %.sink80, i64 2 release, align 8
   br label %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit"
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i", %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54", %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit68", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit62", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit52", %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit"
-  %.sroa.0.0 = phi ptr [ %53, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit" ], [ %68, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit52" ], [ %101, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit62" ], [ %110, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit68" ], [ %.sink66, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
+  %.sroa.0.0 = phi ptr [ %53, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit" ], [ %68, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit52" ], [ %101, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit62" ], [ %110, %"_ZN10async_lock5mutex24AcquireSlow$LT$B$C$T$GT$10take_mutex17h97dd4f34aacae3ecE.exit68" ], [ %.sink80, %"_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit.sink.split" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i54" ], [ null, %"_ZN87_$LT$event_listener..EventListener$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h721380dc45bc1f19E.llvm.18440006897943885896.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0
 
@@ -2263,9 +2263,9 @@ define hidden { i64, ptr } @"_ZN128_$LT$async_std..io..copy..copy..$u7b$$u7b$clo
   %26 = tail call { i64, ptr } @_ZN9async_std2io4read4take18take_read_internal17he83ef3297cfed528E.llvm.5114091958698501191(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %.pre.i.fr, i64 noundef %.pre10.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %9), !noalias !480
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
-  %.off73 = add i64 %27, -1
-  %switch74 = icmp ult i64 %.off73, 2
-  br i1 %switch74, label %"_ZN98_$LT$async_std..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc1540285eb5bad9fE.exit", label %.thread.i
+  %.off79 = add i64 %27, -1
+  %switch80 = icmp ult i64 %.off79, 2
+  br i1 %switch80, label %"_ZN98_$LT$async_std..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc1540285eb5bad9fE.exit", label %.thread.i
 
 29:                                               ; preds = %.thread.i, %.split
   %30 = phi i64 [ %33, %.thread.i ], [ %23, %.split ]
@@ -3933,13 +3933,13 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %9 = lshr exact i64 %.sroa.013.0.ph95, 1
   %10 = and i64 %9, 31
   %11 = icmp eq i64 %10, 31
-  br i1 %11, label %.lr.ph163, label %._crit_edge
+  br i1 %11, label %.lr.ph165, label %._crit_edge
 
 12:                                               ; preds = %60
   %13 = lshr exact i64 %61, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph163, label %._crit_edge
+  br i1 %15, label %.lr.ph165, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %.lr.ph
   %.sroa.017.092.lcssa = phi ptr [ %.sroa.017.0.ph96, %.lr.ph ], [ %62, %12 ]
@@ -3950,7 +3950,7 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %or.cond = select i1 %16, i1 %17, i1 false
   br i1 %or.cond, label %20, label %18
 
-.lr.ph163:                                        ; preds = %.lr.ph, %12
+.lr.ph165:                                        ; preds = %.lr.ph, %12
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %60 unwind label %.loopexit
 
@@ -4055,14 +4055,14 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %59 = atomicrmw or ptr %58, i64 1 release, align 8
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h215c4e82b68e690fE.exit45"
 
-60:                                               ; preds = %.lr.ph163
+60:                                               ; preds = %.lr.ph165
   %61 = load atomic i64, ptr %2 acquire, align 128
   %62 = load atomic ptr, ptr %4 acquire, align 8
   %63 = and i64 %61, 1
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %12, label %.thread61
 
-.loopexit:                                        ; preds = %.lr.ph163
+.loopexit:                                        ; preds = %.lr.ph165
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %65
@@ -4128,13 +4128,13 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %13 = lshr exact i64 %.sroa.013.0.ph105, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph172, label %._crit_edge
+  br i1 %15, label %.lr.ph174, label %._crit_edge
 
 16:                                               ; preds = %81
   %17 = lshr exact i64 %82, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph172, label %._crit_edge
+  br i1 %19, label %.lr.ph174, label %._crit_edge
 
 .thread68:                                        ; preds = %.outer.backedge, %81, %2
   %.sroa.0.052.ph.lcssa100 = phi ptr [ null, %2 ], [ %.sroa.0.052.ph104, %81 ], [ %.sroa.0.052.ph.be, %.outer.backedge ]
@@ -4150,7 +4150,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %25, label %23
 
-.lr.ph172:                                        ; preds = %.lr.ph, %16
+.lr.ph174:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %81 unwind label %.loopexit
 
@@ -4305,14 +4305,14 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %80 = atomicrmw or ptr %79, i64 1 release, align 8
   br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hf93a3d2f68f7587fE.exit46"
 
-81:                                               ; preds = %.lr.ph172
+81:                                               ; preds = %.lr.ph174
   %82 = load atomic i64, ptr %6 acquire, align 128
   %83 = load atomic ptr, ptr %8 acquire, align 8
   %84 = and i64 %82, 1
   %85 = icmp eq i64 %84, 0
   br i1 %85, label %16, label %.thread68
 
-.loopexit:                                        ; preds = %.lr.ph172
+.loopexit:                                        ; preds = %.lr.ph174
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -13496,10 +13496,10 @@ common.resume.i:                                  ; preds = %"_ZN4core3ptr72drop
   br i1 %trunc.i, label %48, label %49
 
 48:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2cbb66efc6125c7bE.exit.i"
-  br i1 %47, label %50, label %.invoke22.i
+  br i1 %47, label %50, label %.invoke34.i
 
 49:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2cbb66efc6125c7bE.exit.i"
-  br i1 %47, label %.thread.i, label %.invoke22.i
+  br i1 %47, label %.thread.i, label %.invoke34.i
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13520,7 +13520,7 @@ common.resume.i:                                  ; preds = %"_ZN4core3ptr72drop
   invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$u5b$async_io..reactor..Direction$u3b$$u20$2$u5d$$GT$$GT$17h43ec751c5a271b1dE"(ptr nonnull %23, i8 %.sroa.01.0.i.i.i) #38
           to label %common.resume.i unwind label %211, !noalias !2713
 
-58:                                               ; preds = %202, %199, %188, %182, %175, %134, %.invoke22.i, %127, %"_ZN4slab13Slab$LT$T$GT$9insert_at17hcb015ae873154eb3E.exit.i", %.invoke.i, %.noexc.i.i.i, %.thread.i
+58:                                               ; preds = %202, %199, %188, %182, %175, %134, %.invoke34.i, %127, %"_ZN4slab13Slab$LT$T$GT$9insert_at17hcb015ae873154eb3E.exit.i", %.invoke.i, %.noexc.i.i.i, %.thread.i
   %59 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h96fa3fd838363407E.llvm.18440006897943885896.exit57.i"
@@ -13546,9 +13546,9 @@ _ZN7polling6Poller16modify_with_mode17hec5c4d984a4b4be6E.exit.thread.i: ; preds 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i: ; preds = %66, %64, %60, %_ZN7polling6Poller16modify_with_mode17hec5c4d984a4b4be6E.exit.thread.i
   %67 = atomicrmw xchg ptr %23, i32 0 release, align 4, !noalias !2713
   %68 = icmp eq i32 %67, 2
-  br i1 %68, label %"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread126", label %"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread"
+  br i1 %68, label %"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread135", label %"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread"
 
-"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread126": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i
+"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread135": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i
   tail call void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 4 %23), !noalias !2713
   br label %"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread"
 
@@ -13716,12 +13716,12 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i: ; preds = %66, %64
   store i64 %132, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2713
   br label %134
 
-.invoke22.i:                                      ; preds = %49, %48
+.invoke34.i:                                      ; preds = %49, %48
   %133 = phi ptr [ @anon.8081b93f0354b9e3684ae0a5e4aaca3c.142, %49 ], [ @anon.8081b93f0354b9e3684ae0a5e4aaca3c.140, %48 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %46, i64 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %133) #36
-          to label %.cont23.i unwind label %58, !noalias !2713
+          to label %.cont35.i unwind label %58, !noalias !2713
 
-.cont23.i:                                        ; preds = %.invoke22.i
+.cont35.i:                                        ; preds = %.invoke34.i
   unreachable
 
 134:                                              ; preds = %129, %75
@@ -13892,7 +13892,7 @@ _ZN7polling6Poller16modify_with_mode17hec5c4d984a4b4be6E.exit.i: ; preds = %199
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %309
 
-"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i, %"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread126"
+"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i, %"_ZN86_$LT$async_io..reactor..Ready$LT$H$C$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb50579c7f19629f0E.exit.thread135"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %213 = icmp eq ptr %.sroa.4.0.i, null
   br i1 %213, label %214, label %309
@@ -14497,10 +14497,10 @@ _ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E.llvm.18440006897943885896.
           to label %38 unwind label %.body.i, !noalias !2829
 
 common.resume:                                    ; preds = %.body, %.body.i
-  %.lcssa34.sink = phi ptr [ %34, %.body ], [ %13, %.body.i ]
+  %.lcssa37.sink = phi ptr [ %34, %.body ], [ %13, %.body.i ]
   %storemerge10 = phi ptr [ %33, %.body ], [ null, %.body.i ]
   %common.resume.op = phi { ptr, i32 } [ %37, %.body ], [ %29, %.body.i ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa34.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa37.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %storemerge10, ptr %5, align 8
   resume { ptr, i32 } %common.resume.op
 
@@ -14797,10 +14797,10 @@ _ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E.llvm.18440006897943885896.
   br label %.backedge
 
 .body:                                            ; preds = %141, %72
-  %.lcssa124.sink = phi ptr [ %138, %141 ], [ %69, %72 ]
+  %.lcssa135.sink = phi ptr [ %138, %141 ], [ %69, %72 ]
   %storemerge = phi ptr [ %137, %141 ], [ %68, %72 ]
   %.pn = phi { ptr, i32 } [ %142, %141 ], [ %73, %72 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa124.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa135.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %storemerge, ptr %6, align 8
   br label %common.resume
 

@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [16 x i8] c"polyline %s %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noalias noundef ptr @newitem(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
+define internal noalias nonnull ptr @newitem(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 73) 72) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
@@ -371,16 +371,16 @@ gv_alloc.exit:                                    ; preds = %7
 
 .thread.sink.split:                               ; preds = %24, %21
   %.sroa.15.0.copyload.sink = phi double [ %.sroa.15.0.copyload, %21 ], [ %34, %24 ]
-  %.sroa.21.0.copyload.sink350 = phi double [ %.sroa.21.0.copyload, %21 ], [ %41, %24 ]
+  %.sroa.21.0.copyload.sink359 = phi double [ %.sroa.21.0.copyload, %21 ], [ %41, %24 ]
   %.sroa.0135.0.copyload.sink = phi double [ %.sroa.0135.0.copyload, %21 ], [ %38, %24 ]
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double %.sroa.15.0.copyload.sink, ptr %46, align 16, !tbaa !11
   %.sroa.21.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store double %.sroa.21.0.copyload.sink350, ptr %.sroa.21.16..sroa_idx, align 8, !tbaa !11
+  store double %.sroa.21.0.copyload.sink359, ptr %.sroa.21.16..sroa_idx, align 8, !tbaa !11
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double %.sroa.0135.0.copyload.sink, ptr %47, align 16, !tbaa !11
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store double %.sroa.21.0.copyload.sink350, ptr %48, align 8, !tbaa !11
+  store double %.sroa.21.0.copyload.sink359, ptr %48, align 8, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %42
@@ -422,18 +422,18 @@ gv_alloc.exit:                                    ; preds = %7
   unreachable
 
 73:                                               ; preds = %.thread, %50
-  %.0267346 = phi i64 [ %.0267.ph, %.thread ], [ %44, %50 ]
-  %.0268345 = phi i1 [ %2, %.thread ], [ true, %50 ]
-  %.0269344 = phi ptr [ %.0269.ph, %.thread ], [ %65, %50 ]
-  %.sroa.068.0343 = phi double [ 0.000000e+00, %.thread ], [ %66, %50 ]
-  %.sroa.13.0342 = phi double [ 0.000000e+00, %.thread ], [ %68, %50 ]
-  %74 = call noalias ptr @calloc(i64 noundef %.0267346, i64 noundef 16) #17
+  %.0267355 = phi i64 [ %.0267.ph, %.thread ], [ %44, %50 ]
+  %.0268354 = phi i1 [ %2, %.thread ], [ true, %50 ]
+  %.0269353 = phi ptr [ %.0269.ph, %.thread ], [ %65, %50 ]
+  %.sroa.068.0352 = phi double [ 0.000000e+00, %.thread ], [ %66, %50 ]
+  %.sroa.13.0351 = phi double [ 0.000000e+00, %.thread ], [ %68, %50 ]
+  %74 = call noalias ptr @calloc(i64 noundef %.0267355, i64 noundef 16) #17
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %gv_calloc.exit
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %78 = shl nuw i64 %.0267346, 4
+  %78 = shl nuw i64 %.0267355, 4
   %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.6, i64 noundef %78) #18
   call fastcc void @graphviz_exit() #19
   unreachable
@@ -441,16 +441,16 @@ gv_alloc.exit:                                    ; preds = %7
 gv_calloc.exit:                                   ; preds = %73
   store ptr %74, ptr %8, align 8, !tbaa !77
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %81 = uitofp nneg i64 %.0267346 to double
-  %82 = icmp eq i64 %.0267346, 4
+  %81 = uitofp nneg i64 %.0267355 to double
+  %82 = icmp eq i64 %.0267355, 4
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %.0268345, label %gv_calloc.exit.split.us, label %gv_calloc.exit.split
+  br i1 %.0268354, label %gv_calloc.exit.split.us, label %gv_calloc.exit.split
 
 gv_calloc.exit.split.us:                          ; preds = %gv_calloc.exit
   %84 = load i8, ptr %83, align 8, !tbaa !78, !range !43, !noundef !79
   %85 = trunc nuw i8 %84 to i1
-  %86 = fneg double %.sroa.13.0342
-  %87 = fneg double %.sroa.068.0343
+  %86 = fneg double %.sroa.13.0351
+  %87 = fneg double %.sroa.068.0352
   br i1 %85, label %gv_calloc.exit.split.us.split.us, label %gv_calloc.exit.split.us.split
 
 gv_calloc.exit.split.us.split.us:                 ; preds = %gv_calloc.exit.split.us
@@ -475,9 +475,9 @@ gv_calloc.exit.split.us.split.us.split.us:        ; preds = %gv_calloc.exit.spli
   br label %91
 
 91:                                               ; preds = %90, %89, %88, %gv_calloc.exit.split.us.split.us.split.us
-  %.0272.us.us.us = phi double [ %.sroa.13.0342, %90 ], [ %86, %89 ], [ %86, %88 ], [ %.sroa.13.0342, %gv_calloc.exit.split.us.split.us.split.us ]
-  %.0271.us.us.us = phi double [ %87, %90 ], [ %87, %89 ], [ %.sroa.068.0343, %88 ], [ %.sroa.068.0343, %gv_calloc.exit.split.us.split.us.split.us ]
-  %92 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269344, i64 %.0270325.us.us.us
+  %.0272.us.us.us = phi double [ %.sroa.13.0351, %90 ], [ %86, %89 ], [ %86, %88 ], [ %.sroa.13.0351, %gv_calloc.exit.split.us.split.us.split.us ]
+  %.0271.us.us.us = phi double [ %87, %90 ], [ %87, %89 ], [ %.sroa.068.0352, %88 ], [ %.sroa.068.0352, %gv_calloc.exit.split.us.split.us.split.us ]
+  %92 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us.us
   %93 = load double, ptr %92, align 8, !tbaa !60
   %94 = fadd double %.0271.us.us.us, %93
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -507,21 +507,21 @@ gv_calloc.exit.split.us.split.us.split:           ; preds = %gv_calloc.exit.spli
 
 112:                                              ; preds = %112, %gv_calloc.exit.split.us.split.us.split
   %.0270325.us.us = phi i64 [ 0, %gv_calloc.exit.split.us.split.us.split ], [ %132, %112 ]
-  %113 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269344, i64 %.0270325.us.us
+  %113 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us.us
   %114 = load double, ptr %113, align 8, !tbaa !60
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = load double, ptr %115, align 8, !tbaa !61
   %117 = call double @hypot(double noundef %114, double noundef %116) #20, !tbaa !83
-  %118 = fdiv double %.sroa.068.0343, %117
+  %118 = fdiv double %.sroa.068.0352, %117
   %119 = fadd double %118, 1.000000e+00
   %120 = fmul double %114, %119
-  %121 = fdiv double %.sroa.13.0342, %117
+  %121 = fdiv double %.sroa.13.0351, %117
   %122 = fadd double %121, 1.000000e+00
   %123 = fmul double %116, %122
   %124 = load double, ptr %110, align 8, !tbaa !80
   %125 = fadd double %120, %124
   %126 = xor i64 %.0270325.us.us, -1
-  %127 = add i64 %.0267346, %126
+  %127 = add i64 %.0267355, %126
   %128 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %127
   store double %125, ptr %128, align 8, !tbaa !60
   %129 = load double, ptr %111, align 8, !tbaa !81
@@ -529,7 +529,7 @@ gv_calloc.exit.split.us.split.us.split:           ; preds = %gv_calloc.exit.spli
   %131 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %127, i32 1
   store double %130, ptr %131, align 8, !tbaa !61
   %132 = add nuw i64 %.0270325.us.us, 1
-  %exitcond334.not = icmp eq i64 %132, %.0267346
+  %exitcond334.not = icmp eq i64 %132, %.0267355
   br i1 %exitcond334.not, label %.loopexit, label %112, !llvm.loop !82
 
 gv_calloc.exit.split.us.split:                    ; preds = %gv_calloc.exit.split.us
@@ -540,16 +540,16 @@ gv_calloc.exit.split.us.split:                    ; preds = %gv_calloc.exit.spli
 
 136:                                              ; preds = %136, %gv_calloc.exit.split.us.split
   %.0270325.us = phi i64 [ 0, %gv_calloc.exit.split.us.split ], [ %151, %136 ]
-  %137 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269344, i64 %.0270325.us
+  %137 = getelementptr inbounds nuw %struct.pointf_s, ptr %.0269353, i64 %.0270325.us
   %138 = load double, ptr %137, align 8, !tbaa !60
-  %139 = fmul double %.sroa.068.0343, %138
+  %139 = fmul double %.sroa.068.0352, %138
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %141 = load double, ptr %140, align 8, !tbaa !61
-  %142 = fmul double %.sroa.13.0342, %141
+  %142 = fmul double %.sroa.13.0351, %141
   %143 = load double, ptr %134, align 8, !tbaa !80
   %144 = fadd double %139, %143
   %145 = xor i64 %.0270325.us, -1
-  %146 = add i64 %.0267346, %145
+  %146 = add i64 %.0267355, %145
   %147 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %146
   store double %144, ptr %147, align 8, !tbaa !60
   %148 = load double, ptr %135, align 8, !tbaa !81
@@ -557,7 +557,7 @@ gv_calloc.exit.split.us.split:                    ; preds = %gv_calloc.exit.spli
   %150 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %146, i32 1
   store double %149, ptr %150, align 8, !tbaa !61
   %151 = add nuw i64 %.0270325.us, 1
-  %exitcond332.not = icmp eq i64 %151, %.0267346
+  %exitcond332.not = icmp eq i64 %151, %.0267355
   br i1 %exitcond332.not, label %.loopexit, label %136, !llvm.loop !82
 
 gv_calloc.exit.split:                             ; preds = %gv_calloc.exit
@@ -640,7 +640,7 @@ default.unreachable:                              ; preds = %gv_calloc.exit.spli
   %216 = load double, ptr %161, align 8, !tbaa !80
   %217 = fadd double %213, %216
   %218 = xor i64 %.0270325, -1
-  %219 = add i64 %.0267346, %218
+  %219 = add i64 %.0267355, %218
   %220 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %219
   store double %217, ptr %220, align 8, !tbaa !60
   %221 = load double, ptr %162, align 8, !tbaa !81
@@ -648,7 +648,7 @@ default.unreachable:                              ; preds = %gv_calloc.exit.spli
   %223 = getelementptr inbounds nuw %struct.pointf_s, ptr %74, i64 %219, i32 1
   store double %222, ptr %223, align 8, !tbaa !61
   %224 = add nuw i64 %.0270325, 1
-  %exitcond.not = icmp eq i64 %224, %.0267346
+  %exitcond.not = icmp eq i64 %224, %.0267355
   br i1 %exitcond.not, label %.loopexit, label %163, !llvm.loop !82
 
 225:                                              ; preds = %3
@@ -874,10 +874,10 @@ gv_calloc.exit308:                                ; preds = %gv_alloc.exit307
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %261, %247, %326, %291
-  %.sink351 = phi ptr [ %277, %291 ], [ %277, %326 ], [ %237, %247 ], [ %237, %261 ]
+  %.sink360 = phi ptr [ %277, %291 ], [ %277, %326 ], [ %237, %247 ], [ %237, %261 ]
   %.sink = phi double [ %325, %291 ], [ %350, %326 ], [ %253, %247 ], [ %264, %261 ]
   %.0.ph = phi ptr [ %271, %291 ], [ %271, %326 ], [ %231, %247 ], [ %231, %261 ]
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink351, i64 56
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink360, i64 56
   store double %.sink, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !11
   br label %.loopexit
 
@@ -1101,7 +1101,7 @@ define void @makeSpline(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   unreachable
 
 gv_calloc.exit.i:                                 ; preds = %49, %.thread.i.i
-  %.042.lcssa71.i = phi i64 [ 0, %.thread.i.i ], [ %.143.i, %49 ]
+  %.042.lcssa74.i = phi i64 [ 0, %.thread.i.i ], [ %.143.i, %49 ]
   %56 = phi ptr [ %44, %.thread.i.i ], [ %50, %49 ]
   br i1 %12, label %.lr.ph58.preheader.i, label %make_barriers.exit
 
@@ -1156,7 +1156,7 @@ gv_calloc.exit.i:                                 ; preds = %49, %.thread.i.i
 
 make_barriers.exit:                               ; preds = %.loopexit.i, %gv_calloc.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %72 = call i32 @Proutespline(ptr noundef %56, i64 noundef %.042.lcssa71.i, ptr nonnull %.sroa.012.0.copyload, i64 %.sroa.6.0.copyload, ptr noundef nonnull %6, ptr noundef nonnull %5) #20
+  %72 = call i32 @Proutespline(ptr noundef %56, i64 noundef %.042.lcssa74.i, ptr nonnull %.sroa.012.0.copyload, i64 %.sroa.6.0.copyload, ptr noundef nonnull %6, ptr noundef nonnull %5) #20
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %89
 

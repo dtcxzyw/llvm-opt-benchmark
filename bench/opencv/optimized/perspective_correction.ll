@@ -1301,9 +1301,9 @@ _ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread.i: ; preds = %432
 442:                                              ; preds = %432
   %443 = getelementptr inbounds nuw i8, ptr %435, i64 %434
   %.not1.i.i.i.i = icmp ult ptr %443, %433
-  br i1 %.not1.i.i.i.i, label %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread195.i, label %444
+  br i1 %.not1.i.i.i.i, label %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread218.i, label %444
 
-_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread195.i: ; preds = %442
+_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread218.i: ; preds = %442
   store double 1.000000e+00, ptr %443, align 8, !tbaa !84
   br label %445
 
@@ -1324,11 +1324,11 @@ _ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge: ; preds = %_ZN2cv
   %.pre142 = load ptr, ptr %382, align 8, !tbaa !88
   br label %445
 
-445:                                              ; preds = %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread195.i
-  %446 = phi ptr [ %433, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread195.i ], [ %.pre142, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge ]
-  %447 = phi i64 [ %434, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread195.i ], [ %.pre, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge ]
-  %448 = phi ptr [ %443, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread195.i ], [ %.pre191.i, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge ]
-  %449 = phi ptr [ %436, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread195.i ], [ %.pre192.i, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge ]
+445:                                              ; preds = %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread218.i
+  %446 = phi ptr [ %433, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread218.i ], [ %.pre142, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge ]
+  %447 = phi i64 [ %434, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread218.i ], [ %.pre, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge ]
+  %448 = phi ptr [ %443, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread218.i ], [ %.pre191.i, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge ]
+  %449 = phi ptr [ %436, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.thread218.i ], [ %.pre192.i, %_ZN2cv20MatCommaInitializer_IdEcmIfEERS1_T_.exit.i._crit_edge ]
   %450 = getelementptr inbounds nuw i8, ptr %448, i64 %447
   store ptr %450, ptr %379, align 8, !tbaa !81
   %.not1.i.i.i135.i = icmp ult ptr %450, %446
@@ -1463,9 +1463,9 @@ _ZN2cv3Mat2atIdEERT_i.exit.i:                     ; preds = %484, %478, %471
   %504 = load i32, ptr %503, align 4, !tbaa !16
   %505 = icmp eq i32 %504, 1
   %506 = load ptr, ptr %388, align 8
-  %.pn186197.i = load double, ptr %506, align 8, !tbaa !84
-  %.in198.i = fadd double %.pn186197.i, %499
-  %507 = fptosi double %.in198.i to i32
+  %.pn186220.i = load double, ptr %506, align 8, !tbaa !84
+  %.in221.i = fadd double %.pn186220.i, %499
+  %507 = fptosi double %.in221.i to i32
   br i1 %505, label %.thread.i, label %515
 
 _ZN2cv3Mat2atIdEERT_i.exit144.i:                  ; preds = %497

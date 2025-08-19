@@ -3548,9 +3548,9 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread16.i.i: ; preds = %.
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %174, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !373
   %.not.i76 = icmp eq ptr %.sroa.010.0, null
-  br i1 %.not.i76, label %.thread144, label %177
+  br i1 %.not.i76, label %.thread159, label %177
 
-.thread144:                                       ; preds = %176
+.thread159:                                       ; preds = %176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15184) %.sroa.14, ptr noundef nonnull align 16 dereferenceable(15184) %.sroa.611.0..sroa_idx.i, i64 15184, i1 false), !noalias !381
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !373
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -3626,18 +3626,18 @@ _ZN4core5slice6memchr6memchr17h2d5411a4e6c78ad8E.exit.thread16.i.i: ; preds = %.
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17ha8e951763a439a98E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
           to label %274 unwind label %139
 
-195:                                              ; preds = %.thread144, %190
-  %.sroa.0.0.copyload150 = phi i128 [ %169, %.thread144 ], [ %.sroa.0.0.copyload.pre, %190 ]
-  %.sroa.691.0.copyload149 = phi i64 [ %172, %.thread144 ], [ %.sroa.691.0.copyload.pre, %190 ]
-  %.sroa.10.0.copyload148 = phi i64 [ %174, %.thread144 ], [ %.sroa.10.0.copyload.pre, %190 ]
+195:                                              ; preds = %.thread159, %190
+  %.sroa.0.0.copyload165 = phi i128 [ %169, %.thread159 ], [ %.sroa.0.0.copyload.pre, %190 ]
+  %.sroa.691.0.copyload164 = phi i64 [ %172, %.thread159 ], [ %.sroa.691.0.copyload.pre, %190 ]
+  %.sroa.10.0.copyload163 = phi i64 [ %174, %.thread159 ], [ %.sroa.10.0.copyload.pre, %190 ]
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15184) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(15184) %.sroa.14, i64 15184, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14)
-  store i128 %.sroa.0.0.copyload150, ptr %17, align 16
+  store i128 %.sroa.0.0.copyload165, ptr %17, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %.sroa.691.0.copyload149, ptr %.sroa.4.0..sroa_idx, align 16
+  store i64 %.sroa.691.0.copyload164, ptr %.sroa.4.0..sroa_idx, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 %.sroa.10.0.copyload148, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.10.0.copyload163, ptr %.sroa.5.0..sroa_idx, align 8
   %196 = load i32, ptr %25, align 4, !noundef !3
   %.not55 = icmp eq i32 %196, -1
   br i1 %.not55, label %251, label %197
@@ -4243,8 +4243,8 @@ define hidden void @_ZN3h3i6client14execute_action17h3645bd6f38157cf1E(ptr noali
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !392, !noalias !395
   %163 = icmp ult i64 %.sroa.5.0.copyload.i, 88686269585142076
   call void @llvm.assume(i1 %163)
-  %.idx370 = mul nuw nsw i64 %.sroa.5.0.copyload.i, 104
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx370
+  %.idx390 = mul nuw nsw i64 %.sroa.5.0.copyload.i, 104
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 %.idx390
   %165 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   call void @llvm.assume(i1 %165)
   call void @llvm.lifetime.start.p0(ptr nonnull %90)

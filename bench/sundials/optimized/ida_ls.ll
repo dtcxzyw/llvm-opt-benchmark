@@ -394,9 +394,9 @@ switch.early.test:                                ; preds = %67
   br label %.thread
 
 .thread:                                          ; preds = %139, %147
-  %.sink130 = phi i32 [ %151, %147 ], [ 1, %139 ]
+  %.sink137 = phi i32 [ %151, %147 ], [ 1, %139 ]
   %152 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
-  store i32 %.sink130, ptr %152, align 8, !tbaa !64
+  store i32 %.sink137, ptr %152, align 8, !tbaa !64
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store ptr %calloc, ptr %153, align 8, !tbaa !65
   br label %154

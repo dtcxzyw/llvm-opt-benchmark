@@ -148,9 +148,9 @@ define hidden void @jRD4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %._crit_edge
-  %.sink141 = phi i64 [ 64, %._crit_edge ], [ 96, %38 ]
+  %.sink142 = phi i64 [ 64, %._crit_edge ], [ 96, %38 ]
   %.sink = phi i32 [ %114, %._crit_edge ], [ %43, %38 ]
-  %115 = getelementptr inbounds nuw i8, ptr %.0123132, i64 %.sink141
+  %115 = getelementptr inbounds nuw i8, ptr %.0123132, i64 %.sink142
   store i32 %.sink, ptr %115, align 4
   br label %116
 
@@ -174,8 +174,8 @@ define hidden void @jRD4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   %129 = getelementptr inbounds nuw i8, ptr %.1124134, i64 8
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %130, 0
-  %or.cond142 = select i1 %128, i1 %131, i1 false
-  br i1 %or.cond142, label %132, label %._crit_edge137
+  %or.cond143 = select i1 %128, i1 %131, i1 false
+  br i1 %or.cond143, label %132, label %._crit_edge137
 
 132:                                              ; preds = %122
   %133 = getelementptr inbounds nuw i8, ptr %.1124134, i64 12
@@ -281,10 +281,10 @@ define hidden void @jRD4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %216
 
 216:                                              ; preds = %._crit_edge137, %148
-  %.sink145 = phi i64 [ 2, %._crit_edge137 ], [ 3, %148 ]
-  %.sink143 = phi i8 [ %215, %._crit_edge137 ], [ %155, %148 ]
-  %217 = getelementptr inbounds nuw i8, ptr %125, i64 %.sink145
-  store i8 %.sink143, ptr %217, align 1
+  %.sink146 = phi i64 [ 2, %._crit_edge137 ], [ 3, %148 ]
+  %.sink144 = phi i8 [ %215, %._crit_edge137 ], [ %155, %148 ]
+  %217 = getelementptr inbounds nuw i8, ptr %125, i64 %.sink146
+  store i8 %.sink144, ptr %217, align 1
   %.2 = getelementptr inbounds nuw i8, ptr %.1124134, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -326,8 +326,8 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %20 = getelementptr inbounds nuw i8, ptr %.07784, i64 48
   %21 = load i16, ptr %20, align 2
   %22 = icmp eq i16 %21, 0
-  %or.cond92 = select i1 %19, i1 %22, i1 false
-  br i1 %or.cond92, label %23, label %._crit_edge
+  %or.cond93 = select i1 %19, i1 %22, i1 false
+  br i1 %or.cond93, label %23, label %._crit_edge
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %.07784, i64 80
@@ -419,8 +419,8 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %90 = getelementptr inbounds nuw i8, ptr %.18086, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 0
-  %or.cond94 = select i1 %89, i1 %92, i1 false
-  br i1 %or.cond94, label %93, label %._crit_edge89
+  %or.cond95 = select i1 %89, i1 %92, i1 false
+  br i1 %or.cond95, label %93, label %._crit_edge89
 
 93:                                               ; preds = %82
   %94 = getelementptr inbounds nuw i8, ptr %.18086, i64 20
@@ -477,9 +477,9 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   br label %136
 
 136:                                              ; preds = %._crit_edge89, %101
-  %.sink95 = phi i8 [ %135, %._crit_edge89 ], [ %108, %101 ]
+  %.sink96 = phi i8 [ %135, %._crit_edge89 ], [ %108, %101 ]
   %137 = getelementptr inbounds nuw i8, ptr %86, i64 1
-  store i8 %.sink95, ptr %137, align 1
+  store i8 %.sink96, ptr %137, align 1
   %.2 = getelementptr inbounds nuw i8, ptr %.18086, i64 32
   br i1 %83, label %82, label %138, !llvm.loop !10
 

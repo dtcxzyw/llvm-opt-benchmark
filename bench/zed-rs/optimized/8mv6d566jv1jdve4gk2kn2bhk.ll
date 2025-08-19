@@ -15742,7 +15742,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %.sroa.044.389, label %165, label %"_ZN4core3ptr394drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$semantic_index..project_index_debug_view..ProjectIndexDebugView$C$$LP$$RP$$C$semantic_index..project_index_debug_view..ProjectIndexDebugView..update_rows..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b88cb6c1ca6c767E.exit78"
 
 .thread:                                          ; preds = %41, %50, %2
-  %lpad.thr_comm120 = landingpad { ptr, i32 }
+  %lpad.thr_comm123 = landingpad { ptr, i32 }
           cleanup
   br label %165
 
@@ -16111,11 +16111,11 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br label %158
 
 "_ZN4core3ptr394drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$semantic_index..project_index_debug_view..ProjectIndexDebugView$C$$LP$$RP$$C$semantic_index..project_index_debug_view..ProjectIndexDebugView..update_rows..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b88cb6c1ca6c767E.exit78": ; preds = %165, %40
-  %.pn60118 = phi { ptr, i32 } [ %.pn60119, %165 ], [ %.pn90, %40 ]
-  resume { ptr, i32 } %.pn60118
+  %.pn60121 = phi { ptr, i32 } [ %.pn60122, %165 ], [ %.pn90, %40 ]
+  resume { ptr, i32 } %.pn60121
 
 165:                                              ; preds = %.thread, %40
-  %.pn60119 = phi { ptr, i32 } [ %.pn90, %40 ], [ %lpad.thr_comm120, %.thread ]
+  %.pn60122 = phi { ptr, i32 } [ %.pn90, %40 ], [ %lpad.thr_comm123, %.thread ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$semantic_index..project_index_debug_view..Row$GT$$GT$17h09f715f6ca618f06E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %"_ZN4core3ptr394drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$semantic_index..project_index_debug_view..ProjectIndexDebugView$C$$LP$$RP$$C$semantic_index..project_index_debug_view..ProjectIndexDebugView..update_rows..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6b88cb6c1ca6c767E.exit78" unwind label %161
 }
@@ -16177,7 +16177,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %.sroa.044.386, label %174, label %common.resume
 
 .thread:                                          ; preds = %41, %50, %2
-  %lpad.thr_comm116 = landingpad { ptr, i32 }
+  %lpad.thr_comm119 = landingpad { ptr, i32 }
           cleanup
   br label %174
 
@@ -16570,7 +16570,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   unreachable
 
 common.resume:                                    ; preds = %40, %174, %170
-  %common.resume.op = phi { ptr, i32 } [ %171, %170 ], [ %.pn60115, %174 ], [ %.pn87, %40 ]
+  %common.resume.op = phi { ptr, i32 } [ %171, %170 ], [ %.pn60118, %174 ], [ %.pn87, %40 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr400drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$semantic_index..project_index_debug_view..ProjectIndexDebugView$C$$LP$$RP$$C$semantic_index..project_index_debug_view..ProjectIndexDebugView..handle_path_click..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha28c299ab5cd371cE.exit": ; preds = %164, %169
@@ -16578,7 +16578,7 @@ common.resume:                                    ; preds = %40, %174, %170
   br label %158
 
 174:                                              ; preds = %.thread, %40
-  %.pn60115 = phi { ptr, i32 } [ %.pn87, %40 ], [ %lpad.thr_comm116, %.thread ]
+  %.pn60118 = phi { ptr, i32 } [ %.pn87, %40 ], [ %lpad.thr_comm119, %.thread ]
   invoke fastcc void @"_ZN4core3ptr400drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$semantic_index..project_index_debug_view..ProjectIndexDebugView$C$$LP$$RP$$C$semantic_index..project_index_debug_view..ProjectIndexDebugView..handle_path_click..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha28c299ab5cd371cE"(ptr noalias noundef align 8 dereferenceable(48) %0) #46
           to label %common.resume unwind label %161
 }
@@ -19174,7 +19174,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd79aa5ba18673fcaE.exit": ; preds = %15, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !4620, !noalias !4623, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %22, i64 %9
+  %23 = getelementptr inbounds nuw { { [1 x i64] }, i32, [1 x i32] }, ptr %22, i64 %9
   store i64 %1, ptr %23, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -22443,14 +22443,14 @@ define internal { i64, ptr } @"_ZN14semantic_index13project_index12ProjectIndex6
   %12 = alloca [24 x i8], align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 435
   %14 = load i8, ptr %13, align 1, !range !1264, !noundef !4
-  switch i8 %14, label %default.unreachable139 [
+  switch i8 %14, label %default.unreachable142 [
     i8 0, label %15
     i8 1, label %109
     i8 2, label %110
     i8 3, label %20
   ]
 
-default.unreachable139:                           ; preds = %2
+default.unreachable142:                           ; preds = %2
   unreachable
 
 15:                                               ; preds = %2
@@ -23627,14 +23627,14 @@ define internal { i64, ptr } @"_ZN14semantic_index13project_index12ProjectIndex1
   %22 = alloca [24 x i8], align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 401
   %24 = load i8, ptr %23, align 1, !range !1264, !noundef !4
-  switch i8 %24, label %default.unreachable196 [
+  switch i8 %24, label %default.unreachable200 [
     i8 0, label %25
     i8 1, label %140
     i8 2, label %141
     i8 3, label %28
   ]
 
-default.unreachable196:                           ; preds = %2
+default.unreachable200:                           ; preds = %2
   unreachable
 
 25:                                               ; preds = %2
@@ -24847,7 +24847,7 @@ define hidden { i64, ptr } @"_ZN14semantic_index13summary_index12SummaryIndex13f
   %21 = alloca [48 x i8], align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %23 = load i8, ptr %22, align 8, !range !1264, !noundef !4
-  switch i8 %23, label %default.unreachable85 [
+  switch i8 %23, label %default.unreachable89 [
     i8 0, label %24
     i8 1, label %42
     i8 2, label %43
@@ -24859,7 +24859,7 @@ define hidden { i64, ptr } @"_ZN14semantic_index13summary_index12SummaryIndex13f
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !5860, !noalias !5865
   br label %44
 
-default.unreachable85:                            ; preds = %2
+default.unreachable89:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -26490,7 +26490,7 @@ define void @_ZN14semantic_index10SemanticDb20create_project_index17he240dd5f9dd
           to label %91 unwind label %89
 
 .body.i:                                          ; preds = %175, %188, %.thread39.thread, %.thread39, %134, %136, %140, %98, %89
-  %.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %99, %98 ], [ %135, %140 ], [ %135, %136 ], [ %135, %134 ], [ %.pn38, %.thread39 ], [ %.pn3845, %.thread39.thread ], [ %.pn3845, %188 ], [ %176, %175 ]
+  %.pn.pn = phi { ptr, i32 } [ %90, %89 ], [ %99, %98 ], [ %135, %140 ], [ %135, %136 ], [ %135, %134 ], [ %.pn38, %.thread39 ], [ %.pn3851, %.thread39.thread ], [ %.pn3851, %188 ], [ %176, %175 ]
   invoke void @"_ZN4core3ptr100drop_in_place$LT$gpui..app..entity_map..Model$LT$semantic_index..project_index..ProjectIndex$GT$$GT$17h04fb8d3e84b91d52E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #46
           to label %.body unwind label %183
 
@@ -26769,7 +26769,7 @@ common.resume:                                    ; preds = %.body, %160
   br i1 %92, label %.body.i, label %.thread39.thread
 
 .thread39.thread:                                 ; preds = %177, %181, %.thread39
-  %.pn3845 = phi { ptr, i32 } [ %.pn38, %.thread39 ], [ %176, %181 ], [ %176, %177 ]
+  %.pn3851 = phi { ptr, i32 } [ %.pn38, %.thread39 ], [ %176, %181 ], [ %176, %177 ]
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 8
   %186 = atomicrmw sub ptr %185, i64 1 release, align 8, !noalias !6228
   %187 = icmp eq i64 %186, 1

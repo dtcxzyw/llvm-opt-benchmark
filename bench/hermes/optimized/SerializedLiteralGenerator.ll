@@ -158,8 +158,8 @@ land.lhs.true.i58:                                ; preds = %if.end9.i49
   %tobool.not.i59 = icmp eq i32 %conv11.i50, 0
   %14 = bitcast double %12 to i64
   %15 = icmp slt i64 %14, 0
-  %or.cond461 = and i1 %tobool.not.i59, %15
-  br i1 %or.cond461, label %if.else65, label %if.then63
+  %or.cond462 = and i1 %tobool.not.i59, %15
+  br i1 %or.cond462, label %if.else65, label %if.then63
 
 if.then63:                                        ; preds = %land.lhs.true.i58
   %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %tmpSeqBuffer.sroa.25.1 to i64
@@ -216,7 +216,7 @@ if.then.i28.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i: ; preds = %if.then.i28.i.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i
-  %add.ptr33.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %add.i
+  %add.ptr33.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %add.i
   %add.ptr36.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %16
   %.pre444 = ptrtoint ptr %call5.i.i.i.i.i to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit132
@@ -293,7 +293,7 @@ if.then.i28.i.i177:                               ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i178: ; preds = %if.then.i28.i.i177, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i175
-  %add.ptr33.i.i179 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i166, i64 %add.i73
+  %add.ptr33.i.i179 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i166, i64 %add.i73
   %add.ptr36.i.i180 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i166, i64 %17
   %.pre = ptrtoint ptr %call5.i.i.i.i.i166 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit182
@@ -392,7 +392,7 @@ if.then.i28.i.i227:                               ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i228: ; preds = %if.then.i28.i.i227, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i225
-  %add.ptr33.i.i229 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i216, i64 %add.i86
+  %add.ptr33.i.i229 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i216, i64 %add.i86
   %add.ptr36.i.i230 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i216, i64 %19
   %.pre445 = ptrtoint ptr %call5.i.i.i.i.i216 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit232
@@ -478,7 +478,7 @@ if.then.i28.i.i277:                               ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i278: ; preds = %if.then.i28.i.i277, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i275
-  %add.ptr33.i.i279 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i266, i64 %add.i96
+  %add.ptr33.i.i279 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i266, i64 %add.i96
   %add.ptr36.i.i280 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i266, i64 %20
   %.pre446 = ptrtoint ptr %call5.i.i.i.i.i266 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit282
@@ -553,7 +553,7 @@ if.then.i28.i.i327:                               ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i328: ; preds = %if.then.i28.i.i327, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i325
-  %add.ptr33.i.i329 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i316, i64 %add.i106
+  %add.ptr33.i.i329 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i316, i64 %add.i106
   %add.ptr36.i.i330 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i316, i64 %21
   %.pre447 = ptrtoint ptr %call5.i.i.i.i.i316 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit332

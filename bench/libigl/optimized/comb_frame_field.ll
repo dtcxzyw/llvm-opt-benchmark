@@ -118,12 +118,12 @@ define weak_odr dso_local void @_ZN3igl16comb_frame_fieldIN5Eigen6MatrixIdLin1EL
   %52 = load double, ptr %45, align 8, !tbaa !15
   %53 = fneg double %52
   store double %53, ptr %22, align 8, !tbaa !15
-  %54 = getelementptr inbounds double, ptr %45, i64 %42
+  %54 = getelementptr inbounds nuw double, ptr %45, i64 %42
   %55 = load double, ptr %54, align 8, !tbaa !15
   %56 = fneg double %55
   store double %56, ptr %23, align 8, !tbaa !15
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %42, 4
-  %57 = getelementptr inbounds i8, ptr %45, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %58 = load double, ptr %57, align 8, !tbaa !15
   %59 = fneg double %58
   store double %59, ptr %24, align 8, !tbaa !15

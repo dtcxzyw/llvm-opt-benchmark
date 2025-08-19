@@ -594,8 +594,8 @@ define internal ptr @evp_signature_from_algorithm(i32 noundef %0, ptr noundef %1
   %.not207 = icmp ne ptr %208, null
   %.pre.pre = load ptr, ptr %48, align 8, !tbaa !25
   %209 = icmp eq ptr %.pre.pre, null
-  %or.cond338 = select i1 %.not207, i1 %209, i1 false
-  br i1 %or.cond338, label %.thread, label %210
+  %or.cond339 = select i1 %.not207, i1 %209, i1 false
+  br i1 %or.cond339, label %.thread, label %210
 
 210:                                              ; preds = %207
   %211 = load ptr, ptr %47, align 8, !tbaa !26
@@ -617,20 +617,20 @@ define internal ptr @evp_signature_from_algorithm(i32 noundef %0, ptr noundef %1
   br i1 %219, label %.thread, label %.critedge261
 
 220:                                              ; preds = %210
-  br i1 %212, label %.thread320, label %223
+  br i1 %212, label %.thread321, label %223
 
-.thread320:                                       ; preds = %220
+.thread321:                                       ; preds = %220
   %.pr = load ptr, ptr %46, align 8, !tbaa !27
   %.not211 = icmp eq ptr %.pr, null
   br i1 %.not211, label %221, label %223
 
-221:                                              ; preds = %.thread320
+221:                                              ; preds = %.thread321
   %222 = load ptr, ptr %45, align 8, !tbaa !28
   %.not212 = icmp eq ptr %222, null
   %brmerge = or i1 %.not207, %.not212
   br i1 %brmerge, label %.critedge261, label %.thread
 
-223:                                              ; preds = %.thread320, %220
+223:                                              ; preds = %.thread321, %220
   br i1 %.not207, label %.critedge261, label %.thread
 
 .critedge261:                                     ; preds = %217, %213, %223, %221
@@ -638,8 +638,8 @@ define internal ptr @evp_signature_from_algorithm(i32 noundef %0, ptr noundef %1
   %.not214 = icmp ne ptr %224, null
   %.pre319.pre = load ptr, ptr %43, align 8, !tbaa !30
   %225 = icmp eq ptr %.pre319.pre, null
-  %or.cond339 = select i1 %.not214, i1 %225, i1 false
-  br i1 %or.cond339, label %.thread, label %226
+  %or.cond340 = select i1 %.not214, i1 %225, i1 false
+  br i1 %or.cond340, label %.thread, label %226
 
 226:                                              ; preds = %.critedge261
   %227 = load ptr, ptr %42, align 8, !tbaa !31
@@ -664,8 +664,8 @@ define internal ptr @evp_signature_from_algorithm(i32 noundef %0, ptr noundef %1
   br i1 %228, label %.critedge262.thread, label %238
 
 .critedge262.thread:                              ; preds = %.critedge262
-  %.pr334 = load ptr, ptr %41, align 8, !tbaa !32
-  %.not218 = icmp eq ptr %.pr334, null
+  %.pr335 = load ptr, ptr %41, align 8, !tbaa !32
+  %.not218 = icmp eq ptr %.pr335, null
   br i1 %.not218, label %236, label %238
 
 236:                                              ; preds = %.critedge262.thread
@@ -1395,8 +1395,8 @@ EVP_SIGNATURE_free.exit:                          ; preds = %82, %CRYPTO_DOWN_RE
   br label %209
 
 204:                                              ; preds = %.thread234, %.thread232, %.thread230
-  %.sink249 = phi ptr [ %195, %.thread230 ], [ %198, %.thread232 ], [ %201, %.thread234 ]
-  %205 = call i32 %.sink249(ptr noundef nonnull %0) #6
+  %.sink270 = phi ptr [ %195, %.thread230 ], [ %198, %.thread232 ], [ %201, %.thread234 ]
+  %205 = call i32 %.sink270(ptr noundef nonnull %0) #6
   %206 = icmp slt i32 %205, 1
   br i1 %206, label %209, label %.critedge192
 

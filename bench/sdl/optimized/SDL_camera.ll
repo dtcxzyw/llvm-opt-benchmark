@@ -1683,29 +1683,29 @@ define hidden zeroext i1 @SDL_CameraThreadIterate(ptr noundef %0) local_unnamed_
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %93 = load i8, ptr %92, align 4, !range !7, !noundef !8
   %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %.thread112, label %.thread116
+  br i1 %94, label %.thread117, label %.thread121
 
 95:                                               ; preds = %.thread102
   %96 = icmp eq i32 %.pre106, 1
-  br i1 %96, label %97, label %.thread112
+  br i1 %96, label %97, label %.thread117
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %99 = load ptr, ptr %98, align 8
-  br label %.thread112
+  br label %.thread117
 
-.thread112:                                       ; preds = %.thread102.thread, %95, %97
-  %.085111115 = phi ptr [ %.085, %97 ], [ %.085, %95 ], [ %56, %.thread102.thread ]
+.thread117:                                       ; preds = %.thread102.thread, %95, %97
+  %.085116120 = phi ptr [ %.085, %97 ], [ %.085, %95 ], [ %56, %.thread102.thread ]
   %100 = phi ptr [ %99, %97 ], [ %53, %95 ], [ %53, %.thread102.thread ]
-  %101 = getelementptr inbounds nuw i8, ptr %.085111115, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.085116120, i64 8
   %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %.085111115, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %.085116120, i64 12
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %.085111115, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %.085116120, i64 4
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %.085111115, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %.085116120, i64 24
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.085111115, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.085116120, i64 16
   %110 = load i32, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %112 = load i32, ptr %111, align 4
@@ -1717,23 +1717,23 @@ define hidden zeroext i1 @SDL_CameraThreadIterate(ptr noundef %0) local_unnamed_
   %.pre105 = load i32, ptr %60, align 8
   br label %118
 
-118:                                              ; preds = %.thread112, %.thread102
-  %119 = phi i32 [ %.pre105, %.thread112 ], [ %.pre106, %.thread102 ]
-  %.186 = phi ptr [ %100, %.thread112 ], [ %.085, %.thread102 ]
+118:                                              ; preds = %.thread117, %.thread102
+  %119 = phi i32 [ %.pre105, %.thread117 ], [ %.pre106, %.thread102 ]
+  %.186 = phi ptr [ %100, %.thread117 ], [ %.085, %.thread102 ]
   %120 = icmp eq i32 %119, 1
-  br i1 %120, label %121, label %.thread116
+  br i1 %120, label %121, label %.thread121
 
 121:                                              ; preds = %118
   %122 = call zeroext i1 @SDL_StretchSurface_REAL(ptr noundef %.186, ptr noundef null, ptr noundef %53, ptr noundef null, i32 noundef 0) #11
-  br label %.thread116
+  br label %.thread121
 
-.thread116:                                       ; preds = %.thread102.thread, %121, %118
+.thread121:                                       ; preds = %.thread102.thread, %121, %118
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull %0, ptr noundef nonnull %56) #11
   br label %125
 
-125:                                              ; preds = %.thread116, %66
+125:                                              ; preds = %.thread121, %66
   %126 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr null, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -2661,21 +2661,21 @@ define hidden void @SDL_ReleaseCameraFrame_REAL(ptr noundef %0, ptr noundef %1) 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %11 = load ptr, ptr %.036, align 8
   %12 = icmp eq ptr %11, %1
-  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph47
+  br i1 %12, label %.lr.ph._crit_edge, label %.lr.ph49
 
-.lr.ph:                                           ; preds = %.lr.ph47
+.lr.ph:                                           ; preds = %.lr.ph49
   %13 = load ptr, ptr %.0, align 8
   %14 = icmp eq ptr %13, %1
-  br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph47, !llvm.loop !21
+  br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph49, !llvm.loop !21
 
-.lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03946 = phi ptr [ %.0, %.lr.ph ], [ %.036, %.lr.ph.preheader ]
-  %15 = getelementptr inbounds nuw i8, ptr %.03946, i64 16
+.lr.ph49:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.03948 = phi ptr [ %.0, %.lr.ph ], [ %.036, %.lr.ph.preheader ]
+  %15 = getelementptr inbounds nuw i8, ptr %.03948, i64 16
   %.0 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !21
 
-.critedge:                                        ; preds = %.lr.ph47, %5
+.critedge:                                        ; preds = %.lr.ph49, %5
   %16 = load ptr, ptr %0, align 8
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %16) #11
   %17 = tail call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %6, i32 noundef -1) #11
@@ -2695,7 +2695,7 @@ define hidden void @SDL_ReleaseCameraFrame_REAL(ptr noundef %0, ptr noundef %1) 
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.039.lcssa = phi ptr [ %.036, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
-  %.02938.lcssa = phi ptr [ %10, %.lr.ph.preheader ], [ %.03946, %.lr.ph ]
+  %.02938.lcssa = phi ptr [ %10, %.lr.ph.preheader ], [ %.03948, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %28 = load i8, ptr %27, align 4, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
@@ -3027,12 +3027,11 @@ select.unfold.preheader:                          ; preds = %13, %select.unfold
   br label %22
 
 21:                                               ; preds = %22
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not81 = icmp eq i64 %indvars.iv.next, 2
   br i1 %.not81, label %select.unfold, label %22, !llvm.loop !23
 
 22:                                               ; preds = %.preheader, %21
-  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
+  %.not81 = phi i1 [ true, %21 ], [ false, %.preheader ]
+  %indvars.iv = phi i64 [ 1, %21 ], [ 0, %.preheader ]
   %23 = getelementptr inbounds nuw [3 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
@@ -3075,9 +3074,9 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
   br label %38
 
 38:                                               ; preds = %37, %51
-  %.4110131 = phi i1 [ false, %37 ], [ %.5, %51 ]
-  %indvars.iv116130 = phi i64 [ 0, %37 ], [ %indvars.iv.next117, %51 ]
-  %39 = getelementptr inbounds nuw [3 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv116130
+  %.4110136 = phi i1 [ false, %37 ], [ %.5, %51 ]
+  %indvars.iv116135 = phi i64 [ 0, %37 ], [ %indvars.iv.next117, %51 ]
+  %39 = getelementptr inbounds nuw [3 x ptr], ptr @bootstrap, i64 0, i64 %indvars.iv116135
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i8, ptr %41, align 8, !range !7, !noundef !8
@@ -3103,8 +3102,8 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
   br label %.critedge2.thread
 
 51:                                               ; preds = %44, %38
-  %.5 = phi i1 [ %.4110131, %38 ], [ true, %44 ]
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116130, 1
+  %.5 = phi i1 [ %.4110136, %38 ], [ true, %44 ]
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116135, 1
   %.not76 = icmp eq i64 %indvars.iv.next117, 2
   br i1 %.not76, label %.critedge2.thread97, label %38, !llvm.loop !24
 

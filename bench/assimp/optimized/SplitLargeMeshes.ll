@@ -604,20 +604,20 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit.lr.ph: ; preds = %159
   br label %_ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit
 
 ._crit_edge314:                                   ; preds = %._crit_edge307.thread
-  %.not.i.i.i = icmp eq ptr %.sroa.0.3.lcssa398, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.3.lcssa418, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit, label %167
 
 167:                                              ; preds = %._crit_edge314
-  %168 = ptrtoint ptr %.sroa.25.3.lcssa399 to i64
-  %169 = ptrtoint ptr %.sroa.0.3.lcssa398 to i64
+  %168 = ptrtoint ptr %.sroa.25.3.lcssa419 to i64
+  %169 = ptrtoint ptr %.sroa.0.3.lcssa418 to i64
   %170 = sub i64 %168, %169
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3.lcssa398, i64 noundef %170) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3.lcssa418, i64 noundef %170) #17
   br label %_ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit: ; preds = %_ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit.lr.ph, %._crit_edge307.thread
   %indvars.iv367 = phi i64 [ 0, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit.lr.ph ], [ %indvars.iv.next368, %._crit_edge307.thread ]
-  %.sroa.25.2312 = phi ptr [ null, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit.lr.ph ], [ %.sroa.25.3.lcssa399, %._crit_edge307.thread ]
-  %.sroa.0.2311 = phi ptr [ null, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit.lr.ph ], [ %.sroa.0.3.lcssa398, %._crit_edge307.thread ]
+  %.sroa.25.2312 = phi ptr [ null, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit.lr.ph ], [ %.sroa.25.3.lcssa419, %._crit_edge307.thread ]
+  %.sroa.0.2311 = phi ptr [ null, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE5clearEv.exit.lr.ph ], [ %.sroa.0.3.lcssa418, %._crit_edge307.thread ]
   %171 = load ptr, ptr %43, align 8
   %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv367
   %173 = load ptr, ptr %172, align 8
@@ -882,8 +882,8 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vec
   br label %._crit_edge307.thread
 
 ._crit_edge307.thread:                            ; preds = %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit, %268, %._crit_edge307
-  %.sroa.25.3.lcssa399 = phi ptr [ %.sroa.25.5, %268 ], [ %.sroa.25.5, %._crit_edge307 ], [ %.sroa.25.6, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
-  %.sroa.0.3.lcssa398 = phi ptr [ %.sroa.0.5, %268 ], [ %.sroa.0.5, %._crit_edge307 ], [ %.sroa.14.6, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
+  %.sroa.25.3.lcssa419 = phi ptr [ %.sroa.25.5, %268 ], [ %.sroa.25.5, %._crit_edge307 ], [ %.sroa.25.6, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
+  %.sroa.0.3.lcssa418 = phi ptr [ %.sroa.0.5, %268 ], [ %.sroa.0.5, %._crit_edge307 ], [ %.sroa.14.6, %_ZNSt6vectorI14aiVertexWeightSaIS0_EE7reserveEm.exit ]
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %273 = load i32, ptr %163, align 8
   %274 = zext i32 %273 to i64
@@ -1289,8 +1289,8 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %.not87, label %._crit_edge77, label %.preheader52.lr.ph
 
 .preheader52.lr.ph:                               ; preds = %6, %_ZNSt6vectorIjSaIjEE7reserveEm.exit
-  %.sroa.19.5108 = phi ptr [ %13, %_ZNSt6vectorIjSaIjEE7reserveEm.exit ], [ null, %6 ]
-  %.sroa.12.3107 = phi ptr [ %12, %_ZNSt6vectorIjSaIjEE7reserveEm.exit ], [ null, %6 ]
+  %.sroa.19.5113 = phi ptr [ %13, %_ZNSt6vectorIjSaIjEE7reserveEm.exit ], [ null, %6 ]
+  %.sroa.12.3112 = phi ptr [ %12, %_ZNSt6vectorIjSaIjEE7reserveEm.exit ], [ null, %6 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %.pre = load ptr, ptr %14, align 8
@@ -1302,9 +1302,9 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %17 = phi ptr [ %.pre102, %.preheader52.lr.ph ], [ %25, %._crit_edge ]
   %18 = phi ptr [ %.pre, %.preheader52.lr.ph ], [ %26, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.preheader52.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %.sroa.0.175 = phi ptr [ %.sroa.12.3107, %.preheader52.lr.ph ], [ %.sroa.0.3.lcssa, %._crit_edge ]
-  %.sroa.19.174 = phi ptr [ %.sroa.19.5108, %.preheader52.lr.ph ], [ %.sroa.19.3.lcssa, %._crit_edge ]
-  %.sroa.12.073 = phi ptr [ %.sroa.12.3107, %.preheader52.lr.ph ], [ %.sroa.12.1.lcssa, %._crit_edge ]
+  %.sroa.0.175 = phi ptr [ %.sroa.12.3112, %.preheader52.lr.ph ], [ %.sroa.0.3.lcssa, %._crit_edge ]
+  %.sroa.19.174 = phi ptr [ %.sroa.19.5113, %.preheader52.lr.ph ], [ %.sroa.19.3.lcssa, %._crit_edge ]
+  %.sroa.12.073 = phi ptr [ %.sroa.12.3112, %.preheader52.lr.ph ], [ %.sroa.12.1.lcssa, %._crit_edge ]
   %.not88 = icmp eq ptr %18, %17
   br i1 %.not88, label %._crit_edge, label %.lr.ph
 
@@ -2563,8 +2563,8 @@ switch.lookup:                                    ; preds = %211
   br label %221
 
 221:                                              ; preds = %211, %switch.lookup
-  %.sink405 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %211 ]
-  %222 = or i32 %214, %.sink405
+  %.sink451 = phi i32 [ %switch.load, %switch.lookup ], [ 8, %211 ]
+  %222 = or i32 %214, %.sink451
   store i32 %222, ptr %49, align 8
   br i1 %.not354, label %._crit_edge344, label %.lr.ph343
 

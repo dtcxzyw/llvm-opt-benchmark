@@ -102,8 +102,8 @@ define void @"_ZN11rand_chacha6chacha10abstract20138_$LT$impl$u20$core..convert.
   store <32 x i8> %14, ptr %12, align 1
   %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !10
   %16 = icmp eq i64 %15, 0
-  %bc7 = bitcast <32 x i8> %14 to <2 x i128>
-  %17 = extractelement <2 x i128> %bc7, i64 0
+  %bc11 = bitcast <32 x i8> %14 to <2 x i128>
+  %17 = extractelement <2 x i128> %bc11, i64 0
   %bc = bitcast <32 x i8> %14 to <2 x i128>
   %18 = extractelement <2 x i128> %bc, i64 1
   br i1 %16, label %19, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i
@@ -438,8 +438,8 @@ define void @"_ZN11rand_chacha6chacha10abstract12138_$LT$impl$u20$core..convert.
   store <32 x i8> %14, ptr %12, align 1
   %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !105
   %16 = icmp eq i64 %15, 0
-  %bc7 = bitcast <32 x i8> %14 to <2 x i128>
-  %17 = extractelement <2 x i128> %bc7, i64 0
+  %bc11 = bitcast <32 x i8> %14 to <2 x i128>
+  %17 = extractelement <2 x i128> %bc11, i64 0
   %bc = bitcast <32 x i8> %14 to <2 x i128>
   %18 = extractelement <2 x i128> %bc, i64 1
   br i1 %16, label %19, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i
@@ -774,8 +774,8 @@ define void @"_ZN11rand_chacha6chacha9abstract8135_$LT$impl$u20$core..convert..F
   store <32 x i8> %14, ptr %12, align 1
   %15 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17he8540e677c4777f7E.llvm.17720110283109806325(ptr noundef nonnull align 8 @_ZN10std_detect6detect5cache5CACHE17h1575b64c47eb4116E, i8 noundef 0), !noalias !200
   %16 = icmp eq i64 %15, 0
-  %bc7 = bitcast <32 x i8> %14 to <2 x i128>
-  %17 = extractelement <2 x i128> %bc7, i64 0
+  %bc11 = bitcast <32 x i8> %14 to <2 x i128>
+  %17 = extractelement <2 x i128> %bc11, i64 0
   %bc = bitcast <32 x i8> %14 to <2 x i128>
   %18 = extractelement <2 x i128> %bc, i64 1
   br i1 %16, label %19, label %_ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.exit.i

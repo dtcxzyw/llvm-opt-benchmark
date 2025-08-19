@@ -267,8 +267,8 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef readonl
 ._crit_edge:                                      ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 140
   store i32 %3, ptr %26, align 4
-  %.not62 = icmp eq i32 %2, 1
-  br i1 %.not62, label %._crit_edge54, label %.lr.ph53.preheader
+  %.not63 = icmp eq i32 %2, 1
+  br i1 %.not63, label %._crit_edge54, label %.lr.ph53.preheader
 
 .lr.ph53.preheader:                               ; preds = %._crit_edge
   %27 = zext nneg i32 %2 to i64
@@ -1256,9 +1256,9 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   %96 = sext i32 %79 to i64
   %wide.trip.count = zext nneg i32 %7 to i64
   %invariant.gep = getelementptr float, ptr %5, i64 %93
-  %invariant.gep293 = getelementptr float, ptr %5, i64 %94
-  %invariant.gep295 = getelementptr float, ptr %5, i64 %95
-  %invariant.gep297 = getelementptr float, ptr %5, i64 %96
+  %invariant.gep304 = getelementptr float, ptr %5, i64 %94
+  %invariant.gep306 = getelementptr float, ptr %5, i64 %95
+  %invariant.gep308 = getelementptr float, ptr %5, i64 %96
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1271,10 +1271,10 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   %99 = sext i32 %79 to i64
   %100 = sext i32 %82 to i64
   %wide.trip.count260 = zext nneg i32 %7 to i64
-  %invariant.gep299 = getelementptr float, ptr %5, i64 %97
-  %invariant.gep301 = getelementptr float, ptr %5, i64 %98
-  %invariant.gep303 = getelementptr float, ptr %5, i64 %99
-  %invariant.gep305 = getelementptr float, ptr %5, i64 %100
+  %invariant.gep310 = getelementptr float, ptr %5, i64 %97
+  %invariant.gep312 = getelementptr float, ptr %5, i64 %98
+  %invariant.gep314 = getelementptr float, ptr %5, i64 %99
+  %invariant.gep316 = getelementptr float, ptr %5, i64 %100
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -1285,10 +1285,10 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   %102 = sext i32 %86 to i64
   %103 = sext i32 %79 to i64
   %wide.trip.count265 = zext nneg i32 %7 to i64
-  %invariant.gep307 = getelementptr float, ptr %5, i64 %97
-  %invariant.gep309 = getelementptr float, ptr %5, i64 %101
-  %invariant.gep311 = getelementptr float, ptr %5, i64 %102
-  %invariant.gep313 = getelementptr float, ptr %5, i64 %103
+  %invariant.gep318 = getelementptr float, ptr %5, i64 %97
+  %invariant.gep320 = getelementptr float, ptr %5, i64 %101
+  %invariant.gep322 = getelementptr float, ptr %5, i64 %102
+  %invariant.gep324 = getelementptr float, ptr %5, i64 %103
   br label %.lr.ph.split.us.split.us.split
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us
@@ -1299,10 +1299,10 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   %105 = sext i32 %89 to i64
   %106 = sext i32 %79 to i64
   %wide.trip.count270 = zext nneg i32 %7 to i64
-  %invariant.gep315 = getelementptr float, ptr %5, i64 %97
-  %invariant.gep317 = getelementptr float, ptr %5, i64 %104
-  %invariant.gep319 = getelementptr float, ptr %5, i64 %105
-  %invariant.gep321 = getelementptr float, ptr %5, i64 %106
+  %invariant.gep326 = getelementptr float, ptr %5, i64 %97
+  %invariant.gep328 = getelementptr float, ptr %5, i64 %104
+  %invariant.gep330 = getelementptr float, ptr %5, i64 %105
+  %invariant.gep332 = getelementptr float, ptr %5, i64 %106
   br label %.lr.ph.split.us.split.us.split.us.split
 
 .lr.ph.split.us.split.us.split.us.split.us:       ; preds = %.lr.ph.split.us.split.us.split.us
@@ -1313,10 +1313,10 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   %108 = sext i32 %90 to i64
   %109 = sext i32 %89 to i64
   %wide.trip.count275 = zext nneg i32 %7 to i64
-  %invariant.gep323 = getelementptr float, ptr %5, i64 %97
-  %invariant.gep325 = getelementptr float, ptr %5, i64 %107
-  %invariant.gep327 = getelementptr float, ptr %5, i64 %108
-  %invariant.gep329 = getelementptr float, ptr %5, i64 %109
+  %invariant.gep334 = getelementptr float, ptr %5, i64 %97
+  %invariant.gep336 = getelementptr float, ptr %5, i64 %107
+  %invariant.gep338 = getelementptr float, ptr %5, i64 %108
+  %invariant.gep340 = getelementptr float, ptr %5, i64 %109
   br label %.lr.ph.split.us.split.us.split.us.split.us.split
 
 .lr.ph.split.us.split.us.split.us.split.us.split.us: ; preds = %.lr.ph.split.us.split.us.split.us.split.us
@@ -1327,21 +1327,21 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   %111 = sext i32 %92 to i64
   %112 = sext i32 %86 to i64
   %wide.trip.count280 = zext nneg i32 %7 to i64
-  %invariant.gep331 = getelementptr float, ptr %5, i64 %97
-  %invariant.gep333 = getelementptr float, ptr %5, i64 %110
-  %invariant.gep335 = getelementptr float, ptr %5, i64 %111
-  %invariant.gep337 = getelementptr float, ptr %5, i64 %112
+  %invariant.gep342 = getelementptr float, ptr %5, i64 %97
+  %invariant.gep344 = getelementptr float, ptr %5, i64 %110
+  %invariant.gep346 = getelementptr float, ptr %5, i64 %111
+  %invariant.gep348 = getelementptr float, ptr %5, i64 %112
   br label %.lr.ph.split.us.split.us.split.us.split.us.split.us.split
 
 .lr.ph.split.us.split.us.split.us.split.us.split.us.split.us.preheader: ; preds = %.lr.ph.split.us.split.us.split.us.split.us.split.us
   %wide.trip.count285 = zext nneg i32 %7 to i64
-  %invariant.gep339 = getelementptr float, ptr %5, i64 %97
+  %invariant.gep350 = getelementptr float, ptr %5, i64 %97
   br label %.lr.ph.split.us.split.us.split.us.split.us.split.us.split.us
 
 .lr.ph.split.us.split.us.split.us.split.us.split.us.split.us: ; preds = %.lr.ph.split.us.split.us.split.us.split.us.split.us.split.us.preheader, %.lr.ph.split.us.split.us.split.us.split.us.split.us.split.us
   %indvars.iv282 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.us.split.us.preheader ], [ %indvars.iv.next283, %.lr.ph.split.us.split.us.split.us.split.us.split.us.split.us ]
-  %gep340 = getelementptr float, ptr %invariant.gep339, i64 %indvars.iv282
-  %113 = load float, ptr %gep340, align 4
+  %gep351 = getelementptr float, ptr %invariant.gep350, i64 %indvars.iv282
+  %113 = load float, ptr %gep351, align 4
   %114 = tail call float @llvm.fmuladd.f32(float %43, float 0.000000e+00, float %113)
   %115 = tail call float @llvm.fmuladd.f32(float %47, float 0.000000e+00, float %114)
   %116 = tail call float @llvm.fmuladd.f32(float %51, float 0.000000e+00, float %115)
@@ -1353,15 +1353,15 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
 
 .lr.ph.split.us.split.us.split.us.split.us.split.us.split: ; preds = %.lr.ph.split.us.split.us.split.us.split.us.split.us.split.preheader, %.lr.ph.split.us.split.us.split.us.split.us.split.us.split
   %indvars.iv277 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.us.split.preheader ], [ %indvars.iv.next278, %.lr.ph.split.us.split.us.split.us.split.us.split.us.split ]
-  %gep332 = getelementptr float, ptr %invariant.gep331, i64 %indvars.iv277
-  %118 = load float, ptr %gep332, align 4
-  %gep334 = getelementptr float, ptr %invariant.gep333, i64 %indvars.iv277
-  %119 = load float, ptr %gep334, align 4
-  %gep336 = getelementptr float, ptr %invariant.gep335, i64 %indvars.iv277
-  %120 = load float, ptr %gep336, align 4
+  %gep343 = getelementptr float, ptr %invariant.gep342, i64 %indvars.iv277
+  %118 = load float, ptr %gep343, align 4
+  %gep345 = getelementptr float, ptr %invariant.gep344, i64 %indvars.iv277
+  %119 = load float, ptr %gep345, align 4
+  %gep347 = getelementptr float, ptr %invariant.gep346, i64 %indvars.iv277
+  %120 = load float, ptr %gep347, align 4
   %121 = fsub float %119, %120
-  %gep338 = getelementptr float, ptr %invariant.gep337, i64 %indvars.iv277
-  %122 = load float, ptr %gep338, align 4
+  %gep349 = getelementptr float, ptr %invariant.gep348, i64 %indvars.iv277
+  %122 = load float, ptr %gep349, align 4
   %123 = fsub float %120, %122
   %124 = fsub float %122, %118
   %125 = tail call float @llvm.fmuladd.f32(float %121, float %43, float %118)
@@ -1375,15 +1375,15 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
 
 .lr.ph.split.us.split.us.split.us.split.us.split: ; preds = %.lr.ph.split.us.split.us.split.us.split.us.split.preheader, %.lr.ph.split.us.split.us.split.us.split.us.split
   %indvars.iv272 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.preheader ], [ %indvars.iv.next273, %.lr.ph.split.us.split.us.split.us.split.us.split ]
-  %gep324 = getelementptr float, ptr %invariant.gep323, i64 %indvars.iv272
-  %129 = load float, ptr %gep324, align 4
-  %gep326 = getelementptr float, ptr %invariant.gep325, i64 %indvars.iv272
-  %130 = load float, ptr %gep326, align 4
-  %gep328 = getelementptr float, ptr %invariant.gep327, i64 %indvars.iv272
-  %131 = load float, ptr %gep328, align 4
+  %gep335 = getelementptr float, ptr %invariant.gep334, i64 %indvars.iv272
+  %129 = load float, ptr %gep335, align 4
+  %gep337 = getelementptr float, ptr %invariant.gep336, i64 %indvars.iv272
+  %130 = load float, ptr %gep337, align 4
+  %gep339 = getelementptr float, ptr %invariant.gep338, i64 %indvars.iv272
+  %131 = load float, ptr %gep339, align 4
   %132 = fsub float %130, %131
-  %gep330 = getelementptr float, ptr %invariant.gep329, i64 %indvars.iv272
-  %133 = load float, ptr %gep330, align 4
+  %gep341 = getelementptr float, ptr %invariant.gep340, i64 %indvars.iv272
+  %133 = load float, ptr %gep341, align 4
   %134 = fsub float %133, %129
   %135 = fsub float %131, %133
   %136 = tail call float @llvm.fmuladd.f32(float %132, float %43, float %129)
@@ -1397,16 +1397,16 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
 
 .lr.ph.split.us.split.us.split.us.split:          ; preds = %.lr.ph.split.us.split.us.split.us.split.preheader, %.lr.ph.split.us.split.us.split.us.split
   %indvars.iv267 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.us.split.preheader ], [ %indvars.iv.next268, %.lr.ph.split.us.split.us.split.us.split ]
-  %gep316 = getelementptr float, ptr %invariant.gep315, i64 %indvars.iv267
-  %140 = load float, ptr %gep316, align 4
-  %gep318 = getelementptr float, ptr %invariant.gep317, i64 %indvars.iv267
-  %141 = load float, ptr %gep318, align 4
-  %gep320 = getelementptr float, ptr %invariant.gep319, i64 %indvars.iv267
-  %142 = load float, ptr %gep320, align 4
+  %gep327 = getelementptr float, ptr %invariant.gep326, i64 %indvars.iv267
+  %140 = load float, ptr %gep327, align 4
+  %gep329 = getelementptr float, ptr %invariant.gep328, i64 %indvars.iv267
+  %141 = load float, ptr %gep329, align 4
+  %gep331 = getelementptr float, ptr %invariant.gep330, i64 %indvars.iv267
+  %142 = load float, ptr %gep331, align 4
   %143 = fsub float %141, %142
   %144 = fsub float %142, %140
-  %gep322 = getelementptr float, ptr %invariant.gep321, i64 %indvars.iv267
-  %145 = load float, ptr %gep322, align 4
+  %gep333 = getelementptr float, ptr %invariant.gep332, i64 %indvars.iv267
+  %145 = load float, ptr %gep333, align 4
   %146 = fsub float %145, %141
   %147 = tail call float @llvm.fmuladd.f32(float %143, float %43, float %140)
   %148 = tail call float @llvm.fmuladd.f32(float %144, float %47, float %147)
@@ -1419,15 +1419,15 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us.split.preheader, %.lr.ph.split.us.split.us.split
   %indvars.iv262 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.preheader ], [ %indvars.iv.next263, %.lr.ph.split.us.split.us.split ]
-  %gep308 = getelementptr float, ptr %invariant.gep307, i64 %indvars.iv262
-  %151 = load float, ptr %gep308, align 4
-  %gep310 = getelementptr float, ptr %invariant.gep309, i64 %indvars.iv262
-  %152 = load float, ptr %gep310, align 4
-  %gep312 = getelementptr float, ptr %invariant.gep311, i64 %indvars.iv262
-  %153 = load float, ptr %gep312, align 4
+  %gep319 = getelementptr float, ptr %invariant.gep318, i64 %indvars.iv262
+  %151 = load float, ptr %gep319, align 4
+  %gep321 = getelementptr float, ptr %invariant.gep320, i64 %indvars.iv262
+  %152 = load float, ptr %gep321, align 4
+  %gep323 = getelementptr float, ptr %invariant.gep322, i64 %indvars.iv262
+  %153 = load float, ptr %gep323, align 4
   %154 = fsub float %152, %153
-  %gep314 = getelementptr float, ptr %invariant.gep313, i64 %indvars.iv262
-  %155 = load float, ptr %gep314, align 4
+  %gep325 = getelementptr float, ptr %invariant.gep324, i64 %indvars.iv262
+  %155 = load float, ptr %gep325, align 4
   %156 = fsub float %155, %152
   %157 = fsub float %153, %151
   %158 = tail call float @llvm.fmuladd.f32(float %154, float %43, float %151)
@@ -1441,15 +1441,15 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %.lr.ph.split.us.split
   %indvars.iv257 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next258, %.lr.ph.split.us.split ]
-  %gep300 = getelementptr float, ptr %invariant.gep299, i64 %indvars.iv257
-  %162 = load float, ptr %gep300, align 4
-  %gep302 = getelementptr float, ptr %invariant.gep301, i64 %indvars.iv257
-  %163 = load float, ptr %gep302, align 4
+  %gep311 = getelementptr float, ptr %invariant.gep310, i64 %indvars.iv257
+  %162 = load float, ptr %gep311, align 4
+  %gep313 = getelementptr float, ptr %invariant.gep312, i64 %indvars.iv257
+  %163 = load float, ptr %gep313, align 4
   %164 = fsub float %163, %162
-  %gep304 = getelementptr float, ptr %invariant.gep303, i64 %indvars.iv257
-  %165 = load float, ptr %gep304, align 4
-  %gep306 = getelementptr float, ptr %invariant.gep305, i64 %indvars.iv257
-  %166 = load float, ptr %gep306, align 4
+  %gep315 = getelementptr float, ptr %invariant.gep314, i64 %indvars.iv257
+  %165 = load float, ptr %gep315, align 4
+  %gep317 = getelementptr float, ptr %invariant.gep316, i64 %indvars.iv257
+  %166 = load float, ptr %gep317, align 4
   %167 = fsub float %165, %166
   %168 = fsub float %166, %163
   %169 = tail call float @llvm.fmuladd.f32(float %164, float %43, float %162)
@@ -1465,14 +1465,14 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %173 = load float, ptr %gep, align 4
-  %gep294 = getelementptr float, ptr %invariant.gep293, i64 %indvars.iv
-  %174 = load float, ptr %gep294, align 4
+  %gep305 = getelementptr float, ptr %invariant.gep304, i64 %indvars.iv
+  %174 = load float, ptr %gep305, align 4
   %175 = fsub float %174, %173
-  %gep296 = getelementptr float, ptr %invariant.gep295, i64 %indvars.iv
-  %176 = load float, ptr %gep296, align 4
+  %gep307 = getelementptr float, ptr %invariant.gep306, i64 %indvars.iv
+  %176 = load float, ptr %gep307, align 4
   %177 = fsub float %176, %174
-  %gep298 = getelementptr float, ptr %invariant.gep297, i64 %indvars.iv
-  %178 = load float, ptr %gep298, align 4
+  %gep309 = getelementptr float, ptr %invariant.gep308, i64 %indvars.iv
+  %178 = load float, ptr %gep309, align 4
   %179 = fsub float %178, %176
   %180 = tail call float @llvm.fmuladd.f32(float %175, float %43, float %173)
   %181 = tail call float @llvm.fmuladd.f32(float %177, float %47, float %180)

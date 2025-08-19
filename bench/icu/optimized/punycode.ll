@@ -728,7 +728,7 @@ define i32 @u_strFromPunycode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %25, %.loopexit
-  %.1175290292 = phi i32 [ %31, %.loopexit ], [ %.0162, %25 ], [ %31, %._crit_edge ]
+  %.1175310312 = phi i32 [ %31, %.loopexit ], [ %.0162, %25 ], [ %31, %._crit_edge ]
   %56 = phi i32 [ 0, %.loopexit ], [ 0, %25 ], [ %55, %._crit_edge ]
   %57 = icmp slt i32 %56, %.0162
   br i1 %57, label %.preheader.lr.ph, label %._crit_edge259
@@ -740,9 +740,9 @@ define i32 @u_strFromPunycode_77(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %204
   %.0163258 = phi i32 [ 1000000000, %.preheader.lr.ph ], [ %.1164, %204 ]
-  %.0166257 = phi i32 [ %.1175290292, %.preheader.lr.ph ], [ %99, %204 ]
+  %.0166257 = phi i32 [ %.1175310312, %.preheader.lr.ph ], [ %99, %204 ]
   %.0168256 = phi i32 [ 128, %.preheader.lr.ph ], [ %122, %204 ]
-  %.0171254 = phi i32 [ %.1175290292, %.preheader.lr.ph ], [ %130, %204 ]
+  %.0171254 = phi i32 [ %.1175310312, %.preheader.lr.ph ], [ %130, %204 ]
   %.0172253 = phi i32 [ %56, %.preheader.lr.ph ], [ %98, %204 ]
   %.0177252 = phi i32 [ 0, %.preheader.lr.ph ], [ %205, %204 ]
   %.0179251 = phi i32 [ 72, %.preheader.lr.ph ], [ %115, %204 ]
@@ -979,36 +979,36 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   %166 = shl nuw nsw i32 %165, 1
   %167 = zext nneg i32 %166 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %164, ptr nonnull align 2 %162, i64 %167, i1 false)
-  br i1 %.not204, label %.thread296, label %.thread295
+  br i1 %.not204, label %.thread316, label %.thread315
 
 168:                                              ; preds = %.critedge
   br i1 %128, label %178, label %.thread
 
-.thread296:                                       ; preds = %160
-  br i1 %128, label %178, label %.thread.thread297
+.thread316:                                       ; preds = %160
+  br i1 %128, label %178, label %.thread.thread317
 
-.thread.thread297:                                ; preds = %.thread296
+.thread.thread317:                                ; preds = %.thread316
   %169 = trunc nuw i32 %122 to i16
   %170 = sext i32 %.0160 to i64
   %171 = getelementptr inbounds i16, ptr %2, i64 %170
   store i16 %169, ptr %171, align 2, !tbaa !7
   br label %204
 
-.thread295:                                       ; preds = %160
+.thread315:                                       ; preds = %160
   %172 = getelementptr inbounds i8, ptr %4, i64 %161
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 %163
   %174 = sext i32 %165 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %173, ptr nonnull align 1 %172, i64 %174, i1 false)
   br i1 %128, label %178, label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread295
+.thread.thread:                                   ; preds = %.thread315
   %175 = trunc nuw i32 %122 to i16
   %176 = sext i32 %.0160 to i64
   %177 = getelementptr inbounds i16, ptr %2, i64 %176
   store i16 %175, ptr %177, align 2, !tbaa !7
-  br label %.thread293
+  br label %.thread313
 
-178:                                              ; preds = %.thread296, %.thread295, %168
+178:                                              ; preds = %.thread316, %.thread315, %168
   %179 = lshr i32 %122, 10
   %180 = trunc i32 %179 to i16
   %181 = add i16 %180, -10304
@@ -1027,13 +1027,13 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   %189 = sext i32 %.0160 to i64
   %190 = getelementptr inbounds i16, ptr %2, i64 %189
   store i16 %188, ptr %190, align 2, !tbaa !7
-  br i1 %.not204, label %204, label %.thread293
+  br i1 %.not204, label %204, label %.thread313
 
-.thread293:                                       ; preds = %.thread.thread, %.thread
+.thread313:                                       ; preds = %.thread.thread, %.thread
   %191 = load i16, ptr %97, align 2, !tbaa !7
   %192 = add i16 %191, -65
-  %narrow294 = icmp ult i16 %192, 26
-  %193 = zext i1 %narrow294 to i8
+  %narrow314 = icmp ult i16 %192, 26
+  %193 = zext i1 %narrow314 to i8
   %194 = sext i32 %.0160 to i64
   %195 = getelementptr inbounds i8, ptr %4, i64 %194
   store i8 %193, ptr %195, align 1, !tbaa !13
@@ -1054,14 +1054,14 @@ _ZL9adaptBiasiia.exit:                            ; preds = %.lr.ph.i, %105
   store i8 0, ptr %203, align 1, !tbaa !13
   br label %204
 
-204:                                              ; preds = %.thread.thread297, %.thread293, %.thread, %178, %202, %196, %127
-  %.1164 = phi i32 [ %.0163258, %127 ], [ %.2165, %196 ], [ %.2165, %202 ], [ %.2165, %178 ], [ %.2165, %.thread ], [ %.2165, %.thread293 ], [ %.2165, %.thread.thread297 ]
+204:                                              ; preds = %.thread.thread317, %.thread313, %.thread, %178, %202, %196, %127
+  %.1164 = phi i32 [ %.0163258, %127 ], [ %.2165, %196 ], [ %.2165, %202 ], [ %.2165, %178 ], [ %.2165, %.thread ], [ %.2165, %.thread313 ], [ %.2165, %.thread.thread317 ]
   %205 = add nsw i32 %117, 1
   %206 = icmp sgt i32 %.0162, %98
   br i1 %206, label %.preheader, label %._crit_edge259, !llvm.loop !24
 
 ._crit_edge259:                                   ; preds = %204, %._crit_edge.thread
-  %.0171.lcssa = phi i32 [ %.1175290292, %._crit_edge.thread ], [ %130, %204 ]
+  %.0171.lcssa = phi i32 [ %.1175310312, %._crit_edge.thread ], [ %130, %204 ]
   %207 = tail call i32 @u_terminateUChars_77(ptr noundef %2, i32 noundef %3, i32 noundef %.0171.lcssa, ptr noundef nonnull %5)
   br label %208
 

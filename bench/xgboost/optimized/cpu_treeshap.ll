@@ -225,8 +225,8 @@ define void @_ZN7xgboost10UnwindPathEPNS_11PathElementEjj(ptr noundef captures(n
   %30 = fdiv float %29, %13
   %31 = fsub float %20, %30
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, -1
-  %.not66 = icmp eq i64 %indvars.iv59, 0
-  br i1 %.not66, label %.preheader, label %.lr.ph.split.us, !llvm.loop !14
+  %.not67 = icmp eq i64 %indvars.iv59, 0
+  br i1 %.not67, label %.preheader, label %.lr.ph.split.us, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   %32 = icmp ult i32 %2, %1
@@ -321,8 +321,8 @@ define noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noun
   %33 = fmul float %25, %17
   %34 = tail call float @llvm.fmuladd.f32(float %33, float %32, float %28)
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -1
-  %.not85 = icmp eq i64 %indvars.iv78, 0
-  br i1 %.not85, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  %.not88 = icmp eq i64 %indvars.iv78, 0
+  br i1 %.not88, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %35 = fcmp une float %12, 0.000000e+00
@@ -342,8 +342,8 @@ define noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noun
   %44 = fdiv float %39, %43
   %45 = fadd float %.03961.us66, %44
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, -1
-  %.not84 = icmp eq i64 %indvars.iv75, 0
-  br i1 %.not84, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !16
+  %.not87 = icmp eq i64 %indvars.iv75, 0
+  br i1 %.not87, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %.lr.ph.split.split.us, %.lr.ph.split.us, %3
   %.039.lcssa = phi float [ 0.000000e+00, %3 ], [ %26, %.lr.ph.split.us ], [ %45, %.lr.ph.split.split.us ], [ 0.000000e+00, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ]
@@ -901,8 +901,8 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   %173 = fdiv float %172, %155
   %174 = fsub float %163, %173
   %indvars.iv.next60.i = add nsw i64 %indvars.iv59.i, -1
-  %.not66.i = icmp eq i64 %indvars.iv59.i, 0
-  br i1 %.not66.i, label %.preheader.i, label %.lr.ph.split.us.i, !llvm.loop !14
+  %.not67.i = icmp eq i64 %indvars.iv59.i, 0
+  br i1 %.not67.i, label %.preheader.i, label %.lr.ph.split.us.i, !llvm.loop !14
 
 .preheader.i:                                     ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %146
   %175 = icmp ult i32 %.0102.lcssa, %4

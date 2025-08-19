@@ -873,13 +873,13 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread241, label %5
+  br i1 %.not, label %.thread245, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not217 = icmp eq ptr %7, null
-  br i1 %.not217, label %.thread241, label %8
+  br i1 %.not217, label %.thread245, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -902,7 +902,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %20 = load i32, ptr %19, align 8
   %.not219 = icmp eq i32 %20, 1
-  br i1 %.not219, label %21, label %.thread241
+  br i1 %.not219, label %21, label %.thread245
 
 21:                                               ; preds = %18, %11
   %.0205 = phi ptr [ %10, %18 ], [ %13, %11 ]
@@ -931,7 +931,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %32
   %brmerge = select i1 %35, i1 true, i1 %.0206
-  br i1 %brmerge, label %.thread, label %.thread238
+  br i1 %brmerge, label %.thread, label %.thread242
 
 .thread:                                          ; preds = %29, %28, %28
   %.0207230 = phi i1 [ %35, %29 ], [ true, %28 ], [ true, %28 ]
@@ -957,10 +957,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 47:                                               ; preds = %.thread, %40, %44
   br i1 %.0206, label %48, label %155
 
-.thread238:                                       ; preds = %29
-  br i1 %.0206, label %48, label %.thread241
+.thread242:                                       ; preds = %29
+  br i1 %.0206, label %48, label %.thread245
 
-48:                                               ; preds = %.thread238, %47
+48:                                               ; preds = %.thread242, %47
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void @col_set_str(ptr noundef %50, i32 noundef 35, ptr noundef nonnull @.str.1)
@@ -974,7 +974,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %57 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
   %58 = zext i16 %57 to i32
   %.not237 = icmp eq i32 %56, 1129722709
-  switch i32 %56, label %.thread241 [
+  switch i32 %56, label %.thread245 [
     i32 1163277141, label %59
     i32 1129722709, label %59
   ]
@@ -1004,7 +1004,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %93
 
 77:                                               ; preds = %59
-  br i1 %.not237, label %78, label %.thread241
+  br i1 %.not237, label %78, label %.thread245
 
 78:                                               ; preds = %77
   %79 = tail call ptr @val_to_str(i32 noundef %58, ptr noundef nonnull @command_names, ptr noundef nonnull @.str.623)
@@ -1158,10 +1158,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 153:                                              ; preds = %144, %145, %150, %149, %147, %143, %142, %141
   %154 = add nuw nsw i32 %99, 12
-  br label %.thread241
+  br label %.thread245
 
 155:                                              ; preds = %47
-  br i1 %.0207230, label %156, label %.thread241
+  br i1 %.0207230, label %156, label %.thread245
 
 156:                                              ; preds = %155
   %157 = load ptr, ptr %6, align 8
@@ -1206,10 +1206,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 178:                                              ; preds = %175, %176, %177, %156
   %179 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %.thread241
+  br label %.thread245
 
-.thread241:                                       ; preds = %.thread238, %155, %77, %48, %18, %4, %5, %178, %153
-  %.0208 = phi i32 [ %154, %153 ], [ %179, %178 ], [ 0, %5 ], [ 0, %4 ], [ 0, %18 ], [ 0, %48 ], [ 0, %77 ], [ 0, %155 ], [ 0, %.thread238 ]
+.thread245:                                       ; preds = %.thread242, %155, %77, %48, %18, %4, %5, %178, %153
+  %.0208 = phi i32 [ %154, %153 ], [ %179, %178 ], [ 0, %5 ], [ 0, %4 ], [ 0, %18 ], [ 0, %48 ], [ 0, %77 ], [ 0, %155 ], [ 0, %.thread242 ]
   ret i32 %.0208
 }
 
@@ -2328,24 +2328,24 @@ switch.lookup4:                                   ; preds = %100
 110:                                              ; preds = %106
   %111 = sub nuw i64 %0, %108
   switch i64 %111, label %116 [
-    i64 0, label %.sink.split210
+    i64 0, label %.sink.split214
     i64 4, label %112
     i64 8, label %113
   ]
 
 112:                                              ; preds = %110
-  br label %.sink.split210
+  br label %.sink.split214
 
 113:                                              ; preds = %110
-  br label %.sink.split210
+  br label %.sink.split214
 
-.sink.split210:                                   ; preds = %110, %113, %112
+.sink.split214:                                   ; preds = %110, %113, %112
   %hf_u3v_bootstrap_EI_Control.sink = phi ptr [ @hf_u3v_bootstrap_Maximum_Event_Transfer_Length, %112 ], [ @hf_u3v_bootstrap_Event_Test_Control, %113 ], [ @hf_u3v_bootstrap_EI_Control, %110 ]
   %114 = load i32, ptr %hf_u3v_bootstrap_EI_Control.sink, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %114, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   br label %116
 
-116:                                              ; preds = %.sink.split210, %110, %106
+116:                                              ; preds = %.sink.split214, %110, %106
   ret void
 }
 

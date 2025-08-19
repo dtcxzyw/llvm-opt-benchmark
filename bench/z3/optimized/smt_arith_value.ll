@@ -1397,8 +1397,8 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit14: ; preds = %23, %_ZNK14bv_reco
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split: ; preds = %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit14
-  %.sink17 = phi ptr [ %2, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit14 ], [ %43, %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sink20 = phi ptr [ %2, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit14 ], [ %43, %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
   %53 = load i32, ptr %52, align 4, !tbaa !71
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4, !tbaa !71
@@ -1551,8 +1551,8 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit14: ; preds = %23, %_ZNK14bv_reco
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split: ; preds = %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit14
-  %.sink17 = phi ptr [ %2, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit14 ], [ %43, %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sink20 = phi ptr [ %2, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit14 ], [ %43, %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
   %53 = load i32, ptr %52, align 4, !tbaa !71
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4, !tbaa !71
@@ -1770,8 +1770,8 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit19: ; preds = %43, %.noexc13, %.n
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.sink.split: ; preds = %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit19
-  %.sink24 = phi ptr [ %2, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit19 ], [ %81, %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit ]
-  %90 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
+  %.sink27 = phi ptr [ %2, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit19 ], [ %81, %_ZNK10arith_util10mk_numeralERK8rationalPK4sort.exit ]
+  %90 = getelementptr inbounds nuw i8, ptr %.sink27, i64 8
   %91 = load i32, ptr %90, align 4, !tbaa !71
   %92 = add i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !71

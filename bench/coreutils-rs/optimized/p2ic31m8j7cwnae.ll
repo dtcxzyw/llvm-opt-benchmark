@@ -2873,7 +2873,7 @@ _ZN6uucore4mods5error12USimpleError3new17h1cb4df77505714a7E.exit260: ; preds = %
   %196 = phi i64 [ %215, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4c601912e2f31bc7E.exit" ], [ %191, %._crit_edge ]
   %197 = phi i64 [ %201, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4c601912e2f31bc7E.exit" ], [ 0, %._crit_edge ]
   %198 = phi i64 [ %199, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4c601912e2f31bc7E.exit" ], [ %190, %._crit_edge ]
-  %199 = add i64 %198, -1
+  %199 = add nsw i64 %198, -1
   %.not.not.i = icmp eq i64 %197, 22
   br i1 %.not.not.i, label %.thread419, label %200
 
@@ -3145,7 +3145,7 @@ _ZN3std2fs11OpenOptions4open17h84ab283c99688114E.exit: ; preds = %186
   %299 = invoke noundef i32 @close(i32 noundef %298)
           to label %common.resume unwind label %254
 
-300:                                              ; preds = %.invoke580, %692, %678, %.noexc.i293, %407, %401, %397, %396, %.noexc296, %.noexc295, %380, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_shred..PassType$GT$$GT$17hd9586380f1474c11E.llvm.9163481400045660483.exit.i"
+300:                                              ; preds = %.invoke643, %692, %678, %.noexc.i293, %407, %401, %397, %396, %.noexc296, %.noexc295, %380, %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_shred..PassType$GT$$GT$17hd9586380f1474c11E.llvm.9163481400045660483.exit.i"
   %301 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3320,7 +3320,7 @@ _ZN3std2fs11OpenOptions4open17h84ab283c99688114E.exit: ; preds = %186
           cleanup
   br label %.body335
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke584, %.invoke582
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke647, %.invoke645
   %lpad.loopexit.split-lp454 = landingpad { ptr, i32 }
           cleanup
   br label %.body335
@@ -3449,7 +3449,7 @@ _ZN3std2fs11OpenOptions4open17h84ab283c99688114E.exit: ; preds = %186
 .noexc299:                                        ; preds = %397
   %399 = extractvalue { ptr, i64 } %398, 0
   %400 = icmp eq ptr %399, null
-  br i1 %400, label %.invoke580, label %401
+  br i1 %400, label %.invoke643, label %401
 
 401:                                              ; preds = %.noexc299
   %402 = extractvalue { ptr, i64 } %398, 1
@@ -3463,14 +3463,14 @@ _ZN3std2fs11OpenOptions4open17h84ab283c99688114E.exit: ; preds = %186
   %404 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %405 = load i64, ptr %404, align 8, !noalias !878
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !878
-  br i1 %trunc.i.i, label %.invoke580, label %407
+  br i1 %trunc.i.i, label %.invoke643, label %407
 
-.invoke580:                                       ; preds = %.noexc301, %.noexc299
+.invoke643:                                       ; preds = %.noexc301, %.noexc299
   %406 = phi ptr [ @anon.f2bcb44791aae7f90fa73c9f520a41d7.81, %.noexc299 ], [ @anon.f2bcb44791aae7f90fa73c9f520a41d7.82, %.noexc301 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %406) #16
-          to label %.cont581 unwind label %300
+          to label %.cont644 unwind label %300
 
-.cont581:                                         ; preds = %.invoke580
+.cont644:                                         ; preds = %.invoke643
   unreachable
 
 407:                                              ; preds = %.noexc301
@@ -4483,11 +4483,11 @@ _ZN8uu_shred11BytesWriter14from_pass_type17hf621a172995e6c4fE.exit.i: ; preds = 
   %716 = load i64, ptr %344, align 8, !alias.scope !1154, !noalias !1143, !noundef !5
   %717 = add i64 %716, 65536
   %718 = icmp ugt i64 %716, -65537
-  br i1 %718, label %.invoke584, label %719
+  br i1 %718, label %.invoke647, label %719
 
 719:                                              ; preds = %715
   %720 = icmp ugt i64 %717, 65538
-  br i1 %720, label %.invoke582, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41a3cd97af7d8723E.exit.i.i"
+  br i1 %720, label %.invoke645, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41a3cd97af7d8723E.exit.i.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41a3cd97af7d8723E.exit.i.i": ; preds = %719
   %721 = getelementptr inbounds i8, ptr %345, i64 %716
@@ -4523,27 +4523,27 @@ _ZN8uu_shred11BytesWriter14bytes_for_pass17h322a3d0f013a4507E.exit.i: ; preds = 
   %731 = load i64, ptr %344, align 8, !alias.scope !1157, !noalias !1143, !noundef !5
   %732 = add i64 %731, %spec.select.i
   %733 = icmp ugt i64 %731, %732
-  br i1 %733, label %.invoke584, label %734
+  br i1 %733, label %.invoke647, label %734
 
 734:                                              ; preds = %730
   %735 = icmp ugt i64 %732, 65538
-  br i1 %735, label %.invoke582, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41a3cd97af7d8723E.exit.i43.i"
+  br i1 %735, label %.invoke645, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41a3cd97af7d8723E.exit.i43.i"
 
-.invoke584:                                       ; preds = %730, %715
+.invoke647:                                       ; preds = %730, %715
   %736 = phi i64 [ %716, %715 ], [ %731, %730 ]
   %737 = phi i64 [ %717, %715 ], [ %732, %730 ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h2e9882225a126cdcE(i64 noundef %736, i64 noundef %737, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f2bcb44791aae7f90fa73c9f520a41d7.30) #16
-          to label %.cont585 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont648 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont585:                                         ; preds = %.invoke584
+.cont648:                                         ; preds = %.invoke647
   unreachable
 
-.invoke582:                                       ; preds = %734, %719
+.invoke645:                                       ; preds = %734, %719
   %738 = phi i64 [ %717, %719 ], [ %732, %734 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %738, i64 noundef 65538, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f2bcb44791aae7f90fa73c9f520a41d7.30) #16
-          to label %.cont583 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont646 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont583:                                         ; preds = %.invoke582
+.cont646:                                         ; preds = %.invoke645
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41a3cd97af7d8723E.exit.i43.i": ; preds = %734

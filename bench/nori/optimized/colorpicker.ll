@@ -108,15 +108,15 @@ define hidden void @_ZN7nanogui11ColorPickerC2EPNS_6WidgetERKNS_5ColorE(ptr noun
 28:                                               ; preds = %.noexc31
   store ptr %17, ptr %6, align 8
   %29 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
-          to label %30 unwind label %.body122
+          to label %30 unwind label %.body134
 
 30:                                               ; preds = %28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef nonnull @.str, ptr noundef nonnull @.str) #18
   store ptr null, ptr %6, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body122
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %.body134
 
-.body122:                                         ; preds = %30, %28
+.body134:                                         ; preds = %30, %28
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
@@ -283,15 +283,15 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
 86:                                               ; preds = %.noexc34
   store ptr %19, ptr %5, align 8
   %87 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %88 unwind label %.body123
+          to label %88 unwind label %.body135
 
 88:                                               ; preds = %86
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %87, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 4)) #18
   store ptr null, ptr %5, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 4)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37 unwind label %.body123
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37 unwind label %.body135
 
-.body123:                                         ; preds = %88, %86
+.body135:                                         ; preds = %88, %86
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -394,15 +394,15 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
 125:                                              ; preds = %.noexc39
   store ptr %21, ptr %4, align 8
   %126 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %127 unwind label %.body126
+          to label %127 unwind label %.body138
 
 127:                                              ; preds = %125
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %126, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 5)) #18
   store ptr null, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 5)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42 unwind label %.body126
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42 unwind label %.body138
 
-.body126:                                         ; preds = %127, %125
+.body138:                                         ; preds = %127, %125
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -639,8 +639,8 @@ _ZNSt8functionIFvvEED2Ev.exit87:                  ; preds = %207, %_ZNSt8functio
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
   br label %.body
 
-.body:                                            ; preds = %212, %.body122, %214
-  %.pn = phi { ptr, i32 } [ %215, %214 ], [ %213, %212 ], [ %31, %.body122 ]
+.body:                                            ; preds = %212, %.body134, %214
+  %.pn = phi { ptr, i32 } [ %215, %214 ], [ %213, %212 ], [ %31, %.body134 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #18
   br label %242
 
@@ -666,8 +666,8 @@ _ZNSt8functionIFvvEED2Ev.exit87:                  ; preds = %207, %_ZNSt8functio
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
   br label %.body35
 
-.body35:                                          ; preds = %220, %.body123, %222
-  %.pn21 = phi { ptr, i32 } [ %223, %222 ], [ %221, %220 ], [ %89, %.body123 ]
+.body35:                                          ; preds = %220, %.body135, %222
+  %.pn21 = phi { ptr, i32 } [ %223, %222 ], [ %221, %220 ], [ %89, %.body135 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #18
   call void @_ZdlPv(ptr noundef nonnull %79) #21
   br label %_ZNSt8functionIFvbEED2Ev.exit89
@@ -683,8 +683,8 @@ _ZNSt8functionIFvvEED2Ev.exit87:                  ; preds = %207, %_ZNSt8functio
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #18
   br label %.body40
 
-.body40:                                          ; preds = %224, %.body126, %226
-  %.pn23 = phi { ptr, i32 } [ %227, %226 ], [ %225, %224 ], [ %128, %.body126 ]
+.body40:                                          ; preds = %224, %.body138, %226
+  %.pn23 = phi { ptr, i32 } [ %227, %226 ], [ %225, %224 ], [ %128, %.body138 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #18
   call void @_ZdlPv(ptr noundef nonnull %118) #21
   br label %_ZNSt8functionIFvbEED2Ev.exit89

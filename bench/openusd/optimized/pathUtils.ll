@@ -296,8 +296,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br label %68
 
 .loopexit.split-lp:                               ; preds = %13, %36, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i, %_ZNSt6vectorImSaImEE9push_backEOm.exit
-  %.sroa.19.1.ph = phi ptr [ %.sroa.9.052, %13 ], [ %.sroa.19.0.lcssa65, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.19.4, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %.sroa.19.0.lcssa65, %36 ]
-  %.sroa.028.1.ph = phi ptr [ %.sroa.028.053, %13 ], [ %.sroa.028.0.lcssa66, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.028.4, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %.sroa.028.0.lcssa66, %36 ]
+  %.sroa.19.1.ph = phi ptr [ %.sroa.9.052, %13 ], [ %.sroa.19.0.lcssa70, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.19.4, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %.sroa.19.0.lcssa70, %36 ]
+  %.sroa.028.1.ph = phi ptr [ %.sroa.028.053, %13 ], [ %.sroa.028.0.lcssa71, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.028.4, %_ZNSt6vectorImSaImEE9push_backEOm.exit ], [ %.sroa.028.0.lcssa71, %36 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %68
@@ -313,10 +313,10 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
 
 30:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %31 = phi i64 [ %6, %._crit_edge.thread ], [ %28, %._crit_edge ]
-  %.sroa.028.0.lcssa66 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.028.3, %._crit_edge ]
-  %.sroa.19.0.lcssa65 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.19.3, %._crit_edge ]
-  %32 = ptrtoint ptr %.sroa.19.0.lcssa65 to i64
-  %33 = ptrtoint ptr %.sroa.028.0.lcssa66 to i64
+  %.sroa.028.0.lcssa71 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.028.3, %._crit_edge ]
+  %.sroa.19.0.lcssa70 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.19.3, %._crit_edge ]
+  %32 = ptrtoint ptr %.sroa.19.0.lcssa70 to i64
+  %33 = ptrtoint ptr %.sroa.028.0.lcssa71 to i64
   %34 = sub i64 %32, %33
   %35 = icmp eq i64 %34, 9223372036854775800
   br i1 %35, label %36, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i
@@ -348,15 +348,15 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %30
   br i1 %45, label %46, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
 
 46:                                               ; preds = %.noexc14
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr align 8 %.sroa.028.0.lcssa66, i64 %34, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr align 8 %.sroa.028.0.lcssa71, i64 %34, i1 false)
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %46, %.noexc14
-  %.not.i17.i.i.i = icmp eq ptr %.sroa.028.0.lcssa66, null
+  %.not.i17.i.i.i = icmp eq ptr %.sroa.028.0.lcssa71, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, label %47
 
 47:                                               ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0.lcssa66, i64 noundef %34) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.028.0.lcssa71, i64 noundef %34) #23
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %47, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
@@ -1015,7 +1015,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %15
 
 _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %13 = add i64 %.01114.i.i.i.i.i, -1
+  %13 = add nsw i64 %.01114.i.i.i.i.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !17

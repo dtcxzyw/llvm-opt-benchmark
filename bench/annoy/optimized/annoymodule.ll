@@ -1758,7 +1758,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIfSaIfEED2Ev.exit26, label %88
 
 88:                                               ; preds = %.thread, %87
-  %.131 = phi ptr [ %52, %.thread ], [ null, %87 ]
+  %.139 = phi ptr [ %52, %.thread ], [ null, %87 ]
   %89 = ptrtoint ptr %30 to i64
   %90 = ptrtoint ptr %31 to i64
   %91 = sub i64 %89, %90
@@ -1766,7 +1766,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit26
 
 _ZNSt6vectorIfSaIfEED2Ev.exit26:                  ; preds = %87, %88
-  %.132 = phi ptr [ null, %87 ], [ %.131, %88 ]
+  %.140 = phi ptr [ null, %87 ], [ %.139, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %97
 
@@ -1791,7 +1791,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit28:                  ; preds = %93, %92
   resume { ptr, i32 } %.pn.pn
 
 97:                                               ; preds = %13, %3, %_ZNSt6vectorIfSaIfEED2Ev.exit26
-  %.0 = phi ptr [ %.132, %_ZNSt6vectorIfSaIfEED2Ev.exit26 ], [ null, %3 ], [ null, %13 ]
+  %.0 = phi ptr [ %.140, %_ZNSt6vectorIfSaIfEED2Ev.exit26 ], [ null, %3 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2054,7 +2054,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(8) %38, i32 noundef %39, ptr noundef nonnull %32, ptr noundef nonnull %7)
-          to label %44 unwind label %.thread24
+          to label %44 unwind label %.thread26
 
 44:                                               ; preds = %37
   br i1 %43, label %51, label %45
@@ -2063,14 +2063,14 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   %46 = load ptr, ptr @PyExc_Exception, align 8, !tbaa !30
   %47 = load ptr, ptr %7, align 8, !tbaa !41
   invoke void @PyErr_SetString(ptr noundef %46, ptr noundef %47)
-          to label %48 unwind label %.thread24
+          to label %48 unwind label %.thread26
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %7, align 8, !tbaa !41
   call void @free(ptr noundef %49) #33
   br label %.thread
 
-.thread24:                                        ; preds = %37, %45
+.thread26:                                        ; preds = %37, %45
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2092,7 +2092,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %55
 
 55:                                               ; preds = %.thread, %54
-  %.11222 = phi ptr [ %.2, %.thread ], [ null, %54 ]
+  %.11224 = phi ptr [ %.2, %.thread ], [ null, %54 ]
   %56 = ptrtoint ptr %31 to i64
   %57 = ptrtoint ptr %32 to i64
   %58 = sub i64 %56, %57
@@ -2100,7 +2100,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %54, %55
-  %.11223 = phi ptr [ null, %54 ], [ %.11222, %55 ]
+  %.11225 = phi ptr [ null, %54 ], [ %.11224, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %65
 
@@ -2110,8 +2110,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %54, %55
   %.not.i.i.i17 = icmp eq ptr %32, null
   br i1 %.not.i.i.i17, label %_ZNSt6vectorIfSaIfEED2Ev.exit18, label %61
 
-61:                                               ; preds = %.thread24, %59
-  %.pn27 = phi { ptr, i32 } [ %50, %.thread24 ], [ %60, %59 ]
+61:                                               ; preds = %.thread26, %59
+  %.pn29 = phi { ptr, i32 } [ %50, %.thread26 ], [ %60, %59 ]
   %62 = ptrtoint ptr %31 to i64
   %63 = ptrtoint ptr %32 to i64
   %64 = sub i64 %62, %63
@@ -2119,14 +2119,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %54, %55
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit18
 
 _ZNSt6vectorIfSaIfEED2Ev.exit18:                  ; preds = %61, %59
-  %.pn28 = phi { ptr, i32 } [ %.pn27, %61 ], [ %60, %59 ]
+  %.pn30 = phi { ptr, i32 } [ %.pn29, %61 ], [ %60, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn28
+  resume { ptr, i32 } %.pn30
 
 65:                                               ; preds = %_Z17check_constraintsP8py_annoyib.exit, %10, %3, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.011 = phi ptr [ %.11223, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ null, %3 ], [ null, %10 ], [ null, %_Z17check_constraintsP8py_annoyib.exit ]
+  %.011 = phi ptr [ %.11225, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ null, %3 ], [ null, %10 ], [ null, %_Z17check_constraintsP8py_annoyib.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.011
@@ -2699,8 +2699,8 @@ _ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
   %shift = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd nnan ninf nsz arcp contract afn <4 x float> %44, %shift
   %45 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %.not41.i = icmp eq i32 %37, 0
-  br i1 %.not41.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i, label %.lr.ph.i.i.i.preheader
+  %.not43.i = icmp eq i32 %37, 0
+  br i1 %.not43.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %39, %._crit_edge.i
   %.135.i.i.i.ph = phi float [ 0.000000e+00, %._crit_edge.i ], [ %45, %39 ]
@@ -3554,9 +3554,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %.lr.ph.i.i, %35, %
   %59 = fadd nnan ninf nsz arcp contract afn <4 x float> %57, %58
   %60 = shufflevector <4 x float> %59, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %61 = fadd nnan ninf nsz arcp contract afn <4 x float> %59, %60
-  %shift51 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop52 = fadd nnan ninf nsz arcp contract afn <4 x float> %61, %shift51
-  %62 = extractelement <4 x float> %foldExtExtBinop52, i64 0
+  %shift54 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop55 = fadd nnan ninf nsz arcp contract afn <4 x float> %61, %shift54
+  %62 = extractelement <4 x float> %foldExtExtBinop55, i64 0
   br label %63
 
 63:                                               ; preds = %56, %47
@@ -3606,9 +3606,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i: ; preds = %.lr.ph.i26.i, %6
   %86 = fadd nnan ninf nsz arcp contract afn <4 x float> %84, %85
   %87 = shufflevector <4 x float> %86, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %88 = fadd nnan ninf nsz arcp contract afn <4 x float> %86, %87
-  %shift54 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop55 = fadd nnan ninf nsz arcp contract afn <4 x float> %88, %shift54
-  %89 = extractelement <4 x float> %foldExtExtBinop55, i64 0
+  %shift57 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop58 = fadd nnan ninf nsz arcp contract afn <4 x float> %88, %shift57
+  %89 = extractelement <4 x float> %foldExtExtBinop58, i64 0
   br label %90
 
 90:                                               ; preds = %83, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i
@@ -3930,8 +3930,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05862 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05862 to i64
+  %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #34
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -3944,7 +3944,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8, !tbaa !134
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count55 = zext nneg i32 %.05862 to i64
+  %wide.trip.count55 = zext nneg i32 %.06872 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -4025,7 +4025,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc18:                                         ; preds = %.lr.ph.split
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = add i32 %1, %38
-  %40 = sdiv i32 %39, %.05862
+  %40 = sdiv i32 %39, %.06872
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_7AngularENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %37, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
@@ -4595,9 +4595,9 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64
   %20 = load i32, ptr %19, align 8, !tbaa !54
   %21 = sext i32 %20 to i64
   %.not = icmp ugt i64 %18, %21
-  br i1 %.not, label %.preheader249, label %22
+  br i1 %.not, label %.preheader292, label %22
 
-.preheader249:                                    ; preds = %22, %17
+.preheader292:                                    ; preds = %22, %17
   br label %73
 
 22:                                               ; preds = %17
@@ -4608,7 +4608,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64
   %or.cond104 = select i1 %not., i1 true, i1 %.not92
   %25 = icmp eq i64 %13, 4
   %or.cond155 = or i1 %25, %or.cond104
-  br i1 %or.cond155, label %26, label %.preheader249
+  br i1 %or.cond155, label %26, label %.preheader292
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -4707,7 +4707,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %72 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   br label %483
 
-73:                                               ; preds = %.preheader249, %73
+73:                                               ; preds = %.preheader292, %73
   %74 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   switch i32 %74, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit105 [
     i32 11, label %73
@@ -5127,8 +5127,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %276 = fcmp nnan ninf nsz arcp contract afn olt double %275, 0x3FEE666666666666
   %277 = add nuw nsw i32 %.088184, 1
   %exitcond.not = icmp eq i32 %277, 3
-  %or.cond227 = select i1 %276, i1 true, i1 %exitcond.not
-  br i1 %or.cond227, label %278, label %141, !llvm.loop !166
+  %or.cond270 = select i1 %276, i1 true, i1 %exitcond.not
+  br i1 %or.cond270, label %278, label %141, !llvm.loop !166
 
 278:                                              ; preds = %._crit_edge183
   %279 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
@@ -5733,9 +5733,9 @@ _ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit.i: ; preds = %.lr.p
   %108 = fadd nnan ninf nsz arcp contract afn <4 x float> %106, %107
   %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %110 = fadd nnan ninf nsz arcp contract afn <4 x float> %108, %109
-  %shift284 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop285 = fadd nnan ninf nsz arcp contract afn <4 x float> %110, %shift284
-  %111 = extractelement <4 x float> %foldExtExtBinop285, i64 0
+  %shift293 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop294 = fadd nnan ninf nsz arcp contract afn <4 x float> %110, %shift293
+  %111 = extractelement <4 x float> %foldExtExtBinop294, i64 0
   br label %112
 
 112:                                              ; preds = %105, %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit.i
@@ -5808,9 +5808,9 @@ _ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit92.i: ; preds = %.lr
   %137 = fadd nnan ninf nsz arcp contract afn <4 x float> %135, %136
   %138 = shufflevector <4 x float> %137, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %139 = fadd nnan ninf nsz arcp contract afn <4 x float> %137, %138
-  %shift287 = shufflevector <4 x float> %139, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop288 = fadd nnan ninf nsz arcp contract afn <4 x float> %139, %shift287
-  %140 = extractelement <4 x float> %foldExtExtBinop288, i64 0
+  %shift296 = shufflevector <4 x float> %139, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop297 = fadd nnan ninf nsz arcp contract afn <4 x float> %139, %shift296
+  %140 = extractelement <4 x float> %foldExtExtBinop297, i64 0
   br label %141
 
 141:                                              ; preds = %134, %_ZN5Annoy4Base9normalizeIfNS_7Angular4NodeIifEEEEvPT0_i.exit92.i
@@ -5856,9 +5856,9 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i: ; preds = %.lr.ph.i
   %159 = fadd nnan ninf nsz arcp contract afn <4 x float> %157, %158
   %160 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %161 = fadd nnan ninf nsz arcp contract afn <4 x float> %159, %160
-  %shift290 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop291 = fadd nnan ninf nsz arcp contract afn <4 x float> %161, %shift290
-  %162 = extractelement <4 x float> %foldExtExtBinop291, i64 0
+  %shift299 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop300 = fadd nnan ninf nsz arcp contract afn <4 x float> %161, %shift299
+  %162 = extractelement <4 x float> %foldExtExtBinop300, i64 0
   br label %163
 
 163:                                              ; preds = %156, %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i
@@ -5949,9 +5949,9 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit106.i: ; preds = %.lr.p
   %211 = fadd nnan ninf nsz arcp contract afn <4 x float> %209, %210
   %212 = shufflevector <4 x float> %211, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %213 = fadd nnan ninf nsz arcp contract afn <4 x float> %211, %212
-  %shift293 = shufflevector <4 x float> %213, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop294 = fadd nnan ninf nsz arcp contract afn <4 x float> %213, %shift293
-  %214 = extractelement <4 x float> %foldExtExtBinop294, i64 0
+  %shift302 = shufflevector <4 x float> %213, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop303 = fadd nnan ninf nsz arcp contract afn <4 x float> %213, %shift302
+  %214 = extractelement <4 x float> %foldExtExtBinop303, i64 0
   br label %215
 
 215:                                              ; preds = %208, %201
@@ -6002,9 +6002,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i.i: ; preds = %.lr.ph.i.i110.i,
   %238 = fadd nnan ninf nsz arcp contract afn <4 x float> %236, %237
   %239 = shufflevector <4 x float> %238, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %240 = fadd nnan ninf nsz arcp contract afn <4 x float> %238, %239
-  %shift296 = shufflevector <4 x float> %240, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop297 = fadd nnan ninf nsz arcp contract afn <4 x float> %240, %shift296
-  %241 = extractelement <4 x float> %foldExtExtBinop297, i64 0
+  %shift305 = shufflevector <4 x float> %240, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop306 = fadd nnan ninf nsz arcp contract afn <4 x float> %240, %shift305
+  %241 = extractelement <4 x float> %foldExtExtBinop306, i64 0
   br label %242
 
 242:                                              ; preds = %235, %227
@@ -6052,9 +6052,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i: ; preds = %.lr.ph.i26.i.i
   %263 = fadd nnan ninf nsz arcp contract afn <4 x float> %261, %262
   %264 = shufflevector <4 x float> %263, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %265 = fadd nnan ninf nsz arcp contract afn <4 x float> %263, %264
-  %shift299 = shufflevector <4 x float> %265, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop300 = fadd nnan ninf nsz arcp contract afn <4 x float> %265, %shift299
-  %266 = extractelement <4 x float> %foldExtExtBinop300, i64 0
+  %shift308 = shufflevector <4 x float> %265, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop309 = fadd nnan ninf nsz arcp contract afn <4 x float> %265, %shift308
+  %266 = extractelement <4 x float> %foldExtExtBinop309, i64 0
   br label %267
 
 267:                                              ; preds = %260, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i.i
@@ -6124,9 +6124,9 @@ _ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit.i: ; preds = %279
   %300 = fadd nnan ninf nsz arcp contract afn <4 x float> %298, %299
   %301 = shufflevector <4 x float> %300, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %302 = fadd nnan ninf nsz arcp contract afn <4 x float> %300, %301
-  %shift302 = shufflevector <4 x float> %302, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop303 = fadd nnan ninf nsz arcp contract afn <4 x float> %302, %shift302
-  %303 = extractelement <4 x float> %foldExtExtBinop303, i64 0
+  %shift311 = shufflevector <4 x float> %302, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop312 = fadd nnan ninf nsz arcp contract afn <4 x float> %302, %shift311
+  %303 = extractelement <4 x float> %foldExtExtBinop312, i64 0
   br label %304
 
 304:                                              ; preds = %297, %290
@@ -6173,9 +6173,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i122.i: ; preds = %.lr.ph.i.i153
   %323 = fadd nnan ninf nsz arcp contract afn <4 x float> %321, %322
   %324 = shufflevector <4 x float> %323, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %325 = fadd nnan ninf nsz arcp contract afn <4 x float> %323, %324
-  %shift305 = shufflevector <4 x float> %325, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop306 = fadd nnan ninf nsz arcp contract afn <4 x float> %325, %shift305
-  %326 = extractelement <4 x float> %foldExtExtBinop306, i64 0
+  %shift314 = shufflevector <4 x float> %325, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop315 = fadd nnan ninf nsz arcp contract afn <4 x float> %325, %shift314
+  %326 = extractelement <4 x float> %foldExtExtBinop315, i64 0
   br label %327
 
 327:                                              ; preds = %320, %313
@@ -6222,9 +6222,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i126.i: ; preds = %.lr.ph.i26.
   %347 = fadd nnan ninf nsz arcp contract afn <4 x float> %345, %346
   %348 = shufflevector <4 x float> %347, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %349 = fadd nnan ninf nsz arcp contract afn <4 x float> %347, %348
-  %shift308 = shufflevector <4 x float> %349, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop309 = fadd nnan ninf nsz arcp contract afn <4 x float> %349, %shift308
-  %350 = extractelement <4 x float> %foldExtExtBinop309, i64 0
+  %shift317 = shufflevector <4 x float> %349, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop318 = fadd nnan ninf nsz arcp contract afn <4 x float> %349, %shift317
+  %350 = extractelement <4 x float> %foldExtExtBinop318, i64 0
   br label %351
 
 351:                                              ; preds = %344, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i126.i
@@ -6289,9 +6289,9 @@ _ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit162.i: ; preds = %
   %381 = fadd nnan ninf nsz arcp contract afn <4 x float> %379, %380
   %382 = shufflevector <4 x float> %381, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %383 = fadd nnan ninf nsz arcp contract afn <4 x float> %381, %382
-  %shift311 = shufflevector <4 x float> %383, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop312 = fadd nnan ninf nsz arcp contract afn <4 x float> %383, %shift311
-  %384 = extractelement <4 x float> %foldExtExtBinop312, i64 0
+  %shift320 = shufflevector <4 x float> %383, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop321 = fadd nnan ninf nsz arcp contract afn <4 x float> %383, %shift320
+  %384 = extractelement <4 x float> %foldExtExtBinop321, i64 0
   br label %385
 
 385:                                              ; preds = %378, %_ZN5Annoy7Angular8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit162.i
@@ -6369,9 +6369,9 @@ _ZN5Annoy4Base11update_meanIfNS_7Angular4NodeIifEEEEvPT0_S6_T_ii.exit.i: ; preds
   %420 = fadd nnan ninf nsz arcp contract afn <4 x float> %418, %419
   %421 = shufflevector <4 x float> %420, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %422 = fadd nnan ninf nsz arcp contract afn <4 x float> %420, %421
-  %shift314 = shufflevector <4 x float> %422, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop315 = fadd nnan ninf nsz arcp contract afn <4 x float> %422, %shift314
-  %423 = extractelement <4 x float> %foldExtExtBinop315, i64 0
+  %shift323 = shufflevector <4 x float> %422, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop324 = fadd nnan ninf nsz arcp contract afn <4 x float> %422, %shift323
+  %423 = extractelement <4 x float> %foldExtExtBinop324, i64 0
   %.not239.i = icmp eq i32 %415, 0
   br i1 %.not239.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit196.i, label %.lr.ph.i.i187.i.preheader
 
@@ -6448,9 +6448,9 @@ _ZN5Annoy4Base11update_meanIfNS_7Angular4NodeIifEEEEvPT0_S6_T_ii.exit202.i: ; pr
   %455 = fadd nnan ninf nsz arcp contract afn <4 x float> %453, %454
   %456 = shufflevector <4 x float> %455, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %457 = fadd nnan ninf nsz arcp contract afn <4 x float> %455, %456
-  %shift317 = shufflevector <4 x float> %457, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop318 = fadd nnan ninf nsz arcp contract afn <4 x float> %457, %shift317
-  %458 = extractelement <4 x float> %foldExtExtBinop318, i64 0
+  %shift326 = shufflevector <4 x float> %457, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop327 = fadd nnan ninf nsz arcp contract afn <4 x float> %457, %shift326
+  %458 = extractelement <4 x float> %foldExtExtBinop327, i64 0
   %.not.i = icmp eq i32 %450, 0
   br i1 %.not.i, label %_ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit217.i, label %.lr.ph.i.i208.i.preheader
 
@@ -6515,9 +6515,9 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_7AngularENS3_4NodeIifEEE
   %478 = fadd nnan ninf nsz arcp contract afn <4 x float> %476, %477
   %479 = shufflevector <4 x float> %478, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %480 = fadd nnan ninf nsz arcp contract afn <4 x float> %478, %479
-  %shift320 = shufflevector <4 x float> %480, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop321 = fadd nnan ninf nsz arcp contract afn <4 x float> %480, %shift320
-  %481 = extractelement <4 x float> %foldExtExtBinop321, i64 0
+  %shift329 = shufflevector <4 x float> %480, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop330 = fadd nnan ninf nsz arcp contract afn <4 x float> %480, %shift329
+  %481 = extractelement <4 x float> %foldExtExtBinop330, i64 0
   %.not = icmp eq i32 %473, 0
   br i1 %.not, label %_ZN5Annoy4Base8get_normIfNS_7Angular4NodeIifEEEET_PT0_i.exit.i21, label %.lr.ph.i.i.i24.preheader
 
@@ -6939,7 +6939,7 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit._crit_edge: ; preds = 
   %68 = load ptr, ptr %8, align 8, !tbaa !178
   %69 = load ptr, ptr %63, align 8, !tbaa !178
   %70 = icmp eq ptr %68, %69
-  br i1 %70, label %.critedge, label %.lr.ph401
+  br i1 %70, label %.critedge, label %.lr.ph446
 
 .lr.ph:                                           ; preds = %56, %71
   %.052277 = phi i64 [ %72, %71 ], [ 0, %56 ]
@@ -6969,9 +6969,9 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit._crit_edge: ; preds = 
   %83 = load ptr, ptr %8, align 8, !tbaa !178
   %84 = load ptr, ptr %63, align 8, !tbaa !178
   %85 = icmp eq ptr %83, %84
-  br i1 %85, label %.critedge, label %.lr.ph401, !llvm.loop !181
+  br i1 %85, label %.critedge, label %.lr.ph446, !llvm.loop !181
 
-.lr.ph401:                                        ; preds = %.lr.ph279, %82
+.lr.ph446:                                        ; preds = %.lr.ph279, %82
   %86 = phi ptr [ %83, %82 ], [ %68, %.lr.ph279 ]
   %87 = load float, ptr %86, align 4, !tbaa !182
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
@@ -6984,7 +6984,7 @@ _ZN5Annoy7Angular9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit._crit_edge: ; preds = 
   invoke void @_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt4lessIS1_EE3popEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
           to label %95 unwind label %.loopexit202
 
-95:                                               ; preds = %.lr.ph401
+95:                                               ; preds = %.lr.ph446
   %96 = load i32, ptr %94, align 4, !tbaa !119
   %97 = icmp eq i32 %96, 1
   %98 = load i32, ptr %65, align 8
@@ -7063,7 +7063,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
           cleanup
   br label %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit153
 
-.loopexit202:                                     ; preds = %.lr.ph401, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+.loopexit202:                                     ; preds = %.lr.ph446, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit204 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit153
@@ -7123,9 +7123,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %156 = fadd nnan ninf nsz arcp contract afn <4 x float> %154, %155
   %157 = shufflevector <4 x float> %156, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %158 = fadd nnan ninf nsz arcp contract afn <4 x float> %156, %157
-  %shift412 = shufflevector <4 x float> %158, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop413 = fadd nnan ninf nsz arcp contract afn <4 x float> %158, %shift412
-  %159 = extractelement <4 x float> %foldExtExtBinop413, i64 0
+  %shift457 = shufflevector <4 x float> %158, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop458 = fadd nnan ninf nsz arcp contract afn <4 x float> %158, %shift457
+  %159 = extractelement <4 x float> %foldExtExtBinop458, i64 0
   br label %160
 
 160:                                              ; preds = %153, %141
@@ -7421,9 +7421,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit: ; pr
   %267 = fadd nnan ninf nsz arcp contract afn <4 x float> %265, %266
   %268 = shufflevector <4 x float> %267, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %269 = fadd nnan ninf nsz arcp contract afn <4 x float> %267, %268
-  %shift415 = shufflevector <4 x float> %269, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop416 = fadd nnan ninf nsz arcp contract afn <4 x float> %269, %shift415
-  %270 = extractelement <4 x float> %foldExtExtBinop416, i64 0
+  %shift460 = shufflevector <4 x float> %269, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop461 = fadd nnan ninf nsz arcp contract afn <4 x float> %269, %shift460
+  %270 = extractelement <4 x float> %foldExtExtBinop461, i64 0
   br label %271
 
 271:                                              ; preds = %264, %256
@@ -7475,9 +7475,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %.lr.ph.i.i116, %27
   %295 = fadd nnan ninf nsz arcp contract afn <4 x float> %293, %294
   %296 = shufflevector <4 x float> %295, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %297 = fadd nnan ninf nsz arcp contract afn <4 x float> %295, %296
-  %shift418 = shufflevector <4 x float> %297, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop419 = fadd nnan ninf nsz arcp contract afn <4 x float> %297, %shift418
-  %298 = extractelement <4 x float> %foldExtExtBinop419, i64 0
+  %shift463 = shufflevector <4 x float> %297, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop464 = fadd nnan ninf nsz arcp contract afn <4 x float> %297, %shift463
+  %298 = extractelement <4 x float> %foldExtExtBinop464, i64 0
   br label %299
 
 299:                                              ; preds = %292, %283
@@ -7526,9 +7526,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i: ; preds = %.lr.ph.i26.i, %2
   %321 = fadd nnan ninf nsz arcp contract afn <4 x float> %319, %320
   %322 = shufflevector <4 x float> %321, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %323 = fadd nnan ninf nsz arcp contract afn <4 x float> %321, %322
-  %shift421 = shufflevector <4 x float> %323, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop422 = fadd nnan ninf nsz arcp contract afn <4 x float> %323, %shift421
-  %324 = extractelement <4 x float> %foldExtExtBinop422, i64 0
+  %shift466 = shufflevector <4 x float> %323, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop467 = fadd nnan ninf nsz arcp contract afn <4 x float> %323, %shift466
+  %324 = extractelement <4 x float> %foldExtExtBinop467, i64 0
   br label %325
 
 325:                                              ; preds = %318, %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit36.i
@@ -8635,7 +8635,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %.split
 
@@ -8672,20 +8672,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i.us
   %37 = load i32, ptr %36, align 4, !tbaa !10
   %38 = icmp slt i32 %37, %21
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
-  %40 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.us
+  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.us
   store i32 %37, ptr %40, align 4, !tbaa !10
   %41 = icmp sgt i64 %.0920.i.i.us, %.08.us
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !208
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
-  %42 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.us
   store i32 %21, ptr %42, align 4, !tbaa !10
   %.not.us = icmp eq i64 %.08.us, 0
   %43 = add nsw i64 %.08.us, -1
@@ -8735,20 +8735,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5_
   %.019.i.i = phi i64 [ %.0920.i.i, %67 ], [ %.1.i, %62 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %64 = getelementptr inbounds i32, ptr %0, i64 %.0920.i.i
+  %64 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !10
   %66 = icmp slt i32 %65, %45
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i
+  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i
   store i32 %65, ptr %68, align 4, !tbaa !10
   %69 = icmp sgt i64 %.0920.i.i, %.08
   br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !208
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i
   store i32 %45, ptr %70, align 4, !tbaa !10
   %.not = icmp eq i64 %.08, 0
   %71 = add nsw i64 %.08, -1
@@ -9093,7 +9093,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %17
   %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -10402,8 +10402,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05862 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05862 to i64
+  %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #34
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -10416,7 +10416,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8, !tbaa !134
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count55 = zext nneg i32 %.05862 to i64
+  %wide.trip.count55 = zext nneg i32 %.06872 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -10497,7 +10497,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc18:                                         ; preds = %.lr.ph.split
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = add i32 %1, %38
-  %40 = sdiv i32 %39, %.05862
+  %40 = sdiv i32 %39, %.06872
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9EuclideanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %37, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
@@ -11019,9 +11019,9 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss
   %20 = load i32, ptr %19, align 8, !tbaa !65
   %21 = sext i32 %20 to i64
   %.not = icmp ugt i64 %18, %21
-  br i1 %.not, label %.preheader248, label %22
+  br i1 %.not, label %.preheader292, label %22
 
-.preheader248:                                    ; preds = %22, %17
+.preheader292:                                    ; preds = %22, %17
   br label %73
 
 22:                                               ; preds = %17
@@ -11032,7 +11032,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss
   %or.cond104 = select i1 %not., i1 true, i1 %.not92
   %25 = icmp eq i64 %13, 4
   %or.cond154 = or i1 %25, %or.cond104
-  br i1 %or.cond154, label %26, label %.preheader248
+  br i1 %or.cond154, label %26, label %.preheader292
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -11131,7 +11131,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %72 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   br label %486
 
-73:                                               ; preds = %.preheader248, %73
+73:                                               ; preds = %.preheader292, %73
   %74 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   switch i32 %74, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit105 [
     i32 11, label %73
@@ -11343,8 +11343,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit109:             ; preds = %_ZNSt6vectorIiSaIiE
   %176 = fcmp nnan ninf nsz arcp contract afn olt double %175, 0x3FEE666666666666
   %177 = add nuw nsw i32 %.088183, 1
   %exitcond.not = icmp eq i32 %177, 3
-  %or.cond226 = select i1 %176, i1 true, i1 %exitcond.not
-  br i1 %or.cond226, label %281, label %142, !llvm.loop !246
+  %or.cond270 = select i1 %176, i1 true, i1 %exitcond.not
+  br i1 %or.cond270, label %281, label %142, !llvm.loop !246
 
 178:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit109
   %179 = landingpad { ptr, i32 }
@@ -12168,9 +12168,9 @@ _ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit.i: ; p
   %140 = fadd nnan ninf nsz arcp contract afn <4 x float> %138, %139
   %141 = shufflevector <4 x float> %140, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %142 = fadd nnan ninf nsz arcp contract afn <4 x float> %140, %141
-  %shift114 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop115 = fadd nnan ninf nsz arcp contract afn <4 x float> %142, %shift114
-  %143 = extractelement <4 x float> %foldExtExtBinop115, i64 0
+  %shift117 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop118 = fadd nnan ninf nsz arcp contract afn <4 x float> %142, %shift117
+  %143 = extractelement <4 x float> %foldExtExtBinop118, i64 0
   br label %144
 
 144:                                              ; preds = %137, %_ZN5Annoy9Euclidean8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit.i
@@ -12289,9 +12289,9 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9EuclideanENS_9Minkowski
   %195 = fadd nnan ninf nsz arcp contract afn <4 x float> %193, %194
   %196 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %197 = fadd nnan ninf nsz arcp contract afn <4 x float> %195, %196
-  %shift117 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop118 = fadd nnan ninf nsz arcp contract afn <4 x float> %197, %shift117
-  %198 = extractelement <4 x float> %foldExtExtBinop118, i64 0
+  %shift120 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop121 = fadd nnan ninf nsz arcp contract afn <4 x float> %197, %shift120
+  %198 = extractelement <4 x float> %foldExtExtBinop121, i64 0
   %.not = icmp eq i32 %190, 0
   br i1 %.not, label %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i, label %.lr.ph.i.i.i31.preheader
 
@@ -12492,7 +12492,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64Rand
   %45 = load ptr, ptr %8, align 8, !tbaa !178
   %46 = load ptr, ptr %40, align 8, !tbaa !178
   %47 = icmp eq ptr %45, %46
-  br i1 %47, label %.critedge, label %.lr.ph328
+  br i1 %47, label %.critedge, label %.lr.ph368
 
 .lr.ph:                                           ; preds = %33, %48
   %.052239 = phi i64 [ %49, %48 ], [ 0, %33 ]
@@ -12522,9 +12522,9 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64Rand
   %60 = load ptr, ptr %8, align 8, !tbaa !178
   %61 = load ptr, ptr %40, align 8, !tbaa !178
   %62 = icmp eq ptr %60, %61
-  br i1 %62, label %.critedge, label %.lr.ph328, !llvm.loop !259
+  br i1 %62, label %.critedge, label %.lr.ph368, !llvm.loop !259
 
-.lr.ph328:                                        ; preds = %.lr.ph241, %59
+.lr.ph368:                                        ; preds = %.lr.ph241, %59
   %63 = phi ptr [ %60, %59 ], [ %45, %.lr.ph241 ]
   %64 = load float, ptr %63, align 4, !tbaa !182
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -12537,7 +12537,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIifNS_9EuclideanENS_12Kiss64Rand
   invoke void @_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt4lessIS1_EE3popEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
           to label %72 unwind label %.loopexit176
 
-72:                                               ; preds = %.lr.ph328
+72:                                               ; preds = %.lr.ph368
   %73 = load i32, ptr %71, align 4, !tbaa !222
   %74 = icmp eq i32 %73, 1
   %75 = load i32, ptr %42, align 8
@@ -12611,7 +12611,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %101, ptr %44, align 8, !tbaa !101
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-.loopexit176:                                     ; preds = %.lr.ph328, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+.loopexit176:                                     ; preds = %.lr.ph368, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit178 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit126
@@ -12977,9 +12977,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit: ; pr
   %248 = fadd nnan ninf nsz arcp contract afn <4 x float> %246, %247
   %249 = shufflevector <4 x float> %248, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %250 = fadd nnan ninf nsz arcp contract afn <4 x float> %248, %249
-  %shift339 = shufflevector <4 x float> %250, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop340 = fadd nnan ninf nsz arcp contract afn <4 x float> %250, %shift339
-  %251 = extractelement <4 x float> %foldExtExtBinop340, i64 0
+  %shift379 = shufflevector <4 x float> %250, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop380 = fadd nnan ninf nsz arcp contract afn <4 x float> %250, %shift379
+  %251 = extractelement <4 x float> %foldExtExtBinop380, i64 0
   br label %252
 
 252:                                              ; preds = %245, %232
@@ -14583,8 +14583,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05862 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05862 to i64
+  %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #34
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -14597,7 +14597,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8, !tbaa !134
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count55 = zext nneg i32 %.05862 to i64
+  %wide.trip.count55 = zext nneg i32 %.06872 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -14678,7 +14678,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc18:                                         ; preds = %.lr.ph.split
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = add i32 %1, %38
-  %40 = sdiv i32 %39, %.05862
+  %40 = sdiv i32 %39, %.06872
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_9ManhattanENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %37, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
@@ -15200,9 +15200,9 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss
   %20 = load i32, ptr %19, align 8, !tbaa !76
   %21 = sext i32 %20 to i64
   %.not = icmp ugt i64 %18, %21
-  br i1 %.not, label %.preheader246, label %22
+  br i1 %.not, label %.preheader290, label %22
 
-.preheader246:                                    ; preds = %22, %17
+.preheader290:                                    ; preds = %22, %17
   br label %73
 
 22:                                               ; preds = %17
@@ -15213,7 +15213,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss
   %or.cond102 = select i1 %not., i1 true, i1 %.not91
   %25 = icmp eq i64 %13, 4
   %or.cond152 = or i1 %25, %or.cond102
-  br i1 %or.cond152, label %26, label %.preheader246
+  br i1 %or.cond152, label %26, label %.preheader290
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -15312,7 +15312,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %72 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   br label %485
 
-73:                                               ; preds = %.preheader246, %73
+73:                                               ; preds = %.preheader290, %73
   %74 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   switch i32 %74, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit103 [
     i32 11, label %73
@@ -15524,8 +15524,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit107:             ; preds = %_ZNSt6vectorIiSaIiE
   %176 = fcmp nnan ninf nsz arcp contract afn olt double %175, 0x3FEE666666666666
   %177 = add nuw nsw i32 %.087181, 1
   %exitcond.not = icmp eq i32 %177, 3
-  %or.cond224 = select i1 %176, i1 true, i1 %exitcond.not
-  br i1 %or.cond224, label %281, label %142, !llvm.loop !284
+  %or.cond268 = select i1 %176, i1 true, i1 %exitcond.not
+  br i1 %or.cond268, label %281, label %142, !llvm.loop !284
 
 178:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit107
   %179 = landingpad { ptr, i32 }
@@ -16349,9 +16349,9 @@ _ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit.i: ; p
   %140 = fadd nnan ninf nsz arcp contract afn <4 x float> %138, %139
   %141 = shufflevector <4 x float> %140, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %142 = fadd nnan ninf nsz arcp contract afn <4 x float> %140, %141
-  %shift115 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop116 = fadd nnan ninf nsz arcp contract afn <4 x float> %142, %shift115
-  %143 = extractelement <4 x float> %foldExtExtBinop116, i64 0
+  %shift118 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop119 = fadd nnan ninf nsz arcp contract afn <4 x float> %142, %shift118
+  %143 = extractelement <4 x float> %foldExtExtBinop119, i64 0
   br label %144
 
 144:                                              ; preds = %137, %_ZN5Annoy9Manhattan8distanceIifEET0_PKNS_9Minkowski4NodeIT_S2_EES8_i.exit.i
@@ -16470,9 +16470,9 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_9ManhattanENS_9Minkowski
   %195 = fadd nnan ninf nsz arcp contract afn <4 x float> %193, %194
   %196 = shufflevector <4 x float> %195, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %197 = fadd nnan ninf nsz arcp contract afn <4 x float> %195, %196
-  %shift118 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop119 = fadd nnan ninf nsz arcp contract afn <4 x float> %197, %shift118
-  %198 = extractelement <4 x float> %foldExtExtBinop119, i64 0
+  %shift121 = shufflevector <4 x float> %197, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop122 = fadd nnan ninf nsz arcp contract afn <4 x float> %197, %shift121
+  %198 = extractelement <4 x float> %foldExtExtBinop122, i64 0
   %.not = icmp eq i32 %190, 0
   br i1 %.not, label %_ZN5Annoy4Base8get_normIfNS_9Minkowski4NodeIifEEEET_PT0_i.exit.i, label %.lr.ph.i.i.i32.preheader
 
@@ -16676,7 +16676,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64Rand
   %45 = load ptr, ptr %8, align 8, !tbaa !178
   %46 = load ptr, ptr %40, align 8, !tbaa !178
   %47 = icmp eq ptr %45, %46
-  br i1 %47, label %.critedge, label %.lr.ph327
+  br i1 %47, label %.critedge, label %.lr.ph367
 
 .lr.ph:                                           ; preds = %33, %48
   %.052238 = phi i64 [ %49, %48 ], [ 0, %33 ]
@@ -16706,9 +16706,9 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64Rand
   %60 = load ptr, ptr %8, align 8, !tbaa !178
   %61 = load ptr, ptr %40, align 8, !tbaa !178
   %62 = icmp eq ptr %60, %61
-  br i1 %62, label %.critedge, label %.lr.ph327, !llvm.loop !294
+  br i1 %62, label %.critedge, label %.lr.ph367, !llvm.loop !294
 
-.lr.ph327:                                        ; preds = %.lr.ph240, %59
+.lr.ph367:                                        ; preds = %.lr.ph240, %59
   %63 = phi ptr [ %60, %59 ], [ %45, %.lr.ph240 ]
   %64 = load float, ptr %63, align 4, !tbaa !182
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -16721,7 +16721,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIifNS_9ManhattanENS_12Kiss64Rand
   invoke void @_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt4lessIS1_EE3popEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
           to label %72 unwind label %.loopexit175
 
-72:                                               ; preds = %.lr.ph327
+72:                                               ; preds = %.lr.ph367
   %73 = load i32, ptr %71, align 4, !tbaa !222
   %74 = icmp eq i32 %73, 1
   %75 = load i32, ptr %42, align 8
@@ -16795,7 +16795,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %101, ptr %44, align 8, !tbaa !101
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-.loopexit175:                                     ; preds = %.lr.ph327, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+.loopexit175:                                     ; preds = %.lr.ph367, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit177 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit125
@@ -17161,9 +17161,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit: ; pr
   %248 = fadd nnan ninf nsz arcp contract afn <4 x float> %246, %247
   %249 = shufflevector <4 x float> %248, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %250 = fadd nnan ninf nsz arcp contract afn <4 x float> %248, %249
-  %shift338 = shufflevector <4 x float> %250, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop339 = fadd nnan ninf nsz arcp contract afn <4 x float> %250, %shift338
-  %251 = extractelement <4 x float> %foldExtExtBinop339, i64 0
+  %shift378 = shufflevector <4 x float> %250, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop379 = fadd nnan ninf nsz arcp contract afn <4 x float> %250, %shift378
+  %251 = extractelement <4 x float> %foldExtExtBinop379, i64 0
   br label %252
 
 252:                                              ; preds = %245, %232
@@ -17709,8 +17709,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   br i1 %exitcond.not.i, label %.critedge.i, label %21, !llvm.loop !303
 
 _ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.011.022 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %10, %.critedge.i ]
-  %.sroa.11.021 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %12, %.critedge.i ]
+  %.sroa.011.026 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %10, %.critedge.i ]
+  %.sroa.11.025 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %12, %.critedge.i ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load i8, ptr %33, align 8, !tbaa !93, !range !98, !noundef !99
@@ -17771,7 +17771,7 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
 
 62:                                               ; preds = %62, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %.sroa.011.022, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw i64, ptr %.sroa.011.026, i64 %indvars.iv.i.i
   %64 = load i64, ptr %63, align 8, !tbaa !146
   %65 = getelementptr inbounds nuw [65536 x i64], ptr %59, i64 0, i64 %indvars.iv.i.i
   store i64 %64, ptr %65, align 8, !tbaa !146
@@ -17784,13 +17784,13 @@ _ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThread
   br label %67
 
 67:                                               ; preds = %66, %._crit_edge.i.i, %39, %36
-  %.not.i.i.i8 = icmp eq ptr %.sroa.011.022, null
+  %.not.i.i.i8 = icmp eq ptr %.sroa.011.026, null
   br i1 %.not.i.i.i8, label %_ZNSt6vectorImSaImEED2Ev.exit, label %68
 
 68:                                               ; preds = %67
-  %69 = ptrtoint ptr %.sroa.011.022 to i64
-  %70 = sub i64 %.sroa.11.021, %69
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.011.022, i64 noundef %70) #36
+  %69 = ptrtoint ptr %.sroa.011.026 to i64
+  %70 = sub i64 %.sroa.11.025, %69
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.011.026, i64 noundef %70) #36
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %67, %68
@@ -18073,8 +18073,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   br i1 %exitcond.not.i, label %.critedge.i, label %24, !llvm.loop !303
 
 _ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.034.048 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %13, %.critedge.i ]
-  %.sroa.12.046 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %15, %.critedge.i ]
+  %.sroa.034.052 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %13, %.critedge.i ]
+  %.sroa.12.050 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %15, %.critedge.i ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %61, label %35
 
@@ -18082,7 +18082,7 @@ _ZNK14HammingWrapper5_packEPKfPm.exit:            ; preds = %.critedge.i, %_ZNSt
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12_get_all_nnsEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(98) %36, ptr noundef nonnull %.sroa.034.048, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %7)
+  invoke void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12_get_all_nnsEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(98) %36, ptr noundef nonnull %.sroa.034.052, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %7)
           to label %_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17get_nns_by_vectorEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE.exit unwind label %49
 
 _ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE17get_nns_by_vectorEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE.exit: ; preds = %35
@@ -18142,7 +18142,7 @@ _ZNSt6vectorImSaImEED2Ev.exit25:                  ; preds = %53, %55
 
 61:                                               ; preds = %_ZNK14HammingWrapper5_packEPKfPm.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12_get_all_nnsEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(98) %62, ptr noundef nonnull %.sroa.034.048, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null)
+  invoke void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE12_get_all_nnsEPKmmiPSt6vectorIiSaIiEEPS7_ImSaImEE(ptr noundef nonnull align 8 dereferenceable(98) %62, ptr noundef nonnull %.sroa.034.052, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef null)
           to label %_ZNSt6vectorImSaImEED2Ev.exit29 unwind label %63
 
 63:                                               ; preds = %61
@@ -18151,16 +18151,16 @@ _ZNSt6vectorImSaImEED2Ev.exit25:                  ; preds = %53, %55
   br label %_ZNSt6vectorImSaImEED2Ev.exit31
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %61, %_ZNSt6vectorImSaImEED2Ev.exit
-  %65 = ptrtoint ptr %.sroa.034.048 to i64
-  %66 = sub i64 %.sroa.12.046, %65
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.048, i64 noundef %66) #36
+  %65 = ptrtoint ptr %.sroa.034.052 to i64
+  %66 = sub i64 %.sroa.12.050, %65
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.052, i64 noundef %66) #36
   ret void
 
 _ZNSt6vectorImSaImEED2Ev.exit31:                  ; preds = %63, %_ZNSt6vectorImSaImEED2Ev.exit25
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorImSaImEED2Ev.exit25 ], [ %64, %63 ]
-  %67 = ptrtoint ptr %.sroa.034.048 to i64
-  %68 = sub i64 %.sroa.12.046, %67
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.048, i64 noundef %68) #36
+  %67 = ptrtoint ptr %.sroa.034.052 to i64
+  %68 = sub i64 %.sroa.12.050, %67
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.034.052, i64 noundef %68) #36
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -19422,8 +19422,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05862 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05862 to i64
+  %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #34
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -19436,7 +19436,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8, !tbaa !134
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count55 = zext nneg i32 %.05862 to i64
+  %wide.trip.count55 = zext nneg i32 %.06872 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -19517,7 +19517,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc18:                                         ; preds = %.lr.ph.split
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = add i32 %1, %38
-  %40 = sdiv i32 %39, %.05862
+  %40 = sdiv i32 %39, %.06872
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIimNS3_7HammingENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %37, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
@@ -20039,9 +20039,9 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64
   %20 = load i32, ptr %19, align 8, !tbaa !91
   %21 = sext i32 %20 to i64
   %.not = icmp ugt i64 %18, %21
-  br i1 %.not, label %.preheader223, label %22
+  br i1 %.not, label %.preheader264, label %22
 
-.preheader223:                                    ; preds = %22, %17
+.preheader264:                                    ; preds = %22, %17
   br label %73
 
 22:                                               ; preds = %17
@@ -20052,7 +20052,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64
   %or.cond104 = select i1 %not., i1 true, i1 %.not92
   %25 = icmp eq i64 %13, 4
   %or.cond154 = or i1 %25, %or.cond104
-  br i1 %or.cond154, label %26, label %.preheader223
+  br i1 %or.cond154, label %26, label %.preheader264
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -20151,7 +20151,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %72 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   br label %437
 
-73:                                               ; preds = %.preheader223, %73
+73:                                               ; preds = %.preheader264, %73
   %74 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   switch i32 %74, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit105 [
     i32 11, label %73
@@ -20359,8 +20359,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit109:             ; preds = %_ZNSt6vectorIiSaIiE
   %172 = fcmp nnan ninf nsz arcp contract afn olt double %171, 0x3FEE666666666666
   %173 = add nuw nsw i32 %.088179, 1
   %exitcond.not = icmp eq i32 %173, 3
-  %or.cond212 = select i1 %172, i1 true, i1 %exitcond.not
-  br i1 %or.cond212, label %229, label %138, !llvm.loop !336
+  %or.cond253 = select i1 %172, i1 true, i1 %exitcond.not
+  br i1 %or.cond253, label %229, label %138, !llvm.loop !336
 
 174:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit109
   %175 = landingpad { ptr, i32 }
@@ -21189,7 +21189,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64Random
   %44 = load ptr, ptr %7, align 8, !tbaa !347
   %45 = load ptr, ptr %39, align 8, !tbaa !347
   %46 = icmp eq ptr %44, %45
-  br i1 %46, label %.critedge, label %.lr.ph297
+  br i1 %46, label %.critedge, label %.lr.ph336
 
 47:                                               ; preds = %.lr.ph, %51
   %48 = phi ptr [ %33, %.lr.ph ], [ %54, %51 ]
@@ -21224,9 +21224,9 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64Random
   %63 = load ptr, ptr %7, align 8, !tbaa !347
   %64 = load ptr, ptr %39, align 8, !tbaa !347
   %65 = icmp eq ptr %63, %64
-  br i1 %65, label %.critedge, label %.lr.ph297, !llvm.loop !350
+  br i1 %65, label %.critedge, label %.lr.ph336, !llvm.loop !350
 
-.lr.ph297:                                        ; preds = %.lr.ph239, %62
+.lr.ph336:                                        ; preds = %.lr.ph239, %62
   %66 = phi ptr [ %64, %62 ], [ %45, %.lr.ph239 ]
   %67 = phi ptr [ %63, %62 ], [ %44, %.lr.ph239 ]
   %68 = load i64, ptr %67, align 8, !tbaa !351
@@ -21243,7 +21243,7 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64Random
   %79 = icmp sgt i64 %78, 16
   br i1 %79, label %80, label %85
 
-80:                                               ; preds = %.lr.ph297
+80:                                               ; preds = %.lr.ph336
   %81 = getelementptr inbounds i8, ptr %66, i64 -16
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %81, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %66, i64 -8
@@ -21260,8 +21260,8 @@ define linkonce_odr void @_ZNK5Annoy10AnnoyIndexIimNS_7HammingENS_12Kiss64Random
   %.pre.i = load ptr, ptr %39, align 8, !tbaa !354
   br label %85
 
-85:                                               ; preds = %.noexc, %.lr.ph297
-  %86 = phi ptr [ %66, %.lr.ph297 ], [ %.pre.i, %.noexc ]
+85:                                               ; preds = %.noexc, %.lr.ph336
+  %86 = phi ptr [ %66, %.lr.ph336 ], [ %.pre.i, %.noexc ]
   %87 = getelementptr inbounds i8, ptr %86, i64 -16
   store ptr %87, ptr %39, align 8, !tbaa !354
   %88 = load i32, ptr %75, align 8, !tbaa !306
@@ -22803,9 +22803,9 @@ _ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiTh
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !103
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph.i, label %.thread34.i
+  br i1 %31, label %.lr.ph.i, label %.thread36.i
 
-.thread34.i:                                      ; preds = %_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i
+.thread36.i:                                      ; preds = %_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEE14_allocate_sizeEi.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i8 0, ptr %32, align 4, !tbaa !383
   br label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i
@@ -22842,8 +22842,8 @@ _ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiTh
   %shift = shufflevector <4 x float> %47, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd nnan ninf nsz arcp contract afn <4 x float> %47, %shift
   %48 = extractelement <4 x float> %foldExtExtBinop, i64 0
-  %.not41.i = icmp eq i32 %40, 0
-  br i1 %.not41.i, label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i, label %.lr.ph.i.i.i.preheader
+  %.not43.i = icmp eq i32 %40, 0
+  br i1 %.not43.i, label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %42, %._crit_edge.i
   %.135.i.i.i.ph = phi float [ 0.000000e+00, %._crit_edge.i ], [ %48, %42 ]
@@ -22863,8 +22863,8 @@ _ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiTh
   %54 = icmp samesign ugt i32 %.234.i.i.i, 1
   br i1 %54, label %.lr.ph.i.i.i, label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i, !llvm.loop !122
 
-_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i: ; preds = %.lr.ph.i.i.i, %42, %.thread34.i
-  %.1.lcssa.i.i.i = phi float [ %48, %42 ], [ 0.000000e+00, %.thread34.i ], [ %51, %.lr.ph.i.i.i ]
+_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i: ; preds = %.lr.ph.i.i.i, %42, %.thread36.i
+  %.1.lcssa.i.i.i = phi float [ %48, %42 ], [ 0.000000e+00, %.thread36.i ], [ %51, %.lr.ph.i.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store float %.1.lcssa.i.i.i, ptr %55, align 4, !tbaa !384
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24069,8 +24069,8 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
-  %.05862 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
-  %12 = zext nneg i32 %.05862 to i64
+  %.06872 = phi i32 [ %.sroa.speculated, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread ], [ %2, %_ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i ]
+  %12 = zext nneg i32 %.06872 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #34
   store ptr %14, ptr %6, align 8, !tbaa !128
@@ -24083,7 +24083,7 @@ _ZNSt6vectorISt6threadSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %10
   store ptr %scevgep.i.i.i.i.i, ptr %16, align 8, !tbaa !134
   %18 = icmp eq i32 %1, -1
   %19 = ptrtoint ptr %5 to i64
-  %wide.trip.count55 = zext nneg i32 %.05862 to i64
+  %wide.trip.count55 = zext nneg i32 %.06872 to i64
   br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6threadD2Ev.exit.us
@@ -24164,7 +24164,7 @@ _ZNSt6threadD2Ev.exit.us:                         ; preds = %32
 .noexc18:                                         ; preds = %.lr.ph.split
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = add i32 %1, %38
-  %40 = sdiv i32 %39, %.05862
+  %40 = sdiv i32 %39, %.06872
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN5Annoy10AnnoyIndexIifNS3_10DotProductENS3_12Kiss64RandomENS3_34AnnoyIndexMultiThreadedBuildPolicyEEEFviiRS7_EPS8_iiSt17reference_wrapperIS7_EEEEEEE, i64 16), ptr %37, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %19, ptr %41, align 8
@@ -24686,9 +24686,9 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Ki
   %20 = load i32, ptr %19, align 8, !tbaa !108
   %21 = sext i32 %20 to i64
   %.not = icmp ugt i64 %18, %21
-  br i1 %.not, label %.preheader248, label %22
+  br i1 %.not, label %.preheader291, label %22
 
-.preheader248:                                    ; preds = %22, %17
+.preheader291:                                    ; preds = %22, %17
   br label %73
 
 22:                                               ; preds = %17
@@ -24699,7 +24699,7 @@ define linkonce_odr noundef i32 @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Ki
   %or.cond104 = select i1 %not., i1 true, i1 %.not92
   %25 = icmp eq i64 %13, 4
   %or.cond154 = or i1 %25, %or.cond104
-  br i1 %or.cond154, label %26, label %.preheader248
+  br i1 %or.cond154, label %26, label %.preheader291
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -24798,7 +24798,7 @@ _ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit: ; preds
   %72 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   br label %489
 
-73:                                               ; preds = %.preheader248, %73
+73:                                               ; preds = %.preheader291, %73
   %74 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(136) %4) #33
   switch i32 %74, label %_ZN5Annoy34AnnoyIndexMultiThreadedBuildPolicy17lock_shared_nodesEv.exit105 [
     i32 11, label %73
@@ -25010,8 +25010,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit109:             ; preds = %_ZNSt6vectorIiSaIiE
   %176 = fcmp nnan ninf nsz arcp contract afn olt double %175, 0x3FEE666666666666
   %177 = add nuw nsw i32 %.088183, 1
   %exitcond.not = icmp eq i32 %177, 3
-  %or.cond226 = select i1 %176, i1 true, i1 %exitcond.not
-  br i1 %or.cond226, label %284, label %142, !llvm.loop !409
+  %or.cond269 = select i1 %176, i1 true, i1 %exitcond.not
+  br i1 %or.cond269, label %284, label %142, !llvm.loop !409
 
 178:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit109
   %179 = landingpad { ptr, i32 }
@@ -25828,9 +25828,9 @@ _ZN5Annoy10DotProduct9normalizeIfNS0_4NodeIifEEEEvPT0_i.exit.i: ; preds = %._cri
   %121 = fadd nnan ninf nsz arcp contract afn <4 x float> %119, %120
   %122 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %123 = fadd nnan ninf nsz arcp contract afn <4 x float> %121, %122
-  %shift416 = shufflevector <4 x float> %123, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop417 = fadd nnan ninf nsz arcp contract afn <4 x float> %123, %shift416
-  %124 = extractelement <4 x float> %foldExtExtBinop417, i64 0
+  %shift425 = shufflevector <4 x float> %123, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop426 = fadd nnan ninf nsz arcp contract afn <4 x float> %123, %shift425
+  %124 = extractelement <4 x float> %foldExtExtBinop426, i64 0
   br label %125
 
 125:                                              ; preds = %118, %_ZN5Annoy10DotProduct9normalizeIfNS0_4NodeIifEEEEvPT0_i.exit.i
@@ -25911,9 +25911,9 @@ _ZN5Annoy10DotProduct9normalizeIfNS0_4NodeIifEEEEvPT0_i.exit94.i: ; preds = %._c
   %157 = fadd nnan ninf nsz arcp contract afn <4 x float> %155, %156
   %158 = shufflevector <4 x float> %157, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %159 = fadd nnan ninf nsz arcp contract afn <4 x float> %157, %158
-  %shift419 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop420 = fadd nnan ninf nsz arcp contract afn <4 x float> %159, %shift419
-  %160 = extractelement <4 x float> %foldExtExtBinop420, i64 0
+  %shift428 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop429 = fadd nnan ninf nsz arcp contract afn <4 x float> %159, %shift428
+  %160 = extractelement <4 x float> %foldExtExtBinop429, i64 0
   br label %161
 
 161:                                              ; preds = %154, %_ZN5Annoy10DotProduct9normalizeIfNS0_4NodeIifEEEEvPT0_i.exit94.i
@@ -25963,9 +25963,9 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i: ; preds = %.lr.
   %182 = fadd nnan ninf nsz arcp contract afn <4 x float> %180, %181
   %183 = shufflevector <4 x float> %182, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %184 = fadd nnan ninf nsz arcp contract afn <4 x float> %182, %183
-  %shift422 = shufflevector <4 x float> %184, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop423 = fadd nnan ninf nsz arcp contract afn <4 x float> %184, %shift422
-  %185 = extractelement <4 x float> %foldExtExtBinop423, i64 0
+  %shift431 = shufflevector <4 x float> %184, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop432 = fadd nnan ninf nsz arcp contract afn <4 x float> %184, %shift431
+  %185 = extractelement <4 x float> %foldExtExtBinop432, i64 0
   br label %186
 
 186:                                              ; preds = %179, %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit.i
@@ -26066,9 +26066,9 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit123.i: ; preds = %.
   %246 = fadd nnan ninf nsz arcp contract afn <4 x float> %244, %245
   %247 = shufflevector <4 x float> %246, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %248 = fadd nnan ninf nsz arcp contract afn <4 x float> %246, %247
-  %shift425 = shufflevector <4 x float> %248, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop426 = fadd nnan ninf nsz arcp contract afn <4 x float> %248, %shift425
-  %249 = extractelement <4 x float> %foldExtExtBinop426, i64 0
+  %shift434 = shufflevector <4 x float> %248, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop435 = fadd nnan ninf nsz arcp contract afn <4 x float> %248, %shift434
+  %249 = extractelement <4 x float> %foldExtExtBinop435, i64 0
   br label %250
 
 250:                                              ; preds = %243, %233
@@ -26124,9 +26124,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i89: ; preds = %.lr.ph.i.i91, %2
   %273 = fadd nnan ninf nsz arcp contract afn <4 x float> %271, %272
   %274 = shufflevector <4 x float> %273, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %275 = fadd nnan ninf nsz arcp contract afn <4 x float> %273, %274
-  %shift428 = shufflevector <4 x float> %275, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop429 = fadd nnan ninf nsz arcp contract afn <4 x float> %275, %shift428
-  %276 = extractelement <4 x float> %foldExtExtBinop429, i64 0
+  %shift437 = shufflevector <4 x float> %275, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop438 = fadd nnan ninf nsz arcp contract afn <4 x float> %275, %shift437
+  %276 = extractelement <4 x float> %foldExtExtBinop438, i64 0
   br label %277
 
 277:                                              ; preds = %270, %263
@@ -26183,9 +26183,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit47.i43: ; preds = %.lr.ph.i37.i76
   %303 = fadd nnan ninf nsz arcp contract afn <4 x float> %301, %302
   %304 = shufflevector <4 x float> %303, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %305 = fadd nnan ninf nsz arcp contract afn <4 x float> %303, %304
-  %shift431 = shufflevector <4 x float> %305, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop432 = fadd nnan ninf nsz arcp contract afn <4 x float> %305, %shift431
-  %306 = extractelement <4 x float> %foldExtExtBinop432, i64 0
+  %shift440 = shufflevector <4 x float> %305, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop441 = fadd nnan ninf nsz arcp contract afn <4 x float> %305, %shift440
+  %306 = extractelement <4 x float> %foldExtExtBinop441, i64 0
   br label %307
 
 307:                                              ; preds = %300, %292
@@ -26241,9 +26241,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit63.i48: ; preds = %.lr.ph.i53.i67
   %333 = fadd nnan ninf nsz arcp contract afn <4 x float> %331, %332
   %334 = shufflevector <4 x float> %333, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %335 = fadd nnan ninf nsz arcp contract afn <4 x float> %333, %334
-  %shift434 = shufflevector <4 x float> %335, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop435 = fadd nnan ninf nsz arcp contract afn <4 x float> %335, %shift434
-  %336 = extractelement <4 x float> %foldExtExtBinop435, i64 0
+  %shift443 = shufflevector <4 x float> %335, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop444 = fadd nnan ninf nsz arcp contract afn <4 x float> %335, %shift443
+  %336 = extractelement <4 x float> %foldExtExtBinop444, i64 0
   br label %337
 
 337:                                              ; preds = %330, %319
@@ -26324,9 +26324,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit79.i54: ; preds = %.lr.ph.i69.i57
   %381 = fadd nnan ninf nsz arcp contract afn <4 x float> %379, %380
   %382 = shufflevector <4 x float> %381, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %383 = fadd nnan ninf nsz arcp contract afn <4 x float> %381, %382
-  %shift437 = shufflevector <4 x float> %383, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop438 = fadd nnan ninf nsz arcp contract afn <4 x float> %383, %shift437
-  %384 = extractelement <4 x float> %foldExtExtBinop438, i64 0
+  %shift446 = shufflevector <4 x float> %383, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop447 = fadd nnan ninf nsz arcp contract afn <4 x float> %383, %shift446
+  %384 = extractelement <4 x float> %foldExtExtBinop447, i64 0
   br label %385
 
 385:                                              ; preds = %378, %368
@@ -26382,9 +26382,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i29: ; preds = %.lr.ph.i.i31, %3
   %408 = fadd nnan ninf nsz arcp contract afn <4 x float> %406, %407
   %409 = shufflevector <4 x float> %408, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %410 = fadd nnan ninf nsz arcp contract afn <4 x float> %408, %409
-  %shift440 = shufflevector <4 x float> %410, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop441 = fadd nnan ninf nsz arcp contract afn <4 x float> %410, %shift440
-  %411 = extractelement <4 x float> %foldExtExtBinop441, i64 0
+  %shift449 = shufflevector <4 x float> %410, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop450 = fadd nnan ninf nsz arcp contract afn <4 x float> %410, %shift449
+  %411 = extractelement <4 x float> %foldExtExtBinop450, i64 0
   br label %412
 
 412:                                              ; preds = %405, %398
@@ -26441,9 +26441,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit47.i: ; preds = %.lr.ph.i37.i, %4
   %438 = fadd nnan ninf nsz arcp contract afn <4 x float> %436, %437
   %439 = shufflevector <4 x float> %438, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %440 = fadd nnan ninf nsz arcp contract afn <4 x float> %438, %439
-  %shift443 = shufflevector <4 x float> %440, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop444 = fadd nnan ninf nsz arcp contract afn <4 x float> %440, %shift443
-  %441 = extractelement <4 x float> %foldExtExtBinop444, i64 0
+  %shift452 = shufflevector <4 x float> %440, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop453 = fadd nnan ninf nsz arcp contract afn <4 x float> %440, %shift452
+  %441 = extractelement <4 x float> %foldExtExtBinop453, i64 0
   br label %442
 
 442:                                              ; preds = %435, %427
@@ -26499,9 +26499,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit63.i: ; preds = %.lr.ph.i53.i, %4
   %468 = fadd nnan ninf nsz arcp contract afn <4 x float> %466, %467
   %469 = shufflevector <4 x float> %468, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %470 = fadd nnan ninf nsz arcp contract afn <4 x float> %468, %469
-  %shift446 = shufflevector <4 x float> %470, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop447 = fadd nnan ninf nsz arcp contract afn <4 x float> %470, %shift446
-  %471 = extractelement <4 x float> %foldExtExtBinop447, i64 0
+  %shift455 = shufflevector <4 x float> %470, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop456 = fadd nnan ninf nsz arcp contract afn <4 x float> %470, %shift455
+  %471 = extractelement <4 x float> %foldExtExtBinop456, i64 0
   br label %472
 
 472:                                              ; preds = %465, %454
@@ -26572,9 +26572,9 @@ _ZN5Annoy10DotProduct8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit: ; preds = %_
   %508 = fadd nnan ninf nsz arcp contract afn <4 x float> %506, %507
   %509 = shufflevector <4 x float> %508, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %510 = fadd nnan ninf nsz arcp contract afn <4 x float> %508, %509
-  %shift449 = shufflevector <4 x float> %510, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop450 = fadd nnan ninf nsz arcp contract afn <4 x float> %510, %shift449
-  %511 = extractelement <4 x float> %foldExtExtBinop450, i64 0
+  %shift458 = shufflevector <4 x float> %510, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop459 = fadd nnan ninf nsz arcp contract afn <4 x float> %510, %shift458
+  %511 = extractelement <4 x float> %foldExtExtBinop459, i64 0
   br label %512
 
 512:                                              ; preds = %505, %_ZN5Annoy10DotProduct8distanceIifEET0_PKNS0_4NodeIT_S2_EES7_i.exit
@@ -26614,9 +26614,9 @@ _ZN5Annoy10DotProduct8get_normIfNS0_4NodeIifEEEET_PT0_i.exit.i: ; preds = %.lr.p
   %529 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %524
   %530 = add i32 %.0216.i, 1
   %531 = sitofp i32 %530 to float
-  br i1 %197, label %.lr.ph.i139.i, label %.thread249
+  br i1 %197, label %.lr.ph.i139.i, label %.thread258
 
-.thread249:                                       ; preds = %528
+.thread258:                                       ; preds = %528
   %532 = fmul nnan ninf nsz arcp contract afn float %202, %227
   %533 = fdiv nnan ninf nsz arcp contract afn float %521, %524
   %534 = fadd nnan ninf nsz arcp contract afn float %533, %532
@@ -26672,11 +26672,11 @@ _ZN5Annoy10DotProduct11update_meanIfNS0_4NodeIifEEEEvPT0_S5_T_ii.exit.i: ; preds
   %559 = fadd nnan ninf nsz arcp contract afn <4 x float> %557, %558
   %560 = shufflevector <4 x float> %559, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %561 = fadd nnan ninf nsz arcp contract afn <4 x float> %559, %560
-  %shift452 = shufflevector <4 x float> %561, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop453 = fadd nnan ninf nsz arcp contract afn <4 x float> %561, %shift452
-  %562 = extractelement <4 x float> %foldExtExtBinop453, i64 0
-  %.not344 = icmp eq i32 %554, 0
-  br i1 %.not344, label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit158.i, label %.lr.ph.i.i149.i.preheader
+  %shift461 = shufflevector <4 x float> %561, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop462 = fadd nnan ninf nsz arcp contract afn <4 x float> %561, %shift461
+  %562 = extractelement <4 x float> %foldExtExtBinop462, i64 0
+  %.not353 = icmp eq i32 %554, 0
+  br i1 %.not353, label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit158.i, label %.lr.ph.i.i149.i.preheader
 
 .lr.ph.i.i149.i.preheader:                        ; preds = %_ZN5Annoy10DotProduct11update_meanIfNS0_4NodeIifEEEEvPT0_S5_T_ii.exit.i, %556
   %.135.i.i150.i.ph = phi float [ 0.000000e+00, %_ZN5Annoy10DotProduct11update_meanIfNS0_4NodeIifEEEEvPT0_S5_T_ii.exit.i ], [ %562, %556 ]
@@ -26696,9 +26696,9 @@ _ZN5Annoy10DotProduct11update_meanIfNS0_4NodeIifEEEEvPT0_S5_T_ii.exit.i: ; preds
   %568 = icmp samesign ugt i32 %.234.i.i151.i, 1
   br i1 %568, label %.lr.ph.i.i149.i, label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit158.i, !llvm.loop !122
 
-_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit158.i: ; preds = %.lr.ph.i.i149.i, %.thread249, %556
-  %569 = phi float [ %549, %556 ], [ %535, %.thread249 ], [ %549, %.lr.ph.i.i149.i ]
-  %.1.lcssa.i.i148.i = phi float [ %562, %556 ], [ 0.000000e+00, %.thread249 ], [ %565, %.lr.ph.i.i149.i ]
+_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit158.i: ; preds = %.lr.ph.i.i149.i, %.thread258, %556
+  %569 = phi float [ %549, %556 ], [ %535, %.thread258 ], [ %549, %.lr.ph.i.i149.i ]
+  %.1.lcssa.i.i148.i = phi float [ %562, %556 ], [ 0.000000e+00, %.thread258 ], [ %565, %.lr.ph.i.i149.i ]
   %570 = fmul nnan ninf nsz arcp contract afn float %569, %569
   %571 = fadd nnan ninf nsz arcp contract afn float %570, %.1.lcssa.i.i148.i
   store float %571, ptr %171, align 16, !tbaa !384
@@ -26712,9 +26712,9 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit158.i: ; preds = %.
   %575 = fdiv nnan ninf nsz arcp contract afn float 1.000000e+00, %524
   %576 = add i32 %.065215.i, 1
   %577 = sitofp i32 %576 to float
-  br i1 %197, label %.lr.ph.i166.i, label %.thread260
+  br i1 %197, label %.lr.ph.i166.i, label %.thread269
 
-.thread260:                                       ; preds = %574
+.thread269:                                       ; preds = %574
   %578 = fmul nnan ninf nsz arcp contract afn float %199, %364
   %579 = fdiv nnan ninf nsz arcp contract afn float %521, %524
   %580 = fadd nnan ninf nsz arcp contract afn float %579, %578
@@ -26770,9 +26770,9 @@ _ZN5Annoy10DotProduct11update_meanIfNS0_4NodeIifEEEEvPT0_S5_T_ii.exit171.i: ; pr
   %605 = fadd nnan ninf nsz arcp contract afn <4 x float> %603, %604
   %606 = shufflevector <4 x float> %605, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %607 = fadd nnan ninf nsz arcp contract afn <4 x float> %605, %606
-  %shift455 = shufflevector <4 x float> %607, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop456 = fadd nnan ninf nsz arcp contract afn <4 x float> %607, %shift455
-  %608 = extractelement <4 x float> %foldExtExtBinop456, i64 0
+  %shift464 = shufflevector <4 x float> %607, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop465 = fadd nnan ninf nsz arcp contract afn <4 x float> %607, %shift464
+  %608 = extractelement <4 x float> %foldExtExtBinop465, i64 0
   %.not = icmp eq i32 %600, 0
   br i1 %.not, label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit186.i, label %.lr.ph.i.i177.i.preheader
 
@@ -26794,9 +26794,9 @@ _ZN5Annoy10DotProduct11update_meanIfNS0_4NodeIifEEEEvPT0_S5_T_ii.exit171.i: ; pr
   %614 = icmp samesign ugt i32 %.234.i.i179.i, 1
   br i1 %614, label %.lr.ph.i.i177.i, label %_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit186.i, !llvm.loop !122
 
-_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit186.i: ; preds = %.lr.ph.i.i177.i, %.thread260, %602
-  %615 = phi float [ %595, %602 ], [ %581, %.thread260 ], [ %595, %.lr.ph.i.i177.i ]
-  %.1.lcssa.i.i176.i = phi float [ %608, %602 ], [ 0.000000e+00, %.thread260 ], [ %611, %.lr.ph.i.i177.i ]
+_ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit186.i: ; preds = %.lr.ph.i.i177.i, %.thread269, %602
+  %615 = phi float [ %595, %602 ], [ %581, %.thread269 ], [ %595, %.lr.ph.i.i177.i ]
+  %.1.lcssa.i.i176.i = phi float [ %608, %602 ], [ 0.000000e+00, %.thread269 ], [ %611, %.lr.ph.i.i177.i ]
   %616 = fmul nnan ninf nsz arcp contract afn float %615, %615
   %617 = fadd nnan ninf nsz arcp contract afn float %616, %.1.lcssa.i.i176.i
   store float %617, ptr %196, align 16, !tbaa !384
@@ -26816,9 +26816,9 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit186.i: ; preds = %.
   br i1 %exitcond.not.i, label %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit.preheader, label %198, !llvm.loop !416
 
 _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit.preheader: ; preds = %618
-  br i1 %197, label %.lr.ph, label %.thread271
+  br i1 %197, label %.lr.ph, label %.thread280
 
-.thread271:                                       ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit.preheader
+.thread280:                                       ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit.preheader
   %626 = fsub nnan ninf nsz arcp contract afn float %622, %619
   %627 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %626, ptr %627, align 4, !tbaa !380
@@ -26853,11 +26853,11 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIi
   %641 = fadd nnan ninf nsz arcp contract afn <4 x float> %639, %640
   %642 = shufflevector <4 x float> %641, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %643 = fadd nnan ninf nsz arcp contract afn <4 x float> %641, %642
-  %shift458 = shufflevector <4 x float> %643, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop459 = fadd nnan ninf nsz arcp contract afn <4 x float> %643, %shift458
-  %644 = extractelement <4 x float> %foldExtExtBinop459, i64 0
-  %.not345 = icmp eq i32 %636, 0
-  br i1 %.not345, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i, label %.lr.ph.i.i24.preheader
+  %shift467 = shufflevector <4 x float> %643, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop468 = fadd nnan ninf nsz arcp contract afn <4 x float> %643, %shift467
+  %644 = extractelement <4 x float> %foldExtExtBinop468, i64 0
+  %.not354 = icmp eq i32 %636, 0
+  br i1 %.not354, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i, label %.lr.ph.i.i24.preheader
 
 .lr.ph.i.i24.preheader:                           ; preds = %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge, %638
   %.135.i.i.ph = phi float [ 0.000000e+00, %_ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIifEEEEvRKSt6vectorIPT2_SaIS8_EEiRT0_bS8_S8_.exit._crit_edge ], [ %644, %638 ]
@@ -26877,10 +26877,10 @@ _ZN5Annoy12_GLOBAL__N_19two_meansIfNS_12Kiss64RandomENS_10DotProductENS3_4NodeIi
   %650 = icmp samesign ugt i32 %.234.i.i, 1
   br i1 %650, label %.lr.ph.i.i24, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i, !llvm.loop !122
 
-_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %.lr.ph.i.i24, %.thread271, %638
-  %651 = phi float [ %629, %638 ], [ %626, %.thread271 ], [ %629, %.lr.ph.i.i24 ]
-  %652 = phi ptr [ %630, %638 ], [ %627, %.thread271 ], [ %630, %.lr.ph.i.i24 ]
-  %.1.lcssa.i.i = phi float [ %644, %638 ], [ 0.000000e+00, %.thread271 ], [ %647, %.lr.ph.i.i24 ]
+_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %.lr.ph.i.i24, %.thread280, %638
+  %651 = phi float [ %629, %638 ], [ %626, %.thread280 ], [ %629, %.lr.ph.i.i24 ]
+  %652 = phi ptr [ %630, %638 ], [ %627, %.thread280 ], [ %630, %.lr.ph.i.i24 ]
+  %.1.lcssa.i.i = phi float [ %644, %638 ], [ 0.000000e+00, %.thread280 ], [ %647, %.lr.ph.i.i24 ]
   %653 = fpext nnan ninf nsz arcp contract afn float %.1.lcssa.i.i to double
   %654 = fpext nnan ninf nsz arcp contract afn float %651 to double
   %655 = fmul nnan ninf nsz arcp contract afn double %654, %654
@@ -27032,9 +27032,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit:  ; preds = %.lr.ph.i, %30
   %57 = fadd nnan ninf nsz arcp contract afn <4 x float> %55, %56
   %58 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %59 = fadd nnan ninf nsz arcp contract afn <4 x float> %57, %58
-  %shift153 = shufflevector <4 x float> %59, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop154 = fadd nnan ninf nsz arcp contract afn <4 x float> %59, %shift153
-  %60 = extractelement <4 x float> %foldExtExtBinop154, i64 0
+  %shift157 = shufflevector <4 x float> %59, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop158 = fadd nnan ninf nsz arcp contract afn <4 x float> %59, %shift157
+  %60 = extractelement <4 x float> %foldExtExtBinop158, i64 0
   br label %61
 
 61:                                               ; preds = %54, %45
@@ -27097,9 +27097,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit47: ; preds = %.lr.ph.i37, %61
   %92 = fadd nnan ninf nsz arcp contract afn <4 x float> %90, %91
   %93 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %94 = fadd nnan ninf nsz arcp contract afn <4 x float> %92, %93
-  %shift156 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop157 = fadd nnan ninf nsz arcp contract afn <4 x float> %94, %shift156
-  %95 = extractelement <4 x float> %foldExtExtBinop157, i64 0
+  %shift160 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop161 = fadd nnan ninf nsz arcp contract afn <4 x float> %94, %shift160
+  %95 = extractelement <4 x float> %foldExtExtBinop161, i64 0
   br label %96
 
 96:                                               ; preds = %89, %80
@@ -27160,9 +27160,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit63: ; preds = %.lr.ph.i53, %96
   %126 = fadd nnan ninf nsz arcp contract afn <4 x float> %124, %125
   %127 = shufflevector <4 x float> %126, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %128 = fadd nnan ninf nsz arcp contract afn <4 x float> %126, %127
-  %shift159 = shufflevector <4 x float> %128, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop160 = fadd nnan ninf nsz arcp contract afn <4 x float> %128, %shift159
-  %129 = extractelement <4 x float> %foldExtExtBinop160, i64 0
+  %shift163 = shufflevector <4 x float> %128, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop164 = fadd nnan ninf nsz arcp contract afn <4 x float> %128, %shift163
+  %129 = extractelement <4 x float> %foldExtExtBinop164, i64 0
   br label %130
 
 130:                                              ; preds = %123, %110
@@ -27385,7 +27385,7 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit._crit_edge: ; pred
   %70 = load ptr, ptr %8, align 8, !tbaa !178
   %71 = load ptr, ptr %65, align 8, !tbaa !178
   %72 = icmp eq ptr %70, %71
-  br i1 %72, label %.critedge, label %.lr.ph423
+  br i1 %72, label %.critedge, label %.lr.ph468
 
 .lr.ph:                                           ; preds = %58, %73
   %.052284 = phi i64 [ %74, %73 ], [ 0, %58 ]
@@ -27415,9 +27415,9 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit._crit_edge: ; pred
   %85 = load ptr, ptr %8, align 8, !tbaa !178
   %86 = load ptr, ptr %65, align 8, !tbaa !178
   %87 = icmp eq ptr %85, %86
-  br i1 %87, label %.critedge, label %.lr.ph423, !llvm.loop !420
+  br i1 %87, label %.critedge, label %.lr.ph468, !llvm.loop !420
 
-.lr.ph423:                                        ; preds = %.lr.ph286, %84
+.lr.ph468:                                        ; preds = %.lr.ph286, %84
   %88 = phi ptr [ %85, %84 ], [ %70, %.lr.ph286 ]
   %89 = load float, ptr %88, align 4, !tbaa !182
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -27430,7 +27430,7 @@ _ZN5Annoy10DotProduct9init_nodeIifEEvPNS0_4NodeIT_T0_EEi.exit._crit_edge: ; pred
   invoke void @_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt4lessIS1_EE3popEv(ptr noundef nonnull align 8 dereferenceable(25) %8)
           to label %97 unwind label %.loopexit204
 
-97:                                               ; preds = %.lr.ph423
+97:                                               ; preds = %.lr.ph468
   %98 = load i32, ptr %96, align 4, !tbaa !382
   %99 = icmp eq i32 %98, 1
   %100 = load i32, ptr %67, align 8
@@ -27504,7 +27504,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %126, ptr %69, align 8, !tbaa !101
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-.loopexit204:                                     ; preds = %.lr.ph423, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+.loopexit204:                                     ; preds = %.lr.ph468, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit206 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIfiESaIS1_EED2Ev.exit155
@@ -27564,9 +27564,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %156 = fadd nnan ninf nsz arcp contract afn <4 x float> %154, %155
   %157 = shufflevector <4 x float> %156, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %158 = fadd nnan ninf nsz arcp contract afn <4 x float> %156, %157
-  %shift434 = shufflevector <4 x float> %158, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop435 = fadd nnan ninf nsz arcp contract afn <4 x float> %158, %shift434
-  %159 = extractelement <4 x float> %foldExtExtBinop435, i64 0
+  %shift479 = shufflevector <4 x float> %158, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop480 = fadd nnan ninf nsz arcp contract afn <4 x float> %158, %shift479
+  %159 = extractelement <4 x float> %foldExtExtBinop480, i64 0
   br label %160
 
 160:                                              ; preds = %153, %141
@@ -27877,9 +27877,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit: ; pr
   %276 = fadd nnan ninf nsz arcp contract afn <4 x float> %274, %275
   %277 = shufflevector <4 x float> %276, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %278 = fadd nnan ninf nsz arcp contract afn <4 x float> %276, %277
-  %shift437 = shufflevector <4 x float> %278, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop438 = fadd nnan ninf nsz arcp contract afn <4 x float> %278, %shift437
-  %279 = extractelement <4 x float> %foldExtExtBinop438, i64 0
+  %shift482 = shufflevector <4 x float> %278, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop483 = fadd nnan ninf nsz arcp contract afn <4 x float> %278, %shift482
+  %279 = extractelement <4 x float> %foldExtExtBinop483, i64 0
   br label %280
 
 280:                                              ; preds = %273, %262
@@ -27937,9 +27937,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit.i: ; preds = %.lr.ph.i.i118, %28
   %305 = fadd nnan ninf nsz arcp contract afn <4 x float> %303, %304
   %306 = shufflevector <4 x float> %305, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %307 = fadd nnan ninf nsz arcp contract afn <4 x float> %305, %306
-  %shift440 = shufflevector <4 x float> %307, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop441 = fadd nnan ninf nsz arcp contract afn <4 x float> %307, %shift440
-  %308 = extractelement <4 x float> %foldExtExtBinop441, i64 0
+  %shift485 = shufflevector <4 x float> %307, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop486 = fadd nnan ninf nsz arcp contract afn <4 x float> %307, %shift485
+  %308 = extractelement <4 x float> %foldExtExtBinop486, i64 0
   br label %309
 
 309:                                              ; preds = %302, %294
@@ -27998,9 +27998,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit47.i: ; preds = %.lr.ph.i37.i, %3
   %337 = fadd nnan ninf nsz arcp contract afn <4 x float> %335, %336
   %338 = shufflevector <4 x float> %337, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %339 = fadd nnan ninf nsz arcp contract afn <4 x float> %337, %338
-  %shift443 = shufflevector <4 x float> %339, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop444 = fadd nnan ninf nsz arcp contract afn <4 x float> %339, %shift443
-  %340 = extractelement <4 x float> %foldExtExtBinop444, i64 0
+  %shift488 = shufflevector <4 x float> %339, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop489 = fadd nnan ninf nsz arcp contract afn <4 x float> %339, %shift488
+  %340 = extractelement <4 x float> %foldExtExtBinop489, i64 0
   br label %341
 
 341:                                              ; preds = %334, %325
@@ -28057,9 +28057,9 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit63.i: ; preds = %.lr.ph.i53.i, %3
   %368 = fadd nnan ninf nsz arcp contract afn <4 x float> %366, %367
   %369 = shufflevector <4 x float> %368, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %370 = fadd nnan ninf nsz arcp contract afn <4 x float> %368, %369
-  %shift446 = shufflevector <4 x float> %370, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop447 = fadd nnan ninf nsz arcp contract afn <4 x float> %370, %shift446
-  %371 = extractelement <4 x float> %foldExtExtBinop447, i64 0
+  %shift491 = shufflevector <4 x float> %370, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop492 = fadd nnan ninf nsz arcp contract afn <4 x float> %370, %shift491
+  %371 = extractelement <4 x float> %foldExtExtBinop492, i64 0
   br label %372
 
 372:                                              ; preds = %365, %353

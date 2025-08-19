@@ -1063,8 +1063,8 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %.not553 = icmp eq i16 %479, 0
   %.pre = load i64, ptr %473, align 8
   %480 = icmp eq i64 %.pre, -1
-  %or.cond663 = select i1 %.not553, i1 %480, i1 false
-  br i1 %or.cond663, label %481, label %484
+  %or.cond678 = select i1 %.not553, i1 %480, i1 false
+  br i1 %or.cond678, label %481, label %484
 
 481:                                              ; preds = %474
   %482 = load i32, ptr %470, align 4

@@ -348,8 +348,8 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
 60:                                               ; preds = %4, %4, %4, %4
   %61 = icmp slt i32 %17, %20
   %62 = icmp sgt i32 %15, 0
-  %or.cond171 = select i1 %61, i1 %62, i1 false
-  br i1 %or.cond171, label %.preheader116.us.preheader, label %.loopexit
+  %or.cond184 = select i1 %61, i1 %62, i1 false
+  br i1 %or.cond184, label %.preheader116.us.preheader, label %.loopexit
 
 .preheader116.us.preheader:                       ; preds = %60
   %wide.trip.count149 = zext nneg i32 %15 to i64
@@ -401,8 +401,8 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
 89:                                               ; preds = %4, %4, %4, %4
   %90 = icmp slt i32 %17, %20
   %91 = icmp sgt i32 %15, 0
-  %or.cond172 = select i1 %90, i1 %91, i1 false
-  br i1 %or.cond172, label %.preheader118.us.preheader, label %.loopexit
+  %or.cond185 = select i1 %90, i1 %91, i1 false
+  br i1 %or.cond185, label %.preheader118.us.preheader, label %.loopexit
 
 .preheader118.us.preheader:                       ; preds = %89
   %wide.trip.count = zext nneg i32 %15 to i64
@@ -469,8 +469,8 @@ define internal noundef i32 @do_slice(ptr noundef readonly captures(none) %0, pt
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %132 = icmp slt i32 %123, %125
   %133 = icmp sgt i32 %130, 0
-  %or.cond173 = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond173, label %.preheader.us.preheader, label %._crit_edge134
+  %or.cond186 = select i1 %132, i1 %133, i1 false
+  br i1 %or.cond186, label %.preheader.us.preheader, label %._crit_edge134
 
 .preheader.us.preheader:                          ; preds = %119
   %134 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv164
@@ -634,7 +634,7 @@ frame_sum_square_err.exit:                        ; preds = %27
   br i1 %exitcond84.not, label %._crit_edge, label %38, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.preheader55, %44
-  %.047.lcssa87 = phi i32 [ %.148, %44 ], [ 0, %.preheader55 ]
+  %.047.lcssa89 = phi i32 [ %.148, %44 ], [ 0, %.preheader55 ]
   %.pre-phi = phi i64 [ %24, %44 ], [ 0, %.preheader55 ]
   store i32 0, ptr %5, align 8, !tbaa !42
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -659,7 +659,7 @@ frame_sum_square_err.exit:                        ; preds = %27
   %58 = sitofp i32 %.sroa.2.0.extract.trunc.i to double
   %59 = fdiv nsz double %57, %58
   %60 = fmul nsz double %59, %54
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %50, ptr noundef nonnull @.str.3, i32 noundef %.047.lcssa87, double noundef %60, i32 noundef %6) #9
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %50, ptr noundef nonnull @.str.3, i32 noundef %.047.lcssa89, double noundef %60, i32 noundef %6) #9
   %.pre = load ptr, ptr %45, align 8, !tbaa !25
   br label %61
 

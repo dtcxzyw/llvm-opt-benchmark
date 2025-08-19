@@ -592,7 +592,7 @@ _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit: ; preds = %88
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 240
   %98 = load ptr, ptr %97, align 8, !tbaa !43
   %.not.i.i.i93 = icmp eq ptr %98, null
-  br i1 %.not.i.i.i93, label %.invoke141, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i94
+  br i1 %.not.i.i.i93, label %.invoke152, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i94
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i94: ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
@@ -668,13 +668,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %_ZNSo
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 240
   %130 = load ptr, ptr %129, align 8, !tbaa !43
   %.not.i.i.i104 = icmp eq ptr %130, null
-  br i1 %.not.i.i.i104, label %.invoke141, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105
+  br i1 %.not.i.i.i104, label %.invoke152, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105
 
-.invoke141:                                       ; preds = %124, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
+.invoke152:                                       ; preds = %124, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit
   invoke void @_ZSt16__throw_bad_castv() #16
           to label %.cont unwind label %215
 
-.cont:                                            ; preds = %.invoke141
+.cont:                                            ; preds = %.invoke152
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105: ; preds = %124
@@ -740,7 +740,7 @@ _ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit51: ; preds = %152
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 240
   %162 = load ptr, ptr %161, align 8, !tbaa !43
   %.not.i.i.i115 = icmp eq ptr %162, null
-  br i1 %.not.i.i.i115, label %.invoke142, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i116
+  br i1 %.not.i.i.i115, label %.invoke153, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i116
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i116: ; preds = %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit51
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 56
@@ -816,13 +816,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55: ; preds = %_ZNSo
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 240
   %194 = load ptr, ptr %193, align 8, !tbaa !43
   %.not.i.i.i126 = icmp eq ptr %194, null
-  br i1 %.not.i.i.i126, label %.invoke142, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i127
+  br i1 %.not.i.i.i126, label %.invoke153, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i127
 
-.invoke142:                                       ; preds = %188, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit51
+.invoke153:                                       ; preds = %188, %_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE.exit51
   invoke void @_ZSt16__throw_bad_castv() #16
-          to label %.cont143 unwind label %217
+          to label %.cont154 unwind label %217
 
-.cont143:                                         ; preds = %.invoke142
+.cont154:                                         ; preds = %.invoke153
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i127: ; preds = %188
@@ -876,12 +876,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i129: ; preds = %.noexc132, %
           cleanup
   br label %.body
 
-215:                                              ; preds = %.invoke141, %.noexc112, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i107, %.noexc110, %136, %.noexc101, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i96, %.noexc99, %104, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46, %_ZNSolsEPFRSoS_E.exit44, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40, %_ZNSolsEPFRSoS_E.exit39, %88
+215:                                              ; preds = %.invoke152, %.noexc112, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i107, %.noexc110, %136, %.noexc101, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i96, %.noexc99, %104, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46, %_ZNSolsEPFRSoS_E.exit44, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40, %_ZNSolsEPFRSoS_E.exit39, %88
   %216 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-217:                                              ; preds = %.invoke142, %.noexc134, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i129, %.noexc132, %200, %.noexc123, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i118, %.noexc121, %168, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55, %_ZNSolsEPFRSoS_E.exit53, %152
+217:                                              ; preds = %.invoke153, %.noexc134, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i129, %.noexc132, %200, %.noexc123, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i118, %.noexc121, %168, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55, %_ZNSolsEPFRSoS_E.exit53, %152
   %218 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1178,11 +1178,11 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit80:            ; preds = %_ZN4cvc58internal8T
   br i1 %355, label %.invoke, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !24
 
 .invoke:                                          ; preds = %354, %231
-  %.sink145 = phi i64 [ %220, %231 ], [ %343, %354 ]
-  %.sink144 = phi ptr [ %219, %231 ], [ %342, %354 ]
-  %356 = or i64 %.sink145, 1152920405095219200
-  store i64 %356, ptr %.sink144, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink144)
+  %.sink156 = phi i64 [ %220, %231 ], [ %343, %354 ]
+  %.sink155 = phi ptr [ %219, %231 ], [ %342, %354 ]
+  %356 = or i64 %.sink156, 1152920405095219200
+  store i64 %356, ptr %.sink155, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink155)
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %213
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %.invoke, %354, %348, %_ZN4cvc58internal8TypeNodeD2Ev.exit76, %231, %225

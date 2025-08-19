@@ -184,9 +184,9 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not40, label %.sink.split, label %50
 
 .sink.split:                                      ; preds = %45, %39
-  %.sink143 = phi ptr [ %6, %39 ], [ %7, %45 ]
+  %.sink162 = phi ptr [ %6, %39 ], [ %7, %45 ]
   %.str.7.sink = phi ptr [ @.str.6, %39 ], [ @.str.7, %45 ]
-  %48 = load ptr, ptr %.sink143, align 8
+  %48 = load ptr, ptr %.sink162, align 8
   %49 = call i32 @setenv(ptr noundef nonnull %.str.7.sink, ptr noundef %48, i32 noundef 1) #12
   br label %50
 
@@ -364,8 +364,8 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
 
 .outer69._crit_edge.i:                            ; preds = %.split83.us.i
   %116 = load i32, ptr %3, align 4
-  %.fr268.i = freeze i32 %116
-  %117 = icmp slt i32 %.fr268.i, 1
+  %.fr282.i = freeze i32 %116
+  %117 = icmp slt i32 %.fr282.i, 1
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %.outer69._crit_edge.i
@@ -380,8 +380,8 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %_fetch_parent.exit
 
 124:                                              ; preds = %.outer69._crit_edge.i
-  %125 = call ptr @init_buf(i32 noundef %.fr268.i) #12
-  %126 = zext nneg i32 %.fr268.i to i64
+  %125 = call ptr @init_buf(i32 noundef %.fr282.i) #12
+  %126 = zext nneg i32 %.fr282.i to i64
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load ptr, ptr %127, align 8
   br label %.lr.ph127.i
@@ -456,7 +456,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %152, label %153, label %154
 
 153:                                              ; preds = %.split130.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %.043.ph174.i, i32 noundef %.fr268.i) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %.043.ph174.i, i32 noundef %.fr282.i) #12
   br label %154
 
 154:                                              ; preds = %153, %.split130.us.i
@@ -489,7 +489,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %165, label %166, label %.thread.i
 
 166:                                              ; preds = %.split136.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %.043.ph174.i104, i32 noundef %.fr268.i) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %.043.ph174.i104, i32 noundef %.fr282.i) #12
   br label %.thread.i
 
 .split133.us.i:                                   ; preds = %.lr.ph171.i, %.lr.ph156.preheader.i, %.lr.ph171.i.preheader, %.lr.ph156.preheader.i.preheader
@@ -506,7 +506,7 @@ define dso_local ptr @fetch_config(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %172, label %173, label %.lr.ph127.i.backedge
 
 173:                                              ; preds = %170
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %169, i32 noundef %.fr268.i) #12
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2, i32 noundef 93, ptr noundef nonnull @__func__._fetch_parent, i64 noundef %169, i32 noundef %.fr282.i) #12
   br label %.lr.ph127.i.backedge
 
 .lr.ph127.i.backedge:                             ; preds = %173, %170
@@ -876,10 +876,10 @@ define internal fastcc void @_fetch_child(ptr noundef %0, i32 noundef %1) unname
   unreachable
 
 .thread90.sink.split:                             ; preds = %.split130.us, %.split112.us, %.split150.us
-  %.sink183 = phi i32 [ 4, %.split150.us ], [ 4, %.split112.us ], [ %47, %.split130.us ]
+  %.sink190 = phi i32 [ 4, %.split150.us ], [ 4, %.split112.us ], [ %47, %.split130.us ]
   %.052.ph139.lcssa.sink = phi i64 [ %.056.ph160, %.split150.us ], [ %.054.ph119, %.split112.us ], [ %.052.ph139, %.split130.us ]
-  %.sink182 = phi i32 [ 152, %.split150.us ], [ 159, %.split112.us ], [ 160, %.split130.us ]
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef %.sink182, ptr noundef nonnull @__func__._fetch_child, i64 noundef %.052.ph139.lcssa.sink, i32 noundef %.sink183) #12
+  %.sink189 = phi i32 [ 152, %.split150.us ], [ 159, %.split112.us ], [ 160, %.split130.us ]
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef %.sink189, ptr noundef nonnull @__func__._fetch_child, i64 noundef %.052.ph139.lcssa.sink, i32 noundef %.sink190) #12
   br label %.thread90
 
 .thread90:                                        ; preds = %.thread90.sink.split, %.split130.us, %.split112.us, %.split150.us

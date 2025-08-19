@@ -639,8 +639,8 @@ gv_recalloc.exit.i:                               ; preds = %183, %181, %174
   br label %._crit_edge195.thread
 
 ._crit_edge195.thread:                            ; preds = %.loopexit154, %318, %._crit_edge195
-  %.092.lcssa208 = phi i32 [ 1, %318 ], [ 0, %._crit_edge195 ], [ 0, %.loopexit154 ]
-  ret i32 %.092.lcssa208
+  %.092.lcssa228 = phi i32 [ 1, %318 ], [ 0, %._crit_edge195 ], [ 0, %.loopexit154 ]
+  ret i32 %.092.lcssa228
 }
 
 declare void @rec_save_vlists(ptr noundef) local_unnamed_addr #1
@@ -1069,7 +1069,7 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   %4 = getelementptr inbounds nuw i8, ptr %.16.val, i64 216
   %5 = load i8, ptr %4, align 8, !tbaa !50
   %6 = icmp eq i8 %5, 1
-  br i1 %6, label %7, label %.thread21
+  br i1 %6, label %7, label %.thread23
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.16.val, i64 364
@@ -1084,7 +1084,7 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
 
 .preheader:                                       ; preds = %7
   %.not6210 = icmp eq ptr %15, null
-  br i1 %.not6210, label %.thread21, label %.lr.ph
+  br i1 %.not6210, label %.thread23, label %.lr.ph
 
 16:                                               ; preds = %7
   %17 = load i32, ptr %15, align 8
@@ -1120,7 +1120,7 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   store i32 %9, ptr %0, align 4, !tbaa !75
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %36, align 4, !tbaa !75
-  br label %.thread21
+  br label %.thread23
 
 37:                                               ; preds = %16
   %.not66 = icmp slt i32 %spec.select14.i, %2
@@ -1131,13 +1131,13 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   store i32 %9, ptr %39, align 4, !tbaa !75
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %9, ptr %40, align 4, !tbaa !75
-  br label %.thread21
+  br label %.thread23
 
 41:                                               ; preds = %37
   %42 = icmp slt i32 %spec.select14.i, %1
   %43 = icmp sgt i32 %spec.select.i, %2
   %or.cond67 = and i1 %42, %43
-  br i1 %or.cond67, label %.thread21, label %44
+  br i1 %or.cond67, label %.thread23, label %44
 
 44:                                               ; preds = %41
   br i1 %42, label %48, label %45
@@ -1160,12 +1160,12 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   %52 = icmp eq i32 %spec.select.i, %2
   %53 = icmp sgt i32 %spec.select14.i, %1
   %or.cond71 = and i1 %52, %53
-  br i1 %or.cond71, label %54, label %.thread21
+  br i1 %or.cond71, label %54, label %.thread23
 
 54:                                               ; preds = %51, %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %9, ptr %55, align 4, !tbaa !75
-  br label %.thread21
+  br label %.thread23
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
@@ -1203,20 +1203,20 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
 .thread:                                          ; preds = %._crit_edge
   %70 = add nsw i32 %9, 1
   store i32 %70, ptr %0, align 4, !tbaa !75
-  br label %.thread21
+  br label %.thread23
 
 71:                                               ; preds = %._crit_edge
   %.not2 = xor i1 %67, true
   %or.cond4 = or i1 %.152, %.not2
-  br i1 %or.cond4, label %.thread21, label %72
+  br i1 %or.cond4, label %.thread23, label %72
 
 72:                                               ; preds = %71
   %73 = add nsw i32 %9, -1
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %73, ptr %74, align 4, !tbaa !75
-  br label %.thread21
+  br label %.thread23
 
-.thread21:                                        ; preds = %.preheader, %.thread, %71, %72, %41, %38, %51, %54, %35, %3
+.thread23:                                        ; preds = %.preheader, %.thread, %71, %72, %41, %38, %51, %54, %35, %3
   ret void
 }
 

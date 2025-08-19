@@ -244,8 +244,8 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h9476b88a153ea9ddE(
 41:                                               ; preds = %.sink.split, %96, %81, %36
   %42 = phi i64 [ %98, %96 ], [ %83, %81 ], [ %38, %36 ], [ %.ph, %.sink.split ]
   %43 = sub i64 %42, %5
-  %.not61 = icmp ult i64 %43, %3
-  br i1 %.not61, label %20, label %._crit_edge
+  %.not73 = icmp ult i64 %43, %3
+  br i1 %.not73, label %20, label %._crit_edge
 
 44:                                               ; preds = %39
   %45 = load i64, ptr %17, align 8, !noundef !3
@@ -436,8 +436,8 @@ define void @_ZN4core3str7pattern14TwoWaySearcher9next_back17hc9e5b6697003febaE(
 41:                                               ; preds = %.sink.split, %96, %81, %36
   %42 = phi i64 [ %98, %96 ], [ %83, %81 ], [ %38, %36 ], [ %.ph, %.sink.split ]
   %43 = sub i64 %42, %5
-  %.not61 = icmp ult i64 %43, %3
-  br i1 %.not61, label %20, label %._crit_edge
+  %.not73 = icmp ult i64 %43, %3
+  br i1 %.not73, label %20, label %._crit_edge
 
 44:                                               ; preds = %39
   %45 = load i64, ptr %17, align 8, !noundef !3

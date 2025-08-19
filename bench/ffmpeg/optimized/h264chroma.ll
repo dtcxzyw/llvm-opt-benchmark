@@ -3033,8 +3033,8 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   br i1 %13, label %.lr.ph.lver.check, label %.loopexit
 
 .lr.ph.lver.check:                                ; preds = %.preheader233
-  %ident.check260.not = icmp eq i64 %2, 1
-  br i1 %ident.check260.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
+  %ident.check262.not = icmp eq i64 %2, 1
+  br i1 %ident.check262.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
 
 .lr.ph.lver.orig:                                 ; preds = %.lr.ph.lver.check, %.lr.ph.lver.orig
   %.0237.lver.orig = phi ptr [ %222, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
@@ -3262,12 +3262,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !48
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
-  %scevgep262 = getelementptr i8, ptr %0, i64 6
-  %load_initial263 = load i8, ptr %scevgep262, align 1
+  %scevgep264 = getelementptr i8, ptr %0, i64 6
+  %load_initial265 = load i8, ptr %scevgep264, align 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.ph, %.lr.ph
-  %store_forwarded264 = phi i8 [ %load_initial263, %.lr.ph.ph ], [ %430, %.lr.ph ]
+  %store_forwarded266 = phi i8 [ %load_initial265, %.lr.ph.ph ], [ %430, %.lr.ph ]
   %.0237 = phi ptr [ %0, %.lr.ph.ph ], [ %431, %.lr.ph ]
   %.0222236 = phi i32 [ 0, %.lr.ph.ph ], [ %432, %.lr.ph ]
   %.0225235 = phi ptr [ %1, %.lr.ph.ph ], [ %233, %.lr.ph ]
@@ -3434,7 +3434,7 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %379 = trunc i32 %378 to i8
   store i8 %379, ptr %354, align 1, !tbaa !35
   %380 = getelementptr inbounds nuw i8, ptr %.0237, i64 6
-  %381 = zext i8 %store_forwarded264 to i32
+  %381 = zext i8 %store_forwarded266 to i32
   %382 = load i8, ptr %360, align 1, !tbaa !35
   %383 = zext i8 %382 to i32
   %384 = mul nsw i32 %9, %383
@@ -3636,8 +3636,8 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   br i1 %543, label %.lr.ph241.lver.check, label %.loopexit
 
 .lr.ph241.lver.check:                             ; preds = %541
-  %ident.check255.not = icmp eq i64 %2, 1
-  br i1 %ident.check255.not, label %.lr.ph241.ph, label %.lr.ph241.lver.orig
+  %ident.check257.not = icmp eq i64 %2, 1
+  br i1 %ident.check257.not, label %.lr.ph241.ph, label %.lr.ph241.lver.orig
 
 .lr.ph241.lver.orig:                              ; preds = %.lr.ph241.lver.check, %.lr.ph241.lver.orig
   %.1240.lver.orig = phi ptr [ %686, %.lr.ph241.lver.orig ], [ %0, %.lr.ph241.lver.check ]
@@ -3800,12 +3800,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond248.not.lver.orig, label %.loopexit, label %.lr.ph241.lver.orig, !llvm.loop !50
 
 .lr.ph241.ph:                                     ; preds = %.lr.ph241.lver.check
-  %scevgep257 = getelementptr i8, ptr %0, i64 6
-  %load_initial258 = load i8, ptr %scevgep257, align 1
+  %scevgep259 = getelementptr i8, ptr %0, i64 6
+  %load_initial260 = load i8, ptr %scevgep259, align 1
   br label %.lr.ph241
 
 .lr.ph241:                                        ; preds = %.lr.ph241.ph, %.lr.ph241
-  %store_forwarded259 = phi i8 [ %load_initial258, %.lr.ph241.ph ], [ %829, %.lr.ph241 ]
+  %store_forwarded261 = phi i8 [ %load_initial260, %.lr.ph241.ph ], [ %829, %.lr.ph241 ]
   %.1240 = phi ptr [ %0, %.lr.ph241.ph ], [ %830, %.lr.ph241 ]
   %.1223239 = phi i32 [ 0, %.lr.ph241.ph ], [ %832, %.lr.ph241 ]
   %.1226238 = phi ptr [ %1, %.lr.ph241.ph ], [ %831, %.lr.ph241 ]
@@ -3922,7 +3922,7 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %794 = trunc i32 %793 to i8
   store i8 %794, ptr %777, align 1, !tbaa !35
   %795 = getelementptr inbounds nuw i8, ptr %.1240, i64 6
-  %796 = zext i8 %store_forwarded259 to i32
+  %796 = zext i8 %store_forwarded261 to i32
   %797 = getelementptr inbounds nuw i8, ptr %.1226238, i64 6
   %798 = load i8, ptr %797, align 1, !tbaa !35
   %799 = zext i8 %798 to i32
@@ -4104,8 +4104,8 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   br i1 %13, label %.lr.ph.lver.check, label %.loopexit
 
 .lr.ph.lver.check:                                ; preds = %.preheader141
-  %ident.check168.not = icmp eq i64 %2, 1
-  br i1 %ident.check168.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
+  %ident.check170.not = icmp eq i64 %2, 1
+  br i1 %ident.check170.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
 
 .lr.ph.lver.orig:                                 ; preds = %.lr.ph.lver.check, %.lr.ph.lver.orig
   %.0145.lver.orig = phi ptr [ %118, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
@@ -4225,12 +4225,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !51
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
-  %scevgep170 = getelementptr i8, ptr %0, i64 2
-  %load_initial171 = load i8, ptr %scevgep170, align 1
+  %scevgep172 = getelementptr i8, ptr %0, i64 2
+  %load_initial173 = load i8, ptr %scevgep172, align 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.ph, %.lr.ph
-  %store_forwarded172 = phi i8 [ %load_initial171, %.lr.ph.ph ], [ %222, %.lr.ph ]
+  %store_forwarded174 = phi i8 [ %load_initial173, %.lr.ph.ph ], [ %222, %.lr.ph ]
   %.0145 = phi ptr [ %0, %.lr.ph.ph ], [ %223, %.lr.ph ]
   %.0130144 = phi i32 [ 0, %.lr.ph.ph ], [ %224, %.lr.ph ]
   %.0133143 = phi ptr [ %1, %.lr.ph.ph ], [ %129, %.lr.ph ]
@@ -4289,7 +4289,7 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %171 = trunc i32 %170 to i8
   store i8 %171, ptr %146, align 1, !tbaa !35
   %172 = getelementptr inbounds nuw i8, ptr %.0145, i64 2
-  %173 = zext i8 %store_forwarded172 to i32
+  %173 = zext i8 %store_forwarded174 to i32
   %174 = load i8, ptr %152, align 1, !tbaa !35
   %175 = zext i8 %174 to i32
   %176 = mul nsw i32 %9, %175
@@ -4435,8 +4435,8 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   br i1 %283, label %.lr.ph149.lver.check, label %.loopexit
 
 .lr.ph149.lver.check:                             ; preds = %281
-  %ident.check163.not = icmp eq i64 %2, 1
-  br i1 %ident.check163.not, label %.lr.ph149.ph, label %.lr.ph149.lver.orig
+  %ident.check165.not = icmp eq i64 %2, 1
+  br i1 %ident.check165.not, label %.lr.ph149.ph, label %.lr.ph149.lver.orig
 
 .lr.ph149.lver.orig:                              ; preds = %.lr.ph149.lver.check, %.lr.ph149.lver.orig
   %.1148.lver.orig = phi ptr [ %354, %.lr.ph149.lver.orig ], [ %0, %.lr.ph149.lver.check ]
@@ -4523,12 +4523,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond156.not.lver.orig, label %.loopexit, label %.lr.ph149.lver.orig, !llvm.loop !53
 
 .lr.ph149.ph:                                     ; preds = %.lr.ph149.lver.check
-  %scevgep165 = getelementptr i8, ptr %0, i64 2
-  %load_initial166 = load i8, ptr %scevgep165, align 1
+  %scevgep167 = getelementptr i8, ptr %0, i64 2
+  %load_initial168 = load i8, ptr %scevgep167, align 1
   br label %.lr.ph149
 
 .lr.ph149:                                        ; preds = %.lr.ph149.ph, %.lr.ph149
-  %store_forwarded167 = phi i8 [ %load_initial166, %.lr.ph149.ph ], [ %425, %.lr.ph149 ]
+  %store_forwarded169 = phi i8 [ %load_initial168, %.lr.ph149.ph ], [ %425, %.lr.ph149 ]
   %.1148 = phi ptr [ %0, %.lr.ph149.ph ], [ %426, %.lr.ph149 ]
   %.1131147 = phi i32 [ 0, %.lr.ph149.ph ], [ %428, %.lr.ph149 ]
   %.1134146 = phi ptr [ %1, %.lr.ph149.ph ], [ %427, %.lr.ph149 ]
@@ -4569,7 +4569,7 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %390 = trunc i32 %389 to i8
   store i8 %390, ptr %373, align 1, !tbaa !35
   %391 = getelementptr inbounds nuw i8, ptr %.1148, i64 2
-  %392 = zext i8 %store_forwarded167 to i32
+  %392 = zext i8 %store_forwarded169 to i32
   %393 = getelementptr inbounds nuw i8, ptr %.1134146, i64 2
   %394 = load i8, ptr %393, align 1, !tbaa !35
   %395 = zext i8 %394 to i32
@@ -4695,8 +4695,8 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   br i1 %13, label %.lr.ph.lver.check, label %.loopexit
 
 .lr.ph.lver.check:                                ; preds = %.preheader95
-  %ident.check121.not = icmp eq i64 %2, 1
-  br i1 %ident.check121.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
+  %ident.check123.not = icmp eq i64 %2, 1
+  br i1 %ident.check123.not, label %.lr.ph.ph, label %.lr.ph.lver.orig
 
 .lr.ph.lver.orig:                                 ; preds = %.lr.ph.lver.check, %.lr.ph.lver.orig
   %.099.lver.orig = phi ptr [ %66, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
@@ -4762,15 +4762,15 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !54
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
-  %load_initial123 = load i8, ptr %0, align 1
+  %load_initial125 = load i8, ptr %0, align 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.ph, %.lr.ph
-  %store_forwarded124 = phi i8 [ %load_initial123, %.lr.ph.ph ], [ %118, %.lr.ph ]
+  %store_forwarded126 = phi i8 [ %load_initial125, %.lr.ph.ph ], [ %118, %.lr.ph ]
   %.099 = phi ptr [ %0, %.lr.ph.ph ], [ %119, %.lr.ph ]
   %.08498 = phi i32 [ 0, %.lr.ph.ph ], [ %120, %.lr.ph ]
   %.08797 = phi ptr [ %1, %.lr.ph.ph ], [ %76, %.lr.ph ]
-  %68 = zext i8 %store_forwarded124 to i32
+  %68 = zext i8 %store_forwarded126 to i32
   %69 = load i8, ptr %.08797, align 1, !tbaa !35
   %70 = zext i8 %69 to i32
   %71 = mul nsw i32 %9, %70
@@ -4888,8 +4888,8 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   br i1 %153, label %.lr.ph103.lver.check, label %.loopexit
 
 .lr.ph103.lver.check:                             ; preds = %151
-  %ident.check117.not = icmp eq i64 %2, 1
-  br i1 %ident.check117.not, label %.lr.ph103.ph, label %.lr.ph103.lver.orig
+  %ident.check119.not = icmp eq i64 %2, 1
+  br i1 %ident.check119.not, label %.lr.ph103.ph, label %.lr.ph103.lver.orig
 
 .lr.ph103.lver.orig:                              ; preds = %.lr.ph103.lver.check, %.lr.ph103.lver.orig
   %.1102.lver.orig = phi ptr [ %188, %.lr.ph103.lver.orig ], [ %0, %.lr.ph103.lver.check ]
@@ -4938,15 +4938,15 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   br i1 %exitcond110.not.lver.orig, label %.loopexit, label %.lr.ph103.lver.orig, !llvm.loop !56
 
 .lr.ph103.ph:                                     ; preds = %.lr.ph103.lver.check
-  %load_initial119 = load i8, ptr %0, align 1
+  %load_initial121 = load i8, ptr %0, align 1
   br label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %.lr.ph103.ph, %.lr.ph103
-  %store_forwarded120 = phi i8 [ %load_initial119, %.lr.ph103.ph ], [ %223, %.lr.ph103 ]
+  %store_forwarded122 = phi i8 [ %load_initial121, %.lr.ph103.ph ], [ %223, %.lr.ph103 ]
   %.1102 = phi ptr [ %0, %.lr.ph103.ph ], [ %224, %.lr.ph103 ]
   %.185101 = phi i32 [ 0, %.lr.ph103.ph ], [ %226, %.lr.ph103 ]
   %.188100 = phi ptr [ %1, %.lr.ph103.ph ], [ %225, %.lr.ph103 ]
-  %191 = zext i8 %store_forwarded120 to i32
+  %191 = zext i8 %store_forwarded122 to i32
   %192 = load i8, ptr %.188100, align 1, !tbaa !35
   %193 = zext i8 %192 to i32
   %194 = mul nsw i32 %9, %193

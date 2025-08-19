@@ -28,7 +28,7 @@ define void @ff_rtp_send_amr(ptr noundef %0, ptr noundef readonly captures(none)
 
 22:                                               ; preds = %3
   %23 = icmp eq i32 %21, %10
-  br i1 %23, label %.thread58, label %24
+  br i1 %23, label %.thread59, label %24
 
 24:                                               ; preds = %22
   %25 = add i32 %2, -1
@@ -68,13 +68,13 @@ define void @ff_rtp_send_amr(ptr noundef %0, ptr noundef readonly captures(none)
   %50 = sub nsw i64 %48, %49
   %51 = getelementptr inbounds i8, ptr %45, i64 %50
   %.not50 = icmp eq i32 %10, %46
-  br i1 %.not50, label %.thread58, label %52
+  br i1 %.not50, label %.thread59, label %52
 
 52:                                               ; preds = %44
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %51, ptr align 1 %45, i64 %49, i1 false)
-  br label %.thread58
+  br label %.thread59
 
-.thread58:                                        ; preds = %22, %52, %44
+.thread59:                                        ; preds = %22, %52, %44
   %53 = phi ptr [ %51, %52 ], [ %51, %44 ], [ %15, %22 ]
   %54 = load ptr, ptr %12, align 8, !tbaa !30
   %55 = ptrtoint ptr %54 to i64
@@ -91,8 +91,8 @@ define void @ff_rtp_send_amr(ptr noundef %0, ptr noundef readonly captures(none)
   %.pre55 = load ptr, ptr %14, align 8, !tbaa !31
   br i1 %.not51, label %.thread, label %67
 
-.thread:                                          ; preds = %3, %.thread58, %59
-  %60 = phi ptr [ %15, %3 ], [ %.pre54, %.thread58 ], [ %.pre55, %59 ]
+.thread:                                          ; preds = %3, %.thread59, %59
+  %60 = phi ptr [ %15, %3 ], [ %.pre54, %.thread59 ], [ %.pre55, %59 ]
   store i8 -16, ptr %60, align 1, !tbaa !37
   %61 = load ptr, ptr %14, align 8, !tbaa !31
   %62 = sext i32 %11 to i64

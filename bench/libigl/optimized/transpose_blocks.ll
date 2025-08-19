@@ -105,10 +105,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %or.cond, label %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader.us.us.preheader, label %._crit_edge
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i.preheader.us.us.preheader: ; preds = %.lr.ph.split.us
-  %sext118 = shl i64 %.04096.in, 32
-  %51 = ashr exact i64 %sext118, 32
-  %sext119 = shl i64 %.03994.in, 32
-  %52 = ashr exact i64 %sext119, 32
+  %sext125 = shl i64 %.04096.in, 32
+  %51 = ashr exact i64 %sext125, 32
+  %sext126 = shl i64 %.03994.in, 32
+  %52 = ashr exact i64 %sext126, 32
   %wide.trip.count114 = and i64 %1, 2147483647
   br label %.preheader.us.i.i.i.i.i.i.i.i.i.i.preheader.us.us
 
@@ -152,21 +152,21 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9Tran
   br i1 %or.cond, label %.preheader.us.i.i.i.i.i.i.i.i.i.i47.preheader.us.preheader, label %._crit_edge
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i47.preheader.us.preheader: ; preds = %.lr.ph.split
-  %sext116 = shl i64 %.03994.in, 32
-  %65 = ashr exact i64 %sext116, 32
-  %sext117 = shl i64 %.04096.in, 32
-  %66 = ashr exact i64 %sext117, 32
+  %sext123 = shl i64 %.03994.in, 32
+  %65 = ashr exact i64 %sext123, 32
+  %sext124 = shl i64 %.04096.in, 32
+  %66 = ashr exact i64 %sext124, 32
   %wide.trip.count = and i64 %1, 2147483647
   %factor.op.mul = mul i64 %65, %43
-  %factor.op.mul121 = mul i64 %66, %48
+  %factor.op.mul128 = mul i64 %66, %48
   br label %.preheader.us.i.i.i.i.i.i.i.i.i.i47.preheader.us
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i47.preheader.us: ; preds = %.preheader.us.i.i.i.i.i.i.i.i.i.i47.preheader.us.preheader, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeIKNS0_IKS2_Lin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit103.us
   %indvars.iv = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i.i.i.i47.preheader.us.preheader ], [ %indvars.iv.next, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEaSINS_9TransposeIKNS0_IKS2_Lin1ELin1ELb0EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit.loopexit103.us ]
   %.reass = mul i64 %indvars.iv, %factor.op.mul
   %67 = getelementptr inbounds double, ptr %41, i64 %.reass
-  %.reass122 = mul i64 %indvars.iv, %factor.op.mul121
-  %68 = getelementptr inbounds double, ptr %46, i64 %.reass122
+  %.reass129 = mul i64 %indvars.iv, %factor.op.mul128
+  %68 = getelementptr inbounds double, ptr %46, i64 %.reass129
   br label %.preheader.us.i.i.i.i.i.i.i.i.i.i47.us
 
 .preheader.us.i.i.i.i.i.i.i.i.i.i47.us:           ; preds = %.preheader.us.i.i.i.i.i.i.i.i.i.i47.preheader.us, %._crit_edge.us.i.i.i.i.i.i.i.i.i.i53.us

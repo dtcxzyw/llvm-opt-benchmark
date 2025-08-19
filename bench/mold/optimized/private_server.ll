@@ -662,13 +662,13 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit: ; 
   br i1 %28, label %31, label %33
 
 31:                                               ; preds = %.critedge.thread, %.critedge
-  %.1.ptr.lcssa79 = phi ptr [ %3, %.critedge.thread ], [ %.1.ptr, %.critedge ]
-  %.3.lcssa77 = phi i32 [ %.22945, %.critedge.thread ], [ %24, %.critedge ]
-  %32 = atomicrmw add ptr %9, i32 %.3.lcssa77 seq_cst, align 4
+  %.1.ptr.lcssa84 = phi ptr [ %3, %.critedge.thread ], [ %.1.ptr, %.critedge ]
+  %.3.lcssa82 = phi i32 [ %.22945, %.critedge.thread ], [ %24, %.critedge ]
+  %32 = atomicrmw add ptr %9, i32 %.3.lcssa82 seq_cst, align 4
   br label %33
 
 33:                                               ; preds = %31, %.critedge
-  %.1.ptr.lcssa78 = phi ptr [ %.1.ptr.lcssa79, %31 ], [ %.1.ptr, %.critedge ]
+  %.1.ptr.lcssa83 = phi ptr [ %.1.ptr.lcssa84, %31 ], [ %.1.ptr, %.critedge ]
   %34 = load ptr, ptr %4, align 8, !tbaa !53
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i, label %35
@@ -687,11 +687,11 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit: ; 
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i: ; preds = %35, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %40 = icmp ugt ptr %.1.ptr.lcssa78, %3
+  %40 = icmp ugt ptr %.1.ptr.lcssa83, %3
   br i1 %40, label %.lr.ph62, label %._crit_edge63
 
 .lr.ph62:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i, %.lr.ph62
-  %.260 = phi ptr [ %41, %.lr.ph62 ], [ %.1.ptr.lcssa78, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i ]
+  %.260 = phi ptr [ %41, %.lr.ph62 ], [ %.1.ptr.lcssa83, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i ]
   %41 = getelementptr inbounds i8, ptr %.260, i64 -8
   %42 = load ptr, ptr %41, align 8, !tbaa !56
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48

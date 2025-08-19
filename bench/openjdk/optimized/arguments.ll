@@ -1408,11 +1408,11 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51: ; preds = %_ZN14Sy
 
 .preheader.i52.preheader:                         ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
   %133 = phi ptr [ %130, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread ], [ %131, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51 ]
-  %.pr7286 = phi ptr [ %125, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread ], [ %124, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51 ]
+  %.pr7294 = phi ptr [ %125, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread ], [ %124, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51 ]
   br label %.preheader.i52
 
 .preheader.i52:                                   ; preds = %.preheader.i52.preheader, %.preheader.i52
-  %.0.i53 = phi ptr [ %135, %.preheader.i52 ], [ %.pr7286, %.preheader.i52.preheader ]
+  %.0.i53 = phi ptr [ %135, %.preheader.i52 ], [ %.pr7294, %.preheader.i52.preheader ]
   %134 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 16
   %135 = load ptr, ptr %134, align 8
   %.not.i54 = icmp eq ptr %135, null
@@ -1432,11 +1432,11 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55: ; preds = %_ZN9Arg
 
 .preheader.i56.preheader:                         ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
   %140 = phi ptr [ %137, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread ], [ %138, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ]
-  %.pr7388 = phi ptr [ %.pr7286, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread ], [ %131, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ]
+  %.pr7396 = phi ptr [ %.pr7294, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread ], [ %131, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ]
   br label %.preheader.i56
 
 .preheader.i56:                                   ; preds = %.preheader.i56.preheader, %.preheader.i56
-  %.0.i57 = phi ptr [ %142, %.preheader.i56 ], [ %.pr7388, %.preheader.i56.preheader ]
+  %.0.i57 = phi ptr [ %142, %.preheader.i56 ], [ %.pr7396, %.preheader.i56.preheader ]
   %141 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 16
   %142 = load ptr, ptr %141, align 8
   %.not.i58 = icmp eq ptr %142, null
@@ -1456,11 +1456,11 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59: ; preds = %_ZN9Arg
 
 .preheader.i60.preheader:                         ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
   %147 = phi ptr [ %144, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread ], [ %145, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59 ]
-  %.pr7490 = phi ptr [ %.pr7388, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread ], [ %138, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59 ]
+  %.pr7498 = phi ptr [ %.pr7396, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread ], [ %138, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59 ]
   br label %.preheader.i60
 
 .preheader.i60:                                   ; preds = %.preheader.i60.preheader, %.preheader.i60
-  %.0.i61 = phi ptr [ %149, %.preheader.i60 ], [ %.pr7490, %.preheader.i60.preheader ]
+  %.0.i61 = phi ptr [ %149, %.preheader.i60 ], [ %.pr7498, %.preheader.i60.preheader ]
   %148 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 16
   %149 = load ptr, ptr %148, align 8
   %.not.i62 = icmp eq ptr %149, null
@@ -1477,7 +1477,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %_ZN9Arg
   br i1 %151, label %152, label %.preheader.i64.preheader
 
 .preheader.i64.preheader:                         ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
-  %.pr7592 = phi ptr [ %.pr7490, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread ], [ %145, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63 ]
+  %.pr75100 = phi ptr [ %.pr7498, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread ], [ %145, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63 ]
   br label %.preheader.i64
 
 152:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
@@ -1485,7 +1485,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %_ZN9Arg
   br label %.preheader.i68.preheader
 
 .preheader.i64:                                   ; preds = %.preheader.i64.preheader, %.preheader.i64
-  %.0.i65 = phi ptr [ %154, %.preheader.i64 ], [ %.pr7592, %.preheader.i64.preheader ]
+  %.0.i65 = phi ptr [ %154, %.preheader.i64 ], [ %.pr75100, %.preheader.i64.preheader ]
   %153 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 16
   %154 = load ptr, ptr %153, align 8
   %.not.i66 = icmp eq ptr %154, null
@@ -1497,7 +1497,7 @@ _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %_ZN9Arg
   br label %.preheader.i68.preheader
 
 .preheader.i68.preheader:                         ; preds = %155, %152
-  %157 = phi ptr [ %118, %152 ], [ %.pr7592, %155 ]
+  %157 = phi ptr [ %118, %152 ], [ %.pr75100, %155 ]
   %158 = load ptr, ptr @_ZN9Arguments8_vm_infoE, align 8
   br label %.preheader.i68
 
@@ -2030,7 +2030,7 @@ define hidden noundef ptr @_ZN9Arguments30handle_aliases_and_deprecationEPKc(ptr
   %spec.select.i = select i1 %5, ptr @.str.315, ptr %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %6 = call noundef i32 @_ZN9Arguments18is_deprecated_flagEPKcP11JDK_Version(ptr noundef nonnull %0, ptr noundef nonnull %2)
-  switch i32 %6, label %default.unreachable14 [
+  switch i32 %6, label %default.unreachable15 [
     i32 -1, label %7
     i32 0, label %12
     i32 1, label %9
@@ -2054,7 +2054,7 @@ define hidden noundef ptr @_ZN9Arguments30handle_aliases_and_deprecationEPKc(ptr
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.63, ptr noundef nonnull %0, ptr noundef nonnull %3) #31
   br label %12
 
-default.unreachable14:                            ; preds = %1
+default.unreachable15:                            ; preds = %1
   unreachable
 
 12:                                               ; preds = %10, %11, %1, %7
@@ -7724,6 +7724,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit111, %.critedge.thread.loopexit, %4
   %.sroa.054.086 = phi i32 [ 0, %4 ], [ %62, %.critedge.thread.loopexit ], [ %63, %.critedge.thread.loopexit111 ]
+  %.sroa.10.083 = phi i32 [ 2, %4 ], [ %.sroa.10.0103, %.critedge.thread.loopexit ], [ %.sroa.10.1, %.critedge.thread.loopexit111 ]
   %.sroa.17.079 = phi ptr [ %5, %4 ], [ %.sroa.17.0104, %.critedge.thread.loopexit ], [ %.sroa.17.1, %.critedge.thread.loopexit111 ]
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %64, align 8
@@ -7739,8 +7740,8 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %.not67 = icmp eq i32 %.sroa.054.086, 0
   br i1 %.not67, label %._crit_edge.i52, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %69, %78
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %69 ]
+.lr.ph.i:                                         ; preds = %69, %79
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %79 ], [ 0, %69 ]
   %71 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.17.079, i64 %indvars.iv.i
   %72 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %67, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
@@ -7748,43 +7749,43 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %74 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %73, i8 noundef zeroext 9) #31
   store ptr %74, ptr %72, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread, label %78
+  br i1 %75, label %76, label %79
 
-_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread: ; preds = %.lr.ph.i
-  %76 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %76, ptr %77, align 4
-  br label %.loopexit.thread.i.i.i
+76:                                               ; preds = %.lr.ph.i
+  %77 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %77, ptr %78, align 4
+  br label %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
 
-78:                                               ; preds = %.lr.ph.i
+79:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next.i, %65
   br i1 %exitcond128.not, label %._crit_edge.i52, label %.lr.ph.i, !llvm.loop !34
 
-._crit_edge.i52:                                  ; preds = %78, %69
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sroa.054.086, ptr %79, align 4
-  %80 = load i8, ptr @IgnoreUnrecognizedVMOptions, align 1
-  %81 = and i8 %80, 1
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 %81, ptr %82, align 8
+._crit_edge.i52:                                  ; preds = %79, %69
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %.sroa.054.086, ptr %80, align 4
+  %81 = load i8, ptr @IgnoreUnrecognizedVMOptions, align 1
+  %82 = and i8 %81, 1
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 %82, ptr %83, align 8
   br label %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
 
-_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit: ; preds = %._crit_edge.i52, %.critedge.thread, %.critedge51
-  %.sroa.17.078 = phi ptr [ %.sroa.17.0104, %.critedge51 ], [ %.sroa.17.079, %._crit_edge.i52 ], [ %.sroa.17.079, %.critedge.thread ]
-  %.0 = phi i32 [ -1, %.critedge51 ], [ 0, %._crit_edge.i52 ], [ -4, %.critedge.thread ]
+_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit: ; preds = %._crit_edge.i52, %76, %.critedge.thread, %.critedge51
+  %.sroa.10.082 = phi i32 [ %.sroa.10.0103, %.critedge51 ], [ %.sroa.10.083, %76 ], [ %.sroa.10.083, %._crit_edge.i52 ], [ %.sroa.10.083, %.critedge.thread ]
+  %.sroa.17.078 = phi ptr [ %.sroa.17.0104, %.critedge51 ], [ %.sroa.17.079, %76 ], [ %.sroa.17.079, %._crit_edge.i52 ], [ %.sroa.17.079, %.critedge.thread ]
+  %.0 = phi i32 [ -1, %.critedge51 ], [ -4, %76 ], [ 0, %._crit_edge.i52 ], [ -4, %.critedge.thread ]
+  %84 = icmp eq i32 %.sroa.10.082, 0
   %.not.i.i.i53 = icmp eq ptr %.sroa.17.078, null
-  br i1 %.not.i.i.i53, label %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EED2Ev.exit, label %.loopexit.thread.i.i.i
+  %or.cond = or i1 %84, %.not.i.i.i53
+  br i1 %or.cond, label %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EED2Ev.exit, label %.loopexit.thread.i.i.i
 
-.loopexit.thread.i.i.i:                           ; preds = %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
-  %.0133 = phi i32 [ -4, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread ], [ %.0, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit ]
-  %.sroa.17.078132 = phi ptr [ %.sroa.17.079, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit.thread ], [ %.sroa.17.078, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit ]
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.17.078132) #31
+.loopexit.thread.i.i.i:                           ; preds = %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.17.078) #31
   br label %_ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EED2Ev.exit
 
 _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EED2Ev.exit: ; preds = %.loopexit.thread.i.i.i, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit
-  %.0134 = phi i32 [ %.0133, %.loopexit.thread.i.i.i ], [ %.0, %_ZN16ScopedVMInitArgs8set_argsEPK17GrowableArrayViewI12JavaVMOptionE.exit ]
-  ret i32 %.0134
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8505,7 +8506,7 @@ _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS
   br label %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread
 
 _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread: ; preds = %2, %104, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread
-  %.097 = phi i32 [ %.0.ph, %104 ], [ %.0.ph, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread ], [ 0, %2 ]
+  %.0106 = phi i32 [ %.0.ph, %104 ], [ %.0.ph, %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread ], [ 0, %2 ]
   %105 = load ptr, ptr %7, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %_ZN16ScopedVMInitArgsD2Ev.exit, label %.preheader.i
@@ -8537,7 +8538,7 @@ _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS
   br label %_ZN16ScopedVMInitArgsD2Ev.exit
 
 _ZN16ScopedVMInitArgsD2Ev.exit:                   ; preds = %_ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS6_.exit.thread.thread, %._crit_edge.i
-  ret i32 %.097
+  ret i32 %.0106
 }
 
 declare void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1

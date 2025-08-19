@@ -728,7 +728,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit92.thread: ; preds = %_ZNK5clang5Token
 151:                                              ; preds = %65
   %switch.tableidx = add i8 %.0, -35
   %152 = icmp ult i8 %switch.tableidx, 30
-  br i1 %152, label %switch.lookup109, label %switch.edge
+  br i1 %152, label %switch.lookup113, label %switch.edge
 
 153:                                              ; preds = %65
   %154 = load ptr, ptr %0, align 8, !tbaa !3
@@ -761,14 +761,14 @@ switch.lookup:                                    ; preds = %131
   %switch.masked = trunc i61 %switch.downshift to i1
   br label %switch.edge
 
-switch.lookup109:                                 ; preds = %151
-  %switch.cast110 = zext nneg i8 %switch.tableidx to i30
-  %switch.downshift112 = lshr i30 -536870907, %switch.cast110
-  %switch.masked113 = trunc i30 %switch.downshift112 to i1
+switch.lookup113:                                 ; preds = %151
+  %switch.cast114 = zext nneg i8 %switch.tableidx to i30
+  %switch.downshift116 = lshr i30 -536870907, %switch.cast114
+  %switch.masked117 = trunc i30 %switch.downshift116 to i1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %151, %switch.lookup109, %131, %switch.lookup, %80, %80, %80, %80, %80, %80, %80, %80, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %53, %47, %100, %switch.edge.fold.split, %4, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88, %82, %90, %92, %119, %121, %123, %127, %133, %135, %137, %153, %162, %67, %_ZNK5clang5Token17getIdentifierInfoEv.exit90, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92, %110, %105, %142, %140, %56, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %11
-  %.070 = phi i1 [ true, %11 ], [ false, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %56 ], [ %170, %162 ], [ %87, %82 ], [ %91, %90 ], [ %spec.select82, %92 ], [ %120, %119 ], [ %122, %121 ], [ %126, %123 ], [ %130, %127 ], [ %134, %133 ], [ %136, %135 ], [ %139, %137 ], [ %161, %153 ], [ false, %67 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit90 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92 ], [ true, %105 ], [ %118, %110 ], [ true, %140 ], [ %150, %142 ], [ false, %4 ], [ true, %47 ], [ %55, %53 ], [ false, %switch.edge.fold.split ], [ true, %100 ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ %switch.masked, %switch.lookup ], [ false, %131 ], [ %switch.masked113, %switch.lookup109 ], [ false, %151 ]
+switch.edge:                                      ; preds = %151, %switch.lookup113, %131, %switch.lookup, %80, %80, %80, %80, %80, %80, %80, %80, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread, %53, %47, %100, %switch.edge.fold.split, %4, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88, %82, %90, %92, %119, %121, %123, %127, %133, %135, %137, %153, %162, %67, %_ZNK5clang5Token17getIdentifierInfoEv.exit90, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit92, %110, %105, %142, %140, %56, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %11
+  %.070 = phi i1 [ true, %11 ], [ false, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit88 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit ], [ false, %56 ], [ %170, %162 ], [ %87, %82 ], [ %91, %90 ], [ %spec.select82, %92 ], [ %120, %119 ], [ %122, %121 ], [ %126, %123 ], [ %130, %127 ], [ %134, %133 ], [ %136, %135 ], [ %139, %137 ], [ %161, %153 ], [ false, %67 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit90 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit90.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92 ], [ true, %105 ], [ %118, %110 ], [ true, %140 ], [ %150, %142 ], [ false, %4 ], [ true, %47 ], [ %55, %53 ], [ false, %switch.edge.fold.split ], [ true, %100 ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit92.thread ], [ true, %80 ], [ true, %80 ], [ %switch.masked, %switch.lookup ], [ false, %131 ], [ %switch.masked117, %switch.lookup113 ], [ false, %151 ]
   ret i1 %.070
 }
 

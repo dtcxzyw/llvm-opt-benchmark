@@ -248,8 +248,8 @@ define dso_local i32 @RelationMapFilenumberToOid(i32 noundef %0, i1 noundef zero
   br i1 %30, label %.loopexit.sink.split, label %26
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %.lr.ph43, %.lr.ph45, %.lr.ph47
-  %.lcssa76.sink = phi ptr [ %15, %.lr.ph47 ], [ %10, %.lr.ph45 ], [ %27, %.lr.ph43 ], [ %22, %.lr.ph ]
-  %31 = load i32, ptr %.lcssa76.sink, align 4
+  %.lcssa79.sink = phi ptr [ %15, %.lr.ph47 ], [ %10, %.lr.ph45 ], [ %27, %.lr.ph43 ], [ %22, %.lr.ph ]
+  %31 = load i32, ptr %.lcssa79.sink, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %14, %.loopexit.sink.split, %.preheader35, %.preheader
@@ -748,8 +748,8 @@ define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_ad
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), i64 0, i64 %indvars.iv
   %10 = add nsw i32 %2, -1
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), i64 0, i64 %11
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw [64 x %struct.RelMapping], ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 8), i64 0, i64 %11
   %13 = load i64, ptr %12, align 4
   store i64 %13, ptr %9, align 4
   store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @active_local_updates, i64 4), align 4

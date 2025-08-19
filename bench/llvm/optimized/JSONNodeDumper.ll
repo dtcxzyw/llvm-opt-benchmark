@@ -9448,9 +9448,9 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread: ; preds = %11, %_ZNK5clang7Ty
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread, %23
-  %.sink20 = phi ptr [ %21, %23 ], [ @.str.450, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
+  %.sink25 = phi ptr [ %21, %23 ], [ @.str.450, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
   %.sink = phi i8 [ 3, %23 ], [ 1, %_ZNK5clang7TypeLoc15getTypeLocClassEv.exit.thread ]
-  store ptr %.sink20, ptr %7, align 8
+  store ptr %.sink25, ptr %7, align 8
   %.sroa.717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %.sroa.717.0..sroa_idx, align 8, !tbaa !67
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 33
@@ -9734,9 +9734,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %54, %57
-  %.sink88 = phi ptr [ %55, %57 ], [ @.str.451, %54 ]
+  %.sink108 = phi ptr [ %55, %57 ], [ @.str.451, %54 ]
   %.sink = phi i8 [ 3, %57 ], [ 1, %54 ]
-  store ptr %.sink88, ptr %13, align 8
+  store ptr %.sink108, ptr %13, align 8
   %.sroa.780.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 3, ptr %.sroa.780.0..sroa_idx, align 8, !tbaa !67
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 33
@@ -10580,16 +10580,16 @@ _ZN4llvm4json5ValueC2EPKc.exit:                   ; preds = %_ZNSt7__cxx1112basi
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr nonnull @.str.432, i64 5) #23
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #23
   %49 = getelementptr i8, ptr %1, i64 4
-  %.val.val.i20 = load i64, ptr %49, align 4
+  %.val.val.i26 = load i64, ptr %49, align 4
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr nonnull @.str.492, i64 5) #23
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #23
-  %.sroa.010.0.extract.trunc.i.i.i = trunc i64 %.val.val.i20 to i32
+  %.sroa.010.0.extract.trunc.i.i.i = trunc i64 %.val.val.i26 to i32
   call void @_ZN5clang14JSONNodeDumper19writeSourceLocationENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1312) %0, i32 %.sroa.010.0.extract.trunc.i.i.i)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #23
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #23
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr nonnull @.str.493, i64 3) #23
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #23
-  %.sroa.0.4.extract.shift.i.i.i = lshr i64 %.val.val.i20, 32
+  %.sroa.0.4.extract.shift.i.i.i = lshr i64 %.val.val.i26, 32
   %.sroa.0.4.extract.trunc.i.i.i = trunc nuw i64 %.sroa.0.4.extract.shift.i.i.i to i32
   call void @_ZN5clang14JSONNodeDumper19writeSourceLocationENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1312) %0, i32 %.sroa.0.4.extract.trunc.i.i.i)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #23
@@ -12558,11 +12558,11 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %43
 
 _ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %43
   %.not.i.i4573 = icmp eq i64 %26, 0
-  %.sroa.29.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %.sroa.29.0.copyload88 = load i64, ptr %.sroa.29.0..sroa_idx87, align 8
-  %.not.i.i4989 = icmp eq i64 %.sroa.29.0.copyload88, 0
-  %or.cond92 = select i1 %.not.i.i4573, i1 true, i1 %.not.i.i4989
-  br i1 %or.cond92, label %_ZN4llvmneENS_9StringRefES0_.exit48.thread77, label %_ZN4llvmneENS_9StringRefES0_.exit52.thread
+  %.sroa.29.0..sroa_idx92 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %.sroa.29.0.copyload93 = load i64, ptr %.sroa.29.0..sroa_idx92, align 8
+  %.not.i.i4994 = icmp eq i64 %.sroa.29.0.copyload93, 0
+  %or.cond97 = select i1 %.not.i.i4573, i1 true, i1 %.not.i.i4994
+  br i1 %or.cond97, label %_ZN4llvmneENS_9StringRefES0_.exit48.thread77, label %_ZN4llvmneENS_9StringRefES0_.exit52.thread
 
 46:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %47 = icmp eq i64 %26, 0
@@ -22779,7 +22779,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit21: ; pred
   %87 = load i8, ptr %44, align 8
   %88 = lshr i8 %87, 5
   %89 = and i8 %88, 3
-  switch i8 %89, label %default.unreachable57 [
+  switch i8 %89, label %default.unreachable59 [
     i8 0, label %90
     i8 1, label %91
     i8 2, label %92
@@ -22826,7 +22826,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit21: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %94
 
-default.unreachable57:                            ; preds = %86
+default.unreachable59:                            ; preds = %86
   unreachable
 
 94:                                               ; preds = %90, %91, %92, %93, %_ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit21
@@ -30329,8 +30329,8 @@ _ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit.thread: ; preds = 
   br i1 %34, label %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit.thread, label %_ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit
 
 _ZNK5clang24MaterializeTemporaryExpr18getStorageDurationEv.exit: ; preds = %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit, %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit.thread
-  %.0.copyload.i.i.i.i.i.i.i.i25 = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.pre, %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit.thread ], [ %.0.copyload.i.i.i.i.i.i.i.i.i, %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit ]
-  %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i25, -8
+  %.0.copyload.i.i.i.i.i.i.i.i26 = phi i64 [ %.0.copyload.i.i.i.i.i.i.i.i.pre, %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit.thread ], [ %.0.copyload.i.i.i.i.i.i.i.i.i, %_ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit ]
+  %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i26, -8
   %36 = inttoptr i64 %35 to ptr
   %37 = call noundef i32 @_ZNK5clang29LifetimeExtendedTemporaryDecl18getStorageDurationEv(ptr noundef nonnull align 8 dereferenceable(72) %36) #23
   switch i32 %37, label %47 [
@@ -30674,8 +30674,8 @@ _ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit.i.i: ; preds 
   call void @_ZN5clang14JSONNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %.04.i.i, i64 %73, ptr noundef null, ptr null, i64 0)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %10) #23
   %74 = getelementptr inbounds nuw i8, ptr %.04.i.i, i64 32
-  %.not.i.i37 = icmp eq ptr %74, %72
-  br i1 %.not.i.i37, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper32VisitCXXDependentScopeMemberExprEPKNS4_27CXXDependentScopeMemberExprEE3$_0EEvl.exit", label %.lr.ph.i.i
+  %.not.i.i43 = icmp eq ptr %74, %72
+  br i1 %.not.i.i43, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper32VisitCXXDependentScopeMemberExprEPKNS4_27CXXDependentScopeMemberExprEE3$_0EEvl.exit", label %.lr.ph.i.i
 
 "_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper32VisitCXXDependentScopeMemberExprEPKNS4_27CXXDependentScopeMemberExprEE3$_0EEvl.exit": ; preds = %.lr.ph.i.i, %64, %_ZNK5clang27CXXDependentScopeMemberExpr23hasExplicitTemplateArgsEv.exit.i2.i.i.i, %_ZNK5clang27CXXDependentScopeMemberExpr18template_argumentsEv.exit.i.i
   call void @_ZN4llvm4json7OStream8arrayEndEv(ptr noundef nonnull align 8 dereferenceable(176) %10) #23

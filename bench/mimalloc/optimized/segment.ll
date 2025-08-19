@@ -135,7 +135,7 @@ define internal fastcc void @mi_pages_try_purge(i1 noundef zeroext %0, ptr nound
   br i1 %.not.i.i, label %20, label %mi_page_not_in_queue.exit.thread.i
 
 20:                                               ; preds = %.critedge2
-  br i1 %.not8.i.i, label %21, label %mi_page_not_in_queue.exit.thread.thread26.i
+  br i1 %.not8.i.i, label %21, label %mi_page_not_in_queue.exit.thread.thread29.i
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr %7, align 8, !tbaa !30
@@ -148,24 +148,24 @@ mi_page_not_in_queue.exit.i:                      ; preds = %21
   br i1 %.not23.i, label %.thread.i, label %mi_page_purge_remove.exit
 
 mi_page_not_in_queue.exit.thread.i:               ; preds = %.critedge2
-  br i1 %.not8.i.i, label %.thread29.i, label %mi_page_not_in_queue.exit.thread.thread26.i
+  br i1 %.not8.i.i, label %.thread32.i, label %mi_page_not_in_queue.exit.thread.thread29.i
 
-mi_page_not_in_queue.exit.thread.thread26.i:      ; preds = %20, %mi_page_not_in_queue.exit.thread.i
+mi_page_not_in_queue.exit.thread.thread29.i:      ; preds = %20, %mi_page_not_in_queue.exit.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr %19, ptr %24, align 8, !tbaa !29
   %.pre24.i = load ptr, ptr %18, align 8, !tbaa !29
   %.not21.i = icmp eq ptr %.pre24.i, null
-  br i1 %.not21.i, label %.thread.i, label %.thread29.i
+  br i1 %.not21.i, label %.thread.i, label %.thread32.i
 
-.thread29.i:                                      ; preds = %mi_page_not_in_queue.exit.thread.thread26.i, %mi_page_not_in_queue.exit.thread.i
-  %25 = phi ptr [ %.pre24.i, %mi_page_not_in_queue.exit.thread.thread26.i ], [ %19, %mi_page_not_in_queue.exit.thread.i ]
-  %26 = phi ptr [ %17, %mi_page_not_in_queue.exit.thread.thread26.i ], [ null, %mi_page_not_in_queue.exit.thread.i ]
+.thread32.i:                                      ; preds = %mi_page_not_in_queue.exit.thread.thread29.i, %mi_page_not_in_queue.exit.thread.i
+  %25 = phi ptr [ %.pre24.i, %mi_page_not_in_queue.exit.thread.thread29.i ], [ %19, %mi_page_not_in_queue.exit.thread.i ]
+  %26 = phi ptr [ %17, %mi_page_not_in_queue.exit.thread.thread29.i ], [ null, %mi_page_not_in_queue.exit.thread.i ]
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store ptr %26, ptr %27, align 8, !tbaa !28
   br label %.thread.i
 
-.thread.i:                                        ; preds = %21, %mi_page_not_in_queue.exit.i, %.thread29.i, %mi_page_not_in_queue.exit.thread.thread26.i
-  %28 = phi ptr [ %25, %.thread29.i ], [ null, %mi_page_not_in_queue.exit.thread.thread26.i ], [ null, %mi_page_not_in_queue.exit.i ], [ null, %21 ]
+.thread.i:                                        ; preds = %21, %mi_page_not_in_queue.exit.i, %.thread32.i, %mi_page_not_in_queue.exit.thread.thread29.i
+  %28 = phi ptr [ %25, %.thread32.i ], [ null, %mi_page_not_in_queue.exit.thread.thread29.i ], [ null, %mi_page_not_in_queue.exit.i ], [ null, %21 ]
   %29 = load ptr, ptr %8, align 8, !tbaa !25
   %30 = icmp eq ptr %.023, %29
   br i1 %30, label %31, label %33
@@ -525,7 +525,7 @@ define internal fastcc void @mi_segment_free(ptr noundef %0, ptr noundef capture
   br i1 %.not.i.i.i, label %24, label %mi_page_not_in_queue.exit.thread.i.i
 
 24:                                               ; preds = %19
-  br i1 %.not8.i.i.i, label %25, label %mi_page_not_in_queue.exit.thread.thread26.i.i
+  br i1 %.not8.i.i.i, label %25, label %mi_page_not_in_queue.exit.thread.thread29.i.i
 
 25:                                               ; preds = %24
   %26 = load ptr, ptr %13, align 8, !tbaa !30
@@ -538,24 +538,24 @@ mi_page_not_in_queue.exit.i.i:                    ; preds = %25
   br i1 %.not23.i.i, label %.thread.i.i, label %mi_page_purge.exit.i
 
 mi_page_not_in_queue.exit.thread.i.i:             ; preds = %19
-  br i1 %.not8.i.i.i, label %.thread29.i.i, label %mi_page_not_in_queue.exit.thread.thread26.i.i
+  br i1 %.not8.i.i.i, label %.thread32.i.i, label %mi_page_not_in_queue.exit.thread.thread29.i.i
 
-mi_page_not_in_queue.exit.thread.thread26.i.i:    ; preds = %mi_page_not_in_queue.exit.thread.i.i, %24
+mi_page_not_in_queue.exit.thread.thread29.i.i:    ; preds = %mi_page_not_in_queue.exit.thread.i.i, %24
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %21, ptr %28, align 8, !tbaa !29
   %.pre24.i.i = load ptr, ptr %20, align 8, !tbaa !29
   %.not21.i.i = icmp eq ptr %.pre24.i.i, null
-  br i1 %.not21.i.i, label %.thread.i.i, label %.thread29.i.i
+  br i1 %.not21.i.i, label %.thread.i.i, label %.thread32.i.i
 
-.thread29.i.i:                                    ; preds = %mi_page_not_in_queue.exit.thread.thread26.i.i, %mi_page_not_in_queue.exit.thread.i.i
-  %29 = phi ptr [ %.pre24.i.i, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ %21, %mi_page_not_in_queue.exit.thread.i.i ]
-  %30 = phi ptr [ %23, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ null, %mi_page_not_in_queue.exit.thread.i.i ]
+.thread32.i.i:                                    ; preds = %mi_page_not_in_queue.exit.thread.thread29.i.i, %mi_page_not_in_queue.exit.thread.i.i
+  %29 = phi ptr [ %.pre24.i.i, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ %21, %mi_page_not_in_queue.exit.thread.i.i ]
+  %30 = phi ptr [ %23, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.thread.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 72
   store ptr %30, ptr %31, align 8, !tbaa !28
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.thread29.i.i, %mi_page_not_in_queue.exit.thread.thread26.i.i, %mi_page_not_in_queue.exit.i.i, %25
-  %32 = phi ptr [ %29, %.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ null, %mi_page_not_in_queue.exit.i.i ], [ null, %25 ]
+.thread.i.i:                                      ; preds = %.thread32.i.i, %mi_page_not_in_queue.exit.thread.thread29.i.i, %mi_page_not_in_queue.exit.i.i, %25
+  %32 = phi ptr [ %29, %.thread32.i.i ], [ null, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.i.i ], [ null, %25 ]
   %33 = load ptr, ptr %14, align 8, !tbaa !25
   %34 = icmp eq ptr %15, %33
   br i1 %34, label %35, label %37
@@ -612,9 +612,9 @@ mi_segment_free_queue.exit.i:                     ; preds = %mi_segment_remove_a
   br i1 %.not9.i, label %51, label %.critedge12.i
 
 51:                                               ; preds = %46
-  br i1 %.not10.i, label %53, label %._crit_edge.i.thread23.i
+  br i1 %.not10.i, label %53, label %._crit_edge.i.thread26.i
 
-._crit_edge.i.thread23.i:                         ; preds = %51
+._crit_edge.i.thread26.i:                         ; preds = %51
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store ptr null, ptr %52, align 8, !tbaa !44
   br label %._crit_edge.i.thread.i
@@ -625,19 +625,19 @@ mi_segment_free_queue.exit.i:                     ; preds = %mi_segment_remove_a
   br i1 %55, label %._crit_edge.i.thread.i, label %mi_segment_remove_from_free_queue.exit
 
 .critedge12.i:                                    ; preds = %46
-  br i1 %.not10.i, label %._crit_edge.i.thread22.i, label %._crit_edge.i.i
+  br i1 %.not10.i, label %._crit_edge.i.thread25.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.critedge12.i
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store ptr %48, ptr %56, align 8, !tbaa !44
-  br label %._crit_edge.i.thread22.i
+  br label %._crit_edge.i.thread25.i
 
-._crit_edge.i.thread22.i:                         ; preds = %._crit_edge.i.i, %.critedge12.i
+._crit_edge.i.thread25.i:                         ; preds = %._crit_edge.i.i, %.critedge12.i
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store ptr %50, ptr %57, align 8, !tbaa !46
   br label %._crit_edge.i.thread.i
 
-._crit_edge.i.thread.i:                           ; preds = %53, %._crit_edge.i.thread22.i, %._crit_edge.i.thread23.i
+._crit_edge.i.thread.i:                           ; preds = %53, %._crit_edge.i.thread25.i, %._crit_edge.i.thread26.i
   %58 = load ptr, ptr %.0.i.i18.i, align 8, !tbaa !47
   %59 = icmp eq ptr %0, %58
   br i1 %59, label %60, label %61
@@ -832,21 +832,21 @@ define internal fastcc void @mi_segment_abandon(ptr noundef %0, ptr noundef capt
   br i1 %.not.i.i.us.i, label %31, label %mi_page_not_in_queue.exit.thread.i.us.i
 
 mi_page_not_in_queue.exit.thread.i.us.i:          ; preds = %26
-  br i1 %.not8.i.i.us.i, label %.thread29.i.us.i, label %mi_page_not_in_queue.exit.thread.thread26.i.us.i
+  br i1 %.not8.i.i.us.i, label %.thread32.i.us.i, label %mi_page_not_in_queue.exit.thread.thread29.i.us.i
 
 31:                                               ; preds = %26
-  br i1 %.not8.i.i.us.i, label %36, label %mi_page_not_in_queue.exit.thread.thread26.i.us.i
+  br i1 %.not8.i.i.us.i, label %36, label %mi_page_not_in_queue.exit.thread.thread29.i.us.i
 
-mi_page_not_in_queue.exit.thread.thread26.i.us.i: ; preds = %31, %mi_page_not_in_queue.exit.thread.i.us.i
+mi_page_not_in_queue.exit.thread.thread29.i.us.i: ; preds = %31, %mi_page_not_in_queue.exit.thread.i.us.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store ptr %28, ptr %32, align 8, !tbaa !29
   %.pre24.i.us.i = load ptr, ptr %27, align 8, !tbaa !29
   %.not21.i.us.i = icmp eq ptr %.pre24.i.us.i, null
-  br i1 %.not21.i.us.i, label %.thread.i.us.i, label %.thread29.i.us.i
+  br i1 %.not21.i.us.i, label %.thread.i.us.i, label %.thread32.i.us.i
 
-.thread29.i.us.i:                                 ; preds = %mi_page_not_in_queue.exit.thread.thread26.i.us.i, %mi_page_not_in_queue.exit.thread.i.us.i
-  %33 = phi ptr [ %.pre24.i.us.i, %mi_page_not_in_queue.exit.thread.thread26.i.us.i ], [ %28, %mi_page_not_in_queue.exit.thread.i.us.i ]
-  %34 = phi ptr [ %30, %mi_page_not_in_queue.exit.thread.thread26.i.us.i ], [ null, %mi_page_not_in_queue.exit.thread.i.us.i ]
+.thread32.i.us.i:                                 ; preds = %mi_page_not_in_queue.exit.thread.thread29.i.us.i, %mi_page_not_in_queue.exit.thread.i.us.i
+  %33 = phi ptr [ %.pre24.i.us.i, %mi_page_not_in_queue.exit.thread.thread29.i.us.i ], [ %28, %mi_page_not_in_queue.exit.thread.i.us.i ]
+  %34 = phi ptr [ %30, %mi_page_not_in_queue.exit.thread.thread29.i.us.i ], [ null, %mi_page_not_in_queue.exit.thread.i.us.i ]
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 72
   store ptr %34, ptr %35, align 8, !tbaa !28
   br label %.thread.i.us.i
@@ -861,8 +861,8 @@ mi_page_not_in_queue.exit.i.us.i:                 ; preds = %36
   %.not23.i.us.i = icmp eq ptr %38, %22
   br i1 %.not23.i.us.i, label %.thread.i.us.i, label %mi_page_purge_remove.exit.us.i
 
-.thread.i.us.i:                                   ; preds = %mi_page_not_in_queue.exit.i.us.i, %36, %.thread29.i.us.i, %mi_page_not_in_queue.exit.thread.thread26.i.us.i
-  %39 = phi ptr [ %33, %.thread29.i.us.i ], [ null, %mi_page_not_in_queue.exit.thread.thread26.i.us.i ], [ null, %mi_page_not_in_queue.exit.i.us.i ], [ null, %36 ]
+.thread.i.us.i:                                   ; preds = %mi_page_not_in_queue.exit.i.us.i, %36, %.thread32.i.us.i, %mi_page_not_in_queue.exit.thread.thread29.i.us.i
+  %39 = phi ptr [ %33, %.thread32.i.us.i ], [ null, %mi_page_not_in_queue.exit.thread.thread29.i.us.i ], [ null, %mi_page_not_in_queue.exit.i.us.i ], [ null, %36 ]
   %40 = load ptr, ptr %16, align 8, !tbaa !25
   %41 = icmp eq ptr %22, %40
   br i1 %41, label %42, label %44
@@ -965,7 +965,7 @@ mi_page_purge.exit.us.i:                          ; preds = %74, %mi_segment_raw
   br i1 %.not.i.i.i, label %89, label %mi_page_not_in_queue.exit.thread.i.i
 
 89:                                               ; preds = %84
-  br i1 %.not8.i.i.i, label %90, label %mi_page_not_in_queue.exit.thread.thread26.i.i
+  br i1 %.not8.i.i.i, label %90, label %mi_page_not_in_queue.exit.thread.thread29.i.i
 
 90:                                               ; preds = %89
   %91 = load ptr, ptr %15, align 8, !tbaa !30
@@ -978,24 +978,24 @@ mi_page_not_in_queue.exit.i.i:                    ; preds = %90
   br i1 %.not23.i.i, label %.thread.i.i, label %mi_page_purge.exit.i
 
 mi_page_not_in_queue.exit.thread.i.i:             ; preds = %84
-  br i1 %.not8.i.i.i, label %.thread29.i.i, label %mi_page_not_in_queue.exit.thread.thread26.i.i
+  br i1 %.not8.i.i.i, label %.thread32.i.i, label %mi_page_not_in_queue.exit.thread.thread29.i.i
 
-mi_page_not_in_queue.exit.thread.thread26.i.i:    ; preds = %mi_page_not_in_queue.exit.thread.i.i, %89
+mi_page_not_in_queue.exit.thread.thread29.i.i:    ; preds = %mi_page_not_in_queue.exit.thread.i.i, %89
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 64
   store ptr %86, ptr %93, align 8, !tbaa !29
   %.pre24.i.i = load ptr, ptr %85, align 8, !tbaa !29
   %.not21.i.i = icmp eq ptr %.pre24.i.i, null
-  br i1 %.not21.i.i, label %.thread.i.i, label %.thread29.i.i
+  br i1 %.not21.i.i, label %.thread.i.i, label %.thread32.i.i
 
-.thread29.i.i:                                    ; preds = %mi_page_not_in_queue.exit.thread.thread26.i.i, %mi_page_not_in_queue.exit.thread.i.i
-  %94 = phi ptr [ %.pre24.i.i, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ %86, %mi_page_not_in_queue.exit.thread.i.i ]
-  %95 = phi ptr [ %88, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ null, %mi_page_not_in_queue.exit.thread.i.i ]
+.thread32.i.i:                                    ; preds = %mi_page_not_in_queue.exit.thread.thread29.i.i, %mi_page_not_in_queue.exit.thread.i.i
+  %94 = phi ptr [ %.pre24.i.i, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ %86, %mi_page_not_in_queue.exit.thread.i.i ]
+  %95 = phi ptr [ %88, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.thread.i.i ]
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 72
   store ptr %95, ptr %96, align 8, !tbaa !28
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.thread29.i.i, %mi_page_not_in_queue.exit.thread.thread26.i.i, %mi_page_not_in_queue.exit.i.i, %90
-  %97 = phi ptr [ %94, %.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ null, %mi_page_not_in_queue.exit.i.i ], [ null, %90 ]
+.thread.i.i:                                      ; preds = %.thread32.i.i, %mi_page_not_in_queue.exit.thread.thread29.i.i, %mi_page_not_in_queue.exit.i.i, %90
+  %97 = phi ptr [ %94, %.thread32.i.i ], [ null, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.i.i ], [ null, %90 ]
   %98 = load ptr, ptr %16, align 8, !tbaa !25
   %99 = icmp eq ptr %80, %98
   br i1 %99, label %100, label %102
@@ -1052,9 +1052,9 @@ mi_segment_free_queue.exit.i:                     ; preds = %mi_segment_remove_a
   br i1 %.not9.i, label %116, label %.critedge12.i
 
 116:                                              ; preds = %111
-  br i1 %.not10.i, label %118, label %._crit_edge.i.thread23.i
+  br i1 %.not10.i, label %118, label %._crit_edge.i.thread26.i
 
-._crit_edge.i.thread23.i:                         ; preds = %116
+._crit_edge.i.thread26.i:                         ; preds = %116
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 48
   store ptr null, ptr %117, align 8, !tbaa !44
   br label %._crit_edge.i.thread.i
@@ -1065,19 +1065,19 @@ mi_segment_free_queue.exit.i:                     ; preds = %mi_segment_remove_a
   br i1 %120, label %._crit_edge.i.thread.i, label %mi_segment_remove_from_free_queue.exit
 
 .critedge12.i:                                    ; preds = %111
-  br i1 %.not10.i, label %._crit_edge.i.thread22.i, label %._crit_edge.i.i
+  br i1 %.not10.i, label %._crit_edge.i.thread25.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.critedge12.i
   %121 = getelementptr inbounds nuw i8, ptr %115, i64 48
   store ptr %113, ptr %121, align 8, !tbaa !44
-  br label %._crit_edge.i.thread22.i
+  br label %._crit_edge.i.thread25.i
 
-._crit_edge.i.thread22.i:                         ; preds = %._crit_edge.i.i, %.critedge12.i
+._crit_edge.i.thread25.i:                         ; preds = %._crit_edge.i.i, %.critedge12.i
   %122 = getelementptr inbounds nuw i8, ptr %113, i64 56
   store ptr %115, ptr %122, align 8, !tbaa !46
   br label %._crit_edge.i.thread.i
 
-._crit_edge.i.thread.i:                           ; preds = %118, %._crit_edge.i.thread22.i, %._crit_edge.i.thread23.i
+._crit_edge.i.thread.i:                           ; preds = %118, %._crit_edge.i.thread25.i, %._crit_edge.i.thread26.i
   %123 = load ptr, ptr %.0.i.i18.i, align 8, !tbaa !47
   %124 = icmp eq ptr %0, %123
   br i1 %124, label %125, label %126
@@ -2185,7 +2185,7 @@ mi_segment_os_alloc.exit.thread:                  ; preds = %40, %28
   %86 = shl nuw nsw i8 %.pre, 1
   %87 = shl nuw nsw i8 %.pre58, 2
   %invariant.op = or disjoint i8 %86, %87
-  %invariant.op59 = or disjoint i8 %invariant.op, %85
+  %invariant.op62 = or disjoint i8 %invariant.op, %85
   br label %98
 
 ._crit_edge:                                      ; preds = %98, %79
@@ -2215,8 +2215,8 @@ mi_segment_os_alloc.exit.thread:                  ; preds = %40, %28
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   %102 = load i8, ptr %101, align 1
   %103 = and i8 %102, -15
-  %.reass60 = or disjoint i8 %103, %invariant.op59
-  store i8 %.reass60, ptr %101, align 1
+  %.reass63 = or disjoint i8 %103, %invariant.op62
+  store i8 %.reass63, ptr %101, align 1
   %104 = add nuw nsw i64 %.057, 1
   %exitcond.not = icmp eq i64 %104, %.051
   br i1 %exitcond.not, label %._crit_edge, label %98, !llvm.loop !106
@@ -2301,7 +2301,7 @@ define internal fastcc ptr @mi_segment_find_free(ptr noundef nonnull %0, ptr nou
   br i1 %.not.i.i.i, label %24, label %mi_page_not_in_queue.exit.thread.i.i
 
 24:                                               ; preds = %19
-  br i1 %.not8.i.i.i, label %25, label %mi_page_not_in_queue.exit.thread.thread26.i.i
+  br i1 %.not8.i.i.i, label %25, label %mi_page_not_in_queue.exit.thread.thread29.i.i
 
 25:                                               ; preds = %24
   %26 = load ptr, ptr %7, align 8, !tbaa !30
@@ -2314,24 +2314,24 @@ mi_page_not_in_queue.exit.i.i:                    ; preds = %25
   br i1 %.not23.i.i, label %.thread.i.i, label %mi_page_purge_remove.exit.i
 
 mi_page_not_in_queue.exit.thread.i.i:             ; preds = %19
-  br i1 %.not8.i.i.i, label %.thread29.i.i, label %mi_page_not_in_queue.exit.thread.thread26.i.i
+  br i1 %.not8.i.i.i, label %.thread32.i.i, label %mi_page_not_in_queue.exit.thread.thread29.i.i
 
-mi_page_not_in_queue.exit.thread.thread26.i.i:    ; preds = %mi_page_not_in_queue.exit.thread.i.i, %24
+mi_page_not_in_queue.exit.thread.thread29.i.i:    ; preds = %mi_page_not_in_queue.exit.thread.i.i, %24
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %21, ptr %28, align 8, !tbaa !29
   %.pre24.i.i = load ptr, ptr %20, align 8, !tbaa !29
   %.not21.i.i = icmp eq ptr %.pre24.i.i, null
-  br i1 %.not21.i.i, label %.thread.i.i, label %.thread29.i.i
+  br i1 %.not21.i.i, label %.thread.i.i, label %.thread32.i.i
 
-.thread29.i.i:                                    ; preds = %mi_page_not_in_queue.exit.thread.thread26.i.i, %mi_page_not_in_queue.exit.thread.i.i
-  %29 = phi ptr [ %.pre24.i.i, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ %21, %mi_page_not_in_queue.exit.thread.i.i ]
-  %30 = phi ptr [ %23, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ null, %mi_page_not_in_queue.exit.thread.i.i ]
+.thread32.i.i:                                    ; preds = %mi_page_not_in_queue.exit.thread.thread29.i.i, %mi_page_not_in_queue.exit.thread.i.i
+  %29 = phi ptr [ %.pre24.i.i, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ %21, %mi_page_not_in_queue.exit.thread.i.i ]
+  %30 = phi ptr [ %23, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.thread.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 72
   store ptr %30, ptr %31, align 8, !tbaa !28
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.thread29.i.i, %mi_page_not_in_queue.exit.thread.thread26.i.i, %mi_page_not_in_queue.exit.i.i, %25
-  %32 = phi ptr [ %29, %.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.thread.thread26.i.i ], [ null, %mi_page_not_in_queue.exit.i.i ], [ null, %25 ]
+.thread.i.i:                                      ; preds = %.thread32.i.i, %mi_page_not_in_queue.exit.thread.thread29.i.i, %mi_page_not_in_queue.exit.i.i, %25
+  %32 = phi ptr [ %29, %.thread32.i.i ], [ null, %mi_page_not_in_queue.exit.thread.thread29.i.i ], [ null, %mi_page_not_in_queue.exit.i.i ], [ null, %25 ]
   %33 = load ptr, ptr %8, align 8, !tbaa !25
   %34 = icmp eq ptr %15, %33
   br i1 %34, label %35, label %37
@@ -2445,9 +2445,9 @@ mi_segment_free_queue.exit.i.i:                   ; preds = %79
   br i1 %.not9.i.i, label %86, label %.critedge12.i.i
 
 86:                                               ; preds = %mi_segment_free_queue.exit.i.i
-  br i1 %.not10.i.i, label %88, label %._crit_edge.i.thread23.i.i
+  br i1 %.not10.i.i, label %88, label %._crit_edge.i.thread26.i.i
 
-._crit_edge.i.thread23.i.i:                       ; preds = %86
+._crit_edge.i.thread26.i.i:                       ; preds = %86
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 48
   store ptr null, ptr %87, align 8, !tbaa !44
   br label %._crit_edge.i.thread.i.i
@@ -2458,19 +2458,19 @@ mi_segment_free_queue.exit.i.i:                   ; preds = %79
   br i1 %90, label %._crit_edge.i.thread.i.i, label %.thread25
 
 .critedge12.i.i:                                  ; preds = %mi_segment_free_queue.exit.i.i
-  br i1 %.not10.i.i, label %._crit_edge.i.thread22.i.i, label %._crit_edge.i.i.i
+  br i1 %.not10.i.i, label %._crit_edge.i.thread25.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.critedge12.i.i
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 48
   store ptr %83, ptr %91, align 8, !tbaa !44
-  br label %._crit_edge.i.thread22.i.i
+  br label %._crit_edge.i.thread25.i.i
 
-._crit_edge.i.thread22.i.i:                       ; preds = %._crit_edge.i.i.i, %.critedge12.i.i
+._crit_edge.i.thread25.i.i:                       ; preds = %._crit_edge.i.i.i, %.critedge12.i.i
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 56
   store ptr %85, ptr %92, align 8, !tbaa !46
   br label %._crit_edge.i.thread.i.i
 
-._crit_edge.i.thread.i.i:                         ; preds = %._crit_edge.i.thread22.i.i, %88, %._crit_edge.i.thread23.i.i
+._crit_edge.i.thread.i.i:                         ; preds = %._crit_edge.i.thread25.i.i, %88, %._crit_edge.i.thread26.i.i
   %93 = load ptr, ptr %spec.select.i, align 8, !tbaa !47
   %94 = icmp eq ptr %0, %93
   br i1 %94, label %95, label %96
@@ -2674,18 +2674,18 @@ mi_segment_get_reclaim_tries.exit.i:              ; preds = %26, %23
 segment_count_is_within_target.exit.i13:          ; preds = %36
   %39 = load i64, ptr %34, align 8, !tbaa !58
   %40 = icmp ult i64 %39, %37
-  %.not33 = xor i1 %40, true
-  %.not34 = xor i1 %35, true
-  %brmerge = select i1 %.not33, i1 true, i1 %.not34
-  br i1 %brmerge, label %mi_segment_try_reclaim.exit.thread18, label %41
+  %.not39 = xor i1 %40, true
+  %.not40 = xor i1 %35, true
+  %brmerge = select i1 %.not39, i1 true, i1 %.not40
+  br i1 %brmerge, label %mi_segment_try_reclaim.exit.thread24, label %41
 
 segment_count_is_within_target.exit.thread.i:     ; preds = %36
-  br i1 %35, label %41, label %mi_segment_try_reclaim.exit.thread18
+  br i1 %35, label %41, label %mi_segment_try_reclaim.exit.thread24
 
 41:                                               ; preds = %segment_count_is_within_target.exit.i13, %segment_count_is_within_target.exit.thread.i
   %42 = call ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef nonnull %6) #8
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %mi_segment_try_reclaim.exit.thread18, label %43
+  br i1 %.not.i, label %mi_segment_try_reclaim.exit.thread24, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 80
@@ -2795,7 +2795,7 @@ mi_segment_check_free.exit.thread.i:              ; preds = %mi_segment_check_fr
   call void @_mi_arena_segment_mark_abandoned(ptr noundef nonnull %42) #8
   br label %36
 
-mi_segment_try_reclaim.exit.thread18:             ; preds = %segment_count_is_within_target.exit.i13, %segment_count_is_within_target.exit.thread.i, %41
+mi_segment_try_reclaim.exit.thread24:             ; preds = %segment_count_is_within_target.exit.i13, %segment_count_is_within_target.exit.thread.i, %41
   call void @_mi_arena_field_cursor_done(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
@@ -2812,7 +2812,7 @@ mi_segment_try_reclaim.exit:                      ; preds = %81
   %.not = icmp eq ptr %92, null
   br i1 %.not, label %.thread, label %98
 
-.thread:                                          ; preds = %16, %mi_segments_try_abandon.exit, %mi_segment_try_reclaim.exit.thread18, %94
+.thread:                                          ; preds = %16, %mi_segments_try_abandon.exit, %mi_segment_try_reclaim.exit.thread24, %94
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %96 = load i32, ptr %95, align 8, !tbaa !93
   %97 = call fastcc ptr @mi_segment_alloc(i64 noundef 0, i32 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %96, ptr noundef %4) #7

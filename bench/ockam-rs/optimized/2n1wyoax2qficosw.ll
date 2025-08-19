@@ -2561,10 +2561,10 @@ common.resume:                                    ; preds = %152, %199, %269, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %spec.select = select i1 %.sroa.084.0, ptr @anon.6cc55d8e417fc23aecc80a8df6016d01.16, ptr @anon.6cc55d8e417fc23aecc80a8df6016d01.23
   %not..sroa.084.0 = xor i1 %.sroa.084.0, true
-  %spec.select356 = zext i1 %not..sroa.084.0 to i64
+  %spec.select390 = zext i1 %not..sroa.084.0 to i64
   store ptr %spec.select, ptr %28, align 8
   %451 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %spec.select356, ptr %451, align 8
+  store i64 %spec.select390, ptr %451, align 8
   store ptr %30, ptr %31, align 8
   %452 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @"_ZN90_$LT$nu_ansi_term..display..AnsiGenericString$LT$str$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h0ef90c753c2d316bE", ptr %452, align 8
@@ -3990,7 +3990,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hdb
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17haa93f9e4f71b9d97E.llvm.3062767651664570529"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !1066, !noundef !5
-  switch i64 %3, label %default.unreachable11 [
+  switch i64 %3, label %default.unreachable21 [
     i64 0, label %31
     i64 1, label %47
     i64 2, label %63
@@ -4009,7 +4009,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$1
     i64 15, label %4
   ]
 
-default.unreachable11:                            ; preds = %1
+default.unreachable21:                            ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -5797,20 +5797,20 @@ default.unreachable:                              ; preds = %"_ZN120_$LT$alloc..
   br label %13
 
 .sink.split.sink.split:                           ; preds = %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68", %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread"
-  %.sink79 = phi i64 [ %41, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ %46, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ]
-  %.sink77.ph = phi i64 [ 1, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ 0, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ]
-  %.sink76.ph = phi ptr [ %15, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ %14, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ]
+  %.sink84 = phi i64 [ %41, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ %46, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ]
+  %.sink82.ph = phi i64 [ 1, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ 0, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ]
+  %.sink81.ph = phi ptr [ %15, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ %14, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ]
   %.sroa.512.0..sroa_idx.sink.ph = phi ptr [ %.sroa.512.0..sroa_idx, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ %.sroa.522.0..sroa_idx, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ]
   %21 = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !5, !nonnull !5, !noundef !5
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %.sink79, i64 noundef 1) #35, !noalias !5
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %.sink84, i64 noundef 1) #35, !noalias !5
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68", %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread"
-  %.sink77 = phi i64 [ 1, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ 0, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ], [ %.sink77.ph, %.sink.split.sink.split ]
-  %.sink76 = phi ptr [ %15, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ %14, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ], [ %.sink76.ph, %.sink.split.sink.split ]
+  %.sink82 = phi i64 [ 1, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ 0, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ], [ %.sink82.ph, %.sink.split.sink.split ]
+  %.sink81 = phi ptr [ %15, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ %14, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ], [ %.sink81.ph, %.sink.split.sink.split ]
   %.sroa.512.0..sroa_idx.sink = phi ptr [ %.sroa.512.0..sroa_idx, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread" ], [ %.sroa.522.0..sroa_idx, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68" ], [ %.sroa.512.0..sroa_idx.sink.ph, %.sink.split.sink.split ]
-  store i64 %.sink77, ptr %8, align 8
-  store ptr %.sink76, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sink82, ptr %8, align 8
+  store ptr %.sink81, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx47 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx47, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.0..sroa_idx.sink, i64 24, i1 false)
   br label %22
@@ -5859,8 +5859,8 @@ default.unreachable:                              ; preds = %"_ZN120_$LT$alloc..
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
-  %or.cond82 = select i1 %39, i1 true, i1 %42
-  br i1 %or.cond82, label %.sink.split, label %.sink.split.sink.split
+  %or.cond87 = select i1 %39, i1 true, i1 %42
+  br i1 %or.cond87, label %.sink.split, label %.sink.split.sink.split
 
 "_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit.thread68": ; preds = %30, %"_ZN120_$LT$alloc..collections..btree..append..MergeIter$LT$K$C$V$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0f474b214a6a8adfE.exit"
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5870,8 +5870,8 @@ default.unreachable:                              ; preds = %"_ZN120_$LT$alloc..
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
-  %or.cond85 = select i1 %44, i1 true, i1 %47
-  br i1 %or.cond85, label %.sink.split, label %.sink.split.sink.split
+  %or.cond90 = select i1 %44, i1 true, i1 %47
+  br i1 %or.cond90, label %.sink.split, label %.sink.split.sink.split
 
 48:                                               ; preds = %.thread, %.thread63.thread
   %.sink = phi ptr [ %6, %.thread ], [ %7, %.thread63.thread ]
@@ -8186,8 +8186,8 @@ define hidden void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.306276
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !1752
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !1752
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.3062767651664570529.exit
 
 15:                                               ; preds = %6
@@ -8199,13 +8199,13 @@ define hidden void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.306276
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !1752
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !1752
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !1752
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !1752
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.3062767651664570529.exit
 
 26:                                               ; preds = %6
@@ -8927,8 +8927,8 @@ _ZN6chrono6format10formatting14write_hundreds17h7a06eb968f86f446E.exit210.thread
   %82 = or disjoint i8 %81, 48
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9f74ff6fbfcb3083E.llvm.15673428424896960800"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %80)
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9f74ff6fbfcb3083E.llvm.15673428424896960800"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i8 noundef %82)
-  %.lhs.trunc242 = trunc nuw i32 %37 to i16
-  %83 = urem i16 %.lhs.trunc242, 100
+  %.lhs.trunc256 = trunc nuw i32 %37 to i16
+  %83 = urem i16 %.lhs.trunc256, 100
   %84 = trunc nuw nsw i16 %83 to i8
   %85 = udiv i8 %84, 10
   %86 = or disjoint i8 %85, 48

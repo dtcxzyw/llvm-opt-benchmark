@@ -751,7 +751,7 @@ define internal fastcc range(i32 0, 2) i32 @php_var_unserialize_internal(ptr nou
 
 13:                                               ; preds = %12
   %.not590 = icmp eq i8 %.pre922, 82
-  br i1 %.not590, label %.thread939, label %14
+  br i1 %.not590, label %.thread1003, label %14
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr %3, align 8, !tbaa !41
@@ -789,7 +789,7 @@ var_push.exit:                                    ; preds = %14, %19
     i8 79, label %31
     i8 69, label %35
     i8 78, label %39
-    i8 82, label %.thread939
+    i8 82, label %.thread1003
     i8 83, label %46
     i8 97, label %50
     i8 98, label %54
@@ -818,7 +818,7 @@ var_push.exit:                                    ; preds = %14, %19
   %42 = icmp eq i8 %41, 59
   br i1 %42, label %85, label %zend_string_release_ex.exit691
 
-.thread939:                                       ; preds = %13, %28
+.thread1003:                                      ; preds = %13, %28
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %44 = load i8, ptr %43, align 1, !tbaa !46
   %45 = icmp eq i8 %44, 58
@@ -893,7 +893,7 @@ var_push.exit:                                    ; preds = %14, %19
   store i32 1, ptr %87, align 8, !tbaa !46
   br label %zend_string_release_ex.exit691
 
-88:                                               ; preds = %.thread939
+88:                                               ; preds = %.thread1003
   %89 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %90 = load i8, ptr %89, align 1, !tbaa !46
   %91 = add i8 %90, -48
@@ -1096,7 +1096,7 @@ var_push.exit:                                    ; preds = %14, %19
   br i1 %or.cond36, label %.preheader802.preheader, label %zend_string_release_ex.exit691
 
 .preheader802.preheader:                          ; preds = %119, %201, %194
-  %.ph1113 = phi ptr [ %191, %194 ], [ %197, %201 ], [ %109, %119 ]
+  %.ph1177 = phi ptr [ %191, %194 ], [ %197, %201 ], [ %109, %119 ]
   br label %.preheader802
 
 196:                                              ; preds = %116
@@ -1126,11 +1126,11 @@ var_push.exit:                                    ; preds = %14, %19
   br i1 %or.cond39, label %.preheader800.preheader, label %zend_string_release_ex.exit691
 
 .preheader800.preheader:                          ; preds = %216, %205
-  %.ph1105 = phi ptr [ %207, %205 ], [ %211, %216 ]
+  %.ph1169 = phi ptr [ %207, %205 ], [ %211, %216 ]
   br label %.preheader800
 
 .preheader802:                                    ; preds = %.preheader802.preheader, %217
-  %210 = phi ptr [ %211, %217 ], [ %.ph1113, %.preheader802.preheader ]
+  %210 = phi ptr [ %211, %217 ], [ %.ph1177, %.preheader802.preheader ]
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 1
   %212 = load i8, ptr %211, align 1, !tbaa !46
   %213 = icmp ult i8 %212, 59
@@ -1185,11 +1185,11 @@ var_push.exit:                                    ; preds = %14, %19
   br i1 %or.cond45, label %zend_string_release_ex.exit691, label %.preheader804.preheader
 
 .preheader804.preheader:                          ; preds = %132, %232
-  %.ph1121 = phi ptr [ %233, %232 ], [ %125, %132 ]
+  %.ph1185 = phi ptr [ %233, %232 ], [ %125, %132 ]
   br label %.preheader804
 
 .preheader804:                                    ; preds = %.preheader804.preheader, %240
-  %236 = phi ptr [ %237, %240 ], [ %.ph1121, %.preheader804.preheader ]
+  %236 = phi ptr [ %237, %240 ], [ %.ph1185, %.preheader804.preheader ]
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 1
   %238 = load i8, ptr %237, align 1, !tbaa !46
   %239 = icmp ult i8 %238, 48
@@ -1378,7 +1378,7 @@ zend_hash_index_find_ptr.exit:                    ; preds = %301, %298, %295
   br label %zend_string_release_ex.exit691
 
 .preheader800:                                    ; preds = %.preheader800.preheader, %338
-  %332 = phi ptr [ %333, %338 ], [ %.ph1105, %.preheader800.preheader ]
+  %332 = phi ptr [ %333, %338 ], [ %.ph1169, %.preheader800.preheader ]
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 1
   store ptr %333, ptr %7, align 8, !tbaa !104
   %334 = load i8, ptr %333, align 1, !tbaa !46
@@ -2629,8 +2629,8 @@ parse_uiv.exit738:                                ; preds = %.lr.ph.i734
   %940 = getelementptr inbounds nuw i8, ptr %936, i64 40
   %941 = load i64, ptr %940, align 8, !tbaa !101
   %.not.i694 = icmp slt i64 %941, %938
-  %or.cond1009 = select i1 %939, i1 true, i1 %.not.i694
-  br i1 %or.cond1009, label %.lr.ph, label %942
+  %or.cond1073 = select i1 %939, i1 true, i1 %.not.i694
+  br i1 %or.cond1073, label %.lr.ph, label %942
 
 942:                                              ; preds = %931
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.17, i64 noundef %938) #16
@@ -2646,14 +2646,14 @@ parse_uiv.exit738:                                ; preds = %.lr.ph.i734
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %945, align 8, !tbaa !46
   %947 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
-  %.not38.i1071 = icmp eq i32 %947, 0
-  br i1 %.not38.i1071, label %._crit_edge1073, label %.lr.ph1072
+  %.not38.i1135 = icmp eq i32 %947, 0
+  br i1 %.not38.i1135, label %._crit_edge1137, label %.lr.ph1136
 
-._crit_edge1073:                                  ; preds = %1004, %.lr.ph
+._crit_edge1137:                                  ; preds = %1004, %.lr.ph
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #16
   br label %.loopexit795
 
-.lr.ph1072:                                       ; preds = %.lr.ph, %1004
+.lr.ph1136:                                       ; preds = %.lr.ph, %1004
   %.in = phi i64 [ %948, %1004 ], [ %924, %.lr.ph ]
   %948 = add nsw i64 %.in, -1
   %949 = load i8, ptr %945, align 8, !tbaa !46
@@ -2662,7 +2662,7 @@ parse_uiv.exit738:                                ; preds = %.lr.ph.i734
     i8 6, label %957
   ]
 
-950:                                              ; preds = %.lr.ph1072
+950:                                              ; preds = %.lr.ph1136
   %951 = load i64, ptr %5, align 8, !tbaa !46
   store i64 %951, ptr %6, align 8, !tbaa !140
   br label %zval_ptr_dtor_str.exit
@@ -2680,7 +2680,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %979, %974, %972, %9
   store i32 1, ptr %954, align 8, !tbaa !46
   br label %zval_ptr_dtor_str.exit702
 
-957:                                              ; preds = %.lr.ph1072
+957:                                              ; preds = %.lr.ph1136
   %958 = load ptr, ptr %5, align 8, !tbaa !46
   %959 = getelementptr inbounds nuw i8, ptr %958, i64 24
   %960 = getelementptr inbounds nuw i8, ptr %958, i64 16
@@ -2765,7 +2765,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
   call void @_efree(ptr noundef %994) #16
   br label %zval_ptr_dtor_str.exit702
 
-995:                                              ; preds = %.lr.ph1072
+995:                                              ; preds = %.lr.ph1136
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #16
   br label %.loopexit795
 
@@ -2801,9 +2801,9 @@ zval_ptr_dtor_str.exit702:                        ; preds = %993, %988, %986, %9
   store i32 0, ptr %945, align 8, !tbaa !46
   %1005 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null)
   %.not38.i = icmp eq i32 %1005, 0
-  br i1 %.not38.i, label %._crit_edge1073, label %.lr.ph1072
+  br i1 %.not38.i, label %._crit_edge1137, label %.lr.ph1136
 
-.loopexit795:                                     ; preds = %zval_ptr_dtor_str.exit702, %1002, %995, %._crit_edge1073
+.loopexit795:                                     ; preds = %zval_ptr_dtor_str.exit702, %1002, %995, %._crit_edge1137
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1006 = load ptr, ptr %3, align 8, !tbaa !41
@@ -3066,8 +3066,8 @@ sub_1787:                                         ; preds = %sub_0
   store i32 1, ptr %1115, align 8, !tbaa !46
   br label %zend_string_release_ex.exit691
 
-zend_string_release_ex.exit691:                   ; preds = %.preheader808, %.preheader806, %.preheader804, %217, %217, %336, %.preheader798, %.preheader796, %.preheader793, %.preheader791, %.preheader790, %75, %81, %88, %92, %96, %100, %106, %114, %121, %122, %128, %132, %134, %138, %148, %156, %164, %172, %180, %182, %186, %194, %200, %203, %205, %216, %221, %223, %228, %232, %242, %250, %258, %260, %264, %318, %322, %340, %343, %344, %356, %360, %362, %366, %411, %1024, %1034, %1036, %116, %220, %28, %.loopexit795, %942, %376, %270, %1022, %1020, %._crit_edge, %1015, %1013, %1010, %890, %885, %zend_string_release_ex.exit689, %74, %85, %326, %329, %346, %370, %zend_string_release_ex.exit655, %70, %66, %62, %58, %54, %50, %46, %.thread939, %39, %35, %31, %.thread, %315, %291, %parse_uiv.exit, %282, %268, %402, %408, %400, %parse_uiv.exit715, %388, %374, %757, %774, %778, %861, %871, %866, %782, %770, %904, %915, %914, %910, %903, %925, %922, %1063, %zend_string_init_fast.exit, %1060, %1056, %1053, %1109, %1114, %1112, %1102, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.4, %zend_string_release_ex.exit655 ], [ 1, %85 ], [ 1, %326 ], [ 1, %329 ], [ 1, %346 ], [ 1, %370 ], [ 0, %74 ], [ 0, %70 ], [ 0, %66 ], [ 0, %62 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ 0, %.thread939 ], [ 0, %39 ], [ 0, %35 ], [ 0, %31 ], [ 0, %268 ], [ 0, %282 ], [ 0, %parse_uiv.exit ], [ 0, %291 ], [ 1, %315 ], [ 1, %.thread ], [ 0, %374 ], [ 0, %388 ], [ 0, %parse_uiv.exit715 ], [ 0, %400 ], [ 1, %408 ], [ 1, %402 ], [ 0, %757 ], [ 0, %770 ], [ 0, %774 ], [ 0, %778 ], [ 0, %782 ], [ 0, %861 ], [ 1, %871 ], [ 1, %866 ], [ 0, %903 ], [ 0, %910 ], [ 0, %914 ], [ 1, %915 ], [ 0, %904 ], [ 0, %922 ], [ 0, %925 ], [ 0, %1053 ], [ 0, %1056 ], [ 0, %1060 ], [ 1, %zend_string_init_fast.exit ], [ 1, %1063 ], [ 1, %1109 ], [ 1, %1114 ], [ 1, %1112 ], [ 1, %1102 ], [ 0, %zend_string_release_ex.exit689 ], [ 0, %885 ], [ 0, %890 ], [ 1, %1015 ], [ 0, %1013 ], [ 0, %1010 ], [ 1, %1022 ], [ 0, %1020 ], [ 0, %._crit_edge ], [ 0, %270 ], [ 0, %376 ], [ 0, %942 ], [ 0, %.loopexit795 ], [ 0, %28 ], [ 0, %220 ], [ 0, %116 ], [ 0, %1036 ], [ 0, %1034 ], [ 0, %1024 ], [ 0, %411 ], [ 0, %366 ], [ 0, %362 ], [ 0, %360 ], [ 0, %356 ], [ 0, %344 ], [ 0, %343 ], [ 0, %340 ], [ 0, %322 ], [ 0, %318 ], [ 0, %264 ], [ 0, %260 ], [ 0, %258 ], [ 0, %250 ], [ 0, %242 ], [ 0, %232 ], [ 0, %228 ], [ 0, %223 ], [ 0, %221 ], [ 0, %216 ], [ 0, %205 ], [ 0, %203 ], [ 0, %200 ], [ 0, %194 ], [ 0, %186 ], [ 0, %182 ], [ 0, %180 ], [ 0, %172 ], [ 0, %164 ], [ 0, %156 ], [ 0, %148 ], [ 0, %138 ], [ 0, %134 ], [ 0, %132 ], [ 0, %128 ], [ 0, %122 ], [ 0, %121 ], [ 0, %114 ], [ 0, %106 ], [ 0, %100 ], [ 0, %96 ], [ 0, %92 ], [ 0, %88 ], [ 0, %81 ], [ 0, %75 ], [ 0, %.preheader790 ], [ 0, %.preheader791 ], [ 0, %.preheader793 ], [ 0, %.preheader796 ], [ 0, %.preheader798 ], [ 0, %336 ], [ 0, %217 ], [ 0, %217 ], [ 0, %.preheader804 ], [ 0, %.preheader806 ], [ 0, %.preheader808 ]
+zend_string_release_ex.exit691:                   ; preds = %.preheader808, %.preheader806, %.preheader804, %217, %217, %336, %.preheader798, %.preheader796, %.preheader793, %.preheader791, %.preheader790, %75, %81, %88, %92, %96, %100, %106, %114, %121, %122, %128, %132, %134, %138, %148, %156, %164, %172, %180, %182, %186, %194, %200, %203, %205, %216, %221, %223, %228, %232, %242, %250, %258, %260, %264, %318, %322, %340, %343, %344, %356, %360, %362, %366, %411, %1024, %1034, %1036, %116, %220, %28, %.loopexit795, %942, %376, %270, %1022, %1020, %._crit_edge, %1015, %1013, %1010, %890, %885, %zend_string_release_ex.exit689, %74, %85, %326, %329, %346, %370, %zend_string_release_ex.exit655, %70, %66, %62, %58, %54, %50, %46, %.thread1003, %39, %35, %31, %.thread, %315, %291, %parse_uiv.exit, %282, %268, %402, %408, %400, %parse_uiv.exit715, %388, %374, %757, %774, %778, %861, %871, %866, %782, %770, %904, %915, %914, %910, %903, %925, %922, %1063, %zend_string_init_fast.exit, %1060, %1056, %1053, %1109, %1114, %1112, %1102, %4
+  %.0 = phi i32 [ 0, %4 ], [ %.4, %zend_string_release_ex.exit655 ], [ 1, %85 ], [ 1, %326 ], [ 1, %329 ], [ 1, %346 ], [ 1, %370 ], [ 0, %74 ], [ 0, %70 ], [ 0, %66 ], [ 0, %62 ], [ 0, %58 ], [ 0, %54 ], [ 0, %50 ], [ 0, %46 ], [ 0, %.thread1003 ], [ 0, %39 ], [ 0, %35 ], [ 0, %31 ], [ 0, %268 ], [ 0, %282 ], [ 0, %parse_uiv.exit ], [ 0, %291 ], [ 1, %315 ], [ 1, %.thread ], [ 0, %374 ], [ 0, %388 ], [ 0, %parse_uiv.exit715 ], [ 0, %400 ], [ 1, %408 ], [ 1, %402 ], [ 0, %757 ], [ 0, %770 ], [ 0, %774 ], [ 0, %778 ], [ 0, %782 ], [ 0, %861 ], [ 1, %871 ], [ 1, %866 ], [ 0, %903 ], [ 0, %910 ], [ 0, %914 ], [ 1, %915 ], [ 0, %904 ], [ 0, %922 ], [ 0, %925 ], [ 0, %1053 ], [ 0, %1056 ], [ 0, %1060 ], [ 1, %zend_string_init_fast.exit ], [ 1, %1063 ], [ 1, %1109 ], [ 1, %1114 ], [ 1, %1112 ], [ 1, %1102 ], [ 0, %zend_string_release_ex.exit689 ], [ 0, %885 ], [ 0, %890 ], [ 1, %1015 ], [ 0, %1013 ], [ 0, %1010 ], [ 1, %1022 ], [ 0, %1020 ], [ 0, %._crit_edge ], [ 0, %270 ], [ 0, %376 ], [ 0, %942 ], [ 0, %.loopexit795 ], [ 0, %28 ], [ 0, %220 ], [ 0, %116 ], [ 0, %1036 ], [ 0, %1034 ], [ 0, %1024 ], [ 0, %411 ], [ 0, %366 ], [ 0, %362 ], [ 0, %360 ], [ 0, %356 ], [ 0, %344 ], [ 0, %343 ], [ 0, %340 ], [ 0, %322 ], [ 0, %318 ], [ 0, %264 ], [ 0, %260 ], [ 0, %258 ], [ 0, %250 ], [ 0, %242 ], [ 0, %232 ], [ 0, %228 ], [ 0, %223 ], [ 0, %221 ], [ 0, %216 ], [ 0, %205 ], [ 0, %203 ], [ 0, %200 ], [ 0, %194 ], [ 0, %186 ], [ 0, %182 ], [ 0, %180 ], [ 0, %172 ], [ 0, %164 ], [ 0, %156 ], [ 0, %148 ], [ 0, %138 ], [ 0, %134 ], [ 0, %132 ], [ 0, %128 ], [ 0, %122 ], [ 0, %121 ], [ 0, %114 ], [ 0, %106 ], [ 0, %100 ], [ 0, %96 ], [ 0, %92 ], [ 0, %88 ], [ 0, %81 ], [ 0, %75 ], [ 0, %.preheader790 ], [ 0, %.preheader791 ], [ 0, %.preheader793 ], [ 0, %.preheader796 ], [ 0, %.preheader798 ], [ 0, %336 ], [ 0, %217 ], [ 0, %217 ], [ 0, %.preheader804 ], [ 0, %.preheader806 ], [ 0, %.preheader808 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -3521,23 +3521,23 @@ define internal fastcc range(i32 0, 2) i32 @object_common(ptr noundef readonly c
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %31, align 8, !tbaa !46
   %33 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  %.not38.i209 = icmp eq i32 %33, 0
-  br i1 %.not38.i209, label %._crit_edge211, label %.lr.ph210
+  %.not38.i228 = icmp eq i32 %33, 0
+  br i1 %.not38.i228, label %._crit_edge230, label %.lr.ph229
 
-._crit_edge211:                                   ; preds = %90, %.lr.ph149
+._crit_edge230:                                   ; preds = %90, %.lr.ph149
   call void @zval_ptr_dtor(ptr noundef nonnull %13) #16
   br label %.loopexit
 
-.lr.ph210:                                        ; preds = %.lr.ph149, %90
-  %.in212 = phi i64 [ %34, %90 ], [ %4, %.lr.ph149 ]
-  %34 = add nsw i64 %.in212, -1
+.lr.ph229:                                        ; preds = %.lr.ph149, %90
+  %.in231 = phi i64 [ %34, %90 ], [ %4, %.lr.ph149 ]
+  %34 = add nsw i64 %.in231, -1
   %35 = load i8, ptr %31, align 8, !tbaa !46
   switch i8 %35, label %81 [
     i8 4, label %36
     i8 6, label %43
   ]
 
-36:                                               ; preds = %.lr.ph210
+36:                                               ; preds = %.lr.ph229
   %37 = load i64, ptr %13, align 8, !tbaa !46
   store i64 %37, ptr %14, align 8, !tbaa !140
   br label %zval_ptr_dtor_str.exit107
@@ -3555,7 +3555,7 @@ zval_ptr_dtor_str.exit107:                        ; preds = %65, %60, %58, %36
   store i32 1, ptr %40, align 8, !tbaa !46
   br label %zval_ptr_dtor_str.exit110
 
-43:                                               ; preds = %.lr.ph210
+43:                                               ; preds = %.lr.ph229
   %44 = load ptr, ptr %13, align 8, !tbaa !46
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -3640,7 +3640,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %_zend_handle_numeri
   call void @_efree(ptr noundef %80) #16
   br label %zval_ptr_dtor_str.exit110
 
-81:                                               ; preds = %.lr.ph210
+81:                                               ; preds = %.lr.ph229
   call void @zval_ptr_dtor(ptr noundef nonnull %13) #16
   br label %.loopexit
 
@@ -3676,9 +3676,9 @@ zval_ptr_dtor_str.exit110:                        ; preds = %79, %74, %72, %42, 
   store i32 0, ptr %31, align 8, !tbaa !46
   %91 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   %.not38.i = icmp eq i32 %91, 0
-  br i1 %.not38.i, label %._crit_edge211, label %.lr.ph210
+  br i1 %.not38.i, label %._crit_edge230, label %.lr.ph229
 
-.loopexit:                                        ; preds = %zval_ptr_dtor_str.exit110, %88, %81, %._crit_edge211
+.loopexit:                                        ; preds = %zval_ptr_dtor_str.exit110, %88, %81, %._crit_edge230
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %92 = load ptr, ptr %3, align 8, !tbaa !41
@@ -3883,8 +3883,8 @@ finish_nested_data.exit:                          ; preds = %161, %159, %154, %1
   %199 = getelementptr inbounds nuw i8, ptr %195, i64 40
   %200 = load i64, ptr %199, align 8, !tbaa !101
   %.not.i97 = icmp slt i64 %200, %197
-  %or.cond195 = select i1 %198, i1 true, i1 %.not.i97
-  br i1 %or.cond195, label %._crit_edge167, label %201
+  %or.cond214 = select i1 %198, i1 true, i1 %.not.i97
+  br i1 %or.cond214, label %._crit_edge167, label %201
 
 201:                                              ; preds = %187
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.17, i64 noundef %197) #16
@@ -3908,14 +3908,14 @@ finish_nested_data.exit:                          ; preds = %161, %159, %154, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %204, align 8, !tbaa !46
   %211 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, ptr noundef null)
-  %.not92.i206 = icmp eq i32 %211, 0
-  br i1 %.not92.i206, label %._crit_edge208, label %.lr.ph207
+  %.not92.i225 = icmp eq i32 %211, 0
+  br i1 %.not92.i225, label %._crit_edge227, label %.lr.ph226
 
-._crit_edge208:                                   ; preds = %zval_ptr_dtor_str.exit101, %.lr.ph
+._crit_edge227:                                   ; preds = %zval_ptr_dtor_str.exit101, %.lr.ph
   call void @zval_ptr_dtor(ptr noundef nonnull %12) #16
   br label %.thread131
 
-.lr.ph207:                                        ; preds = %.lr.ph, %zval_ptr_dtor_str.exit101
+.lr.ph226:                                        ; preds = %.lr.ph, %zval_ptr_dtor_str.exit101
   %.in = phi i64 [ %212, %zval_ptr_dtor_str.exit101 ], [ %4, %.lr.ph ]
   %212 = add nsw i64 %.in, -1
   %213 = load i8, ptr %204, align 8, !tbaa !46
@@ -3924,7 +3924,7 @@ finish_nested_data.exit:                          ; preds = %161, %159, %154, %1
     i8 4, label %334
   ], !prof !147
 
-214:                                              ; preds = %.lr.ph207, %334
+214:                                              ; preds = %.lr.ph226, %334
   %215 = load ptr, ptr %12, align 8, !tbaa !46
   %216 = call ptr @zend_hash_find(ptr noundef nonnull %182, ptr noundef %215) #16
   %.not94.i = icmp eq ptr %216, null
@@ -4174,11 +4174,11 @@ zval_ptr_dtor_str.exit104:                        ; preds = %324, %326, %331
   %.not105.i = icmp eq ptr %.081.i, null
   br i1 %.not104.i, label %336, label %344
 
-334:                                              ; preds = %.lr.ph207
+334:                                              ; preds = %.lr.ph226
   call void @_convert_to_string(ptr noundef nonnull %12) #16
   br label %214
 
-335:                                              ; preds = %.lr.ph207
+335:                                              ; preds = %.lr.ph226
   call void @zval_ptr_dtor(ptr noundef nonnull %12) #16
   br label %.thread131
 
@@ -4274,9 +4274,9 @@ zval_ptr_dtor_str.exit101:                        ; preds = %369, %369
   store i32 0, ptr %204, align 8, !tbaa !46
   %375 = call fastcc i32 @php_var_unserialize_internal(ptr noundef nonnull %12, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   %.not92.i = icmp eq i32 %375, 0
-  br i1 %.not92.i, label %._crit_edge208, label %.lr.ph207
+  br i1 %.not92.i, label %._crit_edge227, label %.lr.ph226
 
-.thread131:                                       ; preds = %267, %313, %373, %347, %335, %._crit_edge208, %341, %337, %336, %276, %284, %289, %301, %303, %308
+.thread131:                                       ; preds = %267, %313, %373, %347, %335, %._crit_edge227, %341, %337, %336, %276, %284, %289, %301, %303, %308
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %376 = load ptr, ptr %3, align 8, !tbaa !41
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 40

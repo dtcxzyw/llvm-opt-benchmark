@@ -268,11 +268,11 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc, %44
   %.01422.i.i.i.i = phi double [ 1.000000e+00, %44 ], [ %113, %.noexc ]
   %.01521.i.i.i.i = phi double [ 0.000000e+00, %44 ], [ %110, %.noexc ]
   %50 = icmp ugt i64 %49, 623
-  br i1 %50, label %.preheader295, label %.noexc
+  br i1 %50, label %.preheader320, label %.noexc
 
-.preheader295:                                    ; preds = %select.unfold.i.i.i.i, %.preheader295
-  %51 = phi i64 [ %56, %.preheader295 ], [ %.pre.i.i, %select.unfold.i.i.i.i ]
-  %.021.i.i = phi i64 [ %54, %.preheader295 ], [ 0, %select.unfold.i.i.i.i ]
+.preheader320:                                    ; preds = %select.unfold.i.i.i.i, %.preheader320
+  %51 = phi i64 [ %56, %.preheader320 ], [ %.pre.i.i, %select.unfold.i.i.i.i ]
+  %.021.i.i = phi i64 [ %54, %.preheader320 ], [ 0, %select.unfold.i.i.i.i ]
   %52 = getelementptr inbounds nuw [624 x i64], ptr %5, i64 0, i64 %.021.i.i
   %53 = and i64 %51, -2147483648
   %54 = add nuw nsw i64 %.021.i.i, 1
@@ -291,9 +291,9 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc, %44
   %66 = xor i64 %63, %65
   store i64 %66, ptr %52, align 8, !tbaa !8
   %exitcond.not.i.i = icmp eq i64 %54, 227
-  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %.preheader295, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %.preheader.preheader.i.i, label %.preheader320, !llvm.loop !23
 
-.preheader.preheader.i.i:                         ; preds = %.preheader295
+.preheader.preheader.i.i:                         ; preds = %.preheader320
   %.pre24.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !8
   br label %.preheader.i.i
 
@@ -419,11 +419,11 @@ select.unfold.i.i.i.i100:                         ; preds = %.noexc106, %128
   %.01422.i.i.i.i102 = phi double [ 1.000000e+00, %128 ], [ %197, %.noexc106 ]
   %.01521.i.i.i.i103 = phi double [ 0.000000e+00, %128 ], [ %194, %.noexc106 ]
   %134 = icmp ugt i64 %133, 623
-  br i1 %134, label %.preheader294, label %.noexc106
+  br i1 %134, label %.preheader319, label %.noexc106
 
-.preheader294:                                    ; preds = %select.unfold.i.i.i.i100, %.preheader294
-  %135 = phi i64 [ %140, %.preheader294 ], [ %.pre.i.i163, %select.unfold.i.i.i.i100 ]
-  %.021.i.i164 = phi i64 [ %138, %.preheader294 ], [ 0, %select.unfold.i.i.i.i100 ]
+.preheader319:                                    ; preds = %select.unfold.i.i.i.i100, %.preheader319
+  %135 = phi i64 [ %140, %.preheader319 ], [ %.pre.i.i163, %select.unfold.i.i.i.i100 ]
+  %.021.i.i164 = phi i64 [ %138, %.preheader319 ], [ 0, %select.unfold.i.i.i.i100 ]
   %136 = getelementptr inbounds nuw [624 x i64], ptr %5, i64 0, i64 %.021.i.i164
   %137 = and i64 %135, -2147483648
   %138 = add nuw nsw i64 %.021.i.i164, 1
@@ -442,9 +442,9 @@ select.unfold.i.i.i.i100:                         ; preds = %.noexc106, %128
   %150 = xor i64 %147, %149
   store i64 %150, ptr %136, align 8, !tbaa !8
   %exitcond.not.i.i166 = icmp eq i64 %138, 227
-  br i1 %exitcond.not.i.i166, label %.preheader.preheader.i.i167, label %.preheader294, !llvm.loop !23
+  br i1 %exitcond.not.i.i166, label %.preheader.preheader.i.i167, label %.preheader319, !llvm.loop !23
 
-.preheader.preheader.i.i167:                      ; preds = %.preheader294
+.preheader.preheader.i.i167:                      ; preds = %.preheader319
   %.pre24.i.i169 = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !8
   br label %.preheader.i.i170
 
@@ -575,11 +575,11 @@ select.unfold.i.i.i.i116:                         ; preds = %.noexc122, %214
   %.01422.i.i.i.i118 = phi double [ 1.000000e+00, %214 ], [ %283, %.noexc122 ]
   %.01521.i.i.i.i119 = phi double [ 0.000000e+00, %214 ], [ %280, %.noexc122 ]
   %220 = icmp ugt i64 %219, 623
-  br i1 %220, label %.preheader293, label %.noexc122
+  br i1 %220, label %.preheader318, label %.noexc122
 
-.preheader293:                                    ; preds = %select.unfold.i.i.i.i116, %.preheader293
-  %221 = phi i64 [ %226, %.preheader293 ], [ %.pre.i.i177, %select.unfold.i.i.i.i116 ]
-  %.021.i.i178 = phi i64 [ %224, %.preheader293 ], [ 0, %select.unfold.i.i.i.i116 ]
+.preheader318:                                    ; preds = %select.unfold.i.i.i.i116, %.preheader318
+  %221 = phi i64 [ %226, %.preheader318 ], [ %.pre.i.i177, %select.unfold.i.i.i.i116 ]
+  %.021.i.i178 = phi i64 [ %224, %.preheader318 ], [ 0, %select.unfold.i.i.i.i116 ]
   %222 = getelementptr inbounds nuw [624 x i64], ptr %5, i64 0, i64 %.021.i.i178
   %223 = and i64 %221, -2147483648
   %224 = add nuw nsw i64 %.021.i.i178, 1
@@ -598,9 +598,9 @@ select.unfold.i.i.i.i116:                         ; preds = %.noexc122, %214
   %236 = xor i64 %233, %235
   store i64 %236, ptr %222, align 8, !tbaa !8
   %exitcond.not.i.i180 = icmp eq i64 %224, 227
-  br i1 %exitcond.not.i.i180, label %.preheader.preheader.i.i181, label %.preheader293, !llvm.loop !23
+  br i1 %exitcond.not.i.i180, label %.preheader.preheader.i.i181, label %.preheader318, !llvm.loop !23
 
-.preheader.preheader.i.i181:                      ; preds = %.preheader293
+.preheader.preheader.i.i181:                      ; preds = %.preheader318
   %.pre24.i.i183 = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !8
   br label %.preheader.i.i184
 

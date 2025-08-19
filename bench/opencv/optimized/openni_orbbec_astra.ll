@@ -201,8 +201,8 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i133: ; preds = %_ZStlsISt11char
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i135.invoke unwind label %40
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i135.invoke.sink.split: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i133, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %.sink271 = phi ptr [ %34, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i ], [ %52, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i133 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink271, i64 67
+  %.sink296 = phi ptr [ %34, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i ], [ %52, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i133 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.sink296, i64 67
   %61 = load i8, ptr %60, align 1, !tbaa !33
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i135.invoke
 
@@ -608,7 +608,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %194
           cleanup
   br label %320
 
-.loopexit.split-lp176:                            ; preds = %.invoke267
+.loopexit.split-lp176:                            ; preds = %.invoke292
   %lpad.loopexit.split-lp178 = landingpad { ptr, i32 }
           cleanup
   br label %320
@@ -628,20 +628,20 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %194
 212:                                              ; preds = %.preheader
   %213 = load ptr, ptr %12, align 8, !tbaa !54
   %.not.i = icmp eq ptr %213, null
-  br i1 %.not.i, label %.invoke267, label %215
+  br i1 %.not.i, label %.invoke292, label %215
 
-.invoke267:                                       ; preds = %215, %212
+.invoke292:                                       ; preds = %215, %212
   %214 = phi i32 [ 1, %212 ], [ %216, %215 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %214) #16
-          to label %.cont268 unwind label %.loopexit.split-lp176
+          to label %.cont293 unwind label %.loopexit.split-lp176
 
-.cont268:                                         ; preds = %.invoke267
+.cont293:                                         ; preds = %.invoke292
   unreachable
 
 215:                                              ; preds = %212
   %216 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %213) #17
   %.not.i.i84 = icmp eq i32 %216, 0
-  br i1 %.not.i.i84, label %_ZNSt11unique_lockISt5mutexE4lockEv.exit, label %.invoke267
+  br i1 %.not.i.i84, label %_ZNSt11unique_lockISt5mutexE4lockEv.exit, label %.invoke292
 
 _ZNSt11unique_lockISt5mutexE4lockEv.exit:         ; preds = %215
   store i8 1, ptr %172, align 8, !tbaa !56

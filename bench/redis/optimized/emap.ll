@@ -271,10 +271,10 @@ tsdn_witness_tsdp_get.exit:
   br label %16
 
 16:                                               ; preds = %14, %10
-  %.sink61 = phi i64 [ %15, %14 ], [ %.val34, %10 ]
-  %.sink60 = phi i64 [ -4096, %14 ], [ %13, %10 ]
-  %17 = and i64 %.sink61, -4096
-  %18 = add i64 %17, %.sink60
+  %.sink64 = phi i64 [ %15, %14 ], [ %.val34, %10 ]
+  %.sink63 = phi i64 [ -4096, %14 ], [ %13, %10 ]
+  %17 = and i64 %.sink64, -4096
+  %18 = add i64 %17, %.sink63
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %103, label %20
 

@@ -746,8 +746,8 @@ define hidden noundef ptr @_ZN3std2io18default_read_exact17hf0041cec2426fe58E(pt
   br label %7
 
 7:                                                ; preds = %.lr.ph, %35
-  %.sroa.0.024 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.139, %35 ]
-  %.sroa.4.023 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.138, %35 ]
+  %.sroa.0.024 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.140, %35 ]
+  %.sroa.4.023 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.139, %35 ]
   %8 = call { i64, ptr } @"_ZN52_$LT$fs_err..file..File$u20$as$u20$std..io..Read$GT$4read17h6b71530230576e4aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %.sroa.0.024, i64 noundef %.sroa.4.023)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -829,9 +829,9 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit: ; preds = %14
   br label %35
 
 35:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit"
-  %.sroa.0.139 = phi ptr [ %31, %.thread ], [ %.sroa.0.024, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit" ]
-  %.sroa.4.138 = phi i64 [ %30, %.thread ], [ %.sroa.4.023, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit" ]
-  %36 = icmp eq i64 %.sroa.4.138, 0
+  %.sroa.0.140 = phi ptr [ %31, %.thread ], [ %.sroa.0.024, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit" ]
+  %.sroa.4.139 = phi i64 [ %30, %.thread ], [ %.sroa.4.023, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h84f8dab24a82abd8E.exit" ]
+  %36 = icmp eq i64 %.sroa.4.139, 0
   br i1 %36, label %.loopexit, label %7
 }
 
@@ -1887,7 +1887,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
 
 "_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h6d320f7ba38379baE.llvm.12169842586211210073.exit.i": ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha361c58a348a6d0aE.exit.i.i", %42, %42, %42, %42, %42, %42
   %70 = icmp eq ptr %43, %3
-  br i1 %70, label %.thread52, label %.lr.ph.i
+  br i1 %70, label %.thread62, label %.lr.ph.i
 
 _ZN4core3str7pattern8Searcher11next_reject17ha22aba3dd2d8c2e1E.llvm.12169842586211210073.exit: ; preds = %48, %50, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha361c58a348a6d0aE.exit.i.i", %2
   %spec.select = phi i64 [ 0, %2 ], [ %4, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha361c58a348a6d0aE.exit.i.i" ], [ %4, %50 ], [ %4, %48 ]
@@ -2022,21 +2022,21 @@ _ZN4core3str7pattern8Searcher11next_reject17ha22aba3dd2d8c2e1E.llvm.121698425862
   %138 = ptrtoint ptr %.sroa.4.0 to i64
   %139 = sub i64 %.sroa.14.0, %138
   %140 = add i64 %139, %137
-  br label %.thread48
+  br label %.thread58
 
 141:                                              ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17ha361c58a348a6d0aE.exit.i.i.i", %111, %111, %111, %111, %111, %111
   %142 = icmp eq ptr %.sroa.4.0, %112
   br i1 %142, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit", label %.lr.ph.i.i
 
 "_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit": ; preds = %141, %_ZN4core3str7pattern8Searcher11next_reject17ha22aba3dd2d8c2e1E.llvm.12169842586211210073.exit
-  br i1 %.not, label %.thread52, label %.thread48
+  br i1 %.not, label %.thread62, label %.thread58
 
-.thread52:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h6d320f7ba38379baE.llvm.12169842586211210073.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit"
-  br label %.thread48
+.thread62:                                        ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h6d320f7ba38379baE.llvm.12169842586211210073.exit.i", %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit"
+  br label %.thread58
 
-.thread48:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit", %.thread52
-  %143 = phi i64 [ 0, %.thread52 ], [ %.sroa.47.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit" ], [ %spec.select, %136 ]
-  %144 = phi i64 [ 0, %.thread52 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit" ], [ %140, %136 ]
+.thread58:                                        ; preds = %136, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit", %.thread62
+  %143 = phi i64 [ 0, %.thread62 ], [ %.sroa.47.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit" ], [ %spec.select, %136 ]
+  %144 = phi i64 [ 0, %.thread62 ], [ %.sroa.6.0, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h617499f3d6fa1cd2E.llvm.12169842586211210073.exit" ], [ %140, %136 ]
   %145 = sub nuw i64 %144, %143
   %146 = getelementptr inbounds i8, ptr %0, i64 %143
   %147 = insertvalue { ptr, i64 } poison, ptr %146, 0

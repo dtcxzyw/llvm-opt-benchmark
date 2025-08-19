@@ -270,9 +270,9 @@ define range(i32 -806, 805) i32 @SUNLinSolSetup_SPGMR(ptr noundef readonly captu
   br label %13
 
 13:                                               ; preds = %2, %6, %10
-  %.sink15 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
+  %.sink17 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
   %.sink = phi i32 [ %12, %10 ], [ 0, %6 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.sink17, i64 32
   store i32 %.sink, ptr %14, align 8, !tbaa !27
   ret i32 %.sink
 }
@@ -687,8 +687,8 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
 .lr.ph419:                                        ; preds = %.lr.ph419.preheader, %.lr.ph419
   %indvars.iv475 = phi i64 [ %182, %.lr.ph419.preheader ], [ %indvars.iv.next476, %.lr.ph419 ]
   %.0322418 = phi double [ 1.000000e+00, %.lr.ph419.preheader ], [ %190, %.lr.ph419 ]
-  %.idx491 = shl i64 %indvars.iv475, 4
-  %183 = getelementptr i8, ptr %17, i64 %.idx491
+  %.idx507 = shl i64 %indvars.iv475, 4
+  %183 = getelementptr i8, ptr %17, i64 %.idx507
   %184 = getelementptr i8, ptr %183, i64 -16
   %185 = load double, ptr %184, align 8, !tbaa !58
   %186 = fmul double %.0322418, %185

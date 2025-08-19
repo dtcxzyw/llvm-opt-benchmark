@@ -77,25 +77,25 @@ define dso_local noundef nonnull ptr @_ZN15SequenceFactory13make_sequenceEv() lo
   br i1 %6, label %._crit_edge.thread.i.i.i, label %11
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %3
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), %3 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8), %3 ]
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 24), align 8, !tbaa !19
-  %8 = icmp eq ptr %.019.lcssa28.i.i.i, %7
+  %8 = icmp eq ptr %.019.lcssa29.i.i.i, %7
   br i1 %8, label %select.unfold.i.i, label %9
 
 9:                                                ; preds = %._crit_edge.thread.i.i.i
-  %10 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #13
+  %10 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #13
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !15
   br label %11
 
 11:                                               ; preds = %9, %._crit_edge.i.i.i
   %12 = phi ptr [ %.pre.i.i, %9 ], [ %5, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %9 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %9 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %13 = icmp ult ptr %12, %1
   br i1 %13, label %select.unfold.i.i, label %_ZNSt3setIP8SequenceSt4lessIS1_ESaIS1_EE6insertERKS1_.exit
 
 select.unfold.i.i:                                ; preds = %11, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %11 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %11 ]
   %14 = icmp eq ptr %.sroa.4.0.i.ph.i.i, getelementptr inbounds nuw (i8, ptr @_ZN15SequenceFactory5seqs_E, i64 8)
   br i1 %14, label %_ZNSt8_Rb_treeIP8SequenceS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %15
 

@@ -284,7 +284,7 @@ _ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEEC2IRPNS1_12G
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5MachO6RecordEN5clang10installapi13FrontendAttrsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5MachO6RecordEN5clang10installapi13FrontendAttrsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit: ; preds = %65, %48, %74
-  %.sink25.i.i = phi ptr [ %75, %74 ], [ %57, %48 ], [ %71, %65 ]
+  %.sink29.i.i = phi ptr [ %75, %74 ], [ %57, %48 ], [ %71, %65 ]
   %76 = load ptr, ptr %33, align 8, !tbaa !3
   %77 = icmp eq ptr %76, %34
   br i1 %77, label %_ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit, label %78
@@ -305,7 +305,7 @@ _ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit: ;
 _ZN5clang10installapi13FrontendAttrsD2Ev.exit:    ; preds = %_ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %82 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.sink29.i.i, i64 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %13, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %82, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -472,7 +472,7 @@ _ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEEC2IRPNS1_19O
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5MachO6RecordEN5clang10installapi13FrontendAttrsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5MachO6RecordEN5clang10installapi13FrontendAttrsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit: ; preds = %63, %46, %72
-  %.sink25.i.i = phi ptr [ %73, %72 ], [ %55, %46 ], [ %69, %63 ]
+  %.sink29.i.i = phi ptr [ %73, %72 ], [ %55, %46 ], [ %69, %63 ]
   %74 = load ptr, ptr %31, align 8, !tbaa !3
   %75 = icmp eq ptr %74, %32
   br i1 %75, label %_ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit, label %76
@@ -493,7 +493,7 @@ _ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit: ;
 _ZN5clang10installapi13FrontendAttrsD2Ev.exit:    ; preds = %_ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %80 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.sink29.i.i, i64 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %11, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %80, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -656,7 +656,7 @@ _ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEEC2IRPNS1_18O
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5MachO6RecordEN5clang10installapi13FrontendAttrsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5MachO6RecordEN5clang10installapi13FrontendAttrsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit: ; preds = %63, %46, %72
-  %.sink25.i.i = phi ptr [ %73, %72 ], [ %55, %46 ], [ %69, %63 ]
+  %.sink29.i.i = phi ptr [ %73, %72 ], [ %55, %46 ], [ %69, %63 ]
   %74 = load ptr, ptr %31, align 8, !tbaa !3
   %75 = icmp eq ptr %74, %32
   br i1 %75, label %_ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit, label %76
@@ -677,7 +677,7 @@ _ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit: ;
 _ZN5clang10installapi13FrontendAttrsD2Ev.exit:    ; preds = %_ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %80 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.sink29.i.i, i64 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %11, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %80, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -846,7 +846,7 @@ _ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEEC2IRPNS1_14O
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5MachO6RecordEN5clang10installapi13FrontendAttrsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5MachO6RecordEN5clang10installapi13FrontendAttrsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6insertEOSt4pairIS4_S7_E.exit: ; preds = %66, %49, %75
-  %.sink25.i.i = phi ptr [ %76, %75 ], [ %58, %49 ], [ %72, %66 ]
+  %.sink29.i.i = phi ptr [ %76, %75 ], [ %58, %49 ], [ %72, %66 ]
   %77 = load ptr, ptr %34, align 8, !tbaa !3
   %78 = icmp eq ptr %77, %35
   br i1 %78, label %_ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit, label %79
@@ -867,7 +867,7 @@ _ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit: ;
 _ZN5clang10installapi13FrontendAttrsD2Ev.exit:    ; preds = %_ZNSt4pairIPN4llvm5MachO6RecordEN5clang10installapi13FrontendAttrsEED2Ev.exit, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %83 = getelementptr inbounds nuw i8, ptr %.sink25.i.i, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.sink29.i.i, i64 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %14, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %83, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1077,7 +1077,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us: ; pre
   br i1 %.not.i.i.i.us33, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us34, !prof !309
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us: ; preds = %82
-  %bcmp.i.i.i.us = tail call i32 @bcmp(ptr %45, ptr %.sroa.03.0.copyload.i.us29, i64 %46)
+  %bcmp.i.i.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %.sroa.03.0.copyload.i.us29, i64 %46)
   %83 = icmp eq i32 %bcmp.i.i.i.us, 0
   br i1 %83, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEN5clang10installapi10HeaderTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E6doFindIS2_EEPSA_RKT_.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us34, !prof !306
 
@@ -1113,7 +1113,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us34: ; p
   br i1 %.not.i.i.i.us47, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us48, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us50, !prof !309
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us48: ; preds = %90
-  %bcmp.i.i.i.us49 = tail call i32 @bcmp(ptr %45, ptr %.sroa.03.0.copyload.i.us43, i64 %46)
+  %bcmp.i.i.i.us49 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %.sroa.03.0.copyload.i.us43, i64 %46)
   %91 = icmp eq i32 %bcmp.i.i.i.us49, 0
   br i1 %91, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefEN5clang10installapi10HeaderTypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E6doFindIS2_EEPSA_RKT_.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us50, !prof !306
 
@@ -1917,9 +1917,9 @@ switch.lookup:                                    ; preds = %._crit_edge
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE, i64 0, i64 %151
   %switch.load = load i64, ptr %switch.gep, align 8
   %152 = zext nneg i32 %150 to i64
-  %switch.gep62 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.2, i64 0, i64 %152
-  %switch.load63 = load ptr, ptr %switch.gep62, align 8
-  store ptr %switch.load63, ptr %148, align 8
+  %switch.gep73 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.2, i64 0, i64 %152
+  %switch.load74 = load ptr, ptr %switch.gep73, align 8
+  store ptr %switch.load74, ptr %148, align 8
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %switch.load, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1927,14 +1927,14 @@ switch.lookup:                                    ; preds = %._crit_edge
   %156 = load i8, ptr %155, align 8, !tbaa !383
   %switch.tableidx = add nsw i8 %156, -4
   %157 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep65 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.3, i64 0, i64 %157
-  %switch.load66 = load i64, ptr %switch.gep65, align 8
+  %switch.gep76 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.3, i64 0, i64 %157
+  %switch.load77 = load i64, ptr %switch.gep76, align 8
   %158 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep67 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.4, i64 0, i64 %158
-  %switch.load68 = load ptr, ptr %switch.gep67, align 8
-  store ptr %switch.load68, ptr %154, align 8
+  %switch.gep78 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10installapi17createInputBufferERNS0_17InstallAPIContextE.4, i64 0, i64 %158
+  %switch.load79 = load ptr, ptr %switch.gep78, align 8
+  store ptr %switch.load79, ptr %154, align 8
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i64 %switch.load66, ptr %159, align 8
+  store i64 %switch.load77, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %160, ptr %5, align 8, !tbaa !3
   %161 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4407,13 +4407,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryENS2_10installapi10Header
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.74", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.74", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

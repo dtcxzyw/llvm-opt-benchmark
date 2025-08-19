@@ -101,10 +101,10 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
 .preheader146:                                    ; preds = %.critedge
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.1117174226 = getelementptr inbounds nuw i8, ptr %.0116165, i64 1
-  %34 = load i8, ptr %.1117174226, align 1
+  %.1117174232 = getelementptr inbounds nuw i8, ptr %.0116165, i64 1
+  %34 = load i8, ptr %.1117174232, align 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %._crit_edge236, label %.lr.ph235
+  br i1 %35, label %._crit_edge242, label %.lr.ph241
 
 .critedge.thread:                                 ; preds = %28, %1, %.critedge
   %36 = tail call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
@@ -118,8 +118,8 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   br label %135
 
 .preheader:                                       ; preds = %108, %56
-  %.1117187 = getelementptr inbounds nuw i8, ptr %.0116.pn168232, i64 2
-  %41 = load i8, ptr %.1117187, align 1
+  %.1117193 = getelementptr inbounds nuw i8, ptr %.0116.pn168238, i64 2
+  %41 = load i8, ptr %.1117193, align 1
   %.not126175 = icmp eq i8 %41, 0
   br i1 %.not126175, label %._crit_edge, label %.lr.ph177
 
@@ -127,27 +127,27 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   %42 = load ptr, ptr %20, align 8
   br label %122
 
-._crit_edge236:                                   ; preds = %116, %.preheader146
+._crit_edge242:                                   ; preds = %116, %.preheader146
   %43 = call zeroext i1 @errsave_start(ptr noundef %13, ptr noundef null) #11
   br i1 %43, label %44, label %135
 
-44:                                               ; preds = %._crit_edge236
+44:                                               ; preds = %._crit_edge242
   %45 = call i32 @errcode(i32 noundef 33685634) #11
   %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %5) #11
   %47 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #11
   call void @errsave_finish(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef 165, ptr noundef nonnull @__func__.multirange_in) #11
   br label %135
 
-.lr.ph235:                                        ; preds = %.preheader146, %116
+.lr.ph241:                                        ; preds = %.preheader146, %116
   %48 = phi i8 [ %117, %116 ], [ %34, %.preheader146 ]
-  %.1117174234 = phi ptr [ %.1117174, %116 ], [ %.1117174226, %.preheader146 ]
-  %.0120167233 = phi ptr [ %.1121.ph, %116 ], [ null, %.preheader146 ]
-  %.0116.pn168232 = phi ptr [ %.2118.ph, %116 ], [ %.0116165, %.preheader146 ]
-  %.0113169231 = phi i32 [ %.1114.ph, %116 ], [ 0, %.preheader146 ]
-  %.0108170230 = phi ptr [ %.1109.ph, %116 ], [ %14, %.preheader146 ]
-  %.0104171229 = phi i32 [ %.1105.ph, %116 ], [ 8, %.preheader146 ]
-  %.0101172228 = phi i32 [ %.1102.ph, %116 ], [ 0, %.preheader146 ]
-  %.098173227 = phi i32 [ %.199.ph, %116 ], [ 0, %.preheader146 ]
+  %.1117174240 = phi ptr [ %.1117174, %116 ], [ %.1117174232, %.preheader146 ]
+  %.0120167239 = phi ptr [ %.1121.ph, %116 ], [ null, %.preheader146 ]
+  %.0116.pn168238 = phi ptr [ %.2118.ph, %116 ], [ %.0116165, %.preheader146 ]
+  %.0113169237 = phi i32 [ %.1114.ph, %116 ], [ 0, %.preheader146 ]
+  %.0108170236 = phi ptr [ %.1109.ph, %116 ], [ %14, %.preheader146 ]
+  %.0104171235 = phi i32 [ %.1105.ph, %116 ], [ 8, %.preheader146 ]
+  %.0101172234 = phi i32 [ %.1102.ph, %116 ], [ 0, %.preheader146 ]
+  %.098173233 = phi i32 [ %.199.ph, %116 ], [ 0, %.preheader146 ]
   %49 = load ptr, ptr %20, align 8
   %50 = zext i8 %48 to i64
   %51 = getelementptr inbounds nuw i16, ptr %49, i64 %50
@@ -156,8 +156,8 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   %.not129 = icmp eq i16 %53, 0
   br i1 %.not129, label %54, label %116
 
-54:                                               ; preds = %.lr.ph235
-  switch i32 %.0113169231, label %default.unreachable [
+54:                                               ; preds = %.lr.ph241
+  switch i32 %.0113169237, label %default.unreachable185 [
     i32 0, label %55
     i32 1, label %71
     i32 2, label %116
@@ -174,18 +174,18 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
 
 56:                                               ; preds = %55
   %57 = icmp eq i8 %48, 125
-  %58 = icmp eq i32 %.098173227, 0
+  %58 = icmp eq i32 %.098173233, 0
   %or.cond4 = select i1 %57, i1 %58, i1 false
   br i1 %or.cond4, label %.preheader, label %59
 
 59:                                               ; preds = %56
-  %60 = call i32 @pg_strncasecmp(ptr noundef nonnull %.1117174234, ptr noundef nonnull @.str.4, i64 noundef 5) #11
+  %60 = call i32 @pg_strncasecmp(ptr noundef nonnull %.1117174240, ptr noundef nonnull @.str.4, i64 noundef 5) #11
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %59
-  %63 = add i32 %.098173227, 1
-  %64 = getelementptr inbounds nuw i8, ptr %.0116.pn168232, i64 5
+  %63 = add i32 %.098173233, 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0116.pn168238, i64 5
   br label %116
 
 65:                                               ; preds = %59
@@ -208,27 +208,27 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   ]
 
 72:                                               ; preds = %71, %71
-  %73 = ptrtoint ptr %.1117174234 to i64
-  %74 = ptrtoint ptr %.0120167233 to i64
+  %73 = ptrtoint ptr %.1117174240 to i64
+  %74 = ptrtoint ptr %.0120167239 to i64
   %75 = sub i64 %73, %74
   %76 = shl i64 %75, 32
   %sext = add i64 %76, 4294967296
   %77 = ashr exact i64 %sext, 32
-  %78 = call ptr @pnstrdup(ptr noundef %.0120167233, i64 noundef %77) #11
-  %79 = icmp eq i32 %.0104171229, %.0101172228
+  %78 = call ptr @pnstrdup(ptr noundef %.0120167239, i64 noundef %77) #11
+  %79 = icmp eq i32 %.0104171235, %.0101172234
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %72
-  %81 = shl i32 %.0101172228, 1
+  %81 = shl i32 %.0101172234, 1
   %82 = sext i32 %81 to i64
   %83 = shl nsw i64 %82, 3
-  %84 = call ptr @repalloc(ptr noundef %.0108170230, i64 noundef %83) #11
+  %84 = call ptr @repalloc(ptr noundef %.0108170236, i64 noundef %83) #11
   br label %85
 
 85:                                               ; preds = %80, %72
-  %.3111 = phi ptr [ %84, %80 ], [ %.0108170230, %72 ]
-  %.3107 = phi i32 [ %81, %80 ], [ %.0104171229, %72 ]
-  %86 = add i32 %.098173227, 1
+  %.3111 = phi ptr [ %84, %80 ], [ %.0108170236, %72 ]
+  %.3107 = phi i32 [ %81, %80 ], [ %.0104171235, %72 ]
+  %86 = add i32 %.098173233, 1
   %87 = load i32, ptr %33, align 8
   %88 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %32, ptr noundef %78, i32 noundef %87, i32 noundef %11, ptr noundef %13, ptr noundef nonnull %2) #11
   br i1 %88, label %91, label %89
@@ -248,8 +248,8 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   br i1 %.not130, label %97, label %116
 
 97:                                               ; preds = %91
-  %98 = add i32 %.0101172228, 1
-  %99 = sext i32 %.0101172228 to i64
+  %98 = add i32 %.0101172234, 1
+  %99 = sext i32 %.0101172234 to i64
   %100 = getelementptr inbounds ptr, ptr %.3111, i64 %99
   store ptr %94, ptr %100, align 8
   br label %116
@@ -264,10 +264,10 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
   ]
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds nuw i8, ptr %.0116.pn168232, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.0116.pn168238, i64 2
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 34
-  %..1117 = select i1 %106, ptr %104, ptr %.1117174234
+  %..1117 = select i1 %106, ptr %104, ptr %.1117174240
   %.0113. = select i1 %106, i32 3, i32 1
   br label %116
 
@@ -294,24 +294,24 @@ define dso_local noundef i64 @multirange_in(ptr noundef captures(none) %0) local
 115:                                              ; preds = %54
   br label %116
 
-default.unreachable:                              ; preds = %54
+default.unreachable185:                           ; preds = %54
   unreachable
 
 .fold.split:                                      ; preds = %71
   br label %116
 
-116:                                              ; preds = %.lr.ph235, %108, %102, %103, %54, %71, %.fold.split, %91, %97, %55, %55, %107, %101, %62, %115
-  %.1121.ph = phi ptr [ %.0120167233, %108 ], [ %.0120167233, %102 ], [ %.0120167233, %103 ], [ %.0120167233, %54 ], [ %.0120167233, %.fold.split ], [ %.0120167233, %71 ], [ %.0120167233, %91 ], [ %.0120167233, %97 ], [ %.1117174234, %55 ], [ %.1117174234, %55 ], [ %.0120167233, %115 ], [ %.0120167233, %107 ], [ %.0120167233, %101 ], [ %.0120167233, %62 ], [ %.0120167233, %.lr.ph235 ]
-  %.2118.ph = phi ptr [ %.1117174234, %108 ], [ %.1117174234, %102 ], [ %..1117, %103 ], [ %.1117174234, %54 ], [ %.1117174234, %.fold.split ], [ %.1117174234, %71 ], [ %.1117174234, %91 ], [ %.1117174234, %97 ], [ %.1117174234, %55 ], [ %.1117174234, %55 ], [ %.1117174234, %115 ], [ %.1117174234, %107 ], [ %.1117174234, %101 ], [ %64, %62 ], [ %.1117174234, %.lr.ph235 ]
-  %.1114.ph = phi i32 [ 0, %108 ], [ 3, %102 ], [ %.0113., %103 ], [ 1, %54 ], [ 1, %.fold.split ], [ 3, %71 ], [ 5, %91 ], [ 5, %97 ], [ 1, %55 ], [ 1, %55 ], [ 3, %115 ], [ 4, %107 ], [ 2, %101 ], [ 5, %62 ], [ %.0113169231, %.lr.ph235 ]
-  %.1109.ph = phi ptr [ %.0108170230, %108 ], [ %.0108170230, %102 ], [ %.0108170230, %103 ], [ %.0108170230, %54 ], [ %.0108170230, %.fold.split ], [ %.0108170230, %71 ], [ %.3111, %91 ], [ %.3111, %97 ], [ %.0108170230, %55 ], [ %.0108170230, %55 ], [ %.0108170230, %115 ], [ %.0108170230, %107 ], [ %.0108170230, %101 ], [ %.0108170230, %62 ], [ %.0108170230, %.lr.ph235 ]
-  %.1105.ph = phi i32 [ %.0104171229, %108 ], [ %.0104171229, %102 ], [ %.0104171229, %103 ], [ %.0104171229, %54 ], [ %.0104171229, %.fold.split ], [ %.0104171229, %71 ], [ %.3107, %91 ], [ %.3107, %97 ], [ %.0104171229, %55 ], [ %.0104171229, %55 ], [ %.0104171229, %115 ], [ %.0104171229, %107 ], [ %.0104171229, %101 ], [ %.0104171229, %62 ], [ %.0104171229, %.lr.ph235 ]
-  %.1102.ph = phi i32 [ %.0101172228, %108 ], [ %.0101172228, %102 ], [ %.0101172228, %103 ], [ %.0101172228, %54 ], [ %.0101172228, %.fold.split ], [ %.0101172228, %71 ], [ %.0101172228, %91 ], [ %98, %97 ], [ %.0101172228, %55 ], [ %.0101172228, %55 ], [ %.0101172228, %115 ], [ %.0101172228, %107 ], [ %.0101172228, %101 ], [ %.0101172228, %62 ], [ %.0101172228, %.lr.ph235 ]
-  %.199.ph = phi i32 [ %.098173227, %108 ], [ %.098173227, %102 ], [ %.098173227, %103 ], [ %.098173227, %54 ], [ %.098173227, %.fold.split ], [ %.098173227, %71 ], [ %86, %91 ], [ %86, %97 ], [ %.098173227, %55 ], [ %.098173227, %55 ], [ %.098173227, %115 ], [ %.098173227, %107 ], [ %.098173227, %101 ], [ %63, %62 ], [ %.098173227, %.lr.ph235 ]
+116:                                              ; preds = %.lr.ph241, %108, %102, %103, %54, %71, %.fold.split, %91, %97, %55, %55, %107, %101, %62, %115
+  %.1121.ph = phi ptr [ %.0120167239, %108 ], [ %.0120167239, %102 ], [ %.0120167239, %103 ], [ %.0120167239, %54 ], [ %.0120167239, %.fold.split ], [ %.0120167239, %71 ], [ %.0120167239, %91 ], [ %.0120167239, %97 ], [ %.1117174240, %55 ], [ %.1117174240, %55 ], [ %.0120167239, %115 ], [ %.0120167239, %107 ], [ %.0120167239, %101 ], [ %.0120167239, %62 ], [ %.0120167239, %.lr.ph241 ]
+  %.2118.ph = phi ptr [ %.1117174240, %108 ], [ %.1117174240, %102 ], [ %..1117, %103 ], [ %.1117174240, %54 ], [ %.1117174240, %.fold.split ], [ %.1117174240, %71 ], [ %.1117174240, %91 ], [ %.1117174240, %97 ], [ %.1117174240, %55 ], [ %.1117174240, %55 ], [ %.1117174240, %115 ], [ %.1117174240, %107 ], [ %.1117174240, %101 ], [ %64, %62 ], [ %.1117174240, %.lr.ph241 ]
+  %.1114.ph = phi i32 [ 0, %108 ], [ 3, %102 ], [ %.0113., %103 ], [ 1, %54 ], [ 1, %.fold.split ], [ 3, %71 ], [ 5, %91 ], [ 5, %97 ], [ 1, %55 ], [ 1, %55 ], [ 3, %115 ], [ 4, %107 ], [ 2, %101 ], [ 5, %62 ], [ %.0113169237, %.lr.ph241 ]
+  %.1109.ph = phi ptr [ %.0108170236, %108 ], [ %.0108170236, %102 ], [ %.0108170236, %103 ], [ %.0108170236, %54 ], [ %.0108170236, %.fold.split ], [ %.0108170236, %71 ], [ %.3111, %91 ], [ %.3111, %97 ], [ %.0108170236, %55 ], [ %.0108170236, %55 ], [ %.0108170236, %115 ], [ %.0108170236, %107 ], [ %.0108170236, %101 ], [ %.0108170236, %62 ], [ %.0108170236, %.lr.ph241 ]
+  %.1105.ph = phi i32 [ %.0104171235, %108 ], [ %.0104171235, %102 ], [ %.0104171235, %103 ], [ %.0104171235, %54 ], [ %.0104171235, %.fold.split ], [ %.0104171235, %71 ], [ %.3107, %91 ], [ %.3107, %97 ], [ %.0104171235, %55 ], [ %.0104171235, %55 ], [ %.0104171235, %115 ], [ %.0104171235, %107 ], [ %.0104171235, %101 ], [ %.0104171235, %62 ], [ %.0104171235, %.lr.ph241 ]
+  %.1102.ph = phi i32 [ %.0101172234, %108 ], [ %.0101172234, %102 ], [ %.0101172234, %103 ], [ %.0101172234, %54 ], [ %.0101172234, %.fold.split ], [ %.0101172234, %71 ], [ %.0101172234, %91 ], [ %98, %97 ], [ %.0101172234, %55 ], [ %.0101172234, %55 ], [ %.0101172234, %115 ], [ %.0101172234, %107 ], [ %.0101172234, %101 ], [ %.0101172234, %62 ], [ %.0101172234, %.lr.ph241 ]
+  %.199.ph = phi i32 [ %.098173233, %108 ], [ %.098173233, %102 ], [ %.098173233, %103 ], [ %.098173233, %54 ], [ %.098173233, %.fold.split ], [ %.098173233, %71 ], [ %86, %91 ], [ %86, %97 ], [ %.098173233, %55 ], [ %.098173233, %55 ], [ %.098173233, %115 ], [ %.098173233, %107 ], [ %.098173233, %101 ], [ %63, %62 ], [ %.098173233, %.lr.ph241 ]
   %.1117174 = getelementptr inbounds nuw i8, ptr %.2118.ph, i64 1
   %117 = load i8, ptr %.1117174, align 1
   %118 = icmp eq i8 %117, 0
-  br i1 %118, label %._crit_edge236, label %.lr.ph235, !llvm.loop !6
+  br i1 %118, label %._crit_edge242, label %.lr.ph241, !llvm.loop !6
 
 119:                                              ; preds = %122
   %120 = getelementptr inbounds nuw i8, ptr %.4176, i64 1
@@ -321,7 +321,7 @@ default.unreachable:                              ; preds = %54
 
 122:                                              ; preds = %.lr.ph177, %119
   %123 = phi i8 [ %41, %.lr.ph177 ], [ %121, %119 ]
-  %.4176 = phi ptr [ %.1117187, %.lr.ph177 ], [ %120, %119 ]
+  %.4176 = phi ptr [ %.1117193, %.lr.ph177 ], [ %120, %119 ]
   %124 = zext i8 %123 to i64
   %125 = getelementptr inbounds nuw i16, ptr %42, i64 %124
   %126 = load i16, ptr %125, align 2
@@ -341,12 +341,12 @@ default.unreachable:                              ; preds = %54
   br label %135
 
 ._crit_edge:                                      ; preds = %119, %.preheader
-  %133 = call ptr @make_multirange(i32 noundef %8, ptr noundef %18, i32 noundef %.0101172228, ptr noundef %.0108170230)
+  %133 = call ptr @make_multirange(i32 noundef %8, ptr noundef %18, i32 noundef %.0101172234, ptr noundef %.0108170236)
   %134 = ptrtoint ptr %133 to i64
   br label %135
 
-135:                                              ; preds = %89, %44, %._crit_edge236, %67, %65, %111, %109, %.critedge9, %129, %.critedge.thread, %37, %._crit_edge
-  %.0 = phi i64 [ %134, %._crit_edge ], [ 0, %37 ], [ 0, %.critedge.thread ], [ 0, %129 ], [ 0, %.critedge9 ], [ 0, %109 ], [ 0, %111 ], [ 0, %65 ], [ 0, %67 ], [ 0, %._crit_edge236 ], [ 0, %44 ], [ 0, %89 ]
+135:                                              ; preds = %89, %44, %._crit_edge242, %67, %65, %111, %109, %.critedge9, %129, %.critedge.thread, %37, %._crit_edge
+  %.0 = phi i64 [ %134, %._crit_edge ], [ 0, %37 ], [ 0, %.critedge.thread ], [ 0, %129 ], [ 0, %.critedge9 ], [ 0, %109 ], [ 0, %111 ], [ 0, %65 ], [ 0, %67 ], [ 0, %._crit_edge242 ], [ 0, %44 ], [ 0, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -1575,7 +1575,7 @@ fetch_att.exit:                                   ; preds = %57
   br i1 %75, label %fetch_att.exit.thread, label %78
 
 fetch_att.exit.thread:                            ; preds = %69, %66, %63, %60, %fetch_att.exit
-  %.0.i97 = phi i64 [ %74, %fetch_att.exit ], [ %70, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
+  %.0.i101 = phi i64 [ %74, %fetch_att.exit ], [ %70, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
   %76 = zext nneg i32 %58 to i64
   %77 = getelementptr inbounds nuw i8, ptr %54, i64 %76
   br label %107
@@ -1629,7 +1629,7 @@ fetch_att.exit.thread:                            ; preds = %69, %66, %63, %60, 
 
 107:                                              ; preds = %51, %fetch_att.exit.thread, %103
   %.067 = phi ptr [ %77, %fetch_att.exit.thread ], [ %106, %103 ], [ %54, %51 ]
-  %.066 = phi i64 [ %.0.i97, %fetch_att.exit.thread ], [ %74, %103 ], [ 0, %51 ]
+  %.066 = phi i64 [ %.0.i101, %fetch_att.exit.thread ], [ %74, %103 ], [ 0, %51 ]
   %108 = and i32 %55, 81
   %.not73 = icmp eq i32 %108, 0
   br i1 %.not73, label %112, label %fetch_att.exit80

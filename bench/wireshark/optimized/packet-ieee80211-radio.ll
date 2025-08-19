@@ -601,7 +601,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %54 = icmp eq i64 %47, 0
   %55 = icmp eq i64 %48, -1
   %or.cond5 = or i1 %54, %55
-  br i1 %or.cond5, label %.thread1000, label %99
+  br i1 %or.cond5, label %.thread1056, label %99
 
 56:                                               ; preds = %50
   %.old4 = icmp eq i64 %48, -1
@@ -609,9 +609,9 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 57:                                               ; preds = %56, %45
   %.not752 = icmp eq ptr %.pre, null
-  br i1 %.not752, label %.thread1000, label %64
+  br i1 %.not752, label %.thread1056, label %64
 
-.thread1000:                                      ; preds = %53, %57
+.thread1056:                                      ; preds = %53, %57
   %58 = tail call ptr @wmem_file_scope()
   %59 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %58, i64 noundef 32) #12
   store ptr %59, ptr @current_aggregate, align 8
@@ -623,12 +623,12 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %.not753 = icmp eq ptr %62, null
   br i1 %.not753, label %64, label %63
 
-63:                                               ; preds = %.thread1000
+63:                                               ; preds = %.thread1056
   store ptr %59, ptr %62, align 8
   br label %64
 
-64:                                               ; preds = %.thread1000, %63, %57
-  %65 = phi ptr [ %59, %.thread1000 ], [ %59, %63 ], [ %.pre, %57 ]
+64:                                               ; preds = %.thread1056, %63, %57
+  %65 = phi ptr [ %59, %.thread1056 ], [ %59, %63 ], [ %.pre, %57 ]
   store ptr %65, ptr %29, align 8
   %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @previous_frame, i64 40), align 8
   %67 = and i32 %66, 3
@@ -1354,9 +1354,9 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   br label %ieee80211_he_ofdm_rate.exit
 
 ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
-  %.sink1042 = phi ptr [ %494, %487 ], [ %482, %476 ]
+  %.sink1098 = phi ptr [ %494, %487 ], [ %482, %476 ]
   %495 = zext nneg i32 %470 to i64
-  %496 = getelementptr [3 x float], ptr %.sink1042, i64 0, i64 %495
+  %496 = getelementptr [3 x float], ptr %.sink1098, i64 0, i64 %495
   %.7 = load float, ptr %496, align 4
   %497 = fcmp une float %.7, 0.000000e+00
   br i1 %497, label %.thread899, label %ieee80211_he_ofdm_rate.exit.thread
@@ -1404,8 +1404,8 @@ ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
   %.pre972.pre = load i8, ptr %128, align 2
   %517 = and i8 %.pre972.pre, 8
   %.not763 = icmp eq i8 %517, 0
-  %or.cond1044 = select i1 %.not762, i1 %.not763, i1 false
-  %spec.select1045 = select i1 %or.cond1044, i1 %.3662, i1 false
+  %or.cond1100 = select i1 %.not762, i1 %.not763, i1 false
+  %spec.select1101 = select i1 %or.cond1100, i1 %.3662, i1 false
   %518 = and i8 %.pre972.pre, 15
   %519 = zext nneg i8 %518 to i32
   br label %526
@@ -1421,7 +1421,7 @@ ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
   br label %526
 
 526:                                              ; preds = %520, %523, %515
-  %.4663896 = phi i1 [ %.3662, %523 ], [ %spec.select1045, %515 ], [ %.3662, %520 ]
+  %.4663896 = phi i1 [ %.3662, %523 ], [ %spec.select1101, %515 ], [ %.3662, %520 ]
   %.0701 = phi i32 [ %525, %523 ], [ %519, %515 ], [ 7, %520 ]
   %.not765 = icmp eq i32 %505, 1
   br i1 %.not765, label %529, label %527
@@ -2004,13 +2004,13 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   %875 = load i16, ptr %874, align 1
   %876 = and i16 %875, 8
   %877 = icmp eq i16 %876, 0
-  br i1 %877, label %878, label %.thread1032
+  br i1 %877, label %878, label %.thread1088
 
 878:                                              ; preds = %872
   %879 = load i16, ptr %13, align 8
   %880 = and i16 %879, 512
   %.not828 = icmp eq i16 %880, 0
-  br i1 %.not828, label %.thread1032, label %881
+  br i1 %.not828, label %.thread1088, label %881
 
 881:                                              ; preds = %878
   %882 = load ptr, ptr @current_aggregate, align 8
@@ -2167,7 +2167,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   %970 = load i16, ptr %13, align 8
   %971 = and i16 %970, 32
   %.not834 = icmp eq i16 %971, 0
-  br i1 %.not834, label %.thread1032, label %972
+  br i1 %.not834, label %.thread1088, label %972
 
 972:                                              ; preds = %969
   %973 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -2176,14 +2176,14 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   store i8 %974, ptr %975, align 2
   %976 = load ptr, ptr @current_aggregate, align 8
   %.not835 = icmp eq ptr %976, null
-  br i1 %.not835, label %.thread1032, label %977
+  br i1 %.not835, label %.thread1088, label %977
 
 977:                                              ; preds = %972
   %978 = getelementptr inbounds nuw i8, ptr %976, i64 24
   store i8 %974, ptr %978, align 4
-  br label %.thread1032
+  br label %.thread1088
 
-.thread1032:                                      ; preds = %872, %878, %972, %969, %977
+.thread1088:                                      ; preds = %872, %878, %972, %969, %977
   %979 = load i32, ptr @hf_wlan_radio_duration, align 4
   %980 = call ptr @proto_tree_add_uint(ptr noundef %120, i32 noundef %979, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0702)
   %981 = load i32, ptr @ett_wlan_radio_duration, align 4
@@ -2191,7 +2191,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   %.not.i = icmp eq ptr %980, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %983
 
-983:                                              ; preds = %.thread1032
+983:                                              ; preds = %.thread1088
   %984 = getelementptr inbounds nuw i8, ptr %980, i64 40
   %985 = load ptr, ptr %984, align 8
   %.not5.i = icmp eq ptr %985, null
@@ -2204,7 +2204,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   store i32 %989, ptr %987, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %.thread1032, %983, %986
+proto_item_set_generated.exit:                    ; preds = %.thread1088, %983, %986
   br i1 %.0695, label %990, label %992
 
 990:                                              ; preds = %proto_item_set_generated.exit

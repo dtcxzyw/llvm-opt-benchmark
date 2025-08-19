@@ -1860,10 +1860,10 @@ define void @prte_state_base_track_procs(i32 noundef %0, i16 noundef signext %1,
   br label %49
 
 49:                                               ; preds = %39, %47
-  %.sink196 = phi i32 [ %48, %47 ], [ 1, %39 ]
+  %.sink220 = phi i32 [ %48, %47 ], [ 1, %39 ]
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 520
   %51 = load i32, ptr %50, align 8, !tbaa !95
-  %52 = add i32 %51, %.sink196
+  %52 = add i32 %51, %.sink220
   store i32 %52, ptr %50, align 8, !tbaa !95
   %53 = icmp ult i32 %52, %.0147
   br i1 %53, label %pmix_pointer_array_get_item.exit.thread, label %54
@@ -2709,9 +2709,9 @@ define void @prte_state_base_check_fds(ptr noundef readonly %0) local_unnamed_ad
   %37 = and i32 %16, 3
   %switch.selectcmp = icmp eq i32 %37, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.51, ptr @.str.52
-  %switch.selectcmp39 = icmp eq i32 %37, 0
-  %switch.select40 = select i1 %switch.selectcmp39, ptr @.str.50, ptr %switch.select
-  %38 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull %switch.select40) #14
+  %switch.selectcmp46 = icmp eq i32 %37, 0
+  %switch.select47 = select i1 %switch.selectcmp46, ptr @.str.50, ptr %switch.select
+  %38 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull %switch.select47) #14
   %39 = load i16, ptr %7, align 8
   %40 = icmp ne i16 %39, 2
   %or.cond = select i1 %24, i1 %40, i1 false

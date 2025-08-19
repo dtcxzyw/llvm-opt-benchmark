@@ -81,7 +81,7 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
   %spec.select = select i1 %36, ptr %5, ptr %37
   %.1 = select i1 %32, ptr %spec.select, ptr %.0.lcssa
   %38 = icmp ult ptr %.1, %5
-  br i1 %38, label %.lr.ph77.preheader, label %thread-pre-split.thread108
+  br i1 %38, label %.lr.ph77.preheader, label %thread-pre-split.thread115
 
 .lr.ph77.preheader:                               ; preds = %.critedge
   %.192 = ptrtoint ptr %.1 to i64
@@ -103,10 +103,10 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
 thread-pre-split:                                 ; preds = %.lr.ph77
   %.pr.pre = load i32, ptr %21, align 8, !tbaa !22
   %44 = icmp eq i32 %.pr.pre, 0
-  br i1 %44, label %.preheader, label %thread-pre-split.thread108
+  br i1 %44, label %.preheader, label %thread-pre-split.thread115
 
 .preheader:                                       ; preds = %15, %thread-pre-split
-  %.152107 = phi ptr [ %43, %thread-pre-split ], [ %1, %15 ]
+  %.152114 = phi ptr [ %43, %thread-pre-split ], [ %1, %15 ]
   %45 = phi ptr [ %19, %thread-pre-split ], [ %18, %15 ]
   %46 = load ptr, ptr %5, align 8, !tbaa !3
   %47 = ptrtoint ptr %46 to i64
@@ -118,8 +118,8 @@ thread-pre-split:                                 ; preds = %.lr.ph77
   %scevgep95 = getelementptr i8, ptr %0, i64 %49
   br label %.lr.ph80
 
-thread-pre-split.thread108:                       ; preds = %.critedge, %thread-pre-split
-  %.152111 = phi ptr [ %43, %thread-pre-split ], [ %1, %.critedge ]
+thread-pre-split.thread115:                       ; preds = %.critedge, %thread-pre-split
+  %.152118 = phi ptr [ %43, %thread-pre-split ], [ %1, %.critedge ]
   store i32 0, ptr %21, align 8, !tbaa !22
   %.pre101 = load ptr, ptr %5, align 8, !tbaa !3
   %.pre102 = ptrtoint ptr %.pre101 to i64
@@ -142,16 +142,16 @@ thread-pre-split.thread108:                       ; preds = %.critedge, %thread-
   %exitcond96.not = icmp eq ptr %52, %46
   br i1 %exitcond96.not, label %.critedge2, label %.lr.ph80, !llvm.loop !27
 
-.critedge2:                                       ; preds = %51, %.lr.ph80, %.preheader, %thread-pre-split.thread108
-  %.152106 = phi ptr [ %.152107, %.preheader ], [ %.152111, %thread-pre-split.thread108 ], [ %.152107, %.lr.ph80 ], [ %.152107, %51 ]
-  %53 = phi ptr [ %45, %.preheader ], [ %19, %thread-pre-split.thread108 ], [ %45, %.lr.ph80 ], [ %45, %51 ]
-  %.pre-phi = phi i64 [ %47, %.preheader ], [ %.pre102, %thread-pre-split.thread108 ], [ %47, %.lr.ph80 ], [ %47, %51 ]
-  %54 = phi ptr [ %46, %.preheader ], [ %.pre101, %thread-pre-split.thread108 ], [ %46, %.lr.ph80 ], [ %46, %51 ]
-  %.3 = phi ptr [ %8, %.preheader ], [ %8, %thread-pre-split.thread108 ], [ %scevgep95, %51 ], [ %.479, %.lr.ph80 ]
+.critedge2:                                       ; preds = %51, %.lr.ph80, %.preheader, %thread-pre-split.thread115
+  %.152113 = phi ptr [ %.152114, %.preheader ], [ %.152118, %thread-pre-split.thread115 ], [ %.152114, %.lr.ph80 ], [ %.152114, %51 ]
+  %53 = phi ptr [ %45, %.preheader ], [ %19, %thread-pre-split.thread115 ], [ %45, %.lr.ph80 ], [ %45, %51 ]
+  %.pre-phi = phi i64 [ %47, %.preheader ], [ %.pre102, %thread-pre-split.thread115 ], [ %47, %.lr.ph80 ], [ %47, %51 ]
+  %54 = phi ptr [ %46, %.preheader ], [ %.pre101, %thread-pre-split.thread115 ], [ %46, %.lr.ph80 ], [ %46, %51 ]
+  %.3 = phi ptr [ %8, %.preheader ], [ %8, %thread-pre-split.thread115 ], [ %scevgep95, %51 ], [ %.479, %.lr.ph80 ]
   %55 = ptrtoint ptr %.3 to i64
   %56 = sub i64 %.pre-phi, %55
   %57 = ptrtoint ptr %53 to i64
-  %58 = ptrtoint ptr %.152106 to i64
+  %58 = ptrtoint ptr %.152113 to i64
   %.neg = sub i64 %58, %57
   %59 = add i64 %56, %.neg
   %60 = trunc i64 %59 to i32
@@ -164,7 +164,7 @@ thread-pre-split.thread108:                       ; preds = %.critedge, %thread-
 
 .lr.ph86:                                         ; preds = %.critedge2, %.lr.ph86
   %.685 = phi ptr [ %64, %.lr.ph86 ], [ %.5, %.critedge2 ]
-  %.35484 = phi ptr [ %66, %.lr.ph86 ], [ %.152106, %.critedge2 ]
+  %.35484 = phi ptr [ %66, %.lr.ph86 ], [ %.152113, %.critedge2 ]
   %64 = getelementptr inbounds nuw i8, ptr %.685, i64 1
   %65 = load i8, ptr %.685, align 1, !tbaa !23
   %66 = getelementptr inbounds nuw i8, ptr %.35484, i64 1
@@ -174,7 +174,7 @@ thread-pre-split.thread108:                       ; preds = %.critedge, %thread-
   br i1 %68, label %.lr.ph86, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph86, %.critedge2
-  %.354.lcssa = phi ptr [ %.152106, %.critedge2 ], [ %66, %.lr.ph86 ]
+  %.354.lcssa = phi ptr [ %.152113, %.critedge2 ], [ %66, %.lr.ph86 ]
   store ptr %8, ptr %5, align 8, !tbaa !3
   store i8 60, ptr %.354.lcssa, align 1, !tbaa !23
   br label %69

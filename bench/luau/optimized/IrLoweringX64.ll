@@ -3590,9 +3590,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %.sroa.35554.0.insert.ext = zext i8 %1289 to i64
   %.sroa.35554.0.insert.shift = shl nuw nsw i64 %.sroa.35554.0.insert.ext, 16
   %.sroa.25553.0.insert.insert = or disjoint i64 %.sroa.35554.0.insert.shift, 268468224
-  br label %.invoke6611
+  br label %.invoke6643
 
-1293:                                             ; preds = %.invoke6611, %.invoke, %1319, %1318, %1316, %1313, %1311, %1298, %1297, %1295, %1290, %1288
+1293:                                             ; preds = %.invoke6643, %.invoke, %1319, %1318, %1316, %1313, %1311, %1298, %1297, %1295, %1290, %1288
   %1294 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen3X6412ScopedRegX64D1Ev(ptr noundef nonnull align 8 dereferenceable(9) %47) #14
@@ -3621,9 +3621,9 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   %.sroa.35544.0.insert.ext = zext i8 %.sroa.01083.0.copyload to i64
   %.sroa.35544.0.insert.shift = shl nuw nsw i64 %.sroa.35544.0.insert.ext, 16
   %.sroa.25543.0.insert.insert = or disjoint i64 %.sroa.35544.0.insert.shift, 268468224
-  br label %.invoke6611
+  br label %.invoke6643
 
-.invoke6611:                                      ; preds = %1292, %1301
+.invoke6643:                                      ; preds = %1292, %1301
   %1302 = phi ptr [ %1299, %1301 ], [ %1286, %1292 ]
   %1303 = phi i64 [ %.sroa.25543.0.insert.insert, %1301 ], [ %.sroa.25558.0.insert.insert, %1292 ]
   %1304 = phi i64 [ %.sroa.25543.0.insert.insert, %1301 ], [ %.sroa.25553.0.insert.insert, %1292 ]
@@ -3631,7 +3631,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX649lowerInstERNS0_6IrIns
   invoke void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648vcmpeqsdENS1_10OperandX64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(252) %1302, i64 %1303, i64 %1304, i64 %1305)
           to label %1306 unwind label %1293
 
-1306:                                             ; preds = %.invoke6611
+1306:                                             ; preds = %.invoke6643
   %1307 = load i32, ptr %1273, align 4
   %1308 = and i32 %1307, 15
   %1309 = icmp eq i32 %1308, 4
@@ -6369,11 +6369,11 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   %2467 = load i32, ptr %2466, align 4
   %2468 = and i32 %2467, 15
   %2469 = icmp eq i32 %2468, 6
-  %.sink6612 = select i1 %2469, i64 276070401, i64 275021825
+  %.sink6644 = select i1 %2469, i64 276070401, i64 275021825
   %2470 = and i32 %2467, -16
   %.sroa.7.0.insert.ext.i3347 = zext i32 %2470 to i64
   %.sroa.7.0.insert.shift.i3348 = shl nuw i64 %.sroa.7.0.insert.ext.i3347, 32
-  %.sroa.0.0.insert.insert.i3349 = or disjoint i64 %.sroa.7.0.insert.shift.i3348, %.sink6612
+  %.sroa.0.0.insert.insert.i3349 = or disjoint i64 %.sroa.7.0.insert.shift.i3348, %.sink6644
   %2471 = load ptr, ptr %0, align 8, !tbaa !60
   %2472 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0661.0.copyload = load i32, ptr %2472, align 4, !tbaa !51
@@ -7116,10 +7116,10 @@ _ZN4Luau7CodeGen3X6413IrLoweringX6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit3
   br i1 %2770, label %.sink.split, label %2772
 
 .sink.split:                                      ; preds = %2761, %2758
-  %.sink6614 = phi i8 [ 8, %2758 ], [ 26, %2761 ]
+  %.sink6646 = phi i8 [ 8, %2758 ], [ 26, %2761 ]
   %2771 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0568.0.copyload = load i32, ptr %2771, align 4, !tbaa !51
-  call void @_ZN4Luau7CodeGen3X6413IrLoweringX6418jumpOrAbortOnUndefENS0_12ConditionX64ENS0_4IrOpERKNS0_7IrBlockE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i8 noundef zeroext %.sink6614, i32 %.sroa.0568.0.copyload, ptr noundef nonnull align 4 dereferenceable(32) %3)
+  call void @_ZN4Luau7CodeGen3X6413IrLoweringX6418jumpOrAbortOnUndefENS0_12ConditionX64ENS0_4IrOpERKNS0_7IrBlockE(ptr noundef nonnull align 8 dereferenceable(1440) %0, i8 noundef zeroext %.sink6646, i32 %.sroa.0568.0.copyload, ptr noundef nonnull align 4 dereferenceable(32) %3)
   br label %2772
 
 2772:                                             ; preds = %.sink.split, %2761

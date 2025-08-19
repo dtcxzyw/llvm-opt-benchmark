@@ -441,8 +441,8 @@ push_state.exit:                                  ; preds = %85
   %.not.i194 = icmp eq ptr %180, null
   %181 = load i64, ptr %8, align 8
   %.not1316.i = icmp eq i64 %181, 0
-  %or.cond273 = select i1 %.not.i194, i1 true, i1 %.not1316.i
-  br i1 %or.cond273, label %cleanup_stack.exit, label %.lr.ph.i
+  %or.cond309 = select i1 %.not.i194, i1 true, i1 %.not1316.i
+  br i1 %or.cond309, label %cleanup_stack.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %179, %thread-pre-split
   %.pr250 = phi i64 [ %.pr251, %thread-pre-split ], [ %181, %179 ]
@@ -510,7 +510,7 @@ cleanup_stack.exit:                               ; preds = %thread-pre-split, %
 204:                                              ; preds = %201
   %205 = load ptr, ptr %48, align 8, !tbaa !69
   %.not188 = icmp eq ptr %205, null
-  br i1 %.not188, label %.thread266, label %206
+  br i1 %.not188, label %.thread302, label %206
 
 206:                                              ; preds = %204
   %207 = call i32 %205(ptr noundef nonnull %2, ptr noundef %0) #10
@@ -519,24 +519,24 @@ cleanup_stack.exit:                               ; preds = %thread-pre-split, %
   %209 = icmp ne ptr %208, null
   %210 = icmp ne ptr %.pre, null
   %or.cond17 = select i1 %209, i1 %210, i1 false
-  br i1 %or.cond17, label %211, label %.thread266
+  br i1 %or.cond17, label %211, label %.thread302
 
 211:                                              ; preds = %206
   %212 = call i32 %.pre(ptr noundef nonnull %2, ptr noundef %0) #10
-  br label %.thread266
+  br label %.thread302
 
-.thread266:                                       ; preds = %204, %211, %206
+.thread302:                                       ; preds = %204, %211, %206
   %.9 = phi i32 [ %212, %211 ], [ %203, %206 ], [ %203, %204 ]
   call void @tableDestroy(ptr noundef %22) #10
   %213 = load ptr, ptr %3, align 8, !tbaa !15
   %.not.i196 = icmp eq ptr %213, null
   %214 = load i64, ptr %8, align 8
   %.not1316.i198 = icmp eq i64 %214, 0
-  %or.cond274 = select i1 %.not.i196, i1 true, i1 %.not1316.i198
-  br i1 %or.cond274, label %cleanup_stack.exit206, label %.lr.ph.i199
+  %or.cond310 = select i1 %.not.i196, i1 true, i1 %.not1316.i198
+  br i1 %or.cond310, label %cleanup_stack.exit206, label %.lr.ph.i199
 
-.lr.ph.i199:                                      ; preds = %.thread266, %thread-pre-split215
-  %.pr216256 = phi i64 [ %.pr216257, %thread-pre-split215 ], [ %214, %.thread266 ]
+.lr.ph.i199:                                      ; preds = %.thread302, %thread-pre-split215
+  %.pr216256 = phi i64 [ %.pr216257, %thread-pre-split215 ], [ %214, %.thread302 ]
   %215 = load i64, ptr %53, align 8, !tbaa !66
   %.not.i.i200 = icmp eq i64 %215, 0
   br i1 %.not.i.i200, label %pop_state.exit.i203, label %pop_state.exit.thread.i201
@@ -571,7 +571,7 @@ thread-pre-split215:                              ; preds = %223, %221, %pop_sta
   %.not13.i202 = icmp eq i64 %.pr216257, 0
   br i1 %.not13.i202, label %cleanup_stack.exit206, label %.lr.ph.i199
 
-cleanup_stack.exit206:                            ; preds = %thread-pre-split215, %.thread266
+cleanup_stack.exit206:                            ; preds = %thread-pre-split215, %.thread302
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %226 = load ptr, ptr %225, align 8, !tbaa !34
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 40
@@ -1211,18 +1211,18 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
 106:                                              ; preds = %81
   %107 = load i64, ptr %76, align 8, !tbaa !82
   %108 = icmp eq i64 %107, 0
-  br i1 %108, label %109, label %.preheader370
+  br i1 %108, label %109, label %.preheader393
 
 109:                                              ; preds = %106
   store i64 0, ptr %75, align 8, !tbaa !88
-  br label %.preheader370
+  br label %.preheader393
 
-.preheader370:                                    ; preds = %109, %106
+.preheader393:                                    ; preds = %109, %106
   br label %110
 
-110:                                              ; preds = %.preheader370, %113
-  %.6221294 = phi i64 [ %121, %113 ], [ 0, %.preheader370 ]
-  %111 = phi i64 [ %122, %113 ], [ %107, %.preheader370 ]
+110:                                              ; preds = %.preheader393, %113
+  %.6221294 = phi i64 [ %121, %113 ], [ 0, %.preheader393 ]
+  %111 = phi i64 [ %122, %113 ], [ %107, %.preheader393 ]
   %112 = icmp ult i64 %111, 4
   br i1 %112, label %113, label %.critedge9
 
@@ -1385,18 +1385,18 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25) #10
   %186 = load i64, ptr %76, align 8, !tbaa !82
   %187 = icmp eq i64 %186, 0
-  br i1 %187, label %188, label %.preheader371
+  br i1 %187, label %188, label %.preheader394
 
 188:                                              ; preds = %185
   store i64 0, ptr %75, align 8, !tbaa !88
-  br label %.preheader371
+  br label %.preheader394
 
-.preheader371:                                    ; preds = %188, %185
+.preheader394:                                    ; preds = %188, %185
   br label %189
 
-189:                                              ; preds = %.preheader371, %192
-  %.8223291 = phi i64 [ %200, %192 ], [ 0, %.preheader371 ]
-  %190 = phi i64 [ %201, %192 ], [ %186, %.preheader371 ]
+189:                                              ; preds = %.preheader394, %192
+  %.8223291 = phi i64 [ %200, %192 ], [ 0, %.preheader394 ]
+  %190 = phi i64 [ %201, %192 ], [ %186, %.preheader394 ]
   %191 = icmp ult i64 %190, 4
   br i1 %191, label %192, label %.critedge13
 

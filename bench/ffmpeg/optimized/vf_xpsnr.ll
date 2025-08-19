@@ -418,10 +418,10 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
 
 .sink.split:                                      ; preds = %43, %30
   %.sink = phi ptr [ %0, %30 ], [ %11, %43 ]
-  %.sink77 = phi i32 [ %42, %30 ], [ %45, %43 ]
+  %.sink79 = phi i32 [ %42, %30 ], [ %45, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sink, i64 264
   %47 = load i32, ptr %46, align 8, !tbaa !64
-  %48 = sdiv i32 %47, %.sink77
+  %48 = sdiv i32 %47, %.sink79
   br label %49
 
 49:                                               ; preds = %.sink.split, %43
@@ -541,11 +541,11 @@ define internal i64 @highds(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %22 = add nsw i64 %indvars.iv182, 3
   %23 = mul nsw i64 %22, %13
   %invariant.gep = getelementptr i16, ptr %4, i64 %14
-  %invariant.gep185 = getelementptr i16, ptr %4, i64 %16
-  %invariant.gep187 = getelementptr i16, ptr %4, i64 %18
-  %invariant.gep189 = getelementptr i16, ptr %4, i64 %19
-  %invariant.gep191 = getelementptr i16, ptr %4, i64 %21
-  %invariant.gep193 = getelementptr i16, ptr %4, i64 %23
+  %invariant.gep188 = getelementptr i16, ptr %4, i64 %16
+  %invariant.gep190 = getelementptr i16, ptr %4, i64 %18
+  %invariant.gep192 = getelementptr i16, ptr %4, i64 %19
+  %invariant.gep194 = getelementptr i16, ptr %4, i64 %21
+  %invariant.gep196 = getelementptr i16, ptr %4, i64 %23
   br label %24
 
 24:                                               ; preds = %.preheader.us, %24
@@ -558,25 +558,25 @@ define internal i64 @highds(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %28 = load i16, ptr %27, align 2, !tbaa !74
   %29 = sext i16 %28 to i32
   %30 = add nsw i32 %29, %26
-  %gep186 = getelementptr i16, ptr %invariant.gep185, i64 %indvars.iv
-  %31 = load i16, ptr %gep186, align 2, !tbaa !74
+  %gep189 = getelementptr i16, ptr %invariant.gep188, i64 %indvars.iv
+  %31 = load i16, ptr %gep189, align 2, !tbaa !74
   %32 = sext i16 %31 to i32
   %33 = add nsw i32 %30, %32
-  %34 = getelementptr i8, ptr %gep186, i64 2
+  %34 = getelementptr i8, ptr %gep189, i64 2
   %35 = load i16, ptr %34, align 2, !tbaa !74
   %36 = sext i16 %35 to i32
   %37 = add nsw i32 %33, %36
   %38 = mul nsw i32 %37, 12
-  %gep188 = getelementptr i16, ptr %invariant.gep187, i64 %indvars.iv
-  %39 = load i16, ptr %gep188, align 2, !tbaa !74
+  %gep191 = getelementptr i16, ptr %invariant.gep190, i64 %indvars.iv
+  %39 = load i16, ptr %gep191, align 2, !tbaa !74
   %40 = sext i16 %39 to i32
-  %41 = getelementptr i8, ptr %gep188, i64 2
+  %41 = getelementptr i8, ptr %gep191, i64 2
   %42 = load i16, ptr %41, align 2, !tbaa !74
   %43 = sext i16 %42 to i32
-  %gep190 = getelementptr i16, ptr %invariant.gep189, i64 %indvars.iv
-  %44 = load i16, ptr %gep190, align 2, !tbaa !74
+  %gep193 = getelementptr i16, ptr %invariant.gep192, i64 %indvars.iv
+  %44 = load i16, ptr %gep193, align 2, !tbaa !74
   %45 = sext i16 %44 to i32
-  %46 = getelementptr i8, ptr %gep190, i64 2
+  %46 = getelementptr i8, ptr %gep193, i64 2
   %47 = load i16, ptr %46, align 2, !tbaa !74
   %48 = sext i16 %47 to i32
   %49 = getelementptr i8, ptr %gep, i64 -2
@@ -585,73 +585,73 @@ define internal i64 @highds(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %52 = getelementptr i8, ptr %gep, i64 4
   %53 = load i16, ptr %52, align 2, !tbaa !74
   %54 = sext i16 %53 to i32
-  %55 = getelementptr i8, ptr %gep186, i64 -2
+  %55 = getelementptr i8, ptr %gep189, i64 -2
   %56 = load i16, ptr %55, align 2, !tbaa !74
   %57 = sext i16 %56 to i32
-  %58 = getelementptr i8, ptr %gep186, i64 4
+  %58 = getelementptr i8, ptr %gep189, i64 4
   %59 = load i16, ptr %58, align 2, !tbaa !74
   %60 = sext i16 %59 to i32
-  %61 = getelementptr i8, ptr %gep188, i64 -2
+  %61 = getelementptr i8, ptr %gep191, i64 -2
   %62 = load i16, ptr %61, align 2, !tbaa !74
   %63 = sext i16 %62 to i32
-  %64 = getelementptr i8, ptr %gep188, i64 4
+  %64 = getelementptr i8, ptr %gep191, i64 4
   %65 = load i16, ptr %64, align 2, !tbaa !74
   %66 = sext i16 %65 to i32
   %67 = add nsw i32 %66, %63
-  %68 = getelementptr i8, ptr %gep190, i64 -2
+  %68 = getelementptr i8, ptr %gep193, i64 -2
   %69 = load i16, ptr %68, align 2, !tbaa !74
   %70 = sext i16 %69 to i32
   %71 = add nsw i32 %67, %70
-  %72 = getelementptr i8, ptr %gep190, i64 4
+  %72 = getelementptr i8, ptr %gep193, i64 4
   %73 = load i16, ptr %72, align 2, !tbaa !74
   %74 = sext i16 %73 to i32
   %75 = add nsw i32 %71, %74
-  %gep192 = getelementptr i16, ptr %invariant.gep191, i64 %indvars.iv
-  %76 = getelementptr i8, ptr %gep192, i64 -2
+  %gep195 = getelementptr i16, ptr %invariant.gep194, i64 %indvars.iv
+  %76 = getelementptr i8, ptr %gep195, i64 -2
   %77 = load i16, ptr %76, align 2, !tbaa !74
   %78 = sext i16 %77 to i32
-  %79 = load i16, ptr %gep192, align 2, !tbaa !74
+  %79 = load i16, ptr %gep195, align 2, !tbaa !74
   %80 = sext i16 %79 to i32
-  %81 = getelementptr i8, ptr %gep192, i64 2
+  %81 = getelementptr i8, ptr %gep195, i64 2
   %82 = load i16, ptr %81, align 2, !tbaa !74
   %83 = sext i16 %82 to i32
-  %84 = getelementptr i8, ptr %gep192, i64 4
+  %84 = getelementptr i8, ptr %gep195, i64 4
   %85 = load i16, ptr %84, align 2, !tbaa !74
   %86 = sext i16 %85 to i32
-  %gep194 = getelementptr i16, ptr %invariant.gep193, i64 %indvars.iv
-  %87 = getelementptr i8, ptr %gep194, i64 -2
+  %gep197 = getelementptr i16, ptr %invariant.gep196, i64 %indvars.iv
+  %87 = getelementptr i8, ptr %gep197, i64 -2
   %88 = load i16, ptr %87, align 2, !tbaa !74
   %89 = sext i16 %88 to i32
-  %90 = load i16, ptr %gep194, align 2, !tbaa !74
+  %90 = load i16, ptr %gep197, align 2, !tbaa !74
   %91 = sext i16 %90 to i32
-  %92 = getelementptr i8, ptr %gep194, i64 2
+  %92 = getelementptr i8, ptr %gep197, i64 2
   %93 = load i16, ptr %92, align 2, !tbaa !74
   %94 = sext i16 %93 to i32
-  %95 = getelementptr i8, ptr %gep194, i64 4
+  %95 = getelementptr i8, ptr %gep197, i64 4
   %96 = load i16, ptr %95, align 2, !tbaa !74
   %97 = sext i16 %96 to i32
-  %98 = getelementptr i8, ptr %gep188, i64 -4
+  %98 = getelementptr i8, ptr %gep191, i64 -4
   %99 = load i16, ptr %98, align 2, !tbaa !74
   %100 = sext i16 %99 to i32
   %101 = getelementptr i8, ptr %gep, i64 -4
   %102 = load i16, ptr %101, align 2, !tbaa !74
   %103 = sext i16 %102 to i32
-  %104 = getelementptr i8, ptr %gep186, i64 -4
+  %104 = getelementptr i8, ptr %gep189, i64 -4
   %105 = load i16, ptr %104, align 2, !tbaa !74
   %106 = sext i16 %105 to i32
-  %107 = getelementptr i8, ptr %gep190, i64 -4
+  %107 = getelementptr i8, ptr %gep193, i64 -4
   %108 = load i16, ptr %107, align 2, !tbaa !74
   %109 = sext i16 %108 to i32
-  %110 = getelementptr i8, ptr %gep188, i64 6
+  %110 = getelementptr i8, ptr %gep191, i64 6
   %111 = load i16, ptr %110, align 2, !tbaa !74
   %112 = sext i16 %111 to i32
   %113 = getelementptr i8, ptr %gep, i64 6
   %114 = load i16, ptr %113, align 2, !tbaa !74
   %115 = sext i16 %114 to i32
-  %116 = getelementptr i8, ptr %gep186, i64 6
+  %116 = getelementptr i8, ptr %gep189, i64 6
   %117 = load i16, ptr %116, align 2, !tbaa !74
   %118 = sext i16 %117 to i32
-  %119 = getelementptr i8, ptr %gep190, i64 6
+  %119 = getelementptr i8, ptr %gep193, i64 6
   %120 = load i16, ptr %119, align 2, !tbaa !74
   %121 = sext i16 %120 to i32
   %122 = add nsw i32 %43, %40
@@ -1322,7 +1322,7 @@ define internal i32 @do_xpsnr(ptr noundef %0) #0 {
   %165 = mul nsw i64 %indvars.iv244, %162
   %166 = mul nsw i64 %indvars.iv244, %163
   %invariant.gep = getelementptr i8, ptr %159, i64 %164
-  %invariant.gep275 = getelementptr i8, ptr %160, i64 %166
+  %invariant.gep313 = getelementptr i8, ptr %160, i64 %166
   br label %167
 
 167:                                              ; preds = %.preheader.us, %167
@@ -1333,8 +1333,8 @@ define internal i32 @do_xpsnr(ptr noundef %0) #0 {
   %170 = add nsw i64 %indvars.iv241, %165
   %171 = getelementptr inbounds i16, ptr %147, i64 %170
   store i16 %169, ptr %171, align 2, !tbaa !74
-  %gep276 = getelementptr i8, ptr %invariant.gep275, i64 %indvars.iv241
-  %172 = load i8, ptr %gep276, align 1, !tbaa !41
+  %gep314 = getelementptr i8, ptr %invariant.gep313, i64 %indvars.iv241
+  %172 = load i8, ptr %gep314, align 1, !tbaa !41
   %173 = zext i8 %172 to i16
   %174 = getelementptr inbounds i16, ptr %146, i64 %170
   store i16 %173, ptr %174, align 2, !tbaa !74
@@ -1540,8 +1540,8 @@ calc_squared_error.exit.i.us.i:                   ; preds = %calc_squared_error.
   %indvars.iv.next269.i.us.i = add nuw nsw i64 %indvars.iv268.i.us.i, 1
   %297 = mul nsw i64 %indvars.iv.next269.i.us.i, %235
   %invariant.gep.i.us.i = getelementptr i16, ptr %263, i64 %294
-  %invariant.gep285.i.us.i = getelementptr i16, ptr %263, i64 %296
-  %invariant.gep287.i.us.i = getelementptr i16, ptr %263, i64 %297
+  %invariant.gep293.i.us.i = getelementptr i16, ptr %263, i64 %296
+  %invariant.gep295.i.us.i = getelementptr i16, ptr %263, i64 %297
   br label %298
 
 298:                                              ; preds = %298, %.preheader232.us.i.us.i
@@ -1558,24 +1558,24 @@ calc_squared_error.exit.i.us.i:                   ; preds = %calc_squared_error.
   %306 = load i16, ptr %305, align 2, !tbaa !74
   %307 = sext i16 %306 to i32
   %308 = add nsw i32 %307, %304
-  %gep286.i.us.i = getelementptr i16, ptr %invariant.gep285.i.us.i, i64 %indvars.iv.i.us.i
-  %309 = load i16, ptr %gep286.i.us.i, align 2, !tbaa !74
+  %gep294.i.us.i = getelementptr i16, ptr %invariant.gep293.i.us.i, i64 %indvars.iv.i.us.i
+  %309 = load i16, ptr %gep294.i.us.i, align 2, !tbaa !74
   %310 = sext i16 %309 to i32
   %311 = add nsw i32 %308, %310
-  %gep288.i.us.i = getelementptr i16, ptr %invariant.gep287.i.us.i, i64 %indvars.iv.i.us.i
-  %312 = load i16, ptr %gep288.i.us.i, align 2, !tbaa !74
+  %gep296.i.us.i = getelementptr i16, ptr %invariant.gep295.i.us.i, i64 %indvars.iv.i.us.i
+  %312 = load i16, ptr %gep296.i.us.i, align 2, !tbaa !74
   %313 = sext i16 %312 to i32
   %314 = add nsw i32 %311, %313
-  %315 = getelementptr i8, ptr %gep286.i.us.i, i64 -2
+  %315 = getelementptr i8, ptr %gep294.i.us.i, i64 -2
   %316 = load i16, ptr %315, align 2, !tbaa !74
   %317 = sext i16 %316 to i32
-  %318 = getelementptr i8, ptr %gep286.i.us.i, i64 2
+  %318 = getelementptr i8, ptr %gep294.i.us.i, i64 2
   %319 = load i16, ptr %318, align 2, !tbaa !74
   %320 = sext i16 %319 to i32
-  %321 = getelementptr i8, ptr %gep288.i.us.i, i64 -2
+  %321 = getelementptr i8, ptr %gep296.i.us.i, i64 -2
   %322 = load i16, ptr %321, align 2, !tbaa !74
   %323 = sext i16 %322 to i32
-  %324 = getelementptr i8, ptr %gep288.i.us.i, i64 2
+  %324 = getelementptr i8, ptr %gep296.i.us.i, i64 2
   %325 = load i16, ptr %324, align 2, !tbaa !74
   %326 = sext i16 %325 to i32
   %327 = add nsw i32 %317, %320
@@ -1622,11 +1622,11 @@ calc_squared_error.exit.i.us.i:                   ; preds = %calc_squared_error.
 
 353:                                              ; preds = %.loopexit234.i.us.i
   %.not259.i.us.i = icmp eq i32 %259, 0
-  %or.cond290.i.us.i = or i1 %.not.i.i.us.i, %.not259.i.us.i
+  %or.cond298.i.us.i = or i1 %.not.i.i.us.i, %.not259.i.us.i
   br i1 %352, label %.preheader228.i.us.i, label %.preheader230.i.us.i
 
 .preheader230.i.us.i:                             ; preds = %353
-  br i1 %or.cond290.i.us.i, label %.loopexit.i.us.i, label %.preheader229.us.preheader.i.us.i
+  br i1 %or.cond298.i.us.i, label %.loopexit.i.us.i, label %.preheader229.us.preheader.i.us.i
 
 .preheader229.us.preheader.i.us.i:                ; preds = %.preheader230.i.us.i
   %wide.trip.count.i.us.i = zext i32 %259 to i64
@@ -1673,7 +1673,7 @@ calc_squared_error.exit.i.us.i:                   ; preds = %calc_squared_error.
   br i1 %exitcond274.not.i.us.i, label %.loopexit.i.us.i, label %.preheader229.us.i.us.i, !llvm.loop !106
 
 .preheader228.i.us.i:                             ; preds = %353
-  br i1 %or.cond290.i.us.i, label %.loopexit.i.us.i, label %.preheader.us.preheader.i.us.i
+  br i1 %or.cond298.i.us.i, label %.loopexit.i.us.i, label %.preheader.us.preheader.i.us.i
 
 .preheader.us.preheader.i.us.i:                   ; preds = %.preheader228.i.us.i
   %wide.trip.count278.i.us.i = zext i32 %259 to i64

@@ -658,8 +658,8 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
 
 58:                                               ; preds = %53, %53, %56, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not51 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not51, label %.thread, label %.preheader, !llvm.loop !60
+  %.not52 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not52, label %.thread, label %.preheader, !llvm.loop !60
 
 59:                                               ; preds = %37
   %60 = icmp eq i32 %38, 0
@@ -799,13 +799,13 @@ define internal i32 @rtp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   ]
 
 .sink.split.sink.split:                           ; preds = %.thread118, %.thread118, %.thread118.thread, %.thread118.thread
-  %.sink136 = phi i16 [ 1, %.thread118.thread ], [ 1, %.thread118.thread ], [ -1, %.thread118 ], [ -1, %.thread118 ]
+  %.sink142 = phi i16 [ 1, %.thread118.thread ], [ 1, %.thread118.thread ], [ -1, %.thread118 ], [ -1, %.thread118 ]
   %.str.36.sink.ph = phi ptr [ @.str.36, %.thread118.thread ], [ @.str.36, %.thread118.thread ], [ @.str.37, %.thread118 ], [ @.str.37, %.thread118 ]
   %.068116.ph.ph = phi i32 [ %.068117121, %.thread118.thread ], [ %.068117121, %.thread118.thread ], [ %.068114, %.thread118 ], [ %.068114, %.thread118 ]
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %.val101 = load i16, ptr %44, align 2
   %rev.i.i106 = tail call noundef i16 @llvm.bswap.i16(i16 %.val101)
-  %45 = add i16 %rev.i.i106, %.sink136
+  %45 = add i16 %rev.i.i106, %.sink142
   %rev.i5.i109 = tail call noundef i16 @llvm.bswap.i16(i16 %45)
   store i16 %rev.i5.i109, ptr %44, align 2, !tbaa !65
   br label %.sink.split

@@ -999,8 +999,8 @@ common.resume:                                    ; preds = %74, %55
   br label %common.resume
 
 .critedge58:                                      ; preds = %6, %38, %57, %58, %39, %19
-  %.sink85 = phi ptr [ null, %19 ], [ %41, %39 ], [ %60, %58 ], [ null, %57 ], [ null, %38 ], [ null, %6 ]
-  store ptr %.sink85, ptr %0, align 8, !tbaa !70
+  %.sink87 = phi ptr [ null, %19 ], [ %41, %39 ], [ %60, %58 ], [ null, %57 ], [ null, %38 ], [ null, %6 ]
+  store ptr %.sink87, ptr %0, align 8, !tbaa !70
   ret void
 }
 
@@ -4457,8 +4457,8 @@ common.resume:                                    ; preds = %74, %55
   br label %common.resume
 
 .critedge58:                                      ; preds = %6, %38, %57, %58, %39, %19
-  %.sink85 = phi ptr [ null, %19 ], [ %41, %39 ], [ %60, %58 ], [ null, %57 ], [ null, %38 ], [ null, %6 ]
-  store ptr %.sink85, ptr %0, align 8, !tbaa !88
+  %.sink87 = phi ptr [ null, %19 ], [ %41, %39 ], [ %60, %58 ], [ null, %57 ], [ null, %38 ], [ null, %6 ]
+  store ptr %.sink87, ptr %0, align 8, !tbaa !88
   ret void
 }
 

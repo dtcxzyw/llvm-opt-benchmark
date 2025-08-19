@@ -1630,30 +1630,29 @@ parse_enum.exit.thread:                           ; preds = %3, %10
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_key_update_type(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
-  br label %5
+  br label %4
 
-3:                                                ; preds = %5
-  %4 = add nuw nsw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %4, 2
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+3:                                                ; preds = %4
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %4, !llvm.loop !57
 
-5:                                                ; preds = %3, %2
-  %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_key_update_types, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %3
+4:                                                ; preds = %3, %2
+  %exitcond.not.i = phi i1 [ false, %2 ], [ true, %3 ]
+  %.010.i = phi i64 [ 0, %2 ], [ 1, %3 ]
+  %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_key_update_types, i64 %.010.i
+  %6 = load ptr, ptr %5, align 16, !tbaa !13
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %1) #9
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %3
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %12, ptr %13, align 8, !tbaa !81
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %11 = load i32, ptr %10, align 8, !tbaa !6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %11, ptr %12, align 8, !tbaa !81
   br label %parse_enum.exit.thread
 
-parse_enum.exit.thread:                           ; preds = %3, %10
-  %.0 = phi i32 [ 1, %10 ], [ 0, %3 ]
+parse_enum.exit.thread:                           ; preds = %3, %9
+  %.0 = phi i32 [ 1, %9 ], [ 0, %3 ]
   ret i32 %.0
 }
 

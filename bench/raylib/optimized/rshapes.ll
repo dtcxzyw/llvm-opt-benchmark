@@ -529,8 +529,8 @@ define void @DrawCircleSector(<2 x float> %0, float noundef %1, float noundef %2
   %.sroa.096.4.vec.extract = extractelement <2 x float> %0, i64 1
   %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
   %30 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop141 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %31 = extractelement <2 x float> %foldExtExtBinop141, i64 1
+  %foldExtExtBinop142 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %31 = extractelement <2 x float> %foldExtExtBinop142, i64 1
   br label %33
 
 ._crit_edge:                                      ; preds = %33, %25
@@ -610,13 +610,13 @@ define void @DrawCircleSector(<2 x float> %0, float noundef %1, float noundef %2
   %.sroa.096.0.vec.extract104 = extractelement <2 x float> %0, i64 0
   %.sroa.096.4.vec.extract118 = extractelement <2 x float> %0, i64 1
   tail call void @rlVertex2f(float noundef %.sroa.096.0.vec.extract104, float noundef %.sroa.096.4.vec.extract118) #16
-  %foldExtExtBinop143 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %83 = extractelement <2 x float> %foldExtExtBinop143, i64 0
+  %foldExtExtBinop144 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %83 = extractelement <2 x float> %foldExtExtBinop144, i64 0
   %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @texShapes, i64 4), align 4
   %85 = sitofp i32 %84 to float
   %86 = fdiv float %83, %85
-  %foldExtExtBinop145 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %87 = extractelement <2 x float> %foldExtExtBinop145, i64 1
+  %foldExtExtBinop146 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %87 = extractelement <2 x float> %foldExtExtBinop146, i64 1
   %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @texShapes, i64 8), align 4
   %89 = sitofp i32 %88 to float
   %90 = fdiv float %87, %89
@@ -1041,8 +1041,8 @@ define void @DrawRing(<2 x float> %0, float noundef %1, float noundef %2, float 
   %36 = extractelement <2 x float> %foldExtExtBinop, i64 1
   %.sroa.074.0.vec.extract = extractelement <2 x float> %0, i64 0
   %.sroa.074.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %foldExtExtBinop107 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %37 = extractelement <2 x float> %foldExtExtBinop107, i64 0
+  %foldExtExtBinop110 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %37 = extractelement <2 x float> %foldExtExtBinop110, i64 0
   br label %38
 
 ._crit_edge:                                      ; preds = %38, %32
@@ -1671,10 +1671,10 @@ define void @DrawRectangleRounded(<2 x float> %0, <2 x float> %1, float noundef 
   %38 = icmp sgt i32 %.0357, 1
   %.sroa.030.0.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
   %.sroa.030.4.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 1
-  %foldExtExtBinop370 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %39 = extractelement <2 x float> %foldExtExtBinop370, i64 0
   %foldExtExtBinop372 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %40 = extractelement <2 x float> %foldExtExtBinop372, i64 1
+  %39 = extractelement <2 x float> %foldExtExtBinop372, i64 0
+  %foldExtExtBinop374 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %40 = extractelement <2 x float> %foldExtExtBinop374, i64 1
   %41 = and i32 %.0357, 1
   %.not = icmp eq i32 %41, 0
   br label %163
@@ -2207,10 +2207,10 @@ DrawRectangleLinesEx.exit:                        ; preds = %11, %20, %22, %24
   %115 = icmp sgt i32 %.0388, 0
   %.sroa.040.0.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
   %.sroa.040.4.vec.extract = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 1
-  %foldExtExtBinop425 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %116 = extractelement <2 x float> %foldExtExtBinop425, i64 0
-  %foldExtExtBinop427 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
-  %117 = extractelement <2 x float> %foldExtExtBinop427, i64 1
+  %foldExtExtBinop429 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %116 = extractelement <2 x float> %foldExtExtBinop429, i64 0
+  %foldExtExtBinop431 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.2.0.copyload.i
+  %117 = extractelement <2 x float> %foldExtExtBinop431, i64 1
   br i1 %115, label %.lr.ph.us408, label %.split411.us
 
 .lr.ph.us408:                                     ; preds = %114, %._crit_edge.us409
@@ -4405,8 +4405,8 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
   %7 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.0.0.vec.extract = extractelement <2 x float> %3, i64 0
   %.sroa.042.0.vec.extract = extractelement <2 x float> %2, i64 0
-  %foldExtExtBinop133 = fsub <2 x float> %3, %2
-  %8 = extractelement <2 x float> %foldExtExtBinop133, i64 0
+  %foldExtExtBinop134 = fsub <2 x float> %3, %2
+  %8 = extractelement <2 x float> %foldExtExtBinop134, i64 0
   %.sroa.067.4.vec.extract = extractelement <2 x float> %1, i64 1
   %.sroa.092.4.vec.extract = extractelement <2 x float> %0, i64 1
   %9 = fsub float %.sroa.067.4.vec.extract, %.sroa.092.4.vec.extract
@@ -4418,13 +4418,13 @@ define noundef zeroext i1 @CheckCollisionLines(<2 x float> %0, <2 x float> %1, <
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %5
-  %foldExtExtBinop135 = fsub <2 x float> %2, %3
-  %16 = extractelement <2 x float> %foldExtExtBinop135, i64 0
+  %foldExtExtBinop136 = fsub <2 x float> %2, %3
+  %16 = extractelement <2 x float> %foldExtExtBinop136, i64 0
   %17 = fneg float %.sroa.067.0.vec.extract
   %18 = fmul float %.sroa.092.4.vec.extract, %17
   %19 = tail call float @llvm.fmuladd.f32(float %.sroa.092.0.vec.extract, float %.sroa.067.4.vec.extract, float %18)
-  %foldExtExtBinop137 = fsub <2 x float> %0, %1
-  %20 = extractelement <2 x float> %foldExtExtBinop137, i64 0
+  %foldExtExtBinop138 = fsub <2 x float> %0, %1
+  %20 = extractelement <2 x float> %foldExtExtBinop138, i64 0
   %21 = fneg float %.sroa.0.0.vec.extract
   %22 = fmul float %.sroa.042.4.vec.extract, %21
   %23 = tail call float @llvm.fmuladd.f32(float %.sroa.042.0.vec.extract, float %.sroa.0.4.vec.extract, float %22)
@@ -4591,11 +4591,11 @@ define zeroext i1 @CheckCollisionCircleLine(<2 x float> %0, float noundef %1, <2
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %4
-  %foldExtExtBinop49 = fsub <2 x float> %0, %2
-  %12 = extractelement <2 x float> %foldExtExtBinop49, i64 0
-  %foldExtExtBinop51 = fsub <2 x float> %0, %2
-  %foldExtExtBinop53 = fmul <2 x float> %foldExtExtBinop51, %foldExtExtBinop51
-  %13 = extractelement <2 x float> %foldExtExtBinop53, i64 1
+  %foldExtExtBinop50 = fsub <2 x float> %0, %2
+  %12 = extractelement <2 x float> %foldExtExtBinop50, i64 0
+  %foldExtExtBinop52 = fsub <2 x float> %0, %2
+  %foldExtExtBinop54 = fmul <2 x float> %foldExtExtBinop52, %foldExtExtBinop52
+  %13 = extractelement <2 x float> %foldExtExtBinop54, i64 1
   %14 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %13)
   %15 = fadd float %1, 0.000000e+00
   %16 = fmul float %15, %15
@@ -4606,10 +4606,10 @@ define zeroext i1 @CheckCollisionCircleLine(<2 x float> %0, float noundef %1, <2
   %19 = fmul float %6, %6
   %20 = tail call float @llvm.fmuladd.f32(float %5, float %5, float %19)
   %.sroa.039.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %foldExtExtBinop55 = fsub <2 x float> %0, %2
-  %21 = extractelement <2 x float> %foldExtExtBinop55, i64 0
-  %foldExtExtBinop57 = fsub <2 x float> %3, %2
-  %22 = extractelement <2 x float> %foldExtExtBinop57, i64 0
+  %foldExtExtBinop56 = fsub <2 x float> %0, %2
+  %21 = extractelement <2 x float> %foldExtExtBinop56, i64 0
+  %foldExtExtBinop58 = fsub <2 x float> %3, %2
+  %22 = extractelement <2 x float> %foldExtExtBinop58, i64 0
   %.sroa.039.4.vec.extract = extractelement <2 x float> %0, i64 1
   %23 = fsub float %.sroa.039.4.vec.extract, %.sroa.025.4.vec.extract
   %24 = fsub float %.sroa.0.4.vec.extract, %.sroa.025.4.vec.extract
@@ -4652,18 +4652,18 @@ define { <2 x float>, <2 x float> } @GetCollisionRec(<2 x float> %0, <2 x float>
   %6 = select i1 %5, float %.sroa.026.0.vec.extract, float %.sroa.0.0.vec.extract
   %foldExtExtBinop = fadd <2 x float> %0, %1
   %7 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop43 = fadd <2 x float> %2, %3
-  %8 = extractelement <2 x float> %foldExtExtBinop43, i64 0
+  %foldExtExtBinop46 = fadd <2 x float> %2, %3
+  %8 = extractelement <2 x float> %foldExtExtBinop46, i64 0
   %9 = fcmp olt float %7, %8
   %10 = select i1 %9, float %7, float %8
   %.sroa.026.4.vec.extract = extractelement <2 x float> %0, i64 1
   %.sroa.0.4.vec.extract = extractelement <2 x float> %2, i64 1
   %11 = fcmp ogt float %.sroa.026.4.vec.extract, %.sroa.0.4.vec.extract
   %12 = select i1 %11, float %.sroa.026.4.vec.extract, float %.sroa.0.4.vec.extract
-  %foldExtExtBinop45 = fadd <2 x float> %0, %1
-  %13 = extractelement <2 x float> %foldExtExtBinop45, i64 1
-  %foldExtExtBinop47 = fadd <2 x float> %2, %3
-  %14 = extractelement <2 x float> %foldExtExtBinop47, i64 1
+  %foldExtExtBinop48 = fadd <2 x float> %0, %1
+  %13 = extractelement <2 x float> %foldExtExtBinop48, i64 1
+  %foldExtExtBinop50 = fadd <2 x float> %2, %3
+  %14 = extractelement <2 x float> %foldExtExtBinop50, i64 1
   %15 = fcmp olt float %13, %14
   %16 = select i1 %15, float %13, float %14
   %17 = fcmp olt float %6, %10

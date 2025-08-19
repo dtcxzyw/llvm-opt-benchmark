@@ -1455,7 +1455,7 @@ define internal noundef i32 @_ZL8str_packP9lua_State(ptr noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %34, %20
   %38 = add nsw i32 %.0125, 1
-  switch i32 %21, label %default.unreachable144 [
+  switch i32 %21, label %default.unreachable152 [
     i32 0, label %39
     i32 1, label %78
     i32 2, label %104
@@ -1886,7 +1886,7 @@ _ZL7packintP11luaL_Strbufyiii.exit111:            ; preds = %.lr.ph.split.i91, %
   store i8 0, ptr %197, align 1, !tbaa !8
   br label %199
 
-default.unreachable144:                           ; preds = %._crit_edge
+default.unreachable152:                           ; preds = %._crit_edge
   unreachable
 
 199:                                              ; preds = %._crit_edge, %._crit_edge, %196, %184, %_ZL7packintP11luaL_Strbufyiii.exit111, %._crit_edge122, %_ZL14copywithendianPVcPVKcii.exit, %_ZL7packintP11luaL_Strbufyiii.exit83, %_ZL7packintP11luaL_Strbufyiii.exit
@@ -2094,12 +2094,12 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL10str_unpack
   br i1 %59, label %._crit_edge.thread.i, label %66
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %36
-  %.0.lcssa61.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %36 ]
+  %.0.lcssa62.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %36 ]
   %60 = shl nsw i32 %27, 3
   %61 = add nsw i32 %60, -1
   %62 = zext nneg i32 %61 to i64
   %63 = shl nuw i64 1, %62
-  %64 = xor i64 %.0.lcssa61.i, %63
+  %64 = xor i64 %.0.lcssa62.i, %63
   %65 = sub i64 %64, %63
   br label %_ZL9unpackintP9lua_StatePKciii.exit
 
@@ -3363,8 +3363,8 @@ _ZL17matchbracketclassiPKcS0_.exit.i.loopexit:    ; preds = %272, %281, %283, %2
   br i1 %.022.in.i.i.ph, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread196, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread
 
 288:                                              ; preds = %253
-  %.not483 = icmp eq i8 %251, %254
-  br i1 %.not483, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread196, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread
+  %.not536 = icmp eq i8 %251, %254
+  br i1 %.not536, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread196, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread
 
 _ZL11singlematchP10MatchStatePKcS2_S2_.exit:      ; preds = %261
   br i1 %264, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread196, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread
@@ -3633,8 +3633,8 @@ _ZL17matchbracketclassiPKcS0_.exit.i169.loopexit: ; preds = %369, %378, %380, %3
   br i1 %.022.in.i.i170.ph, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit178.thread203, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
 
 385:                                              ; preds = %350
-  %.not484 = icmp eq i8 %353, %351
-  br i1 %.not484, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit178.thread203, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
+  %.not537 = icmp eq i8 %353, %351
+  br i1 %.not537, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit178.thread203, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
 
 _ZL11singlematchP10MatchStatePKcS2_S2_.exit178:   ; preds = %359
   br i1 %361, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit178.thread203, label %_ZL13start_captureP10MatchStatePKcS2_i.exit

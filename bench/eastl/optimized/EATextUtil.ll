@@ -817,11 +817,11 @@ tailrecurse.outer:                                ; preds = %if.else8, %entry
   %pPattern.tr.ph = phi ptr [ %pPattern, %entry ], [ %arrayidx, %if.else8 ]
   %arrayidx = getelementptr inbounds nuw i8, ptr %pPattern.tr.ph, i64 1
   %0 = load i8, ptr %pPattern.tr.ph, align 1
-  %cmp52 = icmp eq i8 %0, 42
-  br i1 %cmp52, label %land.lhs.true, label %if.else
+  %cmp53 = icmp eq i8 %0, 42
+  br i1 %cmp53, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %tailrecurse.outer, %if.else13
-  %pElement.tr53 = phi ptr [ %add.ptr14, %if.else13 ], [ %pElement.tr.ph, %tailrecurse.outer ]
+  %pElement.tr54 = phi ptr [ %add.ptr14, %if.else13 ], [ %pElement.tr.ph, %tailrecurse.outer ]
   %1 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.else.thread
@@ -834,7 +834,7 @@ if.else:                                          ; preds = %if.else13, %tailrec
   br i1 %tobool1.not, label %land.lhs.true2, label %if.else8
 
 if.else.thread:                                   ; preds = %land.lhs.true
-  %3 = load i8, ptr %pElement.tr53, align 1
+  %3 = load i8, ptr %pElement.tr54, align 1
   %tobool1.not16 = icmp eq i8 %3, 0
   br i1 %tobool1.not16, label %return, label %if.then11
 
@@ -850,11 +850,11 @@ if.else8:                                         ; preds = %if.else
   br i1 %or.cond, label %tailrecurse.outer, label %return
 
 if.then11:                                        ; preds = %if.else.thread
-  %call = tail call noundef zeroext i1 @_ZN2EA4StdC12MatchPatternIcEEbPKT_S4_(ptr noundef nonnull %pElement.tr53, ptr noundef nonnull %arrayidx)
+  %call = tail call noundef zeroext i1 @_ZN2EA4StdC12MatchPatternIcEEbPKT_S4_(ptr noundef nonnull %pElement.tr54, ptr noundef nonnull %arrayidx)
   br i1 %call, label %return, label %if.else13
 
 if.else13:                                        ; preds = %if.then11
-  %add.ptr14 = getelementptr inbounds nuw i8, ptr %pElement.tr53, i64 1
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %pElement.tr54, i64 1
   %4 = load i8, ptr %pPattern.tr.ph, align 1
   %cmp = icmp eq i8 %4, 42
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -952,11 +952,11 @@ tailrecurse.outer:                                ; preds = %if.else8, %entry
   %pPattern.tr.ph = phi ptr [ %pPattern, %entry ], [ %arrayidx, %if.else8 ]
   %arrayidx = getelementptr inbounds nuw i8, ptr %pPattern.tr.ph, i64 2
   %0 = load i16, ptr %pPattern.tr.ph, align 2
-  %cmp52 = icmp eq i16 %0, 42
-  br i1 %cmp52, label %land.lhs.true, label %if.else
+  %cmp53 = icmp eq i16 %0, 42
+  br i1 %cmp53, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %tailrecurse.outer, %if.else13
-  %pElement.tr53 = phi ptr [ %add.ptr14, %if.else13 ], [ %pElement.tr.ph, %tailrecurse.outer ]
+  %pElement.tr54 = phi ptr [ %add.ptr14, %if.else13 ], [ %pElement.tr.ph, %tailrecurse.outer ]
   %1 = load i16, ptr %arrayidx, align 2
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %return, label %if.else.thread
@@ -969,7 +969,7 @@ if.else:                                          ; preds = %if.else13, %tailrec
   br i1 %tobool1.not, label %land.lhs.true2, label %if.else8
 
 if.else.thread:                                   ; preds = %land.lhs.true
-  %3 = load i16, ptr %pElement.tr53, align 2
+  %3 = load i16, ptr %pElement.tr54, align 2
   %tobool1.not16 = icmp eq i16 %3, 0
   br i1 %tobool1.not16, label %return, label %if.then11
 
@@ -985,11 +985,11 @@ if.else8:                                         ; preds = %if.else
   br i1 %or.cond, label %tailrecurse.outer, label %return
 
 if.then11:                                        ; preds = %if.else.thread
-  %call = tail call noundef zeroext i1 @_ZN2EA4StdC12MatchPatternIDsEEbPKT_S4_(ptr noundef nonnull %pElement.tr53, ptr noundef nonnull %arrayidx)
+  %call = tail call noundef zeroext i1 @_ZN2EA4StdC12MatchPatternIDsEEbPKT_S4_(ptr noundef nonnull %pElement.tr54, ptr noundef nonnull %arrayidx)
   br i1 %call, label %return, label %if.else13
 
 if.else13:                                        ; preds = %if.then11
-  %add.ptr14 = getelementptr inbounds nuw i8, ptr %pElement.tr53, i64 2
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %pElement.tr54, i64 2
   %4 = load i16, ptr %pPattern.tr.ph, align 2
   %cmp = icmp eq i16 %4, 42
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -1082,11 +1082,11 @@ tailrecurse.outer:                                ; preds = %if.else8, %entry
   %pPattern.tr.ph = phi ptr [ %pPattern, %entry ], [ %arrayidx, %if.else8 ]
   %arrayidx = getelementptr inbounds nuw i8, ptr %pPattern.tr.ph, i64 4
   %0 = load i32, ptr %pPattern.tr.ph, align 4
-  %cmp53 = icmp eq i32 %0, 42
-  br i1 %cmp53, label %land.lhs.true, label %if.else
+  %cmp54 = icmp eq i32 %0, 42
+  br i1 %cmp54, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %tailrecurse.outer, %if.else12
-  %pElement.tr54 = phi ptr [ %add.ptr13, %if.else12 ], [ %pElement.tr.ph, %tailrecurse.outer ]
+  %pElement.tr55 = phi ptr [ %add.ptr13, %if.else12 ], [ %pElement.tr.ph, %tailrecurse.outer ]
   %1 = load i32, ptr %arrayidx, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %if.else.thread
@@ -1099,7 +1099,7 @@ if.else:                                          ; preds = %if.else12, %tailrec
   br i1 %tobool1.not, label %land.lhs.true2, label %if.else8
 
 if.else.thread:                                   ; preds = %land.lhs.true
-  %3 = load i32, ptr %pElement.tr54, align 4
+  %3 = load i32, ptr %pElement.tr55, align 4
   %tobool1.not17 = icmp eq i32 %3, 0
   br i1 %tobool1.not17, label %return, label %if.then10
 
@@ -1115,11 +1115,11 @@ if.else8:                                         ; preds = %if.else
   br i1 %or.cond, label %tailrecurse.outer, label %return
 
 if.then10:                                        ; preds = %if.else.thread
-  %call = tail call noundef zeroext i1 @_ZN2EA4StdC12MatchPatternIDiEEbPKT_S4_(ptr noundef nonnull %pElement.tr54, ptr noundef nonnull %arrayidx)
+  %call = tail call noundef zeroext i1 @_ZN2EA4StdC12MatchPatternIDiEEbPKT_S4_(ptr noundef nonnull %pElement.tr55, ptr noundef nonnull %arrayidx)
   br i1 %call, label %return, label %if.else12
 
 if.else12:                                        ; preds = %if.then10
-  %add.ptr13 = getelementptr inbounds nuw i8, ptr %pElement.tr54, i64 4
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %pElement.tr55, i64 4
   %4 = load i32, ptr %pPattern.tr.ph, align 4
   %cmp = icmp eq i32 %4, 42
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -1439,8 +1439,8 @@ if.end35:                                         ; preds = %if.then34, %if.then
   %or.cond44 = select i1 %cmp9, i1 true, i1 %cmp39.not
   %.pre68 = load ptr, ptr %pToken, align 8
   %cmp41.not63 = icmp eq ptr %5, %.pre68
-  %or.cond83 = select i1 %or.cond44, i1 true, i1 %cmp41.not63
-  br i1 %or.cond83, label %if.end50, label %land.rhs
+  %or.cond86 = select i1 %or.cond44, i1 true, i1 %cmp41.not63
+  br i1 %or.cond86, label %if.end50, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end35, %while.body
   %6 = phi ptr [ %9, %while.body ], [ %.pre68, %if.end35 ]
@@ -1624,8 +1624,8 @@ if.end35:                                         ; preds = %if.then34, %if.then
   %or.cond44 = select i1 %cmp9, i1 true, i1 %cmp39.not
   %.pre66 = load ptr, ptr %pToken, align 8
   %cmp41.not63 = icmp eq ptr %4, %.pre66
-  %or.cond81 = select i1 %or.cond44, i1 true, i1 %cmp41.not63
-  br i1 %or.cond81, label %if.end50, label %land.rhs
+  %or.cond84 = select i1 %or.cond44, i1 true, i1 %cmp41.not63
+  br i1 %or.cond84, label %if.end50, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end35, %while.body
   %5 = phi ptr [ %8, %while.body ], [ %.pre66, %if.end35 ]
@@ -1809,8 +1809,8 @@ if.end29:                                         ; preds = %if.then28, %if.then
   %or.cond47 = select i1 %cmp7, i1 true, i1 %cmp32.not
   %.pre69 = load ptr, ptr %pToken, align 8
   %cmp34.not66 = icmp eq ptr %4, %.pre69
-  %or.cond84 = select i1 %or.cond47, i1 true, i1 %cmp34.not66
-  br i1 %or.cond84, label %if.end41, label %land.rhs
+  %or.cond87 = select i1 %or.cond47, i1 true, i1 %cmp34.not66
+  br i1 %or.cond87, label %if.end41, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end29, %while.body
   %5 = phi ptr [ %8, %while.body ], [ %.pre69, %if.end29 ]
@@ -2263,15 +2263,15 @@ if.end20.us:                                      ; preds = %if.else.us, %if.the
   br i1 %exitcond22.not, label %return, label %land.rhs.us, !llvm.loop !35
 
 land.rhsthread-pre-split:                         ; preds = %if.end20
-  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %pSource.addr.01827, i64 1
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %pSource.addr.01828, i64 1
   %.pr = load i8, ptr %incdec.ptr21, align 1
   %tobool8.not = icmp eq i8 %.pr, 0
   br i1 %tobool8.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %land.rhsthread-pre-split
-  %pToken.addr.01728 = phi ptr [ %pToken.addr.1, %land.rhsthread-pre-split ], [ %pToken, %for.cond.preheader ]
-  %pSource.addr.01827 = phi ptr [ %incdec.ptr21, %land.rhsthread-pre-split ], [ %pSource, %for.cond.preheader ]
-  %i.01926 = phi i64 [ %.pre23, %land.rhsthread-pre-split ], [ 0, %for.cond.preheader ]
+  %pToken.addr.01729 = phi ptr [ %pToken.addr.1, %land.rhsthread-pre-split ], [ %pToken, %for.cond.preheader ]
+  %pSource.addr.01828 = phi ptr [ %incdec.ptr21, %land.rhsthread-pre-split ], [ %pSource, %for.cond.preheader ]
+  %i.01927 = phi i64 [ %.pre23, %land.rhsthread-pre-split ], [ 0, %for.cond.preheader ]
   %2 = phi i8 [ %.pr, %land.rhsthread-pre-split ], [ %0, %for.cond.preheader ]
   %3 = load ptr, ptr %ppNewSource, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -2280,8 +2280,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp13, label %return, label %if.else
 
 if.else:                                          ; preds = %for.body
-  %tobool15.not = icmp eq ptr %pToken.addr.01728, null
-  %.pre23 = add nuw i64 %i.01926, 1
+  %tobool15.not = icmp eq ptr %pToken.addr.01729, null
+  %.pre23 = add nuw i64 %i.01927, 1
   br i1 %tobool15.not, label %if.end20, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %if.else
@@ -2289,13 +2289,13 @@ land.lhs.true16:                                  ; preds = %if.else
   br i1 %cmp17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %land.lhs.true16
-  store i8 %2, ptr %pToken.addr.01728, align 1
-  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %pToken.addr.01728, i64 1
+  store i8 %2, ptr %pToken.addr.01729, align 1
+  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %pToken.addr.01729, i64 1
   store i8 0, ptr %incdec.ptr19, align 1
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then18, %land.lhs.true16
-  %pToken.addr.1 = phi ptr [ %incdec.ptr19, %if.then18 ], [ %pToken.addr.01728, %land.lhs.true16 ], [ null, %if.else ]
+  %pToken.addr.1 = phi ptr [ %incdec.ptr19, %if.then18 ], [ %pToken.addr.01729, %land.lhs.true16 ], [ null, %if.else ]
   %exitcond.not = icmp eq i64 %.pre23, %nSourceLength
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !35
 
@@ -2363,15 +2363,15 @@ if.end20.us:                                      ; preds = %if.else.us, %if.the
   br i1 %exitcond22.not, label %return, label %land.rhs.us, !llvm.loop !36
 
 land.rhsthread-pre-split:                         ; preds = %if.end20
-  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %pSource.addr.01827, i64 2
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %pSource.addr.01828, i64 2
   %.pr = load i16, ptr %incdec.ptr21, align 2
   %tobool8.not = icmp eq i16 %.pr, 0
   br i1 %tobool8.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %land.rhsthread-pre-split
-  %pToken.addr.01728 = phi ptr [ %pToken.addr.1, %land.rhsthread-pre-split ], [ %pToken, %for.cond.preheader ]
-  %pSource.addr.01827 = phi ptr [ %incdec.ptr21, %land.rhsthread-pre-split ], [ %pSource, %for.cond.preheader ]
-  %i.01926 = phi i64 [ %.pre23, %land.rhsthread-pre-split ], [ 0, %for.cond.preheader ]
+  %pToken.addr.01729 = phi ptr [ %pToken.addr.1, %land.rhsthread-pre-split ], [ %pToken, %for.cond.preheader ]
+  %pSource.addr.01828 = phi ptr [ %incdec.ptr21, %land.rhsthread-pre-split ], [ %pSource, %for.cond.preheader ]
+  %i.01927 = phi i64 [ %.pre23, %land.rhsthread-pre-split ], [ 0, %for.cond.preheader ]
   %2 = phi i16 [ %.pr, %land.rhsthread-pre-split ], [ %0, %for.cond.preheader ]
   %3 = load ptr, ptr %ppNewSource, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -2380,8 +2380,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp13, label %return, label %if.else
 
 if.else:                                          ; preds = %for.body
-  %tobool15.not = icmp eq ptr %pToken.addr.01728, null
-  %.pre23 = add nuw i64 %i.01926, 1
+  %tobool15.not = icmp eq ptr %pToken.addr.01729, null
+  %.pre23 = add nuw i64 %i.01927, 1
   br i1 %tobool15.not, label %if.end20, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %if.else
@@ -2389,13 +2389,13 @@ land.lhs.true16:                                  ; preds = %if.else
   br i1 %cmp17, label %if.then18, label %if.end20
 
 if.then18:                                        ; preds = %land.lhs.true16
-  store i16 %2, ptr %pToken.addr.01728, align 2
-  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %pToken.addr.01728, i64 2
+  store i16 %2, ptr %pToken.addr.01729, align 2
+  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %pToken.addr.01729, i64 2
   store i16 0, ptr %incdec.ptr19, align 2
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else, %if.then18, %land.lhs.true16
-  %pToken.addr.1 = phi ptr [ %incdec.ptr19, %if.then18 ], [ %pToken.addr.01728, %land.lhs.true16 ], [ null, %if.else ]
+  %pToken.addr.1 = phi ptr [ %incdec.ptr19, %if.then18 ], [ %pToken.addr.01729, %land.lhs.true16 ], [ null, %if.else ]
   %exitcond.not = icmp eq i64 %.pre23, %nSourceLength
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !36
 
@@ -2463,15 +2463,15 @@ if.end19.us:                                      ; preds = %if.else.us, %if.the
   br i1 %exitcond22.not, label %return, label %land.rhs.us, !llvm.loop !37
 
 land.rhsthread-pre-split:                         ; preds = %if.end19
-  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %pSource.addr.01827, i64 4
+  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %pSource.addr.01828, i64 4
   %.pr = load i32, ptr %incdec.ptr20, align 4
   %tobool8.not = icmp eq i32 %.pr, 0
   br i1 %tobool8.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %land.rhsthread-pre-split
-  %pToken.addr.01728 = phi ptr [ %pToken.addr.1, %land.rhsthread-pre-split ], [ %pToken, %for.cond.preheader ]
-  %pSource.addr.01827 = phi ptr [ %incdec.ptr20, %land.rhsthread-pre-split ], [ %pSource, %for.cond.preheader ]
-  %i.01926 = phi i64 [ %.pre23, %land.rhsthread-pre-split ], [ 0, %for.cond.preheader ]
+  %pToken.addr.01729 = phi ptr [ %pToken.addr.1, %land.rhsthread-pre-split ], [ %pToken, %for.cond.preheader ]
+  %pSource.addr.01828 = phi ptr [ %incdec.ptr20, %land.rhsthread-pre-split ], [ %pSource, %for.cond.preheader ]
+  %i.01927 = phi i64 [ %.pre23, %land.rhsthread-pre-split ], [ 0, %for.cond.preheader ]
   %2 = phi i32 [ %.pr, %land.rhsthread-pre-split ], [ %0, %for.cond.preheader ]
   %3 = load ptr, ptr %ppNewSource, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2480,8 +2480,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp12, label %return, label %if.else
 
 if.else:                                          ; preds = %for.body
-  %tobool14.not = icmp eq ptr %pToken.addr.01728, null
-  %.pre23 = add nuw i64 %i.01926, 1
+  %tobool14.not = icmp eq ptr %pToken.addr.01729, null
+  %.pre23 = add nuw i64 %i.01927, 1
   br i1 %tobool14.not, label %if.end19, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.else
@@ -2489,13 +2489,13 @@ land.lhs.true15:                                  ; preds = %if.else
   br i1 %cmp16, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %land.lhs.true15
-  store i32 %2, ptr %pToken.addr.01728, align 4
-  %incdec.ptr18 = getelementptr inbounds nuw i8, ptr %pToken.addr.01728, i64 4
+  store i32 %2, ptr %pToken.addr.01729, align 4
+  %incdec.ptr18 = getelementptr inbounds nuw i8, ptr %pToken.addr.01729, i64 4
   store i32 0, ptr %incdec.ptr18, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then17, %land.lhs.true15
-  %pToken.addr.1 = phi ptr [ %incdec.ptr18, %if.then17 ], [ %pToken.addr.01728, %land.lhs.true15 ], [ null, %if.else ]
+  %pToken.addr.1 = phi ptr [ %incdec.ptr18, %if.then17 ], [ %pToken.addr.01729, %land.lhs.true15 ], [ null, %if.else ]
   %exitcond.not = icmp eq i64 %.pre23, %nSourceLength
   br i1 %exitcond.not, label %return, label %land.rhsthread-pre-split, !llvm.loop !37
 

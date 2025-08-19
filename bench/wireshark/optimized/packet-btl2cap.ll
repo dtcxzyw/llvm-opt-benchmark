@@ -1467,12 +1467,12 @@ dissect_configrequest.exit:                       ; preds = %.thread67.i, %377
   br i1 %442, label %.thread67.sink.split.i, label %.thread67.i546
 
 .thread67.sink.split.i:                           ; preds = %439, %435
-  %.sink72.i = phi i64 [ 56, %439 ], [ 32, %435 ]
+  %.sink74.i = phi i64 [ 56, %439 ], [ 32, %435 ]
   %443 = getelementptr inbounds nuw i8, ptr %421, i64 28
   %444 = load i32, ptr %443, align 4
   %445 = load i32, ptr %165, align 4
   %446 = icmp ugt i32 %444, %445
-  %447 = getelementptr inbounds nuw i8, ptr %421, i64 %.sink72.i
+  %447 = getelementptr inbounds nuw i8, ptr %421, i64 %.sink74.i
   %spec.select70.i = select i1 %446, ptr %447, ptr null
   br label %.thread67.i546
 
@@ -3570,11 +3570,11 @@ define internal fastcc range(i32 -2147483640, 65548) i32 @dissect_connrequest(pt
   %97 = icmp eq i32 %96, 1
   %98 = or disjoint i32 %57, -2147483648
   %spec.select = select i1 %97, i32 -1, i32 %57
-  %spec.select138 = select i1 %97, i32 %98, i32 -1
+  %spec.select149 = select i1 %97, i32 %98, i32 -1
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 %spec.select, ptr %99, align 4
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store i32 %spec.select138, ptr %100, align 8
+  store i32 %spec.select149, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 20
   store i16 %21, ptr %101, align 4
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 22

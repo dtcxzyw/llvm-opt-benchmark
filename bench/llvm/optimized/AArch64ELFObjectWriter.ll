@@ -684,8 +684,8 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_122AArch64ELFOb
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
 _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit: ; preds = %216, %212
-  %trunc391 = trunc nuw i32 %60 to i8
-  switch i8 %trunc391, label %499 [
+  %trunc398 = trunc nuw i32 %60 to i8
+  switch i8 %trunc398, label %499 [
     i8 1, label %255
     i8 2, label %259
     i8 3, label %261
@@ -696,7 +696,7 @@ _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCCont
     i8 -123, label %348
     i8 -122, label %387
     i8 -121, label %438
-    i8 -119, label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+    i8 -119, label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   ]
 
 255:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
@@ -1289,7 +1289,7 @@ _ZN4llvm5TwineC2EPKc.exit375:                     ; preds = %399, %406
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392: ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
+_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399: ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit
   switch i32 %66, label %495 [
     i32 113, label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
     i32 97, label %454
@@ -1322,104 +1322,104 @@ _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCCont
     i32 326, label %494
   ]
 
-454:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+454:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-455:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+455:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-456:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+456:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-457:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+457:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %458 = select i1 %215, i32 7, i32 265
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-459:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+459:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-460:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+460:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-461:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+461:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %462 = select i1 %215, i32 5, i32 263
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-463:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+463:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %464 = select i1 %215, i32 8, i32 270
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-465:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+465:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %466 = select i1 %215, i32 6, i32 264
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-467:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+467:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-468:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+468:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-469:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+469:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-470:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+470:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %471 = select i1 %215, i32 24, i32 289
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-472:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+472:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-473:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+473:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %474 = select i1 %215, i32 22, i32 287
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-475:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+475:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %476 = select i1 %215, i32 23, i32 288
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-477:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+477:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-478:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+478:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %479 = select i1 %215, i32 87, i32 524
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-480:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+480:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-481:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+481:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %482 = select i1 %215, i32 88, i32 526
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-483:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+483:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %484 = select i1 %215, i32 89, i32 527
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-485:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+485:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-486:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+486:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %487 = select i1 %215, i32 106, i32 545
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-488:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+488:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-489:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+489:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %490 = select i1 %215, i32 107, i32 547
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-491:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+491:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %492 = select i1 %215, i32 108, i32 548
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-493:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+493:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-494:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+494:                                              ; preds = %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-495:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392
+495:                                              ; preds = %218, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399
   %496 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i386 = load ptr, ptr %496, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
@@ -1445,8 +1445,8 @@ _ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCCont
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread
 
-_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread: ; preds = %261, %._crit_edge, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %395, %71, %75, %80, %93, %102, %110, %117, %126, %130, %139, %143, %148, %157, %161, %165, %170, %179, %181, %184, %188, %190, %195, %199, %203, %208, %255, %259, %284, %286, %288, %290, %292, %294, %296, %299, %304, %310, %312, %318, %320, %322, %324, %326, %328, %334, %336, %338, %340, %342, %344, %350, %352, %354, %356, %358, %361, %374, %379, %383, %389, %410, %412, %414, %416, %419, %425, %430, %434, %440, %442, %444, %446, %448, %450, %454, %455, %456, %457, %459, %460, %461, %463, %465, %467, %468, %469, %470, %472, %473, %475, %477, %478, %480, %481, %483, %485, %486, %488, %489, %491, %493, %494, %495, %499, %89, %98, %122, %135, %153, %183, %262, %281, %_ZN4llvm5TwineC2EPKc.exit, %298, %303, %360, %370, %367, %373, %378, %_ZN4llvm5TwineC2EPKc.exit375, %418, %424, %429, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392, %62
-  %.0 = phi i32 [ %63, %62 ], [ 0, %208 ], [ 0, %71 ], [ %79, %75 ], [ %88, %80 ], [ 0, %93 ], [ 0, %102 ], [ %114, %110 ], [ 0, %126 ], [ 0, %161 ], [ 0, %157 ], [ %152, %148 ], [ %147, %143 ], [ 0, %139 ], [ %134, %130 ], [ %121, %117 ], [ %169, %165 ], [ %174, %170 ], [ %180, %179 ], [ %182, %181 ], [ 0, %184 ], [ %189, %188 ], [ %194, %190 ], [ 0, %195 ], [ 0, %199 ], [ %207, %203 ], [ 0, %499 ], [ 0, %255 ], [ %260, %259 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ 0, %299 ], [ 0, %304 ], [ %311, %310 ], [ 0, %312 ], [ %319, %318 ], [ %323, %322 ], [ %327, %326 ], [ 0, %328 ], [ %325, %324 ], [ %321, %320 ], [ %335, %334 ], [ %339, %338 ], [ %343, %342 ], [ 0, %344 ], [ %341, %340 ], [ %337, %336 ], [ %351, %350 ], [ %355, %354 ], [ %359, %358 ], [ 0, %361 ], [ 0, %374 ], [ 0, %383 ], [ 0, %379 ], [ %357, %356 ], [ %353, %352 ], [ %390, %389 ], [ %413, %412 ], [ %417, %416 ], [ 0, %419 ], [ 0, %425 ], [ 0, %430 ], [ 0, %434 ], [ %415, %414 ], [ %411, %410 ], [ %441, %440 ], [ %445, %444 ], [ %449, %448 ], [ 0, %450 ], [ %447, %446 ], [ %443, %442 ], [ 267, %454 ], [ 272, %455 ], [ 268, %456 ], [ %458, %457 ], [ 271, %459 ], [ 266, %460 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ 293, %467 ], [ 291, %468 ], [ 292, %469 ], [ %471, %470 ], [ 290, %472 ], [ %474, %473 ], [ %476, %475 ], [ 523, %477 ], [ %479, %478 ], [ 525, %480 ], [ %482, %481 ], [ %484, %483 ], [ 544, %485 ], [ %487, %486 ], [ 546, %488 ], [ %490, %489 ], [ %492, %491 ], [ 539, %493 ], [ 540, %494 ], [ 0, %495 ], [ 260, %89 ], [ 594, %98 ], [ 276, %122 ], [ 590, %135 ], [ 595, %153 ], [ 588, %183 ], [ 315, %262 ], [ 0, %_ZN4llvm5TwineC2EPKc.exit ], [ %282, %281 ], [ 597, %298 ], [ 593, %303 ], [ 27, %360 ], [ 0, %370 ], [ 0, %367 ], [ 104, %373 ], [ 125, %378 ], [ 0, %_ZN4llvm5TwineC2EPKc.exit375 ], [ 542, %418 ], [ 563, %424 ], [ 596, %429 ], [ 269, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread392 ], [ %spec.select, %395 ], [ 0, %219 ], [ 0, %222 ], [ 0, %225 ], [ 0, %228 ], [ 0, %231 ], [ 0, %234 ], [ 0, %237 ], [ 0, %240 ], [ 0, %243 ], [ 0, %246 ], [ 0, %249 ], [ 0, %252 ], [ %266, %._crit_edge ], [ 1, %261 ]
+_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread: ; preds = %261, %._crit_edge, %252, %249, %246, %243, %240, %237, %234, %231, %228, %225, %222, %219, %395, %71, %75, %80, %93, %102, %110, %117, %126, %130, %139, %143, %148, %157, %161, %165, %170, %179, %181, %184, %188, %190, %195, %199, %203, %208, %255, %259, %284, %286, %288, %290, %292, %294, %296, %299, %304, %310, %312, %318, %320, %322, %324, %326, %328, %334, %336, %338, %340, %342, %344, %350, %352, %354, %356, %358, %361, %374, %379, %383, %389, %410, %412, %414, %416, %419, %425, %430, %434, %440, %442, %444, %446, %448, %450, %454, %455, %456, %457, %459, %460, %461, %463, %465, %467, %468, %469, %470, %472, %473, %475, %477, %478, %480, %481, %483, %485, %486, %488, %489, %491, %493, %494, %495, %499, %89, %98, %122, %135, %153, %183, %262, %281, %_ZN4llvm5TwineC2EPKc.exit, %298, %303, %360, %370, %367, %373, %378, %_ZN4llvm5TwineC2EPKc.exit375, %418, %424, %429, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399, %62
+  %.0 = phi i32 [ %63, %62 ], [ 0, %208 ], [ 0, %71 ], [ %79, %75 ], [ %88, %80 ], [ 0, %93 ], [ 0, %102 ], [ %114, %110 ], [ 0, %126 ], [ 0, %161 ], [ 0, %157 ], [ %152, %148 ], [ %147, %143 ], [ 0, %139 ], [ %134, %130 ], [ %121, %117 ], [ %169, %165 ], [ %174, %170 ], [ %180, %179 ], [ %182, %181 ], [ 0, %184 ], [ %189, %188 ], [ %194, %190 ], [ 0, %195 ], [ 0, %199 ], [ %207, %203 ], [ 0, %499 ], [ 0, %255 ], [ %260, %259 ], [ %285, %284 ], [ %287, %286 ], [ %289, %288 ], [ %291, %290 ], [ %293, %292 ], [ %295, %294 ], [ %297, %296 ], [ 0, %299 ], [ 0, %304 ], [ %311, %310 ], [ 0, %312 ], [ %319, %318 ], [ %323, %322 ], [ %327, %326 ], [ 0, %328 ], [ %325, %324 ], [ %321, %320 ], [ %335, %334 ], [ %339, %338 ], [ %343, %342 ], [ 0, %344 ], [ %341, %340 ], [ %337, %336 ], [ %351, %350 ], [ %355, %354 ], [ %359, %358 ], [ 0, %361 ], [ 0, %374 ], [ 0, %383 ], [ 0, %379 ], [ %357, %356 ], [ %353, %352 ], [ %390, %389 ], [ %413, %412 ], [ %417, %416 ], [ 0, %419 ], [ 0, %425 ], [ 0, %430 ], [ 0, %434 ], [ %415, %414 ], [ %411, %410 ], [ %441, %440 ], [ %445, %444 ], [ %449, %448 ], [ 0, %450 ], [ %447, %446 ], [ %443, %442 ], [ 267, %454 ], [ 272, %455 ], [ 268, %456 ], [ %458, %457 ], [ 271, %459 ], [ 266, %460 ], [ %462, %461 ], [ %464, %463 ], [ %466, %465 ], [ 293, %467 ], [ 291, %468 ], [ 292, %469 ], [ %471, %470 ], [ 290, %472 ], [ %474, %473 ], [ %476, %475 ], [ 523, %477 ], [ %479, %478 ], [ 525, %480 ], [ %482, %481 ], [ %484, %483 ], [ 544, %485 ], [ %487, %486 ], [ 546, %488 ], [ %490, %489 ], [ %492, %491 ], [ 539, %493 ], [ 540, %494 ], [ 0, %495 ], [ 260, %89 ], [ 594, %98 ], [ 276, %122 ], [ 590, %135 ], [ 595, %153 ], [ 588, %183 ], [ 315, %262 ], [ 0, %_ZN4llvm5TwineC2EPKc.exit ], [ %282, %281 ], [ 597, %298 ], [ 593, %303 ], [ 27, %360 ], [ 0, %370 ], [ 0, %367 ], [ 104, %373 ], [ 125, %378 ], [ 0, %_ZN4llvm5TwineC2EPKc.exit375 ], [ 542, %418 ], [ 563, %424 ], [ 596, %429 ], [ 269, %_ZL15isNonILP32relocRKN4llvm7MCFixupENS_13AArch64MCExpr11VariantKindERNS_9MCContextE.exit.thread399 ], [ %spec.select, %395 ], [ 0, %219 ], [ 0, %222 ], [ 0, %225 ], [ 0, %228 ], [ 0, %231 ], [ 0, %234 ], [ 0, %237 ], [ 0, %240 ], [ 0, %243 ], [ 0, %246 ], [ 0, %249 ], [ 0, %252 ], [ %266, %._crit_edge ], [ 1, %261 ]
   ret i32 %.0
 }
 

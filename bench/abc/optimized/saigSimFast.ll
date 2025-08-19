@@ -154,7 +154,7 @@ define noalias noundef ptr @Faig_ManCreate(ptr noundef readonly captures(none) %
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %45
 
-.critedge.preheader.loopexit:                     ; preds = %83
+.critedge.preheader.loopexit:                     ; preds = %85
   %38 = sext i32 %.1 to i64
   br label %.critedge.preheader
 
@@ -172,15 +172,15 @@ define noalias noundef ptr @Faig_ManCreate(ptr noundef readonly captures(none) %
   %.val32 = load ptr, ptr %43, align 8, !tbaa !38
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %wide.trip.count56 = zext nneg i32 %.val30 to i64
-  br label %84
+  br label %86
 
-45:                                               ; preds = %.lr.ph, %83
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
+45:                                               ; preds = %.lr.ph, %85
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
+  %.044 = phi i32 [ 0, %.lr.ph ], [ %.1, %85 ]
   %46 = getelementptr inbounds nuw ptr, ptr %.val31, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !40
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %83, label %49
+  br i1 %48, label %85, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr i8, ptr %47, i64 24
@@ -189,93 +189,93 @@ define noalias noundef ptr @Faig_ManCreate(ptr noundef readonly captures(none) %
   %52 = and i32 %51, 7
   %53 = add nsw i32 %52, -7
   %narrow.i = icmp ult i32 %53, -2
-  br i1 %narrow.i, label %83, label %54
+  br i1 %narrow.i, label %85, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr i8, ptr %47, i64 8
   %.val34 = load ptr, ptr %55, align 8, !tbaa !41
   %.not.i = icmp eq ptr %.val34, null
-  %.pre58 = ptrtoint ptr %.val34 to i64
   br i1 %.not.i, label %Aig_ObjFaninId0.exit, label %56
 
 56:                                               ; preds = %54
-  %57 = and i64 %.pre58, -2
-  %58 = inttoptr i64 %57 to ptr
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 36
-  %60 = load i32, ptr %59, align 4, !tbaa !42
-  %61 = shl i32 %60, 1
+  %57 = ptrtoint ptr %.val34 to i64
+  %58 = and i64 %57, -2
+  %59 = inttoptr i64 %58 to ptr
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
+  %61 = load i32, ptr %60, align 4, !tbaa !42
+  %62 = shl i32 %61, 1
+  %63 = trunc i64 %57 to i32
+  %64 = and i32 %63, 1
+  %65 = or disjoint i32 %62, %64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %54, %56
-  %62 = phi i32 [ %61, %56 ], [ -2, %54 ]
-  %63 = trunc i64 %.pre58 to i32
-  %64 = and i32 %63, 1
-  %65 = or disjoint i32 %62, %64
-  %66 = add nsw i32 %.044, 1
-  %67 = sext i32 %.044 to i64
-  %68 = getelementptr inbounds [0 x i32], ptr %37, i64 0, i64 %67
-  store i32 %65, ptr %68, align 4, !tbaa !23
-  %69 = getelementptr i8, ptr %47, i64 16
-  %.val38 = load ptr, ptr %69, align 8, !tbaa !43
+  %66 = phi i32 [ %65, %56 ], [ -2, %54 ]
+  %67 = add nsw i32 %.044, 1
+  %68 = sext i32 %.044 to i64
+  %69 = getelementptr inbounds [0 x i32], ptr %37, i64 0, i64 %68
+  store i32 %66, ptr %69, align 4, !tbaa !23
+  %70 = getelementptr i8, ptr %47, i64 16
+  %.val38 = load ptr, ptr %70, align 8, !tbaa !43
   %.not.i40 = icmp eq ptr %.val38, null
-  %.pre60 = ptrtoint ptr %.val38 to i64
-  br i1 %.not.i40, label %Aig_ObjFaninId1.exit, label %70
+  br i1 %.not.i40, label %Aig_ObjFaninId1.exit, label %71
 
-70:                                               ; preds = %Aig_ObjFaninId0.exit
-  %71 = and i64 %.pre60, -2
-  %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 36
-  %74 = load i32, ptr %73, align 4, !tbaa !42
-  %75 = shl i32 %74, 1
+71:                                               ; preds = %Aig_ObjFaninId0.exit
+  %72 = ptrtoint ptr %.val38 to i64
+  %73 = and i64 %72, -2
+  %74 = inttoptr i64 %73 to ptr
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 36
+  %76 = load i32, ptr %75, align 4, !tbaa !42
+  %77 = shl i32 %76, 1
+  %78 = trunc i64 %72 to i32
+  %79 = and i32 %78, 1
+  %80 = or disjoint i32 %77, %79
   br label %Aig_ObjFaninId1.exit
 
-Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %70
-  %76 = phi i32 [ %75, %70 ], [ -2, %Aig_ObjFaninId0.exit ]
-  %77 = trunc i64 %.pre60 to i32
-  %78 = and i32 %77, 1
-  %79 = or disjoint i32 %76, %78
-  %80 = add nsw i32 %.044, 2
-  %81 = sext i32 %66 to i64
-  %82 = getelementptr inbounds [0 x i32], ptr %37, i64 0, i64 %81
-  store i32 %79, ptr %82, align 4, !tbaa !23
-  br label %83
+Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %71
+  %81 = phi i32 [ %80, %71 ], [ -2, %Aig_ObjFaninId0.exit ]
+  %82 = add nsw i32 %.044, 2
+  %83 = sext i32 %67 to i64
+  %84 = getelementptr inbounds [0 x i32], ptr %37, i64 0, i64 %83
+  store i32 %81, ptr %84, align 4, !tbaa !23
+  br label %85
 
-83:                                               ; preds = %Aig_ObjFaninId1.exit, %49, %45
-  %.1 = phi i32 [ %.044, %45 ], [ %80, %Aig_ObjFaninId1.exit ], [ %.044, %49 ]
+85:                                               ; preds = %Aig_ObjFaninId1.exit, %49, %45
+  %.1 = phi i32 [ %.044, %45 ], [ %82, %Aig_ObjFaninId1.exit ], [ %.044, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader.loopexit, label %45, !llvm.loop !44
 
-84:                                               ; preds = %.lr.ph47, %Aig_ObjFaninId0.exit42
+86:                                               ; preds = %.lr.ph47, %Aig_ObjFaninId0.exit42
   %indvars.iv51 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next52, %Aig_ObjFaninId0.exit42 ]
   %indvars.iv49 = phi i64 [ %.0.lcssa, %.lr.ph47 ], [ %indvars.iv.next50, %Aig_ObjFaninId0.exit42 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %.val32, i64 %indvars.iv51
-  %86 = load ptr, ptr %85, align 8, !tbaa !40
-  %87 = getelementptr i8, ptr %86, i64 8
-  %.val35 = load ptr, ptr %87, align 8, !tbaa !41
+  %87 = getelementptr inbounds nuw ptr, ptr %.val32, i64 %indvars.iv51
+  %88 = load ptr, ptr %87, align 8, !tbaa !40
+  %89 = getelementptr i8, ptr %88, i64 8
+  %.val35 = load ptr, ptr %89, align 8, !tbaa !41
   %.not.i41 = icmp eq ptr %.val35, null
-  %.pre = ptrtoint ptr %.val35 to i64
-  br i1 %.not.i41, label %Aig_ObjFaninId0.exit42, label %88
+  br i1 %.not.i41, label %Aig_ObjFaninId0.exit42, label %90
 
-88:                                               ; preds = %84
-  %89 = and i64 %.pre, -2
-  %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 36
-  %92 = load i32, ptr %91, align 4, !tbaa !42
-  %93 = shl i32 %92, 1
+90:                                               ; preds = %86
+  %91 = ptrtoint ptr %.val35 to i64
+  %92 = and i64 %91, -2
+  %93 = inttoptr i64 %92 to ptr
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 36
+  %95 = load i32, ptr %94, align 4, !tbaa !42
+  %96 = shl i32 %95, 1
+  %97 = trunc i64 %91 to i32
+  %98 = and i32 %97, 1
+  %99 = or disjoint i32 %96, %98
   br label %Aig_ObjFaninId0.exit42
 
-Aig_ObjFaninId0.exit42:                           ; preds = %84, %88
-  %94 = phi i32 [ %93, %88 ], [ -2, %84 ]
-  %95 = trunc i64 %.pre to i32
-  %96 = and i32 %95, 1
-  %97 = or disjoint i32 %94, %96
+Aig_ObjFaninId0.exit42:                           ; preds = %86, %90
+  %100 = phi i32 [ %99, %90 ], [ -2, %86 ]
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, 1
-  %98 = getelementptr inbounds [0 x i32], ptr %44, i64 0, i64 %indvars.iv49
-  store i32 %97, ptr %98, align 4, !tbaa !23
+  %101 = getelementptr inbounds [0 x i32], ptr %44, i64 0, i64 %indvars.iv49
+  store i32 %100, ptr %101, align 4, !tbaa !23
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count56
-  br i1 %exitcond57.not, label %.critedge2, label %84, !llvm.loop !46
+  br i1 %exitcond57.not, label %.critedge2, label %86, !llvm.loop !46
 
 .critedge2:                                       ; preds = %Aig_ObjFaninId0.exit42, %.critedge.preheader
   ret ptr %11

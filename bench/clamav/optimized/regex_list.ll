@@ -322,8 +322,8 @@ validate_subdomain.exit.thread107.thread:         ; preds = %validate_subdomain.
   %122 = load ptr, ptr %121, align 8, !tbaa !42
   store ptr %122, ptr %5, align 8, !tbaa !8
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %storemerge96122 = load ptr, ptr %123, align 8, !tbaa !37
-  store ptr %storemerge96122, ptr %8, align 8, !tbaa !38
+  %storemerge96133 = load ptr, ptr %123, align 8, !tbaa !37
+  store ptr %storemerge96133, ptr %8, align 8, !tbaa !38
   br label %._crit_edge.loopexit
 
 validate_subdomain.exit.thread107:                ; preds = %95, %117, %validate_subdomain.exit
@@ -331,17 +331,17 @@ validate_subdomain.exit.thread107:                ; preds = %95, %117, %validate
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %storemerge96 = load ptr, ptr %125, align 8, !tbaa !37
   store ptr %storemerge96, ptr %8, align 8, !tbaa !38
-  %.not127 = icmp eq ptr %storemerge96, null
-  br i1 %.not127, label %._crit_edge.loopexit, label %.lr.ph
+  %.not138 = icmp eq ptr %storemerge96, null
+  br i1 %.not138, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %validate_subdomain.exit.thread107, %validate_subdomain.exit.thread107.thread
-  %.3105123 = phi i32 [ 1, %validate_subdomain.exit.thread107.thread ], [ 0, %validate_subdomain.exit.thread107 ]
+  %.3105134 = phi i32 [ 1, %validate_subdomain.exit.thread107.thread ], [ 0, %validate_subdomain.exit.thread107 ]
   %.pre = load ptr, ptr %10, align 8, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %90
   %126 = phi ptr [ %82, %90 ], [ %.pre, %._crit_edge.loopexit ]
-  %.2.lcssa = phi i32 [ %.177113, %90 ], [ %.3105123, %._crit_edge.loopexit ]
+  %.2.lcssa = phi i32 [ %.177113, %90 ], [ %.3105134, %._crit_edge.loopexit ]
   %.not98 = icmp eq ptr %126, null
   br i1 %.not98, label %130, label %127
 
@@ -1676,8 +1676,8 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   br label %.preheader
 
 .critedge:                                        ; preds = %18
-  %.not70 = icmp eq i64 %14, 0
-  br i1 %.not70, label %.preheader, label %.preheader49
+  %.not75 = icmp eq i64 %14, 0
+  br i1 %.not75, label %.preheader, label %.preheader49
 
 .preheader49:                                     ; preds = %.critedge, %33
   %.156 = phi i64 [ %32, %33 ], [ %.052, %.critedge ]
@@ -1725,10 +1725,10 @@ define internal fastcc signext i8 @get_char_at_pos_with_skip(ptr noundef readonl
   br i1 %.not47, label %52, label %.sink.split
 
 .sink.split:                                      ; preds = %45, %47, %4
-  %.3.lcssa67.sink = phi i64 [ %2, %4 ], [ %.3, %47 ], [ %.3, %45 ]
-  %.sink68 = phi ptr [ %1, %4 ], [ %8, %47 ], [ %8, %45 ]
-  %49 = tail call i64 @llvm.usub.sat.i64(i64 %.3.lcssa67.sink, i64 1)
-  %50 = getelementptr inbounds nuw i8, ptr %.sink68, i64 %49
+  %.3.lcssa72.sink = phi i64 [ %2, %4 ], [ %.3, %47 ], [ %.3, %45 ]
+  %.sink73 = phi ptr [ %1, %4 ], [ %8, %47 ], [ %8, %45 ]
+  %49 = tail call i64 @llvm.usub.sat.i64(i64 %.3.lcssa72.sink, i64 1)
+  %50 = getelementptr inbounds nuw i8, ptr %.sink73, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !10
   br label %52
 

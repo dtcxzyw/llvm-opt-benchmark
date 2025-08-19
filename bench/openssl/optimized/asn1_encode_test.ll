@@ -319,7 +319,7 @@ do_decode_custom.exit.thread81:                   ; preds = %63
   br label %do_decode_custom.exit.thread79
 
 68:                                               ; preds = %58
-  %69 = getelementptr inbounds i8, ptr %59, i64 %56
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 %56
   %70 = load ptr, ptr %4, align 8, !tbaa !15
   %71 = icmp eq ptr %69, %70
   br i1 %71, label %72, label %80
@@ -530,7 +530,7 @@ declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnam
 declare void @test_openssl_errors() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -9223372036854775803, -9223372036854775808) i64 @make_custom_der(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc range(i64 0, 65550) i64 @make_custom_der(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !31
   %6 = icmp ult i64 %5, 32768
@@ -606,7 +606,7 @@ der_encode_length.exit48:                         ; preds = %der_encode_length.e
   %.038 = phi i64 [ %36, %der_encode_length.exit48 ], [ 0, %._crit_edge ]
   %.037 = phi i64 [ %29, %der_encode_length.exit48 ], [ 0, %._crit_edge ]
   %38 = add nuw nsw i64 %12, 3
-  %39 = add nsw i64 %38, %.038
+  %39 = add nuw nsw i64 %38, %.038
   %40 = icmp ult i64 %39, 32768
   br i1 %40, label %der_encode_length.exit52, label %41
 
@@ -619,8 +619,8 @@ der_encode_length.exit52:                         ; preds = %37
   %43 = icmp samesign ult i64 %39, 128
   %44 = select i1 %43, i64 5, i64 6
   %45 = select i1 %42, i64 7, i64 %44
-  %46 = add nsw i64 %.038, %12
-  %47 = add nsw i64 %46, %45
+  %46 = add nuw nsw i64 %.038, %12
+  %47 = add nuw nsw i64 %46, %45
   %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %47, ptr noundef nonnull @.str.8, i32 noundef 634) #7
   store ptr %48, ptr %1, align 8, !tbaa !15
   %49 = icmp eq ptr %48, null

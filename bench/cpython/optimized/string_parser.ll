@@ -365,8 +365,8 @@ define hidden ptr @_PyPegen_parse_string(ptr noundef %0, ptr noundef %1) local_u
 .loopexit.loopexit:                               ; preds = %15, %.preheader95
   %.075.ph = phi ptr [ %.17696, %.preheader95 ], [ %.277, %15 ]
   %.071.ph = phi i32 [ %.17297, %.preheader95 ], [ %.273, %15 ]
-  %.068.ph = phi i32 [ %.16998, %.preheader95 ], [ %.270, %15 ]
-  %.067.ph = phi i32 [ %.199, %.preheader95 ], [ %.2, %15 ]
+  %.068.ph = phi i32 [ %.16998, %.preheader95 ], [ 1, %15 ]
+  %.067.ph = phi i32 [ %.199, %.preheader95 ], [ 1, %15 ]
   %17 = icmp eq i32 %.067.ph, 0
   %18 = icmp eq i32 %.068.ph, 0
   br label %.loopexit

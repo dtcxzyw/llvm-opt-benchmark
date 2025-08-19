@@ -450,7 +450,7 @@ define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(
   %55 = zext i16 %.sroa.0.0.copyload.i to i32
   %56 = or i32 %54, %55
   %57 = or i32 %56, %52
-  %58 = add i32 %51, %.sroa.19.0147
+  %58 = add nuw nsw i32 %51, %.sroa.19.0147
   %59 = icmp ugt i32 %58, 8
   br i1 %59, label %.lr.ph.i.i, label %_ZL8enc_add2P8huff_outhhPj.exit
 

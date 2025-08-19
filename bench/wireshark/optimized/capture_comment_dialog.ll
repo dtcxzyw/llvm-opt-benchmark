@@ -2040,7 +2040,7 @@ _ZNK11CaptureFile7capFileEv.exit17:               ; preds = %15, %18
   %34 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable_or_null(56) @_ZN23CaptureCommentTabWidget16staticMetaObjectE, ptr noundef %33)
   %35 = tail call noundef ptr @_ZN23CaptureCommentTabWidget15getCommentsTextEv(ptr noundef align 8 dereferenceable_or_null(40) %34)
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.lr.ph._crit_edge, label %.lr.ph28
+  br i1 %36, label %.lr.ph._crit_edge, label %.lr.ph29
 
 .lr.ph:                                           ; preds = %_ZNK11CaptureFile7capFileEv.exit18
   %37 = load ptr, ptr %25, align 8
@@ -2050,30 +2050,30 @@ _ZNK11CaptureFile7capFileEv.exit17:               ; preds = %15, %18
   %41 = tail call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable_or_null(56) @_ZN23CaptureCommentTabWidget16staticMetaObjectE, ptr noundef %40)
   %42 = tail call noundef ptr @_ZN23CaptureCommentTabWidget15getCommentsTextEv(ptr noundef align 8 dereferenceable_or_null(40) %41)
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.lr.ph._crit_edge, label %.lr.ph28, !llvm.loop !32
+  br i1 %43, label %.lr.ph._crit_edge, label %.lr.ph29, !llvm.loop !32
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.121.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph ]
   %44 = tail call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5)
   br label %.critedge
 
-.lr.ph28:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %45 = phi ptr [ %42, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %.02227 = phi i32 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02228 = phi i32 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %46 = load ptr, ptr %6, align 8
   %47 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef align 8 dereferenceable_or_null(48) %46)
   br i1 %47, label %48, label %_ZNK11CaptureFile7capFileEv.exit18
 
-48:                                               ; preds = %.lr.ph28
+48:                                               ; preds = %.lr.ph29
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %50 = load ptr, ptr %49, align 8
   br label %_ZNK11CaptureFile7capFileEv.exit18
 
-_ZNK11CaptureFile7capFileEv.exit18:               ; preds = %.lr.ph28, %48
-  %51 = phi ptr [ %50, %48 ], [ null, %.lr.ph28 ]
-  tail call void @cf_update_section_comments(ptr noundef %51, i32 noundef %.02227, ptr noundef nonnull %45)
+_ZNK11CaptureFile7capFileEv.exit18:               ; preds = %.lr.ph29, %48
+  %51 = phi ptr [ %50, %48 ], [ null, %.lr.ph29 ]
+  tail call void @cf_update_section_comments(ptr noundef %51, i32 noundef %.02228, ptr noundef nonnull %45)
   tail call void @_ZN20CaptureCommentDialog21captureCommentChangedEv(ptr noundef align 8 dereferenceable_or_null(160) %0)
-  %52 = add nuw nsw i32 %.02227, 1
+  %52 = add nuw nsw i32 %.02228, 1
   %53 = load ptr, ptr %25, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8

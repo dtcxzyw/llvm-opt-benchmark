@@ -350,9 +350,9 @@ strbuf_setlen.exit.i.i:                           ; preds = %60, %58
   br label %100
 
 _.exit.i.i.i:                                     ; preds = %87, %85, %75, %73
-  %.sink93.i.i = phi i32 [ %.pre20.i.i.i, %75 ], [ %68, %73 ], [ %.pre.i.i.i, %87 ], [ %80, %85 ]
+  %.sink98.i.i = phi i32 [ %.pre20.i.i.i, %75 ], [ %68, %73 ], [ %.pre.i.i.i, %87 ], [ %80, %85 ]
   %.0.i.i.sink.i.i = phi ptr [ %77, %75 ], [ @.str.59, %73 ], [ %88, %87 ], [ @.str.60, %85 ]
-  %96 = zext i32 %.sink93.i.i to i64
+  %96 = zext i32 %.sink98.i.i to i64
   call void (ptr, ...) @warning(ptr noundef %.0.i.i.sink.i.i, i64 noundef %96) #22
   call void @close_midx(ptr noundef nonnull %64)
   br label %.loopexit12.i.i
@@ -2604,19 +2604,19 @@ midx_for_object.exit.i:                           ; preds = %.critedge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr readonly align 1 %108, i64 %114, i1 false)
   %115 = load i64, ptr %113, align 8, !tbaa !32
   %116 = icmp ult i64 %115, 32
-  br i1 %116, label %117, label %.preheader411
+  br i1 %116, label %117, label %.preheader430
 
 117:                                              ; preds = %midx_for_object.exit.i
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 %115
   %119 = sub nuw nsw i64 32, %115
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %118, i8 0, i64 %119, i1 false)
-  br label %.preheader411
+  br label %.preheader430
 
-.preheader411:                                    ; preds = %117, %midx_for_object.exit.i
+.preheader430:                                    ; preds = %117, %midx_for_object.exit.i
   br label %120
 
-120:                                              ; preds = %.preheader411, %122
-  %.0811.i.i.i = phi i64 [ %123, %122 ], [ 0, %.preheader411 ]
+120:                                              ; preds = %.preheader430, %122
+  %.0811.i.i.i = phi i64 [ %123, %122 ], [ 0, %.preheader430 ]
   %121 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %112, %121
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %122
@@ -2691,19 +2691,19 @@ midx_for_object.exit.i139:                        ; preds = %.critedge.i.i137
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr readonly align 1 %146, i64 %152, i1 false)
   %153 = load i64, ptr %151, align 8, !tbaa !32
   %154 = icmp ult i64 %153, 32
-  br i1 %154, label %155, label %.preheader410
+  br i1 %154, label %155, label %.preheader429
 
 155:                                              ; preds = %midx_for_object.exit.i139
   %156 = getelementptr inbounds nuw i8, ptr %8, i64 %153
   %157 = sub nuw nsw i64 32, %153
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %156, i8 0, i64 %157, i1 false)
-  br label %.preheader410
+  br label %.preheader429
 
-.preheader410:                                    ; preds = %155, %midx_for_object.exit.i139
+.preheader429:                                    ; preds = %155, %midx_for_object.exit.i139
   br label %158
 
-158:                                              ; preds = %.preheader410, %160
-  %.0811.i.i.i140 = phi i64 [ %161, %160 ], [ 0, %.preheader410 ]
+158:                                              ; preds = %.preheader429, %160
+  %.0811.i.i.i140 = phi i64 [ %161, %160 ], [ 0, %.preheader429 ]
   %159 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i140
   %.not.i.i.i141 = icmp eq ptr %150, %159
   br i1 %.not.i.i.i141, label %.split.loop.exit9.i.i.i145, label %160

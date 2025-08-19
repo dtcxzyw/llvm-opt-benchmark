@@ -3279,10 +3279,10 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit305:       ; preds = %_ZSt8_DestroyIPN2cv
   br label %289
 
 289:                                              ; preds = %285, %287, %275
-  %.sink408 = phi i8 [ %286, %285 ], [ %288, %287 ], [ 1, %275 ]
+  %.sink426 = phi i8 [ %286, %285 ], [ %288, %287 ], [ 1, %275 ]
   %290 = phi i8 [ %278, %285 ], [ %278, %287 ], [ %274, %275 ]
-  store i8 %.sink408, ptr %270, align 1, !tbaa !59
-  %291 = zext i8 %.sink408 to i32
+  store i8 %.sink426, ptr %270, align 1, !tbaa !59
+  %291 = zext i8 %.sink426 to i32
   %292 = load i32, ptr %84, align 8, !tbaa !35
   %293 = icmp slt i32 %292, %291
   br i1 %293, label %294, label %.loopexit
@@ -3508,8 +3508,8 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit306:            ; preds = %360
   %376 = add nsw i32 %375, -1
   %377 = sext i32 %376 to i64
   %378 = icmp slt i64 %indvars.iv394, %377
-  %or.cond410 = select i1 %or.cond5, i1 %378, i1 false
-  br i1 %or.cond410, label %379, label %._crit_edge399
+  %or.cond428 = select i1 %or.cond5, i1 %378, i1 false
+  br i1 %or.cond428, label %379, label %._crit_edge399
 
 379:                                              ; preds = %371
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -4631,14 +4631,14 @@ _ZN2cv3Mat2atINS_3VecIiLi2EEEEERT_i.exit:         ; preds = %82, %76, %69
   %163 = trunc nuw nsw i64 %indvars.iv66 to i32
   %164 = sdiv i32 %163, %162
   %165 = mul nsw i32 %164, %162
-  %.recomposed70 = srem i32 %163, %162
+  %.recomposed72 = srem i32 %163, %162
   %166 = load ptr, ptr %132, align 8, !tbaa !80
   %167 = load ptr, ptr %133, align 8, !tbaa !81
   %168 = load i64, ptr %167, align 8, !tbaa !82
   %169 = sext i32 %164 to i64
   %170 = mul i64 %168, %169
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 %170
-  %172 = sext i32 %.recomposed70 to i64
+  %172 = sext i32 %.recomposed72 to i64
   %173 = getelementptr inbounds %"class.cv::Vec.17", ptr %171, i64 %172
   br label %_ZN2cv3Mat2atINS_3VecIiLi2EEEEERT_i.exit51
 
@@ -5479,7 +5479,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3PtrINS0_3MatEEESaIS3_EE17_M_d
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN2cv3PtrINS0_3MatEEEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN2cv3PtrINS0_3MatEEEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !52

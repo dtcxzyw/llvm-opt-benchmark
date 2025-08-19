@@ -972,9 +972,9 @@ _running_profile.exit:                            ; preds = %0, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.loopexit.loopexit, %59
-  %.026.lcssa65 = phi i64 [ %61, %.loopexit.loopexit ], [ %61, %59 ], [ %7, %49 ]
+  %.026.lcssa68 = phi i64 [ %61, %.loopexit.loopexit ], [ %61, %59 ], [ %7, %49 ]
   %75 = phi i32 [ %.pre60, %.loopexit.loopexit ], [ %50, %59 ], [ %50, %49 ]
-  %76 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %75, ptr noundef nonnull %3, i64 noundef %.026.lcssa65) #11
+  %76 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %75, ptr noundef nonnull %3, i64 noundef %.026.lcssa68) #11
   br label %77
 
 77:                                               ; preds = %47, %_running_profile.exit, %.loopexit

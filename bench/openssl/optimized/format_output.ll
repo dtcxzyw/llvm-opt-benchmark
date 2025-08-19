@@ -215,31 +215,31 @@ test_string_null_empty.exit134:                   ; preds = %33, %35
 
 ._crit_edge.thread:                               ; preds = %73
   %84 = icmp ne i64 %.0114, 0
-  %or.cond3164 = and i1 %49, %84
-  br i1 %or.cond3164, label %.lr.ph148.preheader, label %95
+  %or.cond3167 = and i1 %49, %84
+  br i1 %or.cond3167, label %.lr.ph148.preheader, label %95
 
 .lr.ph148.preheader:                              ; preds = %._crit_edge.thread
   %85 = call i64 @llvm.umin.i64(i64 %.0114, i64 %70)
   br label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
-  %.1108146 = phi i32 [ %spec.select167, %.lr.ph148 ], [ 0, %.lr.ph148.preheader ]
+  %.1108146 = phi i32 [ %spec.select170, %.lr.ph148 ], [ 0, %.lr.ph148.preheader ]
   %.3145 = phi i64 [ %92, %.lr.ph148 ], [ 0, %.lr.ph148.preheader ]
   %86 = getelementptr inbounds nuw i8, ptr %.0155, i64 %.3145
   %87 = load i8, ptr %86, align 1, !tbaa !8
   %88 = getelementptr inbounds nuw i8, ptr %.0119151, i64 %.3145
   %89 = load i8, ptr %88, align 1, !tbaa !8
   %90 = icmp eq i8 %87, %89
-  %spec.select166 = select i1 %90, i8 32, i8 94
-  %spec.select167 = select i1 %90, i32 %.1108146, i32 1
+  %spec.select169 = select i1 %90, i8 32, i8 94
+  %spec.select170 = select i1 %90, i32 %.1108146, i32 1
   %91 = getelementptr inbounds nuw [81 x i8], ptr %14, i64 0, i64 %.3145
-  store i8 %spec.select166, ptr %91, align 1, !tbaa !8
+  store i8 %spec.select169, ptr %91, align 1, !tbaa !8
   %92 = add nuw i64 %.3145, 1
   %exitcond163.not = icmp eq i64 %92, %85
   br i1 %exitcond163.not, label %._crit_edge149.loopexit, label %.lr.ph148, !llvm.loop !16
 
 ._crit_edge149.loopexit:                          ; preds = %.lr.ph148
-  %93 = icmp ne i32 %spec.select167, 0
+  %93 = icmp ne i32 %spec.select170, 0
   br label %._crit_edge149
 
 ._crit_edge149:                                   ; preds = %._crit_edge, %._crit_edge149.loopexit
@@ -1004,7 +1004,7 @@ hex_convert_memory.exit:                          ; preds = %66
   br label %96
 
 96:                                               ; preds = %93, %107
-  %.1101147 = phi i32 [ 0, %93 ], [ %spec.select156, %107 ]
+  %.1101147 = phi i32 [ 0, %93 ], [ %spec.select162, %107 ]
   %.1104146 = phi i64 [ 0, %93 ], [ %108, %107 ]
   %.0107145 = phi ptr [ %14, %93 ], [ %.2109, %107 ]
   %97 = getelementptr inbounds nuw i8, ptr %.0152, i64 %.1104146
@@ -1012,11 +1012,11 @@ hex_convert_memory.exit:                          ; preds = %66
   %99 = getelementptr inbounds nuw i8, ptr %.0114148, i64 %.1104146
   %100 = load i8, ptr %99, align 1, !tbaa !8
   %101 = icmp eq i8 %98, %100
-  %spec.select155 = select i1 %101, i8 32, i8 94
-  %spec.select156 = select i1 %101, i32 %.1101147, i32 1
-  store i8 %spec.select155, ptr %.0107145, align 1, !tbaa !8
+  %spec.select161 = select i1 %101, i8 32, i8 94
+  %spec.select162 = select i1 %101, i32 %.1101147, i32 1
+  store i8 %spec.select161, ptr %.0107145, align 1, !tbaa !8
   %102 = getelementptr inbounds nuw i8, ptr %.0107145, i64 1
-  store i8 %spec.select155, ptr %102, align 1, !tbaa !8
+  store i8 %spec.select161, ptr %102, align 1, !tbaa !8
   %.1108 = getelementptr inbounds nuw i8, ptr %.0107145, i64 2
   %103 = and i64 %.1104146, 7
   %104 = icmp ne i64 %103, 7
@@ -1037,7 +1037,7 @@ hex_convert_memory.exit:                          ; preds = %66
 
 109:                                              ; preds = %107
   store i8 0, ptr %.2109, align 1, !tbaa !8
-  %110 = icmp ne i32 %spec.select156, 0
+  %110 = icmp ne i32 %spec.select162, 0
   br label %111
 
 111:                                              ; preds = %.thread, %109, %92

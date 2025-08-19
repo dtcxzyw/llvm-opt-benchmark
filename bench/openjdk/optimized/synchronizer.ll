@@ -484,17 +484,17 @@ _ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS
   br i1 %.not47, label %.sink.split, label %.preheader, !llvm.loop !12
 
 .sink.split:                                      ; preds = %43, %.preheader, %.critedge
-  %.063.lcssa82.sink = phi ptr [ %.03566, %.critedge ], [ %.063, %.preheader ], [ %.03566, %43 ]
+  %.063.lcssa87.sink = phi ptr [ %.03566, %.critedge ], [ %.063, %.preheader ], [ %.03566, %43 ]
   %.sink = phi ptr [ %20, %.critedge ], [ %20, %.preheader ], [ null, %43 ]
-  %.ph83 = phi i64 [ %.lcssa, %.critedge ], [ %48, %.preheader ], [ %21, %43 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.063.lcssa82.sink, i64 128
+  %.ph88 = phi i64 [ %.lcssa, %.critedge ], [ %48, %.preheader ], [ %21, %43 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.063.lcssa87.sink, i64 128
   store volatile ptr %.sink, ptr %52, align 8
   br label %53
 
 53:                                               ; preds = %.sink.split, %.critedge.thread
   %54 = phi ptr [ %20, %.critedge.thread ], [ %.sink, %.sink.split ]
-  %55 = phi i64 [ %48, %.critedge.thread ], [ %.ph83, %.sink.split ]
-  %.237 = phi ptr [ null, %.critedge.thread ], [ %.063.lcssa82.sink, %.sink.split ]
+  %55 = phi i64 [ %48, %.critedge.thread ], [ %.ph88, %.sink.split ]
+  %.237 = phi ptr [ null, %.critedge.thread ], [ %.063.lcssa87.sink, %.sink.split ]
   %56 = add i64 %55, %.03467
   %.not48 = icmp ult i64 %56, %1
   br i1 %.not48, label %60, label %._crit_edge
@@ -711,7 +711,7 @@ define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer12quick_notifyEP7oopDes
 17:                                               ; preds = %19, %9
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %19 ], [ %16, %9 ]
   %18 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %18, label %19, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread56
+  br i1 %18, label %19, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread63
 
 19:                                               ; preds = %17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -729,9 +729,9 @@ define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer12quick_notifyEP7oopDes
 24:                                               ; preds = %23
   %25 = inttoptr i64 %6 to ptr
   %26 = tail call noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull align 8 dereferenceable(1800) %1, ptr noundef %25) #18
-  br i1 %26, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread56
+  br i1 %26, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread63
 
-_ZNK9LockStack8containsEP7oopDesc.exit.thread56:  ; preds = %17, %24
+_ZNK9LockStack8containsEP7oopDesc.exit.thread63:  ; preds = %17, %24
   br label %_ZNK9LockStack8containsEP7oopDesc.exit.thread
 
 _ZNK9LockStack8containsEP7oopDesc.exit:           ; preds = %5
@@ -892,8 +892,8 @@ _ZNK7oopDesc5klassEv.exit48:                      ; preds = %72, %82
   store i64 %104, ptr %102, align 8
   br label %_ZNK9LockStack8containsEP7oopDesc.exit.thread
 
-_ZNK9LockStack8containsEP7oopDesc.exit.thread:    ; preds = %19, %23, %8, %_ZNK9LockStack8containsEP7oopDesc.exit.thread56, %_ZNK9LockStack8containsEP7oopDesc.exit, %34, %100, %97, %.split54, %28, %24, %3
-  %.033 = phi i1 [ false, %3 ], [ true, %24 ], [ false, %28 ], [ true, %.split54 ], [ true, %97 ], [ true, %100 ], [ true, %34 ], [ false, %_ZNK9LockStack8containsEP7oopDesc.exit ], [ false, %_ZNK9LockStack8containsEP7oopDesc.exit.thread56 ], [ false, %8 ], [ false, %23 ], [ true, %19 ]
+_ZNK9LockStack8containsEP7oopDesc.exit.thread:    ; preds = %19, %23, %8, %_ZNK9LockStack8containsEP7oopDesc.exit.thread63, %_ZNK9LockStack8containsEP7oopDesc.exit, %34, %100, %97, %.split54, %28, %24, %3
+  %.033 = phi i1 [ false, %3 ], [ true, %24 ], [ false, %28 ], [ true, %.split54 ], [ true, %97 ], [ true, %100 ], [ true, %34 ], [ false, %_ZNK9LockStack8containsEP7oopDesc.exit ], [ false, %_ZNK9LockStack8containsEP7oopDesc.exit.thread63 ], [ false, %8 ], [ false, %23 ], [ true, %19 ]
   ret i1 %.033
 }
 
@@ -3486,10 +3486,10 @@ _ZNK9LockStack8containsEP7oopDesc.exit100:        ; preds = %96
   br i1 %.not.i.i102, label %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit, label %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit.sink.split
 
 _ZN13ObjectMonitor14set_owner_fromEPvS0_.exit.sink.split: ; preds = %.loopexit, %_ZNK9LockStack8containsEP7oopDesc.exit100
-  %.sink214 = phi i64 [ %22, %_ZNK9LockStack8containsEP7oopDesc.exit100 ], [ 1, %.loopexit ]
+  %.sink230 = phi i64 [ %22, %_ZNK9LockStack8containsEP7oopDesc.exit100 ], [ 1, %.loopexit ]
   %.ph = phi i1 [ true, %_ZNK9LockStack8containsEP7oopDesc.exit100 ], [ false, %.loopexit ]
   %104 = ptrtoint ptr %87 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.75, i64 noundef %104, i64 noundef 0, i64 noundef %.sink214)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.75, i64 noundef %104, i64 noundef 0, i64 noundef %.sink230)
   br label %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit
 
 _ZN13ObjectMonitor14set_owner_fromEPvS0_.exit:    ; preds = %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit.sink.split, %.loopexit, %_ZNK9LockStack8containsEP7oopDesc.exit100
@@ -4075,9 +4075,9 @@ _ZN8JfrEventI23EventJavaMonitorInflateE13should_commitEv.exit150: ; preds = %383
   br label %_ZNK9LockStack8containsEP7oopDesc.exit
 
 397:                                              ; preds = %.thread, %216, %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit
-  %.sink215 = phi ptr [ %87, %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit ], [ %217, %216 ], [ %313, %.thread ]
-  call void @_ZN13ObjectMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %.sink215) #18
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %.sink215) #18
+  %.sink231 = phi ptr [ %87, %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit ], [ %217, %216 ], [ %313, %.thread ]
+  call void @_ZN13ObjectMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %.sink231) #18
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %.sink231) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #18
   br label %.backedge
 

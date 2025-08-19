@@ -53,12 +53,12 @@ define dso_local void @SS_process_ctes(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %16 = load i32, ptr %8, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph91, label %.critedge
+  br i1 %17, label %.lr.ph93, label %.critedge
 
-.lr.ph91:                                         ; preds = %.lr.ph, %156
-  %indvars.iv90 = phi i64 [ %indvars.iv.next, %156 ], [ 0, %.lr.ph ]
+.lr.ph93:                                         ; preds = %.lr.ph, %156
+  %indvars.iv92 = phi i64 [ %indvars.iv.next, %156 ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv90
+  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv92
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -74,13 +74,13 @@ define dso_local void @SS_process_ctes(ptr noundef %0) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %156, %.lr.ph, %1
   ret void
 
-29:                                               ; preds = %.lr.ph91
+29:                                               ; preds = %.lr.ph93
   %30 = load ptr, ptr %12, align 8
   %31 = call ptr @lappend_int(ptr noundef %30, i32 noundef -1) #10
   store ptr %31, ptr %12, align 8
   br label %156
 
-32:                                               ; preds = %.lr.ph91
+32:                                               ; preds = %.lr.ph93
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %contain_dml.exit.thread [
@@ -319,11 +319,11 @@ list_length.exit:                                 ; preds = %get_first_col_type.
   br label %156
 
 156:                                              ; preds = %list_length.exit, %72, %29
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv90, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv92, 1
   %157 = load i32, ptr %8, align 4
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next, %158
-  br i1 %159, label %.lr.ph91, label %.critedge
+  br i1 %159, label %.lr.ph93, label %.critedge
 }
 
 declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1637,7 +1637,7 @@ SS_compute_initplan_cost.exit:                    ; preds = %11, %.lr.ph.i
   br i1 %42, label %.lr.ph40, label %.critedge.thread
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
-  br i1 %29, label %.lr.ph38, label %.critedge.thread56
+  br i1 %29, label %.lr.ph38, label %.critedge.thread59
 
 .lr.ph38:                                         ; preds = %.lr.ph.split.split, %.lr.ph38
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph38 ], [ 0, %.lr.ph.split.split ]
@@ -1656,11 +1656,11 @@ SS_compute_initplan_cost.exit:                    ; preds = %11, %.lr.ph.i
   %52 = load i32, ptr %25, align 4
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph38, label %.critedge.thread56
+  br i1 %54, label %.lr.ph38, label %.critedge.thread59
 
 .critedge:                                        ; preds = %SS_compute_initplan_cost.exit
   %.pre = trunc nuw i8 %.013.lcssa.i to i1
-  br i1 %.pre, label %.critedge.thread, label %.critedge.thread56
+  br i1 %.pre, label %.critedge.thread, label %.critedge.thread59
 
 .critedge.thread:                                 ; preds = %.lr.ph40, %.lr.ph.split.us.split, %.critedge
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1669,14 +1669,14 @@ SS_compute_initplan_cost.exit:                    ; preds = %11, %.lr.ph.i
   store i8 0, ptr %56, align 2
   br label %.critedge31
 
-.critedge.thread56:                               ; preds = %.lr.ph38, %.lr.ph.split.split, %.critedge
+.critedge.thread59:                               ; preds = %.lr.ph38, %.lr.ph.split.split, %.critedge
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %.not28 = icmp eq ptr %58, null
   br i1 %.not28, label %.critedge31, label %.lr.ph42
 
-.lr.ph42:                                         ; preds = %.critedge.thread56
+.lr.ph42:                                         ; preds = %.critedge.thread59
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %61 = load i32, ptr %59, align 4
   %62 = icmp sgt i32 %61, 0
@@ -1701,7 +1701,7 @@ SS_compute_initplan_cost.exit:                    ; preds = %11, %.lr.ph.i
   %74 = icmp slt i64 %indvars.iv.next52, %73
   br i1 %74, label %.lr.ph45, label %.critedge31
 
-.critedge31:                                      ; preds = %.lr.ph45, %.critedge.thread56, %.lr.ph42, %.critedge.thread, %2
+.critedge31:                                      ; preds = %.lr.ph45, %.critedge.thread59, %.lr.ph42, %.critedge.thread, %2
   ret void
 }
 
@@ -1856,8 +1856,8 @@ define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 no
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph340, %10, %51, %.critedge
-  %.0261.lcssa440 = phi ptr [ %34, %51 ], [ %34, %.critedge ], [ null, %10 ], [ null, %.lr.ph340 ]
-  %.0262.lcssa439 = phi ptr [ %.1263.lcssa, %51 ], [ null, %.critedge ], [ null, %10 ], [ null, %.lr.ph340 ]
+  %.0261.lcssa458 = phi ptr [ %34, %51 ], [ %34, %.critedge ], [ null, %10 ], [ null, %.lr.ph340 ]
+  %.0262.lcssa457 = phi ptr [ %.1263.lcssa, %51 ], [ null, %.critedge ], [ null, %10 ], [ null, %.lr.ph340 ]
   %.0256 = phi ptr [ %52, %51 ], [ %3, %.critedge ], [ %3, %10 ], [ %3, %.lr.ph340 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %54 = load ptr, ptr %53, align 8
@@ -2563,16 +2563,16 @@ list_length.exit.thread:                          ; preds = %191, %list_length.e
 
 453:                                              ; preds = %447
   %454 = load ptr, ptr %11, align 8
-  %455 = call ptr @bms_union(ptr noundef %454, ptr noundef %.0261.lcssa440) #10
+  %455 = call ptr @bms_union(ptr noundef %454, ptr noundef %.0261.lcssa458) #10
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %455, ptr %456, align 8
-  %457 = call ptr @bms_add_members(ptr noundef %455, ptr noundef %.0262.lcssa439) #10
+  %457 = call ptr @bms_add_members(ptr noundef %455, ptr noundef %.0262.lcssa457) #10
   store ptr %457, ptr %456, align 8
   %458 = load ptr, ptr %11, align 8
-  %459 = call ptr @bms_union(ptr noundef %458, ptr noundef %.0261.lcssa440) #10
+  %459 = call ptr @bms_union(ptr noundef %458, ptr noundef %.0261.lcssa458) #10
   %460 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %459, ptr %460, align 8
-  %461 = call ptr @bms_del_members(ptr noundef %459, ptr noundef %.0262.lcssa439) #10
+  %461 = call ptr @bms_del_members(ptr noundef %459, ptr noundef %.0262.lcssa457) #10
   store ptr %461, ptr %460, align 8
   %462 = load ptr, ptr %456, align 8
   br label %463

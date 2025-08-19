@@ -268,7 +268,7 @@ define dso_local range(i32 0, 2) i32 @rsautl_main(i32 noundef %0, ptr noundef %1
   br label %.loopexit155
 
 58:                                               ; preds = %53
-  switch i8 %.0114, label %default.unreachable233 [
+  switch i8 %.0114, label %default.unreachable238 [
     i8 1, label %59
     i8 2, label %63
     i8 3, label %66
@@ -295,7 +295,7 @@ define dso_local range(i32 0, 2) i32 @rsautl_main(i32 noundef %0, ptr noundef %1
   call void @X509_free(ptr noundef nonnull %67) #3
   br label %70
 
-default.unreachable233:                           ; preds = %100, %58
+default.unreachable238:                           ; preds = %100, %58
   unreachable
 
 70:                                               ; preds = %68, %63, %59
@@ -360,7 +360,7 @@ default.unreachable233:                           ; preds = %100, %58
   br i1 %99, label %.loopexit155, label %100
 
 100:                                              ; preds = %.loopexit
-  switch i8 %.0116, label %default.unreachable233 [
+  switch i8 %.0116, label %default.unreachable238 [
     i8 2, label %101
     i8 1, label %110
     i8 3, label %119

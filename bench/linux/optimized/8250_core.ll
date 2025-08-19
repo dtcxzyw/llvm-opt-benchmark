@@ -1328,7 +1328,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #4 a
 17:                                               ; preds = %14
   %18 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 316
-  %20 = trunc i64 %15 to i32
+  %20 = trunc nsw i64 %15 to i32
   store i32 %20, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 164
   store i32 %20, ptr %21, align 4

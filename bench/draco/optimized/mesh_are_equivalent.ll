@@ -1841,7 +1841,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5dr
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds %"class.draco::IndexType", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %0, i64 %17
   %19 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %0, i64 %16
   br label %20
 

@@ -280,8 +280,8 @@ _PyRawMutex_Unlock.exit27:                        ; preds = %62, %65
 
 _PyRawMutex_Unlock.exit27.split.us.preheader:     ; preds = %_PyRawMutex_Unlock.exit27
   %67 = call i32 @sem_wait(ptr noundef nonnull %38) #10
-  %.not.us39 = icmp eq i32 %67, -1
-  br i1 %.not.us39, label %.lr.ph.preheader, label %_PyRawMutex_Unlock.exit29
+  %.not.us41 = icmp eq i32 %67, -1
+  br i1 %.not.us41, label %.lr.ph.preheader, label %_PyRawMutex_Unlock.exit29
 
 .lr.ph.preheader:                                 ; preds = %_PyRawMutex_Unlock.exit27.split.us.preheader
   %68 = tail call ptr @__errno_location() #12

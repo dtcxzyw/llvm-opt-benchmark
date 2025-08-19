@@ -1972,9 +1972,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
   br i1 %.not.i.i.i87, label %.body76, label %.body76.sink.split
 
 .body76.sink.split:                               ; preds = %136, %101
-  %.sink104 = phi ptr [ %103, %101 ], [ %138, %136 ]
+  %.sink116 = phi ptr [ %103, %101 ], [ %138, %136 ]
   %.pn44.ph = phi { ptr, i32 } [ %102, %101 ], [ %137, %136 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink104) #24
+  call void @_ZdlPv(ptr noundef nonnull %.sink116) #24
   br label %.body76
 
 .body76:                                          ; preds = %.body76.sink.split, %136, %101
@@ -1985,9 +1985,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %134, %.body65, %128
   br i1 %.not.i.i.i89, label %.body71, label %.body71.sink.split
 
 .body71.sink.split:                               ; preds = %.body76, %95
-  %.sink105 = phi ptr [ %97, %95 ], [ %139, %.body76 ]
+  %.sink117 = phi ptr [ %97, %95 ], [ %139, %.body76 ]
   %.pn44.pn.ph = phi { ptr, i32 } [ %96, %95 ], [ %.pn44, %.body76 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink105) #24
+  call void @_ZdlPv(ptr noundef nonnull %.sink117) #24
   br label %.body71
 
 .body71:                                          ; preds = %.body71.sink.split, %.body76, %95

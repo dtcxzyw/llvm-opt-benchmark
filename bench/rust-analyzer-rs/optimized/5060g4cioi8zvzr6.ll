@@ -162,30 +162,30 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit.sink.split"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit.sink.split": ; preds = %38, %50
-  %.sink45 = phi { i64, i64 } [ %51, %50 ], [ %39, %38 ]
-  %.sink40.ph = phi i64 [ %44, %50 ], [ %16, %38 ]
-  %52 = extractvalue { i64, i64 } %.sink45, 0
-  %53 = extractvalue { i64, i64 } %.sink45, 1
+  %.sink48 = phi { i64, i64 } [ %51, %50 ], [ %39, %38 ]
+  %.sink43.ph = phi i64 [ %44, %50 ], [ %16, %38 ]
+  %52 = extractvalue { i64, i64 } %.sink48, 0
+  %53 = extractvalue { i64, i64 } %.sink48, 1
   call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.10379957774825582801(i64 noundef %52, i64 %53), !noalias !4
   %.pre.i.i12 = load i64, ptr %10, align 8, !noalias !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit.sink.split", %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h46aa7f99d7d7e1bbE.exit", %33
-  %.sink42 = phi i64 [ %34, %33 ], [ %47, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h46aa7f99d7d7e1bbE.exit" ], [ %.pre.i.i12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit.sink.split" ]
-  %.sink40 = phi i64 [ %16, %33 ], [ %44, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h46aa7f99d7d7e1bbE.exit" ], [ %.sink40.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit.sink.split" ]
+  %.sink45 = phi i64 [ %34, %33 ], [ %47, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h46aa7f99d7d7e1bbE.exit" ], [ %.pre.i.i12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit.sink.split" ]
+  %.sink43 = phi i64 [ %16, %33 ], [ %44, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h46aa7f99d7d7e1bbE.exit" ], [ %.sink43.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e3b86cf7789e245E.exit.sink.split" ]
   %54 = load ptr, ptr %11, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds i8, ptr %54, i64 %.sink42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %.lcssa, i64 %.sink40, i1 false)
+  %55 = getelementptr inbounds i8, ptr %54, i64 %.sink45
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull readonly align 1 %.lcssa, i64 %.sink43, i1 false)
   %56 = load i64, ptr %10, align 8, !noalias !4, !noundef !4
-  %57 = add i64 %56, %.sink40
+  %57 = add i64 %56, %.sink43
   store i64 %57, ptr %10, align 8, !noalias !4
   %58 = load i64, ptr %12, align 8, !alias.scope !31, !noundef !4
-  %59 = add i64 %58, %.sink40
+  %59 = add i64 %58, %.sink43
   %60 = load i64, ptr %13, align 8, !alias.scope !31, !noundef !4
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %59, i64 %60)
   store i64 %.0.sroa.speculated.i.i, ptr %12, align 8, !alias.scope !31
-  %61 = add i64 %.sink40, %.0.ph
-  %62 = icmp eq i64 %.sink40, 0
+  %61 = add i64 %.sink43, %.0.ph
+  %62 = icmp eq i64 %.sink43, 0
   %or.cond = or i1 %switch, %62
   br i1 %or.cond, label %63, label %.outer
 

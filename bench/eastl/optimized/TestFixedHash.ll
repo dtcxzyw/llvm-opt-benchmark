@@ -36330,8 +36330,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1E
   %cmp.i.i640 = icmp ult i64 %.pr3025, 2
   %517 = load ptr, ptr %mpBucketBuffer.i.i.i.i619, align 8
   %cmp.not.i.i.i646 = icmp eq ptr %516, %517
-  %or.cond3405 = select i1 %cmp.i.i640, i1 true, i1 %cmp.not.i.i.i646
-  br i1 %or.cond3405, label %invoke.cont600, label %if.then.i.i.i647
+  %or.cond3674 = select i1 %cmp.i.i640, i1 true, i1 %cmp.not.i.i.i646
+  br i1 %or.cond3674, label %invoke.cont600, label %if.then.i.i.i647
 
 if.then.i.i.i647:                                 ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11DoFreeNodesEPPNS_9hash_nodeIiLb0EEEm.exit.i
   %518 = load ptr, ptr %mpPoolBegin.i.i.i.i.i620, align 8
@@ -36372,8 +36372,8 @@ while.cond.i.i.i697:                              ; preds = %invoke.cont600, %wh
   %.pn.i.i.i698 = phi ptr [ %storemerge.i.i.i699, %while.cond.i.i.i697 ], [ @_ZN5eastl18gpEmptyBucketArrayE, %invoke.cont600 ]
   %storemerge.i.i.i699 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i698, i64 8
   %523 = load ptr, ptr %storemerge.i.i.i699, align 8
-  %magicptr3496 = ptrtoint ptr %523 to i64
-  switch i64 %magicptr3496, label %for.body.i677 [
+  %magicptr3765 = ptrtoint ptr %523 to i64
+  switch i64 %magicptr3765, label %for.body.i677 [
     i64 0, label %while.cond.i.i.i697
     i64 -1, label %invoke.cont601
   ]
@@ -36533,8 +36533,8 @@ _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1E
   %cmp.i.i742 = icmp ult i64 %.pr3027, 2
   %540 = load ptr, ptr %mpBucketBuffer.i.i.i.i719, align 8
   %cmp.not.i.i.i748 = icmp eq ptr %539, %540
-  %or.cond3406 = select i1 %cmp.i.i742, i1 true, i1 %cmp.not.i.i.i748
-  br i1 %or.cond3406, label %invoke.cont630, label %if.then.i.i.i749
+  %or.cond3675 = select i1 %cmp.i.i742, i1 true, i1 %cmp.not.i.i.i748
+  br i1 %or.cond3675, label %invoke.cont630, label %if.then.i.i.i749
 
 if.then.i.i.i749:                                 ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE11DoFreeNodesEPPNS_9hash_nodeIiLb0EEEm.exit.i740
   %541 = load ptr, ptr %mpPoolBegin.i.i.i.i.i720, align 8
@@ -36574,8 +36574,8 @@ while.cond.i.i.i800:                              ; preds = %invoke.cont630, %wh
   %.pn.i.i.i801 = phi ptr [ %storemerge.i.i.i802, %while.cond.i.i.i800 ], [ @_ZN5eastl18gpEmptyBucketArrayE, %invoke.cont630 ]
   %storemerge.i.i.i802 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i801, i64 8
   %546 = load ptr, ptr %storemerge.i.i.i802, align 8
-  %magicptr3497 = ptrtoint ptr %546 to i64
-  switch i64 %magicptr3497, label %for.body.i780 [
+  %magicptr3766 = ptrtoint ptr %546 to i64
+  switch i64 %magicptr3766, label %for.body.i780 [
     i64 0, label %while.cond.i.i.i800
     i64 -1, label %invoke.cont631
   ]
@@ -39597,8 +39597,8 @@ entry:
   br i1 %cmp9.not.i.i.i.i, label %invoke.cont.thread.i.i, label %for.body.lr.ph.i.i.i.i
 
 invoke.cont.thread.i.i:                           ; preds = %entry
-  %mnElementCount.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %mnElementCount.i3.i.i, align 8
+  %mnElementCount.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 0, ptr %mnElementCount.i6.i.i, align 8
   br label %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev.exit
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
@@ -44029,8 +44029,8 @@ entry:
   br i1 %cmp9.not.i.i.i.i, label %invoke.cont.thread.i.i, label %for.body.lr.ph.i.i.i.i
 
 invoke.cont.thread.i.i:                           ; preds = %entry
-  %mnElementCount.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %mnElementCount.i3.i.i, align 8
+  %mnElementCount.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 0, ptr %mnElementCount.i6.i.i, align 8
   br label %_ZN5eastl8hash_mapIK18InstanceRenderDatajNS_4hashIS2_EENS_8equal_toIS2_EENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev.exit
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
@@ -75710,8 +75710,8 @@ entry:
   br i1 %cmp9.not.i.i.i.i, label %invoke.cont.thread.i.i, label %for.body.lr.ph.i.i.i.i
 
 invoke.cont.thread.i.i:                           ; preds = %entry
-  %mnElementCount.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %mnElementCount.i3.i.i, align 8
+  %mnElementCount.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 0, ptr %mnElementCount.i6.i.i, align 8
   br label %_ZN5eastl8hash_mapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev.exit
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
@@ -78361,8 +78361,8 @@ entry:
   br i1 %cmp9.not.i.i.i, label %invoke.cont.thread.i, label %for.body.lr.ph.i.i.i
 
 invoke.cont.thread.i:                             ; preds = %entry
-  %mnElementCount.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %mnElementCount.i3.i, align 8
+  %mnElementCount.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 0, ptr %mnElementCount.i6.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -80081,8 +80081,8 @@ entry:
   br i1 %cmp9.not.i.i.i, label %invoke.cont.thread.i, label %for.body.lr.ph.i.i.i
 
 invoke.cont.thread.i:                             ; preds = %entry
-  %mnElementCount.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %mnElementCount.i3.i, align 8
+  %mnElementCount.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 0, ptr %mnElementCount.i6.i, align 8
   br label %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -80475,8 +80475,8 @@ entry:
   br i1 %cmp9.not.i.i.i, label %invoke.cont.thread.i, label %for.body.lr.ph.i.i.i
 
 invoke.cont.thread.i:                             ; preds = %entry
-  %mnElementCount.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %mnElementCount.i3.i, align 8
+  %mnElementCount.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 0, ptr %mnElementCount.i6.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EED2Ev.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
@@ -94089,8 +94089,8 @@ entry:
   br i1 %cmp9.not.i.i.i.i, label %invoke.cont.thread.i.i, label %for.body.lr.ph.i.i.i.i
 
 invoke.cont.thread.i.i:                           ; preds = %entry
-  %mnElementCount.i3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %mnElementCount.i3.i.i, align 8
+  %mnElementCount.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 0, ptr %mnElementCount.i6.i.i, align 8
   br label %_ZN5eastl13hash_multimapIiiNS_4hashIiEENS_8equal_toIiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEELb0EED2Ev.exit
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %entry
@@ -94161,8 +94161,8 @@ entry:
   br i1 %cmp9.not.i.i.i, label %invoke.cont.thread.i, label %for.body.lr.ph.i.i.i
 
 invoke.cont.thread.i:                             ; preds = %entry
-  %mnElementCount.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 0, ptr %mnElementCount.i3.i, align 8
+  %mnElementCount.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 0, ptr %mnElementCount.i6.i, align 8
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb0EED2Ev.exit
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry

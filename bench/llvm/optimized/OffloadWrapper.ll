@@ -197,8 +197,8 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i: ; preds = %8
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.thread.i
-  %.idx31.pn.i = shl nuw nsw i64 %3, 4
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx31.pn.i
+  %.idx41.pn.i = shl nuw nsw i64 %3, 4
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx41.pn.i
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %31, i64 33
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 16

@@ -919,7 +919,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, %41
   %45 = icmp ult i32 %38, %44
-  br i1 %45, label %.thread2, label %46
+  br i1 %45, label %.thread3, label %46
 
 46:                                               ; preds = %37
   %47 = tail call ptr @sg_next(ptr noundef %39) #9
@@ -929,9 +929,9 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   store i32 %49, ptr %23, align 8
   %.pr.pre = load i32, ptr %11, align 8
   %50 = icmp eq i32 %.pr.pre, 0
-  br i1 %50, label %.thread, label %.thread2
+  br i1 %50, label %.thread, label %.thread3
 
-.thread2:                                         ; preds = %37, %46
+.thread3:                                         ; preds = %37, %46
   %51 = load i32, ptr %29, align 8
   %52 = load ptr, ptr %24, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -942,7 +942,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   %58 = icmp ult i32 %51, %57
   br i1 %58, label %.thread, label %59
 
-59:                                               ; preds = %.thread2
+59:                                               ; preds = %.thread3
   %60 = tail call ptr @sg_next(ptr noundef %52) #9
   store ptr %60, ptr %24, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -950,7 +950,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
   store i32 %62, ptr %29, align 8
   br label %.thread
 
-.thread:                                          ; preds = %14, %59, %.thread2, %46
+.thread:                                          ; preds = %14, %59, %.thread3, %46
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %64 = load i32, ptr %63, align 8
   %65 = load i32, ptr %15, align 4

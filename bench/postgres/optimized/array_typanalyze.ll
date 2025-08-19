@@ -574,15 +574,15 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %231 = fdiv double %.0233.lcssa, %209
   %232 = fptrunc double %231 to float
   %233 = shl nuw nsw i64 %indvars.iv314, 32
-  %sext324 = add nuw i64 %233, 8589934592
-  %234 = ashr exact i64 %sext324, 30
+  %sext335 = add nuw i64 %233, 8589934592
+  %234 = ashr exact i64 %sext335, 30
   %235 = getelementptr inbounds i8, ptr %206, i64 %234
   store float %232, ptr %235, align 4
   %236 = fdiv double %.0218.lcssa, %209
   %237 = fptrunc double %236 to float
   %238 = shl nuw nsw i64 %indvars.iv314, 32
-  %sext325 = add nuw i64 %238, 12884901888
-  %239 = ashr exact i64 %sext325, 30
+  %sext336 = add nuw i64 %238, 12884901888
+  %239 = ashr exact i64 %sext336, 30
   %240 = getelementptr inbounds i8, ptr %206, i64 %239
   store float %237, ptr %240, align 4
   store ptr %200, ptr @CurrentMemoryContext, align 8
@@ -728,8 +728,8 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   br i1 %exitcond322.not, label %326, label %.preheader, !llvm.loop !15
 
 326:                                              ; preds = %._crit_edge301
-  %sext326 = shl i64 %.1239, 32
-  %327 = ashr exact i64 %sext326, 32
+  %sext337 = shl i64 %.1239, 32
+  %327 = ashr exact i64 %sext337, 32
   %328 = getelementptr inbounds [5 x i16], ptr %46, i64 0, i64 %327
   store i16 5, ptr %328, align 2
   %329 = getelementptr inbounds nuw i8, ptr %18, i64 4

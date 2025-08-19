@@ -1742,7 +1742,7 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
   %25 = icmp eq i8 %21, 18
   %26 = select i1 %25, i32 18, i32 2
   %27 = select i1 %or.cond.i, i32 10, i32 %26
-  br label %.thread28
+  br label %.thread29
 
 28:                                               ; preds = %14
   %29 = and i32 %17, 1
@@ -1751,14 +1751,14 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
 
 30:                                               ; preds = %28
   %31 = lshr i32 %17, 1
-  br label %.thread28
+  br label %.thread29
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %15, align 4
   %34 = lshr i32 %33, 2
   br label %38
 
-.thread28:                                        ; preds = %19, %30
+.thread29:                                        ; preds = %19, %30
   %.0.i.ph = phi i32 [ %31, %30 ], [ %27, %19 ]
   %35 = add nuw nsw i32 %.0.i.ph, 7
   %36 = and i32 %35, -8
@@ -1782,9 +1782,9 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 976, ptr noundef nonnull @__func__.spgFormNodeTuple) #10
   unreachable
 
-.thread:                                          ; preds = %.thread28, %4, %3, %38
-  %spec.select = phi i32 [ 0, %38 ], [ 32768, %3 ], [ 0, %4 ], [ 0, %.thread28 ]
-  %.01924 = phi i32 [ %41, %38 ], [ 8, %3 ], [ 16, %4 ], [ %37, %.thread28 ]
+.thread:                                          ; preds = %.thread29, %4, %3, %38
+  %spec.select = phi i32 [ 0, %38 ], [ 32768, %3 ], [ 0, %4 ], [ 0, %.thread29 ]
+  %.01924 = phi i32 [ %41, %38 ], [ 8, %3 ], [ 16, %4 ], [ %37, %.thread29 ]
   %47 = zext nneg i32 %.01924 to i64
   %48 = tail call ptr @palloc0(i64 noundef %47) #10
   %49 = or disjoint i32 %.01924, %spec.select

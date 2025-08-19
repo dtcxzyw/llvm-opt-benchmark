@@ -3625,7 +3625,7 @@ _ZN6vectorIPN3smt12theory_array8var_dataELb0EjE3endEv.exit: ; preds = %_ZN11trai
   %51 = shl nuw nsw i64 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 %51
   %.not4.i = icmp eq i32 %49, 0
-  br i1 %.not4.i, label %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit.thread6, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit.thread16, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE3endEv.exit, %_ZN11delete_procIN3smt12theory_array8var_dataEEclEPS2_.exit.i
   %.05.i = phi ptr [ %55, %_ZN11delete_procIN3smt12theory_array8var_dataEEclEPS2_.exit.i ], [ %46, %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE3endEv.exit ]
@@ -3645,15 +3645,15 @@ _ZN11delete_procIN3smt12theory_array8var_dataEEclEPS2_.exit.i: ; preds = %54, %.
 _ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit: ; preds = %_ZN11delete_procIN3smt12theory_array8var_dataEEclEPS2_.exit.i
   %.pre = load ptr, ptr %45, align 8, !tbaa !6
   %.not.i2 = icmp eq ptr %.pre, null
-  br i1 %.not.i2, label %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE5resetEv.exit, label %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit.thread6
+  br i1 %.not.i2, label %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE5resetEv.exit, label %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit.thread16
 
-_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit.thread6: ; preds = %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE3endEv.exit, %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit
+_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit.thread16: ; preds = %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE3endEv.exit, %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit
   %56 = phi ptr [ %.pre, %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit ], [ %46, %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE3endEv.exit ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -4
   store i32 0, ptr %57, align 4, !tbaa !560
   br label %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE5resetEv.exit
 
-_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE5resetEv.exit: ; preds = %_ZN11trail_stack5resetEv.exit, %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit, %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit.thread6
+_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE5resetEv.exit: ; preds = %_ZN11trail_stack5resetEv.exit, %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit, %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit.thread16
   tail call void @_ZN3smt17theory_array_base8reset_ehEv(ptr noundef nonnull align 8 dereferenceable(249) %0)
   ret void
 }

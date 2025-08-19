@@ -4724,9 +4724,9 @@ _ZNSt12_Vector_baseISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingD
   br label %57
 
 52:                                               ; preds = %.body, %.body.thread
-  %.sink42 = phi { ptr, i32 } [ %47, %.body ], [ %27, %.body.thread ]
+  %.sink46 = phi { ptr, i32 } [ %47, %.body ], [ %27, %.body.thread ]
   %.0.lpad-body38 = phi ptr [ %32, %.body ], [ %24, %.body.thread ]
-  %53 = extractvalue { ptr, i32 } %.sink42, 0
+  %53 = extractvalue { ptr, i32 } %.sink46, 0
   %54 = call ptr @__cxa_begin_catch(ptr %53) #20
   invoke void @_ZSt8_DestroyIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES8_EvT_SA_RSaIT0_E(ptr noundef nonnull %24, ptr noundef nonnull %.0.lpad-body38, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %57 unwind label %55

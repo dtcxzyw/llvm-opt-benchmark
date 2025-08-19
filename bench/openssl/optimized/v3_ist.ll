@@ -195,10 +195,10 @@ define internal ptr @v2i_issuer_sign_tool(ptr readnone captures(none) %0, ptr re
   br i1 %76, label %12, label %.loopexit, !llvm.loop !16
 
 77:                                               ; preds = %59, %62, %65, %69, %48, %51, %55, %34, %37, %41, %20, %23, %27
-  %.sink55 = phi i32 [ 56, %27 ], [ 56, %23 ], [ 56, %20 ], [ 64, %41 ], [ 64, %37 ], [ 64, %34 ], [ 72, %55 ], [ 72, %51 ], [ 72, %48 ], [ 80, %69 ], [ 80, %65 ], [ 80, %62 ], [ 84, %59 ]
+  %.sink66 = phi i32 [ 56, %27 ], [ 56, %23 ], [ 56, %20 ], [ 64, %41 ], [ 64, %37 ], [ 64, %34 ], [ 72, %55 ], [ 72, %51 ], [ 72, %48 ], [ 80, %69 ], [ 80, %65 ], [ 80, %62 ], [ 84, %59 ]
   %.sink = phi i32 [ 524301, %27 ], [ 524301, %23 ], [ 524301, %20 ], [ 524301, %41 ], [ 524301, %37 ], [ 524301, %34 ], [ 524301, %55 ], [ 524301, %51 ], [ 524301, %48 ], [ 524301, %69 ], [ 524301, %65 ], [ 524301, %62 ], [ 524550, %59 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef %.sink55, ptr noundef nonnull @__func__.v2i_issuer_sign_tool) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef %.sink66, ptr noundef nonnull @__func__.v2i_issuer_sign_tool) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #4
   tail call void @ASN1_item_free(ptr noundef nonnull %4, ptr noundef nonnull @ISSUER_SIGN_TOOL_it.local_it) #4
   br label %.loopexit

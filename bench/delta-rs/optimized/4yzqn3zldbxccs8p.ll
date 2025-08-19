@@ -2433,7 +2433,7 @@ define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u
   %5 = alloca { i64, [9 x i64] }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i8, ptr %6, align 8, !range !360, !noundef !7
-  switch i8 %7, label %default.unreachable32 [
+  switch i8 %7, label %default.unreachable33 [
     i8 0, label %9
     i8 1, label %24
     i8 2, label %25
@@ -2448,7 +2448,7 @@ define internal void @"_ZN12object_store11ObjectStore20rename_if_not_exists28_$u
   %.pre31 = load ptr, ptr %.phi.trans.insert30, align 8, !alias.scope !361, !noalias !366
   br label %63
 
-default.unreachable32:                            ; preds = %3
+default.unreachable33:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -3137,14 +3137,14 @@ define internal void @"_ZN12object_store11ObjectStore4head28_$u7b$$u7b$closure$u
   %8 = alloca { i64, [11 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8, !range !399, !noundef !7
-  switch i8 %10, label %default.unreachable42 [
+  switch i8 %10, label %default.unreachable44 [
     i8 0, label %13
     i8 1, label %32
     i8 2, label %33
     i8 3, label %11
   ]
 
-default.unreachable42:                            ; preds = %3
+default.unreachable44:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -8577,7 +8577,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %44,
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1414
   br label %173
 
-162:                                              ; preds = %.thread102.thread155.i, %.thread102.thread.i, %169, %.thread118.i, %168, %166, %164, %150, %.thread130.i, %70
+162:                                              ; preds = %.thread102.thread164.i, %.thread102.thread.i, %169, %.thread118.i, %168, %166, %164, %150, %.thread130.i, %70
   %163 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37, !noalias !1372
@@ -8612,15 +8612,15 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %44,
           to label %.thread102.thread.i unwind label %162, !noalias !1320
 
 .thread102.i:                                     ; preds = %70
-  br i1 %.2.i, label %.thread102.thread155.i, label %.critedge
+  br i1 %.2.i, label %.thread102.thread164.i, label %.critedge
 
 .thread102.thread.i:                              ; preds = %169, %61, %54, %.thread108.i
   %.pn62144.i = phi { ptr, i32 } [ %62, %61 ], [ %55, %54 ], [ %lpad.thr_comm.i, %.thread108.i ], [ %lpad.thr_comm.split-lp.i, %169 ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hc728326b4d33d7ceE"(ptr noalias noundef align 8 dereferenceable(8) %23) #36
-          to label %.thread102.thread155.i unwind label %162, !noalias !1320
+          to label %.thread102.thread164.i unwind label %162, !noalias !1320
 
-.thread102.thread155.i:                           ; preds = %.thread102.thread.i, %.thread102.i
-  %.pn62143158.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.thread102.i ], [ %.pn62144.i, %.thread102.thread.i ]
+.thread102.thread164.i:                           ; preds = %.thread102.thread.i, %.thread102.i
+  %.pn62143167.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %.thread102.i ], [ %.pn62144.i, %.thread102.thread.i ]
   invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$deltalake_aws..storage..execute_sdk_future$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16b8ab4409935889E"(ptr noundef nonnull align 8 dereferenceable(7160) %24) #36
           to label %.critedge unwind label %162, !noalias !1372
 
@@ -8656,8 +8656,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %44,
 175:                                              ; preds = %173, %170
   ret void
 
-.critedge:                                        ; preds = %.thread102.thread155.i, %.thread102.i, %150
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn62143158.i, %.thread102.thread155.i ], [ %.pn.pn.pn.pn.pn.i, %.thread102.i ], [ %151, %150 ]
+.critedge:                                        ; preds = %.thread102.thread164.i, %.thread102.i, %150
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn62143167.i, %.thread102.thread164.i ], [ %.pn.pn.pn.pn.pn.i, %.thread102.i ], [ %151, %150 ]
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -16224,8 +16224,8 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$deltalake_aws..sto
   br label %229
 
 "_ZN4core3ptr53drop_in_place$LT$aws_types..os_shim_internal..Env$GT$17hb2b70a418075e757E.exit.i.invoke.i": ; preds = %.noexc14.i.i, %183, %179, %146
-  %.sink187.i = phi i64 [ 2120, %146 ], [ 2272, %.noexc14.i.i ], [ 2272, %183 ], [ 2272, %179 ]
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink187.i
+  %.sink236.i = phi i64 [ 2120, %146 ], [ 2272, %.noexc14.i.i ], [ 2272, %183 ], [ 2272, %179 ]
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink236.i
   invoke void @"_ZN4core3ptr64drop_in_place$LT$aws_config..provider_config..ProviderConfig$GT$17h2a89c50617611915E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %233)
           to label %"_ZN4core3ptr107drop_in_place$LT$aws_config..default_provider..app_name..Builder..app_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb798323468254fcfE.exit.i" unwind label %627
 
@@ -21923,8 +21923,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !4275, !noalias !4272
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !4275, !noalias !4272
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 15:                                               ; preds = %6
@@ -21936,13 +21936,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !4275, !noalias !4272
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !4275, !noalias !4272
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !4275, !noalias !4272
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !4275, !noalias !4272
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 26:                                               ; preds = %6

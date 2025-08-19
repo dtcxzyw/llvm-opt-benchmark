@@ -255,8 +255,8 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   %109 = add nsw i32 %.067, %.071118
   %110 = xor i1 %.072117, true
   %.068 = add nsw i64 %.068119, -1
-  %.not145 = icmp eq i64 %.068119, 0
-  br i1 %.not145, label %._crit_edge121, label %.lr.ph120
+  %.not150 = icmp eq i64 %.068119, 0
+  br i1 %.not150, label %._crit_edge121, label %.lr.ph120
 
 ._crit_edge121:                                   ; preds = %.lr.ph120
   %111 = srem i32 %109, 10

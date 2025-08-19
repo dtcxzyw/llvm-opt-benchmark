@@ -570,9 +570,9 @@ zend_string_alloc.exit68:                         ; preds = %40
   br label %53
 
 53:                                               ; preds = %40, %zend_string_alloc.exit68
-  %.sink73 = phi i32 [ 262, %zend_string_alloc.exit68 ], [ 1, %40 ]
+  %.sink84 = phi i32 [ 262, %zend_string_alloc.exit68 ], [ 1, %40 ]
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 %.sink73, ptr %54, align 8, !tbaa !8
+  store i32 %.sink84, ptr %54, align 8, !tbaa !8
   %55 = icmp eq ptr %4, null
   br i1 %55, label %66, label %zend_string_alloc.exit67
 
@@ -597,9 +597,9 @@ zend_string_alloc.exit67:                         ; preds = %53
   br label %66
 
 66:                                               ; preds = %53, %zend_string_alloc.exit67
-  %.sink75 = phi i32 [ 262, %zend_string_alloc.exit67 ], [ 1, %53 ]
+  %.sink86 = phi i32 [ 262, %zend_string_alloc.exit67 ], [ 1, %53 ]
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 %.sink75, ptr %67, align 8, !tbaa !8
+  store i32 %.sink86, ptr %67, align 8, !tbaa !8
   %68 = icmp eq ptr %5, null
   br i1 %68, label %79, label %zend_string_alloc.exit
 
@@ -624,9 +624,9 @@ zend_string_alloc.exit:                           ; preds = %66
   br label %79
 
 79:                                               ; preds = %66, %zend_string_alloc.exit
-  %.sink77 = phi i32 [ 262, %zend_string_alloc.exit ], [ 1, %66 ]
+  %.sink88 = phi i32 [ 262, %zend_string_alloc.exit ], [ 1, %66 ]
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 %.sink77, ptr %80, align 8, !tbaa !8
+  store i32 %.sink88, ptr %80, align 8, !tbaa !8
   %81 = load ptr, ptr %24, align 8, !tbaa !74
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !8
@@ -8338,9 +8338,9 @@ define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(n
   %16 = load i8, ptr %15, align 8, !tbaa !8
   %17 = icmp eq i8 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  br i1 %17, label %.thread128, label %20
+  br i1 %17, label %.thread133, label %20
 
-.thread128:                                       ; preds = %13
+.thread133:                                       ; preds = %13
   store i32 1, ptr %15, align 8, !tbaa !8
   %19 = load ptr, ptr %14, align 8, !tbaa !8
   store ptr %19, ptr %.0, align 8, !tbaa !8
@@ -8362,7 +8362,7 @@ define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(n
   store i32 %25, ptr %21, align 4, !tbaa !70
   br label %26
 
-26:                                               ; preds = %.thread128, %23, %20
+26:                                               ; preds = %.thread133, %23, %20
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %29 = load i64, ptr %28, align 8, !tbaa !113

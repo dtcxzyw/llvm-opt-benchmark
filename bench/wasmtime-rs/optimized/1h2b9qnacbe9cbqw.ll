@@ -4430,13 +4430,13 @@ define noundef zeroext i1 @"_ZN121_$LT$wasmtime_runtime..gc..enabled..drc..DrcCo
   %24 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i8, ptr %25, align 8, !range !384, !noundef !9
-  switch i8 %26, label %default.unreachable32 [
+  switch i8 %26, label %default.unreachable38 [
     i8 0, label %27
     i8 1, label %109
     i8 2, label %108
   ]
 
-default.unreachable32:                            ; preds = %1
+default.unreachable38:                            ; preds = %1
   unreachable
 
 27:                                               ; preds = %1

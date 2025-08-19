@@ -557,9 +557,9 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
 
 129:                                              ; preds = %128, %127, %126, %125
   %hf_packetbb_msgheader_origaddrcustom.sink.i = phi ptr [ @hf_packetbb_msgheader_origaddrcustom, %128 ], [ @hf_packetbb_msgheader_origaddrmac, %127 ], [ @hf_packetbb_msgheader_origaddripv6, %126 ], [ @hf_packetbb_msgheader_origaddripv4, %125 ]
-  %.sink151.i = phi i32 [ %67, %128 ], [ 6, %127 ], [ 16, %126 ], [ 4, %125 ]
+  %.sink165.i = phi i32 [ %67, %128 ], [ 6, %127 ], [ 16, %126 ], [ 4, %125 ]
   %130 = load i32, ptr %hf_packetbb_msgheader_origaddrcustom.sink.i, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %130, ptr noundef %0, i32 noundef %124, i32 noundef %.sink151.i, i32 noundef 0)
+  %131 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %130, ptr noundef %0, i32 noundef %124, i32 noundef %.sink165.i, i32 noundef 0)
   %132 = add i32 %67, %124
   br label %133
 
@@ -1050,7 +1050,7 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   br i1 %.not183, label %42, label %39
 
 39:                                               ; preds = %31
-  %40 = add i32 %spec.select, 1
+  %40 = add nuw nsw i32 %spec.select, 1
   %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %spec.select)
   br label %49
 
@@ -1060,9 +1060,9 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   br i1 %.not184, label %49, label %44
 
 44:                                               ; preds = %42
-  %45 = add i32 %spec.select, 1
+  %45 = add nuw nsw i32 %spec.select, 1
   %46 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %spec.select)
-  %47 = add i32 %spec.select, 2
+  %47 = add nuw nsw i32 %spec.select, 2
   %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %45)
   br label %49
 

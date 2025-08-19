@@ -540,7 +540,7 @@ _ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit: ; preds = %10, %
   br i1 %.not.i6, label %64, label %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit.thread
 
 _ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit.thread: ; preds = %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE10deallocateEv.exit.i, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE10deallocateEv.exit14.i, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit
-  %.010 = phi i1 [ true, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit ], [ false, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE10deallocateEv.exit14.i ], [ %.not.i5, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE10deallocateEv.exit.i ]
+  %.015 = phi i1 [ true, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit ], [ false, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE10deallocateEv.exit14.i ], [ %.not.i5, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE10deallocateEv.exit.i ]
   %53 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8, !tbaa !79
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !66
@@ -562,11 +562,11 @@ _ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit.thread: ; preds =
   br label %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE19copyFromHostPointerEPKS0_mmb.exit
 
 _ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE19copyFromHostPointerEPKS0_mmb.exit: ; preds = %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit.thread, %60, %64
-  %.09 = phi i1 [ %.010, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit.thread ], [ %.010, %60 ], [ true, %64 ]
+  %.014 = phi i1 [ %.015, %_ZN13b3OpenCLArrayI24b3ParamsGridBroadphaseCLE7reserveEmb.exit.thread ], [ %.015, %60 ], [ true, %64 ]
   %65 = load i64, ptr %5, align 8, !tbaa !75
   %66 = add i64 %65, 1
   store i64 %66, ptr %5, align 8, !tbaa !75
-  ret i1 %.09
+  ret i1 %.014
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -3669,7 +3669,7 @@ _ZN13b3OpenCLArrayIiE7reserveEmb.exit:            ; preds = %10, %3
   br i1 %.not.i6, label %64, label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread
 
 _ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread:     ; preds = %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit
-  %.010 = phi i1 [ true, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i ], [ %.not.i5, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i ]
+  %.015 = phi i1 [ true, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i ], [ %.not.i5, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i ]
   %53 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8, !tbaa !79
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !46
@@ -3691,11 +3691,11 @@ _ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread:     ; preds = %_ZN13b3OpenCLArrayI
   br label %_ZN13b3OpenCLArrayIiE19copyFromHostPointerEPKimmb.exit
 
 _ZN13b3OpenCLArrayIiE19copyFromHostPointerEPKimmb.exit: ; preds = %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread, %60, %64
-  %.09 = phi i1 [ %.010, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread ], [ %.010, %60 ], [ true, %64 ]
+  %.014 = phi i1 [ %.015, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread ], [ %.015, %60 ], [ true, %64 ]
   %65 = load i64, ptr %5, align 8, !tbaa !90
   %66 = add i64 %65, 1
   store i64 %66, ptr %5, align 8, !tbaa !90
-  ret i1 %.09
+  ret i1 %.014
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

@@ -4904,9 +4904,9 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
   br label %3003
 
 3003:                                             ; preds = %2993, %3002
-  %.sink3524 = phi i64 [ 8, %3002 ], [ 16, %2993 ]
+  %.sink3605 = phi i64 [ 8, %3002 ], [ 16, %2993 ]
   %3004 = load ptr, ptr %2999, align 8, !tbaa !30
-  %3005 = getelementptr inbounds nuw i8, ptr %3004, i64 %.sink3524
+  %3005 = getelementptr inbounds nuw i8, ptr %3004, i64 %.sink3605
   %3006 = load ptr, ptr %3005, align 8, !tbaa !88
   %3007 = icmp eq ptr %3006, null
   br i1 %3007, label %.critedge3184, label %3008
@@ -5096,8 +5096,8 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
 .lr.ph3309:                                       ; preds = %.loopexit.thread
   %3103 = getelementptr inbounds nuw i8, ptr %3079, i64 24
   %3104 = load ptr, ptr %3103, align 8, !tbaa !91
-  %sext3471 = shl i64 %3082, 32
-  %3105 = ashr exact i64 %sext3471, 32
+  %sext3552 = shl i64 %3082, 32
+  %3105 = ashr exact i64 %sext3552, 32
   br label %3106
 
 3106:                                             ; preds = %.lr.ph3309, %3125
@@ -5164,8 +5164,8 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
 
 3143:                                             ; preds = %3136
   %3144 = shl i64 %indvars.iv3434, 32
-  %sext3472 = add i64 %3144, 4294967296
-  %3145 = ashr exact i64 %sext3472, 32
+  %sext3553 = add i64 %3144, 4294967296
+  %3145 = ashr exact i64 %sext3553, 32
   %3146 = inttoptr i64 %3145 to ptr
   store ptr %3146, ptr %3080, align 8, !tbaa !30
   %3147 = getelementptr inbounds nuw i8, ptr %3068, i64 40
@@ -6334,8 +6334,8 @@ _Z10luai_veceqPKfS0_.exit3190:                    ; preds = %1505
   br label %.loopexit3249.sink.split
 
 .loopexit3249.sink.split:                         ; preds = %1173, %1045, %.loopexit3249.sink.split.sink.split
-  %.sink3527 = phi ptr [ %3921, %.loopexit3249.sink.split.sink.split ], [ %.pre3459.pre, %1045 ], [ %.pre3455, %1173 ]
-  %3922 = getelementptr inbounds nuw i8, ptr %.sink3527, i64 24
+  %.sink3608 = phi ptr [ %3921, %.loopexit3249.sink.split.sink.split ], [ %.pre3459.pre, %1045 ], [ %.pre3455, %1173 ]
+  %3922 = getelementptr inbounds nuw i8, ptr %.sink3608, i64 24
   %3923 = load ptr, ptr %3922, align 8, !tbaa !27
   %3924 = getelementptr inbounds i8, ptr %3923, i64 -4
   store ptr %3924, ptr %3922, align 8, !tbaa !27
@@ -11543,9 +11543,9 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1698
   br label %3459
 
 3459:                                             ; preds = %3449, %3458
-  %.sink3704 = phi i64 [ 8, %3458 ], [ 16, %3449 ]
+  %.sink3784 = phi i64 [ 8, %3458 ], [ 16, %3449 ]
   %3460 = load ptr, ptr %3455, align 8, !tbaa !30
-  %3461 = getelementptr inbounds nuw i8, ptr %3460, i64 %.sink3704
+  %3461 = getelementptr inbounds nuw i8, ptr %3460, i64 %.sink3784
   %3462 = load ptr, ptr %3461, align 8, !tbaa !88
   %3463 = icmp eq ptr %3462, null
   br i1 %3463, label %.critedge3365, label %3464
@@ -11741,8 +11741,8 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1698
 .lr.ph3495:                                       ; preds = %.loopexit.thread
   %3565 = getelementptr inbounds nuw i8, ptr %3538, i64 24
   %3566 = load ptr, ptr %3565, align 8, !tbaa !91
-  %sext3648 = shl i64 %3541, 32
-  %3567 = ashr exact i64 %sext3648, 32
+  %sext3728 = shl i64 %3541, 32
+  %3567 = ashr exact i64 %sext3728, 32
   br label %3568
 
 3568:                                             ; preds = %.lr.ph3495, %3590
@@ -11812,8 +11812,8 @@ _Z10luai_veceqPKfS0_.exit3371:                    ; preds = %1698
 
 3608:                                             ; preds = %3601
   %3609 = shl i64 %indvars.iv3622, 32
-  %sext3649 = add i64 %3609, 4294967296
-  %3610 = ashr exact i64 %sext3649, 32
+  %sext3729 = add i64 %3609, 4294967296
+  %3610 = ashr exact i64 %sext3729, 32
   %3611 = inttoptr i64 %3610 to ptr
   store ptr %3611, ptr %3539, align 8, !tbaa !30
   %3612 = getelementptr inbounds nuw i8, ptr %3527, i64 40

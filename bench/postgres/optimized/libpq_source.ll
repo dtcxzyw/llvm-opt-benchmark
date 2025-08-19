@@ -693,8 +693,8 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
 28:                                               ; preds = %.lr.ph, %appendArrayEscapedString.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %appendArrayEscapedString.exit ]
   %29 = getelementptr inbounds nuw [1000 x %struct.fetch_range_request], ptr %16, i64 0, i64 %indvars.iv
-  %.not174 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not174, label %31, label %30
+  %.not180 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not180, label %31, label %30
 
 30:                                               ; preds = %28
   tail call void @appendStringInfoChar(ptr noundef nonnull %11, i8 noundef signext 44) #10
@@ -712,7 +712,7 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
 
 36:                                               ; preds = %31
   tail call void @appendStringInfoChar(ptr noundef nonnull %11, i8 noundef signext 34) #10
-  br label %.preheader238
+  br label %.preheader244
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %11, align 8
@@ -726,13 +726,13 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   store i8 0, ptr %45, align 1
-  br label %.preheader238
+  br label %.preheader244
 
-.preheader238:                                    ; preds = %37, %36
+.preheader244:                                    ; preds = %37, %36
   br label %46
 
-46:                                               ; preds = %.preheader238, %76
-  %.0.i = phi ptr [ %77, %76 ], [ %32, %.preheader238 ]
+46:                                               ; preds = %.preheader244, %76
+  %.0.i = phi ptr [ %77, %76 ], [ %32, %.preheader244 ]
   %47 = load i8, ptr %.0.i, align 1
   switch i8 %47, label %62 [
     i8 0, label %78

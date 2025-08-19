@@ -946,8 +946,8 @@ SSL_in_before.exit120.thread:                     ; preds = %121, %.thread11.i11
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %166
 
-166:                                              ; preds = %.backedge224, %148
-  %167 = phi i32 [ %149, %148 ], [ %.be, %.backedge224 ]
+166:                                              ; preds = %.backedge239, %148
+  %167 = phi i32 [ %149, %148 ], [ %.be, %.backedge239 ]
   switch i32 %167, label %397 [
     i32 4, label %.loopexit
     i32 2, label %168
@@ -1252,7 +1252,7 @@ read_state_machine.exit.thread:                   ; preds = %192, %196, %242, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 3, ptr %9, align 8, !tbaa !84
   store i32 0, ptr %152, align 4, !tbaa !122
-  br label %.backedge224
+  br label %.backedge239
 
 285:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1280,7 +1280,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   %.not81.i127 = icmp eq ptr %.0.i.i125, null
   br label %293
 
-293:                                              ; preds = %.backedge223, %get_callback.exit.i124
+293:                                              ; preds = %.backedge238, %get_callback.exit.i124
   %294 = load i32, ptr %152, align 4, !tbaa !122
   switch i32 %294, label %write_state_machine.exit.thread.sink.split [
     i32 0, label %295
@@ -1305,7 +1305,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
 
 297:                                              ; preds = %.sink.split.i137, %295
   %298 = call i32 %ossl_statem_client_write_transition.ossl_statem_server_write_transition.i(ptr noundef nonnull %0) #7, !callees !140
-  switch i32 %298, label %.backedge223 [
+  switch i32 %298, label %.backedge238 [
     i32 1, label %299
     i32 2, label %395
     i32 0, label %300
@@ -1314,7 +1314,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
 299:                                              ; preds = %297
   store i32 1, ptr %152, align 4, !tbaa !122
   store i32 3, ptr %153, align 8, !tbaa !139
-  br label %.backedge223
+  br label %.backedge238
 
 300:                                              ; preds = %297
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -1368,7 +1368,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
 321:                                              ; preds = %318
   store i32 3, ptr %152, align 4, !tbaa !122
   store i32 3, ptr %153, align 8, !tbaa !139
-  br label %.backedge223
+  br label %.backedge238
 
 322:                                              ; preds = %318
   %323 = load ptr, ptr %154, align 8, !tbaa !117
@@ -1415,7 +1415,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   call void @WPACKET_cleanup(ptr noundef nonnull %5) #7
   store i32 3, ptr %152, align 4, !tbaa !122
   store i32 3, ptr %153, align 8, !tbaa !139
-  br label %.backedge223
+  br label %.backedge238
 
 .thread93.i:                                      ; preds = %335, %333
   %344 = load ptr, ptr %155, align 8, !tbaa !109
@@ -1500,7 +1500,7 @@ statem_do_write.exit.i:                           ; preds = %376, %374, %372
   %386 = phi i32 [ %.pre.i, %._crit_edge.i ], [ 3, %384 ]
   %387 = call i32 %ossl_statem_client_post_work.ossl_statem_server_post_work.i(ptr noundef nonnull %0, i32 noundef %386) #7, !callees !148
   store i32 %387, ptr %153, align 8, !tbaa !139
-  switch i32 %387, label %.backedge223 [
+  switch i32 %387, label %.backedge238 [
     i32 0, label %388
     i32 3, label %write_state_machine.exit.thread153
     i32 4, label %write_state_machine.exit.thread153
@@ -1522,21 +1522,21 @@ statem_do_write.exit.i:                           ; preds = %376, %374, %372
 
 394:                                              ; preds = %385
   store i32 0, ptr %152, align 4, !tbaa !122
-  br label %.backedge223
+  br label %.backedge238
 
-.backedge223:                                     ; preds = %394, %385, %343, %321, %299, %297
+.backedge238:                                     ; preds = %394, %385, %343, %321, %299, %297
   br label %293
 
 write_state_machine.exit.thread.sink.split.sink.split: ; preds = %.thread93.i, %351, %322, %325
-  %.sink205.ph = phi i32 [ 891, %325 ], [ 891, %322 ], [ 916, %351 ], [ 916, %.thread93.i ]
+  %.sink220.ph = phi i32 [ 891, %325 ], [ 891, %322 ], [ 916, %351 ], [ 916, %.thread93.i ]
   call void @WPACKET_cleanup(ptr noundef nonnull %5) #7
   br label %write_state_machine.exit.thread.sink.split
 
 write_state_machine.exit.thread.sink.split:       ; preds = %293, %write_state_machine.exit.thread.sink.split.sink.split, %388, %391, %337, %340, %309, %312, %300, %303
-  %.sink205 = phi i32 [ 856, %303 ], [ 856, %300 ], [ 864, %312 ], [ 864, %309 ], [ 900, %340 ], [ 900, %337 ], [ 937, %391 ], [ 937, %388 ], [ %.sink205.ph, %write_state_machine.exit.thread.sink.split.sink.split ], [ 954, %293 ]
+  %.sink220 = phi i32 [ 856, %303 ], [ 856, %300 ], [ 864, %312 ], [ 864, %309 ], [ 900, %340 ], [ 900, %337 ], [ 937, %391 ], [ 937, %388 ], [ %.sink220.ph, %write_state_machine.exit.thread.sink.split.sink.split ], [ 954, %293 ]
   %.sink = phi i32 [ 256, %303 ], [ 256, %300 ], [ 256, %312 ], [ 256, %309 ], [ 256, %340 ], [ 256, %337 ], [ 256, %391 ], [ 256, %388 ], [ 786691, %write_state_machine.exit.thread.sink.split.sink.split ], [ 786691, %293 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink205, ptr noundef nonnull @__func__.write_state_machine) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink220, ptr noundef nonnull @__func__.write_state_machine) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null)
   br label %write_state_machine.exit.thread
 
@@ -1558,16 +1558,16 @@ write_state_machine.exit.thread153:               ; preds = %306, %306, %306, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 2, ptr %9, align 8, !tbaa !84
   store i32 0, ptr %158, align 4, !tbaa !125
-  br label %.backedge224
+  br label %.backedge239
 
 396:                                              ; preds = %306, %385
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 4, ptr %9, align 8, !tbaa !84
-  br label %.backedge224
+  br label %.backedge239
 
-.backedge224:                                     ; preds = %396, %395, %284
+.backedge239:                                     ; preds = %396, %395, %284
   %.be = phi i32 [ 4, %396 ], [ 2, %395 ], [ 3, %284 ]
   br label %166, !llvm.loop !149
 
@@ -1599,16 +1599,16 @@ write_state_machine.exit.thread153:               ; preds = %306, %306, %306, %3
   store i32 %404, ptr %23, align 4, !tbaa !103
   call void @BUF_MEM_free(ptr noundef %.1) #7
   %.not110 = icmp eq ptr %.0.i, null
-  br i1 %.not110, label %405, label %.sink.split206
+  br i1 %.not110, label %405, label %.sink.split221
 
-.sink.split206:                                   ; preds = %.loopexit
+.sink.split221:                                   ; preds = %.loopexit
   %.not111 = icmp eq i32 %1, 0
   %. = select i1 %.not111, i32 4098, i32 8194
   call void %.0.i(ptr noundef %11, i32 noundef %., i32 noundef %.081) #7
   br label %405
 
-405:                                              ; preds = %.sink.split206, %.loopexit, %54, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %54 ], [ %.081, %.loopexit ], [ %.081, %.sink.split206 ]
+405:                                              ; preds = %.sink.split221, %.loopexit, %54, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %54 ], [ %.081, %.loopexit ], [ %.081, %.sink.split221 ]
   ret i32 %.0
 }
 

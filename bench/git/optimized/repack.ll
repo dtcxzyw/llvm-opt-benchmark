@@ -1025,8 +1025,8 @@ _.exit:                                           ; preds = %373, %375
 .lr.ph.i:                                         ; preds = %395
   %397 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %398 = load i64, ptr %397, align 8, !tbaa !45
-  %.not441 = icmp eq i64 %398, 0
-  br i1 %.not441, label %.critedge.i, label %.lr.ph
+  %.not528 = icmp eq i64 %398, 0
+  br i1 %.not528, label %.critedge.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
   %.013.i329 = phi ptr [ %403, %.lr.ph ], [ %396, %.lr.ph.i ]
@@ -1470,18 +1470,17 @@ geometry_pack_weight.exit70.i:                    ; preds = %geometry_pack_weigh
 
 595:                                              ; preds = %geometry_pack_weight.exit70.i
   %596 = trunc nuw i64 %indvars.iv.i196 to i32
-  %wide.trip.count.i = and i64 %indvars.iv.i196, 4294967295
   br label %.lr.ph.i197
 
 .preheader.i:                                     ; preds = %553, %geometry_pack_weight.exit74.i
-  %.052144.i = phi i32 [ %596, %geometry_pack_weight.exit74.i ], [ 0, %553 ]
+  %.052146.i = phi i32 [ %596, %geometry_pack_weight.exit74.i ], [ 0, %553 ]
   %.055.lcssa.i = phi i64 [ %614, %geometry_pack_weight.exit74.i ], [ 0, %553 ]
   %597 = load i32, ptr %545, align 8, !tbaa !61
-  %598 = icmp ult i32 %.052144.i, %597
+  %598 = icmp ult i32 %.052146.i, %597
   br i1 %598, label %.lr.ph112.i, label %split_pack_geometry.exit
 
 .lr.ph112.i:                                      ; preds = %.preheader.i
-  %599 = zext i32 %.052144.i to i64
+  %599 = zext i32 %.052146.i to i64
   br label %615
 
 .lr.ph.i197:                                      ; preds = %geometry_pack_weight.exit74.i, %595
@@ -1517,7 +1516,7 @@ geometry_pack_weight.exit74.i:                    ; preds = %geometry_pack_weigh
   %613 = zext i32 %612 to i64
   %614 = add nuw nsw i64 %.055107.i, %613
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next135.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next135.i, %indvars.iv.i196
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i197, !llvm.loop !65
 
 615:                                              ; preds = %648, %.lr.ph112.i
@@ -1601,7 +1600,7 @@ geometry_pack_weight.exit76._crit_edge.loopexit.i: ; preds = %648, %geometry_pac
   br label %split_pack_geometry.exit
 
 split_pack_geometry.exit:                         ; preds = %init_pack_geometry.exit, %.preheader.i, %geometry_pack_weight.exit76._crit_edge.loopexit.i
-  %.153.lcssa.sink.i = phi i32 [ 0, %init_pack_geometry.exit ], [ %.052144.i, %.preheader.i ], [ %.153.lcssa.ph.i, %geometry_pack_weight.exit76._crit_edge.loopexit.i ]
+  %.153.lcssa.sink.i = phi i32 [ 0, %init_pack_geometry.exit ], [ %.052146.i, %.preheader.i ], [ %.153.lcssa.ph.i, %geometry_pack_weight.exit76._crit_edge.loopexit.i ]
   %655 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %.153.lcssa.sink.i, ptr %655, align 8, !tbaa !67
   br label %656
@@ -1813,21 +1812,21 @@ repack_promisor_objects.exit:                     ; preds = %710, %742
   %755 = load i64, ptr %753, align 8, !tbaa !45
   %756 = getelementptr inbounds nuw %struct.string_list_item, ptr %754, i64 %755
   %757 = icmp ult ptr %752, %756
-  br i1 %757, label %.lr.ph553, label %.critedge
+  br i1 %757, label %.lr.ph640, label %.critedge
 
-.lr.ph553:                                        ; preds = %.lr.ph335, %.lr.ph553
-  %.089333552 = phi ptr [ %761, %.lr.ph553 ], [ %752, %.lr.ph335 ]
+.lr.ph640:                                        ; preds = %.lr.ph335, %.lr.ph640
+  %.089333639 = phi ptr [ %761, %.lr.ph640 ], [ %752, %.lr.ph335 ]
   %758 = load ptr, ptr @packtmp_name, align 8, !tbaa !8
-  %759 = load ptr, ptr %.089333552, align 8, !tbaa !46
+  %759 = load ptr, ptr %.089333639, align 8, !tbaa !46
   %760 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %15, ptr noundef nonnull @.str.78, ptr noundef %758, ptr noundef %759) #16
-  %761 = getelementptr inbounds nuw i8, ptr %.089333552, i64 16
+  %761 = getelementptr inbounds nuw i8, ptr %.089333639, i64 16
   %762 = load ptr, ptr %16, align 8, !tbaa !42
   %763 = load i64, ptr %753, align 8, !tbaa !45
   %764 = getelementptr inbounds nuw %struct.string_list_item, ptr %762, i64 %763
   %765 = icmp ult ptr %761, %764
-  br i1 %765, label %.lr.ph553, label %.critedge
+  br i1 %765, label %.lr.ph640, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph553, %.lr.ph335, %751
+.critedge:                                        ; preds = %.lr.ph640, %.lr.ph335, %751
   %766 = load ptr, ptr %20, align 8, !tbaa !8
   %.not132 = icmp eq ptr %766, null
   br i1 %.not132, label %769, label %767
@@ -2228,8 +2227,8 @@ skip_prefix.exit.i225:                            ; preds = %934, %932
 .lr.ph.i227:                                      ; preds = %944
   %946 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %947 = load i64, ptr %946, align 8, !tbaa !105
-  %.not443 = icmp eq i64 %947, 0
-  br i1 %.not443, label %.critedge.i228, label %.lr.ph344
+  %.not530 = icmp eq i64 %947, 0
+  br i1 %.not530, label %.critedge.i228, label %.lr.ph344
 
 .lr.ph344:                                        ; preds = %.lr.ph.i227, %.lr.ph344
   %.05767.i343 = phi ptr [ %950, %.lr.ph344 ], [ %945, %.lr.ph.i227 ]
@@ -2259,9 +2258,9 @@ write_filtered_pack.exit.thread:                  ; preds = %.critedge.i228
   %960 = load ptr, ptr %16, align 8, !tbaa !42
   %.not6169.i = icmp eq ptr %960, null
   %961 = load i64, ptr %839, align 8
-  %.not445 = icmp eq i64 %961, 0
-  %or.cond507 = select i1 %.not6169.i, i1 true, i1 %.not445
-  br i1 %or.cond507, label %.critedge2.i, label %.lr.ph71.i
+  %.not532 = icmp eq i64 %961, 0
+  %or.cond594 = select i1 %.not6169.i, i1 true, i1 %.not532
+  br i1 %or.cond594, label %.critedge2.i, label %.lr.ph71.i
 
 .lr.ph71.i:                                       ; preds = %957, %.lr.ph71.i
   %.170.i345 = phi ptr [ %964, %.lr.ph71.i ], [ %960, %957 ]
@@ -2282,8 +2281,8 @@ write_filtered_pack.exit.thread:                  ; preds = %.critedge.i228
 .lr.ph75.i:                                       ; preds = %.critedge2.i
   %970 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %971 = load i64, ptr %970, align 8, !tbaa !97
-  %.not447 = icmp eq i64 %971, 0
-  br i1 %.not447, label %.critedge4.i, label %.lr.ph348
+  %.not534 = icmp eq i64 %971, 0
+  br i1 %.not534, label %.critedge4.i, label %.lr.ph348
 
 .lr.ph348:                                        ; preds = %.lr.ph75.i, %.lr.ph348
   %.274.i347 = phi ptr [ %974, %.lr.ph348 ], [ %969, %.lr.ph75.i ]
@@ -2304,8 +2303,8 @@ write_filtered_pack.exit.thread:                  ; preds = %.critedge.i228
 .lr.ph79.i:                                       ; preds = %.critedge4.i
   %980 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %981 = load i64, ptr %980, align 8, !tbaa !108
-  %.not449 = icmp eq i64 %981, 0
-  br i1 %.not449, label %.critedge6.i, label %.lr.ph350
+  %.not536 = icmp eq i64 %981, 0
+  br i1 %.not536, label %.critedge6.i, label %.lr.ph350
 
 .lr.ph350:                                        ; preds = %.lr.ph79.i, %.lr.ph350
   %.378.i349 = phi ptr [ %984, %.lr.ph350 ], [ %979, %.lr.ph79.i ]
@@ -2329,8 +2328,8 @@ write_filtered_pack.exit.thread:                  ; preds = %.critedge.i228
 .lr.ph83.i:                                       ; preds = %.critedge6.i
   %992 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %993 = load i64, ptr %992, align 8, !tbaa !105
-  %.not451 = icmp eq i64 %993, 0
-  br i1 %.not451, label %write_filtered_pack.exit, label %.lr.ph352
+  %.not538 = icmp eq i64 %993, 0
+  br i1 %.not538, label %write_filtered_pack.exit, label %.lr.ph352
 
 .lr.ph352:                                        ; preds = %.lr.ph83.i, %.lr.ph352
   %.482.i351 = phi ptr [ %996, %.lr.ph352 ], [ %991, %.lr.ph83.i ]
@@ -2366,18 +2365,18 @@ write_filtered_pack.exit:                         ; preds = %.lr.ph352, %.lr.ph8
   %1010 = load i64, ptr %839, align 8, !tbaa !45
   %1011 = getelementptr inbounds nuw %struct.string_list_item, ptr %1009, i64 %1010
   %1012 = icmp ult ptr %1007, %1011
-  br i1 %1012, label %.lr.ph555, label %.critedge17
+  br i1 %1012, label %.lr.ph642, label %.critedge17
 
-.lr.ph555:                                        ; preds = %.lr.ph357, %1052
-  %.1355554 = phi ptr [ %1053, %1052 ], [ %1007, %.lr.ph357 ]
-  %1013 = getelementptr inbounds nuw i8, ptr %.1355554, i64 8
+.lr.ph642:                                        ; preds = %.lr.ph357, %1052
+  %.1355641 = phi ptr [ %1053, %1052 ], [ %1007, %.lr.ph357 ]
+  %1013 = getelementptr inbounds nuw i8, ptr %.1355641, i64 8
   %1014 = load ptr, ptr %1013, align 8, !tbaa !95
   br label %1015
 
-1015:                                             ; preds = %.lr.ph555, %1051
-  %indvars.iv426 = phi i64 [ 0, %.lr.ph555 ], [ %indvars.iv.next427, %1051 ]
+1015:                                             ; preds = %.lr.ph642, %1051
+  %indvars.iv426 = phi i64 [ 0, %.lr.ph642 ], [ %indvars.iv.next427, %1051 ]
   %1016 = load ptr, ptr @packdir, align 8, !tbaa !8
-  %1017 = load ptr, ptr %.1355554, align 8, !tbaa !46
+  %1017 = load ptr, ptr %.1355641, align 8, !tbaa !46
   %1018 = getelementptr inbounds nuw [6 x %struct.anon], ptr @exts, i64 0, i64 %indvars.iv426
   %1019 = load ptr, ptr %1018, align 16, !tbaa !110
   %1020 = call ptr (ptr, ...) @mkpathdup(ptr noundef nonnull @.str.94, ptr noundef %1016, ptr noundef %1017, ptr noundef %1019) #16
@@ -2423,7 +2422,7 @@ write_filtered_pack.exit:                         ; preds = %.lr.ph352, %.lr.ph8
 1039:                                             ; preds = %1035
   %1040 = call fastcc ptr @_(ptr noundef nonnull @.str.96)
   %1041 = load ptr, ptr @packtmp, align 8, !tbaa !8
-  %1042 = load ptr, ptr %.1355554, align 8, !tbaa !46
+  %1042 = load ptr, ptr %.1355641, align 8, !tbaa !46
   call void (ptr, ...) @die(ptr noundef %1040, ptr noundef %1019, ptr noundef %1041, ptr noundef %1042) #17
   unreachable
 
@@ -2450,12 +2449,12 @@ write_filtered_pack.exit:                         ; preds = %.lr.ph352, %.lr.ph8
   br i1 %exitcond.not, label %1052, label %1015, !llvm.loop !115
 
 1052:                                             ; preds = %1051
-  %1053 = getelementptr inbounds nuw i8, ptr %.1355554, i64 16
+  %1053 = getelementptr inbounds nuw i8, ptr %.1355641, i64 16
   %1054 = load ptr, ptr %16, align 8, !tbaa !42
   %1055 = load i64, ptr %839, align 8, !tbaa !45
   %1056 = getelementptr inbounds nuw %struct.string_list_item, ptr %1054, i64 %1055
   %1057 = icmp ult ptr %1053, %1056
-  br i1 %1057, label %.lr.ph555, label %.critedge17
+  br i1 %1057, label %.lr.ph642, label %.critedge17
 
 .critedge17:                                      ; preds = %1052, %.lr.ph357, %1003
   %1058 = load i32, ptr %19, align 4, !tbaa !4
@@ -2520,8 +2519,8 @@ write_filtered_pack.exit:                         ; preds = %.lr.ph352, %.lr.ph8
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %1086, %1080
-  %.sink23.i.i = phi i64 [ %1081, %1080 ], [ %1089, %1086 ]
-  %1090 = inttoptr i64 %.sink23.i.i to ptr
+  %.sink24.i.i = phi i64 [ %1081, %1080 ], [ %1089, %1086 ]
+  %1090 = inttoptr i64 %.sink24.i.i to ptr
   store ptr %1090, ptr %1077, align 8, !tbaa !95
   br label %1091
 
@@ -2549,8 +2548,8 @@ mark_packs_for_deletion_1.exit.i:                 ; preds = %1091, %.lr.ph.i.i, 
   %1104 = ashr exact i64 %sext.i6.i, 32
   %1105 = sub nsw i64 0, %1104
   %1106 = load i64, ptr %1103, align 8, !tbaa !45
-  %.not17.i = icmp eq i64 %1106, 0
-  br i1 %.not17.i, label %mark_packs_for_deletion.exit, label %.lr.ph16.i
+  %.not22.i = icmp eq i64 %1106, 0
+  br i1 %.not22.i, label %mark_packs_for_deletion.exit, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %.lr.ph.i5.i, %1125
   %.021.i715.i = phi ptr [ %1126, %1125 ], [ %1097, %.lr.ph.i5.i ]
@@ -2585,8 +2584,8 @@ mark_packs_for_deletion_1.exit.i:                 ; preds = %1091, %.lr.ph.i.i, 
   br label %.sink.split.i10.i
 
 .sink.split.i10.i:                                ; preds = %1120, %1114
-  %.sink23.i11.i = phi i64 [ %1115, %1114 ], [ %1123, %1120 ]
-  %1124 = inttoptr i64 %.sink23.i11.i to ptr
+  %.sink24.i11.i = phi i64 [ %1115, %1114 ], [ %1123, %1120 ]
+  %1124 = inttoptr i64 %.sink24.i11.i to ptr
   store ptr %1124, ptr %1111, align 8, !tbaa !95
   br label %1125
 
@@ -2619,8 +2618,8 @@ mark_packs_for_deletion.exit:                     ; preds = %1125, %.lr.ph.i5.i,
   %1136 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1137 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %1138 = load i64, ptr %1135, align 8, !tbaa !105
-  %.not453 = icmp eq i64 %1138, 0
-  br i1 %.not453, label %.critedge.i234, label %.lr.ph360
+  %.not540 = icmp eq i64 %1138, 0
+  br i1 %.not540, label %.critedge.i234, label %.lr.ph360
 
 .lr.ph360:                                        ; preds = %.lr.ph.i233, %strbuf_setlen.exit.i248
   %.071.i359 = phi ptr [ %1144, %strbuf_setlen.exit.i248 ], [ %1134, %.lr.ph.i233 ]
@@ -2654,8 +2653,8 @@ strbuf_setlen.exit.i248:                          ; preds = %1140, %.lr.ph360
   %1150 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1151 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %1152 = load i64, ptr %839, align 8, !tbaa !45
-  %.not455 = icmp eq i64 %1152, 0
-  br i1 %.not455, label %.critedge2.i236, label %.lr.ph362
+  %.not542 = icmp eq i64 %1152, 0
+  br i1 %.not542, label %.critedge2.i236, label %.lr.ph362
 
 .lr.ph362:                                        ; preds = %.lr.ph75.i235, %strbuf_setlen.exit59.i
   %.174.i361 = phi ptr [ %1158, %strbuf_setlen.exit59.i ], [ %1149, %.lr.ph75.i235 ]
@@ -2780,8 +2779,8 @@ strbuf_strip_suffix.exit.i242:                    ; preds = %1197, %1196, %1189,
   %1207 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1208 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %1209 = load i64, ptr %1206, align 8, !tbaa !97
-  %.not457 = icmp eq i64 %1209, 0
-  br i1 %.not457, label %.critedge4.i237, label %.lr.ph364
+  %.not544 = icmp eq i64 %1209, 0
+  br i1 %.not544, label %.critedge4.i237, label %.lr.ph364
 
 .lr.ph364:                                        ; preds = %.lr.ph81.i, %1221
   %1210 = phi i64 [ %1222, %1221 ], [ %1209, %.lr.ph81.i ]
@@ -2831,8 +2830,8 @@ strbuf_setlen.exit65.i:                           ; preds = %1217, %1215
   %1229 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1230 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %1231 = load i64, ptr %1228, align 8, !tbaa !108
-  %.not459 = icmp eq i64 %1231, 0
-  br i1 %.not459, label %midx_included_packs.exit, label %.lr.ph366
+  %.not546 = icmp eq i64 %1231, 0
+  br i1 %.not546, label %midx_included_packs.exit, label %.lr.ph366
 
 .lr.ph366:                                        ; preds = %.lr.ph85.i, %1243
   %1232 = phi i64 [ %1244, %1243 ], [ %1231, %.lr.ph85.i ]
@@ -3026,9 +3025,9 @@ has_pack_ext.exit.i:                              ; preds = %1292
   %1312 = load ptr, ptr %36, align 8, !tbaa !42
   %.not4558.i = icmp eq ptr %1312, null
   %1313 = load i64, ptr %1271, align 8
-  %.not461 = icmp eq i64 %1313, 0
-  %or.cond508 = select i1 %.not4558.i, i1 true, i1 %.not461
-  br i1 %or.cond508, label %.critedge2.i253, label %.lr.ph60.i
+  %.not548 = icmp eq i64 %1313, 0
+  %or.cond595 = select i1 %.not4558.i, i1 true, i1 %.not548
+  br i1 %or.cond595, label %.critedge2.i253, label %.lr.ph60.i
 
 .lr.ph60.i:                                       ; preds = %1309, %.lr.ph60.i
   %.159.i369 = phi ptr [ %1316, %.lr.ph60.i ], [ %1312, %1309 ]
@@ -3097,9 +3096,9 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   %1341 = load ptr, ptr %36, align 8, !tbaa !42
   %.not12.i = icmp eq ptr %1341, null
   %1342 = load i64, ptr %1271, align 8
-  %.not463 = icmp eq i64 %1342, 0
-  %or.cond509 = select i1 %.not12.i, i1 true, i1 %.not463
-  br i1 %or.cond509, label %remove_redundant_bitmaps.exit, label %.lr.ph372
+  %.not550 = icmp eq i64 %1342, 0
+  %or.cond596 = select i1 %.not12.i, i1 true, i1 %.not550
+  br i1 %or.cond596, label %remove_redundant_bitmaps.exit, label %.lr.ph372
 
 .lr.ph372:                                        ; preds = %strbuf_addch.exit.i, %strbuf_setlen.exit.i267
   %.013.i260371 = phi ptr [ %1375, %strbuf_setlen.exit.i267 ], [ %1341, %strbuf_addch.exit.i ]
@@ -3259,8 +3258,8 @@ remove_redundant_packs_1.exit.i:                  ; preds = %1396, %.lr.ph.i.i27
 .lr.ph.i3.i:                                      ; preds = %remove_redundant_packs_1.exit.i
   %1403 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %1404 = load i64, ptr %1403, align 8, !tbaa !45
-  %.not14.i = icmp eq i64 %1404, 0
-  br i1 %.not14.i, label %remove_redundant_existing_packs.exit, label %.lr.ph10.i
+  %.not17.i = icmp eq i64 %1404, 0
+  br i1 %.not17.i, label %remove_redundant_existing_packs.exit, label %.lr.ph10.i
 
 .lr.ph10.i:                                       ; preds = %.lr.ph.i3.i, %1413
   %1405 = phi i64 [ %1414, %1413 ], [ %1404, %.lr.ph.i3.i ]
@@ -3829,20 +3828,20 @@ skip_prefix.exit:                                 ; preds = %11, %13
   %34 = load i64, ptr %32, align 8, !tbaa !45
   %35 = getelementptr inbounds nuw %struct.string_list_item, ptr %33, i64 %34
   %36 = icmp ult ptr %31, %35
-  br i1 %36, label %.lr.ph132, label %.critedge
+  br i1 %36, label %.lr.ph152, label %.critedge
 
-.lr.ph132:                                        ; preds = %.lr.ph, %.lr.ph132
-  %.05578131 = phi ptr [ %39, %.lr.ph132 ], [ %31, %.lr.ph ]
-  %37 = load ptr, ptr %.05578131, align 8, !tbaa !46
+.lr.ph152:                                        ; preds = %.lr.ph, %.lr.ph152
+  %.05578151 = phi ptr [ %39, %.lr.ph152 ], [ %31, %.lr.ph ]
+  %37 = load ptr, ptr %.05578151, align 8, !tbaa !46
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.144, ptr noundef %2, ptr noundef %37) #16
-  %39 = getelementptr inbounds nuw i8, ptr %.05578131, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.05578151, i64 16
   %40 = load ptr, ptr %4, align 8, !tbaa !42
   %41 = load i64, ptr %32, align 8, !tbaa !45
   %42 = getelementptr inbounds nuw %struct.string_list_item, ptr %40, i64 %41
   %43 = icmp ult ptr %39, %42
-  br i1 %43, label %.lr.ph132, label %.critedge
+  br i1 %43, label %.lr.ph152, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph132, %.lr.ph, %28
+.critedge:                                        ; preds = %.lr.ph152, %.lr.ph, %28
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load i64, ptr %44, align 8, !tbaa !103
   %46 = icmp eq i64 %45, 0
@@ -3960,9 +3959,9 @@ strbuf_strip_suffix.exit.i:                       ; preds = %79, %78, %71, %strb
 
 ._crit_edge.i:                                    ; preds = %88
   %91 = icmp ugt i64 %.140.i, 1
-  br i1 %91, label %sane_qsort.exit.thread89.i, label %sane_qsort.exit.i
+  br i1 %91, label %sane_qsort.exit.thread101.i, label %sane_qsort.exit.i
 
-sane_qsort.exit.thread89.i:                       ; preds = %._crit_edge.i
+sane_qsort.exit.thread101.i:                      ; preds = %._crit_edge.i
   call void @qsort(ptr noundef %54, i64 noundef %.140.i, i64 noundef 8, ptr noundef nonnull @existing_cruft_pack_cmp) #16
   br label %.lr.ph66.i
 
@@ -3970,7 +3969,7 @@ sane_qsort.exit.i:                                ; preds = %._crit_edge.i
   %.not70.i = icmp eq i64 %.140.i, 0
   br i1 %.not70.i, label %.preheader.i, label %.lr.ph66.i
 
-.lr.ph66.i:                                       ; preds = %sane_qsort.exit.i, %sane_qsort.exit.thread89.i
+.lr.ph66.i:                                       ; preds = %sane_qsort.exit.i, %sane_qsort.exit.thread101.i
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %97
@@ -4103,20 +4102,20 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %147 = load i64, ptr %145, align 8, !tbaa !97
   %148 = getelementptr inbounds nuw %struct.string_list_item, ptr %146, i64 %147
   %149 = icmp ult ptr %144, %148
-  br i1 %149, label %.lr.ph134, label %.critedge3
+  br i1 %149, label %.lr.ph154, label %.critedge3
 
-.lr.ph134:                                        ; preds = %.lr.ph82, %.lr.ph134
-  %.181133 = phi ptr [ %152, %.lr.ph134 ], [ %144, %.lr.ph82 ]
-  %150 = load ptr, ptr %.181133, align 8, !tbaa !46
+.lr.ph154:                                        ; preds = %.lr.ph82, %.lr.ph154
+  %.181153 = phi ptr [ %152, %.lr.ph154 ], [ %144, %.lr.ph82 ]
+  %150 = load ptr, ptr %.181153, align 8, !tbaa !46
   %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.145, ptr noundef %150) #16
-  %152 = getelementptr inbounds nuw i8, ptr %.181133, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %.181153, i64 16
   %153 = load ptr, ptr %143, align 8, !tbaa !106
   %154 = load i64, ptr %145, align 8, !tbaa !97
   %155 = getelementptr inbounds nuw %struct.string_list_item, ptr %153, i64 %154
   %156 = icmp ult ptr %152, %155
-  br i1 %156, label %.lr.ph134, label %.critedge3
+  br i1 %156, label %.lr.ph154, label %.critedge3
 
-.critedge3:                                       ; preds = %.lr.ph134, %.lr.ph82, %142
+.critedge3:                                       ; preds = %.lr.ph154, %.lr.ph82, %142
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %158 = load ptr, ptr %157, align 8, !tbaa !107
   %.not6184 = icmp eq ptr %158, null
@@ -4128,20 +4127,20 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %161 = load i64, ptr %159, align 8, !tbaa !108
   %162 = getelementptr inbounds nuw %struct.string_list_item, ptr %160, i64 %161
   %163 = icmp ult ptr %158, %162
-  br i1 %163, label %.lr.ph136, label %.critedge5
+  br i1 %163, label %.lr.ph156, label %.critedge5
 
-.lr.ph136:                                        ; preds = %.lr.ph86, %.lr.ph136
-  %.285135 = phi ptr [ %166, %.lr.ph136 ], [ %158, %.lr.ph86 ]
-  %164 = load ptr, ptr %.285135, align 8, !tbaa !46
+.lr.ph156:                                        ; preds = %.lr.ph86, %.lr.ph156
+  %.285155 = phi ptr [ %166, %.lr.ph156 ], [ %158, %.lr.ph86 ]
+  %164 = load ptr, ptr %.285155, align 8, !tbaa !46
   %165 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.145, ptr noundef %164) #16
-  %166 = getelementptr inbounds nuw i8, ptr %.285135, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %.285155, i64 16
   %167 = load ptr, ptr %157, align 8, !tbaa !107
   %168 = load i64, ptr %159, align 8, !tbaa !108
   %169 = getelementptr inbounds nuw %struct.string_list_item, ptr %167, i64 %168
   %170 = icmp ult ptr %166, %169
-  br i1 %170, label %.lr.ph136, label %.critedge5
+  br i1 %170, label %.lr.ph156, label %.critedge5
 
-.critedge5:                                       ; preds = %.lr.ph136, %.lr.ph86, %.critedge3, %collapse_small_cruft_packs.exit
+.critedge5:                                       ; preds = %.lr.ph156, %.lr.ph86, %.critedge3, %collapse_small_cruft_packs.exit
   %171 = load ptr, ptr %5, align 8, !tbaa !104
   %.not6288 = icmp eq ptr %171, null
   br i1 %.not6288, label %.critedge7, label %.lr.ph90
@@ -4152,20 +4151,20 @@ collapse_small_cruft_packs.exit:                  ; preds = %134, %.preheader.i
   %174 = load i64, ptr %172, align 8, !tbaa !105
   %175 = getelementptr inbounds nuw %struct.string_list_item, ptr %173, i64 %174
   %176 = icmp ult ptr %171, %175
-  br i1 %176, label %.lr.ph138, label %.critedge7
+  br i1 %176, label %.lr.ph158, label %.critedge7
 
-.lr.ph138:                                        ; preds = %.lr.ph90, %.lr.ph138
-  %.389137 = phi ptr [ %179, %.lr.ph138 ], [ %171, %.lr.ph90 ]
-  %177 = load ptr, ptr %.389137, align 8, !tbaa !46
+.lr.ph158:                                        ; preds = %.lr.ph90, %.lr.ph158
+  %.389157 = phi ptr [ %179, %.lr.ph158 ], [ %171, %.lr.ph90 ]
+  %177 = load ptr, ptr %.389157, align 8, !tbaa !46
   %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.146, ptr noundef %177) #16
-  %179 = getelementptr inbounds nuw i8, ptr %.389137, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %.389157, i64 16
   %180 = load ptr, ptr %5, align 8, !tbaa !104
   %181 = load i64, ptr %172, align 8, !tbaa !105
   %182 = getelementptr inbounds nuw %struct.string_list_item, ptr %180, i64 %181
   %183 = icmp ult ptr %179, %182
-  br i1 %183, label %.lr.ph138, label %.critedge7
+  br i1 %183, label %.lr.ph158, label %.critedge7
 
-.critedge7:                                       ; preds = %.lr.ph138, %.lr.ph90, %.critedge5
+.critedge7:                                       ; preds = %.lr.ph158, %.lr.ph90, %.critedge5
   %184 = call i32 @fclose(ptr noundef %30)
   %185 = call fastcc i32 @finish_pack_objects_cmd(ptr noundef %9, ptr noundef %4, i32 noundef %18)
   br label %186

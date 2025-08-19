@@ -572,10 +572,10 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   br label %38
 
 38:                                               ; preds = %32, %37, %36
-  %.sink69 = phi i64 [ 8, %37 ], [ 16, %36 ], [ 16, %32 ]
+  %.sink72 = phi i64 [ 8, %37 ], [ 16, %36 ], [ 16, %32 ]
   %.sink = phi i64 [ 24, %37 ], [ 32, %36 ], [ 32, %32 ]
   %.063 = phi i64 [ 0, %37 ], [ 2, %36 ], [ 1, %32 ]
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %.sink69
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %.sink72
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 %.sink
   %.061 = load double, ptr %40, align 8, !tbaa !72
   %.062 = load double, ptr %39, align 8, !tbaa !72

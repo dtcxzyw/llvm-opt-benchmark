@@ -409,15 +409,15 @@ define void @_Z5ltrimPc(ptr noundef captures(address_is_null) %0) local_unnamed_
   br i1 %.not22, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %7, %.critedge
-  %.018.lcssa40 = phi i32 [ %11, %.critedge ], [ %8, %7 ]
-  %12 = zext nneg i32 %.018.lcssa40 to i64
+  %.018.lcssa43 = phi i32 [ %11, %.critedge ], [ %8, %7 ]
+  %12 = zext nneg i32 %.018.lcssa43 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %.not2329 = icmp eq i8 %14, 0
   br i1 %.not2329, label %._crit_edge, label %.lr.ph31.preheader
 
 .lr.ph31.preheader:                               ; preds = %.preheader
-  %15 = sext i32 %.018.lcssa40 to i64
+  %15 = sext i32 %.018.lcssa43 to i64
   br label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
@@ -437,8 +437,8 @@ define void @_Z5ltrimPc(ptr noundef captures(address_is_null) %0) local_unnamed_
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0.lcssa = phi i32 [ %.018.lcssa40, %.preheader ], [ %21, %._crit_edge.loopexit ]
-  %22 = sub nsw i32 %.0.lcssa, %.018.lcssa40
+  %.0.lcssa = phi i32 [ %.018.lcssa43, %.preheader ], [ %21, %._crit_edge.loopexit ]
+  %22 = sub nsw i32 %.0.lcssa, %.018.lcssa43
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !4
@@ -484,15 +484,15 @@ define void @_Z4trimPc(ptr noundef captures(address_is_null) %0) local_unnamed_a
   br i1 %.not22.i, label %25, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7, %.critedge.i
-  %.018.lcssa40.i = phi i32 [ %11, %.critedge.i ], [ %8, %7 ]
-  %12 = zext nneg i32 %.018.lcssa40.i to i64
+  %.018.lcssa43.i = phi i32 [ %11, %.critedge.i ], [ %8, %7 ]
+  %12 = zext nneg i32 %.018.lcssa43.i to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %.not2329.i = icmp eq i8 %14, 0
   br i1 %.not2329.i, label %._crit_edge.i, label %.lr.ph31.preheader.i
 
 .lr.ph31.preheader.i:                             ; preds = %.preheader.i
-  %15 = sext i32 %.018.lcssa40.i to i64
+  %15 = sext i32 %.018.lcssa43.i to i64
   br label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %.lr.ph31.i, %.lr.ph31.preheader.i
@@ -512,8 +512,8 @@ define void @_Z4trimPc(ptr noundef captures(address_is_null) %0) local_unnamed_a
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %.0.lcssa.i = phi i32 [ %.018.lcssa40.i, %.preheader.i ], [ %21, %._crit_edge.loopexit.i ]
-  %22 = sub nsw i32 %.0.lcssa.i, %.018.lcssa40.i
+  %.0.lcssa.i = phi i32 [ %.018.lcssa43.i, %.preheader.i ], [ %21, %._crit_edge.loopexit.i ]
+  %22 = sub nsw i32 %.0.lcssa.i, %.018.lcssa43.i
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr %0, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !4
@@ -1040,7 +1040,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0,
   %47 = getelementptr inbounds i8, ptr %0, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !4
   %.not99 = icmp eq i8 %48, 0
-  br i1 %.not99, label %49, label %.thread173
+  br i1 %.not99, label %49, label %.thread175
 
 49:                                               ; preds = %44
   %50 = add nsw i32 %.383.lcssa, 1
@@ -1056,13 +1056,13 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0,
   %.196 = phi i32 [ %45, %49 ], [ %.095.lcssa, %.critedge ]
   %.6 = phi i32 [ %50, %49 ], [ %.383.lcssa, %.critedge ]
   %.not100 = icmp eq i8 %54, 0
-  br i1 %.not100, label %.thread, label %.thread173
+  br i1 %.not100, label %.thread, label %.thread175
 
-.thread173:                                       ; preds = %44, %53
+.thread175:                                       ; preds = %44, %53
   %.pn = phi i64 [ %.pre-phi, %53 ], [ %40, %44 ]
-  %.196178 = phi i32 [ %.196, %53 ], [ %.095.lcssa, %44 ]
+  %.196180 = phi i32 [ %.196, %53 ], [ %.095.lcssa, %44 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 %.pn
-  %56 = sub nsw i32 %.196178, %.185.lcssa
+  %56 = sub nsw i32 %.196180, %.185.lcssa
   %.not101 = icmp sgt i32 %56, %.070
   %57 = add i32 %.074.lcssa, 1
   %58 = add i32 %.072.lcssa, 1
@@ -1070,7 +1070,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0,
   %or.cond107 = select i1 %.not101, i1 true, i1 %.not102
   br i1 %or.cond107, label %.loopexit130, label %59
 
-59:                                               ; preds = %.thread173
+59:                                               ; preds = %.thread175
   %60 = sext i32 %.072.lcssa to i64
   %61 = getelementptr inbounds i8, ptr %.1120.lcssa, i64 %60
   store i8 10, ptr %61, align 1, !tbaa !4
@@ -1108,13 +1108,13 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr noundef readonly captures(none) %0,
   %74 = trunc nsw i64 %indvars.iv160 to i32
   br label %.loopexit130
 
-.loopexit130:                                     ; preds = %.loopexit130.loopexit, %.thread173, %59
-  %.3.ph = phi ptr [ %.1120.lcssa, %59 ], [ %.1120.lcssa, %.thread173 ], [ %66, %.loopexit130.loopexit ]
-  %.393.ph = phi i32 [ %.191.lcssa, %59 ], [ %.191.lcssa, %.thread173 ], [ %64, %.loopexit130.loopexit ]
-  %.387.ph = phi i32 [ %57, %59 ], [ %57, %.thread173 ], [ %74, %.loopexit130.loopexit ]
-  %.7.ph = phi i32 [ %58, %59 ], [ %58, %.thread173 ], [ %.9.lcssa, %.loopexit130.loopexit ]
-  %.177.ph = phi i1 [ %.076, %59 ], [ %.076, %.thread173 ], [ false, %.loopexit130.loopexit ]
-  %.1.ph = phi i32 [ %.070, %59 ], [ %.070, %.thread173 ], [ %spec.select109, %.loopexit130.loopexit ]
+.loopexit130:                                     ; preds = %.loopexit130.loopexit, %.thread175, %59
+  %.3.ph = phi ptr [ %.1120.lcssa, %59 ], [ %.1120.lcssa, %.thread175 ], [ %66, %.loopexit130.loopexit ]
+  %.393.ph = phi i32 [ %.191.lcssa, %59 ], [ %.191.lcssa, %.thread175 ], [ %64, %.loopexit130.loopexit ]
+  %.387.ph = phi i32 [ %57, %59 ], [ %57, %.thread175 ], [ %74, %.loopexit130.loopexit ]
+  %.7.ph = phi i32 [ %58, %59 ], [ %58, %.thread175 ], [ %.9.lcssa, %.loopexit130.loopexit ]
+  %.177.ph = phi i1 [ %.076, %59 ], [ %.076, %.thread175 ], [ false, %.loopexit130.loopexit ]
+  %.1.ph = phi i32 [ %.070, %59 ], [ %.070, %.thread175 ], [ %spec.select109, %.loopexit130.loopexit ]
   %.pr = load i8, ptr %55, align 1, !tbaa !4
   %.not104 = icmp eq i8 %.pr, 0
   br i1 %.not104, label %.thread, label %13, !llvm.loop !34

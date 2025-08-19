@@ -1469,8 +1469,8 @@ _ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6d
   br label %.thread
 
 .thread:                                          ; preds = %128, %.noexc19
-  %.sink13.i = phi ptr [ %132, %.noexc19 ], [ %.121.i.i, %128 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 32
+  %.sink14.i = phi ptr [ %132, %.noexc19 ], [ %.121.i.i, %128 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 32
   store ptr null, ptr %134, align 8
   br label %_ZN22MLRenderingColorPicker8setColorERKN3vcg6Color4IhEE.exit
 
@@ -1622,13 +1622,13 @@ _ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6d
   br label %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6insertERKS1_RKS3_.exit.sink.split
 
 _ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6insertERKS1_RKS3_.exit.sink.split: ; preds = %31, %._crit_edge.thread.i
-  %.sink13 = phi ptr [ %35, %._crit_edge.thread.i ], [ %.121.i, %31 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink13, i64 32
+  %.sink14 = phi ptr [ %35, %._crit_edge.thread.i ], [ %.121.i, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink14, i64 32
   store ptr null, ptr %38, align 8
   br label %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6insertERKS1_RKS3_.exit
 
 _ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6insertERKS1_RKS3_.exit: ; preds = %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6insertERKS1_RKS3_.exit.sink.split, %16
-  %.1.i.i.pn = phi ptr [ %.1.i.i, %16 ], [ %.sink13, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6insertERKS1_RKS3_.exit.sink.split ]
+  %.1.i.i.pn = phi ptr [ %.1.i.i, %16 ], [ %.sink14, %_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerE6insertERKS1_RKS3_.exit.sink.split ]
   %.0 = getelementptr inbounds nuw i8, ptr %.1.i.i.pn, i64 32
   ret ptr %.0
 }
@@ -1746,7 +1746,7 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeIP40MLRenderingUserDefinedGeneralC
   %.not14 = icmp eq ptr %27, null
   br i1 %.not14, label %common.ret, label %28
 
-common.ret15:                                     ; preds = %28, %common.ret
+common.ret16:                                     ; preds = %28, %common.ret
   ret ptr %5
 
 28:                                               ; preds = %25
@@ -1758,12 +1758,12 @@ common.ret15:                                     ; preds = %28, %common.ret
   %33 = ptrtoint ptr %5 to i64
   %34 = or i64 %32, %33
   store i64 %34, ptr %29, align 8
-  br label %common.ret15
+  br label %common.ret16
 
 common.ret:                                       ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %35, align 8
-  br label %common.ret15
+  br label %common.ret16
 }
 
 declare void @_ZN12QMapDataBase18recalcMostLeftNodeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
@@ -11055,13 +11055,13 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE6detachEv.exit.i44: ; preds = %.n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.noexc50, %149, %140
-  %.sink90 = phi ptr [ %.121.i, %140 ], [ %144, %149 ], [ %144, %.noexc50 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sink90, i64 32
+  %.sink105 = phi ptr [ %.121.i, %140 ], [ %144, %149 ], [ %144, %.noexc50 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sink105, i64 32
   store ptr null, ptr %151, align 8
   br label %152
 
 152:                                              ; preds = %.sink.split, %105
-  %.1.i.i.pn.i = phi ptr [ %.1.i.i.i, %105 ], [ %.sink90, %.sink.split ]
+  %.1.i.i.pn.i = phi ptr [ %.1.i.i.i, %105 ], [ %.sink105, %.sink.split ]
   %.0.i = getelementptr inbounds nuw i8, ptr %.1.i.i.pn.i, i64 32
   store ptr %71, ptr %.0.i, align 8
   %153 = load ptr, ptr %4, align 8
@@ -11533,7 +11533,7 @@ _ZN8QMapDataI7QStringP26MLRenderingParametersFrameE10createNodeERKS0_RKS2_P8QMap
   %.not14 = icmp eq ptr %31, null
   br i1 %.not14, label %common.ret, label %32
 
-common.ret15:                                     ; preds = %32, %common.ret
+common.ret16:                                     ; preds = %32, %common.ret
   ret ptr %5
 
 32:                                               ; preds = %29
@@ -11545,12 +11545,12 @@ common.ret15:                                     ; preds = %32, %common.ret
   %37 = ptrtoint ptr %5 to i64
   %38 = or i64 %36, %37
   store i64 %38, ptr %33, align 8
-  br label %common.ret15
+  br label %common.ret16
 
 common.ret:                                       ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %39, align 8
-  br label %common.ret15
+  br label %common.ret16
 }
 
 declare noundef ptr @_ZNK12QMapNodeBase8nextNodeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
@@ -12740,8 +12740,8 @@ define void @_ZNK24MLRenderingParametersTab37getCurrentRenderingDataAccordingToG
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.not679 = icmp eq ptr %8, %9
-  %.not67 = select i1 %.not.i.i, i1 true, i1 %.not679
+  %.not6710 = icmp eq ptr %8, %9
+  %.not67 = select i1 %.not.i.i, i1 true, i1 %.not6710
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %16
@@ -14281,8 +14281,8 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %1, %_ZN9QtPrivate8R
 .lr.ph11.preheader:                               ; preds = %_ZN5QListIP7QActionED2Ev.exit
   %.pre = load ptr, ptr %5, align 8
   %.pre13 = load ptr, ptr %11, align 8
-  %.not1015 = icmp eq ptr %.pre, %.pre13
-  br i1 %.not1015, label %.critedge, label %.lr.ph
+  %.not1016 = icmp eq ptr %.pre, %.pre13
+  br i1 %.not1016, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %._crit_edge, %.lr.ph11.preheader, %_ZN5QListIP7QActionED2Ev.exit
   %24 = load ptr, ptr %2, align 8
@@ -15700,8 +15700,8 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %11, %_ZN9QtPrivate8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %13, align 8
   %.pre30 = load ptr, ptr %19, align 8
-  %.not2733 = icmp eq ptr %.pre, %.pre30
-  br i1 %.not2733, label %.critedge, label %.lr.ph
+  %.not2736 = icmp eq ptr %.pre, %.pre30
+  br i1 %.not2736, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %56, %.lr.ph28, %_ZN5QListIP7QActionED2Ev.exit
   %33 = load ptr, ptr %3, align 8

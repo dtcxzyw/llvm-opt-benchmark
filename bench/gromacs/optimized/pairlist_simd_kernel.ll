@@ -168,9 +168,9 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   %.0.vec.extract.i.i.i = extractelement <4 x float> %47, i64 0
   %48 = add nsw i32 %35, 2
   %49 = fcmp olt float %.0.vec.extract.i.i.i, %8
-  br i1 %49, label %.thread297.i, label %50
+  br i1 %49, label %.thread306.i, label %50
 
-.thread297.i:                                     ; preds = %34
+.thread306.i:                                     ; preds = %34
   store i32 %48, ptr %9, align 4, !tbaa !31, !alias.scope !21, !noalias !18
   br label %.preheader234.i
 
@@ -304,10 +304,10 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   store i32 %105, ptr %9, align 4, !tbaa !31, !alias.scope !21, !noalias !18
   br i1 %108, label %.preheader234.i, label %_ZN3gmxL19makeClusterListSimdILNS_25ClusterDistanceKernelTypeE1EEEvRKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi.exit
 
-.preheader234.i:                                  ; preds = %110, %.thread297.i
-  %.promoted254.i = phi i32 [ %48, %.thread297.i ], [ %105, %110 ]
-  %spec.select293299.i = phi i32 [ %.0170242.i, %.thread297.i ], [ %spec.select.i, %110 ]
-  %.not257.i = icmp sgt i32 %22, %spec.select293299.i
+.preheader234.i:                                  ; preds = %110, %.thread306.i
+  %.promoted254.i = phi i32 [ %48, %.thread306.i ], [ %105, %110 ]
+  %spec.select302308.i = phi i32 [ %.0170242.i, %.thread306.i ], [ %spec.select.i, %110 ]
+  %.not257.i = icmp sgt i32 %22, %spec.select302308.i
   br i1 %.not257.i, label %.lr.ph251.i, label %187
 
 .lr.ph251.i:                                      ; preds = %.preheader234.i, %180
@@ -355,8 +355,8 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
 
 136:                                              ; preds = %136, %128
   %indvars.iv273.i = phi i64 [ 0, %128 ], [ %indvars.iv.next274.i, %136 ]
-  %.idx289.i = mul nuw nsw i64 %indvars.iv273.i, 96
-  %137 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx289.i
+  %.idx298.i = mul nuw nsw i64 %indvars.iv273.i, 96
+  %137 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx298.i
   %.val201.i = load <8 x float>, ptr %137, align 32, !tbaa !14, !noalias !25
   %138 = fsub <8 x float> %.val201.i, %.val207.i
   %139 = getelementptr inbounds nuw [4 x %"struct.std::array.41"], ptr %14, i64 0, i64 %indvars.iv273.i
@@ -454,19 +454,19 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   %183 = zext nneg i8 %182 to i32
   %spec.select190.i = sub nsw i32 %.0171250.i, %183
   %184 = trunc nuw i8 %.3.i to i1
-  %185 = icmp sle i32 %spec.select190.i, %spec.select293299.i
+  %185 = icmp sle i32 %spec.select190.i, %spec.select302308.i
   %.not188.i = select i1 %184, i1 true, i1 %185
   br i1 %.not188.i, label %._crit_edge252.i, label %.lr.ph251.i, !llvm.loop !44
 
 ._crit_edge252.i:                                 ; preds = %180, %.lr.ph251.i
-  %spec.select190304.i = phi i32 [ %spec.select190.i, %180 ], [ %.0171250.i, %.lr.ph251.i ]
+  %spec.select190313.i = phi i32 [ %spec.select190.i, %180 ], [ %.0171250.i, %.lr.ph251.i ]
   %186 = phi i32 [ %181, %180 ], [ %124, %.lr.ph251.i ]
   store i32 %186, ptr %9, align 4, !tbaa !31, !alias.scope !21, !noalias !18
   br label %187
 
 187:                                              ; preds = %._crit_edge252.i, %.preheader234.i
-  %.0171.lcssa.i = phi i32 [ %spec.select190304.i, %._crit_edge252.i ], [ %22, %.preheader234.i ]
-  %.not.i = icmp sgt i32 %spec.select293299.i, %.0171.lcssa.i
+  %.0171.lcssa.i = phi i32 [ %spec.select190313.i, %._crit_edge252.i ], [ %22, %.preheader234.i ]
+  %.not.i = icmp sgt i32 %spec.select302308.i, %.0171.lcssa.i
   br i1 %.not.i, label %_ZN3gmxL19makeClusterListSimdILNS_25ClusterDistanceKernelTypeE1EEEvRKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %187
@@ -489,7 +489,7 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   br label %_ZN3gmxL19makeClusterListSimdILNS_25ClusterDistanceKernelTypeE1EEEvRKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi.exit
 
 201:                                              ; preds = %_ZN3gmx12JClusterList9push_backERKNS_10nbnxn_cj_tE.exit.i, %.preheader.i
-  %.0256.i = phi i32 [ %spec.select293299.i, %.preheader.i ], [ %241, %_ZN3gmx12JClusterList9push_backERKNS_10nbnxn_cj_tE.exit.i ]
+  %.0256.i = phi i32 [ %spec.select302308.i, %.preheader.i ], [ %241, %_ZN3gmx12JClusterList9push_backERKNS_10nbnxn_cj_tE.exit.i ]
   %202 = load i32, ptr %31, align 4, !tbaa !52, !noalias !25
   %203 = ashr i32 %202, 1
   %204 = add nsw i32 %203, %.0256.i
@@ -757,13 +757,13 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   br i1 %85, label %.preheader235.i, label %_ZN3gmxL19makeClusterListSimdILNS_25ClusterDistanceKernelTypeE2EEEvRKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi.exit
 
 .preheader235.i:                                  ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.promoted255283288.i = phi i32 [ %41, %._crit_edge.thread.i ], [ %.promoted255.i, %._crit_edge.i ]
-  %spec.select284287.i = phi i32 [ %.0170244.i, %._crit_edge.thread.i ], [ %spec.select.i, %._crit_edge.i ]
-  %.not258.i = icmp sgt i32 %4, %spec.select284287.i
+  %.promoted255288293.i = phi i32 [ %41, %._crit_edge.thread.i ], [ %.promoted255.i, %._crit_edge.i ]
+  %spec.select289292.i = phi i32 [ %.0170244.i, %._crit_edge.thread.i ], [ %spec.select.i, %._crit_edge.i ]
+  %.not258.i = icmp sgt i32 %4, %spec.select289292.i
   br i1 %.not258.i, label %.lr.ph252.i, label %148
 
 .lr.ph252.i:                                      ; preds = %.preheader235.i, %141
-  %87 = phi i32 [ %142, %141 ], [ %.promoted255283288.i, %.preheader235.i ]
+  %87 = phi i32 [ %142, %141 ], [ %.promoted255288293.i, %.preheader235.i ]
   %.0171251.i = phi i32 [ %spec.select190.i, %141 ], [ %4, %.preheader235.i ]
   %88 = sext i32 %.0171251.i to i64
   %89 = getelementptr inbounds %"struct.gmx::BoundingBox", ptr %23, i64 %88
@@ -868,19 +868,19 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   %144 = zext nneg i8 %143 to i32
   %spec.select190.i = sub nsw i32 %.0171251.i, %144
   %145 = trunc nuw i8 %.3.i to i1
-  %146 = icmp sle i32 %spec.select190.i, %spec.select284287.i
+  %146 = icmp sle i32 %spec.select190.i, %spec.select289292.i
   %.not188.i = select i1 %145, i1 true, i1 %146
   br i1 %.not188.i, label %._crit_edge253.i, label %.lr.ph252.i, !llvm.loop !103
 
 ._crit_edge253.i:                                 ; preds = %141, %.lr.ph252.i
-  %spec.select190293.i = phi i32 [ %spec.select190.i, %141 ], [ %.0171251.i, %.lr.ph252.i ]
+  %spec.select190298.i = phi i32 [ %spec.select190.i, %141 ], [ %.0171251.i, %.lr.ph252.i ]
   %147 = phi i32 [ %142, %141 ], [ %100, %.lr.ph252.i ]
   store i32 %147, ptr %9, align 4, !tbaa !31, !alias.scope !95, !noalias !92
   br label %148
 
 148:                                              ; preds = %._crit_edge253.i, %.preheader235.i
-  %.0171.lcssa.i = phi i32 [ %spec.select190293.i, %._crit_edge253.i ], [ %4, %.preheader235.i ]
-  %.not.i = icmp sgt i32 %spec.select284287.i, %.0171.lcssa.i
+  %.0171.lcssa.i = phi i32 [ %spec.select190298.i, %._crit_edge253.i ], [ %4, %.preheader235.i ]
+  %.not.i = icmp sgt i32 %spec.select289292.i, %.0171.lcssa.i
   br i1 %.not.i, label %_ZN3gmxL19makeClusterListSimdILNS_25ClusterDistanceKernelTypeE2EEEvRKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %148
@@ -905,7 +905,7 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
 
 162:                                              ; preds = %_ZN3gmx12JClusterList9push_backERKNS_10nbnxn_cj_tE.exit.i, %.preheader.i
   %163 = phi ptr [ %.pre.i, %.preheader.i ], [ %192, %_ZN3gmx12JClusterList9push_backERKNS_10nbnxn_cj_tE.exit.i ]
-  %.0257.i = phi i32 [ %spec.select284287.i, %.preheader.i ], [ %193, %_ZN3gmx12JClusterList9push_backERKNS_10nbnxn_cj_tE.exit.i ]
+  %.0257.i = phi i32 [ %spec.select289292.i, %.preheader.i ], [ %193, %_ZN3gmx12JClusterList9push_backERKNS_10nbnxn_cj_tE.exit.i ]
   %164 = load i32, ptr %25, align 4, !tbaa !52, !noalias !97
   %165 = add nsw i32 %164, %.0257.i
   %166 = icmp eq i32 %2, %.0257.i

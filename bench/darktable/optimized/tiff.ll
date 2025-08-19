@@ -298,7 +298,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %130 = add nsw i32 %88, -1
   %131 = zext nneg i32 %88 to i64
   %wide.trip.count765 = zext nneg i32 %129 to i64
-  %wide.trip.count = zext i32 %130 to i64
+  %wide.trip.count = zext nneg i32 %130 to i64
   br label %.preheader632.us
 
 .preheader632.us:                                 ; preds = %.preheader632.us.preheader, %._crit_edge647.us
@@ -678,11 +678,11 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %314
 
-314:                                              ; preds = %.lr.ph728, %._crit_edge937
-  %.0426726 = phi ptr [ %.0426720, %.lr.ph728 ], [ %.0426, %._crit_edge937 ]
-  %.1411725 = phi ptr [ %233, %.lr.ph728 ], [ %.3.lcssa, %._crit_edge937 ]
-  %.1413724 = phi ptr [ null, %.lr.ph728 ], [ %.3415.lcssa, %._crit_edge937 ]
-  %.0427722 = phi i16 [ 1, %.lr.ph728 ], [ %.1428.lcssa, %._crit_edge937 ]
+314:                                              ; preds = %.lr.ph728, %._crit_edge953
+  %.0426726 = phi ptr [ %.0426720, %.lr.ph728 ], [ %.0426, %._crit_edge953 ]
+  %.1411725 = phi ptr [ %233, %.lr.ph728 ], [ %.3.lcssa, %._crit_edge953 ]
+  %.1413724 = phi ptr [ null, %.lr.ph728 ], [ %.3415.lcssa, %._crit_edge953 ]
+  %.0427722 = phi i16 [ 1, %.lr.ph728 ], [ %.1428.lcssa, %._crit_edge953 ]
   %315 = load ptr, ptr %.0426726, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -691,22 +691,22 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %317 = load ptr, ptr %316, align 16, !tbaa !17
   call void @g_hash_table_iter_init(ptr noundef nonnull %17, ptr noundef %317) #14
   %318 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #14
-  %.not523931 = icmp eq i32 %318, 0
-  br i1 %.not523931, label %._crit_edge937, label %.lr.ph936
+  %.not523947 = icmp eq i32 %318, 0
+  br i1 %.not523947, label %._crit_edge953, label %.lr.ph952
 
-.lr.ph936:                                        ; preds = %314, %.loopexit
-  %.3934 = phi ptr [ %.4, %.loopexit ], [ %.1411725, %314 ]
-  %.3415933 = phi ptr [ %.4416, %.loopexit ], [ %.1413724, %314 ]
-  %.1428932 = phi i16 [ %464, %.loopexit ], [ %.0427722, %314 ]
+.lr.ph952:                                        ; preds = %314, %.loopexit
+  %.3950 = phi ptr [ %.4, %.loopexit ], [ %.1411725, %314 ]
+  %.3415949 = phi ptr [ %.4416, %.loopexit ], [ %.1413724, %314 ]
+  %.1428948 = phi i16 [ %464, %.loopexit ], [ %.0427722, %314 ]
   %319 = load i32, ptr %14, align 4, !tbaa !6
   %.not524 = icmp eq i32 %319, 0
   br i1 %.not524, label %321, label %320
 
-320:                                              ; preds = %.lr.ph936
-  call void @free(ptr noundef %.3415933) #14
+320:                                              ; preds = %.lr.ph952
+  call void @free(ptr noundef %.3415949) #14
   br label %321
 
-321:                                              ; preds = %320, %.lr.ph936
+321:                                              ; preds = %320, %.lr.ph952
   %322 = load ptr, ptr %315, align 16, !tbaa !46
   %323 = load ptr, ptr %18, align 8, !tbaa !47
   %324 = ptrtoint ptr %323 to i64
@@ -728,7 +728,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %.0418 = phi i64 [ %330, %321 ], [ 8, %331 ]
   %.4416 = phi ptr [ %326, %321 ], [ %16, %331 ]
   %333 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 254, i32 noundef 2) #14
-  %334 = zext i16 %.1428932 to i32
+  %334 = zext i16 %.1428948 to i32
   %335 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 297, i32 noundef %334, i32 noundef %.0443545548) #14
   %336 = load ptr, ptr %315, align 16, !tbaa !46
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 792
@@ -746,8 +746,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %346
 
 346:                                              ; preds = %332, %341
-  %.sink890 = phi ptr [ %345, %341 ], [ %340, %332 ]
-  %347 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 285, ptr noundef %.sink890) #14
+  %.sink906 = phi ptr [ %345, %341 ], [ %340, %332 ]
+  %347 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 285, ptr noundef %.sink906) #14
   %348 = load i32, ptr %58, align 4, !tbaa !33
   switch i32 %348, label %361 [
     i32 1, label %349
@@ -756,33 +756,33 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 
 349:                                              ; preds = %346
   %350 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 259, i32 noundef 8) #14
-  br label %.sink.split892
+  br label %.sink.split908
 
 351:                                              ; preds = %346
   %352 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 259, i32 noundef 8) #14
   %353 = load i32, ptr %196, align 4, !tbaa !37
   switch i32 %353, label %356 [
-    i32 32, label %.sink.split892
+    i32 32, label %.sink.split908
     i32 16, label %354
   ]
 
 354:                                              ; preds = %351
   %355 = load i32, ptr %312, align 8, !tbaa !38
   %.not527 = icmp eq i32 %355, 0
-  br i1 %.not527, label %356, label %.sink.split892
+  br i1 %.not527, label %356, label %.sink.split908
 
 356:                                              ; preds = %351, %354
-  br label %.sink.split892
+  br label %.sink.split908
 
-.sink.split892:                                   ; preds = %356, %351, %354, %349
-  %.sink891.sink = phi i32 [ 1, %349 ], [ 2, %356 ], [ 3, %351 ], [ 3, %354 ]
-  %357 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 317, i32 noundef %.sink891.sink) #14
+.sink.split908:                                   ; preds = %356, %351, %354, %349
+  %.sink907.sink = phi i32 [ 1, %349 ], [ 2, %356 ], [ 3, %351 ], [ 3, %354 ]
+  %357 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 317, i32 noundef %.sink907.sink) #14
   %358 = load i32, ptr %313, align 8, !tbaa !39
   %359 = and i32 %358, 65535
   %360 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 65557, i32 noundef %359) #14
   br label %361
 
-361:                                              ; preds = %.sink.split892, %346
+361:                                              ; preds = %.sink.split908, %346
   %362 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 282, double noundef %222) #14
   %363 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 283, double noundef %222) #14
   %364 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 296, i32 noundef 2) #14
@@ -818,8 +818,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %382 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 339, i32 noundef %381) #14
   %.0..0..0..0.196 = load volatile i16, ptr %15, align 2, !tbaa !40
   %383 = icmp eq i16 %.0..0..0..0.196, 3
-  %.896 = select i1 %383, i32 2, i32 1
-  %384 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 262, i32 noundef %.896) #14
+  %.912 = select i1 %383, i32 2, i32 1
+  %384 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 262, i32 noundef %.912) #14
   %385 = call i32 @TIFFDefaultStripSize(ptr noundef %309, i32 noundef 0) #14
   %386 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %309, i32 noundef 278, i32 noundef %385) #14
   %387 = load i32, ptr %208, align 8, !tbaa !43
@@ -828,7 +828,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br i1 %.not529, label %thread-pre-split, label %389
 
 389:                                              ; preds = %380
-  call void @free(ptr noundef %.3934) #14
+  call void @free(ptr noundef %.3950) #14
   %.0..0..0..0.197 = load volatile i16, ptr %15, align 2, !tbaa !40
   %390 = zext i16 %.0..0..0..0.197 to i64
   %391 = mul nsw i64 %.0419, %390
@@ -845,7 +845,7 @@ thread-pre-split:                                 ; preds = %380
 
 397:                                              ; preds = %thread-pre-split, %389
   %398 = phi i32 [ %.pr, %thread-pre-split ], [ %392, %389 ]
-  %.4 = phi ptr [ %.3934, %thread-pre-split ], [ %396, %389 ]
+  %.4 = phi ptr [ %.3950, %thread-pre-split ], [ %396, %389 ]
   switch i32 %398, label %440 [
     i32 32, label %.preheader617
     i32 16, label %412
@@ -886,7 +886,7 @@ thread-pre-split:                                 ; preds = %380
   %404 = trunc nuw nsw i64 %indvars.iv830 to i32
   %405 = call i32 @TIFFWriteScanline(ptr noundef %309, ptr noundef %.4, i32 noundef %404, i16 noundef zeroext 0) #14
   %.not533 = icmp eq i32 %405, -1
-  br i1 %.not533, label %.loopexit853, label %399
+  br i1 %.not533, label %.loopexit869, label %399
 
 ._crit_edge704:                                   ; preds = %408, %.preheader615
   %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
@@ -992,7 +992,7 @@ thread-pre-split:                                 ; preds = %380
   %435 = trunc nuw nsw i64 %indvars.iv815 to i32
   %436 = call i32 @TIFFWriteScanline(ptr noundef %309, ptr noundef %.4, i32 noundef %435, i16 noundef zeroext 0) #14
   %.not531.us = icmp eq i32 %436, -1
-  br i1 %.not531.us, label %.loopexit853, label %416
+  br i1 %.not531.us, label %.loopexit869, label %416
 
 437:                                              ; preds = %.lr.ph694.split
   %indvars.iv.next820 = add nuw i64 %indvars.iv819, 1
@@ -1004,7 +1004,7 @@ thread-pre-split:                                 ; preds = %380
   %438 = trunc nuw nsw i64 %indvars.iv819 to i32
   %439 = call i32 @TIFFWriteScanline(ptr noundef %309, ptr noundef %.4, i32 noundef %438, i16 noundef zeroext 0) #14
   %.not531 = icmp eq i32 %439, -1
-  br i1 %.not531, label %.loopexit853, label %437
+  br i1 %.not531, label %.loopexit869, label %437
 
 440:                                              ; preds = %397, %412
   %.not737 = icmp eq i64 %.0418, 0
@@ -1040,7 +1040,7 @@ thread-pre-split:                                 ; preds = %380
   %446 = trunc nuw nsw i64 %indvars.iv841 to i32
   %447 = call i32 @TIFFWriteScanline(ptr noundef %309, ptr noundef %.4, i32 noundef %446, i16 noundef zeroext 0) #14
   %.not532 = icmp eq i32 %447, -1
-  br i1 %.not532, label %.loopexit853, label %441
+  br i1 %.not532, label %.loopexit869, label %441
 
 ._crit_edge713:                                   ; preds = %459, %.preheader
   %indvars.iv.next838 = add nuw nsw i64 %indvars.iv837, 1
@@ -1077,7 +1077,7 @@ thread-pre-split:                                 ; preds = %380
   br i1 %463, label %450, label %._crit_edge713
 
 .thread559:                                       ; preds = %416, %437, %399, %441, %.preheader620, %.preheader617, %440
-  %464 = add i16 %.1428932, 1
+  %464 = add i16 %.1428948, 1
   %465 = zext i16 %464 to i32
   %466 = icmp samesign ugt i32 %.0443545548, %465
   br i1 %466, label %467, label %.loopexit
@@ -1089,9 +1089,9 @@ thread-pre-split:                                 ; preds = %380
 .loopexit:                                        ; preds = %.thread559, %467
   %469 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #14
   %.not523 = icmp eq i32 %469, 0
-  br i1 %.not523, label %._crit_edge937, label %.lr.ph936
+  br i1 %.not523, label %._crit_edge953, label %.lr.ph952
 
-._crit_edge937:                                   ; preds = %.loopexit, %314
+._crit_edge953:                                   ; preds = %.loopexit, %314
   %.1428.lcssa = phi i16 [ %.0427722, %314 ], [ %464, %.loopexit ]
   %.3415.lcssa = phi ptr [ %.1413724, %314 ], [ %.4416, %.loopexit ]
   %.3.lcssa = phi ptr [ %.1411725, %314 ], [ %.4, %.loopexit ]
@@ -1103,16 +1103,16 @@ thread-pre-split:                                 ; preds = %380
   %.not522 = icmp eq ptr %.0426, null
   br i1 %.not522, label %.thread603.sink.split, label %314
 
-.loopexit853:                                     ; preds = %._crit_edge692.us, %.lr.ph694.split, %._crit_edge707, %._crit_edge716
+.loopexit869:                                     ; preds = %._crit_edge692.us, %.lr.ph694.split, %._crit_edge707, %._crit_edge716
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread603.sink.split
 
-.thread603.sink.split:                            ; preds = %._crit_edge937, %310, %.loopexit853
-  %.0410612.ph = phi ptr [ %.4, %.loopexit853 ], [ %233, %310 ], [ %.3.lcssa, %._crit_edge937 ]
-  %.0412611.ph = phi ptr [ %.4416, %.loopexit853 ], [ null, %310 ], [ %.3415.lcssa, %._crit_edge937 ]
-  %.0420610.ph = phi i32 [ 1, %.loopexit853 ], [ 0, %310 ], [ 0, %._crit_edge937 ]
+.thread603.sink.split:                            ; preds = %._crit_edge953, %310, %.loopexit869
+  %.0410612.ph = phi ptr [ %.4, %.loopexit869 ], [ %233, %310 ], [ %.3.lcssa, %._crit_edge953 ]
+  %.0412611.ph = phi ptr [ %.4416, %.loopexit869 ], [ null, %310 ], [ %.3415.lcssa, %._crit_edge953 ]
+  %.0420610.ph = phi i32 [ 1, %.loopexit869 ], [ 0, %310 ], [ 0, %._crit_edge953 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread603
 
@@ -1340,21 +1340,21 @@ define noundef ptr @legacy_params(ptr noundef readnone captures(none) %0, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %32, %87
-  %.sink98 = phi ptr [ %60, %87 ], [ %33, %32 ], [ %8, %7 ]
-  %.sink96 = phi i32 [ %91, %87 ], [ 0, %32 ], [ 0, %7 ]
-  %.sink95 = phi i64 [ 168, %87 ], [ 160, %32 ], [ 152, %7 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sink98, i64 164
-  store i32 %.sink96, ptr %92, align 4, !tbaa !96
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink95
+  %.sink99 = phi ptr [ %60, %87 ], [ %33, %32 ], [ %8, %7 ]
+  %.sink97 = phi i32 [ %91, %87 ], [ 0, %32 ], [ 0, %7 ]
+  %.sink96 = phi i64 [ 168, %87 ], [ 160, %32 ], [ 152, %7 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.sink99, i64 164
+  store i32 %.sink97, ptr %92, align 4, !tbaa !96
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink96
   %94 = load ptr, ptr %93, align 8, !tbaa !97
-  %95 = getelementptr inbounds nuw i8, ptr %.sink98, i64 168
+  %95 = getelementptr inbounds nuw i8, ptr %.sink99, i64 168
   store ptr %94, ptr %95, align 8, !tbaa !98
   store i32 4, ptr %4, align 4, !tbaa !6
   store i64 168, ptr %5, align 8, !tbaa !99
   br label %96
 
 96:                                               ; preds = %.sink.split, %6
-  %.0 = phi ptr [ null, %6 ], [ %.sink98, %.sink.split ]
+  %.0 = phi ptr [ null, %6 ], [ %.sink99, %.sink.split ]
   ret ptr %.0
 }
 

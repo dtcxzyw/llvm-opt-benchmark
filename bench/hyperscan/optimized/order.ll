@@ -2547,8 +2547,8 @@ _ZN7testing15AssertionResultD2Ev.exit372:         ; preds = %.noexc.i.i368, %759
   %.047.i = phi i64 [ %774, %772 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit372 ]
   %.sroa.01.06.i = phi ptr [ %773, %772 ], [ %.val129, %_ZN7testing15AssertionResultD2Ev.exit372 ]
   %774 = load i64, ptr %.sroa.01.06.i, align 8
-  %.not11.i = icmp ugt i64 %.047.i, %774
-  br i1 %.not11.i, label %776, label %772
+  %.not12.i = icmp ugt i64 %.047.i, %774
+  br i1 %.not12.i, label %776, label %772
 
 775:                                              ; preds = %753, %722
   %.pn94.pn.pn = phi { ptr, i32 } [ %.pn94.pn, %753 ], [ %723, %722 ]
@@ -7045,8 +7045,8 @@ _ZN7testing15AssertionResultD2Ev.exit345:         ; preds = %.noexc.i.i341, %715
   %.047.i = phi i64 [ %730, %728 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit345 ]
   %.sroa.01.06.i = phi ptr [ %729, %728 ], [ %.val126, %_ZN7testing15AssertionResultD2Ev.exit345 ]
   %730 = load i64, ptr %.sroa.01.06.i, align 8
-  %.not11.i = icmp ugt i64 %.047.i, %730
-  br i1 %.not11.i, label %732, label %728
+  %.not12.i = icmp ugt i64 %.047.i, %730
+  br i1 %.not12.i, label %732, label %728
 
 731:                                              ; preds = %709, %678
   %.pn91.pn.pn = phi { ptr, i32 } [ %.pn91.pn, %709 ], [ %679, %678 ]
@@ -9589,8 +9589,8 @@ _ZN7testing15AssertionResultD2Ev.exit319:         ; preds = %.noexc.i.i315, %671
   %.047.i = phi i64 [ %686, %684 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit319 ]
   %.sroa.01.06.i = phi ptr [ %685, %684 ], [ %.val123, %_ZN7testing15AssertionResultD2Ev.exit319 ]
   %686 = load i64, ptr %.sroa.01.06.i, align 8
-  %.not11.i = icmp ugt i64 %.047.i, %686
-  br i1 %.not11.i, label %688, label %684
+  %.not12.i = icmp ugt i64 %.047.i, %686
+  br i1 %.not12.i, label %688, label %684
 
 687:                                              ; preds = %665, %634
   %.pn88.pn.pn = phi { ptr, i32 } [ %.pn88.pn, %665 ], [ %635, %634 ]
@@ -12133,8 +12133,8 @@ _ZN7testing15AssertionResultD2Ev.exit319:         ; preds = %.noexc.i.i315, %671
   %.047.i = phi i64 [ %686, %684 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit319 ]
   %.sroa.01.06.i = phi ptr [ %685, %684 ], [ %.val123, %_ZN7testing15AssertionResultD2Ev.exit319 ]
   %686 = load i64, ptr %.sroa.01.06.i, align 8
-  %.not11.i = icmp ugt i64 %.047.i, %686
-  br i1 %.not11.i, label %688, label %684
+  %.not12.i = icmp ugt i64 %.047.i, %686
+  br i1 %.not12.i, label %688, label %684
 
 687:                                              ; preds = %665, %634
   %.pn88.pn.pn = phi { ptr, i32 } [ %.pn88.pn, %665 ], [ %635, %634 ]
@@ -15677,8 +15677,8 @@ _ZN7testing15AssertionResultD2Ev.exit459:         ; preds = %.noexc.i.i455, %102
   %.047.i = phi i64 [ %1038, %1036 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit459 ]
   %.sroa.01.06.i = phi ptr [ %1037, %1036 ], [ %.val176, %_ZN7testing15AssertionResultD2Ev.exit459 ]
   %1038 = load i64, ptr %.sroa.01.06.i, align 8
-  %.not11.i = icmp ugt i64 %.047.i, %1038
-  br i1 %.not11.i, label %1040, label %1036
+  %.not12.i = icmp ugt i64 %.047.i, %1038
+  br i1 %.not12.i, label %1040, label %1036
 
 1039:                                             ; preds = %1018, %988
   %.pn132.pn.pn = phi { ptr, i32 } [ %.pn132.pn, %1018 ], [ %989, %988 ]
@@ -19113,8 +19113,8 @@ _ZN7testing15AssertionResultD2Ev.exit432:         ; preds = %.noexc.i.i428, %979
   %.047.i = phi i64 [ %994, %992 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit432 ]
   %.sroa.01.06.i = phi ptr [ %993, %992 ], [ %.val173, %_ZN7testing15AssertionResultD2Ev.exit432 ]
   %994 = load i64, ptr %.sroa.01.06.i, align 8
-  %.not11.i = icmp ugt i64 %.047.i, %994
-  br i1 %.not11.i, label %996, label %992
+  %.not12.i = icmp ugt i64 %.047.i, %994
+  br i1 %.not12.i, label %996, label %992
 
 995:                                              ; preds = %974, %944
   %.pn129.pn.pn = phi { ptr, i32 } [ %.pn129.pn, %974 ], [ %945, %944 ]
@@ -22408,8 +22408,8 @@ _ZN7testing15AssertionResultD2Ev.exit406:         ; preds = %.noexc.i.i402, %935
   %.047.i = phi i64 [ %950, %948 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit406 ]
   %.sroa.01.06.i = phi ptr [ %949, %948 ], [ %.val170, %_ZN7testing15AssertionResultD2Ev.exit406 ]
   %950 = load i64, ptr %.sroa.01.06.i, align 8
-  %.not11.i = icmp ugt i64 %.047.i, %950
-  br i1 %.not11.i, label %952, label %948
+  %.not12.i = icmp ugt i64 %.047.i, %950
+  br i1 %.not12.i, label %952, label %948
 
 951:                                              ; preds = %930, %900
   %.pn126.pn.pn = phi { ptr, i32 } [ %.pn126.pn, %930 ], [ %901, %900 ]
@@ -25711,8 +25711,8 @@ _ZN7testing15AssertionResultD2Ev.exit406:         ; preds = %.noexc.i.i402, %935
   %.047.i = phi i64 [ %950, %948 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit406 ]
   %.sroa.01.06.i = phi ptr [ %949, %948 ], [ %.val170, %_ZN7testing15AssertionResultD2Ev.exit406 ]
   %950 = load i64, ptr %.sroa.01.06.i, align 8
-  %.not11.i = icmp ugt i64 %.047.i, %950
-  br i1 %.not11.i, label %952, label %948
+  %.not12.i = icmp ugt i64 %.047.i, %950
+  br i1 %.not12.i, label %952, label %948
 
 951:                                              ; preds = %930, %900
   %.pn126.pn.pn = phi { ptr, i32 } [ %.pn126.pn, %930 ], [ %901, %900 ]

@@ -5162,9 +5162,9 @@ _ZL20getSplatableConstantPKN4llvm8ConstantEj.exit: ; preds = %119, %123
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %46, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit61.i, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit, %136, %147, %151, %154
-  %.018 = phi ptr [ %145, %136 ], [ %145, %147 ], [ %145, %151 ], [ %145, %154 ], [ null, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit ], [ null, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit61.i ], [ null, %46 ]
+  %.028 = phi ptr [ %145, %136 ], [ %145, %147 ], [ %145, %151 ], [ %145, %154 ], [ null, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit ], [ null, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit61.i ], [ null, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret ptr %.018
+  ret ptr %.028
 }
 
 declare noundef ptr @_ZN4llvm3X8619getConstantFromPoolERKNS_12MachineInstrEj(ptr noundef nonnull align 8 dereferenceable(70), i32 noundef) local_unnamed_addr #2
@@ -6255,19 +6255,19 @@ define internal fastcc noundef ptr @_ZL13rebuildExtCstPKN4llvm8ConstantEbjjj(ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !444
   %.pre.i = load i8, ptr %13, align 8, !tbaa !393, !range !344, !noalias !444
   %22 = trunc nuw i8 %.pre.i to i1
-  br i1 %22, label %23, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44
+  br i1 %22, label %23, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread57
 
 23:                                               ; preds = %16
   store i8 0, ptr %13, align 8, !tbaa !393, !noalias !444
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !395, !noalias !444
   %26 = icmp ugt i32 %25, 64
-  br i1 %26, label %27, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44
+  br i1 %26, label %27, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread57
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %6, align 8, !tbaa !369, !noalias !444
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit
+  br i1 %29, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread57, label %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit
 
 _ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread: ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !444
@@ -6276,7 +6276,7 @@ _ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread: ; preds = %5
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %146
 
-_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44: ; preds = %27, %23, %16
+_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread57: ; preds = %27, %23, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !444
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %35
@@ -6289,8 +6289,8 @@ _ZL19extractConstantBitsPKN4llvm8ConstantEj.exit: ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %33, label %35, label %146
 
-35:                                               ; preds = %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44, %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit
-  %36 = phi ptr [ %32, %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread44 ], [ %34, %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit ]
+35:                                               ; preds = %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread57, %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit
+  %36 = phi ptr [ %32, %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit.thread57 ], [ %34, %_ZL19extractConstantBitsPKN4llvm8ConstantEj.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %37 = mul i32 %4, %3
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8

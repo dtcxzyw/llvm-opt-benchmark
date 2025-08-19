@@ -282,7 +282,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i.i.i.i: ; preds = %.lr.ph
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread21.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc37.i.i.i
   %.sroa.4.0.i26.i.i.i.i = phi i64 [ %73, %.noexc37.i.i.i ], [ %.sroa.01.05.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %74 = add i64 %62, 1
+  %74 = add nuw i64 %62, 1
   %75 = add i64 %74, %.sroa.4.0.i26.i.i.i.i
   %.not13.i.i.i.i = icmp ugt i64 %75, %44
   %76 = add i64 %.sroa.4.0.i26.i.i.i.i, %62

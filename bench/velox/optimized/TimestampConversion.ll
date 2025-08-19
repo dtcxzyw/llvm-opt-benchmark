@@ -117,7 +117,7 @@ return:                                           ; preds = %_ZN8facebook5velox4
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef range(i64 -1575147300684, 1575146278002) i64 @_ZN8facebook5velox4util32lastDayOfMonthSinceEpochFromDateERK2tm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %dateTime) local_unnamed_addr #1 {
+define noundef range(i64 -1572999817036, 1575146278002) i64 @_ZN8facebook5velox4util32lastDayOfMonthSinceEpochFromDateERK2tm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %dateTime) local_unnamed_addr #1 {
 entry:
   %tm_year = getelementptr inbounds nuw i8, ptr %dateTime, i64 20
   %0 = load i32, ptr %tm_year, align 4
@@ -198,7 +198,7 @@ _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
-define noundef range(i64 -1575147300684, 1575146278002) i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year, i32 noundef %month, i32 noundef %day) local_unnamed_addr #2 {
+define noundef range(i64 -1572999817036, 1575146278002) i64 @_ZN8facebook5velox4util22daysSinceEpochFromDateEiii(i32 noundef %year, i32 noundef %month, i32 noundef %day) local_unnamed_addr #2 {
 entry:
   %0 = add i32 %month, -13
   %or.cond.i = icmp ult i32 %0, -12
@@ -252,8 +252,8 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   %4 = tail call i32 @llvm.smax.i32(i32 %year, i32 1570)
   %5 = icmp slt i32 %year, 1570
   %umin = zext i1 %5 to i32
-  %6 = add i32 %year, %umin
-  %7 = sub i32 %4, %6
+  %6 = add nsw i32 %year, %umin
+  %7 = sub nsw i32 %4, %6
   %8 = udiv i32 %7, 400
   %9 = add nuw nsw i32 %8, %umin
   %10 = mul i32 %9, 400
@@ -776,11 +776,11 @@ _ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit: ; preds = %if.then41
   br i1 %cmp43, label %return, label %if.end46
 
 if.end46:                                         ; preds = %for.cond.preheader, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit, %for.end
-  %cmp26.lcssa164 = phi i1 [ %cmp26.lcssa, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %cmp26.lcssa, %for.end ], [ false, %for.cond.preheader ]
-  %.lcssa162 = phi i64 [ %.lcssa, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %.lcssa, %for.end ], [ %pos.promoted139, %for.cond.preheader ]
+  %cmp26.lcssa167 = phi i1 [ %cmp26.lcssa, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %cmp26.lcssa, %for.end ], [ false, %for.cond.preheader ]
+  %.lcssa165 = phi i64 [ %.lcssa, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %.lcssa, %for.end ], [ %pos.promoted139, %for.cond.preheader ]
   %year.2 = phi i32 [ %sub.i.i, %_ZN8facebook5velox13checkedNegateIiEET_RKS2_.exit ], [ %year.1, %for.end ], [ 0, %for.cond.preheader ]
   %cmp47 = icmp eq i32 %mode, 3
-  %cmp48 = icmp eq i64 %.lcssa162, %len
+  %cmp48 = icmp eq i64 %.lcssa165, %len
   %or.cond = and i1 %cmp47, %cmp48
   br i1 %or.cond, label %if.then49, label %if.end52
 
@@ -889,12 +889,12 @@ _ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit: ; preds = %land.rhs.i.
   br label %return
 
 if.end52:                                         ; preds = %if.end46
-  br i1 %cmp26.lcssa164, label %if.end55, label %return
+  br i1 %cmp26.lcssa167, label %if.end55, label %return
 
 if.end55:                                         ; preds = %if.end52
-  %inc56 = add nuw i64 %.lcssa162, 1
+  %inc56 = add nuw i64 %.lcssa165, 1
   store i64 %inc56, ptr %pos, align 8
-  %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 %.lcssa162
+  %arrayidx57 = getelementptr inbounds i8, ptr %buf, i64 %.lcssa165
   %40 = load i8, ptr %arrayidx57, align 1
   %cmp59 = icmp eq i32 %mode, 2
   %or.cond.not = icmp samesign ult i32 %mode, 2
@@ -1214,8 +1214,8 @@ _ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit: ; preds =
   %hour.0 = phi i32 [ %add.i, %if.then6.i ], [ %sub.i, %land.lhs.true3.i ], [ %sub.i, %if.then.i ]
   %or.cond = icmp ult i32 %hour.0, 24
   %cmp16.not = icmp ult i64 %9, %len
-  %or.cond94 = select i1 %or.cond, i1 %cmp16.not, i1 false
-  br i1 %or.cond94, label %if.end18, label %return
+  %or.cond98 = select i1 %or.cond, i1 %cmp16.not, i1 false
+  br i1 %or.cond98, label %if.end18, label %return
 
 if.end18:                                         ; preds = %_ZN8facebook5velox4util12_GLOBAL__N_116parseDoubleDigitEPKcmRmRi.exit
   %inc19 = add nuw i64 %9, 1

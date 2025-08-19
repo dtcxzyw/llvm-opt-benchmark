@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %.not82 = icmp eq i64 %1, 0
-  br i1 %.not82, label %.thread.thread85, label %.lr.ph
+  br i1 %.not82, label %.thread.thread93, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %6 = tail call ptr @__errno_location() #8
@@ -61,7 +61,7 @@ define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %
 .thread:                                          ; preds = %17, %12
   %.151.ph = phi i64 [ %.05078, %12 ], [ %.252, %17 ]
   %19 = icmp ult i64 %.151.ph, %1
-  br i1 %19, label %20, label %.thread.thread85
+  br i1 %19, label %20, label %.thread.thread93
 
 20:                                               ; preds = %.thread.thread, %.thread
   %21 = atomicrmw or ptr @random_fd, i32 0 seq_cst, align 4
@@ -84,11 +84,11 @@ define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %
 29:                                               ; preds = %27
   %30 = tail call ptr @strerror(i32 noundef %28) #9
   %31 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.1, ptr noundef %30) #9
-  br label %.thread.thread85.sink.split
+  br label %.thread.thread93.sink.split
 
 32:                                               ; preds = %27
   %33 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.2) #9
-  br label %.thread.thread85.sink.split
+  br label %.thread.thread93.sink.split
 
 34:                                               ; preds = %24
   store i32 0, ptr %23, align 4, !tbaa !4
@@ -112,11 +112,11 @@ define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %
 44:                                               ; preds = %41
   %45 = tail call ptr @strerror(i32 noundef %43) #9
   %46 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.3, ptr noundef %45) #9
-  br label %.thread.thread85.sink.split
+  br label %.thread.thread93.sink.split
 
 47:                                               ; preds = %41
   %48 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.4) #9
-  br label %.thread.thread85.sink.split
+  br label %.thread.thread93.sink.split
 
 49:                                               ; preds = %36
   %50 = cmpxchg ptr @random_fd, i32 -1, i32 %25 seq_cst seq_cst, align 4
@@ -135,7 +135,7 @@ zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %20, %49, %zend_atom
 54:                                               ; preds = %57
   %55 = add i64 %60, %.35381
   %56 = icmp ult i64 %55, %1
-  br i1 %56, label %57, label %.thread.thread85.sink.split
+  br i1 %56, label %57, label %.thread.thread93.sink.split
 
 57:                                               ; preds = %zend_atomic_int_compare_exchange_ex.exit.thread, %54
   %.35381 = phi i64 [ 0, %zend_atomic_int_compare_exchange_ex.exit.thread ], [ %55, %54 ]
@@ -154,19 +154,19 @@ zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %20, %49, %zend_atom
 64:                                               ; preds = %62
   %65 = tail call ptr @strerror(i32 noundef %63) #9
   %66 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.5, ptr noundef %65) #9
-  br label %.thread.thread85.sink.split
+  br label %.thread.thread93.sink.split
 
 67:                                               ; preds = %62
   %68 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.6) #9
-  br label %.thread.thread85.sink.split
+  br label %.thread.thread93.sink.split
 
-.thread.thread85.sink.split:                      ; preds = %54, %32, %29, %47, %44, %64, %67
+.thread.thread93.sink.split:                      ; preds = %54, %32, %29, %47, %44, %64, %67
   %.3.ph = phi i32 [ -1, %67 ], [ -1, %64 ], [ -1, %44 ], [ -1, %47 ], [ -1, %29 ], [ -1, %32 ], [ 0, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread.thread85
+  br label %.thread.thread93
 
-.thread.thread85:                                 ; preds = %.thread.thread85.sink.split, %4, %.thread
-  %.3 = phi i32 [ 0, %.thread ], [ 0, %4 ], [ %.3.ph, %.thread.thread85.sink.split ]
+.thread.thread93:                                 ; preds = %.thread.thread93.sink.split, %4, %.thread
+  %.3 = phi i32 [ 0, %.thread ], [ 0, %4 ], [ %.3.ph, %.thread.thread93.sink.split ]
   ret i32 %.3
 }
 
@@ -273,8 +273,8 @@ php_random_bytes.exit:                            ; preds = %10
 
 .split.preheader:                                 ; preds = %23
   %26 = load i64, ptr %7, align 8, !tbaa !15
-  %.not2335 = icmp ugt i64 %26, %25
-  br i1 %.not2335, label %.lr.ph, label %.critedge
+  %.not2340 = icmp ugt i64 %26, %25
+  br i1 %.not2340, label %.lr.ph, label %.critedge
 
 .split.us:                                        ; preds = %23, %php_random_bytes.exit25.us
   %27 = load i64, ptr %7, align 8, !tbaa !15

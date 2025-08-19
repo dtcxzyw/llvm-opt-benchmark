@@ -7945,8 +7945,8 @@ define internal void @"_ZNSt17_Function_handlerIFvN4absl12lts_202407228StatusOrI
 .noexc12.thread.i.i.i:                            ; preds = %._crit_edge.i.i.i, %._crit_edge.thread.i.i.i
   %24 = phi i64 [ 0, %._crit_edge.thread.i.i.i ], [ %22, %._crit_edge.i.i.i ]
   %25 = phi ptr [ %19, %._crit_edge.thread.i.i.i ], [ %20, %._crit_edge.i.i.i ]
-  %.sroa.04.0.lcssa47.i.i.i = phi ptr [ null, %._crit_edge.thread.i.i.i ], [ %.sroa.04.1.i.i.i, %._crit_edge.i.i.i ]
-  %.sroa.16.0.lcssa45.i.i.i = phi ptr [ null, %._crit_edge.thread.i.i.i ], [ %.sroa.16.1.i.i.i, %._crit_edge.i.i.i ]
+  %.sroa.04.0.lcssa55.i.i.i = phi ptr [ null, %._crit_edge.thread.i.i.i ], [ %.sroa.04.1.i.i.i, %._crit_edge.i.i.i ]
+  %.sroa.16.0.lcssa53.i.i.i = phi ptr [ null, %._crit_edge.thread.i.i.i ], [ %.sroa.16.1.i.i.i, %._crit_edge.i.i.i ]
   store ptr null, ptr %25, align 8, !tbaa !163
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -8087,8 +8087,8 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %.noexc12.thread.i.i.i
   %59 = phi i64 [ %24, %.noexc12.thread.i.i.i ], [ %22, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %60 = phi ptr [ %25, %.noexc12.thread.i.i.i ], [ %20, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.04.0.lcssa46.i.i.i = phi ptr [ %.sroa.04.0.lcssa47.i.i.i, %.noexc12.thread.i.i.i ], [ %.sroa.04.1.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
-  %.sroa.16.0.lcssa44.i.i.i = phi ptr [ %.sroa.16.0.lcssa45.i.i.i, %.noexc12.thread.i.i.i ], [ %.sroa.16.1.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.04.0.lcssa54.i.i.i = phi ptr [ %.sroa.04.0.lcssa55.i.i.i, %.noexc12.thread.i.i.i ], [ %.sroa.04.1.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
+  %.sroa.16.0.lcssa52.i.i.i = phi ptr [ %.sroa.16.0.lcssa53.i.i.i, %.noexc12.thread.i.i.i ], [ %.sroa.16.1.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %61 = phi ptr [ %27, %.noexc12.thread.i.i.i ], [ %34, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %62 = phi ptr [ %26, %.noexc12.thread.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %.noexc12.thread.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
@@ -8133,13 +8133,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i:   ; preds = %63
   unreachable
 
 _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS7_EEED2Ev.exit.i.i.i: ; preds = %74, %72, %67, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i
-  %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.04.0.lcssa46.i.i.i, null
+  %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.04.0.lcssa54.i.i.i, null
   br i1 %.not.i.i.i.i.i.i, label %119, label %79
 
 79:                                               ; preds = %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS7_EEED2Ev.exit.i.i.i
-  %80 = ptrtoint ptr %.sroa.16.0.lcssa44.i.i.i to i64
+  %80 = ptrtoint ptr %.sroa.16.0.lcssa52.i.i.i to i64
   %81 = sub i64 %80, %59
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.04.0.lcssa46.i.i.i, i64 noundef %81) #34
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.04.0.lcssa54.i.i.i, i64 noundef %81) #34
   br label %119
 
 82:                                               ; preds = %_ZNSt16allocator_traitsISaIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressEEE8allocateERS4_m.exit.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i
@@ -8154,8 +8154,8 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_
   br label %86
 
 86:                                               ; preds = %84, %82, %58
-  %.sroa.16.022.i.i.i = phi ptr [ %.sroa.16.0.lcssa44.i.i.i, %84 ], [ %.sroa.16.1.i.i.i, %82 ], [ %.sroa.16.028.i.i.i, %58 ]
-  %.sroa.04.018.i.i.i = phi ptr [ %.sroa.04.0.lcssa46.i.i.i, %84 ], [ %.sroa.04.1.i.i.i, %82 ], [ %.sroa.04.030.i.i.i, %58 ]
+  %.sroa.16.022.i.i.i = phi ptr [ %.sroa.16.0.lcssa52.i.i.i, %84 ], [ %.sroa.16.1.i.i.i, %82 ], [ %.sroa.16.028.i.i.i, %58 ]
+  %.sroa.04.018.i.i.i = phi ptr [ %.sroa.04.0.lcssa54.i.i.i, %84 ], [ %.sroa.04.1.i.i.i, %82 ], [ %.sroa.04.030.i.i.i, %58 ]
   %.pn.pn.i.i.i = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ], [ %lpad.phi.i.i.i, %58 ]
   %.not.i.i.i16.i.i.i = icmp eq ptr %.sroa.04.018.i.i.i, null
   br i1 %.not.i.i.i16.i.i.i, label %.body.i.i, label %87

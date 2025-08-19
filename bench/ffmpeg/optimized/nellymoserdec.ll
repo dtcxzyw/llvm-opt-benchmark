@@ -73,7 +73,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decode_tag(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 64, 0) i32 @decode_tag(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca [124 x float], align 16
   %6 = alloca [124 x float], align 16
   %7 = alloca [128 x i32], align 16
@@ -288,7 +288,7 @@ define internal i32 @decode_tag(ptr noundef %0, ptr noundef %1, ptr noundef writ
   %128 = lshr i32 %126, %127
   %129 = sub nsw i32 32, %94
   %130 = lshr i32 -1, %129
-  %131 = add i32 %94, %92
+  %131 = add nuw i32 %94, %92
   %132 = call i32 @llvm.umin.i32(i32 %131, i32 520)
   store i32 %132, ptr %30, align 8, !tbaa !58
   %notmask.i = shl nsw i32 -1, %94

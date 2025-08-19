@@ -1794,19 +1794,19 @@ define range(i32 -2147483648, 2147483647) i32 @wtap_name_to_encap(ptr noundef re
 9:                                                ; preds = %6
   %10 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(1) %8) #19
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %._crit_edge.loopexit.split.loop.exit12, label %12
+  br i1 %11, label %._crit_edge.loopexit.split.loop.exit13, label %12
 
 12:                                               ; preds = %6, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !10
 
-._crit_edge.loopexit.split.loop.exit12:           ; preds = %9
+._crit_edge.loopexit.split.loop.exit13:           ; preds = %9
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit12, %1
-  %.06 = phi i32 [ -1, %1 ], [ %13, %._crit_edge.loopexit.split.loop.exit12 ], [ -1, %12 ]
+._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit13, %1
+  %.06 = phi i32 [ -1, %1 ], [ %13, %._crit_edge.loopexit.split.loop.exit13 ], [ -1, %12 ]
   ret i32 %.06
 }
 

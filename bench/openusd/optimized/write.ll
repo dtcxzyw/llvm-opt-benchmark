@@ -141,17 +141,17 @@ splitTilesLog2.exit31:                            ; preds = %floorLog2.exit
   br label %.sink.split
 
 .sink.split:                                      ; preds = %splitTilesLog2.exit31, %splitTilesLog2.exit
-  %.sink36 = phi i32 [ %14, %splitTilesLog2.exit ], [ %15, %splitTilesLog2.exit31 ]
-  %.sink34 = phi ptr [ %3, %splitTilesLog2.exit ], [ %4, %splitTilesLog2.exit31 ]
-  %.sink32 = phi ptr [ %4, %splitTilesLog2.exit ], [ %3, %splitTilesLog2.exit31 ]
-  %16 = lshr i32 %.sink36, 1
+  %.sink40 = phi i32 [ %14, %splitTilesLog2.exit ], [ %15, %splitTilesLog2.exit31 ]
+  %.sink38 = phi ptr [ %3, %splitTilesLog2.exit ], [ %4, %splitTilesLog2.exit31 ]
+  %.sink36 = phi ptr [ %4, %splitTilesLog2.exit ], [ %3, %splitTilesLog2.exit31 ]
+  %16 = lshr i32 %.sink40, 1
   %17 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %16, i1 false)
   %18 = add nsw i32 %.neg.i28, %17
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
   %19 = lshr i32 %spec.store.select.i, 1
-  store i32 %19, ptr %.sink34, align 4
+  store i32 %19, ptr %.sink38, align 4
   %20 = sub nsw i32 %.0.lcssa.i, %19
-  store i32 %20, ptr %.sink32, align 4
+  store i32 %20, ptr %.sink36, align 4
   br label %21
 
 21:                                               ; preds = %.sink.split, %5
@@ -4023,7 +4023,7 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 1
   %.not.i49 = icmp eq i32 %64, 0
-  br i1 %.not.i49, label %.thread57, label %70
+  br i1 %.not.i49, label %.thread92, label %70
 
 .thread54:                                        ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4083,10 +4083,10 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   %.not134.i = icmp eq i32 %88, 0
   br i1 %.not134.i, label %133, label %92
 
-.thread57:                                        ; preds = %61
+.thread92:                                        ; preds = %61
   %89 = and i32 %63, 2
-  %.not134.i58 = icmp eq i32 %89, 0
-  br i1 %.not134.i58, label %.thread60, label %.thread160.i
+  %.not134.i93 = icmp eq i32 %89, 0
+  br i1 %.not134.i93, label %.thread95, label %.thread160.i
 
 .thread.i:                                        ; preds = %81
   %90 = load i32, ptr %71, align 4
@@ -4102,9 +4102,9 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   call void @avifRWStreamStart(ptr noundef nonnull %11, ptr noundef nonnull %94) #13
   br label %.thread160.i
 
-.thread160.i:                                     ; preds = %.thread57, %93, %92, %.thread.i
-  %95 = phi ptr [ %86, %92 ], [ %86, %93 ], [ %71, %.thread.i ], [ %62, %.thread57 ]
-  %.not135162.i = phi i1 [ true, %92 ], [ false, %93 ], [ true, %.thread.i ], [ true, %.thread57 ]
+.thread160.i:                                     ; preds = %.thread92, %93, %92, %.thread.i
+  %95 = phi ptr [ %86, %92 ], [ %86, %93 ], [ %71, %.thread.i ], [ %62, %.thread92 ]
+  %.not135162.i = phi i1 [ true, %92 ], [ false, %93 ], [ true, %.thread.i ], [ true, %.thread92 ]
   %96 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.75, i64 noundef 0, ptr noundef nonnull %6) #13
   %.not136.i = icmp eq i32 %96, 0
   br i1 %.not136.i, label %97, label %avifEncoderWriteExtendedColorProperties.exit
@@ -4182,11 +4182,11 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   %.not146.i = icmp eq i32 %136, 0
   br i1 %.not146.i, label %157, label %140
 
-.thread60:                                        ; preds = %.thread57
+.thread95:                                        ; preds = %.thread92
   %137 = load i32, ptr %62, align 4
   %138 = and i32 %137, 4
-  %.not146.i61 = icmp eq i32 %138, 0
-  br i1 %.not146.i61, label %.thread63, label %.thread165.i
+  %.not146.i96 = icmp eq i32 %138, 0
+  br i1 %.not146.i96, label %.thread98, label %.thread165.i
 
 .thread163.i:                                     ; preds = %.thread.i
   %139 = and i32 %90, 4
@@ -4201,9 +4201,9 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   call void @avifRWStreamStart(ptr noundef nonnull %11, ptr noundef nonnull %142) #13
   br label %.thread165.i
 
-.thread165.i:                                     ; preds = %.thread60, %141, %140, %.thread163.i
-  %143 = phi ptr [ %134, %140 ], [ %134, %141 ], [ %71, %.thread163.i ], [ %62, %.thread60 ]
-  %.not147167.i = phi i1 [ true, %140 ], [ false, %141 ], [ true, %.thread163.i ], [ true, %.thread60 ]
+.thread165.i:                                     ; preds = %.thread95, %141, %140, %.thread163.i
+  %143 = phi ptr [ %134, %140 ], [ %134, %141 ], [ %71, %.thread163.i ], [ %62, %.thread95 ]
+  %.not147167.i = phi i1 [ true, %140 ], [ false, %141 ], [ true, %.thread163.i ], [ true, %.thread95 ]
   %144 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.76, i64 noundef 0, ptr noundef nonnull %7) #13
   %.not148.i = icmp eq i32 %144, 0
   br i1 %.not148.i, label %145, label %avifEncoderWriteExtendedColorProperties.exit
@@ -4239,11 +4239,11 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   %.not152.i = icmp eq i32 %160, 0
   br i1 %.not152.i, label %179, label %164
 
-.thread63:                                        ; preds = %.thread60
+.thread98:                                        ; preds = %.thread95
   %161 = load i32, ptr %62, align 4
   %162 = and i32 %161, 8
-  %.not152.i64 = icmp eq i32 %162, 0
-  br i1 %.not152.i64, label %179, label %.thread170.i
+  %.not152.i99 = icmp eq i32 %162, 0
+  br i1 %.not152.i99, label %179, label %.thread170.i
 
 .thread168.i:                                     ; preds = %.thread163.i
   %163 = and i32 %90, 8
@@ -4258,8 +4258,8 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   call void @avifRWStreamStart(ptr noundef nonnull %11, ptr noundef nonnull %166) #13
   br label %.thread170.i
 
-.thread170.i:                                     ; preds = %.thread63, %165, %164, %.thread168.i
-  %.not153172.i = phi i1 [ true, %164 ], [ false, %165 ], [ true, %.thread168.i ], [ true, %.thread63 ]
+.thread170.i:                                     ; preds = %.thread98, %165, %164, %.thread168.i
+  %.not153172.i = phi i1 [ true, %164 ], [ false, %165 ], [ true, %.thread168.i ], [ true, %.thread98 ]
   %167 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.77, i64 noundef 0, ptr noundef nonnull %8) #13
   %.not154.i = icmp eq i32 %167, 0
   br i1 %.not154.i, label %168, label %avifEncoderWriteExtendedColorProperties.exit
@@ -4288,7 +4288,7 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   %.not158.i = icmp eq i32 %178, 0
   br i1 %.not158.i, label %179, label %avifEncoderWriteExtendedColorProperties.exit
 
-179:                                              ; preds = %.thread63, %177, %175, %.thread168.i, %157
+179:                                              ; preds = %.thread98, %177, %175, %.thread168.i, %157
   br label %avifEncoderWriteExtendedColorProperties.exit
 
 avifEncoderWriteExtendedColorProperties.exit:     ; preds = %70, %73, %77, %83, %.thread160.i, %97, %101, %105, %109, %113, %117, %121, %125, %131, %.thread165.i, %145, %147, %155, %.thread170.i, %168, %170, %177, %179
@@ -4463,8 +4463,8 @@ define internal fastcc i32 @avifEncoderWriteMediaDataBox(ptr noundef captures(no
   br label %73
 
 52:                                               ; preds = %50
-  %.272 = select i1 %46, ptr %3, ptr %2
-  %53 = call ptr @avifArrayPush(ptr noundef nonnull %.272) #13
+  %.293 = select i1 %46, ptr %3, ptr %2
+  %53 = call ptr @avifArrayPush(ptr noundef nonnull %.293) #13
   %.not177 = icmp eq ptr %53, null
   br i1 %.not177, label %.loopexit, label %54
 

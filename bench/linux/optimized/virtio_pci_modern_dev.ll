@@ -204,9 +204,9 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %81 = tail call zeroext i8 @pci_find_capability(ptr noundef %12, i32 noundef 9) #4
   %82 = icmp eq i8 %81, 0
-  br i1 %82, label %virtio_pci_find_capability.exit10, label %.preheader63
+  br i1 %82, label %virtio_pci_find_capability.exit10, label %.preheader84
 
-.preheader63:                                     ; preds = %76, %114
+.preheader84:                                     ; preds = %76, %114
   %83 = phi i8 [ %115, %114 ], [ %81, %76 ]
   %84 = zext i8 %83 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -224,7 +224,7 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
   %or.cond.i8 = select i1 %90, i1 %92, i1 false
   br i1 %or.cond.i8, label %93, label %114
 
-93:                                               ; preds = %.preheader63
+93:                                               ; preds = %.preheader84
   %94 = zext nneg i8 %89 to i64
   %95 = getelementptr [11 x %struct.resource], ptr %44, i64 0, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -257,20 +257,20 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %virtio_pci_find_capability.exit10
 
-114:                                              ; preds = %103, %99, %93, %.preheader63
+114:                                              ; preds = %103, %99, %93, %.preheader84
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %115 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %83, i32 noundef 9) #4
   %116 = icmp eq i8 %115, 0
-  br i1 %116, label %virtio_pci_find_capability.exit10, label %.preheader63, !llvm.loop !6
+  br i1 %116, label %virtio_pci_find_capability.exit10, label %.preheader84, !llvm.loop !6
 
 virtio_pci_find_capability.exit10:                ; preds = %114, %76, %109
   %117 = phi i32 [ 0, %76 ], [ %84, %109 ], [ 0, %114 ]
   %118 = tail call zeroext i8 @pci_find_capability(ptr noundef %12, i32 noundef 9) #4
   %119 = icmp eq i8 %118, 0
-  br i1 %119, label %virtio_pci_find_capability.exit13.thread, label %.preheader62
+  br i1 %119, label %virtio_pci_find_capability.exit13.thread, label %.preheader83
 
-.preheader62:                                     ; preds = %virtio_pci_find_capability.exit10, %146
+.preheader83:                                     ; preds = %virtio_pci_find_capability.exit10, %146
   %120 = phi i8 [ %147, %146 ], [ %118, %virtio_pci_find_capability.exit10 ]
   %121 = zext i8 %120 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -288,7 +288,7 @@ virtio_pci_find_capability.exit10:                ; preds = %114, %76, %109
   %or.cond.i11 = select i1 %127, i1 %129, i1 false
   br i1 %or.cond.i11, label %130, label %146
 
-130:                                              ; preds = %.preheader62
+130:                                              ; preds = %.preheader83
   %131 = zext nneg i8 %126 to i64
   %132 = getelementptr [11 x %struct.resource], ptr %44, i64 0, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
@@ -311,12 +311,12 @@ virtio_pci_find_capability.exit10:                ; preds = %114, %76, %109
   %145 = icmp eq i64 %144, 0
   br i1 %145, label %146, label %virtio_pci_find_capability.exit13
 
-146:                                              ; preds = %140, %136, %130, %.preheader62
+146:                                              ; preds = %140, %136, %130, %.preheader83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %147 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %120, i32 noundef 9) #4
   %148 = icmp eq i8 %147, 0
-  br i1 %148, label %virtio_pci_find_capability.exit13.thread, label %.preheader62, !llvm.loop !6
+  br i1 %148, label %virtio_pci_find_capability.exit13.thread, label %.preheader83, !llvm.loop !6
 
 virtio_pci_find_capability.exit13.thread:         ; preds = %146, %virtio_pci_find_capability.exit10
   %149 = getelementptr inbounds nuw i8, ptr %12, i64 184

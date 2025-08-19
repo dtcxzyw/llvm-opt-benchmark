@@ -15258,8 +15258,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %371 = trunc nuw i64 %370 to i1
   %372 = load ptr, ptr %95, align 8, !noalias !1534
   %373 = icmp ne ptr %372, null
-  %or.cond901.not.i = select i1 %371, i1 %373, i1 false
-  br i1 %or.cond901.not.i, label %381, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ty_project..metadata..options..Rules$GT$$GT$17h4aaa1a491a40bda7E.exit.i"
+  %or.cond908.not.i = select i1 %371, i1 %373, i1 false
+  br i1 %or.cond908.not.i, label %381, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ty_project..metadata..options..Rules$GT$$GT$17h4aaa1a491a40bda7E.exit.i"
 
 374:                                              ; preds = %353
   invoke void @"_ZN4core3ptr67drop_in_place$LT$ty_project..metadata..options..TerminalOptions$GT$17hce551ba75dbd28b9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %63)
@@ -15271,8 +15271,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %.not230.i = icmp eq i64 %375, 0
   %376 = load ptr, ptr %95, align 8, !noalias !1534
   %377 = icmp eq ptr %376, null
-  %or.cond903.i = select i1 %.not230.i, i1 true, i1 %377
-  br i1 %or.cond903.i, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ty_project..metadata..options..Rules$GT$$GT$17h4aaa1a491a40bda7E.exit320.i", label %394
+  %or.cond910.i = select i1 %.not230.i, i1 true, i1 %377
+  br i1 %or.cond910.i, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ty_project..metadata..options..Rules$GT$$GT$17h4aaa1a491a40bda7E.exit320.i", label %394
 
 378:                                              ; preds = %374
   %379 = landingpad { ptr, i32 }

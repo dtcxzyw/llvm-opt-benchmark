@@ -241,13 +241,13 @@ define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly captures
 
 .lr.ph.preheader:                                 ; preds = %1
   %4 = load i32, ptr %2, align 4
-  %.not2526 = icmp sgt i32 %4, 0
-  br i1 %.not2526, label %.lr.ph28, label %.critedge42
+  %.not2728 = icmp sgt i32 %4, 0
+  br i1 %.not2728, label %.lr.ph30, label %.critedge42
 
-.lr.ph28:                                         ; preds = %.lr.ph.preheader, %.critedge
-  %indvars.iv27 = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph.preheader ]
+.lr.ph30:                                         ; preds = %.lr.ph.preheader, %.critedge
+  %indvars.iv29 = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph.preheader ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw %union.ListCell, ptr %5, i64 %indvars.iv27
+  %6 = getelementptr inbounds nuw %union.ListCell, ptr %5, i64 %indvars.iv29
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -259,7 +259,7 @@ define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly captures
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %.critedge42, label %list_length.exit
 
-list_length.exit:                                 ; preds = %.lr.ph28
+list_length.exit:                                 ; preds = %.lr.ph30
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not37 = icmp eq i32 %15, 1
@@ -330,14 +330,14 @@ fetch_agg_sort_op.exit:                           ; preds = %22
   %52 = load ptr, ptr %0, align 8
   %53 = tail call ptr @lappend(ptr noundef %52, ptr noundef nonnull %45) #8
   store ptr %53, ptr %0, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv27, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv29, 1
   %54 = load i32, ptr %2, align 4
   %55 = sext i32 %54 to i64
-  %.not25 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %.not25, label %.lr.ph28, label %.critedge42
+  %.not27 = icmp slt i64 %indvars.iv.next, %55
+  br i1 %.not27, label %.lr.ph30, label %.critedge42
 
-.critedge42:                                      ; preds = %22, %.lr.ph28, %.critedge, %41, %34, %fetch_agg_sort_op.exit, %19, %16, %list_length.exit, %.lr.ph.preheader, %1
-  %.not363 = phi i1 [ true, %1 ], [ true, %.lr.ph.preheader ], [ false, %list_length.exit ], [ false, %16 ], [ false, %19 ], [ false, %fetch_agg_sort_op.exit ], [ false, %34 ], [ false, %41 ], [ true, %.critedge ], [ false, %.lr.ph28 ], [ false, %22 ]
+.critedge42:                                      ; preds = %22, %.lr.ph30, %.critedge, %41, %34, %fetch_agg_sort_op.exit, %19, %16, %list_length.exit, %.lr.ph.preheader, %1
+  %.not363 = phi i1 [ true, %1 ], [ true, %.lr.ph.preheader ], [ false, %list_length.exit ], [ false, %16 ], [ false, %19 ], [ false, %fetch_agg_sort_op.exit ], [ false, %34 ], [ false, %41 ], [ true, %.critedge ], [ false, %.lr.ph30 ], [ false, %22 ]
   ret i1 %.not363
 }
 

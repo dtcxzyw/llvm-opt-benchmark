@@ -1386,11 +1386,11 @@ zend_string_free.exit1592:                        ; preds = %568, %574, %575
   br label %625
 
 625:                                              ; preds = %.critedge, %615
-  %storemerge1865 = phi i64 [ %624, %615 ], [ %614, %.critedge ]
+  %storemerge1967 = phi i64 [ %624, %615 ], [ %614, %.critedge ]
   %626 = phi i64 [ %620, %615 ], [ %565, %.critedge ]
   %627 = phi ptr [ %618, %615 ], [ %563, %.critedge ]
-  store i64 %storemerge1865, ptr %222, align 8, !tbaa !57
-  store i64 %storemerge1865, ptr %223, align 8, !tbaa !58
+  store i64 %storemerge1967, ptr %222, align 8, !tbaa !57
+  store i64 %storemerge1967, ptr %223, align 8, !tbaa !58
   %628 = icmp eq i64 %626, 19
   br i1 %628, label %zend_string_equals_cstr.exit, label %zend_string_equals_cstr.exit.thread
 
@@ -4760,10 +4760,10 @@ zend_string_release_ex.exit1648:                  ; preds = %.loopexit1728, %204
   br label %.thread1687
 
 .sink.split:                                      ; preds = %zend_string_release_ex.exit1642, %zend_string_release_ex.exit1636
-  %.sink1899 = phi ptr [ %1771, %zend_string_release_ex.exit1636 ], [ %1895, %zend_string_release_ex.exit1642 ]
+  %.sink2001 = phi ptr [ %1771, %zend_string_release_ex.exit1636 ], [ %1895, %zend_string_release_ex.exit1642 ]
   %.81180.ph = phi ptr [ %1829, %zend_string_release_ex.exit1636 ], [ %1953, %zend_string_release_ex.exit1642 ]
-  %2081 = call i32 @_php_stream_filter_flush(ptr noundef nonnull %.sink1899, i32 noundef 1) #16
-  %2082 = call ptr @php_stream_filter_remove(ptr noundef nonnull %.sink1899, i32 noundef 1) #16
+  %2081 = call i32 @_php_stream_filter_flush(ptr noundef nonnull %.sink2001, i32 noundef 1) #16
+  %2082 = call ptr @php_stream_filter_remove(ptr noundef nonnull %.sink2001, i32 noundef 1) #16
   br label %2083
 
 2083:                                             ; preds = %.sink.split, %zend_string_release_ex.exit1646
@@ -5115,9 +5115,9 @@ zend_hash_str_find_ptr.exit1662.thread:           ; preds = %2186, %2188
   br label %2219
 
 2219:                                             ; preds = %2216, %2204
-  %.sink1900 = phi i32 [ %147, %2216 ], [ %2207, %2204 ]
+  %.sink2002 = phi i32 [ %147, %2216 ], [ %2207, %2204 ]
   %2220 = getelementptr inbounds nuw i8, ptr %102, i64 40
-  store i32 %.sink1900, ptr %2220, align 8, !tbaa !64
+  store i32 %.sink2002, ptr %2220, align 8, !tbaa !64
   %2221 = load i16, ptr %105, align 4
   %2222 = or i16 %2221, 1
   store i16 %2222, ptr %105, align 4
@@ -5240,7 +5240,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_zip_process_extra(ptr noundef 
   %27 = or disjoint i16 %26, %23
   %28 = zext i16 %27 to i64
   %29 = icmp ugt i16 %27, 4
-  br i1 %29, label %30, label %.thread54
+  br i1 %29, label %30, label %.thread55
 
 30:                                               ; preds = %21
   %31 = call i64 @_php_stream_read(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 5) #16
@@ -5271,9 +5271,9 @@ define internal fastcc range(i32 -1, 1) i32 @phar_zip_process_extra(ptr noundef 
   %42 = icmp ne i8 %17, 110
   %43 = icmp ne i8 %19, 117
   %or.cond9 = select i1 %42, i1 true, i1 %43
-  br i1 %or.cond9, label %.thread54, label %48
+  br i1 %or.cond9, label %.thread55, label %48
 
-.thread54:                                        ; preds = %21, %41
+.thread55:                                        ; preds = %21, %41
   %44 = load i16, ptr %7, align 1
   %45 = zext i16 %44 to i64
   %46 = call i32 @_php_stream_seek(ptr noundef %0, i64 noundef %45, i32 noundef 1) #16
@@ -5314,8 +5314,8 @@ define internal fastcc range(i32 -1, 1) i32 @phar_zip_process_extra(ptr noundef 
   store i32 %70, ptr %9, align 8, !tbaa !50
   br label %.thread
 
-.thread:                                          ; preds = %61, %37, %38, %.thread54
-  %.pn.in = phi i16 [ %47, %.thread54 ], [ %27, %38 ], [ 5, %37 ], [ 14, %61 ]
+.thread:                                          ; preds = %61, %37, %38, %.thread55
+  %.pn.in = phi i16 [ %47, %.thread55 ], [ %27, %38 ], [ 5, %37 ], [ 14, %61 ]
   %.pn.neg = add i16 %.034, -4
   %.337 = sub i16 %.pn.neg, %.pn.in
   %.not48 = icmp eq i16 %.337, 0
@@ -6062,16 +6062,16 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
   br i1 %.not101, label %242, label %244
 
 242:                                              ; preds = %232
-  br i1 %.not102, label %243, label %.thread245
+  br i1 %.not102, label %243, label %.thread259
 
 243:                                              ; preds = %242
   store i32 3, ptr %240, align 4, !tbaa !59
-  br label %.thread245
+  br label %.thread259
 
 244:                                              ; preds = %232
-  br i1 %.not102, label %249, label %.thread245
+  br i1 %.not102, label %249, label %.thread259
 
-.thread245:                                       ; preds = %242, %243, %244
+.thread259:                                       ; preds = %242, %243, %244
   %245 = getelementptr inbounds nuw i8, ptr %236, i64 92
   %246 = load i32, ptr %245, align 4, !tbaa !76
   %247 = trunc i32 %246 to i16
@@ -6084,8 +6084,8 @@ zend_hash_update_mem.exit126:                     ; preds = %197, %199
   %252 = trunc i32 %251 to i16
   br label %253
 
-253:                                              ; preds = %249, %.thread245
-  %.sink240 = phi i16 [ %252, %249 ], [ %248, %.thread245 ]
+253:                                              ; preds = %249, %.thread259
+  %.sink240 = phi i16 [ %252, %249 ], [ %248, %.thread259 ]
   %254 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i16 %.sink240, ptr %254, align 4
   %255 = getelementptr inbounds nuw i8, ptr %12, i64 10
@@ -7270,8 +7270,8 @@ phar_zip_u2d_time.exit:                           ; preds = %63, %73
   %.pre = load i16, ptr %9, align 2
   %437 = and i16 %.pre, 2
   %.not273 = icmp eq i16 %437, 0
-  %or.cond296 = select i1 %.3, i1 true, i1 %.not273
-  br i1 %or.cond296, label %499, label %438
+  %or.cond305 = select i1 %.3, i1 true, i1 %.not273
+  br i1 %or.cond305, label %499, label %438
 
 438:                                              ; preds = %436
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 96

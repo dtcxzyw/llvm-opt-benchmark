@@ -7535,7 +7535,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
   %57 = phi i64 [ %.val168, %193 ], [ %.val168, %191 ], [ %.val170, %52 ], [ %.val170, %50 ]
   %58 = phi i64 [ %188, %193 ], [ %188, %191 ], [ %47, %52 ], [ %47, %50 ]
   invoke void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %56, i64 noundef %57, i64 noundef 0, i64 noundef range(i64 0, 4294967296) %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eca1e9e0db5e4a1d940691bd015e2457.94) #31
-          to label %.cont unwind label %.thread389
+          to label %.cont unwind label %.thread397
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -7543,7 +7543,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
 .body270:                                         ; preds = %300
   br i1 %.sroa.0106.7.ph, label %.thread, label %.body270.thread
 
-.thread389:                                       ; preds = %.invoke392, %.invoke, %163, %70, %59, %78, %88, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit199.thread", %102, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hb5faa0411e81ad20E.exit", %221, %223
+.thread397:                                       ; preds = %.invoke400, %.invoke, %163, %70, %59, %78, %88, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit199.thread", %102, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hb5faa0411e81ad20E.exit", %221, %223
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -7565,7 +7565,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i32 43, ptr %65, align 8, !alias.scope !1399, !noalias !1402
   invoke fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef align 8 dereferenceable(48) %25)
-          to label %.noexc185 unwind label %.thread389
+          to label %.noexc185 unwind label %.thread397
 
 .noexc185:                                        ; preds = %59
   %66 = load i64, ptr %26, align 8, !range !324, !noalias !1395, !noundef !8
@@ -7586,7 +7586,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1395
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1395
   %71 = invoke { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
-          to label %163 unwind label %.thread389
+          to label %163 unwind label %.thread397
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit": ; preds = %67
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %.val169, ptr noundef nonnull dereferenceable(3) @anon.eca1e9e0db5e4a1d940691bd015e2457.129, i64 3), !alias.scope !1404
@@ -7615,7 +7615,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1412
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h456c2c4725b76e4fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %24, i64 noundef 3, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc194 unwind label %.thread389
+          to label %.noexc194 unwind label %.thread397
 
 .noexc194:                                        ; preds = %78
   %79 = load i64, ptr %24, align 8, !range !324, !noalias !1412, !noundef !8
@@ -7627,15 +7627,15 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
 
 83:                                               ; preds = %.noexc194
   %84 = load i64, ptr %82, align 8, !noalias !1412
-  br label %.invoke392
+  br label %.invoke400
 
-.invoke392:                                       ; preds = %107, %100, %93, %83
+.invoke400:                                       ; preds = %107, %100, %93, %83
   %85 = phi i64 [ %81, %83 ], [ %91, %93 ], [ %98, %100 ], [ %105, %107 ]
   %86 = phi i64 [ %84, %83 ], [ %94, %93 ], [ %101, %100 ], [ %108, %107 ]
   invoke void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %85, i64 %86, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eca1e9e0db5e4a1d940691bd015e2457.29) #31
-          to label %.cont393 unwind label %.thread389
+          to label %.cont401 unwind label %.thread397
 
-.cont393:                                         ; preds = %.invoke392
+.cont401:                                         ; preds = %.invoke400
   unreachable
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit193": ; preds = %67
@@ -7647,7 +7647,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !1420
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h456c2c4725b76e4fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, i64 noundef 2, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc203 unwind label %.thread389
+          to label %.noexc203 unwind label %.thread397
 
 .noexc203:                                        ; preds = %88
   %89 = load i64, ptr %23, align 8, !range !324, !noalias !1420, !noundef !8
@@ -7659,7 +7659,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
 
 93:                                               ; preds = %.noexc203
   %94 = load i64, ptr %92, align 8, !noalias !1420
-  br label %.invoke392
+  br label %.invoke400
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit199": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit189"
   %bcmp.i198 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(3) %.val169, ptr noundef nonnull dereferenceable(3) @anon.eca1e9e0db5e4a1d940691bd015e2457.135, i64 3), !alias.scope !1424
@@ -7670,7 +7670,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1428
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h456c2c4725b76e4fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, i64 noundef %69, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc209 unwind label %.thread389
+          to label %.noexc209 unwind label %.thread397
 
 .noexc209:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit199.thread"
   %96 = load i64, ptr %22, align 8, !range !324, !noalias !1428, !noundef !8
@@ -7682,13 +7682,13 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
 
 100:                                              ; preds = %.noexc209
   %101 = load i64, ptr %99, align 8, !noalias !1428
-  br label %.invoke392
+  br label %.invoke400
 
 102:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit199"
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1432
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h456c2c4725b76e4fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, i64 noundef 3, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc215 unwind label %.thread389
+          to label %.noexc215 unwind label %.thread397
 
 .noexc215:                                        ; preds = %102
   %103 = load i64, ptr %21, align 8, !range !324, !noalias !1432, !noundef !8
@@ -7700,7 +7700,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
 
 107:                                              ; preds = %.noexc215
   %108 = load i64, ptr %106, align 8, !noalias !1432
-  br label %.invoke392
+  br label %.invoke400
 
 109:                                              ; preds = %.noexc209
   %110 = load ptr, ptr %99, align 8, !noalias !1428, !nonnull !8, !noundef !8
@@ -8025,7 +8025,7 @@ define void @"_ZN95_$LT$uv_pypi_types..parsed_url..ParsedUrl$u20$as$u20$core..co
   %166 = icmp ne ptr %164, null
   tail call void @llvm.assume(i1 %166)
   %167 = invoke { ptr, i64 } @_ZN3std4path4Path9extension17h34e7ca37296a1f26E(ptr noalias noundef nonnull readonly align 1 %164, i64 noundef %165)
-          to label %168 unwind label %.thread389
+          to label %168 unwind label %.thread397
 
 168:                                              ; preds = %163
   %169 = extractvalue { ptr, i64 } %167, 0
@@ -8153,7 +8153,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17had9afb4285cc7da2E.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1473
   invoke void @_ZN3url3Url13path_segments17h92fd3d7d1dbc5641E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
-          to label %.noexc259 unwind label %.thread389
+          to label %.noexc259 unwind label %.thread397
 
 .noexc259:                                        ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hb5faa0411e81ad20E.exit"
   %218 = getelementptr inbounds nuw i8, ptr %12, i64 52
@@ -8165,7 +8165,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17had9afb4285cc7da2E.exit: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false), !noalias !1473
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1473
   invoke void @_ZN3url3Url4host17h18609255b5a94d90E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
-          to label %.noexc260 unwind label %.thread389
+          to label %.noexc260 unwind label %.thread397
 
 .noexc260:                                        ; preds = %221
   %222 = load i8, ptr %10, align 8, !range !160, !noalias !1473, !noundef !8
@@ -8177,7 +8177,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17had9afb4285cc7da2E.exit: ; preds
 223:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0996db8789f89156E.exit.i", %.noexc260
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1473
   invoke void @_ZN3url28file_url_segments_to_pathbuf17h196eed0d5f49e8efE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %11)
-          to label %232 unwind label %.thread389
+          to label %232 unwind label %.thread397
 
 224:                                              ; preds = %.noexc260
   %225 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -8538,8 +8538,8 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17had9afb4285cc7da2E.exit: ; preds
   %.pn.pn307 = phi { ptr, i32 } [ %.pn.pn308, %.thread ], [ %.pn.ph, %.body270 ], [ %287, %286 ], [ %295, %294 ]
   resume { ptr, i32 } %.pn.pn307
 
-.thread:                                          ; preds = %.thread389, %237, %.body, %.body228, %.body239, %.body250, %.body270
-  %.pn.pn308 = phi { ptr, i32 } [ %.pn.ph, %.body270 ], [ %116, %.body ], [ %131, %.body228 ], [ %144, %.body239 ], [ %156, %.body250 ], [ %238, %237 ], [ %lpad.thr_comm, %.thread389 ]
+.thread:                                          ; preds = %.thread397, %237, %.body, %.body228, %.body239, %.body250, %.body270
+  %.pn.pn308 = phi { ptr, i32 } [ %.pn.ph, %.body270 ], [ %116, %.body ], [ %131, %.body228 ], [ %144, %.body239 ], [ %156, %.body250 ], [ %238, %237 ], [ %lpad.thr_comm, %.thread397 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h7bbc5e086b7fb8e3E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %1) #29
           to label %.body270.thread unwind label %122
 }

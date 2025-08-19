@@ -123,8 +123,8 @@ define noundef ptr @RBTreeInsert(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %21, %._crit_edge.i, %._crit_edge.thread.i
-  %.025.lcssa30.i = phi ptr [ %11, %._crit_edge.thread.i ], [ %.028.i, %21 ], [ %.028.i, %._crit_edge.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %.025.lcssa30.i, i64 16
+  %.025.lcssa31.i = phi ptr [ %11, %._crit_edge.thread.i ], [ %.028.i, %21 ], [ %.028.i, %._crit_edge.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.025.lcssa31.i, i64 16
   store ptr %3, ptr %28, align 8, !tbaa !14
   br label %TreeInsertHelp.exit
 
@@ -935,7 +935,7 @@ RightRotate.exit75:                               ; preds = %113, %114
   br i1 %.not60, label %174, label %.thread
 
 .thread:                                          ; preds = %129
-  %.val68.pre99 = load ptr, ptr %11, align 8, !tbaa !10
+  %.val68.pre108 = load ptr, ptr %11, align 8, !tbaa !10
   br label %._crit_edge87
 
 130:                                              ; preds = %119
@@ -991,7 +991,7 @@ LeftRotate.exit77:                                ; preds = %146, %147
   br label %._crit_edge87
 
 ._crit_edge87:                                    ; preds = %130, %.thread, %LeftRotate.exit77
-  %.val68.pre100 = phi ptr [ %.val68.pre, %LeftRotate.exit77 ], [ %.val68.pre99, %.thread ], [ %.val68.pre, %130 ]
+  %.val68.pre109 = phi ptr [ %.val68.pre, %LeftRotate.exit77 ], [ %.val68.pre108, %.thread ], [ %.val68.pre, %130 ]
   %152 = phi ptr [ %.pre97, %LeftRotate.exit77 ], [ %122, %.thread ], [ %122, %130 ]
   %153 = phi ptr [ %151, %LeftRotate.exit77 ], [ %.pre89, %.thread ], [ %.pre89, %130 ]
   %154 = phi ptr [ %.pre86, %LeftRotate.exit77 ], [ %126, %.thread ], [ %126, %130 ]
@@ -1006,7 +1006,7 @@ LeftRotate.exit77:                                ; preds = %146, %147
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %161 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store ptr %152, ptr %160, align 8, !tbaa !14
-  %.not.i78 = icmp eq ptr %.val68.pre100, %152
+  %.not.i78 = icmp eq ptr %.val68.pre109, %152
   br i1 %.not.i78, label %164, label %162
 
 162:                                              ; preds = %._crit_edge87

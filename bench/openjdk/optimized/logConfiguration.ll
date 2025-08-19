@@ -1379,7 +1379,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   %94 = call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(156) %90) #11
   %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %94, ptr noundef nonnull readonly dereferenceable(1) %53) #12
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %.thread51, label %97
+  br i1 %96, label %.thread59, label %97
 
 97:                                               ; preds = %.lr.ph.i
   %98 = add nuw i64 %.06.i, 1
@@ -1387,7 +1387,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   %100 = icmp ult i64 %98, %99
   br i1 %100, label %.lr.ph.i, label %.loopexit, !llvm.loop !14
 
-.thread51:                                        ; preds = %.lr.ph.i
+.thread59:                                        ; preds = %.lr.ph.i
   store i64 %.06.i, ptr %8, align 8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %53) #11
   br label %105
@@ -1407,32 +1407,32 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   store i64 %103, ptr %8, align 8
   call void @_Z8FreeHeapPv(ptr noundef %53) #11
   %104 = icmp eq i64 %103, -1
-  br i1 %104, label %_ZL21normalize_output_namePKcPcmP12outputStream.exit.thread, label %.thread53
+  br i1 %104, label %_ZL21normalize_output_namePKcPcmP12outputStream.exit.thread, label %.thread61
 
-105:                                              ; preds = %.thread51, %37, %46, %25
-  %106 = phi i64 [ %26, %25 ], [ 0, %37 ], [ 1, %46 ], [ %.06.i, %.thread51 ]
+105:                                              ; preds = %.thread59, %37, %46, %25
+  %106 = phi i64 [ %26, %25 ], [ 0, %37 ], [ 1, %46 ], [ %.06.i, %.thread59 ]
   %107 = icmp eq ptr %3, null
-  br i1 %107, label %.thread53, label %108
+  br i1 %107, label %.thread61, label %108
 
 108:                                              ; preds = %105
   %char042 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %char042, 0
-  br i1 %.not, label %.thread53, label %109
+  br i1 %.not, label %.thread61, label %109
 
 109:                                              ; preds = %108
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.19) #11
   %.pre = load i64, ptr %8, align 8
-  br label %.thread53
+  br label %.thread61
 
-.thread53:                                        ; preds = %102, %109, %108, %105
+.thread61:                                        ; preds = %102, %109, %108, %105
   %110 = phi i64 [ %.pre, %109 ], [ %106, %108 ], [ %106, %105 ], [ %103, %102 ]
   call void @_ZN16LogConfiguration16configure_outputEmRK16LogSelectionListRK13LogDecorators(i64 noundef %110, ptr noundef nonnull align 8 dereferenceable(15368) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %111 = load i64, ptr @_ZN16LogConfiguration21_n_listener_callbacksE, align 8
   %.not.i44 = icmp eq i64 %111, 0
   br i1 %.not.i44, label %_ZN16LogConfiguration23notify_update_listenersEv.exit, label %.lr.ph.i45
 
-.lr.ph.i45:                                       ; preds = %.thread53, %.lr.ph.i45
-  %.03.i = phi i64 [ %115, %.lr.ph.i45 ], [ 0, %.thread53 ]
+.lr.ph.i45:                                       ; preds = %.thread61, %.lr.ph.i45
+  %.03.i = phi i64 [ %115, %.lr.ph.i45 ], [ 0, %.thread61 ]
   %112 = load ptr, ptr @_ZN16LogConfiguration19_listener_callbacksE, align 8
   %113 = getelementptr inbounds ptr, ptr %112, i64 %.03.i
   %114 = load ptr, ptr %113, align 8
@@ -1442,7 +1442,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
   %117 = icmp ult i64 %115, %116
   br i1 %117, label %.lr.ph.i45, label %_ZN16LogConfiguration23notify_update_listenersEv.exit, !llvm.loop !18
 
-_ZN16LogConfiguration23notify_update_listenersEv.exit: ; preds = %.lr.ph.i45, %.thread53
+_ZN16LogConfiguration23notify_update_listenersEv.exit: ; preds = %.lr.ph.i45, %.thread61
   %118 = call noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12outputStream(ptr noundef nonnull align 8 dereferenceable(15368) %6, ptr noundef %4) #11
   br label %_ZL21normalize_output_namePKcPcmP12outputStream.exit.thread
 

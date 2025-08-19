@@ -3055,11 +3055,11 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %.thread117
 
 157:                                              ; preds = %154, %151, %152, %155
-  %.sink138 = phi i32 [ 7, %152 ], [ 20, %155 ], [ 7, %151 ], [ 20, %154 ]
-  %.sink137 = phi i32 [ 939536391, %152 ], [ 939536423, %155 ], [ 939532295, %151 ], [ 939532327, %154 ]
+  %.sink142 = phi i32 [ 7, %152 ], [ 20, %155 ], [ 7, %151 ], [ 20, %154 ]
+  %.sink141 = phi i32 [ 939536391, %152 ], [ 939536423, %155 ], [ 939532295, %151 ], [ 939532327, %154 ]
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %159 = shl nuw nsw i32 %150, %.sink138
-  %160 = or disjoint i32 %159, %.sink137
+  %159 = shl nuw nsw i32 %150, %.sink142
+  %160 = or disjoint i32 %159, %.sink141
   %161 = shl nuw nsw i32 %.182109, 2
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 %162
@@ -3155,11 +3155,11 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %214
 
 214:                                              ; preds = %212, %193
-  %.sink142 = phi i32 [ %213, %212 ], [ %198, %193 ]
-  %.sink139 = phi i32 [ 1048691, %212 ], [ %211, %193 ]
-  %215 = zext nneg i32 %.sink142 to i64
+  %.sink146 = phi i32 [ %213, %212 ], [ %198, %193 ]
+  %.sink143 = phi i32 [ 1048691, %212 ], [ %211, %193 ]
+  %215 = zext nneg i32 %.sink146 to i64
   %216 = getelementptr inbounds nuw i8, ptr %192, i64 %215
-  store i32 %.sink139, ptr %216, align 4
+  store i32 %.sink143, ptr %216, align 4
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %218 = tail call noundef i64 @_ZNK14debug_module_t16selected_hart_idEv(ptr noundef nonnull align 8 dereferenceable(1372) %0)
   %219 = getelementptr inbounds nuw [1024 x i8], ptr %217, i64 0, i64 %218
@@ -3649,10 +3649,10 @@ _ZNK14debug_module_t14hart_availableEj.exit:      ; preds = %182
   br label %_ZNK14debug_module_t14hart_availableEj.exit.thread
 
 _ZNK14debug_module_t14hart_availableEj.exit.thread: ; preds = %_ZNK14debug_module_t14hart_availableEj.exit, %182, %190
-  %.sink163 = phi i32 [ 0, %190 ], [ 1, %182 ], [ 1, %_ZNK14debug_module_t14hart_availableEj.exit ]
+  %.sink171 = phi i32 [ 0, %190 ], [ 1, %182 ], [ 1, %_ZNK14debug_module_t14hart_availableEj.exit ]
   %191 = load ptr, ptr %143, align 8, !tbaa !82
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 12
-  store i32 %.sink163, ptr %192, align 4, !tbaa !84
+  store i32 %.sink171, ptr %192, align 4, !tbaa !84
   %193 = load i8, ptr %83, align 1, !tbaa !254, !range !14, !noundef !15
   %194 = trunc nuw i8 %193 to i1
   br i1 %194, label %195, label %209
@@ -3827,8 +3827,8 @@ _ZNK14debug_module_t13hart_selectedEj.exit.thread131: ; preds = %165, %209, %_ZN
   br label %_ZNSt14_Bit_referenceaSEb.exit.sink.split
 
 _ZNSt14_Bit_referenceaSEb.exit.sink.split:        ; preds = %304, %307
-  %.sink166 = phi i64 [ %310, %307 ], [ %306, %304 ]
-  store i64 %.sink166, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !47
+  %.sink174 = phi i64 [ %310, %307 ], [ %306, %304 ]
+  store i64 %.sink174, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !47
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
 _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZNSt14_Bit_referenceaSEb.exit.sink.split, %268

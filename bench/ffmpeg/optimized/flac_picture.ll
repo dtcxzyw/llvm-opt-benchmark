@@ -98,23 +98,23 @@ define range(i32 -2147483648, 1) i32 @ff_flac_parse_picture(ptr noundef %0, ptr 
 
 .lr.ph.preheader:                                 ; preds = %42
   %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @ff_id3v2_mime_tags, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64) #8
-  %.not106162 = icmp eq i32 %46, 0
-  br i1 %.not106162, label %.lr.ph._crit_edge, label %.lr.ph164
+  %.not106172 = icmp eq i32 %46, 0
+  br i1 %.not106172, label %.lr.ph._crit_edge, label %.lr.ph174
 
-.lr.ph164:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.093158163 = phi ptr [ %49, %.lr.ph ], [ @ff_id3v2_mime_tags, %.lr.ph.preheader ]
-  %47 = getelementptr inbounds nuw i8, ptr %.093158163, i64 68
+.lr.ph174:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.093158173 = phi ptr [ %49, %.lr.ph ], [ @ff_id3v2_mime_tags, %.lr.ph.preheader ]
+  %47 = getelementptr inbounds nuw i8, ptr %.093158173, i64 68
   %48 = load i32, ptr %47, align 4, !tbaa !26
   %.not105 = icmp eq i32 %48, 0
   br i1 %.not105, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
-.lr.ph:                                           ; preds = %.lr.ph164
-  %49 = getelementptr inbounds nuw i8, ptr %.093158163, i64 36
+.lr.ph:                                           ; preds = %.lr.ph174
+  %49 = getelementptr inbounds nuw i8, ptr %.093158173, i64 36
   %50 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64) #8
   %.not106 = icmp eq i32 %50, 0
-  br i1 %.not106, label %.lr.ph._crit_edge, label %.lr.ph164, !llvm.loop !28
+  br i1 %.not106, label %.lr.ph._crit_edge, label %.lr.ph174, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %.lr.ph164, %42
+._crit_edge:                                      ; preds = %.lr.ph174, %42
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #7
   br label %166
 

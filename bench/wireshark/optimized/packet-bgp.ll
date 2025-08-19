@@ -4150,9 +4150,9 @@ heuristic_as2_or_4_from_as_path.exit.thread1787:  ; preds = %._crit_edge94.i, %.
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph1902, %155, %156
-  %.str.20.sink2004 = phi ptr [ @.str.20, %156 ], [ @.str.19, %155 ], [ @.str.18, %.lr.ph1902 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull %.str.20.sink2004)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef nonnull %.str.20.sink2004)
+  %.str.20.sink2068 = phi ptr [ @.str.20, %156 ], [ @.str.19, %155 ], [ @.str.18, %.lr.ph1902 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull %.str.20.sink2068)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef nonnull %.str.20.sink2068)
   br label %157
 
 157:                                              ; preds = %.sink.split, %.lr.ph1902
@@ -5099,8 +5099,8 @@ save_afi_safi_data.exit1774:                      ; preds = %473, %491
   br label %651
 
 651:                                              ; preds = %648, %644
-  %.2008 = phi i32 [ 3, %648 ], [ 2, %644 ]
-  %.2007 = phi i32 [ 2, %648 ], [ 1, %644 ]
+  %.2072 = phi i32 [ 3, %648 ], [ 2, %644 ]
+  %.2071 = phi i32 [ 2, %648 ], [ 1, %644 ]
   %.01692 = phi i16 [ %650, %648 ], [ %647, %644 ]
   %.01689 = phi i16 [ %649, %648 ], [ %646, %644 ]
   %652 = zext i16 %.01692 to i32
@@ -5110,8 +5110,8 @@ save_afi_safi_data.exit1774:                      ; preds = %473, %491
   %656 = load i32, ptr @hf_bgp_update_encaps_tunnel_subtlv_type, align 4
   %657 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %656, ptr noundef %1, i32 noundef %.71865, i32 noundef 1, i32 noundef 0)
   %658 = load i32, ptr @hf_bgp_update_encaps_tunnel_subtlv_len, align 4
-  %659 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %658, ptr noundef %1, i32 noundef %643, i32 noundef %.2007, i32 noundef 0)
-  %660 = add i32 %.71865, %.2008
+  %659 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %658, ptr noundef %1, i32 noundef %643, i32 noundef %.2071, i32 noundef 0)
+  %660 = add i32 %.71865, %.2072
   switch i8 %640, label %835 [
     i8 1, label %661
     i8 2, label %717
@@ -8934,14 +8934,14 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %119 = add i32 %.013891544, 7
   %120 = icmp eq i16 %118, 3
   %. = select i1 %120, i32 3, i32 4
-  %.1608 = select i1 %120, i32 10, i32 11
-  %.1609 = select i1 %120, i32 -10, i32 -11
+  %.1630 = select i1 %120, i32 10, i32 11
+  %.1631 = select i1 %120, i32 -10, i32 -11
   %hf_bgp_ls_sr_tlv_capabilities_sid_label.val = load i32, ptr @hf_bgp_ls_sr_tlv_capabilities_sid_label, align 4
   %hf_bgp_ls_sr_tlv_capabilities_sid_index.val = load i32, ptr @hf_bgp_ls_sr_tlv_capabilities_sid_index, align 4
   %121 = select i1 %120, i32 %hf_bgp_ls_sr_tlv_capabilities_sid_label.val, i32 %hf_bgp_ls_sr_tlv_capabilities_sid_index.val
   %122 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %121, ptr noundef %1, i32 noundef %119, i32 noundef %., i32 noundef 0)
-  %123 = add i32 %.013891544, %.1608
-  %124 = add nsw i32 %.013871545, %.1609
+  %123 = add i32 %.013891544, %.1630
+  %124 = add nsw i32 %.013871545, %.1631
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %.lr.ph1546, label %.loopexit, !llvm.loop !39
 
@@ -8981,15 +8981,15 @@ define internal fastcc range(i32 4, 65540) i32 @decode_link_state_attribute_tlv(
   %151 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %148)
   %152 = add i32 %.013831541, 7
   %153 = icmp eq i16 %151, 3
-  %.1610 = select i1 %153, i32 3, i32 4
-  %.1611 = select i1 %153, i32 10, i32 11
-  %.1612 = select i1 %153, i32 -10, i32 -11
+  %.1632 = select i1 %153, i32 3, i32 4
+  %.1633 = select i1 %153, i32 10, i32 11
+  %.1634 = select i1 %153, i32 -10, i32 -11
   %hf_bgp_ls_sr_tlv_local_block_sid_label.val = load i32, ptr @hf_bgp_ls_sr_tlv_local_block_sid_label, align 4
   %hf_bgp_ls_sr_tlv_local_block_sid_index.val = load i32, ptr @hf_bgp_ls_sr_tlv_local_block_sid_index, align 4
   %154 = select i1 %153, i32 %hf_bgp_ls_sr_tlv_local_block_sid_label.val, i32 %hf_bgp_ls_sr_tlv_local_block_sid_index.val
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %154, ptr noundef %1, i32 noundef %152, i32 noundef %.1610, i32 noundef 0)
-  %156 = add i32 %.013831541, %.1611
-  %157 = add nsw i32 %.013821542, %.1612
+  %155 = tail call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %154, ptr noundef %1, i32 noundef %152, i32 noundef %.1632, i32 noundef 0)
+  %156 = add i32 %.013831541, %.1633
+  %157 = add nsw i32 %.013821542, %.1634
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph1543, label %.loopexit, !llvm.loop !40
 
@@ -9933,11 +9933,11 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
 
 800:                                              ; preds = %781, %781, %799
   %hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis.sink = phi ptr [ @hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis, %799 ], [ @hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_ospf, %781 ], [ @hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_ospf, %781 ]
-  %.sink1604 = phi i32 [ 6, %799 ], [ 4, %781 ], [ 4, %781 ]
-  %.sink1602 = phi i32 [ 16, %799 ], [ 14, %781 ], [ 14, %781 ]
+  %.sink1626 = phi i32 [ 6, %799 ], [ 4, %781 ], [ 4, %781 ]
+  %.sink1624 = phi i32 [ 16, %799 ], [ 14, %781 ], [ 14, %781 ]
   %801 = load i32, ptr %hf_bgp_ls_sr_tlv_srv6_endx_sid_neighbor_isis.sink, align 4
-  %802 = tail call ptr @proto_tree_add_item(ptr noundef %767, i32 noundef %801, ptr noundef %1, i32 noundef %798, i32 noundef %.sink1604, i32 noundef 0)
-  %803 = add i32 %2, %.sink1602
+  %802 = tail call ptr @proto_tree_add_item(ptr noundef %767, i32 noundef %801, ptr noundef %1, i32 noundef %798, i32 noundef %.sink1626, i32 noundef 0)
+  %803 = add i32 %2, %.sink1624
   %804 = load i32, ptr @hf_bgp_ls_sr_tlv_srv6_endx_sid_sid, align 4
   %805 = tail call ptr @proto_tree_add_item(ptr noundef %767, i32 noundef %804, ptr noundef %1, i32 noundef %803, i32 noundef 16, i32 noundef 0)
   %806 = add i32 %803, 16
@@ -10296,10 +10296,10 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %1024 = tail call ptr @proto_tree_add_item(ptr noundef %1022, i32 noundef %1023, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0)
   %1025 = load i32, ptr @hf_bgp_ls_length, align 4
   %1026 = tail call ptr @proto_tree_add_item(ptr noundef %1022, i32 noundef %1025, ptr noundef %1, i32 noundef %7, i32 noundef 2, i32 noundef 0)
-  %switch.selectcmp.case11613 = icmp eq i8 %4, 6
-  %switch.selectcmp.case21614 = icmp eq i8 %4, 3
-  %switch.selectcmp1615 = or i1 %switch.selectcmp.case11613, %switch.selectcmp.case21614
-  %1027 = select i1 %switch.selectcmp1615, ptr @decode_link_state_attribute_tlv.prefix_sid_ospf_flags, ptr @decode_link_state_attribute_tlv.prefix_sid_isis_flags
+  %switch.selectcmp.case11635 = icmp eq i8 %4, 6
+  %switch.selectcmp.case21636 = icmp eq i8 %4, 3
+  %switch.selectcmp1637 = or i1 %switch.selectcmp.case11635, %switch.selectcmp.case21636
+  %1027 = select i1 %switch.selectcmp1637, ptr @decode_link_state_attribute_tlv.prefix_sid_ospf_flags, ptr @decode_link_state_attribute_tlv.prefix_sid_isis_flags
   %1028 = add i32 %2, 4
   %1029 = load i32, ptr @hf_bgp_ls_sr_tlv_prefix_sid_flags, align 4
   %1030 = load i32, ptr @ett_bgp_link_state, align 4
@@ -10966,14 +10966,14 @@ define internal i32 @dissect_bgp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %94 = zext i8 %93 to i32
   %95 = call ptr @val_to_str(i32 noundef %94, ptr noundef nonnull @bgp_open_opt_vals, ptr noundef nonnull @.str.2675)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.13, ptr noundef %95)
-  %96 = add nsw i32 %.194.i, 1
+  %96 = add nuw nsw i32 %.194.i, 1
   %97 = load i32, ptr @hf_bgp_open_opt_param_len, align 4
   %98 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 0)
   %99 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %96)
   %100 = zext i8 %99 to i32
   %101 = add nuw nsw i32 %100, 2
   call void @proto_item_set_len(ptr noundef %88, i32 noundef %101)
-  %102 = add nsw i32 %.194.i, 2
+  %102 = add nuw nsw i32 %.194.i, 2
   switch i8 %93, label %111 [
     i8 1, label %103
     i8 2, label %107
@@ -10982,11 +10982,11 @@ define internal i32 @dissect_bgp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 103:                                              ; preds = %.lr.ph95.i
   %104 = load i32, ptr @hf_bgp_open_opt_param_auth, align 4
   %105 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %104, ptr noundef %0, i32 noundef %102, i32 noundef %100, i32 noundef 0)
-  %106 = add nsw i32 %102, %100
+  %106 = add nuw nsw i32 %102, %100
   br label %.loopexit.i
 
 107:                                              ; preds = %.lr.ph95.i
-  %108 = add nsw i32 %102, %100
+  %108 = add nuw nsw i32 %102, %100
   %.not96.i = icmp eq i8 %99, 0
   br i1 %.not96.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -11117,8 +11117,8 @@ dissect_bgp_open.exit:                            ; preds = %.loopexit.i, %55, %
   %175 = icmp sgt i32 %174, -1
   %176 = add i32 %174, %.4109.i
   %177 = icmp slt i32 %176, %160
-  %or.cond124.i = select i1 %175, i1 %177, i1 false
-  br i1 %or.cond124.i, label %.lr.ph110.i, label %dissect_bgp_update.exit, !llvm.loop !61
+  %or.cond141.i = select i1 %175, i1 %177, i1 false
+  br i1 %or.cond141.i, label %.lr.ph110.i, label %dissect_bgp_update.exit, !llvm.loop !61
 
 178:                                              ; preds = %43
   %179 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16)
@@ -12617,10 +12617,10 @@ define internal fastcc range(i32 -1, 260) i32 @decode_bgp_mup_nlri(ptr noundef %
 
 85:                                               ; preds = %82, %64
   %hf_bgp_mup_nlri_3gpp_5g_ep_ipv6_addr.sink.i = phi ptr [ @hf_bgp_mup_nlri_3gpp_5g_ep_ipv6_addr, %82 ], [ @hf_bgp_mup_nlri_3gpp_5g_ep_ip_addr, %64 ]
-  %.sink79.i = phi i32 [ 16, %82 ], [ 4, %64 ]
+  %.sink80.i = phi i32 [ 16, %82 ], [ 4, %64 ]
   %.sink.i = phi i32 [ 22, %82 ], [ 10, %64 ]
   %86 = load i32, ptr %hf_bgp_mup_nlri_3gpp_5g_ep_ipv6_addr.sink.i, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %86, ptr noundef %1, i32 noundef %81, i32 noundef %.sink79.i, i32 noundef 0)
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %86, ptr noundef %1, i32 noundef %81, i32 noundef %.sink80.i, i32 noundef 0)
   %88 = add i32 %.sink.i, %63
   %89 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %88)
   switch i8 %89, label %91 [
@@ -12643,16 +12643,16 @@ define internal fastcc range(i32 -1, 260) i32 @decode_bgp_mup_nlri(ptr noundef %
 
 .sink.split.i:                                    ; preds = %90, %85
   %hf_bgp_mup_nlri_3gpp_5g_source_ipv6_addr.sink.i = phi ptr [ @hf_bgp_mup_nlri_3gpp_5g_source_ipv6_addr, %90 ], [ @hf_bgp_mup_nlri_3gpp_5g_source_ip_addr, %85 ]
-  %.sink82.i = phi i32 [ 16, %90 ], [ 4, %85 ]
+  %.sink83.i = phi i32 [ 16, %90 ], [ 4, %85 ]
   %96 = load i32, ptr %hf_bgp_mup_nlri_3gpp_5g_source_ipv6_addr.sink.i, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %96, ptr noundef %1, i32 noundef %88, i32 noundef %.sink82.i, i32 noundef 0)
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %96, ptr noundef %1, i32 noundef %88, i32 noundef %.sink83.i, i32 noundef 0)
   br label %decode_bgp_mup_nlri_type1_st_route.exit
 
 decode_bgp_mup_nlri_type1_st_route.exit:          ; preds = %85, %.sink.split.i
-  %.sink80.i = phi i32 [ 1, %85 ], [ %.sink82.i, %.sink.split.i ]
+  %.sink81.i = phi i32 [ 1, %85 ], [ %.sink83.i, %.sink.split.i ]
   %reass.sub = sub i32 %88, %2
   %98 = add i32 %reass.sub, -4
-  %99 = add i32 %98, %.sink80.i
+  %99 = add i32 %98, %.sink81.i
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %decode_bgp_mup_nlri_type1_st_route.exit.thread, label %169
 
@@ -13029,9 +13029,9 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
 
 .sink.split:                                      ; preds = %116, %110
   %hf_bgp_evpn_nlri_mpls_ls2.sink = phi ptr [ @hf_bgp_evpn_nlri_vni, %110 ], [ @hf_bgp_evpn_nlri_mpls_ls2, %116 ]
-  %.sink386 = phi i32 [ %113, %110 ], [ %119, %116 ]
+  %.sink395 = phi i32 [ %113, %110 ], [ %119, %116 ]
   %122 = load i32, ptr %hf_bgp_evpn_nlri_mpls_ls2.sink, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %122, ptr noundef %1, i32 noundef %.sink386, i32 noundef 3, i32 noundef 0)
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %122, ptr noundef %1, i32 noundef %.sink395, i32 noundef 3, i32 noundef 0)
   %124 = add i32 %.1, 6
   br label %125
 
@@ -13318,24 +13318,24 @@ define internal fastcc i32 @decode_evpn_nlri(ptr noundef %0, ptr noundef %1, i32
   %286 = add nuw i32 %281, 1
   %287 = load i32, ptr %5, align 4
   switch i32 %287, label %292 [
-    i32 32, label %.sink.split387
+    i32 32, label %.sink.split396
     i32 128, label %288
   ]
 
 288:                                              ; preds = %283
-  br label %.sink.split387
+  br label %.sink.split396
 
-.sink.split387:                                   ; preds = %283, %288
+.sink.split396:                                   ; preds = %283, %288
   %hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6.sink = phi ptr [ @hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6, %288 ], [ @hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv4, %283 ]
-  %.sink389 = phi i32 [ 16, %288 ], [ 4, %283 ]
+  %.sink398 = phi i32 [ 16, %288 ], [ 4, %283 ]
   %.sink = phi i32 [ 17, %288 ], [ 5, %283 ]
   %289 = load i32, ptr %hf_bgp_evpn_nlri_igmp_mc_or_addr_ipv6.sink, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %289, ptr noundef %1, i32 noundef %286, i32 noundef %.sink389, i32 noundef 0)
+  %290 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %289, ptr noundef %1, i32 noundef %286, i32 noundef %.sink398, i32 noundef 0)
   %291 = add nuw i32 %281, %.sink
   br label %292
 
-292:                                              ; preds = %.sink.split387, %283
-  %.6 = phi i32 [ %286, %283 ], [ %291, %.sink.split387 ]
+292:                                              ; preds = %.sink.split396, %283
+  %.6 = phi i32 [ %286, %283 ], [ %291, %.sink.split396 ]
   %293 = sub i32 %.6, %6
   %294 = icmp slt i32 %293, %11
   br i1 %294, label %295, label %300

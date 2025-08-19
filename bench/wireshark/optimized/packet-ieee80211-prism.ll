@@ -786,9 +786,9 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .sink.split.i:                                    ; preds = %334, %331, %326, %323, %318, %315, %310, %307
   %.sink.i = phi i32 [ %311, %310 ], [ %309, %307 ], [ %319, %318 ], [ %317, %315 ], [ %327, %326 ], [ %325, %323 ], [ %335, %334 ], [ %333, %331 ]
-  %.sink218.i = phi ptr [ %306, %310 ], [ %306, %307 ], [ %314, %318 ], [ %314, %315 ], [ %322, %326 ], [ %322, %323 ], [ %330, %334 ], [ %330, %331 ]
+  %.sink219.i = phi ptr [ %306, %310 ], [ %306, %307 ], [ %314, %318 ], [ %314, %315 ], [ %322, %326 ], [ %322, %323 ], [ %330, %334 ], [ %330, %331 ]
   %336 = zext nneg i32 %.sink.i to i64
-  %337 = getelementptr [8 x i32], ptr %.sink218.i, i64 0, i64 %336
+  %337 = getelementptr [8 x i32], ptr %.sink219.i, i64 0, i64 %336
   %338 = load i32, ptr %337, align 4
   br label %339
 
@@ -1019,9 +1019,9 @@ define internal zeroext i1 @capture_prism(ptr noundef %0, i32 noundef %1, i32 no
 
 .sink.split:                                      ; preds = %27, %8
   %ieee80211_cap_handle.sink = phi ptr [ @wlancap_cap_handle, %8 ], [ @ieee80211_cap_handle, %27 ]
-  %.sink30 = phi i32 [ %1, %8 ], [ %28, %27 ]
+  %.sink33 = phi i32 [ %1, %8 ], [ %28, %27 ]
   %30 = load ptr, ptr %ieee80211_cap_handle.sink, align 8
-  %31 = tail call zeroext i1 @call_capture_dissector(ptr noundef %30, ptr noundef %0, i32 noundef %.sink30, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %31 = tail call zeroext i1 @call_capture_dissector(ptr noundef %30, ptr noundef %0, i32 noundef %.sink33, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %32
 
 32:                                               ; preds = %.sink.split, %27, %5

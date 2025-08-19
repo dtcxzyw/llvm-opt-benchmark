@@ -1615,7 +1615,7 @@ lean_dec.exit28.backedge:                         ; preds = %63, %67, %73, %75, 
   br label %lean_dec.exit28
 
 67:                                               ; preds = %60
-  %68 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %61) #3
+  %68 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit28.backedge
 
 69:                                               ; preds = %lean_inc.exit
@@ -4846,7 +4846,7 @@ define ptr @l_Lean_PersistentHashMap_foldlMAux_traverse___at_Lean_PersistentHash
   br label %lean_nat_add.exit
 
 17:                                               ; preds = %9
-  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %11) #3
+  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %6
@@ -5300,7 +5300,7 @@ define ptr @l_Lean_PersistentHashMap_foldlMAux_traverse___at_Lean_PersistentHash
   br label %l_Lean_PersistentHashMap_foldlMAux_traverse___at_Lean_PersistentHashSet_forIn___spec__6___rarg___lambda__1.exit.thread
 
 17:                                               ; preds = %9
-  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %11) #3
+  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %l_Lean_PersistentHashMap_foldlMAux_traverse___at_Lean_PersistentHashSet_forIn___spec__6___rarg___lambda__1.exit.thread
 
 l_Lean_PersistentHashMap_foldlMAux_traverse___at_Lean_PersistentHashSet_forIn___spec__6___rarg___lambda__1.exit.thread: ; preds = %13, %17
@@ -5559,18 +5559,18 @@ lean_dec.exit:                                    ; preds = %52, %51, %49, %lean
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit19
-  %.sink39 = phi ptr [ %31, %lean_dec.exit19 ], [ %53, %lean_dec.exit ]
-  %.sink36 = phi i32 [ 65552, %lean_dec.exit19 ], [ 16842768, %lean_dec.exit ]
+  %.sink44 = phi ptr [ %31, %lean_dec.exit19 ], [ %53, %lean_dec.exit ]
+  %.sink41 = phi i32 [ 65552, %lean_dec.exit19 ], [ 16842768, %lean_dec.exit ]
   %.sink = phi ptr [ %15, %lean_dec.exit19 ], [ %37, %lean_dec.exit ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sink39, i64 4
-  store i32 1, ptr %.sink39, align 4, !tbaa !4
-  store i32 %.sink36, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !4
+  store i32 %.sink41, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr %.sink, ptr %57, align 8, !tbaa !9
   br label %58
 
 58:                                               ; preds = %.sink.split, %34, %12
-  %.1 = phi ptr [ %0, %12 ], [ %0, %34 ], [ %.sink39, %.sink.split ]
+  %.1 = phi ptr [ %0, %12 ], [ %0, %34 ], [ %.sink44, %.sink.split ]
   ret ptr %.1
 }
 
@@ -6552,18 +6552,18 @@ _init_l_Lean_PersistentHashMap_forIn___at_Lean_PersistentHashSet_forIn___spec__1
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_PersistentHashMap_forIn___at_Lean_PersistentHashSet_forIn___spec__1___rarg___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %25, %_init_l_Lean_PersistentHashMap_forIn___at_Lean_PersistentHashSet_forIn___spec__1___rarg___closed__1.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink13 = phi ptr [ %4, %3 ], [ %25, %_init_l_Lean_PersistentHashMap_forIn___at_Lean_PersistentHashSet_forIn___spec__1___rarg___closed__1.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !4
   store i32 131096, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %29, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %30, align 8, !tbaa !9
   br label %31
 
 31:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
   ret ptr %.0
 }
 

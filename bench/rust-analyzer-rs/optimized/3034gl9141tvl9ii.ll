@@ -8874,8 +8874,8 @@ define hidden void @"_ZN66_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..ha
   ]
 
 .sink.split:                                      ; preds = %124, %115, %100, %91, %68, %54, %33, %21, %130, %153, %160, %167, %174, %186, %193
-  %.sink7 = phi i64 [ %197, %193 ], [ %192, %186 ], [ %185, %174 ], [ %173, %167 ], [ %166, %160 ], [ %159, %153 ], [ %152, %130 ], [ %81, %68 ], [ %67, %54 ], [ %53, %33 ], [ %32, %21 ], [ %99, %91 ], [ %105, %100 ], [ %123, %115 ], [ %129, %124 ]
-  %9 = mul i64 %.sink7, 5871781006564002453
+  %.sink8 = phi i64 [ %197, %193 ], [ %192, %186 ], [ %185, %174 ], [ %173, %167 ], [ %166, %160 ], [ %159, %153 ], [ %152, %130 ], [ %81, %68 ], [ %67, %54 ], [ %53, %33 ], [ %32, %21 ], [ %99, %91 ], [ %105, %100 ], [ %123, %115 ], [ %129, %124 ]
+  %9 = mul i64 %.sink8, 5871781006564002453
   store i64 %9, ptr %1, align 8
   br label %10
 
@@ -9770,7 +9770,7 @@ define internal fastcc void @"_ZN68_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20
   %6 = alloca { i64, [2 x i64] }, align 8
   %.sroa.022 = alloca { i64, [2 x i64] }, align 8
   %7 = load i32, ptr %1, align 8, !range !751, !noundef !9
-  switch i32 %7, label %default.unreachable23 [
+  switch i32 %7, label %default.unreachable24 [
     i32 0, label %8
     i32 1, label %76
     i32 2, label %92
@@ -9785,7 +9785,7 @@ define internal fastcc void @"_ZN68_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20
     i32 11, label %174
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -11174,18 +11174,18 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not12 = icmp eq i64 %1, 0
-  br i1 %exitcond.not12, label %.thread, label %.lr.ph
+  %exitcond.not14 = icmp eq i64 %1, 0
+  br i1 %exitcond.not14, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17hece754f3c7ca59baE.llvm.16482350066526367222.exit, %.preheader.split.backedge, %.lr.ph, %13, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h874d250a5b0ae2bbE.exit.i.i.i.i", %32, %25, %40, %47, %.preheader.split.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %47 ], [ false, %40 ], [ false, %25 ], [ false, %32 ], [ false, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h874d250a5b0ae2bbE.exit.i.i.i.i" ], [ false, %13 ], [ false, %.lr.ph ], [ true, %.preheader.split.backedge ], [ false, %_ZN4core3cmp9PartialEq2ne17hece754f3c7ca59baE.llvm.16482350066526367222.exit ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.013 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.013, 1
-  %6 = getelementptr inbounds [0 x { { i64, [3 x i64] }, ptr }], ptr %0, i64 0, i64 %.sroa.01.013
-  %7 = getelementptr inbounds [0 x { { i64, [3 x i64] }, ptr }], ptr %2, i64 0, i64 %.sroa.01.013
+  %.sroa.01.015 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.015, 1
+  %6 = getelementptr inbounds [0 x { { i64, [3 x i64] }, ptr }], ptr %0, i64 0, i64 %.sroa.01.015
+  %7 = getelementptr inbounds [0 x { { i64, [3 x i64] }, ptr }], ptr %2, i64 0, i64 %.sroa.01.015
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2818)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2821)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2823)
@@ -11373,18 +11373,18 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not12 = icmp eq i64 %1, 0
-  br i1 %exitcond.not12, label %.thread, label %.lr.ph
+  %exitcond.not14 = icmp eq i64 %1, 0
+  br i1 %exitcond.not14, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17heddc1f1d514427d0E.llvm.16482350066526367222.exit, %.preheader.split.backedge, %.lr.ph, %14, %18, %.preheader.split.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %18 ], [ false, %14 ], [ false, %.lr.ph ], [ true, %.preheader.split.backedge ], [ false, %_ZN4core3cmp9PartialEq2ne17heddc1f1d514427d0E.llvm.16482350066526367222.exit ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.013 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.013, 1
-  %6 = getelementptr inbounds [0 x { { i64, [1 x i64] } }], ptr %0, i64 0, i64 %.sroa.01.013
-  %7 = getelementptr inbounds [0 x { { i64, [1 x i64] } }], ptr %2, i64 0, i64 %.sroa.01.013
+  %.sroa.01.015 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.015, 1
+  %6 = getelementptr inbounds [0 x { { i64, [1 x i64] } }], ptr %0, i64 0, i64 %.sroa.01.015
+  %7 = getelementptr inbounds [0 x { { i64, [1 x i64] } }], ptr %2, i64 0, i64 %.sroa.01.015
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2897)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2900)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2902)
@@ -13911,13 +13911,13 @@ default.unreachable:                              ; preds = %27
   %96 = extractvalue { ptr, i64 } %95, 0
   %97 = extractvalue { ptr, i64 } %95, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !3507)
-  switch i64 %80, label %default.unreachable1.i.i [
+  switch i64 %80, label %default.unreachable3.i.i [
     i64 0, label %"_ZN56_$LT$hir_ty..MemoryMap$u20$as$u20$core..clone..Clone$GT$5clone17h0f3d755eff384d92E.exit.i"
     i64 1, label %98
     i64 2, label %110
   ]
 
-default.unreachable1.i.i:                         ; preds = %.noexc41
+default.unreachable3.i.i:                         ; preds = %.noexc41
   unreachable
 
 98:                                               ; preds = %.noexc41

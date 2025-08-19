@@ -1280,7 +1280,7 @@ define dso_local void @intel_guc_log_info(ptr noundef readonly captures(none) %0
 11:                                               ; preds = %16, %7
   %12 = phi i64 [ 0, %7 ], [ %22, %16 ]
   %13 = trunc nuw nsw i64 %12 to i32
-  switch i32 %13, label %default.unreachable [
+  switch i32 %13, label %default.unreachable1 [
     i32 0, label %16
     i32 1, label %14
     i32 2, label %15
@@ -1292,7 +1292,7 @@ define dso_local void @intel_guc_log_info(ptr noundef readonly captures(none) %0
 15:                                               ; preds = %11
   br label %16
 
-default.unreachable:                              ; preds = %11
+default.unreachable1:                             ; preds = %11
   unreachable
 
 16:                                               ; preds = %15, %14, %11
@@ -1391,17 +1391,17 @@ define dso_local i32 @intel_guc_log_dump(ptr noundef %0, ptr noundef %1, i1 noun
   %45 = phi i64 [ %64, %61 ], [ 0, %28 ]
   %46 = getelementptr i8, ptr %26, i64 %45
   %47 = tail call zeroext i1 @i915_memcpy_from_wc(ptr noundef nonnull %23, ptr noundef %46, i64 noundef 4096) #12
-  br i1 %47, label %.preheader6, label %48
+  br i1 %47, label %.preheader11, label %48
 
 48:                                               ; preds = %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %23, ptr noundef align 1 dereferenceable(4096) %46, i64 4096, i1 false)
-  br label %.preheader6
+  br label %.preheader11
 
-.preheader6:                                      ; preds = %48, %.preheader
+.preheader11:                                     ; preds = %48, %.preheader
   br label %49
 
-49:                                               ; preds = %.preheader6, %49
-  %50 = phi i64 [ %59, %49 ], [ 0, %.preheader6 ]
+49:                                               ; preds = %.preheader11, %49
+  %50 = phi i64 [ %59, %49 ], [ 0, %.preheader11 ]
   %51 = getelementptr i32, ptr %23, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr i8, ptr %51, i64 4

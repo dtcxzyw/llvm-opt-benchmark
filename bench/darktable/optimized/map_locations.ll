@@ -1727,7 +1727,7 @@ define void @dt_map_location_update_locations(i32 noundef %0, ptr noundef %1) lo
   br i1 %.not2530, label %.preheader, label %.lr.ph33
 
 .preheader:                                       ; preds = %49, %._crit_edge.thread, %._crit_edge
-  %.022.lcssa40 = phi ptr [ null, %._crit_edge.thread ], [ null, %._crit_edge ], [ %36, %49 ]
+  %.022.lcssa42 = phi ptr [ null, %._crit_edge.thread ], [ null, %._crit_edge ], [ %36, %49 ]
   %.not2634 = icmp eq ptr %1, null
   br i1 %.not2634, label %._crit_edge37, label %.lr.ph36
 
@@ -1752,14 +1752,14 @@ define void @dt_map_location_update_locations(i32 noundef %0, ptr noundef %1) lo
   br i1 %.not25, label %.preheader, label %.lr.ph33
 
 ._crit_edge37:                                    ; preds = %59, %.preheader
-  call void @g_list_free(ptr noundef %.022.lcssa40) #10
+  call void @g_list_free(ptr noundef %.022.lcssa42) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .lr.ph36:                                         ; preds = %.preheader, %59
   %.035 = phi ptr [ %61, %59 ], [ %1, %.preheader ]
   %52 = load ptr, ptr %.035, align 8, !tbaa !77
-  %53 = call ptr @g_list_find(ptr noundef %.022.lcssa40, ptr noundef %52) #10
+  %53 = call ptr @g_list_find(ptr noundef %.022.lcssa42, ptr noundef %52) #10
   %.not27 = icmp eq ptr %53, null
   br i1 %.not27, label %54, label %59
 
@@ -1995,25 +1995,25 @@ define ptr @dt_map_location_convert_polygons(ptr noundef %0, ptr noundef writeon
   %35 = load ptr, ptr %34, align 8, !tbaa !80
   %36 = getelementptr inbounds nuw i8, ptr %.04255, i64 8
   %.not50 = icmp eq ptr %35, null
-  br i1 %.not50, label %._crit_edge.thread81, label %.lr.ph.split
+  br i1 %.not50, label %._crit_edge.thread85, label %.lr.ph.split
 
-._crit_edge.thread81:                             ; preds = %.lr.ph.split
+._crit_edge.thread85:                             ; preds = %.lr.ph.split
   %37 = tail call ptr @g_list_reverse(ptr noundef %24) #10
   br label %38
 
-38:                                               ; preds = %._crit_edge.thread81, %._crit_edge
-  %39 = phi ptr [ %37, %._crit_edge.thread81 ], [ %18, %._crit_edge ]
-  %.sroa.0.0.lcssa91 = phi float [ %..sroa.0.0, %._crit_edge.thread81 ], [ 1.800000e+02, %._crit_edge ]
-  %.sroa.7.0.lcssa90 = phi float [ %31, %._crit_edge.thread81 ], [ -9.000000e+01, %._crit_edge ]
-  %.sroa.10.0.lcssa89 = phi float [ %28, %._crit_edge.thread81 ], [ -1.800000e+02, %._crit_edge ]
-  %.sroa.13.0.lcssa88 = phi float [ %33, %._crit_edge.thread81 ], [ 9.000000e+01, %._crit_edge ]
-  store float %.sroa.0.0.lcssa91, ptr %1, align 4
+38:                                               ; preds = %._crit_edge.thread85, %._crit_edge
+  %39 = phi ptr [ %37, %._crit_edge.thread85 ], [ %18, %._crit_edge ]
+  %.sroa.0.0.lcssa95 = phi float [ %..sroa.0.0, %._crit_edge.thread85 ], [ 1.800000e+02, %._crit_edge ]
+  %.sroa.7.0.lcssa94 = phi float [ %31, %._crit_edge.thread85 ], [ -9.000000e+01, %._crit_edge ]
+  %.sroa.10.0.lcssa93 = phi float [ %28, %._crit_edge.thread85 ], [ -1.800000e+02, %._crit_edge ]
+  %.sroa.13.0.lcssa92 = phi float [ %33, %._crit_edge.thread85 ], [ 9.000000e+01, %._crit_edge ]
+  store float %.sroa.0.0.lcssa95, ptr %1, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %.sroa.7.0.lcssa90, ptr %.sroa.7.0..sroa_idx, align 4
+  store float %.sroa.7.0.lcssa94, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %.sroa.10.0.lcssa89, ptr %.sroa.10.0..sroa_idx, align 4
+  store float %.sroa.10.0.lcssa93, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store float %.sroa.13.0.lcssa88, ptr %.sroa.13.0..sroa_idx, align 4
+  store float %.sroa.13.0.lcssa92, ptr %.sroa.13.0..sroa_idx, align 4
   br label %40
 
 40:                                               ; preds = %._crit_edge.thread, %38, %._crit_edge

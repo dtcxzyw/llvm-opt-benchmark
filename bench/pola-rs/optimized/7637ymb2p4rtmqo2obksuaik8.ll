@@ -25519,9 +25519,9 @@ define void @_ZN12polars_arrow5array17fixed_size_binary7mutable27MutableFixedSiz
   br label %57
 
 57:                                               ; preds = %63, %56, %24
-  %.sink63 = phi i64 [ 8, %63 ], [ 8, %56 ], [ 16, %24 ]
+  %.sink64 = phi i64 [ 8, %63 ], [ 8, %56 ], [ 16, %24 ]
   %.sink = phi i64 [ 2, %63 ], [ 2, %56 ], [ %23, %24 ]
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink63
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink64
   store i64 %.sink, ptr %58, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -45320,15 +45320,15 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %..loopexit_crit_edge, %..loopexit50_crit_edge
-  %.lcssa94.sink = phi i64 [ %94, %..loopexit50_crit_edge ], [ %76, %..loopexit_crit_edge ]
+  %.lcssa98.sink = phi i64 [ %94, %..loopexit50_crit_edge ], [ %76, %..loopexit_crit_edge ]
   %.sroa.015.3.ph = phi i64 [ %95, %..loopexit50_crit_edge ], [ %77, %..loopexit_crit_edge ]
   %.sroa.11.2.ph = phi i64 [ %96, %..loopexit50_crit_edge ], [ %78, %..loopexit_crit_edge ]
   %.sroa.0.2.ph = phi ptr [ %97, %..loopexit50_crit_edge ], [ %79, %..loopexit_crit_edge ]
-  store i64 %.lcssa94.sink, ptr %14, align 8
+  store i64 %.lcssa98.sink, ptr %14, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %.preheader49, %.preheader
-  %81 = phi i64 [ %.promoted62, %.preheader ], [ %.promoted62, %.preheader49 ], [ %.lcssa94.sink, %.loopexit.sink.split ]
+  %81 = phi i64 [ %.promoted62, %.preheader ], [ %.promoted62, %.preheader49 ], [ %.lcssa98.sink, %.loopexit.sink.split ]
   %.sroa.015.3 = phi i64 [ %.sroa.015.0, %.preheader ], [ %.sroa.015.0, %.preheader49 ], [ %.sroa.015.3.ph, %.loopexit.sink.split ]
   %.sroa.11.2 = phi i64 [ %12, %.preheader ], [ %12, %.preheader49 ], [ %.sroa.11.2.ph, %.loopexit.sink.split ]
   %.sroa.0.2 = phi ptr [ %13, %.preheader ], [ %13, %.preheader49 ], [ %.sroa.0.2.ph, %.loopexit.sink.split ]
@@ -46061,16 +46061,16 @@ define void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28opt_gather_extend_
   br i1 %55, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit2.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit2
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit2.sink.split: ; preds = %37, %31
-  %.sink8 = phi i64 [ %33, %31 ], [ %52, %37 ]
+  %.sink9 = phi i64 [ %33, %31 ], [ %52, %37 ]
   %56 = load i64, ptr %23, align 8, !noundef !3
   %57 = icmp sgt i64 %56, -1
   tail call void @llvm.assume(i1 %57)
   %58 = load ptr, ptr %24, align 8, !nonnull !3, !noundef !3
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %56
-  store i64 %.sink8, ptr %59, align 1, !noalias !3
+  store i64 %.sink9, ptr %59, align 1, !noalias !3
   %60 = add nuw i64 %56, 8
   store i64 %60, ptr %23, align 8
-  %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink8)
+  %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink9)
   %62 = load i64, ptr %25, align 8, !noundef !3
   %63 = add i64 %62, %61
   store i64 %63, ptr %25, align 8
@@ -55705,7 +55705,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !1333, !noundef !3
-  switch i8 %23, label %default.unreachable68 [
+  switch i8 %23, label %default.unreachable73 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -55747,7 +55747,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %248
   ]
 
-default.unreachable68:                            ; preds = %2
+default.unreachable73:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

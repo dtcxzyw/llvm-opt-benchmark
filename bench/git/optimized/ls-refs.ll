@@ -390,8 +390,8 @@ strbuf_setlen.exit:                               ; preds = %5, %14
   %.not30 = icmp eq i32 %34, 0
   %35 = and i32 %3, 1
   %.not31 = icmp eq i32 %35, 0
-  %or.cond37 = or i1 %.not30, %.not31
-  br i1 %or.cond37, label %43, label %36
+  %or.cond41 = or i1 %.not30, %.not31
+  br i1 %or.cond41, label %43, label %36
 
 36:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

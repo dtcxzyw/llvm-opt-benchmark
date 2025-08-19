@@ -852,7 +852,7 @@ declare zeroext i1 @get_restriction_variable(ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 5) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
-  switch i32 %1, label %default.unreachable31 [
+  switch i32 %1, label %default.unreachable32 [
     i32 0, label %6
     i32 1, label %8
     i32 2, label %10
@@ -905,7 +905,7 @@ define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr noundef rea
   store double 1.000000e+00, ptr %4, align 8
   br label %36
 
-default.unreachable31:                            ; preds = %5
+default.unreachable32:                            ; preds = %5
   unreachable
 
 36:                                               ; preds = %14, %35, %12, %10, %8, %6
@@ -1611,7 +1611,7 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
   br i1 %17, label %18, label %77
 
 18:                                               ; preds = %15
-  %19 = add i32 %.081111, 1
+  %19 = add nsw i32 %.081111, 1
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = sub i32 %.080112, %19
@@ -1675,19 +1675,19 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
   %51 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv120
   %52 = load i8, ptr %51, align 1
   %.not97 = icmp eq i8 %52, 93
-  br i1 %.not97, label %.critedge.loopexit.split.loop.exit128, label %53
+  br i1 %.not97, label %.critedge.loopexit.split.loop.exit132, label %53
 
 53:                                               ; preds = %.lr.ph105
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, %4
   br i1 %exitcond123.not, label %.critedge, label %.lr.ph105, !llvm.loop !10
 
-.critedge.loopexit.split.loop.exit128:            ; preds = %.lr.ph105
+.critedge.loopexit.split.loop.exit132:            ; preds = %.lr.ph105
   %54 = trunc nsw i64 %indvars.iv120 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %53, %.critedge.loopexit.split.loop.exit128, %37
-  %.3.lcssa = phi i32 [ %.2, %37 ], [ %54, %.critedge.loopexit.split.loop.exit128 ], [ %1, %53 ]
+.critedge:                                        ; preds = %53, %.critedge.loopexit.split.loop.exit132, %37
+  %.3.lcssa = phi i32 [ %.2, %37 ], [ %54, %.critedge.loopexit.split.loop.exit132 ], [ %1, %53 ]
   %55 = select i1 %42, double 7.500000e-01, double 2.500000e-01
   %56 = fmul double %.086109, %55
   %.288 = select i1 %27, double %56, double %.086109
@@ -1712,19 +1712,19 @@ define internal fastcc double @regex_selectivity_sub(ptr noundef %0, i32 noundef
   %63 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1
   %.not96 = icmp eq i8 %64, 125
-  br i1 %.not96, label %.critedge5.loopexit.split.loop.exit126, label %65
+  br i1 %.not96, label %.critedge5.loopexit.split.loop.exit130, label %65
 
 65:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
   br i1 %exitcond.not, label %.critedge5, label %.lr.ph, !llvm.loop !11
 
-.critedge5.loopexit.split.loop.exit126:           ; preds = %.lr.ph
+.critedge5.loopexit.split.loop.exit130:           ; preds = %.lr.ph
   %66 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge5
 
-.critedge5:                                       ; preds = %65, %.critedge5.loopexit.split.loop.exit126, %.preheader
-  %.4.lcssa = phi i32 [ %.080112, %.preheader ], [ %66, %.critedge5.loopexit.split.loop.exit126 ], [ %1, %65 ]
+.critedge5:                                       ; preds = %65, %.critedge5.loopexit.split.loop.exit130, %.preheader
+  %.4.lcssa = phi i32 [ %.080112, %.preheader ], [ %66, %.critedge5.loopexit.split.loop.exit130 ], [ %1, %65 ]
   br i1 %27, label %67, label %77
 
 67:                                               ; preds = %.critedge5
@@ -1797,7 +1797,7 @@ define internal fastcc ptr @make_greater_string(ptr noundef readonly captures(no
   %19 = select i1 %18, i32 16, i32 0
   %.off = add i8 %17, -1
   %switch = icmp ult i8 %.off, 3
-  %spec.select186 = select i1 %switch, i32 8, i32 %19
+  %spec.select188 = select i1 %switch, i32 8, i32 %19
   br label %select.unfold
 
 20:                                               ; preds = %7
@@ -1911,7 +1911,7 @@ define internal fastcc ptr @make_greater_string(ptr noundef readonly captures(no
   br label %.thread
 
 select.unfold:                                    ; preds = %15, %22, %25
-  %83 = phi i32 [ %24, %22 ], [ %28, %25 ], [ %spec.select186, %15 ]
+  %83 = phi i32 [ %24, %22 ], [ %28, %25 ], [ %spec.select188, %15 ]
   %84 = sext i32 %83 to i64
   %85 = tail call ptr @palloc(i64 noundef %84) #11
   %86 = load i8, ptr %11, align 1
@@ -2057,9 +2057,9 @@ string_to_const.exit:                             ; preds = %string_to_datum.exi
   br label %.thread134
 
 .thread134:                                       ; preds = %._crit_edge.split.us.us, %103, %.thread134.sink.split, %._crit_edge141, %select.unfold, %.split.us
-  %.097131154172177.sink = phi ptr [ %.198, %.split.us ], [ %.198, %._crit_edge141 ], [ %85, %select.unfold ], [ %.198, %.thread134.sink.split ], [ %85, %103 ], [ %85, %._crit_edge.split.us.us ]
+  %.097131156174179.sink = phi ptr [ %.198, %.split.us ], [ %.198, %._crit_edge141 ], [ %85, %select.unfold ], [ %.198, %.thread134.sink.split ], [ %85, %103 ], [ %85, %._crit_edge.split.us.us ]
   %.4 = phi ptr [ %130, %.split.us ], [ null, %._crit_edge141 ], [ null, %select.unfold ], [ %.4.ph, %.thread134.sink.split ], [ %107, %103 ], [ null, %._crit_edge.split.us.us ]
-  tail call void @pfree(ptr noundef %.097131154172177.sink) #11
+  tail call void @pfree(ptr noundef %.097131156174179.sink) #11
   ret ptr %.4
 }
 

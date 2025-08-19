@@ -308,8 +308,8 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
 63:                                               ; preds = %54, %60, %56
   %64 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %65 = shl nuw nsw i32 %.0237, 3
-  %.not312 = icmp eq ptr %.0238, null
-  %.018.i.i = select i1 %.not312, i32 0, i32 %65
+  %.not322 = icmp eq ptr %.0238, null
+  %.018.i.i = select i1 %.not322, i32 0, i32 %65
   %66 = lshr exact i32 %.018.i.i, 3
   store ptr %.0238, ptr %64, align 8, !tbaa !58
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 36
@@ -323,7 +323,7 @@ define internal i32 @evrc_decode_frame(ptr noundef %0, ptr noundef initializes((
   store ptr %71, ptr %72, align 8, !tbaa !61
   %73 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 0, ptr %73, align 8, !tbaa !62
-  br i1 %.not312, label %1132, label %74
+  br i1 %.not322, label %1132, label %74
 
 74:                                               ; preds = %63
   %75 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -2393,10 +2393,10 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   br label %.preheader158.lr.ph
 
 .lr.ph164:                                        ; preds = %bandwidth_expansion.exit136._crit_edge.thread, %bandwidth_expansion.exit136._crit_edge
-  %.0125.lcssa258 = phi i1 [ %42, %bandwidth_expansion.exit136._crit_edge.thread ], [ false, %bandwidth_expansion.exit136._crit_edge ]
+  %.0125.lcssa261 = phi i1 [ %42, %bandwidth_expansion.exit136._crit_edge.thread ], [ false, %bandwidth_expansion.exit136._crit_edge ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %.neg = fneg nsz float %13
-  %45 = select nsz i1 %.0125.lcssa258, float -0.000000e+00, float %.neg
+  %45 = select nsz i1 %.0125.lcssa261, float -0.000000e+00, float %.neg
   %.promoted = load float, ptr %44, align 8, !tbaa !118
   %wide.trip.count219 = zext nneg i32 %6 to i64
   br label %46
@@ -2454,7 +2454,7 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
 
 .preheader158.lr.ph:                              ; preds = %66, %._crit_edge.thread
   %70 = phi ptr [ %43, %._crit_edge.thread ], [ %52, %66 ]
-  %.not201260262 = phi i1 [ true, %._crit_edge.thread ], [ false, %66 ]
+  %.not201263265 = phi i1 [ true, %._crit_edge.thread ], [ false, %66 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %72 = tail call i32 @llvm.smax.i32(i32 %4, i32 117)
   %73 = tail call i32 @llvm.smin.i32(i32 %4, i32 23)
@@ -2469,10 +2469,10 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   %indvars.iv226 = phi i64 [ %76, %.preheader158.lr.ph ], [ %indvars.iv226.be, %.preheader158.backedge ]
   %.0173 = phi i32 [ %4, %.preheader158.lr.ph ], [ %.0173.be, %.preheader158.backedge ]
   %.0121171 = phi float [ 0.000000e+00, %.preheader158.lr.ph ], [ %.0121171.be, %.preheader158.backedge ]
-  br i1 %.not201260262, label %._crit_edge168, label %.lr.ph167
+  br i1 %.not201263265, label %._crit_edge168, label %.lr.ph167
 
 .lr.ph177.preheader:                              ; preds = %._crit_edge168.thread
-  %78 = sext i32 %.1265 to i64
+  %78 = sext i32 %.1268 to i64
   %wide.trip.count233 = zext nneg i32 %75 to i64
   br label %.lr.ph177
 
@@ -2500,23 +2500,23 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   br i1 %exitcond229.not, label %._crit_edge183, label %.preheader158.backedge
 
 .preheader158.backedge:                           ; preds = %._crit_edge168, %._crit_edge168.thread
-  %indvars.iv226.be = phi i64 [ %indvars.iv.next227, %._crit_edge168 ], [ %indvars.iv.next227266, %._crit_edge168.thread ]
-  %.0173.be = phi i32 [ %.1, %._crit_edge168 ], [ %.1265, %._crit_edge168.thread ]
-  %.0121171.be = phi float [ %.1122, %._crit_edge168 ], [ %.1122264, %._crit_edge168.thread ]
+  %indvars.iv226.be = phi i64 [ %indvars.iv.next227, %._crit_edge168 ], [ %indvars.iv.next227269, %._crit_edge168.thread ]
+  %.0173.be = phi i32 [ %.1, %._crit_edge168 ], [ %.1268, %._crit_edge168.thread ]
+  %.0121171.be = phi float [ %.1122, %._crit_edge168 ], [ %.1122267, %._crit_edge168.thread ]
   br label %.preheader158, !llvm.loop !123
 
 ._crit_edge168.thread:                            ; preds = %.lr.ph167
   %87 = fcmp nsz ogt float %84, %.0121171
-  %.1122264 = select nsz i1 %87, float %84, float %.0121171
+  %.1122267 = select nsz i1 %87, float %84, float %.0121171
   %88 = trunc nsw i64 %indvars.iv226 to i32
-  %.1265 = select i1 %87, i32 %88, i32 %.0173
-  %indvars.iv.next227266 = add nsw i64 %indvars.iv226, 1
-  %lftr.wideiv267 = trunc i64 %indvars.iv.next227266 to i32
-  %exitcond229.not268 = icmp eq i32 %77, %lftr.wideiv267
-  br i1 %exitcond229.not268, label %.lr.ph177.preheader, label %.preheader158.backedge
+  %.1268 = select i1 %87, i32 %88, i32 %.0173
+  %indvars.iv.next227269 = add nsw i64 %indvars.iv226, 1
+  %lftr.wideiv270 = trunc i64 %indvars.iv.next227269 to i32
+  %exitcond229.not271 = icmp eq i32 %77, %lftr.wideiv270
+  br i1 %exitcond229.not271, label %.lr.ph177.preheader, label %.preheader158.backedge
 
 .lr.ph182.preheader:                              ; preds = %.lr.ph177
-  %89 = sext i32 %.1265 to i64
+  %89 = sext i32 %.1268 to i64
   %wide.trip.count238 = zext nneg i32 %75 to i64
   br label %.lr.ph182
 
@@ -2545,10 +2545,10 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   br i1 %exitcond239.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !125
 
 ._crit_edge183:                                   ; preds = %._crit_edge168, %.lr.ph182
-  %.2123.lcssa278 = phi float [ %93, %.lr.ph182 ], [ 0.000000e+00, %._crit_edge168 ]
-  %.1269272276 = phi i32 [ %.1265, %.lr.ph182 ], [ %.1, %._crit_edge168 ]
+  %.2123.lcssa281 = phi float [ %93, %.lr.ph182 ], [ 0.000000e+00, %._crit_edge168 ]
+  %.1272275279 = phi i32 [ %.1268, %.lr.ph182 ], [ %.1, %._crit_edge168 ]
   %.2127.lcssa = phi float [ %99, %.lr.ph182 ], [ 0.000000e+00, %._crit_edge168 ]
-  %100 = fmul nsz float %.2123.lcssa278, %.2127.lcssa
+  %100 = fmul nsz float %.2123.lcssa281, %.2127.lcssa
   %101 = fcmp nsz oeq float %100, 0.000000e+00
   br i1 %101, label %.loopexit, label %102
 
@@ -2559,12 +2559,12 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   br i1 %105, label %.loopexit, label %106
 
 106:                                              ; preds = %102
-  %107 = fdiv nsz float %.2127.lcssa, %.2123.lcssa278
+  %107 = fdiv nsz float %.2127.lcssa, %.2123.lcssa281
   %108 = fcmp nsz olt float %107, 5.000000e-01
   br i1 %108, label %.loopexit, label %109
 
 109:                                              ; preds = %106
-  br i1 %.not201260262, label %.loopexit.thread, label %.lr.ph187
+  br i1 %.not201263265, label %.loopexit.thread, label %.lr.ph187
 
 .loopexit.thread:                                 ; preds = %109
   %110 = zext nneg i32 %6 to i64
@@ -2576,7 +2576,7 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %113 = load float, ptr %112, align 4, !tbaa !126
   %114 = fmul nsz float %narrow.sel, %113
-  %115 = sext i32 %.1269272276 to i64
+  %115 = sext i32 %.1272275279 to i64
   %wide.trip.count243 = zext nneg i32 %6 to i64
   br label %116
 
@@ -2593,9 +2593,9 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   store float %123, ptr %124, align 4, !tbaa !31
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
-  br i1 %exitcond244.not, label %.loopexit.thread279, label %116, !llvm.loop !127
+  br i1 %exitcond244.not, label %.loopexit.thread282, label %116, !llvm.loop !127
 
-.loopexit.thread279:                              ; preds = %116
+.loopexit.thread282:                              ; preds = %116
   %125 = zext nneg i32 %6 to i64
   %126 = shl nuw nsw i64 %125, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %11, i64 %126, i1 false)
@@ -2612,11 +2612,11 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %11, i64 %131, i1 false)
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %132, i64 40, i1 false)
-  br i1 %.not201260262, label %synthesis_filter.exit156, label %.lr.ph.i143.preheader
+  br i1 %.not201263265, label %synthesis_filter.exit156, label %.lr.ph.i143.preheader
 
-.lr.ph.i143.preheader:                            ; preds = %.loopexit.thread279, %.loopexit
-  %133 = phi ptr [ %127, %.loopexit.thread279 ], [ %132, %.loopexit ]
-  %134 = phi i64 [ %125, %.loopexit.thread279 ], [ %130, %.loopexit ]
+.lr.ph.i143.preheader:                            ; preds = %.loopexit.thread282, %.loopexit
+  %133 = phi ptr [ %127, %.loopexit.thread282 ], [ %132, %.loopexit ]
+  %134 = phi i64 [ %125, %.loopexit.thread282 ], [ %130, %.loopexit ]
   %135 = load float, ptr %9, align 16, !tbaa !31
   %136 = fneg nsz float %135
   br label %.lr.ph.i143
@@ -2653,7 +2653,7 @@ bandwidth_expansion.exit136._crit_edge:           ; preds = %bandwidth_expansion
   br i1 %exitcond.not.i146, label %synthesis_filter.exit, label %.lr.ph.i143, !llvm.loop !94
 
 synthesis_filter.exit:                            ; preds = %149
-  br i1 %.not201260262, label %synthesis_filter.exit156, label %.lr.ph193
+  br i1 %.not201263265, label %synthesis_filter.exit156, label %.lr.ph193
 
 .lr.ph193:                                        ; preds = %synthesis_filter.exit, %.lr.ph193
   %indvars.iv245 = phi i64 [ %indvars.iv.next246, %.lr.ph193 ], [ 0, %synthesis_filter.exit ]

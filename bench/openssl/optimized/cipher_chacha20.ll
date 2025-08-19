@@ -98,10 +98,10 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not14, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit.thread.sink.split
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %16, %14, %10, %8
-  %.sink16 = phi i32 [ 135, %8 ], [ 139, %10 ], [ 146, %14 ], [ 150, %16 ]
+  %.sink19 = phi i32 [ 135, %8 ], [ 139, %10 ], [ 146, %14 ], [ 150, %16 ]
   %.sink = phi i32 [ 103, %8 ], [ 105, %10 ], [ 103, %14 ], [ 109, %16 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink16, ptr noundef nonnull @__func__.chacha20_set_ctx_params) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink19, ptr noundef nonnull @__func__.chacha20_set_ctx_params) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
   br label %ossl_param_is_empty.exit.thread
 

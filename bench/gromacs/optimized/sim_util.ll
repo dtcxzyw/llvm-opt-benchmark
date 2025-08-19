@@ -6897,8 +6897,8 @@ _ZN3gmxL10clearRVecsENS_8ArrayRefINS_11BasicVectorIfEEEEb.exit37: ; preds = %.lr
   %76 = sub i64 %74, %75
   %reass.sub29.fr = freeze i64 %76
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 %reass.sub29.fr
-  %.sroa.8.3.scevgep12.i.sroa_idx32 = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %.sroa.8.3.scevgep12.i.sroa_idx32, i8 0, i64 36, i1 false), !tbaa !146
+  %.sroa.8.3.scevgep12.i.sroa_idx35 = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %.sroa.8.3.scevgep12.i.sroa_idx35, i8 0, i64 36, i1 false), !tbaa !146
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %71, ptr %5, align 8
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8

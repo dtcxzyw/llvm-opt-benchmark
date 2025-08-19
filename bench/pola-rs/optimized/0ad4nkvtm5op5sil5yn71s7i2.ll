@@ -144,8 +144,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h5329579395a2a60
   br label %47
 
 "_ZN65_$LT$foldhash..fast..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hfd8c0fa05ed31349E.exit": ; preds = %47, %21, %17
-  %.sink3.i = phi i64 [ %20, %17 ], [ %22, %21 ], [ %53, %47 ]
-  %58 = xor i64 %.sink3.i, 255
+  %.sink4.i = phi i64 [ %20, %17 ], [ %22, %21 ], [ %53, %47 ]
+  %58 = xor i64 %.sink4.i, 255
   %59 = zext i64 %58 to i128
   %60 = zext i64 %4 to i128
   %61 = mul nuw i128 %59, %60
@@ -333,8 +333,8 @@ define hidden void @"_ZN12polars_utils5cache25LruCache$LT$K$C$V$C$S$GT$22try_get
   br label %59
 
 _ZN4core4hash11BuildHasher8hash_one17h189c98ef8cec59c2E.exit: ; preds = %29, %33, %59
-  %.sink3.i.i.i.i = phi i64 [ %32, %29 ], [ %34, %33 ], [ %65, %59 ]
-  %70 = xor i64 %.sink3.i.i.i.i, 255
+  %.sink4.i.i.i.i = phi i64 [ %32, %29 ], [ %34, %33 ], [ %65, %59 ]
+  %70 = xor i64 %.sink4.i.i.i.i, 255
   %71 = zext i64 %70 to i128
   %72 = zext i64 %18 to i128
   %73 = mul nuw i128 %71, %72
@@ -669,8 +669,8 @@ common.resume:                                    ; preds = %239, %372, %345, %1
   br label %227
 
 227:                                              ; preds = %378, %225
-  %.sink76 = phi ptr [ %379, %378 ], [ %226, %225 ]
-  %228 = getelementptr inbounds nuw i8, ptr %.sink76, i64 24
+  %.sink84 = phi ptr [ %379, %378 ], [ %226, %225 ]
+  %228 = getelementptr inbounds nuw i8, ptr %.sink84, i64 24
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %228, ptr %229, align 8
   store i64 -9223372036854775807, ptr %0, align 8

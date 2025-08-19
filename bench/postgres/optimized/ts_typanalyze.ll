@@ -416,8 +416,8 @@ prune_lexemes_hashtable.exit:                     ; preds = %107, %91
   %201 = fdiv double %.0140.lcssa, %128
   %202 = fptrunc double %201 to float
   %203 = shl nuw nsw i64 %indvars.iv, 32
-  %sext198 = add nuw i64 %203, 8589934592
-  %204 = ashr exact i64 %sext198, 30
+  %sext209 = add nuw i64 %203, 8589934592
+  %204 = ashr exact i64 %sext209, 30
   %205 = getelementptr inbounds i8, ptr %180, i64 %204
   store float %202, ptr %205, align 4
   store ptr %174, ptr @CurrentMemoryContext, align 8

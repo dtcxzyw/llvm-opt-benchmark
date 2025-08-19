@@ -1153,10 +1153,10 @@ define dso_local range(i32 -1, 1) i32 @xlate_cpu_bind_str(ptr noundef %0, ptr no
   br i1 %57, label %58, label %._crit_edge
 
 58:                                               ; preds = %52, %55, %50, %45, %37, %29, %21, %13
-  %.sink55 = phi i32 [ 32, %13 ], [ 8, %21 ], [ 16, %29 ], [ 4, %37 ], [ 2, %45 ], [ 524288, %50 ], [ 1, %55 ], [ 1, %52 ]
+  %.sink57 = phi i32 [ 32, %13 ], [ 8, %21 ], [ 16, %29 ], [ 4, %37 ], [ 2, %45 ], [ 524288, %50 ], [ 1, %55 ], [ 1, %52 ]
   %.1 = phi i8 [ 1, %13 ], [ 1, %21 ], [ 1, %29 ], [ 1, %37 ], [ 1, %45 ], [ 1, %50 ], [ %.039, %55 ], [ %.039, %52 ]
   %59 = load i32, ptr %1, align 4
-  %60 = or i32 %59, %.sink55
+  %60 = or i32 %59, %.sink57
   store i32 %60, ptr %1, align 4
   %61 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #14
   %.not36 = icmp eq ptr %61, null

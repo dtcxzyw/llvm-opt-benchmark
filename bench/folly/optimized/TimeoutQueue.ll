@@ -168,17 +168,17 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i
   br i1 %14, label %select.unfold._crit_edge.thread.i, label %51
 
 select.unfold._crit_edge.thread.i:                ; preds = %select.unfold._crit_edge.i, %3
-  %.018.lcssa32.i = phi ptr [ %.01727.i, %select.unfold._crit_edge.i ], [ %7, %3 ]
+  %.018.lcssa33.i = phi ptr [ %.01727.i, %select.unfold._crit_edge.i ], [ %7, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %18 = load ptr, ptr %17, align 8, !tbaa !39
   %19 = icmp eq ptr %18, null
   %20 = getelementptr inbounds i8, ptr %18, i64 -80
   %21 = select i1 %19, ptr null, ptr %20
-  %22 = icmp eq ptr %.018.lcssa32.i, %21
+  %22 = icmp eq ptr %.018.lcssa33.i, %21
   br i1 %22, label %.sink.split.i, label %23
 
 23:                                               ; preds = %select.unfold._crit_edge.thread.i
-  %24 = getelementptr inbounds nuw i8, ptr %.018.lcssa32.i, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %.018.lcssa33.i, i64 80
   %25 = load i64, ptr %24, align 8, !tbaa !37
   %26 = and i64 %25, 1
   %27 = icmp eq i64 %26, 0
@@ -193,12 +193,12 @@ select.unfold._crit_edge.thread.i:                ; preds = %select.unfold._crit
   br i1 %33, label %34, label %.critedge.i.i.i
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds nuw i8, ptr %.018.lcssa32.i, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %.018.lcssa33.i, i64 96
   %36 = load ptr, ptr %35, align 8, !tbaa !39
   br label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i
 
 .critedge.i.i.i:                                  ; preds = %28, %23
-  %37 = getelementptr inbounds nuw i8, ptr %.018.lcssa32.i, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %.018.lcssa33.i, i64 88
   %38 = load ptr, ptr %37, align 8, !tbaa !39
   %.not.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader25.i.i.i
@@ -239,14 +239,14 @@ _ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_
 51:                                               ; preds = %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i, %select.unfold._crit_edge.i
   %52 = phi i64 [ %.pre, %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i ], [ %13, %select.unfold._crit_edge.i ]
   %not..0.i = phi i32 [ 0, %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i ], [ 1, %select.unfold._crit_edge.i ]
-  %.018.lcssa33.i = phi ptr [ %.018.lcssa32.i, %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i ], [ %.01727.i, %select.unfold._crit_edge.i ]
+  %.018.lcssa32.i = phi ptr [ %.018.lcssa33.i, %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i ], [ %.01727.i, %select.unfold._crit_edge.i ]
   %.023.i = phi ptr [ %50, %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i ], [ %.01727.i, %select.unfold._crit_edge.i ]
   %53 = icmp slt i64 %52, %5
   br i1 %53, label %.sink.split.i, label %88
 
 .sink.split.i:                                    ; preds = %51, %select.unfold._crit_edge.thread.i
   %.sroa.0.0.ph = phi i32 [ 0, %select.unfold._crit_edge.thread.i ], [ %not..0.i, %51 ]
-  %.023.sink.i.ph = phi ptr [ %.018.lcssa32.i, %select.unfold._crit_edge.thread.i ], [ %.018.lcssa33.i, %51 ]
+  %.023.sink.i.ph = phi ptr [ %.018.lcssa33.i, %select.unfold._crit_edge.thread.i ], [ %.018.lcssa32.i, %51 ]
   %54 = getelementptr inbounds nuw i8, ptr %.023.sink.i.ph, i64 80
   %55 = tail call noundef ptr @_ZN5boost11multi_index6detail18ordered_index_implINS0_6memberIN5folly12TimeoutQueue5EventElXadL_ZNS6_10expirationEEEEESt4lessIlENS1_9nth_layerILi2ES6_NS0_10indexed_byINS0_14ordered_uniqueINS3_IS6_lXadL_ZNS6_2idEEEEEN4mpl_2naESF_EENS0_18ordered_non_uniqueIS7_SF_SF_EESF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_SF_EESaIS6_EEENS_3mpl7vector0ISF_EENS1_22ordered_non_unique_tagENS1_19null_augment_policyEE7insert_INS1_10rvalue_tagEEEPNS1_18ordered_index_nodeISQ_NSU_ISQ_NS1_15index_node_baseIS6_SK_EEEEEERKS6_RSZ_T_(ptr noundef nonnull align 1 dereferenceable(2) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %56 = load ptr, ptr %2, align 8, !tbaa !35
@@ -474,7 +474,7 @@ define linkonce_odr void @_ZN5boost11multi_index6detail23ordered_index_node_impl
   %12 = load i64, ptr %11, align 8, !tbaa !37
   %13 = and i64 %12, 1
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %.lr.ph112, label %.critedge
+  br i1 %14, label %.lr.ph125, label %.critedge
 
 .lr.ph:                                           ; preds = %254
   %15 = load i64, ptr %.3, align 8, !tbaa !37
@@ -483,20 +483,20 @@ define linkonce_odr void @_ZN5boost11multi_index6detail23ordered_index_node_impl
   %18 = load i64, ptr %17, align 8, !tbaa !37
   %19 = and i64 %18, 1
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.lr.ph112, label %.critedge, !llvm.loop !53
+  br i1 %20, label %.lr.ph125, label %.critedge, !llvm.loop !53
 
-.lr.ph112:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph125:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi i64 [ %18, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %22 = phi ptr [ %17, %.lr.ph ], [ %11, %.lr.ph.preheader ]
   %23 = phi i64 [ %16, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.0100111 = phi ptr [ %.3, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.0100124 = phi ptr [ %.3, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %24 = inttoptr i64 %21 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = icmp eq ptr %26, %22
   br i1 %27, label %28, label %142
 
-28:                                               ; preds = %.lr.ph112
+28:                                               ; preds = %.lr.ph125
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !39
   %.not40 = icmp eq ptr %30, null
@@ -514,7 +514,7 @@ define linkonce_odr void @_ZN5boost11multi_index6detail23ordered_index_node_impl
   %37 = load i64, ptr %30, align 8, !tbaa !37
   %38 = or i64 %37, 1
   store i64 %38, ptr %30, align 8, !tbaa !37
-  %39 = load i64, ptr %.0100111, align 8, !tbaa !37
+  %39 = load i64, ptr %.0100124, align 8, !tbaa !37
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
   %42 = load i64, ptr %41, align 8, !tbaa !37
@@ -523,7 +523,7 @@ define linkonce_odr void @_ZN5boost11multi_index6detail23ordered_index_node_impl
   %45 = load i64, ptr %44, align 8, !tbaa !37
   %46 = and i64 %45, -2
   store i64 %46, ptr %44, align 8, !tbaa !37
-  %47 = load i64, ptr %.0100111, align 8, !tbaa !37
+  %47 = load i64, ptr %.0100124, align 8, !tbaa !37
   %48 = and i64 %47, -2
   %49 = inttoptr i64 %48 to ptr
   %50 = load i64, ptr %49, align 8, !tbaa !37
@@ -534,7 +534,7 @@ define linkonce_odr void @_ZN5boost11multi_index6detail23ordered_index_node_impl
 .critedge2:                                       ; preds = %28, %31
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !39
-  %55 = icmp eq ptr %.0100111, %54
+  %55 = icmp eq ptr %.0100124, %54
   br i1 %55, label %56, label %90
 
 56:                                               ; preds = %.critedge2
@@ -565,7 +565,7 @@ define linkonce_odr void @_ZN5boost11multi_index6detail23ordered_index_node_impl
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %63
-  %73 = ptrtoint ptr %.0100111 to i64
+  %73 = ptrtoint ptr %.0100124 to i64
   %74 = and i64 %69, 1
   %75 = or i64 %74, %73
   store i64 %75, ptr %5, align 8, !tbaa !37
@@ -593,7 +593,7 @@ define linkonce_odr void @_ZN5boost11multi_index6detail23ordered_index_node_impl
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit: ; preds = %72, %83, %84
   %86 = phi i64 [ %77, %83 ], [ %77, %84 ], [ %.pre.i, %72 ]
   store ptr %22, ptr %57, align 8, !tbaa !39
-  %87 = ptrtoint ptr %.0100111 to i64
+  %87 = ptrtoint ptr %.0100124 to i64
   %88 = and i64 %86, 1
   %89 = or i64 %88, %87
   store i64 %89, ptr %22, align 8, !tbaa !37
@@ -603,7 +603,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
 
 90:                                               ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit, %.critedge2
   %.pre-phi106 = phi ptr [ %.pre105, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %22, %.critedge2 ]
-  %.2 = phi ptr [ %22, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %.0100111, %.critedge2 ]
+  %.2 = phi ptr [ %22, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %.0100124, %.critedge2 ]
   %91 = load i64, ptr %.pre-phi106, align 8, !tbaa !37
   %92 = or i64 %91, 1
   store i64 %92, ptr %.pre-phi106, align 8, !tbaa !37
@@ -684,7 +684,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   store i64 %141, ptr %106, align 8, !tbaa !37
   br label %254
 
-142:                                              ; preds = %.lr.ph112
+142:                                              ; preds = %.lr.ph125
   %.not39 = icmp eq ptr %26, null
   br i1 %.not39, label %.critedge4, label %143
 
@@ -700,7 +700,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   %149 = load i64, ptr %26, align 8, !tbaa !37
   %150 = or i64 %149, 1
   store i64 %150, ptr %26, align 8, !tbaa !37
-  %151 = load i64, ptr %.0100111, align 8, !tbaa !37
+  %151 = load i64, ptr %.0100124, align 8, !tbaa !37
   %152 = and i64 %151, -2
   %153 = inttoptr i64 %152 to ptr
   %154 = load i64, ptr %153, align 8, !tbaa !37
@@ -709,7 +709,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   %157 = load i64, ptr %156, align 8, !tbaa !37
   %158 = and i64 %157, -2
   store i64 %158, ptr %156, align 8, !tbaa !37
-  %159 = load i64, ptr %.0100111, align 8, !tbaa !37
+  %159 = load i64, ptr %.0100124, align 8, !tbaa !37
   %160 = and i64 %159, -2
   %161 = inttoptr i64 %160 to ptr
   %162 = load i64, ptr %161, align 8, !tbaa !37
@@ -720,7 +720,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
 .critedge4:                                       ; preds = %142, %143
   %165 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !39
-  %167 = icmp eq ptr %.0100111, %166
+  %167 = icmp eq ptr %.0100124, %166
   br i1 %167, label %168, label %202
 
 168:                                              ; preds = %.critedge4
@@ -751,7 +751,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   br i1 %183, label %184, label %188
 
 184:                                              ; preds = %175
-  %185 = ptrtoint ptr %.0100111 to i64
+  %185 = ptrtoint ptr %.0100124 to i64
   %186 = and i64 %181, 1
   %187 = or i64 %186, %185
   store i64 %187, ptr %5, align 8, !tbaa !37
@@ -779,7 +779,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45: ; preds = %184, %195, %196
   %198 = phi i64 [ %189, %195 ], [ %189, %196 ], [ %.pre.i44, %184 ]
   store ptr %22, ptr %169, align 8, !tbaa !39
-  %199 = ptrtoint ptr %.0100111 to i64
+  %199 = ptrtoint ptr %.0100124 to i64
   %200 = and i64 %198, 1
   %201 = or i64 %200, %199
   store i64 %201, ptr %22, align 8, !tbaa !37
@@ -789,7 +789,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
 
 202:                                              ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45, %.critedge4
   %.pre-phi110 = phi ptr [ %.pre109, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45 ], [ %22, %.critedge4 ]
-  %.5 = phi ptr [ %22, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45 ], [ %.0100111, %.critedge4 ]
+  %.5 = phi ptr [ %22, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45 ], [ %.0100124, %.critedge4 ]
   %203 = load i64, ptr %.pre-phi110, align 8, !tbaa !37
   %204 = or i64 %203, 1
   store i64 %204, ptr %.pre-phi110, align 8, !tbaa !37
@@ -2066,10 +2066,10 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   br label %.critedge.sink.split
 
 .thread262:                                       ; preds = %343, %347, %187, %191
-  %.0.sink417 = phi ptr [ %.0151, %191 ], [ %.0151, %187 ], [ %.0, %347 ], [ %.0, %343 ]
-  %448 = load i64, ptr %.0.sink417, align 8, !tbaa !37
+  %.0.sink436 = phi ptr [ %.0151, %191 ], [ %.0151, %187 ], [ %.0, %347 ], [ %.0, %343 ]
+  %448 = load i64, ptr %.0.sink436, align 8, !tbaa !37
   %449 = and i64 %448, -2
-  store i64 %449, ptr %.0.sink417, align 8, !tbaa !37
+  store i64 %449, ptr %.0.sink436, align 8, !tbaa !37
   %.4.in.in = load i64, ptr %.2157309, align 8, !tbaa !37
   %.4.in = and i64 %.4.in.in, -2
   %.4 = inttoptr i64 %.4.in to ptr
@@ -2080,10 +2080,10 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   br i1 %.not171, label %.critedge..critedge.thread_crit_edge, label %.lr.ph, !llvm.loop !73
 
 .critedge.sink.split:                             ; preds = %290, %446
-  %.sink422 = phi ptr [ %403, %446 ], [ %247, %290 ]
-  %.sink421 = phi i64 [ %447, %446 ], [ %291, %290 ]
-  %453 = ptrtoint ptr %.sink422 to i64
-  %454 = and i64 %.sink421, 1
+  %.sink441 = phi ptr [ %403, %446 ], [ %247, %290 ]
+  %.sink440 = phi i64 [ %447, %446 ], [ %291, %290 ]
+  %453 = ptrtoint ptr %.sink441 to i64
+  %454 = and i64 %.sink440, 1
   %455 = or i64 %454, %453
   store i64 %455, ptr %.2157309, align 8, !tbaa !37
   br label %.critedge
@@ -2094,13 +2094,13 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   br i1 %.not176, label %458, label %.critedge..critedge.thread_crit_edge
 
 .critedge..critedge.thread_crit_edge:             ; preds = %.thread262, %.critedge
-  %.1159298353 = phi ptr [ %.1159298, %.critedge ], [ %.2157309, %.thread262 ]
-  %.pre336 = load i64, ptr %.1159298353, align 8, !tbaa !37
+  %.1159298372 = phi ptr [ %.1159298, %.critedge ], [ %.2157309, %.thread262 ]
+  %.pre336 = load i64, ptr %.1159298372, align 8, !tbaa !37
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %128, %.critedge..critedge.thread_crit_edge
   %456 = phi i64 [ %.pre336, %.critedge..critedge.thread_crit_edge ], [ %129, %128 ]
-  %.1159297 = phi ptr [ %.1159298353, %.critedge..critedge.thread_crit_edge ], [ %.1159308, %128 ]
+  %.1159297 = phi ptr [ %.1159298372, %.critedge..critedge.thread_crit_edge ], [ %.1159308, %128 ]
   %457 = or i64 %456, 1
   store i64 %457, ptr %.1159297, align 8, !tbaa !37
   br label %458
@@ -2392,17 +2392,17 @@ select.unfold._crit_edge.i.i:                     ; preds = %select.unfold.i.i
   br i1 %122, label %select.unfold._crit_edge.thread.i.i, label %.thread
 
 select.unfold._crit_edge.thread.i.i:              ; preds = %select.unfold._crit_edge.i.i, %_ZNSt8functionIFvllEEC2ERKS1_.exit
-  %.018.lcssa32.i.i = phi ptr [ %.01727.i.i, %select.unfold._crit_edge.i.i ], [ %115, %_ZNSt8functionIFvllEEC2ERKS1_.exit ]
+  %.018.lcssa33.i.i = phi ptr [ %.01727.i.i, %select.unfold._crit_edge.i.i ], [ %115, %_ZNSt8functionIFvllEEC2ERKS1_.exit ]
   %125 = getelementptr inbounds nuw i8, ptr %115, i64 88
   %126 = load ptr, ptr %125, align 8, !tbaa !39
   %127 = icmp eq ptr %126, null
   %128 = getelementptr inbounds i8, ptr %126, i64 -80
   %129 = select i1 %127, ptr null, ptr %128
-  %130 = icmp eq ptr %.018.lcssa32.i.i, %129
+  %130 = icmp eq ptr %.018.lcssa33.i.i, %129
   br i1 %130, label %.sink.split.i.i, label %131
 
 131:                                              ; preds = %select.unfold._crit_edge.thread.i.i
-  %132 = getelementptr inbounds nuw i8, ptr %.018.lcssa32.i.i, i64 80
+  %132 = getelementptr inbounds nuw i8, ptr %.018.lcssa33.i.i, i64 80
   %133 = load i64, ptr %132, align 8, !tbaa !37
   %134 = and i64 %133, 1
   %135 = icmp eq i64 %134, 0
@@ -2417,12 +2417,12 @@ select.unfold._crit_edge.thread.i.i:              ; preds = %select.unfold._crit
   br i1 %141, label %142, label %.critedge.i.i.i.i
 
 142:                                              ; preds = %136
-  %143 = getelementptr inbounds nuw i8, ptr %.018.lcssa32.i.i, i64 96
+  %143 = getelementptr inbounds nuw i8, ptr %.018.lcssa33.i.i, i64 96
   %144 = load ptr, ptr %143, align 8, !tbaa !39
-  br label %.loopexit113
+  br label %.loopexit146
 
 .critedge.i.i.i.i:                                ; preds = %136, %131
-  %145 = getelementptr inbounds nuw i8, ptr %.018.lcssa32.i.i, i64 88
+  %145 = getelementptr inbounds nuw i8, ptr %.018.lcssa33.i.i, i64 88
   %146 = load ptr, ptr %145, align 8, !tbaa !39
   %.not.i.i.i.i44 = icmp eq ptr %146, null
   br i1 %.not.i.i.i.i44, label %.preheader.i.i.i.i, label %.preheader25.i.i.i.i
@@ -2433,14 +2433,14 @@ select.unfold._crit_edge.thread.i.i:              ; preds = %select.unfold._crit
   %147 = getelementptr inbounds nuw i8, ptr %.027.i.i.i.i, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !39
   %149 = icmp eq ptr %132, %148
-  br i1 %149, label %.lr.ph.i.i.i.i45, label %.loopexit113
+  br i1 %149, label %.lr.ph.i.i.i.i45, label %.loopexit146
 
 .preheader25.i.i.i.i:                             ; preds = %.critedge.i.i.i.i, %.preheader25.i.i.i.i
   %.019.i.i.i.i = phi ptr [ %151, %.preheader25.i.i.i.i ], [ %146, %.critedge.i.i.i.i ]
   %150 = getelementptr inbounds nuw i8, ptr %.019.i.i.i.i, i64 16
   %151 = load ptr, ptr %150, align 8, !tbaa !39
   %.not20.i.i.i.i = icmp eq ptr %151, null
-  br i1 %.not20.i.i.i.i, label %.loopexit113, label %.preheader25.i.i.i.i, !llvm.loop !41
+  br i1 %.not20.i.i.i.i, label %.loopexit146, label %.preheader25.i.i.i.i, !llvm.loop !41
 
 .lr.ph.i.i.i.i45:                                 ; preds = %.preheader.i.i.i.i, %.lr.ph.i.i.i.i45
   %.028.i.i.i.i = phi ptr [ %.0.i.i.i.i46, %.lr.ph.i.i.i.i45 ], [ %.027.i.i.i.i, %.preheader.i.i.i.i ]
@@ -2450,9 +2450,9 @@ select.unfold._crit_edge.thread.i.i:              ; preds = %select.unfold._crit
   %153 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i46, i64 8
   %154 = load ptr, ptr %153, align 8, !tbaa !39
   %155 = icmp eq ptr %.028.i.i.i.i, %154
-  br i1 %155, label %.lr.ph.i.i.i.i45, label %.loopexit113, !llvm.loop !43
+  br i1 %155, label %.lr.ph.i.i.i.i45, label %.loopexit146, !llvm.loop !43
 
-.loopexit113:                                     ; preds = %.preheader25.i.i.i.i, %.lr.ph.i.i.i.i45, %142, %.preheader.i.i.i.i
+.loopexit146:                                     ; preds = %.preheader25.i.i.i.i, %.lr.ph.i.i.i.i45, %142, %.preheader.i.i.i.i
   %.019.lcssa.sink.i.i.i.i = phi ptr [ %144, %142 ], [ %.027.i.i.i.i, %.preheader.i.i.i.i ], [ %.0.i.i.i.i46, %.lr.ph.i.i.i.i45 ], [ %.019.i.i.i.i, %.preheader25.i.i.i.i ]
   %156 = getelementptr inbounds i8, ptr %.019.lcssa.sink.i.i.i.i, i64 -80
   %.pre.i = load i64, ptr %156, align 8, !tbaa !37
@@ -2461,11 +2461,11 @@ select.unfold._crit_edge.thread.i.i:              ; preds = %select.unfold._crit
 
 .thread:                                          ; preds = %select.unfold._crit_edge.i.i
   %158 = icmp slt i64 %121, %114
-  br i1 %158, label %.sink.split.i.i, label %.noexc33.thread111
+  br i1 %158, label %.sink.split.i.i, label %.noexc33.thread144
 
-.sink.split.i.i:                                  ; preds = %.thread, %.loopexit113, %select.unfold._crit_edge.thread.i.i
-  %159 = phi i1 [ true, %select.unfold._crit_edge.thread.i.i ], [ true, %.loopexit113 ], [ false, %.thread ]
-  %.023.sink.i.ph.i = phi ptr [ %.018.lcssa32.i.i, %select.unfold._crit_edge.thread.i.i ], [ %.018.lcssa32.i.i, %.loopexit113 ], [ %.01727.i.i, %.thread ]
+.sink.split.i.i:                                  ; preds = %.thread, %.loopexit146, %select.unfold._crit_edge.thread.i.i
+  %159 = phi i1 [ true, %select.unfold._crit_edge.thread.i.i ], [ true, %.loopexit146 ], [ false, %.thread ]
+  %.023.sink.i.ph.i = phi ptr [ %.018.lcssa33.i.i, %select.unfold._crit_edge.thread.i.i ], [ %.018.lcssa33.i.i, %.loopexit146 ], [ %.01727.i.i, %.thread ]
   %160 = getelementptr inbounds nuw i8, ptr %.023.sink.i.ph.i, i64 80
   %161 = load i64, ptr %15, align 8, !tbaa !37
   %162 = getelementptr inbounds nuw i8, ptr %115, i64 56
@@ -2632,23 +2632,23 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   %.pre102.pre = load ptr, ptr %18, align 8, !tbaa !32
   br label %234
 
-.noexc33:                                         ; preds = %.loopexit113
+.noexc33:                                         ; preds = %.loopexit146
   %233 = icmp eq ptr %.019.lcssa.sink.i.i.i.i, null
-  br i1 %233, label %234, label %.noexc33.thread111
+  br i1 %233, label %234, label %.noexc33.thread144
 
 234:                                              ; preds = %.noexc33.thread, %.noexc33
   %.pre102 = phi ptr [ %.pre102.pre, %.noexc33.thread ], [ %112, %.noexc33 ]
   %235 = load i64, ptr %13, align 8, !tbaa !36
   %236 = add i64 %235, 1
   store i64 %236, ptr %13, align 8, !tbaa !36
-  br label %.noexc33.thread111
+  br label %.noexc33.thread144
 
-.noexc33.thread111:                               ; preds = %.thread, %234, %.noexc33
+.noexc33.thread144:                               ; preds = %.thread, %234, %.noexc33
   %237 = phi ptr [ %.pre102, %234 ], [ %112, %.noexc33 ], [ %112, %.thread ]
   %.not.i.i34 = icmp eq ptr %237, null
   br i1 %.not.i.i34, label %_ZN5folly12TimeoutQueue5EventD2Ev.exit, label %238
 
-238:                                              ; preds = %.noexc33.thread111
+238:                                              ; preds = %.noexc33.thread144
   %239 = invoke noundef zeroext i1 %237(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
           to label %_ZN5folly12TimeoutQueue5EventD2Ev.exit unwind label %240
 
@@ -2659,7 +2659,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   call void @__clang_call_terminate(ptr %242) #14
   unreachable
 
-_ZN5folly12TimeoutQueue5EventD2Ev.exit:           ; preds = %.noexc33.thread111, %238
+_ZN5folly12TimeoutQueue5EventD2Ev.exit:           ; preds = %.noexc33.thread144, %238
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %251
 

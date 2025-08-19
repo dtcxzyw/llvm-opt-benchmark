@@ -642,7 +642,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 1280
   %114 = load ptr, ptr %113, align 64
   %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %.thread36, !prof !24
+  br i1 %115, label %116, label %.thread48, !prof !24
 
 116:                                              ; preds = %112
   tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #10, !srcloc !31
@@ -655,17 +655,17 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %.pre32 = load i32, ptr %.phi.trans.insert31, align 4
   %.pre33 = and i32 %.pre32, 1024
   %117 = icmp eq i32 %.pre33, 0
-  br i1 %117, label %.critedge17, label %.thread36
+  br i1 %117, label %.critedge17, label %.thread48
 
-.thread36:                                        ; preds = %112, %116
+.thread48:                                        ; preds = %112, %116
   %118 = phi ptr [ %.pre, %116 ], [ %102, %112 ]
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 1280
   %120 = load ptr, ptr %119, align 64
   %.not = icmp eq ptr %120, null
   br i1 %.not, label %.critedge17, label %.critedge15
 
-.critedge15:                                      ; preds = %.critedge, %.thread36
-  %121 = phi ptr [ %102, %.critedge ], [ %118, %.thread36 ]
+.critedge15:                                      ; preds = %.critedge, %.thread48
+  %121 = phi ptr [ %102, %.critedge ], [ %118, %.thread48 ]
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 18
   %123 = load i16, ptr %122, align 2
   %124 = and i16 %123, 1
@@ -731,8 +731,8 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   tail call void @unlock_buffer(ptr noundef nonnull %47) #10
   br label %.thread19
 
-.critedge17:                                      ; preds = %109, %116, %.critedge15, %.thread36
-  %161 = phi ptr [ %.pre, %116 ], [ %121, %.critedge15 ], [ %118, %.thread36 ], [ %102, %109 ]
+.critedge17:                                      ; preds = %109, %116, %.critedge15, %.thread48
+  %161 = phi ptr [ %.pre, %116 ], [ %121, %.critedge15 ], [ %118, %.thread48 ], [ %102, %109 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 424
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr [128 x %struct.bgl_lock], ptr %163, i64 0, i64 %75
@@ -3234,7 +3234,7 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
 
 .thread8:                                         ; preds = %2
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_orphan_get, i32 noundef 1420, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %1) #10
-  br label %.thread11
+  br label %.thread16
 
 15:                                               ; preds = %2
   %16 = add nsw i64 %1, -1
@@ -3246,7 +3246,7 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
   %22 = trunc i64 %21 to i32
   %23 = tail call fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %20)
   %24 = icmp ugt ptr %23, inttoptr (i64 -4096 to ptr)
-  br i1 %24, label %.thread11, label %25
+  br i1 %24, label %.thread16, label %25
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -3257,7 +3257,7 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
   %31 = icmp ult i8 %30, 2
   tail call void @llvm.assume(i1 %31)
   %32 = icmp eq i8 %30, 0
-  br i1 %32, label %.thread10, label %33
+  br i1 %32, label %.thread15, label %33
 
 33:                                               ; preds = %25
   %34 = tail call ptr @__ext4_iget(ptr noundef %0, i64 noundef %1, i32 noundef 0, ptr noundef nonnull @__func__.ext4_orphan_get, i32 noundef 1394) #10
@@ -3270,7 +3270,7 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
   %39 = sub i32 0, %38
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_orphan_get, i32 noundef 1399, i1 noundef zeroext false, i32 noundef %39, i64 noundef 0, ptr noundef nonnull @.str.9, i64 noundef %1, i32 noundef %38) #10
   %40 = icmp eq ptr %23, null
-  br i1 %40, label %.thread11, label %.thread9
+  br i1 %40, label %.thread16, label %.thread14
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 72
@@ -3295,24 +3295,24 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
 
 54:                                               ; preds = %50
   %55 = icmp eq ptr %23, null
-  br i1 %55, label %.thread11, label %.thread9
+  br i1 %55, label %.thread16, label %.thread14
 
 56:                                               ; preds = %50, %48, %45
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_orphan_get, i32 noundef 1420, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %1) #10
   %57 = icmp eq ptr %23, null
   br i1 %57, label %59, label %.thread
 
-.thread10:                                        ; preds = %25
+.thread15:                                        ; preds = %25
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_orphan_get, i32 noundef 1420, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %1) #10
   %58 = icmp eq ptr %23, null
-  br i1 %58, label %.thread11, label %.thread
+  br i1 %58, label %.thread16, label %.thread
 
 59:                                               ; preds = %56
   %60 = icmp eq ptr %34, null
-  br i1 %60, label %.thread11, label %70
+  br i1 %60, label %.thread16, label %70
 
-.thread:                                          ; preds = %56, %.thread10
-  %61 = phi ptr [ null, %.thread10 ], [ %34, %56 ]
+.thread:                                          ; preds = %56, %.thread15
+  %61 = phi ptr [ null, %.thread15 ], [ %34, %56 ]
   %62 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %63 = load i64, ptr %62, align 8
   %64 = load ptr, ptr %26, align 8
@@ -3322,7 +3322,7 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
   %67 = zext nneg i8 %65 to i32
   %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, i32 noundef %22, i64 noundef %63, i32 noundef %67) #11
   %69 = icmp eq ptr %61, null
-  br i1 %69, label %.thread9, label %70
+  br i1 %69, label %.thread14, label %70
 
 70:                                               ; preds = %.thread, %59
   %71 = phi i1 [ false, %.thread ], [ true, %59 ]
@@ -3348,15 +3348,15 @@ define dso_local ptr @ext4_orphan_get(ptr noundef %0, i64 noundef %1) local_unna
 
 87:                                               ; preds = %85, %70
   tail call void @iput(ptr noundef nonnull %72) #10
-  br i1 %71, label %.thread11, label %.thread9
+  br i1 %71, label %.thread16, label %.thread14
 
-.thread9:                                         ; preds = %.thread, %87, %54, %36
+.thread14:                                        ; preds = %.thread, %87, %54, %36
   %88 = phi ptr [ %34, %36 ], [ %34, %54 ], [ inttoptr (i64 -117 to ptr), %87 ], [ inttoptr (i64 -117 to ptr), %.thread ]
   tail call void @__brelse(ptr noundef nonnull %23) #10
-  br label %.thread11
+  br label %.thread16
 
-.thread11:                                        ; preds = %.thread10, %59, %87, %.thread8, %.thread9, %54, %36, %15
-  %89 = phi ptr [ %23, %15 ], [ %34, %36 ], [ %34, %54 ], [ %88, %.thread9 ], [ inttoptr (i64 -117 to ptr), %.thread8 ], [ inttoptr (i64 -117 to ptr), %87 ], [ inttoptr (i64 -117 to ptr), %59 ], [ inttoptr (i64 -117 to ptr), %.thread10 ]
+.thread16:                                        ; preds = %.thread15, %59, %87, %.thread8, %.thread14, %54, %36, %15
+  %89 = phi ptr [ %23, %15 ], [ %34, %36 ], [ %34, %54 ], [ %88, %.thread14 ], [ inttoptr (i64 -117 to ptr), %.thread8 ], [ inttoptr (i64 -117 to ptr), %87 ], [ inttoptr (i64 -117 to ptr), %59 ], [ inttoptr (i64 -117 to ptr), %.thread15 ]
   ret ptr %89
 }
 

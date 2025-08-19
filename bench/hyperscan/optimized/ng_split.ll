@@ -1756,9 +1756,9 @@ _ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forwa
   br label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6insertENS0_12vec_iteratorIPjLb1EEEOj.exit
 
 _ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6insertENS0_12vec_iteratorIPjLb1EEEOj.exit: ; preds = %25, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_move_proxyIS4_PjEEEEvS9_mT_.exit.i.i.i, %33
-  %.sink16 = phi ptr [ %.pre, %33 ], [ %55, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_move_proxyIS4_PjEEEEvS9_mT_.exit.i.i.i ], [ %23, %25 ]
+  %.sink20 = phi ptr [ %.pre, %33 ], [ %55, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_move_proxyIS4_PjEEEEvS9_mT_.exit.i.i.i ], [ %23, %25 ]
   %.sink = phi i8 [ 1, %33 ], [ 1, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_expand_forwardINS0_3dtl17insert_move_proxyIS4_PjEEEEvS9_mT_.exit.i.i.i ], [ 0, %25 ]
-  store ptr %.sink16, ptr %0, align 8
+  store ptr %.sink20, ptr %0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink, ptr %56, align 8
   ret void
@@ -2276,13 +2276,13 @@ _ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8N
   %95 = getelementptr inbounds nuw i8, ptr %.02632.i.i.i, i64 32
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %95, align 8
   %.not37.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i, null
-  br i1 %.not37.i.i.i, label %.thread42.i, label %96
+  br i1 %.not37.i.i.i, label %.thread47.i, label %96
 
 96:                                               ; preds = %.lr.ph.split.i.i.i
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02632.i.i.i, i64 40
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %97 = icmp ult i64 %78, %.sroa.2.0.copyload.i.i.i.i
-  br i1 %97, label %98, label %.thread42.i
+  br i1 %97, label %98, label %.thread47.i
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %.02632.i.i.i, i64 16
@@ -2290,14 +2290,14 @@ _ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8N
   %.not.i.i27.i = icmp eq ptr %.026.i.i.i, null
   br i1 %.not.i.i27.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.split.i.i.i.backedge
 
-.thread42.i:                                      ; preds = %96, %.lr.ph.split.i.i.i
+.thread47.i:                                      ; preds = %96, %.lr.ph.split.i.i.i
   %100 = getelementptr inbounds nuw i8, ptr %.02632.i.i.i, i64 24
-  %.026.i.i45.i = load ptr, ptr %100, align 8
-  %.not.i.i2746.i = icmp eq ptr %.026.i.i45.i, null
-  br i1 %.not.i.i2746.i, label %._crit_edge.i.i.thread.i, label %.lr.ph.split.i.i.i.backedge
+  %.026.i.i50.i = load ptr, ptr %100, align 8
+  %.not.i.i2751.i = icmp eq ptr %.026.i.i50.i, null
+  br i1 %.not.i.i2751.i, label %._crit_edge.i.i.thread.i, label %.lr.ph.split.i.i.i.backedge
 
-.lr.ph.split.i.i.i.backedge:                      ; preds = %.thread42.i, %98
-  %.02632.i.i.i.be = phi ptr [ %.026.i.i.i, %98 ], [ %.026.i.i45.i, %.thread42.i ]
+.lr.ph.split.i.i.i.backedge:                      ; preds = %.thread47.i, %98
+  %.02632.i.i.i.be = phi ptr [ %.026.i.i.i, %98 ], [ %.026.i.i50.i, %.thread47.i ]
   br label %.lr.ph.split.i.i.i, !llvm.loop !173
 
 ._crit_edge.thread.i.i.i:                         ; preds = %98, %_ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS9_ESaIS9_EEEEbRKT_RKNSE_8key_typeE.exit.i
@@ -2312,10 +2312,10 @@ _ZN3ue28containsISt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8N
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge.i.i.thread.i
 
-._crit_edge.i.i.thread.i:                         ; preds = %.thread42.i, %103
-  %105 = phi ptr [ %.pre, %103 ], [ %.sroa.0.0.copyload.i.i.i.i, %.thread42.i ]
-  %.025.lcssa41.i.i.i = phi ptr [ %.025.lcssa42.i.i.i, %103 ], [ %.02632.i.i.i, %.thread42.i ]
-  %.sroa.011.0.i.i.i = phi ptr [ %104, %103 ], [ %.02632.i.i.i, %.thread42.i ]
+._crit_edge.i.i.thread.i:                         ; preds = %.thread47.i, %103
+  %105 = phi ptr [ %.pre, %103 ], [ %.sroa.0.0.copyload.i.i.i.i, %.thread47.i ]
+  %.025.lcssa41.i.i.i = phi ptr [ %.025.lcssa42.i.i.i, %103 ], [ %.02632.i.i.i, %.thread47.i ]
+  %.sroa.011.0.i.i.i = phi ptr [ %104, %103 ], [ %.02632.i.i.i, %.thread47.i ]
   %106 = icmp ne ptr %105, null
   %or.cond.i.i6.i.i.i = and i1 %90, %106
   br i1 %or.cond.i.i6.i.i.i, label %107, label %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit10.i.i.i
@@ -2943,14 +2943,14 @@ define linkonce_odr hidden void @_ZNSt3setIN3ue212graph_detail17vertex_descripto
   br i1 %.not.i.i3, label %._crit_edge.thread.i.i, label %.lr.ph.split.i.i.backedge
 
 .lr.ph.split.i.i.backedge:                        ; preds = %29, %.thread
-  %.02632.i.i.be = phi ptr [ %.026.i.i, %29 ], [ %.026.i.i24, %.thread ]
+  %.02632.i.i.be = phi ptr [ %.026.i.i, %29 ], [ %.026.i.i26, %.thread ]
   br label %.lr.ph.split.i.i, !llvm.loop !173
 
 .thread:                                          ; preds = %.lr.ph.split.i.i, %27
   %31 = getelementptr inbounds nuw i8, ptr %.02632.i.i, i64 24
-  %.026.i.i24 = load ptr, ptr %31, align 8
-  %.not.i.i325 = icmp eq ptr %.026.i.i24, null
-  br i1 %.not.i.i325, label %._crit_edge.i.i.thread, label %.lr.ph.split.i.i.backedge
+  %.026.i.i26 = load ptr, ptr %31, align 8
+  %.not.i.i327 = icmp eq ptr %.026.i.i26, null
+  br i1 %.not.i.i327, label %._crit_edge.i.i.thread, label %.lr.ph.split.i.i.backedge
 
 ._crit_edge.thread.i.i:                           ; preds = %29, %25
   %.025.lcssa42.i.i = phi ptr [ %6, %25 ], [ %.02632.i.i, %29 ]

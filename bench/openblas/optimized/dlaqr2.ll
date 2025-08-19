@@ -282,7 +282,7 @@ define void @dlaqr2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge654.thread:                            ; preds = %178
   %181 = icmp eq i32 %162, 0
-  %spec.select690 = select i1 %181, double 0.000000e+00, double %.0599
+  %spec.select712 = select i1 %181, double 0.000000e+00, double %.0599
   br label %.loopexit648
 
 .lr.ph653:                                        ; preds = %178
@@ -600,7 +600,7 @@ define void @dlaqr2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.loopexit648
 
 .loopexit648:                                     ; preds = %._crit_edge654.thread, %.loopexit648.loopexit, %._crit_edge654
-  %spec.select691 = phi double [ %spec.select, %.loopexit648.loopexit ], [ %spec.select, %._crit_edge654 ], [ %spec.select690, %._crit_edge654.thread ]
+  %spec.select713 = phi double [ %spec.select, %.loopexit648.loopexit ], [ %spec.select, %._crit_edge654 ], [ %spec.select712, %._crit_edge654.thread ]
   %397 = phi i32 [ %.pre685, %.loopexit648.loopexit ], [ %.pre684, %._crit_edge654 ], [ %162, %._crit_edge654.thread ]
   %398 = load i32, ptr %34, align 4, !tbaa !3
   %.not634.not664 = icmp sgt i32 %397, %398
@@ -700,13 +700,13 @@ define void @dlaqr2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %457 = phi i32 [ %.pre687, %._crit_edge668.loopexit ], [ %397, %.loopexit648 ]
   %458 = load i32, ptr %12, align 4, !tbaa !3
   %459 = icmp slt i32 %458, %457
-  %460 = fcmp oeq double %spec.select691, 0.000000e+00
+  %460 = fcmp oeq double %spec.select713, 0.000000e+00
   %or.cond = select i1 %459, i1 true, i1 %460
   br i1 %or.cond, label %461, label %.loopexit
 
 461:                                              ; preds = %._crit_edge668
   %462 = icmp sgt i32 %458, 1
-  %463 = fcmp une double %spec.select691, 0.000000e+00
+  %463 = fcmp une double %spec.select713, 0.000000e+00
   %or.cond3 = select i1 %462, i1 %463, i1 false
   br i1 %or.cond3, label %464, label %488
 
@@ -754,7 +754,7 @@ define void @dlaqr2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 490:                                              ; preds = %488
   %491 = load double, ptr %16, align 8, !tbaa !7
-  %492 = fmul double %spec.select691, %491
+  %492 = fmul double %spec.select713, %491
   %493 = mul nsw i32 %105, %46
   %494 = add nsw i32 %106, %493
   %495 = sext i32 %494 to i64

@@ -2183,10 +2183,10 @@ tailrecurse.i:                                    ; preds = %14, %tailrecurse.i
 ._crit_edge.thread:                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
-  %.sroa.4.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx46, align 8
-  %.sroa.59.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 0, ptr %.sroa.59.0..sroa_idx47, align 8
+  %.sroa.4.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx48, align 8
+  %.sroa.59.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 0, ptr %.sroa.59.0..sroa_idx49, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   br label %.lr.ph44

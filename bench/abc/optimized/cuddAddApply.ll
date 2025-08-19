@@ -541,8 +541,8 @@ define ptr @Cudd_addOneZeroMaximum(ptr noundef readonly captures(none) %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %17, %7, %3
-  %.sink15 = phi i64 [ 48, %3 ], [ 48, %7 ], [ %., %17 ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15
+  %.sink17 = phi i64 [ 48, %3 ], [ 48, %7 ], [ %., %17 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   br label %25
 

@@ -1491,18 +1491,18 @@ _ZN14MergeMemStream10set_memoryEP4Node.exit148:   ; preds = %425, %426
   br i1 %433, label %.lr.ph, label %.loopexit206, !llvm.loop !14
 
 .loopexit206:                                     ; preds = %.lr.ph, %412, %.split.us.i.i, %_ZN14MergeMemStream10set_memoryEP4Node.exit148
-  %.sroa.22.1.ph251 = phi ptr [ %404, %_ZN14MergeMemStream10set_memoryEP4Node.exit148 ], [ %414, %412 ], [ %404, %.split.us.i.i ], [ %404, %.lr.ph ]
+  %.sroa.22.1.ph311 = phi ptr [ %404, %_ZN14MergeMemStream10set_memoryEP4Node.exit148 ], [ %414, %412 ], [ %404, %.split.us.i.i ], [ %404, %.lr.ph ]
   %.sroa.15.1 = phi ptr [ %423, %_ZN14MergeMemStream10set_memoryEP4Node.exit148 ], [ %400, %412 ], [ %400, %.split.us.i.i ], [ %423, %.lr.ph ]
   br i1 %353, label %434, label %443
 
 434:                                              ; preds = %.loopexit206
-  %435 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph251, i64 24
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph311, i64 24
   %436 = load i32, ptr %435, align 8
   %437 = icmp ugt i32 %436, 1
   br i1 %437, label %.lr.ph.i149, label %_ZL10add_n_reqsP4NodeS0_.exit154
 
 .lr.ph.i149:                                      ; preds = %434
-  %438 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph251, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %.sroa.22.1.ph311, i64 8
   %wide.trip.count.i150 = zext i32 %436 to i64
   br label %439
 
@@ -1517,7 +1517,7 @@ _ZN14MergeMemStream10set_memoryEP4Node.exit148:   ; preds = %425, %426
   br i1 %exitcond.not.i153, label %_ZL10add_n_reqsP4NodeS0_.exit154, label %439, !llvm.loop !13
 
 443:                                              ; preds = %.loopexit206
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.15.1, ptr noundef %.sroa.22.1.ph251) #13
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.sroa.15.1, ptr noundef %.sroa.22.1.ph311) #13
   br label %_ZL10add_n_reqsP4NodeS0_.exit154
 
 _ZL10add_n_reqsP4NodeS0_.exit154:                 ; preds = %439, %434, %443
@@ -4677,7 +4677,7 @@ _ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162: ; preds = %
   br label %84
 
 84:                                               ; preds = %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162, %._crit_edge202
-  %.2208 = phi i1 [ %spec.select123, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %.3245, %._crit_edge202 ]
+  %.2208 = phi i1 [ %spec.select123, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %.3282, %._crit_edge202 ]
   %.2105207 = phi i32 [ %spec.select122, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %.3106, %._crit_edge202 ]
   %.0116206 = phi ptr [ %44, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %379, %._crit_edge202 ]
   %.0117205 = phi i32 [ %82, %_ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162 ], [ %99, %._crit_edge202 ]
@@ -4701,9 +4701,9 @@ _ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162: ; preds = %
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %.0116206, i64 56
   store ptr %1, ptr %102, align 8
-  br i1 %.2208, label %107, label %.thread243
+  br i1 %.2208, label %107, label %.thread280
 
-.thread243:                                       ; preds = %84
+.thread280:                                       ; preds = %84
   %103 = load i32, ptr %87, align 4
   %104 = load i32, ptr %85, align 8
   %105 = sub i32 %104, %103
@@ -4724,10 +4724,10 @@ _ZL36should_reexecute_implied_by_bytecodeP8JVMStateb.exit.thread162: ; preds = %
   store i32 %99, ptr %116, align 4
   br i1 %112, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %.thread243, %107
-  %117 = phi i32 [ %105, %.thread243 ], [ %115, %107 ]
-  %118 = phi i32 [ %104, %.thread243 ], [ %114, %107 ]
-  %119 = phi i32 [ %103, %.thread243 ], [ %113, %107 ]
+.preheader:                                       ; preds = %.thread280, %107
+  %117 = phi i32 [ %105, %.thread280 ], [ %115, %107 ]
+  %118 = phi i32 [ %104, %.thread280 ], [ %114, %107 ]
+  %119 = phi i32 [ %103, %.thread280 ], [ %113, %107 ]
   %.not209 = icmp eq i32 %118, %119
   br i1 %.not209, label %._crit_edge, label %.lr.ph
 
@@ -5034,7 +5034,7 @@ _ZN4Node7set_reqEjPS_.exit144:                    ; preds = %_ZN4Node7del_outEPS
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4Node7set_reqEjPS_.exit136, %_ZN4Node7set_reqEjPS_.exit144, %._crit_edge, %221, %273
-  %.3245 = phi i1 [ true, %273 ], [ true, %221 ], [ false, %._crit_edge ], [ true, %_ZN4Node7set_reqEjPS_.exit144 ], [ false, %_ZN4Node7set_reqEjPS_.exit136 ]
+  %.3282 = phi i1 [ true, %273 ], [ true, %221 ], [ false, %._crit_edge ], [ true, %_ZN4Node7set_reqEjPS_.exit144 ], [ false, %_ZN4Node7set_reqEjPS_.exit136 ]
   %.3114 = phi i32 [ %274, %273 ], [ %223, %221 ], [ %.0111.lcssa, %._crit_edge ], [ %228, %_ZN4Node7set_reqEjPS_.exit144 ], [ %176, %_ZN4Node7set_reqEjPS_.exit136 ]
   %.3106 = phi i32 [ 0, %273 ], [ 0, %221 ], [ %.2105207, %._crit_edge ], [ 0, %_ZN4Node7set_reqEjPS_.exit144 ], [ %.2105207, %_ZN4Node7set_reqEjPS_.exit136 ]
   %275 = load i32, ptr %91, align 4
@@ -6996,8 +6996,8 @@ _ZN4NodenwEm.exit111:                             ; preds = %166, %168
   %214 = icmp eq ptr %213, null
   %215 = add nuw nsw i32 %.087132, 1
   %exitcond.not = icmp eq i32 %215, 16
-  %or.cond142 = select i1 %214, i1 true, i1 %exitcond.not
-  br i1 %or.cond142, label %.loopexit, label %186, !llvm.loop !31
+  %or.cond165 = select i1 %214, i1 true, i1 %exitcond.not
+  br i1 %or.cond165, label %.loopexit, label %186, !llvm.loop !31
 
 .loopexit:                                        ; preds = %212, %175
   %216 = select i1 %5, i32 21, i32 2
@@ -18724,8 +18724,8 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   store i32 %46, ptr %45, align 8
   %.pre = load ptr, ptr %7, align 8
   %88 = icmp ne ptr %1, %.pre
-  %or.cond28.not = select i1 %4, i1 %88, i1 false
-  br i1 %or.cond28.not, label %89, label %_ZN8GraphKit28too_many_traps_or_recompilesEN14Deoptimization11DeoptReasonE.exit.thread
+  %or.cond37.not = select i1 %4, i1 %88, i1 false
+  br i1 %or.cond37.not, label %89, label %_ZN8GraphKit28too_many_traps_or_recompilesEN14Deoptimization11DeoptReasonE.exit.thread
 
 89:                                               ; preds = %_ZN8GraphKit11set_controlEP4Node.exit
   %90 = call noundef i32 @_ZN4Node12replace_edgeEPS_S0_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52) %44, ptr noundef %1, ptr noundef %.pre, ptr noundef null) #13
@@ -21343,9 +21343,9 @@ _ZN8GraphKit6memoryEj.exit:                       ; preds = %96, %107
 
 _ZN4Node7set_reqEjPS_.exit25.sink.split:          ; preds = %92, %143
   %.sink = phi i32 [ %144, %143 ], [ %93, %92 ]
-  %.sink52 = phi ptr [ %145, %143 ], [ %94, %92 ]
+  %.sink76 = phi ptr [ %145, %143 ], [ %94, %92 ]
   %147 = zext i32 %.sink to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %.sink52, i64 %147
+  %148 = getelementptr inbounds nuw ptr, ptr %.sink76, i64 %147
   store ptr %7, ptr %148, align 8
   br label %_ZN4Node7set_reqEjPS_.exit25
 

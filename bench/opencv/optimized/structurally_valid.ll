@@ -86,15 +86,15 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
   %.lcssa141 = phi i64 [ %29, %27 ], [ %39, %36 ]
   %41 = icmp eq i64 %.lcssa141, 0
   %42 = icmp ult ptr %.199.lcssa, %13
-  %or.cond219 = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond219, label %.lr.ph217, label %.critedge.thread
+  %or.cond227 = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond227, label %.lr.ph225, label %.critedge.thread
 
-.lr.ph217:                                        ; preds = %.critedge, %.preheader138.backedge
-  %.3216 = phi ptr [ %46, %.preheader138.backedge ], [ %.199.lcssa, %.critedge ]
-  %43 = load i32, ptr %.3216, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.3216, i64 4
+.lr.ph225:                                        ; preds = %.critedge, %.preheader138.backedge
+  %.3224 = phi ptr [ %46, %.preheader138.backedge ], [ %.199.lcssa, %.critedge ]
+  %43 = load i32, ptr %.3224, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %.3224, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.3216, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.3224, i64 8
   %47 = sub i32 %43, %22
   %48 = add i32 %43, %24
   %49 = or i32 %47, %48
@@ -110,7 +110,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
   %58 = zext nneg i32 %57 to i64
   br i1 %.not111, label %.preheader138.backedge, label %59
 
-59:                                               ; preds = %.lr.ph217
+59:                                               ; preds = %.lr.ph225
   %60 = lshr i32 %43, 24
   %61 = zext nneg i32 %60 to i64
   %62 = lshr i32 %43, 16
@@ -157,16 +157,16 @@ define hidden noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8G
   %.not113 = icmp eq i8 %.fr, 0
   br i1 %.not113, label %.preheader138.backedge, label %.critedge.thread.loopexit.split.loop.exit
 
-.preheader138.backedge:                           ; preds = %.lr.ph217, %81
+.preheader138.backedge:                           ; preds = %.lr.ph225, %81
   %99 = icmp ult ptr %46, %13
-  br i1 %99, label %.lr.ph217, label %.critedge.thread
+  br i1 %99, label %.lr.ph225, label %.critedge.thread
 
 .critedge.thread.loopexit.split.loop.exit:        ; preds = %81
-  %100 = getelementptr inbounds nuw i8, ptr %.3216, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.3224, i64 4
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph, %59, %.preheader138.backedge, %.critedge.thread.loopexit.split.loop.exit, %.critedge
-  %.2100 = phi ptr [ %.199.lcssa, %.critedge ], [ %100, %.critedge.thread.loopexit.split.loop.exit ], [ %46, %.preheader138.backedge ], [ %.3216, %59 ], [ %.199151, %.lr.ph ]
+  %.2100 = phi ptr [ %.199.lcssa, %.critedge ], [ %100, %.critedge.thread.loopexit.split.loop.exit ], [ %46, %.preheader138.backedge ], [ %.3224, %59 ], [ %.199151, %.lr.ph ]
   %101 = icmp ult ptr %.2100, %10
   br i1 %101, label %.lr.ph155, label %.thread125
 

@@ -589,15 +589,15 @@ _ZN10ODDLParser9ReferenceD2Ev.exit:               ; preds = %._crit_edge.i, %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not5 = icmp eq ptr %44, null
-  br i1 %.not5, label %common.ret6, label %45
+  br i1 %.not5, label %common.ret17, label %45
 
-common.ret6:                                      ; preds = %42, %45
+common.ret17:                                     ; preds = %42, %45
   ret void
 
 45:                                               ; preds = %42
   tail call void @_ZN10ODDLParser8PropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #12
   tail call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 32) #13
-  br label %common.ret6
+  br label %common.ret17
 }
 
 ; Function Attrs: nounwind

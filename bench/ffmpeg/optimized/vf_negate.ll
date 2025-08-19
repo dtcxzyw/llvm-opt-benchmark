@@ -191,16 +191,16 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
 40:                                               ; preds = %31
   store i32 0, ptr %12, align 8, !tbaa !20
   %41 = and i32 %23, 8
-  br i1 %.not95, label %condstore.split, label %condstore.split117
+  br i1 %.not95, label %condstore.split, label %condstore.split119
 
 condstore.split:                                  ; preds = %40
   %42 = lshr i32 %23, 4
-  %spec.select114 = and i32 %42, 7
+  %spec.select116 = and i32 %42, 7
   %43 = and i32 %23, 120
-  %.not126 = icmp eq i32 %43, 0
-  br i1 %.not126, label %52, label %.sink.split
+  %.not128 = icmp eq i32 %43, 0
+  br i1 %.not128, label %52, label %.sink.split
 
-condstore.split117:                               ; preds = %40
+condstore.split119:                               ; preds = %40
   %44 = shl i32 %23, 2
   %45 = and i32 %44, 4
   %46 = lshr i32 %23, 1
@@ -208,18 +208,18 @@ condstore.split117:                               ; preds = %40
   %48 = or disjoint i32 %45, %47
   %49 = lshr i32 %23, 1
   %50 = and i32 %49, 2
-  %spec.select116 = or disjoint i32 %48, %50
+  %spec.select118 = or disjoint i32 %48, %50
   %51 = and i32 %23, 15
-  %.not122 = icmp eq i32 %51, 0
-  br i1 %.not122, label %52, label %.sink.split
+  %.not124 = icmp eq i32 %51, 0
+  br i1 %.not124, label %52, label %.sink.split
 
-.sink.split:                                      ; preds = %condstore.split117, %condstore.split
-  %spec.select114.pn = phi i32 [ %spec.select114, %condstore.split ], [ %spec.select116, %condstore.split117 ]
-  %spec.select119.sink = or disjoint i32 %spec.select114.pn, %41
-  store i32 %spec.select119.sink, ptr %12, align 8, !tbaa !20
+.sink.split:                                      ; preds = %condstore.split119, %condstore.split
+  %spec.select116.pn = phi i32 [ %spec.select116, %condstore.split ], [ %spec.select118, %condstore.split119 ]
+  %spec.select121.sink = or disjoint i32 %spec.select116.pn, %41
+  store i32 %spec.select121.sink, ptr %12, align 8, !tbaa !20
   br label %52
 
-52:                                               ; preds = %.sink.split, %condstore.split117, %condstore.split, %20
+52:                                               ; preds = %.sink.split, %condstore.split119, %condstore.split, %20
   %53 = load i32, ptr %6, align 4, !tbaa !43
   %54 = tail call i32 @av_pix_fmt_count_planes(i32 noundef %53) #6
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 32

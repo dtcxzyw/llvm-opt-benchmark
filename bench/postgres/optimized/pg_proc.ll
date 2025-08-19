@@ -1494,13 +1494,13 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   %102 = call ptr @prepare_sql_fn_parse_info(ptr noundef nonnull %16, ptr noundef null, i32 noundef 0) #8
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %.not108 = icmp eq ptr %100, null
-  br i1 %.not108, label %.critedge.thread153, label %.lr.ph133
+  br i1 %.not108, label %.critedge.thread154, label %.lr.ph133
 
 .lr.ph133:                                        ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %105 = load i32, ptr %103, align 4
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph141, label %.critedge.thread153
+  br i1 %106, label %.lr.ph141, label %.critedge.thread154
 
 .lr.ph141:                                        ; preds = %.lr.ph133, %.lr.ph141
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.lr.ph141 ], [ 0, %.lr.ph133 ]
@@ -1514,28 +1514,28 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   %112 = load i32, ptr %103, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next151, %113
-  br i1 %114, label %.lr.ph141, label %.critedge.thread153
+  br i1 %114, label %.lr.ph141, label %.critedge.thread154
 
 .critedge:                                        ; preds = %.lr.ph128, %86, %.lr.ph121
   %.1 = phi ptr [ null, %86 ], [ null, %.lr.ph121 ], [ %95, %.lr.ph128 ]
-  br i1 %.097.lcssa, label %.critedge.thread, label %.critedge.thread153
+  br i1 %.097.lcssa, label %.critedge.thread, label %.critedge.thread154
 
-.critedge.thread153:                              ; preds = %.lr.ph141, %.lr.ph133, %101, %.critedge
-  %.1155 = phi ptr [ %.1, %.critedge ], [ null, %.lr.ph133 ], [ null, %101 ], [ %111, %.lr.ph141 ]
+.critedge.thread154:                              ; preds = %.lr.ph141, %.lr.ph133, %101, %.critedge
+  %.1156 = phi ptr [ %.1, %.critedge ], [ null, %.lr.ph133 ], [ null, %101 ], [ %111, %.lr.ph141 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @check_sql_fn_statements(ptr noundef %.1155) #8
+  call void @check_sql_fn_statements(ptr noundef %.1156) #8
   %115 = call i32 @get_func_result_type(i32 noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %116 = load i32, ptr %5, align 4
   %117 = load ptr, ptr %6, align 8
   %118 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %119 = load i8, ptr %118, align 4
-  %120 = call zeroext i1 @check_sql_fn_retval(ptr noundef %.1155, i32 noundef %116, ptr noundef %117, i8 noundef signext %119, i1 noundef zeroext false, ptr noundef null) #8
+  %120 = call zeroext i1 @check_sql_fn_retval(ptr noundef %.1156, i32 noundef %116, ptr noundef %117, i8 noundef signext %119, i1 noundef zeroext false, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %99, %.critedge.thread153, %.critedge
+.critedge.thread:                                 ; preds = %99, %.critedge.thread154, %.critedge
   %121 = load ptr, ptr %4, align 8
   store ptr %121, ptr @error_context_stack, align 8
   br label %122
@@ -1755,10 +1755,10 @@ match_prosrc_to_query.exit.thread:                ; preds = %36, %64, %13, %7, %
 
 .sink.split:                                      ; preds = %match_prosrc_to_query.exit, %match_prosrc_to_query.exit.thread
   %.1.i.lcssa.sink = phi i32 [ 0, %match_prosrc_to_query.exit.thread ], [ %.1.i, %match_prosrc_to_query.exit ]
-  %.sink15 = phi i32 [ %.010, %match_prosrc_to_query.exit.thread ], [ 0, %match_prosrc_to_query.exit ]
+  %.sink19 = phi i32 [ %.010, %match_prosrc_to_query.exit.thread ], [ 0, %match_prosrc_to_query.exit ]
   %.sink = phi ptr [ %0, %match_prosrc_to_query.exit.thread ], [ null, %match_prosrc_to_query.exit ]
   %68 = tail call i32 @errposition(i32 noundef %.1.i.lcssa.sink) #8
-  %69 = tail call i32 @internalerrposition(i32 noundef %.sink15) #8
+  %69 = tail call i32 @internalerrposition(i32 noundef %.sink19) #8
   %70 = tail call i32 @internalerrquery(ptr noundef %.sink) #8
   br label %71
 

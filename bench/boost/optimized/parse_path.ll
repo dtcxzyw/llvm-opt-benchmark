@@ -231,10 +231,10 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   br label %_ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit
 
 _ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit: ; preds = %3, %.outer._crit_edge, %44, %47, %49, %54, %56, %60, %65
-  %.0.lcssa70 = phi i64 [ %.0.lcssa, %.outer._crit_edge ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %56 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %60 ], [ %.0.lcssa, %65 ], [ %.0.lcssa, %47 ], [ %.0.lcssa, %54 ], [ 0, %3 ]
+  %.0.lcssa74 = phi i64 [ %.0.lcssa, %.outer._crit_edge ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %56 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %60 ], [ %.0.lcssa, %65 ], [ %.0.lcssa, %47 ], [ %.0.lcssa, %54 ], [ 0, %3 ]
   %.0.i = phi i64 [ %2, %.outer._crit_edge ], [ %..i, %44 ], [ %.113.ph.lcssa39, %56 ], [ %spec.select.i, %49 ], [ %spec.select8.i, %60 ], [ %spec.select9.i, %65 ], [ %.113.ph.lcssa39, %47 ], [ %.113.ph.lcssa39, %54 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZN5boost4urls6detail8path_refC1ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %1, i64 %2, i64 noundef %.0.lcssa70, i64 noundef %.0.i) #7
+  call void @_ZN5boost4urls6detail8path_refC1ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %1, i64 %2, i64 noundef %.0.lcssa74, i64 noundef %.0.i) #7
   call void @_ZN5boost4urls21segments_encoded_viewC1ERKNS0_6detail8path_refE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7) #7
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %70, align 8, !tbaa !19
@@ -556,10 +556,10 @@ select.unfold:                                    ; preds = %98
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43, %.thread107, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
-  %.sink182 = phi i64 [ %97, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ %87, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ %75, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ %.1, %.thread107 ], [ %65, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
+  %.sink188 = phi i64 [ %97, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ %87, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ %75, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ %.1, %.thread107 ], [ %65, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit57 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit49 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43 ], [ 1, %.thread107 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sroa.662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink182, ptr %.sroa.662.0..sroa_idx, align 8
+  store i64 %.sink188, ptr %.sroa.662.0..sroa_idx, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %105, align 8, !tbaa !10
   ret void

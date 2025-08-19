@@ -9569,7 +9569,7 @@ define hidden void @_ZN3syn10punctuated9do_extend17hf2c66732dabb437fE.llvm.14145
   br i1 %22, label %"_ZN98_$LT$syn..punctuated..IntoPairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h021a9bdff8e1ff22E.exit", label %.thread
 
 .thread58:                                        ; preds = %.body, %.body.thread, %66, %.thread61
-  %.pn.pn = phi { ptr, i32 } [ %.pn80, %66 ], [ %.pn5765, %.thread61 ], [ %36, %.body.thread ], [ %.pn, %.body ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn84, %66 ], [ %.pn5765, %.thread61 ], [ %36, %.body.thread ], [ %.pn, %.body ]
   invoke void @"_ZN4core3ptr99drop_in_place$LT$syn..punctuated..IntoPairs$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17ha5f80d92f4d4376eE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %7) #29
           to label %69 unwind label %67
 
@@ -9613,7 +9613,7 @@ define hidden void @_ZN3syn10punctuated9do_extend17hf2c66732dabb437fE.llvm.14145
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %29, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ea6e6428137adc40094fb791b2cb6dfd.35) #31
-          to label %65 unwind label %.body.thread74
+          to label %65 unwind label %.body.thread78
 
 30:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -9676,12 +9676,12 @@ define hidden void @_ZN3syn10punctuated9do_extend17hf2c66732dabb437fE.llvm.14145
   %.not = icmp eq i64 %48, -9223372036854775807
   br i1 %.not, label %.thread58, label %66
 
-.body.thread74:                                   ; preds = %.split.loop.exit
+.body.thread78:                                   ; preds = %.split.loop.exit
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = load i64, ptr %6, align 8, !range !206, !noundef !64
-  %.not77 = icmp eq i64 %50, -9223372036854775807
-  br i1 %.not77, label %.thread61, label %66
+  %.not81 = icmp eq i64 %50, -9223372036854775807
+  br i1 %.not81, label %.thread61, label %66
 
 .body.thread:                                     ; preds = %35
   %51 = load i64, ptr %6, align 8, !range !206, !noundef !64
@@ -9728,8 +9728,8 @@ define hidden void @_ZN3syn10punctuated9do_extend17hf2c66732dabb437fE.llvm.14145
 65:                                               ; preds = %.split.loop.exit
   unreachable
 
-66:                                               ; preds = %.body.thread74, %.body
-  %.pn80 = phi { ptr, i32 } [ %49, %.body.thread74 ], [ %.pn, %.body ]
+66:                                               ; preds = %.body.thread78, %.body
+  %.pn84 = phi { ptr, i32 } [ %49, %.body.thread78 ], [ %.pn, %.body ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$syn..path..PathSegment$GT$17h3ebf8b380a01b124E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %6) #29
           to label %.thread58 unwind label %67
 
@@ -9739,8 +9739,8 @@ define hidden void @_ZN3syn10punctuated9do_extend17hf2c66732dabb437fE.llvm.14145
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
   unreachable
 
-.thread61:                                        ; preds = %.body.thread74, %.body.thread
-  %.pn5765 = phi { ptr, i32 } [ %36, %.body.thread ], [ %49, %.body.thread74 ]
+.thread61:                                        ; preds = %.body.thread78, %.body.thread
+  %.pn5765 = phi { ptr, i32 } [ %36, %.body.thread ], [ %49, %.body.thread78 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$syn..path..PathSegment$GT$17h3ebf8b380a01b124E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %.sroa.7.0..sroa_idx) #29
           to label %.thread58 unwind label %67
 
@@ -11571,7 +11571,7 @@ define hidden void @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$10into_value17he0e3c0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(96) ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h540dc7338958914bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2309, !noundef !64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24

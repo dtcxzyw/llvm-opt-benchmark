@@ -12582,8 +12582,8 @@ common.resume.i.i.i:                              ; preds = %127, %.body.i.i.i.i
           to label %179 unwind label %146
 
 "_ZN4core3ptr115drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSourceRef..to_dyn_byte_source..$u7b$$u7b$closure$u7d$$u7d$$GT$17hea76f0eb36a2239bE.exit.sink.split.i": ; preds = %"_ZN4core3ptr119drop_in_place$LT$polars_io..cloud..object_store_setup..PolarsObjectStoreBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0bd6b07b4588faf1E.exit.i.i.i.i.i", %45
-  %.sink19.i = phi i64 [ 536, %45 ], [ 2760, %"_ZN4core3ptr119drop_in_place$LT$polars_io..cloud..object_store_setup..PolarsObjectStoreBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0bd6b07b4588faf1E.exit.i.i.i.i.i" ]
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink19.i
+  %.sink23.i = phi i64 [ 536, %45 ], [ 2760, %"_ZN4core3ptr119drop_in_place$LT$polars_io..cloud..object_store_setup..PolarsObjectStoreBuilder..build..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0bd6b07b4588faf1E.exit.i.i.i.i.i" ]
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink23.i
   store i8 0, ptr %150, align 8
   br label %"_ZN4core3ptr115drop_in_place$LT$polars_plan..dsl..scan_sources..ScanSourceRef..to_dyn_byte_source..$u7b$$u7b$closure$u7d$$u7d$$GT$17hea76f0eb36a2239bE.exit.i"
 
@@ -69525,14 +69525,14 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i: ; preds = %
 15:                                               ; preds = %12
   %16 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !4870
   switch i8 %16, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread.sink.split [
-    i8 2, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread24
+    i8 2, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
     i8 0, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread17
   ]
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.i.i, %2
   %17 = tail call noundef i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17hd8197beb1691bd57E(), !noalias !4875
   switch i8 %17, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread.sink.split [
-    i8 2, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread24
+    i8 2, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
     i8 0, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread17
   ]
 
@@ -69557,9 +69557,9 @@ _ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread17: ; p
 _ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread: ; preds = %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit
   %.pre = load i8, ptr %8, align 1, !range !319
   %23 = trunc nuw i8 %.pre to i1
-  br i1 %23, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread24
+  br i1 %23, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread, label %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
 
-_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread24: ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i", %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread
+_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27: ; preds = %15, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5e6ef94efa31d9b6E.exit.i", %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread
   %.sroa.010.0.copyload = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.411.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -69670,8 +69670,8 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i: ;
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #13, !noalias !4885
   unreachable
 
-57:                                               ; preds = %60, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread24
-  %.sroa.0.0 = phi ptr [ %52, %60 ], [ %27, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread24 ]
+57:                                               ; preds = %60, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27
+  %.sroa.0.0 = phi ptr [ %52, %60 ], [ %27, %_ZN5tokio7runtime7context14with_scheduler17hb7cbef031c3c93e2E.exit.thread.thread27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.sroa.0.0

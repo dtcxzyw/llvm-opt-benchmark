@@ -70,8 +70,8 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %48 = zext nneg i32 %45 to i64
   %wide.trip.count = zext nneg i32 %8 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %46
-  %invariant.gep366 = getelementptr inbounds nuw i32, ptr %0, i64 %47
-  %invariant.gep368 = getelementptr inbounds nuw i32, ptr %0, i64 %48
+  %invariant.gep371 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  %invariant.gep373 = getelementptr inbounds nuw i32, ptr %0, i64 %48
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
@@ -93,12 +93,12 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %53 = load i32, ptr %gep, align 4, !tbaa !3
   %54 = sext i32 %53 to i64
   %.sroa.0.8.vec.insert = insertelement <4 x i64> %.sroa.0.0.vec.insert, i64 %54, i64 1
-  %gep367 = getelementptr inbounds nuw i32, ptr %invariant.gep366, i64 %indvars.iv358
-  %55 = load i32, ptr %gep367, align 4, !tbaa !3
+  %gep372 = getelementptr inbounds nuw i32, ptr %invariant.gep371, i64 %indvars.iv358
+  %55 = load i32, ptr %gep372, align 4, !tbaa !3
   %56 = sext i32 %55 to i64
   %.sroa.0.16.vec.insert = insertelement <4 x i64> %.sroa.0.8.vec.insert, i64 %56, i64 2
-  %gep369 = getelementptr inbounds nuw i32, ptr %invariant.gep368, i64 %indvars.iv358
-  %57 = load i32, ptr %gep369, align 4, !tbaa !3
+  %gep374 = getelementptr inbounds nuw i32, ptr %invariant.gep373, i64 %indvars.iv358
+  %57 = load i32, ptr %gep374, align 4, !tbaa !3
   %58 = sext i32 %57 to i64
   %.sroa.0.24.vec.insert = insertelement <4 x i64> %.sroa.0.16.vec.insert, i64 %58, i64 3
   %59 = tail call <4 x i64> @llvm.abs.v4i64(<4 x i64> %.sroa.0.24.vec.insert, i1 false)
@@ -127,39 +127,39 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_wide_intri
   %.0161.lcssa = phi <4 x i64> [ zeroinitializer, %36 ], [ %60, %49 ]
   %shift = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = add nsw <4 x i64> %.0161.lcssa, %shift
-  %shift375 = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop376 = add nsw <4 x i64> %foldExtExtBinop, %shift375
-  %shift378 = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop379 = add nsw <4 x i64> %foldExtExtBinop376, %shift378
-  %73 = extractelement <4 x i64> %foldExtExtBinop379, i64 0
-  %shift381 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop382 = add nsw <4 x i64> %.0169.lcssa, %shift381
-  %shift384 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop385 = add nsw <4 x i64> %foldExtExtBinop382, %shift384
-  %shift387 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop388 = add nsw <4 x i64> %foldExtExtBinop385, %shift387
-  %74 = extractelement <4 x i64> %foldExtExtBinop388, i64 0
-  %shift390 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop391 = add nsw <4 x i64> %.0168.lcssa, %shift390
-  %shift393 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop394 = add nsw <4 x i64> %foldExtExtBinop391, %shift393
-  %shift396 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop397 = add nsw <4 x i64> %foldExtExtBinop394, %shift396
-  %75 = extractelement <4 x i64> %foldExtExtBinop397, i64 0
-  %shift399 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop400 = add nsw <4 x i64> %.0167.lcssa, %shift399
-  %shift402 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop403 = add nsw <4 x i64> %foldExtExtBinop400, %shift402
-  %shift405 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop406 = add nsw <4 x i64> %foldExtExtBinop403, %shift405
-  %76 = extractelement <4 x i64> %foldExtExtBinop406, i64 0
-  %shift408 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop409 = add nsw <4 x i64> %.0166.lcssa, %shift408
-  %shift411 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop412 = add nsw <4 x i64> %foldExtExtBinop409, %shift411
-  %shift414 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop415 = add nsw <4 x i64> %foldExtExtBinop412, %shift414
-  %77 = extractelement <4 x i64> %foldExtExtBinop415, i64 0
+  %shift380 = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop381 = add nsw <4 x i64> %foldExtExtBinop, %shift380
+  %shift383 = shufflevector <4 x i64> %.0161.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop384 = add nsw <4 x i64> %foldExtExtBinop381, %shift383
+  %73 = extractelement <4 x i64> %foldExtExtBinop384, i64 0
+  %shift386 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop387 = add nsw <4 x i64> %.0169.lcssa, %shift386
+  %shift389 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop390 = add nsw <4 x i64> %foldExtExtBinop387, %shift389
+  %shift392 = shufflevector <4 x i64> %.0169.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop393 = add nsw <4 x i64> %foldExtExtBinop390, %shift392
+  %74 = extractelement <4 x i64> %foldExtExtBinop393, i64 0
+  %shift395 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop396 = add nsw <4 x i64> %.0168.lcssa, %shift395
+  %shift398 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop399 = add nsw <4 x i64> %foldExtExtBinop396, %shift398
+  %shift401 = shufflevector <4 x i64> %.0168.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop402 = add nsw <4 x i64> %foldExtExtBinop399, %shift401
+  %75 = extractelement <4 x i64> %foldExtExtBinop402, i64 0
+  %shift404 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop405 = add nsw <4 x i64> %.0167.lcssa, %shift404
+  %shift407 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop408 = add nsw <4 x i64> %foldExtExtBinop405, %shift407
+  %shift410 = shufflevector <4 x i64> %.0167.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop411 = add nsw <4 x i64> %foldExtExtBinop408, %shift410
+  %76 = extractelement <4 x i64> %foldExtExtBinop411, i64 0
+  %shift413 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop414 = add nsw <4 x i64> %.0166.lcssa, %shift413
+  %shift416 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop417 = add nsw <4 x i64> %foldExtExtBinop414, %shift416
+  %shift419 = shufflevector <4 x i64> %.0166.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop420 = add nsw <4 x i64> %foldExtExtBinop417, %shift419
+  %77 = extractelement <4 x i64> %foldExtExtBinop420, i64 0
   %78 = tail call i64 @llvm.umin.i64(i64 %74, i64 %75)
   %. = tail call i64 @llvm.umin.i64(i64 %78, i64 %76)
   %79 = tail call i64 @llvm.umin.i64(i64 %., i64 %77)
@@ -419,8 +419,8 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %89 = zext nneg i32 %86 to i64
   %wide.trip.count = zext nneg i32 %11 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %87
-  %invariant.gep795 = getelementptr inbounds nuw i32, ptr %0, i64 %88
-  %invariant.gep797 = getelementptr inbounds nuw i32, ptr %0, i64 %89
+  %invariant.gep796 = getelementptr inbounds nuw i32, ptr %0, i64 %88
+  %invariant.gep798 = getelementptr inbounds nuw i32, ptr %0, i64 %89
   br label %90
 
 90:                                               ; preds = %.lr.ph, %90
@@ -447,12 +447,12 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %94 = load i32, ptr %gep, align 4, !tbaa !3
   %95 = sext i32 %94 to i64
   %.sroa.0.8.vec.insert = insertelement <4 x i64> %.sroa.0.0.vec.insert, i64 %95, i64 1
-  %gep796 = getelementptr inbounds nuw i32, ptr %invariant.gep795, i64 %indvars.iv761
-  %96 = load i32, ptr %gep796, align 4, !tbaa !3
+  %gep797 = getelementptr inbounds nuw i32, ptr %invariant.gep796, i64 %indvars.iv761
+  %96 = load i32, ptr %gep797, align 4, !tbaa !3
   %97 = sext i32 %96 to i64
   %.sroa.0.16.vec.insert = insertelement <4 x i64> %.sroa.0.8.vec.insert, i64 %97, i64 2
-  %gep798 = getelementptr inbounds nuw i32, ptr %invariant.gep797, i64 %indvars.iv761
-  %98 = load i32, ptr %gep798, align 4, !tbaa !3
+  %gep799 = getelementptr inbounds nuw i32, ptr %invariant.gep798, i64 %indvars.iv761
+  %98 = load i32, ptr %gep799, align 4, !tbaa !3
   %99 = sext i32 %98 to i64
   %.sroa.0.24.vec.insert = insertelement <4 x i64> %.sroa.0.16.vec.insert, i64 %99, i64 3
   %100 = tail call <4 x i64> @llvm.abs.v4i64(<4 x i64> %.sroa.0.24.vec.insert, i1 false)
@@ -523,50 +523,50 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %134 = add i64 %133, %.sroa.0.24.vec.extract581
   %shift = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = add nsw <4 x i64> %.0377.lcssa, %shift
-  %shift834 = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop835 = add nsw <4 x i64> %foldExtExtBinop, %shift834
-  %shift837 = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop838 = add nsw <4 x i64> %foldExtExtBinop835, %shift837
-  %135 = extractelement <4 x i64> %foldExtExtBinop838, i64 0
-  %shift840 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift843 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %136 = or <4 x i64> %shift840, %shift843
-  %shift846 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %137 = or <4 x i64> %136, %shift846
-  %foldExtExtBinop847 = or <4 x i64> %137, %.0376.lcssa
-  %138 = extractelement <4 x i64> %foldExtExtBinop847, i64 0
+  %shift835 = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop836 = add nsw <4 x i64> %foldExtExtBinop, %shift835
+  %shift838 = shufflevector <4 x i64> %.0377.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop839 = add nsw <4 x i64> %foldExtExtBinop836, %shift838
+  %135 = extractelement <4 x i64> %foldExtExtBinop839, i64 0
+  %shift841 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift844 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %136 = or <4 x i64> %shift841, %shift844
+  %shift847 = shufflevector <4 x i64> %.0376.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %137 = or <4 x i64> %136, %shift847
+  %foldExtExtBinop848 = or <4 x i64> %137, %.0376.lcssa
+  %138 = extractelement <4 x i64> %foldExtExtBinop848, i64 0
   %139 = or i64 %138, %49
-  %shift849 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift852 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %140 = or <4 x i64> %shift849, %shift852
-  %shift855 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %141 = or <4 x i64> %140, %shift855
-  %foldExtExtBinop856 = or <4 x i64> %141, %.0375.lcssa
-  %142 = extractelement <4 x i64> %foldExtExtBinop856, i64 0
+  %shift850 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift853 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %140 = or <4 x i64> %shift850, %shift853
+  %shift856 = shufflevector <4 x i64> %.0375.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %141 = or <4 x i64> %140, %shift856
+  %foldExtExtBinop857 = or <4 x i64> %141, %.0375.lcssa
+  %142 = extractelement <4 x i64> %foldExtExtBinop857, i64 0
   %143 = or i64 %142, %50
-  %shift858 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift861 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %144 = or <4 x i64> %shift858, %shift861
-  %shift864 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %145 = or <4 x i64> %144, %shift864
-  %foldExtExtBinop865 = or <4 x i64> %145, %.0374.lcssa
-  %146 = extractelement <4 x i64> %foldExtExtBinop865, i64 0
+  %shift859 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift862 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %144 = or <4 x i64> %shift859, %shift862
+  %shift865 = shufflevector <4 x i64> %.0374.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %145 = or <4 x i64> %144, %shift865
+  %foldExtExtBinop866 = or <4 x i64> %145, %.0374.lcssa
+  %146 = extractelement <4 x i64> %foldExtExtBinop866, i64 0
   %147 = or i64 %146, %51
-  %shift867 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift870 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %148 = or <4 x i64> %shift867, %shift870
-  %shift873 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %149 = or <4 x i64> %148, %shift873
-  %foldExtExtBinop874 = or <4 x i64> %149, %.0373.lcssa
-  %150 = extractelement <4 x i64> %foldExtExtBinop874, i64 0
+  %shift868 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift871 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %148 = or <4 x i64> %shift868, %shift871
+  %shift874 = shufflevector <4 x i64> %.0373.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %149 = or <4 x i64> %148, %shift874
+  %foldExtExtBinop875 = or <4 x i64> %149, %.0373.lcssa
+  %150 = extractelement <4 x i64> %foldExtExtBinop875, i64 0
   %151 = or i64 %150, %52
-  %shift876 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %shift879 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %152 = or <4 x i64> %shift876, %shift879
-  %shift882 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
-  %153 = or <4 x i64> %152, %shift882
-  %foldExtExtBinop883 = or <4 x i64> %153, %.0372.lcssa
-  %154 = extractelement <4 x i64> %foldExtExtBinop883, i64 0
+  %shift877 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift880 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %152 = or <4 x i64> %shift877, %shift880
+  %shift883 = shufflevector <4 x i64> %.0372.lcssa, <4 x i64> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %153 = or <4 x i64> %152, %shift883
+  %foldExtExtBinop884 = or <4 x i64> %153, %.0372.lcssa
+  %154 = extractelement <4 x i64> %foldExtExtBinop884, i64 0
   %155 = and i32 %1, -4
   %.not728 = icmp eq i32 %155, %1
   br i1 %.not728, label %._crit_edge717, label %.lr.ph716.preheader
@@ -715,11 +715,11 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   br label %236
 
 236:                                              ; preds = %223, %228, %226
-  %.sink800 = phi float [ %235, %228 ], [ 0.000000e+00, %226 ], [ 3.400000e+01, %223 ]
+  %.sink801 = phi float [ %235, %228 ], [ 0.000000e+00, %226 ], [ 3.400000e+01, %223 ]
   %.5405 = phi i64 [ %spec.select437, %228 ], [ %spec.select437, %226 ], [ %.3403, %223 ]
   %.5 = phi i32 [ %spec.select438, %228 ], [ %spec.select438, %226 ], [ %.3, %223 ]
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %.sink800, ptr %237, align 4, !tbaa !13
+  store float %.sink801, ptr %237, align 4, !tbaa !13
   %238 = icmp ult i64 %.1393.lcssa, 2147483648
   br i1 %238, label %239, label %249
 
@@ -741,11 +741,11 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   br label %249
 
 249:                                              ; preds = %236, %241, %239
-  %.sink802 = phi float [ %248, %241 ], [ 0.000000e+00, %239 ], [ 3.400000e+01, %236 ]
+  %.sink803 = phi float [ %248, %241 ], [ 0.000000e+00, %239 ], [ 3.400000e+01, %236 ]
   %.7407 = phi i64 [ %spec.select439, %241 ], [ %spec.select439, %239 ], [ %.5405, %236 ]
   %.7 = phi i32 [ %spec.select440, %241 ], [ %spec.select440, %239 ], [ %.5, %236 ]
   %250 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %.sink802, ptr %250, align 4, !tbaa !13
+  store float %.sink803, ptr %250, align 4, !tbaa !13
   %251 = icmp ult i64 %.0391.lcssa, 2147483648
   br i1 %251, label %252, label %262
 
@@ -766,10 +766,10 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   br label %262
 
 262:                                              ; preds = %249, %254, %252
-  %.sink804 = phi float [ %261, %254 ], [ 0.000000e+00, %252 ], [ 3.400000e+01, %249 ]
+  %.sink805 = phi float [ %261, %254 ], [ 0.000000e+00, %252 ], [ 3.400000e+01, %249 ]
   %.9 = phi i32 [ %spec.select441, %254 ], [ %spec.select441, %252 ], [ %.7, %249 ]
   %263 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %.sink804, ptr %263, align 4, !tbaa !13
+  store float %.sink805, ptr %263, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

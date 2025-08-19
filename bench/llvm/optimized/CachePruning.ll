@@ -1229,13 +1229,13 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br label %.backedge.i.i, !llvm.loop !235
 
 ._crit_edge.thread.i.i.i:                         ; preds = %222, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %.033.lcssa42.i.i.i = phi ptr [ %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %.03437.i.i.i, %222 ]
+  %.033.lcssa47.i.i.i = phi ptr [ %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit ], [ %.03437.i.i.i, %222 ]
   %.val7.i.i.i = load ptr, ptr %93, align 8, !tbaa !200
-  %225 = icmp eq ptr %.033.lcssa42.i.i.i, %.val7.i.i.i
+  %225 = icmp eq ptr %.033.lcssa47.i.i.i, %.val7.i.i.i
   br i1 %225, label %252, label %226
 
 226:                                              ; preds = %._crit_edge.thread.i.i.i
-  %227 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa42.i.i.i) #20
+  %227 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa47.i.i.i) #20
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %227, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i.i14.i.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !12
   %.sroa.0.0.copyload.i2.i.i.i.i.i15.i.pre.i.i = load i64, ptr %25, align 8, !tbaa !12
@@ -1244,7 +1244,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 ._crit_edge.i.thread.i.i:                         ; preds = %.thread.i.i, %226
   %.sroa.0.0.copyload.i2.i.i.i.i.i15.i.i.i = phi i64 [ %.sroa.0.0.copyload.i2.i.i.i.i.i15.i.pre.i.i, %226 ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %.thread.i.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i14.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i.i14.i.pre.i.i, %226 ], [ %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i.i, %.thread.i.i ]
-  %.033.lcssa41.i.i.i = phi ptr [ %.033.lcssa42.i.i.i, %226 ], [ %.03437.i.i.i, %.thread.i.i ]
+  %.033.lcssa46.i.i.i = phi ptr [ %.033.lcssa47.i.i.i, %226 ], [ %.03437.i.i.i, %.thread.i.i ]
   %.sroa.024.0.i.i.i = phi ptr [ %227, %226 ], [ %.03437.i.i.i, %.thread.i.i ]
   %228 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.i.i.i, i64 48
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.i.i.i, i64 40
@@ -1295,7 +1295,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %251, label %252, label %_ZNSt3setIN12_GLOBAL__N_18FileInfoESt4lessIS1_ESaIS1_EE6insertEOS1_.exit
 
 252:                                              ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i.i.i.i.i19.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16.i.i.i.i.i.i21.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i.i.i22.i.i.i, %233, %._crit_edge.i.thread.i.i, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.033.lcssa41.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16.i.i.i.i.i.i21.i.i.i ], [ %.033.lcssa41.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i.i.i.i.i19.i.i.i ], [ %.033.lcssa41.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i.i.i22.i.i.i ], [ %.033.lcssa41.i.i.i, %233 ], [ %.033.lcssa41.i.i.i, %._crit_edge.i.thread.i.i ], [ %.033.lcssa42.i.i.i, %._crit_edge.thread.i.i.i ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.033.lcssa46.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16.i.i.i.i.i.i21.i.i.i ], [ %.033.lcssa46.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i.i.i.i.i19.i.i.i ], [ %.033.lcssa46.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i.i.i22.i.i.i ], [ %.033.lcssa46.i.i.i, %233 ], [ %.033.lcssa46.i.i.i, %._crit_edge.i.thread.i.i ], [ %.033.lcssa47.i.i.i, %._crit_edge.thread.i.i.i ]
   %253 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %91
   br i1 %253, label %_ZNKSt4lessIN12_GLOBAL__N_18FileInfoEEclERKS1_S4_.exit.i15.i.i, label %254
 

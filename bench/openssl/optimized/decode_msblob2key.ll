@@ -230,7 +230,7 @@ define internal i32 @msblob2key_decode(ptr noundef %0, ptr noundef %1, i32 nound
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %94 = load ptr, ptr %93, align 8, !tbaa !22
   %.not81 = icmp eq ptr %94, null
-  br i1 %.not81, label %.critedge95, label %.thread91
+  br i1 %.not81, label %.critedge103, label %.thread91
 
 .thread91:                                        ; preds = %89
   call void %94(ptr noundef nonnull %90, ptr noundef nonnull %0) #6
@@ -240,12 +240,12 @@ define internal i32 @msblob2key_decode(ptr noundef %0, ptr noundef %1, i32 nound
   %96 = call i32 @BIO_free(ptr noundef nonnull %22) #6
   br i1 %95, label %108, label %98
 
-.critedge95:                                      ; preds = %89
+.critedge103:                                     ; preds = %89
   call void @CRYPTO_free(ptr noundef nonnull %46, ptr noundef nonnull @.str, i32 noundef 182) #6
   %97 = call i32 @BIO_free(ptr noundef nonnull %22) #6
   br label %98
 
-98:                                               ; preds = %.critedge95, %.thread91
+98:                                               ; preds = %.critedge103, %.thread91
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 2, ptr %17, align 4, !tbaa !12
@@ -275,11 +275,11 @@ define internal i32 @msblob2key_decode(ptr noundef %0, ptr noundef %1, i32 nound
   br label %108
 
 .critedge.sink.split:                             ; preds = %48, %39, %24
-  %.sink96 = phi i32 [ 112, %24 ], [ 131, %39 ], [ 139, %48 ]
+  %.sink104 = phi i32 [ 112, %24 ], [ 131, %39 ], [ 139, %48 ]
   %.sink = phi i32 [ 123, %24 ], [ 128, %39 ], [ 123, %48 ]
   %.060.ph.ph = phi ptr [ null, %24 ], [ null, %39 ], [ %46, %48 ]
   call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink96, ptr noundef nonnull @__func__.msblob2key_decode) #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink104, ptr noundef nonnull @__func__.msblob2key_decode) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef %.sink, ptr noundef null) #6
   br label %.critedge
 

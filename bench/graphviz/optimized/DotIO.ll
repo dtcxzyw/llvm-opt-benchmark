@@ -1888,9 +1888,9 @@ gv_calloc.exit375:                                ; preds = %.thread.i374, %294
   br label %339
 
 339:                                              ; preds = %334, %317
-  %.sink496 = phi ptr [ %338, %334 ], [ %333, %317 ]
+  %.sink535 = phi ptr [ %338, %334 ], [ %333, %317 ]
   %.sink = phi double [ 7.200000e+01, %334 ], [ %331, %317 ]
-  %340 = getelementptr i8, ptr %.sink496, i64 8
+  %340 = getelementptr i8, ptr %.sink535, i64 8
   store double %.sink, ptr %340, align 8, !tbaa !26
   %341 = call ptr @agget(ptr noundef nonnull %.6465, ptr noundef nonnull @.str.24) #20
   %.not320 = icmp eq ptr %341, null
@@ -1903,11 +1903,11 @@ gv_calloc.exit375:                                ; preds = %.thread.i374, %294
   br label %346
 
 346:                                              ; preds = %339, %342
-  %.sink497 = phi float [ %345, %342 ], [ 1.400000e+01, %339 ]
+  %.sink536 = phi float [ %345, %342 ], [ 1.400000e+01, %339 ]
   %347 = load ptr, ptr %10, align 8, !tbaa !65
   %348 = sext i32 %313 to i64
   %349 = getelementptr inbounds float, ptr %347, i64 %348
-  store float %.sink497, ptr %349, align 4, !tbaa !52
+  store float %.sink536, ptr %349, align 4, !tbaa !52
   %350 = call ptr @agget(ptr noundef nonnull %.6465, ptr noundef nonnull @.str.26) #20
   %.not321 = icmp eq ptr %350, null
   br i1 %.not321, label %361, label %351
@@ -1945,8 +1945,8 @@ sub_1:                                            ; preds = %sub_0
   br label %363
 
 363:                                              ; preds = %361, %.tail.thread
-  %.sink505 = phi ptr [ %362, %361 ], [ %360, %.tail.thread ]
-  %364 = call noalias ptr @strdup(ptr noundef %.sink505) #20
+  %.sink544 = phi ptr [ %362, %361 ], [ %360, %.tail.thread ]
+  %364 = call noalias ptr @strdup(ptr noundef %.sink544) #20
   %365 = load ptr, ptr %11, align 8, !tbaa !47
   %366 = sext i32 %313 to i64
   %367 = getelementptr inbounds ptr, ptr %365, i64 %366
@@ -2337,8 +2337,8 @@ gv_calloc.exit404:                                ; preds = %.thread.i403, %537
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %568 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.7471) #20
-  %.not316489 = icmp eq ptr %568, null
-  br i1 %.not316489, label %._crit_edge474.thread, label %.lr.ph473.outer, !llvm.loop !68
+  %.not316528 = icmp eq ptr %568, null
+  br i1 %.not316528, label %._crit_edge474.thread, label %.lr.ph473.outer, !llvm.loop !68
 
 ._crit_edge474:                                   ; preds = %551
   br i1 %.0472.ph, label %._crit_edge474.thread, label %.critedge
@@ -2671,8 +2671,8 @@ gv_calloc.exit102:                                ; preds = %.thread.i101, %107
   unreachable
 
 123:                                              ; preds = %119, %118
-  %.not138 = icmp eq i32 %10, 0
-  br i1 %.not138, label %._crit_edge122, label %.lr.ph121
+  %.not154 = icmp eq i32 %10, 0
+  br i1 %.not154, label %._crit_edge122, label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %123
   %124 = load ptr, ptr %6, align 8, !tbaa !58

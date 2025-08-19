@@ -20,10 +20,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Hop_ManStart() local_unnamed_addr #0 {
-  %calloc18 = tail call dereferenceable_or_null(184) ptr @calloc(i64 1, i64 184)
-  %1 = getelementptr inbounds nuw i8, ptr %calloc18, i64 128
+  %calloc22 = tail call dereferenceable_or_null(184) ptr @calloc(i64 1, i64 184)
+  %1 = getelementptr inbounds nuw i8, ptr %calloc22, i64 128
   store i32 1, ptr %1, align 8, !tbaa !3
-  %2 = getelementptr inbounds nuw i8, ptr %calloc18, i64 132
+  %2 = getelementptr inbounds nuw i8, ptr %calloc22, i64 132
   store i32 1, ptr %2, align 4, !tbaa !14
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -32,7 +32,7 @@ define noundef ptr @Hop_ManStart() local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #13
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !18
-  store ptr %3, ptr %calloc18, align 8, !tbaa !19
+  store ptr %3, ptr %calloc22, align 8, !tbaa !19
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4, !tbaa !15
@@ -40,16 +40,16 @@ define noundef ptr @Hop_ManStart() local_unnamed_addr #0 {
   %9 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #13
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !18
-  %11 = getelementptr inbounds nuw i8, ptr %calloc18, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %calloc22, i64 8
   store ptr %7, ptr %11, align 8, !tbaa !20
-  tail call void @Hop_ManStartMemory(ptr noundef nonnull %calloc18) #14
-  %12 = getelementptr inbounds nuw i8, ptr %calloc18, i64 160
+  tail call void @Hop_ManStartMemory(ptr noundef nonnull %calloc22) #14
+  %12 = getelementptr inbounds nuw i8, ptr %calloc22, i64 160
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %0
-  tail call void @Hop_ManAddMemory(ptr noundef nonnull %calloc18) #14
+  tail call void @Hop_ManAddMemory(ptr noundef nonnull %calloc22) #14
   %.pre.i = load ptr, ptr %12, align 8, !tbaa !21
   br label %16
 
@@ -58,7 +58,7 @@ define noundef ptr @Hop_ManStart() local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   store ptr %18, ptr %12, align 8, !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
-  %19 = getelementptr inbounds nuw i8, ptr %calloc18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %calloc22, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !23
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %Hop_ManFetchMemory.exit, label %21
@@ -133,13 +133,13 @@ Vec_PtrPush.exit.i:                               ; preds = %46, %Vec_PtrGrow.ex
   br label %Hop_ManFetchMemory.exit
 
 Hop_ManFetchMemory.exit:                          ; preds = %16, %Vec_PtrPush.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %calloc18, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %calloc22, i64 96
   %54 = load i32, ptr %53, align 8, !tbaa !25
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %53, align 8, !tbaa !25
   %56 = getelementptr inbounds nuw i8, ptr %17, i64 36
   store i32 %54, ptr %56, align 4, !tbaa !26
-  %57 = getelementptr inbounds nuw i8, ptr %calloc18, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %calloc22, i64 24
   store ptr %17, ptr %57, align 8, !tbaa !27
   %58 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %59 = load i32, ptr %58, align 8
@@ -152,12 +152,12 @@ Hop_ManFetchMemory.exit:                          ; preds = %16, %Vec_PtrPush.ex
   %65 = or i32 %64, 8
   store i32 %65, ptr %63, align 8
   store i32 1, ptr %53, align 8, !tbaa !25
-  %66 = getelementptr inbounds nuw i8, ptr %calloc18, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %calloc22, i64 112
   store i32 10007, ptr %66, align 8, !tbaa !28
   %calloc = tail call dereferenceable_or_null(80056) ptr @calloc(i64 1, i64 80056)
-  %67 = getelementptr inbounds nuw i8, ptr %calloc18, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %calloc22, i64 104
   store ptr %calloc, ptr %67, align 8, !tbaa !29
-  ret ptr %calloc18
+  ret ptr %calloc22
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -456,13 +456,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %exitcond.not, label %.critedge.thread, label %57, !llvm.loop !41
 
 .critedge:                                        ; preds = %1, %.preheader
-  %.pre3337 = phi ptr [ %.pre33.pre, %.preheader ], [ %6, %1 ]
-  %.not.i = icmp eq ptr %.pre3337, null
+  %.pre3341 = phi ptr [ %.pre33.pre, %.preheader ], [ %6, %1 ]
+  %.not.i = icmp eq ptr %.pre3341, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %57, %.critedge
-  %.pre333740 = phi ptr [ %.pre3337, %.critedge ], [ %.pre33.pre, %57 ]
-  tail call void @free(ptr noundef nonnull %.pre333740) #14
+  %.pre334144 = phi ptr [ %.pre3341, %.critedge ], [ %.pre33.pre, %57 ]
+  tail call void @free(ptr noundef nonnull %.pre334144) #14
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %.critedge.thread

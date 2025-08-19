@@ -3983,8 +3983,8 @@ _ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPa
   %451 = icmp eq i16 %450, 1
   %or.cond = select i1 %448, i1 %451, i1 false
   %452 = icmp eq i16 %450, 91
-  %or.cond712 = select i1 %or.cond, i1 true, i1 %452
-  br i1 %or.cond712, label %453, label %454
+  %or.cond717 = select i1 %or.cond, i1 true, i1 %452
+  br i1 %or.cond717, label %453, label %454
 
 453:                                              ; preds = %446
   call void @_ZN13SharedRuntime40inline_check_hashcode_from_object_headerEP14MacroAssemblerRK12methodHandle8RegisterS5_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 6, i32 0) #14
@@ -8039,18 +8039,18 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i.._crit_edge.thread.i_crit_edge, %.lr.ph134.i
   %59 = phi i64 [ %.pre, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
-  %.1.lcssa204.i = phi i64 [ %55, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0132.i, %.lr.ph134.i ]
-  %.1102.lcssa203.i = phi i64 [ %56, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0101131.i, %.lr.ph134.i ]
-  %.0111.lcssa201.i = phi i64 [ %umax, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
-  %60 = getelementptr inbounds nuw i64, ptr %15, i64 %.0111.lcssa201.i
+  %.1.lcssa206.i = phi i64 [ %55, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0132.i, %.lr.ph134.i ]
+  %.1102.lcssa205.i = phi i64 [ %56, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ %.0101131.i, %.lr.ph134.i ]
+  %.0111.lcssa203.i = phi i64 [ %umax, %._crit_edge.i.._crit_edge.thread.i_crit_edge ], [ 0, %.lr.ph134.i ]
+  %60 = getelementptr inbounds nuw i64, ptr %15, i64 %.0111.lcssa203.i
   %61 = load i64, ptr %60, align 8
-  %62 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %61, i64 %61, i64 %.1.lcssa204.i, i64 %.1102.lcssa203.i, i64 %59) #14, !srcloc !54
+  %62 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %61, i64 %61, i64 %.1.lcssa206.i, i64 %.1102.lcssa205.i, i64 %59) #14, !srcloc !54
   %63 = extractvalue { i64, i64, i64, i64 } %62, 2
   %64 = extractvalue { i64, i64, i64, i64 } %62, 3
   br label %._crit_edge.i._crit_edge
 
 ._crit_edge.i._crit_edge:                         ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.pre-phi = phi i64 [ %.0111.lcssa201.i, %._crit_edge.thread.i ], [ %umax, %._crit_edge.i ]
+  %.pre-phi = phi i64 [ %.0111.lcssa203.i, %._crit_edge.thread.i ], [ %umax, %._crit_edge.i ]
   %.2103.i = phi i64 [ %64, %._crit_edge.thread.i ], [ %56, %._crit_edge.i ]
   %.2.i = phi i64 [ %63, %._crit_edge.thread.i ], [ %55, %._crit_edge.i ]
   %65 = icmp samesign ugt i64 %indvars.iv179.i, %.pre-phi
@@ -8161,8 +8161,8 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   br i1 %119, label %.lr.ph150.preheader.i, label %._crit_edge151.i
 
 .lr.ph150.preheader.i:                            ; preds = %118
-  %sext197.i = shl i64 %.0113.lcssa.in.i, 32
-  %120 = ashr exact i64 %sext197.i, 32
+  %sext199.i = shl i64 %.0113.lcssa.in.i, 32
+  %120 = ashr exact i64 %sext199.i, 32
   br label %.lr.ph150.i
 
 .lr.ph150.i:                                      ; preds = %.lr.ph150.i, %.lr.ph150.preheader.i

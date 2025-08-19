@@ -3371,8 +3371,8 @@ _camera_poll_events.exit:                         ; preds = %49, %54, %59, %61, 
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %166 = call i32 @pthread_mutex_lock(ptr noundef nonnull %38) #15
   %167 = load ptr, ptr %39, align 8, !tbaa !66
-  %.not.i1347 = icmp eq ptr %167, null
-  br i1 %.not.i1347, label %_camera_get_job.exit.thread, label %_camera_get_job.exit
+  %.not.i1370 = icmp eq ptr %167, null
+  br i1 %.not.i1370, label %_camera_get_job.exit.thread, label %_camera_get_job.exit
 
 _camera_get_job.exit.thread:                      ; preds = %_camera_process_job.exit, %_camera_poll_events.exit
   %168 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %38) #15

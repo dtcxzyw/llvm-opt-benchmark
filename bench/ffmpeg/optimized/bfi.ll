@@ -270,7 +270,7 @@ bytestream2_get_le16.exit:                        ; preds = %110, %108, %95, %by
   br i1 %121, label %.thread165, label %122
 
 122:                                              ; preds = %bytestream2_get_le16.exit
-  switch i32 %78, label %default.unreachable209 [
+  switch i32 %78, label %default.unreachable217 [
     i32 0, label %123
     i32 1, label %134
     i32 2, label %145
@@ -370,7 +370,7 @@ bytestream2_get_byte.exit126:                     ; preds = %bytestream2_get_byt
   %.not115 = icmp eq i32 %160, 0
   br i1 %.not115, label %.loopexit, label %.lr.ph178, !llvm.loop !51
 
-default.unreachable209:                           ; preds = %122
+default.unreachable217:                           ; preds = %122
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph178, %.lr.ph183, %bytestream2_get_byte.exit126, %128, %145, %134

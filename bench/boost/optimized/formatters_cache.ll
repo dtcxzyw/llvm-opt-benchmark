@@ -80,39 +80,39 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
   store ptr @_ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEE15default_deleterEPS2_, ptr %.ptr, align 8, !tbaa !10
   %.add = add nuw nsw i64 %.idx, 8
   %8 = icmp eq i64 %.add, 72
-  br i1 %8, label %.preheader178, label %7
+  br i1 %8, label %.preheader183, label %7
 
-.preheader178:                                    ; preds = %7, %.preheader178
-  %.idx47 = phi i64 [ %.add48, %.preheader178 ], [ 72, %7 ]
+.preheader183:                                    ; preds = %7, %.preheader183
+  %.idx47 = phi i64 [ %.add48, %.preheader183 ], [ 72, %7 ]
   %.ptr49.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx47
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr49.ptr, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %.ptr49.ptr, i64 8
   store i16 2, ptr %9, align 8, !tbaa !13
   %.add48 = add nuw nsw i64 %.idx47, 64
   %10 = icmp samesign eq i64 %.add48, 328
-  br i1 %10, label %.preheader177, label %.preheader178
+  br i1 %10, label %.preheader182, label %.preheader183
 
-.preheader177:                                    ; preds = %.preheader178, %.preheader177
-  %.idx56 = phi i64 [ %.add57, %.preheader177 ], [ 328, %.preheader178 ]
+.preheader182:                                    ; preds = %.preheader183, %.preheader182
+  %.idx56 = phi i64 [ %.add57, %.preheader182 ], [ 328, %.preheader183 ]
   %.ptr58.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx56
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr58.ptr, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %.ptr58.ptr, i64 8
   store i16 2, ptr %11, align 8, !tbaa !13
   %.add57 = add nuw nsw i64 %.idx56, 64
   %12 = icmp samesign eq i64 %.add57, 584
-  br i1 %12, label %.preheader176, label %.preheader177
+  br i1 %12, label %.preheader181, label %.preheader182
 
-.preheader176:                                    ; preds = %.preheader177, %.preheader176
-  %.idx65 = phi i64 [ %.add66, %.preheader176 ], [ 584, %.preheader177 ]
+.preheader181:                                    ; preds = %.preheader182, %.preheader181
+  %.idx65 = phi i64 [ %.add66, %.preheader181 ], [ 584, %.preheader182 ]
   %.ptr67.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx65
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %.ptr67.ptr, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %.ptr67.ptr, i64 8
   store i16 2, ptr %13, align 8, !tbaa !13
   %.add66 = add nuw nsw i64 %.idx65, 64
   %14 = icmp samesign eq i64 %.add66, 1608
-  br i1 %14, label %15, label %.preheader176
+  br i1 %14, label %15, label %.preheader181
 
-15:                                               ; preds = %.preheader176
+15:                                               ; preds = %.preheader181
   %.ptr51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.ptr60 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.ptr69 = getelementptr inbounds nuw i8, ptr %0, i64 584

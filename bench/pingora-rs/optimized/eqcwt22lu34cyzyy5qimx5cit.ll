@@ -1348,12 +1348,12 @@ common.resume:                                    ; preds = %519, %506, %498, %4
   br label %462
 
 463:                                              ; preds = %440, %439
-  %.sink105.i = phi i64 [ %.sroa.6.0.i, %439 ], [ %spec.select.i, %440 ]
-  %.sink103.i = phi i64 [ %.sroa.014.1.i, %439 ], [ %116, %440 ]
+  %.sink133.i = phi i64 [ %.sroa.6.0.i, %439 ], [ %spec.select.i, %440 ]
+  %.sink131.i = phi i64 [ %.sroa.014.1.i, %439 ], [ %116, %440 ]
   %464 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sink105.i, ptr %464, align 8, !alias.scope !53, !noalias !126
+  store i64 %.sink133.i, ptr %464, align 8, !alias.scope !53, !noalias !126
   %465 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i64 %.sink103.i, ptr %465, align 8, !alias.scope !53, !noalias !126
+  store i64 %.sink131.i, ptr %465, align 8, !alias.scope !53, !noalias !126
   store i64 1, ptr %36, align 8, !alias.scope !53, !noalias !126
   call void @"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h77468219a3d657cdE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %15), !noalias !53
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !56
@@ -1614,13 +1614,13 @@ define void @_ZN13pingora_proxy11proxy_cache12range_filter15RangeBodyFilter11fil
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = load i64, ptr %1, align 8, !range !175, !noundef !4
-  switch i64 %6, label %default.unreachable12 [
+  switch i64 %6, label %default.unreachable17 [
     i64 0, label %7
     i64 1, label %8
     i64 2, label %12
   ]
 
-default.unreachable12:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3

@@ -185,12 +185,12 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
   br label %.loopexit71
 
 .loopexit71.loopexit:                             ; preds = %52
-  %lpad.loopexit114 = landingpad { ptr, i32 }
+  %lpad.loopexit117 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit71
 
 .loopexit71.loopexit.split-lp:                    ; preds = %75, %70, %62
-  %lpad.loopexit.split-lp115 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp118 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit71
 
@@ -273,7 +273,7 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
   ret i1 %.3
 
 .loopexit71:                                      ; preds = %.loopexit71.loopexit, %.loopexit71.loopexit.split-lp, %.loopexit.split-lp72, %.loopexit, %.loopexit.split-lp, %59, %48, %33
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %49, %48 ], [ %60, %59 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ], [ %lpad.loopexit114, %.loopexit71.loopexit ], [ %lpad.loopexit.split-lp115, %.loopexit71.loopexit.split-lp ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %49, %48 ], [ %60, %59 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ], [ %lpad.loopexit117, %.loopexit71.loopexit ], [ %lpad.loopexit.split-lp118, %.loopexit71.loopexit.split-lp ]
   call void @_ZN6icu_778numparse4impl12ParsedNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume

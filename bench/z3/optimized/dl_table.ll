@@ -3349,8 +3349,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryI7svect
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.us:         ; preds = %33
   %37 = getelementptr inbounds i8, ptr %35, i64 -4
   %38 = load i32, ptr %37, align 4, !tbaa !13
-  %.not258 = icmp eq i32 %38, 0
-  br i1 %.not258, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread76.us
+  %.not283 = icmp eq i32 %38, 0
+  br i1 %.not283, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread76.us
 
 _ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us:       ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.us
   %39 = getelementptr inbounds i8, ptr %35, i64 -4
@@ -3417,8 +3417,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.us:       ; preds = %58
   %62 = getelementptr inbounds i8, ptr %60, i64 -4
   %63 = load i32, ptr %62, align 4, !tbaa !13
-  %.not259 = icmp eq i32 %63, 0
-  br i1 %.not259, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit68.thread79.us
+  %.not284 = icmp eq i32 %63, 0
+  br i1 %.not284, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit68.thread79.us
 
 _ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i60.us:     ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.us
   %64 = getelementptr inbounds i8, ptr %60, i64 -4
@@ -3472,8 +3472,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread:     ; preds = %80
   %84 = load i32, ptr %27, align 4, !tbaa !13
-  %.not.i.i.i206.not = icmp eq i32 %84, 0
-  br i1 %.not.i.i.i206.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread76
+  %.not.i.i.i231.not = icmp eq i32 %84, 0
+  br i1 %.not.i.i.i231.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread76
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i:            ; preds = %80
   %85 = getelementptr inbounds i8, ptr %82, i64 -4
@@ -3620,8 +3620,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53.thread:   ; preds = %133
   %137 = load i32, ptr %52, align 4, !tbaa !13
-  %.not.i.i.i57210.not = icmp eq i32 %137, 0
-  br i1 %.not.i.i.i57210.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit68.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit68.thread79
+  %.not.i.i.i57235.not = icmp eq i32 %137, 0
+  br i1 %.not.i.i.i57235.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit68.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit68.thread79
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i53:          ; preds = %133
   %138 = getelementptr inbounds i8, ptr %135, i64 -4
@@ -4940,8 +4940,8 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.us:         ; preds = %22
   %26 = getelementptr inbounds i8, ptr %24, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !13
-  %.not124 = icmp eq i32 %27, 0
-  br i1 %.not124, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread45.us
+  %.not138 = icmp eq i32 %27, 0
+  br i1 %.not138, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread45.us
 
 _ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us:       ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.us
   %28 = getelementptr inbounds i8, ptr %24, i64 -4
@@ -5005,8 +5005,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i28.us:       ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -4
   %52 = load i32, ptr %51, align 4, !tbaa !13
-  %.not125 = icmp eq i32 %52, 0
-  br i1 %.not125, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i35.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit43.thread48.us
+  %.not139 = icmp eq i32 %52, 0
+  br i1 %.not139, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i35.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit43.thread48.us
 
 _ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i35.us:     ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i28.us
   %53 = getelementptr inbounds i8, ptr %49, i64 -4
@@ -5058,8 +5058,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread:     ; preds = %69
   %73 = load i32, ptr %16, align 4, !tbaa !13
-  %.not.i.i.i100.not = icmp eq i32 %73, 0
-  br i1 %.not.i.i.i100.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread45
+  %.not.i.i.i114.not = icmp eq i32 %73, 0
+  br i1 %.not.i.i.i114.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread45
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i:            ; preds = %69
   %74 = getelementptr inbounds i8, ptr %71, i64 -4
@@ -5118,8 +5118,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i28.thread:   ; preds = %93
   %97 = load i32, ptr %41, align 4, !tbaa !13
-  %.not.i.i.i32104.not = icmp eq i32 %97, 0
-  br i1 %.not.i.i.i32104.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit43.thread48
+  %.not.i.i.i32118.not = icmp eq i32 %97, 0
+  br i1 %.not.i.i.i32118.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit43.thread48
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i28:          ; preds = %93
   %98 = getelementptr inbounds i8, ptr %95, i64 -4
@@ -5211,8 +5211,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryI7svect
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.us:         ; preds = %22
   %26 = getelementptr inbounds i8, ptr %24, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !13
-  %.not133 = icmp eq i32 %27, 0
-  br i1 %.not133, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread50.us
+  %.not148 = icmp eq i32 %27, 0
+  br i1 %.not148, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread50.us
 
 _ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i.us:       ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.us
   %28 = getelementptr inbounds i8, ptr %24, i64 -4
@@ -5276,8 +5276,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i33.us:       ; preds = %47
   %51 = getelementptr inbounds i8, ptr %49, i64 -4
   %52 = load i32, ptr %51, align 4, !tbaa !13
-  %.not134 = icmp eq i32 %52, 0
-  br i1 %.not134, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit48.thread53.us
+  %.not149 = icmp eq i32 %52, 0
+  br i1 %.not149, label %_ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40.us, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit48.thread53.us
 
 _ZNK6vectorImLb0EjE4sizeEv.exit20.i.i.i40.us:     ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i33.us
   %53 = getelementptr inbounds i8, ptr %49, i64 -4
@@ -5329,8 +5329,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i.thread:     ; preds = %69
   %73 = load i32, ptr %16, align 4, !tbaa !13
-  %.not.i.i.i105.not = icmp eq i32 %73, 0
-  br i1 %.not.i.i.i105.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread50
+  %.not.i.i.i120.not = icmp eq i32 %73, 0
+  br i1 %.not.i.i.i120.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread50
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i:            ; preds = %69
   %74 = getelementptr inbounds i8, ptr %71, i64 -4
@@ -5389,8 +5389,8 @@ _ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_p
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i33.thread:   ; preds = %93
   %97 = load i32, ptr %41, align 4, !tbaa !13
-  %.not.i.i.i37109.not = icmp eq i32 %97, 0
-  br i1 %.not.i.i.i37109.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit48.thread53
+  %.not.i.i.i37124.not = icmp eq i32 %97, 0
+  br i1 %.not.i.i.i37124.not, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit.thread, label %_ZNK14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_procI11uint64_hashEENS4_14vector_eq_procIS2_EEE6equalsERKS2_SC_.exit48.thread53
 
 _ZNK6vectorImLb0EjE4sizeEv.exit.i.i.i33:          ; preds = %93
   %98 = getelementptr inbounds i8, ptr %95, i64 -4

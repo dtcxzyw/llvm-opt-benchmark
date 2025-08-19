@@ -4258,9 +4258,9 @@ _ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread: ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %31 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !52
   %.not.i.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread18
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread19
 
-_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread18: ; preds = %29
+_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread19: ; preds = %29
   %32 = load i32, ptr %30, align 4, !tbaa !26
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %30, align 4, !tbaa !26
@@ -4284,9 +4284,9 @@ _ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit: ; preds = %29
   %.not.i.i.i8 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i8, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12, label %41
 
-41:                                               ; preds = %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread18, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit
-  %.pr21 = phi ptr [ %25, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread18 ], [ %.pr.pre, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit ]
-  %42 = getelementptr inbounds nuw i8, ptr %.pr21, i64 8
+41:                                               ; preds = %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread19, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit
+  %.pr22 = phi ptr [ %25, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread19 ], [ %.pr.pre, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit ]
+  %42 = getelementptr inbounds nuw i8, ptr %.pr22, i64 8
   %43 = load atomic i64, ptr %42 acquire, align 8
   %44 = icmp eq i64 %43, 4294967297
   %45 = trunc i64 %43 to i32
@@ -4294,16 +4294,16 @@ _ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit: ; preds = %29
 
 46:                                               ; preds = %41
   store i32 0, ptr %42, align 8, !tbaa !23
-  %47 = getelementptr inbounds nuw i8, ptr %.pr21, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %.pr22, i64 12
   store i32 0, ptr %47, align 4, !tbaa !25
-  %48 = load ptr, ptr %.pr21, align 8, !tbaa !4
+  %48 = load ptr, ptr %.pr22, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #26
-  %51 = load ptr, ptr %.pr21, align 8, !tbaa !4
+  call void %50(ptr noundef nonnull align 8 dereferenceable(16) %.pr22) #26
+  %51 = load ptr, ptr %.pr22, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #26
+  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %.pr22) #26
   br label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12
 
 54:                                               ; preds = %41
@@ -4326,7 +4326,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10: ; preds = %58, %5
   br i1 %60, label %61, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12, !prof !53
 
 61:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #26
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr22) #26
   br label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12
 
 _ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12: ; preds = %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit, %46, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10, %61
@@ -4488,9 +4488,9 @@ _ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread: ; preds = %_Z
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %39 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !52
   %.not.i.i.i.i.i.i = icmp eq i8 %39, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread18
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread19
 
-_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread18: ; preds = %37
+_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread19: ; preds = %37
   %40 = load i32, ptr %38, align 4, !tbaa !26
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %38, align 4, !tbaa !26
@@ -4514,9 +4514,9 @@ _ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit: ; preds = %37
   %.not.i.i.i8 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i8, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12, label %49
 
-49:                                               ; preds = %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread18, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit
-  %.pr21 = phi ptr [ %33, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread18 ], [ %.pr.pre, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %.pr21, i64 8
+49:                                               ; preds = %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread19, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit
+  %.pr22 = phi ptr [ %33, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread19 ], [ %.pr.pre, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit ]
+  %50 = getelementptr inbounds nuw i8, ptr %.pr22, i64 8
   %51 = load atomic i64, ptr %50 acquire, align 8
   %52 = icmp eq i64 %51, 4294967297
   %53 = trunc i64 %51 to i32
@@ -4524,16 +4524,16 @@ _ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit: ; preds = %37
 
 54:                                               ; preds = %49
   store i32 0, ptr %50, align 8, !tbaa !23
-  %55 = getelementptr inbounds nuw i8, ptr %.pr21, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.pr22, i64 12
   store i32 0, ptr %55, align 4, !tbaa !25
-  %56 = load ptr, ptr %.pr21, align 8, !tbaa !4
+  %56 = load ptr, ptr %.pr22, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #26
-  %59 = load ptr, ptr %.pr21, align 8, !tbaa !4
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %.pr22) #26
+  %59 = load ptr, ptr %.pr22, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #26
+  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr22) #26
   br label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12
 
 62:                                               ; preds = %49
@@ -4556,7 +4556,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10: ; preds = %66, %6
   br i1 %68, label %69, label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12, !prof !53
 
 69:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr21) #26
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr22) #26
   br label %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12
 
 _ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit12: ; preds = %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit.thread, %_ZN4test18throwing_allocatorINS_13throwing_typeEED2Ev.exit, %54, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10, %69
@@ -11276,13 +11276,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !57
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !57
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

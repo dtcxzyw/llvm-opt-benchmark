@@ -354,9 +354,9 @@ define noundef zeroext i1 @_ZN5Ipopt21CGPerturbationHandler17ConsiderNewSystemER
   br label %83
 
 83:                                               ; preds = %77, %58, %65, %69
-  %.sink42 = phi i32 [ 1, %69 ], [ 1, %65 ], [ 0, %58 ], [ %spec.select, %77 ]
+  %.sink45 = phi i32 [ 1, %69 ], [ 1, %65 ], [ 0, %58 ], [ %spec.select, %77 ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %.sink42, ptr %84, align 8, !tbaa !53
+  store i32 %.sink45, ptr %84, align 8, !tbaa !53
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !66
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
@@ -387,15 +387,15 @@ define noundef zeroext i1 @_ZN5Ipopt21CGPerturbationHandler17ConsiderNewSystemER
   br label %103
 
 103:                                              ; preds = %92, %101, %.thread
-  %.sink44 = phi double [ %89, %.thread ], [ 0x3D19000000000000, %101 ], [ 0.000000e+00, %92 ]
+  %.sink47 = phi double [ %89, %.thread ], [ 0x3D19000000000000, %101 ], [ 0.000000e+00, %92 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double %.sink44, ptr %104, align 8, !tbaa !61
-  store double %.sink44, ptr %3, align 8, !tbaa !71
+  store double %.sink47, ptr %104, align 8, !tbaa !61
+  store double %.sink47, ptr %3, align 8, !tbaa !71
   %105 = load ptr, ptr %6, align 8, !tbaa !17
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 2192
   %107 = load ptr, ptr %106, align 8, !tbaa !20
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 88
-  store double %.sink44, ptr %108, align 8, !tbaa !72
+  store double %.sink47, ptr %108, align 8, !tbaa !72
   %109 = load double, ptr %3, align 8, !tbaa !71
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %109, ptr %110, align 8, !tbaa !63

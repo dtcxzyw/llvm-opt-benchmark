@@ -21,13 +21,13 @@ define void @_ZN6Assimp14CommentRemover18RemoveLineCommentsEPKcPcc(ptr noundef r
   ]
 
 8:                                                ; preds = %.lr.ph53, %.lr.ph53
-  %9 = add i64 %.052, 1
+  %9 = add nuw i64 %.052, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %5, i64 %9)
   br label %10
 
 10:                                               ; preds = %13, %8
   %.2 = phi i64 [ %.052, %8 ], [ %11, %13 ]
-  %11 = add i64 %.2, 1
+  %11 = add nuw i64 %.2, 1
   %12 = icmp ult i64 %11, %5
   br i1 %12, label %13, label %.critedge
 

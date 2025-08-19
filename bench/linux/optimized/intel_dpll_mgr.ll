@@ -2359,7 +2359,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_compute_dplls(ptr noundef rea
   %81 = sdiv i32 %51, 3
   br label %.thread19
 
-default.unreachable60:                            ; preds = %475
+default.unreachable73:                            ; preds = %475
   unreachable
 
 .thread21:                                        ; preds = %75
@@ -3043,7 +3043,7 @@ ehl_combo_pll_div_frac_wa_needed.exit15:          ; preds = %259, %263
   %477 = phi i32 [ %463, %466 ], [ %452, %472 ], [ %463, %462 ], [ %452, %469 ]
   %478 = lshr i32 %344, 12
   %479 = and i32 %478, 3
-  switch i32 %479, label %default.unreachable60 [
+  switch i32 %479, label %default.unreachable73 [
     i32 0, label %483
     i32 1, label %480
     i32 2, label %481
@@ -7446,7 +7446,7 @@ define internal fastcc range(i32 0, 858993460) i32 @skl_ddi_wrpll_get_freq(ptr n
   %27 = phi i32 [ 7, %23 ], [ 3, %15 ], [ 2, %14 ], [ 1, %2 ]
   %28 = lshr i32 %6, 5
   %29 = and i32 %28, 3
-  switch i32 %29, label %default.unreachable3 [
+  switch i32 %29, label %default.unreachable5 [
     i32 0, label %33
     i32 1, label %30
     i32 2, label %31
@@ -7462,7 +7462,7 @@ define internal fastcc range(i32 0, 858993460) i32 @skl_ddi_wrpll_get_freq(ptr n
 32:                                               ; preds = %26
   br label %33
 
-default.unreachable3:                             ; preds = %26
+default.unreachable5:                             ; preds = %26
   unreachable
 
 33:                                               ; preds = %32, %31, %30, %26
@@ -8087,9 +8087,9 @@ define internal noundef range(i32 -22, 1) i32 @hsw_get_dpll(ptr noundef captures
   br i1 %53, label %.thread, label %54
 
 54:                                               ; preds = %51, %3
-  %.sink9 = phi i64 [ 3, %3 ], [ 4, %51 ]
+  %.sink12 = phi i64 [ 3, %3 ], [ 4, %51 ]
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 928
-  %56 = tail call fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %55, i64 noundef %.sink9)
+  %56 = tail call fastcc ptr @intel_find_shared_dpll(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %55, i64 noundef %.sink12)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.thread, label %.thread4
 

@@ -210,8 +210,8 @@ define dso_local i32 @ext4_ext_migrate(ptr noundef %0) local_unnamed_addr #0 ali
   %or.cond = select i1 %140, i1 %142, i1 false
   %143 = add i32 %131, 1
   %144 = icmp eq i32 %143, %130
-  %or.cond14 = select i1 %or.cond, i1 %144, i1 false
-  br i1 %or.cond14, label %.critedge, label %145
+  %or.cond26 = select i1 %or.cond, i1 %144, i1 false
+  br i1 %or.cond26, label %.critedge, label %145
 
 .critedge:                                        ; preds = %138
   store i64 %139, ptr %126, align 8
@@ -231,16 +231,16 @@ define dso_local i32 @ext4_ext_migrate(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %148, label %151, label %.loopexit
 
 .sink.split:                                      ; preds = %129, %.critedge
-  %.ph15 = phi i32 [ %130, %.critedge ], [ %131, %129 ]
-  %.ph16 = phi i64 [ %139, %.critedge ], [ %132, %129 ]
+  %.ph27 = phi i32 [ %130, %.critedge ], [ %131, %129 ]
+  %.ph28 = phi i64 [ %139, %.critedge ], [ %132, %129 ]
   %150 = add i32 %130, 1
   store i32 %150, ptr %128, align 8
   br label %151
 
 151:                                              ; preds = %.sink.split, %145
   %152 = phi i32 [ %149, %145 ], [ %150, %.sink.split ]
-  %153 = phi i32 [ %147, %145 ], [ %.ph15, %.sink.split ]
-  %154 = phi i64 [ %139, %145 ], [ %.ph16, %.sink.split ]
+  %153 = phi i32 [ %147, %145 ], [ %.ph27, %.sink.split ]
+  %154 = phi i64 [ %139, %145 ], [ %.ph28, %.sink.split ]
   %155 = phi i64 [ %139, %145 ], [ %133, %.sink.split ]
   %156 = add nuw nsw i64 %134, 1
   %157 = icmp eq i64 %156, 12

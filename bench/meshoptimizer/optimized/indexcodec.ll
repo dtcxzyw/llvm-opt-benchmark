@@ -171,7 +171,7 @@ _ZN7meshoptL13getVertexFifoEPjjm.exit:            ; preds = %81, %.split.loop.ex
   br i1 %92, label %.thread, label %95
 
 .thread:                                          ; preds = %88
-  %spec.select.i.tr = trunc nuw i32 %spec.select.i to i8
+  %spec.select.i.tr = trunc nuw nsw i32 %spec.select.i to i8
   %93 = shl nuw i8 %spec.select.i.tr, 2
   %94 = or i8 %93, 14
   store i8 %94, ptr %.0186309, align 1, !tbaa !8
@@ -217,8 +217,8 @@ _ZN7meshoptL11encodeIndexERPhjj.exit:             ; preds = %.thread, %95
   br i1 %or.cond208, label %243, label %_ZN7meshoptL11encodeIndexERPhjj.exit.thread
 
 _ZN7meshoptL11encodeIndexERPhjj.exit.thread:      ; preds = %106, %_ZN7meshoptL11encodeIndexERPhjj.exit
-  %.3182334 = phi i32 [ %.3182, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %74, %106 ]
-  %.1332 = phi ptr [ %.0270307, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %111, %106 ]
+  %.3182338 = phi i32 [ %.3182, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %74, %106 ]
+  %.1336 = phi ptr [ %.0270307, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %111, %106 ]
   %114 = getelementptr inbounds nuw i32, ptr %6, i64 %.0276306
   store i32 %74, ptr %114, align 4, !tbaa !4
   %115 = add i64 %.0276306, 1
@@ -501,26 +501,26 @@ _ZN7meshoptL11encodeIndexERPhjj.exit249:          ; preds = %219, %_ZN7meshoptL1
   br label %243
 
 243:                                              ; preds = %_ZN7meshoptL11encodeIndexERPhjj.exit.thread, %_ZN7meshoptL11encodeIndexERPhjj.exit, %238
-  %.sink360 = phi i64 [ %242, %238 ], [ %.0281305, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.0281305, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
-  %.sink358 = phi i32 [ %135, %238 ], [ %74, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %74, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
-  %.sink355 = phi i32 [ %130, %238 ], [ %69, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %69, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
-  %.sink354 = phi i64 [ 2, %238 ], [ 1, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ 1, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
-  %.sink350 = phi i32 [ %125, %238 ], [ %64, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %64, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
+  %.sink364 = phi i64 [ %242, %238 ], [ %.0281305, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.0281305, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
+  %.sink362 = phi i32 [ %135, %238 ], [ %74, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %74, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
+  %.sink359 = phi i32 [ %130, %238 ], [ %69, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %69, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
+  %.sink358 = phi i64 [ 2, %238 ], [ 1, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ 1, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
+  %.sink354 = phi i32 [ %125, %238 ], [ %64, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %64, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
   %.sink = phi i64 [ 3, %238 ], [ 2, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ 2, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
   %.2278 = phi i64 [ %.4280, %238 ], [ %.0276306, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %116, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
-  %.2271 = phi ptr [ %.6274, %238 ], [ %.0270307, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.1332, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
-  %.4183 = phi i32 [ %.7, %238 ], [ %.3182, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.3182334, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
+  %.2271 = phi ptr [ %.6274, %238 ], [ %.0270307, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.1336, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
+  %.4183 = phi i32 [ %.7, %238 ], [ %.3182, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.3182338, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
   %.2178 = phi i32 [ %.6, %238 ], [ %.1177, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.1177, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
-  %244 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %.sink360
-  store i32 %.sink358, ptr %244, align 8, !tbaa !4
-  %245 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %.sink360, i64 1
-  store i32 %.sink355, ptr %245, align 4, !tbaa !4
-  %246 = add nuw nsw i64 %.0281305, %.sink354
+  %244 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %.sink364
+  store i32 %.sink362, ptr %244, align 8, !tbaa !4
+  %245 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %.sink364, i64 1
+  store i32 %.sink359, ptr %245, align 4, !tbaa !4
+  %246 = add nuw nsw i64 %.0281305, %.sink358
   %247 = and i64 %246, 15
   %248 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %247
-  store i32 %.sink350, ptr %248, align 8, !tbaa !4
+  store i32 %.sink354, ptr %248, align 8, !tbaa !4
   %249 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %247, i64 1
-  store i32 %.sink358, ptr %249, align 4, !tbaa !4
+  store i32 %.sink362, ptr %249, align 4, !tbaa !4
   %250 = add nuw nsw i64 %.0281305, %.sink
   %.1282 = and i64 %250, 15
   %.1187 = getelementptr inbounds nuw i8, ptr %.0186309, i64 1
@@ -739,7 +739,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit:         ; preds = %56, %63
 
 71:                                               ; preds = %70
   %72 = xor i32 %43, -4
-  %.neg239 = add nsw i32 %72, 1
+  %.neg239 = add nuw nsw i32 %72, 1
   %73 = add i32 %43, %.0143237
   %74 = add i32 %73, %.neg239
   br label %99
@@ -1135,26 +1135,26 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit185:      ; preds = %275, %282
   br label %302
 
 302:                                              ; preds = %_ZN7meshoptL13writeTriangleEPvmmjjj.exit, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185
-  %.0220231.sink265 = phi i64 [ %.0220231, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %.0220231, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %167, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %301, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
-  %.sink263 = phi i32 [ %53, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %100, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %140, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.0, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
-  %.sink261 = phi i32 [ %42, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %42, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %131, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.0135, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
-  %.sink260 = phi i64 [ 1, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ 1, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ 2, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ 2, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
-  %.sink256 = phi i32 [ %40, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %40, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %.0139238, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.0136, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
+  %.0220231.sink277 = phi i64 [ %.0220231, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %.0220231, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %167, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %301, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
+  %.sink275 = phi i32 [ %53, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %100, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %140, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.0, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
+  %.sink273 = phi i32 [ %42, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %42, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %131, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.0135, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
+  %.sink272 = phi i64 [ 1, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ 1, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ 2, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ 2, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
+  %.sink268 = phi i32 [ %40, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %40, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %.0139238, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.0136, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
   %.sink = phi i64 [ 2, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ 2, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ 3, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ 3, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
   %.1219.in = phi i64 [ %69, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %113, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %163, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %297, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
   %.2 = phi ptr [ %.0213233, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %.1, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %.0213233, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.5216, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
   %.2145 = phi i32 [ %.0143237, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %100, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %.0143237, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.5148, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
   %.2141 = phi i32 [ %55, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %.0139238, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %142, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.6, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
-  %303 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %.0220231.sink265
-  store i32 %.sink263, ptr %303, align 8, !tbaa !4
-  %304 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %.0220231.sink265, i64 1
-  store i32 %.sink261, ptr %304, align 4, !tbaa !4
-  %305 = add nuw nsw i64 %.0220231, %.sink260
+  %303 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %.0220231.sink277
+  store i32 %.sink275, ptr %303, align 8, !tbaa !4
+  %304 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %.0220231.sink277, i64 1
+  store i32 %.sink273, ptr %304, align 4, !tbaa !4
+  %305 = add nuw nsw i64 %.0220231, %.sink272
   %306 = and i64 %305, 15
   %307 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %306
-  store i32 %.sink256, ptr %307, align 8, !tbaa !4
+  store i32 %.sink268, ptr %307, align 8, !tbaa !4
   %308 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %306, i64 1
-  store i32 %.sink263, ptr %308, align 4, !tbaa !4
+  store i32 %.sink275, ptr %308, align 4, !tbaa !4
   %309 = add nuw nsw i64 %.0220231, %.sink
   %.1219 = and i64 %.1219.in, 15
   %.1221 = and i64 %309, 15

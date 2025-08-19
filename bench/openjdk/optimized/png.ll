@@ -1331,8 +1331,8 @@ define hidden void @png_colorspace_set_gamma(ptr noalias noundef %0, ptr noalias
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   %9 = and i16 %.pre, 8
   %.not15 = icmp eq i16 %9, 0
-  %or.cond24 = select i1 %.not, i1 true, i1 %.not15
-  br i1 %or.cond24, label %._crit_edge, label %33
+  %or.cond27 = select i1 %.not, i1 true, i1 %.not15
+  br i1 %or.cond27, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 74
@@ -1448,8 +1448,8 @@ define hidden void @png_colorspace_sync_info(ptr noalias noundef %0, ptr noalias
   %25 = or disjoint i32 %22, %masksel
   %26 = shl nuw i16 %4, 1
   %27 = and i16 %26, 4
-  %masksel16 = zext nneg i16 %27 to i32
-  %28 = or disjoint i32 %25, %masksel16
+  %masksel17 = zext nneg i16 %27 to i32
+  %28 = or disjoint i32 %25, %masksel17
   %29 = and i16 %4, 1
   %.not15 = icmp eq i16 %29, 0
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3846,13 +3846,13 @@ png_muldiv.exit55:                                ; preds = %35, %46
   %or.cond3.i57 = and i1 %59, %60
   %61 = fptosi double %58 to i32
   %62 = icmp ult i32 %61, 32769
-  %or.cond102 = select i1 %or.cond3.i57, i1 %62, i1 false
-  br i1 %or.cond102, label %png_muldiv.exit61.thread, label %png_muldiv.exit.thread
+  %or.cond109 = select i1 %or.cond3.i57, i1 %62, i1 false
+  br i1 %or.cond109, label %png_muldiv.exit61.thread, label %png_muldiv.exit.thread
 
 png_muldiv.exit61.thread:                         ; preds = %52, %50
-  %.1100 = phi i32 [ 0, %50 ], [ %61, %52 ]
+  %.1107 = phi i32 [ 0, %50 ], [ %61, %52 ]
   %63 = add nuw nsw i32 %.182, %.184
-  %64 = add nuw nsw i32 %63, %.1100
+  %64 = add nuw nsw i32 %63, %.1107
   %65 = icmp samesign ult i32 %64, 32770
   br i1 %65, label %66, label %png_muldiv.exit.thread
 
@@ -3867,7 +3867,7 @@ png_muldiv.exit61.thread:                         ; preds = %52, %50
 .thread:                                          ; preds = %66, %68
   %.098 = phi i32 [ 1, %68 ], [ -1, %66 ]
   %.not42 = icmp samesign ult i32 %.182, %.184
-  %.not43 = icmp samesign ult i32 %.182, %.1100
+  %.not43 = icmp samesign ult i32 %.182, %.1107
   %or.cond48 = select i1 %.not42, i1 true, i1 %.not43
   br i1 %or.cond48, label %72, label %70
 
@@ -3877,7 +3877,7 @@ png_muldiv.exit61.thread:                         ; preds = %52, %50
 
 72:                                               ; preds = %.thread
   %.not44 = icmp samesign ult i32 %.184, %.182
-  %.not45 = icmp samesign ult i32 %.184, %.1100
+  %.not45 = icmp samesign ult i32 %.184, %.1107
   %or.cond49 = select i1 %.not44, i1 true, i1 %.not45
   br i1 %or.cond49, label %75, label %73
 
@@ -3886,13 +3886,13 @@ png_muldiv.exit61.thread:                         ; preds = %52, %50
   br label %77
 
 75:                                               ; preds = %72
-  %76 = add nsw i32 %.098, %.1100
+  %76 = add nsw i32 %.098, %.1107
   br label %77
 
 77:                                               ; preds = %70, %75, %73, %68
   %.083 = phi i32 [ %.184, %68 ], [ %.184, %75 ], [ %74, %73 ], [ %.184, %70 ]
   %.081 = phi i32 [ %.182, %68 ], [ %.182, %75 ], [ %.182, %73 ], [ %71, %70 ]
-  %.080 = phi i32 [ %.1100, %68 ], [ %76, %75 ], [ %.1100, %73 ], [ %.1100, %70 ]
+  %.080 = phi i32 [ %.1107, %68 ], [ %76, %75 ], [ %.1107, %73 ], [ %.1107, %70 ]
   %78 = add nsw i32 %.081, %.083
   %79 = add nsw i32 %78, %.080
   %.not46 = icmp eq i32 %79, 32768
@@ -3985,19 +3985,19 @@ define hidden void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 n
 17:                                               ; preds = %16, %12
   %.3 = phi i32 [ 1, %16 ], [ %.1, %12 ]
   %18 = icmp eq i32 %2, 0
-  br i1 %18, label %.sink.split92, label %19
+  br i1 %18, label %.sink.split95, label %19
 
 19:                                               ; preds = %17
   %20 = icmp slt i32 %2, 0
-  br i1 %20, label %.sink.split92, label %21
+  br i1 %20, label %.sink.split95, label %21
 
-.sink.split92:                                    ; preds = %19, %17
+.sink.split95:                                    ; preds = %19, %17
   %.str.53.sink = phi ptr [ @.str.53, %17 ], [ @.str.54, %19 ]
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull %.str.53.sink) #30
   br label %21
 
-21:                                               ; preds = %.sink.split92, %19
-  %.5 = phi i32 [ %.3, %19 ], [ 1, %.sink.split92 ]
+21:                                               ; preds = %.sink.split95, %19
+  %.5 = phi i32 [ %.3, %19 ], [ 1, %.sink.split95 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %23 = load i32, ptr %22, align 8
   %24 = icmp ugt i32 %2, %23
@@ -4090,7 +4090,7 @@ define hidden void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 n
 
 54:                                               ; preds = %53, %50, %46
   %.not79 = icmp eq i32 %7, 0
-  br i1 %.not79, label %.thread87, label %55
+  br i1 %.not79, label %.thread90, label %55
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -4107,28 +4107,28 @@ define hidden void @png_check_IHDR(ptr noalias noundef %0, i32 noundef %1, i32 n
   %64 = icmp eq i32 %63, 0
   %or.cond25 = icmp eq i32 %29, 2
   %or.cond = and i1 %or.cond25, %64
-  br i1 %or.cond, label %.thread87, label %65
+  br i1 %or.cond, label %.thread90, label %65
 
 65:                                               ; preds = %55, %61
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.62) #30
   %.pre = load i32, ptr %47, align 4
   %.pre86 = and i32 %.pre, 4096
   %66 = icmp eq i32 %.pre86, 0
-  br i1 %66, label %.thread90, label %.thread84
+  br i1 %66, label %.thread93, label %.thread84
 
 .thread84:                                        ; preds = %65
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.63) #30
-  br label %.thread90
+  br label %.thread93
 
-.thread87:                                        ; preds = %61, %54
+.thread90:                                        ; preds = %61, %54
   %67 = icmp eq i32 %.11, 1
-  br i1 %67, label %.thread90, label %68
+  br i1 %67, label %.thread93, label %68
 
-.thread90:                                        ; preds = %65, %.thread84, %.thread87
+.thread93:                                        ; preds = %65, %.thread84, %.thread90
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.64) #28
   unreachable
 
-68:                                               ; preds = %.thread87
+68:                                               ; preds = %.thread90
   ret void
 }
 
@@ -4473,16 +4473,16 @@ png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.t
   %.1129.lcssa = phi double [ %58, %png_pow10.exit165._crit_edge ], [ %61, %.lr.ph196 ]
   %or.cond3 = icmp ugt i32 %.lcssa193, -3
   %64 = sub nsw i32 0, %.lcssa193
-  %spec.select294 = select i1 %or.cond3, i32 0, i32 %.lcssa193
-  %spec.select295 = select i1 %or.cond3, i32 %64, i32 0
-  store i32 %spec.select294, ptr %6, align 4
+  %spec.select312 = select i1 %or.cond3, i32 0, i32 %.lcssa193
+  %spec.select313 = select i1 %or.cond3, i32 %64, i32 0
+  store i32 %spec.select312, ptr %6, align 4
   br label %65
 
 65:                                               ; preds = %144, %._crit_edge197
   %.2130 = phi double [ %.1129.lcssa, %._crit_edge197 ], [ %.3131177, %144 ]
   %.1114 = phi i64 [ %.0113, %._crit_edge197 ], [ %.12125, %144 ]
-  %.1108 = phi i32 [ %spec.select295, %._crit_edge197 ], [ %.5112, %144 ]
-  %.0103 = phi i32 [ %spec.select295, %._crit_edge197 ], [ %.3106, %144 ]
+  %.1108 = phi i32 [ %spec.select313, %._crit_edge197 ], [ %.5112, %144 ]
+  %.0103 = phi i32 [ %spec.select313, %._crit_edge197 ], [ %.3106, %144 ]
   %.096 = phi i32 [ 0, %._crit_edge197 ], [ %.4100, %144 ]
   %.194 = phi ptr [ %.093, %._crit_edge197 ], [ %.12, %144 ]
   %66 = fmul double %.2130, 1.000000e+01
@@ -4510,8 +4510,8 @@ png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.t
 
 .preheader186:                                    ; preds = %77
   %.promoted200 = load i32, ptr %6, align 4
-  %.not247 = icmp eq i32 %.096, 0
-  br i1 %.not247, label %._crit_edge205.thread, label %.lr.ph204
+  %.not265 = icmp eq i32 %.096, 0
+  br i1 %.not265, label %._crit_edge205.thread, label %.lr.ph204
 
 78:                                               ; preds = %77
   %79 = add i32 %.1108, -1
@@ -4574,21 +4574,21 @@ png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.t
   br i1 %101, label %._crit_edge205.thread, label %thread-pre-split
 
 ._crit_edge205.thread:                            ; preds = %.preheader186, %._crit_edge205
-  %.4.lcssa257 = phi ptr [ %.5, %._crit_edge205 ], [ %.194, %.preheader186 ]
-  %.399.lcssa256 = phi i32 [ %97, %._crit_edge205 ], [ 0, %.preheader186 ]
-  %.4117.lcssa255 = phi i64 [ %.5118, %._crit_edge205 ], [ %.1114, %.preheader186 ]
+  %.4.lcssa275 = phi ptr [ %.5, %._crit_edge205 ], [ %.194, %.preheader186 ]
+  %.399.lcssa274 = phi i32 [ %97, %._crit_edge205 ], [ 0, %.preheader186 ]
+  %.4117.lcssa273 = phi i64 [ %.5118, %._crit_edge205 ], [ %.1114, %.preheader186 ]
   %103 = phi i32 [ %95, %._crit_edge205 ], [ %.promoted200, %.preheader186 ]
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %._crit_edge205.thread
-  %106 = getelementptr inbounds i8, ptr %.4.lcssa257, i64 -1
+  %106 = getelementptr inbounds i8, ptr %.4.lcssa275, i64 -1
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %107, 46
   br i1 %108, label %109, label %.thread.thread
 
 109:                                              ; preds = %105
-  %110 = add i64 %.4117.lcssa255, 1
+  %110 = add i64 %.4117.lcssa273, 1
   br label %.thread.thread.sink.split
 
 111:                                              ; preds = %._crit_edge205.thread
@@ -4596,14 +4596,14 @@ png_pow10.exit165._crit_edge:                     ; preds = %png_pow10.exit165.t
   br label %.thread.thread.sink.split
 
 .thread.thread.sink.split:                        ; preds = %109, %111
-  %.sink283 = phi i32 [ %112, %111 ], [ 1, %109 ]
-  %.6119.ph = phi i64 [ %.4117.lcssa255, %111 ], [ %110, %109 ]
-  %.6.ph = phi ptr [ %.4.lcssa257, %111 ], [ %106, %109 ]
-  store i32 %.sink283, ptr %6, align 4
+  %.sink301 = phi i32 [ %112, %111 ], [ 1, %109 ]
+  %.6119.ph = phi i64 [ %.4117.lcssa273, %111 ], [ %110, %109 ]
+  %.6.ph = phi ptr [ %.4.lcssa275, %111 ], [ %106, %109 ]
+  store i32 %.sink301, ptr %6, align 4
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread.thread.sink.split, %105
-  %.6119 = phi i64 [ %.4117.lcssa255, %105 ], [ %.6119.ph, %.thread.thread.sink.split ]
+  %.6119 = phi i64 [ %.4117.lcssa273, %105 ], [ %.6119.ph, %.thread.thread.sink.split ]
   %.6 = phi ptr [ %106, %105 ], [ %.6.ph, %.thread.thread.sink.split ]
   store double 1.000000e+00, ptr %8, align 8
   br label %._crit_edge215
@@ -4668,10 +4668,10 @@ thread-pre-split:                                 ; preds = %._crit_edge205, %71
   br i1 %.not145, label %._crit_edge215, label %.lr.ph214, !llvm.loop !66
 
 ._crit_edge215:                                   ; preds = %125, %.thread.thread, %.thread
-  %.3131178268 = phi double [ %.3131178, %.thread ], [ 0.000000e+00, %.thread.thread ], [ %.3131178, %125 ]
-  %.2109180267 = phi i32 [ 0, %.thread ], [ 0, %.thread.thread ], [ %.2109180, %125 ]
-  %.1104181266 = phi i32 [ %.1104181, %.thread ], [ %.0103, %.thread.thread ], [ %.1104181, %125 ]
-  %.197182265 = phi i32 [ %.197182, %.thread ], [ %.399.lcssa256, %.thread.thread ], [ %.197182, %125 ]
+  %.3131178286 = phi double [ %.3131178, %.thread ], [ 0.000000e+00, %.thread.thread ], [ %.3131178, %125 ]
+  %.2109180285 = phi i32 [ 0, %.thread ], [ 0, %.thread.thread ], [ %.2109180, %125 ]
+  %.1104181284 = phi i32 [ %.1104181, %.thread ], [ %.0103, %.thread.thread ], [ %.1104181, %125 ]
+  %.197182283 = phi i32 [ %.197182, %.thread ], [ %.399.lcssa274, %.thread.thread ], [ %.197182, %125 ]
   %.7120.lcssa = phi i64 [ %.2115179, %.thread ], [ %.6119, %.thread.thread ], [ %.8121, %125 ]
   %.7.lcssa = phi ptr [ %.2183, %.thread ], [ %.6, %.thread.thread ], [ %126, %125 ]
   %128 = load i32, ptr %6, align 4
@@ -4704,13 +4704,13 @@ thread-pre-split:                                 ; preds = %._crit_edge205, %71
   %139 = add i8 %138, 48
   %140 = getelementptr inbounds nuw i8, ptr %.10, i64 1
   store i8 %139, ptr %.10, align 1
-  %141 = add i32 %.197182265, 1
-  %142 = sub i32 %141, %.1104181266
-  %143 = add i32 %142, %.2109180267
+  %141 = add i32 %.197182283, 1
+  %142 = sub i32 %141, %.1104181284
+  %143 = add i32 %142, %.2109180285
   br label %144
 
 144:                                              ; preds = %115, %135
-  %.3131177 = phi double [ %.3131178268, %135 ], [ %.3131, %115 ]
+  %.3131177 = phi double [ %.3131178286, %135 ], [ %.3131, %115 ]
   %.12125 = phi i64 [ %.10123, %135 ], [ %.2115, %115 ]
   %.5112 = phi i32 [ 0, %135 ], [ %67, %115 ]
   %.3106 = phi i32 [ 0, %135 ], [ %spec.select151, %115 ]
@@ -4795,8 +4795,8 @@ thread-pre-split:                                 ; preds = %._crit_edge205, %71
   br i1 %179, label %.preheader185, label %190
 
 ._crit_edge223.thread:                            ; preds = %170
-  %.not284 = icmp eq i64 %.13126, 0
-  br i1 %.not284, label %190, label %._crit_edge229
+  %.not302 = icmp eq i64 %.13126, 0
+  br i1 %.not302, label %190, label %._crit_edge229
 
 .preheader185:                                    ; preds = %._crit_edge223
   %.not149225 = icmp eq i32 %174, 0
@@ -4876,17 +4876,17 @@ define hidden void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef wri
   br i1 %.not46, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %11
-  %.03377 = phi ptr [ %9, %.thread ], [ %1, %11 ]
-  %.03976 = phi i32 [ %10, %.thread ], [ %3, %11 ]
+  %.03378 = phi ptr [ %9, %.thread ], [ %1, %11 ]
+  %.03977 = phi i32 [ %10, %.thread ], [ %3, %11 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.03449 = phi i32 [ %spec.select, %.lr.ph ], [ 16, %.lr.ph.preheader ]
   %.03648 = phi i32 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.14047 = phi i32 [ %12, %.lr.ph ], [ %.03976, %.lr.ph.preheader ]
+  %.14047 = phi i32 [ %12, %.lr.ph ], [ %.03977, %.lr.ph.preheader ]
   %12 = udiv i32 %.14047, 10
-  %.neg = mul i32 %12, -10
-  %13 = add i32 %.neg, %.14047
+  %.neg = mul nsw i32 %12, -10
+  %13 = add nsw i32 %.neg, %.14047
   %14 = trunc i32 %13 to i8
   %15 = add i8 %14, 48
   %16 = add i32 %.03648, 1
@@ -4914,7 +4914,7 @@ define hidden void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef wri
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
   %indvars.iv = phi i64 [ %22, %.lr.ph53.preheader ], [ %23, %.lr.ph53 ]
-  %.152 = phi ptr [ %.03377, %.lr.ph53.preheader ], [ %26, %.lr.ph53 ]
+  %.152 = phi ptr [ %.03378, %.lr.ph53.preheader ], [ %26, %.lr.ph53 ]
   %23 = add nsw i64 %indvars.iv, -1
   %24 = getelementptr inbounds nuw [10 x i8], ptr %5, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
@@ -4925,7 +4925,7 @@ define hidden void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef wri
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %.preheader45
   %.137.lcssa = phi i32 [ %16, %.preheader45 ], [ 5, %.lr.ph53 ]
-  %.1.lcssa = phi ptr [ %.03377, %.preheader45 ], [ %26, %.lr.ph53 ]
+  %.1.lcssa = phi ptr [ %.03378, %.preheader45 ], [ %26, %.lr.ph53 ]
   %27 = icmp ult i32 %spec.select, 6
   br i1 %27, label %28, label %.loopexit
 
@@ -4962,9 +4962,9 @@ define hidden void @png_ascii_from_fixed(ptr noalias noundef %0, ptr noundef wri
   br i1 %.not44, label %.loopexit, label %.lr.ph66, !llvm.loop !73
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
-  %.0337883 = phi ptr [ %.03377, %._crit_edge ], [ %1, %11 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.0337883, i64 1
-  store i8 48, ptr %.0337883, align 1
+  %.0337984 = phi ptr [ %.03378, %._crit_edge ], [ %1, %11 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.0337984, i64 1
+  store i8 48, ptr %.0337984, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph66, %.preheader, %._crit_edge54, %._crit_edge.thread

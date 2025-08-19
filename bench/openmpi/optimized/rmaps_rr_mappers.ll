@@ -297,23 +297,23 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .lr.ph.preheader:                                 ; preds = %131
   %134 = load i32, ptr %20, align 8, !tbaa !26
   %135 = icmp slt i32 %.1144243, %134
-  br i1 %135, label %.lr.ph285, label %.critedge
+  br i1 %135, label %.lr.ph306, label %.critedge
 
 .lr.ph:                                           ; preds = %212
   %136 = load i32, ptr %20, align 8, !tbaa !26
   %137 = icmp slt i32 %142, %136
-  br i1 %137, label %.lr.ph285, label %.critedge, !llvm.loop !59
+  br i1 %137, label %.lr.ph306, label %.critedge, !llvm.loop !59
 
-.lr.ph285:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.3146227284 = phi i32 [ %142, %.lr.ph ], [ %.1144243, %.lr.ph.preheader ]
-  %.0139229283 = phi i32 [ %213, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph306:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.3146227305 = phi i32 [ %142, %.lr.ph ], [ %.1144243, %.lr.ph.preheader ]
+  %.0139229304 = phi i32 [ %213, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %138 = load i32, ptr %59, align 8, !tbaa !61
   %139 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %138, ptr noundef nonnull %.0157240, ptr noundef null, ptr noundef nonnull %5) #9
   %140 = icmp eq ptr %139, null
   br i1 %140, label %.critedge, label %141
 
-141:                                              ; preds = %.lr.ph285
-  %142 = add nsw i32 %.3146227284, 1
+141:                                              ; preds = %.lr.ph306
+  %142 = add nsw i32 %.3146227305, 1
   %143 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0157240, ptr noundef nonnull %5) #9
   %144 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %139) #9
   %145 = icmp eq i32 %144, 35
@@ -479,17 +479,17 @@ pmix_obj_run_destructors.exit200:                 ; preds = %.lr.ph.i197, %198
   br label %212
 
 212:                                              ; preds = %209, %211, %pmix_obj_update.exit188
-  %213 = add nuw nsw i32 %.0139229283, 1
+  %213 = add nuw nsw i32 %.0139229304, 1
   %214 = load i32, ptr %56, align 8, !tbaa !54
   %215 = icmp slt i32 %213, %214
-  br i1 %215, label %.lr.ph, label %..critedge.loopexit_crit_edge287, !llvm.loop !59
+  br i1 %215, label %.lr.ph, label %..critedge.loopexit_crit_edge308, !llvm.loop !59
 
-..critedge.loopexit_crit_edge287:                 ; preds = %212
+..critedge.loopexit_crit_edge308:                 ; preds = %212
   br label %.critedge, !llvm.loop !59
 
-.critedge:                                        ; preds = %.lr.ph285, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge287, %131, %pmix_obj_update.exit, %167, %165
-  %.4147 = phi i32 [ %142, %165 ], [ %142, %167 ], [ %142, %pmix_obj_update.exit ], [ %.1144243, %131 ], [ %142, %..critedge.loopexit_crit_edge287 ], [ %.1144243, %.lr.ph.preheader ], [ %142, %.lr.ph ], [ %.3146227284, %.lr.ph285 ]
-  %.6 = phi i32 [ -46, %165 ], [ -46, %167 ], [ -46, %pmix_obj_update.exit ], [ %.2, %131 ], [ 0, %..critedge.loopexit_crit_edge287 ], [ %.2, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ -43, %.lr.ph285 ]
+.critedge:                                        ; preds = %.lr.ph306, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge308, %131, %pmix_obj_update.exit, %167, %165
+  %.4147 = phi i32 [ %142, %165 ], [ %142, %167 ], [ %142, %pmix_obj_update.exit ], [ %.1144243, %131 ], [ %142, %..critedge.loopexit_crit_edge308 ], [ %.1144243, %.lr.ph.preheader ], [ %142, %.lr.ph ], [ %.3146227305, %.lr.ph306 ]
+  %.6 = phi i32 [ -46, %165 ], [ -46, %167 ], [ -46, %pmix_obj_update.exit ], [ %.2, %131 ], [ 0, %..critedge.loopexit_crit_edge308 ], [ %.2, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ -43, %.lr.ph306 ]
   %216 = load i32, ptr %20, align 8, !tbaa !26
   %217 = icmp eq i32 %.4147, %216
   br i1 %217, label %.loopexit, label %218
@@ -815,23 +815,23 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bynode(ptr noundef %0, ptr noundef %
 .lr.ph.preheader:                                 ; preds = %107
   %110 = load i32, ptr %22, align 8, !tbaa !26
   %111 = icmp slt i32 %.1120193, %110
-  br i1 %111, label %.lr.ph226, label %.critedge
+  br i1 %111, label %.lr.ph245, label %.critedge
 
 .lr.ph:                                           ; preds = %188
   %112 = load i32, ptr %22, align 8, !tbaa !26
   %113 = icmp slt i32 %118, %112
-  br i1 %113, label %.lr.ph226, label %.critedge, !llvm.loop !73
+  br i1 %113, label %.lr.ph245, label %.critedge, !llvm.loop !73
 
-.lr.ph226:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.3122180225 = phi i32 [ %118, %.lr.ph ], [ %.1120193, %.lr.ph.preheader ]
-  %.0114181224 = phi i32 [ %189, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph245:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.3122180244 = phi i32 [ %118, %.lr.ph ], [ %.1120193, %.lr.ph.preheader ]
+  %.0114181243 = phi i32 [ %189, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %114 = load i32, ptr %60, align 8, !tbaa !61
   %115 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %114, ptr noundef nonnull %.0118194, ptr noundef null, ptr noundef nonnull %5) #9
   %116 = icmp eq ptr %115, null
   br i1 %116, label %.critedge, label %117
 
-117:                                              ; preds = %.lr.ph226
-  %118 = add nsw i32 %.3122180225, 1
+117:                                              ; preds = %.lr.ph245
+  %118 = add nsw i32 %.3122180244, 1
   %119 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0118194, ptr noundef nonnull %5) #9
   %120 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %115) #9
   %121 = icmp eq i32 %120, 35
@@ -997,17 +997,17 @@ pmix_obj_run_destructors.exit158:                 ; preds = %.lr.ph.i155, %174
   br label %188
 
 188:                                              ; preds = %185, %187, %pmix_obj_update.exit
-  %189 = add nuw nsw i32 %.0114181224, 1
+  %189 = add nuw nsw i32 %.0114181243, 1
   %190 = load i32, ptr %55, align 8, !tbaa !54
   %191 = icmp slt i32 %189, %190
-  br i1 %191, label %.lr.ph, label %..critedge.loopexit_crit_edge228, !llvm.loop !73
+  br i1 %191, label %.lr.ph, label %..critedge.loopexit_crit_edge247, !llvm.loop !73
 
-..critedge.loopexit_crit_edge228:                 ; preds = %188
+..critedge.loopexit_crit_edge247:                 ; preds = %188
   br label %.critedge, !llvm.loop !73
 
-.critedge:                                        ; preds = %.lr.ph226, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge228, %107, %pmix_obj_update.exit146, %143, %141
-  %.4123 = phi i32 [ %118, %141 ], [ %118, %143 ], [ %118, %pmix_obj_update.exit146 ], [ %.1120193, %107 ], [ %118, %..critedge.loopexit_crit_edge228 ], [ %.1120193, %.lr.ph.preheader ], [ %118, %.lr.ph ], [ %.3122180225, %.lr.ph226 ]
-  %.4 = phi i32 [ -46, %141 ], [ -46, %143 ], [ -46, %pmix_obj_update.exit146 ], [ %.1195, %107 ], [ 0, %..critedge.loopexit_crit_edge228 ], [ %.1195, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ -43, %.lr.ph226 ]
+.critedge:                                        ; preds = %.lr.ph245, %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge247, %107, %pmix_obj_update.exit146, %143, %141
+  %.4123 = phi i32 [ %118, %141 ], [ %118, %143 ], [ %118, %pmix_obj_update.exit146 ], [ %.1120193, %107 ], [ %118, %..critedge.loopexit_crit_edge247 ], [ %.1120193, %.lr.ph.preheader ], [ %118, %.lr.ph ], [ %.3122180244, %.lr.ph245 ]
+  %.4 = phi i32 [ -46, %141 ], [ -46, %143 ], [ -46, %pmix_obj_update.exit146 ], [ %.1195, %107 ], [ 0, %..critedge.loopexit_crit_edge247 ], [ %.1195, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ -43, %.lr.ph245 ]
   %192 = load i32, ptr %22, align 8, !tbaa !26
   %193 = icmp eq i32 %.4123, %192
   br i1 %193, label %.loopexit, label %194
@@ -1351,23 +1351,23 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
 .lr.ph.preheader:                                 ; preds = %142
   %145 = load i32, ptr %22, align 8, !tbaa !26
   %146 = icmp slt i32 %.1161279, %145
-  br i1 %146, label %.lr.ph330, label %.critedge
+  br i1 %146, label %.lr.ph355, label %.critedge
 
 .lr.ph:                                           ; preds = %223
   %147 = load i32, ptr %22, align 8, !tbaa !26
   %148 = icmp slt i32 %153, %147
-  br i1 %148, label %.lr.ph330, label %.critedge, !llvm.loop !78
+  br i1 %148, label %.lr.ph355, label %.critedge, !llvm.loop !78
 
-.lr.ph330:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.3163266329 = phi i32 [ %153, %.lr.ph ], [ %.1161279, %.lr.ph.preheader ]
-  %.0157268328 = phi i32 [ %224, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph355:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.3163266354 = phi i32 [ %153, %.lr.ph ], [ %.1161279, %.lr.ph.preheader ]
+  %.0157268353 = phi i32 [ %224, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %149 = load i32, ptr %68, align 8, !tbaa !61
   %150 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %149, ptr noundef nonnull %.0174276, ptr noundef null, ptr noundef nonnull %5) #9
   %151 = icmp eq ptr %150, null
   br i1 %151, label %.thread, label %152
 
-152:                                              ; preds = %.lr.ph330
-  %153 = add nsw i32 %.3163266329, 1
+152:                                              ; preds = %.lr.ph355
+  %153 = add nsw i32 %.3163266354, 1
   %154 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0174276, ptr noundef nonnull %5) #9
   %155 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %150) #9
   %156 = icmp eq i32 %155, 35
@@ -1533,7 +1533,7 @@ pmix_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %209
   br label %223
 
 223:                                              ; preds = %220, %222, %pmix_obj_update.exit
-  %224 = add nuw nsw i32 %.0157268328, 1
+  %224 = add nuw nsw i32 %.0157268353, 1
   %225 = load i32, ptr %62, align 8, !tbaa !54
   %226 = icmp slt i32 %224, %225
   br i1 %226, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !78
@@ -1681,7 +1681,7 @@ pmix_obj_run_destructors.exit228:                 ; preds = %.lr.ph.i225, %209
   %280 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef %278, i32 noundef %279, ptr noundef %59) #9
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph330, %.thread232, %.loopexit
+.thread:                                          ; preds = %.lr.ph355, %.thread232, %.loopexit
   %.not213 = icmp eq ptr %59, null
   br i1 %.not213, label %282, label %281
 
@@ -1801,8 +1801,8 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_byobj(ptr noundef %0, ptr noundef %1
 
 .split.preheader:                                 ; preds = %53
   %67 = load ptr, ptr %55, align 8, !tbaa !49
-  %.not199327405 = icmp eq ptr %67, %54
-  br i1 %.not199327405, label %.split338, label %.lr.ph
+  %.not199327428 = icmp eq ptr %67, %54
+  br i1 %.not199327428, label %.split338, label %.lr.ph
 
 .split:                                           ; preds = %._crit_edge
   %68 = load ptr, ptr %55, align 8, !tbaa !49

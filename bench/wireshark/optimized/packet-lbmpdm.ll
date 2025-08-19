@@ -1005,9 +1005,9 @@ switch.lookup:                                    ; preds = %383
   br label %389
 
 389:                                              ; preds = %383, %switch.lookup
-  %.sink292.i = phi i16 [ %switch.load, %switch.lookup ], [ 17, %383 ]
+  %.sink301.i = phi i16 [ %switch.load, %switch.lookup ], [ 17, %383 ]
   %390 = getelementptr inbounds nuw i8, ptr %.0.i281286.i, i64 20
-  store i16 %.sink292.i, ptr %390, align 4
+  store i16 %.sink301.i, ptr %390, align 4
   %391 = load i8, ptr %374, align 1
   %392 = icmp eq i8 %391, 1
   br i1 %392, label %393, label %410

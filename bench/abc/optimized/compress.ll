@@ -1739,7 +1739,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   %1167 = getelementptr inbounds [6 x [258 x i32]], ptr %453, i64 0, i64 %1161
   %1168 = sext i32 %.114702144.i to i64
   %smax2399.i = call i32 @llvm.smax.i32(i32 %.114702144.i, i32 %spec.select.i127)
-  %1169 = add i32 %smax2399.i, 1
+  %1169 = add nsw i32 %smax2399.i, 1
   br label %1473
 
 1170:                                             ; preds = %1159
@@ -2272,11 +2272,11 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br label %.thread.i
 
 .thread.i:                                        ; preds = %1528, %1526, %.preheader1968.i
-  %.01492.lcssa25412546.i = phi i32 [ %spec.select1524.i, %1528 ], [ %spec.select1524.i, %1526 ], [ 0, %.preheader1968.i ]
-  %.01488.lcssa25422545.i = phi i32 [ 0, %1528 ], [ %.11489.i, %1526 ], [ 32, %.preheader1968.i ]
+  %.01492.lcssa26232628.i = phi i32 [ %spec.select1524.i, %1528 ], [ %spec.select1524.i, %1526 ], [ 0, %.preheader1968.i ]
+  %.01488.lcssa26242627.i = phi i32 [ 0, %1528 ], [ %.11489.i, %1526 ], [ 32, %.preheader1968.i ]
   %1529 = getelementptr inbounds nuw [6 x [258 x i32]], ptr %1518, i64 0, i64 %indvars.iv2433.i
   %1530 = getelementptr inbounds nuw [6 x [258 x i8]], ptr %441, i64 0, i64 %indvars.iv2433.i
-  call void @BZ2_hbAssignCodes(ptr noundef nonnull %1529, ptr noundef nonnull %1530, i32 noundef %.01488.lcssa25422545.i, i32 noundef %.01492.lcssa25412546.i, i32 noundef %422) #10
+  call void @BZ2_hbAssignCodes(ptr noundef nonnull %1529, ptr noundef nonnull %1530, i32 noundef %.01488.lcssa26242627.i, i32 noundef %.01492.lcssa26232628.i, i32 noundef %422) #10
   %indvars.iv.next2434.i = add nuw nsw i64 %indvars.iv2433.i, 1
   %exitcond2437.not.i = icmp eq i64 %indvars.iv.next2434.i, %443
   br i1 %exitcond2437.not.i, label %1531, label %.preheader1968.i, !llvm.loop !57
@@ -2484,8 +2484,8 @@ bsW.exit1541.i:                                   ; preds = %.lr.ph.i1538.i, %15
 bsW.exit1548.i:                                   ; preds = %.lr.ph.i1545.i, %1612, %bsW.exit1541.i
   %.pre15.i15402496.i = phi i32 [ %.pre15.i15402494.i, %bsW.exit1541.i ], [ %.pre15.i1547.i, %1612 ], [ %1621, %.lr.ph.i1545.i ]
   %.pre16.i15362490.i = phi i32 [ %1611, %bsW.exit1541.i ], [ %.pre.i1546.i, %1612 ], [ %1623, %.lr.ph.i1545.i ]
-  %.in2535.i = phi i32 [ %.lcssa.i1537.i, %bsW.exit1541.i ], [ %1589, %1612 ], [ %1625, %.lr.ph.i1545.i ]
-  %1627 = add nsw i32 %.in2535.i, 1
+  %.in2617.i = phi i32 [ %.lcssa.i1537.i, %bsW.exit1541.i ], [ %1589, %1612 ], [ %1625, %.lr.ph.i1545.i ]
+  %1627 = add nsw i32 %.in2617.i, 1
   store i32 %.pre16.i15362490.i, ptr %114, align 8, !tbaa !12
   store i32 %1627, ptr %111, align 4, !tbaa !3
   %indvars.iv.next2451.i = add nuw nsw i64 %indvars.iv2450.i, 1

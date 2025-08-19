@@ -500,7 +500,7 @@ lean_alloc_small_object.exit.i:                   ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__1(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr noundef %7) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__1(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr noundef %7) local_unnamed_addr #1 {
   %.not305 = icmp eq i64 %2, %3
   br i1 %.not305, label %._crit_edge, label %.lr.ph
 
@@ -1395,7 +1395,7 @@ declare zeroext i8 @l_Lean_Syntax_isNone(ptr noundef) local_unnamed_addr #2
 declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) local_unnamed_addr #1 {
   %.not305 = icmp eq i64 %3, %4
   br i1 %.not305, label %._crit_edge, label %.lr.ph
 
@@ -2901,7 +2901,7 @@ lean_dec.exit:                                    ; preds = %15, %14, %12, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__4(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__4(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) local_unnamed_addr #1 {
   %.not305 = icmp eq i64 %3, %4
   br i1 %.not305, label %._crit_edge, label %.lr.ph
 
@@ -3784,7 +3784,7 @@ lean_dec.exit:                                    ; preds = %327, %331, %333, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr noundef %9) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr noundef %9) local_unnamed_addr #1 {
   %.not305 = icmp eq i64 %4, %5
   br i1 %.not305, label %._crit_edge, label %.lr.ph
 
@@ -9425,9 +9425,9 @@ lean_inc.exit567.thread:                          ; preds = %lean_inc.exit568.th
   %28 = load ptr, ptr @l_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___closed__4, align 8, !tbaa !4
   %29 = tail call zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef %0, ptr noundef %28) #4
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %lean_dec.exit540, label %.thread957
+  br i1 %30, label %lean_dec.exit540, label %.thread1069
 
-.thread957:                                       ; preds = %lean_inc.exit567.thread
+.thread1069:                                      ; preds = %lean_inc.exit567.thread
   %31 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
   br label %lean_dec.exit538
 
@@ -9510,8 +9510,8 @@ l_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___lambda__1.exit: ; preds = %l
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_dec.exit538
 
-lean_dec.exit538:                                 ; preds = %.thread957, %62, %61, %59
-  %63 = phi ptr [ %31, %.thread957 ], [ %56, %62 ], [ %56, %61 ], [ %56, %59 ]
+lean_dec.exit538:                                 ; preds = %.thread1069, %62, %61, %59
+  %63 = phi ptr [ %31, %.thread1069 ], [ %56, %62 ], [ %56, %61 ], [ %56, %59 ]
   %64 = tail call ptr @l_Lean_Syntax_getArgs(ptr noundef %63) #4
   %65 = ptrtoint ptr %63 to i64
   %66 = and i64 %65, 1
@@ -11979,7 +11979,7 @@ lean_dec.exit:                                    ; preds = %42, %41, %39, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %9, align 8, !tbaa !15
   %10 = ptrtoint ptr %2 to i64
@@ -12133,7 +12133,7 @@ lean_dec.exit:                                    ; preds = %65, %64, %62, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = getelementptr i8, ptr %3, i64 8
   %.val36 = load i64, ptr %10, align 8, !tbaa !15
   %11 = ptrtoint ptr %3 to i64
@@ -12341,7 +12341,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = getelementptr i8, ptr %3, i64 8
   %.val36 = load i64, ptr %10, align 8, !tbaa !15
   %11 = ptrtoint ptr %3 to i64
@@ -12519,7 +12519,7 @@ lean_dec.exit:                                    ; preds = %75, %74, %72, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__5___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__5___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 {
   %11 = getelementptr i8, ptr %4, i64 8
   %.val41 = load i64, ptr %11, align 8, !tbaa !15
   %12 = ptrtoint ptr %4 to i64
@@ -17010,9 +17010,9 @@ lean_inc.exit11903.thread:                        ; preds = %lean_inc.exit11904.
   %43 = load ptr, ptr @l_Lean_Elab_Command_expandMacroArg_mkSyntaxAndPat___closed__4, align 8, !tbaa !4
   %44 = tail call zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef %2, ptr noundef %43) #4
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %.thread19429, label %20282
+  br i1 %45, label %.thread20682, label %20282
 
-.thread19429:                                     ; preds = %lean_inc.exit11903.thread
+.thread20682:                                     ; preds = %lean_inc.exit11903.thread
   %46 = load ptr, ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_expandMacroArg_mkAntiquotNode___spec__1___closed__5, align 8, !tbaa !4
   %47 = tail call zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef %2, ptr noundef %46) #4
   %48 = icmp eq i8 %47, 0
@@ -17066,13 +17066,13 @@ lean_inc.exit11901:                               ; preds = %64, %63, %61
   %66 = icmp eq i8 %65, 0
   br i1 %66, label %71, label %5389
 
-lean_inc.exit11901.thread:                        ; preds = %.thread19429
+lean_inc.exit11901.thread:                        ; preds = %.thread20682
   %67 = load ptr, ptr @l_Lean_Elab_Command_expandMacroArg_mkSyntaxAndPat___closed__5, align 8, !tbaa !4
   %68 = tail call zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef %2, ptr noundef %67) #4
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %.thread19430, label %5389
+  br i1 %69, label %.thread20683, label %5389
 
-.thread19430:                                     ; preds = %lean_inc.exit11901.thread
+.thread20683:                                     ; preds = %lean_inc.exit11901.thread
   %70 = load ptr, ptr @l_Lean_Elab_Command_expandMacroArg_mkSyntaxAndPat___closed__7, align 8, !tbaa !4
   br label %lean_inc.exit11900
 
@@ -17095,9 +17095,9 @@ lean_inc.exit11901.thread:                        ; preds = %.thread19429
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %2) #4
   br label %lean_inc.exit11900
 
-lean_inc.exit11900:                               ; preds = %.thread19430, %77, %76, %74
-  %78 = phi ptr [ %70, %.thread19430 ], [ %72, %77 ], [ %72, %76 ], [ %72, %74 ]
-  %79 = phi ptr [ %46, %.thread19430 ], [ %50, %77 ], [ %50, %76 ], [ %50, %74 ]
+lean_inc.exit11900:                               ; preds = %.thread20683, %77, %76, %74
+  %78 = phi ptr [ %70, %.thread20683 ], [ %72, %77 ], [ %72, %76 ], [ %72, %74 ]
+  %79 = phi ptr [ %46, %.thread20683 ], [ %50, %77 ], [ %50, %76 ], [ %50, %74 ]
   %80 = tail call zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef %2, ptr noundef %78) #4
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %82, label %1106
@@ -42141,8 +42141,8 @@ lean_dec.exit10458:                               ; preds = %9664, %9663, %9661,
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %6444) #4
   br label %lean_dec.exit10693
 
-9673:                                             ; preds = %.thread19429, %lean_inc.exit11902
-  %9674 = phi ptr [ %46, %.thread19429 ], [ %50, %lean_inc.exit11902 ]
+9673:                                             ; preds = %.thread20682, %lean_inc.exit11902
+  %9674 = phi ptr [ %46, %.thread20682 ], [ %50, %lean_inc.exit11902 ]
   %9675 = ptrtoint ptr %15 to i64
   %9676 = and i64 %9675, 1
   %.not18107 = icmp eq i64 %9676, 0
@@ -78804,18 +78804,18 @@ _init_l_Lean_Elab_Command_expandMacroArg___closed__2.exit: ; preds = %_init_l_Le
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_Command_expandMacroArg___closed__2.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %191, %_init_l_Lean_Elab_Command_expandMacroArg___closed__2.exit ]
-  %194 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink18 = phi ptr [ %4, %3 ], [ %191, %_init_l_Lean_Elab_Command_expandMacroArg___closed__2.exit ]
+  %194 = getelementptr inbounds nuw i8, ptr %.sink18, i64 4
+  store i32 1, ptr %.sink18, align 4, !tbaa !8
   store i32 131096, ptr %194, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %195, align 8, !tbaa !4
-  %196 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %196, align 8, !tbaa !4
   br label %197
 
 197:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink18, %.sink.split ]
   ret ptr %.0
 }
 

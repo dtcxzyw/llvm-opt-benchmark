@@ -556,7 +556,7 @@ Saig_StrSimulateNode.exit:                        ; preds = %120, %116, %108, %1
   br i1 %brmerge, label %.critedge6, label %.lr.ph160
 
 .critedge4.thread:                                ; preds = %.critedge2.preheader
-  %.not185 = icmp eq i64 %indvars.iv179, 15
+  %.not188 = icmp eq i64 %indvars.iv179, 15
   br label %.critedge6
 
 .lr.ph160:                                        ; preds = %.critedge4
@@ -595,7 +595,7 @@ Saig_StrSimulateNode.exit:                        ; preds = %120, %116, %108, %1
   br i1 %166, label %148, label %.critedge6, !llvm.loop !47
 
 .critedge6:                                       ; preds = %148, %.critedge4, %.critedge4.thread
-  %.not188 = phi i1 [ %.not, %.critedge4 ], [ %.not185, %.critedge4.thread ], [ false, %148 ]
+  %.not191 = phi i1 [ %.not, %.critedge4 ], [ %.not188, %.critedge4.thread ], [ false, %148 ]
   %.val97161 = load i32, ptr %12, align 4, !tbaa !32
   %167 = icmp sgt i32 %.val97161, 0
   br i1 %167, label %.lr.ph163, label %.critedge8.preheader
@@ -746,8 +746,8 @@ Saig_StrSimulateNode.exit139:                     ; preds = %224, %220, %212, %2
 
 .critedge10:                                      ; preds = %.critedge8
   %249 = icmp slt i32 %.val112, 1
-  %brmerge196 = or i1 %.not188, %249
-  br i1 %brmerge196, label %.critedge12, label %.lr.ph169
+  %brmerge199 = or i1 %.not191, %249
+  br i1 %brmerge199, label %.critedge12, label %.lr.ph169
 
 .lr.ph169:                                        ; preds = %.critedge10
   %.val118 = load ptr, ptr %22, align 8, !tbaa !41
@@ -1910,13 +1910,13 @@ Aig_ObjRepr.exit108.thread:                       ; preds = %98, %94, %107, %105
   br i1 %exitcond124.not, label %.critedge2, label %94, !llvm.loop !72
 
 .critedge2:                                       ; preds = %Aig_ObjRepr.exit108.thread, %2
-  %.0.lcssa128 = phi i32 [ 0, %2 ], [ %.1, %Aig_ObjRepr.exit108.thread ]
-  %.057.lcssa127 = phi i32 [ 0, %2 ], [ %.158, %Aig_ObjRepr.exit108.thread ]
-  %111 = sitofp i32 %.0.lcssa128 to double
+  %.0.lcssa131 = phi i32 [ 0, %2 ], [ %.1, %Aig_ObjRepr.exit108.thread ]
+  %.057.lcssa130 = phi i32 [ 0, %2 ], [ %.158, %Aig_ObjRepr.exit108.thread ]
+  %111 = sitofp i32 %.0.lcssa131 to double
   %112 = fmul double %111, 1.000000e+02
-  %113 = sitofp i32 %.057.lcssa127 to double
+  %113 = sitofp i32 %.057.lcssa130 to double
   %114 = fdiv double %112, %113
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.057.lcssa127, i32 noundef %.0.lcssa128, double noundef %114)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.057.lcssa130, i32 noundef %.0.lcssa131, double noundef %114)
   ret void
 }
 
@@ -2497,7 +2497,7 @@ Vec_PtrGrow.exit.i132:                            ; preds = %107, %105
   br i1 %.not.i134, label %Aig_ObjRepr.exit135.thread, label %Aig_ObjRepr.exit135
 
 Aig_ObjRepr.exit135:                              ; preds = %Aig_ObjRepr.exit126, %95, %121
-  %.val98.pr201 = phi ptr [ %.val98.pr.pre, %121 ], [ %.val99, %95 ], [ %.val99, %Aig_ObjRepr.exit126 ]
+  %.val98.pr214 = phi ptr [ %.val98.pr.pre, %121 ], [ %.val99, %95 ], [ %.val99, %Aig_ObjRepr.exit126 ]
   %.in.in.in.in = getelementptr i8, ptr %19, i64 16
   %.in.in.in = load ptr, ptr %.in.in.in.in, align 8, !tbaa !18
   %.in.in = ptrtoint ptr %.in.in.in to i64
@@ -2506,7 +2506,7 @@ Aig_ObjRepr.exit135:                              ; preds = %Aig_ObjRepr.exit126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 36
   %129 = load i32, ptr %128, align 4, !tbaa !37
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds ptr, ptr %.val98.pr201, i64 %130
+  %131 = getelementptr inbounds ptr, ptr %.val98.pr214, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !38
   %.not83 = icmp eq ptr %132, null
   br i1 %.not83, label %Aig_ObjRepr.exit135.thread, label %133
@@ -2615,9 +2615,9 @@ Aig_ObjRepr.exit135.thread:                       ; preds = %85, %121, %Aig_ObjR
   br label %178
 
 178:                                              ; preds = %175, %169
-  %.sink202 = phi i32 [ %177, %175 ], [ %174, %169 ]
+  %.sink215 = phi i32 [ %177, %175 ], [ %174, %169 ]
   %.val116.sink = load ptr, ptr %13, align 8, !tbaa !78
-  %179 = sext i32 %.sink202 to i64
+  %179 = sext i32 %.sink215 to i64
   %180 = getelementptr inbounds i32, ptr %.val116.sink, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !6
   %.val117 = load ptr, ptr %4, align 8, !tbaa !20
@@ -3710,15 +3710,15 @@ Aig_ObjRepr.exit:                                 ; preds = %236
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %259, %261, %251, %253
-  %.sink128 = phi ptr [ %252, %251 ], [ %254, %253 ], [ %260, %259 ], [ %262, %261 ]
+  %.sink141 = phi ptr [ %252, %251 ], [ %254, %253 ], [ %260, %259 ], [ %262, %261 ]
   %.sink = phi i32 [ 16, %251 ], [ 16, %253 ], [ %256, %259 ], [ %256, %261 ]
-  store ptr %.sink128, ptr %227, align 8, !tbaa !96
+  store ptr %.sink141, ptr %227, align 8, !tbaa !96
   store i32 %.sink, ptr %219, align 8, !tbaa !95
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %244
-  %263 = phi ptr [ %.pre.i101120, %244 ], [ %.sink128, %Vec_IntPush.exit.sink.split ]
-  %264 = phi ptr [ %230, %244 ], [ %.sink128, %Vec_IntPush.exit.sink.split ]
+  %263 = phi ptr [ %.pre.i101120, %244 ], [ %.sink141, %Vec_IntPush.exit.sink.split ]
+  %264 = phi ptr [ %230, %244 ], [ %.sink141, %Vec_IntPush.exit.sink.split ]
   %265 = add nsw i32 %245, 1
   store i32 %265, ptr %221, align 4, !tbaa !93
   %266 = sext i32 %245 to i64
@@ -3763,14 +3763,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit105.sink.split
 
 Vec_IntPush.exit105.sink.split:                   ; preds = %284, %286, %276, %278
-  %.sink130 = phi ptr [ %277, %276 ], [ %279, %278 ], [ %285, %284 ], [ %287, %286 ]
-  %.sink129 = phi i32 [ 16, %276 ], [ 16, %278 ], [ %281, %284 ], [ %281, %286 ]
-  store ptr %.sink130, ptr %227, align 8, !tbaa !96
-  store i32 %.sink129, ptr %219, align 8, !tbaa !95
+  %.sink143 = phi ptr [ %277, %276 ], [ %279, %278 ], [ %285, %284 ], [ %287, %286 ]
+  %.sink142 = phi i32 [ 16, %276 ], [ 16, %278 ], [ %281, %284 ], [ %281, %286 ]
+  store ptr %.sink143, ptr %227, align 8, !tbaa !96
+  store i32 %.sink142, ptr %219, align 8, !tbaa !95
   br label %Vec_IntPush.exit105
 
 Vec_IntPush.exit105:                              ; preds = %Vec_IntPush.exit105.sink.split, %Vec_IntPush.exit
-  %.pre.i101122 = phi ptr [ %263, %Vec_IntPush.exit ], [ %.sink130, %Vec_IntPush.exit105.sink.split ]
+  %.pre.i101122 = phi ptr [ %263, %Vec_IntPush.exit ], [ %.sink143, %Vec_IntPush.exit105.sink.split ]
   %288 = add nsw i32 %270, 1
   store i32 %288, ptr %221, align 4, !tbaa !93
   %289 = sext i32 %270 to i64

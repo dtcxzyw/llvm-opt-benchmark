@@ -270,7 +270,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr noundef readonly captures(n
   %84 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4202)
   %85 = load i32, ptr @hf_kdp_optionnumber, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %85, ptr noundef %0, i32 noundef %.4202, i32 noundef 1, i32 noundef 0)
-  %87 = add nsw i32 %.4202, 1
+  %87 = add nuw nsw i32 %.4202, 1
   %.not178 = icmp eq i8 %84, 0
   br i1 %.not178, label %.thread, label %88
 
@@ -278,7 +278,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr noundef readonly captures(n
   %89 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %87)
   %90 = load i32, ptr @hf_kdp_optionlen, align 4
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %90, ptr noundef %0, i32 noundef %87, i32 noundef 1, i32 noundef 0)
-  %92 = add nsw i32 %.4202, 2
+  %92 = add nuw nsw i32 %.4202, 2
   %93 = zext i8 %89 to i32
   switch i8 %84, label %129 [
     i8 9, label %125
@@ -295,19 +295,19 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr noundef readonly captures(n
 94:                                               ; preds = %88
   %95 = load i32, ptr @hf_kdp_option1, align 4
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %95, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %97 = add i32 %.4202, 4
+  %97 = add nuw nsw i32 %.4202, 4
   br label %.thread
 
 98:                                               ; preds = %88
   %99 = load i32, ptr @hf_kdp_option2, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %99, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %101 = add i32 %.4202, 4
+  %101 = add nuw nsw i32 %.4202, 4
   br label %.thread
 
 102:                                              ; preds = %88
   %103 = load i32, ptr @hf_kdp_option3, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %103, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %105 = add i32 %.4202, 4
+  %105 = add nuw nsw i32 %.4202, 4
   br label %.thread
 
 106:                                              ; preds = %88
@@ -324,32 +324,32 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr noundef readonly captures(n
   %113 = load i32, ptr @hf_kdp_option6, align 4
   %114 = add nsw i32 %93, -2
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %113, ptr noundef %0, i32 noundef %92, i32 noundef %114, i32 noundef 0)
-  %116 = add i32 %.4202, %93
+  %116 = add nuw nsw i32 %.4202, %93
   br label %.thread
 
 117:                                              ; preds = %88
   %118 = load i32, ptr @hf_kdp_option7, align 4
   %119 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %118, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %120 = add i32 %.4202, 4
+  %120 = add nuw nsw i32 %.4202, 4
   br label %.thread
 
 121:                                              ; preds = %88
   %122 = load i32, ptr @hf_kdp_option8, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %122, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %124 = add i32 %.4202, 4
+  %124 = add nuw nsw i32 %.4202, 4
   br label %.thread
 
 125:                                              ; preds = %88
   %126 = load i32, ptr @hf_kdp_option9, align 4
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %126, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %128 = add i32 %.4202, 4
+  %128 = add nuw nsw i32 %.4202, 4
   br label %.thread
 
 129:                                              ; preds = %88
   %130 = load i32, ptr @hf_kdp_option_unknown, align 4
   %131 = add nsw i32 %93, -2
   %132 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %130, ptr noundef %0, i32 noundef %92, i32 noundef %131, i32 noundef 0)
-  %133 = add i32 %.4202, %93
+  %133 = add nuw nsw i32 %.4202, %93
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %129, %125, %121, %117, %112, %109, %106, %102, %98, %94
@@ -364,10 +364,10 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr noundef readonly captures(n
 135:                                              ; preds = %._crit_edge
   %136 = load i32, ptr @hf_kdp_fragment, align 4
   %137 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %136, ptr noundef %0, i32 noundef %.4.lcssa, i32 noundef 2, i32 noundef 0)
-  %138 = add nuw i32 %.4.lcssa, 2
+  %138 = add nuw nsw i32 %.4.lcssa, 2
   %139 = load i32, ptr @hf_kdp_fragtotal, align 4
   %140 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %139, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef 0)
-  %141 = add nuw i32 %.4.lcssa, 4
+  %141 = add nuw nsw i32 %.4.lcssa, 4
   %142 = load i32, ptr @hf_kdp_body, align 4
   %143 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef -1, i32 noundef 0)
   br label %.thread195

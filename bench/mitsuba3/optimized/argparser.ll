@@ -511,8 +511,8 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %67 = load ptr, ptr %0, align 8
   %68 = load ptr, ptr %51, align 8
-  %.not152235430 = icmp eq ptr %67, %68
-  br i1 %.not152235430, label %._crit_edge239, label %.lr.ph238.preheader
+  %.not152235450 = icmp eq ptr %67, %68
+  br i1 %.not152235450, label %._crit_edge239, label %.lr.ph238.preheader
 
 69:                                               ; preds = %319
   %70 = load ptr, ptr %0, align 8
@@ -523,7 +523,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.
 .lr.ph238.preheader:                              ; preds = %.lr.ph245, %69
   %72 = phi ptr [ %71, %69 ], [ %68, %.lr.ph245 ]
   %73 = phi ptr [ %70, %69 ], [ %67, %.lr.ph245 ]
-  %.058242431 = phi i64 [ %320, %69 ], [ 1, %.lr.ph245 ]
+  %.058242451 = phi i64 [ %320, %69 ], [ 1, %.lr.ph245 ]
   br label %.lr.ph238
 
 .lr.ph238:                                        ; preds = %.lr.ph238.preheader, %_ZN7mitsuba9ArgParser3Arg6appendERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit
@@ -632,7 +632,7 @@ _ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
 135:                                              ; preds = %132, %_ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_.exit70
   %136 = phi i1 [ false, %_ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_.exit70 ], [ %134, %132 ]
   %137 = load ptr, ptr %6, align 8
-  %138 = getelementptr inbounds %"class.std::__1::basic_string", ptr %137, i64 %.058242431
+  %138 = getelementptr inbounds %"class.std::__1::basic_string", ptr %137, i64 %.058242451
   %139 = load i8, ptr %138, align 8
   %140 = and i8 %139, 1
   %.not.i8.i73 = icmp eq i8 %140, 0
@@ -710,7 +710,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
 
 176:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit, %165
   %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds %"class.std::__1::basic_string", ptr %177, i64 %.058242431
+  %178 = getelementptr inbounds %"class.std::__1::basic_string", ptr %177, i64 %.058242451
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = invoke ptr @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE6insertENS_11__wrap_iterIPKS6_EERSA_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull %179, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %181 unwind label %174
@@ -766,7 +766,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 .loopexit156:                                     ; preds = %197, %.thread138
   %204 = load ptr, ptr %6, align 8
-  %205 = getelementptr inbounds %"class.std::__1::basic_string", ptr %204, i64 %.058242431
+  %205 = getelementptr inbounds %"class.std::__1::basic_string", ptr %204, i64 %.058242451
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
   %207 = invoke ptr @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE6insertENS_11__wrap_iterIPKS6_EERSA_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr nonnull %206, ptr noundef nonnull align 8 dereferenceable(24) %205)
           to label %.loopexit155 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -777,7 +777,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %209, label %210, label %279
 
 210:                                              ; preds = %.loopexit155
-  %211 = add i64 %.058242431, 1
+  %211 = add i64 %.058242451, 1
   %212 = load ptr, ptr %17, align 8
   %213 = load ptr, ptr %6, align 8
   %214 = ptrtoint ptr %212 to i64
@@ -1011,10 +1011,10 @@ _ZN7mitsuba9ArgParser3Arg6appendERKNSt3__112basic_stringIcNS2_11char_traitsIcEEN
   br label %._crit_edge239
 
 ._crit_edge239:                                   ; preds = %69, %.lr.ph245, %._crit_edge239.loopexit
-  %.058242417 = phi i64 [ %.058242431, %._crit_edge239.loopexit ], [ 1, %.lr.ph245 ], [ %320, %69 ]
+  %.058242437 = phi i64 [ %.058242451, %._crit_edge239.loopexit ], [ 1, %.lr.ph245 ], [ %320, %69 ]
   %312 = phi ptr [ %.pre301, %._crit_edge239.loopexit ], [ %44, %.lr.ph245 ], [ %322, %69 ]
   %313 = load ptr, ptr @_ZN7mitsuba7m_classE, align 8
-  %314 = getelementptr inbounds %"class.std::__1::basic_string", ptr %312, i64 %.058242417
+  %314 = getelementptr inbounds %"class.std::__1::basic_string", ptr %312, i64 %.058242437
   invoke void @_ZN10tinyformat6formatIJNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %15, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(24) %314)
           to label %315 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1032,7 +1032,7 @@ _ZN7mitsuba9ArgParser3Arg6appendERKNSt3__112basic_stringIcNS2_11char_traitsIcEEN
   br label %.body
 
 319:                                              ; preds = %_ZN7mitsuba9ArgParser3Arg6appendERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit105, %tailrecurse._crit_edge.i
-  %.3.ph = phi i64 [ %211, %tailrecurse._crit_edge.i ], [ %.058242431, %_ZN7mitsuba9ArgParser3Arg6appendERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit105 ]
+  %.3.ph = phi i64 [ %211, %tailrecurse._crit_edge.i ], [ %.058242451, %_ZN7mitsuba9ArgParser3Arg6appendERKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE.exit105 ]
   %320 = add i64 %.3.ph, 1
   %321 = load ptr, ptr %17, align 8
   %322 = load ptr, ptr %6, align 8
@@ -2485,10 +2485,10 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
     i8 106, label %.critedge
     i8 122, label %.critedge
     i8 116, label %.critedge
-    i8 117, label %.loopexit226
-    i8 100, label %.loopexit226
-    i8 105, label %.loopexit226
-    i8 111, label %.loopexit257
+    i8 117, label %.loopexit232
+    i8 100, label %.loopexit232
+    i8 105, label %.loopexit232
+    i8 111, label %.loopexit263
     i8 88, label %242
     i8 120, label %.loopexit
     i8 112, label %.loopexit
@@ -2629,14 +2629,14 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   store i32 %328, ptr %326, align 8
   br label %.thread117
 
-.loopexit226:                                     ; preds = %239, %239, %239
+.loopexit232:                                     ; preds = %239, %239, %239
   br label %.loopexit
 
-.loopexit257:                                     ; preds = %239
+.loopexit263:                                     ; preds = %239
   br label %.loopexit
 
-.loopexit:                                        ; preds = %242, %239, %239, %.loopexit257, %.loopexit226
-  %.sink219 = phi i32 [ 2, %.loopexit226 ], [ 64, %.loopexit257 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
+.loopexit:                                        ; preds = %242, %239, %239, %.loopexit263, %.loopexit232
+  %.sink225 = phi i32 [ 2, %.loopexit232 ], [ 64, %.loopexit263 ], [ 8, %239 ], [ 8, %239 ], [ 8, %242 ]
   %329 = load ptr, ptr %0, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
@@ -2644,7 +2644,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit96: ; preds = %.lr.ph.i100, 
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load i32, ptr %333, align 8
   %335 = and i32 %334, -75
-  %336 = or disjoint i32 %335, %.sink219
+  %336 = or disjoint i32 %335, %.sink225
   store i32 %336, ptr %333, align 8
   %or.cond3 = or i1 %.167, %196
   br i1 %or.cond3, label %.thread117, label %337

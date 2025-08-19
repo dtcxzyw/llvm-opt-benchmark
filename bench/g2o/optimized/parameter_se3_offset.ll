@@ -331,11 +331,11 @@ _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEELi0ENS_6StrideIL
   %72 = fsub <2 x double> %68, %71
   %73 = fneg double %62
   %74 = fmul double %69, %73
-  %foldExtExtBinop8 = fmul <2 x double> %48, %54
-  %75 = extractelement <2 x double> %foldExtExtBinop8, i64 1
+  %foldExtExtBinop9 = fmul <2 x double> %48, %54
+  %75 = extractelement <2 x double> %foldExtExtBinop9, i64 1
   %76 = fsub double %74, %75
-  %foldExtExtBinop10 = fmul <2 x double> %48, %54
-  %77 = extractelement <2 x double> %foldExtExtBinop10, i64 0
+  %foldExtExtBinop11 = fmul <2 x double> %48, %54
+  %77 = extractelement <2 x double> %foldExtExtBinop11, i64 0
   %78 = fsub double %76, %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store <2 x double> %.sroa.0.8.vec.insert.i, ptr %79, align 16

@@ -372,9 +372,9 @@ existsTimeLineHistoryFile.exit:                   ; preds = %66
   br label %mark_file_as_archived.exit.i
 
 mark_file_as_archived.exit.i:                     ; preds = %146, %133
-  %.sink10.i.i = phi ptr [ %147, %146 ], [ %140, %133 ]
+  %.sink11.i.i = phi ptr [ %147, %146 ], [ %140, %133 ]
   %.str.27.sink.i.i = phi ptr [ @.str.27, %146 ], [ @.str.26, %133 ]
-  %148 = call ptr @GetLastWalMethodError(ptr noundef %.sink10.i.i) #11
+  %148 = call ptr @GetLastWalMethodError(ptr noundef %.sink11.i.i) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.27.sink.i.i, ptr noundef nonnull @mark_file_as_archived.tmppath, ptr noundef %148) #11
   br label %writeTimeLineHistoryFile.exit
 
@@ -424,7 +424,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
   %.0107 = phi ptr [ null, %165 ], [ %.4119, %thread-pre-split.i ]
   %.b.i.i = phi i1 [ false, %165 ], [ %.b.i.pr.i, %thread-pre-split.i ]
   %.077.i = phi i64 [ -1, %165 ], [ %.481.i.ph, %thread-pre-split.i ]
-  %.075.i = phi i64 [ %166, %165 ], [ %.2.i.ph1105, %thread-pre-split.i ]
+  %.075.i = phi i64 [ %166, %165 ], [ %.2.i.ph1138, %thread-pre-split.i ]
   br i1 %.b.i.i, label %182, label %168
 
 168:                                              ; preds = %167
@@ -556,20 +556,20 @@ CalculateCopyStreamSleeptime.exit.i.preheader:    ; preds = %229, %216, %213
 
 CalculateCopyStreamSleeptime.exit.i.outer:        ; preds = %CalculateCopyStreamSleeptime.exit.i.preheader, %331
   %.1108.ph = phi ptr [ %.0107, %CalculateCopyStreamSleeptime.exit.i.preheader ], [ %.4, %331 ]
-  %.sink.i.ph1101 = phi i64 [ %.sink.i.ph, %CalculateCopyStreamSleeptime.exit.i.preheader ], [ 0, %331 ]
+  %.sink.i.ph1134 = phi i64 [ %.sink.i.ph, %CalculateCopyStreamSleeptime.exit.i.preheader ], [ 0, %331 ]
   %.481.i.ph = phi i64 [ %.380.i, %CalculateCopyStreamSleeptime.exit.i.preheader ], [ %332, %331 ]
-  %.2.i.ph = phi i64 [ %.075.i, %CalculateCopyStreamSleeptime.exit.i.preheader ], [ %.2.i.ph1105, %331 ]
-  br label %CalculateCopyStreamSleeptime.exit.i.outer1102
+  %.2.i.ph = phi i64 [ %.075.i, %CalculateCopyStreamSleeptime.exit.i.preheader ], [ %.2.i.ph1138, %331 ]
+  br label %CalculateCopyStreamSleeptime.exit.i.outer1135
 
-CalculateCopyStreamSleeptime.exit.i.outer1102:    ; preds = %CalculateCopyStreamSleeptime.exit.i.outer1102.backedge, %CalculateCopyStreamSleeptime.exit.i.outer
-  %.1108.ph1103 = phi ptr [ %.1108.ph, %CalculateCopyStreamSleeptime.exit.i.outer ], [ %.4, %CalculateCopyStreamSleeptime.exit.i.outer1102.backedge ]
-  %.sink.i.ph1104 = phi i64 [ %.sink.i.ph1101, %CalculateCopyStreamSleeptime.exit.i.outer ], [ 0, %CalculateCopyStreamSleeptime.exit.i.outer1102.backedge ]
-  %.2.i.ph1105 = phi i64 [ %.2.i.ph, %CalculateCopyStreamSleeptime.exit.i.outer ], [ %.2.i.ph1105.be, %CalculateCopyStreamSleeptime.exit.i.outer1102.backedge ]
+CalculateCopyStreamSleeptime.exit.i.outer1135:    ; preds = %CalculateCopyStreamSleeptime.exit.i.outer1135.backedge, %CalculateCopyStreamSleeptime.exit.i.outer
+  %.1108.ph1136 = phi ptr [ %.1108.ph, %CalculateCopyStreamSleeptime.exit.i.outer ], [ %.4, %CalculateCopyStreamSleeptime.exit.i.outer1135.backedge ]
+  %.sink.i.ph1137 = phi i64 [ %.sink.i.ph1134, %CalculateCopyStreamSleeptime.exit.i.outer ], [ 0, %CalculateCopyStreamSleeptime.exit.i.outer1135.backedge ]
+  %.2.i.ph1138 = phi i64 [ %.2.i.ph, %CalculateCopyStreamSleeptime.exit.i.outer ], [ %.2.i.ph1138.be, %CalculateCopyStreamSleeptime.exit.i.outer1135.backedge ]
   br label %CalculateCopyStreamSleeptime.exit.i
 
-CalculateCopyStreamSleeptime.exit.i:              ; preds = %CalculateCopyStreamSleeptime.exit.i.backedge, %CalculateCopyStreamSleeptime.exit.i.outer1102
-  %.1108 = phi ptr [ %.1108.ph1103, %CalculateCopyStreamSleeptime.exit.i.outer1102 ], [ %.4, %CalculateCopyStreamSleeptime.exit.i.backedge ]
-  %.sink.i = phi i64 [ %.sink.i.ph1104, %CalculateCopyStreamSleeptime.exit.i.outer1102 ], [ 0, %CalculateCopyStreamSleeptime.exit.i.backedge ]
+CalculateCopyStreamSleeptime.exit.i:              ; preds = %CalculateCopyStreamSleeptime.exit.i.backedge, %CalculateCopyStreamSleeptime.exit.i.outer1135
+  %.1108 = phi ptr [ %.1108.ph1136, %CalculateCopyStreamSleeptime.exit.i.outer1135 ], [ %.4, %CalculateCopyStreamSleeptime.exit.i.backedge ]
+  %.sink.i = phi i64 [ %.sink.i.ph1137, %CalculateCopyStreamSleeptime.exit.i.outer1135 ], [ 0, %CalculateCopyStreamSleeptime.exit.i.backedge ]
   call void @PQfreemem(ptr noundef %.1108) #11
   %231 = load i32, ptr %63, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -713,7 +713,7 @@ CopyStreamReceive.exit:                           ; preds = %CopyStreamPoll.exit
   ]
 
 286:                                              ; preds = %CopyStreamReceive.exit.thread120
-  %287 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %.2.i.ph1105)
+  %287 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %.2.i.ph1138)
   br i1 %287, label %289, label %288
 
 288:                                              ; preds = %286
@@ -784,7 +784,7 @@ HandleEndOfCopyStream.exit.i:                     ; preds = %301, %CopyStreamRec
 
 313:                                              ; preds = %312
   %314 = load i64, ptr @lastFlushPosition, align 8
-  %315 = icmp ult i64 %314, %.2.i.ph1105
+  %315 = icmp ult i64 %314, %.2.i.ph1138
   %316 = load ptr, ptr @walfile, align 8
   %317 = icmp ne ptr %316, null
   %or.cond3.i.i = select i1 %315, i1 %317, i1 false
@@ -810,12 +810,12 @@ HandleEndOfCopyStream.exit.i:                     ; preds = %301, %CopyStreamRec
   unreachable
 
 330:                                              ; preds = %318
-  store i64 %.2.i.ph1105, ptr @lastFlushPosition, align 8
+  store i64 %.2.i.ph1138, ptr @lastFlushPosition, align 8
   br label %331
 
 331:                                              ; preds = %330, %313, %312
   %332 = call i64 @feGetCurrentTimestamp() #11
-  %333 = call fastcc zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %.2.i.ph1105, i64 noundef %332)
+  %333 = call fastcc zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %.2.i.ph1138, i64 noundef %332)
   br i1 %333, label %CalculateCopyStreamSleeptime.exit.i.outer, label %HandleCopyStream.exit.thread, !llvm.loop !6
 
 334:                                              ; preds = %303
@@ -1108,13 +1108,13 @@ open_walfile.exit.i.i:                            ; preds = %449, %426
 ProcessXLogDataMsg.exit.i:                        ; preds = %490, %355
   %.5.ph89.i = phi i64 [ %340, %355 ], [ %469, %490 ]
   %.b.i60.pr.i = load i1, ptr @still_sending, align 1
-  br i1 %.b.i60.pr.i, label %CalculateCopyStreamSleeptime.exit.i.outer1102.backedge, label %491
+  br i1 %.b.i60.pr.i, label %CalculateCopyStreamSleeptime.exit.i.outer1135.backedge, label %491
 
 491:                                              ; preds = %ProcessXLogDataMsg.exit.i
   %492 = load ptr, ptr %60, align 8
   %493 = load i32, ptr %57, align 8
   %494 = call zeroext i1 %492(i64 noundef %.5.ph89.i, i32 noundef %493, i1 noundef zeroext false) #11
-  br i1 %494, label %495, label %CalculateCopyStreamSleeptime.exit.i.outer1102.backedge
+  br i1 %494, label %495, label %CalculateCopyStreamSleeptime.exit.i.outer1135.backedge
 
 495:                                              ; preds = %491
   %496 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %.5.ph89.i)
@@ -1143,11 +1143,11 @@ ProcessXLogDataMsg.exit.i:                        ; preds = %490, %355
 ProcessKeepaliveMsg.exit.thread.sink.split.i:     ; preds = %500, %486
   %.376.ph.i = phi i64 [ %469, %486 ], [ %.5.ph89.i, %500 ]
   store i1 true, ptr @still_sending, align 1
-  br label %CalculateCopyStreamSleeptime.exit.i.outer1102.backedge
+  br label %CalculateCopyStreamSleeptime.exit.i.outer1135.backedge
 
-CalculateCopyStreamSleeptime.exit.i.outer1102.backedge: ; preds = %ProcessKeepaliveMsg.exit.thread.sink.split.i, %491, %ProcessXLogDataMsg.exit.i
-  %.2.i.ph1105.be = phi i64 [ %.5.ph89.i, %ProcessXLogDataMsg.exit.i ], [ %.5.ph89.i, %491 ], [ %.376.ph.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i ]
-  br label %CalculateCopyStreamSleeptime.exit.i.outer1102, !llvm.loop !6
+CalculateCopyStreamSleeptime.exit.i.outer1135.backedge: ; preds = %ProcessKeepaliveMsg.exit.thread.sink.split.i, %491, %ProcessXLogDataMsg.exit.i
+  %.2.i.ph1138.be = phi i64 [ %.5.ph89.i, %ProcessXLogDataMsg.exit.i ], [ %.5.ph89.i, %491 ], [ %.376.ph.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i ]
+  br label %CalculateCopyStreamSleeptime.exit.i.outer1135, !llvm.loop !6
 
 HandleCopyStream.exit.thread:                     ; preds = %HandleEndOfCopyStream.exit.i, %211, %203, %172, %495, %CopyStreamReceive.exit, %331, %476, %CopyStreamReceive.exit.thread, %504, %502, %488, %460, %open_walfile.exit.thread.i.i, %353, %348, %337, %307, %297, %288, %179
   %.3.ph = phi ptr [ null, %CopyStreamReceive.exit.thread ], [ %.0107, %179 ], [ null, %288 ], [ null, %297 ], [ %.4, %353 ], [ %.4, %348 ], [ %.4, %460 ], [ %.4, %488 ], [ %.4, %open_walfile.exit.thread.i.i ], [ %.4, %502 ], [ %.4, %337 ], [ %.4, %307 ], [ %.4, %504 ], [ %.4, %476 ], [ %.4, %331 ], [ %.4, %CopyStreamReceive.exit ], [ %.4, %495 ], [ %.0107, %172 ], [ %.0107, %203 ], [ %.0107, %211 ], [ null, %HandleEndOfCopyStream.exit.i ]
@@ -1219,13 +1219,13 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %514, %523
 
 534:                                              ; preds = %525
   %535 = load i64, ptr %1, align 8
-  %536 = icmp ugt i64 %535, %.2.i.ph1105
+  %536 = icmp ugt i64 %535, %.2.i.ph1138
   br i1 %536, label %537, label %544
 
 537:                                              ; preds = %534
-  %538 = lshr i64 %.2.i.ph1105, 32
+  %538 = lshr i64 %.2.i.ph1138, 32
   %539 = trunc nuw i64 %538 to i32
-  %540 = trunc i64 %.2.i.ph1105 to i32
+  %540 = trunc i64 %.2.i.ph1138 to i32
   %541 = lshr i64 %535, 32
   %542 = trunc nuw i64 %541 to i32
   %543 = trunc i64 %535 to i32
@@ -1264,7 +1264,7 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %514, %523
   call void @PQclear(ptr noundef nonnull %.0.i51.i) #11
   %558 = load ptr, ptr %60, align 8
   %559 = load i32, ptr %57, align 8
-  %560 = call zeroext i1 %558(i64 noundef %.2.i.ph1105, i32 noundef %559, i1 noundef zeroext false) #11
+  %560 = call zeroext i1 %558(i64 noundef %.2.i.ph1138, i32 noundef %559, i1 noundef zeroext false) #11
   br i1 %560, label %CheckServerVersionForStreaming.exit.thread, label %561
 
 561:                                              ; preds = %557
@@ -1437,13 +1437,13 @@ define internal fastcc noundef zeroext i1 @close_walfile(ptr noundef readonly ca
   br label %26
 
 26:                                               ; preds = %6, %25
-  %.sink22 = phi i32 [ 2, %25 ], [ 0, %6 ]
+  %.sink24 = phi i32 [ 2, %25 ], [ 0, %6 ]
   %27 = load ptr, ptr %13, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @walfile, align 8
-  %32 = call i32 %30(ptr noundef %31, i32 noundef %.sink22) #11
+  %32 = call i32 %30(ptr noundef %31, i32 noundef %.sink24) #11
   store ptr null, ptr @walfile, align 8
   %.not20 = icmp eq i32 %32, 0
   br i1 %.not20, label %36, label %33
@@ -1491,9 +1491,9 @@ define internal fastcc noundef zeroext i1 @close_walfile(ptr noundef readonly ca
   br label %mark_file_as_archived.exit
 
 mark_file_as_archived.exit:                       ; preds = %44, %57
-  %.sink10.i = phi ptr [ %58, %57 ], [ %51, %44 ]
+  %.sink11.i = phi ptr [ %58, %57 ], [ %51, %44 ]
   %.str.27.sink.i = phi ptr [ @.str.27, %57 ], [ @.str.26, %44 ]
-  %59 = call ptr @GetLastWalMethodError(ptr noundef %.sink10.i) #11
+  %59 = call ptr @GetLastWalMethodError(ptr noundef %.sink11.i) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.27.sink.i, ptr noundef nonnull @mark_file_as_archived.tmppath, ptr noundef %59) #11
   br label %60
 

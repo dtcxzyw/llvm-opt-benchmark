@@ -1121,10 +1121,10 @@ switch.edge372:                                   ; preds = %189
   %193 = add nuw nsw i32 %.1327, 1
   %194 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %193, i32 noundef %192)
   %195 = icmp ugt i8 %7, 20
-  %switch.cast433 = zext nneg i8 %7 to i21
-  %switch.downshift435 = lshr i21 129535, %switch.cast433
-  %switch.masked436 = trunc i21 %switch.downshift435 to i1
-  %196 = select i1 %195, i1 true, i1 %switch.masked436
+  %switch.cast446 = zext nneg i8 %7 to i21
+  %switch.downshift448 = lshr i21 129535, %switch.cast446
+  %switch.masked449 = trunc i21 %switch.downshift448 to i1
+  %196 = select i1 %195, i1 true, i1 %switch.masked449
   %197 = tail call fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %194, i8 noundef zeroext %2, i1 noundef zeroext %196)
   br i1 %197, label %.thread410, label %.critedge
 
@@ -2032,12 +2032,12 @@ define internal void @sccp_users_user_set_cb(ptr noundef writeonly captures(none
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = tail call i32 @g_str_equal(ptr noundef nonnull %10, ptr noundef %7)
-  %.not1320 = icmp eq i32 %11, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %11, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2045,10 +2045,10 @@ define internal void @sccp_users_user_set_cb(ptr noundef writeonly captures(none
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !11
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !11
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -2056,7 +2056,7 @@ define internal void @sccp_users_user_set_cb(ptr noundef writeonly captures(none
   store i32 %18, ptr %8, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -2073,11 +2073,11 @@ define internal void @sccp_users_user_tostr_cb(ptr noundef readonly captures(non
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
-  br i1 %11, label %._crit_edge21, label %.lr.ph20
+  br i1 %11, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %17
-  %.01519 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
-  %12 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %17
+  %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
+  %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2085,12 +2085,12 @@ define internal void @sccp_users_user_tostr_cb(ptr noundef readonly captures(non
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !12
 
-17:                                               ; preds = %.lr.ph20
+17:                                               ; preds = %.lr.ph21
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !12
+  br i1 %19, label %._crit_edge22, label %.lr.ph21, !llvm.loop !12
 
-._crit_edge21:                                    ; preds = %17, %.lr.ph
+._crit_edge22:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
   %20 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %20, ptr %1, align 8
@@ -2098,13 +2098,13 @@ define internal void @sccp_users_user_tostr_cb(ptr noundef readonly captures(non
   %22 = trunc i64 %21 to i32
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.342)
   store ptr %23, ptr %1, align 8
   br label %24
 
-24:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 4, %._crit_edge ], [ %22, %._crit_edge21 ]
+24:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 4, %._crit_edge ], [ %22, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -2189,7 +2189,7 @@ define internal noundef zeroext i1 @sccp_users_update_cb(ptr noundef captures(no
   br i1 %18, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr i8, ptr %.0212431, i64 16
+  %20 = getelementptr i8, ptr %.0212432, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %17
   br i1 %22, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -2206,8 +2206,8 @@ define internal noundef zeroext i1 @sccp_users_update_cb(ptr noundef captures(no
   br label %32
 
 .lr.ph:                                           ; preds = %15, %19
-  %.0212431 = phi ptr [ %20, %19 ], [ @user_list, %15 ]
-  %27 = getelementptr i8, ptr %.0212431, i64 24
+  %.0212432 = phi ptr [ %20, %19 ], [ @user_list, %15 ]
+  %27 = getelementptr i8, ptr %.0212432, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %29, label %19, !llvm.loop !13
@@ -4162,7 +4162,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br i1 %8, label %14, label %26
 
 14:                                               ; preds = %.thread, %13
-  %.087133 = phi ptr [ %12, %.thread ], [ null, %13 ]
+  %.087136 = phi ptr [ %12, %.thread ], [ null, %13 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %18 [
@@ -4177,23 +4177,23 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %18, %17
-  %.sink146 = phi i64 [ 13, %18 ], [ 13, %17 ], [ 12, %14 ]
+  %.sink149 = phi i64 [ 13, %18 ], [ 13, %17 ], [ 12, %14 ]
   %.sink = phi i64 [ 12, %18 ], [ 12, %17 ], [ 13, %14 ]
-  %.sink140 = phi i64 [ 240, %18 ], [ 216, %17 ], [ 240, %14 ]
-  %.sink139 = phi i64 [ 216, %18 ], [ 240, %17 ], [ 216, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink146
+  %.sink143 = phi i64 [ 240, %18 ], [ 216, %17 ], [ 240, %14 ]
+  %.sink142 = phi i64 [ 216, %18 ], [ 240, %17 ], [ 216, %14 ]
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink149
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %.080.ph = load i8, ptr %19, align 1
   %.090.ph = load i8, ptr %20, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink140
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink143
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink139
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink142
   %24 = load ptr, ptr %23, align 8
   %25 = freeze ptr %24
   br label %26
 
 26:                                               ; preds = %.sink.split, %13
-  %.087132 = phi ptr [ null, %13 ], [ %.087133, %.sink.split ]
+  %.087135 = phi ptr [ null, %13 ], [ %.087136, %.sink.split ]
   %.090 = phi i8 [ -1, %13 ], [ %.090.ph, %.sink.split ]
   %.089 = phi ptr [ null, %13 ], [ %22, %.sink.split ]
   %.088 = phi ptr [ null, %13 ], [ %25, %.sink.split ]
@@ -4326,7 +4326,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br label %116
 
 90:                                               ; preds = %87
-  %91 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.285, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.087132)
+  %91 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.285, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.087135)
   br label %116
 
 .critedge:                                        ; preds = %83, %56, %.lr.ph, %.split.us, %28, %26
@@ -4342,7 +4342,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
 97:                                               ; preds = %.critedge
   %98 = zext i8 %.080 to i32
   %99 = load ptr, ptr @sccp_ssn_dissector_table, align 8
-  %100 = tail call i32 @dissector_try_uint_with_data(ptr noundef %99, i32 noundef %98, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %.087132)
+  %100 = tail call i32 @dissector_try_uint_with_data(ptr noundef %99, i32 noundef %98, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %.087135)
   %.not100 = icmp eq i32 %100, 0
   br i1 %.not100, label %101, label %116
 
@@ -4353,13 +4353,13 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
 102:                                              ; preds = %101
   %103 = zext i8 %.090 to i32
   %104 = load ptr, ptr @sccp_ssn_dissector_table, align 8
-  %105 = tail call i32 @dissector_try_uint_with_data(ptr noundef %104, i32 noundef %103, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %.087132)
+  %105 = tail call i32 @dissector_try_uint_with_data(ptr noundef %104, i32 noundef %103, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %.087135)
   %.not102 = icmp eq i32 %105, 0
   br i1 %.not102, label %106, label %116
 
 106:                                              ; preds = %102, %101
   %107 = load ptr, ptr @heur_subdissector_list, align 8
-  %108 = call zeroext i1 @dissector_try_heuristic(ptr noundef %107, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %.087132)
+  %108 = call zeroext i1 @dissector_try_heuristic(ptr noundef %107, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %.087135)
   br i1 %108, label %116, label %109
 
 109:                                              ; preds = %106
@@ -4368,7 +4368,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br i1 %.not103, label %113, label %111
 
 111:                                              ; preds = %109
-  %112 = call i32 @call_dissector_with_data(ptr noundef nonnull %110, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.087132)
+  %112 = call i32 @call_dissector_with_data(ptr noundef nonnull %110, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.087135)
   br label %116
 
 113:                                              ; preds = %109
@@ -4681,22 +4681,22 @@ switch.early.test:                                ; preds = %37
   br i1 %4, label %124, label %127
 
 124:                                              ; preds = %121
-  br i1 %.not274, label %.thread298, label %125
+  br i1 %.not274, label %.thread320, label %125
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 13
   store i8 %116, ptr %126, align 1
-  br label %.thread298
+  br label %.thread320
 
 127:                                              ; preds = %121
-  br i1 %.not274, label %.thread298, label %128
+  br i1 %.not274, label %.thread320, label %128
 
 128:                                              ; preds = %127
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 12
   store i8 %116, ptr %129, align 4
-  br label %.thread298
+  br label %.thread320
 
-.thread298:                                       ; preds = %124, %127, %128, %125
+.thread320:                                       ; preds = %124, %127, %128, %125
   %130 = load i8, ptr %5, align 8
   switch i8 %130, label %136 [
     i8 9, label %131
@@ -4707,7 +4707,7 @@ switch.early.test:                                ; preds = %37
     i8 20, label %131
   ]
 
-131:                                              ; preds = %.thread298, %.thread298, %.thread298, %.thread298, %.thread298, %.thread298
+131:                                              ; preds = %.thread320, %.thread320, %.thread320, %.thread320, %.thread320, %.thread320
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %133 = load ptr, ptr %132, align 8
   %.not276 = icmp eq ptr %133, null
@@ -4719,7 +4719,7 @@ switch.early.test:                                ; preds = %37
   store i32 %117, ptr %135, align 4
   br label %136
 
-136:                                              ; preds = %.thread298, %134, %131
+136:                                              ; preds = %.thread320, %134, %131
   %137 = load i32, ptr @hf_sccp_called_ssn, align 4
   %138 = load i32, ptr @hf_sccp_calling_ssn, align 4
   %139 = select i1 %4, i32 %137, i32 %138
@@ -4851,22 +4851,22 @@ proto_item_set_generated.exit:                    ; preds = %155, %158, %161
   br i1 %4, label %209, label %212
 
 209:                                              ; preds = %206
-  br i1 %.not267, label %.thread300, label %210
+  br i1 %.not267, label %.thread322, label %210
 
 210:                                              ; preds = %209
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 13
   store i8 %201, ptr %211, align 1
-  br label %.thread300
+  br label %.thread322
 
 212:                                              ; preds = %206
-  br i1 %.not267, label %.thread300, label %213
+  br i1 %.not267, label %.thread322, label %213
 
 213:                                              ; preds = %212
   %214 = getelementptr inbounds nuw i8, ptr %208, i64 12
   store i8 %201, ptr %214, align 4
-  br label %.thread300
+  br label %.thread322
 
-.thread300:                                       ; preds = %209, %212, %213, %210
+.thread322:                                       ; preds = %209, %212, %213, %210
   %215 = load i8, ptr %5, align 8
   switch i8 %215, label %221 [
     i8 9, label %216
@@ -4877,7 +4877,7 @@ proto_item_set_generated.exit:                    ; preds = %155, %158, %161
     i8 20, label %216
   ]
 
-216:                                              ; preds = %.thread300, %.thread300, %.thread300, %.thread300, %.thread300, %.thread300
+216:                                              ; preds = %.thread322, %.thread322, %.thread322, %.thread322, %.thread322, %.thread322
   %217 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %218 = load ptr, ptr %217, align 8
   %.not269 = icmp eq ptr %218, null
@@ -4889,7 +4889,7 @@ proto_item_set_generated.exit:                    ; preds = %155, %158, %161
   store i32 %202, ptr %220, align 4
   br label %221
 
-221:                                              ; preds = %.thread300, %219, %216
+221:                                              ; preds = %.thread322, %219, %216
   %222 = load i32, ptr @hf_sccp_called_ssn, align 4
   %223 = load i32, ptr @hf_sccp_calling_ssn, align 4
   %224 = select i1 %4, i32 %222, i32 %223
@@ -5212,16 +5212,16 @@ define internal fastcc void @dissect_sccp_global_title(ptr noundef %0, ptr nound
   %132 = trunc i64 %131 to i32
   %133 = add i32 %132, 1
   %..i = select i1 %5, i64 232, i64 208
-  %.65.i = select i1 %5, i64 236, i64 212
-  %.66.i = select i1 %5, i64 240, i64 216
-  %.67.i = select i1 %5, i64 248, i64 224
+  %.67.i = select i1 %5, i64 236, i64 212
+  %.68.i = select i1 %5, i64 240, i64 216
+  %.69.i = select i1 %5, i64 248, i64 224
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
   store i32 7, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 %.65.i
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 %.67.i
   store i32 %133, ptr %135, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 %.66.i
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 %.68.i
   store ptr %86, ptr %136, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 %.67.i
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 %.69.i
   store ptr null, ptr %137, align 8
   br label %dissect_sccp_gt_address_information.exit
 

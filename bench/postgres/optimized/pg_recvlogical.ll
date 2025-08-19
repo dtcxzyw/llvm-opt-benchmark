@@ -181,9 +181,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %17 = load ptr, ptr %1, align 8
   tail call void @set_pglocale_pgservice(ptr noundef %17, ptr noundef nonnull @.str.23) #13
   %18 = icmp sgt i32 %0, 1
-  br i1 %18, label %19, label %.preheader305
+  br i1 %18, label %19, label %.preheader321
 
-.preheader305:                                    ; preds = %.tail75.thread, %2
+.preheader321:                                    ; preds = %.tail75.thread, %2
   br label %40
 
 19:                                               ; preds = %2
@@ -230,14 +230,14 @@ sub_177:                                          ; preds = %.tail, %sub_1
 .tail75.thread:                                   ; preds = %sub_0, %sub_177, %.tail75
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(10) @.str.27) #14
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.preheader305
+  br i1 %37, label %38, label %.preheader321
 
 38:                                               ; preds = %.tail75.thread, %.tail75
   %39 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.28)
   tail call void @exit(i32 noundef 0) #15
   unreachable
 
-40:                                               ; preds = %.backedge, %.preheader305
+40:                                               ; preds = %.backedge, %.preheader321
   %41 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.29, ptr noundef nonnull @main.long_options, ptr noundef nonnull %10) #13
   switch i32 %41, label %128 [
     i32 -1, label %130
@@ -801,7 +801,7 @@ sub_177:                                          ; preds = %.tail, %sub_1
   br i1 %.not141269.i, label %.lr.ph272.i, label %.loopexit.i
 
 .lr.ph272.i:                                      ; preds = %262, %.backedge.i
-  %.094270.i = phi i64 [ %.1321.i, %.backedge.i ], [ -1, %262 ]
+  %.094270.i = phi i64 [ %.1338.i, %.backedge.i ], [ -1, %262 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %264 = load ptr, ptr %3, align 8
   %.not142.i = icmp eq ptr %264, null
@@ -1095,7 +1095,7 @@ sub_0207.i:                                       ; preds = %OutputFsync.exit173
   %390 = add i32 %389, 1
   %391 = call i32 @select(i32 noundef %390, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef %.0107.i) #13
   %392 = icmp eq i32 %391, 0
-  br i1 %392, label %.thread323.i, label %393, !llvm.loop !9
+  br i1 %392, label %.thread340.i, label %393, !llvm.loop !9
 
 393:                                              ; preds = %387
   %394 = icmp slt i32 %391, 0
@@ -1105,7 +1105,7 @@ sub_0207.i:                                       ; preds = %OutputFsync.exit173
   %396 = tail call ptr @__errno_location() #17
   %397 = load i32, ptr %396, align 4
   %398 = icmp eq i32 %397, 4
-  br i1 %398, label %.thread323.i, label %399, !llvm.loop !9
+  br i1 %398, label %.thread340.i, label %399, !llvm.loop !9
 
 399:                                              ; preds = %395
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98) #13
@@ -1115,7 +1115,7 @@ sub_0207.i:                                       ; preds = %OutputFsync.exit173
   %400 = load ptr, ptr @conn, align 8
   %401 = call i32 @PQconsumeInput(ptr noundef %400) #13
   %402 = icmp eq i32 %401, 0
-  br i1 %402, label %403, label %.thread323.i, !llvm.loop !9
+  br i1 %402, label %403, label %.thread340.i, !llvm.loop !9
 
 403:                                              ; preds = %.critedge.i
   %404 = load ptr, ptr @conn, align 8
@@ -1263,8 +1263,8 @@ flushAndSendFeedback.exit176.i:                   ; preds = %462, %459, %458, %4
   %469 = load i64, ptr @output_written_lsn, align 8
   %470 = call i64 @llvm.umax.i64(i64 %450, i64 %469)
   store i64 %470, ptr @output_written_lsn, align 8
-  %471 = add nsw i32 %344, -25
   store i1 true, ptr @output_needs_fsync, align 1
+  %471 = add nsw i32 %344, -25
   br label %.lr.ph267.i
 
 .lr.ph267.i:                                      ; preds = %482, %.lr.ph267.preheader.i
@@ -1331,21 +1331,21 @@ flushAndSendFeedback.exit176.i:                   ; preds = %462, %459, %458, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i
 
-.thread323.i:                                     ; preds = %.critedge.i, %395, %387
+.thread340.i:                                     ; preds = %.critedge.i, %395, %387
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %.thread323.i, %489, %442
-  %.1321.i = phi i64 [ %.2.i, %.thread323.i ], [ %.2.i, %489 ], [ %.4.i, %442 ]
-  %.299320.i = phi i64 [ 0, %.thread323.i ], [ %450, %489 ], [ 0, %442 ]
+.backedge.i:                                      ; preds = %.thread340.i, %489, %442
+  %.1338.i = phi i64 [ %.2.i, %.thread340.i ], [ %.2.i, %489 ], [ %.4.i, %442 ]
+  %.299337.i = phi i64 [ 0, %.thread340.i ], [ %450, %489 ], [ 0, %442 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %495 = load volatile i32, ptr @time_to_abort, align 4
   %.not141.i = icmp eq i32 %495, 0
   br i1 %.not141.i, label %.lr.ph272.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.backedge.i, %.thread198.i, %262
-  %.198.i = phi i64 [ %.299.ph.i, %.thread198.i ], [ 0, %262 ], [ %.299320.i, %.backedge.i ]
+  %.198.i = phi i64 [ %.299.ph.i, %.thread198.i ], [ 0, %262 ], [ %.299337.i, %.backedge.i ]
   %496 = load volatile i32, ptr @time_to_abort, align 4
   %.not159.i = icmp eq i32 %496, 0
   br i1 %.not159.i, label %prepareToTerminate.exit.i, label %497

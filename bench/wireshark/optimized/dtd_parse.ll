@@ -218,18 +218,18 @@ define hidden noundef i32 @Dtd_Parse_lex(ptr noundef %0) local_unnamed_addr #0 {
   %101 = sext i16 %100 to i32
   %102 = getelementptr i8, ptr %.1255, i64 1
   %.not276 = icmp eq i16 %100, 218
-  br i1 %.not276, label %.backedge.sink.split997, label %64, !llvm.loop !8
+  br i1 %.not276, label %.backedge.sink.split1023, label %64, !llvm.loop !8
 
-.backedge.sink.split997:                          ; preds = %._crit_edge, %.backedge.sink.split997.backedge
-  %.1263.ph = phi ptr [ %.1263.ph.be, %.backedge.sink.split997.backedge ], [ %.0262, %._crit_edge ]
+.backedge.sink.split1023:                         ; preds = %._crit_edge, %.backedge.sink.split1023.backedge
+  %.1263.ph = phi ptr [ %.1263.ph.be, %.backedge.sink.split1023.backedge ], [ %.0262, %._crit_edge ]
   %103 = load ptr, ptr %52, align 8
   %104 = load i32, ptr %51, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split997
-  %.1263 = phi ptr [ %.1263.ph, %.backedge.sink.split997 ], [ %1071, %.backedge.backedge ]
-  %.2256 = phi ptr [ %103, %.backedge.sink.split997 ], [ %1073, %.backedge.backedge ]
-  %.3246 = phi i32 [ %104, %.backedge.sink.split997 ], [ %.3246.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1023
+  %.1263 = phi ptr [ %.1263.ph, %.backedge.sink.split1023 ], [ %1071, %.backedge.backedge ]
+  %.2256 = phi ptr [ %103, %.backedge.sink.split1023 ], [ %1073, %.backedge.backedge ]
+  %.3246 = phi i32 [ %104, %.backedge.sink.split1023 ], [ %.3246.be, %.backedge.backedge ]
   %105 = sext i32 %.3246 to i64
   %106 = getelementptr [219 x i16], ptr @yy_accept, i64 0, i64 %105
   %107 = load i16, ptr %106, align 2
@@ -323,7 +323,7 @@ define hidden noundef i32 @Dtd_Parse_lex(ptr noundef %0) local_unnamed_addr #0 {
 115:                                              ; preds = %114
   %116 = load i8, ptr %49, align 8
   store i8 %116, ptr %.2256, align 1
-  br label %.backedge.sink.split997.backedge
+  br label %.backedge.sink.split1023.backedge
 
 117:                                              ; preds = %114
   store i32 19, ptr %50, align 4
@@ -1398,11 +1398,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i314, %828
   %849 = and i64 %.lcssa.i316, 9223372036854775807
   %.not278354 = icmp eq i64 %849, 0
   %.not278 = or i1 %848, %.not278354
-  br i1 %.not278, label %.backedge.sink.split997.backedge, label %850
+  br i1 %.not278, label %.backedge.sink.split1023.backedge, label %850
 
-.backedge.sink.split997.backedge:                 ; preds = %yy_try_NUL_trans.exit, %115
+.backedge.sink.split1023.backedge:                ; preds = %yy_try_NUL_trans.exit, %115
   %.1263.ph.be = phi ptr [ %.1263, %115 ], [ %778, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split997
+  br label %.backedge.sink.split1023
 
 850:                                              ; preds = %yy_try_NUL_trans.exit
   %851 = sext i16 %847 to i32
@@ -1612,10 +1612,10 @@ my_yyinput.exit.i:                                ; preds = %.sink.split.i.i, %.
   br label %950
 
 950:                                              ; preds = %my_yyinput.exit.i, %884
-  %.sink144.in.i = phi ptr [ %949, %my_yyinput.exit.i ], [ %885, %884 ]
+  %.sink151.in.i = phi ptr [ %949, %my_yyinput.exit.i ], [ %885, %884 ]
   %.0.i.sink.i = phi i32 [ %.0.i.i, %my_yyinput.exit.i ], [ 0, %884 ]
-  %.sink144.i = load ptr, ptr %.sink144.in.i, align 8
-  %951 = getelementptr inbounds nuw i8, ptr %.sink144.i, i64 28
+  %.sink151.i = load ptr, ptr %.sink151.in.i, align 8
+  %951 = getelementptr inbounds nuw i8, ptr %.sink151.i, i64 28
   store i32 %.0.i.sink.i, ptr %951, align 4
   %952 = load i32, ptr %57, align 4
   %953 = icmp eq i32 %952, 0
@@ -1718,7 +1718,7 @@ yy_get_next_buffer.exit:                          ; preds = %964, %993
   %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 8
   %1019 = load ptr, ptr %1018, align 8
   store ptr %1019, ptr %53, align 8
-  switch i32 %.0101.i, label %default.unreachable783 [
+  switch i32 %.0101.i, label %default.unreachable809 [
     i32 1, label %yy_get_previous_state.exit335
     i32 0, label %1021
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread352_crit_edge
@@ -1738,8 +1738,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread352_crit_edge: ; preds = %
   %1023 = ptrtoint ptr %744 to i64
   %1024 = xor i64 %1023, -1
   %1025 = add i64 %1024, %1022
-  %sext874 = shl i64 %1025, 32
-  %1026 = ashr exact i64 %sext874, 32
+  %sext900 = shl i64 %1025, 32
+  %1026 = ashr exact i64 %sext900, 32
   %1027 = getelementptr i8, ptr %1019, i64 %1026
   store ptr %1027, ptr %48, align 8
   %1028 = load i32, ptr %50, align 4
@@ -1908,7 +1908,7 @@ yy_get_next_buffer.exit.thread352:                ; preds = %866, %yy_get_next_b
   %exitcond.not.i349 = icmp eq ptr %1116, %1073
   br i1 %exitcond.not.i349, label %.backedge.backedge, label %.lr.ph31.i337, !llvm.loop !11
 
-default.unreachable783:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable809:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit335:                    ; preds = %yy_get_next_buffer.exit, %866
@@ -2197,7 +2197,7 @@ define hidden void @Dtd_Parse_restart(ptr noundef %0, ptr noundef captures(none)
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @Dtd_Parse_ensure_buffer_stack(ptr noundef %1)
@@ -2211,14 +2211,14 @@ define hidden void @Dtd_Parse_restart(ptr noundef %0, ptr noundef captures(none)
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #29
   %19 = load i32, ptr %18, align 4
   br label %Dtd_Parse__flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -2229,7 +2229,7 @@ define hidden void @Dtd_Parse_restart(ptr noundef %0, ptr noundef captures(none)
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %Dtd_Parse__flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2277,10 +2277,10 @@ define hidden void @Dtd_Parse_restart(ptr noundef %0, ptr noundef captures(none)
   store i8 %55, ptr %56, align 8
   br label %Dtd_Parse__flush_buffer.exit.i
 
-Dtd_Parse__flush_buffer.exit.i:                   ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+Dtd_Parse__flush_buffer.exit.i:                   ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -2547,7 +2547,7 @@ define hidden void @Dtd_Parse_push_buffer_state(ptr noundef %0, ptr noundef capt
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2572,23 +2572,23 @@ define hidden void @Dtd_Parse_push_buffer_state(ptr noundef %0, ptr noundef capt
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

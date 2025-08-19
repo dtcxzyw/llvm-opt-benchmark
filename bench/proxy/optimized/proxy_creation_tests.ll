@@ -5405,7 +5405,7 @@ define dso_local void @_ZN58ProxyCreationTests_TestMakeProxyInplace_Lifetime_Mov
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = invoke noundef i32 @_ZN5utils15LifetimeTracker10AllocateIdENS_21LifetimeOperationTypeE(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1)
-          to label %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread347
+          to label %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401
 
 _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %1
   store i32 %28, ptr %27, align 8, !alias.scope !89
@@ -5413,14 +5413,14 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   store ptr %2, ptr %29, align 8, !alias.scope !89
   store i64 ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEN12_GLOBAL__N_111SboObserverEEEEE7storageINS0_11inplace_ptrINSM_15LifetimeTracker7SessionEEEEE to i64), ptr %3, align 8, !alias.scope !89
   %30 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
-          to label %35 unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread352
+          to label %35 unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406
 
-_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread347: ; preds = %1
+_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401: ; preds = %1
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267
 
-_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread352: ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406: ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #20
@@ -6437,8 +6437,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2335, i64 noundef %382) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267
 
-_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread352, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread347, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread
-  %.pn62.pn.pn.pn337 = phi { ptr, i32 } [ %.pn62.pn.pn.pn336, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread ], [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread347 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread352 ]
+_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread
+  %.pn62.pn.pn.pn337 = phi { ptr, i32 } [ %.pn62.pn.pn.pn336, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread ], [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406 ]
   %383 = load ptr, ptr %26, align 8
   %.not.i.i.i.i268 = icmp eq ptr %383, null
   br i1 %.not.i.i.i.i268, label %_ZN5utils15LifetimeTrackerD2Ev.exit269, label %384
@@ -9610,19 +9610,19 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   store ptr null, ptr %4, align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %.noexc481 unwind label %70
+          to label %.noexc568 unwind label %70
 
-.noexc481:                                        ; preds = %53
+.noexc568:                                        ; preds = %53
   %58 = invoke noundef i32 @_ZN5utils15LifetimeTracker10AllocateIdENS_21LifetimeOperationTypeE(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %60 unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i
 
-_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i: ; preds = %.noexc481
+_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIvEJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i: ; preds = %.noexc568
   %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 16) #23
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383
 
-60:                                               ; preds = %.noexc481
+60:                                               ; preds = %.noexc568
   store i32 %58, ptr %57, align 8
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = load ptr, ptr %51, align 8
@@ -15842,9 +15842,9 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = invoke noundef nonnull align 8 ptr %75(ptr noundef nonnull align 8 dereferenceable(8) %.val.i.i.i, i64 noundef 24, i64 noundef 8)
-          to label %.noexc479 unwind label %97
+          to label %.noexc566 unwind label %97
 
-.noexc479:                                        ; preds = %69
+.noexc566:                                        ; preds = %69
   %77 = ptrtoint ptr %2 to i64
   store i64 %77, ptr %3, align 8
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15853,13 +15853,13 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   %80 = invoke noundef i32 @_ZN5utils15LifetimeTracker10AllocateIdENS_21LifetimeOperationTypeE(ptr noundef nonnull align 8 dereferenceable(32) %79, i32 noundef 3)
           to label %83 unwind label %81
 
-81:                                               ; preds = %.noexc479
+81:                                               ; preds = %.noexc566
   %82 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZNSt10unique_ptrIN3pro7details11compact_ptrIN5utils15LifetimeTracker7SessionENSt3pmr21polymorphic_allocatorISt4byteEEE7storageEZNS1_L8allocateISB_S9_JRS9_RKS5_EEEPT_RKT0_DpOT1_EUlPSB_E_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit385
 
-83:                                               ; preds = %.noexc479
+83:                                               ; preds = %.noexc566
   store i32 %80, ptr %76, align 8
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %85 = load ptr, ptr %65, align 8
@@ -23005,7 +23005,7 @@ define dso_local void @_ZN59ProxyCreationTests_TestMakeProxy_WithSBO_Lifetime_Mo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = invoke noundef i32 @_ZN5utils15LifetimeTracker10AllocateIdENS_21LifetimeOperationTypeE(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1)
-          to label %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread347
+          to label %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401
 
 _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %1
   store i32 %28, ptr %27, align 8, !alias.scope !412
@@ -23013,14 +23013,14 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   store ptr %2, ptr %29, align 8, !alias.scope !412
   store i64 ptrtoint (ptr @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEN12_GLOBAL__N_111SboObserverEEEEE7storageINS0_11inplace_ptrINSM_15LifetimeTracker7SessionEEEEE to i64), ptr %3, align 8, !alias.scope !412
   %30 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
-          to label %35 unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread352
+          to label %35 unwind label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406
 
-_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread347: ; preds = %1
+_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401: ; preds = %1
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267
 
-_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread352: ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406: ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #20
@@ -24037,8 +24037,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2335, i64 noundef %382) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267
 
-_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread352, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread347, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread
-  %.pn62.pn.pn.pn337 = phi { ptr, i32 } [ %.pn62.pn.pn.pn336, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread ], [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread347 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread352 ]
+_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit267: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread
+  %.pn62.pn.pn.pn337 = phi { ptr, i32 } [ %.pn62.pn.pn.pn336, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread ], [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread401 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestLargeStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit243.thread406 ]
   %383 = load ptr, ptr %26, align 8
   %.not.i.i.i.i268 = icmp eq ptr %383, null
   br i1 %.not.i.i.i.i268, label %_ZN5utils15LifetimeTrackerD2Ev.exit269, label %384
@@ -27214,19 +27214,19 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ;
   store ptr null, ptr %4, align 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-          to label %.noexc481 unwind label %69
+          to label %.noexc568 unwind label %69
 
-.noexc481:                                        ; preds = %.noexc.i.i.i
+.noexc568:                                        ; preds = %.noexc.i.i.i
   %57 = invoke noundef i32 @_ZN5utils15LifetimeTracker10AllocateIdENS_21LifetimeOperationTypeE(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %59 unwind label %_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i
 
-_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i: ; preds = %.noexc481
+_ZNSt10unique_ptrIN5utils15LifetimeTracker7SessionEZN3pro7detailsL8allocateIS2_SaIS2_EJRKS2_EEEPT_RKT0_DpOT1_EUlPS2_E_ED2Ev.exit7.i.i.i.i: ; preds = %.noexc568
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef 16) #23
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec19TestSmallStringableEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS5_13HasDestructorEE.exit383
 
-59:                                               ; preds = %.noexc481
+59:                                               ; preds = %.noexc568
   store i32 %57, ptr %56, align 8
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %61 = load ptr, ptr %51, align 8

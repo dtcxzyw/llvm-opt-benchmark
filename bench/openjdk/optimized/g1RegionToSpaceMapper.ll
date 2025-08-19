@@ -275,7 +275,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
   br i1 %.not36.i.i.i, label %22, label %28, !llvm.loop !6
 
 28:                                               ; preds = %25
-  %29 = shl i64 %23, 6
+  %29 = shl nuw i64 %23, 6
   br label %30
 
 30:                                               ; preds = %28, %17
@@ -391,7 +391,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
 
 28:                                               ; preds = %25
   %29 = xor i64 %27, -1
-  %30 = shl i64 %23, 6
+  %30 = shl nuw i64 %23, 6
   br label %31
 
 31:                                               ; preds = %28, %17
@@ -538,7 +538,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   br i1 %.not36.i.i.i, label %36, label %42, !llvm.loop !6
 
 42:                                               ; preds = %39
-  %43 = shl i64 %37, 6
+  %43 = shl nuw i64 %37, 6
   br label %44
 
 44:                                               ; preds = %42, %31
@@ -696,7 +696,7 @@ _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
   br i1 %.not36.i.i.i, label %47, label %53, !llvm.loop !6
 
 53:                                               ; preds = %50
-  %54 = shl i64 %48, 6
+  %54 = shl nuw i64 %48, 6
   br label %55
 
 55:                                               ; preds = %53, %42

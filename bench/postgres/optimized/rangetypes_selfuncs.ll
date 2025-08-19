@@ -73,9 +73,9 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %35, %32
-  %switch.tableidx52 = add i32 %18, -3884
-  %39 = icmp ult i32 %switch.tableidx52, 13
-  br i1 %39, label %switch.lookup51, label %default_range_selectivity.exit
+  %switch.tableidx64 = add i32 %18, -3884
+  %39 = icmp ult i32 %switch.tableidx64, 13
+  br i1 %39, label %switch.lookup63, label %default_range_selectivity.exit
 
 40:                                               ; preds = %28
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -496,18 +496,18 @@ calc_hist_selectivity.exit.i:                     ; preds = %227, %224, %218, %2
   br label %237
 
 237:                                              ; preds = %.sink.split.i, %calc_hist_selectivity.exit.i
-  %switch.tableidx56 = add i32 %.029, -3884
-  %238 = icmp ult i32 %switch.tableidx56, 13
-  br i1 %238, label %switch.lookup55, label %default_range_selectivity.exit.i
+  %switch.tableidx68 = add i32 %.029, -3884
+  %238 = icmp ult i32 %switch.tableidx68, 13
+  br i1 %238, label %switch.lookup67, label %default_range_selectivity.exit.i
 
-switch.lookup55:                                  ; preds = %237
-  %239 = zext nneg i32 %switch.tableidx56 to i64
-  %switch.gep57 = getelementptr inbounds nuw [13 x double], ptr @switch.table.rangesel.3, i64 0, i64 %239
-  %switch.load58 = load double, ptr %switch.gep57, align 8
+switch.lookup67:                                  ; preds = %237
+  %239 = zext nneg i32 %switch.tableidx68 to i64
+  %switch.gep69 = getelementptr inbounds nuw [13 x double], ptr @switch.table.rangesel.3, i64 0, i64 %239
+  %switch.load70 = load double, ptr %switch.gep69, align 8
   br label %default_range_selectivity.exit.i
 
-default_range_selectivity.exit.i:                 ; preds = %237, %switch.lookup55, %calc_hist_selectivity.exit.i
-  %.0.i45 = phi double [ %.073.ph.ph.i.i, %calc_hist_selectivity.exit.i ], [ %switch.load58, %switch.lookup55 ], [ 1.000000e-02, %237 ]
+default_range_selectivity.exit.i:                 ; preds = %237, %switch.lookup67, %calc_hist_selectivity.exit.i
+  %.0.i45 = phi double [ %.073.ph.ph.i.i, %calc_hist_selectivity.exit.i ], [ %switch.load70, %switch.lookup67 ], [ 1.000000e-02, %237 ]
   %240 = icmp eq i32 %.029, 3892
   %241 = fsub double 1.000000e+00, %.1.i
   br i1 %240, label %242, label %244
@@ -535,18 +535,18 @@ default_range_selectivity.exit.i:                 ; preds = %237, %switch.lookup
   br label %calc_rangesel.exit
 
 .thread:                                          ; preds = %83, %97
-  %switch.tableidx60 = add i32 %.029, -3884
-  %253 = icmp ult i32 %switch.tableidx60, 13
-  br i1 %253, label %switch.lookup59, label %calc_rangesel.exit
+  %switch.tableidx72 = add i32 %.029, -3884
+  %253 = icmp ult i32 %switch.tableidx72, 13
+  br i1 %253, label %switch.lookup71, label %calc_rangesel.exit
 
-switch.lookup59:                                  ; preds = %.thread
-  %254 = zext nneg i32 %switch.tableidx60 to i64
-  %switch.gep61 = getelementptr inbounds nuw [13 x double], ptr @switch.table.rangesel.4, i64 0, i64 %254
-  %switch.load62 = load double, ptr %switch.gep61, align 8
+switch.lookup71:                                  ; preds = %.thread
+  %254 = zext nneg i32 %switch.tableidx72 to i64
+  %switch.gep73 = getelementptr inbounds nuw [13 x double], ptr @switch.table.rangesel.4, i64 0, i64 %254
+  %switch.load74 = load double, ptr %switch.gep73, align 8
   br label %calc_rangesel.exit
 
-calc_rangesel.exit:                               ; preds = %.thread, %switch.lookup59, %62, %61, %252, %250, %246
-  %.027 = phi double [ 1.000000e+00, %252 ], [ %248, %250 ], [ 0.000000e+00, %246 ], [ 5.000000e-03, %61 ], [ 5.000000e-03, %62 ], [ %switch.load62, %switch.lookup59 ], [ 1.000000e-02, %.thread ]
+calc_rangesel.exit:                               ; preds = %.thread, %switch.lookup71, %62, %61, %252, %250, %246
+  %.027 = phi double [ 1.000000e+00, %252 ], [ %248, %250 ], [ 0.000000e+00, %246 ], [ 5.000000e-03, %61 ], [ 5.000000e-03, %62 ], [ %switch.load74, %switch.lookup71 ], [ 1.000000e-02, %.thread ]
   %255 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %256 = load ptr, ptr %255, align 8
   %.not40 = icmp eq ptr %256, null
@@ -570,14 +570,14 @@ switch.lookup:                                    ; preds = %26
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %default_range_selectivity.exit
 
-switch.lookup51:                                  ; preds = %38
-  %264 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep53 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.rangesel.2, i64 0, i64 %264
-  %switch.load54 = load i64, ptr %switch.gep53, align 8
+switch.lookup63:                                  ; preds = %38
+  %264 = zext nneg i32 %switch.tableidx64 to i64
+  %switch.gep65 = getelementptr inbounds nuw [13 x i64], ptr @switch.table.rangesel.2, i64 0, i64 %264
+  %switch.load66 = load i64, ptr %switch.gep65, align 8
   br label %default_range_selectivity.exit
 
-default_range_selectivity.exit:                   ; preds = %38, %switch.lookup51, %26, %switch.lookup, %55, %58, %44, %47, %260
-  %.028 = phi i64 [ %262, %260 ], [ 0, %47 ], [ 0, %44 ], [ 4576918229304087675, %58 ], [ 4576918229304087675, %55 ], [ %switch.load, %switch.lookup ], [ 4576918229304087675, %26 ], [ %switch.load54, %switch.lookup51 ], [ 4576918229304087675, %38 ]
+default_range_selectivity.exit:                   ; preds = %38, %switch.lookup63, %26, %switch.lookup, %55, %58, %44, %47, %260
+  %.028 = phi i64 [ %262, %260 ], [ 0, %47 ], [ 0, %44 ], [ 4576918229304087675, %58 ], [ 4576918229304087675, %55 ], [ %switch.load, %switch.lookup ], [ 4576918229304087675, %26 ], [ %switch.load66, %switch.lookup63 ], [ 4576918229304087675, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

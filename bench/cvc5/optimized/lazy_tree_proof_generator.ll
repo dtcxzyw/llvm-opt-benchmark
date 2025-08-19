@@ -4884,26 +4884,26 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %73, %67, %75
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i142 = icmp eq ptr %80, %81
-  br i1 %.not.i.i.i.i142, label %.noexc146, label %85
+  %.not.i.i.i.i150 = icmp eq ptr %80, %81
+  br i1 %.not.i.i.i.i150, label %.noexc154, label %85
 
 85:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %86 = sdiv exact i64 %84, 96
   %87 = icmp ugt i64 %86, 96076792050570581
-  br i1 %87, label %.noexc.i.i144, label %_ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4_m.exit.i.i.i.i, !prof !46
+  br i1 %87, label %.noexc.i.i152, label %_ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4_m.exit.i.i.i.i, !prof !46
 
-.noexc.i.i144:                                    ; preds = %85
+.noexc.i.i152:                                    ; preds = %85
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #26
-          to label %.noexc145 unwind label %.loopexit.split-lp150
+          to label %.noexc153 unwind label %.loopexit.split-lp158
 
-.noexc145:                                        ; preds = %.noexc.i.i144
+.noexc153:                                        ; preds = %.noexc.i.i152
   unreachable
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %85
   %88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #25
-          to label %.noexc146 unwind label %.loopexit149
+          to label %.noexc154 unwind label %.loopexit157
 
-.noexc146:                                        ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4_m.exit.i.i.i.i, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+.noexc154:                                        ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4_m.exit.i.i.i.i, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %89 = phi ptr [ null, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit ], [ %88, %_ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4_m.exit.i.i.i.i ]
   store ptr %89, ptr %77, align 8, !tbaa !41
   %90 = getelementptr inbounds nuw i8, ptr %.072, i64 80
@@ -4916,12 +4916,12 @@ _ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4
   %95 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal6detail13TreeProofNodeESt6vectorIS5_SaIS5_EEEEPS5_ET0_T_SE_SD_(ptr %93, ptr %94, ptr noundef %89)
           to label %_ZSt10_ConstructIN4cvc58internal6detail13TreeProofNodeEJRKS3_EEvPT_DpOT0_.exit unwind label %96
 
-96:                                               ; preds = %.noexc146
+96:                                               ; preds = %.noexc154
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = load ptr, ptr %77, align 8, !tbaa !41
-  %.not.i.i.i143 = icmp eq ptr %98, null
-  br i1 %.not.i.i.i143, label %.body147, label %99
+  %.not.i.i.i151 = icmp eq ptr %98, null
+  br i1 %.not.i.i.i151, label %.body155, label %99
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %.072, i64 88
@@ -4930,7 +4930,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4
   %103 = ptrtoint ptr %98 to i64
   %104 = sub i64 %102, %103
   tail call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %104) #27
-  br label %.body147
+  br label %.body155
 
 .loopexit26:                                      ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i.i
   %lpad.loopexit28 = landingpad { ptr, i32 }
@@ -4947,24 +4947,24 @@ _ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4
           catch ptr null
   br label %108
 
-.loopexit149:                                     ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4_m.exit.i.i.i.i
-  %lpad.loopexit151 = landingpad { ptr, i32 }
+.loopexit157:                                     ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4_m.exit.i.i.i.i
+  %lpad.loopexit159 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body147
+  br label %.body155
 
-.loopexit.split-lp150:                            ; preds = %.noexc.i.i144
-  %lpad.loopexit.split-lp152 = landingpad { ptr, i32 }
+.loopexit.split-lp158:                            ; preds = %.noexc.i.i152
+  %lpad.loopexit.split-lp160 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body147
+  br label %.body155
 
-.body147:                                         ; preds = %.loopexit149, %.loopexit.split-lp150, %96, %99
-  %eh.lpad-body148 = phi { ptr, i32 } [ %97, %99 ], [ %97, %96 ], [ %lpad.loopexit151, %.loopexit149 ], [ %lpad.loopexit.split-lp152, %.loopexit.split-lp150 ]
+.body155:                                         ; preds = %.loopexit157, %.loopexit.split-lp158, %96, %99
+  %eh.lpad-body156 = phi { ptr, i32 } [ %97, %99 ], [ %97, %96 ], [ %lpad.loopexit159, %.loopexit157 ], [ %lpad.loopexit.split-lp160, %.loopexit.split-lp158 ]
   %107 = getelementptr inbounds nuw i8, ptr %.072, i64 64
   tail call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %107) #24
   br label %108
 
-108:                                              ; preds = %.body147, %105
-  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body148, %.body147 ], [ %106, %105 ]
+108:                                              ; preds = %.body155, %105
+  %.pn.i.i = phi { ptr, i32 } [ %eh.lpad-body156, %.body155 ], [ %106, %105 ]
   tail call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #24
   br label %.body11
 
@@ -4973,7 +4973,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal6detail13TreeProofNodeEEE8allocateERS4
   tail call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #24
   br label %.body
 
-_ZSt10_ConstructIN4cvc58internal6detail13TreeProofNodeEJRKS3_EEvPT_DpOT0_.exit: ; preds = %.noexc146
+_ZSt10_ConstructIN4cvc58internal6detail13TreeProofNodeEJRKS3_EEvPT_DpOT0_.exit: ; preds = %.noexc154
   store ptr %95, ptr %90, align 8, !tbaa !42
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.023.071, i64 96
   %110 = getelementptr inbounds nuw i8, ptr %.072, i64 96
@@ -6445,7 +6445,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10shared_ptrIN4cvc58internal9Pro
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN4cvc58internal9ProofNodeEEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10shared_ptrIN4cvc58internal9ProofNodeEEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !73

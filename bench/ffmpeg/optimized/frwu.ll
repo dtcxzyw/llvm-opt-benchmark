@@ -135,12 +135,12 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %.not68, label %60, label %61
 
 60:                                               ; preds = %57
-  br i1 %.not90, label %.thread107, label %.thread
+  br i1 %.not90, label %.thread114, label %.thread
 
 61:                                               ; preds = %57
   br i1 %59, label %.lr.ph, label %._crit_edge
 
-.thread107:                                       ; preds = %60
+.thread114:                                       ; preds = %60
   br i1 %59, label %.lr.ph.split.us.preheader, label %._crit_edge
 
 .thread:                                          ; preds = %60
@@ -159,12 +159,12 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %68 = getelementptr inbounds i8, ptr %40, i64 %67
   br i1 %.not90, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
-.lr.ph.split.us.preheader:                        ; preds = %.thread107, %.lr.ph
-  %.187.us.ph = phi ptr [ %68, %.lr.ph ], [ %40, %.thread107 ]
+.lr.ph.split.us.preheader:                        ; preds = %.thread114, %.lr.ph
+  %.187.us.ph = phi ptr [ %68, %.lr.ph ], [ %40, %.thread114 ]
   br label %.lr.ph.split.us
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph.thread, %.lr.ph
-  %.0104106 = phi ptr [ %65, %.lr.ph.thread ], [ %68, %.lr.ph ]
+  %.0111113 = phi ptr [ %65, %.lr.ph.thread ], [ %68, %.lr.ph ]
   %69 = add nsw i32 %37, -1
   br label %.lr.ph.split
 
@@ -190,7 +190,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %88
   %82 = phi i32 [ %91, %88 ], [ %33, %.lr.ph.split.preheader ]
-  %.187 = phi ptr [ %98, %88 ], [ %.0104106, %.lr.ph.split.preheader ]
+  %.187 = phi ptr [ %98, %88 ], [ %.0111113, %.lr.ph.split.preheader ]
   %.06086 = phi i32 [ %99, %88 ], [ 0, %.lr.ph.split.preheader ]
   %.17985 = phi ptr [ %94, %88 ], [ %46, %.lr.ph.split.preheader ]
   %83 = load i32, ptr %30, align 8, !tbaa !35
@@ -220,9 +220,9 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %exitcond.not = icmp eq i32 %99, %37
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %88, %.lr.ph.split.us, %.thread107, %61
-  %100 = phi i32 [ %33, %61 ], [ %33, %.thread107 ], [ %73, %.lr.ph.split.us ], [ %91, %88 ]
-  %.179.lcssa = phi ptr [ %46, %61 ], [ %46, %.thread107 ], [ %76, %.lr.ph.split.us ], [ %94, %88 ]
+._crit_edge:                                      ; preds = %88, %.lr.ph.split.us, %.thread114, %61
+  %100 = phi i32 [ %33, %61 ], [ %33, %.thread114 ], [ %73, %.lr.ph.split.us ], [ %91, %88 ]
+  %.179.lcssa = phi ptr [ %46, %61 ], [ %46, %.thread114 ], [ %76, %.lr.ph.split.us ], [ %94, %88 ]
   %101 = sub nsw i32 %47, %39
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %.179.lcssa, i64 %102

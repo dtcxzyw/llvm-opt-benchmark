@@ -725,8 +725,8 @@ thread-pre-split.thread:                          ; preds = %386
 405:                                              ; preds = %400
   %406 = trunc nsw i64 %indvars.iv to i32
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %sext68 = shl i64 %indvars.iv, 32
-  %407 = ashr exact i64 %sext68, 32
+  %sext99 = shl i64 %indvars.iv, 32
+  %407 = ashr exact i64 %sext99, 32
   %408 = icmp slt i64 %indvars.iv.next63, %407
   br i1 %408, label %.preheader47, label %.loopexit46, !llvm.loop !12
 
@@ -748,8 +748,8 @@ thread-pre-split.thread:                          ; preds = %386
   br i1 %417, label %400, label %.loopexit46.loopexit, !llvm.loop !12
 
 .loopexit46.loopexit:                             ; preds = %409
-  %sext67 = shl i64 %indvars.iv.next, 32
-  %.pre = ashr exact i64 %sext67, 32
+  %sext98 = shl i64 %indvars.iv.next, 32
+  %.pre = ashr exact i64 %sext98, 32
   br label %.loopexit46
 
 .loopexit46:                                      ; preds = %405, %.loopexit46.loopexit
@@ -2186,8 +2186,8 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   br label %.critedge, !llvm.loop !23
 
 ..split14.us_crit_edge:                           ; preds = %46
-  %.not30 = icmp ugt i32 %33, %47
-  br i1 %.not30, label %.critedge20, label %.critedge
+  %.not36 = icmp ugt i32 %33, %47
+  br i1 %.not36, label %.critedge20, label %.critedge
 
 .split:                                           ; preds = %35, %.thread
   %55 = phi i1 [ %87, %.thread ], [ false, %35 ]

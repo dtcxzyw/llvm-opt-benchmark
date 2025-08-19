@@ -2221,11 +2221,11 @@ gauss_solve_triangular.exit428:                   ; preds = %496
 
 .preheader522:                                    ; preds = %.preheader522.lr.ph, %531
   %indvars.iv556 = phi i64 [ 0, %.preheader522.lr.ph ], [ %indvars.iv.next557, %531 ]
-  %.idx631 = mul nuw nsw i64 %indvars.iv556, 12
-  %526 = getelementptr inbounds nuw i8, ptr %522, i64 %.idx631
+  %.idx632 = mul nuw nsw i64 %indvars.iv556, 12
+  %526 = getelementptr inbounds nuw i8, ptr %522, i64 %.idx632
   %527 = mul nuw nsw i64 %indvars.iv556, %wide.trip.count554
   %invariant.gep = getelementptr inbounds nuw double, ptr %520, i64 %indvars.iv556
-  %invariant.gep633 = getelementptr inbounds nuw double, ptr %520, i64 %527
+  %invariant.gep634 = getelementptr inbounds nuw double, ptr %520, i64 %527
   br label %532
 
 .lr.ph529:                                        ; preds = %531
@@ -2233,8 +2233,8 @@ gauss_solve_triangular.exit428:                   ; preds = %496
   %529 = zext nneg i32 %528 to i64
   %530 = zext nneg i32 %27 to i64
   %wide.trip.count567 = zext nneg i32 %spec.select to i64
-  %invariant.gep635 = getelementptr inbounds nuw double, ptr %520, i64 %529
-  %invariant.gep637 = getelementptr inbounds nuw double, ptr %520, i64 %530
+  %invariant.gep636 = getelementptr inbounds nuw double, ptr %520, i64 %529
+  %invariant.gep638 = getelementptr inbounds nuw double, ptr %520, i64 %530
   br label %568
 
 531:                                              ; preds = %kernel.exit
@@ -2244,8 +2244,8 @@ gauss_solve_triangular.exit428:                   ; preds = %496
 
 532:                                              ; preds = %.preheader522, %kernel.exit
   %indvars.iv558 = phi i64 [ %indvars.iv556, %.preheader522 ], [ %indvars.iv.next559, %kernel.exit ]
-  %.idx632 = mul nuw nsw i64 %indvars.iv558, 12
-  %533 = getelementptr inbounds nuw i8, ptr %522, i64 %.idx632
+  %.idx633 = mul nuw nsw i64 %indvars.iv558, 12
+  %533 = getelementptr inbounds nuw i8, ptr %522, i64 %.idx633
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %534
 
@@ -2290,8 +2290,8 @@ kernel.exit:                                      ; preds = %534
   %562 = mul nuw nsw i64 %indvars.iv558, %wide.trip.count554
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %562
   store double %561, ptr %gep, align 8, !tbaa !53
-  %gep634 = getelementptr inbounds nuw double, ptr %invariant.gep633, i64 %indvars.iv558
-  store double %561, ptr %gep634, align 8, !tbaa !53
+  %gep635 = getelementptr inbounds nuw double, ptr %invariant.gep634, i64 %indvars.iv558
+  store double %561, ptr %gep635, align 8, !tbaa !53
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
   %563 = icmp samesign ult i64 %indvars.iv.next559, %525
   br i1 %563, label %532, label %531
@@ -2302,17 +2302,17 @@ kernel.exit:                                      ; preds = %534
   %566 = zext nneg i32 %565 to i64
   %567 = zext nneg i32 %27 to i64
   %wide.trip.count572 = zext nneg i32 %spec.select to i64
-  %invariant.gep639 = getelementptr inbounds nuw double, ptr %520, i64 %566
-  %invariant.gep641 = getelementptr inbounds nuw double, ptr %520, i64 %567
+  %invariant.gep640 = getelementptr inbounds nuw double, ptr %520, i64 %566
+  %invariant.gep642 = getelementptr inbounds nuw double, ptr %520, i64 %567
   br label %574
 
 568:                                              ; preds = %.lr.ph529, %568
   %indvars.iv564 = phi i64 [ 0, %.lr.ph529 ], [ %indvars.iv.next565, %568 ]
-  %gep636 = getelementptr inbounds nuw double, ptr %invariant.gep635, i64 %indvars.iv564
-  store double 1.000000e+00, ptr %gep636, align 8, !tbaa !53
+  %gep637 = getelementptr inbounds nuw double, ptr %invariant.gep636, i64 %indvars.iv564
+  store double 1.000000e+00, ptr %gep637, align 8, !tbaa !53
   %569 = mul nuw nsw i64 %indvars.iv564, %wide.trip.count554
-  %gep638 = getelementptr inbounds nuw double, ptr %invariant.gep637, i64 %569
-  store double 1.000000e+00, ptr %gep638, align 8, !tbaa !53
+  %gep639 = getelementptr inbounds nuw double, ptr %invariant.gep638, i64 %569
+  store double 1.000000e+00, ptr %gep639, align 8, !tbaa !53
   %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
   %exitcond568.not = icmp eq i64 %indvars.iv.next565, %wide.trip.count567
   br i1 %exitcond568.not, label %.lr.ph531, label %568
@@ -2323,8 +2323,8 @@ kernel.exit:                                      ; preds = %534
   %572 = zext nneg i32 %571 to i64
   %573 = zext nneg i32 %27 to i64
   %wide.trip.count577 = zext nneg i32 %spec.select to i64
-  %invariant.gep643 = getelementptr inbounds nuw double, ptr %520, i64 %572
-  %invariant.gep645 = getelementptr inbounds nuw double, ptr %520, i64 %573
+  %invariant.gep644 = getelementptr inbounds nuw double, ptr %520, i64 %572
+  %invariant.gep646 = getelementptr inbounds nuw double, ptr %520, i64 %573
   br label %585
 
 574:                                              ; preds = %.lr.ph531, %574
@@ -2333,11 +2333,11 @@ kernel.exit:                                      ; preds = %534
   %576 = getelementptr inbounds nuw [147 x float], ptr %564, i64 0, i64 %575
   %577 = load float, ptr %576, align 4, !tbaa !14
   %578 = fpext reassoc nsz arcp contract afn float %577 to double
-  %gep640 = getelementptr inbounds nuw double, ptr %invariant.gep639, i64 %indvars.iv569
-  store double %578, ptr %gep640, align 8, !tbaa !53
+  %gep641 = getelementptr inbounds nuw double, ptr %invariant.gep640, i64 %indvars.iv569
+  store double %578, ptr %gep641, align 8, !tbaa !53
   %579 = mul nuw nsw i64 %indvars.iv569, %wide.trip.count554
-  %gep642 = getelementptr inbounds nuw double, ptr %invariant.gep641, i64 %579
-  %580 = getelementptr inbounds nuw i8, ptr %gep642, i64 8
+  %gep643 = getelementptr inbounds nuw double, ptr %invariant.gep642, i64 %579
+  %580 = getelementptr inbounds nuw i8, ptr %gep643, i64 8
   store double %578, ptr %580, align 8, !tbaa !53
   %indvars.iv.next570 = add nuw nsw i64 %indvars.iv569, 1
   %exitcond573.not = icmp eq i64 %indvars.iv.next570, %wide.trip.count572
@@ -2349,8 +2349,8 @@ kernel.exit:                                      ; preds = %534
   %583 = zext nneg i32 %582 to i64
   %584 = zext nneg i32 %27 to i64
   %wide.trip.count582 = zext nneg i32 %spec.select to i64
-  %invariant.gep647 = getelementptr inbounds nuw double, ptr %520, i64 %583
-  %invariant.gep649 = getelementptr inbounds nuw double, ptr %520, i64 %584
+  %invariant.gep648 = getelementptr inbounds nuw double, ptr %520, i64 %583
+  %invariant.gep650 = getelementptr inbounds nuw double, ptr %520, i64 %584
   br label %602
 
 585:                                              ; preds = %.lr.ph533, %585
@@ -2360,11 +2360,11 @@ kernel.exit:                                      ; preds = %534
   %588 = getelementptr inbounds nuw [147 x float], ptr %570, i64 0, i64 %587
   %589 = load float, ptr %588, align 4, !tbaa !14
   %590 = fpext reassoc nsz arcp contract afn float %589 to double
-  %gep644 = getelementptr inbounds nuw double, ptr %invariant.gep643, i64 %indvars.iv574
-  store double %590, ptr %gep644, align 8, !tbaa !53
+  %gep645 = getelementptr inbounds nuw double, ptr %invariant.gep644, i64 %indvars.iv574
+  store double %590, ptr %gep645, align 8, !tbaa !53
   %591 = mul nuw nsw i64 %indvars.iv574, %wide.trip.count554
-  %gep646 = getelementptr inbounds nuw double, ptr %invariant.gep645, i64 %591
-  %592 = getelementptr inbounds nuw i8, ptr %gep646, i64 16
+  %gep647 = getelementptr inbounds nuw double, ptr %invariant.gep646, i64 %591
+  %592 = getelementptr inbounds nuw i8, ptr %gep647, i64 16
   store double %590, ptr %592, align 8, !tbaa !53
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
   %exitcond578.not = icmp eq i64 %indvars.iv.next575, %wide.trip.count577
@@ -2375,14 +2375,14 @@ kernel.exit:                                      ; preds = %534
   br i1 %593, label %.preheader516.preheader, label %._crit_edge
 
 .preheader516.preheader:                          ; preds = %.preheader517
-  %594 = mul i32 %spec.select, %28
-  %595 = add i32 %27, %594
-  %596 = zext i32 %595 to i64
+  %594 = mul nuw nsw i32 %spec.select, %28
+  %595 = add nuw nsw i32 %27, %594
+  %596 = zext nneg i32 %595 to i64
   %597 = shl nuw nsw i64 %596, 3
   %598 = shl nuw nsw i32 %27, 3
   %narrow = add nuw nsw i32 %598, 32
   %599 = zext nneg i32 %narrow to i64
-  %600 = sub nuw i32 %28, %spec.select
+  %600 = sub nuw nsw i32 %28, %spec.select
   %wide.trip.count587 = zext nneg i32 %600 to i64
   %601 = getelementptr nuw i8, ptr %520, i64 %597
   br label %.preheader516
@@ -2394,11 +2394,11 @@ kernel.exit:                                      ; preds = %534
   %605 = getelementptr inbounds nuw [147 x float], ptr %581, i64 0, i64 %604
   %606 = load float, ptr %605, align 4, !tbaa !14
   %607 = fpext reassoc nsz arcp contract afn float %606 to double
-  %gep648 = getelementptr inbounds nuw double, ptr %invariant.gep647, i64 %indvars.iv579
-  store double %607, ptr %gep648, align 8, !tbaa !53
+  %gep649 = getelementptr inbounds nuw double, ptr %invariant.gep648, i64 %indvars.iv579
+  store double %607, ptr %gep649, align 8, !tbaa !53
   %608 = mul nuw nsw i64 %indvars.iv579, %wide.trip.count554
-  %gep650 = getelementptr inbounds nuw double, ptr %invariant.gep649, i64 %608
-  %609 = getelementptr inbounds nuw i8, ptr %gep650, i64 24
+  %gep651 = getelementptr inbounds nuw double, ptr %invariant.gep650, i64 %608
+  %609 = getelementptr inbounds nuw i8, ptr %gep651, i64 24
   store double %607, ptr %609, align 8, !tbaa !53
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %exitcond583.not = icmp eq i64 %indvars.iv.next580, %wide.trip.count582
@@ -2488,7 +2488,7 @@ kernel.exit:                                      ; preds = %534
 
 637:                                              ; preds = %644, %.lr.ph58.i443
   %indvars.iv72.i444 = phi i64 [ %57, %.lr.ph58.i443 ], [ %indvars.iv.next73.i450, %644 ]
-  %638 = mul nuw i64 %indvars.iv72.i444, %623
+  %638 = mul nuw nsw i64 %indvars.iv72.i444, %623
   %639 = getelementptr inbounds nuw double, ptr %520, i64 %638
   %640 = load double, ptr %639, align 8, !tbaa !53
   %641 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i444
@@ -2595,7 +2595,7 @@ gauss_solve_triangular.exit451:                   ; preds = %644
 
 .lr.ph58.i466:                                    ; preds = %.loopexit.i463, %686
   %indvars.iv72.i467 = phi i64 [ %indvars.iv.next73.i473, %686 ], [ %57, %.loopexit.i463 ]
-  %680 = mul nuw i64 %indvars.iv72.i467, %623
+  %680 = mul nuw nsw i64 %indvars.iv72.i467, %623
   %681 = getelementptr inbounds nuw double, ptr %520, i64 %680
   %682 = load double, ptr %681, align 8, !tbaa !53
   %683 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i467
@@ -2701,7 +2701,7 @@ gauss_solve_triangular.exit474:                   ; preds = %686
 
 .lr.ph58.i489:                                    ; preds = %.loopexit.i486, %727
   %indvars.iv72.i490 = phi i64 [ %indvars.iv.next73.i496, %727 ], [ %57, %.loopexit.i486 ]
-  %721 = mul nuw i64 %indvars.iv72.i490, %623
+  %721 = mul nuw nsw i64 %indvars.iv72.i490, %623
   %722 = getelementptr inbounds nuw double, ptr %520, i64 %721
   %723 = load double, ptr %722, align 8, !tbaa !53
   %724 = getelementptr inbounds nuw double, ptr %521, i64 %indvars.iv72.i490
@@ -2814,7 +2814,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_solve(ptr noundef nonnull capt
 
 26:                                               ; preds = %33, %.lr.ph58.i
   %indvars.iv72.i = phi i64 [ %wide.trip.count65.i, %.lr.ph58.i ], [ %indvars.iv.next73.i, %33 ]
-  %27 = mul nuw i64 %indvars.iv72.i, %12
+  %27 = mul nuw nsw i64 %indvars.iv72.i, %12
   %28 = getelementptr inbounds nuw double, ptr %0, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !53
   %30 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv72.i
@@ -2907,7 +2907,7 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr noundef ca
   br i1 %10, label %.lr.ph113, label %.loopexit
 
 .lr.ph113:                                        ; preds = %.preheader109
-  %invariant.gep152 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv145
+  %invariant.gep153 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv145
   %25 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %17
   br label %37
 
@@ -2936,56 +2936,56 @@ define internal fastcc range(i32 0, 2) i32 @gauss_make_triangular(ptr noundef ca
   br i1 %.not.not, label %.preheader.us.preheader, label %.lr.ph116.preheader
 
 .lr.ph116.preheader:                              ; preds = %._crit_edge114
-  %invariant.gep154 = getelementptr double, ptr %0, i64 %14
-  %invariant.gep156 = getelementptr inbounds nuw double, ptr %0, i64 %18
+  %invariant.gep155 = getelementptr double, ptr %0, i64 %14
+  %invariant.gep157 = getelementptr inbounds nuw double, ptr %0, i64 %18
   br label %.lr.ph116
 
 37:                                               ; preds = %.lr.ph113, %37
   %indvars.iv125 = phi i64 [ %indvars.iv, %.lr.ph113 ], [ %indvars.iv.next126, %37 ]
   %38 = mul nuw nsw i64 %indvars.iv125, %7
-  %gep153 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %38
-  %39 = load double, ptr %gep153, align 8, !tbaa !53
+  %gep154 = getelementptr inbounds nuw double, ptr %invariant.gep153, i64 %38
+  %39 = load double, ptr %gep154, align 8, !tbaa !53
   %40 = fneg reassoc nsz arcp contract afn double %39
   %41 = fmul reassoc nsz arcp contract afn double %40, %25
-  store double %41, ptr %gep153, align 8, !tbaa !53
+  store double %41, ptr %gep154, align 8, !tbaa !53
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %7
   br i1 %exitcond129.not, label %._crit_edge114, label %37
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
   %indvars.iv130 = phi i64 [ %indvars.iv, %.lr.ph116.preheader ], [ %indvars.iv.next131, %.lr.ph116 ]
-  %gep155 = getelementptr double, ptr %invariant.gep154, i64 %indvars.iv130
-  %42 = load double, ptr %gep155, align 8, !tbaa !53
-  %gep157 = getelementptr inbounds nuw double, ptr %invariant.gep156, i64 %indvars.iv130
-  %43 = load double, ptr %gep157, align 8, !tbaa !53
-  store double %43, ptr %gep155, align 8, !tbaa !53
-  store double %42, ptr %gep157, align 8, !tbaa !53
+  %gep156 = getelementptr double, ptr %invariant.gep155, i64 %indvars.iv130
+  %42 = load double, ptr %gep156, align 8, !tbaa !53
+  %gep158 = getelementptr inbounds nuw double, ptr %invariant.gep157, i64 %indvars.iv130
+  %43 = load double, ptr %gep158, align 8, !tbaa !53
+  store double %43, ptr %gep156, align 8, !tbaa !53
+  store double %42, ptr %gep158, align 8, !tbaa !53
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %7
   br i1 %exitcond134.not, label %.preheader.us.preheader, label %.lr.ph116
 
 .preheader.us.preheader:                          ; preds = %.lr.ph116, %._crit_edge114
-  %invariant.gep162 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv145
-  %invariant.gep158 = getelementptr inbounds nuw double, ptr %0, i64 %18
+  %invariant.gep163 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv145
+  %invariant.gep159 = getelementptr inbounds nuw double, ptr %0, i64 %18
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge119.us
   %indvars.iv140 = phi i64 [ %indvars.iv, %.preheader.us.preheader ], [ %indvars.iv.next141, %._crit_edge119.us ]
   %44 = mul nuw nsw i64 %indvars.iv140, %7
-  %gep163 = getelementptr inbounds nuw double, ptr %invariant.gep162, i64 %44
-  %invariant.gep160 = getelementptr inbounds nuw double, ptr %0, i64 %44
+  %gep164 = getelementptr inbounds nuw double, ptr %invariant.gep163, i64 %44
+  %invariant.gep161 = getelementptr inbounds nuw double, ptr %0, i64 %44
   br label %45
 
 45:                                               ; preds = %.preheader.us, %45
   %indvars.iv135 = phi i64 [ %indvars.iv, %.preheader.us ], [ %indvars.iv.next136, %45 ]
-  %46 = load double, ptr %gep163, align 8, !tbaa !53
-  %gep159 = getelementptr inbounds nuw double, ptr %invariant.gep158, i64 %indvars.iv135
-  %47 = load double, ptr %gep159, align 8, !tbaa !53
+  %46 = load double, ptr %gep164, align 8, !tbaa !53
+  %gep160 = getelementptr inbounds nuw double, ptr %invariant.gep159, i64 %indvars.iv135
+  %47 = load double, ptr %gep160, align 8, !tbaa !53
   %48 = fmul reassoc nsz arcp contract afn double %47, %46
-  %gep161 = getelementptr inbounds nuw double, ptr %invariant.gep160, i64 %indvars.iv135
-  %49 = load double, ptr %gep161, align 8, !tbaa !53
+  %gep162 = getelementptr inbounds nuw double, ptr %invariant.gep161, i64 %indvars.iv135
+  %49 = load double, ptr %gep162, align 8, !tbaa !53
   %50 = fadd reassoc nsz arcp contract afn double %49, %48
-  store double %50, ptr %gep161, align 8, !tbaa !53
+  store double %50, ptr %gep162, align 8, !tbaa !53
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %7
   br i1 %exitcond139.not, label %._crit_edge119.us, label %45
@@ -3074,9 +3074,9 @@ define hidden void @_colorchecker_rebuild_patch_list(ptr noundef readonly captur
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %17
-  %.sink23 = phi double [ 0x3FE5555555555555, %17 ], [ %spec.select, %._crit_edge ]
+  %.sink24 = phi double [ 0x3FE5555555555555, %17 ], [ %spec.select, %._crit_edge ]
   %28 = load ptr, ptr %6, align 8, !tbaa !70
-  call void @dtgtk_drawing_area_set_aspect_ratio(ptr noundef %28, double noundef %.sink23) #22
+  call void @dtgtk_drawing_area_set_aspect_ratio(ptr noundef %28, double noundef %.sink24) #22
   %29 = load ptr, ptr %13, align 8, !tbaa !69
   %30 = call i32 @dt_bauhaus_combobox_get(ptr noundef %29) #22
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 60

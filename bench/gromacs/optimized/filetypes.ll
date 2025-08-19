@@ -827,24 +827,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %.lo
 149:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 44
-  br i1 %exitcond.not, label %.split.loop.exit68, label %112, !llvm.loop !43
+  br i1 %exitcond.not, label %.split.loop.exit86, label %112, !llvm.loop !43
 
 .split.loop.exit:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51
   %150 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit68
+  br label %.split.loop.exit86
 
-.split.loop.exit68:                               ; preds = %149, %.split.loop.exit
+.split.loop.exit86:                               ; preds = %149, %.split.loop.exit
   %.016.lcssa = phi i32 [ %150, %.split.loop.exit ], [ 44, %149 ]
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %152 = load ptr, ptr %151, align 8, !tbaa !20
   %.not.i.i.i55 = icmp eq ptr %152, null
   br i1 %.not.i.i.i55, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i56, label %153
 
-153:                                              ; preds = %.split.loop.exit68
+153:                                              ; preds = %.split.loop.exit86
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull %152) #16
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i56
 
-_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i56: ; preds = %153, %.split.loop.exit68
+_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i56: ; preds = %153, %.split.loop.exit86
   store ptr null, ptr %151, align 8, !tbaa !20
   %154 = load ptr, ptr %8, align 8, !tbaa !22
   %155 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1278,8 +1278,8 @@ _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %57
   %.pre17 = ptrtoint ptr %.pre.fr to i64
   %.pre18 = and i64 %.pre17, 3
   %61 = icmp eq i64 %.pre18, 0
-  %spec.select31 = getelementptr inbounds i8, ptr %60, i64 -48
-  %spec.select = select i1 %61, ptr %spec.select31, ptr %1
+  %spec.select36 = getelementptr inbounds i8, ptr %60, i64 -48
+  %spec.select = select i1 %61, ptr %spec.select36, ptr %1
   br label %.thread
 
 .thread:                                          ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit, %57

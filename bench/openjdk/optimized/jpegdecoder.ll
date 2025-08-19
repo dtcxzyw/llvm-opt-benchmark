@@ -1446,13 +1446,13 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
   br i1 %.not19.i110, label %RELEASE_ARRAYS.exit107, label %RELEASE_ARRAYS.exit107.sink.split
 
 RELEASE_ARRAYS.exit107.sink.split:                ; preds = %241, %205
-  %.sink145 = phi ptr [ %206, %205 ], [ %242, %241 ]
+  %.sink165 = phi ptr [ %206, %205 ], [ %242, %241 ]
   %sendPixelsIntID.sink.ph = phi ptr [ @sendPixelsByteID, %205 ], [ @sendPixelsIntID, %241 ]
   %243 = load ptr, ptr %0, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 1784
   %245 = load ptr, ptr %244, align 8
   %246 = load ptr, ptr %53, align 8
-  call void %245(ptr noundef nonnull %0, ptr noundef %246, ptr noundef nonnull %.sink145, i32 noundef 0) #13
+  call void %245(ptr noundef nonnull %0, ptr noundef %246, ptr noundef nonnull %.sink165, i32 noundef 0) #13
   store ptr null, ptr %13, align 8
   br label %RELEASE_ARRAYS.exit107
 

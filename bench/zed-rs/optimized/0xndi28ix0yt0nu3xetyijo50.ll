@@ -4481,9 +4481,9 @@ default.unreachable:                              ; preds = %2
   br label %371
 
 "_ZN4core3ptr117drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$markdown..ParsedMarkdown$C$anyhow..Error$GT$$GT$$GT$17h1bec529d0db0a4c5E.llvm.178776596143736202.exit.i": ; preds = %"_ZN4core3ptr119drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$markdown..ParsedMarkdown$C$anyhow..Error$GT$$GT$$GT$17hb1493f27346f3cbeE.exit.i.i", %58, %57, %.thread.i
-  %.sroa.8.sroa.0.14455.i = phi ptr [ %.sroa.8.sroa.0.0.copyload.i, %.thread.i ], [ %.sroa.8.sroa.0.0.copyload39.i, %"_ZN4core3ptr119drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$markdown..ParsedMarkdown$C$anyhow..Error$GT$$GT$$GT$17hb1493f27346f3cbeE.exit.i.i" ], [ %.sroa.8.sroa.0.0.copyload39.i, %57 ], [ %.sroa.8.sroa.0.0.copyload39.i, %58 ]
-  %.sroa.036.04554.i = phi i64 [ %46, %.thread.i ], [ %52, %"_ZN4core3ptr119drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$markdown..ParsedMarkdown$C$anyhow..Error$GT$$GT$$GT$17hb1493f27346f3cbeE.exit.i.i" ], [ %52, %57 ], [ %52, %58 ]
-  %67 = icmp eq i64 %.sroa.036.04554.i, 2
+  %.sroa.8.sroa.0.14465.i = phi ptr [ %.sroa.8.sroa.0.0.copyload.i, %.thread.i ], [ %.sroa.8.sroa.0.0.copyload39.i, %"_ZN4core3ptr119drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$markdown..ParsedMarkdown$C$anyhow..Error$GT$$GT$$GT$17hb1493f27346f3cbeE.exit.i.i" ], [ %.sroa.8.sroa.0.0.copyload39.i, %57 ], [ %.sroa.8.sroa.0.0.copyload39.i, %58 ]
+  %.sroa.036.04564.i = phi i64 [ %46, %.thread.i ], [ %52, %"_ZN4core3ptr119drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$markdown..ParsedMarkdown$C$anyhow..Error$GT$$GT$$GT$17hb1493f27346f3cbeE.exit.i.i" ], [ %52, %57 ], [ %52, %58 ]
+  %67 = icmp eq i64 %.sroa.036.04564.i, 2
   br i1 %67, label %388, label %68
 
 68:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$markdown..ParsedMarkdown$C$anyhow..Error$GT$$GT$$GT$17h1bec529d0db0a4c5E.llvm.178776596143736202.exit.i"
@@ -4492,9 +4492,9 @@ default.unreachable:                              ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.341.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.i, i64 24, i1 false), !noalias !841
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.sroa.036.04554.i, ptr %33, align 8, !noalias !841
+  store i64 %.sroa.036.04564.i, ptr %33, align 8, !noalias !841
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %.sroa.8.sroa.0.14455.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !841
+  store ptr %.sroa.8.sroa.0.14465.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !841
   call void @llvm.experimental.noalias.scope.decl(metadata !870)
   call void @llvm.experimental.noalias.scope.decl(metadata !873)
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !875
@@ -4710,7 +4710,7 @@ default.unreachable:                              ; preds = %2
   br i1 %.sroa.044.384.i.i.i.i.i.i, label %278, label %.body.i.i.i.i
 
 .thread.i.i.i.i.i.i:                              ; preds = %150, %141, %115
-  %lpad.thr_comm114.i.i.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm117.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %278
 
@@ -5121,7 +5121,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 278:                                              ; preds = %.thread.i.i.i.i.i.i, %140
-  %.pn60113.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn85.i.i.i.i.i.i, %140 ], [ %lpad.thr_comm114.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ]
+  %.pn60116.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn85.i.i.i.i.i.i, %140 ], [ %lpad.thr_comm117.i.i.i.i.i.i, %.thread.i.i.i.i.i.i ]
   invoke fastcc void @"_ZN4core3ptr298drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$markdown..Markdown$C$$LP$$RP$$C$markdown..Markdown..parse..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h588d5cb6da991e69E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %23) #22
           to label %.body.i.i.i.i unwind label %252, !noalias !913
 
@@ -5173,7 +5173,7 @@ default.unreachable:                              ; preds = %2
   br label %.body.i.i.i.i
 
 .body.i.i.i.i:                                    ; preds = %293, %289, %286, %278, %270, %264, %140
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %294, %293 ], [ %265, %270 ], [ %265, %264 ], [ %.pn60113.i.i.i.i.i.i, %278 ], [ %.pn85.i.i.i.i.i.i, %140 ], [ %287, %286 ], [ %287, %289 ]
+  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %294, %293 ], [ %265, %270 ], [ %265, %264 ], [ %.pn60116.i.i.i.i.i.i, %278 ], [ %.pn85.i.i.i.i.i.i, %140 ], [ %287, %286 ], [ %287, %289 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..app..AppRefMut$GT$17h096b324b1f9a48aaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #22
           to label %.body18.i.i.i.i unwind label %317, !noalias !913
 
@@ -5254,11 +5254,11 @@ default.unreachable:                              ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !875
   call void @llvm.experimental.noalias.scope.decl(metadata !1133)
   call void @llvm.experimental.noalias.scope.decl(metadata !1136)
-  %321 = icmp eq i64 %.sroa.036.04554.i, 0
+  %321 = icmp eq i64 %.sroa.036.04564.i, 0
   br i1 %321, label %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h139526751d3699f7E.exit.i.i.i.i", label %322
 
 322:                                              ; preds = %320
-  %323 = atomicrmw sub ptr %.sroa.8.sroa.0.14455.i, i64 1 release, align 8, !noalias !1139
+  %323 = atomicrmw sub ptr %.sroa.8.sroa.0.14465.i, i64 1 release, align 8, !noalias !1139
   %324 = icmp eq i64 %323, 1
   br i1 %324, label %325, label %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h139526751d3699f7E.exit.i.i.i.i"
 
@@ -5449,7 +5449,7 @@ default.unreachable:                              ; preds = %2
   br label %"_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h0d5ff28bc6bf399bE.exit31.i"
 
 "_ZN4core3ptr65drop_in_place$LT$gpui..app..async_context..AsyncWindowContext$GT$17h0d5ff28bc6bf399bE.exit24.i": ; preds = %"_ZN4core3ptr67drop_in_place$LT$gpui..view..WeakView$LT$markdown..Markdown$GT$$GT$17h7e7bf41ae4cb5bbbE.exit25.i", %"_ZN4core3ptr67drop_in_place$LT$gpui..view..WeakView$LT$markdown..Markdown$GT$$GT$17h7e7bf41ae4cb5bbbE.exit.i"
-  %.sroa.03.0.i = phi ptr [ null, %"_ZN4core3ptr67drop_in_place$LT$gpui..view..WeakView$LT$markdown..Markdown$GT$$GT$17h7e7bf41ae4cb5bbbE.exit.i" ], [ %.sroa.8.sroa.0.14455.i, %"_ZN4core3ptr67drop_in_place$LT$gpui..view..WeakView$LT$markdown..Markdown$GT$$GT$17h7e7bf41ae4cb5bbbE.exit25.i" ]
+  %.sroa.03.0.i = phi ptr [ null, %"_ZN4core3ptr67drop_in_place$LT$gpui..view..WeakView$LT$markdown..Markdown$GT$$GT$17h7e7bf41ae4cb5bbbE.exit.i" ], [ %.sroa.8.sroa.0.14465.i, %"_ZN4core3ptr67drop_in_place$LT$gpui..view..WeakView$LT$markdown..Markdown$GT$$GT$17h7e7bf41ae4cb5bbbE.exit25.i" ]
   store i8 1, ptr %38, align 8, !noalias !841
   %385 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.03.0.i, 1
   br label %"_ZN8markdown8Markdown5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb3cf5dc3e3aca165E.exit"
@@ -5461,7 +5461,7 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 388:                                              ; preds = %"_ZN4core3ptr117drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$markdown..ParsedMarkdown$C$anyhow..Error$GT$$GT$$GT$17h1bec529d0db0a4c5E.llvm.178776596143736202.exit.i"
-  %389 = icmp ne ptr %.sroa.8.sroa.0.14455.i, null
+  %389 = icmp ne ptr %.sroa.8.sroa.0.14465.i, null
   call void @llvm.assume(i1 %389)
   call void @llvm.experimental.noalias.scope.decl(metadata !1202)
   call void @llvm.experimental.noalias.scope.decl(metadata !1205)

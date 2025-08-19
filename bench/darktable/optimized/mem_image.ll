@@ -43,11 +43,11 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 18:                                               ; preds = %13, %10
   %.not75 = icmp eq ptr %1, null
-  br i1 %.not75, label %91, label %.sink.split91
+  br i1 %.not75, label %91, label %.sink.split97
 
 19:                                               ; preds = %13, %7
   %.not76 = icmp eq ptr %1, null
-  br i1 %.not76, label %91, label %.sink.split91
+  br i1 %.not76, label %91, label %.sink.split97
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 193360
@@ -57,7 +57,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 24:                                               ; preds = %20
   %.not89 = icmp eq ptr %1, null
-  br i1 %.not89, label %91, label %.sink.split91
+  br i1 %.not89, label %91, label %.sink.split97
 
 25:                                               ; preds = %20
   %26 = icmp ugt i32 %22, 536870912
@@ -65,7 +65,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 27:                                               ; preds = %25
   %.not88 = icmp eq ptr %1, null
-  br i1 %.not88, label %91, label %.sink.split91
+  br i1 %.not88, label %91, label %.sink.split97
 
 28:                                               ; preds = %25
   %29 = load i32, ptr %4, align 8, !tbaa !74
@@ -85,7 +85,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 33:                                               ; preds = %30
   %.not86 = icmp eq ptr %1, null
-  br i1 %.not86, label %91, label %.sink.split91
+  br i1 %.not86, label %91, label %.sink.split97
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -115,7 +115,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
   %50 = zext nneg i32 %22 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr nonnull align 1 %6, i64 %50, i1 false)
   %.not87 = icmp eq ptr %1, null
-  br i1 %.not87, label %91, label %.sink.split91
+  br i1 %.not87, label %91, label %.sink.split97
 
 51:                                               ; preds = %28
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 6
@@ -131,7 +131,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 58:                                               ; preds = %51
   %.not83 = icmp eq ptr %1, null
-  br i1 %.not83, label %91, label %.sink.split91
+  br i1 %.not83, label %91, label %.sink.split97
 
 59:                                               ; preds = %51
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -176,7 +176,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 78:                                               ; preds = %73, %64
   %.not84 = icmp eq ptr %1, null
-  br i1 %.not84, label %91, label %.sink.split91
+  br i1 %.not84, label %91, label %.sink.split97
 
 79:                                               ; preds = %28, %28
   %80 = zext nneg i32 %22 to i64
@@ -187,7 +187,7 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
 
 83:                                               ; preds = %79
   %.not79 = icmp eq ptr %1, null
-  br i1 %.not79, label %91, label %.sink.split91
+  br i1 %.not79, label %91, label %.sink.split97
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -200,20 +200,20 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonn
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %89, ptr nonnull align 1 %6, i64 %80, i1 false)
   %.not80 = icmp eq ptr %1, null
-  br i1 %.not80, label %91, label %.sink.split91
+  br i1 %.not80, label %91, label %.sink.split97
 
 90:                                               ; preds = %28
   %.not77 = icmp eq ptr %1, null
-  br i1 %.not77, label %91, label %.sink.split91
+  br i1 %.not77, label %91, label %.sink.split97
 
-.sink.split91:                                    ; preds = %90, %84, %83, %58, %78, %34, %33, %27, %24, %19, %18
+.sink.split97:                                    ; preds = %90, %84, %83, %58, %78, %34, %33, %27, %24, %19, %18
   %.sink.sink = phi i32 [ -5, %18 ], [ -4, %19 ], [ 22, %24 ], [ -100012, %27 ], [ 12, %33 ], [ 0, %34 ], [ 12, %58 ], [ 0, %78 ], [ 12, %83 ], [ 0, %84 ], [ -6, %90 ]
   %.0.ph = phi ptr [ null, %18 ], [ null, %19 ], [ null, %24 ], [ null, %27 ], [ null, %33 ], [ %32, %34 ], [ %57, %58 ], [ %57, %78 ], [ null, %83 ], [ %82, %84 ], [ null, %90 ]
   store i32 %.sink.sink, ptr %1, align 4, !tbaa !87
   br label %91
 
-91:                                               ; preds = %.sink.split91, %58, %78, %90, %83, %84, %33, %34, %27, %24, %18, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %18 ], [ null, %24 ], [ null, %27 ], [ null, %33 ], [ %32, %34 ], [ null, %83 ], [ %82, %84 ], [ null, %90 ], [ %57, %78 ], [ %57, %58 ], [ %.0.ph, %.sink.split91 ]
+91:                                               ; preds = %.sink.split97, %58, %78, %90, %83, %84, %33, %34, %27, %24, %18, %19
+  %.0 = phi ptr [ null, %19 ], [ null, %18 ], [ null, %24 ], [ null, %27 ], [ null, %33 ], [ %32, %34 ], [ null, %83 ], [ %82, %84 ], [ null, %90 ], [ %57, %78 ], [ %57, %58 ], [ %.0.ph, %.sink.split97 ]
   ret ptr %.0
 }
 
@@ -305,10 +305,10 @@ define void @_ZNK6LibRaw20get_mem_image_formatEPiS0_S0_S0_(ptr noundef nonnull r
 
 .sink.split:                                      ; preds = %20, %48
   %.sink = phi double [ %52, %48 ], [ %35, %20 ]
-  %.sink20 = phi ptr [ %1, %48 ], [ %2, %20 ]
+  %.sink21 = phi ptr [ %1, %48 ], [ %2, %20 ]
   %53 = fptoui double %.sink to i16
   %54 = zext i16 %53 to i32
-  store i32 %54, ptr %.sink20, align 4, !tbaa !87
+  store i32 %54, ptr %.sink21, align 4, !tbaa !87
   br label %55
 
 55:                                               ; preds = %.sink.split, %46, %5
@@ -388,9 +388,9 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %wide.trip.count = zext nneg i32 %35 to i64
   br label %.preheader105
 
-.preheader105:                                    ; preds = %.preheader105.preheader, %.split.loop.exit265
-  %indvars.iv206 = phi i64 [ 0, %.preheader105.preheader ], [ %indvars.iv.next207, %.split.loop.exit265 ]
-  %.185109 = phi i32 [ 0, %.preheader105.preheader ], [ %spec.select, %.split.loop.exit265 ]
+.preheader105:                                    ; preds = %.preheader105.preheader, %.split.loop.exit283
+  %indvars.iv206 = phi i64 [ 0, %.preheader105.preheader ], [ %indvars.iv.next207, %.split.loop.exit283 ]
+  %.185109 = phi i32 [ 0, %.preheader105.preheader ], [ %spec.select, %.split.loop.exit283 ]
   %37 = getelementptr inbounds nuw [8192 x i32], ptr %12, i64 %indvars.iv206
   br label %38
 
@@ -398,7 +398,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   %indvars.iv = phi i64 [ 8192, %.preheader105 ], [ %indvars.iv.next, %40 ]
   %.083 = phi i32 [ 0, %.preheader105 ], [ %43, %40 ]
   %39 = icmp samesign ugt i64 %indvars.iv, 33
-  br i1 %39, label %40, label %.split.loop.exit265
+  br i1 %39, label %40, label %.split.loop.exit283
 
 40:                                               ; preds = %38
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -410,16 +410,16 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
 
 .split.loop.exit:                                 ; preds = %40
   %45 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.split.loop.exit265
+  br label %.split.loop.exit283
 
-.split.loop.exit265:                              ; preds = %38, %.split.loop.exit
+.split.loop.exit283:                              ; preds = %38, %.split.loop.exit
   %.lcssa204 = phi i32 [ %45, %.split.loop.exit ], [ 32, %38 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.185109, i32 %.lcssa204)
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit107.loopexit, label %.preheader105, !llvm.loop !102
 
-.loopexit107.loopexit:                            ; preds = %.split.loop.exit265
+.loopexit107.loopexit:                            ; preds = %.split.loop.exit283
   %46 = shl i32 %spec.select, 3
   %47 = sitofp i32 %46 to float
   br label %.loopexit107
@@ -796,11 +796,11 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br label %.loopexit102
 
 .lr.ph124.splitthread-pre-split:                  ; preds = %._crit_edge
-  %.pr256 = load i32, ptr %80, align 4, !tbaa !95
+  %.pr274 = load i32, ptr %80, align 4, !tbaa !95
   br label %.lr.ph124.split
 
 .lr.ph124.split:                                  ; preds = %.lr.ph124.splitthread-pre-split, %.lr.ph124.split.preheader
-  %216 = phi i32 [ %.pr256, %.lr.ph124.splitthread-pre-split ], [ %208, %.lr.ph124.split.preheader ]
+  %216 = phi i32 [ %.pr274, %.lr.ph124.splitthread-pre-split ], [ %208, %.lr.ph124.split.preheader ]
   %217 = phi i16 [ %232, %.lr.ph124.splitthread-pre-split ], [ %184, %.lr.ph124.split.preheader ]
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %.lr.ph124.splitthread-pre-split ], [ %210, %.lr.ph124.split.preheader ]
   %.066122 = phi i32 [ %233, %.lr.ph124.splitthread-pre-split ], [ 0, %.lr.ph124.split.preheader ]
@@ -950,10 +950,10 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_imageEPi(ptr noundef nonn
 
 .sink.split.i:                                    ; preds = %46, %19
   %.sink.i = phi double [ %49, %46 ], [ %33, %19 ]
-  %.sink20.i = phi ptr [ %3, %46 ], [ %4, %19 ]
+  %.sink21.i = phi ptr [ %3, %46 ], [ %4, %19 ]
   %50 = fptoui double %.sink.i to i16
   %51 = zext i16 %50 to i32
-  store i32 %51, ptr %.sink20.i, align 4, !tbaa !87
+  store i32 %51, ptr %.sink21.i, align 4, !tbaa !87
   %.0..0..0.26.pre.pre = load i32, ptr %3, align 4, !tbaa !87
   %.0..0..0..pre.pre = load i32, ptr %4, align 4, !tbaa !87
   br label %_ZNK6LibRaw20get_mem_image_formatEPiS0_S0_S0_.exit
@@ -966,14 +966,14 @@ _ZNK6LibRaw20get_mem_image_formatEPiS0_S0_S0_.exit: ; preds = %.sink.split.i, %4
   %54 = and i32 %53, 4
   %.not18.i = icmp eq i32 %54, 0
   %spec.select = select i1 %.not18.i, i32 %.0..0..pre, i32 %.0..0.26.pre
-  %spec.select35 = select i1 %.not18.i, i32 %.0..0.26.pre, i32 %.0..0..pre
+  %spec.select38 = select i1 %.not18.i, i32 %.0..0.26.pre, i32 %.0..0..pre
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %56 = load i32, ptr %55, align 4, !tbaa !95
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 5344
   %58 = load i32, ptr %57, align 8, !tbaa !96
   %59 = sdiv i32 %58, 8
   %60 = mul i32 %59, %56
-  %61 = mul i32 %60, %spec.select35
+  %61 = mul i32 %60, %spec.select38
   %62 = mul nsw i32 %61, %spec.select
   %63 = zext i32 %62 to i64
   %64 = add nuw nsw i64 %63, 20
@@ -996,7 +996,7 @@ _ZNK6LibRaw20get_mem_image_formatEPiS0_S0_S0_.exit: ; preds = %.sink.split.i, %4
   %70 = trunc i32 %spec.select to i16
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i16 %70, ptr %71, align 4, !tbaa !79
-  %72 = trunc i32 %spec.select35 to i16
+  %72 = trunc i32 %spec.select38 to i16
   %73 = getelementptr inbounds nuw i8, ptr %65, i64 6
   store i16 %72, ptr %73, align 2, !tbaa !81
   %74 = trunc i32 %56 to i16

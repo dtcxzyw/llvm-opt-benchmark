@@ -353,9 +353,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper21matchCanonicaliz
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %25 = load i8, ptr %24, align 8, !tbaa !66, !range !68, !noundef !69
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %34, label %_ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit.thread40
+  br i1 %26, label %34, label %_ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit.thread50
 
-_ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit.thread40: ; preds = %22
+_ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit.thread50: ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %16) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -460,11 +460,11 @@ _ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %66
 
-64:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit.thread40
+64:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit.thread50
   %65 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #11
   br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper21matchCanonicalizeICmpERKNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit"
 
-"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper21matchCanonicalizeICmpERKNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit": ; preds = %_ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit.thread40, %64
+"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper21matchCanonicalizeICmpERKNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit": ; preds = %_ZNSt14_Optional_baseIN4llvm10GIConstantELb0ELb0EED2Ev.exit.thread50, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
@@ -582,9 +582,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper21matchCanonicaliz
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %25 = load i8, ptr %24, align 8, !tbaa !72, !range !68, !noundef !69
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %36, label %_ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit.thread40
+  br i1 %26, label %36, label %_ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit.thread46
 
-_ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit.thread40: ; preds = %22
+_ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit.thread46: ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %16) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -682,11 +682,11 @@ _ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit: ; preds = %_ZN4llvm
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
-56:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit.thread40
+56:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit.thread46
   %57 = call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #11
   br label %"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper21matchCanonicalizeFCmpERKNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit"
 
-"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper21matchCanonicalizeFCmpERKNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit": ; preds = %_ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit.thread40, %56
+"_ZNSt8functionIFvRN4llvm16MachineIRBuilderEEEaSIZNKS0_14CombinerHelper21matchCanonicalizeFCmpERKNS0_12MachineInstrERS4_E3$_0EENSt9enable_ifIXsr9_CallableIT_EE5valueESA_E4typeEOSD_.exit": ; preds = %_ZNSt14_Optional_baseIN4llvm10GFConstantELb0ELb0EED2Ev.exit.thread46, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 

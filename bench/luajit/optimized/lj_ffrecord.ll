@@ -97,12 +97,12 @@ argv2int.exit:                                    ; preds = %30, %lj_strscan_num
   unreachable
 
 .sink.split:                                      ; preds = %22, %20
-  %.sink27 = phi i32 [ %21, %20 ], [ %29, %22 ]
-  %.sink26 = phi i16 [ 2180, %20 ], [ 2195, %22 ]
-  %.sink25 = phi i16 [ %16, %20 ], [ %28, %22 ]
-  %43 = trunc i32 %.sink27 to i16
-  store i16 %.sink26, ptr %18, align 4, !tbaa !4
-  store i16 %.sink25, ptr %17, align 8, !tbaa !4
+  %.sink29 = phi i32 [ %21, %20 ], [ %29, %22 ]
+  %.sink28 = phi i16 [ 2180, %20 ], [ 2195, %22 ]
+  %.sink27 = phi i16 [ %16, %20 ], [ %28, %22 ]
+  %43 = trunc i32 %.sink29 to i16
+  store i16 %.sink28, ptr %18, align 4, !tbaa !4
+  store i16 %.sink27, ptr %17, align 8, !tbaa !4
   store i16 %43, ptr %19, align 2, !tbaa !4
   %44 = tail call i32 @lj_opt_fold(ptr noundef %0) #9
   br label %45
@@ -1886,10 +1886,10 @@ define internal void @recff_math_random(ptr noundef %0, ptr readnone captures(no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %28
-  %.sink57 = phi i32 [ %34, %28 ], [ %24, %23 ]
+  %.sink59 = phi i32 [ %34, %28 ], [ %24, %23 ]
   %.sink = phi i16 [ %31, %28 ], [ %15, %23 ]
   %35 = trunc i32 %19 to i16
-  %36 = trunc i32 %.sink57 to i16
+  %36 = trunc i32 %.sink59 to i16
   store i16 11022, ptr %17, align 4, !tbaa !4
   store i16 %35, ptr %16, align 8, !tbaa !4
   store i16 %36, ptr %18, align 2, !tbaa !4
@@ -3613,13 +3613,13 @@ results_wanted.exit54:                            ; preds = %62
   br i1 %.not49, label %72, label %.sink.split
 
 .sink.split:                                      ; preds = %results_wanted.exit54, %62, %results_wanted.exit.thread
-  %.sink66 = phi i16 [ 2451, %results_wanted.exit.thread ], [ 2195, %62 ], [ 2195, %results_wanted.exit54 ]
-  %.sink65.in = phi i32 [ %53, %results_wanted.exit.thread ], [ %63, %62 ], [ %63, %results_wanted.exit54 ]
+  %.sink67 = phi i16 [ 2451, %results_wanted.exit.thread ], [ 2195, %62 ], [ 2195, %results_wanted.exit54 ]
+  %.sink66.in = phi i32 [ %53, %results_wanted.exit.thread ], [ %63, %62 ], [ %63, %results_wanted.exit54 ]
   %.sink.in = phi i32 [ %61, %results_wanted.exit.thread ], [ %27, %62 ], [ %27, %results_wanted.exit54 ]
   %.sink = trunc i32 %.sink.in to i16
-  %.sink65 = trunc i32 %.sink65.in to i16
-  store i16 %.sink66, ptr %18, align 4, !tbaa !4
-  store i16 %.sink65, ptr %17, align 8, !tbaa !4
+  %.sink66 = trunc i32 %.sink66.in to i16
+  store i16 %.sink67, ptr %18, align 4, !tbaa !4
+  store i16 %.sink66, ptr %17, align 8, !tbaa !4
   store i16 %.sink, ptr %19, align 2, !tbaa !4
   %71 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   br label %72

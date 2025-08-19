@@ -32,13 +32,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17h682c8f28e584a57eE"(ptr noundef nonnull align 128 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 128, !range !4, !noundef !5
-  switch i64 %2, label %default.unreachable11 [
+  switch i64 %2, label %default.unreachable16 [
     i64 0, label %3
     i64 1, label %7
     i64 2, label %38
   ]
 
-default.unreachable11:                            ; preds = %1
+default.unreachable16:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1

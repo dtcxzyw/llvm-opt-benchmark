@@ -134,8 +134,8 @@ define hidden void @_ZN5logos9PointPair19computeLocalSupportERSt6vectorIPS0_SaIS
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %.not54 = icmp eq ptr %8, %9
-  br i1 %.not54, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %13
+  %.not71 = icmp eq ptr %8, %9
+  br i1 %.not71, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN5logos5PointESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, label %13
 
 13:                                               ; preds = %3
   %14 = icmp ugt i64 %12, 9223372036854775800

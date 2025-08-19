@@ -1029,8 +1029,8 @@ zend_parse_arg_str_ex.exit:                       ; preds = %zend_parse_arg_str_
   br label %.critedge110
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit, %zend_parse_arg_str_ex.exit113.thread
-  %.in164 = phi ptr [ %19, %zend_parse_arg_str_ex.exit113.thread ], [ %4, %zend_parse_arg_str_ex.exit ]
-  %25 = load ptr, ptr %.in164, align 8, !tbaa !13
+  %.in170 = phi ptr [ %19, %zend_parse_arg_str_ex.exit113.thread ], [ %4, %zend_parse_arg_str_ex.exit ]
+  %25 = load ptr, ptr %.in170, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = icmp eq i64 %18, 0
@@ -5764,9 +5764,9 @@ zend_string_alloc.exit:                           ; preds = %95
   br label %107
 
 107:                                              ; preds = %95, %92, %90, %zend_string_alloc.exit
-  %.sink99 = phi i32 [ 262, %zend_string_alloc.exit ], [ 1, %90 ], [ 1, %92 ], [ 1, %95 ]
+  %.sink110 = phi i32 [ 262, %zend_string_alloc.exit ], [ 1, %90 ], [ 1, %92 ], [ 1, %95 ]
   %108 = getelementptr inbounds nuw i8, ptr %80, i64 64
-  store i32 %.sink99, ptr %108, align 8, !tbaa !13
+  store i32 %.sink110, ptr %108, align 8, !tbaa !13
   %109 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %110 = call zeroext i1 @php_dom_create_object(ptr noundef %2, ptr noundef nonnull %109, ptr noundef %3) #11
   %111 = call ptr @zend_hash_next_index_insert_new(ptr noundef %1, ptr noundef nonnull %7) #11

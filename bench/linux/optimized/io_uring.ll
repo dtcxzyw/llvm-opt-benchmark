@@ -14431,19 +14431,19 @@ define internal fastcc i32 @io_uring_create(i32 noundef %0, ptr noundef %1, ptr 
   %64 = icmp ne i16 %63, 0
   %65 = and i32 %54, 1
   %66 = icmp ne i32 %65, 0
-  %or.cond.not.not17.not21 = or i1 %64, %66
+  %or.cond.not.not25.not29 = or i1 %64, %66
   %67 = or i16 %61, 64
-  %68 = select i1 %or.cond.not.not17.not21, i16 %67, i16 %61
+  %68 = select i1 %or.cond.not.not25.not29, i16 %67, i16 %61
   %69 = and i16 %68, 32
   %.not = icmp eq i16 %69, 0
   %70 = or i16 %68, 256
   %71 = select i1 %.not, i16 %70, i16 %68
-  %.not14.not = or i1 %or.cond.not.not17.not21, %.not
+  %.not22.not = or i1 %or.cond.not.not25.not29, %.not
   %72 = and i32 %54, 3
-  %.not18 = icmp eq i32 %72, 1
+  %.not26 = icmp eq i32 %72, 1
   %73 = or i16 %71, 128
-  %spec.select = select i1 %.not18, i16 %73, i16 %71
-  %74 = or i1 %.not14.not, %.not18
+  %spec.select = select i1 %.not26, i16 %73, i16 %71
+  %74 = or i1 %.not22.not, %.not26
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %._crit_edge9

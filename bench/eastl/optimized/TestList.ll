@@ -3331,8 +3331,8 @@ land.rhs:                                         ; preds = %while.cond
   %mValue.i44 = getelementptr inbounds nuw i8, ptr %ix.sroa.0.0, i64 16
   %59 = load i8, ptr %mValue.i44, align 1
   %60 = and i8 %59, 1
-  %cmp.i46 = icmp samesign ult i8 %60, %56
-  br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !97
+  %cmp.i46.not.not = icmp eq i8 %60, 0
+  br i1 %cmp.i46.not.not, label %while.cond, label %while.end, !llvm.loop !97
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %mpPrev = getelementptr inbounds nuw i8, ptr %ix.sroa.0.0, i64 8
@@ -3399,8 +3399,8 @@ land.rhs64:                                       ; preds = %while.cond62
   %mValue.i55 = getelementptr inbounds nuw i8, ptr %ix61.sroa.0.0, i64 16
   %75 = load i8, ptr %mValue.i55, align 1
   %76 = and i8 %75, 1
-  %cmp.i57 = icmp samesign ult i8 %76, %74
-  br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !98
+  %cmp.i57.not.not = icmp eq i8 %76, 0
+  br i1 %cmp.i57.not.not, label %while.cond62, label %while.end71, !llvm.loop !98
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %mpPrev76 = getelementptr inbounds nuw i8, ptr %ix61.sroa.0.0, i64 8
@@ -21133,8 +21133,8 @@ for.body.i.i.i3379:                               ; preds = %invoke.cont2323, %f
   %1352 = load i32, ptr %mValue.i.i.i.i3380, align 4
   %mValue.i2.i.i.i = getelementptr inbounds nuw i8, ptr %first2.sroa.0.022.i.i.i, i64 16
   %1353 = load i32, ptr %mValue.i2.i.i.i, align 4
-  %or.cond4601.not = icmp eq i32 %1352, %1353
-  br i1 %or.cond4601.not, label %for.inc.i.i.i, label %invoke.cont2325.loopexit
+  %or.cond5003.not = icmp eq i32 %1352, %1353
+  br i1 %or.cond5003.not, label %for.inc.i.i.i, label %invoke.cont2325.loopexit
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i3379
   %1354 = load ptr, ptr %first1.sroa.0.023.i.i.i, align 8
@@ -21176,8 +21176,8 @@ for.body.i.i.i3391:                               ; preds = %invoke.cont2327, %f
   %1358 = load i32, ptr %mValue.i.i.i.i3394, align 4
   %mValue.i2.i.i.i3395 = getelementptr inbounds nuw i8, ptr %first2.sroa.0.022.i.i.i3393, i64 16
   %1359 = load i32, ptr %mValue.i2.i.i.i3395, align 4
-  %or.cond4602.not = icmp eq i32 %1359, %1358
-  br i1 %or.cond4602.not, label %for.inc.i.i.i3399, label %invoke.cont2329.loopexit
+  %or.cond5004.not = icmp eq i32 %1359, %1358
+  br i1 %or.cond5004.not, label %for.inc.i.i.i3399, label %invoke.cont2329.loopexit
 
 for.inc.i.i.i3399:                                ; preds = %for.body.i.i.i3391
   %1360 = load ptr, ptr %first1.sroa.0.023.i.i.i3392, align 8
@@ -21219,8 +21219,8 @@ for.body.i.i.i3413:                               ; preds = %invoke.cont2331, %f
   %1364 = load i32, ptr %mValue.i.i.i.i3416, align 4
   %mValue.i2.i.i.i3417 = getelementptr inbounds nuw i8, ptr %first2.sroa.0.022.i.i.i3415, i64 16
   %1365 = load i32, ptr %mValue.i2.i.i.i3417, align 4
-  %or.cond4603.not = icmp eq i32 %1364, %1365
-  br i1 %or.cond4603.not, label %for.inc.i.i.i3421, label %invoke.cont2333.loopexit
+  %or.cond5005.not = icmp eq i32 %1364, %1365
+  br i1 %or.cond5005.not, label %for.inc.i.i.i3421, label %invoke.cont2333.loopexit
 
 for.inc.i.i.i3421:                                ; preds = %for.body.i.i.i3413
   %1366 = load ptr, ptr %first1.sroa.0.023.i.i.i3414, align 8
@@ -21262,8 +21262,8 @@ for.body.i.i.i3435:                               ; preds = %invoke.cont2335, %f
   %1370 = load i32, ptr %mValue.i.i.i.i3438, align 4
   %mValue.i2.i.i.i3439 = getelementptr inbounds nuw i8, ptr %first2.sroa.0.022.i.i.i3437, i64 16
   %1371 = load i32, ptr %mValue.i2.i.i.i3439, align 4
-  %or.cond4604.not = icmp eq i32 %1371, %1370
-  br i1 %or.cond4604.not, label %for.inc.i.i.i3443, label %invoke.cont2337.loopexit
+  %or.cond5006.not = icmp eq i32 %1371, %1370
+  br i1 %or.cond5006.not, label %for.inc.i.i.i3443, label %invoke.cont2337.loopexit
 
 for.inc.i.i.i3443:                                ; preds = %for.body.i.i.i3435
   %1372 = load ptr, ptr %first1.sroa.0.023.i.i.i3436, align 8
@@ -21305,8 +21305,8 @@ for.body.i.i.i3458:                               ; preds = %invoke.cont2339, %f
   %1376 = load i32, ptr %mValue.i.i.i.i3461, align 4
   %mValue.i2.i.i.i3462 = getelementptr inbounds nuw i8, ptr %first2.sroa.0.022.i.i.i3460, i64 16
   %1377 = load i32, ptr %mValue.i2.i.i.i3462, align 4
-  %or.cond4605.not = icmp eq i32 %1377, %1376
-  br i1 %or.cond4605.not, label %for.inc.i.i.i3466, label %invoke.cont2341.loopexit
+  %or.cond5007.not = icmp eq i32 %1377, %1376
+  br i1 %or.cond5007.not, label %for.inc.i.i.i3466, label %invoke.cont2341.loopexit
 
 for.inc.i.i.i3466:                                ; preds = %for.body.i.i.i3458
   %1378 = load ptr, ptr %first1.sroa.0.023.i.i.i3459, align 8

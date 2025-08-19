@@ -184,9 +184,9 @@ sub_017:                                          ; preds = %.tail
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.tail16, %sub_017, %31, %21
-  %.sink25 = phi ptr [ %23, %21 ], [ %37, %31 ], [ %1, %sub_017 ], [ %1, %.tail16 ]
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink25) #8
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %.sink25, i64 noundef %38) #7
+  %.sink26 = phi ptr [ %23, %21 ], [ %37, %31 ], [ %1, %sub_017 ], [ %1, %.tail16 ]
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink26) #8
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %.sink26, i64 noundef %38) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.tail16

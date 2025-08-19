@@ -219,10 +219,10 @@ define internal range(i32 -2147483648, 1) i32 @genh_read_header(ptr noundef %0) 
   br label %179
 
 102:                                              ; preds = %79, %99, %97, %95, %93, %88, %73, %67, %61, %59, %56, %48
-  %.sink129 = phi ptr [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %88 ], [ %74, %73 ], [ %68, %67 ], [ %62, %61 ], [ %60, %59 ], [ %51, %56 ], [ %49, %48 ], [ %80, %79 ]
-  %.sink127 = phi i32 [ 69632, %99 ], [ 65541, %97 ], [ 69650, %95 ], [ 69670, %93 ], [ 69636, %88 ], [ %78, %73 ], [ %72, %67 ], [ %66, %61 ], [ 69665, %59 ], [ 69633, %56 ], [ 69669, %48 ], [ 81924, %79 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.sink129, i64 4
-  store i32 %.sink127, ptr %103, align 4, !tbaa !48
+  %.sink138 = phi ptr [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %92, %88 ], [ %74, %73 ], [ %68, %67 ], [ %62, %61 ], [ %60, %59 ], [ %51, %56 ], [ %49, %48 ], [ %80, %79 ]
+  %.sink136 = phi i32 [ 69632, %99 ], [ 65541, %97 ], [ 69650, %95 ], [ 69670, %93 ], [ 69636, %88 ], [ %78, %73 ], [ %72, %67 ], [ %66, %61 ], [ 69665, %59 ], [ 69633, %56 ], [ 69669, %48 ], [ 81924, %79 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.sink138, i64 4
+  store i32 %.sink136, ptr %103, align 4, !tbaa !48
   %104 = load ptr, ptr %5, align 8, !tbaa !27
   %105 = tail call i32 @avio_rl32(ptr noundef %104) #4
   %106 = load ptr, ptr %5, align 8, !tbaa !27
@@ -369,7 +369,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 132
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %18 = icmp sgt i32 %17, 1
-  br i1 %18, label %19, label %.thread56
+  br i1 %18, label %19, label %.thread63
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -447,7 +447,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
 
 ._crit_edge54:                                    ; preds = %2
   %64 = icmp eq i32 %13, 81924
-  br i1 %64, label %65, label %.thread56
+  br i1 %64, label %65, label %.thread63
 
 65:                                               ; preds = %._crit_edge54
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -458,7 +458,7 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
   %71 = tail call i32 @av_get_packet(ptr noundef %67, ptr noundef %1, i32 noundef %70) #4
   br label %.loopexit
 
-.thread56:                                        ; preds = %15, %._crit_edge54
+.thread63:                                        ; preds = %15, %._crit_edge54
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !27
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 156
@@ -466,14 +466,14 @@ define internal i32 @genh_read_packet(ptr noundef readonly captures(none) %0, pt
   %.not = icmp eq i32 %75, 0
   br i1 %.not, label %76, label %80
 
-76:                                               ; preds = %.thread56
+76:                                               ; preds = %.thread63
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 132
   %78 = load i32, ptr %77, align 4, !tbaa !38
   %79 = shl nsw i32 %78, 10
   br label %80
 
-80:                                               ; preds = %.thread56, %76
-  %81 = phi i32 [ %79, %76 ], [ %75, %.thread56 ]
+80:                                               ; preds = %.thread63, %76
+  %81 = phi i32 [ %79, %76 ], [ %75, %.thread63 ]
   %82 = tail call i32 @av_get_packet(ptr noundef %73, ptr noundef %1, i32 noundef %81) #4
   br label %.loopexit
 

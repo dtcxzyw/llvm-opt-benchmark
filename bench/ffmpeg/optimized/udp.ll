@@ -471,10 +471,10 @@ define internal i32 @udp_open(ptr noundef initializes((40, 44)) %0, ptr noundef 
   br i1 %.not241, label %135, label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %129
-  %.sink300 = phi i64 [ 65888, %129 ], [ 32, %.critedge ]
+  %.sink328 = phi i64 [ 65888, %129 ], [ 32, %.critedge ]
   %132 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #11
   %133 = trunc i64 %132 to i32
-  %134 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink300
+  %134 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink328
   store i32 %133, ptr %134, align 8, !tbaa !15
   br label %135
 

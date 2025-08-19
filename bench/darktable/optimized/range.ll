@@ -2618,10 +2618,10 @@ _current_show_popup.exit:                         ; preds = %28, %62
   br label %126
 
 126:                                              ; preds = %119, %113, %125
-  %.sink47 = phi i32 [ 1, %125 ], [ 2, %113 ], [ 3, %119 ]
+  %.sink48 = phi i32 [ 1, %125 ], [ 2, %113 ], [ 3, %119 ]
   %.sink = phi i32 [ 68, %125 ], [ 70, %113 ], [ 96, %119 ]
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  store i32 %.sink47, ptr %127, align 8, !tbaa !56
+  store i32 %.sink48, ptr %127, align 8, !tbaa !56
   call void @dt_control_change_cursor(i32 noundef %.sink) #17
   %128 = load ptr, ptr %68, align 8, !tbaa !48
   call void @gtk_widget_queue_draw(ptr noundef %128) #17
@@ -5212,7 +5212,7 @@ define internal void @_popup_date_changed(ptr noundef readnone captures(address)
 
 .sink.split:                                      ; preds = %148, %137
   %.str.100.sink = phi ptr [ @.str.100, %137 ], [ @.str.102, %148 ]
-  %.str.101.sink80 = phi ptr [ @.str.101, %137 ], [ @.str.102, %148 ]
+  %.str.101.sink81 = phi ptr [ @.str.101, %137 ], [ @.str.102, %148 ]
   %.072.ph = phi i32 [ 23, %137 ], [ 0, %148 ]
   %.071.ph = phi i32 [ 59, %137 ], [ 0, %148 ]
   %158 = load i32, ptr %9, align 8, !tbaa !204
@@ -5223,10 +5223,10 @@ define internal void @_popup_date_changed(ptr noundef readnone captures(address)
   call void @gtk_entry_set_text(ptr noundef %161, ptr noundef nonnull %.str.100.sink) #17
   %162 = load ptr, ptr %92, align 8, !tbaa !83
   %163 = call ptr @g_type_check_instance_cast(ptr noundef %162, i64 noundef %.pre-phi) #17
-  call void @gtk_entry_set_text(ptr noundef %163, ptr noundef nonnull %.str.101.sink80) #17
+  call void @gtk_entry_set_text(ptr noundef %163, ptr noundef nonnull %.str.101.sink81) #17
   %164 = load ptr, ptr %113, align 8, !tbaa !84
   %165 = call ptr @g_type_check_instance_cast(ptr noundef %164, i64 noundef %.pre-phi) #17
-  call void @gtk_entry_set_text(ptr noundef %165, ptr noundef nonnull %.str.101.sink80) #17
+  call void @gtk_entry_set_text(ptr noundef %165, ptr noundef nonnull %.str.101.sink81) #17
   %166 = load i32, ptr %9, align 8, !tbaa !204
   %167 = add nsw i32 %166, -1
   store i32 %167, ptr %9, align 8, !tbaa !204

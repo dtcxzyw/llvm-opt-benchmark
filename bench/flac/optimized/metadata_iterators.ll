@@ -855,9 +855,9 @@ read_metadata_block_data_streaminfo_cb_.exit.i.i: ; preds = %unpack_uint64_.exit
   %100 = tail call noundef i32 @fseeko64(ptr noundef %23, i64 noundef %99, i32 noundef 1)
   %.not.i31.i.i = icmp eq i32 %100, 0
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  br i1 %.not.i31.i.i, label %read_metadata_block_data_.exit.thread101, label %read_metadata_block_data_.exit.thread104
+  br i1 %.not.i31.i.i, label %read_metadata_block_data_.exit.thread134, label %read_metadata_block_data_.exit.thread137
 
-read_metadata_block_data_.exit.thread104:         ; preds = %98
+read_metadata_block_data_.exit.thread137:         ; preds = %98
   store i32 7, ptr %101, align 8, !tbaa !30
   br label %602
 
@@ -2042,7 +2042,7 @@ read_metadata_block_data_.exit.thread23:          ; preds = %119, %111, %597, %5
   store i32 0, ptr %600, align 8, !tbaa !30
   br label %603
 
-read_metadata_block_data_.exit.thread101:         ; preds = %98
+read_metadata_block_data_.exit.thread134:         ; preds = %98
   store i32 0, ptr %101, align 8, !tbaa !30
   br label %603
 
@@ -2053,12 +2053,12 @@ read_metadata_block_data_.exit:                   ; preds = %read_metadata_block
   %.not26 = icmp eq i32 %.0.i.i, 0
   br i1 %.not26, label %603, label %602
 
-602:                                              ; preds = %read_metadata_block_data_.exit.thread104, %read_metadata_block_data_.exit.thread, %read_metadata_block_data_.exit
+602:                                              ; preds = %read_metadata_block_data_.exit.thread137, %read_metadata_block_data_.exit.thread, %read_metadata_block_data_.exit
   call void @FLAC__metadata_object_delete(ptr noundef nonnull %15) #33
   br label %617
 
-603:                                              ; preds = %read_metadata_block_data_.exit.thread101, %read_metadata_block_data_.exit.thread23, %read_metadata_block_data_.exit
-  %604 = phi ptr [ %600, %read_metadata_block_data_.exit.thread23 ], [ %601, %read_metadata_block_data_.exit ], [ %101, %read_metadata_block_data_.exit.thread101 ]
+603:                                              ; preds = %read_metadata_block_data_.exit.thread134, %read_metadata_block_data_.exit.thread23, %read_metadata_block_data_.exit
+  %604 = phi ptr [ %600, %read_metadata_block_data_.exit.thread23 ], [ %601, %read_metadata_block_data_.exit ], [ %101, %read_metadata_block_data_.exit.thread134 ]
   %605 = load ptr, ptr %0, align 8, !tbaa !24
   %606 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -2683,10 +2683,10 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   %12 = icmp ne i32 %11, 0
   %.pre = load i32, ptr %1, align 8, !tbaa !38
   %13 = icmp ne i32 %.pre, 0
-  %or.cond91.not97 = select i1 %12, i1 %13, i1 false
+  %or.cond95.not101 = select i1 %12, i1 %13, i1 false
   %.not75 = icmp eq i32 %11, %.pre
-  %or.cond92 = select i1 %or.cond91.not97, i1 true, i1 %.not75
-  br i1 %or.cond92, label %16, label %14
+  %or.cond96 = select i1 %or.cond95.not101, i1 true, i1 %.not75
+  br i1 %or.cond96, label %16, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2823,10 +2823,10 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %76, %81
-  %.sink94 = phi i32 [ 0, %81 ], [ %62, %76 ]
+  %.sink98 = phi i32 [ 0, %81 ], [ %62, %76 ]
   %.265.ph = phi i32 [ %82, %81 ], [ 0, %76 ]
   %.262.ph = phi i32 [ %62, %81 ], [ 0, %76 ]
-  store i32 %.sink94, ptr %19, align 4, !tbaa !35
+  store i32 %.sink98, ptr %19, align 4, !tbaa !35
   br label %83
 
 83:                                               ; preds = %.sink.split, %79, %75
@@ -4178,10 +4178,10 @@ read_metadata_block_header_cb_.exit.i.i62:        ; preds = %.lr.ph.i.i.i.i57
   br label %.sink.split
 
 .sink.split:                                      ; preds = %88, %95
-  %.sink106 = phi i32 [ 0, %95 ], [ %47, %88 ]
+  %.sink107 = phi i32 [ 0, %95 ], [ %47, %88 ]
   %.138.ph = phi i32 [ %96, %95 ], [ 0, %88 ]
   %.1.ph = phi i32 [ %47, %95 ], [ 0, %88 ]
-  store i32 %.sink106, ptr %20, align 4, !tbaa !35
+  store i32 %.sink107, ptr %20, align 4, !tbaa !35
   br label %97
 
 97:                                               ; preds = %.sink.split, %92, %87
@@ -4380,10 +4380,10 @@ define range(i32 0, 2) i32 @FLAC__metadata_simple_iterator_delete_block(ptr noun
   %26 = icmp ne i32 %25, 0
   %.pre.i = load i32, ptr %15, align 8, !tbaa !38
   %27 = icmp ne i32 %.pre.i, 0
-  %or.cond91.not97.i = select i1 %26, i1 %27, i1 false
+  %or.cond95.not101.i = select i1 %26, i1 %27, i1 false
   %.not75.i = icmp eq i32 %25, %.pre.i
-  %or.cond92.i = select i1 %or.cond91.not97.i, i1 true, i1 %.not75.i
-  br i1 %or.cond92.i, label %FLAC__metadata_simple_iterator_set_block.exit, label %FLAC__metadata_simple_iterator_set_block.exit.thread.sink.split
+  %or.cond96.i = select i1 %or.cond95.not101.i, i1 true, i1 %.not75.i
+  br i1 %or.cond96.i, label %FLAC__metadata_simple_iterator_set_block.exit, label %FLAC__metadata_simple_iterator_set_block.exit.thread.sink.split
 
 FLAC__metadata_simple_iterator_set_block.exit:    ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 236

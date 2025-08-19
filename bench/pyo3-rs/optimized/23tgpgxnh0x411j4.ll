@@ -594,7 +594,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   invoke void @"_ZN4core3ptr39drop_in_place$LT$syn..item..ItemMod$GT$17h683d7a5bcecf6fb3E"(ptr align 8 %1) #10
           to label %858 unwind label %199
 
-147:                                              ; preds = %.invoke204, %857, %855, %145, %144
+147:                                              ; preds = %.invoke213, %857, %855, %145, %144
   %148 = landingpad { ptr, i32 }
           cleanup
   br label %146
@@ -603,7 +603,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %150 = load i64, ptr %139, align 8
   %.not119 = icmp eq i64 %150, -9223372036854775807
   %151 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  br i1 %.not119, label %.sink.split202, label %152
+  br i1 %.not119, label %.sink.split211, label %152
 
 152:                                              ; preds = %149
   %.sroa.362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 32
@@ -1615,7 +1615,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
 
 453:                                              ; preds = %452
   invoke void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %140)
-          to label %.invoke204 unwind label %454
+          to label %.invoke213 unwind label %454
 
 454:                                              ; preds = %453
   %455 = landingpad { ptr, i32 }
@@ -1623,7 +1623,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..module$C$syn..lit..LitStr$GT$$GT$$GT$17h308336875f45094bE"(ptr nonnull align 8 %174) #10
           to label %146 unwind label %199
 
-456:                                              ; preds = %.invoke204, %.sink.split202
+456:                                              ; preds = %.invoke213, %.sink.split211
   call void @"_ZN4core3ptr39drop_in_place$LT$syn..item..ItemMod$GT$17h683d7a5bcecf6fb3E"(ptr align 8 %1)
   ret void
 
@@ -2628,7 +2628,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178:
 
 846:                                              ; preds = %845
   invoke void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %140)
-          to label %.invoke204 unwind label %847
+          to label %.invoke213 unwind label %847
 
 847:                                              ; preds = %846
   %848 = landingpad { ptr, i32 }
@@ -2636,14 +2636,14 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178:
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..module$C$syn..lit..LitStr$GT$$GT$$GT$17h308336875f45094bE"(ptr nonnull align 8 %174) #10
           to label %146 unwind label %199
 
-.invoke204:                                       ; preds = %846, %453
+.invoke213:                                       ; preds = %846, %453
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..module$C$syn..lit..LitStr$GT$$GT$$GT$17h308336875f45094bE"(ptr nonnull align 8 %174)
           to label %456 unwind label %147
 
-.sink.split202:                                   ; preds = %149, %857
-  %.sink203 = phi ptr [ %141, %857 ], [ %151, %149 ]
+.sink.split211:                                   ; preds = %149, %857
+  %.sink212 = phi ptr [ %141, %857 ], [ %151, %149 ]
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %849, ptr noundef nonnull align 8 dereferenceable(24) %.sink203, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %849, ptr noundef nonnull align 8 dereferenceable(24) %.sink212, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %456
 
@@ -2666,7 +2666,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit178:
 
 857:                                              ; preds = %855
   invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %141, i32 %856, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.45, i64 48)
-          to label %.sink.split202 unwind label %147
+          to label %.sink.split211 unwind label %147
 
 858:                                              ; preds = %146
   resume { ptr, i32 } %.pn154

@@ -427,12 +427,12 @@ test_tapa_tunnel.exit:                            ; preds = %131
 .sink.split.i:                                    ; preds = %163, %146
   %hf_tapa_tunnel_seqno.sink.i = phi ptr [ @hf_tapa_tunnel_seqno, %163 ], [ @hf_tapa_tunnel_0804, %146 ]
   %hf_tapa_tunnel_length.sink.i = phi ptr [ @hf_tapa_tunnel_length, %163 ], [ @hf_tapa_tunnel_tagsetc, %146 ]
-  %.sink59.i = phi i32 [ 2, %163 ], [ 6, %146 ]
+  %.sink60.i = phi i32 [ 2, %163 ], [ 6, %146 ]
   %.1.ph.i = phi i32 [ 26, %163 ], [ 30, %146 ]
   %164 = load i32, ptr %hf_tapa_tunnel_seqno.sink.i, align 4
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %164, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
   %166 = load i32, ptr %hf_tapa_tunnel_length.sink.i, align 4
-  %167 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %166, ptr noundef %0, i32 noundef 24, i32 noundef %.sink59.i, i32 noundef 0)
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %166, ptr noundef %0, i32 noundef 24, i32 noundef %.sink60.i, i32 noundef 0)
   br label %168
 
 168:                                              ; preds = %.sink.split.i, %146

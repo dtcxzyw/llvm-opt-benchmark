@@ -1105,8 +1105,8 @@ dissect_smtp_data.exit.i:                         ; preds = %.lr.ph.i.i, %.prehe
 
 423:                                              ; preds = %380
   %424 = load ptr, ptr %350, align 8
-  %.str.127..str.128338.i = select i1 %383, ptr @.str.127, ptr @.str.128
-  call void @col_append_str(ptr noundef %424, i32 noundef 25, ptr noundef nonnull %.str.127..str.128338.i)
+  %.str.127..str.128347.i = select i1 %383, ptr @.str.127, ptr @.str.128
+  call void @col_append_str(ptr noundef %424, i32 noundef 25, ptr noundef nonnull %.str.127..str.128347.i)
   %425 = load ptr, ptr %350, align 8
   call void @col_append_str(ptr noundef %425, i32 noundef 25, ptr noundef nonnull @.str.133)
   %426 = load i32, ptr @hf_smtp_eom, align 4
@@ -1121,8 +1121,8 @@ dissect_smtp_data.exit.i:                         ; preds = %.lr.ph.i.i, %.prehe
   %430 = or i32 %.1299330.i, %.0256328
   %or.cond.i = icmp eq i32 %430, 0
   %431 = load ptr, ptr %350, align 8
-  %.str.127..str.128339.i = select i1 %or.cond.i, ptr @.str.127, ptr @.str.128
-  call void @col_append_str(ptr noundef %431, i32 noundef 25, ptr noundef nonnull %.str.127..str.128339.i)
+  %.str.127..str.128348.i = select i1 %or.cond.i, ptr @.str.127, ptr @.str.128
+  call void @col_append_str(ptr noundef %431, i32 noundef 25, ptr noundef nonnull %.str.127..str.128348.i)
   %432 = load i32, ptr @hf_smtp_req, align 4
   %433 = call ptr @proto_tree_add_boolean(ptr noundef %356, i32 noundef %432, ptr noundef %382, i32 noundef 0, i32 noundef 0, i64 noundef 1)
   %.not.i315.i = icmp eq ptr %433, null

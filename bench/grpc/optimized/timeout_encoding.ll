@@ -130,11 +130,11 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
   br label %46
 
 .thread.i:                                        ; preds = %37
-  %.lhs.trunc36.i = add nuw nsw i32 %38, 59
-  %44 = udiv i32 %.lhs.trunc36.i, 60
+  %.lhs.trunc38.i = add nuw nsw i32 %38, 59
+  %44 = udiv i32 %.lhs.trunc38.i, 60
   %.zext.i = zext nneg i32 %44 to i64
   %45 = icmp samesign ult i64 %0, 59940001
-  br i1 %45, label %46, label %.thread35.i
+  br i1 %45, label %46, label %.thread37.i
 
 46:                                               ; preds = %.thread.i, %.thread.thread.i
   %47 = phi i64 [ %.zext33, %.thread.thread.i ], [ %.zext.i, %.thread.i ]
@@ -147,9 +147,9 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
   %50 = add nuw nsw i64 %24, 59
   %51 = udiv i64 %50, 60
   %52 = icmp samesign ult i64 %0, 599940001
-  br i1 %52, label %.thread35.i, label %57
+  br i1 %52, label %.thread37.i, label %57
 
-.thread35.i:                                      ; preds = %49, %.thread.i
+.thread37.i:                                      ; preds = %49, %.thread.i
   %53 = phi i64 [ %51, %49 ], [ %.zext.i, %.thread.i ]
   %54 = trunc nuw nsw i64 %53 to i16
   %.lhs.trunc.i.i = add nuw nsw i16 %54, 9
@@ -176,17 +176,17 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
   %64 = trunc nuw nsw i32 %61 to i16
   br label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
-.thread.i.i:                                      ; preds = %59, %57, %.thread35.i, %46
-  %65 = phi i64 [ %51, %59 ], [ %51, %57 ], [ %53, %.thread35.i ], [ %47, %46 ]
+.thread.i.i:                                      ; preds = %59, %57, %.thread37.i, %46
+  %65 = phi i64 [ %51, %59 ], [ %51, %57 ], [ %53, %.thread37.i ], [ %47, %46 ]
   %66 = add nuw nsw i64 %65, 59
   %67 = udiv i64 %66, 60
   %68 = tail call i64 @llvm.umin.i64(i64 %67, i64 27000)
   %spec.select.i.i.i = trunc nuw nsw i64 %68 to i16
   br label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
-_ZN9grpc_core7Timeout11FromSecondsEl.exit:        ; preds = %46, %26, %15, %.thread.i.i, %63, %.thread35.i, %41, %31, %9, %19, %1, %5
-  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ 1, %1 ], [ 27000, %19 ], [ %11, %9 ], [ %42, %41 ], [ %33, %31 ], [ %spec.select.i.i.i, %.thread.i.i ], [ %64, %63 ], [ %55, %.thread35.i ], [ %.lhs.trunc38, %15 ], [ %.lhs.trunc30, %26 ], [ %.lhs.trunc34, %46 ]
-  %.sroa.0.sroa.7.0 = phi i32 [ 65536, %5 ], [ 0, %1 ], [ 655360, %19 ], [ 131072, %9 ], [ 393216, %41 ], [ 327680, %31 ], [ 655360, %.thread.i.i ], [ 589824, %63 ], [ 524288, %.thread35.i ], [ 196608, %15 ], [ 262144, %26 ], [ 458752, %46 ]
+_ZN9grpc_core7Timeout11FromSecondsEl.exit:        ; preds = %46, %26, %15, %.thread.i.i, %63, %.thread37.i, %41, %31, %9, %19, %1, %5
+  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ 1, %1 ], [ 27000, %19 ], [ %11, %9 ], [ %42, %41 ], [ %33, %31 ], [ %spec.select.i.i.i, %.thread.i.i ], [ %64, %63 ], [ %55, %.thread37.i ], [ %.lhs.trunc38, %15 ], [ %.lhs.trunc30, %26 ], [ %.lhs.trunc34, %46 ]
+  %.sroa.0.sroa.7.0 = phi i32 [ 65536, %5 ], [ 0, %1 ], [ 655360, %19 ], [ 131072, %9 ], [ 393216, %41 ], [ 327680, %31 ], [ 655360, %.thread.i.i ], [ 589824, %63 ], [ 524288, %.thread37.i ], [ 196608, %15 ], [ 262144, %26 ], [ 458752, %46 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.0 to i32
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.7.0, %.sroa.0.sroa.0.0.insert.ext
   ret i32 %.sroa.0.sroa.0.0.insert.insert
@@ -619,11 +619,11 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
 
 .thread:                                          ; preds = %15
   %23 = trunc nuw i64 %0 to i32
-  %.lhs.trunc36 = add nuw nsw i32 %23, 59
-  %24 = udiv i32 %.lhs.trunc36, 60
+  %.lhs.trunc38 = add nuw nsw i32 %23, 59
+  %24 = udiv i32 %.lhs.trunc38, 60
   %.zext = zext nneg i32 %24 to i64
   %25 = icmp samesign ult i64 %0, 59941
-  br i1 %25, label %26, label %.thread35
+  br i1 %25, label %26, label %.thread37
 
 26:                                               ; preds = %.thread.thread, %.thread
   %27 = phi i64 [ %22, %.thread.thread ], [ %.zext, %.thread ]
@@ -639,9 +639,9 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
   %32 = add nuw nsw i64 %0, 59
   %33 = udiv i64 %32, 60
   %34 = icmp ult i64 %0, 599941
-  br i1 %34, label %.thread35, label %39
+  br i1 %34, label %.thread37, label %39
 
-.thread35:                                        ; preds = %.thread, %31
+.thread37:                                        ; preds = %.thread, %31
   %35 = phi i64 [ %33, %31 ], [ %.zext, %.thread ]
   %36 = trunc nuw nsw i64 %35 to i16
   %.lhs.trunc.i = add nuw nsw i16 %36, 9
@@ -668,17 +668,17 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
   %46 = trunc nuw nsw i32 %43 to i16
   br label %_ZN9grpc_core7Timeout11FromMinutesEl.exit
 
-.thread.i:                                        ; preds = %41, %39, %.thread35, %26
-  %47 = phi i64 [ %33, %41 ], [ %33, %39 ], [ %35, %.thread35 ], [ %27, %26 ]
+.thread.i:                                        ; preds = %41, %39, %.thread37, %26
+  %47 = phi i64 [ %33, %41 ], [ %33, %39 ], [ %35, %.thread37 ], [ %27, %26 ]
   %48 = add nsw i64 %47, 59
   %49 = sdiv i64 %48, 60
   %spec.select2.i.i = tail call i64 @llvm.smin.i64(i64 %49, i64 27000)
   %spec.select.i.i = trunc i64 %spec.select2.i.i to i16
   br label %_ZN9grpc_core7Timeout11FromMinutesEl.exit
 
-_ZN9grpc_core7Timeout11FromMinutesEl.exit:        ; preds = %.thread.i, %45, %.thread35, %29, %9, %19, %5
-  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ %20, %19 ], [ %11, %9 ], [ %spec.select.i.i, %.thread.i ], [ %30, %29 ], [ %46, %45 ], [ %37, %.thread35 ]
-  %.sroa.0.sroa.5.0 = phi i32 [ 262144, %5 ], [ 393216, %19 ], [ 327680, %9 ], [ 655360, %.thread.i ], [ 458752, %29 ], [ 589824, %45 ], [ 524288, %.thread35 ]
+_ZN9grpc_core7Timeout11FromMinutesEl.exit:        ; preds = %.thread.i, %45, %.thread37, %29, %9, %19, %5
+  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ %20, %19 ], [ %11, %9 ], [ %spec.select.i.i, %.thread.i ], [ %30, %29 ], [ %46, %45 ], [ %37, %.thread37 ]
+  %.sroa.0.sroa.5.0 = phi i32 [ 262144, %5 ], [ 393216, %19 ], [ 327680, %9 ], [ 655360, %.thread.i ], [ 458752, %29 ], [ 589824, %45 ], [ 524288, %.thread37 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.0 to i32
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.5.0, %.sroa.0.sroa.0.0.insert.ext
   ret i32 %.sroa.0.sroa.0.0.insert.insert
@@ -787,34 +787,34 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
 .lr.ph77.preheader:                               ; preds = %.critedge
   %16 = load i8, ptr %.046.lcssa, align 1, !tbaa !10
   %17 = add i8 %16, -58
-  %or.cond55106 = icmp ult i8 %17, -10
-  br i1 %or.cond55106, label %.critedge2, label %.lr.ph109
+  %or.cond55112 = icmp ult i8 %17, -10
+  br i1 %or.cond55112, label %.critedge2, label %.lr.ph115
 
 .lr.ph77:                                         ; preds = %27
   %18 = load i8, ptr %30, align 1, !tbaa !10
   %19 = add i8 %18, -48
   %or.cond55 = icmp ult i8 %19, 10
-  br i1 %or.cond55, label %.lr.ph109, label %.critedge2, !llvm.loop !17
+  br i1 %or.cond55, label %.lr.ph115, label %.critedge2, !llvm.loop !17
 
-.lr.ph109:                                        ; preds = %.lr.ph77.preheader, %.lr.ph77
+.lr.ph115:                                        ; preds = %.lr.ph77.preheader, %.lr.ph77
   %20 = phi i8 [ %18, %.lr.ph77 ], [ %16, %.lr.ph77.preheader ]
-  %.14775108 = phi ptr [ %30, %.lr.ph77 ], [ %.046.lcssa, %.lr.ph77.preheader ]
-  %.076107 = phi i32 [ %29, %.lr.ph77 ], [ 0, %.lr.ph77.preheader ]
+  %.14775114 = phi ptr [ %30, %.lr.ph77 ], [ %.046.lcssa, %.lr.ph77.preheader ]
+  %.076113 = phi i32 [ %29, %.lr.ph77 ], [ 0, %.lr.ph77.preheader ]
   %21 = zext nneg i8 %20 to i32
   %22 = add nsw i32 %21, -48
-  %23 = icmp sgt i32 %.076107, 99999999
+  %23 = icmp sgt i32 %.076113, 99999999
   br i1 %23, label %24, label %27
 
-24:                                               ; preds = %.lr.ph109
-  %25 = icmp ne i32 %.076107, 100000000
+24:                                               ; preds = %.lr.ph115
+  %25 = icmp ne i32 %.076113, 100000000
   %26 = icmp ne i32 %22, 0
   %or.cond = select i1 %25, i1 true, i1 %26
   br i1 %or.cond, label %.critedge57, label %27
 
-27:                                               ; preds = %24, %.lr.ph109
-  %28 = mul nsw i32 %.076107, 10
+27:                                               ; preds = %24, %.lr.ph115
+  %28 = mul nsw i32 %.076113, 10
   %29 = add nsw i32 %22, %28
-  %30 = getelementptr inbounds nuw i8, ptr %.14775108, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.14775114, i64 1
   %.not52 = icmp eq ptr %30, %11
   br i1 %.not52, label %..critedge2_crit_edge, label %.lr.ph77, !llvm.loop !17
 
@@ -825,7 +825,7 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
   %.147.lcssa = phi ptr [ %30, %..critedge2_crit_edge ], [ %.046.lcssa, %.lr.ph77.preheader ], [ %30, %.lr.ph77 ]
   %.0.lcssa = phi i32 [ %29, %..critedge2_crit_edge ], [ 0, %.lr.ph77.preheader ], [ %29, %.lr.ph77 ]
   %.not5485 = icmp eq ptr %.147.lcssa, %11
-  %or.cond88 = or i1 %or.cond55106, %.not5485
+  %or.cond88 = or i1 %or.cond55112, %.not5485
   br i1 %or.cond88, label %.critedge57, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %.critedge2, %32

@@ -429,13 +429,13 @@ _ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %116 = load ptr, ptr %3, align 8, !tbaa !3
   %.not.i66 = icmp eq ptr %116, null
-  br i1 %.not.i66, label %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread222, label %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread225
+  br i1 %.not.i66, label %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread270, label %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread273
 
-_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread222: ; preds = %114
+_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread270: ; preds = %114
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5ZXing11PatternView5shiftEi.exit.thread
 
-_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread225: ; preds = %114
+_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread273: ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
   store ptr %117, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -447,8 +447,8 @@ _ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread: ; preds = %112
   %.not.i68 = icmp eq ptr %.pre.pre, null
   br i1 %.not.i68, label %_ZN5ZXing11PatternView5shiftEi.exit.thread, label %_ZN5ZXing11PatternView5shiftEi.exit69
 
-_ZN5ZXing11PatternView5shiftEi.exit69:            ; preds = %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit, %_ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i, %75, %71, %49, %81, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread225, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread
-  %118 = phi ptr [ %.pre.pre, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread ], [ %117, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread225 ], [ %44, %81 ], [ %44, %49 ], [ %44, %71 ], [ %44, %75 ], [ %44, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i ], [ %44, %_ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i ], [ %44, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit ]
+_ZN5ZXing11PatternView5shiftEi.exit69:            ; preds = %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit, %_ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i, %75, %71, %49, %81, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread273, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread
+  %118 = phi ptr [ %.pre.pre, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread ], [ %117, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread273 ], [ %44, %81 ], [ %44, %49 ], [ %44, %71 ], [ %44, %75 ], [ %44, %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i ], [ %44, %_ZN5ZXing4OneD7DataBar7IsGuardEii.exit.i ], [ %44, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit ]
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 2
   store ptr %119, ptr %3, align 8, !tbaa !3
   %120 = load i32, ptr %.sroa.4164.0..sroa_idx, align 8, !tbaa !33
@@ -600,7 +600,7 @@ _ZN5ZXing11PatternView5shiftEi.exit69.thread:     ; preds = %156, %124, %146, %1
   %.not.i = icmp eq ptr %195, null
   br i1 %.not.i, label %_ZN5ZXing11PatternView5shiftEi.exit.thread, label %_ZN5ZXing11PatternView5shiftEi.exit, !llvm.loop !41
 
-_ZN5ZXing11PatternView5shiftEi.exit.thread:       ; preds = %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread, %_ZN5ZXing11PatternView5shiftEi.exit, %_ZN5ZXing11PatternView5shiftEi.exit69.thread, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread222, %33
+_ZN5ZXing11PatternView5shiftEi.exit.thread:       ; preds = %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread, %_ZN5ZXing11PatternView5shiftEi.exit, %_ZN5ZXing11PatternView5shiftEi.exit69.thread, %_ZN5ZXing4OneDL10IsLeftPairERKNS_11PatternViewE.exit.thread.thread270, %33
   %196 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %197 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %.sroa.0160.0202 = load ptr, ptr %197, align 8, !tbaa !42
@@ -1450,14 +1450,14 @@ _ZN5ZXing9BitMatrixD2Ev.exit108:                  ; preds = %510, %512, %515
   br i1 %.not.i.i.i109, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %521, %369
-  %.sink243 = phi ptr [ %371, %369 ], [ %522, %521 ]
+  %.sink291 = phi ptr [ %371, %369 ], [ %522, %521 ]
   %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %370, %369 ], [ %.pn.pn.pn, %521 ]
   %523 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %524 = load ptr, ptr %523, align 8, !tbaa !66
   %525 = ptrtoint ptr %524 to i64
-  %526 = ptrtoint ptr %.sink243 to i64
+  %526 = ptrtoint ptr %.sink291 to i64
   %527 = sub i64 %525, %526
-  call void @_ZdlPvm(ptr noundef nonnull %.sink243, i64 noundef %527) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sink291, i64 noundef %527) #23
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %521, %369
@@ -1722,11 +1722,11 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %42
   br label %80
 
 80:                                               ; preds = %77, %75
-  %.sink71 = phi ptr [ %79, %77 ], [ %76, %75 ]
+  %.sink74 = phi ptr [ %79, %77 ], [ %76, %75 ]
   %.sroa.634.0.extract.trunc4246.in.in = phi i64 [ %73, %77 ], [ %66, %75 ]
   %81 = load ptr, ptr %12, align 8, !tbaa !123, !noalias !142
   %82 = load ptr, ptr %13, align 8, !tbaa !34, !noalias !142
-  store ptr %.sink71, ptr %7, align 8, !tbaa !3
+  store ptr %.sink74, ptr %7, align 8, !tbaa !3
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 8, ptr %83, align 8, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1808,13 +1808,13 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i29: ; preds = %.l
   br label %118
 
 118:                                              ; preds = %.critedge23, %114
-  %.sink75 = phi i32 [ %57, %.critedge23 ], [ 0, %114 ]
-  %.sink73 = phi i32 [ %98, %.critedge23 ], [ -1, %114 ]
+  %.sink78 = phi i32 [ %57, %.critedge23 ], [ 0, %114 ]
+  %.sink76 = phi i32 [ %98, %.critedge23 ], [ -1, %114 ]
   %.sink = phi i32 [ %112, %.critedge23 ], [ 1, %114 ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink75, ptr %119, align 4, !tbaa !35
+  store i32 %.sink78, ptr %119, align 4, !tbaa !35
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink73, ptr %120, align 4, !tbaa !145
+  store i32 %.sink76, ptr %120, align 4, !tbaa !145
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %121, align 4, !tbaa !146
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2398,13 +2398,13 @@ define linkonce_odr void @_ZN5ZXing8ToStringIxvEENSt7__cxx1112basic_stringIcSt11
 
 11:                                               ; preds = %3
   %12 = icmp slt i32 %2, 0
-  br i1 %12, label %.noexc.i, label %.thread6.i.i
+  br i1 %12, label %.noexc.i, label %.thread7.i.i
 
 .noexc.i:                                         ; preds = %11
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #22
   unreachable
 
-.thread6.i.i:                                     ; preds = %11
+.thread7.i.i:                                     ; preds = %11
   %13 = add nuw nsw i64 %8, 1
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #20
   store ptr %14, ptr %0, align 8, !tbaa !50
@@ -2421,8 +2421,8 @@ define linkonce_odr void @_ZN5ZXing8ToStringIxvEENSt7__cxx1112basic_stringIcSt11
   store i8 48, ptr %9, align 8, !tbaa !51
   br label %19
 
-17:                                               ; preds = %15, %.thread6.i.i
-  %18 = phi ptr [ %14, %.thread6.i.i ], [ %9, %15 ]
+17:                                               ; preds = %15, %.thread7.i.i
+  %18 = phi ptr [ %14, %.thread7.i.i ], [ %9, %15 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 48, i64 %8, i1 false)
   br label %19
 

@@ -852,7 +852,7 @@ checkdone.exit129.thread.thread:                  ; preds = %125
   br i1 %136, label %137, label %.thread
 
 137:                                              ; preds = %checkdone.exit129.thread.thread, %checkdone.exit129.thread
-  %.7137191 = phi i32 [ %.6136, %checkdone.exit129.thread.thread ], [ %.7137, %checkdone.exit129.thread ]
+  %.7137199 = phi i32 [ %.6136, %checkdone.exit129.thread.thread ], [ %.7137, %checkdone.exit129.thread ]
   %138 = call i32 @file_ascmagic(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %.081) #18
   %139 = load i32, ptr %22, align 4, !tbaa !27
   %140 = and i32 %139, 1
@@ -924,7 +924,7 @@ file_default.exit:                                ; preds = %162
   br label %checkdone.exit
 
 checkdone.exit:                                   ; preds = %file_default.exit, %164, %159, %152, %156, %126, %109, %92, %75, %57, %40, %146, %144
-  %.2132 = phi i32 [ %.7137191, %144 ], [ %.7137, %146 ], [ 0, %40 ], [ %.1, %57 ], [ %.3133, %75 ], [ %.4134, %92 ], [ %.5135, %109 ], [ %.6136, %126 ], [ %.12.i, %164 ], [ %..i, %159 ], [ -1, %152 ], [ 1, %156 ], [ %spec.select167, %file_default.exit ]
+  %.2132 = phi i32 [ %.7137199, %144 ], [ %.7137, %146 ], [ 0, %40 ], [ %.1, %57 ], [ %.3133, %75 ], [ %.4134, %92 ], [ %.5135, %109 ], [ %.6136, %126 ], [ %.12.i, %164 ], [ %..i, %159 ], [ -1, %152 ], [ 1, %156 ], [ %spec.select167, %file_default.exit ]
   %.2 = phi i32 [ %138, %144 ], [ %.7, %146 ], [ %33, %40 ], [ %50, %57 ], [ %68, %75 ], [ %85, %92 ], [ %102, %109 ], [ %119, %126 ], [ 1, %164 ], [ 1, %159 ], [ 1, %152 ], [ 1, %156 ], [ 1, %file_default.exit ]
   %169 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %169, align 8, !tbaa !21

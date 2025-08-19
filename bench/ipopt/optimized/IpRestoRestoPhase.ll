@@ -2394,12 +2394,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit281: ; preds = %_Z
   br i1 %1156, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit278.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit278
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit278.sink.split: ; preds = %1152, %1134
-  %.sink670 = phi ptr [ %844, %1134 ], [ %1151, %1152 ]
+  %.sink721 = phi ptr [ %844, %1134 ], [ %1151, %1152 ]
   %.pn62.pn.pn.ph = phi { ptr, i32 } [ %1135, %1134 ], [ %.pn62.pn, %1152 ]
-  %1157 = load ptr, ptr %.sink670, align 8, !tbaa !8
+  %1157 = load ptr, ptr %.sink721, align 8, !tbaa !8
   %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 8
   %1159 = load ptr, ptr %1158, align 8
-  call void %1159(ptr noundef nonnull align 8 dereferenceable(280) %.sink670) #14
+  call void %1159(ptr noundef nonnull align 8 dereferenceable(280) %.sink721) #14
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit278
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit278: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit278.sink.split, %1152, %1150, %1134
@@ -2525,12 +2525,12 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit293:      ; preds = %1199, %1194, %_ZN5I
   br i1 %1208, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit270.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit270
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit270.sink.split: ; preds = %1204, %1083
-  %.sink675 = phi ptr [ %.0.i4.i133, %1083 ], [ %1203, %1204 ]
+  %.sink726 = phi ptr [ %.0.i4.i133, %1083 ], [ %1203, %1204 ]
   %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %1084, %1083 ], [ %.pn62.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1204 ]
-  %1209 = load ptr, ptr %.sink675, align 8, !tbaa !8
+  %1209 = load ptr, ptr %.sink726, align 8, !tbaa !8
   %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 8
   %1211 = load ptr, ptr %1210, align 8
-  call void %1211(ptr noundef nonnull align 8 dereferenceable(205) %.sink675) #14
+  call void %1211(ptr noundef nonnull align 8 dereferenceable(205) %.sink726) #14
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit270
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit270:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit270.sink.split, %1204, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit293, %1083

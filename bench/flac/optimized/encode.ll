@@ -552,25 +552,25 @@ EncoderSession_construct.exit:                    ; preds = %77, %EncoderSession
   %156 = call i32 @fileno(ptr noundef %155) #20
   %157 = call i32 @fstat64(i32 noundef %156, ptr noundef nonnull %20) #20
   %158 = icmp eq i32 %157, 0
-  br i1 %158, label %159, label %.preheader3247
+  br i1 %158, label %159, label %.preheader3282
 
 159:                                              ; preds = %154
   %160 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %161 = load i32, ptr %160, align 8, !tbaa !53
   %162 = and i32 %161, 61440
   %163 = icmp eq i32 %162, 32768
-  br i1 %163, label %164, label %.preheader3247
+  br i1 %163, label %164, label %.preheader3282
 
 164:                                              ; preds = %159
   %165 = call i32 @fseeko64(ptr noundef %155, i64 noundef 28, i32 noundef 1)
   %166 = icmp eq i32 %165, 0
-  br i1 %166, label %fskip_ahead.exit.thread.i, label %.preheader3247
+  br i1 %166, label %fskip_ahead.exit.thread.i, label %.preheader3282
 
-.preheader3247:                                   ; preds = %164, %159, %154
+.preheader3282:                                   ; preds = %164, %159, %154
   br label %167
 
-167:                                              ; preds = %.preheader3247, %fread.inline.exit.i.i
-  %.014.i.i = phi i64 [ %171, %fread.inline.exit.i.i ], [ 28, %.preheader3247 ]
+167:                                              ; preds = %.preheader3282, %fread.inline.exit.i.i
+  %.014.i.i = phi i64 [ %171, %fread.inline.exit.i.i ], [ 28, %.preheader3282 ]
   %.not.i.i = icmp eq i64 %.014.i.i, 0
   br i1 %.not.i.i, label %fskip_ahead.exit.thread.i, label %fread.inline.exit.i.i
 
@@ -757,24 +757,24 @@ read_uint64.exit:                                 ; preds = %read_uint32.exit323
   %256 = call i32 @fileno(ptr noundef %254) #20
   %257 = call i32 @fstat64(i32 noundef %256, ptr noundef nonnull %10) #20
   %258 = icmp eq i32 %257, 0
-  br i1 %258, label %259, label %.preheader2928
+  br i1 %258, label %259, label %.preheader2963
 
 259:                                              ; preds = %read_uint64.exit
   %260 = load i32, ptr %193, align 8, !tbaa !53
   %261 = and i32 %260, 61440
   %262 = icmp eq i32 %261, 32768
-  br i1 %262, label %263, label %.preheader2928
+  br i1 %262, label %263, label %.preheader2963
 
 263:                                              ; preds = %259
   %264 = call i32 @fseeko64(ptr noundef %254, i64 noundef %255, i32 noundef 1)
   %265 = icmp eq i32 %264, 0
-  br i1 %265, label %.loopexit, label %.preheader2928
+  br i1 %265, label %.loopexit, label %.preheader2963
 
-.preheader2928:                                   ; preds = %263, %259, %read_uint64.exit
+.preheader2963:                                   ; preds = %263, %259, %read_uint64.exit
   br label %266
 
-266:                                              ; preds = %.preheader2928, %fread.inline.exit.i438
-  %.014.i436 = phi i64 [ %270, %fread.inline.exit.i438 ], [ %255, %.preheader2928 ]
+266:                                              ; preds = %.preheader2963, %fread.inline.exit.i438
+  %.014.i436 = phi i64 [ %270, %fread.inline.exit.i438 ], [ %255, %.preheader2963 ]
   %.not.i437 = icmp eq i64 %.014.i436, 0
   br i1 %.not.i437, label %.loopexit, label %fread.inline.exit.i438
 
@@ -1167,24 +1167,24 @@ count_channel_mask_bits.exit.thread.i:            ; preds = %420, %count_channel
   %439 = call i32 @fileno(ptr noundef %437) #20
   %440 = call i32 @fstat64(i32 noundef %439, ptr noundef nonnull %11) #20
   %441 = icmp eq i32 %440, 0
-  br i1 %441, label %442, label %.preheader2930
+  br i1 %441, label %442, label %.preheader2965
 
 442:                                              ; preds = %433
   %443 = load i32, ptr %192, align 8, !tbaa !53
   %444 = and i32 %443, 61440
   %445 = icmp eq i32 %444, 32768
-  br i1 %445, label %446, label %.preheader2930
+  br i1 %445, label %446, label %.preheader2965
 
 446:                                              ; preds = %442
   %447 = call i32 @fseeko64(ptr noundef %437, i64 noundef %438, i32 noundef 1)
   %448 = icmp eq i32 %447, 0
-  br i1 %448, label %.loopexit570, label %.preheader2930
+  br i1 %448, label %.loopexit570, label %.preheader2965
 
-.preheader2930:                                   ; preds = %446, %442, %433
+.preheader2965:                                   ; preds = %446, %442, %433
   br label %449
 
-449:                                              ; preds = %.preheader2930, %fread.inline.exit.i
-  %.014.i = phi i64 [ %453, %fread.inline.exit.i ], [ %438, %.preheader2930 ]
+449:                                              ; preds = %.preheader2965, %fread.inline.exit.i
+  %.014.i = phi i64 [ %453, %fread.inline.exit.i ], [ %438, %.preheader2965 ]
   %.not.i404 = icmp eq i64 %.014.i, 0
   br i1 %.not.i404, label %.loopexit570, label %fread.inline.exit.i
 
@@ -1480,24 +1480,24 @@ read_uint64.exit367.i:                            ; preds = %fread.inline.exit.i
   %576 = call i32 @fileno(ptr noundef %573) #20
   %577 = call i32 @fstat64(i32 noundef %576, ptr noundef nonnull %19) #20
   %578 = icmp eq i32 %577, 0
-  br i1 %578, label %579, label %.preheader2929
+  br i1 %578, label %579, label %.preheader2964
 
 579:                                              ; preds = %575
   %580 = load i32, ptr %190, align 8, !tbaa !53
   %581 = and i32 %580, 61440
   %582 = icmp eq i32 %581, 32768
-  br i1 %582, label %583, label %.preheader2929
+  br i1 %582, label %583, label %.preheader2964
 
 583:                                              ; preds = %579
   %584 = call i32 @fseeko64(ptr noundef %573, i64 noundef %storemerge299.i, i32 noundef 1)
   %585 = icmp eq i32 %584, 0
-  br i1 %585, label %fskip_ahead.exit372.i, label %.preheader2929
+  br i1 %585, label %fskip_ahead.exit372.i, label %.preheader2964
 
-.preheader2929:                                   ; preds = %583, %579, %575
+.preheader2964:                                   ; preds = %583, %579, %575
   br label %586
 
-586:                                              ; preds = %.preheader2929, %fread.inline.exit.i370.i
-  %.014.i368.i = phi i64 [ %590, %fread.inline.exit.i370.i ], [ %storemerge299.i, %.preheader2929 ]
+586:                                              ; preds = %.preheader2964, %fread.inline.exit.i370.i
+  %.014.i368.i = phi i64 [ %590, %fread.inline.exit.i370.i ], [ %storemerge299.i, %.preheader2964 ]
   %.not.i369.i = icmp eq i64 %.014.i368.i, 0
   br i1 %.not.i369.i, label %fskip_ahead.exit372.i, label %fread.inline.exit.i370.i
 
@@ -1560,8 +1560,8 @@ fskip_ahead.exit372.i:                            ; preds = %586, %583
 
 .loopexit433.thread.i:                            ; preds = %211
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %.not3031143.i = icmp eq i32 %.0209.i, 0
-  br i1 %.not3031143.i, label %595, label %.thread1149.i
+  %.not3031156.i = icmp eq i32 %.0209.i, 0
+  br i1 %.not3031156.i, label %595, label %.thread1162.i
 
 595:                                              ; preds = %.loopexit433.thread.i, %.loopexit433.i
   %596 = load ptr, ptr @stderr, align 8, !tbaa !33
@@ -1571,9 +1571,9 @@ fskip_ahead.exit372.i:                            ; preds = %586, %583
 
 598:                                              ; preds = %.loopexit433.i
   %599 = icmp eq i32 %.1206.ph.i, 0
-  br i1 %599, label %.thread1149.i, label %get_sample_info_wave.exit
+  br i1 %599, label %.thread1162.i, label %get_sample_info_wave.exit
 
-.thread1149.i:                                    ; preds = %598, %.loopexit433.thread.i
+.thread1162.i:                                    ; preds = %598, %.loopexit433.thread.i
   %600 = load ptr, ptr @stderr, align 8, !tbaa !33
   %601 = load ptr, ptr %50, align 8, !tbaa !25
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %600, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef %601) #20
@@ -1594,7 +1594,7 @@ get_sample_info_wave.exit:                        ; preds = %598
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %1085
 
-.loopexit572:                                     ; preds = %594, %.thread1149.i, %595, %172, %.thread414.i
+.loopexit572:                                     ; preds = %594, %.thread1162.i, %595, %172, %.thread414.i
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %607 = load i64, ptr %53, align 8, !tbaa !43
@@ -1964,24 +1964,24 @@ switch.early.test.i:                              ; preds = %777
   %785 = call i32 @fileno(ptr noundef %784) #20
   %786 = call i32 @fstat64(i32 noundef %785, ptr noundef nonnull %9) #20
   %787 = icmp eq i32 %786, 0
-  br i1 %787, label %788, label %.preheader3248
+  br i1 %787, label %788, label %.preheader3283
 
 788:                                              ; preds = %781
   %789 = load i32, ptr %642, align 8, !tbaa !53
   %790 = and i32 %789, 61440
   %791 = icmp eq i32 %790, 32768
-  br i1 %791, label %792, label %.preheader3248
+  br i1 %791, label %792, label %.preheader3283
 
 792:                                              ; preds = %788
   %793 = call i32 @fseeko64(ptr noundef %784, i64 noundef %688, i32 noundef 1)
   %794 = icmp eq i32 %793, 0
-  br i1 %794, label %.loopexit573, label %.preheader3248
+  br i1 %794, label %.loopexit573, label %.preheader3283
 
-.preheader3248:                                   ; preds = %792, %788, %781
+.preheader3283:                                   ; preds = %792, %788, %781
   br label %795
 
-795:                                              ; preds = %.preheader3248, %fread.inline.exit.i448
-  %.014.i446 = phi i64 [ %799, %fread.inline.exit.i448 ], [ %688, %.preheader3248 ]
+795:                                              ; preds = %.preheader3283, %fread.inline.exit.i448
+  %.014.i446 = phi i64 [ %799, %fread.inline.exit.i448 ], [ %688, %.preheader3283 ]
   %.not.i447 = icmp eq i64 %.014.i446, 0
   br i1 %.not.i447, label %.loopexit573, label %fread.inline.exit.i448
 
@@ -2160,24 +2160,24 @@ read_uint32.exit250.thread.i:                     ; preds = %fread.inline.exit.i
   %871 = call i32 @fileno(ptr noundef %870) #20
   %872 = call i32 @fstat64(i32 noundef %871, ptr noundef nonnull %13) #20
   %873 = icmp eq i32 %872, 0
-  br i1 %873, label %874, label %.preheader3249
+  br i1 %873, label %874, label %.preheader3284
 
 874:                                              ; preds = %869
   %875 = load i32, ptr %633, align 8, !tbaa !53
   %876 = and i32 %875, 61440
   %877 = icmp eq i32 %876, 32768
-  br i1 %877, label %878, label %.preheader3249
+  br i1 %877, label %878, label %.preheader3284
 
 878:                                              ; preds = %874
   %879 = call i32 @fseeko64(ptr noundef %870, i64 noundef %846, i32 noundef 1)
   %880 = icmp eq i32 %879, 0
-  br i1 %880, label %.loopexit.i362, label %.preheader3249
+  br i1 %880, label %.loopexit.i362, label %.preheader3284
 
-.preheader3249:                                   ; preds = %878, %874, %869
+.preheader3284:                                   ; preds = %878, %874, %869
   br label %881
 
-881:                                              ; preds = %.preheader3249, %fread.inline.exit.i251.i
-  %.014.i.i360 = phi i64 [ %885, %fread.inline.exit.i251.i ], [ %846, %.preheader3249 ]
+881:                                              ; preds = %.preheader3284, %fread.inline.exit.i251.i
+  %.014.i.i360 = phi i64 [ %885, %fread.inline.exit.i251.i ], [ %846, %.preheader3284 ]
   %.not.i.i361 = icmp eq i64 %.014.i.i360, 0
   br i1 %.not.i.i361, label %.loopexit.i362, label %fread.inline.exit.i251.i
 
@@ -2247,24 +2247,24 @@ read_uint32.exit259.thread.i:                     ; preds = %fread.inline.exit.i
   %909 = call i32 @fileno(ptr noundef %908) #20
   %910 = call i32 @fstat64(i32 noundef %909, ptr noundef nonnull %12) #20
   %911 = icmp eq i32 %910, 0
-  br i1 %911, label %912, label %.preheader3250
+  br i1 %911, label %912, label %.preheader3285
 
 912:                                              ; preds = %899
   %913 = load i32, ptr %628, align 8, !tbaa !53
   %914 = and i32 %913, 61440
   %915 = icmp eq i32 %914, 32768
-  br i1 %915, label %916, label %.preheader3250
+  br i1 %915, label %916, label %.preheader3285
 
 916:                                              ; preds = %912
   %917 = call i32 @fseeko64(ptr noundef %908, i64 noundef %907, i32 noundef 1)
   %918 = icmp eq i32 %917, 0
-  br i1 %918, label %.critedge215.i, label %.preheader3250
+  br i1 %918, label %.critedge215.i, label %.preheader3285
 
-.preheader3250:                                   ; preds = %916, %912, %899
+.preheader3285:                                   ; preds = %916, %912, %899
   br label %919
 
-919:                                              ; preds = %.preheader3250, %fread.inline.exit.i262.i
-  %.014.i260.i = phi i64 [ %923, %fread.inline.exit.i262.i ], [ %907, %.preheader3250 ]
+919:                                              ; preds = %.preheader3285, %fread.inline.exit.i262.i
+  %.014.i260.i = phi i64 [ %923, %fread.inline.exit.i262.i ], [ %907, %.preheader3285 ]
   %.not.i261.i = icmp eq i64 %.014.i260.i, 0
   br i1 %.not.i261.i, label %.critedge215.i, label %fread.inline.exit.i262.i
 
@@ -2304,7 +2304,7 @@ fread.inline.exit.i262.i:                         ; preds = %919
   %.2146.i = phi i32 [ %.0144589.i, %.loopexit.i362 ], [ %760, %.loopexit573 ], [ %.0144589.i, %.critedge215.i ]
   %928 = phi i1 [ true, %.loopexit.i362 ], [ false, %.loopexit573 ], [ false, %.critedge215.i ]
   %929 = phi i1 [ false, %.loopexit.i362 ], [ true, %.loopexit573 ], [ true, %.critedge215.i ]
-  %.2136.i = phi i32 [ %.0134591.i, %.loopexit.i362 ], [ 1, %.loopexit573 ], [ %.0134591.i, %.critedge215.i ]
+  %.2136.i = phi i32 [ 1, %.loopexit.i362 ], [ 1, %.loopexit573 ], [ %.0134591.i, %.critedge215.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %930 = load ptr, ptr %71, align 8, !tbaa !31
   %931 = call i32 @feof(ptr noundef %930) #20
@@ -3017,7 +3017,7 @@ canonicalize_until_specification.exit:            ; preds = %1234, %1224
   %1268 = load i32, ptr %1267, align 4, !tbaa !64
   %.not272 = icmp eq i32 %1268, 0
   %1269 = sub i64 %.0227, %1213
-  %spec.select2337 = select i1 %.not272, i64 %1269, i64 0
+  %spec.select2376 = select i1 %.not272, i64 %1269, i64 0
   br label %1273
 
 1270:                                             ; preds = %canonicalize_until_specification.exit, %canonicalize_until_specification.exit
@@ -3029,7 +3029,7 @@ canonicalize_until_specification.exit:            ; preds = %1234, %1224
   br label %EncoderSession_finish_error.exit355
 
 1273:                                             ; preds = %1262, %1270
-  %.sink = phi i64 [ %1271, %1270 ], [ %spec.select2337, %1262 ]
+  %.sink = phi i64 [ %1271, %1270 ], [ %spec.select2376, %1262 ]
   store i64 %.sink, ptr %53, align 8, !tbaa !43
   %.not277 = icmp eq i64 %1238, 0
   br i1 %.not277, label %1296, label %1281
@@ -3142,8 +3142,8 @@ canonicalize_until_specification.exit:            ; preds = %1234, %1224
   %1327 = icmp eq i64 %1213, 0
   %or.cond32 = and i1 %1327, %.not277524
   %.not275 = icmp eq i64 %.0227, 0
-  %or.cond2338 = select i1 %or.cond32, i1 true, i1 %.not275
-  br i1 %or.cond2338, label %thread-pre-split, label %1328
+  %or.cond2377 = select i1 %or.cond32, i1 true, i1 %.not275
+  br i1 %or.cond2377, label %thread-pre-split, label %1328
 
 1328:                                             ; preds = %1326
   %1329 = mul i64 %1297, %.1192
@@ -3154,11 +3154,11 @@ default.unreachable:                              ; preds = %1296
   unreachable
 
 thread-pre-split:                                 ; preds = %1326, %1324, %1318, %1312, %1306, %1300, %.thread531, %1328
-  %.sink2335 = phi i64 [ %1323, %1318 ], [ %1317, %1312 ], [ %1311, %1306 ], [ %1305, %1300 ], [ %1299, %.thread531 ], [ %1330, %1328 ], [ 0, %1324 ], [ %.1192, %1326 ]
+  %.sink2374 = phi i64 [ %1323, %1318 ], [ %1317, %1312 ], [ %1311, %1306 ], [ %1305, %1300 ], [ %1299, %.thread531 ], [ %1330, %1328 ], [ 0, %1324 ], [ %.1192, %1326 ]
   %1331 = phi i64 [ %1297, %1318 ], [ %1297, %1312 ], [ %1297, %1306 ], [ %1297, %1300 ], [ %1298, %.thread531 ], [ %1297, %1328 ], [ %1297, %1324 ], [ %1297, %1326 ]
   %.1192534 = phi i64 [ %.1192, %1318 ], [ %.1192, %1312 ], [ %.1192, %1306 ], [ %.1192, %1300 ], [ %.1192535, %.thread531 ], [ %.1192, %1328 ], [ %.1192, %1324 ], [ %.1192, %1326 ]
   %1332 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  store i64 %.sink2335, ptr %1332, align 8, !tbaa !66
+  store i64 %.sink2374, ptr %1332, align 8, !tbaa !66
   %1333 = icmp eq i64 %1331, 0
   br i1 %1333, label %1334, label %1337
 
@@ -3617,7 +3617,7 @@ fread.inline.exit343:                             ; preds = %fread.inline.exit34
 1535:                                             ; preds = %1531
   %1536 = load i64, ptr %1516, align 8, !tbaa !80
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %1533, i32 noundef 1, ptr noundef nonnull @.str.16, ptr noundef %1534, i64 noundef %1536) #20
-  br label %.thread1752
+  br label %.thread1793
 
 1537:                                             ; preds = %1531
   %1538 = load i64, ptr %53, align 8, !tbaa !43
@@ -3625,13 +3625,13 @@ fread.inline.exit343:                             ; preds = %fread.inline.exit34
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %1533, i32 noundef 1, ptr noundef nonnull @.str.15, ptr noundef %1534, i64 noundef %1538, i64 noundef %1539) #20
   %1540 = load i32, ptr %39, align 8, !tbaa !21
   %.not292 = icmp eq i32 %1540, 0
-  br i1 %.not292, label %.thread1752, label %1541
+  br i1 %.not292, label %.thread1793, label %1541
 
 1541:                                             ; preds = %1537
   call fastcc void @EncoderSession_finish_error(ptr noundef %32)
   br label %EncoderSession_finish_error.exit355
 
-.thread1752:                                      ; preds = %1535, %1537
+.thread1793:                                      ; preds = %1535, %1537
   store i64 0, ptr %1510, align 8, !tbaa !30
   br label %.critedge314
 
@@ -3719,7 +3719,7 @@ fread.inline.exit343:                             ; preds = %fread.inline.exit34
 1585:                                             ; preds = %1581
   %1586 = load ptr, ptr @stderr, align 8, !tbaa !33
   %1587 = load ptr, ptr %50, align 8, !tbaa !25
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %1586, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef %1587, i32 noundef %1583) #20
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %1586, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef %1587, i32 noundef 2) #20
   br label %.thread559thread-pre-split
 
 1588:                                             ; preds = %1581
@@ -3763,7 +3763,7 @@ fread.inline.exit343:                             ; preds = %fread.inline.exit34
   call fastcc void @EncoderSession_finish_error(ptr noundef %32)
   br label %EncoderSession_finish_error.exit355
 
-.critedge314:                                     ; preds = %1564, %1508, %1449, %1480, %.thread1752, %1509, %.preheader567, %.preheader, %.thread559
+.critedge314:                                     ; preds = %1564, %1508, %1449, %1480, %.thread1793, %1509, %.preheader567, %.preheader, %.thread559
   %.val345 = load i32, ptr %58, align 8, !tbaa !29
   %1604 = add i32 %.val345, -6
   %narrow.i403 = icmp ult i32 %1604, -5
@@ -4249,9 +4249,9 @@ parse_cuesheet.exit.thread:                       ; preds = %65, %70, %80, %87, 
   %192 = phi i64 [ %.pre734, %.preheader..critedge.preheader_crit_edge ], [ %231, %.thread ]
   %193 = getelementptr inbounds nuw i8, ptr %spec.select517, i64 24
   %.not711 = icmp eq i64 %192, 0
-  br i1 %.not711, label %.thread746, label %.lr.ph670
+  br i1 %.not711, label %.thread823, label %.lr.ph670
 
-.thread746:                                       ; preds = %.critedge.preheader
+.thread823:                                       ; preds = %.critedge.preheader
   store i64 0, ptr %193, align 8, !tbaa !111
   br label %._crit_edge736
 
@@ -4471,7 +4471,7 @@ parse_cuesheet.exit.thread:                       ; preds = %65, %70, %80, %87, 
   %.old = icmp ult i64 %.1410, 1024
   br i1 %.old, label %._crit_edge736, label %.lr.ph679
 
-._crit_edge736:                                   ; preds = %.thread746, %286
+._crit_edge736:                                   ; preds = %.thread823, %286
   %.phi.trans.insert737 = getelementptr inbounds nuw i8, ptr %1, i64 1168
   %.pre738 = load ptr, ptr %.phi.trans.insert737, align 8, !tbaa !115
   br label %287
@@ -5432,12 +5432,12 @@ static_metadata_append.exit583:                   ; preds = %606
   br label %740
 
 740:                                              ; preds = %734, %733, %731
-  %.sink755 = phi i32 [ %732, %731 ], [ %739, %734 ], [ %726, %733 ]
+  %.sink832 = phi i32 [ %732, %731 ], [ %739, %734 ], [ %726, %733 ]
   %741 = load i32, ptr %30, align 8, !tbaa !88
   %.not456 = icmp eq i32 %741, 0
   %742 = load i32, ptr @GRABBAG__REPLAYGAIN_MAX_TAG_SPACE_REQUIRED, align 4
   %743 = select i1 %.not456, i32 0, i32 %742
-  %744 = add i32 %743, %.sink755
+  %744 = add i32 %743, %.sink832
   %745 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %746 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !52
   %notmask = shl nsw i32 -1, %746
@@ -6077,11 +6077,11 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
 16:                                               ; preds = %._crit_edge
   %.not296 = icmp eq i32 %2, 0
   %.not152 = icmp eq i32 %0, 0
-  %or.cond347 = or i1 %.not124, %.not152
+  %or.cond364 = or i1 %.not124, %.not152
   br i1 %.not296, label %.preheader2, label %.preheader4
 
 .preheader4:                                      ; preds = %16
-  br i1 %or.cond347, label %.loopexit, label %.preheader3.us.preheader
+  br i1 %or.cond364, label %.loopexit, label %.preheader3.us.preheader
 
 .preheader3.us.preheader:                         ; preds = %.preheader4
   %wide.trip.count309 = zext i32 %3 to i64
@@ -6116,7 +6116,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   br i1 %exitcond310.not, label %.loopexit, label %.preheader3.us, !llvm.loop !146
 
 .preheader2:                                      ; preds = %16
-  br i1 %or.cond347, label %.loopexit, label %.preheader1.us.preheader
+  br i1 %or.cond364, label %.loopexit, label %.preheader1.us.preheader
 
 .preheader1.us.preheader:                         ; preds = %.preheader2
   %wide.trip.count319 = zext i32 %3 to i64
@@ -6153,14 +6153,14 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %.not293 = icmp eq i32 %2, 0
   %.not294 = icmp eq i32 %1, 0
   %.not148 = icmp eq i32 %0, 0
-  %or.cond351 = or i1 %.not124, %.not148
+  %or.cond368 = or i1 %.not124, %.not148
   br i1 %.not293, label %63, label %39
 
 39:                                               ; preds = %38
   br i1 %.not294, label %.preheader13, label %.preheader16
 
 .preheader16:                                     ; preds = %39
-  br i1 %or.cond351, label %.loopexit, label %.preheader15.us.preheader
+  br i1 %or.cond368, label %.loopexit, label %.preheader15.us.preheader
 
 .preheader15.us.preheader:                        ; preds = %.preheader16
   %wide.trip.count269 = zext i32 %3 to i64
@@ -6196,7 +6196,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   br i1 %exitcond270.not, label %.loopexit, label %.preheader15.us, !llvm.loop !150
 
 .preheader13:                                     ; preds = %39
-  br i1 %or.cond351, label %.loopexit, label %.preheader12.us.preheader
+  br i1 %or.cond368, label %.loopexit, label %.preheader12.us.preheader
 
 .preheader12.us.preheader:                        ; preds = %.preheader13
   %wide.trip.count279 = zext i32 %3 to i64
@@ -6234,7 +6234,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   br i1 %.not294, label %.preheader7, label %.preheader10
 
 .preheader10:                                     ; preds = %63
-  br i1 %or.cond351, label %.loopexit, label %.preheader9.us.preheader
+  br i1 %or.cond368, label %.loopexit, label %.preheader9.us.preheader
 
 .preheader9.us.preheader:                         ; preds = %.preheader10
   %wide.trip.count289 = zext i32 %3 to i64
@@ -6269,7 +6269,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   br i1 %exitcond290.not, label %.loopexit, label %.preheader9.us, !llvm.loop !154
 
 .preheader7:                                      ; preds = %63
-  br i1 %or.cond351, label %.loopexit, label %.preheader6.us.preheader
+  br i1 %or.cond368, label %.loopexit, label %.preheader6.us.preheader
 
 .preheader6.us.preheader:                         ; preds = %.preheader7
   %wide.trip.count299 = zext i32 %3 to i64
@@ -6535,14 +6535,14 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   %.not = icmp eq i32 %2, 0
   %.not288 = icmp eq i32 %1, 0
   %.not132 = icmp eq i32 %0, 0
-  %or.cond355 = or i1 %.not124, %.not132
+  %or.cond372 = or i1 %.not124, %.not132
   br i1 %.not, label %221, label %199
 
 199:                                              ; preds = %198
   br i1 %.not288, label %.preheader33, label %.preheader36
 
 .preheader36:                                     ; preds = %199
-  br i1 %or.cond355, label %.loopexit, label %.preheader35.us.preheader
+  br i1 %or.cond372, label %.loopexit, label %.preheader35.us.preheader
 
 .preheader35.us.preheader:                        ; preds = %.preheader36
   %wide.trip.count189 = zext i32 %3 to i64
@@ -6577,7 +6577,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   br i1 %exitcond190.not, label %.loopexit, label %.preheader35.us, !llvm.loop !166
 
 .preheader33:                                     ; preds = %199
-  br i1 %or.cond355, label %.loopexit, label %.preheader32.us.preheader
+  br i1 %or.cond372, label %.loopexit, label %.preheader32.us.preheader
 
 .preheader32.us.preheader:                        ; preds = %.preheader33
   %wide.trip.count199 = zext i32 %3 to i64
@@ -6614,7 +6614,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   br i1 %.not288, label %.preheader27, label %.preheader30
 
 .preheader30:                                     ; preds = %221
-  br i1 %or.cond355, label %.loopexit, label %.preheader29.us.preheader
+  br i1 %or.cond372, label %.loopexit, label %.preheader29.us.preheader
 
 .preheader29.us.preheader:                        ; preds = %.preheader30
   %wide.trip.count209 = zext i32 %3 to i64
@@ -6648,7 +6648,7 @@ define internal fastcc range(i32 0, 2) i32 @format_input(i32 noundef %0, i32 nou
   br i1 %exitcond210.not, label %.loopexit, label %.preheader29.us, !llvm.loop !170
 
 .preheader27:                                     ; preds = %221
-  br i1 %or.cond355, label %.loopexit, label %.preheader26.us.preheader
+  br i1 %or.cond372, label %.loopexit, label %.preheader26.us.preheader
 
 .preheader26.us.preheader:                        ; preds = %.preheader27
   %wide.trip.count219 = zext i32 %3 to i64
@@ -6852,16 +6852,16 @@ define internal fastcc range(i32 0, 2) i32 @EncoderSession_finish_ok(ptr noundef
 .thread.thread:                                   ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8, !tbaa !43
-  %.not4672 = icmp eq i64 %23, 0
-  br i1 %.not4672, label %.thread81, label %24
+  %.not4675 = icmp eq i64 %23, 0
+  br i1 %.not4675, label %.thread84, label %24
 
 24:                                               ; preds = %.thread.thread, %.thread
-  %.03961.shrunk76 = phi i1 [ false, %.thread.thread ], [ %.not45, %.thread ]
-  %.06373 = phi i1 [ false, %.thread.thread ], [ %.063, %.thread ]
+  %.03961.shrunk79 = phi i1 [ false, %.thread.thread ], [ %.not45, %.thread ]
+  %.06376 = phi i1 [ false, %.thread.thread ], [ %.063, %.thread ]
   tail call fastcc void @print_stats(ptr noundef nonnull %0)
   %25 = load ptr, ptr @stderr, align 8, !tbaa !33
   tail call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %25, i32 noundef 2, ptr noundef nonnull @.str.89) #20
-  br i1 %.06373, label %27, label %28
+  br i1 %.06376, label %27, label %28
 
 26:                                               ; preds = %.thread
   br i1 %.063, label %27, label %28
@@ -6871,16 +6871,16 @@ define internal fastcc range(i32 0, 2) i32 @EncoderSession_finish_ok(ptr noundef
   br label %.critedge55.thread
 
 28:                                               ; preds = %24, %26
-  %.03961.shrunk75 = phi i1 [ %.03961.shrunk76, %24 ], [ %.not45, %26 ]
-  br i1 %.03961.shrunk75, label %.critedge55.thread, label %.thread81
+  %.03961.shrunk78 = phi i1 [ %.03961.shrunk79, %24 ], [ %.not45, %26 ]
+  br i1 %.03961.shrunk78, label %.critedge55.thread, label %.thread84
 
-.thread81:                                        ; preds = %.thread.thread, %28
+.thread84:                                        ; preds = %.thread.thread, %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %29, ptr noundef nonnull dereferenceable(16) %4, i64 16)
   %.not47 = icmp eq i32 %bcmp, 0
   br i1 %.not47, label %.critedge, label %30
 
-30:                                               ; preds = %.thread81
+30:                                               ; preds = %.thread84
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !27
@@ -6898,7 +6898,7 @@ define internal fastcc range(i32 0, 2) i32 @EncoderSession_finish_ok(ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread81, %36
+.critedge:                                        ; preds = %.thread84, %36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %38 = load i32, ptr %37, align 8, !tbaa !29
   %39 = and i32 %38, -2

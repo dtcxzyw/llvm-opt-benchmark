@@ -347,15 +347,15 @@ steamdiscover_dissect_header.exit.thread:         ; preds = %26
   %56 = or i64 %55, %.0.i.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %57 = icmp sgt i8 %50, -1
-  br i1 %57, label %get_varint64.exit.split.loop.exit15.i.i, label %46, !llvm.loop !6
+  br i1 %57, label %get_varint64.exit.split.loop.exit16.i.i, label %46, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i.i:          ; preds = %47
+get_varint64.exit.split.loop.exit16.i.i:          ; preds = %47
   %indvars.le.i.i = trunc i64 %indvars.iv.next.i.i to i32
   br label %protobuf_iter_next.exit.i
 
-protobuf_iter_next.exit.i:                        ; preds = %46, %get_varint64.exit.split.loop.exit15.i.i
-  %.1.i.i = phi i32 [ %indvars.le.i.i, %get_varint64.exit.split.loop.exit15.i.i ], [ %45, %46 ]
-  %.1.i.i.i = phi i64 [ %56, %get_varint64.exit.split.loop.exit15.i.i ], [ %.0.i.i.i, %46 ]
+protobuf_iter_next.exit.i:                        ; preds = %46, %get_varint64.exit.split.loop.exit16.i.i
+  %.1.i.i = phi i32 [ %indvars.le.i.i, %get_varint64.exit.split.loop.exit16.i.i ], [ %45, %46 ]
+  %.1.i.i.i = phi i64 [ %56, %get_varint64.exit.split.loop.exit16.i.i ], [ %.0.i.i.i, %46 ]
   store i64 %.1.i.i.i, ptr %9, align 8
   %58 = lshr i64 %.1.i.i.i, 3
   store i64 %58, ptr %42, align 8
@@ -429,15 +429,15 @@ protobuf_verify_wiretype.exit.i:                  ; preds = %71, %66
   %87 = or i64 %86, %.0.i22.i
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %88 = icmp sgt i8 %81, -1
-  br i1 %88, label %get_varint64.exit.split.loop.exit81.i, label %77, !llvm.loop !6
+  br i1 %88, label %get_varint64.exit.split.loop.exit88.i, label %77, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit81.i:            ; preds = %78
+get_varint64.exit.split.loop.exit88.i:            ; preds = %78
   %indvars70.le.i = trunc i64 %indvars.iv.next68.i to i32
   br label %get_varint64.exit.i
 
-get_varint64.exit.i:                              ; preds = %77, %get_varint64.exit.split.loop.exit81.i
-  %.2.i = phi i32 [ %indvars70.le.i, %get_varint64.exit.split.loop.exit81.i ], [ %smax69.i, %77 ]
-  %.1.i23.i = phi i64 [ %87, %get_varint64.exit.split.loop.exit81.i ], [ %.0.i22.i, %77 ]
+get_varint64.exit.i:                              ; preds = %77, %get_varint64.exit.split.loop.exit88.i
+  %.2.i = phi i32 [ %indvars70.le.i, %get_varint64.exit.split.loop.exit88.i ], [ %smax69.i, %77 ]
+  %.1.i23.i = phi i64 [ %87, %get_varint64.exit.split.loop.exit88.i ], [ %.0.i22.i, %77 ]
   %89 = load i32, ptr @hf_steam_ihs_discovery_header_clientid, align 4
   %90 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %89, ptr noundef %0, i32 noundef %61, i32 noundef %.2.i, i64 noundef %.1.i23.i)
   br label %147
@@ -495,15 +495,15 @@ protobuf_verify_wiretype.exit27.i:                ; preds = %98, %93
   %114 = or i64 %113, %.0.i28.i
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %115 = icmp sgt i8 %108, -1
-  br i1 %115, label %get_varint64.exit30.split.loop.exit78.i, label %104, !llvm.loop !6
+  br i1 %115, label %get_varint64.exit30.split.loop.exit85.i, label %104, !llvm.loop !6
 
-get_varint64.exit30.split.loop.exit78.i:          ; preds = %105
+get_varint64.exit30.split.loop.exit85.i:          ; preds = %105
   %indvars63.le.i = trunc i64 %indvars.iv.next61.i to i32
   br label %get_varint64.exit30.i
 
-get_varint64.exit30.i:                            ; preds = %104, %get_varint64.exit30.split.loop.exit78.i
-  %.4.i = phi i32 [ %indvars63.le.i, %get_varint64.exit30.split.loop.exit78.i ], [ %smax62.i, %104 ]
-  %.1.i29.i = phi i64 [ %114, %get_varint64.exit30.split.loop.exit78.i ], [ %.0.i28.i, %104 ]
+get_varint64.exit30.i:                            ; preds = %104, %get_varint64.exit30.split.loop.exit85.i
+  %.4.i = phi i32 [ %indvars63.le.i, %get_varint64.exit30.split.loop.exit85.i ], [ %smax62.i, %104 ]
+  %.1.i29.i = phi i64 [ %114, %get_varint64.exit30.split.loop.exit85.i ], [ %.0.i28.i, %104 ]
   %116 = load i32, ptr @hf_steam_ihs_discovery_header_msgtype, align 4
   %117 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %116, ptr noundef %0, i32 noundef %61, i32 noundef %.4.i, i64 noundef %.1.i29.i)
   br label %147
@@ -561,15 +561,15 @@ protobuf_verify_wiretype.exit34.i:                ; preds = %125, %120
   %141 = or i64 %140, %.0.i35.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %142 = icmp sgt i8 %135, -1
-  br i1 %142, label %get_varint64.exit37.split.loop.exit75.i, label %131, !llvm.loop !6
+  br i1 %142, label %get_varint64.exit37.split.loop.exit82.i, label %131, !llvm.loop !6
 
-get_varint64.exit37.split.loop.exit75.i:          ; preds = %132
+get_varint64.exit37.split.loop.exit82.i:          ; preds = %132
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %get_varint64.exit37.i
 
-get_varint64.exit37.i:                            ; preds = %131, %get_varint64.exit37.split.loop.exit75.i
-  %.6.i = phi i32 [ %indvars.le.i, %get_varint64.exit37.split.loop.exit75.i ], [ %smax.i, %131 ]
-  %.1.i36.i = phi i64 [ %141, %get_varint64.exit37.split.loop.exit75.i ], [ %.0.i35.i, %131 ]
+get_varint64.exit37.i:                            ; preds = %131, %get_varint64.exit37.split.loop.exit82.i
+  %.6.i = phi i32 [ %indvars.le.i, %get_varint64.exit37.split.loop.exit82.i ], [ %smax.i, %131 ]
+  %.1.i36.i = phi i64 [ %141, %get_varint64.exit37.split.loop.exit82.i ], [ %.0.i35.i, %131 ]
   %143 = load i32, ptr @hf_steam_ihs_discovery_header_instanceid, align 4
   %144 = call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %143, ptr noundef %0, i32 noundef %61, i32 noundef %.6.i, i64 noundef %.1.i36.i)
   br label %147
@@ -767,15 +767,15 @@ define internal fastcc void @steamdiscover_dissect_body_discovery(ptr noundef %0
   %30 = or i64 %29, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = icmp sgt i8 %24, -1
-  br i1 %31, label %get_varint64.exit.split.loop.exit15.i, label %20, !llvm.loop !6
+  br i1 %31, label %get_varint64.exit.split.loop.exit16.i, label %20, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %21
+get_varint64.exit.split.loop.exit16.i:            ; preds = %21
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %20, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %19, %20 ]
-  %.1.i.i = phi i64 [ %30, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %20 ]
+protobuf_iter_next.exit:                          ; preds = %20, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %19, %20 ]
+  %.1.i.i = phi i64 [ %30, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %20 ]
   store i64 %.1.i.i, ptr %9, align 8
   %32 = lshr i64 %.1.i.i, 3
   store i64 %32, ptr %14, align 8
@@ -849,15 +849,15 @@ protobuf_verify_wiretype.exit:                    ; preds = %40, %45
   %62 = or i64 %61, %.0.i17
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %63 = icmp sgt i8 %56, -1
-  br i1 %63, label %get_varint64.exit.split.loop.exit51, label %52, !llvm.loop !6
+  br i1 %63, label %get_varint64.exit.split.loop.exit57, label %52, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit51:              ; preds = %53
+get_varint64.exit.split.loop.exit57:              ; preds = %53
   %indvars43.le = trunc i64 %indvars.iv.next41 to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %52, %get_varint64.exit.split.loop.exit51
-  %.2 = phi i32 [ %indvars43.le, %get_varint64.exit.split.loop.exit51 ], [ %smax42, %52 ]
-  %.1.i18 = phi i64 [ %62, %get_varint64.exit.split.loop.exit51 ], [ %.0.i17, %52 ]
+get_varint64.exit:                                ; preds = %52, %get_varint64.exit.split.loop.exit57
+  %.2 = phi i32 [ %indvars43.le, %get_varint64.exit.split.loop.exit57 ], [ %smax42, %52 ]
+  %.1.i18 = phi i64 [ %62, %get_varint64.exit.split.loop.exit57 ], [ %.0.i17, %52 ]
   %64 = load i32, ptr @hf_steam_ihs_discovery_body_discovery_seqnum, align 4
   %65 = trunc i64 %.1.i18 to i32
   %66 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %35, i32 noundef %.2, i32 noundef %65)
@@ -919,15 +919,15 @@ protobuf_verify_wiretype.exit22:                  ; preds = %70, %75
   %92 = or i64 %91, %.0.i23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = icmp sgt i8 %86, -1
-  br i1 %93, label %get_varint64.exit25.split.loop.exit48, label %82, !llvm.loop !6
+  br i1 %93, label %get_varint64.exit25.split.loop.exit54, label %82, !llvm.loop !6
 
-get_varint64.exit25.split.loop.exit48:            ; preds = %83
+get_varint64.exit25.split.loop.exit54:            ; preds = %83
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit25
 
-get_varint64.exit25:                              ; preds = %82, %get_varint64.exit25.split.loop.exit48
-  %.4 = phi i32 [ %indvars.le, %get_varint64.exit25.split.loop.exit48 ], [ %smax, %82 ]
-  %.1.i24 = phi i64 [ %92, %get_varint64.exit25.split.loop.exit48 ], [ %.0.i23, %82 ]
+get_varint64.exit25:                              ; preds = %82, %get_varint64.exit25.split.loop.exit54
+  %.4 = phi i32 [ %indvars.le, %get_varint64.exit25.split.loop.exit54 ], [ %smax, %82 ]
+  %.1.i24 = phi i64 [ %92, %get_varint64.exit25.split.loop.exit54 ], [ %.0.i23, %82 ]
   %94 = load i32, ptr @hf_steam_ihs_discovery_body_discovery_clientids, align 4
   %95 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %35, i32 noundef %.4, i64 noundef %.1.i24)
   br label %98
@@ -1020,15 +1020,15 @@ define internal fastcc void @steamdiscover_dissect_body_status(ptr noundef %0, p
   %47 = or i64 %46, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = icmp sgt i8 %41, -1
-  br i1 %48, label %get_varint64.exit.split.loop.exit15.i, label %37, !llvm.loop !6
+  br i1 %48, label %get_varint64.exit.split.loop.exit16.i, label %37, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %38
+get_varint64.exit.split.loop.exit16.i:            ; preds = %38
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %37, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %36, %37 ]
-  %.1.i.i = phi i64 [ %47, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %37 ]
+protobuf_iter_next.exit:                          ; preds = %37, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %36, %37 ]
+  %.1.i.i = phi i64 [ %47, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %37 ]
   store i64 %.1.i.i, ptr %20, align 8
   %49 = lshr i64 %.1.i.i, 3
   store i64 %49, ptr %29, align 8
@@ -1113,15 +1113,15 @@ protobuf_verify_wiretype.exit:                    ; preds = %57, %62
   %79 = or i64 %78, %.0.i98
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %80 = icmp sgt i8 %73, -1
-  br i1 %80, label %get_varint64.exit.split.loop.exit403, label %69, !llvm.loop !6
+  br i1 %80, label %get_varint64.exit.split.loop.exit435, label %69, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit403:             ; preds = %70
+get_varint64.exit.split.loop.exit435:             ; preds = %70
   %indvars357.le = trunc i64 %indvars.iv.next355 to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %69, %get_varint64.exit.split.loop.exit403
-  %.2230 = phi i32 [ %indvars357.le, %get_varint64.exit.split.loop.exit403 ], [ %smax356, %69 ]
-  %.1.i99 = phi i64 [ %79, %get_varint64.exit.split.loop.exit403 ], [ %.0.i98, %69 ]
+get_varint64.exit:                                ; preds = %69, %get_varint64.exit.split.loop.exit435
+  %.2230 = phi i32 [ %indvars357.le, %get_varint64.exit.split.loop.exit435 ], [ %smax356, %69 ]
+  %.1.i99 = phi i64 [ %79, %get_varint64.exit.split.loop.exit435 ], [ %.0.i98, %69 ]
   %81 = load i32, ptr @hf_steam_ihs_discovery_body_status_version, align 4
   %82 = trunc i64 %.1.i99 to i32
   %83 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %81, ptr noundef %0, i32 noundef %52, i32 noundef %.2230, i32 noundef %82)
@@ -1181,15 +1181,15 @@ protobuf_verify_wiretype.exit103:                 ; preds = %86, %91
   %108 = or i64 %107, %.0.i104
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %109 = icmp sgt i8 %102, -1
-  br i1 %109, label %get_varint64.exit106.split.loop.exit400, label %98, !llvm.loop !6
+  br i1 %109, label %get_varint64.exit106.split.loop.exit432, label %98, !llvm.loop !6
 
-get_varint64.exit106.split.loop.exit400:          ; preds = %99
+get_varint64.exit106.split.loop.exit432:          ; preds = %99
   %indvars350.le = trunc i64 %indvars.iv.next348 to i32
   br label %get_varint64.exit106
 
-get_varint64.exit106:                             ; preds = %98, %get_varint64.exit106.split.loop.exit400
-  %.4 = phi i32 [ %indvars350.le, %get_varint64.exit106.split.loop.exit400 ], [ %smax349, %98 ]
-  %.1.i105 = phi i64 [ %108, %get_varint64.exit106.split.loop.exit400 ], [ %.0.i104, %98 ]
+get_varint64.exit106:                             ; preds = %98, %get_varint64.exit106.split.loop.exit432
+  %.4 = phi i32 [ %indvars350.le, %get_varint64.exit106.split.loop.exit432 ], [ %smax349, %98 ]
+  %.1.i105 = phi i64 [ %108, %get_varint64.exit106.split.loop.exit432 ], [ %.0.i104, %98 ]
   %110 = load i32, ptr @hf_steam_ihs_discovery_body_status_minversion, align 4
   %111 = trunc i64 %.1.i105 to i32
   %112 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %110, ptr noundef %0, i32 noundef %52, i32 noundef %.4, i32 noundef %111)
@@ -1249,15 +1249,15 @@ protobuf_verify_wiretype.exit110:                 ; preds = %115, %120
   %137 = or i64 %136, %.0.i111
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %138 = icmp sgt i8 %131, -1
-  br i1 %138, label %get_varint64.exit113.split.loop.exit397, label %127, !llvm.loop !6
+  br i1 %138, label %get_varint64.exit113.split.loop.exit429, label %127, !llvm.loop !6
 
-get_varint64.exit113.split.loop.exit397:          ; preds = %128
+get_varint64.exit113.split.loop.exit429:          ; preds = %128
   %indvars343.le = trunc i64 %indvars.iv.next341 to i32
   br label %get_varint64.exit113
 
-get_varint64.exit113:                             ; preds = %127, %get_varint64.exit113.split.loop.exit397
-  %.6 = phi i32 [ %indvars343.le, %get_varint64.exit113.split.loop.exit397 ], [ %smax342, %127 ]
-  %.1.i112 = phi i64 [ %137, %get_varint64.exit113.split.loop.exit397 ], [ %.0.i111, %127 ]
+get_varint64.exit113:                             ; preds = %127, %get_varint64.exit113.split.loop.exit429
+  %.6 = phi i32 [ %indvars343.le, %get_varint64.exit113.split.loop.exit429 ], [ %smax342, %127 ]
+  %.1.i112 = phi i64 [ %137, %get_varint64.exit113.split.loop.exit429 ], [ %.0.i111, %127 ]
   %139 = load i32, ptr @hf_steam_ihs_discovery_body_status_connectport, align 4
   %140 = trunc i64 %.1.i112 to i32
   %141 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %139, ptr noundef %0, i32 noundef %52, i32 noundef %.6, i32 noundef %140)
@@ -1292,15 +1292,15 @@ get_varint64.exit113:                             ; preds = %127, %get_varint64.
   %154 = or i64 %153, %.0.i114
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %155 = icmp sgt i8 %148, -1
-  br i1 %155, label %get_varint64.exit116.split.loop.exit394, label %.preheader, !llvm.loop !6
+  br i1 %155, label %get_varint64.exit116.split.loop.exit426, label %.preheader, !llvm.loop !6
 
-get_varint64.exit116.split.loop.exit394:          ; preds = %145
+get_varint64.exit116.split.loop.exit426:          ; preds = %145
   %indvars336.le = trunc i64 %indvars.iv.next334 to i32
   br label %get_varint64.exit116
 
-get_varint64.exit116:                             ; preds = %.preheader, %get_varint64.exit116.split.loop.exit394
-  %.8 = phi i32 [ %indvars336.le, %get_varint64.exit116.split.loop.exit394 ], [ %smax335, %.preheader ]
-  %.1.i115 = phi i64 [ %154, %get_varint64.exit116.split.loop.exit394 ], [ %.0.i114, %.preheader ]
+get_varint64.exit116:                             ; preds = %.preheader, %get_varint64.exit116.split.loop.exit426
+  %.8 = phi i32 [ %indvars336.le, %get_varint64.exit116.split.loop.exit426 ], [ %smax335, %.preheader ]
+  %.1.i115 = phi i64 [ %154, %get_varint64.exit116.split.loop.exit426 ], [ %.0.i114, %.preheader ]
   %156 = load i32, ptr @hf_steam_ihs_discovery_body_status_hostname, align 4
   %157 = add i32 %.8, %52
   %158 = trunc i64 %.1.i115 to i32
@@ -1378,15 +1378,15 @@ protobuf_verify_wiretype.exit120:                 ; preds = %169, %174
   %191 = or i64 %190, %.0.i121
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %192 = icmp sgt i8 %185, -1
-  br i1 %192, label %get_varint64.exit123.split.loop.exit391, label %181, !llvm.loop !6
+  br i1 %192, label %get_varint64.exit123.split.loop.exit423, label %181, !llvm.loop !6
 
-get_varint64.exit123.split.loop.exit391:          ; preds = %182
+get_varint64.exit123.split.loop.exit423:          ; preds = %182
   %indvars329.le = trunc i64 %indvars.iv.next327 to i32
   br label %get_varint64.exit123
 
-get_varint64.exit123:                             ; preds = %181, %get_varint64.exit123.split.loop.exit391
-  %.10 = phi i32 [ %indvars329.le, %get_varint64.exit123.split.loop.exit391 ], [ %smax328, %181 ]
-  %.1.i122 = phi i64 [ %191, %get_varint64.exit123.split.loop.exit391 ], [ %.0.i121, %181 ]
+get_varint64.exit123:                             ; preds = %181, %get_varint64.exit123.split.loop.exit423
+  %.10 = phi i32 [ %indvars329.le, %get_varint64.exit123.split.loop.exit423 ], [ %smax328, %181 ]
+  %.1.i122 = phi i64 [ %191, %get_varint64.exit123.split.loop.exit423 ], [ %.0.i121, %181 ]
   %193 = load i32, ptr @hf_steam_ihs_discovery_body_status_enabledservices, align 4
   %194 = trunc i64 %.1.i122 to i32
   %195 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %193, ptr noundef %0, i32 noundef %52, i32 noundef %.10, i32 noundef %194)
@@ -1446,15 +1446,15 @@ protobuf_verify_wiretype.exit127:                 ; preds = %198, %203
   %220 = or i64 %219, %.0.i128
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %221 = icmp sgt i8 %214, -1
-  br i1 %221, label %get_varint64.exit130.split.loop.exit388, label %210, !llvm.loop !6
+  br i1 %221, label %get_varint64.exit130.split.loop.exit420, label %210, !llvm.loop !6
 
-get_varint64.exit130.split.loop.exit388:          ; preds = %211
+get_varint64.exit130.split.loop.exit420:          ; preds = %211
   %indvars322.le = trunc i64 %indvars.iv.next320 to i32
   br label %get_varint64.exit130
 
-get_varint64.exit130:                             ; preds = %210, %get_varint64.exit130.split.loop.exit388
-  %.12 = phi i32 [ %indvars322.le, %get_varint64.exit130.split.loop.exit388 ], [ %smax321, %210 ]
-  %.1.i129 = phi i64 [ %220, %get_varint64.exit130.split.loop.exit388 ], [ %.0.i128, %210 ]
+get_varint64.exit130:                             ; preds = %210, %get_varint64.exit130.split.loop.exit420
+  %.12 = phi i32 [ %indvars322.le, %get_varint64.exit130.split.loop.exit420 ], [ %smax321, %210 ]
+  %.1.i129 = phi i64 [ %220, %get_varint64.exit130.split.loop.exit420 ], [ %.0.i128, %210 ]
   %222 = load i32, ptr @hf_steam_ihs_discovery_body_status_ostype, align 4
   %223 = trunc i64 %.1.i129 to i32
   %224 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %222, ptr noundef %0, i32 noundef %52, i32 noundef %.12, i32 noundef %223)
@@ -1514,15 +1514,15 @@ protobuf_verify_wiretype.exit134:                 ; preds = %227, %232
   %249 = or i64 %248, %.0.i135
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %250 = icmp sgt i8 %243, -1
-  br i1 %250, label %get_varint64.exit137.split.loop.exit385, label %239, !llvm.loop !6
+  br i1 %250, label %get_varint64.exit137.split.loop.exit417, label %239, !llvm.loop !6
 
-get_varint64.exit137.split.loop.exit385:          ; preds = %240
+get_varint64.exit137.split.loop.exit417:          ; preds = %240
   %indvars315.le = trunc i64 %indvars.iv.next313 to i32
   br label %get_varint64.exit137
 
-get_varint64.exit137:                             ; preds = %239, %get_varint64.exit137.split.loop.exit385
-  %.14 = phi i32 [ %indvars315.le, %get_varint64.exit137.split.loop.exit385 ], [ %smax314, %239 ]
-  %.1.i136 = phi i64 [ %249, %get_varint64.exit137.split.loop.exit385 ], [ %.0.i135, %239 ]
+get_varint64.exit137:                             ; preds = %239, %get_varint64.exit137.split.loop.exit417
+  %.14 = phi i32 [ %indvars315.le, %get_varint64.exit137.split.loop.exit417 ], [ %smax314, %239 ]
+  %.1.i136 = phi i64 [ %249, %get_varint64.exit137.split.loop.exit417 ], [ %.0.i135, %239 ]
   %251 = load i32, ptr @hf_steam_ihs_discovery_body_status_is64bit, align 4
   %sext88 = shl i64 %.1.i136, 32
   %252 = ashr exact i64 %sext88, 32
@@ -1558,15 +1558,15 @@ get_varint64.exit137:                             ; preds = %239, %get_varint64.
   %266 = or i64 %265, %.0.i138
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %267 = icmp sgt i8 %260, -1
-  br i1 %267, label %get_varint64.exit140.split.loop.exit379, label %.preheader259, !llvm.loop !6
+  br i1 %267, label %get_varint64.exit140.split.loop.exit411, label %.preheader259, !llvm.loop !6
 
-get_varint64.exit140.split.loop.exit379:          ; preds = %257
+get_varint64.exit140.split.loop.exit411:          ; preds = %257
   %indvars301.le = trunc i64 %indvars.iv.next299 to i32
   br label %get_varint64.exit140
 
-get_varint64.exit140:                             ; preds = %.preheader259, %get_varint64.exit140.split.loop.exit379
-  %.16 = phi i32 [ %indvars301.le, %get_varint64.exit140.split.loop.exit379 ], [ %smax300, %.preheader259 ]
-  %.1.i139 = phi i64 [ %266, %get_varint64.exit140.split.loop.exit379 ], [ %.0.i138, %.preheader259 ]
+get_varint64.exit140:                             ; preds = %.preheader259, %get_varint64.exit140.split.loop.exit411
+  %.16 = phi i32 [ %indvars301.le, %get_varint64.exit140.split.loop.exit411 ], [ %smax300, %.preheader259 ]
+  %.1.i139 = phi i64 [ %266, %get_varint64.exit140.split.loop.exit411 ], [ %.0.i138, %.preheader259 ]
   %268 = add i32 %.16, %52
   store i32 %268, ptr %25, align 8
   %269 = trunc i64 %.1.i139 to i32
@@ -1601,15 +1601,15 @@ get_varint64.exit140:                             ; preds = %.preheader259, %get
   %286 = or i64 %285, %.0.i.i143
   %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i142, 1
   %287 = icmp sgt i8 %280, -1
-  br i1 %287, label %get_varint64.exit.split.loop.exit15.i146, label %276, !llvm.loop !6
+  br i1 %287, label %get_varint64.exit.split.loop.exit16.i146, label %276, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i146:         ; preds = %277
+get_varint64.exit.split.loop.exit16.i146:         ; preds = %277
   %indvars.le.i147 = trunc i64 %indvars.iv.next.i145 to i32
   br label %protobuf_iter_next.exit152
 
-protobuf_iter_next.exit152:                       ; preds = %276, %get_varint64.exit.split.loop.exit15.i146
-  %.1.i149 = phi i32 [ %indvars.le.i147, %get_varint64.exit.split.loop.exit15.i146 ], [ %275, %276 ]
-  %.1.i.i150 = phi i64 [ %286, %get_varint64.exit.split.loop.exit15.i146 ], [ %.0.i.i143, %276 ]
+protobuf_iter_next.exit152:                       ; preds = %276, %get_varint64.exit.split.loop.exit16.i146
+  %.1.i149 = phi i32 [ %indvars.le.i147, %get_varint64.exit.split.loop.exit16.i146 ], [ %275, %276 ]
+  %.1.i.i150 = phi i64 [ %286, %get_varint64.exit.split.loop.exit16.i146 ], [ %.0.i.i143, %276 ]
   store i64 %.1.i.i150, ptr %20, align 8
   %288 = lshr i64 %.1.i.i150, 3
   store i64 %288, ptr %29, align 8
@@ -1721,15 +1721,15 @@ protobuf_verify_wiretype.exit160:                 ; preds = %313, %318
   %335 = or i64 %334, %.0.i161
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %336 = icmp sgt i8 %329, -1
-  br i1 %336, label %get_varint64.exit163.split.loop.exit382, label %325, !llvm.loop !6
+  br i1 %336, label %get_varint64.exit163.split.loop.exit414, label %325, !llvm.loop !6
 
-get_varint64.exit163.split.loop.exit382:          ; preds = %326
+get_varint64.exit163.split.loop.exit414:          ; preds = %326
   %indvars308.le = trunc i64 %indvars.iv.next306 to i32
   br label %get_varint64.exit163
 
-get_varint64.exit163:                             ; preds = %325, %get_varint64.exit163.split.loop.exit382
-  %.2 = phi i32 [ %indvars308.le, %get_varint64.exit163.split.loop.exit382 ], [ %smax307, %325 ]
-  %.1.i162 = phi i64 [ %335, %get_varint64.exit163.split.loop.exit382 ], [ %.0.i161, %325 ]
+get_varint64.exit163:                             ; preds = %325, %get_varint64.exit163.split.loop.exit414
+  %.2 = phi i32 [ %indvars308.le, %get_varint64.exit163.split.loop.exit414 ], [ %smax307, %325 ]
+  %.1.i162 = phi i64 [ %335, %get_varint64.exit163.split.loop.exit414 ], [ %.0.i161, %325 ]
   %337 = load i32, ptr @hf_steam_ihs_discovery_body_status_user_authkeyid, align 4
   %338 = trunc i64 %.1.i162 to i32
   %339 = call ptr @proto_tree_add_uint(ptr noundef %272, i32 noundef %337, ptr noundef %0, i32 noundef %291, i32 noundef %.2, i32 noundef %338)
@@ -1804,15 +1804,15 @@ protobuf_verify_wiretype.exit167:                 ; preds = %349, %354
   %371 = or i64 %370, %.0.i168
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %372 = icmp sgt i8 %365, -1
-  br i1 %372, label %get_varint64.exit170.split.loop.exit376, label %361, !llvm.loop !6
+  br i1 %372, label %get_varint64.exit170.split.loop.exit408, label %361, !llvm.loop !6
 
-get_varint64.exit170.split.loop.exit376:          ; preds = %362
+get_varint64.exit170.split.loop.exit408:          ; preds = %362
   %indvars294.le = trunc i64 %indvars.iv.next292 to i32
   br label %get_varint64.exit170
 
-get_varint64.exit170:                             ; preds = %361, %get_varint64.exit170.split.loop.exit376
-  %.18 = phi i32 [ %indvars294.le, %get_varint64.exit170.split.loop.exit376 ], [ %smax293, %361 ]
-  %.1.i169 = phi i64 [ %371, %get_varint64.exit170.split.loop.exit376 ], [ %.0.i168, %361 ]
+get_varint64.exit170:                             ; preds = %361, %get_varint64.exit170.split.loop.exit408
+  %.18 = phi i32 [ %indvars294.le, %get_varint64.exit170.split.loop.exit408 ], [ %smax293, %361 ]
+  %.1.i169 = phi i64 [ %371, %get_varint64.exit170.split.loop.exit408 ], [ %.0.i168, %361 ]
   %373 = load i32, ptr @hf_steam_ihs_discovery_body_status_euniverse, align 4
   %374 = trunc i64 %.1.i169 to i32
   %375 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %373, ptr noundef %0, i32 noundef %52, i32 noundef %.18, i32 noundef %374)
@@ -1872,15 +1872,15 @@ protobuf_verify_wiretype.exit174:                 ; preds = %378, %383
   %400 = or i64 %399, %.0.i175
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %401 = icmp sgt i8 %394, -1
-  br i1 %401, label %get_varint64.exit177.split.loop.exit373, label %390, !llvm.loop !6
+  br i1 %401, label %get_varint64.exit177.split.loop.exit405, label %390, !llvm.loop !6
 
-get_varint64.exit177.split.loop.exit373:          ; preds = %391
+get_varint64.exit177.split.loop.exit405:          ; preds = %391
   %indvars287.le = trunc i64 %indvars.iv.next285 to i32
   br label %get_varint64.exit177
 
-get_varint64.exit177:                             ; preds = %390, %get_varint64.exit177.split.loop.exit373
-  %.20 = phi i32 [ %indvars287.le, %get_varint64.exit177.split.loop.exit373 ], [ %smax286, %390 ]
-  %.1.i176 = phi i64 [ %400, %get_varint64.exit177.split.loop.exit373 ], [ %.0.i175, %390 ]
+get_varint64.exit177:                             ; preds = %390, %get_varint64.exit177.split.loop.exit405
+  %.20 = phi i32 [ %indvars287.le, %get_varint64.exit177.split.loop.exit405 ], [ %smax286, %390 ]
+  %.1.i176 = phi i64 [ %400, %get_varint64.exit177.split.loop.exit405 ], [ %.0.i175, %390 ]
   store i64 %.1.i176, ptr %21, align 8
   store i32 0, ptr %31, align 8
   %402 = load i32, ptr @hf_steam_ihs_discovery_body_status_timestamp, align 4
@@ -1941,15 +1941,15 @@ protobuf_verify_wiretype.exit181:                 ; preds = %406, %411
   %428 = or i64 %427, %.0.i182
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %429 = icmp sgt i8 %422, -1
-  br i1 %429, label %get_varint64.exit184.split.loop.exit370, label %418, !llvm.loop !6
+  br i1 %429, label %get_varint64.exit184.split.loop.exit402, label %418, !llvm.loop !6
 
-get_varint64.exit184.split.loop.exit370:          ; preds = %419
+get_varint64.exit184.split.loop.exit402:          ; preds = %419
   %indvars280.le = trunc i64 %indvars.iv.next278 to i32
   br label %get_varint64.exit184
 
-get_varint64.exit184:                             ; preds = %418, %get_varint64.exit184.split.loop.exit370
-  %.22 = phi i32 [ %indvars280.le, %get_varint64.exit184.split.loop.exit370 ], [ %smax279, %418 ]
-  %.1.i183 = phi i64 [ %428, %get_varint64.exit184.split.loop.exit370 ], [ %.0.i182, %418 ]
+get_varint64.exit184:                             ; preds = %418, %get_varint64.exit184.split.loop.exit402
+  %.22 = phi i32 [ %indvars280.le, %get_varint64.exit184.split.loop.exit402 ], [ %smax279, %418 ]
+  %.1.i183 = phi i64 [ %428, %get_varint64.exit184.split.loop.exit402 ], [ %.0.i182, %418 ]
   %430 = load i32, ptr @hf_steam_ihs_discovery_body_status_screenlocked, align 4
   %sext80 = shl i64 %.1.i183, 32
   %431 = ashr exact i64 %sext80, 32
@@ -2010,15 +2010,15 @@ protobuf_verify_wiretype.exit188:                 ; preds = %435, %440
   %457 = or i64 %456, %.0.i189
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %458 = icmp sgt i8 %451, -1
-  br i1 %458, label %get_varint64.exit191.split.loop.exit367, label %447, !llvm.loop !6
+  br i1 %458, label %get_varint64.exit191.split.loop.exit399, label %447, !llvm.loop !6
 
-get_varint64.exit191.split.loop.exit367:          ; preds = %448
+get_varint64.exit191.split.loop.exit399:          ; preds = %448
   %indvars273.le = trunc i64 %indvars.iv.next271 to i32
   br label %get_varint64.exit191
 
-get_varint64.exit191:                             ; preds = %447, %get_varint64.exit191.split.loop.exit367
-  %.24 = phi i32 [ %indvars273.le, %get_varint64.exit191.split.loop.exit367 ], [ %smax272, %447 ]
-  %.1.i190 = phi i64 [ %457, %get_varint64.exit191.split.loop.exit367 ], [ %.0.i189, %447 ]
+get_varint64.exit191:                             ; preds = %447, %get_varint64.exit191.split.loop.exit399
+  %.24 = phi i32 [ %indvars273.le, %get_varint64.exit191.split.loop.exit399 ], [ %smax272, %447 ]
+  %.1.i190 = phi i64 [ %457, %get_varint64.exit191.split.loop.exit399 ], [ %.0.i189, %447 ]
   %459 = load i32, ptr @hf_steam_ihs_discovery_body_status_gamesrunning, align 4
   %sext = shl i64 %.1.i190, 32
   %460 = ashr exact i64 %sext, 32
@@ -2054,15 +2054,15 @@ get_varint64.exit191:                             ; preds = %447, %get_varint64.
   %474 = or i64 %473, %.0.i192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %475 = icmp sgt i8 %468, -1
-  br i1 %475, label %get_varint64.exit194.split.loop.exit364, label %.preheader260, !llvm.loop !6
+  br i1 %475, label %get_varint64.exit194.split.loop.exit396, label %.preheader260, !llvm.loop !6
 
-get_varint64.exit194.split.loop.exit364:          ; preds = %465
+get_varint64.exit194.split.loop.exit396:          ; preds = %465
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit194
 
-get_varint64.exit194:                             ; preds = %.preheader260, %get_varint64.exit194.split.loop.exit364
-  %.26 = phi i32 [ %indvars.le, %get_varint64.exit194.split.loop.exit364 ], [ %smax, %.preheader260 ]
-  %.1.i193 = phi i64 [ %474, %get_varint64.exit194.split.loop.exit364 ], [ %.0.i192, %.preheader260 ]
+get_varint64.exit194:                             ; preds = %.preheader260, %get_varint64.exit194.split.loop.exit396
+  %.26 = phi i32 [ %indvars.le, %get_varint64.exit194.split.loop.exit396 ], [ %smax, %.preheader260 ]
+  %.1.i193 = phi i64 [ %474, %get_varint64.exit194.split.loop.exit396 ], [ %.0.i192, %.preheader260 ]
   %476 = load i32, ptr @hf_steam_ihs_discovery_body_status_macaddresses, align 4
   %477 = add i32 %.26, %52
   %478 = trunc i64 %.1.i193 to i32
@@ -2137,15 +2137,15 @@ define internal fastcc void @steamdiscover_dissect_body_authrequest(ptr noundef 
   %29 = or i64 %28, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = icmp sgt i8 %23, -1
-  br i1 %30, label %get_varint64.exit.split.loop.exit15.i, label %19, !llvm.loop !6
+  br i1 %30, label %get_varint64.exit.split.loop.exit16.i, label %19, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %20
+get_varint64.exit.split.loop.exit16.i:            ; preds = %20
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %18, %19 ]
-  %.1.i.i = phi i64 [ %29, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %19 ]
+protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %18, %19 ]
+  %.1.i.i = phi i64 [ %29, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %19 ]
   store i64 %.1.i.i, ptr %7, align 8
   %31 = lshr i64 %.1.i.i, 3
   store i64 %31, ptr %12, align 8
@@ -2195,15 +2195,15 @@ protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.e
   %49 = or i64 %48, %.0.i30
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %50 = icmp sgt i8 %43, -1
-  br i1 %50, label %get_varint64.exit.split.loop.exit77, label %.preheader, !llvm.loop !6
+  br i1 %50, label %get_varint64.exit.split.loop.exit83, label %.preheader, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit77:              ; preds = %40
+get_varint64.exit.split.loop.exit83:              ; preds = %40
   %indvars66.le = trunc i64 %indvars.iv.next64 to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %.preheader, %get_varint64.exit.split.loop.exit77
-  %.2 = phi i32 [ %indvars66.le, %get_varint64.exit.split.loop.exit77 ], [ %smax65, %.preheader ]
-  %.1.i31 = phi i64 [ %49, %get_varint64.exit.split.loop.exit77 ], [ %.0.i30, %.preheader ]
+get_varint64.exit:                                ; preds = %.preheader, %get_varint64.exit.split.loop.exit83
+  %.2 = phi i32 [ %indvars66.le, %get_varint64.exit.split.loop.exit83 ], [ %smax65, %.preheader ]
+  %.1.i31 = phi i64 [ %49, %get_varint64.exit.split.loop.exit83 ], [ %.0.i30, %.preheader ]
   %51 = load i32, ptr @hf_steam_ihs_discovery_body_authrequest_devicetoken, align 4
   %52 = add i32 %.2, %34
   %53 = trunc i64 %.1.i31 to i32
@@ -2240,15 +2240,15 @@ get_varint64.exit:                                ; preds = %.preheader, %get_va
   %68 = or i64 %67, %.0.i32
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %69 = icmp sgt i8 %62, -1
-  br i1 %69, label %get_varint64.exit34.split.loop.exit74, label %.preheader50, !llvm.loop !6
+  br i1 %69, label %get_varint64.exit34.split.loop.exit80, label %.preheader50, !llvm.loop !6
 
-get_varint64.exit34.split.loop.exit74:            ; preds = %59
+get_varint64.exit34.split.loop.exit80:            ; preds = %59
   %indvars59.le = trunc i64 %indvars.iv.next57 to i32
   br label %get_varint64.exit34
 
-get_varint64.exit34:                              ; preds = %.preheader50, %get_varint64.exit34.split.loop.exit74
-  %.4 = phi i32 [ %indvars59.le, %get_varint64.exit34.split.loop.exit74 ], [ %smax58, %.preheader50 ]
-  %.1.i33 = phi i64 [ %68, %get_varint64.exit34.split.loop.exit74 ], [ %.0.i32, %.preheader50 ]
+get_varint64.exit34:                              ; preds = %.preheader50, %get_varint64.exit34.split.loop.exit80
+  %.4 = phi i32 [ %indvars59.le, %get_varint64.exit34.split.loop.exit80 ], [ %smax58, %.preheader50 ]
+  %.1.i33 = phi i64 [ %68, %get_varint64.exit34.split.loop.exit80 ], [ %.0.i32, %.preheader50 ]
   %70 = load i32, ptr @hf_steam_ihs_discovery_body_authrequest_devicename, align 4
   %71 = add i32 %.4, %34
   %72 = trunc i64 %.1.i33 to i32
@@ -2301,15 +2301,15 @@ get_varint64.exit34:                              ; preds = %.preheader50, %get_
   %93 = or i64 %92, %.0.i35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = icmp sgt i8 %87, -1
-  br i1 %94, label %get_varint64.exit37.split.loop.exit71, label %.preheader51, !llvm.loop !6
+  br i1 %94, label %get_varint64.exit37.split.loop.exit77, label %.preheader51, !llvm.loop !6
 
-get_varint64.exit37.split.loop.exit71:            ; preds = %84
+get_varint64.exit37.split.loop.exit77:            ; preds = %84
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit37
 
-get_varint64.exit37:                              ; preds = %.preheader51, %get_varint64.exit37.split.loop.exit71
-  %.6 = phi i32 [ %indvars.le, %get_varint64.exit37.split.loop.exit71 ], [ %smax, %.preheader51 ]
-  %.1.i36 = phi i64 [ %93, %get_varint64.exit37.split.loop.exit71 ], [ %.0.i35, %.preheader51 ]
+get_varint64.exit37:                              ; preds = %.preheader51, %get_varint64.exit37.split.loop.exit77
+  %.6 = phi i32 [ %indvars.le, %get_varint64.exit37.split.loop.exit77 ], [ %smax, %.preheader51 ]
+  %.1.i36 = phi i64 [ %93, %get_varint64.exit37.split.loop.exit77 ], [ %.0.i35, %.preheader51 ]
   %95 = load i32, ptr @hf_steam_ihs_discovery_body_authrequest_encryptedrequest, align 4
   %96 = add i32 %.6, %34
   %97 = trunc i64 %.1.i36 to i32
@@ -2381,15 +2381,15 @@ define internal fastcc void @steamdiscover_dissect_body_authresponse(ptr noundef
   %29 = or i64 %28, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = icmp sgt i8 %23, -1
-  br i1 %30, label %get_varint64.exit.split.loop.exit15.i, label %19, !llvm.loop !6
+  br i1 %30, label %get_varint64.exit.split.loop.exit16.i, label %19, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %20
+get_varint64.exit.split.loop.exit16.i:            ; preds = %20
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %18, %19 ]
-  %.1.i.i = phi i64 [ %29, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %19 ]
+protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %18, %19 ]
+  %.1.i.i = phi i64 [ %29, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %19 ]
   store i64 %.1.i.i, ptr %8, align 8
   %31 = lshr i64 %.1.i.i, 3
   store i64 %31, ptr %13, align 8
@@ -2461,15 +2461,15 @@ protobuf_verify_wiretype.exit:                    ; preds = %39, %44
   %61 = or i64 %60, %.0.i13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = icmp sgt i8 %55, -1
-  br i1 %62, label %get_varint64.exit.split.loop.exit26, label %51, !llvm.loop !6
+  br i1 %62, label %get_varint64.exit.split.loop.exit30, label %51, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit26:              ; preds = %52
+get_varint64.exit.split.loop.exit30:              ; preds = %52
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %51, %get_varint64.exit.split.loop.exit26
-  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit26 ], [ %smax, %51 ]
-  %.1.i14 = phi i64 [ %61, %get_varint64.exit.split.loop.exit26 ], [ %.0.i13, %51 ]
+get_varint64.exit:                                ; preds = %51, %get_varint64.exit.split.loop.exit30
+  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit30 ], [ %smax, %51 ]
+  %.1.i14 = phi i64 [ %61, %get_varint64.exit.split.loop.exit30 ], [ %.0.i13, %51 ]
   %63 = load i32, ptr @hf_steam_ihs_discovery_body_authresponse_authresult, align 4
   %64 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %34, i32 noundef %.2, i64 noundef %.1.i14)
   %65 = load ptr, ptr %15, align 8
@@ -2548,15 +2548,15 @@ define internal fastcc void @steamdiscover_dissect_body_streamingrequest(ptr nou
   %36 = or i64 %35, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %37 = icmp sgt i8 %30, -1
-  br i1 %37, label %get_varint64.exit.split.loop.exit15.i, label %26, !llvm.loop !6
+  br i1 %37, label %get_varint64.exit.split.loop.exit16.i, label %26, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %27
+get_varint64.exit.split.loop.exit16.i:            ; preds = %27
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %26, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %25, %26 ]
-  %.1.i.i = phi i64 [ %36, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %26 ]
+protobuf_iter_next.exit:                          ; preds = %26, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %25, %26 ]
+  %.1.i.i = phi i64 [ %36, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %26 ]
   store i64 %.1.i.i, ptr %15, align 8
   %38 = lshr i64 %.1.i.i, 3
   store i64 %38, ptr %20, align 8
@@ -2639,15 +2639,15 @@ protobuf_verify_wiretype.exit:                    ; preds = %46, %51
   %68 = or i64 %67, %.0.i68
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %69 = icmp sgt i8 %62, -1
-  br i1 %69, label %get_varint64.exit.split.loop.exit278, label %58, !llvm.loop !6
+  br i1 %69, label %get_varint64.exit.split.loop.exit299, label %58, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit278:             ; preds = %59
+get_varint64.exit.split.loop.exit299:             ; preds = %59
   %indvars243.le = trunc i64 %indvars.iv.next241 to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %58, %get_varint64.exit.split.loop.exit278
-  %.2 = phi i32 [ %indvars243.le, %get_varint64.exit.split.loop.exit278 ], [ %smax242, %58 ]
-  %.1.i69 = phi i64 [ %68, %get_varint64.exit.split.loop.exit278 ], [ %.0.i68, %58 ]
+get_varint64.exit:                                ; preds = %58, %get_varint64.exit.split.loop.exit299
+  %.2 = phi i32 [ %indvars243.le, %get_varint64.exit.split.loop.exit299 ], [ %smax242, %58 ]
+  %.1.i69 = phi i64 [ %68, %get_varint64.exit.split.loop.exit299 ], [ %.0.i68, %58 ]
   %70 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_requestid, align 4
   %71 = trunc i64 %.1.i69 to i32
   %72 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %70, ptr noundef %0, i32 noundef %41, i32 noundef %.2, i32 noundef %71)
@@ -2709,15 +2709,15 @@ protobuf_verify_wiretype.exit73:                  ; preds = %76, %81
   %98 = or i64 %97, %.0.i74
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %99 = icmp sgt i8 %92, -1
-  br i1 %99, label %get_varint64.exit76.split.loop.exit275, label %88, !llvm.loop !6
+  br i1 %99, label %get_varint64.exit76.split.loop.exit296, label %88, !llvm.loop !6
 
-get_varint64.exit76.split.loop.exit275:           ; preds = %89
+get_varint64.exit76.split.loop.exit296:           ; preds = %89
   %indvars236.le = trunc i64 %indvars.iv.next234 to i32
   br label %get_varint64.exit76
 
-get_varint64.exit76:                              ; preds = %88, %get_varint64.exit76.split.loop.exit275
-  %.4 = phi i32 [ %indvars236.le, %get_varint64.exit76.split.loop.exit275 ], [ %smax235, %88 ]
-  %.1.i75 = phi i64 [ %98, %get_varint64.exit76.split.loop.exit275 ], [ %.0.i74, %88 ]
+get_varint64.exit76:                              ; preds = %88, %get_varint64.exit76.split.loop.exit296
+  %.4 = phi i32 [ %indvars236.le, %get_varint64.exit76.split.loop.exit296 ], [ %smax235, %88 ]
+  %.1.i75 = phi i64 [ %98, %get_varint64.exit76.split.loop.exit296 ], [ %.0.i74, %88 ]
   %100 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_maximumresolutionx, align 4
   %101 = trunc i64 %.1.i75 to i32
   %102 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %100, ptr noundef %0, i32 noundef %41, i32 noundef %.4, i32 noundef %101)
@@ -2777,15 +2777,15 @@ protobuf_verify_wiretype.exit80:                  ; preds = %105, %110
   %127 = or i64 %126, %.0.i81
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %128 = icmp sgt i8 %121, -1
-  br i1 %128, label %get_varint64.exit83.split.loop.exit272, label %117, !llvm.loop !6
+  br i1 %128, label %get_varint64.exit83.split.loop.exit293, label %117, !llvm.loop !6
 
-get_varint64.exit83.split.loop.exit272:           ; preds = %118
+get_varint64.exit83.split.loop.exit293:           ; preds = %118
   %indvars229.le = trunc i64 %indvars.iv.next227 to i32
   br label %get_varint64.exit83
 
-get_varint64.exit83:                              ; preds = %117, %get_varint64.exit83.split.loop.exit272
-  %.6 = phi i32 [ %indvars229.le, %get_varint64.exit83.split.loop.exit272 ], [ %smax228, %117 ]
-  %.1.i82 = phi i64 [ %127, %get_varint64.exit83.split.loop.exit272 ], [ %.0.i81, %117 ]
+get_varint64.exit83:                              ; preds = %117, %get_varint64.exit83.split.loop.exit293
+  %.6 = phi i32 [ %indvars229.le, %get_varint64.exit83.split.loop.exit293 ], [ %smax228, %117 ]
+  %.1.i82 = phi i64 [ %127, %get_varint64.exit83.split.loop.exit293 ], [ %.0.i81, %117 ]
   %129 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_maximumresolutiony, align 4
   %130 = trunc i64 %.1.i82 to i32
   %131 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %129, ptr noundef %0, i32 noundef %41, i32 noundef %.6, i32 noundef %130)
@@ -2845,15 +2845,15 @@ protobuf_verify_wiretype.exit87:                  ; preds = %134, %139
   %156 = or i64 %155, %.0.i88
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %157 = icmp sgt i8 %150, -1
-  br i1 %157, label %get_varint64.exit90.split.loop.exit269, label %146, !llvm.loop !6
+  br i1 %157, label %get_varint64.exit90.split.loop.exit290, label %146, !llvm.loop !6
 
-get_varint64.exit90.split.loop.exit269:           ; preds = %147
+get_varint64.exit90.split.loop.exit290:           ; preds = %147
   %indvars222.le = trunc i64 %indvars.iv.next220 to i32
   br label %get_varint64.exit90
 
-get_varint64.exit90:                              ; preds = %146, %get_varint64.exit90.split.loop.exit269
-  %.8 = phi i32 [ %indvars222.le, %get_varint64.exit90.split.loop.exit269 ], [ %smax221, %146 ]
-  %.1.i89 = phi i64 [ %156, %get_varint64.exit90.split.loop.exit269 ], [ %.0.i88, %146 ]
+get_varint64.exit90:                              ; preds = %146, %get_varint64.exit90.split.loop.exit290
+  %.8 = phi i32 [ %indvars222.le, %get_varint64.exit90.split.loop.exit290 ], [ %smax221, %146 ]
+  %.1.i89 = phi i64 [ %156, %get_varint64.exit90.split.loop.exit290 ], [ %.0.i88, %146 ]
   %158 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_audiochannelcount, align 4
   %159 = trunc i64 %.1.i89 to i32
   %160 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %158, ptr noundef %0, i32 noundef %41, i32 noundef %.8, i32 noundef %159)
@@ -2888,15 +2888,15 @@ get_varint64.exit90:                              ; preds = %146, %get_varint64.
   %173 = or i64 %172, %.0.i91
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %174 = icmp sgt i8 %167, -1
-  br i1 %174, label %get_varint64.exit93.split.loop.exit266, label %.preheader, !llvm.loop !6
+  br i1 %174, label %get_varint64.exit93.split.loop.exit287, label %.preheader, !llvm.loop !6
 
-get_varint64.exit93.split.loop.exit266:           ; preds = %164
+get_varint64.exit93.split.loop.exit287:           ; preds = %164
   %indvars215.le = trunc i64 %indvars.iv.next213 to i32
   br label %get_varint64.exit93
 
-get_varint64.exit93:                              ; preds = %.preheader, %get_varint64.exit93.split.loop.exit266
-  %.10 = phi i32 [ %indvars215.le, %get_varint64.exit93.split.loop.exit266 ], [ %smax214, %.preheader ]
-  %.1.i92 = phi i64 [ %173, %get_varint64.exit93.split.loop.exit266 ], [ %.0.i91, %.preheader ]
+get_varint64.exit93:                              ; preds = %.preheader, %get_varint64.exit93.split.loop.exit287
+  %.10 = phi i32 [ %indvars215.le, %get_varint64.exit93.split.loop.exit287 ], [ %smax214, %.preheader ]
+  %.1.i92 = phi i64 [ %173, %get_varint64.exit93.split.loop.exit287 ], [ %.0.i91, %.preheader ]
   %175 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_deviceversion, align 4
   %176 = add i32 %.10, %41
   %177 = trunc i64 %.1.i92 to i32
@@ -2958,15 +2958,15 @@ protobuf_verify_wiretype.exit97:                  ; preds = %182, %187
   %204 = or i64 %203, %.0.i98
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %205 = icmp sgt i8 %198, -1
-  br i1 %205, label %get_varint64.exit100.split.loop.exit263, label %194, !llvm.loop !6
+  br i1 %205, label %get_varint64.exit100.split.loop.exit284, label %194, !llvm.loop !6
 
-get_varint64.exit100.split.loop.exit263:          ; preds = %195
+get_varint64.exit100.split.loop.exit284:          ; preds = %195
   %indvars208.le = trunc i64 %indvars.iv.next206 to i32
   br label %get_varint64.exit100
 
-get_varint64.exit100:                             ; preds = %194, %get_varint64.exit100.split.loop.exit263
-  %.12 = phi i32 [ %indvars208.le, %get_varint64.exit100.split.loop.exit263 ], [ %smax207, %194 ]
-  %.1.i99 = phi i64 [ %204, %get_varint64.exit100.split.loop.exit263 ], [ %.0.i98, %194 ]
+get_varint64.exit100:                             ; preds = %194, %get_varint64.exit100.split.loop.exit284
+  %.12 = phi i32 [ %indvars208.le, %get_varint64.exit100.split.loop.exit284 ], [ %smax207, %194 ]
+  %.1.i99 = phi i64 [ %204, %get_varint64.exit100.split.loop.exit284 ], [ %.0.i98, %194 ]
   %206 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_streamdesktop, align 4
   %sext61 = shl i64 %.1.i99, 32
   %207 = ashr exact i64 %sext61, 32
@@ -3002,15 +3002,15 @@ get_varint64.exit100:                             ; preds = %194, %get_varint64.
   %221 = or i64 %220, %.0.i101
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %222 = icmp sgt i8 %215, -1
-  br i1 %222, label %get_varint64.exit103.split.loop.exit260, label %.preheader171, !llvm.loop !6
+  br i1 %222, label %get_varint64.exit103.split.loop.exit281, label %.preheader171, !llvm.loop !6
 
-get_varint64.exit103.split.loop.exit260:          ; preds = %212
+get_varint64.exit103.split.loop.exit281:          ; preds = %212
   %indvars201.le = trunc i64 %indvars.iv.next199 to i32
   br label %get_varint64.exit103
 
-get_varint64.exit103:                             ; preds = %.preheader171, %get_varint64.exit103.split.loop.exit260
-  %.14 = phi i32 [ %indvars201.le, %get_varint64.exit103.split.loop.exit260 ], [ %smax200, %.preheader171 ]
-  %.1.i102 = phi i64 [ %221, %get_varint64.exit103.split.loop.exit260 ], [ %.0.i101, %.preheader171 ]
+get_varint64.exit103:                             ; preds = %.preheader171, %get_varint64.exit103.split.loop.exit281
+  %.14 = phi i32 [ %indvars201.le, %get_varint64.exit103.split.loop.exit281 ], [ %smax200, %.preheader171 ]
+  %.1.i102 = phi i64 [ %221, %get_varint64.exit103.split.loop.exit281 ], [ %.0.i101, %.preheader171 ]
   %223 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_devicetoken, align 4
   %224 = add i32 %.14, %41
   %225 = trunc i64 %.1.i102 to i32
@@ -3047,15 +3047,15 @@ get_varint64.exit103:                             ; preds = %.preheader171, %get
   %240 = or i64 %239, %.0.i104
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %241 = icmp sgt i8 %234, -1
-  br i1 %241, label %get_varint64.exit106.split.loop.exit257, label %.preheader172, !llvm.loop !6
+  br i1 %241, label %get_varint64.exit106.split.loop.exit278, label %.preheader172, !llvm.loop !6
 
-get_varint64.exit106.split.loop.exit257:          ; preds = %231
+get_varint64.exit106.split.loop.exit278:          ; preds = %231
   %indvars194.le = trunc i64 %indvars.iv.next192 to i32
   br label %get_varint64.exit106
 
-get_varint64.exit106:                             ; preds = %.preheader172, %get_varint64.exit106.split.loop.exit257
-  %.16 = phi i32 [ %indvars194.le, %get_varint64.exit106.split.loop.exit257 ], [ %smax193, %.preheader172 ]
-  %.1.i105 = phi i64 [ %240, %get_varint64.exit106.split.loop.exit257 ], [ %.0.i104, %.preheader172 ]
+get_varint64.exit106:                             ; preds = %.preheader172, %get_varint64.exit106.split.loop.exit278
+  %.16 = phi i32 [ %indvars194.le, %get_varint64.exit106.split.loop.exit278 ], [ %smax193, %.preheader172 ]
+  %.1.i105 = phi i64 [ %240, %get_varint64.exit106.split.loop.exit278 ], [ %.0.i104, %.preheader172 ]
   %242 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_pin, align 4
   %243 = add i32 %.16, %41
   %244 = trunc i64 %.1.i105 to i32
@@ -3117,15 +3117,15 @@ protobuf_verify_wiretype.exit110:                 ; preds = %249, %254
   %271 = or i64 %270, %.0.i111
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %272 = icmp sgt i8 %265, -1
-  br i1 %272, label %get_varint64.exit113.split.loop.exit254, label %261, !llvm.loop !6
+  br i1 %272, label %get_varint64.exit113.split.loop.exit275, label %261, !llvm.loop !6
 
-get_varint64.exit113.split.loop.exit254:          ; preds = %262
+get_varint64.exit113.split.loop.exit275:          ; preds = %262
   %indvars187.le = trunc i64 %indvars.iv.next185 to i32
   br label %get_varint64.exit113
 
-get_varint64.exit113:                             ; preds = %261, %get_varint64.exit113.split.loop.exit254
-  %.18 = phi i32 [ %indvars187.le, %get_varint64.exit113.split.loop.exit254 ], [ %smax186, %261 ]
-  %.1.i112 = phi i64 [ %271, %get_varint64.exit113.split.loop.exit254 ], [ %.0.i111, %261 ]
+get_varint64.exit113:                             ; preds = %261, %get_varint64.exit113.split.loop.exit275
+  %.18 = phi i32 [ %indvars187.le, %get_varint64.exit113.split.loop.exit275 ], [ %smax186, %261 ]
+  %.1.i112 = phi i64 [ %271, %get_varint64.exit113.split.loop.exit275 ], [ %.0.i111, %261 ]
   %273 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enablevideostreaming, align 4
   %sext57 = shl i64 %.1.i112, 32
   %274 = ashr exact i64 %sext57, 32
@@ -3186,15 +3186,15 @@ protobuf_verify_wiretype.exit117:                 ; preds = %278, %283
   %300 = or i64 %299, %.0.i118
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %301 = icmp sgt i8 %294, -1
-  br i1 %301, label %get_varint64.exit120.split.loop.exit251, label %290, !llvm.loop !6
+  br i1 %301, label %get_varint64.exit120.split.loop.exit272, label %290, !llvm.loop !6
 
-get_varint64.exit120.split.loop.exit251:          ; preds = %291
+get_varint64.exit120.split.loop.exit272:          ; preds = %291
   %indvars180.le = trunc i64 %indvars.iv.next178 to i32
   br label %get_varint64.exit120
 
-get_varint64.exit120:                             ; preds = %290, %get_varint64.exit120.split.loop.exit251
-  %.20 = phi i32 [ %indvars180.le, %get_varint64.exit120.split.loop.exit251 ], [ %smax179, %290 ]
-  %.1.i119 = phi i64 [ %300, %get_varint64.exit120.split.loop.exit251 ], [ %.0.i118, %290 ]
+get_varint64.exit120:                             ; preds = %290, %get_varint64.exit120.split.loop.exit272
+  %.20 = phi i32 [ %indvars180.le, %get_varint64.exit120.split.loop.exit272 ], [ %smax179, %290 ]
+  %.1.i119 = phi i64 [ %300, %get_varint64.exit120.split.loop.exit272 ], [ %.0.i118, %290 ]
   %302 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enableaudiostreaming, align 4
   %sext55 = shl i64 %.1.i119, 32
   %303 = ashr exact i64 %sext55, 32
@@ -3255,15 +3255,15 @@ protobuf_verify_wiretype.exit124:                 ; preds = %307, %312
   %329 = or i64 %328, %.0.i125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %330 = icmp sgt i8 %323, -1
-  br i1 %330, label %get_varint64.exit127.split.loop.exit248, label %319, !llvm.loop !6
+  br i1 %330, label %get_varint64.exit127.split.loop.exit269, label %319, !llvm.loop !6
 
-get_varint64.exit127.split.loop.exit248:          ; preds = %320
+get_varint64.exit127.split.loop.exit269:          ; preds = %320
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit127
 
-get_varint64.exit127:                             ; preds = %319, %get_varint64.exit127.split.loop.exit248
-  %.22 = phi i32 [ %indvars.le, %get_varint64.exit127.split.loop.exit248 ], [ %smax, %319 ]
-  %.1.i126 = phi i64 [ %329, %get_varint64.exit127.split.loop.exit248 ], [ %.0.i125, %319 ]
+get_varint64.exit127:                             ; preds = %319, %get_varint64.exit127.split.loop.exit269
+  %.22 = phi i32 [ %indvars.le, %get_varint64.exit127.split.loop.exit269 ], [ %smax, %319 ]
+  %.1.i126 = phi i64 [ %329, %get_varint64.exit127.split.loop.exit269 ], [ %.0.i125, %319 ]
   %331 = load i32, ptr @hf_steam_ihs_discovery_body_streamingrequest_enableinputstreaming, align 4
   %sext = shl i64 %.1.i126, 32
   %332 = ashr exact i64 %sext, 32
@@ -3334,15 +3334,15 @@ define internal fastcc void @steamdiscover_dissect_body_streamingcancelrequest(p
   %29 = or i64 %28, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = icmp sgt i8 %23, -1
-  br i1 %30, label %get_varint64.exit.split.loop.exit15.i, label %19, !llvm.loop !6
+  br i1 %30, label %get_varint64.exit.split.loop.exit16.i, label %19, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %20
+get_varint64.exit.split.loop.exit16.i:            ; preds = %20
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %18, %19 ]
-  %.1.i.i = phi i64 [ %29, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %19 ]
+protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %18, %19 ]
+  %.1.i.i = phi i64 [ %29, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %19 ]
   store i64 %.1.i.i, ptr %8, align 8
   %31 = lshr i64 %.1.i.i, 3
   store i64 %31, ptr %13, align 8
@@ -3414,15 +3414,15 @@ protobuf_verify_wiretype.exit:                    ; preds = %39, %44
   %61 = or i64 %60, %.0.i12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = icmp sgt i8 %55, -1
-  br i1 %62, label %get_varint64.exit.split.loop.exit25, label %51, !llvm.loop !6
+  br i1 %62, label %get_varint64.exit.split.loop.exit29, label %51, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit25:              ; preds = %52
+get_varint64.exit.split.loop.exit29:              ; preds = %52
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %51, %get_varint64.exit.split.loop.exit25
-  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit25 ], [ %smax, %51 ]
-  %.1.i13 = phi i64 [ %61, %get_varint64.exit.split.loop.exit25 ], [ %.0.i12, %51 ]
+get_varint64.exit:                                ; preds = %51, %get_varint64.exit.split.loop.exit29
+  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit29 ], [ %smax, %51 ]
+  %.1.i13 = phi i64 [ %61, %get_varint64.exit.split.loop.exit29 ], [ %.0.i12, %51 ]
   %63 = load i32, ptr @hf_steam_ihs_discovery_body_streamingcancelrequest_requestid, align 4
   %64 = trunc i64 %.1.i13 to i32
   %65 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %34, i32 noundef %.2, i32 noundef %64)
@@ -3497,15 +3497,15 @@ define internal fastcc void @steamdiscover_dissect_body_streamingresponse(ptr no
   %32 = or i64 %31, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %33 = icmp sgt i8 %26, -1
-  br i1 %33, label %get_varint64.exit.split.loop.exit15.i, label %22, !llvm.loop !6
+  br i1 %33, label %get_varint64.exit.split.loop.exit16.i, label %22, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %23
+get_varint64.exit.split.loop.exit16.i:            ; preds = %23
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %22, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %21, %22 ]
-  %.1.i.i = phi i64 [ %32, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %22 ]
+protobuf_iter_next.exit:                          ; preds = %22, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %21, %22 ]
+  %.1.i.i = phi i64 [ %32, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %22 ]
   store i64 %.1.i.i, ptr %11, align 8
   %34 = lshr i64 %.1.i.i, 3
   store i64 %34, ptr %16, align 8
@@ -3582,15 +3582,15 @@ protobuf_verify_wiretype.exit:                    ; preds = %42, %47
   %64 = or i64 %63, %.0.i38
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %65 = icmp sgt i8 %58, -1
-  br i1 %65, label %get_varint64.exit.split.loop.exit130, label %54, !llvm.loop !6
+  br i1 %65, label %get_varint64.exit.split.loop.exit141, label %54, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit130:             ; preds = %55
+get_varint64.exit.split.loop.exit141:             ; preds = %55
   %indvars113.le = trunc i64 %indvars.iv.next111 to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %54, %get_varint64.exit.split.loop.exit130
-  %.2 = phi i32 [ %indvars113.le, %get_varint64.exit.split.loop.exit130 ], [ %smax112, %54 ]
-  %.1.i39 = phi i64 [ %64, %get_varint64.exit.split.loop.exit130 ], [ %.0.i38, %54 ]
+get_varint64.exit:                                ; preds = %54, %get_varint64.exit.split.loop.exit141
+  %.2 = phi i32 [ %indvars113.le, %get_varint64.exit.split.loop.exit141 ], [ %smax112, %54 ]
+  %.1.i39 = phi i64 [ %64, %get_varint64.exit.split.loop.exit141 ], [ %.0.i38, %54 ]
   %66 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_requestid, align 4
   %67 = trunc i64 %.1.i39 to i32
   %68 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %37, i32 noundef %.2, i32 noundef %67)
@@ -3652,15 +3652,15 @@ protobuf_verify_wiretype.exit43:                  ; preds = %72, %77
   %94 = or i64 %93, %.0.i44
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %95 = icmp sgt i8 %88, -1
-  br i1 %95, label %get_varint64.exit46.split.loop.exit127, label %84, !llvm.loop !6
+  br i1 %95, label %get_varint64.exit46.split.loop.exit138, label %84, !llvm.loop !6
 
-get_varint64.exit46.split.loop.exit127:           ; preds = %85
+get_varint64.exit46.split.loop.exit138:           ; preds = %85
   %indvars106.le = trunc i64 %indvars.iv.next104 to i32
   br label %get_varint64.exit46
 
-get_varint64.exit46:                              ; preds = %84, %get_varint64.exit46.split.loop.exit127
-  %.4 = phi i32 [ %indvars106.le, %get_varint64.exit46.split.loop.exit127 ], [ %smax105, %84 ]
-  %.1.i45 = phi i64 [ %94, %get_varint64.exit46.split.loop.exit127 ], [ %.0.i44, %84 ]
+get_varint64.exit46:                              ; preds = %84, %get_varint64.exit46.split.loop.exit138
+  %.4 = phi i32 [ %indvars106.le, %get_varint64.exit46.split.loop.exit138 ], [ %smax105, %84 ]
+  %.1.i45 = phi i64 [ %94, %get_varint64.exit46.split.loop.exit138 ], [ %.0.i44, %84 ]
   %96 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_result, align 4
   %97 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %37, i32 noundef %.4, i64 noundef %.1.i45)
   %98 = load ptr, ptr %18, align 8
@@ -3722,15 +3722,15 @@ protobuf_verify_wiretype.exit50:                  ; preds = %102, %107
   %124 = or i64 %123, %.0.i51
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %125 = icmp sgt i8 %118, -1
-  br i1 %125, label %get_varint64.exit53.split.loop.exit124, label %114, !llvm.loop !6
+  br i1 %125, label %get_varint64.exit53.split.loop.exit135, label %114, !llvm.loop !6
 
-get_varint64.exit53.split.loop.exit124:           ; preds = %115
+get_varint64.exit53.split.loop.exit135:           ; preds = %115
   %indvars99.le = trunc i64 %indvars.iv.next97 to i32
   br label %get_varint64.exit53
 
-get_varint64.exit53:                              ; preds = %114, %get_varint64.exit53.split.loop.exit124
-  %.6 = phi i32 [ %indvars99.le, %get_varint64.exit53.split.loop.exit124 ], [ %smax98, %114 ]
-  %.1.i52 = phi i64 [ %124, %get_varint64.exit53.split.loop.exit124 ], [ %.0.i51, %114 ]
+get_varint64.exit53:                              ; preds = %114, %get_varint64.exit53.split.loop.exit135
+  %.6 = phi i32 [ %indvars99.le, %get_varint64.exit53.split.loop.exit135 ], [ %smax98, %114 ]
+  %.1.i52 = phi i64 [ %124, %get_varint64.exit53.split.loop.exit135 ], [ %.0.i51, %114 ]
   %126 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_port, align 4
   %127 = trunc i64 %.1.i52 to i32
   %128 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %126, ptr noundef %0, i32 noundef %37, i32 noundef %.6, i32 noundef %127)
@@ -3767,15 +3767,15 @@ get_varint64.exit53:                              ; preds = %114, %get_varint64.
   %142 = or i64 %141, %.0.i54
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %143 = icmp sgt i8 %136, -1
-  br i1 %143, label %get_varint64.exit56.split.loop.exit121, label %.preheader, !llvm.loop !6
+  br i1 %143, label %get_varint64.exit56.split.loop.exit132, label %.preheader, !llvm.loop !6
 
-get_varint64.exit56.split.loop.exit121:           ; preds = %133
+get_varint64.exit56.split.loop.exit132:           ; preds = %133
   %indvars92.le = trunc i64 %indvars.iv.next90 to i32
   br label %get_varint64.exit56
 
-get_varint64.exit56:                              ; preds = %.preheader, %get_varint64.exit56.split.loop.exit121
-  %.8 = phi i32 [ %indvars92.le, %get_varint64.exit56.split.loop.exit121 ], [ %smax91, %.preheader ]
-  %.1.i55 = phi i64 [ %142, %get_varint64.exit56.split.loop.exit121 ], [ %.0.i54, %.preheader ]
+get_varint64.exit56:                              ; preds = %.preheader, %get_varint64.exit56.split.loop.exit132
+  %.8 = phi i32 [ %indvars92.le, %get_varint64.exit56.split.loop.exit132 ], [ %smax91, %.preheader ]
+  %.1.i55 = phi i64 [ %142, %get_varint64.exit56.split.loop.exit132 ], [ %.0.i54, %.preheader ]
   %144 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_encryptedsessionkey, align 4
   %145 = add i32 %.8, %37
   %146 = trunc i64 %.1.i55 to i32
@@ -3837,15 +3837,15 @@ protobuf_verify_wiretype.exit60:                  ; preds = %151, %156
   %173 = or i64 %172, %.0.i61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %174 = icmp sgt i8 %167, -1
-  br i1 %174, label %get_varint64.exit63.split.loop.exit118, label %163, !llvm.loop !6
+  br i1 %174, label %get_varint64.exit63.split.loop.exit129, label %163, !llvm.loop !6
 
-get_varint64.exit63.split.loop.exit118:           ; preds = %164
+get_varint64.exit63.split.loop.exit129:           ; preds = %164
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit63
 
-get_varint64.exit63:                              ; preds = %163, %get_varint64.exit63.split.loop.exit118
-  %.10 = phi i32 [ %indvars.le, %get_varint64.exit63.split.loop.exit118 ], [ %smax, %163 ]
-  %.1.i62 = phi i64 [ %173, %get_varint64.exit63.split.loop.exit118 ], [ %.0.i61, %163 ]
+get_varint64.exit63:                              ; preds = %163, %get_varint64.exit63.split.loop.exit129
+  %.10 = phi i32 [ %indvars.le, %get_varint64.exit63.split.loop.exit129 ], [ %smax, %163 ]
+  %.1.i62 = phi i64 [ %173, %get_varint64.exit63.split.loop.exit129 ], [ %.0.i61, %163 ]
   %175 = load i32, ptr @hf_steam_ihs_discovery_body_streamingresponse_virtualherelicenseddevicecount, align 4
   %176 = trunc i64 %.1.i62 to i32
   %177 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %175, ptr noundef %0, i32 noundef %37, i32 noundef %.10, i32 noundef %176)
@@ -3913,15 +3913,15 @@ define internal fastcc void @steamdiscover_dissect_body_proofrequest(ptr noundef
   %27 = or i64 %26, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = icmp sgt i8 %21, -1
-  br i1 %28, label %get_varint64.exit.split.loop.exit15.i, label %17, !llvm.loop !6
+  br i1 %28, label %get_varint64.exit.split.loop.exit16.i, label %17, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %18
+get_varint64.exit.split.loop.exit16.i:            ; preds = %18
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %16, %17 ]
-  %.1.i.i = phi i64 [ %27, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %17 ]
+protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %16, %17 ]
+  %.1.i.i = phi i64 [ %27, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %17 ]
   store i64 %.1.i.i, ptr %7, align 8
   %29 = lshr i64 %.1.i.i, 3
   store i64 %29, ptr %12, align 8
@@ -3968,15 +3968,15 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   %47 = or i64 %46, %.0.i10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = icmp sgt i8 %41, -1
-  br i1 %48, label %get_varint64.exit.split.loop.exit22, label %.preheader, !llvm.loop !6
+  br i1 %48, label %get_varint64.exit.split.loop.exit25, label %.preheader, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit22:              ; preds = %38
+get_varint64.exit.split.loop.exit25:              ; preds = %38
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %.preheader, %get_varint64.exit.split.loop.exit22
-  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit22 ], [ %smax, %.preheader ]
-  %.1.i11 = phi i64 [ %47, %get_varint64.exit.split.loop.exit22 ], [ %.0.i10, %.preheader ]
+get_varint64.exit:                                ; preds = %.preheader, %get_varint64.exit.split.loop.exit25
+  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit25 ], [ %smax, %.preheader ]
+  %.1.i11 = phi i64 [ %47, %get_varint64.exit.split.loop.exit25 ], [ %.0.i10, %.preheader ]
   %49 = load i32, ptr @hf_steam_ihs_discovery_body_proofrequest_challenge, align 4
   %50 = add i32 %.2, %32
   %51 = trunc i64 %.1.i11 to i32
@@ -4046,15 +4046,15 @@ define internal fastcc void @steamdiscover_dissect_body_proofresponse(ptr nounde
   %27 = or i64 %26, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = icmp sgt i8 %21, -1
-  br i1 %28, label %get_varint64.exit.split.loop.exit15.i, label %17, !llvm.loop !6
+  br i1 %28, label %get_varint64.exit.split.loop.exit16.i, label %17, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %18
+get_varint64.exit.split.loop.exit16.i:            ; preds = %18
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %16, %17 ]
-  %.1.i.i = phi i64 [ %27, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %17 ]
+protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %16, %17 ]
+  %.1.i.i = phi i64 [ %27, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %17 ]
   store i64 %.1.i.i, ptr %7, align 8
   %29 = lshr i64 %.1.i.i, 3
   store i64 %29, ptr %12, align 8
@@ -4101,15 +4101,15 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   %47 = or i64 %46, %.0.i10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = icmp sgt i8 %41, -1
-  br i1 %48, label %get_varint64.exit.split.loop.exit22, label %.preheader, !llvm.loop !6
+  br i1 %48, label %get_varint64.exit.split.loop.exit25, label %.preheader, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit22:              ; preds = %38
+get_varint64.exit.split.loop.exit25:              ; preds = %38
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %.preheader, %get_varint64.exit.split.loop.exit22
-  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit22 ], [ %smax, %.preheader ]
-  %.1.i11 = phi i64 [ %47, %get_varint64.exit.split.loop.exit22 ], [ %.0.i10, %.preheader ]
+get_varint64.exit:                                ; preds = %.preheader, %get_varint64.exit.split.loop.exit25
+  %.2 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit25 ], [ %smax, %.preheader ]
+  %.1.i11 = phi i64 [ %47, %get_varint64.exit.split.loop.exit25 ], [ %.0.i10, %.preheader ]
   %49 = load i32, ptr @hf_steam_ihs_discovery_body_proofresponse_response, align 4
   %50 = add i32 %.2, %32
   %51 = trunc i64 %.1.i11 to i32
@@ -4179,15 +4179,15 @@ define internal fastcc void @steamdiscover_dissect_body_unknown(ptr noundef %0, 
   %27 = or i64 %26, %.0.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = icmp sgt i8 %21, -1
-  br i1 %28, label %get_varint64.exit.split.loop.exit15.i, label %17, !llvm.loop !6
+  br i1 %28, label %get_varint64.exit.split.loop.exit16.i, label %17, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit15.i:            ; preds = %18
+get_varint64.exit.split.loop.exit16.i:            ; preds = %18
   %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
   br label %protobuf_iter_next.exit
 
-protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.exit.split.loop.exit15.i
-  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit15.i ], [ %16, %17 ]
-  %.1.i.i = phi i64 [ %27, %get_varint64.exit.split.loop.exit15.i ], [ %.0.i.i, %17 ]
+protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.exit.split.loop.exit16.i
+  %.1.i = phi i32 [ %indvars.le.i, %get_varint64.exit.split.loop.exit16.i ], [ %16, %17 ]
+  %.1.i.i = phi i64 [ %27, %get_varint64.exit.split.loop.exit16.i ], [ %.0.i.i, %17 ]
   store i64 %.1.i.i, ptr %7, align 8
   %29 = lshr i64 %.1.i.i, 3
   store i64 %29, ptr %12, align 8
@@ -4258,15 +4258,15 @@ define internal fastcc i32 @protobuf_verify_wiretype(ptr noundef readonly captur
   %28 = or i64 %27, %.0.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = icmp sgt i8 %22, -1
-  br i1 %29, label %get_varint64.exit.split.loop.exit49, label %18, !llvm.loop !6
+  br i1 %29, label %get_varint64.exit.split.loop.exit53, label %18, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit49:              ; preds = %19
+get_varint64.exit.split.loop.exit53:              ; preds = %19
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %18, %get_varint64.exit.split.loop.exit49
-  %.1 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit49 ], [ %smax, %18 ]
-  %.1.i = phi i64 [ %28, %get_varint64.exit.split.loop.exit49 ], [ %.0.i, %18 ]
+get_varint64.exit:                                ; preds = %18, %get_varint64.exit.split.loop.exit53
+  %.1 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit53 ], [ %smax, %18 ]
+  %.1.i = phi i64 [ %28, %get_varint64.exit.split.loop.exit53 ], [ %.0.i, %18 ]
   %or.cond = icmp ugt i64 %.1.i, 2147483647
   br i1 %or.cond, label %30, label %42
 
@@ -4378,15 +4378,15 @@ define internal fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly 
   %24 = or i64 %23, %.0.i
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %25 = icmp sgt i8 %18, -1
-  br i1 %25, label %get_varint64.exit.split.loop.exit86, label %14, !llvm.loop !6
+  br i1 %25, label %get_varint64.exit.split.loop.exit90, label %14, !llvm.loop !6
 
-get_varint64.exit.split.loop.exit86:              ; preds = %15
+get_varint64.exit.split.loop.exit90:              ; preds = %15
   %indvars79.le = trunc i64 %indvars.iv.next77 to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %14, %get_varint64.exit.split.loop.exit86
-  %.2 = phi i32 [ %indvars79.le, %get_varint64.exit.split.loop.exit86 ], [ %smax78, %14 ]
-  %.1.i = phi i64 [ %24, %get_varint64.exit.split.loop.exit86 ], [ %.0.i, %14 ]
+get_varint64.exit:                                ; preds = %14, %get_varint64.exit.split.loop.exit90
+  %.2 = phi i32 [ %indvars79.le, %get_varint64.exit.split.loop.exit90 ], [ %smax78, %14 ]
+  %.1.i = phi i64 [ %24, %get_varint64.exit.split.loop.exit90 ], [ %.0.i, %14 ]
   %26 = load i32, ptr @hf_steam_ihs_discovery_unknown_number, align 4
   %27 = load ptr, ptr %0, align 8
   %28 = load i32, ptr %10, align 8
@@ -4458,15 +4458,15 @@ protobuf_get_wiretype_name.exit61:                ; preds = %38, %48
   %69 = or i64 %68, %.0.i62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = icmp sgt i8 %63, -1
-  br i1 %70, label %get_varint64.exit64.split.loop.exit83, label %59, !llvm.loop !6
+  br i1 %70, label %get_varint64.exit64.split.loop.exit87, label %59, !llvm.loop !6
 
-get_varint64.exit64.split.loop.exit83:            ; preds = %60
+get_varint64.exit64.split.loop.exit87:            ; preds = %60
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit64
 
-get_varint64.exit64:                              ; preds = %59, %get_varint64.exit64.split.loop.exit83
-  %.4 = phi i32 [ %indvars.le, %get_varint64.exit64.split.loop.exit83 ], [ %smax, %59 ]
-  %.1.i63 = phi i64 [ %69, %get_varint64.exit64.split.loop.exit83 ], [ %.0.i62, %59 ]
+get_varint64.exit64:                              ; preds = %59, %get_varint64.exit64.split.loop.exit87
+  %.4 = phi i32 [ %indvars.le, %get_varint64.exit64.split.loop.exit87 ], [ %smax, %59 ]
+  %.1.i63 = phi i64 [ %69, %get_varint64.exit64.split.loop.exit87 ], [ %.0.i62, %59 ]
   %71 = load i32, ptr %57, align 4
   %72 = sub i32 %71, %.4
   %73 = sext i32 %72 to i64

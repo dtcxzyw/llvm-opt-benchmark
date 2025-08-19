@@ -121,8 +121,8 @@ define internal void @uninit(ptr noundef %0) #0 {
 56:                                               ; preds = %51, %48
   %.153.i = phi i32 [ %.05274.i, %48 ], [ 1, %51 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not90.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not90.i, label %.loopexit.i, label %48, !llvm.loop !33
+  %.not94.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not94.i, label %.loopexit.i, label %48, !llvm.loop !33
 
 .loopexit.i:                                      ; preds = %56, %52
   %.049.i = phi float [ %55, %52 ], [ 1.000000e+00, %56 ]

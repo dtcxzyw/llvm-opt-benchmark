@@ -130,9 +130,9 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %20 = icmp eq i32 %19, 0
   %21 = icmp ne i64 %10, 0
   %or.cond = and i1 %21, %20
-  br i1 %or.cond, label %.thread565, label %26
+  br i1 %or.cond, label %.thread582, label %26
 
-.thread565:                                       ; preds = %18
+.thread582:                                       ; preds = %18
   %22 = load i8, ptr %0, align 1, !tbaa !97
   %23 = add i8 %22, -48
   %24 = icmp ult i8 %23, 10
@@ -144,7 +144,7 @@ define dso_local noundef i64 @Curl_ftp_parselist(ptr noundef readonly captures(n
   %.not562 = icmp eq i64 %10, 0
   br i1 %.not562, label %.loopexit, label %.lr.ph561
 
-.lr.ph561:                                        ; preds = %.thread565, %26
+.lr.ph561:                                        ; preds = %.thread582, %26
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 24

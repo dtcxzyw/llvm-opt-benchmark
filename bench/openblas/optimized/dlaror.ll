@@ -240,15 +240,15 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %109 = zext nneg i32 %43 to i64
   %110 = sext i32 %13 to i64
   %invariant.gep = getelementptr inbounds nuw double, ptr %16, i64 %109
-  %invariant.gep216 = getelementptr double, ptr %15, i64 %110
+  %invariant.gep220 = getelementptr double, ptr %15, i64 %110
   %111 = zext nneg i32 %108 to i64
   br label %.lr.ph202
 
 .lr.ph202:                                        ; preds = %.lr.ph202.preheader, %.lr.ph202
   %indvars.iv209 = phi i64 [ 1, %.lr.ph202.preheader ], [ %indvars.iv.next210, %.lr.ph202 ]
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv209
-  %gep217 = getelementptr double, ptr %invariant.gep216, i64 %indvars.iv209
-  call void @dscal_(ptr noundef nonnull %3, ptr noundef nonnull %gep, ptr noundef %gep217, ptr noundef nonnull %5) #5
+  %gep221 = getelementptr double, ptr %invariant.gep220, i64 %indvars.iv209
+  call void @dscal_(ptr noundef nonnull %3, ptr noundef nonnull %gep, ptr noundef %gep221, ptr noundef nonnull %5) #5
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %.not171.not = icmp samesign ult i64 %indvars.iv209, %111
   br i1 %.not171.not, label %.lr.ph202, label %.loopexit186, !llvm.loop !12
@@ -265,24 +265,24 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph206.preheader:                              ; preds = %112
   %114 = zext nneg i32 %43 to i64
   %115 = sext i32 %13 to i64
-  %invariant.gep218 = getelementptr inbounds nuw double, ptr %16, i64 %114
+  %invariant.gep222 = getelementptr inbounds nuw double, ptr %16, i64 %114
   %116 = zext nneg i32 %113 to i64
   br label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
   %indvars.iv212 = phi i64 [ 1, %.lr.ph206.preheader ], [ %indvars.iv.next213, %.lr.ph206 ]
-  %gep219 = getelementptr inbounds nuw double, ptr %invariant.gep218, i64 %indvars.iv212
+  %gep223 = getelementptr inbounds nuw double, ptr %invariant.gep222, i64 %indvars.iv212
   %117 = mul nsw i64 %indvars.iv212, %115
   %118 = getelementptr double, ptr %15, i64 %117
   %119 = getelementptr i8, ptr %118, i64 8
-  call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull %gep219, ptr noundef %119, ptr noundef nonnull @c__1) #5
+  call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull %gep223, ptr noundef %119, ptr noundef nonnull @c__1) #5
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %.not172.not = icmp samesign ult i64 %indvars.iv212, %116
   br i1 %.not172.not, label %.lr.ph206, label %.loopexit, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %.thread183, %80
-  %.sink221 = phi ptr [ %8, %80 ], [ %10, %.thread183 ]
-  %120 = call i32 @xerbla_(ptr noundef nonnull @.str.4, ptr noundef nonnull %.sink221, i32 noundef 6) #5
+  %.sink225 = phi ptr [ %8, %80 ], [ %10, %.thread183 ]
+  %120 = call i32 @xerbla_(ptr noundef nonnull @.str.4, ptr noundef nonnull %.sink225, i32 noundef 6) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph206, %.loopexit.sink.split, %112, %.loopexit186, %9, %19

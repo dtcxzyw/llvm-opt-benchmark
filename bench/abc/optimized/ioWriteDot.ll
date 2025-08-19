@@ -325,9 +325,9 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
   br i1 %97, label %86, label %.critedge8, !llvm.loop !36
 
 .critedge8:                                       ; preds = %95, %53, %.critedge4, %.critedge6
-  %.not363641 = phi i1 [ true, %.critedge6 ], [ true, %.critedge4 ], [ true, %53 ], [ false, %95 ]
-  %.0334.lcssa640 = phi i32 [ %.1335, %.critedge6 ], [ 10000, %.critedge4 ], [ 10000, %53 ], [ %.1335, %95 ]
-  %.0349.lcssa639 = phi i32 [ 0, %.critedge6 ], [ 0, %.critedge4 ], [ 0, %53 ], [ %.1350, %95 ]
+  %.not363648 = phi i1 [ true, %.critedge6 ], [ true, %.critedge4 ], [ true, %53 ], [ false, %95 ]
+  %.0334.lcssa647 = phi i32 [ %.1335, %.critedge6 ], [ 10000, %.critedge4 ], [ 10000, %53 ], [ %.1335, %95 ]
+  %.0349.lcssa646 = phi i32 [ 0, %.critedge6 ], [ 0, %.critedge4 ], [ 0, %53 ], [ %.1350, %95 ]
   %.2341 = phi i32 [ %.1340, %.critedge6 ], [ -1, %.critedge4 ], [ -1, %53 ], [ %83, %95 ]
   %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #7
   %fputc = tail call i32 @fputc(i32 10, ptr %18)
@@ -341,7 +341,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
   %105 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 24, i64 1, ptr %18)
   %106 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 26, i64 1, ptr %18)
   %107 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 26, i64 1, ptr %18)
-  %.not365525 = icmp slt i32 %.2341, %.0334.lcssa640
+  %.not365525 = icmp slt i32 %.2341, %.0334.lcssa647
   br i1 %.not365525, label %._crit_edge.thread, label %.lr.ph527
 
 ._crit_edge.thread:                               ; preds = %.critedge8
@@ -356,7 +356,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
   %fputc418 = tail call i32 @fputc(i32 34, ptr %18)
   %111 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 3, i64 1, ptr %18)
   %112 = add nsw i32 %.0346526, -1
-  %.not365.not = icmp sgt i32 %.0346526, %.0334.lcssa640
+  %.not365.not = icmp sgt i32 %.0346526, %.0334.lcssa647
   br i1 %.not365.not, label %.lr.ph527, label %.lr.ph531.preheader, !llvm.loop !37
 
 .lr.ph531.preheader:                              ; preds = %.lr.ph527
@@ -366,7 +366,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
 .lr.ph531:                                        ; preds = %.lr.ph531.preheader, %118
   %.1347529 = phi i32 [ %119, %118 ], [ %.2341, %.lr.ph531.preheader ]
   %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.17, i32 noundef %.1347529) #7
-  %.not415 = icmp eq i32 %.1347529, %.0334.lcssa640
+  %.not415 = icmp eq i32 %.1347529, %.0334.lcssa647
   br i1 %.not415, label %117, label %115
 
 115:                                              ; preds = %.lr.ph531
@@ -379,7 +379,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
 
 118:                                              ; preds = %115, %117
   %119 = add nsw i32 %.1347529, -1
-  %.not366.not = icmp sgt i32 %.1347529, %.0334.lcssa640
+  %.not366.not = icmp sgt i32 %.1347529, %.0334.lcssa647
   br i1 %.not366.not, label %.lr.ph531, label %._crit_edge532, !llvm.loop !38
 
 ._crit_edge532:                                   ; preds = %118, %._crit_edge.thread
@@ -472,7 +472,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
 
 Abc_NtkCountLogicNodes.exit:                      ; preds = %165, %149
   %.0.lcssa.i = phi i32 [ 0, %149 ], [ %.1.i, %165 ]
-  %reass.sub = sub nsw i32 %.2341, %.0334.lcssa640
+  %reass.sub = sub nsw i32 %.2341, %.0334.lcssa647
   %166 = add nsw i32 %reass.sub, 1
   %167 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.42, i32 noundef %.0.lcssa.i, i32 noundef %166) #7
   br label %168
@@ -484,7 +484,7 @@ Abc_NtkCountLogicNodes.exit:                      ; preds = %165, %149
   %fputc374 = tail call i32 @fputc(i32 125, ptr %18)
   %fputc375 = tail call i32 @fputc(i32 10, ptr %18)
   %fputc376 = tail call i32 @fputc(i32 10, ptr %18)
-  br i1 %.not363641, label %212, label %172
+  br i1 %.not363648, label %212, label %172
 
 172:                                              ; preds = %168
   %173 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %18)
@@ -573,8 +573,8 @@ Abc_NtkCountLogicNodes.exit:                      ; preds = %165, %149
   br label %212
 
 212:                                              ; preds = %.critedge10, %168
-  %213 = sub nsw i32 %.2341, %.0349.lcssa639
-  %214 = icmp sge i32 %213, %.0334.lcssa640
+  %213 = sub nsw i32 %.2341, %.0349.lcssa646
+  %214 = icmp sge i32 %213, %.0334.lcssa647
   %215 = icmp sgt i32 %213, 0
   %216 = and i1 %214, %215
   br i1 %216, label %.lr.ph543, label %._crit_edge544
@@ -584,7 +584,7 @@ Abc_NtkCountLogicNodes.exit:                      ; preds = %165, %149
   %218 = icmp ne i32 %4, 0
   %.not406 = icmp eq i32 %6, 0
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %invariant.smax = tail call i32 @llvm.smax.i32(i32 %.0334.lcssa640, i32 1)
+  %invariant.smax = tail call i32 @llvm.smax.i32(i32 %.0334.lcssa647, i32 1)
   br label %220
 
 220:                                              ; preds = %.lr.ph543, %.critedge12
@@ -780,7 +780,7 @@ Abc_NtkPrintSop.exit488:                          ; preds = %258
   br i1 %302, label %220, label %._crit_edge544, !llvm.loop !57
 
 ._crit_edge544:                                   ; preds = %.critedge12, %212
-  %303 = icmp eq i32 %.0334.lcssa640, 0
+  %303 = icmp eq i32 %.0334.lcssa647, 0
   br i1 %303, label %304, label %360
 
 304:                                              ; preds = %._crit_edge544
@@ -864,8 +864,8 @@ Abc_NtkPrintSop.exit488:                          ; preds = %258
   br label %346
 
 346:                                              ; preds = %335, %339
-  %.sink644 = phi ptr [ %345, %339 ], [ %312, %335 ]
-  %347 = call ptr @Abc_ObjName(ptr noundef %.sink644) #7
+  %.sink651 = phi ptr [ %345, %339 ], [ %312, %335 ]
+  %347 = call ptr @Abc_ObjName(ptr noundef %.sink651) #7
   %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.59, i32 noundef %338, ptr noundef %347) #7
   %.val474 = load i32, ptr %313, align 4
   %349 = and i32 %.val474, 15
@@ -1415,9 +1415,9 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
   br i1 %95, label %84, label %.critedge8, !llvm.loop !70
 
 .critedge8:                                       ; preds = %93, %51, %.critedge4, %.critedge6
-  %.not370673 = phi i1 [ true, %.critedge6 ], [ true, %.critedge4 ], [ true, %51 ], [ false, %93 ]
-  %.0351.lcssa672 = phi i32 [ 0, %.critedge6 ], [ 0, %.critedge4 ], [ 0, %51 ], [ %.1352, %93 ]
-  %.0356.lcssa671 = phi i32 [ %.1357, %.critedge6 ], [ 10000, %.critedge4 ], [ 10000, %51 ], [ %.1357, %93 ]
+  %.not370679 = phi i1 [ true, %.critedge6 ], [ true, %.critedge4 ], [ true, %51 ], [ false, %93 ]
+  %.0351.lcssa678 = phi i32 [ 0, %.critedge6 ], [ 0, %.critedge4 ], [ 0, %51 ], [ %.1352, %93 ]
+  %.0356.lcssa677 = phi i32 [ %.1357, %.critedge6 ], [ 10000, %.critedge4 ], [ 10000, %51 ], [ %.1357, %93 ]
   %.2355 = phi i32 [ %.1354, %.critedge6 ], [ -1, %.critedge4 ], [ -1, %51 ], [ %81, %93 ]
   %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #7
   %fputc = tail call i32 @fputc(i32 10, ptr %16)
@@ -1431,7 +1431,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
   %103 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 24, i64 1, ptr %16)
   %104 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 26, i64 1, ptr %16)
   %105 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 26, i64 1, ptr %16)
-  %.not372546 = icmp slt i32 %.2355, %.0356.lcssa671
+  %.not372546 = icmp slt i32 %.2355, %.0356.lcssa677
   br i1 %.not372546, label %._crit_edge.thread, label %.lr.ph548
 
 ._crit_edge.thread:                               ; preds = %.critedge8
@@ -1446,7 +1446,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
   %fputc428 = tail call i32 @fputc(i32 34, ptr %16)
   %109 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 3, i64 1, ptr %16)
   %110 = add nsw i32 %.0348547, -1
-  %.not372.not = icmp sgt i32 %.0348547, %.0356.lcssa671
+  %.not372.not = icmp sgt i32 %.0348547, %.0356.lcssa677
   br i1 %.not372.not, label %.lr.ph548, label %.lr.ph552.preheader, !llvm.loop !71
 
 .lr.ph552.preheader:                              ; preds = %.lr.ph548
@@ -1456,7 +1456,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
 .lr.ph552:                                        ; preds = %.lr.ph552.preheader, %116
   %.1349550 = phi i32 [ %117, %116 ], [ %.2355, %.lr.ph552.preheader ]
   %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %.1349550) #7
-  %.not425 = icmp eq i32 %.1349550, %.0356.lcssa671
+  %.not425 = icmp eq i32 %.1349550, %.0356.lcssa677
   br i1 %.not425, label %115, label %113
 
 113:                                              ; preds = %.lr.ph552
@@ -1469,7 +1469,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
 
 116:                                              ; preds = %113, %115
   %117 = add nsw i32 %.1349550, -1
-  %.not373.not = icmp sgt i32 %.1349550, %.0356.lcssa671
+  %.not373.not = icmp sgt i32 %.1349550, %.0356.lcssa677
   br i1 %.not373.not, label %.lr.ph552, label %._crit_edge553, !llvm.loop !72
 
 ._crit_edge553:                                   ; preds = %116, %._crit_edge.thread
@@ -1562,7 +1562,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
 
 Abc_NtkCountLogicNodes.exit:                      ; preds = %163, %147
   %.0.lcssa.i = phi i32 [ 0, %147 ], [ %.1.i, %163 ]
-  %reass.sub = sub nsw i32 %.2355, %.0356.lcssa671
+  %reass.sub = sub nsw i32 %.2355, %.0356.lcssa677
   %164 = add nsw i32 %reass.sub, 1
   %165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.42, i32 noundef %.0.lcssa.i, i32 noundef %164) #7
   br label %166
@@ -1574,7 +1574,7 @@ Abc_NtkCountLogicNodes.exit:                      ; preds = %163, %147
   %fputc381 = tail call i32 @fputc(i32 125, ptr %16)
   %fputc382 = tail call i32 @fputc(i32 10, ptr %16)
   %fputc383 = tail call i32 @fputc(i32 10, ptr %16)
-  br i1 %.not370673, label %197, label %170
+  br i1 %.not370679, label %197, label %170
 
 170:                                              ; preds = %166
   %171 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %16)
@@ -1635,8 +1635,8 @@ Abc_NtkCountLogicNodes.exit:                      ; preds = %163, %147
   br label %197
 
 197:                                              ; preds = %.critedge10, %166
-  %198 = sub nsw i32 %.2355, %.0351.lcssa672
-  %199 = icmp sge i32 %198, %.0356.lcssa671
+  %198 = sub nsw i32 %.2355, %.0351.lcssa678
+  %199 = icmp sge i32 %198, %.0356.lcssa677
   %200 = icmp sgt i32 %198, 0
   %201 = and i1 %199, %200
   br i1 %201, label %.lr.ph564, label %._crit_edge565
@@ -1644,7 +1644,7 @@ Abc_NtkCountLogicNodes.exit:                      ; preds = %163, %147
 .lr.ph564:                                        ; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %203 = icmp ne i32 %4, 0
-  %invariant.smax = tail call i32 @llvm.smax.i32(i32 %.0356.lcssa671, i32 1)
+  %invariant.smax = tail call i32 @llvm.smax.i32(i32 %.0356.lcssa677, i32 1)
   br label %204
 
 204:                                              ; preds = %.lr.ph564, %.critedge12
@@ -1696,7 +1696,7 @@ Abc_NtkCountLogicNodes.exit:                      ; preds = %163, %147
   br label %250
 
 228:                                              ; preds = %222
-  br i1 %223, label %229, label %.preheader676
+  br i1 %223, label %229, label %.preheader682
 
 229:                                              ; preds = %228
   %230 = tail call ptr @Mio_GateReadSop(ptr noundef %225) #7
@@ -1733,7 +1733,7 @@ Abc_NtkPrintSop.exit:                             ; preds = %231
   store i8 0, ptr %240, align 1, !tbaa !52
   br label %250
 
-.preheader676:                                    ; preds = %228, %247
+.preheader682:                                    ; preds = %228, %247
   %.09.i495 = phi ptr [ %248, %247 ], [ %225, %228 ]
   %.0.i496 = phi ptr [ %.1.i497, %247 ], [ @Abc_NtkPrintSop.Buffer, %228 ]
   %241 = load i8, ptr %.09.i495, align 1, !tbaa !52
@@ -1742,14 +1742,14 @@ Abc_NtkPrintSop.exit:                             ; preds = %231
     i8 10, label %242
   ]
 
-242:                                              ; preds = %.preheader676
+242:                                              ; preds = %.preheader682
   %243 = getelementptr inbounds nuw i8, ptr %.0.i496, i64 1
   store i8 92, ptr %.0.i496, align 1, !tbaa !52
   %244 = getelementptr inbounds nuw i8, ptr %.0.i496, i64 2
   store i8 110, ptr %243, align 1, !tbaa !52
   br label %247
 
-245:                                              ; preds = %.preheader676
+245:                                              ; preds = %.preheader682
   %246 = getelementptr inbounds nuw i8, ptr %.0.i496, i64 1
   store i8 %241, ptr %.0.i496, align 1, !tbaa !52
   br label %247
@@ -1757,9 +1757,9 @@ Abc_NtkPrintSop.exit:                             ; preds = %231
 247:                                              ; preds = %245, %242
   %.1.i497 = phi ptr [ %244, %242 ], [ %246, %245 ]
   %248 = getelementptr inbounds nuw i8, ptr %.09.i495, i64 1
-  br label %.preheader676, !llvm.loop !53
+  br label %.preheader682, !llvm.loop !53
 
-Abc_NtkPrintSop.exit498:                          ; preds = %.preheader676
+Abc_NtkPrintSop.exit498:                          ; preds = %.preheader682
   %249 = getelementptr inbounds i8, ptr %.0.i496, i64 -2
   store i8 0, ptr %249, align 1, !tbaa !52
   br label %250
@@ -1802,7 +1802,7 @@ Abc_NtkPrintSop.exit498:                          ; preds = %.preheader676
   br i1 %267, label %204, label %._crit_edge565, !llvm.loop !75
 
 ._crit_edge565:                                   ; preds = %.critedge12, %197
-  %268 = icmp eq i32 %.0356.lcssa671, 0
+  %268 = icmp eq i32 %.0356.lcssa677, 0
   br i1 %268, label %269, label %309
 
 269:                                              ; preds = %._crit_edge565

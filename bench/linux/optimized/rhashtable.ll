@@ -217,18 +217,18 @@ select.unfold:                                    ; preds = %.loopexit32, %101, 
   %113 = icmp ult i8 %112, 2
   call void @llvm.assume(i1 %113)
   %114 = icmp eq i8 %112, 0
-  br i1 %114, label %.preheader103, label %115, !prof !7
+  br i1 %114, label %.preheader119, label %115, !prof !7
 
 115:                                              ; preds = %.preheader
   %116 = call i64 @llvm.read_register.i64(metadata !0)
   %117 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %116) #15, !srcloc !20
   call void @llvm.write_register.i64(metadata !0, i64 %117)
-  br label %.preheader103
+  br label %.preheader119
 
-.preheader103:                                    ; preds = %115, %.preheader
+.preheader119:                                    ; preds = %115, %.preheader
   br label %118
 
-118:                                              ; preds = %.preheader103, %118
+118:                                              ; preds = %.preheader119, %118
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   %119 = load volatile i64, ptr %105, align 8
   %120 = and i64 %119, 1
@@ -1686,7 +1686,7 @@ define internal i32 @rhashtable_jhash2(ptr noundef readonly captures(none) %0, i
   %50 = phi i32 [ %6, %3 ], [ %40, %.preheader.i ]
   %51 = phi i32 [ %6, %3 ], [ %44, %.preheader.i ]
   %52 = phi i32 [ %6, %3 ], [ %43, %.preheader.i ]
-  switch i32 %48, label %default.unreachable.i [
+  switch i32 %48, label %default.unreachable [
     i32 3, label %53
     i32 2, label %57
     i32 1, label %62
@@ -1734,7 +1734,7 @@ define internal i32 @rhashtable_jhash2(ptr noundef readonly captures(none) %0, i
   %87 = sub i32 %85, %86
   br label %jhash2.exit
 
-default.unreachable.i:                            ; preds = %.loopexit.i
+default.unreachable:                              ; preds = %.loopexit.i
   unreachable
 
 jhash2.exit:                                      ; preds = %.loopexit.i, %62
@@ -2024,18 +2024,18 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %109 = icmp ult i8 %108, 2
   call void @llvm.assume(i1 %109)
   %110 = icmp eq i8 %108, 0
-  br i1 %110, label %.preheader42, label %111, !prof !7
+  br i1 %110, label %.preheader52, label %111, !prof !7
 
 111:                                              ; preds = %.preheader18
   %112 = call i64 @llvm.read_register.i64(metadata !0)
   %113 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %112) #15, !srcloc !20
   call void @llvm.write_register.i64(metadata !0, i64 %113)
-  br label %.preheader42
+  br label %.preheader52
 
-.preheader42:                                     ; preds = %111, %.preheader18
+.preheader52:                                     ; preds = %111, %.preheader18
   br label %114
 
-114:                                              ; preds = %.preheader42, %114
+114:                                              ; preds = %.preheader52, %114
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   %115 = load volatile i64, ptr %101, align 8
   %116 = and i64 %115, 1
@@ -2152,18 +2152,18 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   %185 = icmp ult i8 %184, 2
   call void @llvm.assume(i1 %185)
   %186 = icmp eq i8 %184, 0
-  br i1 %186, label %.preheader41, label %187, !prof !7
+  br i1 %186, label %.preheader51, label %187, !prof !7
 
 187:                                              ; preds = %.preheader15
   %188 = call i64 @llvm.read_register.i64(metadata !0)
   %189 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %188) #15, !srcloc !20
   call void @llvm.write_register.i64(metadata !0, i64 %189)
-  br label %.preheader41
+  br label %.preheader51
 
-.preheader41:                                     ; preds = %187, %.preheader15
+.preheader51:                                     ; preds = %187, %.preheader15
   br label %190
 
-190:                                              ; preds = %.preheader41, %190
+190:                                              ; preds = %.preheader51, %190
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
   %191 = load volatile i64, ptr %179, align 8
   %192 = and i64 %191, 1

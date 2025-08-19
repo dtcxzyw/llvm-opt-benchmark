@@ -640,7 +640,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %14, %17, %21, %25, 
 
 63:                                               ; preds = %60
   %64 = shl nuw i8 %2, 2
-  %65 = add i8 %64, 124
+  %65 = add nuw i8 %64, 124
   %66 = or i8 %65, -128
   store i8 %66, ptr %.0167269, align 1, !tbaa !9
   br label %201
@@ -651,7 +651,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %14, %17, %21, %25, 
 
 69:                                               ; preds = %67
   %70 = shl nuw i8 %2, 2
-  %71 = add i8 %70, 124
+  %71 = add nuw i8 %70, 124
   %72 = or i8 %71, -128
   store i8 %72, ptr %.0167269, align 1, !tbaa !9
   br label %201
@@ -696,7 +696,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %14, %17, %21, %25, 
 94:                                               ; preds = %.thread246, %90, %82
   %.0188 = phi ptr [ %89, %82 ], [ %93, %90 ], [ %4, %.thread246 ]
   %95 = shl nuw i8 %2, 2
-  %96 = add i8 %95, 124
+  %96 = add nuw i8 %95, 124
   %97 = or i8 %96, -128
   store i8 %97, ptr %.0188, align 1, !tbaa !9
   %98 = getelementptr inbounds nuw i8, ptr %.0188, i64 1
@@ -751,7 +751,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %14, %17, %21, %25, 
 132:                                              ; preds = %75, %124
   %.2190 = phi ptr [ %131, %124 ], [ %4, %75 ]
   %133 = shl nuw i8 %2, 2
-  %134 = add i8 %133, 124
+  %134 = add nuw i8 %133, 124
   %135 = or i8 %134, -128
   store i8 %135, ptr %.2190, align 1, !tbaa !9
   %136 = getelementptr inbounds nuw i8, ptr %.2190, i64 1

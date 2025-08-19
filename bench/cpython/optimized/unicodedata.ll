@@ -3746,7 +3746,7 @@ _PyUnicode_DATA.exit:                             ; preds = %11, %13
 
 .preheader.lr.ph.lr.ph.lr.ph:                     ; preds = %.preheader213
   %cond = icmp eq i16 %9, 2
-  %cond295 = icmp eq i16 %9, 2
+  %cond309 = icmp eq i16 %9, 2
   br label %.preheader.lr.ph
 
 .thread:                                          ; preds = %_PyUnicode_DATA.exit, %17
@@ -3793,7 +3793,7 @@ _PyUnicode_DATA.exit:                             ; preds = %11, %13
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr [20 x i64], ptr %4, i64 0, i64 %indvars.iv
   %33 = add nsw i32 %.1119.ph252, -1
-  %34 = sext i32 %33 to i64
+  %34 = zext nneg i32 %33 to i64
   %35 = getelementptr [20 x i64], ptr %4, i64 0, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !45
   store i64 %36, ptr %32, align 8, !tbaa !45
@@ -3870,7 +3870,7 @@ PyUnicode_READ.exit157.thread:                    ; preds = %63
   %67 = getelementptr i32, ptr %.0.i, i64 %52
   %68 = load i32, ptr %67, align 4, !tbaa !26
   %69 = icmp ult i32 %68, 4470
-  br i1 %69, label %.thread291, label %PyUnicode_READ.exit155.thread
+  br i1 %69, label %.thread305, label %PyUnicode_READ.exit155.thread
 
 70:                                               ; preds = %PyUnicode_READ.exit157
   %71 = getelementptr i16, ptr %.0.i, i64 %52
@@ -3878,13 +3878,13 @@ PyUnicode_READ.exit157.thread:                    ; preds = %63
   %73 = zext i16 %72 to i32
   br label %PyUnicode_READ.exit159
 
-.thread291:                                       ; preds = %PyUnicode_READ.exit157.thread
+.thread305:                                       ; preds = %PyUnicode_READ.exit157.thread
   %74 = getelementptr i32, ptr %.0.i, i64 %52
   %75 = load i32, ptr %74, align 4, !tbaa !26
   br label %PyUnicode_READ.exit159
 
-PyUnicode_READ.exit159:                           ; preds = %70, %.thread291
-  %.0.i158 = phi i32 [ %73, %70 ], [ %75, %.thread291 ]
+PyUnicode_READ.exit159:                           ; preds = %70, %.thread305
+  %.0.i158 = phi i32 [ %73, %70 ], [ %75, %.thread305 ]
   %76 = mul nuw nsw i32 %.0.i153, 21
   %77 = add i32 %.0.i158, %76
   %78 = mul i32 %77, 28
@@ -3894,7 +3894,7 @@ PyUnicode_READ.exit159:                           ; preds = %70, %.thread291
   br i1 %81, label %82, label %PyUnicode_READ.exit161.thread
 
 82:                                               ; preds = %PyUnicode_READ.exit159
-  br i1 %cond295, label %83, label %87
+  br i1 %cond309, label %83, label %87
 
 83:                                               ; preds = %82
   %84 = getelementptr i16, ptr %.0.i, i64 %80
@@ -3925,7 +3925,7 @@ PyUnicode_READ.exit163.thread:                    ; preds = %91
   %95 = getelementptr i32, ptr %.0.i, i64 %80
   %96 = load i32, ptr %95, align 4, !tbaa !26
   %97 = icmp ult i32 %96, 4547
-  br i1 %97, label %.thread293, label %PyUnicode_READ.exit161.thread
+  br i1 %97, label %.thread307, label %PyUnicode_READ.exit161.thread
 
 98:                                               ; preds = %PyUnicode_READ.exit163
   %99 = getelementptr i16, ptr %.0.i, i64 %80
@@ -3933,13 +3933,13 @@ PyUnicode_READ.exit163.thread:                    ; preds = %91
   %101 = zext i16 %100 to i32
   br label %PyUnicode_READ.exit165
 
-.thread293:                                       ; preds = %PyUnicode_READ.exit163.thread
+.thread307:                                       ; preds = %PyUnicode_READ.exit163.thread
   %102 = getelementptr i32, ptr %.0.i, i64 %80
   %103 = load i32, ptr %102, align 4, !tbaa !26
   br label %PyUnicode_READ.exit165
 
-PyUnicode_READ.exit165:                           ; preds = %98, %.thread293
-  %.0.i164 = phi i32 [ %101, %98 ], [ %103, %.thread293 ]
+PyUnicode_READ.exit165:                           ; preds = %98, %.thread307
+  %.0.i164 = phi i32 [ %101, %98 ], [ %103, %.thread307 ]
   %104 = add i32 %78, -2644035
   %105 = add i32 %104, %.0.i164
   %106 = add i64 %.1236, 3
@@ -4350,7 +4350,7 @@ PyUnicode_READ.exit:                              ; preds = %30, %34, %38
 
 47:                                               ; preds = %41
   %48 = add i64 %.1133296, 10
-  %49 = add nsw i64 %.2142295, 10
+  %49 = add nuw nsw i64 %.2142295, 10
   %50 = shl i64 %48, 2
   %51 = tail call ptr @PyMem_Realloc(ptr noundef %.1121298, i64 noundef %50) #9
   %.not172 = icmp eq ptr %51, null
@@ -5047,8 +5047,8 @@ define internal range(i32 0, 2) i32 @capi_getcode(ptr noundef readonly captures(
   %.pre.i = load i32, ptr %2, align 4, !tbaa !26
   %7 = add i32 %.pre.i, -983552
   %or.cond.i = icmp ult i32 %7, 461
-  %or.cond10.i = select i1 %.not.i, i1 %or.cond.i, i1 false
-  br i1 %or.cond10.i, label %_check_alias_and_seq.exit, label %8
+  %or.cond11.i = select i1 %.not.i, i1 %or.cond.i, i1 false
+  br i1 %or.cond11.i, label %_check_alias_and_seq.exit, label %8
 
 8:                                                ; preds = %6
   %9 = add i32 %.pre.i, -983040

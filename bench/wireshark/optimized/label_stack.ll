@@ -1543,8 +1543,8 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.thread: 
   %24 = getelementptr i8, ptr %23, i64 %.idx27
   %25 = icmp ne i64 %.idx27, 0
   %26 = icmp ult ptr %23, %24
-  %or.cond31 = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond31, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit
+  %or.cond44 = select i1 %25, i1 %26, i1 false
+  br i1 %or.cond44, label %.lr.ph.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE11needsDetachEv.exit.thread
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1611,8 +1611,8 @@ _ZN10LabelStack10_StackItemC2ERKS0_.exit.i:       ; preds = %49, %_ZN7QStringC2E
   %61 = getelementptr i8, ptr %60, i64 %.idx
   %62 = icmp ne i64 %.idx, 0
   %63 = icmp ult ptr %60, %61
-  %or.cond32 = select i1 %62, i1 %63, i1 false
-  br i1 %or.cond32, label %.lr.ph.i19, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit
+  %or.cond45 = select i1 %62, i1 %63, i1 false
+  br i1 %or.cond45, label %.lr.ph.i19, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit
 
 .lr.ph.i19:                                       ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1869,8 +1869,8 @@ _ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33: 
 
 58:                                               ; preds = %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33.thread, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33
   %59 = phi ptr [ %48, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33.thread ], [ %57, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33 ]
-  %.pr59 = phi ptr [ %39, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.pr59, i64 4
+  %.pr62 = phi ptr [ %39, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE16freeSpaceAtBeginEv.exit33 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.pr62, i64 4
   %61 = load i32, ptr %60, align 4
   br label %_ZNK17QArrayDataPointerIN10LabelStack10_StackItemEE5flagsEv.exit
 

@@ -13,7 +13,7 @@ module asm ".globl _ZSt21ios_base_library_initv"
 @_ZN4leanL32g_basesharedmutex_external_classE = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basemutex_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basemutex_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @_ZN4leanL26g_basemutex_external_classE, align 8, !tbaa !3
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
@@ -58,7 +58,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZL19lean_alloc_ext
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basemutex_lock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basemutex_lock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %.val) #11
@@ -91,7 +91,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZNSt5mutex4lockEv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basemutex_try_lock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_io_basemutex_try_lock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %.val) #11
@@ -118,7 +118,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basemutex_unlock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basemutex_unlock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.val) #11
@@ -143,7 +143,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_condvar_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_condvar_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @_ZN4leanL24g_condvar_external_classE, align 8, !tbaa !3
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #10
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #11
@@ -188,7 +188,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZL19lean_alloc_ext
 declare void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_condvar_wait(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_io_condvar_wait(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_lock", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr i8, ptr %1, i64 16
@@ -270,7 +270,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_condvar_notify_one(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_condvar_notify_one(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %.val) #11
@@ -298,7 +298,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 declare void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_condvar_notify_all(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_condvar_notify_all(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %.val) #11
@@ -326,7 +326,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_baserecmutex_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_baserecmutex_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @_ZN4leanL29g_baserecmutex_external_classE, align 8, !tbaa !3
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
@@ -370,7 +370,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZL19lean_alloc_ext
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_baserecmutex_lock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_baserecmutex_lock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %.val) #11
@@ -403,7 +403,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZNSt15recursive_mu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_baserecmutex_try_lock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_io_baserecmutex_try_lock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %.val) #11
@@ -430,7 +430,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_baserecmutex_unlock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_baserecmutex_unlock(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.val) #11
@@ -455,7 +455,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basesharedmutex_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basesharedmutex_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @_ZN4leanL32g_basesharedmutex_external_classE, align 8, !tbaa !3
   %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
@@ -497,7 +497,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZL19lean_alloc_ext
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basesharedmutex_write(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basesharedmutex_write(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %.val) #11
@@ -530,7 +530,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZNSt18shared_timed
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basesharedmutex_try_write(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basesharedmutex_try_write(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_rwlock_trywrlock(ptr noundef nonnull align 8 dereferenceable(56) %.val) #11
@@ -557,7 +557,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basesharedmutex_unlock_write(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basesharedmutex_unlock_write(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %.val) #11
@@ -582,7 +582,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basesharedmutex_read(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basesharedmutex_read(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   br label %4
@@ -620,7 +620,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZNSt18shared_timed
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basesharedmutex_try_read(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basesharedmutex_try_read(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_rwlock_tryrdlock(ptr noundef nonnull align 8 dereferenceable(56) %.val) #11
@@ -649,7 +649,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_basesharedmutex_unlock_read(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_basesharedmutex_unlock_read(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !12
   %4 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %.val) #11

@@ -2484,7 +2484,7 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
   store i32 %65, ptr %9, align 4
   %66 = load i8, ptr %.014.i, align 1
   %.not.i = icmp eq i8 %66, 0
-  br i1 %.not.i, label %.thread155, label %67
+  br i1 %.not.i, label %.thread161, label %67
 
 67:                                               ; preds = %61
   %68 = call i32 @strncasecmp(ptr noundef nonnull %.014.i, ptr noundef nonnull @.str.131, i64 noundef 6) #21
@@ -2501,13 +2501,13 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
   br i1 %74, label %.sink.split.i, label %_ZL13parseMemLimitPKcRlRiPci.exit.thread.sink.split
 
 .sink.split.i:                                    ; preds = %72, %70
-  %.sink19.i = phi i32 [ 6, %70 ], [ 5, %72 ]
+  %.sink22.i = phi i32 [ 6, %70 ], [ 5, %72 ]
   %.0.ph.i = phi i64 [ %71, %70 ], [ %.015.i, %72 ]
-  %75 = add nsw i32 %.sink19.i, %65
+  %75 = add nsw i32 %.sink22.i, %65
   store i32 %75, ptr %9, align 4
-  br label %.thread155
+  br label %.thread161
 
-.thread155:                                       ; preds = %.sink.split.i, %61
+.thread161:                                       ; preds = %.sink.split.i, %61
   %76 = phi i32 [ %65, %61 ], [ %75, %.sink.split.i ]
   %.0.i = phi i64 [ %.015.i, %61 ], [ %.0.ph.i, %.sink.split.i ]
   store i64 %.0.i, ptr %10, align 8
@@ -2604,7 +2604,7 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit.i:         ; preds = %110, %103
     i32 2, label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
   ]
 
-118:                                              ; preds = %.thread155, %113
+118:                                              ; preds = %.thread161, %113
   store i1 true, ptr @_ZL7any_set, align 1
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
 

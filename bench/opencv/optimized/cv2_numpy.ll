@@ -345,8 +345,8 @@ _ZN2cv10AutoBufferIlLm136EED2Ev.exit:             ; preds = %108, %.loopexit
   %112 = load ptr, ptr %9, align 8, !tbaa !38
   %.not.i.i65 = icmp eq ptr %112, %35
   %113 = icmp eq ptr %112, null
-  %or.cond71 = or i1 %.not.i.i65, %113
-  br i1 %or.cond71, label %_ZN2cv10AutoBufferIlLm136EED2Ev.exit66, label %114
+  %or.cond78 = or i1 %.not.i.i65, %113
+  br i1 %or.cond78, label %_ZN2cv10AutoBufferIlLm136EED2Ev.exit66, label %114
 
 114:                                              ; preds = %.body
   call void @_ZdaPv(ptr noundef nonnull %112) #12

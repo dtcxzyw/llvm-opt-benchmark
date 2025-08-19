@@ -86,10 +86,10 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   br label %51
 
 51:                                               ; preds = %.thread, %41
-  %.in95 = phi ptr [ %44, %41 ], [ %35, %.thread ]
+  %.in97 = phi ptr [ %44, %41 ], [ %35, %.thread ]
   %52 = phi i64 [ %43, %41 ], [ 0, %.thread ]
   %53 = phi i64 [ %50, %41 ], [ 0, %.thread ]
-  %54 = load i64, ptr %.in95, align 8, !tbaa !3
+  %54 = load i64, ptr %.in97, align 8, !tbaa !3
   %55 = mul i64 %53, %54
   %reass.add83 = add i64 %55, %52
   %reass.mul84 = mul i64 %reass.add83, %34
@@ -125,9 +125,9 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   store i64 %76, ptr %77, align 8, !tbaa !3
   %78 = load i64, ptr %71, align 8, !tbaa !3
   %79 = mul i64 %78, %64
-  br i1 %.not, label %.thread93, label %86
+  br i1 %.not, label %.thread95, label %86
 
-.thread93:                                        ; preds = %68
+.thread95:                                        ; preds = %68
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %81 = load i64, ptr %80, align 8, !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -150,10 +150,10 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %95 = load i64, ptr %3, align 8, !tbaa !3
   br label %96
 
-96:                                               ; preds = %.thread93, %86
-  %.in = phi ptr [ %89, %86 ], [ %80, %.thread93 ]
-  %97 = phi i64 [ %88, %86 ], [ 0, %.thread93 ]
-  %98 = phi i64 [ %95, %86 ], [ 0, %.thread93 ]
+96:                                               ; preds = %.thread95, %86
+  %.in = phi ptr [ %89, %86 ], [ %80, %.thread95 ]
+  %97 = phi i64 [ %88, %86 ], [ 0, %.thread95 ]
+  %98 = phi i64 [ %95, %86 ], [ 0, %.thread95 ]
   %99 = load i64, ptr %.in, align 8, !tbaa !3
   %100 = mul i64 %98, %99
   %reass.add = add i64 %100, %97
@@ -186,8 +186,8 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %115 = load i64, ptr %108, align 8, !tbaa !3
   %116 = mul i64 %115, %.08085.us
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, -1
-  %.not97 = icmp eq i64 %indvars.iv90, 0
-  br i1 %.not97, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !7
+  %.not99 = icmp eq i64 %indvars.iv90, 0
+  br i1 %.not99, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %106, %.lr.ph ]
@@ -209,8 +209,8 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %129 = mul i64 %128, %126
   %130 = add i64 %129, %.187
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not96 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not96, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
+  %.not98 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not98, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %103, %96, %51, %23
   %.0 = phi i64 [ %26, %23 ], [ %56, %51 ], [ %102, %96 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
@@ -1017,8 +1017,8 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %209 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %210 = load i64, ptr %209, align 8
   %211 = icmp eq i64 %210, 1
-  %or.cond232 = select i1 %208, i1 %211, i1 false
-  br i1 %or.cond232, label %212, label %.loopexit
+  %or.cond253 = select i1 %208, i1 %211, i1 false
+  br i1 %or.cond253, label %212, label %.loopexit
 
 212:                                              ; preds = %205
   %213 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1043,8 +1043,8 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %225 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %226 = load i64, ptr %225, align 16
   %227 = icmp eq i64 %226, 1
-  %or.cond235 = select i1 %224, i1 %227, i1 false
-  br i1 %or.cond235, label %228, label %.loopexit
+  %or.cond256 = select i1 %224, i1 %227, i1 false
+  br i1 %or.cond256, label %228, label %.loopexit
 
 228:                                              ; preds = %221
   %229 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1087,8 +1087,8 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %254 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %255 = load i64, ptr %254, align 8
   %256 = icmp eq i64 %255, 1
-  %or.cond238 = select i1 %253, i1 %256, i1 false
-  br i1 %or.cond238, label %257, label %.loopexit
+  %or.cond259 = select i1 %253, i1 %256, i1 false
+  br i1 %or.cond259, label %257, label %.loopexit
 
 257:                                              ; preds = %250
   %258 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1178,9 +1178,9 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
 .critedge.sink.split.i:                           ; preds = %200, %281, %239, %212
   %.0126171 = phi i64 [ %.0126172, %212 ], [ %.0126177, %239 ], [ %.0126182, %281 ], [ %.1.lcssa, %200 ]
   %.0127168 = phi i64 [ %.0127169, %212 ], [ %.0127176, %239 ], [ %.0127181, %281 ], [ %.1128.lcssa, %200 ]
-  %.sink152.i = phi i64 [ %214, %212 ], [ %247, %239 ], [ %289, %281 ], [ 1, %200 ]
+  %.sink163.i = phi i64 [ %214, %212 ], [ %247, %239 ], [ %289, %281 ], [ 1, %200 ]
   %315 = load i64, ptr %10, align 16, !tbaa !3
-  %316 = mul i64 %315, %.sink152.i
+  %316 = mul i64 %315, %.sink163.i
   br label %.loopexit198
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph212, %.lr.ph.i.preheader, %200, %212, %205, %239, %228, %221, %281, %268, %257, %250

@@ -3141,10 +3141,10 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %116, %146
-  %.ph31 = phi i32 [ %148, %146 ], [ 10000, %116 ]
-  %.ph32 = phi i32 [ %144, %146 ], [ %124, %116 ]
+  %.ph46 = phi i32 [ %148, %146 ], [ 10000, %116 ]
+  %.ph47 = phi i32 [ %144, %146 ], [ %124, %116 ]
   %125 = tail call i64 @local_clock() #11
-  %126 = sext i32 %.ph31 to i64
+  %126 = sext i32 %.ph46 to i64
   br label %127
 
 127:                                              ; preds = %.sink.split, %143
@@ -3180,12 +3180,12 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !81
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !89
   %144 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !90
-  %145 = icmp eq i32 %.ph32, %144
+  %145 = icmp eq i32 %.ph47, %144
   br i1 %145, label %127, label %146, !prof !6
 
 146:                                              ; preds = %143
   %147 = trunc i64 %141 to i32
-  %148 = sub i32 %.ph31, %147
+  %148 = sub i32 %.ph46, %147
   br label %.sink.split
 
 149:                                              ; preds = %140
@@ -3345,16 +3345,16 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !81
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !95
   %257 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !96
-  br label %.sink.split33
+  br label %.sink.split48
 
-.sink.split33:                                    ; preds = %249, %279
-  %.ph34 = phi i32 [ %281, %279 ], [ 8000, %249 ]
-  %.ph35 = phi i32 [ %277, %279 ], [ %257, %249 ]
+.sink.split48:                                    ; preds = %249, %279
+  %.ph49 = phi i32 [ %281, %279 ], [ 8000, %249 ]
+  %.ph50 = phi i32 [ %277, %279 ], [ %257, %249 ]
   %258 = tail call i64 @local_clock() #11
-  %259 = sext i32 %.ph34 to i64
+  %259 = sext i32 %.ph49 to i64
   br label %260
 
-260:                                              ; preds = %.sink.split33, %276
+260:                                              ; preds = %.sink.split48, %276
   %261 = tail call i64 @local_clock() #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !97
   %262 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !85
@@ -3387,13 +3387,13 @@ define internal void @gen11_dsi_post_disable(ptr readnone captures(none) %0, ptr
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !81
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !100
   %277 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !101
-  %278 = icmp eq i32 %.ph35, %277
+  %278 = icmp eq i32 %.ph50, %277
   br i1 %278, label %260, label %279, !prof !6
 
 279:                                              ; preds = %276
   %280 = trunc i64 %274 to i32
-  %281 = sub i32 %.ph34, %280
-  br label %.sink.split33
+  %281 = sub i32 %.ph49, %280
+  br label %.sink.split48
 
 282:                                              ; preds = %273
   br i1 %240, label %285, label %283

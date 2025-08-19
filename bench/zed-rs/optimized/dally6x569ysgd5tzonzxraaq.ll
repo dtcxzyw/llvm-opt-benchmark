@@ -2625,10 +2625,10 @@ _ZN10async_task5utils14abort_on_panic17hadf41289fbf8b161E.exit: ; preds = %28
   br label %109
 
 109:                                              ; preds = %107, %103, %99
-  %.sink255 = phi ptr [ null, %107 ], [ %104, %103 ], [ null, %99 ]
+  %.sink264 = phi ptr [ null, %107 ], [ %104, %103 ], [ null, %99 ]
   %.sink = phi ptr [ %108, %107 ], [ %105, %103 ], [ %100, %99 ]
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink255, ptr %110, align 8
+  store ptr %.sink264, ptr %110, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -3344,8 +3344,8 @@ _ZN10async_task5utils14abort_on_panic17h143dc6267dc6c99bE.exit: ; preds = %26
 34:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx307 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %.sroa.2.0..sroa_idx307, align 8
+  %.sroa.2.0..sroa_idx316 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %10, ptr %.sroa.2.0..sroa_idx316, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -4410,10 +4410,10 @@ _ZN10async_task5utils14abort_on_panic17hc8b53c725b8385b1E.exit: ; preds = %28
   br label %110
 
 110:                                              ; preds = %108, %104, %100
-  %.sink252 = phi ptr [ null, %108 ], [ %105, %104 ], [ null, %100 ]
+  %.sink261 = phi ptr [ null, %108 ], [ %105, %104 ], [ null, %100 ]
   %.sink = phi ptr [ %109, %108 ], [ %106, %104 ], [ %101, %100 ]
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink252, ptr %111, align 8
+  store ptr %.sink261, ptr %111, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -5542,8 +5542,8 @@ _ZN10async_task5utils14abort_on_panic17h3afc85d18d79f7a8E.exit: ; preds = %163, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h27bcf293860e1615E.exit.i126": ; preds = %272, %276, %234, %214, %.body.i138, %182, %.body162
   %.pn90 = phi { ptr, i32 } [ %266, %.body162 ], [ %183, %182 ], [ %179, %.body.i138 ], [ %215, %214 ], [ %235, %234 ], [ %266, %276 ], [ %273, %272 ]
   %174 = load i64, ptr %10, align 8, !range !1251, !noundef !11
-  %.not273 = icmp eq i64 %174, -9223372036854775804
-  br i1 %.not273, label %common.resume, label %279
+  %.not278 = icmp eq i64 %174, -9223372036854775804
+  br i1 %.not278, label %common.resume, label %279
 
 175:                                              ; preds = %.body.i121
   invoke fastcc void @"_ZN4core3ptr349drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..executor..Task$LT$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h85f8002c2597b5e7E"(ptr noalias noundef align 8 dereferenceable(24) %8) #17
@@ -8165,8 +8165,8 @@ _ZN10async_task5utils14abort_on_panic17h21bc3587c514febdE.exit: ; preds = %165, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h27bcf293860e1615E.exit.i122": ; preds = %274, %278, %236, %216, %181, %185, %.body157
   %.pn85 = phi { ptr, i32 } [ %268, %.body157 ], [ %186, %185 ], [ %182, %181 ], [ %217, %216 ], [ %237, %236 ], [ %268, %278 ], [ %275, %274 ]
   %176 = load i64, ptr %10, align 8, !range !1865, !noundef !11
-  %.not269 = icmp eq i64 %176, 2
-  br i1 %.not269, label %common.resume, label %281
+  %.not274 = icmp eq i64 %176, 2
+  br i1 %.not274, label %common.resume, label %281
 
 177:                                              ; preds = %111
   invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h71288b91b0617b5cE"(ptr noalias noundef align 8 dereferenceable(24) %8) #17
@@ -8634,8 +8634,8 @@ _ZN10async_task5utils14abort_on_panic17hd1f5377b6f9ac588E.exit: ; preds = %26
 33:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx310 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %.sroa.2.0..sroa_idx310, align 8
+  %.sroa.2.0..sroa_idx319 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %10, ptr %.sroa.2.0..sroa_idx319, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -9930,8 +9930,8 @@ _ZN10async_task5utils14abort_on_panic17h0394b142b520a079E.exit: ; preds = %164, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h27bcf293860e1615E.exit.i125": ; preds = %273, %277, %235, %215, %180, %184, %.body160
   %.pn90 = phi { ptr, i32 } [ %267, %.body160 ], [ %185, %184 ], [ %181, %180 ], [ %216, %215 ], [ %236, %235 ], [ %267, %277 ], [ %274, %273 ]
   %175 = load i64, ptr %10, align 8, !range !1251, !noundef !11
-  %.not271 = icmp eq i64 %175, -9223372036854775804
-  br i1 %.not271, label %common.resume, label %280
+  %.not276 = icmp eq i64 %175, -9223372036854775804
+  br i1 %.not276, label %common.resume, label %280
 
 176:                                              ; preds = %110
   invoke fastcc void @"_ZN4core3ptr349drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$gpui..executor..Task$LT$alloc..vec..Vec$LT$core..option..Option$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$GT$$GT$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h85f8002c2597b5e7E"(ptr noalias noundef align 8 dereferenceable(24) %8) #17
@@ -10825,8 +10825,8 @@ _ZN10async_task5utils14abort_on_panic17h8f9e3fd8bc068e86E.exit: ; preds = %164, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h27bcf293860e1615E.exit.i123": ; preds = %273, %277, %235, %215, %.body.i135, %183, %.body159
   %.pn85 = phi { ptr, i32 } [ %267, %.body159 ], [ %184, %183 ], [ %180, %.body.i135 ], [ %216, %215 ], [ %236, %235 ], [ %267, %277 ], [ %274, %273 ]
   %175 = load i64, ptr %10, align 8, !range !1865, !noundef !11
-  %.not271 = icmp eq i64 %175, 2
-  br i1 %.not271, label %common.resume, label %280
+  %.not276 = icmp eq i64 %175, 2
+  br i1 %.not276, label %common.resume, label %280
 
 176:                                              ; preds = %.body.i118
   invoke fastcc void @"_ZN4core3ptr226drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h71288b91b0617b5cE"(ptr noalias noundef align 8 dereferenceable(24) %8) #17

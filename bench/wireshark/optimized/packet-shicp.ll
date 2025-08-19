@@ -505,10 +505,10 @@ switch.lookup:                                    ; preds = %.lr.ph
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_shicp, i64 0, i64 %160
   %switch.load = load ptr, ptr %switch.gep, align 8
   %161 = zext nneg i8 %154 to i64
-  %switch.gep240 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.dissect_shicp.1, i64 0, i64 %161
-  %switch.load241 = load i32, ptr %switch.gep240, align 4
+  %switch.gep245 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.dissect_shicp.1, i64 0, i64 %161
+  %switch.load246 = load i32, ptr %switch.gep245, align 4
   %162 = load i32, ptr %switch.load, align 4
-  %163 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %162, ptr noundef %0, i32 noundef %158, i32 noundef %157, i32 noundef %switch.load241)
+  %163 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %162, ptr noundef %0, i32 noundef %158, i32 noundef %157, i32 noundef %switch.load246)
   br label %164
 
 164:                                              ; preds = %.lr.ph, %switch.lookup

@@ -4336,21 +4336,21 @@ lean_dec.exit:                                    ; preds = %271, %270, %268, %l
   br i1 %.not, label %._crit_edge, label %29
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit87
-  %.sink226 = phi ptr [ %208, %lean_dec.exit87 ], [ %272, %lean_dec.exit ]
+  %.sink263 = phi ptr [ %208, %lean_dec.exit87 ], [ %272, %lean_dec.exit ]
   %.sink = phi i32 [ 16908312, %lean_dec.exit87 ], [ 131096, %lean_dec.exit ]
   %.072.lcssa.sink = phi ptr [ %182, %lean_dec.exit87 ], [ %.072.lcssa, %lean_dec.exit ]
   %.075.lcssa.sink = phi ptr [ %184, %lean_dec.exit87 ], [ %.075.lcssa, %lean_dec.exit ]
-  %277 = getelementptr inbounds nuw i8, ptr %.sink226, i64 4
-  store i32 1, ptr %.sink226, align 4, !tbaa !8
+  %277 = getelementptr inbounds nuw i8, ptr %.sink263, i64 4
+  store i32 1, ptr %.sink263, align 4, !tbaa !8
   store i32 %.sink, ptr %277, align 4
-  %278 = getelementptr inbounds nuw i8, ptr %.sink226, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %.sink263, i64 8
   store ptr %.072.lcssa.sink, ptr %278, align 8, !tbaa !4
-  %279 = getelementptr inbounds nuw i8, ptr %.sink226, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %.sink263, i64 16
   store ptr %.075.lcssa.sink, ptr %279, align 8, !tbaa !4
   br label %280
 
 280:                                              ; preds = %.sink.split, %lean_dec.exit88
-  %.3.ph = phi ptr [ %91, %lean_dec.exit88 ], [ %.sink226, %.sink.split ]
+  %.3.ph = phi ptr [ %91, %lean_dec.exit88 ], [ %.sink263, %.sink.split ]
   ret ptr %.3.ph
 }
 
@@ -8485,21 +8485,21 @@ lean_dec.exit:                                    ; preds = %198, %197, %195, %l
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit67, %lean_dec.exit68
-  %.sink154 = phi ptr [ %102, %lean_dec.exit68 ], [ %134, %lean_dec.exit67 ], [ %199, %lean_dec.exit ]
-  %.sink151 = phi i32 [ 131096, %lean_dec.exit68 ], [ 16908312, %lean_dec.exit67 ], [ 16908312, %lean_dec.exit ]
-  %.sink148 = phi ptr [ %76, %lean_dec.exit68 ], [ %108, %lean_dec.exit67 ], [ %173, %lean_dec.exit ]
+  %.sink171 = phi ptr [ %102, %lean_dec.exit68 ], [ %134, %lean_dec.exit67 ], [ %199, %lean_dec.exit ]
+  %.sink168 = phi i32 [ 131096, %lean_dec.exit68 ], [ 16908312, %lean_dec.exit67 ], [ 16908312, %lean_dec.exit ]
+  %.sink165 = phi ptr [ %76, %lean_dec.exit68 ], [ %108, %lean_dec.exit67 ], [ %173, %lean_dec.exit ]
   %.sink = phi ptr [ %78, %lean_dec.exit68 ], [ %110, %lean_dec.exit67 ], [ %175, %lean_dec.exit ]
-  %202 = getelementptr inbounds nuw i8, ptr %.sink154, i64 4
-  store i32 1, ptr %.sink154, align 4, !tbaa !8
-  store i32 %.sink151, ptr %202, align 4
-  %203 = getelementptr inbounds nuw i8, ptr %.sink154, i64 8
-  store ptr %.sink148, ptr %203, align 8, !tbaa !4
-  %204 = getelementptr inbounds nuw i8, ptr %.sink154, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %.sink171, i64 4
+  store i32 1, ptr %.sink171, align 4, !tbaa !8
+  store i32 %.sink168, ptr %202, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %.sink171, i64 8
+  store ptr %.sink165, ptr %203, align 8, !tbaa !4
+  %204 = getelementptr inbounds nuw i8, ptr %.sink171, i64 16
   store ptr %.sink, ptr %204, align 8, !tbaa !4
   br label %205
 
 205:                                              ; preds = %.sink.split, %lean_dec.exit63, %73, %105
-  %.3 = phi ptr [ %62, %73 ], [ %62, %105 ], [ %24, %lean_dec.exit63 ], [ %.sink154, %.sink.split ]
+  %.3 = phi ptr [ %62, %73 ], [ %62, %105 ], [ %24, %lean_dec.exit63 ], [ %.sink171, %.sink.split ]
   ret ptr %.3
 }
 
@@ -8540,7 +8540,7 @@ lean_dec.exit:                                    ; preds = %16, %15, %13, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Mutual_addPreDefAttributes___spec__1(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Mutual_addPreDefAttributes___spec__1(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %.not59 = icmp ult i64 %4, %3
   br i1 %.not59, label %.lr.ph, label %._crit_edge
 
@@ -8730,7 +8730,7 @@ lean_inc.exit:                                    ; preds = %65, %64, %62, %lean
 declare ptr @l_Lean_Meta_markAsRecursive(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Mutual_addPreDefAttributes___spec__2(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Mutual_addPreDefAttributes___spec__2(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %.not70 = icmp ult i64 %4, %3
   br i1 %.not70, label %.lr.ph, label %.._crit_edge_crit_edge
 
@@ -12050,21 +12050,21 @@ lean_dec.exit200:                                 ; preds = %lean_inc.exit222, %
   br i1 %exitcond.not, label %._crit_edge, label %83
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit191, %lean_dec.exit213
-  %.sink533 = phi ptr [ %80, %lean_dec.exit213 ], [ %422, %lean_dec.exit191 ], [ %511, %lean_dec.exit ]
+  %.sink605 = phi ptr [ %80, %lean_dec.exit213 ], [ %422, %lean_dec.exit191 ], [ %511, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit213 ], [ 16908312, %lean_dec.exit191 ], [ 16908312, %lean_dec.exit ]
   %.0157.lcssa.sink = phi ptr [ %.0157.lcssa, %lean_dec.exit213 ], [ %396, %lean_dec.exit191 ], [ %485, %lean_dec.exit ]
   %.0163.lcssa.sink = phi ptr [ %.0163.lcssa, %lean_dec.exit213 ], [ %398, %lean_dec.exit191 ], [ %487, %lean_dec.exit ]
-  %514 = getelementptr inbounds nuw i8, ptr %.sink533, i64 4
-  store i32 1, ptr %.sink533, align 4, !tbaa !8
+  %514 = getelementptr inbounds nuw i8, ptr %.sink605, i64 4
+  store i32 1, ptr %.sink605, align 4, !tbaa !8
   store i32 %.sink, ptr %514, align 4
-  %515 = getelementptr inbounds nuw i8, ptr %.sink533, i64 8
+  %515 = getelementptr inbounds nuw i8, ptr %.sink605, i64 8
   store ptr %.0157.lcssa.sink, ptr %515, align 8, !tbaa !4
-  %516 = getelementptr inbounds nuw i8, ptr %.sink533, i64 16
+  %516 = getelementptr inbounds nuw i8, ptr %.sink605, i64 16
   store ptr %.0163.lcssa.sink, ptr %516, align 8, !tbaa !4
   br label %517
 
 517:                                              ; preds = %.sink.split, %lean_dec.exit192, %lean_dec.exit183
-  %.1.ph = phi ptr [ %143, %lean_dec.exit183 ], [ %220, %lean_dec.exit192 ], [ %.sink533, %.sink.split ]
+  %.1.ph = phi ptr [ %143, %lean_dec.exit183 ], [ %220, %lean_dec.exit192 ], [ %.sink605, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -12504,7 +12504,7 @@ lean_alloc_ctor.exit130:                          ; preds = %lean_dec.exit
 declare ptr @l_Array_reverse___rarg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Mutual_addPreDefAttributes___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Mutual_addPreDefAttributes___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = getelementptr i8, ptr %3, i64 8
   %.val56 = load i64, ptr %14, align 8, !tbaa !12
   %15 = ptrtoint ptr %3 to i64
@@ -12778,7 +12778,7 @@ lean_dec.exit:                                    ; preds = %115, %114, %112, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Mutual_addPreDefAttributes___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Mutual_addPreDefAttributes___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = getelementptr i8, ptr %3, i64 8
   %.val52 = load i64, ptr %14, align 8, !tbaa !12
   %15 = ptrtoint ptr %3 to i64
@@ -13621,18 +13621,18 @@ _init_l_Lean_setReducibilityStatus___at_Lean_Elab_Mutual_addPreDefAttributes___s
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_setReducibilityStatus___at_Lean_Elab_Mutual_addPreDefAttributes___spec__3___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %63, %_init_l_Lean_setReducibilityStatus___at_Lean_Elab_Mutual_addPreDefAttributes___spec__3___closed__1.exit ]
-  %66 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink16 = phi ptr [ %4, %3 ], [ %63, %_init_l_Lean_setReducibilityStatus___at_Lean_Elab_Mutual_addPreDefAttributes___spec__3___closed__1.exit ]
+  %66 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !8
   store i32 131096, ptr %66, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %67, align 8, !tbaa !4
-  %68 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %68, align 8, !tbaa !4
   br label %69
 
 69:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink16, %.sink.split ]
   ret ptr %.0
 }
 

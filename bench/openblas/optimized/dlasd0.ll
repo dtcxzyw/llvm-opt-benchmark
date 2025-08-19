@@ -85,9 +85,9 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not, label %52, label %.thread
 
 .thread.sink.split:                               ; preds = %47, %44, %38
-  %.sink262 = phi i32 [ -6, %38 ], [ -8, %44 ], [ -9, %47 ]
+  %.sink269 = phi i32 [ -6, %38 ], [ -8, %44 ], [ -9, %47 ]
   %.neg.ph = phi i32 [ 6, %38 ], [ 8, %44 ], [ 9, %47 ]
-  store i32 %.sink262, ptr %11, align 4, !tbaa !3
+  store i32 %.sink269, ptr %11, align 4, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %50
@@ -227,13 +227,13 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %125 = sext i32 %124 to i64
   %126 = add nuw i32 %123, 1
   %wide.trip.count241 = zext i32 %126 to i64
-  %invariant.gep260 = getelementptr i32, ptr %33, i64 %125
+  %invariant.gep267 = getelementptr i32, ptr %33, i64 %125
   br label %.lr.ph220
 
 .lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
   %indvars.iv238 = phi i64 [ 1, %.lr.ph220.preheader ], [ %indvars.iv.next239, %.lr.ph220 ]
-  %gep261 = getelementptr i32, ptr %invariant.gep260, i64 %indvars.iv238
-  %127 = getelementptr i8, ptr %gep261, i64 -4
+  %gep268 = getelementptr i32, ptr %invariant.gep267, i64 %indvars.iv238
+  %127 = getelementptr i8, ptr %gep268, i64 -4
   %128 = trunc nuw nsw i64 %indvars.iv238 to i32
   store i32 %128, ptr %127, align 4, !tbaa !3
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
@@ -251,11 +251,11 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %130, label %.lr.ph234, label %.loopexit
 
 .lr.ph234:                                        ; preds = %._crit_edge226
-  %131 = shl i32 %39, 1
+  %131 = shl nuw i32 %39, 1
   %132 = add i32 %27, 1
   %133 = add i32 %30, 1
-  %134 = sext i32 %58 to i64
-  %135 = getelementptr inbounds i32, ptr %33, i64 %134
+  %134 = zext nneg i32 %58 to i64
+  %135 = getelementptr inbounds nuw i32, ptr %33, i64 %134
   %136 = zext nneg i32 %129 to i64
   br label %137
 
@@ -270,7 +270,7 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not32.i = icmp eq i64 %141, 0
   %142 = select i1 %.not32.i, i32 1, i32 2
   %.not3133.i = icmp ult i64 %indvars.iv249, 3
-  br i1 %.not3133.i, label %.loopexit257, label %.lr.ph.i
+  br i1 %.not3133.i, label %.loopexit264, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %139, %.lr.ph.i
   %spec.select36.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ %142, %139 ]
@@ -283,19 +283,19 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %146 = select i1 %.not.i, i32 1, i32 %144
   %spec.select.i = mul nuw nsw i32 %146, %spec.select36.i
   %.not31.i = icmp samesign ult i64 %.035.i, 4
-  br i1 %.not31.i, label %.loopexit257, label %.lr.ph.i
+  br i1 %.not31.i, label %.loopexit264, label %.lr.ph.i
 
-.loopexit257:                                     ; preds = %.lr.ph.i, %139
+.loopexit264:                                     ; preds = %.lr.ph.i, %139
   %spec.select.lcssa.i = phi i32 [ %142, %139 ], [ %spec.select.i, %.lr.ph.i ]
   %147 = shl i32 %spec.select.lcssa.i, 1
   %148 = add nsw i32 %147, -1
   %.not201227.not = icmp slt i32 %spec.select.lcssa.i, %147
   br i1 %.not201227.not, label %.lr.ph230.preheader, label %._crit_edge231
 
-.lr.ph230.preheader:                              ; preds = %137, %.loopexit257
-  %149 = phi i32 [ %148, %.loopexit257 ], [ 1, %137 ]
-  %.0191256 = phi i32 [ %spec.select.lcssa.i, %.loopexit257 ], [ 1, %137 ]
-  %150 = sext i32 %.0191256 to i64
+.lr.ph230.preheader:                              ; preds = %137, %.loopexit264
+  %149 = phi i32 [ %148, %.loopexit264 ], [ 1, %137 ]
+  %.0191263 = phi i32 [ %spec.select.lcssa.i, %.loopexit264 ], [ 1, %137 ]
+  %150 = sext i32 %.0191263 to i64
   %sext = sext i32 %149 to i64
   br label %.lr.ph230
 
@@ -350,7 +350,7 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not202 = icmp eq i32 %184, 0
   br i1 %.not202, label %151, label %.loopexit
 
-._crit_edge231:                                   ; preds = %151, %.loopexit257
+._crit_edge231:                                   ; preds = %151, %.loopexit264
   %indvars.iv.next250 = add nsw i64 %indvars.iv249, -1
   %185 = icmp sgt i64 %indvars.iv249, 1
   br i1 %185, label %137, label %.loopexit, !llvm.loop !14

@@ -586,11 +586,11 @@ define internal fastcc range(i32 0, 2) i32 @commview_ncf_read_packet(ptr noundef
   br label %48
 
 48:                                               ; preds = %47, %46, %41, %36, %31, %27, %22
-  %.sink98 = phi i1 [ true, %47 ], [ false, %46 ], [ true, %41 ], [ false, %36 ], [ true, %31 ], [ true, %27 ], [ false, %22 ]
+  %.sink100 = phi i1 [ true, %47 ], [ false, %46 ], [ true, %41 ], [ false, %36 ], [ true, %31 ], [ true, %27 ], [ false, %22 ]
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %50 = load i8, ptr %49, align 4
   %51 = zext i8 %50 to i32
-  %52 = call i32 @ieee80211_chan_to_mhz(i32 noundef %51, i1 noundef zeroext %.sink98)
+  %52 = call i32 @ieee80211_chan_to_mhz(i32 noundef %51, i1 noundef zeroext %.sink100)
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %.thread, label %53
 

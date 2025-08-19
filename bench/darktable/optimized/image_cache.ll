@@ -729,15 +729,15 @@ dt_get_debug_wtime.exit:                          ; preds = %16, %18
   %34 = load i32, ptr %33, align 4, !tbaa !89
   %35 = icmp slt i32 %34, 4
   %. = select i1 %35, i64 1372, i64 1376
-  %.191 = select i1 %35, i64 1376, i64 1372
+  %.198 = select i1 %35, i64 1376, i64 1372
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %.
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.191
-  %.sink188.in = load i32, ptr %36, align 4, !tbaa !121
-  %.sink188 = sitofp i32 %.sink188.in to float
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.198
+  %.sink195.in = load i32, ptr %36, align 4, !tbaa !121
+  %.sink195 = sitofp i32 %.sink195.in to float
   %.sink = load i32, ptr %37, align 4, !tbaa !121
   %spec.select186 = tail call i32 @llvm.smax.i32(i32 %.sink, i32 1)
   %spec.select = uitofp nneg i32 %spec.select186 to float
-  %38 = fdiv reassoc nsz arcp contract afn float %.sink188, %spec.select
+  %38 = fdiv reassoc nsz arcp contract afn float %.sink195, %spec.select
   store float %38, ptr %29, align 4, !tbaa !102
   br label %39
 

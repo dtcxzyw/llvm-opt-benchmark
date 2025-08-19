@@ -328,7 +328,7 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   br label %.critedge
 
 .thread.thread:                                   ; preds = %34, %.preheader, %.thread
-  %.05673 = phi i32 [ %30, %.thread ], [ 1, %.preheader ], [ 1, %34 ]
+  %.05680 = phi i32 [ %30, %.thread ], [ 1, %.preheader ], [ 1, %34 ]
   %40 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04266) #11
   %.not53 = icmp eq ptr %40, null
   br i1 %.not53, label %45, label %41
@@ -336,7 +336,7 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
 41:                                               ; preds = %.thread.thread
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
-  %44 = add i32 %43, %.05673
+  %44 = add i32 %43, %.05680
   store i32 %44, ptr %42, align 8
   br label %49
 
@@ -345,7 +345,7 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   %47 = call ptr @xstrdup(ptr noundef nonnull %.04266) #11
   store ptr %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i32 %.05673, ptr %48, align 8
+  store i32 %.05680, ptr %48, align 8
   call void @list_push(ptr noundef %11, ptr noundef nonnull %46) #11
   br label %49
 
@@ -543,11 +543,11 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   br label %.outer
 
 .outer:                                           ; preds = %.split.us.thread, %.split.us
-  %.us-phi61 = phi ptr [ %21, %.split.us ], [ %32, %.split.us.thread ]
+  %.us-phi70 = phi ptr [ %21, %.split.us ], [ %32, %.split.us.thread ]
   %.1 = phi ptr [ %37, %.split.us ], [ %.028.ph50, %.split.us.thread ]
-  %38 = getelementptr inbounds nuw i8, ptr %.us-phi61, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %.us-phi70, i64 12
   store i32 0, ptr %38, align 4
-  tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi61) #11
+  tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi70) #11
   %39 = tail call ptr @list_next(ptr noundef %18) #11
   %.not3646 = icmp eq ptr %39, null
   br i1 %.not3646, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -2970,8 +2970,8 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = tail call ptr @list_next(ptr noundef %7) #11
-  %.not3549 = icmp eq ptr %10, null
-  br i1 %.not3549, label %.thread, label %.lr.ph
+  %.not3556 = icmp eq ptr %10, null
+  br i1 %.not3556, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.backedge
   %11 = phi ptr [ %30, %.backedge ], [ %10, %6 ]

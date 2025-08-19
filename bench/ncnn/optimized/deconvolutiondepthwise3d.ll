@@ -1176,10 +1176,10 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %110, %125, %126, %1
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %108, %_ZN4ncnn3Mat7releaseEv.exit.i, %4, %96
-  %.sink73 = phi i64 [ 16, %96 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %108 ]
+  %.sink91 = phi i64 [ 16, %96 ], [ 16, %4 ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %108 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %148 = load i32, ptr %147, align 8, !tbaa !18
-  %149 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink73
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink91
   %150 = load ptr, ptr %149, align 8, !tbaa !66
   invoke void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %51, i32 noundef %59, i32 noundef %67, i32 noundef %148, i64 noundef %22, ptr noundef %150)
           to label %151 unwind label %106
@@ -1284,8 +1284,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
   %reass.add.i = sub i32 %197, %196
   %reass.mul.i = mul i32 %reass.add.i, %179
   %199 = icmp sgt i32 %162, 0
-  %or.cond96.i = and i1 %199, %198
-  br i1 %or.cond96.i, label %.preheader66.us.us.i, label %._crit_edge.i
+  %or.cond101.i = and i1 %199, %198
+  br i1 %or.cond101.i, label %.preheader66.us.us.i, label %._crit_edge.i
 
 .preheader66.us.us.i:                             ; preds = %.preheader66.lr.ph.i, %._crit_edge74.split.us.us.us.i
   %.05380.us.us.i = phi i32 [ %208, %._crit_edge74.split.us.us.us.i ], [ 0, %.preheader66.lr.ph.i ]
@@ -1551,8 +1551,8 @@ define hidden void @_ZNK4ncnn24DeconvolutionDepthWise3D11cut_paddingERKNS_3MatER
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 252
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !44
   %8 = icmp sgt i32 %.pre, 0
-  %or.cond49 = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond49, label %._crit_edge, label %9
+  %or.cond63 = select i1 %7, i1 true, i1 %8
+  br i1 %or.cond63, label %._crit_edge, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1856,7 +1856,7 @@ define internal void @_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_ii
   %wide.trip.count181 = zext nneg i32 %71 to i64
   %wide.trip.count176 = zext nneg i32 %70 to i64
   %wide.trip.count187 = zext nneg i32 %78 to i64
-  %brmerge196 = select i1 %73, i1 true, i1 %74
+  %brmerge209 = select i1 %73, i1 true, i1 %74
   br label %.noexc97
 
 .noexc97:                                         ; preds = %.noexc97.lr.ph, %_ZN4ncnn3MatD2Ev.exit
@@ -1888,7 +1888,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %.noexc97, %88
   br i1 %exitcond.not, label %_ZN4ncnn3Mat4fillEf.exit, label %.lr.ph, !llvm.loop !85
 
 _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3Mat5emptyEv.exit.thread
-  br i1 %brmerge196, label %._crit_edge153, label %.preheader140.us
+  br i1 %brmerge209, label %._crit_edge153, label %.preheader140.us
 
 .preheader140.us:                                 ; preds = %_ZN4ncnn3Mat4fillEf.exit, %._crit_edge.us
   %.076152.us = phi i32 [ %102, %._crit_edge.us ], [ 0, %_ZN4ncnn3Mat4fillEf.exit ]
@@ -1913,14 +1913,14 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   %104 = load i32, ptr %9, align 4
   %105 = sext i32 %103 to i64
   %106 = sext i32 %104 to i64
-  %factor.op.mul193 = mul i64 %76, %106
+  %factor.op.mul206 = mul i64 %76, %106
   %wide.trip.count = zext nneg i32 %100 to i64
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us.preheader, %._crit_edge146.split.us.us.us.us
   %indvars.iv178 = phi i64 [ 0, %.preheader.us.us.us.preheader ], [ %indvars.iv.next179, %._crit_edge146.split.us.us.us.us ]
-  %.reass194 = mul i64 %indvars.iv178, %factor.op.mul193
-  %107 = getelementptr inbounds nuw i8, ptr %98, i64 %.reass194
+  %.reass207 = mul i64 %indvars.iv178, %factor.op.mul206
+  %107 = getelementptr inbounds nuw i8, ptr %98, i64 %.reass207
   %108 = trunc nuw nsw i64 %indvars.iv178 to i32
   %reass.add.us.us.us = add i32 %99, %108
   %reass.mul.us.us.us = mul i32 %reass.add.us.us.us, %70
@@ -2184,7 +2184,7 @@ define internal void @_ZN4ncnnL24deconvolutiondepthwise3dERKNS_3MatERS0_S2_S2_ii
   %wide.trip.count245 = zext nneg i32 %74 to i64
   %wide.trip.count240 = zext nneg i32 %72 to i64
   %wide.trip.count255 = zext nneg i32 %84 to i64
-  %brmerge261 = select i1 %77, i1 true, i1 %78
+  %brmerge275 = select i1 %77, i1 true, i1 %78
   br label %.noexc119
 
 .noexc119:                                        ; preds = %.noexc119.lr.ph, %_ZN4ncnn3MatD2Ev.exit
@@ -2223,7 +2223,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %.noexc119, %97
   br i1 %exitcond.not, label %_ZN4ncnn3Mat4fillEf.exit, label %.lr.ph, !llvm.loop !85
 
 _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3Mat5emptyEv.exit.thread
-  br i1 %brmerge261, label %._crit_edge, label %.preheader185.us
+  br i1 %brmerge275, label %._crit_edge, label %.preheader185.us
 
 .preheader185.us:                                 ; preds = %_ZN4ncnn3Mat4fillEf.exit, %._crit_edge203.us
   %indvars.iv247 = phi i64 [ %indvars.iv.next248, %._crit_edge203.us ], [ 0, %_ZN4ncnn3Mat4fillEf.exit ]
@@ -2249,7 +2249,7 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   %119 = sext i32 %116 to i64
   %120 = sext i32 %117 to i64
   %121 = sext i32 %118 to i64
-  %factor.op.mul258 = mul i64 %80, %121
+  %factor.op.mul272 = mul i64 %80, %121
   %wide.trip.count235 = zext nneg i32 %110 to i64
   br label %.preheader.us.us
 
@@ -2260,8 +2260,8 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.us.us
   %indvars.iv242 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next243, %._crit_edge.us.us ]
-  %.reass259 = mul i64 %indvars.iv242, %factor.op.mul258
-  %122 = getelementptr inbounds nuw i8, ptr %108, i64 %.reass259
+  %.reass273 = mul i64 %indvars.iv242, %factor.op.mul272
+  %122 = getelementptr inbounds nuw i8, ptr %108, i64 %.reass273
   %123 = load i32, ptr %71, align 4
   %124 = load i32, ptr %73, align 8
   %125 = load ptr, ptr %9, align 8
@@ -2279,8 +2279,8 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   %134 = load i32, ptr %6, align 4
   %135 = sext i32 %134 to i64
   %136 = icmp sgt i32 %134, 0
-  %or.cond262 = select i1 %115, i1 %136, i1 false
-  br i1 %or.cond262, label %_ZN4ncnn3MatD2Ev.exit98.us.us.us.us.preheader, label %._crit_edge.us.us
+  %or.cond276 = select i1 %115, i1 %136, i1 false
+  br i1 %or.cond276, label %_ZN4ncnn3MatD2Ev.exit98.us.us.us.us.preheader, label %._crit_edge.us.us
 
 ._crit_edge.us.us:                                ; preds = %._crit_edge192.split.us.us.us.us.us, %.preheader.us.us
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1

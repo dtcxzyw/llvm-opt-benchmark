@@ -6865,7 +6865,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
   br i1 %18, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %16, %._crit_edge
-  %.0.lcssa35 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %10, %16 ]
+  %.0.lcssa36 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %10, %16 ]
   %19 = icmp eq i64 %10, 50
   br i1 %19, label %40, label %20
 
@@ -6875,8 +6875,8 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.0.lcssa34 = phi i64 [ %.0.lcssa35, %20 ], [ %.0.lcssa, %._crit_edge ]
-  %23 = getelementptr [50 x %struct._mtp3_stat_t], ptr %0, i64 0, i64 %.0.lcssa34
+  %.0.lcssa35 = phi i64 [ %.0.lcssa36, %20 ], [ %.0.lcssa, %._crit_edge ]
+  %23 = getelementptr [50 x %struct._mtp3_stat_t], ptr %0, i64 0, i64 %.0.lcssa35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(12) %23, ptr noundef align 4 dereferenceable(12) %3, i64 12, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %24, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)

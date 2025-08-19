@@ -1004,7 +1004,7 @@ define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %0, ptr nound
   br label %56
 
 50:                                               ; preds = %43
-  %51 = sub i32 %16, %39
+  %51 = sub nsw i32 %16, %39
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.lr.ph.preheader, label %.loopexit
 

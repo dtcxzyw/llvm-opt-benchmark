@@ -1434,10 +1434,10 @@ define hidden void @IntArgbToFourByteAbgrPreXorBlit(ptr noundef %0, ptr noundef 
   br label %54
 
 54:                                               ; preds = %27, %29
-  %.sink79 = phi i32 [ %53, %29 ], [ %25, %27 ]
-  %.sink78 = phi i32 [ %35, %29 ], [ 255, %27 ]
-  %55 = shl i32 %.sink79, 8
-  %56 = or disjoint i32 %55, %.sink78
+  %.sink82 = phi i32 [ %53, %29 ], [ %25, %27 ]
+  %.sink81 = phi i32 [ %35, %29 ], [ 255, %27 ]
+  %55 = shl i32 %.sink82, 8
+  %56 = or disjoint i32 %55, %.sink81
   %57 = xor i32 %56, %10
   %58 = and i32 %57, %21
   %59 = load i8, ptr %.167, align 1
@@ -4974,10 +4974,10 @@ define hidden i32 @PixelForFourByteAbgrPre(ptr noundef readnone captures(none) %
   br label %29
 
 29:                                               ; preds = %2, %4
-  %.sink20 = phi i32 [ %28, %4 ], [ %1, %2 ]
-  %.sink19 = phi i32 [ %10, %4 ], [ 255, %2 ]
-  %30 = shl i32 %.sink20, 8
-  %31 = or disjoint i32 %30, %.sink19
+  %.sink21 = phi i32 [ %28, %4 ], [ %1, %2 ]
+  %.sink20 = phi i32 [ %10, %4 ], [ 255, %2 ]
+  %30 = shl i32 %.sink21, 8
+  %31 = or disjoint i32 %30, %.sink20
   ret i32 %31
 }
 

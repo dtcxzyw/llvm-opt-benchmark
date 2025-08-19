@@ -194,20 +194,20 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.2108
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit.thread": ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.2108000528430856095.exit
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %14 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h760adea334ff5eb8E.llvm.5675496289134165373(ptr noundef nonnull align 1 %13, i8 noundef 0), !noalias !23
-  %.not.not23 = icmp eq i8 %14, 0
-  br i1 %.not.not23, label %.critedge, label %.thread26
+  %.not.not24 = icmp eq i8 %14, 0
+  br i1 %.not.not24, label %.critedge, label %.thread27
 
 15:                                               ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit"
-  br i1 %9, label %.thread26, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.i.i.i.i
+  br i1 %9, label %.thread27, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.i.i.i.i
 
-.thread26:                                        ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit.thread", %15
+.thread27:                                        ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit.thread", %15
   %16 = phi ptr [ %11, %15 ], [ %13, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit.thread" ]
   %17 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h155ab6d3614f883eE.llvm.3847999990672408200(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0), !noalias !26
   %18 = and i64 %17, 9223372036854775807
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.i.i.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i.i
 
-_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i.i: ; preds = %.thread26
+_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i.i: ; preds = %.thread27
   %20 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E(), !noalias !26
   br i1 %20, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.i.i.i.i, label %21
 
@@ -215,7 +215,7 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.384799999
   tail call void @_ZN4core4sync6atomic12atomic_store17hf5fbb9bc39beba93E.llvm.3847999990672408200(ptr noundef nonnull align 1 %16, i8 noundef 1, i8 noundef 0), !noalias !26
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.i.i.i.i
 
-_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.i.i.i.i: ; preds = %21, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i.i, %.thread26, %15
+_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.i.i.i.i: ; preds = %21, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.3847999990672408200.exit.i.i.i.i.i, %.thread27, %15
   %22 = atomicrmw xchg ptr %3, i32 0 release, align 4, !noalias !37
   %23 = icmp eq i32 %22, 2
   br i1 %23, label %"_ZN4core3ptr109drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..collections..vec_deque..VecDeque$LT$usize$GT$$GT$$GT$17h2157da996947234aE.llvm.2108000528430856095.exit.sink.split.i", label %.thread
@@ -226,7 +226,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.
 
 .critedge:                                        ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit.thread", %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit"
   %24 = phi ptr [ %13, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit.thread" ], [ %11, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit" ]
-  %.0.i.i.i25 = phi i1 [ false, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit.thread" ], [ %10, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit" ]
+  %.0.i.i.i26 = phi i1 [ false, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit.thread" ], [ %10, %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hf018ef3f554a5c3dE.exit" ]
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = load i64, ptr %25, align 8, !noundef !4
   %27 = icmp ult i64 %26, 2
@@ -253,7 +253,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.3847999990672408200.exit.
 
 40:                                               ; preds = %28, %.critedge
   %.sroa.3.0.i = phi i64 [ undef, %.critedge ], [ %39, %28 ]
-  br i1 %.0.i.i.i25, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2108000528430856095.exit.i.i.i11, label %41
+  br i1 %.0.i.i.i26, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.2108000528430856095.exit.i.i.i11, label %41
 
 41:                                               ; preds = %40
   %42 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8, !noalias !45
@@ -377,10 +377,10 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.210800052
   %37 = icmp eq ptr %36, null
   %38 = extractvalue { ptr, i64 } %32, 1
   %spec.select = select i1 %37, ptr @anon.4546acaf7eac7bd177d8f828934a5776.15, ptr %36
-  %spec.select19 = select i1 %37, i64 9, i64 %38
+  %spec.select20 = select i1 %37, i64 9, i64 %38
   store ptr %spec.select, ptr %2, align 8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %spec.select19, ptr %39, align 8
+  store i64 %spec.select20, ptr %39, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @anon.4546acaf7eac7bd177d8f828934a5776.7, ptr %1, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8

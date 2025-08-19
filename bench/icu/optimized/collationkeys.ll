@@ -1369,10 +1369,10 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit520: ; preds = %278, %283, %269
   br label %_ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split.sink.split.sink.split
 
 _ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split.sink.split.sink.split: ; preds = %315, %._crit_edge.i526, %299, %._crit_edge.i522
-  %.sink1061 = phi i32 [ %.pre.i523, %._crit_edge.i522 ], [ %300, %299 ], [ %.pre.i527, %._crit_edge.i526 ], [ %316, %315 ]
+  %.sink1193 = phi i32 [ %.pre.i523, %._crit_edge.i522 ], [ %300, %299 ], [ %.pre.i527, %._crit_edge.i526 ], [ %316, %315 ]
   %.sink = phi i8 [ 3, %._crit_edge.i522 ], [ 3, %299 ], [ -1, %._crit_edge.i526 ], [ -1, %315 ]
   %324 = load ptr, ptr %63, align 8, !tbaa !19
-  %325 = sext i32 %.sink1061 to i64
+  %325 = sext i32 %.sink1193 to i64
   %326 = getelementptr inbounds i8, ptr %324, i64 %325
   store i8 %.sink, ptr %326, align 1, !tbaa !47
   br label %_ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split.sink.split
@@ -1384,11 +1384,11 @@ _ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split.sink.split: ; preds = 
   br label %_ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split
 
 _ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split: ; preds = %_ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split.sink.split, %289, %292
-  %.pr1043 = load i32, ptr %60, align 8, !tbaa !15
+  %.pr1175 = load i32, ptr %60, align 8, !tbaa !15
   br label %_ZN6icu_7715SortKeyByteSink6AppendEj.exit
 
 _ZN6icu_7715SortKeyByteSink6AppendEj.exit:        ; preds = %_ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split, %313, %297
-  %329 = phi i32 [ %.pr1043, %_ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split ], [ %314, %313 ], [ %298, %297 ]
+  %329 = phi i32 [ %.pr1175, %_ZN6icu_7715SortKeyByteSink6AppendEj.exitthread-pre-split ], [ %314, %313 ], [ %298, %297 ]
   %330 = icmp sgt i32 %329, 0
   br i1 %330, label %331, label %333
 
@@ -3532,11 +3532,11 @@ _ZN6icu_7712_GLOBAL__N_112SortKeyLevel14appendWeight16Ej.exit741: ; preds = %116
 
 1182:                                             ; preds = %1175
   %1183 = icmp eq i32 %1176, 256
-  %brmerge.not1064 = and i1 %29, %1183
+  %brmerge.not1196 = and i1 %29, %1183
   %.val446 = load i32, ptr %53, align 8
   %.not926 = icmp eq i32 %.val446, 0
-  %or.cond1057 = select i1 %brmerge.not1064, i1 %.not926, i1 false
-  br i1 %or.cond1057, label %1184, label %1202
+  %or.cond1189 = select i1 %brmerge.not1196, i1 %.not926, i1 false
+  br i1 %or.cond1189, label %1184, label %1202
 
 1184:                                             ; preds = %1182
   %1185 = load i32, ptr %51, align 8, !tbaa !33

@@ -809,9 +809,9 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread.us: ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.us, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread.us
   %.not.i49.us = icmp ne i64 %.sroa.066.0.copyload.us130, %.sroa.096.0.copyload
   %.not.i.i.i57.us = icmp ne i64 %.sroa.368.0.copyload.us132, %.sroa.598.0.copyload
-  %or.cond112.us.not152 = select i1 %.not.i49.us, i1 true, i1 %.not.i.i.i57.us
-  %brmerge = select i1 %or.cond112.us.not152, i1 true, i1 %.not.not.i.i.i.i.i.i.i58.us
-  %not.or.cond112.us.not152 = xor i1 %or.cond112.us.not152, true
+  %or.cond112.us.not153 = select i1 %.not.i49.us, i1 true, i1 %.not.i.i.i57.us
+  %brmerge = select i1 %or.cond112.us.not153, i1 true, i1 %.not.not.i.i.i.i.i.i.i58.us
+  %not.or.cond112.us.not153 = xor i1 %or.cond112.us.not153, true
   br i1 %brmerge, label %17, label %16
 
 16:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread.us
@@ -820,7 +820,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
   br label %17
 
 17:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread.us, %16
-  %.0.i50.us = phi i1 [ %not.or.cond112.us.not152, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread.us ], [ %.not9.i.i.i.i.i.i.i60.us, %16 ]
+  %.0.i50.us = phi i1 [ %not.or.cond112.us.not153, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread.us ], [ %.not9.i.i.i.i.i.i.i60.us, %16 ]
   %18 = icmp eq ptr %.029.us127, null
   %or.cond.not.us = select i1 %.0.i50.us, i1 %18, i1 false
   %spec.select.us = select i1 %or.cond.not.us, ptr %14, ptr %.029.us127
@@ -882,10 +882,10 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread: ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48
   %.not.i49 = icmp ne i64 %.sroa.066.0.copyload, %.sroa.096.0.copyload
   %.not.i.i.i57 = icmp ne i64 %.sroa.368.0.copyload, %.sroa.598.0.copyload
-  %or.cond112.not151 = select i1 %.not.i49, i1 true, i1 %.not.i.i.i57
-  %brmerge149 = select i1 %or.cond112.not151, i1 true, i1 %.not.not.i.i.i.i.i.i.i58
-  %not.or.cond112.not151 = xor i1 %or.cond112.not151, true
-  br i1 %brmerge149, label %29, label %28
+  %or.cond112.not152 = select i1 %.not.i49, i1 true, i1 %.not.i.i.i57
+  %brmerge150 = select i1 %or.cond112.not152, i1 true, i1 %.not.not.i.i.i.i.i.i.i58
+  %not.or.cond112.not152 = xor i1 %or.cond112.not152, true
+  br i1 %brmerge150, label %29, label %28
 
 28:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread
   %bcmp.i.i.i.i.i.i.i59 = tail call i32 @bcmp(ptr %.sroa.267.0.copyload, ptr %.sroa.497.0.copyload, i64 %.sroa.598.0.copyload)
@@ -893,7 +893,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.
   br label %29
 
 29:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread, %28
-  %.0.i50 = phi i1 [ %not.or.cond112.not151, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread ], [ %.not9.i.i.i.i.i.i.i60, %28 ]
+  %.0.i50 = phi i1 [ %not.or.cond112.not152, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit48.thread ], [ %.not9.i.i.i.i.i.i.i60, %28 ]
   %30 = icmp eq ptr %.029, null
   %or.cond.not = select i1 %.0.i50, i1 %30, i1 false
   %spec.select = select i1 %or.cond.not, ptr %25, ptr %.029

@@ -2312,18 +2312,18 @@ _init_l_Lean_Compiler_LCNF_instHashableDecl___closed__1.exit: ; preds = %_init_l
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Compiler_LCNF_instHashableDecl___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %34, %_init_l_Lean_Compiler_LCNF_instHashableDecl___closed__1.exit ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink14 = phi ptr [ %4, %3 ], [ %34, %_init_l_Lean_Compiler_LCNF_instHashableDecl___closed__1.exit ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  store i32 1, ptr %.sink14, align 4, !tbaa !8
   store i32 131096, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %38, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %39, align 8, !tbaa !4
   br label %40
 
 40:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink14, %.sink.split ]
   ret ptr %.0
 }
 

@@ -490,22 +490,22 @@ define dso_local range(i32 -2, 1) i32 @unpack_trees(i32 noundef %0, ptr noundef 
   br i1 %43, label %46, label %48
 
 46:                                               ; preds = %41
-  br i1 %.not153, label %.thread285, label %47
+  br i1 %.not153, label %.thread300, label %47
 
 47:                                               ; preds = %46
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.27, i32 noundef 1916, ptr noundef nonnull @.str.34) #19
   unreachable
 
 48:                                               ; preds = %41
-  br i1 %.not153, label %.thread285, label %49
+  br i1 %.not153, label %.thread300, label %49
 
-.thread285:                                       ; preds = %46, %48
+.thread300:                                       ; preds = %46, %48
   store ptr %7, ptr %19, align 8, !tbaa !41
   store i32 1, ptr %7, align 8, !tbaa !61
   call void @setup_standard_excludes(ptr noundef nonnull %7) #17
   br label %49
 
-49:                                               ; preds = %.thread285, %48
+49:                                               ; preds = %.thread300, %48
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !70
   %.not155 = icmp eq ptr %51, null
@@ -609,15 +609,15 @@ update_sparsity_for_prefix.exit:                  ; preds = %52, %90
 91:                                               ; preds = %update_sparsity_for_prefix.exit, %49
   %92 = load i32, ptr @core_apply_sparse_checkout, align 4, !tbaa !4
   %.not156 = icmp eq i32 %92, 0
-  br i1 %.not156, label %.thread287, label %93
+  br i1 %.not156, label %.thread302, label %93
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !77
   %.not157 = icmp eq i32 %95, 0
-  br i1 %.not157, label %.thread287, label %98
+  br i1 %.not157, label %.thread302, label %98
 
-.thread287:                                       ; preds = %91, %93
+.thread302:                                       ; preds = %91, %93
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 1, ptr %96, align 4, !tbaa !78
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -644,9 +644,9 @@ update_sparsity_for_prefix.exit:                  ; preds = %52, %90
   store ptr %6, ptr %23, align 8, !tbaa !42
   br label %populate_from_existing_patterns.exit
 
-populate_from_existing_patterns.exit:             ; preds = %.thread287, %105, %104, %98
-  %106 = phi ptr [ %97, %.thread287 ], [ %100, %105 ], [ %100, %104 ], [ %100, %98 ]
-  %.not158.not289 = phi i1 [ false, %.thread287 ], [ true, %105 ], [ true, %104 ], [ false, %98 ]
+populate_from_existing_patterns.exit:             ; preds = %.thread302, %105, %104, %98
+  %106 = phi ptr [ %97, %.thread302 ], [ %100, %105 ], [ %100, %104 ], [ %100, %98 ]
+  %.not158.not304 = phi i1 [ false, %.thread302 ], [ true, %105 ], [ true, %104 ], [ false, %98 ]
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 848
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %109 = load ptr, ptr %108, align 8, !tbaa !58
@@ -1198,7 +1198,7 @@ verify_absent.exit.thread:                        ; preds = %336, %verify_absent
 
 unpack_failed.exit:                               ; preds = %320, %317, %314, %358, %mark_all_ce_unused.exit236, %377
   %.0137 = phi i32 [ %351, %377 ], [ %spec.store.select, %mark_all_ce_unused.exit236 ], [ -1, %358 ], [ -1, %314 ], [ -1, %317 ], [ -1, %320 ]
-  br i1 %.not158.not289, label %378, label %379
+  br i1 %.not158.not304, label %378, label %379
 
 378:                                              ; preds = %unpack_failed.exit
   call void @clear_pattern_list(ptr noundef nonnull %6) #17
@@ -1841,9 +1841,9 @@ compare_entry.exit.thread153:                     ; preds = %139, %compare_entry
 177:                                              ; preds = %._crit_edge, %traverse_path_len.exit.i
   %.pre-phi = phi i64 [ %.pre207, %._crit_edge ], [ %165, %traverse_path_len.exit.i ]
   %178 = phi i32 [ %.pre, %._crit_edge ], [ %164, %traverse_path_len.exit.i ]
-  %.val1728.i = phi i64 [ %.val17.pre.i, %._crit_edge ], [ %.val16.i, %traverse_path_len.exit.i ]
-  %.pre-phi27.i = phi i64 [ %.pre.i, %._crit_edge ], [ %159, %traverse_path_len.exit.i ]
-  %179 = add i64 %.pre-phi27.i, %.val1728.i
+  %.val1734.i = phi i64 [ %.val17.pre.i, %._crit_edge ], [ %.val16.i, %traverse_path_len.exit.i ]
+  %.pre-phi33.i = phi i64 [ %.pre.i, %._crit_edge ], [ %159, %traverse_path_len.exit.i ]
+  %179 = add i64 %.pre-phi33.i, %.val1734.i
   %.not168 = icmp ult i64 %179, %.pre-phi
   br i1 %.not168, label %unpack_failed.exit.thread, label %.thread157
 
@@ -4296,8 +4296,8 @@ same.exit:                                        ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %43, ptr noundef nonnull readonly dereferenceable(32) %44, i64 32)
   %.not.i.i.not = icmp eq i32 %bcmp.i.i, 0
-  %brmerge376 = or i1 %.not.i.i.not, %9
-  br i1 %brmerge376, label %.thread297, label %.lr.ph336
+  %brmerge384 = or i1 %.not.i.i.not, %9
+  br i1 %brmerge384, label %.thread297, label %.lr.ph336
 
 .preheader328:                                    ; preds = %._crit_edge, %30, %37
   br i1 %9, label %.thread297, label %.lr.ph336
@@ -4652,9 +4652,9 @@ same.exit274.thread:                              ; preds = %193, %186, %.thread
   %brmerge232 = or i1 %26, %brmerge
   %.mux = select i1 %27, ptr %spec.select, ptr %.0195
   %.mux.mux = select i1 %.not214, ptr %20, ptr %.mux
-  %brmerge378 = or i1 %brmerge232, %9
+  %brmerge386 = or i1 %brmerge232, %9
   %.mux.mux.mux = select i1 %brmerge232, ptr %.mux.mux, ptr null
-  br i1 %brmerge378, label %.loopexit327, label %.lr.ph341.preheader
+  br i1 %brmerge386, label %.loopexit327, label %.lr.ph341.preheader
 
 .lr.ph341.preheader:                              ; preds = %208
   %wide.trip.count359 = zext nneg i32 %4 to i64
@@ -6647,8 +6647,8 @@ entry_is_new_sparse_dir.exit:                     ; preds = %58
 
 ._crit_edge.thread:                               ; preds = %.critedge
   %107 = load i32, ptr %10, align 8, !tbaa !119
-  %.not87124 = icmp eq i32 %107, 0
-  br i1 %.not87124, label %.loopexit, label %110
+  %.not87134 = icmp eq i32 %107, 0
+  br i1 %.not87134, label %.loopexit, label %110
 
 .lr.ph113:                                        ; preds = %._crit_edge
   %108 = getelementptr inbounds nuw i8, ptr %10, i64 112

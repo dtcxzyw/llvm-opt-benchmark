@@ -745,9 +745,9 @@ use_merged_upsample.exit:                         ; preds = %453
   br label %use_merged_upsample.exit.thread
 
 use_merged_upsample.exit.thread:                  ; preds = %use_merged_upsample.exit, %.loopexit, %413, %410, %422, %419, %416, %424, %423, %445, %442, %438, %435, %432, %.thread.i, %453, %448, %458
-  %.sink82 = phi i32 [ %460, %458 ], [ 1, %448 ], [ 1, %453 ], [ 1, %.thread.i ], [ 1, %432 ], [ 1, %435 ], [ 1, %438 ], [ 1, %442 ], [ 1, %445 ], [ 1, %423 ], [ 1, %424 ], [ 1, %416 ], [ 1, %419 ], [ 1, %422 ], [ 1, %410 ], [ 1, %413 ], [ 1, %.loopexit ], [ 1, %use_merged_upsample.exit ]
+  %.sink89 = phi i32 [ %460, %458 ], [ 1, %448 ], [ 1, %453 ], [ 1, %.thread.i ], [ 1, %432 ], [ 1, %435 ], [ 1, %438 ], [ 1, %442 ], [ 1, %445 ], [ 1, %423 ], [ 1, %424 ], [ 1, %416 ], [ 1, %419 ], [ 1, %422 ], [ 1, %410 ], [ 1, %413 ], [ 1, %.loopexit ], [ 1, %use_merged_upsample.exit ]
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %.sink82, ptr %461, align 8, !tbaa !69
+  store i32 %.sink89, ptr %461, align 8, !tbaa !69
   ret void
 }
 

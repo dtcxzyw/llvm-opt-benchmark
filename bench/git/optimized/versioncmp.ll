@@ -103,8 +103,8 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %45, label %47, label %.sink.split
 
 .sink.split:                                      ; preds = %44, %.thread
-  %.sink95 = phi ptr [ %3, %.thread ], [ %.mux, %44 ]
-  %46 = load ptr, ptr %.sink95, align 8, !tbaa !12
+  %.sink105 = phi ptr [ %3, %.thread ], [ %.mux, %44 ]
+  %46 = load ptr, ptr %.sink105, align 8, !tbaa !12
   store ptr %46, ptr @prereleases, align 8, !tbaa !12
   br label %47
 

@@ -576,12 +576,12 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %6
   %29 = icmp samesign ugt i32 %24, 9997
   %.pre.i = load i32, ptr %23, align 8
   %spec.select.i = select i1 %29, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %29, i32 609, i32 %24
+  %spec.select6.i = select i1 %29, i32 609, i32 %24
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %26, %_ZNK7LIR_Opr4typeEv.exit
   %30 = phi i32 [ %24, %_ZNK7LIR_Opr4typeEv.exit ], [ %spec.select.i, %26 ]
-  %.0.i3 = phi i32 [ %24, %_ZNK7LIR_Opr4typeEv.exit ], [ %spec.select5.i, %26 ]
+  %.0.i3 = phi i32 [ %24, %_ZNK7LIR_Opr4typeEv.exit ], [ %spec.select6.i, %26 ]
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %23, align 8
   %switch.tableidx6 = add i8 %.0.i, -6
@@ -630,12 +630,12 @@ define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator12new_reg
   %9 = icmp samesign ugt i32 %4, 9997
   %.pre = load i32, ptr %3, align 8
   %spec.select = select i1 %9, i32 609, i32 %.pre
-  %spec.select5 = select i1 %9, i32 609, i32 %4
+  %spec.select6 = select i1 %9, i32 609, i32 %4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %2
   %10 = phi i32 [ %4, %2 ], [ %spec.select, %6 ]
-  %.0 = phi i32 [ %4, %2 ], [ %spec.select5, %6 ]
+  %.0 = phi i32 [ %4, %2 ], [ %spec.select6, %6 ]
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %3, align 8
   %switch.tableidx = add i8 %1, -6
@@ -1333,11 +1333,11 @@ _ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_
 
 _ZNK17GrowableArrayViewIP11ResolveNodeE8containsERKS1_.exit.sink.split: ; preds = %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit18, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit
   %.sink = phi i32 [ %90, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %135, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit18 ]
-  %.sink27.in = phi ptr [ %92, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %137, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit18 ]
+  %.sink36.in = phi ptr [ %92, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %137, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit18 ]
   %.0.sink = phi ptr [ %.0, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0.i.i.i13, %_ZN26GrowableArrayWithAllocatorIP11ResolveNode13GrowableArrayIS1_EE6appendERKS1_.exit18 ]
-  %.sink27 = load ptr, ptr %.sink27.in, align 8
+  %.sink36 = load ptr, ptr %.sink36.in, align 8
   %138 = sext i32 %.sink to i64
-  %139 = getelementptr inbounds ptr, ptr %.sink27, i64 %138
+  %139 = getelementptr inbounds ptr, ptr %.sink36, i64 %138
   store ptr %.0.sink, ptr %139, align 8
   br label %_ZNK17GrowableArrayViewIP11ResolveNodeE8containsERKS1_.exit
 
@@ -1435,12 +1435,12 @@ define hidden void @_ZN7LIRItem9load_itemEv(ptr noundef nonnull align 8 derefere
   %25 = icmp samesign ugt i32 %20, 9997
   %.pre.i.i = load i32, ptr %19, align 8
   %spec.select.i.i = select i1 %25, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %25, i32 609, i32 %20
+  %spec.select6.i.i = select i1 %25, i32 609, i32 %20
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %22, %12
   %26 = phi i32 [ %20, %12 ], [ %spec.select.i.i, %22 ]
-  %.0.i.i = phi i32 [ %20, %12 ], [ %spec.select5.i.i, %22 ]
+  %.0.i.i = phi i32 [ %20, %12 ], [ %spec.select6.i.i, %22 ]
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %19, align 8
   %switch.tableidx = add i8 %18, -6
@@ -1541,12 +1541,12 @@ define linkonce_odr hidden i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8
   %27 = icmp samesign ugt i32 %22, 9997
   %.pre.i.i = load i32, ptr %21, align 8
   %spec.select.i.i = select i1 %27, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %27, i32 609, i32 %22
+  %spec.select6.i.i = select i1 %27, i32 609, i32 %22
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %24, %14
   %28 = phi i32 [ %22, %14 ], [ %spec.select.i.i, %24 ]
-  %.0.i.i = phi i32 [ %22, %14 ], [ %spec.select5.i.i, %24 ]
+  %.0.i.i = phi i32 [ %22, %14 ], [ %spec.select6.i.i, %24 ]
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %21, align 8
   %switch.tableidx = add i8 %20, -6
@@ -1708,9 +1708,9 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %7
   %30 = lshr i32 %29, 3
   %31 = and i32 %30, 15
   %32 = select i1 %28, i32 0, i32 %31
-  %switch.tableidx20 = add nsw i32 %32, -1
-  %33 = icmp ult i32 %switch.tableidx20, 7
-  br i1 %33, label %switch.lookup19, label %34
+  %switch.tableidx21 = add nsw i32 %32, -1
+  %33 = icmp ult i32 %switch.tableidx21, 7
+  br i1 %33, label %switch.lookup20, label %34
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr @g_assert_poison, align 8
@@ -1718,12 +1718,12 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %7
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 508) #18
   unreachable
 
-switch.lookup19:                                  ; preds = %26
-  %36 = shl nuw nsw i32 %switch.tableidx20, 3
-  %switch.shiftamt22 = zext nneg i32 %36 to i56
-  %switch.downshift23 = lshr i56 4792797207726858, %switch.shiftamt22
-  %switch.masked24 = trunc i56 %switch.downshift23 to i8
-  %.not = icmp eq i8 %.0.i, %switch.masked24
+switch.lookup20:                                  ; preds = %26
+  %36 = shl nuw nsw i32 %switch.tableidx21, 3
+  %switch.shiftamt23 = zext nneg i32 %36 to i56
+  %switch.downshift24 = lshr i56 4792797207726858, %switch.shiftamt23
+  %switch.masked25 = trunc i56 %switch.downshift24 to i8
+  %.not = icmp eq i8 %.0.i, %switch.masked25
   br i1 %.not, label %59, label %48
 
 _ZNK7LIR_Opr4typeEv.exit5.thread:                 ; preds = %_ZNK7LIR_Opr4typeEv.exit
@@ -1744,7 +1744,7 @@ _ZNK7LIR_Opr4typeEv.exit5.thread:                 ; preds = %_ZNK7LIR_Opr4typeEv
   %47 = tail call noundef zeroext i8 %46(ptr noundef nonnull align 8 dereferenceable(8) %37) #17
   br label %_ZNK7LIR_Opr4typeEv.exit7
 
-48:                                               ; preds = %switch.lookup19
+48:                                               ; preds = %switch.lookup20
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   switch i32 %32, label %default.unreachable [
@@ -1784,8 +1784,8 @@ _ZNK7LIR_Opr4typeEv.exit7:                        ; preds = %.thread, %48, %51, 
   %58 = tail call i64 @_ZN12LIRGenerator14force_to_spillE7LIR_Opr9BasicType(ptr noundef nonnull align 8 dereferenceable(232) %57, i64 %3, i8 noundef zeroext %.0.i6)
   br label %59
 
-59:                                               ; preds = %_ZNK7LIR_Opr4typeEv.exit5.thread, %_ZNK7LIR_Opr4typeEv.exit7, %switch.lookup19
-  %.sroa.0.0 = phi i64 [ %3, %switch.lookup19 ], [ %58, %_ZNK7LIR_Opr4typeEv.exit7 ], [ %3, %_ZNK7LIR_Opr4typeEv.exit5.thread ]
+59:                                               ; preds = %_ZNK7LIR_Opr4typeEv.exit5.thread, %_ZNK7LIR_Opr4typeEv.exit7, %switch.lookup20
+  %.sroa.0.0 = phi i64 [ %3, %switch.lookup20 ], [ %58, %_ZNK7LIR_Opr4typeEv.exit7 ], [ %3, %_ZNK7LIR_Opr4typeEv.exit5.thread ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 144
@@ -1858,16 +1858,16 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %9
   %31 = icmp samesign ugt i32 %26, 9997
   %.pre.i = load i32, ptr %25, align 8
   %spec.select.i10 = select i1 %31, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %31, i32 609, i32 %26
+  %spec.select6.i = select i1 %31, i32 609, i32 %26
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %28, %_ZNK7LIR_Opr4typeEv.exit
   %32 = phi i32 [ %26, %_ZNK7LIR_Opr4typeEv.exit ], [ %spec.select.i10, %28 ]
-  %.0.i9 = phi i32 [ %26, %_ZNK7LIR_Opr4typeEv.exit ], [ %spec.select5.i, %28 ]
+  %.0.i9 = phi i32 [ %26, %_ZNK7LIR_Opr4typeEv.exit ], [ %spec.select6.i, %28 ]
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %25, align 8
-  %switch.tableidx23 = add i8 %.0.i, -6
-  %34 = icmp ult i8 %switch.tableidx23, 12
+  %switch.tableidx27 = add i8 %.0.i, -6
+  %34 = icmp ult i8 %switch.tableidx27, 12
   br i1 %34, label %switch.hole_check, label %35
 
 35:                                               ; preds = %switch.hole_check, %._crit_edge.i
@@ -1877,13 +1877,13 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %9
   unreachable
 
 switch.hole_check:                                ; preds = %._crit_edge.i
-  %switch.maskindex = zext nneg i8 %switch.tableidx23 to i16
+  %switch.maskindex = zext nneg i8 %switch.tableidx27 to i16
   %switch.shifted = lshr i16 2803, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup24, label %35
+  br i1 %switch.lobit, label %switch.lookup28, label %35
 
-switch.lookup24:                                  ; preds = %switch.hole_check
-  %37 = zext nneg i8 %switch.tableidx23 to i64
+switch.lookup28:                                  ; preds = %switch.hole_check
+  %37 = zext nneg i8 %switch.tableidx27 to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   %38 = shl i32 %.0.i9, 14
@@ -1894,8 +1894,8 @@ switch.lookup24:                                  ; preds = %switch.hole_check
   tail call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %41, i64 %1, i64 %.sroa.015.0.i.i, ptr noundef null)
   br label %42
 
-42:                                               ; preds = %3, %3, %switch.lookup24
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ %.sroa.015.0.i.i, %switch.lookup24 ], [ %1, %3 ]
+42:                                               ; preds = %3, %3, %switch.lookup28
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ %.sroa.015.0.i.i, %switch.lookup28 ], [ %1, %3 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %44 = load i32, ptr %43, align 8
   %45 = icmp sgt i32 %44, 9979
@@ -1908,36 +1908,36 @@ switch.lookup24:                                  ; preds = %switch.hole_check
   %49 = icmp samesign ugt i32 %44, 9997
   %.pre.i15 = load i32, ptr %43, align 8
   %spec.select.i16 = select i1 %49, i32 609, i32 %.pre.i15
-  %spec.select5.i17 = select i1 %49, i32 609, i32 %44
+  %spec.select6.i17 = select i1 %49, i32 609, i32 %44
   br label %._crit_edge.i11
 
 ._crit_edge.i11:                                  ; preds = %46, %42
   %50 = phi i32 [ %44, %42 ], [ %spec.select.i16, %46 ]
-  %.0.i12 = phi i32 [ %44, %42 ], [ %spec.select5.i17, %46 ]
+  %.0.i12 = phi i32 [ %44, %42 ], [ %spec.select6.i17, %46 ]
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %43, align 8
-  %switch.tableidx26 = add i8 %2, -6
-  %52 = icmp ult i8 %switch.tableidx26, 12
-  br i1 %52, label %switch.hole_check27, label %53
+  %switch.tableidx30 = add i8 %2, -6
+  %52 = icmp ult i8 %switch.tableidx30, 12
+  br i1 %52, label %switch.hole_check31, label %53
 
-53:                                               ; preds = %switch.hole_check27, %._crit_edge.i11
+53:                                               ; preds = %switch.hole_check31, %._crit_edge.i11
   %54 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %54, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 753) #18
   unreachable
 
-switch.hole_check27:                              ; preds = %._crit_edge.i11
-  %switch.maskindex29 = zext nneg i8 %switch.tableidx26 to i16
-  %switch.shifted30 = lshr i16 2803, %switch.maskindex29
-  %switch.lobit31 = trunc i16 %switch.shifted30 to i1
-  br i1 %switch.lobit31, label %switch.lookup28, label %53
+switch.hole_check31:                              ; preds = %._crit_edge.i11
+  %switch.maskindex33 = zext nneg i8 %switch.tableidx30 to i16
+  %switch.shifted34 = lshr i16 2803, %switch.maskindex33
+  %switch.lobit35 = trunc i16 %switch.shifted34 to i1
+  br i1 %switch.lobit35, label %switch.lookup32, label %53
 
-switch.lookup28:                                  ; preds = %switch.hole_check27
-  %55 = zext nneg i8 %switch.tableidx26 to i64
-  %switch.gep32 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %55
-  %switch.load33 = load i32, ptr %switch.gep32, align 4
+switch.lookup32:                                  ; preds = %switch.hole_check31
+  %55 = zext nneg i8 %switch.tableidx30 to i64
+  %switch.gep36 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %55
+  %switch.load37 = load i32, ptr %switch.gep36, align 4
   %56 = shl i32 %.0.i12, 14
-  %57 = or disjoint i32 %switch.load33, %56
+  %57 = or disjoint i32 %switch.load37, %56
   %.sroa.015.0.i.i14 = sext i32 %57 to i64
   %58 = lshr i64 %.sroa.015.0.i.i14, 14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1947,7 +1947,7 @@ switch.lookup28:                                  ; preds = %switch.hole_check27
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %63, label %65
 
-63:                                               ; preds = %switch.lookup28
+63:                                               ; preds = %switch.lookup32
   call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 300, i1 noundef zeroext true) #17
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 3, ptr %64, align 8
@@ -1955,8 +1955,8 @@ switch.lookup28:                                  ; preds = %switch.hole_check27
   %.pre.i.i = load i64, ptr %60, align 8
   br label %65
 
-65:                                               ; preds = %63, %switch.lookup28
-  %66 = phi i64 [ %.pre.i.i, %63 ], [ %61, %switch.lookup28 ]
+65:                                               ; preds = %63, %switch.lookup32
+  %66 = phi i64 [ %.pre.i.i, %63 ], [ %61, %switch.lookup32 ]
   %67 = and i64 %58, 262143
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %69 = load i64, ptr %68, align 8
@@ -6113,12 +6113,12 @@ define hidden void @_ZN12LIRGenerator14profile_branchEP2IfN11Instruction9Conditi
   %25 = icmp samesign ugt i32 %20, 9997
   %.pre.i = load i32, ptr %19, align 8
   %spec.select.i = select i1 %25, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %25, i32 609, i32 %20
+  %spec.select6.i = select i1 %25, i32 609, i32 %20
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %7, %22
   %26 = phi i32 [ %20, %7 ], [ %spec.select.i, %22 ]
-  %.0.i = phi i32 [ %20, %7 ], [ %spec.select5.i, %22 ]
+  %.0.i = phi i32 [ %20, %7 ], [ %spec.select6.i, %22 ]
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %19, align 8
   %28 = shl i32 %.0.i, 14
@@ -6140,12 +6140,12 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %7, %22
   %39 = icmp samesign ugt i32 %34, 9997
   %.pre.i.i = load i32, ptr %19, align 8
   %spec.select.i.i = select i1 %39, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %39, i32 609, i32 %34
+  %spec.select6.i.i = select i1 %39, i32 609, i32 %34
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %_ZN12LIRGenerator12new_registerE9BasicType.exit, %36
   %40 = phi i32 [ %34, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select.i.i, %36 ]
-  %.0.i.i = phi i32 [ %34, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select5.i.i, %36 ]
+  %.0.i.i = phi i32 [ %34, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select6.i.i, %36 ]
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %19, align 8
   %42 = shl i32 %.0.i.i, 14
@@ -6266,12 +6266,12 @@ _ZN11LIR_OprFact11intptrConstEl.exit45:           ; preds = %_ZN22CompilationRes
   %106 = icmp samesign ugt i32 %101, 9997
   %.pre.i.i48 = load i32, ptr %19, align 8
   %spec.select.i.i49 = select i1 %106, i32 609, i32 %.pre.i.i48
-  %spec.select5.i.i50 = select i1 %106, i32 609, i32 %101
+  %spec.select6.i.i50 = select i1 %106, i32 609, i32 %101
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit51
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit51: ; preds = %_ZN11LIR_OprFact11intptrConstEl.exit45, %103
   %107 = phi i32 [ %101, %_ZN11LIR_OprFact11intptrConstEl.exit45 ], [ %spec.select.i.i49, %103 ]
-  %.0.i.i46 = phi i32 [ %101, %_ZN11LIR_OprFact11intptrConstEl.exit45 ], [ %spec.select5.i.i50, %103 ]
+  %.0.i.i46 = phi i32 [ %101, %_ZN11LIR_OprFact11intptrConstEl.exit45 ], [ %spec.select6.i.i50, %103 ]
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %19, align 8
   %109 = shl i32 %.0.i.i46, 14
@@ -7007,12 +7007,12 @@ define hidden i64 @_ZN12LIRGenerator23operand_for_instructionEP11Instruction(ptr
   %25 = icmp samesign ugt i32 %20, 9997
   %.pre.i.i.i = load i32, ptr %19, align 8
   %spec.select.i.i.i = select i1 %25, i32 609, i32 %.pre.i.i.i
-  %spec.select5.i.i.i = select i1 %25, i32 609, i32 %20
+  %spec.select6.i.i.i = select i1 %25, i32 609, i32 %20
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %22, %15
   %26 = phi i32 [ %20, %15 ], [ %spec.select.i.i.i, %22 ]
-  %.0.i.i.i = phi i32 [ %20, %15 ], [ %spec.select5.i.i.i, %22 ]
+  %.0.i.i.i = phi i32 [ %20, %15 ], [ %spec.select6.i.i.i, %22 ]
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %19, align 8
   %switch.tableidx = add i8 %18, -6
@@ -7197,12 +7197,12 @@ define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator5rlockEP1
   %12 = icmp samesign ugt i32 %7, 9997
   %.pre.i.i = load i32, ptr %6, align 8
   %spec.select.i.i = select i1 %12, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %12, i32 609, i32 %7
+  %spec.select6.i.i = select i1 %12, i32 609, i32 %7
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %9, %2
   %13 = phi i32 [ %7, %2 ], [ %spec.select.i.i, %9 ]
-  %.0.i.i = phi i32 [ %7, %2 ], [ %spec.select5.i.i, %9 ]
+  %.0.i.i = phi i32 [ %7, %2 ], [ %spec.select6.i.i, %9 ]
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %6, align 8
   %switch.tableidx = add i8 %5, -6
@@ -7248,12 +7248,12 @@ define hidden range(i64 -2147483648, 2147483648) i64 @_ZN12LIRGenerator12rlock_r
   %12 = icmp samesign ugt i32 %7, 9997
   %.pre.i.i.i = load i32, ptr %6, align 8
   %spec.select.i.i.i = select i1 %12, i32 609, i32 %.pre.i.i.i
-  %spec.select5.i.i.i = select i1 %12, i32 609, i32 %7
+  %spec.select6.i.i.i = select i1 %12, i32 609, i32 %7
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %9, %2
   %13 = phi i32 [ %7, %2 ], [ %spec.select.i.i.i, %9 ]
-  %.0.i.i.i = phi i32 [ %7, %2 ], [ %spec.select5.i.i.i, %9 ]
+  %.0.i.i.i = phi i32 [ %7, %2 ], [ %spec.select6.i.i.i, %9 ]
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %6, align 8
   %switch.tableidx = add i8 %5, -6
@@ -7311,12 +7311,12 @@ define hidden i64 @_ZN12LIRGenerator12rlock_resultEP11Instruction9BasicType(ptr 
   %16 = icmp samesign ugt i32 %11, 9997
   %.pre.i.i.i = load i32, ptr %10, align 8
   %spec.select.i.i.i = select i1 %16, i32 609, i32 %.pre.i.i.i
-  %spec.select5.i.i.i = select i1 %16, i32 609, i32 %11
+  %spec.select6.i.i.i = select i1 %16, i32 609, i32 %11
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %13, %6
   %17 = phi i32 [ %11, %6 ], [ %spec.select.i.i.i, %13 ]
-  %.0.i.i.i = phi i32 [ %11, %6 ], [ %spec.select5.i.i.i, %13 ]
+  %.0.i.i.i = phi i32 [ %11, %6 ], [ %spec.select6.i.i.i, %13 ]
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %10, align 8
   %switch.tableidx = add i8 %9, -6
@@ -7746,12 +7746,12 @@ _ZN22CompilationResourceObjnwEm.exit71:           ; preds = %197, %199
   %215 = icmp samesign ugt i32 %210, 9997
   %.pre.i = load i32, ptr %209, align 8
   %spec.select.i = select i1 %215, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %215, i32 609, i32 %210
+  %spec.select6.i = select i1 %215, i32 609, i32 %210
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %208, %212
   %216 = phi i32 [ %210, %208 ], [ %spec.select.i, %212 ]
-  %.0.i = phi i32 [ %210, %208 ], [ %spec.select5.i, %212 ]
+  %.0.i = phi i32 [ %210, %208 ], [ %spec.select6.i, %212 ]
   %217 = add nsw i32 %216, 1
   store i32 %217, ptr %209, align 8
   %218 = shl i32 %.0.i, 14
@@ -8042,12 +8042,12 @@ define hidden void @_ZN12LIRGenerator11do_ConstantEP8Constant(ptr noundef nonnul
   %15 = icmp samesign ugt i32 %10, 9997
   %.pre.i.i.i.i = load i32, ptr %9, align 8
   %spec.select.i.i.i.i = select i1 %15, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %15, i32 609, i32 %10
+  %spec.select6.i.i.i.i = select i1 %15, i32 609, i32 %10
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %12, %5
   %16 = phi i32 [ %10, %5 ], [ %spec.select.i.i.i.i, %12 ]
-  %.0.i.i.i.i = phi i32 [ %10, %5 ], [ %spec.select5.i.i.i.i, %12 ]
+  %.0.i.i.i.i = phi i32 [ %10, %5 ], [ %spec.select6.i.i.i.i, %12 ]
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %9, align 8
   %switch.tableidx = add i8 %8, -6
@@ -8184,36 +8184,36 @@ _ZNK7LIR_Opr11is_constantEv.exit:                 ; preds = %74
   %91 = icmp samesign ugt i32 %86, 9997
   %.pre.i.i.i.i29 = load i32, ptr %85, align 8
   %spec.select.i.i.i.i30 = select i1 %91, i32 609, i32 %.pre.i.i.i.i29
-  %spec.select5.i.i.i.i31 = select i1 %91, i32 609, i32 %86
+  %spec.select6.i.i.i.i31 = select i1 %91, i32 609, i32 %86
   br label %._crit_edge.i.i.i.i25
 
 ._crit_edge.i.i.i.i25:                            ; preds = %88, %81
   %92 = phi i32 [ %86, %81 ], [ %spec.select.i.i.i.i30, %88 ]
-  %.0.i.i.i.i26 = phi i32 [ %86, %81 ], [ %spec.select5.i.i.i.i31, %88 ]
+  %.0.i.i.i.i26 = phi i32 [ %86, %81 ], [ %spec.select6.i.i.i.i31, %88 ]
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %85, align 8
-  %switch.tableidx40 = add i8 %84, -6
-  %94 = icmp ult i8 %switch.tableidx40, 12
-  br i1 %94, label %switch.hole_check41, label %95
+  %switch.tableidx44 = add i8 %84, -6
+  %94 = icmp ult i8 %switch.tableidx44, 12
+  br i1 %94, label %switch.hole_check45, label %95
 
-95:                                               ; preds = %switch.hole_check41, %._crit_edge.i.i.i.i25
+95:                                               ; preds = %switch.hole_check45, %._crit_edge.i.i.i.i25
   %96 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %96, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 753) #18
   unreachable
 
-switch.hole_check41:                              ; preds = %._crit_edge.i.i.i.i25
-  %switch.maskindex43 = zext nneg i8 %switch.tableidx40 to i16
-  %switch.shifted44 = lshr i16 2803, %switch.maskindex43
-  %switch.lobit45 = trunc i16 %switch.shifted44 to i1
-  br i1 %switch.lobit45, label %switch.lookup42, label %95
+switch.hole_check45:                              ; preds = %._crit_edge.i.i.i.i25
+  %switch.maskindex47 = zext nneg i8 %switch.tableidx44 to i16
+  %switch.shifted48 = lshr i16 2803, %switch.maskindex47
+  %switch.lobit49 = trunc i16 %switch.shifted48 to i1
+  br i1 %switch.lobit49, label %switch.lookup46, label %95
 
-switch.lookup42:                                  ; preds = %switch.hole_check41
-  %97 = zext nneg i8 %switch.tableidx40 to i64
-  %switch.gep46 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %97
-  %switch.load47 = load i32, ptr %switch.gep46, align 4
+switch.lookup46:                                  ; preds = %switch.hole_check45
+  %97 = zext nneg i8 %switch.tableidx44 to i64
+  %switch.gep50 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %97
+  %switch.load51 = load i32, ptr %switch.gep50, align 4
   %98 = shl i32 %.0.i.i.i.i26, 14
-  %99 = or disjoint i32 %switch.load47, %98
+  %99 = or disjoint i32 %switch.load51, %98
   %.sroa.015.0.i.i.i.i.i28 = sext i32 %99 to i64
   store i64 %.sroa.015.0.i.i.i.i.i28, ptr %68, align 8
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -8233,7 +8233,7 @@ _ZNK7LIR_Opr11is_constantEv.exit.thread:          ; preds = %74, %_ZNK7LIR_Opr11
   store i64 %105, ptr %106, align 8
   br label %107
 
-107:                                              ; preds = %102, %switch.lookup42, %_ZNK7LIR_Opr11is_constantEv.exit.thread, %_ZN12LIRGenerator13load_constantEP8Constant.exit, %switch.lookup
+107:                                              ; preds = %102, %switch.lookup46, %_ZNK7LIR_Opr11is_constantEv.exit.thread, %_ZN12LIRGenerator13load_constantEP8Constant.exit, %switch.lookup
   ret void
 }
 
@@ -8362,12 +8362,12 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit:
   %43 = icmp samesign ugt i32 %39, 9997
   %.pre.i20 = load i32, ptr %38, align 8
   %spec.select.i = select i1 %43, i32 609, i32 %.pre.i20
-  %spec.select5.i = select i1 %43, i32 609, i32 %39
+  %spec.select6.i = select i1 %43, i32 609, i32 %39
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit, %41
   %44 = phi i32 [ %39, %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %spec.select.i, %41 ]
-  %.0.i = phi i32 [ %39, %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %spec.select5.i, %41 ]
+  %.0.i = phi i32 [ %39, %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %spec.select6.i, %41 ]
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %38, align 8
   %46 = shl i32 %.0.i, 14
@@ -8544,12 +8544,12 @@ define hidden i64 @_ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEP
   %17 = icmp samesign ugt i32 %12, 9997
   %.pre.i.i = load i32, ptr %11, align 8
   %spec.select.i.i = select i1 %17, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %17, i32 609, i32 %12
+  %spec.select6.i.i = select i1 %17, i32 609, i32 %12
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %14, %9
   %18 = phi i32 [ %12, %9 ], [ %spec.select.i.i, %14 ]
-  %.0.i.i = phi i32 [ %12, %9 ], [ %spec.select5.i.i, %14 ]
+  %.0.i.i = phi i32 [ %12, %9 ], [ %spec.select6.i.i, %14 ]
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %11, align 8
   %switch.tableidx = add i8 %10, -6
@@ -8848,12 +8848,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %55 = icmp samesign ugt i32 %50, 9997
   %.pre.i.i.i.i = load i32, ptr %49, align 8
   %spec.select.i.i.i.i = select i1 %55, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %55, i32 609, i32 %50
+  %spec.select6.i.i.i.i = select i1 %55, i32 609, i32 %50
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %52, %45
   %56 = phi i32 [ %50, %45 ], [ %spec.select.i.i.i.i, %52 ]
-  %.0.i.i.i.i = phi i32 [ %50, %45 ], [ %spec.select5.i.i.i.i, %52 ]
+  %.0.i.i.i.i = phi i32 [ %50, %45 ], [ %spec.select6.i.i.i.i, %52 ]
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %49, align 8
   %switch.tableidx = add i8 %48, -6
@@ -9152,12 +9152,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit19: ; preds = %_ZN7LIRItemC2EP11
   %75 = icmp samesign ugt i32 %70, 9997
   %.pre.i.i.i.i = load i32, ptr %69, align 8
   %spec.select.i.i.i.i = select i1 %75, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %75, i32 609, i32 %70
+  %spec.select6.i.i.i.i = select i1 %75, i32 609, i32 %70
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %72, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit19
   %76 = phi i32 [ %70, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit19 ], [ %spec.select.i.i.i.i, %72 ]
-  %.0.i.i.i.i = phi i32 [ %70, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit19 ], [ %spec.select5.i.i.i.i, %72 ]
+  %.0.i.i.i.i = phi i32 [ %70, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit19 ], [ %spec.select6.i.i.i.i, %72 ]
   %77 = add nsw i32 %76, 1
   store i32 %77, ptr %69, align 8
   %switch.tableidx = add i8 %68, -6
@@ -9576,12 +9576,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %43 = icmp samesign ugt i32 %38, 9997
   %.pre.i = load i32, ptr %37, align 8
   %spec.select.i = select i1 %43, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %43, i32 609, i32 %38
+  %spec.select6.i = select i1 %43, i32 609, i32 %38
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %40
   %44 = phi i32 [ %38, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select.i, %40 ]
-  %.0.i = phi i32 [ %38, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select5.i, %40 ]
+  %.0.i = phi i32 [ %38, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select6.i, %40 ]
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %37, align 8
   %46 = shl i32 %.0.i, 14
@@ -9601,12 +9601,12 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11In
   %56 = icmp samesign ugt i32 %51, 9997
   %.pre.i.i.i.i = load i32, ptr %37, align 8
   %spec.select.i.i.i.i = select i1 %56, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %56, i32 609, i32 %51
+  %spec.select6.i.i.i.i = select i1 %56, i32 609, i32 %51
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %53, %_ZN12LIRGenerator12new_registerE9BasicType.exit
   %57 = phi i32 [ %51, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select.i.i.i.i, %53 ]
-  %.0.i.i.i.i = phi i32 [ %51, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select5.i.i.i.i, %53 ]
+  %.0.i.i.i.i = phi i32 [ %51, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select6.i.i.i.i, %53 ]
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %37, align 8
   %switch.tableidx = add i8 %50, -6
@@ -9659,12 +9659,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %79 = icmp samesign ugt i32 %74, 9997
   %.pre.i21 = load i32, ptr %37, align 8
   %spec.select.i22 = select i1 %79, i32 609, i32 %.pre.i21
-  %spec.select5.i23 = select i1 %79, i32 609, i32 %74
+  %spec.select6.i23 = select i1 %79, i32 609, i32 %74
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit24
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit24: ; preds = %73, %76
   %80 = phi i32 [ %74, %73 ], [ %spec.select.i22, %76 ]
-  %.0.i19 = phi i32 [ %74, %73 ], [ %spec.select5.i23, %76 ]
+  %.0.i19 = phi i32 [ %74, %73 ], [ %spec.select6.i23, %76 ]
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %37, align 8
   %82 = shl i32 %.0.i19, 14
@@ -9943,12 +9943,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %42 = icmp samesign ugt i32 %37, 9997
   %.pre.i = load i32, ptr %36, align 8
   %spec.select.i = select i1 %42, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %42, i32 609, i32 %37
+  %spec.select6.i = select i1 %42, i32 609, i32 %37
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %39
   %43 = phi i32 [ %37, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select.i, %39 ]
-  %.0.i = phi i32 [ %37, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select5.i, %39 ]
+  %.0.i = phi i32 [ %37, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select6.i, %39 ]
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %36, align 8
   %45 = shl i32 %.0.i, 14
@@ -9968,12 +9968,12 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11In
   %55 = icmp samesign ugt i32 %50, 9997
   %.pre.i.i.i.i = load i32, ptr %36, align 8
   %spec.select.i.i.i.i = select i1 %55, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %55, i32 609, i32 %50
+  %spec.select6.i.i.i.i = select i1 %55, i32 609, i32 %50
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %52, %_ZN12LIRGenerator12new_registerE9BasicType.exit
   %56 = phi i32 [ %50, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select.i.i.i.i, %52 ]
-  %.0.i.i.i.i = phi i32 [ %50, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select5.i.i.i.i, %52 ]
+  %.0.i.i.i.i = phi i32 [ %50, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select6.i.i.i.i, %52 ]
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %36, align 8
   %switch.tableidx = add i8 %49, -6
@@ -10397,12 +10397,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %45 = icmp samesign ugt i32 %40, 9997
   %.pre.i.i.i.i = load i32, ptr %39, align 8
   %spec.select.i.i.i.i = select i1 %45, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %45, i32 609, i32 %40
+  %spec.select6.i.i.i.i = select i1 %45, i32 609, i32 %40
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %42, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   %46 = phi i32 [ %40, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select.i.i.i.i, %42 ]
-  %.0.i.i.i.i = phi i32 [ %40, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select5.i.i.i.i, %42 ]
+  %.0.i.i.i.i = phi i32 [ %40, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select6.i.i.i.i, %42 ]
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %39, align 8
   %switch.tableidx = add i8 %38, -6
@@ -10498,12 +10498,12 @@ _ZN11LIR_OprFact13metadataConstEP8Metadata.exit:  ; preds = %_ZN22CompilationRes
   %93 = icmp samesign ugt i32 %88, 9997
   %.pre.i = load i32, ptr %39, align 8
   %spec.select.i = select i1 %93, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %93, i32 609, i32 %88
+  %spec.select6.i = select i1 %93, i32 609, i32 %88
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN11LIR_OprFact13metadataConstEP8Metadata.exit, %90
   %94 = phi i32 [ %88, %_ZN11LIR_OprFact13metadataConstEP8Metadata.exit ], [ %spec.select.i, %90 ]
-  %.0.i = phi i32 [ %88, %_ZN11LIR_OprFact13metadataConstEP8Metadata.exit ], [ %spec.select5.i, %90 ]
+  %.0.i = phi i32 [ %88, %_ZN11LIR_OprFact13metadataConstEP8Metadata.exit ], [ %spec.select6.i, %90 ]
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %39, align 8
   %96 = shl i32 %.0.i, 14
@@ -10572,12 +10572,12 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %113, %115
   %133 = icmp samesign ugt i32 %128, 9997
   %.pre.i30 = load i32, ptr %39, align 8
   %spec.select.i31 = select i1 %133, i32 609, i32 %.pre.i30
-  %spec.select5.i32 = select i1 %133, i32 609, i32 %128
+  %spec.select6.i32 = select i1 %133, i32 609, i32 %128
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit33
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit33: ; preds = %127, %130
   %134 = phi i32 [ %128, %127 ], [ %spec.select.i31, %130 ]
-  %.0.i28 = phi i32 [ %128, %127 ], [ %spec.select5.i32, %130 ]
+  %.0.i28 = phi i32 [ %128, %127 ], [ %spec.select6.i32, %130 ]
   %135 = add nsw i32 %134, 1
   store i32 %135, ptr %39, align 8
   %136 = shl i32 %.0.i28, 14
@@ -10697,12 +10697,12 @@ define hidden void @_ZN12LIRGenerator16do_getObjectSizeEP9Intrinsic(ptr noundef 
   %13 = icmp samesign ugt i32 %8, 9997
   %.pre.i.i.i.i = load i32, ptr %7, align 8
   %spec.select.i.i.i.i = select i1 %13, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %13, i32 609, i32 %8
+  %spec.select6.i.i.i.i = select i1 %13, i32 609, i32 %8
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %10, %2
   %14 = phi i32 [ %8, %2 ], [ %spec.select.i.i.i.i, %10 ]
-  %.0.i.i.i.i = phi i32 [ %8, %2 ], [ %spec.select5.i.i.i.i, %10 ]
+  %.0.i.i.i.i = phi i32 [ %8, %2 ], [ %spec.select6.i.i.i.i, %10 ]
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %7, align 8
   %switch.tableidx = add i8 %6, -6
@@ -10805,12 +10805,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %switch.lookup, %_ZN
   %61 = icmp samesign ugt i32 %56, 9997
   %.pre.i = load i32, ptr %7, align 8
   %spec.select.i = select i1 %61, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %61, i32 609, i32 %56
+  %spec.select6.i = select i1 %61, i32 609, i32 %56
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %58
   %62 = phi i32 [ %56, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select.i, %58 ]
-  %.0.i = phi i32 [ %56, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select5.i, %58 ]
+  %.0.i = phi i32 [ %56, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select6.i, %58 ]
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %7, align 8
   %64 = shl i32 %.0.i, 14
@@ -10831,12 +10831,12 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN7LIRItemC2EP11In
   %74 = icmp samesign ugt i32 %69, 9997
   %.pre.i106 = load i32, ptr %7, align 8
   %spec.select.i107 = select i1 %74, i32 609, i32 %.pre.i106
-  %spec.select5.i108 = select i1 %74, i32 609, i32 %69
+  %spec.select6.i108 = select i1 %74, i32 609, i32 %69
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit109
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit109: ; preds = %_ZN12LIRGenerator12new_registerE9BasicType.exit, %71
   %75 = phi i32 [ %69, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select.i107, %71 ]
-  %.0.i104 = phi i32 [ %69, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select5.i108, %71 ]
+  %.0.i104 = phi i32 [ %69, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select6.i108, %71 ]
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %7, align 8
   %77 = shl i32 %.0.i104, 14
@@ -11041,12 +11041,12 @@ _ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit: ; preds = %_ZN22C
   %190 = icmp samesign ugt i32 %185, 9997
   %.pre.i119 = load i32, ptr %7, align 8
   %spec.select.i120 = select i1 %190, i32 609, i32 %.pre.i119
-  %spec.select5.i121 = select i1 %190, i32 609, i32 %185
+  %spec.select6.i121 = select i1 %190, i32 609, i32 %185
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit122
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit122: ; preds = %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit, %187
   %191 = phi i32 [ %185, %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit ], [ %spec.select.i120, %187 ]
-  %.0.i117 = phi i32 [ %185, %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit ], [ %spec.select5.i121, %187 ]
+  %.0.i117 = phi i32 [ %185, %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit ], [ %spec.select6.i121, %187 ]
   %192 = add nsw i32 %191, 1
   store i32 %192, ptr %7, align 8
   %193 = shl i32 %.0.i117, 14
@@ -11065,12 +11065,12 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit122: ; preds = %_ZN8LIR_List3cmpE
   %201 = icmp samesign ugt i32 %196, 9997
   %.pre.i125 = load i32, ptr %7, align 8
   %spec.select.i126 = select i1 %201, i32 609, i32 %.pre.i125
-  %spec.select5.i127 = select i1 %201, i32 609, i32 %196
+  %spec.select6.i127 = select i1 %201, i32 609, i32 %196
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit128
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit128: ; preds = %_ZN12LIRGenerator12new_registerE9BasicType.exit122, %198
   %202 = phi i32 [ %196, %_ZN12LIRGenerator12new_registerE9BasicType.exit122 ], [ %spec.select.i126, %198 ]
-  %.0.i123 = phi i32 [ %196, %_ZN12LIRGenerator12new_registerE9BasicType.exit122 ], [ %spec.select5.i127, %198 ]
+  %.0.i123 = phi i32 [ %196, %_ZN12LIRGenerator12new_registerE9BasicType.exit122 ], [ %spec.select6.i127, %198 ]
   %203 = add nsw i32 %202, 1
   store i32 %203, ptr %7, align 8
   %204 = shl i32 %.0.i123, 14
@@ -11136,12 +11136,12 @@ _ZN11LIR_OprFact8intConstEi.exit:                 ; preds = %_ZN22CompilationRes
   %238 = icmp samesign ugt i32 %233, 9997
   %.pre.i132 = load i32, ptr %7, align 8
   %spec.select.i133 = select i1 %238, i32 609, i32 %.pre.i132
-  %spec.select5.i134 = select i1 %238, i32 609, i32 %233
+  %spec.select6.i134 = select i1 %238, i32 609, i32 %233
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit135
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit135: ; preds = %_ZN11LIR_OprFact8intConstEi.exit, %235
   %239 = phi i32 [ %233, %_ZN11LIR_OprFact8intConstEi.exit ], [ %spec.select.i133, %235 ]
-  %.0.i130 = phi i32 [ %233, %_ZN11LIR_OprFact8intConstEi.exit ], [ %spec.select5.i134, %235 ]
+  %.0.i130 = phi i32 [ %233, %_ZN11LIR_OprFact8intConstEi.exit ], [ %spec.select6.i134, %235 ]
   %240 = add nsw i32 %239, 1
   store i32 %240, ptr %7, align 8
   %241 = shl i32 %.0.i130, 14
@@ -11210,12 +11210,12 @@ _ZN22CompilationResourceObjnwEm.exit138:          ; preds = %257, %259
   %278 = icmp samesign ugt i32 %273, 9997
   %.pre.i143 = load i32, ptr %7, align 8
   %spec.select.i144 = select i1 %278, i32 609, i32 %.pre.i143
-  %spec.select5.i145 = select i1 %278, i32 609, i32 %273
+  %spec.select6.i145 = select i1 %278, i32 609, i32 %273
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit146
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit146: ; preds = %272, %275
   %279 = phi i32 [ %273, %272 ], [ %spec.select.i144, %275 ]
-  %.0.i141 = phi i32 [ %273, %272 ], [ %spec.select5.i145, %275 ]
+  %.0.i141 = phi i32 [ %273, %272 ], [ %spec.select6.i145, %275 ]
   %280 = add nsw i32 %279, 1
   store i32 %280, ptr %7, align 8
   %281 = shl i32 %.0.i141, 14
@@ -11451,12 +11451,12 @@ _ZN11LIR_OprFact8intConstEi.exit163:              ; preds = %_ZN22CompilationRes
   %408 = icmp samesign ugt i32 %403, 9997
   %.pre.i166 = load i32, ptr %7, align 8
   %spec.select.i167 = select i1 %408, i32 609, i32 %.pre.i166
-  %spec.select5.i168 = select i1 %408, i32 609, i32 %403
+  %spec.select6.i168 = select i1 %408, i32 609, i32 %403
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit169
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit169: ; preds = %_ZN11LIR_OprFact8intConstEi.exit163, %405
   %409 = phi i32 [ %403, %_ZN11LIR_OprFact8intConstEi.exit163 ], [ %spec.select.i167, %405 ]
-  %.0.i164 = phi i32 [ %403, %_ZN11LIR_OprFact8intConstEi.exit163 ], [ %spec.select5.i168, %405 ]
+  %.0.i164 = phi i32 [ %403, %_ZN11LIR_OprFact8intConstEi.exit163 ], [ %spec.select6.i168, %405 ]
   %410 = add nsw i32 %409, 1
   store i32 %410, ptr %7, align 8
   %411 = shl i32 %.0.i164, 14
@@ -11741,12 +11741,12 @@ define hidden void @_ZN12LIRGenerator18do_JavaThreadFieldEP9Intrinsic8ByteSize(p
   %11 = icmp samesign ugt i32 %6, 9997
   %.pre.i = load i32, ptr %5, align 8
   %spec.select.i = select i1 %11, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %11, i32 609, i32 %6
+  %spec.select6.i = select i1 %11, i32 609, i32 %6
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %3, %8
   %12 = phi i32 [ %6, %3 ], [ %spec.select.i, %8 ]
-  %.0.i = phi i32 [ %6, %3 ], [ %spec.select5.i, %8 ]
+  %.0.i = phi i32 [ %6, %3 ], [ %spec.select6.i, %8 ]
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %5, align 8
   %14 = shl i32 %.0.i, 14
@@ -11766,12 +11766,12 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %3, %8
   %24 = icmp samesign ugt i32 %19, 9997
   %.pre.i.i.i.i = load i32, ptr %5, align 8
   %spec.select.i.i.i.i = select i1 %24, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %24, i32 609, i32 %19
+  %spec.select6.i.i.i.i = select i1 %24, i32 609, i32 %19
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %21, %_ZN12LIRGenerator12new_registerE9BasicType.exit
   %25 = phi i32 [ %19, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select.i.i.i.i, %21 ]
-  %.0.i.i.i.i = phi i32 [ %19, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select5.i.i.i.i, %21 ]
+  %.0.i.i.i.i = phi i32 [ %19, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select6.i.i.i.i, %21 ]
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %5, align 8
   %switch.tableidx = add i8 %18, -6
@@ -12333,12 +12333,12 @@ define hidden i64 @_ZN12LIRGenerator13load_constantEP9LIR_Const(ptr noundef nonn
   %98 = icmp samesign ugt i32 %93, 9997
   %.pre.i = load i32, ptr %92, align 8
   %spec.select.i = select i1 %98, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %98, i32 609, i32 %93
+  %spec.select6.i = select i1 %98, i32 609, i32 %93
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %95, %._crit_edge
   %99 = phi i32 [ %93, %._crit_edge ], [ %spec.select.i, %95 ]
-  %.0.i22 = phi i32 [ %93, %._crit_edge ], [ %spec.select5.i, %95 ]
+  %.0.i22 = phi i32 [ %93, %._crit_edge ], [ %spec.select6.i, %95 ]
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %92, align 8
   %switch.tableidx = add i8 %6, -6
@@ -14573,12 +14573,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit51: ; preds = %_ZN7LIRItemC2EP11
   %110 = icmp samesign ugt i32 %105, 9997
   %.pre.i.i.i.i = load i32, ptr %104, align 8
   %spec.select.i.i.i.i = select i1 %110, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %110, i32 609, i32 %105
+  %spec.select6.i.i.i.i = select i1 %110, i32 609, i32 %105
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %107, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit51
   %111 = phi i32 [ %105, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit51 ], [ %spec.select.i.i.i.i, %107 ]
-  %.0.i.i.i.i = phi i32 [ %105, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit51 ], [ %spec.select5.i.i.i.i, %107 ]
+  %.0.i.i.i.i = phi i32 [ %105, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit51 ], [ %spec.select6.i.i.i.i, %107 ]
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %104, align 8
   %switch.tableidx = add i8 %103, -6
@@ -14844,36 +14844,36 @@ _ZNK7LIR_Opr11is_constantEv.exit.thread:          ; preds = %_ZN11LIR_OprFact9lo
   %250 = icmp samesign ugt i32 %245, 9997
   %.pre.i = load i32, ptr %104, align 8
   %spec.select.i = select i1 %250, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %250, i32 609, i32 %245
+  %spec.select6.i = select i1 %250, i32 609, i32 %245
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %247, %_ZNK7LIR_Opr11is_constantEv.exit.thread
   %251 = phi i32 [ %245, %_ZNK7LIR_Opr11is_constantEv.exit.thread ], [ %spec.select.i, %247 ]
-  %.0.i = phi i32 [ %245, %_ZNK7LIR_Opr11is_constantEv.exit.thread ], [ %spec.select5.i, %247 ]
+  %.0.i = phi i32 [ %245, %_ZNK7LIR_Opr11is_constantEv.exit.thread ], [ %spec.select6.i, %247 ]
   %252 = add nsw i32 %251, 1
   store i32 %252, ptr %104, align 8
-  %switch.tableidx85 = add i8 %2, -6
-  %253 = icmp ult i8 %switch.tableidx85, 12
-  br i1 %253, label %switch.hole_check86, label %254
+  %switch.tableidx90 = add i8 %2, -6
+  %253 = icmp ult i8 %switch.tableidx90, 12
+  br i1 %253, label %switch.hole_check91, label %254
 
-254:                                              ; preds = %switch.hole_check86, %._crit_edge.i
+254:                                              ; preds = %switch.hole_check91, %._crit_edge.i
   %255 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %255, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.14, i32 noundef 753) #18
   unreachable
 
-switch.hole_check86:                              ; preds = %._crit_edge.i
-  %switch.maskindex88 = zext nneg i8 %switch.tableidx85 to i16
-  %switch.shifted89 = lshr i16 2803, %switch.maskindex88
-  %switch.lobit90 = trunc i16 %switch.shifted89 to i1
-  br i1 %switch.lobit90, label %switch.lookup87, label %254
+switch.hole_check91:                              ; preds = %._crit_edge.i
+  %switch.maskindex93 = zext nneg i8 %switch.tableidx90 to i16
+  %switch.shifted94 = lshr i16 2803, %switch.maskindex93
+  %switch.lobit95 = trunc i16 %switch.shifted94 to i1
+  br i1 %switch.lobit95, label %switch.lookup92, label %254
 
-switch.lookup87:                                  ; preds = %switch.hole_check86
-  %256 = zext nneg i8 %switch.tableidx85 to i64
-  %switch.gep91 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %256
-  %switch.load92 = load i32, ptr %switch.gep91, align 4
+switch.lookup92:                                  ; preds = %switch.hole_check91
+  %256 = zext nneg i8 %switch.tableidx90 to i64
+  %switch.gep96 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %256
+  %switch.load97 = load i32, ptr %switch.gep96, align 4
   %257 = shl i32 %.0.i, 14
-  %258 = or disjoint i32 %switch.load92, %257
+  %258 = or disjoint i32 %switch.load97, %257
   %.sroa.015.0.i.i = sext i32 %258 to i64
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %260 = load ptr, ptr %259, align 8
@@ -14899,12 +14899,12 @@ switch.lookup87:                                  ; preds = %switch.hole_check86
   %.not.i.i.i65 = icmp ult i64 %277, 104
   br i1 %.not.i.i.i65, label %280, label %278
 
-278:                                              ; preds = %switch.lookup87
+278:                                              ; preds = %switch.lookup92
   %279 = getelementptr inbounds nuw i8, ptr %274, i64 104
   store ptr %279, ptr %273, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit
 
-280:                                              ; preds = %switch.lookup87
+280:                                              ; preds = %switch.lookup92
   %281 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %270, i64 noundef 104, i32 noundef 0) #17
   br label %_ZN22CompilationResourceObjnwEm.exit
 
@@ -15345,12 +15345,12 @@ _ZN10ValueStack5rpushEP11Instruction.exit:        ; preds = %123, %129
   unreachable
 
 142:                                              ; preds = %_ZN10ValueStack5rpushEP11Instruction.exit, %_ZN10ValueStack5apushEP11Instruction.exit, %_ZN10ValueStack5dpushEP11Instruction.exit, %_ZN10ValueStack5fpushEP11Instruction.exit, %_ZN10ValueStack5lpushEP11Instruction.exit, %_ZN10ValueStack5ipushEP11Instruction.exit
-  %.sink33 = phi i32 [ %137, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %120, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %104, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %70, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %54, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %20, %_ZN10ValueStack5ipushEP11Instruction.exit ]
-  %.sink31.in = phi ptr [ %139, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %122, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %89, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %72, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %39, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %22, %_ZN10ValueStack5ipushEP11Instruction.exit ]
+  %.sink47 = phi i32 [ %137, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %120, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %104, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %70, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %54, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %20, %_ZN10ValueStack5ipushEP11Instruction.exit ]
+  %.sink45.in = phi ptr [ %139, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %122, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %89, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %72, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %39, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %22, %_ZN10ValueStack5ipushEP11Instruction.exit ]
   %.sink = phi ptr [ %2, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5apushEP11Instruction.exit ], [ null, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ null, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5ipushEP11Instruction.exit ]
-  %.sink31 = load ptr, ptr %.sink31.in, align 8
-  %143 = sext i32 %.sink33 to i64
-  %144 = getelementptr inbounds ptr, ptr %.sink31, i64 %143
+  %.sink45 = load ptr, ptr %.sink45.in, align 8
+  %143 = sext i32 %.sink47 to i64
+  %144 = getelementptr inbounds ptr, ptr %.sink45, i64 %143
   store ptr %.sink, ptr %144, align 8
   ret void
 }
@@ -15432,12 +15432,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %42 = icmp samesign ugt i32 %37, 9997
   %.pre.i.i.i.i = load i32, ptr %36, align 8
   %spec.select.i.i.i.i = select i1 %42, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %42, i32 609, i32 %37
+  %spec.select6.i.i.i.i = select i1 %42, i32 609, i32 %37
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %39, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   %43 = phi i32 [ %37, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select.i.i.i.i, %39 ]
-  %.0.i.i.i.i = phi i32 [ %37, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select5.i.i.i.i, %39 ]
+  %.0.i.i.i.i = phi i32 [ %37, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select6.i.i.i.i, %39 ]
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %36, align 8
   %switch.tableidx = add i8 %35, -6
@@ -16638,12 +16638,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %44 = icmp samesign ugt i32 %39, 9997
   %.pre.i = load i32, ptr %38, align 8
   %spec.select.i = select i1 %44, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %44, i32 609, i32 %39
+  %spec.select6.i = select i1 %44, i32 609, i32 %39
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %37, %41
   %45 = phi i32 [ %39, %37 ], [ %spec.select.i, %41 ]
-  %.0.i = phi i32 [ %39, %37 ], [ %spec.select5.i, %41 ]
+  %.0.i = phi i32 [ %39, %37 ], [ %spec.select6.i, %41 ]
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %38, align 8
   %47 = shl i32 %.0.i, 14
@@ -16992,12 +16992,12 @@ _ZN12LIRGenerator14access_load_atEm9BasicTypeR7LIRItem7LIR_OprS3_P12CodeEmitInfo
   %106 = icmp samesign ugt i32 %101, 9997
   %.pre.i = load i32, ptr %100, align 8
   %spec.select.i = select i1 %106, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %106, i32 609, i32 %101
+  %spec.select6.i = select i1 %106, i32 609, i32 %101
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %99, %103
   %107 = phi i32 [ %101, %99 ], [ %spec.select.i, %103 ]
-  %.0.i = phi i32 [ %101, %99 ], [ %spec.select5.i, %103 ]
+  %.0.i = phi i32 [ %101, %99 ], [ %spec.select6.i, %103 ]
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %100, align 8
   %109 = shl i32 %.0.i, 14
@@ -18638,12 +18638,12 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %45, %52
   %81 = icmp samesign ugt i32 %77, 9997
   %.pre.i = load i32, ptr %76, align 8
   %spec.select.i = select i1 %81, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %81, i32 609, i32 %77
+  %spec.select6.i = select i1 %81, i32 609, i32 %77
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %65, %79
   %82 = phi i32 [ %77, %65 ], [ %spec.select.i, %79 ]
-  %.0.i = phi i32 [ %77, %65 ], [ %spec.select5.i, %79 ]
+  %.0.i = phi i32 [ %77, %65 ], [ %spec.select6.i, %79 ]
   %83 = add nsw i32 %82, 1
   store i32 %83, ptr %76, align 8
   %84 = shl i32 %.0.i, 14
@@ -18681,13 +18681,13 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %92, %_ZN12LIRGenera
   %102 = icmp samesign ugt i32 %96, 9997
   %.pre.i.i64 = load i32, ptr %76, align 8
   %spec.select.i.i65 = select i1 %102, i32 609, i32 %.pre.i.i64
-  %spec.select5.i.i66 = select i1 %102, i32 609, i32 %96
+  %spec.select6.i.i66 = select i1 %102, i32 609, i32 %96
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit67
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit67: ; preds = %92, %_ZN12LIRGenerator20new_pointer_registerEv.exit, %100
-  %.sroa.015.0.i.i.i92 = phi i64 [ %.sroa.015.0.i.i.i, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %.sroa.015.0.i.i.i, %100 ], [ 9982099, %92 ]
+  %.sroa.015.0.i.i.i101 = phi i64 [ %.sroa.015.0.i.i.i, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %.sroa.015.0.i.i.i, %100 ], [ 9982099, %92 ]
   %103 = phi i32 [ %96, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select.i.i65, %100 ], [ 610, %92 ]
-  %.0.i.i62 = phi i32 [ %96, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select5.i.i66, %100 ], [ 610, %92 ]
+  %.0.i.i62 = phi i32 [ %96, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select6.i.i66, %100 ], [ 610, %92 ]
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %76, align 8
   %105 = shl i32 %.0.i.i62, 14
@@ -18736,7 +18736,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %125, %123
 
 _ZN11LIR_OprFact11intptrConstEl.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %128
   %131 = ptrtoint ptr %.0.i.i.i.i to i64
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %107, i64 %131, i64 %.sroa.015.0.i.i.i92, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %107, i64 %131, i64 %.sroa.015.0.i.i.i101, ptr noundef null)
   %132 = icmp sgt i32 %55, 0
   br i1 %132, label %.lr.ph, label %._crit_edge
 
@@ -18789,7 +18789,7 @@ _ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit: ; preds = %_ZN22C
   %159 = ptrtoint ptr %.0.i.i.i.i.i to i64
   call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef 0, i64 %56, i64 %159, ptr noundef null)
   %160 = load ptr, ptr %86, align 8
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %160, i64 %.sroa.015.0.i.i.i92, i64 %.sroa.015.0.i.i.i63, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %160, i64 %.sroa.015.0.i.i.i101, i64 %.sroa.015.0.i.i.i63, ptr noundef null)
   %161 = load ptr, ptr %86, align 8
   %162 = sext i32 %135 to i64
   %163 = load ptr, ptr %109, align 8
@@ -18833,7 +18833,7 @@ _ZN22CompilationResourceObjnwEm.exit.i69:         ; preds = %178, %176
 _ZN11LIR_OprFact11intptrConstEl.exit71:           ; preds = %_ZN22CompilationResourceObjnwEm.exit.i69, %181
   %184 = ptrtoint ptr %.0.i.i.i.i70 to i64
   %.sroa.011.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %161, i32 noundef 0, i64 %184, i64 %.sroa.015.0.i.i.i63, i64 %.sroa.015.0.i.i.i92, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
+  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %161, i32 noundef 0, i64 %184, i64 %.sroa.015.0.i.i.i63, i64 %.sroa.015.0.i.i.i101, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
   %185 = add nuw nsw i32 %.089, 1
   %exitcond.not = icmp eq i32 %185, %55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
@@ -18849,12 +18849,12 @@ _ZN11LIR_OprFact11intptrConstEl.exit71:           ; preds = %_ZN22CompilationRes
   %190 = icmp samesign ugt i32 %186, 9997
   %.pre.i.i74 = load i32, ptr %76, align 8
   %spec.select.i.i75 = select i1 %190, i32 609, i32 %.pre.i.i74
-  %spec.select5.i.i76 = select i1 %190, i32 609, i32 %186
+  %spec.select6.i.i76 = select i1 %190, i32 609, i32 %186
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit77
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit77: ; preds = %._crit_edge, %188
   %191 = phi i32 [ %186, %._crit_edge ], [ %spec.select.i.i75, %188 ]
-  %.0.i.i72 = phi i32 [ %186, %._crit_edge ], [ %spec.select5.i.i76, %188 ]
+  %.0.i.i72 = phi i32 [ %186, %._crit_edge ], [ %spec.select6.i.i76, %188 ]
   %192 = add nsw i32 %191, 1
   store i32 %192, ptr %76, align 8
   %193 = shl i32 %.0.i.i72, 14
@@ -18895,7 +18895,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %_ZN22CompilationRes
   %213 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i64 %.sroa.015.0.i.i.i92, ptr %214, align 8
+  store i64 %.sroa.015.0.i.i.i101, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 0, ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -19216,12 +19216,12 @@ _ZNK6Switch6lengthEv.exit:                        ; preds = %45, %51
   %79 = icmp samesign ugt i32 %75, 9997
   %.pre.i = load i32, ptr %74, align 8
   %spec.select.i = select i1 %79, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %79, i32 609, i32 %75
+  %spec.select6.i = select i1 %79, i32 609, i32 %75
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %63, %77
   %80 = phi i32 [ %75, %63 ], [ %spec.select.i, %77 ]
-  %.0.i = phi i32 [ %75, %63 ], [ %spec.select5.i, %77 ]
+  %.0.i = phi i32 [ %75, %63 ], [ %spec.select6.i, %77 ]
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %74, align 8
   %82 = shl i32 %.0.i, 14
@@ -19259,13 +19259,13 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %90, %_ZN12LIRGenera
   %100 = icmp samesign ugt i32 %94, 9997
   %.pre.i.i63 = load i32, ptr %74, align 8
   %spec.select.i.i64 = select i1 %100, i32 609, i32 %.pre.i.i63
-  %spec.select5.i.i65 = select i1 %100, i32 609, i32 %94
+  %spec.select6.i.i65 = select i1 %100, i32 609, i32 %94
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit66
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit66: ; preds = %90, %_ZN12LIRGenerator20new_pointer_registerEv.exit, %98
-  %.sroa.015.0.i.i.i92 = phi i64 [ %.sroa.015.0.i.i.i, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %.sroa.015.0.i.i.i, %98 ], [ 9982099, %90 ]
+  %.sroa.015.0.i.i.i100 = phi i64 [ %.sroa.015.0.i.i.i, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %.sroa.015.0.i.i.i, %98 ], [ 9982099, %90 ]
   %101 = phi i32 [ %94, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select.i.i64, %98 ], [ 610, %90 ]
-  %.0.i.i61 = phi i32 [ %94, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select5.i.i65, %98 ], [ 610, %90 ]
+  %.0.i.i61 = phi i32 [ %94, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select6.i.i65, %98 ], [ 610, %90 ]
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %74, align 8
   %103 = shl i32 %.0.i.i61, 14
@@ -19314,7 +19314,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %123, %121
 
 _ZN11LIR_OprFact11intptrConstEl.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %126
   %129 = ptrtoint ptr %.0.i.i.i.i to i64
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %105, i64 %129, i64 %.sroa.015.0.i.i.i92, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %105, i64 %129, i64 %.sroa.015.0.i.i.i100, ptr noundef null)
   %130 = icmp sgt i32 %54, 0
   br i1 %130, label %.lr.ph, label %._crit_edge
 
@@ -19377,7 +19377,7 @@ _ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit: ; preds = %_ZN22C
   %163 = ptrtoint ptr %.0.i.i.i.i.i to i64
   call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef 0, i64 %48, i64 %163, ptr noundef null)
   %164 = load ptr, ptr %84, align 8
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %164, i64 %.sroa.015.0.i.i.i92, i64 %.sroa.015.0.i.i.i62, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %164, i64 %.sroa.015.0.i.i.i100, i64 %.sroa.015.0.i.i.i62, ptr noundef null)
   %165 = load ptr, ptr %84, align 8
   %166 = sext i32 %135 to i64
   %167 = load ptr, ptr %107, align 8
@@ -19421,7 +19421,7 @@ _ZN22CompilationResourceObjnwEm.exit.i68:         ; preds = %182, %180
 _ZN11LIR_OprFact11intptrConstEl.exit70:           ; preds = %_ZN22CompilationResourceObjnwEm.exit.i68, %185
   %188 = ptrtoint ptr %.0.i.i.i.i69 to i64
   %.sroa.011.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %165, i32 noundef 0, i64 %188, i64 %.sroa.015.0.i.i.i62, i64 %.sroa.015.0.i.i.i92, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
+  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %165, i32 noundef 0, i64 %188, i64 %.sroa.015.0.i.i.i62, i64 %.sroa.015.0.i.i.i100, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %132, !llvm.loop !33
@@ -19437,12 +19437,12 @@ _ZN11LIR_OprFact11intptrConstEl.exit70:           ; preds = %_ZN22CompilationRes
   %193 = icmp samesign ugt i32 %189, 9997
   %.pre.i.i73 = load i32, ptr %74, align 8
   %spec.select.i.i74 = select i1 %193, i32 609, i32 %.pre.i.i73
-  %spec.select5.i.i75 = select i1 %193, i32 609, i32 %189
+  %spec.select6.i.i75 = select i1 %193, i32 609, i32 %189
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit76
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit76: ; preds = %._crit_edge, %191
   %194 = phi i32 [ %189, %._crit_edge ], [ %spec.select.i.i74, %191 ]
-  %.0.i.i71 = phi i32 [ %189, %._crit_edge ], [ %spec.select5.i.i75, %191 ]
+  %.0.i.i71 = phi i32 [ %189, %._crit_edge ], [ %spec.select6.i.i75, %191 ]
   %195 = add nsw i32 %194, 1
   store i32 %195, ptr %74, align 8
   %196 = shl i32 %.0.i.i71, 14
@@ -19483,7 +19483,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %_ZN22CompilationRes
   %216 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i64 %.sroa.015.0.i.i.i92, ptr %217, align 8
+  store i64 %.sroa.015.0.i.i.i100, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 0, ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -19848,12 +19848,12 @@ _ZN12LIRGenerator26increment_backedge_counterEP12CodeEmitInfoi.exit: ; preds = %
   %148 = icmp samesign ugt i32 %143, 9997
   %.pre.i42 = load i32, ptr %142, align 8
   %spec.select.i = select i1 %148, i32 609, i32 %.pre.i42
-  %spec.select5.i = select i1 %148, i32 609, i32 %143
+  %spec.select6.i = select i1 %148, i32 609, i32 %143
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %132, %145
   %149 = phi i32 [ %143, %132 ], [ %spec.select.i, %145 ]
-  %.0.i = phi i32 [ %143, %132 ], [ %spec.select5.i, %145 ]
+  %.0.i = phi i32 [ %143, %132 ], [ %spec.select6.i, %145 ]
   %150 = add nsw i32 %149, 1
   store i32 %150, ptr %142, align 8
   %151 = shl i32 %.0.i, 14
@@ -20073,7 +20073,7 @@ define hidden noundef ptr @_ZN12LIRGenerator12profile_typeEP12ciMethodDataiilP11
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load ptr, ptr %20, align 8
-  br i1 %.not153, label %22, label %.thread154
+  br i1 %.not153, label %22, label %.thread166
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %5, align 8
@@ -20115,7 +20115,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %.thread
   %or.cond3 = or i1 %13, %45
   br i1 %or.cond3, label %46, label %208
 
-.thread154:                                       ; preds = %15
+.thread166:                                       ; preds = %15
   br i1 %13, label %.thread141, label %208
 
 46:                                               ; preds = %40
@@ -20197,11 +20197,11 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %.thread
   %or.cond9 = select i1 %13, i1 true, i1 %.192
   br i1 %or.cond9, label %.thread141, label %208
 
-.thread141:                                       ; preds = %.thread154, %72, %81
-  %.088151 = phi i64 [ %.088, %81 ], [ %.1, %72 ], [ %4, %.thread154 ]
-  %.089150 = phi ptr [ %.089, %81 ], [ %50, %72 ], [ null, %.thread154 ]
-  %.194149 = phi ptr [ %.194, %81 ], [ null, %72 ], [ null, %.thread154 ]
-  %.096148 = phi i1 [ %.096, %81 ], [ %60, %72 ], [ false, %.thread154 ]
+.thread141:                                       ; preds = %.thread166, %72, %81
+  %.088151 = phi i64 [ %.088, %81 ], [ %.1, %72 ], [ %4, %.thread166 ]
+  %.089150 = phi ptr [ %.089, %81 ], [ %50, %72 ], [ null, %.thread166 ]
+  %.194149 = phi ptr [ %.194, %81 ], [ null, %72 ], [ null, %.thread166 ]
+  %.096148 = phi i1 [ %.096, %81 ], [ %60, %72 ], [ false, %.thread166 ]
   %82 = load i64, ptr %6, align 8
   %83 = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   %84 = icmp eq i64 %82, %83
@@ -20220,12 +20220,12 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %.thread
   %92 = icmp samesign ugt i32 %87, 9997
   %.pre.i = load i32, ptr %86, align 8
   %spec.select.i = select i1 %92, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %92, i32 609, i32 %87
+  %spec.select6.i = select i1 %92, i32 609, i32 %87
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %85, %89
   %93 = phi i32 [ %87, %85 ], [ %spec.select.i, %89 ]
-  %.0.i114 = phi i32 [ %87, %85 ], [ %spec.select5.i, %89 ]
+  %.0.i114 = phi i32 [ %87, %85 ], [ %spec.select6.i, %89 ]
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %86, align 8
   %95 = shl i32 %.0.i114, 14
@@ -20300,12 +20300,12 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %115, %117
   %133 = icmp samesign ugt i32 %128, 9997
   %.pre.i.i = load i32, ptr %86, align 8
   %spec.select.i.i = select i1 %133, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %133, i32 609, i32 %128
+  %spec.select6.i.i = select i1 %133, i32 609, i32 %128
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %127, %130
   %134 = phi i32 [ %128, %127 ], [ %spec.select.i.i, %130 ]
-  %.0.i.i = phi i32 [ %128, %127 ], [ %spec.select5.i.i, %130 ]
+  %.0.i.i = phi i32 [ %128, %127 ], [ %spec.select6.i.i, %130 ]
   %135 = add nsw i32 %134, 1
   store i32 %135, ptr %86, align 8
   %136 = shl i32 %.0.i.i, 14
@@ -20438,12 +20438,12 @@ _ZN22CompilationResourceObjnwEm.exit119:          ; preds = %183, %185
   %203 = icmp samesign ugt i32 %198, 9997
   %.pre.i.i123 = load i32, ptr %197, align 8
   %spec.select.i.i124 = select i1 %203, i32 609, i32 %.pre.i.i123
-  %spec.select5.i.i125 = select i1 %203, i32 609, i32 %198
+  %spec.select6.i.i125 = select i1 %203, i32 609, i32 %198
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit126
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit126: ; preds = %195, %200
   %204 = phi i32 [ %198, %195 ], [ %spec.select.i.i124, %200 ]
-  %.0.i.i121 = phi i32 [ %198, %195 ], [ %spec.select5.i.i125, %200 ]
+  %.0.i.i121 = phi i32 [ %198, %195 ], [ %spec.select6.i.i125, %200 ]
   %205 = add nsw i32 %204, 1
   store i32 %205, ptr %197, align 8
   %206 = shl i32 %.0.i.i121, 14
@@ -20452,8 +20452,8 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit126: ; preds = %195, %200
   call void @_ZN8LIR_List12profile_typeEP11LIR_Address7LIR_OprP7ciKlasslS2_bb(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef %.0.i.i.i118, i64 %196, ptr noundef %.194149, i64 noundef %.088151, i64 %.sroa.015.0.i.i.i122, i1 noundef zeroext %7, i1 noundef zeroext %.096148)
   br label %208
 
-208:                                              ; preds = %.thread154, %81, %40, %10, %_ZN12LIRGenerator20new_pointer_registerEv.exit126
-  %.0 = phi ptr [ %.089150, %_ZN12LIRGenerator20new_pointer_registerEv.exit126 ], [ null, %10 ], [ null, %40 ], [ %.089, %81 ], [ null, %.thread154 ]
+208:                                              ; preds = %.thread166, %81, %40, %10, %_ZN12LIRGenerator20new_pointer_registerEv.exit126
+  %.0 = phi ptr [ %.089150, %_ZN12LIRGenerator20new_pointer_registerEv.exit126 ], [ null, %10 ], [ null, %40 ], [ %.089, %81 ], [ null, %.thread166 ]
   ret ptr %.0
 }
 
@@ -20776,10 +20776,10 @@ define hidden void @_ZN12LIRGenerator7do_BaseEP4Base(ptr noundef nonnull align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   br label %17
 
-17:                                               ; preds = %.lr.ph, %switch.lookup152
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %switch.lookup152 ]
-  %18 = phi ptr [ %12, %.lr.ph ], [ %70, %switch.lookup152 ]
-  %.0139 = phi i32 [ 0, %.lr.ph ], [ %69, %switch.lookup152 ]
+17:                                               ; preds = %.lr.ph, %switch.lookup171
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %switch.lookup171 ]
+  %18 = phi ptr [ %12, %.lr.ph ], [ %70, %switch.lookup171 ]
+  %.0139 = phi i32 [ 0, %.lr.ph ], [ %69, %switch.lookup171 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw %class.LIR_Opr, ptr %20, i64 %indvars.iv
@@ -20811,9 +20811,9 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %17
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef zeroext i8 %37(ptr noundef nonnull align 8 dereferenceable(8) %34) #17
-  %switch.tableidx148 = add i8 %38, -4
-  %39 = icmp ult i8 %switch.tableidx148, 6
-  %switch.shifted = lshr i8 51, %switch.tableidx148
+  %switch.tableidx167 = add i8 %38, -4
+  %39 = icmp ult i8 %switch.tableidx167, 6
+  %switch.shifted = lshr i8 51, %switch.tableidx167
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %39, i1 %switch.lobit, i1 false
   %spec.select = select i1 %or.cond, i8 10, i8 %38
@@ -20838,16 +20838,16 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv
   %45 = icmp samesign ugt i32 %41, 9997
   %.pre.i = load i32, ptr %15, align 8
   %spec.select.i = select i1 %45, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %45, i32 609, i32 %41
+  %spec.select6.i = select i1 %45, i32 609, i32 %41
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %43, %_ZNK7LIR_Opr4typeEv.exit.thread
   %46 = phi i32 [ %41, %_ZNK7LIR_Opr4typeEv.exit.thread ], [ %spec.select.i, %43 ]
-  %.0.i48 = phi i32 [ %41, %_ZNK7LIR_Opr4typeEv.exit.thread ], [ %spec.select5.i, %43 ]
+  %.0.i48 = phi i32 [ %41, %_ZNK7LIR_Opr4typeEv.exit.thread ], [ %spec.select6.i, %43 ]
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %15, align 8
-  %switch.tableidx151 = add i8 %.044, -6
-  %48 = icmp ult i8 %switch.tableidx151, 12
+  %switch.tableidx170 = add i8 %.044, -6
+  %48 = icmp ult i8 %switch.tableidx170, 12
   br i1 %48, label %switch.hole_check, label %49
 
 49:                                               ; preds = %switch.hole_check, %._crit_edge.i
@@ -20857,13 +20857,13 @@ _ZNK7LIR_Opr4typeEv.exit.thread:                  ; preds = %_ZNK7LIR_Opr4typeEv
   unreachable
 
 switch.hole_check:                                ; preds = %._crit_edge.i
-  %switch.maskindex = zext nneg i8 %switch.tableidx151 to i16
-  %switch.shifted153 = lshr i16 2803, %switch.maskindex
-  %switch.lobit154 = trunc i16 %switch.shifted153 to i1
-  br i1 %switch.lobit154, label %switch.lookup152, label %49
+  %switch.maskindex = zext nneg i8 %switch.tableidx170 to i16
+  %switch.shifted172 = lshr i16 2803, %switch.maskindex
+  %switch.lobit173 = trunc i16 %switch.shifted172 to i1
+  br i1 %switch.lobit173, label %switch.lookup171, label %49
 
-switch.lookup152:                                 ; preds = %switch.hole_check
-  %51 = zext nneg i8 %switch.tableidx151 to i64
+switch.lookup171:                                 ; preds = %switch.hole_check
+  %51 = zext nneg i8 %switch.tableidx170 to i64
   %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEPS0_IP7LIRItemEPhP9ValueTypeP12CodeEmitInfo, i64 0, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = shl i32 %.0.i48, 14
@@ -20894,7 +20894,7 @@ switch.lookup152:                                 ; preds = %switch.hole_check
   %73 = icmp slt i64 %indvars.iv.next, %72
   br i1 %73, label %17, label %._crit_edge.loopexit, !llvm.loop !37
 
-._crit_edge.loopexit:                             ; preds = %switch.lookup152
+._crit_edge.loopexit:                             ; preds = %switch.lookup171
   %.pre = load ptr, ptr %6, align 8
   br label %._crit_edge
 
@@ -21171,12 +21171,12 @@ _ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit:
   %199 = icmp samesign ugt i32 %195, 9997
   %.pre.i61 = load i32, ptr %194, align 8
   %spec.select.i62 = select i1 %199, i32 609, i32 %.pre.i61
-  %spec.select5.i63 = select i1 %199, i32 609, i32 %195
+  %spec.select6.i63 = select i1 %199, i32 609, i32 %195
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit64
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit64: ; preds = %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit, %197
   %200 = phi i32 [ %195, %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %spec.select.i62, %197 ]
-  %.0.i58 = phi i32 [ %195, %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %spec.select5.i63, %197 ]
+  %.0.i58 = phi i32 [ %195, %_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE6appendERKS0_.exit ], [ %spec.select6.i63, %197 ]
   %201 = add nsw i32 %200, 1
   store i32 %201, ptr %194, align 8
   %202 = shl i32 %.0.i58, 14
@@ -21268,14 +21268,14 @@ _ZN13GrowableArrayI9BasicTypeED2Ev.exit:          ; preds = %_ZN26GrowableArrayW
   %245 = icmp samesign ugt i32 %241, 9997
   %.pre.i74 = load i32, ptr %240, align 8
   %spec.select.i75 = select i1 %245, i32 609, i32 %.pre.i74
-  %spec.select5.i76 = select i1 %245, i32 609, i32 %241
+  %spec.select6.i76 = select i1 %245, i32 609, i32 %241
   %.pre145 = load ptr, ptr %233, align 8
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit77
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit77: ; preds = %239, %243
   %246 = phi ptr [ %234, %239 ], [ %.pre145, %243 ]
   %247 = phi i32 [ %241, %239 ], [ %spec.select.i75, %243 ]
-  %.0.i71 = phi i32 [ %241, %239 ], [ %spec.select5.i76, %243 ]
+  %.0.i71 = phi i32 [ %241, %239 ], [ %spec.select6.i76, %243 ]
   %248 = add nsw i32 %247, 1
   store i32 %248, ptr %240, align 8
   %249 = shl i32 %.0.i71, 14
@@ -21517,12 +21517,12 @@ _ZN16MonitorEnterStubC2E7LIR_OprS0_P12CodeEmitInfo.exit: ; preds = %_ZN22Compila
   %395 = icmp samesign ugt i32 %391, 9997
   %.pre.i91 = load i32, ptr %390, align 8
   %spec.select.i92 = select i1 %395, i32 609, i32 %.pre.i91
-  %spec.select5.i93 = select i1 %395, i32 609, i32 %391
+  %spec.select6.i93 = select i1 %395, i32 609, i32 %391
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit94
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit94: ; preds = %387, %393
   %396 = phi i32 [ %391, %387 ], [ %spec.select.i92, %393 ]
-  %.0.i88 = phi i32 [ %391, %387 ], [ %spec.select5.i93, %393 ]
+  %.0.i88 = phi i32 [ %391, %387 ], [ %spec.select6.i93, %393 ]
   %397 = add nsw i32 %396, 1
   store i32 %397, ptr %390, align 8
   %398 = shl i32 %.0.i88, 14
@@ -21970,12 +21970,12 @@ define hidden void @_ZN12LIRGenerator11do_OsrEntryEP8OsrEntry(ptr noundef nonnul
   %15 = icmp samesign ugt i32 %10, 9997
   %.pre.i.i.i.i = load i32, ptr %9, align 8
   %spec.select.i.i.i.i = select i1 %15, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %15, i32 609, i32 %10
+  %spec.select6.i.i.i.i = select i1 %15, i32 609, i32 %10
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %12, %2
   %16 = phi i32 [ %10, %2 ], [ %spec.select.i.i.i.i, %12 ]
-  %.0.i.i.i.i = phi i32 [ %10, %2 ], [ %spec.select5.i.i.i.i, %12 ]
+  %.0.i.i.i.i = phi i32 [ %10, %2 ], [ %spec.select6.i.i.i.i, %12 ]
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %9, align 8
   %switch.tableidx = add i8 %8, -6
@@ -22781,12 +22781,12 @@ define hidden void @_ZN12LIRGenerator9do_InvokeEP6Invoke(ptr noundef nonnull ali
   %109 = icmp samesign ugt i32 %105, 9997
   %.pre.i.i.i.i = load i32, ptr %104, align 8
   %spec.select.i.i.i.i = select i1 %109, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %109, i32 609, i32 %105
+  %spec.select6.i.i.i.i = select i1 %109, i32 609, i32 %105
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %107, %101
   %110 = phi i32 [ %105, %101 ], [ %spec.select.i.i.i.i, %107 ]
-  %.0.i.i.i.i = phi i32 [ %105, %101 ], [ %spec.select5.i.i.i.i, %107 ]
+  %.0.i.i.i.i = phi i32 [ %105, %101 ], [ %spec.select6.i.i.i.i, %107 ]
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr %104, align 8
   %switch.tableidx = add i8 %103, -6
@@ -23354,12 +23354,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %2, %_ZN12LIRGenerat
   %45 = icmp samesign ugt i32 %40, 9997
   %.pre.i.i.i.i = load i32, ptr %39, align 8
   %spec.select.i.i.i.i = select i1 %45, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %45, i32 609, i32 %40
+  %spec.select6.i.i.i.i = select i1 %45, i32 609, i32 %40
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %42, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit
   %46 = phi i32 [ %40, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select.i.i.i.i, %42 ]
-  %.0.i.i.i.i = phi i32 [ %40, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select5.i.i.i.i, %42 ]
+  %.0.i.i.i.i = phi i32 [ %40, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select6.i.i.i.i, %42 ]
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %39, align 8
   %switch.tableidx = add i8 %38, -6
@@ -23661,12 +23661,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit39: ; preds = %_ZN7LIRItemC2EP11
   %134 = icmp samesign ugt i32 %129, 9997
   %.pre.i.i.i.i = load i32, ptr %128, align 8
   %spec.select.i.i.i.i = select i1 %134, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %134, i32 609, i32 %129
+  %spec.select6.i.i.i.i = select i1 %134, i32 609, i32 %129
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %131, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit39
   %135 = phi i32 [ %129, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit39 ], [ %spec.select.i.i.i.i, %131 ]
-  %.0.i.i.i.i = phi i32 [ %129, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit39 ], [ %spec.select5.i.i.i.i, %131 ]
+  %.0.i.i.i.i = phi i32 [ %129, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit39 ], [ %spec.select6.i.i.i.i, %131 ]
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr %128, align 8
   %switch.tableidx = add i8 %127, -6
@@ -23697,7 +23697,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %145 = load i32, ptr %144, align 8
   %146 = icmp ult i32 %145, 8
-  br i1 %146, label %switch.lookup45, label %147
+  br i1 %146, label %switch.lookup49, label %147
 
 147:                                              ; preds = %switch.lookup
   %148 = load ptr, ptr @g_assert_poison, align 8
@@ -23705,30 +23705,30 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.15, i32 noundef 463, ptr noundef nonnull @.str.16) #18
   unreachable
 
-switch.lookup45:                                  ; preds = %switch.lookup
+switch.lookup49:                                  ; preds = %switch.lookup
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %150 = load ptr, ptr %149, align 8
   %151 = zext nneg i32 %145 to i64
-  %switch.gep46 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 0, i64 %151
-  %switch.load47 = load i32, ptr %switch.gep46, align 4
+  %switch.gep50 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 0, i64 %151
+  %switch.load51 = load i32, ptr %switch.gep50, align 4
   %152 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %153 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
-  call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %150, i32 noundef %switch.load47, i64 %152, i64 %153, ptr noundef null)
+  call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %150, i32 noundef %switch.load51, i64 %152, i64 %153, ptr noundef null)
   %154 = load i32, ptr %144, align 8
   %155 = icmp ult i32 %154, 8
-  br i1 %155, label %switch.lookup42, label %156
+  br i1 %155, label %switch.lookup46, label %156
 
-156:                                              ; preds = %switch.lookup45
+156:                                              ; preds = %switch.lookup49
   %157 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %157, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.15, i32 noundef 463, ptr noundef nonnull @.str.16) #18
   unreachable
 
-switch.lookup42:                                  ; preds = %switch.lookup45
+switch.lookup46:                                  ; preds = %switch.lookup49
   %158 = load ptr, ptr %149, align 8
   %159 = zext nneg i32 %154 to i64
-  %switch.gep43 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 0, i64 %159
-  %switch.load44 = load i32, ptr %switch.gep43, align 4
+  %switch.gep47 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN12LIRGenerator22do_RangeCheckPredicateEP19RangeCheckPredicate, i64 0, i64 %159
+  %switch.load48 = load i32, ptr %switch.gep47, align 4
   %160 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
   %161 = call i64 @_ZN7LIRItem6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   %162 = load ptr, ptr %7, align 8
@@ -23736,7 +23736,7 @@ switch.lookup42:                                  ; preds = %switch.lookup45
   %164 = load ptr, ptr %163, align 8
   %165 = call noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef %164) #17
   %.sroa.01.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %158, i32 noundef %switch.load44, i64 %160, i64 %161, i64 %.sroa.015.0.i.i.i.i.i, i8 noundef zeroext %165, i64 %.sroa.01.0.copyload, i64 %.sroa.01.0.copyload)
+  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %158, i32 noundef %switch.load48, i64 %160, i64 %161, i64 %.sroa.015.0.i.i.i.i.i, i8 noundef zeroext %165, i64 %.sroa.01.0.copyload, i64 %.sroa.01.0.copyload)
   ret void
 }
 
@@ -23787,12 +23787,12 @@ define hidden void @_ZN12LIRGenerator14do_RuntimeCallEPhP9Intrinsic(ptr noundef 
   %32 = icmp samesign ugt i32 %28, 9997
   %.pre.i.i.i.i = load i32, ptr %27, align 8
   %spec.select.i.i.i.i = select i1 %32, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %32, i32 609, i32 %28
+  %spec.select6.i.i.i.i = select i1 %32, i32 609, i32 %28
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %30, %3
   %33 = phi i32 [ %28, %3 ], [ %spec.select.i.i.i.i, %30 ]
-  %.0.i.i.i.i = phi i32 [ %28, %3 ], [ %spec.select5.i.i.i.i, %30 ]
+  %.0.i.i.i.i = phi i32 [ %28, %3 ], [ %spec.select6.i.i.i.i, %30 ]
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %27, align 8
   %switch.tableidx = add i8 %26, -6
@@ -25429,13 +25429,13 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %7, %2
   %17 = icmp samesign ugt i32 %12, 9997
   %.pre.i.i = load i32, ptr %4, align 8
   %spec.select.i.i = select i1 %17, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %17, i32 609, i32 %12
+  %spec.select6.i.i = select i1 %17, i32 609, i32 %12
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %7, %_ZN12LIRGenerator12new_registerE9BasicType.exit, %14
-  %.0.i33 = phi i32 [ %5, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %5, %14 ], [ 609, %7 ]
+  %.0.i38 = phi i32 [ %5, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %5, %14 ], [ 609, %7 ]
   %18 = phi i32 [ %12, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select.i.i, %14 ], [ 610, %7 ]
-  %.0.i.i = phi i32 [ %12, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select5.i.i, %14 ], [ 610, %7 ]
+  %.0.i.i = phi i32 [ %12, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select6.i.i, %14 ], [ 610, %7 ]
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -25532,12 +25532,12 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %44, %50, %53
   %62 = icmp samesign ugt i32 %58, 9997
   %.pre.i26 = load i32, ptr %4, align 8
   %spec.select.i27 = select i1 %62, i32 609, i32 %.pre.i26
-  %spec.select5.i28 = select i1 %62, i32 609, i32 %58
+  %spec.select6.i28 = select i1 %62, i32 609, i32 %58
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit29
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit29: ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %60
   %63 = phi i32 [ %58, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select.i27, %60 ]
-  %.0.i24 = phi i32 [ %58, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select5.i28, %60 ]
+  %.0.i24 = phi i32 [ %58, %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit ], [ %spec.select6.i28, %60 ]
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %4, align 8
   %65 = shl i32 %.0.i24, 14
@@ -25554,7 +25554,7 @@ _ZNK11ProfileCall16nb_profiled_argsEv.exit22.thread.thread: ; preds = %_ZNK11Pro
   %70 = shl i32 %.0.i.i, 14
   %71 = or disjoint i32 %70, 4243
   %.sroa.015.0.i.i.i = sext i32 %71 to i64
-  %72 = shl i32 %.0.i33, 14
+  %72 = shl i32 %.0.i38, 14
   %73 = or disjoint i32 %72, 4155
   %.sroa.015.0.i.i = sext i32 %73 to i64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -25872,12 +25872,12 @@ define hidden void @_ZN12LIRGenerator28increment_event_counter_implEP12CodeEmitI
   %25 = icmp samesign ugt i32 %21, 9997
   %.pre.i.i = load i32, ptr %20, align 8
   %spec.select.i.i = select i1 %25, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %25, i32 609, i32 %21
+  %spec.select6.i.i = select i1 %25, i32 609, i32 %21
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %19, %23
   %26 = phi i32 [ %21, %19 ], [ %spec.select.i.i, %23 ]
-  %.0.i.i = phi i32 [ %21, %19 ], [ %spec.select5.i.i, %23 ]
+  %.0.i.i = phi i32 [ %21, %19 ], [ %spec.select6.i.i, %23 ]
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %20, align 8
   %28 = shl i32 %.0.i.i, 14
@@ -25943,12 +25943,12 @@ _ZN11LIR_OprFact11intptrConstEPv.exit:            ; preds = %_ZN22CompilationRes
   %62 = icmp samesign ugt i32 %58, 9997
   %.pre.i = load i32, ptr %57, align 8
   %spec.select.i = select i1 %62, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %62, i32 609, i32 %58
+  %spec.select6.i = select i1 %62, i32 609, i32 %58
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %56, %60
   %63 = phi i32 [ %58, %56 ], [ %spec.select.i, %60 ]
-  %.0.i = phi i32 [ %58, %56 ], [ %spec.select5.i, %60 ]
+  %.0.i = phi i32 [ %58, %56 ], [ %spec.select6.i, %60 ]
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %57, align 8
   %65 = shl i32 %.0.i, 14
@@ -26031,12 +26031,12 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %88, %90
   %105 = icmp samesign ugt i32 %101, 9997
   %.pre.i68 = load i32, ptr %100, align 8
   %spec.select.i69 = select i1 %105, i32 609, i32 %.pre.i68
-  %spec.select5.i70 = select i1 %105, i32 609, i32 %101
+  %spec.select6.i70 = select i1 %105, i32 609, i32 %101
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit71
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit71: ; preds = %99, %103
   %106 = phi i32 [ %101, %99 ], [ %spec.select.i69, %103 ]
-  %.0.i66 = phi i32 [ %101, %99 ], [ %spec.select5.i70, %103 ]
+  %.0.i66 = phi i32 [ %101, %99 ], [ %spec.select6.i70, %103 ]
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %100, align 8
   %108 = shl i32 %.0.i66, 14
@@ -26383,9 +26383,9 @@ _ZN11LIR_OprFact8intConstEi.exit93:               ; preds = %_ZN22CompilationRes
   br label %296
 
 296:                                              ; preds = %_ZNK7LIR_Opr11is_constantEv.exit, %_ZN11LIR_OprFact8intConstEi.exit, %_ZN11LIR_OprFact8intConstEi.exit93
-  %.sink104 = phi i32 [ 1, %_ZN11LIR_OprFact8intConstEi.exit ], [ 0, %_ZN11LIR_OprFact8intConstEi.exit93 ], [ 8, %_ZNK7LIR_Opr11is_constantEv.exit ]
+  %.sink111 = phi i32 [ 1, %_ZN11LIR_OprFact8intConstEi.exit ], [ 0, %_ZN11LIR_OprFact8intConstEi.exit93 ], [ 8, %_ZNK7LIR_Opr11is_constantEv.exit ]
   %297 = load ptr, ptr %110, align 8
-  tail call void @_ZN8LIR_List6branchE13LIR_ConditionP8CodeStub(ptr noundef nonnull align 8 dereferenceable(32) %297, i32 noundef %.sink104, ptr noundef %.0.i.i.i76)
+  tail call void @_ZN8LIR_List6branchE13LIR_ConditionP8CodeStub(ptr noundef nonnull align 8 dereferenceable(32) %297, i32 noundef %.sink111, ptr noundef %.0.i.i.i76)
   %298 = load ptr, ptr %110, align 8
   %299 = getelementptr inbounds nuw i8, ptr %.0.i.i.i76, i64 48
   tail call void @_ZN8LIR_List18branch_destinationEP5Label(ptr noundef nonnull align 8 dereferenceable(32) %298, ptr noundef nonnull %299)
@@ -26426,12 +26426,12 @@ _ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %8, %_ZN11Compilatio
   %25 = icmp samesign ugt i32 %21, 9997
   %.pre.i = load i32, ptr %20, align 8
   %spec.select.i = select i1 %25, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %25, i32 609, i32 %21
+  %spec.select6.i = select i1 %25, i32 609, i32 %21
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN11Compilation12is_profilingEv.exit.thread, %23
   %26 = phi i32 [ %21, %_ZN11Compilation12is_profilingEv.exit.thread ], [ %spec.select.i, %23 ]
-  %.0.i = phi i32 [ %21, %_ZN11Compilation12is_profilingEv.exit.thread ], [ %spec.select5.i, %23 ]
+  %.0.i = phi i32 [ %21, %_ZN11Compilation12is_profilingEv.exit.thread ], [ %spec.select6.i, %23 ]
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %20, align 8
   %28 = shl i32 %.0.i, 14
@@ -26955,12 +26955,12 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
   %178 = icmp samesign ugt i32 %173, 9997
   %.pre.i.i.i.i = load i32, ptr %172, align 8
   %spec.select.i.i.i.i = select i1 %178, i32 609, i32 %.pre.i.i.i.i
-  %spec.select5.i.i.i.i = select i1 %178, i32 609, i32 %173
+  %spec.select6.i.i.i.i = select i1 %178, i32 609, i32 %173
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %175, %168
   %179 = phi i32 [ %173, %168 ], [ %spec.select.i.i.i.i, %175 ]
-  %.0.i.i.i.i39 = phi i32 [ %173, %168 ], [ %spec.select5.i.i.i.i, %175 ]
+  %.0.i.i.i.i39 = phi i32 [ %173, %168 ], [ %spec.select6.i.i.i.i, %175 ]
   %180 = add nsw i32 %179, 1
   store i32 %180, ptr %172, align 8
   %switch.tableidx = add i8 %171, -6
@@ -27574,12 +27574,12 @@ define hidden i64 @_ZN12LIRGenerator12call_runtimeEP13GrowableArrayI9BasicTypeEP
   %17 = icmp samesign ugt i32 %12, 9997
   %.pre.i.i = load i32, ptr %11, align 8
   %spec.select.i.i = select i1 %17, i32 609, i32 %.pre.i.i
-  %spec.select5.i.i = select i1 %17, i32 609, i32 %12
+  %spec.select6.i.i = select i1 %17, i32 609, i32 %12
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %14, %9
   %18 = phi i32 [ %12, %9 ], [ %spec.select.i.i, %14 ]
-  %.0.i.i = phi i32 [ %12, %9 ], [ %spec.select5.i.i, %14 ]
+  %.0.i.i = phi i32 [ %12, %9 ], [ %spec.select6.i.i, %14 ]
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %11, align 8
   %switch.tableidx = add i8 %10, -6
@@ -28277,12 +28277,12 @@ _ZN11LIR_OprFact8intConstEi.exit:                 ; preds = %_ZN22CompilationRes
   %38 = icmp samesign ugt i32 %33, 9997
   %.pre.i = load i32, ptr %32, align 8
   %spec.select.i = select i1 %38, i32 609, i32 %.pre.i
-  %spec.select5.i = select i1 %38, i32 609, i32 %33
+  %spec.select6.i = select i1 %38, i32 609, i32 %33
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN11LIR_OprFact8intConstEi.exit, %35
   %39 = phi i32 [ %33, %_ZN11LIR_OprFact8intConstEi.exit ], [ %spec.select.i, %35 ]
-  %.0.i = phi i32 [ %33, %_ZN11LIR_OprFact8intConstEi.exit ], [ %spec.select5.i, %35 ]
+  %.0.i = phi i32 [ %33, %_ZN11LIR_OprFact8intConstEi.exit ], [ %spec.select6.i, %35 ]
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %32, align 8
   %41 = shl i32 %.0.i, 14
@@ -28303,12 +28303,12 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %_ZN11LIR_OprFact8in
   %50 = icmp samesign ugt i32 %45, 9997
   %.pre.i38 = load i32, ptr %32, align 8
   %spec.select.i39 = select i1 %50, i32 609, i32 %.pre.i38
-  %spec.select5.i40 = select i1 %50, i32 609, i32 %45
+  %spec.select6.i40 = select i1 %50, i32 609, i32 %45
   br label %_ZN12LIRGenerator12new_registerE9BasicType.exit41
 
 _ZN12LIRGenerator12new_registerE9BasicType.exit41: ; preds = %_ZN12LIRGenerator12new_registerE9BasicType.exit, %47
   %51 = phi i32 [ %45, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select.i39, %47 ]
-  %.0.i36 = phi i32 [ %45, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select5.i40, %47 ]
+  %.0.i36 = phi i32 [ %45, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select6.i40, %47 ]
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %32, align 8
   %53 = shl i32 %.0.i36, 14

@@ -568,10 +568,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130
   br label %.critedge116
 
 _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ; preds = %17, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130
-  %.sink155.in = phi ptr [ %20, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130 ], [ %1, %17 ]
-  %.sink141 = phi i64 [ %6, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130 ], [ 1, %17 ]
-  %.sink155 = load i8, ptr %.sink155.in, align 1, !tbaa !56
-  %30 = zext i8 %.sink155 to i32
+  %.sink158.in = phi ptr [ %20, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130 ], [ %1, %17 ]
+  %.sink144 = phi i64 [ %6, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit130 ], [ 1, %17 ]
+  %.sink158 = load i8, ptr %.sink158.in, align 1, !tbaa !56
+  %30 = zext i8 %.sink158 to i32
   %31 = and i32 %30, 3
   %32 = lshr i32 %30, 6
   %33 = and i32 %30, 32
@@ -584,10 +584,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ;
   %40 = zext nneg i32 %32 to i64
   %41 = getelementptr inbounds nuw [4 x i64], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 0, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !57
-  %.not.i128 = icmp ult i8 %.sink155, 64
+  %.not.i128 = icmp ult i8 %.sink158, 64
   %43 = and i1 %.not.i128, %34
   %44 = zext i1 %43 to i64
-  %45 = add i64 %39, %.sink141
+  %45 = add i64 %39, %.sink144
   %46 = add i64 %45, %42
   %47 = add i64 %46, %36
   %48 = add i64 %47, %44
@@ -836,8 +836,8 @@ define noundef i64 @_ZN11duckdb_zstd25ZSTD_findDecompressedSizeEPKvm(ptr noundef
   %14 = icmp ugt i32 %.val.i, -9
   %15 = zext i32 %.val.i to i64
   %16 = add nuw nsw i64 %15, 8
-  %.not76 = icmp ugt i64 %16, %.04072
-  %or.cond = select i1 %14, i1 true, i1 %.not76
+  %.not78 = icmp ugt i64 %16, %.04072
+  %or.cond = select i1 %14, i1 true, i1 %.not78
   br i1 %or.cond, label %.thread60, label %28, !llvm.loop !67
 
 17:                                               ; preds = %7
@@ -2096,19 +2096,19 @@ _ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit:   ; preds = %129, %127, %120, %1
   br i1 %131, label %132, label %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread
 
 132:                                              ; preds = %.thread, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit
-  %.0140183 = phi i64 [ %4, %.thread ], [ %.0140, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit ]
+  %.0140195 = phi i64 [ %4, %.thread ], [ %.0140, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit ]
   %133 = phi i64 [ %119, %.thread ], [ 0, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 29928
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 29944
   %136 = load i32, ptr %135, align 8, !tbaa !99
   %137 = zext i32 %136 to i64
-  %138 = icmp ugt i64 %.0140183, %137
+  %138 = icmp ugt i64 %.0140195, %137
   br i1 %138, label %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread, label %139
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 29984
   %141 = load i64, ptr %140, align 8, !tbaa !122
-  %142 = add i64 %141, %.0140183
+  %142 = add i64 %141, %.0140195
   store i64 %142, ptr %140, align 8, !tbaa !122
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 30112
   %144 = load i32, ptr %143, align 8, !tbaa !102
@@ -2117,14 +2117,14 @@ _ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit:   ; preds = %129, %127, %120, %1
 
 145:                                              ; preds = %139
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 30008
-  %147 = tail call noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr noundef nonnull %146, ptr noundef %1, i64 noundef %.0140183)
+  %147 = tail call noundef i32 @_ZN11duckdb_zstd12XXH64_updateEPNS_13XXH64_state_sEPKvm(ptr noundef nonnull %146, ptr noundef %1, i64 noundef %.0140195)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 29920
   %.pre176 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !89
   br label %148
 
 148:                                              ; preds = %145, %139
   %149 = phi i64 [ %.pre176, %145 ], [ %133, %139 ]
-  %150 = getelementptr inbounds nuw i8, ptr %1, i64 %.0140183
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 %.0140195
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 29888
   store ptr %150, ptr %151, align 8, !tbaa !87
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 29920
@@ -2263,7 +2263,7 @@ _ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_DCtx_sEmmj.exit: ; preds = %1
   br label %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread
 
 _ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit.thread: ; preds = %114, %110, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.thread, %171, %67, %19, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit, %105, %132, %148, %158, %163, %164, %167, %_ZN11duckdb_zstdL41ZSTD_nextSrcSizeToDecompressWithInputSizeEPNS_11ZSTD_DCtx_sEm.exit, %209, %202, %_ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_DCtx_sEmmj.exit, %104, %75, %63, %31
-  %.0 = phi i64 [ 0, %31 ], [ 0, %63 ], [ 0, %75 ], [ %73, %67 ], [ %.2, %104 ], [ 0, %_ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_DCtx_sEmmj.exit ], [ -22, %171 ], [ 0, %202 ], [ 0, %209 ], [ -72, %_ZN11duckdb_zstdL41ZSTD_nextSrcSizeToDecompressWithInputSizeEPNS_11ZSTD_DCtx_sEm.exit ], [ %.0140, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit ], [ %4, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit ], [ -20, %105 ], [ -20, %132 ], [ %.0140183, %148 ], [ -20, %158 ], [ %.0140183, %163 ], [ %.0140183, %164 ], [ %.0140183, %167 ], [ -1, %19 ], [ -72, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.thread ], [ %60, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit ], [ -70, %110 ], [ -74, %114 ]
+  %.0 = phi i64 [ 0, %31 ], [ 0, %63 ], [ 0, %75 ], [ %73, %67 ], [ %.2, %104 ], [ 0, %_ZN11duckdb_zstdL19ZSTD_DCtx_trace_endEPKNS_11ZSTD_DCtx_sEmmj.exit ], [ -22, %171 ], [ 0, %202 ], [ 0, %209 ], [ -72, %_ZN11duckdb_zstdL41ZSTD_nextSrcSizeToDecompressWithInputSizeEPNS_11ZSTD_DCtx_sEm.exit ], [ %.0140, %_ZN11duckdb_zstdL16ZSTD_setRleBlockEPvmhm.exit ], [ %4, %_ZN11duckdb_zstdL17ZSTD_copyRawBlockEPvmPKvm.exit ], [ -20, %105 ], [ -20, %132 ], [ %.0140195, %148 ], [ -20, %158 ], [ %.0140195, %163 ], [ %.0140195, %164 ], [ %.0140195, %167 ], [ -1, %19 ], [ -72, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.thread ], [ %60, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit ], [ -70, %110 ], [ -74, %114 ]
   ret i64 %.0
 }
 
@@ -2762,16 +2762,16 @@ define noundef range(i64 -30, 1) i64 @_ZN11duckdb_zstd30ZSTD_decompressBegin_usi
 _ZN11duckdb_zstdL32ZSTD_decompress_insertDictionaryEPNS_11ZSTD_DCtx_sEPKvm.exit.thread: ; preds = %32, %34, %39
   %42 = phi i64 [ %41, %39 ], [ 0, %32 ], [ 0, %34 ]
   %43 = phi ptr [ %.pre, %39 ], [ null, %32 ], [ null, %34 ]
-  %.sink42.i = phi ptr [ %40, %39 ], [ %1, %32 ], [ %1, %34 ]
+  %.sink44.i = phi ptr [ %40, %39 ], [ %1, %32 ], [ %1, %34 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 29912
   store ptr %43, ptr %44, align 8, !tbaa !31
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 29896
   %46 = ptrtoint ptr %43 to i64
   %.neg.i35.i = sub i64 %42, %46
-  %47 = getelementptr inbounds i8, ptr %.sink42.i, i64 %.neg.i35.i
+  %47 = getelementptr inbounds i8, ptr %.sink44.i, i64 %.neg.i35.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 29904
   store ptr %47, ptr %48, align 8, !tbaa !128
-  store ptr %.sink42.i, ptr %45, align 8, !tbaa !127
+  store ptr %.sink44.i, ptr %45, align 8, !tbaa !127
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   store ptr %49, ptr %16, align 8, !tbaa !87
   br label %_ZN11duckdb_zstdL32ZSTD_decompress_insertDictionaryEPNS_11ZSTD_DCtx_sEPKvm.exit
@@ -4240,7 +4240,7 @@ _ZN11duckdb_zstdL19ZSTD_checkOutBufferEPKNS_11ZSTD_DCtx_sEPKNS_16ZSTD_outBuffer_
   switch i32 %86, label %_ZN11duckdb_zstdL19ZSTD_checkOutBufferEPKNS_11ZSTD_DCtx_sEPKNS_16ZSTD_outBuffer_sE.exit.thread [
     i32 0, label %87
     i32 1, label %._crit_edge
-    i32 2, label %.loopexit613
+    i32 2, label %.loopexit650
     i32 3, label %._crit_edge574
     i32 4, label %351
   ]
@@ -4658,9 +4658,9 @@ _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit: ; preds = %245,
 
 253:                                              ; preds = %233, %250
   store i32 2, ptr %35, align 4, !tbaa !129
-  br label %.loopexit613
+  br label %.loopexit650
 
-.loopexit613:                                     ; preds = %.thread492, %253
+.loopexit650:                                     ; preds = %.thread492, %253
   %254 = ptrtoint ptr %.0304564.ph to i64
   %255 = sub i64 %55, %254
   %256 = load i32, ptr %62, align 4, !tbaa !90
@@ -4668,11 +4668,11 @@ _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit: ; preds = %245,
   %switch.i = icmp ult i32 %.off.i, 2
   br i1 %switch.i, label %259, label %257
 
-257:                                              ; preds = %.loopexit613
+257:                                              ; preds = %.loopexit650
   %258 = load i64, ptr %58, align 8, !tbaa !89
   br label %_ZN11duckdb_zstdL41ZSTD_nextSrcSizeToDecompressWithInputSizeEPNS_11ZSTD_DCtx_sEm.exit
 
-259:                                              ; preds = %.loopexit613
+259:                                              ; preds = %.loopexit650
   %260 = load i32, ptr %69, align 8, !tbaa !94
   %.not.i417 = icmp eq i32 %260, 0
   %261 = load i64, ptr %58, align 8, !tbaa !89

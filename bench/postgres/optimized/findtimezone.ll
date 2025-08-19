@@ -666,7 +666,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
 14:                                               ; preds = %.lr.ph
   %15 = call ptr @localtime(ptr noundef nonnull %11) #13
   %.not28 = icmp eq ptr %15, null
-  br i1 %.not28, label %compare_tm.exit.thread.loopexit.split.loop.exit80, label %16
+  br i1 %.not28, label %compare_tm.exit.thread.loopexit.split.loop.exit84, label %16
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %15, align 8
@@ -680,7 +680,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %23 = load i32, ptr %22, align 4
   %.not19.i = icmp eq i32 %21, %23
-  br i1 %.not19.i, label %24, label %compare_tm.exit.thread.loopexit.split.loop.exit58
+  br i1 %.not19.i, label %24, label %compare_tm.exit.thread.loopexit.split.loop.exit62
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -688,7 +688,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %28 = load i32, ptr %27, align 8
   %.not20.i = icmp eq i32 %26, %28
-  br i1 %.not20.i, label %29, label %compare_tm.exit.thread.loopexit.split.loop.exit60
+  br i1 %.not20.i, label %29, label %compare_tm.exit.thread.loopexit.split.loop.exit64
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 12
@@ -696,7 +696,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %33 = load i32, ptr %32, align 4
   %.not21.i = icmp eq i32 %31, %33
-  br i1 %.not21.i, label %34, label %compare_tm.exit.thread.loopexit.split.loop.exit62
+  br i1 %.not21.i, label %34, label %compare_tm.exit.thread.loopexit.split.loop.exit66
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -704,7 +704,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %38 = load i32, ptr %37, align 8
   %.not22.i = icmp eq i32 %36, %38
-  br i1 %.not22.i, label %39, label %compare_tm.exit.thread.loopexit.split.loop.exit64
+  br i1 %.not22.i, label %39, label %compare_tm.exit.thread.loopexit.split.loop.exit68
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -712,7 +712,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %43 = load i32, ptr %42, align 4
   %.not23.i = icmp eq i32 %41, %43
-  br i1 %.not23.i, label %44, label %compare_tm.exit.thread.loopexit.split.loop.exit66
+  br i1 %.not23.i, label %44, label %compare_tm.exit.thread.loopexit.split.loop.exit70
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -720,7 +720,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %48 = load i32, ptr %47, align 8
   %.not24.i = icmp eq i32 %46, %48
-  br i1 %.not24.i, label %49, label %compare_tm.exit.thread.loopexit.split.loop.exit68
+  br i1 %.not24.i, label %49, label %compare_tm.exit.thread.loopexit.split.loop.exit72
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 28
@@ -728,7 +728,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %53 = load i32, ptr %52, align 4
   %.not25.i = icmp eq i32 %51, %53
-  br i1 %.not25.i, label %compare_tm.exit, label %compare_tm.exit.thread.loopexit.split.loop.exit70
+  br i1 %.not25.i, label %compare_tm.exit, label %compare_tm.exit.thread.loopexit.split.loop.exit74
 
 compare_tm.exit:                                  ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -736,7 +736,7 @@ compare_tm.exit:                                  ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %57 = load i32, ptr %56, align 8
   %.not26.i = icmp eq i32 %55, %57
-  br i1 %.not26.i, label %58, label %compare_tm.exit.thread.loopexit.split.loop.exit78
+  br i1 %.not26.i, label %58, label %compare_tm.exit.thread.loopexit.split.loop.exit82
 
 58:                                               ; preds = %compare_tm.exit
   %59 = icmp sgt i32 %55, -1
@@ -754,65 +754,65 @@ compare_tm.exit:                                  ; preds = %49
   %66 = load ptr, ptr %61, align 8
   %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %66) #14
   %.not29 = icmp eq i32 %67, 0
-  br i1 %.not29, label %68, label %compare_tm.exit.thread.loopexit.split.loop.exit74
+  br i1 %.not29, label %68, label %compare_tm.exit.thread.loopexit.split.loop.exit78
 
 68:                                               ; preds = %58, %64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %1, align 8
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %compare_tm.exit.thread.loopexit.split.loop.exit72, !llvm.loop !9
+  br i1 %71, label %.lr.ph, label %compare_tm.exit.thread.loopexit.split.loop.exit76, !llvm.loop !9
 
 compare_tm.exit.thread.loopexit.split.loop.exit:  ; preds = %16
   %72 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit58: ; preds = %19
+compare_tm.exit.thread.loopexit.split.loop.exit62: ; preds = %19
   %73 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit60: ; preds = %24
+compare_tm.exit.thread.loopexit.split.loop.exit64: ; preds = %24
   %74 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit62: ; preds = %29
+compare_tm.exit.thread.loopexit.split.loop.exit66: ; preds = %29
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit64: ; preds = %34
+compare_tm.exit.thread.loopexit.split.loop.exit68: ; preds = %34
   %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit66: ; preds = %39
+compare_tm.exit.thread.loopexit.split.loop.exit70: ; preds = %39
   %77 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit68: ; preds = %44
+compare_tm.exit.thread.loopexit.split.loop.exit72: ; preds = %44
   %78 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit70: ; preds = %49
+compare_tm.exit.thread.loopexit.split.loop.exit74: ; preds = %49
   %79 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit72: ; preds = %68
+compare_tm.exit.thread.loopexit.split.loop.exit76: ; preds = %68
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit74: ; preds = %64
+compare_tm.exit.thread.loopexit.split.loop.exit78: ; preds = %64
   %80 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit78: ; preds = %compare_tm.exit
+compare_tm.exit.thread.loopexit.split.loop.exit82: ; preds = %compare_tm.exit
   %81 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread.loopexit.split.loop.exit80: ; preds = %14
+compare_tm.exit.thread.loopexit.split.loop.exit84: ; preds = %14
   %82 = trunc nuw nsw i64 %indvars.iv to i32
   br label %compare_tm.exit.thread
 
-compare_tm.exit.thread:                           ; preds = %60, %.lr.ph, %compare_tm.exit.thread.loopexit.split.loop.exit, %compare_tm.exit.thread.loopexit.split.loop.exit58, %compare_tm.exit.thread.loopexit.split.loop.exit60, %compare_tm.exit.thread.loopexit.split.loop.exit62, %compare_tm.exit.thread.loopexit.split.loop.exit64, %compare_tm.exit.thread.loopexit.split.loop.exit66, %compare_tm.exit.thread.loopexit.split.loop.exit68, %compare_tm.exit.thread.loopexit.split.loop.exit70, %compare_tm.exit.thread.loopexit.split.loop.exit72, %compare_tm.exit.thread.loopexit.split.loop.exit74, %compare_tm.exit.thread.loopexit.split.loop.exit78, %compare_tm.exit.thread.loopexit.split.loop.exit80, %.preheader, %6, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ 0, %.preheader ], [ %72, %compare_tm.exit.thread.loopexit.split.loop.exit ], [ %73, %compare_tm.exit.thread.loopexit.split.loop.exit58 ], [ %74, %compare_tm.exit.thread.loopexit.split.loop.exit60 ], [ %75, %compare_tm.exit.thread.loopexit.split.loop.exit62 ], [ %76, %compare_tm.exit.thread.loopexit.split.loop.exit64 ], [ %77, %compare_tm.exit.thread.loopexit.split.loop.exit66 ], [ %78, %compare_tm.exit.thread.loopexit.split.loop.exit68 ], [ %79, %compare_tm.exit.thread.loopexit.split.loop.exit70 ], [ %indvars.le, %compare_tm.exit.thread.loopexit.split.loop.exit72 ], [ %80, %compare_tm.exit.thread.loopexit.split.loop.exit74 ], [ %81, %compare_tm.exit.thread.loopexit.split.loop.exit78 ], [ %82, %compare_tm.exit.thread.loopexit.split.loop.exit80 ], [ -1, %.lr.ph ], [ -1, %60 ]
+compare_tm.exit.thread:                           ; preds = %60, %.lr.ph, %compare_tm.exit.thread.loopexit.split.loop.exit, %compare_tm.exit.thread.loopexit.split.loop.exit62, %compare_tm.exit.thread.loopexit.split.loop.exit64, %compare_tm.exit.thread.loopexit.split.loop.exit66, %compare_tm.exit.thread.loopexit.split.loop.exit68, %compare_tm.exit.thread.loopexit.split.loop.exit70, %compare_tm.exit.thread.loopexit.split.loop.exit72, %compare_tm.exit.thread.loopexit.split.loop.exit74, %compare_tm.exit.thread.loopexit.split.loop.exit76, %compare_tm.exit.thread.loopexit.split.loop.exit78, %compare_tm.exit.thread.loopexit.split.loop.exit82, %compare_tm.exit.thread.loopexit.split.loop.exit84, %.preheader, %6, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %6 ], [ 0, %.preheader ], [ %72, %compare_tm.exit.thread.loopexit.split.loop.exit ], [ %73, %compare_tm.exit.thread.loopexit.split.loop.exit62 ], [ %74, %compare_tm.exit.thread.loopexit.split.loop.exit64 ], [ %75, %compare_tm.exit.thread.loopexit.split.loop.exit66 ], [ %76, %compare_tm.exit.thread.loopexit.split.loop.exit68 ], [ %77, %compare_tm.exit.thread.loopexit.split.loop.exit70 ], [ %78, %compare_tm.exit.thread.loopexit.split.loop.exit72 ], [ %79, %compare_tm.exit.thread.loopexit.split.loop.exit74 ], [ %indvars.le, %compare_tm.exit.thread.loopexit.split.loop.exit76 ], [ %80, %compare_tm.exit.thread.loopexit.split.loop.exit78 ], [ %81, %compare_tm.exit.thread.loopexit.split.loop.exit82 ], [ %82, %compare_tm.exit.thread.loopexit.split.loop.exit84 ], [ -1, %.lr.ph ], [ -1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

@@ -25426,8 +25426,8 @@ dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i
   call void @except_setup_try(ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @dissect_x11_replies.catch_spec.14870, i64 noundef 1)
   %396 = call i32 @_setjmp(ptr noundef nonnull %51) #11
   %.not275 = icmp eq i32 %396, 0
-  %.346 = select i1 %.not275, ptr null, ptr %52
-  store volatile ptr %.346, ptr %16, align 8
+  %.361 = select i1 %.not275, ptr null, ptr %52
+  store volatile ptr %.361, ptr %16, align 8
   %.0..0..0..0.64 = load volatile i32, ptr %17, align 4
   %397 = and i32 %.0..0..0..0.64, 1
   %.not276 = icmp eq i32 %397, 0
@@ -25681,8 +25681,8 @@ dissect_x11_error.exit:                           ; preds = %405, %437, %445
   call void @except_setup_try(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull @dissect_x11_replies.catch_spec.14872, i64 noundef 1)
   %504 = call i32 @_setjmp(ptr noundef nonnull %48) #11
   %.not269 = icmp eq i32 %504, 0
-  %.347 = select i1 %.not269, ptr null, ptr %49
-  store volatile ptr %.347, ptr %20, align 8
+  %.362 = select i1 %.not269, ptr null, ptr %49
+  store volatile ptr %.362, ptr %20, align 8
   %.0..0..0..0.46 = load volatile i32, ptr %21, align 4
   %505 = and i32 %.0..0..0..0.46, 1
   %.not270 = icmp eq i32 %505, 0
@@ -25863,8 +25863,8 @@ dissect_x11_error.exit:                           ; preds = %405, %437, %445
   call void @except_setup_try(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull @dissect_x11_replies.catch_spec.14874, i64 noundef 1)
   %570 = call i32 @_setjmp(ptr noundef nonnull %45) #11
   %.not263 = icmp eq i32 %570, 0
-  %.348 = select i1 %.not263, ptr null, ptr %46
-  store volatile ptr %.348, ptr %24, align 8
+  %.363 = select i1 %.not263, ptr null, ptr %46
+  store volatile ptr %.363, ptr %24, align 8
   %.0..0..0..0.29 = load volatile i32, ptr %25, align 4
   %571 = and i32 %.0..0..0..0.29, 1
   %.not264 = icmp eq i32 %571, 0
@@ -26031,8 +26031,8 @@ dissect_x11_error.exit:                           ; preds = %405, %437, %445
   call void @except_setup_try(ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull @dissect_x11_replies.catch_spec.14875, i64 noundef 1)
   %630 = call i32 @_setjmp(ptr noundef nonnull %55) #11
   %.not281 = icmp eq i32 %630, 0
-  %.349 = select i1 %.not281, ptr null, ptr %56
-  store volatile ptr %.349, ptr %28, align 8
+  %.364 = select i1 %.not281, ptr null, ptr %56
+  store volatile ptr %.364, ptr %28, align 8
   %.0..0..0..0. = load volatile i32, ptr %29, align 4
   %631 = and i32 %.0..0..0..0., 1
   %.not282 = icmp eq i32 %631, 0
@@ -26155,9 +26155,9 @@ dissect_x11_error.exit:                           ; preds = %405, %437, %445
   br i1 %675, label %61, label %.loopexit, !llvm.loop !13
 
 .loopexit.sink.split:                             ; preds = %69, %95, %384, %618, %.critedge, %.critedge293
-  %.sink344 = phi i32 [ %560, %.critedge293 ], [ %494, %.critedge ], [ %620, %618 ], [ %386, %384 ], [ %97, %95 ], [ 268435455, %69 ]
+  %.sink359 = phi i32 [ %560, %.critedge293 ], [ %494, %.critedge ], [ %620, %618 ], [ %386, %384 ], [ %97, %95 ], [ 268435455, %69 ]
   %676 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  store i32 %.sink344, ptr %676, align 8
+  store i32 %.sink359, ptr %676, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %672, %.loopexit.sink.split, %38
@@ -26467,8 +26467,8 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
   call void @except_setup_try(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @dissect_x11_requests.catch_spec, i64 noundef 1)
   %139 = call i32 @_setjmp(ptr noundef nonnull %22) #11
   %.not124 = icmp eq i32 %139, 0
-  %.150 = select i1 %.not124, ptr null, ptr %23
-  store volatile ptr %.150, ptr %13, align 8
+  %.155 = select i1 %.not124, ptr null, ptr %23
+  store volatile ptr %.155, ptr %13, align 8
   %.0..0..0..0. = load volatile i32, ptr %14, align 4
   %140 = and i32 %.0..0..0..0., 1
   %.not125 = icmp eq i32 %140, 0
@@ -29184,19 +29184,19 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
   %75 = getelementptr i32, ptr %65, i64 %indvars.iv114
   %76 = load i32, ptr %75, align 4
   %.not92 = icmp eq i32 %76, 0
-  br i1 %.not92, label %77, label %._crit_edge102.split.loop.exit123
+  br i1 %.not92, label %77, label %._crit_edge102.split.loop.exit126
 
 77:                                               ; preds = %74
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
   br i1 %exitcond118.not, label %._crit_edge102, label %74, !llvm.loop !30
 
-._crit_edge102.split.loop.exit123:                ; preds = %74
+._crit_edge102.split.loop.exit126:                ; preds = %74
   %78 = trunc nuw nsw i64 %indvars.iv114 to i32
   br label %._crit_edge102
 
-._crit_edge102:                                   ; preds = %77, %._crit_edge102.split.loop.exit123
-  %.2.lcssa.ph = phi i32 [ %78, %._crit_edge102.split.loop.exit123 ], [ %9, %77 ]
+._crit_edge102:                                   ; preds = %77, %._crit_edge102.split.loop.exit126
+  %.2.lcssa.ph = phi i32 [ %78, %._crit_edge102.split.loop.exit126 ], [ %9, %77 ]
   %79 = icmp eq i32 %.2.lcssa.ph, 4
   %or.cond = and i1 %28, %79
   br i1 %or.cond, label %80, label %._crit_edge102.thread
@@ -29601,8 +29601,8 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   br i1 %83, label %._crit_edge.i, label %74
 
 ._crit_edge.i:                                    ; preds = %79, %75, %74, %.preheader136.i
-  %.us-phi213264.i = phi i32 [ -1, %.preheader136.i ], [ %.2104.us.i, %74 ], [ %.2104.us.i, %75 ], [ %.2104.us.i, %79 ]
-  %.us-phi212263.i = phi i32 [ -1, %.preheader136.i ], [ %.2107.us.i, %74 ], [ %.2107.us.i, %75 ], [ %.2107.us.i, %79 ]
+  %.us-phi213275.i = phi i32 [ -1, %.preheader136.i ], [ %.2104.us.i, %74 ], [ %.2104.us.i, %75 ], [ %.2104.us.i, %79 ]
+  %.us-phi212274.i = phi i32 [ -1, %.preheader136.i ], [ %.2107.us.i, %74 ], [ %.2107.us.i, %75 ], [ %.2107.us.i, %79 ]
   %.lcssa.i = phi i1 [ true, %.preheader136.i ], [ false, %79 ], [ false, %75 ], [ true, %74 ]
   %.3101.i = phi i32 [ %.098.lcssa.i, %.preheader136.i ], [ 0, %79 ], [ %.098.lcssa.i, %75 ], [ %.098.lcssa.i, %74 ]
   %.3.i = phi i32 [ %.095.lcssa.i, %.preheader136.i ], [ %.095.lcssa.i, %79 ], [ 0, %75 ], [ %.095.lcssa.i, %74 ]
@@ -29624,11 +29624,11 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   br i1 %92, label %.lr.ph228.i, label %.critedge.thread.i, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %.lr.ph228.i
-  %93 = icmp sgt i32 %.us-phi213264.i, -1
+  %93 = icmp sgt i32 %.us-phi213275.i, -1
   br i1 %93, label %94, label %.critedge.thread.i
 
 94:                                               ; preds = %.critedge.i
-  %95 = zext nneg i32 %.us-phi213264.i to i64
+  %95 = zext nneg i32 %.us-phi213275.i to i64
   %96 = getelementptr [8 x i32], ptr @modifiermask, i64 0, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, %24
@@ -29643,11 +29643,11 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
 .critedge.thread.i:                               ; preds = %90, %99, %94, %.critedge.i, %._crit_edge.i
   %.1117.i = phi i32 [ %101, %99 ], [ %.0116226.i, %94 ], [ %.0116226.i, %.critedge.i ], [ %30, %._crit_edge.i ], [ 2, %90 ]
   %.0114.i = phi ptr [ %100, %99 ], [ %36, %94 ], [ %36, %.critedge.i ], [ %36, %._crit_edge.i ], [ %36, %90 ]
-  %102 = icmp sgt i32 %.us-phi212263.i, -1
+  %102 = icmp sgt i32 %.us-phi212274.i, -1
   br i1 %102, label %103, label %123
 
 103:                                              ; preds = %.critedge.thread.i
-  %104 = zext nneg i32 %.us-phi212263.i to i64
+  %104 = zext nneg i32 %.us-phi212274.i to i64
   %105 = getelementptr [8 x i32], ptr @modifiermask, i64 0, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, %24
@@ -30956,8 +30956,8 @@ atom.exit965:                                     ; preds = %902, %906, %907, %9
   br i1 %962, label %.lr.ph.i._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.05262.i992 = phi i32 [ %963, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %963 = add i32 %.05262.i992, 1
+  %.05262.i1024 = phi i32 [ %963, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %963 = add i32 %.05262.i1024, 1
   %964 = sext i32 %963 to i64
   %965 = getelementptr %struct.x11_generic_event_info, ptr %956, i64 %964
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 8
@@ -35154,9 +35154,9 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   br label %71
 
 71:                                               ; preds = %64, %40
-  %.sink141 = phi i32 [ 5, %64 ], [ %51, %40 ]
+  %.sink154 = phi i32 [ 5, %64 ], [ %51, %40 ]
   %72 = load i32, ptr %1, align 4
-  %73 = add i32 %72, %.sink141
+  %73 = add i32 %72, %.sink154
   store i32 %73, ptr %1, align 4
   %74 = add i32 %37, -1
   %.not107.us = icmp eq i32 %37, 0
@@ -36220,9 +36220,9 @@ requestLength.exit:                               ; preds = %5, %16
   br label %dbeSwapBuffers.exit.sink.split
 
 dbeSwapBuffers.exit.sink.split:                   ; preds = %25, %37, %53, %103
-  %.sink63 = phi i32 [ 4, %103 ], [ 4, %53 ], [ 3, %37 ], [ 2, %25 ]
+  %.sink64 = phi i32 [ 4, %103 ], [ 4, %53 ], [ 3, %37 ], [ 2, %25 ]
   %107 = load i32, ptr %2, align 4
-  %108 = add i32 %107, %.sink63
+  %108 = add i32 %107, %.sink64
   store i32 %108, ptr %2, align 4
   br label %dbeSwapBuffers.exit
 
@@ -71414,11 +71414,11 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %39
   br i1 %.not.i83, label %listOfCard32.exit, label %.lr.ph.i81, !llvm.loop !43
 
 listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %33
-  %.sink6 = phi i32 [ %38, %33 ], [ %52, %listOfCard16.exit ]
-  %.sink4 = phi i32 [ %37, %33 ], [ %51, %listOfCard16.exit ]
+  %.sink8 = phi i32 [ %38, %33 ], [ %52, %listOfCard16.exit ]
+  %.sink6 = phi i32 [ %37, %33 ], [ %51, %listOfCard16.exit ]
   %65 = load i32, ptr @hf_x11_unused, align 4
-  %66 = sub nsw i32 4, %.sink6
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.sink4, i32 noundef %66, i32 noundef 0)
+  %66 = sub nsw i32 4, %.sink8
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.sink6, i32 noundef %66, i32 noundef 0)
   %68 = load i32, ptr %1, align 4
   %69 = srem i32 %68, 4
   %reass.sub77 = add i32 %68, 4
@@ -72205,11 +72205,11 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %32
   br i1 %.not.i78, label %listOfCard32.exit, label %.lr.ph.i76, !llvm.loop !43
 
 listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %26
-  %.sink6 = phi i32 [ %31, %26 ], [ %45, %listOfCard16.exit ]
-  %.sink4 = phi i32 [ %30, %26 ], [ %44, %listOfCard16.exit ]
+  %.sink8 = phi i32 [ %31, %26 ], [ %45, %listOfCard16.exit ]
+  %.sink6 = phi i32 [ %30, %26 ], [ %44, %listOfCard16.exit ]
   %58 = load i32, ptr @hf_x11_unused, align 4
-  %59 = sub nsw i32 4, %.sink6
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %.sink4, i32 noundef %59, i32 noundef 0)
+  %59 = sub nsw i32 4, %.sink8
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %.sink6, i32 noundef %59, i32 noundef 0)
   %61 = load i32, ptr %1, align 4
   %62 = srem i32 %61, 4
   %reass.sub72 = add i32 %61, 4
@@ -75293,16 +75293,16 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr noundef
   br label %listOfCard32.exit.sink.split.i
 
 listOfCard32.exit.sink.split.i:                   ; preds = %128, %125, %118, %84, %53
-  %.sink159.i = phi i32 [ 4, %125 ], [ 4, %118 ], [ 2, %84 ], [ 1, %53 ], [ 2, %128 ]
+  %.sink160.i = phi i32 [ 4, %125 ], [ 4, %118 ], [ 2, %84 ], [ 1, %53 ], [ 2, %128 ]
   %hf_x11_struct_xinput_FeedbackState_Led_led_values.sink.i = phi ptr [ @hf_x11_struct_xinput_FeedbackState_Led_led_values, %125 ], [ @hf_x11_struct_xinput_FeedbackState_Integer_max_value, %118 ], [ @hf_x11_struct_xinput_FeedbackState_Pointer_threshold, %84 ], [ @hf_x11_struct_xinput_FeedbackState_Keyboard_auto_repeats, %53 ], [ @hf_x11_struct_xinput_FeedbackState_Bell_duration, %128 ]
-  %.sink157.i = phi i32 [ 4, %125 ], [ 4, %118 ], [ 2, %84 ], [ 32, %53 ], [ 2, %128 ]
+  %.sink158.i = phi i32 [ 4, %125 ], [ 4, %118 ], [ 2, %84 ], [ 32, %53 ], [ 2, %128 ]
   %139 = load i32, ptr %2, align 4
-  %140 = add i32 %139, %.sink159.i
+  %140 = add i32 %139, %.sink160.i
   store i32 %140, ptr %2, align 4
   %141 = load i32, ptr %hf_x11_struct_xinput_FeedbackState_Led_led_values.sink.i, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef %.sink157.i, i32 noundef %4)
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef %.sink158.i, i32 noundef %4)
   %143 = load i32, ptr %2, align 4
-  %144 = add i32 %143, %.sink157.i
+  %144 = add i32 %143, %.sink158.i
   store i32 %144, ptr %2, align 4
   br label %listOfCard32.exit.i
 
@@ -76218,11 +76218,11 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %57
   br i1 %.not.i94, label %listOfCard32.exit, label %.lr.ph.i92, !llvm.loop !43
 
 listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %51
-  %.sink100 = phi i32 [ %56, %51 ], [ %70, %listOfCard16.exit ]
-  %.sink98 = phi i32 [ %55, %51 ], [ %69, %listOfCard16.exit ]
+  %.sink102 = phi i32 [ %56, %51 ], [ %70, %listOfCard16.exit ]
+  %.sink100 = phi i32 [ %55, %51 ], [ %69, %listOfCard16.exit ]
   %83 = load i32, ptr @hf_x11_unused, align 4
-  %84 = sub nsw i32 4, %.sink100
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %83, ptr noundef %0, i32 noundef %.sink98, i32 noundef %84, i32 noundef 0)
+  %84 = sub nsw i32 4, %.sink102
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %83, ptr noundef %0, i32 noundef %.sink100, i32 noundef %84, i32 noundef 0)
   %86 = load i32, ptr %2, align 4
   %87 = srem i32 %86, 4
   %reass.sub88 = add i32 %86, 4
@@ -76888,11 +76888,11 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %53
   br i1 %.not.i88, label %listOfCard32.exit, label %.lr.ph.i86, !llvm.loop !43
 
 listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, %47
-  %.sink94 = phi i32 [ %52, %47 ], [ %66, %listOfCard16.exit ]
-  %.sink92 = phi i32 [ %51, %47 ], [ %65, %listOfCard16.exit ]
+  %.sink96 = phi i32 [ %52, %47 ], [ %66, %listOfCard16.exit ]
+  %.sink94 = phi i32 [ %51, %47 ], [ %65, %listOfCard16.exit ]
   %79 = load i32, ptr @hf_x11_unused, align 4
-  %80 = sub nsw i32 4, %.sink94
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %79, ptr noundef %0, i32 noundef %.sink92, i32 noundef %80, i32 noundef 0)
+  %80 = sub nsw i32 4, %.sink96
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %79, ptr noundef %0, i32 noundef %.sink94, i32 noundef %80, i32 noundef 0)
   %82 = load i32, ptr %2, align 4
   %83 = srem i32 %82, 4
   %reass.sub82 = add i32 %82, 4
@@ -83379,8 +83379,8 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %520
 
 listOfCard32.exit.thread:                         ; preds = %523
   %536 = and i32 %399, 128
-  %.not763823 = icmp eq i32 %536, 0
-  br i1 %.not763823, label %listOfCard32.exit783, label %._crit_edge
+  %.not763827 = icmp eq i32 %536, 0
+  br i1 %.not763827, label %listOfCard32.exit783, label %._crit_edge
 
 .preheader:                                       ; preds = %listOfCard32.exit
   %.not = icmp eq i8 %414, 0
@@ -84546,9 +84546,9 @@ xprintPrintPutDocumentData.exit:                  ; preds = %148, %157
   br label %.sink.split
 
 .sink.split:                                      ; preds = %xprintPrintGetPrinterList.exit, %xprintCreateContext.exit, %88, %92, %96, %100, %104, %108, %xprintPrintPutDocumentData.exit, %169, %177, %181, %189, %197, %201, %213, %239, %261, %265, %273
-  %.sink172 = phi i32 [ 4, %273 ], [ 2, %265 ], [ 4, %261 ], [ %spec.store.select.i.i167, %239 ], [ %spec.store.select.i.i166, %213 ], [ 3, %201 ], [ 4, %197 ], [ 4, %189 ], [ 3, %181 ], [ 4, %177 ], [ 4, %169 ], [ %167, %xprintPrintPutDocumentData.exit ], [ 1, %108 ], [ 1, %104 ], [ 1, %100 ], [ 1, %96 ], [ 4, %92 ], [ 4, %88 ], [ %spec.store.select.i42.i, %xprintCreateContext.exit ], [ %spec.store.select.i37.i, %xprintPrintGetPrinterList.exit ]
+  %.sink176 = phi i32 [ 4, %273 ], [ 2, %265 ], [ 4, %261 ], [ %spec.store.select.i.i167, %239 ], [ %spec.store.select.i.i166, %213 ], [ 3, %201 ], [ 4, %197 ], [ 4, %189 ], [ 3, %181 ], [ 4, %177 ], [ 4, %169 ], [ %167, %xprintPrintPutDocumentData.exit ], [ 1, %108 ], [ 1, %104 ], [ 1, %100 ], [ 1, %96 ], [ 4, %92 ], [ 4, %88 ], [ %spec.store.select.i42.i, %xprintCreateContext.exit ], [ %spec.store.select.i37.i, %xprintPrintGetPrinterList.exit ]
   %277 = load i32, ptr %2, align 4
-  %278 = add i32 %277, %.sink172
+  %278 = add i32 %277, %.sink176
   store i32 %278, ptr %2, align 4
   br label %279
 

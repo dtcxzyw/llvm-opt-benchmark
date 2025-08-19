@@ -1022,16 +1022,16 @@ appendattr.exit:                                  ; preds = %331, %328, %80, %en
   br i1 %.not233, label %448, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %27, %.loopexit
-  %.5323 = phi ptr [ %.5, %.loopexit ], [ %20, %27 ]
-  %.0191321 = phi i32 [ %.0191, %.loopexit ], [ 1, %27 ]
-  call void @free(ptr noundef %.5323) #20
+  %.5345 = phi ptr [ %.5, %.loopexit ], [ %20, %27 ]
+  %.0191343 = phi i32 [ %.0191, %.loopexit ], [ 1, %27 ]
+  call void @free(ptr noundef %.5345) #20
   br label %448
 
 448:                                              ; preds = %.loopexit, %.loopexit.thread
-  %.0191322 = phi i32 [ %.0191, %.loopexit ], [ %.0191321, %.loopexit.thread ]
+  %.0191344 = phi i32 [ %.0191, %.loopexit ], [ %.0191343, %.loopexit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0191322
+  ret i32 %.0191344
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

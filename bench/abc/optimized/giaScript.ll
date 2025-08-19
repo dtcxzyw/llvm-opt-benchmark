@@ -807,20 +807,20 @@ Vec_PtrGrow.exit.i33:                             ; preds = %72, %70
   br label %.sink.split
 
 .sink.split:                                      ; preds = %84, %Vec_PtrGrow.exit.i33, %.Vec_PtrGrow.exit11_crit_edge.i28, %53, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.sink42 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %54, %53 ], [ %43, %Vec_PtrGrow.exit.i ], [ %.pre.i30, %.Vec_PtrGrow.exit11_crit_edge.i28 ], [ %85, %84 ], [ %74, %Vec_PtrGrow.exit.i33 ]
+  %.sink48 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %54, %53 ], [ %43, %Vec_PtrGrow.exit.i ], [ %.pre.i30, %.Vec_PtrGrow.exit11_crit_edge.i28 ], [ %85, %84 ], [ %74, %Vec_PtrGrow.exit.i33 ]
   %.sink = phi ptr [ %33, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %33, %53 ], [ %33, %Vec_PtrGrow.exit.i ], [ %64, %.Vec_PtrGrow.exit11_crit_edge.i28 ], [ %64, %84 ], [ %64, %Vec_PtrGrow.exit.i33 ]
   %.ph = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %45, %53 ], [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i28 ], [ %76, %84 ], [ 16, %Vec_PtrGrow.exit.i33 ]
-  %.ph39 = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %45, %53 ], [ 16, %Vec_PtrGrow.exit.i ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i28 ], [ %76, %84 ], [ 16, %Vec_PtrGrow.exit.i33 ]
+  %.ph45 = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %45, %53 ], [ 16, %Vec_PtrGrow.exit.i ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i28 ], [ %76, %84 ], [ 16, %Vec_PtrGrow.exit.i33 ]
   %86 = add nsw i32 %24, 1
   store i32 %86, ptr %8, align 4, !tbaa !51
   %87 = sext i32 %24 to i64
-  %88 = getelementptr inbounds ptr, ptr %.sink42, i64 %87
+  %88 = getelementptr inbounds ptr, ptr %.sink48, i64 %87
   store ptr %.sink, ptr %88, align 8, !tbaa !62
   br label %89
 
 89:                                               ; preds = %.sink.split, %55
   %90 = phi i32 [ %22, %55 ], [ %.ph, %.sink.split ]
-  %91 = phi i32 [ %23, %55 ], [ %.ph39, %.sink.split ]
+  %91 = phi i32 [ %23, %55 ], [ %.ph45, %.sink.split ]
   %92 = phi i32 [ %24, %55 ], [ %86, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = load i32, ptr %16, align 8, !tbaa !44
@@ -977,14 +977,14 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %42
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %68, %70, %60, %62
-  %.sink123 = phi ptr [ %61, %60 ], [ %63, %62 ], [ %69, %68 ], [ %71, %70 ]
+  %.sink130 = phi ptr [ %61, %60 ], [ %63, %62 ], [ %69, %68 ], [ %71, %70 ]
   %.sink = phi i32 [ 16, %60 ], [ 16, %62 ], [ %65, %68 ], [ %65, %70 ]
-  store ptr %.sink123, ptr %47, align 8, !tbaa !31
+  store ptr %.sink130, ptr %47, align 8, !tbaa !31
   store i32 %.sink, ptr %39, align 8, !tbaa !34
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph95
-  %.pre.i117 = phi ptr [ %52, %.lr.ph95 ], [ %.sink123, %Vec_IntPush.exit.sink.split ]
+  %.pre.i117 = phi ptr [ %52, %.lr.ph95 ], [ %.sink130, %Vec_IntPush.exit.sink.split ]
   %72 = add nsw i32 %54, 1
   store i32 %72, ptr %41, align 4, !tbaa !29
   %73 = sext i32 %54 to i64
@@ -2317,9 +2317,9 @@ define void @Gia_ManPerformMap(i32 noundef %0, i32 noundef %1, i32 noundef %2, i
   br label %19
 
 19:                                               ; preds = %.critedge, %12
-  %.sink33 = phi ptr [ %7, %.critedge ], [ @.str.7, %12 ]
+  %.sink34 = phi ptr [ %7, %.critedge ], [ @.str.7, %12 ]
   %20 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %21 = call i32 @Cmd_CommandExecute(ptr noundef %20, ptr noundef nonnull %.sink33) #17
+  %21 = call i32 @Cmd_CommandExecute(ptr noundef %20, ptr noundef nonnull %.sink34) #17
   %22 = icmp eq i32 %1, 4
   %23 = icmp slt i32 %0, 100000
   %or.cond = and i1 %23, %22
@@ -2563,9 +2563,9 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %45
 
 45:                                               ; preds = %.critedge, %38
-  %.sink84 = phi ptr [ %11, %.critedge ], [ @.str.7, %38 ]
+  %.sink85 = phi ptr [ %11, %.critedge ], [ @.str.7, %38 ]
   %46 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %47 = call i32 @Cmd_CommandExecute(ptr noundef %46, ptr noundef nonnull %.sink84) #17
+  %47 = call i32 @Cmd_CommandExecute(ptr noundef %46, ptr noundef nonnull %.sink85) #17
   %48 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
   %49 = call i32 @Cmd_CommandExecute(ptr noundef %48, ptr noundef nonnull @.str.13) #17
   br i1 %.not57, label %50, label %.thread
@@ -2609,9 +2609,9 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %68
 
 68:                                               ; preds = %.critedge66, %61
-  %.sink85 = phi ptr [ %11, %.critedge66 ], [ @.str.7, %61 ]
+  %.sink86 = phi ptr [ %11, %.critedge66 ], [ @.str.7, %61 ]
   %69 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %70 = call i32 @Cmd_CommandExecute(ptr noundef %69, ptr noundef nonnull %.sink85) #17
+  %70 = call i32 @Cmd_CommandExecute(ptr noundef %69, ptr noundef nonnull %.sink86) #17
   %71 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
   %72 = call i32 @Cmd_CommandExecute(ptr noundef %71, ptr noundef nonnull @.str.13) #17
   br i1 %.not57, label %76, label %73
@@ -2659,9 +2659,9 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %95
 
 95:                                               ; preds = %.critedge70, %88
-  %.sink86 = phi ptr [ %11, %.critedge70 ], [ @.str.7, %88 ]
+  %.sink87 = phi ptr [ %11, %.critedge70 ], [ @.str.7, %88 ]
   %96 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %97 = call i32 @Cmd_CommandExecute(ptr noundef %96, ptr noundef nonnull %.sink86) #17
+  %97 = call i32 @Cmd_CommandExecute(ptr noundef %96, ptr noundef nonnull %.sink87) #17
   %98 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
   %99 = call i32 @Cmd_CommandExecute(ptr noundef %98, ptr noundef nonnull @.str.13) #17
   br i1 %.not57, label %103, label %100
@@ -2709,9 +2709,9 @@ define void @Gia_ManPerformFlow2(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %122
 
 122:                                              ; preds = %.critedge74, %115
-  %.sink87 = phi ptr [ %11, %.critedge74 ], [ @.str.7, %115 ]
+  %.sink88 = phi ptr [ %11, %.critedge74 ], [ @.str.7, %115 ]
   %123 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
-  %124 = call i32 @Cmd_CommandExecute(ptr noundef %123, ptr noundef nonnull %.sink87) #17
+  %124 = call i32 @Cmd_CommandExecute(ptr noundef %123, ptr noundef nonnull %.sink88) #17
   %125 = call ptr (...) @Abc_FrameGetGlobalFrame() #17
   %126 = call i32 @Cmd_CommandExecute(ptr noundef %125, ptr noundef nonnull @.str.13) #17
   br i1 %.not57, label %130, label %127

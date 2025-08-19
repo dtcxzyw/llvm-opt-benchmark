@@ -1217,8 +1217,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit62.i:               ; preds = %435
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.sink.split.i: ; preds = %439, %435
-  %.sink135.i = phi ptr [ %13, %439 ], [ %12, %435 ]
-  store ptr null, ptr %.sink135.i, align 8, !tbaa !389
+  %.sink154.i = phi ptr [ %13, %439 ], [ %12, %435 ]
+  store ptr null, ptr %.sink154.i, align 8, !tbaa !389
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit64.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit62.i
@@ -1278,8 +1278,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit70.i:               ; preds = %452
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit72.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit72.sink.split.i: ; preds = %455, %452
-  %.sink136.i = phi ptr [ %15, %455 ], [ %14, %452 ]
-  store ptr null, ptr %.sink136.i, align 8, !tbaa !389
+  %.sink155.i = phi ptr [ %15, %455 ], [ %14, %452 ]
+  store ptr null, ptr %.sink155.i, align 8, !tbaa !389
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit72.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit72.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit72.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit70.i
@@ -1353,8 +1353,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit78.i:               ; preds = %473
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit80.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit80.sink.split.i: ; preds = %477, %473
-  %.sink137.i = phi ptr [ %17, %477 ], [ %16, %473 ]
-  store ptr null, ptr %.sink137.i, align 8, !tbaa !389
+  %.sink156.i = phi ptr [ %17, %477 ], [ %16, %473 ]
+  store ptr null, ptr %.sink156.i, align 8, !tbaa !389
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit80.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit80.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit80.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit78.i
@@ -1440,8 +1440,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit86.i:               ; preds = %503
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit88.sink.split.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit88.sink.split.i: ; preds = %506, %503
-  %.sink138.i = phi ptr [ %20, %506 ], [ %19, %503 ]
-  store ptr null, ptr %.sink138.i, align 8, !tbaa !389
+  %.sink157.i = phi ptr [ %20, %506 ], [ %19, %503 ]
+  store ptr null, ptr %.sink157.i, align 8, !tbaa !389
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit88.i
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit88.i: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit88.sink.split.i, %_ZN4llvm8DebugLocC2ERKS0_.exit86.i

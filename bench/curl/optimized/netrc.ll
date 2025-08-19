@@ -175,49 +175,49 @@ file2memory.exit:                                 ; preds = %20
   br i1 %30, label %.thread306, label %.lr.ph414.outer.preheader
 
 .lr.ph414.outer.preheader:                        ; preds = %28, %select.unfold305
-  %.0140690 = phi i32 [ %.1141.lcssa490, %select.unfold305 ], [ 1, %28 ]
-  %.0146689 = phi ptr [ %.1147, %select.unfold305 ], [ %29, %28 ]
-  %.0156688 = phi i8 [ %.1157.lcssa488, %select.unfold305 ], [ 0, %28 ]
-  %.0165687 = phi i8 [ %.1166.lcssa487, %select.unfold305 ], [ 0, %28 ]
-  %.0173686 = phi i32 [ %.1174.lcssa486, %select.unfold305 ], [ 0, %28 ]
-  %.0180685 = phi i32 [ %.2182491, %select.unfold305 ], [ 0, %28 ]
-  %.0188684 = phi ptr [ %.1189.lcssa485, %select.unfold305 ], [ %9, %28 ]
-  %.0197683 = phi ptr [ %.1198.lcssa484, %select.unfold305 ], [ null, %28 ]
+  %.0140695 = phi i32 [ %.1141.lcssa495, %select.unfold305 ], [ 1, %28 ]
+  %.0146694 = phi ptr [ %.1147, %select.unfold305 ], [ %29, %28 ]
+  %.0156693 = phi i8 [ %.1157.lcssa493, %select.unfold305 ], [ 0, %28 ]
+  %.0165692 = phi i8 [ %.1166.lcssa492, %select.unfold305 ], [ 0, %28 ]
+  %.0173691 = phi i32 [ %.1174.lcssa491, %select.unfold305 ], [ 0, %28 ]
+  %.0180690 = phi i32 [ %.2182496, %select.unfold305 ], [ 0, %28 ]
+  %.0188689 = phi ptr [ %.1189.lcssa490, %select.unfold305 ], [ %9, %28 ]
+  %.0197688 = phi ptr [ %.1198.lcssa489, %select.unfold305 ], [ null, %28 ]
   br label %.lr.ph414.outer
 
 .lr.ph414.outer:                                  ; preds = %.lr.ph414.outer.preheader, %.lr.ph414.outer.backedge
-  %.0130413.ph = phi ptr [ %.0130413.ph.be, %.lr.ph414.outer.backedge ], [ %.0146689, %.lr.ph414.outer.preheader ]
-  %.1141412.ph = phi i32 [ %.1141412.ph.be, %.lr.ph414.outer.backedge ], [ %.0140690, %.lr.ph414.outer.preheader ]
-  %.1157410.ph = phi i8 [ %.1157410.ph.be, %.lr.ph414.outer.backedge ], [ %.0156688, %.lr.ph414.outer.preheader ]
-  %.1166409.ph = phi i8 [ %.1166409.ph.be, %.lr.ph414.outer.backedge ], [ %.0165687, %.lr.ph414.outer.preheader ]
-  %.1174408.ph = phi i32 [ %.1174408.ph.be, %.lr.ph414.outer.backedge ], [ %.0173686, %.lr.ph414.outer.preheader ]
-  %.1181407.ph = phi i32 [ %.1181407.ph.be, %.lr.ph414.outer.backedge ], [ %.0180685, %.lr.ph414.outer.preheader ]
-  %.1189406.ph = phi ptr [ %.1189406.ph.be, %.lr.ph414.outer.backedge ], [ %.0188684, %.lr.ph414.outer.preheader ]
-  %.1198405.ph = phi ptr [ %.1198405.ph.be, %.lr.ph414.outer.backedge ], [ %.0197683, %.lr.ph414.outer.preheader ]
-  br label %.lr.ph414.outer519.outer
+  %.0130413.ph = phi ptr [ %.0130413.ph.be, %.lr.ph414.outer.backedge ], [ %.0146694, %.lr.ph414.outer.preheader ]
+  %.1141412.ph = phi i32 [ %.1141412.ph.be, %.lr.ph414.outer.backedge ], [ %.0140695, %.lr.ph414.outer.preheader ]
+  %.1157410.ph = phi i8 [ %.1157410.ph.be, %.lr.ph414.outer.backedge ], [ %.0156693, %.lr.ph414.outer.preheader ]
+  %.1166409.ph = phi i8 [ %.1166409.ph.be, %.lr.ph414.outer.backedge ], [ %.0165692, %.lr.ph414.outer.preheader ]
+  %.1174408.ph = phi i32 [ %.1174408.ph.be, %.lr.ph414.outer.backedge ], [ %.0173691, %.lr.ph414.outer.preheader ]
+  %.1181407.ph = phi i32 [ %.1181407.ph.be, %.lr.ph414.outer.backedge ], [ %.0180690, %.lr.ph414.outer.preheader ]
+  %.1189406.ph = phi ptr [ %.1189406.ph.be, %.lr.ph414.outer.backedge ], [ %.0188689, %.lr.ph414.outer.preheader ]
+  %.1198405.ph = phi ptr [ %.1198405.ph.be, %.lr.ph414.outer.backedge ], [ %.0197688, %.lr.ph414.outer.preheader ]
+  br label %.lr.ph414.outer524.outer
 
-.lr.ph414.outer519.outer:                         ; preds = %64, %.lr.ph414.outer
-  %.0130413.ph520.ph = phi ptr [ %66, %64 ], [ %.0130413.ph, %.lr.ph414.outer ]
-  %.1157410.ph521.ph = phi i8 [ 0, %64 ], [ %.1157410.ph, %.lr.ph414.outer ]
-  %.1166409.ph522.ph = phi i8 [ 0, %64 ], [ %.1166409.ph, %.lr.ph414.outer ]
-  %.1174408.ph523.ph = phi i32 [ 0, %64 ], [ %.1174408.ph, %.lr.ph414.outer ]
-  %.1181407.ph524.ph = phi i32 [ 1, %64 ], [ %.1181407.ph, %.lr.ph414.outer ]
-  %.1189406.ph525.ph = phi ptr [ null, %64 ], [ %.1189406.ph, %.lr.ph414.outer ]
-  %.1198405.ph526.ph = phi ptr [ null, %64 ], [ %.1198405.ph, %.lr.ph414.outer ]
-  br label %.lr.ph414.outer519
+.lr.ph414.outer524.outer:                         ; preds = %64, %.lr.ph414.outer
+  %.0130413.ph525.ph = phi ptr [ %66, %64 ], [ %.0130413.ph, %.lr.ph414.outer ]
+  %.1157410.ph526.ph = phi i8 [ 0, %64 ], [ %.1157410.ph, %.lr.ph414.outer ]
+  %.1166409.ph527.ph = phi i8 [ 0, %64 ], [ %.1166409.ph, %.lr.ph414.outer ]
+  %.1174408.ph528.ph = phi i32 [ 0, %64 ], [ %.1174408.ph, %.lr.ph414.outer ]
+  %.1181407.ph529.ph = phi i32 [ 1, %64 ], [ %.1181407.ph, %.lr.ph414.outer ]
+  %.1189406.ph530.ph = phi ptr [ null, %64 ], [ %.1189406.ph, %.lr.ph414.outer ]
+  %.1198405.ph531.ph = phi ptr [ null, %64 ], [ %.1198405.ph, %.lr.ph414.outer ]
+  br label %.lr.ph414.outer524
 
-.lr.ph414.outer519:                               ; preds = %.lr.ph414.outer519.outer, %111
-  %.0130413.ph520 = phi ptr [ %112, %111 ], [ %.0130413.ph520.ph, %.lr.ph414.outer519.outer ]
-  %.1157410.ph521 = phi i8 [ %.4160, %111 ], [ %.1157410.ph521.ph, %.lr.ph414.outer519.outer ]
-  %.1166409.ph522 = phi i8 [ %.4169, %111 ], [ %.1166409.ph522.ph, %.lr.ph414.outer519.outer ]
-  %.1174408.ph523 = phi i32 [ %.4177, %111 ], [ %.1174408.ph523.ph, %.lr.ph414.outer519.outer ]
-  %.1181407.ph524 = phi i32 [ %.5185, %111 ], [ %.1181407.ph524.ph, %.lr.ph414.outer519.outer ]
-  %.1198405.ph526 = phi ptr [ %.4201, %111 ], [ %.1198405.ph526.ph, %.lr.ph414.outer519.outer ]
+.lr.ph414.outer524:                               ; preds = %.lr.ph414.outer524.outer, %111
+  %.0130413.ph525 = phi ptr [ %112, %111 ], [ %.0130413.ph525.ph, %.lr.ph414.outer524.outer ]
+  %.1157410.ph526 = phi i8 [ %.4160, %111 ], [ %.1157410.ph526.ph, %.lr.ph414.outer524.outer ]
+  %.1166409.ph527 = phi i8 [ %.4169, %111 ], [ %.1166409.ph527.ph, %.lr.ph414.outer524.outer ]
+  %.1174408.ph528 = phi i32 [ %.4177, %111 ], [ %.1174408.ph528.ph, %.lr.ph414.outer524.outer ]
+  %.1181407.ph529 = phi i32 [ %.5185, %111 ], [ %.1181407.ph529.ph, %.lr.ph414.outer524.outer ]
+  %.1198405.ph531 = phi ptr [ %.4201, %111 ], [ %.1198405.ph531.ph, %.lr.ph414.outer524.outer ]
   br label %.lr.ph414
 
-.lr.ph414:                                        ; preds = %.lr.ph414.outer519, %68
-  %.0130413 = phi ptr [ %70, %68 ], [ %.0130413.ph520, %.lr.ph414.outer519 ]
-  %.1181407 = phi i32 [ %spec.select249, %68 ], [ %.1181407.ph524, %.lr.ph414.outer519 ]
+.lr.ph414:                                        ; preds = %.lr.ph414.outer524, %68
+  %.0130413 = phi ptr [ %70, %68 ], [ %.0130413.ph525, %.lr.ph414.outer524 ]
+  %.1181407 = phi i32 [ %spec.select249, %68 ], [ %.1181407.ph529, %.lr.ph414.outer524 ]
   call void @Curl_dyn_reset(ptr noundef nonnull %7) #6
   br label %31
 
@@ -339,7 +339,7 @@ file2memory.exit:                                 ; preds = %20
 56:                                               ; preds = %.loopexit, %44
   %.1127 = phi ptr [ %.0126, %44 ], [ %55, %.loopexit ]
   %57 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %7) #6
-  switch i32 %.3183, label %default.unreachable462 [
+  switch i32 %.3183, label %default.unreachable467 [
     i32 0, label %58
     i32 3, label %68
     i32 1, label %.lr.ph414.outer.backedge.sink.split
@@ -358,14 +358,14 @@ file2memory.exit:                                 ; preds = %20
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %63(ptr noundef %.1198405.ph526) #6
+  call void %63(ptr noundef %.1198405.ph531) #6
   br i1 %.not217, label %64, label %111
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %65(ptr noundef %.1189406.ph525.ph) #6
+  call void %65(ptr noundef %.1189406.ph530.ph) #6
   %66 = getelementptr inbounds nuw i8, ptr %.1127, i64 1
-  br label %.lr.ph414.outer519.outer
+  br label %.lr.ph414.outer524.outer
 
 .lr.ph414.outer.backedge.sink.split:              ; preds = %60, %56
   %.str.5.sink = phi ptr [ %1, %56 ], [ @.str.5, %60 ]
@@ -377,12 +377,12 @@ file2memory.exit:                                 ; preds = %20
 
 .lr.ph414.outer.backedge:                         ; preds = %.lr.ph414.outer.backedge.sink.split, %107
   %.1141412.ph.be = phi i32 [ %.11, %107 ], [ %spec.select248, %.lr.ph414.outer.backedge.sink.split ]
-  %.1157410.ph.be = phi i8 [ %.6162, %107 ], [ %.1157410.ph521, %.lr.ph414.outer.backedge.sink.split ]
-  %.1166409.ph.be = phi i8 [ %.5170, %107 ], [ %.1166409.ph522, %.lr.ph414.outer.backedge.sink.split ]
-  %.1174408.ph.be = phi i32 [ %.5178, %107 ], [ %.1174408.ph523, %.lr.ph414.outer.backedge.sink.split ]
+  %.1157410.ph.be = phi i8 [ %.6162, %107 ], [ %.1157410.ph526, %.lr.ph414.outer.backedge.sink.split ]
+  %.1166409.ph.be = phi i8 [ %.5170, %107 ], [ %.1166409.ph527, %.lr.ph414.outer.backedge.sink.split ]
+  %.1174408.ph.be = phi i32 [ %.5178, %107 ], [ %.1174408.ph528, %.lr.ph414.outer.backedge.sink.split ]
   %.1181407.ph.be = phi i32 [ %.6186, %107 ], [ %spec.select247, %.lr.ph414.outer.backedge.sink.split ]
-  %.1189406.ph.be = phi ptr [ %.6194, %107 ], [ %.1189406.ph525.ph, %.lr.ph414.outer.backedge.sink.split ]
-  %.1198405.ph.be = phi ptr [ %.5202, %107 ], [ %.1198405.ph526, %.lr.ph414.outer.backedge.sink.split ]
+  %.1189406.ph.be = phi ptr [ %.6194, %107 ], [ %.1189406.ph530.ph, %.lr.ph414.outer.backedge.sink.split ]
+  %.1198405.ph.be = phi ptr [ %.5202, %107 ], [ %.1198405.ph531, %.lr.ph414.outer.backedge.sink.split ]
   %.0130413.ph.be = getelementptr inbounds nuw i8, ptr %.1127, i64 1
   br label %.lr.ph414.outer
 
@@ -394,7 +394,7 @@ file2memory.exit:                                 ; preds = %20
   br label %.lr.ph414
 
 71:                                               ; preds = %56
-  switch i32 %.1174408.ph523, label %89 [
+  switch i32 %.1174408.ph528, label %89 [
     i32 1, label %72
     i32 2, label %82
   ]
@@ -403,38 +403,38 @@ file2memory.exit:                                 ; preds = %20
   br i1 %.not217, label %76, label %73
 
 73:                                               ; preds = %72
-  %74 = call i32 @Curl_timestrcmp(ptr noundef %.1189406.ph525.ph, ptr noundef %57) #6
+  %74 = call i32 @Curl_timestrcmp(ptr noundef %.1189406.ph530.ph, ptr noundef %57) #6
   %.not234 = icmp eq i32 %74, 0
   %75 = zext i1 %.not234 to i8
   br label %80
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %77(ptr noundef %.1189406.ph525.ph) #6
+  call void %77(ptr noundef %.1189406.ph530.ph) #6
   %78 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
   %79 = call ptr %78(ptr noundef %57) #6
   %.not233 = icmp eq ptr %79, null
   br i1 %.not233, label %select.unfold317.sink.split, label %80
 
 80:                                               ; preds = %76, %73
-  %.5193 = phi ptr [ %.1189406.ph525.ph, %73 ], [ %79, %76 ]
+  %.5193 = phi ptr [ %.1189406.ph530.ph, %73 ], [ %79, %76 ]
   %.5161 = phi i8 [ %75, %73 ], [ 1, %76 ]
-  %81 = or i8 %.1166409.ph522, 1
+  %81 = or i8 %.1166409.ph527, 1
   br label %107
 
 82:                                               ; preds = %71
   %83 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %83(ptr noundef %.1198405.ph526) #6
+  call void %83(ptr noundef %.1198405.ph531) #6
   %84 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
   %85 = call ptr %84(ptr noundef %57) #6
   %.not232 = icmp eq ptr %85, null
   br i1 %.not232, label %select.unfold317.sink.split, label %86
 
 86:                                               ; preds = %82
-  %87 = trunc nuw i8 %.1157410.ph521 to i1
+  %87 = trunc nuw i8 %.1157410.ph526 to i1
   %or.cond6 = select i1 %.not217, i1 true, i1 %87
-  %88 = or i8 %.1166409.ph522, 2
-  %spec.select251 = select i1 %or.cond6, i8 %88, i8 %.1166409.ph522
+  %88 = or i8 %.1166409.ph527, 2
+  %spec.select251 = select i1 %or.cond6, i8 %88, i8 %.1166409.ph527
   br label %107
 
 89:                                               ; preds = %71
@@ -453,18 +453,18 @@ file2memory.exit:                                 ; preds = %20
   br i1 %.not229, label %101, label %95
 
 95:                                               ; preds = %93
-  %96 = and i8 %.1166409.ph522, 2
+  %96 = and i8 %.1166409.ph527, 2
   %.not231 = icmp eq i8 %96, 0
   br i1 %.not231, label %97, label %select.unfold305
 
 97:                                               ; preds = %95
   %98 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %98(ptr noundef %.1198405.ph526) #6
+  call void %98(ptr noundef %.1198405.ph531) #6
   br i1 %.not217, label %99, label %107
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %100(ptr noundef %.1189406.ph525.ph) #6
+  call void %100(ptr noundef %.1189406.ph530.ph) #6
   br label %107
 
 101:                                              ; preds = %93
@@ -474,38 +474,38 @@ file2memory.exit:                                 ; preds = %20
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %104(ptr noundef %.1198405.ph526) #6
+  call void %104(ptr noundef %.1198405.ph531) #6
   br i1 %.not217, label %105, label %107
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  call void %106(ptr noundef %.1189406.ph525.ph) #6
+  call void %106(ptr noundef %.1189406.ph530.ph) #6
   br label %107
 
 107:                                              ; preds = %91, %89, %86, %101, %105, %103, %97, %99, %80
-  %.5202 = phi ptr [ %.1198405.ph526, %80 ], [ %85, %86 ], [ null, %97 ], [ null, %99 ], [ null, %103 ], [ null, %105 ], [ %.1198405.ph526, %101 ], [ %.1198405.ph526, %89 ], [ %.1198405.ph526, %91 ]
-  %.6194 = phi ptr [ %.5193, %80 ], [ %.1189406.ph525.ph, %86 ], [ %.1189406.ph525.ph, %97 ], [ null, %99 ], [ %.1189406.ph525.ph, %103 ], [ null, %105 ], [ %.1189406.ph525.ph, %101 ], [ %.1189406.ph525.ph, %89 ], [ %.1189406.ph525.ph, %91 ]
+  %.5202 = phi ptr [ %.1198405.ph531, %80 ], [ %85, %86 ], [ null, %97 ], [ null, %99 ], [ null, %103 ], [ null, %105 ], [ %.1198405.ph531, %101 ], [ %.1198405.ph531, %89 ], [ %.1198405.ph531, %91 ]
+  %.6194 = phi ptr [ %.5193, %80 ], [ %.1189406.ph530.ph, %86 ], [ %.1189406.ph530.ph, %97 ], [ null, %99 ], [ %.1189406.ph530.ph, %103 ], [ null, %105 ], [ %.1189406.ph530.ph, %101 ], [ %.1189406.ph530.ph, %89 ], [ %.1189406.ph530.ph, %91 ]
   %.6186 = phi i32 [ 2, %80 ], [ 2, %86 ], [ 1, %97 ], [ 1, %99 ], [ 2, %103 ], [ 2, %105 ], [ 2, %101 ], [ 2, %89 ], [ 2, %91 ]
-  %.5178 = phi i32 [ 0, %80 ], [ 0, %86 ], [ 0, %97 ], [ 0, %99 ], [ %.1174408.ph523, %103 ], [ %.1174408.ph523, %105 ], [ %.1174408.ph523, %101 ], [ 1, %89 ], [ 2, %91 ]
-  %.5170 = phi i8 [ %81, %80 ], [ %spec.select251, %86 ], [ 0, %97 ], [ 0, %99 ], [ %.1166409.ph522, %103 ], [ %.1166409.ph522, %105 ], [ %.1166409.ph522, %101 ], [ %.1166409.ph522, %89 ], [ %.1166409.ph522, %91 ]
-  %.6162 = phi i8 [ %.5161, %80 ], [ %.1157410.ph521, %86 ], [ %.1157410.ph521, %97 ], [ %.1157410.ph521, %99 ], [ %.1157410.ph521, %103 ], [ %.1157410.ph521, %105 ], [ %.1157410.ph521, %101 ], [ %.1157410.ph521, %89 ], [ %.1157410.ph521, %91 ]
+  %.5178 = phi i32 [ 0, %80 ], [ 0, %86 ], [ 0, %97 ], [ 0, %99 ], [ %.1174408.ph528, %103 ], [ %.1174408.ph528, %105 ], [ %.1174408.ph528, %101 ], [ 1, %89 ], [ 2, %91 ]
+  %.5170 = phi i8 [ %81, %80 ], [ %spec.select251, %86 ], [ 0, %97 ], [ 0, %99 ], [ %.1166409.ph527, %103 ], [ %.1166409.ph527, %105 ], [ %.1166409.ph527, %101 ], [ %.1166409.ph527, %89 ], [ %.1166409.ph527, %91 ]
+  %.6162 = phi i8 [ %.5161, %80 ], [ %.1157410.ph526, %86 ], [ %.1157410.ph526, %97 ], [ %.1157410.ph526, %99 ], [ %.1157410.ph526, %103 ], [ %.1157410.ph526, %105 ], [ %.1157410.ph526, %101 ], [ %.1157410.ph526, %89 ], [ %.1157410.ph526, %91 ]
   %.11 = phi i32 [ %.1141412.ph, %80 ], [ %.1141412.ph, %86 ], [ %.1141412.ph, %97 ], [ %.1141412.ph, %99 ], [ 0, %103 ], [ 0, %105 ], [ %.1141412.ph, %101 ], [ %.1141412.ph, %89 ], [ %.1141412.ph, %91 ]
   %108 = icmp eq i8 %.5170, 3
   %109 = trunc i8 %.6162 to i1
   %110 = select i1 %108, i1 %109, i1 false
   br i1 %110, label %select.unfold305, label %.lr.ph414.outer.backedge
 
-default.unreachable462:                           ; preds = %56
+default.unreachable467:                           ; preds = %56
   unreachable
 
 111:                                              ; preds = %62, %58
-  %.4201 = phi ptr [ null, %62 ], [ %.1198405.ph526, %58 ]
+  %.4201 = phi ptr [ null, %62 ], [ %.1198405.ph531, %58 ]
   %.5185 = phi i32 [ 1, %62 ], [ 3, %58 ]
-  %.4177 = phi i32 [ 0, %62 ], [ %.1174408.ph523, %58 ]
-  %.4169 = phi i8 [ 0, %62 ], [ %.1166409.ph522, %58 ]
-  %.4160 = phi i8 [ 0, %62 ], [ %.1157410.ph521, %58 ]
+  %.4177 = phi i32 [ 0, %62 ], [ %.1174408.ph528, %58 ]
+  %.4169 = phi i8 [ 0, %62 ], [ %.1166409.ph527, %58 ]
+  %.4160 = phi i8 [ 0, %62 ], [ %.1157410.ph526, %58 ]
   %112 = getelementptr inbounds nuw i8, ptr %.1127, i64 1
-  br label %.lr.ph414.outer519
+  br label %.lr.ph414.outer524
 
 .thread294:                                       ; preds = %34, %34
   %113 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2132, i32 noundef 10) #7
@@ -514,24 +514,24 @@ default.unreachable462:                           ; preds = %56
   br i1 %.not241.not, label %.thread306.loopexit, label %select.unfold305
 
 select.unfold305:                                 ; preds = %95, %107, %.thread294
-  %.2182491 = phi i32 [ %.3183, %.thread294 ], [ 2, %95 ], [ %.6186, %107 ]
-  %.1141.lcssa490 = phi i32 [ %.1141412.ph, %.thread294 ], [ %.1141412.ph, %95 ], [ %.11, %107 ]
-  %.1151.lcssa489 = phi i1 [ false, %.thread294 ], [ true, %107 ], [ true, %95 ]
-  %.1157.lcssa488 = phi i8 [ %.1157410.ph521, %.thread294 ], [ %.1157410.ph521, %95 ], [ %.6162, %107 ]
-  %.1166.lcssa487 = phi i8 [ %.1166409.ph522, %.thread294 ], [ %.1166409.ph522, %95 ], [ 3, %107 ]
-  %.1174.lcssa486 = phi i32 [ %.1174408.ph523, %.thread294 ], [ %.1174408.ph523, %95 ], [ %.5178, %107 ]
-  %.1189.lcssa485 = phi ptr [ %.1189406.ph525.ph, %.thread294 ], [ %.1189406.ph525.ph, %95 ], [ %.6194, %107 ]
-  %.1198.lcssa484 = phi ptr [ %.1198405.ph526, %.thread294 ], [ %.1198405.ph526, %95 ], [ %.5202, %107 ]
-  %.1147 = phi ptr [ %114, %.thread294 ], [ %.0146689, %107 ], [ %.0146689, %95 ]
+  %.2182496 = phi i32 [ %.3183, %.thread294 ], [ 2, %95 ], [ %.6186, %107 ]
+  %.1141.lcssa495 = phi i32 [ %.1141412.ph, %.thread294 ], [ %.1141412.ph, %95 ], [ %.11, %107 ]
+  %.1151.lcssa494 = phi i1 [ false, %.thread294 ], [ true, %107 ], [ true, %95 ]
+  %.1157.lcssa493 = phi i8 [ %.1157410.ph526, %.thread294 ], [ %.1157410.ph526, %95 ], [ %.6162, %107 ]
+  %.1166.lcssa492 = phi i8 [ %.1166409.ph527, %.thread294 ], [ %.1166409.ph527, %95 ], [ 3, %107 ]
+  %.1174.lcssa491 = phi i32 [ %.1174408.ph528, %.thread294 ], [ %.1174408.ph528, %95 ], [ %.5178, %107 ]
+  %.1189.lcssa490 = phi ptr [ %.1189406.ph530.ph, %.thread294 ], [ %.1189406.ph530.ph, %95 ], [ %.6194, %107 ]
+  %.1198.lcssa489 = phi ptr [ %.1198405.ph531, %.thread294 ], [ %.1198405.ph531, %95 ], [ %.5202, %107 ]
+  %.1147 = phi ptr [ %114, %.thread294 ], [ %.0146694, %107 ], [ %.0146694, %95 ]
   %115 = icmp eq ptr %.1147, null
-  %or.cond = select i1 %.1151.lcssa489, i1 true, i1 %115
+  %or.cond = select i1 %.1151.lcssa494, i1 true, i1 %115
   br i1 %or.cond, label %.thread306.loopexit, label %.lr.ph414.outer.preheader
 
 .thread306.loopexit:                              ; preds = %.thread294, %select.unfold305
-  %.7204.ph = phi ptr [ %.1198.lcssa484, %select.unfold305 ], [ %.1198405.ph526, %.thread294 ]
-  %.8196.ph = phi ptr [ %.1189.lcssa485, %select.unfold305 ], [ %.1189406.ph525.ph, %.thread294 ]
-  %.8164.ph = phi i8 [ %.1157.lcssa488, %select.unfold305 ], [ %.1157410.ph521, %.thread294 ]
-  %.13.ph = phi i32 [ %.1141.lcssa490, %select.unfold305 ], [ %.1141412.ph, %.thread294 ]
+  %.7204.ph = phi ptr [ %.1198.lcssa489, %select.unfold305 ], [ %.1198405.ph531, %.thread294 ]
+  %.8196.ph = phi ptr [ %.1189.lcssa490, %select.unfold305 ], [ %.1189406.ph530.ph, %.thread294 ]
+  %.8164.ph = phi i8 [ %.1157.lcssa493, %select.unfold305 ], [ %.1157410.ph526, %.thread294 ]
+  %.13.ph = phi i32 [ %.1141.lcssa495, %select.unfold305 ], [ %.1141412.ph, %.thread294 ]
   %116 = trunc nuw i8 %.8164.ph to i1
   br label %.thread306
 
@@ -574,8 +574,8 @@ select.unfold318:                                 ; preds = %122, %119
   br label %.loopexit358
 
 select.unfold317.sink.split:                      ; preds = %76, %82, %.preheader353, %.critedge246, %44, %53, %.thread263
-  %.8196349.ph = phi ptr [ %.1189406.ph525.ph, %.thread263 ], [ %.1189406.ph525.ph, %53 ], [ %.1189406.ph525.ph, %44 ], [ %.1189406.ph525.ph, %.critedge246 ], [ %.1189406.ph525.ph, %.preheader353 ], [ null, %76 ], [ %.1189406.ph525.ph, %82 ]
-  %.8205.ph.ph = phi ptr [ %.1198405.ph526, %.thread263 ], [ %.1198405.ph526, %53 ], [ %.1198405.ph526, %44 ], [ %.1198405.ph526, %.critedge246 ], [ %.1198405.ph526, %.preheader353 ], [ %.1198405.ph526, %76 ], [ null, %82 ]
+  %.8196349.ph = phi ptr [ %.1189406.ph530.ph, %.thread263 ], [ %.1189406.ph530.ph, %53 ], [ %.1189406.ph530.ph, %44 ], [ %.1189406.ph530.ph, %.critedge246 ], [ %.1189406.ph530.ph, %.preheader353 ], [ null, %76 ], [ %.1189406.ph530.ph, %82 ]
+  %.8205.ph.ph = phi ptr [ %.1198405.ph531, %.thread263 ], [ %.1198405.ph531, %53 ], [ %.1198405.ph531, %44 ], [ %.1198405.ph531, %.critedge246 ], [ %.1198405.ph531, %.preheader353 ], [ %.1198405.ph531, %76 ], [ null, %82 ]
   call void @Curl_dyn_free(ptr noundef nonnull %7) #6
   br label %select.unfold317
 

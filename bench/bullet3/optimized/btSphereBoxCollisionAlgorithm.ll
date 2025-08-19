@@ -249,8 +249,8 @@ define dso_local void @_ZN29btSphereBoxCollisionAlgorithm16processCollisionEPK24
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !19
   %. = select i1 %.not1.i, ptr %58, ptr %54
-  %.15 = select i1 %.not1.i, ptr %54, ptr %58
-  %.sink.i = getelementptr inbounds nuw i8, ptr %.15, i64 8
+  %.16 = select i1 %.not1.i, ptr %54, ptr %58
+  %.sink.i = getelementptr inbounds nuw i8, ptr %.16, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %., i64 8
   call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %46, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %59)
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
@@ -771,9 +771,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %27
   %.old.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !55, !range !26, !noundef !27
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !55, !range !26, !noundef !27
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 34:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %26)

@@ -413,8 +413,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
 
 _ZN9benchmark5State3endEv.exit.preheader:         ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
   %.not = icmp ne i32 %56, 0
-  %.not.i.not145147 = icmp eq i64 %58, 0
-  %.not.i.not145 = select i1 %.not, i1 true, i1 %.not.i.not145147
+  %.not.i.not145153 = icmp eq i64 %58, 0
+  %.not.i.not145 = select i1 %.not, i1 true, i1 %.not.i.not145153
   br i1 %.not.i.not145, label %_ZN9benchmark5State3endEv.exit._crit_edge, label %.lr.ph, !prof !69
 
 .lr.ph:                                           ; preds = %_ZN9benchmark5State3endEv.exit.preheader

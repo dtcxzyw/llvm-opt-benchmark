@@ -875,8 +875,8 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %_ZN5folly8Executor9
   %.not.i.i5 = icmp ne i64 %40, 0
   %41 = and i64 %39, 3
   %.not3.i.i6 = icmp eq i64 %41, 0
-  %or.cond10 = and i1 %.not.i.i5, %.not3.i.i6
-  br i1 %or.cond10, label %42, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit7
+  %or.cond13 = and i1 %.not.i.i5, %.not3.i.i6
+  br i1 %or.cond13, label %42, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit7
 
 42:                                               ; preds = %37
   %43 = inttoptr i64 %40 to ptr
@@ -984,8 +984,8 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %_ZN5folly8Executor9
   %.not.i.i6 = icmp ne i64 %41, 0
   %42 = and i64 %40, 3
   %.not3.i.i7 = icmp eq i64 %42, 0
-  %or.cond11 = and i1 %.not.i.i6, %.not3.i.i7
-  br i1 %or.cond11, label %43, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit8
+  %or.cond14 = and i1 %.not.i.i6, %.not3.i.i7
+  br i1 %or.cond14, label %43, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit8
 
 43:                                               ; preds = %38
   %44 = inttoptr i64 %41 to ptr
@@ -7404,8 +7404,8 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   br i1 %46, label %69, label %.critedge.i.i.i.i.i.i.sink.split, !prof !321
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %43, %52
-  %.sink51 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
-  %47 = extractvalue { i32, i1 } %.sink51, 0
+  %.sink60 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
+  %47 = extractvalue { i32, i1 } %.sink60, 0
   store i32 %47, ptr %2, align 4, !noalias !324
   br label %.critedge.i.i.i.i.i.i
 
@@ -10289,8 +10289,8 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   unreachable
 
 _ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit: ; preds = %.critedge, %.preheader49, %55
-  %.364 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
-  ret ptr %.364
+  %.367 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
+  ret ptr %.367
 }
 
 ; Function Attrs: nounwind

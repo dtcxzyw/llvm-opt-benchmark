@@ -933,11 +933,11 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 
 _ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit: ; preds = %43, %52
   %.sink.i.i.i = phi ptr [ %41, %43 ], [ %50, %52 ]
-  %.sink8.i.i.i = phi ptr [ %40, %43 ], [ %49, %52 ]
-  %.sink7.i.i.i = phi i64 [ %45, %43 ], [ %54, %52 ]
+  %.sink14.i.i.i = phi ptr [ %40, %43 ], [ %49, %52 ]
+  %.sink13.i.i.i = phi i64 [ %45, %43 ], [ %54, %52 ]
   %57 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 16
-  %58 = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i, i64 16
-  %bcmp.i.i4.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %58, ptr nonnull readonly align 1 %57, i64 %.sink7.i.i.i), !noalias !197
+  %58 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i, i64 16
+  %bcmp.i.i4.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %58, ptr nonnull readonly align 1 %57, i64 %.sink13.i.i.i), !noalias !197
   %.not = icmp eq i32 %bcmp.i.i4.i.i.i, 0
   br i1 %.not, label %_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit.thread17, label %_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.llvm.7989422476702131114.exit.thread
 
@@ -1146,11 +1146,11 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h3a02667d19ded131E.
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114.exit.sink.split.i.i": ; preds = %38, %29
   %.sink.i.i = phi ptr [ %27, %29 ], [ %36, %38 ]
-  %.sink8.i.i = phi ptr [ %26, %29 ], [ %35, %38 ]
-  %.sink7.i.i = phi i64 [ %31, %29 ], [ %40, %38 ]
+  %.sink14.i.i = phi ptr [ %26, %29 ], [ %35, %38 ]
+  %.sink13.i.i = phi i64 [ %31, %29 ], [ %40, %38 ]
   %22 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %.sink8.i.i, i64 16
-  %bcmp.i.i4.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %23, ptr nonnull readonly align 1 %22, i64 %.sink7.i.i), !noalias !254
+  %23 = getelementptr inbounds nuw i8, ptr %.sink14.i.i, i64 16
+  %bcmp.i.i4.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %23, ptr nonnull readonly align 1 %22, i64 %.sink13.i.i), !noalias !254
   %24 = icmp ne i32 %bcmp.i.i4.i.i, 0
   br label %"_ZN79_$LT$uv_pypi_types..conflicts..ConflictItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd31a939597f5dac9E.llvm.7989422476702131114.exit"
 
@@ -2715,11 +2715,11 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit": ; preds = %40, %49
   %.sink.i.i.i.i = phi ptr [ %38, %40 ], [ %47, %49 ]
-  %.sink8.i.i.i.i = phi ptr [ %37, %40 ], [ %46, %49 ]
-  %.sink7.i.i.i.i = phi i64 [ %42, %40 ], [ %51, %49 ]
+  %.sink14.i.i.i.i = phi ptr [ %37, %40 ], [ %46, %49 ]
+  %.sink13.i.i.i.i = phi i64 [ %42, %40 ], [ %51, %49 ]
   %54 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 16
-  %55 = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i.i, i64 16
-  %bcmp.i.i4.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %55, ptr nonnull readonly align 1 %54, i64 %.sink7.i.i.i.i), !noalias !739
+  %55 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i.i, i64 16
+  %bcmp.i.i4.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %55, ptr nonnull readonly align 1 %54, i64 %.sink13.i.i.i.i), !noalias !739
   %.not = icmp eq i32 %bcmp.i.i4.i.i.i.i, 0
   br i1 %.not, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit.thread14", label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h9fed806c4d6c49fdE.exit.thread"
 
@@ -3311,11 +3311,11 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114.exit.sink.split.i.i.i.i": ; preds = %44, %35
   %.sink.i.i.i.i = phi ptr [ %33, %35 ], [ %42, %44 ]
-  %.sink8.i.i.i.i = phi ptr [ %32, %35 ], [ %41, %44 ]
-  %.sink7.i.i.i.i = phi i64 [ %37, %35 ], [ %46, %44 ]
+  %.sink14.i.i.i.i = phi ptr [ %32, %35 ], [ %41, %44 ]
+  %.sink13.i.i.i.i = phi i64 [ %37, %35 ], [ %46, %44 ]
   %28 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i.i, i64 16
-  %bcmp.i.i4.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %29, ptr nonnull readonly align 1 %28, i64 %.sink7.i.i.i.i), !noalias !958
+  %29 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i.i, i64 16
+  %bcmp.i.i4.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %29, ptr nonnull readonly align 1 %28, i64 %.sink13.i.i.i.i), !noalias !958
   %30 = icmp eq i32 %bcmp.i.i4.i.i.i.i, 0
   br label %"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc39ddde2a6714ffcE.llvm.7989422476702131114.exit"
 
@@ -7124,11 +7124,11 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114.exit.sink.split.i.i.i": ; preds = %44, %35
   %.sink.i.i.i = phi ptr [ %33, %35 ], [ %42, %44 ]
-  %.sink8.i.i.i = phi ptr [ %32, %35 ], [ %41, %44 ]
-  %.sink7.i.i.i = phi i64 [ %37, %35 ], [ %46, %44 ]
+  %.sink14.i.i.i = phi ptr [ %32, %35 ], [ %41, %44 ]
+  %.sink13.i.i.i = phi i64 [ %37, %35 ], [ %46, %44 ]
   %28 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i, i64 16
-  %bcmp.i.i4.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %29, ptr nonnull readonly align 1 %28, i64 %.sink7.i.i.i), !noalias !1521
+  %29 = getelementptr inbounds nuw i8, ptr %.sink14.i.i.i, i64 16
+  %bcmp.i.i4.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %29, ptr nonnull readonly align 1 %28, i64 %.sink13.i.i.i), !noalias !1521
   %30 = icmp eq i32 %bcmp.i.i4.i.i.i, 0
   br label %"_ZN80_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$alloc..rc..RcEqIdent$LT$T$C$A$GT$$GT$2eq17ha78ef7cfa6b4db96E.llvm.7989422476702131114.exit"
 
@@ -8073,11 +8073,11 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114.exit.sink.split.i.i": ; preds = %44, %35
   %.sink.i.i = phi ptr [ %33, %35 ], [ %42, %44 ]
-  %.sink8.i.i = phi ptr [ %32, %35 ], [ %41, %44 ]
-  %.sink7.i.i = phi i64 [ %37, %35 ], [ %46, %44 ]
+  %.sink14.i.i = phi ptr [ %32, %35 ], [ %41, %44 ]
+  %.sink13.i.i = phi i64 [ %37, %35 ], [ %46, %44 ]
   %28 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %.sink8.i.i, i64 16
-  %bcmp.i.i4.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %29, ptr nonnull readonly align 1 %28, i64 %.sink7.i.i), !noalias !1723
+  %29 = getelementptr inbounds nuw i8, ptr %.sink14.i.i, i64 16
+  %bcmp.i.i4.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %29, ptr nonnull readonly align 1 %28, i64 %.sink13.i.i), !noalias !1723
   %30 = icmp eq i32 %bcmp.i.i4.i.i, 0
   br label %"_ZN79_$LT$uv_pypi_types..conflicts..ConflictItem$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd31a939597f5dac9E.llvm.7989422476702131114.exit"
 
@@ -10743,11 +10743,11 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$uv_pypi_types..conflicts..ConflictI
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114.exit.sink.split.i": ; preds = %38, %29
   %.sink.i = phi ptr [ %27, %29 ], [ %36, %38 ]
-  %.sink8.i = phi ptr [ %26, %29 ], [ %35, %38 ]
-  %.sink7.i = phi i64 [ %31, %29 ], [ %40, %38 ]
+  %.sink14.i = phi ptr [ %26, %29 ], [ %35, %38 ]
+  %.sink13.i = phi i64 [ %31, %29 ], [ %40, %38 ]
   %22 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 16
-  %bcmp.i.i4.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %23, ptr nonnull readonly align 1 %22, i64 %.sink7.i), !noalias !2192
+  %23 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 16
+  %bcmp.i.i4.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %23, ptr nonnull readonly align 1 %22, i64 %.sink13.i), !noalias !2192
   %24 = icmp eq i32 %bcmp.i.i4.i, 0
   br label %"_ZN82_$LT$uv_pypi_types..conflicts..ConflictPackage$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd67b27a2b2775bd8E.llvm.7989422476702131114.exit"
 
@@ -11005,11 +11005,11 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$uv_pypi_types..conflicts..ConflictP
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114.exit.sink.split": ; preds = %25, %16
   %.sink = phi ptr [ %14, %16 ], [ %23, %25 ]
-  %.sink8 = phi ptr [ %13, %16 ], [ %22, %25 ]
-  %.sink7 = phi i64 [ %18, %16 ], [ %27, %25 ]
+  %.sink14 = phi ptr [ %13, %16 ], [ %22, %25 ]
+  %.sink13 = phi i64 [ %18, %16 ], [ %27, %25 ]
   %9 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %.sink8, i64 16
-  %bcmp.i.i4 = tail call i32 @bcmp(ptr nonnull readonly align 1 %10, ptr nonnull readonly align 1 %9, i64 %.sink7), !noalias !8
+  %10 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
+  %bcmp.i.i4 = tail call i32 @bcmp(ptr nonnull readonly align 1 %10, ptr nonnull readonly align 1 %9, i64 %.sink13), !noalias !8
   %11 = icmp eq i32 %bcmp.i.i4, 0
   br label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114.exit"
 

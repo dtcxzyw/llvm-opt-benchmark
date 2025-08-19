@@ -178,7 +178,7 @@ lean_dec.exit:                                    ; preds = %lean_nat_sub.exit, 
   br label %lean_dec.exit43
 
 lean_dec.exit43:                                  ; preds = %lean_dec.exit, %41, %40, %38
-  %.0.i61 = phi ptr [ %35, %41 ], [ %35, %40 ], [ %35, %38 ], [ %22, %lean_dec.exit ]
+  %.0.i68 = phi ptr [ %35, %41 ], [ %35, %40 ], [ %35, %38 ], [ %22, %lean_dec.exit ]
   br i1 %.not, label %42, label %lean_inc.exit42
 
 42:                                               ; preds = %lean_dec.exit43
@@ -216,7 +216,7 @@ lean_alloc_ctor.exit54:                           ; preds = %lean_inc.exit42
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %0, ptr %52, align 8, !tbaa !12
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %.0.i61, ptr %53, align 8, !tbaa !12
+  store ptr %.0.i68, ptr %53, align 8, !tbaa !12
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %5, ptr %54, align 8, !tbaa !12
   %55 = load ptr, ptr @l_Lean_manualRoot___lambda__1___closed__4, align 8, !tbaa !12
@@ -247,16 +247,16 @@ lean_alloc_ctor.exit54:                           ; preds = %lean_inc.exit42
   unreachable
 
 lean_alloc_ctor.exit55:                           ; preds = %64, %58
-  %.sink68 = phi ptr [ %61, %58 ], [ %65, %64 ]
+  %.sink75 = phi ptr [ %61, %58 ], [ %65, %64 ]
   %.sink = phi ptr [ %60, %58 ], [ %0, %64 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink68, i64 4
-  store i32 1, ptr %.sink68, align 4, !tbaa !8
+  %68 = getelementptr inbounds nuw i8, ptr %.sink75, i64 4
+  store i32 1, ptr %.sink75, align 4, !tbaa !8
   store i32 131096, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %.sink68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sink75, i64 8
   store ptr %.sink, ptr %69, align 8, !tbaa !12
-  %70 = getelementptr inbounds nuw i8, ptr %.sink68, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.sink75, i64 16
   store ptr %1, ptr %70, align 8, !tbaa !12
-  ret ptr %.sink68
+  ret ptr %.sink75
 }
 
 declare ptr @l_Substring_prevn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -20946,18 +20946,18 @@ _init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit: ; preds = %_init_l_Lea
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit, %3
-  %.sink13 = phi ptr [ %4, %3 ], [ %123, %_init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit ]
-  %126 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
-  store i32 1, ptr %.sink13, align 4, !tbaa !8
+  %.sink23 = phi ptr [ %4, %3 ], [ %123, %_init_l_Lean_rewriteManualLinksCore_rw___closed__12.exit ]
+  %126 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !8
   store i32 131096, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %127, align 8, !tbaa !12
-  %128 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %128, align 8, !tbaa !12
   br label %129
 
 129:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 

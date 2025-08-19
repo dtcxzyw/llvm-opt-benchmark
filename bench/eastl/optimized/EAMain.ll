@@ -121,7 +121,7 @@ for.cond14.preheader:                             ; preds = %for.end
   %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %mArgv, align 8
   %4 = zext nneg i32 %spec.store.select to i64
-  %wide.trip.count75 = zext i32 %2 to i64
+  %wide.trip.count75 = zext nneg i32 %2 to i64
   br i1 %bCaseSensitive, label %for.body17.us, label %for.body17
 
 for.body17.us:                                    ; preds = %for.cond14.preheader, %for.inc70.us

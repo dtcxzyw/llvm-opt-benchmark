@@ -948,12 +948,12 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
   br label %.loopexit
 
 .body:                                            ; preds = %.body11.thread, %.body11
-  %eh.lpad-body1217 = phi { ptr, i32 } [ %38, %.body11.thread ], [ %33, %.body11 ]
+  %eh.lpad-body1221 = phi { ptr, i32 } [ %38, %.body11.thread ], [ %33, %.body11 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body, %47
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body1217, %.body ]
+  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body1221, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
@@ -3966,12 +3966,12 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
   br label %.loopexit
 
 .body:                                            ; preds = %.body15.thread, %.body15
-  %eh.lpad-body1621 = phi { ptr, i32 } [ %44, %.body15.thread ], [ %39, %.body15 ]
+  %eh.lpad-body1626 = phi { ptr, i32 } [ %44, %.body15.thread ], [ %39, %.body15 ]
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.body, %55
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body1621, %.body ]
+  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %eh.lpad-body1626, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
@@ -5197,8 +5197,8 @@ define void @_ZN6duckdb18StringColumnReader12VerifyStringEPKcjb(ptr noundef %0, 
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %.sroa.0.4..sroa_idx51 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.4..sroa_idx51, i8 0, i64 12, i1 false)
+  %.sroa.0.4..sroa_idx56 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.4..sroa_idx56, i8 0, i64 12, i1 false)
   %17 = icmp eq i32 %1, 0
   br i1 %17, label %_ZN6duckdb8string_tC2EPKcj.exit, label %18
 
@@ -5211,8 +5211,8 @@ define void @_ZN6duckdb18StringColumnReader12VerifyStringEPKcjb(ptr noundef %0, 
 
 19:                                               ; preds = %13
   %20 = load i32, ptr %0, align 1
-  %.sroa.0.4..sroa_idx50 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
-  store i32 %20, ptr %.sroa.0.4..sroa_idx50, align 4
+  %.sroa.0.4..sroa_idx55 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  store i32 %20, ptr %.sroa.0.4..sroa_idx55, align 4
   br label %_ZN6duckdb8string_tC2EPKcj.exit
 
 _ZN6duckdb8string_tC2EPKcj.exit:                  ; preds = %19, %18, %16
@@ -13258,8 +13258,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %30
 
 .loopexit:                                        ; preds = %19, %3, %._crit_edge
   %40 = load i16, ptr %4, align 2, !tbaa !445
-  %.lobit43 = ashr i8 %7, 7
-  %41 = sext i8 %.lobit43 to i16
+  %.lobit46 = ashr i8 %7, 7
+  %41 = sext i8 %.lobit46 to i16
   %.030 = xor i16 %40, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i16 %.030
@@ -13840,8 +13840,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %30
 
 .loopexit:                                        ; preds = %19, %3, %._crit_edge
   %40 = load i32, ptr %4, align 4, !tbaa !220
-  %.lobit43 = ashr i8 %7, 7
-  %41 = sext i8 %.lobit43 to i32
+  %.lobit46 = ashr i8 %7, 7
+  %41 = sext i8 %.lobit46 to i32
   %.030 = xor i32 %40, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.030
@@ -14422,8 +14422,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %30
 
 .loopexit:                                        ; preds = %19, %3, %._crit_edge
   %40 = load i64, ptr %4, align 8, !tbaa !216
-  %.lobit43 = ashr i8 %7, 7
-  %41 = sext i8 %.lobit43 to i64
+  %.lobit46 = ashr i8 %7, 7
+  %41 = sext i8 %.lobit46 to i64
   %.030 = xor i64 %40, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.030
@@ -18830,8 +18830,8 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit:         ; preds = %20
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %_ZNK6duckdb10ByteBuffer9availableEm.exit
-  %.sroa.0.4..sroa_idx24 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.4..sroa_idx24, i8 0, i64 12, i1 false)
+  %.sroa.0.4..sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.4..sroa_idx28, i8 0, i64 12, i1 false)
   %38 = icmp eq i32 %22, 0
   br i1 %38, label %_ZN6duckdb8string_tC2EPKcj.exit, label %39
 
@@ -18842,10 +18842,10 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit:         ; preds = %20
 
 40:                                               ; preds = %_ZNK6duckdb10ByteBuffer9availableEm.exit
   %41 = load i32, ptr %30, align 1
-  %.sroa.0.4..sroa_idx23 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
-  store i32 %41, ptr %.sroa.0.4..sroa_idx23, align 4
-  %.sroa.0.8..sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  store ptr %30, ptr %.sroa.0.8..sroa_idx26, align 8, !tbaa !191
+  %.sroa.0.4..sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  store i32 %41, ptr %.sroa.0.4..sroa_idx27, align 4
+  %.sroa.0.8..sroa_idx30 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  store ptr %30, ptr %.sroa.0.8..sroa_idx30, align 8, !tbaa !191
   br label %_ZN6duckdb8string_tC2EPKcj.exit
 
 _ZN6duckdb8string_tC2EPKcj.exit:                  ; preds = %37, %39, %40
@@ -18875,8 +18875,8 @@ _ZN6duckdb10ByteBuffer3incEm.exit:                ; preds = %_ZN6duckdb8string_t
   store ptr %50, ptr %0, align 8, !tbaa !305
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load = load i64, ptr %.sroa.0, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load, 0
-  %.sroa.0.8..fca.1.gep.sroa_idx25 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  %.sroa.0.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load = load ptr, ptr %.sroa.0.8..fca.1.gep.sroa_idx25, align 8
+  %.sroa.0.8..fca.1.gep.sroa_idx29 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load = load ptr, ptr %.sroa.0.8..fca.1.gep.sroa_idx29, align 8
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.0.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load, 1
   ret { i64, ptr } %.fca.1.insert
 }

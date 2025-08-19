@@ -72445,8 +72445,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !16635, !noalias !16632
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9, align 1, !alias.scope !16635, !noalias !16632
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 20:                                               ; preds = %6
@@ -72459,14 +72459,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7, align 1, !alias.scope !16635, !noalias !16632
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !16635, !noalias !16632
   %29 = lshr i32 %1, 6
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9, align 2, !alias.scope !16635, !noalias !16632
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10, align 2, !alias.scope !16635, !noalias !16632
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20, %12, %8
@@ -109469,8 +109469,8 @@ common.resume.i.sink.split.i:                     ; preds = %330, %309
   br label %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$17h8900cd3aad68b0c0E.exit.sink.split.i"
 
 "_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$17h8900cd3aad68b0c0E.exit.sink.split.i": ; preds = %340, %319
-  %.sink5.i = phi ptr [ %320, %319 ], [ %341, %340 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink5.i, i64 noundef 80, i64 noundef 8) #33, !noalias !23444
+  %.sink21.i = phi ptr [ %320, %319 ], [ %341, %340 ]
+  call void @__rust_dealloc(ptr noundef nonnull %.sink21.i, i64 noundef 80, i64 noundef 8) #33, !noalias !23444
   br label %342
 
 342:                                              ; preds = %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$17h8900cd3aad68b0c0E.exit.sink.split.i", %336, %332, %315, %311
@@ -137751,13 +137751,13 @@ define hidden void @"_ZN3vim7command8register28_$u7b$$u7b$closure$u7d$$u7d$17h99
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZN3vim3Vim13update_editor17hb4ab0fb44811951fE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %18, ptr noalias noundef nonnull align 8 dereferenceable(536) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %2)
   %19 = load i32, ptr %18, align 8, !range !19142, !noundef !4
-  switch i32 %19, label %default.unreachable40 [
+  switch i32 %19, label %default.unreachable43 [
     i32 2, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$multi_buffer..MultiBufferRow$C$anyhow..Error$GT$$GT$$GT$17h7586b57bb5757aeaE.exit"
     i32 0, label %20
     i32 1, label %32
   ]
 
-default.unreachable40:                            ; preds = %4
+default.unreachable43:                            ; preds = %4
   unreachable
 
 20:                                               ; preds = %4
@@ -138376,13 +138376,13 @@ define hidden void @"_ZN3vim7command8register28_$u7b$$u7b$closure$u7d$$u7d$17h13
   call void @_ZN3vim3Vim13update_editor17hcf276853e242fa37E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 8 dereferenceable(536) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %24 = load i32, ptr %23, align 8, !range !19142, !noundef !4
-  switch i32 %24, label %default.unreachable66 [
+  switch i32 %24, label %default.unreachable70 [
     i32 2, label %25
     i32 0, label %26
     i32 1, label %34
   ]
 
-default.unreachable66:                            ; preds = %4
+default.unreachable70:                            ; preds = %4
   unreachable
 
 25:                                               ; preds = %4, %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..ops..range..Range$LT$multi_buffer..MultiBufferRow$GT$$C$anyhow..Error$GT$$GT$17h89cdfad8936698a7E.exit"
@@ -141572,8 +141572,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$search..buffer_search..BufferSearchBar$GT$$GT$17hfd6fad385e6c746fE.exit18.sink.split.sink.split"
 
 "_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$search..buffer_search..BufferSearchBar$GT$$GT$17hfd6fad385e6c746fE.exit18.sink.split.sink.split": ; preds = %201, %229
-  %.sink32 = phi ptr [ %230, %229 ], [ %202, %201 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink32, i64 noundef 80, i64 noundef 8) #33, !noalias !4
+  %.sink43 = phi ptr [ %230, %229 ], [ %202, %201 ]
+  call void @__rust_dealloc(ptr noundef nonnull %.sink43, i64 noundef 80, i64 noundef 8) #33, !noalias !4
   br label %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$search..buffer_search..BufferSearchBar$GT$$GT$17hfd6fad385e6c746fE.exit18.sink.split"
 
 "_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$search..buffer_search..BufferSearchBar$GT$$GT$17hfd6fad385e6c746fE.exit18.sink.split": ; preds = %"_ZN4core3ptr83drop_in_place$LT$gpui..view..View$LT$search..buffer_search..BufferSearchBar$GT$$GT$17hfd6fad385e6c746fE.exit18.sink.split.sink.split", %225, %221, %193, %197
@@ -145144,9 +145144,9 @@ define hidden void @"_ZN3vim3Vim15start_recording28_$u7b$$u7b$closure$u7d$$u7d$1
           to label %18 unwind label %16
 
 .sink.split:                                      ; preds = %116, %22
-  %.sink35 = phi i64 [ 224, %22 ], [ 232, %116 ]
+  %.sink38 = phi i64 [ 224, %22 ], [ 232, %116 ]
   %.sink = phi i32 [ 0, %22 ], [ %.sroa.1212.0, %116 ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink35
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink38
   store i32 %.sink, ptr %14, align 8
   br label %15
 
@@ -145683,17 +145683,17 @@ common.resume:                                    ; preds = %.body, %124, %128, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_global17h232c00499c23e168E.exit": ; preds = %70
-  %.sroa.0.0.copyload11 = load i64, ptr %9, align 8, !noalias !30396
-  %.sroa.5.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx12, i64 40, i1 false), !noalias !30396
+  %.sroa.0.0.copyload17 = load i64, ptr %9, align 8, !noalias !30396
+  %.sroa.5.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx18, i64 40, i1 false), !noalias !30396
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !30374
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !30374
-  %75 = icmp eq i64 %.sroa.0.0.copyload11, 2
+  %75 = icmp eq i64 %.sroa.0.0.copyload17, 2
   br i1 %75, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Register$GT$17h074b1f5740fdfbf6E.exit7", label %76
 
 76:                                               ; preds = %"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_global17h232c00499c23e168E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store i64 %.sroa.0.0.copyload11, ptr %14, align 8
+  store i64 %.sroa.0.0.copyload17, ptr %14, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -146017,7 +146017,7 @@ define internal fastcc void @"_ZN58_$LT$vim..motion..Motion$u20$as$u20$core..clo
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = load i8, ptr %1, align 8, !range !12520, !noundef !4
-  switch i8 %8, label %default.unreachable4 [
+  switch i8 %8, label %default.unreachable6 [
     i8 0, label %9
     i8 1, label %10
     i8 2, label %11
@@ -146059,7 +146059,7 @@ define internal fastcc void @"_ZN58_$LT$vim..motion..Motion$u20$as$u20$core..clo
     i8 38, label %136
   ]
 
-default.unreachable4:                             ; preds = %2
+default.unreachable6:                             ; preds = %2
   unreachable
 
 9:                                                ; preds = %2

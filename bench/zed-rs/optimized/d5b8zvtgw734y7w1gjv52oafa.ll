@@ -2594,8 +2594,8 @@ _ZN10async_task5utils14abort_on_panic17h8e3eabd9767cf15cE.exit: ; preds = %24
 32:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx312 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %.sroa.2.0..sroa_idx312, align 8
+  %.sroa.2.0..sroa_idx319 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %10, ptr %.sroa.2.0..sroa_idx319, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -3515,10 +3515,10 @@ _ZN10async_task5utils14abort_on_panic17h435a9acdee6be187E.exit: ; preds = %26
   br label %60
 
 60:                                               ; preds = %58, %54, %50
-  %.sink259 = phi ptr [ null, %58 ], [ %55, %54 ], [ null, %50 ]
+  %.sink266 = phi ptr [ null, %58 ], [ %55, %54 ], [ null, %50 ]
   %.sink = phi ptr [ %59, %58 ], [ %56, %54 ], [ %51, %50 ]
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink259, ptr %61, align 8
+  store ptr %.sink266, ptr %61, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -4410,10 +4410,10 @@ _ZN10async_task5utils14abort_on_panic17h01f702432bb2efe7E.exit: ; preds = %26
   br label %58
 
 58:                                               ; preds = %56, %52, %48
-  %.sink262 = phi ptr [ null, %56 ], [ %53, %52 ], [ null, %48 ]
+  %.sink269 = phi ptr [ null, %56 ], [ %53, %52 ], [ null, %48 ]
   %.sink = phi ptr [ %57, %56 ], [ %54, %52 ], [ %49, %48 ]
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink262, ptr %59, align 8
+  store ptr %.sink269, ptr %59, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -5248,8 +5248,8 @@ _ZN10async_task5utils14abort_on_panic17h1fe88a32d3793987E.exit: ; preds = %24
 31:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx315 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %10, ptr %.sroa.2.0..sroa_idx315, align 8
+  %.sroa.2.0..sroa_idx322 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %10, ptr %.sroa.2.0..sroa_idx322, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -11418,7 +11418,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h6dfe35e5b7bf7dcaE(ptr
   br label %34
 
 .preheader:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h2cac932df6a91a5eE.exit"
-  br i1 %.not27, label %.thread35, label %.lr.ph24
+  br i1 %.not27, label %.thread41, label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %.preheader
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -11571,7 +11571,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h4f87132e297de232E.exit: ; preds 
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h4f87132e297de232E.exit
-  br i1 %29, label %.thread35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h7472ec768d1930b2E.exit"
+  br i1 %29, label %.thread41, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h7472ec768d1930b2E.exit"
 
 81:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h4f87132e297de232E.exit
   %82 = or i64 %1, 1
@@ -11585,7 +11585,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h4f87132e297de232E.exit: ; preds 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h7472ec768d1930b2E.exit": ; preds = %_ZN4core10intrinsics10typed_swap17h4d2aef637a438750E.exit.i.i, %.preheader19, %3, %80, %81
   ret void
 
-.thread35:                                        ; preds = %.preheader, %80
+.thread41:                                        ; preds = %.preheader, %80
   %87 = lshr i64 %1, 1
   %88 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %1
   %89 = sub nsw i64 0, %87
@@ -11594,8 +11594,8 @@ _ZN4core5slice4sort6shared17find_existing_run17h4f87132e297de232E.exit: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !2533)
   br label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %.thread35, %_ZN4core10intrinsics10typed_swap17h4d2aef637a438750E.exit.i.i
-  %.sroa.0.08.i.i = phi i64 [ %101, %_ZN4core10intrinsics10typed_swap17h4d2aef637a438750E.exit.i.i ], [ 0, %.thread35 ]
+.lr.ph.preheader.i.i:                             ; preds = %.thread41, %_ZN4core10intrinsics10typed_swap17h4d2aef637a438750E.exit.i.i
+  %.sroa.0.08.i.i = phi i64 [ %101, %_ZN4core10intrinsics10typed_swap17h4d2aef637a438750E.exit.i.i ], [ 0, %.thread41 ]
   %91 = xor i64 %.sroa.0.08.i.i, -1
   %92 = add nsw i64 %87, %91
   %93 = getelementptr inbounds nuw [0 x { i64, [7 x i64] }], ptr %0, i64 0, i64 %.sroa.0.08.i.i

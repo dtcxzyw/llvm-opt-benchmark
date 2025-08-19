@@ -538,8 +538,8 @@ commit_seen_at.exit:                              ; preds = %._crit_edge3.i.i, %
   %scevgep103 = getelementptr i8, ptr %57, i64 %59
   %60 = sub nuw nsw i32 %52, %.sroa.16.393
   %61 = shl nuw nsw i32 %60, 3
-  %narrow115 = add nuw nsw i32 %61, 8
-  %62 = zext nneg i32 %narrow115 to i64
+  %narrow126 = add nuw nsw i32 %61, 8
+  %62 = zext nneg i32 %narrow126 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep103, i8 0, i64 %62, i1 false), !tbaa !16
   br label %._crit_edge3.i.i40
 
@@ -590,8 +590,8 @@ commit_seen_at.exit42:                            ; preds = %._crit_edge3.i.i40,
   %scevgep107 = getelementptr i8, ptr %85, i64 %87
   %88 = sub nuw nsw i32 %80, %.sroa.16.6
   %89 = shl nuw nsw i32 %88, 3
-  %narrow116 = add nuw nsw i32 %89, 8
-  %90 = zext nneg i32 %narrow116 to i64
+  %narrow127 = add nuw nsw i32 %89, 8
+  %90 = zext nneg i32 %narrow127 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep107, i8 0, i64 %90, i1 false), !tbaa !16
   br label %._crit_edge3.i.i51
 
@@ -675,19 +675,19 @@ _.exit59:                                         ; preds = %_.exit56, %120
   br label %._crit_edge98.thread
 
 ._crit_edge98.thread:                             ; preds = %._crit_edge, %._crit_edge98, %_.exit59
-  %.sroa.2977.3.lcssa121 = phi ptr [ %.sroa.2977.4, %_.exit59 ], [ %.sroa.2977.4, %._crit_edge98 ], [ %.sroa.2977.1.lcssa, %._crit_edge ]
-  %.sroa.16.3.lcssa120 = phi i32 [ %.sroa.16.4, %_.exit59 ], [ %.sroa.16.4, %._crit_edge98 ], [ %.sroa.16.1.lcssa, %._crit_edge ]
+  %.sroa.2977.3.lcssa132 = phi ptr [ %.sroa.2977.4, %_.exit59 ], [ %.sroa.2977.4, %._crit_edge98 ], [ %.sroa.2977.1.lcssa, %._crit_edge ]
+  %.sroa.16.3.lcssa131 = phi i32 [ %.sroa.16.4, %_.exit59 ], [ %.sroa.16.4, %._crit_edge98 ], [ %.sroa.16.1.lcssa, %._crit_edge ]
   %.0 = phi i32 [ %spec.select, %_.exit59 ], [ 0, %._crit_edge98 ], [ 0, %._crit_edge ]
-  %.not.i = icmp eq i32 %.sroa.16.3.lcssa120, 0
+  %.not.i = icmp eq i32 %.sroa.16.3.lcssa131, 0
   br i1 %.not.i, label %clear_commit_seen.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %._crit_edge98.thread
-  %123 = zext nneg i32 %.sroa.16.3.lcssa120 to i64
+  %123 = zext nneg i32 %.sroa.16.3.lcssa131 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %124 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.3.lcssa121, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw ptr, ptr %.sroa.2977.3.lcssa132, i64 %indvars.iv.i
   %125 = load ptr, ptr %124, align 8, !tbaa !16
   call void @free(ptr noundef %125) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -696,7 +696,7 @@ _.exit59:                                         ; preds = %_.exit56, %120
 
 clear_commit_seen.exit:                           ; preds = %.lr.ph.i, %2, %._crit_edge98.thread
   %.087 = phi i32 [ %.0, %._crit_edge98.thread ], [ 0, %2 ], [ %.0, %.lr.ph.i ]
-  %.sroa.2977.086 = phi ptr [ %.sroa.2977.3.lcssa121, %._crit_edge98.thread ], [ null, %2 ], [ %.sroa.2977.3.lcssa121, %.lr.ph.i ]
+  %.sroa.2977.086 = phi ptr [ %.sroa.2977.3.lcssa132, %._crit_edge98.thread ], [ null, %2 ], [ %.sroa.2977.3.lcssa132, %.lr.ph.i ]
   call void @free(ptr noundef %.sroa.2977.086) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.087

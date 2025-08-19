@@ -320,8 +320,8 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit375.i: ; preds = %127, 
   %149 = zext nneg i32 %84 to i64
   %150 = sext i32 %145 to i64
   %151 = sext i32 %.reass.i to i64
-  %sext1690.i = shl i64 %72, 32
-  %152 = ashr exact i64 %sext1690.i, 32
+  %sext1939.i = shl i64 %72, 32
+  %152 = ashr exact i64 %sext1939.i, 32
   %wide.trip.count1681.i = zext nneg i32 %81 to i64
   br label %153
 
@@ -1177,8 +1177,8 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit468.i: ; preds = %656, 
   %713 = sext i32 %679 to i64
   %714 = sext i32 %680 to i64
   %715 = sext i32 %706 to i64
-  %sext1689.i = shl i64 %72, 32
-  %716 = ashr exact i64 %sext1689.i, 32
+  %sext1938.i = shl i64 %72, 32
+  %716 = ashr exact i64 %sext1938.i, 32
   %wide.trip.count.i = zext nneg i32 %81 to i64
   br label %717
 
@@ -2751,7 +2751,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i: ; preds = %1672,
 _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i: ; preds = %1682, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i
   %1687 = phi i32 [ %1686, %1682 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit646.i ]
   %1688 = add nsw i32 %1687, %1579
-  %.neg903 = sub i32 %1687, %1638
+  %.neg1204 = sub i32 %1687, %1638
   %1689 = sub nsw i32 %1598, %1578
   %1690 = add i32 %1689, 256
   %or.cond.i649.i = icmp ult i32 %1690, 769
@@ -2767,7 +2767,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i: ; preds = %1682,
 _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit650.i: ; preds = %1691, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i
   %1696 = phi i32 [ %1695, %1691 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit648.i ]
   %1697 = add nsw i32 %1696, %1578
-  %.neg904 = sub i32 %1696, %1598
+  %.neg1205 = sub i32 %1696, %1598
   %1698 = sub nsw i32 %1046, %1509
   %1699 = add i32 %1698, 256
   %or.cond.i651.i = icmp ult i32 %1699, 769
@@ -2963,7 +2963,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i: ; preds = %1798,
 _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit676.i: ; preds = %1807, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i
   %1812 = phi i32 [ %1811, %1807 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit674.i ]
   %1813 = add nsw i32 %1812, %1649
-  %1814 = add i32 %.neg903, %1206
+  %1814 = add i32 %.neg1204, %1206
   %1815 = add i32 %1814, 256
   %or.cond.i677.i = icmp ult i32 %1815, 769
   br i1 %or.cond.i677.i, label %1816, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit678.i
@@ -3036,7 +3036,7 @@ _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i: ; preds = %1842,
 
 _ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit686.i: ; preds = %1850, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i
   %1855 = phi i32 [ %1854, %1850 ], [ 0, %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit684.i ]
-  %1856 = add i32 %.neg904, %1115
+  %1856 = add i32 %.neg1205, %1115
   %1857 = add i32 %1856, 256
   %or.cond.i687.i = icmp ult i32 %1857, 769
   br i1 %or.cond.i687.i, label %1858, label %_ZNK2cv12cpu_baseline12_GLOBAL__N_18MinMax8uclERiS3_.exit688.i
@@ -5029,8 +5029,8 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_8MinMax8uES3_EEvRKNS_
   %3089 = zext nneg i32 %3041 to i64
   %3090 = sext i32 %3085 to i64
   %3091 = sext i32 %.reass.i110 to i64
-  %sext1261.i = shl i64 %3028, 32
-  %3092 = ashr exact i64 %sext1261.i, 32
+  %sext1268.i = shl i64 %3028, 32
+  %3092 = ashr exact i64 %sext1268.i, 32
   %wide.trip.count1252.i = zext nneg i32 %3038 to i64
   br label %3093
 
@@ -5366,8 +5366,8 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_8MinMax8uES3_EEvRKNS_
   %3330 = sext i32 %3296 to i64
   %3331 = sext i32 %3297 to i64
   %3332 = sext i32 %3323 to i64
-  %sext1260.i = shl i64 %3028, 32
-  %3333 = ashr exact i64 %sext1260.i, 32
+  %sext1267.i = shl i64 %3028, 32
+  %3333 = ashr exact i64 %sext1267.i, 32
   %wide.trip.count.i66 = zext nneg i32 %3038 to i64
   br label %3334
 
@@ -6161,8 +6161,8 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_9MinMax16uES3_EEvRKNS
   %3859 = zext nneg i32 %3813 to i64
   %3860 = sext i32 %3855 to i64
   %3861 = sext i32 %.reass.i313 to i64
-  %sext1261.i315 = shl i64 %3800, 32
-  %3862 = ashr exact i64 %sext1261.i315, 32
+  %sext1268.i315 = shl i64 %3800, 32
+  %3862 = ashr exact i64 %sext1268.i315, 32
   %wide.trip.count1252.i316 = zext nneg i32 %3810 to i64
   br label %3863
 
@@ -6498,8 +6498,8 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_9MinMax16uES3_EEvRKNS
   %4064 = sext i32 %4030 to i64
   %4065 = sext i32 %4031 to i64
   %4066 = sext i32 %4057 to i64
-  %sext1260.i136 = shl i64 %3800, 32
-  %4067 = ashr exact i64 %sext1260.i136, 32
+  %sext1267.i136 = shl i64 %3800, 32
+  %4067 = ashr exact i64 %sext1267.i136, 32
   %wide.trip.count.i137 = zext nneg i32 %3810 to i64
   br label %4068
 
@@ -7292,8 +7292,8 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_9MinMax16sES3_EEvRKNS
   %4491 = zext nneg i32 %4446 to i64
   %4492 = sext i32 %4487 to i64
   %4493 = sext i32 %.reass.i583 to i64
-  %sext1282.i = shl i64 %4433, 32
-  %4494 = ashr exact i64 %sext1282.i, 32
+  %sext1289.i = shl i64 %4433, 32
+  %4494 = ashr exact i64 %sext1289.i, 32
   %wide.trip.count1273.i = zext nneg i32 %4443 to i64
   br label %4495
 
@@ -7649,8 +7649,8 @@ _ZN2cv12cpu_baseline12_GLOBAL__N_118medianBlur_SortNetINS1_9MinMax16sES3_EEvRKNS
   %4716 = sext i32 %4682 to i64
   %4717 = sext i32 %4683 to i64
   %4718 = sext i32 %4709 to i64
-  %sext1281.i = shl i64 %4433, 32
-  %4719 = ashr exact i64 %sext1281.i, 32
+  %sext1288.i = shl i64 %4433, 32
+  %4719 = ashr exact i64 %sext1288.i, 32
   %wide.trip.count.i371 = zext nneg i32 %4443 to i64
   br label %4720
 
@@ -8843,13 +8843,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %indvars.iv315.i = phi i64 [ %indvars.iv.next316.i, %..loopexit_crit_edge.us.us.i ], [ 0, %.preheader266.split.us.i ]
   %5404 = getelementptr inbounds nuw [4 x [256 x i32]], ptr %13, i64 0, i64 %indvars.iv315.i
   %5405 = getelementptr inbounds nuw [4 x [16 x i32]], ptr %12, i64 0, i64 %indvars.iv315.i
-  %invariant.gep350.i = getelementptr inbounds nuw i8, ptr %.1210278.i, i64 %indvars.iv315.i
+  %invariant.gep359.i = getelementptr inbounds nuw i8, ptr %.1210278.i, i64 %indvars.iv315.i
   br label %5406
 
 5406:                                             ; preds = %5406, %.preheader256.us.us.i
   %indvars.iv312.i = phi i64 [ 0, %.preheader256.us.us.i ], [ %indvars.iv.next313.i, %5406 ]
-  %gep351.i = getelementptr inbounds nuw i8, ptr %invariant.gep350.i, i64 %indvars.iv312.i
-  %5407 = load i8, ptr %gep351.i, align 1, !tbaa !25
+  %gep360.i = getelementptr inbounds nuw i8, ptr %invariant.gep359.i, i64 %indvars.iv312.i
+  %5407 = load i8, ptr %gep360.i, align 1, !tbaa !25
   %5408 = zext i8 %5407 to i64
   %5409 = getelementptr inbounds nuw [256 x i32], ptr %5404, i64 0, i64 %5408
   %5410 = load i32, ptr %5409, align 4, !tbaa !24
@@ -9484,9 +9484,9 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i362.i: ; preds = %_ZNSt6vec
   %5749 = or i32 %5680, 1
   %5750 = zext nneg i32 %5677 to i64
   %5751 = zext nneg i32 %5681 to i64
-  %.zext575.i = zext nneg i16 %5701 to i64
+  %.zext591.i = zext nneg i16 %5701 to i64
   %5752 = zext nneg i32 %5702 to i64
-  %5753 = call i64 @llvm.umin.i64(i64 %.zext575.i, i64 %5752)
+  %5753 = call i64 @llvm.umin.i64(i64 %.zext591.i, i64 %5752)
   %wide.trip.count568.i = zext nneg i32 %5679 to i64
   br label %5765
 
@@ -9554,7 +9554,7 @@ _ZNSt6vectorItSaItEED2Ev.exit371.i:               ; preds = %5754, %_ZNSt6vector
 .preheader452.i.us:                               ; preds = %5765, %._crit_edge464.i.loopexit.us
   %indvars.iv514.i.us = phi i64 [ %indvars.iv.next515.i.us, %._crit_edge464.i.loopexit.us ], [ 0, %5765 ]
   %5784 = mul nuw nsw i64 %indvars.iv514.i.us, %5783
-  %invariant.gep581.i.us = getelementptr inbounds nuw i8, ptr %5772, i64 %indvars.iv514.i.us
+  %invariant.gep597.i.us = getelementptr inbounds nuw i8, ptr %5772, i64 %indvars.iv514.i.us
   %indvars.iv514.tr.i.us = trunc i64 %indvars.iv514.i.us to i32
   %5785 = shl i32 %indvars.iv514.tr.i.us, 4
   br label %5786
@@ -9564,8 +9564,8 @@ _ZNSt6vectorItSaItEED2Ev.exit371.i:               ; preds = %5754, %_ZNSt6vector
   %5787 = add nuw nsw i64 %indvars.iv.i646.us, %5784
   %5788 = shl i64 %5787, 4
   %5789 = mul nuw nsw i64 %indvars.iv.i646.us, %5750
-  %gep582.i.us = getelementptr inbounds nuw i8, ptr %invariant.gep581.i.us, i64 %5789
-  %5790 = load i8, ptr %gep582.i.us, align 1, !tbaa !25
+  %gep598.i.us = getelementptr inbounds nuw i8, ptr %invariant.gep597.i.us, i64 %5789
+  %5790 = load i8, ptr %gep598.i.us, align 1, !tbaa !25
   %5791 = lshr i8 %5790, 4
   %5792 = zext nneg i8 %5791 to i64
   %.masked.i.us = and i64 %5788, 4294967280
@@ -9574,7 +9574,7 @@ _ZNSt6vectorItSaItEED2Ev.exit371.i:               ; preds = %5754, %_ZNSt6vector
   %5795 = load i16, ptr %5794, align 2, !tbaa !44
   %5796 = add i16 %5795, %5740
   store i16 %5796, ptr %5794, align 2, !tbaa !44
-  %5797 = load i8, ptr %gep582.i.us, align 1, !tbaa !25
+  %5797 = load i8, ptr %gep598.i.us, align 1, !tbaa !25
   %5798 = zext i8 %5797 to i32
   %5799 = lshr i32 %5798, 4
   %5800 = or disjoint i32 %5799, %5785
@@ -9602,7 +9602,7 @@ _ZNSt6vectorItSaItEED2Ev.exit371.i:               ; preds = %5754, %_ZNSt6vector
   %.sroa.speculated408.us.i.us = call i32 @llvm.smin.i32(i32 %5741, i32 %storemerge357462.us.i.us)
   %5813 = sext i32 %.sroa.speculated408.us.i.us to i64
   %5814 = mul i64 %5697, %5813
-  %gep586.i.us = getelementptr i8, ptr %invariant.gep581.i.us, i64 %5814
+  %gep602.i.us = getelementptr i8, ptr %invariant.gep597.i.us, i64 %5814
   br label %5815
 
 5815:                                             ; preds = %5815, %.lr.ph461.us.i.us
@@ -9611,8 +9611,8 @@ _ZNSt6vectorItSaItEED2Ev.exit371.i:               ; preds = %5754, %_ZNSt6vector
   %5817 = add i32 %5812, %5816
   %5818 = shl nsw i32 %5817, 4
   %5819 = mul nuw nsw i64 %indvars.iv511.i.us, %5750
-  %gep584.i.us = getelementptr inbounds nuw i8, ptr %gep586.i.us, i64 %5819
-  %5820 = load i8, ptr %gep584.i.us, align 1, !tbaa !25
+  %gep600.i.us = getelementptr inbounds nuw i8, ptr %gep602.i.us, i64 %5819
+  %5820 = load i8, ptr %gep600.i.us, align 1, !tbaa !25
   %5821 = lshr i8 %5820, 4
   %5822 = zext nneg i8 %5821 to i32
   %5823 = or disjoint i32 %5818, %5822
@@ -9621,7 +9621,7 @@ _ZNSt6vectorItSaItEED2Ev.exit371.i:               ; preds = %5754, %_ZNSt6vector
   %5826 = load i16, ptr %5825, align 2, !tbaa !44
   %5827 = add i16 %5826, 1
   store i16 %5827, ptr %5825, align 2, !tbaa !44
-  %5828 = load i8, ptr %gep584.i.us, align 1, !tbaa !25
+  %5828 = load i8, ptr %gep600.i.us, align 1, !tbaa !25
   %5829 = zext i8 %5828 to i32
   %5830 = lshr i32 %5829, 4
   %5831 = or disjoint i32 %5830, %5785
@@ -9761,7 +9761,7 @@ _ZNSt6vectorItSaItEED2Ev.exit371.i:               ; preds = %5754, %_ZNSt6vector
   %5918 = getelementptr inbounds nuw [16 x [16 x i16]], ptr %5744, i64 0, i64 %indvars.iv525.i
   %5919 = add nuw nsw i64 %indvars.iv525.i, %5863
   %5920 = mul nsw i64 %5919, %5848
-  %invariant.gep587.i = getelementptr i16, ptr %5734, i64 %5920
+  %invariant.gep603.i = getelementptr i16, ptr %5734, i64 %5920
   br label %5922
 
 5921:                                             ; preds = %5922
@@ -9773,8 +9773,8 @@ _ZNSt6vectorItSaItEED2Ev.exit371.i:               ; preds = %5754, %_ZNSt6vector
   %indvars.iv521.i = phi i64 [ 0, %.preheader448.i ], [ %indvars.iv.next522.i, %5922 ]
   %5923 = getelementptr inbounds nuw [16 x i16], ptr %5918, i64 0, i64 %indvars.iv521.i
   %5924 = load i16, ptr %5923, align 2, !tbaa !44
-  %gep588.i = getelementptr i16, ptr %invariant.gep587.i, i64 %indvars.iv521.i
-  %5925 = load i16, ptr %gep588.i, align 2, !tbaa !44
+  %gep604.i = getelementptr i16, ptr %invariant.gep603.i, i64 %indvars.iv521.i
+  %5925 = load i16, ptr %gep604.i, align 2, !tbaa !44
   %5926 = mul i16 %5925, %5746
   %5927 = add i16 %5926, %5924
   store i16 %5927, ptr %5923, align 2, !tbaa !44
@@ -9962,8 +9962,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit380.i: ; preds = %
   %6005 = shl nuw nsw i32 %6004, 4
   %6006 = zext nneg i32 %6005 to i64
   %6007 = zext nneg i32 %6003 to i64
-  %invariant.gep589.i = getelementptr inbounds nuw i16, ptr %5999, i64 %6007
-  %invariant.gep591.i = getelementptr inbounds nuw i16, ptr %5999, i64 %6006
+  %invariant.gep605.i = getelementptr inbounds nuw i16, ptr %5999, i64 %6007
+  %invariant.gep607.i = getelementptr inbounds nuw i16, ptr %5999, i64 %6006
   br label %6011
 
 6008:                                             ; preds = %6011
@@ -9974,10 +9974,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit380.i: ; preds = %
 
 6011:                                             ; preds = %6011, %.preheader.i644
   %indvars.iv546.i = phi i64 [ 0, %.preheader.i644 ], [ %indvars.iv.next547.i, %6011 ]
-  %gep590.i = getelementptr inbounds nuw i16, ptr %invariant.gep589.i, i64 %indvars.iv546.i
-  %6012 = load i16, ptr %gep590.i, align 2, !tbaa !44
-  %gep592.i = getelementptr inbounds nuw i16, ptr %invariant.gep591.i, i64 %indvars.iv546.i
-  %6013 = load i16, ptr %gep592.i, align 2, !tbaa !44
+  %gep606.i = getelementptr inbounds nuw i16, ptr %invariant.gep605.i, i64 %indvars.iv546.i
+  %6012 = load i16, ptr %gep606.i, align 2, !tbaa !44
+  %gep608.i = getelementptr inbounds nuw i16, ptr %invariant.gep607.i, i64 %indvars.iv546.i
+  %6013 = load i16, ptr %gep608.i, align 2, !tbaa !44
   %6014 = sub i16 %6012, %6013
   %6015 = getelementptr inbounds nuw [16 x i16], ptr %6000, i64 0, i64 %indvars.iv546.i
   %6016 = load i16, ptr %6015, align 2, !tbaa !44
@@ -9991,8 +9991,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit380.i: ; preds = %
   %storemerge.i = phi i16 [ %5975, %5973 ], [ %5970, %5995 ], [ %6009, %6008 ], [ %5986, %5985 ]
   store i16 %storemerge.i, ptr %5969, align 2
   %6018 = add nsw i64 %5971, %5930
-  %.idx573.i = shl nsw i64 %6018, 5
-  %6019 = getelementptr inbounds i8, ptr %5730, i64 %.idx573.i
+  %.idx589.i = shl nsw i64 %6018, 5
+  %6019 = getelementptr inbounds i8, ptr %5730, i64 %.idx589.i
   br label %6022
 
 6020:                                             ; preds = %6022

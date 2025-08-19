@@ -1319,8 +1319,8 @@ define linkonce_odr hidden void @_ZN3ue28PathMaskC2ERKNS_8NGHolderERKSt6vectorIN
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not48 = icmp eq i64 %28, 0
-  br i1 %.not48, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i
+  %.not59 = icmp eq i64 %28, 0
+  br i1 %.not59, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN3ue29CharReachESaIS1_EE11_M_allocateEm.exit.i: ; preds = %31
   %33 = shl nuw nsw i64 %28, 5

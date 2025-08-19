@@ -88,7 +88,7 @@ GetScale.exit.us:                                 ; preds = %8
 
 36:                                               ; preds = %.lr.ph.split
   %37 = icmp ult i32 %34, 16777216
-  br i1 %37, label %.sink.split34, label %GetScale.exit
+  br i1 %37, label %.sink.split36, label %GetScale.exit
 
 GetScale.exit:                                    ; preds = %36
   %38 = lshr i32 %34, 24
@@ -113,14 +113,14 @@ GetScale.exit:                                    ; preds = %36
   %57 = lshr i32 %56, 8
   %58 = and i32 %57, 16711680
   %59 = or disjoint i32 %52, %58
-  br label %.sink.split34
+  br label %.sink.split36
 
-.sink.split34:                                    ; preds = %36, %GetScale.exit
-  %.sink35 = phi i32 [ %59, %GetScale.exit ], [ 0, %36 ]
-  store i32 %.sink35, ptr %33, align 4, !tbaa !3
+.sink.split36:                                    ; preds = %36, %GetScale.exit
+  %.sink37 = phi i32 [ %59, %GetScale.exit ], [ 0, %36 ]
+  store i32 %.sink37, ptr %33, align 4, !tbaa !3
   br label %60
 
-60:                                               ; preds = %.sink.split34, %.lr.ph.split
+60:                                               ; preds = %.sink.split36, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7

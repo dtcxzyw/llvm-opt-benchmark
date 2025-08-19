@@ -353,7 +353,7 @@ define internal noundef i32 @encode_mcus_gather(ptr noundef readonly captures(no
   %57 = sub nsw i32 0, %54
   %58 = and i32 %57, 32767
   %59 = icmp eq i32 %58, 0
-  %spec.select76 = select i1 %59, i32 32768, i32 %58
+  %spec.select82 = select i1 %59, i32 32768, i32 %58
   br label %.lr.ph60.preheader
 
 60:                                               ; preds = %.lr.ph62
@@ -362,8 +362,8 @@ define internal noundef i32 @encode_mcus_gather(ptr noundef readonly captures(no
   br i1 %.not5457, label %._crit_edge, label %.lr.ph60.preheader
 
 .lr.ph60.preheader:                               ; preds = %56, %60
-  %.04875 = phi i32 [ %61, %60 ], [ %spec.select76, %56 ]
-  %62 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.04875, i1 true)
+  %.04881 = phi i32 [ %61, %60 ], [ %spec.select82, %56 ]
+  %62 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.04881, i1 true)
   %63 = sub nuw nsw i32 32, %62
   %64 = zext nneg i32 %63 to i64
   br label %._crit_edge
@@ -698,15 +698,15 @@ emit_restart.exit:                                ; preds = %dump_buffer.exit13.
   br i1 %.not87212, label %._crit_edge, label %.lr.ph215.preheader
 
 .lr.ph215.preheader:                              ; preds = %.thread, %132
-  %.073271 = phi i32 [ %131, %.thread ], [ %133, %132 ]
-  %.175270 = phi i32 [ %spec.select, %.thread ], [ %133, %132 ]
-  %134 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.175270, i1 true)
+  %.073287 = phi i32 [ %131, %.thread ], [ %133, %132 ]
+  %.175286 = phi i32 [ %spec.select, %.thread ], [ %133, %132 ]
+  %134 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.175286, i1 true)
   %135 = sub nuw nsw i32 32, %134
-  %136 = zext i32 %.073271 to i64
+  %136 = zext i32 %.073287 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %132, %.lr.ph215.preheader
-  %.073272 = phi i64 [ 0, %132 ], [ %136, %.lr.ph215.preheader ]
+  %.073288 = phi i64 [ 0, %132 ], [ %136, %.lr.ph215.preheader ]
   %.072.lcssa = phi i32 [ 0, %132 ], [ %135, %.lr.ph215.preheader ]
   %137 = zext nneg i32 %.072.lcssa to i64
   %138 = getelementptr inbounds nuw [256 x i32], ptr %119, i64 0, i64 %137
@@ -815,7 +815,7 @@ emit_bits.exit:                                   ; preds = %188, %150
 193:                                              ; preds = %emit_bits.exit
   %notmask.i90 = shl nsw i64 -1, %137
   %194 = xor i64 %notmask.i90, -1
-  %195 = and i64 %.073272, %194
+  %195 = and i64 %.073288, %194
   %196 = add nsw i32 %.032.i.lcssa, %.072.lcssa
   %197 = sub nsw i32 24, %196
   %198 = zext nneg i32 %197 to i64

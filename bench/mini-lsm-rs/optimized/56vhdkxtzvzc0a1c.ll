@@ -1716,14 +1716,14 @@ define noalias noundef nonnull ptr @_ZN16mini_lsm_starter8manifest8Manifest20add
 11:                                               ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %9, label %default.unreachable4.i.i [
+  switch i64 %9, label %default.unreachable6.i.i [
     i64 0, label %21
     i64 1, label %22
     i64 2, label %37
     i64 3, label %13
   ]
 
-default.unreachable4.i.i:                         ; preds = %11
+default.unreachable6.i.i:                         ; preds = %11
   unreachable
 
 13:                                               ; preds = %11

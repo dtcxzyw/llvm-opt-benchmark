@@ -2535,11 +2535,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 226:                                              ; preds = %216, %214
   %.sink.i.i.i.i.i = phi i64 [ %225, %216 ], [ %215, %214 ]
-  %.sink11.i.i.i.i.i = phi i64 [ %223, %216 ], [ 3, %214 ]
-  %.sink10.i.i.i.i.i = phi i64 [ %220, %216 ], [ %.sroa.12.0.i.i.i.i, %214 ]
+  %.sink14.i.i.i.i.i = phi i64 [ %223, %216 ], [ 3, %214 ]
+  %.sink13.i.i.i.i.i = phi i64 [ %220, %216 ], [ %.sroa.12.0.i.i.i.i, %214 ]
   %227 = and i64 %.sink.i.i.i.i.i, 4294967295
-  %228 = shl i64 %.sink11.i.i.i.i.i, %227
-  %229 = xor i64 %228, %.sink10.i.i.i.i.i
+  %228 = shl i64 %.sink14.i.i.i.i.i, %227
+  %229 = xor i64 %228, %.sink13.i.i.i.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i.i.i, !llvm.loop !122
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_16HammingComputer4EJNS_15IndexBinaryHashEPKhNS0_18RangeSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %203
@@ -2788,11 +2788,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 343:                                              ; preds = %333, %331
   %.sink.i.i.i87.i.i = phi i64 [ %342, %333 ], [ %332, %331 ]
-  %.sink11.i.i.i88.i.i = phi i64 [ %340, %333 ], [ 3, %331 ]
-  %.sink10.i.i.i89.i.i = phi i64 [ %337, %333 ], [ %.sroa.12.0.i.i77.i.i, %331 ]
+  %.sink14.i.i.i88.i.i = phi i64 [ %340, %333 ], [ 3, %331 ]
+  %.sink13.i.i.i89.i.i = phi i64 [ %337, %333 ], [ %.sroa.12.0.i.i77.i.i, %331 ]
   %344 = and i64 %.sink.i.i.i87.i.i, 4294967295
-  %345 = shl i64 %.sink11.i.i.i88.i.i, %344
-  %346 = xor i64 %345, %.sink10.i.i.i89.i.i
+  %345 = shl i64 %.sink14.i.i.i88.i.i, %344
+  %346 = xor i64 %345, %.sink13.i.i.i89.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i90.i.i, !llvm.loop !124
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_16HammingComputer8EJNS_15IndexBinaryHashEPKhNS0_18RangeSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %320
@@ -3049,11 +3049,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 467:                                              ; preds = %457, %455
   %.sink.i.i.i118.i.i = phi i64 [ %466, %457 ], [ %456, %455 ]
-  %.sink11.i.i.i119.i.i = phi i64 [ %464, %457 ], [ 3, %455 ]
-  %.sink10.i.i.i120.i.i = phi i64 [ %461, %457 ], [ %.sroa.12.0.i.i108.i.i, %455 ]
+  %.sink14.i.i.i119.i.i = phi i64 [ %464, %457 ], [ 3, %455 ]
+  %.sink13.i.i.i120.i.i = phi i64 [ %461, %457 ], [ %.sroa.12.0.i.i108.i.i, %455 ]
   %468 = and i64 %.sink.i.i.i118.i.i, 4294967295
-  %469 = shl i64 %.sink11.i.i.i119.i.i, %468
-  %470 = xor i64 %469, %.sink10.i.i.i120.i.i
+  %469 = shl i64 %.sink14.i.i.i119.i.i, %468
+  %470 = xor i64 %469, %.sink13.i.i.i120.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i121.i.i, !llvm.loop !126
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_17HammingComputer16EJNS_15IndexBinaryHashEPKhNS0_18RangeSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %444
@@ -3317,11 +3317,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 600:                                              ; preds = %590, %588
   %.sink.i.i.i150.i.i = phi i64 [ %599, %590 ], [ %589, %588 ]
-  %.sink11.i.i.i151.i.i = phi i64 [ %597, %590 ], [ 3, %588 ]
-  %.sink10.i.i.i152.i.i = phi i64 [ %594, %590 ], [ %.sroa.12.0.i.i139.i.i, %588 ]
+  %.sink14.i.i.i151.i.i = phi i64 [ %597, %590 ], [ 3, %588 ]
+  %.sink13.i.i.i152.i.i = phi i64 [ %594, %590 ], [ %.sroa.12.0.i.i139.i.i, %588 ]
   %601 = and i64 %.sink.i.i.i150.i.i, 4294967295
-  %602 = shl i64 %.sink11.i.i.i151.i.i, %601
-  %603 = xor i64 %602, %.sink10.i.i.i152.i.i
+  %602 = shl i64 %.sink14.i.i.i151.i.i, %601
+  %603 = xor i64 %602, %.sink13.i.i.i152.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i153.i.i, !llvm.loop !128
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_17HammingComputer20EJNS_15IndexBinaryHashEPKhNS0_18RangeSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %577
@@ -3594,11 +3594,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 742:                                              ; preds = %732, %730
   %.sink.i.i.i183.i.i = phi i64 [ %741, %732 ], [ %731, %730 ]
-  %.sink11.i.i.i184.i.i = phi i64 [ %739, %732 ], [ 3, %730 ]
-  %.sink10.i.i.i185.i.i = phi i64 [ %736, %732 ], [ %.sroa.12.0.i.i172.i.i, %730 ]
+  %.sink14.i.i.i184.i.i = phi i64 [ %739, %732 ], [ 3, %730 ]
+  %.sink13.i.i.i185.i.i = phi i64 [ %736, %732 ], [ %.sroa.12.0.i.i172.i.i, %730 ]
   %743 = and i64 %.sink.i.i.i183.i.i, 4294967295
-  %744 = shl i64 %.sink11.i.i.i184.i.i, %743
-  %745 = xor i64 %744, %.sink10.i.i.i185.i.i
+  %744 = shl i64 %.sink14.i.i.i184.i.i, %743
+  %745 = xor i64 %744, %.sink13.i.i.i185.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i186.i.i, !llvm.loop !130
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_17HammingComputer32EJNS_15IndexBinaryHashEPKhNS0_18RangeSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %719
@@ -3903,11 +3903,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 916:                                              ; preds = %906, %904
   %.sink.i.i.i218.i.i = phi i64 [ %915, %906 ], [ %905, %904 ]
-  %.sink11.i.i.i219.i.i = phi i64 [ %913, %906 ], [ 3, %904 ]
-  %.sink10.i.i.i220.i.i = phi i64 [ %910, %906 ], [ %.sroa.12.0.i.i207.i.i, %904 ]
+  %.sink14.i.i.i219.i.i = phi i64 [ %913, %906 ], [ 3, %904 ]
+  %.sink13.i.i.i220.i.i = phi i64 [ %910, %906 ], [ %.sroa.12.0.i.i207.i.i, %904 ]
   %917 = and i64 %.sink.i.i.i218.i.i, 4294967295
-  %918 = shl i64 %.sink11.i.i.i219.i.i, %917
-  %919 = xor i64 %918, %.sink10.i.i.i220.i.i
+  %918 = shl i64 %.sink14.i.i.i219.i.i, %917
+  %919 = xor i64 %918, %.sink13.i.i.i220.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i221.i.i, !llvm.loop !132
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_17HammingComputer64EJNS_15IndexBinaryHashEPKhNS0_18RangeSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %893
@@ -4159,11 +4159,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 1033:                                             ; preds = %1023, %1021
   %.sink.i.i.i253.i.i = phi i64 [ %1032, %1023 ], [ %1022, %1021 ]
-  %.sink11.i.i.i254.i.i = phi i64 [ %1030, %1023 ], [ 3, %1021 ]
-  %.sink10.i.i.i255.i.i = phi i64 [ %1027, %1023 ], [ %.sroa.12.0.i.i242.i.i, %1021 ]
+  %.sink14.i.i.i254.i.i = phi i64 [ %1030, %1023 ], [ 3, %1021 ]
+  %.sink13.i.i.i255.i.i = phi i64 [ %1027, %1023 ], [ %.sroa.12.0.i.i242.i.i, %1021 ]
   %1034 = and i64 %.sink.i.i.i253.i.i, 4294967295
-  %1035 = shl i64 %.sink11.i.i.i254.i.i, %1034
-  %1036 = xor i64 %1035, %.sink10.i.i.i255.i.i
+  %1035 = shl i64 %.sink14.i.i.i254.i.i, %1034
+  %1036 = xor i64 %1035, %.sink13.i.i.i255.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i256.i.i, !llvm.loop !138
 
 1037:                                             ; preds = %1010
@@ -4232,16 +4232,16 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %common.resume.i.i
 
 _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i: ; preds = %1061, %943, %769, %627, %494, %370, %253
-  %.sink130.i.i = phi i64 [ %1062, %1061 ], [ %944, %943 ], [ %770, %769 ], [ %628, %627 ], [ %495, %494 ], [ %371, %370 ], [ %254, %253 ]
-  %.sink128.i.i = phi ptr [ %1059, %1061 ], [ %941, %943 ], [ %767, %769 ], [ %625, %627 ], [ %492, %494 ], [ %368, %370 ], [ %251, %253 ]
-  %.sink127.ph.i.i = phi ptr [ %25, %1061 ], [ %24, %943 ], [ %23, %769 ], [ %22, %627 ], [ %21, %494 ], [ %20, %370 ], [ %19, %253 ]
-  %1065 = shl i64 %.sink130.i.i, 3
-  call void @_ZdlPvm(ptr noundef %.sink128.i.i, i64 noundef %1065) #27
+  %.sink206.i.i = phi i64 [ %1062, %1061 ], [ %944, %943 ], [ %770, %769 ], [ %628, %627 ], [ %495, %494 ], [ %371, %370 ], [ %254, %253 ]
+  %.sink204.i.i = phi ptr [ %1059, %1061 ], [ %941, %943 ], [ %767, %769 ], [ %625, %627 ], [ %492, %494 ], [ %368, %370 ], [ %251, %253 ]
+  %.sink203.ph.i.i = phi ptr [ %25, %1061 ], [ %24, %943 ], [ %23, %769 ], [ %22, %627 ], [ %21, %494 ], [ %20, %370 ], [ %19, %253 ]
+  %1065 = shl i64 %.sink206.i.i, 3
+  call void @_ZdlPvm(ptr noundef %.sink204.i.i, i64 noundef %1065) #27
   br label %1066
 
 1066:                                             ; preds = %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i311.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i301.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i291.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i281.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  %.sink127.i.i = phi ptr [ %19, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i ], [ %20, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i281.i.i ], [ %21, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i291.i.i ], [ %22, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i301.i.i ], [ %23, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i311.i.i ], [ %24, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i ], [ %25, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i ], [ %.sink127.ph.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink127.i.i) #14
+  %.sink203.i.i = phi ptr [ %19, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i ], [ %20, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i281.i.i ], [ %21, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i291.i.i ], [ %22, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i301.i.i ], [ %23, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i311.i.i ], [ %24, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i ], [ %25, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i ], [ %.sink203.ph.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i ]
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink203.i.i) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -4486,7 +4486,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !135
   %6 = and i32 %5, 7
-  switch i32 %6, label %default.unreachable92 [
+  switch i32 %6, label %default.unreachable93 [
     i32 7, label %21
     i32 6, label %32
     i32 5, label %43
@@ -4497,7 +4497,7 @@ define linkonce_odr noundef i32 @_ZNK5faiss22HammingComputerDefault7hammingEPKh(
     i32 0, label %7
   ]
 
-default.unreachable92:                            ; preds = %2
+default.unreachable93:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2, %87
@@ -5519,11 +5519,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i:  ; preds = %234
   br i1 %238, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i.i.i, label %239
 
 239:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i
-  %.sink63.i.i.i.i.i.i = phi i32 [ %227, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i ], [ %218, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i ]
+  %.sink71.i.i.i.i.i.i = phi i32 [ %227, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i ], [ %218, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i = phi i64 [ %230, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i ], [ %220, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i ]
   %.1.i.i.i.i.i.i = phi i64 [ %212, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i ], [ %211, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i ]
   %240 = getelementptr inbounds nuw i32, ptr %163, i64 %.056.i.i.i.i.i.i
-  store i32 %.sink63.i.i.i.i.i.i, ptr %240, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i.i.i, ptr %240, align 4, !tbaa !61
   %241 = getelementptr inbounds nuw i64, ptr %164, i64 %.056.i.i.i.i.i.i
   store i64 %.sink.i.i.i.i.i.i, ptr %241, align 8, !tbaa !24
   %242 = shl i64 %.1.i.i.i.i.i.i, 1
@@ -5586,11 +5586,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 273:                                              ; preds = %263, %261
   %.sink.i.i.i.i.i = phi i64 [ %272, %263 ], [ %262, %261 ]
-  %.sink11.i.i.i.i.i = phi i64 [ %270, %263 ], [ 3, %261 ]
-  %.sink10.i.i.i.i.i = phi i64 [ %267, %263 ], [ %.sroa.12.0.i.i.i.i, %261 ]
+  %.sink14.i.i.i.i.i = phi i64 [ %270, %263 ], [ 3, %261 ]
+  %.sink13.i.i.i.i.i = phi i64 [ %267, %263 ], [ %.sroa.12.0.i.i.i.i, %261 ]
   %274 = and i64 %.sink.i.i.i.i.i, 4294967295
-  %275 = shl i64 %.sink11.i.i.i.i.i, %274
-  %276 = xor i64 %275, %.sink10.i.i.i.i.i
+  %275 = shl i64 %.sink14.i.i.i.i.i, %274
+  %276 = xor i64 %275, %.sink13.i.i.i.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i.i.i, !llvm.loop !150
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_16HammingComputer4EJNS_15IndexBinaryHashEPKhNS0_16KnnSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %250
@@ -5841,11 +5841,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i71.i.i: ; preds = %389
   br i1 %393, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i75.i.i, label %394
 
 394:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i71.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i78.i.i
-  %.sink63.i.i.i.i72.i.i = phi i32 [ %382, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i78.i.i ], [ %373, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i71.i.i ]
+  %.sink71.i.i.i.i72.i.i = phi i32 [ %382, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i78.i.i ], [ %373, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i71.i.i ]
   %.sink.i.i.i.i73.i.i = phi i64 [ %385, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i78.i.i ], [ %375, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i71.i.i ]
   %.1.i.i.i.i74.i.i = phi i64 [ %367, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i78.i.i ], [ %366, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i71.i.i ]
   %395 = getelementptr inbounds nuw i32, ptr %317, i64 %.056.i.i.i.i69.i.i
-  store i32 %.sink63.i.i.i.i72.i.i, ptr %395, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i72.i.i, ptr %395, align 4, !tbaa !61
   %396 = getelementptr inbounds nuw i64, ptr %318, i64 %.056.i.i.i.i69.i.i
   store i64 %.sink.i.i.i.i73.i.i, ptr %396, align 8, !tbaa !24
   %397 = shl i64 %.1.i.i.i.i74.i.i, 1
@@ -5908,11 +5908,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 428:                                              ; preds = %418, %416
   %.sink.i.i.i56.i.i = phi i64 [ %427, %418 ], [ %417, %416 ]
-  %.sink11.i.i.i57.i.i = phi i64 [ %425, %418 ], [ 3, %416 ]
-  %.sink10.i.i.i58.i.i = phi i64 [ %422, %418 ], [ %.sroa.12.0.i.i46.i.i, %416 ]
+  %.sink14.i.i.i57.i.i = phi i64 [ %425, %418 ], [ 3, %416 ]
+  %.sink13.i.i.i58.i.i = phi i64 [ %422, %418 ], [ %.sroa.12.0.i.i46.i.i, %416 ]
   %429 = and i64 %.sink.i.i.i56.i.i, 4294967295
-  %430 = shl i64 %.sink11.i.i.i57.i.i, %429
-  %431 = xor i64 %430, %.sink10.i.i.i58.i.i
+  %430 = shl i64 %.sink14.i.i.i57.i.i, %429
+  %431 = xor i64 %430, %.sink13.i.i.i58.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i59.i.i, !llvm.loop !152
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_16HammingComputer8EJNS_15IndexBinaryHashEPKhNS0_16KnnSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %405
@@ -6171,11 +6171,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i116.i.i: ; preds = %551
   br i1 %555, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i120.i.i, label %556
 
 556:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i116.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i123.i.i
-  %.sink63.i.i.i.i117.i.i = phi i32 [ %544, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i123.i.i ], [ %535, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i116.i.i ]
+  %.sink71.i.i.i.i117.i.i = phi i32 [ %544, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i123.i.i ], [ %535, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i116.i.i ]
   %.sink.i.i.i.i118.i.i = phi i64 [ %547, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i123.i.i ], [ %537, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i116.i.i ]
   %.1.i.i.i.i119.i.i = phi i64 [ %529, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i123.i.i ], [ %528, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i116.i.i ]
   %557 = getelementptr inbounds nuw i32, ptr %473, i64 %.056.i.i.i.i114.i.i
-  store i32 %.sink63.i.i.i.i117.i.i, ptr %557, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i117.i.i, ptr %557, align 4, !tbaa !61
   %558 = getelementptr inbounds nuw i64, ptr %474, i64 %.056.i.i.i.i114.i.i
   store i64 %.sink.i.i.i.i118.i.i, ptr %558, align 8, !tbaa !24
   %559 = shl i64 %.1.i.i.i.i119.i.i, 1
@@ -6238,11 +6238,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 590:                                              ; preds = %580, %578
   %.sink.i.i.i100.i.i = phi i64 [ %589, %580 ], [ %579, %578 ]
-  %.sink11.i.i.i101.i.i = phi i64 [ %587, %580 ], [ 3, %578 ]
-  %.sink10.i.i.i102.i.i = phi i64 [ %584, %580 ], [ %.sroa.12.0.i.i89.i.i, %578 ]
+  %.sink14.i.i.i101.i.i = phi i64 [ %587, %580 ], [ 3, %578 ]
+  %.sink13.i.i.i102.i.i = phi i64 [ %584, %580 ], [ %.sroa.12.0.i.i89.i.i, %578 ]
   %591 = and i64 %.sink.i.i.i100.i.i, 4294967295
-  %592 = shl i64 %.sink11.i.i.i101.i.i, %591
-  %593 = xor i64 %592, %.sink10.i.i.i102.i.i
+  %592 = shl i64 %.sink14.i.i.i101.i.i, %591
+  %593 = xor i64 %592, %.sink13.i.i.i102.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i103.i.i, !llvm.loop !154
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_17HammingComputer16EJNS_15IndexBinaryHashEPKhNS0_16KnnSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %567
@@ -6508,11 +6508,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i161.i.i: ; preds = %722
   br i1 %726, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i165.i.i, label %727
 
 727:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i161.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i168.i.i
-  %.sink63.i.i.i.i162.i.i = phi i32 [ %715, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i168.i.i ], [ %706, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i161.i.i ]
+  %.sink71.i.i.i.i162.i.i = phi i32 [ %715, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i168.i.i ], [ %706, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i161.i.i ]
   %.sink.i.i.i.i163.i.i = phi i64 [ %718, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i168.i.i ], [ %708, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i161.i.i ]
   %.1.i.i.i.i164.i.i = phi i64 [ %700, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i168.i.i ], [ %699, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i161.i.i ]
   %728 = getelementptr inbounds nuw i32, ptr %639, i64 %.056.i.i.i.i159.i.i
-  store i32 %.sink63.i.i.i.i162.i.i, ptr %728, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i162.i.i, ptr %728, align 4, !tbaa !61
   %729 = getelementptr inbounds nuw i64, ptr %640, i64 %.056.i.i.i.i159.i.i
   store i64 %.sink.i.i.i.i163.i.i, ptr %729, align 8, !tbaa !24
   %730 = shl i64 %.1.i.i.i.i164.i.i, 1
@@ -6575,11 +6575,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 761:                                              ; preds = %751, %749
   %.sink.i.i.i145.i.i = phi i64 [ %760, %751 ], [ %750, %749 ]
-  %.sink11.i.i.i146.i.i = phi i64 [ %758, %751 ], [ 3, %749 ]
-  %.sink10.i.i.i147.i.i = phi i64 [ %755, %751 ], [ %.sroa.12.0.i.i134.i.i, %749 ]
+  %.sink14.i.i.i146.i.i = phi i64 [ %758, %751 ], [ 3, %749 ]
+  %.sink13.i.i.i147.i.i = phi i64 [ %755, %751 ], [ %.sroa.12.0.i.i134.i.i, %749 ]
   %762 = and i64 %.sink.i.i.i145.i.i, 4294967295
-  %763 = shl i64 %.sink11.i.i.i146.i.i, %762
-  %764 = xor i64 %763, %.sink10.i.i.i147.i.i
+  %763 = shl i64 %.sink14.i.i.i146.i.i, %762
+  %764 = xor i64 %763, %.sink13.i.i.i147.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i148.i.i, !llvm.loop !156
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_17HammingComputer20EJNS_15IndexBinaryHashEPKhNS0_16KnnSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %738
@@ -6854,11 +6854,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i208.i.i: ; preds = %902
   br i1 %906, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i212.i.i, label %907
 
 907:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i208.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i215.i.i
-  %.sink63.i.i.i.i209.i.i = phi i32 [ %895, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i215.i.i ], [ %886, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i208.i.i ]
+  %.sink71.i.i.i.i209.i.i = phi i32 [ %895, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i215.i.i ], [ %886, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i208.i.i ]
   %.sink.i.i.i.i210.i.i = phi i64 [ %898, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i215.i.i ], [ %888, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i208.i.i ]
   %.1.i.i.i.i211.i.i = phi i64 [ %880, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i215.i.i ], [ %879, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i208.i.i ]
   %908 = getelementptr inbounds nuw i32, ptr %812, i64 %.056.i.i.i.i206.i.i
-  store i32 %.sink63.i.i.i.i209.i.i, ptr %908, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i209.i.i, ptr %908, align 4, !tbaa !61
   %909 = getelementptr inbounds nuw i64, ptr %813, i64 %.056.i.i.i.i206.i.i
   store i64 %.sink.i.i.i.i210.i.i, ptr %909, align 8, !tbaa !24
   %910 = shl i64 %.1.i.i.i.i211.i.i, 1
@@ -6921,11 +6921,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 941:                                              ; preds = %931, %929
   %.sink.i.i.i190.i.i = phi i64 [ %940, %931 ], [ %930, %929 ]
-  %.sink11.i.i.i191.i.i = phi i64 [ %938, %931 ], [ 3, %929 ]
-  %.sink10.i.i.i192.i.i = phi i64 [ %935, %931 ], [ %.sroa.12.0.i.i179.i.i, %929 ]
+  %.sink14.i.i.i191.i.i = phi i64 [ %938, %931 ], [ 3, %929 ]
+  %.sink13.i.i.i192.i.i = phi i64 [ %935, %931 ], [ %.sroa.12.0.i.i179.i.i, %929 ]
   %942 = and i64 %.sink.i.i.i190.i.i, 4294967295
-  %943 = shl i64 %.sink11.i.i.i191.i.i, %942
-  %944 = xor i64 %943, %.sink10.i.i.i192.i.i
+  %943 = shl i64 %.sink14.i.i.i191.i.i, %942
+  %944 = xor i64 %943, %.sink13.i.i.i192.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i193.i.i, !llvm.loop !158
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_17HammingComputer32EJNS_15IndexBinaryHashEPKhNS0_16KnnSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %918
@@ -7233,11 +7233,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i253.i.i: ; preds = %1115
   br i1 %1119, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i257.i.i, label %1120
 
 1120:                                             ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i253.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i260.i.i
-  %.sink63.i.i.i.i254.i.i = phi i32 [ %1108, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i260.i.i ], [ %1099, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i253.i.i ]
+  %.sink71.i.i.i.i254.i.i = phi i32 [ %1108, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i260.i.i ], [ %1099, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i253.i.i ]
   %.sink.i.i.i.i255.i.i = phi i64 [ %1111, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i260.i.i ], [ %1101, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i253.i.i ]
   %.1.i.i.i.i256.i.i = phi i64 [ %1093, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i260.i.i ], [ %1092, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i253.i.i ]
   %1121 = getelementptr inbounds nuw i32, ptr %1000, i64 %.056.i.i.i.i251.i.i
-  store i32 %.sink63.i.i.i.i254.i.i, ptr %1121, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i254.i.i, ptr %1121, align 4, !tbaa !61
   %1122 = getelementptr inbounds nuw i64, ptr %1001, i64 %.056.i.i.i.i251.i.i
   store i64 %.sink.i.i.i.i255.i.i, ptr %1122, align 8, !tbaa !24
   %1123 = shl i64 %.1.i.i.i.i256.i.i, 1
@@ -7300,11 +7300,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 1154:                                             ; preds = %1144, %1142
   %.sink.i.i.i237.i.i = phi i64 [ %1153, %1144 ], [ %1143, %1142 ]
-  %.sink11.i.i.i238.i.i = phi i64 [ %1151, %1144 ], [ 3, %1142 ]
-  %.sink10.i.i.i239.i.i = phi i64 [ %1148, %1144 ], [ %.sroa.12.0.i.i226.i.i, %1142 ]
+  %.sink14.i.i.i238.i.i = phi i64 [ %1151, %1144 ], [ 3, %1142 ]
+  %.sink13.i.i.i239.i.i = phi i64 [ %1148, %1144 ], [ %.sroa.12.0.i.i226.i.i, %1142 ]
   %1155 = and i64 %.sink.i.i.i237.i.i, 4294967295
-  %1156 = shl i64 %.sink11.i.i.i238.i.i, %1155
-  %1157 = xor i64 %1156, %.sink10.i.i.i239.i.i
+  %1156 = shl i64 %.sink14.i.i.i238.i.i, %1155
+  %1157 = xor i64 %1156, %.sink13.i.i.i239.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i240.i.i, !llvm.loop !160
 
 _ZN5faiss12_GLOBAL__N_123Run_search_single_query1fINS_17HammingComputer64EJNS_15IndexBinaryHashEPKhNS0_16KnnSearchResultsEmmmEEEvDpT0_.exit.i.i: ; preds = %1131
@@ -7560,11 +7560,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i298.i.i: ; preds = %1271
   br i1 %1275, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i302.i.i, label %1276
 
 1276:                                             ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i298.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i305.i.i
-  %.sink63.i.i.i.i299.i.i = phi i32 [ %1264, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i305.i.i ], [ %1255, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i298.i.i ]
+  %.sink71.i.i.i.i299.i.i = phi i32 [ %1264, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i305.i.i ], [ %1255, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i298.i.i ]
   %.sink.i.i.i.i300.i.i = phi i64 [ %1267, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i305.i.i ], [ %1257, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i298.i.i ]
   %.1.i.i.i.i301.i.i = phi i64 [ %1249, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i305.i.i ], [ %1248, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i298.i.i ]
   %1277 = getelementptr inbounds nuw i32, ptr %1200, i64 %.056.i.i.i.i296.i.i
-  store i32 %.sink63.i.i.i.i299.i.i, ptr %1277, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i299.i.i, ptr %1277, align 4, !tbaa !61
   %1278 = getelementptr inbounds nuw i64, ptr %1201, i64 %.056.i.i.i.i296.i.i
   store i64 %.sink.i.i.i.i300.i.i, ptr %1278, align 8, !tbaa !24
   %1279 = shl i64 %.1.i.i.i.i301.i.i, 1
@@ -7627,11 +7627,11 @@ _ZNKSt13unordered_mapIlN5faiss15IndexBinaryHash12InvertedListESt4hashIlESt8equal
 
 1310:                                             ; preds = %1300, %1298
   %.sink.i.i.i282.i.i = phi i64 [ %1309, %1300 ], [ %1299, %1298 ]
-  %.sink11.i.i.i283.i.i = phi i64 [ %1307, %1300 ], [ 3, %1298 ]
-  %.sink10.i.i.i284.i.i = phi i64 [ %1304, %1300 ], [ %.sroa.12.0.i.i271.i.i, %1298 ]
+  %.sink14.i.i.i283.i.i = phi i64 [ %1307, %1300 ], [ 3, %1298 ]
+  %.sink13.i.i.i284.i.i = phi i64 [ %1304, %1300 ], [ %.sroa.12.0.i.i271.i.i, %1298 ]
   %1311 = and i64 %.sink.i.i.i282.i.i, 4294967295
-  %1312 = shl i64 %.sink11.i.i.i283.i.i, %1311
-  %1313 = xor i64 %1312, %.sink10.i.i.i284.i.i
+  %1312 = shl i64 %.sink14.i.i.i283.i.i, %1311
+  %1313 = xor i64 %1312, %.sink13.i.i.i284.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.i285.i.i, !llvm.loop !162
 
 1314:                                             ; preds = %1287
@@ -7693,16 +7693,16 @@ _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8
   br label %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i
 
 _ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i: ; preds = %1338, %1181, %968, %788, %617, %455, %300
-  %.sink167.i.i = phi i64 [ %1339, %1338 ], [ %1182, %1181 ], [ %969, %968 ], [ %789, %788 ], [ %618, %617 ], [ %456, %455 ], [ %301, %300 ]
-  %.sink165.i.i = phi ptr [ %1336, %1338 ], [ %1179, %1181 ], [ %966, %968 ], [ %786, %788 ], [ %615, %617 ], [ %453, %455 ], [ %298, %300 ]
-  %.sink164.ph.i.i = phi ptr [ %26, %1338 ], [ %25, %1181 ], [ %24, %968 ], [ %23, %788 ], [ %22, %617 ], [ %21, %455 ], [ %20, %300 ]
-  %1340 = shl i64 %.sink167.i.i, 3
-  call void @_ZdlPvm(ptr noundef %.sink165.i.i, i64 noundef %1340) #27
+  %.sink299.i.i = phi i64 [ %1339, %1338 ], [ %1182, %1181 ], [ %969, %968 ], [ %789, %788 ], [ %618, %617 ], [ %456, %455 ], [ %301, %300 ]
+  %.sink297.i.i = phi ptr [ %1336, %1338 ], [ %1179, %1181 ], [ %966, %968 ], [ %786, %788 ], [ %615, %617 ], [ %453, %455 ], [ %298, %300 ]
+  %.sink296.ph.i.i = phi ptr [ %26, %1338 ], [ %25, %1181 ], [ %24, %968 ], [ %23, %788 ], [ %22, %617 ], [ %21, %455 ], [ %20, %300 ]
+  %1340 = shl i64 %.sink299.i.i, 3
+  call void @_ZdlPvm(ptr noundef %.sink297.i.i, i64 noundef %1340) #27
   br label %1341
 
 1341:                                             ; preds = %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i371.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i361.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i351.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i341.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  %.sink164.i.i = phi ptr [ %20, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i ], [ %21, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i ], [ %22, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i ], [ %23, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i341.i.i ], [ %24, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i351.i.i ], [ %25, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i361.i.i ], [ %26, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i371.i.i ], [ %.sink164.ph.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i ]
-  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink164.i.i) #14
+  %.sink296.i.i = phi ptr [ %20, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i ], [ %21, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i321.i.i ], [ %22, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i331.i.i ], [ %23, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i341.i.i ], [ %24, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i351.i.i ], [ %25, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i361.i.i ], [ %26, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i371.i.i ], [ %.sink296.ph.i.i, %_ZNSt10_HashtableIlSt4pairIKlN5faiss15IndexBinaryHash12InvertedListEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev.exit.sink.split.i.i ]
+  call void @_ZN5faiss11IndexBinaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink296.i.i) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -7846,11 +7846,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i:          ; preds = %1404
   br i1 %1408, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.thread.loopexit.i.i, label %1409
 
 1409:                                             ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i
-  %.sink71.i.i = phi i32 [ %1397, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %1388, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ]
+  %.sink79.i.i = phi i32 [ %1397, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %1388, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ]
   %.sink.i.i29 = phi i64 [ %1400, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %1390, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ]
   %.1.i.i = phi i64 [ %1382, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %1381, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ]
   %1410 = getelementptr inbounds nuw i32, ptr %1370, i64 %.062.i.i
-  store i32 %.sink71.i.i, ptr %1410, align 4, !tbaa !61
+  store i32 %.sink79.i.i, ptr %1410, align 4, !tbaa !61
   %1411 = getelementptr inbounds nuw i64, ptr %1371, i64 %.062.i.i
   store i64 %.sink.i.i29, ptr %1411, align 8, !tbaa !24
   %1412 = shl i64 %.1.i.i, 1
@@ -8861,7 +8861,7 @@ define internal void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %274, %.lr.ph95.i
   %.pre.i126.ph = phi i64 [ %.pre.i, %274 ], [ %.pre.i127, %.lr.ph95.i ]
   %.ph = phi ptr [ %267, %274 ], [ %121, %.lr.ph95.i ]
-  %.ph170 = phi i64 [ %268, %274 ], [ %122, %.lr.ph95.i ]
+  %.ph218 = phi i64 [ %268, %274 ], [ %122, %.lr.ph95.i ]
   %.sroa.5.0.i.ph = phi i32 [ %275, %274 ], [ 0, %.lr.ph95.i ]
   %.sroa.13.1.i.ph = phi i64 [ %280, %274 ], [ 0, %.lr.ph95.i ]
   %.sroa.1075.1.i.ph = phi i64 [ %277, %274 ], [ 0, %.lr.ph95.i ]
@@ -8870,7 +8870,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %274, %.l
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i: ; preds = %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer, %295
   %.pre.i126 = phi i64 [ %.pre.i, %295 ], [ %.pre.i126.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %138 = phi ptr [ %267, %295 ], [ %.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
-  %139 = phi i64 [ %268, %295 ], [ %.ph170, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
+  %139 = phi i64 [ %268, %295 ], [ %.ph218, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %.sroa.13.1.i = phi i64 [ %298, %295 ], [ %.sroa.13.1.i.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %140 = xor i64 %.sroa.13.1.i, %130
   %141 = load i64, ptr %135, align 8, !tbaa !100
@@ -9266,11 +9266,11 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 
 295:                                              ; preds = %285, %283
   %.sink.i.i = phi i64 [ %294, %285 ], [ %284, %283 ]
-  %.sink11.i.i = phi i64 [ %292, %285 ], [ 3, %283 ]
-  %.sink10.i.i = phi i64 [ %289, %285 ], [ %.sroa.13.1.i, %283 ]
+  %.sink14.i.i = phi i64 [ %292, %285 ], [ 3, %283 ]
+  %.sink13.i.i = phi i64 [ %289, %285 ], [ %.sroa.13.1.i, %283 ]
   %296 = and i64 %.sink.i.i, 4294967295
-  %297 = shl i64 %.sink11.i.i, %296
-  %298 = xor i64 %297, %.sink10.i.i
+  %297 = shl i64 %.sink14.i.i, %296
+  %298 = xor i64 %297, %.sink13.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i, !llvm.loop !190
 
 299:                                              ; preds = %272
@@ -9985,16 +9985,16 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %607
 
 _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit.sink.split.i.i: ; preds = %602, %575, %490, %437, %393, %358, %330
-  %.sink14.i.i = phi i64 [ %603, %602 ], [ %576, %575 ], [ %491, %490 ], [ %438, %437 ], [ %394, %393 ], [ %359, %358 ], [ %331, %330 ]
+  %.sink38.i.i = phi i64 [ %603, %602 ], [ %576, %575 ], [ %491, %490 ], [ %438, %437 ], [ %394, %393 ], [ %359, %358 ], [ %331, %330 ]
   %.sink.i41.i = phi ptr [ %600, %602 ], [ %573, %575 ], [ %488, %490 ], [ %435, %437 ], [ %391, %393 ], [ %356, %358 ], [ %328, %330 ]
-  %606 = shl i64 %.sink14.i.i, 3
+  %606 = shl i64 %.sink38.i.i, 3
   call void @_ZdlPvm(ptr noundef %.sink.i41.i, i64 noundef %606) #27
   br label %608
 
 607:                                              ; preds = %604, %577, %492, %439, %395, %360, %332
-  %.sink15.i.i = phi ptr [ %25, %604 ], [ %24, %577 ], [ %23, %492 ], [ %22, %439 ], [ %21, %395 ], [ %20, %360 ], [ %19, %332 ]
+  %.sink39.i.i = phi ptr [ %25, %604 ], [ %24, %577 ], [ %23, %492 ], [ %22, %439 ], [ %21, %395 ], [ %20, %360 ], [ %19, %332 ]
   %.pn.i.i = phi { ptr, i32 } [ %605, %604 ], [ %578, %577 ], [ %493, %492 ], [ %440, %439 ], [ %396, %395 ], [ %361, %360 ], [ %333, %332 ]
-  call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink15.i.i) #14
+  call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink39.i.i) #14
   br label %.body.i
 
 608:                                              ; preds = %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit.sink.split.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i132.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i122.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i110.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i98.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i88.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i78.i.i, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i.i
@@ -10662,7 +10662,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %280, %.lr.ph96.i
   %.pre.i109.ph = phi i64 [ %.pre.i, %280 ], [ %.pre.i110, %.lr.ph96.i ]
   %.ph = phi ptr [ %273, %280 ], [ %127, %.lr.ph96.i ]
-  %.ph158 = phi i64 [ %274, %280 ], [ %128, %.lr.ph96.i ]
+  %.ph273 = phi i64 [ %274, %280 ], [ %128, %.lr.ph96.i ]
   %.sroa.5.0.i.ph = phi i32 [ %281, %280 ], [ 0, %.lr.ph96.i ]
   %.sroa.13.1.i.ph = phi i64 [ %286, %280 ], [ 0, %.lr.ph96.i ]
   %.sroa.1070.1.i.ph = phi i64 [ %283, %280 ], [ 0, %.lr.ph96.i ]
@@ -10671,7 +10671,7 @@ _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer: ; preds = %280, %.l
 _ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i: ; preds = %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer, %301
   %.pre.i109 = phi i64 [ %.pre.i, %301 ], [ %.pre.i109.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %144 = phi ptr [ %273, %301 ], [ %.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
-  %145 = phi i64 [ %274, %301 ], [ %.ph158, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
+  %145 = phi i64 [ %274, %301 ], [ %.ph273, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %.sroa.13.1.i = phi i64 [ %304, %301 ], [ %.sroa.13.1.i.ph, %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i.outer ]
   %146 = xor i64 %.sroa.13.1.i, %136
   %147 = load i64, ptr %141, align 8, !tbaa !100
@@ -11067,11 +11067,11 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
 
 301:                                              ; preds = %291, %289
   %.sink.i.i = phi i64 [ %300, %291 ], [ %290, %289 ]
-  %.sink11.i.i = phi i64 [ %298, %291 ], [ 3, %289 ]
-  %.sink10.i.i = phi i64 [ %295, %291 ], [ %.sroa.13.1.i, %289 ]
+  %.sink14.i.i = phi i64 [ %298, %291 ], [ 3, %289 ]
+  %.sink13.i.i = phi i64 [ %295, %291 ], [ %.sroa.13.1.i, %289 ]
   %302 = and i64 %.sink.i.i, 4294967295
-  %303 = shl i64 %.sink11.i.i, %302
-  %304 = xor i64 %303, %.sink10.i.i
+  %303 = shl i64 %.sink14.i.i, %302
+  %304 = xor i64 %303, %.sink13.i.i
   br label %_ZN5faiss12_GLOBAL__N_114FlipEnumerator4nextEv.exit.i, !llvm.loop !194
 
 305:                                              ; preds = %278
@@ -11231,11 +11231,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i:  ; preds = %368
   br i1 %372, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.loopexit.i.i.i, label %373
 
 373:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i
-  %.sink63.i.i.i.i.i.i = phi i32 [ %361, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i ], [ %352, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i ]
+  %.sink71.i.i.i.i.i.i = phi i32 [ %361, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i ], [ %352, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i = phi i64 [ %364, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i ], [ %354, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i ]
   %.1.i.i.i.i.i.i = phi i64 [ %346, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i.i.i ], [ %345, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i.i.i ]
   %374 = getelementptr inbounds nuw i32, ptr %317, i64 %.056.i.i.i.i.i.i
-  store i32 %.sink63.i.i.i.i.i.i, ptr %374, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i.i.i, ptr %374, align 4, !tbaa !61
   %375 = getelementptr inbounds nuw i64, ptr %318, i64 %.056.i.i.i.i.i.i
   store i64 %.sink.i.i.i.i.i.i, ptr %375, align 8, !tbaa !24
   %376 = shl i64 %.1.i.i.i.i.i.i, 1
@@ -11413,11 +11413,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i61.i.i: ; preds = %449
   br i1 %453, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.loopexit.i65.i.i, label %454
 
 454:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i61.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i68.i.i
-  %.sink63.i.i.i.i62.i.i = phi i32 [ %442, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i68.i.i ], [ %433, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i61.i.i ]
+  %.sink71.i.i.i.i62.i.i = phi i32 [ %442, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i68.i.i ], [ %433, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i61.i.i ]
   %.sink.i.i.i.i63.i.i = phi i64 [ %445, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i68.i.i ], [ %435, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i61.i.i ]
   %.1.i.i.i.i64.i.i = phi i64 [ %427, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i68.i.i ], [ %426, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i61.i.i ]
   %455 = getelementptr inbounds nuw i32, ptr %396, i64 %.056.i.i.i.i59.i.i
-  store i32 %.sink63.i.i.i.i62.i.i, ptr %455, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i62.i.i, ptr %455, align 4, !tbaa !61
   %456 = getelementptr inbounds nuw i64, ptr %397, i64 %.056.i.i.i.i59.i.i
   store i64 %.sink.i.i.i.i63.i.i, ptr %456, align 8, !tbaa !24
   %457 = shl i64 %.1.i.i.i.i64.i.i, 1
@@ -11575,11 +11575,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i92.i.i: ; preds = %524
   br i1 %528, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i.i.i, label %529
 
 529:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i92.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i97.i.i
-  %.sink63.i.i.i.i93.i.i = phi i32 [ %517, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i97.i.i ], [ %508, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i92.i.i ]
+  %.sink71.i.i.i.i93.i.i = phi i32 [ %517, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i97.i.i ], [ %508, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i92.i.i ]
   %.sink.i.i.i.i94.i.i = phi i64 [ %520, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i97.i.i ], [ %510, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i92.i.i ]
   %.1.i.i.i.i95.i.i = phi i64 [ %502, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i97.i.i ], [ %501, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i92.i.i ]
   %530 = getelementptr inbounds nuw i32, ptr %478, i64 %.056.i.i.i.i90.i.i
-  store i32 %.sink63.i.i.i.i93.i.i, ptr %530, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i93.i.i, ptr %530, align 4, !tbaa !61
   %531 = getelementptr inbounds nuw i64, ptr %479, i64 %.056.i.i.i.i90.i.i
   store i64 %.sink.i.i.i.i94.i.i, ptr %531, align 8, !tbaa !24
   %532 = shl i64 %.1.i.i.i.i95.i.i, 1
@@ -11741,11 +11741,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i115.i.i: ; preds = %608
   br i1 %612, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i119.i.i, label %613
 
 613:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i115.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i122.i.i
-  %.sink63.i.i.i.i116.i.i = phi i32 [ %601, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i122.i.i ], [ %592, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i115.i.i ]
+  %.sink71.i.i.i.i116.i.i = phi i32 [ %601, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i122.i.i ], [ %592, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i115.i.i ]
   %.sink.i.i.i.i117.i.i = phi i64 [ %604, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i122.i.i ], [ %594, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i115.i.i ]
   %.1.i.i.i.i118.i.i = phi i64 [ %586, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i122.i.i ], [ %585, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i115.i.i ]
   %614 = getelementptr inbounds nuw i32, ptr %557, i64 %.056.i.i.i.i113.i.i
-  store i32 %.sink63.i.i.i.i116.i.i, ptr %614, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i116.i.i, ptr %614, align 4, !tbaa !61
   %615 = getelementptr inbounds nuw i64, ptr %558, i64 %.056.i.i.i.i113.i.i
   store i64 %.sink.i.i.i.i117.i.i, ptr %615, align 8, !tbaa !24
   %616 = shl i64 %.1.i.i.i.i118.i.i, 1
@@ -11916,11 +11916,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i140.i.i: ; preds = %701
   br i1 %705, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i144.i.i, label %706
 
 706:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i140.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i147.i.i
-  %.sink63.i.i.i.i141.i.i = phi i32 [ %694, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i147.i.i ], [ %685, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i140.i.i ]
+  %.sink71.i.i.i.i141.i.i = phi i32 [ %694, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i147.i.i ], [ %685, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i140.i.i ]
   %.sink.i.i.i.i142.i.i = phi i64 [ %697, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i147.i.i ], [ %687, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i140.i.i ]
   %.1.i.i.i.i143.i.i = phi i64 [ %679, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i147.i.i ], [ %678, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i140.i.i ]
   %707 = getelementptr inbounds nuw i32, ptr %643, i64 %.056.i.i.i.i138.i.i
-  store i32 %.sink63.i.i.i.i141.i.i, ptr %707, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i141.i.i, ptr %707, align 4, !tbaa !61
   %708 = getelementptr inbounds nuw i64, ptr %644, i64 %.056.i.i.i.i138.i.i
   store i64 %.sink.i.i.i.i142.i.i, ptr %708, align 8, !tbaa !24
   %709 = shl i64 %.1.i.i.i.i143.i.i, 1
@@ -12124,11 +12124,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i165.i.i: ; preds = %827
   br i1 %831, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.i169.i.i, label %832
 
 832:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i165.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i172.i.i
-  %.sink63.i.i.i.i166.i.i = phi i32 [ %820, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i172.i.i ], [ %811, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i165.i.i ]
+  %.sink71.i.i.i.i166.i.i = phi i32 [ %820, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i172.i.i ], [ %811, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i165.i.i ]
   %.sink.i.i.i.i167.i.i = phi i64 [ %823, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i172.i.i ], [ %813, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i165.i.i ]
   %.1.i.i.i.i168.i.i = phi i64 [ %805, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i172.i.i ], [ %804, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i165.i.i ]
   %833 = getelementptr inbounds nuw i32, ptr %744, i64 %.056.i.i.i.i163.i.i
-  store i32 %.sink63.i.i.i.i166.i.i, ptr %833, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i166.i.i, ptr %833, align 4, !tbaa !61
   %834 = getelementptr inbounds nuw i64, ptr %745, i64 %.056.i.i.i.i163.i.i
   store i64 %.sink.i.i.i.i167.i.i, ptr %834, align 8, !tbaa !24
   %835 = shl i64 %.1.i.i.i.i168.i.i, 1
@@ -12302,11 +12302,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i190.i.i: ; preds = %904
   br i1 %908, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i.i.loopexit.i194.i.i, label %909
 
 909:                                              ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i190.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i197.i.i
-  %.sink63.i.i.i.i191.i.i = phi i32 [ %897, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i197.i.i ], [ %888, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i190.i.i ]
+  %.sink71.i.i.i.i191.i.i = phi i32 [ %897, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i197.i.i ], [ %888, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i190.i.i ]
   %.sink.i.i.i.i192.i.i = phi i64 [ %900, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i197.i.i ], [ %890, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i190.i.i ]
   %.1.i.i.i.i193.i.i = phi i64 [ %882, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit54.i.i.i.i197.i.i ], [ %881, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit55.i.i.i.i190.i.i ]
   %910 = getelementptr inbounds nuw i32, ptr %857, i64 %.056.i.i.i.i188.i.i
-  store i32 %.sink63.i.i.i.i191.i.i, ptr %910, align 4, !tbaa !61
+  store i32 %.sink71.i.i.i.i191.i.i, ptr %910, align 4, !tbaa !61
   %911 = getelementptr inbounds nuw i64, ptr %858, i64 %.056.i.i.i.i188.i.i
   store i64 %.sink.i.i.i.i192.i.i, ptr %911, align 8, !tbaa !24
   %912 = shl i64 %.1.i.i.i.i193.i.i, 1
@@ -12355,9 +12355,9 @@ _ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_M
   br label %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit.sink.split.i.i
 
 _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit.sink.split.i.i: ; preds = %925, %847, %721, %628, %544, %469, %388
-  %.sink48.i.i = phi i64 [ %926, %925 ], [ %848, %847 ], [ %722, %721 ], [ %629, %628 ], [ %545, %544 ], [ %470, %469 ], [ %389, %388 ]
+  %.sink123.i.i = phi i64 [ %926, %925 ], [ %848, %847 ], [ %722, %721 ], [ %629, %628 ], [ %545, %544 ], [ %470, %469 ], [ %389, %388 ]
   %.sink.i40.i = phi ptr [ %923, %925 ], [ %845, %847 ], [ %719, %721 ], [ %626, %628 ], [ %542, %544 ], [ %467, %469 ], [ %386, %388 ]
-  %927 = shl i64 %.sink48.i.i, 3
+  %927 = shl i64 %.sink123.i.i, 3
   call void @_ZdlPvm(ptr noundef %.sink.i40.i, i64 noundef %927) #27
   br label %928
 
@@ -12548,11 +12548,11 @@ _ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i:          ; preds = %1000
   br i1 %1004, label %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.thread.loopexit.i.i, label %1005
 
 1005:                                             ; preds = %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i
-  %.sink71.i.i = phi i32 [ %993, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %984, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ]
+  %.sink79.i.i = phi i32 [ %993, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %984, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ]
   %.sink.i.i30 = phi i64 [ %996, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %986, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ]
   %.1.i.i = phi i64 [ %978, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit60.i.i ], [ %977, %_ZN5faiss4CMaxIilE4cmp2Eiill.exit61.i.i ]
   %1006 = getelementptr inbounds nuw i32, ptr %966, i64 %.062.i.i
-  store i32 %.sink71.i.i, ptr %1006, align 4, !tbaa !61
+  store i32 %.sink79.i.i, ptr %1006, align 4, !tbaa !61
   %1007 = getelementptr inbounds nuw i64, ptr %967, i64 %.062.i.i
   store i64 %.sink.i.i30, ptr %1007, align 8, !tbaa !24
   %1008 = shl i64 %.1.i.i, 1

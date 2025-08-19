@@ -161,28 +161,28 @@ thread-pre-split:                                 ; preds = %3, %3
   %5 = phi i8 [ %.pr, %thread-pre-split ], [ %2, %1 ]
   %.08 = phi ptr [ %4, %thread-pre-split ], [ %0, %1 ]
   %6 = icmp eq i8 %5, 46
-  br i1 %6, label %7, label %.preheader25
+  br i1 %6, label %7, label %.preheader27
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !24
   %10 = icmp eq i8 %9, 46
-  br i1 %10, label %11, label %.preheader25
+  br i1 %10, label %11, label %.preheader27
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %.08, i64 2
   %13 = load i8, ptr %12, align 1, !tbaa !24
-  switch i8 %13, label %.preheader25 [
+  switch i8 %13, label %.preheader27 [
     i8 0, label %.loopexit
     i8 92, label %.loopexit
     i8 47, label %.loopexit
   ]
 
-.preheader25:                                     ; preds = %11, %7, %.preheader
+.preheader27:                                     ; preds = %11, %7, %.preheader
   br label %14
 
-14:                                               ; preds = %.preheader25, %3
-  %.1 = phi ptr [ %4, %3 ], [ %.08, %.preheader25 ]
+14:                                               ; preds = %.preheader27, %3
+  %.1 = phi ptr [ %4, %3 ], [ %.08, %.preheader27 ]
   %15 = load i8, ptr %.1, align 1, !tbaa !24
   %.not13 = icmp eq i8 %15, 0
   br i1 %.not13, label %.loopexit, label %3

@@ -2915,10 +2915,10 @@ _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
   br label %_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb1EED2Ev.exit
 
 _ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb1EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i, %189
-  %.0100103 = phi i64 [ 0, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread ], [ %.089.lcssa, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.089.lcssa, %189 ]
+  %.0126129 = phi i64 [ 0, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread ], [ %.089.lcssa, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.089.lcssa, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i64 %.0100103
+  ret i64 %.0126129
 
 195:                                              ; preds = %112
   %196 = landingpad { ptr, i32 }
@@ -3738,9 +3738,9 @@ define weak_odr noundef i64 @_ZN7xgboost10SparsePage4PushINS_4data17ArrayAdapter
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %43 = load i64, ptr %42, align 8, !tbaa !97
   %.not26 = icmp eq i64 %43, 0
-  br i1 %.not26, label %.thread83, label %44
+  br i1 %.not26, label %.thread104, label %44
 
-.thread83:                                        ; preds = %39
+.thread104:                                       ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %38, ptr %13, align 8, !tbaa !97
@@ -3772,14 +3772,14 @@ define weak_odr noundef i64 @_ZN7xgboost10SparsePage4PushINS_4data17ArrayAdapter
   %52 = icmp eq i64 %.pr.pre, 0
   br i1 %52, label %177, label %53
 
-53:                                               ; preds = %.thread83, %51
-  %.pr85 = phi i64 [ %38, %.thread83 ], [ %.pr.pre, %51 ]
+53:                                               ; preds = %.thread104, %51
+  %.pr106 = phi i64 [ %38, %.thread104 ], [ %.pr.pre, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %54 = load i32, ptr %9, align 4, !tbaa !87
   %55 = sext i32 %54 to i64
-  %56 = udiv i64 %.pr85, %55
+  %56 = udiv i64 %.pr106, %55
   store i64 %56, ptr %14, align 8, !tbaa !97
-  invoke void @_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb1EE10InitBudgetEmi(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %.pr85, i32 noundef %54)
+  invoke void @_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb1EE10InitBudgetEmi(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %.pr106, i32 noundef %54)
           to label %57 unwind label %116
 
 57:                                               ; preds = %53
@@ -5106,10 +5106,10 @@ _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
   br label %_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb1EED2Ev.exit
 
 _ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb1EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i, %197
-  %.0100103 = phi i64 [ 0, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread ], [ %.089.lcssa, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.089.lcssa, %197 ]
+  %.0124127 = phi i64 [ 0, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread ], [ %.089.lcssa, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.089.lcssa, %197 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i64 %.0100103
+  ret i64 %.0124127
 
 203:                                              ; preds = %112
   %204 = landingpad { ptr, i32 }
@@ -8245,10 +8245,10 @@ _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
   br label %_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb0EED2Ev.exit
 
 _ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb0EED2Ev.exit: ; preds = %_ZNK7xgboost10SparsePage4SizeEv.exit, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i, %215
-  %.0126129 = phi i64 [ %.0111.lcssa, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.0111.lcssa, %215 ], [ 0, %_ZNK7xgboost10SparsePage4SizeEv.exit ]
+  %.0152155 = phi i64 [ %.0111.lcssa, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.0111.lcssa, %215 ], [ 0, %_ZNK7xgboost10SparsePage4SizeEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i64 %.0126129
+  ret i64 %.0152155
 
 221:                                              ; preds = %127
   %222 = landingpad { ptr, i32 }
@@ -8923,10 +8923,10 @@ _ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
   br label %_ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb1EED2Ev.exit
 
 _ZN7xgboost6common20ParallelGroupBuilderINS_5EntryEmLb1EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i, %170
-  %.08689 = phi i64 [ 0, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread ], [ %.078.lcssa, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.078.lcssa, %170 ]
+  %.0106109 = phi i64 [ 0, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i.thread ], [ %.078.lcssa, %_ZSt8_DestroyIPSt6vectorImSaImEES2_EvT_S4_RSaIT0_E.exit.i.i ], [ %.078.lcssa, %170 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i64 %.08689
+  ret i64 %.0106109
 
 176:                                              ; preds = %115
   %177 = landingpad { ptr, i32 }
@@ -9309,7 +9309,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit: ; preds = %_ZNK7xgboost10Sp
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i64, ptr %38, align 8, !tbaa !97
   %.not = icmp eq i64 %39, 0
-  br i1 %.not, label %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread96, label %40
+  br i1 %.not, label %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread119, label %40
 
 40:                                               ; preds = %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit
   %41 = add i64 %39, -1
@@ -9328,7 +9328,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit: ; preds = %_ZNK7xgboost10Sp
   %52 = trunc nuw i64 %51 to i8
   %53 = and i8 %50, %52
   %.not.i = icmp eq i8 %53, 0
-  br i1 %.not.i, label %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread96, label %._crit_edge.i
+  br i1 %.not.i, label %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread119, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %46, %40
   %54 = invoke noundef float @_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJRKmEEET_DpOT0_EUlPKS6_E_EEDcS6_(ptr noundef nonnull align 8 dereferenceable(50) %43, ptr nonnull align 8 dereferenceable(50) %43, i64 %41)
@@ -9339,7 +9339,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit: ; preds = %_ZNK7xgboost10Sp
           cleanup
   br label %204
 
-_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread96: ; preds = %46, %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit
+_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread119: ; preds = %46, %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit41
 
@@ -9349,7 +9349,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit: ; preds = %._cr
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %57, label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit41.thread, label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit41
 
-_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit41: ; preds = %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread96, %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit
+_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit41: ; preds = %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread119, %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit
   %58 = load ptr, ptr %36, align 8, !tbaa !295
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i64, ptr %59, align 8, !tbaa !97
@@ -12111,7 +12111,7 @@ common.resume.i:                                  ; preds = %85, %72, %common.re
   %.sroa.4.026.i.i.sink.i = phi i64 [ %.sroa.4.026.i.i.i, %85 ], [ %.sroa.4.026.i.i.i.i.i, %72 ], [ %.sroa.4.027.i.i.i.i.i.i.i.i.i, %common.resume.i.i.i.i.i.i ]
   %.sroa.9.023.i.i.sink.i = phi ptr [ %.sroa.9.023.i.i.i, %85 ], [ %.sroa.9.023.i.i.i.i.i, %72 ], [ %64, %common.resume.i.i.i.i.i.i ]
   %common.resume.op.i = phi { ptr, i32 } [ %86, %85 ], [ %73, %72 ], [ %66, %common.resume.i.i.i.i.i.i ]
-  %65 = shl i64 %.sroa.4.026.i.i.sink.i, 3
+  %65 = shl nuw nsw i64 %.sroa.4.026.i.i.sink.i, 3
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.023.i.i.sink.i, i64 noundef %65) #20
   resume { ptr, i32 } %common.resume.op.i
 
@@ -12127,7 +12127,7 @@ _ZNSt17_Temporary_bufferIPmmEC2ES0_l.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.loopexit.i.i.i.i.i.i.i.i.i, %_ZNSt17_Temporary_bufferIPmmEC2ES0_l.exit.i.i.i.i.i.i.i.i.i
   %.sroa.4.025.i.i.i.i.i.i.i.i.i = phi i64 [ %.010.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt17_Temporary_bufferIPmmEC2ES0_l.exit.i.i.i.i.i.i.i.i.i ], [ 0, %.loopexit.i.i.i.i.i.i.i.i.i ]
-  %67 = shl i64 %.sroa.4.025.i.i.i.i.i.i.i.i.i, 3
+  %67 = shl nuw nsw i64 %.sroa.4.025.i.i.i.i.i.i.i.i.i, 3
   tail call void @_ZdlPvm(ptr noundef %64, i64 noundef %67) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr nonnull align 8 %61, i64 %56, i1 false)
   tail call void @_ZdlPv(ptr noundef nonnull %61) #20
@@ -12168,7 +12168,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
 .loopexit._crit_edge.i.i.i.i.i:                   ; preds = %.loopexit.i.i.i10.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i.i.i.i
   %.sroa.4.024.i.i.i.i.i = phi i64 [ %.010.i.i.i.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i.i.i.i ], [ 0, %.loopexit.i.i.i10.i.i ]
   %.sroa.9.021.i.i.i.i.i = phi ptr [ %71, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i.i.i.i ], [ null, %.loopexit.i.i.i10.i.i ]
-  %74 = shl i64 %.sroa.4.024.i.i.i.i.i, 3
+  %74 = shl nuw nsw i64 %.sroa.4.024.i.i.i.i.i, 3
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i.i.i.i, i64 noundef %74) #20
   br label %"_ZN7xgboost6common10StableSortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZNKS_8MetaInfo12LabelAbsSortEPKNS_7ContextEE3$_0EEvSC_T_SE_OT0_.exit"
 
@@ -12215,7 +12215,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
 .loopexit._crit_edge.i.i.i:                       ; preds = %.loopexit.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i.i
   %.sroa.4.024.i.i.i = phi i64 [ %.010.i.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i.i ], [ 0, %.loopexit.i.i.i ]
   %.sroa.9.021.i.i.i = phi ptr [ %84, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC2ES6_l.exit.i.i.i ], [ null, %.loopexit.i.i.i ]
-  %87 = shl i64 %.sroa.4.024.i.i.i, 3
+  %87 = shl nuw nsw i64 %.sroa.4.024.i.i.i, 3
   tail call void @_ZdlPvm(ptr noundef %.sroa.9.021.i.i.i, i64 noundef %87) #20
   br label %"_ZN7xgboost6common10StableSortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZNKS_8MetaInfo12LabelAbsSortEPKNS_7ContextEE3$_0EEvSC_T_SE_OT0_.exit"
 
@@ -21417,13 +21417,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %161, %160, %91
   %213 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 2
   %214 = load i8, ptr %213, align 1, !tbaa !322
   %215 = icmp eq i8 %214, 1
-  br i1 %215, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit120, label %216
+  br i1 %215, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit129, label %216
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 3
   %218 = load i8, ptr %217, align 1, !tbaa !322
   %219 = icmp eq i8 %218, 1
-  br i1 %219, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit122, label %220
+  br i1 %219, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit131, label %220
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 4
@@ -21475,23 +21475,23 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 1
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit120: ; preds = %212
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit129: ; preds = %212
   %239 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 2
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit122: ; preds = %216
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit131: ; preds = %216
   %240 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 3
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit120, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit122, %._crit_edge.i.i.i.i.i, %225, %230, %235
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %225 ], [ %.sroa.025.1.i.i.i.i.i, %230 ], [ %199, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %235 ], [ %238, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit ], [ %239, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit120 ], [ %240, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit122 ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit129, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit131, %._crit_edge.i.i.i.i.i, %225, %230, %235
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %225 ], [ %.sroa.025.1.i.i.i.i.i, %230 ], [ %199, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %235 ], [ %238, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit ], [ %239, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit129 ], [ %240, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit.loopexit.split.loop.exit131 ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %241 = icmp ne ptr %199, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %185, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit
-  %.sink129 = phi i1 [ %241, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit ], [ %189, %185 ]
+  %.sink138 = phi i1 [ %241, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS2_6common7IsCatOpEEbT_SC_T0_.exit ], [ %189, %185 ]
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %243 = zext i1 %.sink129 to i8
+  %243 = zext i1 %.sink138 to i8
   store i8 %243, ptr %242, align 8, !tbaa !370
   br label %244
 
@@ -21795,12 +21795,12 @@ _ZN7xgboost4JsonC2ERKS0_.exit92:                  ; preds = %93, %91
   br label %_ZN7xgboost4JsonD2Ev.exit90
 
 _ZN7xgboost4JsonD2Ev.exit.sink.split:             ; preds = %97, %77
-  %.sink114 = phi ptr [ %63, %77 ], [ %92, %97 ]
+  %.sink119 = phi ptr [ %63, %77 ], [ %92, %97 ]
   fence acquire
-  %111 = load ptr, ptr %.sink114, align 8, !tbaa !92
+  %111 = load ptr, ptr %.sink119, align 8, !tbaa !92
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(24) %.sink114) #20
+  call void %113(ptr noundef nonnull align 8 dereferenceable(24) %.sink119) #20
   br label %_ZN7xgboost4JsonD2Ev.exit
 
 _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZN7xgboost4JsonD2Ev.exit.sink.split, %97, %96, %77, %76
@@ -22447,14 +22447,14 @@ _ZN7xgboost6linalg6TensorIfLi2EE7ReshapeIJRmS4_ETnPNSt9enable_ifIXsr13IsAllInteg
   %193 = load float, ptr %192, align 4, !tbaa !95
   %194 = call float @llvm.fabs.f32(float %193)
   %195 = fcmp ueq float %194, 0x7FF0000000000000
-  br i1 %195, label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit366, label %196
+  br i1 %195, label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit404, label %196
 
 196:                                              ; preds = %191
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i, i64 12
   %198 = load float, ptr %197, align 4, !tbaa !95
   %199 = call float @llvm.fabs.f32(float %198)
   %200 = fcmp ueq float %199, 0x7FF0000000000000
-  br i1 %200, label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit368, label %201
+  br i1 %200, label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit406, label %201
 
 201:                                              ; preds = %196
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i, i64 16
@@ -22509,16 +22509,16 @@ _ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i, i64 4
   br label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit
 
-_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit366: ; preds = %191
+_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit404: ; preds = %191
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i, i64 8
   br label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit
 
-_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit368: ; preds = %196
+_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit406: ; preds = %196
   %224 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i, i64 12
   br label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit
 
-_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit366, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit368, %206, %212, %218
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %206 ], [ %.sroa.025.1.i.i.i.i, %212 ], [ %.sroa.025.2.i.i.i.i, %218 ], [ %222, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit ], [ %223, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit366 ], [ %224, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit368 ], [ %.sroa.025.044.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit404, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit406, %206, %212, %218
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %206 ], [ %.sroa.025.1.i.i.i.i, %212 ], [ %.sroa.025.2.i.i.i.i, %218 ], [ %222, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit ], [ %223, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit404 ], [ %224, %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.loopexit.split.loop.exit406 ], [ %.sroa.025.044.i.i.i.i, %.lr.ph.i.i.i.i ]
   %225 = icmp eq ptr %176, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   br i1 %225, label %_ZSt7none_ofIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEN7xgboost4data11LabelsCheckEEbT_SB_T0_.exit.thread, label %226, !prof !478
 
@@ -23482,13 +23482,13 @@ _ZN7xgboosteqENS_10StringViewES0_.exit225.thread: ; preds = %_ZN7xgboosteqENS_10
   %546 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i, i64 4
   %547 = load float, ptr %546, align 4, !tbaa !95
   %or.cond.i.i16.i.i.i.i = call noundef i1 @llvm.is.fpclass.f32(float %547, i32 543)
-  br i1 %or.cond.i.i16.i.i.i.i, label %.loopexit332.loopexit.split.loop.exit376, label %548
+  br i1 %or.cond.i.i16.i.i.i.i, label %.loopexit332.loopexit.split.loop.exit414, label %548
 
 548:                                              ; preds = %545
   %549 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i, i64 8
   %550 = load float, ptr %549, align 4, !tbaa !95
   %or.cond.i.i17.i.i.i.i = call noundef i1 @llvm.is.fpclass.f32(float %550, i32 543)
-  br i1 %or.cond.i.i17.i.i.i.i, label %.loopexit332.loopexit.split.loop.exit374, label %551
+  br i1 %or.cond.i.i17.i.i.i.i, label %.loopexit332.loopexit.split.loop.exit412, label %551
 
 551:                                              ; preds = %548
   %552 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i, i64 12
@@ -23547,16 +23547,16 @@ _ZN7xgboosteqENS_10StringViewES0_.exit225.thread: ; preds = %_ZN7xgboosteqENS_10
   %569 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i, i64 12
   br label %.loopexit332
 
-.loopexit332.loopexit.split.loop.exit374:         ; preds = %548
+.loopexit332.loopexit.split.loop.exit412:         ; preds = %548
   %570 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i, i64 8
   br label %.loopexit332
 
-.loopexit332.loopexit.split.loop.exit376:         ; preds = %545
+.loopexit332.loopexit.split.loop.exit414:         ; preds = %545
   %571 = getelementptr inbounds nuw i8, ptr %.sroa.031.050.i.i.i.i, i64 4
   br label %.loopexit332
 
-.loopexit332:                                     ; preds = %.lr.ph.i.i.i.i230, %.loopexit332.loopexit.split.loop.exit, %.loopexit332.loopexit.split.loop.exit374, %.loopexit332.loopexit.split.loop.exit376, %567, %563, %559
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i227 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %559 ], [ %.sroa.031.1.i.i.i.i, %563 ], [ %spec.select.i.i.i.i, %567 ], [ %569, %.loopexit332.loopexit.split.loop.exit ], [ %570, %.loopexit332.loopexit.split.loop.exit374 ], [ %571, %.loopexit332.loopexit.split.loop.exit376 ], [ %.sroa.031.050.i.i.i.i, %.lr.ph.i.i.i.i230 ]
+.loopexit332:                                     ; preds = %.lr.ph.i.i.i.i230, %.loopexit332.loopexit.split.loop.exit, %.loopexit332.loopexit.split.loop.exit412, %.loopexit332.loopexit.split.loop.exit414, %567, %563, %559
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i227 = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %559 ], [ %.sroa.031.1.i.i.i.i, %563 ], [ %spec.select.i.i.i.i, %567 ], [ %569, %.loopexit332.loopexit.split.loop.exit ], [ %570, %.loopexit332.loopexit.split.loop.exit412 ], [ %571, %.loopexit332.loopexit.split.loop.exit414 ], [ %.sroa.031.050.i.i.i.i, %.lr.ph.i.i.i.i230 ]
   %572 = icmp eq ptr %537, %.sroa.08.0.in.sroa.speculated.i.i.i.i227
   br i1 %572, label %.thread320, label %573, !prof !500
 
@@ -28744,7 +28744,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !622
   %57 = load ptr, ptr %16, align 8, !tbaa !27
   %58 = icmp eq ptr %57, %33
-  br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %52
   %59 = load i64, ptr %34, align 8, !tbaa !31
@@ -28754,13 +28754,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %62 = icmp eq ptr %61, %41
   br i1 %62, label %65, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %52
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %52
   %63 = load ptr, ptr %17, align 8, !tbaa !27
   %64 = icmp eq ptr %63, %41
   br i1 %64, label %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-65:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %66 = phi ptr [ %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+65:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %66 = phi ptr [ %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %67 = load i64, ptr %54, align 8, !tbaa !31
   %68 = icmp ult i64 %67, 16
   call void @llvm.assume(i1 %68)
@@ -28795,7 +28795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %76, ptr %33, align 8, !tbaa !32
   br label %81
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %77 = load i64, ptr %33, align 8, !tbaa !32
   store ptr %63, ptr %16, align 8, !tbaa !27
   %78 = load i64, ptr %54, align 8, !tbaa !31
@@ -28884,7 +28884,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !625
   %104 = load ptr, ptr %15, align 8, !tbaa !27
   %105 = icmp eq ptr %104, %31
-  br i1 %105, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i59
+  br i1 %105, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i59
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i64: ; preds = %99
   %106 = load i64, ptr %32, align 8, !tbaa !31
@@ -28894,13 +28894,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i64: 
   %109 = icmp eq ptr %108, %90
   br i1 %109, label %112, label %.thread.i65
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i59: ; preds = %99
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i59: ; preds = %99
   %110 = load ptr, ptr %18, align 8, !tbaa !27
   %111 = icmp eq ptr %110, %90
   br i1 %111, label %112, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i60
 
-112:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i64
-  %113 = phi ptr [ %110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i59 ], [ %108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i64 ]
+112:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i64
+  %113 = phi ptr [ %110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i59 ], [ %108, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i64 ]
   %114 = load i64, ptr %101, align 8, !tbaa !31
   %115 = icmp ult i64 %114, 16
   call void @llvm.assume(i1 %115)
@@ -28935,7 +28935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i62: ;
   store i64 %123, ptr %31, align 8, !tbaa !32
   br label %128
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i60: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i59
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i60: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i59
   %124 = load i64, ptr %31, align 8, !tbaa !32
   store ptr %110, ptr %15, align 8, !tbaa !27
   %125 = load i64, ptr %101, align 8, !tbaa !31
@@ -29507,7 +29507,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92
 320:                                              ; preds = %319
   %321 = load ptr, ptr %15, align 8, !tbaa !27
   %322 = icmp eq ptr %321, %31
-  br i1 %322, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i100, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i95
+  br i1 %322, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i100, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i95
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i100: ; preds = %320
   %323 = load i64, ptr %32, align 8, !tbaa !31
@@ -29518,14 +29518,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i100:
   %327 = icmp eq ptr %325, %326
   br i1 %327, label %331, label %.thread.i101
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i95: ; preds = %320
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i95: ; preds = %320
   %328 = load ptr, ptr %23, align 8, !tbaa !27
   %329 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %330 = icmp eq ptr %328, %329
   br i1 %330, label %331, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i96
 
-331:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i100
-  %332 = phi ptr [ %328, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i95 ], [ %325, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i100 ]
+331:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i100
+  %332 = phi ptr [ %328, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i95 ], [ %325, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i100 ]
   %333 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %334 = load i64, ptr %333, align 8, !tbaa !31
   %335 = icmp ult i64 %334, 16
@@ -29562,7 +29562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i98: ;
   store i64 %344, ptr %31, align 8, !tbaa !32
   br label %350
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i96: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i95
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i96: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i95
   %345 = load i64, ptr %31, align 8, !tbaa !32
   store ptr %328, ptr %15, align 8, !tbaa !27
   %346 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -31971,9 +31971,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK7xgboost10
 
 .noexc14:                                         ; preds = %2, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %21 = phi i32 [ %20, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 1, %2 ]
-  %sext4851 = phi i64 [ %sext, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 4294967296, %2 ]
+  %sext5659 = phi i64 [ %sext, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 4294967296, %2 ]
   %22 = phi i64 [ %18, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 1, %2 ]
-  %23 = ashr exact i64 %sext4851, 30
+  %23 = ashr exact i64 %sext5659, 30
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %24, i8 0, i64 %23, i1 false), !tbaa !87
   %25 = getelementptr inbounds nuw i32, ptr %24, i64 %22
@@ -37295,7 +37295,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN9__gnu_cxx
   %186 = load ptr, ptr %185, align 8, !tbaa !27
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %188 = icmp eq ptr %186, %187
-  br i1 %188, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %188, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %180
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -37306,13 +37306,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %193 = icmp eq ptr %192, %92
   br i1 %193, label %196, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %180
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %180
   %194 = load ptr, ptr %8, align 8, !tbaa !27
   %195 = icmp eq ptr %194, %92
   br i1 %195, label %196, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-196:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %197 = phi ptr [ %194, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %192, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+196:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %197 = phi ptr [ %194, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %192, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %198 = load i64, ptr %93, align 8, !tbaa !31
   %199 = icmp ult i64 %198, 16
   call void @llvm.assume(i1 %199)
@@ -37352,7 +37352,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %209, ptr %187, align 8, !tbaa !32
   br label %215
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %210 = load i64, ptr %187, align 8, !tbaa !32
   store ptr %194, ptr %185, align 8, !tbaa !27
   %211 = load i64, ptr %93, align 8, !tbaa !31
@@ -41656,13 +41656,13 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !97
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !97
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -41763,7 +41763,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPmN9__gnu_cxx5__ops15_
   %.018.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not19.i = icmp eq ptr %.018.i, %1
   %or.cond = select i1 %10, i1 true, i1 %.not19.i
-  br i1 %or.cond, label %common.ret22, label %.lr.ph.i
+  br i1 %or.cond, label %common.ret25, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %"_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS4_7ContextEE3$_0EEEvT_T0_.exit.i"
   %.021.i = phi ptr [ %.0.i, %"_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS4_7ContextEE3$_0EEEvT_T0_.exit.i" ], [ %.018.i, %9 ]
@@ -41816,9 +41816,9 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPmN9__gnu_cxx5__ops15_
   store i64 %.0.val.i, ptr %.sink.i, align 8, !tbaa !97
   %.0.i = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %.not.i = icmp eq ptr %.0.i, %1
-  br i1 %.not.i, label %common.ret22, label %.lr.ph.i, !llvm.loop !859
+  br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !859
 
-common.ret22:                                     ; preds = %9, %"_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS4_7ContextEE3$_0EEEvT_T0_.exit.i", %34
+common.ret25:                                     ; preds = %9, %"_ZSt25__unguarded_linear_insertIPmN9__gnu_cxx5__ops14_Val_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS4_7ContextEE3$_0EEEvT_T0_.exit.i", %34
   ret void
 
 34:                                               ; preds = %3
@@ -41830,7 +41830,7 @@ common.ret22:                                     ; preds = %9, %"_ZSt25__unguar
   %38 = sub i64 %4, %37
   %39 = ashr exact i64 %38, 3
   tail call fastcc void @"_ZSt22__merge_without_bufferIPmlN9__gnu_cxx5__ops15_Iter_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS4_7ContextEE3$_0EEEvT_SB_SB_T0_SC_T1_"(ptr noundef %0, ptr noundef %36, ptr noundef %1, i64 noundef %35, i64 noundef %39, ptr %2)
-  br label %common.ret22
+  br label %common.ret25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -42481,9 +42481,9 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit71.thread:        ; preds = %35
   br label %42, !llvm.loop !869
 
 _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit.sink.split.i: ; preds = %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit71.thread, %53
-  %.sink42.i = phi ptr [ %54, %53 ], [ %38, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit71.thread ]
+  %.sink49.i = phi ptr [ %54, %53 ], [ %38, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit71.thread ]
   %.lcssa.sink.i = phi ptr [ %50, %53 ], [ %2, %_ZSt4moveIPmS0_ET0_T_S2_S1_.exit71.thread ]
-  %59 = ptrtoint ptr %.sink42.i to i64
+  %59 = ptrtoint ptr %.sink49.i to i64
   %60 = ptrtoint ptr %5 to i64
   %61 = sub i64 %59, %60
   %62 = ashr exact i64 %61, 3
@@ -42887,7 +42887,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %.sroa.0.018.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not19.i = icmp eq ptr %.sroa.0.018.i, %1
   %or.cond = select i1 %10, i1 true, i1 %.not19.i
-  br i1 %or.cond, label %common.ret22, label %.lr.ph.i
+  br i1 %or.cond, label %common.ret25, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS9_7ContextEE3$_0EEEvT_T0_.exit.i"
   %.sroa.0.021.i = phi ptr [ %.sroa.0.0.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS9_7ContextEE3$_0EEEvT_T0_.exit.i" ], [ %.sroa.0.018.i, %9 ]
@@ -42940,9 +42940,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   store i64 %11, ptr %.sink.i, align 8, !tbaa !97
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.021.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %1
-  br i1 %.not.i, label %common.ret22, label %.lr.ph.i, !llvm.loop !873
+  br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !873
 
-common.ret22:                                     ; preds = %9, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS9_7ContextEE3$_0EEEvT_T0_.exit.i", %38
+common.ret25:                                     ; preds = %9, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS9_7ContextEE3$_0EEEvT_T0_.exit.i", %38
   ret void
 
 38:                                               ; preds = %3
@@ -42954,7 +42954,7 @@ common.ret22:                                     ; preds = %9, %"_ZSt25__unguar
   %42 = sub i64 %4, %41
   %43 = ashr exact i64 %42, 3
   tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZNK7xgboost8MetaInfo12LabelAbsSortEPKNS9_7ContextEE3$_0EEEvT_SG_SG_T0_SH_T1_"(ptr %0, ptr %40, ptr %1, i64 noundef %39, i64 noundef %43, ptr %2)
-  br label %common.ret22
+  br label %common.ret25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -43897,9 +43897,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.ex
   br label %36, !llvm.loop !887
 
 _ZSt13move_backwardIPmN9__gnu_cxx17__normal_iteratorIS0_St6vectorImSaImEEEEET0_T_S8_S7_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit81.thread, %48
-  %.sink39.i = phi ptr [ %49, %48 ], [ %32, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit81.thread ]
+  %.sink46.i = phi ptr [ %49, %48 ], [ %32, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit81.thread ]
   %.lcssa.sink.i = phi ptr [ %45, %48 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_ET0_T_S8_S7_.exit81.thread ]
-  %54 = ptrtoint ptr %.sink39.i to i64
+  %54 = ptrtoint ptr %.sink46.i to i64
   %55 = ptrtoint ptr %5 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 3
@@ -44357,13 +44357,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !95
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !95
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -44458,13 +44458,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !87
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !87
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -44559,7 +44559,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   %.pre = load ptr, ptr %11, align 8, !tbaa !314
   %20 = load ptr, ptr %1, align 8, !tbaa !316
   %21 = icmp eq ptr %.pre, %20
-  %spec.select.i7 = select i1 %21, ptr null, ptr %20
+  %spec.select.i17 = select i1 %21, ptr null, ptr %20
   br label %.lr.ph.i.preheader
 
 22:                                               ; preds = %9
@@ -44609,12 +44609,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   br i1 %38, label %_ZN4dmlc6Stream9ReadArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPT_m.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.thread, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
-  %spec.select.i8 = phi ptr [ %spec.select.i7, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.thread ], [ %spec.select.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit ]
+  %spec.select.i18 = phi ptr [ %spec.select.i17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit.thread ], [ %spec.select.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %52
   %.0713.i = phi i64 [ %53, %52 ], [ 0, %.lr.ph.i.preheader ]
-  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %spec.select.i8, i64 %.0713.i
+  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %spec.select.i18, i64 %.0713.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = load ptr, ptr %0, align 8, !tbaa !92
   %41 = load ptr, ptr %40, align 8
@@ -46930,8 +46930,8 @@ _ZSt4fillIPmiEvT_S1_RKT0_.exit.thread:            ; preds = %._crit_edge
   br label %125
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPmS6_ImSaImEEEEZNS2_21ArrayInterfaceHandler12ExtractShapeILi2EEEvRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4lessIvESaISt4pairIKSM_S3_EEERAT__mEUlS3_E_ET0_T_S10_SZ_T1_.exit, %._crit_edge
-  %storemerge.lcssa81 = phi i64 [ %122, %._crit_edge ], [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPmS6_ImSaImEEEEZNS2_21ArrayInterfaceHandler12ExtractShapeILi2EEEvRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4lessIvESaISt4pairIKSM_S3_EEERAT__mEUlS3_E_ET0_T_S10_SZ_T1_.exit ]
-  %.idx = shl nuw nsw i64 %storemerge.lcssa81, 3
+  %storemerge.lcssa95 = phi i64 [ %122, %._crit_edge ], [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPmS6_ImSaImEEEEZNS2_21ArrayInterfaceHandler12ExtractShapeILi2EEEvRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4lessIvESaISt4pairIKSM_S3_EEERAT__mEUlS3_E_ET0_T_S10_SZ_T1_.exit ]
+  %.idx = shl nuw nsw i64 %storemerge.lcssa95, 3
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
@@ -47615,8 +47615,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %.not5.i.i.i, label %.loopexit, label %.lr.ph.i.i.i122.preheader
 
 .lr.ph.i.i.i122.preheader:                        ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPmS6_ImSaImEEEEZNS2_21ArrayInterfaceHandler13ExtractStrideILi2EEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4lessIvESaISt4pairIKSM_S3_EEEmRAT__mSX_EUlS3_E0_ET0_T_S10_SZ_T1_.exit, %._crit_edge
-  %storemerge.lcssa187 = phi i64 [ %246, %._crit_edge ], [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPmS6_ImSaImEEEEZNS2_21ArrayInterfaceHandler13ExtractStrideILi2EEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4lessIvESaISt4pairIKSM_S3_EEEmRAT__mSX_EUlS3_E0_ET0_T_S10_SZ_T1_.exit ]
-  %.idx = shl nuw nsw i64 %storemerge.lcssa187, 3
+  %storemerge.lcssa212 = phi i64 [ %246, %._crit_edge ], [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPmS6_ImSaImEEEEZNS2_21ArrayInterfaceHandler13ExtractStrideILi2EEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_St4lessIvESaISt4pairIKSM_S3_EEEmRAT__mSX_EUlS3_E0_ET0_T_S10_SZ_T1_.exit ]
+  %.idx = shl nuw nsw i64 %storemerge.lcssa212, 3
   br label %.lr.ph.i.i.i122
 
 .lr.ph.i.i.i122:                                  ; preds = %.lr.ph.i.i.i122.preheader, %.lr.ph.i.i.i122
@@ -49802,11 +49802,11 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i: ; preds 
 .split.i8.i.i.i.i.i.i.i.i:                        ; preds = %215
   %224 = udiv i32 %216, %218
   %225 = mul i32 %224, %218
-  %.recomposed1867 = urem i32 %216, %218
+  %.recomposed2018 = urem i32 %216, %218
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i: ; preds = %.split.i8.i.i.i.i.i.i.i.i, %.split.us.i11.i.i.i.i.i.i.i.i
-  %.us-phi.i9.i.i.i.i.i.i.i.i = phi i32 [ %.recomposed1867, %.split.i8.i.i.i.i.i.i.i.i ], [ %223, %.split.us.i11.i.i.i.i.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i = phi i32 [ %.recomposed2018, %.split.i8.i.i.i.i.i.i.i.i ], [ %223, %.split.us.i11.i.i.i.i.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i = phi i32 [ %224, %.split.i8.i.i.i.i.i.i.i.i ], [ %222, %.split.us.i11.i.i.i.i.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i to i64
   %226 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i to i64
@@ -49958,7 +49958,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i:                    ; preds = %265
   %272 = udiv i64 %.061186.i.i.i.i.i, %266
   %273 = mul i64 %272, %266
-  %.recomposed1868 = urem i64 %.061186.i.i.i.i.i, %266
+  %.recomposed2019 = urem i64 %.061186.i.i.i.i.i, %266
   br label %286
 
 274:                                              ; preds = %263
@@ -49979,18 +49979,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i:                   ; preds = %274
   %283 = udiv i32 %275, %277
   %284 = mul i32 %283, %277
-  %.recomposed1869 = urem i32 %275, %277
+  %.recomposed2020 = urem i32 %275, %277
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i, %.split.us.i11.i.i.i.i125.i.i.i.i.i
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i = phi i32 [ %.recomposed1869, %.split.i8.i.i.i.i118.i.i.i.i.i ], [ %282, %.split.us.i11.i.i.i.i125.i.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i = phi i32 [ %.recomposed2020, %.split.i8.i.i.i.i118.i.i.i.i.i ], [ %282, %.split.us.i11.i.i.i.i125.i.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i = phi i32 [ %283, %.split.i8.i.i.i.i118.i.i.i.i.i ], [ %281, %.split.us.i11.i.i.i.i125.i.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i to i64
   %285 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i to i64
   br label %286
 
 286:                                              ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i, %.split.i.i.i.i.i127.i.i.i.i.i, %.split.us.i.i.i.i.i128.i.i.i.i.i
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i ], [ %.recomposed1868, %.split.i.i.i.i.i127.i.i.i.i.i ], [ %271, %.split.us.i.i.i.i.i128.i.i.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i ], [ %.recomposed2019, %.split.i.i.i.i.i127.i.i.i.i.i ], [ %271, %.split.us.i.i.i.i.i128.i.i.i.i.i ]
   %.sink.i.i.i.i124.i.i.i.i.i = phi i64 [ %285, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i ], [ %272, %.split.i.i.i.i.i127.i.i.i.i.i ], [ %270, %.split.us.i.i.i.i.i128.i.i.i.i.i ]
   %287 = getelementptr inbounds nuw float, ptr %199, i64 %.061186.i.i.i.i.i
   %288 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i, %160
@@ -50060,7 +50060,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i:                           ; preds = %316
   %319 = udiv i64 %.0107.i.i.i.i.i, %183
   %320 = mul i64 %319, %183
-  %.recomposed1870 = urem i64 %.0107.i.i.i.i.i, %183
+  %.recomposed2021 = urem i64 %.0107.i.i.i.i.i, %183
   br label %327
 
 321:                                              ; preds = %314
@@ -50075,11 +50075,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i:                          ; preds = %321
   %325 = udiv i32 %322, %302
   %326 = mul i32 %325, %302
-  %.recomposed1871 = urem i32 %322, %302
+  %.recomposed2022 = urem i32 %322, %302
   br label %337
 
 327:                                              ; preds = %.split.i.i.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i.i.i
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i = phi i64 [ %318, %.split.us.i.i.i.i.i.i.i.i ], [ %.recomposed1870, %.split.i.i.i.i.i.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i = phi i64 [ %318, %.split.us.i.i.i.i.i.i.i.i ], [ %.recomposed2021, %.split.i.i.i.i.i.i.i.i ]
   %.sink.i.ph.i.i.i.i.i.i = phi i64 [ %317, %.split.us.i.i.i.i.i.i.i.i ], [ %319, %.split.i.i.i.i.i.i.i.i ]
   %.val4.val55.i.i.i.i.i.i = load ptr, ptr %309, align 8, !tbaa !119
   %328 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i, i64 8
@@ -50098,11 +50098,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i:                       ; preds = %327
   %335 = udiv i64 %.0107.i.i.i.i.i, %329
   %336 = mul i64 %335, %329
-  %.recomposed1872 = urem i64 %.0107.i.i.i.i.i, %329
+  %.recomposed2023 = urem i64 %.0107.i.i.i.i.i, %329
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKfLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 337:                                              ; preds = %.split.i8.i.i.i.i.i.i.i, %.split.us.i11.i.i.i.i.i.i.i
-  %.us-phi.i9.i.i.i.i.i.i.i = phi i32 [ %.recomposed1871, %.split.i8.i.i.i.i.i.i.i ], [ %324, %.split.us.i11.i.i.i.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i.i.i.i = phi i32 [ %.recomposed2022, %.split.i8.i.i.i.i.i.i.i ], [ %324, %.split.us.i11.i.i.i.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i.i.i.i = phi i32 [ %325, %.split.i8.i.i.i.i.i.i.i ], [ %323, %.split.us.i11.i.i.i.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i.i.i.i to i64
   %338 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i to i64
@@ -50124,11 +50124,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i:                      ; preds = %337
   %347 = udiv i32 %322, %341
   %348 = mul i32 %347, %341
-  %.recomposed1873 = urem i32 %322, %341
+  %.recomposed2024 = urem i32 %322, %341
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i: ; preds = %.split.i8.i.i.i.i.i22.i.i.i, %.split.us.i11.i.i.i.i.i29.i.i.i
-  %.us-phi.i9.i.i.i.i.i24.i.i.i = phi i32 [ %.recomposed1873, %.split.i8.i.i.i.i.i22.i.i.i ], [ %346, %.split.us.i11.i.i.i.i.i29.i.i.i ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i = phi i32 [ %.recomposed2024, %.split.i8.i.i.i.i.i22.i.i.i ], [ %346, %.split.us.i11.i.i.i.i.i29.i.i.i ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i = phi i32 [ %347, %.split.i8.i.i.i.i.i22.i.i.i ], [ %345, %.split.us.i11.i.i.i.i.i29.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i to i64
   %349 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i to i64
@@ -50137,7 +50137,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKfLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i, %.split.i.i.i.i.i.i31.i.i.i, %.split.us.i.i.i.i.i.i32.i.i.i
   %.sink.i8.i.i.i.i.i.i = phi i64 [ %338, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i ], [ %.sink.i.ph.i.i.i.i.i.i, %.split.i.i.i.i.i.i31.i.i.i ], [ %.sink.i.ph.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i32.i.i.i ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i, %.split.i.i.i.i.i.i31.i.i.i ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i32.i.i.i ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i ], [ %.recomposed1872, %.split.i.i.i.i.i.i31.i.i.i ], [ %334, %.split.us.i.i.i.i.i.i32.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i ], [ %.recomposed2023, %.split.i.i.i.i.i.i31.i.i.i ], [ %334, %.split.us.i.i.i.i.i.i32.i.i.i ]
   %.sink.i.i.i.i.i28.i.i.i = phi i64 [ %349, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i ], [ %335, %.split.i.i.i.i.i.i31.i.i.i ], [ %333, %.split.us.i.i.i.i.i.i32.i.i.i ]
   %350 = mul i64 %.sink.i8.i.i.i.i.i.i, %306
   %351 = getelementptr float, ptr %308, i64 %350
@@ -50292,7 +50292,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i:                             ; preds = %401
   %404 = udiv i64 %.06199.i.i.i.i.i, %183
   %405 = mul i64 %404, %183
-  %.recomposed1874 = urem i64 %.06199.i.i.i.i.i, %183
+  %.recomposed2025 = urem i64 %.06199.i.i.i.i.i, %183
   br label %412
 
 406:                                              ; preds = %.lr.ph100.i.i.i.i.i
@@ -50307,11 +50307,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i:                            ; preds = %406
   %410 = udiv i32 %407, %386
   %411 = mul i32 %410, %386
-  %.recomposed1875 = urem i32 %407, %386
+  %.recomposed2026 = urem i32 %407, %386
   br label %422
 
 412:                                              ; preds = %.split.i.i.i.i.i.i.i, %.split.us.i.i.i.i.i.i.i
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i = phi i64 [ %403, %.split.us.i.i.i.i.i.i.i ], [ %.recomposed1874, %.split.i.i.i.i.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i = phi i64 [ %403, %.split.us.i.i.i.i.i.i.i ], [ %.recomposed2025, %.split.i.i.i.i.i.i.i ]
   %.sink.i.ph.i.i.i.i.i = phi i64 [ %402, %.split.us.i.i.i.i.i.i.i ], [ %404, %.split.i.i.i.i.i.i.i ]
   %.val4.val55.i.i.i.i.i = load ptr, ptr %395, align 8, !tbaa !119
   %413 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i, i64 8
@@ -50330,11 +50330,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i:                         ; preds = %412
   %420 = udiv i64 %.06199.i.i.i.i.i, %414
   %421 = mul i64 %420, %414
-  %.recomposed1876 = urem i64 %.06199.i.i.i.i.i, %414
+  %.recomposed2027 = urem i64 %.06199.i.i.i.i.i, %414
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKfLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 422:                                              ; preds = %.split.i8.i.i.i.i.i.i, %.split.us.i11.i.i.i.i.i.i
-  %.us-phi.i9.i.i.i.i.i.i = phi i32 [ %.recomposed1875, %.split.i8.i.i.i.i.i.i ], [ %409, %.split.us.i11.i.i.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i.i.i = phi i32 [ %.recomposed2026, %.split.i8.i.i.i.i.i.i ], [ %409, %.split.us.i11.i.i.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i.i.i = phi i32 [ %410, %.split.i8.i.i.i.i.i.i ], [ %408, %.split.us.i11.i.i.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i.i.i to i64
   %423 = zext i32 %.us-phi23.i10.i.i.i.i.i.i to i64
@@ -50356,11 +50356,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i:                        ; preds = %422
   %432 = udiv i32 %407, %426
   %433 = mul i32 %432, %426
-  %.recomposed1877 = urem i32 %407, %426
+  %.recomposed2028 = urem i32 %407, %426
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i: ; preds = %.split.i8.i.i.i.i34.i.i.i, %.split.us.i11.i.i.i.i38.i.i.i
-  %.us-phi.i9.i.i.i.i35.i.i.i = phi i32 [ %.recomposed1877, %.split.i8.i.i.i.i34.i.i.i ], [ %431, %.split.us.i11.i.i.i.i38.i.i.i ]
+  %.us-phi.i9.i.i.i.i35.i.i.i = phi i32 [ %.recomposed2028, %.split.i8.i.i.i.i34.i.i.i ], [ %431, %.split.us.i11.i.i.i.i38.i.i.i ]
   %.us-phi23.i10.i.i.i.i36.i.i.i = phi i32 [ %432, %.split.i8.i.i.i.i34.i.i.i ], [ %430, %.split.us.i11.i.i.i.i38.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i to i64
   %434 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i to i64
@@ -50369,7 +50369,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKfLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i, %.split.i.i.i.i.i40.i.i.i, %.split.us.i.i.i.i.i41.i.i.i
   %.sink.i8.i.i.i.i.i = phi i64 [ %423, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i ], [ %.sink.i.ph.i.i.i.i.i, %.split.i.i.i.i.i40.i.i.i ], [ %.sink.i.ph.i.i.i.i.i, %.split.us.i.i.i.i.i41.i.i.i ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i, %.split.i.i.i.i.i40.i.i.i ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i, %.split.us.i.i.i.i.i41.i.i.i ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i ], [ %.recomposed1876, %.split.i.i.i.i.i40.i.i.i ], [ %419, %.split.us.i.i.i.i.i41.i.i.i ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i ], [ %.recomposed2027, %.split.i.i.i.i.i40.i.i.i ], [ %419, %.split.us.i.i.i.i.i41.i.i.i ]
   %.sink.i.i.i.i.i.i.i = phi i64 [ %434, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i ], [ %420, %.split.i.i.i.i.i40.i.i.i ], [ %418, %.split.us.i.i.i.i.i41.i.i.i ]
   %435 = mul i64 %.sink.i8.i.i.i.i.i, %390
   %436 = getelementptr float, ptr %394, i64 %435
@@ -50567,7 +50567,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i111: ; pre
 .split.i.i.i.i.i.i.i.i.i164:                      ; preds = %512
   %519 = udiv i64 %.0194.i.i.i.i.i152, %513
   %520 = mul i64 %519, %513
-  %.recomposed1878 = urem i64 %.0194.i.i.i.i.i152, %513
+  %.recomposed2029 = urem i64 %.0194.i.i.i.i.i152, %513
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKdLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 521:                                              ; preds = %510
@@ -50588,18 +50588,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i111: ; pre
 .split.i8.i.i.i.i.i.i.i.i154:                     ; preds = %521
   %530 = udiv i32 %522, %524
   %531 = mul i32 %530, %524
-  %.recomposed1879 = urem i32 %522, %524
+  %.recomposed2030 = urem i32 %522, %524
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i155
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i155: ; preds = %.split.i8.i.i.i.i.i.i.i.i154, %.split.us.i11.i.i.i.i.i.i.i.i162
-  %.us-phi.i9.i.i.i.i.i.i.i.i156 = phi i32 [ %.recomposed1879, %.split.i8.i.i.i.i.i.i.i.i154 ], [ %529, %.split.us.i11.i.i.i.i.i.i.i.i162 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i156 = phi i32 [ %.recomposed2030, %.split.i8.i.i.i.i.i.i.i.i154 ], [ %529, %.split.us.i11.i.i.i.i.i.i.i.i162 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i157 = phi i32 [ %530, %.split.i8.i.i.i.i.i.i.i.i154 ], [ %528, %.split.us.i11.i.i.i.i.i.i.i.i162 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i158 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i156 to i64
   %532 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i157 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKdLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKdLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i155, %.split.i.i.i.i.i.i.i.i.i164, %.split.us.i.i.i.i.i.i.i.i.i165
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i159 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i158, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i155 ], [ %.recomposed1878, %.split.i.i.i.i.i.i.i.i.i164 ], [ %518, %.split.us.i.i.i.i.i.i.i.i.i165 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i159 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i158, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i155 ], [ %.recomposed2029, %.split.i.i.i.i.i.i.i.i.i164 ], [ %518, %.split.us.i.i.i.i.i.i.i.i.i165 ]
   %.sink.i.i.i.i.i.i.i.i160 = phi i64 [ %532, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i155 ], [ %519, %.split.i.i.i.i.i.i.i.i.i164 ], [ %517, %.split.us.i.i.i.i.i.i.i.i.i165 ]
   %533 = getelementptr inbounds nuw float, ptr %505, i64 %.0194.i.i.i.i.i152
   %534 = mul i64 %.sink.i.i.i.i.i.i.i.i160, %466
@@ -50745,7 +50745,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i130:                 ; preds = %572
   %579 = udiv i64 %.061186.i.i.i.i.i118, %573
   %580 = mul i64 %579, %573
-  %.recomposed1880 = urem i64 %.061186.i.i.i.i.i118, %573
+  %.recomposed2031 = urem i64 %.061186.i.i.i.i.i118, %573
   br label %593
 
 581:                                              ; preds = %570
@@ -50766,18 +50766,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i120:                ; preds = %581
   %590 = udiv i32 %582, %584
   %591 = mul i32 %590, %584
-  %.recomposed1881 = urem i32 %582, %584
+  %.recomposed2032 = urem i32 %582, %584
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i121
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i121: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i120, %.split.us.i11.i.i.i.i125.i.i.i.i.i128
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i122 = phi i32 [ %.recomposed1881, %.split.i8.i.i.i.i118.i.i.i.i.i120 ], [ %589, %.split.us.i11.i.i.i.i125.i.i.i.i.i128 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i122 = phi i32 [ %.recomposed2032, %.split.i8.i.i.i.i118.i.i.i.i.i120 ], [ %589, %.split.us.i11.i.i.i.i125.i.i.i.i.i128 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i123 = phi i32 [ %590, %.split.i8.i.i.i.i118.i.i.i.i.i120 ], [ %588, %.split.us.i11.i.i.i.i125.i.i.i.i.i128 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i124 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i122 to i64
   %592 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i123 to i64
   br label %593
 
 593:                                              ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i121, %.split.i.i.i.i.i127.i.i.i.i.i130, %.split.us.i.i.i.i.i128.i.i.i.i.i131
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i125 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i124, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i121 ], [ %.recomposed1880, %.split.i.i.i.i.i127.i.i.i.i.i130 ], [ %578, %.split.us.i.i.i.i.i128.i.i.i.i.i131 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i125 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i124, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i121 ], [ %.recomposed2031, %.split.i.i.i.i.i127.i.i.i.i.i130 ], [ %578, %.split.us.i.i.i.i.i128.i.i.i.i.i131 ]
   %.sink.i.i.i.i124.i.i.i.i.i126 = phi i64 [ %592, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i121 ], [ %579, %.split.i.i.i.i.i127.i.i.i.i.i130 ], [ %577, %.split.us.i.i.i.i.i128.i.i.i.i.i131 ]
   %594 = getelementptr inbounds nuw float, ptr %505, i64 %.061186.i.i.i.i.i118
   %595 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i126, %466
@@ -50848,7 +50848,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i103:                        ; preds = %624
   %627 = udiv i64 %.0107.i.i.i.i.i84, %489
   %628 = mul i64 %627, %489
-  %.recomposed1882 = urem i64 %.0107.i.i.i.i.i84, %489
+  %.recomposed2033 = urem i64 %.0107.i.i.i.i.i84, %489
   br label %635
 
 629:                                              ; preds = %622
@@ -50863,11 +50863,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i85:                        ; preds = %629
   %633 = udiv i32 %630, %610
   %634 = mul i32 %633, %610
-  %.recomposed1883 = urem i32 %630, %610
+  %.recomposed2034 = urem i32 %630, %610
   br label %645
 
 635:                                              ; preds = %.split.i.i.i.i.i.i.i.i103, %.split.us.i.i.i.i.i.i.i.i110
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i104 = phi i64 [ %626, %.split.us.i.i.i.i.i.i.i.i110 ], [ %.recomposed1882, %.split.i.i.i.i.i.i.i.i103 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i104 = phi i64 [ %626, %.split.us.i.i.i.i.i.i.i.i110 ], [ %.recomposed2033, %.split.i.i.i.i.i.i.i.i103 ]
   %.sink.i.ph.i.i.i.i.i.i105 = phi i64 [ %625, %.split.us.i.i.i.i.i.i.i.i110 ], [ %627, %.split.i.i.i.i.i.i.i.i103 ]
   %.val4.val55.i.i.i.i.i.i106 = load ptr, ptr %617, align 8, !tbaa !119
   %636 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i106, i64 8
@@ -50886,11 +50886,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i108:                    ; preds = %635
   %643 = udiv i64 %.0107.i.i.i.i.i84, %637
   %644 = mul i64 %643, %637
-  %.recomposed1884 = urem i64 %.0107.i.i.i.i.i84, %637
+  %.recomposed2035 = urem i64 %.0107.i.i.i.i.i84, %637
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKdLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 645:                                              ; preds = %.split.i8.i.i.i.i.i.i.i85, %.split.us.i11.i.i.i.i.i.i.i102
-  %.us-phi.i9.i.i.i.i.i.i.i86 = phi i32 [ %.recomposed1883, %.split.i8.i.i.i.i.i.i.i85 ], [ %632, %.split.us.i11.i.i.i.i.i.i.i102 ]
+  %.us-phi.i9.i.i.i.i.i.i.i86 = phi i32 [ %.recomposed2034, %.split.i8.i.i.i.i.i.i.i85 ], [ %632, %.split.us.i11.i.i.i.i.i.i.i102 ]
   %.us-phi23.i10.i.i.i.i.i.i.i87 = phi i32 [ %633, %.split.i8.i.i.i.i.i.i.i85 ], [ %631, %.split.us.i11.i.i.i.i.i.i.i102 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i88 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i86 to i64
   %646 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i87 to i64
@@ -50912,11 +50912,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i91:                    ; preds = %645
   %655 = udiv i32 %630, %649
   %656 = mul i32 %655, %649
-  %.recomposed1885 = urem i32 %630, %649
+  %.recomposed2036 = urem i32 %630, %649
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i92
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i92: ; preds = %.split.i8.i.i.i.i.i22.i.i.i91, %.split.us.i11.i.i.i.i.i29.i.i.i101
-  %.us-phi.i9.i.i.i.i.i24.i.i.i93 = phi i32 [ %.recomposed1885, %.split.i8.i.i.i.i.i22.i.i.i91 ], [ %654, %.split.us.i11.i.i.i.i.i29.i.i.i101 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i93 = phi i32 [ %.recomposed2036, %.split.i8.i.i.i.i.i22.i.i.i91 ], [ %654, %.split.us.i11.i.i.i.i.i29.i.i.i101 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i94 = phi i32 [ %655, %.split.i8.i.i.i.i.i22.i.i.i91 ], [ %653, %.split.us.i11.i.i.i.i.i29.i.i.i101 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i95 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i93 to i64
   %657 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i94 to i64
@@ -50925,7 +50925,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKdLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i92, %.split.i.i.i.i.i.i31.i.i.i108, %.split.us.i.i.i.i.i.i32.i.i.i109
   %.sink.i8.i.i.i.i.i.i96 = phi i64 [ %646, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i92 ], [ %.sink.i.ph.i.i.i.i.i.i105, %.split.i.i.i.i.i.i31.i.i.i108 ], [ %.sink.i.ph.i.i.i.i.i.i105, %.split.us.i.i.i.i.i.i32.i.i.i109 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i97 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i88, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i92 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i104, %.split.i.i.i.i.i.i31.i.i.i108 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i104, %.split.us.i.i.i.i.i.i32.i.i.i109 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i95, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i92 ], [ %.recomposed1884, %.split.i.i.i.i.i.i31.i.i.i108 ], [ %642, %.split.us.i.i.i.i.i.i32.i.i.i109 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i95, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i92 ], [ %.recomposed2035, %.split.i.i.i.i.i.i31.i.i.i108 ], [ %642, %.split.us.i.i.i.i.i.i32.i.i.i109 ]
   %.sink.i.i.i.i.i28.i.i.i99 = phi i64 [ %657, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i92 ], [ %643, %.split.i.i.i.i.i.i31.i.i.i108 ], [ %641, %.split.us.i.i.i.i.i.i32.i.i.i109 ]
   %658 = mul i64 %.sink.i8.i.i.i.i.i.i96, %614
   %659 = getelementptr float, ptr %616, i64 %658
@@ -51081,7 +51081,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i53:                           ; preds = %710
   %713 = udiv i64 %.06199.i.i.i.i.i34, %489
   %714 = mul i64 %713, %489
-  %.recomposed1886 = urem i64 %.06199.i.i.i.i.i34, %489
+  %.recomposed2037 = urem i64 %.06199.i.i.i.i.i34, %489
   br label %721
 
 715:                                              ; preds = %.lr.ph100.i.i.i.i.i33
@@ -51096,11 +51096,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i35:                          ; preds = %715
   %719 = udiv i32 %716, %695
   %720 = mul i32 %719, %695
-  %.recomposed1887 = urem i32 %716, %695
+  %.recomposed2038 = urem i32 %716, %695
   br label %731
 
 721:                                              ; preds = %.split.i.i.i.i.i.i.i53, %.split.us.i.i.i.i.i.i.i60
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i54 = phi i64 [ %712, %.split.us.i.i.i.i.i.i.i60 ], [ %.recomposed1886, %.split.i.i.i.i.i.i.i53 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i54 = phi i64 [ %712, %.split.us.i.i.i.i.i.i.i60 ], [ %.recomposed2037, %.split.i.i.i.i.i.i.i53 ]
   %.sink.i.ph.i.i.i.i.i55 = phi i64 [ %711, %.split.us.i.i.i.i.i.i.i60 ], [ %713, %.split.i.i.i.i.i.i.i53 ]
   %.val4.val55.i.i.i.i.i56 = load ptr, ptr %704, align 8, !tbaa !119
   %722 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i56, i64 8
@@ -51119,11 +51119,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i58:                       ; preds = %721
   %729 = udiv i64 %.06199.i.i.i.i.i34, %723
   %730 = mul i64 %729, %723
-  %.recomposed1888 = urem i64 %.06199.i.i.i.i.i34, %723
+  %.recomposed2039 = urem i64 %.06199.i.i.i.i.i34, %723
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKdLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 731:                                              ; preds = %.split.i8.i.i.i.i.i.i35, %.split.us.i11.i.i.i.i.i.i52
-  %.us-phi.i9.i.i.i.i.i.i36 = phi i32 [ %.recomposed1887, %.split.i8.i.i.i.i.i.i35 ], [ %718, %.split.us.i11.i.i.i.i.i.i52 ]
+  %.us-phi.i9.i.i.i.i.i.i36 = phi i32 [ %.recomposed2038, %.split.i8.i.i.i.i.i.i35 ], [ %718, %.split.us.i11.i.i.i.i.i.i52 ]
   %.us-phi23.i10.i.i.i.i.i.i37 = phi i32 [ %719, %.split.i8.i.i.i.i.i.i35 ], [ %717, %.split.us.i11.i.i.i.i.i.i52 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i38 = zext i32 %.us-phi.i9.i.i.i.i.i.i36 to i64
   %732 = zext i32 %.us-phi23.i10.i.i.i.i.i.i37 to i64
@@ -51145,11 +51145,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i41:                      ; preds = %731
   %741 = udiv i32 %716, %735
   %742 = mul i32 %741, %735
-  %.recomposed1889 = urem i32 %716, %735
+  %.recomposed2040 = urem i32 %716, %735
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i42
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i42: ; preds = %.split.i8.i.i.i.i34.i.i.i41, %.split.us.i11.i.i.i.i38.i.i.i51
-  %.us-phi.i9.i.i.i.i35.i.i.i43 = phi i32 [ %.recomposed1889, %.split.i8.i.i.i.i34.i.i.i41 ], [ %740, %.split.us.i11.i.i.i.i38.i.i.i51 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i43 = phi i32 [ %.recomposed2040, %.split.i8.i.i.i.i34.i.i.i41 ], [ %740, %.split.us.i11.i.i.i.i38.i.i.i51 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i44 = phi i32 [ %741, %.split.i8.i.i.i.i34.i.i.i41 ], [ %739, %.split.us.i11.i.i.i.i38.i.i.i51 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i45 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i43 to i64
   %743 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i44 to i64
@@ -51158,7 +51158,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKdLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i42, %.split.i.i.i.i.i40.i.i.i58, %.split.us.i.i.i.i.i41.i.i.i59
   %.sink.i8.i.i.i.i.i46 = phi i64 [ %732, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i42 ], [ %.sink.i.ph.i.i.i.i.i55, %.split.i.i.i.i.i40.i.i.i58 ], [ %.sink.i.ph.i.i.i.i.i55, %.split.us.i.i.i.i.i41.i.i.i59 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i47 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i38, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i42 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i54, %.split.i.i.i.i.i40.i.i.i58 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i54, %.split.us.i.i.i.i.i41.i.i.i59 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i48 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i45, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i42 ], [ %.recomposed1888, %.split.i.i.i.i.i40.i.i.i58 ], [ %728, %.split.us.i.i.i.i.i41.i.i.i59 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i48 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i45, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i42 ], [ %.recomposed2039, %.split.i.i.i.i.i40.i.i.i58 ], [ %728, %.split.us.i.i.i.i.i41.i.i.i59 ]
   %.sink.i.i.i.i.i.i.i49 = phi i64 [ %743, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i42 ], [ %729, %.split.i.i.i.i.i40.i.i.i58 ], [ %727, %.split.us.i.i.i.i.i41.i.i.i59 ]
   %744 = mul i64 %.sink.i8.i.i.i.i.i46, %699
   %745 = getelementptr float, ptr %703, i64 %744
@@ -51357,7 +51357,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i275: ; pre
 .split.i.i.i.i.i.i.i.i.i328:                      ; preds = %822
   %829 = udiv i64 %.0194.i.i.i.i.i316, %823
   %830 = mul i64 %829, %823
-  %.recomposed1890 = urem i64 %.0194.i.i.i.i.i316, %823
+  %.recomposed2041 = urem i64 %.0194.i.i.i.i.i316, %823
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKeLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 831:                                              ; preds = %820
@@ -51378,18 +51378,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i275: ; pre
 .split.i8.i.i.i.i.i.i.i.i318:                     ; preds = %831
   %840 = udiv i32 %832, %834
   %841 = mul i32 %840, %834
-  %.recomposed1891 = urem i32 %832, %834
+  %.recomposed2042 = urem i32 %832, %834
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i319
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i319: ; preds = %.split.i8.i.i.i.i.i.i.i.i318, %.split.us.i11.i.i.i.i.i.i.i.i326
-  %.us-phi.i9.i.i.i.i.i.i.i.i320 = phi i32 [ %.recomposed1891, %.split.i8.i.i.i.i.i.i.i.i318 ], [ %839, %.split.us.i11.i.i.i.i.i.i.i.i326 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i320 = phi i32 [ %.recomposed2042, %.split.i8.i.i.i.i.i.i.i.i318 ], [ %839, %.split.us.i11.i.i.i.i.i.i.i.i326 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i321 = phi i32 [ %840, %.split.i8.i.i.i.i.i.i.i.i318 ], [ %838, %.split.us.i11.i.i.i.i.i.i.i.i326 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i322 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i320 to i64
   %842 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i321 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKeLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKeLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i319, %.split.i.i.i.i.i.i.i.i.i328, %.split.us.i.i.i.i.i.i.i.i.i329
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i323 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i322, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i319 ], [ %.recomposed1890, %.split.i.i.i.i.i.i.i.i.i328 ], [ %828, %.split.us.i.i.i.i.i.i.i.i.i329 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i323 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i322, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i319 ], [ %.recomposed2041, %.split.i.i.i.i.i.i.i.i.i328 ], [ %828, %.split.us.i.i.i.i.i.i.i.i.i329 ]
   %.sink.i.i.i.i.i.i.i.i324 = phi i64 [ %842, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i319 ], [ %829, %.split.i.i.i.i.i.i.i.i.i328 ], [ %827, %.split.us.i.i.i.i.i.i.i.i.i329 ]
   %843 = getelementptr inbounds nuw float, ptr %815, i64 %.0194.i.i.i.i.i316
   %844 = mul i64 %.sink.i.i.i.i.i.i.i.i324, %776
@@ -51535,7 +51535,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i294:                 ; preds = %882
   %889 = udiv i64 %.061186.i.i.i.i.i282, %883
   %890 = mul i64 %889, %883
-  %.recomposed1892 = urem i64 %.061186.i.i.i.i.i282, %883
+  %.recomposed2043 = urem i64 %.061186.i.i.i.i.i282, %883
   br label %903
 
 891:                                              ; preds = %880
@@ -51556,18 +51556,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i284:                ; preds = %891
   %900 = udiv i32 %892, %894
   %901 = mul i32 %900, %894
-  %.recomposed1893 = urem i32 %892, %894
+  %.recomposed2044 = urem i32 %892, %894
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i285
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i285: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i284, %.split.us.i11.i.i.i.i125.i.i.i.i.i292
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i286 = phi i32 [ %.recomposed1893, %.split.i8.i.i.i.i118.i.i.i.i.i284 ], [ %899, %.split.us.i11.i.i.i.i125.i.i.i.i.i292 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i286 = phi i32 [ %.recomposed2044, %.split.i8.i.i.i.i118.i.i.i.i.i284 ], [ %899, %.split.us.i11.i.i.i.i125.i.i.i.i.i292 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i287 = phi i32 [ %900, %.split.i8.i.i.i.i118.i.i.i.i.i284 ], [ %898, %.split.us.i11.i.i.i.i125.i.i.i.i.i292 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i288 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i286 to i64
   %902 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i287 to i64
   br label %903
 
 903:                                              ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i285, %.split.i.i.i.i.i127.i.i.i.i.i294, %.split.us.i.i.i.i.i128.i.i.i.i.i295
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i289 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i288, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i285 ], [ %.recomposed1892, %.split.i.i.i.i.i127.i.i.i.i.i294 ], [ %888, %.split.us.i.i.i.i.i128.i.i.i.i.i295 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i289 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i288, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i285 ], [ %.recomposed2043, %.split.i.i.i.i.i127.i.i.i.i.i294 ], [ %888, %.split.us.i.i.i.i.i128.i.i.i.i.i295 ]
   %.sink.i.i.i.i124.i.i.i.i.i290 = phi i64 [ %902, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i285 ], [ %889, %.split.i.i.i.i.i127.i.i.i.i.i294 ], [ %887, %.split.us.i.i.i.i.i128.i.i.i.i.i295 ]
   %904 = getelementptr inbounds nuw float, ptr %815, i64 %.061186.i.i.i.i.i282
   %905 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i290, %776
@@ -51638,7 +51638,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i267:                        ; preds = %934
   %937 = udiv i64 %.0107.i.i.i.i.i248, %799
   %938 = mul i64 %937, %799
-  %.recomposed1894 = urem i64 %.0107.i.i.i.i.i248, %799
+  %.recomposed2045 = urem i64 %.0107.i.i.i.i.i248, %799
   br label %945
 
 939:                                              ; preds = %932
@@ -51653,11 +51653,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i249:                       ; preds = %939
   %943 = udiv i32 %940, %920
   %944 = mul i32 %943, %920
-  %.recomposed1895 = urem i32 %940, %920
+  %.recomposed2046 = urem i32 %940, %920
   br label %955
 
 945:                                              ; preds = %.split.i.i.i.i.i.i.i.i267, %.split.us.i.i.i.i.i.i.i.i274
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i268 = phi i64 [ %936, %.split.us.i.i.i.i.i.i.i.i274 ], [ %.recomposed1894, %.split.i.i.i.i.i.i.i.i267 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i268 = phi i64 [ %936, %.split.us.i.i.i.i.i.i.i.i274 ], [ %.recomposed2045, %.split.i.i.i.i.i.i.i.i267 ]
   %.sink.i.ph.i.i.i.i.i.i269 = phi i64 [ %935, %.split.us.i.i.i.i.i.i.i.i274 ], [ %937, %.split.i.i.i.i.i.i.i.i267 ]
   %.val4.val55.i.i.i.i.i.i270 = load ptr, ptr %927, align 8, !tbaa !119
   %946 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i270, i64 8
@@ -51676,11 +51676,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i272:                    ; preds = %945
   %953 = udiv i64 %.0107.i.i.i.i.i248, %947
   %954 = mul i64 %953, %947
-  %.recomposed1896 = urem i64 %.0107.i.i.i.i.i248, %947
+  %.recomposed2047 = urem i64 %.0107.i.i.i.i.i248, %947
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKeLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 955:                                              ; preds = %.split.i8.i.i.i.i.i.i.i249, %.split.us.i11.i.i.i.i.i.i.i266
-  %.us-phi.i9.i.i.i.i.i.i.i250 = phi i32 [ %.recomposed1895, %.split.i8.i.i.i.i.i.i.i249 ], [ %942, %.split.us.i11.i.i.i.i.i.i.i266 ]
+  %.us-phi.i9.i.i.i.i.i.i.i250 = phi i32 [ %.recomposed2046, %.split.i8.i.i.i.i.i.i.i249 ], [ %942, %.split.us.i11.i.i.i.i.i.i.i266 ]
   %.us-phi23.i10.i.i.i.i.i.i.i251 = phi i32 [ %943, %.split.i8.i.i.i.i.i.i.i249 ], [ %941, %.split.us.i11.i.i.i.i.i.i.i266 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i252 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i250 to i64
   %956 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i251 to i64
@@ -51702,11 +51702,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i255:                   ; preds = %955
   %965 = udiv i32 %940, %959
   %966 = mul i32 %965, %959
-  %.recomposed1897 = urem i32 %940, %959
+  %.recomposed2048 = urem i32 %940, %959
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i256
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i256: ; preds = %.split.i8.i.i.i.i.i22.i.i.i255, %.split.us.i11.i.i.i.i.i29.i.i.i265
-  %.us-phi.i9.i.i.i.i.i24.i.i.i257 = phi i32 [ %.recomposed1897, %.split.i8.i.i.i.i.i22.i.i.i255 ], [ %964, %.split.us.i11.i.i.i.i.i29.i.i.i265 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i257 = phi i32 [ %.recomposed2048, %.split.i8.i.i.i.i.i22.i.i.i255 ], [ %964, %.split.us.i11.i.i.i.i.i29.i.i.i265 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i258 = phi i32 [ %965, %.split.i8.i.i.i.i.i22.i.i.i255 ], [ %963, %.split.us.i11.i.i.i.i.i29.i.i.i265 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i259 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i257 to i64
   %967 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i258 to i64
@@ -51715,7 +51715,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKeLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i256, %.split.i.i.i.i.i.i31.i.i.i272, %.split.us.i.i.i.i.i.i32.i.i.i273
   %.sink.i8.i.i.i.i.i.i260 = phi i64 [ %956, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i256 ], [ %.sink.i.ph.i.i.i.i.i.i269, %.split.i.i.i.i.i.i31.i.i.i272 ], [ %.sink.i.ph.i.i.i.i.i.i269, %.split.us.i.i.i.i.i.i32.i.i.i273 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i261 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i252, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i256 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i268, %.split.i.i.i.i.i.i31.i.i.i272 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i268, %.split.us.i.i.i.i.i.i32.i.i.i273 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i262 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i259, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i256 ], [ %.recomposed1896, %.split.i.i.i.i.i.i31.i.i.i272 ], [ %952, %.split.us.i.i.i.i.i.i32.i.i.i273 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i262 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i259, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i256 ], [ %.recomposed2047, %.split.i.i.i.i.i.i31.i.i.i272 ], [ %952, %.split.us.i.i.i.i.i.i32.i.i.i273 ]
   %.sink.i.i.i.i.i28.i.i.i263 = phi i64 [ %967, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i256 ], [ %953, %.split.i.i.i.i.i.i31.i.i.i272 ], [ %951, %.split.us.i.i.i.i.i.i32.i.i.i273 ]
   %968 = mul i64 %.sink.i8.i.i.i.i.i.i260, %924
   %969 = getelementptr float, ptr %926, i64 %968
@@ -51871,7 +51871,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i217:                          ; preds = %1020
   %1023 = udiv i64 %.06199.i.i.i.i.i198, %799
   %1024 = mul i64 %1023, %799
-  %.recomposed1898 = urem i64 %.06199.i.i.i.i.i198, %799
+  %.recomposed2049 = urem i64 %.06199.i.i.i.i.i198, %799
   br label %1031
 
 1025:                                             ; preds = %.lr.ph100.i.i.i.i.i197
@@ -51886,11 +51886,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i199:                         ; preds = %1025
   %1029 = udiv i32 %1026, %1005
   %1030 = mul i32 %1029, %1005
-  %.recomposed1899 = urem i32 %1026, %1005
+  %.recomposed2050 = urem i32 %1026, %1005
   br label %1041
 
 1031:                                             ; preds = %.split.i.i.i.i.i.i.i217, %.split.us.i.i.i.i.i.i.i224
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i218 = phi i64 [ %1022, %.split.us.i.i.i.i.i.i.i224 ], [ %.recomposed1898, %.split.i.i.i.i.i.i.i217 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i218 = phi i64 [ %1022, %.split.us.i.i.i.i.i.i.i224 ], [ %.recomposed2049, %.split.i.i.i.i.i.i.i217 ]
   %.sink.i.ph.i.i.i.i.i219 = phi i64 [ %1021, %.split.us.i.i.i.i.i.i.i224 ], [ %1023, %.split.i.i.i.i.i.i.i217 ]
   %.val4.val55.i.i.i.i.i220 = load ptr, ptr %1014, align 8, !tbaa !119
   %1032 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i220, i64 8
@@ -51909,11 +51909,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i222:                      ; preds = %1031
   %1039 = udiv i64 %.06199.i.i.i.i.i198, %1033
   %1040 = mul i64 %1039, %1033
-  %.recomposed1900 = urem i64 %.06199.i.i.i.i.i198, %1033
+  %.recomposed2051 = urem i64 %.06199.i.i.i.i.i198, %1033
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKeLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 1041:                                             ; preds = %.split.i8.i.i.i.i.i.i199, %.split.us.i11.i.i.i.i.i.i216
-  %.us-phi.i9.i.i.i.i.i.i200 = phi i32 [ %.recomposed1899, %.split.i8.i.i.i.i.i.i199 ], [ %1028, %.split.us.i11.i.i.i.i.i.i216 ]
+  %.us-phi.i9.i.i.i.i.i.i200 = phi i32 [ %.recomposed2050, %.split.i8.i.i.i.i.i.i199 ], [ %1028, %.split.us.i11.i.i.i.i.i.i216 ]
   %.us-phi23.i10.i.i.i.i.i.i201 = phi i32 [ %1029, %.split.i8.i.i.i.i.i.i199 ], [ %1027, %.split.us.i11.i.i.i.i.i.i216 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i202 = zext i32 %.us-phi.i9.i.i.i.i.i.i200 to i64
   %1042 = zext i32 %.us-phi23.i10.i.i.i.i.i.i201 to i64
@@ -51935,11 +51935,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i205:                     ; preds = %1041
   %1051 = udiv i32 %1026, %1045
   %1052 = mul i32 %1051, %1045
-  %.recomposed1901 = urem i32 %1026, %1045
+  %.recomposed2052 = urem i32 %1026, %1045
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i206
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i206: ; preds = %.split.i8.i.i.i.i34.i.i.i205, %.split.us.i11.i.i.i.i38.i.i.i215
-  %.us-phi.i9.i.i.i.i35.i.i.i207 = phi i32 [ %.recomposed1901, %.split.i8.i.i.i.i34.i.i.i205 ], [ %1050, %.split.us.i11.i.i.i.i38.i.i.i215 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i207 = phi i32 [ %.recomposed2052, %.split.i8.i.i.i.i34.i.i.i205 ], [ %1050, %.split.us.i11.i.i.i.i38.i.i.i215 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i208 = phi i32 [ %1051, %.split.i8.i.i.i.i34.i.i.i205 ], [ %1049, %.split.us.i11.i.i.i.i38.i.i.i215 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i209 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i207 to i64
   %1053 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i208 to i64
@@ -51948,7 +51948,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKeLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i206, %.split.i.i.i.i.i40.i.i.i222, %.split.us.i.i.i.i.i41.i.i.i223
   %.sink.i8.i.i.i.i.i210 = phi i64 [ %1042, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i206 ], [ %.sink.i.ph.i.i.i.i.i219, %.split.i.i.i.i.i40.i.i.i222 ], [ %.sink.i.ph.i.i.i.i.i219, %.split.us.i.i.i.i.i41.i.i.i223 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i211 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i202, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i206 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i218, %.split.i.i.i.i.i40.i.i.i222 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i218, %.split.us.i.i.i.i.i41.i.i.i223 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i212 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i209, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i206 ], [ %.recomposed1900, %.split.i.i.i.i.i40.i.i.i222 ], [ %1038, %.split.us.i.i.i.i.i41.i.i.i223 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i212 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i209, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i206 ], [ %.recomposed2051, %.split.i.i.i.i.i40.i.i.i222 ], [ %1038, %.split.us.i.i.i.i.i41.i.i.i223 ]
   %.sink.i.i.i.i.i.i.i213 = phi i64 [ %1053, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i206 ], [ %1039, %.split.i.i.i.i.i40.i.i.i222 ], [ %1037, %.split.us.i.i.i.i.i41.i.i.i223 ]
   %1054 = mul i64 %.sink.i8.i.i.i.i.i210, %1009
   %1055 = getelementptr float, ptr %1013, i64 %1054
@@ -52147,7 +52147,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i439: ; pre
 .split.i.i.i.i.i.i.i.i.i492:                      ; preds = %1132
   %1139 = udiv i64 %.0194.i.i.i.i.i480, %1133
   %1140 = mul i64 %1139, %1133
-  %.recomposed1902 = urem i64 %.0194.i.i.i.i.i480, %1133
+  %.recomposed2053 = urem i64 %.0194.i.i.i.i.i480, %1133
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKaLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 1141:                                             ; preds = %1130
@@ -52168,18 +52168,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i439: ; pre
 .split.i8.i.i.i.i.i.i.i.i482:                     ; preds = %1141
   %1150 = udiv i32 %1142, %1144
   %1151 = mul i32 %1150, %1144
-  %.recomposed1903 = urem i32 %1142, %1144
+  %.recomposed2054 = urem i32 %1142, %1144
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i483
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i483: ; preds = %.split.i8.i.i.i.i.i.i.i.i482, %.split.us.i11.i.i.i.i.i.i.i.i490
-  %.us-phi.i9.i.i.i.i.i.i.i.i484 = phi i32 [ %.recomposed1903, %.split.i8.i.i.i.i.i.i.i.i482 ], [ %1149, %.split.us.i11.i.i.i.i.i.i.i.i490 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i484 = phi i32 [ %.recomposed2054, %.split.i8.i.i.i.i.i.i.i.i482 ], [ %1149, %.split.us.i11.i.i.i.i.i.i.i.i490 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i485 = phi i32 [ %1150, %.split.i8.i.i.i.i.i.i.i.i482 ], [ %1148, %.split.us.i11.i.i.i.i.i.i.i.i490 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i486 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i484 to i64
   %1152 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i485 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKaLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKaLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i483, %.split.i.i.i.i.i.i.i.i.i492, %.split.us.i.i.i.i.i.i.i.i.i493
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i487 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i486, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i483 ], [ %.recomposed1902, %.split.i.i.i.i.i.i.i.i.i492 ], [ %1138, %.split.us.i.i.i.i.i.i.i.i.i493 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i487 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i486, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i483 ], [ %.recomposed2053, %.split.i.i.i.i.i.i.i.i.i492 ], [ %1138, %.split.us.i.i.i.i.i.i.i.i.i493 ]
   %.sink.i.i.i.i.i.i.i.i488 = phi i64 [ %1152, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i483 ], [ %1139, %.split.i.i.i.i.i.i.i.i.i492 ], [ %1137, %.split.us.i.i.i.i.i.i.i.i.i493 ]
   %1153 = getelementptr inbounds nuw float, ptr %1125, i64 %.0194.i.i.i.i.i480
   %1154 = mul i64 %.sink.i.i.i.i.i.i.i.i488, %1086
@@ -52325,7 +52325,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i458:                 ; preds = %1192
   %1199 = udiv i64 %.061186.i.i.i.i.i446, %1193
   %1200 = mul i64 %1199, %1193
-  %.recomposed1904 = urem i64 %.061186.i.i.i.i.i446, %1193
+  %.recomposed2055 = urem i64 %.061186.i.i.i.i.i446, %1193
   br label %1213
 
 1201:                                             ; preds = %1190
@@ -52346,18 +52346,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i448:                ; preds = %1201
   %1210 = udiv i32 %1202, %1204
   %1211 = mul i32 %1210, %1204
-  %.recomposed1905 = urem i32 %1202, %1204
+  %.recomposed2056 = urem i32 %1202, %1204
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i449
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i449: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i448, %.split.us.i11.i.i.i.i125.i.i.i.i.i456
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i450 = phi i32 [ %.recomposed1905, %.split.i8.i.i.i.i118.i.i.i.i.i448 ], [ %1209, %.split.us.i11.i.i.i.i125.i.i.i.i.i456 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i450 = phi i32 [ %.recomposed2056, %.split.i8.i.i.i.i118.i.i.i.i.i448 ], [ %1209, %.split.us.i11.i.i.i.i125.i.i.i.i.i456 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i451 = phi i32 [ %1210, %.split.i8.i.i.i.i118.i.i.i.i.i448 ], [ %1208, %.split.us.i11.i.i.i.i125.i.i.i.i.i456 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i452 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i450 to i64
   %1212 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i451 to i64
   br label %1213
 
 1213:                                             ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i449, %.split.i.i.i.i.i127.i.i.i.i.i458, %.split.us.i.i.i.i.i128.i.i.i.i.i459
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i453 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i452, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i449 ], [ %.recomposed1904, %.split.i.i.i.i.i127.i.i.i.i.i458 ], [ %1198, %.split.us.i.i.i.i.i128.i.i.i.i.i459 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i453 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i452, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i449 ], [ %.recomposed2055, %.split.i.i.i.i.i127.i.i.i.i.i458 ], [ %1198, %.split.us.i.i.i.i.i128.i.i.i.i.i459 ]
   %.sink.i.i.i.i124.i.i.i.i.i454 = phi i64 [ %1212, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i449 ], [ %1199, %.split.i.i.i.i.i127.i.i.i.i.i458 ], [ %1197, %.split.us.i.i.i.i.i128.i.i.i.i.i459 ]
   %1214 = getelementptr inbounds nuw float, ptr %1125, i64 %.061186.i.i.i.i.i446
   %1215 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i454, %1086
@@ -52428,7 +52428,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i431:                        ; preds = %1244
   %1247 = udiv i64 %.0107.i.i.i.i.i412, %1109
   %1248 = mul i64 %1247, %1109
-  %.recomposed1906 = urem i64 %.0107.i.i.i.i.i412, %1109
+  %.recomposed2057 = urem i64 %.0107.i.i.i.i.i412, %1109
   br label %1255
 
 1249:                                             ; preds = %1242
@@ -52443,11 +52443,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i413:                       ; preds = %1249
   %1253 = udiv i32 %1250, %1230
   %1254 = mul i32 %1253, %1230
-  %.recomposed1907 = urem i32 %1250, %1230
+  %.recomposed2058 = urem i32 %1250, %1230
   br label %1265
 
 1255:                                             ; preds = %.split.i.i.i.i.i.i.i.i431, %.split.us.i.i.i.i.i.i.i.i438
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i432 = phi i64 [ %1246, %.split.us.i.i.i.i.i.i.i.i438 ], [ %.recomposed1906, %.split.i.i.i.i.i.i.i.i431 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i432 = phi i64 [ %1246, %.split.us.i.i.i.i.i.i.i.i438 ], [ %.recomposed2057, %.split.i.i.i.i.i.i.i.i431 ]
   %.sink.i.ph.i.i.i.i.i.i433 = phi i64 [ %1245, %.split.us.i.i.i.i.i.i.i.i438 ], [ %1247, %.split.i.i.i.i.i.i.i.i431 ]
   %.val4.val55.i.i.i.i.i.i434 = load ptr, ptr %1237, align 8, !tbaa !119
   %1256 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i434, i64 8
@@ -52466,11 +52466,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i436:                    ; preds = %1255
   %1263 = udiv i64 %.0107.i.i.i.i.i412, %1257
   %1264 = mul i64 %1263, %1257
-  %.recomposed1908 = urem i64 %.0107.i.i.i.i.i412, %1257
+  %.recomposed2059 = urem i64 %.0107.i.i.i.i.i412, %1257
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKaLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 1265:                                             ; preds = %.split.i8.i.i.i.i.i.i.i413, %.split.us.i11.i.i.i.i.i.i.i430
-  %.us-phi.i9.i.i.i.i.i.i.i414 = phi i32 [ %.recomposed1907, %.split.i8.i.i.i.i.i.i.i413 ], [ %1252, %.split.us.i11.i.i.i.i.i.i.i430 ]
+  %.us-phi.i9.i.i.i.i.i.i.i414 = phi i32 [ %.recomposed2058, %.split.i8.i.i.i.i.i.i.i413 ], [ %1252, %.split.us.i11.i.i.i.i.i.i.i430 ]
   %.us-phi23.i10.i.i.i.i.i.i.i415 = phi i32 [ %1253, %.split.i8.i.i.i.i.i.i.i413 ], [ %1251, %.split.us.i11.i.i.i.i.i.i.i430 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i416 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i414 to i64
   %1266 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i415 to i64
@@ -52492,11 +52492,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i419:                   ; preds = %1265
   %1275 = udiv i32 %1250, %1269
   %1276 = mul i32 %1275, %1269
-  %.recomposed1909 = urem i32 %1250, %1269
+  %.recomposed2060 = urem i32 %1250, %1269
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i420
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i420: ; preds = %.split.i8.i.i.i.i.i22.i.i.i419, %.split.us.i11.i.i.i.i.i29.i.i.i429
-  %.us-phi.i9.i.i.i.i.i24.i.i.i421 = phi i32 [ %.recomposed1909, %.split.i8.i.i.i.i.i22.i.i.i419 ], [ %1274, %.split.us.i11.i.i.i.i.i29.i.i.i429 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i421 = phi i32 [ %.recomposed2060, %.split.i8.i.i.i.i.i22.i.i.i419 ], [ %1274, %.split.us.i11.i.i.i.i.i29.i.i.i429 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i422 = phi i32 [ %1275, %.split.i8.i.i.i.i.i22.i.i.i419 ], [ %1273, %.split.us.i11.i.i.i.i.i29.i.i.i429 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i423 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i421 to i64
   %1277 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i422 to i64
@@ -52505,7 +52505,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKaLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i420, %.split.i.i.i.i.i.i31.i.i.i436, %.split.us.i.i.i.i.i.i32.i.i.i437
   %.sink.i8.i.i.i.i.i.i424 = phi i64 [ %1266, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i420 ], [ %.sink.i.ph.i.i.i.i.i.i433, %.split.i.i.i.i.i.i31.i.i.i436 ], [ %.sink.i.ph.i.i.i.i.i.i433, %.split.us.i.i.i.i.i.i32.i.i.i437 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i425 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i416, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i420 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i432, %.split.i.i.i.i.i.i31.i.i.i436 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i432, %.split.us.i.i.i.i.i.i32.i.i.i437 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i426 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i423, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i420 ], [ %.recomposed1908, %.split.i.i.i.i.i.i31.i.i.i436 ], [ %1262, %.split.us.i.i.i.i.i.i32.i.i.i437 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i426 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i423, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i420 ], [ %.recomposed2059, %.split.i.i.i.i.i.i31.i.i.i436 ], [ %1262, %.split.us.i.i.i.i.i.i32.i.i.i437 ]
   %.sink.i.i.i.i.i28.i.i.i427 = phi i64 [ %1277, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i420 ], [ %1263, %.split.i.i.i.i.i.i31.i.i.i436 ], [ %1261, %.split.us.i.i.i.i.i.i32.i.i.i437 ]
   %1278 = mul i64 %.sink.i8.i.i.i.i.i.i424, %1234
   %1279 = getelementptr float, ptr %1236, i64 %1278
@@ -52661,7 +52661,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i381:                          ; preds = %1330
   %1333 = udiv i64 %.06199.i.i.i.i.i362, %1109
   %1334 = mul i64 %1333, %1109
-  %.recomposed1910 = urem i64 %.06199.i.i.i.i.i362, %1109
+  %.recomposed2061 = urem i64 %.06199.i.i.i.i.i362, %1109
   br label %1341
 
 1335:                                             ; preds = %.lr.ph100.i.i.i.i.i361
@@ -52676,11 +52676,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i363:                         ; preds = %1335
   %1339 = udiv i32 %1336, %1315
   %1340 = mul i32 %1339, %1315
-  %.recomposed1911 = urem i32 %1336, %1315
+  %.recomposed2062 = urem i32 %1336, %1315
   br label %1351
 
 1341:                                             ; preds = %.split.i.i.i.i.i.i.i381, %.split.us.i.i.i.i.i.i.i388
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i382 = phi i64 [ %1332, %.split.us.i.i.i.i.i.i.i388 ], [ %.recomposed1910, %.split.i.i.i.i.i.i.i381 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i382 = phi i64 [ %1332, %.split.us.i.i.i.i.i.i.i388 ], [ %.recomposed2061, %.split.i.i.i.i.i.i.i381 ]
   %.sink.i.ph.i.i.i.i.i383 = phi i64 [ %1331, %.split.us.i.i.i.i.i.i.i388 ], [ %1333, %.split.i.i.i.i.i.i.i381 ]
   %.val4.val55.i.i.i.i.i384 = load ptr, ptr %1324, align 8, !tbaa !119
   %1342 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i384, i64 8
@@ -52699,11 +52699,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i386:                      ; preds = %1341
   %1349 = udiv i64 %.06199.i.i.i.i.i362, %1343
   %1350 = mul i64 %1349, %1343
-  %.recomposed1912 = urem i64 %.06199.i.i.i.i.i362, %1343
+  %.recomposed2063 = urem i64 %.06199.i.i.i.i.i362, %1343
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKaLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 1351:                                             ; preds = %.split.i8.i.i.i.i.i.i363, %.split.us.i11.i.i.i.i.i.i380
-  %.us-phi.i9.i.i.i.i.i.i364 = phi i32 [ %.recomposed1911, %.split.i8.i.i.i.i.i.i363 ], [ %1338, %.split.us.i11.i.i.i.i.i.i380 ]
+  %.us-phi.i9.i.i.i.i.i.i364 = phi i32 [ %.recomposed2062, %.split.i8.i.i.i.i.i.i363 ], [ %1338, %.split.us.i11.i.i.i.i.i.i380 ]
   %.us-phi23.i10.i.i.i.i.i.i365 = phi i32 [ %1339, %.split.i8.i.i.i.i.i.i363 ], [ %1337, %.split.us.i11.i.i.i.i.i.i380 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i366 = zext i32 %.us-phi.i9.i.i.i.i.i.i364 to i64
   %1352 = zext i32 %.us-phi23.i10.i.i.i.i.i.i365 to i64
@@ -52725,11 +52725,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i369:                     ; preds = %1351
   %1361 = udiv i32 %1336, %1355
   %1362 = mul i32 %1361, %1355
-  %.recomposed1913 = urem i32 %1336, %1355
+  %.recomposed2064 = urem i32 %1336, %1355
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i370
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i370: ; preds = %.split.i8.i.i.i.i34.i.i.i369, %.split.us.i11.i.i.i.i38.i.i.i379
-  %.us-phi.i9.i.i.i.i35.i.i.i371 = phi i32 [ %.recomposed1913, %.split.i8.i.i.i.i34.i.i.i369 ], [ %1360, %.split.us.i11.i.i.i.i38.i.i.i379 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i371 = phi i32 [ %.recomposed2064, %.split.i8.i.i.i.i34.i.i.i369 ], [ %1360, %.split.us.i11.i.i.i.i38.i.i.i379 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i372 = phi i32 [ %1361, %.split.i8.i.i.i.i34.i.i.i369 ], [ %1359, %.split.us.i11.i.i.i.i38.i.i.i379 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i373 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i371 to i64
   %1363 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i372 to i64
@@ -52738,7 +52738,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKaLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i370, %.split.i.i.i.i.i40.i.i.i386, %.split.us.i.i.i.i.i41.i.i.i387
   %.sink.i8.i.i.i.i.i374 = phi i64 [ %1352, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i370 ], [ %.sink.i.ph.i.i.i.i.i383, %.split.i.i.i.i.i40.i.i.i386 ], [ %.sink.i.ph.i.i.i.i.i383, %.split.us.i.i.i.i.i41.i.i.i387 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i375 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i366, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i370 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i382, %.split.i.i.i.i.i40.i.i.i386 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i382, %.split.us.i.i.i.i.i41.i.i.i387 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i376 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i373, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i370 ], [ %.recomposed1912, %.split.i.i.i.i.i40.i.i.i386 ], [ %1348, %.split.us.i.i.i.i.i41.i.i.i387 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i376 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i373, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i370 ], [ %.recomposed2063, %.split.i.i.i.i.i40.i.i.i386 ], [ %1348, %.split.us.i.i.i.i.i41.i.i.i387 ]
   %.sink.i.i.i.i.i.i.i377 = phi i64 [ %1363, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i370 ], [ %1349, %.split.i.i.i.i.i40.i.i.i386 ], [ %1347, %.split.us.i.i.i.i.i41.i.i.i387 ]
   %1364 = mul i64 %.sink.i8.i.i.i.i.i374, %1319
   %1365 = getelementptr float, ptr %1323, i64 %1364
@@ -52937,7 +52937,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i603: ; pre
 .split.i.i.i.i.i.i.i.i.i656:                      ; preds = %1442
   %1449 = udiv i64 %.0194.i.i.i.i.i644, %1443
   %1450 = mul i64 %1449, %1443
-  %.recomposed1914 = urem i64 %.0194.i.i.i.i.i644, %1443
+  %.recomposed2065 = urem i64 %.0194.i.i.i.i.i644, %1443
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKsLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 1451:                                             ; preds = %1440
@@ -52958,18 +52958,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i603: ; pre
 .split.i8.i.i.i.i.i.i.i.i646:                     ; preds = %1451
   %1460 = udiv i32 %1452, %1454
   %1461 = mul i32 %1460, %1454
-  %.recomposed1915 = urem i32 %1452, %1454
+  %.recomposed2066 = urem i32 %1452, %1454
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i647
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i647: ; preds = %.split.i8.i.i.i.i.i.i.i.i646, %.split.us.i11.i.i.i.i.i.i.i.i654
-  %.us-phi.i9.i.i.i.i.i.i.i.i648 = phi i32 [ %.recomposed1915, %.split.i8.i.i.i.i.i.i.i.i646 ], [ %1459, %.split.us.i11.i.i.i.i.i.i.i.i654 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i648 = phi i32 [ %.recomposed2066, %.split.i8.i.i.i.i.i.i.i.i646 ], [ %1459, %.split.us.i11.i.i.i.i.i.i.i.i654 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i649 = phi i32 [ %1460, %.split.i8.i.i.i.i.i.i.i.i646 ], [ %1458, %.split.us.i11.i.i.i.i.i.i.i.i654 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i650 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i648 to i64
   %1462 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i649 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKsLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKsLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i647, %.split.i.i.i.i.i.i.i.i.i656, %.split.us.i.i.i.i.i.i.i.i.i657
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i651 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i650, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i647 ], [ %.recomposed1914, %.split.i.i.i.i.i.i.i.i.i656 ], [ %1448, %.split.us.i.i.i.i.i.i.i.i.i657 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i651 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i650, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i647 ], [ %.recomposed2065, %.split.i.i.i.i.i.i.i.i.i656 ], [ %1448, %.split.us.i.i.i.i.i.i.i.i.i657 ]
   %.sink.i.i.i.i.i.i.i.i652 = phi i64 [ %1462, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i647 ], [ %1449, %.split.i.i.i.i.i.i.i.i.i656 ], [ %1447, %.split.us.i.i.i.i.i.i.i.i.i657 ]
   %1463 = getelementptr inbounds nuw float, ptr %1435, i64 %.0194.i.i.i.i.i644
   %1464 = mul i64 %.sink.i.i.i.i.i.i.i.i652, %1396
@@ -53115,7 +53115,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i622:                 ; preds = %1502
   %1509 = udiv i64 %.061186.i.i.i.i.i610, %1503
   %1510 = mul i64 %1509, %1503
-  %.recomposed1916 = urem i64 %.061186.i.i.i.i.i610, %1503
+  %.recomposed2067 = urem i64 %.061186.i.i.i.i.i610, %1503
   br label %1523
 
 1511:                                             ; preds = %1500
@@ -53136,18 +53136,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i612:                ; preds = %1511
   %1520 = udiv i32 %1512, %1514
   %1521 = mul i32 %1520, %1514
-  %.recomposed1917 = urem i32 %1512, %1514
+  %.recomposed2068 = urem i32 %1512, %1514
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i613
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i613: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i612, %.split.us.i11.i.i.i.i125.i.i.i.i.i620
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i614 = phi i32 [ %.recomposed1917, %.split.i8.i.i.i.i118.i.i.i.i.i612 ], [ %1519, %.split.us.i11.i.i.i.i125.i.i.i.i.i620 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i614 = phi i32 [ %.recomposed2068, %.split.i8.i.i.i.i118.i.i.i.i.i612 ], [ %1519, %.split.us.i11.i.i.i.i125.i.i.i.i.i620 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i615 = phi i32 [ %1520, %.split.i8.i.i.i.i118.i.i.i.i.i612 ], [ %1518, %.split.us.i11.i.i.i.i125.i.i.i.i.i620 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i616 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i614 to i64
   %1522 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i615 to i64
   br label %1523
 
 1523:                                             ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i613, %.split.i.i.i.i.i127.i.i.i.i.i622, %.split.us.i.i.i.i.i128.i.i.i.i.i623
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i617 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i616, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i613 ], [ %.recomposed1916, %.split.i.i.i.i.i127.i.i.i.i.i622 ], [ %1508, %.split.us.i.i.i.i.i128.i.i.i.i.i623 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i617 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i616, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i613 ], [ %.recomposed2067, %.split.i.i.i.i.i127.i.i.i.i.i622 ], [ %1508, %.split.us.i.i.i.i.i128.i.i.i.i.i623 ]
   %.sink.i.i.i.i124.i.i.i.i.i618 = phi i64 [ %1522, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i613 ], [ %1509, %.split.i.i.i.i.i127.i.i.i.i.i622 ], [ %1507, %.split.us.i.i.i.i.i128.i.i.i.i.i623 ]
   %1524 = getelementptr inbounds nuw float, ptr %1435, i64 %.061186.i.i.i.i.i610
   %1525 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i618, %1396
@@ -53218,7 +53218,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i595:                        ; preds = %1554
   %1557 = udiv i64 %.0107.i.i.i.i.i576, %1419
   %1558 = mul i64 %1557, %1419
-  %.recomposed1918 = urem i64 %.0107.i.i.i.i.i576, %1419
+  %.recomposed2069 = urem i64 %.0107.i.i.i.i.i576, %1419
   br label %1565
 
 1559:                                             ; preds = %1552
@@ -53233,11 +53233,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i577:                       ; preds = %1559
   %1563 = udiv i32 %1560, %1540
   %1564 = mul i32 %1563, %1540
-  %.recomposed1919 = urem i32 %1560, %1540
+  %.recomposed2070 = urem i32 %1560, %1540
   br label %1575
 
 1565:                                             ; preds = %.split.i.i.i.i.i.i.i.i595, %.split.us.i.i.i.i.i.i.i.i602
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i596 = phi i64 [ %1556, %.split.us.i.i.i.i.i.i.i.i602 ], [ %.recomposed1918, %.split.i.i.i.i.i.i.i.i595 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i596 = phi i64 [ %1556, %.split.us.i.i.i.i.i.i.i.i602 ], [ %.recomposed2069, %.split.i.i.i.i.i.i.i.i595 ]
   %.sink.i.ph.i.i.i.i.i.i597 = phi i64 [ %1555, %.split.us.i.i.i.i.i.i.i.i602 ], [ %1557, %.split.i.i.i.i.i.i.i.i595 ]
   %.val4.val55.i.i.i.i.i.i598 = load ptr, ptr %1547, align 8, !tbaa !119
   %1566 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i598, i64 8
@@ -53256,11 +53256,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i600:                    ; preds = %1565
   %1573 = udiv i64 %.0107.i.i.i.i.i576, %1567
   %1574 = mul i64 %1573, %1567
-  %.recomposed1920 = urem i64 %.0107.i.i.i.i.i576, %1567
+  %.recomposed2071 = urem i64 %.0107.i.i.i.i.i576, %1567
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKsLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 1575:                                             ; preds = %.split.i8.i.i.i.i.i.i.i577, %.split.us.i11.i.i.i.i.i.i.i594
-  %.us-phi.i9.i.i.i.i.i.i.i578 = phi i32 [ %.recomposed1919, %.split.i8.i.i.i.i.i.i.i577 ], [ %1562, %.split.us.i11.i.i.i.i.i.i.i594 ]
+  %.us-phi.i9.i.i.i.i.i.i.i578 = phi i32 [ %.recomposed2070, %.split.i8.i.i.i.i.i.i.i577 ], [ %1562, %.split.us.i11.i.i.i.i.i.i.i594 ]
   %.us-phi23.i10.i.i.i.i.i.i.i579 = phi i32 [ %1563, %.split.i8.i.i.i.i.i.i.i577 ], [ %1561, %.split.us.i11.i.i.i.i.i.i.i594 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i580 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i578 to i64
   %1576 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i579 to i64
@@ -53282,11 +53282,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i583:                   ; preds = %1575
   %1585 = udiv i32 %1560, %1579
   %1586 = mul i32 %1585, %1579
-  %.recomposed1921 = urem i32 %1560, %1579
+  %.recomposed2072 = urem i32 %1560, %1579
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i584
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i584: ; preds = %.split.i8.i.i.i.i.i22.i.i.i583, %.split.us.i11.i.i.i.i.i29.i.i.i593
-  %.us-phi.i9.i.i.i.i.i24.i.i.i585 = phi i32 [ %.recomposed1921, %.split.i8.i.i.i.i.i22.i.i.i583 ], [ %1584, %.split.us.i11.i.i.i.i.i29.i.i.i593 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i585 = phi i32 [ %.recomposed2072, %.split.i8.i.i.i.i.i22.i.i.i583 ], [ %1584, %.split.us.i11.i.i.i.i.i29.i.i.i593 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i586 = phi i32 [ %1585, %.split.i8.i.i.i.i.i22.i.i.i583 ], [ %1583, %.split.us.i11.i.i.i.i.i29.i.i.i593 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i587 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i585 to i64
   %1587 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i586 to i64
@@ -53295,7 +53295,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKsLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i584, %.split.i.i.i.i.i.i31.i.i.i600, %.split.us.i.i.i.i.i.i32.i.i.i601
   %.sink.i8.i.i.i.i.i.i588 = phi i64 [ %1576, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i584 ], [ %.sink.i.ph.i.i.i.i.i.i597, %.split.i.i.i.i.i.i31.i.i.i600 ], [ %.sink.i.ph.i.i.i.i.i.i597, %.split.us.i.i.i.i.i.i32.i.i.i601 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i589 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i580, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i584 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i596, %.split.i.i.i.i.i.i31.i.i.i600 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i596, %.split.us.i.i.i.i.i.i32.i.i.i601 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i590 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i587, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i584 ], [ %.recomposed1920, %.split.i.i.i.i.i.i31.i.i.i600 ], [ %1572, %.split.us.i.i.i.i.i.i32.i.i.i601 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i590 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i587, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i584 ], [ %.recomposed2071, %.split.i.i.i.i.i.i31.i.i.i600 ], [ %1572, %.split.us.i.i.i.i.i.i32.i.i.i601 ]
   %.sink.i.i.i.i.i28.i.i.i591 = phi i64 [ %1587, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i584 ], [ %1573, %.split.i.i.i.i.i.i31.i.i.i600 ], [ %1571, %.split.us.i.i.i.i.i.i32.i.i.i601 ]
   %1588 = mul i64 %.sink.i8.i.i.i.i.i.i588, %1544
   %1589 = getelementptr float, ptr %1546, i64 %1588
@@ -53451,7 +53451,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i545:                          ; preds = %1640
   %1643 = udiv i64 %.06199.i.i.i.i.i526, %1419
   %1644 = mul i64 %1643, %1419
-  %.recomposed1922 = urem i64 %.06199.i.i.i.i.i526, %1419
+  %.recomposed2073 = urem i64 %.06199.i.i.i.i.i526, %1419
   br label %1651
 
 1645:                                             ; preds = %.lr.ph100.i.i.i.i.i525
@@ -53466,11 +53466,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i527:                         ; preds = %1645
   %1649 = udiv i32 %1646, %1625
   %1650 = mul i32 %1649, %1625
-  %.recomposed1923 = urem i32 %1646, %1625
+  %.recomposed2074 = urem i32 %1646, %1625
   br label %1661
 
 1651:                                             ; preds = %.split.i.i.i.i.i.i.i545, %.split.us.i.i.i.i.i.i.i552
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i546 = phi i64 [ %1642, %.split.us.i.i.i.i.i.i.i552 ], [ %.recomposed1922, %.split.i.i.i.i.i.i.i545 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i546 = phi i64 [ %1642, %.split.us.i.i.i.i.i.i.i552 ], [ %.recomposed2073, %.split.i.i.i.i.i.i.i545 ]
   %.sink.i.ph.i.i.i.i.i547 = phi i64 [ %1641, %.split.us.i.i.i.i.i.i.i552 ], [ %1643, %.split.i.i.i.i.i.i.i545 ]
   %.val4.val55.i.i.i.i.i548 = load ptr, ptr %1634, align 8, !tbaa !119
   %1652 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i548, i64 8
@@ -53489,11 +53489,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i550:                      ; preds = %1651
   %1659 = udiv i64 %.06199.i.i.i.i.i526, %1653
   %1660 = mul i64 %1659, %1653
-  %.recomposed1924 = urem i64 %.06199.i.i.i.i.i526, %1653
+  %.recomposed2075 = urem i64 %.06199.i.i.i.i.i526, %1653
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKsLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 1661:                                             ; preds = %.split.i8.i.i.i.i.i.i527, %.split.us.i11.i.i.i.i.i.i544
-  %.us-phi.i9.i.i.i.i.i.i528 = phi i32 [ %.recomposed1923, %.split.i8.i.i.i.i.i.i527 ], [ %1648, %.split.us.i11.i.i.i.i.i.i544 ]
+  %.us-phi.i9.i.i.i.i.i.i528 = phi i32 [ %.recomposed2074, %.split.i8.i.i.i.i.i.i527 ], [ %1648, %.split.us.i11.i.i.i.i.i.i544 ]
   %.us-phi23.i10.i.i.i.i.i.i529 = phi i32 [ %1649, %.split.i8.i.i.i.i.i.i527 ], [ %1647, %.split.us.i11.i.i.i.i.i.i544 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i530 = zext i32 %.us-phi.i9.i.i.i.i.i.i528 to i64
   %1662 = zext i32 %.us-phi23.i10.i.i.i.i.i.i529 to i64
@@ -53515,11 +53515,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i533:                     ; preds = %1661
   %1671 = udiv i32 %1646, %1665
   %1672 = mul i32 %1671, %1665
-  %.recomposed1925 = urem i32 %1646, %1665
+  %.recomposed2076 = urem i32 %1646, %1665
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i534
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i534: ; preds = %.split.i8.i.i.i.i34.i.i.i533, %.split.us.i11.i.i.i.i38.i.i.i543
-  %.us-phi.i9.i.i.i.i35.i.i.i535 = phi i32 [ %.recomposed1925, %.split.i8.i.i.i.i34.i.i.i533 ], [ %1670, %.split.us.i11.i.i.i.i38.i.i.i543 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i535 = phi i32 [ %.recomposed2076, %.split.i8.i.i.i.i34.i.i.i533 ], [ %1670, %.split.us.i11.i.i.i.i38.i.i.i543 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i536 = phi i32 [ %1671, %.split.i8.i.i.i.i34.i.i.i533 ], [ %1669, %.split.us.i11.i.i.i.i38.i.i.i543 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i537 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i535 to i64
   %1673 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i536 to i64
@@ -53528,7 +53528,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKsLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i534, %.split.i.i.i.i.i40.i.i.i550, %.split.us.i.i.i.i.i41.i.i.i551
   %.sink.i8.i.i.i.i.i538 = phi i64 [ %1662, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i534 ], [ %.sink.i.ph.i.i.i.i.i547, %.split.i.i.i.i.i40.i.i.i550 ], [ %.sink.i.ph.i.i.i.i.i547, %.split.us.i.i.i.i.i41.i.i.i551 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i539 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i530, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i534 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i546, %.split.i.i.i.i.i40.i.i.i550 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i546, %.split.us.i.i.i.i.i41.i.i.i551 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i540 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i537, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i534 ], [ %.recomposed1924, %.split.i.i.i.i.i40.i.i.i550 ], [ %1658, %.split.us.i.i.i.i.i41.i.i.i551 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i540 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i537, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i534 ], [ %.recomposed2075, %.split.i.i.i.i.i40.i.i.i550 ], [ %1658, %.split.us.i.i.i.i.i41.i.i.i551 ]
   %.sink.i.i.i.i.i.i.i541 = phi i64 [ %1673, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i534 ], [ %1659, %.split.i.i.i.i.i40.i.i.i550 ], [ %1657, %.split.us.i.i.i.i.i41.i.i.i551 ]
   %1674 = mul i64 %.sink.i8.i.i.i.i.i538, %1629
   %1675 = getelementptr float, ptr %1633, i64 %1674
@@ -53727,7 +53727,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i767: ; pre
 .split.i.i.i.i.i.i.i.i.i820:                      ; preds = %1752
   %1759 = udiv i64 %.0194.i.i.i.i.i808, %1753
   %1760 = mul i64 %1759, %1753
-  %.recomposed1926 = urem i64 %.0194.i.i.i.i.i808, %1753
+  %.recomposed2077 = urem i64 %.0194.i.i.i.i.i808, %1753
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKiLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 1761:                                             ; preds = %1750
@@ -53748,18 +53748,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i767: ; pre
 .split.i8.i.i.i.i.i.i.i.i810:                     ; preds = %1761
   %1770 = udiv i32 %1762, %1764
   %1771 = mul i32 %1770, %1764
-  %.recomposed1927 = urem i32 %1762, %1764
+  %.recomposed2078 = urem i32 %1762, %1764
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i811
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i811: ; preds = %.split.i8.i.i.i.i.i.i.i.i810, %.split.us.i11.i.i.i.i.i.i.i.i818
-  %.us-phi.i9.i.i.i.i.i.i.i.i812 = phi i32 [ %.recomposed1927, %.split.i8.i.i.i.i.i.i.i.i810 ], [ %1769, %.split.us.i11.i.i.i.i.i.i.i.i818 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i812 = phi i32 [ %.recomposed2078, %.split.i8.i.i.i.i.i.i.i.i810 ], [ %1769, %.split.us.i11.i.i.i.i.i.i.i.i818 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i813 = phi i32 [ %1770, %.split.i8.i.i.i.i.i.i.i.i810 ], [ %1768, %.split.us.i11.i.i.i.i.i.i.i.i818 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i814 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i812 to i64
   %1772 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i813 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKiLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKiLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i811, %.split.i.i.i.i.i.i.i.i.i820, %.split.us.i.i.i.i.i.i.i.i.i821
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i815 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i814, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i811 ], [ %.recomposed1926, %.split.i.i.i.i.i.i.i.i.i820 ], [ %1758, %.split.us.i.i.i.i.i.i.i.i.i821 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i815 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i814, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i811 ], [ %.recomposed2077, %.split.i.i.i.i.i.i.i.i.i820 ], [ %1758, %.split.us.i.i.i.i.i.i.i.i.i821 ]
   %.sink.i.i.i.i.i.i.i.i816 = phi i64 [ %1772, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i811 ], [ %1759, %.split.i.i.i.i.i.i.i.i.i820 ], [ %1757, %.split.us.i.i.i.i.i.i.i.i.i821 ]
   %1773 = getelementptr inbounds nuw float, ptr %1745, i64 %.0194.i.i.i.i.i808
   %1774 = mul i64 %.sink.i.i.i.i.i.i.i.i816, %1706
@@ -53905,7 +53905,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i786:                 ; preds = %1812
   %1819 = udiv i64 %.061186.i.i.i.i.i774, %1813
   %1820 = mul i64 %1819, %1813
-  %.recomposed1928 = urem i64 %.061186.i.i.i.i.i774, %1813
+  %.recomposed2079 = urem i64 %.061186.i.i.i.i.i774, %1813
   br label %1833
 
 1821:                                             ; preds = %1810
@@ -53926,18 +53926,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i776:                ; preds = %1821
   %1830 = udiv i32 %1822, %1824
   %1831 = mul i32 %1830, %1824
-  %.recomposed1929 = urem i32 %1822, %1824
+  %.recomposed2080 = urem i32 %1822, %1824
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i777
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i777: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i776, %.split.us.i11.i.i.i.i125.i.i.i.i.i784
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i778 = phi i32 [ %.recomposed1929, %.split.i8.i.i.i.i118.i.i.i.i.i776 ], [ %1829, %.split.us.i11.i.i.i.i125.i.i.i.i.i784 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i778 = phi i32 [ %.recomposed2080, %.split.i8.i.i.i.i118.i.i.i.i.i776 ], [ %1829, %.split.us.i11.i.i.i.i125.i.i.i.i.i784 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i779 = phi i32 [ %1830, %.split.i8.i.i.i.i118.i.i.i.i.i776 ], [ %1828, %.split.us.i11.i.i.i.i125.i.i.i.i.i784 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i780 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i778 to i64
   %1832 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i779 to i64
   br label %1833
 
 1833:                                             ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i777, %.split.i.i.i.i.i127.i.i.i.i.i786, %.split.us.i.i.i.i.i128.i.i.i.i.i787
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i781 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i780, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i777 ], [ %.recomposed1928, %.split.i.i.i.i.i127.i.i.i.i.i786 ], [ %1818, %.split.us.i.i.i.i.i128.i.i.i.i.i787 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i781 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i780, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i777 ], [ %.recomposed2079, %.split.i.i.i.i.i127.i.i.i.i.i786 ], [ %1818, %.split.us.i.i.i.i.i128.i.i.i.i.i787 ]
   %.sink.i.i.i.i124.i.i.i.i.i782 = phi i64 [ %1832, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i777 ], [ %1819, %.split.i.i.i.i.i127.i.i.i.i.i786 ], [ %1817, %.split.us.i.i.i.i.i128.i.i.i.i.i787 ]
   %1834 = getelementptr inbounds nuw float, ptr %1745, i64 %.061186.i.i.i.i.i774
   %1835 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i782, %1706
@@ -54008,7 +54008,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i759:                        ; preds = %1864
   %1867 = udiv i64 %.0107.i.i.i.i.i740, %1729
   %1868 = mul i64 %1867, %1729
-  %.recomposed1930 = urem i64 %.0107.i.i.i.i.i740, %1729
+  %.recomposed2081 = urem i64 %.0107.i.i.i.i.i740, %1729
   br label %1875
 
 1869:                                             ; preds = %1862
@@ -54023,11 +54023,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i741:                       ; preds = %1869
   %1873 = udiv i32 %1870, %1850
   %1874 = mul i32 %1873, %1850
-  %.recomposed1931 = urem i32 %1870, %1850
+  %.recomposed2082 = urem i32 %1870, %1850
   br label %1885
 
 1875:                                             ; preds = %.split.i.i.i.i.i.i.i.i759, %.split.us.i.i.i.i.i.i.i.i766
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i760 = phi i64 [ %1866, %.split.us.i.i.i.i.i.i.i.i766 ], [ %.recomposed1930, %.split.i.i.i.i.i.i.i.i759 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i760 = phi i64 [ %1866, %.split.us.i.i.i.i.i.i.i.i766 ], [ %.recomposed2081, %.split.i.i.i.i.i.i.i.i759 ]
   %.sink.i.ph.i.i.i.i.i.i761 = phi i64 [ %1865, %.split.us.i.i.i.i.i.i.i.i766 ], [ %1867, %.split.i.i.i.i.i.i.i.i759 ]
   %.val4.val55.i.i.i.i.i.i762 = load ptr, ptr %1857, align 8, !tbaa !119
   %1876 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i762, i64 8
@@ -54046,11 +54046,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i764:                    ; preds = %1875
   %1883 = udiv i64 %.0107.i.i.i.i.i740, %1877
   %1884 = mul i64 %1883, %1877
-  %.recomposed1932 = urem i64 %.0107.i.i.i.i.i740, %1877
+  %.recomposed2083 = urem i64 %.0107.i.i.i.i.i740, %1877
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKiLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 1885:                                             ; preds = %.split.i8.i.i.i.i.i.i.i741, %.split.us.i11.i.i.i.i.i.i.i758
-  %.us-phi.i9.i.i.i.i.i.i.i742 = phi i32 [ %.recomposed1931, %.split.i8.i.i.i.i.i.i.i741 ], [ %1872, %.split.us.i11.i.i.i.i.i.i.i758 ]
+  %.us-phi.i9.i.i.i.i.i.i.i742 = phi i32 [ %.recomposed2082, %.split.i8.i.i.i.i.i.i.i741 ], [ %1872, %.split.us.i11.i.i.i.i.i.i.i758 ]
   %.us-phi23.i10.i.i.i.i.i.i.i743 = phi i32 [ %1873, %.split.i8.i.i.i.i.i.i.i741 ], [ %1871, %.split.us.i11.i.i.i.i.i.i.i758 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i744 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i742 to i64
   %1886 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i743 to i64
@@ -54072,11 +54072,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i747:                   ; preds = %1885
   %1895 = udiv i32 %1870, %1889
   %1896 = mul i32 %1895, %1889
-  %.recomposed1933 = urem i32 %1870, %1889
+  %.recomposed2084 = urem i32 %1870, %1889
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i748
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i748: ; preds = %.split.i8.i.i.i.i.i22.i.i.i747, %.split.us.i11.i.i.i.i.i29.i.i.i757
-  %.us-phi.i9.i.i.i.i.i24.i.i.i749 = phi i32 [ %.recomposed1933, %.split.i8.i.i.i.i.i22.i.i.i747 ], [ %1894, %.split.us.i11.i.i.i.i.i29.i.i.i757 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i749 = phi i32 [ %.recomposed2084, %.split.i8.i.i.i.i.i22.i.i.i747 ], [ %1894, %.split.us.i11.i.i.i.i.i29.i.i.i757 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i750 = phi i32 [ %1895, %.split.i8.i.i.i.i.i22.i.i.i747 ], [ %1893, %.split.us.i11.i.i.i.i.i29.i.i.i757 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i751 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i749 to i64
   %1897 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i750 to i64
@@ -54085,7 +54085,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKiLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i748, %.split.i.i.i.i.i.i31.i.i.i764, %.split.us.i.i.i.i.i.i32.i.i.i765
   %.sink.i8.i.i.i.i.i.i752 = phi i64 [ %1886, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i748 ], [ %.sink.i.ph.i.i.i.i.i.i761, %.split.i.i.i.i.i.i31.i.i.i764 ], [ %.sink.i.ph.i.i.i.i.i.i761, %.split.us.i.i.i.i.i.i32.i.i.i765 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i753 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i744, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i748 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i760, %.split.i.i.i.i.i.i31.i.i.i764 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i760, %.split.us.i.i.i.i.i.i32.i.i.i765 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i754 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i751, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i748 ], [ %.recomposed1932, %.split.i.i.i.i.i.i31.i.i.i764 ], [ %1882, %.split.us.i.i.i.i.i.i32.i.i.i765 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i754 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i751, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i748 ], [ %.recomposed2083, %.split.i.i.i.i.i.i31.i.i.i764 ], [ %1882, %.split.us.i.i.i.i.i.i32.i.i.i765 ]
   %.sink.i.i.i.i.i28.i.i.i755 = phi i64 [ %1897, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i748 ], [ %1883, %.split.i.i.i.i.i.i31.i.i.i764 ], [ %1881, %.split.us.i.i.i.i.i.i32.i.i.i765 ]
   %1898 = mul i64 %.sink.i8.i.i.i.i.i.i752, %1854
   %1899 = getelementptr float, ptr %1856, i64 %1898
@@ -54241,7 +54241,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i709:                          ; preds = %1950
   %1953 = udiv i64 %.06199.i.i.i.i.i690, %1729
   %1954 = mul i64 %1953, %1729
-  %.recomposed1934 = urem i64 %.06199.i.i.i.i.i690, %1729
+  %.recomposed2085 = urem i64 %.06199.i.i.i.i.i690, %1729
   br label %1961
 
 1955:                                             ; preds = %.lr.ph100.i.i.i.i.i689
@@ -54256,11 +54256,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i691:                         ; preds = %1955
   %1959 = udiv i32 %1956, %1935
   %1960 = mul i32 %1959, %1935
-  %.recomposed1935 = urem i32 %1956, %1935
+  %.recomposed2086 = urem i32 %1956, %1935
   br label %1971
 
 1961:                                             ; preds = %.split.i.i.i.i.i.i.i709, %.split.us.i.i.i.i.i.i.i716
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i710 = phi i64 [ %1952, %.split.us.i.i.i.i.i.i.i716 ], [ %.recomposed1934, %.split.i.i.i.i.i.i.i709 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i710 = phi i64 [ %1952, %.split.us.i.i.i.i.i.i.i716 ], [ %.recomposed2085, %.split.i.i.i.i.i.i.i709 ]
   %.sink.i.ph.i.i.i.i.i711 = phi i64 [ %1951, %.split.us.i.i.i.i.i.i.i716 ], [ %1953, %.split.i.i.i.i.i.i.i709 ]
   %.val4.val55.i.i.i.i.i712 = load ptr, ptr %1944, align 8, !tbaa !119
   %1962 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i712, i64 8
@@ -54279,11 +54279,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i714:                      ; preds = %1961
   %1969 = udiv i64 %.06199.i.i.i.i.i690, %1963
   %1970 = mul i64 %1969, %1963
-  %.recomposed1936 = urem i64 %.06199.i.i.i.i.i690, %1963
+  %.recomposed2087 = urem i64 %.06199.i.i.i.i.i690, %1963
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKiLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 1971:                                             ; preds = %.split.i8.i.i.i.i.i.i691, %.split.us.i11.i.i.i.i.i.i708
-  %.us-phi.i9.i.i.i.i.i.i692 = phi i32 [ %.recomposed1935, %.split.i8.i.i.i.i.i.i691 ], [ %1958, %.split.us.i11.i.i.i.i.i.i708 ]
+  %.us-phi.i9.i.i.i.i.i.i692 = phi i32 [ %.recomposed2086, %.split.i8.i.i.i.i.i.i691 ], [ %1958, %.split.us.i11.i.i.i.i.i.i708 ]
   %.us-phi23.i10.i.i.i.i.i.i693 = phi i32 [ %1959, %.split.i8.i.i.i.i.i.i691 ], [ %1957, %.split.us.i11.i.i.i.i.i.i708 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i694 = zext i32 %.us-phi.i9.i.i.i.i.i.i692 to i64
   %1972 = zext i32 %.us-phi23.i10.i.i.i.i.i.i693 to i64
@@ -54305,11 +54305,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i697:                     ; preds = %1971
   %1981 = udiv i32 %1956, %1975
   %1982 = mul i32 %1981, %1975
-  %.recomposed1937 = urem i32 %1956, %1975
+  %.recomposed2088 = urem i32 %1956, %1975
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i698
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i698: ; preds = %.split.i8.i.i.i.i34.i.i.i697, %.split.us.i11.i.i.i.i38.i.i.i707
-  %.us-phi.i9.i.i.i.i35.i.i.i699 = phi i32 [ %.recomposed1937, %.split.i8.i.i.i.i34.i.i.i697 ], [ %1980, %.split.us.i11.i.i.i.i38.i.i.i707 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i699 = phi i32 [ %.recomposed2088, %.split.i8.i.i.i.i34.i.i.i697 ], [ %1980, %.split.us.i11.i.i.i.i38.i.i.i707 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i700 = phi i32 [ %1981, %.split.i8.i.i.i.i34.i.i.i697 ], [ %1979, %.split.us.i11.i.i.i.i38.i.i.i707 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i701 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i699 to i64
   %1983 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i700 to i64
@@ -54318,7 +54318,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKiLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i698, %.split.i.i.i.i.i40.i.i.i714, %.split.us.i.i.i.i.i41.i.i.i715
   %.sink.i8.i.i.i.i.i702 = phi i64 [ %1972, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i698 ], [ %.sink.i.ph.i.i.i.i.i711, %.split.i.i.i.i.i40.i.i.i714 ], [ %.sink.i.ph.i.i.i.i.i711, %.split.us.i.i.i.i.i41.i.i.i715 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i703 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i694, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i698 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i710, %.split.i.i.i.i.i40.i.i.i714 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i710, %.split.us.i.i.i.i.i41.i.i.i715 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i704 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i701, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i698 ], [ %.recomposed1936, %.split.i.i.i.i.i40.i.i.i714 ], [ %1968, %.split.us.i.i.i.i.i41.i.i.i715 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i704 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i701, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i698 ], [ %.recomposed2087, %.split.i.i.i.i.i40.i.i.i714 ], [ %1968, %.split.us.i.i.i.i.i41.i.i.i715 ]
   %.sink.i.i.i.i.i.i.i705 = phi i64 [ %1983, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i698 ], [ %1969, %.split.i.i.i.i.i40.i.i.i714 ], [ %1967, %.split.us.i.i.i.i.i41.i.i.i715 ]
   %1984 = mul i64 %.sink.i8.i.i.i.i.i702, %1939
   %1985 = getelementptr float, ptr %1943, i64 %1984
@@ -54517,7 +54517,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i931: ; pre
 .split.i.i.i.i.i.i.i.i.i984:                      ; preds = %2062
   %2069 = udiv i64 %.0194.i.i.i.i.i972, %2063
   %2070 = mul i64 %2069, %2063
-  %.recomposed1938 = urem i64 %.0194.i.i.i.i.i972, %2063
+  %.recomposed2089 = urem i64 %.0194.i.i.i.i.i972, %2063
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKlLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 2071:                                             ; preds = %2060
@@ -54538,18 +54538,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i931: ; pre
 .split.i8.i.i.i.i.i.i.i.i974:                     ; preds = %2071
   %2080 = udiv i32 %2072, %2074
   %2081 = mul i32 %2080, %2074
-  %.recomposed1939 = urem i32 %2072, %2074
+  %.recomposed2090 = urem i32 %2072, %2074
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i975
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i975: ; preds = %.split.i8.i.i.i.i.i.i.i.i974, %.split.us.i11.i.i.i.i.i.i.i.i982
-  %.us-phi.i9.i.i.i.i.i.i.i.i976 = phi i32 [ %.recomposed1939, %.split.i8.i.i.i.i.i.i.i.i974 ], [ %2079, %.split.us.i11.i.i.i.i.i.i.i.i982 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i976 = phi i32 [ %.recomposed2090, %.split.i8.i.i.i.i.i.i.i.i974 ], [ %2079, %.split.us.i11.i.i.i.i.i.i.i.i982 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i977 = phi i32 [ %2080, %.split.i8.i.i.i.i.i.i.i.i974 ], [ %2078, %.split.us.i11.i.i.i.i.i.i.i.i982 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i978 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i976 to i64
   %2082 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i977 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKlLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKlLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i975, %.split.i.i.i.i.i.i.i.i.i984, %.split.us.i.i.i.i.i.i.i.i.i985
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i979 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i978, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i975 ], [ %.recomposed1938, %.split.i.i.i.i.i.i.i.i.i984 ], [ %2068, %.split.us.i.i.i.i.i.i.i.i.i985 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i979 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i978, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i975 ], [ %.recomposed2089, %.split.i.i.i.i.i.i.i.i.i984 ], [ %2068, %.split.us.i.i.i.i.i.i.i.i.i985 ]
   %.sink.i.i.i.i.i.i.i.i980 = phi i64 [ %2082, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i975 ], [ %2069, %.split.i.i.i.i.i.i.i.i.i984 ], [ %2067, %.split.us.i.i.i.i.i.i.i.i.i985 ]
   %2083 = getelementptr inbounds nuw float, ptr %2055, i64 %.0194.i.i.i.i.i972
   %2084 = mul i64 %.sink.i.i.i.i.i.i.i.i980, %2016
@@ -54695,7 +54695,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i950:                 ; preds = %2122
   %2129 = udiv i64 %.061186.i.i.i.i.i938, %2123
   %2130 = mul i64 %2129, %2123
-  %.recomposed1940 = urem i64 %.061186.i.i.i.i.i938, %2123
+  %.recomposed2091 = urem i64 %.061186.i.i.i.i.i938, %2123
   br label %2143
 
 2131:                                             ; preds = %2120
@@ -54716,18 +54716,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i940:                ; preds = %2131
   %2140 = udiv i32 %2132, %2134
   %2141 = mul i32 %2140, %2134
-  %.recomposed1941 = urem i32 %2132, %2134
+  %.recomposed2092 = urem i32 %2132, %2134
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i941
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i941: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i940, %.split.us.i11.i.i.i.i125.i.i.i.i.i948
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i942 = phi i32 [ %.recomposed1941, %.split.i8.i.i.i.i118.i.i.i.i.i940 ], [ %2139, %.split.us.i11.i.i.i.i125.i.i.i.i.i948 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i942 = phi i32 [ %.recomposed2092, %.split.i8.i.i.i.i118.i.i.i.i.i940 ], [ %2139, %.split.us.i11.i.i.i.i125.i.i.i.i.i948 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i943 = phi i32 [ %2140, %.split.i8.i.i.i.i118.i.i.i.i.i940 ], [ %2138, %.split.us.i11.i.i.i.i125.i.i.i.i.i948 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i944 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i942 to i64
   %2142 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i943 to i64
   br label %2143
 
 2143:                                             ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i941, %.split.i.i.i.i.i127.i.i.i.i.i950, %.split.us.i.i.i.i.i128.i.i.i.i.i951
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i945 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i944, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i941 ], [ %.recomposed1940, %.split.i.i.i.i.i127.i.i.i.i.i950 ], [ %2128, %.split.us.i.i.i.i.i128.i.i.i.i.i951 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i945 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i944, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i941 ], [ %.recomposed2091, %.split.i.i.i.i.i127.i.i.i.i.i950 ], [ %2128, %.split.us.i.i.i.i.i128.i.i.i.i.i951 ]
   %.sink.i.i.i.i124.i.i.i.i.i946 = phi i64 [ %2142, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i941 ], [ %2129, %.split.i.i.i.i.i127.i.i.i.i.i950 ], [ %2127, %.split.us.i.i.i.i.i128.i.i.i.i.i951 ]
   %2144 = getelementptr inbounds nuw float, ptr %2055, i64 %.061186.i.i.i.i.i938
   %2145 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i946, %2016
@@ -54798,7 +54798,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i923:                        ; preds = %2174
   %2177 = udiv i64 %.0107.i.i.i.i.i904, %2039
   %2178 = mul i64 %2177, %2039
-  %.recomposed1942 = urem i64 %.0107.i.i.i.i.i904, %2039
+  %.recomposed2093 = urem i64 %.0107.i.i.i.i.i904, %2039
   br label %2185
 
 2179:                                             ; preds = %2172
@@ -54813,11 +54813,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i905:                       ; preds = %2179
   %2183 = udiv i32 %2180, %2160
   %2184 = mul i32 %2183, %2160
-  %.recomposed1943 = urem i32 %2180, %2160
+  %.recomposed2094 = urem i32 %2180, %2160
   br label %2195
 
 2185:                                             ; preds = %.split.i.i.i.i.i.i.i.i923, %.split.us.i.i.i.i.i.i.i.i930
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i924 = phi i64 [ %2176, %.split.us.i.i.i.i.i.i.i.i930 ], [ %.recomposed1942, %.split.i.i.i.i.i.i.i.i923 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i924 = phi i64 [ %2176, %.split.us.i.i.i.i.i.i.i.i930 ], [ %.recomposed2093, %.split.i.i.i.i.i.i.i.i923 ]
   %.sink.i.ph.i.i.i.i.i.i925 = phi i64 [ %2175, %.split.us.i.i.i.i.i.i.i.i930 ], [ %2177, %.split.i.i.i.i.i.i.i.i923 ]
   %.val4.val55.i.i.i.i.i.i926 = load ptr, ptr %2167, align 8, !tbaa !119
   %2186 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i926, i64 8
@@ -54836,11 +54836,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i928:                    ; preds = %2185
   %2193 = udiv i64 %.0107.i.i.i.i.i904, %2187
   %2194 = mul i64 %2193, %2187
-  %.recomposed1944 = urem i64 %.0107.i.i.i.i.i904, %2187
+  %.recomposed2095 = urem i64 %.0107.i.i.i.i.i904, %2187
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKlLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 2195:                                             ; preds = %.split.i8.i.i.i.i.i.i.i905, %.split.us.i11.i.i.i.i.i.i.i922
-  %.us-phi.i9.i.i.i.i.i.i.i906 = phi i32 [ %.recomposed1943, %.split.i8.i.i.i.i.i.i.i905 ], [ %2182, %.split.us.i11.i.i.i.i.i.i.i922 ]
+  %.us-phi.i9.i.i.i.i.i.i.i906 = phi i32 [ %.recomposed2094, %.split.i8.i.i.i.i.i.i.i905 ], [ %2182, %.split.us.i11.i.i.i.i.i.i.i922 ]
   %.us-phi23.i10.i.i.i.i.i.i.i907 = phi i32 [ %2183, %.split.i8.i.i.i.i.i.i.i905 ], [ %2181, %.split.us.i11.i.i.i.i.i.i.i922 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i908 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i906 to i64
   %2196 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i907 to i64
@@ -54862,11 +54862,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i911:                   ; preds = %2195
   %2205 = udiv i32 %2180, %2199
   %2206 = mul i32 %2205, %2199
-  %.recomposed1945 = urem i32 %2180, %2199
+  %.recomposed2096 = urem i32 %2180, %2199
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i912
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i912: ; preds = %.split.i8.i.i.i.i.i22.i.i.i911, %.split.us.i11.i.i.i.i.i29.i.i.i921
-  %.us-phi.i9.i.i.i.i.i24.i.i.i913 = phi i32 [ %.recomposed1945, %.split.i8.i.i.i.i.i22.i.i.i911 ], [ %2204, %.split.us.i11.i.i.i.i.i29.i.i.i921 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i913 = phi i32 [ %.recomposed2096, %.split.i8.i.i.i.i.i22.i.i.i911 ], [ %2204, %.split.us.i11.i.i.i.i.i29.i.i.i921 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i914 = phi i32 [ %2205, %.split.i8.i.i.i.i.i22.i.i.i911 ], [ %2203, %.split.us.i11.i.i.i.i.i29.i.i.i921 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i915 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i913 to i64
   %2207 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i914 to i64
@@ -54875,7 +54875,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKlLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i912, %.split.i.i.i.i.i.i31.i.i.i928, %.split.us.i.i.i.i.i.i32.i.i.i929
   %.sink.i8.i.i.i.i.i.i916 = phi i64 [ %2196, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i912 ], [ %.sink.i.ph.i.i.i.i.i.i925, %.split.i.i.i.i.i.i31.i.i.i928 ], [ %.sink.i.ph.i.i.i.i.i.i925, %.split.us.i.i.i.i.i.i32.i.i.i929 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i917 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i908, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i912 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i924, %.split.i.i.i.i.i.i31.i.i.i928 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i924, %.split.us.i.i.i.i.i.i32.i.i.i929 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i918 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i915, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i912 ], [ %.recomposed1944, %.split.i.i.i.i.i.i31.i.i.i928 ], [ %2192, %.split.us.i.i.i.i.i.i32.i.i.i929 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i918 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i915, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i912 ], [ %.recomposed2095, %.split.i.i.i.i.i.i31.i.i.i928 ], [ %2192, %.split.us.i.i.i.i.i.i32.i.i.i929 ]
   %.sink.i.i.i.i.i28.i.i.i919 = phi i64 [ %2207, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i912 ], [ %2193, %.split.i.i.i.i.i.i31.i.i.i928 ], [ %2191, %.split.us.i.i.i.i.i.i32.i.i.i929 ]
   %2208 = mul i64 %.sink.i8.i.i.i.i.i.i916, %2164
   %2209 = getelementptr float, ptr %2166, i64 %2208
@@ -55031,7 +55031,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i873:                          ; preds = %2260
   %2263 = udiv i64 %.06199.i.i.i.i.i854, %2039
   %2264 = mul i64 %2263, %2039
-  %.recomposed1946 = urem i64 %.06199.i.i.i.i.i854, %2039
+  %.recomposed2097 = urem i64 %.06199.i.i.i.i.i854, %2039
   br label %2271
 
 2265:                                             ; preds = %.lr.ph100.i.i.i.i.i853
@@ -55046,11 +55046,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i855:                         ; preds = %2265
   %2269 = udiv i32 %2266, %2245
   %2270 = mul i32 %2269, %2245
-  %.recomposed1947 = urem i32 %2266, %2245
+  %.recomposed2098 = urem i32 %2266, %2245
   br label %2281
 
 2271:                                             ; preds = %.split.i.i.i.i.i.i.i873, %.split.us.i.i.i.i.i.i.i880
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i874 = phi i64 [ %2262, %.split.us.i.i.i.i.i.i.i880 ], [ %.recomposed1946, %.split.i.i.i.i.i.i.i873 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i874 = phi i64 [ %2262, %.split.us.i.i.i.i.i.i.i880 ], [ %.recomposed2097, %.split.i.i.i.i.i.i.i873 ]
   %.sink.i.ph.i.i.i.i.i875 = phi i64 [ %2261, %.split.us.i.i.i.i.i.i.i880 ], [ %2263, %.split.i.i.i.i.i.i.i873 ]
   %.val4.val55.i.i.i.i.i876 = load ptr, ptr %2254, align 8, !tbaa !119
   %2272 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i876, i64 8
@@ -55069,11 +55069,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i878:                      ; preds = %2271
   %2279 = udiv i64 %.06199.i.i.i.i.i854, %2273
   %2280 = mul i64 %2279, %2273
-  %.recomposed1948 = urem i64 %.06199.i.i.i.i.i854, %2273
+  %.recomposed2099 = urem i64 %.06199.i.i.i.i.i854, %2273
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKlLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 2281:                                             ; preds = %.split.i8.i.i.i.i.i.i855, %.split.us.i11.i.i.i.i.i.i872
-  %.us-phi.i9.i.i.i.i.i.i856 = phi i32 [ %.recomposed1947, %.split.i8.i.i.i.i.i.i855 ], [ %2268, %.split.us.i11.i.i.i.i.i.i872 ]
+  %.us-phi.i9.i.i.i.i.i.i856 = phi i32 [ %.recomposed2098, %.split.i8.i.i.i.i.i.i855 ], [ %2268, %.split.us.i11.i.i.i.i.i.i872 ]
   %.us-phi23.i10.i.i.i.i.i.i857 = phi i32 [ %2269, %.split.i8.i.i.i.i.i.i855 ], [ %2267, %.split.us.i11.i.i.i.i.i.i872 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i858 = zext i32 %.us-phi.i9.i.i.i.i.i.i856 to i64
   %2282 = zext i32 %.us-phi23.i10.i.i.i.i.i.i857 to i64
@@ -55095,11 +55095,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i861:                     ; preds = %2281
   %2291 = udiv i32 %2266, %2285
   %2292 = mul i32 %2291, %2285
-  %.recomposed1949 = urem i32 %2266, %2285
+  %.recomposed2100 = urem i32 %2266, %2285
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i862
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i862: ; preds = %.split.i8.i.i.i.i34.i.i.i861, %.split.us.i11.i.i.i.i38.i.i.i871
-  %.us-phi.i9.i.i.i.i35.i.i.i863 = phi i32 [ %.recomposed1949, %.split.i8.i.i.i.i34.i.i.i861 ], [ %2290, %.split.us.i11.i.i.i.i38.i.i.i871 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i863 = phi i32 [ %.recomposed2100, %.split.i8.i.i.i.i34.i.i.i861 ], [ %2290, %.split.us.i11.i.i.i.i38.i.i.i871 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i864 = phi i32 [ %2291, %.split.i8.i.i.i.i34.i.i.i861 ], [ %2289, %.split.us.i11.i.i.i.i38.i.i.i871 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i865 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i863 to i64
   %2293 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i864 to i64
@@ -55108,7 +55108,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKlLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i862, %.split.i.i.i.i.i40.i.i.i878, %.split.us.i.i.i.i.i41.i.i.i879
   %.sink.i8.i.i.i.i.i866 = phi i64 [ %2282, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i862 ], [ %.sink.i.ph.i.i.i.i.i875, %.split.i.i.i.i.i40.i.i.i878 ], [ %.sink.i.ph.i.i.i.i.i875, %.split.us.i.i.i.i.i41.i.i.i879 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i867 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i858, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i862 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i874, %.split.i.i.i.i.i40.i.i.i878 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i874, %.split.us.i.i.i.i.i41.i.i.i879 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i868 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i865, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i862 ], [ %.recomposed1948, %.split.i.i.i.i.i40.i.i.i878 ], [ %2278, %.split.us.i.i.i.i.i41.i.i.i879 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i868 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i865, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i862 ], [ %.recomposed2099, %.split.i.i.i.i.i40.i.i.i878 ], [ %2278, %.split.us.i.i.i.i.i41.i.i.i879 ]
   %.sink.i.i.i.i.i.i.i869 = phi i64 [ %2293, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i862 ], [ %2279, %.split.i.i.i.i.i40.i.i.i878 ], [ %2277, %.split.us.i.i.i.i.i41.i.i.i879 ]
   %2294 = mul i64 %.sink.i8.i.i.i.i.i866, %2249
   %2295 = getelementptr float, ptr %2253, i64 %2294
@@ -55307,7 +55307,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i1095: ; pr
 .split.i.i.i.i.i.i.i.i.i1148:                     ; preds = %2372
   %2379 = udiv i64 %.0194.i.i.i.i.i1136, %2373
   %2380 = mul i64 %2379, %2373
-  %.recomposed1950 = urem i64 %.0194.i.i.i.i.i1136, %2373
+  %.recomposed2101 = urem i64 %.0194.i.i.i.i.i1136, %2373
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKhLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 2381:                                             ; preds = %2370
@@ -55328,18 +55328,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i1095: ; pr
 .split.i8.i.i.i.i.i.i.i.i1138:                    ; preds = %2381
   %2390 = udiv i32 %2382, %2384
   %2391 = mul i32 %2390, %2384
-  %.recomposed1951 = urem i32 %2382, %2384
+  %.recomposed2102 = urem i32 %2382, %2384
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1139
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1139: ; preds = %.split.i8.i.i.i.i.i.i.i.i1138, %.split.us.i11.i.i.i.i.i.i.i.i1146
-  %.us-phi.i9.i.i.i.i.i.i.i.i1140 = phi i32 [ %.recomposed1951, %.split.i8.i.i.i.i.i.i.i.i1138 ], [ %2389, %.split.us.i11.i.i.i.i.i.i.i.i1146 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i1140 = phi i32 [ %.recomposed2102, %.split.i8.i.i.i.i.i.i.i.i1138 ], [ %2389, %.split.us.i11.i.i.i.i.i.i.i.i1146 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i1141 = phi i32 [ %2390, %.split.i8.i.i.i.i.i.i.i.i1138 ], [ %2388, %.split.us.i11.i.i.i.i.i.i.i.i1146 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1142 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i1140 to i64
   %2392 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i1141 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKhLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKhLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1139, %.split.i.i.i.i.i.i.i.i.i1148, %.split.us.i.i.i.i.i.i.i.i.i1149
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i1143 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1142, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1139 ], [ %.recomposed1950, %.split.i.i.i.i.i.i.i.i.i1148 ], [ %2378, %.split.us.i.i.i.i.i.i.i.i.i1149 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i1143 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1142, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1139 ], [ %.recomposed2101, %.split.i.i.i.i.i.i.i.i.i1148 ], [ %2378, %.split.us.i.i.i.i.i.i.i.i.i1149 ]
   %.sink.i.i.i.i.i.i.i.i1144 = phi i64 [ %2392, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1139 ], [ %2379, %.split.i.i.i.i.i.i.i.i.i1148 ], [ %2377, %.split.us.i.i.i.i.i.i.i.i.i1149 ]
   %2393 = getelementptr inbounds nuw float, ptr %2365, i64 %.0194.i.i.i.i.i1136
   %2394 = mul i64 %.sink.i.i.i.i.i.i.i.i1144, %2326
@@ -55485,7 +55485,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i1114:                ; preds = %2432
   %2439 = udiv i64 %.061186.i.i.i.i.i1102, %2433
   %2440 = mul i64 %2439, %2433
-  %.recomposed1952 = urem i64 %.061186.i.i.i.i.i1102, %2433
+  %.recomposed2103 = urem i64 %.061186.i.i.i.i.i1102, %2433
   br label %2453
 
 2441:                                             ; preds = %2430
@@ -55506,18 +55506,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i1104:               ; preds = %2441
   %2450 = udiv i32 %2442, %2444
   %2451 = mul i32 %2450, %2444
-  %.recomposed1953 = urem i32 %2442, %2444
+  %.recomposed2104 = urem i32 %2442, %2444
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1105
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1105: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i1104, %.split.us.i11.i.i.i.i125.i.i.i.i.i1112
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i1106 = phi i32 [ %.recomposed1953, %.split.i8.i.i.i.i118.i.i.i.i.i1104 ], [ %2449, %.split.us.i11.i.i.i.i125.i.i.i.i.i1112 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i1106 = phi i32 [ %.recomposed2104, %.split.i8.i.i.i.i118.i.i.i.i.i1104 ], [ %2449, %.split.us.i11.i.i.i.i125.i.i.i.i.i1112 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i1107 = phi i32 [ %2450, %.split.i8.i.i.i.i118.i.i.i.i.i1104 ], [ %2448, %.split.us.i11.i.i.i.i125.i.i.i.i.i1112 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1108 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i1106 to i64
   %2452 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i1107 to i64
   br label %2453
 
 2453:                                             ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1105, %.split.i.i.i.i.i127.i.i.i.i.i1114, %.split.us.i.i.i.i.i128.i.i.i.i.i1115
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i1109 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1108, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1105 ], [ %.recomposed1952, %.split.i.i.i.i.i127.i.i.i.i.i1114 ], [ %2438, %.split.us.i.i.i.i.i128.i.i.i.i.i1115 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i1109 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1108, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1105 ], [ %.recomposed2103, %.split.i.i.i.i.i127.i.i.i.i.i1114 ], [ %2438, %.split.us.i.i.i.i.i128.i.i.i.i.i1115 ]
   %.sink.i.i.i.i124.i.i.i.i.i1110 = phi i64 [ %2452, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1105 ], [ %2439, %.split.i.i.i.i.i127.i.i.i.i.i1114 ], [ %2437, %.split.us.i.i.i.i.i128.i.i.i.i.i1115 ]
   %2454 = getelementptr inbounds nuw float, ptr %2365, i64 %.061186.i.i.i.i.i1102
   %2455 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i1110, %2326
@@ -55588,7 +55588,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i1087:                       ; preds = %2484
   %2487 = udiv i64 %.0107.i.i.i.i.i1068, %2349
   %2488 = mul i64 %2487, %2349
-  %.recomposed1954 = urem i64 %.0107.i.i.i.i.i1068, %2349
+  %.recomposed2105 = urem i64 %.0107.i.i.i.i.i1068, %2349
   br label %2495
 
 2489:                                             ; preds = %2482
@@ -55603,11 +55603,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i1069:                      ; preds = %2489
   %2493 = udiv i32 %2490, %2470
   %2494 = mul i32 %2493, %2470
-  %.recomposed1955 = urem i32 %2490, %2470
+  %.recomposed2106 = urem i32 %2490, %2470
   br label %2505
 
 2495:                                             ; preds = %.split.i.i.i.i.i.i.i.i1087, %.split.us.i.i.i.i.i.i.i.i1094
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1088 = phi i64 [ %2486, %.split.us.i.i.i.i.i.i.i.i1094 ], [ %.recomposed1954, %.split.i.i.i.i.i.i.i.i1087 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1088 = phi i64 [ %2486, %.split.us.i.i.i.i.i.i.i.i1094 ], [ %.recomposed2105, %.split.i.i.i.i.i.i.i.i1087 ]
   %.sink.i.ph.i.i.i.i.i.i1089 = phi i64 [ %2485, %.split.us.i.i.i.i.i.i.i.i1094 ], [ %2487, %.split.i.i.i.i.i.i.i.i1087 ]
   %.val4.val55.i.i.i.i.i.i1090 = load ptr, ptr %2477, align 8, !tbaa !119
   %2496 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i1090, i64 8
@@ -55626,11 +55626,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i1092:                   ; preds = %2495
   %2503 = udiv i64 %.0107.i.i.i.i.i1068, %2497
   %2504 = mul i64 %2503, %2497
-  %.recomposed1956 = urem i64 %.0107.i.i.i.i.i1068, %2497
+  %.recomposed2107 = urem i64 %.0107.i.i.i.i.i1068, %2497
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKhLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 2505:                                             ; preds = %.split.i8.i.i.i.i.i.i.i1069, %.split.us.i11.i.i.i.i.i.i.i1086
-  %.us-phi.i9.i.i.i.i.i.i.i1070 = phi i32 [ %.recomposed1955, %.split.i8.i.i.i.i.i.i.i1069 ], [ %2492, %.split.us.i11.i.i.i.i.i.i.i1086 ]
+  %.us-phi.i9.i.i.i.i.i.i.i1070 = phi i32 [ %.recomposed2106, %.split.i8.i.i.i.i.i.i.i1069 ], [ %2492, %.split.us.i11.i.i.i.i.i.i.i1086 ]
   %.us-phi23.i10.i.i.i.i.i.i.i1071 = phi i32 [ %2493, %.split.i8.i.i.i.i.i.i.i1069 ], [ %2491, %.split.us.i11.i.i.i.i.i.i.i1086 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i1072 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i1070 to i64
   %2506 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i1071 to i64
@@ -55652,11 +55652,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i1075:                  ; preds = %2505
   %2515 = udiv i32 %2490, %2509
   %2516 = mul i32 %2515, %2509
-  %.recomposed1957 = urem i32 %2490, %2509
+  %.recomposed2108 = urem i32 %2490, %2509
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1076
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1076: ; preds = %.split.i8.i.i.i.i.i22.i.i.i1075, %.split.us.i11.i.i.i.i.i29.i.i.i1085
-  %.us-phi.i9.i.i.i.i.i24.i.i.i1077 = phi i32 [ %.recomposed1957, %.split.i8.i.i.i.i.i22.i.i.i1075 ], [ %2514, %.split.us.i11.i.i.i.i.i29.i.i.i1085 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i1077 = phi i32 [ %.recomposed2108, %.split.i8.i.i.i.i.i22.i.i.i1075 ], [ %2514, %.split.us.i11.i.i.i.i.i29.i.i.i1085 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i1078 = phi i32 [ %2515, %.split.i8.i.i.i.i.i22.i.i.i1075 ], [ %2513, %.split.us.i11.i.i.i.i.i29.i.i.i1085 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1079 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i1077 to i64
   %2517 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i1078 to i64
@@ -55665,7 +55665,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKhLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1076, %.split.i.i.i.i.i.i31.i.i.i1092, %.split.us.i.i.i.i.i.i32.i.i.i1093
   %.sink.i8.i.i.i.i.i.i1080 = phi i64 [ %2506, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1076 ], [ %.sink.i.ph.i.i.i.i.i.i1089, %.split.i.i.i.i.i.i31.i.i.i1092 ], [ %.sink.i.ph.i.i.i.i.i.i1089, %.split.us.i.i.i.i.i.i32.i.i.i1093 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i1081 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i1072, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1076 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1088, %.split.i.i.i.i.i.i31.i.i.i1092 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1088, %.split.us.i.i.i.i.i.i32.i.i.i1093 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i1082 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1079, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1076 ], [ %.recomposed1956, %.split.i.i.i.i.i.i31.i.i.i1092 ], [ %2502, %.split.us.i.i.i.i.i.i32.i.i.i1093 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i1082 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1079, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1076 ], [ %.recomposed2107, %.split.i.i.i.i.i.i31.i.i.i1092 ], [ %2502, %.split.us.i.i.i.i.i.i32.i.i.i1093 ]
   %.sink.i.i.i.i.i28.i.i.i1083 = phi i64 [ %2517, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1076 ], [ %2503, %.split.i.i.i.i.i.i31.i.i.i1092 ], [ %2501, %.split.us.i.i.i.i.i.i32.i.i.i1093 ]
   %2518 = mul i64 %.sink.i8.i.i.i.i.i.i1080, %2474
   %2519 = getelementptr float, ptr %2476, i64 %2518
@@ -55821,7 +55821,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i1037:                         ; preds = %2570
   %2573 = udiv i64 %.06199.i.i.i.i.i1018, %2349
   %2574 = mul i64 %2573, %2349
-  %.recomposed1958 = urem i64 %.06199.i.i.i.i.i1018, %2349
+  %.recomposed2109 = urem i64 %.06199.i.i.i.i.i1018, %2349
   br label %2581
 
 2575:                                             ; preds = %.lr.ph100.i.i.i.i.i1017
@@ -55836,11 +55836,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i1019:                        ; preds = %2575
   %2579 = udiv i32 %2576, %2555
   %2580 = mul i32 %2579, %2555
-  %.recomposed1959 = urem i32 %2576, %2555
+  %.recomposed2110 = urem i32 %2576, %2555
   br label %2591
 
 2581:                                             ; preds = %.split.i.i.i.i.i.i.i1037, %.split.us.i.i.i.i.i.i.i1044
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1038 = phi i64 [ %2572, %.split.us.i.i.i.i.i.i.i1044 ], [ %.recomposed1958, %.split.i.i.i.i.i.i.i1037 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1038 = phi i64 [ %2572, %.split.us.i.i.i.i.i.i.i1044 ], [ %.recomposed2109, %.split.i.i.i.i.i.i.i1037 ]
   %.sink.i.ph.i.i.i.i.i1039 = phi i64 [ %2571, %.split.us.i.i.i.i.i.i.i1044 ], [ %2573, %.split.i.i.i.i.i.i.i1037 ]
   %.val4.val55.i.i.i.i.i1040 = load ptr, ptr %2564, align 8, !tbaa !119
   %2582 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i1040, i64 8
@@ -55859,11 +55859,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i1042:                     ; preds = %2581
   %2589 = udiv i64 %.06199.i.i.i.i.i1018, %2583
   %2590 = mul i64 %2589, %2583
-  %.recomposed1960 = urem i64 %.06199.i.i.i.i.i1018, %2583
+  %.recomposed2111 = urem i64 %.06199.i.i.i.i.i1018, %2583
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKhLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 2591:                                             ; preds = %.split.i8.i.i.i.i.i.i1019, %.split.us.i11.i.i.i.i.i.i1036
-  %.us-phi.i9.i.i.i.i.i.i1020 = phi i32 [ %.recomposed1959, %.split.i8.i.i.i.i.i.i1019 ], [ %2578, %.split.us.i11.i.i.i.i.i.i1036 ]
+  %.us-phi.i9.i.i.i.i.i.i1020 = phi i32 [ %.recomposed2110, %.split.i8.i.i.i.i.i.i1019 ], [ %2578, %.split.us.i11.i.i.i.i.i.i1036 ]
   %.us-phi23.i10.i.i.i.i.i.i1021 = phi i32 [ %2579, %.split.i8.i.i.i.i.i.i1019 ], [ %2577, %.split.us.i11.i.i.i.i.i.i1036 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i1022 = zext i32 %.us-phi.i9.i.i.i.i.i.i1020 to i64
   %2592 = zext i32 %.us-phi23.i10.i.i.i.i.i.i1021 to i64
@@ -55885,11 +55885,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i1025:                    ; preds = %2591
   %2601 = udiv i32 %2576, %2595
   %2602 = mul i32 %2601, %2595
-  %.recomposed1961 = urem i32 %2576, %2595
+  %.recomposed2112 = urem i32 %2576, %2595
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1026
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1026: ; preds = %.split.i8.i.i.i.i34.i.i.i1025, %.split.us.i11.i.i.i.i38.i.i.i1035
-  %.us-phi.i9.i.i.i.i35.i.i.i1027 = phi i32 [ %.recomposed1961, %.split.i8.i.i.i.i34.i.i.i1025 ], [ %2600, %.split.us.i11.i.i.i.i38.i.i.i1035 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i1027 = phi i32 [ %.recomposed2112, %.split.i8.i.i.i.i34.i.i.i1025 ], [ %2600, %.split.us.i11.i.i.i.i38.i.i.i1035 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i1028 = phi i32 [ %2601, %.split.i8.i.i.i.i34.i.i.i1025 ], [ %2599, %.split.us.i11.i.i.i.i38.i.i.i1035 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i1029 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i1027 to i64
   %2603 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i1028 to i64
@@ -55898,7 +55898,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKhLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1026, %.split.i.i.i.i.i40.i.i.i1042, %.split.us.i.i.i.i.i41.i.i.i1043
   %.sink.i8.i.i.i.i.i1030 = phi i64 [ %2592, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1026 ], [ %.sink.i.ph.i.i.i.i.i1039, %.split.i.i.i.i.i40.i.i.i1042 ], [ %.sink.i.ph.i.i.i.i.i1039, %.split.us.i.i.i.i.i41.i.i.i1043 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i1031 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i1022, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1026 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1038, %.split.i.i.i.i.i40.i.i.i1042 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1038, %.split.us.i.i.i.i.i41.i.i.i1043 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i1032 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i1029, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1026 ], [ %.recomposed1960, %.split.i.i.i.i.i40.i.i.i1042 ], [ %2588, %.split.us.i.i.i.i.i41.i.i.i1043 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i1032 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i1029, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1026 ], [ %.recomposed2111, %.split.i.i.i.i.i40.i.i.i1042 ], [ %2588, %.split.us.i.i.i.i.i41.i.i.i1043 ]
   %.sink.i.i.i.i.i.i.i1033 = phi i64 [ %2603, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1026 ], [ %2589, %.split.i.i.i.i.i40.i.i.i1042 ], [ %2587, %.split.us.i.i.i.i.i41.i.i.i1043 ]
   %2604 = mul i64 %.sink.i8.i.i.i.i.i1030, %2559
   %2605 = getelementptr float, ptr %2563, i64 %2604
@@ -56097,7 +56097,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i1259: ; pr
 .split.i.i.i.i.i.i.i.i.i1312:                     ; preds = %2682
   %2689 = udiv i64 %.0194.i.i.i.i.i1300, %2683
   %2690 = mul i64 %2689, %2683
-  %.recomposed1962 = urem i64 %.0194.i.i.i.i.i1300, %2683
+  %.recomposed2113 = urem i64 %.0194.i.i.i.i.i1300, %2683
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKtLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 2691:                                             ; preds = %2680
@@ -56118,18 +56118,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i1259: ; pr
 .split.i8.i.i.i.i.i.i.i.i1302:                    ; preds = %2691
   %2700 = udiv i32 %2692, %2694
   %2701 = mul i32 %2700, %2694
-  %.recomposed1963 = urem i32 %2692, %2694
+  %.recomposed2114 = urem i32 %2692, %2694
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1303
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1303: ; preds = %.split.i8.i.i.i.i.i.i.i.i1302, %.split.us.i11.i.i.i.i.i.i.i.i1310
-  %.us-phi.i9.i.i.i.i.i.i.i.i1304 = phi i32 [ %.recomposed1963, %.split.i8.i.i.i.i.i.i.i.i1302 ], [ %2699, %.split.us.i11.i.i.i.i.i.i.i.i1310 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i1304 = phi i32 [ %.recomposed2114, %.split.i8.i.i.i.i.i.i.i.i1302 ], [ %2699, %.split.us.i11.i.i.i.i.i.i.i.i1310 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i1305 = phi i32 [ %2700, %.split.i8.i.i.i.i.i.i.i.i1302 ], [ %2698, %.split.us.i11.i.i.i.i.i.i.i.i1310 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1306 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i1304 to i64
   %2702 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i1305 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKtLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKtLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1303, %.split.i.i.i.i.i.i.i.i.i1312, %.split.us.i.i.i.i.i.i.i.i.i1313
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i1307 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1306, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1303 ], [ %.recomposed1962, %.split.i.i.i.i.i.i.i.i.i1312 ], [ %2688, %.split.us.i.i.i.i.i.i.i.i.i1313 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i1307 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1306, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1303 ], [ %.recomposed2113, %.split.i.i.i.i.i.i.i.i.i1312 ], [ %2688, %.split.us.i.i.i.i.i.i.i.i.i1313 ]
   %.sink.i.i.i.i.i.i.i.i1308 = phi i64 [ %2702, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1303 ], [ %2689, %.split.i.i.i.i.i.i.i.i.i1312 ], [ %2687, %.split.us.i.i.i.i.i.i.i.i.i1313 ]
   %2703 = getelementptr inbounds nuw float, ptr %2675, i64 %.0194.i.i.i.i.i1300
   %2704 = mul i64 %.sink.i.i.i.i.i.i.i.i1308, %2636
@@ -56275,7 +56275,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i1278:                ; preds = %2742
   %2749 = udiv i64 %.061186.i.i.i.i.i1266, %2743
   %2750 = mul i64 %2749, %2743
-  %.recomposed1964 = urem i64 %.061186.i.i.i.i.i1266, %2743
+  %.recomposed2115 = urem i64 %.061186.i.i.i.i.i1266, %2743
   br label %2763
 
 2751:                                             ; preds = %2740
@@ -56296,18 +56296,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i1268:               ; preds = %2751
   %2760 = udiv i32 %2752, %2754
   %2761 = mul i32 %2760, %2754
-  %.recomposed1965 = urem i32 %2752, %2754
+  %.recomposed2116 = urem i32 %2752, %2754
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1269
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1269: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i1268, %.split.us.i11.i.i.i.i125.i.i.i.i.i1276
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i1270 = phi i32 [ %.recomposed1965, %.split.i8.i.i.i.i118.i.i.i.i.i1268 ], [ %2759, %.split.us.i11.i.i.i.i125.i.i.i.i.i1276 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i1270 = phi i32 [ %.recomposed2116, %.split.i8.i.i.i.i118.i.i.i.i.i1268 ], [ %2759, %.split.us.i11.i.i.i.i125.i.i.i.i.i1276 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i1271 = phi i32 [ %2760, %.split.i8.i.i.i.i118.i.i.i.i.i1268 ], [ %2758, %.split.us.i11.i.i.i.i125.i.i.i.i.i1276 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1272 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i1270 to i64
   %2762 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i1271 to i64
   br label %2763
 
 2763:                                             ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1269, %.split.i.i.i.i.i127.i.i.i.i.i1278, %.split.us.i.i.i.i.i128.i.i.i.i.i1279
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i1273 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1272, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1269 ], [ %.recomposed1964, %.split.i.i.i.i.i127.i.i.i.i.i1278 ], [ %2748, %.split.us.i.i.i.i.i128.i.i.i.i.i1279 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i1273 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1272, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1269 ], [ %.recomposed2115, %.split.i.i.i.i.i127.i.i.i.i.i1278 ], [ %2748, %.split.us.i.i.i.i.i128.i.i.i.i.i1279 ]
   %.sink.i.i.i.i124.i.i.i.i.i1274 = phi i64 [ %2762, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1269 ], [ %2749, %.split.i.i.i.i.i127.i.i.i.i.i1278 ], [ %2747, %.split.us.i.i.i.i.i128.i.i.i.i.i1279 ]
   %2764 = getelementptr inbounds nuw float, ptr %2675, i64 %.061186.i.i.i.i.i1266
   %2765 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i1274, %2636
@@ -56378,7 +56378,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i1251:                       ; preds = %2794
   %2797 = udiv i64 %.0107.i.i.i.i.i1232, %2659
   %2798 = mul i64 %2797, %2659
-  %.recomposed1966 = urem i64 %.0107.i.i.i.i.i1232, %2659
+  %.recomposed2117 = urem i64 %.0107.i.i.i.i.i1232, %2659
   br label %2805
 
 2799:                                             ; preds = %2792
@@ -56393,11 +56393,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i1233:                      ; preds = %2799
   %2803 = udiv i32 %2800, %2780
   %2804 = mul i32 %2803, %2780
-  %.recomposed1967 = urem i32 %2800, %2780
+  %.recomposed2118 = urem i32 %2800, %2780
   br label %2815
 
 2805:                                             ; preds = %.split.i.i.i.i.i.i.i.i1251, %.split.us.i.i.i.i.i.i.i.i1258
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1252 = phi i64 [ %2796, %.split.us.i.i.i.i.i.i.i.i1258 ], [ %.recomposed1966, %.split.i.i.i.i.i.i.i.i1251 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1252 = phi i64 [ %2796, %.split.us.i.i.i.i.i.i.i.i1258 ], [ %.recomposed2117, %.split.i.i.i.i.i.i.i.i1251 ]
   %.sink.i.ph.i.i.i.i.i.i1253 = phi i64 [ %2795, %.split.us.i.i.i.i.i.i.i.i1258 ], [ %2797, %.split.i.i.i.i.i.i.i.i1251 ]
   %.val4.val55.i.i.i.i.i.i1254 = load ptr, ptr %2787, align 8, !tbaa !119
   %2806 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i1254, i64 8
@@ -56416,11 +56416,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i1256:                   ; preds = %2805
   %2813 = udiv i64 %.0107.i.i.i.i.i1232, %2807
   %2814 = mul i64 %2813, %2807
-  %.recomposed1968 = urem i64 %.0107.i.i.i.i.i1232, %2807
+  %.recomposed2119 = urem i64 %.0107.i.i.i.i.i1232, %2807
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKtLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 2815:                                             ; preds = %.split.i8.i.i.i.i.i.i.i1233, %.split.us.i11.i.i.i.i.i.i.i1250
-  %.us-phi.i9.i.i.i.i.i.i.i1234 = phi i32 [ %.recomposed1967, %.split.i8.i.i.i.i.i.i.i1233 ], [ %2802, %.split.us.i11.i.i.i.i.i.i.i1250 ]
+  %.us-phi.i9.i.i.i.i.i.i.i1234 = phi i32 [ %.recomposed2118, %.split.i8.i.i.i.i.i.i.i1233 ], [ %2802, %.split.us.i11.i.i.i.i.i.i.i1250 ]
   %.us-phi23.i10.i.i.i.i.i.i.i1235 = phi i32 [ %2803, %.split.i8.i.i.i.i.i.i.i1233 ], [ %2801, %.split.us.i11.i.i.i.i.i.i.i1250 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i1236 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i1234 to i64
   %2816 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i1235 to i64
@@ -56442,11 +56442,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i1239:                  ; preds = %2815
   %2825 = udiv i32 %2800, %2819
   %2826 = mul i32 %2825, %2819
-  %.recomposed1969 = urem i32 %2800, %2819
+  %.recomposed2120 = urem i32 %2800, %2819
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1240
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1240: ; preds = %.split.i8.i.i.i.i.i22.i.i.i1239, %.split.us.i11.i.i.i.i.i29.i.i.i1249
-  %.us-phi.i9.i.i.i.i.i24.i.i.i1241 = phi i32 [ %.recomposed1969, %.split.i8.i.i.i.i.i22.i.i.i1239 ], [ %2824, %.split.us.i11.i.i.i.i.i29.i.i.i1249 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i1241 = phi i32 [ %.recomposed2120, %.split.i8.i.i.i.i.i22.i.i.i1239 ], [ %2824, %.split.us.i11.i.i.i.i.i29.i.i.i1249 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i1242 = phi i32 [ %2825, %.split.i8.i.i.i.i.i22.i.i.i1239 ], [ %2823, %.split.us.i11.i.i.i.i.i29.i.i.i1249 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1243 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i1241 to i64
   %2827 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i1242 to i64
@@ -56455,7 +56455,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKtLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1240, %.split.i.i.i.i.i.i31.i.i.i1256, %.split.us.i.i.i.i.i.i32.i.i.i1257
   %.sink.i8.i.i.i.i.i.i1244 = phi i64 [ %2816, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1240 ], [ %.sink.i.ph.i.i.i.i.i.i1253, %.split.i.i.i.i.i.i31.i.i.i1256 ], [ %.sink.i.ph.i.i.i.i.i.i1253, %.split.us.i.i.i.i.i.i32.i.i.i1257 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i1245 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i1236, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1240 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1252, %.split.i.i.i.i.i.i31.i.i.i1256 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1252, %.split.us.i.i.i.i.i.i32.i.i.i1257 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i1246 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1243, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1240 ], [ %.recomposed1968, %.split.i.i.i.i.i.i31.i.i.i1256 ], [ %2812, %.split.us.i.i.i.i.i.i32.i.i.i1257 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i1246 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1243, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1240 ], [ %.recomposed2119, %.split.i.i.i.i.i.i31.i.i.i1256 ], [ %2812, %.split.us.i.i.i.i.i.i32.i.i.i1257 ]
   %.sink.i.i.i.i.i28.i.i.i1247 = phi i64 [ %2827, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1240 ], [ %2813, %.split.i.i.i.i.i.i31.i.i.i1256 ], [ %2811, %.split.us.i.i.i.i.i.i32.i.i.i1257 ]
   %2828 = mul i64 %.sink.i8.i.i.i.i.i.i1244, %2784
   %2829 = getelementptr float, ptr %2786, i64 %2828
@@ -56611,7 +56611,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i1201:                         ; preds = %2880
   %2883 = udiv i64 %.06199.i.i.i.i.i1182, %2659
   %2884 = mul i64 %2883, %2659
-  %.recomposed1970 = urem i64 %.06199.i.i.i.i.i1182, %2659
+  %.recomposed2121 = urem i64 %.06199.i.i.i.i.i1182, %2659
   br label %2891
 
 2885:                                             ; preds = %.lr.ph100.i.i.i.i.i1181
@@ -56626,11 +56626,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i1183:                        ; preds = %2885
   %2889 = udiv i32 %2886, %2865
   %2890 = mul i32 %2889, %2865
-  %.recomposed1971 = urem i32 %2886, %2865
+  %.recomposed2122 = urem i32 %2886, %2865
   br label %2901
 
 2891:                                             ; preds = %.split.i.i.i.i.i.i.i1201, %.split.us.i.i.i.i.i.i.i1208
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1202 = phi i64 [ %2882, %.split.us.i.i.i.i.i.i.i1208 ], [ %.recomposed1970, %.split.i.i.i.i.i.i.i1201 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1202 = phi i64 [ %2882, %.split.us.i.i.i.i.i.i.i1208 ], [ %.recomposed2121, %.split.i.i.i.i.i.i.i1201 ]
   %.sink.i.ph.i.i.i.i.i1203 = phi i64 [ %2881, %.split.us.i.i.i.i.i.i.i1208 ], [ %2883, %.split.i.i.i.i.i.i.i1201 ]
   %.val4.val55.i.i.i.i.i1204 = load ptr, ptr %2874, align 8, !tbaa !119
   %2892 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i1204, i64 8
@@ -56649,11 +56649,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i1206:                     ; preds = %2891
   %2899 = udiv i64 %.06199.i.i.i.i.i1182, %2893
   %2900 = mul i64 %2899, %2893
-  %.recomposed1972 = urem i64 %.06199.i.i.i.i.i1182, %2893
+  %.recomposed2123 = urem i64 %.06199.i.i.i.i.i1182, %2893
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKtLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 2901:                                             ; preds = %.split.i8.i.i.i.i.i.i1183, %.split.us.i11.i.i.i.i.i.i1200
-  %.us-phi.i9.i.i.i.i.i.i1184 = phi i32 [ %.recomposed1971, %.split.i8.i.i.i.i.i.i1183 ], [ %2888, %.split.us.i11.i.i.i.i.i.i1200 ]
+  %.us-phi.i9.i.i.i.i.i.i1184 = phi i32 [ %.recomposed2122, %.split.i8.i.i.i.i.i.i1183 ], [ %2888, %.split.us.i11.i.i.i.i.i.i1200 ]
   %.us-phi23.i10.i.i.i.i.i.i1185 = phi i32 [ %2889, %.split.i8.i.i.i.i.i.i1183 ], [ %2887, %.split.us.i11.i.i.i.i.i.i1200 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i1186 = zext i32 %.us-phi.i9.i.i.i.i.i.i1184 to i64
   %2902 = zext i32 %.us-phi23.i10.i.i.i.i.i.i1185 to i64
@@ -56675,11 +56675,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i1189:                    ; preds = %2901
   %2911 = udiv i32 %2886, %2905
   %2912 = mul i32 %2911, %2905
-  %.recomposed1973 = urem i32 %2886, %2905
+  %.recomposed2124 = urem i32 %2886, %2905
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1190
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1190: ; preds = %.split.i8.i.i.i.i34.i.i.i1189, %.split.us.i11.i.i.i.i38.i.i.i1199
-  %.us-phi.i9.i.i.i.i35.i.i.i1191 = phi i32 [ %.recomposed1973, %.split.i8.i.i.i.i34.i.i.i1189 ], [ %2910, %.split.us.i11.i.i.i.i38.i.i.i1199 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i1191 = phi i32 [ %.recomposed2124, %.split.i8.i.i.i.i34.i.i.i1189 ], [ %2910, %.split.us.i11.i.i.i.i38.i.i.i1199 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i1192 = phi i32 [ %2911, %.split.i8.i.i.i.i34.i.i.i1189 ], [ %2909, %.split.us.i11.i.i.i.i38.i.i.i1199 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i1193 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i1191 to i64
   %2913 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i1192 to i64
@@ -56688,7 +56688,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKtLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1190, %.split.i.i.i.i.i40.i.i.i1206, %.split.us.i.i.i.i.i41.i.i.i1207
   %.sink.i8.i.i.i.i.i1194 = phi i64 [ %2902, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1190 ], [ %.sink.i.ph.i.i.i.i.i1203, %.split.i.i.i.i.i40.i.i.i1206 ], [ %.sink.i.ph.i.i.i.i.i1203, %.split.us.i.i.i.i.i41.i.i.i1207 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i1195 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i1186, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1190 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1202, %.split.i.i.i.i.i40.i.i.i1206 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1202, %.split.us.i.i.i.i.i41.i.i.i1207 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i1196 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i1193, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1190 ], [ %.recomposed1972, %.split.i.i.i.i.i40.i.i.i1206 ], [ %2898, %.split.us.i.i.i.i.i41.i.i.i1207 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i1196 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i1193, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1190 ], [ %.recomposed2123, %.split.i.i.i.i.i40.i.i.i1206 ], [ %2898, %.split.us.i.i.i.i.i41.i.i.i1207 ]
   %.sink.i.i.i.i.i.i.i1197 = phi i64 [ %2913, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1190 ], [ %2899, %.split.i.i.i.i.i40.i.i.i1206 ], [ %2897, %.split.us.i.i.i.i.i41.i.i.i1207 ]
   %2914 = mul i64 %.sink.i8.i.i.i.i.i1194, %2869
   %2915 = getelementptr float, ptr %2873, i64 %2914
@@ -56887,7 +56887,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i1423: ; pr
 .split.i.i.i.i.i.i.i.i.i1476:                     ; preds = %2992
   %2999 = udiv i64 %.0194.i.i.i.i.i1464, %2993
   %3000 = mul i64 %2999, %2993
-  %.recomposed1974 = urem i64 %.0194.i.i.i.i.i1464, %2993
+  %.recomposed2125 = urem i64 %.0194.i.i.i.i.i1464, %2993
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKjLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 3001:                                             ; preds = %2990
@@ -56908,18 +56908,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i1423: ; pr
 .split.i8.i.i.i.i.i.i.i.i1466:                    ; preds = %3001
   %3010 = udiv i32 %3002, %3004
   %3011 = mul i32 %3010, %3004
-  %.recomposed1975 = urem i32 %3002, %3004
+  %.recomposed2126 = urem i32 %3002, %3004
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1467
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1467: ; preds = %.split.i8.i.i.i.i.i.i.i.i1466, %.split.us.i11.i.i.i.i.i.i.i.i1474
-  %.us-phi.i9.i.i.i.i.i.i.i.i1468 = phi i32 [ %.recomposed1975, %.split.i8.i.i.i.i.i.i.i.i1466 ], [ %3009, %.split.us.i11.i.i.i.i.i.i.i.i1474 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i1468 = phi i32 [ %.recomposed2126, %.split.i8.i.i.i.i.i.i.i.i1466 ], [ %3009, %.split.us.i11.i.i.i.i.i.i.i.i1474 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i1469 = phi i32 [ %3010, %.split.i8.i.i.i.i.i.i.i.i1466 ], [ %3008, %.split.us.i11.i.i.i.i.i.i.i.i1474 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1470 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i1468 to i64
   %3012 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i1469 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKjLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKjLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1467, %.split.i.i.i.i.i.i.i.i.i1476, %.split.us.i.i.i.i.i.i.i.i.i1477
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i1471 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1470, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1467 ], [ %.recomposed1974, %.split.i.i.i.i.i.i.i.i.i1476 ], [ %2998, %.split.us.i.i.i.i.i.i.i.i.i1477 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i1471 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1470, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1467 ], [ %.recomposed2125, %.split.i.i.i.i.i.i.i.i.i1476 ], [ %2998, %.split.us.i.i.i.i.i.i.i.i.i1477 ]
   %.sink.i.i.i.i.i.i.i.i1472 = phi i64 [ %3012, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1467 ], [ %2999, %.split.i.i.i.i.i.i.i.i.i1476 ], [ %2997, %.split.us.i.i.i.i.i.i.i.i.i1477 ]
   %3013 = getelementptr inbounds nuw float, ptr %2985, i64 %.0194.i.i.i.i.i1464
   %3014 = mul i64 %.sink.i.i.i.i.i.i.i.i1472, %2946
@@ -57065,7 +57065,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i1442:                ; preds = %3052
   %3059 = udiv i64 %.061186.i.i.i.i.i1430, %3053
   %3060 = mul i64 %3059, %3053
-  %.recomposed1976 = urem i64 %.061186.i.i.i.i.i1430, %3053
+  %.recomposed2127 = urem i64 %.061186.i.i.i.i.i1430, %3053
   br label %3073
 
 3061:                                             ; preds = %3050
@@ -57086,18 +57086,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i1432:               ; preds = %3061
   %3070 = udiv i32 %3062, %3064
   %3071 = mul i32 %3070, %3064
-  %.recomposed1977 = urem i32 %3062, %3064
+  %.recomposed2128 = urem i32 %3062, %3064
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1433
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1433: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i1432, %.split.us.i11.i.i.i.i125.i.i.i.i.i1440
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i1434 = phi i32 [ %.recomposed1977, %.split.i8.i.i.i.i118.i.i.i.i.i1432 ], [ %3069, %.split.us.i11.i.i.i.i125.i.i.i.i.i1440 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i1434 = phi i32 [ %.recomposed2128, %.split.i8.i.i.i.i118.i.i.i.i.i1432 ], [ %3069, %.split.us.i11.i.i.i.i125.i.i.i.i.i1440 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i1435 = phi i32 [ %3070, %.split.i8.i.i.i.i118.i.i.i.i.i1432 ], [ %3068, %.split.us.i11.i.i.i.i125.i.i.i.i.i1440 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1436 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i1434 to i64
   %3072 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i1435 to i64
   br label %3073
 
 3073:                                             ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1433, %.split.i.i.i.i.i127.i.i.i.i.i1442, %.split.us.i.i.i.i.i128.i.i.i.i.i1443
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i1437 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1436, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1433 ], [ %.recomposed1976, %.split.i.i.i.i.i127.i.i.i.i.i1442 ], [ %3058, %.split.us.i.i.i.i.i128.i.i.i.i.i1443 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i1437 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1436, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1433 ], [ %.recomposed2127, %.split.i.i.i.i.i127.i.i.i.i.i1442 ], [ %3058, %.split.us.i.i.i.i.i128.i.i.i.i.i1443 ]
   %.sink.i.i.i.i124.i.i.i.i.i1438 = phi i64 [ %3072, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1433 ], [ %3059, %.split.i.i.i.i.i127.i.i.i.i.i1442 ], [ %3057, %.split.us.i.i.i.i.i128.i.i.i.i.i1443 ]
   %3074 = getelementptr inbounds nuw float, ptr %2985, i64 %.061186.i.i.i.i.i1430
   %3075 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i1438, %2946
@@ -57168,7 +57168,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i1415:                       ; preds = %3104
   %3107 = udiv i64 %.0107.i.i.i.i.i1396, %2969
   %3108 = mul i64 %3107, %2969
-  %.recomposed1978 = urem i64 %.0107.i.i.i.i.i1396, %2969
+  %.recomposed2129 = urem i64 %.0107.i.i.i.i.i1396, %2969
   br label %3115
 
 3109:                                             ; preds = %3102
@@ -57183,11 +57183,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i1397:                      ; preds = %3109
   %3113 = udiv i32 %3110, %3090
   %3114 = mul i32 %3113, %3090
-  %.recomposed1979 = urem i32 %3110, %3090
+  %.recomposed2130 = urem i32 %3110, %3090
   br label %3125
 
 3115:                                             ; preds = %.split.i.i.i.i.i.i.i.i1415, %.split.us.i.i.i.i.i.i.i.i1422
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1416 = phi i64 [ %3106, %.split.us.i.i.i.i.i.i.i.i1422 ], [ %.recomposed1978, %.split.i.i.i.i.i.i.i.i1415 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1416 = phi i64 [ %3106, %.split.us.i.i.i.i.i.i.i.i1422 ], [ %.recomposed2129, %.split.i.i.i.i.i.i.i.i1415 ]
   %.sink.i.ph.i.i.i.i.i.i1417 = phi i64 [ %3105, %.split.us.i.i.i.i.i.i.i.i1422 ], [ %3107, %.split.i.i.i.i.i.i.i.i1415 ]
   %.val4.val55.i.i.i.i.i.i1418 = load ptr, ptr %3097, align 8, !tbaa !119
   %3116 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i1418, i64 8
@@ -57206,11 +57206,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i1420:                   ; preds = %3115
   %3123 = udiv i64 %.0107.i.i.i.i.i1396, %3117
   %3124 = mul i64 %3123, %3117
-  %.recomposed1980 = urem i64 %.0107.i.i.i.i.i1396, %3117
+  %.recomposed2131 = urem i64 %.0107.i.i.i.i.i1396, %3117
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKjLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 3125:                                             ; preds = %.split.i8.i.i.i.i.i.i.i1397, %.split.us.i11.i.i.i.i.i.i.i1414
-  %.us-phi.i9.i.i.i.i.i.i.i1398 = phi i32 [ %.recomposed1979, %.split.i8.i.i.i.i.i.i.i1397 ], [ %3112, %.split.us.i11.i.i.i.i.i.i.i1414 ]
+  %.us-phi.i9.i.i.i.i.i.i.i1398 = phi i32 [ %.recomposed2130, %.split.i8.i.i.i.i.i.i.i1397 ], [ %3112, %.split.us.i11.i.i.i.i.i.i.i1414 ]
   %.us-phi23.i10.i.i.i.i.i.i.i1399 = phi i32 [ %3113, %.split.i8.i.i.i.i.i.i.i1397 ], [ %3111, %.split.us.i11.i.i.i.i.i.i.i1414 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i1400 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i1398 to i64
   %3126 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i1399 to i64
@@ -57232,11 +57232,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i1403:                  ; preds = %3125
   %3135 = udiv i32 %3110, %3129
   %3136 = mul i32 %3135, %3129
-  %.recomposed1981 = urem i32 %3110, %3129
+  %.recomposed2132 = urem i32 %3110, %3129
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1404
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1404: ; preds = %.split.i8.i.i.i.i.i22.i.i.i1403, %.split.us.i11.i.i.i.i.i29.i.i.i1413
-  %.us-phi.i9.i.i.i.i.i24.i.i.i1405 = phi i32 [ %.recomposed1981, %.split.i8.i.i.i.i.i22.i.i.i1403 ], [ %3134, %.split.us.i11.i.i.i.i.i29.i.i.i1413 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i1405 = phi i32 [ %.recomposed2132, %.split.i8.i.i.i.i.i22.i.i.i1403 ], [ %3134, %.split.us.i11.i.i.i.i.i29.i.i.i1413 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i1406 = phi i32 [ %3135, %.split.i8.i.i.i.i.i22.i.i.i1403 ], [ %3133, %.split.us.i11.i.i.i.i.i29.i.i.i1413 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1407 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i1405 to i64
   %3137 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i1406 to i64
@@ -57245,7 +57245,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKjLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1404, %.split.i.i.i.i.i.i31.i.i.i1420, %.split.us.i.i.i.i.i.i32.i.i.i1421
   %.sink.i8.i.i.i.i.i.i1408 = phi i64 [ %3126, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1404 ], [ %.sink.i.ph.i.i.i.i.i.i1417, %.split.i.i.i.i.i.i31.i.i.i1420 ], [ %.sink.i.ph.i.i.i.i.i.i1417, %.split.us.i.i.i.i.i.i32.i.i.i1421 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i1409 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i1400, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1404 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1416, %.split.i.i.i.i.i.i31.i.i.i1420 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1416, %.split.us.i.i.i.i.i.i32.i.i.i1421 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i1410 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1407, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1404 ], [ %.recomposed1980, %.split.i.i.i.i.i.i31.i.i.i1420 ], [ %3122, %.split.us.i.i.i.i.i.i32.i.i.i1421 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i1410 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1407, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1404 ], [ %.recomposed2131, %.split.i.i.i.i.i.i31.i.i.i1420 ], [ %3122, %.split.us.i.i.i.i.i.i32.i.i.i1421 ]
   %.sink.i.i.i.i.i28.i.i.i1411 = phi i64 [ %3137, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1404 ], [ %3123, %.split.i.i.i.i.i.i31.i.i.i1420 ], [ %3121, %.split.us.i.i.i.i.i.i32.i.i.i1421 ]
   %3138 = mul i64 %.sink.i8.i.i.i.i.i.i1408, %3094
   %3139 = getelementptr float, ptr %3096, i64 %3138
@@ -57401,7 +57401,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i1365:                         ; preds = %3190
   %3193 = udiv i64 %.06199.i.i.i.i.i1346, %2969
   %3194 = mul i64 %3193, %2969
-  %.recomposed1982 = urem i64 %.06199.i.i.i.i.i1346, %2969
+  %.recomposed2133 = urem i64 %.06199.i.i.i.i.i1346, %2969
   br label %3201
 
 3195:                                             ; preds = %.lr.ph100.i.i.i.i.i1345
@@ -57416,11 +57416,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i1347:                        ; preds = %3195
   %3199 = udiv i32 %3196, %3175
   %3200 = mul i32 %3199, %3175
-  %.recomposed1983 = urem i32 %3196, %3175
+  %.recomposed2134 = urem i32 %3196, %3175
   br label %3211
 
 3201:                                             ; preds = %.split.i.i.i.i.i.i.i1365, %.split.us.i.i.i.i.i.i.i1372
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1366 = phi i64 [ %3192, %.split.us.i.i.i.i.i.i.i1372 ], [ %.recomposed1982, %.split.i.i.i.i.i.i.i1365 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1366 = phi i64 [ %3192, %.split.us.i.i.i.i.i.i.i1372 ], [ %.recomposed2133, %.split.i.i.i.i.i.i.i1365 ]
   %.sink.i.ph.i.i.i.i.i1367 = phi i64 [ %3191, %.split.us.i.i.i.i.i.i.i1372 ], [ %3193, %.split.i.i.i.i.i.i.i1365 ]
   %.val4.val55.i.i.i.i.i1368 = load ptr, ptr %3184, align 8, !tbaa !119
   %3202 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i1368, i64 8
@@ -57439,11 +57439,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i1370:                     ; preds = %3201
   %3209 = udiv i64 %.06199.i.i.i.i.i1346, %3203
   %3210 = mul i64 %3209, %3203
-  %.recomposed1984 = urem i64 %.06199.i.i.i.i.i1346, %3203
+  %.recomposed2135 = urem i64 %.06199.i.i.i.i.i1346, %3203
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKjLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 3211:                                             ; preds = %.split.i8.i.i.i.i.i.i1347, %.split.us.i11.i.i.i.i.i.i1364
-  %.us-phi.i9.i.i.i.i.i.i1348 = phi i32 [ %.recomposed1983, %.split.i8.i.i.i.i.i.i1347 ], [ %3198, %.split.us.i11.i.i.i.i.i.i1364 ]
+  %.us-phi.i9.i.i.i.i.i.i1348 = phi i32 [ %.recomposed2134, %.split.i8.i.i.i.i.i.i1347 ], [ %3198, %.split.us.i11.i.i.i.i.i.i1364 ]
   %.us-phi23.i10.i.i.i.i.i.i1349 = phi i32 [ %3199, %.split.i8.i.i.i.i.i.i1347 ], [ %3197, %.split.us.i11.i.i.i.i.i.i1364 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i1350 = zext i32 %.us-phi.i9.i.i.i.i.i.i1348 to i64
   %3212 = zext i32 %.us-phi23.i10.i.i.i.i.i.i1349 to i64
@@ -57465,11 +57465,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i1353:                    ; preds = %3211
   %3221 = udiv i32 %3196, %3215
   %3222 = mul i32 %3221, %3215
-  %.recomposed1985 = urem i32 %3196, %3215
+  %.recomposed2136 = urem i32 %3196, %3215
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1354
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1354: ; preds = %.split.i8.i.i.i.i34.i.i.i1353, %.split.us.i11.i.i.i.i38.i.i.i1363
-  %.us-phi.i9.i.i.i.i35.i.i.i1355 = phi i32 [ %.recomposed1985, %.split.i8.i.i.i.i34.i.i.i1353 ], [ %3220, %.split.us.i11.i.i.i.i38.i.i.i1363 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i1355 = phi i32 [ %.recomposed2136, %.split.i8.i.i.i.i34.i.i.i1353 ], [ %3220, %.split.us.i11.i.i.i.i38.i.i.i1363 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i1356 = phi i32 [ %3221, %.split.i8.i.i.i.i34.i.i.i1353 ], [ %3219, %.split.us.i11.i.i.i.i38.i.i.i1363 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i1357 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i1355 to i64
   %3223 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i1356 to i64
@@ -57478,7 +57478,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKjLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1354, %.split.i.i.i.i.i40.i.i.i1370, %.split.us.i.i.i.i.i41.i.i.i1371
   %.sink.i8.i.i.i.i.i1358 = phi i64 [ %3212, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1354 ], [ %.sink.i.ph.i.i.i.i.i1367, %.split.i.i.i.i.i40.i.i.i1370 ], [ %.sink.i.ph.i.i.i.i.i1367, %.split.us.i.i.i.i.i41.i.i.i1371 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i1359 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i1350, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1354 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1366, %.split.i.i.i.i.i40.i.i.i1370 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1366, %.split.us.i.i.i.i.i41.i.i.i1371 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i1360 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i1357, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1354 ], [ %.recomposed1984, %.split.i.i.i.i.i40.i.i.i1370 ], [ %3208, %.split.us.i.i.i.i.i41.i.i.i1371 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i1360 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i1357, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1354 ], [ %.recomposed2135, %.split.i.i.i.i.i40.i.i.i1370 ], [ %3208, %.split.us.i.i.i.i.i41.i.i.i1371 ]
   %.sink.i.i.i.i.i.i.i1361 = phi i64 [ %3223, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1354 ], [ %3209, %.split.i.i.i.i.i40.i.i.i1370 ], [ %3207, %.split.us.i.i.i.i.i41.i.i.i1371 ]
   %3224 = mul i64 %.sink.i8.i.i.i.i.i1358, %3179
   %3225 = getelementptr float, ptr %3183, i64 %3224
@@ -57677,7 +57677,7 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i1587: ; pr
 .split.i.i.i.i.i.i.i.i.i1640:                     ; preds = %3302
   %3309 = udiv i64 %.0194.i.i.i.i.i1628, %3303
   %3310 = mul i64 %3309, %3303
-  %.recomposed1986 = urem i64 %.0194.i.i.i.i.i1628, %3303
+  %.recomposed2137 = urem i64 %.0194.i.i.i.i.i1628, %3303
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKmLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 3311:                                             ; preds = %3300
@@ -57698,18 +57698,18 @@ _ZNK7xgboost6linalg10TensorViewIfLi2EE10ContiguousEv.exit.thread.i.i.i1587: ; pr
 .split.i8.i.i.i.i.i.i.i.i1630:                    ; preds = %3311
   %3320 = udiv i32 %3312, %3314
   %3321 = mul i32 %3320, %3314
-  %.recomposed1987 = urem i32 %3312, %3314
+  %.recomposed2138 = urem i32 %3312, %3314
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1631
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1631: ; preds = %.split.i8.i.i.i.i.i.i.i.i1630, %.split.us.i11.i.i.i.i.i.i.i.i1638
-  %.us-phi.i9.i.i.i.i.i.i.i.i1632 = phi i32 [ %.recomposed1987, %.split.i8.i.i.i.i.i.i.i.i1630 ], [ %3319, %.split.us.i11.i.i.i.i.i.i.i.i1638 ]
+  %.us-phi.i9.i.i.i.i.i.i.i.i1632 = phi i32 [ %.recomposed2138, %.split.i8.i.i.i.i.i.i.i.i1630 ], [ %3319, %.split.us.i11.i.i.i.i.i.i.i.i1638 ]
   %.us-phi23.i10.i.i.i.i.i.i.i.i1633 = phi i32 [ %3320, %.split.i8.i.i.i.i.i.i.i.i1630 ], [ %3318, %.split.us.i11.i.i.i.i.i.i.i.i1638 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1634 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i.i1632 to i64
   %3322 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i.i1633 to i64
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKmLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i
 
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKmLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1631, %.split.i.i.i.i.i.i.i.i.i1640, %.split.us.i.i.i.i.i.i.i.i.i1641
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i1635 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1634, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1631 ], [ %.recomposed1986, %.split.i.i.i.i.i.i.i.i.i1640 ], [ %3308, %.split.us.i.i.i.i.i.i.i.i.i1641 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i.i1635 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i.i1634, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1631 ], [ %.recomposed2137, %.split.i.i.i.i.i.i.i.i.i1640 ], [ %3308, %.split.us.i.i.i.i.i.i.i.i.i1641 ]
   %.sink.i.i.i.i.i.i.i.i1636 = phi i64 [ %3322, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i.i1631 ], [ %3309, %.split.i.i.i.i.i.i.i.i.i1640 ], [ %3307, %.split.us.i.i.i.i.i.i.i.i.i1641 ]
   %3323 = getelementptr inbounds nuw float, ptr %3295, i64 %.0194.i.i.i.i.i1628
   %3324 = mul i64 %.sink.i.i.i.i.i.i.i.i1636, %3256
@@ -57855,7 +57855,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i127.i.i.i.i.i1606:                ; preds = %3362
   %3369 = udiv i64 %.061186.i.i.i.i.i1594, %3363
   %3370 = mul i64 %3369, %3363
-  %.recomposed1988 = urem i64 %.061186.i.i.i.i.i1594, %3363
+  %.recomposed2139 = urem i64 %.061186.i.i.i.i.i1594, %3363
   br label %3383
 
 3371:                                             ; preds = %3360
@@ -57876,18 +57876,18 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i118.i.i.i.i.i1596:               ; preds = %3371
   %3380 = udiv i32 %3372, %3374
   %3381 = mul i32 %3380, %3374
-  %.recomposed1989 = urem i32 %3372, %3374
+  %.recomposed2140 = urem i32 %3372, %3374
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1597
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1597: ; preds = %.split.i8.i.i.i.i118.i.i.i.i.i1596, %.split.us.i11.i.i.i.i125.i.i.i.i.i1604
-  %.us-phi.i9.i.i.i.i120.i.i.i.i.i1598 = phi i32 [ %.recomposed1989, %.split.i8.i.i.i.i118.i.i.i.i.i1596 ], [ %3379, %.split.us.i11.i.i.i.i125.i.i.i.i.i1604 ]
+  %.us-phi.i9.i.i.i.i120.i.i.i.i.i1598 = phi i32 [ %.recomposed2140, %.split.i8.i.i.i.i118.i.i.i.i.i1596 ], [ %3379, %.split.us.i11.i.i.i.i125.i.i.i.i.i1604 ]
   %.us-phi23.i10.i.i.i.i121.i.i.i.i.i1599 = phi i32 [ %3380, %.split.i8.i.i.i.i118.i.i.i.i.i1596 ], [ %3378, %.split.us.i11.i.i.i.i125.i.i.i.i.i1604 ]
   %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1600 = zext i32 %.us-phi.i9.i.i.i.i120.i.i.i.i.i1598 to i64
   %3382 = zext i32 %.us-phi23.i10.i.i.i.i121.i.i.i.i.i1599 to i64
   br label %3383
 
 3383:                                             ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1597, %.split.i.i.i.i.i127.i.i.i.i.i1606, %.split.us.i.i.i.i.i128.i.i.i.i.i1607
-  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i1601 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1600, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1597 ], [ %.recomposed1988, %.split.i.i.i.i.i127.i.i.i.i.i1606 ], [ %3368, %.split.us.i.i.i.i.i128.i.i.i.i.i1607 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i123.i.i.i.i.i1601 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i122.i.i.i.i.i1600, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1597 ], [ %.recomposed2139, %.split.i.i.i.i.i127.i.i.i.i.i1606 ], [ %3368, %.split.us.i.i.i.i.i128.i.i.i.i.i1607 ]
   %.sink.i.i.i.i124.i.i.i.i.i1602 = phi i64 [ %3382, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i119.i.i.i.i.i1597 ], [ %3369, %.split.i.i.i.i.i127.i.i.i.i.i1606 ], [ %3367, %.split.us.i.i.i.i.i128.i.i.i.i.i1607 ]
   %3384 = getelementptr inbounds nuw float, ptr %3295, i64 %.061186.i.i.i.i.i1594
   %3385 = mul i64 %.sink.i.i.i.i124.i.i.i.i.i1602, %3256
@@ -57958,7 +57958,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i.i.i1579:                       ; preds = %3414
   %3417 = udiv i64 %.0107.i.i.i.i.i1560, %3279
   %3418 = mul i64 %3417, %3279
-  %.recomposed1990 = urem i64 %.0107.i.i.i.i.i1560, %3279
+  %.recomposed2141 = urem i64 %.0107.i.i.i.i.i1560, %3279
   br label %3425
 
 3419:                                             ; preds = %3412
@@ -57973,11 +57973,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i.i.i1561:                      ; preds = %3419
   %3423 = udiv i32 %3420, %3400
   %3424 = mul i32 %3423, %3400
-  %.recomposed1991 = urem i32 %3420, %3400
+  %.recomposed2142 = urem i32 %3420, %3400
   br label %3435
 
 3425:                                             ; preds = %.split.i.i.i.i.i.i.i.i1579, %.split.us.i.i.i.i.i.i.i.i1586
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1580 = phi i64 [ %3416, %.split.us.i.i.i.i.i.i.i.i1586 ], [ %.recomposed1990, %.split.i.i.i.i.i.i.i.i1579 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1580 = phi i64 [ %3416, %.split.us.i.i.i.i.i.i.i.i1586 ], [ %.recomposed2141, %.split.i.i.i.i.i.i.i.i1579 ]
   %.sink.i.ph.i.i.i.i.i.i1581 = phi i64 [ %3415, %.split.us.i.i.i.i.i.i.i.i1586 ], [ %3417, %.split.i.i.i.i.i.i.i.i1579 ]
   %.val4.val55.i.i.i.i.i.i1582 = load ptr, ptr %3407, align 8, !tbaa !119
   %3426 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i.i1582, i64 8
@@ -57996,11 +57996,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i.i.i.i.i.i31.i.i.i1584:                   ; preds = %3425
   %3433 = udiv i64 %.0107.i.i.i.i.i1560, %3427
   %3434 = mul i64 %3433, %3427
-  %.recomposed1992 = urem i64 %.0107.i.i.i.i.i1560, %3427
+  %.recomposed2143 = urem i64 %.0107.i.i.i.i.i1560, %3427
   br label %_ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKmLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i
 
 3435:                                             ; preds = %.split.i8.i.i.i.i.i.i.i1561, %.split.us.i11.i.i.i.i.i.i.i1578
-  %.us-phi.i9.i.i.i.i.i.i.i1562 = phi i32 [ %.recomposed1991, %.split.i8.i.i.i.i.i.i.i1561 ], [ %3422, %.split.us.i11.i.i.i.i.i.i.i1578 ]
+  %.us-phi.i9.i.i.i.i.i.i.i1562 = phi i32 [ %.recomposed2142, %.split.i8.i.i.i.i.i.i.i1561 ], [ %3422, %.split.us.i11.i.i.i.i.i.i.i1578 ]
   %.us-phi23.i10.i.i.i.i.i.i.i1563 = phi i32 [ %3423, %.split.i8.i.i.i.i.i.i.i1561 ], [ %3421, %.split.us.i11.i.i.i.i.i.i.i1578 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i.i1564 = zext i32 %.us-phi.i9.i.i.i.i.i.i.i1562 to i64
   %3436 = zext i32 %.us-phi23.i10.i.i.i.i.i.i.i1563 to i64
@@ -58022,11 +58022,11 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 .split.i8.i.i.i.i.i22.i.i.i1567:                  ; preds = %3435
   %3445 = udiv i32 %3420, %3439
   %3446 = mul i32 %3445, %3439
-  %.recomposed1993 = urem i32 %3420, %3439
+  %.recomposed2144 = urem i32 %3420, %3439
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1568
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1568: ; preds = %.split.i8.i.i.i.i.i22.i.i.i1567, %.split.us.i11.i.i.i.i.i29.i.i.i1577
-  %.us-phi.i9.i.i.i.i.i24.i.i.i1569 = phi i32 [ %.recomposed1993, %.split.i8.i.i.i.i.i22.i.i.i1567 ], [ %3444, %.split.us.i11.i.i.i.i.i29.i.i.i1577 ]
+  %.us-phi.i9.i.i.i.i.i24.i.i.i1569 = phi i32 [ %.recomposed2144, %.split.i8.i.i.i.i.i22.i.i.i1567 ], [ %3444, %.split.us.i11.i.i.i.i.i29.i.i.i1577 ]
   %.us-phi23.i10.i.i.i.i.i25.i.i.i1570 = phi i32 [ %3445, %.split.i8.i.i.i.i.i22.i.i.i1567 ], [ %3443, %.split.us.i11.i.i.i.i.i29.i.i.i1577 ]
   %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1571 = zext i32 %.us-phi.i9.i.i.i.i.i24.i.i.i1569 to i64
   %3447 = zext i32 %.us-phi23.i10.i.i.i.i.i25.i.i.i1570 to i64
@@ -58035,7 +58035,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS_7ContextENS_4JsonEPNS0_6TensorIT0_XT_EEEENKUlOT_E_clINS0_10TensorViewIKmLi2EEEEEDaSD_EUlSC_S9_E_EEvNSG_ISC_XT0_EEEiOT1_ENKUlmE0_clEm.exit.i.i.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1568, %.split.i.i.i.i.i.i31.i.i.i1584, %.split.us.i.i.i.i.i.i32.i.i.i1585
   %.sink.i8.i.i.i.i.i.i1572 = phi i64 [ %3436, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1568 ], [ %.sink.i.ph.i.i.i.i.i.i1581, %.split.i.i.i.i.i.i31.i.i.i1584 ], [ %.sink.i.ph.i.i.i.i.i.i1581, %.split.us.i.i.i.i.i.i32.i.i.i1585 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i.i1573 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i.i1564, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1568 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1580, %.split.i.i.i.i.i.i31.i.i.i1584 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i.i1580, %.split.us.i.i.i.i.i.i32.i.i.i1585 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i1574 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1571, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1568 ], [ %.recomposed1992, %.split.i.i.i.i.i.i31.i.i.i1584 ], [ %3432, %.split.us.i.i.i.i.i.i32.i.i.i1585 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i27.i.i.i1574 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i26.i.i.i1571, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1568 ], [ %.recomposed2143, %.split.i.i.i.i.i.i31.i.i.i1584 ], [ %3432, %.split.us.i.i.i.i.i.i32.i.i.i1585 ]
   %.sink.i.i.i.i.i28.i.i.i1575 = phi i64 [ %3447, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i23.i.i.i1568 ], [ %3433, %.split.i.i.i.i.i.i31.i.i.i1584 ], [ %3431, %.split.us.i.i.i.i.i.i32.i.i.i1585 ]
   %3448 = mul i64 %.sink.i8.i.i.i.i.i.i1572, %3404
   %3449 = getelementptr float, ptr %3406, i64 %3448
@@ -58191,7 +58191,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i.i.i1529:                         ; preds = %3500
   %3503 = udiv i64 %.06199.i.i.i.i.i1510, %3279
   %3504 = mul i64 %3503, %3279
-  %.recomposed1994 = urem i64 %.06199.i.i.i.i.i1510, %3279
+  %.recomposed2145 = urem i64 %.06199.i.i.i.i.i1510, %3279
   br label %3511
 
 3505:                                             ; preds = %.lr.ph100.i.i.i.i.i1509
@@ -58206,11 +58206,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i.i.i1511:                        ; preds = %3505
   %3509 = udiv i32 %3506, %3485
   %3510 = mul i32 %3509, %3485
-  %.recomposed1995 = urem i32 %3506, %3485
+  %.recomposed2146 = urem i32 %3506, %3485
   br label %3521
 
 3511:                                             ; preds = %.split.i.i.i.i.i.i.i1529, %.split.us.i.i.i.i.i.i.i1536
-  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1530 = phi i64 [ %3502, %.split.us.i.i.i.i.i.i.i1536 ], [ %.recomposed1994, %.split.i.i.i.i.i.i.i1529 ]
+  %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1530 = phi i64 [ %3502, %.split.us.i.i.i.i.i.i.i1536 ], [ %.recomposed2145, %.split.i.i.i.i.i.i.i1529 ]
   %.sink.i.ph.i.i.i.i.i1531 = phi i64 [ %3501, %.split.us.i.i.i.i.i.i.i1536 ], [ %3503, %.split.i.i.i.i.i.i.i1529 ]
   %.val4.val55.i.i.i.i.i1532 = load ptr, ptr %3494, align 8, !tbaa !119
   %3512 = getelementptr inbounds nuw i8, ptr %.val4.val55.i.i.i.i.i1532, i64 8
@@ -58229,11 +58229,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i.i.i.i.i40.i.i.i1534:                     ; preds = %3511
   %3519 = udiv i64 %.06199.i.i.i.i.i1510, %3513
   %3520 = mul i64 %3519, %3513
-  %.recomposed1996 = urem i64 %.06199.i.i.i.i.i1510, %3513
+  %.recomposed2147 = urem i64 %.06199.i.i.i.i.i1510, %3513
   br label %_ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKmLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i
 
 3521:                                             ; preds = %.split.i8.i.i.i.i.i.i1511, %.split.us.i11.i.i.i.i.i.i1528
-  %.us-phi.i9.i.i.i.i.i.i1512 = phi i32 [ %.recomposed1995, %.split.i8.i.i.i.i.i.i1511 ], [ %3508, %.split.us.i11.i.i.i.i.i.i1528 ]
+  %.us-phi.i9.i.i.i.i.i.i1512 = phi i32 [ %.recomposed2146, %.split.i8.i.i.i.i.i.i1511 ], [ %3508, %.split.us.i11.i.i.i.i.i.i1528 ]
   %.us-phi23.i10.i.i.i.i.i.i1513 = phi i32 [ %3509, %.split.i8.i.i.i.i.i.i1511 ], [ %3507, %.split.us.i11.i.i.i.i.i.i1528 ]
   %.sroa.5.1.le.i.i.i.i.i.i.i1514 = zext i32 %.us-phi.i9.i.i.i.i.i.i1512 to i64
   %3522 = zext i32 %.us-phi23.i10.i.i.i.i.i.i1513 to i64
@@ -58255,11 +58255,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .split.i8.i.i.i.i34.i.i.i1517:                    ; preds = %3521
   %3531 = udiv i32 %3506, %3525
   %3532 = mul i32 %3531, %3525
-  %.recomposed1997 = urem i32 %3506, %3525
+  %.recomposed2148 = urem i32 %3506, %3525
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1518
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1518: ; preds = %.split.i8.i.i.i.i34.i.i.i1517, %.split.us.i11.i.i.i.i38.i.i.i1527
-  %.us-phi.i9.i.i.i.i35.i.i.i1519 = phi i32 [ %.recomposed1997, %.split.i8.i.i.i.i34.i.i.i1517 ], [ %3530, %.split.us.i11.i.i.i.i38.i.i.i1527 ]
+  %.us-phi.i9.i.i.i.i35.i.i.i1519 = phi i32 [ %.recomposed2148, %.split.i8.i.i.i.i34.i.i.i1517 ], [ %3530, %.split.us.i11.i.i.i.i38.i.i.i1527 ]
   %.us-phi23.i10.i.i.i.i36.i.i.i1520 = phi i32 [ %3531, %.split.i8.i.i.i.i34.i.i.i1517 ], [ %3529, %.split.us.i11.i.i.i.i38.i.i.i1527 ]
   %.sroa.5.1.le.i.i.i.i.i37.i.i.i1521 = zext i32 %.us-phi.i9.i.i.i.i35.i.i.i1519 to i64
   %3533 = zext i32 %.us-phi23.i10.i.i.i.i36.i.i.i1520 to i64
@@ -58268,7 +58268,7 @@ _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit
 _ZN4dmlc12OMPException3RunIZN7xgboost6linalg24ElementWiseTransformHostIfLi2EZZNS2_12_GLOBAL__N_118CopyTensorInfoImplILi2EfEEvPKNS2_7ContextENS2_4JsonEPNS3_6TensorIT0_XT_EEEENKUlOT_E_clINS3_10TensorViewIKmLi2EEEEEDaSG_EUlSF_SC_E_EEvNSJ_ISF_XT0_EEEiOT1_EUlmE0_JmEEEvSF_DpT0_.exit.i.i.i: ; preds = %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1518, %.split.i.i.i.i.i40.i.i.i1534, %.split.us.i.i.i.i.i41.i.i.i1535
   %.sink.i8.i.i.i.i.i1522 = phi i64 [ %3522, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1518 ], [ %.sink.i.ph.i.i.i.i.i1531, %.split.i.i.i.i.i40.i.i.i1534 ], [ %.sink.i.ph.i.i.i.i.i1531, %.split.us.i.i.i.i.i41.i.i.i1535 ]
   %.sroa.5.1.le.i.sink.i6.i.i.i.i.i1523 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i.i.i1514, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1518 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1530, %.split.i.i.i.i.i40.i.i.i1534 ], [ %.sroa.5.1.le.i.sink.i.ph.i.i.i.i.i1530, %.split.us.i.i.i.i.i41.i.i.i1535 ]
-  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i1524 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i1521, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1518 ], [ %.recomposed1996, %.split.i.i.i.i.i40.i.i.i1534 ], [ %3518, %.split.us.i.i.i.i.i41.i.i.i1535 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i.i.i.i1524 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i37.i.i.i1521, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1518 ], [ %.recomposed2147, %.split.i.i.i.i.i40.i.i.i1534 ], [ %3518, %.split.us.i.i.i.i.i41.i.i.i1535 ]
   %.sink.i.i.i.i.i.i.i1525 = phi i64 [ %3533, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i.i.i.i1518 ], [ %3519, %.split.i.i.i.i.i40.i.i.i1534 ], [ %3517, %.split.us.i.i.i.i.i41.i.i.i1535 ]
   %3534 = mul i64 %.sink.i8.i.i.i.i.i1522, %3489
   %3535 = getelementptr float, ptr %3493, i64 %3534
@@ -59694,10 +59694,10 @@ _ZSt4fillIPmiEvT_S1_RKT0_.exit.thread:            ; preds = %._crit_edge
   br label %143
 
 .lr.ph.i.i.i.preheader:                           ; preds = %69, %._crit_edge
-  %.lcssa84 = phi i64 [ %136, %._crit_edge ], [ %72, %69 ]
-  %.lcssa5882 = phi ptr [ %129, %._crit_edge ], [ %71, %69 ]
-  %storemerge.lcssa81 = phi i64 [ %133, %._crit_edge ], [ 0, %69 ]
-  %.idx = shl nuw nsw i64 %storemerge.lcssa81, 3
+  %.lcssa100 = phi i64 [ %136, %._crit_edge ], [ %72, %69 ]
+  %.lcssa5898 = phi ptr [ %129, %._crit_edge ], [ %71, %69 ]
+  %storemerge.lcssa97 = phi i64 [ %133, %._crit_edge ], [ 0, %69 ]
+  %.idx = shl nuw nsw i64 %storemerge.lcssa97, 3
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %.lr.ph.i.i.i
 
@@ -59710,17 +59710,17 @@ _ZSt4fillIPmiEvT_S1_RKT0_.exit.thread:            ; preds = %._crit_edge
 
 _ZSt4fillIPmiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i.i.i48 = icmp eq ptr %.lcssa5882, null
+  %.not.i.i.i48 = icmp eq ptr %.lcssa5898, null
   br i1 %.not.i.i.i48, label %_ZNSt6vectorImSaImEED2Ev.exit, label %143
 
 143:                                              ; preds = %_ZSt4fillIPmiEvT_S1_RKT0_.exit.thread, %_ZSt4fillIPmiEvT_S1_RKT0_.exit
-  %.lcssa588390 = phi ptr [ %129, %_ZSt4fillIPmiEvT_S1_RKT0_.exit.thread ], [ %.lcssa5882, %_ZSt4fillIPmiEvT_S1_RKT0_.exit ]
-  %.lcssa8589 = phi i64 [ %136, %_ZSt4fillIPmiEvT_S1_RKT0_.exit.thread ], [ %.lcssa84, %_ZSt4fillIPmiEvT_S1_RKT0_.exit ]
+  %.lcssa5899106 = phi ptr [ %129, %_ZSt4fillIPmiEvT_S1_RKT0_.exit.thread ], [ %.lcssa5898, %_ZSt4fillIPmiEvT_S1_RKT0_.exit ]
+  %.lcssa101105 = phi i64 [ %136, %_ZSt4fillIPmiEvT_S1_RKT0_.exit.thread ], [ %.lcssa100, %_ZSt4fillIPmiEvT_S1_RKT0_.exit ]
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !114
   %146 = ptrtoint ptr %145 to i64
-  %147 = sub i64 %146, %.lcssa8589
-  call void @_ZdlPvm(ptr noundef nonnull %.lcssa588390, i64 noundef %147) #39
+  %147 = sub i64 %146, %.lcssa101105
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa5899106, i64 noundef %147) #39
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZSt4fillIPmiEvT_S1_RKT0_.exit, %143
@@ -60437,16 +60437,16 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %.not5.i.i.i, label %.loopexit.thread, label %.lr.ph.i.i.i122.preheader
 
 .loopexit.thread:                                 ; preds = %._crit_edge
-  %rhsv190 = load i64, ptr %3, align 8
-  %.not147191 = icmp eq i64 %rhsv190, 1
+  %rhsv219 = load i64, ptr %3, align 8
+  %.not147220 = icmp eq i64 %rhsv219, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %266
 
 .lr.ph.i.i.i122.preheader:                        ; preds = %198, %._crit_edge
-  %.lcssa186 = phi i64 [ %259, %._crit_edge ], [ %201, %198 ]
-  %.lcssa154184 = phi ptr [ %251, %._crit_edge ], [ %200, %198 ]
-  %storemerge.lcssa183 = phi i64 [ %256, %._crit_edge ], [ 0, %198 ]
-  %.idx = shl nuw nsw i64 %storemerge.lcssa183, 3
+  %.lcssa215 = phi i64 [ %259, %._crit_edge ], [ %201, %198 ]
+  %.lcssa154213 = phi ptr [ %251, %._crit_edge ], [ %200, %198 ]
+  %storemerge.lcssa212 = phi i64 [ %256, %._crit_edge ], [ 0, %198 ]
+  %.idx = shl nuw nsw i64 %storemerge.lcssa212, 3
   %264 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   br label %.lr.ph.i.i.i122
 
@@ -60461,22 +60461,22 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %rhsv = load i64, ptr %3, align 8
   %.not147 = icmp eq i64 %rhsv, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.not.i.i.i124 = icmp eq ptr %.lcssa154184, null
+  %.not.i.i.i124 = icmp eq ptr %.lcssa154213, null
   br i1 %.not.i.i.i124, label %_ZNSt6vectorImSaImEED2Ev.exit, label %266
 
 266:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.not147195 = phi i1 [ %.not147191, %.loopexit.thread ], [ %.not147, %.loopexit ]
-  %.lcssa154185194 = phi ptr [ %251, %.loopexit.thread ], [ %.lcssa154184, %.loopexit ]
-  %.lcssa187193 = phi i64 [ %259, %.loopexit.thread ], [ %.lcssa186, %.loopexit ]
+  %.not147224 = phi i1 [ %.not147220, %.loopexit.thread ], [ %.not147, %.loopexit ]
+  %.lcssa154214223 = phi ptr [ %251, %.loopexit.thread ], [ %.lcssa154213, %.loopexit ]
+  %.lcssa216222 = phi i64 [ %259, %.loopexit.thread ], [ %.lcssa215, %.loopexit ]
   %267 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %268 = load ptr, ptr %267, align 8, !tbaa !114
   %269 = ptrtoint ptr %268 to i64
-  %270 = sub i64 %269, %.lcssa187193
-  call void @_ZdlPvm(ptr noundef nonnull %.lcssa154185194, i64 noundef %270) #39
+  %270 = sub i64 %269, %.lcssa216222
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa154214223, i64 noundef %270) #39
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %.loopexit, %266
-  %.not147196 = phi i1 [ %.not147, %.loopexit ], [ %.not147195, %266 ]
+  %.not147225 = phi i1 [ %.not147, %.loopexit ], [ %.not147224, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %271 = load ptr, ptr %6, align 8, !tbaa !111
   %.not.i.i.i125 = icmp eq ptr %271, null
@@ -60540,7 +60540,7 @@ _ZNSt6vectorImSaImEED2Ev.exit130:                 ; preds = %286, %.body, %132
   resume { ptr, i32 } %.pn45.pn.pn.pn.pn.pn.pn.pn.pn
 
 293:                                              ; preds = %_ZNSt6vectorImSaImEED2Ev.exit126, %.critedge
-  %.0 = phi i1 [ true, %.critedge ], [ %.not147196, %_ZNSt6vectorImSaImEED2Ev.exit126 ]
+  %.0 = phi i1 [ true, %.critedge ], [ %.not147225, %_ZNSt6vectorImSaImEED2Ev.exit126 ]
   ret i1 %.0
 
 294:                                              ; preds = %237, %140
@@ -72156,14 +72156,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3_NS0_22XGBAPIThreadLocalEntryEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE24_M_get_insert_unique_posERS5_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #45
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #45
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8, !tbaa !590
   %.pre82 = load ptr, ptr %2, align 8, !tbaa !590
@@ -72172,11 +72172,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi ptr [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi ptr [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult ptr %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3_NS0_22XGBAPIThreadLocalEntryEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE24_M_get_insert_unique_posERS5_.exit
 
 32:                                               ; preds = %3
@@ -72228,23 +72228,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3_NS0_22XGBAPIThreadLocalEntryEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE24_M_get_insert_unique_posERS5_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #45
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #45
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8, !tbaa !590
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi ptr [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult ptr %59, %33
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3_NS0_22XGBAPIThreadLocalEntryEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE24_M_get_insert_unique_posERS5_.exit
 
 61:                                               ; preds = %32
@@ -72293,30 +72293,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !14
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3_NS0_22XGBAPIThreadLocalEntryEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE24_M_get_insert_unique_posERS5_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #45
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #45
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !590
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi ptr [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult ptr %87, %33
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3_NS0_22XGBAPIThreadLocalEntryEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE24_M_get_insert_unique_posERS5_.exit
 
 _ZNSt8_Rb_treeIPKN7xgboost7DMatrixESt4pairIKS3_NS0_22XGBAPIThreadLocalEntryEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE24_M_get_insert_unique_posERS5_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -72589,7 +72589,7 @@ define linkonce_odr void @_ZNSt6vectorIS_ImSaImEESaIS1_EE17_M_default_appendEm(p
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !117
@@ -73271,7 +73271,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7xg
 
 .split.preheader:                                 ; preds = %10
   %18 = or disjoint i64 %11, 1
-  %19 = getelementptr inbounds %"struct.xgboost::Entry", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %0, i64 %18
   %20 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %0, i64 %17
   br label %.split
 
@@ -73313,12 +73313,12 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7xg
   %.018.i.i.us = phi i64 [ %.0919.i.i.us, %36 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0919.in.i.i.us = add nsw i64 %.018.i.i.us, -1
   %.0919.i.i.us = sdiv i64 %.0919.in.i.i.us, 2
-  %34 = getelementptr inbounds %"struct.xgboost::Entry", ptr %0, i64 %.0919.i.i.us
+  %34 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %0, i64 %.0919.i.i.us
   %35 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %35, label %36, label %.critedge.loopexit.i.i.us
 
 36:                                               ; preds = %.lr.ph.i.i.us
-  %37 = getelementptr inbounds %"struct.xgboost::Entry", ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %0, i64 %.018.i.i.us
   %38 = load i64, ptr %34, align 4
   store i64 %38, ptr %37, align 4
   %39 = icmp sgt i64 %.0919.i.i.us, %.010.us
@@ -73332,7 +73332,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7xg
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7xgboost5EntryESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %._crit_edge.i.us.thread, %.critedge.loopexit.i.i.us, %._crit_edge.i.us
   %40 = phi i64 [ %.sroa.03.0.copyload.us, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %.sroa.03.0.copyload.us, %._crit_edge.i.us.thread ]
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.lcssa.ph.i.i.us, %.critedge.loopexit.i.i.us ], [ %.010.us, %._crit_edge.i.us.thread ]
-  %41 = getelementptr inbounds %"struct.xgboost::Entry", ptr %0, i64 %.0.lcssa.i.i.us
+  %41 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %0, i64 %.0.lcssa.i.i.us
   store i64 %40, ptr %41, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.us = icmp eq i64 %.010.us, 0
@@ -73384,12 +73384,12 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7xgboost5EntryESt6vectorIS3
   %.018.i.i = phi i64 [ %.0919.i.i, %62 ], [ %.1.i, %58 ]
   %.0919.in.i.i = add nsw i64 %.018.i.i, -1
   %.0919.i.i = sdiv i64 %.0919.in.i.i, 2
-  %60 = getelementptr inbounds %"struct.xgboost::Entry", ptr %0, i64 %.0919.i.i
+  %60 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %0, i64 %.0919.i.i
   %61 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %61, label %62, label %.critedge.loopexit.i.i
 
 62:                                               ; preds = %.lr.ph.i.i
-  %63 = getelementptr inbounds %"struct.xgboost::Entry", ptr %0, i64 %.018.i.i
+  %63 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %0, i64 %.018.i.i
   %64 = load i64, ptr %60, align 4
   store i64 %64, ptr %63, align 4
   %65 = icmp sgt i64 %.0919.i.i, %.010
@@ -73403,7 +73403,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7xgboost5EntryESt6vectorIS3
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7xgboost5EntryESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %58, %.critedge.loopexit.i.i
   %66 = phi i64 [ %.sroa.03.0.copyload, %58 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i64 [ %.1.i, %58 ], [ %.0.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %67 = getelementptr inbounds %"struct.xgboost::Entry", ptr %0, i64 %.0.lcssa.i.i
+  %67 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %0, i64 %.0.lcssa.i.i
   store i64 %66, ptr %67, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.010, 0
@@ -73633,7 +73633,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appe
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN7xgboost5EntryEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 

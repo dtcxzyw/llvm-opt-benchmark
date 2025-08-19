@@ -739,9 +739,9 @@ for.body.i48:                                     ; preds = %for.inc31.i, %for.b
   %add.i.i.i52 = add nsw i32 %add.i51, %56
   %cmp.i.i53 = icmp ule i32 %add.i.i.i52, %range.sroa.0.0.extract.trunc.i40
   %cmp4.i.i = icmp uge i32 %add.i51, %add.i3.i.i
-  %.not64.i = select i1 %cmp.i.i53, i1 true, i1 %cmp4.i.i
+  %.not66.i = select i1 %cmp.i.i53, i1 true, i1 %cmp4.i.i
   %cmp2044.not.i = icmp ult i32 %55, 16777216
-  %or.cond.i = or i1 %cmp2044.not.i, %.not64.i
+  %or.cond.i = or i1 %cmp2044.not.i, %.not66.i
   br i1 %or.cond.i, label %for.inc31.i, label %for.body21.lr.ph.i
 
 for.body21.lr.ph.i:                               ; preds = %for.body.i48
@@ -866,8 +866,8 @@ _ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_v
   %add.ptr.i.i33.i.i98.idx = shl nuw nsw i64 %__len.094.i.i65, 3
   %incdec.ptr8.i.i100 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i22.i, i64 8
   %77 = add nuw nsw i64 %add.ptr.i.i.i22.i.idx, 8
-  %gepdiff264 = sub nsw i64 %add.ptr.i.i33.i.i98.idx, %77
-  %sub.ptr.div.i.i.i41.i.i104 = ashr exact i64 %gepdiff264, 3
+  %gepdiff271 = sub nsw i64 %add.ptr.i.i33.i.i98.idx, %77
+  %sub.ptr.div.i.i.i41.i.i104 = ashr exact i64 %gepdiff271, 3
   %cmp23.i.i.i105 = icmp sgt i64 %sub.ptr.div.i.i.i41.i.i104, 0
   br i1 %cmp23.i.i.i105, label %while.body.i49.i.i135, label %_ZSt13__equal_rangeIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12CodePointSet3addES1_EUlS1_S1_E_EENS4_14_Val_comp_iterIS7_EEESt4pairIT_SC_ESC_SC_RKT0_T1_T2_.exit.i106
 

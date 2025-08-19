@@ -520,7 +520,7 @@ _ZN7VMATree14IntervalChange7is_noopEv.exit70.thread: ; preds = %"_ZN5TreapImN7VM
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %185
-  %.sroa.0.0113130 = load i64, ptr %9, align 8
+  %.sroa.0.0113141 = load i64, ptr %9, align 8
   br label %._crit_edge.thread
 
 201:                                              ; preds = %182
@@ -591,8 +591,8 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   br label %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge.sink.split
 
 _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge.sink.split: ; preds = %225, %228
-  %.sink141 = phi i64 [ %233, %228 ], [ %227, %225 ]
-  store i64 %.sink141, ptr %223, align 8
+  %.sink152 = phi i64 [ %233, %228 ], [ %227, %225 ]
+  store i64 %.sink152, ptr %223, align 8
   br label %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge
 
 _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge: ; preds = %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72._crit_edge.sink.split, %_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE6removeERKm.exit72
@@ -642,7 +642,7 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread, %201, %237, %238, %244, %._crit_edge
-  %253 = phi i64 [ %.pre127, %237 ], [ %.pre127, %238 ], [ %.pre127, %244 ], [ %.pre127, %._crit_edge ], [ %.sroa.0.0113130, %.thread ], [ %.sroa.0.0113, %201 ]
+  %253 = phi i64 [ %.pre127, %237 ], [ %.pre127, %238 ], [ %.pre127, %244 ], [ %.pre127, %._crit_edge ], [ %.sroa.0.0113141, %.thread ], [ %.sroa.0.0113, %201 ]
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %255 = load i8, ptr %254, align 4
   %256 = zext i8 %255 to i64
@@ -671,8 +671,8 @@ _ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAlloca
   br label %.sink.split
 
 .sink.split:                                      ; preds = %258, %263
-  %.sink142 = phi i64 [ %270, %263 ], [ %262, %258 ]
-  store i64 %.sink142, ptr %257, align 8
+  %.sink153 = phi i64 [ %270, %263 ], [ %262, %258 ]
+  store i64 %.sink153, ptr %257, align 8
   br label %271
 
 271:                                              ; preds = %.sink.split, %._crit_edge.thread
@@ -861,11 +861,11 @@ _ZN7VMATree18PositionComparator3cmpEmm.exit23.thread: ; preds = %12, %_ZN7VMATre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE5mergeEPNS4_9TreapNodeES6_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %common.ret17, label %4
+  br i1 %3, label %common.ret18, label %4
 
 4:                                                ; preds = %2
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %common.ret17, label %6
+  br i1 %5, label %common.ret18, label %6
 
 6:                                                ; preds = %4
   %7 = load i64, ptr %0, align 8
@@ -873,23 +873,23 @@ define linkonce_odr hidden noundef ptr @_ZN5TreapImN7VMATree14IntervalChangeENS0
   %9 = icmp ugt i64 %7, %8
   br i1 %9, label %10, label %14
 
-common.ret17:                                     ; preds = %4, %2, %14, %10
-  %common.ret17.op = phi ptr [ %0, %10 ], [ %1, %14 ], [ %1, %2 ], [ %0, %4 ]
-  ret ptr %common.ret17.op
+common.ret18:                                     ; preds = %4, %2, %14, %10
+  %common.ret18.op = phi ptr [ %0, %10 ], [ %1, %14 ], [ %1, %2 ], [ %0, %4 ]
+  ret ptr %common.ret18.op
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE5mergeEPNS4_9TreapNodeES6_(ptr noundef %12, ptr noundef nonnull %1)
   store ptr %13, ptr %11, align 8
-  br label %common.ret17
+  br label %common.ret18
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr @_ZN5TreapImN7VMATree14IntervalChangeENS0_18PositionComparatorE19TreapCHeapAllocatorE5mergeEPNS4_9TreapNodeES6_(ptr noundef nonnull %0, ptr noundef %16)
   store ptr %17, ptr %15, align 8
-  br label %common.ret17
+  br label %common.ret18
 }
 
 declare noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #4

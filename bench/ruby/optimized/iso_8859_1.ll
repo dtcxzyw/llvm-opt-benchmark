@@ -242,10 +242,10 @@ switch.early.test:                                ; preds = %75
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %39, %44, %50, %65, %70, %77
-  %.sink90 = phi i64 [ 8, %77 ], [ 8, %70 ], [ 8, %65 ], [ 72, %50 ], [ 8, %44 ], [ 28, %39 ], [ 28, %21 ]
+  %.sink93 = phi i64 [ 8, %77 ], [ 8, %70 ], [ 8, %65 ], [ 72, %50 ], [ 8, %44 ], [ 28, %39 ], [ 28, %21 ]
   %.sink = phi i32 [ %81, %77 ], [ %74, %70 ], [ %69, %65 ], [ 115, %50 ], [ %48, %44 ], [ 223, %39 ], [ 223, %21 ]
   %.0.ph = phi i32 [ 1, %77 ], [ 1, %70 ], [ 1, %65 ], [ 4, %50 ], [ 1, %44 ], [ 2, %39 ], [ 2, %21 ]
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink90
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink93
   store i32 %.sink, ptr %82, align 4, !tbaa !16
   br label %83
 

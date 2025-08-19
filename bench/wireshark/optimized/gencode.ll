@@ -785,13 +785,13 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef range(i
   br label %34
 
 34:                                               ; preds = %30, %23
-  %.sink40 = phi ptr [ %31, %30 ], [ %25, %23 ]
+  %.sink44 = phi ptr [ %31, %30 ], [ %25, %23 ]
   %35 = load i32, ptr %10, align 8
-  store i32 %35, ptr %.sink40, align 8
+  store i32 %35, ptr %.sink44, align 8
   %36 = add i32 %35, 1
   store i32 %36, ptr %10, align 8
   %37 = load ptr, ptr %11, align 8
-  call void @g_ptr_array_add(ptr noundef %37, ptr noundef %.sink40)
+  call void @g_ptr_array_add(ptr noundef %37, ptr noundef %.sink44)
   %38 = load ptr, ptr %7, align 8
   call void @g_slist_foreach(ptr noundef %38, ptr noundef nonnull @fixup_jumps, ptr noundef %0)
   %39 = load ptr, ptr %7, align 8
@@ -1004,7 +1004,7 @@ dfw_append_read_tree.exit:                        ; preds = %57, %42
 
 73:                                               ; preds = %63, %dfw_append_read_tree.exit
   %74 = tail call zeroext i1 @sttype_field_value_string(ptr noundef %1)
-  br i1 %74, label %75, label %common.ret96
+  br i1 %74, label %75, label %common.ret103
 
 75:                                               ; preds = %73
   %76 = tail call ptr @dfvm_insn_new(i32 noundef 37)
@@ -1030,7 +1030,7 @@ dfw_append_read_tree.exit:                        ; preds = %57, %42
   store i32 %90, ptr %50, align 8
   %91 = load ptr, ptr %53, align 8
   tail call void @g_ptr_array_add(ptr noundef %91, ptr noundef %76)
-  br i1 %.not60, label %common.ret96, label %92
+  br i1 %.not60, label %common.ret103, label %92
 
 92:                                               ; preds = %75
   %93 = load ptr, ptr %2, align 8
@@ -1047,7 +1047,7 @@ dfw_append_read_tree.exit:                        ; preds = %57, %42
   tail call void @g_ptr_array_add(ptr noundef %100, ptr noundef %94)
   %101 = tail call ptr @g_slist_prepend(ptr noundef %93, ptr noundef %95)
   store ptr %101, ptr %2, align 8
-  br label %common.ret96
+  br label %common.ret103
 
 102:                                              ; preds = %3
   %103 = tail call ptr @sttype_field_hfinfo(ptr noundef %1)
@@ -1147,7 +1147,7 @@ dfw_append_read_reference.exit:                   ; preds = %137, %119
 
 153:                                              ; preds = %143, %dfw_append_read_reference.exit
   %154 = tail call zeroext i1 @sttype_field_value_string(ptr noundef %1)
-  br i1 %154, label %155, label %common.ret96
+  br i1 %154, label %155, label %common.ret103
 
 155:                                              ; preds = %153
   %156 = tail call ptr @dfvm_insn_new(i32 noundef 37)
@@ -1172,7 +1172,7 @@ dfw_append_read_reference.exit:                   ; preds = %137, %119
   store i32 %169, ptr %127, align 8
   %170 = load ptr, ptr %130, align 8
   tail call void @g_ptr_array_add(ptr noundef %170, ptr noundef %156)
-  br i1 %.not, label %common.ret96, label %171
+  br i1 %.not, label %common.ret103, label %171
 
 171:                                              ; preds = %155
   %172 = load ptr, ptr %2, align 8
@@ -1189,16 +1189,16 @@ dfw_append_read_reference.exit:                   ; preds = %137, %119
   tail call void @g_ptr_array_add(ptr noundef %179, ptr noundef %173)
   %180 = tail call ptr @g_slist_prepend(ptr noundef %172, ptr noundef %174)
   store ptr %180, ptr %2, align 8
-  br label %common.ret96
+  br label %common.ret103
 
 181:                                              ; preds = %3
   %182 = tail call ptr @stnode_steal_data(ptr noundef %1)
   %183 = tail call ptr @dfvm_value_new_fvalue(ptr noundef %182)
-  br label %common.ret96
+  br label %common.ret103
 
-common.ret96:                                     ; preds = %155, %171, %153, %287, %gen_arithmetic.exit, %dfw_append_function.exit, %181, %73, %92, %75, %184
-  %common.ret96.op = phi ptr [ %193, %184 ], [ %86, %92 ], [ %86, %75 ], [ %39, %73 ], [ %165, %171 ], [ %165, %155 ], [ %116, %153 ], [ %183, %181 ], [ %.0.i, %dfw_append_function.exit ], [ %289, %287 ], [ %.018.i, %gen_arithmetic.exit ]
-  ret ptr %common.ret96.op
+common.ret103:                                    ; preds = %155, %171, %153, %287, %gen_arithmetic.exit, %dfw_append_function.exit, %181, %73, %92, %75, %184
+  %common.ret103.op = phi ptr [ %193, %184 ], [ %86, %92 ], [ %86, %75 ], [ %39, %73 ], [ %165, %171 ], [ %165, %155 ], [ %116, %153 ], [ %183, %181 ], [ %.0.i, %dfw_append_function.exit ], [ %289, %287 ], [ %.018.i, %gen_arithmetic.exit ]
+  ret ptr %common.ret103.op
 
 184:                                              ; preds = %3
   %185 = tail call ptr @sttype_slice_entity(ptr noundef %1)
@@ -1229,7 +1229,7 @@ common.ret96:                                     ; preds = %155, %171, %153, %2
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %204 = load ptr, ptr %203, align 8
   tail call void @g_ptr_array_add(ptr noundef %204, ptr noundef %186)
-  br label %common.ret96
+  br label %common.ret103
 
 205:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1370,12 +1370,12 @@ common.ret96:                                     ; preds = %155, %171, %153, %2
 dfw_append_function.exit:                         ; preds = %210, %231, %._crit_edge
   %.0.i = phi ptr [ %220, %210 ], [ %234, %231 ], [ %243, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %common.ret96
+  br label %common.ret103
 
 287:                                              ; preds = %3
   %288 = tail call ptr @stnode_steal_data(ptr noundef %1)
   %289 = tail call ptr @dfvm_value_new_pcre(ptr noundef %288)
-  br label %common.ret96
+  br label %common.ret103
 
 290:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1461,17 +1461,17 @@ dfw_append_function.exit:                         ; preds = %210, %231, %._crit_
   br label %gen_arithmetic.exit
 
 gen_arithmetic.exit:                              ; preds = %306, %311
-  %.sink87 = phi ptr [ %310, %306 ], [ %312, %311 ]
-  %.sink84 = phi ptr [ null, %306 ], [ %316, %311 ]
+  %.sink94 = phi ptr [ %310, %306 ], [ %312, %311 ]
+  %.sink91 = phi ptr [ null, %306 ], [ %316, %311 ]
   %.018.i = phi ptr [ %310, %306 ], [ %316, %311 ]
   %317 = call ptr @dfvm_insn_new(i32 noundef range(i32 0, 45) %.0.i67)
   %318 = call ptr @dfvm_value_ref(ptr noundef %303)
   %319 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store ptr %318, ptr %319, align 8
-  %320 = call ptr @dfvm_value_ref(ptr noundef %.sink87)
+  %320 = call ptr @dfvm_value_ref(ptr noundef %.sink94)
   %321 = getelementptr inbounds nuw i8, ptr %317, i64 16
   store ptr %320, ptr %321, align 8
-  %322 = call ptr @dfvm_value_ref(ptr noundef %.sink84)
+  %322 = call ptr @dfvm_value_ref(ptr noundef %.sink91)
   %323 = getelementptr inbounds nuw i8, ptr %317, i64 24
   store ptr %322, ptr %323, align 8
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1485,7 +1485,7 @@ gen_arithmetic.exit:                              ; preds = %306, %311
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %common.ret96
+  br label %common.ret103
 
 329:                                              ; preds = %3
   %330 = tail call ptr @stnode_type_name(ptr noundef %1)

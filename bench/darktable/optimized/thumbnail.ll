@@ -5889,8 +5889,8 @@ define internal fastcc void @_thumb_set_image_area(ptr noundef captures(none) %0
 .thread.i:                                        ; preds = %134, %130
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %140 = add nsw i32 %.04055.i, -1
-  %.not57.i = icmp eq i32 %.04055.i, 0
-  br i1 %.not57.i, label %.loopexit.i, label %130
+  %.not62.i = icmp eq i32 %.04055.i, 0
+  br i1 %.not62.i, label %.loopexit.i, label %130
 
 141:                                              ; preds = %134
   %142 = uitofp nneg i32 %135 to float
@@ -7002,9 +7002,9 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
 ._crit_edge205:                                   ; preds = %._crit_edge196.us, %.preheader191.lr.ph
   tail call void @dt_box_mean(ptr noundef %14, i64 noundef %6, i64 noundef %5, i32 noundef 1, i64 noundef 2, i32 noundef 1) #20
   %122 = icmp ugt i32 %15, 2
-  br i1 %122, label %.preheader190.lr.ph, label %._crit_edge217.thread278
+  br i1 %122, label %.preheader190.lr.ph, label %._crit_edge217.thread285
 
-._crit_edge217.thread278:                         ; preds = %._crit_edge205
+._crit_edge217.thread285:                         ; preds = %._crit_edge205
   %123 = add nsw i32 %2, -4
   %124 = sitofp i32 %123 to float
   %125 = add nsw i32 %1, -4
@@ -7014,7 +7014,7 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
   br label %._crit_edge227
 
 .preheader190.lr.ph:                              ; preds = %._crit_edge205.thread, %._crit_edge205
-  %.pre-phi270274 = phi i64 [ -2, %._crit_edge205.thread ], [ %16, %._crit_edge205 ]
+  %.pre-phi270281 = phi i64 [ -2, %._crit_edge205.thread ], [ %16, %._crit_edge205 ]
   %129 = add nsw i32 %1, -2
   %130 = sext i32 %129 to i64
   %131 = icmp ugt i32 %129, 2
@@ -7048,7 +7048,7 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
 
 ._crit_edge214.us:                                ; preds = %140
   %145 = add nuw i64 %.0160215.us, 1
-  %exitcond258.not = icmp eq i64 %145, %.pre-phi270274
+  %exitcond258.not = icmp eq i64 %145, %.pre-phi270281
   br i1 %exitcond258.not, label %._crit_edge217, label %.preheader190.us
 
 ._crit_edge217:                                   ; preds = %._crit_edge214.us
@@ -7084,13 +7084,13 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
 
 ._crit_edge224.us:                                ; preds = %157
   %164 = add nuw i64 %.0162226.us, 1
-  %exitcond260.not = icmp eq i64 %164, %.pre-phi270274
+  %exitcond260.not = icmp eq i64 %164, %.pre-phi270281
   br i1 %exitcond260.not, label %._crit_edge227, label %.preheader189.us
 
-._crit_edge227:                                   ; preds = %._crit_edge224.us, %._crit_edge217, %.preheader189.lr.ph.thread, %._crit_edge217.thread278
-  %165 = phi float [ %128, %._crit_edge217.thread278 ], [ %137, %.preheader189.lr.ph.thread ], [ %151, %._crit_edge217 ], [ %151, %._crit_edge224.us ]
-  %166 = phi float [ %127, %._crit_edge217.thread278 ], [ %136, %.preheader189.lr.ph.thread ], [ %150, %._crit_edge217 ], [ %150, %._crit_edge224.us ]
-  %.0163.lcssa = phi float [ 0.000000e+00, %._crit_edge217.thread278 ], [ 0.000000e+00, %.preheader189.lr.ph.thread ], [ 0.000000e+00, %._crit_edge217 ], [ %162, %._crit_edge224.us ]
+._crit_edge227:                                   ; preds = %._crit_edge224.us, %._crit_edge217, %.preheader189.lr.ph.thread, %._crit_edge217.thread285
+  %165 = phi float [ %128, %._crit_edge217.thread285 ], [ %137, %.preheader189.lr.ph.thread ], [ %151, %._crit_edge217 ], [ %151, %._crit_edge224.us ]
+  %166 = phi float [ %127, %._crit_edge217.thread285 ], [ %136, %.preheader189.lr.ph.thread ], [ %150, %._crit_edge217 ], [ %150, %._crit_edge224.us ]
+  %.0163.lcssa = phi float [ 0.000000e+00, %._crit_edge217.thread285 ], [ 0.000000e+00, %.preheader189.lr.ph.thread ], [ 0.000000e+00, %._crit_edge217 ], [ %162, %._crit_edge224.us ]
   %167 = fdiv reassoc nsz arcp contract afn float %.0163.lcssa, %166
   %168 = fmul reassoc nsz arcp contract afn float %167, 1.000000e+01
   %169 = fadd reassoc nsz arcp contract afn float %168, %165
@@ -7100,8 +7100,8 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
   %173 = fadd reassoc nsz arcp contract afn float %172, %165
   tail call fastcc void @fast_surface_blur(ptr noundef %14, i64 noundef %5, i64 noundef %6)
   %.not243 = icmp eq i32 %1, 0
-  %or.cond283 = or i1 %.not240, %.not243
-  br i1 %or.cond283, label %._crit_edge239, label %.preheader188.us.preheader
+  %or.cond290 = or i1 %.not240, %.not243
+  br i1 %or.cond290, label %._crit_edge239, label %.preheader188.us.preheader
 
 .preheader188.us.preheader:                       ; preds = %._crit_edge227
   %174 = shl nsw i64 %5, 2
@@ -7134,8 +7134,8 @@ define internal fastcc void @dt_focuspeaking(ptr noundef %0, i32 noundef %1, i32
   br i1 %188, label %.loopexit.us, label %.preheader186.us
 
 .loopexit.us:                                     ; preds = %187, %185, %178, %.preheader186.us
-  %.sink284 = phi i32 [ 0, %.preheader186.us ], [ -256, %178 ], [ -16711936, %185 ], [ -16776961, %187 ]
-  store i32 %.sink284, ptr %scevgep264, align 4
+  %.sink291 = phi i32 [ 0, %.preheader186.us ], [ -256, %178 ], [ -16711936, %185 ], [ -16776961, %187 ]
+  store i32 %.sink291, ptr %scevgep264, align 4
   %189 = add nuw i64 %.0156235.us, 1
   %exitcond265.not = icmp eq i64 %189, %5
   br i1 %exitcond265.not, label %._crit_edge237.us, label %178
@@ -8002,7 +8002,7 @@ define internal fastcc void @_dt_focus_cdf22_wtf(ptr noundef captures(none) %0, 
   br i1 %254, label %255, label %276
 
 255:                                              ; preds = %._crit_edge199
-  %256 = sub nuw nsw i32 %.1.lcssa, %6
+  %256 = sub nsw i32 %.1.lcssa, %6
   %257 = mul nsw i32 %256, %2
   %258 = trunc nuw nsw i64 %indvars.iv217 to i32
   %259 = add nsw i32 %257, %258

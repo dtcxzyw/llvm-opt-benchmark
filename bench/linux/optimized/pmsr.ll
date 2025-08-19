@@ -423,9 +423,9 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %221 = getelementptr inbounds nuw i8, ptr %146, i64 54
   %222 = getelementptr inbounds nuw i8, ptr %146, i64 55
   %223 = icmp ugt i16 %213, 3
-  br i1 %223, label %.lr.ph72.preheader, label %.critedge56.thread88
+  br i1 %223, label %.lr.ph72.preheader, label %.critedge56.thread142
 
-.critedge56.thread88:                             ; preds = %211
+.critedge56.thread142:                            ; preds = %211
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %523
@@ -434,11 +434,11 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %224 = getelementptr i8, ptr %186, i64 4
   %225 = load i16, ptr %224, align 2
   %226 = icmp ult i16 %225, 4
-  %.not52111 = icmp ult i16 %213, %225
-  %or.cond58112 = or i1 %226, %.not52111
-  br i1 %or.cond58112, label %.critedge56, label %.lr.ph113
+  %.not52165 = icmp ult i16 %213, %225
+  %or.cond58166 = or i1 %226, %.not52165
+  br i1 %or.cond58166, label %.critedge56, label %.lr.ph167
 
-.lr.ph113:                                        ; preds = %.lr.ph72.preheader
+.lr.ph167:                                        ; preds = %.lr.ph72.preheader
   %227 = zext i16 %213 to i32
   br label %233
 
@@ -452,9 +452,9 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %or.cond58 = or i1 %231, %.not52
   br i1 %or.cond58, label %.critedge56, label %233, !llvm.loop !10
 
-233:                                              ; preds = %.lr.ph113, %.lr.ph72
-  %234 = phi i32 [ %227, %.lr.ph113 ], [ %515, %.lr.ph72 ]
-  %235 = phi ptr [ %224, %.lr.ph113 ], [ %229, %.lr.ph72 ]
+233:                                              ; preds = %.lr.ph167, %.lr.ph72
+  %234 = phi i32 [ %227, %.lr.ph167 ], [ %515, %.lr.ph72 ]
+  %235 = phi ptr [ %224, %.lr.ph167 ], [ %229, %.lr.ph72 ]
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 2
   %237 = load i16, ptr %236, align 2
   %238 = and i16 %237, 16383
@@ -626,8 +626,8 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %335 = load i8, ptr %334, align 4
   %336 = icmp sgt i8 %335, -1
   %337 = icmp ugt i8 %333, %335
-  %or.cond100 = select i1 %336, i1 %337, i1 false
-  br i1 %or.cond100, label %338, label %345
+  %or.cond154 = select i1 %336, i1 %337, i1 false
+  br i1 %or.cond154, label %338, label %345
 
 338:                                              ; preds = %332
   %339 = load ptr, ptr %120, align 8
@@ -666,8 +666,8 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
 355:                                              ; preds = %352
   %356 = getelementptr i8, ptr %353, i64 4
   %357 = load i32, ptr %356, align 4
-  %.fr102 = freeze i32 %357
-  %358 = trunc i32 %.fr102 to i8
+  %.fr156 = freeze i32 %357
+  %358 = trunc i32 %.fr156 to i8
   store i8 %358, ptr %220, align 1
   %359 = add i8 %358, -1
   br label %360
@@ -677,8 +677,8 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %362 = getelementptr inbounds nuw i8, ptr %241, i64 17
   %363 = load i8, ptr %362, align 1
   %364 = add i8 %363, -1
-  %or.cond101.not = icmp ult i8 %364, %361
-  br i1 %or.cond101.not, label %365, label %372
+  %or.cond155.not = icmp ult i8 %364, %361
+  br i1 %or.cond155.not, label %365, label %372
 
 365:                                              ; preds = %360
   %366 = load ptr, ptr %120, align 8
@@ -783,7 +783,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %422 = load i8, ptr %306, align 2
   %423 = and i8 %422, 32
   %424 = icmp eq i8 %423, 0
-  br i1 %424, label %425, label %.thread86
+  br i1 %424, label %425, label %.thread140
 
 425:                                              ; preds = %421
   %426 = load ptr, ptr %120, align 8
@@ -809,14 +809,14 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   store i8 %437, ptr %216, align 2
   br i1 %434, label %471, label %443
 
-.thread86:                                        ; preds = %421
+.thread140:                                       ; preds = %421
   %438 = load ptr, ptr %133, align 8
   %439 = icmp eq ptr %438, null
   %440 = select i1 %439, i8 0, i8 32
   %441 = and i8 %420, -33
   %442 = or disjoint i8 %440, %441
   store i8 %442, ptr %216, align 2
-  br i1 %439, label %.thread59, label %.thread90
+  br i1 %439, label %.thread59, label %.thread144
 
 443:                                              ; preds = %432
   %444 = load i8, ptr %306, align 2
@@ -824,13 +824,13 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %446 = icmp eq i8 %445, 0
   br i1 %446, label %450, label %.thread59
 
-.thread90:                                        ; preds = %.thread86
+.thread144:                                       ; preds = %.thread140
   %447 = load i8, ptr %306, align 2
   %448 = and i8 %447, 64
   %449 = icmp eq i8 %448, 0
   br i1 %449, label %450, label %457
 
-450:                                              ; preds = %.thread90, %443
+450:                                              ; preds = %.thread144, %443
   %451 = load ptr, ptr %120, align 8
   call void @do_trace_netlink_extack(ptr noundef nonnull @pmsr_parse_ftm.__msg.16) #11
   %452 = icmp eq ptr %451, null
@@ -845,7 +845,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   store ptr null, ptr %456, align 8
   br label %501
 
-457:                                              ; preds = %.thread90
+457:                                              ; preds = %.thread144
   %458 = load ptr, ptr %120, align 8
   call void @do_trace_netlink_extack(ptr noundef nonnull @pmsr_parse_ftm.__msg.17) #11
   %459 = icmp eq ptr %458, null
@@ -855,8 +855,8 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   store ptr @pmsr_parse_ftm.__msg.17, ptr %458, align 8
   br label %501
 
-.thread59:                                        ; preds = %443, %.thread86
-  %461 = phi i8 [ %442, %.thread86 ], [ %437, %443 ]
+.thread59:                                        ; preds = %443, %.thread140
+  %461 = phi i8 [ %442, %.thread140 ], [ %437, %443 ]
   %462 = load i32, ptr %215, align 4
   %463 = icmp eq i32 %462, 4
   br i1 %463, label %471, label %464
@@ -986,7 +986,7 @@ define dso_local i32 @nl80211_pmsr_start(ptr noundef readnone captures(none) %0,
   %522 = icmp eq i32 %.lcssa, 0
   br i1 %522, label %523, label %.loopexit
 
-523:                                              ; preds = %.critedge56.thread88, %.critedge56
+523:                                              ; preds = %.critedge56.thread142, %.critedge56
   %524 = add i32 %138, 1
   %525 = load i16, ptr %139, align 2
   %526 = zext i16 %525 to i32

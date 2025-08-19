@@ -2012,10 +2012,10 @@ _ZN7rocksdb6StatusD2Ev.exit180:                   ; preds = %278, %_ZNKSt14defau
   br label %_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit185
 
 _ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE.exit185: ; preds = %298, %302, %307
-  %.sink6.i = phi i1 [ true, %307 ], [ false, %302 ], [ false, %298 ]
+  %.sink7.i = phi i1 [ true, %307 ], [ false, %302 ], [ false, %298 ]
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %309 = load ptr, ptr %308, align 8, !tbaa !59
-  call void @_ZN7rocksdb12MergeContext11PushOperandERKNS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(25) %309, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %.sink6.i)
+  call void @_ZN7rocksdb12MergeContext11PushOperandERKNS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(25) %309, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %.sink7.i)
   %.not.i186 = icmp eq ptr @_ZTHN7rocksdb10perf_levelE, null
   br i1 %.not.i186, label %_ZTWN7rocksdb10perf_levelE.exit, label %310
 
@@ -2446,10 +2446,10 @@ define void @_ZN7rocksdb10GetContext12push_operandERKNS_5SliceEPNS_9CleanableE(p
   br label %12
 
 12:                                               ; preds = %3, %6, %11
-  %.sink6 = phi i1 [ true, %11 ], [ false, %6 ], [ false, %3 ]
+  %.sink7 = phi i1 [ true, %11 ], [ false, %6 ], [ false, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %14 = load ptr, ptr %13, align 8, !tbaa !59
-  tail call void @_ZN7rocksdb12MergeContext11PushOperandERKNS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(25) %14, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %.sink6)
+  tail call void @_ZN7rocksdb12MergeContext11PushOperandERKNS_5SliceEb(ptr noundef nonnull align 8 dereferenceable(25) %14, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %.sink7)
   ret void
 }
 

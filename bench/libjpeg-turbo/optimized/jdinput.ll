@@ -596,8 +596,8 @@ per_scan_setup.exit.thread:                       ; preds = %1
   %117 = load ptr, ptr %2, align 8, !tbaa !46
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 20
   %119 = load i32, ptr %118, align 4, !tbaa !47
-  %.not15 = icmp eq i32 %119, 0
-  br i1 %.not15, label %.lr.ph.i10, label %latch_quant_tables.exit
+  %.not19 = icmp eq i32 %119, 0
+  br i1 %.not19, label %.lr.ph.i10, label %latch_quant_tables.exit
 
 .lr.ph.i10:                                       ; preds = %per_scan_setup.exit, %per_scan_setup.exit.thread
   %120 = phi i32 [ 1, %per_scan_setup.exit.thread ], [ %90, %per_scan_setup.exit ]

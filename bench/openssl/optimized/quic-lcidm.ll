@@ -136,7 +136,7 @@ PACKET_get_1.exit.i:                              ; preds = %26
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0159, i64 9
   %65 = load i8, ptr %64, align 1, !tbaa !4
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0159, i64 10
-  %67 = add i64 %.sroa.29.0158, -10
+  %67 = add nsw i64 %.sroa.29.0158, -10
   %68 = icmp ugt i8 %65, 20
   br i1 %68, label %PACKET_buf_init.exit.thread, label %69
 
@@ -148,7 +148,7 @@ PACKET_get_1.exit.i:                              ; preds = %26
 72:                                               ; preds = %69
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %66, i64 range(i64 0, 21) %70, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 %70
-  %74 = sub nuw i64 %67, %70
+  %74 = sub nuw nsw i64 %67, %70
   store i8 %65, ptr %4, align 1, !tbaa !7
   %75 = inttoptr i64 %63 to ptr
   %76 = call i32 @ossl_quic_lcidm_enrol_odcid(ptr noundef nonnull %16, ptr noundef %75, ptr noundef nonnull %4) #4
@@ -197,7 +197,7 @@ PACKET_get_1.exit.i:                              ; preds = %26
   %115 = zext i8 %114 to i64
   %116 = or i64 %112, %115
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0159, i64 9
-  %118 = add i64 %.sroa.29.0158, -9
+  %118 = add nsw i64 %.sroa.29.0158, -9
   %119 = inttoptr i64 %116 to ptr
   %120 = call i32 @ossl_quic_lcidm_retire_odcid(ptr noundef nonnull %16, ptr noundef %119) #4
   br label %346
@@ -245,7 +245,7 @@ PACKET_get_1.exit.i:                              ; preds = %26
   %159 = zext i8 %158 to i64
   %160 = or i64 %156, %159
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0.0159, i64 9
-  %162 = add i64 %.sroa.29.0158, -9
+  %162 = add nsw i64 %.sroa.29.0158, -9
   %163 = inttoptr i64 %160 to ptr
   %164 = call i32 @ossl_quic_lcidm_generate_initial(ptr noundef nonnull %16, ptr noundef %163, ptr noundef nonnull %5) #4
   br label %346
@@ -293,7 +293,7 @@ PACKET_get_1.exit.i:                              ; preds = %26
   %203 = zext i8 %202 to i64
   %204 = or i64 %200, %203
   %205 = getelementptr inbounds nuw i8, ptr %.sroa.0.0159, i64 9
-  %206 = add i64 %.sroa.29.0158, -9
+  %206 = add nsw i64 %.sroa.29.0158, -9
   %207 = inttoptr i64 %204 to ptr
   %208 = call i32 @ossl_quic_lcidm_generate(ptr noundef nonnull %16, ptr noundef %207, ptr noundef nonnull %6) #4
   br label %346
@@ -379,7 +379,7 @@ PACKET_get_1.exit.i:                              ; preds = %26
   %284 = zext i8 %283 to i64
   %285 = or i64 %281, %284
   %286 = getelementptr inbounds nuw i8, ptr %.sroa.0.0159, i64 17
-  %287 = add i64 %.sroa.29.0158, -17
+  %287 = add nsw i64 %.sroa.29.0158, -17
   %288 = inttoptr i64 %248 to ptr
   %289 = call i32 @ossl_quic_lcidm_retire(ptr noundef nonnull %16, ptr noundef %288, i64 noundef %285, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %7) #4
   br label %346
@@ -427,7 +427,7 @@ PACKET_get_1.exit.i:                              ; preds = %26
   %328 = zext i8 %327 to i64
   %329 = or i64 %325, %328
   %330 = getelementptr inbounds nuw i8, ptr %.sroa.0.0159, i64 9
-  %331 = add i64 %.sroa.29.0158, -9
+  %331 = add nsw i64 %.sroa.29.0158, -9
   %332 = inttoptr i64 %329 to ptr
   %333 = call i32 @ossl_quic_lcidm_cull(ptr noundef nonnull %16, ptr noundef %332) #4
   br label %346
@@ -439,7 +439,7 @@ PACKET_get_1.exit.i:                              ; preds = %26
 PACKET_get_1.exit.i56:                            ; preds = %334
   %335 = load i8, ptr %20, align 1, !tbaa !4
   %336 = getelementptr inbounds nuw i8, ptr %.sroa.0.0159, i64 2
-  %337 = add i64 %.sroa.29.0158, -2
+  %337 = add nsw i64 %.sroa.29.0158, -2
   %338 = icmp ugt i8 %335, 20
   br i1 %338, label %PACKET_buf_init.exit.thread, label %339
 
@@ -451,7 +451,7 @@ PACKET_get_1.exit.i56:                            ; preds = %334
 342:                                              ; preds = %339
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %336, i64 range(i64 0, 21) %340, i1 false)
   %343 = getelementptr inbounds nuw i8, ptr %336, i64 %340
-  %344 = sub nuw i64 %337, %340
+  %344 = sub nuw nsw i64 %337, %340
   store i8 %335, ptr %4, align 1, !tbaa !7
   %345 = call i32 @ossl_quic_lcidm_lookup(ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %8) #4
   br label %346

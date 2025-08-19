@@ -2248,8 +2248,8 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17.thread: ; preds = %_ZN18Link
   br label %.lr.ph.preheader
 
 _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17: ; preds = %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit
-  %.not37 = icmp eq ptr %4, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
+  %.not41 = icmp eq ptr %4, null
+  br i1 %.not41, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17.thread, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17
   %.sroa.0.032.ph = phi ptr [ null, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17 ], [ %14, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17.thread ]
@@ -2434,8 +2434,8 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22.thread: ; p
   br label %.lr.ph.preheader
 
 _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22: ; preds = %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit
-  %.not46 = icmp eq ptr %4, null
-  br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
+  %.not50 = icmp eq ptr %4, null
+  br i1 %.not50, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22.thread, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22
   %.sroa.0.041.ph = phi ptr [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22 ], [ %14, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22.thread ]

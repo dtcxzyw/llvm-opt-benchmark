@@ -551,15 +551,15 @@ _ZN17crossbeam_channel7counter3new17h6932e4dc3345e166E.exit: ; preds = %.noexc.i
   br label %30
 
 30:                                               ; preds = %_ZN17crossbeam_channel7counter3new17h6932e4dc3345e166E.exit, %_ZN17crossbeam_channel7counter3new17h9dac218f4a116783E.exit
-  %.sink55 = phi i64 [ 0, %_ZN17crossbeam_channel7counter3new17h6932e4dc3345e166E.exit ], [ 2, %_ZN17crossbeam_channel7counter3new17h9dac218f4a116783E.exit ]
-  %.sink53 = phi ptr [ %23, %_ZN17crossbeam_channel7counter3new17h6932e4dc3345e166E.exit ], [ %11, %_ZN17crossbeam_channel7counter3new17h9dac218f4a116783E.exit ]
-  store i64 %.sink55, ptr %0, align 8
+  %.sink57 = phi i64 [ 0, %_ZN17crossbeam_channel7counter3new17h6932e4dc3345e166E.exit ], [ 2, %_ZN17crossbeam_channel7counter3new17h9dac218f4a116783E.exit ]
+  %.sink55 = phi ptr [ %23, %_ZN17crossbeam_channel7counter3new17h6932e4dc3345e166E.exit ], [ %11, %_ZN17crossbeam_channel7counter3new17h9dac218f4a116783E.exit ]
+  store i64 %.sink57, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink53, ptr %31, align 8
+  store ptr %.sink55, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink55, ptr %32, align 8
+  store i64 %.sink57, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink53, ptr %33, align 8
+  store ptr %.sink55, ptr %33, align 8
   ret void
 }
 
@@ -946,9 +946,9 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit.i.i27: ; pr
   br label %64
 
 64:                                               ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit38.thread72", %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit35.thread69"
-  %.sroa.3.0.i.lcssa108.sink = phi i32 [ %.sroa.3.0.i, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit38.thread72" ], [ 1000000000, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit35.thread69" ]
+  %.sroa.3.0.i.lcssa116.sink = phi i32 [ %.sroa.3.0.i, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit38.thread72" ], [ 1000000000, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit35.thread69" ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.3.0.i.lcssa108.sink, ptr %65, align 8
+  store i32 %.sroa.3.0.i.lcssa116.sink, ptr %65, align 8
   ret void
 
 66:                                               ; preds = %.loopexit.i

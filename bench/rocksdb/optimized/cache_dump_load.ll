@@ -1370,9 +1370,9 @@ define linkonce_odr void @_ZN7rocksdb21ToFileCacheDumpWriter5CloseEv(ptr dead_on
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 169
   %12 = load atomic i8, ptr %11 monotonic, align 1
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %.thread12, label %14
+  br i1 %13, label %.thread22, label %14
 
-.thread12:                                        ; preds = %10
+.thread22:                                        ; preds = %10
   store ptr null, ptr %8, align 8, !tbaa !36
   br label %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i
 
@@ -1531,10 +1531,10 @@ _ZN7rocksdb6StatusD2Ev.exit7:                     ; preds = %14
   %.not.i.i8 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i8, label %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i: ; preds = %.thread12, %72
-  %.pr15 = phi ptr [ %9, %.thread12 ], [ %.pr.pre, %72 ]
-  call void @_ZN7rocksdb18WritableFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(258) %.pr15) #21
-  call void @_ZdlPvm(ptr noundef nonnull %.pr15, i64 noundef 264) #19
+_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i: ; preds = %.thread22, %72
+  %.pr25 = phi ptr [ %9, %.thread22 ], [ %.pr.pre, %72 ]
+  call void @_ZN7rocksdb18WritableFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(258) %.pr25) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.pr25, i64 noundef 264) #19
   br label %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %2, %72, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i

@@ -62,8 +62,8 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
 
 21:                                               ; preds = %.loopexit165
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not320 = icmp eq ptr %5, %3
-  br i1 %.not320, label %_ZNSt6vectorISt4pairIdmESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt4pairIdmESaIS1_EE11_M_allocateEm.exit.i
+  %.not337 = icmp eq ptr %5, %3
+  br i1 %.not337, label %_ZNSt6vectorISt4pairIdmESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt4pairIdmESaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt4pairIdmESaIS1_EE11_M_allocateEm.exit.i: ; preds = %21
   %23 = shl nuw nsw i64 %17, 1

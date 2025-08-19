@@ -693,7 +693,7 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnu
   %12 = ashr exact i64 %sext.i, 32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.64..64..64..64..64..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %.64..64..64..64..64..sroa_idx59 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %.64..64..64..64..64..sroa_idx65 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %.12..12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.20..20..20..20..20..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.24..24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -787,7 +787,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 53:                                               ; preds = %fmap_readn.exit.i
   %.64..64..64..64..64..i = load i16, ptr %.64..64..64..64..64..sroa_idx, align 1, !tbaa !3
   %rev.i.i = call i16 @llvm.bswap.i16(i16 %.64..64..64..64..64..i)
-  store i16 %rev.i.i, ptr %.64..64..64..64..64..sroa_idx59, align 1, !tbaa !3
+  store i16 %rev.i.i, ptr %.64..64..64..64..64..sroa_idx65, align 1, !tbaa !3
   %54 = add nuw i32 %.231, 1
   %.12..12..12..12..12..i = load i32, ptr %.12..12..12..12..12..sroa_idx, align 1, !tbaa !13
   %55 = zext i32 %.12..12..12..12..12..i to i64

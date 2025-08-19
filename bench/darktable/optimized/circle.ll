@@ -193,9 +193,9 @@ define internal void @_circle_modify_property(ptr noundef readonly captures(none
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %66
-  %.sink80 = phi float [ %73, %66 ], [ %45, %39 ]
+  %.sink81 = phi float [ %73, %66 ], [ %45, %39 ]
   %.sink = phi float [ %67, %66 ], [ %36, %39 ]
-  store float %.sink80, ptr %7, align 4, !tbaa !20
+  store float %.sink81, ptr %7, align 4, !tbaa !20
   %74 = load float, ptr %6, align 4, !tbaa !20
   %75 = fdiv reassoc nsz arcp contract afn float 0x3F40624DE0000000, %.sink
   %76 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %74, float %75)
@@ -1236,8 +1236,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %.0357449 = phi float [ 0x47EFFFFFE0000000, %.lr.ph452.preheader ], [ %.1358, %229 ]
   %.0360448 = phi float [ 0x3810000000000000, %.lr.ph452.preheader ], [ %.1361, %229 ]
   %.0362447 = phi float [ 0x3810000000000000, %.lr.ph452.preheader ], [ %.1363, %229 ]
-  %.idx519 = shl nuw nsw i64 %indvars.iv485, 3
-  %214 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx519
+  %.idx532 = shl nuw nsw i64 %indvars.iv485, 3
+  %214 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx532
   %215 = load float, ptr %214, align 8, !tbaa !20
   %216 = tail call i1 @llvm.is.fpclass.f32(float %215, i32 759)
   br i1 %216, label %229, label %217

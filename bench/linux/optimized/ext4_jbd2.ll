@@ -674,7 +674,7 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 1280
   %70 = load ptr, ptr %69, align 64
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %.thread10, !prof !23
+  br i1 %71, label %72, label %.thread15, !prof !23
 
 72:                                               ; preds = %68
   tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #10, !srcloc !39
@@ -687,16 +687,16 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   %.pre7 = load i32, ptr %.phi.trans.insert6, align 4
   %.pre8 = and i32 %.pre7, 1024
   %73 = icmp eq i32 %.pre8, 0
-  br i1 %73, label %.thread, label %.thread10
+  br i1 %73, label %.thread, label %.thread15
 
-.thread10:                                        ; preds = %68, %72
+.thread15:                                        ; preds = %68, %72
   %74 = phi ptr [ %.pre, %72 ], [ %61, %68 ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1280
   %76 = load ptr, ptr %75, align 64
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.thread, label %78
 
-78:                                               ; preds = %.thread10
+78:                                               ; preds = %.thread15
   %79 = icmp eq i32 %5, 0
   br i1 %79, label %81, label %80, !prof !15
 
@@ -710,8 +710,8 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   tail call void @jbd2_journal_set_triggers(ptr noundef %4, ptr noundef nonnull %82) #10
   br label %.thread
 
-.thread:                                          ; preds = %59, %81, %.thread10, %72, %57, %36
-  %83 = phi i32 [ %11, %36 ], [ 0, %81 ], [ 0, %.thread10 ], [ 0, %57 ], [ 0, %72 ], [ 0, %59 ]
+.thread:                                          ; preds = %59, %81, %.thread15, %72, %57, %36
+  %83 = phi i32 [ %11, %36 ], [ 0, %81 ], [ 0, %.thread15 ], [ 0, %57 ], [ 0, %72 ], [ 0, %59 ]
   ret i32 %83
 }
 
@@ -1082,7 +1082,7 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 1280
   %49 = load ptr, ptr %48, align 64
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %.thread9, !prof !23
+  br i1 %50, label %51, label %.thread13, !prof !23
 
 51:                                               ; preds = %47
   tail call void asm sideeffect "459: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 459b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 459) #10, !srcloc !39
@@ -1095,16 +1095,16 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
   %.pre6 = load i32, ptr %.phi.trans.insert5, align 4
   %.pre7 = and i32 %.pre6, 1024
   %52 = icmp eq i32 %.pre7, 0
-  br i1 %52, label %.thread, label %.thread9
+  br i1 %52, label %.thread, label %.thread13
 
-.thread9:                                         ; preds = %47, %51
+.thread13:                                        ; preds = %47, %51
   %53 = phi ptr [ %.pre, %51 ], [ %40, %47 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1280
   %55 = load ptr, ptr %54, align 64
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.thread, label %57
 
-57:                                               ; preds = %.thread9
+57:                                               ; preds = %.thread13
   %58 = icmp eq i32 %5, 0
   br i1 %58, label %60, label %59, !prof !15
 
@@ -1118,8 +1118,8 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
   tail call void @jbd2_journal_set_triggers(ptr noundef %4, ptr noundef nonnull %61) #10
   br label %.thread
 
-.thread:                                          ; preds = %38, %60, %.thread9, %51, %36, %35, %6
-  %62 = phi i32 [ %10, %35 ], [ 0, %60 ], [ 0, %6 ], [ 0, %.thread9 ], [ 0, %36 ], [ 0, %51 ], [ 0, %38 ]
+.thread:                                          ; preds = %38, %60, %.thread13, %51, %36, %35, %6
+  %62 = phi i32 [ %10, %35 ], [ 0, %60 ], [ 0, %6 ], [ 0, %.thread13 ], [ 0, %36 ], [ 0, %51 ], [ 0, %38 ]
   ret i32 %62
 }
 

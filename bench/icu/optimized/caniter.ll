@@ -1179,12 +1179,12 @@ _ZNK6icu_779Hashtable11nextElementERi.exit111:    ; preds = %169, %180
 
 _ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread: ; preds = %.noexc91, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93, %184
   %.0.ph = phi ptr [ null, %.noexc91 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93 ], [ %.1, %184 ]
-  %.pr136 = load ptr, ptr %7, align 8, !tbaa !39
-  %.not.i114 = icmp eq ptr %.pr136, null
+  %.pr152 = load ptr, ptr %7, align 8, !tbaa !39
+  %.not.i114 = icmp eq ptr %.pr152, null
   br i1 %.not.i114, label %_ZN6icu_779HashtableD2Ev.exit, label %186
 
 186:                                              ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread
-  invoke void @uhash_close_77(ptr noundef nonnull %.pr136)
+  invoke void @uhash_close_77(ptr noundef nonnull %.pr152)
           to label %_ZN6icu_779HashtableD2Ev.exit unwind label %187
 
 187:                                              ; preds = %186
@@ -1195,14 +1195,14 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread: ; preds = %.noexc91, %_ZN6ic
   unreachable
 
 _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit90, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread, %186
-  %.0139.ph = phi ptr [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread ], [ %.0.ph, %186 ], [ %.0.ph, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread ]
-  %.pr140 = load ptr, ptr %6, align 8, !tbaa !39
+  %.0155.ph = phi ptr [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread ], [ %.0.ph, %186 ], [ %.0.ph, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread ]
+  %.pr156 = load ptr, ptr %6, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not.i115 = icmp eq ptr %.pr140, null
+  %.not.i115 = icmp eq ptr %.pr156, null
   br i1 %.not.i115, label %_ZN6icu_779HashtableD2Ev.exit116, label %190
 
 190:                                              ; preds = %_ZN6icu_779HashtableD2Ev.exit
-  invoke void @uhash_close_77(ptr noundef nonnull %.pr140)
+  invoke void @uhash_close_77(ptr noundef nonnull %.pr156)
           to label %_ZN6icu_779HashtableD2Ev.exit116 unwind label %191
 
 191:                                              ; preds = %190
@@ -1213,7 +1213,7 @@ _ZN6icu_779HashtableD2Ev.exit:                    ; preds = %_ZN6icu_779Hashtabl
   unreachable
 
 _ZN6icu_779HashtableD2Ev.exit116:                 ; preds = %_ZN6icu_779HashtableD2Ev.exit.thread, %_ZN6icu_779HashtableD2Ev.exit, %190
-  %.0139143 = phi ptr [ null, %_ZN6icu_779HashtableD2Ev.exit.thread ], [ %.0139.ph, %_ZN6icu_779HashtableD2Ev.exit ], [ %.0139.ph, %190 ]
+  %.0155159 = phi ptr [ null, %_ZN6icu_779HashtableD2Ev.exit.thread ], [ %.0155.ph, %_ZN6icu_779HashtableD2Ev.exit ], [ %.0155.ph, %190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %194 = load ptr, ptr %5, align 8, !tbaa !39
   %.not.i117 = icmp eq ptr %194, null
@@ -1232,7 +1232,7 @@ _ZN6icu_779HashtableD2Ev.exit116:                 ; preds = %_ZN6icu_779Hashtabl
 
 _ZN6icu_779HashtableD2Ev.exit118:                 ; preds = %_ZN6icu_779HashtableD2Ev.exit116, %195
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.0139143
+  ret ptr %.0155159
 
 199:                                              ; preds = %185, %44
   %.pn77.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn, %185 ], [ %45, %44 ]

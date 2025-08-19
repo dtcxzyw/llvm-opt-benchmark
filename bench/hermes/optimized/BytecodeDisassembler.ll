@@ -3670,10 +3670,10 @@ if.then.i.i.i.i.i1.thread:                        ; preds = %if.then.i.i.i.i, %i
   %add.i.i.i.i.i.i = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %hasher, align 8
-  %bcProvider_.i10.i31 = getelementptr inbounds nuw i8, ptr %hasher, i64 8
-  store ptr %0, ptr %bcProvider_.i10.i31, align 8
-  %_M_refcount.i.i.i11.i32 = getelementptr inbounds nuw i8, ptr %hasher, i64 16
-  store ptr %1, ptr %_M_refcount.i.i.i11.i32, align 8
+  %bcProvider_.i10.i34 = getelementptr inbounds nuw i8, ptr %hasher, i64 8
+  store ptr %0, ptr %bcProvider_.i10.i34, align 8
+  %_M_refcount.i.i.i11.i35 = getelementptr inbounds nuw i8, ptr %hasher, i64 16
+  store ptr %1, ptr %_M_refcount.i.i.i11.i35, align 8
   br label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i1:                               ; preds = %if.then.i.i.i.i
@@ -7944,10 +7944,10 @@ if.then.i.i.i.i.i13.thread:                       ; preds = %if.then.i.i.i.i, %i
   %add.i.i.i.i.i.i = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %jumpVisitor, align 8
-  %bcProvider_.i10.i279 = getelementptr inbounds nuw i8, ptr %jumpVisitor, i64 8
-  store ptr %0, ptr %bcProvider_.i10.i279, align 8
-  %_M_refcount.i.i.i11.i280 = getelementptr inbounds nuw i8, ptr %jumpVisitor, i64 16
-  store ptr %1, ptr %_M_refcount.i.i.i11.i280, align 8
+  %bcProvider_.i10.i300 = getelementptr inbounds nuw i8, ptr %jumpVisitor, i64 8
+  store ptr %0, ptr %bcProvider_.i10.i300, align 8
+  %_M_refcount.i.i.i11.i301 = getelementptr inbounds nuw i8, ptr %jumpVisitor, i64 16
+  store ptr %1, ptr %_M_refcount.i.i.i11.i301, align 8
   br label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i13:                              ; preds = %if.then.i.i.i.i
@@ -8211,10 +8211,10 @@ if.then.i.i.i.i.i44.thread:                       ; preds = %if.then.i.i.i.i39, 
   %add.i.i.i.i.i.i43 = add nsw i32 %49, 1
   store i32 %add.i.i.i.i.i.i43, ptr %_M_use_count.i.i.i.i31, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %disassembleVisitor, align 8
-  %bcProvider_.i10.i45284 = getelementptr inbounds nuw i8, ptr %disassembleVisitor, i64 8
-  store ptr %40, ptr %bcProvider_.i10.i45284, align 8
-  %_M_refcount.i.i.i11.i46285 = getelementptr inbounds nuw i8, ptr %disassembleVisitor, i64 16
-  store ptr %41, ptr %_M_refcount.i.i.i11.i46285, align 8
+  %bcProvider_.i10.i45305 = getelementptr inbounds nuw i8, ptr %disassembleVisitor, i64 8
+  store ptr %40, ptr %bcProvider_.i10.i45305, align 8
+  %_M_refcount.i.i.i11.i46306 = getelementptr inbounds nuw i8, ptr %disassembleVisitor, i64 16
+  store ptr %41, ptr %_M_refcount.i.i.i11.i46306, align 8
   br label %if.then.i.i.i.i.i.i.i48
 
 if.then.i.i.i.i.i44:                              ; preds = %if.then.i.i.i.i39
@@ -9234,10 +9234,10 @@ if.then.i.i.i.i.i10.thread:                       ; preds = %if.then.i.i.i.i, %i
   %add.i.i.i.i.i.i = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %disassembleVisitor, align 8
-  %bcProvider_.i10.i133 = getelementptr inbounds nuw i8, ptr %disassembleVisitor, i64 8
-  store ptr %0, ptr %bcProvider_.i10.i133, align 8
-  %_M_refcount.i.i.i11.i134 = getelementptr inbounds nuw i8, ptr %disassembleVisitor, i64 16
-  store ptr %1, ptr %_M_refcount.i.i.i11.i134, align 8
+  %bcProvider_.i10.i142 = getelementptr inbounds nuw i8, ptr %disassembleVisitor, i64 8
+  store ptr %0, ptr %bcProvider_.i10.i142, align 8
+  %_M_refcount.i.i.i11.i143 = getelementptr inbounds nuw i8, ptr %disassembleVisitor, i64 16
+  store ptr %1, ptr %_M_refcount.i.i.i11.i143, align 8
   br label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i10:                              ; preds = %if.then.i.i.i.i
@@ -11169,10 +11169,10 @@ if.then.i.i.i.i.i150.thread:                      ; preds = %if.then.i.i.i.i145,
   %add.i.i.i.i.i.i149 = add nsw i32 %79, 1
   store i32 %add.i.i.i.i.i.i149, ptr %_M_use_count.i.i.i.i137, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %disassembleVisitor20, align 8
-  %bcProvider_.i10.i151493 = getelementptr inbounds nuw i8, ptr %disassembleVisitor20, i64 8
-  store ptr %.lcssa, ptr %bcProvider_.i10.i151493, align 8
-  %_M_refcount.i.i.i11.i152494 = getelementptr inbounds nuw i8, ptr %disassembleVisitor20, i64 16
-  store ptr %74, ptr %_M_refcount.i.i.i11.i152494, align 8
+  %bcProvider_.i10.i151507 = getelementptr inbounds nuw i8, ptr %disassembleVisitor20, i64 8
+  store ptr %.lcssa, ptr %bcProvider_.i10.i151507, align 8
+  %_M_refcount.i.i.i11.i152508 = getelementptr inbounds nuw i8, ptr %disassembleVisitor20, i64 16
+  store ptr %74, ptr %_M_refcount.i.i.i11.i152508, align 8
   br label %if.then.i.i.i.i.i.i.i154
 
 if.then.i.i.i.i.i150:                             ; preds = %if.then.i.i.i.i145
@@ -12151,7 +12151,7 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIhSaIhE
 if.then.i.i.i.i.i37:                              ; preds = %if.then.i35
   store i8 0, ptr %bytecode.sroa.11.1, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i31.pn, i64 2
-  %sub.i.i.i.i.i = add i64 %sub.i, -1
+  %sub.i.i.i.i.i = add nsw i64 %sub.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
@@ -12201,7 +12201,7 @@ if.then.i28.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i: ; preds = %if.then.i28.i.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i
-  %add.ptr33.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i42, i64 %sub
+  %add.ptr33.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i42, i64 %sub
   %add.ptr36.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i42, i64 %11
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
@@ -13340,8 +13340,8 @@ if.else59:                                        ; preds = %_ZN6hermes3hbc13dec
   %cmp67 = icmp eq i8 %0, 110
   %or.cond37 = and i1 %cmp67, %tobool61
   %tobool.not3.i209 = icmp ne i64 %or.i167, 0
-  %or.cond607.not = select i1 %or.cond37, i1 %tobool.not3.i209, i1 false
-  br i1 %or.cond607.not, label %while.body.lr.ph.i210, label %sw.epilog
+  %or.cond609.not = select i1 %or.cond37, i1 %tobool.not3.i209, i1 false
+  br i1 %or.cond609.not, label %while.body.lr.ph.i210, label %sw.epilog
 
 while.body.lr.ph.i210:                            ; preds = %if.else59
   %52 = trunc nuw nsw i64 %or.i167 to i32
@@ -15708,7 +15708,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPSt4pairIjjEmS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt4pairIjjEmS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %if.then
-  %3 = shl nuw i64 %sub, 3
+  %3 = shl nuw nsw i64 %sub, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i.i, ptr %_M_finish.i, align 8
@@ -15756,7 +15756,7 @@ if.then.i24.i:                                    ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt12_Vector_baseISt4pairIjjESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %if.then.i24.i, %_ZNSt6vectorISt4pairIjjESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr34.i = getelementptr inbounds %"struct.std::pair.5", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw %"struct.std::pair.5", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
   %add.ptr37.i = getelementptr inbounds nuw %"struct.std::pair.5", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
@@ -16197,7 +16197,7 @@ if.then4.i.i35:                                   ; preds = %for.body11
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit40
 
 _ZN4llvh11raw_ostreamlsEPKc.exit40:               ; preds = %if.then.i.i38, %if.then4.i.i35
-  %inc15 = add i32 %i8.045, 1
+  %inc15 = add nsw i32 %i8.045, 1
   %exitcond47.not = icmp eq i32 %inc15, 20
   br i1 %exitcond47.not, label %for.end16, label %for.body11, !llvm.loop !130
 

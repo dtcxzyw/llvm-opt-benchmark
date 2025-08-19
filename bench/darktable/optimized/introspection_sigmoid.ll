@@ -715,7 +715,7 @@ _get_base_profile.exit:                           ; preds = %6, %47, %48, %49
   br i1 %.not.i, label %.preheader.split.preheader.i.preheader, label %51
 
 .preheader.split.preheader.i.preheader:           ; preds = %_get_base_profile.exit.thread, %_get_base_profile.exit
-  %.0.i144 = phi ptr [ %44, %_get_base_profile.exit.thread ], [ %50, %_get_base_profile.exit ]
+  %.0.i157 = phi ptr [ %44, %_get_base_profile.exit.thread ], [ %50, %_get_base_profile.exit ]
   br label %.preheader.split.preheader.i
 
 51:                                               ; preds = %_get_base_profile.exit
@@ -813,7 +813,7 @@ dt_colormatrix_mul.exit.i:                        ; preds = %58
   br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i
 
 .loopexit.i:                                      ; preds = %.split.us.thread.i, %dt_colormatrix_mul.exit.i
-  %.0.i143 = phi ptr [ %.0.i144, %.split.us.thread.i ], [ %50, %dt_colormatrix_mul.exit.i ]
+  %.0.i156 = phi ptr [ %.0.i157, %.split.us.thread.i ], [ %50, %dt_colormatrix_mul.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %83 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %24, i64 44
@@ -821,9 +821,9 @@ dt_colormatrix_mul.exit.i:                        ; preds = %58
 
 85:                                               ; preds = %104
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i143, i64 1048
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i156, i64 1048
   call void @dt_make_transposed_matrices_from_primaries_and_whitepoint(ptr noundef nonnull %12, ptr noundef nonnull %86, ptr noundef nonnull %13) #22
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i143, i64 960
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i156, i64 960
   br label %88
 
 88:                                               ; preds = %92, %85
@@ -880,7 +880,7 @@ dt_colormatrix_mul.exit66.preheader.i:            ; preds = %92
   %108 = getelementptr inbounds nuw [3 x float], ptr %84, i64 0, i64 %.05099.i
   %109 = load float, ptr %108, align 4, !tbaa !60
   %110 = getelementptr inbounds nuw [3 x [2 x float]], ptr %12, i64 0, i64 %.05099.i
-  call void @dt_rotate_and_scale_primary(ptr noundef %.0.i143, float noundef %107, float noundef %109, i64 noundef %.05099.i, ptr noundef nonnull %110) #22
+  call void @dt_rotate_and_scale_primary(ptr noundef %.0.i156, float noundef %107, float noundef %109, i64 noundef %.05099.i, ptr noundef nonnull %110) #22
   %111 = add nuw nsw i64 %.05099.i, 1
   %exitcond108.not.i = icmp eq i64 %111, 3
   br i1 %exitcond108.not.i, label %85, label %104
@@ -989,7 +989,7 @@ dt_colormatrix_mul.exit66.i:                      ; preds = %dt_colormatrix_mul.
   %149 = getelementptr inbounds nuw [3 x float], ptr %84, i64 0, i64 %.049100.i
   %150 = load float, ptr %149, align 4, !tbaa !60
   %151 = getelementptr inbounds nuw [3 x [2 x float]], ptr %12, i64 0, i64 %.049100.i
-  call void @dt_rotate_and_scale_primary(ptr noundef nonnull %.0.i143, float noundef %148, float noundef %150, i64 noundef %.049100.i, ptr noundef nonnull %151) #22
+  call void @dt_rotate_and_scale_primary(ptr noundef nonnull %.0.i156, float noundef %148, float noundef %150, i64 noundef %.049100.i, ptr noundef nonnull %151) #22
   %152 = add nuw nsw i64 %.049100.i, 1
   %exitcond109.not.i = icmp eq i64 %152, 3
   br i1 %exitcond109.not.i, label %112, label %dt_colormatrix_mul.exit66.i

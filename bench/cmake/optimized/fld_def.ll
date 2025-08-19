@@ -9,14 +9,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_nc_Make_Argument(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %common.ret27, label %4
+  br i1 %.not, label %common.ret29, label %4
 
 4:                                                ; preds = %3
   %5 = load i16, ptr %0, align 8, !tbaa !4
   %6 = zext i16 %5 to i32
   %7 = and i32 %6, 2
   %.not23 = icmp eq i32 %7, 0
-  br i1 %.not23, label %common.ret27, label %8
+  br i1 %.not23, label %common.ret29, label %8
 
 8:                                                ; preds = %4
   %9 = and i32 %6, 1
@@ -28,9 +28,9 @@ define dso_local ptr @_nc_Make_Argument(ptr noundef readonly captures(address_is
   %.not26 = icmp eq ptr %11, null
   br i1 %.not26, label %20, label %12
 
-common.ret27:                                     ; preds = %3, %4, %23, %27, %20, %12
-  %common.ret27.op = phi ptr [ %11, %12 ], [ null, %20 ], [ %26, %23 ], [ null, %27 ], [ null, %4 ], [ null, %3 ]
-  ret ptr %common.ret27.op
+common.ret29:                                     ; preds = %3, %4, %23, %27, %20, %12
+  %common.ret29.op = phi ptr [ %11, %12 ], [ null, %20 ], [ %26, %23 ], [ null, %27 ], [ null, %4 ], [ null, %3 ]
+  ret ptr %common.ret29.op
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -42,26 +42,26 @@ common.ret27:                                     ; preds = %3, %4, %23, %27, %2
   %18 = tail call ptr @_nc_Make_Argument(ptr noundef %17, ptr noundef %1, ptr noundef %2)
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !17
-  br label %common.ret27
+  br label %common.ret29
 
 20:                                               ; preds = %10
   %21 = load i32, ptr %2, align 4, !tbaa !18
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %2, align 4, !tbaa !18
-  br label %common.ret27
+  br label %common.ret29
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !20
   %26 = tail call ptr %25(ptr noundef %1) #8
   %.not25 = icmp eq ptr %26, null
-  br i1 %.not25, label %27, label %common.ret27
+  br i1 %.not25, label %27, label %common.ret29
 
 27:                                               ; preds = %23
   %28 = load i32, ptr %2, align 4, !tbaa !18
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %2, align 4, !tbaa !18
-  br label %common.ret27
+  br label %common.ret29
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -70,14 +70,14 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_nc_Copy_Argument(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %common.ret31, label %4
+  br i1 %.not, label %common.ret34, label %4
 
 4:                                                ; preds = %3
   %5 = load i16, ptr %0, align 8, !tbaa !4
   %6 = zext i16 %5 to i32
   %7 = and i32 %6, 2
   %.not26 = icmp eq i32 %7, 0
-  br i1 %.not26, label %common.ret31, label %8
+  br i1 %.not26, label %common.ret34, label %8
 
 8:                                                ; preds = %4
   %9 = and i32 %6, 1
@@ -89,9 +89,9 @@ define dso_local ptr @_nc_Copy_Argument(ptr noundef %0, ptr noundef %1, ptr noun
   %.not30 = icmp eq ptr %11, null
   br i1 %.not30, label %19, label %12
 
-common.ret31:                                     ; preds = %3, %4, %27, %25, %19, %22, %12
-  %common.ret31.op = phi ptr [ %11, %12 ], [ null, %19 ], [ %26, %25 ], [ null, %27 ], [ null, %4 ], [ null, %3 ], [ %1, %22 ]
-  ret ptr %common.ret31.op
+common.ret34:                                     ; preds = %3, %4, %27, %25, %19, %22, %12
+  %common.ret34.op = phi ptr [ %11, %12 ], [ null, %19 ], [ %26, %25 ], [ null, %27 ], [ null, %4 ], [ null, %3 ], [ %1, %22 ]
+  ret ptr %common.ret34.op
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %1, align 8, !tbaa !13
@@ -102,50 +102,50 @@ common.ret31:                                     ; preds = %3, %4, %27, %25, %1
   %17 = tail call ptr @_nc_Copy_Argument(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %2)
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !17
-  br label %common.ret31
+  br label %common.ret34
 
 19:                                               ; preds = %10
   %20 = load i32, ptr %2, align 4, !tbaa !18
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %2, align 4, !tbaa !18
-  br label %common.ret31
+  br label %common.ret34
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !21
   %.not28 = icmp eq ptr %24, null
-  br i1 %.not28, label %common.ret31, label %25
+  br i1 %.not28, label %common.ret34, label %25
 
 25:                                               ; preds = %22
   %26 = tail call ptr %24(ptr noundef %1) #8
   %.not29 = icmp eq ptr %26, null
-  br i1 %.not29, label %27, label %common.ret31
+  br i1 %.not29, label %27, label %common.ret34
 
 27:                                               ; preds = %25
   %28 = load i32, ptr %2, align 4, !tbaa !18
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %2, align 4, !tbaa !18
-  br label %common.ret31
+  br label %common.ret34
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_nc_Free_Argument(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %common.ret15, label %3
+  br i1 %.not, label %common.ret16, label %3
 
 3:                                                ; preds = %2
   %4 = load i16, ptr %0, align 8, !tbaa !4
   %5 = zext i16 %4 to i32
   %6 = and i32 %5, 2
   %.not12 = icmp eq i32 %6, 0
-  br i1 %.not12, label %common.ret15, label %7
+  br i1 %.not12, label %common.ret16, label %7
 
 7:                                                ; preds = %3
   %8 = and i32 %5, 1
   %.not13 = icmp eq i32 %8, 0
   br i1 %.not13, label %17, label %9
 
-common.ret15:                                     ; preds = %17, %20, %2, %3, %9
+common.ret16:                                     ; preds = %17, %20, %2, %3, %9
   ret void
 
 9:                                                ; preds = %7
@@ -159,17 +159,17 @@ common.ret15:                                     ; preds = %17, %20, %2, %3, %9
   %16 = load ptr, ptr %15, align 8, !tbaa !17
   tail call void @_nc_Free_Argument(ptr noundef %14, ptr noundef %16)
   tail call void @free(ptr noundef %1) #8
-  br label %common.ret15
+  br label %common.ret16
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %.not14 = icmp eq ptr %19, null
-  br i1 %.not14, label %common.ret15, label %20
+  br i1 %.not14, label %common.ret16, label %20
 
 20:                                               ; preds = %17
   tail call void %19(ptr noundef %1) #8
-  br label %common.ret15
+  br label %common.ret16
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

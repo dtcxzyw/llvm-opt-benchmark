@@ -233,38 +233,38 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
 
 .thread:                                          ; preds = %2, %._crit_edge, %49
   %53 = phi i1 [ false, %49 ], [ true, %._crit_edge ], [ true, %2 ]
-  %.0.lcssa134 = phi i64 [ %.1, %49 ], [ %.1, %._crit_edge ], [ 0, %2 ]
-  %.064.lcssa133 = phi i64 [ %25, %49 ], [ 0, %._crit_edge ], [ 0, %2 ]
-  %.065.lcssa129 = phi i64 [ %.166, %49 ], [ %.166, %._crit_edge ], [ 0, %2 ]
-  %.069.lcssa128 = phi i64 [ %.170, %49 ], [ %.170, %._crit_edge ], [ 0, %2 ]
+  %.0.lcssa142 = phi i64 [ %.1, %49 ], [ %.1, %._crit_edge ], [ 0, %2 ]
+  %.064.lcssa141 = phi i64 [ %25, %49 ], [ 0, %._crit_edge ], [ 0, %2 ]
+  %.065.lcssa137 = phi i64 [ %.166, %49 ], [ %.166, %._crit_edge ], [ 0, %2 ]
+  %.069.lcssa136 = phi i64 [ %.170, %49 ], [ %.170, %._crit_edge ], [ 0, %2 ]
   %54 = phi i64 [ %51, %49 ], [ 0, %._crit_edge ], [ 0, %2 ]
-  %55 = add i64 %.065.lcssa129, %.069.lcssa128
+  %55 = add i64 %.065.lcssa137, %.069.lcssa136
   %56 = load ptr, ptr %0, align 8
   %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef %1, ptr noundef %7, i64 noundef %.0.lcssa134, i64 noundef %55) #14
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef %1, ptr noundef %7, i64 noundef %.0.lcssa142, i64 noundef %55) #14
   br i1 %53, label %.thread92, label %.thread91
 
 .thread92:                                        ; preds = %.thread
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %59 = load i64, ptr %58, align 8
-  %60 = add i64 %59, %.065.lcssa129
+  %60 = add i64 %59, %.065.lcssa137
   br label %69
 
 .thread91:                                        ; preds = %49, %.thread
-  %.064.lcssa132 = phi i64 [ %.064.lcssa133, %.thread ], [ %25, %49 ]
-  %.065.lcssa131 = phi i64 [ %.065.lcssa129, %.thread ], [ %.166, %49 ]
+  %.064.lcssa140 = phi i64 [ %.064.lcssa141, %.thread ], [ %25, %49 ]
+  %.065.lcssa139 = phi i64 [ %.065.lcssa137, %.thread ], [ %.166, %49 ]
   %61 = phi i64 [ %54, %.thread ], [ %51, %49 ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %63 = load i64, ptr %62, align 8
   %64 = mul i64 %63, 100
-  %65 = udiv i64 %64, %.064.lcssa132
-  %66 = add i64 %63, %.065.lcssa131
+  %65 = udiv i64 %64, %.064.lcssa140
+  %66 = add i64 %63, %.065.lcssa139
   %67 = mul i64 %66, 100
-  %68 = udiv i64 %67, %.064.lcssa132
+  %68 = udiv i64 %67, %.064.lcssa140
   br label %69
 
 69:                                               ; preds = %.thread92, %.thread91
-  %.065.lcssa130 = phi i64 [ %.065.lcssa131, %.thread91 ], [ %.065.lcssa129, %.thread92 ]
+  %.065.lcssa138 = phi i64 [ %.065.lcssa139, %.thread91 ], [ %.065.lcssa137, %.thread92 ]
   %70 = phi i64 [ %66, %.thread91 ], [ %60, %.thread92 ]
   %71 = phi i64 [ %63, %.thread91 ], [ %59, %.thread92 ]
   %72 = phi i64 [ %65, %.thread91 ], [ 0, %.thread92 ]
@@ -300,25 +300,25 @@ _Z24byte_size_in_proper_unitImET_S0_.exit:        ; preds = %76
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread96, %_Z24byte_size_in_proper_unitImET_S0_.exit, %82
   %.0.i7695 = phi i64 [ %81, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %spec.select.i75, %82 ], [ %80, %.thread96 ]
   %.0.i77 = phi ptr [ @.str.11, %_Z24byte_size_in_proper_unitImET_S0_.exit ], [ %.str.13..str.14.i, %82 ], [ @.str.12, %.thread96 ]
-  %85 = icmp ugt i64 %.065.lcssa130, 107374182399
+  %85 = icmp ugt i64 %.065.lcssa138, 107374182399
   br i1 %85, label %_Z24byte_size_in_proper_unitImET_S0_.exit80, label %86
 
 86:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %87 = icmp samesign ugt i64 %.065.lcssa130, 104857599
+  %87 = icmp samesign ugt i64 %.065.lcssa138, 104857599
   br i1 %87, label %.thread101, label %90
 
 .thread101:                                       ; preds = %86
-  %88 = lshr i64 %.065.lcssa130, 20
+  %88 = lshr i64 %.065.lcssa138, 20
   br label %_Z25proper_unit_for_byte_sizem.exit83
 
 _Z24byte_size_in_proper_unitImET_S0_.exit80:      ; preds = %_Z25proper_unit_for_byte_sizem.exit
-  %89 = lshr i64 %.065.lcssa130, 30
+  %89 = lshr i64 %.065.lcssa138, 30
   br label %_Z25proper_unit_for_byte_sizem.exit83
 
 90:                                               ; preds = %86
-  %91 = icmp samesign ugt i64 %.065.lcssa130, 102399
-  %92 = lshr i64 %.065.lcssa130, 10
-  %spec.select.i78 = select i1 %91, i64 %92, i64 %.065.lcssa130
+  %91 = icmp samesign ugt i64 %.065.lcssa138, 102399
+  %92 = lshr i64 %.065.lcssa138, 10
+  %spec.select.i78 = select i1 %91, i64 %92, i64 %.065.lcssa138
   %.str.13..str.14.i81 = select i1 %91, ptr @.str.13, ptr @.str.14
   br label %_Z25proper_unit_for_byte_sizem.exit83
 

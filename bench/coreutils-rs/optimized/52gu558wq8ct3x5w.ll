@@ -3172,7 +3172,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %.sroa.080.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br label %.backedge168
+  br label %.backedge178
 
 157:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$std..collections..hash..set..HashSet$LT$std..path..PathBuf$GT$$GT$17hb09299c45879459cE.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h353784239db60d15E.exit91"
   %.sroa.0.0 = phi ptr [ %.sroa.0.1, %"_ZN4core3ptr83drop_in_place$LT$std..collections..hash..set..HashSet$LT$std..path..PathBuf$GT$$GT$17hb09299c45879459cE.exit" ], [ %55, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h353784239db60d15E.exit91" ]
@@ -3193,9 +3193,9 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
 ._crit_edge:                                      ; preds = %.backedge
   br i1 %.2, label %.critedge, label %._crit_edge.thread
 
-.backedge168:                                     ; preds = %.backedge168.backedge, %.lr.ph
-  %.085164 = phi i1 [ true, %.lr.ph ], [ %.085164.be, %.backedge168.backedge ]
-  %.sroa.0.0146163 = phi ptr [ %0, %.lr.ph ], [ %162, %.backedge168.backedge ]
+.backedge178:                                     ; preds = %.backedge178.backedge, %.lr.ph
+  %.085164 = phi i1 [ true, %.lr.ph ], [ %.085164.be, %.backedge178.backedge ]
+  %.sroa.0.0146163 = phi ptr [ %0, %.lr.ph ], [ %162, %.backedge178.backedge ]
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0146163, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   br i1 %or.cond, label %182, label %177
@@ -3249,7 +3249,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %157
 
-177:                                              ; preds = %.backedge168
+177:                                              ; preds = %.backedge178
   %178 = getelementptr inbounds nuw i8, ptr %.sroa.0.0146163, i64 8
   %179 = load ptr, ptr %178, align 8, !nonnull !5, !noundef !5
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.0.0146163, i64 16
@@ -3258,7 +3258,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   invoke void @_ZN3std3sys6os_str5bytes5Slice6to_str17hfbea1558dfe8d31cE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %179, i64 noundef %181)
           to label %231 unwind label %160
 
-182:                                              ; preds = %.backedge168
+182:                                              ; preds = %.backedge178
   %183 = invoke noundef zeroext i1 @_ZN3std4path4Path10is_symlink17h6156a0ab86c215f6E(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %184 unwind label %160
 
@@ -3550,11 +3550,11 @@ _ZN3std4path4Path4join17he564b9443042d886E.exit:  ; preds = %.invoke, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1029
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %243 = icmp eq ptr %162, %73
-  br i1 %243, label %._crit_edge, label %.backedge168.backedge
+  br i1 %243, label %._crit_edge, label %.backedge178.backedge
 
-.backedge168.backedge:                            ; preds = %.backedge, %.backedge.thread
+.backedge178.backedge:                            ; preds = %.backedge, %.backedge.thread
   %.085164.be = phi i1 [ %.2, %.backedge ], [ false, %.backedge.thread ]
-  br label %.backedge168
+  br label %.backedge178
 
 .backedge.thread:                                 ; preds = %242
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -3562,7 +3562,7 @@ _ZN3std4path4Path4join17he564b9443042d886E.exit:  ; preds = %.invoke, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %244 = icmp eq ptr %162, %73
-  br i1 %244, label %._crit_edge.thread, label %.backedge168.backedge
+  br i1 %244, label %._crit_edge.thread, label %.backedge178.backedge
 
 .invoke:                                          ; preds = %237
   %245 = extractvalue { ptr, i64 } %238, 0
@@ -4084,7 +4084,7 @@ _ZN5uu_ln13relative_path17hb77d0e3ada9daad2E.exit: ; preds = %.noexc124, %114
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 55
   %132 = load i8, ptr %131, align 1, !range !969, !noundef !5
-  switch i8 %132, label %default.unreachable259 [
+  switch i8 %132, label %default.unreachable280 [
     i8 0, label %184
     i8 1, label %141
     i8 2, label %146
@@ -4124,7 +4124,7 @@ _ZN5uu_ln13relative_path17hb77d0e3ada9daad2E.exit: ; preds = %.noexc124, %114
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %360, label %356
 
-default.unreachable259:                           ; preds = %.thread246, %130
+default.unreachable280:                           ; preds = %.thread246, %130
   unreachable
 
 141:                                              ; preds = %130
@@ -4429,7 +4429,7 @@ default.unreachable259:                           ; preds = %.thread246, %130
 .thread246:                                       ; preds = %_ZN3std2fs6rename17h6dfbbd26d6ff34a0E.exit, %211
   %236 = getelementptr inbounds nuw i8, ptr %4, i64 54
   %237 = load i8, ptr %236, align 2, !range !928, !noundef !5
-  switch i8 %237, label %default.unreachable259 [
+  switch i8 %237, label %default.unreachable280 [
     i8 0, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h322909fac7610aa9E.exit"
     i8 1, label %241
     i8 2, label %243

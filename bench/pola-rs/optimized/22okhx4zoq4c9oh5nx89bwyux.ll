@@ -8870,12 +8870,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1078
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -8887,7 +8887,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1078
 
@@ -10072,12 +10072,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1177
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -10089,7 +10089,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1177
 
@@ -11275,12 +11275,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1276
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -11292,7 +11292,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1276
 
@@ -12478,12 +12478,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1375
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -12495,7 +12495,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1375
 
@@ -13681,12 +13681,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1474
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -13698,7 +13698,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1474
 
@@ -14884,12 +14884,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1573
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -14901,7 +14901,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1573
 
@@ -16086,12 +16086,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1672
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -16103,7 +16103,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1672
 
@@ -17289,12 +17289,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1771
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -17306,7 +17306,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1771
 
@@ -18492,12 +18492,12 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
           to label %40 unwind label %.loopexit.split-lp.i, !noalias !1870
 
 .loopexit82.i.loopexit:                           ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i"
-  %lpad.loopexit156 = landingpad { ptr, i32 }
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit82.i.loopexit.split-lp:                  ; preds = %.loopexit.i
-  %lpad.loopexit.split-lp157 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -18509,7 +18509,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
 
 .body.i:                                          ; preds = %.loopexit82.i.loopexit, %.loopexit82.i.loopexit.split-lp, %59, %.loopexit.split-lp.i
   %.sroa.020.2.lpad-body.i = phi i1 [ true, %59 ], [ %.sroa.020.2.ph.i, %.loopexit.split-lp.i ], [ true, %.loopexit82.i.loopexit.split-lp ], [ true, %.loopexit82.i.loopexit ]
-  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit156, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp157, %.loopexit82.i.loopexit.split-lp ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %60, %59 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit172, %.loopexit82.i.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit82.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$polars_core..series..Series$GT$17hf9ec37c821d986b1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #18
           to label %29 unwind label %205, !noalias !1870
 
@@ -21421,8 +21421,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcdd1ca490b5052b8E.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcdd1ca490b5052b8E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { { i32, [1 x i32] }, i64 }, i32, [1 x i32] }, ptr %85, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcdd1ca490b5052b8E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { { i32, [1 x i32] }, i64 }, i32, [1 x i32] }, ptr %85, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %158 = load i32, ptr %157, align 8, !noalias !2142, !noundef !3
   br label %.loopexit45.i.i.i
@@ -21996,8 +21996,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6e803e36d77e97f9E.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6e803e36d77e97f9E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { i64, { i8, [1 x i8] }, [6 x i8] }, i32, [1 x i32] }, ptr %84, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6e803e36d77e97f9E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { i64, { i8, [1 x i8] }, [6 x i8] }, i32, [1 x i32] }, ptr %84, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %158 = load i32, ptr %157, align 8, !noalias !2221, !noundef !3
   br label %.loopexit45.i.i.i
@@ -22571,8 +22571,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6d78c535f2db1b1fE.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6d78c535f2db1b1fE.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { { i128, [2 x i64] }, i64, [1 x i64] }, i32, [3 x i32] }, ptr %85, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6d78c535f2db1b1fE.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { { i128, [2 x i64] }, i64, [1 x i64] }, i32, [3 x i32] }, ptr %85, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -16
   %158 = load i32, ptr %157, align 16, !noalias !2299, !noundef !3
   br label %.loopexit45.i.i.i
@@ -23146,8 +23146,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd4392a2080cbc93E.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd4392a2080cbc93E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { { i32, [1 x i32] }, i64 }, i32, [1 x i32] }, ptr %85, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd4392a2080cbc93E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { { i32, [1 x i32] }, i64 }, i32, [1 x i32] }, ptr %85, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %158 = load i32, ptr %157, align 8, !noalias !2377, !noundef !3
   br label %.loopexit45.i.i.i
@@ -23721,8 +23721,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5043d816e0539fafE.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5043d816e0539fafE.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { { i64, [1 x i64] }, i64 }, i32, [1 x i32] }, ptr %85, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5043d816e0539fafE.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { { i64, [1 x i64] }, i64 }, i32, [1 x i32] }, ptr %85, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %158 = load i32, ptr %157, align 8, !noalias !2455, !noundef !3
   br label %.loopexit45.i.i.i
@@ -24296,8 +24296,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcaf9c090be2fe775E.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcaf9c090be2fe775E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { i64, { i8, [1 x i8] }, [6 x i8] }, i32, [1 x i32] }, ptr %84, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcaf9c090be2fe775E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { i64, { i8, [1 x i8] }, [6 x i8] }, i32, [1 x i32] }, ptr %84, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %158 = load i32, ptr %157, align 8, !noalias !2533, !noundef !3
   br label %.loopexit45.i.i.i
@@ -24871,8 +24871,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7e93b380601bd9e5E.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7e93b380601bd9e5E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { i64, { i16, [1 x i16] }, [2 x i16] }, i32, [1 x i32] }, ptr %84, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7e93b380601bd9e5E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { i64, { i16, [1 x i16] }, [2 x i16] }, i32, [1 x i32] }, ptr %84, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %158 = load i32, ptr %157, align 8, !noalias !2611, !noundef !3
   br label %.loopexit45.i.i.i
@@ -25446,8 +25446,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbb26118dbced8698E.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbb26118dbced8698E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { { i64, [1 x i64] }, i64 }, i32, [1 x i32] }, ptr %85, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbb26118dbced8698E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { { i64, [1 x i64] }, i64 }, i32, [1 x i32] }, ptr %85, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %158 = load i32, ptr %157, align 8, !noalias !2689, !noundef !3
   br label %.loopexit45.i.i.i
@@ -26021,8 +26021,8 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %155, label %165, label %170, !prof !463
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.us.i.i.i.i, %135, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4de578ce9ff7ee0E.exit.us.i.us.i.i.i.i"
-  %.pre48.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4de578ce9ff7ee0E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
-  %.ph.i.i.i.i = getelementptr inbounds { { i64, { i16, [1 x i16] }, [2 x i16] }, i32, [1 x i32] }, ptr %84, i64 %.pre48.i.pn.i.i.i.i
+  %.pre50.i.pn.i.i.i.i = phi i64 [ %110, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4de578ce9ff7ee0E.exit.us.i.us.i.i.i.i" ], [ %142, %135 ], [ %95, %.lr.ph.i.us.i.i.i.i ], [ %129, %.lr.ph.i.i.i.i.i ]
+  %.ph.i.i.i.i = getelementptr inbounds { { i64, { i16, [1 x i16] }, [2 x i16] }, i32, [1 x i32] }, ptr %84, i64 %.pre50.i.pn.i.i.i.i
   %157 = getelementptr inbounds i8, ptr %.ph.i.i.i.i, i64 -8
   %158 = load i32, ptr %157, align 8, !noalias !2767, !noundef !3
   br label %.loopexit45.i.i.i

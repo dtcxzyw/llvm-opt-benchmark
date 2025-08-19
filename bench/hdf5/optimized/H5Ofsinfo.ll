@@ -375,7 +375,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %195 = or disjoint i64 %194, %190
   store i64 %195, ptr %180, align 8, !tbaa !19
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  br label %.sink.split202
+  br label %.sink.split211
 
 197:                                              ; preds = %175
   %198 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -398,7 +398,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
 209:                                              ; preds = %200
   store i64 %207, ptr %198, align 8, !tbaa !19
   %210 = getelementptr inbounds nuw i8, ptr %202, i64 7
-  br label %.sink.split202
+  br label %.sink.split211
 
 211:                                              ; preds = %175
   %212 = load i8, ptr %155, align 1, !tbaa !15
@@ -411,15 +411,15 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %219 = or disjoint i64 %218, %213
   store i64 %219, ptr %214, align 8, !tbaa !19
   %220 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  br label %.sink.split202
+  br label %.sink.split211
 
-.sink.split202:                                   ; preds = %177, %209, %211
-  %.sink203 = phi ptr [ %220, %211 ], [ %210, %209 ], [ %196, %177 ]
-  store ptr %.sink203, ptr %7, align 8, !tbaa !3
+.sink.split211:                                   ; preds = %177, %209, %211
+  %.sink212 = phi ptr [ %220, %211 ], [ %210, %209 ], [ %196, %177 ]
+  store ptr %.sink212, ptr %7, align 8, !tbaa !3
   br label %221
 
-221:                                              ; preds = %.sink.split202, %175
-  %222 = phi ptr [ %155, %175 ], [ %.sink203, %.sink.split202 ]
+221:                                              ; preds = %.sink.split211, %175
+  %222 = phi ptr [ %155, %175 ], [ %.sink212, %.sink.split211 ]
   %223 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
   %.not157 = icmp eq i8 %223, 0
   br i1 %.not157, label %238, label %224
@@ -479,7 +479,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %258 = or disjoint i64 %257, %253
   store i64 %258, ptr %243, align 8, !tbaa !20
   %259 = getelementptr inbounds nuw i8, ptr %222, i64 4
-  br label %.sink.split204
+  br label %.sink.split213
 
 260:                                              ; preds = %238
   %261 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -504,7 +504,7 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
 
 272:                                              ; preds = %263
   %273 = getelementptr inbounds nuw i8, ptr %265, i64 7
-  br label %.sink.split204
+  br label %.sink.split213
 
 274:                                              ; preds = %238
   %275 = load i8, ptr %222, align 1, !tbaa !15
@@ -519,15 +519,15 @@ define internal ptr @H5O__fsinfo_decode(ptr noundef %0, ptr readnone captures(no
   %282 = or disjoint i64 %281, %276
   store i64 %282, ptr %277, align 8, !tbaa !20
   %283 = getelementptr inbounds nuw i8, ptr %222, i64 2
-  br label %.sink.split204
+  br label %.sink.split213
 
-.sink.split204:                                   ; preds = %240, %272, %274
-  %.sink206 = phi ptr [ %283, %274 ], [ %273, %272 ], [ %259, %240 ]
-  store ptr %.sink206, ptr %7, align 8, !tbaa !3
+.sink.split213:                                   ; preds = %240, %272, %274
+  %.sink215 = phi ptr [ %283, %274 ], [ %273, %272 ], [ %259, %240 ]
+  store ptr %.sink215, ptr %7, align 8, !tbaa !3
   br label %284
 
-284:                                              ; preds = %.sink.split204, %238
-  %285 = phi ptr [ %222, %238 ], [ %.sink206, %.sink.split204 ]
+284:                                              ; preds = %.sink.split213, %238
+  %285 = phi ptr [ %222, %238 ], [ %.sink215, %.sink.split213 ]
   %286 = icmp ugt ptr %285, %9
   %287 = ptrtoint ptr %285 to i64
   %288 = sub i64 %143, %287

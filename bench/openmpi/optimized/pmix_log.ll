@@ -264,8 +264,8 @@ define noundef i32 @PMIx_Log_nb(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
 24:                                               ; preds = %21
   %.not = icmp eq ptr %2, null
   %.not394 = icmp eq i64 %3, 0
-  %or.cond395 = or i1 %.not, %.not394
-  br i1 %or.cond395, label %.loopexit, label %.lr.ph
+  %or.cond446 = or i1 %.not, %.not394
+  br i1 %or.cond446, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %39
   %.1215393 = phi ptr [ %.2216, %39 ], [ null, %24 ]

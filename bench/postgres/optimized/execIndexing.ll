@@ -373,13 +373,13 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   br i1 %104, label %.thread.i, label %._crit_edge
 
 105:                                              ; preds = %.thread.i
-  %106 = getelementptr inbounds nuw [32 x i16], ptr %100, i64 0, i64 %indvars.iv.next56.i
+  %106 = getelementptr inbounds nuw [32 x i16], ptr %100, i64 0, i64 %indvars.iv.next60.i
   %107 = load i16, ptr %106, align 2
   %108 = icmp slt i16 %107, 1
   br i1 %108, label %.thread.i, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %105, %.outer.i
-  %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.ph.i, %.outer.i ], [ %indvars.iv.next56.i, %105 ]
+  %indvars.iv.i.lcssa = phi i64 [ %indvars.iv.ph.i, %.outer.i ], [ %indvars.iv.next60.i, %105 ]
   %.03952.i.lcssa = phi i1 [ %.03952.ph.i, %.outer.i ], [ true, %105 ]
   %.lcssa = phi i16 [ %103, %.outer.i ], [ %107, %105 ]
   %narrow.i = add nuw i16 %.lcssa, 7
@@ -404,10 +404,10 @@ ExecQual.exit:                                    ; preds = %54, %.thread
   br i1 %.not.i, label %.outer.i, label %._crit_edge.i, !llvm.loop !9
 
 .thread.i:                                        ; preds = %.outer.i, %105
-  %indvars.iv.i111 = phi i64 [ %indvars.iv.next56.i, %105 ], [ %indvars.iv.ph.i, %.outer.i ]
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv.i111, 1
-  %.not57.i = icmp slt i64 %indvars.iv.next56.i, %101
-  br i1 %.not57.i, label %105, label %._crit_edge.thread.i, !llvm.loop !9
+  %indvars.iv.i111 = phi i64 [ %indvars.iv.next60.i, %105 ], [ %indvars.iv.ph.i, %.outer.i ]
+  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv.i111, 1
+  %.not61.i = icmp slt i64 %indvars.iv.next60.i, %101
+  br i1 %.not61.i, label %105, label %._crit_edge.thread.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %114
   br i1 %.03952.i.lcssa, label %._crit_edge.thread.i, label %.critedge.i
@@ -743,15 +743,15 @@ ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %64
   call void @index_rescan(ptr noundef %117, ptr noundef nonnull %13, i32 noundef %23, ptr noundef null, i32 noundef 0) #6
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 112
   %119 = call zeroext i1 @index_getnext_slot(ptr noundef %117, i32 noundef 1, ptr noundef %101) #6
-  br i1 %119, label %.lr.ph193, label %.loopexit
+  br i1 %119, label %.lr.ph202, label %.loopexit
 
-.lr.ph193:                                        ; preds = %.loopexit146, %index_recheck_constraint.exit
-  %.0120192 = phi i1 [ %.1121, %index_recheck_constraint.exit ], [ false, %.loopexit146 ]
+.lr.ph202:                                        ; preds = %.loopexit146, %index_recheck_constraint.exit
+  %.0120201 = phi i1 [ %.1121, %index_recheck_constraint.exit ], [ false, %.loopexit146 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br i1 %.not.i, label %ItemPointerIsValid.exit.thread, label %ItemPointerIsValid.exit
 
-ItemPointerIsValid.exit:                          ; preds = %.lr.ph193
+ItemPointerIsValid.exit:                          ; preds = %.lr.ph202
   %120 = load i16, ptr %110, align 2
   %.not145 = icmp eq i16 %120, 0
   br i1 %.not145, label %ItemPointerIsValid.exit.thread, label %121
@@ -761,7 +761,7 @@ ItemPointerIsValid.exit:                          ; preds = %.lr.ph193
   br i1 %122, label %123, label %ItemPointerIsValid.exit.thread
 
 123:                                              ; preds = %121
-  br i1 %.0120192, label %124, label %index_recheck_constraint.exit, !llvm.loop !13
+  br i1 %.0120201, label %124, label %index_recheck_constraint.exit, !llvm.loop !13
 
 124:                                              ; preds = %123
   %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -773,7 +773,7 @@ ItemPointerIsValid.exit:                          ; preds = %.lr.ph193
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 832, ptr noundef nonnull @__func__.check_exclusion_or_unique_constraint) #6
   unreachable
 
-ItemPointerIsValid.exit.thread:                   ; preds = %.lr.ph193, %121, %ItemPointerIsValid.exit
+ItemPointerIsValid.exit.thread:                   ; preds = %.lr.ph202, %121, %ItemPointerIsValid.exit
   call void @FormIndexDatum(ptr noundef %2, ptr noundef %101, ptr noundef %6, ptr noundef nonnull %15, ptr noundef nonnull %16) #6
   %130 = load i8, ptr %118, align 8, !range !4, !noundef !5
   %131 = trunc nuw i8 %130 to i1
@@ -925,11 +925,11 @@ index_recheck_constraint.exit.thread141:          ; preds = %172, %171
   br label %.loopexit
 
 index_recheck_constraint.exit:                    ; preds = %142, %138, %123
-  %.1121 = phi i1 [ true, %123 ], [ %.0120192, %138 ], [ %.0120192, %142 ]
+  %.1121 = phi i1 [ true, %123 ], [ %.0120201, %138 ], [ %.0120201, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %203 = call zeroext i1 @index_getnext_slot(ptr noundef %117, i32 noundef 1, ptr noundef %101) #6
-  br i1 %203, label %.lr.ph193, label %.loopexit
+  br i1 %203, label %.lr.ph202, label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit146, %index_recheck_constraint.exit, %index_recheck_constraint.exit.thread141
   %204 = phi i1 [ false, %index_recheck_constraint.exit.thread141 ], [ true, %index_recheck_constraint.exit ], [ true, %.loopexit146 ]

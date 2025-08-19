@@ -321,11 +321,11 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
   br i1 %17, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %.thread
-  %.pr35 = load ptr, ptr %14, align 8
+  %.pr36 = load ptr, ptr %14, align 8
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
-  %18 = phi ptr [ %.pr35, %.lr.ph.splitthread-pre-split ], [ %16, %.lr.ph ]
+  %18 = phi ptr [ %.pr36, %.lr.ph.splitthread-pre-split ], [ %16, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.thread, label %19
@@ -334,7 +334,7 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
   %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not26 = icmp eq ptr %21, null
-  br i1 %.not26, label %.thread36, label %22
+  br i1 %.not26, label %.thread37, label %22
 
 22:                                               ; preds = %19
   %23 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %21) #8
@@ -343,16 +343,16 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
   store ptr %23, ptr %25, align 8
   %.pr.pre = load ptr, ptr %14, align 8
   %.not27 = icmp eq ptr %.pr.pre, null
-  br i1 %.not27, label %.thread, label %.thread36
+  br i1 %.not27, label %.thread, label %.thread37
 
-.thread36:                                        ; preds = %19, %22
-  %.pr39 = phi ptr [ %.pr.pre, %22 ], [ %18, %19 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.pr39, i64 %indvars.iv
+.thread37:                                        ; preds = %19, %22
+  %.pr40 = phi ptr [ %.pr.pre, %22 ], [ %18, %19 ]
+  %26 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %.not28 = icmp eq ptr %27, null
   br i1 %.not28, label %.thread, label %28
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread37
   %29 = load ptr, ptr %15, align 8
   %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
@@ -361,7 +361,7 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
   store i64 %31, ptr %33, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph.split, %22, %.thread36, %28
+.thread:                                          ; preds = %.lr.ph.split, %22, %.thread37, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %5, align 4
   %35 = zext i32 %34 to i64

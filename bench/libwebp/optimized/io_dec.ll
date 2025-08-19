@@ -86,13 +86,13 @@ WebPIsAlphaMode.exit:                             ; preds = %1
   %narrow.i.i = icmp ult i32 %8, -4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %spec.select75 = select i1 %narrow.i.i, i32 12, i32 11
+  %spec.select79 = select i1 %narrow.i.i, i32 12, i32 11
   br label %10
 
 10:                                               ; preds = %WebPIsAlphaMode.exit, %WebPIsAlphaMode.exit.thread
   %11 = phi ptr [ %7, %WebPIsAlphaMode.exit.thread ], [ %9, %WebPIsAlphaMode.exit ]
-  %.not74 = phi i1 [ false, %WebPIsAlphaMode.exit.thread ], [ %narrow.i.i, %WebPIsAlphaMode.exit ]
-  %12 = phi i32 [ 11, %WebPIsAlphaMode.exit.thread ], [ %spec.select75, %WebPIsAlphaMode.exit ]
+  %.not78 = phi i1 [ false, %WebPIsAlphaMode.exit.thread ], [ %narrow.i.i, %WebPIsAlphaMode.exit ]
+  %12 = phi i32 [ 11, %WebPIsAlphaMode.exit.thread ], [ %spec.select79, %WebPIsAlphaMode.exit ]
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -105,7 +105,7 @@ WebPIsAlphaMode.exit:                             ; preds = %1
 18:                                               ; preds = %10
   %19 = add i32 %5, -11
   %narrow.i = icmp ult i32 %19, -4
-  %or.cond72 = or i1 %narrow.i, %.not74
+  %or.cond72 = or i1 %narrow.i, %.not78
   br i1 %or.cond72, label %21, label %20
 
 20:                                               ; preds = %18
@@ -121,16 +121,16 @@ WebPIsAlphaMode.exit:                             ; preds = %1
 24:                                               ; preds = %21
   %25 = load ptr, ptr %3, align 8, !tbaa !23
   %26 = load i32, ptr %25, align 8, !tbaa !24
-  %switch.tableidx80 = add i32 %26, -1
-  %27 = icmp ult i32 %switch.tableidx80, 12
-  %switch.maskindex81 = trunc i32 %switch.tableidx80 to i16
-  %switch.shifted82 = lshr i16 2077, %switch.maskindex81
-  %switch.lobit83 = trunc i16 %switch.shifted82 to i1
-  %or.cond84 = select i1 %27, i1 %switch.lobit83, i1 false
+  %switch.tableidx84 = add i32 %26, -1
+  %27 = icmp ult i32 %switch.tableidx84, 12
+  %switch.maskindex85 = trunc i32 %switch.tableidx84 to i16
+  %switch.shifted86 = lshr i16 2077, %switch.maskindex85
+  %switch.lobit87 = trunc i16 %switch.shifted86 to i1
+  %or.cond88 = select i1 %27, i1 %switch.lobit87, i1 false
   br i1 %6, label %98, label %28
 
 28:                                               ; preds = %24
-  br i1 %or.cond84, label %WebPIsAlphaMode.exit.i, label %29
+  br i1 %or.cond88, label %WebPIsAlphaMode.exit.i, label %29
 
 29:                                               ; preds = %28
   %30 = add i32 %26, -11
@@ -153,12 +153,12 @@ WebPIsAlphaMode.exit.i:                           ; preds = %28, %29
   %42 = ashr i32 %41, 1
   %43 = sext i32 %32 to i64
   %44 = shl nsw i64 %43, 1
-  %spec.select76 = select i1 %.not.i, i64 3, i64 4
-  %45 = mul nsw i64 %44, %spec.select76
-  %46 = mul nsw i64 %spec.select76, %43
+  %spec.select80 = select i1 %.not.i, i64 3, i64 4
+  %45 = mul nsw i64 %44, %spec.select80
+  %46 = mul nsw i64 %spec.select80, %43
   %47 = shl nsw i64 %45, 2
   %48 = add nsw i64 %47, %46
-  %49 = mul nuw nsw i64 %spec.select76, 104
+  %49 = mul nuw nsw i64 %spec.select80, 104
   %50 = add nuw nsw i64 %49, 31
   %51 = add nsw i64 %50, %48
   %52 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %51) #6
@@ -241,7 +241,7 @@ WebPIsAlphaMode.exit.i:                           ; preds = %28, %29
   br label %.critedge
 
 98:                                               ; preds = %24
-  br i1 %or.cond84, label %WebPIsAlphaMode.exit.i59, label %99
+  br i1 %or.cond88, label %WebPIsAlphaMode.exit.i59, label %99
 
 99:                                               ; preds = %98
   %100 = add i32 %26, -11
@@ -274,10 +274,10 @@ WebPIsAlphaMode.exit.i59:                         ; preds = %98, %99
   %122 = add nsw i64 %121, %118
   %123 = shl nsw i64 %122, 2
   %124 = shl nsw i64 %117, 3
-  %spec.select77 = select i1 %.not.i60, i64 343, i64 447
-  %spec.select78 = select i1 %.not.i60, i64 0, i64 %124
-  %.076.i = add nsw i64 %123, %spec.select78
-  %125 = add nsw i64 %.076.i, %spec.select77
+  %spec.select81 = select i1 %.not.i60, i64 343, i64 447
+  %spec.select82 = select i1 %.not.i60, i64 0, i64 %124
+  %.076.i = add nsw i64 %123, %spec.select82
+  %125 = add nsw i64 %.076.i, %spec.select81
   %126 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %125) #6
   store ptr %126, ptr %11, align 8, !tbaa !30
   %127 = icmp eq ptr %126, null
@@ -396,11 +396,11 @@ WebPIsAlphaMode.exit.i59:                         ; preds = %98, %99
   br label %199
 
 199:                                              ; preds = %189, %178
-  br i1 %.not74, label %.critedge, label %200
+  br i1 %.not78, label %.critedge, label %200
 
 .thread67:                                        ; preds = %177
   store ptr @EmitYUV, ptr %13, align 8, !tbaa !16
-  br i1 %.not74, label %.critedge, label %.thread68
+  br i1 %.not78, label %.critedge, label %.thread68
 
 .thread68:                                        ; preds = %.thread67
   store ptr @EmitAlphaYUV, ptr %14, align 8, !tbaa !21
@@ -735,8 +735,8 @@ GetAlphaSourceRow.exit:                           ; preds = %28, %6
   %43 = getelementptr inbounds i8, ptr %37, i64 %42
   %44 = icmp sgt i32 %.138, 0
   %45 = icmp sgt i32 %8, 0
-  %or.cond57 = select i1 %44, i1 %45, i1 false
-  br i1 %or.cond57, label %.preheader.us.preheader, label %._crit_edge48.thread
+  %or.cond60 = select i1 %44, i1 %45, i1 false
+  br i1 %or.cond60, label %.preheader.us.preheader, label %._crit_edge48.thread
 
 .preheader.us.preheader:                          ; preds = %GetAlphaSourceRow.exit
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 1

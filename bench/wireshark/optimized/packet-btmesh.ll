@@ -6258,8 +6258,8 @@ define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noun
   %205 = load i32, ptr %9, align 4
   %206 = icmp ult i32 %204, %205
   %207 = add i32 %202, -8192
-  %spec.select205.i = select i1 %206, i32 %207, i32 %202
-  %208 = and i32 %spec.select205.i, -8192
+  %spec.select212.i = select i1 %206, i32 %207, i32 %202
+  %208 = and i32 %spec.select212.i, -8192
   %209 = add i32 %208, %205
   store i32 %209, ptr %203, align 4
   %210 = load i32, ptr %11, align 4
@@ -12195,9 +12195,9 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   br label %96
 
 96:                                               ; preds = %73, %84, %90
-  %.sink136 = phi i16 [ %83, %73 ], [ %89, %84 ], [ %95, %90 ]
+  %.sink138 = phi i16 [ %83, %73 ], [ %89, %84 ], [ %95, %90 ]
   %.sink = phi i32 [ %79, %73 ], [ %72, %84 ], [ %2, %90 ]
-  %97 = zext i16 %.sink136 to i32
+  %97 = zext i16 %.sink138 to i32
   %98 = add nuw nsw i32 %.sink, %97
   %99 = sub nsw i32 %98, %2
   ret i32 %99

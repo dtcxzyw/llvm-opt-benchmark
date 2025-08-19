@@ -387,14 +387,14 @@ zend_string_release_ex.exit:                      ; preds = %130, %125, %121, %1
 
 166:                                              ; preds = %164, %zend_string_release_ex.exit
   %167 = load i8, ptr %93, align 8, !tbaa !4
-  switch i8 %167, label %.thread179 [
+  switch i8 %167, label %.thread224 [
     i8 7, label %168
     i8 8, label %170
   ]
 
 168:                                              ; preds = %166
   %169 = load ptr, ptr %.1122, align 8, !tbaa !4
-  br label %.thread179
+  br label %.thread224
 
 170:                                              ; preds = %166
   %171 = load ptr, ptr %.1122, align 8, !tbaa !4
@@ -406,24 +406,24 @@ zend_string_release_ex.exit:                      ; preds = %130, %125, %121, %1
   %.pre177 = load i8, ptr %93, align 8, !tbaa !4
   %.pre177.fr = freeze i8 %.pre177
   %177 = icmp eq i8 %.pre177.fr, 8
-  %spec.select189 = select i1 %177, ptr %.1122, ptr null
-  br label %.thread179
+  %spec.select234 = select i1 %177, ptr %.1122, ptr null
+  br label %.thread224
 
-.thread179:                                       ; preds = %170, %166, %168
+.thread224:                                       ; preds = %170, %166, %168
   %178 = phi ptr [ null, %166 ], [ %169, %168 ], [ %176, %170 ]
-  %179 = phi ptr [ null, %166 ], [ null, %168 ], [ %spec.select189, %170 ]
+  %179 = phi ptr [ null, %166 ], [ null, %168 ], [ %spec.select234, %170 ]
   call void @php_url_encode_hash_ex(ptr noundef %178, ptr noundef %1, ptr noundef null, i64 noundef 0, ptr noundef %.2, ptr noundef %179, ptr noundef %.0, i32 noundef %7)
   %180 = load i32, ptr %16, align 4, !tbaa !4
   %181 = and i32 %180, 64
   %.not147 = icmp eq i32 %181, 0
   br i1 %.not147, label %182, label %184
 
-182:                                              ; preds = %.thread179
+182:                                              ; preds = %.thread224
   %183 = and i32 %180, -97
   store i32 %183, ptr %16, align 4, !tbaa !4
   br label %184
 
-184:                                              ; preds = %182, %.thread179
+184:                                              ; preds = %182, %.thread224
   %185 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %186 = load i32, ptr %185, align 4, !tbaa !4
   %187 = and i32 %186, 64
@@ -448,7 +448,7 @@ zend_string_release_ex.exit:                      ; preds = %130, %125, %121, %1
   %195 = load i64, ptr %12, align 8, !tbaa !23
   %196 = load ptr, ptr %1, align 8, !tbaa !46
   %.not.i150 = icmp eq ptr %196, null
-  br i1 %.not.i150, label %.thread182.i, label %197
+  br i1 %.not.i150, label %.thread221.i, label %197
 
 197:                                              ; preds = %.thread153
   %198 = load i64, ptr %39, align 8, !tbaa !7
@@ -477,10 +477,10 @@ zend_string_release_ex.exit:                      ; preds = %130, %125, %121, %1
   store i64 %201, ptr %210, align 8, !tbaa !7
   br i1 %.not145, label %225, label %212
 
-.thread182.i:                                     ; preds = %.thread153
-  br i1 %.not145, label %225, label %.thread186.i
+.thread221.i:                                     ; preds = %.thread153
+  br i1 %.not145, label %225, label %.thread225.i
 
-.thread186.i:                                     ; preds = %.thread182.i
+.thread225.i:                                     ; preds = %.thread221.i
   %211 = load i64, ptr %34, align 8, !tbaa !7
   br label %216
 
@@ -491,9 +491,9 @@ zend_string_release_ex.exit:                      ; preds = %130, %125, %121, %1
   %.not12.i90.i = icmp ult i64 %214, %215
   br i1 %.not12.i90.i, label %smart_str_alloc.exit93.i, label %216, !prof !49
 
-216:                                              ; preds = %212, %.thread186.i
-  %217 = phi i64 [ %213, %212 ], [ %211, %.thread186.i ]
-  %.0.i91.i = phi i64 [ %214, %212 ], [ %211, %.thread186.i ]
+216:                                              ; preds = %212, %.thread225.i
+  %217 = phi i64 [ %213, %212 ], [ %211, %.thread225.i ]
+  %.0.i91.i = phi i64 [ %214, %212 ], [ %211, %.thread225.i ]
   call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i91.i) #10
   %.pre153.i = load ptr, ptr %1, align 8, !tbaa !46
   %.phi.trans.insert154.i = getelementptr inbounds nuw i8, ptr %.pre153.i, i64 16
@@ -513,9 +513,9 @@ smart_str_alloc.exit93.i:                         ; preds = %216, %212
   store i64 %.1.i92.i, ptr %224, align 8, !tbaa !7
   br label %225
 
-225:                                              ; preds = %smart_str_alloc.exit93.i, %.thread182.i, %204
-  %.not56185.i = phi i1 [ false, %smart_str_alloc.exit93.i ], [ true, %204 ], [ true, %.thread182.i ]
-  %226 = phi ptr [ %223, %smart_str_alloc.exit93.i ], [ %209, %204 ], [ null, %.thread182.i ]
+225:                                              ; preds = %smart_str_alloc.exit93.i, %.thread221.i, %204
+  %.not56224.i = phi i1 [ false, %smart_str_alloc.exit93.i ], [ true, %204 ], [ true, %.thread221.i ]
+  %226 = phi ptr [ %223, %smart_str_alloc.exit93.i ], [ %209, %204 ], [ null, %.thread221.i ]
   %.not57.i = icmp eq ptr %194, null
   br i1 %.not57.i, label %256, label %227
 
@@ -706,7 +706,7 @@ zend_string_free.exit.ithread-pre-split:          ; preds = %smart_str_alloc.exi
 zend_string_free.exit.i:                          ; preds = %zend_string_free.exit.ithread-pre-split, %smart_str_append_long_ex.exit103.i
   %.pr.i = phi ptr [ %.pr.i.pr, %zend_string_free.exit.ithread-pre-split ], [ %301, %smart_str_append_long_ex.exit103.i ]
   %.not.i.i130.i = icmp eq ptr %.pr.i, null
-  br i1 %.not56185.i, label %316, label %303
+  br i1 %.not56224.i, label %316, label %303
 
 303:                                              ; preds = %zend_string_free.exit.i
   br i1 %.not.i.i130.i, label %309, label %304, !prof !20

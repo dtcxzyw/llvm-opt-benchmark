@@ -27079,17 +27079,17 @@ _ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit: ; preds = %28
   br label %89
 
 .thread.sink.split:                               ; preds = %124, %134
-  %.sink309 = phi i64 [ -9223372036854775804, %134 ], [ -9223372036854775803, %124 ]
-  %.sink308 = phi i64 [ %136, %134 ], [ %126, %124 ]
-  %.sink307 = phi ptr [ %137, %134 ], [ %127, %124 ]
-  %.sink306 = phi i64 [ %132, %134 ], [ %122, %124 ]
-  store i64 %.sink309, ptr %22, align 8
+  %.sink322 = phi i64 [ -9223372036854775804, %134 ], [ -9223372036854775803, %124 ]
+  %.sink321 = phi i64 [ %136, %134 ], [ %126, %124 ]
+  %.sink320 = phi ptr [ %137, %134 ], [ %127, %124 ]
+  %.sink319 = phi i64 [ %132, %134 ], [ %122, %124 ]
+  store i64 %.sink322, ptr %22, align 8
   %.sroa.540.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 %.sink308, ptr %.sroa.540.0..sroa_idx41, align 8
+  store i64 %.sink321, ptr %.sroa.540.0..sroa_idx41, align 8
   %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx41.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %.sink307, ptr %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx41.sroa_idx, align 8
+  store ptr %.sink320, ptr %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx41.sroa_idx, align 8
   %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx41.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %.sink306, ptr %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx41.sroa_idx, align 8
+  store i64 %.sink319, ptr %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx41.sroa_idx, align 8
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %94, %107, %119
@@ -28393,7 +28393,7 @@ define hidden void @_ZN12jpeg_decoder6parser9parse_dqt17h74d5359a144e94dcE(ptr n
   %28 = zext i16 %27 to i64
   store i64 %28, ptr %12, align 8, !noalias !11272
   %29 = icmp ult i16 %27, 2
-  br i1 %29, label %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit, label %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread197
+  br i1 %29, label %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit, label %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread203
 
 _ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !11276
@@ -28402,7 +28402,7 @@ _ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %36
 
-_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread197: ; preds = %25
+_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread203: ; preds = %25
   %31 = add nsw i64 %28, -2
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !11272
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -28442,8 +28442,8 @@ _ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit: ; preds = %25
   %35 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775805
   br i1 %35, label %.preheader168.preheader, label %36
 
-.preheader168.preheader:                          ; preds = %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread197, %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit
-  %.sroa.6.0126201 = phi i64 [ %31, %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread197 ], [ %.sroa.6.0.copyload, %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit ]
+.preheader168.preheader:                          ; preds = %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread203, %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit
+  %.sroa.6.0126207 = phi i64 [ %31, %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread203 ], [ %.sroa.6.0.copyload, %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit ]
   br label %.preheader168
 
 36:                                               ; preds = %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit.thread, %_ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit
@@ -28460,7 +28460,7 @@ _ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit: ; preds = %25
   br label %45
 
 .preheader167:                                    ; preds = %.preheader168
-  %.not182 = icmp eq i64 %.sroa.6.0126201, 0
+  %.not182 = icmp eq i64 %.sroa.6.0126207, 0
   br i1 %.not182, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader167
@@ -28480,7 +28480,7 @@ _ZN12jpeg_decoder6parser11read_length17h33df2db999108f43E.exit: ; preds = %25
   br label %45
 
 42:                                               ; preds = %.lr.ph, %81
-  %.075183 = phi i64 [ %.sroa.6.0126201, %.lr.ph ], [ %83, %81 ]
+  %.075183 = phi i64 [ %.sroa.6.0126207, %.lr.ph ], [ %83, %81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !11295
   store i8 0, ptr %7, align 1, !noalias !11295
   %43 = call noundef ptr @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h822a67b5e4ef7d27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %7, i64 noundef 1), !noalias !11299
@@ -29055,7 +29055,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %82 = phi i1 [ true, %78 ], [ false, %79 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ]
   %.0245 = phi i8 [ 1, %78 ], [ 2, %79 ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ], [ 0, %switch.lookup ]
   %83 = icmp samesign ult i8 %3, 4
-  br i1 %83, label %switch.lookup492, label %85
+  br i1 %83, label %switch.lookup506, label %85
 
 84:                                               ; preds = %88
   call void @_ZN12jpeg_decoder6parser9parse_sof19panic_cold_explicit17h267a67b50ee5c749E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d0b53836d7e1f22013aa0a92172aa16d.69) #41
@@ -29065,17 +29065,17 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %86 = icmp ne i8 %3, 4
   %87 = icmp samesign ult i8 %3, 8
   %or.cond17 = and i1 %86, %87
-  br i1 %or.cond17, label %switch.lookup492, label %88
+  br i1 %or.cond17, label %switch.lookup506, label %88
 
 88:                                               ; preds = %85
   %switch.tableidx = add i8 %3, -9
   %89 = icmp ult i8 %switch.tableidx, 7
-  %switch.shifted493 = lshr i8 119, %switch.tableidx
-  %switch.lobit494 = trunc i8 %switch.shifted493 to i1
-  %or.cond = select i1 %89, i1 %switch.lobit494, i1 false
-  br i1 %or.cond, label %switch.lookup492, label %84
+  %switch.shifted507 = lshr i8 119, %switch.tableidx
+  %switch.lobit508 = trunc i8 %switch.shifted507 to i1
+  %or.cond = select i1 %89, i1 %switch.lobit508, i1 false
+  br i1 %or.cond, label %switch.lookup506, label %84
 
-switch.lookup492:                                 ; preds = %88, %80, %85
+switch.lookup506:                                 ; preds = %88, %80, %85
   %.0 = phi i8 [ 0, %85 ], [ 0, %80 ], [ 1, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !11388
@@ -29084,7 +29084,7 @@ switch.lookup492:                                 ; preds = %88, %80, %85
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %94
 
-92:                                               ; preds = %switch.lookup492
+92:                                               ; preds = %switch.lookup506
   %93 = load i8, ptr %12, align 1, !noalias !11388, !noundef !47
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !11388
   store i8 %93, ptr %40, align 1
@@ -29093,7 +29093,7 @@ switch.lookup492:                                 ; preds = %88, %80, %85
     i8 12, label %102
   ]
 
-94:                                               ; preds = %switch.lookup492
+94:                                               ; preds = %switch.lookup506
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !11388
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775807, ptr %95, align 8
@@ -30733,9 +30733,9 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h5684a8e098916345E.exit: ; preds 
   br label %396
 
 396:                                              ; preds = %404, %395
-  %.sink476 = phi ptr [ %39, %404 ], [ %36, %395 ]
+  %.sink506 = phi ptr [ %39, %404 ], [ %36, %395 ]
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %397, ptr noundef nonnull align 8 dereferenceable(24) %.sink476, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %397, ptr noundef nonnull align 8 dereferenceable(24) %.sink506, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -49042,14 +49042,14 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$typst..math..cancel..CancelA
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15544)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15547)
-  switch i64 %2, label %default.unreachable.i [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 1, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 2, label %11
     i64 3, label %5
   ]
 
-default.unreachable.i:                            ; preds = %4
+default.unreachable:                              ; preds = %4
   unreachable
 
 5:                                                ; preds = %4
@@ -50293,14 +50293,14 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$typst..foundations..auto..Sm
 6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15782)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15785)
-  switch i64 %2, label %default.unreachable.i.i [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr53drop_in_place$LT$typst..math..cancel..CancelAngle$GT$17hebc4151a06af8026E.llvm.4622153547959463051.exit"
     i64 1, label %"_ZN4core3ptr53drop_in_place$LT$typst..math..cancel..CancelAngle$GT$17hebc4151a06af8026E.llvm.4622153547959463051.exit"
     i64 2, label %13
     i64 3, label %7
   ]
 
-default.unreachable.i.i:                          ; preds = %6
+default.unreachable:                              ; preds = %6
   unreachable
 
 7:                                                ; preds = %6
@@ -93960,16 +93960,13 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h08e11b7d8219
 13:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17h96b6ca1f36c89d40E.llvm.4622153547959463051.exit.thread"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20999)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21002)
-  switch i32 %11, label %default.unreachable1.i.i.i [
+  switch i32 %11, label %default.unreachable [
     i32 0, label %14
     i32 1, label %16
     i32 2, label %35
   ]
 
-default.unreachable:                              ; preds = %16
-  unreachable
-
-default.unreachable1.i.i.i:                       ; preds = %13
+default.unreachable:                              ; preds = %16, %13
   unreachable
 
 14:                                               ; preds = %13
@@ -94199,9 +94196,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h098aeaef5662
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h6ac679993cd221a1E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h6ac679993cd221a1E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !21144
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -95976,9 +95973,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h1abcbb44da44
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h4047d476fa755108E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h4047d476fa755108E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !22368
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -96161,9 +96158,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h1c391742f082
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h316a96d16426b4baE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h316a96d16426b4baE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !22502
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -96263,9 +96260,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h1dac83333fc4
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h912f8d51cd26f689E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h912f8d51cd26f689E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !22578
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -98582,9 +98579,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h2bdbcdcf7208
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h9d95ba59aa2c8c6eE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h9d95ba59aa2c8c6eE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !24090
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -99091,9 +99088,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h320e4a4ca6bd
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h76053da15fc6e724E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h76053da15fc6e724E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !24418
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -100625,9 +100622,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h3e97db7160d3
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h717ee086b808c899E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h717ee086b808c899E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !25487
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -100768,16 +100765,13 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h4194e705d932
 15:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25583)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25586)
-  switch i32 %11, label %default.unreachable1.i.i.i.i [
+  switch i32 %11, label %default.unreachable [
     i32 0, label %16
     i32 1, label %18
     i32 2, label %37
   ]
 
-default.unreachable:                              ; preds = %18
-  unreachable
-
-default.unreachable1.i.i.i.i:                     ; preds = %15
+default.unreachable:                              ; preds = %18, %15
   unreachable
 
 16:                                               ; preds = %15
@@ -101664,9 +101658,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h456ed0989841
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h9c901c102bc7f428E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h9c901c102bc7f428E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !26185
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -103314,9 +103308,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h547b51bca53a
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2c6496fa9520b0c3E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2c6496fa9520b0c3E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !27312
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -106440,9 +106434,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h6e040e4f14dd
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h190e70c70fcd8cd4E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h190e70c70fcd8cd4E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !29367
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -107112,9 +107106,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h73323ab8a402
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1443b9c4f987cf6cE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h1443b9c4f987cf6cE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !29833
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -108787,9 +108781,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h7cc7db46df48
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2d8e6d4746bfa08fE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2d8e6d4746bfa08fE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !30892
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -109970,9 +109964,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h859f2905db97
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hbc716a393ce4818cE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hbc716a393ce4818cE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !31639
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -110028,9 +110022,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h8711f5db0673
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2792cf5318400cfdE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h2792cf5318400cfdE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !31686
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -110319,9 +110313,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h8861cc587b84
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17ha0ab1e3a6e5559ceE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17ha0ab1e3a6e5559ceE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !31864
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -112432,9 +112426,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h9578c2cde584
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hce040a9a6bd22474E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hce040a9a6bd22474E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !33231
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -113191,9 +113185,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h98d561c2b750
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hac4ca53b31ccfc62E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hac4ca53b31ccfc62E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !33708
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -113334,14 +113328,14 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17h99f5cc5a8ae2
 18:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33807)
   %19 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 8
-  switch i64 %11, label %default.unreachable1.i.i.i.i [
+  switch i64 %11, label %default.unreachable [
     i64 0, label %"_ZN69_$LT$typst..foundations..func..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h156b951a5f7aea07E.llvm.13383457361836014260.exit.i.i.sink.split.i"
     i64 1, label %"_ZN69_$LT$typst..foundations..func..Repr$u20$as$u20$core..clone..Clone$GT$5clone17h156b951a5f7aea07E.llvm.13383457361836014260.exit.i.i.sink.split.i"
     i64 2, label %20
     i64 3, label %25
   ]
 
-default.unreachable1.i.i.i.i:                     ; preds = %18
+default.unreachable:                              ; preds = %18
   unreachable
 
 20:                                               ; preds = %18
@@ -115697,9 +115691,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17haa803e3c1006
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h613dbd9a2a49532dE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h613dbd9a2a49532dE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !35335
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -116505,9 +116499,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hb2f020cd2c40
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf4e07484558048adE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf4e07484558048adE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !35842
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -116608,9 +116602,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hb3392f70c121
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf0f9b5f6448dbe1fE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hf0f9b5f6448dbe1fE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !35920
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -117756,9 +117750,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hbbb3bcc5d898
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hb5b0c4295f3d6d98E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hb5b0c4295f3d6d98E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !36601
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -118223,10 +118217,10 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hbe6092e3ce76
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h7d55e57c9d9dff34E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h7d55e57c9d9dff34E.llvm.4622153547959463051.exit": ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread", %16
-  %.sink12 = phi i64 [ 1, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %12, %16 ]
+  %.sink13 = phi i64 [ 1, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %12, %16 ]
   %.sink = phi i64 [ 4, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %.sroa.5.0.i.i, %16 ]
   %.sroa.4.0..sroa_idx.i1.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink12, ptr %.sroa.4.0..sroa_idx.i1.i.i.i, align 8, !alias.scope !36928
+  store i64 %.sink13, ptr %.sroa.4.0..sroa_idx.i1.i.i.i, align 8, !alias.scope !36928
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sink, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !36928
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -119382,10 +119376,10 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hc75ee1c09ecd
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hc5ebebd65244f588E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hc5ebebd65244f588E.llvm.4622153547959463051.exit": ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread", %16
-  %.sink12 = phi i64 [ 1, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %12, %16 ]
+  %.sink13 = phi i64 [ 1, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %12, %16 ]
   %.sink = phi i64 [ 4, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %.sroa.5.0.i.i, %16 ]
   %.sroa.4.0..sroa_idx.i1.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink12, ptr %.sroa.4.0..sroa_idx.i1.i.i.i, align 8, !alias.scope !37681
+  store i64 %.sink13, ptr %.sroa.4.0..sroa_idx.i1.i.i.i, align 8, !alias.scope !37681
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sink, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !37681
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -120962,10 +120956,10 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hd2d683438018
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h0d70a6ace725d838E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h0d70a6ace725d838E.llvm.4622153547959463051.exit": ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread", %16
-  %.sink12 = phi i64 [ 1, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %12, %16 ]
+  %.sink13 = phi i64 [ 1, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %12, %16 ]
   %.sink = phi i64 [ 4, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %.sroa.5.0.i.i, %16 ]
   %.sroa.4.0..sroa_idx.i1.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink12, ptr %.sroa.4.0..sroa_idx.i1.i.i.i, align 8, !alias.scope !38746
+  store i64 %.sink13, ptr %.sroa.4.0..sroa_idx.i1.i.i.i, align 8, !alias.scope !38746
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sink, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !38746
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -121297,9 +121291,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hd5d1d6e0d315
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h092a795394a7951aE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h092a795394a7951aE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !38951
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -121868,9 +121862,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hdc162e282133
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h861e592a4689788eE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h861e592a4689788eE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 5.000000e-01, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !39305
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -121926,9 +121920,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hdc57783f558b
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h98e886242d8ed3c8E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h98e886242d8ed3c8E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !39350
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -122211,9 +122205,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hde43830f7bd2
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h29d40ba33d92352aE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h29d40ba33d92352aE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !39556
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -124530,10 +124524,10 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hf18a700f6654
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h6782386e1831a9f1E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h6782386e1831a9f1E.llvm.4622153547959463051.exit": ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread", %16
-  %.sink12 = phi i64 [ 1, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %12, %16 ]
+  %.sink13 = phi i64 [ 1, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %12, %16 ]
   %.sink = phi i64 [ 4, %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0316dc7ef5172950E.exit.thread" ], [ %.sroa.5.0.i.i, %16 ]
   %.sroa.4.0..sroa_idx.i1.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink12, ptr %.sroa.4.0..sroa_idx.i1.i.i.i, align 8, !alias.scope !41102
+  store i64 %.sink13, ptr %.sroa.4.0..sroa_idx.i1.i.i.i, align 8, !alias.scope !41102
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sink, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !41102
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -124694,9 +124688,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hf26f39cc0958
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17haff7eb81d8284987E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17haff7eb81d8284987E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !41223
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -124877,9 +124871,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hf366cc574b28
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hbb6b5d115efa3a3fE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17hbb6b5d115efa3a3fE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !41357
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -125258,9 +125252,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hf6097e2872f5
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h7cce949b7f028ca9E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h7cce949b7f028ca9E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !41592
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -126106,9 +126100,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hfa1e57db35bb
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8395d0c7b1d1a71bE.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h8395d0c7b1d1a71bE.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !42147
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -126646,9 +126640,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain3get17hff86f8753b96
   br label %"_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h9ef6daf2c1048a29E.llvm.4622153547959463051.exit"
 
 "_ZN4core6option15Option$LT$T$GT$14unwrap_or_else17h9ef6daf2c1048a29E.llvm.4622153547959463051.exit": ; preds = %11, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread"
-  %.sink17 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
+  %.sink18 = phi i64 [ 8, %11 ], [ 16, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
   %.sink = phi double [ 0.000000e+00, %11 ], [ %14, %"_ZN4core6option15Option$LT$T$GT$7or_else17hf08c493a1ce76179E.llvm.4622153547959463051.exit.thread" ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store double %.sink, ptr %18, align 8, !alias.scope !42531
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -134809,11 +134803,11 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 31:                                               ; preds = %21
   %switch.not.i1 = icmp samesign ult i64 %24, 2
-  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread27"
+  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread28"
 
 32:                                               ; preds = %31
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %22)
-  br label %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread27"
+  br label %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread28"
 
 "_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.llvm.4622153547959463051.exit": ; preds = %33, %34
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -134839,7 +134833,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.68)
   br label %38
 
-"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread27": ; preds = %31, %32
+"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread28": ; preds = %31, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !45150
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !45138
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !45138
@@ -134871,9 +134865,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   store i64 3, ptr %0, align 8, !alias.scope !45164
   br label %40
 
-39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread27", %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit"
-  %.sroa.012.029 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread27" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit" ]
-  store i64 %.sroa.012.029, ptr %0, align 8
+39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread28", %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit"
+  %.sroa.012.030 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit.thread28" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h9ebc167ef4fbcf38E.llvm.4622153547959463051.exit" ]
+  store i64 %.sroa.012.030, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6, i64 104, i1 false)
   br label %40
@@ -136847,11 +136841,11 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 31:                                               ; preds = %21
   %switch.not.i1 = icmp samesign ult i64 %24, 2
-  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread27"
+  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread28"
 
 32:                                               ; preds = %31
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %22)
-  br label %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread27"
+  br label %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread28"
 
 "_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.llvm.4622153547959463051.exit": ; preds = %33, %34
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -136877,7 +136871,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.68)
   br label %38
 
-"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread27": ; preds = %31, %32
+"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread28": ; preds = %31, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !45789
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !45777
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !45777
@@ -136909,9 +136903,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   store i64 3, ptr %0, align 8, !alias.scope !45803
   br label %40
 
-39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread27", %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit"
-  %.sroa.012.029 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread27" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit" ]
-  store i64 %.sroa.012.029, ptr %0, align 8
+39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread28", %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit"
+  %.sroa.012.030 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit.thread28" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17hc55d4ac68f4e156aE.llvm.4622153547959463051.exit" ]
+  store i64 %.sroa.012.030, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6, i64 104, i1 false)
   br label %40
@@ -137374,11 +137368,11 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 31:                                               ; preds = %21
   %switch.not.i1 = icmp samesign ult i64 %24, 2
-  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread27"
+  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread28"
 
 32:                                               ; preds = %31
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %22)
-  br label %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread27"
+  br label %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread28"
 
 "_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.llvm.4622153547959463051.exit": ; preds = %33, %34
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -137404,7 +137398,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.68)
   br label %38
 
-"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread27": ; preds = %31, %32
+"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread28": ; preds = %31, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !45911
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !45899
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !45899
@@ -137436,9 +137430,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   store i64 3, ptr %0, align 8, !alias.scope !45925
   br label %40
 
-39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread27", %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit"
-  %.sroa.012.029 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread27" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit" ]
-  store i64 %.sroa.012.029, ptr %0, align 8
+39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread28", %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit"
+  %.sroa.012.030 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit.thread28" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h364efd9dc6bbe8bdE.llvm.4622153547959463051.exit" ]
+  store i64 %.sroa.012.030, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6, i64 104, i1 false)
   br label %40
@@ -138612,11 +138606,11 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 31:                                               ; preds = %21
   %switch.not.i1 = icmp samesign ult i64 %24, 2
-  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread27"
+  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread28"
 
 32:                                               ; preds = %31
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %22)
-  br label %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread27"
+  br label %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread28"
 
 "_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.llvm.4622153547959463051.exit": ; preds = %33, %34
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -138642,7 +138636,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.68)
   br label %38
 
-"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread27": ; preds = %31, %32
+"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread28": ; preds = %31, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !46256
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !46244
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !46244
@@ -138674,9 +138668,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   store i64 3, ptr %0, align 8, !alias.scope !46270
   br label %40
 
-39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread27", %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit"
-  %.sroa.012.029 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread27" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit" ]
-  store i64 %.sroa.012.029, ptr %0, align 8
+39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread28", %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit"
+  %.sroa.012.030 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit.thread28" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17hd7cfb6fd49291415E.llvm.4622153547959463051.exit" ]
+  store i64 %.sroa.012.030, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6, i64 104, i1 false)
   br label %40
@@ -139066,11 +139060,11 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 31:                                               ; preds = %21
   %switch.not.i1 = icmp samesign ult i64 %24, 2
-  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread27"
+  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread28"
 
 32:                                               ; preds = %31
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %22)
-  br label %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread27"
+  br label %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread28"
 
 "_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.llvm.4622153547959463051.exit": ; preds = %33, %34
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -139096,7 +139090,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.68)
   br label %38
 
-"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread27": ; preds = %31, %32
+"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread28": ; preds = %31, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !46370
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !46358
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !46358
@@ -139128,9 +139122,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   store i64 3, ptr %0, align 8, !alias.scope !46384
   br label %40
 
-39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread27", %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit"
-  %.sroa.012.029 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread27" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit" ]
-  store i64 %.sroa.012.029, ptr %0, align 8
+39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread28", %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit"
+  %.sroa.012.030 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit.thread28" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h6714ce87a061659aE.llvm.4622153547959463051.exit" ]
+  store i64 %.sroa.012.030, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6, i64 104, i1 false)
   br label %40
@@ -141938,11 +141932,11 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
 
 31:                                               ; preds = %21
   %switch.not.i1 = icmp samesign ult i64 %24, 2
-  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread27"
+  br i1 %switch.not.i1, label %32, label %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread28"
 
 32:                                               ; preds = %31
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..visualize..stroke..Stroke$GT$17h4cf8b6ff10e09206E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %22)
-  br label %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread27"
+  br label %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread28"
 
 "_ZN4core3ptr120drop_in_place$LT$typst..foundations..auto..Smart$LT$core..option..Option$LT$typst..visualize..stroke..Stroke$GT$$GT$$GT$17h176de8cd111f0171E.llvm.4622153547959463051.exit": ; preds = %33, %34
   resume { ptr, i32 } %lpad.thr_comm.split-lp
@@ -141968,7 +141962,7 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.68)
   br label %38
 
-"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread27": ; preds = %31, %32
+"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread28": ; preds = %31, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !47187
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !47175
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !47175
@@ -142000,9 +141994,9 @@ define hidden void @_ZN5typst11foundations6styles10StyleChain10get_folded4next17
   store i64 3, ptr %0, align 8, !alias.scope !47201
   br label %40
 
-39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread27", %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit"
-  %.sroa.012.029 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread27" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit" ]
-  store i64 %.sroa.012.029, ptr %0, align 8
+39:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread28", %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit"
+  %.sroa.012.030 = phi i64 [ %.sroa.012.0.copyload13, %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit.thread28" ], [ %.sroa.012.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h4afe08d58f9133ccE.llvm.4622153547959463051.exit" ]
+  store i64 %.sroa.012.030, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.6, i64 104, i1 false)
   br label %40
@@ -163615,14 +163609,14 @@ define internal fastcc void @"_ZN67_$LT$typst..foundations..func..Repr$u20$as$u2
   tail call void %9(ptr noundef nonnull align 1 %5, i64 noundef %4), !noalias !51070
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !47, !noundef !47
-  switch i64 %4, label %default.unreachable4 [
+  switch i64 %4, label %default.unreachable10 [
     i64 0, label %12
     i64 1, label %16
     i64 2, label %20
     i64 3, label %599
   ]
 
-default.unreachable4:                             ; preds = %2
+default.unreachable10:                            ; preds = %2
   unreachable
 
 12:                                               ; preds = %2

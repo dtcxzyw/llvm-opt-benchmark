@@ -981,9 +981,9 @@ switch.lookup:                                    ; preds = %40
   %switch.gep = getelementptr inbounds nuw [4 x float], ptr @switch.table.X11_HandleButtonPress, i64 0, i64 %42
   %switch.load = load float, ptr %switch.gep, align 4
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep57 = getelementptr inbounds nuw [4 x float], ptr @switch.table.X11_HandleButtonPress.7, i64 0, i64 %43
-  %switch.load58 = load float, ptr %switch.gep57, align 4
-  call void @SDL_SendMouseWheel(i64 noundef %11, ptr noundef %10, i32 noundef %2, float noundef %switch.load, float noundef %switch.load58, i32 noundef 0) #12
+  %switch.gep59 = getelementptr inbounds nuw [4 x float], ptr @switch.table.X11_HandleButtonPress.7, i64 0, i64 %43
+  %switch.load60 = load float, ptr %switch.gep59, align 4
+  call void @SDL_SendMouseWheel(i64 noundef %11, ptr noundef %10, i32 noundef %2, float noundef %switch.load, float noundef %switch.load60, i32 noundef 0) #12
   br label %61
 
 X11_IsWheelEvent.exit:                            ; preds = %40
@@ -1908,8 +1908,8 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %280 = icmp eq i64 %279, %.pre
-  %or.cond595 = select i1 %.not471, i1 %280, i1 false
-  br i1 %or.cond595, label %281, label %._crit_edge571
+  %or.cond625 = select i1 %.not471, i1 %280, i1 false
+  br i1 %or.cond625, label %281, label %._crit_edge571
 
 281:                                              ; preds = %277
   tail call void @X11_HandleXsettings(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
@@ -2437,9 +2437,9 @@ X11_FindWindow.exit:                              ; preds = %292
   %546 = xor i32 %541, %545
   %547 = and i32 %546, 129
   %.not515 = icmp eq i32 %547, 0
-  br i1 %.not515, label %550, label %.thread585
+  br i1 %.not515, label %550, label %.thread615
 
-.thread585:                                       ; preds = %538
+.thread615:                                       ; preds = %538
   %548 = getelementptr inbounds nuw i8, ptr %291, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %548, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   %549 = getelementptr inbounds nuw i8, ptr %291, i64 543
@@ -2457,8 +2457,8 @@ X11_FindWindow.exit:                              ; preds = %292
   %.pre581 = load ptr, ptr %291, align 8
   br label %553
 
-553:                                              ; preds = %.thread585, %552, %550
-  %554 = phi ptr [ %.pre581, %552 ], [ %542, %550 ], [ %542, %.thread585 ]
+553:                                              ; preds = %.thread615, %552, %550
+  %554 = phi ptr [ %.pre581, %552 ], [ %542, %550 ], [ %542, %.thread615 ]
   call void @X11_HandleConfigure(ptr noundef %554, ptr noundef nonnull %1) #12
   br label %X11_HandleGenericEvent.exit
 

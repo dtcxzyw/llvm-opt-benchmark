@@ -497,8 +497,8 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
   %207 = add i32 %indvar.i, %206
   %208 = sub i32 %167, %207
   %209 = udiv i32 %208, 255
-  %narrow862.i = add nuw nsw i32 %209, 1
-  %210 = zext nneg i32 %narrow862.i to i64
+  %narrow888.i = add nuw nsw i32 %209, 1
+  %210 = zext nneg i32 %narrow888.i to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %183, i8 -1, i64 %210, i1 false), !tbaa !3
   %scevgep.i = getelementptr i8, ptr %.1415.i, i64 2
   %smin852.i = tail call i32 @llvm.smin.i32(i32 %indvars.iv850.i, i32 509)
@@ -1176,9 +1176,9 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit609.i: ; preds = 
   %525 = add i32 %.0390.i, 65535
   %.not510.i = icmp uge i32 %525, %494
   %.not509.not.i = select i1 %59, i1 true, i1 %.not510.i
-  br i1 %.not509.not.i, label %527, label %.thread865.i
+  br i1 %.not509.not.i, label %527, label %.thread891.i
 
-.thread865.i:                                     ; preds = %524
+.thread891.i:                                     ; preds = %524
   %526 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
   br label %535
 
@@ -1202,8 +1202,8 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i:  ; preds = %527
   %534 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
   br i1 %59, label %540, label %535
 
-535:                                              ; preds = %533, %.thread865.i
-  %536 = phi ptr [ %526, %.thread865.i ], [ %534, %533 ]
+535:                                              ; preds = %533, %.thread891.i
+  %536 = phi ptr [ %526, %.thread891.i ], [ %534, %533 ]
   %.val.i611.i = load i64, ptr %536, align 1, !tbaa !3
   %537 = mul i64 %.val.i611.i, -3523014627271114752
   %538 = lshr i64 %537, 52
@@ -1286,8 +1286,8 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i: ; pred
   %571 = udiv i64 %570, 255
   %572 = add nuw nsw i64 %571, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.14792.i, i8 -1, i64 %572, i1 false), !tbaa !3
-  %.neg864.i = mul i64 %571, -255
-  %573 = add i64 %.neg864.i, %570
+  %.neg890.i = mul i64 %571, -255
+  %573 = add i64 %.neg890.i, %570
   %574 = getelementptr i8, ptr %.0414716.i, i64 %571
   %scevgep859.i = getelementptr i8, ptr %574, i64 2
   br label %._crit_edge797.i
@@ -1400,9 +1400,9 @@ _ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_t
 
 30:                                               ; preds = %16
   %cond = icmp eq i32 %15, 0
-  br i1 %cond, label %32, label %.thread29.i59
+  br i1 %cond, label %32, label %.thread32.i59
 
-.thread29.i59:                                    ; preds = %30
+.thread32.i59:                                    ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %0, i8 0, i64 16384, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16400
   store i32 0, ptr %31, align 8, !tbaa !8
@@ -1420,7 +1420,7 @@ _ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_t
   store i32 %34, ptr %.phi.trans.insert.i61, align 8, !tbaa !8
   br label %_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit63
 
-_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit63: ; preds = %.thread29.i59, %32, %33
+_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit63: ; preds = %.thread32.i59, %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16384
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16408
   store i32 0, ptr %36, align 8, !tbaa !15
@@ -1474,9 +1474,9 @@ _ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_t
 
 52:                                               ; preds = %38
   %cond83 = icmp eq i32 %15, 0
-  br i1 %cond83, label %54, label %.thread29.i75
+  br i1 %cond83, label %54, label %.thread32.i75
 
-.thread29.i75:                                    ; preds = %52
+.thread32.i75:                                    ; preds = %52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %0, i8 0, i64 16384, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16400
   store i32 0, ptr %53, align 8, !tbaa !8
@@ -1494,7 +1494,7 @@ _ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_t
   store i32 %56, ptr %.phi.trans.insert.i78, align 8, !tbaa !8
   br label %_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit80
 
-_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit80: ; preds = %.thread29.i75, %54, %55
+_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit80: ; preds = %.thread32.i75, %54, %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16384
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16408
   store i32 0, ptr %58, align 8, !tbaa !15
@@ -1602,7 +1602,7 @@ define void @_ZN10duckdb_lz415LZ4_resetStreamEPNS_12LZ4_stream_uE(ptr noundef wr
 define void @_ZN10duckdb_lz420LZ4_resetStream_fastEPNS_12LZ4_stream_uE(ptr noundef captures(none) initializes((16384, 16400), (16408, 16412)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16404
   %3 = load i32, ptr %2, align 4, !tbaa !16
-  switch i32 %3, label %.thread29.i [
+  switch i32 %3, label %.thread32.i [
     i32 0, label %._crit_edge.i
     i32 2, label %4
   ]
@@ -1616,9 +1616,9 @@ define void @_ZN10duckdb_lz420LZ4_resetStream_fastEPNS_12LZ4_stream_uE(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16400
   %6 = load i32, ptr %5, align 8, !tbaa !8
   %7 = icmp ugt i32 %6, 1073741824
-  br i1 %7, label %.thread29.i, label %9
+  br i1 %7, label %.thread32.i, label %9
 
-.thread29.i:                                      ; preds = %1, %4
+.thread32.i:                                      ; preds = %1, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %0, i8 0, i64 16384, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16400
   store i32 0, ptr %8, align 8, !tbaa !8
@@ -1636,7 +1636,7 @@ define void @_ZN10duckdb_lz420LZ4_resetStream_fastEPNS_12LZ4_stream_uE(ptr nound
   store i32 %13, ptr %12, align 8, !tbaa !8
   br label %_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit
 
-_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit: ; preds = %.thread29.i, %9, %11
+_ZN10duckdb_lz4L16LZ4_prepareTableEPNS_21LZ4_stream_t_internalEiNS_11tableType_tE.exit: ; preds = %.thread32.i, %9, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16384
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16408
   store i32 0, ptr %15, align 8, !tbaa !15
@@ -1859,8 +1859,8 @@ _ZN10duckdb_lz4L15LZ4_renormDictTEPNS_21LZ4_stream_t_internalEi.exit: ; preds = 
 70:                                               ; preds = %67
   %71 = icmp ult i32 %68, 65536
   %72 = icmp ult i32 %68, %38
-  %or.cond102 = and i1 %71, %72
-  br i1 %or.cond102, label %73, label %75
+  %or.cond114 = and i1 %71, %72
+  br i1 %or.cond114, label %73, label %75
 
 73:                                               ; preds = %70
   %74 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L20LZ4_compress_genericEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef %4, i32 noundef 1, i32 noundef 2, i32 noundef 1, i32 noundef 1, i32 noundef %spec.store.select2)
@@ -1892,8 +1892,8 @@ _ZN10duckdb_lz4L15LZ4_renormDictTEPNS_21LZ4_stream_t_internalEi.exit: ; preds = 
 86:                                               ; preds = %77
   %87 = icmp ult i32 %68, 65536
   %88 = icmp ult i32 %68, %38
-  %or.cond103 = and i1 %87, %88
-  br i1 %or.cond103, label %89, label %91
+  %or.cond115 = and i1 %87, %88
+  br i1 %or.cond115, label %89, label %91
 
 89:                                               ; preds = %86
   %90 = tail call fastcc noundef i32 @_ZN10duckdb_lz4L20LZ4_compress_genericEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef %4, i32 noundef 1, i32 noundef 2, i32 noundef 2, i32 noundef 1, i32 noundef %spec.store.select2)

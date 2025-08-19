@@ -42,7 +42,7 @@ declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @local_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local noalias nonnull ptr @local_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -954,10 +954,10 @@ local_isprint.exit154.thread:                     ; preds = %7, %local_isprint.e
   %540 = phi i32 [ %503, %493 ], [ %477, %492 ], [ %477, %local_isprint.exit151.thread ], [ %515, %509 ], [ %515, %local_isprint.exit154 ], [ 32, %7 ]
   %541 = phi i32 [ %502, %493 ], [ %476, %492 ], [ %476, %local_isprint.exit151.thread ], [ %516, %509 ], [ %516, %local_isprint.exit154 ], [ 32, %7 ]
   %542 = phi i32 [ %501, %493 ], [ %475, %492 ], [ %475, %local_isprint.exit151.thread ], [ %517, %509 ], [ %517, %local_isprint.exit154 ], [ 32, %7 ]
-  %.shrunk695 = phi i8 [ %.shrunk583, %493 ], [ %.shrunk583, %492 ], [ %.shrunk583, %local_isprint.exit151.thread ], [ %.shrunk583, %509 ], [ %.shrunk583, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk696 = phi i8 [ %.shrunk582, %493 ], [ %.shrunk582, %492 ], [ %.shrunk582, %local_isprint.exit151.thread ], [ %.shrunk582, %509 ], [ %.shrunk582, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk697 = phi i8 [ %.shrunk581, %493 ], [ %.shrunk581, %492 ], [ %.shrunk581, %local_isprint.exit151.thread ], [ %.shrunk581, %509 ], [ %.shrunk581, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk698 = phi i8 [ %.shrunk580, %493 ], [ %.shrunk580, %492 ], [ %.shrunk580, %local_isprint.exit151.thread ], [ %.shrunk580, %509 ], [ %.shrunk580, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk696 = phi i8 [ %.shrunk583, %493 ], [ %.shrunk583, %492 ], [ %.shrunk583, %local_isprint.exit151.thread ], [ %.shrunk583, %509 ], [ %.shrunk583, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk697 = phi i8 [ %.shrunk582, %493 ], [ %.shrunk582, %492 ], [ %.shrunk582, %local_isprint.exit151.thread ], [ %.shrunk582, %509 ], [ %.shrunk582, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk698 = phi i8 [ %.shrunk581, %493 ], [ %.shrunk581, %492 ], [ %.shrunk581, %local_isprint.exit151.thread ], [ %.shrunk581, %509 ], [ %.shrunk581, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk699 = phi i8 [ %.shrunk580, %493 ], [ %.shrunk580, %492 ], [ %.shrunk580, %local_isprint.exit151.thread ], [ %.shrunk580, %509 ], [ %.shrunk580, %local_isprint.exit154 ], [ 0, %7 ]
   %543 = phi i32 [ %90, %493 ], [ %90, %492 ], [ %90, %local_isprint.exit151.thread ], [ %90, %509 ], [ %90, %local_isprint.exit154 ], [ 0, %7 ]
   %544 = phi i32 [ %88, %493 ], [ %88, %492 ], [ %88, %local_isprint.exit151.thread ], [ %88, %509 ], [ %88, %local_isprint.exit154 ], [ 0, %7 ]
   %545 = phi i32 [ %86, %493 ], [ %86, %492 ], [ %86, %local_isprint.exit151.thread ], [ %86, %509 ], [ %86, %local_isprint.exit154 ], [ 0, %7 ]
@@ -966,9 +966,9 @@ local_isprint.exit154.thread:                     ; preds = %7, %local_isprint.e
   %548 = phi i32 [ %82, %493 ], [ %82, %492 ], [ %82, %local_isprint.exit151.thread ], [ %82, %509 ], [ %82, %local_isprint.exit154 ], [ 0, %7 ]
   %549 = phi i32 [ %80, %493 ], [ %80, %492 ], [ %80, %local_isprint.exit151.thread ], [ %80, %509 ], [ %80, %local_isprint.exit154 ], [ 0, %7 ]
   %550 = phi i32 [ %78, %493 ], [ %78, %492 ], [ %78, %local_isprint.exit151.thread ], [ %78, %509 ], [ %78, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk699 = phi i8 [ %.shrunk579, %493 ], [ %.shrunk579, %492 ], [ %.shrunk579, %local_isprint.exit151.thread ], [ %.shrunk579, %509 ], [ %.shrunk579, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk700 = phi i8 [ %.shrunk578, %493 ], [ %.shrunk578, %492 ], [ %.shrunk578, %local_isprint.exit151.thread ], [ %.shrunk578, %509 ], [ %.shrunk578, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk701 = phi i8 [ %.shrunk, %493 ], [ %.shrunk, %492 ], [ %.shrunk, %local_isprint.exit151.thread ], [ %.shrunk, %509 ], [ %.shrunk, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk700 = phi i8 [ %.shrunk579, %493 ], [ %.shrunk579, %492 ], [ %.shrunk579, %local_isprint.exit151.thread ], [ %.shrunk579, %509 ], [ %.shrunk579, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk701 = phi i8 [ %.shrunk578, %493 ], [ %.shrunk578, %492 ], [ %.shrunk578, %local_isprint.exit151.thread ], [ %.shrunk578, %509 ], [ %.shrunk578, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk702 = phi i8 [ %.shrunk, %493 ], [ %.shrunk, %492 ], [ %.shrunk, %local_isprint.exit151.thread ], [ %.shrunk, %509 ], [ %.shrunk, %local_isprint.exit154 ], [ 0, %7 ]
   %551 = phi i32 [ %73, %493 ], [ %73, %492 ], [ %73, %local_isprint.exit151.thread ], [ %73, %509 ], [ %73, %local_isprint.exit154 ], [ 0, %7 ]
   %552 = phi i32 [ %500, %493 ], [ %474, %492 ], [ %474, %local_isprint.exit151.thread ], [ %518, %509 ], [ %518, %local_isprint.exit154 ], [ 32, %7 ]
   %553 = phi i32 [ %499, %493 ], [ %473, %492 ], [ %473, %local_isprint.exit151.thread ], [ %519, %509 ], [ %519, %local_isprint.exit154 ], [ 32, %7 ]
@@ -978,13 +978,13 @@ local_isprint.exit154.thread:                     ; preds = %7, %local_isprint.e
   %557 = phi i32 [ %495, %493 ], [ %469, %492 ], [ %469, %local_isprint.exit151.thread ], [ %523, %509 ], [ %523, %local_isprint.exit154 ], [ 32, %7 ]
   %558 = phi i32 [ %494, %493 ], [ %468, %492 ], [ %468, %local_isprint.exit151.thread ], [ %524, %509 ], [ %524, %local_isprint.exit154 ], [ 32, %7 ]
   %559 = phi i32 [ 32, %493 ], [ 32, %492 ], [ 32, %local_isprint.exit151.thread ], [ 46, %509 ], [ %spec.select, %local_isprint.exit154 ], [ 32, %7 ]
-  %560 = zext i8 %.shrunk701 to i32
-  %561 = zext i8 %.shrunk700 to i32
-  %562 = zext i8 %.shrunk699 to i32
-  %563 = zext i8 %.shrunk698 to i32
-  %564 = zext i8 %.shrunk697 to i32
-  %565 = zext i8 %.shrunk696 to i32
-  %566 = zext i8 %.shrunk695 to i32
+  %560 = zext i8 %.shrunk702 to i32
+  %561 = zext i8 %.shrunk701 to i32
+  %562 = zext i8 %.shrunk700 to i32
+  %563 = zext i8 %.shrunk699 to i32
+  %564 = zext i8 %.shrunk698 to i32
+  %565 = zext i8 %.shrunk697 to i32
+  %566 = zext i8 %.shrunk696 to i32
   %567 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %3, i32 noundef %.092584, i32 noundef %546, i32 noundef %547, i32 noundef %545, i32 noundef %548, i32 noundef %544, i32 noundef %549, i32 noundef %543, i32 noundef %550, i32 noundef %563, i32 noundef %562, i32 noundef %564, i32 noundef %561, i32 noundef %565, i32 noundef %560, i32 noundef %566, i32 noundef %551, i32 noundef %542, i32 noundef %552, i32 noundef %541, i32 noundef %553, i32 noundef %540, i32 noundef %554, i32 noundef %539, i32 noundef %555, i32 noundef %538, i32 noundef %556, i32 noundef %537, i32 noundef %557, i32 noundef %536, i32 noundef %558, i32 noundef %535, i32 noundef %559) #13
   %568 = add i32 %.091585, -16
   %569 = getelementptr inbounds nuw i8, ptr %.0618, i64 16
@@ -1227,8 +1227,8 @@ define dso_local void @write_vc_fields(ptr noundef %0, ptr noundef %1, ptr nound
 .thread:                                          ; preds = %6
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %9 = trunc i64 %8 to i32
-  %.not1725 = icmp eq i32 %3, 0
-  br i1 %.not1725, label %._crit_edge, label %.lr.ph.split.preheader
+  %.not1726 = icmp eq i32 %3, 0
+  br i1 %.not1726, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread
   %wide.trip.count = zext i32 %3 to i64

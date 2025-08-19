@@ -17769,10 +17769,10 @@ define hidden void @"_ZN4core3ptr50drop_in_place$LT$lsp_types..ServerCapabilitie
 
 "_ZN4core3ptr70drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticOptions$GT$17h6f52f0d04f014f3aE.exit.sink.split.i.i": ; preds = %"_ZN4core3ptr70drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticOptions$GT$17h6f52f0d04f014f3aE.exit3.i.i.i", %268
   %.sink.i.i = phi i64 [ 16, %268 ], [ 64, %"_ZN4core3ptr70drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticOptions$GT$17h6f52f0d04f014f3aE.exit3.i.i.i" ]
-  %.sink1.i.i = phi i64 [ %270, %268 ], [ %282, %"_ZN4core3ptr70drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticOptions$GT$17h6f52f0d04f014f3aE.exit3.i.i.i" ]
+  %.sink4.i.i = phi i64 [ %270, %268 ], [ %282, %"_ZN4core3ptr70drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticOptions$GT$17h6f52f0d04f014f3aE.exit3.i.i.i" ]
   %283 = getelementptr inbounds nuw i8, ptr %263, i64 %.sink.i.i
   %284 = load ptr, ptr %283, align 8, !alias.scope !7121, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %284, i64 noundef %.sink1.i.i, i64 noundef 1) #26, !noalias !7121
+  tail call void @__rust_dealloc(ptr noundef nonnull %284, i64 noundef %.sink4.i.i, i64 noundef 1) #26, !noalias !7121
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17h9730b58e737cfafeE.exit"
 
 "_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$lsp_types..document_diagnostic..DiagnosticServerCapabilities$GT$$GT$17h9730b58e737cfafeE.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticOptions$GT$17h6f52f0d04f014f3aE.exit.sink.split.i.i", %"_ZN4core3ptr70drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticOptions$GT$17h6f52f0d04f014f3aE.exit3.i.i.i", %"_ZN4core3ptr70drop_in_place$LT$lsp_types..document_diagnostic..DiagnosticOptions$GT$17h6f52f0d04f014f3aE.exit3.i.i.i", %268, %268, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$lsp_types..OneOf$LT$bool$C$lsp_types..inlay_hint..InlayHintServerCapabilities$GT$$GT$$GT$17h2145dd4a06f2cf54E.exit"

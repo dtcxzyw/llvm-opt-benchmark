@@ -191,9 +191,9 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1560
   %50 = load volatile ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %49
-  br i1 %51, label %ieee80211_get_max_required_bw.exit, label %.preheader23
+  br i1 %51, label %ieee80211_get_max_required_bw.exit, label %.preheader41
 
-.preheader23:                                     ; preds = %47, %85
+.preheader41:                                     ; preds = %47, %85
   %52 = phi ptr [ %86, %85 ], [ %48, %47 ]
   %53 = phi ptr [ %88, %85 ], [ %50, %47 ]
   %54 = phi i32 [ %87, %85 ], [ 0, %47 ]
@@ -202,7 +202,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
   %57 = icmp eq ptr %56, %20
   br i1 %57, label %65, label %58
 
-58:                                               ; preds = %.preheader23
+58:                                               ; preds = %.preheader41
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 1672
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
@@ -213,7 +213,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
   %64 = icmp eq ptr %60, %63
   br i1 %64, label %65, label %85
 
-65:                                               ; preds = %62, %.preheader23
+65:                                               ; preds = %62, %.preheader41
   %66 = getelementptr inbounds nuw i8, ptr %53, i64 2560
   %67 = getelementptr [15 x ptr], ptr %66, i64 0, i64 %32
   %68 = load volatile ptr, ptr %67, align 8
@@ -265,7 +265,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
   %88 = load volatile ptr, ptr %53, align 8
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 1560
   %90 = icmp eq ptr %88, %89
-  br i1 %90, label %ieee80211_get_max_required_bw.exit, label %.preheader23, !llvm.loop !16
+  br i1 %90, label %ieee80211_get_max_required_bw.exit, label %.preheader41, !llvm.loop !16
 
 91:                                               ; preds = %45
   %92 = getelementptr inbounds nuw i8, ptr %35, i64 720
@@ -276,9 +276,9 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1560
   %98 = load volatile ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, %97
-  br i1 %99, label %ieee80211_get_max_required_bw.exit, label %.preheader24
+  br i1 %99, label %ieee80211_get_max_required_bw.exit, label %.preheader42
 
-.preheader24:                                     ; preds = %91, %133
+.preheader42:                                     ; preds = %91, %133
   %100 = phi ptr [ %134, %133 ], [ %96, %91 ]
   %101 = phi ptr [ %136, %133 ], [ %98, %91 ]
   %102 = phi i32 [ %135, %133 ], [ 0, %91 ]
@@ -287,7 +287,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
   %105 = icmp eq ptr %104, %20
   br i1 %105, label %113, label %106
 
-106:                                              ; preds = %.preheader24
+106:                                              ; preds = %.preheader42
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 1672
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
@@ -298,7 +298,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
   %112 = icmp eq ptr %108, %111
   br i1 %112, label %113, label %133
 
-113:                                              ; preds = %110, %.preheader24
+113:                                              ; preds = %110, %.preheader42
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 2560
   %115 = getelementptr [15 x ptr], ptr %114, i64 0, i64 %32
   %116 = load volatile ptr, ptr %115, align 8
@@ -350,7 +350,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
   %136 = load volatile ptr, ptr %101, align 8
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 1560
   %138 = icmp eq ptr %136, %137
-  br i1 %138, label %ieee80211_get_max_required_bw.exit8.loopexit, label %.preheader24, !llvm.loop !16
+  br i1 %138, label %ieee80211_get_max_required_bw.exit8.loopexit, label %.preheader42, !llvm.loop !16
 
 ieee80211_get_max_required_bw.exit8.loopexit:     ; preds = %133
   %139 = tail call i32 @llvm.umax.i32(i32 %95, i32 %135)
@@ -728,7 +728,7 @@ define dso_local void @ieee80211_recalc_chanctx_chantype(ptr noundef %0, ptr nou
 
 .preheader13:                                     ; preds = %2, %.preheader13.backedge
   %7 = phi ptr [ %.be, %.preheader13.backedge ], [ %5, %2 ]
-  %8 = phi ptr [ %.be24, %.preheader13.backedge ], [ null, %2 ]
+  %8 = phi ptr [ %.be35, %.preheader13.backedge ], [ null, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1272
   %10 = load volatile i64, ptr %9, align 8
   %11 = and i64 %10, 1
@@ -781,7 +781,7 @@ define dso_local void @ieee80211_recalc_chanctx_chantype(ptr noundef %0, ptr nou
 
 .preheader13.backedge:                            ; preds = %.loopexit, %.loopexit.thread
   %.be = phi ptr [ %39, %.loopexit ], [ %41, %.loopexit.thread ]
-  %.be24 = phi ptr [ %38, %.loopexit ], [ null, %.loopexit.thread ]
+  %.be35 = phi ptr [ %38, %.loopexit ], [ null, %.loopexit.thread ]
   br label %.preheader13, !llvm.loop !45
 
 .loopexit.thread:                                 ; preds = %29
@@ -801,17 +801,13 @@ define dso_local void @ieee80211_recalc_chanctx_chantype(ptr noundef %0, ptr nou
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 812, i32 2307, i64 12) #13, !srcloc !51
   tail call void asm sideeffect "3021: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3021b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3021) #13, !srcloc !52
   tail call void @__rcu_read_unlock() #13
-  br label %78
+  br label %75
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %47 = load volatile ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %46
   br i1 %48, label %.thread12, label %.preheader
-
-.thread12:                                        ; preds = %45
-  tail call void @__rcu_read_unlock() #13
-  br label %76
 
 .preheader:                                       ; preds = %45, %70
   %49 = phi ptr [ %72, %70 ], [ %47, %45 ]
@@ -850,25 +846,21 @@ define dso_local void @ieee80211_recalc_chanctx_chantype(ptr noundef %0, ptr nou
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 827, i32 2307, i64 12) #13, !srcloc !54
   tail call void asm sideeffect "3025: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3025b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3025) #13, !srcloc !55
   tail call void @__rcu_read_unlock() #13
-  br label %78
+  br label %75
 
 70:                                               ; preds = %67, %63, %59, %54, %.preheader
   %71 = phi ptr [ %50, %63 ], [ %50, %59 ], [ %50, %54 ], [ %50, %.preheader ], [ %68, %67 ]
   %72 = load volatile ptr, ptr %49, align 8
   %73 = icmp eq ptr %72, %46
-  br i1 %73, label %74, label %.preheader, !llvm.loop !56
+  br i1 %73, label %.thread12, label %.preheader, !llvm.loop !56
 
-74:                                               ; preds = %70
+.thread12:                                        ; preds = %70, %45
+  %74 = phi ptr [ %38, %45 ], [ %71, %70 ]
   tail call void @__rcu_read_unlock() #13
-  %75 = icmp eq ptr %71, null
-  br i1 %75, label %78, label %76
+  tail call fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %74, ptr noundef null)
+  br label %75
 
-76:                                               ; preds = %.thread12, %74
-  %77 = phi ptr [ %38, %.thread12 ], [ %71, %74 ]
-  tail call fastcc void @_ieee80211_change_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %77, ptr noundef null)
-  br label %78
-
-78:                                               ; preds = %.thread11, %76, %74, %.thread10
+75:                                               ; preds = %.thread11, %.thread12, %.thread10
   ret void
 }
 
@@ -3395,7 +3387,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
 
 130:                                              ; preds = %128
   %131 = icmp eq i8 %.pre123.pre, 0
-  br i1 %131, label %132, label %.thread129, !prof !34
+  br i1 %131, label %132, label %.thread189, !prof !34
 
 132:                                              ; preds = %130
   tail call void asm sideeffect "3114: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3114b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3114) #13, !srcloc !166
@@ -3409,7 +3401,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br i1 %134, label %136, label %138
 
 136:                                              ; preds = %133
-  br i1 %135, label %137, label %.thread129, !prof !169
+  br i1 %135, label %137, label %.thread189, !prof !169
 
 137:                                              ; preds = %136
   tail call void asm sideeffect "3116: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3116b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3116) #13, !srcloc !170
@@ -3418,13 +3410,13 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   br label %.thread69
 
 138:                                              ; preds = %133
-  br i1 %135, label %257, label %.thread129
+  br i1 %135, label %257, label %.thread189
 
-.thread129:                                       ; preds = %130, %136, %138
+.thread189:                                       ; preds = %130, %136, %138
   %139 = icmp sgt i32 %.ph60, 0
   br i1 %139, label %140, label %207
 
-140:                                              ; preds = %.thread129
+140:                                              ; preds = %.thread189
   %141 = zext nneg i32 %.ph60 to i64
   %142 = shl nuw nsw i64 %141, 5
   %143 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %142, i32 noundef 3520) #14
@@ -3539,7 +3531,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %.thread69
 
-207:                                              ; preds = %.loopexit93, %.thread129
+207:                                              ; preds = %.loopexit93, %.thread189
   %208 = icmp sgt i32 %.ph59, 0
   %209 = icmp sgt i32 %.ph58, 0
   %210 = select i1 %208, i1 true, i1 %209

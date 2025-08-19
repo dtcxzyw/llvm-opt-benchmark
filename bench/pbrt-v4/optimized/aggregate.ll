@@ -2031,8 +2031,8 @@ _ZNK4pbrt11MixMaterial14ChooseMaterialINS_21BasicTextureEvaluatorEEENS_8Material
   %.mask.i.i21 = and i64 %.sink.i, -144115188075855872
   %169 = icmp ne i64 %.mask.i.i21, 1585267068834414592
   %170 = and i64 %.sink.i, 144115188075855871
-  %.not20116 = icmp eq i64 %170, 0
-  %.not20 = or i1 %169, %.not20116
+  %.not20120 = icmp eq i64 %170, 0
+  %.not20 = or i1 %169, %.not20120
   br i1 %.not20, label %select.unfold._crit_edge, label %124
 
 select.unfold._crit_edge:                         ; preds = %_ZNK4pbrt11MixMaterial14ChooseMaterialINS_21BasicTextureEvaluatorEEENS_8MaterialET_NS_19MaterialEvalContextE.exit, %104
@@ -5548,9 +5548,9 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt11Interaction15Of
   store <2 x float> %.sroa.0.4.vec.insert.i86.i, ptr %.sroa.0122.i, align 8
   store float %41, ptr %.sroa.10.i, align 4
   %.sroa.0122.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx24 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx25 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
   %.sroa.0122.i.4.i.4.i.4..sroa_idx26 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx27 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
   br label %42
 
 42:                                               ; preds = %72, %3
@@ -5613,7 +5613,7 @@ _ZN4pbrt11NextFloatUpEf.exit.i:                   ; preds = %50, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i:       ; preds = %56, %55, %_ZN4pbrt11NextFloatUpEf.exit.i
-  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx24, %55 ], [ %.sroa.10.i, %56 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
+  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx26, %55 ], [ %.sroa.10.i, %56 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
   store float %.011.i.i, ptr %.0.i91.i, align 4, !tbaa !59
   br label %72
 
@@ -5647,7 +5647,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i:      ; preds = %59, %58, %57
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i:       ; preds = %63, %62, %61
-  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx25, %62 ], [ %.sroa.10.i, %63 ], [ %.sroa.0122.i, %61 ]
+  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx27, %62 ], [ %.sroa.10.i, %63 ], [ %.sroa.0122.i, %61 ]
   %64 = load float, ptr %.0.i95.i, align 4, !tbaa !59
   %or.cond.i97.i = fcmp oeq float %64, 0xFFF0000000000000
   br i1 %or.cond.i97.i, label %_ZN4pbrt13NextFloatDownEf.exit.i, label %65
@@ -5676,7 +5676,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %65, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i:      ; preds = %71, %70, %_ZN4pbrt13NextFloatDownEf.exit.i
-  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx26, %70 ], [ %.sroa.10.i, %71 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
+  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx28, %70 ], [ %.sroa.10.i, %71 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
   store float %.010.i100.i, ptr %.0.i101.i, align 4, !tbaa !59
   br label %72
 
@@ -12363,8 +12363,8 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit46.i.i.i.i:     ; preds = %340
   %363 = fadd float %361, %362
   %sqrt.i.i.i.i.i.i = call noundef float @llvm.sqrt.f32(float %363)
   %.sroa.01.0.vec.extract.i.i.i.i.i.i = extractelement <2 x float> %.sroa.15.0312.i.i.i.i, i64 0
-  %foldExtExtBinop224 = fmul <2 x float> %.sroa.15.0312.i.i.i.i, %.sroa.15.0312.i.i.i.i
-  %364 = extractelement <2 x float> %foldExtExtBinop224, i64 0
+  %foldExtExtBinop257 = fmul <2 x float> %.sroa.15.0312.i.i.i.i, %.sroa.15.0312.i.i.i.i
+  %364 = extractelement <2 x float> %foldExtExtBinop257, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i.i.i = extractelement <2 x float> %.sroa.15.0312.i.i.i.i, i64 1
   %365 = fmul float %.sroa.01.4.vec.extract.i.i.i.i.i.i, %.sroa.01.4.vec.extract.i.i.i.i.i.i
   %366 = fadd float %364, %365
@@ -25958,9 +25958,9 @@ define linkonce_odr dso_local void @_ZN4pbrt8SpawnRayENS_8Point3fiENS_7Normal3If
   store <2 x float> %.sroa.0.4.vec.insert.i86.i, ptr %.sroa.0122.i, align 8
   store float %44, ptr %.sroa.10.i, align 4
   %.sroa.0122.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx33 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
-  %.sroa.0122.i.4.i.4.i.4..sroa_idx34 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
   %.sroa.0122.i.4.i.4.i.4..sroa_idx35 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx36 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
+  %.sroa.0122.i.4.i.4.i.4..sroa_idx37 = getelementptr inbounds nuw i8, ptr %.sroa.0122.i, i64 4
   br label %45
 
 45:                                               ; preds = %75, %7
@@ -26023,7 +26023,7 @@ _ZN4pbrt11NextFloatUpEf.exit.i:                   ; preds = %53, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit92.i:       ; preds = %59, %58, %_ZN4pbrt11NextFloatUpEf.exit.i
-  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx33, %58 ], [ %.sroa.10.i, %59 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
+  %.0.i91.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx35, %58 ], [ %.sroa.10.i, %59 ], [ %.sroa.0122.i, %_ZN4pbrt11NextFloatUpEf.exit.i ]
   store float %.011.i.i, ptr %.0.i91.i, align 4, !tbaa !59
   br label %75
 
@@ -26057,7 +26057,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit94.i:      ; preds = %62, %61, %60
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit96.i:       ; preds = %66, %65, %64
-  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx34, %65 ], [ %.sroa.10.i, %66 ], [ %.sroa.0122.i, %64 ]
+  %.0.i95.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx36, %65 ], [ %.sroa.10.i, %66 ], [ %.sroa.0122.i, %64 ]
   %67 = load float, ptr %.0.i95.i, align 4, !tbaa !59
   %or.cond.i97.i = fcmp oeq float %67, 0xFFF0000000000000
   br i1 %or.cond.i97.i, label %_ZN4pbrt13NextFloatDownEf.exit.i, label %68
@@ -26086,7 +26086,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i:                 ; preds = %68, %_ZN4pbrt6Tuple
   br label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit102.i:      ; preds = %74, %73, %_ZN4pbrt13NextFloatDownEf.exit.i
-  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx35, %73 ], [ %.sroa.10.i, %74 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
+  %.0.i101.i = phi ptr [ %.sroa.0122.i.4.i.4.i.4..sroa_idx37, %73 ], [ %.sroa.10.i, %74 ], [ %.sroa.0122.i, %_ZN4pbrt13NextFloatDownEf.exit.i ]
   store float %.010.i100.i, ptr %.0.i101.i, align 4, !tbaa !59
   br label %75
 

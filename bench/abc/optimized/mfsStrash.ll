@@ -837,7 +837,7 @@ define ptr @Abc_NtkAigForConstraints(ptr noundef readonly captures(none) %0, ptr
 
 .critedge.thread:                                 ; preds = %6
   %13 = getelementptr i8, ptr %7, i64 48
-  %.val6594 = load ptr, ptr %13, align 8, !tbaa !51
+  %.val6596 = load ptr, ptr %13, align 8, !tbaa !51
   br label %.critedge2
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
@@ -982,7 +982,7 @@ define ptr @Abc_NtkAigForConstraints(ptr noundef readonly captures(none) %0, ptr
   br i1 %88, label %38, label %.critedge2, !llvm.loop !93
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge.thread, %.critedge
-  %.053.lcssa = phi ptr [ %.val65, %.critedge ], [ %.val6594, %.critedge.thread ], [ %.154.lcssa, %.critedge4 ]
+  %.053.lcssa = phi ptr [ %.val65, %.critedge ], [ %.val6596, %.critedge.thread ], [ %.154.lcssa, %.critedge4 ]
   %89 = tail call ptr @Aig_ObjCreateCo(ptr noundef %7, ptr noundef %.053.lcssa) #4
   %90 = tail call i32 @Aig_ManCleanup(ptr noundef %7) #4
   br label %91

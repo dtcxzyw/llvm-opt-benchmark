@@ -588,8 +588,8 @@ pac_stash_decayed.exit.thread:                    ; preds = %35, %pac_stash_deca
   br i1 %.not2.i, label %pac_decay_stashed.exit, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %pac_stash_decayed.exit.thread
-  %.not224.i = icmp eq ptr %.sroa.0.128, null
-  br i1 %.not224.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i.preheader
+  %.not225.i = icmp eq ptr %.sroa.0.128, null
+  br i1 %.not225.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i.preheader
 
 .lr.ph.i:                                         ; preds = %42
   %.fr.i = freeze i64 %44

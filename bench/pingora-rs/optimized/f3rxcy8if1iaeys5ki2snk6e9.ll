@@ -559,13 +559,13 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !49
   invoke void @"_ZN78_$LT$$RF$str$u20$as$u20$pingora_http..case_header_name..IntoCaseHeaderName$GT$21into_case_header_name17h4e682ffe09531ca2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-          to label %32 unwind label %.thread62.i, !noalias !54
+          to label %32 unwind label %.thread65.i, !noalias !54
 
 31:                                               ; preds = %.thread.i
   br i1 %.sroa.017.251.i, label %.thread, label %94
 
-.thread62.i:                                      ; preds = %91, %28
-  %lpad.thr_comm60.i = landingpad { ptr, i32 }
+.thread65.i:                                      ; preds = %91, %28
+  %lpad.thr_comm63.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -690,7 +690,7 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
           to label %75 unwind label %88, !noalias !72
 
 .thread54.thread.i:                               ; preds = %85, %62
-  %lpad.thr_comm65.i = landingpad { ptr, i32 }
+  %lpad.thr_comm68.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
 
@@ -785,7 +785,7 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
   store i8 1, ptr %0, align 8, !alias.scope !46, !noalias !74
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !49
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17h43c81ecaab1b26e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-          to label %93 unwind label %.thread62.i, !noalias !54
+          to label %93 unwind label %.thread65.i, !noalias !54
 
 93:                                               ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !49
@@ -793,17 +793,17 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
   br label %_ZN12pingora_http19append_header_value17h51b0fa0acb35b947E.exit
 
 .thread.i:                                        ; preds = %.thread54.thread.i, %57, %54, %52, %48, %35, %34
-  %.pn52.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %34 ], [ %36, %35 ], [ %49, %57 ], [ %49, %54 ], [ %49, %52 ], [ %49, %48 ], [ %lpad.thr_comm65.i, %.thread54.thread.i ]
+  %.pn52.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %34 ], [ %36, %35 ], [ %49, %57 ], [ %49, %54 ], [ %49, %52 ], [ %49, %48 ], [ %lpad.thr_comm68.i, %.thread54.thread.i ]
   %.sroa.017.251.i = phi i1 [ true, %34 ], [ true, %35 ], [ true, %57 ], [ true, %54 ], [ true, %52 ], [ true, %48 ], [ false, %.thread54.thread.i ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17h43c81ecaab1b26e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #23
           to label %31 unwind label %89, !noalias !73
 
 94:                                               ; preds = %.thread, %31
-  %.pn4058.i = phi { ptr, i32 } [ %.pn4059.i, %.thread ], [ %.pn52.i, %31 ]
-  resume { ptr, i32 } %.pn4058.i
+  %.pn4061.i = phi { ptr, i32 } [ %.pn4062.i, %.thread ], [ %.pn52.i, %31 ]
+  resume { ptr, i32 } %.pn4061.i
 
-.thread:                                          ; preds = %34, %.thread62.i, %31
-  %.pn4059.i = phi { ptr, i32 } [ %.pn52.i, %31 ], [ %lpad.thr_comm60.i, %.thread62.i ], [ %lpad.thr_comm.split-lp.i, %34 ]
+.thread:                                          ; preds = %34, %.thread65.i, %31
+  %.pn4062.i = phi { ptr, i32 } [ %.pn52.i, %31 ], [ %lpad.thr_comm63.i, %.thread65.i ], [ %lpad.thr_comm.split-lp.i, %34 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h35f2ff20ecbc77ccE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18) #23
           to label %94 unwind label %89, !noalias !46
 
@@ -1075,13 +1075,13 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !104
   invoke void @"_ZN117_$LT$pingora_http..case_header_name..CaseHeaderName$u20$as$u20$pingora_http..case_header_name..IntoCaseHeaderName$GT$21into_case_header_name17h193f7c70a6ccad9dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %16)
-          to label %32 unwind label %.thread62.i, !noalias !109
+          to label %32 unwind label %.thread65.i, !noalias !109
 
 31:                                               ; preds = %.thread.i
   br i1 %.sroa.017.251.i, label %.thread, label %.body.thread
 
-.thread62.i:                                      ; preds = %90, %28
-  %lpad.thr_comm60.i = landingpad { ptr, i32 }
+.thread65.i:                                      ; preds = %90, %28
+  %lpad.thr_comm63.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -1206,7 +1206,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
           to label %75 unwind label %87, !noalias !123
 
 .thread54.thread.i:                               ; preds = %84, %62
-  %lpad.thr_comm65.i = landingpad { ptr, i32 }
+  %lpad.thr_comm68.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
 
@@ -1301,7 +1301,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
   store i8 1, ptr %0, align 8, !alias.scope !101, !noalias !124
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !104
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17h43c81ecaab1b26e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
-          to label %92 unwind label %.thread62.i, !noalias !104
+          to label %92 unwind label %.thread65.i, !noalias !104
 
 92:                                               ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !104
@@ -1309,13 +1309,13 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
   br label %_ZN12pingora_http19append_header_value17h84241da1ea5c2928E.exit
 
 .thread.i:                                        ; preds = %.thread54.thread.i, %57, %54, %52, %48, %35, %34
-  %.pn52.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %34 ], [ %36, %35 ], [ %49, %57 ], [ %49, %54 ], [ %49, %52 ], [ %49, %48 ], [ %lpad.thr_comm65.i, %.thread54.thread.i ]
+  %.pn52.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %34 ], [ %36, %35 ], [ %49, %57 ], [ %49, %54 ], [ %49, %52 ], [ %49, %48 ], [ %lpad.thr_comm68.i, %.thread54.thread.i ]
   %.sroa.017.251.i = phi i1 [ true, %34 ], [ true, %35 ], [ true, %57 ], [ true, %54 ], [ true, %52 ], [ true, %48 ], [ false, %.thread54.thread.i ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17h43c81ecaab1b26e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #23
           to label %31 unwind label %88, !noalias !126
 
-.thread:                                          ; preds = %34, %.thread62.i, %31
-  %.pn4059.i = phi { ptr, i32 } [ %.pn52.i, %31 ], [ %lpad.thr_comm60.i, %.thread62.i ], [ %lpad.thr_comm.split-lp.i, %34 ]
+.thread:                                          ; preds = %34, %.thread65.i, %31
+  %.pn4062.i = phi { ptr, i32 } [ %.pn52.i, %31 ], [ %lpad.thr_comm63.i, %.thread65.i ], [ %lpad.thr_comm.split-lp.i, %34 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h35f2ff20ecbc77ccE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17) #23
           to label %.body.thread unwind label %88, !noalias !125
 
@@ -1327,7 +1327,7 @@ _ZN12pingora_http19append_header_value17h84241da1ea5c2928E.exit: ; preds = %92, 
   ret void
 
 .body.thread:                                     ; preds = %.thread, %31, %94
-  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %94 ], [ %.pn4059.i, %.thread ], [ %.pn52.i, %31 ]
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %94 ], [ %.pn4062.i, %.thread ], [ %.pn52.i, %31 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 94:                                               ; preds = %4
@@ -1424,11 +1424,11 @@ define internal fastcc void @"_ZN12pingora_pool10connection17PoolNode$LT$T$GT$6i
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !7
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.thread22, label %16
+  br i1 %.not, label %.thread23, label %16
 
 15:                                               ; preds = %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$pingora_pool..connection..PoolConnection$LT$pingora_core..connectors..http..v2..ConnectionRef$GT$$GT$$GT$17h26b806cb05027284E.exit", %114
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread22
+  br label %.thread23
 
 16:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1671,7 +1671,7 @@ define internal fastcc void @"_ZN12pingora_pool10connection17PoolNode$LT$T$GT$6i
   invoke void @"_ZN4core3ptr118drop_in_place$LT$pingora_pool..connection..PoolConnection$LT$pingora_core..connectors..http..v2..ConnectionRef$GT$$GT$17h2b671f51a5cae3f0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %119) #23
           to label %.thread unwind label %115
 
-.thread22:                                        ; preds = %15, %4
+.thread23:                                        ; preds = %15, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
@@ -4508,16 +4508,16 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.outer170
+  br label %.outer180
 
-.outer170:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
+.outer180:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
   %.sroa.011.0.ph = phi i64 [ %80, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ 0, %17 ]
   %.sroa.016.0.ph = phi i64 [ %81, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ %21, %17 ]
   %27 = load i64, ptr %23, align 8, !noundef !7
   br label %28
 
-28:                                               ; preds = %.outer170, %28
-  %.sroa.016.0 = phi i64 [ 0, %28 ], [ %.sroa.016.0.ph, %.outer170 ]
+28:                                               ; preds = %.outer180, %28
+  %.sroa.016.0 = phi i64 [ 0, %28 ], [ %.sroa.016.0.ph, %.outer180 ]
   %29 = icmp ult i64 %.sroa.016.0, %27
   br i1 %29, label %30, label %28
 
@@ -4638,7 +4638,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread": ; preds = %85, %96, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit", %78
   %80 = add nuw nsw i64 %.sroa.011.0.ph, 1
   %81 = add i64 %.sroa.016.0, 1
-  br label %.outer170
+  br label %.outer180
 
 82:                                               ; preds = %78
   %83 = load i64, ptr %25, align 8, !noundef !7
@@ -5032,16 +5032,16 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.outer170
+  br label %.outer180
 
-.outer170:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
+.outer180:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
   %.sroa.011.0.ph = phi i64 [ %80, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ 0, %17 ]
   %.sroa.016.0.ph = phi i64 [ %81, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ %21, %17 ]
   %27 = load i64, ptr %23, align 8, !noundef !7
   br label %28
 
-28:                                               ; preds = %.outer170, %28
-  %.sroa.016.0 = phi i64 [ 0, %28 ], [ %.sroa.016.0.ph, %.outer170 ]
+28:                                               ; preds = %.outer180, %28
+  %.sroa.016.0 = phi i64 [ 0, %28 ], [ %.sroa.016.0.ph, %.outer180 ]
   %29 = icmp ult i64 %.sroa.016.0, %27
   br i1 %29, label %30, label %28
 
@@ -5162,7 +5162,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread": ; preds = %85, %96, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit", %78
   %80 = add nuw nsw i64 %.sroa.011.0.ph, 1
   %81 = add i64 %.sroa.016.0, 1
-  br label %.outer170
+  br label %.outer180
 
 82:                                               ; preds = %78
   %83 = load i64, ptr %25, align 8, !noundef !7

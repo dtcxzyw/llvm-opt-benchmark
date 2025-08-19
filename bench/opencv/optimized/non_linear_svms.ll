@@ -1519,17 +1519,17 @@ _ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit: ; preds = %._ZN2cv20MatCommaIn
   br i1 %544, label %.sink.split, label %551
 
 .sink.split:                                      ; preds = %543, %536
-  %.sink273 = phi i8 [ 0, %536 ], [ 100, %543 ]
-  %.sink271 = phi i8 [ 100, %536 ], [ 0, %543 ]
+  %.sink294 = phi i8 [ 0, %536 ], [ 100, %543 ]
+  %.sink292 = phi i8 [ 100, %536 ], [ 0, %543 ]
   %545 = load ptr, ptr %377, align 8, !tbaa !125
   %546 = load ptr, ptr %378, align 8, !tbaa !117
   %547 = load i64, ptr %546, align 8, !tbaa !118
   %548 = mul i64 %547, %indvars.iv253
   %549 = getelementptr inbounds nuw i8, ptr %545, i64 %548
   %550 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %549, i64 %indvars.iv
-  store i8 %.sink273, ptr %550, align 1
+  store i8 %.sink294, ptr %550, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %550, i64 1
-  store i8 %.sink271, ptr %.sroa.5.0..sroa_idx, align 1
+  store i8 %.sink292, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %550, i64 2
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 1
   br label %551

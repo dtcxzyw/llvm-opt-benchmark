@@ -588,29 +588,29 @@ define noundef i64 @dt_utf8_strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef 
 .lr.ph:                                           ; preds = %3
   %5 = load ptr, ptr @g_utf8_skip, align 8
   %6 = load i8, ptr %1, align 1, !tbaa !11
-  %.not56 = icmp eq i8 %6, 0
-  br i1 %.not56, label %._crit_edge, label %.lr.ph58
+  %.not59 = icmp eq i8 %6, 0
+  br i1 %.not59, label %._crit_edge, label %.lr.ph61
 
-7:                                                ; preds = %.lr.ph58
+7:                                                ; preds = %.lr.ph61
   %8 = load i8, ptr %14, align 1, !tbaa !11
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph58
+  br i1 %.not, label %._crit_edge, label %.lr.ph61
 
-.lr.ph58:                                         ; preds = %.lr.ph, %7
+.lr.ph61:                                         ; preds = %.lr.ph, %7
   %9 = phi i8 [ %8, %7 ], [ %6, %.lr.ph ]
-  %.03757 = phi ptr [ %14, %7 ], [ %1, %.lr.ph ]
+  %.03760 = phi ptr [ %14, %7 ], [ %1, %.lr.ph ]
   %10 = zext i8 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = sext i8 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %.03757, i64 %13
+  %14 = getelementptr inbounds i8, ptr %.03760, i64 %13
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %4
   %17 = icmp ult i64 %16, %2
   br i1 %17, label %7, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph58, %3
-  %.0.lcssa = phi ptr [ %1, %3 ], [ %14, %.lr.ph58 ]
+.critedge:                                        ; preds = %.lr.ph61, %3
+  %.0.lcssa = phi ptr [ %1, %3 ], [ %14, %.lr.ph61 ]
   %18 = tail call ptr @g_utf8_prev_char(ptr noundef %.0.lcssa) #27
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %4
@@ -638,10 +638,10 @@ define noundef i64 @dt_utf8_strlcpy(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %.not32, label %.loopexit, label %25
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph
-  %.lcssa53 = phi i64 [ 0, %.lr.ph ], [ %16, %7 ]
+  %.lcssa56 = phi i64 [ 0, %.lr.ph ], [ %16, %7 ]
   %.037.lcssa = phi ptr [ %1, %.lr.ph ], [ %14, %7 ]
-  %33 = tail call ptr @strncpy(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.lcssa53) #28
-  %34 = getelementptr inbounds i8, ptr %0, i64 %.lcssa53
+  %33 = tail call ptr @strncpy(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.lcssa56) #28
+  %34 = getelementptr inbounds i8, ptr %0, i64 %.lcssa56
   store i8 0, ptr %34, align 1, !tbaa !11
   br label %.loopexit
 

@@ -6145,18 +6145,18 @@ _init_l_Lake_registerOrderedTagAttribute___closed__5.exit: ; preds = %_init_l_La
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_registerOrderedTagAttribute___closed__5.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %352, %_init_l_Lake_registerOrderedTagAttribute___closed__5.exit ]
-  %355 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink45 = phi ptr [ %4, %3 ], [ %352, %_init_l_Lake_registerOrderedTagAttribute___closed__5.exit ]
+  %355 = getelementptr inbounds nuw i8, ptr %.sink45, i64 4
+  store i32 1, ptr %.sink45, align 4, !tbaa !8
   store i32 131096, ptr %355, align 4
-  %356 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %356 = getelementptr inbounds nuw i8, ptr %.sink45, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %356, align 8, !tbaa !4
-  %357 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %.sink45, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %357, align 8, !tbaa !4
   br label %358
 
 358:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink45, %.sink.split ]
   ret ptr %.0
 }
 

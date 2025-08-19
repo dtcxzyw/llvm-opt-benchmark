@@ -2188,7 +2188,7 @@ define dso_local void @drm_dp_downstream_debug(ptr noundef %0, ptr noundef reado
 
 16:                                               ; preds = %5
   %17 = and i8 %12, 7
-  switch i8 %17, label %default.unreachable16 [
+  switch i8 %17, label %default.unreachable20 [
     i8 0, label %25
     i8 1, label %18
     i8 2, label %19
@@ -2217,7 +2217,7 @@ define dso_local void @drm_dp_downstream_debug(ptr noundef %0, ptr noundef reado
 23:                                               ; preds = %16
   br label %25
 
-default.unreachable16:                            ; preds = %148, %16
+default.unreachable20:                            ; preds = %148, %16
   unreachable
 
 24:                                               ; preds = %16
@@ -2459,7 +2459,7 @@ select.unfold10:                                  ; preds = %102, %105, %105, %1
   %149 = getelementptr i8, ptr %2, i64 2
   %150 = load i8, ptr %149, align 1
   %151 = and i8 %150, 3
-  switch i8 %151, label %default.unreachable16 [
+  switch i8 %151, label %default.unreachable20 [
     i8 0, label %155
     i8 1, label %152
     i8 2, label %153
@@ -5963,7 +5963,7 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   %66 = load i8, ptr %29, align 1
   %67 = zext i8 %66 to i32
   %68 = and i32 %67, 3
-  switch i32 %68, label %default.unreachable64 [
+  switch i32 %68, label %default.unreachable74 [
     i32 0, label %97
     i32 1, label %69
     i32 2, label %79
@@ -6004,7 +6004,7 @@ define internal fastcc i32 @drm_dp_i2c_do_msg(ptr noundef %0, ptr noundef %1) un
   tail call void @usleep_range_state(i64 noundef 500, i64 noundef 600, i32 noundef 2) #18
   br label %151
 
-default.unreachable64:                            ; preds = %97, %65
+default.unreachable74:                            ; preds = %97, %65
   unreachable
 
 88:                                               ; preds = %65
@@ -6026,7 +6026,7 @@ default.unreachable64:                            ; preds = %97, %65
 97:                                               ; preds = %65
   %98 = lshr i32 %67, 2
   %99 = and i32 %98, 3
-  switch i32 %99, label %default.unreachable64 [
+  switch i32 %99, label %default.unreachable74 [
     i32 0, label %100
     i32 1, label %110
     i32 2, label %123

@@ -187,13 +187,13 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %48
   br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.i
-  %.sink56.i = phi ptr [ %60, %.lr.ph.i ], [ %58, %56 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 56
+  %.sink58.i = phi ptr [ %60, %.lr.ph.i ], [ %58, %56 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 56
   %60 = load ptr, ptr %59, align 8, !tbaa !34
-  %61 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !30
   %63 = ptrtoint ptr %62 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.sink58.i, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !31
   %66 = ptrtoint ptr %65 to i64
   %67 = mul i64 %66, 12582917
@@ -203,7 +203,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %48
   %71 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !29
   store ptr %72, ptr %59, align 8, !tbaa !34
-  store ptr %.sink56.i, ptr %71, align 8, !tbaa !29
+  store ptr %.sink58.i, ptr %71, align 8, !tbaa !29
   %.not38.i = icmp eq ptr %60, null
   br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
 
@@ -562,18 +562,18 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %.sink60 = phi ptr [ %22, %.lr.ph ], [ %20, %18 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink60, i64 64
+  %.sink63 = phi ptr [ %22, %.lr.ph ], [ %20, %18 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink63, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !50
-  %.pn.in = getelementptr inbounds nuw i8, ptr %.sink60, i64 %.pn.in.v
+  %.pn.in = getelementptr inbounds nuw i8, ptr %.sink63, i64 %.pn.in.v
   %.pn = load i32, ptr %.pn.in, align 4, !tbaa !41
   %.0 = urem i32 %.pn, %8
   %23 = zext i32 %.0 to i64
   %24 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !29
-  %26 = getelementptr inbounds nuw i8, ptr %.sink60, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.sink63, i64 64
   store ptr %25, ptr %26, align 8, !tbaa !50
-  store ptr %.sink60, ptr %24, align 8, !tbaa !29
+  store ptr %.sink63, ptr %24, align 8, !tbaa !29
   %.not42 = icmp eq ptr %22, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
@@ -1160,25 +1160,25 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr noundef readonly captures(no
   br i1 %exitcond108.not, label %._crit_edge99, label %.lr.ph98.split.us, !llvm.loop !70
 
 .split.us.us.us:                                  ; preds = %.lr.ph98.split.us, %.split83.us.us.us
-  %.sink116 = phi ptr [ %13, %.split83.us.us.us ], [ %11, %.lr.ph98.split.us ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sink116, i64 64
+  %.sink119 = phi ptr [ %13, %.split83.us.us.us ], [ %11, %.lr.ph98.split.us ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sink119, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !50
   br label %.thread.us.us.us
 
 .thread.us.us.us:                                 ; preds = %.thread.us.us.us, %.split.us.us.us
-  %.sink117 = phi ptr [ %.sink116, %.split.us.us.us ], [ %15, %.thread.us.us.us ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink117, i64 72
+  %.sink120 = phi ptr [ %.sink119, %.split.us.us.us ], [ %15, %.thread.us.us.us ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sink120, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !47
-  %16 = getelementptr inbounds nuw i8, ptr %.sink117, i64 100
+  %16 = getelementptr inbounds nuw i8, ptr %.sink120, i64 100
   %17 = load i32, ptr %16, align 4, !tbaa !45
   %18 = urem i32 %17, %6
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !29
-  %22 = getelementptr inbounds nuw i8, ptr %.sink117, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %.sink120, i64 64
   store ptr %21, ptr %22, align 8, !tbaa !50
-  store ptr %.sink117, ptr %20, align 8, !tbaa !29
-  %23 = getelementptr inbounds nuw i8, ptr %.sink117, i64 72
+  store ptr %.sink120, ptr %20, align 8, !tbaa !29
+  %23 = getelementptr inbounds nuw i8, ptr %.sink120, i64 72
   store ptr null, ptr %23, align 8, !tbaa !47
   %.not71.us.us.us = icmp eq ptr %15, null
   br i1 %.not71.us.us.us, label %.split83.us.us.us, label %.thread.us.us.us, !llvm.loop !71
@@ -1196,18 +1196,18 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr noundef readonly captures(no
   br i1 %.not64, label %._crit_edge.split, label %.split
 
 .split:                                           ; preds = %.lr.ph98.split, %.split83
-  %.sink118 = phi ptr [ %27, %.split83 ], [ %25, %.lr.ph98.split ]
+  %.sink121 = phi ptr [ %27, %.split83 ], [ %25, %.lr.ph98.split ]
   %.15387 = phi i32 [ %.557, %.split83 ], [ %.05294, %.lr.ph98.split ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sink118, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.sink121, i64 64
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   br label %28
 
 28:                                               ; preds = %46, %.split
-  %.sink119 = phi ptr [ %.sink118, %.split ], [ %30, %46 ]
+  %.sink122 = phi ptr [ %.sink121, %.split ], [ %30, %46 ]
   %.25480 = phi i32 [ %.15387, %.split ], [ %.557, %46 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sink119, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %.sink122, i64 72
   %30 = load ptr, ptr %29, align 8, !tbaa !47
-  %31 = getelementptr inbounds nuw i8, ptr %.sink119, i64 100
+  %31 = getelementptr inbounds nuw i8, ptr %.sink122, i64 100
   %32 = load i32, ptr %31, align 4, !tbaa !45
   %33 = urem i32 %32, %6
   %34 = zext nneg i32 %33 to i64
@@ -1232,16 +1232,16 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr noundef readonly captures(no
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr inbounds nuw i8, ptr %.05877, i64 72
   %42 = load ptr, ptr %41, align 8, !tbaa !47
-  %43 = getelementptr inbounds nuw i8, ptr %.sink119, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %.sink122, i64 72
   store ptr %42, ptr %43, align 8, !tbaa !47
-  store ptr %.sink119, ptr %41, align 8, !tbaa !47
+  store ptr %.sink122, ptr %41, align 8, !tbaa !47
   br label %46
 
 .thread.loopexit:                                 ; preds = %38, %28
-  %44 = getelementptr inbounds nuw i8, ptr %.sink119, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %.sink122, i64 64
   store ptr %.05875, ptr %44, align 8, !tbaa !50
-  store ptr %.sink119, ptr %35, align 8, !tbaa !29
-  %45 = getelementptr inbounds nuw i8, ptr %.sink119, i64 72
+  store ptr %.sink122, ptr %35, align 8, !tbaa !29
+  %45 = getelementptr inbounds nuw i8, ptr %.sink122, i64 72
   store ptr null, ptr %45, align 8, !tbaa !47
   br label %46
 

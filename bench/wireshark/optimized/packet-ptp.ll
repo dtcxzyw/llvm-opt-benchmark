@@ -6149,9 +6149,9 @@ proto_item_set_generated.exit755:                 ; preds = %953, %1007, %1010
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1230, %1235, %1247
-  %.sink791 = phi i32 [ 8, %1247 ], [ 4, %1235 ], [ 2, %1230 ]
+  %.sink808 = phi i32 [ 8, %1247 ], [ 4, %1235 ], [ 2, %1230 ]
   %1261 = load i32, ptr %9, align 4
-  %1262 = add i32 %1261, %.sink791
+  %1262 = add i32 %1261, %.sink808
   store i32 %1262, ptr %9, align 4
   br label %1263
 
@@ -6678,9 +6678,9 @@ dissect_ptp_v2_text.exit757.thread:               ; preds = %.lr.ph, %1381, %135
   br label %1666
 
 1666:                                             ; preds = %1660, %1648
-  %.sink798 = phi i32 [ 4, %1660 ], [ 10, %1648 ]
+  %.sink815 = phi i32 [ 4, %1660 ], [ 10, %1648 ]
   %1667 = load i32, ptr %9, align 4
-  %1668 = add i32 %1667, %.sink798
+  %1668 = add i32 %1667, %.sink815
   store i32 %1668, ptr %9, align 4
   %1669 = load i32, ptr @hf_ptp_tlv_unparsed_payload, align 4
   %.neg744 = add i32 %1644, %24

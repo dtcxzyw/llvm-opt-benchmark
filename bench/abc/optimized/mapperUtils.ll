@@ -1487,7 +1487,7 @@ define void @Map_MappingReportChoices(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i37, label %Map_MappingGetMaxLevel.exit38, label %38, !llvm.loop !88
 
 Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %._crit_edge.thread, %._crit_edge
-  %.09.lcssa.i6064 = phi i32 [ %.09..i, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.09..i, %38 ]
+  %.09.lcssa.i6367 = phi i32 [ %.09..i, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.09..i, %38 ]
   %.09.lcssa.i30 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.09..i35, %38 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8, !tbaa !85
@@ -1541,7 +1541,7 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %._crit_edge.th
 ._crit_edge50:                                    ; preds = %.loopexit, %Map_MappingGetMaxLevel.exit38
   %.027.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.2, %.loopexit ]
   %.024.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.1, %.loopexit ]
-  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.09.lcssa.i6064, i32 noundef %.09.lcssa.i30)
+  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.09.lcssa.i6367, i32 noundef %.09.lcssa.i30)
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.024.lcssa, i32 noundef %.027.lcssa)
   ret void
 }

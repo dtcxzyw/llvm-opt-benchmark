@@ -406,7 +406,7 @@ define dso_local void @snd_seq_check_queue(ptr noundef %0, i32 noundef %1, i32 n
 
 29:                                               ; preds = %24
   %30 = call i32 @snd_seq_dispatch_event(ptr noundef nonnull %27, i32 noundef %1, i32 noundef %2) #9
-  %31 = add i32 %25, 1
+  %31 = add nsw i32 %25, 1
   %exitcond = icmp eq i32 %31, 1000
   br i1 %exitcond, label %.loopexit, label %24, !llvm.loop !16
 

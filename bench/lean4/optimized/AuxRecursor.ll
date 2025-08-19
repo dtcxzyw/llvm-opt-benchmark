@@ -402,7 +402,7 @@ lean_dec.exit61:                                  ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit60
 
 lean_dec.exit60:                                  ; preds = %lean_dec.exit61, %70, %69, %67
-  %.0.i95 = phi ptr [ %64, %70 ], [ %64, %69 ], [ %64, %67 ], [ %51, %lean_dec.exit61 ]
+  %.0.i112 = phi ptr [ %64, %70 ], [ %64, %69 ], [ %64, %67 ], [ %51, %lean_dec.exit61 ]
   tail call void @lean_inc_heartbeat() #3
   %71 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %72 = icmp eq ptr %71, null
@@ -421,7 +421,7 @@ lean_alloc_ctor.exit84:                           ; preds = %lean_dec.exit60
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %76, align 8, !tbaa !4
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store ptr %.0.i95, ptr %77, align 8, !tbaa !4
+  store ptr %.0.i112, ptr %77, align 8, !tbaa !4
   %78 = getelementptr i8, ptr %30, i64 8
   %.val = load i64, ptr %78, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #3
@@ -905,18 +905,18 @@ lean_dec_ref.exit18:                              ; preds = %76, %75, %73, %lean
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit18, %3
-  %.sink29 = phi ptr [ %4, %3 ], [ %78, %lean_dec_ref.exit18 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
-  store i32 1, ptr %.sink29, align 4, !tbaa !8
+  %.sink36 = phi ptr [ %4, %3 ], [ %78, %lean_dec_ref.exit18 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.sink36, i64 4
+  store i32 1, ptr %.sink36, align 4, !tbaa !8
   store i32 131096, ptr %81, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.sink36, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %82, align 8, !tbaa !4
-  %83 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %83, align 8, !tbaa !4
   br label %84
 
 84:                                               ; preds = %.sink.split, %64, %35, %7
-  %.0 = phi ptr [ %8, %7 ], [ %37, %35 ], [ %66, %64 ], [ %.sink29, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %37, %35 ], [ %66, %64 ], [ %.sink36, %.sink.split ]
   ret ptr %.0
 }
 

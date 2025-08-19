@@ -1641,14 +1641,14 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !113
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !113
   %25 = load ptr, ptr %7, align 8, !tbaa !116
-  %.not.i.i25 = icmp eq ptr %25, null
-  %.neg.i.i26 = select i1 %.not.i.i25, i64 0, i64 -24
-  %26 = getelementptr inbounds i8, ptr %25, i64 %.neg.i.i26
+  %.not.i.i31 = icmp eq ptr %25, null
+  %.neg.i.i32 = select i1 %.not.i.i31, i64 0, i64 -24
+  %26 = getelementptr inbounds i8, ptr %25, i64 %.neg.i.i32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !68
-  %.not.i.i827 = icmp eq ptr %28, null
+  %.not.i.i833 = icmp eq ptr %28, null
   %29 = icmp eq ptr %28, %27
-  %30 = or i1 %.not.i.i827, %29
+  %30 = or i1 %.not.i.i833, %29
   br label %60
 
 31:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i.i.i.i.i, %16

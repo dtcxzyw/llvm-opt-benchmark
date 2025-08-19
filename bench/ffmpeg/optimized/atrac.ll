@@ -166,8 +166,8 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   br i1 %35, label %.lr.ph89.preheader, label %.loopexit
 
 .lr.ph89.preheader:                               ; preds = %.preheader74
-  %36 = sext i32 %.1.lcssa to i64
-  %wide.trip.count107 = sext i32 %5 to i64
+  %36 = zext nneg i32 %.1.lcssa to i64
+  %wide.trip.count107 = zext nneg i32 %5 to i64
   br label %.lr.ph89
 
 37:                                               ; preds = %.lr.ph86, %.loopexit77
@@ -195,8 +195,8 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   br i1 %53, label %.lr.ph.preheader, label %.preheader76
 
 .lr.ph.preheader:                                 ; preds = %37
-  %54 = sext i32 %.185 to i64
-  %wide.trip.count = sext i32 %40 to i64
+  %54 = zext nneg i32 %.185 to i64
+  %wide.trip.count = zext nneg i32 %40 to i64
   br label %.lr.ph
 
 .preheader76:                                     ; preds = %.lr.ph, %37
@@ -206,50 +206,50 @@ define void @ff_atrac_gain_compensation(ptr noundef readonly captures(none) %0, 
   br i1 %56, label %.lr.ph82.preheader, label %.loopexit77
 
 .lr.ph82.preheader:                               ; preds = %.preheader76
-  %57 = sext i32 %.2.lcssa to i64
-  %58 = sext i32 %55 to i64
+  %57 = zext nneg i32 %.2.lcssa to i64
+  %58 = zext nneg i32 %55 to i64
   br label %.lr.ph82
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %54, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %59 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !4
-  %61 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %62 = load float, ptr %61, align 4, !tbaa !4
   %63 = tail call nsz float @llvm.fmuladd.f32(float %60, float %16, float %62)
   %64 = fmul nsz float %45, %63
-  %65 = getelementptr inbounds float, ptr %6, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %64, ptr %65, align 4, !tbaa !4
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader76, label %.lr.ph, !llvm.loop !23
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv95 = phi i64 [ %57, %.lr.ph82.preheader ], [ %indvars.iv.next96, %.lr.ph82 ]
   %.081 = phi float [ %45, %.lr.ph82.preheader ], [ %73, %.lr.ph82 ]
-  %66 = getelementptr inbounds float, ptr %1, i64 %indvars.iv95
+  %66 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv95
   %67 = load float, ptr %66, align 4, !tbaa !4
-  %68 = getelementptr inbounds float, ptr %2, i64 %indvars.iv95
+  %68 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv95
   %69 = load float, ptr %68, align 4, !tbaa !4
   %70 = tail call nsz float @llvm.fmuladd.f32(float %67, float %16, float %69)
   %71 = fmul nsz float %.081, %70
-  %72 = getelementptr inbounds float, ptr %6, i64 %indvars.iv95
+  %72 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv95
   store float %71, ptr %72, align 4, !tbaa !4
   %73 = fmul nsz float %52, %.081
-  %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, %58
   br i1 %exitcond98.not, label %.loopexit77, label %.lr.ph82, !llvm.loop !24
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv104 = phi i64 [ %36, %.lr.ph89.preheader ], [ %indvars.iv.next105, %.lr.ph89 ]
-  %74 = getelementptr inbounds float, ptr %1, i64 %indvars.iv104
+  %74 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv104
   %75 = load float, ptr %74, align 4, !tbaa !4
-  %76 = getelementptr inbounds float, ptr %2, i64 %indvars.iv104
+  %76 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv104
   %77 = load float, ptr %76, align 4, !tbaa !4
   %78 = tail call nsz float @llvm.fmuladd.f32(float %75, float %16, float %77)
-  %79 = getelementptr inbounds float, ptr %6, i64 %indvars.iv104
+  %79 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv104
   store float %78, ptr %79, align 4, !tbaa !4
-  %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
   br i1 %exitcond108.not, label %.loopexit, label %.lr.ph89, !llvm.loop !25
 

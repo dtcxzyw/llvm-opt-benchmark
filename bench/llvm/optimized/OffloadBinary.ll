@@ -1355,9 +1355,9 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6object10ObjectFileESt14default_deleteIS3_EE
   %247 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %248 = load i8, ptr %247, align 8
   %249 = trunc i8 %248 to i1
-  br i1 %249, label %.thread117, label %_ZN4llvm5ErrorD2Ev.exit79
+  br i1 %249, label %.thread156, label %_ZN4llvm5ErrorD2Ev.exit79
 
-.thread117:                                       ; preds = %246
+.thread156:                                       ; preds = %246
   call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %250 = load i64, ptr %30, align 8, !tbaa !16, !noalias !203
   %251 = inttoptr i64 %250 to ptr
@@ -1690,12 +1690,12 @@ _ZN4llvm5ErrorD2Ev.exit.i.i:                      ; preds = %_ZNSt10unique_ptrIN
   br i1 %.not.i.i.i.i41, label %_ZN4llvm6object7Archive21ChildFallibleIterator3incEv.exit.i, label %_ZN4llvm8ExpectedINS_6object7Archive5ChildEED2Ev.exit.sink.split.i.i
 
 _ZN4llvm8ExpectedINS_6object7Archive5ChildEED2Ev.exit.sink.split.i.i: ; preds = %365, %363
-  %.sink8.i.i = phi ptr [ %364, %363 ], [ %366, %365 ]
-  %.sink7.i.i = phi i64 [ 16, %363 ], [ 8, %365 ]
-  %367 = load ptr, ptr %.sink8.i.i, align 8, !tbaa !49, !noalias !244
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 %.sink7.i.i
+  %.sink12.i.i = phi ptr [ %364, %363 ], [ %366, %365 ]
+  %.sink11.i.i = phi i64 [ 16, %363 ], [ 8, %365 ]
+  %367 = load ptr, ptr %.sink12.i.i, align 8, !tbaa !49, !noalias !244
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 %.sink11.i.i
   %369 = load ptr, ptr %368, align 8, !noalias !244
-  call void %369(ptr noundef nonnull align 8 dereferenceable(8) %.sink8.i.i) #17, !noalias !244
+  call void %369(ptr noundef nonnull align 8 dereferenceable(8) %.sink12.i.i) #17, !noalias !244
   br label %_ZN4llvm6object7Archive21ChildFallibleIterator3incEv.exit.i
 
 _ZN4llvm6object7Archive21ChildFallibleIterator3incEv.exit.i: ; preds = %_ZN4llvm8ExpectedINS_6object7Archive5ChildEED2Ev.exit.sink.split.i.i, %365, %363
@@ -1848,7 +1848,7 @@ _ZNSt10unique_ptrIN4llvm6object7ArchiveESt14default_deleteIS2_EED2Ev.exit.sink.s
   call void %412(ptr noundef nonnull align 8 dereferenceable(8) %.pre114) #17
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object7ArchiveESt14default_deleteIS3_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_6object7ArchiveESt14default_deleteIS3_EEED2Ev.exit: ; preds = %.thread117, %409, %_ZNSt10unique_ptrIN4llvm6object7ArchiveESt14default_deleteIS2_EED2Ev.exit.sink.split.i
+_ZN4llvm8ExpectedISt10unique_ptrINS_6object7ArchiveESt14default_deleteIS3_EEED2Ev.exit: ; preds = %.thread156, %409, %_ZNSt10unique_ptrIN4llvm6object7ArchiveESt14default_deleteIS2_EED2Ev.exit.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %414
 
@@ -1896,7 +1896,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119extractOffloadFilesEN4llvm15Memo
   br label %24
 
 24:                                               ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit45, %3
-  %.0 = phi i64 [ 0, %3 ], [ %.264, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit45 ]
+  %.0 = phi i64 [ 0, %3 ], [ %.270, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit45 ]
   %25 = icmp ult i64 %.0, %.sroa.2.0.copyload.i.pre
   br i1 %25, label %26, label %_ZN4llvm5ErrorD2Ev.exit
 
@@ -2068,7 +2068,7 @@ _ZNSt10unique_ptrIN4llvm6object13OffloadBinaryESt14default_deleteIS2_EED2Ev.exit
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_6object13OffloadBinaryESt14default_deleteIS3_EEED2Ev.exit35
 
 _ZN4llvm8ExpectedISt10unique_ptrINS_6object13OffloadBinaryESt14default_deleteIS3_EEED2Ev.exit35: ; preds = %.thread, %90, %_ZNSt10unique_ptrIN4llvm6object13OffloadBinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i33
-  %.264 = phi i64 [ %.0, %.thread ], [ %94, %90 ], [ %94, %_ZNSt10unique_ptrIN4llvm6object13OffloadBinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i33 ]
+  %.270 = phi i64 [ %.0, %.thread ], [ %94, %90 ], [ %94, %_ZNSt10unique_ptrIN4llvm6object13OffloadBinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %98 = load ptr, ptr %9, align 8, !tbaa !86
   %.not.i36 = icmp eq ptr %98, null

@@ -7320,7 +7320,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPtPP
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = sext i32 %3 to i64
   %wide.trip.count554.i.i = zext nneg i32 %27 to i64
-  %invariant.gep571.i.i = getelementptr i16, ptr %32, i64 %35
+  %invariant.gep572.i.i = getelementptr i16, ptr %32, i64 %35
   br label %67
 
 .preheader514.i.i:                                ; preds = %28
@@ -7402,8 +7402,8 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPtPP
   %73 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv551.i.i
   %74 = load i16, ptr %73, align 2, !tbaa !38
   %.sroa.speculated442.i.i = tail call i16 @llvm.umin.i16(i16 %74, i16 %.sroa.speculated445.i.i)
-  %gep572.i.i = getelementptr i16, ptr %invariant.gep571.i.i, i64 %indvars.iv551.i.i
-  %75 = load i16, ptr %gep572.i.i, align 2, !tbaa !38
+  %gep573.i.i = getelementptr i16, ptr %invariant.gep572.i.i, i64 %indvars.iv551.i.i
+  %75 = load i16, ptr %gep573.i.i, align 2, !tbaa !38
   %.sroa.speculated439.i.i = tail call i16 @llvm.umin.i16(i16 %75, i16 %.sroa.speculated442.i.i)
   %76 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv551.i.i
   %77 = load i16, ptr %76, align 2, !tbaa !38
@@ -7833,7 +7833,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPsPP
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = sext i32 %3 to i64
   %wide.trip.count554.i.i = zext nneg i32 %27 to i64
-  %invariant.gep571.i.i = getelementptr i16, ptr %32, i64 %35
+  %invariant.gep572.i.i = getelementptr i16, ptr %32, i64 %35
   br label %67
 
 .preheader514.i.i:                                ; preds = %28
@@ -7915,8 +7915,8 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPsPP
   %73 = getelementptr inbounds nuw i16, ptr %32, i64 %indvars.iv551.i.i
   %74 = load i16, ptr %73, align 2, !tbaa !38
   %.sroa.speculated442.i.i = tail call i16 @llvm.smin.i16(i16 %74, i16 %.sroa.speculated445.i.i)
-  %gep572.i.i = getelementptr i16, ptr %invariant.gep571.i.i, i64 %indvars.iv551.i.i
-  %75 = load i16, ptr %gep572.i.i, align 2, !tbaa !38
+  %gep573.i.i = getelementptr i16, ptr %invariant.gep572.i.i, i64 %indvars.iv551.i.i
+  %75 = load i16, ptr %gep573.i.i, align 2, !tbaa !38
   %.sroa.speculated439.i.i = tail call i16 @llvm.smin.i16(i16 %75, i16 %.sroa.speculated442.i.i)
   %76 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv551.i.i
   %77 = load i16, ptr %76, align 2, !tbaa !38
@@ -8346,7 +8346,7 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPfPP
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = sext i32 %3 to i64
   %wide.trip.count470.i.i = zext nneg i32 %27 to i64
-  %invariant.gep487.i.i = getelementptr float, ptr %32, i64 %35
+  %invariant.gep488.i.i = getelementptr float, ptr %32, i64 %35
   br label %76
 
 .preheader430.i.i:                                ; preds = %28
@@ -8442,8 +8442,8 @@ define hidden void @_ZN2cv4gapi5fluid12cpu_baseline22run_morphology3x3_implEPfPP
   %85 = load float, ptr %84, align 4, !tbaa !23
   %86 = fcmp olt float %85, %.sroa.speculated388.i.i
   %.sroa.speculated385.i.i = select i1 %86, float %85, float %.sroa.speculated388.i.i
-  %gep488.i.i = getelementptr float, ptr %invariant.gep487.i.i, i64 %indvars.iv467.i.i
-  %87 = load float, ptr %gep488.i.i, align 4, !tbaa !23
+  %gep489.i.i = getelementptr float, ptr %invariant.gep488.i.i, i64 %indvars.iv467.i.i
+  %87 = load float, ptr %gep489.i.i, align 4, !tbaa !23
   %88 = fcmp olt float %87, %.sroa.speculated385.i.i
   %.sroa.speculated382.i.i = select i1 %88, float %87, float %.sroa.speculated385.i.i
   %89 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv467.i.i

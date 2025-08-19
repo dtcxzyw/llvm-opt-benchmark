@@ -3106,7 +3106,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %22, %20, %14
   %39 = or i64 %25, 1152920405095219200
   store i64 %39, ptr %24, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit8 unwind label %.thread17
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit8 unwind label %.thread21
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit8: ; preds = %36, %30, %38
   %40 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes5utils10checkClashENS0_12NodeTemplateILb1EEES5_RSt6vectorIS5_SaIS5_EEbRS6_ImSaImEE(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -3184,7 +3184,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN4cvc58internal12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %40
 
-.thread17:                                        ; preds = %38
+.thread21:                                        ; preds = %38
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
@@ -3208,10 +3208,10 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZN4cvc58internal12
   call void @_ZdlPvm(ptr noundef nonnull %.pre.pre, i64 noundef %83) #25
   br label %_ZNSt6vectorImSaImEED2Ev.exit12
 
-_ZNSt6vectorImSaImEED2Ev.exit12:                  ; preds = %.thread17, %76, %78
-  %.pn.pn16 = phi { ptr, i32 } [ %77, %76 ], [ %77, %78 ], [ %75, %.thread17 ]
+_ZNSt6vectorImSaImEED2Ev.exit12:                  ; preds = %.thread21, %76, %78
+  %.pn.pn20 = phi { ptr, i32 } [ %77, %76 ], [ %77, %78 ], [ %75, %.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %.pn.pn16
+  resume { ptr, i32 } %.pn.pn20
 }
 
 ; Function Attrs: mustprogress uwtable

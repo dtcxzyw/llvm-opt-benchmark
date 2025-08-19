@@ -533,8 +533,8 @@ define internal range(i32 0, 2) i32 @drbg_hash_generate(ptr noundef readonly cap
   %61 = add i8 %60, 1
   store i8 %61, ptr %.030.i.i, align 1, !tbaa !22
   %62 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %55
-  %.not48.i = icmp eq i8 %60, -1
-  br i1 %.not48.i, label %63, label %add_bytes.exit.i
+  %.not51.i = icmp eq i8 %60, -1
+  br i1 %.not51.i, label %63, label %add_bytes.exit.i
 
 63:                                               ; preds = %.lr.ph.i.i
   %64 = load i64, ptr %34, align 8, !tbaa !25
@@ -610,8 +610,8 @@ hash_gen.exit:                                    ; preds = %54, %51, %28
   %.pre64 = load i64, ptr %76, align 8, !tbaa !25
   %91 = sub i64 %.pre64, %77
   %.not2737.i = icmp eq i64 %91, 0
-  %or.cond71 = select i1 %90, i1 true, i1 %.not2737.i
-  br i1 %or.cond71, label %add_bytes.exit, label %.lr.ph41.i
+  %or.cond78 = select i1 %90, i1 true, i1 %.not2737.i
+  br i1 %or.cond78, label %add_bytes.exit, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %._crit_edge.i, %.lr.ph41.i
   %.139.i = phi ptr [ %95, %.lr.ph41.i ], [ %.0.i28, %._crit_edge.i ]
@@ -1154,9 +1154,9 @@ drbg_fetch_digest_from_prov.exit.thread:          ; preds = %14, %11, %2, %drbg_
   %spec.select = tail call i32 @llvm.umin.i32(i32 %46, i32 256)
   store i32 %spec.select, ptr %47, align 8, !tbaa !40
   %48 = icmp samesign ugt i32 %40, 32
-  %spec.select48 = select i1 %48, i64 111, i64 55
+  %spec.select54 = select i1 %48, i64 111, i64 55
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 %spec.select48, ptr %49, align 8, !tbaa !25
+  store i64 %spec.select54, ptr %49, align 8, !tbaa !25
   %50 = lshr exact i32 %spec.select, 3
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 136

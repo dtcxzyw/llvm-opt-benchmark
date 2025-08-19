@@ -324,9 +324,9 @@ _ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44: ; pre
   br label %_ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45
 
 _ZNSt10unique_ptrIN5ceres8internal14SparseCholeskyESt14default_deleteIS2_EED2Ev.exit45: ; preds = %55, %47, %41, %36, %26, %21, %66, %.body, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44
-  %.pn1554 = phi { ptr, i32 } [ %.pn15, %.body ], [ %.pn15, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44 ], [ %56, %55 ], [ %48, %47 ], [ %42, %41 ], [ %37, %36 ], [ %27, %26 ], [ %22, %21 ], [ %67, %66 ]
+  %.pn1555 = phi { ptr, i32 } [ %.pn15, %.body ], [ %.pn15, %_ZNKSt14default_deleteIN5ceres8internal14SparseCholeskyEEclEPS2_.exit.i44 ], [ %56, %55 ], [ %48, %47 ], [ %42, %41 ], [ %37, %36 ], [ %27, %26 ], [ %22, %21 ], [ %67, %66 ]
   store ptr null, ptr %0, align 8, !tbaa !27
-  resume { ptr, i32 } %.pn1554
+  resume { ptr, i32 } %.pn1555
 }
 
 declare hidden void @_ZN5ceres8internal24FloatSuiteSparseCholesky6CreateENS0_12OrderingTypeE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, i32 noundef) local_unnamed_addr #1

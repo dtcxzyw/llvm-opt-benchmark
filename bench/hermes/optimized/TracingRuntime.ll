@@ -6082,8 +6082,8 @@ entry:
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread: ; preds = %entry
   store ptr %this, ptr %tracer, align 8
-  %plainHF_.i.i65 = getelementptr inbounds nuw i8, ptr %tracer, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i65, i8 0, i64 32, i1 false)
+  %plainHF_.i.i76 = getelementptr inbounds nuw i8, ptr %tracer, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i76, i8 0, i64 32, i1 false)
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
 
 if.then.i:                                        ; preds = %entry
@@ -6134,7 +6134,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFN8f
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit: ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread, %if.then.i.i.i
-  %plainHF_.i.i68 = phi ptr [ %plainHF_.i.i, %if.then.i.i.i ], [ %plainHF_.i.i65, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ %plainHF_.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
+  %plainHF_.i.i79 = phi ptr [ %plainHF_.i.i, %if.then.i.i.i ], [ %plainHF_.i.i76, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ %plainHF_.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
   %7 = phi ptr [ %5, %if.then.i.i.i ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ %5, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
   %8 = phi ptr [ %6, %if.then.i.i.i ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
   %plain_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6156,7 +6156,7 @@ call.i.i2.i.noexc:                                ; preds = %_ZNSt8functionIFN8f
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.noexc
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i13, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i79, i64 16, i1 false)
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i
@@ -6371,7 +6371,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont22
   br i1 %tobool.not.i.i.i.i, label %_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %nrvo.skipdtor
-  %call.i.i.i.i = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i79, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i79, i32 noundef 3)
           to label %_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -6392,7 +6392,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i53, %l
   br i1 %tobool.not.i.i.i.i58, label %common.resume, label %if.then.i.i.i.i59
 
 if.then.i.i.i.i59:                                ; preds = %ehcleanup
-  %call.i.i.i.i61 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i68, i32 noundef 3)
+  %call.i.i.i.i61 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i79, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i79, i32 noundef 3)
           to label %common.resume unwind label %terminate.lpad.i.i.i.i62
 
 terminate.lpad.i.i.i.i62:                         ; preds = %if.then.i.i.i.i59
@@ -9070,7 +9070,7 @@ entry:
           to label %_ZNSt10unique_ptrIN4llvh14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit unwind label %lpad.i, !noalias !308
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102, %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i104, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i114, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %.pn11.ph, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i114 ], [ %.pn6.pn.pn.pn131, %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i104 ], [ %.pn6.pn.pn.pn131, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102 ]
+  %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %.pn11.ph, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i114 ], [ %.pn6.pn.pn.pn148, %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i104 ], [ %.pn6.pn.pn.pn148, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -9506,7 +9506,7 @@ ehcleanup34:                                      ; preds = %lpad.body.i, %if.th
   br i1 %cmp.not.i98, label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102, label %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i99
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i99: ; preds = %if.then.i.i80, %ehcleanup, %lpad.i30, %if.then.i.i, %ehcleanup34
-  %.pn6.pn.pn.pn130 = phi { ptr, i32 } [ %.pn6.pn.pn, %ehcleanup34 ], [ %.pn, %if.then.i.i80 ], [ %.pn, %ehcleanup ], [ %22, %lpad.i30 ], [ %22, %if.then.i.i ]
+  %.pn6.pn.pn.pn147 = phi { ptr, i32 } [ %.pn6.pn.pn, %ehcleanup34 ], [ %.pn, %if.then.i.i80 ], [ %.pn, %ehcleanup ], [ %22, %lpad.i30 ], [ %22, %if.then.i.i ]
   %69 = phi ptr [ %.pre, %ehcleanup34 ], [ %call.i13, %if.then.i.i80 ], [ %call.i13, %ehcleanup ], [ %call.i13, %lpad.i30 ], [ %call.i13, %if.then.i.i ]
   %vtable.i.i100 = load ptr, ptr %69, align 8
   %vfn.i.i101 = getelementptr inbounds nuw i8, ptr %vtable.i.i100, i64 8
@@ -9515,7 +9515,7 @@ _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i99: ; preds = %if.then
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102
 
 _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102: ; preds = %ehcleanup34, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i99
-  %.pn6.pn.pn.pn131 = phi { ptr, i32 } [ %.pn6.pn.pn, %ehcleanup34 ], [ %.pn6.pn.pn.pn130, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i99 ]
+  %.pn6.pn.pn.pn148 = phi { ptr, i32 } [ %.pn6.pn.pn, %ehcleanup34 ], [ %.pn6.pn.pn.pn147, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i99 ]
   store ptr null, ptr %agg.tmp11, align 8
   %71 = load ptr, ptr %agg.tmp10, align 8
   %cmp.not.i103 = icmp eq ptr %71, null
@@ -9529,11 +9529,11 @@ _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i104: ; pr
   br label %common.resume
 
 _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit112.sink.split: ; preds = %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit72
-  %.sink133 = phi ptr [ %53, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit72 ], [ %call.i13, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit ], [ %call.i13, %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i ]
-  %vtable.i.i75 = load ptr, ptr %.sink133, align 8
+  %.sink150 = phi ptr [ %53, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit72 ], [ %call.i13, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit ], [ %call.i13, %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i ]
+  %vtable.i.i75 = load ptr, ptr %.sink150, align 8
   %vfn.i.i76 = getelementptr inbounds nuw i8, ptr %vtable.i.i75, i64 8
   %73 = load ptr, ptr %vfn.i.i76, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %.sink133) #29
+  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %.sink150) #29
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit112
 
 _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit112: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit112.sink.split, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit72

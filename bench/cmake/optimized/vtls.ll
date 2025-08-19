@@ -1572,8 +1572,8 @@ Curl_ssl_delsessionid.exit:                       ; preds = %35, %42, %31, %21
   br i1 %96, label %.critedge.thread, label %97
 
 .critedge.thread:                                 ; preds = %91, %.critedge
-  %.1117.lcssa164 = phi ptr [ %.1117.lcssa, %.critedge ], [ %spec.select, %91 ]
-  call void @Curl_ssl_kill_session(ptr noundef %.1117.lcssa164)
+  %.1117.lcssa176 = phi ptr [ %.1117.lcssa, %.critedge ], [ %spec.select, %91 ]
+  call void @Curl_ssl_kill_session(ptr noundef %.1117.lcssa176)
   br label %100
 
 97:                                               ; preds = %.critedge
@@ -1582,7 +1582,7 @@ Curl_ssl_delsessionid.exit:                       ; preds = %35, %42, %31, %21
   br label %100
 
 100:                                              ; preds = %97, %.critedge.thread
-  %.3 = phi ptr [ %.1117.lcssa164, %.critedge.thread ], [ %99, %97 ]
+  %.3 = phi ptr [ %.1117.lcssa176, %.critedge.thread ], [ %99, %97 ]
   %101 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %102 = call fastcc zeroext i1 @clone_ssl_primary_config(ptr noundef nonnull %17, ptr noundef nonnull %101)
   br i1 %102, label %140, label %103
@@ -2286,11 +2286,11 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   call void %50(ptr noundef %51) #20
   br label %.thread129
 
-.preheader:                                       ; preds = %46, %.thread150
-  %.081 = phi ptr [ %66, %.thread150 ], [ %48, %46 ]
+.preheader:                                       ; preds = %46, %.thread167
+  %.081 = phi ptr [ %66, %.thread167 ], [ %48, %46 ]
   %52 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.081, ptr noundef nonnull dereferenceable(1) @.str.12) #21
   %.not142 = icmp eq ptr %52, null
-  br i1 %.not142, label %53, label %.thread149
+  br i1 %.not142, label %53, label %.thread166
 
 53:                                               ; preds = %.preheader
   %54 = load i64, ptr %5, align 8, !tbaa !15
@@ -2299,24 +2299,24 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   %57 = icmp eq i64 %54, %56
   br i1 %57, label %62, label %.thread127.loopexit
 
-.thread149:                                       ; preds = %.preheader
+.thread166:                                       ; preds = %.preheader
   store i8 0, ptr %52, align 1, !tbaa !12
   %58 = load i64, ptr %5, align 8, !tbaa !15
   %59 = getelementptr inbounds nuw i8, ptr %.081, i64 8
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #21
   %61 = icmp eq i64 %58, %60
-  br i1 %61, label %62, label %.thread150
+  br i1 %61, label %62, label %.thread167
 
-62:                                               ; preds = %.thread149, %53
-  %63 = phi ptr [ %59, %.thread149 ], [ %55, %53 ]
-  %64 = phi i64 [ %58, %.thread149 ], [ %54, %53 ]
+62:                                               ; preds = %.thread166, %53
+  %63 = phi ptr [ %59, %.thread166 ], [ %55, %53 ]
+  %64 = phi i64 [ %58, %.thread166 ], [ %54, %53 ]
   %65 = load ptr, ptr %6, align 8, !tbaa !5
   %bcmp = call i32 @bcmp(ptr %65, ptr nonnull %63, i64 %64)
   %.not107 = icmp eq i32 %bcmp, 0
   %brmerge = or i1 %.not142, %.not107
-  br i1 %brmerge, label %.thread127.split.loop.exit, label %.thread150
+  br i1 %brmerge, label %.thread127.split.loop.exit, label %.thread167
 
-.thread150:                                       ; preds = %.thread149, %62
+.thread167:                                       ; preds = %.thread166, %62
   store i8 59, ptr %52, align 1, !tbaa !12
   %66 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) @.str.10) #21
   %.not143 = icmp eq ptr %66, null
@@ -2332,7 +2332,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
   %.mux.le = select i1 %.not107, i32 0, i32 90
   br label %.thread127
 
-.thread127.loopexit:                              ; preds = %53, %.thread150
+.thread127.loopexit:                              ; preds = %53, %.thread167
   %.pre = load ptr, ptr %6, align 8, !tbaa !5
   br label %.thread127
 
@@ -2831,11 +2831,11 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_peer_init(ptr noundef captures(n
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !156
   %. = select i1 %10, i64 240, i64 104
-  %.81 = select i1 %10, i64 248, i64 112
-  %.82 = select i1 %10, i64 256, i64 1352
+  %.85 = select i1 %10, i64 248, i64 112
+  %.86 = select i1 %10, i64 256, i64 1352
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.81
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.82
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.85
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %.86
   %.047 = load ptr, ptr %14, align 8, !tbaa !5
   %.048 = load ptr, ptr %13, align 8, !tbaa !5
   %.sink = load i32, ptr %15, align 8, !tbaa !13
@@ -2858,14 +2858,14 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_peer_init(ptr noundef captures(n
 
 22:                                               ; preds = %19
   %.not54 = icmp eq ptr %.047, null
-  br i1 %.not54, label %.thread76, label %23
+  br i1 %.not54, label %.thread80, label %23
 
 23:                                               ; preds = %22
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.048, ptr noundef nonnull dereferenceable(1) %.047) #21
   %.not55 = icmp eq i32 %24, 0
-  br i1 %.not55, label %.thread76, label %26
+  br i1 %.not55, label %.thread80, label %26
 
-.thread76:                                        ; preds = %22, %23
+.thread80:                                        ; preds = %22, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %25, align 8, !tbaa !226
   br label %31
@@ -2883,8 +2883,8 @@ define dso_local range(i32 0, 28) i32 @Curl_ssl_peer_init(ptr noundef captures(n
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %get_peer_type.exit.thread, label %31
 
-31:                                               ; preds = %.thread76, %30
-  %32 = phi ptr [ %21, %.thread76 ], [ %.pre, %30 ]
+31:                                               ; preds = %.thread80, %30
+  %32 = phi ptr [ %21, %.thread80 ], [ %.pre, %30 ]
   %33 = load i8, ptr %32, align 1, !tbaa !12
   %.not7.i = icmp eq i8 %33, 0
   br i1 %.not7.i, label %get_peer_type.exit.thread, label %34
@@ -3601,10 +3601,10 @@ define internal noundef i32 @ssl_cf_cntrl(ptr noundef %0, ptr noundef %1, i32 no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %19
-  %.sink16.in = phi ptr [ %20, %19 ], [ %11, %10 ]
+  %.sink17.in = phi ptr [ %20, %19 ], [ %11, %10 ]
   %.sroa.0.0.copyload2.sink = phi ptr [ %.sroa.0.0.copyload2, %19 ], [ %.sroa.0.0.copyload, %10 ]
-  %.sink16 = load ptr, ptr %.sink16.in, align 8, !tbaa !198
-  %23 = getelementptr inbounds nuw i8, ptr %.sink16, i64 56
+  %.sink17 = load ptr, ptr %.sink17.in, align 8, !tbaa !198
+  %23 = getelementptr inbounds nuw i8, ptr %.sink17, i64 56
   store ptr %.sroa.0.0.copyload2.sink, ptr %23, align 8, !tbaa !229
   br label %24
 
@@ -4020,8 +4020,8 @@ define dso_local i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i32 noundef %1, i1
 
 28:                                               ; preds = %19
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_cft_ssl, i64 12), align 4, !tbaa !191
-  %.old62 = icmp sgt i32 %.old, 0
-  br i1 %.old62, label %29, label %30
+  %.old71 = icmp sgt i32 %.old, 0
+  br i1 %.old71, label %29, label %30
 
 29:                                               ; preds = %22, %28
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %.04257, ptr noundef nonnull @.str.16) #20

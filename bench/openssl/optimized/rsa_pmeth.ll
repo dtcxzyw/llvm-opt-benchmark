@@ -1747,10 +1747,10 @@ define internal fastcc range(i32 0, 2) i32 @check_padding_md(ptr noundef %0, i32
   ]
 
 .sink.split:                                      ; preds = %8, %5, %3
-  %.sink8 = phi i32 [ 408, %3 ], [ 414, %5 ], [ 440, %8 ]
+  %.sink9 = phi i32 [ 408, %3 ], [ 414, %5 ], [ 440, %8 ]
   %.sink = phi i32 [ 141, %3 ], [ 142, %5 ], [ 157, %8 ]
   tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink8, ptr noundef nonnull @__func__.check_padding_md) #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink9, ptr noundef nonnull @__func__.check_padding_md) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink, ptr noundef null) #9
   br label %9
 

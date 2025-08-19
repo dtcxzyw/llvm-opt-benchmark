@@ -732,10 +732,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16PcpPropertyIndex16GetProper
 
 50:                                               ; preds = %42, %._crit_edge21
   %.sink = phi ptr [ %6, %42 ], [ %4, %._crit_edge21 ]
-  %.sink27 = phi ptr [ %7, %42 ], [ %5, %._crit_edge21 ]
+  %.sink32 = phi ptr [ %7, %42 ], [ %5, %._crit_edge21 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 16, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %.sink27, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %.sink32, i64 16, i1 false)
   ret void
 }
 
@@ -1496,7 +1496,7 @@ define linkonce_odr noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec1
   br i1 %7, label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermissionEEERKT_v.exit.thread, label %8
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermissionEEERKT_v.exit.thread: ; preds = %3
-  %.012 = load i32, ptr %2, align 4
+  %.014 = load i32, ptr %2, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 8:                                                ; preds = %3
@@ -1588,8 +1588,8 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermission
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermissionEEERKT_v.exit.thread, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermissionEEERKT_v.exit, %37
-  %.015 = phi i32 [ %.012, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermissionEEERKT_v.exit.thread ], [ %.0, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermissionEEERKT_v.exit ], [ %.0, %37 ]
-  ret i32 %.015
+  %.017 = phi i32 [ %.014, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermissionEEERKT_v.exit.thread ], [ %.0, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_13SdfPermissionEEERKT_v.exit ], [ %.0, %37 ]
+  ret i32 %.017
 }
 
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorPropertyPermissionDenied3NewEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8) local_unnamed_addr #7
@@ -2411,13 +2411,13 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Pcp_PropertyInd
   %30 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %30, null
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sink.sroa.gep118 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sink.sroa.gep120 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.sink.sroa.gep121 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sink.sroa.gep123 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.sink.sroa.gep124 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.sink.sroa.gep126 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %.sink.sroa.gep127 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.sink.sroa.gep140 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.sink.sroa.gep142 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.sink.sroa.gep143 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %.sink.sroa.gep145 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %.sink.sroa.gep146 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.sink.sroa.gep148 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %.sink.sroa.gep149 = getelementptr inbounds nuw i8, ptr %19, i64 32
   br i1 %.not.i, label %31, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit
 
 31:                                               ; preds = %6
@@ -2473,16 +2473,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv.exit: ; preds
   br i1 %.not.i27, label %.invoke, label %48
 
 .invoke:                                          ; preds = %46, %38
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %38 ], [ %.sink.sroa.gep118, %46 ]
-  %.sink.sroa.phi119 = phi ptr [ %.sink.sroa.gep120, %38 ], [ %.sink.sroa.gep121, %46 ]
-  %.sink.sroa.phi122 = phi ptr [ %.sink.sroa.gep123, %38 ], [ %.sink.sroa.gep124, %46 ]
-  %.sink.sroa.phi125 = phi ptr [ %.sink.sroa.gep126, %38 ], [ %.sink.sroa.gep127, %46 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %38 ], [ %.sink.sroa.gep140, %46 ]
+  %.sink.sroa.phi141 = phi ptr [ %.sink.sroa.gep142, %38 ], [ %.sink.sroa.gep143, %46 ]
+  %.sink.sroa.phi144 = phi ptr [ %.sink.sroa.gep145, %38 ], [ %.sink.sroa.gep146, %46 ]
+  %.sink.sroa.phi147 = phi ptr [ %.sink.sroa.gep148, %38 ], [ %.sink.sroa.gep149, %46 ]
   %.sink = phi ptr [ %20, %38 ], [ %19, %46 ]
   store ptr @.str.6, ptr %.sink, align 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %.sink.sroa.phi, align 8
-  store i64 936, ptr %.sink.sroa.phi119, align 8
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %.sink.sroa.phi122, align 8
-  store i8 0, ptr %.sink.sroa.phi125, align 8
+  store i64 936, ptr %.sink.sroa.phi141, align 8
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %.sink.sroa.phi144, align 8
+  store i8 0, ptr %.sink.sroa.phi147, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %.sink, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEE) #20
           to label %.cont unwind label %44
 
@@ -6307,11 +6307,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit119: ; preds = %_ZN32pxrIn
   %415 = atomicrmw add ptr %414, i32 2 monotonic, align 4
   %416 = and i32 %415, 1
   %.not1.i.i122 = icmp eq i32 %416, 0
-  %spec.select261 = select i1 %.not1.i.i122, ptr %414, ptr %.sroa.0.1
+  %spec.select300 = select i1 %.not1.i.i122, ptr %414, ptr %.sroa.0.1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i123
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i123: ; preds = %412, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit119
-  %.sroa.0.8 = phi ptr [ %.sroa.0.1, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit119 ], [ %spec.select261, %412 ]
+  %.sroa.0.8 = phi ptr [ %.sroa.0.1, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit119 ], [ %spec.select300, %412 ]
   %417 = load ptr, ptr %410, align 8
   %418 = ptrtoint ptr %417 to i64
   %419 = and i64 %418, 7
@@ -7711,7 +7711,7 @@ define linkonce_odr noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__15SdfAbst
   br i1 %.not.i, label %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit.thread, label %12
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit.thread: ; preds = %4
-  %.014 = load i32, ptr %3, align 4
+  %.016 = load i32, ptr %3, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 12:                                               ; preds = %4
@@ -7802,8 +7802,8 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilit
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit.thread, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit, %40
-  %.017 = phi i32 [ %.014, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit.thread ], [ %.0, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit ], [ %.0, %40 ]
-  ret i32 %.017
+  %.019 = phi i32 [ %.016, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit.thread ], [ %.0, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_14SdfVariabilityEEERKT_v.exit ], [ %.0, %40 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

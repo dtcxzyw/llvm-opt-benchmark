@@ -1233,21 +1233,21 @@ lean_dec.exit:                                    ; preds = %84, %83, %81, %lean
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit42
-  %.sink72 = phi ptr [ %53, %lean_dec.exit42 ], [ %85, %lean_dec.exit ]
-  %.sink69 = phi i32 [ 131096, %lean_dec.exit42 ], [ 16908312, %lean_dec.exit ]
-  %.sink66 = phi ptr [ %27, %lean_dec.exit42 ], [ %59, %lean_dec.exit ]
+  %.sink77 = phi ptr [ %53, %lean_dec.exit42 ], [ %85, %lean_dec.exit ]
+  %.sink74 = phi i32 [ 131096, %lean_dec.exit42 ], [ 16908312, %lean_dec.exit ]
+  %.sink71 = phi ptr [ %27, %lean_dec.exit42 ], [ %59, %lean_dec.exit ]
   %.sink = phi ptr [ %29, %lean_dec.exit42 ], [ %61, %lean_dec.exit ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sink72, i64 4
-  store i32 1, ptr %.sink72, align 4, !tbaa !4
-  store i32 %.sink69, ptr %88, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.sink72, i64 8
-  store ptr %.sink66, ptr %89, align 8, !tbaa !9
-  %90 = getelementptr inbounds nuw i8, ptr %.sink72, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.sink77, i64 4
+  store i32 1, ptr %.sink77, align 4, !tbaa !4
+  store i32 %.sink74, ptr %88, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %.sink77, i64 8
+  store ptr %.sink71, ptr %89, align 8, !tbaa !9
+  %90 = getelementptr inbounds nuw i8, ptr %.sink77, i64 16
   store ptr %.sink, ptr %90, align 8, !tbaa !9
   br label %91
 
 91:                                               ; preds = %.sink.split, %56, %24
-  %.1 = phi ptr [ %13, %24 ], [ %13, %56 ], [ %.sink72, %.sink.split ]
+  %.1 = phi ptr [ %13, %24 ], [ %13, %56 ], [ %.sink77, %.sink.split ]
   ret ptr %.1
 }
 
@@ -2456,21 +2456,21 @@ lean_dec.exit:                                    ; preds = %390, %389, %387, %l
   br i1 %exitcond.not, label %._crit_edge, label %142
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit128
-  %.sink300 = phi ptr [ %139, %lean_dec.exit128 ], [ %391, %lean_dec.exit ]
+  %.sink356 = phi ptr [ %139, %lean_dec.exit128 ], [ %391, %lean_dec.exit ]
   %.sink = phi i32 [ 131096, %lean_dec.exit128 ], [ 16908312, %lean_dec.exit ]
   %.091.lcssa.sink = phi ptr [ %.091.lcssa, %lean_dec.exit128 ], [ %365, %lean_dec.exit ]
   %.094.lcssa.sink = phi ptr [ %.094.lcssa, %lean_dec.exit128 ], [ %367, %lean_dec.exit ]
-  %396 = getelementptr inbounds nuw i8, ptr %.sink300, i64 4
-  store i32 1, ptr %.sink300, align 4, !tbaa !4
+  %396 = getelementptr inbounds nuw i8, ptr %.sink356, i64 4
+  store i32 1, ptr %.sink356, align 4, !tbaa !4
   store i32 %.sink, ptr %396, align 4
-  %397 = getelementptr inbounds nuw i8, ptr %.sink300, i64 8
+  %397 = getelementptr inbounds nuw i8, ptr %.sink356, i64 8
   store ptr %.091.lcssa.sink, ptr %397, align 8, !tbaa !9
-  %398 = getelementptr inbounds nuw i8, ptr %.sink300, i64 16
+  %398 = getelementptr inbounds nuw i8, ptr %.sink356, i64 16
   store ptr %.094.lcssa.sink, ptr %398, align 8, !tbaa !9
   br label %399
 
 399:                                              ; preds = %.sink.split, %lean_dec.exit114
-  %.1.ph = phi ptr [ %256, %lean_dec.exit114 ], [ %.sink300, %.sink.split ]
+  %.1.ph = phi ptr [ %256, %lean_dec.exit114 ], [ %.sink356, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -8705,7 +8705,7 @@ lean_ensure_exclusive_array.exit.i26:             ; preds = %32, %lean_array_use
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_LibrarySearch_evalExact___spec__2(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_LibrarySearch_evalExact___spec__2(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not40 = icmp ult i64 %1, %0
   br i1 %.not40, label %.lr.ph, label %._crit_edge
 
@@ -9869,7 +9869,7 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_LibrarySearch_evalExact___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_LibrarySearch_evalExact___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val10 = load i64, ptr %4, align 8, !tbaa !12
   %5 = ptrtoint ptr %0 to i64

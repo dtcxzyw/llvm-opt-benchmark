@@ -264,19 +264,19 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .preheader.preheader:                             ; preds = %116
   %122 = load i16, ptr %30, align 8, !tbaa !38
-  %.not224344.not = icmp eq i16 %122, 0
-  br i1 %.not224344.not, label %.thread240, label %.lr.ph346
+  %.not224361.not = icmp eq i16 %122, 0
+  br i1 %.not224361.not, label %.thread240, label %.lr.ph363
 
-.lr.ph346:                                        ; preds = %.preheader.preheader, %.loopexit
-  %indvars.iv287345 = phi i64 [ %indvars.iv.next288, %.loopexit ], [ 0, %.preheader.preheader ]
+.lr.ph363:                                        ; preds = %.preheader.preheader, %.loopexit
+  %indvars.iv287362 = phi i64 [ %indvars.iv.next288, %.loopexit ], [ 0, %.preheader.preheader ]
   %123 = load ptr, ptr %64, align 8, !tbaa !44
-  %124 = getelementptr inbounds nuw %struct.AAXColumn, ptr %123, i64 %indvars.iv287345
+  %124 = getelementptr inbounds nuw %struct.AAXColumn, ptr %123, i64 %indvars.iv287362
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !50
   %.not217 = icmp eq ptr %126, null
   br i1 %.not217, label %.loopexit, label %127
 
-127:                                              ; preds = %.lr.ph346
+127:                                              ; preds = %.lr.ph363
   %128 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %126, ptr noundef nonnull dereferenceable(5) @.str.2) #7
   %.not218 = icmp eq i32 %128, 0
   br i1 %.not218, label %129, label %.loopexit
@@ -424,12 +424,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %203 = trunc i64 %.us-phi to i32
   br label %.critedge
 
-.loopexit:                                        ; preds = %195, %168, %129, %127, %.lr.ph346
-  %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287345, 1
+.loopexit:                                        ; preds = %195, %168, %129, %127, %.lr.ph363
+  %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287362, 1
   %204 = load i16, ptr %30, align 8, !tbaa !38
   %205 = zext i16 %204 to i64
   %.not224 = icmp samesign ult i64 %indvars.iv.next288, %205
-  br i1 %.not224, label %.lr.ph346, label %.thread240, !llvm.loop !59
+  br i1 %.not224, label %.lr.ph363, label %.thread240, !llvm.loop !59
 
 .thread240:                                       ; preds = %.loopexit, %.preheader.preheader
   %206 = load ptr, ptr %59, align 8, !tbaa !43

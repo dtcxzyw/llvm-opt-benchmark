@@ -173,8 +173,8 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
   %sext65 = shl i32 %75, 16
   %111 = ashr exact i32 %sext65, 16
   %112 = and i32 %75, 32768
-  %.not66 = icmp eq i32 %112, 0
-  br i1 %.not66, label %117, label %113
+  %.not70 = icmp eq i32 %112, 0
+  br i1 %.not70, label %117, label %113
 
 113:                                              ; preds = %108
   %114 = sub nsw i32 32, %111
@@ -666,7 +666,7 @@ define hidden i64 @av1_calc_highbd_frame_error(ptr noundef readonly captures(non
   %15 = mul nsw i64 %indvars.iv26, %13
   %16 = mul nsw i64 %indvars.iv26, %14
   %invariant.gep = getelementptr i16, ptr %2, i64 %15
-  %invariant.gep31 = getelementptr i16, ptr %0, i64 %16
+  %invariant.gep32 = getelementptr i16, ptr %0, i64 %16
   br label %17
 
 17:                                               ; preds = %.preheader.us, %17
@@ -675,8 +675,8 @@ define hidden i64 @av1_calc_highbd_frame_error(ptr noundef readonly captures(non
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
   %18 = load i16, ptr %gep, align 2
   %19 = zext i16 %18 to i32
-  %gep32 = getelementptr i16, ptr %invariant.gep31, i64 %indvars.iv
-  %20 = load i16, ptr %gep32, align 2
+  %gep33 = getelementptr i16, ptr %invariant.gep32, i64 %indvars.iv
+  %20 = load i16, ptr %gep33, align 2
   %21 = zext i16 %20 to i32
   %22 = sub nsw i32 %19, %21
   %23 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %22, i1 true)
@@ -1100,7 +1100,7 @@ define hidden i64 @av1_calc_frame_error_c(ptr noundef readonly captures(none) %0
   %11 = mul nsw i64 %indvars.iv25, %9
   %12 = mul nsw i64 %indvars.iv25, %10
   %invariant.gep = getelementptr i8, ptr %2, i64 %11
-  %invariant.gep30 = getelementptr i8, ptr %0, i64 %12
+  %invariant.gep31 = getelementptr i8, ptr %0, i64 %12
   br label %13
 
 13:                                               ; preds = %.preheader.us, %13
@@ -1109,8 +1109,8 @@ define hidden i64 @av1_calc_frame_error_c(ptr noundef readonly captures(none) %0
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %14 = load i8, ptr %gep, align 1
   %15 = zext i8 %14 to i64
-  %gep31 = getelementptr i8, ptr %invariant.gep30, i64 %indvars.iv
-  %16 = load i8, ptr %gep31, align 1
+  %gep32 = getelementptr i8, ptr %invariant.gep31, i64 %indvars.iv
+  %16 = load i8, ptr %gep32, align 1
   %17 = zext i8 %16 to i64
   %18 = add nuw nsw i64 %15, 255
   %19 = sub nuw nsw i64 %18, %17
@@ -1167,7 +1167,7 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %23 = mul nsw i64 %indvars.iv26.i, %21
   %24 = mul nsw i64 %indvars.iv26.i, %22
   %invariant.gep.i = getelementptr i16, ptr %15, i64 %23
-  %invariant.gep31.i = getelementptr i16, ptr %12, i64 %24
+  %invariant.gep32.i = getelementptr i16, ptr %12, i64 %24
   br label %25
 
 25:                                               ; preds = %25, %.preheader.us.i
@@ -1176,8 +1176,8 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
   %26 = load i16, ptr %gep.i, align 2
   %27 = zext i16 %26 to i32
-  %gep32.i = getelementptr i16, ptr %invariant.gep31.i, i64 %indvars.iv.i
-  %28 = load i16, ptr %gep32.i, align 2
+  %gep33.i = getelementptr i16, ptr %invariant.gep32.i, i64 %indvars.iv.i
+  %28 = load i16, ptr %gep33.i, align 2
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %27, %29
   %31 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %30, i1 true)
@@ -1225,7 +1225,7 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %53 = mul nsw i64 %indvars.iv25.i, %51
   %54 = mul nsw i64 %indvars.iv25.i, %52
   %invariant.gep.i17 = getelementptr i8, ptr %4, i64 %53
-  %invariant.gep30.i = getelementptr i8, ptr %2, i64 %54
+  %invariant.gep31.i = getelementptr i8, ptr %2, i64 %54
   br label %55
 
 55:                                               ; preds = %55, %.preheader.us.i16
@@ -1234,8 +1234,8 @@ define hidden i64 @av1_frame_error(i32 noundef %0, i32 noundef %1, ptr noundef %
   %gep.i19 = getelementptr i8, ptr %invariant.gep.i17, i64 %indvars.iv.i18
   %56 = load i8, ptr %gep.i19, align 1
   %57 = zext i8 %56 to i64
-  %gep31.i = getelementptr i8, ptr %invariant.gep30.i, i64 %indvars.iv.i18
-  %58 = load i8, ptr %gep31.i, align 1
+  %gep32.i = getelementptr i8, ptr %invariant.gep31.i, i64 %indvars.iv.i18
+  %58 = load i8, ptr %gep32.i, align 1
   %59 = zext i8 %58 to i64
   %60 = add nuw nsw i64 %57, 255
   %61 = sub nuw nsw i64 %60, %59
@@ -1343,7 +1343,7 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
   %45 = mul nsw i64 %indvars.iv26.i.us.us.i, %23
   %46 = mul nsw i64 %indvars.iv26.i.us.us.i, %24
   %invariant.gep.i.us.us.i = getelementptr i16, ptr %gep49.us.us.i, i64 %45
-  %invariant.gep31.i.us.us.i = getelementptr i16, ptr %gep.us.us.i, i64 %46
+  %invariant.gep32.i.us.us.i = getelementptr i16, ptr %gep.us.us.i, i64 %46
   br label %47
 
 47:                                               ; preds = %47, %.preheader.us.i.us.us.i
@@ -1352,8 +1352,8 @@ define hidden i64 @av1_segmented_frame_error(i32 noundef %0, i32 noundef %1, ptr
   %gep.i.us.us.i = getelementptr i16, ptr %invariant.gep.i.us.us.i, i64 %indvars.iv.i.us.us.i
   %48 = load i16, ptr %gep.i.us.us.i, align 2
   %49 = zext i16 %48 to i32
-  %gep32.i.us.us.i = getelementptr i16, ptr %invariant.gep31.i.us.us.i, i64 %indvars.iv.i.us.us.i
-  %50 = load i16, ptr %gep32.i.us.us.i, align 2
+  %gep33.i.us.us.i = getelementptr i16, ptr %invariant.gep32.i.us.us.i, i64 %indvars.iv.i.us.us.i
+  %50 = load i16, ptr %gep33.i.us.us.i, align 2
   %51 = zext i16 %50 to i32
   %52 = sub nsw i32 %49, %51
   %53 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %52, i1 true)
@@ -1459,7 +1459,7 @@ av1_calc_highbd_frame_error.exit.us.us.i:         ; preds = %._crit_edge.us.i.us
   %98 = mul nsw i64 %indvars.iv25.i.us.i, %76
   %99 = mul nsw i64 %indvars.iv25.i.us.i, %77
   %invariant.gep.i.us.i = getelementptr i8, ptr %gep48.us.i, i64 %98
-  %invariant.gep30.i.us.i = getelementptr i8, ptr %gep.us.i, i64 %99
+  %invariant.gep31.i.us.i = getelementptr i8, ptr %gep.us.i, i64 %99
   br label %100
 
 100:                                              ; preds = %100, %.preheader.us.i.us.i
@@ -1468,8 +1468,8 @@ av1_calc_highbd_frame_error.exit.us.us.i:         ; preds = %._crit_edge.us.i.us
   %gep.i.us.i = getelementptr i8, ptr %invariant.gep.i.us.i, i64 %indvars.iv.i.us.i
   %101 = load i8, ptr %gep.i.us.i, align 1
   %102 = zext i8 %101 to i64
-  %gep31.i.us.i = getelementptr i8, ptr %invariant.gep30.i.us.i, i64 %indvars.iv.i.us.i
-  %103 = load i8, ptr %gep31.i.us.i, align 1
+  %gep32.i.us.i = getelementptr i8, ptr %invariant.gep31.i.us.i, i64 %indvars.iv.i.us.i
+  %103 = load i8, ptr %gep32.i.us.i, align 1
   %104 = zext i8 %103 to i64
   %105 = add nuw nsw i64 %102, 255
   %106 = sub nuw nsw i64 %105, %104
@@ -1741,8 +1741,8 @@ define hidden range(i32 0, 2) i32 @av1_find_projection(i32 noundef %0, ptr nound
   %111 = xor i32 %110, 63
   %112 = trunc nuw nsw i32 %111 to i16
   %113 = zext nneg i32 %111 to i64
-  %.neg15.i.i = shl nsw i64 -1, %113
-  %114 = add nsw i64 %.neg15.i.i, %107
+  %.neg18.i.i = shl nsw i64 -1, %113
+  %114 = add nsw i64 %.neg18.i.i, %107
   br label %123
 
 115:                                              ; preds = %105

@@ -750,12 +750,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %.loopexit43
 
 .loopexit43.loopexit:                             ; preds = %51
-  %lpad.loopexit70 = landingpad { ptr, i32 }
+  %lpad.loopexit76 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit43
 
 .loopexit43.loopexit.split-lp:                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i32
-  %lpad.loopexit.split-lp71 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp77 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit43
 
@@ -825,7 +825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   ret void
 
 .loopexit43:                                      ; preds = %.loopexit43.loopexit, %.loopexit43.loopexit.split-lp, %.loopexit48, %.loopexit.split-lp49, %.loopexit.split-lp44, %.body, %73
-  %.pn19.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ], [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ], [ %lpad.loopexit70, %.loopexit43.loopexit ], [ %lpad.loopexit.split-lp71, %.loopexit43.loopexit.split-lp ]
+  %.pn19.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp46, %.loopexit.split-lp44 ], [ %lpad.loopexit50, %.loopexit48 ], [ %lpad.loopexit.split-lp51, %.loopexit.split-lp49 ], [ %lpad.loopexit76, %.loopexit43.loopexit ], [ %lpad.loopexit.split-lp77, %.loopexit43.loopexit.split-lp ]
   %75 = load ptr, ptr %0, align 8, !tbaa !24
   %76 = icmp eq ptr %75, %3
   br i1 %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i40
@@ -879,35 +879,35 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
   store i64 0, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa !4
-  %indvars.iv155.sroa.gep184 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %indvars.iv155.sroa.gep189 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %indvars.iv167.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %indvars.iv155.sroa.gep188 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %indvars.iv.sroa.gep189 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %indvars.iv170.sroa.gep190 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %indvars.iv170.sroa.gep193 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %indvars.iv155.sroa.gep193 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %indvars.iv.sroa.gep194 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %indvars.iv170.sroa.gep195 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %indvars.iv170.sroa.gep198 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %.preheader123
 
 .preheader123:                                    ; preds = %.preheader123.preheader, %58
   %.not150 = phi i1 [ true, %.preheader123.preheader ], [ false, %58 ]
-  %indvars.iv170.sroa.phi = phi ptr [ %3, %.preheader123.preheader ], [ %indvars.iv170.sroa.gep190, %58 ]
-  %indvars.iv170.sroa.phi191 = phi ptr [ %2, %.preheader123.preheader ], [ %indvars.iv170.sroa.gep193, %58 ]
+  %indvars.iv170.sroa.phi = phi ptr [ %3, %.preheader123.preheader ], [ %indvars.iv170.sroa.gep195, %58 ]
+  %indvars.iv170.sroa.phi196 = phi ptr [ %2, %.preheader123.preheader ], [ %indvars.iv170.sroa.gep198, %58 ]
   br label %6
 
 6:                                                ; preds = %.preheader123, %.critedge
   %.not149 = phi i1 [ true, %.preheader123 ], [ false, %.critedge ]
-  %indvars.iv155.sroa.phi = phi ptr [ %5, %.preheader123 ], [ %indvars.iv155.sroa.gep184, %.critedge ]
-  %indvars.iv155.sroa.phi186 = phi ptr [ %4, %.preheader123 ], [ %indvars.iv155.sroa.gep188, %.critedge ]
+  %indvars.iv155.sroa.phi = phi ptr [ %5, %.preheader123 ], [ %indvars.iv155.sroa.gep189, %.critedge ]
+  %indvars.iv155.sroa.phi191 = phi ptr [ %4, %.preheader123 ], [ %indvars.iv155.sroa.gep193, %.critedge ]
   %indvars.iv155 = phi i32 [ 0, %.preheader123 ], [ 1, %.critedge ]
   %.091139 = phi float [ 0.000000e+00, %.preheader123 ], [ %.394, %.critedge ]
   %.095138 = phi i32 [ 0, %.preheader123 ], [ %.4, %.critedge ]
   %.099137 = phi i32 [ 0, %.preheader123 ], [ %.4103, %.critedge ]
-  %7 = load i32, ptr %indvars.iv155.sroa.phi186, align 4, !tbaa !8
+  %7 = load i32, ptr %indvars.iv155.sroa.phi191, align 4, !tbaa !8
   %.not = icmp eq i32 %7, 1
   br i1 %.not, label %.critedge, label %.preheader119
 
 .preheader119:                                    ; preds = %6, %19
   %.not148 = phi i1 [ false, %19 ], [ true, %6 ]
-  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep189, %19 ], [ %4, %6 ]
+  %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep194, %19 ], [ %4, %6 ]
   %indvars.iv = phi i64 [ 1, %19 ], [ 0, %6 ]
   %.192135 = phi float [ %.293, %19 ], [ %.091139, %6 ]
   %.297134 = phi i32 [ %.398, %19 ], [ %.095138, %6 ]
@@ -974,7 +974,7 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
 
 .loopexit122:                                     ; preds = %.preheader121, %.thread
   store i32 %.4103, ptr %indvars.iv170.sroa.phi, align 4, !tbaa !8
-  store i32 %.4, ptr %indvars.iv170.sroa.phi191, align 4, !tbaa !8
+  store i32 %.4, ptr %indvars.iv170.sroa.phi196, align 4, !tbaa !8
   %34 = getelementptr inbounds nuw [2 x [2 x float]], ptr %5, i64 0, i64 %21
   %35 = getelementptr inbounds nuw [2 x float], ptr %34, i64 0, i64 %21
   %36 = load float, ptr %35, align 4, !tbaa !4
@@ -1066,8 +1066,8 @@ define weak_odr dso_local void @_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12Squa
 
 .critedge113:                                     ; preds = %.preheader, %.critedge113.preheader
   %indvars.iv.next177 = add nsw i64 %indvars.iv176, -1
-  %.not179 = icmp eq i64 %indvars.iv176, 0
-  br i1 %.not179, label %60, label %.critedge113.preheader, !llvm.loop !47
+  %.not184 = icmp eq i64 %indvars.iv176, 0
+  br i1 %.not184, label %60, label %.critedge113.preheader, !llvm.loop !47
 
 .critedge112:                                     ; preds = %38, %20, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1634,12 +1634,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   br label %.loopexit44
 
 .loopexit44.loopexit:                             ; preds = %49
-  %lpad.loopexit74 = landingpad { ptr, i32 }
+  %lpad.loopexit80 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit44
 
 .loopexit44.loopexit.split-lp:                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i33
-  %lpad.loopexit.split-lp75 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit44
 
@@ -1714,7 +1714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   ret void
 
 .loopexit44:                                      ; preds = %.loopexit44.loopexit, %.loopexit44.loopexit.split-lp, %.loopexit49, %.loopexit.split-lp50, %.loopexit.split-lp45, %.body, %71
-  %.pn20.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ], [ %lpad.loopexit74, %.loopexit44.loopexit ], [ %lpad.loopexit.split-lp75, %.loopexit44.loopexit.split-lp ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ], [ %lpad.loopexit80, %.loopexit44.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit44.loopexit.split-lp ]
   %73 = load ptr, ptr %0, align 8, !tbaa !24
   %74 = icmp eq ptr %73, %3
   br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
@@ -2257,12 +2257,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   br label %.loopexit44
 
 .loopexit44.loopexit:                             ; preds = %49
-  %lpad.loopexit74 = landingpad { ptr, i32 }
+  %lpad.loopexit80 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit44
 
 .loopexit44.loopexit.split-lp:                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i33
-  %lpad.loopexit.split-lp75 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit44
 
@@ -2337,7 +2337,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   ret void
 
 .loopexit44:                                      ; preds = %.loopexit44.loopexit, %.loopexit44.loopexit.split-lp, %.loopexit49, %.loopexit.split-lp50, %.loopexit.split-lp45, %.body, %71
-  %.pn20.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ], [ %lpad.loopexit74, %.loopexit44.loopexit ], [ %lpad.loopexit.split-lp75, %.loopexit44.loopexit.split-lp ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn, %.body ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit51, %.loopexit49 ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp50 ], [ %lpad.loopexit80, %.loopexit44.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit44.loopexit.split-lp ]
   %73 = load ptr, ptr %0, align 8, !tbaa !24
   %74 = icmp eq ptr %73, %3
   br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
@@ -2435,9 +2435,9 @@ define dso_local noundef i32 @_ZN4pbrt9NextPrimeEi(i32 noundef %0) local_unnamed
   br i1 %.not45.i20, label %.loopexit, label %.lr.ph.i21.preheader.preheader
 
 .lr.ph.i21.preheader.preheader:                   ; preds = %3, %.preheader
-  %.sroa.17.0.lcssa80 = phi ptr [ %.sroa.17.1, %.preheader ], [ %5, %3 ]
-  %.sroa.11.0.lcssa79 = phi ptr [ %.sroa.11.1, %.preheader ], [ %5, %3 ]
-  %.sroa.0.0.lcssa77 = phi ptr [ %.sroa.0.1, %.preheader ], [ %4, %3 ]
+  %.sroa.17.0.lcssa87 = phi ptr [ %.sroa.17.1, %.preheader ], [ %5, %3 ]
+  %.sroa.11.0.lcssa86 = phi ptr [ %.sroa.11.1, %.preheader ], [ %5, %3 ]
+  %.sroa.0.0.lcssa84 = phi ptr [ %.sroa.0.1, %.preheader ], [ %4, %3 ]
   br label %.lr.ph.i21.preheader
 
 .loopexit43:                                      ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -2541,7 +2541,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21.preheader, %.critedge.i24
-  %.sroa.01.06.i22 = phi ptr [ %42, %.critedge.i24 ], [ %.sroa.0.0.lcssa77, %.lr.ph.i21.preheader ]
+  %.sroa.01.06.i22 = phi ptr [ %42, %.critedge.i24 ], [ %.sroa.0.0.lcssa84, %.lr.ph.i21.preheader ]
   %38 = load i32, ptr %.sroa.01.06.i22, align 4, !tbaa !8
   %.not.i23 = icmp eq i32 %.163, %38
   br i1 %.not.i23, label %.critedge.i24, label %39
@@ -2553,7 +2553,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 .critedge.i24:                                    ; preds = %39, %.lr.ph.i21
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i22, i64 4
-  %.not4.i25 = icmp eq ptr %42, %.sroa.11.0.lcssa79
+  %.not4.i25 = icmp eq ptr %42, %.sroa.11.0.lcssa86
   br i1 %.not4.i25, label %.loopexit, label %.lr.ph.i21
 
 "_ZZN4pbrt9NextPrimeEiENK3$_0clEi.exit27":        ; preds = %39
@@ -2561,13 +2561,13 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.lr.ph.i21.preheader
 
 .loopexit:                                        ; preds = %.critedge.i24, %.preheader
-  %.sroa.17.0.lcssa81 = phi ptr [ %.sroa.17.1, %.preheader ], [ %.sroa.17.0.lcssa80, %.critedge.i24 ]
-  %.sroa.0.0.lcssa78 = phi ptr [ %.sroa.0.1, %.preheader ], [ %.sroa.0.0.lcssa77, %.critedge.i24 ]
+  %.sroa.17.0.lcssa88 = phi ptr [ %.sroa.17.1, %.preheader ], [ %.sroa.17.0.lcssa87, %.critedge.i24 ]
+  %.sroa.0.0.lcssa85 = phi ptr [ %.sroa.0.1, %.preheader ], [ %.sroa.0.0.lcssa84, %.critedge.i24 ]
   %.145 = phi i32 [ %spec.select, %.preheader ], [ %.163, %.critedge.i24 ]
-  %44 = ptrtoint ptr %.sroa.17.0.lcssa81 to i64
-  %45 = ptrtoint ptr %.sroa.0.0.lcssa78 to i64
+  %44 = ptrtoint ptr %.sroa.17.0.lcssa88 to i64
+  %45 = ptrtoint ptr %.sroa.0.0.lcssa85 to i64
   %46 = sub i64 %44, %45
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.lcssa78, i64 noundef %46) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.lcssa85, i64 noundef %46) #28
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp, %.loopexit43
@@ -2756,9 +2756,9 @@ define dso_local noundef zeroext i1 @_ZN4pbrt17CatmullRomWeightsEN4pstd4spanIKfE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %81, %74
-  %.sink68 = phi float [ %79, %74 ], [ 0.000000e+00, %81 ]
+  %.sink71 = phi float [ %79, %74 ], [ 0.000000e+00, %81 ]
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store float %.sink68, ptr %84, align 4, !tbaa !4
+  store float %.sink71, ptr %84, align 4, !tbaa !4
   br label %85
 
 85:                                               ; preds = %.sink.split, %11, %14

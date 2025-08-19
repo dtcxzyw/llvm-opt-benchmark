@@ -586,10 +586,10 @@ define range(i32 0, 2) i32 @ossl_ccm_stream_update(ptr noundef %0, ptr noundef %
   br i1 %.not, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %8, %6
-  %.sink9 = phi i32 [ 276, %6 ], [ 281, %8 ]
+  %.sink10 = phi i32 [ 276, %6 ], [ 281, %8 ]
   %.sink = phi i32 [ 106, %6 ], [ 102, %8 ]
   tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink9, ptr noundef nonnull @__func__.ossl_ccm_stream_update) #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink10, ptr noundef nonnull @__func__.ossl_ccm_stream_update) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %10
 

@@ -128,7 +128,7 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %72 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %73 = load i8, ptr %72, align 1, !tbaa !7
   %74 = icmp slt i8 %73, -64
-  br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit121
+  br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit125
 
 75:                                               ; preds = %71
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -136,13 +136,13 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %.not90 = icmp eq i8 %76, 0
   br i1 %.not90, label %.critedge, label %71, !llvm.loop !8
 
-.critedge.loopexit.split.loop.exit121:            ; preds = %71
+.critedge.loopexit.split.loop.exit125:            ; preds = %71
   %77 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit121, %.thread
-  %.077.lcssa = phi i8 [ %10, %.thread ], [ %.077108, %.critedge.loopexit.split.loop.exit121 ], [ 0, %75 ]
-  %.482.lcssa = phi i32 [ %6, %.thread ], [ %77, %.critedge.loopexit.split.loop.exit121 ], [ %70, %75 ]
+.critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit125, %.thread
+  %.077.lcssa = phi i8 [ %10, %.thread ], [ %.077108, %.critedge.loopexit.split.loop.exit125 ], [ 0, %75 ]
+  %.482.lcssa = phi i32 [ %6, %.thread ], [ %77, %.critedge.loopexit.split.loop.exit125 ], [ %70, %75 ]
   %78 = icmp sgt i8 %4, -1
   br i1 %78, label %79, label %.thread101
 
@@ -179,7 +179,7 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %94 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv118
   %95 = load i8, ptr %94, align 1, !tbaa !7
   %96 = icmp slt i8 %95, -64
-  br i1 %96, label %97, label %.critedge8.loopexit.split.loop.exit124
+  br i1 %96, label %97, label %.critedge8.loopexit.split.loop.exit128
 
 97:                                               ; preds = %.lr.ph114
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, 1
@@ -187,12 +187,12 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge8, label %.lr.ph114, !llvm.loop !10
 
-.critedge8.loopexit.split.loop.exit124:           ; preds = %.lr.ph114
+.critedge8.loopexit.split.loop.exit128:           ; preds = %.lr.ph114
   %98 = trunc nsw i64 %indvars.iv118 to i32
   br label %.critedge8
 
-.critedge8:                                       ; preds = %97, %.critedge8.loopexit.split.loop.exit124, %.preheader
-  %.785.lcssa = phi i32 [ %6, %.preheader ], [ %98, %.critedge8.loopexit.split.loop.exit124 ], [ %2, %97 ]
+.critedge8:                                       ; preds = %97, %.critedge8.loopexit.split.loop.exit128, %.preheader
+  %.785.lcssa = phi i32 [ %6, %.preheader ], [ %98, %.critedge8.loopexit.split.loop.exit128 ], [ %2, %97 ]
   %99 = icmp sgt i8 %4, -1
   br i1 %99, label %100, label %.thread101
 
@@ -202,9 +202,9 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   br label %.thread101.sink.split
 
 .thread101.sink.split:                            ; preds = %88, %86, %100, %79
-  %.sink126 = phi i64 [ %82, %79 ], [ %102, %100 ], [ %57, %86 ], [ %57, %88 ]
+  %.sink130 = phi i64 [ %82, %79 ], [ %102, %100 ], [ %57, %86 ], [ %57, %88 ]
   %.684.ph = phi i32 [ %.482.lcssa, %79 ], [ %.785.lcssa, %100 ], [ %.07898, %86 ], [ %.07898, %88 ]
-  %103 = getelementptr inbounds [6 x i32], ptr @_ZN8base_icuL15utf8_errorValueE, i64 0, i64 %.sink126
+  %103 = getelementptr inbounds [6 x i32], ptr @_ZN8base_icuL15utf8_errorValueE, i64 0, i64 %.sink130
   %104 = load i32, ptr %103, align 4, !tbaa !3
   br label %.thread101
 

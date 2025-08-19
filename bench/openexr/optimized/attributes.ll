@@ -748,17 +748,17 @@ define hidden i32 @exr_attr_list_add_by_type(ptr noundef %0, ptr noundef capture
   br label %79
 
 79:                                               ; preds = %77, %65
-  %.sink111 = phi ptr [ %78, %77 ], [ %66, %65 ]
+  %.sink121 = phi ptr [ %78, %77 ], [ %66, %65 ]
   %.sink = phi i32 [ 30, %77 ], [ %73, %65 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.sink111, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %.sink121, i64 20
   store i32 %.sink, ptr %80, align 4, !tbaa !30
-  %81 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.sink111)
+  %81 = tail call fastcc i32 @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.sink121)
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %.thread101
 
 83:                                               ; preds = %79
-  store ptr %.sink111, ptr %6, align 8, !tbaa !28
-  tail call fastcc void @check_attr_handler(ptr noundef %0, ptr noundef nonnull %.sink111)
+  store ptr %.sink121, ptr %6, align 8, !tbaa !28
+  tail call fastcc void @check_attr_handler(ptr noundef %0, ptr noundef nonnull %.sink121)
   br label %85
 
 .thread101:                                       ; preds = %74, %60, %79
@@ -1383,7 +1383,7 @@ define internal fastcc i32 @add_to_list(ptr noundef nonnull %0, ptr noundef capt
   br i1 %159, label %.lr.ph60.preheader.i, label %.lr.ph65.preheader.i
 
 .lr.ph60.preheader.i:                             ; preds = %154
-  %wide.trip.count75.i = zext i32 %158 to i64
+  %wide.trip.count75.i = zext nneg i32 %158 to i64
   br label %.lr.ph60.i
 
 .lr.ph65.preheader.i:                             ; preds = %.lr.ph60.i, %154
@@ -1951,7 +1951,7 @@ define hidden i32 @exr_attr_list_remove(ptr noundef %0, ptr noundef captures(add
   br i1 %31, label %.lr.ph60.preheader, label %.lr.ph65.preheader
 
 .lr.ph60.preheader:                               ; preds = %26
-  %wide.trip.count75 = zext i32 %30 to i64
+  %wide.trip.count75 = zext nneg i32 %30 to i64
   br label %.lr.ph60
 
 .lr.ph65.preheader:                               ; preds = %.lr.ph60, %26

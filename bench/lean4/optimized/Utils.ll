@@ -439,14 +439,14 @@ lean_alloc_ctor.exit102:                          ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit89:                           ; preds = %lean_alloc_ctor.exit102, %lean_alloc_ctor.exit93, %lean_alloc_ctor.exit88
-  %.sink116 = phi ptr [ %73, %lean_alloc_ctor.exit88 ], [ %112, %lean_alloc_ctor.exit93 ], [ %165, %lean_alloc_ctor.exit102 ]
+  %.sink131 = phi ptr [ %73, %lean_alloc_ctor.exit88 ], [ %112, %lean_alloc_ctor.exit93 ], [ %165, %lean_alloc_ctor.exit102 ]
   %.sink = phi ptr [ %67, %lean_alloc_ctor.exit88 ], [ %106, %lean_alloc_ctor.exit93 ], [ %159, %lean_alloc_ctor.exit102 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.sink116, i64 4
-  store i32 1, ptr %.sink116, align 4, !tbaa !8
+  %168 = getelementptr inbounds nuw i8, ptr %.sink131, i64 4
+  store i32 1, ptr %.sink131, align 4, !tbaa !8
   store i32 16842768, ptr %168, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %.sink116, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %.sink131, i64 8
   store ptr %.sink, ptr %169, align 8, !tbaa !4
-  ret ptr %.sink116
+  ret ptr %.sink131
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2596,8 +2596,8 @@ lean_nat_le.exit:                                 ; preds = %7
   br label %lean_dec.exit29
 
 lean_dec.exit29:                                  ; preds = %lean_nat_le.exit.thread, %24, %23, %21, %lean_nat_le.exit
-  %.0.i51 = phi i1 [ %16, %lean_nat_le.exit.thread ], [ %17, %24 ], [ %17, %23 ], [ %17, %21 ], [ %17, %lean_nat_le.exit ]
-  %25 = select i1 %.0.i51, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  %.0.i57 = phi i1 [ %16, %lean_nat_le.exit.thread ], [ %17, %24 ], [ %17, %23 ], [ %17, %21 ], [ %17, %lean_nat_le.exit ]
+  %25 = select i1 %.0.i57, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   store ptr %25, ptr %5, align 8, !tbaa !4
   br label %84
 

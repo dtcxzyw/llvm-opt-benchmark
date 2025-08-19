@@ -31526,10 +31526,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 344:                                              ; preds = %315, %339
-  %.sink666 = phi ptr [ %324, %339 ], [ null, %315 ]
+  %.sink683 = phi ptr [ %324, %339 ], [ null, %315 ]
   %345 = phi i32 [ %.pre580, %339 ], [ %316, %315 ]
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr %.sink666, ptr %346, align 8, !tbaa !193
+  store ptr %.sink683, ptr %346, align 8, !tbaa !193
   %347 = and i32 %345, 64
   %.not497 = icmp eq i32 %347, 0
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -31589,10 +31589,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 373:                                              ; preds = %344, %368
-  %.sink668 = phi ptr [ %353, %368 ], [ null, %344 ]
+  %.sink685 = phi ptr [ %353, %368 ], [ null, %344 ]
   %374 = phi i32 [ %.pre581, %368 ], [ %345, %344 ]
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr %.sink668, ptr %375, align 8, !tbaa !194
+  store ptr %.sink685, ptr %375, align 8, !tbaa !194
   %376 = and i32 %374, 128
   %.not498 = icmp eq i32 %376, 0
   %377 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -31653,10 +31653,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 403:                                              ; preds = %373, %397
-  %.sink670 = phi ptr [ %382, %397 ], [ null, %373 ]
+  %.sink687 = phi ptr [ %382, %397 ], [ null, %373 ]
   %404 = phi i32 [ %.pre582, %397 ], [ %374, %373 ]
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr %.sink670, ptr %405, align 8, !tbaa !198
+  store ptr %.sink687, ptr %405, align 8, !tbaa !198
   %406 = and i32 %404, 256
   %.not499 = icmp eq i32 %406, 0
   %407 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -31717,10 +31717,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 433:                                              ; preds = %403, %427
-  %.sink672 = phi ptr [ %412, %427 ], [ null, %403 ]
+  %.sink689 = phi ptr [ %412, %427 ], [ null, %403 ]
   %434 = phi i32 [ %.pre583, %427 ], [ %404, %403 ]
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %.sink672, ptr %435, align 8, !tbaa !199
+  store ptr %.sink689, ptr %435, align 8, !tbaa !199
   %436 = and i32 %434, 512
   %.not500 = icmp eq i32 %436, 0
   %437 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -31852,10 +31852,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 494:                                              ; preds = %466, %489
-  %.sink674 = phi ptr [ %474, %489 ], [ null, %466 ]
+  %.sink691 = phi ptr [ %474, %489 ], [ null, %466 ]
   %495 = phi i32 [ %.pre586, %489 ], [ %467, %466 ]
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr %.sink674, ptr %496, align 8, !tbaa !206
+  store ptr %.sink691, ptr %496, align 8, !tbaa !206
   %497 = and i32 %495, 4096
   %.not503 = icmp eq i32 %497, 0
   %498 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -31987,10 +31987,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 555:                                              ; preds = %527, %550
-  %.sink676 = phi ptr [ %535, %550 ], [ null, %527 ]
+  %.sink693 = phi ptr [ %535, %550 ], [ null, %527 ]
   %556 = phi i32 [ %.pre589, %550 ], [ %528, %527 ]
   %557 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store ptr %.sink676, ptr %557, align 8, !tbaa !211
+  store ptr %.sink693, ptr %557, align 8, !tbaa !211
   %558 = and i32 %556, 32768
   %.not506 = icmp eq i32 %558, 0
   %559 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -32230,10 +32230,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 670:                                              ; preds = %641, %664
-  %.sink678 = phi ptr [ %649, %664 ], [ null, %641 ]
+  %.sink695 = phi ptr [ %649, %664 ], [ null, %641 ]
   %671 = phi i32 [ %.pre592, %664 ], [ %642, %641 ]
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store ptr %.sink678, ptr %672, align 8, !tbaa !215
+  store ptr %.sink695, ptr %672, align 8, !tbaa !215
   %673 = and i32 %671, 262144
   %.not509 = icmp eq i32 %673, 0
   %674 = getelementptr inbounds nuw i8, ptr %1, i64 352
@@ -32453,10 +32453,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 772:                                              ; preds = %744, %767
-  %.sink680 = phi ptr [ %752, %767 ], [ null, %744 ]
+  %.sink697 = phi ptr [ %752, %767 ], [ null, %744 ]
   %773 = phi i32 [ %.pre596, %767 ], [ %745, %744 ]
   %774 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store ptr %.sink680, ptr %774, align 8, !tbaa !222
+  store ptr %.sink697, ptr %774, align 8, !tbaa !222
   %775 = and i32 %773, 4194304
   %.not513 = icmp eq i32 %775, 0
   %776 = getelementptr inbounds nuw i8, ptr %1, i64 384
@@ -32516,10 +32516,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 801:                                              ; preds = %772, %796
-  %.sink682 = phi ptr [ %781, %796 ], [ null, %772 ]
+  %.sink699 = phi ptr [ %781, %796 ], [ null, %772 ]
   %802 = phi i32 [ %.pre597, %796 ], [ %773, %772 ]
   %803 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store ptr %.sink682, ptr %803, align 8, !tbaa !223
+  store ptr %.sink699, ptr %803, align 8, !tbaa !223
   %804 = and i32 %802, 8388608
   %.not514 = icmp eq i32 %804, 0
   %805 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -32580,10 +32580,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 831:                                              ; preds = %801, %825
-  %.sink684 = phi ptr [ %810, %825 ], [ null, %801 ]
+  %.sink701 = phi ptr [ %810, %825 ], [ null, %801 ]
   %832 = phi i32 [ %.pre598, %825 ], [ %802, %801 ]
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store ptr %.sink684, ptr %833, align 8, !tbaa !224
+  store ptr %.sink701, ptr %833, align 8, !tbaa !224
   %834 = and i32 %832, 16777216
   %.not515 = icmp eq i32 %834, 0
   %835 = getelementptr inbounds nuw i8, ptr %1, i64 400
@@ -32643,10 +32643,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 860:                                              ; preds = %831, %855
-  %.sink686 = phi ptr [ %840, %855 ], [ null, %831 ]
+  %.sink703 = phi ptr [ %840, %855 ], [ null, %831 ]
   %861 = phi i32 [ %.pre599, %855 ], [ %832, %831 ]
   %862 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr %.sink686, ptr %862, align 8, !tbaa !226
+  store ptr %.sink703, ptr %862, align 8, !tbaa !226
   %863 = and i32 %861, 33554432
   %.not516 = icmp eq i32 %863, 0
   %864 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -32706,10 +32706,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 889:                                              ; preds = %860, %884
-  %.sink688 = phi ptr [ %869, %884 ], [ null, %860 ]
+  %.sink705 = phi ptr [ %869, %884 ], [ null, %860 ]
   %890 = phi i32 [ %.pre600, %884 ], [ %861, %860 ]
   %891 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %.sink688, ptr %891, align 8, !tbaa !228
+  store ptr %.sink705, ptr %891, align 8, !tbaa !228
   %892 = and i32 %890, 67108864
   %.not517 = icmp eq i32 %892, 0
   %893 = getelementptr inbounds nuw i8, ptr %1, i64 416
@@ -32770,10 +32770,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 919:                                              ; preds = %889, %913
-  %.sink690 = phi ptr [ %898, %913 ], [ null, %889 ]
+  %.sink707 = phi ptr [ %898, %913 ], [ null, %889 ]
   %920 = phi i32 [ %.pre601, %913 ], [ %890, %889 ]
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %.sink690, ptr %921, align 8, !tbaa !235
+  store ptr %.sink707, ptr %921, align 8, !tbaa !235
   %922 = and i32 %920, 134217728
   %.not518 = icmp eq i32 %922, 0
   %923 = getelementptr inbounds nuw i8, ptr %1, i64 424
@@ -32834,10 +32834,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 949:                                              ; preds = %919, %943
-  %.sink692 = phi ptr [ %928, %943 ], [ null, %919 ]
+  %.sink709 = phi ptr [ %928, %943 ], [ null, %919 ]
   %950 = phi i32 [ %.pre602, %943 ], [ %920, %919 ]
   %951 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr %.sink692, ptr %951, align 8, !tbaa !242
+  store ptr %.sink709, ptr %951, align 8, !tbaa !242
   %952 = and i32 %950, 268435456
   %.not519 = icmp eq i32 %952, 0
   %953 = getelementptr inbounds nuw i8, ptr %1, i64 432
@@ -32898,10 +32898,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 979:                                              ; preds = %949, %973
-  %.sink694 = phi ptr [ %958, %973 ], [ null, %949 ]
+  %.sink711 = phi ptr [ %958, %973 ], [ null, %949 ]
   %980 = phi i32 [ %.pre603, %973 ], [ %950, %949 ]
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr %.sink694, ptr %981, align 8, !tbaa !244
+  store ptr %.sink711, ptr %981, align 8, !tbaa !244
   %982 = and i32 %980, 536870912
   %.not520 = icmp eq i32 %982, 0
   %983 = getelementptr inbounds nuw i8, ptr %1, i64 440
@@ -32998,10 +32998,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1025:                                             ; preds = %996, %1019
-  %.sink696 = phi ptr [ %1004, %1019 ], [ null, %996 ]
+  %.sink713 = phi ptr [ %1004, %1019 ], [ null, %996 ]
   %1026 = phi i32 [ %.pre605, %1019 ], [ %997, %996 ]
   %1027 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr %.sink696, ptr %1027, align 8, !tbaa !247
+  store ptr %.sink713, ptr %1027, align 8, !tbaa !247
   %1028 = icmp sgt i32 %1026, -1
   %1029 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %1030 = load ptr, ptr %1029, align 8
@@ -33056,9 +33056,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1055:                                             ; preds = %1025, %1049
-  %.sink698 = phi ptr [ %1034, %1049 ], [ null, %1025 ]
+  %.sink715 = phi ptr [ %1034, %1049 ], [ null, %1025 ]
   %1056 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store ptr %.sink698, ptr %1056, align 8, !tbaa !248
+  store ptr %.sink715, ptr %1056, align 8, !tbaa !248
   %1057 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %1058 = load i32, ptr %1057, align 4, !tbaa !468
   %1059 = and i32 %1058, 1
@@ -33228,10 +33228,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1133:                                             ; preds = %1105, %1128
-  %.sink700 = phi ptr [ %1113, %1128 ], [ null, %1105 ]
+  %.sink717 = phi ptr [ %1113, %1128 ], [ null, %1105 ]
   %1134 = phi i32 [ %.pre609, %1128 ], [ %1106, %1105 ]
   %1135 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store ptr %.sink700, ptr %1135, align 8, !tbaa !245
+  store ptr %.sink717, ptr %1135, align 8, !tbaa !245
   %1136 = and i32 %1134, 16
   %.not526 = icmp eq i32 %1136, 0
   %1137 = getelementptr inbounds nuw i8, ptr %1, i64 496
@@ -33387,10 +33387,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1205:                                             ; preds = %1177, %1200
-  %.sink702 = phi ptr [ %1185, %1200 ], [ null, %1177 ]
+  %.sink719 = phi ptr [ %1185, %1200 ], [ null, %1177 ]
   %1206 = phi i32 [ %.pre611, %1200 ], [ %1178, %1177 ]
   %1207 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store ptr %.sink702, ptr %1207, align 8, !tbaa !221
+  store ptr %.sink719, ptr %1207, align 8, !tbaa !221
   %1208 = and i32 %1206, 64
   %.not528 = icmp eq i32 %1208, 0
   %1209 = getelementptr inbounds nuw i8, ptr %1, i64 512
@@ -33451,10 +33451,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1235:                                             ; preds = %1205, %1229
-  %.sink704 = phi ptr [ %1214, %1229 ], [ null, %1205 ]
+  %.sink721 = phi ptr [ %1214, %1229 ], [ null, %1205 ]
   %1236 = phi i32 [ %.pre612, %1229 ], [ %1206, %1205 ]
   %1237 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store ptr %.sink704, ptr %1237, align 8, !tbaa !212
+  store ptr %.sink721, ptr %1237, align 8, !tbaa !212
   %1238 = and i32 %1236, 128
   %.not529 = icmp eq i32 %1238, 0
   %1239 = getelementptr inbounds nuw i8, ptr %1, i64 520
@@ -33514,10 +33514,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1264:                                             ; preds = %1235, %1259
-  %.sink706 = phi ptr [ %1244, %1259 ], [ null, %1235 ]
+  %.sink723 = phi ptr [ %1244, %1259 ], [ null, %1235 ]
   %1265 = phi i32 [ %.pre613, %1259 ], [ %1236, %1235 ]
   %1266 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store ptr %.sink706, ptr %1266, align 8, !tbaa !234
+  store ptr %.sink723, ptr %1266, align 8, !tbaa !234
   %1267 = and i32 %1265, 256
   %.not530 = icmp eq i32 %1267, 0
   %1268 = getelementptr inbounds nuw i8, ptr %1, i64 528
@@ -33614,10 +33614,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1310:                                             ; preds = %1281, %1304
-  %.sink708 = phi ptr [ %1289, %1304 ], [ null, %1281 ]
+  %.sink725 = phi ptr [ %1289, %1304 ], [ null, %1281 ]
   %1311 = phi i32 [ %.pre615, %1304 ], [ %1282, %1281 ]
   %1312 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store ptr %.sink708, ptr %1312, align 8, !tbaa !249
+  store ptr %.sink725, ptr %1312, align 8, !tbaa !249
   %1313 = and i32 %1311, 1024
   %.not532 = icmp eq i32 %1313, 0
   %1314 = getelementptr inbounds nuw i8, ptr %1, i64 544
@@ -33677,10 +33677,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1339:                                             ; preds = %1310, %1334
-  %.sink710 = phi ptr [ %1319, %1334 ], [ null, %1310 ]
+  %.sink727 = phi ptr [ %1319, %1334 ], [ null, %1310 ]
   %1340 = phi i32 [ %.pre616, %1334 ], [ %1311, %1310 ]
   %1341 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store ptr %.sink710, ptr %1341, align 8, !tbaa !195
+  store ptr %.sink727, ptr %1341, align 8, !tbaa !195
   %1342 = and i32 %1340, 2048
   %.not533 = icmp eq i32 %1342, 0
   %1343 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -33741,10 +33741,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1369:                                             ; preds = %1339, %1363
-  %.sink712 = phi ptr [ %1348, %1363 ], [ null, %1339 ]
+  %.sink729 = phi ptr [ %1348, %1363 ], [ null, %1339 ]
   %1370 = phi i32 [ %.pre617, %1363 ], [ %1340, %1339 ]
   %1371 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store ptr %.sink712, ptr %1371, align 8, !tbaa !209
+  store ptr %.sink729, ptr %1371, align 8, !tbaa !209
   %1372 = and i32 %1370, 4096
   %.not534 = icmp eq i32 %1372, 0
   %1373 = getelementptr inbounds nuw i8, ptr %1, i64 560
@@ -33949,10 +33949,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1463:                                             ; preds = %1434, %1457
-  %.sink714 = phi ptr [ %1442, %1457 ], [ null, %1434 ]
+  %.sink731 = phi ptr [ %1442, %1457 ], [ null, %1434 ]
   %1464 = phi i32 [ %.pre622, %1457 ], [ %1435, %1434 ]
   %1465 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store ptr %.sink714, ptr %1465, align 8, !tbaa !241
+  store ptr %.sink731, ptr %1465, align 8, !tbaa !241
   %1466 = and i32 %1464, 131072
   %.not539 = icmp eq i32 %1466, 0
   %1467 = getelementptr inbounds nuw i8, ptr %1, i64 600
@@ -34048,10 +34048,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1508:                                             ; preds = %1480, %1503
-  %.sink716 = phi ptr [ %1488, %1503 ], [ null, %1480 ]
+  %.sink733 = phi ptr [ %1488, %1503 ], [ null, %1480 ]
   %1509 = phi i32 [ %.pre624, %1503 ], [ %1481, %1480 ]
   %1510 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr %.sink716, ptr %1510, align 8, !tbaa !236
+  store ptr %.sink733, ptr %1510, align 8, !tbaa !236
   %1511 = and i32 %1509, 524288
   %.not541 = icmp eq i32 %1511, 0
   %1512 = getelementptr inbounds nuw i8, ptr %1, i64 616
@@ -34111,10 +34111,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1537:                                             ; preds = %1508, %1532
-  %.sink718 = phi ptr [ %1517, %1532 ], [ null, %1508 ]
+  %.sink735 = phi ptr [ %1517, %1532 ], [ null, %1508 ]
   %1538 = phi i32 [ %.pre625, %1532 ], [ %1509, %1508 ]
   %1539 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr %.sink718, ptr %1539, align 8, !tbaa !238
+  store ptr %.sink735, ptr %1539, align 8, !tbaa !238
   %1540 = and i32 %1538, 1048576
   %.not542 = icmp eq i32 %1540, 0
   %1541 = getelementptr inbounds nuw i8, ptr %1, i64 624
@@ -34174,10 +34174,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1566:                                             ; preds = %1537, %1561
-  %.sink720 = phi ptr [ %1546, %1561 ], [ null, %1537 ]
+  %.sink737 = phi ptr [ %1546, %1561 ], [ null, %1537 ]
   %1567 = phi i32 [ %.pre626, %1561 ], [ %1538, %1537 ]
   %1568 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store ptr %.sink720, ptr %1568, align 8, !tbaa !231
+  store ptr %.sink737, ptr %1568, align 8, !tbaa !231
   %1569 = and i32 %1567, 2097152
   %.not543 = icmp eq i32 %1569, 0
   %1570 = getelementptr inbounds nuw i8, ptr %1, i64 632
@@ -34345,10 +34345,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1643:                                             ; preds = %1615, %1638
-  %.sink722 = phi ptr [ %1623, %1638 ], [ null, %1615 ]
+  %.sink739 = phi ptr [ %1623, %1638 ], [ null, %1615 ]
   %1644 = phi i32 [ %.pre630, %1638 ], [ %1616, %1615 ]
   %1645 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store ptr %.sink722, ptr %1645, align 8, !tbaa !220
+  store ptr %.sink739, ptr %1645, align 8, !tbaa !220
   %1646 = and i32 %1644, 33554432
   %.not547 = icmp eq i32 %1646, 0
   %1647 = getelementptr inbounds nuw i8, ptr %1, i64 664
@@ -34516,10 +34516,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1720:                                             ; preds = %1692, %1715
-  %.sink724 = phi ptr [ %1700, %1715 ], [ null, %1692 ]
+  %.sink741 = phi ptr [ %1700, %1715 ], [ null, %1692 ]
   %1721 = phi i32 [ %.pre634, %1715 ], [ %1693, %1692 ]
   %1722 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store ptr %.sink724, ptr %1722, align 8, !tbaa !239
+  store ptr %.sink741, ptr %1722, align 8, !tbaa !239
   %1723 = and i32 %1721, 536870912
   %.not551 = icmp eq i32 %1723, 0
   %1724 = getelementptr inbounds nuw i8, ptr %1, i64 696
@@ -34575,9 +34575,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1755
 
 1750:                                             ; preds = %1720, %1744
-  %.sink726 = phi ptr [ %1729, %1744 ], [ null, %1720 ]
+  %.sink743 = phi ptr [ %1729, %1744 ], [ null, %1720 ]
   %1751 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store ptr %.sink726, ptr %1751, align 8, !tbaa !243
+  store ptr %.sink743, ptr %1751, align 8, !tbaa !243
   %1752 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %1753 = load i32, ptr %1752, align 8, !tbaa !630
   %1754 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -154621,10 +154621,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 370:                                              ; preds = %342, %365
-  %.sink413 = phi ptr [ %350, %365 ], [ null, %342 ]
+  %.sink431 = phi ptr [ %350, %365 ], [ null, %342 ]
   %371 = phi i32 [ %.pre369, %365 ], [ %343, %342 ]
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %.sink413, ptr %372, align 8, !tbaa !362
+  store ptr %.sink431, ptr %372, align 8, !tbaa !362
   %373 = and i32 %371, 64
   %.not323 = icmp eq i32 %373, 0
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -155023,10 +155023,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 557:                                              ; preds = %529, %552
-  %.sink415 = phi ptr [ %537, %552 ], [ null, %529 ]
+  %.sink433 = phi ptr [ %537, %552 ], [ null, %529 ]
   %558 = phi i32 [ %.pre375, %552 ], [ %530, %529 ]
   %559 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr %.sink415, ptr %559, align 8, !tbaa !372
+  store ptr %.sink433, ptr %559, align 8, !tbaa !372
   %560 = and i32 %558, 4096
   %.not329 = icmp eq i32 %560, 0
   %561 = getelementptr inbounds nuw i8, ptr %1, i64 336
@@ -155086,10 +155086,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 586:                                              ; preds = %557, %581
-  %.sink417 = phi ptr [ %566, %581 ], [ null, %557 ]
+  %.sink435 = phi ptr [ %566, %581 ], [ null, %557 ]
   %587 = phi i32 [ %.pre376, %581 ], [ %558, %557 ]
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr %.sink417, ptr %588, align 8, !tbaa !375
+  store ptr %.sink435, ptr %588, align 8, !tbaa !375
   %589 = and i32 %587, 8192
   %.not330 = icmp eq i32 %589, 0
   %590 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -155185,10 +155185,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 631:                                              ; preds = %603, %626
-  %.sink419 = phi ptr [ %611, %626 ], [ null, %603 ]
+  %.sink437 = phi ptr [ %611, %626 ], [ null, %603 ]
   %632 = phi i32 [ %.pre378, %626 ], [ %604, %603 ]
   %633 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store ptr %.sink419, ptr %633, align 8, !tbaa !376
+  store ptr %.sink437, ptr %633, align 8, !tbaa !376
   %634 = and i32 %632, 32768
   %.not332 = icmp eq i32 %634, 0
   %635 = getelementptr inbounds nuw i8, ptr %1, i64 360
@@ -155248,10 +155248,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 660:                                              ; preds = %631, %655
-  %.sink421 = phi ptr [ %640, %655 ], [ null, %631 ]
+  %.sink439 = phi ptr [ %640, %655 ], [ null, %631 ]
   %661 = phi i32 [ %.pre379, %655 ], [ %632, %631 ]
   %662 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr %.sink421, ptr %662, align 8, !tbaa !373
+  store ptr %.sink439, ptr %662, align 8, !tbaa !373
   %663 = and i32 %661, 65536
   %.not333 = icmp eq i32 %663, 0
   %664 = getelementptr inbounds nuw i8, ptr %1, i64 368
@@ -155311,10 +155311,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 689:                                              ; preds = %660, %684
-  %.sink423 = phi ptr [ %669, %684 ], [ null, %660 ]
+  %.sink441 = phi ptr [ %669, %684 ], [ null, %660 ]
   %690 = phi i32 [ %.pre380, %684 ], [ %661, %660 ]
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store ptr %.sink423, ptr %691, align 8, !tbaa !357
+  store ptr %.sink441, ptr %691, align 8, !tbaa !357
   %692 = and i32 %690, 131072
   %.not334 = icmp eq i32 %692, 0
   %693 = getelementptr inbounds nuw i8, ptr %1, i64 376
@@ -155411,10 +155411,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 735:                                              ; preds = %706, %729
-  %.sink425 = phi ptr [ %714, %729 ], [ null, %706 ]
+  %.sink443 = phi ptr [ %714, %729 ], [ null, %706 ]
   %736 = phi i32 [ %.pre382, %729 ], [ %707, %706 ]
   %737 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store ptr %.sink425, ptr %737, align 8, !tbaa !382
+  store ptr %.sink443, ptr %737, align 8, !tbaa !382
   %738 = and i32 %736, 524288
   %.not336 = icmp eq i32 %738, 0
   %739 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -155510,10 +155510,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 780:                                              ; preds = %752, %775
-  %.sink427 = phi ptr [ %760, %775 ], [ null, %752 ]
+  %.sink445 = phi ptr [ %760, %775 ], [ null, %752 ]
   %781 = phi i32 [ %.pre384, %775 ], [ %753, %752 ]
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr %.sink427, ptr %782, align 8, !tbaa !354
+  store ptr %.sink445, ptr %782, align 8, !tbaa !354
   %783 = and i32 %781, 2097152
   %.not338 = icmp eq i32 %783, 0
   %784 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -155574,10 +155574,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 810:                                              ; preds = %780, %804
-  %.sink429 = phi ptr [ %789, %804 ], [ null, %780 ]
+  %.sink447 = phi ptr [ %789, %804 ], [ null, %780 ]
   %811 = phi i32 [ %.pre385, %804 ], [ %781, %780 ]
   %812 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %.sink429, ptr %812, align 8, !tbaa !368
+  store ptr %.sink447, ptr %812, align 8, !tbaa !368
   %813 = and i32 %811, 4194304
   %.not339 = icmp eq i32 %813, 0
   %814 = getelementptr inbounds nuw i8, ptr %1, i64 416
@@ -155638,10 +155638,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 840:                                              ; preds = %810, %834
-  %.sink431 = phi ptr [ %819, %834 ], [ null, %810 ]
+  %.sink449 = phi ptr [ %819, %834 ], [ null, %810 ]
   %841 = phi i32 [ %.pre386, %834 ], [ %811, %810 ]
   %842 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %.sink431, ptr %842, align 8, !tbaa !377
+  store ptr %.sink449, ptr %842, align 8, !tbaa !377
   %843 = and i32 %841, 8388608
   %.not340 = icmp eq i32 %843, 0
   %844 = getelementptr inbounds nuw i8, ptr %1, i64 424
@@ -155738,10 +155738,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 886:                                              ; preds = %857, %880
-  %.sink433 = phi ptr [ %865, %880 ], [ null, %857 ]
+  %.sink451 = phi ptr [ %865, %880 ], [ null, %857 ]
   %887 = phi i32 [ %.pre388, %880 ], [ %858, %857 ]
   %888 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr %.sink433, ptr %888, align 8, !tbaa !374
+  store ptr %.sink451, ptr %888, align 8, !tbaa !374
   %889 = and i32 %887, 33554432
   %.not342 = icmp eq i32 %889, 0
   %890 = getelementptr inbounds nuw i8, ptr %1, i64 440
@@ -155838,10 +155838,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 932:                                              ; preds = %903, %926
-  %.sink435 = phi ptr [ %911, %926 ], [ null, %903 ]
+  %.sink453 = phi ptr [ %911, %926 ], [ null, %903 ]
   %933 = phi i32 [ %.pre390, %926 ], [ %904, %903 ]
   %934 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr %.sink435, ptr %934, align 8, !tbaa !381
+  store ptr %.sink453, ptr %934, align 8, !tbaa !381
   %935 = and i32 %933, 134217728
   %.not344 = icmp eq i32 %935, 0
   %936 = getelementptr inbounds nuw i8, ptr %1, i64 456
@@ -155902,10 +155902,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 962:                                              ; preds = %932, %956
-  %.sink437 = phi ptr [ %941, %956 ], [ null, %932 ]
+  %.sink455 = phi ptr [ %941, %956 ], [ null, %932 ]
   %963 = phi i32 [ %.pre391, %956 ], [ %933, %932 ]
   %964 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store ptr %.sink437, ptr %964, align 8, !tbaa !378
+  store ptr %.sink455, ptr %964, align 8, !tbaa !378
   %965 = and i32 %963, 268435456
   %.not345 = icmp eq i32 %965, 0
   %966 = getelementptr inbounds nuw i8, ptr %1, i64 464
@@ -155966,10 +155966,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 992:                                              ; preds = %962, %986
-  %.sink439 = phi ptr [ %971, %986 ], [ null, %962 ]
+  %.sink457 = phi ptr [ %971, %986 ], [ null, %962 ]
   %993 = phi i32 [ %.pre392, %986 ], [ %963, %962 ]
   %994 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store ptr %.sink439, ptr %994, align 8, !tbaa !379
+  store ptr %.sink457, ptr %994, align 8, !tbaa !379
   %995 = and i32 %993, 536870912
   %.not346 = icmp eq i32 %995, 0
   %996 = getelementptr inbounds nuw i8, ptr %1, i64 472
@@ -156030,10 +156030,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 1022:                                             ; preds = %992, %1016
-  %.sink441 = phi ptr [ %1001, %1016 ], [ null, %992 ]
+  %.sink459 = phi ptr [ %1001, %1016 ], [ null, %992 ]
   %1023 = phi i32 [ %.pre393, %1016 ], [ %993, %992 ]
   %1024 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store ptr %.sink441, ptr %1024, align 8, !tbaa !359
+  store ptr %.sink459, ptr %1024, align 8, !tbaa !359
   %1025 = and i32 %1023, 1073741824
   %.not347 = icmp eq i32 %1025, 0
   %1026 = getelementptr inbounds nuw i8, ptr %1, i64 480
@@ -156093,10 +156093,10 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 1051:                                             ; preds = %1022, %1046
-  %.sink443 = phi ptr [ %1031, %1046 ], [ null, %1022 ]
+  %.sink461 = phi ptr [ %1031, %1046 ], [ null, %1022 ]
   %1052 = phi i32 [ %.pre394, %1046 ], [ %1023, %1022 ]
   %1053 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr %.sink443, ptr %1053, align 8, !tbaa !365
+  store ptr %.sink461, ptr %1053, align 8, !tbaa !365
   %1054 = icmp sgt i32 %1052, -1
   %1055 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %1056 = load ptr, ptr %1055, align 8
@@ -156150,9 +156150,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %1085
 
 1080:                                             ; preds = %1051, %1075
-  %.sink445 = phi ptr [ %1060, %1075 ], [ null, %1051 ]
+  %.sink463 = phi ptr [ %1060, %1075 ], [ null, %1051 ]
   %1081 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store ptr %.sink445, ptr %1081, align 8, !tbaa !385
+  store ptr %.sink463, ptr %1081, align 8, !tbaa !385
   %1082 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %1083 = load i32, ptr %1082, align 8, !tbaa !863
   %1084 = getelementptr inbounds nuw i8, ptr %0, i64 496

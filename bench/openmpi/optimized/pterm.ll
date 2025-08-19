@@ -861,7 +861,7 @@ pmix_obj_run_destructors.exit209:                 ; preds = %.lr.ph.i206, %._cri
   %340 = call i32 @pthread_cond_destroy(ptr noundef nonnull %248) #16
   %341 = load ptr, ptr %252, align 8, !tbaa !52
   %.not138 = icmp eq ptr %341, null
-  br i1 %.not138, label %356, label %.sink.split256
+  br i1 %.not138, label %356, label %.sink.split283
 
 342:                                              ; preds = %pmix_obj_run_constructors.exit199
   br i1 %308, label %.lr.ph234, label %._crit_edge235
@@ -896,14 +896,14 @@ pmix_obj_run_destructors.exit214:                 ; preds = %.lr.ph.i211, %._cri
   %354 = call i32 @pthread_cond_destroy(ptr noundef nonnull %248) #16
   %355 = load ptr, ptr %252, align 8, !tbaa !52
   %.not136 = icmp eq ptr %355, null
-  br i1 %.not136, label %356, label %.sink.split256
+  br i1 %.not136, label %356, label %.sink.split283
 
-.sink.split256:                                   ; preds = %pmix_obj_run_destructors.exit214, %pmix_obj_run_destructors.exit209
+.sink.split283:                                   ; preds = %pmix_obj_run_destructors.exit214, %pmix_obj_run_destructors.exit209
   %.sink = phi ptr [ %341, %pmix_obj_run_destructors.exit209 ], [ %355, %pmix_obj_run_destructors.exit214 ]
   call void @free(ptr noundef nonnull %.sink) #16
   br label %356
 
-356:                                              ; preds = %.sink.split256, %pmix_obj_run_destructors.exit214, %pmix_obj_run_destructors.exit209
+356:                                              ; preds = %.sink.split283, %pmix_obj_run_destructors.exit214, %pmix_obj_run_destructors.exit209
   %357 = load ptr, ptr @stderr, align 8, !tbaa !28
   %358 = call i64 @fwrite(ptr nonnull @.str.42, i64 5, i64 1, ptr %357) #20
   %359 = call i32 @PMIx_tool_finalize() #16

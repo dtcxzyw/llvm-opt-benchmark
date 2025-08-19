@@ -2016,14 +2016,14 @@ define internal noundef zeroext i1 @"_ZN7session18store_window_stack28_$u7b$$u7b
   %15 = alloca [72 x i8], align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load i8, ptr %16, align 8, !range !134, !noundef !16
-  switch i8 %17, label %default.unreachable54 [
+  switch i8 %17, label %default.unreachable63 [
     i8 0, label %19
     i8 1, label %99
     i8 2, label %100
     i8 3, label %18
   ]
 
-default.unreachable54:                            ; preds = %101, %2
+default.unreachable63:                            ; preds = %101, %2
   unreachable
 
 18:                                               ; preds = %2
@@ -2332,7 +2332,7 @@ _ZN10serde_json3ser9to_string17h626ba9bcf16d7a8aE.exit.thread: ; preds = %_ZN10s
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %104 = load i8, ptr %103, align 8, !range !134, !noalias !585, !noundef !16
-  switch i8 %104, label %default.unreachable54 [
+  switch i8 %104, label %default.unreachable63 [
     i8 0, label %105
     i8 1, label %125
     i8 2, label %126

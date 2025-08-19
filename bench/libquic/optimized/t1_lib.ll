@@ -654,15 +654,14 @@ define hidden range(i32 0, 2) i32 @tls12_check_peer_sigalg(ptr noundef readnone 
   br label %9
 
 9:                                                ; preds = %13, %6
-  %.09.i.i = phi i64 [ 0, %6 ], [ %14, %13 ]
+  %exitcond.not.i.i = phi i1 [ false, %6 ], [ true, %13 ]
+  %.09.i.i = phi i64 [ 0, %6 ], [ 1, %13 ]
   %10 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
   %11 = load i32, ptr %10, align 8, !tbaa !86
   %12 = icmp eq i32 %11, %8
   br i1 %12, label %tls12_get_sigid.exit, label %13
 
 13:                                               ; preds = %9
-  %14 = add nuw nsw i64 %.09.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %14, 2
   br i1 %exitcond.not.i.i, label %tls12_get_sigid.exit.thread, label %9, !llvm.loop !88
 
 tls12_get_sigid.exit.thread:                      ; preds = %13
@@ -670,83 +669,83 @@ tls12_get_sigid.exit.thread:                      ; preds = %13
   br label %.sink.split
 
 tls12_get_sigid.exit:                             ; preds = %9
-  %15 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i, i32 1
-  %16 = load i32, ptr %15, align 4, !tbaa !89
-  %17 = zext i8 %4 to i32
-  %.not = icmp eq i32 %16, %17
-  br i1 %.not, label %.preheader, label %18
+  %14 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i, i32 1
+  %15 = load i32, ptr %14, align 4, !tbaa !89
+  %16 = zext i8 %4 to i32
+  %.not = icmp eq i32 %15, %16
+  br i1 %.not, label %.preheader, label %17
 
-18:                                               ; preds = %tls12_get_sigid.exit
+17:                                               ; preds = %tls12_get_sigid.exit
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 534) #21
   br label %.sink.split
 
-.preheader:                                       ; preds = %tls12_get_sigid.exit, %25
-  %.01929 = phi i64 [ %26, %25 ], [ 0, %tls12_get_sigid.exit ]
-  %.02328 = phi ptr [ %27, %25 ], [ @tls12_sigalgs, %tls12_get_sigid.exit ]
-  %19 = load i8, ptr %.02328, align 1, !tbaa !90
-  %20 = icmp eq i8 %3, %19
-  br i1 %20, label %21, label %25
+.preheader:                                       ; preds = %tls12_get_sigid.exit, %24
+  %.01929 = phi i64 [ %25, %24 ], [ 0, %tls12_get_sigid.exit ]
+  %.02328 = phi ptr [ %26, %24 ], [ @tls12_sigalgs, %tls12_get_sigid.exit ]
+  %18 = load i8, ptr %.02328, align 1, !tbaa !90
+  %19 = icmp eq i8 %3, %18
+  br i1 %19, label %20, label %24
 
-21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i8, ptr %.02328, i64 1
-  %23 = load i8, ptr %22, align 1, !tbaa !90
-  %24 = icmp eq i8 %4, %23
-  br i1 %24, label %.thread, label %25
+20:                                               ; preds = %.preheader
+  %21 = getelementptr inbounds nuw i8, ptr %.02328, i64 1
+  %22 = load i8, ptr %21, align 1, !tbaa !90
+  %23 = icmp eq i8 %4, %22
+  br i1 %23, label %.thread, label %24
 
-25:                                               ; preds = %.preheader, %21
-  %26 = add nuw nsw i64 %.01929, 2
-  %27 = getelementptr inbounds nuw i8, ptr %.02328, i64 2
-  %28 = icmp samesign ult i64 %.01929, 14
-  br i1 %28, label %.preheader, label %29, !llvm.loop !91
+24:                                               ; preds = %.preheader, %20
+  %25 = add nuw nsw i64 %.01929, 2
+  %26 = getelementptr inbounds nuw i8, ptr %.02328, i64 2
+  %27 = icmp samesign ult i64 %.01929, 14
+  br i1 %27, label %.preheader, label %28, !llvm.loop !91
 
-29:                                               ; preds = %25
+28:                                               ; preds = %24
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 245, ptr noundef nonnull @.str, i32 noundef 548) #21
   br label %.sink.split
 
-.thread:                                          ; preds = %21
+.thread:                                          ; preds = %20
   switch i8 %3, label %tls12_get_hash.exit.thread [
-    i8 2, label %30
-    i8 4, label %32
-    i8 5, label %34
-    i8 6, label %36
+    i8 2, label %29
+    i8 4, label %31
+    i8 5, label %33
+    i8 6, label %35
   ]
 
 tls12_get_hash.exit.thread:                       ; preds = %.thread
   store ptr null, ptr %1, align 8, !tbaa !92
-  br label %39
+  br label %38
 
-30:                                               ; preds = %.thread
-  %31 = tail call ptr @EVP_sha1() #21
+29:                                               ; preds = %.thread
+  %30 = tail call ptr @EVP_sha1() #21
   br label %tls12_get_hash.exit
 
-32:                                               ; preds = %.thread
-  %33 = tail call ptr @EVP_sha256() #21
+31:                                               ; preds = %.thread
+  %32 = tail call ptr @EVP_sha256() #21
   br label %tls12_get_hash.exit
 
-34:                                               ; preds = %.thread
-  %35 = tail call ptr @EVP_sha384() #21
+33:                                               ; preds = %.thread
+  %34 = tail call ptr @EVP_sha384() #21
   br label %tls12_get_hash.exit
 
-36:                                               ; preds = %.thread
-  %37 = tail call ptr @EVP_sha512() #21
+35:                                               ; preds = %.thread
+  %36 = tail call ptr @EVP_sha512() #21
   br label %tls12_get_hash.exit
 
-tls12_get_hash.exit:                              ; preds = %30, %32, %34, %36
-  %.0.i = phi ptr [ %31, %30 ], [ %33, %32 ], [ %35, %34 ], [ %37, %36 ]
+tls12_get_hash.exit:                              ; preds = %29, %31, %33, %35
+  %.0.i = phi ptr [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !92
-  %38 = icmp eq ptr %.0.i, null
-  br i1 %38, label %39, label %40
+  %37 = icmp eq ptr %.0.i, null
+  br i1 %37, label %38, label %39
 
-39:                                               ; preds = %tls12_get_hash.exit.thread, %tls12_get_hash.exit
+38:                                               ; preds = %tls12_get_hash.exit.thread, %tls12_get_hash.exit
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 231, ptr noundef nonnull @.str, i32 noundef 555) #21
   br label %.sink.split
 
-.sink.split:                                      ; preds = %tls12_get_sigid.exit.thread, %18, %29, %39
-  %.sink = phi i32 [ 47, %39 ], [ 47, %29 ], [ 47, %18 ], [ 80, %tls12_get_sigid.exit.thread ]
+.sink.split:                                      ; preds = %tls12_get_sigid.exit.thread, %17, %28, %38
+  %.sink = phi i32 [ 47, %38 ], [ 47, %28 ], [ 47, %17 ], [ 80, %tls12_get_sigid.exit.thread ]
   store i32 %.sink, ptr %2, align 4, !tbaa !80
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.sink.split, %tls12_get_hash.exit
+39:                                               ; preds = %.sink.split, %tls12_get_hash.exit
   %.0 = phi i32 [ 1, %tls12_get_hash.exit ], [ 0, %.sink.split ]
   ret i32 %.0
 }
@@ -756,7 +755,8 @@ define hidden i32 @tls12_get_sigid(i32 noundef %0) local_unnamed_addr #7 {
   br label %2
 
 2:                                                ; preds = %9, %1
-  %.09.i = phi i64 [ 0, %1 ], [ %10, %9 ]
+  %exitcond.not.i = phi i1 [ false, %1 ], [ true, %9 ]
+  %.09.i = phi i64 [ 0, %1 ], [ 1, %9 ]
   %3 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i
   %4 = load i32, ptr %3, align 8, !tbaa !86
   %5 = icmp eq i32 %4, %0
@@ -768,8 +768,6 @@ define hidden i32 @tls12_get_sigid(i32 noundef %0) local_unnamed_addr #7 {
   br label %tls12_find_id.exit
 
 9:                                                ; preds = %2
-  %10 = add nuw nsw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %10, 2
   br i1 %exitcond.not.i, label %tls12_find_id.exit, label %2, !llvm.loop !88
 
 tls12_find_id.exit:                               ; preds = %9, %6
@@ -1401,10 +1399,10 @@ ssl_scan_clienthello_tlsext.exit:                 ; preds = %79
 
 93:                                               ; preds = %88, %ssl_scan_clienthello_tlsext.exit
   %.sink.i = phi ptr [ %85, %ssl_scan_clienthello_tlsext.exit ], [ %90, %88 ]
-  %.sink17.i = phi ptr [ %87, %ssl_scan_clienthello_tlsext.exit ], [ %92, %88 ]
+  %.sink19.i = phi ptr [ %87, %ssl_scan_clienthello_tlsext.exit ], [ %92, %88 ]
   %94 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 408
   %95 = load ptr, ptr %94, align 8, !tbaa !128
-  %96 = call i32 %.sink17.i(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %95) #21
+  %96 = call i32 %.sink19.i(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %95) #21
   switch i32 %96, label %ssl_check_clienthello_tlsext.exit.thread [
     i32 2, label %104
     i32 1, label %97
@@ -1483,12 +1481,12 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
   br label %.thread56.i
 
 .thread60.i:                                      ; preds = %.backedge.i, %.preheader.i
-  %.233.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.33481.i, %.backedge.i ]
+  %.233.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.33482.i, %.backedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
 18:                                               ; preds = %.backedge.i, %.lr.ph.i
-  %.23372.i = phi i32 [ 0, %.lr.ph.i ], [ %.33481.i, %.backedge.i ]
+  %.23372.i = phi i32 [ 0, %.lr.ph.i ], [ %.33482.i, %.backedge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = call i32 @CBS_get_u16(ptr noundef nonnull %4, ptr noundef nonnull %5) #21
@@ -1567,7 +1565,7 @@ define hidden range(i32 0, 2) i32 @ssl_parse_serverhello_tlsext(ptr noundef %0, 
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %45, %29
-  %.33481.i = phi i32 [ %46, %45 ], [ %.23372.i, %29 ]
+  %.33482.i = phi i32 [ %46, %45 ], [ %.23372.i, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = call i64 @CBS_len(ptr noundef nonnull %4) #21
@@ -1660,10 +1658,10 @@ ssl_scan_serverhello_tlsext.exit:                 ; preds = %68
 
 82:                                               ; preds = %77, %ssl_scan_serverhello_tlsext.exit
   %.sink.i = phi ptr [ %74, %ssl_scan_serverhello_tlsext.exit ], [ %79, %77 ]
-  %.sink16.i = phi ptr [ %76, %ssl_scan_serverhello_tlsext.exit ], [ %81, %77 ]
+  %.sink18.i = phi ptr [ %76, %ssl_scan_serverhello_tlsext.exit ], [ %81, %77 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 408
   %84 = load ptr, ptr %83, align 8, !tbaa !128
-  %85 = call i32 %.sink16.i(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %84) #21
+  %85 = call i32 %.sink18.i(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %84) #21
   switch i32 %85, label %ssl_check_serverhello_tlsext.exit.thread [
     i32 2, label %88
     i32 1, label %ssl_check_serverhello_tlsext.exit
@@ -1900,41 +1898,38 @@ tls12_find_id.exit:                               ; preds = %12, %9
   br label %15
 
 15:                                               ; preds = %19, %tls12_find_id.exit
-  %.09.i.i = phi i64 [ 0, %tls12_find_id.exit ], [ %20, %19 ]
+  %exitcond.not.i.i = phi i1 [ false, %tls12_find_id.exit ], [ true, %19 ]
+  %.09.i.i = phi i64 [ 0, %tls12_find_id.exit ], [ 1, %19 ]
   %16 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i
   %17 = load i32, ptr %16, align 8, !tbaa !86
   %18 = icmp eq i32 %17, %14
   br i1 %18, label %tls12_get_sigid.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = add nuw nsw i64 %.09.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %20, 2
   br i1 %exitcond.not.i.i, label %tls12_get_sigid.exit.thread, label %15, !llvm.loop !88
 
 tls12_get_sigid.exit:                             ; preds = %15
-  %21 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i, i32 1
-  %22 = load i32, ptr %21, align 4, !tbaa !89
-  %23 = icmp ne i32 %.08.i, -1
-  %24 = icmp samesign ult i64 %.09.i.i, 2
-  %or.cond = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond, label %25, label %tls12_get_sigid.exit.thread
+  %20 = getelementptr inbounds nuw %struct.tls12_lookup, ptr @tls12_sig, i64 %.09.i.i, i32 1
+  %21 = load i32, ptr %20, align 4, !tbaa !89
+  %.not11 = icmp eq i32 %.08.i, -1
+  br i1 %.not11, label %tls12_get_sigid.exit.thread, label %22
 
-25:                                               ; preds = %tls12_get_sigid.exit
-  %26 = trunc i32 %.08.i to i8
+22:                                               ; preds = %tls12_get_sigid.exit
+  %23 = trunc i32 %.08.i to i8
+  %24 = tail call i32 @CBB_add_u8(ptr noundef %1, i8 noundef zeroext %23) #21
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %tls12_get_sigid.exit.thread, label %25
+
+25:                                               ; preds = %22
+  %26 = trunc i32 %21 to i8
   %27 = tail call i32 @CBB_add_u8(ptr noundef %1, i8 noundef zeroext %26) #21
-  %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %tls12_get_sigid.exit.thread, label %28
-
-28:                                               ; preds = %25
-  %29 = trunc i32 %22 to i8
-  %30 = tail call i32 @CBB_add_u8(ptr noundef %1, i8 noundef zeroext %29) #21
-  %31 = icmp ne i32 %30, 0
-  %32 = zext i1 %31 to i32
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
   br label %tls12_get_sigid.exit.thread
 
-tls12_get_sigid.exit.thread:                      ; preds = %19, %28, %25, %tls12_get_sigid.exit
-  %33 = phi i32 [ 0, %25 ], [ 0, %tls12_get_sigid.exit ], [ %32, %28 ], [ 0, %19 ]
-  ret i32 %33
+tls12_get_sigid.exit.thread:                      ; preds = %19, %25, %22, %tls12_get_sigid.exit
+  %30 = phi i32 [ 0, %22 ], [ 0, %tls12_get_sigid.exit ], [ %29, %25 ], [ 0, %19 ]
+  ret i32 %30
 }
 
 declare i32 @EVP_MD_type(ptr noundef) local_unnamed_addr #1
@@ -2038,8 +2033,8 @@ define hidden ptr @tls1_choose_signing_digest(ptr noundef %0) local_unnamed_addr
   br i1 %.not52, label %._crit_edge51, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %1, %7
-  %.02860 = phi i64 [ %9, %7 ], [ 4, %1 ]
-  %.02959 = phi ptr [ %6, %7 ], [ @tls1_choose_signing_digest.kDefaultDigestList, %1 ]
+  %.02864 = phi i64 [ %9, %7 ], [ 4, %1 ]
+  %.02963 = phi ptr [ %6, %7 ], [ @tls1_choose_signing_digest.kDefaultDigestList, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = load i64, ptr %10, align 8, !tbaa !137
@@ -2049,7 +2044,7 @@ define hidden ptr @tls1_choose_signing_digest(ptr noundef %0) local_unnamed_addr
 .lr.ph50.split:                                   ; preds = %.lr.ph50, %._crit_edge
   %13 = phi i64 [ %36, %._crit_edge ], [ 1, %.lr.ph50 ]
   %.02747 = phi i64 [ %37, %._crit_edge ], [ 0, %.lr.ph50 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.02959, i64 %.02747
+  %14 = getelementptr inbounds nuw i32, ptr %.02963, i64 %.02747
   %15 = load i32, ptr %14, align 4, !tbaa !80
   %.not3544.not = icmp eq i64 %13, 0
   br i1 %.not3544.not, label %._crit_edge, label %.lr.ph
@@ -2112,7 +2107,7 @@ tls12_get_hash.exit:                              ; preds = %19, %21, %23, %25
 ._crit_edge:                                      ; preds = %.thread, %.lr.ph50.split
   %36 = phi i64 [ 0, %.lr.ph50.split ], [ %35, %.thread ]
   %37 = add nuw i64 %.02747, 1
-  %exitcond.not = icmp eq i64 %37, %.02860
+  %exitcond.not = icmp eq i64 %37, %.02864
   br i1 %exitcond.not, label %._crit_edge51, label %.lr.ph50.split, !llvm.loop !145
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %.lr.ph50, %7

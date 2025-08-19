@@ -227,11 +227,11 @@ define internal void @trace_event_raw_event_swiotlb_bounced(ptr noundef %0, ptr 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %1, align 8
   %37 = icmp eq ptr %36, null
-  %spec.select11 = select i1 %37, ptr @.str.15, ptr %36
+  %spec.select17 = select i1 %37, ptr @.str.15, ptr %36
   br label %.thread8
 
 .thread8:                                         ; preds = %35, %29
-  %38 = phi ptr [ %34, %29 ], [ %spec.select11, %35 ]
+  %38 = phi ptr [ %34, %29 ], [ %spec.select17, %35 ]
   %39 = call ptr @strcpy(ptr noundef %33, ptr noundef nonnull dereferenceable(1) %38) #21
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %41 = load ptr, ptr %40, align 8
@@ -343,11 +343,11 @@ define internal void @perf_trace_swiotlb_bounced(ptr noundef %0, ptr noundef rea
 46:                                               ; preds = %33
   %47 = load ptr, ptr %1, align 8
   %48 = icmp eq ptr %47, null
-  %spec.select11 = select i1 %48, ptr @.str.15, ptr %47
+  %spec.select17 = select i1 %48, ptr @.str.15, ptr %47
   br label %.thread8
 
 .thread8:                                         ; preds = %46, %33
-  %49 = phi ptr [ %45, %33 ], [ %spec.select11, %46 ]
+  %49 = phi ptr [ %45, %33 ], [ %spec.select17, %46 ]
   %50 = call ptr @strcpy(ptr noundef %44, ptr noundef nonnull dereferenceable(1) %49) #21
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %52 = load ptr, ptr %51, align 8
@@ -1067,27 +1067,27 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br i1 %113, label %123, label %128
 
 123:                                              ; preds = %.thread.us, %.split29.us
-  %.us-phi3455 = phi i32 [ %72, %.thread.us ], [ %114, %.split29.us ]
-  %.us-phi3254 = phi i32 [ %73, %.thread.us ], [ %112, %.split29.us ]
-  %.us-phi3152 = phi i64 [ %78, %.thread.us ], [ %111, %.split29.us ]
-  %.us-phi3050 = phi ptr [ %79, %.thread.us ], [ %110, %.split29.us ]
-  %124 = zext nneg i32 %.us-phi3455 to i64
+  %.us-phi3471 = phi i32 [ %72, %.thread.us ], [ %114, %.split29.us ]
+  %.us-phi3270 = phi i32 [ %73, %.thread.us ], [ %112, %.split29.us ]
+  %.us-phi3168 = phi i64 [ %78, %.thread.us ], [ %111, %.split29.us ]
+  %.us-phi3066 = phi ptr [ %79, %.thread.us ], [ %110, %.split29.us ]
+  %124 = zext nneg i32 %.us-phi3471 to i64
   %125 = shl i64 4096, %124
   %126 = lshr i64 %125, 20
   %127 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i64 noundef %126) #23
   br label %128
 
 128:                                              ; preds = %.thread.us.thread, %123, %.split29.us
-  %.us-phi3456 = phi i32 [ %.us-phi3455, %123 ], [ %114, %.split29.us ], [ %63, %.thread.us.thread ]
-  %.us-phi3253 = phi i32 [ %.us-phi3254, %123 ], [ %112, %.split29.us ], [ %64, %.thread.us.thread ]
-  %.us-phi3151 = phi i64 [ %.us-phi3152, %123 ], [ %111, %.split29.us ], [ %69, %.thread.us.thread ]
-  %.us-phi3049 = phi ptr [ %.us-phi3050, %123 ], [ %110, %.split29.us ], [ %70, %.thread.us.thread ]
+  %.us-phi3472 = phi i32 [ %.us-phi3471, %123 ], [ %114, %.split29.us ], [ %63, %.thread.us.thread ]
+  %.us-phi3269 = phi i32 [ %.us-phi3270, %123 ], [ %112, %.split29.us ], [ %64, %.thread.us.thread ]
+  %.us-phi3167 = phi i64 [ %.us-phi3168, %123 ], [ %111, %.split29.us ], [ %69, %.thread.us.thread ]
+  %.us-phi3065 = phi ptr [ %.us-phi3066, %123 ], [ %110, %.split29.us ], [ %70, %.thread.us.thread ]
   %129 = load i64, ptr @default_nareas, align 8
   %130 = trunc nuw i64 %129 to i32
   %131 = shl nuw nsw i64 %129, 7
   %132 = and i64 %131, 4294967168
-  %133 = icmp ugt i64 %132, %.us-phi3151
-  %134 = ashr i32 %.us-phi3253, 7
+  %133 = icmp ugt i64 %132, %.us-phi3167
+  %134 = ashr i32 %.us-phi3269, 7
   %135 = select i1 %133, i32 %134, i32 %130
   %136 = zext i32 %135 to i64
   %137 = shl nuw nsw i64 %136, 4
@@ -1102,7 +1102,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br i1 %144, label %215, label %145
 
 145:                                              ; preds = %128
-  %146 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.us-phi3151, i64 24)
+  %146 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.us-phi3167, i64 24)
   %147 = extractvalue { i64, i1 } %146, 0
   %148 = add nsw i64 %147, -1
   %149 = extractvalue { i64, i1 } %146, 1
@@ -1117,24 +1117,24 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br i1 %156, label %212, label %157
 
 157:                                              ; preds = %145
-  %158 = ptrtoint ptr %.us-phi3049 to i64
-  %159 = ashr exact i32 %.us-phi3253, 1
+  %158 = ptrtoint ptr %.us-phi3065 to i64
+  %159 = ashr exact i32 %.us-phi3269, 1
   %160 = tail call i32 @set_memory_decrypted(i64 noundef %158, i32 noundef %159) #21
   %161 = add i64 %158, 2147483648
-  %162 = icmp ugt ptr %.us-phi3049, inttoptr (i64 -2147483649 to ptr)
+  %162 = icmp ugt ptr %.us-phi3065, inttoptr (i64 -2147483649 to ptr)
   %163 = load i64, ptr @phys_base, align 8
   %164 = load i64, ptr @page_offset_base, align 8
   %165 = sub i64 -2147483648, %164
   %166 = select i1 %162, i64 %163, i64 %165
   %167 = add i64 %161, %166
-  %168 = shl nsw i64 %.us-phi3151, 11
-  store i64 %.us-phi3151, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
+  %168 = shl nsw i64 %.us-phi3167, 11
+  store i64 %.us-phi3167, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
   store i64 %167, ptr @io_tlb_default_mem, align 8
   %169 = add i64 %167, %168
   store i64 %169, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 8), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 32), align 8
   store i32 %135, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 36), align 4
-  %170 = udiv i64 %.us-phi3151, %136
+  %170 = udiv i64 %.us-phi3167, %136
   %171 = trunc i64 %170 to i32
   store i32 %171, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 40), align 8
   %172 = icmp eq i32 %135, 0
@@ -1145,7 +1145,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br label %.loopexit17
 
 .loopexit17:                                      ; preds = %.loopexit17.loopexit, %157
-  %173 = phi i64 [ %.pre, %.loopexit17.loopexit ], [ %.us-phi3151, %157 ]
+  %173 = phi i64 [ %.pre, %.loopexit17.loopexit ], [ %.us-phi3167, %157 ]
   %174 = icmp eq i64 %173, 0
   br i1 %174, label %.loopexit, label %.preheader
 
@@ -1215,8 +1215,8 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br label %215
 
 215:                                              ; preds = %212, %128
-  %216 = ptrtoint ptr %.us-phi3049 to i64
-  tail call void @free_pages(i64 noundef %216, i32 noundef %.us-phi3456) #21
+  %216 = ptrtoint ptr %.us-phi3065 to i64
+  tail call void @free_pages(i64 noundef %216, i32 noundef %.us-phi3472) #21
   br label %.thread15
 
 .thread15:                                        ; preds = %106, %117, %.preheader18, %.preheader18.us, %.split.us, %215, %208, %206, %9, %3

@@ -1020,8 +1020,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i115: ; p
   %305 = select i1 %301, i64 15, i64 %304
   %306 = icmp ule i64 %298, %305
   %.not.i120 = icmp ugt i64 %298, 15
-  %or.cond167 = or i1 %306, %.not.i120
-  br i1 %or.cond167, label %321, label %.critedge.i121
+  %or.cond241 = or i1 %306, %.not.i120
+  br i1 %or.cond241, label %321, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i115
   %307 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, i64 noundef 0, ptr noundef %299, i64 noundef %297)
@@ -2957,8 +2957,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i115: ; p
   %307 = select i1 %303, i64 15, i64 %306
   %308 = icmp ule i64 %300, %307
   %.not.i120 = icmp ugt i64 %300, 15
-  %or.cond167 = or i1 %308, %.not.i120
-  br i1 %or.cond167, label %323, label %.critedge.i121
+  %or.cond241 = or i1 %308, %.not.i120
+  br i1 %or.cond241, label %323, label %.critedge.i121
 
 .critedge.i121:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i115
   %309 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 0, i64 noundef 0, ptr noundef %301, i64 noundef %299)
@@ -4919,8 +4919,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i149: ; p
   %346 = select i1 %342, i64 15, i64 %345
   %347 = icmp ule i64 %339, %346
   %.not.i154 = icmp ugt i64 %339, 15
-  %or.cond404 = or i1 %347, %.not.i154
-  br i1 %or.cond404, label %362, label %.critedge.i155
+  %or.cond549 = or i1 %347, %.not.i154
+  br i1 %or.cond549, label %362, label %.critedge.i155
 
 .critedge.i155:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i149
   %348 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, i64 noundef 0, ptr noundef %340, i64 noundef %338)
@@ -5468,8 +5468,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i215: ; p
   %555 = select i1 %551, i64 15, i64 %554
   %556 = icmp ule i64 %549, %555
   %.not.i220 = icmp ugt i64 %549, 15
-  %or.cond405 = or i1 %556, %.not.i220
-  br i1 %or.cond405, label %569, label %.critedge.i221
+  %or.cond550 = or i1 %556, %.not.i220
+  br i1 %or.cond550, label %569, label %.critedge.i221
 
 .critedge.i221:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i215
   %557 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef 0, i64 noundef 0, ptr noundef %550, i64 noundef %548)
@@ -5703,8 +5703,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i245: ; p
   %642 = select i1 %638, i64 15, i64 %641
   %643 = icmp ule i64 %636, %642
   %.not.i250 = icmp ugt i64 %636, 15
-  %or.cond406 = or i1 %643, %.not.i250
-  br i1 %or.cond406, label %656, label %.critedge.i251
+  %or.cond551 = or i1 %643, %.not.i250
+  br i1 %or.cond551, label %656, label %.critedge.i251
 
 .critedge.i251:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i245
   %644 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, i64 noundef 0, ptr noundef %637, i64 noundef %635)
@@ -7154,7 +7154,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 ._crit_edge55:                                    ; preds = %._crit_edge, %.preheader49
   %187 = phi ptr [ %128, %.preheader49 ], [ %192, %._crit_edge ]
   %188 = phi ptr [ %129, %.preheader49 ], [ %192, %._crit_edge ]
-  %189 = add i64 %.031, 1
+  %189 = add nuw i64 %.031, 1
   br label %127, !llvm.loop !226
 
 ._crit_edge:                                      ; preds = %202, %.preheader.._crit_edge_crit_edge
@@ -10201,8 +10201,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i149: ; p
   %346 = select i1 %342, i64 15, i64 %345
   %347 = icmp ule i64 %339, %346
   %.not.i154 = icmp ugt i64 %339, 15
-  %or.cond404 = or i1 %347, %.not.i154
-  br i1 %or.cond404, label %362, label %.critedge.i155
+  %or.cond549 = or i1 %347, %.not.i154
+  br i1 %or.cond549, label %362, label %.critedge.i155
 
 .critedge.i155:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i149
   %348 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 0, i64 noundef 0, ptr noundef %340, i64 noundef %338)
@@ -10750,8 +10750,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i215: ; p
   %555 = select i1 %551, i64 15, i64 %554
   %556 = icmp ule i64 %549, %555
   %.not.i220 = icmp ugt i64 %549, 15
-  %or.cond405 = or i1 %556, %.not.i220
-  br i1 %or.cond405, label %569, label %.critedge.i221
+  %or.cond550 = or i1 %556, %.not.i220
+  br i1 %or.cond550, label %569, label %.critedge.i221
 
 .critedge.i221:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i215
   %557 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef 0, i64 noundef 0, ptr noundef %550, i64 noundef %548)
@@ -10985,8 +10985,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i245: ; p
   %642 = select i1 %638, i64 15, i64 %641
   %643 = icmp ule i64 %636, %642
   %.not.i250 = icmp ugt i64 %636, 15
-  %or.cond406 = or i1 %643, %.not.i250
-  br i1 %or.cond406, label %656, label %.critedge.i251
+  %or.cond551 = or i1 %643, %.not.i250
+  br i1 %or.cond551, label %656, label %.critedge.i251
 
 .critedge.i251:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i245
   %644 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0, i64 noundef 0, ptr noundef %637, i64 noundef %635)
@@ -12436,7 +12436,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 ._crit_edge55:                                    ; preds = %._crit_edge, %.preheader49
   %187 = phi ptr [ %128, %.preheader49 ], [ %192, %._crit_edge ]
   %188 = phi ptr [ %129, %.preheader49 ], [ %192, %._crit_edge ]
-  %189 = add i64 %.031, 1
+  %189 = add nuw i64 %.031, 1
   br label %127, !llvm.loop !295
 
 ._crit_edge:                                      ; preds = %202, %.preheader.._crit_edge_crit_edge
@@ -16212,7 +16212,7 @@ _ZNSt12_Vector_baseI11colvarvalueSaIS0_EEC2EmRKS1_.exit: ; preds = %_ZNSt6vector
           to label %_ZSt10_ConstructI11colvarvalueJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %15
 
 _ZSt10_ConstructI11colvarvalueJRKS0_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %13 = add i64 %.01114.i.i.i.i.i, -1
+  %13 = add nsw i64 %.01114.i.i.i.i.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 168
   %.not.i.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !345
@@ -16300,13 +16300,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !22
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !22
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -16691,7 +16691,7 @@ _ZNSt12_Vector_baseISt6vectorI11colvarvalueSaIS1_EESaIS3_EE11_M_allocateEm.exit:
           to label %_ZSt10_ConstructISt6vectorI11colvarvalueSaIS1_EEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i86 unwind label %128
 
 _ZSt10_ConstructISt6vectorI11colvarvalueSaIS1_EEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i86: ; preds = %.lr.ph.i.i.i.i83
-  %126 = add i64 %.01114.i.i.i.i85, -1
+  %126 = add nsw i64 %.01114.i.i.i.i85, -1
   %127 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i84, i64 24
   %.not.i.i.i.i87 = icmp eq i64 %126, 0
   br i1 %.not.i.i.i.i87, label %_ZSt24__uninitialized_fill_n_aIPSt6vectorI11colvarvalueSaIS1_EEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit91, label %.lr.ph.i.i.i.i83, !llvm.loop !353
@@ -20006,7 +20006,7 @@ define linkonce_odr void @_ZN16ArithmeticPathCV18ArithmeticPathBaseIdE12computeV
   br i1 %.not64, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %31, %.preheader
-  %.lcssa76 = phi i64 [ %94, %.preheader ], [ %7, %31 ]
+  %.lcssa88 = phi i64 [ %94, %.preheader ], [ %7, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !106
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -20170,7 +20170,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   %116 = uitofp i64 %.056 to double
   %117 = call double @llvm.fmuladd.f64(double %116, double %114, double %.04654)
   %118 = add nuw i64 %.056, 1
-  %exitcond70.not = icmp eq i64 %118, %.lcssa76
+  %exitcond70.not = icmp eq i64 %118, %.lcssa88
   br i1 %exitcond70.not, label %._crit_edge58, label %109, !llvm.loop !396
 
 119:                                              ; preds = %._crit_edge58

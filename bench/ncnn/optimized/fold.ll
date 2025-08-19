@@ -252,9 +252,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Fold7forwardERKNS_3MatER
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %73, %.noexc, %4
-  %.sink74 = phi i64 [ 16, %4 ], [ 8, %.noexc ], [ 8, %73 ]
+  %.sink90 = phi i64 [ 16, %4 ], [ 8, %.noexc ], [ 8, %73 ]
   %112 = phi i32 [ %56, %4 ], [ %.pre72, %.noexc ], [ %56, %73 ]
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink74
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink90
   %114 = load ptr, ptr %113, align 8, !tbaa !53
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %9, i32 noundef %36, i32 noundef %44, i32 noundef %112, i64 noundef %16, ptr noundef %114)
           to label %115 unwind label %71
@@ -636,17 +636,17 @@ define internal void @_ZNK4ncnn4Fold7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
   %71 = sext i32 %23 to i64
   %72 = add nsw i32 %21, 1
   %73 = sub i32 %72, %22
-  %factor.op.mul147 = mul i64 %factor.op.mul, %71
+  %factor.op.mul155 = mul i64 %factor.op.mul, %71
   %wide.trip.count136 = zext nneg i32 %55 to i64
-  %factor.op.mul146 = mul i64 %58, %70
+  %factor.op.mul154 = mul i64 %58, %70
   %wide.trip.count = zext nneg i32 %62 to i64
   br label %.noexc.us.us
 
 .noexc.us.us:                                     ; preds = %_ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us, %.noexc.lr.ph.split.us.split.us
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %_ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us ], [ %66, %.noexc.lr.ph.split.us.split.us ]
   %indvar126 = phi i64 [ %indvar.next127, %_ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us ], [ 0, %.noexc.lr.ph.split.us.split.us ]
-  %.reass148 = mul i64 %indvars.iv138, %factor.op.mul147
-  %74 = getelementptr inbounds nuw i8, ptr %24, i64 %.reass148
+  %.reass156 = mul i64 %indvars.iv138, %factor.op.mul155
+  %74 = getelementptr inbounds nuw i8, ptr %24, i64 %.reass156
   %.reass87.us.us = mul i64 %factor.op.mul86, %indvars.iv138
   %75 = getelementptr inbounds nuw i8, ptr %36, i64 %.reass87.us.us
   br i1 %53, label %.lr.ph.us.us.preheader, label %_ZN4ncnn3Mat4fillEf.exit.preheader.us.us
@@ -673,7 +673,7 @@ _ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us: ; preds
 .preheader52.us.us.us.us:                         ; preds = %_ZN4ncnn3Mat4fillEf.exit.preheader.us.us, %._crit_edge.split.us.us.us.us.us
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %._crit_edge.split.us.us.us.us.us ], [ 0, %_ZN4ncnn3Mat4fillEf.exit.preheader.us.us ]
   %.03975.us.us.us.us = phi ptr [ %.us-phi.us.us.us.us, %._crit_edge.split.us.us.us.us.us ], [ %74, %_ZN4ncnn3Mat4fillEf.exit.preheader.us.us ]
-  %.reass = mul i64 %indvars.iv133, %factor.op.mul146
+  %.reass = mul i64 %indvars.iv133, %factor.op.mul154
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 %.reass
   %81 = load i32, ptr %8, align 4
   %82 = icmp sgt i32 %81, 0

@@ -2274,8 +2274,8 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16Read
 4:                                                ; preds = %10, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %2 ]
   %.012 = phi i64 [ %16, %10 ], [ 0, %2 ]
-  %.not23 = icmp ne i64 %indvars.iv, 10
-  br i1 %.not23, label %.preheader, label %.loopexit
+  %.not24 = icmp ne i64 %indvars.iv, 10
+  br i1 %.not24, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4, %8
   %5 = load ptr, ptr %0, align 8, !tbaa !15
@@ -2301,9 +2301,9 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16Read
   br i1 %.not, label %.loopexit, label %4, !llvm.loop !51
 
 .loopexit:                                        ; preds = %10, %4, %8
-  %.lcssa20.sink = phi i64 [ 0, %8 ], [ 0, %4 ], [ %16, %10 ]
-  %.0 = phi i1 [ false, %8 ], [ %.not23, %4 ], [ %.not23, %10 ]
-  store i64 %.lcssa20.sink, ptr %1, align 8, !tbaa !52
+  %.lcssa21.sink = phi i64 [ 0, %8 ], [ 0, %4 ], [ %16, %10 ]
+  %.0 = phi i1 [ false, %8 ], [ %.not24, %4 ], [ %.not24, %10 ]
+  store i64 %.lcssa21.sink, ptr %1, align 8, !tbaa !52
   ret i1 %.0
 }
 
@@ -2645,7 +2645,7 @@ define hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAnd
   %17 = load ptr, ptr %11, align 8, !tbaa !58
   %.not.i = icmp eq ptr %17, null
   %18 = load ptr, ptr %0, align 8, !tbaa !57
-  br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread23, label %19
+  br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread26, label %19
 
 19:                                               ; preds = %16
   %20 = icmp ugt ptr %.013.i, %18
@@ -2724,7 +2724,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %47, %43, %
   %52 = getelementptr inbounds i8, ptr %.3.i.i, i64 %51
   br i1 %50, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread, label %16
 
-_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread23: ; preds = %16
+_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread26: ; preds = %16
   %53 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %.013.i to i64
@@ -2745,15 +2745,15 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %19
   %63 = trunc nuw i8 %.pre.pre to i1
   br i1 %63, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread, label %64
 
-64:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread23, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
-  %.0.i27.in = phi i64 [ %56, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread23 ], [ %62, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ]
-  %.0.i27 = trunc i64 %.0.i27.in to i32
+64:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread26, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
+  %.0.i30.in = phi i64 [ %56, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread26 ], [ %62, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ]
+  %.0.i30 = trunc i64 %.0.i30.in to i32
   %65 = load ptr, ptr %11, align 8, !tbaa !58
-  %66 = icmp sgt i32 %.0.i27, 16
-  %67 = and i64 %.0.i27.in, 4294967295
+  %66 = icmp sgt i32 %.0.i30, 16
+  %67 = and i64 %.0.i30.in, 4294967295
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 %67
   %69 = getelementptr inbounds i8, ptr %68, i64 -16
-  %sext = shl i64 %.0.i27.in, 32
+  %sext = shl i64 %.0.i30.in, 32
   %70 = ashr exact i64 %sext, 32
   %71 = getelementptr inbounds i8, ptr %13, i64 %70
   %.sink9.i = select i1 %66, ptr %69, ptr %71
@@ -2803,7 +2803,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4Sk
   %23 = load ptr, ptr %17, align 8, !tbaa !58
   %.not.i = icmp eq ptr %23, null
   %24 = load ptr, ptr %0, align 8, !tbaa !57
-  br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread45, label %25
+  br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread51, label %25
 
 25:                                               ; preds = %22
   %26 = icmp ugt ptr %.013.i, %24
@@ -2882,14 +2882,14 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %53, %49, %
   %58 = getelementptr inbounds i8, ptr %.3.i.i, i64 %57
   br i1 %56, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread, label %22
 
-_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread45: ; preds = %22
+_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread51: ; preds = %22
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %.013.i to i64
   %62 = sub i64 %60, %61
   store ptr %.013.i, ptr %17, align 8, !tbaa !58
-  %.0.i48 = trunc i64 %62 to i32
-  store i32 %.0.i48, ptr %6, align 4, !tbaa !23
+  %.0.i54 = trunc i64 %62 to i32
+  store i32 %.0.i54, ptr %6, align 4, !tbaa !23
   br label %70
 
 _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %25
@@ -2911,7 +2911,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN
   store ptr %19, ptr %2, align 8, !tbaa !62
   br label %93
 
-70:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread45, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
+70:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread51, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %71 = load ptr, ptr %17, align 8, !tbaa !58
   store ptr %71, ptr %7, align 8, !tbaa !33
@@ -2997,7 +2997,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream22G
   %20 = load ptr, ptr %14, align 8, !tbaa !58
   %.not.i = icmp eq ptr %20, null
   %21 = load ptr, ptr %0, align 8, !tbaa !57
-  br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread39, label %22
+  br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread43, label %22
 
 22:                                               ; preds = %19
   %23 = icmp ugt ptr %.013.i, %21
@@ -3076,14 +3076,14 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %50, %46, %
   %55 = getelementptr inbounds i8, ptr %.3.i.i, i64 %54
   br i1 %53, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread, label %19
 
-_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread39: ; preds = %19
+_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread43: ; preds = %19
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %.013.i to i64
   %59 = sub i64 %57, %58
   store ptr %.013.i, ptr %14, align 8, !tbaa !58
-  %.0.i42 = trunc i64 %59 to i32
-  store i32 %.0.i42, ptr %2, align 4, !tbaa !23
+  %.0.i46 = trunc i64 %59 to i32
+  store i32 %.0.i46, ptr %2, align 4, !tbaa !23
   br label %67
 
 _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i
@@ -3105,7 +3105,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %22
   store i32 %.0.i, ptr %2, align 4, !tbaa !23
   br i1 %66, label %87, label %67
 
-67:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread39, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
+67:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread43, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
   %68 = load ptr, ptr %14, align 8, !tbaa !58
   store ptr %68, ptr %1, align 8, !tbaa !33
   br label %69
@@ -3177,7 +3177,7 @@ define hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream34GetDirec
   %19 = load ptr, ptr %13, align 8, !tbaa !58
   %.not.i = icmp eq ptr %19, null
   %20 = load ptr, ptr %0, align 8, !tbaa !57
-  br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread39, label %21
+  br i1 %.not.i, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread43, label %21
 
 21:                                               ; preds = %18
   %22 = icmp ugt ptr %.013.i, %20
@@ -3256,7 +3256,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %49, %45, %
   %54 = getelementptr inbounds i8, ptr %.3.i.i, i64 %53
   br i1 %52, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread, label %18
 
-_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread39: ; preds = %18
+_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread43: ; preds = %18
   %55 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %.013.i to i64
@@ -3277,17 +3277,17 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %21
   %65 = trunc nuw i8 %.pre.pre to i1
   br i1 %65, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread, label %66
 
-66:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread39, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
-  %.0.i43.in = phi i64 [ %58, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread39 ], [ %64, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ]
-  %.0.i43 = trunc i64 %.0.i43.in to i32
-  %.not = icmp sgt i32 %1, %.0.i43
+66:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread43, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
+  %.0.i47.in = phi i64 [ %58, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread43 ], [ %64, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ]
+  %.0.i47 = trunc i64 %.0.i47.in to i32
+  %.not = icmp sgt i32 %1, %.0.i47
   %67 = load ptr, ptr %13, align 8, !tbaa !58
   br i1 %.not, label %77, label %68
 
 68:                                               ; preds = %66
   %69 = sext i32 %1 to i64
   %70 = getelementptr inbounds i8, ptr %67, i64 %69
-  %71 = sub nsw i32 %.0.i43, %1
+  %71 = sub nsw i32 %.0.i47, %1
   %72 = icmp sgt i32 %71, 16
   %73 = zext nneg i32 %71 to i64
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
@@ -3301,11 +3301,11 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %21
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
 
 77:                                               ; preds = %66
-  %78 = icmp sgt i32 %.0.i43, 16
-  %79 = and i64 %.0.i43.in, 4294967295
+  %78 = icmp sgt i32 %.0.i47, 16
+  %79 = and i64 %.0.i47.in, 4294967295
   %80 = getelementptr inbounds nuw i8, ptr %67, i64 %79
   %81 = getelementptr inbounds i8, ptr %80, i64 -16
-  %sext = shl i64 %.0.i43.in, 32
+  %sext = shl i64 %.0.i47.in, 32
   %82 = ashr exact i64 %sext, 32
   %83 = getelementptr inbounds i8, ptr %15, i64 %82
   %.sink9.i17 = select i1 %78, ptr %81, ptr %83

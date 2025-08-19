@@ -38,7 +38,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   store i32 0, ptr %4, align 4, !tbaa !4
   %12 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #10
   %.not19.i = icmp eq ptr %12, null
-  br i1 %.not19.i, label %.thread130, label %13
+  br i1 %.not19.i, label %.thread139, label %13
 
 13:                                               ; preds = %9
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
@@ -72,16 +72,16 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   br label %76
 
 28:                                               ; preds = %24
-  %.pr129 = load i8, ptr %11, align 1, !tbaa !8
-  %.not77 = icmp eq i8 %.pr129, 3
-  br i1 %.not77, label %.thread130, label %29
+  %.pr138 = load i8, ptr %11, align 1, !tbaa !8
+  %.not77 = icmp eq i8 %.pr138, 3
+  br i1 %.not77, label %.thread139, label %29
 
 29:                                               ; preds = %28
-  %30 = sext i8 %.pr129 to i32
+  %30 = sext i8 %.pr138 to i32
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef 115, i32 noundef %30, i32 noundef 3)
   br label %76
 
-.thread130:                                       ; preds = %9, %28
+.thread139:                                       ; preds = %9, %28
   store i32 0, ptr %4, align 4, !tbaa !4
   store i8 1, ptr %3, align 1, !tbaa !8
   store i8 2, ptr %10, align 1, !tbaa !8
@@ -90,7 +90,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   %.not19.i104 = icmp eq ptr %32, null
   br i1 %.not19.i104, label %38, label %33
 
-33:                                               ; preds = %.thread130
+33:                                               ; preds = %.thread139
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #11
   %35 = add i64 %34, -1
   %36 = icmp ult i64 %35, -2
@@ -100,8 +100,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   %stxncpy.char0 = load i8, ptr %32, align 1
   br label %38
 
-38:                                               ; preds = %.thread130, %37
-  %storemerge = phi i8 [ %stxncpy.char0, %37 ], [ 0, %.thread130 ]
+38:                                               ; preds = %.thread139, %37
+  %storemerge = phi i8 [ %stxncpy.char0, %37 ], [ 0, %.thread139 ]
   store i8 %storemerge, ptr %3, align 1
   %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 136, i32 noundef 0, i32 noundef 34)
   br label %76

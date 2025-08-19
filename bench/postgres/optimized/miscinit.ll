@@ -1561,7 +1561,7 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
   %34 = ptrtoint ptr %3 to i64
   %35 = sub i64 %33, %34
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 16 %3, i64 %35, i1 false)
-  %.034.ptr5669 = getelementptr inbounds i8, ptr %4, i64 %35
+  %.034.ptr5674 = getelementptr inbounds i8, ptr %4, i64 %35
   br label %._crit_edge62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
@@ -1595,12 +1595,12 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
   br i1 %exitcond66.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !9
 
 ._crit_edge62:                                    ; preds = %42, %._crit_edge.thread, %._crit_edge
-  %.035.lcssa70 = phi ptr [ %.035.lcssa, %._crit_edge ], [ %31, %._crit_edge.thread ], [ %.035.lcssa, %42 ]
+  %.035.lcssa75 = phi ptr [ %.035.lcssa, %._crit_edge ], [ %31, %._crit_edge.thread ], [ %.035.lcssa, %42 ]
   %.034.idx.lcssa = phi i64 [ %38, %._crit_edge ], [ %35, %._crit_edge.thread ], [ %.1.idx, %42 ]
-  %.034.ptr.lcssa = phi ptr [ %.034.ptr56, %._crit_edge ], [ %.034.ptr5669, %._crit_edge.thread ], [ %.034.ptr, %42 ]
+  %.034.ptr.lcssa = phi ptr [ %.034.ptr56, %._crit_edge ], [ %.034.ptr5674, %._crit_edge.thread ], [ %.034.ptr, %42 ]
   %gepdiff = sub nsw i64 8192, %.034.idx.lcssa
   %44 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %.034.ptr.lcssa, i64 noundef %gepdiff, ptr noundef nonnull @.str.44, ptr noundef %1) #22
-  %45 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.035.lcssa70, i32 noundef 10) #25
+  %45 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.035.lcssa75, i32 noundef 10) #25
   %.not43 = icmp eq ptr %45, null
   br i1 %.not43, label %52, label %46
 

@@ -1312,7 +1312,7 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
   br label %41
 
 41:                                               ; preds = %._crit_edge.thread, %39, %._crit_edge
-  %.050.lcssa71 = phi ptr [ %spec.select, %39 ], [ %spec.select, %._crit_edge ], [ %14, %._crit_edge.thread ]
+  %.050.lcssa77 = phi ptr [ %spec.select, %39 ], [ %spec.select, %._crit_edge ], [ %14, %._crit_edge.thread ]
   %.0 = phi ptr [ %40, %39 ], [ %38, %._crit_edge ], [ %28, %._crit_edge.thread ]
   %42 = tail call ptr @Fraig_NodeReadNextE(ptr noundef %5) #11
   %.not5963 = icmp eq ptr %42, null
@@ -1322,7 +1322,7 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
   %.165 = phi ptr [ %.2, %47 ], [ %.0, %41 ]
   %.14964 = phi ptr [ %48, %47 ], [ %42, %41 ]
   %43 = tail call ptr @Fraig_NodeReadData1(ptr noundef nonnull %.14964) #11
-  %44 = icmp eq ptr %.050.lcssa71, %43
+  %44 = icmp eq ptr %.050.lcssa77, %43
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %.lr.ph67
@@ -1338,10 +1338,10 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
 
 ._crit_edge68:                                    ; preds = %47, %41
   %49 = load i32, ptr %16, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %.050.lcssa71, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %.050.lcssa77, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = xor i32 %51, %49
-  %53 = ptrtoint ptr %.050.lcssa71 to i64
+  %53 = ptrtoint ptr %.050.lcssa77 to i64
   %54 = lshr i32 %52, 7
   %.lobit = and i32 %54, 1
   %55 = zext nneg i32 %.lobit to i64
@@ -1893,9 +1893,9 @@ Vec_PtrPush.exit.sink.split:                      ; preds = %13
   %21 = shl nuw nsw i32 %14, 1
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 3
-  %.sink29 = select i1 %20, i64 128, i64 %23
+  %.sink30 = select i1 %20, i64 128, i64 %23
   %.sink = select i1 %20, i32 16, i32 %21
-  %24 = tail call ptr @realloc(ptr noundef nonnull %.val25, i64 noundef %.sink29) #14
+  %24 = tail call ptr @realloc(ptr noundef nonnull %.val25, i64 noundef %.sink30) #14
   store ptr %24, ptr %10, align 8, !tbaa !36
   store i32 %.sink, ptr %5, align 8, !tbaa !41
   br label %Vec_PtrPush.exit

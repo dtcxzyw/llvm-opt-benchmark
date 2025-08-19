@@ -826,7 +826,7 @@ FLAC__window_rectangle.exit43:                    ; preds = %.lr.ph.i39, %57
   %67 = sub i32 %1, %61
   %68 = sext i32 %67 to i64
   %wide.trip.count65 = zext nneg i32 %61 to i64
-  %invariant.gep70 = getelementptr float, ptr %0, i64 %68
+  %invariant.gep73 = getelementptr float, ptr %0, i64 %68
   %69 = fdiv reassoc nsz arcp double 1.000000e+00, %66
   %70 = fdiv reassoc nsz arcp double 1.000000e+00, %66
   br label %71
@@ -850,8 +850,8 @@ FLAC__window_rectangle.exit43:                    ; preds = %.lr.ph.i39, %57
   %85 = fptrunc reassoc nsz arcp double %84 to float
   %86 = tail call reassoc nsz arcp float @cosf(float noundef %85) #6, !tbaa !12
   %87 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %86, float -5.000000e-01, float 5.000000e-01)
-  %gep71 = getelementptr float, ptr %invariant.gep70, i64 %indvars.iv62
-  store float %87, ptr %gep71, align 4, !tbaa !3
+  %gep74 = getelementptr float, ptr %invariant.gep73, i64 %indvars.iv62
+  store float %87, ptr %gep74, align 4, !tbaa !3
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
   br i1 %exitcond66.not, label %FLAC__window_rectangle.exit, label %71, !llvm.loop !29
@@ -1275,11 +1275,11 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %190, label %180, label %.preheader, !llvm.loop !32
 
 FLAC__window_partial_tukey.exit.sink.split:       ; preds = %.preheader, %.preheader88, %.preheader93, %.preheader98
-  %.3.i.lcssa.sink280 = phi i32 [ %.3.i.lcssa, %.preheader98 ], [ %.3.i73.lcssa, %.preheader93 ], [ %.3.i81.lcssa, %.preheader88 ], [ %.3.lcssa, %.preheader ]
-  %191 = zext nneg i32 %.3.i.lcssa.sink280 to i64
+  %.3.i.lcssa.sink289 = phi i32 [ %.3.i.lcssa, %.preheader98 ], [ %.3.i73.lcssa, %.preheader93 ], [ %.3.i81.lcssa, %.preheader88 ], [ %.3.lcssa, %.preheader ]
+  %191 = zext nneg i32 %.3.i.lcssa.sink289 to i64
   %192 = shl nuw nsw i64 %191, 2
   %scevgep = getelementptr i8, ptr %0, i64 %192
-  %193 = xor i32 %.3.i.lcssa.sink280, -1
+  %193 = xor i32 %.3.i.lcssa.sink289, -1
   %194 = add nsw i32 %1, %193
   %195 = zext i32 %194 to i64
   %196 = shl nuw nsw i64 %195, 2

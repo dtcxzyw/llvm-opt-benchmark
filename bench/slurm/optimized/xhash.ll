@@ -623,10 +623,10 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
 
 167:                                              ; preds = %124
   %168 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %calloc357 = call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
+  %calloc371 = call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false)
-  store ptr %calloc357, ptr %161, align 8
-  %.not284 = icmp eq ptr %calloc357, null
+  store ptr %calloc371, ptr %161, align 8
+  %.not284 = icmp eq ptr %calloc371, null
   br i1 %.not284, label %169, label %170
 
 169:                                              ; preds = %167
@@ -634,19 +634,19 @@ define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr no
   unreachable
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds nuw i8, ptr %calloc357, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %calloc371, i64 24
   store ptr %161, ptr %171, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %calloc357, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %calloc371, i64 8
   store i32 32, ptr %172, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %calloc357, i64 12
+  %173 = getelementptr inbounds nuw i8, ptr %calloc371, i64 12
   store i32 5, ptr %173, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %calloc357, i64 32
+  %174 = getelementptr inbounds nuw i8, ptr %calloc371, i64 32
   store i64 8, ptr %174, align 8
-  %calloc356 = call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
-  store ptr %calloc356, ptr %calloc357, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %calloc357, i64 56
+  %calloc370 = call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
+  store ptr %calloc370, ptr %calloc371, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %calloc371, i64 56
   store i32 -1609490463, ptr %175, align 8
-  %.not285 = icmp eq ptr %calloc356, null
+  %.not285 = icmp eq ptr %calloc370, null
   br i1 %.not285, label %176, label %177
 
 176:                                              ; preds = %170
@@ -1184,10 +1184,10 @@ define dso_local void @xhash_walk(ptr noundef readonly captures(address_is_null)
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.sink23 = phi ptr [ %10, %.lr.ph ], [ %8, %6 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sink23, i64 24
+  %.sink25 = phi ptr [ %10, %.lr.ph ], [ %8, %6 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sink25, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %.sink23, align 8
+  %11 = load ptr, ptr %.sink25, align 8
   tail call void %1(ptr noundef %11, ptr noundef %2) #11
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !15

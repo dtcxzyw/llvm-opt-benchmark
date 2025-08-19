@@ -2256,7 +2256,7 @@ addlit.exit812:                                   ; preds = %1133, %1142
   %1296 = getelementptr i8, ptr %1272, i64 %indvars.iv1597
   %1297 = getelementptr i8, ptr %1296, i64 -2
   %1298 = load i8, ptr %1297, align 1
-  switch i8 %1298, label %.critedge.loopexit.split.loop.exit1879 [
+  switch i8 %1298, label %.critedge.loopexit.split.loop.exit1922 [
     i8 43, label %.critedge30.backedge
     i8 45, label %.critedge30.backedge
   ]
@@ -2266,12 +2266,12 @@ addlit.exit812:                                   ; preds = %1133, %1142
   %1300 = icmp sgt i32 %1299, 3
   br i1 %1300, label %.lr.ph1404, label %.critedge
 
-.critedge.loopexit.split.loop.exit1879:           ; preds = %.lr.ph1404
+.critedge.loopexit.split.loop.exit1922:           ; preds = %.lr.ph1404
   %indvars.le = trunc i64 %indvars.iv.next1598 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit1879, %.critedge30.preheader, %1284, %1270
-  %.1696 = phi i32 [ %.0695, %1270 ], [ %.0695, %1284 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit1879 ], [ 1, %.critedge30.backedge ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ]
+.critedge:                                        ; preds = %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.lr.ph1402, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit1922, %.critedge30.preheader, %1284, %1270
+  %.1696 = phi i32 [ %.0695, %1270 ], [ %.0695, %1284 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit1922 ], [ 1, %.critedge30.backedge ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ], [ %.0695, %.lr.ph1402 ]
   %1301 = load ptr, ptr %2, align 8
   %1302 = load ptr, ptr %1301, align 8
   %1303 = ptrtoint ptr %1302 to i64
@@ -3179,10 +3179,10 @@ core_yyrealloc.exit.i826:                         ; preds = %1728, %1726
   br label %1809
 
 1809:                                             ; preds = %.critedge2.i, %1701
-  %.sink198.in.i = phi ptr [ %1808, %.critedge2.i ], [ %1702, %1701 ]
+  %.sink206.in.i = phi ptr [ %1808, %.critedge2.i ], [ %1702, %1701 ]
   %.sink.i = phi i32 [ %1805, %.critedge2.i ], [ 0, %1701 ]
-  %.sink198.i = load ptr, ptr %.sink198.in.i, align 8
-  %1810 = getelementptr inbounds nuw i8, ptr %.sink198.i, i64 28
+  %.sink206.i = load ptr, ptr %.sink206.in.i, align 8
+  %1810 = getelementptr inbounds nuw i8, ptr %.sink206.i, i64 28
   store i32 %.sink.i, ptr %1810, align 4
   %1811 = load i32, ptr %84, align 4
   %1812 = icmp eq i32 %1811, 0
@@ -3297,7 +3297,7 @@ yy_get_next_buffer.exit:                          ; preds = %1823, %1855
   %1880 = getelementptr inbounds nuw i8, ptr %1879, i64 8
   %1881 = load ptr, ptr %1880, align 8
   store ptr %1881, ptr %80, align 8
-  switch i32 %.0135.i, label %default.unreachable1615 [
+  switch i32 %.0135.i, label %default.unreachable1658 [
     i32 1, label %yy_get_previous_state.exit839
     i32 0, label %1883
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread863_crit_edge
@@ -3371,7 +3371,7 @@ yy_get_next_buffer.exit.thread863:                ; preds = %1683, %yy_get_next_
   %exitcond.not.i847 = icmp eq ptr %1917, %1905
   br i1 %exitcond.not.i847, label %.loopexit870.backedge, label %.lr.ph.i842, !llvm.loop !9
 
-default.unreachable1615:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1658:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit839:                    ; preds = %yy_get_next_buffer.exit, %1683
@@ -4290,9 +4290,9 @@ core_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %23
   br label %.thread
 
 .thread:                                          ; preds = %core_yyensure_buffer_stack.exit, %50, %31
-  %.pr36 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %core_yyensure_buffer_stack.exit ]
+  %.pr40 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %core_yyensure_buffer_stack.exit ]
   %52 = phi i64 [ %51, %50 ], [ %.pre30, %31 ], [ %26, %core_yyensure_buffer_stack.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.pr36, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %52
   store ptr %0, ptr %53, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load i64, ptr %28, align 8
@@ -5078,7 +5078,7 @@ define dso_local void @cancel_scanner_errposition_callback(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @scanner_init(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local nonnull ptr @scanner_init(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %6 = tail call ptr @palloc(i64 noundef 160) #22
   %7 = icmp eq ptr %6, null

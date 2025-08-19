@@ -2507,13 +2507,13 @@ _ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE.exit.i: ; preds = %39
 switch.lookup:                                    ; preds = %_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE.exit.i
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE, i64 0, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep122 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE.1, i64 0, i64 %44
-  %switch.load123 = load i64, ptr %switch.gep122, align 8
+  %switch.gep135 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZL11printOptionRN4llvm11raw_ostreamENS_9StringRefERKNS_6RecordE.1, i64 0, i64 %44
+  %switch.load136 = load i64, ptr %switch.gep135, align 8
   br label %_ZL20getCheckerOptionTypeRKN4llvm6RecordE.exit
 
 _ZL20getCheckerOptionTypeRKN4llvm6RecordE.exit:   ; preds = %switch.lookup, %28
   %.sroa.09.0.ph.i = phi ptr [ @.str.41, %28 ], [ %switch.load, %switch.lookup ]
-  %.sroa.4.0.ph.i = phi i64 [ 3, %28 ], [ %switch.load123, %switch.lookup ]
+  %.sroa.4.0.ph.i = phi i64 [ 3, %28 ], [ %switch.load136, %switch.lookup ]
   %62 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull %.sroa.09.0.ph.i, i64 %.sroa.4.0.ph.i, i1 noundef zeroext false) #12
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !3

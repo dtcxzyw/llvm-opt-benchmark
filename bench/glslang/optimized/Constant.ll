@@ -635,8 +635,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %1127
 
 .preheader938:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1128 = icmp eq i32 %.0237910, 0
-  br i1 %.not1128, label %.loopexit, label %.lr.ph946
+  %.not1143 = icmp eq i32 %.0237910, 0
+  br i1 %.not1143, label %.loopexit, label %.lr.ph946
 
 .lr.ph946:                                        ; preds = %.preheader938
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -645,8 +645,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %1110
 
 .preheader936:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1129 = icmp eq i32 %.0237910, 0
-  br i1 %.not1129, label %.loopexit, label %.lr.ph948
+  %.not1144 = icmp eq i32 %.0237910, 0
+  br i1 %.not1144, label %.loopexit, label %.lr.ph948
 
 .lr.ph948:                                        ; preds = %.preheader936
   %231 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -655,8 +655,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %1093
 
 .preheader934:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1130 = icmp eq i32 %.0237910, 0
-  br i1 %.not1130, label %.loopexit, label %.lr.ph950
+  %.not1145 = icmp eq i32 %.0237910, 0
+  br i1 %.not1145, label %.loopexit, label %.lr.ph950
 
 .lr.ph950:                                        ; preds = %.preheader934
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -665,8 +665,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %1050
 
 .preheader932:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1131 = icmp eq i32 %.0237910, 0
-  br i1 %.not1131, label %.loopexit, label %.lr.ph952
+  %.not1146 = icmp eq i32 %.0237910, 0
+  br i1 %.not1146, label %.loopexit, label %.lr.ph952
 
 .lr.ph952:                                        ; preds = %.preheader932
   %235 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -675,8 +675,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %1007
 
 .preheader930:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1132 = icmp eq i32 %.0237910, 0
-  br i1 %.not1132, label %.loopexit, label %.lr.ph954
+  %.not1147 = icmp eq i32 %.0237910, 0
+  br i1 %.not1147, label %.loopexit, label %.lr.ph954
 
 .lr.ph954:                                        ; preds = %.preheader930
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -685,8 +685,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %964
 
 .preheader928:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1133 = icmp eq i32 %.0237910, 0
-  br i1 %.not1133, label %.loopexit, label %.lr.ph956
+  %.not1148 = icmp eq i32 %.0237910, 0
+  br i1 %.not1148, label %.loopexit, label %.lr.ph956
 
 .lr.ph956:                                        ; preds = %.preheader928
   %239 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -695,8 +695,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %952
 
 .preheader926:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1134 = icmp eq i32 %.0237910, 0
-  br i1 %.not1134, label %.loopexit, label %.lr.ph958
+  %.not1149 = icmp eq i32 %.0237910, 0
+  br i1 %.not1149, label %.loopexit, label %.lr.ph958
 
 .lr.ph958:                                        ; preds = %.preheader926
   %241 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -705,8 +705,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %940
 
 .preheader924:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1135 = icmp eq i32 %.0237910, 0
-  br i1 %.not1135, label %.loopexit, label %.lr.ph960
+  %.not1150 = icmp eq i32 %.0237910, 0
+  br i1 %.not1150, label %.loopexit, label %.lr.ph960
 
 .lr.ph960:                                        ; preds = %.preheader924
   %243 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -741,8 +741,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %.preheader920
 
 .preheader917:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1136 = icmp eq i32 %.0237910, 0
-  br i1 %.not1136, label %.loopexit, label %.lr.ph974
+  %.not1151 = icmp eq i32 %.0237910, 0
+  br i1 %.not1151, label %.loopexit, label %.lr.ph974
 
 .lr.ph974:                                        ; preds = %.preheader917
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -764,8 +764,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %.preheader915
 
 .preheader911:                                    ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1138 = icmp eq i32 %.0237910, 0
-  br i1 %.not1138, label %.loopexit, label %.lr.ph988
+  %.not1153 = icmp eq i32 %.0237910, 0
+  br i1 %.not1153, label %.loopexit, label %.lr.ph988
 
 .lr.ph988:                                        ; preds = %.preheader911
   %268 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -774,8 +774,8 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %210, %_ZN7glslang7T
   br label %320
 
 .preheader:                                       ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1139 = icmp eq i32 %.0237910, 0
-  br i1 %.not1139, label %.loopexit, label %.lr.ph990
+  %.not1154 = icmp eq i32 %.0237910, 0
+  br i1 %.not1154, label %.loopexit, label %.lr.ph990
 
 .lr.ph990:                                        ; preds = %.preheader
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -974,8 +974,8 @@ _ZNK7glslang11TConstUnionmiERKS0_.exit:           ; preds = %320, %329, %333, %3
   br i1 %exitcond1075.not, label %.loopexit, label %320, !llvm.loop !8
 
 368:                                              ; preds = %_ZN7glslang16TConstUnionArrayC2Ei.exit, %_ZN7glslang16TConstUnionArrayC2Ei.exit, %_ZN7glslang16TConstUnionArrayC2Ei.exit
-  %.not1137 = icmp eq i32 %.0237910, 0
-  br i1 %.not1137, label %.loopexit, label %.lr.ph986
+  %.not1152 = icmp eq i32 %.0237910, 0
+  br i1 %.not1152, label %.loopexit, label %.lr.ph986
 
 .lr.ph986:                                        ; preds = %368
   %369 = getelementptr inbounds nuw i8, ptr %.sroa.1860.0908, i64 8
@@ -5363,9 +5363,9 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %11, %_ZN7glslang7TV
   br label %.loopexit757.sink.split
 
 .loopexit757.sink.split:                          ; preds = %._crit_edge765, %._crit_edge, %53
-  %.sink800 = phi ptr [ %56, %53 ], [ %78, %._crit_edge ], [ %72, %._crit_edge765 ]
+  %.sink803 = phi ptr [ %56, %53 ], [ %78, %._crit_edge ], [ %72, %._crit_edge765 ]
   %.sink = phi i32 [ 2, %53 ], [ 12, %._crit_edge ], [ 12, %._crit_edge765 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sink800, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.sink803, i64 8
   store i32 %.sink, ptr %79, align 8
   br label %.loopexit757
 
@@ -8688,7 +8688,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %252 = ptrtoint ptr %250 to i64
   %253 = sub i64 %251, %252
   %254 = icmp ugt i64 %253, 8
-  br i1 %254, label %255, label %.thread843
+  br i1 %254, label %255, label %.thread856
 
 255:                                              ; preds = %232
   %256 = getelementptr inbounds nuw i8, ptr %250, i64 8
@@ -8714,7 +8714,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %.pre839 = ptrtoint ptr %.pre837 to i64
   %.pre841 = sub i64 %.pre838, %.pre839
   %272 = icmp ugt i64 %.pre841, 16
-  br i1 %272, label %273, label %.thread843
+  br i1 %272, label %273, label %.thread856
 
 273:                                              ; preds = %255
   %274 = getelementptr inbounds nuw i8, ptr %.pre837, i64 16
@@ -8734,10 +8734,10 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %288 = add nsw i32 %287, -1
   %.sroa.speculated481 = tail call i32 @llvm.smin.i32(i32 %288, i32 %248)
   %289 = sext i32 %.sroa.speculated481 to i64
-  br label %.thread843
+  br label %.thread856
 
-.thread843:                                       ; preds = %232, %273, %255
-  %.0219846 = phi i64 [ %271, %273 ], [ %271, %255 ], [ 0, %232 ]
+.thread856:                                       ; preds = %232, %273, %255
+  %.0219859 = phi i64 [ %271, %273 ], [ %271, %255 ], [ 0, %232 ]
   %.0222 = phi i64 [ %289, %273 ], [ 0, %255 ], [ 0, %232 ]
   %290 = load i32, ptr %39, align 8
   switch i32 %290, label %_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit [
@@ -8758,7 +8758,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
     i32 223, label %1200
   ]
 
-291:                                              ; preds = %.thread843
+291:                                              ; preds = %.thread856
   %292 = load ptr, ptr %231, align 8
   %293 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %292, i64 %indvars.iv832
   %294 = sext i32 %.sroa.speculated491 to i64
@@ -8770,13 +8770,13 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %300 = load ptr, ptr %230, align 8
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %302, i64 %.0219846
+  %303 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %302, i64 %.0219859
   %304 = load double, ptr %303, align 8
   %305 = tail call double @atan2(double noundef %299, double noundef %304) #10
   store double %305, ptr %293, align 8
   br label %.sink.split
 
-306:                                              ; preds = %.thread843
+306:                                              ; preds = %.thread856
   %307 = load ptr, ptr %231, align 8
   %308 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %307, i64 %indvars.iv832
   %309 = sext i32 %.sroa.speculated491 to i64
@@ -8788,13 +8788,13 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %315 = load ptr, ptr %230, align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %317, i64 %.0219846
+  %318 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %317, i64 %.0219859
   %319 = load double, ptr %318, align 8
   %320 = tail call double @pow(double noundef %314, double noundef %319) #10
   store double %320, ptr %308, align 8
   br label %.sink.split
 
-321:                                              ; preds = %.thread843
+321:                                              ; preds = %.thread856
   %322 = sext i32 %.sroa.speculated491 to i64
   %323 = load ptr, ptr %229, align 8
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
@@ -8804,7 +8804,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %328 = load ptr, ptr %230, align 8
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = load ptr, ptr %329, align 8
-  %331 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %330, i64 %.0219846
+  %331 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %330, i64 %.0219859
   %332 = load double, ptr %331, align 8
   %333 = fdiv double %327, %332
   %334 = tail call double @llvm.floor.f64(double %333)
@@ -8815,7 +8815,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   store double %336, ptr %338, align 8
   br label %.sink.split
 
-339:                                              ; preds = %.thread843
+339:                                              ; preds = %.thread856
   %340 = load ptr, ptr %179, align 8
   %341 = load ptr, ptr %340, align 8
   %342 = load ptr, ptr %341, align 8
@@ -8852,7 +8852,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %359 = load ptr, ptr %230, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %361, i64 %.0219846
+  %362 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %361, i64 %.0219859
   %363 = load double, ptr %362, align 8
   %364 = fcmp olt double %363, %358
   %.sroa.speculated476 = select i1 %364, double %363, double %358
@@ -8871,7 +8871,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %374 = load ptr, ptr %230, align 8
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %376 = load ptr, ptr %375, align 8
-  %377 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %376, i64 %.0219846
+  %377 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %376, i64 %.0219859
   %378 = load i32, ptr %377, align 8
   %.sroa.speculated470 = tail call i32 @llvm.smin.i32(i32 %378, i32 %373)
   store i32 %.sroa.speculated470, ptr %367, align 8
@@ -8889,7 +8889,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %388 = load ptr, ptr %230, align 8
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %390 = load ptr, ptr %389, align 8
-  %391 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %390, i64 %.0219846
+  %391 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %390, i64 %.0219859
   %392 = load i32, ptr %391, align 8
   %.sroa.speculated464 = tail call i32 @llvm.umin.i32(i32 %392, i32 %387)
   store i32 %.sroa.speculated464, ptr %381, align 8
@@ -8907,7 +8907,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %402 = load ptr, ptr %230, align 8
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %404 = load ptr, ptr %403, align 8
-  %405 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %404, i64 %.0219846
+  %405 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %404, i64 %.0219859
   %406 = load i8, ptr %405, align 8
   %.sroa.speculated458 = tail call i8 @llvm.smin.i8(i8 %406, i8 %401)
   store i8 %.sroa.speculated458, ptr %395, align 8
@@ -8925,7 +8925,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %416 = load ptr, ptr %230, align 8
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   %418 = load ptr, ptr %417, align 8
-  %419 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %418, i64 %.0219846
+  %419 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %418, i64 %.0219859
   %420 = load i8, ptr %419, align 8
   %.sroa.speculated452 = tail call i8 @llvm.umin.i8(i8 %420, i8 %415)
   store i8 %.sroa.speculated452, ptr %409, align 8
@@ -8943,7 +8943,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %430 = load ptr, ptr %230, align 8
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
   %432 = load ptr, ptr %431, align 8
-  %433 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %432, i64 %.0219846
+  %433 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %432, i64 %.0219859
   %434 = load i16, ptr %433, align 8
   %.sroa.speculated446 = tail call i16 @llvm.smin.i16(i16 %434, i16 %429)
   store i16 %.sroa.speculated446, ptr %423, align 8
@@ -8961,7 +8961,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %444 = load ptr, ptr %230, align 8
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %446, i64 %.0219846
+  %447 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %446, i64 %.0219859
   %448 = load i16, ptr %447, align 8
   %.sroa.speculated440 = tail call i16 @llvm.umin.i16(i16 %448, i16 %443)
   store i16 %.sroa.speculated440, ptr %437, align 8
@@ -8979,7 +8979,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %458 = load ptr, ptr %230, align 8
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load ptr, ptr %459, align 8
-  %461 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %460, i64 %.0219846
+  %461 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %460, i64 %.0219859
   %462 = load i64, ptr %461, align 8
   %.sroa.speculated434 = tail call i64 @llvm.smin.i64(i64 %462, i64 %457)
   store i64 %.sroa.speculated434, ptr %451, align 8
@@ -8997,13 +8997,13 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %472 = load ptr, ptr %230, align 8
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 8
   %474 = load ptr, ptr %473, align 8
-  %475 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %474, i64 %.0219846
+  %475 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %474, i64 %.0219859
   %476 = load i64, ptr %475, align 8
   %.sroa.speculated428 = tail call i64 @llvm.umin.i64(i64 %476, i64 %471)
   store i64 %.sroa.speculated428, ptr %465, align 8
   br label %.sink.split
 
-477:                                              ; preds = %.thread843
+477:                                              ; preds = %.thread856
   %478 = load ptr, ptr %179, align 8
   %479 = load ptr, ptr %478, align 8
   %480 = load ptr, ptr %479, align 8
@@ -9040,7 +9040,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %497 = load ptr, ptr %230, align 8
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 8
   %499 = load ptr, ptr %498, align 8
-  %500 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %499, i64 %.0219846
+  %500 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %499, i64 %.0219859
   %501 = load double, ptr %500, align 8
   %502 = fcmp olt double %496, %501
   %.sroa.speculated423 = select i1 %502, double %501, double %496
@@ -9059,7 +9059,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %512 = load ptr, ptr %230, align 8
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 8
   %514 = load ptr, ptr %513, align 8
-  %515 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %514, i64 %.0219846
+  %515 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %514, i64 %.0219859
   %516 = load i32, ptr %515, align 8
   %.sroa.speculated417 = tail call i32 @llvm.smax.i32(i32 %511, i32 %516)
   store i32 %.sroa.speculated417, ptr %505, align 8
@@ -9077,7 +9077,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %526 = load ptr, ptr %230, align 8
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load ptr, ptr %527, align 8
-  %529 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %528, i64 %.0219846
+  %529 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %528, i64 %.0219859
   %530 = load i32, ptr %529, align 8
   %.sroa.speculated411 = tail call i32 @llvm.umax.i32(i32 %525, i32 %530)
   store i32 %.sroa.speculated411, ptr %519, align 8
@@ -9095,7 +9095,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %540 = load ptr, ptr %230, align 8
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
   %542 = load ptr, ptr %541, align 8
-  %543 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %542, i64 %.0219846
+  %543 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %542, i64 %.0219859
   %544 = load i8, ptr %543, align 8
   %.sroa.speculated405 = tail call i8 @llvm.smax.i8(i8 %539, i8 %544)
   store i8 %.sroa.speculated405, ptr %533, align 8
@@ -9113,7 +9113,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %554 = load ptr, ptr %230, align 8
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %556 = load ptr, ptr %555, align 8
-  %557 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %556, i64 %.0219846
+  %557 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %556, i64 %.0219859
   %558 = load i8, ptr %557, align 8
   %.sroa.speculated399 = tail call i8 @llvm.umax.i8(i8 %553, i8 %558)
   store i8 %.sroa.speculated399, ptr %547, align 8
@@ -9131,7 +9131,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %568 = load ptr, ptr %230, align 8
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 8
   %570 = load ptr, ptr %569, align 8
-  %571 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %570, i64 %.0219846
+  %571 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %570, i64 %.0219859
   %572 = load i16, ptr %571, align 8
   %.sroa.speculated393 = tail call i16 @llvm.smax.i16(i16 %567, i16 %572)
   store i16 %.sroa.speculated393, ptr %561, align 8
@@ -9149,7 +9149,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %582 = load ptr, ptr %230, align 8
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 8
   %584 = load ptr, ptr %583, align 8
-  %585 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %584, i64 %.0219846
+  %585 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %584, i64 %.0219859
   %586 = load i16, ptr %585, align 8
   %.sroa.speculated387 = tail call i16 @llvm.umax.i16(i16 %581, i16 %586)
   store i16 %.sroa.speculated387, ptr %575, align 8
@@ -9167,7 +9167,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %596 = load ptr, ptr %230, align 8
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %598, i64 %.0219846
+  %599 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %598, i64 %.0219859
   %600 = load i64, ptr %599, align 8
   %.sroa.speculated381 = tail call i64 @llvm.smax.i64(i64 %595, i64 %600)
   store i64 %.sroa.speculated381, ptr %589, align 8
@@ -9185,13 +9185,13 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %610 = load ptr, ptr %230, align 8
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
   %612 = load ptr, ptr %611, align 8
-  %613 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %612, i64 %.0219846
+  %613 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %612, i64 %.0219859
   %614 = load i64, ptr %613, align 8
   %.sroa.speculated375 = tail call i64 @llvm.umax.i64(i64 %609, i64 %614)
   store i64 %.sroa.speculated375, ptr %603, align 8
   br label %.sink.split
 
-615:                                              ; preds = %.thread843
+615:                                              ; preds = %.thread856
   %616 = load ptr, ptr %179, align 8
   %617 = load ptr, ptr %616, align 8
   %618 = load ptr, ptr %617, align 8
@@ -9228,7 +9228,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %635 = load ptr, ptr %230, align 8
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 8
   %637 = load ptr, ptr %636, align 8
-  %638 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %637, i64 %.0219846
+  %638 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %637, i64 %.0219859
   %639 = load double, ptr %638, align 8
   %640 = fcmp olt double %634, %639
   %641 = load ptr, ptr %228, align 8
@@ -9254,7 +9254,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %656 = load ptr, ptr %230, align 8
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 8
   %658 = load ptr, ptr %657, align 8
-  %659 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %658, i64 %.0219846
+  %659 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %658, i64 %.0219859
   %660 = load i32, ptr %659, align 8
   %661 = load ptr, ptr %228, align 8
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 8
@@ -9278,7 +9278,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %675 = load ptr, ptr %230, align 8
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 8
   %677 = load ptr, ptr %676, align 8
-  %678 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %677, i64 %.0219846
+  %678 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %677, i64 %.0219859
   %679 = load i8, ptr %678, align 8
   %680 = load ptr, ptr %228, align 8
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 8
@@ -9302,7 +9302,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %694 = load ptr, ptr %230, align 8
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 8
   %696 = load ptr, ptr %695, align 8
-  %697 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %696, i64 %.0219846
+  %697 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %696, i64 %.0219859
   %698 = load i8, ptr %697, align 8
   %699 = load ptr, ptr %228, align 8
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 8
@@ -9326,7 +9326,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %713 = load ptr, ptr %230, align 8
   %714 = getelementptr inbounds nuw i8, ptr %713, i64 8
   %715 = load ptr, ptr %714, align 8
-  %716 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %715, i64 %.0219846
+  %716 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %715, i64 %.0219859
   %717 = load i16, ptr %716, align 8
   %718 = load ptr, ptr %228, align 8
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 8
@@ -9350,7 +9350,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %732 = load ptr, ptr %230, align 8
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 8
   %734 = load ptr, ptr %733, align 8
-  %735 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %734, i64 %.0219846
+  %735 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %734, i64 %.0219859
   %736 = load i16, ptr %735, align 8
   %737 = load ptr, ptr %228, align 8
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 8
@@ -9374,7 +9374,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %751 = load ptr, ptr %230, align 8
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
   %753 = load ptr, ptr %752, align 8
-  %754 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %753, i64 %.0219846
+  %754 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %753, i64 %.0219859
   %755 = load i32, ptr %754, align 8
   %756 = load ptr, ptr %228, align 8
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 8
@@ -9398,7 +9398,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %770 = load ptr, ptr %230, align 8
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 8
   %772 = load ptr, ptr %771, align 8
-  %773 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %772, i64 %.0219846
+  %773 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %772, i64 %.0219859
   %774 = load i64, ptr %773, align 8
   %775 = load ptr, ptr %228, align 8
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 8
@@ -9422,7 +9422,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %789 = load ptr, ptr %230, align 8
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 8
   %791 = load ptr, ptr %790, align 8
-  %792 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %791, i64 %.0219846
+  %792 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %791, i64 %.0219859
   %793 = load i64, ptr %792, align 8
   %794 = load ptr, ptr %228, align 8
   %795 = getelementptr inbounds nuw i8, ptr %794, i64 8
@@ -9434,7 +9434,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   store i64 %.sroa.speculated, ptr %782, align 8
   br label %.sink.split
 
-799:                                              ; preds = %.thread843
+799:                                              ; preds = %.thread856
   %800 = load ptr, ptr %231, align 8
   %801 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %800, i64 %indvars.iv832
   %802 = sext i32 %.sroa.speculated491 to i64
@@ -9445,7 +9445,7 @@ _ZNSt6vectorIN7glslang16TConstUnionArrayENS0_14pool_allocatorIS1_EEE9push_backER
   %807 = load ptr, ptr %230, align 8
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 8
   %809 = load ptr, ptr %808, align 8
-  %810 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %809, i64 %.0219846
+  %810 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %809, i64 %.0219859
   %811 = getelementptr inbounds nuw i8, ptr %806, i64 8
   %812 = load i32, ptr %811, align 8
   switch i32 %812, label %_ZNK7glslang11TConstUnionltERKS0_.exit [
@@ -9520,7 +9520,7 @@ _ZNK7glslang11TConstUnionltERKS0_.exit:           ; preds = %799, %813, %817, %8
   store i8 %849, ptr %801, align 8
   br label %.sink.split
 
-850:                                              ; preds = %.thread843
+850:                                              ; preds = %.thread856
   %851 = load ptr, ptr %231, align 8
   %852 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %851, i64 %indvars.iv832
   %853 = sext i32 %.sroa.speculated491 to i64
@@ -9531,7 +9531,7 @@ _ZNK7glslang11TConstUnionltERKS0_.exit:           ; preds = %799, %813, %817, %8
   %858 = load ptr, ptr %230, align 8
   %859 = getelementptr inbounds nuw i8, ptr %858, i64 8
   %860 = load ptr, ptr %859, align 8
-  %861 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %860, i64 %.0219846
+  %861 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %860, i64 %.0219859
   %862 = getelementptr inbounds nuw i8, ptr %857, i64 8
   %863 = load i32, ptr %862, align 8
   switch i32 %863, label %_ZNK7glslang11TConstUniongtERKS0_.exit [
@@ -9606,7 +9606,7 @@ _ZNK7glslang11TConstUniongtERKS0_.exit:           ; preds = %850, %864, %868, %8
   store i8 %900, ptr %852, align 8
   br label %.sink.split
 
-901:                                              ; preds = %.thread843
+901:                                              ; preds = %.thread856
   %902 = load ptr, ptr %231, align 8
   %903 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %902, i64 %indvars.iv832
   %904 = sext i32 %.sroa.speculated491 to i64
@@ -9617,7 +9617,7 @@ _ZNK7glslang11TConstUniongtERKS0_.exit:           ; preds = %850, %864, %868, %8
   %909 = load ptr, ptr %230, align 8
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 8
   %911 = load ptr, ptr %910, align 8
-  %912 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %911, i64 %.0219846
+  %912 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %911, i64 %.0219859
   %913 = getelementptr inbounds nuw i8, ptr %908, i64 8
   %914 = load i32, ptr %913, align 8
   switch i32 %914, label %_ZNK7glslang11TConstUniongtERKS0_.exit279 [
@@ -9693,7 +9693,7 @@ _ZNK7glslang11TConstUniongtERKS0_.exit279:        ; preds = %901, %915, %919, %9
   store i8 %952, ptr %903, align 8
   br label %.sink.split
 
-953:                                              ; preds = %.thread843
+953:                                              ; preds = %.thread856
   %954 = load ptr, ptr %231, align 8
   %955 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %954, i64 %indvars.iv832
   %956 = sext i32 %.sroa.speculated491 to i64
@@ -9704,7 +9704,7 @@ _ZNK7glslang11TConstUniongtERKS0_.exit279:        ; preds = %901, %915, %919, %9
   %961 = load ptr, ptr %230, align 8
   %962 = getelementptr inbounds nuw i8, ptr %961, i64 8
   %963 = load ptr, ptr %962, align 8
-  %964 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %963, i64 %.0219846
+  %964 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %963, i64 %.0219859
   %965 = getelementptr inbounds nuw i8, ptr %960, i64 8
   %966 = load i32, ptr %965, align 8
   switch i32 %966, label %_ZNK7glslang11TConstUnionltERKS0_.exit281 [
@@ -9780,7 +9780,7 @@ _ZNK7glslang11TConstUnionltERKS0_.exit281:        ; preds = %953, %967, %971, %9
   store i8 %1004, ptr %955, align 8
   br label %.sink.split
 
-1005:                                             ; preds = %.thread843
+1005:                                             ; preds = %.thread856
   %1006 = load ptr, ptr %231, align 8
   %1007 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %1006, i64 %indvars.iv832
   %1008 = sext i32 %.sroa.speculated491 to i64
@@ -9791,7 +9791,7 @@ _ZNK7glslang11TConstUnionltERKS0_.exit281:        ; preds = %953, %967, %971, %9
   %1013 = load ptr, ptr %230, align 8
   %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 8
   %1015 = load ptr, ptr %1014, align 8
-  %1016 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1015, i64 %.0219846
+  %1016 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1015, i64 %.0219859
   %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 8
   %1018 = load i32, ptr %1017, align 8
   %1019 = getelementptr inbounds nuw i8, ptr %1012, i64 8
@@ -9883,7 +9883,7 @@ _ZNK7glslang11TConstUnioneqERKS0_.exit:           ; preds = %1005, %1022, %1026,
   store i8 %.0.i283, ptr %1007, align 8
   br label %.sink.split
 
-1065:                                             ; preds = %.thread843
+1065:                                             ; preds = %.thread856
   %1066 = load ptr, ptr %231, align 8
   %1067 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %1066, i64 %indvars.iv832
   %1068 = sext i32 %.sroa.speculated491 to i64
@@ -9894,7 +9894,7 @@ _ZNK7glslang11TConstUnioneqERKS0_.exit:           ; preds = %1005, %1022, %1026,
   %1073 = load ptr, ptr %230, align 8
   %1074 = getelementptr inbounds nuw i8, ptr %1073, i64 8
   %1075 = load ptr, ptr %1074, align 8
-  %1076 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1075, i64 %.0219846
+  %1076 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1075, i64 %.0219859
   %1077 = getelementptr inbounds nuw i8, ptr %1076, i64 8
   %1078 = load i32, ptr %1077, align 8
   %1079 = getelementptr inbounds nuw i8, ptr %1072, i64 8
@@ -9986,7 +9986,7 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1065, %1082, %1086,
   store i8 %1125, ptr %1067, align 8
   br label %.sink.split
 
-1126:                                             ; preds = %.thread843
+1126:                                             ; preds = %.thread856
   %1127 = load ptr, ptr %179, align 8
   %1128 = load ptr, ptr %1127, align 8
   %1129 = load ptr, ptr %1128, align 8
@@ -10025,11 +10025,11 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1065, %1082, %1086,
   %1158 = trunc i8 %1157 to i1
   %1159 = sext i32 %.sroa.speculated491 to i64
   %.sink.in = select i1 %1158, ptr %230, ptr %229
-  %.sink857 = select i1 %1158, i64 %.0219846, i64 %1159
+  %.sink870 = select i1 %1158, i64 %.0219859, i64 %1159
   %.sink = load ptr, ptr %.sink.in, align 8
   %1160 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %1161 = load ptr, ptr %1160, align 8
-  %1162 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1161, i64 %.sink857
+  %1162 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1161, i64 %.sink870
   %1163 = load double, ptr %1162, align 8
   store double %1163, ptr %1151, align 8
   br label %.sink.split
@@ -10050,20 +10050,20 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1065, %1082, %1086,
   %1177 = load ptr, ptr %230, align 8
   %1178 = getelementptr inbounds nuw i8, ptr %1177, i64 8
   %1179 = load ptr, ptr %1178, align 8
-  %1180 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1179, i64 %.0219846
+  %1180 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1179, i64 %.0219859
   %1181 = load double, ptr %1180, align 8
   %1182 = fmul double %1175, %1181
   %1183 = tail call double @llvm.fmuladd.f64(double %1170, double %1176, double %1182)
   store double %1183, ptr %1151, align 8
   br label %.sink.split
 
-1184:                                             ; preds = %.thread843
+1184:                                             ; preds = %.thread856
   %1185 = load ptr, ptr %231, align 8
   %1186 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %1185, i64 %indvars.iv832
   %1187 = load ptr, ptr %230, align 8
   %1188 = getelementptr inbounds nuw i8, ptr %1187, i64 8
   %1189 = load ptr, ptr %1188, align 8
-  %1190 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1189, i64 %.0219846
+  %1190 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1189, i64 %.0219859
   %1191 = load double, ptr %1190, align 8
   %1192 = sext i32 %.sroa.speculated491 to i64
   %1193 = load ptr, ptr %229, align 8
@@ -10076,7 +10076,7 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1065, %1082, %1086,
   store double %1199, ptr %1186, align 8
   br label %.sink.split
 
-1200:                                             ; preds = %.thread843
+1200:                                             ; preds = %.thread856
   %1201 = load ptr, ptr %228, align 8
   %1202 = getelementptr inbounds nuw i8, ptr %1201, i64 8
   %1203 = load ptr, ptr %1202, align 8
@@ -10092,7 +10092,7 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1065, %1082, %1086,
   %1213 = load ptr, ptr %230, align 8
   %1214 = getelementptr inbounds nuw i8, ptr %1213, i64 8
   %1215 = load ptr, ptr %1214, align 8
-  %1216 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1215, i64 %.0219846
+  %1216 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %1215, i64 %.0219859
   %1217 = load double, ptr %1216, align 8
   %1218 = fsub double %1217, %1211
   %1219 = fdiv double %1212, %1218
@@ -10109,10 +10109,10 @@ _ZNK7glslang11TConstUnionneERKS0_.exit:           ; preds = %1065, %1082, %1086,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1152, %1164, %626, %647, %666, %685, %704, %723, %742, %761, %780, %488, %503, %517, %531, %545, %559, %573, %587, %601, %350, %365, %379, %393, %407, %421, %435, %449, %463, %1200, %1184, %_ZNK7glslang11TConstUnionneERKS0_.exit, %_ZNK7glslang11TConstUnioneqERKS0_.exit, %_ZNK7glslang11TConstUnionltERKS0_.exit281, %_ZNK7glslang11TConstUniongtERKS0_.exit279, %_ZNK7glslang11TConstUniongtERKS0_.exit, %_ZNK7glslang11TConstUnionltERKS0_.exit, %321, %306, %291
-  %.sink861 = phi ptr [ %293, %291 ], [ %308, %306 ], [ %338, %321 ], [ %801, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ %852, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ %903, %_ZNK7glslang11TConstUniongtERKS0_.exit279 ], [ %955, %_ZNK7glslang11TConstUnionltERKS0_.exit281 ], [ %1007, %_ZNK7glslang11TConstUnioneqERKS0_.exit ], [ %1067, %_ZNK7glslang11TConstUnionneERKS0_.exit ], [ %1186, %1184 ], [ %1223, %1200 ], [ %465, %463 ], [ %451, %449 ], [ %437, %435 ], [ %423, %421 ], [ %409, %407 ], [ %395, %393 ], [ %381, %379 ], [ %367, %365 ], [ %352, %350 ], [ %603, %601 ], [ %589, %587 ], [ %575, %573 ], [ %561, %559 ], [ %547, %545 ], [ %533, %531 ], [ %519, %517 ], [ %505, %503 ], [ %490, %488 ], [ %782, %780 ], [ %763, %761 ], [ %744, %742 ], [ %725, %723 ], [ %706, %704 ], [ %687, %685 ], [ %668, %666 ], [ %649, %647 ], [ %628, %626 ], [ %1151, %1164 ], [ %1151, %1152 ]
-  %.sink859 = phi i32 [ 2, %291 ], [ 2, %306 ], [ 2, %321 ], [ 12, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUniongtERKS0_.exit279 ], [ 12, %_ZNK7glslang11TConstUnionltERKS0_.exit281 ], [ 12, %_ZNK7glslang11TConstUnioneqERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUnionneERKS0_.exit ], [ 2, %1184 ], [ 2, %1200 ], [ 11, %463 ], [ 10, %449 ], [ 7, %435 ], [ 6, %421 ], [ 5, %407 ], [ 4, %393 ], [ 9, %379 ], [ 8, %365 ], [ 2, %350 ], [ 11, %601 ], [ 10, %587 ], [ 7, %573 ], [ 6, %559 ], [ 5, %545 ], [ 4, %531 ], [ 9, %517 ], [ 8, %503 ], [ 2, %488 ], [ 11, %780 ], [ 10, %761 ], [ 8, %742 ], [ 7, %723 ], [ 6, %704 ], [ 5, %685 ], [ 4, %666 ], [ 9, %647 ], [ 2, %626 ], [ 2, %1164 ], [ 2, %1152 ]
-  %1227 = getelementptr inbounds nuw i8, ptr %.sink861, i64 8
-  store i32 %.sink859, ptr %1227, align 8
+  %.sink874 = phi ptr [ %293, %291 ], [ %308, %306 ], [ %338, %321 ], [ %801, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ %852, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ %903, %_ZNK7glslang11TConstUniongtERKS0_.exit279 ], [ %955, %_ZNK7glslang11TConstUnionltERKS0_.exit281 ], [ %1007, %_ZNK7glslang11TConstUnioneqERKS0_.exit ], [ %1067, %_ZNK7glslang11TConstUnionneERKS0_.exit ], [ %1186, %1184 ], [ %1223, %1200 ], [ %465, %463 ], [ %451, %449 ], [ %437, %435 ], [ %423, %421 ], [ %409, %407 ], [ %395, %393 ], [ %381, %379 ], [ %367, %365 ], [ %352, %350 ], [ %603, %601 ], [ %589, %587 ], [ %575, %573 ], [ %561, %559 ], [ %547, %545 ], [ %533, %531 ], [ %519, %517 ], [ %505, %503 ], [ %490, %488 ], [ %782, %780 ], [ %763, %761 ], [ %744, %742 ], [ %725, %723 ], [ %706, %704 ], [ %687, %685 ], [ %668, %666 ], [ %649, %647 ], [ %628, %626 ], [ %1151, %1164 ], [ %1151, %1152 ]
+  %.sink872 = phi i32 [ 2, %291 ], [ 2, %306 ], [ 2, %321 ], [ 12, %_ZNK7glslang11TConstUnionltERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUniongtERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUniongtERKS0_.exit279 ], [ 12, %_ZNK7glslang11TConstUnionltERKS0_.exit281 ], [ 12, %_ZNK7glslang11TConstUnioneqERKS0_.exit ], [ 12, %_ZNK7glslang11TConstUnionneERKS0_.exit ], [ 2, %1184 ], [ 2, %1200 ], [ 11, %463 ], [ 10, %449 ], [ 7, %435 ], [ 6, %421 ], [ 5, %407 ], [ 4, %393 ], [ 9, %379 ], [ 8, %365 ], [ 2, %350 ], [ 11, %601 ], [ 10, %587 ], [ 7, %573 ], [ 6, %559 ], [ 5, %545 ], [ 4, %531 ], [ 9, %517 ], [ 8, %503 ], [ 2, %488 ], [ 11, %780 ], [ 10, %761 ], [ 8, %742 ], [ 7, %723 ], [ 6, %704 ], [ 5, %685 ], [ 4, %666 ], [ 9, %647 ], [ 2, %626 ], [ 2, %1164 ], [ 2, %1152 ]
+  %1227 = getelementptr inbounds nuw i8, ptr %.sink874, i64 8
+  store i32 %.sink872, ptr %1227, align 8
   br label %1228
 
 1228:                                             ; preds = %.sink.split, %339, %477, %615
@@ -10623,8 +10623,8 @@ _ZNK7glslang11TConstUnionmlERKS0_.exit.us:        ; preds = %1504, %1500, %1495,
   call void %1536(ptr noundef nonnull align 8 dereferenceable(32) %1513, ptr noundef nonnull align 8 dereferenceable(24) %1533) #10
   br label %_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit
 
-_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit: ; preds = %.lr.ph.i, %1126, %.thread843, %.loopexit, %1229, %34, %2, %32
-  %.0 = phi ptr [ %33, %32 ], [ null, %2 ], [ %1, %34 ], [ %1513, %.loopexit ], [ %1, %1229 ], [ %1, %.thread843 ], [ %1, %1126 ], [ %1, %.lr.ph.i ]
+_ZN7glslang13TIntermediate16areAllChildConstEPNS_16TIntermAggregateE.exit: ; preds = %.lr.ph.i, %1126, %.thread856, %.loopexit, %1229, %34, %2, %32
+  %.0 = phi ptr [ %33, %32 ], [ null, %2 ], [ %1, %34 ], [ %1513, %.loopexit ], [ %1, %1229 ], [ %1, %.thread856 ], [ %1, %1126 ], [ %1, %.lr.ph.i ]
   ret ptr %.0
 }
 
@@ -11304,12 +11304,12 @@ _ZN7glslang17TSmallArrayVector5allocEv.exit.i.i:  ; preds = %112, %_ZNK7glslang1
   %259 = lshr i32 %242, 8
   %260 = and i32 %259, 3840
   %261 = shl nuw nsw i32 %257, 8
-  %.sink22 = select i1 %3, i32 %261, i32 %260
+  %.sink25 = select i1 %3, i32 %261, i32 %260
   %262 = and i32 %255, -3841
-  %263 = or disjoint i32 %262, %.sink22
+  %263 = or disjoint i32 %262, %.sink25
   %264 = and i32 %263, -1044481
   store i32 %264, ptr %196, align 8
-  %265 = icmp eq i32 %.sink22, 256
+  %265 = icmp eq i32 %.sink25, 256
   br i1 %265, label %266, label %_ZN7glslang11TArraySizes16copyDereferencedERKS0_.exit
 
 266:                                              ; preds = %258
@@ -12639,7 +12639,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 255
   %31 = icmp eq i32 %30, %2
-  br i1 %31, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit155, label %32
+  br i1 %31, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit156, label %32
 
 32:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread95
   %33 = load ptr, ptr %27, align 8
@@ -12666,7 +12666,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 255
   %49 = icmp eq i32 %48, %2
-  br i1 %49, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit157, label %50
+  br i1 %49, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit158, label %50
 
 50:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit19.thread98
   %51 = load ptr, ptr %45, align 8
@@ -12684,7 +12684,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsBasicTypeENS2_10TBasicTypeEEUlPKSC_E_EEbT_EUlRKS3_E_EEESI_SI_SI_T0_St26random_access_iterator_tag(ptr %58, ptr %60, i32 %2)
   %.not117 = icmp eq ptr %60, %61
-  br i1 %.not117, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23.thread101, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit151
+  br i1 %.not117, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23.thread101, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit152
 
 _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23.thread101: ; preds = %50, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 96
@@ -12693,7 +12693,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, 255
   %67 = icmp eq i32 %66, %2
-  br i1 %67, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit159, label %68
+  br i1 %67, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit160, label %68
 
 68:                                               ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23.thread101
   %69 = load ptr, ptr %63, align 8
@@ -12711,7 +12711,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsBasicTypeENS2_10TBasicTypeEEUlPKSC_E_EEbT_EUlRKS3_E_EEESI_SI_SI_T0_St26random_access_iterator_tag(ptr %76, ptr %78, i32 %2)
   %.not118 = icmp eq ptr %78, %79
-  br i1 %.not118, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit27.thread104, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit153
+  br i1 %.not118, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit27.thread104, label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit154
 
 _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit27.thread104: ; preds = %68, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit27
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 128
@@ -12827,28 +12827,28 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 32
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit151: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23
+_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit152: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23
   %141 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 64
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit153: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit27
+_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit154: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit27
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 96
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit155: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread95
+_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit156: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread95
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 32
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit157: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit19.thread98
+_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit158: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit19.thread98
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 64
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit159: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23.thread101
+_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit160: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit23.thread101
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.049.0140, i64 96
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread: ; preds = %.lr.ph, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit151, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit153, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit155, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit157, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit159, %122, %103, %84, %._crit_edge, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit39.thread113, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit39, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.049.0.lcssa, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31 ], [ %.sroa.049.1, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35 ], [ %.sroa.049.2, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit39 ], [ %1, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit39.thread113 ], [ %1, %._crit_edge ], [ %.sroa.049.0.lcssa, %84 ], [ %.sroa.049.1, %103 ], [ %.sroa.049.2, %122 ], [ %140, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit ], [ %141, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit151 ], [ %142, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit153 ], [ %143, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit155 ], [ %144, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit157 ], [ %145, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit159 ], [ %.sroa.049.0140, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit ], [ %.sroa.049.0140, %.lr.ph ]
+_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread: ; preds = %.lr.ph, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit152, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit154, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit156, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit158, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit160, %122, %103, %84, %._crit_edge, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit39.thread113, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit39, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.049.0.lcssa, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit31 ], [ %.sroa.049.1, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit35 ], [ %.sroa.049.2, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit39 ], [ %1, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit39.thread113 ], [ %1, %._crit_edge ], [ %.sroa.049.0.lcssa, %84 ], [ %.sroa.049.1, %103 ], [ %.sroa.049.2, %122 ], [ %140, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit ], [ %141, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit152 ], [ %142, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit154 ], [ %143, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit156 ], [ %144, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit158 ], [ %145, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit.thread.loopexit.split.loop.exit160 ], [ %.sroa.049.0140, %_ZZNK7glslang5TType8containsIZNKS0_17containsBasicTypeENS_10TBasicTypeEEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES9_.exit ], [ %.sroa.049.0140, %.lr.ph ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -13175,7 +13175,7 @@ _ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i18: ; preds =
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(152) %26) #10
-  br i1 %30, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit154, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i18.thread
+  br i1 %30, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit161, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i18.thread
 
 _ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i18.thread: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread94, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i18
   %31 = load ptr, ptr %26, align 8
@@ -13206,7 +13206,7 @@ _ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i24: ; preds =
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 296
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(152) %43) #10
-  br i1 %47, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit156, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i24.thread
+  br i1 %47, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit163, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i24.thread
 
 _ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i24.thread: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit21.thread97, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i24
   %48 = load ptr, ptr %43, align 8
@@ -13224,7 +13224,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsStructureEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %55, ptr %57, ptr %2)
   %.not116 = icmp eq ptr %57, %58
-  br i1 %.not116, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread100, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit150
+  br i1 %.not116, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread100, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit157
 
 _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread100: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i24.thread, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 96
@@ -13237,7 +13237,7 @@ _ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i30: ; preds =
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 296
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(152) %60) #10
-  br i1 %64, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit158, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i30.thread
+  br i1 %64, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit165, label %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i30.thread
 
 _ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i30.thread: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27.thread100, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i30
   %65 = load ptr, ptr %60, align 8
@@ -13255,7 +13255,7 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7glslang8TTypeLocESt6vectorIS3_NS2_14pool_allocatorIS3_EEEEENS0_5__ops10_Iter_predIZNKS2_5TType8containsIZNKSC_17containsStructureEvEUlPKSC_E_EEbT_EUlRKS3_E_EEESH_SH_SH_T0_St26random_access_iterator_tag(ptr %72, ptr %74, ptr %2)
   %.not117 = icmp eq ptr %74, %75
-  br i1 %.not117, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit33.thread103, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit152
+  br i1 %.not117, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit33.thread103, label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit159
 
 _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit33.thread103: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i30.thread, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit33
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 128
@@ -13383,28 +13383,28 @@ _ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 32
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit150: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27
+_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit157: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit27
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 64
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit152: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit33
+_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit159: ; preds = %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit33
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 96
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit154: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i18
+_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit161: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i18
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 32
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit156: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i24
+_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit163: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i24
   %137 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 64
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit158: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i30
+_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit165: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i30
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.055.0139, i64 96
   br label %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread
 
-_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit150, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit152, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit154, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit156, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit158, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i36, %._crit_edge, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit51.thread112, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit51, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.055.0.lcssa, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39 ], [ %.sroa.055.1, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45 ], [ %.sroa.055.2, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit51 ], [ %1, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit51.thread112 ], [ %1, %._crit_edge ], [ %.sroa.055.0.lcssa, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i36 ], [ %.sroa.055.1, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42 ], [ %.sroa.055.2, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48 ], [ %133, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit ], [ %134, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit150 ], [ %135, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit152 ], [ %136, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit154 ], [ %137, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit156 ], [ %138, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit158 ], [ %.sroa.055.0139, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit ], [ %.sroa.055.0139, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i ]
+_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread: ; preds = %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit157, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit159, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit161, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit163, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit165, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i36, %._crit_edge, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit51.thread112, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit51, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.055.0.lcssa, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit39 ], [ %.sroa.055.1, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit45 ], [ %.sroa.055.2, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit51 ], [ %1, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit51.thread112 ], [ %1, %._crit_edge ], [ %.sroa.055.0.lcssa, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i36 ], [ %.sroa.055.1, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i42 ], [ %.sroa.055.2, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i48 ], [ %133, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit ], [ %134, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit157 ], [ %135, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit159 ], [ %136, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit161 ], [ %137, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit163 ], [ %138, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit.thread.loopexit.split.loop.exit165 ], [ %.sroa.055.0139, %_ZZNK7glslang5TType8containsIZNKS0_17containsStructureEvEUlPKS0_E_EEbT_ENKUlRKNS_8TTypeLocEE_clES8_.exit ], [ %.sroa.055.0139, %_ZZNK7glslang5TType17containsStructureEvENKUlPKS0_E_clES2_.exit.i.i ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 

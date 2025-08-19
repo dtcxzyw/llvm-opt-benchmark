@@ -200,7 +200,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i: ; preds = %53
   store <2 x float> %.fca.1.load.i.i.i.i.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %65 = add i64 %.01012.i.i.i.i.i, -1
+  %65 = add nsw i64 %.01012.i.i.i.i.i, -1
   %66 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i64 %65, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit140, label %52, !llvm.loop !8
@@ -523,7 +523,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %123
   br label %297
 
 .loopexit.split-lp:                               ; preds = %.invoke, %263, %265, %270, %294
-  %.sroa.0.0152 = phi ptr [ %.sroa.0.2, %263 ], [ %.sroa.0.0.lcssa179, %265 ], [ %.sroa.0.0.lcssa179, %270 ], [ %.sroa.0.0.lcssa178, %294 ], [ %.sroa.0.0159, %.invoke ]
+  %.sroa.0.0152 = phi ptr [ %.sroa.0.2, %263 ], [ %.sroa.0.0.lcssa203, %265 ], [ %.sroa.0.0.lcssa203, %270 ], [ %.sroa.0.0.lcssa202, %294 ], [ %.sroa.0.0159, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %297
@@ -735,13 +735,13 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %172, %_ZNSt6vectorI
   br label %294
 
 265:                                              ; preds = %._crit_edge164.thread, %._crit_edge164
-  %.sroa.0.0.lcssa179 = phi ptr [ null, %._crit_edge164.thread ], [ %.sroa.0.2, %._crit_edge164 ]
-  %.sroa.9.0.lcssa177 = phi i64 [ 0, %._crit_edge164.thread ], [ %261, %._crit_edge164 ]
-  %266 = ptrtoint ptr %.sroa.0.0.lcssa179 to i64
-  %267 = sub i64 %.sroa.9.0.lcssa177, %266
+  %.sroa.0.0.lcssa203 = phi ptr [ null, %._crit_edge164.thread ], [ %.sroa.0.2, %._crit_edge164 ]
+  %.sroa.9.0.lcssa201 = phi i64 [ 0, %._crit_edge164.thread ], [ %261, %._crit_edge164 ]
+  %266 = ptrtoint ptr %.sroa.0.0.lcssa203 to i64
+  %267 = sub i64 %.sroa.9.0.lcssa201, %266
   %268 = lshr exact i64 %267, 2
   %269 = trunc i64 %268 to i32
-  invoke void @glDrawBuffers(i32 noundef %269, ptr noundef %.sroa.0.0.lcssa179)
+  invoke void @glDrawBuffers(i32 noundef %269, ptr noundef %.sroa.0.0.lcssa203)
           to label %270 unwind label %.loopexit.split-lp
 
 270:                                              ; preds = %265
@@ -836,23 +836,23 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %172, %_ZNSt6vectorI
   br label %297
 
 294:                                              ; preds = %272, %264
-  %.sroa.0.0.lcssa178 = phi ptr [ %.sroa.0.0.lcssa179, %272 ], [ %.sroa.0.2, %264 ]
+  %.sroa.0.0.lcssa202 = phi ptr [ %.sroa.0.0.lcssa203, %272 ], [ %.sroa.0.2, %264 ]
   invoke void @glBindFramebuffer(i32 noundef 36160, i32 noundef 0)
           to label %295 unwind label %.loopexit.split-lp
 
 295:                                              ; preds = %294
-  %.not.i.i.i103 = icmp eq ptr %.sroa.0.0.lcssa178, null
+  %.not.i.i.i103 = icmp eq ptr %.sroa.0.0.lcssa202, null
   br i1 %.not.i.i.i103, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %296
 
 296:                                              ; preds = %295
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.lcssa178) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.lcssa202) #23
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %295, %296
   ret void
 
 297:                                              ; preds = %.loopexit, %.loopexit.split-lp, %292, %293
-  %.sroa.0.0150 = phi ptr [ %.sroa.0.0.lcssa179, %293 ], [ %.sroa.0.0.lcssa179, %292 ], [ %.sroa.0.0159, %.loopexit ], [ %.sroa.0.0152, %.loopexit.split-lp ]
+  %.sroa.0.0150 = phi ptr [ %.sroa.0.0.lcssa203, %293 ], [ %.sroa.0.0.lcssa203, %292 ], [ %.sroa.0.0159, %.loopexit ], [ %.sroa.0.0152, %.loopexit.split-lp ]
   %.pn64 = phi { ptr, i32 } [ %.pn.pn139, %293 ], [ %.pn, %292 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i104 = icmp eq ptr %.sroa.0.0150, null
   br i1 %.not.i.i.i104, label %_ZNSt6vectorIjSaIjEED2Ev.exit105, label %298

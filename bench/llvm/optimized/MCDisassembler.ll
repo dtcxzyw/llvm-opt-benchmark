@@ -162,17 +162,17 @@ _ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit: ; preds = %17, %swit
   %.0.i = phi i8 [ %switch.load, %switch.lookup ], [ 0, %17 ]
   %21 = load i8, ptr %1, align 4, !tbaa !36
   %22 = icmp ult i8 %21, 23
-  br i1 %22, label %switch.lookup12, label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9
+  br i1 %22, label %switch.lookup13, label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9
 
-switch.lookup12:                                  ; preds = %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit
+switch.lookup13:                                  ; preds = %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit
   %23 = zext nneg i8 %21 to i64
-  %switch.gep13 = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %23
-  %switch.load14 = load i8, ptr %switch.gep13, align 1
-  %24 = icmp samesign ult i8 %.0.i, %switch.load14
+  %switch.gep14 = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %23
+  %switch.load15 = load i8, ptr %switch.gep14, align 1
+  %24 = icmp samesign ult i8 %.0.i, %switch.load15
   br label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9
 
-_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9: ; preds = %switch.lookup12, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit, %9, %7
-  %.0 = phi i1 [ %8, %7 ], [ %.mux, %9 ], [ %24, %switch.lookup12 ], [ false, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit ]
+_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9: ; preds = %switch.lookup13, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit, %9, %7
+  %.0 = phi i1 [ %8, %7 ], [ %.mux, %9 ], [ %24, %switch.lookup13 ], [ false, %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit ]
   ret i1 %.0
 }
 

@@ -95,10 +95,10 @@ Vec_IntFetch.exit:                                ; preds = %20, %26
   br i1 %.not, label %.preheader, label %43
 
 Vec_IntFetch.exit.thread:                         ; preds = %8
-  %.val79129 = load i32, ptr %4, align 8
-  %35 = and i32 %.val79129, 7
-  %.not130 = icmp eq i32 %35, 5
-  br i1 %.not130, label %.loopexit, label %43
+  %.val79130 = load i32, ptr %4, align 8
+  %35 = and i32 %.val79130, 7
+  %.not131 = icmp eq i32 %35, 5
+  br i1 %.not131, label %.loopexit, label %43
 
 .preheader:                                       ; preds = %Vec_IntFetch.exit
   %36 = icmp sgt i32 %2, 0
@@ -122,7 +122,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %8
   br i1 %exitcond127.not, label %.loopexit, label %.lr.ph102, !llvm.loop !18
 
 43:                                               ; preds = %Vec_IntFetch.exit.thread, %Vec_IntFetch.exit
-  %.0.i132 = phi ptr [ null, %Vec_IntFetch.exit.thread ], [ %.0.i, %Vec_IntFetch.exit ]
+  %.0.i133 = phi ptr [ null, %Vec_IntFetch.exit.thread ], [ %.0.i, %Vec_IntFetch.exit ]
   %.val80 = load ptr, ptr %9, align 8, !tbaa !3
   %44 = ptrtoint ptr %.val80 to i64
   %45 = and i64 %44, 1
@@ -151,7 +151,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %8
   %52 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv118
   %53 = load i32, ptr %52, align 4, !tbaa !17
   %54 = and i32 %53, %51
-  %55 = getelementptr inbounds nuw i32, ptr %.0.i132, i64 %indvars.iv118
+  %55 = getelementptr inbounds nuw i32, ptr %.0.i133, i64 %indvars.iv118
   store i32 %54, ptr %55, align 4, !tbaa !17
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
@@ -172,7 +172,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %8
   %59 = load i32, ptr %58, align 4, !tbaa !17
   %60 = xor i32 %59, -1
   %61 = and i32 %57, %60
-  %62 = getelementptr inbounds nuw i32, ptr %.0.i132, i64 %indvars.iv108
+  %62 = getelementptr inbounds nuw i32, ptr %.0.i133, i64 %indvars.iv108
   store i32 %61, ptr %62, align 4, !tbaa !17
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -196,7 +196,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %8
   %67 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !17
   %69 = and i32 %68, %66
-  %70 = getelementptr inbounds nuw i32, ptr %.0.i132, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw i32, ptr %.0.i133, i64 %indvars.iv
   store i32 %69, ptr %70, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -217,22 +217,22 @@ Vec_IntFetch.exit.thread:                         ; preds = %8
   %74 = load i32, ptr %73, align 4, !tbaa !17
   %.demorgan = or i32 %74, %72
   %75 = xor i32 %.demorgan, -1
-  %76 = getelementptr inbounds nuw i32, ptr %.0.i132, i64 %indvars.iv113
+  %76 = getelementptr inbounds nuw i32, ptr %.0.i133, i64 %indvars.iv113
   store i32 %75, ptr %76, align 4, !tbaa !17
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
   br i1 %exitcond117.not, label %.loopexit, label %.lr.ph98, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph102, %.lr.ph98, %.lr.ph, %.lr.ph96, %.lr.ph100, %Vec_IntFetch.exit.thread, %.preheader92, %.preheader90, %.thread86, %.preheader87, %.preheader
-  %.0.i131 = phi ptr [ %.0.i132, %.preheader92 ], [ %.0.i132, %.preheader90 ], [ %.0.i132, %.thread86 ], [ %.0.i132, %.preheader87 ], [ %.0.i, %.preheader ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i132, %.lr.ph100 ], [ %.0.i132, %.lr.ph96 ], [ %.0.i132, %.lr.ph ], [ %.0.i132, %.lr.ph98 ], [ %.0.i, %.lr.ph102 ]
+  %.0.i132 = phi ptr [ %.0.i133, %.preheader92 ], [ %.0.i133, %.preheader90 ], [ %.0.i133, %.thread86 ], [ %.0.i133, %.preheader87 ], [ %.0.i, %.preheader ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i133, %.lr.ph100 ], [ %.0.i133, %.lr.ph96 ], [ %.0.i133, %.lr.ph ], [ %.0.i133, %.lr.ph98 ], [ %.0.i, %.lr.ph102 ]
   %77 = load i32, ptr %4, align 8
   %78 = and i32 %77, -17
   store i32 %78, ptr %4, align 8
-  store ptr %.0.i131, ptr %0, align 8, !tbaa !11
+  store ptr %.0.i132, ptr %0, align 8, !tbaa !11
   br label %79
 
 79:                                               ; preds = %.loopexit, %6
-  %.067 = phi ptr [ %.0.i131, %.loopexit ], [ %7, %6 ]
+  %.067 = phi ptr [ %.0.i132, %.loopexit ], [ %7, %6 ]
   ret ptr %.067
 }
 

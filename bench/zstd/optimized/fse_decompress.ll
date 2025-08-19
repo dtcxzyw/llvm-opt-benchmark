@@ -484,12 +484,12 @@ BIT_initDStream.exit.i:                           ; preds = %67
 
 BIT_reloadDStream.exit36.i.thread:                ; preds = %.BIT_reloadDStream.exit36_crit_edge.i, %141
   %.promoted221.i.ph = phi ptr [ %145, %141 ], [ %139, %.BIT_reloadDStream.exit36_crit_edge.i ]
-  %.ph114 = phi ptr [ %.pre.i, %141 ], [ %139, %.BIT_reloadDStream.exit36_crit_edge.i ]
+  %.ph155 = phi ptr [ %.pre.i, %141 ], [ %139, %.BIT_reloadDStream.exit36_crit_edge.i ]
   %.promoted.ph = phi i64 [ %.val.i.i67.i, %141 ], [ %.promoted214.pre.i, %.BIT_reloadDStream.exit36_crit_edge.i ]
   %.promoted.i.ph = phi i32 [ %146, %141 ], [ %135, %.BIT_reloadDStream.exit36_crit_edge.i ]
-  %.promoted217.i118 = load i64, ptr %10, align 8
-  %.promoted219.i119 = load i64, ptr %11, align 8
-  %150 = ptrtoint ptr %.ph114 to i64
+  %.promoted217.i159 = load i64, ptr %10, align 8
+  %.promoted219.i160 = load i64, ptr %11, align 8
+  %150 = ptrtoint ptr %.ph155 to i64
   %151 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -528,21 +528,21 @@ BIT_reloadDStream.exit36.i:                       ; preds = %147
   %175 = phi ptr [ %154, %BIT_reloadDStream.exit36.i.thread ], [ %173, %BIT_reloadDStream.exit36.i ]
   %176 = phi ptr [ %152, %BIT_reloadDStream.exit36.i.thread ], [ %171, %BIT_reloadDStream.exit36.i ]
   %177 = phi i64 [ %150, %BIT_reloadDStream.exit36.i.thread ], [ %169, %BIT_reloadDStream.exit36.i ]
-  %.promoted219.i124 = phi i64 [ %.promoted219.i119, %BIT_reloadDStream.exit36.i.thread ], [ %.promoted219.i, %BIT_reloadDStream.exit36.i ]
-  %.promoted217.i123 = phi i64 [ %.promoted217.i118, %BIT_reloadDStream.exit36.i.thread ], [ %.promoted217.i, %BIT_reloadDStream.exit36.i ]
-  %.promoted.i122 = phi i32 [ %.promoted.i.ph, %BIT_reloadDStream.exit36.i.thread ], [ %168, %BIT_reloadDStream.exit36.i ]
-  %.promoted121 = phi i64 [ %.promoted.ph, %BIT_reloadDStream.exit36.i.thread ], [ %.val.i.i, %BIT_reloadDStream.exit36.i ]
-  %178 = phi ptr [ %.ph114, %BIT_reloadDStream.exit36.i.thread ], [ %148, %BIT_reloadDStream.exit36.i ]
-  %.promoted221.i120 = phi ptr [ %.promoted221.i.ph, %BIT_reloadDStream.exit36.i.thread ], [ %166, %BIT_reloadDStream.exit36.i ]
+  %.promoted219.i165 = phi i64 [ %.promoted219.i160, %BIT_reloadDStream.exit36.i.thread ], [ %.promoted219.i, %BIT_reloadDStream.exit36.i ]
+  %.promoted217.i164 = phi i64 [ %.promoted217.i159, %BIT_reloadDStream.exit36.i.thread ], [ %.promoted217.i, %BIT_reloadDStream.exit36.i ]
+  %.promoted.i163 = phi i32 [ %.promoted.i.ph, %BIT_reloadDStream.exit36.i.thread ], [ %168, %BIT_reloadDStream.exit36.i ]
+  %.promoted162 = phi i64 [ %.promoted.ph, %BIT_reloadDStream.exit36.i.thread ], [ %.val.i.i, %BIT_reloadDStream.exit36.i ]
+  %178 = phi ptr [ %.ph155, %BIT_reloadDStream.exit36.i.thread ], [ %148, %BIT_reloadDStream.exit36.i ]
+  %.promoted221.i161 = phi ptr [ %.promoted221.i.ph, %BIT_reloadDStream.exit36.i.thread ], [ %166, %BIT_reloadDStream.exit36.i ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %207
   %.038.i10.i47 = phi ptr [ %259, %207 ], [ %0, %.lr.ph.preheader ]
-  %179 = phi i32 [ %255, %207 ], [ %.promoted.i122, %.lr.ph.preheader ]
-  %.val.i.i70215.i46 = phi i64 [ %.val.i.i68.sink.i, %207 ], [ %.promoted121, %.lr.ph.preheader ]
-  %180 = phi i64 [ %243, %207 ], [ %.promoted217.i123, %.lr.ph.preheader ]
-  %181 = phi i64 [ %257, %207 ], [ %.promoted219.i124, %.lr.ph.preheader ]
-  %182 = phi ptr [ %.promoted240.i, %207 ], [ %.promoted221.i120, %.lr.ph.preheader ]
+  %179 = phi i32 [ %255, %207 ], [ %.promoted.i163, %.lr.ph.preheader ]
+  %.val.i.i70215.i46 = phi i64 [ %.val.i.i68.sink.i, %207 ], [ %.promoted162, %.lr.ph.preheader ]
+  %180 = phi i64 [ %243, %207 ], [ %.promoted217.i164, %.lr.ph.preheader ]
+  %181 = phi i64 [ %257, %207 ], [ %.promoted219.i165, %.lr.ph.preheader ]
+  %182 = phi ptr [ %.promoted240.i, %207 ], [ %.promoted221.i161, %.lr.ph.preheader ]
   %.not.i23.i = icmp ult ptr %182, %140
   br i1 %.not.i23.i, label %186, label %183
 
@@ -570,11 +570,11 @@ BIT_reloadDStream.exit36.i:                       ; preds = %147
   br label %BIT_reloadDStream.exit29.i
 
 BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
-  %.pn403.in.i = phi i32 [ %184, %183 ], [ %.021.i25.i, %188 ]
+  %.pn452.in.i = phi i32 [ %184, %183 ], [ %.021.i25.i, %188 ]
   %.promoted229.i = phi i32 [ %185, %183 ], [ %198, %188 ]
   %.022.i24.i = phi i1 [ true, %183 ], [ %193, %188 ]
-  %.pn403.i = zext i32 %.pn403.in.i to i64
-  %.pn.i = sub nsw i64 0, %.pn403.i
+  %.pn452.i = zext i32 %.pn452.in.i to i64
+  %.pn.i = sub nsw i64 0, %.pn452.i
   %.promoted240.i = getelementptr inbounds i8, ptr %182, i64 %.pn.i
   %.val.i.i68.sink.i = load i64, ptr %.promoted240.i, align 1, !tbaa !11
   %199 = icmp ult ptr %.038.i10.i47, %59
@@ -590,8 +590,8 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   %.lcssa42 = phi i64 [ %.promoted219.i, %BIT_reloadDStream.exit36.i ], [ %257, %207 ], [ %181, %186 ], [ %181, %BIT_reloadDStream.exit29.i ]
   %.lcssa41 = phi i64 [ %.promoted217.i, %BIT_reloadDStream.exit36.i ], [ %243, %207 ], [ %180, %186 ], [ %180, %BIT_reloadDStream.exit29.i ]
   %.038.i10.i.lcssa = phi ptr [ %0, %BIT_reloadDStream.exit36.i ], [ %259, %207 ], [ %.038.i10.i47, %186 ], [ %.038.i10.i47, %BIT_reloadDStream.exit29.i ]
-  %.promoted229357.i = phi i32 [ %168, %BIT_reloadDStream.exit36.i ], [ %255, %207 ], [ %179, %186 ], [ %.promoted229.i, %BIT_reloadDStream.exit29.i ]
-  %.promoted240355.i = phi ptr [ @BIT_reloadDStream.zeroFilled, %BIT_reloadDStream.exit36.i ], [ @BIT_reloadDStream.zeroFilled, %207 ], [ %182, %186 ], [ %.promoted240.i, %BIT_reloadDStream.exit29.i ]
+  %.promoted229406.i = phi i32 [ %168, %BIT_reloadDStream.exit36.i ], [ %255, %207 ], [ %179, %186 ], [ %.promoted229.i, %BIT_reloadDStream.exit29.i ]
+  %.promoted240404.i = phi ptr [ @BIT_reloadDStream.zeroFilled, %BIT_reloadDStream.exit36.i ], [ @BIT_reloadDStream.zeroFilled, %207 ], [ %182, %186 ], [ %.promoted240.i, %BIT_reloadDStream.exit29.i ]
   store i64 %.val.i.i68.sink.i43, ptr %9, align 8
   store i64 %.lcssa41, ptr %10, align 8
   store i64 %.lcssa42, ptr %11, align 8
@@ -680,11 +680,11 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   br i1 %260, label %.preheader196.i, label %.lr.ph, !prof !37, !llvm.loop !38
 
 .lr.ph.i:                                         ; preds = %.preheader196.i, %BIT_reloadDStream.exit.i
-  %261 = phi ptr [ %334, %BIT_reloadDStream.exit.i ], [ %.promoted240355.i, %.preheader196.i ]
+  %261 = phi ptr [ %334, %BIT_reloadDStream.exit.i ], [ %.promoted240404.i, %.preheader196.i ]
   %.139.i11235.i = phi ptr [ %315, %BIT_reloadDStream.exit.i ], [ %.038.i10.i.lcssa, %.preheader196.i ]
   %262 = phi i64 [ %276, %BIT_reloadDStream.exit.i ], [ %.lcssa41, %.preheader196.i ]
   %.val.i.i106.i = phi i64 [ %.val.i.i115227.i, %BIT_reloadDStream.exit.i ], [ %.val.i.i68.sink.i43, %.preheader196.i ]
-  %263 = phi i32 [ %335, %BIT_reloadDStream.exit.i ], [ %.promoted229357.i, %.preheader196.i ]
+  %263 = phi i32 [ %335, %BIT_reloadDStream.exit.i ], [ %.promoted229406.i, %.preheader196.i ]
   %264 = phi i64 [ %314, %BIT_reloadDStream.exit.i ], [ %.lcssa42, %.preheader196.i ]
   %265 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %202, i64 %262
   %.sroa.0.0.copyload.i92.i = load i16, ptr %265, align 2, !tbaa !3
@@ -743,18 +743,18 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   br label %339
 
 .sink.split.i:                                    ; preds = %285, %280
-  %.pn405.in.i = phi i32 [ %281, %280 ], [ %.021.i18.i, %285 ]
-  %.ph400.i = phi i32 [ %282, %280 ], [ %295, %285 ]
-  %.pn405.i = zext i32 %.pn405.in.i to i64
-  %.pn404.i = sub nsw i64 0, %.pn405.i
-  %.ph.i = getelementptr inbounds i8, ptr %261, i64 %.pn404.i
+  %.pn454.in.i = phi i32 [ %281, %280 ], [ %.021.i18.i, %285 ]
+  %.ph449.i = phi i32 [ %282, %280 ], [ %295, %285 ]
+  %.pn454.i = zext i32 %.pn454.in.i to i64
+  %.pn453.i = sub nsw i64 0, %.pn454.i
+  %.ph.i = getelementptr inbounds i8, ptr %261, i64 %.pn453.i
   %.val.i.i99.sink.i = load i64, ptr %.ph.i, align 1, !tbaa !11
   store i64 %.val.i.i99.sink.i, ptr %9, align 8, !tbaa !33
   br label %298
 
 298:                                              ; preds = %.sink.split.i, %283
   %299 = phi ptr [ %261, %283 ], [ %.ph.i, %.sink.split.i ]
-  %300 = phi i32 [ %274, %283 ], [ %.ph400.i, %.sink.split.i ]
+  %300 = phi i32 [ %274, %283 ], [ %.ph449.i, %.sink.split.i ]
   %.val.i.i122.i = phi i64 [ %.val.i.i106.i, %283 ], [ %.val.i.i99.sink.i, %.sink.split.i ]
   %301 = icmp ugt ptr %277, %205
   br i1 %301, label %FSE_decompress_usingDTable_generic.exit13.i, label %302
@@ -810,18 +810,18 @@ BIT_reloadDStream.exit29.i:                       ; preds = %188, %183
   br label %BIT_reloadDStream.exit.sink.split.i
 
 BIT_reloadDStream.exit.sink.split.i:              ; preds = %323, %318
-  %.pn407.in.i = phi i32 [ %319, %318 ], [ %.021.i.i, %323 ]
-  %.ph402.i = phi i32 [ %320, %318 ], [ %333, %323 ]
-  %.pn407.i = zext i32 %.pn407.in.i to i64
-  %.pn406.i = sub nsw i64 0, %.pn407.i
-  %.ph401.i = getelementptr inbounds i8, ptr %299, i64 %.pn406.i
-  %.val.i.i115.sink.i = load i64, ptr %.ph401.i, align 1, !tbaa !11
+  %.pn456.in.i = phi i32 [ %319, %318 ], [ %.021.i.i, %323 ]
+  %.ph451.i = phi i32 [ %320, %318 ], [ %333, %323 ]
+  %.pn456.i = zext i32 %.pn456.in.i to i64
+  %.pn455.i = sub nsw i64 0, %.pn456.i
+  %.ph450.i = getelementptr inbounds i8, ptr %299, i64 %.pn455.i
+  %.val.i.i115.sink.i = load i64, ptr %.ph450.i, align 1, !tbaa !11
   store i64 %.val.i.i115.sink.i, ptr %9, align 8, !tbaa !33
   br label %BIT_reloadDStream.exit.i
 
 BIT_reloadDStream.exit.i:                         ; preds = %BIT_reloadDStream.exit.sink.split.i, %321
-  %334 = phi ptr [ %299, %321 ], [ %.ph401.i, %BIT_reloadDStream.exit.sink.split.i ]
-  %335 = phi i32 [ %312, %321 ], [ %.ph402.i, %BIT_reloadDStream.exit.sink.split.i ]
+  %334 = phi ptr [ %299, %321 ], [ %.ph450.i, %BIT_reloadDStream.exit.sink.split.i ]
+  %335 = phi i32 [ %312, %321 ], [ %.ph451.i, %BIT_reloadDStream.exit.sink.split.i ]
   %.val.i.i115227.i = phi i64 [ %.val.i.i122.i, %321 ], [ %.val.i.i115.sink.i, %BIT_reloadDStream.exit.sink.split.i ]
   %336 = icmp ugt ptr %315, %205
   br i1 %336, label %FSE_decompress_usingDTable_generic.exit13.i, label %.lr.ph.i
@@ -895,12 +895,12 @@ FSE_decompress_usingDTable_generic.exit13.i:      ; preds = %BIT_reloadDStream.e
 
 BIT_reloadDStream.exit64.i.thread:                ; preds = %.BIT_reloadDStream.exit64_crit_edge.i, %355
   %.promoted249.i.ph = phi ptr [ %359, %355 ], [ %352, %.BIT_reloadDStream.exit64_crit_edge.i ]
-  %.ph125 = phi ptr [ %.pre349.i, %355 ], [ %352, %.BIT_reloadDStream.exit64_crit_edge.i ]
+  %.ph166 = phi ptr [ %.pre349.i, %355 ], [ %352, %.BIT_reloadDStream.exit64_crit_edge.i ]
   %.promoted243.i.ph = phi i64 [ %.val.i.i124.i, %355 ], [ %.promoted243.pre.i, %.BIT_reloadDStream.exit64_crit_edge.i ]
   %.promoted241.i.ph = phi i32 [ %360, %355 ], [ %348, %.BIT_reloadDStream.exit64_crit_edge.i ]
-  %.promoted245.i129 = load i64, ptr %13, align 8
-  %.promoted247.i130 = load i64, ptr %14, align 8
-  %365 = ptrtoint ptr %.ph125 to i64
+  %.promoted245.i170 = load i64, ptr %13, align 8
+  %.promoted247.i171 = load i64, ptr %14, align 8
+  %365 = ptrtoint ptr %.ph166 to i64
   %366 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %367 = load ptr, ptr %366, align 8
   %368 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -939,21 +939,21 @@ BIT_reloadDStream.exit64.i:                       ; preds = %361
   %390 = phi ptr [ %369, %BIT_reloadDStream.exit64.i.thread ], [ %388, %BIT_reloadDStream.exit64.i ]
   %391 = phi ptr [ %367, %BIT_reloadDStream.exit64.i.thread ], [ %386, %BIT_reloadDStream.exit64.i ]
   %392 = phi i64 [ %365, %BIT_reloadDStream.exit64.i.thread ], [ %384, %BIT_reloadDStream.exit64.i ]
-  %.promoted247.i135 = phi i64 [ %.promoted247.i130, %BIT_reloadDStream.exit64.i.thread ], [ %.promoted247.i, %BIT_reloadDStream.exit64.i ]
-  %.promoted245.i134 = phi i64 [ %.promoted245.i129, %BIT_reloadDStream.exit64.i.thread ], [ %.promoted245.i, %BIT_reloadDStream.exit64.i ]
-  %.promoted241.i133 = phi i32 [ %.promoted241.i.ph, %BIT_reloadDStream.exit64.i.thread ], [ %383, %BIT_reloadDStream.exit64.i ]
-  %.promoted243.i132 = phi i64 [ %.promoted243.i.ph, %BIT_reloadDStream.exit64.i.thread ], [ %.val.i125.i, %BIT_reloadDStream.exit64.i ]
-  %393 = phi ptr [ %.ph125, %BIT_reloadDStream.exit64.i.thread ], [ %363, %BIT_reloadDStream.exit64.i ]
-  %.promoted249.i131 = phi ptr [ %.promoted249.i.ph, %BIT_reloadDStream.exit64.i.thread ], [ %381, %BIT_reloadDStream.exit64.i ]
+  %.promoted247.i176 = phi i64 [ %.promoted247.i171, %BIT_reloadDStream.exit64.i.thread ], [ %.promoted247.i, %BIT_reloadDStream.exit64.i ]
+  %.promoted245.i175 = phi i64 [ %.promoted245.i170, %BIT_reloadDStream.exit64.i.thread ], [ %.promoted245.i, %BIT_reloadDStream.exit64.i ]
+  %.promoted241.i174 = phi i32 [ %.promoted241.i.ph, %BIT_reloadDStream.exit64.i.thread ], [ %383, %BIT_reloadDStream.exit64.i ]
+  %.promoted243.i173 = phi i64 [ %.promoted243.i.ph, %BIT_reloadDStream.exit64.i.thread ], [ %.val.i125.i, %BIT_reloadDStream.exit64.i ]
+  %393 = phi ptr [ %.ph166, %BIT_reloadDStream.exit64.i.thread ], [ %363, %BIT_reloadDStream.exit64.i ]
+  %.promoted249.i172 = phi ptr [ %.promoted249.i.ph, %BIT_reloadDStream.exit64.i.thread ], [ %381, %BIT_reloadDStream.exit64.i ]
   br label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %427
   %.038.i.i69 = phi ptr [ %479, %427 ], [ %0, %.lr.ph70.preheader ]
-  %394 = phi i32 [ %468, %427 ], [ %.promoted241.i133, %.lr.ph70.preheader ]
-  %395 = phi i64 [ %416, %427 ], [ %.promoted243.i132, %.lr.ph70.preheader ]
-  %396 = phi i64 [ %463, %427 ], [ %.promoted245.i134, %.lr.ph70.preheader ]
-  %397 = phi i64 [ %477, %427 ], [ %.promoted247.i135, %.lr.ph70.preheader ]
-  %398 = phi ptr [ %.promoted278.i, %427 ], [ %.promoted249.i131, %.lr.ph70.preheader ]
+  %394 = phi i32 [ %468, %427 ], [ %.promoted241.i174, %.lr.ph70.preheader ]
+  %395 = phi i64 [ %416, %427 ], [ %.promoted243.i173, %.lr.ph70.preheader ]
+  %396 = phi i64 [ %463, %427 ], [ %.promoted245.i175, %.lr.ph70.preheader ]
+  %397 = phi i64 [ %477, %427 ], [ %.promoted247.i176, %.lr.ph70.preheader ]
+  %398 = phi ptr [ %.promoted278.i, %427 ], [ %.promoted249.i172, %.lr.ph70.preheader ]
   %.not.i51.i = icmp ult ptr %398, %354
   br i1 %.not.i51.i, label %402, label %399
 
@@ -981,12 +981,12 @@ BIT_reloadDStream.exit64.i:                       ; preds = %361
   br label %BIT_reloadDStream.exit57.i
 
 BIT_reloadDStream.exit57.i:                       ; preds = %404, %399
-  %.pn409.in.i = phi i32 [ %400, %399 ], [ %.021.i53.i, %404 ]
+  %.pn458.in.i = phi i32 [ %400, %399 ], [ %.021.i53.i, %404 ]
   %415 = phi i32 [ %401, %399 ], [ %414, %404 ]
   %.022.i52.i = phi i1 [ true, %399 ], [ %409, %404 ]
-  %.pn409.i = zext i32 %.pn409.in.i to i64
-  %.pn408.i = sub nsw i64 0, %.pn409.i
-  %.promoted278.i = getelementptr inbounds i8, ptr %398, i64 %.pn408.i
+  %.pn458.i = zext i32 %.pn458.in.i to i64
+  %.pn457.i = sub nsw i64 0, %.pn458.i
+  %.promoted278.i = getelementptr inbounds i8, ptr %398, i64 %.pn457.i
   %416 = load i64, ptr %.promoted278.i, align 1, !tbaa !11
   %417 = icmp ult ptr %.038.i.i69, %59
   %418 = and i1 %417, %.022.i52.i
@@ -1002,8 +1002,8 @@ BIT_reloadDStream.exit57.i:                       ; preds = %404, %399
   %.038.i.i.lcssa = phi ptr [ %0, %BIT_reloadDStream.exit64.i ], [ %479, %427 ], [ %.038.i.i69, %402 ], [ %.038.i.i69, %BIT_reloadDStream.exit57.i ]
   %423 = phi i32 [ %383, %BIT_reloadDStream.exit64.i ], [ %468, %427 ], [ %394, %402 ], [ %415, %BIT_reloadDStream.exit57.i ]
   %424 = phi i64 [ %.val.i125.i, %BIT_reloadDStream.exit64.i ], [ %416, %427 ], [ %395, %402 ], [ %416, %BIT_reloadDStream.exit57.i ]
-  %.promoted278360.i = phi ptr [ @BIT_reloadDStream.zeroFilled, %BIT_reloadDStream.exit64.i ], [ @BIT_reloadDStream.zeroFilled, %427 ], [ %398, %402 ], [ %.promoted278.i, %BIT_reloadDStream.exit57.i ]
-  store ptr %.promoted278360.i, ptr %351, align 8
+  %.promoted278409.i = phi ptr [ @BIT_reloadDStream.zeroFilled, %BIT_reloadDStream.exit64.i ], [ @BIT_reloadDStream.zeroFilled, %427 ], [ %398, %402 ], [ %.promoted278.i, %BIT_reloadDStream.exit57.i ]
+  store ptr %.promoted278409.i, ptr %351, align 8
   store i32 %423, ptr %347, align 8
   store i64 %424, ptr %12, align 8
   store i64 %.lcssa27, ptr %13, align 8
@@ -1097,7 +1097,7 @@ BIT_reloadDStream.exit57.i:                       ; preds = %404, %399
   br i1 %480, label %.preheader.i, label %.lr.ph70, !prof !37, !llvm.loop !38
 
 .lr.ph268.i:                                      ; preds = %.preheader.i, %BIT_reloadDStream.exit43.i
-  %481 = phi ptr [ %566, %BIT_reloadDStream.exit43.i ], [ %.promoted278360.i, %.preheader.i ]
+  %481 = phi ptr [ %566, %BIT_reloadDStream.exit43.i ], [ %.promoted278409.i, %.preheader.i ]
   %.139.i267.i = phi ptr [ %541, %BIT_reloadDStream.exit43.i ], [ %.038.i.i.lcssa, %.preheader.i ]
   %482 = phi i64 [ %496, %BIT_reloadDStream.exit43.i ], [ %.lcssa27, %.preheader.i ]
   %.val.i.i171255266.i = phi i64 [ %.val.i.i171256.i, %BIT_reloadDStream.exit43.i ], [ %424, %.preheader.i ]
@@ -1532,29 +1532,29 @@ BIT_reloadDStream.exit36:                         ; preds = %.BIT_reloadDStream.
   %165 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = icmp ugt i32 %.promoted, 64
-  br i1 %167, label %.preheader196, label %.lr.ph439.preheader, !prof !39
+  br i1 %167, label %.preheader196, label %.lr.ph488.preheader, !prof !39
 
-.lr.ph439.preheader:                              ; preds = %BIT_reloadDStream.exit36
-  %.promoted527 = load i64, ptr %8, align 1
-  br label %.lr.ph439
+.lr.ph488.preheader:                              ; preds = %BIT_reloadDStream.exit36
+  %.promoted576 = load i64, ptr %8, align 1
+  br label %.lr.ph488
 
-.lr.ph439:                                        ; preds = %.lr.ph439.preheader, %192
-  %.val.i.i68.sink529 = phi i64 [ %.val.i.i68.sink, %192 ], [ %.promoted527, %.lr.ph439.preheader ]
-  %.038.i10438 = phi ptr [ %244, %192 ], [ %0, %.lr.ph439.preheader ]
-  %168 = phi i32 [ %240, %192 ], [ %.promoted, %.lr.ph439.preheader ]
-  %.val.i.i70215437 = phi i64 [ %.val.i.i68.sink, %192 ], [ %.promoted214, %.lr.ph439.preheader ]
-  %169 = phi i64 [ %228, %192 ], [ %.promoted217, %.lr.ph439.preheader ]
-  %170 = phi i64 [ %242, %192 ], [ %.promoted219, %.lr.ph439.preheader ]
-  %171 = phi ptr [ %.promoted240, %192 ], [ %.promoted221, %.lr.ph439.preheader ]
+.lr.ph488:                                        ; preds = %.lr.ph488.preheader, %192
+  %.val.i.i68.sink578 = phi i64 [ %.val.i.i68.sink, %192 ], [ %.promoted576, %.lr.ph488.preheader ]
+  %.038.i10487 = phi ptr [ %244, %192 ], [ %0, %.lr.ph488.preheader ]
+  %168 = phi i32 [ %240, %192 ], [ %.promoted, %.lr.ph488.preheader ]
+  %.val.i.i70215486 = phi i64 [ %.val.i.i68.sink, %192 ], [ %.promoted214, %.lr.ph488.preheader ]
+  %169 = phi i64 [ %228, %192 ], [ %.promoted217, %.lr.ph488.preheader ]
+  %170 = phi i64 [ %242, %192 ], [ %.promoted219, %.lr.ph488.preheader ]
+  %171 = phi ptr [ %.promoted240, %192 ], [ %.promoted221, %.lr.ph488.preheader ]
   %.not.i23 = icmp ult ptr %171, %136
   br i1 %.not.i23, label %175, label %172
 
-172:                                              ; preds = %.lr.ph439
+172:                                              ; preds = %.lr.ph488
   %173 = lshr i32 %168, 3
   %174 = and i32 %168, 7
   br label %BIT_reloadDStream.exit29
 
-175:                                              ; preds = %.lr.ph439
+175:                                              ; preds = %.lr.ph488
   %176 = icmp eq ptr %171, %161
   br i1 %176, label %.preheader196.loopexit, label %177
 
@@ -1573,37 +1573,37 @@ BIT_reloadDStream.exit36:                         ; preds = %.BIT_reloadDStream.
   br label %BIT_reloadDStream.exit29
 
 BIT_reloadDStream.exit29:                         ; preds = %172, %177
-  %.pn403.in = phi i32 [ %173, %172 ], [ %.021.i25, %177 ]
+  %.pn452.in = phi i32 [ %173, %172 ], [ %.021.i25, %177 ]
   %.promoted229 = phi i32 [ %174, %172 ], [ %187, %177 ]
   %.022.i24 = phi i1 [ true, %172 ], [ %182, %177 ]
-  %.pn403 = zext i32 %.pn403.in to i64
-  %.pn = sub nsw i64 0, %.pn403
+  %.pn452 = zext i32 %.pn452.in to i64
+  %.pn = sub nsw i64 0, %.pn452
   %.promoted240 = getelementptr inbounds i8, ptr %171, i64 %.pn
   %.val.i.i68.sink = load i64, ptr %.promoted240, align 1, !tbaa !11
-  %188 = icmp ult ptr %.038.i10438, %55
+  %188 = icmp ult ptr %.038.i10487, %55
   %189 = and i1 %188, %.022.i24
   br i1 %189, label %192, label %.preheader196.loopexit
 
 .preheader196.loopexit:                           ; preds = %175, %BIT_reloadDStream.exit29, %192
-  %.val.i.i68.sink528 = phi i64 [ %.val.i.i68.sink, %192 ], [ %.val.i.i68.sink, %BIT_reloadDStream.exit29 ], [ %.val.i.i68.sink529, %175 ]
-  %.lcssa436.ph = phi i64 [ %242, %192 ], [ %170, %BIT_reloadDStream.exit29 ], [ %170, %175 ]
-  %.lcssa435.ph = phi i64 [ %228, %192 ], [ %169, %BIT_reloadDStream.exit29 ], [ %169, %175 ]
-  %.038.i10.lcssa.ph = phi ptr [ %244, %192 ], [ %.038.i10438, %BIT_reloadDStream.exit29 ], [ %.038.i10438, %175 ]
-  %.promoted229357.ph = phi i32 [ %240, %192 ], [ %.promoted229, %BIT_reloadDStream.exit29 ], [ %168, %175 ]
-  %.promoted225356.ph = phi i64 [ %.val.i.i68.sink, %192 ], [ %.val.i.i68.sink, %BIT_reloadDStream.exit29 ], [ %.val.i.i70215437, %175 ]
-  %.promoted240355.ph = phi ptr [ @BIT_reloadDStream.zeroFilled, %192 ], [ %.promoted240, %BIT_reloadDStream.exit29 ], [ %171, %175 ]
-  store i64 %.val.i.i68.sink528, ptr %8, align 1
+  %.val.i.i68.sink577 = phi i64 [ %.val.i.i68.sink, %192 ], [ %.val.i.i68.sink, %BIT_reloadDStream.exit29 ], [ %.val.i.i68.sink578, %175 ]
+  %.lcssa485.ph = phi i64 [ %242, %192 ], [ %170, %BIT_reloadDStream.exit29 ], [ %170, %175 ]
+  %.lcssa484.ph = phi i64 [ %228, %192 ], [ %169, %BIT_reloadDStream.exit29 ], [ %169, %175 ]
+  %.038.i10.lcssa.ph = phi ptr [ %244, %192 ], [ %.038.i10487, %BIT_reloadDStream.exit29 ], [ %.038.i10487, %175 ]
+  %.promoted229406.ph = phi i32 [ %240, %192 ], [ %.promoted229, %BIT_reloadDStream.exit29 ], [ %168, %175 ]
+  %.promoted225405.ph = phi i64 [ %.val.i.i68.sink, %192 ], [ %.val.i.i68.sink, %BIT_reloadDStream.exit29 ], [ %.val.i.i70215486, %175 ]
+  %.promoted240404.ph = phi ptr [ @BIT_reloadDStream.zeroFilled, %192 ], [ %.promoted240, %BIT_reloadDStream.exit29 ], [ %171, %175 ]
+  store i64 %.val.i.i68.sink577, ptr %8, align 1
   br label %.preheader196
 
 .preheader196:                                    ; preds = %.preheader196.loopexit, %BIT_reloadDStream.exit36
-  %.lcssa436 = phi i64 [ %.promoted219, %BIT_reloadDStream.exit36 ], [ %.lcssa436.ph, %.preheader196.loopexit ]
-  %.lcssa435 = phi i64 [ %.promoted217, %BIT_reloadDStream.exit36 ], [ %.lcssa435.ph, %.preheader196.loopexit ]
+  %.lcssa485 = phi i64 [ %.promoted219, %BIT_reloadDStream.exit36 ], [ %.lcssa485.ph, %.preheader196.loopexit ]
+  %.lcssa484 = phi i64 [ %.promoted217, %BIT_reloadDStream.exit36 ], [ %.lcssa484.ph, %.preheader196.loopexit ]
   %.038.i10.lcssa = phi ptr [ %0, %BIT_reloadDStream.exit36 ], [ %.038.i10.lcssa.ph, %.preheader196.loopexit ]
-  %.promoted229357 = phi i32 [ %.promoted, %BIT_reloadDStream.exit36 ], [ %.promoted229357.ph, %.preheader196.loopexit ]
-  %.promoted225356 = phi i64 [ %.promoted214, %BIT_reloadDStream.exit36 ], [ %.promoted225356.ph, %.preheader196.loopexit ]
-  %.promoted240355 = phi ptr [ @BIT_reloadDStream.zeroFilled, %BIT_reloadDStream.exit36 ], [ %.promoted240355.ph, %.preheader196.loopexit ]
-  store i64 %.lcssa435, ptr %9, align 8
-  store i64 %.lcssa436, ptr %10, align 8
+  %.promoted229406 = phi i32 [ %.promoted, %BIT_reloadDStream.exit36 ], [ %.promoted229406.ph, %.preheader196.loopexit ]
+  %.promoted225405 = phi i64 [ %.promoted214, %BIT_reloadDStream.exit36 ], [ %.promoted225405.ph, %.preheader196.loopexit ]
+  %.promoted240404 = phi ptr [ @BIT_reloadDStream.zeroFilled, %BIT_reloadDStream.exit36 ], [ %.promoted240404.ph, %.preheader196.loopexit ]
+  store i64 %.lcssa484, ptr %9, align 8
+  store i64 %.lcssa485, ptr %10, align 8
   %190 = getelementptr inbounds i8, ptr %54, i64 -2
   %191 = icmp ugt ptr %.038.i10.lcssa, %190
   br i1 %191, label %FSE_decompress_usingDTable_generic.exit13, label %.lr.ph
@@ -1625,7 +1625,7 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   %201 = lshr i64 %197, %200
   %202 = add i32 %.promoted229, %194
   %203 = zext i16 %.sroa.0.0.copyload.i to i64
-  store i8 %.sroa.4.0.copyload.i, ptr %.038.i10438, align 1, !tbaa !15
+  store i8 %.sroa.4.0.copyload.i, ptr %.038.i10487, align 1, !tbaa !15
   %204 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %166, i64 %170
   %.sroa.0.0.copyload.i71 = load i16, ptr %204, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %204, i64 2
@@ -1642,7 +1642,7 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   %212 = lshr i64 %208, %211
   %213 = add i32 %202, %205
   %214 = zext i16 %.sroa.0.0.copyload.i71 to i64
-  %215 = getelementptr inbounds nuw i8, ptr %.038.i10438, i64 1
+  %215 = getelementptr inbounds nuw i8, ptr %.038.i10487, i64 1
   store i8 %.sroa.4.0.copyload.i73, ptr %215, align 1, !tbaa !15
   %216 = getelementptr %struct.FSE_decode_t, ptr %164, i64 %201
   %217 = getelementptr %struct.FSE_decode_t, ptr %216, i64 %203
@@ -1662,7 +1662,7 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   %226 = add i32 %213, %218
   %227 = zext i16 %.sroa.0.0.copyload.i78 to i64
   %228 = add i64 %225, %227
-  %229 = getelementptr inbounds nuw i8, ptr %.038.i10438, i64 2
+  %229 = getelementptr inbounds nuw i8, ptr %.038.i10487, i64 2
   store i8 %.sroa.4.0.copyload.i80, ptr %229, align 1, !tbaa !15
   %230 = getelementptr %struct.FSE_decode_t, ptr %166, i64 %212
   %231 = getelementptr %struct.FSE_decode_t, ptr %230, i64 %214
@@ -1682,19 +1682,19 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   %240 = add i32 %226, %232
   %241 = zext i16 %.sroa.0.0.copyload.i85 to i64
   %242 = add i64 %239, %241
-  %243 = getelementptr inbounds nuw i8, ptr %.038.i10438, i64 3
+  %243 = getelementptr inbounds nuw i8, ptr %.038.i10487, i64 3
   store i8 %.sroa.4.0.copyload.i87, ptr %243, align 1, !tbaa !15
-  %244 = getelementptr inbounds nuw i8, ptr %.038.i10438, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %.038.i10487, i64 4
   %245 = icmp ugt i32 %240, 64
-  br i1 %245, label %.preheader196.loopexit, label %.lr.ph439, !prof !37, !llvm.loop !38
+  br i1 %245, label %.preheader196.loopexit, label %.lr.ph488, !prof !37, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.preheader196, %BIT_reloadDStream.exit
-  %246 = phi ptr [ %319, %BIT_reloadDStream.exit ], [ %.promoted240355, %.preheader196 ]
+  %246 = phi ptr [ %319, %BIT_reloadDStream.exit ], [ %.promoted240404, %.preheader196 ]
   %.139.i11235 = phi ptr [ %300, %BIT_reloadDStream.exit ], [ %.038.i10.lcssa, %.preheader196 ]
-  %247 = phi i64 [ %261, %BIT_reloadDStream.exit ], [ %.lcssa435, %.preheader196 ]
-  %.val.i.i106 = phi i64 [ %.val.i.i115227, %BIT_reloadDStream.exit ], [ %.promoted225356, %.preheader196 ]
-  %248 = phi i32 [ %320, %BIT_reloadDStream.exit ], [ %.promoted229357, %.preheader196 ]
-  %249 = phi i64 [ %299, %BIT_reloadDStream.exit ], [ %.lcssa436, %.preheader196 ]
+  %247 = phi i64 [ %261, %BIT_reloadDStream.exit ], [ %.lcssa484, %.preheader196 ]
+  %.val.i.i106 = phi i64 [ %.val.i.i115227, %BIT_reloadDStream.exit ], [ %.promoted225405, %.preheader196 ]
+  %248 = phi i32 [ %320, %BIT_reloadDStream.exit ], [ %.promoted229406, %.preheader196 ]
+  %249 = phi i64 [ %299, %BIT_reloadDStream.exit ], [ %.lcssa485, %.preheader196 ]
   %250 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %164, i64 %247
   %.sroa.0.0.copyload.i92 = load i16, ptr %250, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %250, i64 2
@@ -1752,18 +1752,18 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   br label %324
 
 .sink.split:                                      ; preds = %270, %265
-  %.pn405.in = phi i32 [ %266, %265 ], [ %.021.i18, %270 ]
-  %.ph400 = phi i32 [ %267, %265 ], [ %280, %270 ]
-  %.pn405 = zext i32 %.pn405.in to i64
-  %.pn404 = sub nsw i64 0, %.pn405
-  %.ph = getelementptr inbounds i8, ptr %246, i64 %.pn404
+  %.pn454.in = phi i32 [ %266, %265 ], [ %.021.i18, %270 ]
+  %.ph449 = phi i32 [ %267, %265 ], [ %280, %270 ]
+  %.pn454 = zext i32 %.pn454.in to i64
+  %.pn453 = sub nsw i64 0, %.pn454
+  %.ph = getelementptr inbounds i8, ptr %246, i64 %.pn453
   %.val.i.i99.sink = load i64, ptr %.ph, align 1, !tbaa !11
   store i64 %.val.i.i99.sink, ptr %8, align 8, !tbaa !33
   br label %283
 
 283:                                              ; preds = %.sink.split, %268
   %284 = phi ptr [ %246, %268 ], [ %.ph, %.sink.split ]
-  %285 = phi i32 [ %259, %268 ], [ %.ph400, %.sink.split ]
+  %285 = phi i32 [ %259, %268 ], [ %.ph449, %.sink.split ]
   %.val.i.i122 = phi i64 [ %.val.i.i106, %268 ], [ %.val.i.i99.sink, %.sink.split ]
   %286 = icmp ugt ptr %262, %190
   br i1 %286, label %FSE_decompress_usingDTable_generic.exit13, label %287
@@ -1819,18 +1819,18 @@ BIT_reloadDStream.exit29:                         ; preds = %172, %177
   br label %BIT_reloadDStream.exit.sink.split
 
 BIT_reloadDStream.exit.sink.split:                ; preds = %308, %303
-  %.pn407.in = phi i32 [ %304, %303 ], [ %.021.i, %308 ]
-  %.ph402 = phi i32 [ %305, %303 ], [ %318, %308 ]
-  %.pn407 = zext i32 %.pn407.in to i64
-  %.pn406 = sub nsw i64 0, %.pn407
-  %.ph401 = getelementptr inbounds i8, ptr %284, i64 %.pn406
-  %.val.i.i115.sink = load i64, ptr %.ph401, align 1, !tbaa !11
+  %.pn456.in = phi i32 [ %304, %303 ], [ %.021.i, %308 ]
+  %.ph451 = phi i32 [ %305, %303 ], [ %318, %308 ]
+  %.pn456 = zext i32 %.pn456.in to i64
+  %.pn455 = sub nsw i64 0, %.pn456
+  %.ph450 = getelementptr inbounds i8, ptr %284, i64 %.pn455
+  %.val.i.i115.sink = load i64, ptr %.ph450, align 1, !tbaa !11
   store i64 %.val.i.i115.sink, ptr %8, align 8, !tbaa !33
   br label %BIT_reloadDStream.exit
 
 BIT_reloadDStream.exit:                           ; preds = %BIT_reloadDStream.exit.sink.split, %306
-  %319 = phi ptr [ %284, %306 ], [ %.ph401, %BIT_reloadDStream.exit.sink.split ]
-  %320 = phi i32 [ %297, %306 ], [ %.ph402, %BIT_reloadDStream.exit.sink.split ]
+  %319 = phi ptr [ %284, %306 ], [ %.ph450, %BIT_reloadDStream.exit.sink.split ]
+  %320 = phi i32 [ %297, %306 ], [ %.ph451, %BIT_reloadDStream.exit.sink.split ]
   %.val.i.i115227 = phi i64 [ %.val.i.i122, %306 ], [ %.val.i.i115.sink, %BIT_reloadDStream.exit.sink.split ]
   %321 = icmp ugt ptr %300, %190
   br i1 %321, label %FSE_decompress_usingDTable_generic.exit13, label %.lr.ph
@@ -1935,10 +1935,10 @@ BIT_reloadDStream.exit64:                         ; preds = %.BIT_reloadDStream.
   %369 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %370 = load ptr, ptr %369, align 8
   %371 = icmp ugt i32 %.promoted241, 64
-  br i1 %371, label %.preheader, label %.lr.ph459, !prof !39
+  br i1 %371, label %.preheader, label %.lr.ph508, !prof !39
 
-.lr.ph459:                                        ; preds = %BIT_reloadDStream.exit64, %401
-  %.038.i458 = phi ptr [ %453, %401 ], [ %0, %BIT_reloadDStream.exit64 ]
+.lr.ph508:                                        ; preds = %BIT_reloadDStream.exit64, %401
+  %.038.i507 = phi ptr [ %453, %401 ], [ %0, %BIT_reloadDStream.exit64 ]
   %372 = phi i32 [ %442, %401 ], [ %.promoted241, %BIT_reloadDStream.exit64 ]
   %373 = phi i64 [ %394, %401 ], [ %.promoted243, %BIT_reloadDStream.exit64 ]
   %374 = phi i64 [ %437, %401 ], [ %.promoted245, %BIT_reloadDStream.exit64 ]
@@ -1947,12 +1947,12 @@ BIT_reloadDStream.exit64:                         ; preds = %.BIT_reloadDStream.
   %.not.i51 = icmp ult ptr %376, %339
   br i1 %.not.i51, label %380, label %377
 
-377:                                              ; preds = %.lr.ph459
+377:                                              ; preds = %.lr.ph508
   %378 = lshr i32 %372, 3
   %379 = and i32 %372, 7
   br label %BIT_reloadDStream.exit57
 
-380:                                              ; preds = %.lr.ph459
+380:                                              ; preds = %.lr.ph508
   %381 = icmp eq ptr %376, %365
   br i1 %381, label %.preheader, label %382
 
@@ -1971,29 +1971,29 @@ BIT_reloadDStream.exit64:                         ; preds = %.BIT_reloadDStream.
   br label %BIT_reloadDStream.exit57
 
 BIT_reloadDStream.exit57:                         ; preds = %377, %382
-  %.pn409.in = phi i32 [ %378, %377 ], [ %.021.i53, %382 ]
+  %.pn458.in = phi i32 [ %378, %377 ], [ %.021.i53, %382 ]
   %393 = phi i32 [ %379, %377 ], [ %392, %382 ]
   %.022.i52 = phi i1 [ true, %377 ], [ %387, %382 ]
-  %.pn409 = zext i32 %.pn409.in to i64
-  %.pn408 = sub nsw i64 0, %.pn409
-  %.promoted278 = getelementptr inbounds i8, ptr %376, i64 %.pn408
+  %.pn458 = zext i32 %.pn458.in to i64
+  %.pn457 = sub nsw i64 0, %.pn458
+  %.promoted278 = getelementptr inbounds i8, ptr %376, i64 %.pn457
   %394 = load i64, ptr %.promoted278, align 1, !tbaa !11
-  %395 = icmp ult ptr %.038.i458, %55
+  %395 = icmp ult ptr %.038.i507, %55
   %396 = and i1 %395, %.022.i52
   br i1 %396, label %401, label %.preheader
 
 .preheader:                                       ; preds = %BIT_reloadDStream.exit57, %380, %401, %BIT_reloadDStream.exit64
-  %.lcssa422 = phi i64 [ %.promoted247, %BIT_reloadDStream.exit64 ], [ %375, %BIT_reloadDStream.exit57 ], [ %375, %380 ], [ %451, %401 ]
-  %.lcssa421 = phi i64 [ %.promoted245, %BIT_reloadDStream.exit64 ], [ %374, %BIT_reloadDStream.exit57 ], [ %374, %380 ], [ %437, %401 ]
-  %.038.i.lcssa = phi ptr [ %0, %BIT_reloadDStream.exit64 ], [ %.038.i458, %BIT_reloadDStream.exit57 ], [ %.038.i458, %380 ], [ %453, %401 ]
+  %.lcssa471 = phi i64 [ %.promoted247, %BIT_reloadDStream.exit64 ], [ %375, %BIT_reloadDStream.exit57 ], [ %375, %380 ], [ %451, %401 ]
+  %.lcssa470 = phi i64 [ %.promoted245, %BIT_reloadDStream.exit64 ], [ %374, %BIT_reloadDStream.exit57 ], [ %374, %380 ], [ %437, %401 ]
+  %.038.i.lcssa = phi ptr [ %0, %BIT_reloadDStream.exit64 ], [ %.038.i507, %BIT_reloadDStream.exit57 ], [ %.038.i507, %380 ], [ %453, %401 ]
   %397 = phi i32 [ %.promoted241, %BIT_reloadDStream.exit64 ], [ %393, %BIT_reloadDStream.exit57 ], [ %372, %380 ], [ %442, %401 ]
   %398 = phi i64 [ %.promoted243, %BIT_reloadDStream.exit64 ], [ %394, %BIT_reloadDStream.exit57 ], [ %373, %380 ], [ %394, %401 ]
-  %.promoted278360 = phi ptr [ @BIT_reloadDStream.zeroFilled, %BIT_reloadDStream.exit64 ], [ %.promoted278, %BIT_reloadDStream.exit57 ], [ %376, %380 ], [ @BIT_reloadDStream.zeroFilled, %401 ]
-  store ptr %.promoted278360, ptr %336, align 8
+  %.promoted278409 = phi ptr [ @BIT_reloadDStream.zeroFilled, %BIT_reloadDStream.exit64 ], [ %.promoted278, %BIT_reloadDStream.exit57 ], [ %376, %380 ], [ @BIT_reloadDStream.zeroFilled, %401 ]
+  store ptr %.promoted278409, ptr %336, align 8
   store i32 %397, ptr %332, align 8
   store i64 %398, ptr %11, align 8
-  store i64 %.lcssa421, ptr %12, align 8
-  store i64 %.lcssa422, ptr %13, align 8
+  store i64 %.lcssa470, ptr %12, align 8
+  store i64 %.lcssa471, ptr %13, align 8
   %399 = getelementptr inbounds i8, ptr %54, i64 -2
   %400 = icmp ugt ptr %.038.i.lcssa, %399
   br i1 %400, label %FSE_decompress_usingDTable_generic.exit, label %.lr.ph268
@@ -2016,7 +2016,7 @@ BIT_reloadDStream.exit57:                         ; preds = %377, %382
   %410 = xor i64 %notmask.i.i, -1
   %411 = and i64 %408, %410
   %412 = zext i16 %.sroa.0.0.copyload.i128 to i64
-  store i8 %.sroa.4.0.copyload.i130, ptr %.038.i458, align 1, !tbaa !15
+  store i8 %.sroa.4.0.copyload.i130, ptr %.038.i507, align 1, !tbaa !15
   %413 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %370, i64 %375
   %.sroa.0.0.copyload.i133 = load i16, ptr %413, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i134 = getelementptr inbounds nuw i8, ptr %413, i64 2
@@ -2034,7 +2034,7 @@ BIT_reloadDStream.exit57:                         ; preds = %377, %382
   %421 = xor i64 %notmask.i.i138, -1
   %422 = and i64 %419, %421
   %423 = zext i16 %.sroa.0.0.copyload.i133 to i64
-  %424 = getelementptr inbounds nuw i8, ptr %.038.i458, i64 1
+  %424 = getelementptr inbounds nuw i8, ptr %.038.i507, i64 1
   store i8 %.sroa.4.0.copyload.i135, ptr %424, align 1, !tbaa !15
   %425 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %368, i64 %411
   %426 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %425, i64 %412
@@ -2055,7 +2055,7 @@ BIT_reloadDStream.exit57:                         ; preds = %377, %382
   %435 = and i64 %432, %434
   %436 = zext i16 %.sroa.0.0.copyload.i139 to i64
   %437 = add nuw i64 %435, %436
-  %438 = getelementptr inbounds nuw i8, ptr %.038.i458, i64 2
+  %438 = getelementptr inbounds nuw i8, ptr %.038.i507, i64 2
   store i8 %.sroa.4.0.copyload.i141, ptr %438, align 1, !tbaa !15
   %439 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %370, i64 %422
   %440 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %439, i64 %423
@@ -2076,19 +2076,19 @@ BIT_reloadDStream.exit57:                         ; preds = %377, %382
   %449 = and i64 %446, %448
   %450 = zext i16 %.sroa.0.0.copyload.i145 to i64
   %451 = add nuw i64 %449, %450
-  %452 = getelementptr inbounds nuw i8, ptr %.038.i458, i64 3
+  %452 = getelementptr inbounds nuw i8, ptr %.038.i507, i64 3
   store i8 %.sroa.4.0.copyload.i147, ptr %452, align 1, !tbaa !15
-  %453 = getelementptr inbounds nuw i8, ptr %.038.i458, i64 4
+  %453 = getelementptr inbounds nuw i8, ptr %.038.i507, i64 4
   %454 = icmp ugt i32 %442, 64
-  br i1 %454, label %.preheader, label %.lr.ph459, !prof !37, !llvm.loop !38
+  br i1 %454, label %.preheader, label %.lr.ph508, !prof !37, !llvm.loop !38
 
 .lr.ph268:                                        ; preds = %.preheader, %BIT_reloadDStream.exit43
-  %455 = phi ptr [ %540, %BIT_reloadDStream.exit43 ], [ %.promoted278360, %.preheader ]
+  %455 = phi ptr [ %540, %BIT_reloadDStream.exit43 ], [ %.promoted278409, %.preheader ]
   %.139.i267 = phi ptr [ %515, %BIT_reloadDStream.exit43 ], [ %.038.i.lcssa, %.preheader ]
-  %456 = phi i64 [ %470, %BIT_reloadDStream.exit43 ], [ %.lcssa421, %.preheader ]
+  %456 = phi i64 [ %470, %BIT_reloadDStream.exit43 ], [ %.lcssa470, %.preheader ]
   %.val.i.i171255266 = phi i64 [ %.val.i.i171256, %BIT_reloadDStream.exit43 ], [ %398, %.preheader ]
   %457 = phi i32 [ %541, %BIT_reloadDStream.exit43 ], [ %397, %.preheader ]
-  %458 = phi i64 [ %514, %BIT_reloadDStream.exit43 ], [ %.lcssa422, %.preheader ]
+  %458 = phi i64 [ %514, %BIT_reloadDStream.exit43 ], [ %.lcssa471, %.preheader ]
   %459 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %368, i64 %456
   %.sroa.0.0.copyload.i151 = load i16, ptr %459, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i152 = getelementptr inbounds nuw i8, ptr %459, i64 2

@@ -357,9 +357,9 @@ define internal range(i32 -128, 2097152) i32 @lv_text_utf8_next(ptr noundef read
   br i1 %3, label %.cont98, label %.cont98.sink.split
 
 .cont98.sink.split:                               ; preds = %111, %100, %54, %25, %14
-  %.sink108 = phi i32 [ 1, %14 ], [ 2, %25 ], [ 3, %54 ], [ 4, %100 ], [ 1, %111 ]
+  %.sink110 = phi i32 [ 1, %14 ], [ 2, %25 ], [ 3, %54 ], [ 4, %100 ], [ 1, %111 ]
   %.063.ph = phi i32 [ %10, %14 ], [ %29, %25 ], [ %61, %54 ], [ %110, %100 ], [ 0, %111 ]
-  %112 = add i32 %6, %.sink108
+  %112 = add i32 %6, %.sink110
   store i32 %112, ptr %1, align 4, !tbaa !6
   br label %.cont98
 
@@ -1244,7 +1244,7 @@ lv_text_encoded_letter_next_2.exit.thread:        ; preds = %.lr.ph.split.split
 
 34:                                               ; preds = %lv_text_encoded_letter_next_2.exit
   %switch = icmp ult i32 %.02738, 2
-  %spec.select61 = zext i1 %switch to i32
+  %spec.select66 = zext i1 %switch to i32
   br label %lv_text_is_cmd.exit.thread
 
 35:                                               ; preds = %lv_text_encoded_letter_next_2.exit
@@ -1267,7 +1267,7 @@ lv_text_is_cmd.exit:                              ; preds = %35, %lv_text_encode
   br label %lv_text_is_cmd.exit.thread
 
 lv_text_is_cmd.exit.thread:                       ; preds = %34, %37, %lv_text_encoded_letter_next_2.exit.thread, %lv_text_is_cmd.exit
-  %.229 = phi i32 [ %.02738, %lv_text_is_cmd.exit ], [ 1, %lv_text_encoded_letter_next_2.exit.thread ], [ %spec.select37, %37 ], [ %spec.select61, %34 ]
+  %.229 = phi i32 [ %.02738, %lv_text_is_cmd.exit ], [ 1, %lv_text_encoded_letter_next_2.exit.thread ], [ %spec.select37, %37 ], [ %spec.select66, %34 ]
   %.2 = phi i32 [ %.3, %lv_text_is_cmd.exit ], [ %.139, %lv_text_encoded_letter_next_2.exit.thread ], [ %.139, %37 ], [ %.139, %34 ]
   %44 = load i32, ptr %6, align 4, !tbaa !6
   %45 = zext i32 %44 to i64

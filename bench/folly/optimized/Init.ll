@@ -100,7 +100,7 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   %18 = getelementptr i8, ptr %.02956.i.i.i.i.i, i64 40
   %.val33.i.i.i.i.i = load ptr, ptr %18, align 8, !tbaa !7
   %.not44.i.i.i.i.i = icmp eq ptr %.val32.i.i.i.i.i, %.val33.i.i.i.i.i
-  br i1 %.not44.i.i.i.i.i, label %19, label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit88"
+  br i1 %.not44.i.i.i.i.i, label %19, label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit104"
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 48
@@ -108,7 +108,7 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   %21 = getelementptr i8, ptr %.02956.i.i.i.i.i, i64 56
   %.val35.i.i.i.i.i = load ptr, ptr %21, align 8, !tbaa !7
   %.not45.i.i.i.i.i = icmp eq ptr %.val34.i.i.i.i.i, %.val35.i.i.i.i.i
-  br i1 %.not45.i.i.i.i.i, label %22, label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit90"
+  br i1 %.not45.i.i.i.i.i, label %22, label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit106"
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 64
@@ -171,16 +171,16 @@ define void @_ZN5folly11initLoggingESt16initializer_listINS_5RangeIPKcEEE(ptr re
   %38 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit88": ; preds = %16
+"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit104": ; preds = %16
   %39 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 32
   br label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit90": ; preds = %19
+"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit106": ; preds = %19
   %40 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 48
   br label %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit88", %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit90", %27, %31, %35, %37
-  %.028.i.i.i.i.i = phi ptr [ %9, %37 ], [ %.029.lcssa.i.i.i.i.i, %27 ], [ %.1.i.i.i.i.i, %31 ], [ %.2.i.i.i.i.i, %35 ], [ %38, %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %39, %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit88" ], [ %40, %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit90" ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit104", %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit106", %27, %31, %35, %37
+  %.028.i.i.i.i.i = phi ptr [ %9, %37 ], [ %.029.lcssa.i.i.i.i.i, %27 ], [ %.1.i.i.i.i.i, %31 ], [ %.2.i.i.i.i.i, %35 ], [ %38, %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %39, %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit104" ], [ %40, %"_ZSt6any_ofIPKN5folly5RangeIPKcEEZNS0_11initLoggingESt16initializer_listIS4_EE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit106" ], [ %.02956.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %41 = icmp ne ptr %9, %.028.i.i.i.i.i
   %42 = icmp ne ptr %8, null
   %or.cond = or i1 %42, %41

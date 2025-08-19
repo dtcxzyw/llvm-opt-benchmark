@@ -215,7 +215,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i37: ; preds = %_ZNKSt6vectorI
   store ptr %91, ptr %88, align 8, !tbaa !35
   store ptr %91, ptr %89, align 8, !tbaa !36
   %92 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
-          to label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit45 unwind label %.thread85
+          to label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit45 unwind label %.thread103
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit45:         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i37
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -273,7 +273,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
           cleanup
   br label %208
 
-.thread85:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i37
+.thread103:                                       ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i37
   %113 = landingpad { ptr, i32 }
           cleanup
   br label %210
@@ -608,19 +608,19 @@ thread-pre-split:                                 ; preds = %207, %131, %_ZNSt7_
   %.not.i.i.i76 = icmp eq ptr %209, null
   br i1 %.not.i.i.i76, label %_ZNSt6vectorIiSaIiEED2Ev.exit77, label %210
 
-210:                                              ; preds = %.thread85, %208
-  %.merged3188 = phi { ptr, i32 } [ %113, %.thread85 ], [ %.merged31, %208 ]
-  %211 = phi ptr [ %90, %.thread85 ], [ %209, %208 ]
+210:                                              ; preds = %.thread103, %208
+  %.merged31106 = phi { ptr, i32 } [ %113, %.thread103 ], [ %.merged31, %208 ]
+  %211 = phi ptr [ %90, %.thread103 ], [ %209, %208 ]
   call void @_ZdlPv(ptr noundef nonnull %211) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit77
 
 _ZNSt6vectorIiSaIiEED2Ev.exit77:                  ; preds = %208, %210
-  %.merged3189 = phi { ptr, i32 } [ %.merged31, %208 ], [ %.merged3188, %210 ]
+  %.merged31107 = phi { ptr, i32 } [ %.merged31, %208 ], [ %.merged31106, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body
 
 .body:                                            ; preds = %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt6vectorIiSaIiEED2Ev.exit77
-  %.merged = phi { ptr, i32 } [ %.merged3189, %_ZNSt6vectorIiSaIiEED2Ev.exit77 ], [ %110, %109 ], [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  %.merged = phi { ptr, i32 } [ %.merged31107, %_ZNSt6vectorIiSaIiEED2Ev.exit77 ], [ %110, %109 ], [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.merged

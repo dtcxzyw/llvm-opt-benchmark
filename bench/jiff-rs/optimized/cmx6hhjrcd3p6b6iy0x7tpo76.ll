@@ -5386,7 +5386,7 @@ define hidden noundef i128 @_ZN4jiff4util5round4mode9RoundMode5round5inner17h5e1
   %.sroa.023.0 = tail call i128 @llvm.abs.i128(i128 %22, i1 false)
   %23 = icmp eq i128 %.sroa.023.0, %2
   %24 = icmp sgt i128 %.sroa.023.0, %2
-  switch i8 %0, label %default.unreachable34 [
+  switch i8 %0, label %default.unreachable35 [
     i8 0, label %25
     i8 1, label %30
     i8 2, label %35
@@ -5398,7 +5398,7 @@ define hidden noundef i128 @_ZN4jiff4util5round4mode9RoundMode5round5inner17h5e1
     i8 8, label %50
   ]
 
-default.unreachable34:                            ; preds = %16
+default.unreachable35:                            ; preds = %16
   unreachable
 
 25:                                               ; preds = %16

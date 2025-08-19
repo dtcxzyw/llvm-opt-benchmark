@@ -3315,10 +3315,10 @@ define noundef range(i8 0, 18) i8 @_ZN16wasmtime_environ13trap_encoding16lookup_
   %.01926.i.i = phi i64 [ %.022.i.i, %23 ], [ 0, %17 ]
   %.02025.i.i = phi i64 [ %.021.i.i, %23 ], [ %9, %17 ]
   %18 = lshr i64 %.027.i.i, 1
-  %19 = add i64 %18, %.01926.i.i
+  %19 = add nuw i64 %18, %.01926.i.i
   %20 = icmp ult i64 %19, %9
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds { [4 x i8], {} }, ptr %6, i64 %19
+  %21 = getelementptr inbounds nuw { [4 x i8], {} }, ptr %6, i64 %19
   %.val23.i.i = load i32, ptr %21, align 1, !alias.scope !865, !noalias !870
   %22 = icmp eq i32 %.val23.i.i, %..sroa.5.0
   br i1 %22, label %30, label %23
@@ -3327,9 +3327,9 @@ define noundef range(i8 0, 18) i8 @_ZN16wasmtime_environ13trap_encoding16lookup_
   %24 = icmp ugt i32 %.val23.i.i, %..sroa.5.0
   %.021.i.i = select i1 %24, i64 %19, i64 %.02025.i.i
   %25 = icmp ult i32 %.val23.i.i, %..sroa.5.0
-  %26 = add nuw i64 %19, 1
+  %26 = add nuw nsw i64 %19, 1
   %.022.i.i = select i1 %25, i64 %26, i64 %.01926.i.i
-  %27 = sub i64 %.021.i.i, %.022.i.i
+  %27 = sub nsw i64 %.021.i.i, %.022.i.i
   %28 = icmp ult i64 %.022.i.i, %.021.i.i
   br i1 %28, label %.lr.ph.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17h94c9bbc47a6851dcE.exit.loopexit"
 
@@ -3347,7 +3347,7 @@ define noundef range(i8 0, 18) i8 @_ZN16wasmtime_environ13trap_encoding16lookup_
   br i1 %.not, label %31, label %_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %13, i64 %19
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 %19
   %33 = load i8, ptr %32, align 1, !noundef !5
   %. = tail call i8 @llvm.umin.i8(i8 %33, i8 17)
   br label %_ZN16wasmtime_environ13trap_encoding4Trap7from_u817h95ee0af72787344eE.exit
@@ -6895,7 +6895,7 @@ _ZN4core4iter8adapters11try_process17hddfbb86a041e5c6bE.exit.thread: ; preds = %
   unreachable
 
 common.resume:                                    ; preds = %1662, %1654, %.thread341, %1644, %1634, %1557, %1541, %1508, %1500, %1469, %1430, %1297, %415, %439, %463, %482, %551, %569, %575, %590, %650, %668, %692, %.body.i213.i, %885, %897, %940, %951, %991, %1078, %.body269.thread.i, %.loopexit.split-lp.i, %1208, %1229, %.body305.i, %1309, %1317, %1335, %1353, %1413, %.body.thread.i, %879, %.body.i.i, %848, %289, %295
-  %common.resume.op = phi { ptr, i32 } [ %290, %295 ], [ %290, %289 ], [ %416, %415 ], [ %440, %439 ], [ %464, %463 ], [ %483, %482 ], [ %552, %551 ], [ %570, %575 ], [ %570, %569 ], [ %591, %590 ], [ %651, %650 ], [ %669, %668 ], [ %lpad.phi373, %692 ], [ %eh.lpad-body.i895, %897 ], [ %eh.lpad-body.i, %.body.i213.i ], [ %lpad.phi363, %951 ], [ %eh.lpad-body270554.i, %.body269.thread.i ], [ %1209, %1208 ], [ %eh.lpad-body306.i, %.body305.i ], [ %lpad.phi, %1413 ], [ %796, %885 ], [ %941, %940 ], [ %.pn143.i, %.loopexit.split-lp.i ], [ %lpad.phi353, %1309 ], [ %1318, %1317 ], [ %1336, %1335 ], [ %1354, %1353 ], [ %992, %991 ], [ %1079, %1078 ], [ %1230, %1229 ], [ %849, %848 ], [ %837, %.body.i.i ], [ %880, %879 ], [ %eh.lpad-body12.i, %.body.thread.i ], [ %1298, %1297 ], [ %1431, %1430 ], [ %1470, %1469 ], [ %1501, %1500 ], [ %1509, %1508 ], [ %1542, %1541 ], [ %1558, %1557 ], [ %1655, %1654 ], [ %.pn62296, %.thread341 ], [ %1645, %1644 ], [ %lpad.phi10.i, %1634 ], [ %1663, %1662 ]
+  %common.resume.op = phi { ptr, i32 } [ %290, %295 ], [ %290, %289 ], [ %416, %415 ], [ %440, %439 ], [ %464, %463 ], [ %483, %482 ], [ %552, %551 ], [ %570, %575 ], [ %570, %569 ], [ %591, %590 ], [ %651, %650 ], [ %669, %668 ], [ %lpad.phi373, %692 ], [ %eh.lpad-body.i1020, %897 ], [ %eh.lpad-body.i, %.body.i213.i ], [ %lpad.phi363, %951 ], [ %eh.lpad-body270554.i, %.body269.thread.i ], [ %1209, %1208 ], [ %eh.lpad-body306.i, %.body305.i ], [ %lpad.phi, %1413 ], [ %796, %885 ], [ %941, %940 ], [ %.pn143.i, %.loopexit.split-lp.i ], [ %lpad.phi353, %1309 ], [ %1318, %1317 ], [ %1336, %1335 ], [ %1354, %1353 ], [ %992, %991 ], [ %1079, %1078 ], [ %1230, %1229 ], [ %849, %848 ], [ %837, %.body.i.i ], [ %880, %879 ], [ %eh.lpad-body12.i, %.body.thread.i ], [ %1298, %1297 ], [ %1431, %1430 ], [ %1470, %1469 ], [ %1501, %1500 ], [ %1509, %1508 ], [ %1542, %1541 ], [ %1558, %1557 ], [ %1655, %1654 ], [ %.pn62296, %.thread341 ], [ %1645, %1644 ], [ %lpad.phi10.i, %1634 ], [ %1663, %1662 ]
   resume { ptr, i32 } %common.resume.op
 
 295:                                              ; preds = %289
@@ -8526,7 +8526,7 @@ select.unfold.i:                                  ; preds = %"_ZN9hashbrown3raw2
   br label %895
 
 897:                                              ; preds = %.body.i213.i.thread, %.body.i213.i
-  %eh.lpad-body.i895 = phi { ptr, i32 } [ %lpad.loopexit.split-lp367, %.body.i213.i.thread ], [ %eh.lpad-body.i, %.body.i213.i ]
+  %eh.lpad-body.i1020 = phi { ptr, i32 } [ %lpad.loopexit.split-lp367, %.body.i213.i.thread ], [ %eh.lpad-body.i, %.body.i213.i ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$wasmtime_environ..component..translate..adapt..AdapterOptions$GT$17hce5c2a29d6aab1b1E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %128) #31
           to label %common.resume unwind label %720, !noalias !1593
 
@@ -11263,7 +11263,7 @@ define internal fastcc void @_ZN16wasmtime_environ9component9translate6inline7In
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br i1 %trunc, label %35, label %23
 
-default.unreachable92:                            ; preds = %131
+default.unreachable117:                           ; preds = %131
   unreachable
 
 23:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h4629d1a56297adcfE.exit"
@@ -11507,7 +11507,7 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   %134 = getelementptr inbounds i8, ptr %86, i64 -4
   %135 = load i32, ptr %134, align 4, !noundef !5
   %136 = zext i32 %135 to i64
-  switch i32 %133, label %default.unreachable92 [
+  switch i32 %133, label %default.unreachable117 [
     i32 0, label %137
     i32 1, label %171
     i32 2, label %187
@@ -11853,14 +11853,14 @@ define internal fastcc void @_ZN16wasmtime_environ9component9translate6inline7In
   %.sroa.74.013.i = phi i32 [ %.val1.i.i, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread.i" ], [ %.sroa.74.0.copyload.i, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.i" ]
   %.sroa.53.012.i = phi i32 [ %.val.i.i, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.thread.i" ], [ %.sroa.53.0.copyload.i, %"_ZN93_$LT$wasmtime_environ..component..info..ExportItem$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8d337c8b853185faE.exit.i" ]
   %28 = icmp eq i32 %.sroa.53.012.i, 2
-  br i1 %28, label %.thread8, label %29
+  br i1 %28, label %.thread29, label %29
 
-.thread8:                                         ; preds = %27
+.thread29:                                        ; preds = %27
   store i64 -9223372036854775808, ptr %9, align 8
-  %.sroa.4.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %.sroa.74.013.i, ptr %.sroa.4.0..sroa_idx12, align 8
-  %.sroa.7.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 %21, ptr %.sroa.7.0..sroa_idx15, align 8
+  %.sroa.4.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %.sroa.74.013.i, ptr %.sroa.4.0..sroa_idx33, align 8
+  %.sroa.7.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i32 %21, ptr %.sroa.7.0..sroa_idx36, align 8
   br label %32
 
 29:                                               ; preds = %27
@@ -11880,9 +11880,9 @@ define internal fastcc void @_ZN16wasmtime_environ9component9translate6inline7In
   %31 = icmp eq i64 %.sroa.02.0.copyload.i, -9223372036854775807
   br i1 %31, label %38, label %32
 
-32:                                               ; preds = %.thread8, %30
-  %33 = phi i32 [ %.sroa.74.013.i, %.thread8 ], [ %.sroa.53.0.copyload.i, %30 ]
-  %.sroa.02.010.i16 = phi i1 [ true, %.thread8 ], [ false, %30 ]
+32:                                               ; preds = %.thread29, %30
+  %33 = phi i32 [ %.sroa.74.013.i, %.thread29 ], [ %.sroa.53.0.copyload.i, %30 ]
+  %.sroa.02.010.i37 = phi i1 [ true, %.thread29 ], [ false, %30 ]
   %34 = zext i32 %21 to i64
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 656
   %36 = load i64, ptr %35, align 8, !alias.scope !2864, !noalias !2867, !noundef !5
@@ -11902,7 +11902,7 @@ define internal fastcc void @_ZN16wasmtime_environ9component9translate6inline7In
   invoke fastcc void @"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$wasmtime_environ..component..dfg..CoreExport$LT$wasmtime_types..MemoryIndex$GT$$GT$$GT$17h2aa1722b0ab3cf26E"(ptr noalias noundef align 8 dereferenceable(32) %9) #31
           to label %192 unwind label %190
 
-42:                                               ; preds = %.invoke17, %.invoke, %134, %89, %78
+42:                                               ; preds = %.invoke38, %.invoke, %134, %89, %78
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -11916,10 +11916,10 @@ define internal fastcc void @_ZN16wasmtime_environ9component9translate6inline7In
   br i1 %trunc10, label %50, label %49
 
 49:                                               ; preds = %44
-  br i1 %.sroa.02.010.i16, label %51, label %.invoke17
+  br i1 %.sroa.02.010.i37, label %51, label %.invoke38
 
 50:                                               ; preds = %44
-  br i1 %.sroa.02.010.i16, label %.invoke17, label %73
+  br i1 %.sroa.02.010.i37, label %.invoke38, label %73
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 664
@@ -11991,19 +11991,19 @@ define internal fastcc void @_ZN16wasmtime_environ9component9translate6inline7In
   %96 = icmp ugt i64 %95, 4
   %97 = icmp eq i64 %95, 1
   %98 = or i1 %96, %97
-  br i1 %98, label %99, label %.invoke17
+  br i1 %98, label %99, label %.invoke38
 
 99:                                               ; preds = %90
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 25
   %101 = load i8, ptr %100, align 1, !range !571, !noundef !5
   br label %38
 
-.invoke17:                                        ; preds = %90, %50, %49
+.invoke38:                                        ; preds = %90, %50, %49
   %102 = phi ptr [ @anon.264b50f002f745f85744d41a777447ea.137, %49 ], [ @anon.264b50f002f745f85744d41a777447ea.138, %50 ], [ @anon.264b50f002f745f85744d41a777447ea.143, %90 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.264b50f002f745f85744d41a777447ea.8.llvm.9996293967201523975, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) %102) #33
-          to label %.cont18 unwind label %42
+          to label %.cont39 unwind label %42
 
-.cont18:                                          ; preds = %.invoke17
+.cont39:                                          ; preds = %.invoke38
   unreachable
 
 103:                                              ; preds = %38
@@ -15005,7 +15005,7 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
   %26 = icmp eq i64 %25, -9223372036854775804
   br i1 %26, label %135, label %134
 
-.body29.thread106:                                ; preds = %.invoke, %51
+.body29.thread119:                                ; preds = %.invoke, %51
   %lpad.loopexit.split-lp55 = landingpad { ptr, i32 }
           cleanup
   %27 = load i64, ptr %12, align 8, !range !505, !noundef !5
@@ -15055,7 +15055,7 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
 
 51:                                               ; preds = %44
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %47, i64 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.264b50f002f745f85744d41a777447ea.164) #33
-          to label %.noexc unwind label %.body29.thread106
+          to label %.noexc unwind label %.body29.thread119
 
 .noexc:                                           ; preds = %51
   unreachable
@@ -15079,7 +15079,7 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
 .invoke:                                          ; preds = %37, %._crit_edge
   %59 = phi ptr [ @anon.264b50f002f745f85744d41a777447ea.165, %._crit_edge ], [ @anon.264b50f002f745f85744d41a777447ea.170, %37 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.264b50f002f745f85744d41a777447ea.8.llvm.9996293967201523975, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) %59) #33
-          to label %.cont unwind label %.body29.thread106
+          to label %.cont unwind label %.body29.thread119
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -15139,7 +15139,7 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
 73:                                               ; preds = %60
   %74 = zext i32 %.sroa.47.0.copyload to i64
   %75 = icmp ugt i64 %18, %74
-  br i1 %75, label %77, label %.invoke131, !prof !1040
+  br i1 %75, label %77, label %.invoke144, !prof !1040
 
 76:                                               ; preds = %91
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -15161,16 +15161,16 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %85 = load i64, ptr %84, align 8, !alias.scope !3516, !noalias !3521, !noundef !5
   %86 = icmp ult i64 %81, %85
-  br i1 %86, label %91, label %.invoke131, !prof !1040
+  br i1 %86, label %91, label %.invoke144, !prof !1040
 
-.invoke131:                                       ; preds = %83, %73
+.invoke144:                                       ; preds = %83, %73
   %87 = phi i64 [ %74, %73 ], [ %81, %83 ]
   %88 = phi i64 [ %18, %73 ], [ %85, %83 ]
   %89 = phi ptr [ @anon.264b50f002f745f85744d41a777447ea.166, %73 ], [ @anon.64e0b166545cb150698404bfd60a5e37.52.llvm.3269599604001853466, %83 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %87, i64 noundef %88, ptr noalias noundef readonly align 8 dereferenceable(24) %89) #33
-          to label %.cont132 unwind label %.loopexit.split-lp58
+          to label %.cont145 unwind label %.loopexit.split-lp58
 
-.cont132:                                         ; preds = %.invoke131
+.cont145:                                         ; preds = %.invoke144
   unreachable
 
 90:                                               ; preds = %.noexc24
@@ -15276,7 +15276,7 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
           cleanup
   br label %123
 
-.loopexit.split-lp58:                             ; preds = %.invoke131, %90
+.loopexit.split-lp58:                             ; preds = %.invoke144, %90
   %lpad.loopexit.split-lp60 = landingpad { ptr, i32 }
           cleanup
   br label %123
@@ -15331,8 +15331,8 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
   invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$17h87c4c3b5c87a7f82E"(ptr noalias noundef align 8 dereferenceable(144) %12)
           to label %131 unwind label %.body29.thread
 
-134:                                              ; preds = %.body29.thread106, %.body29.thread, %.body29
-  %.pn1646 = phi { ptr, i32 } [ %29, %.body29.thread ], [ %.pn16, %.body29 ], [ %lpad.loopexit.split-lp55, %.body29.thread106 ]
+134:                                              ; preds = %.body29.thread119, %.body29.thread, %.body29
+  %.pn1646 = phi { ptr, i32 } [ %29, %.body29.thread ], [ %.pn16, %.body29 ], [ %lpad.loopexit.split-lp55, %.body29.thread119 ]
   invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$17h87c4c3b5c87a7f82E"(ptr noalias noundef align 8 dereferenceable(144) %12) #31
           to label %135 unwind label %124
 
@@ -15340,8 +15340,8 @@ define internal fastcc noundef i32 @_ZN16wasmtime_environ9component9translate6in
   %.pn1645 = phi { ptr, i32 } [ %.pn164751, %.thread48 ], [ %.pn1646, %134 ], [ %.pn16, %.body29 ]
   resume { ptr, i32 } %.pn1645
 
-.thread48:                                        ; preds = %.body29.thread106, %.body29.thread
-  %.pn164751 = phi { ptr, i32 } [ %29, %.body29.thread ], [ %lpad.loopexit.split-lp55, %.body29.thread106 ]
+.thread48:                                        ; preds = %.body29.thread119, %.body29.thread
+  %.pn164751 = phi { ptr, i32 } [ %29, %.body29.thread ], [ %lpad.loopexit.split-lp55, %.body29.thread119 ]
   %136 = getelementptr inbounds nuw i8, ptr %12, i64 8
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$wasmtime_environ..component..translate..inline..ComponentInstanceDef$GT$17hbf9d780f179afd51E"(ptr noalias noundef align 8 dereferenceable(80) %136) #31
           to label %135 unwind label %124

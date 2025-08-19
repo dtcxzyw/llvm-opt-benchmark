@@ -1860,8 +1860,8 @@ _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12
   br label %_ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.thread
 
 _ZNSt6atomicIPN7rocksdb11WriteThread6WriterEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.thread: ; preds = %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit, %99, %111, %._crit_edge
-  %.045.lcssa95 = phi i64 [ %.146, %99 ], [ %.146, %111 ], [ %.146, %._crit_edge ], [ %6, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit ]
-  ret i64 %.045.lcssa95
+  %.045.lcssa103 = phi i64 [ %.146, %99 ], [ %.146, %111 ], [ %.146, %._crit_edge ], [ %6, %_ZN7rocksdb11WriteThread23CreateMissingNewerLinksEPNS0_6WriterE.exit ]
+  ret i64 %.045.lcssa103
 }
 
 ; Function Attrs: mustprogress uwtable

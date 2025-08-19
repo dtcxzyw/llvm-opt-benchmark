@@ -1848,8 +1848,8 @@ define internal range(i32 0, 9) i32 @dma_buf_poll(ptr noundef %0, ptr noundef %1
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %11) #10
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %60 = load i32, ptr %59, align 8
-  %.not9 = icmp eq i32 %60, 0
-  br i1 %.not9, label %63, label %61
+  %.not15 = icmp eq i32 %60, 0
+  br i1 %.not15, label %63, label %61
 
 61:                                               ; preds = %58
   %62 = and i32 %55, -2
@@ -1930,7 +1930,7 @@ define internal i64 @dma_buf_ioctl(ptr noundef readonly captures(none) %0, i32 n
 
 18:                                               ; preds = %15
   %19 = and i64 %16, 3
-  switch i64 %19, label %default.unreachable16 [
+  switch i64 %19, label %default.unreachable28 [
     i64 1, label %22
     i64 2, label %20
     i64 3, label %21
@@ -2182,7 +2182,7 @@ define internal i64 @dma_buf_ioctl(ptr noundef readonly captures(none) %0, i32 n
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %146
 
-default.unreachable16:                            ; preds = %18
+default.unreachable28:                            ; preds = %18
   unreachable
 
 146:                                              ; preds = %18, %.thread14, %93, %38, %36, %29, %15, %11, %3

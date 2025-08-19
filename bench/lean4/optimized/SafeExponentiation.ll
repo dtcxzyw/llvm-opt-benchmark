@@ -1069,18 +1069,18 @@ _init_l_Lean_checkExponent___closed__9.exit:      ; preds = %_init_l_Lean_checkE
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_checkExponent___closed__9.exit, %3
-  %.sink20 = phi ptr [ %4, %3 ], [ %91, %_init_l_Lean_checkExponent___closed__9.exit ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sink20, i64 4
-  store i32 1, ptr %.sink20, align 4, !tbaa !8
+  %.sink28 = phi ptr [ %4, %3 ], [ %91, %_init_l_Lean_checkExponent___closed__9.exit ]
+  %94 = getelementptr inbounds nuw i8, ptr %.sink28, i64 4
+  store i32 1, ptr %.sink28, align 4, !tbaa !8
   store i32 131096, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.sink28, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %95, align 8, !tbaa !4
-  %96 = getelementptr inbounds nuw i8, ptr %.sink20, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.sink28, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %96, align 8, !tbaa !4
   br label %97
 
 97:                                               ; preds = %.sink.split, %39, %7
-  %.0 = phi ptr [ %8, %7 ], [ %43, %39 ], [ %.sink20, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %43, %39 ], [ %.sink28, %.sink.split ]
   ret ptr %.0
 }
 

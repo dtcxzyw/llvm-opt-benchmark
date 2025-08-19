@@ -1176,16 +1176,16 @@ block_setup.exit:                                 ; preds = %22, %26, %vm_block_
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @rb_proc_get_iseq(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  br label %tailrecurse52
+  br label %tailrecurse53
 
-tailrecurse52:                                    ; preds = %40, %2
-  %.tr53 = phi i64 [ %0, %2 ], [ %42, %40 ]
-  %.tr54 = phi ptr [ %1, %2 ], [ null, %40 ]
-  %.not = icmp eq ptr %.tr54, null
+tailrecurse53:                                    ; preds = %40, %2
+  %.tr54 = phi i64 [ %0, %2 ], [ %42, %40 ]
+  %.tr55 = phi ptr [ %1, %2 ], [ null, %40 ]
+  %.not = icmp eq ptr %.tr55, null
   br i1 %.not, label %tailrecurse.us, label %tailrecurse
 
-tailrecurse.us:                                   ; preds = %tailrecurse52, %7
-  %.tr.us = phi i64 [ %8, %7 ], [ %.tr53, %tailrecurse52 ]
+tailrecurse.us:                                   ; preds = %tailrecurse53, %7
+  %.tr.us = phi i64 [ %8, %7 ], [ %.tr54, %tailrecurse53 ]
   %3 = inttoptr i64 %.tr.us to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !7
@@ -1202,8 +1202,8 @@ tailrecurse.us:                                   ; preds = %tailrecurse52, %7
   %8 = load i64, ptr %5, align 8, !tbaa !35
   br label %tailrecurse.us
 
-tailrecurse:                                      ; preds = %tailrecurse52, %19
-  %.tr = phi i64 [ %20, %19 ], [ %.tr53, %tailrecurse52 ]
+tailrecurse:                                      ; preds = %tailrecurse53, %19
+  %.tr = phi i64 [ %20, %19 ], [ %.tr54, %tailrecurse53 ]
   %9 = inttoptr i64 %.tr to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !7
@@ -1212,7 +1212,7 @@ tailrecurse:                                      ; preds = %tailrecurse52, %19
   %14 = and i8 %13, 2
   %.not16 = icmp eq i8 %14, 0
   %15 = zext i1 %.not16 to i32
-  store i32 %15, ptr %.tr54, align 4, !tbaa !41
+  store i32 %15, ptr %.tr55, align 4, !tbaa !41
   %16 = getelementptr i8, ptr %11, i64 24
   %.val = load i32, ptr %16, align 8, !tbaa !14
   switch i32 %.val, label %.split25.us [
@@ -1245,7 +1245,7 @@ tailrecurse:                                      ; preds = %tailrecurse52, %19
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %26
-  store i32 0, ptr %.tr54, align 4, !tbaa !41
+  store i32 0, ptr %.tr55, align 4, !tbaa !41
   br label %28
 
 28:                                               ; preds = %27, %26
@@ -1278,7 +1278,7 @@ tailrecurse.i:                                    ; preds = %43, %28
 40:                                               ; preds = %tailrecurse.i
   %41 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !35
-  br label %tailrecurse52
+  br label %tailrecurse53
 
 43:                                               ; preds = %tailrecurse.i
   %44 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
@@ -1348,7 +1348,7 @@ tailrecurse.i:                                    ; preds = %35, %1
   %6 = and i32 %5, 15
   switch i32 %6, label %method_def_iseq.exit [
     i32 0, label %7
-    i32 4, label %tailrecurse52.i.i
+    i32 4, label %tailrecurse53.i.i
     i32 6, label %35
   ]
 
@@ -1357,13 +1357,13 @@ tailrecurse.i:                                    ; preds = %35, %1
   %9 = load ptr, ptr %8, align 8, !tbaa !35
   br label %method_def_iseq.exit
 
-tailrecurse52.i.i:                                ; preds = %tailrecurse.i.i.i, %tailrecurse.i
+tailrecurse53.i.i:                                ; preds = %tailrecurse.i.i.i, %tailrecurse.i
   %.tr.pn.i = phi ptr [ %.tr.i, %tailrecurse.i ], [ %.tr.i.i.i, %tailrecurse.i.i.i ]
-  %.tr53.i.in.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i, i64 8
+  %.tr54.i.in.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i, i64 8
   br label %tailrecurse.us.i.i
 
-tailrecurse.us.i.i:                               ; preds = %tailrecurse.us.i.i, %tailrecurse52.i.i
-  %.tr.us.i.in.i = phi ptr [ %.tr53.i.in.i, %tailrecurse52.i.i ], [ %12, %tailrecurse.us.i.i ]
+tailrecurse.us.i.i:                               ; preds = %tailrecurse.us.i.i, %tailrecurse53.i.i
+  %.tr.us.i.in.i = phi ptr [ %.tr54.i.in.i, %tailrecurse53.i.i ], [ %12, %tailrecurse.us.i.i ]
   %.tr.us.i.i = load i64, ptr %.tr.us.i.in.i, align 8, !tbaa !35
   %10 = inttoptr i64 %.tr.us.i.i to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1408,7 +1408,7 @@ tailrecurse.i.i.i:                                ; preds = %33, %21
   %29 = and i32 %28, 15
   switch i32 %29, label %method_def_iseq.exit [
     i32 0, label %30
-    i32 4, label %tailrecurse52.i.i
+    i32 4, label %tailrecurse53.i.i
     i32 6, label %33
   ]
 
@@ -2116,7 +2116,7 @@ define hidden i64 @rb_obj_public_method(i64 noundef %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_obj_singleton_method(i64 noundef %0, i64 noundef %1) #0 {
+define hidden range(i64 1, 0) i64 @rb_obj_singleton_method(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca [2 x i64], align 16
   store i64 %1, ptr %3, align 8, !tbaa !36
@@ -2691,7 +2691,7 @@ tailrecurse.i.i:                                  ; preds = %70, %30
   %41 = and i32 %40, 15
   switch i32 %41, label %rb_method_iseq.exit [
     i32 0, label %42
-    i32 4, label %tailrecurse52.i.i.i
+    i32 4, label %tailrecurse53.i.i.i
     i32 6, label %70
   ]
 
@@ -2700,13 +2700,13 @@ tailrecurse.i.i:                                  ; preds = %70, %30
   %44 = load ptr, ptr %43, align 8, !tbaa !35
   br label %rb_method_iseq.exit
 
-tailrecurse52.i.i.i:                              ; preds = %tailrecurse.i.i.i.i, %tailrecurse.i.i
+tailrecurse53.i.i.i:                              ; preds = %tailrecurse.i.i.i.i, %tailrecurse.i.i
   %.tr.pn.i.i = phi ptr [ %.tr.i.i, %tailrecurse.i.i ], [ %.tr.i.i.i.i, %tailrecurse.i.i.i.i ]
-  %.tr53.i.in.i.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i.i, i64 8
+  %.tr54.i.in.i.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i.i, i64 8
   br label %tailrecurse.us.i.i.i
 
-tailrecurse.us.i.i.i:                             ; preds = %tailrecurse.us.i.i.i, %tailrecurse52.i.i.i
-  %.tr.us.i.in.i.i = phi ptr [ %.tr53.i.in.i.i, %tailrecurse52.i.i.i ], [ %47, %tailrecurse.us.i.i.i ]
+tailrecurse.us.i.i.i:                             ; preds = %tailrecurse.us.i.i.i, %tailrecurse53.i.i.i
+  %.tr.us.i.in.i.i = phi ptr [ %.tr54.i.in.i.i, %tailrecurse53.i.i.i ], [ %47, %tailrecurse.us.i.i.i ]
   %.tr.us.i.i.i = load i64, ptr %.tr.us.i.in.i.i, align 8, !tbaa !35
   %45 = inttoptr i64 %.tr.us.i.i.i to ptr
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -2751,7 +2751,7 @@ tailrecurse.i.i.i.i:                              ; preds = %68, %56
   %64 = and i32 %63, 15
   switch i32 %64, label %rb_method_iseq.exit [
     i32 0, label %65
-    i32 4, label %tailrecurse52.i.i.i
+    i32 4, label %tailrecurse53.i.i.i
     i32 6, label %68
   ]
 
@@ -3045,7 +3045,7 @@ tailrecurse.i:                                    ; preds = %1, %38
   %12 = and i32 %11, 15
   switch i32 %12, label %method_def_iseq.exit.thread [
     i32 0, label %13
-    i32 4, label %tailrecurse52.i.i
+    i32 4, label %tailrecurse53.i.i
     i32 6, label %38
   ]
 
@@ -3053,13 +3053,13 @@ tailrecurse.i:                                    ; preds = %1, %38
   %14 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
   br label %method_def_iseq.exit
 
-tailrecurse52.i.i:                                ; preds = %tailrecurse.i.i.i, %tailrecurse.i
+tailrecurse53.i.i:                                ; preds = %tailrecurse.i.i.i, %tailrecurse.i
   %.tr.pn.i = phi ptr [ %.tr.i, %tailrecurse.i ], [ %.tr.i.i.i, %tailrecurse.i.i.i ]
-  %.tr53.i.in.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i, i64 8
+  %.tr54.i.in.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i, i64 8
   br label %tailrecurse.us.i.i
 
-tailrecurse.us.i.i:                               ; preds = %tailrecurse.us.i.i, %tailrecurse52.i.i
-  %.tr.us.i.in.i = phi ptr [ %.tr53.i.in.i, %tailrecurse52.i.i ], [ %17, %tailrecurse.us.i.i ]
+tailrecurse.us.i.i:                               ; preds = %tailrecurse.us.i.i, %tailrecurse53.i.i
+  %.tr.us.i.in.i = phi ptr [ %.tr54.i.in.i, %tailrecurse53.i.i ], [ %17, %tailrecurse.us.i.i ]
   %.tr.us.i.i = load i64, ptr %.tr.us.i.in.i, align 8, !tbaa !35
   %15 = inttoptr i64 %.tr.us.i.i to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -3103,7 +3103,7 @@ tailrecurse.i.i.i:                                ; preds = %36, %25
   %33 = and i32 %32, 15
   switch i32 %33, label %method_def_iseq.exit.thread [
     i32 0, label %34
-    i32 4, label %tailrecurse52.i.i
+    i32 4, label %tailrecurse53.i.i
     i32 6, label %36
   ]
 
@@ -3847,16 +3847,16 @@ define internal i64 @rb_proc_parameters(i32 noundef %0, ptr noundef readonly cap
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %tailrecurse52.i
+  br label %tailrecurse53.i
 
-tailrecurse52.i:                                  ; preds = %48, %3
-  %.tr53.i = phi i64 [ %2, %3 ], [ %50, %48 ]
-  %.tr54.i = phi ptr [ %6, %3 ], [ null, %48 ]
-  %.not.i10 = icmp eq ptr %.tr54.i, null
+tailrecurse53.i:                                  ; preds = %48, %3
+  %.tr54.i = phi i64 [ %2, %3 ], [ %50, %48 ]
+  %.tr55.i = phi ptr [ %6, %3 ], [ null, %48 ]
+  %.not.i10 = icmp eq ptr %.tr55.i, null
   br i1 %.not.i10, label %tailrecurse.us.i, label %tailrecurse.i
 
-tailrecurse.us.i:                                 ; preds = %tailrecurse52.i, %11
-  %.tr.us.i = phi i64 [ %12, %11 ], [ %.tr53.i, %tailrecurse52.i ]
+tailrecurse.us.i:                                 ; preds = %tailrecurse53.i, %11
+  %.tr.us.i = phi i64 [ %12, %11 ], [ %.tr54.i, %tailrecurse53.i ]
   %7 = inttoptr i64 %.tr.us.i to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !7
@@ -3873,8 +3873,8 @@ tailrecurse.us.i:                                 ; preds = %tailrecurse52.i, %1
   %12 = load i64, ptr %9, align 8, !tbaa !35
   br label %tailrecurse.us.i
 
-tailrecurse.i:                                    ; preds = %tailrecurse52.i, %23
-  %.tr.i = phi i64 [ %24, %23 ], [ %.tr53.i, %tailrecurse52.i ]
+tailrecurse.i:                                    ; preds = %tailrecurse53.i, %23
+  %.tr.i = phi i64 [ %24, %23 ], [ %.tr54.i, %tailrecurse53.i ]
   %13 = inttoptr i64 %.tr.i to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !7
@@ -3893,7 +3893,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse52.i, %2
   %19 = and i8 %18, 2
   %.not16.i.le42 = icmp eq i8 %19, 0
   %20 = zext i1 %.not16.i.le42 to i32
-  store i32 %20, ptr %.tr54.i, align 4, !tbaa !41
+  store i32 %20, ptr %.tr55.i, align 4, !tbaa !41
   br label %.split27.us.i
 
 .split27.us.i:                                    ; preds = %tailrecurse.us.i, %.split27.us.i.loopexit18
@@ -3912,7 +3912,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse52.i, %2
   %27 = and i8 %26, 2
   %.not16.i.le44 = icmp eq i8 %27, 0
   %28 = zext i1 %.not16.i.le44 to i32
-  store i32 %28, ptr %.tr54.i, align 4, !tbaa !41
+  store i32 %28, ptr %.tr55.i, align 4, !tbaa !41
   br label %.split29.us.i
 
 .split29.us.i:                                    ; preds = %tailrecurse.us.i, %.split29.us.i.loopexit19
@@ -3928,7 +3928,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse52.i, %2
   br i1 %.not.i10, label %36, label %35
 
 35:                                               ; preds = %34
-  store i32 0, ptr %.tr54.i, align 4, !tbaa !41
+  store i32 0, ptr %.tr55.i, align 4, !tbaa !41
   br label %36
 
 36:                                               ; preds = %35, %34
@@ -3961,7 +3961,7 @@ tailrecurse.i.i:                                  ; preds = %51, %36
 48:                                               ; preds = %tailrecurse.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !35
-  br label %tailrecurse52.i
+  br label %tailrecurse53.i
 
 51:                                               ; preds = %tailrecurse.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
@@ -3979,7 +3979,7 @@ rb_proc_get_iseq.exit.loopexit20:                 ; preds = %tailrecurse.i
   %55 = and i8 %54, 2
   %.not16.i.le46 = icmp eq i8 %55, 0
   %56 = zext i1 %.not16.i.le46 to i32
-  store i32 %56, ptr %.tr54.i, align 4, !tbaa !41
+  store i32 %56, ptr %.tr55.i, align 4, !tbaa !41
   br label %rb_proc_get_iseq.exit
 
 rb_proc_get_iseq.exit:                            ; preds = %.split29.us.i, %tailrecurse.us.i, %tailrecurse.i.i, %rb_proc_get_iseq.exit.loopexit20, %.split27.us.i, %45
@@ -4015,21 +4015,21 @@ rb_scan_args_n_opt.exit:                          ; preds = %rb_proc_get_iseq.ex
   %65 = load i64, ptr %64, align 8, !tbaa !36
   %66 = call i32 @rb_keyword_given_p() #21
   %.not14 = icmp eq i32 %66, 0
-  br i1 %.not14, label %.thread89, label %69
+  br i1 %.not14, label %.thread94, label %69
 
 67:                                               ; preds = %rb_scan_args_n_opt.exit
   %68 = icmp slt i32 %0, 0
-  br i1 %68, label %.thread89, label %rb_scan_args_set.exit.thread
+  br i1 %68, label %.thread94, label %rb_scan_args_set.exit.thread
 
 69:                                               ; preds = %61
   %70 = call i64 @rb_hash_dup(i64 noundef %65) #21
   %71 = add nsw i32 %0, -1
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %rb_scan_args_set.exit, label %.thread89
+  br i1 %72, label %rb_scan_args_set.exit, label %.thread94
 
-.thread89:                                        ; preds = %61, %69, %67
-  %.0.i84 = phi i32 [ %71, %69 ], [ %0, %67 ], [ %0, %61 ]
-  call void @rb_error_arity(i32 noundef %.0.i84, i32 noundef 0, i32 noundef 0) #22
+.thread94:                                        ; preds = %61, %69, %67
+  %.0.i89 = phi i32 [ %71, %69 ], [ %0, %67 ], [ %0, %61 ]
+  call void @rb_error_arity(i32 noundef %.0.i89, i32 noundef 0, i32 noundef 0) #22
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %69
@@ -4124,8 +4124,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %13 = icmp ne i64 %10, 5
   %14 = and i64 %9, 49152
   %.not.i = icmp eq i64 %14, 0
-  %or.cond8.i = or i1 %13, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %15, !prof !117
+  %or.cond9.i = or i1 %13, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %15, !prof !117
 
 15:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #21
@@ -4903,8 +4903,8 @@ rbimpl_RB_TYPE_P_fastpath.exit178.thread:         ; preds = %10, %19, %rbimpl_RB
   br i1 %.not.i, label %method_entry_defined_class.exit.sink.split, label %method_entry_defined_class.exit
 
 method_entry_defined_class.exit.sink.split:       ; preds = %32, %29
-  %.sink321 = phi ptr [ %31, %29 ], [ %23, %32 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sink321, i64 32
+  %.sink340 = phi ptr [ %31, %29 ], [ %23, %32 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sink340, i64 32
   %36 = load i64, ptr %35, align 8, !tbaa !104
   br label %method_entry_defined_class.exit
 
@@ -5327,7 +5327,7 @@ RARRAY_AREF.exit246.thread:                       ; preds = %RARRAY_AREF.exit243
   br label %.thread
 
 .thread:                                          ; preds = %RARRAY_AREF.exit246.thread, %RARRAY_AREF.exit237.thread, %RARRAY_AREF.exit228.thread, %rb_array_len.exit.thread, %rb_array_len.exit, %RARRAY_AREF.exit228, %RARRAY_AREF.exit231, %RARRAY_AREF.exit237, %RARRAY_AREF.exit240, %RARRAY_AREF.exit246, %220
-  %.not166311 = phi i1 [ %cond.fr, %220 ], [ true, %RARRAY_AREF.exit246 ], [ true, %RARRAY_AREF.exit240 ], [ true, %RARRAY_AREF.exit237 ], [ true, %RARRAY_AREF.exit231 ], [ true, %RARRAY_AREF.exit228 ], [ true, %rb_array_len.exit ], [ true, %rb_array_len.exit.thread ], [ true, %RARRAY_AREF.exit228.thread ], [ true, %RARRAY_AREF.exit237.thread ], [ true, %RARRAY_AREF.exit246.thread ]
+  %.not166330 = phi i1 [ %cond.fr, %220 ], [ true, %RARRAY_AREF.exit246 ], [ true, %RARRAY_AREF.exit240 ], [ true, %RARRAY_AREF.exit237 ], [ true, %RARRAY_AREF.exit231 ], [ true, %RARRAY_AREF.exit228 ], [ true, %rb_array_len.exit ], [ true, %rb_array_len.exit.thread ], [ true, %RARRAY_AREF.exit228.thread ], [ true, %RARRAY_AREF.exit237.thread ], [ true, %RARRAY_AREF.exit246.thread ]
   %225 = phi ptr [ %spec.select, %220 ], [ @.str.119, %RARRAY_AREF.exit246 ], [ @.str.119, %RARRAY_AREF.exit240 ], [ @.str.119, %RARRAY_AREF.exit237 ], [ @.str.119, %RARRAY_AREF.exit231 ], [ @.str.119, %RARRAY_AREF.exit228 ], [ @.str.119, %rb_array_len.exit ], [ @.str.119, %rb_array_len.exit.thread ], [ @.str.119, %RARRAY_AREF.exit228.thread ], [ @.str.119, %RARRAY_AREF.exit237.thread ], [ @.str.119, %RARRAY_AREF.exit246.thread ]
   %226 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %227 = getelementptr inbounds nuw i8, ptr %149, i64 32
@@ -5521,7 +5521,7 @@ RARRAY_AREF.exit261:                              ; preds = %254, %256
   br i1 %322, label %323, label %329
 
 323:                                              ; preds = %320
-  br i1 %.not166311, label %327, label %324
+  br i1 %.not166330, label %327, label %324
 
 324:                                              ; preds = %323
   %325 = load i64, ptr %228, align 8, !tbaa !125
@@ -5731,9 +5731,9 @@ define internal i64 @rb_method_parameters(i64 noundef %0) #0 {
   br label %tailrecurse.i.sink.split
 
 tailrecurse.i.sink.split:                         ; preds = %1, %103
-  %.sink129.in = phi ptr [ %104, %103 ], [ %4, %1 ]
-  %.sink129 = load ptr, ptr %.sink129.in, align 8, !tbaa !35
-  %5 = getelementptr inbounds nuw i8, ptr %.sink129, i64 16
+  %.sink131.in = phi ptr [ %104, %103 ], [ %4, %1 ]
+  %.sink131 = load ptr, ptr %.sink131.in, align 8, !tbaa !35
+  %5 = getelementptr inbounds nuw i8, ptr %.sink131, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !77
   br label %tailrecurse.i
 
@@ -5756,7 +5756,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i, %41
   %12 = and i32 %11, 15
   switch i32 %12, label %method_def_iseq.exit.i [
     i32 0, label %13
-    i32 4, label %tailrecurse52.i.i.i
+    i32 4, label %tailrecurse53.i.i.i
     i32 6, label %41
   ]
 
@@ -5765,13 +5765,13 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i, %41
   %15 = load ptr, ptr %14, align 8, !tbaa !35
   br label %method_def_iseq.exit.i
 
-tailrecurse52.i.i.i:                              ; preds = %tailrecurse.i.i.i.i, %tailrecurse.i.i
+tailrecurse53.i.i.i:                              ; preds = %tailrecurse.i.i.i.i, %tailrecurse.i.i
   %.tr.pn.i.i = phi ptr [ %.tr.i.i, %tailrecurse.i.i ], [ %.tr.i.i.i.i, %tailrecurse.i.i.i.i ]
-  %.tr53.i.in.i.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i.i, i64 8
+  %.tr54.i.in.i.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i.i, i64 8
   br label %tailrecurse.us.i.i.i
 
-tailrecurse.us.i.i.i:                             ; preds = %tailrecurse.us.i.i.i, %tailrecurse52.i.i.i
-  %.tr.us.i.in.i.i = phi ptr [ %.tr53.i.in.i.i, %tailrecurse52.i.i.i ], [ %18, %tailrecurse.us.i.i.i ]
+tailrecurse.us.i.i.i:                             ; preds = %tailrecurse.us.i.i.i, %tailrecurse53.i.i.i
+  %.tr.us.i.in.i.i = phi ptr [ %.tr54.i.in.i.i, %tailrecurse53.i.i.i ], [ %18, %tailrecurse.us.i.i.i ]
   %.tr.us.i.i.i = load i64, ptr %.tr.us.i.in.i.i, align 8, !tbaa !35
   %16 = inttoptr i64 %.tr.us.i.i.i to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -5816,7 +5816,7 @@ tailrecurse.i.i.i.i:                              ; preds = %39, %27
   %35 = and i32 %34, 15
   switch i32 %35, label %method_def_iseq.exit.i [
     i32 0, label %36
-    i32 4, label %tailrecurse52.i.i.i
+    i32 4, label %tailrecurse53.i.i.i
     i32 6, label %39
   ]
 
@@ -5852,7 +5852,7 @@ tailrecurse.i16.i:                                ; preds = %tailrecurse.i, %75
   %49 = and i32 %48, 15
   switch i32 %49, label %method_def_iseq.exit34.thread.i [
     i32 0, label %50
-    i32 4, label %tailrecurse52.i.i18.i
+    i32 4, label %tailrecurse53.i.i18.i
     i32 6, label %75
   ]
 
@@ -5860,13 +5860,13 @@ tailrecurse.i16.i:                                ; preds = %tailrecurse.i, %75
   %51 = getelementptr inbounds nuw i8, ptr %.tr.i17.i, i64 8
   br label %method_def_iseq.exit34.i
 
-tailrecurse52.i.i18.i:                            ; preds = %tailrecurse.i.i.i27.i, %tailrecurse.i16.i
+tailrecurse53.i.i18.i:                            ; preds = %tailrecurse.i.i.i27.i, %tailrecurse.i16.i
   %.tr.pn.i19.i = phi ptr [ %.tr.i17.i, %tailrecurse.i16.i ], [ %.tr.i.i.i31.i, %tailrecurse.i.i.i27.i ]
-  %.tr53.i.in.i20.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i19.i, i64 8
+  %.tr54.i.in.i20.i = getelementptr inbounds nuw i8, ptr %.tr.pn.i19.i, i64 8
   br label %tailrecurse.us.i.i21.i
 
-tailrecurse.us.i.i21.i:                           ; preds = %tailrecurse.us.i.i21.i, %tailrecurse52.i.i18.i
-  %.tr.us.i.in.i22.i = phi ptr [ %.tr53.i.in.i20.i, %tailrecurse52.i.i18.i ], [ %54, %tailrecurse.us.i.i21.i ]
+tailrecurse.us.i.i21.i:                           ; preds = %tailrecurse.us.i.i21.i, %tailrecurse53.i.i18.i
+  %.tr.us.i.in.i22.i = phi ptr [ %.tr54.i.in.i20.i, %tailrecurse53.i.i18.i ], [ %54, %tailrecurse.us.i.i21.i ]
   %.tr.us.i.i23.i = load i64, ptr %.tr.us.i.in.i22.i, align 8, !tbaa !35
   %52 = inttoptr i64 %.tr.us.i.i23.i to ptr
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -5910,7 +5910,7 @@ tailrecurse.i.i.i27.i:                            ; preds = %73, %62
   %70 = and i32 %69, 15
   switch i32 %70, label %method_def_iseq.exit34.thread.i [
     i32 0, label %71
-    i32 4, label %tailrecurse52.i.i18.i
+    i32 4, label %tailrecurse53.i.i18.i
     i32 6, label %73
   ]
 
@@ -7361,43 +7361,43 @@ define internal fastcc i64 @mnew_internal(ptr noundef %0, i64 noundef %1, i64 no
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !77
-  %.not66.us121 = icmp eq ptr %11, null
-  br i1 %.not66.us121, label %._crit_edge, label %.lr.ph125
+  %.not66.us134 = icmp eq ptr %11, null
+  br i1 %.not66.us134, label %._crit_edge, label %.lr.ph138
 
 .lr.ph.split.us:                                  ; preds = %52
   %12 = getelementptr inbounds nuw i8, ptr %.1.us, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !77
   %.not66.us = icmp eq ptr %13, null
-  br i1 %.not66.us, label %._crit_edge, label %.lr.ph125
+  br i1 %.not66.us, label %._crit_edge, label %.lr.ph138
 
-.lr.ph125:                                        ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+.lr.ph138:                                        ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %14 = phi ptr [ %13, %.lr.ph.split.us ], [ %11, %.lr.ph.split.us.preheader ]
-  %.06185.us124 = phi i32 [ %.162.us, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %.05986.us123 = phi i64 [ %.160.us, %.lr.ph.split.us ], [ %4, %.lr.ph.split.us.preheader ]
-  %.05887.us122 = phi ptr [ %.1.us, %.lr.ph.split.us ], [ %0, %.lr.ph.split.us.preheader ]
+  %.06185.us137 = phi i32 [ %.162.us, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+  %.05986.us136 = phi i64 [ %.160.us, %.lr.ph.split.us ], [ %4, %.lr.ph.split.us.preheader ]
+  %.05887.us135 = phi ptr [ %.1.us, %.lr.ph.split.us ], [ %0, %.lr.ph.split.us.preheader ]
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 15
   %17 = icmp eq i64 %16, 7
   br i1 %17, label %._crit_edge, label %18
 
-18:                                               ; preds = %.lr.ph125
-  %19 = icmp eq i32 %.06185.us124, 0
+18:                                               ; preds = %.lr.ph138
+  %19 = icmp eq i32 %.06185.us137, 0
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %.05887.us122, align 8, !tbaa !134
+  %21 = load i64, ptr %.05887.us135, align 8, !tbaa !134
   %22 = trunc i64 %21 to i32
   %23 = lshr i32 %22, 16
   %24 = and i32 %23, 3
   br label %25
 
 25:                                               ; preds = %20, %18
-  %.162.us = phi i32 [ %24, %20 ], [ %.06185.us124, %18 ]
+  %.162.us = phi i32 [ %24, %20 ], [ %.06185.us137, %18 ]
   %26 = icmp eq i64 %16, 5
   br i1 %26, label %27, label %.split.us
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %.05887.us122, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.05887.us135, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !86
   %.not67.us = icmp eq i64 %29, 0
   br i1 %.not67.us, label %40, label %30
@@ -7415,7 +7415,7 @@ define internal fastcc i64 @mnew_internal(ptr noundef %0, i64 noundef %1, i64 no
   br label %52
 
 40:                                               ; preds = %27
-  %41 = getelementptr inbounds nuw i8, ptr %.05887.us122, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.05887.us135, i64 32
   %42 = load i64, ptr %41, align 8, !tbaa !104
   %43 = inttoptr i64 %42 to ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
@@ -7437,54 +7437,53 @@ define internal fastcc i64 @mnew_internal(ptr noundef %0, i64 noundef %1, i64 no
 .lr.ph.split:                                     ; preds = %.lr.ph, %105
   %.05887 = phi ptr [ %.1, %105 ], [ %0, %.lr.ph ]
   %.05986 = phi i64 [ %.160, %105 ], [ %4, %.lr.ph ]
-  %.06185 = phi i32 [ %.162, %105 ], [ 0, %.lr.ph ]
-  %53 = getelementptr inbounds nuw i8, ptr %.05887, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !77
-  %.not66 = icmp eq ptr %54, null
-  br i1 %.not66, label %._crit_edge, label %55
+  %53 = phi i1 [ false, %105 ], [ true, %.lr.ph ]
+  %54 = getelementptr inbounds nuw i8, ptr %.05887, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !77
+  %.not66 = icmp eq ptr %55, null
+  br i1 %.not66, label %._crit_edge, label %56
 
-55:                                               ; preds = %.lr.ph.split
-  %56 = load i64, ptr %54, align 8
-  %57 = and i64 %56, 15
-  %58 = icmp eq i64 %57, 7
-  br i1 %58, label %._crit_edge, label %69
+56:                                               ; preds = %.lr.ph.split
+  %57 = load i64, ptr %55, align 8
+  %58 = and i64 %57, 15
+  %59 = icmp eq i64 %58, 7
+  br i1 %59, label %._crit_edge, label %70
 
-._crit_edge:                                      ; preds = %105, %.lr.ph.split, %55, %.lr.ph125, %.lr.ph.split.us, %52, %.lr.ph.split.us.preheader, %8
-  %.059.lcssa = phi i64 [ %4, %8 ], [ %4, %.lr.ph.split.us.preheader ], [ %.160.us, %52 ], [ %.160.us, %.lr.ph.split.us ], [ %.05986.us123, %.lr.ph125 ], [ %.05986, %55 ], [ %.05986, %.lr.ph.split ], [ %.160, %105 ]
-  %59 = call i64 @rb_id2sym(i64 noundef %.059.lcssa) #21
-  %60 = icmp eq i64 %3, 36
-  br i1 %60, label %respond_to_missing_p.exit.thread, label %61
+._crit_edge:                                      ; preds = %105, %.lr.ph.split, %56, %.lr.ph138, %.lr.ph.split.us, %52, %.lr.ph.split.us.preheader, %8
+  %.059.lcssa = phi i64 [ %4, %8 ], [ %4, %.lr.ph.split.us.preheader ], [ %.160.us, %52 ], [ %.160.us, %.lr.ph.split.us ], [ %.05986.us136, %.lr.ph138 ], [ %.05986, %56 ], [ %.05986, %.lr.ph.split ], [ %.160, %105 ]
+  %60 = call i64 @rb_id2sym(i64 noundef %.059.lcssa) #21
+  %61 = icmp eq i64 %3, 36
+  br i1 %61, label %respond_to_missing_p.exit.thread, label %62
 
-61:                                               ; preds = %._crit_edge
-  %62 = call i32 @rb_method_basic_definition_p(i64 noundef %1, i64 noundef 157) #21
-  %.not.i = icmp eq i32 %62, 0
+62:                                               ; preds = %._crit_edge
+  %63 = call i32 @rb_method_basic_definition_p(i64 noundef %1, i64 noundef 157) #21
+  %.not.i = icmp eq i32 %63, 0
   br i1 %.not.i, label %respond_to_missing_p.exit, label %respond_to_missing_p.exit.thread
 
-respond_to_missing_p.exit:                        ; preds = %61
+respond_to_missing_p.exit:                        ; preds = %62
   %.not8.i = icmp eq i32 %6, 0
-  %63 = select i1 %.not8.i, i64 20, i64 0
-  %64 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef 157, i32 noundef 2, i64 noundef %59, i64 noundef %63) #21
-  %65 = and i64 %64, -5
-  %.not79 = icmp eq i64 %65, 0
-  br i1 %.not79, label %respond_to_missing_p.exit.thread, label %66
+  %64 = select i1 %.not8.i, i64 20, i64 0
+  %65 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef 157, i32 noundef 2, i64 noundef %60, i64 noundef %64) #21
+  %66 = and i64 %65, -5
+  %.not79 = icmp eq i64 %66, 0
+  br i1 %.not79, label %respond_to_missing_p.exit.thread, label %67
 
-66:                                               ; preds = %respond_to_missing_p.exit
-  %67 = call fastcc i64 @mnew_missing(i64 noundef %1, i64 noundef %3, i64 noundef %.059.lcssa, i64 noundef %5)
+67:                                               ; preds = %respond_to_missing_p.exit
+  %68 = call fastcc i64 @mnew_missing(i64 noundef %1, i64 noundef %3, i64 noundef %.059.lcssa, i64 noundef %5)
   br label %rb_obj_write.exit75
 
-respond_to_missing_p.exit.thread:                 ; preds = %61, %._crit_edge, %respond_to_missing_p.exit
+respond_to_missing_p.exit.thread:                 ; preds = %62, %._crit_edge, %respond_to_missing_p.exit
   %.not70 = icmp eq i32 %7, 0
-  br i1 %.not70, label %rb_obj_write.exit75, label %68
+  br i1 %.not70, label %rb_obj_write.exit75, label %69
 
-68:                                               ; preds = %respond_to_missing_p.exit.thread
+69:                                               ; preds = %respond_to_missing_p.exit.thread
   call void @rb_print_undef(i64 noundef %1, i64 noundef %.059.lcssa, i32 noundef 0) #22
   unreachable
 
-69:                                               ; preds = %55
-  %70 = icmp eq i32 %.06185, 0
-  br i1 %70, label %71, label %78
+70:                                               ; preds = %56
+  br i1 %53, label %71, label %78
 
-71:                                               ; preds = %69
+71:                                               ; preds = %70
   %72 = load i64, ptr %.05887, align 8, !tbaa !134
   %73 = trunc i64 %72 to i32
   %74 = lshr i32 %73, 16
@@ -7500,9 +7499,8 @@ respond_to_missing_p.exit.thread:                 ; preds = %61, %._crit_edge, %
   call void @rb_print_inaccessible(i64 noundef %1, i64 noundef %.05986, i32 noundef %75) #22
   unreachable
 
-78:                                               ; preds = %71, %69
-  %.162 = phi i32 [ 1, %71 ], [ %.06185, %69 ]
-  %79 = icmp eq i64 %57, 5
+78:                                               ; preds = %71, %70
+  %79 = icmp eq i64 %58, 5
   br i1 %79, label %80, label %.split.us
 
 80:                                               ; preds = %78
@@ -7518,7 +7516,7 @@ respond_to_missing_p.exit.thread:                 ; preds = %61, %._crit_edge, %
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8, !tbaa !102
-  %90 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %91 = load i64, ptr %90, align 8, !tbaa !105
   %92 = call ptr @rb_callable_method_entry_with_refinements(i64 noundef %89, i64 noundef %91, ptr noundef nonnull %9) #21
   br label %105
@@ -7532,7 +7530,7 @@ respond_to_missing_p.exit.thread:                 ; preds = %61, %._crit_edge, %
   %99 = inttoptr i64 %98 to ptr
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i64, ptr %100, align 8, !tbaa !102
-  %102 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %103 = load i64, ptr %102, align 8, !tbaa !105
   %104 = call ptr @rb_method_entry_without_refinements(i64 noundef %101, i64 noundef %103, ptr noundef nonnull %9) #21
   br label %105
@@ -7544,7 +7542,7 @@ respond_to_missing_p.exit.thread:                 ; preds = %61, %._crit_edge, %
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 .split.us:                                        ; preds = %78, %25
-  %.us-phi93 = phi ptr [ %.05887.us122, %25 ], [ %.05887, %78 ]
+  %.us-phi93 = phi ptr [ %.05887.us135, %25 ], [ %.05887, %78 ]
   %106 = call i64 @rb_data_typed_object_zalloc(i64 noundef %5, i64 noundef 40, ptr noundef nonnull @method_data_type) #21
   %107 = inttoptr i64 %106 to ptr
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
@@ -7635,8 +7633,8 @@ rb_obj_write.exit74:                              ; preds = %rb_obj_write.exit73
   call void @rb_gc_writebarrier(i64 noundef %106, i64 noundef %146) #21
   br label %rb_obj_write.exit75
 
-rb_obj_write.exit75:                              ; preds = %148, %rb_obj_write.exit74, %76, %respond_to_missing_p.exit.thread, %66
-  %.0 = phi i64 [ %67, %66 ], [ 4, %respond_to_missing_p.exit.thread ], [ 4, %76 ], [ %106, %rb_obj_write.exit74 ], [ %106, %148 ]
+rb_obj_write.exit75:                              ; preds = %148, %rb_obj_write.exit74, %76, %respond_to_missing_p.exit.thread, %67
+  %.0 = phi i64 [ %68, %67 ], [ 4, %respond_to_missing_p.exit.thread ], [ 4, %76 ], [ %106, %rb_obj_write.exit74 ], [ %106, %148 ]
   ret i64 %.0
 }
 

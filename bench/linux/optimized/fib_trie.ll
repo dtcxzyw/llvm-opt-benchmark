@@ -447,9 +447,9 @@ define dso_local i32 @fib_table_insert(ptr noundef %0, ptr noundef captures(none
   %85 = load i32, ptr %84, align 8
   %86 = icmp ult i32 %85, %58
   %87 = icmp uge i8 %67, %33
-  %.not114 = select i1 %86, i1 %87, i1 false
-  %88 = select i1 %.not114, ptr %65, ptr %64
-  br i1 %.not114, label %.thread38, label %92
+  %.not150 = select i1 %86, i1 %87, i1 false
+  %88 = select i1 %.not150, ptr %65, ptr %64
+  br i1 %.not150, label %.thread38, label %92
 
 .thread38:                                        ; preds = %81, %79, %73, %.preheader61
   %89 = phi ptr [ %88, %81 ], [ %65, %.preheader61 ], [ %65, %73 ], [ %65, %79 ]
@@ -3229,9 +3229,9 @@ define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly captures(add
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %108, ptr noundef nonnull align 8 dereferenceable(56) %99, i64 56, i1 false)
   %111 = icmp eq ptr %100, null
   %.pre67 = load i32, ptr %95, align 8
-  br i1 %111, label %.preheader84, label %.loopexit28
+  br i1 %111, label %.preheader102, label %.loopexit28
 
-.preheader84:                                     ; preds = %110, %131
+.preheader102:                                    ; preds = %110, %131
   %112 = phi i64 [ %125, %131 ], [ 0, %110 ]
   %113 = phi ptr [ %116, %131 ], [ %13, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
@@ -3240,7 +3240,7 @@ define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly captures(add
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.loopexit28, label %118
 
-118:                                              ; preds = %.preheader84
+118:                                              ; preds = %.preheader102
   %119 = load i32, ptr %116, align 8
   %120 = xor i32 %119, %.pre67
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 4
@@ -3257,11 +3257,11 @@ define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly captures(add
 
 131:                                              ; preds = %118
   %132 = icmp eq i8 %127, 0
-  br i1 %132, label %.loopexit28, label %.preheader84, !llvm.loop !6
+  br i1 %132, label %.loopexit28, label %.preheader102, !llvm.loop !6
 
-.loopexit28:                                      ; preds = %131, %118, %.preheader84, %110
-  %133 = phi ptr [ %101, %110 ], [ %113, %.preheader84 ], [ %113, %118 ], [ %113, %131 ]
-  %134 = phi ptr [ %100, %110 ], [ %116, %131 ], [ null, %118 ], [ null, %.preheader84 ]
+.loopexit28:                                      ; preds = %131, %118, %.preheader102, %110
+  %133 = phi ptr [ %101, %110 ], [ %113, %.preheader102 ], [ %113, %118 ], [ %113, %131 ]
+  %134 = phi ptr [ %100, %110 ], [ %116, %131 ], [ null, %118 ], [ null, %.preheader102 ]
   %135 = tail call fastcc i32 @fib_insert_alias(ptr noundef %133, ptr noundef %134, ptr noundef nonnull %108, ptr noundef null, i32 noundef %.pre67)
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %139, label %137
@@ -3290,13 +3290,13 @@ define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly captures(add
 
 .outer:                                           ; preds = %.outer.backedge, %.loopexit30
   %.ph = phi i64 [ 1, %.loopexit30 ], [ %.ph.be, %.outer.backedge ]
-  %.ph101 = phi ptr [ %147, %.loopexit30 ], [ %.ph101.be, %.outer.backedge ]
-  %148 = getelementptr inbounds nuw i8, ptr %.ph101, i64 8
-  %149 = getelementptr inbounds nuw i8, ptr %.ph101, i64 4
-  %150 = getelementptr inbounds nuw i8, ptr %.ph101, i64 5
-  %151 = getelementptr i8, ptr %.ph101, i64 -16
-  %152 = getelementptr i8, ptr %.ph101, i64 -12
-  %153 = getelementptr i8, ptr %.ph101, i64 -12
+  %.ph119 = phi ptr [ %147, %.loopexit30 ], [ %.ph119.be, %.outer.backedge ]
+  %148 = getelementptr inbounds nuw i8, ptr %.ph119, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %.ph119, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %.ph119, i64 5
+  %151 = getelementptr i8, ptr %.ph119, i64 -16
+  %152 = getelementptr i8, ptr %.ph119, i64 -12
+  %153 = getelementptr i8, ptr %.ph119, i64 -12
   br label %154
 
 154:                                              ; preds = %.backedge, %.outer
@@ -3306,15 +3306,15 @@ define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly captures(add
   br i1 %157, label %158, label %224
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds nuw i8, ptr %.ph101, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %.ph119, i64 4
   %160 = load i8, ptr %159, align 4
   %161 = icmp ugt i8 %160, 31
   br i1 %161, label %303, label %162
 
 162:                                              ; preds = %158
-  %163 = load i32, ptr %.ph101, align 8
-  %164 = getelementptr i8, ptr %.ph101, i64 -32
-  %165 = getelementptr i8, ptr %.ph101, i64 -8
+  %163 = load i32, ptr %.ph119, align 8
+  %164 = getelementptr i8, ptr %.ph119, i64 -32
+  %165 = getelementptr i8, ptr %.ph119, i64 -8
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %168 = load i8, ptr %167, align 4
@@ -3423,7 +3423,7 @@ define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly captures(add
 
 .outer.backedge:                                  ; preds = %232, %216
   %.ph.be = phi i64 [ %223, %216 ], [ %234, %232 ]
-  %.ph101.be = phi ptr [ %166, %216 ], [ %226, %232 ]
+  %.ph119.be = phi ptr [ %166, %216 ], [ %226, %232 ]
   br label %.outer, !llvm.loop !61
 
 235:                                              ; preds = %228
@@ -3475,7 +3475,7 @@ define dso_local noundef ptr @fib_trie_unmerge(ptr noundef readonly captures(add
 
 260:                                              ; preds = %256
   %261 = load i32, ptr %226, align 8
-  %262 = load i32, ptr %.ph101, align 8
+  %262 = load i32, ptr %.ph119, align 8
   %263 = xor i32 %262, %261
   %264 = zext i32 %263 to i64
   %265 = zext nneg i8 %257 to i64
@@ -3596,13 +3596,13 @@ define dso_local void @fib_table_flush_external(ptr noundef readonly captures(no
 
 .outer:                                           ; preds = %.outer.backedge, %1
   %.ph = phi i64 [ 1, %1 ], [ %.ph.be, %.outer.backedge ]
-  %.ph19 = phi ptr [ %3, %1 ], [ %.ph19.be, %.outer.backedge ]
-  %5 = getelementptr inbounds nuw i8, ptr %.ph19, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %.ph19, i64 4
-  %7 = getelementptr inbounds nuw i8, ptr %.ph19, i64 5
-  %8 = getelementptr i8, ptr %.ph19, i64 -16
-  %9 = getelementptr i8, ptr %.ph19, i64 -12
-  %10 = getelementptr i8, ptr %.ph19, i64 -12
+  %.ph32 = phi ptr [ %3, %1 ], [ %.ph32.be, %.outer.backedge ]
+  %5 = getelementptr inbounds nuw i8, ptr %.ph32, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.ph32, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.ph32, i64 5
+  %8 = getelementptr i8, ptr %.ph32, i64 -16
+  %9 = getelementptr i8, ptr %.ph32, i64 -12
+  %10 = getelementptr i8, ptr %.ph32, i64 -12
   br label %11
 
 11:                                               ; preds = %.backedge, %.outer
@@ -3612,20 +3612,20 @@ define dso_local void @fib_table_flush_external(ptr noundef readonly captures(no
   br i1 %14, label %15, label %71
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr %.ph19, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.ph19, i64 4
+  %16 = load i32, ptr %.ph32, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %.ph32, i64 4
   %18 = load i8, ptr %17, align 4
   %19 = icmp ugt i8 %18, 31
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %.ph19, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %.ph32, i64 6
   %22 = load i8, ptr %21, align 2
   %23 = icmp ugt i8 %22, %18
   br i1 %23, label %24, label %62
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.ph19, i64 5
+  %25 = getelementptr inbounds nuw i8, ptr %.ph32, i64 5
   %26 = load i8, ptr %25, align 1
   %27 = add nsw i8 %18, -1
   %28 = add i8 %27, %26
@@ -3637,7 +3637,7 @@ define dso_local void @fib_table_flush_external(ptr noundef readonly captures(no
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds nuw i8, ptr %.ph19, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.ph32, i64 8
   br label %36
 
 36:                                               ; preds = %53, %34
@@ -3680,7 +3680,7 @@ define dso_local void @fib_table_flush_external(ptr noundef readonly captures(no
   br label %62
 
 62:                                               ; preds = %.loopexit, %20
-  %63 = tail call fastcc ptr @resize(ptr noundef %.ph19)
+  %63 = tail call fastcc ptr @resize(ptr noundef %.ph32)
   %64 = load i32, ptr %63, align 8
   %65 = xor i32 %64, %16
   %66 = zext i32 %65 to i64
@@ -3709,7 +3709,7 @@ define dso_local void @fib_table_flush_external(ptr noundef readonly captures(no
 
 .outer.backedge:                                  ; preds = %79, %62
   %.ph.be = phi i64 [ %70, %62 ], [ %81, %79 ]
-  %.ph19.be = phi ptr [ %63, %62 ], [ %73, %79 ]
+  %.ph32.be = phi ptr [ %63, %62 ], [ %73, %79 ]
   br label %.outer, !llvm.loop !63
 
 82:                                               ; preds = %75
@@ -3775,7 +3775,7 @@ define dso_local void @fib_table_flush_external(ptr noundef readonly captures(no
 
 115:                                              ; preds = %111
   %116 = load i32, ptr %73, align 8
-  %117 = load i32, ptr %.ph19, align 8
+  %117 = load i32, ptr %.ph32, align 8
   %118 = xor i32 %117, %116
   %119 = zext i32 %118 to i64
   %120 = zext nneg i8 %112 to i64
@@ -4055,15 +4055,15 @@ define internal fastcc ptr @resize(ptr noundef %0) unnamed_addr #0 align 16 {
 139:                                              ; preds = %138
   %140 = load i32, ptr %101, align 8
   %141 = icmp eq i32 %140, 0
-  br i1 %141, label %142, label %.thread324
+  br i1 %141, label %142, label %.thread380
 
 142:                                              ; preds = %139
   %143 = load i32, ptr %102, align 4
   %144 = add i32 %143, -1
   store i32 %144, ptr %102, align 4
-  br label %.thread324
+  br label %.thread380
 
-.thread324:                                       ; preds = %139, %142
+.thread380:                                       ; preds = %139, %142
   %145 = add i32 %140, -1
   store i32 %145, ptr %101, align 8
   %.pre305 = load i8, ptr %110, align 4
@@ -4095,9 +4095,9 @@ define internal fastcc ptr @resize(ptr noundef %0) unnamed_addr #0 align 16 {
   %164 = or i1 %160, %163
   br i1 %164, label %165, label %169
 
-165:                                              ; preds = %.thread324, %149
-  %166 = phi i1 [ %148, %.thread324 ], [ %163, %149 ]
-  %167 = phi i1 [ true, %.thread324 ], [ %160, %149 ]
+165:                                              ; preds = %.thread380, %149
+  %166 = phi i1 [ %148, %.thread380 ], [ %163, %149 ]
+  %167 = phi i1 [ true, %.thread380 ], [ %160, %149 ]
   %168 = and i1 %167, %166
   br i1 %168, label %169, label %173
 
@@ -4321,7 +4321,7 @@ put_child.exit:                                   ; preds = %173, %178
 294:                                              ; preds = %put_child.exit50, %282
   %295 = phi i64 [ %286, %282 ], [ %454, %put_child.exit50 ]
   %296 = phi i64 [ %285, %282 ], [ %453, %put_child.exit50 ]
-  %297 = add i64 %296, -1
+  %297 = add nsw i64 %296, -1
   %298 = add i64 %295, -1
   %299 = getelementptr [0 x ptr], ptr %287, i64 0, i64 %298
   %300 = load ptr, ptr %299, align 8
@@ -4579,7 +4579,7 @@ put_child.exit41:                                 ; preds = %369, %370, %375
 put_child.exit44:                                 ; preds = %446, %447, %452
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !27
   store volatile ptr %377, ptr %378, align 8
-  %453 = add i64 %296, -2
+  %453 = add nsw i64 %296, -2
   %454 = add i64 %295, -2
   %455 = getelementptr [0 x ptr], ptr %287, i64 0, i64 %454
   %456 = load ptr, ptr %455, align 8
@@ -5727,36 +5727,36 @@ define dso_local i32 @fib_table_flush(ptr noundef %0, ptr noundef readonly captu
 
 .outer:                                           ; preds = %.outer.backedge, %3
   %.ph = phi i32 [ 0, %3 ], [ %202, %.outer.backedge ]
-  %.ph44 = phi i64 [ 1, %3 ], [ %78, %.outer.backedge ]
-  %.ph45 = phi ptr [ %7, %3 ], [ %.ph48, %.outer.backedge ]
-  br label %.outer46
+  %.ph66 = phi i64 [ 1, %3 ], [ %78, %.outer.backedge ]
+  %.ph67 = phi ptr [ %7, %3 ], [ %.ph70, %.outer.backedge ]
+  br label %.outer68
 
-.outer46:                                         ; preds = %.outer46.backedge, %.outer
-  %.ph47 = phi i64 [ %.ph44, %.outer ], [ %.ph47.be, %.outer46.backedge ]
-  %.ph48 = phi ptr [ %.ph45, %.outer ], [ %.ph48.be, %.outer46.backedge ]
-  %17 = getelementptr inbounds nuw i8, ptr %.ph48, i64 8
+.outer68:                                         ; preds = %.outer68.backedge, %.outer
+  %.ph69 = phi i64 [ %.ph66, %.outer ], [ %.ph69.be, %.outer68.backedge ]
+  %.ph70 = phi ptr [ %.ph67, %.outer ], [ %.ph70.be, %.outer68.backedge ]
+  %17 = getelementptr inbounds nuw i8, ptr %.ph70, i64 8
   br label %18
 
-18:                                               ; preds = %.outer46, %77
-  %19 = phi i64 [ %78, %77 ], [ %.ph47, %.outer46 ]
+18:                                               ; preds = %.outer68, %77
+  %19 = phi i64 [ %78, %77 ], [ %.ph69, %.outer68 ]
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %21, label %77
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr %.ph48, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %.ph48, i64 4
+  %22 = load i32, ptr %.ph70, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %.ph70, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = icmp ugt i8 %24, 31
   br i1 %25, label %258, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %.ph48, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %.ph70, i64 6
   %28 = load i8, ptr %27, align 2
   %29 = icmp ugt i8 %28, %24
   br i1 %29, label %30, label %68
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %.ph48, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %.ph70, i64 5
   %32 = load i8, ptr %31, align 1
   %33 = add nsw i8 %24, -1
   %34 = add i8 %33, %32
@@ -5768,7 +5768,7 @@ define dso_local i32 @fib_table_flush(ptr noundef %0, ptr noundef readonly captu
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds nuw i8, ptr %.ph48, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.ph70, i64 8
   br label %42
 
 42:                                               ; preds = %59, %40
@@ -5811,7 +5811,7 @@ define dso_local i32 @fib_table_flush(ptr noundef %0, ptr noundef readonly captu
   br label %68
 
 68:                                               ; preds = %.loopexit, %26
-  %69 = call fastcc ptr @resize(ptr noundef %.ph48)
+  %69 = call fastcc ptr @resize(ptr noundef %.ph70)
   %70 = load i32, ptr %69, align 8
   %71 = xor i32 %70, %22
   %72 = zext i32 %71 to i64
@@ -5819,7 +5819,7 @@ define dso_local i32 @fib_table_flush(ptr noundef %0, ptr noundef readonly captu
   %74 = load i8, ptr %73, align 4
   %75 = zext nneg i8 %74 to i64
   %76 = lshr i64 %72, %75
-  br label %.outer46.backedge
+  br label %.outer68.backedge
 
 77:                                               ; preds = %18
   %78 = add i64 %19, -1
@@ -5837,12 +5837,12 @@ define dso_local i32 @fib_table_flush(ptr noundef %0, ptr noundef readonly captu
 86:                                               ; preds = %82
   %87 = zext nneg i8 %84 to i64
   %88 = shl nuw i64 1, %87
-  br label %.outer46.backedge
+  br label %.outer68.backedge
 
-.outer46.backedge:                                ; preds = %86, %68
-  %.ph47.be = phi i64 [ %76, %68 ], [ %88, %86 ]
-  %.ph48.be = phi ptr [ %69, %68 ], [ %80, %86 ]
-  br label %.outer46, !llvm.loop !74
+.outer68.backedge:                                ; preds = %86, %68
+  %.ph69.be = phi i64 [ %76, %68 ], [ %88, %86 ]
+  %.ph70.be = phi ptr [ %69, %68 ], [ %80, %86 ]
+  br label %.outer68, !llvm.loop !74
 
 89:                                               ; preds = %82
   %90 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -6037,7 +6037,7 @@ fib_notify_alias_delete.exit:                     ; preds = %141, %150, %131, %1
   br i1 %205, label %206, label %.outer.backedge
 
 206:                                              ; preds = %.loopexit15
-  %207 = getelementptr inbounds nuw i8, ptr %.ph48, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %.ph70, i64 4
   %208 = load i8, ptr %207, align 4
   %209 = icmp ugt i8 %208, 31
   br i1 %209, label %210, label %211
@@ -6048,14 +6048,14 @@ fib_notify_alias_delete.exit:                     ; preds = %141, %150, %131, %1
 
 211:                                              ; preds = %206
   %212 = load i32, ptr %80, align 8
-  %213 = load i32, ptr %.ph48, align 8
+  %213 = load i32, ptr %.ph70, align 8
   %214 = xor i32 %213, %212
   %215 = zext i32 %214 to i64
   %216 = zext nneg i8 %208 to i64
   %217 = lshr i64 %215, %216
   %218 = getelementptr [0 x ptr], ptr %17, i64 0, i64 %217
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %.ph48, i64 5
+  %220 = getelementptr inbounds nuw i8, ptr %.ph70, i64 5
   %221 = load i8, ptr %220, align 1
   %222 = zext nneg i8 %221 to i64
   %223 = shl nuw i64 1, %222
@@ -6073,7 +6073,7 @@ fib_notify_alias_delete.exit:                     ; preds = %141, %150, %131, %1
   br i1 %228, label %254, label %229
 
 229:                                              ; preds = %227
-  %230 = getelementptr i8, ptr %.ph48, i64 -16
+  %230 = getelementptr i8, ptr %.ph70, i64 -16
   %231 = load i32, ptr %230, align 8
   %232 = add i32 %231, 1
   store i32 %232, ptr %230, align 8
@@ -6081,7 +6081,7 @@ fib_notify_alias_delete.exit:                     ; preds = %141, %150, %131, %1
   br i1 %233, label %234, label %238
 
 234:                                              ; preds = %229
-  %235 = getelementptr i8, ptr %.ph48, i64 -12
+  %235 = getelementptr i8, ptr %.ph70, i64 -12
   %236 = load i32, ptr %235, align 4
   %237 = add i32 %236, 1
   store i32 %237, ptr %235, align 4
@@ -6102,7 +6102,7 @@ fib_notify_alias_delete.exit:                     ; preds = %141, %150, %131, %1
   br i1 %249, label %254, label %250
 
 250:                                              ; preds = %238
-  %251 = getelementptr i8, ptr %.ph48, i64 -12
+  %251 = getelementptr i8, ptr %.ph70, i64 -12
   %252 = load i32, ptr %251, align 4
   %253 = add i32 %252, -1
   store i32 %253, ptr %251, align 4
@@ -6787,7 +6787,7 @@ define dso_local i32 @fib_table_dump(ptr noundef readonly captures(none) %0, ptr
   %203 = call i32 @fib_dump_info(ptr noundef %1, i32 noundef %199, i32 noundef %202, i32 noundef 24, ptr noundef nonnull %6, i32 noundef %129) #17
   %204 = icmp sgt i32 %203, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %204, label %205, label %.thread65
+  br i1 %204, label %205, label %.thread80
 
 205:                                              ; preds = %174, %173
   %206 = load i32, ptr %5, align 4
@@ -6804,15 +6804,15 @@ define dso_local i32 @fib_table_dump(ptr noundef readonly captures(none) %0, ptr
   %212 = load i32, ptr %24, align 8
   %213 = call i32 @fib_dump_info_fnhe(ptr noundef %1, ptr noundef %2, i32 noundef %212, ptr noundef %141, ptr noundef nonnull %5, i32 noundef %133, i32 noundef %129) #17
   %214 = icmp slt i32 %213, 0
-  br i1 %214, label %.thread65, label %215
+  br i1 %214, label %.thread80, label %215
 
 215:                                              ; preds = %.lr.ph, %143, %154, %161, %168, %208, %211
   %216 = add i32 %139, 1
   %217 = load volatile ptr, ptr %138, align 8
   %218 = icmp eq ptr %217, null
-  br i1 %218, label %._crit_edge113, label %.lr.ph
+  br i1 %218, label %._crit_edge128, label %.lr.ph
 
-.thread65:                                        ; preds = %211, %174
+.thread80:                                        ; preds = %211, %174
   %219 = phi i32 [ %213, %211 ], [ %203, %174 ]
   %220 = sext i32 %139 to i64
   store i64 %220, ptr %22, align 8
@@ -6822,20 +6822,20 @@ define dso_local i32 @fib_table_dump(ptr noundef readonly captures(none) %0, ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread16
 
-._crit_edge113:                                   ; preds = %215
+._crit_edge128:                                   ; preds = %215
   %223 = sext i32 %216 to i64
   br label %224
 
-224:                                              ; preds = %._crit_edge113, %128
-  %.lcssa101 = phi i64 [ %223, %._crit_edge113 ], [ 0, %128 ]
-  store i64 %.lcssa101, ptr %22, align 8
+224:                                              ; preds = %._crit_edge128, %128
+  %.lcssa116 = phi i64 [ %223, %._crit_edge128 ], [ 0, %128 ]
+  store i64 %.lcssa116, ptr %22, align 8
   %225 = load i32, ptr %35, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %226 = icmp slt i32 %225, 0
   br i1 %226, label %.thread16, label %230
 
-.thread16:                                        ; preds = %224, %.thread65
-  %227 = phi i32 [ %219, %.thread65 ], [ %225, %224 ]
+.thread16:                                        ; preds = %224, %.thread80
+  %227 = phi i32 [ %219, %.thread80 ], [ %225, %224 ]
   %228 = zext i32 %40 to i64
   store i64 %228, ptr %10, align 8
   %229 = sext i32 %39 to i64
@@ -7993,7 +7993,7 @@ define internal ptr @fib_trie_seq_next(ptr noundef readonly captures(none) %0, p
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 5
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 0
-  %.lcssa60..lcssa59 = select i1 %85, ptr %76, ptr %80
+  %.lcssa70..lcssa69 = select i1 %85, ptr %76, ptr %80
   br label %.thread19
 
 86:                                               ; preds = %78, %.lr.ph
@@ -8030,7 +8030,7 @@ define internal ptr @fib_trie_seq_next(ptr noundef readonly captures(none) %0, p
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 5
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %107, 0
-  %.lcssa55..lcssa = select i1 %108, ptr %99, ptr %103
+  %.lcssa65..lcssa = select i1 %108, ptr %99, ptr %103
   br label %.thread19, !llvm.loop !98
 
 .loopexit:                                        ; preds = %94, %89
@@ -8039,15 +8039,15 @@ define internal ptr @fib_trie_seq_next(ptr noundef readonly captures(none) %0, p
   br i1 %110, label %.loopexit24, label %89
 
 .thread19:                                        ; preds = %105, %82
-  %.sink70 = phi i1 [ %108, %105 ], [ %85, %82 ]
-  %.lcssa.sink = phi ptr [ %.lcssa55..lcssa, %105 ], [ %.lcssa60..lcssa59, %82 ]
+  %.sink80 = phi i1 [ %108, %105 ], [ %85, %82 ]
+  %.lcssa.sink = phi ptr [ %.lcssa65..lcssa, %105 ], [ %.lcssa70..lcssa69, %82 ]
   %111 = phi ptr [ %103, %105 ], [ %80, %82 ]
   %112 = phi ptr [ %97, %105 ], [ %74, %82 ]
-  %not..sink70 = xor i1 %.sink70, true
-  %.69 = zext i1 %not..sink70 to i32
+  %not..sink80 = xor i1 %.sink80, true
+  %.79 = zext i1 %not..sink80 to i32
   store ptr %.lcssa.sink, ptr %12, align 8
   store i32 0, ptr %11, align 8
-  store i32 %.69, ptr %66, align 4
+  store i32 %.79, ptr %66, align 4
   store ptr %112, ptr %7, align 8
   br label %.loopexit24
 

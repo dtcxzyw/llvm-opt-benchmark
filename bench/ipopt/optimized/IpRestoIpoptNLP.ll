@@ -3429,11 +3429,11 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit:        ; preds = %763, %744
   br label %_ZN5Ipopt8SmartPtrINS_27LowRankUpdateSymMatrixSpaceEED2Ev.exit194
 
 _ZN5Ipopt8SmartPtrINS_27LowRankUpdateSymMatrixSpaceEED2Ev.exit.sink.split: ; preds = %840, %768
-  %.sink701 = phi ptr [ %743, %768 ], [ %828, %840 ]
-  %855 = load ptr, ptr %.sink701, align 8, !tbaa !3
+  %.sink837 = phi ptr [ %743, %768 ], [ %828, %840 ]
+  %855 = load ptr, ptr %.sink837, align 8, !tbaa !3
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 8
   %857 = load ptr, ptr %856, align 8
-  call void %857(ptr noundef nonnull align 8 dereferenceable(41) %.sink701) #21
+  call void %857(ptr noundef nonnull align 8 dereferenceable(41) %.sink837) #21
   br label %_ZN5Ipopt8SmartPtrINS_27LowRankUpdateSymMatrixSpaceEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_27LowRankUpdateSymMatrixSpaceEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtrINS_27LowRankUpdateSymMatrixSpaceEED2Ev.exit.sink.split, %840, %768

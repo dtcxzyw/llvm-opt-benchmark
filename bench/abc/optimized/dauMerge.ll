@@ -164,9 +164,9 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr noundef captures(none) %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %75, %76, %59, %51
-  %.sink106 = phi i64 [ %57, %51 ], [ %62, %59 ], [ %62, %76 ], [ %62, %75 ], [ %62, %._crit_edge ]
+  %.sink111 = phi i64 [ %57, %51 ], [ %62, %59 ], [ %62, %76 ], [ %62, %75 ], [ %62, %._crit_edge ]
   %.1.sink = phi i32 [ %54, %51 ], [ 0, %59 ], [ %spec.select, %76 ], [ 2, %75 ], [ %71, %._crit_edge ]
-  %78 = getelementptr inbounds i32, ptr %4, i64 %.sink106
+  %78 = getelementptr inbounds i32, ptr %4, i64 %.sink111
   store i32 %.1.sink, ptr %78, align 4, !tbaa !9
   br label %79
 
@@ -244,15 +244,15 @@ define void @Dau_DsdMergeSubstitute_rec(ptr noundef %0, ptr noundef %1, ptr noun
   %35 = add i8 %33, -48
   %or.cond156 = icmp ult i8 %35, 10
   %or.cond179 = or i1 %or.cond, %or.cond156
-  br i1 %or.cond179, label %.critedge, label %.critedge2.loopexit220, !llvm.loop !16
+  br i1 %or.cond179, label %.critedge, label %.critedge2.loopexit226, !llvm.loop !16
 
-.critedge2.loopexit220:                           ; preds = %.critedge
+.critedge2.loopexit226:                           ; preds = %.critedge
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 1
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge.us, %.critedge2.loopexit220, %18
-  %.lcssa182 = phi ptr [ %.promoted, %18 ], [ %36, %.critedge2.loopexit220 ], [ %24, %.critedge.us ]
-  %.lcssa181 = phi i8 [ %19, %18 ], [ %33, %.critedge2.loopexit220 ], [ %25, %.critedge.us ]
+.critedge2:                                       ; preds = %.critedge.us, %.critedge2.loopexit226, %18
+  %.lcssa182 = phi ptr [ %.promoted, %18 ], [ %36, %.critedge2.loopexit226 ], [ %24, %.critedge.us ]
+  %.lcssa181 = phi i8 [ %19, %18 ], [ %33, %.critedge2.loopexit226 ], [ %25, %.critedge.us ]
   %37 = icmp eq i8 %.lcssa181, 60
   br i1 %37, label %38, label %.loopexit
 
@@ -661,8 +661,8 @@ Dau_DsdMergeGetStatus.exit172:                    ; preds = %.critedge2.i166, %1
   %.pn.pre218 = load ptr, ptr %2, align 8, !tbaa !3
   %220 = getelementptr inbounds nuw i8, ptr %.pn.pre218, i64 1
   %221 = icmp ult ptr %.0135, %220
-  %or.cond230 = select i1 %219, i1 %221, i1 false
-  br i1 %or.cond230, label %.lr.ph.i, label %Dau_DsdMergeStoreAddToDef.exit
+  %or.cond236 = select i1 %219, i1 %221, i1 false
+  br i1 %or.cond236, label %.lr.ph.i, label %Dau_DsdMergeStoreAddToDef.exit
 
 .lr.ph.i:                                         ; preds = %216, %.lr.ph.i
   %.04.i = phi ptr [ %222, %.lr.ph.i ], [ %.0135, %216 ]
@@ -773,7 +773,7 @@ define void @Dau_DsdRemoveBraces_rec(ptr noundef %0, ptr noundef captures(none) 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !8
   %29 = icmp eq i8 %28, 123
-  br i1 %29, label %30, label %.thread66
+  br i1 %29, label %30, label %.thread68
 
 30:                                               ; preds = %19
   store ptr %27, ptr %1, align 8, !tbaa !3
@@ -789,13 +789,13 @@ define void @Dau_DsdRemoveBraces_rec(ptr noundef %0, ptr noundef captures(none) 
 
 35:                                               ; preds = %31
   switch i8 %32, label %.loopexit [
-    i8 40, label %.thread66
-    i8 91, label %.thread66
-    i8 60, label %.thread66
-    i8 123, label %.thread66
+    i8 40, label %.thread68
+    i8 91, label %.thread68
+    i8 60, label %.thread68
+    i8 123, label %.thread68
   ]
 
-.thread66:                                        ; preds = %19, %35, %35, %35, %35
+.thread68:                                        ; preds = %19, %35, %35, %35, %35
   %36 = phi ptr [ %33, %35 ], [ %33, %35 ], [ %33, %35 ], [ %33, %35 ], [ %.lcssa52, %19 ]
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %0 to i64
@@ -809,9 +809,9 @@ define void @Dau_DsdRemoveBraces_rec(ptr noundef %0, ptr noundef captures(none) 
   %44 = icmp ult ptr %storemerge57, %43
   br i1 %44, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.thread66, %.thread
-  %storemerge59 = phi ptr [ %storemerge, %.thread ], [ %storemerge57, %.thread66 ]
-  %.pn58 = phi ptr [ %63, %.thread ], [ %36, %.thread66 ]
+.lr.ph:                                           ; preds = %.thread68, %.thread
+  %storemerge59 = phi ptr [ %storemerge, %.thread ], [ %storemerge57, %.thread68 ]
+  %.pn58 = phi ptr [ %63, %.thread ], [ %36, %.thread68 ]
   %45 = load i8, ptr %storemerge59, align 1, !tbaa !8
   %46 = icmp eq i8 %45, 33
   %47 = getelementptr inbounds nuw i8, ptr %.pn58, i64 2
@@ -856,7 +856,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %64 = icmp ult ptr %storemerge, %43
   br i1 %64, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
-.loopexit:                                        ; preds = %.thread, %.thread66, %35, %31
+.loopexit:                                        ; preds = %.thread, %.thread68, %35, %31
   ret void
 }
 
@@ -2016,8 +2016,8 @@ Dau_DsdMergeMatches.exit229:                      ; preds = %439, %Dau_DsdIsCons
   %451 = load i8, ptr %450, align 1, !tbaa !8
   %452 = icmp ne i8 %451, 123
   %.not685.i = icmp sgt i32 %.055.i, %447
-  %or.cond31.i = or i1 %.not685.i, %452
-  br i1 %or.cond31.i, label %.loopexit4.i, label %.lr.ph.i231
+  %or.cond33.i = or i1 %.not685.i, %452
+  br i1 %or.cond33.i, label %.loopexit4.i, label %.lr.ph.i231
 
 .lr.ph.i231:                                      ; preds = %445, %.lr.ph.i231
   %indvars.iv.i232 = phi i64 [ %indvars.iv.next.i233, %.lr.ph.i231 ], [ %444, %445 ]
@@ -2083,8 +2083,8 @@ Dau_DsdMergeMatches.exit229:                      ; preds = %439, %Dau_DsdIsCons
   %or.cond73.i = icmp ugt i8 %473, 25
   %474 = zext nneg i8 %473 to i32
   %475 = icmp samesign ugt i32 %257, %474
-  %or.cond33.i = select i1 %or.cond73.i, i1 true, i1 %475
-  br i1 %or.cond33.i, label %476, label %478
+  %or.cond35.i = select i1 %or.cond73.i, i1 true, i1 %475
+  br i1 %or.cond35.i, label %476, label %478
 
 476:                                              ; preds = %.critedge2.i240
   %477 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1

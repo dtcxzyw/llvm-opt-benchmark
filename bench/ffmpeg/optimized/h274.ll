@@ -99,8 +99,8 @@ define range(i32 -1163346256, 1) i32 @ff_h274_apply_film_grain(ptr noundef reado
   %67 = load i32, ptr %66, align 4, !tbaa !5
   %68 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv191
   %69 = load i32, ptr %68, align 4, !tbaa !5
-  %.not109195 = icmp eq i32 %69, 0
-  br i1 %.not109195, label %70, label %.preheader133
+  %.not109203 = icmp eq i32 %69, 0
+  br i1 %.not109203, label %70, label %.preheader133
 
 70:                                               ; preds = %.thread, %43
   %71 = phi i32 [ %67, %.thread ], [ %52, %43 ]
@@ -304,8 +304,8 @@ avg_8x8_c.exit.us:                                ; preds = %144
 
 .loopexit.us:                                     ; preds = %177
   %181 = and i64 %indvars.iv167, 128
-  %.not205 = icmp eq i64 %181, 0
-  br i1 %.not205, label %182, label %.preheader.us.preheader
+  %.not213 = icmp eq i64 %181, 0
+  br i1 %.not213, label %182, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %375, %avg_8x8_c.exit.us, %.loopexit.us
   br label %.preheader.us
@@ -612,8 +612,8 @@ synth_grain_8x8_c.exit.us:                        ; preds = %324
   br i1 %exitcond.not.i118.us.lver.orig, label %generate.exit.us, label %.preheader127.us.lver.orig, !llvm.loop !50
 
 .preheader127.us.ph:                              ; preds = %.preheader127.us.lver.check
-  %scevgep213 = getelementptr i8, ptr %scevgep212, i64 %indvars.iv174
-  %load_initial = load i8, ptr %scevgep213, align 1
+  %scevgep221 = getelementptr i8, ptr %scevgep220, i64 %indvars.iv174
+  %load_initial = load i8, ptr %scevgep221, align 1
   br label %.preheader127.us
 
 .preheader127.us:                                 ; preds = %.preheader127.us.ph, %.preheader127.us
@@ -670,7 +670,7 @@ generate.exit.us:                                 ; preds = %.preheader127.us.lv
   %378 = mul nsw i64 %128, %100
   %379 = getelementptr inbounds i8, ptr %96, i64 %378
   %380 = add nuw nsw i64 %indvars.iv177, %125
-  %scevgep212 = getelementptr i8, ptr %scevgep, i64 %indvars.iv177
+  %scevgep220 = getelementptr i8, ptr %scevgep, i64 %indvars.iv177
   br label %131
 
 ._crit_edge.us:                                   ; preds = %.critedge.us

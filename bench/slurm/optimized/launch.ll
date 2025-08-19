@@ -419,9 +419,9 @@ _is_local_file.exit72:                            ; preds = %104
   unreachable
 
 .sink.split:                                      ; preds = %.critedge, %104, %94
-  %.sink85 = phi i64 [ 28, %94 ], [ 24, %104 ], [ 24, %.critedge ]
+  %.sink90 = phi i64 [ 28, %94 ], [ 24, %104 ], [ 24, %.critedge ]
   %.sink = phi i32 [ %99, %94 ], [ 2, %104 ], [ 2, %.critedge ]
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink85
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink90
   store i32 %.sink, ptr %129, align 4
   br label %130
 
@@ -1153,9 +1153,9 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   br label %284
 
 284:                                              ; preds = %280, %277
-  %.sink331.i = phi ptr [ %279, %277 ], [ %spec.select.i, %280 ]
+  %.sink353.i = phi ptr [ %279, %277 ], [ %spec.select.i, %280 ]
   %285 = getelementptr inbounds nuw i8, ptr %30, i64 96
-  store ptr %.sink331.i, ptr %285, align 8
+  store ptr %.sink353.i, ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %287 = load ptr, ptr %286, align 8
   %288 = call ptr @xstrdup(ptr noundef %287) #17
@@ -1177,10 +1177,10 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   br label %299
 
 299:                                              ; preds = %284, %296
-  %.sink333.in.i = phi i32 [ %298, %296 ], [ %295, %284 ]
-  %.sink333.i = trunc i32 %.sink333.in.i to i16
+  %.sink355.in.i = phi i32 [ %298, %296 ], [ %295, %284 ]
+  %.sink355.i = trunc i32 %.sink355.in.i to i16
   %300 = getelementptr inbounds nuw i8, ptr %30, i64 42
-  store i16 %.sink333.i, ptr %300, align 2
+  store i16 %.sink355.i, ptr %300, align 2
   %301 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %302 = load i32, ptr %301, align 8
   %303 = getelementptr inbounds nuw i8, ptr %30, i64 136
@@ -1208,9 +1208,9 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   br i1 %.not288.i, label %316, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %312, %310
-  %.sink335.i = phi i64 [ %311, %310 ], [ %314, %312 ]
+  %.sink357.i = phi i64 [ %311, %310 ], [ %314, %312 ]
   %315 = getelementptr inbounds nuw i8, ptr %30, i64 88
-  store i64 %.sink335.i, ptr %315, align 8
+  store i64 %.sink357.i, ptr %315, align 8
   br label %316
 
 316:                                              ; preds = %.sink.split.i, %312
@@ -1263,20 +1263,20 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
 349:                                              ; preds = %316
   %350 = load i32, ptr %294, align 4
   %.not292.i = icmp eq i32 %350, -2
-  br i1 %.not292.i, label %351, label %.sink.split337.i
+  br i1 %.not292.i, label %351, label %.sink.split359.i
 
 351:                                              ; preds = %349
   %352 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %353 = load i32, ptr %352, align 8
   %.not293.i = icmp eq i32 %353, -2
-  br i1 %.not293.i, label %354, label %.sink.split337.i
+  br i1 %.not293.i, label %354, label %.sink.split359.i
 
-.sink.split337.i:                                 ; preds = %351, %349
-  %.sink338.i = phi i32 [ %350, %349 ], [ %353, %351 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %347, ptr noundef nonnull @.str.43, i32 noundef %.sink338.i) #17
+.sink.split359.i:                                 ; preds = %351, %349
+  %.sink360.i = phi i32 [ %350, %349 ], [ %353, %351 ]
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %347, ptr noundef nonnull @.str.43, i32 noundef %.sink360.i) #17
   br label %354
 
-354:                                              ; preds = %.sink.split337.i, %351, %316
+354:                                              ; preds = %.sink.split359.i, %351, %316
   %355 = getelementptr inbounds nuw i8, ptr %4, i64 744
   %356 = load ptr, ptr %355, align 8
   %357 = call ptr @xstrdup(ptr noundef %356) #17
@@ -1448,14 +1448,14 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   %444 = getelementptr inbounds nuw i8, ptr %4, i64 180
   %445 = load i32, ptr %444, align 4
   %.not304.i = icmp eq i32 %445, -2
-  br i1 %.not304.i, label %469, label %.sink.split339.i
+  br i1 %.not304.i, label %469, label %.sink.split361.i
 
 446:                                              ; preds = %437
   %447 = getelementptr inbounds nuw i8, ptr %30, i64 200
   store i32 4, ptr %447, align 8
   %448 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %449 = load i32, ptr %448, align 8
-  br label %.sink.split339.i
+  br label %.sink.split361.i
 
 450:                                              ; preds = %437
   %451 = load i64, ptr %308, align 8
@@ -1490,15 +1490,15 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
   %466 = getelementptr inbounds nuw i8, ptr %4, i64 180
   %467 = load i32, ptr %466, align 4
   %.not308.i = icmp eq i32 %467, -2
-  br i1 %.not308.i, label %469, label %.sink.split339.i
+  br i1 %.not308.i, label %469, label %.sink.split361.i
 
-.sink.split339.i:                                 ; preds = %462, %446, %442
-  %.sink341.i = phi i32 [ %449, %446 ], [ %445, %442 ], [ %467, %462 ]
-  %468 = trunc i32 %.sink341.i to i16
+.sink.split361.i:                                 ; preds = %462, %446, %442
+  %.sink363.i = phi i32 [ %449, %446 ], [ %445, %442 ], [ %467, %462 ]
+  %468 = trunc i32 %.sink363.i to i16
   store i16 %468, ptr %438, align 4
   br label %469
 
-469:                                              ; preds = %.sink.split339.i, %462, %442
+469:                                              ; preds = %.sink.split361.i, %462, %442
   %470 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %471 = load i8, ptr %470, align 8, !range !8, !noundef !9
   %472 = trunc nuw i8 %471 to i1
@@ -1656,20 +1656,20 @@ _create_job_step_create_request.exit.thread:      ; preds = %434, %252
   %561 = getelementptr inbounds nuw i8, ptr %556, i64 32
   store i16 %560, ptr %561, align 8
   %.not138 = icmp eq i32 %.0108165, 0
-  br i1 %.not138, label %.loopexit155.thread176, label %562
+  br i1 %.not138, label %.loopexit155.thread203, label %562
 
-.loopexit155.thread176:                           ; preds = %557
+.loopexit155.thread203:                           ; preds = %557
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit155.thread
 
 562:                                              ; preds = %557
   %563 = call i32 @get_log_level() #17
   %564 = icmp sgt i32 %563, 2
-  br i1 %564, label %565, label %.loopexit155.thread174
+  br i1 %564, label %565, label %.loopexit155.thread201
 
 565:                                              ; preds = %562
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %334) #17
-  br label %.loopexit155.thread174
+  br label %.loopexit155.thread201
 
 566:                                              ; preds = %555
   %567 = tail call ptr @__errno_location() #19
@@ -1807,7 +1807,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %434, %252
   %624 = add nuw nsw i32 %.0108165, 1
   br label %513, !llvm.loop !16
 
-.loopexit155.thread174:                           ; preds = %562, %565
+.loopexit155.thread201:                           ; preds = %562, %565
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %626
 
@@ -1816,7 +1816,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %434, %252
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %625, label %.loopexit155.thread, label %626
 
-626:                                              ; preds = %.loopexit155.thread174, %.loopexit155
+626:                                              ; preds = %.loopexit155.thread201, %.loopexit155
   %627 = call i32 @xsignal_block(ptr noundef nonnull @sig_array) #17
   %628 = load i32, ptr %3, align 4
   %.not140 = icmp eq i32 %628, 0
@@ -1837,7 +1837,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %434, %252
   call void @slurm_free_job_step_create_request_msg(ptr noundef %30) #17
   br label %680
 
-.loopexit155.thread:                              ; preds = %505, %.loopexit155.thread176, %.loopexit155, %626
+.loopexit155.thread:                              ; preds = %505, %.loopexit155.thread203, %.loopexit155, %626
   %636 = getelementptr inbounds nuw i8, ptr %30, i64 168
   %637 = load i32, ptr %636, align 8
   store i32 %637, ptr %428, align 8
@@ -2380,8 +2380,8 @@ define dso_local i32 @launch_g_step_launch(ptr noundef %0, ptr noundef readonly 
   call void @slurm_xfree(ptr noundef nonnull %9) #17
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %261 = load ptr, ptr %260, align 8
-  %.not2512.i = icmp eq ptr %261, null
-  br i1 %.not2512.i, label %264, label %.thread14.i
+  %.not2517.i = icmp eq ptr %261, null
+  br i1 %.not2517.i, label %264, label %.thread19.i
 
 .thread.i:                                        ; preds = %177
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -2394,19 +2394,19 @@ define dso_local i32 @launch_g_step_launch(ptr noundef %0, ptr noundef readonly 
   unreachable
 
 265:                                              ; preds = %._crit_edge.i
-  br i1 %spec.select.i, label %.thread4.i, label %.thread14.i
+  br i1 %spec.select.i, label %.thread4.i, label %.thread19.i
 
 .thread4.i:                                       ; preds = %265, %.thread.i
   %266 = phi ptr [ %259, %265 ], [ %263, %.thread.i ]
   call void @env_array_merge(ptr noundef nonnull %8, ptr noundef nonnull %266) #17
   br label %_build_user_env.exit
 
-.thread14.i:                                      ; preds = %265, %._crit_edge.thread.i
+.thread19.i:                                      ; preds = %265, %._crit_edge.thread.i
   %267 = phi ptr [ %259, %265 ], [ %261, %._crit_edge.thread.i ]
   call void @env_array_merge_slurm_spank(ptr noundef nonnull %8, ptr noundef nonnull %267) #17
   br label %_build_user_env.exit
 
-_build_user_env.exit:                             ; preds = %.thread4.i, %.thread14.i
+_build_user_env.exit:                             ; preds = %.thread4.i, %.thread19.i
   %268 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2760,8 +2760,8 @@ define internal void @_task_start(ptr noundef %0) #0 {
 
 .thread:                                          ; preds = %18
   %25 = load i32, ptr %2, align 4
-  %.not3541 = icmp eq i32 %25, 0
-  br i1 %.not3541, label %._crit_edge, label %.lr.ph.split.preheader
+  %.not3546 = icmp eq i32 %25, 0
+  br i1 %.not3546, label %._crit_edge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56

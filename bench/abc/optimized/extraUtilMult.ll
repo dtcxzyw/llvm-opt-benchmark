@@ -813,7 +813,7 @@ define i32 @Abc_BddCountNodesArray2(ptr noundef readonly captures(none) %0, ptr 
 ; Function Attrs: nofree nounwind uwtable
 define void @Abc_BddPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   switch i32 %1, label %17 [
-    i32 0, label %common.ret36
+    i32 0, label %common.ret37
     i32 1, label %.preheader
   ]
 
@@ -847,9 +847,9 @@ define void @Abc_BddPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %putchar = tail call i32 @putchar(i32 32)
-  br label %common.ret36
+  br label %common.ret37
 
-common.ret36:                                     ; preds = %3, %._crit_edge, %17
+common.ret37:                                     ; preds = %3, %._crit_edge, %17
   ret void
 
 17:                                               ; preds = %3
@@ -889,7 +889,7 @@ common.ret36:                                     ; preds = %3, %._crit_edge, %1
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds nuw i32, ptr %2, i64 %42
   store i32 -1, ptr %43, align 4, !tbaa !23
-  br label %common.ret36
+  br label %common.ret37
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1204,14 +1204,14 @@ Abc_BddPrint.exit:                                ; preds = %92, %100
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %118, %120, %110, %112
-  %.sink117 = phi ptr [ %111, %110 ], [ %113, %112 ], [ %119, %118 ], [ %121, %120 ]
+  %.sink122 = phi ptr [ %111, %110 ], [ %113, %112 ], [ %119, %118 ], [ %121, %120 ]
   %.sink = phi i32 [ 16, %110 ], [ 16, %112 ], [ %115, %118 ], [ %115, %120 ]
-  store ptr %.sink117, ptr %34, align 8, !tbaa !34
+  store ptr %.sink122, ptr %34, align 8, !tbaa !34
   store i32 %.sink, ptr %26, align 8, !tbaa !62
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %101
-  %.pre.i110 = phi ptr [ %84, %101 ], [ %.sink117, %Vec_IntPush.exit.sink.split ]
+  %.pre.i110 = phi ptr [ %84, %101 ], [ %.sink122, %Vec_IntPush.exit.sink.split ]
   %122 = add nsw i32 %104, 1
   store i32 %122, ptr %28, align 4, !tbaa !32
   %123 = sext i32 %104 to i64

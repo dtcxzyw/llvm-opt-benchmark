@@ -2902,9 +2902,9 @@ switch.lookup:                                    ; preds = %56
 77:                                               ; preds = %74
   %78 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
   %79 = zext i8 %78 to i32
-  %switch.tableidx354 = add i8 %78, 2
-  %80 = icmp ult i8 %switch.tableidx354, 3
-  br i1 %80, label %switch.lookup353, label %81
+  %switch.tableidx364 = add i8 %78, 2
+  %80 = icmp ult i8 %switch.tableidx364, 3
+  br i1 %80, label %switch.lookup363, label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -2931,14 +2931,14 @@ qos_calc_bitrate.exit282:                         ; preds = %81, %87, %90
   %93 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %83, ptr noundef nonnull @.str.993, i32 noundef %.0.i281)
   br label %95
 
-switch.lookup353:                                 ; preds = %77
-  %94 = zext nneg i8 %switch.tableidx354 to i64
-  %switch.gep355 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.1, i64 0, i64 %94
-  %switch.load356 = load ptr, ptr %switch.gep355, align 8
+switch.lookup363:                                 ; preds = %77
+  %94 = zext nneg i8 %switch.tableidx364 to i64
+  %switch.gep365 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.1, i64 0, i64 %94
+  %switch.load366 = load ptr, ptr %switch.gep365, align 8
   br label %95
 
-95:                                               ; preds = %switch.lookup353, %qos_calc_bitrate.exit282
-  %.2 = phi ptr [ %93, %qos_calc_bitrate.exit282 ], [ %switch.load356, %switch.lookup353 ]
+95:                                               ; preds = %switch.lookup363, %qos_calc_bitrate.exit282
+  %.2 = phi ptr [ %93, %qos_calc_bitrate.exit282 ], [ %switch.load366, %switch.lookup363 ]
   %96 = load i32, ptr @hf_diameter_3gpp_qos_max_bitrate_downl, align 4
   %97 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %96, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef %79, ptr noundef nonnull @.str.989, ptr noundef %.2, i32 noundef %79)
   %98 = icmp ugt i32 %5, 8
@@ -3006,9 +3006,9 @@ switch.lookup353:                                 ; preds = %77
 132:                                              ; preds = %128
   %133 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 10)
   %134 = zext i8 %133 to i32
-  %switch.tableidx358 = add i8 %133, 2
-  %135 = icmp ult i8 %switch.tableidx358, 3
-  br i1 %135, label %switch.lookup357, label %136
+  %switch.tableidx368 = add i8 %133, 2
+  %135 = icmp ult i8 %switch.tableidx368, 3
+  br i1 %135, label %switch.lookup367, label %136
 
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -3035,14 +3035,14 @@ qos_calc_bitrate.exit284:                         ; preds = %136, %142, %145
   %148 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %138, ptr noundef nonnull @.str.993, i32 noundef %.0.i283)
   br label %150
 
-switch.lookup357:                                 ; preds = %132
-  %149 = zext nneg i8 %switch.tableidx358 to i64
-  %switch.gep359 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.2, i64 0, i64 %149
-  %switch.load360 = load ptr, ptr %switch.gep359, align 8
+switch.lookup367:                                 ; preds = %132
+  %149 = zext nneg i8 %switch.tableidx368 to i64
+  %switch.gep369 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.2, i64 0, i64 %149
+  %switch.load370 = load ptr, ptr %switch.gep369, align 8
   br label %150
 
-150:                                              ; preds = %switch.lookup357, %qos_calc_bitrate.exit284
-  %.4 = phi ptr [ %148, %qos_calc_bitrate.exit284 ], [ %switch.load360, %switch.lookup357 ]
+150:                                              ; preds = %switch.lookup367, %qos_calc_bitrate.exit284
+  %.4 = phi ptr [ %148, %qos_calc_bitrate.exit284 ], [ %switch.load370, %switch.lookup367 ]
   %151 = load i32, ptr @hf_diameter_3gpp_qos_guar_bitrate_upl, align 4
   %152 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %151, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef %134, ptr noundef nonnull @.str.989, ptr noundef %.4, i32 noundef %134)
   %.not349 = icmp eq i32 %5, 11
@@ -3051,9 +3051,9 @@ switch.lookup357:                                 ; preds = %132
 153:                                              ; preds = %150
   %154 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 11)
   %155 = zext i8 %154 to i32
-  %switch.tableidx362 = add i8 %154, 2
-  %156 = icmp ult i8 %switch.tableidx362, 3
-  br i1 %156, label %switch.lookup361, label %157
+  %switch.tableidx372 = add i8 %154, 2
+  %156 = icmp ult i8 %switch.tableidx372, 3
+  br i1 %156, label %switch.lookup371, label %157
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -3080,14 +3080,14 @@ qos_calc_bitrate.exit286:                         ; preds = %157, %163, %166
   %169 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %159, ptr noundef nonnull @.str.993, i32 noundef %.0.i285)
   br label %171
 
-switch.lookup361:                                 ; preds = %153
-  %170 = zext nneg i8 %switch.tableidx362 to i64
-  %switch.gep363 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.3, i64 0, i64 %170
-  %switch.load364 = load ptr, ptr %switch.gep363, align 8
+switch.lookup371:                                 ; preds = %153
+  %170 = zext nneg i8 %switch.tableidx372 to i64
+  %switch.gep373 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.3, i64 0, i64 %170
+  %switch.load374 = load ptr, ptr %switch.gep373, align 8
   br label %171
 
-171:                                              ; preds = %switch.lookup361, %qos_calc_bitrate.exit286
-  %.5 = phi ptr [ %169, %qos_calc_bitrate.exit286 ], [ %switch.load364, %switch.lookup361 ]
+171:                                              ; preds = %switch.lookup371, %qos_calc_bitrate.exit286
+  %.5 = phi ptr [ %169, %qos_calc_bitrate.exit286 ], [ %switch.load374, %switch.lookup371 ]
   %172 = load i32, ptr @hf_diameter_3gpp_qos_guar_bitrate_downl, align 4
   %173 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %172, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef %155, ptr noundef nonnull @.str.989, ptr noundef %.5, i32 noundef %155)
   %174 = icmp ugt i32 %5, 12
@@ -3127,11 +3127,11 @@ switch.lookup361:                                 ; preds = %153
   %196 = icmp ult i8 %188, 75
   %197 = icmp ult i8 %188, -69
   %..i = select i1 %197, i32 1000, i32 2000
-  %.9.i = select i1 %197, i32 -58000, i32 -244000
-  %.sink8.i = select i1 %196, i32 100, i32 %..i
-  %.sink7.i = select i1 %196, i32 8600, i32 %.9.i
-  %198 = mul nuw nsw i32 %.sink8.i, %189
-  %199 = add nsw i32 %198, %.sink7.i
+  %.10.i = select i1 %197, i32 -58000, i32 -244000
+  %.sink9.i = select i1 %196, i32 100, i32 %..i
+  %.sink8.i = select i1 %196, i32 8600, i32 %.10.i
+  %198 = mul nuw nsw i32 %.sink9.i, %189
+  %199 = add nsw i32 %198, %.sink8.i
   %200 = icmp ugt i8 %188, 73
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %202 = load ptr, ptr %201, align 8
@@ -3171,11 +3171,11 @@ switch.lookup361:                                 ; preds = %153
   %221 = icmp ult i8 %213, 75
   %222 = icmp ult i8 %213, -69
   %..i287 = select i1 %222, i32 1000, i32 2000
-  %.9.i288 = select i1 %222, i32 -58000, i32 -244000
-  %.sink8.i289 = select i1 %221, i32 100, i32 %..i287
-  %.sink7.i290 = select i1 %221, i32 8600, i32 %.9.i288
-  %223 = mul nuw nsw i32 %.sink8.i289, %214
-  %224 = add nsw i32 %223, %.sink7.i290
+  %.10.i288 = select i1 %222, i32 -58000, i32 -244000
+  %.sink9.i289 = select i1 %221, i32 100, i32 %..i287
+  %.sink8.i290 = select i1 %221, i32 8600, i32 %.10.i288
+  %223 = mul nuw nsw i32 %.sink9.i289, %214
+  %224 = add nsw i32 %223, %.sink8.i290
   %225 = icmp ugt i8 %213, 73
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %227 = load ptr, ptr %226, align 8
@@ -3215,11 +3215,11 @@ switch.lookup361:                                 ; preds = %153
   %245 = icmp ult i8 %237, 75
   %246 = icmp ult i8 %237, -69
   %..i291 = select i1 %246, i32 1000, i32 2000
-  %.9.i292 = select i1 %246, i32 -58000, i32 -244000
-  %.sink8.i293 = select i1 %245, i32 100, i32 %..i291
-  %.sink7.i294 = select i1 %245, i32 8600, i32 %.9.i292
-  %247 = mul nuw nsw i32 %.sink8.i293, %238
-  %248 = add nsw i32 %247, %.sink7.i294
+  %.10.i292 = select i1 %246, i32 -58000, i32 -244000
+  %.sink9.i293 = select i1 %245, i32 100, i32 %..i291
+  %.sink8.i294 = select i1 %245, i32 8600, i32 %.10.i292
+  %247 = mul nuw nsw i32 %.sink9.i293, %238
+  %248 = add nsw i32 %247, %.sink8.i294
   %249 = icmp ugt i8 %237, 73
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %251 = load ptr, ptr %250, align 8
@@ -3259,11 +3259,11 @@ switch.lookup361:                                 ; preds = %153
   %270 = icmp ult i8 %262, 75
   %271 = icmp ult i8 %262, -69
   %..i295 = select i1 %271, i32 1000, i32 2000
-  %.9.i296 = select i1 %271, i32 -58000, i32 -244000
-  %.sink8.i297 = select i1 %270, i32 100, i32 %..i295
-  %.sink7.i298 = select i1 %270, i32 8600, i32 %.9.i296
-  %272 = mul nuw nsw i32 %.sink8.i297, %263
-  %273 = add nsw i32 %272, %.sink7.i298
+  %.10.i296 = select i1 %271, i32 -58000, i32 -244000
+  %.sink9.i297 = select i1 %270, i32 100, i32 %..i295
+  %.sink8.i298 = select i1 %270, i32 8600, i32 %.10.i296
+  %272 = mul nuw nsw i32 %.sink9.i297, %263
+  %273 = add nsw i32 %272, %.sink8.i298
   %274 = icmp ugt i8 %262, 73
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %276 = load ptr, ptr %275, align 8

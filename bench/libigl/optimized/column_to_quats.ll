@@ -123,7 +123,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_
   br i1 %.not28, label %21, label %19
 
 19:                                               ; preds = %3
-  %20 = shl i64 %1, 5
+  %20 = shl nuw nsw i64 %1, 5
   %scevgep.i = getelementptr i8, ptr %5, i64 %20
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !11
   br label %38

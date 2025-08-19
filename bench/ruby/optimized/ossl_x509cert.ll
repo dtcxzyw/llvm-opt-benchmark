@@ -286,8 +286,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %16 = icmp ne i64 %13, 5
   %17 = and i64 %12, 49152
   %.not.i17 = icmp eq i64 %17, 0
-  %or.cond8.i = or i1 %16, %.not.i17
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %18, !prof !18
+  %or.cond9.i = or i1 %16, %.not.i17
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %18, !prof !18
 
 18:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %2) #5
@@ -370,8 +370,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %12 = icmp ne i64 %9, 5
   %13 = and i64 %8, 49152
   %.not.i = icmp eq i64 %13, 0
-  %or.cond8.i = or i1 %12, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %14, !prof !18
+  %or.cond9.i = or i1 %12, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %14, !prof !18
 
 14:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #5
@@ -1117,7 +1117,7 @@ define internal i64 @ossl_x509_get_extensions(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @ossl_x509_set_extensions(i64 noundef %0, i64 noundef returned %1) #0 {
+define internal range(i64 1, 0) i64 @ossl_x509_set_extensions(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = icmp eq i64 %1, 0
   %4 = and i64 %1, 7
   %5 = icmp ne i64 %4, 0

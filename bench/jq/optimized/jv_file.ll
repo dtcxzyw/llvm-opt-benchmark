@@ -74,22 +74,22 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
 .split.us.preheader:                              ; preds = %40
   %41 = tail call { i64, ptr } @jv_array() #9
   %42 = tail call ptr @jv_parser_new(i32 noundef 0) #9
-  %.sroa.12.0107 = extractvalue { i64, ptr } %41, 1
-  %.sroa.028.0108 = extractvalue { i64, ptr } %41, 0
+  %.sroa.12.0110 = extractvalue { i64, ptr } %41, 1
+  %.sroa.028.0111 = extractvalue { i64, ptr } %41, 0
   %43 = tail call ptr @llvm.stacksave.p0()
   %44 = alloca [4100 x i8], align 16
   %45 = tail call i32 @feof(ptr noundef nonnull %30) #9
-  %.not75.us134 = icmp eq i32 %45, 0
-  br i1 %.not75.us134, label %.lr.ph137, label %.critedge
+  %.not75.us137 = icmp eq i32 %45, 0
+  br i1 %.not75.us137, label %.lr.ph140, label %.critedge
 
-.lr.ph137:                                        ; preds = %.split.us.preheader, %.split.us
-  %.sroa.12.1.us136 = phi ptr [ %.sroa.12.3.us, %.split.us ], [ %.sroa.12.0107, %.split.us.preheader ]
-  %.sroa.028.1.us135 = phi i64 [ %.sroa.028.3.us, %.split.us ], [ %.sroa.028.0108, %.split.us.preheader ]
+.lr.ph140:                                        ; preds = %.split.us.preheader, %.split.us
+  %.sroa.12.1.us139 = phi ptr [ %.sroa.12.3.us, %.split.us ], [ %.sroa.12.0110, %.split.us.preheader ]
+  %.sroa.028.1.us138 = phi i64 [ %.sroa.028.3.us, %.split.us ], [ %.sroa.028.0111, %.split.us.preheader ]
   %46 = call i32 @ferror(ptr noundef nonnull %30) #9
   %.not76.us = icmp eq i32 %46, 0
   br i1 %.not76.us, label %47, label %.critedge
 
-47:                                               ; preds = %.lr.ph137
+47:                                               ; preds = %.lr.ph140
   %48 = call i64 @fread(ptr noundef nonnull %44, i64 noundef 1, i64 noundef 4096, ptr noundef nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !4
@@ -140,8 +140,8 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
 .lr.ph.us:                                        ; preds = %66, %.lr.ph.us
   %74 = phi ptr [ %81, %.lr.ph.us ], [ %72, %66 ]
   %75 = phi i64 [ %80, %.lr.ph.us ], [ %71, %66 ]
-  %.sroa.12.587.us = phi ptr [ %78, %.lr.ph.us ], [ %.sroa.12.1.us136, %66 ]
-  %.sroa.028.586.us = phi i64 [ %77, %.lr.ph.us ], [ %.sroa.028.1.us135, %66 ]
+  %.sroa.12.587.us = phi ptr [ %78, %.lr.ph.us ], [ %.sroa.12.1.us139, %66 ]
+  %.sroa.028.586.us = phi i64 [ %77, %.lr.ph.us ], [ %.sroa.028.1.us138, %66 ]
   %76 = call { i64, ptr } @jv_array_append(i64 %.sroa.028.586.us, ptr %.sroa.12.587.us, i64 %75, ptr %74) #9
   %77 = extractvalue { i64, ptr } %76, 0
   %78 = extractvalue { i64, ptr } %76, 1
@@ -153,8 +153,8 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
   br i1 %.not83.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !14
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %66
-  %.sroa.028.5.lcssa.us = phi i64 [ %.sroa.028.1.us135, %66 ], [ %77, %.lr.ph.us ]
-  %.sroa.12.5.lcssa.us = phi ptr [ %.sroa.12.1.us136, %66 ], [ %78, %.lr.ph.us ]
+  %.sroa.028.5.lcssa.us = phi i64 [ %.sroa.028.1.us138, %66 ], [ %77, %.lr.ph.us ]
+  %.sroa.12.5.lcssa.us = phi ptr [ %.sroa.12.1.us139, %66 ], [ %78, %.lr.ph.us ]
   %.lcssa84.us = phi i64 [ %71, %66 ], [ %80, %.lr.ph.us ]
   %.lcssa.us = phi ptr [ %72, %66 ], [ %81, %.lr.ph.us ]
   %83 = call { i64, ptr } @jv_copy(i64 %.lcssa84.us, ptr %.lcssa.us) #9
@@ -162,20 +162,20 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
   %85 = extractvalue { i64, ptr } %83, 1
   %86 = call i32 @jv_invalid_has_msg(i64 %84, ptr %85) #9
   %.not81.us.not = icmp eq i32 %86, 0
-  br i1 %.not81.us.not, label %.split.us, label %.thread113
+  br i1 %.not81.us.not, label %.split.us, label %.thread116
 
-.thread113:                                       ; preds = %._crit_edge.us
+.thread116:                                       ; preds = %._crit_edge.us
   call void @jv_free(i64 %.sroa.028.5.lcssa.us, ptr %.sroa.12.5.lcssa.us) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .split.us:                                        ; preds = %._crit_edge.us, %47
-  %.sroa.028.3.us = phi i64 [ %.sroa.028.1.us135, %47 ], [ %.sroa.028.5.lcssa.us, %._crit_edge.us ]
-  %.sroa.12.3.us = phi ptr [ %.sroa.12.1.us136, %47 ], [ %.sroa.12.5.lcssa.us, %._crit_edge.us ]
+  %.sroa.028.3.us = phi i64 [ %.sroa.028.1.us138, %47 ], [ %.sroa.028.5.lcssa.us, %._crit_edge.us ]
+  %.sroa.12.3.us = phi ptr [ %.sroa.12.1.us139, %47 ], [ %.sroa.12.5.lcssa.us, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %87 = call i32 @feof(ptr noundef nonnull %30) #9
   %.not75.us = icmp eq i32 %87, 0
-  br i1 %.not75.us, label %.lr.ph137, label %.critedge
+  br i1 %.not75.us, label %.lr.ph140, label %.critedge
 
 .split:                                           ; preds = %40
   %88 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.3) #9
@@ -244,20 +244,20 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
   %.not75 = icmp eq i32 %118, 0
   br i1 %.not75, label %.lr.ph, label %.critedge
 
-.critedge:                                        ; preds = %117, %.lr.ph, %.lr.ph137, %.split.us, %.split.us.preheader, %.thread113
-  %119 = phi ptr [ %43, %.thread113 ], [ %43, %.split.us.preheader ], [ %43, %.split.us ], [ %43, %.lr.ph137 ], [ %89, %.lr.ph ], [ %89, %117 ]
-  %.068109 = phi ptr [ %42, %.thread113 ], [ %42, %.split.us.preheader ], [ %42, %.split.us ], [ %42, %.lr.ph137 ], [ null, %.lr.ph ], [ null, %117 ]
-  %.us-phi = phi i64 [ %.lcssa84.us, %.thread113 ], [ %.sroa.028.0108, %.split.us.preheader ], [ %.sroa.028.1.us135, %.lr.ph137 ], [ %.sroa.028.3.us, %.split.us ], [ %.sroa.028.3, %117 ], [ %.sroa.028.193, %.lr.ph ]
-  %.us-phi91 = phi ptr [ %.lcssa.us, %.thread113 ], [ %.sroa.12.0107, %.split.us.preheader ], [ %.sroa.12.1.us136, %.lr.ph137 ], [ %.sroa.12.3.us, %.split.us ], [ %.sroa.12.3, %117 ], [ %.sroa.12.194, %.lr.ph ]
+.critedge:                                        ; preds = %117, %.lr.ph, %.lr.ph140, %.split.us, %.split.us.preheader, %.thread116
+  %119 = phi ptr [ %43, %.thread116 ], [ %43, %.split.us.preheader ], [ %43, %.split.us ], [ %43, %.lr.ph140 ], [ %89, %.lr.ph ], [ %89, %117 ]
+  %.068112 = phi ptr [ %42, %.thread116 ], [ %42, %.split.us.preheader ], [ %42, %.split.us ], [ %42, %.lr.ph140 ], [ null, %.lr.ph ], [ null, %117 ]
+  %.us-phi = phi i64 [ %.lcssa84.us, %.thread116 ], [ %.sroa.028.0111, %.split.us.preheader ], [ %.sroa.028.1.us138, %.lr.ph140 ], [ %.sroa.028.3.us, %.split.us ], [ %.sroa.028.3, %117 ], [ %.sroa.028.193, %.lr.ph ]
+  %.us-phi91 = phi ptr [ %.lcssa.us, %.thread116 ], [ %.sroa.12.0110, %.split.us.preheader ], [ %.sroa.12.1.us139, %.lr.ph140 ], [ %.sroa.12.3.us, %.split.us ], [ %.sroa.12.3, %117 ], [ %.sroa.12.194, %.lr.ph ]
   br i1 %.not73, label %120, label %.critedge.thread
 
 120:                                              ; preds = %.critedge
-  call void @jv_parser_free(ptr noundef %.068109) #9
+  call void @jv_parser_free(ptr noundef %.068112) #9
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.split, %120, %.critedge
-  %.us-phi91121 = phi ptr [ %.us-phi91, %120 ], [ %.us-phi91, %.critedge ], [ %.sroa.12.0, %.split ]
-  %.us-phi120 = phi i64 [ %.us-phi, %120 ], [ %.us-phi, %.critedge ], [ %.sroa.028.0, %.split ]
+  %.us-phi91124 = phi ptr [ %.us-phi91, %120 ], [ %.us-phi91, %.critedge ], [ %.sroa.12.0, %.split ]
+  %.us-phi123 = phi i64 [ %.us-phi, %120 ], [ %.us-phi, %.critedge ], [ %.sroa.028.0, %.split ]
   %121 = phi ptr [ %119, %120 ], [ %119, %.critedge ], [ %89, %.split ]
   %122 = call i32 @ferror(ptr noundef nonnull %30) #9
   %123 = call i32 @fclose(ptr noundef nonnull %30)
@@ -266,7 +266,7 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
   br i1 %or.cond3.not, label %130, label %125
 
 125:                                              ; preds = %.critedge.thread
-  call void @jv_free(i64 %.us-phi120, ptr %.us-phi91121) #9
+  call void @jv_free(i64 %.us-phi123, ptr %.us-phi91124) #9
   %126 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.4, ptr noundef %0) #9
   %127 = extractvalue { i64, ptr } %126, 0
   %128 = extractvalue { i64, ptr } %126, 1
@@ -274,8 +274,8 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
   br label %133
 
 130:                                              ; preds = %.critedge.thread
-  %131 = insertvalue { i64, ptr } poison, i64 %.us-phi120, 0
-  %132 = insertvalue { i64, ptr } %131, ptr %.us-phi91121, 1
+  %131 = insertvalue { i64, ptr } poison, i64 %.us-phi123, 0
+  %132 = insertvalue { i64, ptr } %131, ptr %.us-phi91124, 1
   br label %133
 
 133:                                              ; preds = %130, %125

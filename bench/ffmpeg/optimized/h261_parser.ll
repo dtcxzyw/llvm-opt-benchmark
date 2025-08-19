@@ -117,9 +117,9 @@ define internal i32 @h261_parse(ptr noundef readonly captures(none) %0, ptr read
   br i1 %exitcond28.not.i, label %.loopexit.i, label %.lr.ph14.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %33, %52, %._crit_edge.i
-  %.036.lcssa.i34 = phi i32 [ %.036.lcssa.i, %._crit_edge.i ], [ %.036.lcssa.i, %52 ], [ 0, %33 ]
+  %.036.lcssa.i38 = phi i32 [ %.036.lcssa.i, %._crit_edge.i ], [ %.036.lcssa.i, %52 ], [ 0, %33 ]
   %.1.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %40, %52 ], [ %25, %33 ]
-  store i32 %.036.lcssa.i34, ptr %14, align 8, !tbaa !16
+  store i32 %.036.lcssa.i38, ptr %14, align 8, !tbaa !16
   store i32 %.1.i, ptr %16, align 4, !tbaa !18
   br label %h261_find_frame_end.exit
 

@@ -651,8 +651,8 @@ _ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i.i.i: ; pred
 145:                                              ; preds = %38
   %146 = load double, ptr %41, align 8, !alias.scope !79, !noalias !72, !noundef !5
   %147 = call double @llvm.fabs.f64(double %146)
-  %or.cond3.i.i.i.i = fcmp ueq double %147, 0x7FF0000000000000
-  br i1 %or.cond3.i.i.i.i, label %select.unfold.i.i.i.i, label %148
+  %or.cond6.i.i.i.i = fcmp ueq double %147, 0x7FF0000000000000
+  br i1 %or.cond6.i.i.i.i, label %select.unfold.i.i.i.i, label %148
 
 148:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !80
@@ -761,8 +761,8 @@ _ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i.i.i: ;
   br label %193
 
 191:                                              ; preds = %183, %176
-  %.sink15.i.i.i = phi ptr [ %179, %176 ], [ %184, %183 ]
-  %192 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.sink15.i.i.i), !noalias !116
+  %.sink16.i.i.i = phi ptr [ %179, %176 ], [ %184, %183 ]
+  %192 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.sink16.i.i.i), !noalias !116
   br label %210
 
 193:                                              ; preds = %205, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h155e9fd32c552b4bE.exit.i.i"
@@ -1091,8 +1091,8 @@ _ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i.i.i: ; pred
 336:                                              ; preds = %229
   %337 = load double, ptr %232, align 8, !alias.scope !153, !noalias !148, !noundef !5
   %338 = call double @llvm.fabs.f64(double %337)
-  %or.cond3.i.i.i.i18 = fcmp ueq double %338, 0x7FF0000000000000
-  br i1 %or.cond3.i.i.i.i18, label %select.unfold.i.i.i.i19, label %339
+  %or.cond6.i.i.i.i18 = fcmp ueq double %338, 0x7FF0000000000000
+  br i1 %or.cond6.i.i.i.i18, label %select.unfold.i.i.i.i19, label %339
 
 339:                                              ; preds = %336
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !154
@@ -1209,8 +1209,8 @@ _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i.i.i: ;
   br i1 %381, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 382:                                              ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h1fe3b75ebc7f4fa2E.exit.i.i.i", %366
-  %.sink18.i.i.i = phi ptr [ %369, %366 ], [ %373, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h1fe3b75ebc7f4fa2E.exit.i.i.i" ]
-  %383 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.sink18.i.i.i), !noalias !209
+  %.sink19.i.i.i = phi ptr [ %369, %366 ], [ %373, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h1fe3b75ebc7f4fa2E.exit.i.i.i" ]
+  %383 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.sink19.i.i.i), !noalias !209
   br label %428
 
 ._crit_edge.loopexit.i.i:                         ; preds = %_ZN5serde3ser12SerializeMap15serialize_entry17h410e038fe18d3eacE.exit.i.i

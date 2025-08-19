@@ -580,8 +580,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %20, %16
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %16 ], [ %22, %20 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %16 ], [ %.sroa.8.i.i.i.i.i.i.i, %20 ]
-  store i64 %18, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !51, !noalias !57
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %16 ], [ %.sroa.8.i.i.i.i.i.i.i, %20 ]
+  store i64 %18, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !51, !noalias !57
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !59, !noundef !3
   %23 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %23, label %97, label %24
@@ -622,8 +622,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i5": ; preds = %32, %28
   %.sroa.0.0.i.i.i.i.i.i.i6 = phi ptr [ undef, %28 ], [ %34, %32 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i7 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i3, %28 ], [ %.sroa.8.i.i.i.i.i.i.i4, %32 ]
-  store i64 %30, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i7, align 8, !alias.scope !81, !noalias !86
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i7 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i3, %28 ], [ %.sroa.8.i.i.i.i.i.i.i4, %32 ]
+  store i64 %30, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i7, align 8, !alias.scope !81, !noalias !86
   %.sroa.4.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i8 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i3, align 8, !range !58, !noalias !87, !noundef !3
   %35 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i8, 0
   br i1 %35, label %110, label %36
@@ -679,8 +679,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %51, %49
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %49 ], [ %.val2, %51 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %49 ], [ %.sroa.8.i.i.i.i.i.i, %51 ]
-  store i64 %.val, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !98, !noalias !101
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %49 ], [ %.sroa.8.i.i.i.i.i.i, %51 ]
+  store i64 %.val, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !98, !noalias !101
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !113, !noundef !3
   %53 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %53, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i", label %54
@@ -733,8 +733,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i13": ; preds = %64, %60
   %.sroa.0.0.i.i.i.i.i.i14 = phi ptr [ undef, %60 ], [ %66, %64 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i15 = phi ptr [ %.sroa.4.i.i.i.i.i.i11, %60 ], [ %.sroa.8.i.i.i.i.i.i12, %64 ]
-  store i64 %62, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i15, align 8, !alias.scope !132, !noalias !137
+  %.sink7.i.sroa.phi.i.i.i.i.i.i15 = phi ptr [ %.sroa.4.i.i.i.i.i.i11, %60 ], [ %.sroa.8.i.i.i.i.i.i12, %64 ]
+  store i64 %62, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i15, align 8, !alias.scope !132, !noalias !137
   %.sroa.4.i.i.i.i.i.i11.0..sroa.4.i.i.i.i.i.i11.0..sroa.4.i.i.i.i.i.i11.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i16 = load i64, ptr %.sroa.4.i.i.i.i.i.i11, align 8, !range !58, !noalias !138, !noundef !3
   %67 = icmp eq i64 %.sroa.4.i.i.i.i.i.i11.0..sroa.4.i.i.i.i.i.i11.0..sroa.4.i.i.i.i.i.i11.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i16, 0
   br i1 %67, label %"_ZN4core3ptr51drop_in_place$LT$uv_normalize..InvalidNameError$GT$17h0d88abc3e4ff9dc7E.exit", label %68
@@ -782,8 +782,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %77, %73
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %73 ], [ %79, %77 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %73 ], [ %.sroa.8.i.i.i.i.i, %77 ]
-  store i64 %75, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !154, !noalias !159
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %73 ], [ %.sroa.8.i.i.i.i.i, %77 ]
+  store i64 %75, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !154, !noalias !159
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !160, !noundef !3
   %80 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %80, label %115, label %81
@@ -824,8 +824,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i21": ; preds = %89, %85
   %.sroa.0.0.i.i.i.i.i.i.i22 = phi ptr [ undef, %85 ], [ %91, %89 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i23 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i19, %85 ], [ %.sroa.8.i.i.i.i.i.i.i20, %89 ]
-  store i64 %87, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i23, align 8, !alias.scope !182, !noalias !187
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i23 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i19, %85 ], [ %.sroa.8.i.i.i.i.i.i.i20, %89 ]
+  store i64 %87, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i23, align 8, !alias.scope !182, !noalias !187
   %.sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i24 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i19, align 8, !range !58, !noalias !188, !noundef !3
   %92 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i24, 0
   br i1 %92, label %127, label %93
@@ -867,8 +867,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i29": ; preds = %103, %101
   %.sroa.0.0.i.i.i.i.i.i.i30 = phi ptr [ undef, %101 ], [ %.val1.i, %103 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i31 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i27, %101 ], [ %.sroa.8.i.i.i.i.i.i.i28, %103 ]
-  store i64 %.val.i, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i31, align 8, !alias.scope !193, !noalias !196
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i31 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i27, %101 ], [ %.sroa.8.i.i.i.i.i.i.i28, %103 ]
+  store i64 %.val.i, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i31, align 8, !alias.scope !193, !noalias !196
   %.sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i32 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i27, align 8, !range !58, !noalias !208, !noundef !3
   %105 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i32, 0
   br i1 %105, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i.i", label %106
@@ -939,8 +939,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i36": ; preds = %119, %115
   %.sroa.0.0.i.i.i.i.i.i.i37 = phi ptr [ undef, %115 ], [ %121, %119 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i38 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i34, %115 ], [ %.sroa.8.i.i.i.i.i.i.i35, %119 ]
-  store i64 %117, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i38, align 8, !alias.scope !233, !noalias !238
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i38 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i34, %115 ], [ %.sroa.8.i.i.i.i.i.i.i35, %119 ]
+  store i64 %117, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i38, align 8, !alias.scope !233, !noalias !238
   %.sroa.4.i.i.i.i.i.i.i34.0..sroa.4.i.i.i.i.i.i.i34.0..sroa.4.i.i.i.i.i.i.i34.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i39 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i34, align 8, !range !58, !noalias !239, !noundef !3
   %122 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i34.0..sroa.4.i.i.i.i.i.i.i34.0..sroa.4.i.i.i.i.i.i.i34.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i39, 0
   br i1 %122, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit41", label %123
@@ -986,8 +986,8 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uv_tool..Error$GT$1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i44": ; preds = %131, %127
   %.sroa.0.0.i.i.i.i.i45 = phi ptr [ undef, %127 ], [ %133, %131 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i46 = phi ptr [ %.sroa.4.i.i.i.i.i42, %127 ], [ %.sroa.8.i.i.i.i.i43, %131 ]
-  store i64 %129, ptr %.sink6.i.sroa.phi.i.i.i.i.i46, align 8, !alias.scope !255, !noalias !260
+  %.sink7.i.sroa.phi.i.i.i.i.i46 = phi ptr [ %.sroa.4.i.i.i.i.i42, %127 ], [ %.sroa.8.i.i.i.i.i43, %131 ]
+  store i64 %129, ptr %.sink7.i.sroa.phi.i.i.i.i.i46, align 8, !alias.scope !255, !noalias !260
   %.sroa.4.i.i.i.i.i42.0..sroa.4.i.i.i.i.i42.0..sroa.4.i.i.i.i.i42.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i47 = load i64, ptr %.sroa.4.i.i.i.i.i42, align 8, !range !58, !noalias !261, !noundef !3
   %134 = icmp eq i64 %.sroa.4.i.i.i.i.i42.0..sroa.4.i.i.i.i.i42.0..sroa.4.i.i.i.i.i42.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i47, 0
   br i1 %134, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit49", label %135
@@ -1070,8 +1070,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %9, %6
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %6 ], [ %11, %9 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %6 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %9 ]
-  store i64 %7, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !287, !noalias !292
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %6 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %9 ]
+  store i64 %7, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !287, !noalias !292
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !293, !noundef !3
   %12 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %12, label %17, label %13
@@ -1119,8 +1119,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i.i": ; preds = %22, %20
   %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi ptr [ undef, %20 ], [ %24, %22 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i.i, %20 ], [ %.sroa.8.i.i.i.i.i.i.i.i.i, %22 ]
-  store i64 %19, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !320, !noalias !325
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i.i, %20 ], [ %.sroa.8.i.i.i.i.i.i.i.i.i, %22 ]
+  store i64 %19, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !320, !noalias !325
   %.sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !326, !noundef !3
   %25 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i.i, 0
   br i1 %25, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit.i.i", label %26
@@ -1247,8 +1247,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i.i10": ; preds = %60, %56
   %.sroa.0.0.i.i.i.i.i.i.i.i.i11 = phi ptr [ undef, %56 ], [ %62, %60 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i.i12 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i.i3, %56 ], [ %.sroa.8.i.i.i.i.i.i.i.i.i4, %60 ]
-  store i64 %58, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i.i12, align 8, !alias.scope !380, !noalias !385
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i.i12 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i.i3, %56 ], [ %.sroa.8.i.i.i.i.i.i.i.i.i4, %60 ]
+  store i64 %58, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i.i12, align 8, !alias.scope !380, !noalias !385
   %.sroa.4.i.i.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i.i13 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i.i3, align 8, !range !58, !noalias !386, !noundef !3
   %63 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i.i.i3.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i.i13, 0
   br i1 %63, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit.i.i15", label %64
@@ -1294,8 +1294,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i3.i.i": ; preds = %72, %68
   %.sroa.0.0.i.i.i.i.i.i.i4.i.i = phi ptr [ undef, %68 ], [ %74, %72 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i5.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i1.i.i, %68 ], [ %.sroa.8.i.i.i.i.i.i.i2.i.i, %72 ]
-  store i64 %70, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i5.i.i, align 8, !alias.scope !408, !noalias !413
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i5.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i1.i.i, %68 ], [ %.sroa.8.i.i.i.i.i.i.i2.i.i, %72 ]
+  store i64 %70, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i5.i.i, align 8, !alias.scope !408, !noalias !413
   %.sroa.4.i.i.i.i.i.i.i1.i.i.0..sroa.4.i.i.i.i.i.i.i1.i.i.0..sroa.4.i.i.i.i.i.i.i1.i.i.0..sroa.4.i.i.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i6.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i1.i.i, align 8, !range !58, !noalias !414, !noundef !3
   %75 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i1.i.i.0..sroa.4.i.i.i.i.i.i.i1.i.i.0..sroa.4.i.i.i.i.i.i.i1.i.i.0..sroa.4.i.i.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i6.i.i, 0
   br i1 %75, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit8.i.i", label %76
@@ -1339,8 +1339,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %84, %80
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %80 ], [ %86, %84 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %80 ], [ %.sroa.8.i.i.i.i.i.i.i, %84 ]
-  store i64 %82, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !430, !noalias !435
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %80 ], [ %.sroa.8.i.i.i.i.i.i.i, %84 ]
+  store i64 %82, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !430, !noalias !435
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !436, !noundef !3
   %87 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %87, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i.i", label %88
@@ -1439,8 +1439,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %114, %110
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %110 ], [ %116, %114 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %110 ], [ %.sroa.8.i.i.i.i.i.i, %114 ]
-  store i64 %112, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !468, !noalias !473
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %110 ], [ %.sroa.8.i.i.i.i.i.i, %114 ]
+  store i64 %112, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !468, !noalias !473
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !474, !noundef !3
   %117 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %117, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i", label %118
@@ -1487,8 +1487,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i5": ; preds = %126, %122
   %.sroa.0.0.i.i.i.i.i.i.i.i6 = phi ptr [ undef, %122 ], [ %128, %126 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i7 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i1, %122 ], [ %.sroa.8.i.i.i.i.i.i.i.i2, %126 ]
-  store i64 %124, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i7, align 8, !alias.scope !496, !noalias !501
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i7 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i1, %122 ], [ %.sroa.8.i.i.i.i.i.i.i.i2, %126 ]
+  store i64 %124, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i7, align 8, !alias.scope !496, !noalias !501
   %.sroa.4.i.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i8 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i1, align 8, !range !58, !noalias !502, !noundef !3
   %129 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i8, 0
   br i1 %129, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit.i", label %130
@@ -1549,8 +1549,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i18": ; preds = %142, %139
   %.sroa.0.0.i.i.i.i.i.i19 = phi ptr [ undef, %139 ], [ %144, %142 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i20 = phi ptr [ %.sroa.4.i.i.i.i.i.i16, %139 ], [ %.sroa.8.i.i.i.i.i.i17, %142 ]
-  store i64 %140, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i20, align 8, !alias.scope !521, !noalias !526
+  %.sink7.i.sroa.phi.i.i.i.i.i.i20 = phi ptr [ %.sroa.4.i.i.i.i.i.i16, %139 ], [ %.sroa.8.i.i.i.i.i.i17, %142 ]
+  store i64 %140, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i20, align 8, !alias.scope !521, !noalias !526
   %.sroa.4.i.i.i.i.i.i16.0..sroa.4.i.i.i.i.i.i16.0..sroa.4.i.i.i.i.i.i16.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i21 = load i64, ptr %.sroa.4.i.i.i.i.i.i16, align 8, !range !58, !noalias !527, !noundef !3
   %145 = icmp eq i64 %.sroa.4.i.i.i.i.i.i16.0..sroa.4.i.i.i.i.i.i16.0..sroa.4.i.i.i.i.i.i16.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i21, 0
   br i1 %145, label %150, label %146
@@ -1591,8 +1591,8 @@ define internal fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i3.i": ; preds = %154, %150
   %.sroa.0.0.i.i.i.i.i4.i = phi ptr [ undef, %150 ], [ %156, %154 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i5.i = phi ptr [ %.sroa.4.i.i.i.i.i1.i, %150 ], [ %.sroa.8.i.i.i.i.i2.i, %154 ]
-  store i64 %152, ptr %.sink6.i.sroa.phi.i.i.i.i.i5.i, align 8, !alias.scope !543, !noalias !548
+  %.sink7.i.sroa.phi.i.i.i.i.i5.i = phi ptr [ %.sroa.4.i.i.i.i.i1.i, %150 ], [ %.sroa.8.i.i.i.i.i2.i, %154 ]
+  store i64 %152, ptr %.sink7.i.sroa.phi.i.i.i.i.i5.i, align 8, !alias.scope !543, !noalias !548
   %.sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i6.i = load i64, ptr %.sroa.4.i.i.i.i.i1.i, align 8, !range !58, !noalias !549, !noundef !3
   %157 = icmp eq i64 %.sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i6.i, 0
   br i1 %157, label %"_ZN4core3ptr72drop_in_place$LT$uv_python..installation..PythonInstallationKeyError$GT$17h041b792066248672E.exit", label %158
@@ -1646,8 +1646,8 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$toml_edit..ser..Err
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %3, %1
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %1 ], [ %.8.val, %3 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %1 ], [ %.sroa.8.i.i.i.i.i, %3 ]
-  store i64 %.0.val, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !550, !noalias !553
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %1 ], [ %.sroa.8.i.i.i.i.i, %3 ]
+  store i64 %.0.val, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !550, !noalias !553
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !565, !noundef !3
   %5 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %5, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit", label %6
@@ -1739,8 +1739,8 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$uv_install_wheel..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %10, %6
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %6 ], [ %12, %10 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %6 ], [ %.sroa.8.i.i.i.i.i, %10 ]
-  store i64 %8, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !582, !noalias !587
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %6 ], [ %.sroa.8.i.i.i.i.i, %10 ]
+  store i64 %8, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !582, !noalias !587
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !588, !noundef !3
   %13 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %13, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit", label %14
@@ -1807,8 +1807,8 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$uv_install_wheel..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %28, %24
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %24 ], [ %30, %28 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %24 ], [ %.sroa.8.i.i.i.i.i.i.i, %28 ]
-  store i64 %26, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !623, !noalias !628
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %24 ], [ %.sroa.8.i.i.i.i.i.i.i, %28 ]
+  store i64 %26, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !623, !noalias !628
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !629, !noundef !3
   %31 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %31, label %147, label %32
@@ -1847,8 +1847,8 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$uv_install_wheel..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i5": ; preds = %40, %36
   %.sroa.0.0.i.i.i.i.i6 = phi ptr [ undef, %36 ], [ %42, %40 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i7 = phi ptr [ %.sroa.4.i.i.i.i.i3, %36 ], [ %.sroa.8.i.i.i.i.i4, %40 ]
-  store i64 %38, ptr %.sink6.i.sroa.phi.i.i.i.i.i7, align 8, !alias.scope !645, !noalias !650
+  %.sink7.i.sroa.phi.i.i.i.i.i7 = phi ptr [ %.sroa.4.i.i.i.i.i3, %36 ], [ %.sroa.8.i.i.i.i.i4, %40 ]
+  store i64 %38, ptr %.sink7.i.sroa.phi.i.i.i.i.i7, align 8, !alias.scope !645, !noalias !650
   %.sroa.4.i.i.i.i.i3.0..sroa.4.i.i.i.i.i3.0..sroa.4.i.i.i.i.i3.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i8 = load i64, ptr %.sroa.4.i.i.i.i.i3, align 8, !range !58, !noalias !651, !noundef !3
   %43 = icmp eq i64 %.sroa.4.i.i.i.i.i3.0..sroa.4.i.i.i.i.i3.0..sroa.4.i.i.i.i.i3.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i8, 0
   br i1 %43, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit10", label %44
@@ -1897,8 +1897,8 @@ define internal void @"_ZN4core3ptr44drop_in_place$LT$uv_install_wheel..Error$GT
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i13": ; preds = %54, %50
   %.sroa.0.0.i.i.i.i.i14 = phi ptr [ undef, %50 ], [ %56, %54 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i15 = phi ptr [ %.sroa.4.i.i.i.i.i11, %50 ], [ %.sroa.8.i.i.i.i.i12, %54 ]
-  store i64 %52, ptr %.sink6.i.sroa.phi.i.i.i.i.i15, align 8, !alias.scope !667, !noalias !672
+  %.sink7.i.sroa.phi.i.i.i.i.i15 = phi ptr [ %.sroa.4.i.i.i.i.i11, %50 ], [ %.sroa.8.i.i.i.i.i12, %54 ]
+  store i64 %52, ptr %.sink7.i.sroa.phi.i.i.i.i.i15, align 8, !alias.scope !667, !noalias !672
   %.sroa.4.i.i.i.i.i11.0..sroa.4.i.i.i.i.i11.0..sroa.4.i.i.i.i.i11.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i16 = load i64, ptr %.sroa.4.i.i.i.i.i11, align 8, !range !58, !noalias !673, !noundef !3
   %57 = icmp eq i64 %.sroa.4.i.i.i.i.i11.0..sroa.4.i.i.i.i.i11.0..sroa.4.i.i.i.i.i11.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i16, 0
   br i1 %57, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit18", label %58
@@ -1964,8 +1964,8 @@ common.resume:                                    ; preds = %167, %180, %171, %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i21": ; preds = %71, %67
   %.sroa.0.0.i.i.i.i.i22 = phi ptr [ undef, %67 ], [ %73, %71 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i23 = phi ptr [ %.sroa.4.i.i.i.i.i19, %67 ], [ %.sroa.8.i.i.i.i.i20, %71 ]
-  store i64 %69, ptr %.sink6.i.sroa.phi.i.i.i.i.i23, align 8, !alias.scope !702, !noalias !707
+  %.sink7.i.sroa.phi.i.i.i.i.i23 = phi ptr [ %.sroa.4.i.i.i.i.i19, %67 ], [ %.sroa.8.i.i.i.i.i20, %71 ]
+  store i64 %69, ptr %.sink7.i.sroa.phi.i.i.i.i.i23, align 8, !alias.scope !702, !noalias !707
   %.sroa.4.i.i.i.i.i19.0..sroa.4.i.i.i.i.i19.0..sroa.4.i.i.i.i.i19.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i24 = load i64, ptr %.sroa.4.i.i.i.i.i19, align 8, !range !58, !noalias !708, !noundef !3
   %74 = icmp eq i64 %.sroa.4.i.i.i.i.i19.0..sroa.4.i.i.i.i.i19.0..sroa.4.i.i.i.i.i19.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i24, 0
   br i1 %74, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit26", label %75
@@ -2066,8 +2066,8 @@ common.resume:                                    ; preds = %167, %180, %171, %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i29": ; preds = %97, %93
   %.sroa.0.0.i.i.i.i.i.i.i30 = phi ptr [ undef, %93 ], [ %99, %97 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i31 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i27, %93 ], [ %.sroa.8.i.i.i.i.i.i.i28, %97 ]
-  store i64 %95, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i31, align 8, !alias.scope !765, !noalias !770
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i31 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i27, %93 ], [ %.sroa.8.i.i.i.i.i.i.i28, %97 ]
+  store i64 %95, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i31, align 8, !alias.scope !765, !noalias !770
   %.sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i32 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i27, align 8, !range !58, !noalias !771, !noundef !3
   %100 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i32, 0
   br i1 %100, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit34", label %101
@@ -2113,8 +2113,8 @@ common.resume:                                    ; preds = %167, %180, %171, %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i37": ; preds = %109, %105
   %.sroa.0.0.i.i.i.i.i.i.i38 = phi ptr [ undef, %105 ], [ %111, %109 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i39 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i35, %105 ], [ %.sroa.8.i.i.i.i.i.i.i36, %109 ]
-  store i64 %107, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i39, align 8, !alias.scope !793, !noalias !798
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i39 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i35, %105 ], [ %.sroa.8.i.i.i.i.i.i.i36, %109 ]
+  store i64 %107, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i39, align 8, !alias.scope !793, !noalias !798
   %.sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i40 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i35, align 8, !range !58, !noalias !799, !noundef !3
   %112 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i40, 0
   br i1 %112, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit42", label %113
@@ -2205,8 +2205,8 @@ common.resume:                                    ; preds = %167, %180, %171, %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i45": ; preds = %137, %133
   %.sroa.0.0.i.i.i.i.i.i.i46 = phi ptr [ undef, %133 ], [ %139, %137 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i47 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i43, %133 ], [ %.sroa.8.i.i.i.i.i.i.i44, %137 ]
-  store i64 %135, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i47, align 8, !alias.scope !848, !noalias !853
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i47 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i43, %133 ], [ %.sroa.8.i.i.i.i.i.i.i44, %137 ]
+  store i64 %135, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i47, align 8, !alias.scope !848, !noalias !853
   %.sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i48 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i43, align 8, !range !58, !noalias !854, !noundef !3
   %140 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i48, 0
   br i1 %140, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit50", label %141
@@ -2259,8 +2259,8 @@ common.resume:                                    ; preds = %167, %180, %171, %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i53": ; preds = %151, %147
   %.sroa.0.0.i.i.i.i.i.i.i54 = phi ptr [ undef, %147 ], [ %153, %151 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i55 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i51, %147 ], [ %.sroa.8.i.i.i.i.i.i.i52, %151 ]
-  store i64 %149, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i55, align 8, !alias.scope !876, !noalias !881
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i55 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i51, %147 ], [ %.sroa.8.i.i.i.i.i.i.i52, %151 ]
+  store i64 %149, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i55, align 8, !alias.scope !876, !noalias !881
   %.sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i56 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i51, align 8, !range !58, !noalias !882, !noundef !3
   %154 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i56, 0
   br i1 %154, label %159, label %155
@@ -2409,8 +2409,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$uv_extract..error..
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %10, %8
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %8 ], [ %12, %10 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %8 ], [ %.sroa.8.i.i.i.i.i.i.i, %10 ]
-  store i64 %5, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !945, !noalias !950
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %8 ], [ %.sroa.8.i.i.i.i.i.i.i, %10 ]
+  store i64 %5, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !945, !noalias !950
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !951, !noundef !3
   %13 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %13, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit", label %14
@@ -2538,8 +2538,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$uv_extract..error..
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i.i": ; preds = %51, %.lr.ph.i.i.i
   %.sroa.0.0.i.i.i.i.i.i.i.i.i = phi ptr [ undef, %.lr.ph.i.i.i ], [ %53, %51 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.8.i.i.i.i.i.i.i.i.i, %51 ]
-  store i64 %49, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1015, !noalias !1022
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.8.i.i.i.i.i.i.i.i.i, %51 ]
+  store i64 %49, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1015, !noalias !1022
   %.sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !1023, !noundef !3
   %54 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i.i, 0
   br i1 %54, label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h2e109a7278c73b3fE.exit.i.i.i", label %55
@@ -2579,9 +2579,9 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$uv_extract..error..
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i": ; preds = %62, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc24d789f5a764587E.llvm.1922383081153832188.exit.i"
-  %.sink6.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc24d789f5a764587E.llvm.1922383081153832188.exit.i" ], [ %.sroa.8.i.i.i.i, %62 ]
+  %.sink7.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc24d789f5a764587E.llvm.1922383081153832188.exit.i" ], [ %.sroa.8.i.i.i.i, %62 ]
   %.sink.i.i.i.i.i = phi i64 [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc24d789f5a764587E.llvm.1922383081153832188.exit.i" ], [ %63, %62 ]
-  store i64 %.sink.i.i.i.i.i, ptr %.sink6.i.sroa.phi.i.i.i.i, align 8, !alias.scope !1033, !noalias !1038
+  store i64 %.sink.i.i.i.i.i, ptr %.sink7.i.sroa.phi.i.i.i.i, align 8, !alias.scope !1033, !noalias !1038
   %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i, align 8, !range !58, !noalias !1039, !noundef !3
   %64 = icmp eq i64 %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i, 0
   br i1 %64, label %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$$GT$17h4938fb0b3364b3e1E.exit", label %65
@@ -2708,8 +2708,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %23, %21
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %21 ], [ %25, %23 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %21 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %23 ]
-  store i64 %18, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !1065, !noalias !1070
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %21 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %23 ]
+  store i64 %18, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !1065, !noalias !1070
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !1071, !noundef !3
   %26 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %26, label %37, label %27
@@ -2771,8 +2771,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %41, %37
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %37 ], [ %43, %41 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %37 ], [ %.sroa.8.i.i.i.i.i.i, %41 ]
-  store i64 %39, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !1100, !noalias !1105
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %37 ], [ %.sroa.8.i.i.i.i.i.i, %41 ]
+  store i64 %39, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !1100, !noalias !1105
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !1106, !noundef !3
   %44 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %44, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i", label %45
@@ -2841,8 +2841,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i11": ; preds = %62, %58
   %.sroa.0.0.i.i.i.i.i.i12 = phi ptr [ undef, %58 ], [ %.val6, %62 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i13 = phi ptr [ %.sroa.4.i.i.i.i.i.i9, %58 ], [ %.sroa.8.i.i.i.i.i.i10, %62 ]
-  store i64 %.val, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i13, align 8, !alias.scope !1135, !noalias !1138
+  %.sink7.i.sroa.phi.i.i.i.i.i.i13 = phi ptr [ %.sroa.4.i.i.i.i.i.i9, %58 ], [ %.sroa.8.i.i.i.i.i.i10, %62 ]
+  store i64 %.val, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i13, align 8, !alias.scope !1135, !noalias !1138
   %.sroa.4.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i14 = load i64, ptr %.sroa.4.i.i.i.i.i.i9, align 8, !range !58, !noalias !1150, !noundef !3
   %64 = icmp eq i64 %.sroa.4.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i14, 0
   br i1 %64, label %"_ZN4core3ptr53drop_in_place$LT$uv_python..implementation..Error$GT$17h342acbb411d13eecE.exit", label %65
@@ -2886,8 +2886,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %73, %69
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %69 ], [ %75, %73 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %69 ], [ %.sroa.8.i.i.i.i.i, %73 ]
-  store i64 %71, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !1166, !noalias !1171
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %69 ], [ %.sroa.8.i.i.i.i.i, %73 ]
+  store i64 %71, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !1166, !noalias !1171
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !1172, !noundef !3
   %76 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %76, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit", label %77
@@ -3016,8 +3016,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %107, %103
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %103 ], [ %109, %107 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %103 ], [ %.sroa.8.i.i.i.i.i.i.i, %107 ]
-  store i64 %105, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !1237, !noalias !1242
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %103 ], [ %.sroa.8.i.i.i.i.i.i.i, %107 ]
+  store i64 %105, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !1237, !noalias !1242
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !1243, !noundef !3
   %110 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %110, label %227, label %111
@@ -3058,8 +3058,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i21": ; preds = %119, %115
   %.sroa.0.0.i.i.i.i.i.i.i22 = phi ptr [ undef, %115 ], [ %121, %119 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i23 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i19, %115 ], [ %.sroa.8.i.i.i.i.i.i.i20, %119 ]
-  store i64 %117, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i23, align 8, !alias.scope !1265, !noalias !1270
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i23 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i19, %115 ], [ %.sroa.8.i.i.i.i.i.i.i20, %119 ]
+  store i64 %117, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i23, align 8, !alias.scope !1265, !noalias !1270
   %.sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i24 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i19, align 8, !range !58, !noalias !1271, !noundef !3
   %122 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.i19.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i24, 0
   br i1 %122, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit26", label %123
@@ -3105,8 +3105,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i29": ; preds = %131, %127
   %.sroa.0.0.i.i.i.i.i.i.i30 = phi ptr [ undef, %127 ], [ %133, %131 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i31 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i27, %127 ], [ %.sroa.8.i.i.i.i.i.i.i28, %131 ]
-  store i64 %129, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i31, align 8, !alias.scope !1293, !noalias !1298
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i31 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i27, %127 ], [ %.sroa.8.i.i.i.i.i.i.i28, %131 ]
+  store i64 %129, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i31, align 8, !alias.scope !1293, !noalias !1298
   %.sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i32 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i27, align 8, !range !58, !noalias !1299, !noundef !3
   %134 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.i27.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i32, 0
   br i1 %134, label %233, label %135
@@ -3147,8 +3147,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i37": ; preds = %143, %139
   %.sroa.0.0.i.i.i.i.i.i.i38 = phi ptr [ undef, %139 ], [ %145, %143 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i39 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i35, %139 ], [ %.sroa.8.i.i.i.i.i.i.i36, %143 ]
-  store i64 %141, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i39, align 8, !alias.scope !1321, !noalias !1326
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i39 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i35, %139 ], [ %.sroa.8.i.i.i.i.i.i.i36, %143 ]
+  store i64 %141, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i39, align 8, !alias.scope !1321, !noalias !1326
   %.sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i40 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i35, align 8, !range !58, !noalias !1327, !noundef !3
   %146 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.i35.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i40, 0
   br i1 %146, label %251, label %147
@@ -3189,8 +3189,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i45": ; preds = %155, %151
   %.sroa.0.0.i.i.i.i.i.i.i46 = phi ptr [ undef, %151 ], [ %157, %155 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i47 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i43, %151 ], [ %.sroa.8.i.i.i.i.i.i.i44, %155 ]
-  store i64 %153, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i47, align 8, !alias.scope !1349, !noalias !1354
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i47 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i43, %151 ], [ %.sroa.8.i.i.i.i.i.i.i44, %155 ]
+  store i64 %153, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i47, align 8, !alias.scope !1349, !noalias !1354
   %.sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i48 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i43, align 8, !range !58, !noalias !1355, !noundef !3
   %158 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.i43.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i48, 0
   br i1 %158, label %269, label %159
@@ -3231,8 +3231,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i53": ; preds = %167, %163
   %.sroa.0.0.i.i.i.i.i.i.i54 = phi ptr [ undef, %163 ], [ %169, %167 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i55 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i51, %163 ], [ %.sroa.8.i.i.i.i.i.i.i52, %167 ]
-  store i64 %165, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i55, align 8, !alias.scope !1377, !noalias !1382
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i55 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i51, %163 ], [ %.sroa.8.i.i.i.i.i.i.i52, %167 ]
+  store i64 %165, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i55, align 8, !alias.scope !1377, !noalias !1382
   %.sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i56 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i51, align 8, !range !58, !noalias !1383, !noundef !3
   %170 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.i51.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i56, 0
   br i1 %170, label %275, label %171
@@ -3279,8 +3279,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i61": ; preds = %181, %177
   %.sroa.0.0.i.i.i.i.i62 = phi ptr [ undef, %177 ], [ %183, %181 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i63 = phi ptr [ %.sroa.4.i.i.i.i.i59, %177 ], [ %.sroa.8.i.i.i.i.i60, %181 ]
-  store i64 %179, ptr %.sink6.i.sroa.phi.i.i.i.i.i63, align 8, !alias.scope !1399, !noalias !1404
+  %.sink7.i.sroa.phi.i.i.i.i.i63 = phi ptr [ %.sroa.4.i.i.i.i.i59, %177 ], [ %.sroa.8.i.i.i.i.i60, %181 ]
+  store i64 %179, ptr %.sink7.i.sroa.phi.i.i.i.i.i63, align 8, !alias.scope !1399, !noalias !1404
   %.sroa.4.i.i.i.i.i59.0..sroa.4.i.i.i.i.i59.0..sroa.4.i.i.i.i.i59.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i64 = load i64, ptr %.sroa.4.i.i.i.i.i59, align 8, !range !58, !noalias !1405, !noundef !3
   %184 = icmp eq i64 %.sroa.4.i.i.i.i.i59.0..sroa.4.i.i.i.i.i59.0..sroa.4.i.i.i.i.i59.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i64, 0
   br i1 %184, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit66", label %185
@@ -3326,8 +3326,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i69": ; preds = %193, %189
   %.sroa.0.0.i.i.i.i.i.i.i70 = phi ptr [ undef, %189 ], [ %195, %193 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i71 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i67, %189 ], [ %.sroa.8.i.i.i.i.i.i.i68, %193 ]
-  store i64 %191, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i71, align 8, !alias.scope !1427, !noalias !1432
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i71 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i67, %189 ], [ %.sroa.8.i.i.i.i.i.i.i68, %193 ]
+  store i64 %191, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i71, align 8, !alias.scope !1427, !noalias !1432
   %.sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i72 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i67, align 8, !range !58, !noalias !1433, !noundef !3
   %196 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i72, 0
   br i1 %196, label %281, label %197
@@ -3367,8 +3367,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i77": ; preds = %205, %201
   %.sroa.0.0.i.i.i.i.i.i78 = phi ptr [ undef, %201 ], [ %207, %205 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i79 = phi ptr [ %.sroa.4.i.i.i.i.i.i75, %201 ], [ %.sroa.8.i.i.i.i.i.i76, %205 ]
-  store i64 %203, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i79, align 8, !alias.scope !1452, !noalias !1457
+  %.sink7.i.sroa.phi.i.i.i.i.i.i79 = phi ptr [ %.sroa.4.i.i.i.i.i.i75, %201 ], [ %.sroa.8.i.i.i.i.i.i76, %205 ]
+  store i64 %203, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i79, align 8, !alias.scope !1452, !noalias !1457
   %.sroa.4.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i80 = load i64, ptr %.sroa.4.i.i.i.i.i.i75, align 8, !range !58, !noalias !1458, !noundef !3
   %208 = icmp eq i64 %.sroa.4.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i80, 0
   br i1 %208, label %213, label %209
@@ -3409,8 +3409,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i3.i": ; preds = %217, %213
   %.sroa.0.0.i.i.i.i.i4.i = phi ptr [ undef, %213 ], [ %219, %217 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i5.i = phi ptr [ %.sroa.4.i.i.i.i.i1.i, %213 ], [ %.sroa.8.i.i.i.i.i2.i, %217 ]
-  store i64 %215, ptr %.sink6.i.sroa.phi.i.i.i.i.i5.i, align 8, !alias.scope !1474, !noalias !1479
+  %.sink7.i.sroa.phi.i.i.i.i.i5.i = phi ptr [ %.sroa.4.i.i.i.i.i1.i, %213 ], [ %.sroa.8.i.i.i.i.i2.i, %217 ]
+  store i64 %215, ptr %.sink7.i.sroa.phi.i.i.i.i.i5.i, align 8, !alias.scope !1474, !noalias !1479
   %.sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i6.i = load i64, ptr %.sroa.4.i.i.i.i.i1.i, align 8, !range !58, !noalias !1480, !noundef !3
   %220 = icmp eq i64 %.sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i6.i, 0
   br i1 %220, label %"_ZN4core3ptr72drop_in_place$LT$uv_python..installation..PythonInstallationKeyError$GT$17h041b792066248672E.exit", label %221
@@ -3486,8 +3486,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i86": ; preds = %237, %233
   %.sroa.0.0.i.i.i.i.i.i.i87 = phi ptr [ undef, %233 ], [ %239, %237 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i88 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i84, %233 ], [ %.sroa.8.i.i.i.i.i.i.i85, %237 ]
-  store i64 %235, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i88, align 8, !alias.scope !1515, !noalias !1520
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i88 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i84, %233 ], [ %.sroa.8.i.i.i.i.i.i.i85, %237 ]
+  store i64 %235, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i88, align 8, !alias.scope !1515, !noalias !1520
   %.sroa.4.i.i.i.i.i.i.i84.0..sroa.4.i.i.i.i.i.i.i84.0..sroa.4.i.i.i.i.i.i.i84.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i89 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i84, align 8, !range !58, !noalias !1521, !noundef !3
   %240 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i84.0..sroa.4.i.i.i.i.i.i.i84.0..sroa.4.i.i.i.i.i.i.i84.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i89, 0
   br i1 %240, label %245, label %241
@@ -3553,8 +3553,8 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$uv_python..managed.
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i96": ; preds = %255, %251
   %.sroa.0.0.i.i.i.i.i.i.i97 = phi ptr [ undef, %251 ], [ %257, %255 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i98 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i94, %251 ], [ %.sroa.8.i.i.i.i.i.i.i95, %255 ]
-  store i64 %253, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i98, align 8, !alias.scope !1556, !noalias !1561
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i98 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i94, %251 ], [ %.sroa.8.i.i.i.i.i.i.i95, %255 ]
+  store i64 %253, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i98, align 8, !alias.scope !1556, !noalias !1561
   %.sroa.4.i.i.i.i.i.i.i94.0..sroa.4.i.i.i.i.i.i.i94.0..sroa.4.i.i.i.i.i.i.i94.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i99 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i94, align 8, !range !58, !noalias !1562, !noundef !3
   %258 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i94.0..sroa.4.i.i.i.i.i.i.i94.0..sroa.4.i.i.i.i.i.i.i94.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i99, 0
   br i1 %258, label %263, label %259
@@ -3709,8 +3709,8 @@ default.unreachable:                              ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %7, %5
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %5 ], [ %9, %7 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %5 ], [ %.sroa.8.i.i.i.i.i, %7 ]
-  store i64 %2, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !1631, !noalias !1636
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %5 ], [ %.sroa.8.i.i.i.i.i, %7 ]
+  store i64 %2, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !1631, !noalias !1636
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !1637, !noundef !3
   %10 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %10, label %52, label %11
@@ -3749,8 +3749,8 @@ default.unreachable:                              ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i3": ; preds = %19, %15
   %.sroa.0.0.i.i.i.i.i4 = phi ptr [ undef, %15 ], [ %21, %19 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i5 = phi ptr [ %.sroa.4.i.i.i.i.i1, %15 ], [ %.sroa.8.i.i.i.i.i2, %19 ]
-  store i64 %17, ptr %.sink6.i.sroa.phi.i.i.i.i.i5, align 8, !alias.scope !1653, !noalias !1658
+  %.sink7.i.sroa.phi.i.i.i.i.i5 = phi ptr [ %.sroa.4.i.i.i.i.i1, %15 ], [ %.sroa.8.i.i.i.i.i2, %19 ]
+  store i64 %17, ptr %.sink7.i.sroa.phi.i.i.i.i.i5, align 8, !alias.scope !1653, !noalias !1658
   %.sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i6 = load i64, ptr %.sroa.4.i.i.i.i.i1, align 8, !range !58, !noalias !1659, !noundef !3
   %22 = icmp eq i64 %.sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i6, 0
   br i1 %22, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit8", label %23
@@ -3794,8 +3794,8 @@ default.unreachable:                              ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i11": ; preds = %31, %27
   %.sroa.0.0.i.i.i.i.i12 = phi ptr [ undef, %27 ], [ %33, %31 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i13 = phi ptr [ %.sroa.4.i.i.i.i.i9, %27 ], [ %.sroa.8.i.i.i.i.i10, %31 ]
-  store i64 %29, ptr %.sink6.i.sroa.phi.i.i.i.i.i13, align 8, !alias.scope !1675, !noalias !1680
+  %.sink7.i.sroa.phi.i.i.i.i.i13 = phi ptr [ %.sroa.4.i.i.i.i.i9, %27 ], [ %.sroa.8.i.i.i.i.i10, %31 ]
+  store i64 %29, ptr %.sink7.i.sroa.phi.i.i.i.i.i13, align 8, !alias.scope !1675, !noalias !1680
   %.sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i14 = load i64, ptr %.sroa.4.i.i.i.i.i9, align 8, !range !58, !noalias !1681, !noundef !3
   %34 = icmp eq i64 %.sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i14, 0
   br i1 %34, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit16", label %35
@@ -3839,8 +3839,8 @@ default.unreachable:                              ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i19": ; preds = %43, %39
   %.sroa.0.0.i.i.i.i.i20 = phi ptr [ undef, %39 ], [ %45, %43 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i21 = phi ptr [ %.sroa.4.i.i.i.i.i17, %39 ], [ %.sroa.8.i.i.i.i.i18, %43 ]
-  store i64 %41, ptr %.sink6.i.sroa.phi.i.i.i.i.i21, align 8, !alias.scope !1697, !noalias !1702
+  %.sink7.i.sroa.phi.i.i.i.i.i21 = phi ptr [ %.sroa.4.i.i.i.i.i17, %39 ], [ %.sroa.8.i.i.i.i.i18, %43 ]
+  store i64 %41, ptr %.sink7.i.sroa.phi.i.i.i.i.i21, align 8, !alias.scope !1697, !noalias !1702
   %.sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i22 = load i64, ptr %.sroa.4.i.i.i.i.i17, align 8, !range !58, !noalias !1703, !noundef !3
   %46 = icmp eq i64 %.sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i22, 0
   br i1 %46, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit24", label %47
@@ -3889,8 +3889,8 @@ default.unreachable:                              ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i27": ; preds = %56, %52
   %.sroa.0.0.i.i.i.i.i28 = phi ptr [ undef, %52 ], [ %58, %56 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i29 = phi ptr [ %.sroa.4.i.i.i.i.i25, %52 ], [ %.sroa.8.i.i.i.i.i26, %56 ]
-  store i64 %54, ptr %.sink6.i.sroa.phi.i.i.i.i.i29, align 8, !alias.scope !1719, !noalias !1724
+  %.sink7.i.sroa.phi.i.i.i.i.i29 = phi ptr [ %.sroa.4.i.i.i.i.i25, %52 ], [ %.sroa.8.i.i.i.i.i26, %56 ]
+  store i64 %54, ptr %.sink7.i.sroa.phi.i.i.i.i.i29, align 8, !alias.scope !1719, !noalias !1724
   %.sroa.4.i.i.i.i.i25.0..sroa.4.i.i.i.i.i25.0..sroa.4.i.i.i.i.i25.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i30 = load i64, ptr %.sroa.4.i.i.i.i.i25, align 8, !range !58, !noalias !1725, !noundef !3
   %59 = icmp eq i64 %.sroa.4.i.i.i.i.i25.0..sroa.4.i.i.i.i.i25.0..sroa.4.i.i.i.i.i25.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i30, 0
   br i1 %59, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit32", label %60
@@ -4015,8 +4015,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %17, %15
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %15 ], [ %19, %17 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %15 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %17 ]
-  store i64 %14, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !1748, !noalias !1753
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %15 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %17 ]
+  store i64 %14, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !1748, !noalias !1753
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !1754, !noundef !3
   %20 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %20, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i.i.i", label %21
@@ -4076,8 +4076,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %35, %31
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %31 ], [ %.val6, %35 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %31 ], [ %.sroa.8.i.i.i.i.i.i, %35 ]
-  store i64 %.val5, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !1768, !noalias !1771
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %31 ], [ %.sroa.8.i.i.i.i.i.i, %35 ]
+  store i64 %.val5, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !1768, !noalias !1771
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !1783, !noundef !3
   %37 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %37, label %"_ZN4core3ptr53drop_in_place$LT$uv_python..implementation..Error$GT$17h342acbb411d13eecE.exit", label %38
@@ -4121,8 +4121,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %46, %42
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %42 ], [ %48, %46 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %42 ], [ %.sroa.8.i.i.i.i.i, %46 ]
-  store i64 %44, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !1799, !noalias !1804
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %42 ], [ %.sroa.8.i.i.i.i.i, %46 ]
+  store i64 %44, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !1799, !noalias !1804
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !1805, !noundef !3
   %49 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %49, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit", label %50
@@ -4166,8 +4166,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i11": ; preds = %58, %54
   %.sroa.0.0.i.i.i.i.i12 = phi ptr [ undef, %54 ], [ %60, %58 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i13 = phi ptr [ %.sroa.4.i.i.i.i.i9, %54 ], [ %.sroa.8.i.i.i.i.i10, %58 ]
-  store i64 %56, ptr %.sink6.i.sroa.phi.i.i.i.i.i13, align 8, !alias.scope !1821, !noalias !1826
+  %.sink7.i.sroa.phi.i.i.i.i.i13 = phi ptr [ %.sroa.4.i.i.i.i.i9, %54 ], [ %.sroa.8.i.i.i.i.i10, %58 ]
+  store i64 %56, ptr %.sink7.i.sroa.phi.i.i.i.i.i13, align 8, !alias.scope !1821, !noalias !1826
   %.sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i14 = load i64, ptr %.sroa.4.i.i.i.i.i9, align 8, !range !58, !noalias !1827, !noundef !3
   %61 = icmp eq i64 %.sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.i9.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i14, 0
   br i1 %61, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit16", label %62
@@ -4211,8 +4211,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i19": ; preds = %70, %66
   %.sroa.0.0.i.i.i.i.i20 = phi ptr [ undef, %66 ], [ %72, %70 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i21 = phi ptr [ %.sroa.4.i.i.i.i.i17, %66 ], [ %.sroa.8.i.i.i.i.i18, %70 ]
-  store i64 %68, ptr %.sink6.i.sroa.phi.i.i.i.i.i21, align 8, !alias.scope !1843, !noalias !1848
+  %.sink7.i.sroa.phi.i.i.i.i.i21 = phi ptr [ %.sroa.4.i.i.i.i.i17, %66 ], [ %.sroa.8.i.i.i.i.i18, %70 ]
+  store i64 %68, ptr %.sink7.i.sroa.phi.i.i.i.i.i21, align 8, !alias.scope !1843, !noalias !1848
   %.sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i22 = load i64, ptr %.sroa.4.i.i.i.i.i17, align 8, !range !58, !noalias !1849, !noundef !3
   %73 = icmp eq i64 %.sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i22, 0
   br i1 %73, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit24", label %74
@@ -4257,8 +4257,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i27": ; preds = %82, %78
   %.sroa.0.0.i.i.i.i.i.i28 = phi ptr [ undef, %78 ], [ %84, %82 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i29 = phi ptr [ %.sroa.4.i.i.i.i.i.i25, %78 ], [ %.sroa.8.i.i.i.i.i.i26, %82 ]
-  store i64 %80, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i29, align 8, !alias.scope !1868, !noalias !1873
+  %.sink7.i.sroa.phi.i.i.i.i.i.i29 = phi ptr [ %.sroa.4.i.i.i.i.i.i25, %78 ], [ %.sroa.8.i.i.i.i.i.i26, %82 ]
+  store i64 %80, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i29, align 8, !alias.scope !1868, !noalias !1873
   %.sroa.4.i.i.i.i.i.i25.0..sroa.4.i.i.i.i.i.i25.0..sroa.4.i.i.i.i.i.i25.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i30 = load i64, ptr %.sroa.4.i.i.i.i.i.i25, align 8, !range !58, !noalias !1874, !noundef !3
   %85 = icmp eq i64 %.sroa.4.i.i.i.i.i.i25.0..sroa.4.i.i.i.i.i.i25.0..sroa.4.i.i.i.i.i.i25.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i30, 0
   br i1 %85, label %207, label %86
@@ -4299,8 +4299,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i34": ; preds = %94, %90
   %.sroa.0.0.i.i.i.i.i.i35 = phi ptr [ undef, %90 ], [ %96, %94 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i36 = phi ptr [ %.sroa.4.i.i.i.i.i.i32, %90 ], [ %.sroa.8.i.i.i.i.i.i33, %94 ]
-  store i64 %92, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i36, align 8, !alias.scope !1899, !noalias !1904
+  %.sink7.i.sroa.phi.i.i.i.i.i.i36 = phi ptr [ %.sroa.4.i.i.i.i.i.i32, %90 ], [ %.sroa.8.i.i.i.i.i.i33, %94 ]
+  store i64 %92, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i36, align 8, !alias.scope !1899, !noalias !1904
   %.sroa.4.i.i.i.i.i.i32.0..sroa.4.i.i.i.i.i.i32.0..sroa.4.i.i.i.i.i.i32.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i37 = load i64, ptr %.sroa.4.i.i.i.i.i.i32, align 8, !range !58, !noalias !1905, !noundef !3
   %97 = icmp eq i64 %.sroa.4.i.i.i.i.i.i32.0..sroa.4.i.i.i.i.i.i32.0..sroa.4.i.i.i.i.i.i32.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i37, 0
   br i1 %97, label %218, label %98
@@ -4339,8 +4339,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i42": ; preds = %106, %102
   %.sroa.0.0.i.i.i.i.i43 = phi ptr [ undef, %102 ], [ %108, %106 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i44 = phi ptr [ %.sroa.4.i.i.i.i.i40, %102 ], [ %.sroa.8.i.i.i.i.i41, %106 ]
-  store i64 %104, ptr %.sink6.i.sroa.phi.i.i.i.i.i44, align 8, !alias.scope !1921, !noalias !1926
+  %.sink7.i.sroa.phi.i.i.i.i.i44 = phi ptr [ %.sroa.4.i.i.i.i.i40, %102 ], [ %.sroa.8.i.i.i.i.i41, %106 ]
+  store i64 %104, ptr %.sink7.i.sroa.phi.i.i.i.i.i44, align 8, !alias.scope !1921, !noalias !1926
   %.sroa.4.i.i.i.i.i40.0..sroa.4.i.i.i.i.i40.0..sroa.4.i.i.i.i.i40.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i45 = load i64, ptr %.sroa.4.i.i.i.i.i40, align 8, !range !58, !noalias !1927, !noundef !3
   %109 = icmp eq i64 %.sroa.4.i.i.i.i.i40.0..sroa.4.i.i.i.i.i40.0..sroa.4.i.i.i.i.i40.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i45, 0
   br i1 %109, label %220, label %110
@@ -4400,8 +4400,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i52": ; preds = %124, %120
   %.sroa.0.0.i.i.i.i.i53 = phi ptr [ undef, %120 ], [ %126, %124 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i54 = phi ptr [ %.sroa.4.i.i.i.i.i50, %120 ], [ %.sroa.8.i.i.i.i.i51, %124 ]
-  store i64 %122, ptr %.sink6.i.sroa.phi.i.i.i.i.i54, align 8, !alias.scope !1956, !noalias !1961
+  %.sink7.i.sroa.phi.i.i.i.i.i54 = phi ptr [ %.sroa.4.i.i.i.i.i50, %120 ], [ %.sroa.8.i.i.i.i.i51, %124 ]
+  store i64 %122, ptr %.sink7.i.sroa.phi.i.i.i.i.i54, align 8, !alias.scope !1956, !noalias !1961
   %.sroa.4.i.i.i.i.i50.0..sroa.4.i.i.i.i.i50.0..sroa.4.i.i.i.i.i50.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i55 = load i64, ptr %.sroa.4.i.i.i.i.i50, align 8, !range !58, !noalias !1962, !noundef !3
   %127 = icmp eq i64 %.sroa.4.i.i.i.i.i50.0..sroa.4.i.i.i.i.i50.0..sroa.4.i.i.i.i.i50.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i55, 0
   br i1 %127, label %222, label %128
@@ -4444,8 +4444,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i60": ; preds = %136, %132
   %.sroa.0.0.i.i.i.i.i.i61 = phi ptr [ undef, %132 ], [ %138, %136 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i62 = phi ptr [ %.sroa.4.i.i.i.i.i.i58, %132 ], [ %.sroa.8.i.i.i.i.i.i59, %136 ]
-  store i64 %134, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i62, align 8, !alias.scope !1981, !noalias !1986
+  %.sink7.i.sroa.phi.i.i.i.i.i.i62 = phi ptr [ %.sroa.4.i.i.i.i.i.i58, %132 ], [ %.sroa.8.i.i.i.i.i.i59, %136 ]
+  store i64 %134, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i62, align 8, !alias.scope !1981, !noalias !1986
   %.sroa.4.i.i.i.i.i.i58.0..sroa.4.i.i.i.i.i.i58.0..sroa.4.i.i.i.i.i.i58.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i63 = load i64, ptr %.sroa.4.i.i.i.i.i.i58, align 8, !range !58, !noalias !1987, !noundef !3
   %139 = icmp eq i64 %.sroa.4.i.i.i.i.i.i58.0..sroa.4.i.i.i.i.i.i58.0..sroa.4.i.i.i.i.i.i58.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i63, 0
   br i1 %139, label %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hff40e0b014a930fbE.exit65", label %140
@@ -4489,8 +4489,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i68": ; preds = %148, %144
   %.sroa.0.0.i.i.i.i.i69 = phi ptr [ undef, %144 ], [ %150, %148 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i70 = phi ptr [ %.sroa.4.i.i.i.i.i66, %144 ], [ %.sroa.8.i.i.i.i.i67, %148 ]
-  store i64 %146, ptr %.sink6.i.sroa.phi.i.i.i.i.i70, align 8, !alias.scope !2003, !noalias !2008
+  %.sink7.i.sroa.phi.i.i.i.i.i70 = phi ptr [ %.sroa.4.i.i.i.i.i66, %144 ], [ %.sroa.8.i.i.i.i.i67, %148 ]
+  store i64 %146, ptr %.sink7.i.sroa.phi.i.i.i.i.i70, align 8, !alias.scope !2003, !noalias !2008
   %.sroa.4.i.i.i.i.i66.0..sroa.4.i.i.i.i.i66.0..sroa.4.i.i.i.i.i66.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i71 = load i64, ptr %.sroa.4.i.i.i.i.i66, align 8, !range !58, !noalias !2009, !noundef !3
   %151 = icmp eq i64 %.sroa.4.i.i.i.i.i66.0..sroa.4.i.i.i.i.i66.0..sroa.4.i.i.i.i.i66.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i71, 0
   br i1 %151, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit73", label %152
@@ -4557,8 +4557,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %166, %162
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %162 ], [ %168, %166 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %162 ], [ %.sroa.8.i.i.i.i.i.i.i, %166 ]
-  store i64 %164, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2044, !noalias !2049
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %162 ], [ %.sroa.8.i.i.i.i.i.i.i, %166 ]
+  store i64 %164, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2044, !noalias !2049
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !2050, !noundef !3
   %169 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %169, label %246, label %170
@@ -4599,8 +4599,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i78": ; preds = %178, %174
   %.sroa.0.0.i.i.i.i.i.i.i79 = phi ptr [ undef, %174 ], [ %180, %178 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i80 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i76, %174 ], [ %.sroa.8.i.i.i.i.i.i.i77, %178 ]
-  store i64 %176, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i80, align 8, !alias.scope !2072, !noalias !2077
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i80 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i76, %174 ], [ %.sroa.8.i.i.i.i.i.i.i77, %178 ]
+  store i64 %176, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i80, align 8, !alias.scope !2072, !noalias !2077
   %.sroa.4.i.i.i.i.i.i.i76.0..sroa.4.i.i.i.i.i.i.i76.0..sroa.4.i.i.i.i.i.i.i76.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i81 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i76, align 8, !range !58, !noalias !2078, !noundef !3
   %181 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i76.0..sroa.4.i.i.i.i.i.i.i76.0..sroa.4.i.i.i.i.i.i.i76.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i81, 0
   br i1 %181, label %252, label %182
@@ -4660,8 +4660,8 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$uv_python..download
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i86": ; preds = %199, %195
   %.sroa.0.0.i.i.i.i.i87 = phi ptr [ undef, %195 ], [ %201, %199 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i88 = phi ptr [ %.sroa.4.i.i.i.i.i84, %195 ], [ %.sroa.8.i.i.i.i.i85, %199 ]
-  store i64 %197, ptr %.sink6.i.sroa.phi.i.i.i.i.i88, align 8, !alias.scope !2099, !noalias !2104
+  %.sink7.i.sroa.phi.i.i.i.i.i88 = phi ptr [ %.sroa.4.i.i.i.i.i84, %195 ], [ %.sroa.8.i.i.i.i.i85, %199 ]
+  store i64 %197, ptr %.sink7.i.sroa.phi.i.i.i.i.i88, align 8, !alias.scope !2099, !noalias !2104
   %.sroa.4.i.i.i.i.i84.0..sroa.4.i.i.i.i.i84.0..sroa.4.i.i.i.i.i84.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i89 = load i64, ptr %.sroa.4.i.i.i.i.i84, align 8, !range !58, !noalias !2105, !noundef !3
   %202 = icmp eq i64 %.sroa.4.i.i.i.i.i84.0..sroa.4.i.i.i.i.i84.0..sroa.4.i.i.i.i.i84.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i89, 0
   br i1 %202, label %258, label %203
@@ -4757,8 +4757,8 @@ common.resume:                                    ; preds = %214, %270
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i94": ; preds = %226, %222
   %.sroa.0.0.i.i.i.i.i95 = phi ptr [ undef, %222 ], [ %228, %226 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i96 = phi ptr [ %.sroa.4.i.i.i.i.i92, %222 ], [ %.sroa.8.i.i.i.i.i93, %226 ]
-  store i64 %224, ptr %.sink6.i.sroa.phi.i.i.i.i.i96, align 8, !alias.scope !2130, !noalias !2135
+  %.sink7.i.sroa.phi.i.i.i.i.i96 = phi ptr [ %.sroa.4.i.i.i.i.i92, %222 ], [ %.sroa.8.i.i.i.i.i93, %226 ]
+  store i64 %224, ptr %.sink7.i.sroa.phi.i.i.i.i.i96, align 8, !alias.scope !2130, !noalias !2135
   %.sroa.4.i.i.i.i.i92.0..sroa.4.i.i.i.i.i92.0..sroa.4.i.i.i.i.i92.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i97 = load i64, ptr %.sroa.4.i.i.i.i.i92, align 8, !range !58, !noalias !2136, !noundef !3
   %229 = icmp eq i64 %.sroa.4.i.i.i.i.i92.0..sroa.4.i.i.i.i.i92.0..sroa.4.i.i.i.i.i92.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i97, 0
   br i1 %229, label %234, label %230
@@ -4799,8 +4799,8 @@ common.resume:                                    ; preds = %214, %270
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i102": ; preds = %238, %234
   %.sroa.0.0.i.i.i.i.i103 = phi ptr [ undef, %234 ], [ %240, %238 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i104 = phi ptr [ %.sroa.4.i.i.i.i.i100, %234 ], [ %.sroa.8.i.i.i.i.i101, %238 ]
-  store i64 %236, ptr %.sink6.i.sroa.phi.i.i.i.i.i104, align 8, !alias.scope !2152, !noalias !2157
+  %.sink7.i.sroa.phi.i.i.i.i.i104 = phi ptr [ %.sroa.4.i.i.i.i.i100, %234 ], [ %.sroa.8.i.i.i.i.i101, %238 ]
+  store i64 %236, ptr %.sink7.i.sroa.phi.i.i.i.i.i104, align 8, !alias.scope !2152, !noalias !2157
   %.sroa.4.i.i.i.i.i100.0..sroa.4.i.i.i.i.i100.0..sroa.4.i.i.i.i.i100.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i105 = load i64, ptr %.sroa.4.i.i.i.i.i100, align 8, !range !58, !noalias !2158, !noundef !3
   %241 = icmp eq i64 %.sroa.4.i.i.i.i.i100.0..sroa.4.i.i.i.i.i100.0..sroa.4.i.i.i.i.i100.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i105, 0
   br i1 %241, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit107", label %242
@@ -4947,8 +4947,8 @@ common.resume:                                    ; preds = %214, %270
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i114": ; preds = %276, %272
   %.sroa.0.0.i.i.i.i.i.i.i115 = phi ptr [ undef, %272 ], [ %278, %276 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i116 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i112, %272 ], [ %.sroa.8.i.i.i.i.i.i.i113, %276 ]
-  store i64 %274, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i116, align 8, !alias.scope !2237, !noalias !2242
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i116 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i112, %272 ], [ %.sroa.8.i.i.i.i.i.i.i113, %276 ]
+  store i64 %274, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i116, align 8, !alias.scope !2237, !noalias !2242
   %.sroa.4.i.i.i.i.i.i.i112.0..sroa.4.i.i.i.i.i.i.i112.0..sroa.4.i.i.i.i.i.i.i112.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i117 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i112, align 8, !range !58, !noalias !2243, !noundef !3
   %279 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i112.0..sroa.4.i.i.i.i.i.i.i112.0..sroa.4.i.i.i.i.i.i.i112.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i117, 0
   br i1 %279, label %284, label %280
@@ -4992,8 +4992,8 @@ common.resume:                                    ; preds = %214, %270
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i121": ; preds = %288, %284
   %.sroa.0.0.i.i.i.i.i.i.i122 = phi ptr [ undef, %284 ], [ %290, %288 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i123 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i119, %284 ], [ %.sroa.8.i.i.i.i.i.i.i120, %288 ]
-  store i64 %286, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i123, align 8, !alias.scope !2265, !noalias !2270
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i123 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i119, %284 ], [ %.sroa.8.i.i.i.i.i.i.i120, %288 ]
+  store i64 %286, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i123, align 8, !alias.scope !2265, !noalias !2270
   %.sroa.4.i.i.i.i.i.i.i119.0..sroa.4.i.i.i.i.i.i.i119.0..sroa.4.i.i.i.i.i.i.i119.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i124 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i119, align 8, !range !58, !noalias !2271, !noundef !3
   %291 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i119.0..sroa.4.i.i.i.i.i.i.i119.0..sroa.4.i.i.i.i.i.i.i119.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i124, 0
   br i1 %291, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit126", label %292
@@ -5054,8 +5054,8 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$uv_python..virtuale
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %9, %7
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %7 ], [ %11, %9 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %7 ], [ %.sroa.8.i.i.i.i.i.i.i, %9 ]
-  store i64 %4, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2293, !noalias !2298
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %7 ], [ %.sroa.8.i.i.i.i.i.i.i, %9 ]
+  store i64 %4, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2293, !noalias !2298
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !2299, !noundef !3
   %12 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %12, label %36, label %13
@@ -5117,8 +5117,8 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$uv_python..virtuale
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i3": ; preds = %27, %23
   %.sroa.0.0.i.i.i.i.i.i.i4 = phi ptr [ undef, %23 ], [ %29, %27 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i5 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i1, %23 ], [ %.sroa.8.i.i.i.i.i.i.i2, %27 ]
-  store i64 %25, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i5, align 8, !alias.scope !2334, !noalias !2339
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i5 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i1, %23 ], [ %.sroa.8.i.i.i.i.i.i.i2, %27 ]
+  store i64 %25, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i5, align 8, !alias.scope !2334, !noalias !2339
   %.sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i6 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i1, align 8, !range !58, !noalias !2340, !noundef !3
   %30 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i6, 0
   br i1 %30, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit8", label %31
@@ -5230,8 +5230,8 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$uv_trampoline_build
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %18, %16
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %16 ], [ %20, %18 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %16 ], [ %.sroa.8.i.i.i.i.i, %18 ]
-  store i64 %5, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2383, !noalias !2388
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %16 ], [ %.sroa.8.i.i.i.i.i, %18 ]
+  store i64 %5, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2383, !noalias !2388
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !2389, !noundef !3
   %21 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %21, label %38, label %22
@@ -5270,8 +5270,8 @@ define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$uv_trampoline_build
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i4": ; preds = %30, %26
   %.sroa.0.0.i.i.i.i.i5 = phi ptr [ undef, %26 ], [ %32, %30 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i6 = phi ptr [ %.sroa.4.i.i.i.i.i2, %26 ], [ %.sroa.8.i.i.i.i.i3, %30 ]
-  store i64 %28, ptr %.sink6.i.sroa.phi.i.i.i.i.i6, align 8, !alias.scope !2405, !noalias !2410
+  %.sink7.i.sroa.phi.i.i.i.i.i6 = phi ptr [ %.sroa.4.i.i.i.i.i2, %26 ], [ %.sroa.8.i.i.i.i.i3, %30 ]
+  store i64 %28, ptr %.sink7.i.sroa.phi.i.i.i.i.i6, align 8, !alias.scope !2405, !noalias !2410
   %.sroa.4.i.i.i.i.i2.0..sroa.4.i.i.i.i.i2.0..sroa.4.i.i.i.i.i2.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i7 = load i64, ptr %.sroa.4.i.i.i.i.i2, align 8, !range !58, !noalias !2411, !noundef !3
   %33 = icmp eq i64 %.sroa.4.i.i.i.i.i2.0..sroa.4.i.i.i.i.i2.0..sroa.4.i.i.i.i.i2.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i7, 0
   br i1 %33, label %44, label %34
@@ -5358,8 +5358,8 @@ define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %5, %3
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %3 ], [ %.8.val, %5 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %3 ], [ %.sroa.8.i.i.i.i.i, %5 ]
-  store i64 %.0.val, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2438, !noalias !2441
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %3 ], [ %.sroa.8.i.i.i.i.i, %5 ]
+  store i64 %.0.val, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2438, !noalias !2441
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !2453, !noundef !3
   %7 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %7, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit", label %8
@@ -5450,8 +5450,8 @@ default.unreachable28:                            ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %14, %12
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %12 ], [ %16, %14 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %12 ], [ %.sroa.8.i.i.i.i.i.i, %14 ]
-  store i64 %9, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !2474, !noalias !2479
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %12 ], [ %.sroa.8.i.i.i.i.i.i, %14 ]
+  store i64 %9, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !2474, !noalias !2479
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !2480, !noundef !3
   %17 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %17, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i", label %18
@@ -5562,8 +5562,8 @@ default.unreachable28:                            ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %45, %41
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %41 ], [ %47, %45 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %41 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %45 ]
-  store i64 %43, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !2538, !noalias !2543
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %41 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %45 ]
+  store i64 %43, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !2538, !noalias !2543
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !2544, !noundef !3
   %48 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %48, label %"_ZN4core3ptr58drop_in_place$LT$uv_python..interpreter..BrokenSymlink$GT$17h5231a11365cd2e4aE.exit", label %49
@@ -5609,8 +5609,8 @@ default.unreachable28:                            ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %57, %53
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %53 ], [ %59, %57 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %53 ], [ %.sroa.8.i.i.i.i.i.i.i, %57 ]
-  store i64 %55, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2566, !noalias !2571
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %53 ], [ %.sroa.8.i.i.i.i.i.i.i, %57 ]
+  store i64 %55, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2566, !noalias !2571
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !2572, !noundef !3
   %60 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %60, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit", label %61
@@ -5656,8 +5656,8 @@ default.unreachable28:                            ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i4": ; preds = %69, %65
   %.sroa.0.0.i.i.i.i.i.i.i5 = phi ptr [ undef, %65 ], [ %71, %69 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i6 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i2, %65 ], [ %.sroa.8.i.i.i.i.i.i.i3, %69 ]
-  store i64 %67, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i6, align 8, !alias.scope !2594, !noalias !2599
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i6 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i2, %65 ], [ %.sroa.8.i.i.i.i.i.i.i3, %69 ]
+  store i64 %67, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i6, align 8, !alias.scope !2594, !noalias !2599
   %.sroa.4.i.i.i.i.i.i.i2.0..sroa.4.i.i.i.i.i.i.i2.0..sroa.4.i.i.i.i.i.i.i2.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i7 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i2, align 8, !range !58, !noalias !2600, !noundef !3
   %72 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i2.0..sroa.4.i.i.i.i.i.i.i2.0..sroa.4.i.i.i.i.i.i.i2.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i7, 0
   br i1 %72, label %108, label %73
@@ -5715,8 +5715,8 @@ default.unreachable28:                            ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i12": ; preds = %88, %84
   %.sroa.0.0.i.i.i.i.i.i13 = phi ptr [ undef, %84 ], [ %90, %88 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i14 = phi ptr [ %.sroa.4.i.i.i.i.i.i10, %84 ], [ %.sroa.8.i.i.i.i.i.i11, %88 ]
-  store i64 %86, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i14, align 8, !alias.scope !2620, !noalias !2625
+  %.sink7.i.sroa.phi.i.i.i.i.i.i14 = phi ptr [ %.sroa.4.i.i.i.i.i.i10, %84 ], [ %.sroa.8.i.i.i.i.i.i11, %88 ]
+  store i64 %86, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i14, align 8, !alias.scope !2620, !noalias !2625
   %.sroa.4.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i15 = load i64, ptr %.sroa.4.i.i.i.i.i.i10, align 8, !range !58, !noalias !2626, !noundef !3
   %91 = icmp eq i64 %.sroa.4.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i15, 0
   br i1 %91, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i17", label %92
@@ -5760,8 +5760,8 @@ default.unreachable28:                            ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i3.i": ; preds = %100, %96
   %.sroa.0.0.i.i.i.i.i4.i = phi ptr [ undef, %96 ], [ %102, %100 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i5.i = phi ptr [ %.sroa.4.i.i.i.i.i1.i, %96 ], [ %.sroa.8.i.i.i.i.i2.i, %100 ]
-  store i64 %98, ptr %.sink6.i.sroa.phi.i.i.i.i.i5.i, align 8, !alias.scope !2642, !noalias !2647
+  %.sink7.i.sroa.phi.i.i.i.i.i5.i = phi ptr [ %.sroa.4.i.i.i.i.i1.i, %96 ], [ %.sroa.8.i.i.i.i.i2.i, %100 ]
+  store i64 %98, ptr %.sink7.i.sroa.phi.i.i.i.i.i5.i, align 8, !alias.scope !2642, !noalias !2647
   %.sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i6.i = load i64, ptr %.sroa.4.i.i.i.i.i1.i, align 8, !range !58, !noalias !2648, !noundef !3
   %103 = icmp eq i64 %.sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.i.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.i1.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i6.i, 0
   br i1 %103, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit8.i", label %104
@@ -5833,8 +5833,8 @@ default.unreachable28:                            ; preds = %1
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i22": ; preds = %117, %"_ZN4core3ptr65drop_in_place$LT$uv_python..interpreter..InterpreterInfoError$GT$17h93807ebaf23274d1E.exit"
   %.sroa.0.0.i.i.i.i.i.i.i23 = phi ptr [ undef, %"_ZN4core3ptr65drop_in_place$LT$uv_python..interpreter..InterpreterInfoError$GT$17h93807ebaf23274d1E.exit" ], [ %119, %117 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i24 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i20, %"_ZN4core3ptr65drop_in_place$LT$uv_python..interpreter..InterpreterInfoError$GT$17h93807ebaf23274d1E.exit" ], [ %.sroa.8.i.i.i.i.i.i.i21, %117 ]
-  store i64 %115, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i24, align 8, !alias.scope !2683, !noalias !2688
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i24 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i20, %"_ZN4core3ptr65drop_in_place$LT$uv_python..interpreter..InterpreterInfoError$GT$17h93807ebaf23274d1E.exit" ], [ %.sroa.8.i.i.i.i.i.i.i21, %117 ]
+  store i64 %115, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i24, align 8, !alias.scope !2683, !noalias !2688
   %.sroa.4.i.i.i.i.i.i.i20.0..sroa.4.i.i.i.i.i.i.i20.0..sroa.4.i.i.i.i.i.i.i20.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i25 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i20, align 8, !range !58, !noalias !2689, !noundef !3
   %120 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i20.0..sroa.4.i.i.i.i.i.i.i20.0..sroa.4.i.i.i.i.i.i.i20.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i25, 0
   br i1 %120, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit27", label %121
@@ -5937,8 +5937,8 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$uv_python..libc..Li
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %19, %15
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %15 ], [ %21, %19 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %15 ], [ %.sroa.8.i.i.i.i.i.i.i, %19 ]
-  store i64 %17, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2725, !noalias !2730
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %15 ], [ %.sroa.8.i.i.i.i.i.i.i, %19 ]
+  store i64 %17, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2725, !noalias !2730
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !2731, !noundef !3
   %22 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %22, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit", label %23
@@ -5984,8 +5984,8 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$uv_python..libc..Li
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i3": ; preds = %31, %27
   %.sroa.0.0.i.i.i.i.i.i.i4 = phi ptr [ undef, %27 ], [ %33, %31 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i5 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i1, %27 ], [ %.sroa.8.i.i.i.i.i.i.i2, %31 ]
-  store i64 %29, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i5, align 8, !alias.scope !2753, !noalias !2758
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i5 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i1, %27 ], [ %.sroa.8.i.i.i.i.i.i.i2, %31 ]
+  store i64 %29, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i5, align 8, !alias.scope !2753, !noalias !2758
   %.sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i6 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i1, align 8, !range !58, !noalias !2759, !noundef !3
   %34 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.i1.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i6, 0
   br i1 %34, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit8", label %35
@@ -6027,8 +6027,8 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$uv_python..libc..Li
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %41, %39
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %39 ], [ %43, %41 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %39 ], [ %.sroa.8.i.i.i.i.i, %41 ]
-  store i64 %4, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2775, !noalias !2780
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %39 ], [ %.sroa.8.i.i.i.i.i, %41 ]
+  store i64 %4, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2775, !noalias !2780
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !2781, !noundef !3
   %44 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %44, label %73, label %45
@@ -6069,8 +6069,8 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$uv_python..libc..Li
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i11": ; preds = %53, %49
   %.sroa.0.0.i.i.i.i.i.i.i12 = phi ptr [ undef, %49 ], [ %55, %53 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i13 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i9, %49 ], [ %.sroa.8.i.i.i.i.i.i.i10, %53 ]
-  store i64 %51, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i13, align 8, !alias.scope !2803, !noalias !2808
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i13 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i9, %49 ], [ %.sroa.8.i.i.i.i.i.i.i10, %53 ]
+  store i64 %51, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i13, align 8, !alias.scope !2803, !noalias !2808
   %.sroa.4.i.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i14 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i9, align 8, !range !58, !noalias !2809, !noundef !3
   %56 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i.i9.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i14, 0
   br i1 %56, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit16", label %57
@@ -6114,8 +6114,8 @@ define internal fastcc void @"_ZN4core3ptr56drop_in_place$LT$uv_python..libc..Li
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i19": ; preds = %65, %61
   %.sroa.0.0.i.i.i.i.i20 = phi ptr [ undef, %61 ], [ %67, %65 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i21 = phi ptr [ %.sroa.4.i.i.i.i.i17, %61 ], [ %.sroa.8.i.i.i.i.i18, %65 ]
-  store i64 %63, ptr %.sink6.i.sroa.phi.i.i.i.i.i21, align 8, !alias.scope !2825, !noalias !2830
+  %.sink7.i.sroa.phi.i.i.i.i.i21 = phi ptr [ %.sroa.4.i.i.i.i.i17, %61 ], [ %.sroa.8.i.i.i.i.i18, %65 ]
+  store i64 %63, ptr %.sink7.i.sroa.phi.i.i.i.i.i21, align 8, !alias.scope !2825, !noalias !2830
   %.sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i22 = load i64, ptr %.sroa.4.i.i.i.i.i17, align 8, !range !58, !noalias !2831, !noundef !3
   %68 = icmp eq i64 %.sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.i17.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i22, 0
   br i1 %68, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit24", label %69
@@ -6202,8 +6202,8 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$toml_
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %6, %4
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %4 ], [ %.val1, %6 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %4 ], [ %.sroa.8.i.i.i.i.i.i, %6 ]
-  store i64 %.val, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !2845, !noalias !2848
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %4 ], [ %.sroa.8.i.i.i.i.i.i, %6 ]
+  store i64 %.val, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !2845, !noalias !2848
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !2860, !noundef !3
   %8 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %8, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i", label %9
@@ -6253,8 +6253,8 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %5, %3
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %3 ], [ %.8.val, %5 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %3 ], [ %.sroa.8.i.i.i.i.i, %5 ]
-  store i64 %.0.val, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2861, !noalias !2864
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %3 ], [ %.sroa.8.i.i.i.i.i, %5 ]
+  store i64 %.0.val, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2861, !noalias !2864
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !2876, !noundef !3
   %7 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %7, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit", label %8
@@ -6303,8 +6303,8 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$$LP$alloc..string..
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %4, %1
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %1 ], [ %6, %4 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %1 ], [ %.sroa.8.i.i.i.i.i, %4 ]
-  store i64 %2, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2892, !noalias !2897
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %1 ], [ %.sroa.8.i.i.i.i.i, %4 ]
+  store i64 %2, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !2892, !noalias !2897
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !2898, !noundef !3
   %7 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %7, label %12, label %8
@@ -6347,8 +6347,8 @@ define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$$LP$alloc..string..
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %16, %12
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %12 ], [ %18, %16 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %12 ], [ %.sroa.8.i.i.i.i.i.i.i, %16 ]
-  store i64 %14, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2920, !noalias !2925
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %12 ], [ %.sroa.8.i.i.i.i.i.i.i, %16 ]
+  store i64 %14, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !2920, !noalias !2925
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !2926, !noundef !3
   %19 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %19, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit", label %20
@@ -6812,12 +6812,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(
   %31 = icmp eq ptr %.sroa.05.0.i.i.pn, null
   %32 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %31, ptr %32, ptr %.sroa.05.0.i.i.pn
-  %spec.select4 = zext i1 %31 to i64
+  %spec.select6 = zext i1 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %34, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 
@@ -6827,8 +6827,8 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h2b125b8d75693300
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %0, align 8, !range !56, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2967)
-  %.sink6.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink6.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink7.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink7.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = shl nuw i64 %5, 1
   %7 = tail call i64 @llvm.umax.i64(i64 %6, i64 range(i64 0, -1) 4)
   %8 = mul i64 %7, 376
@@ -6848,13 +6848,13 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h2b125b8d75693300
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !2975, !noalias !2970, !nonnull !3, !noundef !3
   store ptr %15, ptr %3, align 8, !alias.scope !2970, !noalias !2975
-  store i64 8, ptr %.sink6.i.sroa.gep41.i, align 8, !alias.scope !2970, !noalias !2975
+  store i64 8, ptr %.sink7.i.sroa.gep41.i, align 8, !alias.scope !2970, !noalias !2975
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i": ; preds = %12, %10
-  %.sink6.i.sroa.phi.i = phi ptr [ %.sink6.i.sroa.gep.i, %12 ], [ %.sink6.i.sroa.gep41.i, %10 ]
+  %.sink7.i.sroa.phi.i = phi ptr [ %.sink7.i.sroa.gep.i, %12 ], [ %.sink7.i.sroa.gep41.i, %10 ]
   %.sink.i.i = phi i64 [ %13, %12 ], [ 0, %10 ]
-  store i64 %.sink.i.i, ptr %.sink6.i.sroa.phi.i, align 8, !alias.scope !2970, !noalias !2975
+  store i64 %.sink.i.i, ptr %.sink7.i.sroa.phi.i, align 8, !alias.scope !2970, !noalias !2975
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i64 noundef 8, i64 noundef %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3), !noalias !2967
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2967
   %16 = load i64, ptr %4, align 8, !range !1875, !noalias !2967, !noundef !3
@@ -6890,8 +6890,8 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h316ce5101c6eaf13
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %0, align 8, !range !56, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2976)
-  %.sink6.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink6.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink7.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink7.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = shl nuw i64 %5, 1
   %7 = tail call i64 @llvm.umax.i64(i64 %6, i64 range(i64 0, -1) 4)
   %8 = mul i64 %7, 48
@@ -6911,13 +6911,13 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h316ce5101c6eaf13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !2984, !noalias !2979, !nonnull !3, !noundef !3
   store ptr %15, ptr %3, align 8, !alias.scope !2979, !noalias !2984
-  store i64 8, ptr %.sink6.i.sroa.gep41.i, align 8, !alias.scope !2979, !noalias !2984
+  store i64 8, ptr %.sink7.i.sroa.gep41.i, align 8, !alias.scope !2979, !noalias !2984
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i": ; preds = %12, %10
-  %.sink6.i.sroa.phi.i = phi ptr [ %.sink6.i.sroa.gep.i, %12 ], [ %.sink6.i.sroa.gep41.i, %10 ]
+  %.sink7.i.sroa.phi.i = phi ptr [ %.sink7.i.sroa.gep.i, %12 ], [ %.sink7.i.sroa.gep41.i, %10 ]
   %.sink.i.i = phi i64 [ %13, %12 ], [ 0, %10 ]
-  store i64 %.sink.i.i, ptr %.sink6.i.sroa.phi.i, align 8, !alias.scope !2979, !noalias !2984
+  store i64 %.sink.i.i, ptr %.sink7.i.sroa.phi.i, align 8, !alias.scope !2979, !noalias !2984
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i64 noundef 8, i64 noundef %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3), !noalias !2976
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2976
   %16 = load i64, ptr %4, align 8, !range !1875, !noalias !2976, !noundef !3
@@ -6953,8 +6953,8 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha7fe99342f9b61a0
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %0, align 8, !range !56, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2985)
-  %.sink6.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink6.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink7.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink7.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = shl nuw i64 %5, 1
   %7 = tail call i64 @llvm.umax.i64(i64 %6, i64 range(i64 0, -1) 4)
   %8 = mul i64 %7, 48
@@ -6974,13 +6974,13 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha7fe99342f9b61a0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !2993, !noalias !2988, !nonnull !3, !noundef !3
   store ptr %15, ptr %3, align 8, !alias.scope !2988, !noalias !2993
-  store i64 8, ptr %.sink6.i.sroa.gep41.i, align 8, !alias.scope !2988, !noalias !2993
+  store i64 8, ptr %.sink7.i.sroa.gep41.i, align 8, !alias.scope !2988, !noalias !2993
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i": ; preds = %12, %10
-  %.sink6.i.sroa.phi.i = phi ptr [ %.sink6.i.sroa.gep.i, %12 ], [ %.sink6.i.sroa.gep41.i, %10 ]
+  %.sink7.i.sroa.phi.i = phi ptr [ %.sink7.i.sroa.gep.i, %12 ], [ %.sink7.i.sroa.gep41.i, %10 ]
   %.sink.i.i = phi i64 [ %13, %12 ], [ 0, %10 ]
-  store i64 %.sink.i.i, ptr %.sink6.i.sroa.phi.i, align 8, !alias.scope !2988, !noalias !2993
+  store i64 %.sink.i.i, ptr %.sink7.i.sroa.phi.i, align 8, !alias.scope !2988, !noalias !2993
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i64 noundef 8, i64 noundef %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3), !noalias !2985
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2985
   %16 = load i64, ptr %4, align 8, !range !1875, !noalias !2985, !noundef !3
@@ -7016,8 +7016,8 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hec0478f937577d74
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %0, align 8, !range !56, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2994)
-  %.sink6.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink6.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink7.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink7.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = shl nuw i64 %5, 1
   %7 = tail call i64 @llvm.umax.i64(i64 %6, i64 range(i64 0, -1) 4)
   %8 = mul i64 %7, 536
@@ -7037,13 +7037,13 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hec0478f937577d74
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !3002, !noalias !2997, !nonnull !3, !noundef !3
   store ptr %15, ptr %3, align 8, !alias.scope !2997, !noalias !3002
-  store i64 8, ptr %.sink6.i.sroa.gep41.i, align 8, !alias.scope !2997, !noalias !3002
+  store i64 8, ptr %.sink7.i.sroa.gep41.i, align 8, !alias.scope !2997, !noalias !3002
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i": ; preds = %12, %10
-  %.sink6.i.sroa.phi.i = phi ptr [ %.sink6.i.sroa.gep.i, %12 ], [ %.sink6.i.sroa.gep41.i, %10 ]
+  %.sink7.i.sroa.phi.i = phi ptr [ %.sink7.i.sroa.gep.i, %12 ], [ %.sink7.i.sroa.gep41.i, %10 ]
   %.sink.i.i = phi i64 [ %13, %12 ], [ 0, %10 ]
-  store i64 %.sink.i.i, ptr %.sink6.i.sroa.phi.i, align 8, !alias.scope !2997, !noalias !3002
+  store i64 %.sink.i.i, ptr %.sink7.i.sroa.phi.i, align 8, !alias.scope !2997, !noalias !3002
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, i64 noundef 8, i64 noundef %8, ptr noalias noundef align 8 captures(none) dereferenceable(24) %3), !noalias !2994
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2994
   %16 = load i64, ptr %4, align 8, !range !1875, !noalias !2994, !noundef !3
@@ -7133,9 +7133,9 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17ha72bc
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit": ; preds = %3, %5, %8
   %.sroa.0.0 = phi ptr [ undef, %3 ], [ undef, %5 ], [ %11, %8 ]
-  %.sink6.i.sroa.phi = phi ptr [ %.sroa.4, %3 ], [ %.sroa.4, %5 ], [ %.sroa.8, %8 ]
+  %.sink7.i.sroa.phi = phi ptr [ %.sroa.4, %3 ], [ %.sroa.4, %5 ], [ %.sroa.8, %8 ]
   %.sink.i = phi i64 [ 0, %3 ], [ 0, %5 ], [ %9, %8 ]
-  store i64 %.sink.i, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !3003, !noalias !3006
+  store i64 %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !3003, !noalias !3006
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.8. = load i64, ptr %.sroa.4, align 8, !range !58, !noundef !3
   %12 = icmp eq i64 %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.8., 0
   br i1 %12, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.11004923244570661734.exit", label %13
@@ -7171,8 +7171,8 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$13reserve_exact17h5b
 
 13:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3011)
-  %.sink6.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink6.i.sroa.gep39.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink7.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink7.i.sroa.gep39.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %9, label %43, label %14
 
 14:                                               ; preds = %13
@@ -7207,13 +7207,13 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$13reserve_exact17h5b
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !3020, !noalias !3015, !nonnull !3, !noundef !3
   store ptr %34, ptr %7, align 8, !alias.scope !3015, !noalias !3020
-  store i64 %3, ptr %.sink6.i.sroa.gep39.i.i, align 8, !alias.scope !3015, !noalias !3020
+  store i64 %3, ptr %.sink7.i.sroa.gep39.i.i, align 8, !alias.scope !3015, !noalias !3020
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i": ; preds = %31, %29
-  %.sink6.i.sroa.phi.i.i = phi ptr [ %.sink6.i.sroa.gep.i.i, %31 ], [ %.sink6.i.sroa.gep39.i.i, %29 ]
+  %.sink7.i.sroa.phi.i.i = phi ptr [ %.sink7.i.sroa.gep.i.i, %31 ], [ %.sink7.i.sroa.gep39.i.i, %29 ]
   %.sink.i.i.i = phi i64 [ %32, %31 ], [ 0, %29 ]
-  store i64 %.sink.i.i.i, ptr %.sink6.i.sroa.phi.i.i, align 8, !alias.scope !3015, !noalias !3020
+  store i64 %.sink.i.i.i, ptr %.sink7.i.sroa.phi.i.i, align 8, !alias.scope !3015, !noalias !3020
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, i64 noundef range(i64 1, -9223372036854775807) %3, i64 noundef %24, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7), !noalias !3014
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3014
   %35 = load i64, ptr %8, align 8, !range !1875, !noalias !3014, !noundef !3
@@ -7266,9 +7266,9 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h0
   br label %13
 
 13:                                               ; preds = %4, %6, %9
-  %.sink6 = phi i64 [ 16, %9 ], [ 8, %6 ], [ 8, %4 ]
+  %.sink7 = phi i64 [ 16, %9 ], [ 8, %6 ], [ 8, %4 ]
   %.sink = phi i64 [ %10, %9 ], [ 0, %6 ], [ 0, %4 ]
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
@@ -7278,8 +7278,8 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amort
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = icmp eq i64 %4, 0
-  %.sink6.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink6.i.sroa.gep41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink7.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink7.i.sroa.gep41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
@@ -7329,13 +7329,13 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amort
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !alias.scope !3024, !noalias !3021, !nonnull !3, !noundef !3
   store ptr %36, ptr %6, align 8, !alias.scope !3021, !noalias !3024
-  store i64 %3, ptr %.sink6.i.sroa.gep41, align 8, !alias.scope !3021, !noalias !3024
+  store i64 %3, ptr %.sink7.i.sroa.gep41, align 8, !alias.scope !3021, !noalias !3024
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit": ; preds = %31, %33
-  %.sink6.i.sroa.phi = phi ptr [ %.sink6.i.sroa.gep, %33 ], [ %.sink6.i.sroa.gep41, %31 ]
+  %.sink7.i.sroa.phi = phi ptr [ %.sink7.i.sroa.gep, %33 ], [ %.sink7.i.sroa.gep41, %31 ]
   %.sink.i = phi i64 [ %34, %33 ], [ 0, %31 ]
-  store i64 %.sink.i, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !3021, !noalias !3024
+  store i64 %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !3021, !noalias !3024
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, i64 noundef %3, i64 noundef %26, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = load i64, ptr %7, align 8, !range !1875, !noundef !3
@@ -7450,9 +7450,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unc
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit": ; preds = %4, %6, %9
   %.sroa.0.0 = phi ptr [ undef, %4 ], [ undef, %6 ], [ %12, %9 ]
-  %.sink6.i.sroa.phi = phi ptr [ %.sroa.5, %4 ], [ %.sroa.5, %6 ], [ %.sroa.9, %9 ]
+  %.sink7.i.sroa.phi = phi ptr [ %.sroa.5, %4 ], [ %.sroa.5, %6 ], [ %.sroa.9, %9 ]
   %.sink.i = phi i64 [ 0, %4 ], [ 0, %6 ], [ %10, %9 ]
-  store i64 %.sink.i, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !3026, !noalias !3029
+  store i64 %.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !3026, !noalias !3029
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8. = load i64, ptr %.sroa.5, align 8, !range !58, !noundef !3
   %13 = icmp eq i64 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8., 0
   br i1 %13, label %17, label %14
@@ -7538,8 +7538,8 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserv
 
 12:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3031)
-  %.sink6.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink6.i.sroa.gep39.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink7.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink7.i.sroa.gep39.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %8, label %42, label %13
 
 13:                                               ; preds = %12
@@ -7574,13 +7574,13 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$17try_reserv
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !3039, !noalias !3034, !nonnull !3, !noundef !3
   store ptr %33, ptr %6, align 8, !alias.scope !3034, !noalias !3039
-  store i64 %3, ptr %.sink6.i.sroa.gep39.i, align 8, !alias.scope !3034, !noalias !3039
+  store i64 %3, ptr %.sink7.i.sroa.gep39.i, align 8, !alias.scope !3034, !noalias !3039
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i": ; preds = %30, %28
-  %.sink6.i.sroa.phi.i = phi ptr [ %.sink6.i.sroa.gep.i, %30 ], [ %.sink6.i.sroa.gep39.i, %28 ]
+  %.sink7.i.sroa.phi.i = phi ptr [ %.sink7.i.sroa.gep.i, %30 ], [ %.sink7.i.sroa.gep39.i, %28 ]
   %.sink.i.i = phi i64 [ %31, %30 ], [ 0, %28 ]
-  store i64 %.sink.i.i, ptr %.sink6.i.sroa.phi.i, align 8, !alias.scope !3034, !noalias !3039
+  store i64 %.sink.i.i, ptr %.sink7.i.sroa.phi.i, align 8, !alias.scope !3034, !noalias !3039
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, i64 noundef range(i64 1, -9223372036854775807) %3, i64 noundef %23, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6), !noalias !3031
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3031
   %34 = load i64, ptr %7, align 8, !range !1875, !noalias !3031, !noundef !3
@@ -7617,8 +7617,8 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve
   %7 = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3040)
   %8 = icmp eq i64 %4, 0
-  %.sink6.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink6.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink7.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink7.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %8, label %40, label %9
 
 9:                                                ; preds = %5
@@ -7661,13 +7661,13 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !3048, !noalias !3043, !nonnull !3, !noundef !3
   store ptr %33, ptr %6, align 8, !alias.scope !3043, !noalias !3048
-  store i64 %3, ptr %.sink6.i.sroa.gep41.i, align 8, !alias.scope !3043, !noalias !3048
+  store i64 %3, ptr %.sink7.i.sroa.gep41.i, align 8, !alias.scope !3043, !noalias !3048
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i": ; preds = %30, %28
-  %.sink6.i.sroa.phi.i = phi ptr [ %.sink6.i.sroa.gep.i, %30 ], [ %.sink6.i.sroa.gep41.i, %28 ]
+  %.sink7.i.sroa.phi.i = phi ptr [ %.sink7.i.sroa.gep.i, %30 ], [ %.sink7.i.sroa.gep41.i, %28 ]
   %.sink.i.i = phi i64 [ %31, %30 ], [ 0, %28 ]
-  store i64 %.sink.i.i, ptr %.sink6.i.sroa.phi.i, align 8, !alias.scope !3043, !noalias !3048
+  store i64 %.sink.i.i, ptr %.sink7.i.sroa.phi.i, align 8, !alias.scope !3043, !noalias !3048
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, i64 noundef range(i64 1, -9223372036854775807) %3, i64 noundef %23, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6), !noalias !3040
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3040
   %34 = load i64, ptr %7, align 8, !range !1875, !noalias !3040, !noundef !3
@@ -8113,8 +8113,8 @@ define void @_ZN7uv_tool14InstalledTools13from_settings17h2c35cefa14525a28E(ptr 
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %15, %13
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %13 ], [ %17, %15 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %13 ], [ %.sroa.8.i.i.i.i.i.i.i, %15 ]
-  store i64 %9, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3079, !noalias !3086
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %13 ], [ %.sroa.8.i.i.i.i.i.i.i, %15 ]
+  store i64 %9, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3079, !noalias !3086
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !3087, !noundef !3
   %18 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %18, label %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h2e109a7278c73b3fE.exit.i", label %19
@@ -8165,8 +8165,8 @@ define void @_ZN7uv_tool14InstalledTools13from_settings17h2c35cefa14525a28E(ptr 
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i35"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i35": ; preds = %28, %26
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i37 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i33, %26 ], [ %.sroa.8.i.i.i.i.i.i.i34, %28 ]
-  store i64 %9, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i37, align 8, !alias.scope !3094, !noalias !3097
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i37 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i33, %26 ], [ %.sroa.8.i.i.i.i.i.i.i34, %28 ]
+  store i64 %9, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i37, align 8, !alias.scope !3094, !noalias !3097
   %.sroa.4.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i38 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i33, align 8, !range !58, !noalias !3111, !noundef !3
   %29 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i38, 0
   br i1 %29, label %_ZN3std4path8absolute17hb24d0d0b8b8deb20E.exit, label %30
@@ -8277,8 +8277,8 @@ _ZN3std4path8absolute17hb24d0d0b8b8deb20E.exit:   ; preds = %"_ZN5alloc7raw_vec2
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %54, %51
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %51 ], [ %42, %54 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %51 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %54 ]
-  store i64 %39, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !3115, !noalias !3118
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %51 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %54 ]
+  store i64 %39, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !3115, !noalias !3118
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !3134, !noundef !3
   %55 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %55, label %60, label %56
@@ -8423,8 +8423,8 @@ common.resume:                                    ; preds = %25, %15
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %30, %27
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %27 ], [ %.sroa.8.i.i.i.i.i.i, %30 ]
-  store i64 %28, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !3177, !noalias !3184
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %27 ], [ %.sroa.8.i.i.i.i.i.i, %30 ]
+  store i64 %28, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !3177, !noalias !3184
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !3185, !noundef !3
   %31 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %31, label %_ZN3std4path4Path4join17he07ed9c8bed40b84E.exit, label %32
@@ -8572,8 +8572,8 @@ define void @_ZN7uv_tool14InstalledTools5tools17hf345b406570bfe9dE(ptr dead_on_u
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sink6.i.sroa.gep.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink6.i.sroa.gep41.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink7.i.sroa.gep.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink7.i.sroa.gep41.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %32, i64 528
   %76 = getelementptr inbounds nuw i8, ptr %32, i64 536
@@ -8583,8 +8583,8 @@ define void @_ZN7uv_tool14InstalledTools5tools17hf345b406570bfe9dE(ptr dead_on_u
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 24
   %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %.sink6.i.sroa.gep.i.i.i127 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink6.i.sroa.gep41.i.i.i128 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink7.i.sroa.gep.i.i.i127 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink7.i.sroa.gep41.i.i.i128 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -8599,8 +8599,8 @@ define void @_ZN7uv_tool14InstalledTools5tools17hf345b406570bfe9dE(ptr dead_on_u
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
   %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 24
   %.sroa.628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %.sink6.i.sroa.gep.i.i.i163 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink6.i.sroa.gep41.i.i.i164 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink7.i.sroa.gep.i.i.i163 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink7.i.sroa.gep41.i.i.i164 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %87
@@ -9214,13 +9214,13 @@ default.unreachable:                              ; preds = %205
   %238 = mul nuw nsw i64 %227, 536
   %239 = load ptr, ptr %45, align 8, !alias.scope !3416, !noalias !3417, !nonnull !3, !noundef !3
   store ptr %239, ptr %11, align 8, !alias.scope !3411, !noalias !3418
-  store i64 8, ptr %.sink6.i.sroa.gep41.i.i.i, align 8, !alias.scope !3411, !noalias !3418
+  store i64 8, ptr %.sink7.i.sroa.gep41.i.i.i, align 8, !alias.scope !3411, !noalias !3418
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i": ; preds = %237, %235
-  %.sink6.i.sroa.phi.i.i.i = phi ptr [ %.sink6.i.sroa.gep.i.i.i, %237 ], [ %.sink6.i.sroa.gep41.i.i.i, %235 ]
+  %.sink7.i.sroa.phi.i.i.i = phi ptr [ %.sink7.i.sroa.gep.i.i.i, %237 ], [ %.sink7.i.sroa.gep41.i.i.i, %235 ]
   %.sink.i.i.i.i = phi i64 [ %238, %237 ], [ 0, %235 ]
-  store i64 %.sink.i.i.i.i, ptr %.sink6.i.sroa.phi.i.i.i, align 8, !alias.scope !3411, !noalias !3418
+  store i64 %.sink.i.i.i.i, ptr %.sink7.i.sroa.phi.i.i.i, align 8, !alias.scope !3411, !noalias !3418
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %12, i64 noundef 8, i64 noundef %233, ptr noalias noundef align 8 captures(none) dereferenceable(24) %11), !noalias !3409
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3409
   %240 = load i64, ptr %12, align 8, !range !1875, !noalias !3409, !noundef !3
@@ -9321,8 +9321,8 @@ default.unreachable:                              ; preds = %205
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %265, %259
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %259 ], [ %266, %265 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %259 ], [ %.sroa.8.i.i.i.i.i, %265 ]
-  store i64 %263, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !3441, !noalias !3446
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %259 ], [ %.sroa.8.i.i.i.i.i, %265 ]
+  store i64 %263, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !3441, !noalias !3446
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !3447, !noundef !3
   %267 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %267, label %272, label %268
@@ -9365,8 +9365,8 @@ default.unreachable:                              ; preds = %205
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %275, %272
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %272 ], [ %276, %275 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %272 ], [ %.sroa.8.i.i.i.i.i.i.i, %275 ]
-  store i64 %273, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3469, !noalias !3474
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %272 ], [ %.sroa.8.i.i.i.i.i.i.i, %275 ]
+  store i64 %273, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3469, !noalias !3474
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !3475, !noundef !3
   %277 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %277, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit", label %278
@@ -9410,8 +9410,8 @@ default.unreachable:                              ; preds = %205
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i118"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i118": ; preds = %285, %282
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i120 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i116, %282 ], [ %.sroa.8.i.i.i.i.i.i.i117, %285 ]
-  store i64 %283, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i120, align 8, !alias.scope !3497, !noalias !3502
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i120 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i116, %282 ], [ %.sroa.8.i.i.i.i.i.i.i117, %285 ]
+  store i64 %283, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i120, align 8, !alias.scope !3497, !noalias !3502
   %.sroa.4.i.i.i.i.i.i.i116.0..sroa.4.i.i.i.i.i.i.i116.0..sroa.4.i.i.i.i.i.i.i116.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i121 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i116, align 8, !range !58, !noalias !3503, !noundef !3
   %286 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i116.0..sroa.4.i.i.i.i.i.i.i116.0..sroa.4.i.i.i.i.i.i.i116.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i121, 0
   br i1 %286, label %321, label %287
@@ -9476,13 +9476,13 @@ default.unreachable:                              ; preds = %205
   %305 = mul nuw nsw i64 %294, 536
   %306 = load ptr, ptr %45, align 8, !alias.scope !3523, !noalias !3524, !nonnull !3, !noundef !3
   store ptr %306, ptr %9, align 8, !alias.scope !3518, !noalias !3525
-  store i64 8, ptr %.sink6.i.sroa.gep41.i.i.i128, align 8, !alias.scope !3518, !noalias !3525
+  store i64 8, ptr %.sink7.i.sroa.gep41.i.i.i128, align 8, !alias.scope !3518, !noalias !3525
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i129"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i129": ; preds = %304, %302
-  %.sink6.i.sroa.phi.i.i.i130 = phi ptr [ %.sink6.i.sroa.gep.i.i.i127, %304 ], [ %.sink6.i.sroa.gep41.i.i.i128, %302 ]
+  %.sink7.i.sroa.phi.i.i.i130 = phi ptr [ %.sink7.i.sroa.gep.i.i.i127, %304 ], [ %.sink7.i.sroa.gep41.i.i.i128, %302 ]
   %.sink.i.i.i.i131 = phi i64 [ %305, %304 ], [ 0, %302 ]
-  store i64 %.sink.i.i.i.i131, ptr %.sink6.i.sroa.phi.i.i.i130, align 8, !alias.scope !3518, !noalias !3525
+  store i64 %.sink.i.i.i.i131, ptr %.sink7.i.sroa.phi.i.i.i130, align 8, !alias.scope !3518, !noalias !3525
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %10, i64 noundef 8, i64 noundef %300, ptr noalias noundef align 8 captures(none) dereferenceable(24) %9), !noalias !3516
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3516
   %307 = load i64, ptr %10, align 8, !range !1875, !noalias !3516, !noundef !3
@@ -9629,8 +9629,8 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.t
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i145": ; preds = %332, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.thread
   %.sroa.0.0.i.i.i.i.i.i.i146 = phi ptr [ undef, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.thread ], [ %333, %332 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i147 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i143, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.thread ], [ %.sroa.8.i.i.i.i.i.i.i144, %332 ]
-  store i64 %330, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i147, align 8, !alias.scope !3556, !noalias !3561
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i147 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i143, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.thread ], [ %.sroa.8.i.i.i.i.i.i.i144, %332 ]
+  store i64 %330, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i147, align 8, !alias.scope !3556, !noalias !3561
   %.sroa.4.i.i.i.i.i.i.i143.0..sroa.4.i.i.i.i.i.i.i143.0..sroa.4.i.i.i.i.i.i.i143.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i148 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i143, align 8, !range !58, !noalias !3562, !noundef !3
   %334 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i143.0..sroa.4.i.i.i.i.i.i.i143.0..sroa.4.i.i.i.i.i.i.i143.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i148, 0
   br i1 %334, label %339, label %335
@@ -9675,8 +9675,8 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.t
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i154"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i154": ; preds = %342, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17hfda500e2f36cad83E.exit"
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i156 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i152, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17hfda500e2f36cad83E.exit" ], [ %.sroa.8.i.i.i.i.i.i.i153, %342 ]
-  store i64 %340, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i156, align 8, !alias.scope !3584, !noalias !3589
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i156 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i152, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17hfda500e2f36cad83E.exit" ], [ %.sroa.8.i.i.i.i.i.i.i153, %342 ]
+  store i64 %340, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i156, align 8, !alias.scope !3584, !noalias !3589
   %.sroa.4.i.i.i.i.i.i.i152.0..sroa.4.i.i.i.i.i.i.i152.0..sroa.4.i.i.i.i.i.i.i152.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i157 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i152, align 8, !range !58, !noalias !3590, !noundef !3
   %343 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i152.0..sroa.4.i.i.i.i.i.i.i152.0..sroa.4.i.i.i.i.i.i.i152.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i157, 0
   br i1 %343, label %388, label %344
@@ -9737,13 +9737,13 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.t
   %360 = mul nuw nsw i64 %349, 536
   %361 = load ptr, ptr %45, align 8, !alias.scope !3610, !noalias !3611, !nonnull !3, !noundef !3
   store ptr %361, ptr %5, align 8, !alias.scope !3605, !noalias !3612
-  store i64 8, ptr %.sink6.i.sroa.gep41.i.i.i164, align 8, !alias.scope !3605, !noalias !3612
+  store i64 8, ptr %.sink7.i.sroa.gep41.i.i.i164, align 8, !alias.scope !3605, !noalias !3612
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i165"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i165": ; preds = %359, %357
-  %.sink6.i.sroa.phi.i.i.i166 = phi ptr [ %.sink6.i.sroa.gep.i.i.i163, %359 ], [ %.sink6.i.sroa.gep41.i.i.i164, %357 ]
+  %.sink7.i.sroa.phi.i.i.i166 = phi ptr [ %.sink7.i.sroa.gep.i.i.i163, %359 ], [ %.sink7.i.sroa.gep41.i.i.i164, %357 ]
   %.sink.i.i.i.i167 = phi i64 [ %360, %359 ], [ 0, %357 ]
-  store i64 %.sink.i.i.i.i167, ptr %.sink6.i.sroa.phi.i.i.i166, align 8, !alias.scope !3605, !noalias !3612
+  store i64 %.sink.i.i.i.i167, ptr %.sink7.i.sroa.phi.i.i.i166, align 8, !alias.scope !3605, !noalias !3612
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, i64 noundef 8, i64 noundef %355, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5), !noalias !3603
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3603
   %362 = load i64, ptr %6, align 8, !range !1875, !noalias !3603, !noundef !3
@@ -9834,8 +9834,8 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.t
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i180"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i180": ; preds = %382, %379
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i182 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i178, %379 ], [ %.sroa.8.i.i.i.i.i.i.i179, %382 ]
-  store i64 %380, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i182, align 8, !alias.scope !3648, !noalias !3653
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i182 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i178, %379 ], [ %.sroa.8.i.i.i.i.i.i.i179, %382 ]
+  store i64 %380, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i182, align 8, !alias.scope !3648, !noalias !3653
   %.sroa.4.i.i.i.i.i.i.i178.0..sroa.4.i.i.i.i.i.i.i178.0..sroa.4.i.i.i.i.i.i.i178.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i183 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i178, align 8, !range !58, !noalias !3654, !noundef !3
   %383 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i178.0..sroa.4.i.i.i.i.i.i.i178.0..sroa.4.i.i.i.i.i.i.i178.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i183, 0
   br i1 %383, label %404, label %384
@@ -9915,9 +9915,9 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.t
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i": ; preds = %396, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h128d73b7ce2cc556E.llvm.1922383081153832188.exit.i"
-  %.sink6.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h128d73b7ce2cc556E.llvm.1922383081153832188.exit.i" ], [ %.sroa.8.i.i.i.i, %396 ]
+  %.sink7.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h128d73b7ce2cc556E.llvm.1922383081153832188.exit.i" ], [ %.sroa.8.i.i.i.i, %396 ]
   %.sink.i.i.i.i.i = phi i64 [ 0, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h128d73b7ce2cc556E.llvm.1922383081153832188.exit.i" ], [ %397, %396 ]
-  store i64 %.sink.i.i.i.i.i, ptr %.sink6.i.sroa.phi.i.i.i.i, align 8, !alias.scope !3670, !noalias !3675
+  store i64 %.sink.i.i.i.i.i, ptr %.sink7.i.sroa.phi.i.i.i.i, align 8, !alias.scope !3670, !noalias !3675
   %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i, align 8, !range !58, !noalias !3676, !noundef !3
   %398 = icmp eq i64 %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i, 0
   br i1 %398, label %"_ZN4core3ptr158drop_in_place$LT$alloc..vec..Vec$LT$$LP$uv_normalize..package_name..PackageName$C$core..result..Result$LT$uv_tool..tool..Tool$C$uv_tool..Error$GT$$RP$$GT$$GT$17hbd41083b2defbcffE.exit", label %399
@@ -10008,8 +10008,8 @@ _ZN3std4path4Path4join17h75983bb65268c492E.exit:  ; preds = %3
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %16, %_ZN3std4path4Path4join17h75983bb65268c492E.exit
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %_ZN3std4path4Path4join17h75983bb65268c492E.exit ], [ %.sroa.8.i.i.i.i.i.i.i, %16 ]
-  store i64 %14, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3698, !noalias !3703
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %_ZN3std4path4Path4join17h75983bb65268c492E.exit ], [ %.sroa.8.i.i.i.i.i.i.i, %16 ]
+  store i64 %14, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3698, !noalias !3703
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !3704, !noundef !3
   %17 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %17, label %24, label %18
@@ -10069,8 +10069,8 @@ _ZN3std4path4Path4join17h75983bb65268c492E.exit:  ; preds = %3
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %34, %32
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %32 ], [ %.sroa.5.0.copyload, %34 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %32 ], [ %.sroa.8.i.i.i.i.i, %34 ]
-  store i64 %.sroa.4.0.copyload, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !3705, !noalias !3708
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %32 ], [ %.sroa.8.i.i.i.i.i, %34 ]
+  store i64 %.sroa.4.0.copyload, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !3705, !noalias !3708
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !3720, !noundef !3
   %36 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %36, label %50, label %37
@@ -10129,8 +10129,8 @@ _ZN3std4path4Path4join17h75983bb65268c492E.exit:  ; preds = %3
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i12"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i12": ; preds = %54, %51
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i14 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i10, %51 ], [ %.sroa.8.i.i.i.i.i.i.i11, %54 ]
-  store i64 %52, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i14, align 8, !alias.scope !3742, !noalias !3747
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i14 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i10, %51 ], [ %.sroa.8.i.i.i.i.i.i.i11, %54 ]
+  store i64 %52, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i14, align 8, !alias.scope !3742, !noalias !3747
   %.sroa.4.i.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i15 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i10, align 8, !range !58, !noalias !3748, !noundef !3
   %55 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i.i10.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i15, 0
   br i1 %55, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit17", label %56
@@ -10342,8 +10342,8 @@ _ZN3std4path4Path4join17h75983bb65268c492E.exit:  ; preds = %22
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %31, %_ZN3std4path4Path4join17h75983bb65268c492E.exit
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %_ZN3std4path4Path4join17h75983bb65268c492E.exit ], [ %.sroa.8.i.i.i.i.i.i.i, %31 ]
-  store i64 %29, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3789, !noalias !3794
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %_ZN3std4path4Path4join17h75983bb65268c492E.exit ], [ %.sroa.8.i.i.i.i.i.i.i, %31 ]
+  store i64 %29, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3789, !noalias !3794
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !3795, !noundef !3
   %32 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %32, label %38, label %33
@@ -10611,8 +10611,8 @@ _ZN3std4path4Path4join17h75983bb65268c492E.exit:  ; preds = %22
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i69": ; preds = %103, %100
   %.sroa.0.0.i.i.i.i.i.i.i70 = phi ptr [ undef, %100 ], [ %105, %103 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i71 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i67, %100 ], [ %.sroa.8.i.i.i.i.i.i.i68, %103 ]
-  store i64 %101, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i71, align 8, !alias.scope !3835, !noalias !3840
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i71 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i67, %100 ], [ %.sroa.8.i.i.i.i.i.i.i68, %103 ]
+  store i64 %101, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i71, align 8, !alias.scope !3835, !noalias !3840
   %.sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i72 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i67, align 8, !range !58, !noalias !3841, !noundef !3
   %106 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.i67.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i72, 0
   br i1 %106, label %111, label %107
@@ -10663,8 +10663,8 @@ _ZN3std4path4Path4join17h75983bb65268c492E.exit:  ; preds = %22
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %117, %114
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %114 ], [ %118, %117 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %114 ], [ %.sroa.8.i.i.i.i.i.i, %117 ]
-  store i64 %115, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !3860, !noalias !3865
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %114 ], [ %.sroa.8.i.i.i.i.i.i, %117 ]
+  store i64 %115, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !3860, !noalias !3865
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !3866, !noundef !3
   %119 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %119, label %"_ZN4core3ptr50drop_in_place$LT$uv_tool..receipt..ToolReceipt$GT$17h472414d259f7b34cE.exit", label %120
@@ -10729,8 +10729,8 @@ common.resume:                                    ; preds = %19, %140, %112
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i77": ; preds = %131, %128
   %.sroa.0.0.i.i.i.i.i.i.i78 = phi ptr [ undef, %128 ], [ %133, %131 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i79 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i75, %128 ], [ %.sroa.8.i.i.i.i.i.i.i76, %131 ]
-  store i64 %129, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i79, align 8, !alias.scope !3889, !noalias !3894
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i79 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i75, %128 ], [ %.sroa.8.i.i.i.i.i.i.i76, %131 ]
+  store i64 %129, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i79, align 8, !alias.scope !3889, !noalias !3894
   %.sroa.4.i.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i80 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i75, align 8, !range !58, !noalias !3895, !noundef !3
   %134 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i.i75.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i80, 0
   br i1 %134, label %139, label %135
@@ -10781,8 +10781,8 @@ common.resume:                                    ; preds = %19, %140, %112
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i85": ; preds = %145, %142
   %.sroa.0.0.i.i.i.i.i.i86 = phi ptr [ undef, %142 ], [ %146, %145 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i87 = phi ptr [ %.sroa.4.i.i.i.i.i.i83, %142 ], [ %.sroa.8.i.i.i.i.i.i84, %145 ]
-  store i64 %143, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i87, align 8, !alias.scope !3914, !noalias !3919
+  %.sink7.i.sroa.phi.i.i.i.i.i.i87 = phi ptr [ %.sroa.4.i.i.i.i.i.i83, %142 ], [ %.sroa.8.i.i.i.i.i.i84, %145 ]
+  store i64 %143, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i87, align 8, !alias.scope !3914, !noalias !3919
   %.sroa.4.i.i.i.i.i.i83.0..sroa.4.i.i.i.i.i.i83.0..sroa.4.i.i.i.i.i.i83.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i88 = load i64, ptr %.sroa.4.i.i.i.i.i.i83, align 8, !range !58, !noalias !3920, !noundef !3
   %147 = icmp eq i64 %.sroa.4.i.i.i.i.i.i83.0..sroa.4.i.i.i.i.i.i83.0..sroa.4.i.i.i.i.i.i83.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i88, 0
   br i1 %147, label %"_ZN4core3ptr50drop_in_place$LT$uv_tool..receipt..ToolReceipt$GT$17h472414d259f7b34cE.exit90", label %148
@@ -11041,7 +11041,7 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
   switch i64 %36, label %264 [
     i64 10, label %42
     i64 2, label %87
-    i64 8, label %.thread218
+    i64 8, label %.thread225
   ]
 
 37:                                               ; preds = %71, %68, %67, %.thread, %50
@@ -11210,7 +11210,7 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
     i64 2, label %200
   ]
 
-.thread218:                                       ; preds = %35
+.thread225:                                       ; preds = %35
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %90, align 8
   store i64 21, ptr %0, align 8
@@ -11296,8 +11296,8 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %114, %.thread209
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %.thread209 ], [ %115, %114 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %.thread209 ], [ %.sroa.8.i.i.i.i.i.i.i, %114 ]
-  store i64 %112, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3964, !noalias !3969
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %.thread209 ], [ %.sroa.8.i.i.i.i.i.i.i, %114 ]
+  store i64 %112, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !3964, !noalias !3969
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !3970, !noundef !3
   %116 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %116, label %159, label %117
@@ -11457,8 +11457,8 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %162, %159
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %159 ], [ %163, %162 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %159 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %162 ]
-  store i64 %160, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !3995, !noalias !4000
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %159 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %162 ]
+  store i64 %160, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !3995, !noalias !4000
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !4001, !noundef !3
   %164 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %164, label %169, label %165
@@ -11509,8 +11509,8 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i161": ; preds = %173, %170
   %.sroa.0.0.i.i.i.i.i.i.i.i162 = phi ptr [ undef, %170 ], [ %174, %173 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i163 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i159, %170 ], [ %.sroa.8.i.i.i.i.i.i.i.i160, %173 ]
-  store i64 %171, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i163, align 8, !alias.scope !4026, !noalias !4031
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i163 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i159, %170 ], [ %.sroa.8.i.i.i.i.i.i.i.i160, %173 ]
+  store i64 %171, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i163, align 8, !alias.scope !4026, !noalias !4031
   %.sroa.4.i.i.i.i.i.i.i.i159.0..sroa.4.i.i.i.i.i.i.i.i159.0..sroa.4.i.i.i.i.i.i.i.i159.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i164 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i159, align 8, !range !58, !noalias !4032, !noundef !3
   %175 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i159.0..sroa.4.i.i.i.i.i.i.i.i159.0..sroa.4.i.i.i.i.i.i.i.i159.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i164, 0
   br i1 %175, label %180, label %176
@@ -11561,8 +11561,8 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i169": ; preds = %185, %182
   %.sroa.0.0.i.i.i.i.i.i.i170 = phi ptr [ undef, %182 ], [ %187, %185 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i171 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i167, %182 ], [ %.sroa.8.i.i.i.i.i.i.i168, %185 ]
-  store i64 %183, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i171, align 8, !alias.scope !4054, !noalias !4059
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i171 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i167, %182 ], [ %.sroa.8.i.i.i.i.i.i.i168, %185 ]
+  store i64 %183, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i171, align 8, !alias.scope !4054, !noalias !4059
   %.sroa.4.i.i.i.i.i.i.i167.0..sroa.4.i.i.i.i.i.i.i167.0..sroa.4.i.i.i.i.i.i.i167.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i172 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i167, align 8, !range !58, !noalias !4060, !noundef !3
   %188 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i167.0..sroa.4.i.i.i.i.i.i.i167.0..sroa.4.i.i.i.i.i.i.i167.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i172, 0
   br i1 %188, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit174", label %189
@@ -11642,8 +11642,8 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i177": ; preds = %207, %.thread215
   %.sroa.0.0.i.i.i.i.i.i.i178 = phi ptr [ undef, %.thread215 ], [ %209, %207 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i179 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i175, %.thread215 ], [ %.sroa.8.i.i.i.i.i.i.i176, %207 ]
-  store i64 %205, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i179, align 8, !alias.scope !4082, !noalias !4087
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i179 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i175, %.thread215 ], [ %.sroa.8.i.i.i.i.i.i.i176, %207 ]
+  store i64 %205, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i179, align 8, !alias.scope !4082, !noalias !4087
   %.sroa.4.i.i.i.i.i.i.i175.0..sroa.4.i.i.i.i.i.i.i175.0..sroa.4.i.i.i.i.i.i.i175.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i180 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i175, align 8, !range !58, !noalias !4088, !noundef !3
   %210 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i175.0..sroa.4.i.i.i.i.i.i.i175.0..sroa.4.i.i.i.i.i.i.i175.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i180, 0
   br i1 %210, label %247, label %211
@@ -11792,8 +11792,8 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i185": ; preds = %251, %248
   %.sroa.0.0.i.i.i.i.i.i.i186 = phi ptr [ undef, %248 ], [ %253, %251 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i187 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i183, %248 ], [ %.sroa.8.i.i.i.i.i.i.i184, %251 ]
-  store i64 %249, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i187, align 8, !alias.scope !4110, !noalias !4115
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i187 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i183, %248 ], [ %.sroa.8.i.i.i.i.i.i.i184, %251 ]
+  store i64 %249, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i187, align 8, !alias.scope !4110, !noalias !4115
   %.sroa.4.i.i.i.i.i.i.i183.0..sroa.4.i.i.i.i.i.i.i183.0..sroa.4.i.i.i.i.i.i.i183.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i188 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i183, align 8, !range !58, !noalias !4116, !noundef !3
   %254 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i183.0..sroa.4.i.i.i.i.i.i.i183.0..sroa.4.i.i.i.i.i.i.i183.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i188, 0
   br i1 %254, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit190", label %255
@@ -11814,7 +11814,7 @@ define void @_ZN7uv_tool14InstalledTools15get_environment17hfde37c0ece5d5ea2E(pt
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i.i.i.i.i.i184)
   br label %197
 
-259:                                              ; preds = %82, %.thread218
+259:                                              ; preds = %82, %.thread225
   invoke fastcc void @"_ZN4core3ptr37drop_in_place$LT$uv_python..Error$GT$17hb5b780da545632e4E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %29)
           to label %248 unwind label %33
 
@@ -12127,8 +12127,8 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.t
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %98, %95
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %95 ], [ %99, %98 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %95 ], [ %.sroa.8.i.i.i.i.i.i.i, %98 ]
-  store i64 %96, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !4161, !noalias !4166
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %95 ], [ %.sroa.8.i.i.i.i.i.i.i, %98 ]
+  store i64 %96, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !4161, !noalias !4166
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !4167, !noundef !3
   %100 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %100, label %162, label %101
@@ -12308,8 +12308,8 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.t
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i110": ; preds = %152, %148
   %.sroa.0.0.i.i.i.i.i.i.i111 = phi ptr [ undef, %148 ], [ %153, %152 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i112 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i108, %148 ], [ %.sroa.8.i.i.i.i.i.i.i109, %152 ]
-  store i64 %150, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i112, align 8, !alias.scope !4189, !noalias !4194
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i112 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i108, %148 ], [ %.sroa.8.i.i.i.i.i.i.i109, %152 ]
+  store i64 %150, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i112, align 8, !alias.scope !4189, !noalias !4194
   %.sroa.4.i.i.i.i.i.i.i108.0..sroa.4.i.i.i.i.i.i.i108.0..sroa.4.i.i.i.i.i.i.i108.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i113 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i108, align 8, !range !58, !noalias !4195, !noundef !3
   %154 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i108.0..sroa.4.i.i.i.i.i.i.i108.0..sroa.4.i.i.i.i.i.i.i108.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i113, 0
   br i1 %154, label %159, label %155
@@ -12426,8 +12426,8 @@ define void @_ZN7uv_tool14InstalledTools4temp17h472384c70f1b9f1aE(ptr dead_on_un
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %16, %13
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %13 ], [ %8, %16 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %13 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %16 ]
-  store i64 %5, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !4199, !noalias !4202
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %13 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %16 ]
+  store i64 %5, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !4199, !noalias !4202
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !4218, !noundef !3
   %17 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %17, label %22, label %18
@@ -12771,9 +12771,9 @@ define void @_ZN7uv_tool14InstalledTools7version17hb226547a044f0df2E(ptr dead_on
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i": ; preds = %87, %84
   %.sroa.0.0.i.i.i.i = phi ptr [ undef, %84 ], [ %89, %87 ]
-  %.sink6.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i, %84 ], [ %.sroa.8.i.i.i.i, %87 ]
+  %.sink7.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i, %84 ], [ %.sroa.8.i.i.i.i, %87 ]
   %.sink.i.i.i.i.i = phi i64 [ 0, %84 ], [ %88, %87 ]
-  store i64 %.sink.i.i.i.i.i, ptr %.sink6.i.sroa.phi.i.i.i.i, align 8, !alias.scope !4269, !noalias !4274
+  store i64 %.sink.i.i.i.i.i, ptr %.sink7.i.sroa.phi.i.i.i.i, align 8, !alias.scope !4269, !noalias !4274
   %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i, align 8, !range !58, !noalias !4275, !noundef !3
   %90 = icmp eq i64 %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i, 0
   br i1 %90, label %140, label %91
@@ -12836,9 +12836,9 @@ define void @_ZN7uv_tool14InstalledTools7version17hb226547a044f0df2E(ptr dead_on
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i92"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i92": ; preds = %112, %108
-  %.sink6.i.sroa.phi.i.i.i.i94 = phi ptr [ %.sroa.4.i.i.i.i90, %108 ], [ %.sroa.8.i.i.i.i91, %112 ]
+  %.sink7.i.sroa.phi.i.i.i.i94 = phi ptr [ %.sroa.4.i.i.i.i90, %108 ], [ %.sroa.8.i.i.i.i91, %112 ]
   %.sink.i.i.i.i.i95 = phi i64 [ 0, %108 ], [ %113, %112 ]
-  store i64 %.sink.i.i.i.i.i95, ptr %.sink6.i.sroa.phi.i.i.i.i94, align 8, !alias.scope !4288, !noalias !4293
+  store i64 %.sink.i.i.i.i.i95, ptr %.sink7.i.sroa.phi.i.i.i.i94, align 8, !alias.scope !4288, !noalias !4293
   %.sroa.4.i.i.i.i90.0..sroa.4.i.i.i.i90.0..sroa.4.i.i.i.i90.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i96 = load i64, ptr %.sroa.4.i.i.i.i90, align 8, !range !58, !noalias !4294, !noundef !3
   %114 = icmp eq i64 %.sroa.4.i.i.i.i90.0..sroa.4.i.i.i.i90.0..sroa.4.i.i.i.i90.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i96, 0
   br i1 %114, label %121, label %115
@@ -12907,8 +12907,8 @@ define void @_ZN7uv_tool14InstalledTools7version17hb226547a044f0df2E(ptr dead_on
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %129, %"_ZN4core3ptr62drop_in_place$LT$uv_python..environment..PythonEnvironment$GT$17hf24c62974de8141bE.exit100"
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %"_ZN4core3ptr62drop_in_place$LT$uv_python..environment..PythonEnvironment$GT$17hf24c62974de8141bE.exit100" ], [ %131, %129 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %"_ZN4core3ptr62drop_in_place$LT$uv_python..environment..PythonEnvironment$GT$17hf24c62974de8141bE.exit100" ], [ %.sroa.8.i.i.i.i.i.i.i, %129 ]
-  store i64 %127, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !4326, !noalias !4331
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %"_ZN4core3ptr62drop_in_place$LT$uv_python..environment..PythonEnvironment$GT$17hf24c62974de8141bE.exit100" ], [ %.sroa.8.i.i.i.i.i.i.i, %129 ]
+  store i64 %127, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !4326, !noalias !4331
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !4332, !noundef !3
   %132 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %132, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit", label %133
@@ -13006,8 +13006,8 @@ define void @_ZN7uv_tool14InstalledTools7version17hb226547a044f0df2E(ptr dead_on
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i105": ; preds = %149, %"_ZN4core3ptr62drop_in_place$LT$uv_python..environment..PythonEnvironment$GT$17hf24c62974de8141bE.exit102"
   %.sroa.0.0.i.i.i.i.i.i.i106 = phi ptr [ undef, %"_ZN4core3ptr62drop_in_place$LT$uv_python..environment..PythonEnvironment$GT$17hf24c62974de8141bE.exit102" ], [ %151, %149 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i107 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i103, %"_ZN4core3ptr62drop_in_place$LT$uv_python..environment..PythonEnvironment$GT$17hf24c62974de8141bE.exit102" ], [ %.sroa.8.i.i.i.i.i.i.i104, %149 ]
-  store i64 %147, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i107, align 8, !alias.scope !4364, !noalias !4369
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i107 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i103, %"_ZN4core3ptr62drop_in_place$LT$uv_python..environment..PythonEnvironment$GT$17hf24c62974de8141bE.exit102" ], [ %.sroa.8.i.i.i.i.i.i.i104, %149 ]
+  store i64 %147, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i107, align 8, !alias.scope !4364, !noalias !4369
   %.sroa.4.i.i.i.i.i.i.i103.0..sroa.4.i.i.i.i.i.i.i103.0..sroa.4.i.i.i.i.i.i.i103.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i108 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i103, align 8, !range !58, !noalias !4370, !noundef !3
   %152 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i103.0..sroa.4.i.i.i.i.i.i.i103.0..sroa.4.i.i.i.i.i.i.i103.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i108, 0
   br i1 %152, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h5d501f08f8d94c00E.exit110", label %153
@@ -13148,31 +13148,31 @@ _ZN3std2fs11OpenOptions4open17h2c19c1d746a9711bE.llvm.1922383081153832188.exit.i
 35:                                               ; preds = %_ZN3std2fs11OpenOptions4open17h2c19c1d746a9711bE.llvm.1922383081153832188.exit.i
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %37 = load i32, ptr %36, align 4, !range !4414, !noalias !4390, !noundef !3
-  %.sroa.0.0.copyload67 = load i64, ptr %8, align 8, !alias.scope !4412, !noalias !4415
-  %.sroa.6.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.6.0.copyload69 = load ptr, ptr %.sroa.6.0..sroa_idx68, align 8, !alias.scope !4412, !noalias !4415
-  %.sroa.7.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.7.0.copyload71 = load i64, ptr %.sroa.7.0..sroa_idx70, align 8, !alias.scope !4412, !noalias !4415
+  %.sroa.0.0.copyload68 = load i64, ptr %8, align 8, !alias.scope !4412, !noalias !4415
+  %.sroa.6.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.6.0.copyload70 = load ptr, ptr %.sroa.6.0..sroa_idx69, align 8, !alias.scope !4412, !noalias !4415
+  %.sroa.7.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.7.0.copyload72 = load i64, ptr %.sroa.7.0..sroa_idx71, align 8, !alias.scope !4412, !noalias !4415
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4390
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4390
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %38 = icmp eq i64 %.sroa.0.0.copyload67, -9223372036854775808
+  %38 = icmp eq i64 %.sroa.0.0.copyload68, -9223372036854775808
   br i1 %38, label %._crit_edge, label %39
 
 39:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i64 %.sroa.0.0.copyload67, ptr %7, align 8
+  store i64 %.sroa.0.0.copyload68, ptr %7, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.6.0.copyload69, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.6.0.copyload70, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %.sroa.7.0.copyload71, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.772.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %37, ptr %.sroa.772.0..sroa_idx, align 8
+  store i64 %.sroa.7.0.copyload72, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.773.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 %37, ptr %.sroa.773.0..sroa_idx, align 8
   %40 = invoke noundef ptr @_ZN3std2io5Write9write_all17h143009c978c6d621E(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 @anon.59423031dd5c526a4d776fdb7f2159e3.143, i64 noundef 1)
           to label %59 unwind label %57
 
 ._crit_edge:                                      ; preds = %35, %.thread
-  %41 = phi ptr [ %32, %.thread ], [ %.sroa.6.0.copyload69, %35 ]
+  %41 = phi ptr [ %32, %.thread ], [ %.sroa.6.0.copyload70, %35 ]
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %42, 3
   switch i64 %43, label %default.unreachable [
@@ -13262,8 +13262,8 @@ default.unreachable:                              ; preds = %._crit_edge
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %70, %66
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %66 ], [ %72, %70 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %66 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %70 ]
-  store i64 %68, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !4459, !noalias !4464
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %66 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %70 ]
+  store i64 %68, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !4459, !noalias !4464
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !4465, !noundef !3
   %73 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %73, label %81, label %74
@@ -13349,8 +13349,8 @@ default.unreachable:                              ; preds = %._crit_edge
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i35": ; preds = %93, %89
   %.sroa.0.0.i.i.i.i.i.i.i.i36 = phi ptr [ undef, %89 ], [ %95, %93 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i37 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i33, %89 ], [ %.sroa.8.i.i.i.i.i.i.i.i34, %93 ]
-  store i64 %91, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i37, align 8, !alias.scope !4506, !noalias !4511
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i37 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i33, %89 ], [ %.sroa.8.i.i.i.i.i.i.i.i34, %93 ]
+  store i64 %91, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i37, align 8, !alias.scope !4506, !noalias !4511
   %.sroa.4.i.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i38 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i33, align 8, !range !58, !noalias !4512, !noundef !3
   %96 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i.i33.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i38, 0
   br i1 %96, label %103, label %97
@@ -13436,8 +13436,8 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit.t
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i48"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i48": ; preds = %114, %111
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i50 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i46, %111 ], [ %.sroa.8.i.i.i.i.i.i.i.i47, %114 ]
-  store i64 %112, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i50, align 8, !alias.scope !4547, !noalias !4552
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i50 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i46, %111 ], [ %.sroa.8.i.i.i.i.i.i.i.i47, %114 ]
+  store i64 %112, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i50, align 8, !alias.scope !4547, !noalias !4552
   %.sroa.4.i.i.i.i.i.i.i.i46.0..sroa.4.i.i.i.i.i.i.i.i46.0..sroa.4.i.i.i.i.i.i.i.i46.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i51 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i46, align 8, !range !58, !noalias !4553, !noundef !3
   %115 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i46.0..sroa.4.i.i.i.i.i.i.i.i46.0..sroa.4.i.i.i.i.i.i.i.i46.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i51, 0
   br i1 %115, label %"_ZN4core3ptr44drop_in_place$LT$uv_tool..InstalledTools$GT$17h93e3da052c1b5dc3E.exit", label %116
@@ -13574,8 +13574,8 @@ define noundef zeroext i1 @"_ZN61_$LT$uv_tool..InstalledTool$u20$as$u20$core..fm
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %24, %22
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %22 ], [ %.val11, %24 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %22 ], [ %.sroa.8.i.i.i.i.i.i, %24 ]
-  store i64 %.val10, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !4557, !noalias !4560
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %22 ], [ %.sroa.8.i.i.i.i.i.i, %24 ]
+  store i64 %.val10, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !4557, !noalias !4560
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !4572, !noundef !3
   %26 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %26, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i", label %27
@@ -13839,9 +13839,9 @@ define void @_ZN7uv_tool16entrypoint_paths17h42112c47308e91daE(ptr dead_on_unwin
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i": ; preds = %83, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
   %.sroa.0.0.i.i.i.i.i = phi ptr [ undef, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %85, %83 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %.sroa.8.i.i.i.i.i, %83 ]
+  %.sink7.i.sroa.phi.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %.sroa.8.i.i.i.i.i, %83 ]
   %.sink.i.i.i.i.i.i = phi i64 [ 0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i" ], [ %84, %83 ]
-  store i64 %.sink.i.i.i.i.i.i, ptr %.sink6.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !4599, !noalias !4606
+  store i64 %.sink.i.i.i.i.i.i, ptr %.sink7.i.sroa.phi.i.i.i.i.i, align 8, !alias.scope !4599, !noalias !4606
   %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i, align 8, !range !58, !noalias !4607, !noundef !3
   %86 = icmp eq i64 %.sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i, 0
   br i1 %86, label %_ZN7uv_tool14find_dist_info17h3cc07f53b02b0da8E.exit, label %87
@@ -14120,8 +14120,8 @@ _ZN6fs_err4file4File4open17he3808206b5e9a962E.exit: ; preds = %110
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i": ; preds = %162, %158
   %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ undef, %158 ], [ %163, %162 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %158 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %162 ]
-  store i64 %160, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !4663, !noalias !4668
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i, %158 ], [ %.sroa.8.i.i.i.i.i.i.i.i, %162 ]
+  store i64 %160, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !alias.scope !4663, !noalias !4668
   %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i, align 8, !range !58, !noalias !4669, !noundef !3
   %164 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i, 0
   br i1 %164, label %172, label %165
@@ -14312,8 +14312,8 @@ _ZN6fs_err4file4File4open17he3808206b5e9a962E.exit: ; preds = %110
   %.sroa.3127.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.3127.sroa.3.0..sroa.3127.0..sroa_idx128.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   %214 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.sink6.i.sroa.gep.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink6.i.sroa.gep41.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink7.i.sroa.gep.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink7.i.sroa.gep41.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %215 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %216 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %217 = getelementptr inbounds nuw i8, ptr %20, i64 48
@@ -14364,8 +14364,8 @@ _ZN6fs_err4file4File4open17he3808206b5e9a962E.exit: ; preds = %110
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i": ; preds = %229, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc976ea1ba168d8b8E.exit162"
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ undef, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc976ea1ba168d8b8E.exit162" ], [ %.sroa.4119.0.copyload, %229 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc976ea1ba168d8b8E.exit162" ], [ %.sroa.8.i.i.i.i.i.i.i, %229 ]
-  store i64 %181, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !4686, !noalias !4689
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i.i, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc976ea1ba168d8b8E.exit162" ], [ %.sroa.8.i.i.i.i.i.i.i, %229 ]
+  store i64 %181, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i, align 8, !alias.scope !4686, !noalias !4689
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i.i, align 8, !range !58, !noalias !4705, !noundef !3
   %230 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i, 0
   br i1 %230, label %235, label %231
@@ -14409,8 +14409,8 @@ _ZN6fs_err4file4File4open17he3808206b5e9a962E.exit: ; preds = %110
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i165": ; preds = %238, %235
   %.sroa.0.0.i.i.i.i.i.i.i.i166 = phi ptr [ undef, %235 ], [ %240, %238 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i167 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i163, %235 ], [ %.sroa.8.i.i.i.i.i.i.i.i164, %238 ]
-  store i64 %236, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i167, align 8, !alias.scope !4730, !noalias !4735
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i167 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i163, %235 ], [ %.sroa.8.i.i.i.i.i.i.i.i164, %238 ]
+  store i64 %236, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i167, align 8, !alias.scope !4730, !noalias !4735
   %.sroa.4.i.i.i.i.i.i.i.i163.0..sroa.4.i.i.i.i.i.i.i.i163.0..sroa.4.i.i.i.i.i.i.i.i163.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i168 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i163, align 8, !range !58, !noalias !4736, !noundef !3
   %241 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i163.0..sroa.4.i.i.i.i.i.i.i.i163.0..sroa.4.i.i.i.i.i.i.i.i163.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i168, 0
   br i1 %241, label %246, label %242
@@ -14451,8 +14451,8 @@ _ZN6fs_err4file4File4open17he3808206b5e9a962E.exit: ; preds = %110
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i": ; preds = %250, %246
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ undef, %246 ], [ %252, %250 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %246 ], [ %.sroa.8.i.i.i.i.i.i, %250 ]
-  store i64 %248, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !4752, !noalias !4757
+  %.sink7.i.sroa.phi.i.i.i.i.i.i = phi ptr [ %.sroa.4.i.i.i.i.i.i, %246 ], [ %.sroa.8.i.i.i.i.i.i, %250 ]
+  store i64 %248, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i, align 8, !alias.scope !4752, !noalias !4757
   %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i = load i64, ptr %.sroa.4.i.i.i.i.i.i, align 8, !range !58, !noalias !4758, !noundef !3
   %253 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i, 0
   br i1 %253, label %"_ZN4core3ptr45drop_in_place$LT$uv_install_wheel..Layout$GT$17h18e79efb68ae8db1E.exit", label %254
@@ -14541,8 +14541,8 @@ _ZN3std4path4Path12strip_prefix17ha79469e4a0e83138E.exit: ; preds = %261
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i175"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i175": ; preds = %277, %274
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i177 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i173, %274 ], [ %.sroa.8.i.i.i.i.i.i.i174, %277 ]
-  store i64 %275, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i177, align 8, !alias.scope !4780, !noalias !4785
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i177 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i173, %274 ], [ %.sroa.8.i.i.i.i.i.i.i174, %277 ]
+  store i64 %275, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i177, align 8, !alias.scope !4780, !noalias !4785
   %.sroa.4.i.i.i.i.i.i.i173.0..sroa.4.i.i.i.i.i.i.i173.0..sroa.4.i.i.i.i.i.i.i173.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i178 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i173, align 8, !range !58, !noalias !4786, !noundef !3
   %278 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i173.0..sroa.4.i.i.i.i.i.i.i173.0..sroa.4.i.i.i.i.i.i.i173.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i178, 0
   br i1 %278, label %358, label %279
@@ -14630,8 +14630,8 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i184"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i184": ; preds = %307, %304
-  %.sink6.i.sroa.phi.i.i.i.i.i186 = phi ptr [ %.sroa.4.i.i.i.i.i182, %304 ], [ %.sroa.8.i.i.i.i.i183, %307 ]
-  store i64 %.sroa.0259.0.copyload, ptr %.sink6.i.sroa.phi.i.i.i.i.i186, align 8, !alias.scope !4806, !noalias !4809
+  %.sink7.i.sroa.phi.i.i.i.i.i186 = phi ptr [ %.sroa.4.i.i.i.i.i182, %304 ], [ %.sroa.8.i.i.i.i.i183, %307 ]
+  store i64 %.sroa.0259.0.copyload, ptr %.sink7.i.sroa.phi.i.i.i.i.i186, align 8, !alias.scope !4806, !noalias !4809
   %.sroa.4.i.i.i.i.i182.0..sroa.4.i.i.i.i.i182.0..sroa.4.i.i.i.i.i182.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i187 = load i64, ptr %.sroa.4.i.i.i.i.i182, align 8, !range !58, !noalias !4821, !noundef !3
   %308 = icmp eq i64 %.sroa.4.i.i.i.i.i182.0..sroa.4.i.i.i.i.i182.0..sroa.4.i.i.i.i.i182.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i187, 0
   br i1 %308, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit", label %309
@@ -14681,13 +14681,13 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
 321:                                              ; preds = %319
   %322 = mul nuw nsw i64 %219, 48
   store ptr %218, ptr %5, align 8, !alias.scope !4831, !noalias !4834
-  store i64 8, ptr %.sink6.i.sroa.gep41.i.i.i, align 8, !alias.scope !4831, !noalias !4834
+  store i64 8, ptr %.sink7.i.sroa.gep41.i.i.i, align 8, !alias.scope !4831, !noalias !4834
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i": ; preds = %321, %319
-  %.sink6.i.sroa.phi.i.i.i = phi ptr [ %.sink6.i.sroa.gep.i.i.i, %321 ], [ %.sink6.i.sroa.gep41.i.i.i, %319 ]
+  %.sink7.i.sroa.phi.i.i.i = phi ptr [ %.sink7.i.sroa.gep.i.i.i, %321 ], [ %.sink7.i.sroa.gep41.i.i.i, %319 ]
   %.sink.i.i.i.i = phi i64 [ %322, %321 ], [ 0, %319 ]
-  store i64 %.sink.i.i.i.i, ptr %.sink6.i.sroa.phi.i.i.i, align 8, !alias.scope !4831, !noalias !4834
+  store i64 %.sink.i.i.i.i, ptr %.sink7.i.sroa.phi.i.i.i, align 8, !alias.scope !4831, !noalias !4834
   call fastcc void @_ZN5alloc7raw_vec11finish_grow17h435c428fe85e38e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, i64 noundef 8, i64 noundef %317, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5), !noalias !4828
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4828
   %323 = load i64, ptr %6, align 8, !range !1875, !noalias !4828, !noundef !3
@@ -14746,8 +14746,8 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i194"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i194": ; preds = %334, %._crit_edge.i
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i196 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i192, %._crit_edge.i ], [ %.sroa.8.i.i.i.i.i.i.i193, %334 ]
-  store i64 %332, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i196, align 8, !alias.scope !4861, !noalias !4866
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i196 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i192, %._crit_edge.i ], [ %.sroa.8.i.i.i.i.i.i.i193, %334 ]
+  store i64 %332, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i196, align 8, !alias.scope !4861, !noalias !4866
   %.sroa.4.i.i.i.i.i.i.i192.0..sroa.4.i.i.i.i.i.i.i192.0..sroa.4.i.i.i.i.i.i.i192.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i197 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i192, align 8, !range !58, !noalias !4867, !noundef !3
   %335 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i192.0..sroa.4.i.i.i.i.i.i.i192.0..sroa.4.i.i.i.i.i.i.i192.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i197, 0
   br i1 %335, label %339, label %336
@@ -14784,8 +14784,8 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i202": ; preds = %343, %341
   %.sroa.0.0.i.i.i.i.i.i203 = phi ptr [ undef, %341 ], [ %.val152, %343 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i204 = phi ptr [ %.sroa.4.i.i.i.i.i.i200, %341 ], [ %.sroa.8.i.i.i.i.i.i201, %343 ]
-  store i64 %.val151, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i204, align 8, !alias.scope !4868, !noalias !4871
+  %.sink7.i.sroa.phi.i.i.i.i.i.i204 = phi ptr [ %.sroa.4.i.i.i.i.i.i200, %341 ], [ %.sroa.8.i.i.i.i.i.i201, %343 ]
+  store i64 %.val151, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i204, align 8, !alias.scope !4868, !noalias !4871
   %.sroa.4.i.i.i.i.i.i200.0..sroa.4.i.i.i.i.i.i200.0..sroa.4.i.i.i.i.i.i200.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i205 = load i64, ptr %.sroa.4.i.i.i.i.i.i200, align 8, !range !58, !noalias !4883, !noundef !3
   %345 = icmp eq i64 %.sroa.4.i.i.i.i.i.i200.0..sroa.4.i.i.i.i.i.i200.0..sroa.4.i.i.i.i.i.i200.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i205, 0
   br i1 %345, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i", label %346
@@ -14860,8 +14860,8 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
   br label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i211"
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i211": ; preds = %361, %358
-  %.sink6.i.sroa.phi.i.i.i.i.i.i213 = phi ptr [ %.sroa.4.i.i.i.i.i.i209, %358 ], [ %.sroa.8.i.i.i.i.i.i210, %361 ]
-  store i64 %359, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i213, align 8, !alias.scope !4904, !noalias !4909
+  %.sink7.i.sroa.phi.i.i.i.i.i.i213 = phi ptr [ %.sroa.4.i.i.i.i.i.i209, %358 ], [ %.sroa.8.i.i.i.i.i.i210, %361 ]
+  store i64 %359, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i213, align 8, !alias.scope !4904, !noalias !4909
   %.sroa.4.i.i.i.i.i.i209.0..sroa.4.i.i.i.i.i.i209.0..sroa.4.i.i.i.i.i.i209.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i214 = load i64, ptr %.sroa.4.i.i.i.i.i.i209, align 8, !range !58, !noalias !4910, !noundef !3
   %362 = icmp eq i64 %.sroa.4.i.i.i.i.i.i209.0..sroa.4.i.i.i.i.i.i209.0..sroa.4.i.i.i.i.i.i209.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i214, 0
   br i1 %362, label %366, label %363
@@ -14903,8 +14903,8 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i216": ; preds = %371, %369
   %.sroa.0.0.i.i.i.i.i.i.i217 = phi ptr [ undef, %369 ], [ %372, %371 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i218 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i207, %369 ], [ %.sroa.8.i.i.i.i.i.i.i208, %371 ]
-  store i64 %367, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i218, align 8, !alias.scope !4930, !noalias !4935
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i218 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i207, %369 ], [ %.sroa.8.i.i.i.i.i.i.i208, %371 ]
+  store i64 %367, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i218, align 8, !alias.scope !4930, !noalias !4935
   %.sroa.4.i.i.i.i.i.i.i207.0..sroa.4.i.i.i.i.i.i.i207.0..sroa.4.i.i.i.i.i.i.i207.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i219 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i207, align 8, !range !58, !noalias !4936, !noundef !3
   %373 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i207.0..sroa.4.i.i.i.i.i.i.i207.0..sroa.4.i.i.i.i.i.i.i207.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i219, 0
   br i1 %373, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h684416f26fb1587fE.exit.i.i", label %374
@@ -14972,8 +14972,8 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i225": ; preds = %384, %381
   %.sroa.0.0.i.i.i.i.i.i.i.i226 = phi ptr [ undef, %381 ], [ %386, %384 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i227 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i223, %381 ], [ %.sroa.8.i.i.i.i.i.i.i.i224, %384 ]
-  store i64 %382, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i227, align 8, !alias.scope !4961, !noalias !4966
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i227 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i223, %381 ], [ %.sroa.8.i.i.i.i.i.i.i.i224, %384 ]
+  store i64 %382, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i227, align 8, !alias.scope !4961, !noalias !4966
   %.sroa.4.i.i.i.i.i.i.i.i223.0..sroa.4.i.i.i.i.i.i.i.i223.0..sroa.4.i.i.i.i.i.i.i.i223.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i228 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i223, align 8, !range !58, !noalias !4967, !noundef !3
   %387 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i223.0..sroa.4.i.i.i.i.i.i.i.i223.0..sroa.4.i.i.i.i.i.i.i.i223.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i228, 0
   br i1 %387, label %392, label %388
@@ -15014,8 +15014,8 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i230": ; preds = %396, %392
   %.sroa.0.0.i.i.i.i.i.i231 = phi ptr [ undef, %392 ], [ %398, %396 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i232 = phi ptr [ %.sroa.4.i.i.i.i.i.i221, %392 ], [ %.sroa.8.i.i.i.i.i.i222, %396 ]
-  store i64 %394, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i232, align 8, !alias.scope !4983, !noalias !4988
+  %.sink7.i.sroa.phi.i.i.i.i.i.i232 = phi ptr [ %.sroa.4.i.i.i.i.i.i221, %392 ], [ %.sroa.8.i.i.i.i.i.i222, %396 ]
+  store i64 %394, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i232, align 8, !alias.scope !4983, !noalias !4988
   %.sroa.4.i.i.i.i.i.i221.0..sroa.4.i.i.i.i.i.i221.0..sroa.4.i.i.i.i.i.i221.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i233 = load i64, ptr %.sroa.4.i.i.i.i.i.i221, align 8, !range !58, !noalias !4989, !noundef !3
   %399 = icmp eq i64 %.sroa.4.i.i.i.i.i.i221.0..sroa.4.i.i.i.i.i.i221.0..sroa.4.i.i.i.i.i.i221.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i233, 0
   br i1 %399, label %404, label %400
@@ -15101,8 +15101,8 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h025e16435144be90E.llvm.11004923244570661734.exit.i.i.i.i.i.i.i.i239": ; preds = %414, %410
   %.sroa.0.0.i.i.i.i.i.i.i.i240 = phi ptr [ undef, %410 ], [ %415, %414 ]
-  %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i241 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i237, %410 ], [ %.sroa.8.i.i.i.i.i.i.i.i238, %414 ]
-  store i64 %412, ptr %.sink6.i.sroa.phi.i.i.i.i.i.i.i.i241, align 8, !alias.scope !5030, !noalias !5035
+  %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i241 = phi ptr [ %.sroa.4.i.i.i.i.i.i.i.i237, %410 ], [ %.sroa.8.i.i.i.i.i.i.i.i238, %414 ]
+  store i64 %412, ptr %.sink7.i.sroa.phi.i.i.i.i.i.i.i.i241, align 8, !alias.scope !5030, !noalias !5035
   %.sroa.4.i.i.i.i.i.i.i.i237.0..sroa.4.i.i.i.i.i.i.i.i237.0..sroa.4.i.i.i.i.i.i.i.i237.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i242 = load i64, ptr %.sroa.4.i.i.i.i.i.i.i.i237, align 8, !range !58, !noalias !5036, !noundef !3
   %416 = icmp eq i64 %.sroa.4.i.i.i.i.i.i.i.i237.0..sroa.4.i.i.i.i.i.i.i.i237.0..sroa.4.i.i.i.i.i.i.i.i237.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i.i.i.i.i.i242, 0
   br i1 %416, label %"_ZN4core3ptr39drop_in_place$LT$fs_err..file..File$GT$17h6ffa6e9a55de1669E.exit244", label %417

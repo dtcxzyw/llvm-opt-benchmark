@@ -4308,12 +4308,12 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
   br label %971
 
 971:                                              ; preds = %952, %956, %960, %964
-  %.sink804 = phi ptr [ %970, %964 ], [ %2, %960 ], [ %2, %956 ], [ %2, %952 ]
+  %.sink821 = phi ptr [ %970, %964 ], [ %2, %960 ], [ %2, %956 ], [ %2, %952 ]
   %972 = load i32, ptr %9, align 4
   %973 = load i32, ptr %8, align 4
   %974 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %975 = load i32, ptr %974, align 4
-  call fastcc void @dissect_ad_eir(ptr noundef %955, i32 noundef %972, i32 noundef %973, i32 noundef %975, ptr noundef %25, ptr noundef %1, ptr noundef %.sink804)
+  call fastcc void @dissect_ad_eir(ptr noundef %955, i32 noundef %972, i32 noundef %973, i32 noundef %975, ptr noundef %25, ptr noundef %1, ptr noundef %.sink821)
   %976 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.11)
   %977 = add i32 %.11, -3
   %978 = add i32 %977, %976
@@ -4742,8 +4742,8 @@ control_proc_complete_if_instant_reached.exit1794: ; preds = %174, %170, %166, %
   %238 = load i8, ptr %181, align 4
   %239 = and i8 %238, -3
   %240 = shl i8 %237, 1
-  %masksel2269 = and i8 %240, 2
-  %storemerge1637 = or disjoint i8 %239, %masksel2269
+  %masksel2311 = and i8 %240, 2
+  %storemerge1637 = or disjoint i8 %239, %masksel2311
   store i8 %storemerge1637, ptr %181, align 4
   br label %241
 
@@ -8706,9 +8706,9 @@ control_proc_contains_instant.exit23.i.i:         ; preds = %63, %63, %63, %63
   br label %control_proc_add_last_frame.exit
 
 control_proc_add_last_frame.exit:                 ; preds = %66, %control_proc_contains_instant.exit23.i.i, %control_proc_contains_instant.exit23.i.i, %63, %60, %57, %proto_item_set_generated.exit.i.i, %control_proc_add_frame.exit
-  %.sink24 = phi i64 [ 28, %control_proc_add_frame.exit ], [ 24, %proto_item_set_generated.exit.i.i ], [ 24, %57 ], [ 24, %60 ], [ 24, %63 ], [ 24, %control_proc_contains_instant.exit23.i.i ], [ 24, %control_proc_contains_instant.exit23.i.i ], [ 24, %66 ]
+  %.sink29 = phi i64 [ 28, %control_proc_add_frame.exit ], [ 24, %proto_item_set_generated.exit.i.i ], [ 24, %57 ], [ 24, %60 ], [ 24, %63 ], [ 24, %control_proc_contains_instant.exit23.i.i ], [ 24, %control_proc_contains_instant.exit23.i.i ], [ 24, %66 ]
   %.sink = phi i32 [ %41, %control_proc_add_frame.exit ], [ %.pre9.i, %proto_item_set_generated.exit.i.i ], [ %.pre9.i, %57 ], [ %.pre9.i, %60 ], [ %.pre9.i, %63 ], [ %.pre9.i, %control_proc_contains_instant.exit23.i.i ], [ %.pre9.i, %control_proc_contains_instant.exit23.i.i ], [ %.pre.i, %66 ]
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink24
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink29
   store i32 %.sink, ptr %68, align 4
   ret void
 }

@@ -295,7 +295,7 @@ bytestream2_get_be32.exit123.thread.i:            ; preds = %93
 
 .preheader.us.i:                                  ; preds = %111, %._crit_edge.us.i
   %indvars.iv158.i = phi i64 [ %indvars.iv.next159.i, %._crit_edge.us.i ], [ 0, %111 ]
-  %116 = shl i64 %indvars.iv158.i, 32
+  %116 = shl nuw nsw i64 %indvars.iv158.i, 32
   br label %117
 
 117:                                              ; preds = %117, %.preheader.us.i
@@ -306,8 +306,8 @@ bytestream2_get_be32.exit123.thread.i:            ; preds = %93
   %120 = load i8, ptr %118, align 1, !tbaa !44
   %121 = shl i64 %indvars.iv.i, 34
   %reass.sub = sub i64 %121, %116
-  %sext179.i = add i64 %reass.sub, 8589934592
-  %122 = ashr exact i64 %sext179.i, 32
+  %sext185.i = add i64 %reass.sub, 8589934592
+  %122 = ashr exact i64 %sext185.i, 32
   %123 = getelementptr inbounds [1024 x i8], ptr %112, i64 0, i64 %122
   store i8 %120, ptr %123, align 1, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -517,8 +517,8 @@ decode_header.exit:                               ; preds = %bytestream2_get_be1
   %.not = icmp eq i16 %185, 8
   %.pre = load i16, ptr %9, align 8, !tbaa !33
   %.not297 = icmp eq i16 %.pre, 1
-  %or.cond443 = select i1 %.not, i1 %.not297, i1 false
-  br i1 %or.cond443, label %249, label %204
+  %or.cond486 = select i1 %.not, i1 %.not297, i1 false
+  br i1 %or.cond486, label %249, label %204
 
 204:                                              ; preds = %203
   %205 = load ptr, ptr %8, align 8, !tbaa !27
@@ -1264,8 +1264,8 @@ decode_rle.exit.thread:                           ; preds = %decode_rle.exit.thr
   %.pre420 = load i32, ptr %366, align 8, !tbaa !54
   %567 = icmp slt i32 %549, 1
   %568 = icmp ne i32 %.pre420, 112
-  %brmerge449 = or i1 %568, %567
-  br i1 %brmerge449, label %.loopexit, label %.lr.ph366
+  %brmerge492 = or i1 %568, %567
+  br i1 %brmerge492, label %.loopexit, label %.lr.ph366
 
 .lr.ph366:                                        ; preds = %._crit_edge362
   %569 = getelementptr inbounds nuw i8, ptr %1, i64 76

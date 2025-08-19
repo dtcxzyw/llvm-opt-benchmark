@@ -435,12 +435,12 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   ret void
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23.sink.split: ; preds = %92, %81
-  %.sink36 = phi ptr [ %80, %81 ], [ %91, %92 ]
+  %.sink46 = phi ptr [ %80, %81 ], [ %91, %92 ]
   %.pn14.ph = phi { ptr, i32 } [ %70, %81 ], [ %90, %92 ]
-  %107 = load ptr, ptr %.sink36, align 8, !tbaa !8
+  %107 = load ptr, ptr %.sink46, align 8, !tbaa !8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(16) %.sink36) #27
+  call void %109(ptr noundef nonnull align 8 dereferenceable(16) %.sink46) #27
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23: ; preds = %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit23.sink.split, %92, %89, %81, %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit21

@@ -217,8 +217,8 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 89:                                               ; preds = %84
   %.not175 = icmp eq i16 %59, 32
   %.not176 = icmp eq i16 %62, 32
-  %or.cond208 = and i1 %.not175, %.not176
-  br i1 %or.cond208, label %.critedge, label %90
+  %or.cond223 = and i1 %.not175, %.not176
+  br i1 %or.cond223, label %.critedge, label %90
 
 90:                                               ; preds = %89
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.14) #9

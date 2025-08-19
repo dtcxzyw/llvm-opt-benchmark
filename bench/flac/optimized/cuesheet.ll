@@ -335,7 +335,7 @@ local__get_field_.exit.thread.i:                  ; preds = %.lr.ph.i, %.prehead
   br i1 %.not345.i, label %92, label %.loopexit
 
 92:                                               ; preds = %90, %88
-  %strncpy311 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.030.ph.i370.i, i64 128)
+  %strncpy372 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.030.ph.i370.i, i64 128)
   store i8 0, ptr %26, align 1, !tbaa !15
   br label %local__get_field_.exit400.thread.i
 
@@ -745,8 +745,8 @@ local__parse_int64_.exit.i:                       ; preds = %228
   %258 = phi i8 [ 0, %.critedge349.thread.i ], [ %.pr.i, %.critedge349.i ]
   %.pre.i = load i32, ptr %22, align 4, !tbaa !20
   %259 = icmp ugt i32 %.pre.i, 1
-  %or.cond1190.i = select i1 %14, i1 %259, i1 false
-  br i1 %or.cond1190.i, label %260, label %.critedge351.i
+  %or.cond1250.i = select i1 %14, i1 %259, i1 false
+  br i1 %or.cond1250.i, label %260, label %.critedge351.i
 
 260:                                              ; preds = %257
   %261 = load ptr, ptr %23, align 8, !tbaa !19
@@ -1216,8 +1216,8 @@ local__parse_int64_.exit.i499.i:                  ; preds = %402
   %466 = call i32 @strcasecmp(ptr noundef nonnull %.lcssa930.i, ptr noundef nonnull @.str.56) #14
   %467 = icmp ne i32 %466, 0
   %468 = icmp eq ptr %.promoted1017.i, null
-  %or.cond1191.i = select i1 %467, i1 true, i1 %468
-  br i1 %or.cond1191.i, label %local__get_field_.exit400.thread.i, label %.preheader.i525.i
+  %or.cond1251.i = select i1 %467, i1 true, i1 %468
+  br i1 %or.cond1251.i, label %local__get_field_.exit400.thread.i, label %.preheader.i525.i
 
 .preheader.i525.i:                                ; preds = %465
   %469 = load i8, ptr %.promoted1017.i, align 1, !tbaa !15

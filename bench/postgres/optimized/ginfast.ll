@@ -418,14 +418,14 @@ BufferGetPage.exit126:                            ; preds = %150, %156
   br label %.thread
 
 .thread:                                          ; preds = %144, %113, %211
-  %.1156 = phi ptr [ %53, %211 ], [ %103, %113 ], [ %103, %144 ]
-  %.1108155 = phi i32 [ %148, %211 ], [ 0, %113 ], [ %117, %144 ]
-  %.1111153 = phi ptr [ %.0.i.i125, %211 ], [ null, %113 ], [ %.0.i.i123, %144 ]
+  %.1165 = phi ptr [ %53, %211 ], [ %103, %113 ], [ %103, %144 ]
+  %.1108164 = phi i32 [ %148, %211 ], [ 0, %113 ], [ %117, %144 ]
+  %.1111162 = phi ptr [ %.0.i.i125, %211 ], [ null, %113 ], [ %.0.i.i123, %144 ]
   %215 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   store i16 80, ptr %215, align 4
   tail call void @MarkBufferDirty(i32 noundef %30) #9
   %216 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %216, ptr noundef nonnull align 8 dereferenceable(56) %.1156, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %216, ptr noundef nonnull align 8 dereferenceable(56) %.1165, i64 56, i1 false)
   tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %30, i8 noundef zeroext 14) #9
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 88) #9
   %217 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 96) #9
@@ -435,12 +435,12 @@ BufferGetPage.exit126:                            ; preds = %150, %156
   %220 = trunc i64 %217 to i32
   %221 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %220, ptr %221, align 4
-  %cond = icmp eq i32 %.1108155, 0
+  %cond = icmp eq i32 %.1108164, 0
   br i1 %cond, label %227, label %.thread145
 
 .thread145:                                       ; preds = %.thread
-  store i32 %219, ptr %.1111153, align 4
-  %222 = getelementptr inbounds nuw i8, ptr %.1111153, i64 4
+  store i32 %219, ptr %.1111162, align 4
+  %222 = getelementptr inbounds nuw i8, ptr %.1111162, i64 4
   store i32 %220, ptr %222, align 4
   br label %226
 
@@ -451,16 +451,16 @@ BufferGetPage.exit126:                            ; preds = %150, %156
   br label %.sink.split
 
 .sink.split:                                      ; preds = %BufferGetPage.exit124, %106, %.critedge
-  %.1108164.ph = phi i32 [ %148, %.critedge ], [ %117, %BufferGetPage.exit124 ], [ 0, %106 ]
+  %.1108173.ph = phi i32 [ %148, %.critedge ], [ %117, %BufferGetPage.exit124 ], [ 0, %106 ]
   %225 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   store i16 80, ptr %225, align 4
   tail call void @MarkBufferDirty(i32 noundef %30) #9
-  %.not118 = icmp eq i32 %.1108164.ph, 0
+  %.not118 = icmp eq i32 %.1108173.ph, 0
   br i1 %.not118, label %227, label %226
 
 226:                                              ; preds = %.thread145, %.sink.split
-  %.1108154 = phi i32 [ %.1108155, %.thread145 ], [ %.1108164.ph, %.sink.split ]
-  call void @UnlockReleaseBuffer(i32 noundef %.1108154) #9
+  %.1108163 = phi i32 [ %.1108164, %.thread145 ], [ %.1108173.ph, %.sink.split ]
+  call void @UnlockReleaseBuffer(i32 noundef %.1108163) #9
   br label %227
 
 227:                                              ; preds = %.thread, %226, %.sink.split

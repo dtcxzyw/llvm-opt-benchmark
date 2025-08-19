@@ -1702,7 +1702,7 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit193: ; pred
   br i1 %291, label %.lr.ph234, label %.preheader, !llvm.loop !96
 
 ._crit_edge239:                                   ; preds = %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198, %.preheader210, %.preheader
-  %.3.lcssa261264 = phi ptr [ %.5.ph, %.preheader ], [ %.0, %.preheader210 ], [ %.5.ph, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198 ]
+  %.3.lcssa270273 = phi ptr [ %.5.ph, %.preheader ], [ %.0, %.preheader210 ], [ %.5.ph, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198 ]
   %.5127.lcssa = phi i32 [ %.3125.lcssa, %.preheader ], [ 0, %.preheader210 ], [ %.6128, %_ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198 ]
   store i32 %.5127.lcssa, ptr %30, align 8, !tbaa !97
   call void @_ZN6icu_7715MaybeStackArrayIaLi100EED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7) #17
@@ -1780,7 +1780,7 @@ _ZN6icu_7713LocaleMatcher11putIfAbsentERKNS_3LSREiiR10UErrorCode.exit198: ; pred
   br label %374
 
 324:                                              ; preds = %._crit_edge239, %.thread, %82
-  %.1 = phi ptr [ %.3.lcssa261264, %._crit_edge239 ], [ %.0, %82 ], [ %.0, %.thread ]
+  %.1 = phi ptr [ %.3.lcssa270273, %._crit_edge239 ], [ %.0, %82 ], [ %.0, %.thread ]
   store ptr %.1, ptr %32, align 8, !tbaa !99
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %326 = load i32, ptr %325, align 4, !tbaa !32
@@ -2565,9 +2565,9 @@ define range(i64 0, 8589934592) i64 @_ZNK6icu_7713LocaleMatcher16getBestSuppInde
   br label %.thread55
 
 common.resume:                                    ; preds = %93, %60
-  %.lcssa83.sink = phi ptr [ %88, %93 ], [ %54, %60 ]
+  %.lcssa90.sink = phi ptr [ %88, %93 ], [ %54, %60 ]
   %common.resume.op = phi { ptr, i32 } [ %94, %93 ], [ %61, %60 ]
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.lcssa83.sink) #17
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.lcssa90.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 60:                                               ; preds = %56
@@ -2913,7 +2913,7 @@ _ZN6icu_7717LocaleLsrIteratorD2Ev.exit:           ; preds = %_ZN6icu_773LSRD2Ev.
   br i1 %74, label %75, label %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit16
 
 75:                                               ; preds = %.thread, %72
-  %.pn19 = phi { ptr, i32 } [ %71, %.thread ], [ %73, %72 ]
+  %.pn20 = phi { ptr, i32 } [ %71, %.thread ], [ %73, %72 ]
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %77 = load ptr, ptr %76, align 8, !tbaa !117
   %78 = icmp eq ptr %77, null
@@ -2927,9 +2927,9 @@ _ZN6icu_7717LocaleLsrIteratorD2Ev.exit:           ; preds = %_ZN6icu_773LSRD2Ev.
   br label %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit16
 
 _ZN6icu_7717LocaleLsrIteratorD2Ev.exit16:         ; preds = %72, %75, %79
-  %.pn18 = phi { ptr, i32 } [ %73, %72 ], [ %.pn19, %75 ], [ %.pn19, %79 ]
+  %.pn19 = phi { ptr, i32 } [ %73, %72 ], [ %.pn20, %75 ], [ %.pn20, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn18
+  resume { ptr, i32 } %.pn19
 
 83:                                               ; preds = %3, %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit, %13
   %.010 = phi ptr [ %60, %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit ], [ %15, %13 ], [ null, %3 ]
@@ -3289,7 +3289,7 @@ _ZN6icu_7717LocaleLsrIteratorD2Ev.exit:           ; preds = %71, %78, %82
   br i1 %88, label %89, label %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit14
 
 89:                                               ; preds = %.thread, %86
-  %.pn22 = phi { ptr, i32 } [ %62, %.thread ], [ %87, %86 ]
+  %.pn24 = phi { ptr, i32 } [ %62, %.thread ], [ %87, %86 ]
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !117
   %92 = icmp eq ptr %91, null
@@ -3303,9 +3303,9 @@ _ZN6icu_7717LocaleLsrIteratorD2Ev.exit:           ; preds = %71, %78, %82
   br label %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit14
 
 _ZN6icu_7717LocaleLsrIteratorD2Ev.exit14:         ; preds = %86, %89, %93
-  %.pn21 = phi { ptr, i32 } [ %87, %86 ], [ %.pn22, %89 ], [ %.pn22, %93 ]
+  %.pn23 = phi { ptr, i32 } [ %87, %86 ], [ %.pn24, %89 ], [ %.pn24, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %.pn21
+  resume { ptr, i32 } %.pn23
 
 97:                                               ; preds = %_ZN6icu_7717LocaleLsrIteratorD2Ev.exit, %14
   ret void

@@ -21255,9 +21255,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %162 = fadd <4 x float> %160, %161
   %163 = shufflevector <4 x float> %162, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %164 = fadd <4 x float> %162, %163
-  %shift139 = shufflevector <4 x float> %164, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop140 = fadd <4 x float> %164, %shift139
-  %165 = extractelement <4 x float> %foldExtExtBinop140, i64 0
+  %shift145 = shufflevector <4 x float> %164, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop146 = fadd <4 x float> %164, %shift145
+  %165 = extractelement <4 x float> %foldExtExtBinop146, i64 0
   %166 = getelementptr float, ptr %gep124, i64 %.0122
   store float %165, ptr %166, align 4, !tbaa !93
   %167 = add nuw nsw i64 %.0122, 1
@@ -21510,9 +21510,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %162 = fadd <4 x float> %160, %161
   %163 = shufflevector <4 x float> %162, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %164 = fadd <4 x float> %162, %163
-  %shift139 = shufflevector <4 x float> %164, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop140 = fadd <4 x float> %164, %shift139
-  %165 = extractelement <4 x float> %foldExtExtBinop140, i64 0
+  %shift145 = shufflevector <4 x float> %164, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop146 = fadd <4 x float> %164, %shift145
+  %165 = extractelement <4 x float> %foldExtExtBinop146, i64 0
   %166 = getelementptr float, ptr %gep124, i64 %.0122
   store float %165, ptr %166, align 4, !tbaa !93
   %167 = add nuw nsw i64 %.0122, 1
@@ -21762,9 +21762,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %159 = fadd <4 x float> %157, %158
   %160 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %161 = fadd <4 x float> %159, %160
-  %shift163 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop164 = fadd <4 x float> %161, %shift163
-  %162 = extractelement <4 x float> %foldExtExtBinop164, i64 0
+  %shift169 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop170 = fadd <4 x float> %161, %shift169
+  %162 = extractelement <4 x float> %foldExtExtBinop170, i64 0
   %163 = getelementptr float, ptr %gep148, i64 %.0146
   store float %162, ptr %163, align 4, !tbaa !93
   %164 = add nuw nsw i64 %.0146, 1
@@ -21970,9 +21970,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %111 = fadd <4 x float> %109, %110
   %112 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %113 = fadd <4 x float> %111, %112
-  %shift100 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop101 = fadd <4 x float> %113, %shift100
-  %114 = extractelement <4 x float> %foldExtExtBinop101, i64 0
+  %shift107 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop108 = fadd <4 x float> %113, %shift107
+  %114 = extractelement <4 x float> %foldExtExtBinop108, i64 0
   %115 = getelementptr float, ptr %gep85, i64 %.083
   store float %114, ptr %115, align 4, !tbaa !93
   %116 = add nuw nsw i64 %.083, 1
@@ -22001,9 +22001,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.0100125.sroa.gep140 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %.0103120.us.sroa.gep141 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %.0100125.us.sroa.gep142 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0100125.sroa.gep144 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0103120.us.sroa.gep145 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0100125.us.sroa.gep146 = getelementptr inbounds nuw i8, ptr %6, i64 128
   br i1 %23, label %.lr.ph127, label %._crit_edge
 
 .lr.ph127:                                        ; preds = %5
@@ -22119,7 +22119,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 98:                                               ; preds = %98, %69
   %99 = phi i1 [ true, %69 ], [ false, %98 ]
-  %.0103120.us.sroa.phi = phi ptr [ %6, %69 ], [ %.0103120.us.sroa.gep141, %98 ]
+  %.0103120.us.sroa.phi = phi ptr [ %6, %69 ], [ %.0103120.us.sroa.gep145, %98 ]
   %.0103120.us = phi i64 [ 0, %69 ], [ 1, %98 ]
   %100 = add nsw i64 %.0103120.us, %43
   %101 = mul nsw i64 %33, %100
@@ -22172,7 +22172,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %141 = phi i1 [ true, %..preheader119_crit_edge.us ], [ false, %57 ]
-  %.0100125.us.sroa.phi = phi ptr [ %6, %..preheader119_crit_edge.us ], [ %.0100125.us.sroa.gep142, %57 ]
+  %.0100125.us.sroa.phi = phi ptr [ %6, %..preheader119_crit_edge.us ], [ %.0100125.us.sroa.gep146, %57 ]
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ 1, %57 ]
   %142 = add nsw i64 %.0100125.us, %43
   %143 = mul nsw i64 %37, %142
@@ -22200,7 +22200,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader:                                       ; preds = %.preheader119, %153
   %148 = phi i1 [ true, %.preheader119 ], [ false, %153 ]
-  %.0100125.sroa.phi = phi ptr [ %6, %.preheader119 ], [ %.0100125.sroa.gep140, %153 ]
+  %.0100125.sroa.phi = phi ptr [ %6, %.preheader119 ], [ %.0100125.sroa.gep144, %153 ]
   %.0100125 = phi i64 [ 0, %.preheader119 ], [ 1, %153 ]
   %149 = add nsw i64 %.0100125, %147
   %150 = mul nsw i64 %37, %149
@@ -22225,9 +22225,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %159 = fadd <4 x float> %157, %158
   %160 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %161 = fadd <4 x float> %159, %160
-  %shift136 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop137 = fadd <4 x float> %161, %shift136
-  %162 = extractelement <4 x float> %foldExtExtBinop137, i64 0
+  %shift140 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop141 = fadd <4 x float> %161, %shift140
+  %162 = extractelement <4 x float> %foldExtExtBinop141, i64 0
   %163 = getelementptr float, ptr %gep124, i64 %.0122
   store float %162, ptr %163, align 4, !tbaa !93
   %164 = add nuw nsw i64 %.0122, 1
@@ -22256,7 +22256,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.0119144.us.sroa.gep164 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.0119144.us.sroa.gep170 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %23, label %.lr.ph151, label %._crit_edge
 
 .lr.ph151:                                        ; preds = %5
@@ -22368,7 +22368,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 94:                                               ; preds = %94, %73
   %95 = phi i1 [ true, %73 ], [ false, %94 ]
-  %.0119144.us.sroa.phi = phi ptr [ %6, %73 ], [ %.0119144.us.sroa.gep164, %94 ]
+  %.0119144.us.sroa.phi = phi ptr [ %6, %73 ], [ %.0119144.us.sroa.gep170, %94 ]
   %.0119144.us = phi i64 [ 0, %73 ], [ 1, %94 ]
   %96 = add nsw i64 %.0119144.us, %43
   %97 = mul nsw i64 %33, %96
@@ -22477,9 +22477,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %159 = fadd <4 x float> %157, %158
   %160 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %161 = fadd <4 x float> %159, %160
-  %shift160 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop161 = fadd <4 x float> %161, %shift160
-  %162 = extractelement <4 x float> %foldExtExtBinop161, i64 0
+  %shift166 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop167 = fadd <4 x float> %161, %shift166
+  %162 = extractelement <4 x float> %foldExtExtBinop167, i64 0
   %163 = getelementptr float, ptr %gep148, i64 %.0146
   store float %162, ptr %163, align 4, !tbaa !93
   br i1 %154, label %153, label %151, !llvm.loop !419
@@ -22506,9 +22506,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.06286.sroa.gep101 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %.06581.us.sroa.gep102 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %.06286.us.sroa.gep103 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06286.sroa.gep105 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06581.us.sroa.gep106 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06286.us.sroa.gep107 = getelementptr inbounds nuw i8, ptr %6, i64 96
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -22609,7 +22609,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader.us:                                    ; preds = %.preheader76.us, %60
   %82 = phi i1 [ true, %.preheader76.us ], [ false, %60 ]
-  %.06581.us.sroa.phi = phi ptr [ %6, %.preheader76.us ], [ %.06581.us.sroa.gep102, %60 ]
+  %.06581.us.sroa.phi = phi ptr [ %6, %.preheader76.us ], [ %.06581.us.sroa.gep106, %60 ]
   %.06581.us = phi i64 [ 0, %.preheader76.us ], [ 1, %60 ]
   %83 = add nsw i64 %.06581.us, %43
   %84 = mul nsw i64 %33, %83
@@ -22624,7 +22624,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader75.us:                                  ; preds = %..preheader77_crit_edge.us, %46
   %90 = phi i1 [ true, %..preheader77_crit_edge.us ], [ false, %46 ]
-  %.06286.us.sroa.phi = phi ptr [ %6, %..preheader77_crit_edge.us ], [ %.06286.us.sroa.gep103, %46 ]
+  %.06286.us.sroa.phi = phi ptr [ %6, %..preheader77_crit_edge.us ], [ %.06286.us.sroa.gep107, %46 ]
   %.06286.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ 1, %46 ]
   %91 = add nsw i64 %.06286.us, %43
   %92 = mul nsw i64 %37, %91
@@ -22658,7 +22658,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader75:                                     ; preds = %.preheader77, %102
   %97 = phi i1 [ true, %.preheader77 ], [ false, %102 ]
-  %.06286.sroa.phi = phi ptr [ %6, %.preheader77 ], [ %.06286.sroa.gep101, %102 ]
+  %.06286.sroa.phi = phi ptr [ %6, %.preheader77 ], [ %.06286.sroa.gep105, %102 ]
   %.06286 = phi i64 [ 0, %.preheader77 ], [ 1, %102 ]
   %98 = add nsw i64 %.06286, %96
   %99 = mul nsw i64 %37, %98
@@ -22683,9 +22683,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %108 = fadd <4 x float> %106, %107
   %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %110 = fadd <4 x float> %108, %109
-  %shift97 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop98 = fadd <4 x float> %110, %shift97
-  %111 = extractelement <4 x float> %foldExtExtBinop98, i64 0
+  %shift101 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop102 = fadd <4 x float> %110, %shift101
+  %111 = extractelement <4 x float> %foldExtExtBinop102, i64 0
   %112 = getelementptr float, ptr %gep85, i64 %.083
   store float %111, ptr %112, align 4, !tbaa !93
   %113 = add nuw nsw i64 %.083, 1
@@ -22890,9 +22890,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %112 = fadd <4 x float> %110, %111
   %113 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %114 = fadd <4 x float> %112, %113
-  %shift97 = shufflevector <4 x float> %114, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop98 = fadd <4 x float> %114, %shift97
-  %115 = extractelement <4 x float> %foldExtExtBinop98, i64 0
+  %shift104 = shufflevector <4 x float> %114, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop105 = fadd <4 x float> %114, %shift104
+  %115 = extractelement <4 x float> %foldExtExtBinop105, i64 0
   %116 = getelementptr float, ptr %gep85, i64 %.083
   store float %115, ptr %116, align 4, !tbaa !93
   br i1 %107, label %106, label %104, !llvm.loop !430
@@ -23103,9 +23103,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %147 = fadd <4 x float> %145, %146
   %148 = shufflevector <4 x float> %147, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %149 = fadd <4 x float> %147, %148
-  %shift155 = shufflevector <4 x float> %149, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop156 = fadd <4 x float> %149, %shift155
-  %150 = extractelement <4 x float> %foldExtExtBinop156, i64 0
+  %shift158 = shufflevector <4 x float> %149, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop159 = fadd <4 x float> %149, %shift158
+  %150 = extractelement <4 x float> %foldExtExtBinop159, i64 0
   %151 = getelementptr float, ptr %140, i64 %.0135
   store float %150, ptr %151, align 4, !tbaa !93
   %152 = add nuw nsw i64 %.0135, 1
@@ -23134,9 +23134,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.06286.sroa.gep98 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.06581.us.sroa.gep99 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.06286.us.sroa.gep100 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06286.sroa.gep102 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06581.us.sroa.gep103 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06286.us.sroa.gep104 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -23235,7 +23235,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader.us:                                    ; preds = %.preheader76.us, %60
   %82 = phi i1 [ true, %.preheader76.us ], [ false, %60 ]
-  %.06581.us.sroa.phi = phi ptr [ %6, %.preheader76.us ], [ %.06581.us.sroa.gep99, %60 ]
+  %.06581.us.sroa.phi = phi ptr [ %6, %.preheader76.us ], [ %.06581.us.sroa.gep103, %60 ]
   %.06581.us = phi i64 [ 0, %.preheader76.us ], [ 1, %60 ]
   %83 = add nsw i64 %.06581.us, %43
   %84 = mul nsw i64 %33, %83
@@ -23250,7 +23250,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader75.us:                                  ; preds = %..preheader77_crit_edge.us, %46
   %90 = phi i1 [ true, %..preheader77_crit_edge.us ], [ false, %46 ]
-  %.06286.us.sroa.phi = phi ptr [ %6, %..preheader77_crit_edge.us ], [ %.06286.us.sroa.gep100, %46 ]
+  %.06286.us.sroa.phi = phi ptr [ %6, %..preheader77_crit_edge.us ], [ %.06286.us.sroa.gep104, %46 ]
   %.06286.us = phi i64 [ 0, %..preheader77_crit_edge.us ], [ 1, %46 ]
   %91 = add nsw i64 %.06286.us, %43
   %92 = mul nsw i64 %37, %91
@@ -23284,7 +23284,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 
 .preheader75:                                     ; preds = %.preheader77, %102
   %97 = phi i1 [ true, %.preheader77 ], [ false, %102 ]
-  %.06286.sroa.phi = phi ptr [ %6, %.preheader77 ], [ %.06286.sroa.gep98, %102 ]
+  %.06286.sroa.phi = phi ptr [ %6, %.preheader77 ], [ %.06286.sroa.gep102, %102 ]
   %.06286 = phi i64 [ 0, %.preheader77 ], [ 1, %102 ]
   %98 = add nsw i64 %.06286, %96
   %99 = mul nsw i64 %37, %98
@@ -23310,9 +23310,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %109 = fadd <4 x float> %107, %108
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %111 = fadd <4 x float> %109, %110
-  %shift94 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop95 = fadd <4 x float> %111, %shift94
-  %112 = extractelement <4 x float> %foldExtExtBinop95, i64 0
+  %shift98 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop99 = fadd <4 x float> %111, %shift98
+  %112 = extractelement <4 x float> %foldExtExtBinop99, i64 0
   %113 = getelementptr float, ptr %gep85, i64 %.083
   store float %112, ptr %113, align 4, !tbaa !93
   br i1 %104, label %103, label %102, !llvm.loop !439
@@ -23361,7 +23361,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br i1 %25, label %.lr.ph.us, label %.preheader143.preheader
 
 .preheader143.preheader:                          ; preds = %.lr.ph161
-  %invariant.gep174 = getelementptr float, ptr %37, i64 %1
+  %invariant.gep177 = getelementptr float, ptr %37, i64 %1
   br label %.preheader143
 
 .lr.ph.us:                                        ; preds = %.lr.ph161, %58
@@ -23499,7 +23499,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %128 = shl nsw i64 %127, 2
   %129 = add nsw i64 %128, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %gep175 = getelementptr float, ptr %invariant.gep174, i64 %126
+  %gep178 = getelementptr float, ptr %invariant.gep177, i64 %126
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader
 
@@ -23512,12 +23512,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %134 = fadd <4 x float> %132, %133
   %135 = shufflevector <4 x float> %134, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %136 = fadd <4 x float> %134, %135
-  %shift181 = shufflevector <4 x float> %136, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop182 = fadd <4 x float> %136, %shift181
-  %137 = extractelement <4 x float> %foldExtExtBinop182, i64 0
+  %shift184 = shufflevector <4 x float> %136, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop185 = fadd <4 x float> %136, %shift184
+  %137 = extractelement <4 x float> %foldExtExtBinop185, i64 0
   %138 = add nsw i64 %.0116159, %129
   %139 = mul nsw i64 %39, %138
-  %gep = getelementptr float, ptr %gep175, i64 %139
+  %gep = getelementptr float, ptr %gep178, i64 %139
   store float %137, ptr %gep, align 4, !tbaa !93
   %140 = add nuw nsw i64 %.0116159, 1
   %exitcond.not = icmp eq i64 %140, 4
@@ -23689,9 +23689,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %100 = fadd <4 x float> %98, %99
   %101 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %102 = fadd <4 x float> %100, %101
-  %shift92 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop93 = fadd <4 x float> %102, %shift92
-  %103 = extractelement <4 x float> %foldExtExtBinop93, i64 0
+  %shift96 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop97 = fadd <4 x float> %102, %shift96
+  %103 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %104 = getelementptr float, ptr %93, i64 %.081
   store float %103, ptr %104, align 4, !tbaa !93
   %105 = add nuw nsw i64 %.081, 1
@@ -23853,9 +23853,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %92 = fadd <4 x float> %90, %91
   %93 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %94 = fadd <4 x float> %92, %93
-  %shift93 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop94 = fadd <4 x float> %94, %shift93
-  %95 = extractelement <4 x float> %foldExtExtBinop94, i64 0
+  %shift97 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop98 = fadd <4 x float> %94, %shift97
+  %95 = extractelement <4 x float> %foldExtExtBinop98, i64 0
   %96 = add nsw i64 %.06282, %87
   %97 = mul nsw i64 %36, %96
   %gep81 = getelementptr float, ptr %gep, i64 %97
@@ -24036,9 +24036,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %97 = fadd <4 x float> %95, %96
   %98 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %99 = fadd <4 x float> %97, %98
-  %shift89 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop90 = fadd <4 x float> %99, %shift89
-  %100 = extractelement <4 x float> %foldExtExtBinop90, i64 0
+  %shift93 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop94 = fadd <4 x float> %99, %shift93
+  %100 = extractelement <4 x float> %foldExtExtBinop94, i64 0
   %101 = getelementptr float, ptr %90, i64 %.081
   store float %100, ptr %101, align 4, !tbaa !93
   br i1 %93, label %92, label %.loopexit76, !llvm.loop !454
@@ -24203,9 +24203,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %89 = fadd <4 x float> %87, %88
   %90 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %91 = fadd <4 x float> %89, %90
-  %shift90 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop91 = fadd <4 x float> %91, %shift90
-  %92 = extractelement <4 x float> %foldExtExtBinop91, i64 0
+  %shift94 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop95 = fadd <4 x float> %91, %shift94
+  %92 = extractelement <4 x float> %foldExtExtBinop95, i64 0
   %93 = add nsw i64 %.06282, %84
   %94 = mul nsw i64 %35, %93
   %gep81 = getelementptr float, ptr %gep, i64 %94
@@ -24731,9 +24731,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %194 = fadd <4 x float> %192, %193
   %195 = shufflevector <4 x float> %194, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %196 = fadd <4 x float> %194, %195
-  %shift135 = shufflevector <4 x float> %196, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop136 = fadd <4 x float> %196, %shift135
-  %197 = extractelement <4 x float> %foldExtExtBinop136, i64 0
+  %shift141 = shufflevector <4 x float> %196, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop142 = fadd <4 x float> %196, %shift141
+  %197 = extractelement <4 x float> %foldExtExtBinop142, i64 0
   %198 = getelementptr float, ptr %gep120, i64 %.0118
   store float %197, ptr %198, align 4, !tbaa !93
   %199 = add nuw nsw i64 %.0118, 1
@@ -25018,9 +25018,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %194 = fadd <4 x float> %192, %193
   %195 = shufflevector <4 x float> %194, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %196 = fadd <4 x float> %194, %195
-  %shift135 = shufflevector <4 x float> %196, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop136 = fadd <4 x float> %196, %shift135
-  %197 = extractelement <4 x float> %foldExtExtBinop136, i64 0
+  %shift141 = shufflevector <4 x float> %196, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop142 = fadd <4 x float> %196, %shift141
+  %197 = extractelement <4 x float> %foldExtExtBinop142, i64 0
   %198 = getelementptr float, ptr %gep120, i64 %.0118
   store float %197, ptr %198, align 4, !tbaa !93
   %199 = add nuw nsw i64 %.0118, 1
@@ -25278,9 +25278,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %167 = fadd <4 x float> %165, %166
   %168 = shufflevector <4 x float> %167, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %169 = fadd <4 x float> %167, %168
-  %shift162 = shufflevector <4 x float> %169, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop163 = fadd <4 x float> %169, %shift162
-  %170 = extractelement <4 x float> %foldExtExtBinop163, i64 0
+  %shift168 = shufflevector <4 x float> %169, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop169 = fadd <4 x float> %169, %shift168
+  %170 = extractelement <4 x float> %foldExtExtBinop169, i64 0
   %171 = getelementptr float, ptr %gep147, i64 %.0145
   store float %170, ptr %171, align 4, !tbaa !93
   %172 = add nuw nsw i64 %.0145, 1
@@ -25494,9 +25494,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %119 = fadd <4 x float> %117, %118
   %120 = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %121 = fadd <4 x float> %119, %120
-  %shift99 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop100 = fadd <4 x float> %121, %shift99
-  %122 = extractelement <4 x float> %foldExtExtBinop100, i64 0
+  %shift106 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop107 = fadd <4 x float> %121, %shift106
+  %122 = extractelement <4 x float> %foldExtExtBinop107, i64 0
   %123 = getelementptr float, ptr %gep84, i64 %.082
   store float %122, ptr %123, align 4, !tbaa !93
   %124 = add nuw nsw i64 %.082, 1
@@ -25525,9 +25525,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.0100121.sroa.gep136 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %.0103116.us.sroa.gep137 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %.0100121.us.sroa.gep138 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0100121.sroa.gep140 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0103116.us.sroa.gep141 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0100121.us.sroa.gep142 = getelementptr inbounds nuw i8, ptr %6, i64 128
   br i1 %23, label %.lr.ph123, label %._crit_edge
 
 .lr.ph123:                                        ; preds = %5
@@ -25675,7 +25675,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 130:                                              ; preds = %130, %69
   %131 = phi i1 [ true, %69 ], [ false, %130 ]
-  %.0103116.us.sroa.phi = phi ptr [ %6, %69 ], [ %.0103116.us.sroa.gep137, %130 ]
+  %.0103116.us.sroa.phi = phi ptr [ %6, %69 ], [ %.0103116.us.sroa.gep141, %130 ]
   %.0103116.us = phi i64 [ 0, %69 ], [ 1, %130 ]
   %132 = add nsw i64 %.0103116.us, %43
   %133 = mul nsw i64 %33, %132
@@ -25728,7 +25728,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader.us:                                    ; preds = %..preheader115_crit_edge.us, %57
   %173 = phi i1 [ true, %..preheader115_crit_edge.us ], [ false, %57 ]
-  %.0100121.us.sroa.phi = phi ptr [ %6, %..preheader115_crit_edge.us ], [ %.0100121.us.sroa.gep138, %57 ]
+  %.0100121.us.sroa.phi = phi ptr [ %6, %..preheader115_crit_edge.us ], [ %.0100121.us.sroa.gep142, %57 ]
   %.0100121.us = phi i64 [ 0, %..preheader115_crit_edge.us ], [ 1, %57 ]
   %174 = add nsw i64 %.0100121.us, %43
   %175 = mul nsw i64 %37, %174
@@ -25756,7 +25756,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader:                                       ; preds = %.preheader115, %185
   %180 = phi i1 [ true, %.preheader115 ], [ false, %185 ]
-  %.0100121.sroa.phi = phi ptr [ %6, %.preheader115 ], [ %.0100121.sroa.gep136, %185 ]
+  %.0100121.sroa.phi = phi ptr [ %6, %.preheader115 ], [ %.0100121.sroa.gep140, %185 ]
   %.0100121 = phi i64 [ 0, %.preheader115 ], [ 1, %185 ]
   %181 = add nsw i64 %.0100121, %179
   %182 = mul nsw i64 %37, %181
@@ -25781,9 +25781,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %191 = fadd <4 x float> %189, %190
   %192 = shufflevector <4 x float> %191, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %193 = fadd <4 x float> %191, %192
-  %shift132 = shufflevector <4 x float> %193, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop133 = fadd <4 x float> %193, %shift132
-  %194 = extractelement <4 x float> %foldExtExtBinop133, i64 0
+  %shift136 = shufflevector <4 x float> %193, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop137 = fadd <4 x float> %193, %shift136
+  %194 = extractelement <4 x float> %foldExtExtBinop137, i64 0
   %195 = getelementptr float, ptr %gep120, i64 %.0118
   store float %194, ptr %195, align 4, !tbaa !93
   %196 = add nuw nsw i64 %.0118, 1
@@ -25812,7 +25812,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.0119143.us.sroa.gep163 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.0119143.us.sroa.gep169 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %23, label %.lr.ph150, label %._crit_edge
 
 .lr.ph150:                                        ; preds = %5
@@ -25924,7 +25924,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 94:                                               ; preds = %94, %73
   %95 = phi i1 [ true, %73 ], [ false, %94 ]
-  %.0119143.us.sroa.phi = phi ptr [ %6, %73 ], [ %.0119143.us.sroa.gep163, %94 ]
+  %.0119143.us.sroa.phi = phi ptr [ %6, %73 ], [ %.0119143.us.sroa.gep169, %94 ]
   %.0119143.us = phi i64 [ 0, %73 ], [ 1, %94 ]
   %96 = add nsw i64 %.0119143.us, %43
   %97 = mul nsw i64 %33, %96
@@ -26041,9 +26041,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %167 = fadd <4 x float> %165, %166
   %168 = shufflevector <4 x float> %167, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %169 = fadd <4 x float> %167, %168
-  %shift159 = shufflevector <4 x float> %169, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop160 = fadd <4 x float> %169, %shift159
-  %170 = extractelement <4 x float> %foldExtExtBinop160, i64 0
+  %shift165 = shufflevector <4 x float> %169, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop166 = fadd <4 x float> %169, %shift165
+  %170 = extractelement <4 x float> %foldExtExtBinop166, i64 0
   %171 = getelementptr float, ptr %gep147, i64 %.0145
   store float %170, ptr %171, align 4, !tbaa !93
   br i1 %162, label %161, label %159, !llvm.loop !494
@@ -26070,9 +26070,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.06285.sroa.gep100 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %.06580.us.sroa.gep101 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %.06285.us.sroa.gep102 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06285.sroa.gep104 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06580.us.sroa.gep105 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06285.us.sroa.gep106 = getelementptr inbounds nuw i8, ptr %6, i64 96
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -26181,7 +26181,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader.us:                                    ; preds = %.preheader75.us, %60
   %90 = phi i1 [ true, %.preheader75.us ], [ false, %60 ]
-  %.06580.us.sroa.phi = phi ptr [ %6, %.preheader75.us ], [ %.06580.us.sroa.gep101, %60 ]
+  %.06580.us.sroa.phi = phi ptr [ %6, %.preheader75.us ], [ %.06580.us.sroa.gep105, %60 ]
   %.06580.us = phi i64 [ 0, %.preheader75.us ], [ 1, %60 ]
   %91 = add nsw i64 %.06580.us, %43
   %92 = mul nsw i64 %33, %91
@@ -26196,7 +26196,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader74.us:                                  ; preds = %..preheader76_crit_edge.us, %46
   %98 = phi i1 [ true, %..preheader76_crit_edge.us ], [ false, %46 ]
-  %.06285.us.sroa.phi = phi ptr [ %6, %..preheader76_crit_edge.us ], [ %.06285.us.sroa.gep102, %46 ]
+  %.06285.us.sroa.phi = phi ptr [ %6, %..preheader76_crit_edge.us ], [ %.06285.us.sroa.gep106, %46 ]
   %.06285.us = phi i64 [ 0, %..preheader76_crit_edge.us ], [ 1, %46 ]
   %99 = add nsw i64 %.06285.us, %43
   %100 = mul nsw i64 %37, %99
@@ -26230,7 +26230,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader74:                                     ; preds = %.preheader76, %110
   %105 = phi i1 [ true, %.preheader76 ], [ false, %110 ]
-  %.06285.sroa.phi = phi ptr [ %6, %.preheader76 ], [ %.06285.sroa.gep100, %110 ]
+  %.06285.sroa.phi = phi ptr [ %6, %.preheader76 ], [ %.06285.sroa.gep104, %110 ]
   %.06285 = phi i64 [ 0, %.preheader76 ], [ 1, %110 ]
   %106 = add nsw i64 %.06285, %104
   %107 = mul nsw i64 %37, %106
@@ -26255,9 +26255,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %116 = fadd <4 x float> %114, %115
   %117 = shufflevector <4 x float> %116, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %118 = fadd <4 x float> %116, %117
-  %shift96 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop97 = fadd <4 x float> %118, %shift96
-  %119 = extractelement <4 x float> %foldExtExtBinop97, i64 0
+  %shift100 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop101 = fadd <4 x float> %118, %shift100
+  %119 = extractelement <4 x float> %foldExtExtBinop101, i64 0
   %120 = getelementptr float, ptr %gep84, i64 %.082
   store float %119, ptr %120, align 4, !tbaa !93
   %121 = add nuw nsw i64 %.082, 1
@@ -26470,9 +26470,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %120 = fadd <4 x float> %118, %119
   %121 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %122 = fadd <4 x float> %120, %121
-  %shift96 = shufflevector <4 x float> %122, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop97 = fadd <4 x float> %122, %shift96
-  %123 = extractelement <4 x float> %foldExtExtBinop97, i64 0
+  %shift103 = shufflevector <4 x float> %122, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop104 = fadd <4 x float> %122, %shift103
+  %123 = extractelement <4 x float> %foldExtExtBinop104, i64 0
   %124 = getelementptr float, ptr %gep84, i64 %.082
   store float %123, ptr %124, align 4, !tbaa !93
   br i1 %115, label %114, label %112, !llvm.loop !505
@@ -26715,9 +26715,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %179 = fadd <4 x float> %177, %178
   %180 = shufflevector <4 x float> %179, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %181 = fadd <4 x float> %179, %180
-  %shift151 = shufflevector <4 x float> %181, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop152 = fadd <4 x float> %181, %shift151
-  %182 = extractelement <4 x float> %foldExtExtBinop152, i64 0
+  %shift154 = shufflevector <4 x float> %181, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop155 = fadd <4 x float> %181, %shift154
+  %182 = extractelement <4 x float> %foldExtExtBinop155, i64 0
   %183 = getelementptr float, ptr %172, i64 %.0131
   store float %182, ptr %183, align 4, !tbaa !93
   %184 = add nuw nsw i64 %.0131, 1
@@ -26746,9 +26746,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.06285.sroa.gep97 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.06580.us.sroa.gep98 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.06285.us.sroa.gep99 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06285.sroa.gep101 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06580.us.sroa.gep102 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06285.us.sroa.gep103 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -26855,7 +26855,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader.us:                                    ; preds = %.preheader75.us, %60
   %90 = phi i1 [ true, %.preheader75.us ], [ false, %60 ]
-  %.06580.us.sroa.phi = phi ptr [ %6, %.preheader75.us ], [ %.06580.us.sroa.gep98, %60 ]
+  %.06580.us.sroa.phi = phi ptr [ %6, %.preheader75.us ], [ %.06580.us.sroa.gep102, %60 ]
   %.06580.us = phi i64 [ 0, %.preheader75.us ], [ 1, %60 ]
   %91 = add nsw i64 %.06580.us, %43
   %92 = mul nsw i64 %33, %91
@@ -26870,7 +26870,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader74.us:                                  ; preds = %..preheader76_crit_edge.us, %46
   %98 = phi i1 [ true, %..preheader76_crit_edge.us ], [ false, %46 ]
-  %.06285.us.sroa.phi = phi ptr [ %6, %..preheader76_crit_edge.us ], [ %.06285.us.sroa.gep99, %46 ]
+  %.06285.us.sroa.phi = phi ptr [ %6, %..preheader76_crit_edge.us ], [ %.06285.us.sroa.gep103, %46 ]
   %.06285.us = phi i64 [ 0, %..preheader76_crit_edge.us ], [ 1, %46 ]
   %99 = add nsw i64 %.06285.us, %43
   %100 = mul nsw i64 %37, %99
@@ -26904,7 +26904,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 
 .preheader74:                                     ; preds = %.preheader76, %110
   %105 = phi i1 [ true, %.preheader76 ], [ false, %110 ]
-  %.06285.sroa.phi = phi ptr [ %6, %.preheader76 ], [ %.06285.sroa.gep97, %110 ]
+  %.06285.sroa.phi = phi ptr [ %6, %.preheader76 ], [ %.06285.sroa.gep101, %110 ]
   %.06285 = phi i64 [ 0, %.preheader76 ], [ 1, %110 ]
   %106 = add nsw i64 %.06285, %104
   %107 = mul nsw i64 %37, %106
@@ -26930,9 +26930,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %117 = fadd <4 x float> %115, %116
   %118 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %119 = fadd <4 x float> %117, %118
-  %shift93 = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop94 = fadd <4 x float> %119, %shift93
-  %120 = extractelement <4 x float> %foldExtExtBinop94, i64 0
+  %shift97 = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop98 = fadd <4 x float> %119, %shift97
+  %120 = extractelement <4 x float> %foldExtExtBinop98, i64 0
   %121 = getelementptr float, ptr %gep84, i64 %.082
   store float %120, ptr %121, align 4, !tbaa !93
   br i1 %112, label %111, label %110, !llvm.loop !514
@@ -26981,7 +26981,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br i1 %25, label %.lr.ph.us, label %.preheader142.preheader
 
 .preheader142.preheader:                          ; preds = %.lr.ph160
-  %invariant.gep173 = getelementptr float, ptr %37, i64 %1
+  %invariant.gep176 = getelementptr float, ptr %37, i64 %1
   br label %.preheader142
 
 .lr.ph.us:                                        ; preds = %.lr.ph160, %58
@@ -27127,7 +27127,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %136 = shl nsw i64 %135, 2
   %137 = add nsw i64 %136, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %gep174 = getelementptr float, ptr %invariant.gep173, i64 %134
+  %gep177 = getelementptr float, ptr %invariant.gep176, i64 %134
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader
 
@@ -27140,12 +27140,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %142 = fadd <4 x float> %140, %141
   %143 = shufflevector <4 x float> %142, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %144 = fadd <4 x float> %142, %143
-  %shift180 = shufflevector <4 x float> %144, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop181 = fadd <4 x float> %144, %shift180
-  %145 = extractelement <4 x float> %foldExtExtBinop181, i64 0
+  %shift183 = shufflevector <4 x float> %144, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop184 = fadd <4 x float> %144, %shift183
+  %145 = extractelement <4 x float> %foldExtExtBinop184, i64 0
   %146 = add nsw i64 %.0116158, %137
   %147 = mul nsw i64 %39, %146
-  %gep = getelementptr float, ptr %gep174, i64 %147
+  %gep = getelementptr float, ptr %gep177, i64 %147
   store float %145, ptr %gep, align 4, !tbaa !93
   %148 = add nuw nsw i64 %.0116158, 1
   %exitcond.not = icmp eq i64 %148, 4
@@ -27325,9 +27325,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %108 = fadd <4 x float> %106, %107
   %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %110 = fadd <4 x float> %108, %109
-  %shift91 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop92 = fadd <4 x float> %110, %shift91
-  %111 = extractelement <4 x float> %foldExtExtBinop92, i64 0
+  %shift95 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop96 = fadd <4 x float> %110, %shift95
+  %111 = extractelement <4 x float> %foldExtExtBinop96, i64 0
   %112 = getelementptr float, ptr %101, i64 %.080
   store float %111, ptr %112, align 4, !tbaa !93
   %113 = add nuw nsw i64 %.080, 1
@@ -27497,9 +27497,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %100 = fadd <4 x float> %98, %99
   %101 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %102 = fadd <4 x float> %100, %101
-  %shift92 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop93 = fadd <4 x float> %102, %shift92
-  %103 = extractelement <4 x float> %foldExtExtBinop93, i64 0
+  %shift96 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop97 = fadd <4 x float> %102, %shift96
+  %103 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %104 = add nsw i64 %.06281, %95
   %105 = mul nsw i64 %36, %104
   %gep80 = getelementptr float, ptr %gep, i64 %105
@@ -27688,9 +27688,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %105 = fadd <4 x float> %103, %104
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %107 = fadd <4 x float> %105, %106
-  %shift88 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop89 = fadd <4 x float> %107, %shift88
-  %108 = extractelement <4 x float> %foldExtExtBinop89, i64 0
+  %shift92 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop93 = fadd <4 x float> %107, %shift92
+  %108 = extractelement <4 x float> %foldExtExtBinop93, i64 0
   %109 = getelementptr float, ptr %98, i64 %.080
   store float %108, ptr %109, align 4, !tbaa !93
   br i1 %101, label %100, label %.loopexit75, !llvm.loop !529
@@ -27863,9 +27863,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %97 = fadd <4 x float> %95, %96
   %98 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %99 = fadd <4 x float> %97, %98
-  %shift89 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop90 = fadd <4 x float> %99, %shift89
-  %100 = extractelement <4 x float> %foldExtExtBinop90, i64 0
+  %shift93 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop94 = fadd <4 x float> %99, %shift93
+  %100 = extractelement <4 x float> %foldExtExtBinop94, i64 0
   %101 = add nsw i64 %.06281, %92
   %102 = mul nsw i64 %35, %101
   %gep80 = getelementptr float, ptr %gep, i64 %102
@@ -28426,9 +28426,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %226 = fadd <4 x float> %224, %225
   %227 = shufflevector <4 x float> %226, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %228 = fadd <4 x float> %226, %227
-  %shift139 = shufflevector <4 x float> %228, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop140 = fadd <4 x float> %228, %shift139
-  %229 = extractelement <4 x float> %foldExtExtBinop140, i64 0
+  %shift145 = shufflevector <4 x float> %228, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop146 = fadd <4 x float> %228, %shift145
+  %229 = extractelement <4 x float> %foldExtExtBinop146, i64 0
   %230 = getelementptr float, ptr %gep124, i64 %.0122
   store float %229, ptr %230, align 4, !tbaa !93
   %231 = add nuw nsw i64 %.0122, 1
@@ -28749,9 +28749,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %226 = fadd <4 x float> %224, %225
   %227 = shufflevector <4 x float> %226, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %228 = fadd <4 x float> %226, %227
-  %shift139 = shufflevector <4 x float> %228, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop140 = fadd <4 x float> %228, %shift139
-  %229 = extractelement <4 x float> %foldExtExtBinop140, i64 0
+  %shift145 = shufflevector <4 x float> %228, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop146 = fadd <4 x float> %228, %shift145
+  %229 = extractelement <4 x float> %foldExtExtBinop146, i64 0
   %230 = getelementptr float, ptr %gep124, i64 %.0122
   store float %229, ptr %230, align 4, !tbaa !93
   %231 = add nuw nsw i64 %.0122, 1
@@ -29018,9 +29018,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %175 = fadd <4 x float> %173, %174
   %176 = shufflevector <4 x float> %175, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %177 = fadd <4 x float> %175, %176
-  %shift174 = shufflevector <4 x float> %177, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop175 = fadd <4 x float> %177, %shift174
-  %178 = extractelement <4 x float> %foldExtExtBinop175, i64 0
+  %shift180 = shufflevector <4 x float> %177, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop181 = fadd <4 x float> %177, %shift180
+  %178 = extractelement <4 x float> %foldExtExtBinop181, i64 0
   %179 = getelementptr float, ptr %gep159, i64 %.0157
   store float %178, ptr %179, align 4, !tbaa !93
   %180 = add nuw nsw i64 %.0157, 1
@@ -29243,9 +29243,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %127 = fadd <4 x float> %125, %126
   %128 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %129 = fadd <4 x float> %127, %128
-  %shift102 = shufflevector <4 x float> %129, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop103 = fadd <4 x float> %129, %shift102
-  %130 = extractelement <4 x float> %foldExtExtBinop103, i64 0
+  %shift109 = shufflevector <4 x float> %129, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop110 = fadd <4 x float> %129, %shift109
+  %130 = extractelement <4 x float> %foldExtExtBinop110, i64 0
   %131 = getelementptr float, ptr %gep87, i64 %.085
   store float %130, ptr %131, align 4, !tbaa !93
   %132 = add nuw nsw i64 %.085, 1
@@ -29274,9 +29274,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.0100125.sroa.gep140 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %.0103120.us.sroa.gep141 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %.0100125.us.sroa.gep142 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0100125.sroa.gep144 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0103120.us.sroa.gep145 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0100125.us.sroa.gep146 = getelementptr inbounds nuw i8, ptr %6, i64 128
   br i1 %23, label %.lr.ph127, label %._crit_edge
 
 .lr.ph127:                                        ; preds = %5
@@ -29460,7 +29460,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 162:                                              ; preds = %162, %69
   %163 = phi i1 [ true, %69 ], [ false, %162 ]
-  %.0103120.us.sroa.phi = phi ptr [ %6, %69 ], [ %.0103120.us.sroa.gep141, %162 ]
+  %.0103120.us.sroa.phi = phi ptr [ %6, %69 ], [ %.0103120.us.sroa.gep145, %162 ]
   %.0103120.us = phi i64 [ 0, %69 ], [ 1, %162 ]
   %164 = add nsw i64 %.0103120.us, %43
   %165 = mul nsw i64 %33, %164
@@ -29513,7 +29513,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader.us:                                    ; preds = %..preheader119_crit_edge.us, %57
   %205 = phi i1 [ true, %..preheader119_crit_edge.us ], [ false, %57 ]
-  %.0100125.us.sroa.phi = phi ptr [ %6, %..preheader119_crit_edge.us ], [ %.0100125.us.sroa.gep142, %57 ]
+  %.0100125.us.sroa.phi = phi ptr [ %6, %..preheader119_crit_edge.us ], [ %.0100125.us.sroa.gep146, %57 ]
   %.0100125.us = phi i64 [ 0, %..preheader119_crit_edge.us ], [ 1, %57 ]
   %206 = add nsw i64 %.0100125.us, %43
   %207 = mul nsw i64 %37, %206
@@ -29541,7 +29541,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader:                                       ; preds = %.preheader119, %217
   %212 = phi i1 [ true, %.preheader119 ], [ false, %217 ]
-  %.0100125.sroa.phi = phi ptr [ %6, %.preheader119 ], [ %.0100125.sroa.gep140, %217 ]
+  %.0100125.sroa.phi = phi ptr [ %6, %.preheader119 ], [ %.0100125.sroa.gep144, %217 ]
   %.0100125 = phi i64 [ 0, %.preheader119 ], [ 1, %217 ]
   %213 = add nsw i64 %.0100125, %211
   %214 = mul nsw i64 %37, %213
@@ -29566,9 +29566,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %223 = fadd <4 x float> %221, %222
   %224 = shufflevector <4 x float> %223, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %225 = fadd <4 x float> %223, %224
-  %shift136 = shufflevector <4 x float> %225, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop137 = fadd <4 x float> %225, %shift136
-  %226 = extractelement <4 x float> %foldExtExtBinop137, i64 0
+  %shift140 = shufflevector <4 x float> %225, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop141 = fadd <4 x float> %225, %shift140
+  %226 = extractelement <4 x float> %foldExtExtBinop141, i64 0
   %227 = getelementptr float, ptr %gep124, i64 %.0122
   store float %226, ptr %227, align 4, !tbaa !93
   %228 = add nuw nsw i64 %.0122, 1
@@ -29597,7 +29597,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.0119155.us.sroa.gep175 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.0119155.us.sroa.gep181 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %23, label %.lr.ph162, label %._crit_edge
 
 .lr.ph162:                                        ; preds = %5
@@ -29709,7 +29709,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 94:                                               ; preds = %94, %73
   %95 = phi i1 [ true, %73 ], [ false, %94 ]
-  %.0119155.us.sroa.phi = phi ptr [ %6, %73 ], [ %.0119155.us.sroa.gep175, %94 ]
+  %.0119155.us.sroa.phi = phi ptr [ %6, %73 ], [ %.0119155.us.sroa.gep181, %94 ]
   %.0119155.us = phi i64 [ 0, %73 ], [ 1, %94 ]
   %96 = add nsw i64 %.0119155.us, %43
   %97 = mul nsw i64 %33, %96
@@ -29835,9 +29835,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %175 = fadd <4 x float> %173, %174
   %176 = shufflevector <4 x float> %175, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %177 = fadd <4 x float> %175, %176
-  %shift171 = shufflevector <4 x float> %177, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop172 = fadd <4 x float> %177, %shift171
-  %178 = extractelement <4 x float> %foldExtExtBinop172, i64 0
+  %shift177 = shufflevector <4 x float> %177, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop178 = fadd <4 x float> %177, %shift177
+  %178 = extractelement <4 x float> %foldExtExtBinop178, i64 0
   %179 = getelementptr float, ptr %gep159, i64 %.0157
   store float %178, ptr %179, align 4, !tbaa !93
   br i1 %170, label %169, label %167, !llvm.loop !569
@@ -29864,9 +29864,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.06288.sroa.gep103 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %.06583.us.sroa.gep104 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %.06288.us.sroa.gep105 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06288.sroa.gep107 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06583.us.sroa.gep108 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06288.us.sroa.gep109 = getelementptr inbounds nuw i8, ptr %6, i64 96
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -29984,7 +29984,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader.us:                                    ; preds = %.preheader78.us, %60
   %98 = phi i1 [ true, %.preheader78.us ], [ false, %60 ]
-  %.06583.us.sroa.phi = phi ptr [ %6, %.preheader78.us ], [ %.06583.us.sroa.gep104, %60 ]
+  %.06583.us.sroa.phi = phi ptr [ %6, %.preheader78.us ], [ %.06583.us.sroa.gep108, %60 ]
   %.06583.us = phi i64 [ 0, %.preheader78.us ], [ 1, %60 ]
   %99 = add nsw i64 %.06583.us, %43
   %100 = mul nsw i64 %33, %99
@@ -29999,7 +29999,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader77.us:                                  ; preds = %..preheader79_crit_edge.us, %46
   %106 = phi i1 [ true, %..preheader79_crit_edge.us ], [ false, %46 ]
-  %.06288.us.sroa.phi = phi ptr [ %6, %..preheader79_crit_edge.us ], [ %.06288.us.sroa.gep105, %46 ]
+  %.06288.us.sroa.phi = phi ptr [ %6, %..preheader79_crit_edge.us ], [ %.06288.us.sroa.gep109, %46 ]
   %.06288.us = phi i64 [ 0, %..preheader79_crit_edge.us ], [ 1, %46 ]
   %107 = add nsw i64 %.06288.us, %43
   %108 = mul nsw i64 %37, %107
@@ -30033,7 +30033,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader77:                                     ; preds = %.preheader79, %118
   %113 = phi i1 [ true, %.preheader79 ], [ false, %118 ]
-  %.06288.sroa.phi = phi ptr [ %6, %.preheader79 ], [ %.06288.sroa.gep103, %118 ]
+  %.06288.sroa.phi = phi ptr [ %6, %.preheader79 ], [ %.06288.sroa.gep107, %118 ]
   %.06288 = phi i64 [ 0, %.preheader79 ], [ 1, %118 ]
   %114 = add nsw i64 %.06288, %112
   %115 = mul nsw i64 %37, %114
@@ -30058,9 +30058,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %124 = fadd <4 x float> %122, %123
   %125 = shufflevector <4 x float> %124, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %126 = fadd <4 x float> %124, %125
-  %shift99 = shufflevector <4 x float> %126, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop100 = fadd <4 x float> %126, %shift99
-  %127 = extractelement <4 x float> %foldExtExtBinop100, i64 0
+  %shift103 = shufflevector <4 x float> %126, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop104 = fadd <4 x float> %126, %shift103
+  %127 = extractelement <4 x float> %foldExtExtBinop104, i64 0
   %128 = getelementptr float, ptr %gep87, i64 %.085
   store float %127, ptr %128, align 4, !tbaa !93
   %129 = add nuw nsw i64 %.085, 1
@@ -30282,9 +30282,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %128 = fadd <4 x float> %126, %127
   %129 = shufflevector <4 x float> %128, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %130 = fadd <4 x float> %128, %129
-  %shift99 = shufflevector <4 x float> %130, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop100 = fadd <4 x float> %130, %shift99
-  %131 = extractelement <4 x float> %foldExtExtBinop100, i64 0
+  %shift106 = shufflevector <4 x float> %130, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop107 = fadd <4 x float> %130, %shift106
+  %131 = extractelement <4 x float> %foldExtExtBinop107, i64 0
   %132 = getelementptr float, ptr %gep87, i64 %.085
   store float %131, ptr %132, align 4, !tbaa !93
   br i1 %123, label %122, label %120, !llvm.loop !580
@@ -30563,9 +30563,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %211 = fadd <4 x float> %209, %210
   %212 = shufflevector <4 x float> %211, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %213 = fadd <4 x float> %211, %212
-  %shift155 = shufflevector <4 x float> %213, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop156 = fadd <4 x float> %213, %shift155
-  %214 = extractelement <4 x float> %foldExtExtBinop156, i64 0
+  %shift158 = shufflevector <4 x float> %213, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop159 = fadd <4 x float> %213, %shift158
+  %214 = extractelement <4 x float> %foldExtExtBinop159, i64 0
   %215 = getelementptr float, ptr %204, i64 %.0135
   store float %214, ptr %215, align 4, !tbaa !93
   %216 = add nuw nsw i64 %.0135, 1
@@ -30594,9 +30594,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.06288.sroa.gep100 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.06583.us.sroa.gep101 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.06288.us.sroa.gep102 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06288.sroa.gep104 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06583.us.sroa.gep105 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06288.us.sroa.gep106 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -30712,7 +30712,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader.us:                                    ; preds = %.preheader78.us, %60
   %98 = phi i1 [ true, %.preheader78.us ], [ false, %60 ]
-  %.06583.us.sroa.phi = phi ptr [ %6, %.preheader78.us ], [ %.06583.us.sroa.gep101, %60 ]
+  %.06583.us.sroa.phi = phi ptr [ %6, %.preheader78.us ], [ %.06583.us.sroa.gep105, %60 ]
   %.06583.us = phi i64 [ 0, %.preheader78.us ], [ 1, %60 ]
   %99 = add nsw i64 %.06583.us, %43
   %100 = mul nsw i64 %33, %99
@@ -30727,7 +30727,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader77.us:                                  ; preds = %..preheader79_crit_edge.us, %46
   %106 = phi i1 [ true, %..preheader79_crit_edge.us ], [ false, %46 ]
-  %.06288.us.sroa.phi = phi ptr [ %6, %..preheader79_crit_edge.us ], [ %.06288.us.sroa.gep102, %46 ]
+  %.06288.us.sroa.phi = phi ptr [ %6, %..preheader79_crit_edge.us ], [ %.06288.us.sroa.gep106, %46 ]
   %.06288.us = phi i64 [ 0, %..preheader79_crit_edge.us ], [ 1, %46 ]
   %107 = add nsw i64 %.06288.us, %43
   %108 = mul nsw i64 %37, %107
@@ -30761,7 +30761,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 
 .preheader77:                                     ; preds = %.preheader79, %118
   %113 = phi i1 [ true, %.preheader79 ], [ false, %118 ]
-  %.06288.sroa.phi = phi ptr [ %6, %.preheader79 ], [ %.06288.sroa.gep100, %118 ]
+  %.06288.sroa.phi = phi ptr [ %6, %.preheader79 ], [ %.06288.sroa.gep104, %118 ]
   %.06288 = phi i64 [ 0, %.preheader79 ], [ 1, %118 ]
   %114 = add nsw i64 %.06288, %112
   %115 = mul nsw i64 %37, %114
@@ -30787,9 +30787,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %125 = fadd <4 x float> %123, %124
   %126 = shufflevector <4 x float> %125, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %127 = fadd <4 x float> %125, %126
-  %shift96 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop97 = fadd <4 x float> %127, %shift96
-  %128 = extractelement <4 x float> %foldExtExtBinop97, i64 0
+  %shift100 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop101 = fadd <4 x float> %127, %shift100
+  %128 = extractelement <4 x float> %foldExtExtBinop101, i64 0
   %129 = getelementptr float, ptr %gep87, i64 %.085
   store float %128, ptr %129, align 4, !tbaa !93
   br i1 %120, label %119, label %118, !llvm.loop !589
@@ -30838,7 +30838,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br i1 %25, label %.lr.ph.us, label %.preheader154.preheader
 
 .preheader154.preheader:                          ; preds = %.lr.ph172
-  %invariant.gep185 = getelementptr float, ptr %37, i64 %1
+  %invariant.gep188 = getelementptr float, ptr %37, i64 %1
   br label %.preheader154
 
 .lr.ph.us:                                        ; preds = %.lr.ph172, %58
@@ -30993,7 +30993,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %144 = shl nsw i64 %143, 2
   %145 = add nsw i64 %144, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %gep186 = getelementptr float, ptr %invariant.gep185, i64 %142
+  %gep189 = getelementptr float, ptr %invariant.gep188, i64 %142
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader
 
@@ -31006,12 +31006,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %150 = fadd <4 x float> %148, %149
   %151 = shufflevector <4 x float> %150, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %152 = fadd <4 x float> %150, %151
-  %shift192 = shufflevector <4 x float> %152, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop193 = fadd <4 x float> %152, %shift192
-  %153 = extractelement <4 x float> %foldExtExtBinop193, i64 0
+  %shift195 = shufflevector <4 x float> %152, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop196 = fadd <4 x float> %152, %shift195
+  %153 = extractelement <4 x float> %foldExtExtBinop196, i64 0
   %154 = add nsw i64 %.0116170, %145
   %155 = mul nsw i64 %39, %154
-  %gep = getelementptr float, ptr %gep186, i64 %155
+  %gep = getelementptr float, ptr %gep189, i64 %155
   store float %153, ptr %gep, align 4, !tbaa !93
   %156 = add nuw nsw i64 %.0116170, 1
   %exitcond.not = icmp eq i64 %156, 4
@@ -31200,9 +31200,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %116 = fadd <4 x float> %114, %115
   %117 = shufflevector <4 x float> %116, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %118 = fadd <4 x float> %116, %117
-  %shift94 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop95 = fadd <4 x float> %118, %shift94
-  %119 = extractelement <4 x float> %foldExtExtBinop95, i64 0
+  %shift98 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop99 = fadd <4 x float> %118, %shift98
+  %119 = extractelement <4 x float> %foldExtExtBinop99, i64 0
   %120 = getelementptr float, ptr %109, i64 %.083
   store float %119, ptr %120, align 4, !tbaa !93
   %121 = add nuw nsw i64 %.083, 1
@@ -31381,9 +31381,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %108 = fadd <4 x float> %106, %107
   %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %110 = fadd <4 x float> %108, %109
-  %shift95 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop96 = fadd <4 x float> %110, %shift95
-  %111 = extractelement <4 x float> %foldExtExtBinop96, i64 0
+  %shift99 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop100 = fadd <4 x float> %110, %shift99
+  %111 = extractelement <4 x float> %foldExtExtBinop100, i64 0
   %112 = add nsw i64 %.06284, %103
   %113 = mul nsw i64 %36, %112
   %gep83 = getelementptr float, ptr %gep, i64 %113
@@ -31581,9 +31581,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %113 = fadd <4 x float> %111, %112
   %114 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %115 = fadd <4 x float> %113, %114
-  %shift91 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop92 = fadd <4 x float> %115, %shift91
-  %116 = extractelement <4 x float> %foldExtExtBinop92, i64 0
+  %shift95 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop96 = fadd <4 x float> %115, %shift95
+  %116 = extractelement <4 x float> %foldExtExtBinop96, i64 0
   %117 = getelementptr float, ptr %106, i64 %.083
   store float %116, ptr %117, align 4, !tbaa !93
   br i1 %109, label %108, label %.loopexit78, !llvm.loop !604
@@ -31765,9 +31765,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %105 = fadd <4 x float> %103, %104
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %107 = fadd <4 x float> %105, %106
-  %shift92 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop93 = fadd <4 x float> %107, %shift92
-  %108 = extractelement <4 x float> %foldExtExtBinop93, i64 0
+  %shift96 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop97 = fadd <4 x float> %107, %shift96
+  %108 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %109 = add nsw i64 %.06284, %100
   %110 = mul nsw i64 %35, %109
   %gep83 = getelementptr float, ptr %gep, i64 %110
@@ -32307,9 +32307,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %199 = fadd <4 x float> %197, %198
   %200 = shufflevector <4 x float> %199, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %201 = fadd <4 x float> %199, %200
-  %shift140 = shufflevector <4 x float> %201, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop141 = fadd <4 x float> %201, %shift140
-  %202 = extractelement <4 x float> %foldExtExtBinop141, i64 0
+  %shift146 = shufflevector <4 x float> %201, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop147 = fadd <4 x float> %201, %shift146
+  %202 = extractelement <4 x float> %foldExtExtBinop147, i64 0
   %203 = getelementptr float, ptr %gep125, i64 %.0123
   store float %202, ptr %203, align 4, !tbaa !93
   %204 = add nuw nsw i64 %.0123, 1
@@ -32600,9 +32600,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %199 = fadd <4 x float> %197, %198
   %200 = shufflevector <4 x float> %199, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %201 = fadd <4 x float> %199, %200
-  %shift140 = shufflevector <4 x float> %201, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop141 = fadd <4 x float> %201, %shift140
-  %202 = extractelement <4 x float> %foldExtExtBinop141, i64 0
+  %shift146 = shufflevector <4 x float> %201, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop147 = fadd <4 x float> %201, %shift146
+  %202 = extractelement <4 x float> %foldExtExtBinop147, i64 0
   %203 = getelementptr float, ptr %gep125, i64 %.0123
   store float %202, ptr %203, align 4, !tbaa !93
   %204 = add nuw nsw i64 %.0123, 1
@@ -32863,9 +32863,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %169 = fadd <4 x float> %167, %168
   %170 = shufflevector <4 x float> %169, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %171 = fadd <4 x float> %169, %170
-  %shift175 = shufflevector <4 x float> %171, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop176 = fadd <4 x float> %171, %shift175
-  %172 = extractelement <4 x float> %foldExtExtBinop176, i64 0
+  %shift181 = shufflevector <4 x float> %171, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop182 = fadd <4 x float> %171, %shift181
+  %172 = extractelement <4 x float> %foldExtExtBinop182, i64 0
   %173 = getelementptr float, ptr %gep160, i64 %.0158
   store float %172, ptr %173, align 4, !tbaa !93
   %174 = add nuw nsw i64 %.0158, 1
@@ -33082,9 +33082,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %121 = fadd <4 x float> %119, %120
   %122 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %123 = fadd <4 x float> %121, %122
-  %shift103 = shufflevector <4 x float> %123, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop104 = fadd <4 x float> %123, %shift103
-  %124 = extractelement <4 x float> %foldExtExtBinop104, i64 0
+  %shift110 = shufflevector <4 x float> %123, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop111 = fadd <4 x float> %123, %shift110
+  %124 = extractelement <4 x float> %foldExtExtBinop111, i64 0
   %125 = getelementptr float, ptr %gep88, i64 %.086
   store float %124, ptr %125, align 4, !tbaa !93
   %126 = add nuw nsw i64 %.086, 1
@@ -33113,9 +33113,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.0100126.sroa.gep141 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %.0103121.us.sroa.gep142 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %.0100126.us.sroa.gep143 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0100126.sroa.gep145 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0103121.us.sroa.gep146 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %.0100126.us.sroa.gep147 = getelementptr inbounds nuw i8, ptr %6, i64 128
   br i1 %23, label %.lr.ph128, label %._crit_edge
 
 .lr.ph128:                                        ; preds = %5
@@ -33269,7 +33269,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 135:                                              ; preds = %135, %70
   %136 = phi i1 [ true, %70 ], [ false, %135 ]
-  %.0103121.us.sroa.phi = phi ptr [ %6, %70 ], [ %.0103121.us.sroa.gep142, %135 ]
+  %.0103121.us.sroa.phi = phi ptr [ %6, %70 ], [ %.0103121.us.sroa.gep146, %135 ]
   %.0103121.us = phi i64 [ 0, %70 ], [ 1, %135 ]
   %137 = add nsw i64 %.0103121.us, %44
   %138 = mul nsw i64 %34, %137
@@ -33322,7 +33322,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader.us:                                    ; preds = %..preheader120_crit_edge.us, %58
   %178 = phi i1 [ true, %..preheader120_crit_edge.us ], [ false, %58 ]
-  %.0100126.us.sroa.phi = phi ptr [ %6, %..preheader120_crit_edge.us ], [ %.0100126.us.sroa.gep143, %58 ]
+  %.0100126.us.sroa.phi = phi ptr [ %6, %..preheader120_crit_edge.us ], [ %.0100126.us.sroa.gep147, %58 ]
   %.0100126.us = phi i64 [ 0, %..preheader120_crit_edge.us ], [ 1, %58 ]
   %179 = add nsw i64 %.0100126.us, %44
   %180 = mul nsw i64 %38, %179
@@ -33350,7 +33350,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader:                                       ; preds = %.preheader120, %190
   %185 = phi i1 [ true, %.preheader120 ], [ false, %190 ]
-  %.0100126.sroa.phi = phi ptr [ %6, %.preheader120 ], [ %.0100126.sroa.gep141, %190 ]
+  %.0100126.sroa.phi = phi ptr [ %6, %.preheader120 ], [ %.0100126.sroa.gep145, %190 ]
   %.0100126 = phi i64 [ 0, %.preheader120 ], [ 1, %190 ]
   %186 = add nsw i64 %.0100126, %184
   %187 = mul nsw i64 %38, %186
@@ -33375,9 +33375,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %196 = fadd <4 x float> %194, %195
   %197 = shufflevector <4 x float> %196, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %198 = fadd <4 x float> %196, %197
-  %shift137 = shufflevector <4 x float> %198, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop138 = fadd <4 x float> %198, %shift137
-  %199 = extractelement <4 x float> %foldExtExtBinop138, i64 0
+  %shift141 = shufflevector <4 x float> %198, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop142 = fadd <4 x float> %198, %shift141
+  %199 = extractelement <4 x float> %foldExtExtBinop142, i64 0
   %200 = getelementptr float, ptr %gep125, i64 %.0123
   store float %199, ptr %200, align 4, !tbaa !93
   %201 = add nuw nsw i64 %.0123, 1
@@ -33406,7 +33406,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.0119156.us.sroa.gep176 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.0119156.us.sroa.gep182 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %23, label %.lr.ph163, label %._crit_edge
 
 .lr.ph163:                                        ; preds = %5
@@ -33520,7 +33520,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 95:                                               ; preds = %95, %74
   %96 = phi i1 [ true, %74 ], [ false, %95 ]
-  %.0119156.us.sroa.phi = phi ptr [ %6, %74 ], [ %.0119156.us.sroa.gep176, %95 ]
+  %.0119156.us.sroa.phi = phi ptr [ %6, %74 ], [ %.0119156.us.sroa.gep182, %95 ]
   %.0119156.us = phi i64 [ 0, %74 ], [ 1, %95 ]
   %97 = add nsw i64 %.0119156.us, %44
   %98 = mul nsw i64 %33, %97
@@ -33638,9 +33638,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %169 = fadd <4 x float> %167, %168
   %170 = shufflevector <4 x float> %169, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %171 = fadd <4 x float> %169, %170
-  %shift172 = shufflevector <4 x float> %171, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop173 = fadd <4 x float> %171, %shift172
-  %172 = extractelement <4 x float> %foldExtExtBinop173, i64 0
+  %shift178 = shufflevector <4 x float> %171, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop179 = fadd <4 x float> %171, %shift178
+  %172 = extractelement <4 x float> %foldExtExtBinop179, i64 0
   %173 = getelementptr float, ptr %gep160, i64 %.0158
   store float %172, ptr %173, align 4, !tbaa !93
   br i1 %164, label %163, label %161, !llvm.loop !644
@@ -33667,9 +33667,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.06289.sroa.gep104 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %.06584.us.sroa.gep105 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %.06289.us.sroa.gep106 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06289.sroa.gep108 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06584.us.sroa.gep109 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %.06289.us.sroa.gep110 = getelementptr inbounds nuw i8, ptr %6, i64 96
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -33781,7 +33781,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader.us:                                    ; preds = %.preheader79.us, %61
   %92 = phi i1 [ true, %.preheader79.us ], [ false, %61 ]
-  %.06584.us.sroa.phi = phi ptr [ %6, %.preheader79.us ], [ %.06584.us.sroa.gep105, %61 ]
+  %.06584.us.sroa.phi = phi ptr [ %6, %.preheader79.us ], [ %.06584.us.sroa.gep109, %61 ]
   %.06584.us = phi i64 [ 0, %.preheader79.us ], [ 1, %61 ]
   %93 = add nsw i64 %.06584.us, %44
   %94 = mul nsw i64 %34, %93
@@ -33796,7 +33796,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader78.us:                                  ; preds = %..preheader80_crit_edge.us, %47
   %100 = phi i1 [ true, %..preheader80_crit_edge.us ], [ false, %47 ]
-  %.06289.us.sroa.phi = phi ptr [ %6, %..preheader80_crit_edge.us ], [ %.06289.us.sroa.gep106, %47 ]
+  %.06289.us.sroa.phi = phi ptr [ %6, %..preheader80_crit_edge.us ], [ %.06289.us.sroa.gep110, %47 ]
   %.06289.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ 1, %47 ]
   %101 = add nsw i64 %.06289.us, %44
   %102 = mul nsw i64 %38, %101
@@ -33830,7 +33830,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader78:                                     ; preds = %.preheader80, %112
   %107 = phi i1 [ true, %.preheader80 ], [ false, %112 ]
-  %.06289.sroa.phi = phi ptr [ %6, %.preheader80 ], [ %.06289.sroa.gep104, %112 ]
+  %.06289.sroa.phi = phi ptr [ %6, %.preheader80 ], [ %.06289.sroa.gep108, %112 ]
   %.06289 = phi i64 [ 0, %.preheader80 ], [ 1, %112 ]
   %108 = add nsw i64 %.06289, %106
   %109 = mul nsw i64 %38, %108
@@ -33855,9 +33855,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %118 = fadd <4 x float> %116, %117
   %119 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %120 = fadd <4 x float> %118, %119
-  %shift100 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop101 = fadd <4 x float> %120, %shift100
-  %121 = extractelement <4 x float> %foldExtExtBinop101, i64 0
+  %shift104 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop105 = fadd <4 x float> %120, %shift104
+  %121 = extractelement <4 x float> %foldExtExtBinop105, i64 0
   %122 = getelementptr float, ptr %gep88, i64 %.086
   store float %121, ptr %122, align 4, !tbaa !93
   %123 = add nuw nsw i64 %.086, 1
@@ -34073,9 +34073,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %122 = fadd <4 x float> %120, %121
   %123 = shufflevector <4 x float> %122, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %124 = fadd <4 x float> %122, %123
-  %shift100 = shufflevector <4 x float> %124, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop101 = fadd <4 x float> %124, %shift100
-  %125 = extractelement <4 x float> %foldExtExtBinop101, i64 0
+  %shift107 = shufflevector <4 x float> %124, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop108 = fadd <4 x float> %124, %shift107
+  %125 = extractelement <4 x float> %foldExtExtBinop108, i64 0
   %126 = getelementptr float, ptr %gep88, i64 %.086
   store float %125, ptr %126, align 4, !tbaa !93
   br i1 %117, label %116, label %114, !llvm.loop !655
@@ -34324,9 +34324,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %184 = fadd <4 x float> %182, %183
   %185 = shufflevector <4 x float> %184, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %186 = fadd <4 x float> %184, %185
-  %shift156 = shufflevector <4 x float> %186, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop157 = fadd <4 x float> %186, %shift156
-  %187 = extractelement <4 x float> %foldExtExtBinop157, i64 0
+  %shift159 = shufflevector <4 x float> %186, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop160 = fadd <4 x float> %186, %shift159
+  %187 = extractelement <4 x float> %foldExtExtBinop160, i64 0
   %188 = getelementptr float, ptr %177, i64 %.0136
   store float %187, ptr %188, align 4, !tbaa !93
   %189 = add nuw nsw i64 %.0136, 1
@@ -34355,9 +34355,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %22 = add nsw i64 %21, %17
   %spec.select = tail call i64 @llvm.smin.i64(i64 %22, i64 %11)
   %23 = icmp slt i64 %21, %spec.select
-  %.06289.sroa.gep101 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.06584.us.sroa.gep102 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.06289.us.sroa.gep103 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06289.sroa.gep105 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06584.us.sroa.gep106 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %.06289.us.sroa.gep107 = getelementptr inbounds nuw i8, ptr %6, i64 64
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
@@ -34467,7 +34467,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader.us:                                    ; preds = %.preheader79.us, %61
   %92 = phi i1 [ true, %.preheader79.us ], [ false, %61 ]
-  %.06584.us.sroa.phi = phi ptr [ %6, %.preheader79.us ], [ %.06584.us.sroa.gep102, %61 ]
+  %.06584.us.sroa.phi = phi ptr [ %6, %.preheader79.us ], [ %.06584.us.sroa.gep106, %61 ]
   %.06584.us = phi i64 [ 0, %.preheader79.us ], [ 1, %61 ]
   %93 = add nsw i64 %.06584.us, %44
   %94 = mul nsw i64 %34, %93
@@ -34482,7 +34482,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader78.us:                                  ; preds = %..preheader80_crit_edge.us, %47
   %100 = phi i1 [ true, %..preheader80_crit_edge.us ], [ false, %47 ]
-  %.06289.us.sroa.phi = phi ptr [ %6, %..preheader80_crit_edge.us ], [ %.06289.us.sroa.gep103, %47 ]
+  %.06289.us.sroa.phi = phi ptr [ %6, %..preheader80_crit_edge.us ], [ %.06289.us.sroa.gep107, %47 ]
   %.06289.us = phi i64 [ 0, %..preheader80_crit_edge.us ], [ 1, %47 ]
   %101 = add nsw i64 %.06289.us, %44
   %102 = mul nsw i64 %38, %101
@@ -34516,7 +34516,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 
 .preheader78:                                     ; preds = %.preheader80, %112
   %107 = phi i1 [ true, %.preheader80 ], [ false, %112 ]
-  %.06289.sroa.phi = phi ptr [ %6, %.preheader80 ], [ %.06289.sroa.gep101, %112 ]
+  %.06289.sroa.phi = phi ptr [ %6, %.preheader80 ], [ %.06289.sroa.gep105, %112 ]
   %.06289 = phi i64 [ 0, %.preheader80 ], [ 1, %112 ]
   %108 = add nsw i64 %.06289, %106
   %109 = mul nsw i64 %38, %108
@@ -34542,9 +34542,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %119 = fadd <4 x float> %117, %118
   %120 = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %121 = fadd <4 x float> %119, %120
-  %shift97 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop98 = fadd <4 x float> %121, %shift97
-  %122 = extractelement <4 x float> %foldExtExtBinop98, i64 0
+  %shift101 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop102 = fadd <4 x float> %121, %shift101
+  %122 = extractelement <4 x float> %foldExtExtBinop102, i64 0
   %123 = getelementptr float, ptr %gep88, i64 %.086
   store float %122, ptr %123, align 4, !tbaa !93
   br i1 %114, label %113, label %112, !llvm.loop !664
@@ -34594,7 +34594,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br i1 %25, label %.lr.ph.us, label %.preheader155.preheader
 
 .preheader155.preheader:                          ; preds = %.lr.ph173
-  %invariant.gep186 = getelementptr float, ptr %38, i64 %1
+  %invariant.gep189 = getelementptr float, ptr %38, i64 %1
   br label %.preheader155
 
 .lr.ph.us:                                        ; preds = %.lr.ph173, %59
@@ -34742,7 +34742,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %138 = shl nsw i64 %137, 2
   %139 = add nsw i64 %138, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %gep187 = getelementptr float, ptr %invariant.gep186, i64 %136
+  %gep190 = getelementptr float, ptr %invariant.gep189, i64 %136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader
 
@@ -34755,12 +34755,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %144 = fadd <4 x float> %142, %143
   %145 = shufflevector <4 x float> %144, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %146 = fadd <4 x float> %144, %145
-  %shift193 = shufflevector <4 x float> %146, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop194 = fadd <4 x float> %146, %shift193
-  %147 = extractelement <4 x float> %foldExtExtBinop194, i64 0
+  %shift196 = shufflevector <4 x float> %146, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop197 = fadd <4 x float> %146, %shift196
+  %147 = extractelement <4 x float> %foldExtExtBinop197, i64 0
   %148 = add nsw i64 %.0116171, %139
   %149 = mul nsw i64 %40, %148
-  %gep = getelementptr float, ptr %gep187, i64 %149
+  %gep = getelementptr float, ptr %gep190, i64 %149
   store float %147, ptr %gep, align 4, !tbaa !93
   %150 = add nuw nsw i64 %.0116171, 1
   %exitcond.not = icmp eq i64 %150, 4
@@ -34943,9 +34943,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %110 = fadd <4 x float> %108, %109
   %111 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %112 = fadd <4 x float> %110, %111
-  %shift95 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop96 = fadd <4 x float> %112, %shift95
-  %113 = extractelement <4 x float> %foldExtExtBinop96, i64 0
+  %shift99 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop100 = fadd <4 x float> %112, %shift99
+  %113 = extractelement <4 x float> %foldExtExtBinop100, i64 0
   %114 = getelementptr float, ptr %103, i64 %.084
   store float %113, ptr %114, align 4, !tbaa !93
   %115 = add nuw nsw i64 %.084, 1
@@ -35118,9 +35118,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %102 = fadd <4 x float> %100, %101
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %104 = fadd <4 x float> %102, %103
-  %shift96 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop97 = fadd <4 x float> %104, %shift96
-  %105 = extractelement <4 x float> %foldExtExtBinop97, i64 0
+  %shift100 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop101 = fadd <4 x float> %104, %shift100
+  %105 = extractelement <4 x float> %foldExtExtBinop101, i64 0
   %106 = add nsw i64 %.06285, %97
   %107 = mul nsw i64 %37, %106
   %gep84 = getelementptr float, ptr %gep, i64 %107
@@ -35312,9 +35312,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %107 = fadd <4 x float> %105, %106
   %108 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %109 = fadd <4 x float> %107, %108
-  %shift92 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop93 = fadd <4 x float> %109, %shift92
-  %110 = extractelement <4 x float> %foldExtExtBinop93, i64 0
+  %shift96 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop97 = fadd <4 x float> %109, %shift96
+  %110 = extractelement <4 x float> %foldExtExtBinop97, i64 0
   %111 = getelementptr float, ptr %100, i64 %.084
   store float %110, ptr %111, align 4, !tbaa !93
   br i1 %103, label %102, label %.loopexit79, !llvm.loop !679
@@ -35490,9 +35490,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %99 = fadd <4 x float> %97, %98
   %100 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %101 = fadd <4 x float> %99, %100
-  %shift93 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop94 = fadd <4 x float> %101, %shift93
-  %102 = extractelement <4 x float> %foldExtExtBinop94, i64 0
+  %shift97 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop98 = fadd <4 x float> %101, %shift97
+  %102 = extractelement <4 x float> %foldExtExtBinop98, i64 0
   %103 = add nsw i64 %.06285, %94
   %104 = mul nsw i64 %36, %103
   %gep84 = getelementptr float, ptr %gep, i64 %104

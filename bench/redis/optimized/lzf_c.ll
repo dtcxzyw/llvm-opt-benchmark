@@ -281,7 +281,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   %171 = phi ptr [ %155, %.critedge.thread ], [ %159, %.critedge ]
   %.1269 = phi i32 [ %.1.ph, %.critedge.thread ], [ %146, %.critedge ]
   %172 = lshr i64 %36, 8
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -32
   %175 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store i8 %174, ptr %61, align 1, !tbaa !5

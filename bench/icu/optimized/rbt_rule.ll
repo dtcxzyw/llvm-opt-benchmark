@@ -564,8 +564,8 @@ define void @_ZN6icu_7719TransliterationRuleC2ERKNS_13UnicodeStringEiiS3_iiPPNS_
   br label %156
 
 60:                                               ; preds = %49, %38
-  %.sink65 = phi i32 [ %46, %38 ], [ %3, %49 ]
-  %61 = sub nsw i32 %.sink65, %.sink
+  %.sink74 = phi i32 [ %46, %38 ], [ %3, %49 ]
+  %61 = sub nsw i32 %.sink74, %.sink
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %61, ptr %62, align 8, !tbaa !30
   %63 = icmp slt i32 %5, 0

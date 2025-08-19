@@ -966,22 +966,22 @@ define internal fastcc range(i32 0, 2) i32 @ecx_validate(ptr noundef %0, i32 nou
 
 .thread:                                          ; preds = %16
   %24 = and i32 %1, 1
-  %.not2837 = icmp eq i32 %24, 0
-  br i1 %.not2837, label %30, label %.thread39
+  %.not2840 = icmp eq i32 %24, 0
+  br i1 %.not2840, label %30, label %.thread42
 
 25:                                               ; preds = %18
   %.not29 = icmp eq i8 %21, 0
-  br i1 %.not29, label %30, label %.thread39
+  br i1 %.not29, label %30, label %.thread42
 
-.thread39:                                        ; preds = %.thread, %25
+.thread42:                                        ; preds = %.thread, %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = icmp ne ptr %27, null
   %29 = zext i1 %28 to i32
   br label %30
 
-30:                                               ; preds = %.thread, %25, %.thread39, %18
-  %.1 = phi i32 [ %22, %18 ], [ 0, %25 ], [ %29, %.thread39 ], [ 1, %.thread ]
+30:                                               ; preds = %.thread, %25, %.thread42, %18
+  %.1 = phi i32 [ %22, %18 ], [ 0, %25 ], [ %29, %.thread42 ], [ 1, %.thread ]
   %.not30 = icmp eq i32 %12, 3
   br i1 %.not30, label %31, label %60
 

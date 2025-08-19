@@ -79,7 +79,7 @@ define internal range(i32 -1094995529, 1) i32 @msrle_decode_init(ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @msrle_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) #1 {
+define internal range(i32 2, 0) i32 @msrle_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32

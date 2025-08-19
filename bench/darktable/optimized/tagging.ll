@@ -526,7 +526,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   br label %.lr.ph175
 
 ._crit_edge:                                      ; preds = %.lr.ph175, %.loopexit164, %.loopexit164.thread
-  %.0124208 = phi i32 [ 0, %.loopexit164.thread ], [ 0, %.loopexit164 ], [ %.1125.lcssa, %.lr.ph175 ]
+  %.0124222 = phi i32 [ 0, %.loopexit164.thread ], [ 0, %.loopexit164 ], [ %.1125.lcssa, %.lr.ph175 ]
   %.pre-phi205 = phi i64 [ 0, %.loopexit164.thread ], [ 0, %.loopexit164 ], [ %wide.trip.count, %.lr.ph175 ]
   %94 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi205
   %95 = load ptr, ptr %94, align 8, !tbaa !31
@@ -556,7 +556,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 102:                                              ; preds = %.lr.ph180, %139
   %103 = phi ptr [ %95, %.lr.ph180 ], [ %142, %139 ]
   %.0121178 = phi ptr [ %94, %.lr.ph180 ], [ %141, %139 ]
-  %.2177 = phi i32 [ %.0124208, %.lr.ph180 ], [ %140, %139 ]
+  %.2177 = phi i32 [ %.0124222, %.lr.ph180 ], [ %140, %139 ]
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %10, ptr noundef nonnull @.str.65, ptr noundef nonnull %103) #16
   %104 = load ptr, ptr %10, align 8, !tbaa !31
   %105 = call noalias ptr @g_strdup(ptr noundef %104) #16
@@ -799,7 +799,7 @@ _propagate_sel_to_parents.exit:                   ; preds = %137, %129
   br i1 %.not8.i, label %_sort_dictionary_list.exit.sink.split, label %_sort_dictionary_list.exit
 
 _sort_dictionary_list.exit.sink.split:            ; preds = %218, %215
-  %.sink213.ph = phi i64 [ 1144, %215 ], [ 1136, %218 ]
+  %.sink227.ph = phi i64 [ 1144, %215 ], [ 1136, %218 ]
   %221 = getelementptr inbounds nuw i8, ptr %.val162, i64 1204
   %222 = load i32, ptr %221, align 4, !tbaa !55
   %.not9.i = icmp ne i32 %222, 0
@@ -807,12 +807,12 @@ _sort_dictionary_list.exit.sink.split:            ; preds = %218, %215
   br label %_sort_dictionary_list.exit
 
 _sort_dictionary_list.exit:                       ; preds = %_sort_dictionary_list.exit.sink.split, %218, %215, %212
-  %.sink213 = phi i64 [ 1144, %215 ], [ 1152, %212 ], [ 1136, %218 ], [ %.sink213.ph, %_sort_dictionary_list.exit.sink.split ]
-  %.sink211 = phi i32 [ 2, %215 ], [ 0, %212 ], [ 2, %218 ], [ %223, %_sort_dictionary_list.exit.sink.split ]
-  %224 = getelementptr inbounds nuw i8, ptr %.val162, i64 %.sink213
+  %.sink227 = phi i64 [ 1144, %215 ], [ 1152, %212 ], [ 1136, %218 ], [ %.sink227.ph, %_sort_dictionary_list.exit.sink.split ]
+  %.sink225 = phi i32 [ 2, %215 ], [ 0, %212 ], [ 2, %218 ], [ %223, %_sort_dictionary_list.exit.sink.split ]
+  %224 = getelementptr inbounds nuw i8, ptr %.val162, i64 %.sink227
   %225 = load ptr, ptr %224, align 8, !tbaa !47
   %226 = call ptr @g_type_check_instance_cast(ptr noundef %225, i64 noundef %60) #16
-  call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %226, i32 noundef %.sink211, i32 noundef 0) #16
+  call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %226, i32 noundef %.sink225, i32 noundef 0) #16
   call void @dt_tag_free_result(ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5795,7 +5795,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_find_tag_iter_tagname(ptr n
   br i1 %.not33, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = call fastcc i32 @_find_tag_iter_tagname(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2, i32 noundef %3)
+  %26 = call fastcc i32 @_find_tag_iter_tagname(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %2, i32 noundef 1)
   %.not34 = icmp eq i32 %26, 0
   br i1 %.not34, label %27, label %.split41.us
 
@@ -8050,7 +8050,7 @@ define internal range(i32 0, 2) i32 @_dnd_scroll_timeout(ptr noundef readonly ca
   br i1 %.not19, label %28, label %16
 
 16:                                               ; preds = %9
-  br i1 %15, label %17, label %.thread23
+  br i1 %15, label %17, label %.thread25
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 1264
@@ -8074,20 +8074,20 @@ define internal range(i32 0, 2) i32 @_dnd_scroll_timeout(ptr noundef readonly ca
   br label %.thread
 
 28:                                               ; preds = %9
-  br i1 %15, label %.thread, label %.thread23
+  br i1 %15, label %.thread, label %.thread25
 
-.thread23:                                        ; preds = %16, %28
+.thread25:                                        ; preds = %16, %28
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 1264
   %30 = load i32, ptr %29, align 8, !tbaa !137
   %31 = icmp sgt i32 %30, 19
   br i1 %31, label %32, label %.thread
 
-32:                                               ; preds = %.thread23
+32:                                               ; preds = %.thread25
   %.val = load ptr, ptr %5, align 8, !tbaa !6
   call fastcc void @_dnd_clear_root(ptr %.val)
   br label %.thread
 
-.thread:                                          ; preds = %17, %28, %.thread23, %32, %23
+.thread:                                          ; preds = %17, %28, %.thread25, %32, %23
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 1264
   %34 = load i32, ptr %33, align 8, !tbaa !137
   %35 = icmp slt i32 %34, 5

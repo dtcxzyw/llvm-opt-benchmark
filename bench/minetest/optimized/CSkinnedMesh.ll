@@ -8299,13 +8299,13 @@ for.body:                                         ; preds = %_ZNK3irr4core8CMatr
   %.pre5.i = load float, ptr %arrayidx51.i.phi.trans.insert.i, align 4, !tbaa !27
   %16 = call float @llvm.fabs.f32(float %.pre5.i)
   %cmp.i71.i.i = fcmp ugt float %16, 0x3EB0C6F7A0000000
-  %or.cond6.i = select i1 %or.cond67.i, i1 true, i1 %cmp.i71.i.i
+  %or.cond10.i = select i1 %or.cond67.i, i1 true, i1 %cmp.i71.i.i
   %arrayidx56.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 456
   %.pre3 = load float, ptr %arrayidx56.i.i.phi.trans.insert, align 4, !tbaa !27
   %17 = call float @llvm.fabs.f32(float %.pre3)
   %cmp.i72.i.i = fcmp ugt float %17, 0x3EB0C6F7A0000000
-  %or.cond5 = select i1 %or.cond6.i, i1 true, i1 %cmp.i72.i.i
-  br i1 %or.cond5, label %if.else19.thread.i, label %land.lhs.true17.i.i
+  %or.cond9 = select i1 %or.cond10.i, i1 true, i1 %cmp.i72.i.i
+  br i1 %or.cond9, label %if.else19.thread.i, label %land.lhs.true17.i.i
 
 land.lhs.true17.i.i:                              ; preds = %for.body
   %arrayidx19.i.i = getelementptr inbounds nuw i8, ptr %6, i64 460
@@ -8411,8 +8411,8 @@ _ZNK3irr4core8CMatrix4IfE18getRotationDegreesEv.exit: ; preds = %if.else19.threa
   %.pre4 = load float, ptr %arrayidx51.i.phi.trans.insert.i, align 4, !tbaa !27
   %49 = call float @llvm.fabs.f32(float %.pre4)
   %cmp.i71.i = fcmp ugt float %49, 0x3EB0C6F7A0000000
-  %or.cond6 = select i1 %or.cond, i1 true, i1 %cmp.i71.i
-  br i1 %or.cond6, label %if.end.i, label %land.lhs.true13.i
+  %or.cond10 = select i1 %or.cond, i1 true, i1 %cmp.i71.i
+  br i1 %or.cond10, label %if.end.i, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %_ZNK3irr4core8CMatrix4IfE18getRotationDegreesEv.exit
   %arrayidx15.i = getelementptr inbounds nuw i8, ptr %6, i64 456

@@ -1629,24 +1629,24 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = icmp slt i64 %3, %4
-  br i1 %14, label %.lr.ph.lr.ph.lr.ph, label %.loopexit422
+  br i1 %14, label %.lr.ph.lr.ph.lr.ph, label %.loopexit431
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %7, %tailrecurse.outer.backedge
-  %.tr272.ph580 = phi i32 [ %.tr272.ph280574, %tailrecurse.outer.backedge ], [ %6, %7 ]
-  %.tr271.ph579 = phi i64 [ %.tr271.ph.be, %tailrecurse.outer.backedge ], [ %5, %7 ]
-  %.tr269.ph578 = phi i64 [ %160, %tailrecurse.outer.backedge ], [ %3, %7 ]
-  %.tr267.ph577 = phi ptr [ %.0231341, %tailrecurse.outer.backedge ], [ %1, %7 ]
+  %.tr272.ph589 = phi i32 [ %.tr272.ph280583, %tailrecurse.outer.backedge ], [ %6, %7 ]
+  %.tr271.ph588 = phi i64 [ %.tr271.ph.be, %tailrecurse.outer.backedge ], [ %5, %7 ]
+  %.tr269.ph587 = phi i64 [ %160, %tailrecurse.outer.backedge ], [ %3, %7 ]
+  %.tr267.ph586 = phi ptr [ %.0231341, %tailrecurse.outer.backedge ], [ %1, %7 ]
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %tailrecurse.outer277
-  %.tr272.ph280574 = phi i32 [ %.tr272.ph580, %.lr.ph.lr.ph.lr.ph ], [ %.0227, %tailrecurse.outer277 ]
-  %.tr269.ph279573 = phi i64 [ %.tr269.ph578, %.lr.ph.lr.ph.lr.ph ], [ %193, %tailrecurse.outer277 ]
-  %.tr267.ph278572 = phi ptr [ %.tr267.ph577, %.lr.ph.lr.ph.lr.ph ], [ %194, %tailrecurse.outer277 ]
+  %.tr272.ph280583 = phi i32 [ %.tr272.ph589, %.lr.ph.lr.ph.lr.ph ], [ %.0227, %tailrecurse.outer277 ]
+  %.tr269.ph279582 = phi i64 [ %.tr269.ph587, %.lr.ph.lr.ph.lr.ph ], [ %193, %tailrecurse.outer277 ]
+  %.tr267.ph278581 = phi ptr [ %.tr267.ph586, %.lr.ph.lr.ph.lr.ph ], [ %194, %tailrecurse.outer277 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse
-  %.tr269570 = phi i64 [ %.tr269.ph279573, %.lr.ph.lr.ph ], [ %199, %tailrecurse ]
-  %.tr267569 = phi ptr [ %.tr267.ph278572, %.lr.ph.lr.ph ], [ %.0231341, %tailrecurse ]
+  %.tr269579 = phi i64 [ %.tr269.ph279582, %.lr.ph.lr.ph ], [ %199, %tailrecurse ]
+  %.tr267578 = phi ptr [ %.tr267.ph278581, %.lr.ph.lr.ph ], [ %.0231341, %tailrecurse ]
   %15 = load ptr, ptr %0, align 8, !tbaa !27
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 36
@@ -1654,8 +1654,8 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   br label %19
 
 19:                                               ; preds = %.lr.ph, %.loopexit273
-  %.0231341 = phi ptr [ %.tr267569, %.lr.ph ], [ %.1232, %.loopexit273 ]
-  %.0233340 = phi i64 [ %.tr269570, %.lr.ph ], [ %157, %.loopexit273 ]
+  %.0231341 = phi ptr [ %.tr267578, %.lr.ph ], [ %.1232, %.loopexit273 ]
+  %.0233340 = phi i64 [ %.tr269579, %.lr.ph ], [ %157, %.loopexit273 ]
   %20 = getelementptr inbounds i64, ptr %16, i64 %.0233340
   %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = and i64 %21, 4160749568
@@ -1899,9 +1899,9 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %.1232 = phi ptr [ %28, %27 ], [ %36, %35 ], [ %43, %39 ], [ %.0231341, %66 ], [ %.0231341, %53 ], [ %.0231341, %80 ], [ %.0231341, %72 ], [ %.0231341, %98 ], [ %.0231341, %137 ], [ %.0231341, %19 ], [ %.0231341, %104 ], [ %.0231341, %151 ]
   %157 = add nsw i64 %.2, 1
   %158 = icmp slt i64 %157, %4
-  br i1 %158, label %19, label %.loopexit422
+  br i1 %158, label %19, label %.loopexit431
 
-.loopexit422:                                     ; preds = %tailrecurse.outer.backedge, %tailrecurse.outer277, %tailrecurse, %.loopexit273, %7
+.loopexit431:                                     ; preds = %tailrecurse.outer.backedge, %tailrecurse.outer277, %tailrecurse, %.loopexit273, %7
   %.0231.lcssa.ph = phi ptr [ %1, %7 ], [ %.1232, %.loopexit273 ], [ %.0231341, %tailrecurse ], [ %194, %tailrecurse.outer277 ], [ %.0231341, %tailrecurse.outer.backedge ]
   %.not241 = icmp eq ptr %.0231.lcssa.ph, %2
   %.0231. = select i1 %.not241, ptr %.0231.lcssa.ph, ptr null
@@ -1942,12 +1942,12 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %175
-  %180 = add nsw i32 %.tr272.ph280574, 1
-  %181 = icmp sgt i32 %.tr272.ph280574, 100
+  %180 = add nsw i32 %.tr272.ph280583, 1
+  %181 = icmp sgt i32 %.tr272.ph280583, 100
   br i1 %181, label %.loopexit, label %182
 
 182:                                              ; preds = %179, %175
-  %.0227 = phi i32 [ %180, %179 ], [ %.tr272.ph280574, %175 ]
+  %.0227 = phi i32 [ %180, %179 ], [ %.tr272.ph280583, %175 ]
   %183 = sub i64 0, %177
   %184 = getelementptr inbounds i8, ptr %2, i64 %183
   %185 = icmp ugt ptr %.0231341, %184
@@ -1975,10 +1975,10 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 tailrecurse.outer277:                             ; preds = %190
   %194 = getelementptr inbounds nuw i8, ptr %.0231341, i64 %177
   %195 = icmp slt i64 %193, %4
-  br i1 %195, label %.lr.ph.lr.ph, label %.loopexit422
+  br i1 %195, label %.lr.ph.lr.ph, label %.loopexit431
 
 196:                                              ; preds = %159
-  %197 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %197 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not245 = icmp eq ptr %197, null
   br i1 %.not245, label %tailrecurse, label %.loopexit
 
@@ -1986,11 +1986,11 @@ tailrecurse:                                      ; preds = %196
   %198 = and i64 %164, 134217727
   %199 = add i64 %198, %160
   %200 = icmp slt i64 %199, %4
-  br i1 %200, label %.lr.ph, label %.loopexit422
+  br i1 %200, label %.lr.ph, label %.loopexit431
 
 201:                                              ; preds = %159
   %202 = load ptr, ptr %13, align 8, !tbaa !32
-  %203 = add nsw i64 %.tr271.ph579, 1
+  %203 = add nsw i64 %.tr271.ph588, 1
   %204 = getelementptr inbounds ptr, ptr %202, i64 %203
   store ptr %.0231341, ptr %204, align 8, !tbaa !69
   br label %tailrecurse.outer.backedge
@@ -1998,36 +1998,36 @@ tailrecurse:                                      ; preds = %196
 tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   %.tr271.ph.be = phi i64 [ %219, %218 ], [ %212, %211 ], [ %203, %201 ]
   %205 = icmp slt i64 %160, %4
-  br i1 %205, label %.lr.ph.lr.ph.lr.ph, label %.loopexit422
+  br i1 %205, label %.lr.ph.lr.ph.lr.ph, label %.loopexit431
 
 206:                                              ; preds = %159
   %207 = load ptr, ptr %13, align 8, !tbaa !32
-  %208 = getelementptr inbounds ptr, ptr %207, i64 %.tr271.ph579
+  %208 = getelementptr inbounds ptr, ptr %207, i64 %.tr271.ph588
   %209 = load ptr, ptr %208, align 8, !tbaa !69
   %210 = icmp eq ptr %.0231341, %209
   br i1 %210, label %211, label %213
 
 211:                                              ; preds = %206
-  %212 = add nsw i64 %.tr271.ph579, -1
+  %212 = add nsw i64 %.tr271.ph588, -1
   br label %tailrecurse.outer.backedge
 
 213:                                              ; preds = %206
   store ptr %.0231341, ptr %208, align 8, !tbaa !69
   %214 = and i64 %164, 134217727
   %215 = sub i64 %160, %214
-  %216 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %215, i64 noundef %4, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %216 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %215, i64 noundef %4, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %217 = icmp eq ptr %216, null
   br i1 %217, label %218, label %.loopexit
 
 218:                                              ; preds = %213
-  %219 = add nsw i64 %.tr271.ph579, -1
+  %219 = add nsw i64 %.tr271.ph588, -1
   br label %tailrecurse.outer.backedge
 
 220:                                              ; preds = %159
   %221 = and i64 %164, 134217727
   %222 = add i64 %.0233340, -1
   %223 = add i64 %222, %221
-  %224 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %223, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %224 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %223, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not244344 = icmp eq ptr %224, null
   br i1 %.not244344, label %.lr.ph347, label %.loopexit
 
@@ -2054,7 +2054,7 @@ tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   %241 = icmp eq i64 %240, 2281701376
   %242 = add i64 %236, %.0228345
   %spec.select = select i1 %241, i64 %242, i64 %237
-  %243 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %233, i64 noundef %spec.select, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %243 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %233, i64 noundef %spec.select, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not244 = icmp eq ptr %243, null
   br i1 %.not244, label %.lr.ph347, label %.loopexit
 
@@ -2068,7 +2068,7 @@ tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   %251 = ptrtoint ptr %249 to i64
   %252 = sub i64 %250, %251
   store i64 %252, ptr %247, align 8, !tbaa !21
-  %253 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %253 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not243 = icmp eq ptr %253, null
   br i1 %.not243, label %254, label %.loopexit
 
@@ -2088,7 +2088,7 @@ tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   %264 = ptrtoint ptr %262 to i64
   %265 = sub i64 %263, %264
   store i64 %265, ptr %260, align 8, !tbaa !23
-  %266 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %266 = tail call fastcc ptr @sbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not242 = icmp eq ptr %266, null
   br i1 %.not242, label %267, label %.loopexit
 
@@ -2098,8 +2098,8 @@ tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   store i64 %261, ptr %269, align 8, !tbaa !23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %213, %186, %182, %179, %168, %159, %196, %118, %126, %134, %137, %83, %101, %104, %86, %75, %77, %80, %56, %59, %62, %66, %37, %39, %33, %25, %27, %231, %.lr.ph347, %220, %257, %244, %.loopexit422, %267, %254
-  %.0 = phi ptr [ null, %254 ], [ null, %267 ], [ %.0231., %.loopexit422 ], [ %253, %244 ], [ %266, %257 ], [ %224, %220 ], [ %243, %231 ], [ null, %.lr.ph347 ], [ null, %27 ], [ null, %25 ], [ null, %33 ], [ null, %39 ], [ null, %37 ], [ null, %66 ], [ null, %62 ], [ null, %59 ], [ null, %56 ], [ null, %80 ], [ null, %77 ], [ null, %75 ], [ null, %86 ], [ null, %104 ], [ null, %101 ], [ null, %83 ], [ null, %137 ], [ null, %134 ], [ null, %126 ], [ null, %118 ], [ null, %159 ], [ %197, %196 ], [ null, %168 ], [ null, %179 ], [ null, %182 ], [ null, %186 ], [ %216, %213 ]
+.loopexit:                                        ; preds = %213, %186, %182, %179, %168, %159, %196, %118, %126, %134, %137, %83, %101, %104, %86, %75, %77, %80, %56, %59, %62, %66, %37, %39, %33, %25, %27, %231, %.lr.ph347, %220, %257, %244, %.loopexit431, %267, %254
+  %.0 = phi ptr [ null, %254 ], [ null, %267 ], [ %.0231., %.loopexit431 ], [ %253, %244 ], [ %266, %257 ], [ %224, %220 ], [ %243, %231 ], [ null, %.lr.ph347 ], [ null, %27 ], [ null, %25 ], [ null, %33 ], [ null, %39 ], [ null, %37 ], [ null, %66 ], [ null, %62 ], [ null, %59 ], [ null, %56 ], [ null, %80 ], [ null, %77 ], [ null, %75 ], [ null, %86 ], [ null, %104 ], [ null, %101 ], [ null, %83 ], [ null, %137 ], [ null, %134 ], [ null, %126 ], [ null, %118 ], [ null, %159 ], [ %197, %196 ], [ null, %168 ], [ null, %179 ], [ null, %182 ], [ null, %186 ], [ %216, %213 ]
   ret ptr %.0
 }
 
@@ -2850,24 +2850,24 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = icmp slt i64 %3, %4
-  br i1 %14, label %.lr.ph.lr.ph.lr.ph, label %.loopexit422
+  br i1 %14, label %.lr.ph.lr.ph.lr.ph, label %.loopexit431
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %7, %tailrecurse.outer.backedge
-  %.tr272.ph580 = phi i32 [ %.tr272.ph280574, %tailrecurse.outer.backedge ], [ %6, %7 ]
-  %.tr271.ph579 = phi i64 [ %.tr271.ph.be, %tailrecurse.outer.backedge ], [ %5, %7 ]
-  %.tr269.ph578 = phi i64 [ %160, %tailrecurse.outer.backedge ], [ %3, %7 ]
-  %.tr267.ph577 = phi ptr [ %.0231341, %tailrecurse.outer.backedge ], [ %1, %7 ]
+  %.tr272.ph589 = phi i32 [ %.tr272.ph280583, %tailrecurse.outer.backedge ], [ %6, %7 ]
+  %.tr271.ph588 = phi i64 [ %.tr271.ph.be, %tailrecurse.outer.backedge ], [ %5, %7 ]
+  %.tr269.ph587 = phi i64 [ %160, %tailrecurse.outer.backedge ], [ %3, %7 ]
+  %.tr267.ph586 = phi ptr [ %.0231341, %tailrecurse.outer.backedge ], [ %1, %7 ]
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %tailrecurse.outer277
-  %.tr272.ph280574 = phi i32 [ %.tr272.ph580, %.lr.ph.lr.ph.lr.ph ], [ %.0227, %tailrecurse.outer277 ]
-  %.tr269.ph279573 = phi i64 [ %.tr269.ph578, %.lr.ph.lr.ph.lr.ph ], [ %193, %tailrecurse.outer277 ]
-  %.tr267.ph278572 = phi ptr [ %.tr267.ph577, %.lr.ph.lr.ph.lr.ph ], [ %194, %tailrecurse.outer277 ]
+  %.tr272.ph280583 = phi i32 [ %.tr272.ph589, %.lr.ph.lr.ph.lr.ph ], [ %.0227, %tailrecurse.outer277 ]
+  %.tr269.ph279582 = phi i64 [ %.tr269.ph587, %.lr.ph.lr.ph.lr.ph ], [ %193, %tailrecurse.outer277 ]
+  %.tr267.ph278581 = phi ptr [ %.tr267.ph586, %.lr.ph.lr.ph.lr.ph ], [ %194, %tailrecurse.outer277 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse
-  %.tr269570 = phi i64 [ %.tr269.ph279573, %.lr.ph.lr.ph ], [ %199, %tailrecurse ]
-  %.tr267569 = phi ptr [ %.tr267.ph278572, %.lr.ph.lr.ph ], [ %.0231341, %tailrecurse ]
+  %.tr269579 = phi i64 [ %.tr269.ph279582, %.lr.ph.lr.ph ], [ %199, %tailrecurse ]
+  %.tr267578 = phi ptr [ %.tr267.ph278581, %.lr.ph.lr.ph ], [ %.0231341, %tailrecurse ]
   %15 = load ptr, ptr %0, align 8, !tbaa !48
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 36
@@ -2875,8 +2875,8 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   br label %19
 
 19:                                               ; preds = %.lr.ph, %.loopexit273
-  %.0231341 = phi ptr [ %.tr267569, %.lr.ph ], [ %.1232, %.loopexit273 ]
-  %.0233340 = phi i64 [ %.tr269570, %.lr.ph ], [ %157, %.loopexit273 ]
+  %.0231341 = phi ptr [ %.tr267578, %.lr.ph ], [ %.1232, %.loopexit273 ]
+  %.0233340 = phi i64 [ %.tr269579, %.lr.ph ], [ %157, %.loopexit273 ]
   %20 = getelementptr inbounds i64, ptr %16, i64 %.0233340
   %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = and i64 %21, 4160749568
@@ -3120,9 +3120,9 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %.1232 = phi ptr [ %28, %27 ], [ %36, %35 ], [ %43, %39 ], [ %.0231341, %66 ], [ %.0231341, %53 ], [ %.0231341, %80 ], [ %.0231341, %72 ], [ %.0231341, %98 ], [ %.0231341, %137 ], [ %.0231341, %19 ], [ %.0231341, %104 ], [ %.0231341, %151 ]
   %157 = add nsw i64 %.2, 1
   %158 = icmp slt i64 %157, %4
-  br i1 %158, label %19, label %.loopexit422
+  br i1 %158, label %19, label %.loopexit431
 
-.loopexit422:                                     ; preds = %tailrecurse.outer.backedge, %tailrecurse.outer277, %tailrecurse, %.loopexit273, %7
+.loopexit431:                                     ; preds = %tailrecurse.outer.backedge, %tailrecurse.outer277, %tailrecurse, %.loopexit273, %7
   %.0231.lcssa.ph = phi ptr [ %1, %7 ], [ %.1232, %.loopexit273 ], [ %.0231341, %tailrecurse ], [ %194, %tailrecurse.outer277 ], [ %.0231341, %tailrecurse.outer.backedge ]
   %.not241 = icmp eq ptr %.0231.lcssa.ph, %2
   %.0231. = select i1 %.not241, ptr %.0231.lcssa.ph, ptr null
@@ -3163,12 +3163,12 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %175
-  %180 = add nsw i32 %.tr272.ph280574, 1
-  %181 = icmp sgt i32 %.tr272.ph280574, 100
+  %180 = add nsw i32 %.tr272.ph280583, 1
+  %181 = icmp sgt i32 %.tr272.ph280583, 100
   br i1 %181, label %.loopexit, label %182
 
 182:                                              ; preds = %179, %175
-  %.0227 = phi i32 [ %180, %179 ], [ %.tr272.ph280574, %175 ]
+  %.0227 = phi i32 [ %180, %179 ], [ %.tr272.ph280583, %175 ]
   %183 = sub i64 0, %177
   %184 = getelementptr inbounds i8, ptr %2, i64 %183
   %185 = icmp ugt ptr %.0231341, %184
@@ -3196,10 +3196,10 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 tailrecurse.outer277:                             ; preds = %190
   %194 = getelementptr inbounds nuw i8, ptr %.0231341, i64 %177
   %195 = icmp slt i64 %193, %4
-  br i1 %195, label %.lr.ph.lr.ph, label %.loopexit422
+  br i1 %195, label %.lr.ph.lr.ph, label %.loopexit431
 
 196:                                              ; preds = %159
-  %197 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %197 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not245 = icmp eq ptr %197, null
   br i1 %.not245, label %tailrecurse, label %.loopexit
 
@@ -3207,11 +3207,11 @@ tailrecurse:                                      ; preds = %196
   %198 = and i64 %164, 134217727
   %199 = add i64 %198, %160
   %200 = icmp slt i64 %199, %4
-  br i1 %200, label %.lr.ph, label %.loopexit422
+  br i1 %200, label %.lr.ph, label %.loopexit431
 
 201:                                              ; preds = %159
   %202 = load ptr, ptr %13, align 8, !tbaa !52
-  %203 = add nsw i64 %.tr271.ph579, 1
+  %203 = add nsw i64 %.tr271.ph588, 1
   %204 = getelementptr inbounds ptr, ptr %202, i64 %203
   store ptr %.0231341, ptr %204, align 8, !tbaa !69
   br label %tailrecurse.outer.backedge
@@ -3219,36 +3219,36 @@ tailrecurse:                                      ; preds = %196
 tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   %.tr271.ph.be = phi i64 [ %219, %218 ], [ %212, %211 ], [ %203, %201 ]
   %205 = icmp slt i64 %160, %4
-  br i1 %205, label %.lr.ph.lr.ph.lr.ph, label %.loopexit422
+  br i1 %205, label %.lr.ph.lr.ph.lr.ph, label %.loopexit431
 
 206:                                              ; preds = %159
   %207 = load ptr, ptr %13, align 8, !tbaa !52
-  %208 = getelementptr inbounds ptr, ptr %207, i64 %.tr271.ph579
+  %208 = getelementptr inbounds ptr, ptr %207, i64 %.tr271.ph588
   %209 = load ptr, ptr %208, align 8, !tbaa !69
   %210 = icmp eq ptr %.0231341, %209
   br i1 %210, label %211, label %213
 
 211:                                              ; preds = %206
-  %212 = add nsw i64 %.tr271.ph579, -1
+  %212 = add nsw i64 %.tr271.ph588, -1
   br label %tailrecurse.outer.backedge
 
 213:                                              ; preds = %206
   store ptr %.0231341, ptr %208, align 8, !tbaa !69
   %214 = and i64 %164, 134217727
   %215 = sub i64 %160, %214
-  %216 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %215, i64 noundef %4, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %216 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %215, i64 noundef %4, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %217 = icmp eq ptr %216, null
   br i1 %217, label %218, label %.loopexit
 
 218:                                              ; preds = %213
-  %219 = add nsw i64 %.tr271.ph579, -1
+  %219 = add nsw i64 %.tr271.ph588, -1
   br label %tailrecurse.outer.backedge
 
 220:                                              ; preds = %159
   %221 = and i64 %164, 134217727
   %222 = add i64 %.0233340, -1
   %223 = add i64 %222, %221
-  %224 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %223, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %224 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %223, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not244344 = icmp eq ptr %224, null
   br i1 %.not244344, label %.lr.ph347, label %.loopexit
 
@@ -3275,7 +3275,7 @@ tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   %241 = icmp eq i64 %240, 2281701376
   %242 = add i64 %236, %.0228345
   %spec.select = select i1 %241, i64 %242, i64 %237
-  %243 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %233, i64 noundef %spec.select, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %243 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %233, i64 noundef %spec.select, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not244 = icmp eq ptr %243, null
   br i1 %.not244, label %.lr.ph347, label %.loopexit
 
@@ -3289,7 +3289,7 @@ tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   %251 = ptrtoint ptr %249 to i64
   %252 = sub i64 %250, %251
   store i64 %252, ptr %247, align 8, !tbaa !21
-  %253 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %253 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not243 = icmp eq ptr %253, null
   br i1 %.not243, label %254, label %.loopexit
 
@@ -3309,7 +3309,7 @@ tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   %264 = ptrtoint ptr %262 to i64
   %265 = sub i64 %263, %264
   store i64 %265, ptr %260, align 8, !tbaa !23
-  %266 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph579, i32 noundef %.tr272.ph280574)
+  %266 = tail call fastcc ptr @lbackref(ptr noundef %0, ptr noundef %.0231341, ptr noundef %2, i64 noundef %160, i64 noundef %4, i64 noundef %.tr271.ph588, i32 noundef %.tr272.ph280583)
   %.not242 = icmp eq ptr %266, null
   br i1 %.not242, label %267, label %.loopexit
 
@@ -3319,8 +3319,8 @@ tailrecurse.outer.backedge:                       ; preds = %201, %211, %218
   store i64 %261, ptr %269, align 8, !tbaa !23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %213, %186, %182, %179, %168, %159, %196, %118, %126, %134, %137, %83, %101, %104, %86, %75, %77, %80, %56, %59, %62, %66, %37, %39, %33, %25, %27, %231, %.lr.ph347, %220, %257, %244, %.loopexit422, %267, %254
-  %.0 = phi ptr [ null, %254 ], [ null, %267 ], [ %.0231., %.loopexit422 ], [ %253, %244 ], [ %266, %257 ], [ %224, %220 ], [ %243, %231 ], [ null, %.lr.ph347 ], [ null, %27 ], [ null, %25 ], [ null, %33 ], [ null, %39 ], [ null, %37 ], [ null, %66 ], [ null, %62 ], [ null, %59 ], [ null, %56 ], [ null, %80 ], [ null, %77 ], [ null, %75 ], [ null, %86 ], [ null, %104 ], [ null, %101 ], [ null, %83 ], [ null, %137 ], [ null, %134 ], [ null, %126 ], [ null, %118 ], [ null, %159 ], [ %197, %196 ], [ null, %168 ], [ null, %179 ], [ null, %182 ], [ null, %186 ], [ %216, %213 ]
+.loopexit:                                        ; preds = %213, %186, %182, %179, %168, %159, %196, %118, %126, %134, %137, %83, %101, %104, %86, %75, %77, %80, %56, %59, %62, %66, %37, %39, %33, %25, %27, %231, %.lr.ph347, %220, %257, %244, %.loopexit431, %267, %254
+  %.0 = phi ptr [ null, %254 ], [ null, %267 ], [ %.0231., %.loopexit431 ], [ %253, %244 ], [ %266, %257 ], [ %224, %220 ], [ %243, %231 ], [ null, %.lr.ph347 ], [ null, %27 ], [ null, %25 ], [ null, %33 ], [ null, %39 ], [ null, %37 ], [ null, %66 ], [ null, %62 ], [ null, %59 ], [ null, %56 ], [ null, %80 ], [ null, %77 ], [ null, %75 ], [ null, %86 ], [ null, %104 ], [ null, %101 ], [ null, %83 ], [ null, %137 ], [ null, %134 ], [ null, %126 ], [ null, %118 ], [ null, %159 ], [ %197, %196 ], [ null, %168 ], [ null, %179 ], [ null, %182 ], [ null, %186 ], [ %216, %213 ]
   ret ptr %.0
 }
 

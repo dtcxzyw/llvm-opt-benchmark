@@ -412,15 +412,15 @@ define void @_ZN10wasmi_core9func_type8FuncType14params_results17h4ae04809f95270
   br label %_ZN10wasmi_core9func_type13FuncTypeInner14params_results17hec6abb3392ba2a1cE.exit
 
 _ZN10wasmi_core9func_type13FuncTypeInner14params_results17hec6abb3392ba2a1cE.exit: ; preds = %22, %30
-  %.sink10.i = phi ptr [ %33, %30 ], [ %23, %22 ]
-  %.sink8.i = phi i64 [ %11, %30 ], [ %15, %22 ]
-  %.sink6.i = phi ptr [ %34, %30 ], [ %24, %22 ]
+  %.sink12.i = phi ptr [ %33, %30 ], [ %23, %22 ]
+  %.sink10.i = phi i64 [ %11, %30 ], [ %15, %22 ]
+  %.sink8.i = phi ptr [ %34, %30 ], [ %24, %22 ]
   %.sink.i = phi i64 [ %35, %30 ], [ %18, %22 ]
-  store ptr %.sink10.i, ptr %0, align 8, !alias.scope !56, !noalias !59
+  store ptr %.sink12.i, ptr %0, align 8, !alias.scope !56, !noalias !59
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink8.i, ptr %36, align 8, !alias.scope !56, !noalias !59
+  store i64 %.sink10.i, ptr %36, align 8, !alias.scope !56, !noalias !59
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink6.i, ptr %37, align 8, !alias.scope !56, !noalias !59
+  store ptr %.sink8.i, ptr %37, align 8, !alias.scope !56, !noalias !59
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sink.i, ptr %38, align 8, !alias.scope !56, !noalias !59
   ret void

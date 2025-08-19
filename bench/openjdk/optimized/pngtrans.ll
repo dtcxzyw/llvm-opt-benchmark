@@ -594,10 +594,10 @@ define hidden void @png_do_strip_channel(ptr noundef captures(none) %0, ptr noun
   br i1 %71, label %.lr.ph, label %._crit_edge94, !llvm.loop !18
 
 ._crit_edge94:                                    ; preds = %.lr.ph, %.lr.ph93, %51, %39
-  %.sink115 = phi i8 [ 24, %39 ], [ 48, %51 ], [ 24, %.lr.ph93 ], [ 48, %.lr.ph ]
+  %.sink116 = phi i8 [ 24, %39 ], [ 48, %51 ], [ 24, %.lr.ph93 ], [ 48, %.lr.ph ]
   %.8 = phi ptr [ %.680, %39 ], [ %.9, %51 ], [ %48, %.lr.ph93 ], [ %69, %.lr.ph ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 %.sink115, ptr %72, align 1
+  store i8 %.sink116, ptr %72, align 1
   store i8 3, ptr %7, align 2
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i8, ptr %73, align 8

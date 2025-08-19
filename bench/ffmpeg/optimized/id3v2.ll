@@ -321,9 +321,9 @@ define internal fastcc void @id3v2_read_internal(ptr noundef %0, ptr noundef %1,
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %47 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #9
   %48 = sub nsw i64 %47, %30
-  %.not38154 = icmp slt i64 %48, %31
-  %or.cond101155 = select i1 %.not37, i1 true, i1 %.not38154
-  br i1 %or.cond101155, label %.lr.ph, label %.critedge
+  %.not38175 = icmp slt i64 %48, %31
+  %or.cond101176 = select i1 %.not37, i1 true, i1 %.not38175
+  br i1 %or.cond101176, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %29, %383
   %49 = phi i64 [ %384, %383 ], [ %47, %29 ]
@@ -482,8 +482,8 @@ get_size.exit.i:                                  ; preds = %.preheader292.i
   store i8 0, ptr %43, align 1, !tbaa !4
   %127 = call i32 @avio_rb32(ptr noundef %0) #9
   %128 = icmp ugt i32 %127, 127
-  %or.cond309.i = select i1 %120, i1 %128, i1 false
-  br i1 %or.cond309.i, label %129, label %192
+  %or.cond321.i = select i1 %120, i1 %128, i1 false
+  br i1 %or.cond321.i, label %129, label %192
 
 129:                                              ; preds = %126
   %130 = icmp ult i32 %127, %.2298.i
@@ -636,7 +636,7 @@ check_tag.exit:                                   ; preds = %.preheader.i56, %17
 
 203:                                              ; preds = %201
   %204 = add nuw nsw i32 %.0188248.i, %.3193.i
-  %205 = sub i32 %.2298.i, %204
+  %205 = sub nsw i32 %.2298.i, %204
   %206 = icmp slt i32 %205, 0
   br i1 %206, label %.thread272.i, label %207
 
@@ -1131,8 +1131,8 @@ get_extra_meta_func.exit:                         ; preds = %243, %..split17.spl
   br i1 %or.cond101, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %383, %.lr.ph, %52, %67, %61, %55, %29
-  %.lcssa153 = phi i64 [ %47, %29 ], [ %384, %383 ], [ %49, %.lr.ph ], [ %49, %52 ], [ %49, %67 ], [ %49, %61 ], [ %49, %55 ]
-  %386 = call i64 @avio_seek(ptr noundef %0, i64 noundef %.lcssa153, i32 noundef 0) #9
+  %.lcssa174 = phi i64 [ %47, %29 ], [ %384, %383 ], [ %49, %.lr.ph ], [ %49, %52 ], [ %49, %67 ], [ %49, %61 ], [ %49, %55 ]
+  %386 = call i64 @avio_seek(ptr noundef %0, i64 noundef %.lcssa174, i32 noundef 0) #9
   call void @ff_metadata_conv(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ff_id3v2_34_metadata_conv) #9
   call void @ff_metadata_conv(ptr noundef %1, ptr noundef null, ptr noundef nonnull @id3v2_2_metadata_conv) #9
   call void @ff_metadata_conv(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ff_id3v2_4_metadata_conv) #9
@@ -2274,18 +2274,18 @@ define internal void @read_apic(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 34:                                               ; preds = %26, %31
   %35 = phi i32 [ %27, %26 ], [ %33, %31 ]
   %36 = call i32 @av_strncasecmp(ptr noundef nonnull @ff_id3v2_mime_tags, ptr noundef nonnull %8, i64 noundef 64) #9
-  %.not6180 = icmp eq i32 %36, 0
-  br i1 %.not6180, label %._crit_edge, label %.lr.ph
+  %.not6188 = icmp eq i32 %36, 0
+  br i1 %.not6188, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %39
-  %.0477681 = phi ptr [ %40, %39 ], [ @ff_id3v2_mime_tags, %34 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.0477681, i64 68
+  %.0477689 = phi ptr [ %40, %39 ], [ @ff_id3v2_mime_tags, %34 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.0477689, i64 68
   %38 = load i32, ptr %37, align 4, !tbaa !95
   %.not60 = icmp eq i32 %38, 0
   br i1 %.not60, label %42, label %39, !llvm.loop !97
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i8, ptr %.0477681, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %.0477689, i64 36
   %41 = call i32 @av_strncasecmp(ptr noundef nonnull %40, ptr noundef nonnull %8, i64 noundef 64) #9
   %.not61 = icmp eq i32 %41, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !97

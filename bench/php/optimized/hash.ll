@@ -377,7 +377,7 @@ define dso_local range(i32 -1, 1) i32 @php_hash_serialize_spec(ptr noundef reado
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %91, label %12
+  br i1 %11, label %89, label %12
 
 12:                                               ; preds = %3
   %13 = tail call ptr @_zend_new_array_0() #16
@@ -392,7 +392,7 @@ define dso_local range(i32 -1, 1) i32 @php_hash_serialize_spec(ptr noundef reado
   %18 = phi ptr [ %.pre, %.loopexit ], [ %2, %12 ]
   %19 = load i8, ptr %18, align 1, !tbaa !4
   switch i8 %19, label %20 [
-    i8 46, label %81
+    i8 46, label %79
     i8 0, label %.loopexit46
   ]
 
@@ -479,13 +479,12 @@ zend_string_alloc.exit:                           ; preds = %36
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %one_from_buffer.exit
-  %.03348 = phi i64 [ %80, %one_from_buffer.exit ], [ %21, %.lr.ph ]
-  %63 = phi i64 [ %76, %one_from_buffer.exit ], [ %22, %.lr.ph ]
+  %.03348 = phi i64 [ %78, %one_from_buffer.exit ], [ %21, %.lr.ph ]
+  %63 = phi i64 [ %74, %one_from_buffer.exit ], [ %22, %.lr.ph ]
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 %63
-  switch i64 %.fr49, label %73 [
+  switch i64 %.fr49, label %71 [
     i64 2, label %65
     i64 4, label %68
-    i64 8, label %71
   ]
 
 65:                                               ; preds = %.lr.ph.split
@@ -499,58 +498,54 @@ zend_string_alloc.exit:                           ; preds = %36
   br label %one_from_buffer.exit
 
 71:                                               ; preds = %.lr.ph.split
-  %72 = load i64, ptr %64, align 8, !tbaa !18
-  br label %one_from_buffer.exit
-
-73:                                               ; preds = %.lr.ph.split
   call void @llvm.assume(i1 %37)
-  %74 = load i8, ptr %64, align 1, !tbaa !4
-  %75 = zext i8 %74 to i64
+  %72 = load i8, ptr %64, align 1, !tbaa !4
+  %73 = zext i8 %72 to i64
   br label %one_from_buffer.exit
 
-one_from_buffer.exit:                             ; preds = %65, %68, %71, %73
-  %.0.i = phi i64 [ %67, %65 ], [ %70, %68 ], [ %72, %71 ], [ %75, %73 ]
-  %76 = add i64 %63, %.fr49
-  %sext = shl i64 %.0.i, 32
-  %77 = ashr exact i64 %sext, 32
-  store i64 %77, ptr %7, align 8, !tbaa !4
+one_from_buffer.exit:                             ; preds = %65, %68, %71
+  %.0.i = phi i64 [ %67, %65 ], [ %70, %68 ], [ %73, %71 ]
+  %74 = add i64 %63, %.fr49
+  %sext = shl nuw i64 %.0.i, 32
+  %75 = ashr exact i64 %sext, 32
+  store i64 %75, ptr %7, align 8, !tbaa !4
   store i32 4, ptr %15, align 8, !tbaa !4
-  %78 = load ptr, ptr %1, align 8, !tbaa !4
-  %79 = call ptr @zend_hash_next_index_insert(ptr noundef %78, ptr noundef nonnull %7) #16
-  %80 = add i64 %.03348, -1
-  %.not41 = icmp eq i64 %80, 0
+  %76 = load ptr, ptr %1, align 8, !tbaa !4
+  %77 = call ptr @zend_hash_next_index_insert(ptr noundef %76, ptr noundef nonnull %7) #16
+  %78 = add i64 %.03348, -1
+  %.not41 = icmp eq i64 %78, 0
   br i1 %.not41, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %one_from_buffer.exit, %one_from_buffer.exit.us, %.preheader, %29, %zend_string_alloc.exit
-  %.lcssa.sink = phi i64 [ %62, %zend_string_alloc.exit ], [ %25, %29 ], [ %22, %.preheader ], [ %43, %one_from_buffer.exit.us ], [ %76, %one_from_buffer.exit ]
+  %.lcssa.sink = phi i64 [ %62, %zend_string_alloc.exit ], [ %25, %29 ], [ %22, %.preheader ], [ %43, %one_from_buffer.exit.us ], [ %74, %one_from_buffer.exit ]
   store i64 %.lcssa.sink, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load ptr, ptr %4, align 8, !tbaa !17
   br label %16
 
-81:                                               ; preds = %16
-  %82 = load i64, ptr %6, align 8, !tbaa !18
-  %83 = add i64 %82, -1
-  %84 = and i64 %83, %17
-  %.not.i = icmp eq i64 %84, 0
-  %85 = sub i64 %82, %84
-  %86 = select i1 %.not.i, i64 0, i64 %85
-  %87 = add i64 %86, %17
-  %88 = load ptr, ptr %0, align 8, !tbaa !26
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 80
-  %90 = load i64, ptr %89, align 8, !tbaa !13
-  %.not39 = icmp eq i64 %87, %90
-  br i1 %.not39, label %.loopexit46, label %91
+79:                                               ; preds = %16
+  %80 = load i64, ptr %6, align 8, !tbaa !18
+  %81 = add i64 %80, -1
+  %82 = and i64 %81, %17
+  %.not.i = icmp eq i64 %82, 0
+  %83 = sub i64 %80, %82
+  %84 = select i1 %.not.i, i64 0, i64 %83
+  %85 = add i64 %84, %17
+  %86 = load ptr, ptr %0, align 8, !tbaa !26
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 80
+  %88 = load i64, ptr %87, align 8, !tbaa !13
+  %.not39 = icmp eq i64 %85, %88
+  br i1 %.not39, label %.loopexit46, label %89
 
-.loopexit46:                                      ; preds = %16, %81
-  br label %91
+.loopexit46:                                      ; preds = %16, %79
+  br label %89
 
 .critedge45:                                      ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %91
+  br label %89
 
-91:                                               ; preds = %81, %.critedge45, %3, %.loopexit46
-  %.0 = phi i32 [ 0, %.loopexit46 ], [ -1, %3 ], [ -1, %.critedge45 ], [ -1, %81 ]
+89:                                               ; preds = %79, %.critedge45, %3, %.loopexit46
+  %.0 = phi i32 [ 0, %.loopexit46 ], [ -1, %3 ], [ -1, %.critedge45 ], [ -1, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3358,9 +3353,9 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %90, %php
   %104 = load i64, ptr %73, align 8, !tbaa !81
   store i64 %104, ptr %7, align 8, !tbaa !18
   %105 = trunc nuw i8 %.pre to i1
-  br i1 %105, label %.thread, label %.thread253
+  br i1 %105, label %.thread, label %.thread266
 
-.thread253:                                       ; preds = %103
+.thread266:                                       ; preds = %103
   %106 = shl nsw i64 %104, 1
   store i64 %106, ptr %7, align 8, !tbaa !18
   br label %108
@@ -3369,8 +3364,8 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %90, %php
   %.pre251 = trunc nuw i8 %.pre to i1
   br i1 %.pre251, label %.thread, label %108
 
-108:                                              ; preds = %.thread253, %107
-  %109 = phi i64 [ %106, %.thread253 ], [ %101, %107 ]
+108:                                              ; preds = %.thread266, %107
+  %109 = phi i64 [ %106, %.thread266 ], [ %101, %107 ]
   %110 = sitofp i64 %109 to float
   %111 = fpext float %110 to double
   %112 = fmul double %111, 5.000000e-01

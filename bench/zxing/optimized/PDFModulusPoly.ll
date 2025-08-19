@@ -850,19 +850,19 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc11
   %.0.i.i.i.i.i.ph = phi ptr [ %20, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %16, %.noexc11 ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i.i.i.i.ph, ptr %22, align 8, !tbaa !14
-  %.pre16 = load ptr, ptr %1, align 8, !tbaa !3
+  %.pre20 = load ptr, ptr %1, align 8, !tbaa !3
   br label %23
 
 ._crit_edge:                                      ; preds = %23, %21
-  %.pre18 = phi ptr [ %.pre, %21 ], [ %.pre16, %23 ]
-  invoke void @_ZN5ZXing6Pdf41711ModulusPolyC1ERKNS0_9ModulusGFERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %.pre18, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %.pre22 = phi ptr [ %.pre, %21 ], [ %.pre20, %23 ]
+  invoke void @_ZN5ZXing6Pdf41711ModulusPolyC1ERKNS0_9ModulusGFERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %.pre22, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %33 unwind label %41
 
 23:                                               ; preds = %.lr.ph, %23
   %.014 = phi i64 [ 0, %.lr.ph ], [ %32, %23 ]
   %24 = getelementptr inbounds nuw i32, ptr %7, i64 %.014
   %25 = load i32, ptr %24, align 4, !tbaa !16
-  %26 = load i32, ptr %.pre16, align 8, !tbaa !23
+  %26 = load i32, ptr %.pre20, align 8, !tbaa !23
   %27 = sub i32 0, %25
   %28 = sub i32 %26, %25
   %29 = icmp slt i32 %28, %26
@@ -1221,9 +1221,9 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8multiplyEi(ptr dead_on_unwind noalia
   %16 = sub i64 %14, %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %12, %13
-  br i1 %.not.i.i.i.i.i, label %.thread26, label %20
+  br i1 %.not.i.i.i.i.i, label %.thread36, label %20
 
-.thread26:                                        ; preds = %5
+.thread36:                                        ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr inbounds i8, ptr null, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1250,9 +1250,9 @@ define void @_ZNK5ZXing6Pdf41711ModulusPoly8multiplyEi(ptr dead_on_unwind noalia
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %13, i64 %16, i1 false)
   br label %_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit
 
-_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread26, %22
-  %27 = phi ptr [ %18, %.thread26 ], [ %25, %22 ]
-  %28 = phi ptr [ %17, %.thread26 ], [ %24, %22 ]
+_ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread36, %22
+  %27 = phi ptr [ %18, %.thread36 ], [ %25, %22 ]
+  %28 = phi ptr [ %17, %.thread36 ], [ %24, %22 ]
   store ptr %27, ptr %28, align 8, !tbaa !14
   br label %110
 
@@ -1353,15 +1353,15 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc20
   %.0.i.i.i.i.i.ph = phi ptr [ %68, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %64, %.noexc20 ]
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.i.i.i.i.i.ph, ptr %70, align 8, !tbaa !14
-  %.pre29 = load ptr, ptr %1, align 8, !tbaa !3
-  %71 = getelementptr inbounds nuw i8, ptr %.pre29, i64 8
-  %72 = getelementptr inbounds nuw i8, ptr %.pre29, i64 32
+  %.pre39 = load ptr, ptr %1, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw i8, ptr %.pre39, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.pre39, i64 32
   %73 = sext i32 %2 to i64
   br label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit, %69
-  %.pre31 = phi ptr [ %.pre, %69 ], [ %.pre29, %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit ]
-  invoke void @_ZN5ZXing6Pdf41711ModulusPolyC1ERKNS0_9ModulusGFERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %.pre31, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %.pre41 = phi ptr [ %.pre, %69 ], [ %.pre39, %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit ]
+  invoke void @_ZN5ZXing6Pdf41711ModulusPolyC1ERKNS0_9ModulusGFERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %.pre41, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %93 unwind label %101
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK5ZXing6Pdf4179ModulusGF8multiplyEii.exit
@@ -2294,13 +2294,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !16
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !16
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

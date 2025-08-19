@@ -1272,28 +1272,28 @@ if.end26:                                         ; preds = %if.end.i19
   br i1 %cmp.not.i, label %sw.epilog, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end26.thread, %if.end26
-  %.pr2734 = phi ptr [ %.pr, %if.end26.thread ], [ %.pr27.pre, %if.end26 ]
-  %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %.pr2734, i64 40
+  %.pr2736 = phi ptr [ %.pr, %if.end26.thread ], [ %.pr27.pre, %if.end26 ]
+  %referenceCount_.i.i.i = getelementptr inbounds nuw i8, ptr %.pr2736, i64 40
   %16 = atomicrmw sub ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4
   %cmp.i.i.i = icmp eq i32 %16, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %sw.epilog
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %vtable.i.i.i = load ptr, ptr %.pr2734, align 8
+  %vtable.i.i.i = load ptr, ptr %.pr2736, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 64
   %17 = load ptr, ptr %vfn.i.i.i, align 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(64) %.pr2734)
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(64) %.pr2736)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i
-  %pool_.i.i.i = getelementptr inbounds nuw i8, ptr %.pr2734, i64 8
+  %pool_.i.i.i = getelementptr inbounds nuw i8, ptr %.pr2736, i64 8
   %18 = load ptr, ptr %pool_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %18, null
-  %vtable5.i.i.i = load ptr, ptr %.pr2734, align 8
+  %vtable5.i.i.i = load ptr, ptr %.pr2736, align 8
   %..i.i.i = select i1 %tobool.not.i.i.i, i64 8, i64 48
   %vfn4.i.i.i = getelementptr inbounds nuw i8, ptr %vtable5.i.i.i, i64 %..i.i.i
   %19 = load ptr, ptr %vfn4.i.i.i, align 8
-  invoke void %19(ptr noundef nonnull align 8 dereferenceable(64) %.pr2734)
+  invoke void %19(ptr noundef nonnull align 8 dereferenceable(64) %.pr2736)
           to label %sw.epilog unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %.noexc.i, %if.then.i.i.i
@@ -12541,7 +12541,7 @@ if.then.i.i.i.i.i.i.i.i.i78:                      ; preds = %invoke.cont57
   br label %invoke.cont60
 
 invoke.cont60:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i78, %invoke.cont57
-  %add.ptr62 = getelementptr inbounds i64, ptr %add.ptr54, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw i64, ptr %add.ptr54, i64 %__n
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i82 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast49
   %tobool.not.i.i.i.i.i.i.i.i.i83 = icmp eq ptr %1, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i83, label %invoke.cont64, label %if.then.i.i.i.i.i.i.i.i.i84

@@ -369,9 +369,9 @@ _ZNK2cv11_InputArray6getMatEi.exit79:             ; preds = %101, %104
   %138 = load i32, ptr %38, align 8, !tbaa !28
   %139 = and i32 %138, 4095
   %140 = icmp eq i32 %139, 5
-  br i1 %140, label %143, label %.invoke261
+  br i1 %140, label %143, label %.invoke349
 
-141:                                              ; preds = %.invoke263, %.invoke261, %134
+141:                                              ; preds = %.invoke351, %.invoke349, %134
   %142 = landingpad { ptr, i32 }
           cleanup
   br label %1274
@@ -384,32 +384,32 @@ _ZNK2cv11_InputArray6getMatEi.exit79:             ; preds = %101, %104
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, %92
   %or.cond65 = select i1 %146, i1 %149, i1 false
-  br i1 %or.cond65, label %150, label %.invoke263
+  br i1 %or.cond65, label %150, label %.invoke351
 
 150:                                              ; preds = %143
   %151 = icmp eq ptr %4, null
-  br i1 %151, label %173, label %.invoke263
+  br i1 %151, label %173, label %.invoke351
 
-.invoke263:                                       ; preds = %150, %143
+.invoke351:                                       ; preds = %150, %143
   %152 = phi ptr [ @_ZZN2cv3EMDERKNS_11_InputArrayES2_iS2_PfRKNS_12_OutputArrayEE15__cv_check__972, %143 ], [ @_ZZN2cv3EMDERKNS_11_InputArrayES2_iS2_PfRKNS_12_OutputArrayEE15__cv_check__974, %150 ]
   invoke void @_ZN2cv6detail17check_failed_trueEbRKNS0_12CheckContextE(i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %152) #17
-          to label %.cont264 unwind label %141
+          to label %.cont352 unwind label %141
 
-.cont264:                                         ; preds = %.invoke263
+.cont352:                                         ; preds = %.invoke351
   unreachable
 
 153:                                              ; preds = %132
   %.not49 = icmp eq i32 %88, 0
-  br i1 %.not49, label %.invoke261, label %157
+  br i1 %.not49, label %.invoke349, label %157
 
-.invoke261:                                       ; preds = %153, %137
+.invoke349:                                       ; preds = %153, %137
   %154 = phi i32 [ %139, %137 ], [ 0, %153 ]
   %155 = phi i32 [ 5, %137 ], [ 0, %153 ]
   %156 = phi ptr [ @_ZZN2cv3EMDERKNS_11_InputArrayES2_iS2_PfRKNS_12_OutputArrayEE15__cv_check__970, %137 ], [ @_ZZN2cv3EMDERKNS_11_InputArrayES2_iS2_PfRKNS_12_OutputArrayEE15__cv_check__983, %153 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %154, i32 noundef %155, ptr noundef nonnull align 8 dereferenceable(48) %156) #17
-          to label %.cont262 unwind label %141
+          to label %.cont350 unwind label %141
 
-.cont262:                                         ; preds = %.invoke261
+.cont350:                                         ; preds = %.invoke349
   unreachable
 
 157:                                              ; preds = %153
@@ -502,8 +502,8 @@ switch.lookup:                                    ; preds = %157
   %186 = load ptr, ptr %174, align 8, !tbaa !38
   %.not.i.i.i = icmp eq ptr %186, %175
   %187 = icmp eq ptr %186, null
-  %or.cond265 = or i1 %.not.i.i.i, %187
-  br i1 %or.cond265, label %.body, label %188
+  %or.cond353 = or i1 %.not.i.i.i, %187
+  br i1 %or.cond353, label %.body, label %188
 
 188:                                              ; preds = %185
   call void @_ZdaPv(ptr noundef nonnull %186) #19
@@ -582,8 +582,8 @@ _ZN12_GLOBAL__N_19EMDSolverC2Ev.exit:             ; preds = %179
 .lr.ph106.i.i:                                    ; preds = %.preheader.thread.i.i, %.preheader.i.i
   %217 = phi i32 [ %215, %.preheader.thread.i.i ], [ %212, %.preheader.i.i ]
   %218 = phi ptr [ %214, %.preheader.thread.i.i ], [ %211, %.preheader.i.i ]
-  %.050.lcssa123.i.i = phi i32 [ 0, %.preheader.thread.i.i ], [ %.1.i.i, %.preheader.i.i ]
-  %.063.lcssa122.i.i = phi float [ 0.000000e+00, %.preheader.thread.i.i ], [ %.164.i.i, %.preheader.i.i ]
+  %.050.lcssa134.i.i = phi i32 [ 0, %.preheader.thread.i.i ], [ %.1.i.i, %.preheader.i.i ]
+  %.063.lcssa133.i.i = phi float [ 0.000000e+00, %.preheader.thread.i.i ], [ %.164.i.i, %.preheader.i.i ]
   %219 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %220 = load ptr, ptr %219, align 8, !tbaa !44
   %221 = getelementptr inbounds nuw i8, ptr %37, i64 72
@@ -673,7 +673,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   br i1 %257, label %226, label %.preheader.i.i, !llvm.loop !49
 
 ._crit_edge.i.i:                                  ; preds = %288
-  %258 = icmp eq i32 %.050.lcssa123.i.i, 0
+  %258 = icmp eq i32 %.050.lcssa134.i.i, 0
   br i1 %258, label %._crit_edge.thread.thread.i.i, label %304
 
 ._crit_edge.thread.i.i:                           ; preds = %.preheader.i.i
@@ -850,9 +850,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94.i.i: ; preds = 
   br label %.body87
 
 318:                                              ; preds = %304
-  %319 = fsub float %.063.lcssa122.i.i, %.166.i.i
+  %319 = fsub float %.063.lcssa133.i.i, %.166.i.i
   %320 = call noundef float @llvm.fabs.f32(float %319)
-  %321 = fmul float %.063.lcssa122.i.i, 0x3EE4F8B580000000
+  %321 = fmul float %.063.lcssa133.i.i, 0x3EE4F8B580000000
   %322 = fcmp ult float %320, %321
   br i1 %322, label %_ZN12_GLOBAL__N_19EMDSolver8calcSumsERKN2cv3MatES4_.exit.i, label %323
 
@@ -863,11 +863,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94.i.i: ; preds = 
 325:                                              ; preds = %323
   %326 = fneg float %319
   %327 = load ptr, ptr %199, align 8, !tbaa !52
-  %328 = sext i32 %.050.lcssa123.i.i to i64
+  %328 = sext i32 %.050.lcssa134.i.i to i64
   %329 = getelementptr inbounds float, ptr %327, i64 %328
   store float %326, ptr %329, align 4, !tbaa !47
   %330 = load ptr, ptr %195, align 8, !tbaa !65
-  %331 = add nsw i32 %.050.lcssa123.i.i, 1
+  %331 = add nsw i32 %.050.lcssa134.i.i, 1
   %332 = getelementptr inbounds i32, ptr %330, i64 %328
   store i32 -1, ptr %332, align 4, !tbaa !43
   br label %_ZN12_GLOBAL__N_19EMDSolver8calcSumsERKN2cv3MatES4_.exit.i
@@ -883,12 +883,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94.i.i: ; preds = 
 
 _ZN12_GLOBAL__N_19EMDSolver8calcSumsERKN2cv3MatES4_.exit.i: ; preds = %333, %325, %318
   %.253.i.i = phi i32 [ %.152.i.i, %325 ], [ %336, %333 ], [ %.152.i.i, %318 ]
-  %.2.i.i = phi i32 [ %331, %325 ], [ %.050.lcssa123.i.i, %333 ], [ %.050.lcssa123.i.i, %318 ]
+  %.2.i.i = phi i32 [ %331, %325 ], [ %.050.lcssa134.i.i, %333 ], [ %.050.lcssa134.i.i, %318 ]
   store i32 %.2.i.i, ptr %44, align 8, !tbaa !66
   %338 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %.253.i.i, ptr %338, align 4, !tbaa !67
-  %339 = fcmp ogt float %.063.lcssa122.i.i, %.166.i.i
-  %340 = select i1 %339, float %.063.lcssa122.i.i, float %.166.i.i
+  %339 = fcmp ogt float %.063.lcssa133.i.i, %.166.i.i
+  %340 = select i1 %339, float %.063.lcssa133.i.i, float %.166.i.i
   %341 = getelementptr inbounds nuw i8, ptr %44, i64 176
   store float %340, ptr %341, align 8, !tbaa !68
   %342 = icmp ne ptr %4, null
@@ -1033,8 +1033,8 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i.i:  ; preds = %.noexc89, %348
   %.pre.i31.i = load ptr, ptr %26, align 8, !tbaa !69
   %.not.i.i50.i.i = icmp eq ptr %.pre.i31.i, %344
   %396 = icmp eq ptr %.pre.i31.i, null
-  %or.cond84.i.i = or i1 %.not.i.i50.i.i, %396
-  br i1 %or.cond84.i.i, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit52.i.i, label %397
+  %or.cond90.i.i = or i1 %.not.i.i50.i.i, %396
+  br i1 %or.cond90.i.i, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit52.i.i, label %397
 
 397:                                              ; preds = %394
   call void @_ZdaPv(ptr noundef nonnull %.pre.i31.i) #19
@@ -2248,11 +2248,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i131: ; preds =
   br i1 %.not95.us.i.i, label %.loopexit.i.i120, label %.lr.ph150.split.us.i.i, !llvm.loop !121
 
 .lr.ph150.splitthread-pre-split.i.i:              ; preds = %._crit_edge143.i.i
-  %.pr166.i.i = load ptr, ptr %818, align 8, !tbaa !80
+  %.pr175.i.i = load ptr, ptr %818, align 8, !tbaa !80
   br label %.lr.ph150.split.i.i
 
 .lr.ph150.split.i.i:                              ; preds = %.lr.ph150.i.i, %.lr.ph150.splitthread-pre-split.i.i
-  %904 = phi ptr [ %.pr166.i.i, %.lr.ph150.splitthread-pre-split.i.i ], [ %899, %.lr.ph150.i.i ]
+  %904 = phi ptr [ %.pr175.i.i, %.lr.ph150.splitthread-pre-split.i.i ], [ %899, %.lr.ph150.i.i ]
   %.277148.i.i = phi ptr [ %931, %.lr.ph150.splitthread-pre-split.i.i ], [ %.sroa.3.1.i.i, %.lr.ph150.i.i ]
   %.283147.i.i = phi i32 [ %932, %.lr.ph150.splitthread-pre-split.i.i ], [ %.081.i.i, %.lr.ph150.i.i ]
   %.sroa.386.4146.i.i = phi ptr [ %.sroa.386.5.lcssa.i.i, %.lr.ph150.splitthread-pre-split.i.i ], [ %.sroa.386.1.i.i, %.lr.ph150.i.i ]
@@ -2676,36 +2676,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 1082:                                             ; preds = %.critedge4.thread59.i.i.i, %.critedge.thread.i.i.i
   %.pre-phi88.sink.i.i.i = phi i64 [ %.pre-phi88.i.i.i, %.critedge.thread.i.i.i ], [ %1081, %.critedge4.thread59.i.i.i ]
-  %.sink103.i.i.i = phi ptr [ %1041, %.critedge.thread.i.i.i ], [ %1080, %.critedge4.thread59.i.i.i ]
+  %.sink104.i.i.i = phi ptr [ %1041, %.critedge.thread.i.i.i ], [ %1080, %.critedge4.thread59.i.i.i ]
   %.5.i.i.i = phi ptr [ %.23758.i.i.i, %.critedge.thread.i.i.i ], [ %1056, %.critedge4.thread59.i.i.i ]
   %.4.i.i.i = phi i32 [ %1043, %.critedge.thread.i.i.i ], [ %.361.i.i.i, %.critedge4.thread59.i.i.i ]
   %.val51.sink.i.i.i = load ptr, ptr %174, align 8, !tbaa !38
   %1083 = ptrtoint ptr %.val51.sink.i.i.i to i64
   %1084 = sub i64 %.pre-phi88.sink.i.i.i, %1083
   %1085 = ashr exact i64 %1084, 5
-  %1086 = getelementptr inbounds i8, ptr %.sink103.i.i.i, i64 %1085
+  %1086 = getelementptr inbounds i8, ptr %.sink104.i.i.i, i64 %1085
   store i8 1, ptr %1086, align 1, !tbaa !99
   %1087 = icmp sgt i32 %.4.i.i.i, 0
   br i1 %1087, label %1005, label %_ZNK12_GLOBAL__N_19EMDSolver8findLoopEv.exit.i.i, !llvm.loop !133
 
 _ZNK12_GLOBAL__N_19EMDSolver8findLoopEv.exit.i.i: ; preds = %1082
-  %.not181.i.i = icmp eq i32 %.4.i.i.i, 0
-  br i1 %.not181.i.i, label %1173, label %._crit_edge.thread.i.i116
+  %.not187.i.i = icmp eq i32 %.4.i.i.i, 0
+  br i1 %.not187.i.i, label %1173, label %._crit_edge.thread.i.i116
 
 .preheader101.i.i:                                ; preds = %.critedge2.i.i.i
   %1088 = icmp samesign ugt i32 %.0.i.i.i114, 1
+  br i1 %1088, label %.lr.ph.preheader.i28.i, label %.lr.ph126.preheader.i.i
+
+.lr.ph.preheader.i28.i:                           ; preds = %.preheader101.i.i
   %1089 = zext nneg i32 %.0.i.i.i114 to i64
-  br i1 %1088, label %.lr.ph.i29.i, label %.lr.ph126.preheader.i.i
+  br label %.lr.ph.i29.i
 
 .lr.ph126.preheader.i.i:                          ; preds = %.lr.ph.i29.i, %.preheader101.i.i
+  %.pre-phi.i = phi i64 [ 1, %.preheader101.i.i ], [ %1089, %.lr.ph.i29.i ]
   %.074.lcssa.ph.i.i = phi ptr [ null, %.preheader101.i.i ], [ %.175.i.i, %.lr.ph.i29.i ]
   %.070.lcssa.ph.i.i = phi float [ 0x4415AF1D80000000, %.preheader101.i.i ], [ %.171.i.i, %.lr.ph.i29.i ]
   br label %.lr.ph126.i.i
 
-.lr.ph.i29.i:                                     ; preds = %.preheader101.i.i, %.lr.ph.i29.i
-  %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.lr.ph.i29.i ], [ 1, %.preheader101.i.i ]
-  %.070122.i.i = phi float [ %.171.i.i, %.lr.ph.i29.i ], [ 0x4415AF1D80000000, %.preheader101.i.i ]
-  %.074121.i.i = phi ptr [ %.175.i.i, %.lr.ph.i29.i ], [ null, %.preheader101.i.i ]
+.lr.ph.i29.i:                                     ; preds = %.lr.ph.i29.i, %.lr.ph.preheader.i28.i
+  %indvars.iv.i30.i = phi i64 [ 1, %.lr.ph.preheader.i28.i ], [ %indvars.iv.next.i31.i, %.lr.ph.i29.i ]
+  %.070122.i.i = phi float [ 0x4415AF1D80000000, %.lr.ph.preheader.i28.i ], [ %.171.i.i, %.lr.ph.i29.i ]
+  %.074121.i.i = phi ptr [ null, %.lr.ph.preheader.i28.i ], [ %.175.i.i, %.lr.ph.i29.i ]
   %1090 = getelementptr inbounds nuw ptr, ptr %976, i64 %indvars.iv.i30.i
   %1091 = load ptr, ptr %1090, align 8, !tbaa !105
   %1092 = load float, ptr %1091, align 8, !tbaa !100
@@ -2729,7 +2733,7 @@ _ZNK12_GLOBAL__N_19EMDSolver8findLoopEv.exit.i.i: ; preds = %1082
   store float %1098, ptr %1096, align 8, !tbaa !100
   store float %1102, ptr %1100, align 8, !tbaa !100
   %indvars.iv.next146.i.i = add nuw nsw i64 %indvars.iv145.i.i, 2
-  %1103 = icmp samesign ult i64 %indvars.iv.next146.i.i, %1089
+  %1103 = icmp samesign ult i64 %indvars.iv.next146.i.i, %.pre-phi.i
   br i1 %1103, label %.lr.ph126.i.i, label %._crit_edge.i26.i, !llvm.loop !135
 
 ._crit_edge.i26.i:                                ; preds = %.lr.ph126.i.i
@@ -3108,8 +3112,8 @@ _ZNK12_GLOBAL__N_19EMDSolver8calcFlowEPN2cv3MatE.exit: ; preds = %1223, %1258, %
   %1265 = load ptr, ptr %174, align 8, !tbaa !38
   %.not.i.i.i138 = icmp eq ptr %1265, %175
   %1266 = icmp eq ptr %1265, null
-  %or.cond266 = or i1 %.not.i.i.i138, %1266
-  br i1 %or.cond266, label %_ZN12_GLOBAL__N_19EMDSolverD2Ev.exit, label %1267
+  %or.cond354 = or i1 %.not.i.i.i138, %1266
+  br i1 %or.cond354, label %_ZN12_GLOBAL__N_19EMDSolverD2Ev.exit, label %1267
 
 1267:                                             ; preds = %1264
   call void @_ZdaPv(ptr noundef nonnull %1265) #19

@@ -1579,13 +1579,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundl
   %52 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !78
   %54 = icmp eq ptr %53, %1
-  br i1 %54, label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit19, label %55
+  br i1 %54, label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit23, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !78
   %58 = icmp eq ptr %57, %1
-  br i1 %58, label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit21, label %59
+  br i1 %58, label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit25, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -1600,7 +1600,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundl
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %33
   %.pre-phi56.i.i.i.i = phi i32 [ %63, %._crit_edge.loopexit.i.i.i.i ], [ %39, %33 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %37, %33 ]
-  switch i32 %.pre-phi56.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
     i32 3, label %64
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
@@ -1632,7 +1632,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9sandboxir11InstructionEPNS2_10SeedBundl
   %74 = icmp eq ptr %73, %1
   br i1 %74, label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit, label %75
 
-._crit_edge.i.i.i.unreachabledefault.i:           ; preds = %._crit_edge.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   unreachable
 
 75:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
@@ -1642,16 +1642,16 @@ _ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.l
   %76 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit
 
-_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit19: ; preds = %51
+_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit23: ; preds = %51
   %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit
 
-_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit21: ; preds = %55
+_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit25: ; preds = %55
   %78 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit
 
-_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit: ; preds = %44, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit19, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit21, %64, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %75
-  %.028.i.i.i.i = phi ptr [ %41, %75 ], [ %.029.lcssa.i.i.i.i, %64 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %76, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit ], [ %77, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit19 ], [ %78, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit21 ], [ %.02946.i.i.i.i, %44 ]
+_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit: ; preds = %44, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit23, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit25, %64, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %75
+  %.028.i.i.i.i = phi ptr [ %41, %75 ], [ %.029.lcssa.i.i.i.i, %64 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %76, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit ], [ %77, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit23 ], [ %78, %_ZN4llvm9sandboxir10SeedBundle7setUsedEPNS0_11InstructionE.exit.loopexit.split.loop.exit25 ], [ %.02946.i.i.i.i, %44 ]
   %79 = ptrtoint ptr %37 to i64
   %80 = ptrtoint ptr %.028.i.i.i.i to i64
   %81 = sub i64 %80, %79

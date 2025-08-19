@@ -36643,11 +36643,11 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum5DatumEEEC2IS2_INS5_22Geo
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62)
-          to label %1456 unwind label %.thread741
+          to label %1456 unwind label %.thread908
 
 1456:                                             ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum5DatumEEEC2IS2_INS5_22GeodeticReferenceFrameEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit620
   %1457 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj4util11PropertyMap3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, ptr noundef nonnull @.str.166)
-          to label %1458 unwind label %.thread746
+          to label %1458 unwind label %.thread913
 
 1458:                                             ; preds = %1456
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -37106,14 +37106,14 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit675: ; preds = %_ZNKSt7__cxx1112bas
           catch ptr null
   br label %1671
 
-.thread741:                                       ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum5DatumEEEC2IS2_INS5_22GeodeticReferenceFrameEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit620
+.thread908:                                       ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum5DatumEEEC2IS2_INS5_22GeodeticReferenceFrameEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit620
   %1640 = landingpad { ptr, i32 }
           catch ptr @_ZTIN5osgeo4proj4util9ExceptionE
           catch ptr @_ZTISt9exception
           catch ptr null
   br label %.preheader.preheader.sink.split
 
-.thread746:                                       ; preds = %1456
+.thread913:                                       ; preds = %1456
   %1641 = landingpad { ptr, i32 }
           catch ptr @_ZTIN5osgeo4proj4util9ExceptionE
           catch ptr @_ZTISt9exception
@@ -37215,26 +37215,26 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br i1 %.3152, label %.thread, label %.preheader.preheader
 
-.preheader.preheader.sink.split:                  ; preds = %.thread741, %.thread746
-  %.pn265.pn.pn.pn.pn.pn.pn744.ph = phi { ptr, i32 } [ %1641, %.thread746 ], [ %1640, %.thread741 ]
+.preheader.preheader.sink.split:                  ; preds = %.thread908, %.thread913
+  %.pn265.pn.pn.pn.pn.pn.pn911.ph = phi { ptr, i32 } [ %1641, %.thread913 ], [ %1640, %.thread908 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.preheader.sink.split, %1670
-  %.pn265.pn.pn.pn.pn.pn.pn744 = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn, %1670 ], [ %.pn265.pn.pn.pn.pn.pn.pn744.ph, %.preheader.preheader.sink.split ]
+  %.pn265.pn.pn.pn.pn.pn.pn911 = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn, %1670 ], [ %.pn265.pn.pn.pn.pn.pn.pn911.ph, %.preheader.preheader.sink.split ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum5DatumEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %60) #26
   br label %.thread
 
 .thread:                                          ; preds = %.preheader.preheader, %1670
-  %.pn265.pn.pn.pn.pn.pn.pn745 = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn.pn.pn744, %.preheader.preheader ], [ %.pn265.pn.pn.pn.pn, %1670 ]
+  %.pn265.pn.pn.pn.pn.pn.pn912 = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn.pn.pn911, %.preheader.preheader ], [ %.pn265.pn.pn.pn.pn, %1670 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #26
   br label %1671
 
 1671:                                             ; preds = %.thread, %1638
-  %.pn265.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn.pn.pn745, %.thread ], [ %1639, %1638 ]
+  %.pn265.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn265.pn.pn.pn.pn.pn.pn912, %.thread ], [ %1639, %1638 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %1672
 

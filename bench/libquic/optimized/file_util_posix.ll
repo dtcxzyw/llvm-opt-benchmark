@@ -1228,8 +1228,8 @@ define noundef zeroext i1 @_ZN4base8CopyFileERKNS_8FilePathES2_(ptr noundef nonn
   %.325 = phi i1 [ %.426, %44 ], [ true, %38 ]
   %.018 = phi i64 [ %.119, %44 ], [ 0, %38 ]
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 %.018
-  %41 = trunc i64 %.018 to i32
-  %42 = sub i32 %30, %41
+  %41 = trunc nuw nsw i64 %.018 to i32
+  %42 = sub nsw i32 %30, %41
   %43 = invoke noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull align 8 dereferenceable(50) %5, ptr noundef nonnull %40, i32 noundef %42)
           to label %44 unwind label %48
 

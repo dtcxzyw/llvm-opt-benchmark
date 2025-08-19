@@ -205,7 +205,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %.0 = phi i32 [ %107, %106 ], [ %66, %102 ]
   %112 = getelementptr i8, ptr %64, i64 56
   %.val = load float, ptr %112, align 8, !tbaa !3
-  %113 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %.050, i32 noundef %.0, i32 noundef %2)
+  %113 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %.050, i32 noundef %.0, i32 noundef 1)
   %114 = fadd float %.3, %113
   br label %115
 

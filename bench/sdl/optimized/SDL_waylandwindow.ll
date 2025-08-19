@@ -1879,7 +1879,7 @@ GetWindowScale.exit:                              ; preds = %7, %._crit_edge.i
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 396
   %24 = load i8, ptr %23, align 4, !range !5, !noundef !6
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %.thread204, label %26
+  br i1 %25, label %.thread219, label %26
 
 26:                                               ; preds = %22
   store i8 1, ptr %23, align 4
@@ -2365,7 +2365,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
   %290 = getelementptr inbounds nuw i8, ptr %3, i64 92
   %291 = load i32, ptr %290, align 4
   %292 = icmp eq i32 %291, 4
-  br i1 %292, label %293, label %.thread204
+  br i1 %292, label %293, label %.thread219
 
 293:                                              ; preds = %286
   %or.cond7 = or i1 %spec.select198, %.0158.in192
@@ -2375,27 +2375,27 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
   %295 = getelementptr inbounds nuw i8, ptr %3, i64 393
   %296 = load i8, ptr %295, align 1, !range !5, !noundef !6
   %297 = trunc nuw i8 %296 to i1
-  br i1 %297, label %.thread203, label %298
+  br i1 %297, label %.thread218, label %298
 
 298:                                              ; preds = %294
   %299 = load i64, ptr %4, align 8
   %300 = and i64 %299, 4
   %.not185 = icmp eq i64 %300, 0
-  br i1 %.not185, label %.thread204, label %301
+  br i1 %.not185, label %.thread219, label %301
 
 301:                                              ; preds = %293, %298
   %302 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %0, i32 noundef 516, i32 noundef 0, i32 noundef 0) #15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 393
   %.pre202 = load i8, ptr %.phi.trans.insert, align 1, !range !5
   %303 = trunc nuw i8 %.pre202 to i1
-  br i1 %303, label %.thread203, label %.thread204
+  br i1 %303, label %.thread218, label %.thread219
 
-.thread203:                                       ; preds = %294, %301
+.thread218:                                       ; preds = %294, %301
   %304 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %0, i32 noundef 534, i32 noundef 0, i32 noundef 0) #15
-  br label %.thread204
+  br label %.thread219
 
-.thread204:                                       ; preds = %298, %286, %.thread203, %301, %22
-  %.0152 = phi i1 [ false, %22 ], [ true, %301 ], [ true, %.thread203 ], [ true, %286 ], [ true, %298 ]
+.thread219:                                       ; preds = %298, %286, %.thread218, %301, %22
+  %.0152 = phi i1 [ false, %22 ], [ true, %301 ], [ true, %.thread218 ], [ true, %286 ], [ true, %298 ]
   ret i1 %.0152
 }
 
@@ -3337,10 +3337,10 @@ PixelToPoint.exit183:                             ; preds = %PixelToPoint.exit, 
   br label %180
 
 180:                                              ; preds = %PixelToPoint.exit183, %108
-  %.sink188 = phi i64 [ 308, %PixelToPoint.exit183 ], [ 300, %108 ]
+  %.sink203 = phi i64 [ 308, %PixelToPoint.exit183 ], [ 300, %108 ]
   %.sink.in = phi ptr [ %144, %PixelToPoint.exit183 ], [ %110, %108 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %181 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink188
+  %181 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink203
   store i32 %.sink, ptr %181, align 4
   br i1 %.not, label %182, label %196
 
@@ -4332,10 +4332,10 @@ PixelToPoint.exit30:                              ; preds = %PixelToPoint.exit, 
   br label %105
 
 105:                                              ; preds = %PixelToPoint.exit30, %35
-  %.sink32 = phi i64 [ 308, %PixelToPoint.exit30 ], [ 300, %35 ]
+  %.sink33 = phi i64 [ 308, %PixelToPoint.exit30 ], [ 300, %35 ]
   %.sink.in = phi ptr [ %69, %PixelToPoint.exit30 ], [ %37, %35 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink32
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink33
   store i32 %.sink, ptr %106, align 4
   %107 = tail call fastcc zeroext i1 @ConfigureWindowGeometry(ptr noundef nonnull %1)
   br label %109
@@ -5633,16 +5633,16 @@ GetWindowScale.exit6.i47:                         ; preds = %._crit_edge.i5.i46,
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %GetWindowScale.exit6.i32, %GetWindowScale.exit6.i47
-  %.sink52 = phi double [ %159, %GetWindowScale.exit6.i47 ], [ %89, %GetWindowScale.exit6.i32 ]
-  %.sink50.ph = phi i64 [ 308, %GetWindowScale.exit6.i47 ], [ 300, %GetWindowScale.exit6.i32 ]
-  %160 = tail call i64 @SDL_lround_REAL(double noundef %.sink52) #15
+  %.sink56 = phi double [ %159, %GetWindowScale.exit6.i47 ], [ %89, %GetWindowScale.exit6.i32 ]
+  %.sink54.ph = phi i64 [ 308, %GetWindowScale.exit6.i47 ], [ 300, %GetWindowScale.exit6.i32 ]
+  %160 = tail call i64 @SDL_lround_REAL(double noundef %.sink56) #15
   %161 = trunc i64 %160 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %GetWindowScale.exit.i44, %PointToPixel.exit, %GetWindowScale.exit.i29, %PixelToPoint.exit
-  %.sink50 = phi i64 [ 300, %PixelToPoint.exit ], [ 300, %GetWindowScale.exit.i29 ], [ 308, %PointToPixel.exit ], [ 308, %GetWindowScale.exit.i44 ], [ %.sink50.ph, %.sink.split.sink.split ]
+  %.sink54 = phi i64 [ 300, %PixelToPoint.exit ], [ 300, %GetWindowScale.exit.i29 ], [ 308, %PointToPixel.exit ], [ 308, %GetWindowScale.exit.i44 ], [ %.sink54.ph, %.sink.split.sink.split ]
   %.sink = phi i32 [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i29 ], [ 0, %PointToPixel.exit ], [ 1, %GetWindowScale.exit.i44 ], [ %161, %.sink.split.sink.split ]
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink54
   store i32 %.sink, ptr %162, align 4
   br label %163
 
@@ -6039,11 +6039,11 @@ define internal void @handle_configure_xdg_toplevel(ptr noundef initializes((100
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 1
-  %.not24.i371 = icmp eq i64 %15, 0
-  br i1 %.not24.i371, label %UpdateWindowFullscreen.exit.thread, label %75
+  %.not24.i392 = icmp eq i64 %15, 0
+  br i1 %.not24.i392, label %UpdateWindowFullscreen.exit.thread, label %75
 
 UpdateWindowFullscreen.exit.thread:               ; preds = %._crit_edge.thread
-  %.pre398 = load i64, ptr %13, align 8
+  %.pre419 = load i64, ptr %13, align 8
   br label %92
 
 .lr.ph.preheader:                                 ; preds = %5
@@ -6190,12 +6190,12 @@ UpdateWindowFullscreen.exit.thread:               ; preds = %._crit_edge.thread
   br i1 %.not24.i, label %UpdateWindowFullscreen.exit, label %75
 
 75:                                               ; preds = %._crit_edge.thread, %74
-  %.0214.lcssa373391 = phi i1 [ false, %._crit_edge.thread ], [ %40, %74 ]
-  %.0212.lcssa375390 = phi i8 [ 1, %._crit_edge.thread ], [ %.1213, %74 ]
-  %.0210.lcssa378389 = phi i8 [ 0, %._crit_edge.thread ], [ %.1211, %74 ]
-  %.0208.lcssa380388 = phi i8 [ 0, %._crit_edge.thread ], [ %.1209, %74 ]
-  %.0206.lcssa382387 = phi i8 [ 0, %._crit_edge.thread ], [ %.1207, %74 ]
-  %.0204.lcssa384386 = phi i8 [ 0, %._crit_edge.thread ], [ %.1205, %74 ]
+  %.0214.lcssa394412 = phi i1 [ false, %._crit_edge.thread ], [ %40, %74 ]
+  %.0212.lcssa396411 = phi i8 [ 1, %._crit_edge.thread ], [ %.1213, %74 ]
+  %.0210.lcssa399410 = phi i8 [ 0, %._crit_edge.thread ], [ %.1211, %74 ]
+  %.0208.lcssa401409 = phi i8 [ 0, %._crit_edge.thread ], [ %.1209, %74 ]
+  %.0206.lcssa403408 = phi i8 [ 0, %._crit_edge.thread ], [ %.1207, %74 ]
+  %.0204.lcssa405407 = phi i8 [ 0, %._crit_edge.thread ], [ %.1205, %74 ]
   %76 = phi ptr [ %10, %._crit_edge.thread ], [ %42, %74 ]
   %77 = phi ptr [ %11, %._crit_edge.thread ], [ %43, %74 ]
   %78 = phi ptr [ %13, %._crit_edge.thread ], [ %45, %74 ]
@@ -6220,27 +6220,27 @@ UpdateWindowFullscreen.exit:                      ; preds = %48, %49, %61, %65, 
   %88 = phi ptr [ %45, %48 ], [ %45, %49 ], [ %45, %61 ], [ %45, %65 ], [ %45, %68 ], [ %45, %74 ], [ %78, %75 ], [ %78, %84 ]
   %89 = phi ptr [ %42, %48 ], [ %42, %49 ], [ %42, %61 ], [ %42, %65 ], [ %42, %68 ], [ %42, %74 ], [ %76, %75 ], [ %76, %84 ]
   %90 = phi i1 [ true, %48 ], [ true, %49 ], [ true, %61 ], [ true, %65 ], [ true, %68 ], [ false, %74 ], [ false, %75 ], [ false, %84 ]
-  %.0204.lcssa383 = phi i8 [ %.1205, %48 ], [ %.1205, %49 ], [ %.1205, %61 ], [ %.1205, %65 ], [ %.1205, %68 ], [ %.1205, %74 ], [ %.0204.lcssa384386, %75 ], [ %.0204.lcssa384386, %84 ]
-  %.0206.lcssa381 = phi i8 [ %.1207, %48 ], [ %.1207, %49 ], [ %.1207, %61 ], [ %.1207, %65 ], [ %.1207, %68 ], [ %.1207, %74 ], [ %.0206.lcssa382387, %75 ], [ %.0206.lcssa382387, %84 ]
-  %.0208.lcssa379 = phi i8 [ %.1209, %48 ], [ %.1209, %49 ], [ %.1209, %61 ], [ %.1209, %65 ], [ %.1209, %68 ], [ %.1209, %74 ], [ %.0208.lcssa380388, %75 ], [ %.0208.lcssa380388, %84 ]
-  %.0210.lcssa377 = phi i8 [ %.1211, %48 ], [ %.1211, %49 ], [ %.1211, %61 ], [ %.1211, %65 ], [ %.1211, %68 ], [ %.1211, %74 ], [ %.0210.lcssa378389, %75 ], [ %.0210.lcssa378389, %84 ]
-  %.0212.lcssa374 = phi i8 [ %.1213, %48 ], [ %.1213, %49 ], [ %.1213, %61 ], [ %.1213, %65 ], [ %.1213, %68 ], [ %.1213, %74 ], [ %.0212.lcssa375390, %75 ], [ %.0212.lcssa375390, %84 ]
-  %.0214.lcssa372 = phi i1 [ %40, %48 ], [ %40, %49 ], [ %40, %61 ], [ %40, %65 ], [ %40, %68 ], [ %40, %74 ], [ %.0214.lcssa373391, %75 ], [ %.0214.lcssa373391, %84 ]
-  %91 = trunc nuw i8 %.0208.lcssa379 to i1
+  %.0204.lcssa404 = phi i8 [ %.1205, %48 ], [ %.1205, %49 ], [ %.1205, %61 ], [ %.1205, %65 ], [ %.1205, %68 ], [ %.1205, %74 ], [ %.0204.lcssa405407, %75 ], [ %.0204.lcssa405407, %84 ]
+  %.0206.lcssa402 = phi i8 [ %.1207, %48 ], [ %.1207, %49 ], [ %.1207, %61 ], [ %.1207, %65 ], [ %.1207, %68 ], [ %.1207, %74 ], [ %.0206.lcssa403408, %75 ], [ %.0206.lcssa403408, %84 ]
+  %.0208.lcssa400 = phi i8 [ %.1209, %48 ], [ %.1209, %49 ], [ %.1209, %61 ], [ %.1209, %65 ], [ %.1209, %68 ], [ %.1209, %74 ], [ %.0208.lcssa401409, %75 ], [ %.0208.lcssa401409, %84 ]
+  %.0210.lcssa398 = phi i8 [ %.1211, %48 ], [ %.1211, %49 ], [ %.1211, %61 ], [ %.1211, %65 ], [ %.1211, %68 ], [ %.1211, %74 ], [ %.0210.lcssa399410, %75 ], [ %.0210.lcssa399410, %84 ]
+  %.0212.lcssa395 = phi i8 [ %.1213, %48 ], [ %.1213, %49 ], [ %.1213, %61 ], [ %.1213, %65 ], [ %.1213, %68 ], [ %.1213, %74 ], [ %.0212.lcssa396411, %75 ], [ %.0212.lcssa396411, %84 ]
+  %.0214.lcssa393 = phi i1 [ %40, %48 ], [ %40, %49 ], [ %40, %61 ], [ %40, %65 ], [ %40, %68 ], [ %40, %74 ], [ %.0214.lcssa394412, %75 ], [ %.0214.lcssa394412, %84 ]
+  %91 = trunc nuw i8 %.0208.lcssa400 to i1
   %.pre = load i64, ptr %88, align 8
   br i1 %91, label %97, label %92
 
 92:                                               ; preds = %UpdateWindowFullscreen.exit.thread, %UpdateWindowFullscreen.exit
-  %.pre417 = phi i64 [ %.pre398, %UpdateWindowFullscreen.exit.thread ], [ %.pre, %UpdateWindowFullscreen.exit ]
-  %.0214.lcssa372416 = phi i1 [ false, %UpdateWindowFullscreen.exit.thread ], [ %.0214.lcssa372, %UpdateWindowFullscreen.exit ]
-  %.0212.lcssa374413 = phi i8 [ 1, %UpdateWindowFullscreen.exit.thread ], [ %.0212.lcssa374, %UpdateWindowFullscreen.exit ]
-  %.0210.lcssa377410 = phi i8 [ 0, %UpdateWindowFullscreen.exit.thread ], [ %.0210.lcssa377, %UpdateWindowFullscreen.exit ]
-  %.0206.lcssa381404 = phi i8 [ 0, %UpdateWindowFullscreen.exit.thread ], [ %.0206.lcssa381, %UpdateWindowFullscreen.exit ]
-  %.0204.lcssa383401 = phi i8 [ 0, %UpdateWindowFullscreen.exit.thread ], [ %.0204.lcssa383, %UpdateWindowFullscreen.exit ]
+  %.pre438 = phi i64 [ %.pre419, %UpdateWindowFullscreen.exit.thread ], [ %.pre, %UpdateWindowFullscreen.exit ]
+  %.0214.lcssa393437 = phi i1 [ false, %UpdateWindowFullscreen.exit.thread ], [ %.0214.lcssa393, %UpdateWindowFullscreen.exit ]
+  %.0212.lcssa395434 = phi i8 [ 1, %UpdateWindowFullscreen.exit.thread ], [ %.0212.lcssa395, %UpdateWindowFullscreen.exit ]
+  %.0210.lcssa398431 = phi i8 [ 0, %UpdateWindowFullscreen.exit.thread ], [ %.0210.lcssa398, %UpdateWindowFullscreen.exit ]
+  %.0206.lcssa402425 = phi i8 [ 0, %UpdateWindowFullscreen.exit.thread ], [ %.0206.lcssa402, %UpdateWindowFullscreen.exit ]
+  %.0204.lcssa404422 = phi i8 [ 0, %UpdateWindowFullscreen.exit.thread ], [ %.0204.lcssa404, %UpdateWindowFullscreen.exit ]
   %93 = phi i1 [ false, %UpdateWindowFullscreen.exit.thread ], [ %90, %UpdateWindowFullscreen.exit ]
   %94 = phi ptr [ %10, %UpdateWindowFullscreen.exit.thread ], [ %89, %UpdateWindowFullscreen.exit ]
   %95 = phi ptr [ %13, %UpdateWindowFullscreen.exit.thread ], [ %88, %UpdateWindowFullscreen.exit ]
-  %96 = and i64 %.pre417, 64
+  %96 = and i64 %.pre438, 64
   %.not = icmp eq i64 %96, 0
   br i1 %.not, label %.thread, label %108
 
@@ -6257,14 +6257,14 @@ UpdateWindowFullscreen.exit:                      ; preds = %48, %49, %61, %65, 
   %101 = phi ptr [ %88, %99 ], [ %88, %97 ], [ %95, %92 ]
   %102 = phi ptr [ %89, %99 ], [ %89, %97 ], [ %94, %92 ]
   %103 = phi i1 [ %90, %99 ], [ %90, %97 ], [ %93, %92 ]
-  %.0204.lcssa383400430 = phi i8 [ %.0204.lcssa383, %99 ], [ %.0204.lcssa383, %97 ], [ %.0204.lcssa383401, %92 ]
-  %.0206.lcssa381403429 = phi i8 [ %.0206.lcssa381, %99 ], [ %.0206.lcssa381, %97 ], [ %.0206.lcssa381404, %92 ]
-  %.0208.lcssa379406428 = phi i8 [ 1, %99 ], [ 1, %97 ], [ 0, %92 ]
-  %.0210.lcssa377409427 = phi i8 [ %.0210.lcssa377, %99 ], [ %.0210.lcssa377, %97 ], [ %.0210.lcssa377410, %92 ]
-  %.0212.lcssa374412426 = phi i8 [ %.0212.lcssa374, %99 ], [ %.0212.lcssa374, %97 ], [ %.0212.lcssa374413, %92 ]
-  %.0214.lcssa372415425 = phi i1 [ %.0214.lcssa372, %99 ], [ %.0214.lcssa372, %97 ], [ %.0214.lcssa372416, %92 ]
+  %.0204.lcssa404421451 = phi i8 [ %.0204.lcssa404, %99 ], [ %.0204.lcssa404, %97 ], [ %.0204.lcssa404422, %92 ]
+  %.0206.lcssa402424450 = phi i8 [ %.0206.lcssa402, %99 ], [ %.0206.lcssa402, %97 ], [ %.0206.lcssa402425, %92 ]
+  %.0208.lcssa400427449 = phi i8 [ 1, %99 ], [ 1, %97 ], [ 0, %92 ]
+  %.0210.lcssa398430448 = phi i8 [ %.0210.lcssa398, %99 ], [ %.0210.lcssa398, %97 ], [ %.0210.lcssa398431, %92 ]
+  %.0212.lcssa395433447 = phi i8 [ %.0212.lcssa395, %99 ], [ %.0212.lcssa395, %97 ], [ %.0212.lcssa395434, %92 ]
+  %.0214.lcssa393436446 = phi i1 [ %.0214.lcssa393, %99 ], [ %.0214.lcssa393, %97 ], [ %.0214.lcssa393437, %92 ]
   %104 = xor i1 %103, true
-  %105 = and i1 %.0214.lcssa372415425, %104
+  %105 = and i1 %.0214.lcssa393436446, %104
   %106 = select i1 %105, i32 522, i32 523
   %107 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %6, i32 noundef %106, i32 noundef 0, i32 noundef 0) #15
   br i1 %103, label %513, label %109
@@ -6275,12 +6275,12 @@ UpdateWindowFullscreen.exit:                      ; preds = %48, %49, %61, %65, 
 109:                                              ; preds = %.thread, %108
   %110 = phi ptr [ %101, %.thread ], [ %95, %108 ]
   %111 = phi ptr [ %102, %.thread ], [ %94, %108 ]
-  %.0204.lcssa383399444 = phi i8 [ %.0204.lcssa383400430, %.thread ], [ %.0204.lcssa383401, %108 ]
-  %.0206.lcssa381402441 = phi i8 [ %.0206.lcssa381403429, %.thread ], [ %.0206.lcssa381404, %108 ]
-  %.0208.lcssa379405438 = phi i8 [ %.0208.lcssa379406428, %.thread ], [ 0, %108 ]
-  %.0210.lcssa377408435 = phi i8 [ %.0210.lcssa377409427, %.thread ], [ %.0210.lcssa377410, %108 ]
-  %.0212.lcssa374411432 = phi i8 [ %.0212.lcssa374412426, %.thread ], [ %.0212.lcssa374413, %108 ]
-  %.0214.lcssa372414431 = phi i1 [ %.0214.lcssa372415425, %.thread ], [ %.0214.lcssa372416, %108 ]
+  %.0204.lcssa404420465 = phi i8 [ %.0204.lcssa404421451, %.thread ], [ %.0204.lcssa404422, %108 ]
+  %.0206.lcssa402423462 = phi i8 [ %.0206.lcssa402424450, %.thread ], [ %.0206.lcssa402425, %108 ]
+  %.0208.lcssa400426459 = phi i8 [ %.0208.lcssa400427449, %.thread ], [ 0, %108 ]
+  %.0210.lcssa398429456 = phi i8 [ %.0210.lcssa398430448, %.thread ], [ %.0210.lcssa398431, %108 ]
+  %.0212.lcssa395432453 = phi i8 [ %.0212.lcssa395433447, %.thread ], [ %.0212.lcssa395434, %108 ]
+  %.0214.lcssa393435452 = phi i1 [ %.0214.lcssa393436446, %.thread ], [ %.0214.lcssa393437, %108 ]
   %112 = load i64, ptr %110, align 8
   %113 = and i64 %112, 32
   %.not248 = icmp eq i64 %113, 0
@@ -6293,7 +6293,7 @@ UpdateWindowFullscreen.exit:                      ; preds = %48, %49, %61, %65, 
   br i1 %or.cond, label %117, label %210
 
 117:                                              ; preds = %114
-  %118 = trunc nuw i8 %.0212.lcssa374411432 to i1
+  %118 = trunc nuw i8 %.0212.lcssa395432453 to i1
   br i1 %118, label %119, label %135
 
 119:                                              ; preds = %117
@@ -6728,18 +6728,18 @@ GetWindowScale.exit6.i302:                        ; preds = %._crit_edge.i5.i301
   br label %.sink.split
 
 .sink.split:                                      ; preds = %GetWindowScale.exit6.i302, %GetWindowScale.exit.i299, %PixelToPoint.exit295, %GetWindowScale.exit6.i286, %GetWindowScale.exit.i283, %GetWindowScale.exit6.i271, %GetWindowScale.exit.i268, %PixelToPoint.exit, %145, %291
-  %.sink447 = phi i64 [ 300, %291 ], [ 300, %145 ], [ 300, %PixelToPoint.exit ], [ 300, %GetWindowScale.exit.i268 ], [ 300, %GetWindowScale.exit6.i271 ], [ 308, %GetWindowScale.exit.i283 ], [ 308, %GetWindowScale.exit6.i286 ], [ 300, %PixelToPoint.exit295 ], [ 300, %GetWindowScale.exit.i299 ], [ 300, %GetWindowScale.exit6.i302 ]
+  %.sink468 = phi i64 [ 300, %291 ], [ 300, %145 ], [ 300, %PixelToPoint.exit ], [ 300, %GetWindowScale.exit.i268 ], [ 300, %GetWindowScale.exit6.i271 ], [ 308, %GetWindowScale.exit.i283 ], [ 308, %GetWindowScale.exit6.i286 ], [ 300, %PixelToPoint.exit295 ], [ 300, %GetWindowScale.exit.i299 ], [ 300, %GetWindowScale.exit6.i302 ]
   %.sink = phi i32 [ %293, %291 ], [ %.0200, %145 ], [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i268 ], [ %209, %GetWindowScale.exit6.i271 ], [ 1, %GetWindowScale.exit.i283 ], [ %283, %GetWindowScale.exit6.i286 ], [ 0, %PixelToPoint.exit295 ], [ 1, %GetWindowScale.exit.i299 ], [ %361, %GetWindowScale.exit6.i302 ]
   %.1201.ph = phi i32 [ %293, %291 ], [ %.0200, %145 ], [ 0, %PixelToPoint.exit ], [ 1, %GetWindowScale.exit.i268 ], [ %209, %GetWindowScale.exit6.i271 ], [ %3, %GetWindowScale.exit.i283 ], [ %3, %GetWindowScale.exit6.i286 ], [ 0, %PixelToPoint.exit295 ], [ 1, %GetWindowScale.exit.i299 ], [ %361, %GetWindowScale.exit6.i302 ]
   %.1.ph = phi i32 [ %289, %291 ], [ %.0, %145 ], [ %179, %PixelToPoint.exit ], [ %179, %GetWindowScale.exit.i268 ], [ %179, %GetWindowScale.exit6.i271 ], [ %2, %GetWindowScale.exit.i283 ], [ %2, %GetWindowScale.exit6.i286 ], [ %330, %PixelToPoint.exit295 ], [ %330, %GetWindowScale.exit.i299 ], [ %330, %GetWindowScale.exit6.i302 ]
-  %362 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink447
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink468
   store i32 %.sink, ptr %362, align 4
   br label %363
 
 363:                                              ; preds = %.sink.split, %216, %213
   %.1201 = phi i32 [ %3, %216 ], [ %3, %213 ], [ %.1201.ph, %.sink.split ]
   %.1 = phi i32 [ %2, %216 ], [ %2, %213 ], [ %.1.ph, %.sink.split ]
-  br i1 %.0214.lcssa372414431, label %593, label %364
+  br i1 %.0214.lcssa393435452, label %593, label %364
 
 364:                                              ; preds = %363
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 403
@@ -7013,11 +7013,11 @@ PixelToPoint.exit319:                             ; preds = %PixelToPoint.exit31
 513:                                              ; preds = %.thread, %108
   %514 = phi ptr [ %101, %.thread ], [ %95, %108 ]
   %515 = phi ptr [ %102, %.thread ], [ %94, %108 ]
-  %.0204.lcssa383399445 = phi i8 [ %.0204.lcssa383400430, %.thread ], [ %.0204.lcssa383401, %108 ]
-  %.0206.lcssa381402442 = phi i8 [ %.0206.lcssa381403429, %.thread ], [ %.0206.lcssa381404, %108 ]
-  %.0208.lcssa379405439 = phi i8 [ %.0208.lcssa379406428, %.thread ], [ 0, %108 ]
-  %.0210.lcssa377408436 = phi i8 [ %.0210.lcssa377409427, %.thread ], [ %.0210.lcssa377410, %108 ]
-  %.0212.lcssa374411433 = phi i8 [ %.0212.lcssa374412426, %.thread ], [ %.0212.lcssa374413, %108 ]
+  %.0204.lcssa404420466 = phi i8 [ %.0204.lcssa404421451, %.thread ], [ %.0204.lcssa404422, %108 ]
+  %.0206.lcssa402423463 = phi i8 [ %.0206.lcssa402424450, %.thread ], [ %.0206.lcssa402425, %108 ]
+  %.0208.lcssa400426460 = phi i8 [ %.0208.lcssa400427449, %.thread ], [ 0, %108 ]
+  %.0210.lcssa398429457 = phi i8 [ %.0210.lcssa398430448, %.thread ], [ %.0210.lcssa398431, %108 ]
+  %.0212.lcssa395432454 = phi i8 [ %.0212.lcssa395433447, %.thread ], [ %.0212.lcssa395434, %108 ]
   %516 = icmp eq i32 %2, 0
   %517 = icmp eq i32 %3, 0
   %or.cond3 = or i1 %516, %517
@@ -7165,11 +7165,11 @@ PointToPixel.exit335:                             ; preds = %PointToPixel.exit32
   br label %593
 
 593:                                              ; preds = %396, %405, %400, %524, %PointToPixel.exit335, %363, %PixelToPoint.exit319
-  %.0204.lcssa383399443 = phi i8 [ %.0204.lcssa383399445, %PointToPixel.exit335 ], [ %.0204.lcssa383399445, %524 ], [ %.0204.lcssa383399444, %363 ], [ %.0204.lcssa383399444, %PixelToPoint.exit319 ], [ %.0204.lcssa383399444, %400 ], [ %.0204.lcssa383399444, %405 ], [ %.0204.lcssa383399444, %396 ]
-  %.0206.lcssa381402440 = phi i8 [ %.0206.lcssa381402442, %PointToPixel.exit335 ], [ %.0206.lcssa381402442, %524 ], [ %.0206.lcssa381402441, %363 ], [ %.0206.lcssa381402441, %PixelToPoint.exit319 ], [ %.0206.lcssa381402441, %400 ], [ %.0206.lcssa381402441, %405 ], [ %.0206.lcssa381402441, %396 ]
-  %.0208.lcssa379405437 = phi i8 [ %.0208.lcssa379405439, %PointToPixel.exit335 ], [ %.0208.lcssa379405439, %524 ], [ %.0208.lcssa379405438, %363 ], [ %.0208.lcssa379405438, %PixelToPoint.exit319 ], [ %.0208.lcssa379405438, %400 ], [ %.0208.lcssa379405438, %405 ], [ %.0208.lcssa379405438, %396 ]
-  %.0210.lcssa377408434 = phi i8 [ %.0210.lcssa377408436, %PointToPixel.exit335 ], [ %.0210.lcssa377408436, %524 ], [ %.0210.lcssa377408435, %363 ], [ %.0210.lcssa377408435, %PixelToPoint.exit319 ], [ %.0210.lcssa377408435, %400 ], [ %.0210.lcssa377408435, %405 ], [ %.0210.lcssa377408435, %396 ]
-  %.0212.lcssa376 = phi i8 [ %.0212.lcssa374411433, %PointToPixel.exit335 ], [ %.0212.lcssa374411433, %524 ], [ %.0212.lcssa374411432, %363 ], [ %.0212.lcssa374411432, %PixelToPoint.exit319 ], [ %.0212.lcssa374411432, %400 ], [ %.0212.lcssa374411432, %405 ], [ %.0212.lcssa374411432, %396 ]
+  %.0204.lcssa404420464 = phi i8 [ %.0204.lcssa404420466, %PointToPixel.exit335 ], [ %.0204.lcssa404420466, %524 ], [ %.0204.lcssa404420465, %363 ], [ %.0204.lcssa404420465, %PixelToPoint.exit319 ], [ %.0204.lcssa404420465, %400 ], [ %.0204.lcssa404420465, %405 ], [ %.0204.lcssa404420465, %396 ]
+  %.0206.lcssa402423461 = phi i8 [ %.0206.lcssa402423463, %PointToPixel.exit335 ], [ %.0206.lcssa402423463, %524 ], [ %.0206.lcssa402423462, %363 ], [ %.0206.lcssa402423462, %PixelToPoint.exit319 ], [ %.0206.lcssa402423462, %400 ], [ %.0206.lcssa402423462, %405 ], [ %.0206.lcssa402423462, %396 ]
+  %.0208.lcssa400426458 = phi i8 [ %.0208.lcssa400426460, %PointToPixel.exit335 ], [ %.0208.lcssa400426460, %524 ], [ %.0208.lcssa400426459, %363 ], [ %.0208.lcssa400426459, %PixelToPoint.exit319 ], [ %.0208.lcssa400426459, %400 ], [ %.0208.lcssa400426459, %405 ], [ %.0208.lcssa400426459, %396 ]
+  %.0210.lcssa398429455 = phi i8 [ %.0210.lcssa398429457, %PointToPixel.exit335 ], [ %.0210.lcssa398429457, %524 ], [ %.0210.lcssa398429456, %363 ], [ %.0210.lcssa398429456, %PixelToPoint.exit319 ], [ %.0210.lcssa398429456, %400 ], [ %.0210.lcssa398429456, %405 ], [ %.0210.lcssa398429456, %396 ]
+  %.0212.lcssa397 = phi i8 [ %.0212.lcssa395432454, %PointToPixel.exit335 ], [ %.0212.lcssa395432454, %524 ], [ %.0212.lcssa395432453, %363 ], [ %.0212.lcssa395432453, %PixelToPoint.exit319 ], [ %.0212.lcssa395432453, %400 ], [ %.0212.lcssa395432453, %405 ], [ %.0212.lcssa395432453, %396 ]
   %.2202 = phi i32 [ %.3203, %PointToPixel.exit335 ], [ %.3203, %524 ], [ %.1201, %363 ], [ %.1201, %PixelToPoint.exit319 ], [ %.1201, %400 ], [ %.1201, %405 ], [ %.1201, %396 ]
   %.2 = phi i32 [ %.3, %PointToPixel.exit335 ], [ %.3, %524 ], [ %.1, %363 ], [ %.1, %PixelToPoint.exit319 ], [ %.1, %400 ], [ %.1, %405 ], [ %.1, %396 ]
   %594 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -7177,15 +7177,15 @@ PointToPixel.exit335:                             ; preds = %PointToPixel.exit32
   %595 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 %.2202, ptr %595, align 4
   %596 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i8 %.0212.lcssa376, ptr %596, align 8
+  store i8 %.0212.lcssa397, ptr %596, align 8
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 393
-  store i8 %.0204.lcssa383399443, ptr %597, align 1
+  store i8 %.0204.lcssa404420464, ptr %597, align 1
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 395
-  store i8 %.0208.lcssa379405437, ptr %598, align 1
+  store i8 %.0208.lcssa400426458, ptr %598, align 1
   %599 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  store i8 %.0210.lcssa377408434, ptr %599, align 8
+  store i8 %.0210.lcssa398429455, ptr %599, align 8
   %600 = getelementptr inbounds nuw i8, ptr %0, i64 394
-  store i8 %.0206.lcssa381402440, ptr %600, align 2
+  store i8 %.0206.lcssa402423461, ptr %600, align 2
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %602 = load i32, ptr %601, align 4
   %603 = icmp eq i32 %602, 1

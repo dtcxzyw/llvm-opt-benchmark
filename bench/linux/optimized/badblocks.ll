@@ -50,10 +50,10 @@ define dso_local range(i32 -1, 2) i32 @badblocks_check(ptr noundef %0, i64 nound
   br label %16
 
 16:                                               ; preds = %191, %12
-  %17 = phi i32 [ 0, %12 ], [ %.us-phi44, %191 ]
-  %18 = phi i32 [ -1, %12 ], [ %.us-phi1945, %191 ]
-  %19 = phi i32 [ %2, %12 ], [ %.us-phi2348, %191 ]
-  %20 = phi i64 [ %1, %12 ], [ %.us-phi2247, %191 ]
+  %17 = phi i32 [ 0, %12 ], [ %.us-phi55, %191 ]
+  %18 = phi i32 [ -1, %12 ], [ %.us-phi1956, %191 ]
+  %19 = phi i32 [ %2, %12 ], [ %.us-phi2359, %191 ]
+  %20 = phi i64 [ %1, %12 ], [ %.us-phi2258, %191 ]
   %21 = load volatile i32, ptr %13, align 4
   %22 = and i32 %21, 1
   %23 = icmp eq i32 %22, 0
@@ -316,18 +316,18 @@ prev_badblocks.exit.thread:                       ; preds = %104, %.thread.i, %1
   br label %191
 
 191:                                              ; preds = %.split18.thread, %190, %.split18
-  %.us-phi2348 = phi i32 [ 0, %.split18.thread ], [ %183, %190 ], [ 0, %.split18 ]
-  %.us-phi2247 = phi i64 [ %32, %.split18.thread ], [ %182, %190 ], [ %182, %.split18 ]
-  %.us-phi2146 = phi i32 [ 0, %.split18.thread ], [ %188, %190 ], [ %188, %.split18 ]
-  %.us-phi1945 = phi i32 [ %18, %.split18.thread ], [ %178, %190 ], [ %178, %.split18 ]
-  %.us-phi44 = phi i32 [ %17, %.split18.thread ], [ %177, %190 ], [ %177, %.split18 ]
+  %.us-phi2359 = phi i32 [ 0, %.split18.thread ], [ %183, %190 ], [ 0, %.split18 ]
+  %.us-phi2258 = phi i64 [ %32, %.split18.thread ], [ %182, %190 ], [ %182, %.split18 ]
+  %.us-phi2157 = phi i32 [ 0, %.split18.thread ], [ %188, %190 ], [ %188, %.split18 ]
+  %.us-phi1956 = phi i32 [ %18, %.split18.thread ], [ %178, %190 ], [ %178, %.split18 ]
+  %.us-phi55 = phi i32 [ %17, %.split18.thread ], [ %177, %190 ], [ %177, %.split18 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !21
   %192 = load volatile i32, ptr %13, align 4
   %193 = icmp eq i32 %192, %27
   br i1 %193, label %194, label %16
 
 194:                                              ; preds = %191
-  ret i32 %.us-phi2146
+  ret i32 %.us-phi2157
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -612,7 +612,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
 
 195:                                              ; preds = %190
   %196 = and i64 %136, -9223372036854775808
-  switch i32 %192, label %default.unreachable87 [
+  switch i32 %192, label %default.unreachable119 [
     i32 0, label %197
     i32 1, label %199
     i32 2, label %244
@@ -720,7 +720,7 @@ define dso_local range(i32 0, 2) i32 @badblocks_set(ptr noundef %0, i64 noundef 
   store i64 %273, ptr %276, align 8
   br label %277
 
-default.unreachable87:                            ; preds = %195
+default.unreachable119:                           ; preds = %195
   unreachable
 
 277:                                              ; preds = %244, %225, %202, %197
@@ -1477,7 +1477,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   br label %225
 
 225:                                              ; preds = %202, %224, %.loopexit, %203
-  %.us-phi2629 = phi i32 [ 0, %224 ], [ 0, %.loopexit ], [ 1, %203 ], [ 1, %202 ]
+  %.us-phi4447 = phi i32 [ 0, %224 ], [ 0, %.loopexit ], [ 1, %203 ], [ 1, %202 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !33
   %226 = load i32, ptr %10, align 4
   %227 = add i32 %226, 1
@@ -1486,7 +1486,7 @@ define dso_local noundef range(i32 0, 2) i32 @badblocks_clear(ptr noundef %0, i6
   br label %228
 
 228:                                              ; preds = %225, %3
-  %229 = phi i32 [ %.us-phi2629, %225 ], [ 1, %3 ]
+  %229 = phi i32 [ %.us-phi4447, %225 ], [ 1, %3 ]
   ret i32 %229
 }
 

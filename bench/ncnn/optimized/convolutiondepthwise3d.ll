@@ -1118,8 +1118,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %reass.add = sub i32 %97, %95
   %reass.mul = mul i32 %reass.add, %56
   %99 = icmp sgt i32 %74, 0
-  %or.cond114 = and i1 %98, %99
-  br i1 %or.cond114, label %.preheader84.us.us, label %._crit_edge
+  %or.cond125 = and i1 %98, %99
+  br i1 %or.cond125, label %.preheader84.us.us, label %._crit_edge
 
 .preheader84.us.us:                               ; preds = %.preheader84.lr.ph, %._crit_edge92.split.us.us.us
   %.04598.us.us = phi i32 [ %108, %._crit_edge92.split.us.us.us ], [ 0, %.preheader84.lr.ph ]
@@ -1537,8 +1537,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %4, %_ZN4ncnn3Mat7re
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 252
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !45
   %83 = icmp sgt i32 %.pre, 0
-  %or.cond89 = select i1 %82, i1 true, i1 %83
-  br i1 %or.cond89, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %84
+  %or.cond100 = select i1 %82, i1 true, i1 %83
+  br i1 %or.cond100, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %84
 
 84:                                               ; preds = %_ZN4ncnn3MataSERKS0_.exit
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -1771,8 +1771,8 @@ define internal void @_ZNK4ncnn22ConvolutionDepthWise3D7forwardERKNS_3MatERS1_RK
   %or.cond = select i1 %43, i1 %53, i1 false
   %54 = load i32, ptr %8, align 4
   %55 = icmp sgt i32 %54, 0
-  %or.cond181 = select i1 %or.cond, i1 %55, i1 false
-  br i1 %or.cond181, label %.noexc68.us.us.preheader, label %._crit_edge
+  %or.cond189 = select i1 %or.cond, i1 %55, i1 false
+  br i1 %or.cond189, label %.noexc68.us.us.preheader, label %._crit_edge
 
 .noexc68.us.us.preheader:                         ; preds = %.noexc68.lr.ph
   %56 = load i32, ptr %4, align 4, !tbaa !64
@@ -1812,8 +1812,8 @@ define internal void @_ZNK4ncnn22ConvolutionDepthWise3D7forwardERKNS_3MatERS1_RK
   %72 = sext i32 %70 to i64
   %73 = sext i32 %69 to i64
   %74 = sext i32 %68 to i64
-  %factor.op.mul178 = mul i64 %factor.op.mul121.reass, %74
-  %factor.op.mul177 = mul i64 %49, %73
+  %factor.op.mul186 = mul i64 %factor.op.mul121.reass, %74
+  %factor.op.mul185 = mul i64 %49, %73
   %wide.trip.count160 = zext nneg i32 %63 to i64
   br label %.preheader114.us.us.us.us
 
@@ -1822,15 +1822,15 @@ define internal void @_ZNK4ncnn22ConvolutionDepthWise3D7forwardERKNS_3MatERS1_RK
   %.044128.us.us.us.us = phi ptr [ %142, %._crit_edge124.split.us.us.us.us.us ], [ %66, %.preheader114.lr.ph.split.us.split.us.us.us ]
   %75 = load i32, ptr %4, align 4
   %76 = icmp sgt i32 %75, 0
-  %.reass179 = mul i64 %indvars.iv167, %factor.op.mul178
-  %77 = getelementptr inbounds nuw i8, ptr %62, i64 %.reass179
+  %.reass187 = mul i64 %indvars.iv167, %factor.op.mul186
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 %.reass187
   %wide.trip.count = zext nneg i32 %75 to i64
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge119.us.us.us.us.us, %.preheader114.us.us.us.us
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %._crit_edge119.us.us.us.us.us ], [ 0, %.preheader114.us.us.us.us ]
   %.1123.us.us.us.us.us = phi ptr [ %142, %._crit_edge119.us.us.us.us.us ], [ %.044128.us.us.us.us, %.preheader114.us.us.us.us ]
-  %.reass = mul i64 %indvars.iv162, %factor.op.mul177
+  %.reass = mul i64 %indvars.iv162, %factor.op.mul185
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %.reass
   %79 = load ptr, ptr %9, align 8
   br label %80
@@ -2059,8 +2059,8 @@ define internal void @_ZNK4ncnn22ConvolutionDepthWise3D7forwardERKNS_3MatERS1_RK
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %56 = sext i32 %42 to i64
   %57 = icmp slt i32 %43, 1
-  %or.cond204.not207 = select i1 %45, i1 true, i1 %57
-  %brmerge = select i1 %or.cond204.not207, i1 true, i1 %46
+  %or.cond216.not219 = select i1 %45, i1 true, i1 %57
+  %brmerge = select i1 %or.cond216.not219, i1 true, i1 %46
   br i1 %brmerge, label %._crit_edge172, label %.noexc94.lr.ph.split.us.split.us.split.us
 
 .noexc94.lr.ph.split.us.split.us.split.us:        ; preds = %.noexc94.lr.ph

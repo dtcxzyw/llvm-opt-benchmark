@@ -628,7 +628,7 @@ define internal i32 @sd_probe(ptr noundef %0) #2 align 16 {
   store ptr %9, ptr %72, align 8
   %73 = lshr i32 %17, 4
   %74 = and i32 %73, 15
-  switch i32 %74, label %default.unreachable8 [
+  switch i32 %74, label %default.unreachable15 [
     i32 0, label %79
     i32 1, label %75
     i32 2, label %75
@@ -655,7 +655,7 @@ define internal i32 @sd_probe(ptr noundef %0) #2 align 16 {
   %78 = add nuw nsw i32 %74, 120
   br label %79
 
-default.unreachable8:                             ; preds = %71
+default.unreachable15:                            ; preds = %71
   unreachable
 
 79:                                               ; preds = %77, %75, %71
@@ -2307,12 +2307,12 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #2 
 
 .sink.split:                                      ; preds = %287, %269
   %.sink = phi i64 [ 4294967296, %269 ], [ %295, %287 ]
-  %.ph160 = phi i32 [ %251, %269 ], [ %275, %287 ]
+  %.ph218 = phi i32 [ %251, %269 ], [ %275, %287 ]
   store i64 %.sink, ptr %20, align 8
   br label %296
 
 296:                                              ; preds = %.sink.split, %283, %280
-  %297 = phi i32 [ %275, %283 ], [ %275, %280 ], [ %.ph160, %.sink.split ]
+  %297 = phi i32 [ %275, %283 ], [ %275, %280 ], [ %.ph218, %.sink.split ]
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %299, label %.thread72
 
@@ -2901,8 +2901,8 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #2 
   %658 = icmp eq i32 %657, 0
   %.pre126 = load i64, ptr %20, align 8
   %659 = icmp eq i64 %.pre126, %21
-  %or.cond161 = select i1 %658, i1 %659, i1 false
-  br i1 %or.cond161, label %679, label %660
+  %or.cond219 = select i1 %658, i1 %659, i1 false
+  br i1 %or.cond219, label %679, label %660
 
 660:                                              ; preds = %651
   %661 = sext i32 %654 to i64
@@ -3047,8 +3047,8 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #2 
   %750 = icmp eq i32 %749, 0
   %.pre129 = load i8, ptr %681, align 1
   %751 = icmp eq i8 %682, %.pre129
-  %or.cond162 = select i1 %750, i1 %751, i1 false
-  br i1 %or.cond162, label %766, label %752
+  %or.cond220 = select i1 %750, i1 %751, i1 false
+  br i1 %or.cond220, label %766, label %752
 
 752:                                              ; preds = %.thread79
   %753 = load ptr, ptr %16, align 8
@@ -5387,13 +5387,13 @@ define internal fastcc i32 @read_capacity_16(ptr noundef captures(none) %0, ptr 
   %23 = load i32, ptr %15, align 8
   %24 = call i32 @scsi_execute_cmd(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 34, ptr noundef nonnull %2, i32 noundef 32, i32 noundef 30000, i32 noundef %23, ptr noundef nonnull %6) #19
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %.thread19
+  br i1 %25, label %26, label %.thread24
 
 26:                                               ; preds = %19
   %27 = load i8, ptr %5, align 8
   %28 = and i8 %27, 112
   %29 = icmp eq i8 %28, 112
-  br i1 %29, label %30, label %.thread19
+  br i1 %29, label %30, label %.thread24
 
 30:                                               ; preds = %26
   %31 = load i8, ptr %16, align 1
@@ -5450,7 +5450,7 @@ define internal fastcc i32 @read_capacity_16(ptr noundef captures(none) %0, ptr 
   %56 = icmp eq i8 %55, 32
   %57 = icmp eq i8 %.pre14, 0
   %58 = select i1 %56, i1 %57, i1 false
-  br i1 %58, label %.loopexit, label %.thread19
+  br i1 %58, label %.loopexit, label %.thread24
 
 59:                                               ; preds = %52
   %60 = icmp eq i8 %31, 6
@@ -5458,23 +5458,23 @@ define internal fastcc i32 @read_capacity_16(ptr noundef captures(none) %0, ptr 
   %62 = select i1 %60, i1 %61, i1 false
   %63 = icmp eq i8 %.pre14, 0
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %65, label %.thread19
+  br i1 %64, label %65, label %.thread24
 
 65:                                               ; preds = %59
   %66 = add i32 %22, -1
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %71, label %.thread19
+  br i1 %67, label %71, label %.thread24
 
-.thread19:                                        ; preds = %26, %54, %65, %59, %19
+.thread24:                                        ; preds = %26, %54, %65, %59, %19
   %68 = phi i32 [ 1, %65 ], [ 1, %59 ], [ %20, %19 ], [ 1, %54 ], [ 0, %26 ]
   %69 = phi i32 [ %66, %65 ], [ %22, %59 ], [ %22, %19 ], [ %22, %54 ], [ %22, %26 ]
   %70 = add i32 %21, -1
   br label %71
 
-71:                                               ; preds = %.thread19, %65
-  %72 = phi i32 [ 1, %65 ], [ %68, %.thread19 ]
-  %73 = phi i32 [ %21, %65 ], [ %70, %.thread19 ]
-  %74 = phi i32 [ %66, %65 ], [ %69, %.thread19 ]
+71:                                               ; preds = %.thread24, %65
+  %72 = phi i32 [ 1, %65 ], [ %68, %.thread24 ]
+  %73 = phi i32 [ %21, %65 ], [ %70, %.thread24 ]
+  %74 = phi i32 [ %66, %65 ], [ %69, %.thread24 ]
   %75 = icmp ne i32 %24, 0
   %76 = icmp ne i32 %73, 0
   %77 = select i1 %75, i1 %76, i1 false

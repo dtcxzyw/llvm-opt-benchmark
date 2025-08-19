@@ -135,8 +135,8 @@ next_token.exit55.thread:                         ; preds = %38, %39, %next_num.
   br i1 %60, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %20, %next_token.exit55, %next_token.exit55.thread
-  %.076115 = phi i32 [ %.076, %next_token.exit55.thread ], [ 1, %next_token.exit55 ], [ 1, %20 ]
-  %.077114 = phi i32 [ %36, %next_token.exit55.thread ], [ %18, %next_token.exit55 ], [ %18, %20 ]
+  %.076125 = phi i32 [ %.076, %next_token.exit55.thread ], [ 1, %next_token.exit55 ], [ 1, %20 ]
+  %.077124 = phi i32 [ %36, %next_token.exit55.thread ], [ %18, %next_token.exit55 ], [ %18, %20 ]
   %61 = phi ptr [ %59, %next_token.exit55.thread ], [ %19, %next_token.exit55 ], [ null, %20 ]
   br label %.preheader
 
@@ -157,8 +157,8 @@ next_token.exit55.thread:                         ; preds = %38, %39, %next_num.
   br label %71
 
 71:                                               ; preds = %.preheader, %63
-  %72 = add nsw i32 %.180110, %.076115
-  %.not39 = icmp sgt i32 %72, %.077114
+  %72 = add nsw i32 %.180110, %.076125
+  %.not39 = icmp sgt i32 %72, %.077124
   br i1 %.not39, label %.loopexit, label %.preheader, !llvm.loop !19
 
 73:                                               ; preds = %.loopexit

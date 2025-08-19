@@ -1325,7 +1325,7 @@ lpad.loopexit:                                    ; preds = %_ZNKSt6vectorIPN8pr
   br label %ehcleanup23
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont15, %if.then.i.i.i.i
-  %handlerFactories.sroa.0.054 = phi ptr [ %handlerFactories.sroa.0.0.lcssa72, %invoke.cont15 ], [ %handlerFactories.sroa.0.061, %if.then.i.i.i.i ]
+  %handlerFactories.sroa.0.054 = phi ptr [ %handlerFactories.sroa.0.0.lcssa75, %invoke.cont15 ], [ %handlerFactories.sroa.0.061, %if.then.i.i.i.i ]
   %lpad.loopexit.split-lp48 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup23
@@ -1347,17 +1347,17 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
   br i1 %cmp.i1.i.i, label %while.body.i.i, label %invoke.cont15, !llvm.loop !18
 
 invoke.cont15:                                    ; preds = %while.body.i.i, %entry, %for.end
-  %handlerFactories.sroa.0.0.lcssa72 = phi ptr [ %handlerFactories.sroa.0.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.0.1, %while.body.i.i ]
-  %handlerFactories.sroa.8.0.lcssa71 = phi ptr [ %handlerFactories.sroa.8.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.8.1, %while.body.i.i ]
+  %handlerFactories.sroa.0.0.lcssa75 = phi ptr [ %handlerFactories.sroa.0.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.0.1, %while.body.i.i ]
+  %handlerFactories.sroa.8.0.lcssa74 = phi ptr [ %handlerFactories.sroa.8.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.8.1, %while.body.i.i ]
   %call17 = invoke noalias noundef nonnull dereferenceable(1992) ptr @_Znwm(i64 noundef 1992) #24
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %handlerFactories.sroa.8.0.lcssa71 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %handlerFactories.sroa.0.0.lcssa72 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %handlerFactories.sroa.8.0.lcssa74 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %handlerFactories.sroa.0.0.lcssa75 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp18, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i9 = icmp eq ptr %handlerFactories.sroa.8.0.lcssa71, %handlerFactories.sroa.0.0.lcssa72
+  %cmp.not.i.i.i.i9 = icmp eq ptr %handlerFactories.sroa.8.0.lcssa74, %handlerFactories.sroa.0.0.lcssa75
   br i1 %cmp.not.i.i.i.i9, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %invoke.cont16
@@ -1390,7 +1390,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i12 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i14, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp18, i64 16
   store ptr %add.ptr.i.i.i12, ptr %_M_end_of_storage.i.i.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i14, ptr align 8 %handlerFactories.sroa.0.0.lcssa72, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i14, ptr align 8 %handlerFactories.sroa.0.0.lcssa75, i64 %sub.ptr.sub.i.i, i1 false)
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
@@ -1411,11 +1411,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont22
   br label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit: ; preds = %invoke.cont22, %if.then.i.i.i
-  %tobool.not.i.i.i18 = icmp eq ptr %handlerFactories.sroa.0.0.lcssa72, null
+  %tobool.not.i.i.i18 = icmp eq ptr %handlerFactories.sroa.0.0.lcssa75, null
   br i1 %tobool.not.i.i.i18, label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit20, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %handlerFactories.sroa.0.0.lcssa72) #25
+  call void @_ZdlPv(ptr noundef nonnull %handlerFactories.sroa.0.0.lcssa75) #25
   br label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit20
 
 _ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit20: ; preds = %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit, %if.then.i.i.i19
@@ -1443,7 +1443,7 @@ cleanup.action:                                   ; preds = %if.then.i.i.i23, %l
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %cleanup.action
-  %handlerFactories.sroa.0.051 = phi ptr [ %handlerFactories.sroa.0.0.lcssa72, %cleanup.action ], [ %handlerFactories.sroa.0.061, %lpad.loopexit ], [ %handlerFactories.sroa.0.054, %lpad.loopexit.split-lp ]
+  %handlerFactories.sroa.0.051 = phi ptr [ %handlerFactories.sroa.0.0.lcssa75, %cleanup.action ], [ %handlerFactories.sroa.0.061, %lpad.loopexit ], [ %handlerFactories.sroa.0.054, %lpad.loopexit.split-lp ]
   %.pn4 = phi { ptr, i32 } [ %.pn, %cleanup.action ], [ %lpad.loopexit47, %lpad.loopexit ], [ %lpad.loopexit.split-lp48, %lpad.loopexit.split-lp ]
   %tobool.not.i.i.i26 = icmp eq ptr %handlerFactories.sroa.0.051, null
   br i1 %tobool.not.i.i.i26, label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit28, label %if.then.i.i.i27
@@ -7764,8 +7764,8 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItem
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN5folly10SSLContext17NextProtocolsItemESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !29
 
 _ZNSt7__cxx114listIN5folly10SSLContext17NextProtocolsItemESaIS3_EED2Ev.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i, %entry, %cleanup
-  %retval.sroa.0.05 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i ]
-  ret ptr %retval.sroa.0.05
+  %retval.sroa.0.09 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %_ZNSt16allocator_traitsISaISt10_List_nodeIN5folly10SSLContext17NextProtocolsItemEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i ]
+  ret ptr %retval.sroa.0.09
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7905,8 +7905,8 @@ while.body.i.i.i:                                 ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !17
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry, %cleanup
-  %retval.sroa.0.08 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i.i ]
-  ret ptr %retval.sroa.0.08
+  %retval.sroa.0.010 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i.i ]
+  ret ptr %retval.sroa.0.010
 }
 
 ; Function Attrs: nounwind
@@ -8353,8 +8353,8 @@ while.body.i.i.i:                                 ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !17
 
 _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %while.body.i.i.i, %entry, %cleanup
-  %retval.sroa.0.07 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i.i ]
-  ret ptr %retval.sroa.0.07
+  %retval.sroa.0.08 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i.i ]
+  ret ptr %retval.sroa.0.08
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

@@ -151,7 +151,7 @@ define dso_local void @intel_gt_mcr_init(ptr noundef captures(none) initializes(
   %68 = zext i8 %67 to i32
   %69 = or disjoint i32 %65, %68
   %70 = icmp eq i32 %69, 3142
-  br i1 %70, label %71, label %.thread14
+  br i1 %70, label %71, label %.thread24
 
 71:                                               ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 7200
@@ -199,9 +199,9 @@ define dso_local void @intel_gt_mcr_init(ptr noundef captures(none) initializes(
 95:                                               ; preds = %90
   %.pr.pre = load i32, ptr %57, align 8
   %96 = icmp eq i32 %.pr.pre, 2
-  br i1 %96, label %.thread, label %.thread14
+  br i1 %96, label %.thread, label %.thread24
 
-.thread14:                                        ; preds = %60, %95
+.thread24:                                        ; preds = %60, %95
   %97 = phi ptr [ %92, %95 ], [ %61, %60 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 7176
   %99 = load i8, ptr %98, align 8
@@ -214,7 +214,7 @@ define dso_local void @intel_gt_mcr_init(ptr noundef captures(none) initializes(
   %106 = icmp eq i32 %105, 3143
   br i1 %106, label %107, label %.thread
 
-107:                                              ; preds = %.thread14
+107:                                              ; preds = %.thread24
   %108 = getelementptr inbounds nuw i8, ptr %97, i64 7200
   %109 = load i8, ptr %108, align 8
   %110 = icmp eq i8 %109, 0
@@ -256,18 +256,18 @@ define dso_local void @intel_gt_mcr_init(ptr noundef captures(none) initializes(
   %129 = icmp ult i8 %128, 4
   br i1 %129, label %130, label %.thread
 
-.thread:                                          ; preds = %56, %126, %.thread14, %95
+.thread:                                          ; preds = %56, %126, %.thread24, %95
   br label %130
 
 130:                                              ; preds = %90, %126, %.thread
-  %.sink18 = phi i32 [ 37140, %.thread ], [ 1277968, %126 ], [ 1277968, %90 ]
-  %.sink16 = phi i32 [ 4, %.thread ], [ 3, %126 ], [ 3, %90 ]
+  %.sink28 = phi i32 [ 37140, %.thread ], [ 1277968, %126 ], [ 1277968, %90 ]
+  %.sink26 = phi i32 [ 4, %.thread ], [ 3, %126 ], [ 3, %90 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 144
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call i32 %134(ptr noundef %132, i32 %.sink18, i1 noundef zeroext true) #8
-  %136 = lshr i32 %135, %.sink16
+  %135 = tail call i32 %134(ptr noundef %132, i32 %.sink28, i1 noundef zeroext true) #8
+  %136 = lshr i32 %135, %.sink26
   %137 = and i32 %136, 7
   %138 = zext nneg i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 4960
@@ -1661,10 +1661,10 @@ define dso_local range(i32 -110, 1) i32 @intel_gt_mcr_wait_for_reg(ptr noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %35
-  %.ph10 = phi i32 [ %37, %35 ], [ %13, %12 ]
-  %.ph11 = phi i32 [ %33, %35 ], [ %14, %12 ]
+  %.ph15 = phi i32 [ %37, %35 ], [ %13, %12 ]
+  %.ph16 = phi i32 [ %33, %35 ], [ %14, %12 ]
   %15 = tail call i64 @local_clock() #8
-  %16 = sext i32 %.ph10 to i64
+  %16 = sext i32 %.ph15 to i64
   br label %17
 
 17:                                               ; preds = %.sink.split, %32
@@ -1699,12 +1699,12 @@ define dso_local range(i32 -110, 1) i32 @intel_gt_mcr_wait_for_reg(ptr noundef %
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !43
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !51
   %33 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #10, !srcloc !52
-  %34 = icmp eq i32 %.ph11, %33
+  %34 = icmp eq i32 %.ph16, %33
   br i1 %34, label %17, label %35, !prof !31
 
 35:                                               ; preds = %32
   %36 = trunc i64 %30 to i32
-  %37 = sub i32 %.ph10, %36
+  %37 = sub i32 %.ph15, %36
   br label %.sink.split
 
 .thread:                                          ; preds = %29, %9

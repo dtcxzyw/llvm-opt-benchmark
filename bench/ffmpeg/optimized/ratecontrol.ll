@@ -1813,10 +1813,10 @@ bits2qp.exit:                                     ; preds = %._crit_edge, %185
 
 .sink.split:                                      ; preds = %199, %195
   %.sink = phi float [ %197, %195 ], [ %201, %199 ]
-  %.sink108 = phi i64 [ 216, %195 ], [ 208, %199 ]
+  %.sink114 = phi i64 [ 216, %195 ], [ 208, %199 ]
   %203 = fpext nsz float %.sink to double
   %204 = fneg nsz double %194
-  %205 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink108
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink114
   %206 = load float, ptr %205, align 8, !tbaa !173
   %207 = fpext nsz float %206 to double
   %208 = call nsz double @llvm.fmuladd.f64(double %204, double %203, double %207)
@@ -2033,15 +2033,15 @@ define float @ff_rate_estimate_qscale(ptr noundef %0, i32 noundef %1) local_unna
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %17, %16
-  %.sink64.i = phi i64 [ 212, %17 ], [ 204, %16 ]
-  %.sink58.i = phi i64 [ 216, %17 ], [ 208, %16 ]
+  %.sink66.i = phi i64 [ 212, %17 ], [ 204, %16 ]
+  %.sink60.i = phi i64 [ 216, %17 ], [ 208, %16 ]
   %18 = sitofp i32 %12 to float
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink64.i
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink66.i
   %20 = load float, ptr %19, align 4, !tbaa !173
   %21 = fcmp nsz ult float %20, 0.000000e+00
   %22 = fneg nsz float %20
   %23 = select nsz i1 %21, float %22, float %20
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink58.i
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink60.i
   %25 = load float, ptr %24, align 8, !tbaa !173
   %26 = tail call nsz float @llvm.fmuladd.f32(float %18, float %23, float %25)
   %27 = fpext nsz float %26 to double
@@ -2182,8 +2182,8 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   br label %108
 
 108:                                              ; preds = %105, %103
-  %.sink211 = phi i64 [ 1208, %103 ], [ %spec.select, %105 ]
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink211
+  %.sink233 = phi i64 [ 1208, %103 ], [ %spec.select, %105 ]
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink233
   %.0163 = load ptr, ptr %109, align 8, !tbaa !182
   %.not182 = icmp eq ptr %.0163, null
   br i1 %.not182, label %115, label %110
@@ -2677,8 +2677,8 @@ get_diff_limited_q.exit:                          ; preds = %287, %288
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 4880
   %414 = load i32, ptr %413, align 8, !tbaa !200
   %415 = and i32 %414, 16
-  %.not31.i = icmp eq i32 %415, 0
-  br i1 %.not31.i, label %adaptive_quantization.exit, label %._crit_edge12.i
+  %.not42.i = icmp eq i32 %415, 0
+  br i1 %.not42.i, label %adaptive_quantization.exit, label %._crit_edge12.i
 
 416:                                              ; preds = %487, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %487 ]
@@ -2734,10 +2734,10 @@ get_diff_limited_q.exit:                          ; preds = %287, %288
   %455 = add nsw i32 %427, -128
   %456 = mul nuw nsw i32 %455, %455
   %.sink.i = select i1 %451, i32 %456, i32 %454
-  %.sink41.v.i = select i1 %451, float %364, float %366
-  %.sink41.i = fmul nsz float %.sink41.v.i, 0x3F10000000000000
+  %.sink52.v.i = select i1 %451, float %364, float %366
+  %.sink52.i = fmul nsz float %.sink52.v.i, 0x3F10000000000000
   %457 = uitofp nneg i32 %.sink.i to float
-  %458 = fmul nsz float %.sink41.i, %457
+  %458 = fmul nsz float %.sink52.i, %457
   %459 = fpext nsz float %458 to double
   %460 = fsub nsz double 1.000000e+00, %459
   %461 = fmul nsz double %460, %452
@@ -3018,15 +3018,15 @@ get_fps.exit:                                     ; preds = %17, %18
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %40, %39
-  %.sink64.i = phi i64 [ 212, %40 ], [ 204, %39 ]
-  %.sink58.i = phi i64 [ 216, %40 ], [ 208, %39 ]
+  %.sink66.i = phi i64 [ 212, %40 ], [ 204, %39 ]
+  %.sink60.i = phi i64 [ 216, %40 ], [ 208, %39 ]
   %41 = sitofp i32 %35 to float
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink64.i
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink66.i
   %43 = load float, ptr %42, align 4, !tbaa !173
   %44 = fcmp nsz ult float %43, 0.000000e+00
   %45 = fneg nsz float %43
   %46 = select nsz i1 %44, float %45, float %43
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink58.i
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink60.i
   %48 = load float, ptr %47, align 8, !tbaa !173
   %49 = tail call nsz float @llvm.fmuladd.f32(float %41, float %46, float %48)
   %50 = fpext nsz float %49 to double

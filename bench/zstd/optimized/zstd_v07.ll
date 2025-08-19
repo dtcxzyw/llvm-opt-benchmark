@@ -269,7 +269,7 @@ define i64 @FSEv07_readNCount(ptr noundef writeonly captures(none) %0, ptr nound
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i8, ptr %.1132, i64 %90
   %.not155 = icmp ugt ptr %91, %19
-  %or.cond232 = select i1 %.not154, i1 %.not155, i1 false
+  %or.cond242 = select i1 %.not154, i1 %.not155, i1 false
   %92 = getelementptr inbounds i8, ptr %.1132, i64 %90
   %93 = and i32 %.7, 7
   %94 = ptrtoint ptr %.1132 to i64
@@ -277,8 +277,8 @@ define i64 @FSEv07_readNCount(ptr noundef writeonly captures(none) %0, ptr nound
   %.tr.neg = trunc i64 %.neg to i32
   %.neg156 = shl i32 %.tr.neg, 3
   %95 = add i32 %.7, %.neg156
-  %.6137 = select i1 %or.cond232, ptr %19, ptr %92
-  %.8 = select i1 %or.cond232, i32 %95, i32 %93
+  %.6137 = select i1 %or.cond242, ptr %19, ptr %92
+  %.8 = select i1 %or.cond242, i32 %95, i32 %93
   %.6137.val = load i32, ptr %.6137, align 1
   %96 = and i32 %.8, 31
   %97 = lshr i32 %.6137.val, %96
@@ -308,7 +308,7 @@ define i64 @FSEv07_readNCount(ptr noundef writeonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 1, 0) i64 @HUFv07_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #2 {
+define range(i64 -119, -9223372036854775808) i64 @HUFv07_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca [256 x i16], align 16
   %9 = alloca [4097 x i32], align 16
   %10 = alloca i32, align 4
@@ -997,63 +997,63 @@ FSEv07_initDState.exit28:                         ; preds = %FSEv07_initDState.e
   %.sroa.29.6 = phi i32 [ %107, %FSEv07_initDState.exit ], [ %107, %114 ], [ %.sroa.29.5, %BITv07_reloadDStream.exit.sink.split.i24 ]
   %.sroa.66223.6.idx = phi i64 [ %.sroa.66223.4.idx, %FSEv07_initDState.exit ], [ 0, %114 ], [ %.sroa.66223.4.ptr.add, %BITv07_reloadDStream.exit.sink.split.i24 ]
   %122 = icmp ugt i32 %.sroa.29.6, 64
-  br i1 %122, label %.preheader402, label %.lr.ph525
+  br i1 %122, label %.preheader402, label %.lr.ph547
 
-.lr.ph525:                                        ; preds = %FSEv07_initDState.exit28, %140
-  %.038.i524 = phi ptr [ %192, %140 ], [ %0, %FSEv07_initDState.exit28 ]
-  %.sroa.0.0523 = phi i64 [ %190, %140 ], [ %106, %FSEv07_initDState.exit28 ]
-  %.sroa.0212.0522 = phi i64 [ %176, %140 ], [ %85, %FSEv07_initDState.exit28 ]
-  %.sroa.66223.0.idx521 = phi i64 [ %.sroa.66223.7.idx, %140 ], [ %.sroa.66223.6.idx, %FSEv07_initDState.exit28 ]
-  %.sroa.29.0520 = phi i32 [ %188, %140 ], [ %.sroa.29.6, %FSEv07_initDState.exit28 ]
-  %.sroa.0220.0519 = phi i64 [ %.sroa.0220.6, %140 ], [ %.sroa.0220.5, %FSEv07_initDState.exit28 ]
-  %.not.i29 = icmp slt i64 %.sroa.66223.0.idx521, 8
+.lr.ph547:                                        ; preds = %FSEv07_initDState.exit28, %140
+  %.038.i546 = phi ptr [ %192, %140 ], [ %0, %FSEv07_initDState.exit28 ]
+  %.sroa.0.0545 = phi i64 [ %190, %140 ], [ %106, %FSEv07_initDState.exit28 ]
+  %.sroa.0212.0544 = phi i64 [ %176, %140 ], [ %85, %FSEv07_initDState.exit28 ]
+  %.sroa.66223.0.idx543 = phi i64 [ %.sroa.66223.7.idx, %140 ], [ %.sroa.66223.6.idx, %FSEv07_initDState.exit28 ]
+  %.sroa.29.0542 = phi i32 [ %188, %140 ], [ %.sroa.29.6, %FSEv07_initDState.exit28 ]
+  %.sroa.0220.0541 = phi i64 [ %.sroa.0220.6, %140 ], [ %.sroa.0220.5, %FSEv07_initDState.exit28 ]
+  %.not.i29 = icmp slt i64 %.sroa.66223.0.idx543, 8
   br i1 %.not.i29, label %127, label %123
 
-123:                                              ; preds = %.lr.ph525
-  %124 = lshr i32 %.sroa.29.0520, 3
+123:                                              ; preds = %.lr.ph547
+  %124 = lshr i32 %.sroa.29.0542, 3
   %125 = zext nneg i32 %124 to i64
-  %126 = and i32 %.sroa.29.0520, 7
+  %126 = and i32 %.sroa.29.0542, 7
   br label %BITv07_reloadDStream.exit
 
-127:                                              ; preds = %.lr.ph525
-  %128 = icmp eq i64 %.sroa.66223.0.idx521, 0
+127:                                              ; preds = %.lr.ph547
+  %128 = icmp eq i64 %.sroa.66223.0.idx543, 0
   br i1 %128, label %.preheader402, label %129
 
 129:                                              ; preds = %127
-  %130 = lshr i32 %.sroa.29.0520, 3
+  %130 = lshr i32 %.sroa.29.0542, 3
   %131 = zext nneg i32 %130 to i64
-  %132 = icmp sge i64 %.sroa.66223.0.idx521, %131
-  %.024.i373 = tail call i64 @llvm.smin.i64(i64 %.sroa.66223.0.idx521, i64 %131)
+  %132 = icmp sge i64 %.sroa.66223.0.idx543, %131
+  %.024.i373 = tail call i64 @llvm.smin.i64(i64 %.sroa.66223.0.idx543, i64 %131)
   %.024.i = trunc i64 %.024.i373 to i32
   %133 = and i64 %.024.i373, 4294967295
   %134 = shl i32 %.024.i, 3
-  %135 = sub i32 %.sroa.29.0520, %134
+  %135 = sub i32 %.sroa.29.0542, %134
   br label %BITv07_reloadDStream.exit
 
 BITv07_reloadDStream.exit:                        ; preds = %123, %129
   %.sroa.29.7 = phi i32 [ %135, %129 ], [ %126, %123 ]
   %.pn = phi i64 [ %133, %129 ], [ %125, %123 ]
   %.025.i = phi i1 [ %132, %129 ], [ true, %123 ]
-  %.sroa.66223.7.idx = sub nsw i64 %.sroa.66223.0.idx521, %.pn
+  %.sroa.66223.7.idx = sub nsw i64 %.sroa.66223.0.idx543, %.pn
   %.sroa.0220.6.in = getelementptr inbounds i8, ptr %2, i64 %.sroa.66223.7.idx
   %.sroa.0220.6 = load i64, ptr %.sroa.0220.6.in, align 1
-  %136 = icmp ult ptr %.038.i524, %9
+  %136 = icmp ult ptr %.038.i546, %9
   %137 = select i1 %.025.i, i1 %136, i1 false
   br i1 %137, label %140, label %.preheader402
 
 .preheader402:                                    ; preds = %BITv07_reloadDStream.exit, %140, %127, %FSEv07_initDState.exit28
-  %.sroa.0212.0.lcssa = phi i64 [ %85, %FSEv07_initDState.exit28 ], [ %.sroa.0212.0522, %BITv07_reloadDStream.exit ], [ %176, %140 ], [ %.sroa.0212.0522, %127 ]
-  %.sroa.0.0.lcssa = phi i64 [ %106, %FSEv07_initDState.exit28 ], [ %.sroa.0.0523, %BITv07_reloadDStream.exit ], [ %190, %140 ], [ %.sroa.0.0523, %127 ]
-  %.038.i.lcssa = phi ptr [ %0, %FSEv07_initDState.exit28 ], [ %.038.i524, %BITv07_reloadDStream.exit ], [ %192, %140 ], [ %.038.i524, %127 ]
-  %.sroa.66223.7.idx466 = phi i64 [ %.sroa.66223.6.idx, %FSEv07_initDState.exit28 ], [ %.sroa.66223.7.idx, %BITv07_reloadDStream.exit ], [ %.sroa.66223.7.idx, %140 ], [ 0, %127 ]
-  %.sroa.29.7465 = phi i32 [ %.sroa.29.6, %FSEv07_initDState.exit28 ], [ %.sroa.29.7, %BITv07_reloadDStream.exit ], [ %188, %140 ], [ %.sroa.29.0520, %127 ]
-  %.sroa.0220.6464 = phi i64 [ %.sroa.0220.5, %FSEv07_initDState.exit28 ], [ %.sroa.0220.6, %BITv07_reloadDStream.exit ], [ %.sroa.0220.6, %140 ], [ %.sroa.0220.0519, %127 ]
+  %.sroa.0212.0.lcssa = phi i64 [ %85, %FSEv07_initDState.exit28 ], [ %.sroa.0212.0544, %BITv07_reloadDStream.exit ], [ %176, %140 ], [ %.sroa.0212.0544, %127 ]
+  %.sroa.0.0.lcssa = phi i64 [ %106, %FSEv07_initDState.exit28 ], [ %.sroa.0.0545, %BITv07_reloadDStream.exit ], [ %190, %140 ], [ %.sroa.0.0545, %127 ]
+  %.038.i.lcssa = phi ptr [ %0, %FSEv07_initDState.exit28 ], [ %.038.i546, %BITv07_reloadDStream.exit ], [ %192, %140 ], [ %.038.i546, %127 ]
+  %.sroa.66223.7.idx488 = phi i64 [ %.sroa.66223.6.idx, %FSEv07_initDState.exit28 ], [ %.sroa.66223.7.idx, %BITv07_reloadDStream.exit ], [ %.sroa.66223.7.idx, %140 ], [ 0, %127 ]
+  %.sroa.29.7487 = phi i32 [ %.sroa.29.6, %FSEv07_initDState.exit28 ], [ %.sroa.29.7, %BITv07_reloadDStream.exit ], [ %188, %140 ], [ %.sroa.29.0542, %127 ]
+  %.sroa.0220.6486 = phi i64 [ %.sroa.0220.5, %FSEv07_initDState.exit28 ], [ %.sroa.0220.6, %BITv07_reloadDStream.exit ], [ %.sroa.0220.6, %140 ], [ %.sroa.0220.0541, %127 ]
   %138 = getelementptr inbounds i8, ptr %8, i64 -2
   %139 = icmp ugt ptr %.038.i.lcssa, %138
   br i1 %139, label %FSEv07_decompress_usingDTable_generic.exit, label %.lr.ph
 
 140:                                              ; preds = %BITv07_reloadDStream.exit
-  %141 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %101, i64 %.sroa.0212.0522
+  %141 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %101, i64 %.sroa.0212.0544
   %.sroa.0.0.copyload.i = load i16, ptr %141, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %141, i64 2
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 2, !tbaa !14
@@ -1069,8 +1069,8 @@ BITv07_reloadDStream.exit:                        ; preds = %123, %129
   %149 = lshr i64 %145, %148
   %150 = add i32 %.sroa.29.7, %142
   %151 = zext i16 %.sroa.0.0.copyload.i to i64
-  store i8 %.sroa.4.0.copyload.i, ptr %.038.i524, align 1, !tbaa !14
-  %152 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %101, i64 %.sroa.0.0523
+  store i8 %.sroa.4.0.copyload.i, ptr %.038.i546, align 1, !tbaa !14
+  %152 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %101, i64 %.sroa.0.0545
   %.sroa.0.0.copyload.i34 = load i16, ptr %152, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %.sroa.4.0.copyload.i36 = load i8, ptr %.sroa.4.0..sroa_idx.i35, align 2, !tbaa !14
@@ -1086,7 +1086,7 @@ BITv07_reloadDStream.exit:                        ; preds = %123, %129
   %160 = lshr i64 %156, %159
   %161 = add i32 %150, %153
   %162 = zext i16 %.sroa.0.0.copyload.i34 to i64
-  %163 = getelementptr inbounds nuw i8, ptr %.038.i524, i64 1
+  %163 = getelementptr inbounds nuw i8, ptr %.038.i546, i64 1
   store i8 %.sroa.4.0.copyload.i36, ptr %163, align 1, !tbaa !14
   %164 = getelementptr %struct.FSEv07_decode_t, ptr %101, i64 %149
   %165 = getelementptr %struct.FSEv07_decode_t, ptr %164, i64 %151
@@ -1106,7 +1106,7 @@ BITv07_reloadDStream.exit:                        ; preds = %123, %129
   %174 = add i32 %161, %166
   %175 = zext i16 %.sroa.0.0.copyload.i41 to i64
   %176 = add i64 %173, %175
-  %177 = getelementptr inbounds nuw i8, ptr %.038.i524, i64 2
+  %177 = getelementptr inbounds nuw i8, ptr %.038.i546, i64 2
   store i8 %.sroa.4.0.copyload.i43, ptr %177, align 1, !tbaa !14
   %178 = getelementptr %struct.FSEv07_decode_t, ptr %101, i64 %160
   %179 = getelementptr %struct.FSEv07_decode_t, ptr %178, i64 %162
@@ -1126,19 +1126,19 @@ BITv07_reloadDStream.exit:                        ; preds = %123, %129
   %188 = add i32 %174, %180
   %189 = zext i16 %.sroa.0.0.copyload.i48 to i64
   %190 = add i64 %187, %189
-  %191 = getelementptr inbounds nuw i8, ptr %.038.i524, i64 3
+  %191 = getelementptr inbounds nuw i8, ptr %.038.i546, i64 3
   store i8 %.sroa.4.0.copyload.i50, ptr %191, align 1, !tbaa !14
-  %192 = getelementptr inbounds nuw i8, ptr %.038.i524, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %.038.i546, i64 4
   %193 = icmp ugt i32 %188, 64
-  br i1 %193, label %.preheader402, label %.lr.ph525, !llvm.loop !30
+  br i1 %193, label %.preheader402, label %.lr.ph547, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.preheader402, %BITv07_reloadDStream.exit93
   %.139.i426 = phi ptr [ %238, %BITv07_reloadDStream.exit93 ], [ %.038.i.lcssa, %.preheader402 ]
   %.sroa.0.1425 = phi i64 [ %237, %BITv07_reloadDStream.exit93 ], [ %.sroa.0.0.lcssa, %.preheader402 ]
   %.sroa.0212.1424 = phi i64 [ %205, %BITv07_reloadDStream.exit93 ], [ %.sroa.0212.0.lcssa, %.preheader402 ]
-  %.sroa.66223.1.idx423 = phi i64 [ %.sroa.66223.9.idx, %BITv07_reloadDStream.exit93 ], [ %.sroa.66223.7.idx466, %.preheader402 ]
-  %.sroa.29.1422 = phi i32 [ %.sroa.29.9, %BITv07_reloadDStream.exit93 ], [ %.sroa.29.7465, %.preheader402 ]
-  %.sroa.0220.1421 = phi i64 [ %.sroa.0220.8, %BITv07_reloadDStream.exit93 ], [ %.sroa.0220.6464, %.preheader402 ]
+  %.sroa.66223.1.idx423 = phi i64 [ %.sroa.66223.9.idx, %BITv07_reloadDStream.exit93 ], [ %.sroa.66223.7.idx488, %.preheader402 ]
+  %.sroa.29.1422 = phi i32 [ %.sroa.29.9, %BITv07_reloadDStream.exit93 ], [ %.sroa.29.7487, %.preheader402 ]
+  %.sroa.0220.1421 = phi i64 [ %.sroa.0220.8, %BITv07_reloadDStream.exit93 ], [ %.sroa.0220.6486, %.preheader402 ]
   %194 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %101, i64 %.sroa.0212.1424
   %.sroa.0.0.copyload.i55 = load i16, ptr %194, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %194, i64 2
@@ -1491,63 +1491,63 @@ FSEv07_initDState.exit122:                        ; preds = %FSEv07_initDState.e
   %.sroa.29270.6 = phi i32 [ %357, %FSEv07_initDState.exit114 ], [ %357, %364 ], [ %.sroa.29270.5, %BITv07_reloadDStream.exit.sink.split.i118 ]
   %.sroa.0269.5 = phi i64 [ %.sroa.0269.4, %FSEv07_initDState.exit114 ], [ %.sroa.0269.4, %364 ], [ %.val.i8.sink.i120, %BITv07_reloadDStream.exit.sink.split.i118 ]
   %372 = icmp ugt i32 %.sroa.29270.6, 64
-  br i1 %372, label %.preheader, label %.lr.ph550
+  br i1 %372, label %.preheader, label %.lr.ph572
 
-.lr.ph550:                                        ; preds = %FSEv07_initDState.exit122, %390
-  %.038.i16549 = phi ptr [ %446, %390 ], [ %0, %FSEv07_initDState.exit122 ]
-  %.sroa.0269.0548 = phi i64 [ %.sroa.0269.6, %390 ], [ %.sroa.0269.5, %FSEv07_initDState.exit122 ]
-  %.sroa.29270.0547 = phi i32 [ %442, %390 ], [ %.sroa.29270.6, %FSEv07_initDState.exit122 ]
-  %.sroa.66274.0.idx546 = phi i64 [ %.sroa.66274.7.idx, %390 ], [ %.sroa.66274.6.idx, %FSEv07_initDState.exit122 ]
-  %.sroa.0253.0545 = phi i64 [ %444, %390 ], [ %356, %FSEv07_initDState.exit122 ]
-  %.sroa.0261.0544 = phi i64 [ %429, %390 ], [ %335, %FSEv07_initDState.exit122 ]
-  %.not.i123 = icmp slt i64 %.sroa.66274.0.idx546, 8
+.lr.ph572:                                        ; preds = %FSEv07_initDState.exit122, %390
+  %.038.i16571 = phi ptr [ %446, %390 ], [ %0, %FSEv07_initDState.exit122 ]
+  %.sroa.0269.0570 = phi i64 [ %.sroa.0269.6, %390 ], [ %.sroa.0269.5, %FSEv07_initDState.exit122 ]
+  %.sroa.29270.0569 = phi i32 [ %442, %390 ], [ %.sroa.29270.6, %FSEv07_initDState.exit122 ]
+  %.sroa.66274.0.idx568 = phi i64 [ %.sroa.66274.7.idx, %390 ], [ %.sroa.66274.6.idx, %FSEv07_initDState.exit122 ]
+  %.sroa.0253.0567 = phi i64 [ %444, %390 ], [ %356, %FSEv07_initDState.exit122 ]
+  %.sroa.0261.0566 = phi i64 [ %429, %390 ], [ %335, %FSEv07_initDState.exit122 ]
+  %.not.i123 = icmp slt i64 %.sroa.66274.0.idx568, 8
   br i1 %.not.i123, label %377, label %373
 
-373:                                              ; preds = %.lr.ph550
-  %374 = lshr i32 %.sroa.29270.0547, 3
+373:                                              ; preds = %.lr.ph572
+  %374 = lshr i32 %.sroa.29270.0569, 3
   %375 = zext nneg i32 %374 to i64
-  %376 = and i32 %.sroa.29270.0547, 7
+  %376 = and i32 %.sroa.29270.0569, 7
   br label %BITv07_reloadDStream.exit131
 
-377:                                              ; preds = %.lr.ph550
-  %378 = icmp eq i64 %.sroa.66274.0.idx546, 0
+377:                                              ; preds = %.lr.ph572
+  %378 = icmp eq i64 %.sroa.66274.0.idx568, 0
   br i1 %378, label %.preheader, label %379
 
 379:                                              ; preds = %377
-  %380 = lshr i32 %.sroa.29270.0547, 3
+  %380 = lshr i32 %.sroa.29270.0569, 3
   %381 = zext nneg i32 %380 to i64
-  %382 = icmp sge i64 %.sroa.66274.0.idx546, %381
-  %.024.i126392 = tail call i64 @llvm.smin.i64(i64 %.sroa.66274.0.idx546, i64 %381)
+  %382 = icmp sge i64 %.sroa.66274.0.idx568, %381
+  %.024.i126392 = tail call i64 @llvm.smin.i64(i64 %.sroa.66274.0.idx568, i64 %381)
   %.024.i126 = trunc i64 %.024.i126392 to i32
   %383 = and i64 %.024.i126392, 4294967295
   %384 = shl i32 %.024.i126, 3
-  %385 = sub i32 %.sroa.29270.0547, %384
+  %385 = sub i32 %.sroa.29270.0569, %384
   br label %BITv07_reloadDStream.exit131
 
 BITv07_reloadDStream.exit131:                     ; preds = %373, %379
-  %.pn496 = phi i64 [ %383, %379 ], [ %375, %373 ]
+  %.pn518 = phi i64 [ %383, %379 ], [ %375, %373 ]
   %.sroa.29270.7 = phi i32 [ %385, %379 ], [ %376, %373 ]
   %.025.i125 = phi i1 [ %382, %379 ], [ true, %373 ]
-  %.sroa.66274.7.idx = sub nsw i64 %.sroa.66274.0.idx546, %.pn496
+  %.sroa.66274.7.idx = sub nsw i64 %.sroa.66274.0.idx568, %.pn518
   %.sroa.0269.6.in = getelementptr inbounds i8, ptr %2, i64 %.sroa.66274.7.idx
   %.sroa.0269.6 = load i64, ptr %.sroa.0269.6.in, align 1
-  %386 = icmp ult ptr %.038.i16549, %9
+  %386 = icmp ult ptr %.038.i16571, %9
   %387 = select i1 %.025.i125, i1 %386, i1 false
   br i1 %387, label %390, label %.preheader
 
 .preheader:                                       ; preds = %BITv07_reloadDStream.exit131, %390, %377, %FSEv07_initDState.exit122
-  %.sroa.0261.0.lcssa = phi i64 [ %335, %FSEv07_initDState.exit122 ], [ %.sroa.0261.0544, %BITv07_reloadDStream.exit131 ], [ %429, %390 ], [ %.sroa.0261.0544, %377 ]
-  %.sroa.0253.0.lcssa = phi i64 [ %356, %FSEv07_initDState.exit122 ], [ %.sroa.0253.0545, %BITv07_reloadDStream.exit131 ], [ %444, %390 ], [ %.sroa.0253.0545, %377 ]
-  %.038.i16.lcssa = phi ptr [ %0, %FSEv07_initDState.exit122 ], [ %.038.i16549, %BITv07_reloadDStream.exit131 ], [ %446, %390 ], [ %.038.i16549, %377 ]
-  %.sroa.0269.6473 = phi i64 [ %.sroa.0269.5, %FSEv07_initDState.exit122 ], [ %.sroa.0269.6, %BITv07_reloadDStream.exit131 ], [ %.sroa.0269.6, %390 ], [ %.sroa.0269.0548, %377 ]
-  %.sroa.29270.7472 = phi i32 [ %.sroa.29270.6, %FSEv07_initDState.exit122 ], [ %.sroa.29270.7, %BITv07_reloadDStream.exit131 ], [ %442, %390 ], [ %.sroa.29270.0547, %377 ]
-  %.sroa.66274.7.idx471 = phi i64 [ %.sroa.66274.6.idx, %FSEv07_initDState.exit122 ], [ %.sroa.66274.7.idx, %BITv07_reloadDStream.exit131 ], [ %.sroa.66274.7.idx, %390 ], [ 0, %377 ]
+  %.sroa.0261.0.lcssa = phi i64 [ %335, %FSEv07_initDState.exit122 ], [ %.sroa.0261.0566, %BITv07_reloadDStream.exit131 ], [ %429, %390 ], [ %.sroa.0261.0566, %377 ]
+  %.sroa.0253.0.lcssa = phi i64 [ %356, %FSEv07_initDState.exit122 ], [ %.sroa.0253.0567, %BITv07_reloadDStream.exit131 ], [ %444, %390 ], [ %.sroa.0253.0567, %377 ]
+  %.038.i16.lcssa = phi ptr [ %0, %FSEv07_initDState.exit122 ], [ %.038.i16571, %BITv07_reloadDStream.exit131 ], [ %446, %390 ], [ %.038.i16571, %377 ]
+  %.sroa.0269.6495 = phi i64 [ %.sroa.0269.5, %FSEv07_initDState.exit122 ], [ %.sroa.0269.6, %BITv07_reloadDStream.exit131 ], [ %.sroa.0269.6, %390 ], [ %.sroa.0269.0570, %377 ]
+  %.sroa.29270.7494 = phi i32 [ %.sroa.29270.6, %FSEv07_initDState.exit122 ], [ %.sroa.29270.7, %BITv07_reloadDStream.exit131 ], [ %442, %390 ], [ %.sroa.29270.0569, %377 ]
+  %.sroa.66274.7.idx493 = phi i64 [ %.sroa.66274.6.idx, %FSEv07_initDState.exit122 ], [ %.sroa.66274.7.idx, %BITv07_reloadDStream.exit131 ], [ %.sroa.66274.7.idx, %390 ], [ 0, %377 ]
   %388 = getelementptr inbounds i8, ptr %8, i64 -2
   %389 = icmp ugt ptr %.038.i16.lcssa, %388
   br i1 %389, label %FSEv07_decompress_usingDTable_generic.exit, label %.lr.ph434
 
 390:                                              ; preds = %BITv07_reloadDStream.exit131
-  %391 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %351, i64 %.sroa.0261.0544
+  %391 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %351, i64 %.sroa.0261.0566
   %.sroa.0.0.copyload.i132 = load i16, ptr %391, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i133 = getelementptr inbounds nuw i8, ptr %391, i64 2
   %.sroa.4.0.copyload.i134 = load i8, ptr %.sroa.4.0..sroa_idx.i133, align 2, !tbaa !14
@@ -1564,8 +1564,8 @@ BITv07_reloadDStream.exit131:                     ; preds = %373, %379
   %400 = lshr i64 %396, %399
   %401 = add i32 %.sroa.29270.7, %392
   %402 = zext i16 %.sroa.0.0.copyload.i132 to i64
-  store i8 %.sroa.4.0.copyload.i134, ptr %.038.i16549, align 1, !tbaa !14
-  %403 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %351, i64 %.sroa.0253.0545
+  store i8 %.sroa.4.0.copyload.i134, ptr %.038.i16571, align 1, !tbaa !14
+  %403 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %351, i64 %.sroa.0253.0567
   %.sroa.0.0.copyload.i139 = load i16, ptr %403, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i140 = getelementptr inbounds nuw i8, ptr %403, i64 2
   %.sroa.4.0.copyload.i141 = load i8, ptr %.sroa.4.0..sroa_idx.i140, align 2, !tbaa !14
@@ -1582,7 +1582,7 @@ BITv07_reloadDStream.exit131:                     ; preds = %373, %379
   %412 = lshr i64 %408, %411
   %413 = add i32 %401, %404
   %414 = zext i16 %.sroa.0.0.copyload.i139 to i64
-  %415 = getelementptr inbounds nuw i8, ptr %.038.i16549, i64 1
+  %415 = getelementptr inbounds nuw i8, ptr %.038.i16571, i64 1
   store i8 %.sroa.4.0.copyload.i141, ptr %415, align 1, !tbaa !14
   %416 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %351, i64 %400
   %417 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %416, i64 %402
@@ -1603,7 +1603,7 @@ BITv07_reloadDStream.exit131:                     ; preds = %373, %379
   %427 = add i32 %413, %418
   %428 = zext i16 %.sroa.0.0.copyload.i146 to i64
   %429 = add nuw i64 %426, %428
-  %430 = getelementptr inbounds nuw i8, ptr %.038.i16549, i64 2
+  %430 = getelementptr inbounds nuw i8, ptr %.038.i16571, i64 2
   store i8 %.sroa.4.0.copyload.i148, ptr %430, align 1, !tbaa !14
   %431 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %351, i64 %412
   %432 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %431, i64 %414
@@ -1624,17 +1624,17 @@ BITv07_reloadDStream.exit131:                     ; preds = %373, %379
   %442 = add i32 %427, %433
   %443 = zext i16 %.sroa.0.0.copyload.i153 to i64
   %444 = add nuw i64 %441, %443
-  %445 = getelementptr inbounds nuw i8, ptr %.038.i16549, i64 3
+  %445 = getelementptr inbounds nuw i8, ptr %.038.i16571, i64 3
   store i8 %.sroa.4.0.copyload.i155, ptr %445, align 1, !tbaa !14
-  %446 = getelementptr inbounds nuw i8, ptr %.038.i16549, i64 4
+  %446 = getelementptr inbounds nuw i8, ptr %.038.i16571, i64 4
   %447 = icmp ugt i32 %442, 64
-  br i1 %447, label %.preheader, label %.lr.ph550, !llvm.loop !30
+  br i1 %447, label %.preheader, label %.lr.ph572, !llvm.loop !30
 
 .lr.ph434:                                        ; preds = %.preheader, %BITv07_reloadDStream.exit198
   %.139.i17433 = phi ptr [ %494, %BITv07_reloadDStream.exit198 ], [ %.038.i16.lcssa, %.preheader ]
-  %.sroa.0269.1432 = phi i64 [ %.sroa.0269.8, %BITv07_reloadDStream.exit198 ], [ %.sroa.0269.6473, %.preheader ]
-  %.sroa.29270.1431 = phi i32 [ %.sroa.29270.9, %BITv07_reloadDStream.exit198 ], [ %.sroa.29270.7472, %.preheader ]
-  %.sroa.66274.1.idx430 = phi i64 [ %.sroa.66274.9.idx, %BITv07_reloadDStream.exit198 ], [ %.sroa.66274.7.idx471, %.preheader ]
+  %.sroa.0269.1432 = phi i64 [ %.sroa.0269.8, %BITv07_reloadDStream.exit198 ], [ %.sroa.0269.6495, %.preheader ]
+  %.sroa.29270.1431 = phi i32 [ %.sroa.29270.9, %BITv07_reloadDStream.exit198 ], [ %.sroa.29270.7494, %.preheader ]
+  %.sroa.66274.1.idx430 = phi i64 [ %.sroa.66274.9.idx, %BITv07_reloadDStream.exit198 ], [ %.sroa.66274.7.idx493, %.preheader ]
   %.sroa.0253.1429 = phi i64 [ %493, %BITv07_reloadDStream.exit198 ], [ %.sroa.0253.0.lcssa, %.preheader ]
   %.sroa.0261.1428 = phi i64 [ %460, %BITv07_reloadDStream.exit198 ], [ %.sroa.0261.0.lcssa, %.preheader ]
   %448 = getelementptr inbounds nuw %struct.FSEv07_decode_t, ptr %351, i64 %.sroa.0261.1428
@@ -1789,7 +1789,7 @@ FSEv07_decompress_usingDTable_generic.exit:       ; preds = %BITv07_reloadDStrea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 1, 0) i64 @HUFv07_readDTableX2(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX2(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [17 x i32], align 16
   %6 = alloca i32, align 4
@@ -2078,7 +2078,7 @@ define i64 @HUFv07_decompress1X2_DCtx(ptr noundef captures(none) %0, ptr noundef
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %11 = sub nuw i64 %4, %6
-  %12 = tail call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %10, i64 noundef %11, ptr noundef %0)
+  %12 = tail call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %10, i64 noundef %11, ptr noundef %0)
   br label %13
 
 13:                                               ; preds = %8, %5, %9
@@ -2103,7 +2103,7 @@ define i64 @HUFv07_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %11 = sub nuw i64 %3, %6
-  %12 = call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %5)
+  %12 = call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %10, i64 noundef %11, ptr noundef nonnull %5)
   br label %HUFv07_decompress1X2_DCtx.exit
 
 HUFv07_decompress1X2_DCtx.exit:                   ; preds = %4, %8, %9
@@ -3083,7 +3083,7 @@ define i64 @HUFv07_decompress4X2_DCtx(ptr noundef captures(none) %0, ptr noundef
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %11 = sub nuw i64 %4, %6
-  %12 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %10, i64 noundef %11, ptr noundef %0)
+  %12 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %10, i64 noundef %11, ptr noundef %0)
   br label %13
 
 13:                                               ; preds = %8, %5, %9
@@ -3108,7 +3108,7 @@ define i64 @HUFv07_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %11 = sub nuw i64 %3, %6
-  %12 = call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %5)
+  %12 = call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %10, i64 noundef %11, ptr noundef nonnull %5)
   br label %HUFv07_decompress4X2_DCtx.exit
 
 HUFv07_decompress4X2_DCtx.exit:                   ; preds = %4, %8, %9
@@ -3118,7 +3118,7 @@ HUFv07_decompress4X2_DCtx.exit:                   ; preds = %4, %8, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i64 -119, -9223372036854775808) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [17 x i32], align 16
   %5 = alloca [17 x i32], align 16
   %6 = alloca [256 x i8], align 16
@@ -3256,8 +3256,8 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
   %55 = sub i32 %23, %.069
   %56 = add nuw nsw i32 %14, 1
   %57 = sub i32 %56, %55
-  %.not130 = icmp ult i32 %55, %57
-  br i1 %.not130, label %.lr.ph93.us.preheader, label %._crit_edge98
+  %.not139 = icmp ult i32 %55, %57
+  br i1 %.not139, label %.lr.ph93.us.preheader, label %._crit_edge98
 
 ._crit_edge90.thread:                             ; preds = %._crit_edge85
   %58 = sub nsw i32 %23, %.069
@@ -3294,7 +3294,7 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
 ._crit_edge98:                                    ; preds = %._crit_edge94.us, %._crit_edge90, %._crit_edge90.thread
   %67 = phi i32 [ %55, %._crit_edge90 ], [ %58, %._crit_edge90.thread ], [ %55, %._crit_edge94.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %68 = sub i32 %23, %14
+  %68 = sub nsw i32 %23, %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, ptr noundef nonnull readonly align 16 dereferenceable(68) %10, i64 68, i1 false)
   %.not56.i = icmp eq i32 %.073.lcssa, 0
   br i1 %.not56.i, label %HUFv07_fillDTableX4.exit, label %.lr.ph55.preheader.i
@@ -3311,17 +3311,17 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !44
   %74 = zext i8 %73 to i32
-  %75 = sub i32 %23, %74
+  %75 = sub nsw i32 %23, %74
   %76 = zext i8 %73 to i64
   %77 = getelementptr inbounds nuw [17 x i32], ptr %5, i64 0, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !3
-  %79 = sub i32 %14, %75
+  %79 = sub nsw i32 %14, %75
   %80 = shl nuw i32 1, %79
   %.not.i = icmp ult i32 %79, %67
   br i1 %.not.i, label %121, label %81
 
 81:                                               ; preds = %.lr.ph55.i
-  %82 = add i32 %75, %68
+  %82 = add nsw i32 %75, %68
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %82, i32 1)
   %83 = zext nneg i32 %spec.store.select.i to i64
   %84 = getelementptr inbounds nuw i32, ptr %9, i64 %83
@@ -3345,7 +3345,7 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %94
-  %.sroa.6.0.insert.ext42.i.i = shl i32 %75, 16
+  %.sroa.6.0.insert.ext42.i.i = shl nsw i32 %75, 16
   %.sroa.6.0.insert.shift43.i.i = and i32 %.sroa.6.0.insert.ext42.i.i, 16711680
   %.sroa.6.0.insert.insert45.i.i = or disjoint i32 %.sroa.6.0.insert.shift43.i.i, %71
   %.sroa.0.0.insert.insert40.i.i = or disjoint i32 %.sroa.6.0.insert.insert45.i.i, 16777216
@@ -3377,16 +3377,16 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %103 = load i8, ptr %102, align 1, !tbaa !44
   %104 = zext i8 %103 to i32
-  %105 = sub i32 %23, %104
-  %106 = sub i32 %79, %105
+  %105 = sub nsw i32 %23, %104
+  %106 = sub nsw i32 %79, %105
   %107 = shl nuw i32 1, %106
   %108 = zext i8 %103 to i64
   %109 = getelementptr inbounds nuw [17 x i32], ptr %4, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !3
   %111 = add i32 %107, %110
   %112 = shl nuw nsw i32 %101, 8
-  %113 = add i32 %105, %75
-  %.sroa.6.0.insert.ext.i.i = shl i32 %113, 16
+  %113 = add nsw i32 %105, %75
+  %.sroa.6.0.insert.ext.i.i = shl nsw i32 %113, 16
   %.sroa.6.0.insert.shift.i.i = and i32 %.sroa.6.0.insert.ext.i.i, 16711680
   %114 = or disjoint i32 %.sroa.6.0.insert.shift.i.i, %112
   %.sroa.0.0.insert.insert.i.reass.i = or disjoint i32 %114, %invariant.op.i
@@ -3418,7 +3418,7 @@ HUFv07_fillDTableX4Level2.exit.i:                 ; preds = %120, %.loopexit.i.i
   br i1 %123, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %121
-  %.sroa.4.0.insert.ext.i = shl i32 %75, 16
+  %.sroa.4.0.insert.ext.i = shl nsw i32 %75, 16
   %.sroa.4.0.insert.shift.i = and i32 %.sroa.4.0.insert.ext.i, 16711680
   %.sroa.4.0.insert.insert.i = or disjoint i32 %.sroa.4.0.insert.shift.i, %71
   %.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.4.0.insert.insert.i, 16777216
@@ -3639,7 +3639,7 @@ define i64 @HUFv07_decompress1X4_DCtx(ptr noundef captures(none) %0, ptr noundef
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %11 = sub nuw i64 %4, %6
-  %12 = tail call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %10, i64 noundef %11, ptr noundef %0)
+  %12 = tail call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %10, i64 noundef %11, ptr noundef %0)
   br label %13
 
 13:                                               ; preds = %8, %5, %9
@@ -3664,7 +3664,7 @@ define i64 @HUFv07_decompress1X4(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %11 = sub nuw i64 %3, %6
-  %12 = call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %5)
+  %12 = call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %10, i64 noundef %11, ptr noundef nonnull %5)
   br label %HUFv07_decompress1X4_DCtx.exit
 
 HUFv07_decompress1X4_DCtx.exit:                   ; preds = %4, %8, %9
@@ -4692,7 +4692,7 @@ define i64 @HUFv07_decompress4X4_DCtx(ptr noundef %0, ptr noundef %1, i64 nounde
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %11 = sub nuw i64 %4, %6
-  %12 = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %10, i64 noundef %11, ptr noundef %0)
+  %12 = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %10, i64 noundef %11, ptr noundef %0)
   br label %13
 
 13:                                               ; preds = %8, %5, %9
@@ -4717,7 +4717,7 @@ define i64 @HUFv07_decompress4X4(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %11 = sub nuw i64 %3, %6
-  %12 = call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %5)
+  %12 = call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %10, i64 noundef %11, ptr noundef nonnull %5)
   br label %HUFv07_decompress4X4_DCtx.exit
 
 HUFv07_decompress4X4_DCtx.exit:                   ; preds = %4, %8, %9
@@ -4911,7 +4911,7 @@ define i64 @HUFv07_decompress4X_DCtx(ptr noundef %0, ptr noundef %1, i64 noundef
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 %37
   %42 = sub nuw i64 %4, %37
-  %43 = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %41, i64 noundef %42, ptr noundef %0)
+  %43 = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %41, i64 noundef %42, ptr noundef %0)
   br label %HUFv07_decompress4X4_DCtx.exit
 
 44:                                               ; preds = %16
@@ -4926,7 +4926,7 @@ define i64 @HUFv07_decompress4X_DCtx(ptr noundef %0, ptr noundef %1, i64 noundef
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 %45
   %50 = sub nuw i64 %4, %45
-  %51 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %49, i64 noundef %50, ptr noundef %0)
+  %51 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %49, i64 noundef %50, ptr noundef %0)
   br label %HUFv07_decompress4X4_DCtx.exit
 
 HUFv07_decompress4X4_DCtx.exit:                   ; preds = %48, %47, %44, %40, %39, %36, %7, %5, %14, %11
@@ -4980,7 +4980,7 @@ define i64 @HUFv07_decompress4X_hufOnly(ptr noundef %0, ptr noundef %1, i64 noun
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 %31
   %36 = sub nuw i64 %4, %31
-  %37 = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %35, i64 noundef %36, ptr noundef %0)
+  %37 = tail call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %35, i64 noundef %36, ptr noundef %0)
   br label %HUFv07_decompress4X4_DCtx.exit
 
 38:                                               ; preds = %10
@@ -4995,7 +4995,7 @@ define i64 @HUFv07_decompress4X_hufOnly(ptr noundef %0, ptr noundef %1, i64 noun
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 %39
   %44 = sub nuw i64 %4, %39
-  %45 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %43, i64 noundef %44, ptr noundef %0)
+  %45 = tail call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %43, i64 noundef %44, ptr noundef %0)
   br label %HUFv07_decompress4X4_DCtx.exit
 
 HUFv07_decompress4X4_DCtx.exit:                   ; preds = %42, %41, %38, %34, %33, %30, %7, %5
@@ -5064,7 +5064,7 @@ define i64 @HUFv07_decompress1X_DCtx(ptr noundef captures(none) %0, ptr noundef 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 %37
   %42 = sub nuw i64 %4, %37
-  %43 = tail call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %41, i64 noundef %42, ptr noundef %0)
+  %43 = tail call fastcc i64 @HUFv07_decompress1X4_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %41, i64 noundef %42, ptr noundef %0)
   br label %HUFv07_decompress1X4_DCtx.exit
 
 44:                                               ; preds = %16
@@ -5079,7 +5079,7 @@ define i64 @HUFv07_decompress1X_DCtx(ptr noundef captures(none) %0, ptr noundef 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 %45
   %50 = sub nuw i64 %4, %45
-  %51 = tail call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %49, i64 noundef %50, ptr noundef %0)
+  %51 = tail call fastcc i64 @HUFv07_decompress1X2_usingDTable_internal(ptr noundef %1, i64 noundef %2, ptr noundef %49, i64 noundef %50, ptr noundef %0)
   br label %HUFv07_decompress1X4_DCtx.exit
 
 HUFv07_decompress1X4_DCtx.exit:                   ; preds = %48, %47, %44, %40, %39, %36, %7, %5, %14, %11
@@ -5432,9 +5432,9 @@ default.unreachable:                              ; preds = %60, %47
   br label %.thread94.sink.split
 
 .thread94.sink.split:                             ; preds = %11, %78
-  %.sink98 = phi i64 [ 16, %78 ], [ 8, %11 ]
+  %.sink101 = phi i64 [ 16, %78 ], [ 8, %11 ]
   %.sink = phi i32 [ %33, %78 ], [ 0, %11 ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink98
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink101
   store i32 %.sink, ptr %81, align 8, !tbaa !3
   br label %.thread94
 
@@ -5593,9 +5593,9 @@ define internal fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef %0, ptr
   %82 = load i8, ptr %81, align 1, !tbaa !14
   %83 = zext i8 %82 to i32
   %84 = or disjoint i32 %80, %83
-  %.0131150189.i = zext nneg i32 %78 to i64
-  %.0134151190.i = zext nneg i32 %84 to i64
-  %85 = add nuw nsw i64 %.0134151190.i, 4
+  %.0131150194.i = zext nneg i32 %78 to i64
+  %.0134151195.i = zext nneg i32 %84 to i64
+  %85 = add nuw nsw i64 %.0134151195.i, 4
   %86 = icmp samesign ugt i64 %85, %4
   br i1 %86, label %ZSTDv07_decompressSequences.exit, label %.thread165.i
 
@@ -5612,8 +5612,8 @@ define internal fastcc i64 @ZSTDv07_decompressBlock_internal(ptr noundef %0, ptr
   br label %100
 
 .thread165.i:                                     ; preds = %87, %.thread.i, %33
-  %.0134155161173.i = phi i64 [ %.0134151.i, %87 ], [ %.0134.i, %33 ], [ %.0134151190.i, %.thread.i ]
-  %.0131154162172.i = phi i64 [ %.0131150.i, %87 ], [ %.0131.i, %33 ], [ %.0131150189.i, %.thread.i ]
+  %.0134155161173.i = phi i64 [ %.0134151.i, %87 ], [ %.0134.i, %33 ], [ %.0134151195.i, %.thread.i ]
+  %.0131154162172.i = phi i64 [ %.0131150.i, %87 ], [ %.0131.i, %33 ], [ %.0131150194.i, %.thread.i ]
   %.0132153163170.i = phi i64 [ 3, %87 ], [ 5, %33 ], [ 4, %.thread.i ]
   %95 = phi i64 [ %68, %87 ], [ %55, %33 ], [ %85, %.thread.i ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 5132
@@ -5819,7 +5819,7 @@ HUFv07_decompress1X4_usingDTable.exit.i:          ; preds = %134
   %219 = zext nneg i32 %218 to i64
   br label %220
 
-default.unreachable:                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread156.i.i, %ZSTDv07_buildSeqTable.exit.thread149.i.i, %264, %21
+default.unreachable:                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread169.i.i, %ZSTDv07_buildSeqTable.exit.thread162.i.i, %264, %21
   unreachable
 
 220:                                              ; preds = %.thread177.i, %181, %175, %141, %104
@@ -5924,7 +5924,7 @@ default.unreachable:                              ; preds = %ZSTDv07_buildSeqTab
   store i8 %275, ptr %280, align 2, !tbaa !17
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 0, ptr %281, align 1, !tbaa !23
-  br label %ZSTDv07_buildSeqTable.exit.thread149.sink.split.i.i
+  br label %ZSTDv07_buildSeqTable.exit.thread162.sink.split.i.i
 
 282:                                              ; preds = %264
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -6041,12 +6041,12 @@ default.unreachable:                              ; preds = %ZSTDv07_buildSeqTab
 
 FSEv07_buildDTable.exit.i.i:                      ; preds = %.preheader.i.i.i, %._crit_edge91.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %ZSTDv07_buildSeqTable.exit.thread149.sink.split.i.i
+  br label %ZSTDv07_buildSeqTable.exit.thread162.sink.split.i.i
 
 328:                                              ; preds = %264
   %.not.i.i.i = icmp eq i32 %237, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %.not.i.i.i, label %ZSTDv07_decompressSequences.exit, label %ZSTDv07_buildSeqTable.exit.thread149.i.i
+  br i1 %.not.i.i.i, label %ZSTDv07_decompressSequences.exit, label %ZSTDv07_buildSeqTable.exit.thread162.i.i
 
 329:                                              ; preds = %264
   %330 = ptrtoint ptr %272 to i64
@@ -6055,18 +6055,18 @@ FSEv07_buildDTable.exit.i.i:                      ; preds = %.preheader.i.i.i, %
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %332 = call i64 @FSEv07_readNCount(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %272, i64 noundef %331)
   %333 = icmp ult i64 %332, -119
-  br i1 %333, label %334, label %ZSTDv07_buildSeqTable.exit.thread153.i.i
+  br i1 %333, label %334, label %ZSTDv07_buildSeqTable.exit.thread166.i.i
 
 334:                                              ; preds = %329
   %335 = load i32, ptr %15, align 4, !tbaa !3
   %336 = icmp ugt i32 %335, 9
-  br i1 %336, label %ZSTDv07_buildSeqTable.exit.thread153.i.i, label %ZSTDv07_buildSeqTable.exit.i.i
+  br i1 %336, label %ZSTDv07_buildSeqTable.exit.thread166.i.i, label %ZSTDv07_buildSeqTable.exit.i.i
 
 ZSTDv07_buildSeqTable.exit.thread112.i.i:         ; preds = %274
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %ZSTDv07_decompressSequences.exit
 
-ZSTDv07_buildSeqTable.exit.thread153.i.i:         ; preds = %334, %329
+ZSTDv07_buildSeqTable.exit.thread166.i.i:         ; preds = %334, %329
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -6077,15 +6077,15 @@ ZSTDv07_buildSeqTable.exit.i.i:                   ; preds = %334
   %338 = call i64 @FSEv07_buildDTable(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %337, i32 noundef %335)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %ZSTDv07_buildSeqTable.exit.thread149.sink.split.i.i
+  br label %ZSTDv07_buildSeqTable.exit.thread162.sink.split.i.i
 
-ZSTDv07_buildSeqTable.exit.thread149.sink.split.i.i: ; preds = %ZSTDv07_buildSeqTable.exit.i.i, %FSEv07_buildDTable.exit.i.i, %277
+ZSTDv07_buildSeqTable.exit.thread162.sink.split.i.i: ; preds = %ZSTDv07_buildSeqTable.exit.i.i, %FSEv07_buildDTable.exit.i.i, %277
   %.0.i.ph.pn.ph.i.i = phi i64 [ %332, %ZSTDv07_buildSeqTable.exit.i.i ], [ 0, %FSEv07_buildDTable.exit.i.i ], [ 1, %277 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %ZSTDv07_buildSeqTable.exit.thread149.i.i
+  br label %ZSTDv07_buildSeqTable.exit.thread162.i.i
 
-ZSTDv07_buildSeqTable.exit.thread149.i.i:         ; preds = %ZSTDv07_buildSeqTable.exit.thread149.sink.split.i.i, %328
-  %.0.i.ph.pn.i.i = phi i64 [ 0, %328 ], [ %.0.i.ph.pn.ph.i.i, %ZSTDv07_buildSeqTable.exit.thread149.sink.split.i.i ]
+ZSTDv07_buildSeqTable.exit.thread162.i.i:         ; preds = %ZSTDv07_buildSeqTable.exit.thread162.sink.split.i.i, %328
+  %.0.i.ph.pn.i.i = phi i64 [ 0, %328 ], [ %.0.i.ph.pn.ph.i.i, %ZSTDv07_buildSeqTable.exit.thread162.sink.split.i.i ]
   %.266108.i.i = getelementptr inbounds nuw i8, ptr %272, i64 %.0.i.ph.pn.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 28, ptr %11, align 4, !tbaa !3
@@ -6096,7 +6096,7 @@ ZSTDv07_buildSeqTable.exit.thread149.i.i:         ; preds = %ZSTDv07_buildSeqTab
     i32 3, label %395
   ]
 
-339:                                              ; preds = %ZSTDv07_buildSeqTable.exit.thread149.i.i
+339:                                              ; preds = %ZSTDv07_buildSeqTable.exit.thread162.i.i
   %.not16.i89.i.i = icmp eq ptr %225, %.266108.i.i
   br i1 %.not16.i89.i.i, label %ZSTDv07_buildSeqTable.exit91.thread125.i.i, label %340
 
@@ -6115,9 +6115,9 @@ ZSTDv07_buildSeqTable.exit.thread149.i.i:         ; preds = %ZSTDv07_buildSeqTab
   store i8 %341, ptr %346, align 2, !tbaa !17
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 2059
   store i8 0, ptr %347, align 1, !tbaa !23
-  br label %ZSTDv07_buildSeqTable.exit91.thread156.sink.split.i.i
+  br label %ZSTDv07_buildSeqTable.exit91.thread169.sink.split.i.i
 
-348:                                              ; preds = %ZSTDv07_buildSeqTable.exit.thread149.i.i
+348:                                              ; preds = %ZSTDv07_buildSeqTable.exit.thread162.i.i
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %350
@@ -6232,32 +6232,32 @@ ZSTDv07_buildSeqTable.exit.thread149.i.i:         ; preds = %ZSTDv07_buildSeqTab
 
 FSEv07_buildDTable.exit.i:                        ; preds = %.preheader.i134.i, %._crit_edge91.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %ZSTDv07_buildSeqTable.exit91.thread156.sink.split.i.i
+  br label %ZSTDv07_buildSeqTable.exit91.thread169.sink.split.i.i
 
-394:                                              ; preds = %ZSTDv07_buildSeqTable.exit.thread149.i.i
+394:                                              ; preds = %ZSTDv07_buildSeqTable.exit.thread162.i.i
   %.not.i87.i.i = icmp eq i32 %237, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.not.i87.i.i, label %ZSTDv07_decompressSequences.exit, label %ZSTDv07_buildSeqTable.exit91.thread156.i.i
+  br i1 %.not.i87.i.i, label %ZSTDv07_decompressSequences.exit, label %ZSTDv07_buildSeqTable.exit91.thread169.i.i
 
-395:                                              ; preds = %ZSTDv07_buildSeqTable.exit.thread149.i.i
+395:                                              ; preds = %ZSTDv07_buildSeqTable.exit.thread162.i.i
   %396 = ptrtoint ptr %.266108.i.i to i64
   %397 = sub i64 %273, %396
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %398 = call i64 @FSEv07_readNCount(ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %.266108.i.i, i64 noundef %397)
   %399 = icmp ult i64 %398, -119
-  br i1 %399, label %400, label %ZSTDv07_buildSeqTable.exit91.thread160.i.i
+  br i1 %399, label %400, label %ZSTDv07_buildSeqTable.exit91.thread173.i.i
 
 400:                                              ; preds = %395
   %401 = load i32, ptr %12, align 4, !tbaa !3
   %402 = icmp ugt i32 %401, 8
-  br i1 %402, label %ZSTDv07_buildSeqTable.exit91.thread160.i.i, label %ZSTDv07_buildSeqTable.exit91.i.i
+  br i1 %402, label %ZSTDv07_buildSeqTable.exit91.thread173.i.i, label %ZSTDv07_buildSeqTable.exit91.i.i
 
 ZSTDv07_buildSeqTable.exit91.thread125.i.i:       ; preds = %340, %339
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ZSTDv07_decompressSequences.exit
 
-ZSTDv07_buildSeqTable.exit91.thread160.i.i:       ; preds = %400, %395
+ZSTDv07_buildSeqTable.exit91.thread173.i.i:       ; preds = %400, %395
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -6268,15 +6268,15 @@ ZSTDv07_buildSeqTable.exit91.i.i:                 ; preds = %400
   %404 = call i64 @FSEv07_buildDTable(ptr noundef nonnull %229, ptr noundef nonnull %13, i32 noundef %403, i32 noundef %401)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %ZSTDv07_buildSeqTable.exit91.thread156.sink.split.i.i
+  br label %ZSTDv07_buildSeqTable.exit91.thread169.sink.split.i.i
 
-ZSTDv07_buildSeqTable.exit91.thread156.sink.split.i.i: ; preds = %ZSTDv07_buildSeqTable.exit91.i.i, %FSEv07_buildDTable.exit.i, %343
+ZSTDv07_buildSeqTable.exit91.thread169.sink.split.i.i: ; preds = %ZSTDv07_buildSeqTable.exit91.i.i, %FSEv07_buildDTable.exit.i, %343
   %.0.i86.ph.pn.ph.i.i = phi i64 [ %398, %ZSTDv07_buildSeqTable.exit91.i.i ], [ 0, %FSEv07_buildDTable.exit.i ], [ 1, %343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %ZSTDv07_buildSeqTable.exit91.thread156.i.i
+  br label %ZSTDv07_buildSeqTable.exit91.thread169.i.i
 
-ZSTDv07_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv07_buildSeqTable.exit91.thread156.sink.split.i.i, %394
-  %.0.i86.ph.pn.i.i = phi i64 [ 0, %394 ], [ %.0.i86.ph.pn.ph.i.i, %ZSTDv07_buildSeqTable.exit91.thread156.sink.split.i.i ]
+ZSTDv07_buildSeqTable.exit91.thread169.i.i:       ; preds = %ZSTDv07_buildSeqTable.exit91.thread169.sink.split.i.i, %394
+  %.0.i86.ph.pn.i.i = phi i64 [ 0, %394 ], [ %.0.i86.ph.pn.ph.i.i, %ZSTDv07_buildSeqTable.exit91.thread169.sink.split.i.i ]
   %.468121.i.i = getelementptr inbounds nuw i8, ptr %.266108.i.i, i64 %.0.i86.ph.pn.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 52, ptr %8, align 4, !tbaa !3
@@ -6287,7 +6287,7 @@ ZSTDv07_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv07_buildSeqTab
     i32 3, label %417
   ]
 
-405:                                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread156.i.i
+405:                                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread169.i.i
   %.not16.i96.i.i = icmp eq ptr %225, %.468121.i.i
   br i1 %.not16.i96.i.i, label %.thread144.i.i, label %406
 
@@ -6306,36 +6306,36 @@ ZSTDv07_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv07_buildSeqTab
   store i8 %407, ptr %412, align 2, !tbaa !17
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 3087
   store i8 0, ptr %413, align 1, !tbaa !23
-  br label %.thread163.sink.split.i.i
+  br label %.thread176.sink.split.i.i
 
-414:                                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread156.i.i
+414:                                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread169.i.i
   %415 = tail call i64 @FSEv07_buildDTable(ptr noundef nonnull %228, ptr noundef nonnull @ML_defaultNorm, i32 noundef 52, i32 noundef 6)
-  br label %.thread163.sink.split.i.i
+  br label %.thread176.sink.split.i.i
 
-416:                                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread156.i.i
+416:                                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread169.i.i
   %.not.i94.i.i = icmp eq i32 %237, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not.i94.i.i, label %ZSTDv07_decompressSequences.exit, label %ZSTDv07_decodeSeqHeaders.exit.i
 
-417:                                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread156.i.i
+417:                                              ; preds = %ZSTDv07_buildSeqTable.exit91.thread169.i.i
   %418 = ptrtoint ptr %.468121.i.i to i64
   %419 = sub i64 %273, %418
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %420 = call i64 @FSEv07_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %.468121.i.i, i64 noundef %419)
   %421 = icmp ult i64 %420, -119
-  br i1 %421, label %422, label %.thread167.i.i
+  br i1 %421, label %422, label %.thread180.i.i
 
 422:                                              ; preds = %417
   %423 = load i32, ptr %9, align 4, !tbaa !3
   %424 = icmp ugt i32 %423, 9
-  br i1 %424, label %.thread167.i.i, label %425
+  br i1 %424, label %.thread180.i.i, label %425
 
 .thread144.i.i:                                   ; preds = %406, %405
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ZSTDv07_decompressSequences.exit
 
-.thread167.i.i:                                   ; preds = %422, %417
+.thread180.i.i:                                   ; preds = %422, %417
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -6346,15 +6346,15 @@ ZSTDv07_buildSeqTable.exit91.thread156.i.i:       ; preds = %ZSTDv07_buildSeqTab
   %427 = call i64 @FSEv07_buildDTable(ptr noundef nonnull %228, ptr noundef nonnull %10, i32 noundef %426, i32 noundef %423)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread163.sink.split.i.i
+  br label %.thread176.sink.split.i.i
 
-.thread163.sink.split.i.i:                        ; preds = %425, %414, %409
+.thread176.sink.split.i.i:                        ; preds = %425, %414, %409
   %.0.i93.ph.pn.ph.i.i = phi i64 [ %420, %425 ], [ 0, %414 ], [ 1, %409 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ZSTDv07_decodeSeqHeaders.exit.i
 
-ZSTDv07_decodeSeqHeaders.exit.i:                  ; preds = %.thread163.sink.split.i.i, %416
-  %.0.i93.ph.pn.i.i = phi i64 [ 0, %416 ], [ %.0.i93.ph.pn.ph.i.i, %.thread163.sink.split.i.i ]
+ZSTDv07_decodeSeqHeaders.exit.i:                  ; preds = %.thread176.sink.split.i.i, %416
+  %.0.i93.ph.pn.i.i = phi i64 [ 0, %416 ], [ %.0.i93.ph.pn.ph.i.i, %.thread176.sink.split.i.i ]
   %.569141.i.i = getelementptr inbounds nuw i8, ptr %.468121.i.i, i64 %.0.i93.ph.pn.i.i
   %428 = ptrtoint ptr %.569141.i.i to i64
   %429 = ptrtoint ptr %223 to i64
@@ -6398,10 +6398,10 @@ ZSTDv07_decodeSeqHeaders.exit.i:                  ; preds = %.thread163.sink.spl
 
 448:                                              ; preds = %445
   %.add.i = add nsw i64 %443, -8
-  %.ptr229.i = getelementptr inbounds i8, ptr %432, i64 %.add.i
+  %.ptr279.i = getelementptr inbounds i8, ptr %432, i64 %.add.i
   %449 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %.ptr229.i, ptr %449, align 8, !tbaa !39
-  %.val.i95.i = load i64, ptr %.ptr229.i, align 1
+  store ptr %.ptr279.i, ptr %449, align 8, !tbaa !39
+  %.val.i95.i = load i64, ptr %.ptr279.i, align 1
   store i64 %.val.i95.i, ptr %17, align 8, !tbaa !40
   %.not51.i.i = icmp ult i64 %.val.i95.i, 72057594037927936
   br i1 %.not51.i.i, label %.thread174.i, label %BITv07_initDStream.exit.i
@@ -6533,9 +6533,9 @@ BITv07_initDStream.exit.i:                        ; preds = %448
 528:                                              ; preds = %526
   %529 = lshr i32 %524, 3
   %530 = zext nneg i32 %529 to i64
-  %.ptr.add231.i = sub nuw nsw i64 %.idx.i, %530
-  %.ptr234.i = getelementptr inbounds nuw i8, ptr %432, i64 %.ptr.add231.i
-  store ptr %.ptr234.i, ptr %527, align 8, !tbaa !39
+  %.ptr.add281.i = sub nuw nsw i64 %.idx.i, %530
+  %.ptr284.i = getelementptr inbounds nuw i8, ptr %432, i64 %.ptr.add281.i
+  store ptr %.ptr284.i, ptr %527, align 8, !tbaa !39
   %531 = and i32 %524, 7
   br label %BITv07_reloadDStream.exit.sink.split.i.i
 
@@ -6555,25 +6555,25 @@ BITv07_initDStream.exit.i:                        ; preds = %448
   %.024.i.i.i = select i1 %539, i32 %542, i32 %535
   %543 = zext i32 %.024.i.i.i to i64
   %.ptr.add.i = sub nsw i64 %.idx.i, %543
-  %.ptr233.i = getelementptr inbounds i8, ptr %432, i64 %.ptr.add.i
-  store ptr %.ptr233.i, ptr %527, align 8, !tbaa !39
+  %.ptr283.i = getelementptr inbounds i8, ptr %432, i64 %.ptr.add.i
+  store ptr %.ptr283.i, ptr %527, align 8, !tbaa !39
   %544 = shl i32 %.024.i.i.i, 3
   %545 = sub i32 %524, %544
   br label %BITv07_reloadDStream.exit.sink.split.i.i
 
 BITv07_reloadDStream.exit.sink.split.i.i:         ; preds = %534, %528
   %storemerge.i = phi i32 [ %531, %528 ], [ %545, %534 ]
-  %.val.i8.sink.in.i.idx.i = phi i64 [ %.ptr.add231.i, %528 ], [ %.ptr.add.i, %534 ]
+  %.val.i8.sink.in.i.idx.i = phi i64 [ %.ptr.add281.i, %528 ], [ %.ptr.add.i, %534 ]
   %.val.i8.sink.in.i.ptr.i = getelementptr inbounds i8, ptr %432, i64 %.val.i8.sink.in.i.idx.i
   %.val.i8.sink.i.i = load i64, ptr %.val.i8.sink.in.i.ptr.i, align 1
   store i64 %.val.i8.sink.i.i, ptr %17, align 8, !tbaa !40
   br label %FSEv07_initDState.exit.i
 
 FSEv07_initDState.exit.i:                         ; preds = %BITv07_reloadDStream.exit.sink.split.i.i, %532, %511
-  %.idx230.i = phi i64 [ %.idx.i, %511 ], [ 0, %532 ], [ %.val.i8.sink.in.i.idx.i, %BITv07_reloadDStream.exit.sink.split.i.i ]
+  %.idx280.i = phi i64 [ %.idx.i, %511 ], [ 0, %532 ], [ %.val.i8.sink.in.i.idx.i, %BITv07_reloadDStream.exit.sink.split.i.i ]
   %.val4.i.i98.i = phi i32 [ %524, %511 ], [ %524, %532 ], [ %storemerge.i, %BITv07_reloadDStream.exit.sink.split.i.i ]
   %.val.i.i97.i = phi i64 [ %.val.i.i.i, %511 ], [ %.val.i.i.i, %532 ], [ %.val.i8.sink.i.i, %BITv07_reloadDStream.exit.sink.split.i.i ]
-  %.ptr232.ptr.i = getelementptr inbounds i8, ptr %432, i64 %.idx230.i
+  %.ptr282.ptr.i = getelementptr inbounds i8, ptr %432, i64 %.idx280.i
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %547 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %546, ptr %547, align 8, !tbaa !90
@@ -6595,53 +6595,53 @@ FSEv07_initDState.exit.i:                         ; preds = %BITv07_reloadDStrea
 
 561:                                              ; preds = %FSEv07_initDState.exit.i
   %562 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.not.i.i99.i = icmp slt i64 %.idx230.i, 8
+  %.not.i.i99.i = icmp slt i64 %.idx280.i, 8
   br i1 %.not.i.i99.i, label %567, label %563
 
 563:                                              ; preds = %561
   %564 = lshr i32 %559, 3
   %565 = zext nneg i32 %564 to i64
-  %.ptr232.add236.i = sub nuw nsw i64 %.idx230.i, %565
-  %.ptr238.i = getelementptr inbounds nuw i8, ptr %432, i64 %.ptr232.add236.i
-  store ptr %.ptr238.i, ptr %562, align 8, !tbaa !39
+  %.ptr282.add286.i = sub nuw nsw i64 %.idx280.i, %565
+  %.ptr288.i = getelementptr inbounds nuw i8, ptr %432, i64 %.ptr282.add286.i
+  store ptr %.ptr288.i, ptr %562, align 8, !tbaa !39
   %566 = and i32 %559, 7
   br label %BITv07_reloadDStream.exit.sink.split.i100.i
 
 567:                                              ; preds = %561
-  %568 = icmp eq ptr %.ptr232.ptr.i, %.569141.i.i
+  %568 = icmp eq ptr %.ptr282.ptr.i, %.569141.i.i
   br i1 %568, label %FSEv07_initDState.exit104.i, label %569
 
 569:                                              ; preds = %567
   %570 = lshr i32 %559, 3
   %571 = zext nneg i32 %570 to i64
   %572 = sub nsw i64 0, %571
-  %573 = getelementptr inbounds i8, ptr %.ptr232.ptr.i, i64 %572
+  %573 = getelementptr inbounds i8, ptr %.ptr282.ptr.i, i64 %572
   %574 = icmp ult ptr %573, %.569141.i.i
-  %575 = ptrtoint ptr %.ptr232.ptr.i to i64
+  %575 = ptrtoint ptr %.ptr282.ptr.i to i64
   %576 = sub i64 %575, %428
   %577 = trunc i64 %576 to i32
   %.024.i.i103.i = select i1 %574, i32 %577, i32 %570
   %578 = zext i32 %.024.i.i103.i to i64
-  %.ptr232.add.i = sub nsw i64 %.idx230.i, %578
-  %.ptr237.i = getelementptr inbounds i8, ptr %432, i64 %.ptr232.add.i
-  store ptr %.ptr237.i, ptr %562, align 8, !tbaa !39
+  %.ptr282.add.i = sub nsw i64 %.idx280.i, %578
+  %.ptr287.i = getelementptr inbounds i8, ptr %432, i64 %.ptr282.add.i
+  store ptr %.ptr287.i, ptr %562, align 8, !tbaa !39
   %579 = shl i32 %.024.i.i103.i, 3
   %580 = sub i32 %559, %579
   br label %BITv07_reloadDStream.exit.sink.split.i100.i
 
 BITv07_reloadDStream.exit.sink.split.i100.i:      ; preds = %569, %563
   %storemerge184.i = phi i32 [ %566, %563 ], [ %580, %569 ]
-  %.val.i8.sink.in.i101.idx.i = phi i64 [ %.ptr232.add236.i, %563 ], [ %.ptr232.add.i, %569 ]
+  %.val.i8.sink.in.i101.idx.i = phi i64 [ %.ptr282.add286.i, %563 ], [ %.ptr282.add.i, %569 ]
   %.val.i8.sink.in.i101.ptr.i = getelementptr inbounds i8, ptr %432, i64 %.val.i8.sink.in.i101.idx.i
   %.val.i8.sink.i102.i = load i64, ptr %.val.i8.sink.in.i101.ptr.i, align 1
   store i64 %.val.i8.sink.i102.i, ptr %17, align 8, !tbaa !40
   br label %FSEv07_initDState.exit104.i
 
 FSEv07_initDState.exit104.i:                      ; preds = %BITv07_reloadDStream.exit.sink.split.i100.i, %567, %FSEv07_initDState.exit.i
-  %.idx235.i = phi i64 [ %.idx230.i, %FSEv07_initDState.exit.i ], [ 0, %567 ], [ %.val.i8.sink.in.i101.idx.i, %BITv07_reloadDStream.exit.sink.split.i100.i ]
+  %.idx285.i = phi i64 [ %.idx280.i, %FSEv07_initDState.exit.i ], [ 0, %567 ], [ %.val.i8.sink.in.i101.idx.i, %BITv07_reloadDStream.exit.sink.split.i100.i ]
   %.val4.i.i106.i = phi i32 [ %559, %FSEv07_initDState.exit.i ], [ %559, %567 ], [ %storemerge184.i, %BITv07_reloadDStream.exit.sink.split.i100.i ]
   %.val.i.i105.i = phi i64 [ %.val.i.i97.i, %FSEv07_initDState.exit.i ], [ %.val.i.i97.i, %567 ], [ %.val.i8.sink.i102.i, %BITv07_reloadDStream.exit.sink.split.i100.i ]
-  %.ptr.i = getelementptr inbounds i8, ptr %432, i64 %.idx235.i
+  %.ptr.i = getelementptr inbounds i8, ptr %432, i64 %.idx285.i
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %582 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %581, ptr %582, align 8, !tbaa !90
@@ -6664,7 +6664,7 @@ FSEv07_initDState.exit104.i:                      ; preds = %BITv07_reloadDStrea
 
 596:                                              ; preds = %FSEv07_initDState.exit104.i
   %597 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.not.i.i107.i = icmp slt i64 %.idx235.i, 8
+  %.not.i.i107.i = icmp slt i64 %.idx285.i, 8
   br i1 %.not.i.i107.i, label %604, label %598
 
 598:                                              ; preds = %596
@@ -7255,8 +7255,8 @@ ZSTDv07_execSequence.exit.i:                      ; preds = %.lr.ph.i.i, %890, %
   %911 = sub i64 %.pre-phi.i, %910
   br label %ZSTDv07_decompressSequences.exit
 
-ZSTDv07_decompressSequences.exit:                 ; preds = %.thread.i, %134, %197, %173, %116, %112, %110, %HUFv07_decompress1X4_usingDTable.exit.i, %100, %57, %33, %25, %19, %909, %.thread.i23, %.thread174.i, %ZSTDv07_decodeSeqHeaders.exit.i, %.thread167.i.i, %.thread144.i.i, %416, %ZSTDv07_buildSeqTable.exit91.thread160.i.i, %ZSTDv07_buildSeqTable.exit91.thread125.i.i, %394, %ZSTDv07_buildSeqTable.exit.thread153.i.i, %ZSTDv07_buildSeqTable.exit.thread112.i.i, %328, %261, %253, %247, %220, %5
-  %.0 = phi i64 [ -72, %5 ], [ %911, %909 ], [ %430, %ZSTDv07_decodeSeqHeaders.exit.i ], [ %.4.ph.i, %.thread174.i ], [ -70, %.thread.i23 ], [ -20, %416 ], [ -20, %394 ], [ -20, %328 ], [ -20, %.thread167.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit91.thread160.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit.thread153.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit.thread112.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit91.thread125.i.i ], [ -72, %247 ], [ -72, %253 ], [ -20, %.thread144.i.i ], [ -72, %261 ], [ -72, %220 ], [ -20, %.thread.i ], [ -20, %134 ], [ -20, %197 ], [ -20, %173 ], [ -20, %116 ], [ -30, %112 ], [ -20, %110 ], [ -20, %HUFv07_decompress1X4_usingDTable.exit.i ], [ -20, %100 ], [ -20, %57 ], [ -20, %33 ], [ -20, %25 ], [ -20, %19 ]
+ZSTDv07_decompressSequences.exit:                 ; preds = %.thread.i, %134, %197, %173, %116, %112, %110, %HUFv07_decompress1X4_usingDTable.exit.i, %100, %57, %33, %25, %19, %909, %.thread.i23, %.thread174.i, %ZSTDv07_decodeSeqHeaders.exit.i, %.thread180.i.i, %.thread144.i.i, %416, %ZSTDv07_buildSeqTable.exit91.thread173.i.i, %ZSTDv07_buildSeqTable.exit91.thread125.i.i, %394, %ZSTDv07_buildSeqTable.exit.thread166.i.i, %ZSTDv07_buildSeqTable.exit.thread112.i.i, %328, %261, %253, %247, %220, %5
+  %.0 = phi i64 [ -72, %5 ], [ %911, %909 ], [ %430, %ZSTDv07_decodeSeqHeaders.exit.i ], [ %.4.ph.i, %.thread174.i ], [ -70, %.thread.i23 ], [ -20, %416 ], [ -20, %394 ], [ -20, %328 ], [ -20, %.thread180.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit91.thread173.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit.thread166.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit.thread112.i.i ], [ -20, %ZSTDv07_buildSeqTable.exit91.thread125.i.i ], [ -72, %247 ], [ -72, %253 ], [ -20, %.thread144.i.i ], [ -72, %261 ], [ -72, %220 ], [ -20, %.thread.i ], [ -20, %134 ], [ -20, %197 ], [ -20, %173 ], [ -20, %116 ], [ -30, %112 ], [ -20, %110 ], [ -20, %HUFv07_decompress1X4_usingDTable.exit.i ], [ -20, %100 ], [ -20, %57 ], [ -20, %33 ], [ -20, %25 ], [ -20, %19 ]
   ret i64 %.0
 }
 
@@ -7669,7 +7669,7 @@ ZSTDv07_decodeFrameHeader.exit:                   ; preds = %38, %41
 71:                                               ; preds = %67
   %72 = ptrtoint ptr %.071149 to i64
   %73 = sub i64 %48, %72
-  switch i8 %52, label %default.unreachable169 [
+  switch i8 %52, label %default.unreachable176 [
     i8 0, label %84
     i8 1, label %74
     i8 2, label %78
@@ -7731,7 +7731,7 @@ ZSTDv07_decodeFrameHeader.exit:                   ; preds = %38, %41
   %100 = sub i64 %98, %99
   br label %.thread
 
-default.unreachable169:                           ; preds = %71
+default.unreachable176:                           ; preds = %71
   unreachable
 
 .thread:                                          ; preds = %67, %84, %78, %74, %90, %44, %.thread109, %35, %ZSTDv07_decodeFrameHeader.exit, %27, %9, %5, %97
@@ -9295,8 +9295,8 @@ BITv07_reloadDStream.exit:                        ; preds = %19, %27
 
 .preheader55:                                     ; preds = %BITv07_reloadDStream.exit, %45, %25, %5
   %.0.lcssa = phi ptr [ %0, %5 ], [ %.03, %BITv07_reloadDStream.exit ], [ %89, %45 ], [ %.03, %25 ]
-  %.val7.i60 = phi i32 [ %13, %5 ], [ %.val7.i, %BITv07_reloadDStream.exit ], [ %90, %45 ], [ %15, %25 ]
-  %44 = icmp ugt i32 %.val7.i60, 64
+  %.val7.i69 = phi i32 [ %13, %5 ], [ %.val7.i, %BITv07_reloadDStream.exit ], [ %90, %45 ], [ %15, %25 ]
+  %44 = icmp ugt i32 %.val7.i69, 64
   br i1 %44, label %BITv07_reloadDStream.exit50.thread, label %.lr.ph13
 
 45:                                               ; preds = %BITv07_reloadDStream.exit
@@ -9365,7 +9365,7 @@ BITv07_reloadDStream.exit:                        ; preds = %19, %27
 
 .lr.ph13:                                         ; preds = %.preheader55, %122
   %.312 = phi ptr [ %133, %122 ], [ %.0.lcssa, %.preheader55 ]
-  %92 = phi i32 [ %.pre, %122 ], [ %.val7.i60, %.preheader55 ]
+  %92 = phi i32 [ %.pre, %122 ], [ %.val7.i69, %.preheader55 ]
   %93 = load ptr, ptr %8, align 8, !tbaa !39
   %94 = load ptr, ptr %9, align 8, !tbaa !34
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -9537,9 +9537,9 @@ BITv07_reloadDStream.exit:                        ; preds = %18, %26
 
 .preheader68:                                     ; preds = %BITv07_reloadDStream.exit, %45, %24, %5
   %.0.lcssa = phi ptr [ %0, %5 ], [ %.02, %BITv07_reloadDStream.exit ], [ %105, %45 ], [ %.02, %24 ]
-  %.val9.i77 = phi i32 [ %.pre, %5 ], [ %.val9.i, %BITv07_reloadDStream.exit ], [ %101, %45 ], [ %14, %24 ]
+  %.val9.i88 = phi i32 [ %.pre, %5 ], [ %.val9.i, %BITv07_reloadDStream.exit ], [ %101, %45 ], [ %14, %24 ]
   %43 = getelementptr inbounds i8, ptr %2, i64 -2
-  %44 = icmp ugt i32 %.val9.i77, 64
+  %44 = icmp ugt i32 %.val9.i88, 64
   br i1 %44, label %.preheader, label %.lr.ph12
 
 45:                                               ; preds = %BITv07_reloadDStream.exit
@@ -9620,7 +9620,7 @@ BITv07_reloadDStream.exit:                        ; preds = %18, %26
 
 .lr.ph12:                                         ; preds = %.preheader68, %136
   %.311 = phi ptr [ %151, %136 ], [ %.0.lcssa, %.preheader68 ]
-  %107 = phi i32 [ %147, %136 ], [ %.val9.i77, %.preheader68 ]
+  %107 = phi i32 [ %147, %136 ], [ %.val9.i88, %.preheader68 ]
   %108 = load ptr, ptr %8, align 8, !tbaa !39
   %109 = load ptr, ptr %9, align 8, !tbaa !34
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -9672,7 +9672,7 @@ BITv07_reloadDStream.exit62:                      ; preds = %111, %119
 
 .preheader:                                       ; preds = %BITv07_reloadDStream.exit62, %136, %117, %.preheader68
   %.3.lcssa = phi ptr [ %.0.lcssa, %.preheader68 ], [ %.311, %BITv07_reloadDStream.exit62 ], [ %151, %136 ], [ %.311, %117 ]
-  %.val9.i6480 = phi i32 [ %.val9.i77, %.preheader68 ], [ %.val9.i64, %BITv07_reloadDStream.exit62 ], [ %147, %136 ], [ %107, %117 ]
+  %.val9.i6491 = phi i32 [ %.val9.i88, %.preheader68 ], [ %.val9.i64, %BITv07_reloadDStream.exit62 ], [ %147, %136 ], [ %107, %117 ]
   %.not70 = icmp ugt ptr %.3.lcssa, %43
   br i1 %.not70, label %._crit_edge, label %.lr.ph
 
@@ -9699,7 +9699,7 @@ BITv07_reloadDStream.exit62:                      ; preds = %111, %119
   br i1 %152, label %.preheader, label %.lr.ph12, !llvm.loop !130
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.val9.i66 = phi i32 [ %163, %.lr.ph ], [ %.val9.i6480, %.preheader ]
+  %.val9.i66 = phi i32 [ %163, %.lr.ph ], [ %.val9.i6491, %.preheader ]
   %.471 = phi ptr [ %167, %.lr.ph ], [ %.3.lcssa, %.preheader ]
   %.val.i65 = load i64, ptr %1, align 8, !tbaa !40
   %153 = and i32 %.val9.i66, 63
@@ -9723,7 +9723,7 @@ BITv07_reloadDStream.exit62:                      ; preds = %111, %119
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.val15.i = phi i32 [ %.val9.i6480, %.preheader ], [ %163, %.lr.ph ]
+  %.val15.i = phi i32 [ %.val9.i6491, %.preheader ], [ %163, %.lr.ph ]
   %.4.lcssa = phi ptr [ %.3.lcssa, %.preheader ], [ %167, %.lr.ph ]
   %168 = icmp ult ptr %.4.lcssa, %2
   br i1 %168, label %169, label %HUFv07_decodeLastSymbolX4.exit

@@ -300,8 +300,8 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   %.not = icmp eq i32 %3, 0
   %4 = load ptr, ptr @tap_listener_queue, align 8
   %5 = icmp eq ptr %4, null
-  %or.cond52 = select i1 %.not, i1 true, i1 %5
-  br i1 %or.cond52, label %.loopexit, label %.preheader
+  %or.cond55 = select i1 %.not, i1 true, i1 %5
+  br i1 %or.cond55, label %.loopexit, label %.preheader
 
 .preheaderthread-pre-split:                       ; preds = %._crit_edge
   %.043.pr = load ptr, ptr @tap_listener_queue, align 8
@@ -967,29 +967,29 @@ define void @remove_tap_listener(ptr noundef readnone captures(address) %0) loca
   br label %23
 
 .loopexit:                                        ; preds = %8, %3
-  %.lcssa22.sink = phi ptr [ %2, %3 ], [ %7, %8 ]
-  %.0.lcssa23.sink = phi ptr [ @tap_listener_queue, %3 ], [ %.0, %8 ]
-  %13 = load ptr, ptr %.lcssa22.sink, align 8
-  store ptr %13, ptr %.0.lcssa23.sink, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.lcssa22.sink, i64 72
+  %.lcssa26.sink = phi ptr [ %2, %3 ], [ %7, %8 ]
+  %.0.lcssa27.sink = phi ptr [ @tap_listener_queue, %3 ], [ %.0, %8 ]
+  %13 = load ptr, ptr %.lcssa26.sink, align 8
+  store ptr %13, ptr %.0.lcssa27.sink, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %.lcssa26.sink, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %free_tap_listener.exit, label %16
 
 16:                                               ; preds = %.loopexit
-  %17 = getelementptr inbounds nuw i8, ptr %.lcssa22.sink, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.lcssa26.sink, i64 40
   %18 = load ptr, ptr %17, align 8
   tail call void %15(ptr noundef %18)
   br label %free_tap_listener.exit
 
 free_tap_listener.exit:                           ; preds = %.loopexit, %16
-  %19 = getelementptr inbounds nuw i8, ptr %.lcssa22.sink, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa26.sink, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call void @dfilter_free(ptr noundef %20)
-  %21 = getelementptr inbounds nuw i8, ptr %.lcssa22.sink, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.lcssa26.sink, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @g_free(ptr noundef %22)
-  tail call void @g_free(ptr noundef nonnull %.lcssa22.sink)
+  tail call void @g_free(ptr noundef nonnull %.lcssa26.sink)
   br label %23
 
 23:                                               ; preds = %1, %free_tap_listener.exit, %12

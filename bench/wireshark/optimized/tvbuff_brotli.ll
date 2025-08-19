@@ -20,13 +20,13 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   %9 = icmp eq ptr %0, null
   %10 = icmp slt i32 %2, 1
   %or.cond = or i1 %9, %10
-  br i1 %or.cond, label %49, label %11
+  br i1 %or.cond, label %48, label %11
 
 11:                                               ; preds = %3
   %12 = zext nneg i32 %2 to i64
   %13 = tail call ptr @tvb_memdup(ptr noundef null, ptr noundef nonnull %0, i32 noundef %1, i64 noundef %12)
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %49, label %15
+  br i1 %14, label %48, label %15
 
 15:                                               ; preds = %11
   %16 = tail call ptr @BrotliDecoderCreateInstance(ptr noundef nonnull @brotli_g_malloc_wrapper, ptr noundef nonnull @brotli_g_free_wrapper, ptr noundef null)
@@ -35,7 +35,7 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
 
 18:                                               ; preds = %15
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %13)
-  br label %49
+  br label %48
 
 .lr.ph.preheader:                                 ; preds = %15
   %19 = tail call noalias dereferenceable_or_null(524288) ptr @g_malloc(i64 noundef 524288) #5
@@ -94,26 +94,26 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
 
 ._crit_edge:                                      ; preds = %36
   %40 = icmp eq ptr %.1, null
-  br i1 %40, label %41, label %45
+  br i1 %40, label %41, label %44
 
 41:                                               ; preds = %._crit_edge
-  %42 = icmp eq i32 %.137, 0
-  br i1 %42, label %.thread, label %43
+  %.not = icmp eq i32 %.137, 0
+  br i1 %.not, label %.thread, label %42
 
-43:                                               ; preds = %41
-  %44 = call noalias ptr @g_strdup(ptr noundef nonnull @.str)
-  br label %45
+42:                                               ; preds = %41
+  %43 = call noalias ptr @g_strdup(ptr noundef nonnull @.str)
+  br label %44
 
-45:                                               ; preds = %43, %._crit_edge
-  %.4 = phi ptr [ %44, %43 ], [ %.1, %._crit_edge ]
-  %46 = load i64, ptr %8, align 8
-  %47 = trunc i64 %46 to i32
-  %48 = call ptr @tvb_new_real_data(ptr noundef %.4, i32 noundef %47, i32 noundef %47)
-  call void @tvb_set_free_cb(ptr noundef %48, ptr noundef nonnull @g_free)
+44:                                               ; preds = %42, %._crit_edge
+  %.4 = phi ptr [ %43, %42 ], [ %.1, %._crit_edge ]
+  %45 = load i64, ptr %8, align 8
+  %46 = trunc i64 %45 to i32
+  %47 = call ptr @tvb_new_real_data(ptr noundef %.4, i32 noundef %46, i32 noundef %46)
+  call void @tvb_set_free_cb(ptr noundef %47, ptr noundef nonnull @g_free)
   call void @g_free(ptr noundef %19)
   call void @wmem_free(ptr noundef null, ptr noundef nonnull %13)
   call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %16)
-  br label %49
+  br label %48
 
 .thread:                                          ; preds = %24, %.lr.ph, %21, %41
   %.3 = phi ptr [ null, %41 ], [ %.03457, %21 ], [ %.03457, %.lr.ph ], [ %.03457, %24 ]
@@ -121,10 +121,10 @@ define noundef ptr @tvb_uncompress_brotli(ptr noundef %0, i32 noundef %1, i32 no
   call void @g_free(ptr noundef %.3)
   call void @wmem_free(ptr noundef null, ptr noundef nonnull %13)
   call void @BrotliDecoderDestroyInstance(ptr noundef nonnull %16)
-  br label %49
+  br label %48
 
-49:                                               ; preds = %11, %3, %.thread, %45, %18
-  %.0 = phi ptr [ null, %18 ], [ null, %.thread ], [ %48, %45 ], [ null, %3 ], [ null, %11 ]
+48:                                               ; preds = %11, %3, %.thread, %44, %18
+  %.0 = phi ptr [ null, %18 ], [ null, %.thread ], [ %47, %44 ], [ null, %3 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

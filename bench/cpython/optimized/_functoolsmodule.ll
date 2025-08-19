@@ -5301,14 +5301,14 @@ _Py_NewRef.exit73:                                ; preds = %91, %97
   br i1 %.not57, label %_Py_NewRef.exit, label %91, !llvm.loop !174
 
 _Py_NewRef.exit.sink.split:                       ; preds = %24, %21
-  %.sink104 = phi i32 [ %22, %21 ], [ %25, %24 ]
-  %.sink103 = phi ptr [ %19, %21 ], [ %1, %24 ]
-  %101 = add nuw i32 %.sink104, 1
-  store i32 %101, ptr %.sink103, align 8, !tbaa !21
+  %.sink116 = phi i32 [ %22, %21 ], [ %25, %24 ]
+  %.sink115 = phi ptr [ %19, %21 ], [ %1, %24 ]
+  %101 = add nuw i32 %.sink116, 1
+  store i32 %101, ptr %.sink115, align 8, !tbaa !21
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %_Py_NewRef.exit73, %_Py_NewRef.exit.sink.split, %88, %24, %21, %.loopexit, %._crit_edge91, %27
-  %.0 = phi ptr [ null, %27 ], [ %33, %._crit_edge91 ], [ %33, %.loopexit ], [ %19, %21 ], [ %1, %24 ], [ %33, %88 ], [ %.sink103, %_Py_NewRef.exit.sink.split ], [ %33, %_Py_NewRef.exit73 ]
+  %.0 = phi ptr [ null, %27 ], [ %33, %._crit_edge91 ], [ %33, %.loopexit ], [ %19, %21 ], [ %1, %24 ], [ %33, %88 ], [ %.sink115, %_Py_NewRef.exit.sink.split ], [ %33, %_Py_NewRef.exit73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

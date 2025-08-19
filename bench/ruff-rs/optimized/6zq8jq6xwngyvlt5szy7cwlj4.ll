@@ -5753,9 +5753,9 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
   %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
   %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %27 ], [ %.sroa.4.1, %31 ], [ 59, %.loopexit.i.i.i.i ]
   %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %.sroa.17.0, %27 ], [ %32, %31 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
-  %.sink21.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
+  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
   %.sink.i = phi ptr [ null, %10 ], [ null, %27 ], [ %.sroa.17.0, %31 ], [ null, %.loopexit.i.i.i.i ]
-  store ptr %.sink.i, ptr %.sink21.i.sroa.phi, align 8, !alias.scope !329, !noalias !341
+  store ptr %.sink.i, ptr %.sink25.i.sroa.phi, align 8, !alias.scope !329, !noalias !341
   %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. = load i64, ptr %.sroa.49, align 8, !noundef !8
   %34 = inttoptr i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. to ptr
   %.not = icmp eq i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8., 0
@@ -8207,13 +8207,13 @@ _ZN7ruff_db5panic7Payload6as_str17h7b62b6bbec31cdc4E.exit.thread: ; preds = %_ZN
 45:                                               ; preds = %_ZN7ruff_db5panic7Payload6as_str17h7b62b6bbec31cdc4E.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  switch i64 %44, label %default.unreachable [
+  switch i64 %44, label %default.unreachable72 [
     i64 0, label %.sink.split
     i64 1, label %46
     i64 2, label %_ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit44
   ]
 
-default.unreachable:                              ; preds = %45
+default.unreachable72:                            ; preds = %45
   unreachable
 
 46:                                               ; preds = %45
@@ -9899,9 +9899,9 @@ default.unreachable:                              ; preds = %111
 
 .sink.split.i.i:                                  ; preds = %.noexc54.i, %.noexc52.i
   %.sink.i.i = phi { ptr, i64 } [ %125, %.noexc54.i ], [ %118, %.noexc52.i ]
-  %.sink14.i.i = phi ptr [ %126, %.noexc54.i ], [ %119, %.noexc52.i ]
+  %.sink15.i.i = phi ptr [ %126, %.noexc54.i ], [ %119, %.noexc52.i ]
   %127 = extractvalue { ptr, i64 } %.sink.i.i, 1
-  %128 = invoke noundef i8 @_ZN15ruff_python_ast12PySourceType18try_from_extension17hd9bfc6e9e103faf8E(ptr noalias noundef nonnull readonly align 1 %.sink14.i.i, i64 noundef %127)
+  %128 = invoke noundef i8 @_ZN15ruff_python_ast12PySourceType18try_from_extension17hd9bfc6e9e103faf8E(ptr noalias noundef nonnull readonly align 1 %.sink15.i.i, i64 noundef %127)
           to label %_ZN7ruff_db6source11is_notebook17h88128d124ec55c8fE.exit.i unwind label %109
 
 _ZN7ruff_db6source11is_notebook17h88128d124ec55c8fE.exit.i: ; preds = %.sink.split.i.i

@@ -952,11 +952,11 @@ define internal noundef i32 @copy_vertical(ptr noundef readonly captures(none) %
   br i1 %40, label %.preheader.us.preheader, label %.preheader.lr.ph.split
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %sext102 = shl i64 %26, 32
-  %49 = ashr exact i64 %sext102, 32
+  %sext105 = shl i64 %26, 32
+  %49 = ashr exact i64 %sext105, 32
   %50 = sext i32 %30 to i64
-  %sext103 = shl i64 %28, 32
-  %51 = ashr exact i64 %sext103, 32
+  %sext106 = shl i64 %28, 32
+  %51 = ashr exact i64 %sext106, 32
   %wide.trip.count93 = sext i32 %32 to i64
   %wide.trip.count88 = zext nneg i32 %34 to i64
   br label %.preheader.us
@@ -965,7 +965,7 @@ define internal noundef i32 @copy_vertical(ptr noundef readonly captures(none) %
   %indvars.iv90 = phi i64 [ %50, %.preheader.us.preheader ], [ %indvars.iv.next91, %copy_rev.exit.us ]
   %52 = mul nsw i64 %indvars.iv90, %51
   %invariant.gep = getelementptr float, ptr %36, i64 %indvars.iv90
-  %invariant.gep106 = getelementptr float, ptr %38, i64 %52
+  %invariant.gep109 = getelementptr float, ptr %38, i64 %52
   br label %68
 
 .lr.ph.i.us:                                      ; preds = %._crit_edge.us, %.lr.ph.i.us
@@ -1016,8 +1016,8 @@ copy_rev.exit.us:                                 ; preds = %.lr.ph21.i.us, %.pr
   %69 = mul nsw i64 %indvars.iv85, %49
   %gep = getelementptr float, ptr %invariant.gep, i64 %69
   %70 = load float, ptr %gep, align 4, !tbaa !65
-  %gep107 = getelementptr float, ptr %invariant.gep106, i64 %indvars.iv85
-  store float %70, ptr %gep107, align 4, !tbaa !65
+  %gep110 = getelementptr float, ptr %invariant.gep109, i64 %indvars.iv85
+  store float %70, ptr %gep110, align 4, !tbaa !65
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %._crit_edge.us, label %68, !llvm.loop !83
@@ -1031,8 +1031,8 @@ copy_rev.exit.us:                                 ; preds = %.lr.ph21.i.us, %.pr
 
 .preheader.us49.preheader:                        ; preds = %.preheader.lr.ph.split
   %72 = sext i32 %30 to i64
-  %sext101 = shl i64 %28, 32
-  %73 = ashr exact i64 %sext101, 32
+  %sext104 = shl i64 %28, 32
+  %73 = ashr exact i64 %sext104, 32
   %wide.trip.count83 = sext i32 %32 to i64
   br label %.preheader.us49
 
@@ -1088,8 +1088,8 @@ copy_rev.exit.us63:                               ; preds = %.lr.ph21.i.us59, %.
 
 .preheader.us65.preheader:                        ; preds = %.preheader.lr.ph.split.split
   %93 = sext i32 %30 to i64
-  %sext100 = shl i64 %28, 32
-  %94 = ashr exact i64 %sext100, 32
+  %sext103 = shl i64 %28, 32
+  %94 = ashr exact i64 %sext103, 32
   %wide.trip.count = sext i32 %32 to i64
   br label %.preheader.us65
 
@@ -1402,8 +1402,8 @@ define internal noundef i32 @copy_horizontal(ptr noundef readonly captures(none)
   %sext = shl i64 %36, 32
   %37 = ashr exact i64 %sext, 32
   %38 = sext i32 %22 to i64
-  %sext54 = shl i64 %34, 32
-  %39 = ashr exact i64 %sext54, 32
+  %sext57 = shl i64 %34, 32
+  %39 = ashr exact i64 %sext57, 32
   %wide.trip.count47 = sext i32 %24 to i64
   %wide.trip.count = zext nneg i32 %26 to i64
   br label %.preheader.us
@@ -1412,7 +1412,7 @@ define internal noundef i32 @copy_horizontal(ptr noundef readonly captures(none)
   %indvars.iv44 = phi i64 [ %38, %.preheader.us.preheader ], [ %indvars.iv.next45, %._crit_edge.us ]
   %40 = mul nsw i64 %indvars.iv44, %39
   %invariant.gep = getelementptr float, ptr %30, i64 %40
-  %invariant.gep55 = getelementptr float, ptr %28, i64 %indvars.iv44
+  %invariant.gep58 = getelementptr float, ptr %28, i64 %indvars.iv44
   br label %41
 
 41:                                               ; preds = %.preheader.us, %41
@@ -1420,8 +1420,8 @@ define internal noundef i32 @copy_horizontal(ptr noundef readonly captures(none)
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %42 = load float, ptr %gep, align 4, !tbaa !65
   %43 = mul nsw i64 %indvars.iv, %37
-  %gep56 = getelementptr float, ptr %invariant.gep55, i64 %43
-  store float %42, ptr %gep56, align 4, !tbaa !65
+  %gep59 = getelementptr float, ptr %invariant.gep58, i64 %43
+  store float %42, ptr %gep59, align 4, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !96

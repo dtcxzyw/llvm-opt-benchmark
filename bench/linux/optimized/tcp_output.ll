@@ -3705,16 +3705,16 @@ tcp_event_new_data_sent.exit:                     ; preds = %813, %816
   br label %.sink.split
 
 .sink.split:                                      ; preds = %847, %877, %884
-  %.sink123 = phi i8 [ %894, %884 ], [ %879, %877 ], [ %850, %847 ]
-  %.ph121 = phi i32 [ %852, %884 ], [ %852, %877 ], [ %344, %847 ]
-  %.ph122 = phi i8 [ %851, %884 ], [ %851, %877 ], [ 0, %847 ]
-  store i8 %.sink123, ptr %303, align 1
+  %.sink174 = phi i8 [ %894, %884 ], [ %879, %877 ], [ %850, %847 ]
+  %.ph172 = phi i32 [ %852, %884 ], [ %852, %877 ], [ %344, %847 ]
+  %.ph173 = phi i8 [ %851, %884 ], [ %851, %877 ], [ 0, %847 ]
+  store i8 %.sink174, ptr %303, align 1
   br label %895
 
 895:                                              ; preds = %.sink.split, %880, %.thread68.thread
-  %896 = phi i8 [ %881, %880 ], [ %833, %.thread68.thread ], [ %.sink123, %.sink.split ]
-  %897 = phi i32 [ %852, %880 ], [ %344, %.thread68.thread ], [ %.ph121, %.sink.split ]
-  %898 = phi i8 [ %851, %880 ], [ 0, %.thread68.thread ], [ %.ph122, %.sink.split ]
+  %896 = phi i8 [ %881, %880 ], [ %833, %.thread68.thread ], [ %.sink174, %.sink.split ]
+  %897 = phi i32 [ %852, %880 ], [ %344, %.thread68.thread ], [ %.ph172, %.sink.split ]
+  %898 = phi i8 [ %851, %880 ], [ 0, %.thread68.thread ], [ %.ph173, %.sink.split ]
   %899 = load i32, ptr %311, align 4
   %900 = load i32, ptr %312, align 8
   %901 = load i32, ptr %313, align 4
@@ -5018,11 +5018,11 @@ define dso_local range(i32 -65534, -2147450881) i32 @__tcp_select_window(ptr nou
   %88 = icmp slt i32 %86, %87
   %89 = icmp slt i32 %86, %34
   %90 = or i1 %88, %89
-  %extract.t24 = trunc i24 %81 to i16
+  %extract.t38 = trunc i24 %81 to i16
   br i1 %90, label %172, label %91
 
 91:                                               ; preds = %._crit_edge, %79
-  %.off0 = phi i16 [ %extract.t, %._crit_edge ], [ %extract.t24, %79 ]
+  %.off0 = phi i16 [ %extract.t, %._crit_edge ], [ %extract.t38, %79 ]
   %92 = phi i32 [ %20, %._crit_edge ], [ %86, %79 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1372
   %94 = load i32, ptr %93, align 4

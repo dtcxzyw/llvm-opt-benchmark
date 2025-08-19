@@ -1582,8 +1582,8 @@ _bt_delitems_update.exit:                         ; preds = %38
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %74, %_bt_delitems_update.exit
-  %.04970 = phi ptr [ null, %_bt_delitems_update.exit ], [ %.049.ph, %74 ]
-  %.05468 = phi i32 [ 0, %_bt_delitems_update.exit ], [ %.054.ph, %74 ]
+  %.04974 = phi ptr [ null, %_bt_delitems_update.exit ], [ %.049.ph, %74 ]
+  %.05472 = phi i32 [ 0, %_bt_delitems_update.exit ], [ %.054.ph, %74 ]
   %75 = icmp sgt i32 %3, 0
   br i1 %75, label %92, label %93
 
@@ -1654,7 +1654,7 @@ _bt_delitems_update.exit:                         ; preds = %38
 109:                                              ; preds = %108
   %110 = shl nuw i32 %5, 1
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %7, i32 noundef %110) #10
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %.04970, i32 noundef %.05468) #10
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %.04974, i32 noundef %.05472) #10
   br label %111
 
 111:                                              ; preds = %109, %108
@@ -1672,11 +1672,11 @@ _bt_delitems_update.exit:                         ; preds = %38
   %118 = load volatile i32, ptr @CritSectionCount, align 4
   %119 = add i32 %118, -1
   store volatile i32 %119, ptr @CritSectionCount, align 4
-  %.not = icmp eq ptr %.04970, null
+  %.not = icmp eq ptr %.04974, null
   br i1 %.not, label %121, label %120
 
 120:                                              ; preds = %117
-  call void @pfree(ptr noundef nonnull %.04970) #10
+  call void @pfree(ptr noundef nonnull %.04974) #10
   br label %121
 
 121:                                              ; preds = %120, %117
@@ -1927,8 +1927,8 @@ _bt_delitems_update.exit.i:                       ; preds = %89
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %125, %_bt_delitems_update.exit.i
-  %.05071.i = phi ptr [ null, %_bt_delitems_update.exit.i ], [ %.050.ph.i, %125 ]
-  %.05569.i = phi i32 [ 0, %_bt_delitems_update.exit.i ], [ %.055.ph.i, %125 ]
+  %.05075.i = phi ptr [ null, %_bt_delitems_update.exit.i ], [ %.050.ph.i, %125 ]
+  %.05573.i = phi i32 [ 0, %_bt_delitems_update.exit.i ], [ %.055.ph.i, %125 ]
   %126 = icmp sgt i32 %.085.lcssa, 0
   br i1 %126, label %143, label %144
 
@@ -2001,7 +2001,7 @@ _bt_delitems_update.exit.i:                       ; preds = %89
 161:                                              ; preds = %160
   %162 = shl nuw i32 %.092.lcssa, 1
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %5, i32 noundef %162) #10
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %.05071.i, i32 noundef %.05569.i) #10
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %.05075.i, i32 noundef %.05573.i) #10
   br label %163
 
 163:                                              ; preds = %161, %160
@@ -2019,11 +2019,11 @@ _bt_delitems_update.exit.i:                       ; preds = %89
   %170 = load volatile i32, ptr @CritSectionCount, align 4
   %171 = add i32 %170, -1
   store volatile i32 %171, ptr @CritSectionCount, align 4
-  %.not.i = icmp eq ptr %.05071.i, null
+  %.not.i = icmp eq ptr %.05075.i, null
   br i1 %.not.i, label %173, label %172
 
 172:                                              ; preds = %169
-  call void @pfree(ptr noundef nonnull %.05071.i) #10
+  call void @pfree(ptr noundef nonnull %.05075.i) #10
   br label %173
 
 173:                                              ; preds = %172, %169
@@ -2122,7 +2122,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %192, %BTreeTupleIsP
 213:                                              ; preds = %.lr.ph134, %.thread.thread
   %indvars.iv149 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next150, %.thread.thread ]
   %.089132 = phi ptr [ null, %.lr.ph134 ], [ %.190, %.thread.thread ]
-  %.095131 = phi i32 [ %211, %.lr.ph134 ], [ %.196.lcssa166, %.thread.thread ]
+  %.095131 = phi i32 [ %211, %.lr.ph134 ], [ %.196.lcssa174, %.thread.thread ]
   %.val.i.i = load i16, ptr %190, align 2
   %.val2.i.i = load i16, ptr %208, align 2
   %214 = zext i16 %.val.i.i to i64
@@ -2216,7 +2216,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %192, %BTreeTupleIsP
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %213, %.thread, %248
-  %.196.lcssa166 = phi i32 [ %.196.lcssa.ph, %248 ], [ %.196.lcssa.ph, %.thread ], [ %.095131, %213 ]
+  %.196.lcssa174 = phi i32 [ %.196.lcssa.ph, %248 ], [ %.196.lcssa.ph, %.thread ], [ %.095131, %213 ]
   %.190 = phi ptr [ %.291, %248 ], [ %.089132, %.thread ], [ %.089132, %213 ]
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count
@@ -3165,8 +3165,8 @@ BufferGetPage.exit303.i:                          ; preds = %486, %480
   %499 = getelementptr inbounds nuw i8, ptr %495, i64 4
   %500 = load i32, ptr %499, align 4
   %.not277.i276 = icmp eq i32 %500, %.0255339.i
-  %or.cond367.i277 = select i1 %.not276.i275, i1 %.not277.i276, i1 false
-  br i1 %or.cond367.i277, label %.loopexit.i, label %.critedge.i
+  %or.cond387.i277 = select i1 %.not276.i275, i1 %.not277.i276, i1 false
+  br i1 %or.cond387.i277, label %.loopexit.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %BufferGetPage.exit303.i, %532
   %501 = phi i32 [ %541, %532 ], [ %500, %BufferGetPage.exit303.i ]
@@ -3252,8 +3252,8 @@ BufferGetPage.exit303.i:                          ; preds = %486, %480
   %540 = getelementptr inbounds nuw i8, ptr %536, i64 4
   %541 = load i32, ptr %540, align 4
   %.not277.i = icmp eq i32 %541, %.0255339.i
-  %or.cond367.i = select i1 %.not276.i, i1 %.not277.i, i1 false
-  br i1 %or.cond367.i, label %.loopexit.i, label %.critedge.i
+  %or.cond387.i = select i1 %.not276.i, i1 %.not277.i, i1 false
+  br i1 %or.cond387.i, label %.loopexit.i, label %.critedge.i
 
 .loopexit.i:                                      ; preds = %532, %BufferGetPage.exit303.i, %.thread.i
   %.2264.i = phi i32 [ 0, %.thread.i ], [ %478, %BufferGetPage.exit303.i ], [ %518, %532 ]

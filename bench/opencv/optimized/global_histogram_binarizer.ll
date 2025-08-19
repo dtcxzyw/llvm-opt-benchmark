@@ -1273,11 +1273,11 @@ define hidden noundef range(i32 -1, -7) i32 @_ZN5zxing24GlobalHistogramBinarizer
   br i1 %exitcond.not, label %.lr.ph96.preheader, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph96, %3
-  %.058.lcssa117 = phi i32 [ 0, %3 ], [ %.1, %.lr.ph96 ]
-  %.064.lcssa115 = phi i32 [ 0, %3 ], [ %spec.select87, %.lr.ph96 ]
+  %.058.lcssa123 = phi i32 [ 0, %3 ], [ %.1, %.lr.ph96 ]
+  %.064.lcssa121 = phi i32 [ 0, %3 ], [ %spec.select87, %.lr.ph96 ]
   %.069.lcssa = phi i32 [ 0, %3 ], [ %spec.select80, %.lr.ph96 ]
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %.064.lcssa115, i32 %.069.lcssa)
-  %spec.select78 = tail call i32 @llvm.umin.i32(i32 %.064.lcssa115, i32 %.069.lcssa)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.064.lcssa121, i32 %.069.lcssa)
+  %spec.select78 = tail call i32 @llvm.umin.i32(i32 %.064.lcssa121, i32 %.069.lcssa)
   %21 = sub nsw i32 %spec.select, %spec.select78
   %22 = ashr i32 %15, 4
   %.not = icmp sgt i32 %21, %22
@@ -1368,7 +1368,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit85:               ; preds = %_ZNKSt7__cxx1112bas
   %55 = load ptr, ptr %54, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !20
-  %58 = tail call i32 @llvm.umax.i32(i32 %.069.lcssa, i32 %.064.lcssa115)
+  %58 = tail call i32 @llvm.umax.i32(i32 %.069.lcssa, i32 %.064.lcssa121)
   %umax = zext i32 %58 to i64
   %59 = add nsw i64 %umax, -1
   %60 = sext i32 %spec.select78 to i64
@@ -1391,7 +1391,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit85:               ; preds = %_ZNKSt7__cxx1112bas
   %68 = mul nsw i32 %65, %67
   %69 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv111
   %70 = load i32, ptr %69, align 4, !tbaa !24
-  %71 = sub nsw i32 %.058.lcssa117, %70
+  %71 = sub nsw i32 %.058.lcssa123, %70
   %72 = mul nsw i32 %68, %71
   %73 = icmp sgt i32 %72, %.06099
   %74 = trunc nuw nsw i64 %indvars.iv111 to i32
@@ -1544,8 +1544,8 @@ define hidden noundef range(i32 -2147483647, 256) i32 @_ZN5zxing24GlobalHistogra
   %55 = icmp sgt i32 %54, 17
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count
-  %or.cond213 = select i1 %55, i1 true, i1 %exitcond187.not
-  br i1 %or.cond213, label %.lr.ph164.preheader, label %.lr.ph, !llvm.loop !66
+  %or.cond215 = select i1 %55, i1 true, i1 %exitcond187.not
+  br i1 %or.cond215, label %.lr.ph164.preheader, label %.lr.ph, !llvm.loop !66
 
 .lr.ph164.preheader:                              ; preds = %.lr.ph
   %wide.trip.count192 = zext nneg i32 %.1112 to i64

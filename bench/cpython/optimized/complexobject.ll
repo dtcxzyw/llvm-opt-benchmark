@@ -2047,8 +2047,8 @@ real_to_complex.exit:                             ; preds = %17, %PyObject_TypeC
   br i1 %28, label %29, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25
-  %.not50 = icmp eq i32 %2, 2
-  br i1 %.not50, label %.split, label %.split17
+  %.not54 = icmp eq i32 %2, 2
+  br i1 %.not54, label %.split, label %.split17
 
 29:                                               ; preds = %25
   %30 = load double, ptr %6, align 8, !tbaa !38
@@ -2495,8 +2495,8 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br i1 %24, label %27, label %real_to_double.exit
 
 real_to_double.exit:                              ; preds = %22, %PyObject_TypeCheck.exit.thread.i
-  %.in43 = phi ptr [ %21, %PyObject_TypeCheck.exit.thread.i ], [ %5, %22 ]
-  %25 = load double, ptr %.in43, align 8, !tbaa !13
+  %.in44 = phi ptr [ %21, %PyObject_TypeCheck.exit.thread.i ], [ %5, %22 ]
+  %25 = load double, ptr %.in44, align 8, !tbaa !13
   %26 = fadd double %.sroa.07.0.copyload, %25
   store double %26, ptr %5, align 8, !tbaa !13
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2670,8 +2670,8 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br i1 %24, label %28, label %real_to_double.exit
 
 real_to_double.exit:                              ; preds = %22, %PyObject_TypeCheck.exit.thread.i
-  %.in45 = phi ptr [ %21, %PyObject_TypeCheck.exit.thread.i ], [ %5, %22 ]
-  %25 = load double, ptr %.in45, align 8, !tbaa !13
+  %.in46 = phi ptr [ %21, %PyObject_TypeCheck.exit.thread.i ], [ %5, %22 ]
+  %25 = load double, ptr %.in46, align 8, !tbaa !13
   %26 = fsub double %25, %.sroa.07.0.copyload
   %27 = fneg double %.sroa.5.0.copyload
   store double %26, ptr %5, align 8, !tbaa !13
@@ -2847,8 +2847,8 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br i1 %25, label %29, label %real_to_double.exit
 
 real_to_double.exit:                              ; preds = %23, %PyObject_TypeCheck.exit.thread.i
-  %.in41 = phi ptr [ %22, %PyObject_TypeCheck.exit.thread.i ], [ %5, %23 ]
-  %26 = load double, ptr %.in41, align 8, !tbaa !13
+  %.in42 = phi ptr [ %22, %PyObject_TypeCheck.exit.thread.i ], [ %5, %23 ]
+  %26 = load double, ptr %.in42, align 8, !tbaa !13
   %27 = fmul double %.sroa.07.0.copyload, %26
   %28 = fmul double %.sroa.5.0.copyload, %26
   store double %27, ptr %5, align 8, !tbaa !13
@@ -3505,8 +3505,8 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
   br i1 %25, label %73, label %real_to_double.exit
 
 real_to_double.exit:                              ; preds = %23, %PyObject_TypeCheck.exit.thread.i
-  %.in42 = phi ptr [ %22, %PyObject_TypeCheck.exit.thread.i ], [ %5, %23 ]
-  %26 = load double, ptr %.in42, align 8, !tbaa !13
+  %.in46 = phi ptr [ %22, %PyObject_TypeCheck.exit.thread.i ], [ %5, %23 ]
+  %26 = load double, ptr %.in46, align 8, !tbaa !13
   %27 = fcmp olt double %.sroa.07.0.copyload, 0.000000e+00
   %28 = fneg double %.sroa.07.0.copyload
   %29 = select i1 %27, double %28, double %.sroa.07.0.copyload

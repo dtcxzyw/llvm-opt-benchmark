@@ -7360,7 +7360,7 @@ _ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit89: ; preds = %_ZN8facebook
 
 invoke.cont47:                                    ; preds = %_ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit89
   %cmp53 = icmp eq ptr %call48, %0
-  br i1 %cmp53, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i92, label %if.end.i180
+  br i1 %cmp53, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i92, label %if.end.i185
 
 lpad46:                                           ; preds = %_ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit89
   %52 = landingpad { ptr, i32 }
@@ -7471,7 +7471,7 @@ if.then.i.i.i.i117:                               ; preds = %if.then6.i113
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i119, i8 %74, i64 %gepdiff.i120, i1 false)
   br label %return
 
-if.end.i180:                                      ; preds = %invoke.cont47
+if.end.i185:                                      ; preds = %invoke.cont47
   %sub63 = add i64 %call41, -96
   %add.ptr.i124 = getelementptr inbounds nuw i8, ptr %call48, i64 64
   %pool_.i.i = getelementptr inbounds nuw i8, ptr %call48, i64 8
@@ -7489,14 +7489,14 @@ if.end.i180:                                      ; preds = %invoke.cont47
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call48, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i, i8 -1, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call48, align 8
-  %cmp.not.i182 = icmp ugt i64 %numElements, %sub63
-  br i1 %cmp.not.i182, label %if.then4.i, label %if.end.i129
+  %cmp.not.i187 = icmp ugt i64 %numElements, %sub63
+  br i1 %cmp.not.i187, label %if.then4.i, label %if.end.i129
 
-if.then4.i:                                       ; preds = %if.end.i180
+if.then4.i:                                       ; preds = %if.end.i185
   tail call void @llvm.trap()
   unreachable
 
-if.end.i129:                                      ; preds = %if.end.i180
+if.end.i129:                                      ; preds = %if.end.i185
   store i64 %numElements, ptr %size_.i.i, align 8
   %_M_engaged.i.i.i131 = getelementptr inbounds nuw i8, ptr %initValue, i64 1
   %75 = load i8, ptr %_M_engaged.i.i.i131, align 1
@@ -7654,16 +7654,16 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i32 0, ptr %0, align 4
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 2
-  %4 = add i64 %3, -4
+  %3 = shl nuw nsw i64 %__n, 2
+  %4 = add nsw i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -7715,7 +7715,7 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
@@ -8355,7 +8355,7 @@ _ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit97: ; preds = %_ZN8facebook
 
 invoke.cont45:                                    ; preds = %_ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit97
   %cmp51 = icmp eq ptr %call46, %2
-  br i1 %cmp51, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i100, label %if.end.i204
+  br i1 %cmp51, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i100, label %if.end.i210
 
 lpad44:                                           ; preds = %_ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit97
   %54 = landingpad { ptr, i32 }
@@ -8477,7 +8477,7 @@ for.body.i.i.i.i133:                              ; preds = %for.body.i.i.i.i133
   %cmp.not.i.i.i.i136 = icmp eq ptr %incdec.ptr.i.i.i.i135, %add.ptr9.i129
   br i1 %cmp.not.i.i.i.i136, label %return, label %for.body.i.i.i.i133, !llvm.loop !66
 
-if.end.i204:                                      ; preds = %invoke.cont45
+if.end.i210:                                      ; preds = %invoke.cont45
   %sub61 = add i64 %call39, -96
   %add.ptr.i140 = getelementptr inbounds nuw i8, ptr %call46, i64 64
   %pool_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 8
@@ -8495,14 +8495,14 @@ if.end.i204:                                      ; preds = %invoke.cont45
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call46, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i, i8 -1, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call46, align 8
-  %cmp.not.i206 = icmp ugt i64 %1, %sub61
-  br i1 %cmp.not.i206, label %if.then4.i, label %if.end.i145
+  %cmp.not.i212 = icmp ugt i64 %1, %sub61
+  br i1 %cmp.not.i212, label %if.then4.i, label %if.end.i145
 
-if.then4.i:                                       ; preds = %if.end.i204
+if.then4.i:                                       ; preds = %if.end.i210
   tail call void @llvm.trap()
   unreachable
 
-if.end.i145:                                      ; preds = %if.end.i204
+if.end.i145:                                      ; preds = %if.end.i210
   store i64 %1, ptr %size_.i.i, align 8
   %_M_engaged.i.i.i147 = getelementptr inbounds nuw i8, ptr %initValue, i64 8
   %77 = load i8, ptr %_M_engaged.i.i.i147, align 8

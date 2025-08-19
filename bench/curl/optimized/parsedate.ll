@@ -138,19 +138,19 @@ skip.exit:                                        ; preds = %.lr.ph.i, %.lr.ph
 
 32:                                               ; preds = %30
   %33 = icmp samesign ugt i64 %.0142, 3
-  br i1 %33, label %.preheader417, label %34
+  br i1 %33, label %.preheader427, label %34
 
 34:                                               ; preds = %32
   %35 = icmp eq i64 %.0142, 3
-  br i1 %35, label %.preheader417, label %.loopexit346
+  br i1 %35, label %.preheader427, label %.loopexit346
 
-.preheader417:                                    ; preds = %34, %32
+.preheader427:                                    ; preds = %34, %32
   %.11526.i.ph = phi ptr [ @Curl_wkday, %34 ], [ @weekday, %32 ]
   br label %36
 
-36:                                               ; preds = %.preheader417, %42
-  %.11526.i = phi ptr [ %43, %42 ], [ %.11526.i.ph, %.preheader417 ]
-  %.01725.i = phi i32 [ %44, %42 ], [ 0, %.preheader417 ]
+36:                                               ; preds = %.preheader427, %42
+  %.11526.i = phi ptr [ %43, %42 ], [ %.11526.i.ph, %.preheader427 ]
+  %.01725.i = phi i32 [ %44, %42 ], [ 0, %.preheader427 ]
   %37 = load ptr, ptr %.11526.i, align 8, !tbaa !11
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #7
   %39 = icmp eq i64 %38, %.0142
@@ -509,55 +509,53 @@ match_time.exit.thread:                           ; preds = %67, %79, %82, %oneo
   %186 = icmp sgt i32 %.0153.lcssa, 31
   %187 = icmp sgt i32 %.0129.lcssa, 11
   %or.cond35 = select i1 %186, i1 true, i1 %187
-  %188 = icmp sgt i32 %.4271, 23
-  %or.cond37 = select i1 %or.cond35, i1 true, i1 %188
-  %189 = icmp sgt i32 %.4265, 59
-  %or.cond39 = select i1 %or.cond37, i1 true, i1 %189
-  %190 = icmp sgt i32 %.4, 60
-  %or.cond41 = select i1 %or.cond39, i1 true, i1 %190
-  br i1 %or.cond41, label %.critedge229, label %191
+  %188 = icmp sgt i32 %.4265, 59
+  %or.cond39 = select i1 %or.cond35, i1 true, i1 %188
+  %189 = icmp sgt i32 %.4, 60
+  %or.cond41 = select i1 %or.cond39, i1 true, i1 %189
+  br i1 %or.cond41, label %.critedge229, label %190
 
-191:                                              ; preds = %185
-  %192 = icmp slt i32 %.0129.lcssa, 2
-  %.neg.i = sext i1 %192 to i32
-  %193 = add nsw i32 %.0178.lcssa, %.neg.i
-  %194 = lshr i32 %193, 2
-  %195 = udiv i32 %193, 100
-  %196 = udiv i32 %193, 400
-  %reass.sub = sub nsw i32 %194, %195
-  %197 = add nsw i32 %reass.sub, -477
-  %198 = add nsw i32 %197, %196
-  %199 = add nsw i32 %.0178.lcssa, -1970
-  %200 = sext i32 %199 to i64
-  %201 = mul nsw i64 %200, 365
-  %202 = sext i32 %198 to i64
-  %203 = sext i32 %.0129.lcssa to i64
-  %204 = getelementptr inbounds [12 x i32], ptr @time2epoch.month_days_cumulative, i64 0, i64 %203
-  %205 = load i32, ptr %204, align 4, !tbaa !20
-  %206 = sext i32 %205 to i64
-  %207 = sext i32 %.0153.lcssa to i64
-  %208 = add nsw i64 %201, %207
-  %209 = add nsw i64 %208, %202
-  %210 = add nsw i64 %209, %206
-  %211 = mul nsw i64 %210, 24
-  %212 = sext i32 %.4271 to i64
-  %213 = add nsw i64 %212, -24
-  %214 = add nsw i64 %213, %211
-  %215 = mul nsw i64 %214, 60
-  %216 = sext i32 %.4265 to i64
-  %217 = add nsw i64 %215, %216
-  %218 = mul nsw i64 %217, 60
-  %219 = sext i32 %.4 to i64
-  %220 = icmp eq i32 %.0170.lcssa, -1
-  %spec.store.select = select i1 %220, i32 0, i32 %.0170.lcssa
-  %221 = sext i32 %spec.store.select to i64
-  %222 = add nsw i64 %221, %219
-  %223 = add nsw i64 %222, %218
-  store i64 %223, ptr %1, align 8, !tbaa !3
+190:                                              ; preds = %185
+  %191 = icmp slt i32 %.0129.lcssa, 2
+  %.neg.i = sext i1 %191 to i32
+  %192 = add nsw i32 %.0178.lcssa, %.neg.i
+  %193 = lshr i32 %192, 2
+  %194 = udiv i32 %192, 100
+  %195 = udiv i32 %192, 400
+  %reass.sub = sub nsw i32 %193, %194
+  %196 = add nsw i32 %reass.sub, -477
+  %197 = add nsw i32 %196, %195
+  %198 = add nsw i32 %.0178.lcssa, -1970
+  %199 = sext i32 %198 to i64
+  %200 = mul nsw i64 %199, 365
+  %201 = sext i32 %197 to i64
+  %202 = sext i32 %.0129.lcssa to i64
+  %203 = getelementptr inbounds [12 x i32], ptr @time2epoch.month_days_cumulative, i64 0, i64 %202
+  %204 = load i32, ptr %203, align 4, !tbaa !20
+  %205 = sext i32 %204 to i64
+  %206 = sext i32 %.0153.lcssa to i64
+  %207 = add nsw i64 %200, %206
+  %208 = add nsw i64 %207, %201
+  %209 = add nsw i64 %208, %205
+  %210 = mul nsw i64 %209, 24
+  %211 = sext i32 %.4271 to i64
+  %212 = add nsw i64 %211, -24
+  %213 = add nsw i64 %212, %210
+  %214 = mul nsw i64 %213, 60
+  %215 = sext i32 %.4265 to i64
+  %216 = add nsw i64 %214, %215
+  %217 = mul nsw i64 %216, 60
+  %218 = sext i32 %.4 to i64
+  %219 = icmp eq i32 %.0170.lcssa, -1
+  %spec.store.select = select i1 %219, i32 0, i32 %.0170.lcssa
+  %220 = sext i32 %spec.store.select to i64
+  %221 = add nsw i64 %220, %218
+  %222 = add nsw i64 %221, %217
+  store i64 %222, ptr %1, align 8, !tbaa !3
   br label %.critedge229
 
-.critedge229:                                     ; preds = %.loopexit, %.critedge, %56, %175, %185, %._crit_edge, %191
-  %.7 = phi i32 [ 0, %191 ], [ -1, %._crit_edge ], [ -1, %185 ], [ -1, %175 ], [ -1, %56 ], [ -1, %.critedge ], [ -1, %.loopexit ]
+.critedge229:                                     ; preds = %.loopexit, %.critedge, %56, %175, %185, %._crit_edge, %190
+  %.7 = phi i32 [ 0, %190 ], [ -1, %._crit_edge ], [ -1, %185 ], [ -1, %175 ], [ -1, %56 ], [ -1, %.critedge ], [ -1, %.loopexit ]
   ret i32 %.7
 }
 

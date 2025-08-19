@@ -1998,9 +1998,9 @@ if.then.i.i.i55:                                  ; preds = %delete.notnull.i53
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57, %if.then.i.i.i55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i37, %if.then.i.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i17, %if.then.i.i.i15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  %.sink61 = phi ptr [ %5, %if.then.i.i.i ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %13, %if.then.i.i.i15 ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i17 ], [ %21, %if.then.i.i.i35 ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i37 ], [ %29, %if.then.i.i.i55 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57 ]
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink61) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink61) #24
+  %.sink68 = phi ptr [ %5, %if.then.i.i.i ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %13, %if.then.i.i.i15 ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i17 ], [ %21, %if.then.i.i.i35 ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i37 ], [ %29, %if.then.i.i.i55 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57 ]
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink68) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink68) #24
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %land.lhs.true.i49, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit47, %land.lhs.true.i29, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit27, %land.lhs.true.i9, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit7, %land.lhs.true.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %entry
@@ -2652,9 +2652,9 @@ if.then6.i.i136:                                  ; preds = %if.end.i.i125
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141.thread: ; preds = %if.then.i.i139, %if.then6.i.i136
   %tmp.0.i134.ph = phi i64 [ %conv7.i.i137, %if.then6.i.i136 ], [ %conv1.i.i140, %if.then.i.i139 ]
   %retval.0.i.i135.ph = phi ptr [ %add.ptr8.i.i138, %if.then6.i.i136 ], [ %add.ptr.i.i124, %if.then.i.i139 ]
-  %tobool171195 = icmp ne i64 %tmp.0.i134.ph, 0
-  %frombool196 = zext i1 %tobool171195 to i8
-  store i8 %frombool196, ptr %print_unknown_fields_, align 8
+  %tobool171205 = icmp ne i64 %tmp.0.i134.ph, 0
+  %frombool206 = zext i1 %tobool171205 to i8
+  store i8 %frombool206, ptr %print_unknown_fields_, align 8
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141.thread, %if.end54, %if.end95, %_ZN11conformance18ConformanceRequest34_internal_mutable_protobuf_payloadB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit141, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_json_payloadB5cxx11Ev.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_message_typeB5cxx11Ev.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_jspb_payloadB5cxx11Ev.exit, %_ZN11conformance18ConformanceRequest30_internal_mutable_text_payloadB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ParseContext12ParseMessageIN11conformance18JspbEncodingConfigEEEPKcPT_S7_.exit
@@ -5072,9 +5072,9 @@ if.then.i.i.i155:                                 ; preds = %delete.notnull.i153
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i157, %if.then.i.i.i155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i137, %if.then.i.i.i135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i117, %if.then.i.i.i115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i97, %if.then.i.i.i95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i77, %if.then.i.i.i75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57, %if.then.i.i.i55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i37, %if.then.i.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i17, %if.then.i.i.i15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  %.sink161 = phi ptr [ %5, %if.then.i.i.i ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %13, %if.then.i.i.i15 ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i17 ], [ %21, %if.then.i.i.i35 ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i37 ], [ %29, %if.then.i.i.i55 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57 ], [ %37, %if.then.i.i.i75 ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i77 ], [ %45, %if.then.i.i.i95 ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i97 ], [ %53, %if.then.i.i.i115 ], [ %53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i117 ], [ %61, %if.then.i.i.i135 ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i137 ], [ %69, %if.then.i.i.i155 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i157 ]
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink161) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink161) #24
+  %.sink178 = phi ptr [ %5, %if.then.i.i.i ], [ %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %13, %if.then.i.i.i15 ], [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i17 ], [ %21, %if.then.i.i.i35 ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i37 ], [ %29, %if.then.i.i.i55 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i57 ], [ %37, %if.then.i.i.i75 ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i77 ], [ %45, %if.then.i.i.i95 ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i97 ], [ %53, %if.then.i.i.i115 ], [ %53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i117 ], [ %61, %if.then.i.i.i135 ], [ %61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i137 ], [ %69, %if.then.i.i.i155 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i157 ]
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink178) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink178) #24
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %land.lhs.true.i149, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit147, %land.lhs.true.i129, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit127, %land.lhs.true.i109, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit107, %land.lhs.true.i89, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit87, %land.lhs.true.i69, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit67, %land.lhs.true.i49, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit47, %land.lhs.true.i29, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit27, %land.lhs.true.i9, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit7, %land.lhs.true.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %entry
@@ -7122,9 +7122,9 @@ if.then6.i.i:                                     ; preds = %if.end.i.i6
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %if.then.i.i9, %if.then6.i.i
   %tmp.0.i.ph = phi i64 [ %conv7.i.i, %if.then6.i.i ], [ %conv1.i.i, %if.then.i.i9 ]
   %retval.0.i.i8.ph = phi ptr [ %add.ptr8.i.i, %if.then6.i.i ], [ %add.ptr.i.i, %if.then.i.i9 ]
-  %tobool1136 = icmp ne i64 %tmp.0.i.ph, 0
-  %frombool37 = zext i1 %tobool1136 to i8
-  store i8 %frombool37, ptr %use_jspb_array_any_format_, align 8
+  %tobool1138 = icmp ne i64 %tmp.0.i.ph, 0
+  %frombool39 = zext i1 %tobool1138 to i8
+  store i8 %frombool39, ptr %use_jspb_array_any_format_, align 8
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit

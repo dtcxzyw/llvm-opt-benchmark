@@ -2168,8 +2168,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QObject12findC
   %37 = add i32 %.01958.us, 1
   %38 = sext i32 %37 to i64
   %39 = load i64, ptr %19, align 8
-  %.not88 = icmp sgt i64 %39, %38
-  br i1 %.not88, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !68
+  %.not97 = icmp sgt i64 %39, %38
+  br i1 %.not97, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !68
 
 .split.us:                                        ; preds = %.lr.ph.split.us
   %40 = landingpad { ptr, i32 }
@@ -2313,8 +2313,8 @@ _ZN7QStringD2Ev.exit44:                           ; preds = %.body, %_ZN17QArray
   %75 = add i32 %.01958, 1
   %76 = sext i32 %75 to i64
   %77 = load i64, ptr %19, align 8
-  %.not87 = icmp sgt i64 %77, %76
-  br i1 %.not87, label %.lr.ph.split, label %._crit_edge, !llvm.loop !68
+  %.not96 = icmp sgt i64 %77, %76
+  br i1 %.not96, label %.lr.ph.split, label %._crit_edge, !llvm.loop !68
 
 78:                                               ; preds = %.split70, %.split70.us, %.split, %.split.us, %72, %68
   %.pn35.pn = phi { ptr, i32 } [ %.us-phi62, %68 ], [ %.pn, %72 ], [ %66, %.split ], [ %40, %.split.us ], [ %73, %.split70 ], [ %44, %.split70.us ]

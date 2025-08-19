@@ -1590,14 +1590,14 @@ _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.noexc89
   %55 = phi ptr [ %.pre.i93, %.noexc95 ], [ %52, %50 ]
   store ptr null, ptr %13, align 8, !tbaa !24
   %.not4.i94 = icmp eq ptr %55, %12
-  br i1 %.not4.i94, label %.sink.split, label %.invoke129
+  br i1 %.not4.i94, label %.sink.split, label %.invoke147
 
 56:                                               ; preds = %41
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-58:                                               ; preds = %.invoke129, %.invoke, %125, %115, %97, %88, %71, %53, %129, %114, %109, %104, %102, %96, %93
+58:                                               ; preds = %.invoke147, %.invoke, %125, %115, %97, %88, %71, %53, %129, %114, %109, %104, %102, %96, %93
   %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #23
@@ -1644,7 +1644,7 @@ _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.noexc89
   %73 = phi ptr [ %.pre.i101, %.noexc103 ], [ %70, %68 ]
   store ptr null, ptr %13, align 8, !tbaa !24
   %.not4.i102 = icmp eq ptr %73, %12
-  br i1 %.not4.i102, label %.sink.split, label %.invoke129
+  br i1 %.not4.i102, label %.sink.split, label %.invoke147
 
 .lr.ph:                                           ; preds = %.preheader, %79
   %.1126 = phi i32 [ %80, %79 ], [ %66, %.preheader ]
@@ -1692,7 +1692,7 @@ _ZN6icu_7710CharStringC2EPKciR10UErrorCode.exit:  ; preds = %.noexc89
   %90 = phi ptr [ %.pre.i109, %.noexc111 ], [ %87, %85 ]
   store ptr null, ptr %13, align 8, !tbaa !24
   %.not4.i110 = icmp eq ptr %90, %12
-  br i1 %.not4.i110, label %.sink.split, label %.invoke129
+  br i1 %.not4.i110, label %.sink.split, label %.invoke147
 
 91:                                               ; preds = %82, %.critedge
   %.0 = phi i32 [ %84, %82 ], [ 0, %.critedge ]
@@ -1788,9 +1788,9 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit116: ; preds = 
   %127 = phi ptr [ %.pre.i120, %.noexc122 ], [ %124, %122 ]
   store ptr null, ptr %13, align 8, !tbaa !24
   %.not4.i121 = icmp eq ptr %127, %12
-  br i1 %.not4.i121, label %.sink.split, label %.invoke129
+  br i1 %.not4.i121, label %.sink.split, label %.invoke147
 
-.invoke129:                                       ; preds = %54, %126, %89, %72
+.invoke147:                                       ; preds = %54, %126, %89, %72
   %128 = phi ptr [ %73, %72 ], [ %90, %89 ], [ %127, %126 ], [ %55, %54 ]
   invoke void @uprv_free_77(ptr noundef %128)
           to label %.sink.split.sink.split unwind label %58
@@ -1800,7 +1800,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit116: ; preds = 
   %131 = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale4initEPKca(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef %130, i8 noundef signext 0)
           to label %137 unwind label %58
 
-.sink.split.sink.split:                           ; preds = %.invoke129
+.sink.split.sink.split:                           ; preds = %.invoke147
   store ptr %12, ptr %11, align 8, !tbaa !19
   br label %.sink.split
 
@@ -2791,8 +2791,8 @@ _ZN6icu_7712_GLOBAL__N_118canonicalizeLocaleERKNS_6LocaleERNS_10CharStringER10UE
   br label %common.resume
 
 _ZN6icu_7712_GLOBAL__N_118canonicalizeLocaleERKNS_6LocaleERNS_10CharStringER10UErrorCode.exit.thread: ; preds = %239, %_ZN6icu_7712_GLOBAL__N_118canonicalizeLocaleERKNS_6LocaleERNS_10CharStringER10UErrorCode.exit
-  %.pr144 = load i32, ptr %10, align 4, !tbaa !13
-  %244 = icmp slt i32 %.pr144, 1
+  %.pr160 = load i32, ptr %10, align 4, !tbaa !13
+  %244 = icmp slt i32 %.pr160, 1
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %244, label %.thread121, label %.thread117
@@ -4909,15 +4909,15 @@ _ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit: ; preds = %6
   store ptr %13, ptr %7, align 8, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = tail call ptr @uloc_toUnicodeLocaleKey_77(ptr noundef nonnull %8)
-  %.not2035 = icmp eq ptr %15, null
-  br i1 %.not2035, label %.lr.ph, label %._crit_edge36
+  %.not2036 = icmp eq ptr %15, null
+  br i1 %.not2036, label %.lr.ph, label %._crit_edge37
 
-._crit_edge36:                                    ; preds = %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25, %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit
+._crit_edge37:                                    ; preds = %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25, %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit
   %.lcssa = phi ptr [ %15, %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit ], [ %28, %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25 ]
   %.not21 = icmp eq ptr %1, null
   br i1 %.not21, label %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread, label %16
 
-16:                                               ; preds = %._crit_edge36
+16:                                               ; preds = %._crit_edge37
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.lcssa) #27
   %18 = trunc i64 %17 to i32
   br label %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread.sink.split
@@ -4942,7 +4942,7 @@ _ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25: ; preds = %21
   store ptr %27, ptr %14, align 8, !tbaa !48
   %28 = tail call ptr @uloc_toUnicodeLocaleKey_77(ptr noundef nonnull %22)
   %.not20 = icmp eq ptr %28, null
-  br i1 %.not20, label %.lr.ph, label %._crit_edge36, !llvm.loop !68
+  br i1 %.not20, label %.lr.ph, label %._crit_edge37, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21, %3, %6
   %.not = icmp eq ptr %1, null
@@ -4954,8 +4954,8 @@ _ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread.sink.split: ; 
   store i32 %.sink, ptr %1, align 4, !tbaa !12
   br label %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread
 
-_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread: ; preds = %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread.sink.split, %._crit_edge36, %._crit_edge
-  %.2 = phi ptr [ null, %._crit_edge ], [ %.lcssa, %._crit_edge36 ], [ %.2.ph, %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread.sink.split ]
+_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread: ; preds = %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread.sink.split, %._crit_edge37, %._crit_edge
+  %.2 = phi ptr [ null, %._crit_edge ], [ %.lcssa, %._crit_edge37 ], [ %.2.ph, %_ZN6icu_7718KeywordEnumeration4nextEPiR10UErrorCode.exit25.thread.sink.split ]
   ret ptr %.2
 }
 
@@ -5525,8 +5525,8 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i
 
 _ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i: ; preds = %.noexc185.i.i.i, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i170.i.i.i
-  %.pr267.i.i.i = load i32, ptr %3, align 4, !tbaa !13
-  %216 = icmp slt i32 %.pr267.i.i.i, 1
+  %.pr311.i.i.i = load i32, ptr %3, align 4, !tbaa !13
+  %216 = icmp slt i32 %.pr311.i.i.i, 1
   br i1 %216, label %217, label %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i
 
 217:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i
@@ -5885,12 +5885,12 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i
 
 _ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i: ; preds = %151, %208, %265, %322, %.noexc245.i.i.i, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i, %287, %.noexc244.i.i.i, %281, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i, %230, %.noexc214.i.i.i, %224, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i, %173, %.noexc184.i.i.i, %167, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i, %116, %.noexc154.i.i.i, %110, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i, %96, %87
-  %.sroa.048.0309.i.i.i = phi ptr [ %170, %281 ], [ %170, %287 ], [ %170, %.noexc244.i.i.i ], [ %170, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %170, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %170, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %170, %.noexc214.i.i.i ], [ %170, %230 ], [ %170, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ null, %116 ], [ null, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %170, %.noexc184.i.i.i ], [ null, %173 ], [ null, %167 ], [ %170, %.noexc245.i.i.i ], [ %170, %322 ], [ %170, %265 ], [ %170, %208 ], [ null, %151 ]
-  %.sroa.051.0298.i.i.i = phi ptr [ %166, %281 ], [ %166, %287 ], [ %166, %.noexc244.i.i.i ], [ %166, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %166, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %166, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %166, %.noexc214.i.i.i ], [ %166, %230 ], [ %166, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ null, %116 ], [ null, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %166, %.noexc184.i.i.i ], [ %166, %173 ], [ null, %167 ], [ %166, %.noexc245.i.i.i ], [ %166, %322 ], [ %166, %265 ], [ %166, %208 ], [ null, %151 ]
-  %.071297.i.i.i = phi i32 [ %161, %281 ], [ %161, %287 ], [ %161, %.noexc244.i.i.i ], [ %161, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %161, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %161, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %161, %.noexc214.i.i.i ], [ %161, %230 ], [ %161, %224 ], [ 0, %96 ], [ 0, %87 ], [ 0, %110 ], [ 0, %116 ], [ 0, %.noexc154.i.i.i ], [ 0, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %161, %.noexc184.i.i.i ], [ %161, %173 ], [ %161, %167 ], [ %161, %.noexc245.i.i.i ], [ %161, %322 ], [ %161, %265 ], [ %161, %208 ], [ 0, %151 ]
-  %.07785296.i.i.i = phi i32 [ %104, %281 ], [ %104, %287 ], [ %104, %.noexc244.i.i.i ], [ %104, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %104, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %104, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %104, %.noexc214.i.i.i ], [ %104, %230 ], [ %104, %224 ], [ 0, %96 ], [ 0, %87 ], [ %104, %110 ], [ %104, %116 ], [ %104, %.noexc154.i.i.i ], [ 0, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ %104, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %104, %.noexc184.i.i.i ], [ %104, %173 ], [ %104, %167 ], [ %104, %.noexc245.i.i.i ], [ %104, %322 ], [ %104, %265 ], [ %104, %208 ], [ %104, %151 ]
-  %.sroa.057.086285.i.i.i = phi ptr [ %109, %281 ], [ %109, %287 ], [ %109, %.noexc244.i.i.i ], [ %109, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %109, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %109, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %109, %.noexc214.i.i.i ], [ %109, %230 ], [ %109, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ %109, %116 ], [ %109, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ %109, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %109, %.noexc184.i.i.i ], [ %109, %173 ], [ %109, %167 ], [ %109, %.noexc245.i.i.i ], [ %109, %322 ], [ %109, %265 ], [ %109, %208 ], [ %109, %151 ]
-  %.sroa.054.0108274.i.i.i = phi ptr [ %113, %281 ], [ %113, %287 ], [ %113, %.noexc244.i.i.i ], [ %113, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %113, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %113, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %113, %.noexc214.i.i.i ], [ %113, %230 ], [ %113, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ null, %116 ], [ %113, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ %113, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %113, %.noexc184.i.i.i ], [ %113, %173 ], [ %113, %167 ], [ %113, %.noexc245.i.i.i ], [ %113, %322 ], [ %113, %265 ], [ %113, %208 ], [ %113, %151 ]
+  %.sroa.048.0353.i.i.i = phi ptr [ %170, %281 ], [ %170, %287 ], [ %170, %.noexc244.i.i.i ], [ %170, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %170, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %170, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %170, %.noexc214.i.i.i ], [ %170, %230 ], [ %170, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ null, %116 ], [ null, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %170, %.noexc184.i.i.i ], [ null, %173 ], [ null, %167 ], [ %170, %.noexc245.i.i.i ], [ %170, %322 ], [ %170, %265 ], [ %170, %208 ], [ null, %151 ]
+  %.sroa.051.0342.i.i.i = phi ptr [ %166, %281 ], [ %166, %287 ], [ %166, %.noexc244.i.i.i ], [ %166, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %166, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %166, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %166, %.noexc214.i.i.i ], [ %166, %230 ], [ %166, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ null, %116 ], [ null, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %166, %.noexc184.i.i.i ], [ %166, %173 ], [ null, %167 ], [ %166, %.noexc245.i.i.i ], [ %166, %322 ], [ %166, %265 ], [ %166, %208 ], [ null, %151 ]
+  %.071341.i.i.i = phi i32 [ %161, %281 ], [ %161, %287 ], [ %161, %.noexc244.i.i.i ], [ %161, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %161, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %161, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %161, %.noexc214.i.i.i ], [ %161, %230 ], [ %161, %224 ], [ 0, %96 ], [ 0, %87 ], [ 0, %110 ], [ 0, %116 ], [ 0, %.noexc154.i.i.i ], [ 0, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %161, %.noexc184.i.i.i ], [ %161, %173 ], [ %161, %167 ], [ %161, %.noexc245.i.i.i ], [ %161, %322 ], [ %161, %265 ], [ %161, %208 ], [ 0, %151 ]
+  %.07785340.i.i.i = phi i32 [ %104, %281 ], [ %104, %287 ], [ %104, %.noexc244.i.i.i ], [ %104, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %104, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %104, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %104, %.noexc214.i.i.i ], [ %104, %230 ], [ %104, %224 ], [ 0, %96 ], [ 0, %87 ], [ %104, %110 ], [ %104, %116 ], [ %104, %.noexc154.i.i.i ], [ 0, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ %104, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %104, %.noexc184.i.i.i ], [ %104, %173 ], [ %104, %167 ], [ %104, %.noexc245.i.i.i ], [ %104, %322 ], [ %104, %265 ], [ %104, %208 ], [ %104, %151 ]
+  %.sroa.057.086329.i.i.i = phi ptr [ %109, %281 ], [ %109, %287 ], [ %109, %.noexc244.i.i.i ], [ %109, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %109, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %109, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %109, %.noexc214.i.i.i ], [ %109, %230 ], [ %109, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ %109, %116 ], [ %109, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ %109, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %109, %.noexc184.i.i.i ], [ %109, %173 ], [ %109, %167 ], [ %109, %.noexc245.i.i.i ], [ %109, %322 ], [ %109, %265 ], [ %109, %208 ], [ %109, %151 ]
+  %.sroa.054.0108318.i.i.i = phi ptr [ %113, %281 ], [ %113, %287 ], [ %113, %.noexc244.i.i.i ], [ %113, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %113, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %113, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %113, %.noexc214.i.i.i ], [ %113, %230 ], [ %113, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ null, %116 ], [ %113, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ %113, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %113, %.noexc184.i.i.i ], [ %113, %173 ], [ %113, %167 ], [ %113, %.noexc245.i.i.i ], [ %113, %322 ], [ %113, %265 ], [ %113, %208 ], [ %113, %151 ]
   %.sroa.042.0146.i.i.i = phi ptr [ %227, %281 ], [ %227, %287 ], [ %227, %.noexc244.i.i.i ], [ %227, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %227, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %227, %.noexc214.i.i.i ], [ null, %230 ], [ null, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ null, %116 ], [ null, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ null, %.noexc184.i.i.i ], [ null, %173 ], [ null, %167 ], [ %227, %.noexc245.i.i.i ], [ %227, %322 ], [ %227, %265 ], [ null, %208 ], [ null, %151 ]
   %.sroa.045.0140.i.i.i = phi ptr [ %223, %281 ], [ %223, %287 ], [ %223, %.noexc244.i.i.i ], [ %223, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %223, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %223, %.noexc214.i.i.i ], [ %223, %230 ], [ null, %224 ], [ null, %96 ], [ null, %87 ], [ null, %110 ], [ null, %116 ], [ null, %.noexc154.i.i.i ], [ null, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ null, %.noexc184.i.i.i ], [ null, %173 ], [ null, %167 ], [ %223, %.noexc245.i.i.i ], [ %223, %322 ], [ %223, %265 ], [ null, %208 ], [ null, %151 ]
   %.070134.i.i.i = phi i32 [ %218, %281 ], [ %218, %287 ], [ %218, %.noexc244.i.i.i ], [ %218, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i230.i.i.i ], [ %218, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder18readTerritoryAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder15readScriptAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %218, %.noexc214.i.i.i ], [ %218, %230 ], [ %218, %224 ], [ 0, %96 ], [ 0, %87 ], [ 0, %110 ], [ 0, %116 ], [ 0, %.noexc154.i.i.i ], [ 0, %_ZN6icu_7717UniqueCharStringsC2ER10UErrorCode.exit.i.i.i ], [ 0, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder17readLanguageAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ 0, %.noexc184.i.i.i ], [ 0, %173 ], [ 0, %167 ], [ %218, %.noexc245.i.i.i ], [ %218, %322 ], [ %218, %265 ], [ 0, %208 ], [ 0, %151 ]
@@ -6069,8 +6069,8 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   br label %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i
 
 _ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i: ; preds = %.noexc275.i.i.i, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit54.i.i260.i.i.i
-  %.pr320.i.i.i = load i32, ptr %3, align 4, !tbaa !13
-  %386 = icmp slt i32 %.pr320.i.i.i, 1
+  %.pr364.i.i.i = load i32, ptr %3, align 4, !tbaa !13
+  %386 = icmp slt i32 %.pr364.i.i.i, 1
   br i1 %386, label %387, label %_ZN6icu_7713CharStringMapD2Ev.exit314.i.i.i
 
 .loopexit191.i.i.i:                               ; preds = %118, %.lr.ph.i.i.i.i.i
@@ -6136,12 +6136,12 @@ _ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBun
 _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit.preheader.i.i.i: ; preds = %387
   %389 = load i32, ptr %3, align 4, !tbaa !13
   %390 = icmp slt i32 %389, 1
-  %391 = icmp sgt i32 %.07785296.i.i.i, 0
+  %391 = icmp sgt i32 %.07785340.i.i.i, 0
   %392 = select i1 %390, i1 %391, i1 false
   br i1 %392, label %.lr.ph.preheader.i.i.i, label %_ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit._crit_edge.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit.preheader.i.i.i
-  %393 = zext nneg i32 %.07785296.i.i.i to i64
+  %393 = zext nneg i32 %.07785340.i.i.i to i64
   br label %.lr.ph.i.i.i
 
 _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit._crit_edge.i.i.i: ; preds = %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit.i.i.i, %_ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit.preheader.i.i.i
@@ -6151,12 +6151,12 @@ _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit._crit_edge.i.i.i: ; preds = %_ZN
 _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit281.preheader.i.i.i: ; preds = %_ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit._crit_edge.i.i.i
   %395 = load i32, ptr %3, align 4, !tbaa !13
   %396 = icmp slt i32 %395, 1
-  %397 = icmp sgt i32 %.071297.i.i.i, 0
+  %397 = icmp sgt i32 %.071341.i.i.i, 0
   %398 = select i1 %396, i1 %397, i1 false
   br i1 %398, label %.lr.ph222.preheader.i.i.i, label %_ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit281._crit_edge.i.i.i
 
 .lr.ph222.preheader.i.i.i:                        ; preds = %_ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit281.preheader.i.i.i
-  %399 = zext nneg i32 %.071297.i.i.i to i64
+  %399 = zext nneg i32 %.071341.i.i.i to i64
   br label %.lr.ph222.i.i.i
 
 400:                                              ; preds = %387
@@ -6171,9 +6171,9 @@ _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit281.preheader.i.i.i: ; preds = %_
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit.i.i.i ]
-  %404 = getelementptr inbounds nuw ptr, ptr %.sroa.057.086285.i.i.i, i64 %indvars.iv.i.i.i
+  %404 = getelementptr inbounds nuw ptr, ptr %.sroa.057.086329.i.i.i, i64 %indvars.iv.i.i.i
   %405 = load ptr, ptr %404, align 8, !tbaa !42
-  %406 = getelementptr inbounds nuw i32, ptr %.sroa.054.0108274.i.i.i, i64 %indvars.iv.i.i.i
+  %406 = getelementptr inbounds nuw i32, ptr %.sroa.054.0108318.i.i.i, i64 %indvars.iv.i.i.i
   %407 = load i32, ptr %406, align 4, !tbaa !12
   %408 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %409 = trunc nuw i8 %408 to i1
@@ -6228,9 +6228,9 @@ _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit284.preheader.i.i.i: ; preds = %_
 
 .lr.ph222.i.i.i:                                  ; preds = %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit288.i.i.i, %.lr.ph222.preheader.i.i.i
   %indvars.iv255.i.i.i = phi i64 [ 0, %.lr.ph222.preheader.i.i.i ], [ %indvars.iv.next256.i.i.i, %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit288.i.i.i ]
-  %432 = getelementptr inbounds nuw ptr, ptr %.sroa.051.0298.i.i.i, i64 %indvars.iv255.i.i.i
+  %432 = getelementptr inbounds nuw ptr, ptr %.sroa.051.0342.i.i.i, i64 %indvars.iv255.i.i.i
   %433 = load ptr, ptr %432, align 8, !tbaa !42
-  %434 = getelementptr inbounds nuw i32, ptr %.sroa.048.0309.i.i.i, i64 %indvars.iv255.i.i.i
+  %434 = getelementptr inbounds nuw i32, ptr %.sroa.048.0353.i.i.i, i64 %indvars.iv255.i.i.i
   %435 = load i32, ptr %434, align 4, !tbaa !12
   %436 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %437 = trunc nuw i8 %436 to i1
@@ -6607,15 +6607,15 @@ _ZN6icu_7713CharStringMapD2Ev.exit317.i.i.i:      ; preds = %_ZN6icu_7713CharStr
   unreachable
 
 _ZN6icu_7713CharStringMapD2Ev.exit314.sink.split.i.i.i: ; preds = %.noexc273.i.i.i, %.noexc271.i.i.i, %.noexc270.i.i.i
-  %.sroa.033.0324.ph.i.i.i = phi ptr [ null, %.noexc271.i.i.i ], [ null, %.noexc270.i.i.i ], [ %338, %.noexc273.i.i.i ]
+  %.sroa.033.0368.ph.i.i.i = phi ptr [ null, %.noexc271.i.i.i ], [ null, %.noexc270.i.i.i ], [ %338, %.noexc273.i.i.i ]
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_7713CharStringMapD2Ev.exit314.i.i.i
 
 _ZN6icu_7713CharStringMapD2Ev.exit314.i.i.i:      ; preds = %378, %_ZN6icu_7713CharStringMapD2Ev.exit314.sink.split.i.i.i, %_ZN6icu_7713CharStringMapD2Ev.exit313.i.i.i, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i, %.noexc274.i.i.i, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i
-  %.sroa.030.0328.i.i.i = phi ptr [ %341, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %341, %_ZN6icu_7713CharStringMapD2Ev.exit313.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %341, %.noexc274.i.i.i ], [ null, %_ZN6icu_7713CharStringMapD2Ev.exit314.sink.split.i.i.i ], [ %341, %378 ]
-  %.sroa.033.0324.i.i.i = phi ptr [ %338, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %338, %_ZN6icu_7713CharStringMapD2Ev.exit313.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %338, %.noexc274.i.i.i ], [ %.sroa.033.0324.ph.i.i.i, %_ZN6icu_7713CharStringMapD2Ev.exit314.sink.split.i.i.i ], [ %338, %378 ]
+  %.sroa.030.0372.i.i.i = phi ptr [ %341, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %341, %_ZN6icu_7713CharStringMapD2Ev.exit313.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %341, %.noexc274.i.i.i ], [ null, %_ZN6icu_7713CharStringMapD2Ev.exit314.sink.split.i.i.i ], [ %341, %378 ]
+  %.sroa.033.0368.i.i.i = phi ptr [ %338, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %338, %_ZN6icu_7713CharStringMapD2Ev.exit313.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %338, %.noexc274.i.i.i ], [ %.sroa.033.0368.ph.i.i.i, %_ZN6icu_7713CharStringMapD2Ev.exit314.sink.split.i.i.i ], [ %338, %378 ]
   %.2.i.i.i = phi ptr [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder20readSubdivisionAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ %.3.i.i.i, %_ZN6icu_7713CharStringMapD2Ev.exit313.i.i.i ], [ null, %_ZN6icu_7712_GLOBAL__N_116AliasDataBuilder16readVariantAliasEP15UResourceBundlePNS_17UniqueCharStringsERNS_11LocalMemoryIPKcEERNS6_IiEERiR10UErrorCode.exit.i.i.i ], [ null, %.noexc274.i.i.i ], [ null, %_ZN6icu_7713CharStringMapD2Ev.exit314.sink.split.i.i.i ], [ null, %378 ]
-  invoke void @uprv_free_77(ptr noundef %.sroa.030.0328.i.i.i)
+  invoke void @uprv_free_77(ptr noundef %.sroa.030.0372.i.i.i)
           to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit.i.i.i unwind label %580
 
 580:                                              ; preds = %_ZN6icu_7713CharStringMapD2Ev.exit314.i.i.i
@@ -6626,7 +6626,7 @@ _ZN6icu_7713CharStringMapD2Ev.exit314.i.i.i:      ; preds = %378, %_ZN6icu_7713C
   unreachable
 
 _ZN6icu_7711LocalMemoryIiED2Ev.exit.i.i.i:        ; preds = %_ZN6icu_7713CharStringMapD2Ev.exit314.i.i.i
-  invoke void @uprv_free_77(ptr noundef %.sroa.033.0324.i.i.i)
+  invoke void @uprv_free_77(ptr noundef %.sroa.033.0368.i.i.i)
           to label %_ZN6icu_7711LocalMemoryIPKcED2Ev.exit.i.i.i unwind label %583
 
 583:                                              ; preds = %_ZN6icu_7711LocalMemoryIiED2Ev.exit.i.i.i
@@ -6681,7 +6681,7 @@ _ZN6icu_7711LocalMemoryIiED2Ev.exit321.i.i.i:     ; preds = %_ZN6icu_7711LocalMe
   unreachable
 
 _ZN6icu_7711LocalMemoryIPKcED2Ev.exit322.i.i.i:   ; preds = %_ZN6icu_7711LocalMemoryIiED2Ev.exit321.i.i.i
-  invoke void @uprv_free_77(ptr noundef %.sroa.048.0309.i.i.i)
+  invoke void @uprv_free_77(ptr noundef %.sroa.048.0353.i.i.i)
           to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit323.i.i.i unwind label %598
 
 598:                                              ; preds = %_ZN6icu_7711LocalMemoryIPKcED2Ev.exit322.i.i.i
@@ -6692,7 +6692,7 @@ _ZN6icu_7711LocalMemoryIPKcED2Ev.exit322.i.i.i:   ; preds = %_ZN6icu_7711LocalMe
   unreachable
 
 _ZN6icu_7711LocalMemoryIiED2Ev.exit323.i.i.i:     ; preds = %_ZN6icu_7711LocalMemoryIPKcED2Ev.exit322.i.i.i
-  invoke void @uprv_free_77(ptr noundef %.sroa.051.0298.i.i.i)
+  invoke void @uprv_free_77(ptr noundef %.sroa.051.0342.i.i.i)
           to label %_ZN6icu_7711LocalMemoryIPKcED2Ev.exit324.i.i.i unwind label %601
 
 601:                                              ; preds = %_ZN6icu_7711LocalMemoryIiED2Ev.exit323.i.i.i
@@ -6703,7 +6703,7 @@ _ZN6icu_7711LocalMemoryIiED2Ev.exit323.i.i.i:     ; preds = %_ZN6icu_7711LocalMe
   unreachable
 
 _ZN6icu_7711LocalMemoryIPKcED2Ev.exit324.i.i.i:   ; preds = %_ZN6icu_7711LocalMemoryIiED2Ev.exit323.i.i.i
-  invoke void @uprv_free_77(ptr noundef %.sroa.054.0108274.i.i.i)
+  invoke void @uprv_free_77(ptr noundef %.sroa.054.0108318.i.i.i)
           to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit325.i.i.i unwind label %604
 
 604:                                              ; preds = %_ZN6icu_7711LocalMemoryIPKcED2Ev.exit324.i.i.i
@@ -6714,7 +6714,7 @@ _ZN6icu_7711LocalMemoryIPKcED2Ev.exit324.i.i.i:   ; preds = %_ZN6icu_7711LocalMe
   unreachable
 
 _ZN6icu_7711LocalMemoryIiED2Ev.exit325.i.i.i:     ; preds = %_ZN6icu_7711LocalMemoryIPKcED2Ev.exit324.i.i.i
-  invoke void @uprv_free_77(ptr noundef %.sroa.057.086285.i.i.i)
+  invoke void @uprv_free_77(ptr noundef %.sroa.057.086329.i.i.i)
           to label %_ZN6icu_7711LocalMemoryIPKcED2Ev.exit326.i.i.i unwind label %607
 
 607:                                              ; preds = %_ZN6icu_7711LocalMemoryIiED2Ev.exit325.i.i.i
@@ -6756,10 +6756,10 @@ _ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i:     ; preds = %.body277.i.i.i
   unreachable
 
 .body247.i.i.i:                                   ; preds = %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i, %.loopexit.split-lp176.i.i.i, %.loopexit175.i.i.i, %325
-  %.sroa.048.0312.i.i.i = phi ptr [ %170, %325 ], [ %.sroa.048.0309.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %170, %.loopexit.split-lp176.i.i.i ], [ %170, %.loopexit175.i.i.i ]
-  %.sroa.051.0301.i.i.i = phi ptr [ %166, %325 ], [ %.sroa.051.0298.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %166, %.loopexit.split-lp176.i.i.i ], [ %166, %.loopexit175.i.i.i ]
-  %.sroa.057.086288.i.i.i = phi ptr [ %109, %325 ], [ %.sroa.057.086285.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %109, %.loopexit.split-lp176.i.i.i ], [ %109, %.loopexit175.i.i.i ]
-  %.sroa.054.0108277.i.i.i = phi ptr [ %113, %325 ], [ %.sroa.054.0108274.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %113, %.loopexit.split-lp176.i.i.i ], [ %113, %.loopexit175.i.i.i ]
+  %.sroa.048.0356.i.i.i = phi ptr [ %170, %325 ], [ %.sroa.048.0353.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %170, %.loopexit.split-lp176.i.i.i ], [ %170, %.loopexit175.i.i.i ]
+  %.sroa.051.0345.i.i.i = phi ptr [ %166, %325 ], [ %.sroa.051.0342.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %166, %.loopexit.split-lp176.i.i.i ], [ %166, %.loopexit175.i.i.i ]
+  %.sroa.057.086332.i.i.i = phi ptr [ %109, %325 ], [ %.sroa.057.086329.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %109, %.loopexit.split-lp176.i.i.i ], [ %109, %.loopexit175.i.i.i ]
+  %.sroa.054.0108321.i.i.i = phi ptr [ %113, %325 ], [ %.sroa.054.0108318.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %113, %.loopexit.split-lp176.i.i.i ], [ %113, %.loopexit175.i.i.i ]
   %.sroa.042.0143.i.i.i = phi ptr [ %227, %325 ], [ %.sroa.042.0146.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %227, %.loopexit.split-lp176.i.i.i ], [ %227, %.loopexit175.i.i.i ]
   %.sroa.045.0137.i.i.i = phi ptr [ %223, %325 ], [ %.sroa.045.0140.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %223, %.loopexit.split-lp176.i.i.i ], [ %223, %.loopexit175.i.i.i ]
   %.sroa.039.3.i.i.i = phi ptr [ %280, %325 ], [ %.sroa.039.0.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit327.i.i.i ], [ %.sroa.039.1.ph.i.i.i, %.loopexit.split-lp176.i.i.i ], [ %280, %.loopexit175.i.i.i ]
@@ -6787,10 +6787,10 @@ _ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i:     ; preds = %.body247.i.i.i
   unreachable
 
 .body217.i.i.i:                                   ; preds = %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i, %.loopexit.split-lp181.i.i.i, %.loopexit180.i.i.i, %268
-  %.sroa.048.0311.i.i.i = phi ptr [ %170, %268 ], [ %.sroa.048.0312.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %170, %.loopexit180.i.i.i ], [ %170, %.loopexit.split-lp181.i.i.i ]
-  %.sroa.051.0300.i.i.i = phi ptr [ %166, %268 ], [ %.sroa.051.0301.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %166, %.loopexit180.i.i.i ], [ %166, %.loopexit.split-lp181.i.i.i ]
-  %.sroa.057.086287.i.i.i = phi ptr [ %109, %268 ], [ %.sroa.057.086288.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %109, %.loopexit180.i.i.i ], [ %109, %.loopexit.split-lp181.i.i.i ]
-  %.sroa.054.0108276.i.i.i = phi ptr [ %113, %268 ], [ %.sroa.054.0108277.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %113, %.loopexit180.i.i.i ], [ %113, %.loopexit.split-lp181.i.i.i ]
+  %.sroa.048.0355.i.i.i = phi ptr [ %170, %268 ], [ %.sroa.048.0356.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %170, %.loopexit180.i.i.i ], [ %170, %.loopexit.split-lp181.i.i.i ]
+  %.sroa.051.0344.i.i.i = phi ptr [ %166, %268 ], [ %.sroa.051.0345.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %166, %.loopexit180.i.i.i ], [ %166, %.loopexit.split-lp181.i.i.i ]
+  %.sroa.057.086331.i.i.i = phi ptr [ %109, %268 ], [ %.sroa.057.086332.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %109, %.loopexit180.i.i.i ], [ %109, %.loopexit.split-lp181.i.i.i ]
+  %.sroa.054.0108320.i.i.i = phi ptr [ %113, %268 ], [ %.sroa.054.0108321.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %113, %.loopexit180.i.i.i ], [ %113, %.loopexit.split-lp181.i.i.i ]
   %.sroa.045.3.i.i.i = phi ptr [ %223, %268 ], [ %.sroa.045.0137.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %223, %.loopexit180.i.i.i ], [ %.sroa.045.1.ph.i.i.i, %.loopexit.split-lp181.i.i.i ]
   %.sroa.042.3.i.i.i = phi ptr [ %227, %268 ], [ %.sroa.042.0143.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %227, %.loopexit180.i.i.i ], [ null, %.loopexit.split-lp181.i.i.i ]
   %.pn123.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i197.i.i.i, %268 ], [ %.pn123.pn.pn.pn.pn.pn.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit329.i.i.i ], [ %lpad.loopexit182.i.i.i, %.loopexit180.i.i.i ], [ %lpad.loopexit.split-lp183.i.i.i, %.loopexit.split-lp181.i.i.i ]
@@ -6816,10 +6816,10 @@ _ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i:     ; preds = %.body217.i.i.i
   unreachable
 
 .body187.i.i.i:                                   ; preds = %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i, %.loopexit.split-lp187.i.i.i, %.loopexit186.i.i.i, %211
-  %.sroa.054.0111.i.i.i = phi ptr [ %113, %211 ], [ %.sroa.054.0108276.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ %113, %.loopexit.split-lp187.i.i.i ], [ %113, %.loopexit186.i.i.i ]
-  %.sroa.057.089.i.i.i = phi ptr [ %109, %211 ], [ %.sroa.057.086287.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ %109, %.loopexit.split-lp187.i.i.i ], [ %109, %.loopexit186.i.i.i ]
-  %.sroa.051.3.i.i.i = phi ptr [ %166, %211 ], [ %.sroa.051.0300.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ %.sroa.051.1.ph.i.i.i, %.loopexit.split-lp187.i.i.i ], [ %166, %.loopexit186.i.i.i ]
-  %.sroa.048.3.i.i.i = phi ptr [ %170, %211 ], [ %.sroa.048.0311.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ null, %.loopexit.split-lp187.i.i.i ], [ %170, %.loopexit186.i.i.i ]
+  %.sroa.054.0111.i.i.i = phi ptr [ %113, %211 ], [ %.sroa.054.0108320.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ %113, %.loopexit.split-lp187.i.i.i ], [ %113, %.loopexit186.i.i.i ]
+  %.sroa.057.089.i.i.i = phi ptr [ %109, %211 ], [ %.sroa.057.086331.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ %109, %.loopexit.split-lp187.i.i.i ], [ %109, %.loopexit186.i.i.i ]
+  %.sroa.051.3.i.i.i = phi ptr [ %166, %211 ], [ %.sroa.051.0344.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ %.sroa.051.1.ph.i.i.i, %.loopexit.split-lp187.i.i.i ], [ %166, %.loopexit186.i.i.i ]
+  %.sroa.048.3.i.i.i = phi ptr [ %170, %211 ], [ %.sroa.048.0355.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ null, %.loopexit.split-lp187.i.i.i ], [ %170, %.loopexit186.i.i.i ]
   %.pn123.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.i.i167.i.i.i, %211 ], [ %.pn123.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %_ZN6icu_7711LocalMemoryIiED2Ev.exit331.i.i.i ], [ %lpad.loopexit.split-lp189.i.i.i, %.loopexit.split-lp187.i.i.i ], [ %lpad.loopexit188.i.i.i, %.loopexit186.i.i.i ]
   invoke void @uprv_free_77(ptr noundef %.sroa.048.3.i.i.i)
           to label %_ZN6icu_7711LocalMemoryIiED2Ev.exit333.i.i.i unwind label %628
@@ -7053,9 +7053,9 @@ _ZN6icu_7712_GLOBAL__N_19AliasData8loadDataER10UErrorCode.exit.i: ; preds = %_ZN
 683:                                              ; preds = %45, %43
   %684 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_19AliasData9gInitOnceE, i64 4), align 4, !tbaa !44
   %685 = icmp slt i32 %684, 1
-  br i1 %685, label %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit, label %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread421
+  br i1 %685, label %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit, label %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread500
 
-_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread421: ; preds = %683
+_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread500: ; preds = %683
   store i32 %684, ptr %3, align 4, !tbaa !13
   %686 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_19AliasData10gSingletonE, align 8, !tbaa !97
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7524,7 +7524,7 @@ thread-pre-split:                                 ; preds = %_ZN6icu_7712LocalPo
   br i1 %861, label %862, label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread
 
 862:                                              ; preds = %thread-pre-split.thread, %thread-pre-split
-  %.val.pr424 = phi i32 [ %777, %thread-pre-split.thread ], [ %.val.pr.pr, %thread-pre-split ]
+  %.val.pr503 = phi i32 [ %777, %thread-pre-split.thread ], [ %.val.pr.pr, %thread-pre-split ]
   %863 = load ptr, ptr %697, align 8, !tbaa !99
   %864 = icmp eq ptr %863, null
   br i1 %864, label %870, label %865
@@ -7554,7 +7554,7 @@ _ZN6icu_7712_GLOBAL__N_113AliasReplacer13replaceScriptER10UErrorCode.exit: ; pre
   br label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread
 
 870:                                              ; preds = %.noexc166._crit_edge, %862
-  %.val158 = phi i32 [ %.val158.pre, %.noexc166._crit_edge ], [ %.val.pr424, %862 ]
+  %.val158 = phi i32 [ %.val158.pre, %.noexc166._crit_edge ], [ %.val.pr503, %862 ]
   %871 = icmp slt i32 %.val158, 1
   %872 = load i32, ptr %760, align 8
   %.not12.i = icmp sgt i32 %872, 0
@@ -7962,7 +7962,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit44.i: ; preds =
 
 1010:                                             ; preds = %1007
   %.not136 = icmp eq ptr %910, null
-  br i1 %.not136, label %.thread432, label %1011
+  br i1 %.not136, label %.thread511, label %1011
 
 1011:                                             ; preds = %1010
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
@@ -8139,7 +8139,7 @@ _ZNK6icu_776Locale15getKeywordValueENS_11StringPieceERNS_8ByteSinkER10UErrorCode
   %.pn.i194 = phi { ptr, i32 } [ %1077, %1076 ], [ %1075, %1074 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !111
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %36) #23
-  br label %.thread429
+  br label %.thread508
 
 _ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit: ; preds = %_ZNK6icu_776Locale15getKeywordValueENS_11StringPieceERNS_8ByteSinkER10UErrorCode.exit.i, %.noexc195
   %1079 = load i32, ptr %3, align 4, !tbaa !13
@@ -8164,7 +8164,7 @@ _ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErr
 1086:                                             ; preds = %1058, %1057
   %1087 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread429
+  br label %.thread508
 
 1088:                                             ; preds = %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -8238,9 +8238,9 @@ _ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErr
   %.pn141 = phi { ptr, i32 } [ %1103, %1102 ], [ %1101, %1100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %36) #23
-  br label %.thread429
+  br label %.thread508
 
-.thread429:                                       ; preds = %1114, %1078, %1086
+.thread508:                                       ; preds = %1114, %1078, %1086
   %.pn141.pn = phi { ptr, i32 } [ %.pn141, %1114 ], [ %1087, %1086 ], [ %.pn.i194, %1078 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %1133
@@ -8254,9 +8254,9 @@ _ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErr
   %1118 = load ptr, ptr %1117, align 8, !tbaa !19
   %1119 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1118) #23
   %1120 = invoke ptr @locale_getKeywordsStart_77(i64 %1119, ptr nonnull %1118)
-          to label %.thread228 unwind label %.thread431
+          to label %.thread228 unwind label %.thread510
 
-.thread431:                                       ; preds = %1116
+.thread510:                                       ; preds = %1116
   %1121 = landingpad { ptr, i32 }
           cleanup
   br label %1133
@@ -8288,8 +8288,8 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %11
           cleanup
   br i1 %.not241, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit200, label %1133
 
-1133:                                             ; preds = %.thread431, %.thread429, %.thread231, %1131
-  %.pn147233 = phi { ptr, i32 } [ %1085, %.thread231 ], [ %1132, %1131 ], [ %.pn141.pn, %.thread429 ], [ %1121, %.thread431 ]
+1133:                                             ; preds = %.thread510, %.thread508, %.thread231, %1131
+  %.pn147233 = phi { ptr, i32 } [ %1085, %.thread231 ], [ %1132, %1131 ], [ %.pn141.pn, %.thread508 ], [ %1121, %.thread510 ]
   %1134 = load ptr, ptr %1013, align 8, !tbaa !22
   %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 8
   %1136 = load ptr, ptr %1135, align 8
@@ -8311,16 +8311,16 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit200: ; preds = %1133, 
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %.pre419 = load i32, ptr %3, align 4, !tbaa !13
   %1139 = icmp slt i32 %.pre419, 1
-  br i1 %1139, label %.thread432, label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread
+  br i1 %1139, label %.thread511, label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread
 
-.thread432:                                       ; preds = %1010, %1138
+.thread511:                                       ; preds = %1010, %1138
   %1140 = load ptr, ptr %2, align 8, !tbaa !3
   %1141 = load ptr, ptr %907, align 8, !tbaa !19
   %1142 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1140, ptr noundef nonnull dereferenceable(1) %1141) #27
   %1143 = icmp eq i32 %1142, 0
   br i1 %1143, label %1144, label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread
 
-1144:                                             ; preds = %.thread432
+1144:                                             ; preds = %.thread511
   store i32 0, ptr %692, align 8, !tbaa !28
   store i8 0, ptr %1140, align 1, !tbaa !25
   br label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread
@@ -8334,8 +8334,8 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit201: ; preds = %1110
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread
 
-_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread: ; preds = %thread-pre-split, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit, %.critedge256, %.preheader267, %1144, %913, %1007, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit201, %1138, %.thread432, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread
-  %.2 = phi i1 [ false, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread ], [ false, %1144 ], [ false, %913 ], [ false, %1007 ], [ false, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit201 ], [ false, %1138 ], [ true, %.thread432 ], [ false, %.preheader267 ], [ false, %.critedge256 ], [ false, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit ], [ false, %thread-pre-split ]
+_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread.thread: ; preds = %thread-pre-split, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit, %.critedge256, %.preheader267, %1144, %913, %1007, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit201, %1138, %.thread511, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread
+  %.2 = phi i1 [ false, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.thread ], [ false, %1144 ], [ false, %913 ], [ false, %1007 ], [ false, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit201 ], [ false, %1138 ], [ true, %.thread511 ], [ false, %.preheader267 ], [ false, %.critedge256 ], [ false, %_ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit ], [ false, %thread-pre-split ]
   call void @_ZN6icu_777UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %34) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1149
@@ -8362,8 +8362,8 @@ _ZN6icu_7712_GLOBAL__N_113AliasReplacer14replaceVariantER10UErrorCode.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %common.resume
 
-1151:                                             ; preds = %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread421, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit, %1149
-  %.0 = phi i1 [ %.1, %1149 ], [ false, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit ], [ false, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread ], [ false, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread421 ]
+1151:                                             ; preds = %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread500, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit, %1149
+  %.0 = phi i1 [ %.1, %1149 ], [ false, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit ], [ false, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread ], [ false, %_ZN6icu_7712_GLOBAL__N_19AliasData9singletonER10UErrorCode.exit.thread500 ]
   ret i1 %.0
 }
 
@@ -8407,7 +8407,7 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
 
 .critedge.thread:                                 ; preds = %17
   %18 = load ptr, ptr %0, align 8
-  %spec.select261 = select i1 %1, ptr %18, ptr @.str.190
+  %spec.select270 = select i1 %1, ptr %18, ptr @.str.190
   br label %.lr.ph
 
 19:                                               ; preds = %17
@@ -8423,13 +8423,13 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
   br i1 %.not56229, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.critedge.thread, %.critedge
-  %spec.select263 = phi ptr [ %spec.select261, %.critedge.thread ], [ %spec.select, %.critedge ]
+  %spec.select272 = phi ptr [ %spec.select270, %.critedge.thread ], [ %spec.select, %.critedge ]
   %24 = phi i32 [ 1, %.critedge.thread ], [ %21, %.critedge ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.not.i.i260 = icmp ne ptr %15, null
-  %.not.i.i.not = select i1 %2, i1 %.not.i.i260, i1 false
+  %.not.i.i269 = icmp ne ptr %15, null
+  %.not.i.i.not = select i1 %2, i1 %.not.i.i269, i1 false
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8477,7 +8477,7 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
   br label %.thread187
 
 43:                                               ; preds = %39
-  invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef %spec.select263)
+  invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef %spec.select272)
           to label %.noexc unwind label %61
 
 .noexc:                                           ; preds = %43

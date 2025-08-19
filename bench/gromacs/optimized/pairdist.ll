@@ -1177,32 +1177,32 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
 59:                                               ; preds = %.critedge.i.i, %.lr.ph.i.i
   %60 = phi i32 [ %55, %.lr.ph.i.i ], [ %76, %.critedge.i.i ]
   %.02.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.lcssa.i.i, %.critedge.i.i ]
-  %61 = sext i32 %.02.i.i to i64
-  %62 = getelementptr inbounds i32, ptr %58, i64 %61
+  %61 = zext nneg i32 %.02.i.i to i64
+  %62 = getelementptr inbounds nuw i32, ptr %58, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !122
-  %64 = sext i32 %60 to i64
-  %65 = add nsw i32 %.02.i.i, 1
+  %64 = zext nneg i32 %60 to i64
+  %65 = add nuw nsw i32 %.02.i.i, 1
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %60, i32 %65)
   br label %66
 
 66:                                               ; preds = %68, %59
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %68 ], [ %61, %59 ]
-  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %67 = icmp slt i64 %indvars.iv.next.i.i, %64
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %67 = icmp samesign ult i64 %indvars.iv.next.i.i, %64
   br i1 %67, label %68, label %.critedge.i.i
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv.next.i.i
+  %69 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.next.i.i
   %70 = load i32, ptr %69, align 4, !tbaa !122
   %71 = icmp eq i32 %70, %63
-  br i1 %71, label %66, label %.critedge.split.loop.exit6.i.i, !llvm.loop !167
+  br i1 %71, label %66, label %.critedge.split.loop.exit7.i.i, !llvm.loop !167
 
-.critedge.split.loop.exit6.i.i:                   ; preds = %68
-  %72 = trunc nsw i64 %indvars.iv.next.i.i to i32
+.critedge.split.loop.exit7.i.i:                   ; preds = %68
+  %72 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %66, %.critedge.split.loop.exit6.i.i
-  %.1.lcssa.i.i = phi i32 [ %72, %.critedge.split.loop.exit6.i.i ], [ %smax.i.i, %66 ]
+.critedge.i.i:                                    ; preds = %66, %.critedge.split.loop.exit7.i.i
+  %.1.lcssa.i.i = phi i32 [ %72, %.critedge.split.loop.exit7.i.i ], [ %smax.i.i, %66 ]
   %73 = sub nsw i32 %.1.lcssa.i.i, %.02.i.i
   %74 = sext i32 %63 to i64
   %75 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %74
@@ -1338,32 +1338,32 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
 37:                                               ; preds = %.critedge.i, %.lr.ph.i
   %38 = phi i32 [ %33, %.lr.ph.i ], [ %54, %.critedge.i ]
   %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.lcssa.i, %.critedge.i ]
-  %39 = sext i32 %.02.i to i64
-  %40 = getelementptr inbounds i32, ptr %36, i64 %39
+  %39 = zext nneg i32 %.02.i to i64
+  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !122
-  %42 = sext i32 %38 to i64
-  %43 = add nsw i32 %.02.i, 1
+  %42 = zext nneg i32 %38 to i64
+  %43 = add nuw nsw i32 %.02.i, 1
   %smax.i = call i32 @llvm.smax.i32(i32 %38, i32 %43)
   br label %44
 
 44:                                               ; preds = %46, %37
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ %39, %37 ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %45 = icmp slt i64 %indvars.iv.next.i, %42
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %45 = icmp samesign ult i64 %indvars.iv.next.i, %42
   br i1 %45, label %46, label %.critedge.i
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.next.i
+  %47 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.next.i
   %48 = load i32, ptr %47, align 4, !tbaa !122
   %49 = icmp eq i32 %48, %41
-  br i1 %49, label %44, label %.critedge.split.loop.exit6.i, !llvm.loop !167
+  br i1 %49, label %44, label %.critedge.split.loop.exit7.i, !llvm.loop !167
 
-.critedge.split.loop.exit6.i:                     ; preds = %46
-  %50 = trunc nsw i64 %indvars.iv.next.i to i32
+.critedge.split.loop.exit7.i:                     ; preds = %46
+  %50 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %44, %.critedge.split.loop.exit6.i
-  %.1.lcssa.i = phi i32 [ %50, %.critedge.split.loop.exit6.i ], [ %smax.i, %44 ]
+.critedge.i:                                      ; preds = %44, %.critedge.split.loop.exit7.i
+  %.1.lcssa.i = phi i32 [ %50, %.critedge.split.loop.exit7.i ], [ %smax.i, %44 ]
   %51 = sub nsw i32 %.1.lcssa.i, %.02.i
   %52 = sext i32 %41 to i64
   %53 = getelementptr inbounds nuw i32, ptr %.val, i64 %52
@@ -1591,14 +1591,14 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %156 = getelementptr inbounds i32, ptr %143, i64 %indvars.iv.next
   %157 = load i32, ptr %156, align 4, !tbaa !122
   %158 = icmp eq i32 %157, %150
-  br i1 %158, label %153, label %.critedge.split.loop.exit192, !llvm.loop !187
+  br i1 %158, label %153, label %.critedge.split.loop.exit205, !llvm.loop !187
 
-.critedge.split.loop.exit192:                     ; preds = %155
+.critedge.split.loop.exit205:                     ; preds = %155
   %159 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %153, %.critedge.split.loop.exit192
-  %.1120.lcssa = phi i32 [ %159, %.critedge.split.loop.exit192 ], [ %smax, %153 ]
+.critedge:                                        ; preds = %153, %.critedge.split.loop.exit205
+  %.1120.lcssa = phi i32 [ %159, %.critedge.split.loop.exit205 ], [ %smax, %153 ]
   %160 = sub nsw i32 %.1120.lcssa, %.0119169
   %161 = load i32, ptr %67, align 4, !tbaa !118
   %162 = icmp sgt i32 %161, 0
@@ -3880,13 +3880,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !179
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !179
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -3981,13 +3981,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !122
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !122
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

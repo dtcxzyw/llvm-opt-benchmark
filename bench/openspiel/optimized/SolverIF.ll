@@ -301,12 +301,12 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   store i8 0, ptr %101, align 4
   %102 = and i32 %64, 1
-  %spec.select586 = xor i32 %102, 1
-  store i32 %spec.select586, ptr %0, align 8
+  %spec.select598 = xor i32 %102, 1
+  store i32 %spec.select598, ptr %0, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %102, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %spec.select586, ptr %104, align 8
+  store i32 %spec.select598, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %102, ptr %105, align 4
   %106 = icmp sgt i32 %47, 0
@@ -617,9 +617,9 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 264:                                              ; preds = %262
   %265 = icmp eq i32 %3, 1
-  %spec.select588 = select i1 %265, i32 1, i32 %152
+  %spec.select600 = select i1 %265, i32 1, i32 %152
   %266 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %spec.select588, ptr %266, align 4
+  store i32 %spec.select600, ptr %266, align 4
   call void @_ZN5Moves6RewindEii(ptr noundef nonnull align 8 dereferenceable(39992) %136, i32 noundef %63, i32 noundef %47)
   %267 = icmp sgt i32 %152, 0
   br i1 %267, label %.lr.ph491, label %.loopexit469.preheader
@@ -1243,7 +1243,7 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr noundef nonn
   br i1 %exitcond99.not, label %.loopexit79, label %35, !llvm.loop !31
 
 .loopexit79:                                      ; preds = %45, %38
-  %46 = add i32 %.16685, 1
+  %46 = add nsw i32 %.16685, 1
   %exitcond100.not = icmp eq i32 %46, 4
   br i1 %exitcond100.not, label %._crit_edge, label %30, !llvm.loop !32
 

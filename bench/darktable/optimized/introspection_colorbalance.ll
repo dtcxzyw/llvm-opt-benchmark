@@ -968,8 +968,8 @@ dt_XYZ_to_sRGB.exit.i.us:                         ; preds = %393
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %bc193 = bitcast <4 x float> %410 to <4 x i32>
-  %411 = extractelement <4 x i32> %bc193, i64 0
+  %bc202 = bitcast <4 x float> %410 to <4 x i32>
+  %411 = extractelement <4 x i32> %bc202, i64 0
   store i32 %411, ptr %25, align 4, !tbaa !6
   %412 = extractelement <4 x float> %410, i64 1
   store float %412, ptr %202, align 4, !tbaa !6
@@ -5781,8 +5781,8 @@ update_saturation_slider_color.exit:              ; preds = %hue2rgb.exit36.i.i,
   br label %92
 
 92:                                               ; preds = %90, %update_saturation_slider_color.exit
-  %.sink20 = phi i64 [ %91, %90 ], [ %62, %update_saturation_slider_color.exit ]
-  %93 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %.sink20) #22
+  %.sink29 = phi i64 [ %91, %90 ], [ %62, %update_saturation_slider_color.exit ]
+  %93 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %.sink29) #22
   tail call void @gtk_widget_queue_draw(ptr noundef %93) #22
   ret void
 }

@@ -656,7 +656,7 @@ buffer_tobuf.exit:                                ; preds = %10
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread, %24
-  %.03644 = phi i64 [ 2, %.thread ], [ %21, %24 ]
+  %.03646 = phi i64 [ 2, %.thread ], [ %21, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 88
   br label %27
 
@@ -692,7 +692,7 @@ buffer_tobuf.exit:                                ; preds = %10
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %44
   store ptr %49, ptr %26, align 8, !tbaa !35
   %50 = add nuw nsw i64 %.041, 1
-  %exitcond.not = icmp eq i64 %50, %.03644
+  %exitcond.not = icmp eq i64 %50, %.03646
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %27, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %36
@@ -700,7 +700,7 @@ buffer_tobuf.exit:                                ; preds = %10
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.._crit_edge_crit_edge
-  %.03643 = phi i64 [ %21, %.._crit_edge_crit_edge ], [ %.03644, %._crit_edge.loopexit ]
+  %.03645 = phi i64 [ %21, %.._crit_edge_crit_edge ], [ %.03646, %._crit_edge.loopexit ]
   %52 = phi ptr [ %.pre, %.._crit_edge_crit_edge ], [ %51, %._crit_edge.loopexit ]
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %54 = load ptr, ptr %17, align 8, !tbaa !34
@@ -737,7 +737,7 @@ buffer_tobuf.exit:                                ; preds = %10
   br label %73
 
 73:                                               ; preds = %71, %63
-  %74 = trunc i64 %.03643 to i32
+  %74 = trunc i64 %.03645 to i32
   %75 = add i32 %74, -1
   ret i32 %75
 }

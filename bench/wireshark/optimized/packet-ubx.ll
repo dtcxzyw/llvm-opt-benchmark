@@ -2528,17 +2528,17 @@ define internal i32 @dissect_ubx_rxm_sfrbx(ptr noundef %0, ptr noundef %1, ptr n
 
 28:                                               ; preds = %.sink.split, %4
   %hf_ubx_rxm_sfrbx_freqid.sink = phi ptr [ @hf_ubx_rxm_sfrbx_freqid, %4 ], [ %hf_ubx_rxm_sfrbx_freqid.sink.ph, %.sink.split ]
-  %.sink72 = phi i32 [ 3, %4 ], [ 5, %.sink.split ]
+  %.sink73 = phi i32 [ 3, %4 ], [ 5, %.sink.split ]
   %hf_ubx_rxm_sfrbx_numwords.sink = phi ptr [ @hf_ubx_rxm_sfrbx_numwords, %4 ], [ @hf_ubx_rxm_sfrbx_version, %.sink.split ]
-  %.sink71 = phi i32 [ 4, %4 ], [ 6, %.sink.split ]
+  %.sink72 = phi i32 [ 4, %4 ], [ 6, %.sink.split ]
   %hf_ubx_rxm_sfrbx_version.sink = phi ptr [ @hf_ubx_rxm_sfrbx_version, %4 ], [ %hf_ubx_rxm_sfrbx_version.sink.ph, %.sink.split ]
-  %.sink70 = phi i32 [ 6, %4 ], [ 7, %.sink.split ]
+  %.sink71 = phi i32 [ 6, %4 ], [ 7, %.sink.split ]
   %29 = load i32, ptr %hf_ubx_rxm_sfrbx_freqid.sink, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %0, i32 noundef %.sink72, i32 noundef 1, i32 noundef 0)
+  %30 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %0, i32 noundef %.sink73, i32 noundef 1, i32 noundef 0)
   %31 = load i32, ptr %hf_ubx_rxm_sfrbx_numwords.sink, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %31, ptr noundef %0, i32 noundef %.sink71, i32 noundef 1, i32 noundef 0)
+  %32 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %31, ptr noundef %0, i32 noundef %.sink72, i32 noundef 1, i32 noundef 0)
   %33 = load i32, ptr %hf_ubx_rxm_sfrbx_version.sink, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %33, ptr noundef %0, i32 noundef %.sink70, i32 noundef 1, i32 noundef 0)
+  %34 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %33, ptr noundef %0, i32 noundef %.sink71, i32 noundef 1, i32 noundef 0)
   %35 = load i32, ptr @hf_ubx_rxm_sfrbx_dwrd, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %35, ptr noundef %0, i32 noundef 8, i32 noundef %13, i32 noundef 0)
   %37 = load i32, ptr %5, align 4

@@ -233,12 +233,12 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   %.sroa.18.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store ptr %10, ptr %.sroa.18.0..sroa_idx76, align 8, !tbaa !27
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %bcmp121 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @kMasterChunks, ptr noundef nonnull dereferenceable(4) %96, i64 4)
-  %.not49122 = icmp eq i32 %bcmp121, 0
-  br i1 %.not49122, label %._crit_edge, label %.lr.ph
+  %bcmp134 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @kMasterChunks, ptr noundef nonnull dereferenceable(4) %96, i64 4)
+  %.not49135 = icmp eq i32 %bcmp134, 0
+  br i1 %.not49135, label %._crit_edge, label %.lr.ph
 
 97:                                               ; preds = %.lr.ph
-  %98 = getelementptr inbounds nuw i8, ptr %.035114123, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.035114136, i64 24
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %98, ptr noundef nonnull dereferenceable(4) %96, i64 4)
   %.not49 = icmp eq i32 %bcmp, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !45
@@ -273,8 +273,8 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %86, %97
-  %.035114123 = phi ptr [ %98, %97 ], [ @kMasterChunks, %86 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.035114123, i64 32
+  %.035114136 = phi ptr [ %98, %97 ], [ @kMasterChunks, %86 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.035114136, i64 32
   %109 = load ptr, ptr %108, align 8, !tbaa !49
   %.not48 = icmp eq ptr %109, null
   br i1 %.not48, label %.loopexit, label %97, !llvm.loop !45
@@ -1271,7 +1271,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
   %55 = getelementptr inbounds nuw i8, ptr %.14375, i64 12
   %56 = load i32, ptr %55, align 4, !tbaa !36
   %57 = icmp slt i32 %56, 1
-  br i1 %57, label %.critedge60, label %.thread79
+  br i1 %57, label %.critedge60, label %.thread89
 
 58:                                               ; preds = %36
   br i1 %23, label %59, label %.critedge60
@@ -1304,16 +1304,16 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.14375, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !33
   %73 = icmp sgt i32 %.pre, 0
-  br i1 %73, label %.thread79, label %.critedge59
+  br i1 %73, label %.thread89, label %.critedge59
 
-.thread79:                                        ; preds = %54, %72
+.thread89:                                        ; preds = %54, %72
   %74 = phi i32 [ %.pre, %72 ], [ %52, %54 ]
   %75 = getelementptr inbounds nuw i8, ptr %.14375, i64 12
   %76 = load i32, ptr %75, align 4, !tbaa !36
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %.critedge59
 
-78:                                               ; preds = %.thread79
+78:                                               ; preds = %.thread89
   %79 = load i32, ptr %.14375, align 8, !tbaa !62
   br i1 %.not, label %80, label %84
 
@@ -1347,7 +1347,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
   %or.cond69 = select i1 %or.cond67, i1 true, i1 %93
   br i1 %or.cond69, label %.critedge60, label %.critedge59
 
-.critedge59:                                      ; preds = %86, %81, %.thread79, %72
+.critedge59:                                      ; preds = %86, %81, %.thread89, %72
   %94 = getelementptr inbounds nuw i8, ptr %.14375, i64 72
   %95 = load ptr, ptr %94, align 8, !tbaa !42
   %.not50 = icmp eq ptr %95, null
@@ -1439,8 +1439,8 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   br label %63
 
 45:                                               ; preds = %39
-  %.not116 = icmp eq i32 %.058, 0
-  br i1 %.not116, label %46, label %.critedge
+  %.not118 = icmp eq i32 %.058, 0
+  br i1 %.not118, label %46, label %.critedge
 
 46:                                               ; preds = %45, %39
   %47 = icmp eq i32 %.061, 0
@@ -1587,7 +1587,7 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
 
 37:                                               ; preds = %34
   %38 = icmp eq i32 %.048, 0
-  br i1 %38, label %39, label %.thread93
+  br i1 %38, label %39, label %.thread99
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 %20
@@ -1772,17 +1772,17 @@ NewFrame.exit.i:                                  ; preds = %59
   br label %148
 
 148:                                              ; preds = %27, %146, %147
-  %.sink102 = phi i32 [ 3, %146 ], [ 2, %147 ], [ 5, %27 ]
+  %.sink108 = phi i32 [ 3, %146 ], [ 2, %147 ], [ 5, %27 ]
   %.val65 = load i64, ptr %6, align 8, !tbaa !91
   %149 = sub i64 %.val65, %20
   %.not60 = icmp ult i64 %149, %25
   br i1 %.not60, label %ParseAnimationFrame.exit, label %152
 
-.thread93:                                        ; preds = %37
-  %.val6595 = load i64, ptr %6, align 8, !tbaa !91
-  %150 = sub i64 %.val6595, %20
-  %.not6096 = icmp ult i64 %150, %25
-  br i1 %.not6096, label %ParseAnimationFrame.exit, label %.thread98
+.thread99:                                        ; preds = %37
+  %.val65101 = load i64, ptr %6, align 8, !tbaa !91
+  %150 = sub i64 %.val65101, %20
+  %.not60102 = icmp ult i64 %150, %25
+  br i1 %.not60102, label %ParseAnimationFrame.exit, label %.thread104
 
 .thread:                                          ; preds = %27
   %.val6573 = load i64, ptr %6, align 8, !tbaa !91
@@ -1792,10 +1792,10 @@ NewFrame.exit.i:                                  ; preds = %59
 
 152:                                              ; preds = %148
   %153 = load i32, ptr %2, align 8, !tbaa !43
-  %154 = shl nuw nsw i32 1, %.sink102
+  %154 = shl nuw nsw i32 1, %.sink108
   %155 = and i32 %153, %154
   %.not61 = icmp eq i32 %155, 0
-  br i1 %.not61, label %.thread98, label %.thread76
+  br i1 %.not61, label %.thread104, label %.thread76
 
 .thread76:                                        ; preds = %.thread, %152
   %156 = tail call ptr @WebPSafeCalloc(i64 noundef 1, i64 noundef 24) #13
@@ -1814,17 +1814,17 @@ StoreChunk.exit:                                  ; preds = %.thread76
   store ptr null, ptr %162, align 8, !tbaa !53
   store ptr %162, ptr %13, align 8, !tbaa !25
   %.pre92 = load i64, ptr %0, align 8, !tbaa !89
-  br label %.thread98
+  br label %.thread104
 
-.thread98:                                        ; preds = %.thread93, %StoreChunk.exit, %152
-  %163 = phi i64 [ %.pre92, %StoreChunk.exit ], [ %20, %152 ], [ %20, %.thread93 ]
+.thread104:                                       ; preds = %.thread99, %StoreChunk.exit, %152
+  %163 = phi i64 [ %.pre92, %StoreChunk.exit ], [ %20, %152 ], [ %20, %.thread99 ]
   %164 = add i64 %163, %25
   store i64 %164, ptr %0, align 8, !tbaa !89
   br label %ParseAnimationFrame.exit
 
-ParseAnimationFrame.exit:                         ; preds = %.thread93, %.thread, %.thread.i, %142, %121, %59, %56, %50, %148, %34, %.thread98, %39, %30
-  %.253 = phi i32 [ 0, %.thread98 ], [ %31, %30 ], [ 0, %39 ], [ 1, %34 ], [ 1, %148 ], [ 2, %121 ], [ %.1.ph.i, %.thread.i ], [ %125, %142 ], [ 1, %56 ], [ 2, %50 ], [ 2, %59 ], [ 1, %.thread ], [ 1, %.thread93 ]
-  %.250 = phi i32 [ %.048, %.thread98 ], [ 0, %30 ], [ 1, %39 ], [ %.048, %34 ], [ %.048, %148 ], [ 1, %121 ], [ 1, %.thread.i ], [ 1, %142 ], [ 1, %56 ], [ 1, %50 ], [ 1, %59 ], [ %.048, %.thread ], [ %.048, %.thread93 ]
+ParseAnimationFrame.exit:                         ; preds = %.thread99, %.thread, %.thread.i, %142, %121, %59, %56, %50, %148, %34, %.thread104, %39, %30
+  %.253 = phi i32 [ 0, %.thread104 ], [ %31, %30 ], [ 0, %39 ], [ 1, %34 ], [ 1, %148 ], [ 2, %121 ], [ %.1.ph.i, %.thread.i ], [ %125, %142 ], [ 1, %56 ], [ 2, %50 ], [ 2, %59 ], [ 1, %.thread ], [ 1, %.thread99 ]
+  %.250 = phi i32 [ %.048, %.thread104 ], [ 0, %30 ], [ 1, %39 ], [ %.048, %34 ], [ %.048, %148 ], [ 1, %121 ], [ 1, %.thread.i ], [ 1, %142 ], [ 1, %56 ], [ 1, %50 ], [ 1, %59 ], [ %.048, %.thread ], [ %.048, %.thread99 ]
   %165 = load i64, ptr %0, align 8, !tbaa !89
   %166 = load i64, ptr %8, align 8, !tbaa !90
   %167 = icmp eq i64 %165, %166

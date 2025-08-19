@@ -608,8 +608,8 @@ define dso_local ptr @archive_entry_fflags_text(ptr noundef %0) local_unnamed_ad
   %49 = load i64, ptr %48, align 8, !tbaa !60
   %50 = and i64 %49, %.05169.i
   %.not59.i = icmp eq i64 %50, 0
-  %or.cond75.i = select i1 %.not58.i, i1 %.not59.i, i1 false
-  br i1 %or.cond75.i, label %52, label %.preheader._crit_edge.i
+  %or.cond77.i = select i1 %.not58.i, i1 %.not59.i, i1 false
+  br i1 %or.cond77.i, label %52, label %.preheader._crit_edge.i
 
 .preheader._crit_edge.i:                          ; preds = %.preheader.i
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 2

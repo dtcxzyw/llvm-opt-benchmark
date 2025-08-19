@@ -557,26 +557,26 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier27deoptimize_objects_interna
   %36 = load ptr, ptr %27, align 8
   %.not2445 = icmp eq ptr %36, %2
   %.old = load i8, ptr %28, align 8
-  %.old62 = trunc i8 %.old to i1
-  %or.cond64 = select i1 %.not2445, i1 true, i1 %.old62
-  br i1 %or.cond64, label %.critedge, label %.preheader65
+  %.old70 = trunc i8 %.old to i1
+  %or.cond72 = select i1 %.not2445, i1 true, i1 %.old70
+  br i1 %or.cond72, label %.critedge, label %.preheader73
 
-.preheader65:                                     ; preds = %35, %_ZN16StackFrameStream4nextEv.exit
+.preheader73:                                     ; preds = %35, %_ZN16StackFrameStream4nextEv.exit
   %37 = load ptr, ptr %29, align 8
   %38 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
   %39 = icmp eq ptr %37, %38
   br i1 %39, label %40, label %42
 
-40:                                               ; preds = %.preheader65
+40:                                               ; preds = %.preheader73
   %41 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %6) #10
-  br i1 %41, label %.thread57, label %42
+  br i1 %41, label %.thread65, label %42
 
-.thread57:                                        ; preds = %40
+.thread65:                                        ; preds = %40
   store i8 1, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %_ZN16StackFrameStream4nextEv.exit
 
-42:                                               ; preds = %40, %.preheader65
+42:                                               ; preds = %40, %.preheader73
   %43 = load ptr, ptr %30, align 8
   %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %.thread, label %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
@@ -624,14 +624,14 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5041) %6, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   br label %_ZN16StackFrameStream4nextEv.exit
 
-_ZN16StackFrameStream4nextEv.exit:                ; preds = %.thread57, %47, %_ZNK5frame6senderEP11RegisterMap.exit.i
+_ZN16StackFrameStream4nextEv.exit:                ; preds = %.thread65, %47, %_ZNK5frame6senderEP11RegisterMap.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = load ptr, ptr %27, align 8
   %.not24 = icmp eq ptr %58, %2
   %59 = load i8, ptr %28, align 8
   %60 = trunc i8 %59 to i1
-  %or.cond63 = select i1 %.not24, i1 true, i1 %60
-  br i1 %or.cond63, label %.critedge, label %.preheader65, !llvm.loop !23
+  %or.cond71 = select i1 %.not24, i1 true, i1 %60
+  br i1 %or.cond71, label %.critedge, label %.preheader73, !llvm.loop !23
 
 .critedge:                                        ; preds = %_ZN16StackFrameStream4nextEv.exit, %35
   %61 = call noundef zeroext i1 @_ZNK5frame20is_deoptimized_frameEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #10

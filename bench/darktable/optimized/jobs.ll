@@ -887,85 +887,76 @@ _control_job_set_state.exit137:                   ; preds = %179, %196
   store ptr %205, ptr %20, align 8, !tbaa !82
   %206 = load i64, ptr %22, align 8, !tbaa !65
   %207 = add i64 %206, 1
-  store i64 %207, ptr %22, align 8, !tbaa !65
-  br label %209
+  br label %208
 
-208:                                              ; preds = %.loopexit, %_control_job_set_state.exit137
-  %storemerge = phi i64 [ %.1106, %_control_job_set_state.exit137 ], [ %177, %.loopexit ]
-  store i64 %storemerge, ptr %22, align 8, !tbaa !65
-  %.not.i138 = icmp eq ptr %.193, null
-  br i1 %.not.i138, label %_control_job_set_state.exit140, label %209
+208:                                              ; preds = %_control_job_set_state.exit137, %.loopexit, %.thread160
+  %storemerge205 = phi i64 [ %207, %.thread160 ], [ %.1106, %_control_job_set_state.exit137 ], [ %177, %.loopexit ]
+  %.395167 = phi ptr [ %2, %.thread160 ], [ %.193, %_control_job_set_state.exit137 ], [ %.193, %.loopexit ]
+  %.3100165 = phi ptr [ null, %.thread160 ], [ %.198, %_control_job_set_state.exit137 ], [ %.198, %.loopexit ]
+  store i64 %storemerge205, ptr %22, align 8, !tbaa !65
+  %209 = getelementptr inbounds nuw i8, ptr %.395167, i64 40
+  %210 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %209) #16
+  %211 = getelementptr inbounds nuw i8, ptr %.395167, i64 120
+  store i32 1, ptr %211, align 8, !tbaa !6
+  %212 = getelementptr inbounds nuw i8, ptr %.395167, i64 136
+  %213 = load ptr, ptr %212, align 8, !tbaa !58
+  %.not17.i139 = icmp eq ptr %213, null
+  br i1 %.not17.i139, label %_control_job_set_state.exit140, label %214
 
-209:                                              ; preds = %.thread160, %208
-  %.395167 = phi ptr [ %2, %.thread160 ], [ %.193, %208 ]
-  %.3100165 = phi ptr [ null, %.thread160 ], [ %.198, %208 ]
-  %210 = getelementptr inbounds nuw i8, ptr %.395167, i64 40
-  %211 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %210) #16
-  %212 = getelementptr inbounds nuw i8, ptr %.395167, i64 120
-  store i32 1, ptr %212, align 8, !tbaa !6
-  %213 = getelementptr inbounds nuw i8, ptr %.395167, i64 136
-  %214 = load ptr, ptr %213, align 8, !tbaa !58
-  %.not17.i139 = icmp eq ptr %214, null
-  br i1 %.not17.i139, label %216, label %215
-
-215:                                              ; preds = %209
-  tail call void %214(ptr noundef nonnull %.395167, i32 noundef 1) #16
-  br label %216
-
-216:                                              ; preds = %215, %209
-  %217 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %210) #16
+214:                                              ; preds = %208
+  tail call void %213(ptr noundef nonnull %.395167, i32 noundef 1) #16
   br label %_control_job_set_state.exit140
 
-_control_job_set_state.exit140:                   ; preds = %208, %216
-  %.3100166 = phi ptr [ %.198, %208 ], [ %.3100165, %216 ]
-  %218 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #16
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 9800
-  %220 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %219) #16
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 9840
-  %222 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %221) #16
-  %223 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %219) #16
-  %.not.i141 = icmp eq ptr %.3100166, null
-  br i1 %.not.i141, label %_control_job_set_state.exit145, label %224
+_control_job_set_state.exit140:                   ; preds = %208, %214
+  %215 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %209) #16
+  %216 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #16
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 9800
+  %218 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %217) #16
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 9840
+  %220 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %219) #16
+  %221 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %217) #16
+  %.not.i141 = icmp eq ptr %.3100165, null
+  br i1 %.not.i141, label %_control_job_set_state.exit145, label %222
 
-224:                                              ; preds = %_control_job_set_state.exit140
-  %225 = getelementptr inbounds nuw i8, ptr %.3100166, i64 40
-  %226 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %225) #16
-  %227 = getelementptr inbounds nuw i8, ptr %.3100166, i64 120
-  %228 = load i32, ptr %227, align 8, !tbaa !6
-  %.not15.i142 = icmp eq i32 %228, 2
-  br i1 %.not15.i142, label %234, label %229
+222:                                              ; preds = %_control_job_set_state.exit140
+  %223 = getelementptr inbounds nuw i8, ptr %.3100165, i64 40
+  %224 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %223) #16
+  %225 = getelementptr inbounds nuw i8, ptr %.3100165, i64 120
+  %226 = load i32, ptr %225, align 8, !tbaa !6
+  %.not15.i142 = icmp eq i32 %226, 2
+  br i1 %.not15.i142, label %232, label %227
 
-229:                                              ; preds = %224
-  %230 = getelementptr inbounds nuw i8, ptr %.3100166, i64 144
-  %231 = load ptr, ptr %230, align 8, !tbaa !21
-  %.not16.i143 = icmp eq ptr %231, null
-  br i1 %.not16.i143, label %234, label %232
+227:                                              ; preds = %222
+  %228 = getelementptr inbounds nuw i8, ptr %.3100165, i64 144
+  %229 = load ptr, ptr %228, align 8, !tbaa !21
+  %.not16.i143 = icmp eq ptr %229, null
+  br i1 %.not16.i143, label %232, label %230
 
-232:                                              ; preds = %229
-  %233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !22
-  tail call void @dt_control_progress_destroy(ptr noundef %233, ptr noundef nonnull %231) #16
-  store ptr null, ptr %230, align 8, !tbaa !21
-  br label %234
+230:                                              ; preds = %227
+  %231 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !22
+  tail call void @dt_control_progress_destroy(ptr noundef %231, ptr noundef nonnull %229) #16
+  store ptr null, ptr %228, align 8, !tbaa !21
+  br label %232
 
-234:                                              ; preds = %232, %229, %224
-  store i32 5, ptr %227, align 8, !tbaa !6
-  %235 = getelementptr inbounds nuw i8, ptr %.3100166, i64 136
-  %236 = load ptr, ptr %235, align 8, !tbaa !58
-  %.not17.i144 = icmp eq ptr %236, null
-  br i1 %.not17.i144, label %_control_job_set_state.exit145.sink.split, label %237
+232:                                              ; preds = %230, %227, %222
+  store i32 5, ptr %225, align 8, !tbaa !6
+  %233 = getelementptr inbounds nuw i8, ptr %.3100165, i64 136
+  %234 = load ptr, ptr %233, align 8, !tbaa !58
+  %.not17.i144 = icmp eq ptr %234, null
+  br i1 %.not17.i144, label %_control_job_set_state.exit145.sink.split, label %235
 
-237:                                              ; preds = %234
-  tail call void %236(ptr noundef nonnull %.3100166, i32 noundef 5) #16
+235:                                              ; preds = %232
+  tail call void %234(ptr noundef nonnull %.3100165, i32 noundef 5) #16
   br label %_control_job_set_state.exit145.sink.split
 
-_control_job_set_state.exit145.sink.split:        ; preds = %234, %237, %115, %113, %10
-  %.sink193 = phi ptr [ %11, %10 ], [ %104, %113 ], [ %104, %115 ], [ %225, %237 ], [ %225, %234 ]
-  %.sink.ph = phi ptr [ %2, %10 ], [ %2, %113 ], [ %2, %115 ], [ %.3100166, %237 ], [ %.3100166, %234 ]
-  %238 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink193) #16
+_control_job_set_state.exit145.sink.split:        ; preds = %232, %235, %115, %113, %10
+  %.sink210 = phi ptr [ %11, %10 ], [ %104, %113 ], [ %104, %115 ], [ %223, %235 ], [ %223, %232 ]
+  %.sink.ph = phi ptr [ %2, %10 ], [ %2, %113 ], [ %2, %115 ], [ %.3100165, %235 ], [ %.3100165, %232 ]
+  %236 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink210) #16
   br label %_control_job_set_state.exit145
 
 _control_job_set_state.exit145:                   ; preds = %_control_job_set_state.exit145.sink.split, %_control_job_set_state.exit140, %3
-  %.sink = phi ptr [ %2, %3 ], [ %.3100166, %_control_job_set_state.exit140 ], [ %.sink.ph, %_control_job_set_state.exit145.sink.split ]
+  %.sink = phi ptr [ %2, %3 ], [ %.3100165, %_control_job_set_state.exit140 ], [ %.sink.ph, %_control_job_set_state.exit145.sink.split ]
   %.0 = phi i32 [ 1, %3 ], [ 0, %_control_job_set_state.exit140 ], [ 0, %_control_job_set_state.exit145.sink.split ]
   tail call void @dt_control_job_dispose(ptr noundef %.sink)
   ret i32 %.0

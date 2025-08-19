@@ -625,14 +625,14 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   br label %44
 
 9:                                                ; preds = %4
-  br i1 %.not44, label %10, label %.thread68
+  br i1 %.not44, label %10, label %.thread75
 
 10:                                               ; preds = %9
   %11 = tail call i64 @sk_num(ptr noundef nonnull %0) #10
-  %.not77 = icmp eq i64 %11, 0
-  br i1 %.not77, label %._crit_edge.thread, label %.lr.ph.split.us
+  %.not84 = icmp eq i64 %11, 0
+  br i1 %.not84, label %._crit_edge.thread, label %.lr.ph.split.us
 
-.thread68:                                        ; preds = %9
+.thread75:                                        ; preds = %9
   %12 = load i32, ptr %3, align 4, !tbaa !30
   %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 -1)
   %14 = add nsw i32 %13, 1
@@ -661,8 +661,8 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
   %26 = icmp ult i64 %24, %25
   br i1 %26, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !40
 
-.lr.ph.split:                                     ; preds = %.thread68, %33
-  %.03460 = phi i64 [ %34, %33 ], [ %15, %.thread68 ]
+.lr.ph.split:                                     ; preds = %.thread75, %33
+  %.03460 = phi i64 [ %34, %33 ], [ %15, %.thread75 ]
   %27 = tail call ptr @sk_value(ptr noundef nonnull %0, i64 noundef %.03460) #10
   %28 = load ptr, ptr %27, align 8, !tbaa !22
   %29 = tail call i32 @OBJ_obj2nid(ptr noundef %28) #10
@@ -709,7 +709,7 @@ define hidden ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef wr
 ._crit_edge.thread:                               ; preds = %33, %10, %._crit_edge
   br i1 %.not44, label %42, label %._crit_edge.thread.thread
 
-._crit_edge.thread.thread:                        ; preds = %.thread68, %._crit_edge.thread
+._crit_edge.thread.thread:                        ; preds = %.thread75, %._crit_edge.thread
   store i32 -1, ptr %3, align 4, !tbaa !30
   br label %42
 
@@ -770,8 +770,8 @@ define hidden range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %
 
 .thread:                                          ; preds = %16
   %19 = tail call ptr @X509V3_EXT_i2d(i32 noundef %1, i32 noundef %3, ptr noundef %2) #10
-  %.not3454 = icmp eq ptr %19, null
-  br i1 %.not3454, label %21, label %.thread52
+  %.not3460 = icmp eq ptr %19, null
+  br i1 %.not3460, label %21, label %.thread52
 
 .thread48:                                        ; preds = %5
   %20 = tail call ptr @X509V3_EXT_i2d(i32 noundef %1, i32 noundef %3, ptr noundef %2) #10

@@ -1283,19 +1283,19 @@ switch.lookup:                                    ; preds = %47
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp, i64 0, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   %55 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep77 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.2, i64 0, i64 %55
-  %switch.load78 = load i32, ptr %switch.gep77, align 4
+  %switch.gep86 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.2, i64 0, i64 %55
+  %switch.load87 = load i32, ptr %switch.gep86, align 4
   %56 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep79 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.3, i64 0, i64 %56
-  %switch.load80 = load i32, ptr %switch.gep79, align 4
+  %switch.gep88 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dtls_dissect_hnd_hello_ext_use_srtp.3, i64 0, i64 %56
+  %switch.load89 = load i32, ptr %switch.gep88, align 4
   br label %57
 
 57:                                               ; preds = %47, %switch.lookup
-  %.sink76 = phi i32 [ %switch.load, %switch.lookup ], [ 2, %47 ]
-  %.sink75 = phi i32 [ %switch.load78, %switch.lookup ], [ 1, %47 ]
-  %.sink = phi i32 [ %switch.load80, %switch.lookup ], [ 10, %47 ]
-  store i32 %.sink76, ptr %49, align 4
-  store i32 %.sink75, ptr %51, align 4
+  %.sink85 = phi i32 [ %switch.load, %switch.lookup ], [ 2, %47 ]
+  %.sink84 = phi i32 [ %switch.load87, %switch.lookup ], [ 1, %47 ]
+  %.sink = phi i32 [ %switch.load89, %switch.lookup ], [ 10, %47 ]
+  store i32 %.sink85, ptr %49, align 4
+  store i32 %.sink84, ptr %51, align 4
   store i32 %.sink, ptr %52, align 4
   %58 = load i32, ptr %9, align 4
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -2401,12 +2401,12 @@ proto_item_set_generated.exit.i.i:                ; preds = %164, %161, %159, %1
   %183 = or disjoint i64 %182, %170
   %184 = icmp ugt i64 %183, %174
   %185 = add i64 %183, -4
-  %spec.select61 = select i1 %184, i64 %185, i64 %183
+  %spec.select88 = select i1 %184, i64 %185, i64 %183
   br label %select.unfold.i.i.i
 
 select.unfold.i.i.i:                              ; preds = %181, %180, %178, %173
   %186 = phi i64 [ %170, %180 ], [ %174, %178 ], [ %174, %173 ], [ %174, %181 ]
-  %.032.i.i.i = phi i64 [ %170, %180 ], [ %170, %178 ], [ %174, %173 ], [ %spec.select61, %181 ]
+  %.032.i.i.i = phi i64 [ %170, %180 ], [ %170, %178 ], [ %174, %173 ], [ %spec.select88, %181 ]
   switch i64 %.032.i.i.i, label %.split.i.i.i [
     i64 0, label %187
     i64 1, label %188
@@ -2775,12 +2775,12 @@ dissect_dtls13_record.exit.i:                     ; preds = %296, %295, %293, %2
   br i1 %.not268.i, label %349, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %345, %343
-  %.sink62 = phi ptr [ %344, %343 ], [ %346, %345 ]
-  %.sink278.in.i = phi ptr [ %59, %343 ], [ %58, %345 ]
-  %347 = getelementptr inbounds nuw i8, ptr %.sink62, i64 128
+  %.sink89 = phi ptr [ %344, %343 ], [ %346, %345 ]
+  %.sink310.in.i = phi ptr [ %59, %343 ], [ %58, %345 ]
+  %347 = getelementptr inbounds nuw i8, ptr %.sink89, i64 128
   store i64 %310, ptr %347, align 8
-  %.sink278.i = load ptr, ptr %.sink278.in.i, align 8
-  %348 = getelementptr inbounds nuw i8, ptr %.sink278.i, i64 152
+  %.sink310.i = load ptr, ptr %.sink310.in.i, align 8
+  %348 = getelementptr inbounds nuw i8, ptr %.sink310.i, i64 152
   store i16 %308, ptr %348, align 8
   br label %349
 

@@ -2808,10 +2808,10 @@ define internal noundef i32 @i8042_pnp_kbd_probe(ptr noundef %0, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ne i64 %12, 0
-  %or.cond.not13 = select i1 %10, i1 true, i1 %13
+  %or.cond.not20 = select i1 %10, i1 true, i1 %13
   %14 = icmp eq i64 %12, %9
-  %or.cond9 = select i1 %or.cond.not13, i1 %14, i1 false
-  br i1 %or.cond9, label %15, label %23
+  %or.cond16 = select i1 %or.cond.not20, i1 %14, i1 false
+  br i1 %or.cond16, label %15, label %23
 
 15:                                               ; preds = %8
   %16 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 0) #10
@@ -2844,10 +2844,10 @@ define internal noundef i32 @i8042_pnp_kbd_probe(ptr noundef %0, ptr noundef %1)
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp ne i64 %33, 0
-  %or.cond10.not15 = select i1 %31, i1 true, i1 %34
+  %or.cond17.not22 = select i1 %31, i1 true, i1 %34
   %35 = icmp eq i64 %33, %30
-  %or.cond11 = select i1 %or.cond10.not15, i1 %35, i1 false
-  br i1 %or.cond11, label %36, label %44
+  %or.cond18 = select i1 %or.cond17.not22, i1 %35, i1 false
+  br i1 %or.cond18, label %36, label %44
 
 36:                                               ; preds = %29
   %37 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 1) #10
@@ -2948,10 +2948,10 @@ define internal noundef i32 @i8042_pnp_aux_probe(ptr noundef %0, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ne i64 %12, 0
-  %or.cond.not13 = select i1 %10, i1 true, i1 %13
+  %or.cond.not20 = select i1 %10, i1 true, i1 %13
   %14 = icmp eq i64 %12, %9
-  %or.cond9 = select i1 %or.cond.not13, i1 %14, i1 false
-  br i1 %or.cond9, label %15, label %23
+  %or.cond16 = select i1 %or.cond.not20, i1 %14, i1 false
+  br i1 %or.cond16, label %15, label %23
 
 15:                                               ; preds = %8
   %16 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 0) #10
@@ -2984,10 +2984,10 @@ define internal noundef i32 @i8042_pnp_aux_probe(ptr noundef %0, ptr noundef %1)
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp ne i64 %33, 0
-  %or.cond10.not15 = select i1 %31, i1 true, i1 %34
+  %or.cond17.not22 = select i1 %31, i1 true, i1 %34
   %35 = icmp eq i64 %33, %30
-  %or.cond11 = select i1 %or.cond10.not15, i1 %35, i1 false
-  br i1 %or.cond11, label %36, label %44
+  %or.cond18 = select i1 %or.cond17.not22, i1 %35, i1 false
+  br i1 %or.cond18, label %36, label %44
 
 36:                                               ; preds = %29
   %37 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 1) #10

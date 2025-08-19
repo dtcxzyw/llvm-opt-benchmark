@@ -1912,7 +1912,7 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   br label %.lr.ph111.split.us.split.i
 
 .lr.ph111.split.us.split.us.i.preheader:          ; preds = %.lr.ph111.i.thread, %.lr.ph111.split.us.i
-  %.072137.i110114 = phi i32 [ %.072.i, %.lr.ph111.split.us.i ], [ %178, %.lr.ph111.i.thread ]
+  %.072153.i132136 = phi i32 [ %.072.i, %.lr.ph111.split.us.i ], [ %178, %.lr.ph111.i.thread ]
   %208 = phi i32 [ %206, %.lr.ph111.split.us.i ], [ 2, %.lr.ph111.i.thread ]
   br label %.lr.ph111.split.us.split.us.i
 
@@ -1931,7 +1931,7 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   br label %214
 
 213:                                              ; preds = %.lr.ph111.split.us.split.us.i
-  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %210, ptr noundef nonnull @.str.115, i32 noundef %.072137.i110114, ptr noundef nonnull %.0.i90.i, i32 noundef %208)
+  tail call void (ptr, ptr, ptr, ...) @fsck_put_object_name(ptr noundef nonnull %2, ptr noundef nonnull %210, ptr noundef nonnull @.str.115, i32 noundef %.072153.i132136, ptr noundef nonnull %.0.i90.i, i32 noundef %208)
   br label %214
 
 214:                                              ; preds = %213, %211
@@ -2839,9 +2839,9 @@ sub_2.i:                                          ; preds = %sub_1.i
 85:                                               ; preds = %83, %81
   %86 = and i16 %31, -4096
   %87 = icmp eq i16 %86, -24576
-  br i1 %87, label %.thread405.i, label %.thread414.i
+  br i1 %87, label %.thread416.i, label %.thread425.i
 
-.thread405.i:                                     ; preds = %85
+.thread416.i:                                     ; preds = %85
   %88 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %4, ptr noundef %0, i32 noundef 2, i32 noundef 57, ptr noundef nonnull @.str.146)
   %89 = add nsw i32 %88, %.2132.i
   br label %92
@@ -2851,8 +2851,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   %91 = icmp eq i16 %.pre.i, -24576
   br i1 %91, label %92, label %.thread
 
-92:                                               ; preds = %90, %.thread405.i
-  %.3133410.i = phi i32 [ %89, %.thread405.i ], [ %.2132.i, %90 ]
+92:                                               ; preds = %90, %.thread416.i
+  %.3133421.i = phi i32 [ %89, %.thread416.i ], [ %.2132.i, %90 ]
   %93 = call i32 @is_hfs_dotgitignore(ptr noundef nonnull %29) #16
   %.not145.i = icmp eq i32 %93, 0
   br i1 %.not145.i, label %94, label %96
@@ -2864,11 +2864,11 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 96:                                               ; preds = %94, %92
   %97 = call i32 (ptr, ptr, i32, i32, ptr, ...) @report(ptr noundef %4, ptr noundef %0, i32 noundef 2, i32 noundef 56, ptr noundef nonnull @.str.147)
-  %98 = add nsw i32 %97, %.3133410.i
+  %98 = add nsw i32 %97, %.3133421.i
   br label %99
 
 99:                                               ; preds = %96, %94
-  %.5.i = phi i32 [ %98, %96 ], [ %.3133410.i, %94 ]
+  %.5.i = phi i32 [ %98, %96 ], [ %.3133421.i, %94 ]
   %100 = call i32 @is_hfs_dotmailmap(ptr noundef nonnull %29) #16
   %.not147.i = icmp eq i32 %100, 0
   br i1 %.not147.i, label %101, label %103
@@ -2894,14 +2894,14 @@ sub_2.i:                                          ; preds = %sub_1.i
   %.not149.i33 = icmp eq ptr %108, null
   br i1 %.not149.i33, label %.loopexit.i, label %.preheader.split.i.preheader
 
-.thread414.i:                                     ; preds = %85
+.thread425.i:                                     ; preds = %85
   %109 = call i32 @oidset_insert(ptr noundef nonnull %25, ptr noundef nonnull %19) #16
   %110 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 92) #17
-  %.not149417.i = icmp eq ptr %110, null
-  br i1 %.not149417.i, label %.loopexit.i, label %.preheader.split.i.preheader
+  %.not149428.i = icmp eq ptr %110, null
+  br i1 %.not149428.i, label %.loopexit.i, label %.preheader.split.i.preheader
 
-.preheader.split.i.preheader:                     ; preds = %.thread, %.thread414.i
-  %.097.i.ph = phi ptr [ %110, %.thread414.i ], [ %108, %.thread ]
+.preheader.split.i.preheader:                     ; preds = %.thread, %.thread425.i
+  %.097.i.ph = phi ptr [ %110, %.thread425.i ], [ %108, %.thread ]
   br label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %106, %118
@@ -2945,9 +2945,9 @@ sub_2.i:                                          ; preds = %sub_1.i
   %.old1.not.i = icmp eq ptr %127, null
   br i1 %.old1.not.i, label %.loopexit.i, label %.preheader.split.i
 
-.loopexit.i:                                      ; preds = %126, %118, %.thread, %.thread414.i, %106
-  %.6.i = phi i32 [ %.4.i, %106 ], [ %.2132.i, %.thread414.i ], [ %.2132.i, %.thread ], [ %.8.us.i, %118 ], [ %.2132.i, %126 ]
-  %.2118.i = phi i32 [ %59, %106 ], [ %59, %.thread414.i ], [ %59, %.thread ], [ %113, %118 ], [ %122, %126 ]
+.loopexit.i:                                      ; preds = %126, %118, %.thread, %.thread425.i, %106
+  %.6.i = phi i32 [ %.4.i, %106 ], [ %.2132.i, %.thread425.i ], [ %.2132.i, %.thread ], [ %.8.us.i, %118 ], [ %.2132.i, %126 ]
+  %.2118.i = phi i32 [ %59, %106 ], [ %59, %.thread425.i ], [ %59, %.thread ], [ %113, %118 ], [ %122, %126 ]
   %128 = call i32 @update_tree_entry_gently(ptr noundef nonnull %12) #16
   %.not151.i = icmp eq i32 %128, 0
   br i1 %.not151.i, label %131, label %.thread.i
@@ -3026,8 +3026,8 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %162, label %163, label %name_stack_push.exit.i.i
 
 163:                                              ; preds = %160
-  %164 = mul i64 %.sroa.17.0311.i, 3
-  %165 = add i64 %164, 48
+  %164 = mul nuw nsw i64 %.sroa.17.0311.i, 3
+  %165 = add nuw nsw i64 %164, 48
   %166 = lshr i64 %165, 1
   %..i.i.i = call i64 @llvm.umax.i64(i64 %166, i64 %161)
   %mul.ov.i.i.i.i = icmp ugt i64 %..i.i.i, 2305843009213693951
@@ -3096,8 +3096,8 @@ name_stack_pop.exit.i.i:                          ; preds = %.preheader78.i.i, %
   br i1 %190, label %191, label %name_stack_push.exit63.i.i
 
 191:                                              ; preds = %189
-  %192 = mul i64 %.sroa.17.0311.i, 3
-  %193 = add i64 %192, 48
+  %192 = mul nuw nsw i64 %.sroa.17.0311.i, 3
+  %193 = add nuw nsw i64 %192, 48
   %194 = lshr i64 %193, 1
   %..i58.i.i = call i64 @llvm.umax.i64(i64 %194, i64 %175)
   %mul.ov.i.i59.i.i = icmp ugt i64 %..i58.i.i, 2305843009213693951

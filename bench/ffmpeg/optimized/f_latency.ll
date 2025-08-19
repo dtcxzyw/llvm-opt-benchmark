@@ -110,10 +110,10 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
 
 31:                                               ; preds = %24, %30
   %.sink = phi i64 [ 232, %30 ], [ 248, %24 ]
-  %.sink68 = phi i64 [ 240, %30 ], [ 256, %24 ]
+  %.sink71 = phi i64 [ 240, %30 ], [ 256, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink
   %33 = load i64, ptr %32, align 8, !tbaa !40
-  %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink68
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink71
   %35 = load i64, ptr %34, align 8, !tbaa !40
   %36 = sub nsw i64 %33, %35
   %37 = icmp sgt i64 %36, 0

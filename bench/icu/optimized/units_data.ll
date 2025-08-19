@@ -1159,8 +1159,8 @@ define void @_ZNK6icu_775units15UnitPreferences17getPreferencesForENS_11StringPi
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !13
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.sink.sroa.gep230 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %.sink.sroa.gep231 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %.sink.sroa.gep249 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %.sink.sroa.gep250 = getelementptr inbounds nuw i8, ptr %42, i64 8
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull @.str.3)
           to label %49 unwind label %103
 
@@ -2039,7 +2039,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187: ; preds = %382, %
           to label %.invoke unwind label %380
 
 .invoke:                                          ; preds = %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread ], [ %.sink.sroa.gep230, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread ], [ %.sink.sroa.gep231, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread ], [ %.sink.sroa.gep249, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread ], [ %.sink.sroa.gep250, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187 ]
   %.sink = phi ptr [ %39, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit156.thread ], [ %41, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread ], [ %42, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit159.thread187 ]
   %393 = load ptr, ptr %.sink, align 8
   %394 = load i32, ptr %.sink.sroa.phi, align 8
@@ -2299,7 +2299,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharStringa
 declare void @_Z39ulocimp_getRegionForSupplementalData_77PKcbR10UErrorCode(ptr dead_on_unwind writable sret(%"class.icu_77::CharString") align 8, ptr noundef, i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_775units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr noundef nonnull readonly captures(none) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef readonly byval(%"class.icu_77::StringPiece") align 8 captures(none) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1073741824) i32 @_ZN6icu_775units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr noundef nonnull readonly captures(none) %0, ptr %1, i32 %2, ptr %3, i32 %4, ptr noundef readonly byval(%"class.icu_77::StringPiece") align 8 captures(none) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
@@ -4139,7 +4139,7 @@ declare noundef double @_ZNK6icu_776number4impl15DecimalQuantity8toDoubleEv(ptr 
 declare void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, i32 %.0.val) unnamed_addr #12 {
+define internal fastcc noundef range(i32 -1, 1073741824) i32 @_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, i32 %.0.val) unnamed_addr #12 {
   %6 = icmp slt i32 %.0.val, 1
   br i1 %6, label %7, label %.loopexit
 

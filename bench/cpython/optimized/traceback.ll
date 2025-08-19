@@ -2372,13 +2372,13 @@ PyUnicode_READ.exit._crit_edge:                   ; preds = %276, %PyUnicode_REA
   br label %Py_DECREF.exit124
 
 Py_DECREF.exit124:                                ; preds = %_PyUnicode_DATA.exit, %294, %291, %289, %295, %PyUnicode_READ.exit._crit_edge
-  %.177.lcssa248 = phi i32 [ 0, %PyUnicode_READ.exit._crit_edge ], [ %.177.lcssa, %295 ], [ %.177.lcssa, %289 ], [ %.177.lcssa, %291 ], [ %.177.lcssa, %294 ], [ 0, %_PyUnicode_DATA.exit ]
+  %.177.lcssa297 = phi i32 [ 0, %PyUnicode_READ.exit._crit_edge ], [ %.177.lcssa, %295 ], [ %.177.lcssa, %289 ], [ %.177.lcssa, %291 ], [ %.177.lcssa, %294 ], [ 0, %_PyUnicode_DATA.exit ]
   %.2 = phi ptr [ %.1, %PyUnicode_READ.exit._crit_edge ], [ %.1, %295 ], [ %288, %289 ], [ %288, %291 ], [ %288, %294 ], [ %.1, %_PyUnicode_DATA.exit ]
   %.not119 = icmp eq ptr %4, null
   br i1 %.not119, label %298, label %296
 
 296:                                              ; preds = %Py_DECREF.exit124
-  %297 = sub i32 %.177.lcssa248, %3
+  %297 = sub i32 %.177.lcssa297, %3
   store i32 %297, ptr %4, align 4, !tbaa !55
   br label %298
 
@@ -2931,13 +2931,13 @@ define hidden void @_Py_DumpASCII(i32 noundef %0, ptr noundef %1) local_unnamed_
   %18 = and i16 %14, 16
   %.not59 = icmp eq i16 %18, 0
   %19 = icmp slt i64 %12, 501
-  br i1 %.not59, label %.thread89, label %.thread95
+  br i1 %.not59, label %.thread95, label %.thread101
 
-.thread95:                                        ; preds = %17
+.thread101:                                       ; preds = %17
   %20 = getelementptr i8, ptr %1, i64 40
   br i1 %19, label %.preheader, label %.lr.ph.preheader
 
-.thread89:                                        ; preds = %17
+.thread95:                                        ; preds = %17
   %21 = getelementptr i8, ptr %1, i64 56
   br i1 %19, label %.thread, label %.lr.ph81
 
@@ -2954,50 +2954,50 @@ define hidden void @_Py_DumpASCII(i32 noundef %0, ptr noundef %1) local_unnamed_
   %. = select i1 %28, i64 %12, i64 500
   br i1 %27, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %.thread95, %26
-  %.100 = phi i64 [ %., %26 ], [ %12, %.thread95 ]
-  %29 = phi i1 [ %28, %26 ], [ true, %.thread95 ]
-  %.05299 = phi ptr [ %24, %26 ], [ %20, %.thread95 ]
-  %.not6278 = icmp sgt i64 %.100, 0
+.preheader:                                       ; preds = %.thread101, %26
+  %.106 = phi i64 [ %., %26 ], [ %12, %.thread101 ]
+  %29 = phi i1 [ %28, %26 ], [ true, %.thread101 ]
+  %.052105 = phi ptr [ %24, %26 ], [ %20, %.thread101 ]
+  %.not6278 = icmp sgt i64 %.106, 0
   br i1 %.not6278, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.thread95, %.preheader
-  %.05299106 = phi ptr [ %.05299, %.preheader ], [ %20, %.thread95 ]
-  %30 = phi i1 [ %29, %.preheader ], [ false, %.thread95 ]
-  %.100105 = phi i64 [ %.100, %.preheader ], [ 500, %.thread95 ]
+.lr.ph.preheader:                                 ; preds = %.thread101, %.preheader
+  %.052105112 = phi ptr [ %.052105, %.preheader ], [ %20, %.thread101 ]
+  %30 = phi i1 [ %29, %.preheader ], [ false, %.thread101 ]
+  %.106111 = phi i64 [ %.106, %.preheader ], [ 500, %.thread101 ]
   br label %.lr.ph
 
 31:                                               ; preds = %.lr.ph
   %32 = add nuw nsw i64 %.05079, 1
-  %exitcond.not = icmp eq i64 %32, %.100105
+  %exitcond.not = icmp eq i64 %32, %.106111
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %.05079 = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader ]
-  %33 = getelementptr i8, ptr %.05299106, i64 %.05079
+  %33 = getelementptr i8, ptr %.052105112, i64 %.05079
   %34 = load i8, ptr %33, align 1, !tbaa !35
   %35 = add i8 %34, -32
   %or.cond = icmp ult i8 %35, 95
   br i1 %or.cond, label %31, label %.lr.ph81
 
 ._crit_edge:                                      ; preds = %31, %.preheader
-  %.05299107 = phi ptr [ %.05299, %.preheader ], [ %.05299106, %31 ]
+  %.052105113 = phi ptr [ %.052105, %.preheader ], [ %.052105112, %31 ]
   %36 = phi i1 [ %29, %.preheader ], [ %30, %31 ]
-  %.100104 = phi i64 [ %.100, %.preheader ], [ %.100105, %31 ]
-  %37 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef %.05299107, i64 noundef %.100104) #10
+  %.106110 = phi i64 [ %.106, %.preheader ], [ %.106111, %31 ]
+  %37 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef %.052105113, i64 noundef %.106110) #10
   br i1 %36, label %118, label %116
 
-.thread:                                          ; preds = %.thread89, %26
-  %.94 = phi i64 [ %., %26 ], [ %12, %.thread89 ]
-  %38 = phi i1 [ %28, %26 ], [ true, %.thread89 ]
-  %.05293 = phi ptr [ %24, %26 ], [ %21, %.thread89 ]
-  %39 = icmp sgt i64 %.94, 0
+.thread:                                          ; preds = %.thread95, %26
+  %.100 = phi i64 [ %., %26 ], [ %12, %.thread95 ]
+  %38 = phi i1 [ %28, %26 ], [ true, %.thread95 ]
+  %.05299 = phi ptr [ %24, %26 ], [ %21, %.thread95 ]
+  %39 = icmp sgt i64 %.100, 0
   br i1 %39, label %.lr.ph81, label %.loopexit
 
-.lr.ph81:                                         ; preds = %.lr.ph, %.thread89, %.thread
-  %.05293112 = phi ptr [ %.05293, %.thread ], [ %21, %.thread89 ], [ %.05299106, %.lr.ph ]
-  %40 = phi i1 [ %38, %.thread ], [ false, %.thread89 ], [ %30, %.lr.ph ]
-  %.94111 = phi i64 [ %.94, %.thread ], [ 500, %.thread89 ], [ %.100105, %.lr.ph ]
+.lr.ph81:                                         ; preds = %.lr.ph, %.thread95, %.thread
+  %.05299118 = phi ptr [ %.05299, %.thread ], [ %21, %.thread95 ], [ %.052105112, %.lr.ph ]
+  %40 = phi i1 [ %38, %.thread ], [ false, %.thread95 ], [ %30, %.lr.ph ]
+  %.100117 = phi i64 [ %.100, %.thread ], [ 500, %.thread95 ], [ %.106111, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = ptrtoint ptr %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3014,19 +3014,19 @@ define hidden void @_Py_DumpASCII(i32 noundef %0, ptr noundef %1) local_unnamed_
   ]
 
 48:                                               ; preds = %47
-  %49 = getelementptr i8, ptr %.05293112, i64 %.180
+  %49 = getelementptr i8, ptr %.05299118, i64 %.180
   %50 = load i8, ptr %49, align 1, !tbaa !35
   %51 = zext i8 %50 to i32
   br label %PyUnicode_READ.exit
 
 52:                                               ; preds = %47
-  %53 = getelementptr i16, ptr %.05293112, i64 %.180
+  %53 = getelementptr i16, ptr %.05299118, i64 %.180
   %54 = load i16, ptr %53, align 2, !tbaa !54
   %55 = zext i16 %54 to i32
   br label %PyUnicode_READ.exit
 
 56:                                               ; preds = %47
-  %57 = getelementptr i32, ptr %.05293112, i64 %.180
+  %57 = getelementptr i32, ptr %.05299118, i64 %.180
   %58 = load i32, ptr %57, align 4, !tbaa !55
   br label %PyUnicode_READ.exit
 
@@ -3139,7 +3139,7 @@ _Py_DumpHexadecimal.exit71:                       ; preds = %101
 
 113:                                              ; preds = %60, %_Py_DumpHexadecimal.exit68, %_Py_DumpHexadecimal.exit71, %_Py_DumpHexadecimal.exit
   %114 = add nuw nsw i64 %.180, 1
-  %exitcond87.not = icmp eq i64 %114, %.94111
+  %exitcond87.not = icmp eq i64 %114, %.100117
   br i1 %exitcond87.not, label %.loopexit, label %47, !llvm.loop !72
 
 .loopexit:                                        ; preds = %113, %.thread
@@ -3352,7 +3352,7 @@ define hidden noundef ptr @_Py_DumpTracebackThreads(i32 noundef %0, ptr noundef 
   %10 = load ptr, ptr %9, align 8, !tbaa !73
   %.fr.i = freeze ptr %10
   %magicptr = ptrtoint ptr %.fr.i to i64
-  switch i64 %magicptr, label %.thread56 [
+  switch i64 %magicptr, label %.thread62 [
     i64 -2459565876494606883, label %tstate_is_freed.exit.thread
     i64 -3617008641903833651, label %tstate_is_freed.exit.thread
     i64 0, label %tstate_is_freed.exit.thread
@@ -3363,7 +3363,7 @@ define hidden noundef ptr @_Py_DumpTracebackThreads(i32 noundef %0, ptr noundef 
   %12 = icmp eq ptr %1, null
   br i1 %12, label %14, label %20
 
-.thread56:                                        ; preds = %8
+.thread62:                                        ; preds = %8
   %13 = icmp eq ptr %1, null
   br i1 %13, label %17, label %20
 
@@ -3372,14 +3372,14 @@ define hidden noundef ptr @_Py_DumpTracebackThreads(i32 noundef %0, ptr noundef 
   %16 = icmp eq ptr %15, null
   br i1 %16, label %tstate_is_freed.exit.thread, label %20
 
-17:                                               ; preds = %.thread56
+17:                                               ; preds = %.thread62
   %18 = getelementptr inbounds nuw i8, ptr %.02943, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !73
   br label %20
 
-20:                                               ; preds = %.thread56, %17, %14, %11
-  %.0294460 = phi ptr [ null, %14 ], [ %.02943, %17 ], [ null, %11 ], [ %.02943, %.thread56 ]
-  %.030 = phi ptr [ %15, %14 ], [ %19, %17 ], [ %1, %11 ], [ %1, %.thread56 ]
+20:                                               ; preds = %.thread62, %17, %14, %11
+  %.0294466 = phi ptr [ null, %14 ], [ %.02943, %17 ], [ null, %11 ], [ %.02943, %.thread62 ]
+  %.030 = phi ptr [ %15, %14 ], [ %19, %17 ], [ %1, %11 ], [ %1, %.thread62 ]
   %magicptr53 = ptrtoint ptr %.030 to i64
   switch i64 %magicptr53, label %21 [
     i64 -2459565876494606883, label %tstate_is_freed.exit.thread
@@ -3415,7 +3415,7 @@ define hidden noundef ptr @_Py_DumpTracebackThreads(i32 noundef %0, ptr noundef 
   br label %tstate_is_freed.exit.thread
 
 .thread50:                                        ; preds = %28, %29
-  %.not52 = icmp eq ptr %.028, %.0294460
+  %.not52 = icmp eq ptr %.028, %.0294466
   br i1 %.not52, label %34, label %36
 
 34:                                               ; preds = %.thread50
@@ -3588,8 +3588,8 @@ define internal range(i32 -1, 1) i32 @tb_next_set(ptr noundef captures(address) 
 _Py_XNewRef.exit:                                 ; preds = %._crit_edge.thread, %._crit_edge, %29
   %31 = phi ptr [ %24, %._crit_edge.thread ], [ %26, %._crit_edge ], [ %26, %29 ]
   %32 = phi ptr [ %23, %._crit_edge.thread ], [ %25, %._crit_edge ], [ %25, %29 ]
-  %.0152731 = phi ptr [ null, %._crit_edge.thread ], [ %1, %._crit_edge ], [ %1, %29 ]
-  store ptr %.0152731, ptr %32, align 8, !tbaa !38
+  %.0153236 = phi ptr [ null, %._crit_edge.thread ], [ %1, %._crit_edge ], [ %1, %29 ]
+  store ptr %.0153236, ptr %32, align 8, !tbaa !38
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %Py_XDECREF.exit, label %33
 

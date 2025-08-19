@@ -369,7 +369,8 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %20
-  %indvars.iv65.i.i = phi i64 [ 1, %20 ], [ %indvars.iv.next66.i.i, %._crit_edge.us.i.i ]
+  %exitcond69.not.i.i = phi i1 [ false, %20 ], [ true, %._crit_edge.us.i.i ]
+  %indvars.iv65.i.i = phi i64 [ 1, %20 ], [ 2, %._crit_edge.us.i.i ]
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv65.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !18
   br label %28
@@ -386,8 +387,6 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br i1 %exitcond64.not.i.i, label %._crit_edge.us.i.i, label %28
 
 ._crit_edge.us.i.i:                               ; preds = %28
-  %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
-  %exitcond69.not.i.i = icmp eq i64 %indvars.iv.next66.i.i, 3
   br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i
 
 33:                                               ; preds = %1
@@ -791,7 +790,8 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %28
-  %indvars.iv65.i.i = phi i64 [ 1, %28 ], [ %indvars.iv.next66.i.i, %._crit_edge.us.i.i ]
+  %exitcond69.not.i.i = phi i1 [ false, %28 ], [ true, %._crit_edge.us.i.i ]
+  %indvars.iv65.i.i = phi i64 [ 1, %28 ], [ 2, %._crit_edge.us.i.i ]
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv65.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !18
   br label %36
@@ -808,8 +808,6 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond64.not.i.i, label %._crit_edge.us.i.i, label %36
 
 ._crit_edge.us.i.i:                               ; preds = %36
-  %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
-  %exitcond69.not.i.i = icmp eq i64 %indvars.iv.next66.i.i, 3
   br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i
 
 41:                                               ; preds = %20

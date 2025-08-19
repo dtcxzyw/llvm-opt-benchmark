@@ -1801,9 +1801,9 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread: ; preds = %9
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread25
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread32
 
-_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread25: ; preds = %15
+_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread32: ; preds = %15
   %19 = load i32, ptr %16, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %16, align 4
@@ -1820,9 +1820,9 @@ _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit: ; preds = %15
   %.not.i.i.i.i15 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i15, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.i, label %22
 
-22:                                               ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread25, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit
-  %.pr28 = phi ptr [ %13, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread25 ], [ %.pr.pre, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit ]
-  %23 = getelementptr inbounds nuw i8, ptr %.pr28, i64 8
+22:                                               ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread32, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit
+  %.pr35 = phi ptr [ %13, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit.thread32 ], [ %.pr.pre, %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2ERKS2_.exit ]
+  %23 = getelementptr inbounds nuw i8, ptr %.pr35, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %24, 0
   br i1 %.not.i.i.i.i.i, label %28, label %25
@@ -5097,7 +5097,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE7PutCharEc.exit116: ; preds = %200, %.noexc115
 247:                                              ; preds = %239
   store i8 0, ptr %232, align 1
   %248 = getelementptr inbounds nuw i8, ptr %232, i64 1
-  %249 = add i64 %240, -1
+  %249 = add nsw i64 %240, -1
   %250 = icmp eq i64 %249, 0
   br i1 %250, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i, label %251
 
@@ -6149,7 +6149,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE7PutCharEc.exit116: ; preds = %200, %.noexc115
 247:                                              ; preds = %239
   store i8 0, ptr %232, align 1
   %248 = getelementptr inbounds nuw i8, ptr %232, i64 1
-  %249 = add i64 %240, -1
+  %249 = add nsw i64 %240, -1
   %250 = icmp eq i64 %249, 0
   br i1 %250, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i, label %251
 
@@ -10694,7 +10694,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

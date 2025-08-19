@@ -400,9 +400,9 @@ _ZN4core3ops8function6FnOnce9call_once17h57f4e0648eb585fcE.llvm.2337583790011467
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %59
-  br i1 %.not, label %.thread, label %.thread93
+  br i1 %.not, label %.thread, label %.thread97
 
-.thread93:                                        ; preds = %61
+.thread97:                                        ; preds = %61
   %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.480.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false)
   %.sroa.783.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -450,7 +450,7 @@ _ZN4core3ops8function6FnOnce9call_once17h57f4e0648eb585fcE.llvm.2337583790011467
   store i8 2, ptr %.sroa.8.0..sroa_idx, align 1
   br i1 %.not, label %.critedge, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hfd229c4f33f0d44eE.exit"
 
-"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hfd229c4f33f0d44eE.exit": ; preds = %.thread93, %88, %81, %.thread, %65
+"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hfd229c4f33f0d44eE.exit": ; preds = %.thread97, %88, %81, %.thread, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   br label %41
@@ -1137,9 +1137,9 @@ define hidden void @"_ZN4heed8database27Database$LT$KC$C$DC$C$C$GT$11prefix_iter
   br label %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17he11fc9024a2a77f7E.exit"
 
 "_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17he11fc9024a2a77f7E.exit": ; preds = %27, %"_ZN5alloc5slice64_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$$u5b$T$u5d$$GT$8to_owned17h6ab6250561c6f03aE.exit.i"
-  %.sink51 = phi i64 [ %33, %"_ZN5alloc5slice64_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$$u5b$T$u5d$$GT$8to_owned17h6ab6250561c6f03aE.exit.i" ], [ %22, %27 ]
+  %.sink53 = phi i64 [ %33, %"_ZN5alloc5slice64_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$$u5b$T$u5d$$GT$8to_owned17h6ab6250561c6f03aE.exit.i" ], [ %22, %27 ]
   %.sink = phi ptr [ %37, %"_ZN5alloc5slice64_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$$u5b$T$u5d$$GT$8to_owned17h6ab6250561c6f03aE.exit.i" ], [ %25, %27 ]
-  store i64 %.sink51, ptr %9, align 8, !alias.scope !130
+  store i64 %.sink53, ptr %9, align 8, !alias.scope !130
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !130
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16

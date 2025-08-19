@@ -871,9 +871,9 @@ dissect_ice_facet.exit:                           ; preds = %45
 
 113:                                              ; preds = %106
   %114 = icmp eq i32 %.054.i, 0
-  br i1 %114, label %dissect_ice_context.exit.thread74, label %.preheader.i
+  br i1 %114, label %dissect_ice_context.exit.thread89, label %.preheader.i
 
-dissect_ice_context.exit.thread74:                ; preds = %113
+dissect_ice_context.exit.thread89:                ; preds = %113
   %115 = load i32, ptr @hf_icep_context, align 4
   %116 = add i32 %.0.i, -1
   %117 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %115, ptr noundef %0, i32 noundef %116, i32 noundef 1, ptr noundef nonnull @.str.154)
@@ -942,11 +942,11 @@ dissect_ice_context.exit:                         ; preds = %139
   %141 = icmp eq i32 %134, -1
   br i1 %141, label %dissect_ice_facet.exit.thread, label %142
 
-142:                                              ; preds = %dissect_ice_context.exit.thread74, %dissect_ice_context.exit
-  %.pr76 = phi i32 [ %.promoted, %dissect_ice_context.exit.thread74 ], [ %134, %dissect_ice_context.exit ]
-  %143 = add i32 %.pr76, %84
+142:                                              ; preds = %dissect_ice_context.exit.thread89, %dissect_ice_context.exit
+  %.pr91 = phi i32 [ %.promoted, %dissect_ice_context.exit.thread89 ], [ %134, %dissect_ice_context.exit ]
+  %143 = add i32 %.pr91, %84
   %144 = load i32, ptr %5, align 4
-  %145 = add i32 %144, %.pr76
+  %145 = add i32 %144, %.pr91
   store i32 %145, ptr %5, align 4
   %146 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %143, i32 noundef 6)
   br i1 %146, label %151, label %147
@@ -987,8 +987,8 @@ dissect_ice_context.exit:                         ; preds = %139
 
 168:                                              ; preds = %159, %158
   %169 = phi i32 [ 5, %159 ], [ 0, %158 ]
-  %.sink54.i = phi i32 [ 1, %159 ], [ 6, %158 ]
-  %170 = add nuw nsw i32 %169, %.sink54.i
+  %.sink58.i = phi i32 [ 1, %159 ], [ 6, %158 ]
+  %170 = add nuw nsw i32 %169, %.sink58.i
   %.0.i67 = add i32 %143, 6
   %171 = icmp eq i32 %152, 6
   br i1 %171, label %dissect_ice_params.exit.thread, label %172

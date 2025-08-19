@@ -933,7 +933,7 @@ define hidden void @png_push_read_IDAT(ptr noalias noundef %0) local_unnamed_add
 
 12:                                               ; preds = %8
   tail call void @png_push_save_buffer(ptr noundef nonnull %0)
-  br label %.thread97
+  br label %.thread103
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -1017,7 +1017,7 @@ png_push_fill_buffer.exit:                        ; preds = %16, %.thread, %27
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 8
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.thread97
+  br i1 %60, label %61, label %.thread103
 
 61:                                               ; preds = %55
   call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #10
@@ -1039,7 +1039,7 @@ png_push_fill_buffer.exit:                        ; preds = %16, %.thread, %27
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %70 = load i64, ptr %69, align 8
   %.not76 = icmp eq i64 %70, 0
-  br i1 %.not76, label %.thread93, label %71
+  br i1 %.not76, label %.thread99, label %71
 
 71:                                               ; preds = %68
   %72 = zext i32 %66 to i64
@@ -1064,17 +1064,17 @@ png_push_fill_buffer.exit:                        ; preds = %16, %.thread, %27
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.068
   store ptr %84, ptr %73, align 8
   %.not77 = icmp eq i32 %77, 0
-  br i1 %.not77, label %.thread88, label %.thread93
+  br i1 %.not77, label %.thread88, label %.thread99
 
-.thread93:                                        ; preds = %68, %71
-  %.pr96 = phi i32 [ %77, %71 ], [ %66, %68 ]
+.thread99:                                        ; preds = %68, %71
+  %.pr102 = phi i32 [ %77, %71 ], [ %66, %68 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %86 = load i64, ptr %85, align 8
   %.not78 = icmp eq i64 %86, 0
-  br i1 %.not78, label %.thread97, label %87
+  br i1 %.not78, label %.thread103, label %87
 
-87:                                               ; preds = %.thread93
-  %88 = zext i32 %.pr96 to i64
+87:                                               ; preds = %.thread99
+  %88 = zext i32 %.pr102 to i64
   %.066 = call i64 @llvm.umin.i64(i64 %86, i64 %88)
   %.0 = trunc nuw i64 %.066 to i32
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 712
@@ -1096,7 +1096,7 @@ png_push_fill_buffer.exit:                        ; preds = %16, %.thread, %27
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.066
   store ptr %100, ptr %89, align 8
   %101 = icmp eq i32 %92, %.0
-  br i1 %101, label %.thread88, label %.thread97
+  br i1 %101, label %.thread88, label %.thread103
 
 .thread88:                                        ; preds = %65, %71, %87
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -1106,7 +1106,7 @@ png_push_fill_buffer.exit:                        ; preds = %16, %.thread, %27
 
 105:                                              ; preds = %.thread88
   call void @png_push_save_buffer(ptr noundef nonnull %0)
-  br label %.thread97
+  br label %.thread103
 
 106:                                              ; preds = %.thread88
   %107 = call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef 0) #11
@@ -1116,9 +1116,9 @@ png_push_fill_buffer.exit:                        ; preds = %16, %.thread, %27
   store i32 %110, ptr %4, align 4
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %111, align 8
-  br label %.thread97
+  br label %.thread103
 
-.thread97:                                        ; preds = %.thread93, %55, %106, %105, %87, %12
+.thread103:                                       ; preds = %.thread99, %55, %106, %105, %87, %12
   ret void
 }
 

@@ -220,7 +220,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   store ptr %44, ptr %31, align 8, !alias.scope !26, !noalias !16
   %.sroa.0.0.copyload4.i.i = load i64, ptr %43, align 8, !noalias !27
   %45 = icmp eq i64 %.sroa.0.0.copyload4.i.i, 12
-  br i1 %45, label %.thread47.loopexit.split.loop.exit89, label %46
+  br i1 %45, label %.thread47.loopexit.split.loop.exit93, label %46
 
 46:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
   %.sroa.8.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -439,7 +439,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_cache_info..cache_info..CacheKey$GT$$GT$17h9f78544cc256ab48E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #22
           to label %17 unwind label %118
 
-.thread47.loopexit.split.loop.exit89:             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
+.thread47.loopexit.split.loop.exit93:             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
   %81 = getelementptr inbounds nuw i8, ptr %43, i64 176
   br label %.loopexit55
 
@@ -527,8 +527,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.pre = load ptr, ptr %31, align 8, !alias.scope !57
   br label %.loopexit55
 
-.loopexit55:                                      ; preds = %94, %26, %.thread47.loopexit.split.loop.exit89, %.loopexit55.loopexit
-  %101 = phi ptr [ %.pre, %.loopexit55.loopexit ], [ %33, %26 ], [ %81, %.thread47.loopexit.split.loop.exit89 ], [ %99, %94 ]
+.loopexit55:                                      ; preds = %94, %26, %.thread47.loopexit.split.loop.exit93, %.loopexit55.loopexit
+  %101 = phi ptr [ %.pre, %.loopexit55.loopexit ], [ %33, %26 ], [ %81, %.thread47.loopexit.split.loop.exit93 ], [ %99, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
@@ -3006,7 +3006,7 @@ define hidden void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$ser
   store ptr %14, ptr %8, align 8, !alias.scope !384, !noalias !374
   %.sroa.0.0.copyload3.i.i = load i64, ptr %13, align 8, !noalias !385
   %15 = icmp eq i64 %.sroa.0.0.copyload3.i.i, 12
-  br i1 %15, label %.critedge.loopexit.split.loop.exit16, label %16
+  br i1 %15, label %.critedge.loopexit.split.loop.exit19, label %16
 
 16:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -3081,12 +3081,12 @@ common.resume:                                    ; preds = %23, %36, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !401
   br label %41
 
-.critedge.loopexit.split.loop.exit16:             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
+.critedge.loopexit.split.loop.exit19:             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1351952ecd13415E.llvm.16323404258194492820.exit.i.i"
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 176
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit16, %2
-  %34 = phi ptr [ %10, %2 ], [ %33, %.critedge.loopexit.split.loop.exit16 ], [ %21, %19 ]
+.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit19, %2
+  %34 = phi ptr [ %10, %2 ], [ %33, %.critedge.loopexit.split.loop.exit19 ], [ %21, %19 ]
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !402
   store ptr %1, ptr %3, align 8, !noalias !402

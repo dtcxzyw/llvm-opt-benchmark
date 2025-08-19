@@ -384,19 +384,19 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
   %25 = phi i64 [ %20, %22 ], [ %.sink, %.sink.split ]
   %26 = load i64, ptr %3, align 8, !tbaa !27
   %27 = icmp slt i64 %26, 1
-  br i1 %27, label %.sink.split20, label %28
+  br i1 %27, label %.sink.split25, label %28
 
 28:                                               ; preds = %24
   %29 = icmp samesign ugt i64 %26, 1000
-  br i1 %29, label %.sink.split20, label %30
+  br i1 %29, label %.sink.split25, label %30
 
-.sink.split20:                                    ; preds = %28, %24
-  %.sink22 = phi i64 [ 1, %24 ], [ 1000, %28 ]
-  store i64 %.sink22, ptr %3, align 8, !tbaa !27
+.sink.split25:                                    ; preds = %28, %24
+  %.sink27 = phi i64 [ 1, %24 ], [ 1000, %28 ]
+  store i64 %.sink27, ptr %3, align 8, !tbaa !27
   br label %30
 
-30:                                               ; preds = %.sink.split20, %28
-  %31 = phi i64 [ %26, %28 ], [ %.sink22, %.sink.split20 ]
+30:                                               ; preds = %.sink.split25, %28
+  %31 = phi i64 [ %26, %28 ], [ %.sink27, %.sink.split25 ]
   %32 = trunc nuw nsw i64 %25 to i32
   %33 = trunc nuw nsw i64 %31 to i32
   %34 = call ptr @lwCreateCanvas(i32 noundef %32, i32 noundef %33, i32 noundef 3) #4

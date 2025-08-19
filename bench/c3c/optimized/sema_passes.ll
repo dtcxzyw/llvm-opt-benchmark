@@ -993,7 +993,7 @@ vec_resize.exit:                                  ; preds = %46, %49
   %160 = getelementptr inbounds i8, ptr %158, i64 -8
   %161 = load i32, ptr %160, align 4
   %.not168 = icmp eq i32 %161, 0
-  br i1 %.not168, label %.loopexit218, label %.lr.ph160.preheader
+  br i1 %.not168, label %.loopexit234, label %.lr.ph160.preheader
 
 .lr.ph160.preheader:                              ; preds = %159
   %wide.trip.count201 = zext i32 %161 to i64
@@ -1006,14 +1006,14 @@ vec_resize.exit:                                  ; preds = %46, %49
   call void @unit_register_global_decl(ptr noundef nonnull %10, ptr noundef %163) #11
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
-  br i1 %exitcond202.not, label %.loopexit218, label %.lr.ph160, !llvm.loop !20
+  br i1 %exitcond202.not, label %.loopexit234, label %.lr.ph160, !llvm.loop !20
 
-.loopexit218:                                     ; preds = %.lr.ph160, %159
+.loopexit234:                                     ; preds = %.lr.ph160, %159
   %164 = getelementptr inbounds i8, ptr %158, i64 -8
   store i32 0, ptr %164, align 4
   br label %vec_resize.exit132
 
-vec_resize.exit132:                               ; preds = %.loopexit142, %.loopexit218
+vec_resize.exit132:                               ; preds = %.loopexit142, %.loopexit234
   call void @sema_process_includes(ptr noundef nonnull %10)
   br label %vec_resize.exit129
 
@@ -2461,9 +2461,9 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr noundef readonly c
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %28 = load ptr, ptr %27, align 8
   %.not89 = icmp eq ptr %28, null
-  br i1 %.not89, label %.thread131, label %29
+  br i1 %.not89, label %.thread135, label %29
 
-.thread131:                                       ; preds = %._crit_edge
+.thread135:                                       ; preds = %._crit_edge
   call void @sema_context_destroy(ptr noundef nonnull %3) #11
   br i1 %26, label %36, label %134
 
@@ -2493,7 +2493,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr noundef readonly c
   call void @sema_context_destroy(ptr noundef nonnull %3) #11
   br i1 %.083.in.lcssa, label %36, label %134
 
-36:                                               ; preds = %.thread131, %._crit_edge104
+36:                                               ; preds = %.thread135, %._crit_edge104
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %38 = load i16, ptr %37, align 8
   %39 = and i16 %38, 255
@@ -2712,8 +2712,8 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr noundef readonly c
   %133 = call ptr @parse_include_file(ptr noundef %.077, ptr noundef %0) #11
   br label %134
 
-134:                                              ; preds = %.thread131, %._crit_edge104, %132, %129, %121, %105, %95, %84, %.critedge, %21, %6
-  %.081 = phi ptr [ null, %6 ], [ null, %21 ], [ null, %84 ], [ null, %95 ], [ null, %129 ], [ %133, %132 ], [ null, %121 ], [ null, %105 ], [ null, %.critedge ], [ null, %._crit_edge104 ], [ null, %.thread131 ]
+134:                                              ; preds = %.thread135, %._crit_edge104, %132, %129, %121, %105, %95, %84, %.critedge, %21, %6
+  %.081 = phi ptr [ null, %6 ], [ null, %21 ], [ null, %84 ], [ null, %95 ], [ null, %129 ], [ %133, %132 ], [ null, %121 ], [ null, %105 ], [ null, %.critedge ], [ null, %._crit_edge104 ], [ null, %.thread135 ]
   ret ptr %.081
 }
 

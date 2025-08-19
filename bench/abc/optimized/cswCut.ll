@@ -1051,8 +1051,8 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %51
   %87 = load i8, ptr %86, align 1, !tbaa !24
   %88 = icmp sgt i8 %87, 0
   %89 = icmp sgt i32 %85, 0
-  %or.cond214 = and i1 %88, %89
-  br i1 %or.cond214, label %.lr.ph, label %.loopexit164
+  %or.cond235 = and i1 %88, %89
+  br i1 %or.cond235, label %.lr.ph, label %.loopexit164
 
 .lr.ph:                                           ; preds = %84
   %.val108 = load ptr, ptr %23, align 8, !tbaa !29

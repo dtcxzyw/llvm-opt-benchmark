@@ -90,7 +90,7 @@ define dso_local void @__static_call_update(ptr noundef captures(address) %0, pt
   tail call void @arch_static_call_transform(ptr noundef null, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false) #13
   %8 = load i32, ptr @static_call_initialized, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %.preheader9, !prof !6
+  br i1 %9, label %10, label %.preheader15, !prof !6
 
 10:                                               ; preds = %7
   tail call void asm sideeffect "315: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 315b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 315) #13, !srcloc !10
@@ -98,7 +98,7 @@ define dso_local void @__static_call_update(ptr noundef captures(address) %0, pt
   tail call void asm sideeffect "316: nop\0A\09.pushsection .discard.instr_end\0A\09.long 316b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 316) #13, !srcloc !12
   br label %.loopexit6
 
-.preheader9:                                      ; preds = %7
+.preheader15:                                     ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 1
@@ -118,10 +118,10 @@ thread-pre-split:                                 ; preds = %.loopexit
   %.pr5 = load ptr, ptr %19, align 8
   br label %20
 
-20:                                               ; preds = %.preheader9, %thread-pre-split
-  %21 = phi ptr [ %.pr5, %thread-pre-split ], [ null, %.preheader9 ]
-  %22 = phi ptr [ %.pr, %thread-pre-split ], [ %.ph, %.preheader9 ]
-  %23 = phi ptr [ %111, %thread-pre-split ], [ %4, %.preheader9 ]
+20:                                               ; preds = %.preheader15, %thread-pre-split
+  %21 = phi ptr [ %.pr5, %thread-pre-split ], [ null, %.preheader15 ]
+  %22 = phi ptr [ %.pr, %thread-pre-split ], [ %.ph, %.preheader15 ]
+  %23 = phi ptr [ %111, %thread-pre-split ], [ %4, %.preheader15 ]
   %24 = icmp eq ptr %22, null
   br i1 %24, label %.loopexit, label %25
 

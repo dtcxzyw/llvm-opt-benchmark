@@ -350,8 +350,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.thread:  ; preds = %_ZN4llvmeqENS_9Stri
   store i64 -9223372002495037440, ptr %14, align 4, !tbaa !12
   store i64 0, ptr %.sroa.488.0..sroa_idx, align 4, !tbaa !12
   store i32 6, ptr %0, align 4, !tbaa !24
-  %.not39127 = icmp eq i64 %.033, -1
-  br i1 %.not39127, label %.thread, label %22
+  %.not39128 = icmp eq i64 %.033, -1
+  br i1 %.not39128, label %.thread, label %22
 
 22:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %.not = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.thread ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ]

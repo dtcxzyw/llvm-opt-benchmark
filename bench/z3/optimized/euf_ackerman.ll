@@ -276,8 +276,8 @@ _ZNK14core_hashtableI18default_hash_entryIPN3euf8ackerman9inferenceEENS2_14infer
   %35 = icmp ugt i32 %23, 16
   %36 = mul i32 %23, 3
   %37 = icmp ugt i32 %34, %36
-  %or.cond16.i = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond16.i, label %38, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond18.i, label %38, label %._crit_edge.thread.i
 
 38:                                               ; preds = %._crit_edge.i
   %39 = icmp eq ptr %22, null

@@ -586,13 +586,13 @@ define internal i32 @do_morpho(ptr noundef %0) #0 {
   %.pre.i219305.i.ph = phi ptr [ %.pre.i219306.ph.i, %.thread ], [ %.pre.i219301.i, %.lr.ph.i159 ]
   %.ph = phi i32 [ %.ph.i, %.thread ], [ %132, %.lr.ph.i159 ]
   %.pre.i.i.ph = phi ptr [ %.pre.i294.ph.i, %.thread ], [ %.pre.i289.i, %.lr.ph.i159 ]
-  %.ph237 = phi i32 [ %.ph343.i, %.thread ], [ %133, %.lr.ph.i159 ]
+  %.ph237 = phi i32 [ %.ph365.i, %.thread ], [ %133, %.lr.ph.i159 ]
   %.ph238 = phi i32 [ %236, %.thread ], [ %134, %.lr.ph.i159 ]
   %.ph239 = phi i32 [ %235, %.thread ], [ %135, %.lr.ph.i159 ]
-  %.ph240 = phi i32 [ %.sink418, %.thread ], [ %136, %.lr.ph.i159 ]
-  %.ph241 = phi i32 [ %.ph347.i, %.thread ], [ %137, %.lr.ph.i159 ]
+  %.ph240 = phi i32 [ %.sink452, %.thread ], [ %136, %.lr.ph.i159 ]
+  %.ph241 = phi i32 [ %.ph369.i, %.thread ], [ %137, %.lr.ph.i159 ]
   %.pre.i211.i.ph = phi ptr [ %.pre.i211284.ph.i, %.thread ], [ %.pre.i211280.i, %.lr.ph.i159 ]
-  %.ph242 = phi i32 [ %.ph348.i, %.thread ], [ %138, %.lr.ph.i159 ]
+  %.ph242 = phi i32 [ %.ph370.i, %.thread ], [ %138, %.lr.ph.i159 ]
   %indvars.iv.i160.ph = phi i64 [ %indvars.iv.next.i161201, %.thread ], [ 0, %.lr.ph.i159 ]
   %144 = load i32, ptr %97, align 8, !tbaa !77
   %145 = icmp eq i32 %144, 1
@@ -769,19 +769,19 @@ insert_chord_set.exit216.i:                       ; preds = %216, %207
   br i1 %234, label %.outer.split, label %._crit_edge.i, !llvm.loop !92
 
 .thread:                                          ; preds = %insert_chord_set.exit.i, %insert_chord_set.exit216.i
-  %.sink418 = phi i32 [ %203, %insert_chord_set.exit.i ], [ %232, %insert_chord_set.exit216.i ]
-  %.sink417 = phi i32 [ %193, %insert_chord_set.exit.i ], [ %222, %insert_chord_set.exit216.i ]
+  %.sink452 = phi i32 [ %203, %insert_chord_set.exit.i ], [ %232, %insert_chord_set.exit216.i ]
+  %.sink451 = phi i32 [ %193, %insert_chord_set.exit.i ], [ %222, %insert_chord_set.exit216.i ]
   %.sink = phi i32 [ %192, %insert_chord_set.exit.i ], [ %221, %insert_chord_set.exit216.i ]
   %indvars.iv.i160256 = phi i64 [ %indvars.iv.i160.us, %insert_chord_set.exit.i ], [ %indvars.iv.i160, %insert_chord_set.exit216.i ]
   %.pre.i219306.ph.i = phi ptr [ %.pre.i219304.i, %insert_chord_set.exit.i ], [ %.pre.i219307.i, %insert_chord_set.exit216.i ]
   %.ph.i = phi i32 [ %191, %insert_chord_set.exit.i ], [ %219, %insert_chord_set.exit216.i ]
   %.pre.i294.ph.i = phi ptr [ %.pre.i292.i, %insert_chord_set.exit.i ], [ %.pre.i295.i, %insert_chord_set.exit216.i ]
-  %.ph343.i = phi i32 [ %196, %insert_chord_set.exit.i ], [ %220, %insert_chord_set.exit216.i ]
-  %.ph347.i = phi i32 [ %.sroa.0.0.extract.trunc..i.i, %insert_chord_set.exit.i ], [ %.sroa.0.0.extract.trunc..i212.i, %insert_chord_set.exit216.i ]
+  %.ph365.i = phi i32 [ %196, %insert_chord_set.exit.i ], [ %220, %insert_chord_set.exit216.i ]
+  %.ph369.i = phi i32 [ %.sroa.0.0.extract.trunc..i.i, %insert_chord_set.exit.i ], [ %.sroa.0.0.extract.trunc..i212.i, %insert_chord_set.exit216.i ]
   %.pre.i211284.ph.i = phi ptr [ %.pre.i292.i, %insert_chord_set.exit.i ], [ %.pre.i211285.i, %insert_chord_set.exit216.i ]
-  %.ph348.i = phi i32 [ %196, %insert_chord_set.exit.i ], [ %225, %insert_chord_set.exit216.i ]
-  store i32 %.sink418, ptr %122, align 8, !tbaa !88
-  %235 = call i32 @llvm.smin.i32(i32 %.sink417, i32 %142)
+  %.ph370.i = phi i32 [ %196, %insert_chord_set.exit.i ], [ %225, %insert_chord_set.exit216.i ]
+  store i32 %.sink452, ptr %122, align 8, !tbaa !88
+  %235 = call i32 @llvm.smin.i32(i32 %.sink451, i32 %142)
   store i32 %235, ptr %123, align 4, !tbaa !89
   %236 = call i32 @llvm.smax.i32(i32 %.sink, i32 %142)
   store i32 %236, ptr %124, align 8, !tbaa !90
@@ -855,13 +855,13 @@ insert_chord_set.exit224.i:                       ; preds = %250, %240
   %.pre.i219302.i = phi ptr [ %.pre.i219305.i.ph, %._crit_edge.i ], [ %.pre.i219300.i, %insert_chord_set.exit224.i ], [ %.pre.i219301.i, %.preheader231.i ], [ %.pre.i219306.ph.i, %.thread ]
   %267 = phi i32 [ %.ph, %._crit_edge.i ], [ %257, %insert_chord_set.exit224.i ], [ %132, %.preheader231.i ], [ %.ph.i, %.thread ]
   %.pre.i290.i = phi ptr [ %.pre.i.i.ph, %._crit_edge.i ], [ %.pre.i219300.i, %insert_chord_set.exit224.i ], [ %.pre.i289.i, %.preheader231.i ], [ %.pre.i294.ph.i, %.thread ]
-  %268 = phi i32 [ %.ph237, %._crit_edge.i ], [ %257, %insert_chord_set.exit224.i ], [ %133, %.preheader231.i ], [ %.ph343.i, %.thread ]
+  %268 = phi i32 [ %.ph237, %._crit_edge.i ], [ %257, %insert_chord_set.exit224.i ], [ %133, %.preheader231.i ], [ %.ph365.i, %.thread ]
   %269 = phi i32 [ %.ph238, %._crit_edge.i ], [ %266, %insert_chord_set.exit224.i ], [ %134, %.preheader231.i ], [ %236, %.thread ]
   %270 = phi i32 [ %.ph239, %._crit_edge.i ], [ %265, %insert_chord_set.exit224.i ], [ %135, %.preheader231.i ], [ %235, %.thread ]
-  %271 = phi i32 [ %.ph240, %._crit_edge.i ], [ %264, %insert_chord_set.exit224.i ], [ %136, %.preheader231.i ], [ %.sink418, %.thread ]
-  %272 = phi i32 [ %.ph241, %._crit_edge.i ], [ %.sroa.0.0.extract.trunc..i220.i, %insert_chord_set.exit224.i ], [ %137, %.preheader231.i ], [ %.ph347.i, %.thread ]
+  %271 = phi i32 [ %.ph240, %._crit_edge.i ], [ %264, %insert_chord_set.exit224.i ], [ %136, %.preheader231.i ], [ %.sink452, %.thread ]
+  %272 = phi i32 [ %.ph241, %._crit_edge.i ], [ %.sroa.0.0.extract.trunc..i220.i, %insert_chord_set.exit224.i ], [ %137, %.preheader231.i ], [ %.ph369.i, %.thread ]
   %.pre.i211281.i = phi ptr [ %.pre.i211.i.ph, %._crit_edge.i ], [ %.pre.i219300.i, %insert_chord_set.exit224.i ], [ %.pre.i211280.i, %.preheader231.i ], [ %.pre.i211284.ph.i, %.thread ]
-  %273 = phi i32 [ %.ph242, %._crit_edge.i ], [ %257, %insert_chord_set.exit224.i ], [ %138, %.preheader231.i ], [ %.ph348.i, %.thread ]
+  %273 = phi i32 [ %.ph242, %._crit_edge.i ], [ %257, %insert_chord_set.exit224.i ], [ %138, %.preheader231.i ], [ %.ph370.i, %.thread ]
   %indvars.iv.next269.i = add nuw nsw i64 %indvars.iv268.i, 1
   %274 = load i32, ptr %94, align 4, !tbaa !74
   %275 = sext i32 %274 to i64
@@ -885,7 +885,7 @@ insert_chord_set.exit224.i:                       ; preds = %250, %240
   br i1 %282, label %.lr.ph259.preheader.i, label %.critedge206.preheader.thread.i
 
 .critedge206.preheader.thread.i:                  ; preds = %280
-  %.pre318327.i = load ptr, ptr %82, align 8, !tbaa !86
+  %.pre318349.i = load ptr, ptr %82, align 8, !tbaa !86
   %.pre357 = sext i32 %281 to i64
   br label %.loopexit245
 
@@ -1037,8 +1037,8 @@ insert_chord_set.exit224.i:                       ; preds = %250, %240
 
 .loopexit245:                                     ; preds = %.critedge206.i, %.critedge206.preheader.i, %.critedge206.preheader.thread.i
   %.pre-phi = phi i64 [ %334, %.critedge206.preheader.i ], [ %.pre357, %.critedge206.preheader.thread.i ], [ %334, %.critedge206.i ]
-  %.pre318328.i = phi ptr [ %.pre318.i, %.critedge206.preheader.i ], [ %.pre318327.i, %.critedge206.preheader.thread.i ], [ %.pre318.i, %.critedge206.i ]
-  call void @qsort(ptr noundef %.pre318328.i, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull @comp_chord) #14
+  %.pre318350.i = phi ptr [ %.pre318.i, %.critedge206.preheader.i ], [ %.pre318349.i, %.critedge206.preheader.thread.i ], [ %.pre318.i, %.critedge206.i ]
+  call void @qsort(ptr noundef %.pre318350.i, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull @comp_chord) #14
   store i32 1, ptr %77, align 4, !tbaa !54
   br label %345
 

@@ -93,8 +93,8 @@ define internal i32 @vp9_superframe_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 36:                                               ; preds = %22, %30, %12
   %.058 = phi i1 [ false, %12 ], [ false, %22 ], [ %35, %30 ]
-  %or.cond.i.i138 = icmp ugt i32 %9, 268435391
-  br i1 %or.cond.i.i138, label %.thread98, label %37
+  %or.cond.i.i147 = icmp ugt i32 %9, 268435391
+  br i1 %or.cond.i.i147, label %.thread98, label %37
 
 37:                                               ; preds = %36
   %38 = load i8, ptr %14, align 1, !tbaa !27
@@ -110,7 +110,7 @@ define internal i32 @vp9_superframe_filter(ptr noundef %0, ptr noundef %1) #0 {
   %47 = lshr exact i32 128, %.sroa.11.0
   %48 = and i32 %47, %46
   %.not69 = icmp eq i32 %48, 0
-  br i1 %.not69, label %49, label %.thread119
+  br i1 %.not69, label %49, label %.thread128
 
 49:                                               ; preds = %37
   %50 = load i8, ptr %14, align 1, !tbaa !27
@@ -120,15 +120,15 @@ define internal i32 @vp9_superframe_filter(ptr noundef %0, ptr noundef %1) #0 {
   %54 = icmp ne i32 %53, 0
   br i1 %.058, label %55, label %58
 
-.thread119:                                       ; preds = %37
-  br i1 %.058, label %55, label %.thread125
+.thread128:                                       ; preds = %37
+  br i1 %.058, label %55, label %.thread134
 
-.thread125:                                       ; preds = %.thread119
-  %.pre127 = load i32, ptr %4, align 8, !tbaa !24
+.thread134:                                       ; preds = %.thread128
+  %.pre136 = load i32, ptr %4, align 8, !tbaa !24
   br label %.thread
 
-55:                                               ; preds = %.thread119, %49
-  %.056124 = phi i1 [ true, %.thread119 ], [ %54, %49 ]
+55:                                               ; preds = %.thread128, %49
+  %.056133 = phi i1 [ true, %.thread128 ], [ %54, %49 ]
   %56 = load i32, ptr %4, align 8, !tbaa !24
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.thread98.sink.split, label %.thread
@@ -137,14 +137,14 @@ define internal i32 @vp9_superframe_filter(ptr noundef %0, ptr noundef %1) #0 {
   %.pre = load i32, ptr %4, align 8, !tbaa !24
   br i1 %54, label %.thread, label %60
 
-.thread:                                          ; preds = %58, %.thread125, %55
-  %.056122 = phi i1 [ %.056124, %55 ], [ true, %.thread125 ], [ true, %58 ]
-  %59 = phi i32 [ %56, %55 ], [ %.pre127, %.thread125 ], [ %.pre, %58 ]
+.thread:                                          ; preds = %58, %.thread134, %55
+  %.056131 = phi i1 [ %.056133, %55 ], [ true, %.thread134 ], [ true, %58 ]
+  %59 = phi i32 [ %56, %55 ], [ %.pre136, %.thread134 ], [ %.pre, %58 ]
   %.not71 = icmp eq i32 %59, 0
   br i1 %.not71, label %180, label %60
 
 60:                                               ; preds = %58, %.thread
-  %.056121 = phi i1 [ false, %58 ], [ %.056122, %.thread ]
+  %.056130 = phi i1 [ false, %58 ], [ %.056131, %.thread ]
   %61 = phi i32 [ %.pre, %58 ], [ %59, %.thread ]
   %62 = icmp sgt i32 %61, 6
   br i1 %62, label %.thread98.sink.split, label %63
@@ -157,7 +157,7 @@ define internal i32 @vp9_superframe_filter(ptr noundef %0, ptr noundef %1) #0 {
   %67 = getelementptr inbounds [8 x ptr], ptr %65, i64 0, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !16
   tail call void @av_packet_move_ref(ptr noundef %68, ptr noundef nonnull %1) #5
-  br i1 %.056121, label %69, label %180
+  br i1 %.056130, label %69, label %180
 
 69:                                               ; preds = %63
   %70 = load i32, ptr %4, align 8, !tbaa !24

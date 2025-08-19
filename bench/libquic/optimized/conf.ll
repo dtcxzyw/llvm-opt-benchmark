@@ -310,7 +310,7 @@ define internal fastcc range(i32 0, 2) i32 @def_load_bio(ptr noundef readonly ca
 22:                                               ; preds = %.lr.ph305, %.backedge
   %23 = phi i64 [ 0, %.lr.ph305 ], [ %61, %.backedge ]
   %.1134304 = phi i64 [ %.1134.ph310, %.lr.ph305 ], [ %.2135, %.backedge ]
-  %24 = phi i1 [ false, %.lr.ph305 ], [ %.not169363, %.backedge ]
+  %24 = phi i1 [ false, %.lr.ph305 ], [ %.not169385, %.backedge ]
   %.0142303 = phi i32 [ 0, %.lr.ph305 ], [ %.0142.be, %.backedge ]
   %25 = load ptr, ptr %18, align 8, !tbaa !18
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
@@ -381,24 +381,24 @@ define internal fastcc range(i32 0, 2) i32 @def_load_bio(ptr noundef readonly ca
 
 54:                                               ; preds = %48
   %55 = icmp eq i32 %46, 1
-  br i1 %55, label %.thread359, label %56
+  br i1 %55, label %.thread381, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr i8, ptr %51, i64 -2
   %58 = load i8, ptr %57, align 1, !tbaa !21
   %.not168.not = icmp eq i8 %58, 92
-  br i1 %.not168.not, label %60, label %.thread359
+  br i1 %.not168.not, label %60, label %.thread381
 
-.thread359:                                       ; preds = %54, %56
+.thread381:                                       ; preds = %54, %56
   %59 = add nsw i32 %46, -1
   br label %.backedge
 
 60:                                               ; preds = %48, %56, %45
   br i1 %or.cond188, label %.backedge, label %64
 
-.backedge:                                        ; preds = %.thread359, %60, %eat_ws.exit, %add_string.exit
-  %.not169363 = phi i1 [ true, %60 ], [ false, %eat_ws.exit ], [ false, %add_string.exit ], [ true, %.thread359 ]
-  %.0142.be = phi i32 [ %46, %60 ], [ 0, %eat_ws.exit ], [ 0, %add_string.exit ], [ %59, %.thread359 ]
+.backedge:                                        ; preds = %.thread381, %60, %eat_ws.exit, %add_string.exit
+  %.not169385 = phi i1 [ true, %60 ], [ false, %eat_ws.exit ], [ false, %add_string.exit ], [ true, %.thread381 ]
+  %.0142.be = phi i32 [ %46, %60 ], [ 0, %eat_ws.exit ], [ 0, %add_string.exit ], [ %59, %.thread381 ]
   %61 = sext i32 %.0142.be to i64
   %62 = add nsw i64 %61, 512
   %63 = call i64 @BUF_MEM_grow(ptr noundef nonnull %9, i64 noundef %62) #12

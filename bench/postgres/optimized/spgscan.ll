@@ -840,8 +840,8 @@ BufferGetPage.exit:                               ; preds = %84, %90
   %109 = add nuw nsw i32 %108, 262120
   %110 = lshr i32 %109, 2
   %111 = trunc i32 %110 to i16
-  %.not86149176 = icmp eq i16 %111, 0
-  %.not86149 = select i1 %107, i1 true, i1 %.not86149176
+  %.not86149188 = icmp eq i16 %111, 0
+  %.not86149 = select i1 %107, i1 true, i1 %.not86149188
   br i1 %.not86149, label %.thread105, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader113, %.lr.ph
@@ -1377,8 +1377,8 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   %67 = load i8, ptr %11, align 8, !range !9, !noundef !10
   %68 = trunc nuw i8 %67 to i1
   %69 = icmp sgt i32 %66, 0
-  %or.cond70 = and i1 %69, %68
-  br i1 %or.cond70, label %.lr.ph57, label %.loopexit
+  %or.cond73 = and i1 %69, %68
+  br i1 %or.cond73, label %.lr.ph57, label %.loopexit
 
 .lr.ph57:                                         ; preds = %.loopexit48, %.lr.ph57
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph57 ], [ 0, %.loopexit48 ]
@@ -1477,10 +1477,10 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
   br label %51
 
 51:                                               ; preds = %42, %47
-  %.sink50 = phi double [ %50, %47 ], [ 0.000000e+00, %42 ]
+  %.sink51 = phi double [ %50, %47 ], [ 0.000000e+00, %42 ]
   %.sink = phi i8 [ 0, %47 ], [ 1, %42 ]
   %52 = getelementptr inbounds nuw %struct.IndexOrderByDistance, ptr %38, i64 %indvars.iv
-  store double %.sink50, ptr %52, align 8
+  store double %.sink51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i8 %.sink, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1490,12 +1490,12 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
   br i1 %56, label %42, label %.sink.split, !llvm.loop !23
 
 .sink.split:                                      ; preds = %51, %35, %30, %31
-  %.sink52 = phi ptr [ null, %31 ], [ null, %30 ], [ %38, %35 ], [ %38, %51 ]
+  %.sink53 = phi ptr [ null, %31 ], [ null, %30 ], [ %38, %35 ], [ %38, %51 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 6856
   %58 = load i32, ptr %15, align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds [408 x ptr], ptr %57, i64 0, i64 %59
-  store ptr %.sink52, ptr %60, align 8
+  store ptr %.sink53, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %.sink.split, %8

@@ -139,9 +139,9 @@ define dso_local noundef i32 @cmd_credential_store(i32 noundef %0, ptr noundef %
   %44 = load ptr, ptr %8, align 8, !tbaa !22
   %.not9.i = icmp eq ptr %44, null
   %45 = load i64, ptr %33, align 8
-  %.not42 = icmp eq i64 %45, 0
-  %or.cond47 = select i1 %.not9.i, i1 true, i1 %.not42
-  br i1 %or.cond47, label %lookup_credential.exit, label %.lr.ph37
+  %.not54 = icmp eq i64 %45, 0
+  %or.cond59 = select i1 %.not9.i, i1 true, i1 %.not54
+  br i1 %or.cond59, label %lookup_credential.exit, label %.lr.ph37
 
 .lr.ph.i:                                         ; preds = %.lr.ph37
   %46 = getelementptr inbounds nuw i8, ptr %.010.i36, i64 16
@@ -183,9 +183,9 @@ define dso_local noundef i32 @cmd_credential_store(i32 noundef %0, ptr noundef %
   %.not1618.i = icmp eq ptr %64, null
   %or.cond29 = select i1 %or.cond26, i1 true, i1 %.not1618.i
   %65 = load i64, ptr %33, align 8
-  %.not41 = icmp eq i64 %65, 0
-  %or.cond48 = select i1 %or.cond29, i1 true, i1 %.not41
-  br i1 %or.cond48, label %lookup_credential.exit, label %.lr.ph35
+  %.not53 = icmp eq i64 %65, 0
+  %or.cond60 = select i1 %or.cond29, i1 true, i1 %.not53
+  br i1 %or.cond60, label %lookup_credential.exit, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %55, %.lr.ph.i16
   %.019.i34 = phi ptr [ %70, %.lr.ph.i16 ], [ %64, %55 ]
@@ -247,8 +247,8 @@ define dso_local noundef i32 @cmd_credential_store(i32 noundef %0, ptr noundef %
   br i1 %.not2125.i, label %.critedge.i, label %.lr.ph.i19.preheader
 
 .lr.ph.i19.preheader:                             ; preds = %91
-  %.not40 = icmp eq i64 %.pr, 0
-  br i1 %.not40, label %lookup_credential.exit, label %.lr.ph
+  %.not52 = icmp eq i64 %.pr, 0
+  br i1 %.not52, label %lookup_credential.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i19.preheader, %.lr.ph.i19
   %.026.i33 = phi ptr [ %95, %.lr.ph.i19 ], [ %92, %.lr.ph.i19.preheader ]

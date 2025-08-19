@@ -172,8 +172,8 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
   unreachable
 
 "_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0ad7f85685b438aeE.llvm.11941192184161370172.exit": ; preds = %1, %9
-  %.0.sink11.i = phi i64 [ %.0.i, %9 ], [ 0, %1 ]
-  ret i64 %.0.sink11.i
+  %.0.sink13.i = phi i64 [ %.0.i, %9 ], [ 0, %1 ]
+  ret i64 %.0.sink13.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -336,12 +336,12 @@ define hidden void @"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$
   br i1 %9, label %17, label %13, !prof !30
 
 10:                                               ; preds = %2, %13
-  %.0.sink11 = phi i64 [ %.0, %13 ], [ 0, %2 ]
-  store i64 %.0.sink11, ptr %0, align 8
+  %.0.sink13 = phi i64 [ %.0, %13 ], [ 0, %2 ]
+  store i64 %.0.sink13, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0.sink11, ptr %12, align 8
+  store i64 %.0.sink13, ptr %12, align 8
   ret void
 
 13:                                               ; preds = %6
@@ -563,7 +563,7 @@ define internal fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b
   %27 = lshr exact i64 %19, 4
   %28 = and i64 %27, 4294967295
   %29 = icmp ult i64 %19, 68719476736
-  switch i32 %.0.i, label %default.unreachable12 [
+  switch i32 %.0.i, label %default.unreachable14 [
     i32 1, label %31
     i32 2, label %40
     i32 3, label %49
@@ -575,7 +575,7 @@ define internal fastcc void @_ZN4ring4aead3aes3Key20ctr32_encrypt_within17h7ba9b
   call void @_ZN4core9panicking13assert_failed17hc35df8c8c6fe17beE(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.5e9ac13353a974eaad2bf76d6c3f9f95.27, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5e9ac13353a974eaad2bf76d6c3f9f95.34) #19
   unreachable
 
-default.unreachable12:                            ; preds = %23
+default.unreachable14:                            ; preds = %23
   unreachable
 
 31:                                               ; preds = %23

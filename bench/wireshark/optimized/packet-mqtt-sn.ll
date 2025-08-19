@@ -241,7 +241,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %14 = add nuw nsw i32 %11, %3
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %14)
   %.not237 = icmp eq ptr %2, null
-  br i1 %.not237, label %common.ret243, label %16
+  br i1 %.not237, label %common.ret247, label %16
 
 16:                                               ; preds = %10
   %17 = icmp eq i32 %3, 0
@@ -315,7 +315,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
 
 63:                                               ; preds = %23, %57
   %.0231 = phi i32 [ %36, %23 ], [ %62, %57 ]
-  switch i8 %15, label %common.ret243 [
+  switch i8 %15, label %common.ret247 [
     i8 0, label %64
     i8 1, label %70
     i8 2, label %73
@@ -349,12 +349,12 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %67 = add nuw nsw i32 %.0231, 1
   %68 = load i32, ptr @hf_mqttsn_adv_interv, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 70:                                               ; preds = %63
   %71 = load i32, ptr @hf_mqttsn_radius, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %71, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 73:                                               ; preds = %63
   %74 = load i32, ptr @hf_mqttsn_gw_id, align 4
@@ -362,13 +362,13 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %76 = add nuw nsw i32 %.0231, 1
   %77 = zext i16 %13 to i32
   %78 = icmp samesign ult i32 %76, %77
-  br i1 %78, label %79, label %common.ret243
+  br i1 %78, label %79, label %common.ret247
 
 79:                                               ; preds = %73
   %80 = load i32, ptr @hf_mqttsn_gw_addr, align 4
   %81 = sub nuw nsw i32 %77, %76
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %80, ptr noundef %0, i32 noundef %76, i32 noundef %81, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 83:                                               ; preds = %.thread, %63
   %.0231239 = phi i32 [ %45, %.thread ], [ %.0231, %63 ]
@@ -382,26 +382,26 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %91 = zext i16 %13 to i32
   %92 = sub nsw i32 %91, %89
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef %92, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 94:                                               ; preds = %63
   %95 = load i32, ptr @hf_mqttsn_return_code, align 4
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %95, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 97:                                               ; preds = %63
   %98 = load i32, ptr @hf_mqttsn_will_topic, align 4
   %99 = zext i16 %13 to i32
   %100 = sub nsw i32 %99, %.0231
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %98, ptr noundef %0, i32 noundef %.0231, i32 noundef %100, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 102:                                              ; preds = %63
   %103 = load i32, ptr @hf_mqttsn_will_msg, align 4
   %104 = zext i16 %13 to i32
   %105 = sub nsw i32 %104, %.0231
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %103, ptr noundef %0, i32 noundef %.0231, i32 noundef %105, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 107:                                              ; preds = %63
   %108 = load i32, ptr @hf_mqttsn_topic_id, align 4
@@ -414,7 +414,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %115 = zext i16 %13 to i32
   %116 = sub nsw i32 %115, %113
   %117 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %114, ptr noundef %0, i32 noundef %113, i32 noundef %116, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 118:                                              ; preds = %63
   %119 = load i32, ptr @hf_mqttsn_topic_id, align 4
@@ -425,7 +425,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %124 = add nuw nsw i32 %.0231, 4
   %125 = load i32, ptr @hf_mqttsn_return_code, align 4
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 1, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 127:                                              ; preds = %.thread240, %63
   %.0231242 = phi i32 [ %56, %.thread240 ], [ %.0231, %63 ]
@@ -439,7 +439,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %135 = zext i16 %13 to i32
   %136 = sub nsw i32 %135, %133
   %137 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef %136, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 138:                                              ; preds = %63
   %139 = load i32, ptr @hf_mqttsn_topic_id, align 4
@@ -450,12 +450,12 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %144 = add nuw nsw i32 %.0231, 4
   %145 = load i32, ptr @hf_mqttsn_return_code, align 4
   %146 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef 1, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 147:                                              ; preds = %63, %63, %63
   %148 = load i32, ptr @hf_mqttsn_msg_id, align 4
   %149 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %148, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 150:                                              ; preds = %63, %63
   %151 = load i32, ptr @hf_mqttsn_msg_id, align 4
@@ -465,7 +465,7 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %155 = zext i16 %13 to i32
   %156 = sub nsw i32 %155, %153
   %157 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %154, ptr noundef %0, i32 noundef %153, i32 noundef %156, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 158:                                              ; preds = %63
   %159 = load i32, ptr @hf_mqttsn_topic_id, align 4
@@ -476,52 +476,52 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %164 = add nuw nsw i32 %.0231, 4
   %165 = load i32, ptr @hf_mqttsn_return_code, align 4
   %166 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 167:                                              ; preds = %63
   %168 = load i32, ptr @hf_mqttsn_msg_id, align 4
   %169 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %168, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 170:                                              ; preds = %63
   %171 = zext i16 %13 to i32
   %172 = icmp samesign ult i32 %.0231, %171
-  br i1 %172, label %173, label %common.ret243
+  br i1 %172, label %173, label %common.ret247
 
 173:                                              ; preds = %170
   %174 = load i32, ptr @hf_mqttsn_client_id, align 4
   %175 = sub nuw nsw i32 %171, %.0231
   %176 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %174, ptr noundef %0, i32 noundef %.0231, i32 noundef %175, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 177:                                              ; preds = %63
   %178 = zext i16 %13 to i32
   %179 = icmp samesign ult i32 %.0231, %178
-  br i1 %179, label %180, label %common.ret243
+  br i1 %179, label %180, label %common.ret247
 
 180:                                              ; preds = %177
   %181 = load i32, ptr @hf_mqttsn_sleep_timer, align 4
   %182 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %181, ptr noundef %0, i32 noundef %.0231, i32 noundef 2, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 183:                                              ; preds = %63
   %184 = load i32, ptr @hf_mqttsn_will_topic, align 4
   %185 = zext i16 %13 to i32
   %186 = sub nsw i32 %185, %.0231
   %187 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %184, ptr noundef %0, i32 noundef %.0231, i32 noundef %186, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 188:                                              ; preds = %63
   %189 = load i32, ptr @hf_mqttsn_will_msg, align 4
   %190 = zext i16 %13 to i32
   %191 = sub nsw i32 %190, %.0231
   %192 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %189, ptr noundef %0, i32 noundef %.0231, i32 noundef %191, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 193:                                              ; preds = %63, %63
   %194 = load i32, ptr @hf_mqttsn_return_code, align 4
   %195 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %194, ptr noundef %0, i32 noundef %.0231, i32 noundef 1, i32 noundef 0)
-  br label %common.ret243
+  br label %common.ret247
 
 196:                                              ; preds = %63
   %197 = load i32, ptr @hf_mqttsn_control_info, align 4
@@ -533,16 +533,16 @@ define internal fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %
   %203 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %200, ptr noundef %0, i32 noundef %199, i32 noundef %202, i32 noundef 0)
   %204 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %201)
   %205 = icmp sgt i32 %204, 0
-  br i1 %205, label %206, label %common.ret243
+  br i1 %205, label %206, label %common.ret247
 
-common.ret243:                                    ; preds = %64, %70, %83, %94, %97, %102, %107, %118, %127, %138, %147, %150, %158, %167, %183, %188, %193, %79, %73, %173, %170, %180, %177, %196, %63, %10, %206
+common.ret247:                                    ; preds = %64, %70, %83, %94, %97, %102, %107, %118, %127, %138, %147, %150, %158, %167, %183, %188, %193, %79, %73, %173, %170, %180, %177, %196, %63, %10, %206
   ret void
 
 206:                                              ; preds = %196
   tail call void @increment_dissection_depth(ptr noundef %1)
   tail call fastcc void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr noundef %27, i32 noundef %201)
   tail call void @decrement_dissection_depth(ptr noundef %1)
-  br label %common.ret243
+  br label %common.ret247
 }
 
 ; Function Attrs: null_pointer_is_valid

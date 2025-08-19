@@ -1582,8 +1582,8 @@ _widget_get_quad_width.exit384:                   ; preds = %357, %361
   br i1 %383, label %272, label %._crit_edge
 
 384:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.1.lcssa472 = phi i1 [ false, %._crit_edge.thread ], [ %271, %._crit_edge ]
-  %.0327.lcssa471 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.1328, %._crit_edge ]
+  %.1.lcssa480 = phi i1 [ false, %._crit_edge.thread ], [ %271, %._crit_edge ]
+  %.0327.lcssa479 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %.1328, %._crit_edge ]
   %.sroa.0426.0.copyload = load double, ptr %5, align 8
   %.sroa.4427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4427.0.copyload = load double, ptr %.sroa.4427.0..sroa_idx, align 8
@@ -1630,12 +1630,12 @@ _build_label.exit388:                             ; preds = %390, %392
 
 _widget_get_quad_width.exit391:                   ; preds = %_build_label.exit388, %398
   %.0.i390 = phi nsz float [ %402, %398 ], [ 0.000000e+00, %_build_label.exit388 ]
-  %403 = fadd reassoc nsz arcp contract afn float %.0327.lcssa471, %.0.i390
+  %403 = fadd reassoc nsz arcp contract afn float %.0327.lcssa479, %.0.i390
   %404 = fsub reassoc nsz arcp contract afn float %396, %403
   %405 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %12, ptr noundef %32, ptr noundef %1, ptr noundef %.0.i387, float noundef 0.000000e+00, float noundef %395, float noundef %404, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef null)
   call void @g_free(ptr noundef %.0.i387) #20
   call void @g_free(ptr noundef %251) #20
-  br i1 %.1.lcssa472, label %421, label %407
+  br i1 %.1.lcssa480, label %421, label %407
 
 406:                                              ; preds = %._crit_edge
   call void @g_free(ptr noundef nonnull %251) #20
@@ -3109,7 +3109,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %3, %5, %7
   br i1 %38, label %.thread, label %67
 
 .thread:                                          ; preds = %27, %29, %37
-  %.159 = phi ptr [ %34, %37 ], [ null, %27 ], [ %34, %29 ]
+  %.164 = phi ptr [ %34, %37 ], [ null, %27 ], [ %34, %29 ]
   %39 = phi ptr [ %34, %37 ], [ %22, %27 ], [ %35, %29 ]
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !160
@@ -3164,14 +3164,14 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %3, %5, %7
   br label %67
 
 67:                                               ; preds = %62, %56, %53, %45, %42, %.thread, %37
-  %.158 = phi ptr [ %.159, %62 ], [ %.159, %56 ], [ %.159, %53 ], [ %.159, %45 ], [ %.159, %42 ], [ %.159, %.thread ], [ %34, %37 ]
+  %.163 = phi ptr [ %.164, %62 ], [ %.164, %56 ], [ %.164, %53 ], [ %.164, %45 ], [ %.164, %42 ], [ %.164, %.thread ], [ %34, %37 ]
   %68 = tail call i64 @gtk_widget_get_type() #21
   %69 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %10, i64 noundef %68) #20
   tail call void @gtk_widget_queue_draw(ptr noundef %69) #20
   br label %70
 
 70:                                               ; preds = %67, %20
-  %.0 = phi ptr [ %.158, %67 ], [ null, %20 ]
+  %.0 = phi ptr [ %.163, %67 ], [ null, %20 ]
   ret ptr %.0
 }
 
@@ -3423,9 +3423,9 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #1
 define void @dt_bauhaus_update_from_field(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._GSList, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %6, label %.thread105
+  br i1 %.not, label %6, label %.thread113
 
-.thread105:                                       ; preds = %4
+.thread113:                                       ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %.lr.ph
 
@@ -3435,8 +3435,8 @@ define void @dt_bauhaus_update_from_field(ptr noundef readonly captures(none) %0
   %.not76101 = icmp eq ptr %8, null
   br i1 %.not76101, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread105, %6
-  %9 = phi ptr [ %5, %.thread105 ], [ %8, %6 ]
+.lr.ph:                                           ; preds = %.thread113, %6
+  %9 = phi ptr [ %5, %.thread113 ], [ %8, %6 ]
   %.not80 = icmp eq ptr %2, null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 696
@@ -4786,13 +4786,13 @@ define void @dt_bauhaus_combobox_add_list(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph.preheader:                                 ; preds = %9
   %10 = load ptr, ptr %2, align 8, !tbaa !167
-  %.not1014 = icmp eq ptr %10, null
-  br i1 %.not1014, label %.critedge, label %.lr.ph
+  %.not1016 = icmp eq ptr %10, null
+  br i1 %.not1016, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %11 = phi ptr [ %14, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.01215 = phi ptr [ %12, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
+  %.01217 = phi ptr [ %12, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %12 = getelementptr inbounds nuw i8, ptr %.01217, i64 8
   %13 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull %11, i64 noundef 0) #20
   tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %13, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 1)
   %14 = load ptr, ptr %12, align 8, !tbaa !167
@@ -4898,23 +4898,23 @@ define range(i32 0, 2) i32 @dt_bauhaus_combobox_add_introspection(ptr noundef %0
 .lr.ph.preheader:                                 ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !212
-  %.not2750 = icmp eq i32 %14, %3
-  br i1 %.not2750, label %.lr.ph38.preheader, label %.lr.ph52
+  %.not2754 = icmp eq i32 %14, %3
+  br i1 %.not2754, label %.lr.ph38.preheader, label %.lr.ph56
 
 .lr.ph38.preheader:                               ; preds = %.lr.ph, %.lr.ph.preheader
   %.ph = phi ptr [ %12, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %.12237.ph = phi ptr [ %2, %.lr.ph.preheader ], [ %17, %.lr.ph ]
   br label %.lr.ph38
 
-.lr.ph:                                           ; preds = %.lr.ph52
-  %15 = getelementptr inbounds nuw i8, ptr %.0213351, i64 32
+.lr.ph:                                           ; preds = %.lr.ph56
+  %15 = getelementptr inbounds nuw i8, ptr %.0213355, i64 32
   %16 = load i32, ptr %15, align 8, !tbaa !212
   %.not27 = icmp eq i32 %16, %3
-  br i1 %.not27, label %.lr.ph38.preheader, label %.lr.ph52
+  br i1 %.not27, label %.lr.ph38.preheader, label %.lr.ph56
 
-.lr.ph52:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0213351 = phi ptr [ %17, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds nuw i8, ptr %.0213351, i64 24
+.lr.ph56:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0213355 = phi ptr [ %17, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds nuw i8, ptr %.0213355, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !210
   %.not26 = icmp eq ptr %18, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph
@@ -4951,8 +4951,8 @@ define range(i32 0, 2) i32 @dt_bauhaus_combobox_add_introspection(ptr noundef %0
   %.not31 = icmp eq i32 %34, %4
   br i1 %.not31, label %._crit_edge, label %19
 
-._crit_edge:                                      ; preds = %.lr.ph52, %32, %19, %11
-  %.2 = phi i32 [ 0, %11 ], [ 0, %19 ], [ 1, %32 ], [ 0, %.lr.ph52 ]
+._crit_edge:                                      ; preds = %.lr.ph56, %32, %19, %11
+  %.2 = phi i32 [ 0, %11 ], [ 0, %19 ], [ 1, %32 ], [ 0, %.lr.ph56 ]
   ret i32 %.2
 }
 
@@ -11041,14 +11041,14 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %2, %8, %10
   %51 = load ptr, ptr %50, align 8, !tbaa !128
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !131
-  %.not6170 = icmp eq i32 %53, 0
-  br i1 %.not6170, label %._crit_edge, label %.lr.ph.split.us.preheader
+  %.not6171 = icmp eq i32 %53, 0
+  br i1 %.not6171, label %._crit_edge, label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %45
   br i1 %.not, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.thread, %.lr.ph
-  %.07173 = phi i32 [ %.0, %.lr.ph ], [ 0, %.thread ]
+  %.07274 = phi i32 [ %.0, %.lr.ph ], [ 0, %.thread ]
   %54 = phi ptr [ %46, %.lr.ph ], [ %50, %.thread ]
   %55 = phi ptr [ %47, %.lr.ph ], [ %51, %.thread ]
   br label %.lr.ph.split.us
@@ -11065,7 +11065,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %2, %8, %10
   %59 = load i32, ptr %3, align 4, !tbaa !79
   %60 = load i32, ptr %5, align 4, !tbaa !79
   %61 = sdiv i32 %60, 1024
-  %62 = add nsw i32 %61, %.07173
+  %62 = add nsw i32 %61, %.07274
   %..us = call i32 @llvm.smax.i32(i32 %59, i32 %62)
   store i32 %..us, ptr %3, align 4, !tbaa !79
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -12498,8 +12498,8 @@ dt_bauhaus_combobox_get.exit:                     ; preds = %159
   %180 = sext i1 %.not53 to i32
   %spec.select = add nsw i32 %.04373, %180
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not76 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not76, label %._crit_edge, label %175
+  %.not82 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not82, label %._crit_edge, label %175
 
 181:                                              ; preds = %._crit_edge, %dt_bauhaus_combobox_get_default.exit, %dt_bauhaus_widget_get_quad_active.exit57, %dt_bauhaus_widget_get_quad_active.exit
   %.044 = phi nsz float [ %26, %dt_bauhaus_widget_get_quad_active.exit ], [ %109, %dt_bauhaus_widget_get_quad_active.exit57 ], [ %149, %dt_bauhaus_combobox_get_default.exit ], [ %174, %._crit_edge ]

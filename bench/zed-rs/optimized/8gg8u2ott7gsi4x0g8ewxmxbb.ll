@@ -20275,9 +20275,9 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$channel..channel_chat..Chan
   ]
 
 common.ret.sink.split.sink.split:                 ; preds = %175, %69
-  %.sink48 = phi ptr [ %67, %69 ], [ %173, %175 ]
+  %.sink56 = phi ptr [ %67, %69 ], [ %173, %175 ]
   fence acquire
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sink48, i64 noundef 80, i64 noundef 8) #31, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sink56, i64 noundef 80, i64 noundef 8) #31, !noalias !4
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %common.ret.sink.split.sink.split, %171, %175, %65, %69
@@ -45403,9 +45403,9 @@ define internal fastcc void @"_ZN4core3ptr32drop_in_place$LT$proto..View$GT$17h7
   br i1 %62, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$proto..view..Variant$GT$$GT$17h5063e3ce392b8f4dE.exit", label %"_ZN4core3ptr47drop_in_place$LT$proto..view..ContextEditor$GT$17hdf2582f7806794eaE.exit.sink.split.i.i"
 
 "_ZN4core3ptr47drop_in_place$LT$proto..view..ContextEditor$GT$17hdf2582f7806794eaE.exit.sink.split.i.i": ; preds = %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i5.i.i", %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i", %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i.i.i"
-  %.sink8.i.i = phi i64 [ 192, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i.i.i" ], [ 200, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i" ], [ 200, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i5.i.i" ]
+  %.sink11.i.i = phi i64 [ 192, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i.i.i" ], [ 200, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i" ], [ 200, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i5.i.i" ]
   %.val2.i6.i.i.i6.sink.i.i = phi i64 [ %.val2.i6.i.i.i.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i.i.i" ], [ %.val2.i6.i.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i" ], [ %.val2.i6.i.i.i6.i.i, %"_ZN4core3ptr58drop_in_place$LT$alloc..vec..Vec$LT$proto..Excerpt$GT$$GT$17h83803ebdcdeaa0deE.exit5.i.i.i5.i.i" ]
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink11.i.i
   %.val3.i7.i.i.i7.i.i = load ptr, ptr %63, align 8, !alias.scope !12004, !nonnull !4, !noundef !4
   %64 = mul nuw i64 %.val2.i6.i.i.i6.sink.i.i, 112
   tail call void @__rust_dealloc(ptr noundef nonnull %.val3.i7.i.i.i7.i.i, i64 noundef %64, i64 noundef 8) #31, !noalias !12004
@@ -52237,10 +52237,10 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$proto..TemplatePair
 
 "_ZN4core3ptr54drop_in_place$LT$proto..task_source_kind..Language$GT$17hf4797add155fa813E.exit.sink.split.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i4.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i.i.i.i.i", %11
   %.sink.i.i.i.i = phi i64 [ 32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i.i.i.i.i" ], [ 40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i4.i.i.i.i" ], [ 16, %11 ]
-  %.sink6.i.i.i.i = phi i64 [ %21, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i.i.i.i.i" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i4.i.i.i.i" ], [ %.val.i.i.i.i, %11 ]
+  %.sink9.i.i.i.i = phi i64 [ %21, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i.i.i.i.i" ], [ %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i4.i.i.i.i" ], [ %.val.i.i.i.i, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink.i.i.i.i
   %15 = load ptr, ptr %14, align 8, !alias.scope !13726, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink6.i.i.i.i, i64 noundef 1) #31, !noalias !13726
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink9.i.i.i.i, i64 noundef 1) #31, !noalias !13726
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..TaskSourceKind$GT$$GT$17hdf06a667b2de40edE.exit"
 
 16:                                               ; preds = %7
@@ -63460,9 +63460,9 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$proto..UpdateLangua
   ]
 
 "_ZN4core3ptr40drop_in_place$LT$proto..LspWorkStart$GT$17h75e90358fb7c5575E.exit.sink.split.i.i": ; preds = %30, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i3.i.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h88dd9919ca7b081dE.llvm.17231173475946515404.exit3.i.i.i"
-  %.sink6.i.i = phi i64 [ 16, %30 ], [ 56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h88dd9919ca7b081dE.llvm.17231173475946515404.exit3.i.i.i" ], [ 40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i3.i.i" ]
+  %.sink10.i.i = phi i64 [ 16, %30 ], [ 56, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h88dd9919ca7b081dE.llvm.17231173475946515404.exit3.i.i.i" ], [ 40, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i3.i.i" ]
   %.val.sink.i.i = phi i64 [ %.val.i.i, %30 ], [ %21, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h88dd9919ca7b081dE.llvm.17231173475946515404.exit3.i.i.i" ], [ %29, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE.exit.i3.i.i" ]
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.i.i
   %.val1.i.i = load ptr, ptr %8, align 8, !alias.scope !20330, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i.i, i64 noundef %.val.sink.i.i, i64 noundef 1) #31, !noalias !20330
   br label %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$proto..update_language_server..Variant$GT$$GT$17h7120f2d924940ba5E.exit"
@@ -72975,14 +72975,14 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$gpui..app..entity_map..Entit
 define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$language..language_settings..Formatter$GT$17hacedb782554fc83dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !2701, !noundef !4
-  switch i64 %3, label %default.unreachable3 [
+  switch i64 %3, label %default.unreachable6 [
     i64 0, label %23
     i64 1, label %"_ZN4core3ptr154drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$bool$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h97f4e234ab1ee35dE.llvm.17231173475946515404.exit"
     i64 2, label %31
     i64 3, label %4
   ]
 
-default.unreachable3:                             ; preds = %1
+default.unreachable6:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -74088,7 +74088,7 @@ define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$$u5b$client..Subscr
   br label %2
 
 2:                                                ; preds = %1, %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
-  %.sroa.0.08 = phi i64 [ 0, %1 ], [ %4, %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit" ]
+  %.sroa.0.08 = phi i64 [ 0, %1 ], [ 1, %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit" ]
   %3 = getelementptr inbounds nuw [2 x { ptr, [3 x i64] }], ptr %0, i64 0, i64 %.sroa.0.08
   %4 = add nuw nsw i64 %.sroa.0.08, 1
   invoke void @"_ZN62_$LT$client..Subscription$u20$as$u20$core..ops..drop..Drop$GT$4drop17h46bef7e0e6000e69E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
@@ -109621,9 +109621,9 @@ define hidden void @"_ZN84_$LT$client..PendingEntitySubscription$LT$T$GT$$u20$as
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %.thread, %38, %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17h3da070bf8f932f1aE.exit"
-  %or.cond64 = phi i1 [ false, %.thread ], [ false, %38 ], [ true, %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17h3da070bf8f932f1aE.exit" ]
+  %or.cond72 = phi i1 [ false, %.thread ], [ false, %38 ], [ true, %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17h3da070bf8f932f1aE.exit" ]
   %44 = phi ptr [ %31, %.thread ], [ %40, %38 ], [ %40, %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17h3da070bf8f932f1aE.exit" ]
-  %.sroa.03.0 = xor i1 %or.cond64, true
+  %.sroa.03.0 = xor i1 %or.cond72, true
   %45 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
   %46 = extractvalue { i8, i1 } %45, 1
   br i1 %46, label %"_ZN4core3ptr132drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$rpc..proto_client..ProtoMessageHandlerSet$GT$$GT$17hda4d3376b7e7799bE.exit31", label %47
@@ -109854,7 +109854,7 @@ define hidden void @"_ZN84_$LT$client..PendingEntitySubscription$LT$T$GT$$u20$as
   br label %19
 
 125:                                              ; preds = %122
-  br i1 %or.cond64, label %"_ZN4core3ptr63drop_in_place$LT$rpc..proto_client..EntityMessageSubscriber$GT$17hc5e517447924c56bE.exit", label %135
+  br i1 %or.cond72, label %"_ZN4core3ptr63drop_in_place$LT$rpc..proto_client..EntityMessageSubscriber$GT$17hc5e517447924c56bE.exit", label %135
 
 126:                                              ; preds = %122
   call void @llvm.experimental.noalias.scope.decl(metadata !36313)
@@ -110024,9 +110024,9 @@ define hidden void @"_ZN84_$LT$client..PendingEntitySubscription$LT$T$GT$$u20$as
   br i1 %42, label %51, label %43
 
 43:                                               ; preds = %.thread, %38, %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17h3da070bf8f932f1aE.exit"
-  %or.cond64 = phi i1 [ false, %.thread ], [ false, %38 ], [ true, %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17h3da070bf8f932f1aE.exit" ]
+  %or.cond72 = phi i1 [ false, %.thread ], [ false, %38 ], [ true, %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17h3da070bf8f932f1aE.exit" ]
   %44 = phi ptr [ %31, %.thread ], [ %40, %38 ], [ %40, %"_ZN4core3ptr116drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$$GT$17h3da070bf8f932f1aE.exit" ]
-  %.sroa.03.0 = xor i1 %or.cond64, true
+  %.sroa.03.0 = xor i1 %or.cond72, true
   %45 = cmpxchg ptr %16, i8 1, i8 0 release monotonic, align 1
   %46 = extractvalue { i8, i1 } %45, 1
   br i1 %46, label %"_ZN4core3ptr132drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$rpc..proto_client..ProtoMessageHandlerSet$GT$$GT$17hda4d3376b7e7799bE.exit31", label %47
@@ -110257,7 +110257,7 @@ define hidden void @"_ZN84_$LT$client..PendingEntitySubscription$LT$T$GT$$u20$as
   br label %19
 
 125:                                              ; preds = %122
-  br i1 %or.cond64, label %"_ZN4core3ptr63drop_in_place$LT$rpc..proto_client..EntityMessageSubscriber$GT$17hc5e517447924c56bE.exit", label %135
+  br i1 %or.cond72, label %"_ZN4core3ptr63drop_in_place$LT$rpc..proto_client..EntityMessageSubscriber$GT$17hc5e517447924c56bE.exit", label %135
 
 126:                                              ; preds = %122
   call void @llvm.experimental.noalias.scope.decl(metadata !36407)

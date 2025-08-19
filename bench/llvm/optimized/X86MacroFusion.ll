@@ -49,9 +49,9 @@ switch.lookup:                                    ; preds = %12
   %switch.cast = trunc nuw i32 %13 to i16
   %switch.downshift = lshr i16 -4048, %switch.cast
   %switch.masked = trunc i16 %switch.downshift to i1
-  %switch.cast17 = trunc nuw i32 %13 to i16
-  %switch.downshift19 = lshr i16 -3844, %switch.cast17
-  %switch.masked20 = trunc i16 %switch.downshift19 to i1
+  %switch.cast18 = trunc nuw i32 %13 to i16
+  %switch.downshift20 = lshr i16 -3844, %switch.cast18
+  %switch.masked21 = trunc i16 %switch.downshift20 to i1
   %15 = icmp eq ptr %2, null
   br i1 %15, label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit, label %16
 
@@ -95,7 +95,7 @@ switch.lookup:                                    ; preds = %12
   unreachable
 
 _ZL14classifySecondRKN4llvm12MachineInstrE.exit:  ; preds = %12, %30, %29, %28, %24, %24, %switch.lookup, %22, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %switch.lookup ], [ %23, %22 ], [ false, %12 ], [ %switch.masked20, %28 ], [ %switch.masked, %29 ], [ false, %30 ], [ true, %24 ], [ true, %24 ]
+  %.0 = phi i1 [ false, %8 ], [ true, %switch.lookup ], [ %23, %22 ], [ false, %12 ], [ %switch.masked21, %28 ], [ %switch.masked, %29 ], [ false, %30 ], [ true, %24 ], [ true, %24 ]
   ret i1 %.0
 }
 

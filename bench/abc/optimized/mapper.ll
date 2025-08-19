@@ -46,17 +46,17 @@ define internal range(i32 0, 2) i32 @Map_CommandReadLibrary(ptr noundef %0, i32 
 
 .outer:                                           ; preds = %15, %3
   %.039.ph = phi ptr [ %13, %15 ], [ null, %3 ]
-  %.037.ph = phi i32 [ %.037.ph71, %15 ], [ 1, %3 ]
+  %.037.ph = phi i32 [ %.037.ph75, %15 ], [ 1, %3 ]
   %.036.ph = phi i32 [ %.036, %15 ], [ 1, %3 ]
-  br label %.outer70
+  br label %.outer74
 
-.outer70:                                         ; preds = %.outer, %19
-  %.037.ph71 = phi i32 [ %.037.ph, %.outer ], [ %20, %19 ]
-  %.036.ph72 = phi i32 [ %.036.ph, %.outer ], [ %.036, %19 ]
+.outer74:                                         ; preds = %.outer, %19
+  %.037.ph75 = phi i32 [ %.037.ph, %.outer ], [ %20, %19 ]
+  %.036.ph76 = phi i32 [ %.036.ph, %.outer ], [ %.036, %19 ]
   br label %7
 
-7:                                                ; preds = %.outer70, %17
-  %.036 = phi i32 [ %18, %17 ], [ %.036.ph72, %.outer70 ]
+7:                                                ; preds = %.outer74, %17
+  %.036 = phi i32 [ %18, %17 ], [ %.036.ph76, %.outer74 ]
   %8 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2) #4
   switch i32 %8, label %.loopexit [
     i32 -1, label %21
@@ -83,8 +83,8 @@ define internal range(i32 0, 2) i32 @Map_CommandReadLibrary(ptr noundef %0, i32 
   br label %7, !llvm.loop !10
 
 19:                                               ; preds = %7
-  %20 = xor i32 %.037.ph71, 1
-  br label %.outer70, !llvm.loop !10
+  %20 = xor i32 %.037.ph75, 1
+  br label %.outer74, !llvm.loop !10
 
 21:                                               ; preds = %7
   %22 = load i32, ptr @globalUtilOptind, align 4, !tbaa !3
@@ -126,7 +126,7 @@ define internal range(i32 0, 2) i32 @Map_CommandReadLibrary(ptr noundef %0, i32 
 
 42:                                               ; preds = %36
   %43 = tail call ptr (...) @Abc_FrameReadLibGen() #4
-  %44 = tail call ptr @Map_SuperLibCreate(ptr noundef %43, ptr noundef null, ptr noundef %27, ptr noundef %.039.ph, i32 noundef %.036, i32 noundef %.037.ph71) #4
+  %44 = tail call ptr @Map_SuperLibCreate(ptr noundef %43, ptr noundef null, ptr noundef %27, ptr noundef %.039.ph, i32 noundef %.036, i32 noundef %.037.ph75) #4
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %48
 
@@ -147,7 +147,7 @@ define internal range(i32 0, 2) i32 @Map_CommandReadLibrary(ptr noundef %0, i32 
   %.not48 = icmp eq i32 %.036, 0
   %53 = select i1 %.not48, ptr @.str.19, ptr @.str.18
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.17, ptr noundef nonnull %53) #4
-  %.not49 = icmp eq i32 %.037.ph71, 0
+  %.not49 = icmp eq i32 %.037.ph75, 0
   %55 = select i1 %.not49, ptr @.str.22, ptr @.str.21
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.20, ptr noundef nonnull %55) #4
   %57 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 35, i64 1, ptr %6)

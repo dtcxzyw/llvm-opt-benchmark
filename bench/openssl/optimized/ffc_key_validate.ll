@@ -179,9 +179,9 @@ define range(i32 0, 2) i32 @ossl_ffc_validate_private_key(ptr noundef %0, ptr no
   br i1 %12, label %.sink.split.sink.split, label %15
 
 .sink.split.sink.split:                           ; preds = %10, %6
-  %.sink13 = phi i32 [ 16, %6 ], [ 32, %10 ]
+  %.sink15 = phi i32 [ 16, %6 ], [ 32, %10 ]
   %13 = load i32, ptr %2, align 4, !tbaa !3
-  %14 = or i32 %13, %.sink13
+  %14 = or i32 %13, %.sink15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %3

@@ -3248,8 +3248,8 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
   br i1 %or.cond3.i, label %44, label %.preheader62.i
 
 .preheader62.i:                                   ; preds = %34
-  %.not85.i = icmp eq i32 %36, 0
-  br i1 %.not85.i, label %.preheader60.i, label %.lr.ph.i
+  %.not89.i = icmp eq i32 %36, 0
+  br i1 %.not89.i, label %.preheader60.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader62.i
   %41 = load ptr, ptr @node_record_table_ptr, align 8

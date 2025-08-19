@@ -203,12 +203,12 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
   %.sroa.gep19 = getelementptr inbounds nuw i8, ptr %10, i64 216
   %43 = load i8, ptr %.sroa.gep19, align 8, !tbaa !43, !range !50, !noundef !51
   %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %.thread72
+  br i1 %44, label %45, label %.thread74
 
-.thread72:                                        ; preds = %42
-  %.sroa.gep2068 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.gep2068, i64 24, i1 false)
-  %.sroa.gep2173 = getelementptr inbounds nuw i8, ptr %10, i64 208
+.thread74:                                        ; preds = %42
+  %.sroa.gep2070 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.gep2070, i64 24, i1 false)
+  %.sroa.gep2175 = getelementptr inbounds nuw i8, ptr %10, i64 208
   br label %49
 
 45:                                               ; preds = %42
@@ -219,7 +219,7 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %45
-  %.sroa.gep2176 = getelementptr inbounds nuw i8, ptr %10, i64 208
+  %.sroa.gep2178 = getelementptr inbounds nuw i8, ptr %10, i64 208
   %.sroa.gep20 = getelementptr inbounds nuw i8, ptr %10, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.gep20, i64 24, i1 false)
   br label %49
@@ -228,8 +228,8 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) inttoptr (i64 184 to ptr), i64 24, i1 false)
   br label %49
 
-49:                                               ; preds = %48, %.thread72, %47
-  %50 = phi ptr [ %.sroa.gep2173, %.thread72 ], [ %.sroa.gep2176, %47 ], [ inttoptr (i64 208 to ptr), %48 ]
+49:                                               ; preds = %48, %.thread74, %47
+  %50 = phi ptr [ %.sroa.gep2175, %.thread74 ], [ %.sroa.gep2178, %47 ], [ inttoptr (i64 208 to ptr), %48 ]
   %51 = load i64, ptr %50, align 8, !tbaa !52
   call void @_ZN5boost4urls6detail8url_impl10apply_pathENS0_15pct_string_viewEm(ptr noundef nonnull align 8 dereferenceable(171) %8, ptr noundef nonnull byval(%"class.boost::urls::pct_string_view") align 8 %12, i64 noundef %51) #6
   %.pre66 = load i32, ptr %35, align 8, !tbaa !37

@@ -180,9 +180,9 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 4760
   %switch.selectcmp = icmp eq i16 %82, 1
   %switch.select = select i1 %switch.selectcmp, i16 2, i16 255
-  %switch.selectcmp189 = icmp eq i16 %82, 0
-  %switch.select190 = select i1 %switch.selectcmp189, i16 1, i16 %switch.select
-  store i16 %switch.select190, ptr %85, align 8, !tbaa !83
+  %switch.selectcmp190 = icmp eq i16 %82, 0
+  %switch.select191 = select i1 %switch.selectcmp190, i16 1, i16 %switch.select
+  store i16 %switch.select191, ptr %85, align 8, !tbaa !83
   br i1 %81, label %86, label %.loopexit
 
 86:                                               ; preds = %80

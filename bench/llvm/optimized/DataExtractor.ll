@@ -1502,8 +1502,8 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZNKSt7__cxx1112bas
   %59 = select i1 %or.cond.i.i, i64 0, i64 %58
   %.250.i.i = or i64 %27, %59
   %.pn.i.i = ptrtoint ptr %29 to i64
-  %.sink84.i.i = sub i64 %.pn.i.i, %12
-  %60 = and i64 %.sink84.i.i, 4294967295
+  %.sink88.i.i = sub i64 %.pn.i.i, %12
+  %60 = and i64 %.sink88.i.i, 4294967295
   %61 = add i64 %60, %9
   store i64 %61, ptr %1, align 8, !tbaa !62
   br label %_ZL9getLEB128IlET_N4llvm9StringRefEPmPNS1_5ErrorERFS0_PKhPjS7_PPKcE.exit

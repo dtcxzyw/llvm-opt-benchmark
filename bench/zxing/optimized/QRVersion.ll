@@ -275,7 +275,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.1, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 120), i32 noundef 2, ptr nonnull %3, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %4) #16
-          to label %88 unwind label %.thread208
+          to label %88 unwind label %.thread210
 
 88:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -285,7 +285,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(80) @constinit.2, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 240), i32 noundef 3, ptr nonnull %5, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %6) #16
-          to label %90 unwind label %.thread213
+          to label %90 unwind label %.thread215
 
 90:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -295,7 +295,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, ptr noundef nonnull align 4 dereferenceable(80) @constinit.3, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 360), i32 noundef 4, ptr nonnull %7, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %8) #16
-          to label %92 unwind label %.thread216
+          to label %92 unwind label %.thread218
 
 92:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -305,7 +305,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 4 dereferenceable(80) @constinit.4, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 480), i32 noundef 5, ptr nonnull %9, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %10) #16
-          to label %94 unwind label %.thread219
+          to label %94 unwind label %.thread221
 
 94:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -315,7 +315,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %12, ptr noundef nonnull align 4 dereferenceable(80) @constinit.5, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 600), i32 noundef 6, ptr nonnull %11, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %12) #16
-          to label %96 unwind label %.thread222
+          to label %96 unwind label %.thread224
 
 96:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -327,7 +327,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %14, ptr noundef nonnull align 4 dereferenceable(80) @constinit.6, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 720), i32 noundef 7, ptr nonnull %13, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %14) #16
-          to label %99 unwind label %.thread225
+          to label %99 unwind label %.thread227
 
 99:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -339,7 +339,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %16, ptr noundef nonnull align 4 dereferenceable(80) @constinit.7, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 840), i32 noundef 8, ptr nonnull %15, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %16) #16
-          to label %102 unwind label %.thread228
+          to label %102 unwind label %.thread230
 
 102:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -351,7 +351,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %18, ptr noundef nonnull align 4 dereferenceable(80) @constinit.8, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 960), i32 noundef 9, ptr nonnull %17, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %18) #16
-          to label %105 unwind label %.thread231
+          to label %105 unwind label %.thread233
 
 105:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -363,7 +363,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %20, ptr noundef nonnull align 4 dereferenceable(80) @constinit.9, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1080), i32 noundef 10, ptr nonnull %19, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %20) #16
-          to label %108 unwind label %.thread234
+          to label %108 unwind label %.thread236
 
 108:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -375,7 +375,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %22, ptr noundef nonnull align 4 dereferenceable(80) @constinit.10, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1200), i32 noundef 11, ptr nonnull %21, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %22) #16
-          to label %111 unwind label %.thread237
+          to label %111 unwind label %.thread239
 
 111:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -387,7 +387,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %24, ptr noundef nonnull align 4 dereferenceable(80) @constinit.11, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1320), i32 noundef 12, ptr nonnull %23, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %24) #16
-          to label %114 unwind label %.thread240
+          to label %114 unwind label %.thread242
 
 114:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -399,7 +399,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %26, ptr noundef nonnull align 4 dereferenceable(80) @constinit.12, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1440), i32 noundef 13, ptr nonnull %25, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %26) #16
-          to label %117 unwind label %.thread243
+          to label %117 unwind label %.thread245
 
 117:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -413,7 +413,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %28, ptr noundef nonnull align 4 dereferenceable(80) @constinit.13, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1560), i32 noundef 14, ptr nonnull %27, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %28) #16
-          to label %121 unwind label %.thread246
+          to label %121 unwind label %.thread248
 
 121:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -427,7 +427,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %30, ptr noundef nonnull align 4 dereferenceable(80) @constinit.14, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1680), i32 noundef 15, ptr nonnull %29, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %30) #16
-          to label %125 unwind label %.thread249
+          to label %125 unwind label %.thread251
 
 125:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -441,7 +441,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %32, ptr noundef nonnull align 4 dereferenceable(80) @constinit.15, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1800), i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #16
-          to label %129 unwind label %.thread252
+          to label %129 unwind label %.thread254
 
 129:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -455,7 +455,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %34, ptr noundef nonnull align 4 dereferenceable(80) @constinit.16, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1920), i32 noundef 17, ptr nonnull %33, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %34) #16
-          to label %133 unwind label %.thread255
+          to label %133 unwind label %.thread257
 
 133:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
@@ -469,7 +469,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %36, ptr noundef nonnull align 4 dereferenceable(80) @constinit.17, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2040), i32 noundef 18, ptr nonnull %35, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %36) #16
-          to label %137 unwind label %.thread258
+          to label %137 unwind label %.thread260
 
 137:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -483,7 +483,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %38, ptr noundef nonnull align 4 dereferenceable(80) @constinit.18, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2160), i32 noundef 19, ptr nonnull %37, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %38) #16
-          to label %141 unwind label %.thread261
+          to label %141 unwind label %.thread263
 
 141:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -497,7 +497,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %40, ptr noundef nonnull align 4 dereferenceable(80) @constinit.19, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2280), i32 noundef 20, ptr nonnull %39, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %40) #16
-          to label %145 unwind label %.thread264
+          to label %145 unwind label %.thread266
 
 145:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
@@ -505,7 +505,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %42, ptr noundef nonnull align 4 dereferenceable(80) @constinit.21, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2400), i32 noundef 21, ptr nonnull %41, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %42) #16
-          to label %146 unwind label %.thread267
+          to label %146 unwind label %.thread269
 
 146:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -513,7 +513,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %44, ptr noundef nonnull align 4 dereferenceable(80) @constinit.23, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2520), i32 noundef 22, ptr nonnull %43, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %44) #16
-          to label %147 unwind label %.thread270
+          to label %147 unwind label %.thread272
 
 147:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -521,7 +521,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %46, ptr noundef nonnull align 4 dereferenceable(80) @constinit.25, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2640), i32 noundef 23, ptr nonnull %45, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %46) #16
-          to label %148 unwind label %.thread273
+          to label %148 unwind label %.thread275
 
 148:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
@@ -529,7 +529,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %48, ptr noundef nonnull align 4 dereferenceable(80) @constinit.27, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2760), i32 noundef 24, ptr nonnull %47, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %48) #16
-          to label %149 unwind label %.thread276
+          to label %149 unwind label %.thread278
 
 149:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -537,7 +537,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %50, ptr noundef nonnull align 4 dereferenceable(80) @constinit.29, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2880), i32 noundef 25, ptr nonnull %49, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %50) #16
-          to label %150 unwind label %.thread279
+          to label %150 unwind label %.thread281
 
 150:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -545,7 +545,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %52, ptr noundef nonnull align 4 dereferenceable(80) @constinit.31, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3000), i32 noundef 26, ptr nonnull %51, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %52) #16
-          to label %151 unwind label %.thread282
+          to label %151 unwind label %.thread284
 
 151:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -553,7 +553,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %54, ptr noundef nonnull align 4 dereferenceable(80) @constinit.33, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3120), i32 noundef 27, ptr nonnull %53, i64 5, ptr noundef nonnull align 4 dereferenceable(80) %54) #16
-          to label %152 unwind label %.thread285
+          to label %152 unwind label %.thread287
 
 152:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
@@ -561,7 +561,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %56, ptr noundef nonnull align 4 dereferenceable(80) @constinit.35, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3240), i32 noundef 28, ptr nonnull %55, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %56) #16
-          to label %153 unwind label %.thread288
+          to label %153 unwind label %.thread290
 
 153:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
@@ -569,7 +569,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %58, ptr noundef nonnull align 4 dereferenceable(80) @constinit.37, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3360), i32 noundef 29, ptr nonnull %57, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %58) #16
-          to label %154 unwind label %.thread291
+          to label %154 unwind label %.thread293
 
 154:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
@@ -577,7 +577,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %60, ptr noundef nonnull align 4 dereferenceable(80) @constinit.39, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3480), i32 noundef 30, ptr nonnull %59, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %60) #16
-          to label %155 unwind label %.thread294
+          to label %155 unwind label %.thread296
 
 155:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
@@ -585,7 +585,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %62, ptr noundef nonnull align 4 dereferenceable(80) @constinit.41, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3600), i32 noundef 31, ptr nonnull %61, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %62) #16
-          to label %156 unwind label %.thread297
+          to label %156 unwind label %.thread299
 
 156:                                              ; preds = %155
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -593,7 +593,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %64, ptr noundef nonnull align 4 dereferenceable(80) @constinit.43, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3720), i32 noundef 32, ptr nonnull %63, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %64) #16
-          to label %157 unwind label %.thread300
+          to label %157 unwind label %.thread302
 
 157:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
@@ -601,7 +601,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %66, ptr noundef nonnull align 4 dereferenceable(80) @constinit.45, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3840), i32 noundef 33, ptr nonnull %65, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %66) #16
-          to label %158 unwind label %.thread303
+          to label %158 unwind label %.thread305
 
 158:                                              ; preds = %157
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
@@ -609,7 +609,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %68, ptr noundef nonnull align 4 dereferenceable(80) @constinit.47, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3960), i32 noundef 34, ptr nonnull %67, i64 6, ptr noundef nonnull align 4 dereferenceable(80) %68) #16
-          to label %159 unwind label %.thread306
+          to label %159 unwind label %.thread308
 
 159:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
@@ -617,7 +617,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %70, ptr noundef nonnull align 4 dereferenceable(80) @constinit.49, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4080), i32 noundef 35, ptr nonnull %69, i64 7, ptr noundef nonnull align 4 dereferenceable(80) %70) #16
-          to label %160 unwind label %.thread309
+          to label %160 unwind label %.thread311
 
 160:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
@@ -758,19 +758,19 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.thread208:                                       ; preds = %86
+.thread210:                                       ; preds = %86
   %173 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-.thread213:                                       ; preds = %88
+.thread215:                                       ; preds = %88
   %174 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread216:                                       ; preds = %90
+.thread218:                                       ; preds = %90
   %175 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -779,7 +779,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread219:                                       ; preds = %92
+.thread221:                                       ; preds = %92
   %176 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -790,7 +790,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread222:                                       ; preds = %94
+.thread224:                                       ; preds = %94
   %177 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -803,7 +803,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread225:                                       ; preds = %96
+.thread227:                                       ; preds = %96
   %178 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -818,7 +818,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread228:                                       ; preds = %99
+.thread230:                                       ; preds = %99
   %179 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -835,7 +835,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread231:                                       ; preds = %102
+.thread233:                                       ; preds = %102
   %180 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -854,7 +854,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread234:                                       ; preds = %105
+.thread236:                                       ; preds = %105
   %181 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -875,7 +875,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread237:                                       ; preds = %108
+.thread239:                                       ; preds = %108
   %182 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -898,7 +898,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread240:                                       ; preds = %111
+.thread242:                                       ; preds = %111
   %183 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -923,7 +923,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread243:                                       ; preds = %114
+.thread245:                                       ; preds = %114
   %184 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -950,7 +950,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread246:                                       ; preds = %117
+.thread248:                                       ; preds = %117
   %185 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -979,7 +979,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread249:                                       ; preds = %121
+.thread251:                                       ; preds = %121
   %186 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -1010,7 +1010,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread252:                                       ; preds = %125
+.thread254:                                       ; preds = %125
   %187 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -1043,7 +1043,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread255:                                       ; preds = %129
+.thread257:                                       ; preds = %129
   %188 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
@@ -1078,7 +1078,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread258:                                       ; preds = %133
+.thread260:                                       ; preds = %133
   %189 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
@@ -1115,7 +1115,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread261:                                       ; preds = %137
+.thread263:                                       ; preds = %137
   %190 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -1154,7 +1154,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread264:                                       ; preds = %141
+.thread266:                                       ; preds = %141
   %191 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
@@ -1195,7 +1195,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread267:                                       ; preds = %145
+.thread269:                                       ; preds = %145
   %192 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
@@ -1238,7 +1238,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread270:                                       ; preds = %146
+.thread272:                                       ; preds = %146
   %193 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
@@ -1283,7 +1283,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread273:                                       ; preds = %147
+.thread275:                                       ; preds = %147
   %194 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
@@ -1330,7 +1330,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread276:                                       ; preds = %148
+.thread278:                                       ; preds = %148
   %195 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
@@ -1379,7 +1379,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread279:                                       ; preds = %149
+.thread281:                                       ; preds = %149
   %196 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
@@ -1430,7 +1430,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread282:                                       ; preds = %150
+.thread284:                                       ; preds = %150
   %197 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
@@ -1483,7 +1483,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread285:                                       ; preds = %151
+.thread287:                                       ; preds = %151
   %198 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
@@ -1538,7 +1538,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread288:                                       ; preds = %152
+.thread290:                                       ; preds = %152
   %199 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
@@ -1595,7 +1595,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread291:                                       ; preds = %153
+.thread293:                                       ; preds = %153
   %200 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
@@ -1654,7 +1654,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread294:                                       ; preds = %154
+.thread296:                                       ; preds = %154
   %201 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
@@ -1715,7 +1715,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread297:                                       ; preds = %155
+.thread299:                                       ; preds = %155
   %202 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
@@ -1778,7 +1778,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread300:                                       ; preds = %156
+.thread302:                                       ; preds = %156
   %203 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
@@ -1843,7 +1843,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread303:                                       ; preds = %157
+.thread305:                                       ; preds = %157
   %204 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
@@ -1910,7 +1910,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread306:                                       ; preds = %158
+.thread308:                                       ; preds = %158
   %205 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
@@ -1979,7 +1979,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.thread309:                                       ; preds = %159
+.thread311:                                       ; preds = %159
   %206 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
@@ -2171,16 +2171,16 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %220, %.thread309, %.thread306, %.thread303, %.thread300, %.thread297, %.thread294, %.thread291, %.thread288, %.thread285, %.thread282, %.thread279, %.thread276, %.thread273, %.thread270, %.thread267, %.thread264, %.thread261, %.thread258, %.thread255, %.thread252, %.thread249, %.thread246, %.thread243, %.thread240, %.thread237, %.thread234, %.thread231, %.thread228, %.thread225, %.thread222, %.thread219, %.thread216, %.thread213, %.thread208
-  %.1212 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 120), %.thread208 ], [ %.35, %220 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 240), %.thread213 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 360), %.thread216 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 480), %.thread219 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 600), %.thread222 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 720), %.thread225 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 840), %.thread228 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 960), %.thread231 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1080), %.thread234 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1200), %.thread237 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1320), %.thread240 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1440), %.thread243 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1560), %.thread246 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1680), %.thread249 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1800), %.thread252 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1920), %.thread255 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2040), %.thread258 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2160), %.thread261 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2280), %.thread264 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2400), %.thread267 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2520), %.thread270 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2640), %.thread273 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2760), %.thread276 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2880), %.thread279 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3000), %.thread282 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3120), %.thread285 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3240), %.thread288 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3360), %.thread291 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3480), %.thread294 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3600), %.thread297 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3720), %.thread300 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3840), %.thread303 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3960), %.thread306 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4080), %.thread309 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn211 = phi { ptr, i32 } [ %173, %.thread208 ], [ %.pn.pn.pn.pn, %220 ], [ %174, %.thread213 ], [ %175, %.thread216 ], [ %176, %.thread219 ], [ %177, %.thread222 ], [ %178, %.thread225 ], [ %179, %.thread228 ], [ %180, %.thread231 ], [ %181, %.thread234 ], [ %182, %.thread237 ], [ %183, %.thread240 ], [ %184, %.thread243 ], [ %185, %.thread246 ], [ %186, %.thread249 ], [ %187, %.thread252 ], [ %188, %.thread255 ], [ %189, %.thread258 ], [ %190, %.thread261 ], [ %191, %.thread264 ], [ %192, %.thread267 ], [ %193, %.thread270 ], [ %194, %.thread273 ], [ %195, %.thread276 ], [ %196, %.thread279 ], [ %197, %.thread282 ], [ %198, %.thread285 ], [ %199, %.thread288 ], [ %200, %.thread291 ], [ %201, %.thread294 ], [ %202, %.thread297 ], [ %203, %.thread300 ], [ %204, %.thread303 ], [ %205, %.thread306 ], [ %206, %.thread309 ]
+.preheader.preheader:                             ; preds = %220, %.thread311, %.thread308, %.thread305, %.thread302, %.thread299, %.thread296, %.thread293, %.thread290, %.thread287, %.thread284, %.thread281, %.thread278, %.thread275, %.thread272, %.thread269, %.thread266, %.thread263, %.thread260, %.thread257, %.thread254, %.thread251, %.thread248, %.thread245, %.thread242, %.thread239, %.thread236, %.thread233, %.thread230, %.thread227, %.thread224, %.thread221, %.thread218, %.thread215, %.thread210
+  %.1214 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 120), %.thread210 ], [ %.35, %220 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 240), %.thread215 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 360), %.thread218 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 480), %.thread221 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 600), %.thread224 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 720), %.thread227 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 840), %.thread230 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 960), %.thread233 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1080), %.thread236 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1200), %.thread239 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1320), %.thread242 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1440), %.thread245 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1560), %.thread248 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1680), %.thread251 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1800), %.thread254 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 1920), %.thread257 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2040), %.thread260 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2160), %.thread263 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2280), %.thread266 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2400), %.thread269 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2520), %.thread272 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2640), %.thread275 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2760), %.thread278 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 2880), %.thread281 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3000), %.thread284 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3120), %.thread287 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3240), %.thread290 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3360), %.thread293 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3480), %.thread296 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3600), %.thread299 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3720), %.thread302 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3840), %.thread305 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 3960), %.thread308 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 4080), %.thread311 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn213 = phi { ptr, i32 } [ %173, %.thread210 ], [ %.pn.pn.pn.pn, %220 ], [ %174, %.thread215 ], [ %175, %.thread218 ], [ %176, %.thread221 ], [ %177, %.thread224 ], [ %178, %.thread227 ], [ %179, %.thread230 ], [ %180, %.thread233 ], [ %181, %.thread236 ], [ %182, %.thread239 ], [ %183, %.thread242 ], [ %184, %.thread245 ], [ %185, %.thread248 ], [ %186, %.thread251 ], [ %187, %.thread254 ], [ %188, %.thread257 ], [ %189, %.thread260 ], [ %190, %.thread263 ], [ %191, %.thread266 ], [ %192, %.thread269 ], [ %193, %.thread272 ], [ %194, %.thread275 ], [ %195, %.thread278 ], [ %196, %.thread281 ], [ %197, %.thread284 ], [ %198, %.thread287 ], [ %199, %.thread290 ], [ %200, %.thread293 ], [ %201, %.thread296 ], [ %202, %.thread299 ], [ %203, %.thread302 ], [ %204, %.thread305 ], [ %205, %.thread308 ], [ %206, %.thread311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN5ZXing6QRCode7VersionD2Ev.exit
-  %221 = phi ptr [ %222, %_ZN5ZXing6QRCode7VersionD2Ev.exit ], [ %.1212, %.preheader.preheader ]
+  %221 = phi ptr [ %222, %_ZN5ZXing6QRCode7VersionD2Ev.exit ], [ %.1214, %.preheader.preheader ]
   %222 = getelementptr inbounds i8, ptr %221, i64 -120
   %223 = getelementptr inbounds i8, ptr %221, i64 -112
   %224 = load ptr, ptr %223, align 8, !tbaa !13
@@ -2201,7 +2201,7 @@ _ZN5ZXing6QRCode7VersionD2Ev.exit:                ; preds = %.preheader, %225
   br i1 %231, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN5ZXing6QRCode7VersionD2Ev.exit, %.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn207 = phi { ptr, i32 } [ %172, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn211, %_ZN5ZXing6QRCode7VersionD2Ev.exit ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn207 = phi { ptr, i32 } [ %172, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn213, %_ZN5ZXing6QRCode7VersionD2Ev.exit ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6QRCode7Version6Model2EiE11allVersions) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn207
 }
@@ -2492,7 +2492,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 120), i32 noundef 2, ptr nonnull %4, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %5) #16
-          to label %71 unwind label %.thread166
+          to label %71 unwind label %.thread168
 
 71:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2502,7 +2502,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %7, ptr noundef nonnull align 4 dereferenceable(80) @constinit.67, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 240), i32 noundef 3, ptr nonnull %6, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %7) #16
-          to label %73 unwind label %.thread171
+          to label %73 unwind label %.thread173
 
 73:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2514,7 +2514,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %9, ptr noundef nonnull align 4 dereferenceable(80) @constinit.68, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 360), i32 noundef 4, ptr nonnull %8, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %9) #16
-          to label %76 unwind label %.thread174
+          to label %76 unwind label %.thread176
 
 76:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2528,7 +2528,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %11, ptr noundef nonnull align 4 dereferenceable(80) @constinit.69, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 480), i32 noundef 5, ptr nonnull %10, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %11) #16
-          to label %80 unwind label %.thread177
+          to label %80 unwind label %.thread179
 
 80:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2536,7 +2536,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %13, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 600), i32 noundef 6, ptr nonnull %12, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %13) #16
-          to label %81 unwind label %.thread180
+          to label %81 unwind label %.thread182
 
 81:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -2546,7 +2546,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %15, ptr noundef nonnull align 4 dereferenceable(80) @constinit.71, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 720), i32 noundef 7, ptr nonnull %14, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %15) #16
-          to label %83 unwind label %.thread183
+          to label %83 unwind label %.thread185
 
 83:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -2556,7 +2556,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %17, ptr noundef nonnull align 4 dereferenceable(80) @constinit.72, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 840), i32 noundef 8, ptr nonnull %16, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %17) #16
-          to label %85 unwind label %.thread186
+          to label %85 unwind label %.thread188
 
 85:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -2568,7 +2568,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %19, ptr noundef nonnull align 4 dereferenceable(80) @constinit.73, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 960), i32 noundef 9, ptr nonnull %18, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %19) #16
-          to label %88 unwind label %.thread189
+          to label %88 unwind label %.thread191
 
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -2582,13 +2582,13 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %21, ptr noundef nonnull align 4 dereferenceable(80) @constinit.74, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1080), i32 noundef 10, ptr nonnull %20, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %21) #16
-          to label %92 unwind label %.thread192
+          to label %92 unwind label %.thread194
 
 92:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %22, ptr noundef nonnull align 4 dereferenceable(80) @constinit.75, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1200), i32 noundef 11, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %22) #16
-          to label %93 unwind label %.thread195
+          to label %93 unwind label %.thread197
 
 93:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -2596,7 +2596,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %24, ptr noundef nonnull align 4 dereferenceable(80) @constinit.76, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1320), i32 noundef 12, ptr nonnull %23, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %24) #16
-          to label %94 unwind label %.thread198
+          to label %94 unwind label %.thread200
 
 94:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -2606,7 +2606,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %26, ptr noundef nonnull align 4 dereferenceable(80) @constinit.77, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1440), i32 noundef 13, ptr nonnull %25, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %26) #16
-          to label %96 unwind label %.thread201
+          to label %96 unwind label %.thread203
 
 96:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -2616,7 +2616,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %28, ptr noundef nonnull align 4 dereferenceable(80) @constinit.78, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1560), i32 noundef 14, ptr nonnull %27, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %28) #16
-          to label %98 unwind label %.thread204
+          to label %98 unwind label %.thread206
 
 98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -2628,7 +2628,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %30, ptr noundef nonnull align 4 dereferenceable(80) @constinit.79, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1680), i32 noundef 15, ptr nonnull %29, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %30) #16
-          to label %101 unwind label %.thread207
+          to label %101 unwind label %.thread209
 
 101:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -2642,13 +2642,13 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %32, ptr noundef nonnull align 4 dereferenceable(80) @constinit.80, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1800), i32 noundef 16, ptr nonnull %31, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %32) #16
-          to label %105 unwind label %.thread210
+          to label %105 unwind label %.thread212
 
 105:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %33, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1920), i32 noundef 17, ptr null, i64 0, ptr noundef nonnull align 4 dereferenceable(80) %33) #16
-          to label %106 unwind label %.thread213
+          to label %106 unwind label %.thread215
 
 106:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -2656,7 +2656,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %35, ptr noundef nonnull align 4 dereferenceable(80) @constinit.82, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2040), i32 noundef 18, ptr nonnull %34, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %35) #16
-          to label %107 unwind label %.thread216
+          to label %107 unwind label %.thread218
 
 107:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -2666,7 +2666,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %37, ptr noundef nonnull align 4 dereferenceable(80) @constinit.83, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2160), i32 noundef 19, ptr nonnull %36, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %37) #16
-          to label %109 unwind label %.thread219
+          to label %109 unwind label %.thread221
 
 109:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -2676,7 +2676,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %39, ptr noundef nonnull align 4 dereferenceable(80) @constinit.84, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2280), i32 noundef 20, ptr nonnull %38, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %39) #16
-          to label %111 unwind label %.thread222
+          to label %111 unwind label %.thread224
 
 111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -2688,7 +2688,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %41, ptr noundef nonnull align 4 dereferenceable(80) @constinit.85, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2400), i32 noundef 21, ptr nonnull %40, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %41) #16
-          to label %114 unwind label %.thread225
+          to label %114 unwind label %.thread227
 
 114:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -2702,7 +2702,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %43, ptr noundef nonnull align 4 dereferenceable(80) @constinit.86, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2520), i32 noundef 22, ptr nonnull %42, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %43) #16
-          to label %118 unwind label %.thread228
+          to label %118 unwind label %.thread230
 
 118:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -2710,7 +2710,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %45, ptr noundef nonnull align 4 dereferenceable(80) @constinit.87, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2640), i32 noundef 23, ptr nonnull %44, i64 1, ptr noundef nonnull align 4 dereferenceable(80) %45) #16
-          to label %119 unwind label %.thread231
+          to label %119 unwind label %.thread233
 
 119:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
@@ -2720,7 +2720,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %47, ptr noundef nonnull align 4 dereferenceable(80) @constinit.88, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2760), i32 noundef 24, ptr nonnull %46, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %47) #16
-          to label %121 unwind label %.thread234
+          to label %121 unwind label %.thread236
 
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
@@ -2730,7 +2730,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %49, ptr noundef nonnull align 4 dereferenceable(80) @constinit.89, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2880), i32 noundef 25, ptr nonnull %48, i64 2, ptr noundef nonnull align 4 dereferenceable(80) %49) #16
-          to label %123 unwind label %.thread237
+          to label %123 unwind label %.thread239
 
 123:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
@@ -2742,7 +2742,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %51, ptr noundef nonnull align 4 dereferenceable(80) @constinit.90, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3000), i32 noundef 26, ptr nonnull %50, i64 3, ptr noundef nonnull align 4 dereferenceable(80) %51) #16
-          to label %126 unwind label %.thread240
+          to label %126 unwind label %.thread242
 
 126:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
@@ -2756,7 +2756,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %53, ptr noundef nonnull align 4 dereferenceable(80) @constinit.91, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3120), i32 noundef 27, ptr nonnull %52, i64 4, ptr noundef nonnull align 4 dereferenceable(80) %53) #16
-          to label %130 unwind label %.thread243
+          to label %130 unwind label %.thread245
 
 130:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -2895,19 +2895,19 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.thread166:                                       ; preds = %69
+.thread168:                                       ; preds = %69
   %150 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-.thread171:                                       ; preds = %71
+.thread173:                                       ; preds = %71
   %151 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread174:                                       ; preds = %73
+.thread176:                                       ; preds = %73
   %152 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2916,7 +2916,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread177:                                       ; preds = %76
+.thread179:                                       ; preds = %76
   %153 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2927,7 +2927,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread180:                                       ; preds = %80
+.thread182:                                       ; preds = %80
   %154 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2940,7 +2940,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread183:                                       ; preds = %81
+.thread185:                                       ; preds = %81
   %155 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -2955,7 +2955,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread186:                                       ; preds = %83
+.thread188:                                       ; preds = %83
   %156 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -2972,7 +2972,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread189:                                       ; preds = %85
+.thread191:                                       ; preds = %85
   %157 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -2991,7 +2991,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread192:                                       ; preds = %88
+.thread194:                                       ; preds = %88
   %158 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -3012,7 +3012,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread195:                                       ; preds = %92
+.thread197:                                       ; preds = %92
   %159 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -3034,7 +3034,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread198:                                       ; preds = %93
+.thread200:                                       ; preds = %93
   %160 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -3058,7 +3058,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread201:                                       ; preds = %94
+.thread203:                                       ; preds = %94
   %161 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -3084,7 +3084,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread204:                                       ; preds = %96
+.thread206:                                       ; preds = %96
   %162 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -3112,7 +3112,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread207:                                       ; preds = %98
+.thread209:                                       ; preds = %98
   %163 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -3142,7 +3142,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread210:                                       ; preds = %101
+.thread212:                                       ; preds = %101
   %164 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -3174,7 +3174,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread213:                                       ; preds = %105
+.thread215:                                       ; preds = %105
   %165 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -3207,7 +3207,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread216:                                       ; preds = %106
+.thread218:                                       ; preds = %106
   %166 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
@@ -3242,7 +3242,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread219:                                       ; preds = %107
+.thread221:                                       ; preds = %107
   %167 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
@@ -3279,7 +3279,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread222:                                       ; preds = %109
+.thread224:                                       ; preds = %109
   %168 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
@@ -3318,7 +3318,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread225:                                       ; preds = %111
+.thread227:                                       ; preds = %111
   %169 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -3359,7 +3359,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread228:                                       ; preds = %114
+.thread230:                                       ; preds = %114
   %170 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -3402,7 +3402,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread231:                                       ; preds = %118
+.thread233:                                       ; preds = %118
   %171 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
@@ -3447,7 +3447,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread234:                                       ; preds = %119
+.thread236:                                       ; preds = %119
   %172 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
@@ -3494,7 +3494,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread237:                                       ; preds = %121
+.thread239:                                       ; preds = %121
   %173 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
@@ -3543,7 +3543,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread240:                                       ; preds = %123
+.thread242:                                       ; preds = %123
   %174 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
@@ -3594,7 +3594,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.thread243:                                       ; preds = %126
+.thread245:                                       ; preds = %126
   %175 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
@@ -3750,9 +3750,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %189, %.thread243, %.thread240, %.thread237, %.thread234, %.thread231, %.thread228, %.thread225, %.thread222, %.thread219, %.thread216, %.thread213, %.thread210, %.thread207, %.thread204, %.thread201, %.thread198, %.thread195, %.thread192, %.thread189, %.thread186, %.thread183, %.thread180, %.thread177, %.thread174, %.thread171, %.thread166
-  %.1170 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 120), %.thread166 ], [ %.27, %189 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 240), %.thread171 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 360), %.thread174 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 480), %.thread177 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 600), %.thread180 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 720), %.thread183 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 840), %.thread186 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 960), %.thread189 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1080), %.thread192 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1200), %.thread195 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1320), %.thread198 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1440), %.thread201 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1560), %.thread204 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1680), %.thread207 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1800), %.thread210 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1920), %.thread213 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2040), %.thread216 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2160), %.thread219 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2280), %.thread222 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2400), %.thread225 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2520), %.thread228 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2640), %.thread231 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2760), %.thread234 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2880), %.thread237 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3000), %.thread240 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3120), %.thread243 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn169 = phi { ptr, i32 } [ %150, %.thread166 ], [ %.pn.pn.pn.pn, %189 ], [ %151, %.thread171 ], [ %152, %.thread174 ], [ %153, %.thread177 ], [ %154, %.thread180 ], [ %155, %.thread183 ], [ %156, %.thread186 ], [ %157, %.thread189 ], [ %158, %.thread192 ], [ %159, %.thread195 ], [ %160, %.thread198 ], [ %161, %.thread201 ], [ %162, %.thread204 ], [ %163, %.thread207 ], [ %164, %.thread210 ], [ %165, %.thread213 ], [ %166, %.thread216 ], [ %167, %.thread219 ], [ %168, %.thread222 ], [ %169, %.thread225 ], [ %170, %.thread228 ], [ %171, %.thread231 ], [ %172, %.thread234 ], [ %173, %.thread237 ], [ %174, %.thread240 ], [ %175, %.thread243 ]
+.preheader.preheader:                             ; preds = %189, %.thread245, %.thread242, %.thread239, %.thread236, %.thread233, %.thread230, %.thread227, %.thread224, %.thread221, %.thread218, %.thread215, %.thread212, %.thread209, %.thread206, %.thread203, %.thread200, %.thread197, %.thread194, %.thread191, %.thread188, %.thread185, %.thread182, %.thread179, %.thread176, %.thread173, %.thread168
+  %.1172 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 120), %.thread168 ], [ %.27, %189 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 240), %.thread173 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 360), %.thread176 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 480), %.thread179 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 600), %.thread182 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 720), %.thread185 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 840), %.thread188 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 960), %.thread191 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1080), %.thread194 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1200), %.thread197 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1320), %.thread200 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1440), %.thread203 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1560), %.thread206 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1680), %.thread209 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1800), %.thread212 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 1920), %.thread215 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2040), %.thread218 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2160), %.thread221 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2280), %.thread224 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2400), %.thread227 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2520), %.thread230 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2640), %.thread233 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2760), %.thread236 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 2880), %.thread239 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3000), %.thread242 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 3120), %.thread245 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn171 = phi { ptr, i32 } [ %150, %.thread168 ], [ %.pn.pn.pn.pn, %189 ], [ %151, %.thread173 ], [ %152, %.thread176 ], [ %153, %.thread179 ], [ %154, %.thread182 ], [ %155, %.thread185 ], [ %156, %.thread188 ], [ %157, %.thread191 ], [ %158, %.thread194 ], [ %159, %.thread197 ], [ %160, %.thread200 ], [ %161, %.thread203 ], [ %162, %.thread206 ], [ %163, %.thread209 ], [ %164, %.thread212 ], [ %165, %.thread215 ], [ %166, %.thread218 ], [ %167, %.thread221 ], [ %168, %.thread224 ], [ %169, %.thread227 ], [ %170, %.thread230 ], [ %171, %.thread233 ], [ %172, %.thread236 ], [ %173, %.thread239 ], [ %174, %.thread242 ], [ %175, %.thread245 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3760,7 +3760,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN5ZXing6QRCode7VersionD2Ev.exit
-  %190 = phi ptr [ %191, %_ZN5ZXing6QRCode7VersionD2Ev.exit ], [ %.1170, %.preheader.preheader ]
+  %190 = phi ptr [ %191, %_ZN5ZXing6QRCode7VersionD2Ev.exit ], [ %.1172, %.preheader.preheader ]
   %191 = getelementptr inbounds i8, ptr %190, i64 -120
   %192 = getelementptr inbounds i8, ptr %190, i64 -112
   %193 = load ptr, ptr %192, align 8, !tbaa !13
@@ -3781,7 +3781,7 @@ _ZN5ZXing6QRCode7VersionD2Ev.exit:                ; preds = %.preheader, %194
   br i1 %200, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN5ZXing6QRCode7VersionD2Ev.exit, %.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn165 = phi { ptr, i32 } [ %149, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn169, %_ZN5ZXing6QRCode7VersionD2Ev.exit ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn165 = phi { ptr, i32 } [ %149, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn171, %_ZN5ZXing6QRCode7VersionD2Ev.exit ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6QRCode7Version4rMQREiE11allVersions) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn165
 }
@@ -3850,49 +3850,49 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %3, ptr noundef nonnull align 4 dereferenceable(80) @constinit.99, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 120), i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(80) %3) #16
-          to label %22 unwind label %.thread54
+          to label %22 unwind label %.thread55
 
 22:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.100, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 240), i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(80) %4) #16
-          to label %23 unwind label %.thread59
+          to label %23 unwind label %.thread60
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.101, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 360), i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(80) %5) #16
-          to label %24 unwind label %.thread62
+          to label %24 unwind label %.thread63
 
 24:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(80) @constinit.102, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 480), i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(80) %6) #16
-          to label %25 unwind label %.thread65
+          to label %25 unwind label %.thread66
 
 25:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %7, ptr noundef nonnull align 4 dereferenceable(80) @constinit.103, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 600), i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(80) %7) #16
-          to label %26 unwind label %.thread68
+          to label %26 unwind label %.thread69
 
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, ptr noundef nonnull align 4 dereferenceable(80) @constinit.104, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 720), i32 noundef 7, ptr noundef nonnull align 4 dereferenceable(80) %8) #16
-          to label %27 unwind label %.thread71
+          to label %27 unwind label %.thread72
 
 27:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %9, ptr noundef nonnull align 4 dereferenceable(80) @constinit.105, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 840), i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(80) %9) #16
-          to label %28 unwind label %.thread74
+          to label %28 unwind label %.thread75
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 4 dereferenceable(80) @constinit.106, i64 80, i1 false), !tbaa.struct !4
   invoke void @_ZN5ZXing6QRCode7VersionC1EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 960), i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(80) %10) #16
-          to label %29 unwind label %.thread77
+          to label %29 unwind label %.thread78
 
 29:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -3958,25 +3958,25 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.thread54:                                        ; preds = %21
+.thread55:                                        ; preds = %21
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %.preheader.preheader
 
-.thread59:                                        ; preds = %22
+.thread60:                                        ; preds = %22
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.preheader
 
-.thread62:                                        ; preds = %23
+.thread63:                                        ; preds = %23
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.preheader
 
-.thread65:                                        ; preds = %24
+.thread66:                                        ; preds = %24
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3984,7 +3984,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.preheader
 
-.thread68:                                        ; preds = %25
+.thread69:                                        ; preds = %25
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3993,7 +3993,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.preheader
 
-.thread71:                                        ; preds = %26
+.thread72:                                        ; preds = %26
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4003,7 +4003,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.preheader
 
-.thread74:                                        ; preds = %27
+.thread75:                                        ; preds = %27
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4014,7 +4014,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.preheader
 
-.thread77:                                        ; preds = %28
+.thread78:                                        ; preds = %28
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4083,15 +4083,15 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %63, %.thread77, %.thread74, %.thread71, %.thread68, %.thread65, %.thread62, %.thread59, %.thread54
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn58 = phi { ptr, i32 } [ %42, %.thread54 ], [ %.pn.pn.pn.pn, %63 ], [ %43, %.thread59 ], [ %44, %.thread62 ], [ %45, %.thread65 ], [ %46, %.thread68 ], [ %47, %.thread71 ], [ %48, %.thread74 ], [ %49, %.thread77 ]
-  %.12457 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 120), %.thread54 ], [ %.932, %63 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 240), %.thread59 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 360), %.thread62 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 480), %.thread65 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 600), %.thread68 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 720), %.thread71 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 840), %.thread74 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 960), %.thread77 ]
+.preheader.preheader:                             ; preds = %63, %.thread78, %.thread75, %.thread72, %.thread69, %.thread66, %.thread63, %.thread60, %.thread55
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn59 = phi { ptr, i32 } [ %42, %.thread55 ], [ %.pn.pn.pn.pn, %63 ], [ %43, %.thread60 ], [ %44, %.thread63 ], [ %45, %.thread66 ], [ %46, %.thread69 ], [ %47, %.thread72 ], [ %48, %.thread75 ], [ %49, %.thread78 ]
+  %.12458 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 120), %.thread55 ], [ %.932, %63 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 240), %.thread60 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 360), %.thread63 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 480), %.thread66 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 600), %.thread69 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 720), %.thread72 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 840), %.thread75 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 960), %.thread78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN5ZXing6QRCode7VersionD2Ev.exit
-  %64 = phi ptr [ %65, %_ZN5ZXing6QRCode7VersionD2Ev.exit ], [ %.12457, %.preheader.preheader ]
+  %64 = phi ptr [ %65, %_ZN5ZXing6QRCode7VersionD2Ev.exit ], [ %.12458, %.preheader.preheader ]
   %65 = getelementptr inbounds i8, ptr %64, i64 -120
   %66 = getelementptr inbounds i8, ptr %64, i64 -112
   %67 = load ptr, ptr %66, align 8, !tbaa !13
@@ -4112,7 +4112,7 @@ _ZN5ZXing6QRCode7VersionD2Ev.exit:                ; preds = %.preheader, %68
   br i1 %74, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %_ZN5ZXing6QRCode7VersionD2Ev.exit, %.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn53 = phi { ptr, i32 } [ %41, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn58, %_ZN5ZXing6QRCode7VersionD2Ev.exit ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn53 = phi { ptr, i32 } [ %41, %.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn59, %_ZN5ZXing6QRCode7VersionD2Ev.exit ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6QRCode7Version6Model1EiE11allVersions) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn53
 }
@@ -4774,14 +4774,14 @@ _ZN5ZXing9BitMatrix3setEiib.exit76:               ; preds = %71
   ret void
 
 _ZN5ZXing9BitMatrixD2Ev.exit.sink.split:          ; preds = %146, %86
-  %.sink93 = phi ptr [ %88, %86 ], [ %148, %146 ]
+  %.sink104 = phi ptr [ %88, %86 ], [ %148, %146 ]
   %.pn68.pn.pn.ph = phi { ptr, i32 } [ %.pn68.pn, %86 ], [ %.pn66, %146 ]
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %151 = load ptr, ptr %150, align 8, !tbaa !47
   %152 = ptrtoint ptr %151 to i64
-  %153 = ptrtoint ptr %.sink93 to i64
+  %153 = ptrtoint ptr %.sink104 to i64
   %154 = sub i64 %152, %153
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink93, i64 noundef %154) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink104, i64 noundef %154) #17
   br label %_ZN5ZXing9BitMatrixD2Ev.exit
 
 _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit.sink.split, %146, %86

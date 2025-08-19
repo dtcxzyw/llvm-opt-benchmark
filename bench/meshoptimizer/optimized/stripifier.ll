@@ -351,7 +351,7 @@ _ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit:     ; preds = %.lr.ph.i223, %141
   store i8 %192, ptr %190, align 1, !tbaa !10
   %193 = zext i32 %180 to i64
   %.not36.not.i226 = icmp eq i32 %180, 0
-  br i1 %.not36.not.i226, label %.thread333, label %.lr.ph.i227
+  br i1 %.not36.not.i226, label %.thread343, label %.lr.ph.i227
 
 .lr.ph.i227:                                      ; preds = %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit, %219
   %.02637.i228 = phi i64 [ %220, %219 ], [ 0, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
@@ -509,20 +509,20 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread: ; preds = %273, %269, %263
   %275 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %spec.select.i251)
   %276 = tail call i32 @llvm.umin.i32(i32 %275, i32 2147483647)
   %277 = icmp eq i32 %spec.select.i233.fr, %276
-  br i1 %277, label %.thread333, label %278
+  br i1 %277, label %.thread343, label %278
 
 278:                                              ; preds = %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread
   %279 = icmp eq i32 %spec.select.i242, %276
-  br i1 %279, label %.thread333, label %280
+  br i1 %279, label %.thread343, label %280
 
 280:                                              ; preds = %278
   %281 = icmp eq i32 %spec.select.i251, %276
-  br i1 %281, label %282, label %.thread333
+  br i1 %281, label %282, label %.thread343
 
 282:                                              ; preds = %280
-  br label %.thread333
+  br label %.thread343
 
-.thread333:                                       ; preds = %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit, %278, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread, %282, %280
+.thread343:                                       ; preds = %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit, %278, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread, %282, %280
   %.3194 = phi i32 [ %spec.select.i251, %282 ], [ %.0191298, %280 ], [ %spec.select.i233.fr, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread ], [ %spec.select.i242, %278 ], [ %.0191298, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
   %.0190 = phi i32 [ %172, %282 ], [ %168, %280 ], [ %168, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread ], [ %170, %278 ], [ %168, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
   %.0189 = phi i32 [ %168, %282 ], [ %170, %280 ], [ %170, %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread ], [ %172, %278 ], [ %170, %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit ]
@@ -530,7 +530,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread: ; preds = %273, %269, %263
   %.not207 = icmp eq i64 %.0183299, 0
   br i1 %.not206, label %291, label %283
 
-283:                                              ; preds = %.thread333
+283:                                              ; preds = %.thread343
   br i1 %.not207, label %287, label %284
 
 284:                                              ; preds = %283
@@ -549,7 +549,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread: ; preds = %273, %269, %263
   store i32 %.0188, ptr %290, align 4, !tbaa !8
   br label %303
 
-291:                                              ; preds = %.thread333
+291:                                              ; preds = %.thread343
   br i1 %.not207, label %296, label %292
 
 292:                                              ; preds = %291
@@ -597,29 +597,19 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread: ; preds = %273, %269, %263
 ._crit_edge305:                                   ; preds = %304, %10
   %.0183.lcssa = phi i64 [ 0, %10 ], [ %.2185, %304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %308
+  %308 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
+  %309 = load ptr, ptr %6, align 8, !tbaa !4
+  invoke void %308(ptr noundef %309)
+          to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %310, !llvm.loop !17
 
-308:                                              ; preds = %309, %._crit_edge305
-  %.0.i = phi i64 [ 1, %._crit_edge305 ], [ %311, %309 ]
-  %.not.i253 = icmp eq i64 %.0.i, 0
-  br i1 %.not.i253, label %_ZN17meshopt_AllocatorD2Ev.exit, label %309
-
-309:                                              ; preds = %308
-  %310 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %311 = add i64 %.0.i, -1
-  %312 = getelementptr inbounds nuw [24 x ptr], ptr %6, i64 0, i64 %311
-  %313 = load ptr, ptr %312, align 8, !tbaa !4
-  invoke void %310(ptr noundef %313)
-          to label %308 unwind label %314, !llvm.loop !17
-
-314:                                              ; preds = %309
-  %315 = landingpad { ptr, i32 }
+310:                                              ; preds = %._crit_edge305
+  %311 = landingpad { ptr, i32 }
           catch ptr null
-  %316 = extractvalue { ptr, i32 } %315, 0
-  tail call void @__clang_call_terminate(ptr %316) #13
+  %312 = extractvalue { ptr, i32 } %311, 0
+  tail call void @__clang_call_terminate(ptr %312) #13
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %308
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge305
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0183.lcssa
 }

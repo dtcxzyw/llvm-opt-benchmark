@@ -961,7 +961,7 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
   %54 = lshr i64 %44, 4
   %55 = and i64 %54, 15
   %56 = icmp samesign ugt i64 %55, 7
-  br i1 %56, label %.invoke178, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i"
+  br i1 %56, label %.invoke198, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i": ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 9
@@ -987,7 +987,7 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
   %70 = load i64, ptr %69, align 8, !noalias !101, !noundef !16
   br label %73
 
-71:                                               ; preds = %.invoke178, %.invoke, %.noexc123, %211, %149, %94, %58, %164
+71:                                               ; preds = %.invoke198, %.invoke, %.noexc123, %211, %149, %94, %58, %164
   %72 = landingpad { ptr, i32 }
           cleanup
   br label %226
@@ -1048,7 +1048,7 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
   %90 = lshr i64 %80, 4
   %91 = and i64 %90, 15
   %92 = icmp samesign ugt i64 %91, 7
-  br i1 %92, label %.invoke178, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i84"
+  br i1 %92, label %.invoke198, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i84"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i84": ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 9
@@ -1184,14 +1184,14 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
   %144 = lshr i64 %134, 4
   %145 = and i64 %144, 15
   %146 = icmp samesign ugt i64 %145, 7
-  br i1 %146, label %.invoke178, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i111"
+  br i1 %146, label %.invoke198, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i111"
 
-.invoke178:                                       ; preds = %53, %143, %89
+.invoke198:                                       ; preds = %53, %143, %89
   %147 = phi i64 [ %91, %89 ], [ %145, %143 ], [ %55, %53 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef range(i64 0, 16) %147, i64 noundef 7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2d761147f564fc5e5908894cf75d1065.6) #15
-          to label %.cont179 unwind label %71
+          to label %.cont199 unwind label %71
 
-.cont179:                                         ; preds = %.invoke178
+.cont199:                                         ; preds = %.invoke198
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i111": ; preds = %143

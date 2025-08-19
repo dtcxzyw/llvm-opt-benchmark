@@ -611,11 +611,11 @@ define void @_ZN6open3d4core3nns21NearestNeighborSearch9KnnSearchERKNS0_6TensorE
   unreachable
 
 21:                                               ; preds = %18, %14
-  %.sink9 = phi ptr [ %16, %14 ], [ %19, %18 ]
-  %22 = load ptr, ptr %.sink9, align 8, !tbaa !4
+  %.sink10 = phi ptr [ %16, %14 ], [ %19, %18 ]
+  %22 = load ptr, ptr %.sink10, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
-  call void %24(ptr dead_on_unwind writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(208) %.sink9, ptr noundef nonnull align 8 dereferenceable(160) %2, i32 noundef %3)
+  call void %24(ptr dead_on_unwind writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(208) %.sink10, ptr noundef nonnull align 8 dereferenceable(160) %2, i32 noundef %3)
   ret void
 }
 
@@ -776,11 +776,11 @@ define void @_ZNK6open3d4core3nns21NearestNeighborSearch12HybridSearchERKNS0_6Te
   unreachable
 
 22:                                               ; preds = %19, %15
-  %.sink11 = phi ptr [ %17, %15 ], [ %20, %19 ]
-  %23 = load ptr, ptr %.sink11, align 8, !tbaa !4
+  %.sink12 = phi ptr [ %17, %15 ], [ %20, %19 ]
+  %23 = load ptr, ptr %.sink12, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr dead_on_unwind writable sret(%"class.std::tuple.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(208) %.sink11, ptr noundef nonnull align 8 dereferenceable(160) %2, double noundef %3, i32 noundef %4)
+  call void %25(ptr dead_on_unwind writable sret(%"class.std::tuple.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(208) %.sink12, ptr noundef nonnull align 8 dereferenceable(160) %2, double noundef %3, i32 noundef %4)
   ret void
 }
 

@@ -222,19 +222,19 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %38, 3461
-  br i1 %39, label %40, label %.thread42
+  br i1 %39, label %40, label %.thread68
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load i16, ptr %41, align 8
   %43 = icmp eq i16 %42, 4203
-  br i1 %43, label %44, label %.thread42
+  br i1 %43, label %44, label %.thread68
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %46 = load i16, ptr %45, align 2
   %47 = icmp eq i16 %46, -13431
-  br i1 %47, label %48, label %.thread42
+  br i1 %47, label %48, label %.thread68
 
 48:                                               ; preds = %44
   call fastcc void @ahci_mcp89_apple_enable(ptr noundef %0)
@@ -253,7 +253,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
 
 53:                                               ; preds = %52, %49
   %54 = phi i16 [ %.pr, %52 ], [ %50, %49 ]
-  switch i16 %54, label %.thread42 [
+  switch i16 %54, label %.thread68 [
     i16 4170, label %55
     i16 7236, label %59
     i16 6013, label %63
@@ -265,14 +265,14 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %57 = load i16, ptr %56, align 2
   %58 = icmp eq i16 %57, -13306
   %spec.select = select i1 %58, i32 0, i32 5
-  br label %.thread42
+  br label %.thread68
 
 59:                                               ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %61 = load i16, ptr %60, align 2
   %62 = icmp eq i16 %61, -32768
   %spec.select34 = select i1 %62, i32 2, i32 5
-  br label %.thread42
+  br label %.thread68
 
 63:                                               ; preds = %53
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 62
@@ -281,22 +281,22 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %67 = select i1 %66, i32 0, i32 5
   %68 = icmp eq i16 %65, -24444
   %69 = select i1 %68, i32 4, i32 %67
-  br label %.thread42
+  br label %.thread68
 
 70:                                               ; preds = %53
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %72 = load i16, ptr %71, align 2
   %73 = icmp eq i16 %72, 31240
   %74 = select i1 %73, i32 0, i32 5
-  br label %.thread42
+  br label %.thread68
 
-.thread42:                                        ; preds = %44, %40, %36, %59, %55, %70, %63, %53
+.thread68:                                        ; preds = %44, %40, %36, %59, %55, %70, %63, %53
   %75 = phi i32 [ %74, %70 ], [ %69, %63 ], [ 5, %53 ], [ %spec.select, %55 ], [ %spec.select34, %59 ], [ 5, %36 ], [ 5, %40 ], [ 5, %44 ]
   %76 = call i32 @pcim_enable_device(ptr noundef %0) #13
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %.thread33
 
-78:                                               ; preds = %.thread42
+78:                                               ; preds = %.thread68
   %79 = load i16, ptr %28, align 4
   %80 = icmp eq i16 %79, -32634
   br i1 %80, label %81, label %93
@@ -617,9 +617,9 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %254 = load i32, ptr %98, align 8
   %255 = and i32 %254, 8192
   %256 = icmp eq i32 %255, 0
-  %spec.select43.v = select i1 %256, i64 17408, i64 1024
-  %spec.select43 = or i64 %253, %spec.select43.v
-  %257 = or i64 %spec.select43, 1048576
+  %spec.select69.v = select i1 %256, i64 17408, i64 1024
+  %spec.select69 = or i64 %253, %spec.select69.v
+  %257 = or i64 %spec.select69, 1048576
   store i64 %257, ptr %15, align 8
   br label %258
 
@@ -1182,8 +1182,8 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %583 = icmp eq i32 %582, 0
   br i1 %583, label %.thread33, label %.lr.ph, !prof !19, !llvm.loop !20
 
-.thread33:                                        ; preds = %581, %.lr.ph, %571, %564, %568, %565, %355, %97, %96, %93, %91, %.thread42, %27
-  %584 = phi i32 [ -19, %91 ], [ -19, %27 ], [ %76, %.thread42 ], [ %95, %93 ], [ -16, %96 ], [ -12, %97 ], [ -12, %355 ], [ %560, %564 ], [ %566, %565 ], [ %569, %568 ], [ 0, %571 ], [ 0, %.lr.ph ], [ 0, %581 ]
+.thread33:                                        ; preds = %581, %.lr.ph, %571, %564, %568, %565, %355, %97, %96, %93, %91, %.thread68, %27
+  %584 = phi i32 [ -19, %91 ], [ -19, %27 ], [ %76, %.thread68 ], [ %95, %93 ], [ -16, %96 ], [ -12, %97 ], [ -12, %355 ], [ %560, %564 ], [ %566, %565 ], [ %569, %568 ], [ 0, %571 ], [ 0, %.lr.ph ], [ 0, %581 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %584

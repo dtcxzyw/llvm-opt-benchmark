@@ -235,19 +235,19 @@ define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_i
 
 _ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit: ; preds = %4
   %.not = icmp eq i64 %5, 32
-  br i1 %.not, label %.thread30, label %.thread
+  br i1 %.not, label %.thread31, label %.thread
 
 12:                                               ; preds = %7
   %13 = icmp eq ptr %9, %2
-  br i1 %13, label %.thread30, label %.thread
+  br i1 %13, label %.thread31, label %.thread
 
-.thread30:                                        ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit, %12
+.thread31:                                        ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit, %12, %.thread30
-  %storemerge = phi i8 [ 1, %.thread30 ], [ 0, %12 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit ]
+.thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit, %12, %.thread31
+  %storemerge = phi i8 [ 1, %.thread31 ], [ 0, %12 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator8for_each17h2c10ce053232c4a3E.exit ]
   store i8 %storemerge, ptr %0, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1614,10 +1614,10 @@ define hidden void @"_ZN5ecdsa3der18Signature$LT$C$GT$10from_bytes17h1893b388d8c
   ret void
 
 68:                                               ; preds = %63, %54, %50, %37
-  %.sink67 = phi ptr [ %65, %63 ], [ %55, %54 ], [ %51, %50 ], [ %39, %37 ]
+  %.sink68 = phi ptr [ %65, %63 ], [ %55, %54 ], [ %51, %50 ], [ %39, %37 ]
   %.sink = phi ptr [ %66, %63 ], [ %56, %54 ], [ %52, %50 ], [ %40, %37 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink67, ptr %69, align 8
+  store ptr %.sink68, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %70, align 8
   store i64 1, ptr %0, align 8

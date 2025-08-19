@@ -1595,19 +1595,19 @@ av_packet_get_side_data.exit.thread:              ; preds = %11, %5, %av_packet_
   br i1 %24, label %.loopexit, label %.thread.thread
 
 .thread.thread:                                   ; preds = %av_packet_get_side_data.exit.thread, %.thread
-  %.0193142 = phi ptr [ %17, %.thread ], [ %21, %av_packet_get_side_data.exit.thread ]
-  store i32 %1, ptr %.0193142, align 1, !tbaa !45
+  %.0193145 = phi ptr [ %17, %.thread ], [ %21, %av_packet_get_side_data.exit.thread ]
+  store i32 %1, ptr %.0193145, align 1, !tbaa !45
   %25 = trunc i32 %4 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %.0193142, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.0193145, i64 4
   store i8 %25, ptr %26, align 1, !tbaa !45
   %27 = trunc i32 %3 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %.0193142, i64 5
+  %28 = getelementptr inbounds nuw i8, ptr %.0193145, i64 5
   store i8 %27, ptr %28, align 1, !tbaa !45
   %29 = icmp sgt i32 %3, 0
   br i1 %29, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.thread.thread
-  %30 = getelementptr inbounds nuw i8, ptr %.0193142, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0193145, i64 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %31
 

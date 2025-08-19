@@ -777,10 +777,10 @@ ossl_decoder_ctx_setup_for_pkey.exit:             ; preds = %46, %53, %54, %65, 
   br label %decoder_clean_pkey_construct_arg.exit.i
 
 182:                                              ; preds = %170, %166, %159
-  %.sink58.i = phi i32 [ 554, %159 ], [ 565, %166 ], [ 575, %170 ]
+  %.sink64.i = phi i32 [ 554, %159 ], [ 565, %166 ], [ 575, %170 ]
   %.sink.i = phi i32 [ 524303, %159 ], [ 524294, %166 ], [ 524348, %170 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink58.i, ptr noundef nonnull @__func__.ossl_decoder_ctx_for_pkey_dup) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink64.i, ptr noundef nonnull @__func__.ossl_decoder_ctx_for_pkey_dup) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef %.sink.i, ptr noundef null) #7
   %183 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %184 = load ptr, ptr %183, align 8, !tbaa !37
@@ -1185,8 +1185,8 @@ define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %0, ptr 
   br i1 %55, label %.thread, label %60
 
 .thread:                                          ; preds = %52, %53
-  %.26697115 = phi ptr [ %51, %53 ], [ %34, %52 ]
-  %56 = call ptr @evp_keymgmt_load(ptr noundef nonnull %.26697115, ptr noundef %24, i64 noundef %26) #7
+  %.26697125 = phi ptr [ %51, %53 ], [ %34, %52 ]
+  %56 = call ptr @evp_keymgmt_load(ptr noundef nonnull %.26697125, ptr noundef %24, i64 noundef %26) #7
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.thread99, label %.thread102
 
@@ -1216,23 +1216,23 @@ define internal range(i32 0, 2) i32 @decoder_construct_pkey(ptr noundef %0, ptr 
   br i1 %.not84, label %73, label %.thread102
 
 .thread102:                                       ; preds = %.thread, %60
-  %.26697114 = phi ptr [ %51, %60 ], [ %.26697115, %.thread ]
+  %.26697124 = phi ptr [ %51, %60 ], [ %.26697125, %.thread ]
   %.0105 = phi ptr [ %69, %60 ], [ %56, %.thread ]
-  %70 = call ptr @evp_keymgmt_util_make_pkey(ptr noundef nonnull %.26697114, ptr noundef nonnull %.0105) #7
+  %70 = call ptr @evp_keymgmt_util_make_pkey(ptr noundef nonnull %.26697124, ptr noundef nonnull %.0105) #7
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %.thread102
-  call void @evp_keymgmt_freedata(ptr noundef nonnull %.26697114, ptr noundef nonnull %.0105) #7
+  call void @evp_keymgmt_freedata(ptr noundef nonnull %.26697124, ptr noundef nonnull %.0105) #7
   br label %73
 
 73:                                               ; preds = %.thread99, %72, %.thread102, %60
-  %.26697113 = phi ptr [ %.26697114, %72 ], [ %.26697114, %.thread102 ], [ %51, %60 ], [ %.26697115, %.thread99 ]
+  %.26697123 = phi ptr [ %.26697124, %72 ], [ %.26697124, %.thread102 ], [ %51, %60 ], [ %.26697125, %.thread99 ]
   %.058 = phi ptr [ null, %72 ], [ %70, %.thread102 ], [ null, %60 ], [ null, %.thread99 ]
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !30
   store ptr %.058, ptr %75, align 8, !tbaa !23
-  call void @EVP_KEYMGMT_free(ptr noundef nonnull %.26697113) #7
+  call void @EVP_KEYMGMT_free(ptr noundef nonnull %.26697123) #7
   br label %.thread89
 
 .thread89:                                        ; preds = %._crit_edge, %73, %52

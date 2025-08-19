@@ -1250,10 +1250,10 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i74.i: ; preds
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %.backedge.sink.split.i.i, %464, %455, %451
-  %.sink149.i.i = phi i32 [ %449, %451 ], [ %449, %455 ], [ %449, %464 ], [ %.pre.i68.i.i, %.backedge.sink.split.i.i ]
+  %.sink161.i.i = phi i32 [ %449, %451 ], [ %449, %455 ], [ %449, %464 ], [ %.pre.i68.i.i, %.backedge.sink.split.i.i ]
   %.094.be.i.i = phi ptr [ %453, %451 ], [ %457, %455 ], [ %466, %464 ], [ %.094.be.ph.i.i, %.backedge.sink.split.i.i ]
   %470 = load ptr, ptr %7, align 8, !tbaa !25
-  %471 = zext i32 %.sink149.i.i to i64
+  %471 = zext i32 %.sink161.i.i to i64
   %472 = getelementptr inbounds nuw ptr, ptr %470, i64 %471
   %473 = ptrtoint ptr %.094.i.i to i64
   store i64 %473, ptr %472, align 1

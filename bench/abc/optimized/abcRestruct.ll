@@ -1873,12 +1873,12 @@ define void @Abc_NodeEdgeDsdPermute(ptr noundef readonly captures(none) %0, ptr 
 
 .loopexit.sink.split:                             ; preds = %.split.us, %96
   %indvars.iv112.lcssa.sink = phi i64 [ %indvars.iv, %96 ], [ %indvars.iv112, %.split.us ]
-  %.lcssa117.sink = phi i32 [ %74, %96 ], [ %48, %.split.us ]
+  %.lcssa124.sink = phi i32 [ %74, %96 ], [ %48, %.split.us ]
   %.val88 = load ptr, ptr %9, align 8, !tbaa !92
   %100 = getelementptr inbounds nuw i32, ptr %.val88, i64 %indvars.iv112.lcssa.sink
   store i32 %17, ptr %100, align 4, !tbaa !55
   %101 = getelementptr inbounds i32, ptr %.val88, i64 %14
-  store i32 %.lcssa117.sink, ptr %101, align 4, !tbaa !55
+  store i32 %.lcssa124.sink, ptr %101, align 4, !tbaa !55
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %.loopexit.sink.split, %.split.us, %96, %8, %4
@@ -2158,14 +2158,14 @@ Vec_IntAlloc.exit:                                ; preds = %21, %26
   br label %Vec_IntPush.exit.us.sink.split
 
 Vec_IntPush.exit.us.sink.split:                   ; preds = %56, %58, %51, %53
-  %.sink600 = phi ptr [ %52, %51 ], [ %54, %53 ], [ %57, %56 ], [ %59, %58 ]
+  %.sink674 = phi ptr [ %52, %51 ], [ %54, %53 ], [ %57, %56 ], [ %59, %58 ]
   %.sink = phi i32 [ %48, %51 ], [ %48, %53 ], [ 16, %56 ], [ 16, %58 ]
-  store ptr %.sink600, ptr %31, align 8, !tbaa !92
+  store ptr %.sink674, ptr %31, align 8, !tbaa !92
   store i32 %.sink, ptr %23, align 8, !tbaa !91
   br label %Vec_IntPush.exit.us
 
 Vec_IntPush.exit.us:                              ; preds = %Vec_IntPush.exit.us.sink.split, %41
-  %.pre.i.us564 = phi ptr [ %36, %41 ], [ %.sink600, %Vec_IntPush.exit.us.sink.split ]
+  %.pre.i.us564 = phi ptr [ %36, %41 ], [ %.sink674, %Vec_IntPush.exit.us.sink.split ]
   %60 = load i32, ptr %25, align 4, !tbaa !93
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %25, align 4, !tbaa !93
@@ -2206,8 +2206,8 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %73
 74:                                               ; preds = %69
   %75 = add nuw nsw i32 %67, 1
   store i32 %75, ptr %25, align 4, !tbaa !93
-  %.not571 = icmp eq i32 %67, 0
-  br i1 %.not571, label %Abc_NodeEdgeDsdPushOrdered.exit, label %.lr.ph.i
+  %.not645 = icmp eq i32 %67, 0
+  br i1 %.not645, label %Abc_NodeEdgeDsdPushOrdered.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %74
   %76 = lshr i32 %70, 1
@@ -2511,8 +2511,8 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %220
   br i1 %242, label %229, label %Abc_NodeEdgeDsdPushOrdered.exit487, !llvm.loop !130
 
 ._crit_edge.loopexit.split.loop.exit.i486:        ; preds = %229
-  %sext610 = shl i64 %indvars.iv.i483, 32
-  %243 = ashr exact i64 %sext610, 32
+  %sext684 = shl i64 %indvars.iv.i483, 32
+  %243 = ashr exact i64 %sext684, 32
   br label %Abc_NodeEdgeDsdPushOrdered.exit487
 
 Abc_NodeEdgeDsdPushOrdered.exit487:               ; preds = %240, %._crit_edge.loopexit.split.loop.exit.i486
@@ -3085,8 +3085,8 @@ Dec_GraphAddNodeXor.exit:                         ; preds = %Dec_GraphAddNodeOr.
   br label %.sink.split
 
 .sink.split:                                      ; preds = %502, %565, %536
-  %.sink601 = phi i32 [ %538, %536 ], [ %567, %565 ], [ %503, %502 ]
-  store i32 %.sink601, ptr %5, align 4, !tbaa !55
+  %.sink675 = phi i32 [ %538, %536 ], [ %567, %565 ], [ %503, %502 ]
+  store i32 %.sink675, ptr %5, align 4, !tbaa !55
   br label %568
 
 568:                                              ; preds = %.sink.split, %531, %560
@@ -3150,8 +3150,8 @@ Abc_NodeEdgeDsdPushOrdered.exit499.thread:        ; preds = %574
   br i1 %596, label %583, label %Abc_NodeEdgeDsdPushOrdered.exit499, !llvm.loop !130
 
 ._crit_edge.loopexit.split.loop.exit.i498:        ; preds = %583
-  %sext609 = shl i64 %indvars.iv.i495, 32
-  %597 = ashr exact i64 %sext609, 32
+  %sext683 = shl i64 %indvars.iv.i495, 32
+  %597 = ashr exact i64 %sext683, 32
   br label %Abc_NodeEdgeDsdPushOrdered.exit499
 
 Abc_NodeEdgeDsdPushOrdered.exit499:               ; preds = %594, %._crit_edge.loopexit.split.loop.exit.i498
@@ -3342,7 +3342,7 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   %722 = icmp ne ptr %716, null
   %723 = icmp ne ptr %721, null
   %or.cond7528 = select i1 %722, i1 %723, i1 false
-  br label %.thread574
+  br label %.thread648
 
 724:                                              ; preds = %663
   %725 = ptrtoint ptr %710 to i64
@@ -3355,7 +3355,7 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   %or.cond7 = select i1 %729, i1 %730, i1 false
   %731 = icmp ne i64 %726, %725
   %or.cond9 = select i1 %or.cond7, i1 %731, i1 false
-  br i1 %or.cond9, label %732, label %.thread574
+  br i1 %or.cond9, label %732, label %.thread648
 
 732:                                              ; preds = %724
   %733 = load ptr, ptr %1, align 8, !tbaa !28
@@ -3365,9 +3365,9 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   %.pr531.pre = load i32, ptr %7, align 4, !tbaa !55
   %.pre.pre = load ptr, ptr %697, align 8, !tbaa !99
   %737 = icmp eq i32 %.pr531.pre, 0
-  br i1 %737, label %.thread574, label %829
+  br i1 %737, label %.thread648, label %829
 
-.thread574:                                       ; preds = %724, %.thread532, %732
+.thread648:                                       ; preds = %724, %.thread532, %732
   %738 = phi ptr [ %.val454, %.thread532 ], [ %.pre.pre, %732 ], [ %.val454, %724 ]
   %.0370538 = phi ptr [ null, %.thread532 ], [ %736, %732 ], [ null, %724 ]
   %739 = phi ptr [ null, %.thread532 ], [ %728, %732 ], [ %728, %724 ]
@@ -3381,7 +3381,7 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   %746 = icmp eq i32 %743, %745
   br i1 %746, label %747, label %Dec_GraphAddNodeAnd.exit.i502
 
-747:                                              ; preds = %.thread574
+747:                                              ; preds = %.thread648
   %.not.i.i.i504 = icmp eq ptr %738, null
   %748 = shl nsw i32 %743, 1
   %749 = sext i32 %748 to i64
@@ -3407,9 +3407,9 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   store i32 %.pre-phi.i.i.i508, ptr %744, align 4, !tbaa !98
   br label %Dec_GraphAddNodeAnd.exit.i502
 
-Dec_GraphAddNodeAnd.exit.i502:                    ; preds = %755, %.thread574
-  %757 = phi i32 [ %.pre15.i.i.i509, %755 ], [ %743, %.thread574 ]
-  %758 = phi ptr [ %756, %755 ], [ %738, %.thread574 ]
+Dec_GraphAddNodeAnd.exit.i502:                    ; preds = %755, %.thread648
+  %757 = phi i32 [ %.pre15.i.i.i509, %755 ], [ %743, %.thread648 ]
+  %758 = phi ptr [ %756, %755 ], [ %738, %.thread648 ]
   %759 = add nsw i32 %757, 1
   store i32 %759, ptr %742, align 8, !tbaa !97
   %760 = sext i32 %757 to i64
@@ -3759,7 +3759,7 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
 
 957:                                              ; preds = %956
   %958 = add nsw i32 %952, 2
-  br label %.sink.split602
+  br label %.sink.split676
 
 959:                                              ; preds = %956
   %960 = load ptr, ptr %1, align 8, !tbaa !28
@@ -3780,16 +3780,16 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
 969:                                              ; preds = %964, %959
   %970 = load i32, ptr %5, align 4, !tbaa !55
   %971 = add nsw i32 %970, 1
-  br label %.sink.split602
+  br label %.sink.split676
 
-.sink.split602:                                   ; preds = %957, %969
-  %.sink603 = phi i32 [ %971, %969 ], [ %958, %957 ]
-  store i32 %.sink603, ptr %5, align 4, !tbaa !55
+.sink.split676:                                   ; preds = %957, %969
+  %.sink677 = phi i32 [ %971, %969 ], [ %958, %957 ]
+  store i32 %.sink677, ptr %5, align 4, !tbaa !55
   br label %972
 
-972:                                              ; preds = %.sink.split602, %964
+972:                                              ; preds = %.sink.split676, %964
   %or.cond13 = select i1 %921, i1 %922, i1 false
-  br i1 %or.cond13, label %973, label %.sink.split606
+  br i1 %or.cond13, label %973, label %.sink.split680
 
 973:                                              ; preds = %972
   %974 = load ptr, ptr %1, align 8, !tbaa !28
@@ -3800,7 +3800,7 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %979 = inttoptr i64 %978 to ptr
   %980 = call ptr @Abc_AigAndLookup(ptr noundef %976, ptr noundef %979, ptr noundef nonnull %920) #20
   %.not421 = icmp eq ptr %980, null
-  br i1 %.not421, label %.sink.split606, label %981
+  br i1 %.not421, label %.sink.split680, label %981
 
 981:                                              ; preds = %973
   %982 = ptrtoint ptr %980 to i64
@@ -3808,14 +3808,14 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %984 = inttoptr i64 %983 to ptr
   %985 = call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %984)
   %.not422 = icmp eq i32 %985, 0
-  br i1 %.not422, label %1024, label %.sink.split606
+  br i1 %.not422, label %1024, label %.sink.split680
 
 986:                                              ; preds = %.critedge446
   br i1 %or.cond7530535, label %989, label %987
 
 987:                                              ; preds = %986
   %988 = add nsw i32 %952, 2
-  br label %.sink.split604
+  br label %.sink.split678
 
 989:                                              ; preds = %986
   %990 = load ptr, ptr %1, align 8, !tbaa !28
@@ -3839,16 +3839,16 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
 1002:                                             ; preds = %997, %989
   %1003 = load i32, ptr %5, align 4, !tbaa !55
   %1004 = add nsw i32 %1003, 1
-  br label %.sink.split604
+  br label %.sink.split678
 
-.sink.split604:                                   ; preds = %987, %1002
-  %.sink605 = phi i32 [ %1004, %1002 ], [ %988, %987 ]
-  store i32 %.sink605, ptr %5, align 4, !tbaa !55
+.sink.split678:                                   ; preds = %987, %1002
+  %.sink679 = phi i32 [ %1004, %1002 ], [ %988, %987 ]
+  store i32 %.sink679, ptr %5, align 4, !tbaa !55
   br label %1005
 
-1005:                                             ; preds = %.sink.split604, %997
+1005:                                             ; preds = %.sink.split678, %997
   %or.cond17 = select i1 %921, i1 %922, i1 false
-  br i1 %or.cond17, label %1006, label %.sink.split606
+  br i1 %or.cond17, label %1006, label %.sink.split680
 
 1006:                                             ; preds = %1005
   %1007 = load ptr, ptr %1, align 8, !tbaa !28
@@ -3862,7 +3862,7 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %1015 = inttoptr i64 %1014 to ptr
   %1016 = call ptr @Abc_AigAndLookup(ptr noundef %1009, ptr noundef %1012, ptr noundef %1015) #20
   %.not417 = icmp eq ptr %1016, null
-  br i1 %.not417, label %.sink.split606, label %1017
+  br i1 %.not417, label %.sink.split680, label %1017
 
 1017:                                             ; preds = %1006
   %1018 = ptrtoint ptr %1016 to i64
@@ -3870,15 +3870,15 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %1020 = inttoptr i64 %1019 to ptr
   %1021 = call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %1020)
   %.not418 = icmp eq i32 %1021, 0
-  br i1 %.not418, label %1024, label %.sink.split606
+  br i1 %.not418, label %1024, label %.sink.split680
 
-.sink.split606:                                   ; preds = %1006, %1017, %1005, %973, %981, %972
+.sink.split680:                                   ; preds = %1006, %1017, %1005, %973, %981, %972
   %1022 = load i32, ptr %5, align 4, !tbaa !55
   %1023 = add nsw i32 %1022, 1
   store i32 %1023, ptr %5, align 4, !tbaa !55
   br label %1024
 
-1024:                                             ; preds = %.sink.split606, %1017, %981
+1024:                                             ; preds = %.sink.split680, %1017, %981
   %1025 = load i32, ptr %5, align 4, !tbaa !55
   %1026 = icmp sgt i32 %1025, %4
   br i1 %1026, label %1027, label %1030
@@ -5118,10 +5118,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 125:                                              ; preds = %Vec_PtrPush.exit, %123
   %.sink = phi i32 [ %121, %Vec_PtrPush.exit ], [ %.049, %123 ]
-  %.sink69 = phi ptr [ %120, %Vec_PtrPush.exit ], [ %.val43, %123 ]
+  %.sink79 = phi ptr [ %120, %Vec_PtrPush.exit ], [ %.val43, %123 ]
   %.1 = phi i32 [ %.049, %Vec_PtrPush.exit ], [ %124, %123 ]
   %126 = sext i32 %.sink to i64
-  %127 = getelementptr inbounds ptr, ptr %.sink69, i64 %126
+  %127 = getelementptr inbounds ptr, ptr %.sink79, i64 %126
   store ptr %90, ptr %127, align 8, !tbaa !45
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %.val37 = load i32, ptr %81, align 4, !tbaa !39
@@ -5535,8 +5535,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %65, ptr %5, align 4, !tbaa !93
   %66 = sext i32 %64 to i64
   %67 = getelementptr inbounds i32, ptr %63, i64 %66
-  %indvars.iv.tr60 = trunc i64 %indvars.iv to i32
-  %68 = shl i32 %indvars.iv.tr60, 1
+  %indvars.iv.tr72 = trunc i64 %indvars.iv to i32
+  %68 = shl i32 %indvars.iv.tr72, 1
   store i32 %68, ptr %67, align 4, !tbaa !55
   br label %138
 

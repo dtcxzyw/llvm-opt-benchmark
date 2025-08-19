@@ -161,15 +161,15 @@ define noundef ptr @Abs_ManTernarySimulate(ptr noundef %0, i32 noundef %1, i32 n
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %6, align 8, !tbaa !31
-  %.neg143 = mul i64 %10, -1000000
+  %.neg146 = mul i64 %10, -1000000
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !33
   %.neg = sdiv i64 %12, -1000
-  %.neg144 = add i64 %.neg, %.neg143
+  %.neg147 = add i64 %.neg, %.neg146
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %3, %9
-  %.0.i.neg = phi i64 [ %.neg144, %9 ], [ 1, %3 ]
+  %.0.i.neg = phi i64 [ %.neg147, %9 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr i8, ptr %0, i64 32
   %.val87 = load ptr, ptr %13, align 8, !tbaa !34
@@ -337,13 +337,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.pre.sink = phi ptr [ %77, %.split ], [ %.pre, %.preheader ], [ %.pre, %78 ]
   %.val83 = phi ptr [ %.val81, %.split ], [ %.val79.pre, %.preheader ], [ %.val79.pre, %78 ]
   %.val95.pn = load ptr, ptr %36, align 8, !tbaa !42
-  %.val80.sink141.in = getelementptr i8, ptr %.val95.pn, i64 36
-  %.val80.sink141 = load i32, ptr %.val80.sink141.in, align 4, !tbaa !9
-  %97 = ashr i32 %.val80.sink141, 4
+  %.val80.sink144.in = getelementptr i8, ptr %.val95.pn, i64 36
+  %.val80.sink144 = load i32, ptr %.val80.sink144.in, align 4, !tbaa !9
+  %97 = ashr i32 %.val80.sink144, 4
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i32, ptr %.pre.sink, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !13
-  %101 = shl i32 %.val80.sink141, 1
+  %101 = shl i32 %.val80.sink144, 1
   %102 = and i32 %101, 30
   %103 = lshr i32 %100, %102
   %104 = and i32 %103, 3
@@ -636,23 +636,23 @@ define noalias noundef ptr @Saig_BmcManStart(ptr noundef %0, i32 noundef %1, i32
   %8 = alloca i32, align 4
   %9 = alloca %struct.satoko_opts, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %calloc63 = tail call dereferenceable_or_null(136) ptr @calloc(i64 1, i64 136)
-  store i32 %1, ptr %calloc63, align 8, !tbaa !53
-  %10 = getelementptr inbounds nuw i8, ptr %calloc63, i64 4
+  %calloc67 = tail call dereferenceable_or_null(136) ptr @calloc(i64 1, i64 136)
+  store i32 %1, ptr %calloc67, align 8, !tbaa !53
+  %10 = getelementptr inbounds nuw i8, ptr %calloc67, i64 4
   store i32 %2, ptr %10, align 4, !tbaa !57
-  %11 = getelementptr inbounds nuw i8, ptr %calloc63, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %calloc67, i64 8
   store i32 %3, ptr %11, align 8, !tbaa !58
-  %12 = getelementptr inbounds nuw i8, ptr %calloc63, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %calloc67, i64 12
   store i32 %4, ptr %12, align 4, !tbaa !59
-  %13 = getelementptr inbounds nuw i8, ptr %calloc63, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %calloc67, i64 16
   store i32 %5, ptr %13, align 8, !tbaa !60
-  %14 = getelementptr inbounds nuw i8, ptr %calloc63, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %calloc67, i64 24
   store ptr %0, ptr %14, align 8, !tbaa !61
   %15 = getelementptr i8, ptr %0, i64 32
   %.val56 = load ptr, ptr %15, align 8, !tbaa !34
   %16 = getelementptr i8, ptr %.val56, i64 4
   %.val56.val = load i32, ptr %16, align 4, !tbaa !36
-  %17 = getelementptr inbounds nuw i8, ptr %calloc63, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %calloc67, i64 48
   store i32 %.val56.val, ptr %17, align 8, !tbaa !62
   %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -661,13 +661,13 @@ define noalias noundef ptr @Saig_BmcManStart(ptr noundef %0, i32 noundef %1, i32
   %20 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #20
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %calloc63, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %calloc67, i64 56
   store ptr %18, ptr %22, align 8, !tbaa !63
-  %calloc64 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %23 = getelementptr inbounds nuw i8, ptr %calloc64, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %calloc64, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %calloc63, i64 88
-  store ptr %calloc64, ptr %25, align 8, !tbaa !64
+  %calloc68 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %23 = getelementptr inbounds nuw i8, ptr %calloc68, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %calloc68, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %calloc67, i64 88
+  store ptr %calloc68, ptr %25, align 8, !tbaa !64
   %.not.i.i = icmp sgt i32 %.val56.val, 0
   br i1 %.not.i.i, label %.lr.ph.i, label %Vec_IntFill.exit
 
@@ -676,13 +676,13 @@ define noalias noundef ptr @Saig_BmcManStart(ptr noundef %0, i32 noundef %1, i32
   %27 = shl nuw nsw i64 %26, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %27)
   store ptr %calloc, ptr %24, align 8, !tbaa !65
-  store i32 %.val56.val, ptr %calloc64, align 8, !tbaa !67
+  store i32 %.val56.val, ptr %calloc68, align 8, !tbaa !67
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %7, %.lr.ph.i
   store i32 %.val56.val, ptr %23, align 4, !tbaa !68
   %28 = tail call ptr @Aig_ManStart(i32 noundef %.val56.val) #19
-  %29 = getelementptr inbounds nuw i8, ptr %calloc63, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %calloc67, i64 32
   store ptr %28, ptr %29, align 8, !tbaa !69
   %30 = getelementptr i8, ptr %0, i64 104
   %.val5561 = load i32, ptr %30, align 8, !tbaa !38
@@ -709,14 +709,14 @@ Vec_IntFill.exit:                                 ; preds = %7, %.lr.ph.i
   %42 = ptrtoint ptr %.val57 to i64
   %43 = xor i64 %42, 1
   %44 = inttoptr i64 %43 to ptr
-  tail call fastcc void @Saig_BmcObjSetFrame(ptr noundef nonnull %calloc63, ptr noundef %41, i32 noundef 0, ptr noundef %44)
+  tail call fastcc void @Saig_BmcObjSetFrame(ptr noundef nonnull %calloc67, ptr noundef %41, i32 noundef 0, ptr noundef %44)
   %45 = add nuw nsw i32 %.062, 1
   %.val55 = load i32, ptr %30, align 8, !tbaa !38
   %46 = icmp slt i32 %45, %.val55
   br i1 %46, label %35, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %35, %Vec_IntFill.exit
-  %47 = getelementptr inbounds nuw i8, ptr %calloc63, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %calloc67, i64 80
   store i32 2, ptr %8, align 4, !tbaa !13
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %53, label %48
@@ -727,7 +727,7 @@ Vec_IntFill.exit:                                 ; preds = %7, %.lr.ph.i
   %49 = sext i32 %3 to i64
   store i64 %49, ptr %9, align 8, !tbaa !71
   %50 = call ptr @satoko_create() #19
-  %51 = getelementptr inbounds nuw i8, ptr %calloc63, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %calloc67, i64 72
   store ptr %50, ptr %51, align 8, !tbaa !75
   call void @satoko_configure(ptr noundef %50, ptr noundef nonnull %9) #19
   call void @satoko_setnvars(ptr noundef %50, i32 noundef 2000) #19
@@ -737,7 +737,7 @@ Vec_IntFill.exit:                                 ; preds = %7, %.lr.ph.i
 
 53:                                               ; preds = %.critedge
   %54 = tail call ptr @sat_solver_new() #19
-  %55 = getelementptr inbounds nuw i8, ptr %calloc63, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %calloc67, i64 64
   store ptr %54, ptr %55, align 8, !tbaa !76
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 476
   store i32 10000, ptr %56, align 4, !tbaa !77
@@ -764,7 +764,7 @@ Vec_IntFill.exit:                                 ; preds = %7, %.lr.ph.i
   br i1 %.not.i.not.i.i, label %Saig_BmcSetSatNum.exit, label %67
 
 67:                                               ; preds = %62
-  %68 = load i32, ptr %calloc64, align 8, !tbaa !67
+  %68 = load i32, ptr %calloc68, align 8, !tbaa !67
   %69 = shl nsw i32 %68, 1
   %.not.i.i60 = icmp slt i32 %.val59, %69
   %.not.i.i.not.i.i = icmp sgt i32 %68, %.val59
@@ -810,7 +810,7 @@ Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %84, %86, %75, %77
   %storemerge = phi ptr [ %76, %75 ], [ %78, %77 ], [ %85, %84 ], [ %87, %86 ]
   %.sink.i.i.i = phi i32 [ %65, %75 ], [ %65, %77 ], [ %69, %84 ], [ %69, %86 ]
   store ptr %storemerge, ptr %24, align 8, !tbaa !65
-  store i32 %.sink.i.i.i, ptr %calloc64, align 8, !tbaa !67
+  store i32 %.sink.i.i.i, ptr %calloc68, align 8, !tbaa !67
   %.pre.i.i = load i32, ptr %23, align 4, !tbaa !68
   br label %Vec_IntGrow.exit.i.i.i
 
@@ -847,7 +847,7 @@ Saig_BmcSetSatNum.exit:                           ; preds = %62, %._crit_edge.i.
   %100 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #20
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %100, ptr %101, align 8, !tbaa !3
-  %102 = getelementptr inbounds nuw i8, ptr %calloc63, i64 104
+  %102 = getelementptr inbounds nuw i8, ptr %calloc67, i64 104
   store ptr %98, ptr %102, align 8, !tbaa !91
   %103 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
@@ -856,14 +856,14 @@ Saig_BmcSetSatNum.exit:                           ; preds = %62, %._crit_edge.i.
   %105 = call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #20
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %105, ptr %106, align 8, !tbaa !65
-  %107 = getelementptr inbounds nuw i8, ptr %calloc63, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %calloc67, i64 40
   store ptr %103, ptr %107, align 8, !tbaa !92
-  %108 = getelementptr inbounds nuw i8, ptr %calloc63, i64 128
+  %108 = getelementptr inbounds nuw i8, ptr %calloc67, i64 128
   store i32 -1, ptr %108, align 8, !tbaa !93
-  %109 = getelementptr inbounds nuw i8, ptr %calloc63, i64 124
+  %109 = getelementptr inbounds nuw i8, ptr %calloc67, i64 124
   store i32 -1, ptr %109, align 4, !tbaa !94
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret ptr %calloc63
+  ret ptr %calloc67
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -3345,15 +3345,15 @@ Abc_Clock.exit:                                   ; preds = %23, %28
 
 40:                                               ; preds = %36
   %41 = load i64, ptr %20, align 8, !tbaa !31
-  %.neg171 = mul i64 %41, -1000000
+  %.neg182 = mul i64 %41, -1000000
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !33
-  %.neg170 = sdiv i64 %43, -1000
-  %.neg172 = add i64 %.neg170, %.neg171
+  %.neg181 = sdiv i64 %43, -1000
+  %.neg183 = add i64 %.neg181, %.neg182
   br label %Abc_Clock.exit146
 
 Abc_Clock.exit146:                                ; preds = %36, %40
-  %.0.i145.neg = phi i64 [ %.neg172, %40 ], [ 1, %36 ]
+  %.0.i145.neg = phi i64 [ %.neg183, %40 ], [ 1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %44 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %19) #19
@@ -3393,10 +3393,10 @@ Abc_Clock.exit148:                                ; preds = %Abc_Clock.exit146, 
   br label %.split
 
 .split:                                           ; preds = %Abc_Clock.exit148, %.split105
-  %.sink166 = phi i32 [ %7, %.split105 ], [ 0, %Abc_Clock.exit148 ]
+  %.sink177 = phi i32 [ %7, %.split105 ], [ 0, %Abc_Clock.exit148 ]
   %.not120 = icmp eq i32 %2, 0
   %59 = select i1 %.not120, i32 1000000000, i32 %2
-  %60 = call ptr @Saig_BmcManStart(ptr noundef %0, i32 noundef %59, i32 noundef %3, i32 noundef %5, i32 noundef %6, i32 noundef %.sink166, i32 noundef %11)
+  %60 = call ptr @Saig_BmcManStart(ptr noundef %0, i32 noundef %59, i32 noundef %3, i32 noundef %5, i32 noundef %6, i32 noundef %.sink177, i32 noundef %11)
   br i1 %.not, label %70, label %61
 
 61:                                               ; preds = %.split

@@ -268,45 +268,45 @@ define internal void @_ZN12_GLOBAL__N_19ZinitPass7executeESt6vectorINSt7__cxx111
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %24 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull @.str.10) #22
   %25 = icmp eq i32 %24, 0
-  %.pre.pre309 = load ptr, ptr %16, align 8, !tbaa !6
-  %.pre268.pre310 = load ptr, ptr %1, align 8, !tbaa !12
-  br i1 %25, label %.lr.ph314, label %.lr.ph.._crit_edge.loopexit_crit_edge
+  %.pre.pre406 = load ptr, ptr %16, align 8, !tbaa !6
+  %.pre268.pre407 = load ptr, ptr %1, align 8, !tbaa !12
+  br i1 %25, label %.lr.ph411, label %.lr.ph.._crit_edge.loopexit_crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph314
-  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre268.pre313, i64 %29
+.lr.ph:                                           ; preds = %.lr.ph411
+  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre268.pre410, i64 %29
   %27 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull @.str.10) #22
   %28 = icmp eq i32 %27, 0
   %.pre.pre = load ptr, ptr %16, align 8, !tbaa !6
   %.pre268.pre = load ptr, ptr %1, align 8, !tbaa !12
-  br i1 %28, label %.lr.ph314, label %.lr.ph.._crit_edge.loopexit_crit_edge, !llvm.loop !13
+  br i1 %28, label %.lr.ph411, label %.lr.ph.._crit_edge.loopexit_crit_edge, !llvm.loop !13
 
 .lr.ph.._crit_edge.loopexit_crit_edge:            ; preds = %.lr.ph, %.lr.ph.preheader
   %.022243.lcssa = phi i64 [ 1, %.lr.ph.preheader ], [ %29, %.lr.ph ]
-  %.pre.pre.lcssa = phi ptr [ %.pre.pre309, %.lr.ph.preheader ], [ %.pre.pre, %.lr.ph ]
-  %.pre268.pre.lcssa = phi ptr [ %.pre268.pre310, %.lr.ph.preheader ], [ %.pre268.pre, %.lr.ph ]
+  %.pre.pre.lcssa = phi ptr [ %.pre.pre406, %.lr.ph.preheader ], [ %.pre.pre, %.lr.ph ]
+  %.pre268.pre.lcssa = phi ptr [ %.pre268.pre407, %.lr.ph.preheader ], [ %.pre268.pre, %.lr.ph ]
   %.pre277 = ptrtoint ptr %.pre.pre.lcssa to i64
   %.pre = ptrtoint ptr %.pre268.pre.lcssa to i64
   %.pre278 = sub i64 %.pre277, %.pre
   br label %._crit_edge
 
-.lr.ph314:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.pre268.pre313 = phi ptr [ %.pre268.pre, %.lr.ph ], [ %.pre268.pre310, %.lr.ph.preheader ]
-  %.pre.pre312 = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre.pre309, %.lr.ph.preheader ]
-  %.022243311 = phi i64 [ %29, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %29 = add nuw i64 %.022243311, 1
-  %30 = ptrtoint ptr %.pre.pre312 to i64
-  %31 = ptrtoint ptr %.pre268.pre313 to i64
+.lr.ph411:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.pre268.pre410 = phi ptr [ %.pre268.pre, %.lr.ph ], [ %.pre268.pre407, %.lr.ph.preheader ]
+  %.pre.pre409 = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre.pre406, %.lr.ph.preheader ]
+  %.022243408 = phi i64 [ %29, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %29 = add nuw i64 %.022243408, 1
+  %30 = ptrtoint ptr %.pre.pre409 to i64
+  %31 = ptrtoint ptr %.pre268.pre410 to i64
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 5
   %34 = icmp ult i64 %29, %33
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph314, %.lr.ph.._crit_edge.loopexit_crit_edge, %3
-  %.pre-phi276 = phi i64 [ %21, %3 ], [ %.pre278, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %32, %.lr.ph314 ]
-  %35 = phi ptr [ %18, %3 ], [ %.pre268.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre268.pre313, %.lr.ph314 ]
-  %36 = phi ptr [ %17, %3 ], [ %.pre.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre.pre312, %.lr.ph314 ]
-  %.022.lcssa = phi i64 [ 1, %3 ], [ %.022243.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %29, %.lr.ph314 ]
-  %.0.lcssa = phi i1 [ false, %3 ], [ %25, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ true, %.lr.ph314 ]
+._crit_edge:                                      ; preds = %.lr.ph411, %.lr.ph.._crit_edge.loopexit_crit_edge, %3
+  %.pre-phi276 = phi i64 [ %21, %3 ], [ %.pre278, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %32, %.lr.ph411 ]
+  %35 = phi ptr [ %18, %3 ], [ %.pre268.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre268.pre410, %.lr.ph411 ]
+  %36 = phi ptr [ %17, %3 ], [ %.pre.pre.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %.pre.pre409, %.lr.ph411 ]
+  %.022.lcssa = phi i64 [ 1, %3 ], [ %.022243.lcssa, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ %29, %.lr.ph411 ]
+  %.0.lcssa = phi i1 [ false, %3 ], [ %25, %.lr.ph.._crit_edge.loopexit_crit_edge ], [ true, %.lr.ph411 ]
   %.not.i.i.i.i = icmp eq ptr %36, %35
   br i1 %.not.i.i.i.i, label %40, label %37
 
@@ -801,8 +801,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i146: ; preds = %240
 .noexc160:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i146
   %253 = getelementptr inbounds i8, ptr %252, i64 %237
   %254 = shl nuw nsw i64 %232, 2
-  %reass.sub279 = sub i64 %254, %237
-  %255 = and i64 %reass.sub279, -4
+  %reass.sub376 = sub i64 %254, %237
+  %255 = and i64 %reass.sub376, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %253, i8 -1, i64 %255, i1 false), !tbaa !56
   %.not.i.i.i.i.i.i.i.i.i81.i154 = icmp eq ptr %233, %234
   br i1 %.not.i.i.i.i.i.i.i.i.i81.i154, label %257, label %256
@@ -1310,8 +1310,8 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %418
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69.thread.i: ; preds = %477
   %483 = shl nuw nsw i64 %469, 2
-  %reass.sub280 = sub i64 %483, %474
-  %484 = and i64 %reass.sub280, -4
+  %reass.sub377 = sub i64 %483, %474
+  %484 = and i64 %reass.sub377, -4
   call void @llvm.memset.p0.i64(ptr align 4 %470, i8 -1, i64 %484, i1 false), !tbaa !56
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %478, 2
   %485 = getelementptr inbounds nuw i8, ptr %470, i64 %.idx.i.i.i.i.i.i
@@ -1328,8 +1328,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %477
 .noexc115:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   %489 = getelementptr inbounds i8, ptr %488, i64 %474
   %490 = shl nuw nsw i64 %469, 2
-  %reass.sub281 = sub i64 %490, %474
-  %491 = and i64 %reass.sub281, -4
+  %reass.sub378 = sub i64 %490, %474
+  %491 = and i64 %reass.sub378, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %489, i8 -1, i64 %491, i1 false), !tbaa !56
   %.not.i.i.i.i.i.i.i.i.i81.i = icmp eq ptr %470, %471
   br i1 %.not.i.i.i.i.i.i.i.i.i81.i, label %493, label %492

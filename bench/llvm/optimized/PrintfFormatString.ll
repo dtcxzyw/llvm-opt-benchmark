@@ -129,9 +129,9 @@ define internal fastcc void @_ZL20ParsePrintfSpecifierRN5clang21analyze_format_s
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %17 = load ptr, ptr %2, align 8, !tbaa !3
   %.not312 = icmp eq ptr %17, %3
-  %.sink341.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 328
-  %.sink341.sroa.gep342 = getelementptr inbounds nuw i8, ptr %12, i64 304
-  %.sink341.sroa.gep343 = getelementptr inbounds nuw i8, ptr %12, i64 280
+  %.sink358.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 328
+  %.sink358.sroa.gep359 = getelementptr inbounds nuw i8, ptr %12, i64 304
+  %.sink358.sroa.gep360 = getelementptr inbounds nuw i8, ptr %12, i64 280
   br i1 %.not312, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %67
@@ -1030,8 +1030,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   unreachable
 
 .sink.split:                                      ; preds = %435, %436, %437
-  %.sink341.sroa.phi = phi ptr [ %.sink341.sroa.gep, %437 ], [ %.sink341.sroa.gep342, %436 ], [ %.sink341.sroa.gep343, %435 ]
-  store ptr %.sroa.0234.1, ptr %.sink341.sroa.phi, align 8, !tbaa !58
+  %.sink358.sroa.phi = phi ptr [ %.sink358.sroa.gep, %437 ], [ %.sink358.sroa.gep359, %436 ], [ %.sink358.sroa.gep360, %435 ]
+  store ptr %.sroa.0234.1, ptr %.sink358.sroa.phi, align 8, !tbaa !58
   br label %439
 
 439:                                              ; preds = %.sink.split, %434, %312
@@ -3926,7 +3926,7 @@ select.unfold:                                    ; preds = %_ZNK5clang4Type5get
   %135 = inttoptr i64 %134 to ptr
   %136 = load ptr, ptr %135, align 16, !tbaa !504
   %137 = tail call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %136) #13
-  br i1 %137, label %.sink.split116, label %146
+  br i1 %137, label %.sink.split119, label %146
 
 138:                                              ; preds = %131, %131, %131
   %139 = and i64 %.sroa.076.1, -16
@@ -3938,14 +3938,14 @@ select.unfold:                                    ; preds = %_ZNK5clang4Type5get
   %144 = load i8, ptr %143, align 8, !range !24
   %145 = trunc nuw i8 %144 to i1
   %or.cond107 = select i1 %.not103, i1 true, i1 %145
-  br i1 %or.cond107, label %146, label %.sink.split116
+  br i1 %or.cond107, label %146, label %.sink.split119
 
-.sink.split116:                                   ; preds = %138, %133
-  %.sink117 = phi i32 [ 2, %133 ], [ 9, %138 ]
-  store i32 %.sink117, ptr %7, align 8, !tbaa !72
+.sink.split119:                                   ; preds = %138, %133
+  %.sink120 = phi i32 [ 2, %133 ], [ 9, %138 ]
+  store i32 %.sink120, ptr %7, align 8, !tbaa !72
   br label %146
 
-146:                                              ; preds = %.sink.split116, %131, %138, %133
+146:                                              ; preds = %.sink.split119, %131, %138, %133
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK5clang14analyze_printf15PrintfSpecifier10getArgTypeERNS_10ASTContextEb(ptr dead_on_unwind nonnull writable sret(%"class.clang::analyze_format_string::ArgType") align 8 %6, ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(23216) %3, i1 noundef zeroext %4)
   %147 = load i32, ptr %6, align 8, !tbaa !73

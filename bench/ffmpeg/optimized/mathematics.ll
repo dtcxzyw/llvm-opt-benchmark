@@ -66,14 +66,14 @@ define i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 n
   %5 = icmp slt i64 %2, 1
   %6 = icmp slt i64 %1, 0
   %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %common.ret111, label %7
+  br i1 %or.cond, label %common.ret114, label %7
 
 7:                                                ; preds = %4
   %8 = and i32 %3, -8193
   %9 = icmp ugt i32 %8, 5
   %.not = icmp eq i32 %8, 4
   %or.cond105 = or i1 %9, %.not
-  br i1 %or.cond105, label %common.ret111, label %10
+  br i1 %or.cond105, label %common.ret114, label %10
 
 10:                                               ; preds = %7
   %11 = and i32 %3, 8192
@@ -83,7 +83,7 @@ define i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 n
 12:                                               ; preds = %10
   %13 = add i64 %0, -9223372036854775807
   %or.cond3 = icmp ult i64 %13, 2
-  br i1 %or.cond3, label %common.ret111, label %14
+  br i1 %or.cond3, label %common.ret114, label %14
 
 14:                                               ; preds = %12
   %15 = add nsw i32 %3, -8192
@@ -94,9 +94,9 @@ define i64 @av_rescale_rnd(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 n
   %17 = icmp slt i64 %0, 0
   br i1 %17, label %18, label %26
 
-common.ret111:                                    ; preds = %53, %49, %12, %4, %7, %83, %37, %18
-  %common.ret111.op = phi i64 [ %25, %18 ], [ %40, %37 ], [ %..088, %83 ], [ -9223372036854775808, %7 ], [ -9223372036854775808, %4 ], [ %0, %12 ], [ %55, %53 ], [ -9223372036854775808, %49 ]
-  ret i64 %common.ret111.op
+common.ret114:                                    ; preds = %53, %49, %12, %4, %7, %83, %37, %18
+  %common.ret114.op = phi i64 [ %25, %18 ], [ %40, %37 ], [ %..088, %83 ], [ -9223372036854775808, %7 ], [ -9223372036854775808, %4 ], [ %0, %12 ], [ %55, %53 ], [ -9223372036854775808, %49 ]
+  ret i64 %common.ret114.op
 
 18:                                               ; preds = %16
   %19 = tail call i64 @llvm.umax.i64(i64 %0, i64 -9223372036854775807)
@@ -106,7 +106,7 @@ common.ret111:                                    ; preds = %53, %49, %12, %4, %
   %23 = xor i32 %22, %.090
   %24 = tail call i64 @av_rescale_rnd(i64 noundef %20, i64 noundef %1, i64 noundef %2, i32 noundef %23) #9
   %25 = sub i64 0, %24
-  br label %common.ret111
+  br label %common.ret114
 
 26:                                               ; preds = %16
   %27 = icmp eq i32 %.090, 5
@@ -137,7 +137,7 @@ common.ret111:                                    ; preds = %53, %49, %12, %4, %
   %38 = mul nuw nsw i64 %1, %0
   %39 = add nuw nsw i64 %.091, %38
   %40 = udiv i64 %39, %2
-  br label %common.ret111
+  br label %common.ret114
 
 41:                                               ; preds = %35
   %42 = udiv i64 %0, %2
@@ -154,12 +154,12 @@ common.ret111:                                    ; preds = %53, %49, %12, %4, %
   %50 = sub nuw nsw i64 9223372036854775807, %46
   %51 = udiv i64 %50, %1
   %52 = icmp samesign ugt i64 %42, %51
-  br i1 %52, label %common.ret111, label %53
+  br i1 %52, label %common.ret114, label %53
 
 53:                                               ; preds = %49, %41
   %54 = mul nuw nsw i64 %42, %1
   %55 = add nuw nsw i64 %46, %54
-  br label %common.ret111
+  br label %common.ret114
 
 56:                                               ; preds = %33
   %57 = and i64 %0, 4294967295
@@ -198,13 +198,13 @@ common.ret111:                                    ; preds = %53, %49, %12, %4, %
   %82 = zext i1 %.not104 to i64
   %.189 = or disjoint i64 %80, %82
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not110 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not110, label %83, label %76, !llvm.loop !6
+  %.not113 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not113, label %83, label %76, !llvm.loop !6
 
 83:                                               ; preds = %76
   %84 = icmp slt i64 %80, 0
   %..088 = select i1 %84, i64 -9223372036854775808, i64 %.189
-  br label %common.ret111
+  br label %common.ret114
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
@@ -429,8 +429,8 @@ define i64 @av_add_stable(i64 %0, i64 noundef %1, i64 %2, i64 noundef %3) local_
   %16 = icmp ne i64 %14, 0
   %17 = sub nsw i64 9223372036854775807, %15
   %.not86 = icmp sgt i64 %1, %17
-  %or.cond91 = select i1 %16, i1 true, i1 %.not86
-  br i1 %or.cond91, label %20, label %18
+  %or.cond96 = select i1 %16, i1 true, i1 %.not86
+  br i1 %or.cond96, label %20, label %18
 
 18:                                               ; preds = %7
   %19 = add nsw i64 %15, %1

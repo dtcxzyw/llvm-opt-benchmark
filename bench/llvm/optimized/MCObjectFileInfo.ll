@@ -269,9 +269,9 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %11, %19, %15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit, %23, %24
-  %.sink703 = phi i8 [ %30, %24 ], [ 1, %23 ], [ 0, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
+  %.sink713 = phi i8 [ %30, %24 ], [ 1, %23 ], [ 0, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %.sink703, ptr %31, align 2, !tbaa !32
+  store i8 %.sink713, ptr %31, align 2, !tbaa !32
   br label %32
 
 32:                                               ; preds = %.sink.split, %_ZNK4llvm6Triple10isOSDarwinEv.exit
@@ -482,9 +482,9 @@ _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread: ; preds = %137, %131, %127, %
   br label %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698.sink.split
 
 _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698.sink.split: ; preds = %144, %144, %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread, %145
-  %.sink705 = phi i32 [ 67108864, %145 ], [ 67108864, %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread ], [ 50331648, %144 ], [ 50331648, %144 ]
+  %.sink715 = phi i32 [ 67108864, %145 ], [ 67108864, %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread ], [ 50331648, %144 ], [ 50331648, %144 ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink705, ptr %146, align 8, !tbaa !60
+  store i32 %.sink715, ptr %146, align 8, !tbaa !60
   br label %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698
 
 _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698: ; preds = %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698.sink.split, %144, %137, %131, %119

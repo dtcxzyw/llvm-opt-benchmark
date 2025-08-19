@@ -1081,7 +1081,7 @@ define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly cap
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %6
-  switch i64 %3, label %default.unreachable [
+  switch i64 %3, label %default.unreachable122 [
     i64 0, label %9
     i64 1, label %10
     i64 2, label %13
@@ -1122,7 +1122,7 @@ define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly cap
   br label %.sink.split
 
 22:                                               ; preds = %6
-  switch i64 %3, label %default.unreachable [
+  switch i64 %3, label %default.unreachable122 [
     i64 5, label %23
     i64 6, label %26
     i64 7, label %29
@@ -1170,7 +1170,7 @@ define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly cap
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %38
-  switch i64 %3, label %default.unreachable [
+  switch i64 %3, label %default.unreachable122 [
     i64 10, label %41
     i64 11, label %44
     i64 12, label %47
@@ -1258,7 +1258,7 @@ define internal fastcc void @_mpd_divmod_pow10(ptr noundef nonnull writeonly cap
   %72 = add i64 %.neg, %2
   br label %.sink.split
 
-default.unreachable:                              ; preds = %40, %22, %8
+default.unreachable122:                           ; preds = %40, %22, %8
   unreachable
 
 .sink.split:                                      ; preds = %23, %26, %29, %32, %35, %9, %10, %13, %16, %19, %57, %60, %63, %66, %69, %41, %44, %47, %50, %53

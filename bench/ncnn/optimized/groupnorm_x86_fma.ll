@@ -337,10 +337,10 @@ define internal void @_ZNK4ncnn17GroupNorm_x86_fma15forward_inplaceERNS_3MatERKN
   %65 = fadd fast <4 x float> %64, %.0138.lcssa
   %shift = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd fast <4 x float> %55, %shift
-  %shift410 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop411 = fadd fast <4 x float> %foldExtExtBinop, %shift410
-  %foldExtExtBinop413 = fadd fast <4 x float> %foldExtExtBinop411, %65
-  %66 = extractelement <4 x float> %foldExtExtBinop413, i64 0
+  %shift424 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop425 = fadd fast <4 x float> %foldExtExtBinop, %shift424
+  %foldExtExtBinop427 = fadd fast <4 x float> %foldExtExtBinop425, %65
+  %66 = extractelement <4 x float> %foldExtExtBinop427, i64 0
   %67 = icmp slt i32 %.1126.lcssa, %28
   br i1 %67, label %.lr.ph243, label %._crit_edge244
 
@@ -414,12 +414,12 @@ define internal void @_ZNK4ncnn17GroupNorm_x86_fma15forward_inplaceERNS_3MatERKN
   %.4.lcssa = phi ptr [ %.3.lcssa, %._crit_edge251 ], [ %96, %.lr.ph259 ]
   %100 = shufflevector <4 x float> %.0220.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %101 = fadd fast <4 x float> %100, %.0220.lcssa
-  %shift415 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop416 = fadd fast <4 x float> %88, %shift415
-  %shift418 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop419 = fadd fast <4 x float> %foldExtExtBinop416, %shift418
-  %foldExtExtBinop421 = fadd fast <4 x float> %foldExtExtBinop419, %101
-  %102 = extractelement <4 x float> %foldExtExtBinop421, i64 0
+  %shift429 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop430 = fadd fast <4 x float> %88, %shift429
+  %shift432 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop433 = fadd fast <4 x float> %foldExtExtBinop430, %shift432
+  %foldExtExtBinop435 = fadd fast <4 x float> %foldExtExtBinop433, %101
+  %102 = extractelement <4 x float> %foldExtExtBinop435, i64 0
   %103 = icmp slt i32 %.1141.lcssa, %28
   br i1 %103, label %.lr.ph268, label %._crit_edge269
 
@@ -768,10 +768,10 @@ define internal void @_ZNK4ncnn17GroupNorm_x86_fma15forward_inplaceERNS_3MatERKN
   %71 = fadd fast <4 x float> %70, %.0129.lcssa
   %shift = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %foldExtExtBinop = fadd fast <4 x float> %61, %shift
-  %shift381 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop382 = fadd fast <4 x float> %foldExtExtBinop, %shift381
-  %foldExtExtBinop384 = fadd fast <4 x float> %foldExtExtBinop382, %71
-  %72 = extractelement <4 x float> %foldExtExtBinop384, i64 0
+  %shift394 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop395 = fadd fast <4 x float> %foldExtExtBinop, %shift394
+  %foldExtExtBinop397 = fadd fast <4 x float> %foldExtExtBinop395, %71
+  %72 = extractelement <4 x float> %foldExtExtBinop397, i64 0
   %73 = icmp slt i32 %.1126.lcssa, %48
   br i1 %73, label %.lr.ph227, label %._crit_edge228
 
@@ -845,12 +845,12 @@ define internal void @_ZNK4ncnn17GroupNorm_x86_fma15forward_inplaceERNS_3MatERKN
   %.4.lcssa = phi ptr [ %.3.lcssa, %._crit_edge235 ], [ %102, %.lr.ph243 ]
   %106 = shufflevector <4 x float> %.0201.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %107 = fadd fast <4 x float> %106, %.0201.lcssa
-  %shift386 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop387 = fadd fast <4 x float> %94, %shift386
-  %shift389 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop390 = fadd fast <4 x float> %foldExtExtBinop387, %shift389
-  %foldExtExtBinop392 = fadd fast <4 x float> %foldExtExtBinop390, %107
-  %108 = extractelement <4 x float> %foldExtExtBinop392, i64 0
+  %shift399 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop400 = fadd fast <4 x float> %94, %shift399
+  %shift402 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop403 = fadd fast <4 x float> %foldExtExtBinop400, %shift402
+  %foldExtExtBinop405 = fadd fast <4 x float> %foldExtExtBinop403, %107
+  %108 = extractelement <4 x float> %foldExtExtBinop405, i64 0
   %109 = icmp slt i32 %.1132.lcssa, %48
   br i1 %109, label %.lr.ph252, label %._crit_edge253
 

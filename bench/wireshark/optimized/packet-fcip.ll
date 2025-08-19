@@ -241,10 +241,10 @@ define internal fastcc noundef zeroext i1 @dissect_fcip(ptr noundef %0, ptr noun
   br label %20
 
 20:                                               ; preds = %.lr.ph, %dissect_fcip_sf.exit
-  %.098148 = phi ptr [ null, %.lr.ph ], [ %.1180, %dissect_fcip_sf.exit ]
-  %.0100147 = phi i8 [ 0, %.lr.ph ], [ %.1101179, %dissect_fcip_sf.exit ]
-  %.0102146 = phi i8 [ 0, %.lr.ph ], [ %.1103177, %dissect_fcip_sf.exit ]
-  %.0105145 = phi i32 [ 0, %.lr.ph ], [ %.1106174, %dissect_fcip_sf.exit ]
+  %.098148 = phi ptr [ null, %.lr.ph ], [ %.1191, %dissect_fcip_sf.exit ]
+  %.0100147 = phi i8 [ 0, %.lr.ph ], [ %.1101190, %dissect_fcip_sf.exit ]
+  %.0102146 = phi i8 [ 0, %.lr.ph ], [ %.1103188, %dissect_fcip_sf.exit ]
+  %.0105145 = phi i32 [ 0, %.lr.ph ], [ %.1106185, %dissect_fcip_sf.exit ]
   %.0107144 = phi i32 [ %6, %.lr.ph ], [ %217, %dissect_fcip_sf.exit ]
   %21 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0105145)
   %.not115.i.not.not = icmp ne i32 %21, 0
@@ -363,7 +363,7 @@ get_next_fcip_header_offset.exit.thread126:       ; preds = %27, %72
 
 get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %70
   switch i32 %.0100117.i, label %76 [
-    i32 -1, label %get_next_fcip_header_offset.exit.thread.loopexit242
+    i32 -1, label %get_next_fcip_header_offset.exit.thread.loopexit253
     i32 -2, label %get_next_fcip_header_offset.exit.thread
   ]
 
@@ -493,7 +493,7 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %70
 
 dissect_fcencap_header.exit:                      ; preds = %117, %146
   %164 = add i32 %.0100117.i, 28
-  br i1 %94, label %165, label %.thread182
+  br i1 %94, label %165, label %.thread193
 
 165:                                              ; preds = %dissect_fcencap_header.exit
   %166 = load i32, ptr @hf_fcip_sof, align 4
@@ -514,15 +514,15 @@ dissect_fcencap_header.exit:                      ; preds = %117, %146
   br label %.thread
 
 179:                                              ; preds = %91
-  br i1 %94, label %.thread, label %.thread182
+  br i1 %94, label %.thread, label %.thread193
 
 .thread:                                          ; preds = %165, %173, %179
-  %.1181 = phi ptr [ %.098148, %179 ], [ %119, %173 ], [ %119, %165 ]
-  %.1101178 = phi i8 [ %.0100147, %179 ], [ %.2, %173 ], [ %.2, %165 ]
-  %.1103176 = phi i8 [ %.0102146, %179 ], [ %.2104, %173 ], [ %.2104, %165 ]
-  %.1106175 = phi i32 [ %.0100117.i, %179 ], [ %171, %173 ], [ %171, %165 ]
+  %.1192 = phi ptr [ %.098148, %179 ], [ %119, %173 ], [ %119, %165 ]
+  %.1101189 = phi i8 [ %.0100147, %179 ], [ %.2, %173 ], [ %.2, %165 ]
+  %.1103187 = phi i8 [ %.0102146, %179 ], [ %.2104, %173 ], [ %.2104, %165 ]
+  %.1106186 = phi i32 [ %.0100117.i, %179 ], [ %171, %173 ], [ %171, %165 ]
   store i8 0, ptr %19, align 4
-  switch i8 %.1103176, label %.sink.split [
+  switch i8 %.1103187, label %.sink.split [
     i8 0, label %184
     i8 46, label %180
     i8 45, label %180
@@ -538,7 +538,7 @@ dissect_fcencap_header.exit:                      ; preds = %117, %146
 
 .sink.split:                                      ; preds = %.thread, %181, %180
   %182 = phi i8 [ 0, %.thread ], [ 2, %181 ], [ 1, %180 ]
-  %.not120 = icmp eq i8 %.1101178, 65
+  %.not120 = icmp eq i8 %.1101189, 65
   %. = select i1 %.not120, i8 64, i8 -128
   %183 = or disjoint i8 %182, %.
   store i8 %183, ptr %19, align 4
@@ -559,63 +559,63 @@ dissect_fcencap_header.exit:                      ; preds = %117, %146
   %190 = call i32 @call_data_dissector(ptr noundef %185, ptr noundef %1, ptr noundef %2)
   br label %dissect_fcip_sf.exit
 
-.thread182:                                       ; preds = %dissect_fcencap_header.exit, %179
-  %.1191 = phi ptr [ %.098148, %179 ], [ %119, %dissect_fcencap_header.exit ]
-  %.1101190 = phi i8 [ %.0100147, %179 ], [ %.2, %dissect_fcencap_header.exit ]
-  %.1103189 = phi i8 [ %.0102146, %179 ], [ %.2104, %dissect_fcencap_header.exit ]
-  %.1106188 = phi i32 [ %.0100117.i, %179 ], [ %164, %dissect_fcencap_header.exit ]
+.thread193:                                       ; preds = %dissect_fcencap_header.exit, %179
+  %.1202 = phi ptr [ %.098148, %179 ], [ %119, %dissect_fcencap_header.exit ]
+  %.1101201 = phi i8 [ %.0100147, %179 ], [ %.2, %dissect_fcencap_header.exit ]
+  %.1103200 = phi i8 [ %.0102146, %179 ], [ %.2104, %dissect_fcencap_header.exit ]
+  %.1106199 = phi i32 [ %.0100117.i, %179 ], [ %164, %dissect_fcencap_header.exit ]
   %191 = load ptr, ptr %18, align 8
   call void @col_set_str(ptr noundef %191, i32 noundef 25, ptr noundef nonnull @.str.89)
   %.not122 = icmp sgt i8 %93, -1
   br i1 %.not122, label %194, label %192
 
-192:                                              ; preds = %.thread182
+192:                                              ; preds = %.thread193
   %193 = load ptr, ptr %18, align 8
   call void @col_append_str(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.90)
   br label %194
 
-194:                                              ; preds = %192, %.thread182
-  %.not.i124 = icmp eq ptr %.1191, null
+194:                                              ; preds = %192, %.thread193
+  %.not.i124 = icmp eq ptr %.1202, null
   br i1 %.not.i124, label %dissect_fcip_sf.exit, label %195
 
 195:                                              ; preds = %194
-  %196 = add i32 %.1106188, 4
+  %196 = add i32 %.1106199, 4
   %197 = load i32, ptr @hf_fcip_src_wwn, align 4
-  %198 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1191, i32 noundef %197, ptr noundef %0, i32 noundef %196, i32 noundef 8, i32 noundef 0)
+  %198 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1202, i32 noundef %197, ptr noundef %0, i32 noundef %196, i32 noundef 8, i32 noundef 0)
   %199 = load i32, ptr @hf_fcip_src_entity_id, align 4
-  %200 = add i32 %.1106188, 12
-  %201 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1191, i32 noundef %199, ptr noundef %0, i32 noundef %200, i32 noundef 8, i32 noundef 0)
+  %200 = add i32 %.1106199, 12
+  %201 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1202, i32 noundef %199, ptr noundef %0, i32 noundef %200, i32 noundef 8, i32 noundef 0)
   %202 = load i32, ptr @hf_fcip_conn_nonce, align 4
-  %203 = add i32 %.1106188, 20
-  %204 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1191, i32 noundef %202, ptr noundef %0, i32 noundef %203, i32 noundef 8, i32 noundef 0)
+  %203 = add i32 %.1106199, 20
+  %204 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1202, i32 noundef %202, ptr noundef %0, i32 noundef %203, i32 noundef 8, i32 noundef 0)
   %205 = load i32, ptr @hf_fcip_conn_flags, align 4
-  %206 = add i32 %.1106188, 28
-  %207 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1191, i32 noundef %205, ptr noundef %0, i32 noundef %206, i32 noundef 1, i32 noundef 0)
+  %206 = add i32 %.1106199, 28
+  %207 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1202, i32 noundef %205, ptr noundef %0, i32 noundef %206, i32 noundef 1, i32 noundef 0)
   %208 = load i32, ptr @hf_fcip_conn_code, align 4
-  %209 = add i32 %.1106188, 30
-  %210 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1191, i32 noundef %208, ptr noundef %0, i32 noundef %209, i32 noundef 2, i32 noundef 0)
+  %209 = add i32 %.1106199, 30
+  %210 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1202, i32 noundef %208, ptr noundef %0, i32 noundef %209, i32 noundef 2, i32 noundef 0)
   %211 = load i32, ptr @hf_fcip_dst_wwn, align 4
-  %212 = add i32 %.1106188, 34
-  %213 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1191, i32 noundef %211, ptr noundef %0, i32 noundef %212, i32 noundef 8, i32 noundef 0)
+  %212 = add i32 %.1106199, 34
+  %213 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1202, i32 noundef %211, ptr noundef %0, i32 noundef %212, i32 noundef 8, i32 noundef 0)
   %214 = load i32, ptr @hf_fcip_katov, align 4
-  %215 = add i32 %.1106188, 42
-  %216 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1191, i32 noundef %214, ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0)
+  %215 = add i32 %.1106199, 42
+  %216 = call ptr @proto_tree_add_item(ptr noundef nonnull %.1202, i32 noundef %214, ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0)
   br label %dissect_fcip_sf.exit
 
 dissect_fcip_sf.exit:                             ; preds = %195, %194, %187, %189
-  %.1180 = phi ptr [ %.1191, %195 ], [ null, %194 ], [ %.1181, %187 ], [ %.1181, %189 ]
-  %.1101179 = phi i8 [ %.1101190, %195 ], [ %.1101190, %194 ], [ %.1101178, %187 ], [ %.1101178, %189 ]
-  %.1103177 = phi i8 [ %.1103189, %195 ], [ %.1103189, %194 ], [ %.1103176, %187 ], [ %.1103176, %189 ]
-  %.1106174 = phi i32 [ %.1106188, %195 ], [ %.1106188, %194 ], [ %.1106175, %187 ], [ %.1106175, %189 ]
+  %.1191 = phi ptr [ %.1202, %195 ], [ null, %194 ], [ %.1192, %187 ], [ %.1192, %189 ]
+  %.1101190 = phi i8 [ %.1101201, %195 ], [ %.1101201, %194 ], [ %.1101189, %187 ], [ %.1101189, %189 ]
+  %.1103188 = phi i8 [ %.1103200, %195 ], [ %.1103200, %194 ], [ %.1103187, %187 ], [ %.1103187, %189 ]
+  %.1106185 = phi i32 [ %.1106199, %195 ], [ %.1106199, %194 ], [ %.1106186, %187 ], [ %.1106186, %189 ]
   %217 = sub nsw i32 %.0107144, %81
   %218 = icmp sgt i32 %217, 28
   br i1 %218, label %20, label %get_next_fcip_header_offset.exit.thread, !llvm.loop !8
 
-get_next_fcip_header_offset.exit.thread.loopexit242: ; preds = %get_next_fcip_header_offset.exit
+get_next_fcip_header_offset.exit.thread.loopexit253: ; preds = %get_next_fcip_header_offset.exit
   br label %get_next_fcip_header_offset.exit.thread
 
-get_next_fcip_header_offset.exit.thread:          ; preds = %.backedge.i, %dissect_fcip_sf.exit, %20, %get_next_fcip_header_offset.exit, %get_next_fcip_header_offset.exit.thread.loopexit242, %16, %get_next_fcip_header_offset.exit.thread126, %13, %4, %87
-  %.0 = phi i1 [ true, %87 ], [ false, %4 ], [ false, %13 ], [ true, %get_next_fcip_header_offset.exit.thread126 ], [ true, %16 ], [ false, %get_next_fcip_header_offset.exit.thread.loopexit242 ], [ %.not115.i.not.not, %get_next_fcip_header_offset.exit ], [ %.not115.i.not.not, %20 ], [ %.not115.i.not.not, %dissect_fcip_sf.exit ], [ false, %.backedge.i ]
+get_next_fcip_header_offset.exit.thread:          ; preds = %.backedge.i, %dissect_fcip_sf.exit, %20, %get_next_fcip_header_offset.exit, %get_next_fcip_header_offset.exit.thread.loopexit253, %16, %get_next_fcip_header_offset.exit.thread126, %13, %4, %87
+  %.0 = phi i1 [ true, %87 ], [ false, %4 ], [ false, %13 ], [ true, %get_next_fcip_header_offset.exit.thread126 ], [ true, %16 ], [ false, %get_next_fcip_header_offset.exit.thread.loopexit253 ], [ %.not115.i.not.not, %get_next_fcip_header_offset.exit ], [ %.not115.i.not.not, %20 ], [ %.not115.i.not.not, %dissect_fcip_sf.exit ], [ false, %.backedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

@@ -494,8 +494,8 @@ find_next.exit:                                   ; preds = %8
   br i1 %.not, label %.critedge, label %.preheader.backedge
 
 .critedge:                                        ; preds = %.loopexit, %.preheader
-  %.pr81 = load i32, ptr %3, align 8, !tbaa !16
-  %.not38 = icmp eq i32 %.pr81, 0
+  %.pr85 = load i32, ptr %3, align 8, !tbaa !16
+  %.not38 = icmp eq i32 %.pr85, 0
   br i1 %.not38, label %.critedge.thread, label %69
 
 69:                                               ; preds = %.critedge
@@ -2389,7 +2389,7 @@ define internal i32 @compare_refs(ptr noundef readonly captures(none) %0, ptr no
 .thread.i:                                        ; preds = %62
   %69 = load ptr, ptr %54, align 8, !tbaa !79
   %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #25
-  %.pre4647.i = load ptr, ptr %.pre.i, align 8, !tbaa !79
+  %.pre4655.i = load ptr, ptr %.pre.i, align 8, !tbaa !79
   br label %74
 
 71:                                               ; preds = %55
@@ -2401,7 +2401,7 @@ define internal i32 @compare_refs(ptr noundef readonly captures(none) %0, ptr no
   br label %74
 
 74:                                               ; preds = %72, %71, %.thread.i
-  %.pre4648.i = phi ptr [ %.pre46.i, %72 ], [ %.pre46.i, %71 ], [ %.pre4647.i, %.thread.i ]
+  %.pre4656.i = phi ptr [ %.pre46.i, %72 ], [ %.pre46.i, %71 ], [ %.pre4655.i, %.thread.i ]
   %75 = phi i64 [ %57, %72 ], [ %57, %71 ], [ %70, %.thread.i ]
   %76 = phi i64 [ %73, %72 ], [ %60, %71 ], [ %60, %.thread.i ]
   %77 = and i32 %30, 2
@@ -2409,7 +2409,7 @@ define internal i32 @compare_refs(ptr noundef readonly captures(none) %0, ptr no
   %78 = select i1 %.not40.i, ptr @memcmp, ptr @memcasecmp
   %79 = load ptr, ptr %54, align 8, !tbaa !79
   %80 = call i64 @llvm.umin.i64(i64 %76, i64 %75)
-  %81 = call i32 %78(ptr noundef %79, ptr noundef %.pre4648.i, i64 noundef %80) #24, !callees !147
+  %81 = call i32 %78(ptr noundef %79, ptr noundef %.pre4656.i, i64 noundef %80) #24, !callees !147
   %.not41.i = icmp eq i32 %81, 0
   br i1 %.not41.i, label %82, label %cmp_ref_sorting.exit
 
@@ -3166,10 +3166,10 @@ copy_advance.exit.i:                              ; preds = %.lr.ph.i.i, %142
   %.08.i204.idx.i = phi i64 [ %.08.i204.add.i, %.lr.ph.i203.i ], [ 0, %copy_advance.exit.i ]
   %.047.i205.i = phi ptr [ %150, %.lr.ph.i203.i ], [ %.0143.i, %copy_advance.exit.i ]
   %.08.i204.add.i = add nuw nsw i64 %.08.i204.idx.i, 1
-  %.ptr261.i = getelementptr inbounds nuw i8, ptr @.str.156, i64 %.08.i204.add.i
+  %.ptr271.i = getelementptr inbounds nuw i8, ptr @.str.156, i64 %.08.i204.add.i
   %150 = getelementptr inbounds nuw i8, ptr %.047.i205.i, i64 1
   store i8 %149, ptr %.047.i205.i, align 1, !tbaa !15
-  %151 = load i8, ptr %.ptr261.i, align 1, !tbaa !15
+  %151 = load i8, ptr %.ptr271.i, align 1, !tbaa !15
   %exitcond250.i = icmp eq i64 %.08.i204.add.i, 7
   br i1 %exitcond250.i, label %copy_advance.exit207.i, label %.lr.ph.i203.i, !llvm.loop !177
 
@@ -3690,19 +3690,19 @@ define dso_local noundef ptr @ref_sorting_options(ptr noundef %0) local_unnamed_
   %10 = load i64, ptr %4, align 8, !tbaa !190
   %11 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %10
   %12 = icmp ult ptr %7, %11
-  br i1 %12, label %.lr.ph27, label %.critedge
+  br i1 %12, label %.lr.ph28, label %.critedge
 
-.lr.ph27:                                         ; preds = %.lr.ph, %parse_ref_sorting.exit
-  %.11626 = phi ptr [ %14, %parse_ref_sorting.exit ], [ null, %.lr.ph ]
-  %.01725 = phi ptr [ %45, %parse_ref_sorting.exit ], [ %7, %.lr.ph ]
-  %13 = load ptr, ptr %.01725, align 8, !tbaa !194
+.lr.ph28:                                         ; preds = %.lr.ph, %parse_ref_sorting.exit
+  %.11627 = phi ptr [ %14, %parse_ref_sorting.exit ], [ null, %.lr.ph ]
+  %.01726 = phi ptr [ %45, %parse_ref_sorting.exit ], [ %7, %.lr.ph ]
+  %13 = load ptr, ptr %.01726, align 8, !tbaa !194
   %14 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #24
-  store ptr %.11626, ptr %14, align 8, !tbaa !124
+  store ptr %.11627, ptr %14, align 8, !tbaa !124
   %15 = load i8, ptr %13, align 1, !tbaa !15
   %16 = icmp eq i8 %15, 45
   br i1 %16, label %17, label %22
 
-17:                                               ; preds = %.lr.ph27
+17:                                               ; preds = %.lr.ph28
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !127
   %20 = or i32 %19, 1
@@ -3710,8 +3710,8 @@ define dso_local noundef ptr @ref_sorting_options(ptr noundef %0) local_unnamed_
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 1
   br label %22
 
-22:                                               ; preds = %17, %.lr.ph27
-  %.0.i = phi ptr [ %21, %17 ], [ %13, %.lr.ph27 ]
+22:                                               ; preds = %17, %.lr.ph28
+  %.0.i = phi ptr [ %21, %17 ], [ %13, %.lr.ph28 ]
   %scevgep.i = getelementptr i8, ptr %.0.i, i64 8
   br label %23
 
@@ -3782,12 +3782,12 @@ parse_ref_sorting.exit:                           ; preds = %skip_prefix.exit10.
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %44 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %39, ptr %44, align 8, !tbaa !128
-  %45 = getelementptr inbounds nuw i8, ptr %.01725, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.01726, i64 16
   %46 = load ptr, ptr %0, align 8, !tbaa !193
   %47 = load i64, ptr %4, align 8, !tbaa !190
   %48 = getelementptr inbounds nuw %struct.string_list_item, ptr %46, i64 %47
   %49 = icmp ult ptr %45, %48
-  br i1 %49, label %.lr.ph27, label %.critedge
+  br i1 %49, label %.lr.ph28, label %.critedge
 
 .critedge:                                        ; preds = %parse_ref_sorting.exit, %.lr.ph, %6, %1
   %.012 = phi ptr [ null, %1 ], [ null, %6 ], [ null, %.lr.ph ], [ %14, %parse_ref_sorting.exit ]
@@ -7601,8 +7601,8 @@ _.exit40:                                         ; preds = %48, %50
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %89, %82, %78
-  %.sink29.i.i = phi ptr [ %79, %78 ], [ %91, %89 ], [ %86, %82 ]
-  %92 = call ptr @xstrdup(ptr noundef %.sink29.i.i) #24
+  %.sink30.i.i = phi ptr [ %79, %78 ], [ %91, %89 ], [ %86, %82 ]
+  %92 = call ptr @xstrdup(ptr noundef %.sink30.i.i) #24
   store ptr %92, ptr %72, align 8, !tbaa !79
   %.pre.i = load ptr, ptr @used_atom, align 8, !tbaa !25
   %.pre51.i = load i32, ptr @used_atom_cnt, align 4, !tbaa !4
@@ -7850,7 +7850,7 @@ grab_commit_values.exit.i:                        ; preds = %158, %98
   br label %195
 
 195:                                              ; preds = %193, %192
-  switch i32 %190, label %default.unreachable.i.i [
+  switch i32 %190, label %default.unreachable [
     i32 0, label %196
     i32 2, label %200
     i32 1, label %204
@@ -7931,7 +7931,7 @@ grab_commit_values.exit.i:                        ; preds = %158, %98
   %230 = call ptr @xstrdup(ptr noundef %229) #24
   br label %skip_prefix.exit.sink.split.i.i
 
-default.unreachable.i.i:                          ; preds = %195
+default.unreachable:                              ; preds = %195
   unreachable
 
 skip_prefix.exit.sink.split.i.i:                  ; preds = %227, %223, %219, %215, %212, %210, %208, %200, %196
@@ -8795,11 +8795,11 @@ strbuf_avail.exit.i17.i:                          ; preds = %.thread.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %strbuf_avail.exit.i17.i, %strbuf_avail.exit.i.i
   %.pre-phi.i.sink.i = phi i64 [ %.neg.i.i, %strbuf_avail.exit.i.i ], [ %.neg.i18.i, %strbuf_avail.exit.i17.i ], [ %.pre7.i24.i, %.sink.split.sink.split.i ]
-  %.sink32.i = phi i64 [ %101, %strbuf_avail.exit.i.i ], [ %103, %strbuf_avail.exit.i17.i ], [ %.pre.i23.i, %.sink.split.sink.split.i ]
+  %.sink35.i = phi i64 [ %101, %strbuf_avail.exit.i.i ], [ %103, %strbuf_avail.exit.i17.i ], [ %.pre.i23.i, %.sink.split.sink.split.i ]
   %.sink.i = phi i8 [ 32, %strbuf_avail.exit.i.i ], [ %91, %strbuf_avail.exit.i17.i ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
   %104 = load ptr, ptr %14, align 8, !tbaa !22
   store i64 %.pre-phi.i.sink.i, ptr %13, align 8, !tbaa !137
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.sink32.i
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.sink35.i
   store i8 %.sink.i, ptr %105, align 1, !tbaa !15
   %106 = load ptr, ptr %14, align 8, !tbaa !22
   %107 = load i64, ptr %13, align 8, !tbaa !137

@@ -412,16 +412,16 @@ define hidden void @zend_accel_info(ptr noundef %0) #0 {
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 104), align 8
   %12 = icmp ne i64 %11, 0
   %or.cond5 = select i1 %or.cond3, i1 %12, i1 false
-  %.str.6.sink39 = select i1 %or.cond5, ptr @.str.8, ptr @.str.6
-  tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull %.str.6.sink39) #12
+  %.str.6.sink40 = select i1 %or.cond5, ptr @.str.8, ptr @.str.6
+  tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull %.str.6.sink40) #12
   %13 = load i8, ptr @file_cache_only, align 1, !tbaa !22, !range !20, !noundef !21
   %14 = trunc nuw i8 %13 to i1
-  %.str.6.sink40 = select i1 %14, ptr @.str.6, ptr @.str.8
-  tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.str.6.sink40) #12
+  %.str.6.sink41 = select i1 %14, ptr @.str.6, ptr @.str.8
+  tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.str.6.sink41) #12
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !43
   %.not24 = icmp eq ptr %15, null
-  %.str.6.sink41 = select i1 %.not24, ptr @.str.6, ptr @.str.8
-  tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %.str.6.sink41) #12
+  %.str.6.sink42 = select i1 %.not24, ptr @.str.6, ptr @.str.8
+  tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef nonnull %.str.6.sink42) #12
   %16 = load i8, ptr @jit_globals, align 8, !tbaa !44, !range !20, !noundef !21
   %17 = trunc nuw i8 %16 to i1
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !range !20

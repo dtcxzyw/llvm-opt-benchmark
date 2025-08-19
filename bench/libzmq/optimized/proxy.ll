@@ -1510,7 +1510,7 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   %493 = trunc i8 %.1402.lcssa to i1
   %or.cond9 = or i1 %.not436, %493
   %or.cond449 = select i1 %492, i1 %or.cond9, i1 false
-  br i1 %or.cond449, label %494, label %.thread519
+  br i1 %or.cond449, label %494, label %.thread538
 
 494:                                              ; preds = %491
   %495 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %349, ptr noundef nonnull align 8 dereferenceable(16) %356)
@@ -1567,15 +1567,15 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   %or.cond11 = select i1 %510, i1 %511, i1 false
   br i1 %or.cond11, label %514, label %.thread475
 
-.thread519:                                       ; preds = %491
+.thread538:                                       ; preds = %491
   %512 = trunc i8 %.1397.lcssa to i1
   %513 = trunc i8 %.1392.lcssa to i1
-  %or.cond11522 = select i1 %512, i1 %513, i1 false
-  br i1 %or.cond11522, label %514, label %541
+  %or.cond11541 = select i1 %512, i1 %513, i1 false
+  br i1 %or.cond11541, label %514, label %541
 
-514:                                              ; preds = %.thread519, %509
-  %.4390528 = phi i8 [ %.1387.lcssa, %.thread519 ], [ 0, %509 ]
-  %.4405525 = phi i8 [ %.1402.lcssa, %.thread519 ], [ 0, %509 ]
+514:                                              ; preds = %.thread538, %509
+  %.4390547 = phi i8 [ %.1387.lcssa, %.thread538 ], [ 0, %509 ]
+  %.4405544 = phi i8 [ %.1402.lcssa, %.thread538 ], [ 0, %509 ]
   %515 = call fastcc noundef i32 @_ZL7forwardPN3zmq13socket_base_tES1_S1_PNS_5msg_tER12stats_socketS5_(ptr noundef %1, ptr noundef %0, ptr noundef %2, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull align 8 dereferenceable(16) %11)
   %516 = icmp slt i32 %515, 0
   br i1 %516, label %517, label %.thread475
@@ -1625,9 +1625,9 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br label %567
 
 .thread475:                                       ; preds = %509, %514
-  %or.cond11529 = phi i1 [ true, %514 ], [ false, %509 ]
-  %.4390527 = phi i8 [ %.4390528, %514 ], [ 0, %509 ]
-  %.4405524 = phi i8 [ %.4405525, %514 ], [ 0, %509 ]
+  %or.cond11548 = phi i1 [ true, %514 ], [ false, %509 ]
+  %.4390546 = phi i8 [ %.4390547, %514 ], [ 0, %509 ]
+  %.4405543 = phi i8 [ %.4405544, %514 ], [ 0, %509 ]
   %.4395480 = phi i8 [ 0, %514 ], [ %.1392.lcssa, %509 ]
   %.4400479 = phi i8 [ 0, %514 ], [ %.1397.lcssa, %509 ]
   %.not447 = icmp eq ptr %.0371513, %18
@@ -1649,7 +1649,7 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
 
 535:                                              ; preds = %532, %530, %529
   %.2 = phi ptr [ %.0371513, %529 ], [ %.0385, %530 ], [ %spec.select454, %532 ]
-  br i1 %or.cond11529, label %536, label %554
+  br i1 %or.cond11548, label %536, label %554
 
 536:                                              ; preds = %535
   %537 = icmp eq ptr %.2, %.0384
@@ -1662,10 +1662,10 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   %spec.select455 = select i1 %or.cond451, ptr %18, ptr %.2
   br label %554
 
-541:                                              ; preds = %.thread519
+541:                                              ; preds = %.thread538
   %542 = trunc i8 %.1387.lcssa to i1
-  %.not539 = xor i1 %542, true
-  %brmerge = select i1 %.not539, i1 true, i1 %513
+  %.not558 = xor i1 %542, true
+  %brmerge = select i1 %.not558, i1 true, i1 %513
   %.0371513.mux = select i1 %542, ptr %.0382, ptr %.0371513
   br i1 %brmerge, label %547, label %543
 
@@ -1696,10 +1696,10 @@ _ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit: ;
   br label %554
 
 554:                                              ; preds = %538, %552, %550, %548, %536, %535, %.thread475, %547, %._crit_edge
-  %.3404 = phi i8 [ %.4405524, %535 ], [ %.4405524, %.thread475 ], [ %.1402.lcssa, %547 ], [ %.1402.lcssa, %._crit_edge ], [ %.4405524, %536 ], [ 1, %548 ], [ 0, %550 ], [ 0, %552 ], [ %.4405524, %538 ]
+  %.3404 = phi i8 [ %.4405543, %535 ], [ %.4405543, %.thread475 ], [ %.1402.lcssa, %547 ], [ %.1402.lcssa, %._crit_edge ], [ %.4405543, %536 ], [ 1, %548 ], [ 0, %550 ], [ 0, %552 ], [ %.4405543, %538 ]
   %.3399 = phi i8 [ %.4400479, %535 ], [ %.4400479, %.thread475 ], [ 0, %547 ], [ %.1397.lcssa, %._crit_edge ], [ %.4400479, %536 ], [ 1, %548 ], [ 1, %550 ], [ 1, %552 ], [ %.4400479, %538 ]
   %.3394 = phi i8 [ %.4395480, %535 ], [ %.4395480, %.thread475 ], [ %.1392.lcssa, %547 ], [ %.1392.lcssa, %._crit_edge ], [ %.4395480, %536 ], [ %.1392.lcssa, %548 ], [ %.1392.lcssa, %550 ], [ %.1392.lcssa, %552 ], [ %.4395480, %538 ]
-  %.3389 = phi i8 [ %.4390527, %535 ], [ %.4390527, %.thread475 ], [ %.1387.lcssa, %547 ], [ %.1387.lcssa, %._crit_edge ], [ %.4390527, %536 ], [ %.1387.lcssa, %548 ], [ %.1387.lcssa, %550 ], [ %.1387.lcssa, %552 ], [ %.4390527, %538 ]
+  %.3389 = phi i8 [ %.4390546, %535 ], [ %.4390546, %.thread475 ], [ %.1387.lcssa, %547 ], [ %.1387.lcssa, %._crit_edge ], [ %.4390546, %536 ], [ %.1387.lcssa, %548 ], [ %.1387.lcssa, %550 ], [ %.1387.lcssa, %552 ], [ %.4390546, %538 ]
   %.1 = phi ptr [ %.2, %535 ], [ %.0371513, %.thread475 ], [ %.3, %547 ], [ %.0371513, %._crit_edge ], [ %22, %536 ], [ %.0383, %548 ], [ %.0384, %550 ], [ %spec.select453, %552 ], [ %spec.select455, %538 ]
   %.not445 = icmp eq i32 %.1463.lcssa, 2
   br i1 %.not445, label %555, label %363, !llvm.loop !22

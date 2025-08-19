@@ -39,7 +39,7 @@ tailrecurse.preheader:                            ; preds = %4
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.preheader, %54
-  %7 = phi i32 [ %.lcssa309, %54 ], [ %.pre, %tailrecurse.preheader ]
+  %7 = phi i32 [ %.lcssa323, %54 ], [ %.pre, %tailrecurse.preheader ]
   %.tr = phi ptr [ %.0173244.lcssa, %54 ], [ %0, %tailrecurse.preheader ]
   %8 = icmp ult i32 %1, %7
   br i1 %8, label %.loopexit, label %9
@@ -73,8 +73,8 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !11
   %26 = add i32 %25, %23
-  %.not190324 = icmp ult i32 %1, %26
-  br i1 %.not190324, label %.critedge, label %.lr.ph
+  %.not190338 = icmp ult i32 %1, %26
+  br i1 %.not190338, label %.critedge, label %.lr.ph
 
 27:                                               ; preds = %18
   %28 = tail call ptr @Mtr_AllocNode() #10
@@ -105,8 +105,8 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %.not190, label %.critedge, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader212.preheader, %.preheader212
-  %.0173244325 = phi ptr [ %42, %.preheader212 ], [ %20, %.preheader212.preheader ]
-  %41 = getelementptr inbounds nuw i8, ptr %.0173244325, i64 40
+  %.0173244339 = phi ptr [ %42, %.preheader212 ], [ %20, %.preheader212.preheader ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0173244339, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %cond = icmp eq ptr %42, null
   br i1 %cond, label %43, label %.preheader212, !llvm.loop !14
@@ -117,7 +117,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %.0173244325, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0173244339, i64 40
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %1, ptr %48, align 4, !tbaa !10
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -126,7 +126,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %.tr, ptr %50, align 8, !tbaa !13
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store ptr %.0173244325, ptr %51, align 8, !tbaa !17
+  store ptr %.0173244339, ptr %51, align 8, !tbaa !17
   store ptr %44, ptr %47, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr null, ptr %52, align 8, !tbaa !12
@@ -135,25 +135,25 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br label %.loopexit
 
 .critedge:                                        ; preds = %.preheader212, %.preheader212.preheader
-  %.0245.lcssa = phi ptr [ null, %.preheader212.preheader ], [ %.0173244325, %.preheader212 ]
+  %.0245.lcssa = phi ptr [ null, %.preheader212.preheader ], [ %.0173244339, %.preheader212 ]
   %.0173244.lcssa = phi ptr [ %20, %.preheader212.preheader ], [ %42, %.preheader212 ]
-  %.lcssa309 = phi i32 [ %23, %.preheader212.preheader ], [ %37, %.preheader212 ]
-  %.lcssa306 = phi i32 [ %26, %.preheader212.preheader ], [ %40, %.preheader212 ]
-  %.not191 = icmp ult i32 %1, %.lcssa309
+  %.lcssa323 = phi i32 [ %23, %.preheader212.preheader ], [ %37, %.preheader212 ]
+  %.lcssa320 = phi i32 [ %26, %.preheader212.preheader ], [ %40, %.preheader212 ]
+  %.not191 = icmp ult i32 %1, %.lcssa323
   br i1 %.not191, label %55, label %54
 
 54:                                               ; preds = %.critedge
-  %.not192 = icmp ugt i32 %6, %.lcssa306
+  %.not192 = icmp ugt i32 %6, %.lcssa320
   br i1 %.not192, label %.thread, label %tailrecurse
 
 55:                                               ; preds = %.critedge
   %56 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.not193 = icmp ugt i32 %6, %.lcssa309
+  %.not193 = icmp ugt i32 %6, %.lcssa323
   br i1 %.not193, label %72, label %58
 
 .thread:                                          ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %.old = icmp ugt i32 %1, %.lcssa309
+  %.old = icmp ugt i32 %1, %.lcssa323
   br i1 %.old, label %.loopexit, label %.preheader
 
 58:                                               ; preds = %55
@@ -190,7 +190,7 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   br label %.loopexit
 
 72:                                               ; preds = %55
-  %73 = icmp ult i32 %6, %.lcssa306
+  %73 = icmp ult i32 %6, %.lcssa320
   br i1 %73, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %72
@@ -240,17 +240,17 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
 94:                                               ; preds = %86
   %95 = getelementptr inbounds nuw i8, ptr %.0245.lcssa, i64 40
   store ptr %84, ptr %95, align 8, !tbaa !16
-  br label %.preheader329
+  br label %.preheader343
 
 96:                                               ; preds = %86
   store ptr %84, ptr %74, align 8, !tbaa !12
-  br label %.preheader329
+  br label %.preheader343
 
-.preheader329:                                    ; preds = %96, %94
+.preheader343:                                    ; preds = %96, %94
   br label %97
 
-97:                                               ; preds = %.preheader329, %97
-  %.1249 = phi ptr [ %100, %97 ], [ %.0173244.lcssa, %.preheader329 ]
+97:                                               ; preds = %.preheader343, %97
+  %.1249 = phi ptr [ %100, %97 ], [ %.0173244.lcssa, %.preheader343 ]
   %98 = getelementptr inbounds nuw i8, ptr %.1249, i64 16
   store ptr %84, ptr %98, align 8, !tbaa !13
   %99 = getelementptr inbounds nuw i8, ptr %.1249, i64 40

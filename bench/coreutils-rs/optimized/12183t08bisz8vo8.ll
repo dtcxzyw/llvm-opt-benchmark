@@ -1153,13 +1153,13 @@ _ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E.exit: ;
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41e282a3d4b7b6feE.exit": ; preds = %67, %.loopexit
-  %.03342 = phi i64 [ %.033, %.loopexit ], [ %20, %67 ]
+  %.03346 = phi i64 [ %.033, %.loopexit ], [ %20, %67 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %51, align 8
   %.sroa.016.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.03342, ptr %.sroa.016.sroa.4.0..sroa_idx, align 8
+  store i64 %.03346, ptr %.sroa.016.sroa.4.0..sroa_idx, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.03342, ptr %.sroa.417.0..sroa_idx, align 8
+  store i64 %.03346, ptr %.sroa.417.0..sroa_idx, align 8
   br label %46
 
 52:                                               ; preds = %.lr.ph, %67

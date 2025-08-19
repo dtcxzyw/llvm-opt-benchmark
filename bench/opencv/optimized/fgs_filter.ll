@@ -1589,13 +1589,13 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
   %indvar = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader ], [ %indvar.next, %_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit.loopexit.us ]
   %indvars.iv22 = phi i64 [ %42, %.lr.ph.preheader.i.us.preheader ], [ %indvars.iv.next23, %_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl11process_rowEPNS_3MatEi.exit.loopexit.us ]
   %56 = mul i64 %35, %indvar
-  %scevgep37 = getelementptr i8, ptr %49, i64 %56
+  %scevgep38 = getelementptr i8, ptr %49, i64 %56
   %57 = mul i64 %30, %indvar
   %scevgep = getelementptr i8, ptr %50, i64 %57
-  %scevgep29 = getelementptr i8, ptr %52, i64 %57
+  %scevgep30 = getelementptr i8, ptr %52, i64 %57
   %58 = mul i64 %35, %indvar
-  %scevgep30 = getelementptr i8, ptr %53, i64 %58
-  %scevgep31 = getelementptr i8, ptr %55, i64 %58
+  %scevgep31 = getelementptr i8, ptr %53, i64 %58
+  %scevgep32 = getelementptr i8, ptr %55, i64 %58
   %59 = mul i64 %25, %indvars.iv22
   %60 = getelementptr inbounds nuw i8, ptr %22, i64 %59
   %61 = mul i64 %30, %indvars.iv22
@@ -1611,8 +1611,8 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
   %70 = load float, ptr %64, align 4, !tbaa !116
   %71 = fdiv float %70, %68
   store float %71, ptr %64, align 4, !tbaa !116
-  %bound0 = icmp ult ptr %scevgep, %scevgep31
-  %bound1 = icmp ult ptr %scevgep30, %scevgep29
+  %bound0 = icmp ult ptr %scevgep, %scevgep32
+  %bound1 = icmp ult ptr %scevgep31, %scevgep30
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.lr.ph.i.us.lver.orig, label %.lr.ph.i.us.ph
 
@@ -1648,16 +1648,16 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
 .lr.ph.i.us.ph:                                   ; preds = %.lr.ph.i.us.lver.check
   %92 = add i64 %indvar, %42
   %93 = mul i64 %35, %92
-  %scevgep34 = getelementptr i8, ptr %32, i64 %93
+  %scevgep35 = getelementptr i8, ptr %32, i64 %93
   %94 = add i64 %indvar, %42
   %95 = mul i64 %30, %94
-  %scevgep33 = getelementptr i8, ptr %27, i64 %95
-  %load_initial = load float, ptr %scevgep33, align 4
-  %load_initial35 = load float, ptr %scevgep34, align 4
+  %scevgep34 = getelementptr i8, ptr %27, i64 %95
+  %load_initial = load float, ptr %scevgep34, align 4
+  %load_initial36 = load float, ptr %scevgep35, align 4
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.i.us.ph
-  %store_forwarded36 = phi float [ %load_initial35, %.lr.ph.i.us.ph ], [ %110, %.lr.ph.i.us ]
+  %store_forwarded37 = phi float [ %load_initial36, %.lr.ph.i.us.ph ], [ %110, %.lr.ph.i.us ]
   %store_forwarded = phi float [ %load_initial, %.lr.ph.i.us.ph ], [ %104, %.lr.ph.i.us ]
   %indvars.iv.i.us = phi i64 [ 1, %.lr.ph.i.us.ph ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
   %.04446.i.us = phi float [ %67, %.lr.ph.i.us.ph ], [ %99, %.lr.ph.i.us ]
@@ -1674,7 +1674,7 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
   store float %104, ptr %105, align 4, !tbaa !116
   %106 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i.us
   %107 = load float, ptr %106, align 4, !tbaa !116
-  %108 = fneg float %store_forwarded36
+  %108 = fneg float %store_forwarded37
   %109 = tail call float @llvm.fmuladd.f32(float %108, float %.04446.i.us, float %107)
   %110 = fdiv float %109, %103
   store float %110, ptr %106, align 4, !tbaa !116
@@ -1683,18 +1683,18 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
   br i1 %exitcond.not.i.us, label %.lr.ph50.i.us.preheader, label %.lr.ph.i.us, !llvm.loop !117
 
 .lr.ph50.i.us.preheader:                          ; preds = %.lr.ph.i.us, %.lr.ph.i.us.lver.orig
-  %load_initial38 = load float, ptr %scevgep37, align 4
+  %load_initial39 = load float, ptr %scevgep38, align 4
   br label %.lr.ph50.i.us
 
 .lr.ph50.i.us:                                    ; preds = %.lr.ph50.i.us.preheader, %.lr.ph50.i.us
-  %store_forwarded39 = phi float [ %load_initial38, %.lr.ph50.i.us.preheader ], [ %116, %.lr.ph50.i.us ]
+  %store_forwarded40 = phi float [ %load_initial39, %.lr.ph50.i.us.preheader ], [ %116, %.lr.ph50.i.us ]
   %indvars.iv53.i.us = phi i64 [ %41, %.lr.ph50.i.us.preheader ], [ %indvars.iv.next54.i.us, %.lr.ph50.i.us ]
   %111 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv53.i.us
   %112 = load float, ptr %111, align 4, !tbaa !116
   %113 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv53.i.us
   %114 = load float, ptr %113, align 4, !tbaa !116
   %115 = fneg float %114
-  %116 = tail call float @llvm.fmuladd.f32(float %115, float %store_forwarded39, float %112)
+  %116 = tail call float @llvm.fmuladd.f32(float %115, float %store_forwarded40, float %112)
   store float %116, ptr %111, align 4, !tbaa !116
   %indvars.iv.next54.i.us = add nsw i64 %indvars.iv53.i.us, -1
   %.not.i.us = icmp eq i64 %indvars.iv53.i.us, 0
@@ -2142,7 +2142,7 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
   %smin103 = sext i32 %93 to i64
   %94 = add i32 %.sroa.speculated, %93
   %95 = sub i32 %94, %.sroa.speculated76
-  %96 = zext i32 %92 to i64
+  %96 = zext nneg i32 %92 to i64
   br label %.lr.ph86.us
 
 .lr.ph86.us:                                      ; preds = %.lr.ph89, %._crit_edge.us91

@@ -1057,7 +1057,7 @@ b2ShapeArray_Push.exit:                           ; preds = %.b2ShapeArray_Reser
   %.val = load ptr, ptr %10, align 8, !tbaa !14
   %34 = sext i32 %9 to i64
   %35 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %34
-  switch i32 %6, label %default.unreachable93 [
+  switch i32 %6, label %default.unreachable96 [
     i32 1, label %36
     i32 0, label %38
     i32 3, label %40
@@ -1090,7 +1090,7 @@ b2ShapeArray_Push.exit:                           ; preds = %.b2ShapeArray_Reser
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %45, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !170
   br label %46
 
-default.unreachable93:                            ; preds = %46, %33
+default.unreachable96:                            ; preds = %46, %33
   unreachable
 
 46:                                               ; preds = %44, %42, %40, %38, %36
@@ -1152,7 +1152,7 @@ default.unreachable93:                            ; preds = %46, %33
   %86 = getelementptr inbounds nuw i8, ptr %35, i64 88
   store i32 -1, ptr %86, align 8, !tbaa !43
   %87 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  switch i32 %6, label %default.unreachable93 [
+  switch i32 %6, label %default.unreachable96 [
     i32 1, label %88
     i32 0, label %99
     i32 3, label %101
@@ -1396,13 +1396,13 @@ define void @b2DestroyChain(i64 %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %6
   %18 = load i32, ptr %10, align 8, !tbaa !118
   %19 = icmp eq i32 %17, %18
-  br i1 %19, label %._crit_edge45, label %.lr.ph44
+  br i1 %19, label %._crit_edge49, label %.lr.ph48
 
-20:                                               ; preds = %.lr.ph44
+20:                                               ; preds = %.lr.ph48
   %21 = icmp eq i32 %25, %18
-  br i1 %21, label %._crit_edge45, label %.lr.ph44, !llvm.loop !192
+  br i1 %21, label %._crit_edge49, label %.lr.ph48, !llvm.loop !192
 
-.lr.ph44:                                         ; preds = %.lr.ph, %20
+.lr.ph48:                                         ; preds = %.lr.ph, %20
   %22 = phi i32 [ %25, %20 ], [ %17, %.lr.ph ]
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds %struct.b2ChainShape, ptr %.val34, i64 %23, i32 2
@@ -1410,7 +1410,7 @@ define void @b2DestroyChain(i64 %0) local_unnamed_addr #0 {
   %.not.not = icmp eq i32 %25, -1
   br i1 %.not.not, label %.critedge, label %20, !llvm.loop !192
 
-._crit_edge45:                                    ; preds = %20, %.lr.ph
+._crit_edge49:                                    ; preds = %20, %.lr.ph
   %.037.lcssa = phi ptr [ %16, %.lr.ph ], [ %24, %20 ]
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !124
@@ -1420,7 +1420,7 @@ define void @b2DestroyChain(i64 %0) local_unnamed_addr #0 {
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph39, label %._crit_edge
 
-.lr.ph39:                                         ; preds = %._crit_edge45
+.lr.ph39:                                         ; preds = %._crit_edge49
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 1256
   %wide.trip.count = zext nneg i32 %29 to i64
@@ -1430,8 +1430,8 @@ define void @b2DestroyChain(i64 %0) local_unnamed_addr #0 {
   %.pre = load i32, ptr %28, align 4, !tbaa !143
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %._crit_edge45
-  %33 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %29, %._crit_edge45 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %._crit_edge49
+  %33 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %29, %._crit_edge49 ]
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !144
   %36 = shl i32 %33, 2
@@ -1464,7 +1464,7 @@ define void @b2DestroyChain(i64 %0) local_unnamed_addr #0 {
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %44, !llvm.loop !193
 
-.critedge:                                        ; preds = %.lr.ph44, %6, %._crit_edge, %1
+.critedge:                                        ; preds = %.lr.ph48, %6, %._crit_edge, %1
   ret void
 }
 
@@ -1725,12 +1725,12 @@ define hidden float @b2GetShapePerimeter(ptr noundef readonly captures(none) %0)
   %7 = load <2 x float>, ptr %5, align 4
   %8 = load <2 x float>, ptr %6, align 4
   %foldExtExtBinop = fsub <2 x float> %7, %8
-  %foldExtExtBinop63 = fsub <2 x float> %7, %8
-  %foldExtExtBinop65 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
-  %foldExtExtBinop67 = fmul <2 x float> %foldExtExtBinop63, %foldExtExtBinop63
-  %shift = shufflevector <2 x float> %foldExtExtBinop67, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop69 = fadd <2 x float> %foldExtExtBinop65, %shift
-  %9 = extractelement <2 x float> %foldExtExtBinop69, i64 0
+  %foldExtExtBinop64 = fsub <2 x float> %7, %8
+  %foldExtExtBinop66 = fmul <2 x float> %foldExtExtBinop, %foldExtExtBinop
+  %foldExtExtBinop68 = fmul <2 x float> %foldExtExtBinop64, %foldExtExtBinop64
+  %shift = shufflevector <2 x float> %foldExtExtBinop68, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop70 = fadd <2 x float> %foldExtExtBinop66, %shift
+  %9 = extractelement <2 x float> %foldExtExtBinop70, i64 0
   %sqrt.i = tail call float @llvm.sqrt.f32(float %9)
   %10 = fmul float %sqrt.i, 2.000000e+00
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -1769,13 +1769,13 @@ define hidden float @b2GetShapePerimeter(ptr noundef readonly captures(none) %0)
   %.sroa.07.059 = phi <2 x float> [ %.sroa.07.0.copyload, %.lr.ph.preheader ], [ %.sroa.03.0.copyload, %.lr.ph ]
   %30 = getelementptr inbounds nuw %struct.b2Vec2, ptr %20, i64 %indvars.iv
   %.sroa.03.0.copyload = load <2 x float>, ptr %30, align 4
-  %foldExtExtBinop71 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.07.059
-  %foldExtExtBinop73 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.07.059
-  %foldExtExtBinop75 = fmul <2 x float> %foldExtExtBinop71, %foldExtExtBinop71
-  %foldExtExtBinop77 = fmul <2 x float> %foldExtExtBinop73, %foldExtExtBinop73
-  %shift79 = shufflevector <2 x float> %foldExtExtBinop77, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop80 = fadd <2 x float> %foldExtExtBinop75, %shift79
-  %31 = extractelement <2 x float> %foldExtExtBinop80, i64 0
+  %foldExtExtBinop72 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.07.059
+  %foldExtExtBinop74 = fsub <2 x float> %.sroa.03.0.copyload, %.sroa.07.059
+  %foldExtExtBinop76 = fmul <2 x float> %foldExtExtBinop72, %foldExtExtBinop72
+  %foldExtExtBinop78 = fmul <2 x float> %foldExtExtBinop74, %foldExtExtBinop74
+  %shift80 = shufflevector <2 x float> %foldExtExtBinop78, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop81 = fadd <2 x float> %foldExtExtBinop76, %shift80
+  %31 = extractelement <2 x float> %foldExtExtBinop81, i64 0
   %sqrt.i39 = tail call float @llvm.sqrt.f32(float %31)
   %32 = fadd float %.02760, %sqrt.i39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1787,13 +1787,13 @@ define hidden float @b2GetShapePerimeter(ptr noundef readonly captures(none) %0)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %36 = load <2 x float>, ptr %34, align 4
   %37 = load <2 x float>, ptr %35, align 4
-  %foldExtExtBinop82 = fsub <2 x float> %36, %37
-  %foldExtExtBinop84 = fsub <2 x float> %36, %37
-  %foldExtExtBinop86 = fmul <2 x float> %foldExtExtBinop82, %foldExtExtBinop82
-  %foldExtExtBinop88 = fmul <2 x float> %foldExtExtBinop84, %foldExtExtBinop84
-  %shift90 = shufflevector <2 x float> %foldExtExtBinop88, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop91 = fadd <2 x float> %foldExtExtBinop86, %shift90
-  %38 = extractelement <2 x float> %foldExtExtBinop91, i64 0
+  %foldExtExtBinop83 = fsub <2 x float> %36, %37
+  %foldExtExtBinop85 = fsub <2 x float> %36, %37
+  %foldExtExtBinop87 = fmul <2 x float> %foldExtExtBinop83, %foldExtExtBinop83
+  %foldExtExtBinop89 = fmul <2 x float> %foldExtExtBinop85, %foldExtExtBinop85
+  %shift91 = shufflevector <2 x float> %foldExtExtBinop89, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop92 = fadd <2 x float> %foldExtExtBinop87, %shift91
+  %38 = extractelement <2 x float> %foldExtExtBinop92, i64 0
   %sqrt.i48 = tail call float @llvm.sqrt.f32(float %38)
   %39 = fmul float %sqrt.i48, 2.000000e+00
   br label %.loopexit
@@ -1803,13 +1803,13 @@ define hidden float @b2GetShapePerimeter(ptr noundef readonly captures(none) %0)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %43 = load <2 x float>, ptr %41, align 4
   %44 = load <2 x float>, ptr %42, align 4
-  %foldExtExtBinop93 = fsub <2 x float> %43, %44
-  %foldExtExtBinop95 = fsub <2 x float> %43, %44
-  %foldExtExtBinop97 = fmul <2 x float> %foldExtExtBinop93, %foldExtExtBinop93
-  %foldExtExtBinop99 = fmul <2 x float> %foldExtExtBinop95, %foldExtExtBinop95
-  %shift101 = shufflevector <2 x float> %foldExtExtBinop99, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop102 = fadd <2 x float> %foldExtExtBinop97, %shift101
-  %45 = extractelement <2 x float> %foldExtExtBinop102, i64 0
+  %foldExtExtBinop94 = fsub <2 x float> %43, %44
+  %foldExtExtBinop96 = fsub <2 x float> %43, %44
+  %foldExtExtBinop98 = fmul <2 x float> %foldExtExtBinop94, %foldExtExtBinop94
+  %foldExtExtBinop100 = fmul <2 x float> %foldExtExtBinop96, %foldExtExtBinop96
+  %shift102 = shufflevector <2 x float> %foldExtExtBinop100, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop103 = fadd <2 x float> %foldExtExtBinop98, %shift102
+  %45 = extractelement <2 x float> %foldExtExtBinop103, i64 0
   %sqrt.i57 = tail call float @llvm.sqrt.f32(float %45)
   %46 = fmul float %sqrt.i57, 2.000000e+00
   br label %.loopexit
@@ -1837,12 +1837,12 @@ define hidden float @b2GetShapeProjectedPerimeter(ptr noundef readonly captures(
   %8 = load <2 x float>, ptr %7, align 4
   %9 = load <2 x float>, ptr %6, align 4
   %foldExtExtBinop = fsub <2 x float> %8, %9
-  %foldExtExtBinop78 = fsub <2 x float> %8, %9
-  %foldExtExtBinop80 = fmul <2 x float> %1, %foldExtExtBinop
-  %foldExtExtBinop82 = fmul <2 x float> %1, %foldExtExtBinop78
-  %shift = shufflevector <2 x float> %foldExtExtBinop82, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop84 = fadd <2 x float> %foldExtExtBinop80, %shift
-  %10 = extractelement <2 x float> %foldExtExtBinop84, i64 0
+  %foldExtExtBinop79 = fsub <2 x float> %8, %9
+  %foldExtExtBinop81 = fmul <2 x float> %1, %foldExtExtBinop
+  %foldExtExtBinop83 = fmul <2 x float> %1, %foldExtExtBinop79
+  %shift = shufflevector <2 x float> %foldExtExtBinop83, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop85 = fadd <2 x float> %foldExtExtBinop81, %shift
+  %10 = extractelement <2 x float> %foldExtExtBinop85, i64 0
   %11 = fcmp olt float %10, 0.000000e+00
   %12 = fneg float %10
   %13 = select i1 %11, float %12, float %10
@@ -1863,11 +1863,11 @@ define hidden float @b2GetShapeProjectedPerimeter(ptr noundef readonly captures(
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %25 = load i32, ptr %24, align 4, !tbaa !168
   %26 = load <2 x float>, ptr %23, align 4
-  %foldExtExtBinop86 = fmul <2 x float> %1, %26
-  %foldExtExtBinop88 = fmul <2 x float> %1, %26
-  %shift90 = shufflevector <2 x float> %foldExtExtBinop88, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop91 = fadd <2 x float> %foldExtExtBinop86, %shift90
-  %27 = extractelement <2 x float> %foldExtExtBinop91, i64 0
+  %foldExtExtBinop87 = fmul <2 x float> %1, %26
+  %foldExtExtBinop89 = fmul <2 x float> %1, %26
+  %shift91 = shufflevector <2 x float> %foldExtExtBinop89, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop92 = fadd <2 x float> %foldExtExtBinop87, %shift91
+  %27 = extractelement <2 x float> %foldExtExtBinop92, i64 0
   %28 = icmp sgt i32 %25, 1
   br i1 %28, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1891,11 +1891,11 @@ define hidden float @b2GetShapeProjectedPerimeter(ptr noundef readonly captures(
   %.03970 = phi float [ %27, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %34 = getelementptr inbounds nuw %struct.b2Vec2, ptr %23, i64 %indvars.iv
   %35 = load <2 x float>, ptr %34, align 4
-  %foldExtExtBinop93 = fmul <2 x float> %1, %35
-  %foldExtExtBinop95 = fmul <2 x float> %1, %35
-  %shift97 = shufflevector <2 x float> %foldExtExtBinop95, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop98 = fadd <2 x float> %foldExtExtBinop93, %shift97
-  %36 = extractelement <2 x float> %foldExtExtBinop98, i64 0
+  %foldExtExtBinop94 = fmul <2 x float> %1, %35
+  %foldExtExtBinop96 = fmul <2 x float> %1, %35
+  %shift98 = shufflevector <2 x float> %foldExtExtBinop96, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop99 = fadd <2 x float> %foldExtExtBinop94, %shift98
+  %36 = extractelement <2 x float> %foldExtExtBinop99, i64 0
   %37 = fcmp olt float %.03871, %36
   %38 = select i1 %37, float %.03871, float %36
   %39 = fcmp ogt float %.03970, %36
@@ -1907,18 +1907,18 @@ define hidden float @b2GetShapeProjectedPerimeter(ptr noundef readonly captures(
 41:                                               ; preds = %2
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %43 = load <2 x float>, ptr %42, align 4
-  %foldExtExtBinop100 = fmul <2 x float> %1, %43
-  %foldExtExtBinop102 = fmul <2 x float> %1, %43
-  %shift104 = shufflevector <2 x float> %foldExtExtBinop102, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop105 = fadd <2 x float> %foldExtExtBinop100, %shift104
+  %foldExtExtBinop101 = fmul <2 x float> %1, %43
+  %foldExtExtBinop103 = fmul <2 x float> %1, %43
+  %shift105 = shufflevector <2 x float> %foldExtExtBinop103, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop106 = fadd <2 x float> %foldExtExtBinop101, %shift105
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %45 = load <2 x float>, ptr %44, align 4
-  %foldExtExtBinop107 = fmul <2 x float> %1, %45
-  %foldExtExtBinop109 = fmul <2 x float> %1, %45
-  %shift111 = shufflevector <2 x float> %foldExtExtBinop109, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop112 = fadd <2 x float> %foldExtExtBinop107, %shift111
-  %foldExtExtBinop114 = fsub <2 x float> %foldExtExtBinop112, %foldExtExtBinop105
-  %46 = extractelement <2 x float> %foldExtExtBinop114, i64 0
+  %foldExtExtBinop108 = fmul <2 x float> %1, %45
+  %foldExtExtBinop110 = fmul <2 x float> %1, %45
+  %shift112 = shufflevector <2 x float> %foldExtExtBinop110, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop113 = fadd <2 x float> %foldExtExtBinop108, %shift112
+  %foldExtExtBinop115 = fsub <2 x float> %foldExtExtBinop113, %foldExtExtBinop106
+  %46 = extractelement <2 x float> %foldExtExtBinop115, i64 0
   %47 = fcmp olt float %46, 0.000000e+00
   %48 = fneg float %46
   %49 = select i1 %47, float %48, float %46
@@ -1927,18 +1927,18 @@ define hidden float @b2GetShapeProjectedPerimeter(ptr noundef readonly captures(
 50:                                               ; preds = %2
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %52 = load <2 x float>, ptr %51, align 4
-  %foldExtExtBinop116 = fmul <2 x float> %1, %52
-  %foldExtExtBinop118 = fmul <2 x float> %1, %52
-  %shift120 = shufflevector <2 x float> %foldExtExtBinop118, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop121 = fadd <2 x float> %foldExtExtBinop116, %shift120
+  %foldExtExtBinop117 = fmul <2 x float> %1, %52
+  %foldExtExtBinop119 = fmul <2 x float> %1, %52
+  %shift121 = shufflevector <2 x float> %foldExtExtBinop119, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop122 = fadd <2 x float> %foldExtExtBinop117, %shift121
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %54 = load <2 x float>, ptr %53, align 4
-  %foldExtExtBinop123 = fmul <2 x float> %1, %54
-  %foldExtExtBinop125 = fmul <2 x float> %1, %54
-  %shift127 = shufflevector <2 x float> %foldExtExtBinop125, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop128 = fadd <2 x float> %foldExtExtBinop123, %shift127
-  %foldExtExtBinop130 = fsub <2 x float> %foldExtExtBinop128, %foldExtExtBinop121
-  %55 = extractelement <2 x float> %foldExtExtBinop130, i64 0
+  %foldExtExtBinop124 = fmul <2 x float> %1, %54
+  %foldExtExtBinop126 = fmul <2 x float> %1, %54
+  %shift128 = shufflevector <2 x float> %foldExtExtBinop126, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop129 = fadd <2 x float> %foldExtExtBinop124, %shift128
+  %foldExtExtBinop131 = fsub <2 x float> %foldExtExtBinop129, %foldExtExtBinop122
+  %55 = extractelement <2 x float> %foldExtExtBinop131, i64 0
   %56 = fcmp olt float %55, 0.000000e+00
   %57 = fneg float %55
   %58 = select i1 %56, float %57, float %55

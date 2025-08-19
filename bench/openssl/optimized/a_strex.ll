@@ -736,8 +736,8 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not72, label %.lr.ph116.split.split.us, label %.lr.ph116.split.split
 
 .lr.ph116.split.split.us:                         ; preds = %.lr.ph116.split, %115
-  %.054115.us = phi i32 [ %.155.us132, %115 ], [ %1, %.lr.ph116.split ]
-  %.056114.us = phi ptr [ %.157.us131, %115 ], [ %0, %.lr.ph116.split ]
+  %.054115.us = phi i32 [ %.155.us139, %115 ], [ %1, %.lr.ph116.split ]
+  %.056114.us = phi ptr [ %.157.us138, %115 ], [ %0, %.lr.ph116.split ]
   %.061113.us = phi i32 [ %116, %115 ], [ 0, %.lr.ph116.split ]
   %28 = icmp ne ptr %.056114.us, %0
   %or.cond.us = or i1 %.not70, %28
@@ -800,8 +800,8 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.157.us.ph = phi ptr [ %60, %45 ], [ %41, %36 ], [ %33, %32 ]
   store i64 %.sink, ptr %12, align 8, !tbaa !24
   %64 = icmp ne ptr %.157.us.ph, %15
-  %or.cond74.us129 = or i1 %.not70, %64
-  %.159.us130 = select i1 %or.cond74.us129, i16 %.058.us, i16 64
+  %or.cond74.us136 = or i1 %.not70, %64
+  %.159.us137 = select i1 %or.cond74.us136, i16 %.058.us, i16 64
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %71
@@ -820,11 +820,11 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %70, label %do_esc_char.exit94.thread, label %71
 
 71:                                               ; preds = %.thread, %65
-  %.159.us130.pn = phi i16 [ %.159.us130, %.thread ], [ %.159.us, %65 ]
-  %.155.us132 = phi i32 [ %.054115.us, %.thread ], [ %66, %65 ]
-  %.157.us131 = phi ptr [ %.157.us.ph, %.thread ], [ %68, %65 ]
+  %.159.us137.pn = phi i16 [ %.159.us137, %.thread ], [ %.159.us, %65 ]
+  %.155.us139 = phi i32 [ %.054115.us, %.thread ], [ %66, %65 ]
+  %.157.us138 = phi ptr [ %.157.us.ph, %.thread ], [ %68, %65 ]
   %72 = phi i64 [ %.sink, %.thread ], [ %.pre126, %65 ]
-  %73 = or i16 %.159.us130.pn, %3
+  %73 = or i16 %.159.us137.pn, %3
   %74 = icmp samesign ugt i64 %72, 65535
   br i1 %74, label %112, label %75
 
@@ -922,7 +922,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %116 = add nuw nsw i32 %.030.i81.us, %.061113.us
-  %.not69.us = icmp eq ptr %.157.us131, %15
+  %.not69.us = icmp eq ptr %.157.us138, %15
   br i1 %.not69.us, label %.loopexit, label %.lr.ph116.split.split.us, !llvm.loop !27
 
 .lr.ph116.split.split:                            ; preds = %.lr.ph116.split, %.critedge

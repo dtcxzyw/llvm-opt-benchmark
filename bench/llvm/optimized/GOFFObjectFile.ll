@@ -2278,12 +2278,12 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %_ZN4l
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
 
 _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread21, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZN4llvmneENS_9StringRefES0_.exit, %29, %31
-  %.326 = phi i32 [ %spec.select23, %31 ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %30, %29 ], [ %spec.select, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit.thread21 ]
+  %.328 = phi i32 [ %spec.select23, %31 ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %30, %29 ], [ %spec.select, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ %spec.select, %_ZN4llvmneENS_9StringRefES0_.exit.thread21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 37:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, %_ZNK4llvm6object14GOFFObjectFile18isSymbolUnresolvedENS0_11DataRefImplE.exit
-  %.2 = phi i32 [ %spec.select, %_ZNK4llvm6object14GOFFObjectFile18isSymbolUnresolvedENS0_11DataRefImplE.exit ], [ %.326, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ]
+  %.2 = phi i32 [ %spec.select, %_ZNK4llvm6object14GOFFObjectFile18isSymbolUnresolvedENS0_11DataRefImplE.exit ], [ %.328, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, -2
@@ -2386,7 +2386,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112bas
   %46 = or i8 %45, 1
   store i8 %46, ptr %44, align 8
   store ptr %35, ptr %0, align 8, !tbaa !128, !alias.scope !166
-  br label %88
+  br label %87
 
 47:                                               ; preds = %3
   %switch = icmp samesign ult i8 %.0.copyload.i.i.i.i.i.i, 2
@@ -2398,7 +2398,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112bas
   %51 = and i8 %50, -2
   store i8 %51, ptr %49, align 8
   store i32 1, ptr %0, align 8, !tbaa !169
-  br label %88
+  br label %87
 
 52:                                               ; preds = %47
   %or.cond17 = icmp samesign ugt i8 %19, 2
@@ -2473,14 +2473,14 @@ _ZN4llvm5ErrorD2Ev.exit28:                        ; preds = %_ZNKSt7__cxx1112bas
   %79 = or i8 %78, 1
   store i8 %79, ptr %77, align 8
   store ptr %68, ptr %0, align 8, !tbaa !128, !alias.scope !185
-  br label %88
+  br label %87
 
 80:                                               ; preds = %52
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load i8, ptr %81, align 8
   %83 = and i8 %82, -2
   store i8 %83, ptr %81, align 8
-  switch i8 %19, label %87 [
+  switch i8 %19, label %default.unreachable [
     i8 2, label %84
     i8 1, label %85
     i8 0, label %86
@@ -2488,20 +2488,20 @@ _ZN4llvm5ErrorD2Ev.exit28:                        ; preds = %_ZNKSt7__cxx1112bas
 
 84:                                               ; preds = %80
   store i32 5, ptr %0, align 8, !tbaa !169
-  br label %88
+  br label %87
 
 85:                                               ; preds = %80
   store i32 2, ptr %0, align 8, !tbaa !169
-  br label %88
+  br label %87
 
 86:                                               ; preds = %80
   store i32 0, ptr %0, align 8, !tbaa !169
-  br label %88
+  br label %87
 
-87:                                               ; preds = %80
+default.unreachable:                              ; preds = %80
   unreachable
 
-88:                                               ; preds = %86, %85, %84, %_ZN4llvm5ErrorD2Ev.exit28, %48, %_ZN4llvm5ErrorD2Ev.exit
+87:                                               ; preds = %86, %85, %84, %_ZN4llvm5ErrorD2Ev.exit28, %48, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 
@@ -4053,7 +4053,7 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile14moveSymbolNextERNS0_11D
   call void @llvm.assume(i1 true) [ "align"(ptr %14, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i8, ptr %14, align 1
   %or.cond = icmp ult i8 %.0.copyload.i.i.i.i.i.i, 2
-  br i1 %or.cond, label %.critedge, label %._crit_edge.loopexit.split.loop.exit25
+  br i1 %or.cond, label %.critedge, label %._crit_edge.loopexit.split.loop.exit26
 
 .critedge:                                        ; preds = %13, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4061,12 +4061,12 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile14moveSymbolNextERNS0_11D
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !227
 
-._crit_edge.loopexit.split.loop.exit25:           ; preds = %13
+._crit_edge.loopexit.split.loop.exit26:           ; preds = %13
   %15 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.critedge, %._crit_edge.loopexit.split.loop.exit25, %2
-  %storemerge = phi i32 [ 0, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit25 ], [ 0, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge, %._crit_edge.loopexit.split.loop.exit26, %2
+  %storemerge = phi i32 [ 0, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit26 ], [ 0, %.critedge ]
   store i32 %storemerge, ptr %1, align 8, !tbaa !34
   ret void
 }

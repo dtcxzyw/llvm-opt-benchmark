@@ -56,13 +56,13 @@ define dso_local void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStack
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %8
-  br i1 %5, label %.thread41, label %.thread
+  br i1 %5, label %.thread45, label %.thread
 
 17:                                               ; preds = %8
   %18 = icmp sgt i32 %3, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
-.thread41:                                        ; preds = %16
+.thread45:                                        ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %19 = call noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef 1024)
   %spec.select.i = select i1 %19, ptr %13, ptr @.str.3
@@ -89,7 +89,7 @@ define dso_local void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStack
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.thread41, %.lr.ph
+.lr.ph.split.us.preheader:                        ; preds = %.thread45, %.lr.ph
   %wide.trip.count39 = zext nneg i32 %3 to i64
   br label %.lr.ph.split.us
 
@@ -123,7 +123,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPv
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
   br i1 %exitcond40.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS3_.exit, %_ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us, %.thread41, %.thread, %17
+._crit_edge:                                      ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS3_.exit, %_ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us, %.thread45, %.thread, %17
   %35 = icmp sgt i32 %4, 0
   br i1 %35, label %45, label %47
 

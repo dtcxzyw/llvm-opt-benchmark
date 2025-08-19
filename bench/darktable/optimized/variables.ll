@@ -471,9 +471,9 @@ define ptr @dt_variables_expand(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %138 = load i8, ptr %133, align 4, !tbaa !105
   %switch.selectcmp.i = icmp eq i8 %138, 78
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.7, ptr @.str.8
-  %switch.selectcmp158.i = icmp eq i8 %138, 89
-  %switch.select159.i = select i1 %switch.selectcmp158.i, ptr @.str.6, ptr %switch.select.i
-  %139 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.select159.i, i32 noundef 5) #16
+  %switch.selectcmp162.i = icmp eq i8 %138, 89
+  %switch.select163.i = select i1 %switch.selectcmp162.i, ptr @.str.6, ptr %switch.select.i
+  %139 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.select163.i, i32 noundef 5) #16
   %140 = load ptr, ptr %13, align 8, !tbaa !11
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 184
   store ptr %139, ptr %141, align 8, !tbaa !28
@@ -523,8 +523,8 @@ define ptr @dt_variables_expand(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %172 = getelementptr inbounds nuw i8, ptr %140, i64 36
   %173 = load i32, ptr %172, align 4, !tbaa !122
   %.not150.i = icmp eq i32 %173, 0
-  %or.cond160.i = select i1 %.not149.i, i1 %.not150.i, i1 false
-  br i1 %or.cond160.i, label %193, label %._crit_edge.i
+  %or.cond164.i = select i1 %.not149.i, i1 %.not150.i, i1 false
+  br i1 %or.cond164.i, label %193, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i
   %174 = sitofp i32 %171 to float
@@ -756,9 +756,9 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   br i1 %47, label %.critedge2.thread, label %241
 
 .critedge2.thread:                                ; preds = %20, %.critedge2
-  %.1.lcssa113 = phi i64 [ %.1.lcssa, %.critedge2 ], [ %.193, %20 ]
-  %.161.lcssa112 = phi ptr [ %.161.lcssa, %.critedge2 ], [ %.16192, %20 ]
-  %.170.lcssa111 = phi ptr [ %.170.lcssa, %.critedge2 ], [ %.17091, %20 ]
+  %.1.lcssa125 = phi i64 [ %.1.lcssa, %.critedge2 ], [ %.193, %20 ]
+  %.161.lcssa124 = phi ptr [ %.161.lcssa, %.critedge2 ], [ %.16192, %20 ]
+  %.170.lcssa123 = phi ptr [ %.170.lcssa, %.critedge2 ], [ %.17091, %20 ]
   %48 = phi ptr [ %46, %.critedge2 ], [ %14, %20 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store ptr %49, ptr %4, align 8, !tbaa !6
@@ -790,16 +790,16 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   %58 = load i8, ptr %50, align 1, !tbaa !105
   %59 = icmp eq i8 %58, 0
   %. = select i1 %59, ptr %50, ptr %57
-  %.122 = select i1 %59, ptr %57, ptr %50
-  br label %.sink.split121
+  %.134 = select i1 %59, ptr %57, ptr %50
+  br label %.sink.split133
 
 60:                                               ; preds = %54
   %61 = call fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull %4, i8 noundef signext 41)
   %62 = load i8, ptr %50, align 1, !tbaa !105
   %.not214.i = icmp eq i8 %62, 0
-  %.123 = select i1 %.not214.i, ptr %61, ptr %50
-  %.124 = select i1 %.not214.i, ptr %50, ptr %61
-  br label %.sink.split121
+  %.135 = select i1 %.not214.i, ptr %61, ptr %50
+  %.136 = select i1 %.not214.i, ptr %50, ptr %61
+  br label %.sink.split133
 
 63:                                               ; preds = %54
   %64 = call i64 @g_utf8_strlen(ptr noundef nonnull %50, i64 noundef -1) #17
@@ -860,20 +860,20 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   %98 = ptrtoint ptr %.0200.i to i64
   %99 = sub i64 %97, %98
   %100 = call noalias ptr @g_strndup(ptr noundef %.0200.i, i64 noundef %99) #16
-  br label %.sink.split121
+  br label %.sink.split133
 
 101:                                              ; preds = %54
   %102 = call fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull %4, i8 noundef signext 41)
   %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #17
   %104 = call i32 @strncmp(ptr noundef nonnull %50, ptr noundef nonnull %102, i64 noundef %103) #17
   %.not212.i = icmp eq i32 %104, 0
-  br i1 %.not212.i, label %105, label %.sink.split121
+  br i1 %.not212.i, label %105, label %.sink.split133
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %50, i64 %103
   %107 = call noalias ptr @g_strdup(ptr noundef %106) #16
   call void @g_free(ptr noundef nonnull %50) #16
-  br label %.sink.split121
+  br label %.sink.split133
 
 108:                                              ; preds = %54
   %109 = call fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull %4, i8 noundef signext 41)
@@ -883,13 +883,13 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   %113 = getelementptr inbounds i8, ptr %111, i64 %112
   %114 = call i32 @strncmp(ptr noundef %113, ptr noundef nonnull %109, i64 noundef %110) #17
   %.not211.i = icmp eq i32 %114, 0
-  br i1 %.not211.i, label %115, label %.sink.split121
+  br i1 %.not211.i, label %115, label %.sink.split133
 
 115:                                              ; preds = %108
   %116 = sub i64 %51, %110
   %117 = getelementptr inbounds nuw i8, ptr %50, i64 %116
   store i8 0, ptr %117, align 1, !tbaa !105
-  br label %.sink.split121
+  br label %.sink.split133
 
 118:                                              ; preds = %54
   %119 = load i8, ptr %55, align 1, !tbaa !105
@@ -985,7 +985,7 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
 167:                                              ; preds = %.sink.split, %155, %142, %132
   %.4.i = phi ptr [ %50, %132 ], [ %50, %142 ], [ %50, %155 ], [ %.4.i.ph, %.sink.split ]
   call void @g_free(ptr noundef nonnull %123) #16
-  br label %.sink.split121
+  br label %.sink.split133
 
 168:                                              ; preds = %54, %54
   %169 = load i8, ptr %55, align 1, !tbaa !105
@@ -999,7 +999,7 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   %174 = load ptr, ptr %4, align 8, !tbaa !6
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 1
   store ptr %175, ptr %4, align 8, !tbaa !6
-  br label %.sink.split121
+  br label %.sink.split133
 
 176:                                              ; preds = %168
   %177 = icmp eq i8 %53, 44
@@ -1012,7 +1012,7 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   %181 = load ptr, ptr %4, align 8, !tbaa !6
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 1
   store ptr %182, ptr %4, align 8, !tbaa !6
-  br label %.sink.split121
+  br label %.sink.split133
 
 183:                                              ; preds = %176
   %184 = call i32 @g_utf8_get_char(ptr noundef nonnull %50) #17
@@ -1043,16 +1043,16 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   %203 = call i32 @g_unichar_to_utf8(i32 noundef %190, ptr noundef %202) #16
   %204 = getelementptr inbounds i8, ptr %202, i64 %198
   %205 = call ptr @g_stpcpy(ptr noundef %204, ptr noundef nonnull %197) #16
-  br label %.sink.split121
+  br label %.sink.split133
 
-.sink.split121:                                   ; preds = %172, %179, %189, %108, %115, %101, %105, %60, %56, %96, %167
-  %.sink = phi ptr [ %127, %167 ], [ %50, %96 ], [ %., %56 ], [ %.123, %60 ], [ %102, %105 ], [ %102, %101 ], [ %109, %115 ], [ %109, %108 ], [ %50, %189 ], [ %50, %179 ], [ %50, %172 ]
-  %.0.i.ph = phi ptr [ %.4.i, %167 ], [ %100, %96 ], [ %.122, %56 ], [ %.124, %60 ], [ %107, %105 ], [ %50, %101 ], [ %50, %115 ], [ %50, %108 ], [ %202, %189 ], [ %180, %179 ], [ %173, %172 ]
+.sink.split133:                                   ; preds = %172, %179, %189, %108, %115, %101, %105, %60, %56, %96, %167
+  %.sink = phi ptr [ %127, %167 ], [ %50, %96 ], [ %., %56 ], [ %.135, %60 ], [ %102, %105 ], [ %102, %101 ], [ %109, %115 ], [ %109, %108 ], [ %50, %189 ], [ %50, %179 ], [ %50, %172 ]
+  %.0.i.ph = phi ptr [ %.4.i, %167 ], [ %100, %96 ], [ %.134, %56 ], [ %.136, %60 ], [ %107, %105 ], [ %50, %101 ], [ %50, %115 ], [ %50, %108 ], [ %202, %189 ], [ %180, %179 ], [ %173, %172 ]
   call void @g_free(ptr noundef %.sink) #16
   br label %206
 
-206:                                              ; preds = %.sink.split121, %54, %.critedge2.thread, %.critedge2.thread
-  %.0.i = phi ptr [ %50, %54 ], [ %50, %.critedge2.thread ], [ %50, %.critedge2.thread ], [ %.0.i.ph, %.sink.split121 ]
+206:                                              ; preds = %.sink.split133, %54, %.critedge2.thread, %.critedge2.thread
+  %.0.i = phi ptr [ %50, %54 ], [ %50, %.critedge2.thread ], [ %50, %.critedge2.thread ], [ %.0.i.ph, %.sink.split133 ]
   %207 = load ptr, ptr %4, align 8, !tbaa !6
   %208 = load i8, ptr %207, align 1, !tbaa !105
   %209 = icmp eq i8 %208, 41
@@ -1070,23 +1070,23 @@ _variable_get_value.exit:                         ; preds = %206
 
 211:                                              ; preds = %_variable_get_value.exit
   %212 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #17
-  %213 = ptrtoint ptr %.161.lcssa112 to i64
-  %214 = ptrtoint ptr %.170.lcssa111 to i64
+  %213 = ptrtoint ptr %.161.lcssa124 to i64
+  %214 = ptrtoint ptr %.170.lcssa123 to i64
   %215 = sub i64 %213, %214
   %216 = add i64 %212, %215
-  %217 = icmp ugt i64 %216, %.1.lcssa113
+  %217 = icmp ugt i64 %216, %.1.lcssa125
   br i1 %217, label %218, label %_grow_buffer.exit39
 
 218:                                              ; preds = %211
   %219 = add i64 %216, 1
-  %220 = call ptr @g_realloc(ptr noundef %.170.lcssa111, i64 noundef %219) #16
+  %220 = call ptr @g_realloc(ptr noundef %.170.lcssa123, i64 noundef %219) #16
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 %215
   br label %_grow_buffer.exit39
 
 _grow_buffer.exit39:                              ; preds = %211, %218
-  %.776 = phi ptr [ %220, %218 ], [ %.170.lcssa111, %211 ]
-  %.767 = phi ptr [ %221, %218 ], [ %.161.lcssa112, %211 ]
-  %.7 = phi i64 [ %216, %218 ], [ %.1.lcssa113, %211 ]
+  %.776 = phi ptr [ %220, %218 ], [ %.170.lcssa123, %211 ]
+  %.767 = phi ptr [ %221, %218 ], [ %.161.lcssa124, %211 ]
+  %.7 = phi i64 [ %216, %218 ], [ %.1.lcssa125, %211 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.767, ptr nonnull align 1 %.0.i, i64 %212, i1 false)
   %222 = getelementptr inbounds nuw i8, ptr %.767, i64 %212
   call void @g_free(ptr noundef nonnull %.0.i) #16
@@ -1097,27 +1097,27 @@ _grow_buffer.exit39:                              ; preds = %211, %218
   %224 = load ptr, ptr %1, align 8, !tbaa !6
   %225 = ptrtoint ptr %48 to i64
   %226 = ptrtoint ptr %224 to i64
-  %227 = ptrtoint ptr %.161.lcssa112 to i64
-  %228 = ptrtoint ptr %.170.lcssa111 to i64
+  %227 = ptrtoint ptr %.161.lcssa124 to i64
+  %228 = ptrtoint ptr %.170.lcssa123 to i64
   %229 = sub i64 %227, %228
   %.neg37 = add i64 %229, %8
   %230 = sub i64 %.neg37, %225
   %231 = add i64 %230, %226
-  %232 = icmp ugt i64 %231, %.1.lcssa113
+  %232 = icmp ugt i64 %231, %.1.lcssa125
   br i1 %232, label %233, label %_grow_buffer.exit40
 
 233:                                              ; preds = %223
   %234 = add i64 %231, 1
-  %235 = call ptr @g_realloc(ptr noundef %.170.lcssa111, i64 noundef %234) #16
+  %235 = call ptr @g_realloc(ptr noundef %.170.lcssa123, i64 noundef %234) #16
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 %229
   %.pre = load ptr, ptr %4, align 8, !tbaa !6
   br label %_grow_buffer.exit40
 
 _grow_buffer.exit40:                              ; preds = %223, %233
   %237 = phi ptr [ %.pre, %233 ], [ %48, %223 ]
-  %.877 = phi ptr [ %235, %233 ], [ %.170.lcssa111, %223 ]
-  %.868 = phi ptr [ %236, %233 ], [ %.161.lcssa112, %223 ]
-  %.8 = phi i64 [ %231, %233 ], [ %.1.lcssa113, %223 ]
+  %.877 = phi ptr [ %235, %233 ], [ %.170.lcssa123, %223 ]
+  %.868 = phi ptr [ %236, %233 ], [ %.161.lcssa124, %223 ]
+  %.8 = phi i64 [ %231, %233 ], [ %.1.lcssa125, %223 ]
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 1
   store ptr %238, ptr %4, align 8, !tbaa !6
   %239 = load i8, ptr %237, align 1, !tbaa !105
@@ -2244,9 +2244,9 @@ _has_prefix.exit655:                              ; preds = %35
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 240
   %413 = load double, ptr %412, align 8, !tbaa !35
   %414 = fcmp uno double %413, 0.000000e+00
-  br i1 %414, label %420, label %.thread671
+  br i1 %414, label %420, label %.thread698
 
-.thread671:                                       ; preds = %410
+.thread698:                                       ; preds = %410
   %415 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.98, double noundef %413) #16
   %416 = add nuw nsw i32 %.1, 1
   %417 = zext nneg i32 %.1 to i64
@@ -2259,12 +2259,12 @@ _has_prefix.exit655:                              ; preds = %35
 420:                                              ; preds = %410
   %421 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.112, ptr noundef nonnull %5) #16
   store ptr %421, ptr %3, align 8, !tbaa !6
-  %.not674 = icmp eq i32 %.1, 0
-  br i1 %.not674, label %._crit_edge, label %.lr.ph.preheader
+  %.not701 = icmp eq i32 %.1, 0
+  br i1 %.not701, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread671, %420
-  %.2673 = phi i32 [ %416, %.thread671 ], [ %.1, %420 ]
-  %wide.trip.count = zext nneg i32 %.2673 to i64
+.lr.ph.preheader:                                 ; preds = %.thread698, %420
+  %.2700 = phi i32 [ %416, %.thread698 ], [ %.1, %420 ]
+  %wide.trip.count = zext nneg i32 %.2700 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %420

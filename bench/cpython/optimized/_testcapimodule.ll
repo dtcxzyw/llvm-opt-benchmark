@@ -1587,8 +1587,8 @@ Py_DECREF.exit:                                   ; preds = %19
   br i1 %.not62, label %Py_DECREF.exit.thread, label %Py_DECREF.exit81.thread118
 
 Py_DECREF.exit.thread:                            ; preds = %19, %Py_DECREF.exit
-  %.pr172 = load i32, ptr @capsule_destructor_call_count, align 4, !tbaa !46
-  %.not63 = icmp eq i32 %.pr172, 0
+  %.pr190 = load i32, ptr @capsule_destructor_call_count, align 4, !tbaa !46
+  %.not63 = icmp eq i32 %.pr190, 0
   br i1 %.not63, label %Py_DECREF.exit81.thread118, label %22
 
 22:                                               ; preds = %Py_DECREF.exit.thread
@@ -1973,8 +1973,8 @@ define internal noundef ptr @test_from_contiguous(ptr noundef %0, ptr readnone c
 
 34:                                               ; preds = %27, %33
   %indvars.iv23 = phi i64 [ 0, %27 ], [ %indvars.iv.next24, %33 ]
-  %.idx27 = mul nsw i64 %indvars.iv23, -8
-  %35 = getelementptr i8, ptr %32, i64 %.idx27
+  %.idx28 = mul nsw i64 %indvars.iv23, -8
+  %35 = getelementptr i8, ptr %32, i64 %.idx28
   %36 = load i32, ptr %35, align 4, !tbaa !46
   %37 = zext i32 %36 to i64
   %.not = icmp eq i64 %indvars.iv23, %37
@@ -1990,8 +1990,8 @@ define internal noundef ptr @test_from_contiguous(ptr noundef %0, ptr readnone c
   unreachable
 
 .loopexit.sink.split:                             ; preds = %38, %24
-  %.sink28 = phi ptr [ %25, %24 ], [ %39, %38 ]
-  %41 = load ptr, ptr %.sink28, align 8, !tbaa !27
+  %.sink29 = phi ptr [ %25, %24 ], [ %39, %38 ]
+  %41 = load ptr, ptr %.sink29, align 8, !tbaa !27
   call void @PyErr_SetString(ptr noundef %41, ptr noundef nonnull @.str.170) #16
   br label %.loopexit
 

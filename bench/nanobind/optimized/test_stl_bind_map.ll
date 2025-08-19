@@ -7066,8 +7066,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %39 = icmp eq i32 %38, 0
   %.pre28 = load i64, ptr %13, align 8
   %40 = icmp eq i64 %.pre28, -1
-  %or.cond31 = select i1 %39, i1 true, i1 %40
-  br i1 %or.cond31, label %._crit_edge, label %.noexc
+  %or.cond33 = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond33, label %._crit_edge, label %.noexc
 
 41:                                               ; preds = %.noexc
   %42 = landingpad { ptr, i32 }
@@ -7443,18 +7443,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %10, label %._crit_edge.thread, label %16
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.020.lcssa32 = phi ptr [ %.02127, %._crit_edge ], [ %4, %2 ]
+  %.020.lcssa33 = phi ptr [ %.02127, %._crit_edge ], [ %4, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !61
-  %13 = icmp eq ptr %.020.lcssa32, %12
+  %13 = icmp eq ptr %.020.lcssa33, %12
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %._crit_edge.thread
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32) #27
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33) #27
   br label %16
 
 16:                                               ; preds = %14, %._crit_edge
-  %.020.lcssa33 = phi ptr [ %.020.lcssa32, %14 ], [ %.02127, %._crit_edge ]
+  %.020.lcssa32 = phi ptr [ %.020.lcssa33, %14 ], [ %.02127, %._crit_edge ]
   %.sroa.06.0 = phi ptr [ %15, %14 ], [ %.02127, %._crit_edge ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 32
   %18 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
@@ -7470,12 +7470,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5: ; preds = %16
   %22 = icmp slt i32 %18, 0
   %spec.select = select i1 %22, ptr null, ptr %.sroa.06.0
-  %spec.select22 = select i1 %22, ptr %.020.lcssa33, ptr null
+  %spec.select22 = select i1 %22, ptr %.020.lcssa32, ptr null
   br label %23
 
 23:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5, %._crit_edge.thread
   %.sroa.019.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5 ]
-  %.sroa.4.0 = phi ptr [ %.020.lcssa32, %._crit_edge.thread ], [ %spec.select22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5 ]
+  %.sroa.4.0 = phi ptr [ %.020.lcssa33, %._crit_edge.thread ], [ %spec.select22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -10799,8 +10799,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %38 = icmp eq i32 %37, 0
   %.pre29 = load i64, ptr %15, align 8
   %39 = icmp eq i64 %.pre29, -1
-  %or.cond32 = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond32, label %._crit_edge, label %.noexc
+  %or.cond34 = select i1 %38, i1 true, i1 %39
+  br i1 %or.cond34, label %._crit_edge, label %.noexc
 
 40:                                               ; preds = %.noexc
   %41 = landingpad { ptr, i32 }
@@ -14028,8 +14028,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %37 = icmp eq i32 %36, 0
   %.pre27 = load i64, ptr %13, align 8
   %38 = icmp eq i64 %.pre27, -1
-  %or.cond30 = select i1 %37, i1 true, i1 %38
-  br i1 %or.cond30, label %._crit_edge, label %.noexc
+  %or.cond32 = select i1 %37, i1 true, i1 %38
+  br i1 %or.cond32, label %._crit_edge, label %.noexc
 
 39:                                               ; preds = %.noexc
   %40 = landingpad { ptr, i32 }
@@ -14371,18 +14371,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %10, label %._crit_edge.thread, label %16
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.020.lcssa32 = phi ptr [ %.02127, %._crit_edge ], [ %4, %2 ]
+  %.020.lcssa33 = phi ptr [ %.02127, %._crit_edge ], [ %4, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !61
-  %13 = icmp eq ptr %.020.lcssa32, %12
+  %13 = icmp eq ptr %.020.lcssa33, %12
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %._crit_edge.thread
-  %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32) #27
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa33) #27
   br label %16
 
 16:                                               ; preds = %14, %._crit_edge
-  %.020.lcssa33 = phi ptr [ %.020.lcssa32, %14 ], [ %.02127, %._crit_edge ]
+  %.020.lcssa32 = phi ptr [ %.020.lcssa33, %14 ], [ %.02127, %._crit_edge ]
   %.sroa.06.0 = phi ptr [ %15, %14 ], [ %.02127, %._crit_edge ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 32
   %18 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
@@ -14398,12 +14398,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5: ; preds = %16
   %22 = icmp slt i32 %18, 0
   %spec.select = select i1 %22, ptr null, ptr %.sroa.06.0
-  %spec.select22 = select i1 %22, ptr %.020.lcssa33, ptr null
+  %spec.select22 = select i1 %22, ptr %.020.lcssa32, ptr null
   br label %23
 
 23:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5, %._crit_edge.thread
   %.sroa.019.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5 ]
-  %.sroa.4.0 = phi ptr [ %.020.lcssa32, %._crit_edge.thread ], [ %spec.select22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5 ]
+  %.sroa.4.0 = phi ptr [ %.020.lcssa33, %._crit_edge.thread ], [ %spec.select22, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit5 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.019.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -17571,8 +17571,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %38 = icmp eq i32 %37, 0
   %.pre28 = load i64, ptr %15, align 8
   %39 = icmp eq i64 %.pre28, -1
-  %or.cond31 = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond31, label %._crit_edge, label %.noexc
+  %or.cond33 = select i1 %38, i1 true, i1 %39
+  br i1 %or.cond33, label %._crit_edge, label %.noexc
 
 40:                                               ; preds = %.noexc
   %41 = landingpad { ptr, i32 }

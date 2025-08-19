@@ -269,15 +269,15 @@ define ptr @Gia_ManSatokoFromDimacs(ptr noundef %0, ptr readnone captures(none) 
   %12 = load i8, ptr %.046, align 1, !tbaa !24
   switch i8 %12, label %.preheader [
     i8 0, label %67
-    i8 99, label %.preheader91
-    i8 112, label %.preheader91
+    i8 99, label %.preheader98
+    i8 112, label %.preheader98
   ]
 
-.preheader91:                                     ; preds = %9, %9
+.preheader98:                                     ; preds = %9, %9
   br label %13
 
-13:                                               ; preds = %.preheader91, %13
-  %.147 = phi ptr [ %15, %13 ], [ %.046, %.preheader91 ]
+13:                                               ; preds = %.preheader98, %13
+  %.147 = phi ptr [ %15, %13 ], [ %.046, %.preheader98 ]
   %14 = load i8, ptr %.147, align 1, !tbaa !24
   %.not60 = icmp eq i8 %14, 10
   %15 = getelementptr inbounds nuw i8, ptr %.147, i64 1
@@ -388,15 +388,15 @@ Vec_IntFree.exit:                                 ; preds = %30, %31
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %52, %54, %44, %46
-  %.sink83 = phi ptr [ %45, %44 ], [ %47, %46 ], [ %53, %52 ], [ %55, %54 ]
+  %.sink90 = phi ptr [ %45, %44 ], [ %47, %46 ], [ %53, %52 ], [ %55, %54 ]
   %.sink = phi i32 [ 16, %44 ], [ 16, %46 ], [ %49, %52 ], [ %49, %54 ]
-  store ptr %.sink83, ptr %8, align 8, !tbaa !11
+  store ptr %.sink90, ptr %8, align 8, !tbaa !11
   store i32 %.sink, ptr %5, align 8, !tbaa !16
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %33
-  %.val6275 = phi ptr [ %.val62, %33 ], [ %.sink83, %Vec_IntPush.exit.sink.split ]
-  %.pre.i71 = phi ptr [ %10, %33 ], [ %.sink83, %Vec_IntPush.exit.sink.split ]
+  %.val6275 = phi ptr [ %.val62, %33 ], [ %.sink90, %Vec_IntPush.exit.sink.split ]
+  %.pre.i71 = phi ptr [ %10, %33 ], [ %.sink90, %Vec_IntPush.exit.sink.split ]
   %56 = add nsw i32 %38, 1
   store i32 %56, ptr %6, align 4, !tbaa !15
   %57 = sext i32 %38 to i64
@@ -445,9 +445,9 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.sink.split
 
 .sink.split:                                      ; preds = %70, %69, %Vec_IntFree.exit
-  %.sink84 = phi ptr [ %4, %Vec_IntFree.exit ], [ %5, %69 ], [ %5, %70 ]
+  %.sink91 = phi ptr [ %4, %Vec_IntFree.exit ], [ %5, %69 ], [ %5, %70 ]
   %.049.ph = phi ptr [ null, %Vec_IntFree.exit ], [ %3, %69 ], [ %3, %70 ]
-  tail call void @free(ptr noundef nonnull %.sink84) #16
+  tail call void @free(ptr noundef nonnull %.sink91) #16
   br label %71
 
 71:                                               ; preds = %.sink.split, %Vec_IntFree.exit

@@ -955,8 +955,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @opt_match_per_st
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %11, %13, %73, %25, %._crit_edge
-  %.043.lcssa72 = phi i32 [ %spec.select, %73 ], [ %spec.select, %25 ], [ %spec.select, %._crit_edge ], [ -1, %13 ], [ -1, %11 ]
-  %80 = add nsw i32 %.043.lcssa72, 1
+  %.043.lcssa74 = phi i32 [ %spec.select, %73 ], [ %spec.select, %25 ], [ %spec.select, %._crit_edge ], [ -1, %13 ], [ -1, %11 ]
+  %80 = add nsw i32 %.043.lcssa74, 1
   ret i32 %80
 }
 
@@ -2407,7 +2407,7 @@ sub_0:                                            ; preds = %53
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %65 = load i32, ptr %64, align 8, !tbaa !140
   %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.lr.ph, label %.thread151
+  br i1 %66, label %.lr.ph, label %.thread157
 
 .lr.ph:                                           ; preds = %.preheader122
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -2419,7 +2419,7 @@ sub_0:                                            ; preds = %53
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %71 = load i32, ptr %70, align 8, !tbaa !135
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph131, label %.thread151
+  br i1 %72, label %.lr.ph131, label %.thread157
 
 .lr.ph131:                                        ; preds = %.preheader
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -2461,9 +2461,9 @@ sub_0:                                            ; preds = %53
   %97 = load i32, ptr %70, align 8, !tbaa !135
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next138, %98
-  br i1 %99, label %75, label %.loopexit.thread147, !llvm.loop !144
+  br i1 %99, label %75, label %.loopexit.thread153, !llvm.loop !144
 
-.loopexit.thread147:                              ; preds = %96
+.loopexit.thread153:                              ; preds = %96
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %149
@@ -2554,12 +2554,12 @@ sub_0:                                            ; preds = %53
 144:                                              ; preds = %.loopexit
   br i1 %.not81, label %146, label %145
 
-.thread151:                                       ; preds = %.preheader122, %.preheader
+.thread157:                                       ; preds = %.preheader122, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not81, label %.thread119, label %145
 
-145:                                              ; preds = %.thread151, %144
+145:                                              ; preds = %.thread157, %144
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 40, ptr noundef nonnull @.str.533, ptr noundef nonnull %54) #15
   br label %149
 
@@ -2570,13 +2570,13 @@ sub_0:                                            ; preds = %53
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.534, ptr noundef nonnull %54) #15
   br label %149
 
-.thread119:                                       ; preds = %.thread151, %.thread107, %146
-  %148 = phi ptr [ %14, %.thread107 ], [ %54, %146 ], [ %54, %.thread151 ]
+.thread119:                                       ; preds = %.thread157, %.thread107, %146
+  %148 = phi ptr [ %14, %.thread107 ], [ %54, %146 ], [ %54, %.thread157 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.535, ptr noundef %148) #15
   br label %149
 
-149:                                              ; preds = %.loopexit.thread147, %.thread107, %.thread100, %.thread, %.loopexit, %145, %.thread119, %147
-  %.155 = phi i32 [ -22, %147 ], [ -22, %.thread119 ], [ 0, %145 ], [ 0, %.loopexit ], [ %.054.ph, %.thread ], [ %.256.ph, %.thread100 ], [ 0, %.thread107 ], [ 0, %.loopexit.thread147 ]
+149:                                              ; preds = %.loopexit.thread153, %.thread107, %.thread100, %.thread, %.loopexit, %145, %.thread119, %147
+  %.155 = phi i32 [ -22, %147 ], [ -22, %.thread119 ], [ 0, %145 ], [ 0, %.loopexit ], [ %.054.ph, %.thread ], [ %.256.ph, %.thread100 ], [ 0, %.thread107 ], [ 0, %.loopexit.thread153 ]
   call void @stream_specifier_uninit(ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.155

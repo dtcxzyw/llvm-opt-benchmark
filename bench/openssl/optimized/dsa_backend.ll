@@ -296,14 +296,14 @@ define ptr @ossl_dsa_key_from_pkcs8(ptr noundef %0, ptr noundef readnone capture
   br i1 %.not40, label %48, label %49
 
 48:                                               ; preds = %11, %17, %23, %46, %42, %39, %36, %31, %34
-  %.sink41 = phi i32 [ 156, %34 ], [ 156, %31 ], [ 161, %36 ], [ 165, %39 ], [ 173, %42 ], [ 177, %46 ], [ 184, %23 ], [ 184, %17 ], [ 184, %11 ]
+  %.sink45 = phi i32 [ 156, %34 ], [ 156, %31 ], [ 161, %36 ], [ 165, %39 ], [ 173, %42 ], [ 177, %46 ], [ 184, %23 ], [ 184, %17 ], [ 184, %11 ]
   %.sink = phi i32 [ 109, %34 ], [ 109, %31 ], [ 524291, %36 ], [ 524291, %39 ], [ 109, %42 ], [ 786691, %46 ], [ 104, %23 ], [ 104, %17 ], [ 104, %11 ]
   %.028 = phi ptr [ null, %34 ], [ null, %31 ], [ null, %36 ], [ %37, %39 ], [ %37, %42 ], [ %37, %46 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
   %.027 = phi ptr [ %32, %34 ], [ %32, %31 ], [ %32, %36 ], [ %32, %39 ], [ %32, %42 ], [ %32, %46 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
   %.025 = phi ptr [ null, %34 ], [ null, %31 ], [ null, %36 ], [ null, %39 ], [ %40, %42 ], [ %40, %46 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
   %.1 = phi ptr [ %29, %34 ], [ %29, %31 ], [ %29, %36 ], [ %29, %39 ], [ %29, %42 ], [ %29, %46 ], [ null, %23 ], [ null, %17 ], [ null, %11 ]
   call void @ERR_new() #3
-  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink41, ptr noundef nonnull @__func__.ossl_dsa_key_from_pkcs8) #3
+  call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink45, ptr noundef nonnull @__func__.ossl_dsa_key_from_pkcs8) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink, ptr noundef null) #3
   call void @BN_free(ptr noundef %.027) #3
   call void @BN_free(ptr noundef %.028) #3

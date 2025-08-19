@@ -1045,12 +1045,12 @@ escape_html.exit125:                              ; preds = %77, %81
   br i1 %134, label %.thread, label %137
 
 .thread:                                          ; preds = %116, %132
-  %.2153 = phi ptr [ %133, %132 ], [ %.1, %116 ]
-  %.073152 = phi ptr [ %115, %132 ], [ @.str.3, %116 ]
-  %.175151 = phi ptr [ %.276, %132 ], [ %.074136, %116 ]
-  %.077150 = phi ptr [ %.178, %132 ], [ null, %116 ]
+  %.2165 = phi ptr [ %133, %132 ], [ %.1, %116 ]
+  %.073164 = phi ptr [ %115, %132 ], [ @.str.3, %116 ]
+  %.175163 = phi ptr [ %.276, %132 ], [ %.074136, %116 ]
+  %.077162 = phi ptr [ %.178, %132 ], [ null, %116 ]
   %135 = load ptr, ptr %8, align 8, !tbaa !12
-  %136 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %135, ptr noundef nonnull %.073152, ptr noundef %.2153, ptr noundef %.175151, ptr noundef %.2153, ptr noundef %.064) #28
+  %136 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %135, ptr noundef nonnull %.073164, ptr noundef %.2165, ptr noundef %.175163, ptr noundef %.2165, ptr noundef %.064) #28
   br label %140
 
 137:                                              ; preds = %132
@@ -1059,13 +1059,13 @@ escape_html.exit125:                              ; preds = %77, %81
   br label %140
 
 140:                                              ; preds = %137, %.thread
-  %.077149 = phi ptr [ %.077150, %.thread ], [ %.178, %137 ]
+  %.077161 = phi ptr [ %.077162, %.thread ], [ %.178, %137 ]
   %.067 = phi ptr [ %136, %.thread ], [ %139, %137 ]
-  %.not112 = icmp eq ptr %.077149, null
+  %.not112 = icmp eq ptr %.077161, null
   br i1 %.not112, label %144, label %141
 
 141:                                              ; preds = %140
-  call void @_efree(ptr noundef nonnull %.077149) #28
+  call void @_efree(ptr noundef nonnull %.077161) #28
   br label %144
 
 .thread137:                                       ; preds = %91, %114, %.thread132
@@ -2633,7 +2633,7 @@ zend_string_copy.exit144:                         ; preds = %zend_string_copy.ex
   %94 = trunc nuw i8 %93 to i1
   %95 = icmp ne i8 %81, 0
   %or.cond8 = select i1 %94, i1 %95, i1 false
-  br i1 %or.cond8, label %.thread149, label %96
+  br i1 %or.cond8, label %.thread155, label %96
 
 96:                                               ; preds = %92, %90
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2656,9 +2656,9 @@ zend_string_copy.exit144:                         ; preds = %zend_string_copy.ex
 106:                                              ; preds = %96, %91
   %107 = phi i8 [ %.pre, %96 ], [ %81, %91 ]
   %.not118 = icmp eq i8 %107, 0
-  br i1 %.not118, label %zend_string_free.exit, label %.thread149
+  br i1 %.not118, label %zend_string_free.exit, label %.thread155
 
-.thread149:                                       ; preds = %92, %106
+.thread155:                                       ; preds = %92, %106
   %.b108119 = load i1, ptr @module_initialized, align 1
   %108 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 482), align 2, !range !45
   %109 = trunc nuw i8 %108 to i1
@@ -2669,7 +2669,7 @@ zend_string_copy.exit144:                         ; preds = %zend_string_copy.ex
   %or.cond12 = select i1 %or.cond10.not, i1 true, i1 %111
   br i1 %or.cond12, label %112, label %zend_string_free.exit
 
-112:                                              ; preds = %.thread149
+112:                                              ; preds = %.thread155
   %113 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 444), align 4, !tbaa !197, !range !45, !noundef !46
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %115, label %124
@@ -2800,7 +2800,7 @@ zend_string_copy.exit144:                         ; preds = %zend_string_copy.ex
   %190 = call i64 (ptr, ...) @php_printf_unchecked(ptr noundef nonnull @.str.85, ptr noundef nonnull %183, ptr noundef nonnull %.0103, ptr noundef %3, ptr noundef nonnull %184, i32 noundef %2, ptr noundef nonnull %187, ptr noundef nonnull %188, ptr noundef nonnull %189)
   br label %zend_string_free.exit
 
-zend_string_free.exit:                            ; preds = %146, %145, %130, %106, %.thread149, %115, %167, %182, %147, %73, %78, %72
+zend_string_free.exit:                            ; preds = %146, %145, %130, %106, %.thread155, %115, %167, %182, %147, %73, %78, %72
   %191 = getelementptr inbounds nuw i8, ptr %.0101, i64 4
   %192 = load i32, ptr %191, align 4, !tbaa !24
   %193 = and i32 %192, 64
@@ -3339,7 +3339,7 @@ define dso_local zeroext i1 @php_execute_script_ex(ptr noundef %0, ptr noundef %
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 432), align 8, !tbaa !206
   %17 = and i32 %16, 1
   %.not41 = icmp eq i32 %17, 0
-  br i1 %.not41, label %18, label %.thread77
+  br i1 %.not41, label %18, label %.thread81
 
 18:                                               ; preds = %15
   %19 = call ptr @getcwd(ptr noundef nonnull %8, i64 noundef 4095) #28
@@ -3348,22 +3348,22 @@ define dso_local zeroext i1 @php_execute_script_ex(ptr noundef %0, ptr noundef %
   %22 = call i32 @virtual_chdir_file(ptr noundef nonnull %21, ptr noundef nonnull @chdir) #28
   %.pr.pre = load ptr, ptr %13, align 8, !tbaa !97
   %.not42 = icmp eq ptr %.pr.pre, null
-  br i1 %.not42, label %.thread, label %.thread77
+  br i1 %.not42, label %.thread, label %.thread81
 
-.thread77:                                        ; preds = %15, %18
-  %.pr80 = phi ptr [ %.pr.pre, %18 ], [ %14, %15 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.pr80, i64 16
+.thread81:                                        ; preds = %15, %18
+  %.pr84 = phi ptr [ %.pr.pre, %18 ], [ %14, %15 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.pr84, i64 16
   %24 = load i64, ptr %23, align 8, !tbaa !52
   %25 = icmp eq i64 %24, 19
   br i1 %25, label %zend_string_equals_cstr.exit, label %zend_string_equals_cstr.exit.thread
 
-zend_string_equals_cstr.exit:                     ; preds = %.thread77
-  %26 = getelementptr inbounds nuw i8, ptr %.pr80, i64 24
+zend_string_equals_cstr.exit:                     ; preds = %.thread81
+  %26 = getelementptr inbounds nuw i8, ptr %.pr84, i64 24
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(19) %26, ptr noundef nonnull dereferenceable(19) @.str.62, i64 19)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %.thread, label %zend_string_equals_cstr.exit.thread
 
-zend_string_equals_cstr.exit.thread:              ; preds = %.thread77, %zend_string_equals_cstr.exit
+zend_string_equals_cstr.exit.thread:              ; preds = %.thread81, %zend_string_equals_cstr.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !99
   %29 = icmp eq ptr %28, null
@@ -3376,7 +3376,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %.thread77, %zend_st
   br i1 %.not43, label %.thread, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %.pr80, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.pr84, i64 24
   %35 = call ptr @expand_filepath(ptr noundef nonnull %34, ptr noundef nonnull %6) #28
   %.not44 = icmp eq ptr %35, null
   br i1 %.not44, label %.thread, label %zend_string_alloc.exit

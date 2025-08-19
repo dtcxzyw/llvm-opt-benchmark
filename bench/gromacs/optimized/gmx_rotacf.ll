@@ -535,8 +535,8 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %_ZNSt10filesystem7_
 
 196:                                              ; preds = %.lr.ph139, %196
   %indvars.iv160 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next161, %196 ]
-  %.idx171 = shl nuw nsw i64 %indvars.iv160, 3
-  %197 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx171
+  %.idx184 = shl nuw nsw i64 %indvars.iv160, 3
+  %197 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx184
   %198 = load i32, ptr %197, align 4, !tbaa !4
   %199 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %200 = load i32, ptr %199, align 4, !tbaa !4

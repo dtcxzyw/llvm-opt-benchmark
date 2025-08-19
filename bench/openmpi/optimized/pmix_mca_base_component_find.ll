@@ -618,15 +618,15 @@ use_component.exit.thread:                        ; preds = %use_component.exit.
   br i1 %.not34, label %._crit_edge, label %.preheader.i, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %use_component.exit.thread, %.lr.ph, %15
-  %.050.ph78 = phi ptr [ %17, %15 ], [ null, %.lr.ph ], [ %17, %use_component.exit.thread ]
-  %62 = icmp eq ptr %.050.ph78, null
+  %.050.ph87 = phi ptr [ %17, %15 ], [ null, %.lr.ph ], [ %17, %use_component.exit.thread ]
+  %62 = icmp eq ptr %.050.ph87, null
   br i1 %.not, label %component_find_check.exit, label %63
 
 63:                                               ; preds = %._crit_edge
   br i1 %62, label %component_find_check.exit.thread64, label %.preheader.i42
 
 .preheader.i42:                                   ; preds = %63
-  %64 = load ptr, ptr %.050.ph78, align 8, !tbaa !27
+  %64 = load ptr, ptr %.050.ph87, align 8, !tbaa !27
   %.not2935.i = icmp eq ptr %64, null
   br i1 %.not2935.i, label %component_find_check.exit.thread, label %.lr.ph37.i
 
@@ -637,7 +637,7 @@ use_component.exit.thread:                        ; preds = %use_component.exit.
 66:                                               ; preds = %.critedge.i, %.lr.ph37.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next.i, %.critedge.i ]
   %67 = phi ptr [ %64, %.lr.ph37.i ], [ %85, %.critedge.i ]
-  %68 = getelementptr inbounds nuw ptr, ptr %.050.ph78, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw ptr, ptr %.050.ph87, i64 %indvars.iv.i
   %.02432.i = load ptr, ptr %19, align 8, !tbaa !42
   %.not30.not33.i = icmp eq ptr %.02432.i, %18
   br i1 %.not30.not33.i, label %._crit_edge.i44, label %.lr.ph.i43
@@ -676,7 +676,7 @@ use_component.exit.thread:                        ; preds = %use_component.exit.
 
 .critedge.i:                                      ; preds = %.lr.ph.i43, %77, %._crit_edge.i44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %84 = getelementptr inbounds nuw ptr, ptr %.050.ph78, i64 %indvars.iv.next.i
+  %84 = getelementptr inbounds nuw ptr, ptr %.050.ph87, i64 %indvars.iv.next.i
   %85 = load ptr, ptr %84, align 8, !tbaa !27
   %.not29.i = icmp eq ptr %85, null
   br i1 %.not29.i, label %component_find_check.exit.thread, label %66, !llvm.loop !55
@@ -686,7 +686,7 @@ component_find_check.exit:                        ; preds = %._crit_edge
 
 component_find_check.exit.thread:                 ; preds = %.critedge.i, %77, %.preheader.i42, %component_find_check.exit
   %.02963 = phi i32 [ 0, %component_find_check.exit ], [ 0, %.preheader.i42 ], [ -46, %77 ], [ 0, %.critedge.i ]
-  call void @PMIx_Argv_free(ptr noundef nonnull %.050.ph78) #12
+  call void @PMIx_Argv_free(ptr noundef nonnull %.050.ph87) #12
   br label %component_find_check.exit.thread64
 
 component_find_check.exit.thread64:               ; preds = %8, %63, %pmix_mca_base_component_parse_requested.exit, %component_find_check.exit, %component_find_check.exit.thread, %1

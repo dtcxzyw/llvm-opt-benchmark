@@ -875,14 +875,14 @@ define internal fastcc range(i32 0, 2) i32 @_set_points_from_grad(ptr noundef %0
   %19 = load ptr, ptr %18, align 16, !tbaa !98
   %20 = tail call ptr @dt_dev_distort_get_iop_pipe(ptr noundef %17, ptr noundef %19, ptr noundef %0) #18
   %.not = icmp eq ptr %20, null
-  %.sink128.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sink128.sroa.gep129 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.sink128.sroa.gep130 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sink128.sroa.gep131 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.sink128.sroa.gep132 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.sink128.sroa.gep133 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sink128.sroa.gep134 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sink128.sroa.gep135 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.sink135.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.sink135.sroa.gep136 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.sink135.sroa.gep137 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.sink135.sroa.gep138 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.sink135.sroa.gep139 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.sink135.sroa.gep140 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.sink135.sroa.gep141 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.sink135.sroa.gep142 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br i1 %.not, label %154, label %21
 
 21:                                               ; preds = %7
@@ -1060,9 +1060,9 @@ define internal fastcc range(i32 0, 2) i32 @_set_points_from_grad(ptr noundef %0
   br label %130
 
 130:                                              ; preds = %119, %116, %127, %124, %56, %49, %33, %38
-  %.sink128.sroa.phi = phi ptr [ %.sink128.sroa.gep, %119 ], [ %.sink128.sroa.gep129, %116 ], [ %.sink128.sroa.gep130, %127 ], [ %.sink128.sroa.gep131, %124 ], [ %.sink128.sroa.gep132, %56 ], [ %.sink128.sroa.gep133, %49 ], [ %.sink128.sroa.gep134, %33 ], [ %.sink128.sroa.gep135, %38 ]
+  %.sink135.sroa.phi = phi ptr [ %.sink135.sroa.gep, %119 ], [ %.sink135.sroa.gep136, %116 ], [ %.sink135.sroa.gep137, %127 ], [ %.sink135.sroa.gep138, %124 ], [ %.sink135.sroa.gep139, %56 ], [ %.sink135.sroa.gep140, %49 ], [ %.sink135.sroa.gep141, %33 ], [ %.sink135.sroa.gep142, %38 ]
   %.sink = phi float [ %106, %119 ], [ %106, %116 ], [ %106, %127 ], [ %106, %124 ], [ %66, %56 ], [ %55, %49 ], [ %36, %33 ], [ %42, %38 ]
-  store float %.sink, ptr %.sink128.sroa.phi, align 4, !tbaa !74
+  store float %.sink, ptr %.sink135.sroa.phi, align 4, !tbaa !74
   %131 = load ptr, ptr %16, align 8, !tbaa !97
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 96
   %133 = load ptr, ptr %132, align 16, !tbaa !98

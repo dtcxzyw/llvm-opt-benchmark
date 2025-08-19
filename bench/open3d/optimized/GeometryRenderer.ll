@@ -2122,8 +2122,8 @@ _ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread: ; preds = %6
   br label %94
 
 94:                                               ; preds = %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit, %63, %50, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread, %65
-  %.sink44 = phi i64 [ 32, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread ], [ 352, %65 ], [ 1152, %50 ], [ 688, %63 ], [ 128, %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit ]
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink44
+  %.sink50 = phi i64 [ 32, %_ZNK6open3d8geometry12TriangleMesh14HasTriangleUvsEv.exit40.thread ], [ 352, %65 ], [ 1152, %50 ], [ 688, %63 ], [ 128, %_ZNK6open3d8geometry12TriangleMesh11HasTexturesEv.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50
   %96 = tail call noundef zeroext i1 @_ZN6open3d13visualization4glsl13ShaderWrapper6RenderERKNS_8geometry8GeometryERKNS0_12RenderOptionERKNS0_11ViewControlE(ptr noundef nonnull align 8 dereferenceable(72) %95, ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(497) %1, ptr noundef nonnull align 16 dereferenceable(728) %2)
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 449
   %98 = load i8, ptr %97, align 1, !tbaa !65, !range !31, !noundef !32

@@ -375,7 +375,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %50, %51, %56
 65:                                               ; preds = %64
   %66 = load ptr, ptr %5, align 8, !tbaa !36
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %68, label %.thread77
+  br i1 %67, label %68, label %.thread84
 
 68:                                               ; preds = %65, %64
   %69 = load ptr, ptr %3, align 8, !tbaa !12
@@ -410,7 +410,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %50, %51, %56
           cleanup
   br label %181
 
-.thread77:                                        ; preds = %65
+.thread84:                                        ; preds = %65
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %85 = load i32, ptr %84, align 8, !tbaa !3
   %86 = add i32 %85, 1
@@ -582,7 +582,7 @@ _ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49: ; preds = %_ZN5zxi
   br i1 %.not.i51, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42, label %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread
 
 _ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread: ; preds = %146, %141, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49
-  %.pn76 = phi { ptr, i32 } [ %160, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %142, %141 ], [ %142, %146 ]
+  %.pn83 = phi { ptr, i32 } [ %160, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %142, %141 ], [ %142, %146 ]
   %161 = phi ptr [ %.pre, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %.pre70, %141 ], [ %.pre70, %146 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 8, !tbaa !3
@@ -596,16 +596,16 @@ _ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread: ; preds = %
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split: ; preds = %110, %166
-  %.sink82 = phi ptr [ %161, %166 ], [ %17, %110 ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %.pn76, %166 ], [ %106, %110 ]
-  %167 = load ptr, ptr %.sink82, align 8, !tbaa !12
+  %.sink89 = phi ptr [ %161, %166 ], [ %17, %110 ]
+  %.pn.pn.ph = phi { ptr, i32 } [ %.pn83, %166 ], [ %106, %110 ]
+  %167 = load ptr, ptr %.sink89, align 8, !tbaa !12
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(12) %.sink82) #15
+  call void %169(ptr noundef nonnull align 8 dereferenceable(12) %.sink89) #15
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42:         ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49, %105
-  %.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %160, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %.pn76, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread ], [ %.pn.pn.ph, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split ]
+  %.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %160, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49 ], [ %.pn83, %_ZN5zxing3RefINS_6qrcode21QRCodeDecoderMetaDataEED2Ev.exit49.thread ], [ %.pn.pn.ph, %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %181
 
@@ -615,8 +615,8 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit42:         ; preds = %_ZN5zxing3RefINS_9B
   %.not.i53 = icmp eq ptr %.pre71, null
   br i1 %.not.i53, label %_ZN5zxing3RefINS_13DecoderResultEED2Ev.exit54, label %171
 
-171:                                              ; preds = %.thread77, %170
-  %172 = phi ptr [ %66, %.thread77 ], [ %.pre71, %170 ]
+171:                                              ; preds = %.thread84, %170
+  %172 = phi ptr [ %66, %.thread84 ], [ %.pre71, %170 ]
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load i32, ptr %173, align 8, !tbaa !3
   %175 = add i32 %174, -1
@@ -655,12 +655,12 @@ _ZN5zxing3RefINS_13DecoderResultEED2Ev.exit54:    ; preds = %170, %171, %177
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35.sink.split
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35.sink.split: ; preds = %81, %188
-  %.sink87 = phi ptr [ %182, %188 ], [ %45, %81 ]
+  %.sink94 = phi ptr [ %182, %188 ], [ %45, %81 ]
   %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn.pn.pn, %188 ], [ %75, %81 ]
-  %189 = load ptr, ptr %.sink87, align 8, !tbaa !12
+  %189 = load ptr, ptr %.sink94, align 8, !tbaa !12
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
-  call void %191(ptr noundef nonnull align 8 dereferenceable(12) %.sink87) #15
+  call void %191(ptr noundef nonnull align 8 dereferenceable(12) %.sink94) #15
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35:         ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit35.sink.split, %183, %181, %76, %74
@@ -1818,9 +1818,9 @@ _ZN5zxing8ArrayRefIcED2Ev.exit178:                ; preds = %445, %448, %453
   br label %_ZN5zxing3RefINS_13DecoderResultEED2Ev.exit
 
 469:                                              ; preds = %444
-  br i1 %.not.i.i180, label %_ZN5zxing3RefINS_13DecoderResultEED2Ev.exit182, label %_ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit.thread263
+  br i1 %.not.i.i180, label %_ZN5zxing3RefINS_13DecoderResultEED2Ev.exit182, label %_ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit.thread301
 
-_ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit.thread263: ; preds = %469
+_ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit.thread301: ; preds = %469
   %470 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %471 = load i32, ptr %470, align 8, !tbaa !3
   %472 = add i32 %471, 1
@@ -1831,7 +1831,7 @@ _ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit.thread263: ; preds = %469
 _ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit:  ; preds = %444
   br i1 %.not.i.i180, label %_ZN5zxing3RefINS_13DecoderResultEED2Ev.exit182, label %473
 
-473:                                              ; preds = %_ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit.thread263, %_ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit
+473:                                              ; preds = %_ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit.thread301, %_ZN5zxing3RefINS_13DecoderResultEEC2ERKS2_.exit
   %474 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %475 = load i32, ptr %474, align 8, !tbaa !3
   %476 = add i32 %475, -1

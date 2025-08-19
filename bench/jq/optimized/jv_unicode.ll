@@ -110,7 +110,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   %34 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !4
   %.not = icmp eq i8 %35, -1
-  br i1 %.not, label %36, label %._crit_edge.loopexit.split.loop.exit56
+  br i1 %.not, label %36, label %._crit_edge.loopexit.split.loop.exit59
 
 36:                                               ; preds = %.lr.ph
   %37 = shl i32 %.14349, 6
@@ -121,13 +121,13 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge.loopexit.split.loop.exit56:           ; preds = %.lr.ph
+._crit_edge.loopexit.split.loop.exit59:           ; preds = %.lr.ph
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %36, %._crit_edge.loopexit.split.loop.exit56, %25
-  %.244 = phi i32 [ %29, %25 ], [ -1, %._crit_edge.loopexit.split.loop.exit56 ], [ %40, %36 ]
-  %.2 = phi i32 [ %10, %25 ], [ %41, %._crit_edge.loopexit.split.loop.exit56 ], [ %10, %36 ]
+._crit_edge:                                      ; preds = %36, %._crit_edge.loopexit.split.loop.exit59, %25
+  %.244 = phi i32 [ %29, %25 ], [ -1, %._crit_edge.loopexit.split.loop.exit59 ], [ %40, %36 ]
+  %.2 = phi i32 [ %10, %25 ], [ %41, %._crit_edge.loopexit.split.loop.exit59 ], [ %10, %36 ]
   %42 = zext nneg i32 %.2 to i64
   %43 = getelementptr inbounds nuw [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !9
@@ -159,8 +159,8 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   br i1 %3, label %jvp_utf8_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %.0214 = phi ptr [ %.02.be, %.backedge ], [ %0, %2 ]
-  %4 = load i8, ptr %.0214, align 1, !tbaa !4
+  %.0216 = phi ptr [ %.02.be, %.backedge ], [ %0, %2 ]
+  %4 = load i8, ptr %.0216, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
@@ -175,7 +175,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
 
 12:                                               ; preds = %10
   %13 = zext i8 %7 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %.0214, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %.0216, i64 %13
   %15 = icmp ugt ptr %14, %1
   br i1 %15, label %jvp_utf8_next.exit.thread, label %16
 
@@ -190,13 +190,13 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
 .lr.ph.i:                                         ; preds = %16, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 1, %16 ]
   %.14349.i = phi i32 [ %31, %27 ], [ %20, %16 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.0214, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %.0216, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw [256 x i8], ptr @utf8_coding_length, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %.not.i = icmp eq i8 %26, -1
-  br i1 %.not.i, label %27, label %._crit_edge.loopexit.split.loop.exit56.i
+  br i1 %.not.i, label %27, label %._crit_edge.loopexit.split.loop.exit59.i
 
 27:                                               ; preds = %.lr.ph.i
   %28 = shl i32 %.14349.i, 6
@@ -207,13 +207,13 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
-._crit_edge.loopexit.split.loop.exit56.i:         ; preds = %.lr.ph.i
+._crit_edge.loopexit.split.loop.exit59.i:         ; preds = %.lr.ph.i
   %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %27, %._crit_edge.loopexit.split.loop.exit56.i, %16
-  %.244.i = phi i32 [ %20, %16 ], [ -1, %._crit_edge.loopexit.split.loop.exit56.i ], [ %31, %27 ]
-  %.2.i = phi i32 [ %8, %16 ], [ %32, %._crit_edge.loopexit.split.loop.exit56.i ], [ %8, %27 ]
+._crit_edge.i:                                    ; preds = %27, %._crit_edge.loopexit.split.loop.exit59.i, %16
+  %.244.i = phi i32 [ %20, %16 ], [ -1, %._crit_edge.loopexit.split.loop.exit59.i ], [ %31, %27 ]
+  %.2.i = phi i32 [ %8, %16 ], [ %32, %._crit_edge.loopexit.split.loop.exit59.i ], [ %8, %27 ]
   %33 = zext nneg i32 %.2.i to i64
   %34 = getelementptr inbounds nuw [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !9
@@ -226,7 +226,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %39 = icmp eq i32 %spec.store.select5.i, -1
   %40 = or i1 %38, %39
   %41 = sext i32 %.2.i to i64
-  %42 = getelementptr inbounds i8, ptr %.0214, i64 %41
+  %42 = getelementptr inbounds i8, ptr %.0216, i64 %41
   br i1 %40, label %jvp_utf8_next.exit.thread, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i, %jvp_utf8_next.exit
@@ -235,7 +235,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   br i1 %43, label %jvp_utf8_next.exit.thread, label %.lr.ph, !llvm.loop !12
 
 jvp_utf8_next.exit:                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds nuw i8, ptr %.0214, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0216, i64 1
   br label %.backedge
 
 jvp_utf8_next.exit.thread:                        ; preds = %10, %12, %._crit_edge.i, %.backedge, %2

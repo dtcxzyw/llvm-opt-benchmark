@@ -599,7 +599,7 @@ alloc_rbsp_buffer.exit.thread195:                 ; preds = %46, %alloc_rbsp_buf
   br i1 %81, label %._crit_edge._crit_edge.i, label %83
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i, %.preheader.i
-  %.0.lcssa25.i = phi i32 [ %80, %._crit_edge.i ], [ 0, %.preheader.i ]
+  %.0.lcssa27.i = phi i32 [ %80, %._crit_edge.i ], [ 0, %.preheader.i ]
   %82 = phi i32 [ %4, %._crit_edge.i ], [ 0, %.preheader.i ]
   %.pre.i = sub nsw i32 %69, %82
   br label %.loopexit
@@ -610,9 +610,9 @@ alloc_rbsp_buffer.exit.thread195:                 ; preds = %46, %alloc_rbsp_buf
   br i1 %85, label %.loopexit, label %.thread
 
 .loopexit:                                        ; preds = %83, %._crit_edge._crit_edge.i
-  %.0.lcssa24.i = phi i32 [ %.0.lcssa25.i, %._crit_edge._crit_edge.i ], [ %80, %83 ]
+  %.0.lcssa26.i = phi i32 [ %.0.lcssa27.i, %._crit_edge._crit_edge.i ], [ %80, %83 ]
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge._crit_edge.i ], [ %84, %83 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0.lcssa24.i, i32 noundef %.pre-phi.i) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0.lcssa26.i, i32 noundef %.pre-phi.i) #6
   br label %.thread226
 
 .thread:                                          ; preds = %83
@@ -856,7 +856,7 @@ bytestream2_peek_be32.exit.thread:                ; preds = %bytestream2_peek_be
 
 202:                                              ; preds = %.critedge.thread.i
   %203 = load ptr, ptr %163, align 8, !tbaa !17
-  %204 = sext i32 %.02234.i to i64
+  %204 = zext nneg i32 %.02234.i to i64
   %205 = getelementptr i8, ptr %203, i64 %204
   %206 = getelementptr i8, ptr %205, i64 -1
   %207 = load i8, ptr %206, align 1, !tbaa !13
@@ -878,7 +878,7 @@ get_bit_length.exit:                              ; preds = %200, %202
   %.021.neg32.i = phi i32 [ %.021.neg.i, %202 ], [ 0, %200 ]
   %.12331.i = phi i32 [ %.02234.i, %202 ], [ %66, %200 ]
   %212 = shl nuw nsw i32 %.12331.i, 3
-  %213 = add i32 %212, %.021.neg32.i
+  %213 = add nsw i32 %212, %.021.neg32.i
   %214 = getelementptr inbounds nuw i8, ptr %163, i64 12
   store i32 %213, ptr %214, align 4, !tbaa !42
   %215 = icmp slt i32 %199, 1

@@ -101,10 +101,10 @@ define range(i64 -2147483648, 2147483648) i64 @euc_cn_to_mic(ptr noundef readonl
   br label %39
 
 39:                                               ; preds = %37, %28
-  %.sink55.i = phi i64 [ 1, %37 ], [ 2, %28 ]
+  %.sink56.i = phi i64 [ 1, %37 ], [ 2, %28 ]
   %.sink.i = phi i32 [ -1, %37 ], [ -2, %28 ]
   %.127.i = phi ptr [ %38, %37 ], [ %32, %28 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.041.i, i64 %.sink55.i
+  %40 = getelementptr inbounds nuw i8, ptr %.041.i, i64 %.sink56.i
   %41 = add nsw i32 %.sink.i, %.02839.i
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph.i, label %euc_cn2mic.exit, !llvm.loop !3

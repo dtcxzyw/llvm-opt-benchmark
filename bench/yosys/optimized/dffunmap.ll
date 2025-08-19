@@ -799,8 +799,8 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:  ; preds = %231
 .noexc84:                                         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i
   %244 = getelementptr inbounds i8, ptr %243, i64 %228
   %245 = shl nuw nsw i64 %223, 2
-  %reass.sub156 = sub i64 %245, %228
-  %246 = and i64 %reass.sub156, -4
+  %reass.sub217 = sub i64 %245, %228
+  %246 = and i64 %reass.sub217, -4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %244, i8 -1, i64 %246, i1 false), !tbaa !56
   %.not.i.i.i.i.i.i.i.i.i81.i = icmp eq ptr %224, %225
   br i1 %.not.i.i.i.i.i.i.i.i.i81.i, label %248, label %247

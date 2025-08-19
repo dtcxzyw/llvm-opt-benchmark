@@ -969,7 +969,7 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   %50 = add nsw i32 %20, 1
   %wide.trip.count = zext nneg i32 %22 to i64
   %51 = select i1 %38, i32 %.neg, i32 0
-  %invariant.op104 = add i32 %35, %51
+  %invariant.op108 = add i32 %35, %51
   %52 = fdiv fast double 1.000000e+00, %48
   %53 = fdiv fast float 1.000000e+00, %47
   %54 = fdiv fast float 1.000000e+00, %47
@@ -1064,7 +1064,7 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   %103 = fmul fast float %100, %98
   %104 = fmul fast float %103, %54
   %105 = trunc i64 %indvars.iv96 to i32
-  %.0.us.reass = add i32 %invariant.op104, %105
+  %.0.us.reass = add i32 %invariant.op108, %105
   %106 = icmp sgt i32 %.0.us.reass, -1
   %107 = load i32, ptr %5, align 4
   %108 = icmp slt i32 %.0.us.reass, %107

@@ -1587,9 +1587,9 @@ _ZL11average_acfbiiPPf.exit:                      ; preds = %559, %549, %545
   br label %570
 
 570:                                              ; preds = %564, %565
-  %.sink347 = phi ptr [ %.0288, %565 ], [ null, %564 ]
+  %.sink394 = phi ptr [ %.0288, %565 ], [ null, %564 ]
   %571 = load ptr, ptr %6, align 8, !tbaa !20
-  %572 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %.0146, i32 noundef %.0147, float noundef %7, ptr noundef %571, ptr noundef %.sink347, i32 noundef 1)
+  %572 = call noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef %.0146, i32 noundef %.0147, float noundef %7, ptr noundef %571, ptr noundef %.sink394, i32 noundef 1)
   br i1 %12, label %573, label %680
 
 573:                                              ; preds = %570
@@ -2198,8 +2198,8 @@ define internal fastcc void @_ZL13normalize_acfiPf(i32 noundef %0, ptr noundef c
 
 ._crit_edge.thread:                               ; preds = %.loopexit24
   %26 = load ptr, ptr @debug, align 8, !tbaa !18
-  %.not2342 = icmp eq ptr %26, null
-  br i1 %.not2342, label %.loopexit, label %.thread
+  %.not2345 = icmp eq ptr %26, null
+  br i1 %.not2345, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread
   %27 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 20, i64 1, ptr nonnull %26)
@@ -2381,7 +2381,7 @@ _ZNKSt6vectorIS_IfSaIfEESaIS1_EE12_M_check_lenEmPKc.exit.i:
 _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %.noexc38, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = icmp sgt i32 %0, 0
-  switch i32 %3, label %default.unreachable69 [
+  switch i32 %3, label %default.unreachable76 [
     i32 0, label %.preheader39
     i32 1, label %.preheader40
     i32 2, label %.preheader42
@@ -2457,7 +2457,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %.noexc38, %10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !72
 
-default.unreachable69:                            ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
+default.unreachable76:                            ; preds = %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
   unreachable
 
 .loopexit:                                        ; preds = %32, %27, %23, %.preheader42, %.preheader40, %.preheader39

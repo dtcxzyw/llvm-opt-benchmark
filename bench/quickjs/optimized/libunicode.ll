@@ -1444,7 +1444,7 @@ unicode_get_cc.exit.i:                            ; preds = %111, %107
   br i1 %117, label %unicode_get_cc.exit.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %unicode_get_cc.exit.i, %105
-  %.029.i84.i = phi i32 [ %.029.i.i, %unicode_get_cc.exit.i ], [ 230, %105 ]
+  %.029.i97.i = phi i32 [ %.029.i.i, %unicode_get_cc.exit.i ], [ 230, %105 ]
   %.not3362.i = icmp slt i32 %.029.in66.i, %.076.i
   br i1 %.not3362.i, label %unicode_get_cc.exit55._crit_edge.i, label %.lr.ph.i
 
@@ -1585,7 +1585,7 @@ get_index_pos.exit.thread41.i45.i:                ; preds = %get_index_pos.exit.
 
 unicode_get_cc.exit55.i:                          ; preds = %199, %193, %189, %187, %get_index_pos.exit.i43.i, %122
   %.029.i36.i = phi i32 [ 0, %get_index_pos.exit.i43.i ], [ 230, %199 ], [ %192, %189 ], [ %198, %193 ], [ 0, %187 ], [ 0, %122 ]
-  %.not34.i = icmp sgt i32 %.029.i36.i, %.029.i84.i
+  %.not34.i = icmp sgt i32 %.029.i36.i, %.029.i97.i
   br i1 %.not34.i, label %200, label %unicode_get_cc.exit55._crit_edge.i
 
 200:                                              ; preds = %unicode_get_cc.exit55.i
@@ -2352,22 +2352,22 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   br i1 %.not.i.i158, label %cr_add_interval.exit.preheader, label %.loopexit258.sink.split
 
 .loopexit258.sink.split:                          ; preds = %129, %126, %115, %112
-  %.sroa.24.7.sink299 = phi ptr [ %.sroa.24.2275, %112 ], [ %120, %115 ], [ %.sroa.24.2275, %126 ], [ %134, %129 ]
+  %.sroa.24.7.sink313 = phi ptr [ %.sroa.24.2275, %112 ], [ %120, %115 ], [ %.sroa.24.2275, %126 ], [ %134, %129 ]
   %.sroa.0.2.ph = phi i32 [ %113, %112 ], [ %113, %115 ], [ %127, %126 ], [ %127, %129 ]
   %.sroa.18.2.ph = phi i32 [ %.sroa.18.1274, %112 ], [ %..i.i.i148, %115 ], [ %.sroa.18.1274, %126 ], [ %..i.i.i157, %129 ]
   %135 = add i32 %.sroa.0.1273, 1
   %136 = sext i32 %.sroa.0.1273 to i64
-  %137 = getelementptr inbounds i32, ptr %.sroa.24.7.sink299, i64 %136
+  %137 = getelementptr inbounds i32, ptr %.sroa.24.7.sink313, i64 %136
   store i32 %.1101276, ptr %137, align 4, !tbaa !7
   %138 = sext i32 %135 to i64
-  %139 = getelementptr inbounds i32, ptr %.sroa.24.7.sink299, i64 %138
+  %139 = getelementptr inbounds i32, ptr %.sroa.24.7.sink313, i64 %138
   store i32 %109, ptr %139, align 4, !tbaa !7
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %121, %.loopexit258.sink.split, %.preheader, %111
   %.sroa.0.2 = phi i32 [ %.sroa.0.1273, %111 ], [ %.sroa.0.1273, %.preheader ], [ %.sroa.0.2.ph, %.loopexit258.sink.split ], [ %.sroa.0.1273, %121 ]
   %.sroa.18.2 = phi i32 [ %.sroa.18.1274, %111 ], [ %.sroa.18.1274, %.preheader ], [ %.sroa.18.2.ph, %.loopexit258.sink.split ], [ %.sroa.18.1274, %121 ]
-  %.sroa.24.3 = phi ptr [ %.sroa.24.2275, %111 ], [ %.sroa.24.2275, %.preheader ], [ %.sroa.24.7.sink299, %.loopexit258.sink.split ], [ %.sroa.24.2275, %121 ]
+  %.sroa.24.3 = phi ptr [ %.sroa.24.2275, %111 ], [ %.sroa.24.2275, %.preheader ], [ %.sroa.24.7.sink313, %.loopexit258.sink.split ], [ %.sroa.24.2275, %121 ]
   %140 = zext i8 %110 to i64
   %.add124 = add nuw nsw i64 %.4.add, %140
   %141 = icmp slt i64 %.add124, 828
@@ -3257,20 +3257,20 @@ cr_realloc.exit.thread.i95:                       ; preds = %128
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %cr_realloc.exit.thread.i95, %._crit_edge.i89, %cr_realloc.exit.thread.i86, %108
-  %.sink134 = phi i32 [ %.pre13.i87, %cr_realloc.exit.thread.i86 ], [ %110, %108 ], [ %124, %._crit_edge.i89 ], [ %.pre13.i96, %cr_realloc.exit.thread.i95 ]
-  %.sink130 = phi ptr [ %121, %cr_realloc.exit.thread.i86 ], [ %100, %108 ], [ %.pre.i91, %._crit_edge.i89 ], [ %136, %cr_realloc.exit.thread.i95 ]
-  %.sink128 = phi i32 [ %84, %cr_realloc.exit.thread.i86 ], [ %84, %108 ], [ %22, %._crit_edge.i89 ], [ %22, %cr_realloc.exit.thread.i95 ]
+  %.sink151 = phi i32 [ %.pre13.i87, %cr_realloc.exit.thread.i86 ], [ %110, %108 ], [ %124, %._crit_edge.i89 ], [ %.pre13.i96, %cr_realloc.exit.thread.i95 ]
+  %.sink147 = phi ptr [ %121, %cr_realloc.exit.thread.i86 ], [ %100, %108 ], [ %.pre.i91, %._crit_edge.i89 ], [ %136, %cr_realloc.exit.thread.i95 ]
+  %.sink145 = phi i32 [ %84, %cr_realloc.exit.thread.i86 ], [ %84, %108 ], [ %22, %._crit_edge.i89 ], [ %22, %cr_realloc.exit.thread.i95 ]
   %.sink = phi i32 [ %109, %cr_realloc.exit.thread.i86 ], [ %109, %108 ], [ %123, %._crit_edge.i89 ], [ %123, %cr_realloc.exit.thread.i95 ]
-  %137 = add i32 %.sink134, 1
+  %137 = add i32 %.sink151, 1
   store i32 %137, ptr %0, align 8, !tbaa !26
-  %138 = sext i32 %.sink134 to i64
-  %139 = getelementptr inbounds i32, ptr %.sink130, i64 %138
-  store i32 %.sink128, ptr %139, align 4, !tbaa !7
+  %138 = sext i32 %.sink151 to i64
+  %139 = getelementptr inbounds i32, ptr %.sink147, i64 %138
+  store i32 %.sink145, ptr %139, align 4, !tbaa !7
   %140 = load i32, ptr %0, align 8, !tbaa !26
   %141 = add i32 %140, 1
   store i32 %141, ptr %0, align 8, !tbaa !26
   %142 = sext i32 %140 to i64
-  %143 = getelementptr inbounds i32, ptr %.sink130, i64 %142
+  %143 = getelementptr inbounds i32, ptr %.sink147, i64 %142
   store i32 %.sink, ptr %143, align 4, !tbaa !7
   br label %.loopexit
 

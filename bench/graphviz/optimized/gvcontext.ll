@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [14 x i8] c"20250210.0415\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @gvNEWcontext(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @gvNEWcontext(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(584) ptr @calloc(i64 noundef 1, i64 noundef 584) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
@@ -142,7 +142,7 @@ declare void @textfont_dict_close(ptr noundef) local_unnamed_addr #1
 declare i32 @agerrors() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @gvCloneGVC(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @gvCloneGVC(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(584) ptr @calloc(i64 noundef 1, i64 noundef 584) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit

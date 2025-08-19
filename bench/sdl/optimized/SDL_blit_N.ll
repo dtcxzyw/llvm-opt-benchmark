@@ -2179,7 +2179,7 @@ define internal void @BlitNtoNCopyAlpha(ptr noundef readonly captures(none) %0) 
   %.0192230 = phi ptr [ %11, %.lr.ph ], [ %133, %132 ]
   %.0194229 = phi ptr [ %15, %.lr.ph ], [ %134, %132 ]
   %41 = add nsw i32 %.in, -1
-  switch i32 %37, label %default.unreachable243 [
+  switch i32 %37, label %default.unreachable246 [
     i32 0, label %42
     i32 3, label %64
     i32 2, label %86
@@ -2312,7 +2312,7 @@ define internal void @BlitNtoNCopyAlpha(ptr noundef readonly captures(none) %0) 
   %131 = icmp sgt i32 %.2207, 1
   br i1 %131, label %42, label %132, !llvm.loop !13
 
-default.unreachable243:                           ; preds = %40
+default.unreachable246:                           ; preds = %40
   unreachable
 
 132:                                              ; preds = %108
@@ -2361,10 +2361,10 @@ default.unreachable243:                           ; preds = %40
   br i1 %.not218231, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge236
-  %.in244 = phi i32 [ %160, %._crit_edge236 ], [ %9, %.preheader.lr.ph ]
+  %.in247 = phi i32 [ %160, %._crit_edge236 ], [ %9, %.preheader.lr.ph ]
   %.5240 = phi ptr [ %446, %._crit_edge236 ], [ %11, %.preheader.lr.ph ]
   %.5199239 = phi ptr [ %447, %._crit_edge236 ], [ %15, %.preheader.lr.ph ]
-  %160 = add nsw i32 %.in244, -1
+  %160 = add nsw i32 %.in247, -1
   br label %161
 
 161:                                              ; preds = %.preheader, %442
@@ -3355,7 +3355,7 @@ define internal void @Blit2to2Key(ptr noundef readonly captures(none) %0) #2 {
   %.076104 = phi ptr [ %19, %.lr.ph ], [ %99, %97 ]
   %.084103 = phi ptr [ %21, %.lr.ph ], [ %98, %97 ]
   %30 = add nsw i32 %.in, -1
-  switch i32 %26, label %default.unreachable105 [
+  switch i32 %26, label %default.unreachable107 [
     i32 0, label %31
     i32 7, label %39
     i32 6, label %47
@@ -3520,7 +3520,7 @@ define internal void @Blit2to2Key(ptr noundef readonly captures(none) %0) #2 {
   %96 = icmp sgt i32 %.6, 1
   br i1 %96, label %31, label %97, !llvm.loop !25
 
-default.unreachable105:                           ; preds = %29
+default.unreachable107:                           ; preds = %29
   unreachable
 
 97:                                               ; preds = %92
@@ -3769,14 +3769,14 @@ default.unreachable:                              ; preds = %117, %255
   %106 = load i8, ptr %105, align 1
   %107 = icmp ne i8 %106, 4
   %108 = icmp ne i8 %104, 4
-  %or.cond.not771 = select i1 %107, i1 true, i1 %108
+  %or.cond.not777 = select i1 %107, i1 true, i1 %108
   %109 = and i32 %28, -15794176
   %or.cond743 = icmp eq i32 %109, 369557504
-  %or.cond768 = or i1 %or.cond.not771, %or.cond743
+  %or.cond774 = or i1 %or.cond.not777, %or.cond743
   %110 = and i32 %29, -15794176
   %or.cond744 = icmp eq i32 %110, 369557504
-  %or.cond769 = or i1 %or.cond768, %or.cond744
-  br i1 %or.cond769, label %228, label %111
+  %or.cond775 = or i1 %or.cond774, %or.cond744
+  br i1 %or.cond775, label %228, label %111
 
 111:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -5880,8 +5880,8 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %or.cond1191 = icmp eq i32 %236, 369557504
   %237 = and i32 %50, -15794176
   %or.cond1192 = icmp eq i32 %237, 369557504
-  %or.cond1274 = select i1 %or.cond1191, i1 true, i1 %or.cond1192
-  br i1 %or.cond1274, label %.critedge.thread, label %238
+  %or.cond1285 = select i1 %or.cond1191, i1 true, i1 %or.cond1192
+  br i1 %or.cond1285, label %.critedge.thread, label %238
 
 238:                                              ; preds = %235
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -6632,8 +6632,8 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   %or.cond20 = select i1 %612, i1 %53, i1 false
   %613 = and i32 %50, -15794176
   %or.cond1194 = icmp ne i32 %613, 369557504
-  %or.cond1275.not = select i1 %or.cond20, i1 %or.cond1194, i1 false
-  br i1 %or.cond1275.not, label %614, label %.thread
+  %or.cond1286.not = select i1 %or.cond20, i1 %or.cond1194, i1 false
+  br i1 %or.cond1286.not, label %614, label %.thread
 
 614:                                              ; preds = %611
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -7881,7 +7881,7 @@ define internal fastcc void @Blit_RGB565_32(ptr noundef readonly captures(none) 
   %.03857 = phi ptr [ %13, %.lr.ph ], [ %82, %81 ]
   %.04256 = phi ptr [ %9, %.lr.ph ], [ %83, %81 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable58 [
+  switch i32 %18, label %default.unreachable60 [
     i32 0, label %23
     i32 3, label %37
     i32 2, label %51
@@ -7978,7 +7978,7 @@ define internal fastcc void @Blit_RGB565_32(ptr noundef readonly captures(none) 
   %80 = icmp sgt i32 %.2, 1
   br i1 %80, label %23, label %81, !llvm.loop !49
 
-default.unreachable58:                            ; preds = %21
+default.unreachable60:                            ; preds = %21
   unreachable
 
 81:                                               ; preds = %65
@@ -8696,7 +8696,7 @@ define internal void @Blit_XRGB8888_RGB565(ptr noundef readonly captures(none) %
   %.03850 = phi ptr [ %13, %.lr.ph ], [ %78, %77 ]
   %.04249 = phi ptr [ %8, %.lr.ph ], [ %79, %77 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable51 [
+  switch i32 %18, label %default.unreachable53 [
     i32 0, label %23
     i32 3, label %36
     i32 2, label %49
@@ -8781,7 +8781,7 @@ define internal void @Blit_XRGB8888_RGB565(ptr noundef readonly captures(none) %
   %76 = icmp sgt i32 %.2, 1
   br i1 %76, label %23, label %77, !llvm.loop !61
 
-default.unreachable51:                            ; preds = %21
+default.unreachable53:                            ; preds = %21
   unreachable
 
 77:                                               ; preds = %62
@@ -8826,7 +8826,7 @@ define internal void @Blit_XRGB8888_RGB555(ptr noundef readonly captures(none) %
   %.03850 = phi ptr [ %13, %.lr.ph ], [ %78, %77 ]
   %.04249 = phi ptr [ %8, %.lr.ph ], [ %79, %77 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable51 [
+  switch i32 %18, label %default.unreachable53 [
     i32 0, label %23
     i32 3, label %36
     i32 2, label %49
@@ -8911,7 +8911,7 @@ define internal void @Blit_XRGB8888_RGB555(ptr noundef readonly captures(none) %
   %76 = icmp sgt i32 %.2, 1
   br i1 %76, label %23, label %77, !llvm.loop !63
 
-default.unreachable51:                            ; preds = %21
+default.unreachable53:                            ; preds = %21
   unreachable
 
 77:                                               ; preds = %62
@@ -9082,17 +9082,17 @@ define internal fastcc void @get_permutation(ptr noundef readonly captures(none)
   br label %141
 
 141:                                              ; preds = %.thread119, %99, %120
-  %.sink136.in = phi ptr [ %98, %.thread119 ], [ %119, %99 ], [ %140, %120 ]
-  %.sink133 = phi i32 [ %68, %.thread119 ], [ %.083, %99 ], [ %.083, %120 ]
-  %.sink132 = phi i64 [ 31, %.thread119 ], [ 30, %99 ], [ 30, %120 ]
+  %.sink141.in = phi ptr [ %98, %.thread119 ], [ %119, %99 ], [ %140, %120 ]
+  %.sink138 = phi i32 [ %68, %.thread119 ], [ %.083, %99 ], [ %.083, %120 ]
+  %.sink137 = phi i64 [ 31, %.thread119 ], [ 30, %99 ], [ 30, %120 ]
   %.sink = phi i32 [ %97, %.thread119 ], [ %118, %99 ], [ %139, %120 ]
-  %.sink136 = load i8, ptr %.sink136.in, align 1
-  %142 = zext i8 %.sink136 to i32
+  %.sink141 = load i8, ptr %.sink141.in, align 1
+  %142 = zext i8 %.sink141 to i32
   %143 = sub nsw i32 8, %142
-  %144 = lshr i32 %.sink133, %143
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink132
-  %.sink131 = load i8, ptr %145, align 1
-  %146 = zext nneg i8 %.sink131 to i32
+  %144 = lshr i32 %.sink138, %143
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink137
+  %.sink136 = load i8, ptr %145, align 1
+  %146 = zext nneg i8 %.sink136 to i32
   %147 = shl i32 %144, %146
   %148 = or i32 %.sink, %147
   %149 = and i32 %148, 255

@@ -889,7 +889,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.
   br label %"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h1b250865eeafbd08E.exit131"
 
 305:                                              ; preds = %.loopexit.split-lp.thread, %.loopexit.split-lp
-  %.pn290 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn, %.loopexit.split-lp ]
+  %.pn297 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit.split-lp.thread ], [ %.pn, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$async_io..reactor..ReactorLock$GT$17h1b250865eeafbd08E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #15
           to label %.thread182 unwind label %186
 
@@ -999,7 +999,7 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i133: ; preds = 
 
 .noexc136:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i133
   %331 = icmp eq ptr %330, null
-  br i1 %331, label %.invoke326, label %336
+  br i1 %331, label %.invoke333, label %336
 
 332:                                              ; preds = %.loopexit197, %.loopexit.split-lp198, %338
   %.pn54 = phi { ptr, i32 } [ %339, %338 ], [ %lpad.loopexit199, %.loopexit197 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp198 ]
@@ -1011,19 +1011,19 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i133: ; preds = 
           cleanup
   br label %332
 
-.loopexit.split-lp198:                            ; preds = %.invoke326
+.loopexit.split-lp198:                            ; preds = %.invoke333
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %332
 
-.invoke326:                                       ; preds = %.noexc139, %.noexc136
+.invoke333:                                       ; preds = %.noexc139, %.noexc136
   %333 = phi ptr [ @anon.1c958cd0118d1365bc4ac0b6ef8c6cd1.26, %.noexc136 ], [ @anon.7f144025ea6e0539fa4dc9afac8d547b.29.llvm.9190978326575674131, %.noexc139 ]
   %334 = phi ptr [ @anon.1c958cd0118d1365bc4ac0b6ef8c6cd1.15, %.noexc136 ], [ @anon.7f144025ea6e0539fa4dc9afac8d547b.23.llvm.9190978326575674131, %.noexc139 ]
   %335 = phi ptr [ @anon.1c958cd0118d1365bc4ac0b6ef8c6cd1.28, %.noexc136 ], [ @anon.7f144025ea6e0539fa4dc9afac8d547b.31.llvm.9190978326575674131, %.noexc139 ]
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 %333, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) %334, ptr noalias noundef readonly align 8 dereferenceable(24) %335) #14
-          to label %.cont327 unwind label %.loopexit.split-lp198
+          to label %.cont334 unwind label %.loopexit.split-lp198
 
-.cont327:                                         ; preds = %.invoke326
+.cont334:                                         ; preds = %.invoke333
   unreachable
 
 336:                                              ; preds = %328, %.noexc136
@@ -1047,7 +1047,7 @@ _ZN4core3ops8function6FnOnce9call_once17h08552ee6b5edc499E.exit.i133: ; preds = 
           to label %.noexc139 unwind label %.loopexit197
 
 .noexc139:                                        ; preds = %342
-  br i1 %343, label %.invoke326, label %"_ZN4core3ptr346drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$futures_util..io..read..Read$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_io..if_std..AsyncRead$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha4e506fabf677e5bE.exit"
+  br i1 %343, label %.invoke333, label %"_ZN4core3ptr346drop_in_place$LT$async_io..driver..CallOnDrop$LT$async_io..driver..block_on$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$futures_util..io..read..Read$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_io..if_std..AsyncRead$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha4e506fabf677e5bE.exit"
 
 344:                                              ; preds = %340
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !124
@@ -1115,7 +1115,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.9190978326575674131.exit.
   br label %.backedge.backedge
 
 .thread182:                                       ; preds = %.loopexit.split-lp, %305, %154, %150, %300, %314, %332
-  %.pn56 = phi { ptr, i32 } [ %151, %150 ], [ %.pn54, %332 ], [ %301, %314 ], [ %301, %300 ], [ %155, %154 ], [ %.pn290, %305 ], [ %.pn, %.loopexit.split-lp ]
+  %.pn56 = phi { ptr, i32 } [ %151, %150 ], [ %.pn54, %332 ], [ %301, %314 ], [ %301, %300 ], [ %155, %154 ], [ %.pn297, %305 ], [ %.pn, %.loopexit.split-lp ]
   %.val86 = load ptr, ptr %27, align 8, !nonnull !15, !align !39, !noundef !15
   %.val87 = load ptr, ptr %86, align 8, !noundef !15
   %361 = getelementptr inbounds nuw i8, ptr %.val86, i64 24

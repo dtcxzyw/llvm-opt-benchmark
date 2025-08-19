@@ -228,9 +228,9 @@ _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i: ; preds =
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i: ; preds = %33
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !28, !noundef !36
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %40, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !28, !noundef !36
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %40, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
 
 40:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %32)
@@ -293,8 +293,8 @@ _ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit: ;
 
 18:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit
   %19 = add nsw i32 %7, -1
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %10, i64 %20
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !31
   %sext = shl i64 %indvars.iv.i, 32
   %23 = ashr exact i64 %sext, 29
@@ -573,9 +573,9 @@ _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i: ; preds =
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i: ; preds = %36
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !28, !noundef !36
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %43, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !7, !range !28, !noundef !36
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %43, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
 
 43:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %35)
@@ -648,8 +648,8 @@ _ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit: ;
 
 21:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE16findLinearSearchERKS1_.exit
   %22 = add nsw i32 %10, -1
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %13, i64 %23
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !31
   %sext = shl i64 %indvars.iv.i, 32
   %26 = ashr exact i64 %sext, 29

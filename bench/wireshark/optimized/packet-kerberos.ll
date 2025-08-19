@@ -2428,7 +2428,7 @@ define internal fastcc void @kerberos_key_map_insert(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %9
   %.not46 = icmp eq i32 %14, -1
-  br i1 %.not46, label %.thread83, label %16
+  br i1 %.not46, label %.thread94, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 400
@@ -2446,9 +2446,9 @@ define internal fastcc void @kerberos_key_map_insert(ptr noundef %0, ptr noundef
 
 24:                                               ; preds = %22
   %25 = icmp sgt i32 %14, %11
-  br i1 %25, label %enc_key_cmp_id.exit.thread, label %.thread83
+  br i1 %25, label %enc_key_cmp_id.exit.thread, label %.thread94
 
-.thread83:                                        ; preds = %15, %24
+.thread94:                                        ; preds = %15, %24
   %26 = phi i32 [ %14, %24 ], [ -1, %15 ]
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %28 = load i32, ptr %27, align 8
@@ -2457,7 +2457,7 @@ define internal fastcc void @kerberos_key_map_insert(ptr noundef %0, ptr noundef
   %31 = icmp ult i32 %28, %30
   br i1 %31, label %39, label %enc_key_cmp_id.exit
 
-enc_key_cmp_id.exit:                              ; preds = %.thread83
+enc_key_cmp_id.exit:                              ; preds = %.thread94
   %.not60 = icmp ugt i32 %28, %30
   br i1 %.not60, label %enc_key_cmp_id.exit.thread, label %.loopexit
 
@@ -2473,9 +2473,9 @@ enc_key_cmp_id.exit.thread:                       ; preds = %24, %enc_key_cmp_id
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 308
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %32, %37
-  br i1 %38, label %._crit_edge, label %.lr.ph95
+  br i1 %38, label %._crit_edge, label %.lr.ph106
 
-39:                                               ; preds = %.thread83, %22
+39:                                               ; preds = %.thread94, %22
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 400
   store ptr %3, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 408
@@ -2490,16 +2490,16 @@ enc_key_cmp_id.exit.thread:                       ; preds = %24, %enc_key_cmp_id
   %47 = getelementptr inbounds nuw i8, ptr %63, i64 308
   %48 = load i32, ptr %47, align 4
   %49 = icmp slt i32 %32, %48
-  br i1 %49, label %._crit_edge, label %.lr.ph95, !llvm.loop !15
+  br i1 %49, label %._crit_edge, label %.lr.ph106, !llvm.loop !15
 
-.lr.ph95:                                         ; preds = %.lr.ph, %46
+.lr.ph106:                                        ; preds = %.lr.ph, %46
   %50 = phi i32 [ %48, %46 ], [ %37, %.lr.ph ]
-  %.07394 = phi ptr [ %51, %46 ], [ %3, %.lr.ph ]
+  %.073105 = phi ptr [ %51, %46 ], [ %3, %.lr.ph ]
   %51 = phi ptr [ %63, %46 ], [ %34, %.lr.ph ]
   %52 = icmp sgt i32 %32, %50
   br i1 %52, label %.thread, label %53
 
-53:                                               ; preds = %.lr.ph95
+53:                                               ; preds = %.lr.ph106
   %54 = load i32, ptr %35, align 8
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 312
   %56 = load i32, ptr %55, align 8
@@ -2512,7 +2512,7 @@ enc_key_cmp_id.exit51:                            ; preds = %53
 
 ._crit_edge:                                      ; preds = %46, %53, %.lr.ph
   %.lcssa = phi ptr [ %34, %.lr.ph ], [ %63, %46 ], [ %51, %53 ]
-  %.073.lcssa = phi ptr [ %3, %.lr.ph ], [ %51, %46 ], [ %.07394, %53 ]
+  %.073.lcssa = phi ptr [ %3, %.lr.ph ], [ %51, %46 ], [ %.073105, %53 ]
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 400
   store ptr %.lcssa, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.073.lcssa, i64 408
@@ -2521,7 +2521,7 @@ enc_key_cmp_id.exit51:                            ; preds = %53
   store i32 %60, ptr %61, align 8
   br label %.loopexit62
 
-.thread:                                          ; preds = %enc_key_cmp_id.exit51, %.lr.ph95
+.thread:                                          ; preds = %enc_key_cmp_id.exit51, %.lr.ph106
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 400
   %63 = load ptr, ptr %62, align 8
   %.not47 = icmp eq ptr %63, null

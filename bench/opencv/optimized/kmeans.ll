@@ -445,14 +445,14 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %185, %179, %172
   %220 = trunc nuw nsw i64 %indvars.iv to i32
   %221 = sdiv i32 %220, %219
   %222 = mul nsw i32 %221, %219
-  %.recomposed128 = srem i32 %220, %219
+  %.recomposed136 = srem i32 %220, %219
   %223 = load ptr, ptr %71, align 8, !tbaa !44
   %224 = load ptr, ptr %72, align 8, !tbaa !45
   %225 = load i64, ptr %224, align 8, !tbaa !46
   %226 = sext i32 %221 to i64
   %227 = mul i64 %225, %226
   %228 = getelementptr inbounds nuw i8, ptr %223, i64 %227
-  %229 = sext i32 %.recomposed128 to i64
+  %229 = sext i32 %.recomposed136 to i64
   %230 = getelementptr inbounds %"class.cv::Point_.0", ptr %228, i64 %229
   br label %231
 

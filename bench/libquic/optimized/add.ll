@@ -485,8 +485,8 @@ define hidden i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   %25 = icmp eq i64 %.lcssa, %.038.lcssa
   %26 = add nsw i32 %15, -1
   %27 = icmp eq i32 %.0.lcssa, %26
-  %or.cond63 = select i1 %25, i1 %27, i1 false
-  br i1 %or.cond63, label %32, label %33
+  %or.cond65 = select i1 %25, i1 %27, i1 false
+  br i1 %or.cond65, label %32, label %33
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]

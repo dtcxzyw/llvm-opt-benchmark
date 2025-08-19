@@ -351,7 +351,7 @@ declare noundef i32 @_ZN10JNIHandles11handle_typeEP10JavaThreadP8_jobject(ptr no
 declare noundef ptr @_ZN10JNIHandles22resolve_external_guardEP8_jobject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8jniCheck19validate_jmethod_idEP10JavaThreadP10_jmethodID(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN8jniCheck19validate_jmethod_idEP10JavaThreadP10_jmethodID(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN6Method26checked_resolve_jmethod_idEP10_jmethodID(ptr noundef %1) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -31508,9 +31508,9 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split: ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit, %73
-  %.sink26 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
+  %.sink27 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
   %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink = phi ptr [ @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %73 ], [ @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink26
+  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink27
   %75 = load ptr, ptr %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull %74) #11
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -31524,7 +31524,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1528
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -31558,7 +31558,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN10JNIHandles16re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @_ZL27check_wrapped_array_releaseP10JavaThreadPKcPvS3_ih(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.FormatBuffer, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -31990,9 +31990,9 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split: ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit, %73
-  %.sink26 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
+  %.sink27 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
   %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink = phi ptr [ @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %73 ], [ @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink26
+  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink27
   %75 = load ptr, ptr %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull %74) #11
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -32006,7 +32006,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1536
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32204,9 +32204,9 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split: ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit, %73
-  %.sink26 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
+  %.sink27 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
   %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink = phi ptr [ @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %73 ], [ @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink26
+  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink27
   %75 = load ptr, ptr %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull %74) #11
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -32220,7 +32220,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1552
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32418,9 +32418,9 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split: ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit, %73
-  %.sink26 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
+  %.sink27 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
   %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink = phi ptr [ @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %73 ], [ @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink26
+  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink27
   %75 = load ptr, ptr %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull %74) #11
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -32434,7 +32434,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1544
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32632,9 +32632,9 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split: ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit, %73
-  %.sink26 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
+  %.sink27 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
   %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink = phi ptr [ @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %73 ], [ @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink26
+  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink27
   %75 = load ptr, ptr %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull %74) #11
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -32648,7 +32648,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1560
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -32846,9 +32846,9 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split: ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit, %73
-  %.sink26 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
+  %.sink27 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
   %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink = phi ptr [ @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %73 ], [ @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink26
+  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink27
   %75 = load ptr, ptr %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull %74) #11
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -32862,7 +32862,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1568
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -33060,9 +33060,9 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split: ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit, %73
-  %.sink26 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
+  %.sink27 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
   %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink = phi ptr [ @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %73 ], [ @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink26
+  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink27
   %75 = load ptr, ptr %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull %74) #11
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -33076,7 +33076,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1576
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -33274,9 +33274,9 @@ _ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit: ; preds = 
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split
 
 _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit.sink.split: ; preds = %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit, %73
-  %.sink26 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
+  %.sink27 = phi i64 [ -2, %73 ], [ -1, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
   %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink = phi ptr [ @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %73 ], [ @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, %_ZL26check_primitive_array_typeP10JavaThreadP7_jarray9BasicType.exit ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink26
+  %74 = getelementptr inbounds i8, ptr %1, i64 %.sink27
   %75 = load ptr, ptr %_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE.sink, align 8
   %76 = tail call noundef ptr %75(ptr noundef nonnull %74) #11
   br label %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
@@ -33290,7 +33290,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %_ZN10JNIHandles16r
   %79 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1584
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %78, i32 noundef %3) #11
+  tail call void %81(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %78, i32 noundef %3) #11
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -37660,7 +37660,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %53, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24check_is_primitive_arrayP10JavaThreadP7_jarray(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @_ZL24check_is_primitive_arrayP10JavaThreadP7_jarray(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @_ZN8jniCheck15validate_objectEP10JavaThreadP8_jobject(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %25, label %5
@@ -37826,7 +37826,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %46 = load ptr, ptr @_ZL29unchecked_jni_NativeInterface, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1784
   %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef %0, ptr noundef %1, ptr noundef %45, i32 noundef %3) #11
+  tail call void %48(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %45, i32 noundef %3) #11
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -40381,14 +40381,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #11, !srcloc !10
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #11, !srcloc !10
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -40522,14 +40522,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #11, !srcloc !10
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #11, !srcloc !10
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 

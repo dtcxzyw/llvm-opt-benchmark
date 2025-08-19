@@ -4985,7 +4985,7 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
   %64 = lshr i32 20054306, %63
   %65 = and i32 %64, 3
   %66 = icmp eq ptr %3, null
-  br i1 %66, label %67, label %.thread27, !prof !22
+  br i1 %66, label %67, label %.thread34, !prof !22
 
 67:                                               ; preds = %.critedge
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4999,7 +4999,7 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.loopexit, label %.preheader.split.us.preheader
 
-.thread27:                                        ; preds = %.critedge
+.thread34:                                        ; preds = %.critedge
   %75 = tail call ptr @__next_zones_zonelist(ptr noundef %0, i32 noundef %65, ptr noundef nonnull %3) #14
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
@@ -5012,12 +5012,12 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
 
 .preheader.split.us.preheader:                    ; preds = %71, %.thread
   %.ph = phi ptr [ %73, %71 ], [ %78, %.thread ]
-  %.ph47 = phi ptr [ %72, %71 ], [ %0, %.thread ]
+  %.ph54 = phi ptr [ %72, %71 ], [ %0, %.thread ]
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %95
   %80 = phi ptr [ %97, %95 ], [ %.ph, %.preheader.split.us.preheader ]
-  %81 = phi ptr [ %96, %95 ], [ %.ph47, %.preheader.split.us.preheader ]
+  %81 = phi ptr [ %96, %95 ], [ %.ph54, %.preheader.split.us.preheader ]
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 88
   %83 = load ptr, ptr %82, align 8
   %84 = ptrtoint ptr %80 to i64
@@ -5043,9 +5043,9 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.loopexit, label %.preheader.split.us, !llvm.loop !87
 
-.preheader.split:                                 ; preds = %.thread27, %111
-  %99 = phi ptr [ %114, %111 ], [ %76, %.thread27 ]
-  %100 = phi ptr [ %113, %111 ], [ %75, %.thread27 ]
+.preheader.split:                                 ; preds = %.thread34, %111
+  %99 = phi ptr [ %114, %111 ], [ %76, %.thread34 ]
+  %100 = phi ptr [ %113, %111 ], [ %75, %.thread34 ]
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 88
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %99 to i64
@@ -5164,7 +5164,7 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
   %161 = icmp eq i64 %160, 0
   br i1 %161, label %.loopexit, label %214
 
-.loopexit:                                        ; preds = %111, %95, %.thread27, %.thread, %157, %153, %.split.us, %71, %57, %47
+.loopexit:                                        ; preds = %111, %95, %.thread34, %.thread, %157, %153, %.split.us, %71, %57, %47
   %162 = getelementptr inbounds nuw i8, ptr %26, i64 2128
   %163 = load ptr, ptr %162, align 16
   %164 = icmp eq ptr %163, null
@@ -8655,9 +8655,9 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %.pre = load i16, ptr %17, align 8
   %113 = and i16 %.pre, 2
   %114 = icmp eq i16 %113, 0
-  %or.cond57 = select i1 %112, i1 %114, i1 false
+  %or.cond73 = select i1 %112, i1 %114, i1 false
   %115 = and i16 %.pre, -4097
-  %masksel = select i1 %or.cond57, i16 4096, i16 0
+  %masksel = select i1 %or.cond73, i16 4096, i16 0
   %116 = or disjoint i16 %115, %masksel
   store i16 %116, ptr %17, align 8
   %117 = load i32, ptr %21, align 64
@@ -8698,8 +8698,8 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %.pre38 = load i16, ptr %17, align 8
   %144 = and i16 %.pre38, 1
   %145 = icmp eq i16 %144, 0
-  %or.cond59 = select i1 %143, i1 %145, i1 false
-  br i1 %or.cond59, label %146, label %153
+  %or.cond75 = select i1 %143, i1 %145, i1 false
+  br i1 %or.cond75, label %146, label %153
 
 146:                                              ; preds = %139
   %147 = load i8, ptr %20, align 1
@@ -8838,7 +8838,7 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
 .loopexit25:                                      ; preds = %236, %217
   %240 = phi i64 [ 0, %217 ], [ %237, %236 ]
   %241 = lshr i64 %240, %214
-  switch i32 %208, label %default.unreachable50 [
+  switch i32 %208, label %default.unreachable66 [
     i32 0, label %248
     i32 1, label %242
     i32 3, label %245
@@ -8856,7 +8856,7 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %247 = select i1 %246, i64 %241, i64 0
   br label %248
 
-default.unreachable50:                            ; preds = %.loopexit25
+default.unreachable66:                            ; preds = %.loopexit25
   unreachable
 
 248:                                              ; preds = %245, %242, %.loopexit25
@@ -8905,7 +8905,7 @@ default.unreachable50:                            ; preds = %.loopexit25
 
 281:                                              ; preds = %.backedge, %270
   %282 = phi i64 [ %262, %270 ], [ %.be, %.backedge ]
-  %283 = phi i64 [ 0, %270 ], [ %.be65, %.backedge ]
+  %283 = phi i64 [ 0, %270 ], [ %.be81, %.backedge ]
   %284 = phi i64 [ 0, %270 ], [ %420, %.backedge ]
   %285 = icmp eq i64 %282, 0
   br i1 %285, label %419, label %286
@@ -9155,7 +9155,7 @@ default.unreachable50:                            ; preds = %.loopexit25
 
 .backedge:                                        ; preds = %._crit_edge, %272
   %.be = phi i64 [ %.pre39.pre, %._crit_edge ], [ %275, %272 ]
-  %.be65 = phi i64 [ %421, %._crit_edge ], [ 0, %272 ]
+  %.be81 = phi i64 [ %421, %._crit_edge ], [ 0, %272 ]
   br label %281, !llvm.loop !153
 
 423:                                              ; preds = %419

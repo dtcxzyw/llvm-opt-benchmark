@@ -339,19 +339,19 @@ define dso_local range(i32 0, 3) i32 @logger_add_watcher(ptr noundef %0, i32 nou
 10:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %.split.loop.exit29, label %.preheader, !llvm.loop !37
+  br i1 %exitcond.not, label %.split.loop.exit31, label %.preheader, !llvm.loop !37
 
 .split.loop.exit:                                 ; preds = %.preheader
   %11 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit29
+  br label %.split.loop.exit31
 
-.split.loop.exit29:                               ; preds = %10, %.split.loop.exit
+.split.loop.exit31:                               ; preds = %10, %.split.loop.exit
   %.0.lcssa = phi i32 [ %11, %.split.loop.exit ], [ 19, %10 ]
   %12 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #21
   %13 = icmp eq ptr %12, null
   br i1 %13, label %50, label %14
 
-14:                                               ; preds = %.split.loop.exit29
+14:                                               ; preds = %.split.loop.exit31
   store ptr %0, ptr %12, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %1, ptr %15, align 8, !tbaa !41
@@ -431,8 +431,8 @@ logger_set_flags.exit:                            ; preds = %.lr.ph.i, %.prehead
   %49 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @logger_stack_cond) #18
   br label %50
 
-50:                                               ; preds = %.split.loop.exit29, %3, %logger_set_flags.exit, %28
-  %.024 = phi i32 [ 2, %28 ], [ 1, %logger_set_flags.exit ], [ 0, %3 ], [ 2, %.split.loop.exit29 ]
+50:                                               ; preds = %.split.loop.exit31, %3, %logger_set_flags.exit, %28
+  %.024 = phi i32 [ 2, %28 ], [ 1, %logger_set_flags.exit ], [ 0, %3 ], [ 2, %.split.loop.exit31 ]
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @logger_stack_lock) #18
   ret i32 %.024
 }
@@ -874,8 +874,8 @@ define internal fastcc i32 @logger_thread_poll_watchers(i32 noundef range(i32 0,
   %48 = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %47
   store i32 %46, ptr %48, align 8, !tbaa !70
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %.124 = select i1 %.not81, i16 1, i16 4
-  store i16 %.124, ptr %49, align 4, !tbaa !72
+  %.130 = select i1 %.not81, i16 1, i16 4
+  store i16 %.130, ptr %49, align 4, !tbaa !72
   %.2 = add nsw i32 %.05988, 1
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i8 0, ptr %50, align 8, !tbaa !52
@@ -1278,7 +1278,7 @@ define internal void @_logger_log_item_get(ptr noundef writeonly captures(none) 
   %9 = getelementptr i8, ptr %8, i64 8
   store ptr %9, ptr %7, align 8
   %10 = load i32, ptr %8, align 4, !tbaa !9
-  br label %.thread32
+  br label %.thread33
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1289,16 +1289,16 @@ define internal void @_logger_log_item_get(ptr noundef writeonly captures(none) 
   store i32 %16, ptr %3, align 8
   %17 = load i32, ptr %15, align 4, !tbaa !9
   %18 = icmp ult i32 %5, 33
-  br i1 %18, label %24, label %.thread32
+  br i1 %18, label %24, label %.thread33
 
-.thread32:                                        ; preds = %11, %.thread
+.thread33:                                        ; preds = %11, %.thread
   %19 = phi i32 [ %10, %.thread ], [ %17, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 8
   store ptr %22, ptr %20, align 8
   %23 = load ptr, ptr %21, align 8, !tbaa !95
-  br label %.thread35
+  br label %.thread36
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1309,17 +1309,17 @@ define internal void @_logger_log_item_get(ptr noundef writeonly captures(none) 
   store i32 %29, ptr %3, align 8
   %30 = load ptr, ptr %28, align 8, !tbaa !95
   %31 = icmp ult i32 %5, 25
-  br i1 %31, label %38, label %.thread35
+  br i1 %31, label %38, label %.thread36
 
-.thread35:                                        ; preds = %24, %.thread32
-  %32 = phi ptr [ %23, %.thread32 ], [ %30, %24 ]
-  %33 = phi i32 [ %19, %.thread32 ], [ %17, %24 ]
+.thread36:                                        ; preds = %24, %.thread33
+  %32 = phi ptr [ %23, %.thread33 ], [ %30, %24 ]
+  %33 = phi i32 [ %19, %.thread33 ], [ %17, %24 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 8
   store ptr %36, ptr %34, align 8
   %37 = load i32, ptr %35, align 4, !tbaa !9
-  br label %.thread38
+  br label %.thread39
 
 38:                                               ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1330,12 +1330,12 @@ define internal void @_logger_log_item_get(ptr noundef writeonly captures(none) 
   store i32 %43, ptr %3, align 8
   %44 = load i32, ptr %42, align 4, !tbaa !9
   %45 = icmp ult i32 %5, 17
-  br i1 %45, label %53, label %.thread38
+  br i1 %45, label %53, label %.thread39
 
-.thread38:                                        ; preds = %38, %.thread35
-  %46 = phi i32 [ %37, %.thread35 ], [ %44, %38 ]
-  %47 = phi i32 [ %33, %.thread35 ], [ %17, %38 ]
-  %48 = phi ptr [ %32, %.thread35 ], [ %30, %38 ]
+.thread39:                                        ; preds = %38, %.thread36
+  %46 = phi i32 [ %37, %.thread36 ], [ %44, %38 ]
+  %47 = phi i32 [ %33, %.thread36 ], [ %17, %38 ]
+  %48 = phi ptr [ %32, %.thread36 ], [ %30, %38 ]
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 8
@@ -1354,17 +1354,17 @@ define internal void @_logger_log_item_get(ptr noundef writeonly captures(none) 
   %60 = icmp samesign ult i32 %58, 41
   br i1 %60, label %69, label %.thread41
 
-.thread41:                                        ; preds = %53, %.thread38
-  %61 = phi i32 [ %52, %.thread38 ], [ %59, %53 ]
-  %62 = phi ptr [ %48, %.thread38 ], [ %30, %53 ]
-  %63 = phi i32 [ %47, %.thread38 ], [ %17, %53 ]
-  %64 = phi i32 [ %46, %.thread38 ], [ %44, %53 ]
+.thread41:                                        ; preds = %53, %.thread39
+  %61 = phi i32 [ %52, %.thread39 ], [ %59, %53 ]
+  %62 = phi ptr [ %48, %.thread39 ], [ %30, %53 ]
+  %63 = phi i32 [ %47, %.thread39 ], [ %17, %53 ]
+  %64 = phi i32 [ %46, %.thread39 ], [ %44, %53 ]
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %66, i64 8
   store ptr %67, ptr %65, align 8
   %68 = load i32, ptr %66, align 4, !tbaa !9
-  br label %82
+  br label %81
 
 69:                                               ; preds = %53
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1373,57 +1373,56 @@ define internal void @_logger_log_item_get(ptr noundef writeonly captures(none) 
   %73 = getelementptr i8, ptr %71, i64 %72
   %74 = add nuw nsw i32 %5, 40
   store i32 %74, ptr %3, align 8
-  %75 = load i32, ptr %73, align 4, !tbaa !9
-  %76 = icmp eq i32 %5, 0
-  br i1 %76, label %77, label %82
+  %75 = icmp eq i32 %5, 0
+  %76 = load i32, ptr %73, align 4, !tbaa !9
+  br i1 %75, label %77, label %81
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = zext nneg i32 %74 to i64
-  %81 = getelementptr i8, ptr %79, i64 %80
+  %80 = getelementptr i8, ptr %79, i64 40
   store i32 48, ptr %3, align 8
-  br label %91
+  br label %90
 
-82:                                               ; preds = %.thread41, %69
-  %83 = phi i32 [ %68, %.thread41 ], [ %75, %69 ]
-  %84 = phi i32 [ %64, %.thread41 ], [ %44, %69 ]
-  %85 = phi i32 [ %63, %.thread41 ], [ %17, %69 ]
-  %86 = phi ptr [ %62, %.thread41 ], [ %30, %69 ]
-  %87 = phi i32 [ %61, %.thread41 ], [ %59, %69 ]
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr i8, ptr %89, i64 8
-  store ptr %90, ptr %88, align 8
-  br label %91
+81:                                               ; preds = %.thread41, %69
+  %82 = phi i32 [ %68, %.thread41 ], [ %76, %69 ]
+  %83 = phi i32 [ %64, %.thread41 ], [ %44, %69 ]
+  %84 = phi i32 [ %63, %.thread41 ], [ %17, %69 ]
+  %85 = phi ptr [ %62, %.thread41 ], [ %30, %69 ]
+  %86 = phi i32 [ %61, %.thread41 ], [ %59, %69 ]
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr i8, ptr %88, i64 8
+  store ptr %89, ptr %87, align 8
+  br label %90
 
-91:                                               ; preds = %82, %77
-  %92 = phi i32 [ %75, %77 ], [ %83, %82 ]
-  %93 = phi i32 [ %44, %77 ], [ %84, %82 ]
-  %94 = phi i32 [ %17, %77 ], [ %85, %82 ]
-  %95 = phi ptr [ %30, %77 ], [ %86, %82 ]
-  %96 = phi i32 [ %59, %77 ], [ %87, %82 ]
-  %97 = phi ptr [ %81, %77 ], [ %89, %82 ]
-  %98 = trunc i32 %92 to i8
-  %99 = load i32, ptr %97, align 4, !tbaa !9
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %101 = trunc i32 %94 to i8
-  store i8 %101, ptr %100, align 4, !tbaa !31
-  %102 = trunc i32 %93 to i8
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 37
-  store i8 %102, ptr %103, align 1, !tbaa !31
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %96, ptr %104, align 4, !tbaa !9
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 38
-  store i8 %98, ptr %105, align 2, !tbaa !31
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %107 = sext i32 %93 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %106, ptr align 1 %95, i64 %107, i1 false)
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %99, ptr %108, align 4, !tbaa !9
-  %109 = add i32 %93, 12
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %109, ptr %110, align 8, !tbaa !9
+90:                                               ; preds = %81, %77
+  %91 = phi i32 [ %76, %77 ], [ %82, %81 ]
+  %92 = phi i32 [ %44, %77 ], [ %83, %81 ]
+  %93 = phi i32 [ %17, %77 ], [ %84, %81 ]
+  %94 = phi ptr [ %30, %77 ], [ %85, %81 ]
+  %95 = phi i32 [ %59, %77 ], [ %86, %81 ]
+  %96 = phi ptr [ %80, %77 ], [ %88, %81 ]
+  %97 = trunc i32 %91 to i8
+  %98 = load i32, ptr %96, align 4, !tbaa !9
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %100 = trunc i32 %93 to i8
+  store i8 %100, ptr %99, align 4, !tbaa !31
+  %101 = trunc i32 %92 to i8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  store i8 %101, ptr %102, align 1, !tbaa !31
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %95, ptr %103, align 4, !tbaa !9
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  store i8 %97, ptr %104, align 2, !tbaa !31
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %106 = sext i32 %92 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %105, ptr align 1 %94, i64 %106, i1 false)
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %98, ptr %107, align 4, !tbaa !9
+  %108 = add i32 %92, 12
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %108, ptr %109, align 8, !tbaa !9
   ret void
 }
 
@@ -1475,7 +1474,7 @@ define internal void @_logger_log_item_store(ptr noundef writeonly captures(none
   %9 = getelementptr i8, ptr %8, i64 8
   store ptr %9, ptr %7, align 8
   %10 = load i32, ptr %8, align 4, !tbaa !9
-  br label %.thread45
+  br label %.thread47
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1486,16 +1485,16 @@ define internal void @_logger_log_item_store(ptr noundef writeonly captures(none
   store i32 %16, ptr %3, align 8
   %17 = load i32, ptr %15, align 4, !tbaa !9
   %18 = icmp ult i32 %5, 33
-  br i1 %18, label %24, label %.thread45
+  br i1 %18, label %24, label %.thread47
 
-.thread45:                                        ; preds = %11, %.thread
+.thread47:                                        ; preds = %11, %.thread
   %19 = phi i32 [ %10, %.thread ], [ %17, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 8
   store ptr %22, ptr %20, align 8
   %23 = load i32, ptr %21, align 4, !tbaa !9
-  br label %.thread48
+  br label %.thread50
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1506,17 +1505,17 @@ define internal void @_logger_log_item_store(ptr noundef writeonly captures(none
   store i32 %29, ptr %3, align 8
   %30 = load i32, ptr %28, align 4, !tbaa !9
   %31 = icmp ult i32 %5, 25
-  br i1 %31, label %38, label %.thread48
+  br i1 %31, label %38, label %.thread50
 
-.thread48:                                        ; preds = %24, %.thread45
-  %32 = phi i32 [ %23, %.thread45 ], [ %30, %24 ]
-  %33 = phi i32 [ %19, %.thread45 ], [ %17, %24 ]
+.thread50:                                        ; preds = %24, %.thread47
+  %32 = phi i32 [ %23, %.thread47 ], [ %30, %24 ]
+  %33 = phi i32 [ %19, %.thread47 ], [ %17, %24 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 8
   store ptr %36, ptr %34, align 8
   %37 = load ptr, ptr %35, align 8, !tbaa !95
-  br label %.thread51
+  br label %.thread53
 
 38:                                               ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1527,18 +1526,18 @@ define internal void @_logger_log_item_store(ptr noundef writeonly captures(none
   store i32 %43, ptr %3, align 8
   %44 = load ptr, ptr %42, align 8, !tbaa !95
   %45 = icmp ult i32 %5, 17
-  br i1 %45, label %53, label %.thread51
+  br i1 %45, label %53, label %.thread53
 
-.thread51:                                        ; preds = %38, %.thread48
-  %46 = phi ptr [ %37, %.thread48 ], [ %44, %38 ]
-  %47 = phi i32 [ %33, %.thread48 ], [ %17, %38 ]
-  %48 = phi i32 [ %32, %.thread48 ], [ %30, %38 ]
+.thread53:                                        ; preds = %38, %.thread50
+  %46 = phi ptr [ %37, %.thread50 ], [ %44, %38 ]
+  %47 = phi i32 [ %33, %.thread50 ], [ %17, %38 ]
+  %48 = phi i32 [ %32, %.thread50 ], [ %30, %38 ]
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 8
   store ptr %51, ptr %49, align 8
   %52 = load i32, ptr %50, align 4, !tbaa !9
-  br label %.thread54
+  br label %.thread55
 
 53:                                               ; preds = %38
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1549,19 +1548,19 @@ define internal void @_logger_log_item_store(ptr noundef writeonly captures(none
   store i32 %58, ptr %3, align 8
   %59 = load i32, ptr %57, align 4, !tbaa !9
   %60 = icmp samesign ult i32 %58, 41
-  br i1 %60, label %69, label %.thread54
+  br i1 %60, label %69, label %.thread55
 
-.thread54:                                        ; preds = %53, %.thread51
-  %61 = phi i32 [ %52, %.thread51 ], [ %59, %53 ]
-  %62 = phi i32 [ %48, %.thread51 ], [ %30, %53 ]
-  %63 = phi i32 [ %47, %.thread51 ], [ %17, %53 ]
-  %64 = phi ptr [ %46, %.thread51 ], [ %44, %53 ]
+.thread55:                                        ; preds = %53, %.thread53
+  %61 = phi i32 [ %52, %.thread53 ], [ %59, %53 ]
+  %62 = phi i32 [ %48, %.thread53 ], [ %30, %53 ]
+  %63 = phi i32 [ %47, %.thread53 ], [ %17, %53 ]
+  %64 = phi ptr [ %46, %.thread53 ], [ %44, %53 ]
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %66, i64 8
   store ptr %67, ptr %65, align 8
   %68 = load i32, ptr %66, align 4, !tbaa !9
-  br label %82
+  br label %81
 
 69:                                               ; preds = %53
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1570,79 +1569,78 @@ define internal void @_logger_log_item_store(ptr noundef writeonly captures(none
   %73 = getelementptr i8, ptr %71, i64 %72
   %74 = add nuw nsw i32 %5, 40
   store i32 %74, ptr %3, align 8
-  %75 = load i32, ptr %73, align 4, !tbaa !9
-  %76 = icmp eq i32 %5, 0
-  br i1 %76, label %77, label %82
+  %75 = icmp eq i32 %5, 0
+  %76 = load i32, ptr %73, align 4, !tbaa !9
+  br i1 %75, label %77, label %81
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = zext nneg i32 %74 to i64
-  %81 = getelementptr i8, ptr %79, i64 %80
+  %80 = getelementptr i8, ptr %79, i64 40
   store i32 48, ptr %3, align 8
-  br label %91
+  br label %90
 
-82:                                               ; preds = %.thread54, %69
-  %83 = phi i32 [ %68, %.thread54 ], [ %75, %69 ]
-  %84 = phi ptr [ %64, %.thread54 ], [ %44, %69 ]
-  %85 = phi i32 [ %63, %.thread54 ], [ %17, %69 ]
-  %86 = phi i32 [ %62, %.thread54 ], [ %30, %69 ]
-  %87 = phi i32 [ %61, %.thread54 ], [ %59, %69 ]
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr i8, ptr %89, i64 8
-  store ptr %90, ptr %88, align 8
-  br label %91
+81:                                               ; preds = %.thread55, %69
+  %82 = phi i32 [ %68, %.thread55 ], [ %76, %69 ]
+  %83 = phi ptr [ %64, %.thread55 ], [ %44, %69 ]
+  %84 = phi i32 [ %63, %.thread55 ], [ %17, %69 ]
+  %85 = phi i32 [ %62, %.thread55 ], [ %30, %69 ]
+  %86 = phi i32 [ %61, %.thread55 ], [ %59, %69 ]
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr i8, ptr %88, i64 8
+  store ptr %89, ptr %87, align 8
+  br label %90
 
-91:                                               ; preds = %82, %77
-  %92 = phi i32 [ %83, %82 ], [ %75, %77 ]
-  %93 = phi ptr [ %84, %82 ], [ %44, %77 ]
-  %94 = phi i32 [ %85, %82 ], [ %17, %77 ]
-  %95 = phi i32 [ %86, %82 ], [ %30, %77 ]
-  %96 = phi i32 [ %87, %82 ], [ %59, %77 ]
-  %97 = phi ptr [ %89, %82 ], [ %81, %77 ]
-  %98 = load i32, ptr %97, align 4, !tbaa !9
-  %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr i8, ptr %100, i64 8
-  store ptr %101, ptr %99, align 8
-  %102 = load i32, ptr %100, align 4, !tbaa !9
-  %103 = trunc i32 %102 to i8
-  %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %105 = getelementptr i8, ptr %100, i64 16
-  store ptr %105, ptr %104, align 8
-  %106 = load i32, ptr %101, align 4, !tbaa !9
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 36
+90:                                               ; preds = %81, %77
+  %91 = phi i32 [ %82, %81 ], [ %76, %77 ]
+  %92 = phi ptr [ %83, %81 ], [ %44, %77 ]
+  %93 = phi i32 [ %84, %81 ], [ %17, %77 ]
+  %94 = phi i32 [ %85, %81 ], [ %30, %77 ]
+  %95 = phi i32 [ %86, %81 ], [ %59, %77 ]
+  %96 = phi ptr [ %88, %81 ], [ %80, %77 ]
+  %97 = load i32, ptr %96, align 4, !tbaa !9
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr i8, ptr %99, i64 8
+  store ptr %100, ptr %98, align 8
+  %101 = load i32, ptr %99, align 4, !tbaa !9
+  %102 = trunc i32 %101 to i8
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %104 = getelementptr i8, ptr %99, i64 16
+  store ptr %104, ptr %103, align 8
+  %105 = load i32, ptr %100, align 4, !tbaa !9
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %93, ptr %106, align 4, !tbaa !9
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %94, ptr %107, align 4, !tbaa !9
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %95, ptr %108, align 4, !tbaa !9
-  %109 = trunc i32 %96 to i8
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %109, ptr %110, align 4, !tbaa !31
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %92, ptr %111, align 4, !tbaa !9
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 %103, ptr %112, align 1, !tbaa !31
-  %.not = icmp eq i32 %98, 0
-  br i1 %.not, label %116, label %113
+  %108 = trunc i32 %95 to i8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 %108, ptr %109, align 4, !tbaa !31
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %91, ptr %110, align 4, !tbaa !9
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  store i8 %102, ptr %111, align 1, !tbaa !31
+  %.not = icmp eq i32 %97, 0
+  br i1 %.not, label %115, label %112
 
-113:                                              ; preds = %91
-  %114 = load volatile i32, ptr @current_time, align 4, !tbaa !9
-  %115 = sub i32 %98, %114
-  br label %116
+112:                                              ; preds = %90
+  %113 = load volatile i32, ptr @current_time, align 4, !tbaa !9
+  %114 = sub i32 %97, %113
+  br label %115
 
-116:                                              ; preds = %91, %113
-  %.sink = phi i32 [ %115, %113 ], [ 0, %91 ]
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.sink, ptr %117, align 4, !tbaa !9
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %119 = sext i32 %96 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %118, ptr align 1 %93, i64 %119, i1 false)
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %106, ptr %120, align 4, !tbaa !9
-  %121 = add i32 %96, 24
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %121, ptr %122, align 8, !tbaa !9
+115:                                              ; preds = %90, %112
+  %.sink = phi i32 [ %114, %112 ], [ 0, %90 ]
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %.sink, ptr %116, align 4, !tbaa !9
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %118 = sext i32 %95 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %117, ptr align 1 %92, i64 %118, i1 false)
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %105, ptr %119, align 4, !tbaa !9
+  %120 = add i32 %95, 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %120, ptr %121, align 8, !tbaa !9
   ret void
 }
 
@@ -1709,7 +1707,7 @@ define internal void @_logger_log_conn_event(ptr noundef writeonly captures(none
   %9 = getelementptr i8, ptr %8, i64 8
   store ptr %9, ptr %7, align 8
   %10 = load ptr, ptr %8, align 8, !tbaa !96
-  br label %.thread24
+  br label %.thread25
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1720,16 +1718,16 @@ define internal void @_logger_log_conn_event(ptr noundef writeonly captures(none
   store i32 %16, ptr %3, align 8
   %17 = load ptr, ptr %15, align 8, !tbaa !96
   %18 = icmp ult i32 %5, 33
-  br i1 %18, label %24, label %.thread24
+  br i1 %18, label %24, label %.thread25
 
-.thread24:                                        ; preds = %11, %.thread
+.thread25:                                        ; preds = %11, %.thread
   %19 = phi ptr [ %10, %.thread ], [ %17, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 8
   store ptr %22, ptr %20, align 8
   %23 = load i32, ptr %21, align 4, !tbaa !9
-  br label %.thread27
+  br label %.thread28
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1740,17 +1738,17 @@ define internal void @_logger_log_conn_event(ptr noundef writeonly captures(none
   store i32 %29, ptr %3, align 8
   %30 = load i32, ptr %28, align 4, !tbaa !9
   %31 = icmp ult i32 %5, 25
-  br i1 %31, label %38, label %.thread27
+  br i1 %31, label %38, label %.thread28
 
-.thread27:                                        ; preds = %24, %.thread24
-  %32 = phi i32 [ %23, %.thread24 ], [ %30, %24 ]
-  %33 = phi ptr [ %19, %.thread24 ], [ %17, %24 ]
+.thread28:                                        ; preds = %24, %.thread25
+  %32 = phi i32 [ %23, %.thread25 ], [ %30, %24 ]
+  %33 = phi ptr [ %19, %.thread25 ], [ %17, %24 ]
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 8
   store ptr %36, ptr %34, align 8
   %37 = load i32, ptr %35, align 4, !tbaa !9
-  br label %.thread30
+  br label %.thread31
 
 38:                                               ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1761,12 +1759,12 @@ define internal void @_logger_log_conn_event(ptr noundef writeonly captures(none
   store i32 %43, ptr %3, align 8
   %44 = load i32, ptr %42, align 4, !tbaa !9
   %45 = icmp ult i32 %5, 17
-  br i1 %45, label %53, label %.thread30
+  br i1 %45, label %53, label %.thread31
 
-.thread30:                                        ; preds = %38, %.thread27
-  %46 = phi i32 [ %37, %.thread27 ], [ %44, %38 ]
-  %47 = phi ptr [ %33, %.thread27 ], [ %17, %38 ]
-  %48 = phi i32 [ %32, %.thread27 ], [ %30, %38 ]
+.thread31:                                        ; preds = %38, %.thread28
+  %46 = phi i32 [ %37, %.thread28 ], [ %44, %38 ]
+  %47 = phi ptr [ %33, %.thread28 ], [ %17, %38 ]
+  %48 = phi i32 [ %32, %.thread28 ], [ %30, %38 ]
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 8
@@ -1794,11 +1792,11 @@ define internal void @_logger_log_conn_event(ptr noundef writeonly captures(none
   store i32 %66, ptr %3, align 8
   br label %75
 
-67:                                               ; preds = %.thread30, %53
-  %68 = phi i32 [ %52, %.thread30 ], [ %59, %53 ]
-  %69 = phi i32 [ %48, %.thread30 ], [ %30, %53 ]
-  %70 = phi ptr [ %47, %.thread30 ], [ %17, %53 ]
-  %71 = phi i32 [ %46, %.thread30 ], [ %44, %53 ]
+67:                                               ; preds = %.thread31, %53
+  %68 = phi i32 [ %52, %.thread31 ], [ %59, %53 ]
+  %69 = phi i32 [ %48, %.thread31 ], [ %30, %53 ]
+  %70 = phi ptr [ %47, %.thread31 ], [ %17, %53 ]
+  %71 = phi i32 [ %46, %.thread31 ], [ %44, %53 ]
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 8

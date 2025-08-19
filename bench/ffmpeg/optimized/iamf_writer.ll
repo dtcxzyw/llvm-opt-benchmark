@@ -654,8 +654,8 @@ ff_iamf_get_param_definition.exit:                ; preds = %272, %273
 ff_iamf_get_param_definition.exit.thread:         ; preds = %264
   %283 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %284 = load i32, ptr %283, align 8, !tbaa !112
-  %.not216374 = icmp eq i32 %284, 1
-  br i1 %.not216374, label %.thread376, label %285
+  %.not216400 = icmp eq i32 %284, 1
+  br i1 %.not216400, label %.thread402, label %285
 
 285:                                              ; preds = %ff_iamf_get_param_definition.exit.thread, %ff_iamf_get_param_definition.exit
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -665,14 +665,14 @@ ff_iamf_get_param_definition.exit.thread:         ; preds = %264
 
 288:                                              ; preds = %ff_iamf_get_param_definition.exit
   %289 = icmp eq ptr %.08.i.ph, null
-  br i1 %289, label %.thread376, label %.thread273
+  br i1 %289, label %.thread402, label %.thread273
 
-.thread376:                                       ; preds = %ff_iamf_get_param_definition.exit.thread, %288
+.thread402:                                       ; preds = %ff_iamf_get_param_definition.exit.thread, %288
   %290 = tail call fastcc i32 @add_param_definition(ptr noundef nonnull %0, ptr noundef %263, ptr noundef nonnull %174, ptr noundef %2)
   %291 = icmp slt i32 %290, 0
   br i1 %291, label %.thread262, label %.thread273
 
-.thread273:                                       ; preds = %.thread376, %288, %._crit_edge321
+.thread273:                                       ; preds = %.thread402, %288, %._crit_edge321
   %292 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %293 = load ptr, ptr %292, align 8, !tbaa !113
   %.not218 = icmp eq ptr %293, null
@@ -718,8 +718,8 @@ ff_iamf_get_param_definition.exit242:             ; preds = %302, %303
 ff_iamf_get_param_definition.exit242.thread:      ; preds = %294
   %313 = getelementptr inbounds nuw i8, ptr %293, i64 24
   %314 = load i32, ptr %313, align 8, !tbaa !112
-  %.not219379 = icmp eq i32 %314, 1
-  br i1 %.not219379, label %.thread381, label %315
+  %.not219405 = icmp eq i32 %314, 1
+  br i1 %.not219405, label %.thread407, label %315
 
 315:                                              ; preds = %ff_iamf_get_param_definition.exit242.thread, %ff_iamf_get_param_definition.exit242
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -729,14 +729,14 @@ ff_iamf_get_param_definition.exit242.thread:      ; preds = %294
 
 318:                                              ; preds = %ff_iamf_get_param_definition.exit242
   %319 = icmp eq ptr %.08.i236.ph, null
-  br i1 %319, label %.thread381, label %.thread278
+  br i1 %319, label %.thread407, label %.thread278
 
-.thread381:                                       ; preds = %ff_iamf_get_param_definition.exit242.thread, %318
+.thread407:                                       ; preds = %ff_iamf_get_param_definition.exit242.thread, %318
   %320 = tail call fastcc i32 @add_param_definition(ptr noundef nonnull %0, ptr noundef %293, ptr noundef nonnull %174, ptr noundef %2)
   %321 = icmp slt i32 %320, 0
   br i1 %321, label %.thread262, label %.thread278
 
-.thread278:                                       ; preds = %.thread381, %318, %.thread273
+.thread278:                                       ; preds = %.thread407, %318, %.thread273
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %323 = load ptr, ptr %322, align 8, !tbaa !57
   %324 = load i32, ptr %71, align 8, !tbaa !51
@@ -756,8 +756,8 @@ ff_iamf_get_param_definition.exit242.thread:      ; preds = %294
   store ptr %174, ptr %332, align 8, !tbaa !59
   br label %.thread
 
-.thread262:                                       ; preds = %.thread381, %.thread376, %.thread259, %243, %315, %285, %257, %.thread278, %186, %175
-  %.0150 = phi i32 [ -22, %257 ], [ -12, %175 ], [ -12, %186 ], [ -12, %.thread278 ], [ -22, %285 ], [ -22, %315 ], [ -22, %243 ], [ -22, %.thread259 ], [ %290, %.thread376 ], [ %320, %.thread381 ]
+.thread262:                                       ; preds = %.thread407, %.thread402, %.thread259, %243, %315, %285, %257, %.thread278, %186, %175
+  %.0150 = phi i32 [ -22, %257 ], [ -12, %175 ], [ -12, %186 ], [ -12, %.thread278 ], [ -22, %285 ], [ -22, %315 ], [ -22, %243 ], [ -22, %.thread259 ], [ %290, %.thread402 ], [ %320, %.thread407 ]
   call void @ff_iamf_free_audio_element(ptr noundef nonnull %4) #9
   br label %.thread
 
@@ -2152,11 +2152,11 @@ av_iamf_param_definition_get_subblock.exit.lr.ph.i.i: ; preds = %461
   br i1 %469, label %av_iamf_param_definition_get_subblock.exit.i.i, label %.loopexit.i
 
 av_iamf_param_definition_get_subblock.exit.ithread-pre-split.i: ; preds = %479
-  %.pr379.i = load i32, ptr %467, align 4, !tbaa !178
+  %.pr389.i = load i32, ptr %467, align 4, !tbaa !178
   br label %av_iamf_param_definition_get_subblock.exit.i.i
 
 av_iamf_param_definition_get_subblock.exit.i.i:   ; preds = %av_iamf_param_definition_get_subblock.exit.lr.ph.i.i, %av_iamf_param_definition_get_subblock.exit.ithread-pre-split.i
-  %470 = phi i32 [ %.pr379.i, %av_iamf_param_definition_get_subblock.exit.ithread-pre-split.i ], [ %468, %av_iamf_param_definition_get_subblock.exit.lr.ph.i.i ]
+  %470 = phi i32 [ %.pr389.i, %av_iamf_param_definition_get_subblock.exit.ithread-pre-split.i ], [ %468, %av_iamf_param_definition_get_subblock.exit.lr.ph.i.i ]
   %471 = phi i32 [ %480, %av_iamf_param_definition_get_subblock.exit.ithread-pre-split.i ], [ %464, %av_iamf_param_definition_get_subblock.exit.lr.ph.i.i ]
   %indvars.iv.i171.i = phi i64 [ %indvars.iv.next.i172.i, %av_iamf_param_definition_get_subblock.exit.ithread-pre-split.i ], [ 0, %av_iamf_param_definition_get_subblock.exit.lr.ph.i.i ]
   %switch.i.i = icmp ult i32 %470, 3

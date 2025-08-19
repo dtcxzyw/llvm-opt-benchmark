@@ -859,10 +859,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %_ZNS
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %250 = load ptr, ptr %249, align 8, !tbaa !64
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 40
-  %.sroa.4.0.insert.shift373 = shl nuw nsw i64 %196, 32
-  %.sroa.0276.0.insert.ext374 = zext nneg i32 %.088 to i64
-  %.sroa.0276.0.insert.insert375 = or disjoint i64 %.sroa.4.0.insert.shift373, %.sroa.0276.0.insert.ext374
-  store i64 %.sroa.0276.0.insert.insert375, ptr %251, align 8
+  %.sroa.4.0.insert.shift400 = shl nuw nsw i64 %196, 32
+  %.sroa.0276.0.insert.ext401 = zext nneg i32 %.088 to i64
+  %.sroa.0276.0.insert.insert402 = or disjoint i64 %.sroa.4.0.insert.shift400, %.sroa.0276.0.insert.ext401
+  store i64 %.sroa.0276.0.insert.insert402, ptr %251, align 8
   br label %327
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i
@@ -874,13 +874,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %255 = load ptr, ptr %254, align 8, !tbaa !64
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 40
-  %.sroa.4.0.insert.shift377 = shl nuw nsw i64 %196, 32
+  %.sroa.4.0.insert.shift404 = shl nuw nsw i64 %196, 32
   br i1 %252, label %257, label %262
 
 257:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.sroa.0276.0.insert.ext378 = zext nneg i32 %253 to i64
-  %.sroa.0276.0.insert.insert379 = or disjoint i64 %.sroa.4.0.insert.shift377, %.sroa.0276.0.insert.ext378
-  store i64 %.sroa.0276.0.insert.insert379, ptr %256, align 8
+  %.sroa.0276.0.insert.ext405 = zext nneg i32 %253 to i64
+  %.sroa.0276.0.insert.insert406 = or disjoint i64 %.sroa.4.0.insert.shift404, %.sroa.0276.0.insert.ext405
+  store i64 %.sroa.0276.0.insert.insert406, ptr %256, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %95, ptr %7, align 8
   %.sroa.11.0..sroa_idx289 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -899,7 +899,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 262:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.sroa.0276.0.insert.ext = zext nneg i32 %.088 to i64
-  %.sroa.0276.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift377, %.sroa.0276.0.insert.ext
+  %.sroa.0276.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift404, %.sroa.0276.0.insert.ext
   store i64 %.sroa.0276.0.insert.insert, ptr %256, align 8
   br label %327
 
@@ -924,7 +924,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit160:            ; preds = %257, %266, %269
   store i64 0, ptr %9, align 8
   %271 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0272.0.insert.ext = zext nneg i32 %253 to i64
-  %.sroa.0272.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift377, %.sroa.0272.0.insert.ext
+  %.sroa.0272.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift404, %.sroa.0272.0.insert.ext
   store i64 %.sroa.0272.0.insert.insert, ptr %271, align 8
   %272 = shl nuw nsw i32 %.088, 2
   invoke void @_ZN8rawspeed24UncompressedDecompressorC1ENS_10ByteStreamENS_8RawImageERKNS_12iRectangle2DEiiNS_8BitOrderE(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %7, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef %272, i32 noundef 16, i8 noundef zeroext 0)
@@ -1062,7 +1062,7 @@ _ZN8rawspeed24UncompressedDecompressorD2Ev.exit:  ; preds = %298, %306, %_ZN9__g
   br label %581
 
 327:                                              ; preds = %262, %.thread
-  %.sroa.4.0.insert.shift376 = phi i64 [ %.sroa.4.0.insert.shift373, %.thread ], [ %.sroa.4.0.insert.shift377, %262 ]
+  %.sroa.4.0.insert.shift403 = phi i64 [ %.sroa.4.0.insert.shift400, %.thread ], [ %.sroa.4.0.insert.shift404, %262 ]
   %328 = phi ptr [ %249, %.thread ], [ %254, %262 ]
   %329 = phi i32 [ %248, %.thread ], [ %253, %262 ]
   %330 = icmp eq i64 %.sroa.4.8.insert.shift.i, 209933706461184
@@ -1105,7 +1105,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit175:            ; preds = %331, %339, %342
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %344 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.0269.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift376, %195
+  %.sroa.0269.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift403, %195
   store i64 %.sroa.0269.0.insert.insert, ptr %344, align 8
   invoke void @_ZN8rawspeed24UncompressedDecompressorC1ENS_10ByteStreamENS_8RawImageERKNS_12iRectangle2DEiiNS_8BitOrderE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %11, ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(16) %13, i32 noundef %329, i32 noundef 16, i8 noundef zeroext 1)
           to label %345 unwind label %394
@@ -2823,7 +2823,7 @@ _ZN8rawspeed8RawImage6createERKNS_8iPoint2DENS_12RawImageTypeEj.exit: ; preds = 
   %indvars.iv215 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next216, %._crit_edge.split.us209 ]
   %247 = trunc nuw nsw i64 %indvars.iv215 to i32
   %248 = lshr i32 %247, 1
-  %249 = add i32 %195, %248
+  %249 = add nuw i32 %195, %248
   %250 = add nuw i32 %248, %.sroa.0170.0
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %251 = lshr i64 %indvars.iv.next216, 1
@@ -3295,7 +3295,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
 
 70:                                               ; preds = %47
   %71 = load ptr, ptr %11, align 8, !tbaa !64
-  %.ptr213 = getelementptr inbounds nuw i8, ptr %71, i64 100
+  %.ptr227 = getelementptr inbounds nuw i8, ptr %71, i64 100
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 120
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 152
   %74 = load i8, ptr %73, align 8, !tbaa !182, !range !80, !noundef !81
@@ -3307,7 +3307,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   br label %.preheader194
 
 .preheader194:                                    ; preds = %70, %76
-  store ptr %.ptr213, ptr %72, align 8, !tbaa !183
+  store ptr %.ptr227, ptr %72, align 8, !tbaa !183
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 128
   store i32 4, ptr %77, align 8, !tbaa !66
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 136
@@ -3316,7 +3316,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   store i32 2, ptr %79, align 4, !tbaa !66
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 144
   store i32 2, ptr %80, align 8, !tbaa !66
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.ptr213, i8 0, i64 16, i1 false), !tbaa !66
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.ptr227, i8 0, i64 16, i1 false), !tbaa !66
   br label %.preheader193
 
 .preheader193:                                    ; preds = %.preheader194, %84
@@ -3341,7 +3341,7 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %90 = and i32 %.080197, 1
   %91 = or disjoint i32 %90, %83
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %.ptr213, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %.ptr227, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !66
   %95 = add i32 %94, %88
   store i32 %95, ptr %93, align 4, !tbaa !66

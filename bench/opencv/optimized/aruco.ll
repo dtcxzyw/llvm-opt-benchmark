@@ -1169,35 +1169,35 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %common.resume
 
 _ZN2cv5arucoL28_getSingleMarkerObjectPointsEfRKNS0_18EstimateParametersE.exit: ; preds = %34, %37
-  %.sink73.i = phi float [ %38, %37 ], [ 0.000000e+00, %34 ]
-  %.sink71.i = phi float [ %39, %37 ], [ 0.000000e+00, %34 ]
-  %.sink67.i = phi float [ %39, %37 ], [ %1, %34 ]
-  %.sink59.i = phi float [ %38, %37 ], [ %1, %34 ]
+  %.sink75.i = phi float [ %38, %37 ], [ 0.000000e+00, %34 ]
+  %.sink73.i = phi float [ %39, %37 ], [ 0.000000e+00, %34 ]
+  %.sink69.i = phi float [ %39, %37 ], [ %1, %34 ]
+  %.sink61.i = phi float [ %38, %37 ], [ %1, %34 ]
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !65, !alias.scope !58
-  store float %.sink73.i, ptr %55, align 4
+  store float %.sink75.i, ptr %55, align 4
   %.sroa.551.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store float %.sink71.i, ptr %.sroa.551.0..sroa_idx.i, align 4
+  store float %.sink73.i, ptr %.sroa.551.0..sroa_idx.i, align 4
   %.sroa.652.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store float 0.000000e+00, ptr %.sroa.652.0..sroa_idx.i, align 4
   %56 = load ptr, ptr %54, align 8, !tbaa !65, !alias.scope !58
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  store float %.sink67.i, ptr %57, align 4
+  store float %.sink69.i, ptr %57, align 4
   %.sroa.548.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store float %.sink71.i, ptr %.sroa.548.0..sroa_idx.i, align 4
+  store float %.sink73.i, ptr %.sroa.548.0..sroa_idx.i, align 4
   %.sroa.649.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 20
   store float 0.000000e+00, ptr %.sroa.649.0..sroa_idx.i, align 4
   %58 = load ptr, ptr %54, align 8, !tbaa !65, !alias.scope !58
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store float %.sink67.i, ptr %59, align 4
+  store float %.sink69.i, ptr %59, align 4
   %.sroa.545.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 28
-  store float %.sink59.i, ptr %.sroa.545.0..sroa_idx.i, align 4
+  store float %.sink61.i, ptr %.sroa.545.0..sroa_idx.i, align 4
   %.sroa.646.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 32
   store float 0.000000e+00, ptr %.sroa.646.0..sroa_idx.i, align 4
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 36
-  store float %.sink73.i, ptr %60, align 4
+  store float %.sink75.i, ptr %60, align 4
   %.sroa.542.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store float %.sink59.i, ptr %.sroa.542.0..sroa_idx.i, align 4
+  store float %.sink61.i, ptr %.sroa.542.0..sroa_idx.i, align 4
   %.sroa.643.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 44
   store float 0.000000e+00, ptr %.sroa.643.0..sroa_idx.i, align 4
   %61 = invoke noundef i64 @_ZNK2cv11_InputArray5totalEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef -1)
@@ -1432,7 +1432,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %114, %116
   br i1 %.not.i43, label %_ZNSt14_Function_baseD2Ev.exit44, label %132
 
 132:                                              ; preds = %.body.thread, %.body
-  %eh.lpad-body48 = phi { ptr, i32 } [ %85, %.body.thread ], [ %.pn.i42, %.body ]
+  %eh.lpad-body66 = phi { ptr, i32 } [ %85, %.body.thread ], [ %.pn.i42, %.body ]
   %133 = phi ptr [ @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco25estimatePoseSingleMarkersERKNS0_11_InputArrayEfS8_S8_RKNS0_12_OutputArrayESB_SB_RKNS0_3PtrINS5_18EstimateParametersEEEE3$_0E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", %.body.thread ], [ %.pre, %.body ]
   %134 = invoke noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit44 unwind label %135
@@ -1445,7 +1445,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %114, %116
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit44:                 ; preds = %132, %.body, %130
-  %.pn27 = phi { ptr, i32 } [ %131, %130 ], [ %.pn.i42, %.body ], [ %eh.lpad-body48, %132 ]
+  %.pn27 = phi { ptr, i32 } [ %131, %130 ], [ %.pn.i42, %.body ], [ %eh.lpad-body66, %132 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %141
 

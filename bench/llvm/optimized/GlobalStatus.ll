@@ -535,9 +535,9 @@ _ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit: ; preds = %129
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %140
   %147 = load i32, ptr %18, align 8, !tbaa !13, !noalias !76
   %148 = icmp ult i32 %142, %147
-  br i1 %148, label %.critedge267, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  br i1 %148, label %.critedge275, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
-.critedge267:                                     ; preds = %._crit_edge.i.i
+.critedge275:                                     ; preds = %._crit_edge.i.i
   %149 = add nuw i32 %142, 1
   store i32 %149, ptr %17, align 4, !tbaa !14, !noalias !76
   store ptr %25, ptr %144, align 8, !tbaa !25, !noalias !76
@@ -549,7 +549,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %.critedge155
 
-153:                                              ; preds = %.critedge267, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+153:                                              ; preds = %.critedge275, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %154 = tail call fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueERNS_12GlobalStatusERNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(21) %2)
   br i1 %154, label %.critedge168, label %.critedge155
 

@@ -3142,11 +3142,11 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.llvm.853492669094159605.exit.i
           to label %39 unwind label %310
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit26": ; preds = %313, %317, %39
-  %.pn586 = phi { ptr, i32 } [ %.pn587, %313 ], [ %.pn587, %317 ], [ %.pn, %39 ]
-  resume { ptr, i32 } %.pn586
+  %.pn598 = phi { ptr, i32 } [ %.pn599, %313 ], [ %.pn599, %317 ], [ %.pn, %39 ]
+  resume { ptr, i32 } %.pn598
 
 313:                                              ; preds = %.thread, %39
-  %.pn587 = phi { ptr, i32 } [ %.pn, %39 ], [ %lpad.thr_comm, %.thread ]
+  %.pn599 = phi { ptr, i32 } [ %.pn, %39 ], [ %lpad.thr_comm, %.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !537)
   call void @llvm.experimental.noalias.scope.decl(metadata !540)
   %314 = load ptr, ptr %31, align 8, !alias.scope !543, !nonnull !8, !noundef !8

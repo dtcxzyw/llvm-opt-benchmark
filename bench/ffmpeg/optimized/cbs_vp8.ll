@@ -400,9 +400,9 @@ cbs_vp8_read_uncompressed_header.exit:            ; preds = %.thread140.i.i, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %177 = load i32, ptr %170, align 4, !tbaa !43
   %.not28.i.i.i = icmp eq i32 %177, 0
-  br i1 %.not28.i.i.i, label %.thread654.i.i, label %180
+  br i1 %.not28.i.i.i, label %.thread698.i.i, label %180
 
-.thread654.i.i:                                   ; preds = %175
+.thread698.i.i:                                   ; preds = %175
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %178 = getelementptr inbounds nuw i8, ptr %77, i64 15
   store i8 %176, ptr %178, align 1, !tbaa !50
@@ -448,8 +448,8 @@ cbs_vp8_read_uncompressed_header.exit:            ; preds = %.thread140.i.i, %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %192, i64 32, i1 false), !tbaa.struct !47
   br label %194
 
-194:                                              ; preds = %193, %183, %.thread654.i.i
-  %195 = phi ptr [ %179, %.thread654.i.i ], [ %192, %193 ], [ %192, %183 ]
+194:                                              ; preds = %193, %183, %.thread698.i.i
+  %195 = phi ptr [ %179, %.thread698.i.i ], [ %192, %193 ], [ %192, %183 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i8 0, ptr %36, align 1, !tbaa !49
   %196 = call fastcc i32 @cbs_vp8_bool_decoder_read_bool(ptr noundef nonnull %72, i8 noundef zeroext -128, ptr noundef %36)
@@ -522,7 +522,7 @@ cbs_vp8_read_uncompressed_header.exit:            ; preds = %.thread140.i.i, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %222 = load i32, ptr %215, align 4, !tbaa !43
   %.not28.i397.i.i = icmp eq i32 %222, 0
-  br i1 %.not28.i397.i.i, label %.thread656.i.i, label %223
+  br i1 %.not28.i397.i.i, label %.thread700.i.i, label %223
 
 223:                                              ; preds = %220
   %224 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -557,19 +557,19 @@ cbs_vp8_read_uncompressed_header.exit:            ; preds = %.thread140.i.i, %11
   %.not.i.i = icmp eq i8 %221, 0
   br i1 %.not.i.i, label %379, label %238
 
-.thread656.i.i:                                   ; preds = %220
+.thread700.i.i:                                   ; preds = %220
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %235 = getelementptr inbounds nuw i8, ptr %77, i64 17
   store i8 %221, ptr %235, align 1, !tbaa !54
-  %.not658.i.i = icmp eq i8 %221, 0
-  br i1 %.not658.i.i, label %.thread663.i.i, label %.thread660.i.i
+  %.not702.i.i = icmp eq i8 %221, 0
+  br i1 %.not702.i.i, label %.thread707.i.i, label %.thread704.i.i
 
-.thread663.i.i:                                   ; preds = %.thread656.i.i
+.thread707.i.i:                                   ; preds = %.thread700.i.i
   %236 = load ptr, ptr %72, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br label %383
 
-.thread660.i.i:                                   ; preds = %.thread656.i.i
+.thread704.i.i:                                   ; preds = %.thread700.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -590,8 +590,8 @@ cbs_vp8_read_uncompressed_header.exit:            ; preds = %.thread140.i.i, %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %239, i64 32, i1 false), !tbaa.struct !47
   br label %241
 
-241:                                              ; preds = %240, %238, %.thread660.i.i
-  %242 = phi ptr [ %237, %.thread660.i.i ], [ %239, %240 ], [ %239, %238 ]
+241:                                              ; preds = %240, %238, %.thread704.i.i
+  %242 = phi ptr [ %237, %.thread704.i.i ], [ %239, %240 ], [ %239, %238 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 0, ptr %27, align 1, !tbaa !49
   %243 = call fastcc i32 @cbs_vp8_bool_decoder_read_bool(ptr noundef nonnull %72, i8 noundef zeroext -128, ptr noundef %27)
@@ -603,9 +603,9 @@ cbs_vp8_read_uncompressed_header.exit:            ; preds = %.thread140.i.i, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %246 = load i32, ptr %215, align 4, !tbaa !43
   %.not28.i.i.i.i = icmp eq i32 %246, 0
-  br i1 %.not28.i.i.i.i, label %.thread336.i.i.i, label %249
+  br i1 %.not28.i.i.i.i, label %.thread345.i.i.i, label %249
 
-.thread336.i.i.i:                                 ; preds = %244
+.thread345.i.i.i:                                 ; preds = %244
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %247 = getelementptr inbounds nuw i8, ptr %77, i64 18
   store i8 %245, ptr %247, align 2, !tbaa !55
@@ -652,9 +652,9 @@ cbs_vp8_read_uncompressed_header.exit:            ; preds = %.thread140.i.i, %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %262, i64 32, i1 false), !tbaa.struct !47
   br label %264
 
-264:                                              ; preds = %263, %253, %.thread336.i.i.i
-  %265 = phi ptr [ %248, %.thread336.i.i.i ], [ %262, %263 ], [ %262, %253 ]
-  %266 = phi ptr [ %247, %.thread336.i.i.i ], [ %261, %263 ], [ %261, %253 ]
+264:                                              ; preds = %263, %253, %.thread345.i.i.i
+  %265 = phi ptr [ %248, %.thread345.i.i.i ], [ %262, %263 ], [ %262, %253 ]
+  %266 = phi ptr [ %247, %.thread345.i.i.i ], [ %261, %263 ], [ %261, %253 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i8 0, ptr %25, align 1, !tbaa !49
   %267 = call fastcc i32 @cbs_vp8_bool_decoder_read_bool(ptr noundef nonnull %72, i8 noundef zeroext -128, ptr noundef %25)
@@ -1000,8 +1000,8 @@ cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge154.i.i.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %381, i64 32, i1 false), !tbaa.struct !47
   br label %383
 
-383:                                              ; preds = %382, %379, %.thread663.i.i
-  %384 = phi ptr [ %236, %.thread663.i.i ], [ %381, %382 ], [ %381, %379 ]
+383:                                              ; preds = %382, %379, %.thread707.i.i
+  %384 = phi ptr [ %236, %.thread707.i.i ], [ %381, %382 ], [ %381, %379 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 0, ptr %16, align 1, !tbaa !49
   %385 = call fastcc i32 @cbs_vp8_bool_decoder_read_bool(ptr noundef nonnull %72, i8 noundef zeroext -128, ptr noundef %16)
@@ -1013,9 +1013,9 @@ cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge154.i.i.i,
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %388 = load i32, ptr %215, align 4, !tbaa !43
   %.not28.i410.i.i = icmp eq i32 %388, 0
-  br i1 %.not28.i410.i.i, label %.thread665.i.i, label %391
+  br i1 %.not28.i410.i.i, label %.thread709.i.i, label %391
 
-.thread665.i.i:                                   ; preds = %386
+.thread709.i.i:                                   ; preds = %386
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %389 = getelementptr inbounds nuw i8, ptr %77, i64 43
   store i8 %387, ptr %389, align 1, !tbaa !63
@@ -1062,8 +1062,8 @@ cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge154.i.i.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %404, i64 32, i1 false), !tbaa.struct !47
   br label %406
 
-406:                                              ; preds = %405, %395, %.thread665.i.i
-  %407 = phi ptr [ %390, %.thread665.i.i ], [ %404, %405 ], [ %404, %395 ]
+406:                                              ; preds = %405, %395, %.thread709.i.i
+  %407 = phi ptr [ %390, %.thread709.i.i ], [ %404, %405 ], [ %404, %395 ]
   br label %408
 
 408:                                              ; preds = %410, %406
@@ -1088,9 +1088,9 @@ cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge154.i.i.i,
 416:                                              ; preds = %410
   %417 = load i32, ptr %215, align 4, !tbaa !43
   %.not28.i421.i.i = icmp eq i32 %417, 0
-  br i1 %.not28.i421.i.i, label %.thread667.i.i, label %421
+  br i1 %.not28.i421.i.i, label %.thread711.i.i, label %421
 
-.thread667.i.i:                                   ; preds = %416
+.thread711.i.i:                                   ; preds = %416
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %418 = trunc i32 %414 to i8
   %419 = getelementptr inbounds nuw i8, ptr %77, i64 44
@@ -1139,8 +1139,8 @@ cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge154.i.i.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %435, i64 32, i1 false), !tbaa.struct !47
   br label %437
 
-437:                                              ; preds = %436, %425, %.thread667.i.i
-  %438 = phi ptr [ %420, %.thread667.i.i ], [ %435, %436 ], [ %435, %425 ]
+437:                                              ; preds = %436, %425, %.thread711.i.i
+  %438 = phi ptr [ %420, %.thread711.i.i ], [ %435, %436 ], [ %435, %425 ]
   br label %439
 
 439:                                              ; preds = %441, %437
@@ -1165,9 +1165,9 @@ cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge154.i.i.i,
 447:                                              ; preds = %441
   %448 = load i32, ptr %215, align 4, !tbaa !43
   %.not28.i432.i.i = icmp eq i32 %448, 0
-  br i1 %.not28.i432.i.i, label %.thread669.i.i, label %452
+  br i1 %.not28.i432.i.i, label %.thread713.i.i, label %452
 
-.thread669.i.i:                                   ; preds = %447
+.thread713.i.i:                                   ; preds = %447
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %449 = trunc i32 %445 to i8
   %450 = getelementptr inbounds nuw i8, ptr %77, i64 45
@@ -1220,8 +1220,8 @@ cbs_vp8_read_update_segmentation.exit.thread.i.i: ; preds = %.critedge154.i.i.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %466, i64 32, i1 false), !tbaa.struct !47
   br label %468
 
-468:                                              ; preds = %467, %456, %.thread669.i.i
-  %469 = phi ptr [ %451, %.thread669.i.i ], [ %466, %467 ], [ %466, %456 ]
+468:                                              ; preds = %467, %456, %.thread713.i.i
+  %469 = phi ptr [ %451, %.thread713.i.i ], [ %466, %467 ], [ %466, %456 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !49
   %470 = call fastcc i32 @cbs_vp8_bool_decoder_read_bool(ptr noundef nonnull %72, i8 noundef zeroext -128, ptr noundef %6)

@@ -567,27 +567,27 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiE
   br i1 %11, label %._crit_edge.thread.i, label %17
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %8, %2 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %8, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !29
-  %14 = icmp eq ptr %.019.lcssa28.i, %13
+  %14 = icmp eq ptr %.019.lcssa29.i, %13
   br i1 %14, label %select.unfold, label %15
 
 15:                                               ; preds = %._crit_edge.thread.i
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #29
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !41
   br label %17
 
 17:                                               ; preds = %15, %._crit_edge.i
   %18 = phi i32 [ %.pre, %15 ], [ %10, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %15 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %15 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %16, %15 ], [ %.02024.i, %._crit_edge.i ]
   %19 = icmp slt i32 %18, %6
   br i1 %19, label %select.unfold, label %29
 
 select.unfold:                                    ; preds = %17, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %17 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %.019.lcssa28.i, %17 ]
   %20 = icmp eq ptr %.sroa.4.0.i.ph, %8
   br i1 %20, label %.thread24, label %21
 
@@ -799,7 +799,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %._ZNSt6vectorIbSaIb
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.thread
   %68 = phi i32 [ %65, %.preheader.lr.ph ], [ %263, %._crit_edge.thread ]
-  %.1221 = phi i32 [ %.079226, %.preheader.lr.ph ], [ %.2.lcssa264, %._crit_edge.thread ]
+  %.1221 = phi i32 [ %.079226, %.preheader.lr.ph ], [ %.2.lcssa292, %._crit_edge.thread ]
   %.086218 = phi i32 [ 0, %.preheader.lr.ph ], [ %261, %._crit_edge.thread ]
   %.095217 = phi ptr [ %58, %.preheader.lr.ph ], [ %.196, %._crit_edge.thread ]
   %.1100216 = phi i64 [ %.099225, %.preheader.lr.ph ], [ %.2101, %._crit_edge.thread ]
@@ -816,7 +816,7 @@ _ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit.thread.us.preheader: ; preds =
 
 ._crit_edge222:                                   ; preds = %._crit_edge.thread, %_ZNSt6vectorIbSaIbEE9push_backEb.exit
   %.1100.lcssa = phi i64 [ %.099225, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ %.2101, %._crit_edge.thread ]
-  %.1.lcssa = phi i32 [ %.079226, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ %.2.lcssa264, %._crit_edge.thread ]
+  %.1.lcssa = phi i32 [ %.079226, %_ZNSt6vectorIbSaIbEE9push_backEb.exit ], [ %.2.lcssa292, %._crit_edge.thread ]
   %71 = add i64 %.1100.lcssa, 1
   %72 = load ptr, ptr %20, align 8, !tbaa !51
   %73 = load ptr, ptr %19, align 8, !tbaa !54
@@ -983,16 +983,16 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit124:         ; preds = %_ZNSt13_Bit_iterato
   br label %272
 
 .sink.split:                                      ; preds = %92, %142
-  %.3102.sink291 = phi i64 [ %.3102, %142 ], [ %.1100216, %92 ]
+  %.3102.sink319 = phi i64 [ %.3102, %142 ], [ %.1100216, %92 ]
   %.398.ph = phi ptr [ %144, %142 ], [ %.095217, %92 ]
   %151 = load ptr, ptr %0, align 8, !tbaa !24
-  %152 = sdiv i64 %.3102.sink291, 64
+  %152 = sdiv i64 %.3102.sink319, 64
   %153 = getelementptr inbounds i64, ptr %151, i64 %152
-  %154 = and i64 %.3102.sink291, -9223372036854775745
+  %154 = and i64 %.3102.sink319, -9223372036854775745
   %155 = icmp ugt i64 %154, -9223372036854775808
   %storemerge.idx.i.i.i.i.i125 = select i1 %155, i64 -8, i64 0
   %storemerge.i.i.i.i.i126 = getelementptr inbounds i8, ptr %153, i64 %storemerge.idx.i.i.i.i.i125
-  %156 = and i64 %.3102.sink291, 63
+  %156 = and i64 %.3102.sink319, 63
   %157 = shl nuw i64 1, %156
   %158 = load i64, ptr %storemerge.i.i.i.i.i126, align 8, !tbaa !22
   %159 = or i64 %158, %157
@@ -1000,7 +1000,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit124:         ; preds = %_ZNSt13_Bit_iterato
   br label %160
 
 160:                                              ; preds = %.sink.split, %133
-  %.4103 = phi i64 [ %.3102, %133 ], [ %.3102.sink291, %.sink.split ]
+  %.4103 = phi i64 [ %.3102, %133 ], [ %.3102.sink319, %.sink.split ]
   %.398 = phi ptr [ %.297, %133 ], [ %.398.ph, %.sink.split ]
   %161 = load i32, ptr %.398, align 8, !tbaa !62
   %162 = sext i32 %161 to i64
@@ -1052,7 +1052,7 @@ _ZNSt12_Vector_baseI13gmx_moltype_tSaIS0_EEC2EmRKS1_.exit.i: ; preds = %_ZNSt6ve
           to label %_ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i.i.i unwind label %179
 
 _ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %177 = add i64 %.01013.i.i.i.i.i, -1
+  %177 = add nsw i64 %.01013.i.i.i.i.i, -1
   %178 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i, i64 2408
   %.not.i.i.i.i.i = icmp eq i64 %177, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !87
@@ -1275,7 +1275,7 @@ _ZNSt6vectorI13gmx_moltype_tSaIS0_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIP13gm
   br label %272
 
 ._crit_edge.thread:                               ; preds = %_ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit.thread.us.preheader, %.preheader, %160, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EED2Ev.exit, %._crit_edge
-  %.2.lcssa264 = phi i32 [ %81, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EED2Ev.exit ], [ %81, %160 ], [ %81, %._crit_edge ], [ %70, %_ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit.thread.us.preheader ], [ %.1221, %.preheader ]
+  %.2.lcssa292 = phi i32 [ %81, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EED2Ev.exit ], [ %81, %160 ], [ %81, %._crit_edge ], [ %70, %_ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit.thread.us.preheader ], [ %.1221, %.preheader ]
   %.2101 = phi i64 [ %.4103, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EED2Ev.exit ], [ %.4103, %160 ], [ %.1100216, %._crit_edge ], [ %.1100216, %_ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit.thread.us.preheader ], [ %.1100216, %.preheader ]
   %.196 = phi ptr [ %.398, %_ZNSt6vectorI13gmx_moltype_tSaIS0_EED2Ev.exit ], [ %.398, %160 ], [ %.095217, %._crit_edge ], [ %.095217, %_ZN3gmx24QMMMTopologyPreprocessor8isQMAtomEl.exit.thread.us.preheader ], [ %.095217, %.preheader ]
   %261 = add nuw nsw i32 %.086218, 1
@@ -5313,7 +5313,7 @@ define linkonce_odr void @_ZNSt6vectorI13gmx_moltype_tSaIS0_EE17_M_default_appen
           to label %_ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 2408
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP13gmx_moltype_tmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !87
@@ -5385,7 +5385,7 @@ _ZNKSt6vectorI13gmx_moltype_tSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %32
           to label %_ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i48 unwind label %42
 
 _ZSt10_ConstructI13gmx_moltype_tJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i40
-  %40 = add i64 %.01013.i.i.i42, -1
+  %40 = add nsw i64 %.01013.i.i.i42, -1
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 2408
   %.not.i.i.i49 = icmp eq i64 %40, 0
   br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIP13gmx_moltype_tmS0_ET_S2_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !87

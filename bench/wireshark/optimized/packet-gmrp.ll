@@ -235,12 +235,12 @@ define internal i32 @dissect_gmrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .sink.split:                                      ; preds = %70, %71
   %hf_gmrp_attribute_value_service_requirement.sink = phi ptr [ @hf_gmrp_attribute_value_service_requirement, %71 ], [ @hf_gmrp_attribute_value_group_membership, %70 ]
-  %.sink343 = phi i32 [ 1, %71 ], [ 6, %70 ]
-  %.sink341 = phi i32 [ 3, %71 ], [ 8, %70 ]
+  %.sink347 = phi i32 [ 1, %71 ], [ 6, %70 ]
+  %.sink345 = phi i32 [ 3, %71 ], [ 8, %70 ]
   %.sink = phi i32 [ -3, %71 ], [ -8, %70 ]
   %75 = load i32, ptr %hf_gmrp_attribute_value_service_requirement.sink, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %75, ptr noundef %0, i32 noundef %66, i32 noundef %.sink343, i32 noundef 0)
-  %77 = add i32 %.2151243, %.sink341
+  %76 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %75, ptr noundef %0, i32 noundef %66, i32 noundef %.sink347, i32 noundef 0)
+  %77 = add i32 %.2151243, %.sink345
   %78 = add i32 %.2144244, %.sink
   br label %79
 

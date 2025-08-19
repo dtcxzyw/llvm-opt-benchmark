@@ -631,11 +631,11 @@ define range(i32 -1, 1) i32 @H5B2__neighbor_internal(ptr noundef %0, i16 noundef
   br i1 %52, label %.sink.split, label %57
 
 .sink.split:                                      ; preds = %49, %47
-  %.sink55 = phi i32 [ %48, %47 ], [ %45, %49 ]
+  %.sink59 = phi i32 [ %48, %47 ], [ %45, %49 ]
   %.sink = load ptr, ptr %29, align 8, !tbaa !35
-  %.sink53 = load ptr, ptr %27, align 8, !tbaa !60
-  %53 = zext i32 %.sink55 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %.sink53, i64 %53
+  %.sink57 = load ptr, ptr %27, align 8, !tbaa !60
+  %53 = zext i32 %.sink59 to i64
+  %54 = getelementptr inbounds nuw i64, ptr %.sink57, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !10
   %56 = getelementptr inbounds nuw i8, ptr %.sink, i64 %55
   br label %57
@@ -1803,7 +1803,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr noundef w
   br label %.thread221
 
 210:                                              ; preds = %._crit_edge245, %168, %203, %196, %143, %150
-  br i1 %.not192, label %211, label %.sink.split250
+  br i1 %.not192, label %211, label %.sink.split255
 
 211:                                              ; preds = %210
   %212 = load ptr, ptr %130, align 8, !tbaa !36
@@ -1829,15 +1829,15 @@ define range(i32 -1, 1) i32 @H5B2__remove_internal(ptr noundef %0, ptr noundef w
 
 226:                                              ; preds = %223
   %227 = add i32 %.pre240, 1
-  br label %.sink.split250
+  br label %.sink.split255
 
-.sink.split250:                                   ; preds = %210, %226
-  %.sink252 = phi i32 [ %227, %226 ], [ 0, %210 ]
-  store i32 %.sink252, ptr %14, align 4, !tbaa !58
+.sink.split255:                                   ; preds = %210, %226
+  %.sink257 = phi i32 [ %227, %226 ], [ 0, %210 ]
+  store i32 %.sink257, ptr %14, align 4, !tbaa !58
   br label %228
 
-228:                                              ; preds = %.sink.split250, %223
-  %229 = phi i32 [ %.pre240, %223 ], [ %.sink252, %.sink.split250 ]
+228:                                              ; preds = %.sink.split255, %223
+  %229 = phi i32 [ %.pre240, %223 ], [ %.sink257, %.sink.split255 ]
   %230 = add i32 %.0160238, -1
   %231 = load ptr, ptr %123, align 8, !tbaa !41
   %232 = zext i32 %229 to i64

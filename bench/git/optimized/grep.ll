@@ -662,7 +662,7 @@ compile_pattern_atom.exit.thread.i:               ; preds = %31, %compile_patter
   unreachable
 
 33:                                               ; preds = %31, %.thread.i
-  %.0.ph.i5471.i = phi ptr [ %19, %.thread.i ], [ %24, %31 ]
+  %.0.ph.i5479.i = phi ptr [ %19, %.thread.i ], [ %24, %31 ]
   %34 = phi ptr [ %21, %.thread.i ], [ %.pre.i, %31 ]
   %35 = getelementptr inbounds nuw i8, ptr %.13662.i, i64 40
   %36 = load i32, ptr %35, align 8, !tbaa !40
@@ -673,14 +673,14 @@ compile_pattern_atom.exit.thread.i:               ; preds = %31, %compile_patter
   br i1 %.not46.i, label %40, label %41
 
 40:                                               ; preds = %33
-  store ptr %.0.ph.i5471.i, ptr %38, align 8, !tbaa !47
+  store ptr %.0.ph.i5479.i, ptr %38, align 8, !tbaa !47
   br label %48
 
 41:                                               ; preds = %33
   %42 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 24) #18
   store i32 4, ptr %42, align 8, !tbaa !55
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %.0.ph.i5471.i, ptr %43, align 8, !tbaa !23
+  store ptr %.0.ph.i5479.i, ptr %43, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %39, ptr %44, align 8, !tbaa !23
   %45 = load i32, ptr %35, align 8, !tbaa !40
@@ -2915,7 +2915,7 @@ define internal fastcc range(i32 0, 2) i32 @headerless_match_one_pattern(ptr nou
   %51 = icmp eq i8 %50, 0
   %52 = icmp ne i8 %46, 95
   %.not79 = and i1 %52, %51
-  br i1 %.not79, label %53, label %.thread89
+  br i1 %.not79, label %53, label %.thread96
 
 53:                                               ; preds = %43, %41
   %54 = icmp eq i64 %23, %38
@@ -2930,23 +2930,23 @@ define internal fastcc range(i32 0, 2) i32 @headerless_match_one_pattern(ptr nou
   %61 = and i8 %60, 6
   %62 = icmp ne i8 %61, 0
   %63 = icmp eq i8 %57, 95
-  %.not82.not102 = or i1 %63, %62
+  %.not82.not109 = or i1 %63, %62
   %64 = icmp eq i32 %.pre, %36
-  %or.cond99 = select i1 %.not82.not102, i1 true, i1 %64
-  br i1 %or.cond99, label %.thread89, label %split
+  %or.cond106 = select i1 %.not82.not109, i1 true, i1 %64
+  br i1 %or.cond106, label %.thread96, label %split
 
 65:                                               ; preds = %53
   %.old = icmp eq i32 %.pre, %36
-  br i1 %.old, label %.thread89, label %split
+  br i1 %.old, label %.thread96, label %split
 
-.thread89:                                        ; preds = %55, %43, %65
+.thread96:                                        ; preds = %55, %43, %65
   %66 = getelementptr inbounds nuw i8, ptr %.053, i64 %33
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = icmp ult ptr %67, %2
   br i1 %68, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %.thread89, %.preheader
-  %.255 = phi ptr [ %80, %.preheader ], [ %67, %.thread89 ]
+.preheader:                                       ; preds = %.thread96, %.preheader
+  %.255 = phi ptr [ %80, %.preheader ], [ %67, %.thread96 ]
   %69 = getelementptr inbounds i8, ptr %.255, i64 -1
   %70 = load i8, ptr %69, align 1, !tbaa !23
   %71 = zext i8 %70 to i64
@@ -2975,8 +2975,8 @@ split:                                            ; preds = %65, %55, %._crit_ed
   store i32 %87, ptr %16, align 4, !tbaa !70
   br label %.thread
 
-.thread:                                          ; preds = %19, %21, %.thread89, %81, %split, %9
-  %.0 = phi i32 [ 0, %9 ], [ 1, %split ], [ 0, %81 ], [ 0, %.thread89 ], [ 0, %21 ], [ 0, %19 ]
+.thread:                                          ; preds = %19, %21, %.thread96, %81, %split, %9
+  %.0 = phi i32 [ 0, %9 ], [ 1, %split ], [ 0, %81 ], [ 0, %.thread96 ], [ 0, %21 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -4213,9 +4213,9 @@ define internal fastcc range(i32 0, 2) i32 @match_expr_eval(ptr noundef %0, ptr 
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %73, %8
-  %.tr96 = phi ptr [ %1, %8 ], [ %75, %73 ]
-  %.tr102 = phi i32 [ %7, %8 ], [ 0, %73 ]
-  %10 = load i32, ptr %.tr96, align 8, !tbaa !55
+  %.tr97 = phi ptr [ %1, %8 ], [ %75, %73 ]
+  %.tr103 = phi i32 [ %7, %8 ], [ 0, %73 ]
+  %10 = load i32, ptr %.tr97, align 8, !tbaa !55
   switch i32 %10, label %88 [
     i32 3, label %89
     i32 0, label %11
@@ -4226,7 +4226,7 @@ tailrecurse:                                      ; preds = %73, %8
 
 11:                                               ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %12 = getelementptr inbounds nuw i8, ptr %.tr96, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.tr97, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !39
@@ -4298,14 +4298,14 @@ match_one_pattern.exit.thread:                    ; preds = %17, %33, %39, %matc
   br label %89
 
 48:                                               ; preds = %tailrecurse
-  %49 = getelementptr inbounds nuw i8, ptr %.tr96, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.tr97, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !23
   %51 = tail call fastcc i32 @match_expr_eval(ptr noundef %0, ptr noundef %50, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6, ptr noundef %5, i32 noundef 0)
   %52 = xor i32 %51, 1
   br label %89
 
 53:                                               ; preds = %tailrecurse
-  %54 = getelementptr inbounds nuw i8, ptr %.tr96, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.tr97, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !23
   %56 = tail call fastcc i32 @match_expr_eval(ptr noundef %0, ptr noundef %55, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 0)
   %.not84 = icmp eq i32 %56, 0
@@ -4318,21 +4318,21 @@ match_one_pattern.exit.thread:                    ; preds = %17, %33, %39, %matc
   br i1 %.not85, label %89, label %60
 
 60:                                               ; preds = %57, %53
-  %61 = getelementptr inbounds nuw i8, ptr %.tr96, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.tr97, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !23
   %63 = tail call fastcc i32 @match_expr_eval(ptr noundef %0, ptr noundef %62, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 0)
   %64 = and i32 %63, %56
   br label %89
 
 65:                                               ; preds = %tailrecurse
-  %.not = icmp eq i32 %.tr102, 0
+  %.not = icmp eq i32 %.tr103, 0
   br i1 %.not, label %66, label %.split78
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %68 = load i32, ptr %67, align 4, !tbaa !20
   %.not82 = icmp eq i32 %68, 0
-  %69 = getelementptr inbounds nuw i8, ptr %.tr96, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.tr97, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !23
   %71 = tail call fastcc i32 @match_expr_eval(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 0)
   br i1 %.not82, label %72, label %.split
@@ -4346,12 +4346,12 @@ common.ret:                                       ; preds = %72, %90, %89
   ret i32 %common.ret.op
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds nuw i8, ptr %.tr96, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.tr97, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !23
   br label %tailrecurse
 
 .split78:                                         ; preds = %65
-  %76 = getelementptr inbounds nuw i8, ptr %.tr96, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.tr97, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !23
   %78 = tail call fastcc i32 @match_expr_eval(ptr noundef %0, ptr noundef %77, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 0)
   %79 = load ptr, ptr %76, align 8, !tbaa !23
@@ -4362,11 +4362,11 @@ common.ret:                                       ; preds = %72, %90, %89
   br label %.split
 
 .split:                                           ; preds = %66, %.split78
-  %.sink94 = phi i32 [ 1, %.split78 ], [ 0, %66 ]
+  %.sink95 = phi i32 [ 1, %.split78 ], [ 0, %66 ]
   %83 = phi i32 [ %78, %.split78 ], [ %71, %66 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.tr96, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.tr97, i64 16
   %85 = load ptr, ptr %84, align 8, !tbaa !23
-  %86 = tail call fastcc i32 @match_expr_eval(ptr noundef %0, ptr noundef %85, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %.sink94)
+  %86 = tail call fastcc i32 @match_expr_eval(ptr noundef %0, ptr noundef %85, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %.sink95)
   %87 = or i32 %86, %83
   br label %89
 
@@ -4376,11 +4376,11 @@ common.ret:                                       ; preds = %72, %90, %89
 
 89:                                               ; preds = %tailrecurse, %57, %60, %match_one_pattern.exit.thread, %44, %.split, %48
   %.0 = phi i32 [ %.0.i93, %44 ], [ %.0.i93, %match_one_pattern.exit.thread ], [ %52, %48 ], [ %64, %60 ], [ 0, %57 ], [ %87, %.split ], [ 1, %tailrecurse ]
-  %.not88 = icmp eq i32 %.tr102, 0
+  %.not88 = icmp eq i32 %.tr103, 0
   br i1 %.not88, label %common.ret, label %90
 
 90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %.tr96, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.tr97, i64 4
   %92 = load i32, ptr %91, align 4, !tbaa !74
   %93 = or i32 %92, %.0
   store i32 %93, ptr %91, align 4, !tbaa !74
@@ -4412,9 +4412,9 @@ define internal fastcc void @show_line_header(ptr noundef %0, ptr noundef %1, i3
 14:                                               ; preds = %5
   %15 = load i32, ptr %13, align 4, !tbaa !85
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %.thread55
+  br i1 %16, label %17, label %.thread56
 
-.thread55:                                        ; preds = %14
+.thread56:                                        ; preds = %14
   store i32 %2, ptr %13, align 4, !tbaa !85
   br label %78
 
@@ -4542,7 +4542,7 @@ output_sep.exit:                                  ; preds = %60, %69, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %78
 
-78:                                               ; preds = %.thread55, %output_sep.exit, %38, %34
+78:                                               ; preds = %.thread56, %output_sep.exit, %38, %34
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %80 = load i32, ptr %79, align 8, !tbaa !19
   %.not33 = icmp eq i32 %80, 0

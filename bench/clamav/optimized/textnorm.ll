@@ -136,17 +136,17 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = sub i64 %5, %2
-  %.5152 = tail call i64 @llvm.umin.i64(i64 %10, i64 %14)
-  %.53 = tail call i64 @llvm.umin.i64(i64 %.5152, i64 %9)
-  %.not54 = icmp eq i64 %.53, 0
-  br i1 %.not54, label %.loopexit, label %.lr.ph
+  %.5758 = tail call i64 @llvm.umin.i64(i64 %10, i64 %14)
+  %.59 = tail call i64 @llvm.umin.i64(i64 %.5758, i64 %9)
+  %.not60 = icmp eq i64 %.59, 0
+  br i1 %.not60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %44
-  %.57 = phi i64 [ %., %44 ], [ %.53, %3 ]
-  %.056 = phi i64 [ %48, %44 ], [ %2, %3 ]
-  %.03055 = phi i64 [ %49, %44 ], [ 0, %3 ]
+  %.63 = phi i64 [ %., %44 ], [ %.59, %3 ]
+  %.062 = phi i64 [ %48, %44 ], [ %2, %3 ]
+  %.03061 = phi i64 [ %49, %44 ], [ 0, %3 ]
   %15 = load ptr, ptr %11, align 8, !tbaa !21
-  %16 = tail call ptr %15(ptr noundef %1, i64 noundef %.056, i64 noundef range(i64 1, 0) %.57, i32 noundef 0) #4
+  %16 = tail call ptr %15(ptr noundef %1, i64 noundef %.062, i64 noundef range(i64 1, 0) %.63, i32 noundef 0) #4
   %.not37 = icmp eq ptr %16, null
   br i1 %.not37, label %.loopexit, label %17
 
@@ -205,7 +205,7 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
 39:                                               ; preds = %37, %34, %24
   %.2.i = phi ptr [ %.3.i, %34 ], [ %.02429.i, %24 ], [ %38, %37 ]
   %40 = add nuw i64 %.02628.i, 1
-  %41 = icmp ult i64 %40, %.57
+  %41 = icmp ult i64 %40, %.63
   %42 = icmp ult ptr %.2.i, %20
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %24, label %44
@@ -216,17 +216,17 @@ define i64 @text_normalize_map(ptr noundef captures(none) %0, ptr noundef %1, i6
   %46 = ptrtoint ptr %.pre.i to i64
   %47 = sub i64 %45, %46
   store i64 %47, ptr %12, align 8, !tbaa !12
-  %48 = add i64 %.57, %.056
-  %49 = add i64 %40, %.03055
+  %48 = add i64 %.63, %.062
+  %49 = add i64 %40, %.03061
   %50 = sub i64 %5, %48
   %51 = sub i64 %9, %49
-  %.51 = tail call i64 @llvm.umin.i64(i64 %10, i64 %50)
-  %. = tail call i64 @llvm.umin.i64(i64 %.51, i64 %51)
+  %.57 = tail call i64 @llvm.umin.i64(i64 %10, i64 %50)
+  %. = tail call i64 @llvm.umin.i64(i64 %.57, i64 %51)
   %.not = icmp eq i64 %., 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %17, %44, %.lr.ph, %3
-  %.030.lcssa = phi i64 [ 0, %3 ], [ %.03055, %17 ], [ %49, %44 ], [ %.03055, %.lr.ph ]
+  %.030.lcssa = phi i64 [ 0, %3 ], [ %.03061, %17 ], [ %49, %44 ], [ %.03061, %.lr.ph ]
   ret i64 %.030.lcssa
 }
 

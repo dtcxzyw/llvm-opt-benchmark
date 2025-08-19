@@ -417,7 +417,7 @@ define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.not = icmp eq ptr %2, null
   br label %19
 
-16:                                               ; preds = %.thread149, %82
+16:                                               ; preds = %.thread152, %82
   %17 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %69)
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %.sink.split, !llvm.loop !6
@@ -495,9 +495,9 @@ define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %70 = icmp ne i32 %32, 13
   %71 = icmp ne i8 %35, 0
   %or.cond4 = select i1 %70, i1 true, i1 %71
-  br i1 %or.cond4, label %74, label %.thread149
+  br i1 %or.cond4, label %74, label %.thread152
 
-.thread149:                                       ; preds = %68
+.thread152:                                       ; preds = %68
   %72 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_mpls_invalid_label, ptr noundef %0, i32 noundef 0, i32 noundef -1)
   %73 = tail call i64 @g_strlcpy(ptr noundef nonnull @PW_ACH, ptr noundef nonnull @.str.124, i64 noundef 50)
   br label %16
@@ -524,7 +524,7 @@ define internal i32 @dissect_mpls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.sink.split, !llvm.loop !6
 
 .sink.split:                                      ; preds = %16, %._crit_edge
-  %.sink = phi i8 [ %35, %._crit_edge ], [ 0, %16 ]
+  %.sink = phi i8 [ 1, %._crit_edge ], [ 0, %16 ]
   store i8 %34, ptr %13, align 4
   store i8 %.sink, ptr %14, align 1
   store i8 %37, ptr %15, align 2

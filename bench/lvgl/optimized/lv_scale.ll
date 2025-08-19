@@ -1634,10 +1634,10 @@ define internal fastcc void @scale_draw_main(ptr noundef %0, ptr noundef %1) unn
   br label %243
 
 243:                                              ; preds = %236, %231
-  %.sink163 = phi i8 [ %242, %236 ], [ %234, %231 ]
-  %.sink162 = phi i8 [ %241, %236 ], [ %235, %231 ]
-  %244 = and i8 %.sink163, -2
-  %245 = or disjoint i8 %244, %.sink162
+  %.sink167 = phi i8 [ %242, %236 ], [ %234, %231 ]
+  %.sink166 = phi i8 [ %241, %236 ], [ %235, %231 ]
+  %244 = and i8 %.sink167, -2
+  %245 = or disjoint i8 %244, %.sink166
   store i8 %245, ptr %179, align 1
   %246 = call i32 @lv_style_get_prop(ptr noundef nonnull %202, i8 noundef zeroext 84, ptr noundef nonnull %3) #9
   %247 = icmp eq i32 %246, 1

@@ -803,9 +803,9 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %39 = load i16, ptr %38, align 2, !alias.scope !42, !noalias !39, !noundef !4
   %40 = icmp eq i16 %37, %39
-  br i1 %40, label %.critedge, label %.thread108.thread116
+  br i1 %40, label %.critedge, label %.thread108.thread120
 
-.thread108.thread116:                             ; preds = %35
+.thread108.thread120:                             ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %82
@@ -820,9 +820,9 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val8.i = load i64, ptr %45, align 8, !alias.scope !42, !noalias !39, !noundef !4
   %46 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd55dddaa9f57be38E"(ptr noalias noundef nonnull readonly align 1 %.val5.i, i64 noundef %.val6.i, ptr noalias noundef nonnull readonly align 1 %.val7.i, i64 noundef %.val8.i), !noalias !44
-  br i1 %46, label %.critedge, label %.thread108.thread117
+  br i1 %46, label %.critedge, label %.thread108.thread121
 
-.thread108.thread117:                             ; preds = %41
+.thread108.thread121:                             ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %89
@@ -957,7 +957,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
 81:                                               ; preds = %.thread108
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63
 
-82:                                               ; preds = %.thread108.thread116, %.thread108
+82:                                               ; preds = %.thread108.thread120, %.thread108
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63
 
 83:                                               ; preds = %.thread108
@@ -978,7 +978,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit: ; preds = %24, %23, %
 88:                                               ; preds = %.thread108
   br label %_ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit63
 
-89:                                               ; preds = %.thread108.thread117, %.thread108
+89:                                               ; preds = %.thread108.thread121, %.thread108
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = load ptr, ptr %90, align 8, !alias.scope !36, !nonnull !4, !align !3, !noundef !4
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 40

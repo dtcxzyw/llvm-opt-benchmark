@@ -3818,13 +3818,13 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br i1 %.not.i.i7.i.i, label %_ZN7rocksdb6StatusD2Ev.exit9.i.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8.i.i: ; preds = %.body.i.i, %.body.thread.i.i
-  %eh.lpad-body14.i.i = phi { ptr, i32 } [ %40, %.body.thread.i.i ], [ %44, %.body.i.i ]
+  %eh.lpad-body17.i.i = phi { ptr, i32 } [ %40, %.body.thread.i.i ], [ %44, %.body.i.i ]
   call void @_ZdaPv(ptr noundef nonnull %17) #16
   br label %_ZN7rocksdb6StatusD2Ev.exit9.i.i
 
 _ZN7rocksdb6StatusD2Ev.exit9.i.i:                 ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8.i.i, %.body.i.i
-  %eh.lpad-body15.i.i = phi { ptr, i32 } [ %44, %.body.i.i ], [ %eh.lpad-body14.i.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8.i.i ]
-  resume { ptr, i32 } %eh.lpad-body15.i.i
+  %eh.lpad-body18.i.i = phi { ptr, i32 } [ %44, %.body.i.i ], [ %eh.lpad-body17.i.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8.i.i ]
+  resume { ptr, i32 } %eh.lpad-body18.i.i
 
 "_ZSt10__invoke_rIvRZN7rocksdb12ReplayerImpl6ReplayERKNS0_13ReplayOptionsERKSt8functionIFvNS0_6StatusEOSt10unique_ptrINS0_17TraceRecordResultESt14default_deleteIS8_EEEEE3$_0JS6_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit": ; preds = %42, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
   ret void

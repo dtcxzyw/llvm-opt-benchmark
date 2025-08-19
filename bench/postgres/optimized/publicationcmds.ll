@@ -929,12 +929,12 @@ define internal fastcc void @parse_publication_options(ptr noundef %0, ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %13, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph127, label %.critedge
+  br i1 %16, label %.lr.ph128, label %.critedge
 
-.lr.ph127:                                        ; preds = %.lr.ph87, %105
-  %indvars.iv98126 = phi i64 [ %indvars.iv.next99, %105 ], [ 0, %.lr.ph87 ]
+.lr.ph128:                                        ; preds = %.lr.ph87, %105
+  %indvars.iv98127 = phi i64 [ %indvars.iv.next99, %105 ], [ 0, %.lr.ph87 ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv98126
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv98127
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -945,7 +945,7 @@ define internal fastcc void @parse_publication_options(ptr noundef %0, ptr nound
 .critedge:                                        ; preds = %105, %.lr.ph87, %8
   ret void
 
-24:                                               ; preds = %.lr.ph127
+24:                                               ; preds = %.lr.ph128
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %26 = trunc nuw i8 %25 to i1
@@ -1041,7 +1041,7 @@ define internal fastcc void @parse_publication_options(ptr noundef %0, ptr nound
   %65 = icmp slt i64 %indvars.iv.next, %64
   br i1 %65, label %.lr.ph83, label %.critedge65
 
-66:                                               ; preds = %.lr.ph127
+66:                                               ; preds = %.lr.ph128
   %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(27) @.str.18) #10
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %76
@@ -1120,11 +1120,11 @@ defGetGeneratedColsOption.exit:                   ; preds = %83, %86, %90
   unreachable
 
 105:                                              ; preds = %73, %defGetGeneratedColsOption.exit, %.critedge65
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98126, 1
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98127, 1
   %106 = load i32, ptr %13, align 4
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next99, %107
-  br i1 %108, label %.lr.ph127, label %.critedge
+  br i1 %108, label %.lr.ph128, label %.critedge
 }
 
 declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
@@ -1239,16 +1239,16 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph251, label %.critedge
+  br i1 %5, label %.lr.ph253, label %.critedge
 
-.lr.ph251:                                        ; preds = %.lr.ph169, %.critedge122
-  %.093165250 = phi ptr [ %.194, %.critedge122 ], [ null, %.lr.ph169 ]
-  %.088166249 = phi ptr [ %.189, %.critedge122 ], [ null, %.lr.ph169 ]
-  %.081167248 = phi ptr [ %.182, %.critedge122 ], [ null, %.lr.ph169 ]
-  %.0168247 = phi ptr [ %.1, %.critedge122 ], [ null, %.lr.ph169 ]
-  %indvars.iv183246 = phi i64 [ %indvars.iv.next184, %.critedge122 ], [ 0, %.lr.ph169 ]
+.lr.ph253:                                        ; preds = %.lr.ph169, %.critedge122
+  %.093165252 = phi ptr [ %.194, %.critedge122 ], [ null, %.lr.ph169 ]
+  %.088166251 = phi ptr [ %.189, %.critedge122 ], [ null, %.lr.ph169 ]
+  %.081167250 = phi ptr [ %.182, %.critedge122 ], [ null, %.lr.ph169 ]
+  %.0168249 = phi ptr [ %.1, %.critedge122 ], [ null, %.lr.ph169 ]
+  %indvars.iv183248 = phi i64 [ %indvars.iv.next184, %.critedge122 ], [ 0, %.lr.ph169 ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv183246
+  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv183248
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -1267,17 +1267,17 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   tail call void @list_free(ptr noundef %.088.lcssa) #8
   ret ptr %.081.lcssa
 
-15:                                               ; preds = %.lr.ph251
+15:                                               ; preds = %.lr.ph253
   tail call void @ProcessInterrupts() #8
   %.pre = load ptr, ptr %9, align 8
   br label %16
 
-16:                                               ; preds = %15, %.lr.ph251
-  %17 = phi ptr [ %.pre, %15 ], [ %10, %.lr.ph251 ]
+16:                                               ; preds = %15, %.lr.ph253
+  %17 = phi ptr [ %.pre, %15 ], [ %10, %.lr.ph253 ]
   %18 = tail call ptr @table_openrv(ptr noundef %17, i32 noundef 4) #8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load i32, ptr %19, align 8
-  %21 = tail call zeroext i1 @list_member_oid(ptr noundef %.0168247, i32 noundef %20) #8
+  %21 = tail call zeroext i1 @list_member_oid(ptr noundef %.0168249, i32 noundef %20) #8
   br i1 %21, label %22, label %47
 
 22:                                               ; preds = %16
@@ -1287,7 +1287,7 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   br i1 %.not119, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = tail call zeroext i1 @list_member_oid(ptr noundef %.088166249, i32 noundef %20) #8
+  %26 = tail call zeroext i1 @list_member_oid(ptr noundef %.088166251, i32 noundef %20) #8
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %25, %22
@@ -1308,7 +1308,7 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   br i1 %.not120, label %37, label %39
 
 37:                                               ; preds = %34
-  %38 = tail call zeroext i1 @list_member_oid(ptr noundef %.093165250, i32 noundef %20) #8
+  %38 = tail call zeroext i1 @list_member_oid(ptr noundef %.093165252, i32 noundef %20) #8
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %37, %34
@@ -1337,28 +1337,28 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %53, ptr %54, align 8
-  %55 = tail call ptr @lappend(ptr noundef %.081167248, ptr noundef nonnull %48) #8
-  %56 = tail call ptr @lappend_oid(ptr noundef %.0168247, i32 noundef %20) #8
+  %55 = tail call ptr @lappend(ptr noundef %.081167250, ptr noundef nonnull %48) #8
+  %56 = tail call ptr @lappend_oid(ptr noundef %.0168249, i32 noundef %20) #8
   %57 = load ptr, ptr %49, align 8
   %.not108 = icmp eq ptr %57, null
   br i1 %.not108, label %60, label %58
 
 58:                                               ; preds = %47
-  %59 = tail call ptr @lappend_oid(ptr noundef %.088166249, i32 noundef %20) #8
+  %59 = tail call ptr @lappend_oid(ptr noundef %.088166251, i32 noundef %20) #8
   br label %60
 
 60:                                               ; preds = %58, %47
-  %.290 = phi ptr [ %59, %58 ], [ %.088166249, %47 ]
+  %.290 = phi ptr [ %59, %58 ], [ %.088166251, %47 ]
   %61 = load ptr, ptr %52, align 8
   %.not109 = icmp eq ptr %61, null
   br i1 %.not109, label %64, label %62
 
 62:                                               ; preds = %60
-  %63 = tail call ptr @lappend_oid(ptr noundef %.093165250, i32 noundef %20) #8
+  %63 = tail call ptr @lappend_oid(ptr noundef %.093165252, i32 noundef %20) #8
   br label %64
 
 64:                                               ; preds = %62, %60
-  %.295 = phi ptr [ %63, %62 ], [ %.093165250, %60 ]
+  %.295 = phi ptr [ %63, %62 ], [ %.093165252, %60 ]
   br i1 %13, label %65, label %.critedge122
 
 65:                                               ; preds = %64
@@ -1379,28 +1379,28 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load i32, ptr %72, align 4
   %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.lr.ph242, label %.critedge122
+  br i1 %75, label %.lr.ph244, label %.critedge122
 
-.lr.ph242:                                        ; preds = %.lr.ph, %.critedge124
-  %.0100150241 = phi ptr [ %.1101, %.critedge124 ], [ %18, %.lr.ph ]
-  %.497151240 = phi ptr [ %.598, %.critedge124 ], [ %.295, %.lr.ph ]
-  %.492152239 = phi ptr [ %.5, %.critedge124 ], [ %.290, %.lr.ph ]
-  %.384154238 = phi ptr [ %.485, %.critedge124 ], [ %55, %.lr.ph ]
-  %.3155237 = phi ptr [ %.4, %.critedge124 ], [ %56, %.lr.ph ]
-  %indvars.iv236 = phi i64 [ %indvars.iv.next, %.critedge124 ], [ 0, %.lr.ph ]
+.lr.ph244:                                        ; preds = %.lr.ph, %.critedge124
+  %.0100150243 = phi ptr [ %.1101, %.critedge124 ], [ %18, %.lr.ph ]
+  %.497151242 = phi ptr [ %.598, %.critedge124 ], [ %.295, %.lr.ph ]
+  %.492152241 = phi ptr [ %.5, %.critedge124 ], [ %.290, %.lr.ph ]
+  %.384154240 = phi ptr [ %.485, %.critedge124 ], [ %55, %.lr.ph ]
+  %.3155239 = phi ptr [ %.4, %.critedge124 ], [ %56, %.lr.ph ]
+  %indvars.iv238 = phi i64 [ %indvars.iv.next, %.critedge124 ], [ 0, %.lr.ph ]
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv236
+  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv238
   %78 = load i32, ptr %77, align 8
   %79 = load volatile i32, ptr @InterruptPending, align 4
   %.not113 = icmp eq i32 %79, 0
   br i1 %.not113, label %81, label %80, !prof !9
 
-80:                                               ; preds = %.lr.ph242
+80:                                               ; preds = %.lr.ph244
   tail call void @ProcessInterrupts() #8
   br label %81
 
-81:                                               ; preds = %80, %.lr.ph242
-  %82 = tail call zeroext i1 @list_member_oid(ptr noundef %.3155237, i32 noundef %78) #8
+81:                                               ; preds = %80, %.lr.ph244
+  %82 = tail call zeroext i1 @list_member_oid(ptr noundef %.3155239, i32 noundef %78) #8
   br i1 %82, label %83, label %106
 
 83:                                               ; preds = %81
@@ -1413,14 +1413,14 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   br i1 %.not117, label %86, label %88
 
 86:                                               ; preds = %84
-  %87 = tail call zeroext i1 @list_member_oid(ptr noundef %.492152239, i32 noundef %78) #8
+  %87 = tail call zeroext i1 @list_member_oid(ptr noundef %.492152241, i32 noundef %78) #8
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %86, %84
   %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %89)
   %90 = tail call i32 @errcode(i32 noundef 290948) #8
-  %91 = getelementptr inbounds nuw i8, ptr %.0100150241, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %.0100150243, i64 56
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef nonnull %93) #8
@@ -1433,14 +1433,14 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   br i1 %.not118, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = tail call zeroext i1 @list_member_oid(ptr noundef %.497151240, i32 noundef %78) #8
+  %98 = tail call zeroext i1 @list_member_oid(ptr noundef %.497151242, i32 noundef %78) #8
   br i1 %98, label %99, label %.critedge124
 
 99:                                               ; preds = %97, %95
   %100 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %100)
   %101 = tail call i32 @errcode(i32 noundef 290948) #8
-  %102 = getelementptr inbounds nuw i8, ptr %.0100150241, i64 56
+  %102 = getelementptr inbounds nuw i8, ptr %.0100150243, i64 56
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, ptr noundef nonnull %104) #8
@@ -1457,48 +1457,48 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   %111 = load ptr, ptr %52, align 8
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr %111, ptr %112, align 8
-  %113 = tail call ptr @lappend(ptr noundef %.384154238, ptr noundef nonnull %108) #8
-  %114 = tail call ptr @lappend_oid(ptr noundef %.3155237, i32 noundef %78) #8
+  %113 = tail call ptr @lappend(ptr noundef %.384154240, ptr noundef nonnull %108) #8
+  %114 = tail call ptr @lappend_oid(ptr noundef %.3155239, i32 noundef %78) #8
   %115 = load ptr, ptr %49, align 8
   %.not114 = icmp eq ptr %115, null
   br i1 %.not114, label %118, label %116
 
 116:                                              ; preds = %106
-  %117 = tail call ptr @lappend_oid(ptr noundef %.492152239, i32 noundef %78) #8
+  %117 = tail call ptr @lappend_oid(ptr noundef %.492152241, i32 noundef %78) #8
   br label %118
 
 118:                                              ; preds = %116, %106
-  %.6 = phi ptr [ %117, %116 ], [ %.492152239, %106 ]
+  %.6 = phi ptr [ %117, %116 ], [ %.492152241, %106 ]
   %119 = load ptr, ptr %52, align 8
   %.not115 = icmp eq ptr %119, null
   br i1 %.not115, label %.critedge124, label %120
 
 120:                                              ; preds = %118
-  %121 = tail call ptr @lappend_oid(ptr noundef %.497151240, i32 noundef %78) #8
+  %121 = tail call ptr @lappend_oid(ptr noundef %.497151242, i32 noundef %78) #8
   br label %.critedge124
 
 .critedge124:                                     ; preds = %118, %120, %97, %83
-  %.1101 = phi ptr [ %.0100150241, %83 ], [ %.0100150241, %97 ], [ %107, %120 ], [ %107, %118 ]
-  %.598 = phi ptr [ %.497151240, %83 ], [ %.497151240, %97 ], [ %121, %120 ], [ %.497151240, %118 ]
-  %.5 = phi ptr [ %.492152239, %83 ], [ %.492152239, %97 ], [ %.6, %120 ], [ %.6, %118 ]
-  %.485 = phi ptr [ %.384154238, %83 ], [ %.384154238, %97 ], [ %113, %120 ], [ %113, %118 ]
-  %.4 = phi ptr [ %.3155237, %83 ], [ %.3155237, %97 ], [ %114, %120 ], [ %114, %118 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv236, 1
+  %.1101 = phi ptr [ %.0100150243, %83 ], [ %.0100150243, %97 ], [ %107, %120 ], [ %107, %118 ]
+  %.598 = phi ptr [ %.497151242, %83 ], [ %.497151242, %97 ], [ %121, %120 ], [ %.497151242, %118 ]
+  %.5 = phi ptr [ %.492152241, %83 ], [ %.492152241, %97 ], [ %.6, %120 ], [ %.6, %118 ]
+  %.485 = phi ptr [ %.384154240, %83 ], [ %.384154240, %97 ], [ %113, %120 ], [ %113, %118 ]
+  %.4 = phi ptr [ %.3155239, %83 ], [ %.3155239, %97 ], [ %114, %120 ], [ %114, %118 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv238, 1
   %122 = load i32, ptr %72, align 4
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next, %123
-  br i1 %124, label %.lr.ph242, label %.critedge122
+  br i1 %124, label %.lr.ph244, label %.critedge122
 
 .critedge122:                                     ; preds = %.critedge124, %.lr.ph, %70, %64, %65, %46
-  %.194 = phi ptr [ %.093165250, %46 ], [ %.295, %65 ], [ %.295, %64 ], [ %.295, %70 ], [ %.295, %.lr.ph ], [ %.598, %.critedge124 ]
-  %.189 = phi ptr [ %.088166249, %46 ], [ %.290, %65 ], [ %.290, %64 ], [ %.290, %70 ], [ %.290, %.lr.ph ], [ %.5, %.critedge124 ]
-  %.182 = phi ptr [ %.081167248, %46 ], [ %55, %65 ], [ %55, %64 ], [ %55, %70 ], [ %55, %.lr.ph ], [ %.485, %.critedge124 ]
-  %.1 = phi ptr [ %.0168247, %46 ], [ %56, %65 ], [ %56, %64 ], [ %56, %70 ], [ %56, %.lr.ph ], [ %.4, %.critedge124 ]
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183246, 1
+  %.194 = phi ptr [ %.093165252, %46 ], [ %.295, %65 ], [ %.295, %64 ], [ %.295, %70 ], [ %.295, %.lr.ph ], [ %.598, %.critedge124 ]
+  %.189 = phi ptr [ %.088166251, %46 ], [ %.290, %65 ], [ %.290, %64 ], [ %.290, %70 ], [ %.290, %.lr.ph ], [ %.5, %.critedge124 ]
+  %.182 = phi ptr [ %.081167250, %46 ], [ %55, %65 ], [ %55, %64 ], [ %55, %70 ], [ %55, %.lr.ph ], [ %.485, %.critedge124 ]
+  %.1 = phi ptr [ %.0168249, %46 ], [ %56, %65 ], [ %56, %64 ], [ %56, %70 ], [ %56, %.lr.ph ], [ %.4, %.critedge124 ]
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183248, 1
   %125 = load i32, ptr %2, align 4
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next184, %126
-  br i1 %127, label %.lr.ph251, label %.critedge
+  br i1 %127, label %.lr.ph253, label %.critedge
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1900,7 +1900,7 @@ _ZNSt10unique_ptrIN3gmx8internal14FileStreamImplESt14default_deleteIS2_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3gmx13TextInputFile6handleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZN3gmx13TextInputFile6handleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   %4 = load ptr, ptr %3, align 8, !tbaa !11

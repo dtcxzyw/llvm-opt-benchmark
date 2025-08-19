@@ -1801,15 +1801,15 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
 
 .preheader36.outer:                               ; preds = %42, %93
   %.promoted721.ph = phi i32 [ 0, %93 ], [ %.promoted723, %42 ]
-  %.ph55 = phi ptr [ %88, %93 ], [ %.promoted914, %42 ]
-  %.ph56 = phi i32 [ %94, %93 ], [ %.promoted829, %42 ]
-  %.ph57 = phi ptr [ %85, %93 ], [ %.promoted19, %42 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.ph55, i64 24
+  %.ph66 = phi ptr [ %88, %93 ], [ %.promoted914, %42 ]
+  %.ph67 = phi i32 [ %94, %93 ], [ %.promoted829, %42 ]
+  %.ph68 = phi ptr [ %85, %93 ], [ %.promoted19, %42 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.ph66, i64 24
   br label %.preheader36
 
 .preheader36:                                     ; preds = %.preheader36.backedge, %.preheader36.outer
   %.promoted721 = phi i32 [ %.promoted721.ph, %.preheader36.outer ], [ %58, %.preheader36.backedge ]
-  %45 = phi ptr [ %.ph57, %.preheader36.outer ], [ %85, %.preheader36.backedge ]
+  %45 = phi ptr [ %.ph68, %.preheader36.outer ], [ %85, %.preheader36.backedge ]
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread.i, label %47
 
@@ -1833,7 +1833,7 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br label %.thread.i
 
 .thread.i:                                        ; preds = %54, %53, %51, %.preheader36
-  %55 = icmp ult i32 %.promoted721, %.ph56
+  %55 = icmp ult i32 %.promoted721, %.ph67
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %.thread.i
@@ -1940,10 +1940,10 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   br label %.preheader36, !llvm.loop !28
 
 dma_resv_iter_walk_unlocked.exit:                 ; preds = %110, %42, %56
-  %.promoted828 = phi i32 [ %.promoted829, %42 ], [ %.ph56, %56 ], [ %.ph56, %110 ]
+  %.promoted828 = phi i32 [ %.promoted829, %42 ], [ %.ph67, %56 ], [ %.ph67, %110 ]
   %.promoted722 = phi i32 [ %.promoted723, %42 ], [ %.promoted721, %56 ], [ %58, %110 ]
   %.promoted18 = phi ptr [ %.promoted19, %42 ], [ null, %56 ], [ %64, %110 ]
-  %.promoted913 = phi ptr [ null, %42 ], [ %.ph55, %56 ], [ %.ph55, %110 ]
+  %.promoted913 = phi ptr [ null, %42 ], [ %.ph66, %56 ], [ %.ph66, %110 ]
   %112 = load volatile ptr, ptr %27, align 8
   %113 = icmp eq ptr %112, %.promoted913
   br i1 %113, label %114, label %35, !llvm.loop !29
@@ -2070,13 +2070,13 @@ define dso_local void @dma_resv_describe(ptr noundef %0, ptr noundef %1) #0 alig
 20:                                               ; preds = %.preheader17
   %21 = and i64 %16, -4
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.thread, label %.preheader59
+  br i1 %22, label %.thread, label %.preheader66
 
-.preheader59:                                     ; preds = %20, %41
+.preheader66:                                     ; preds = %20, %41
   %23 = phi i32 [ %39, %41 ], [ %18, %20 ]
-  %.in47 = phi i64 [ %indvars.iv.next45, %41 ], [ %indvars.iv.next, %20 ]
+  %.in54 = phi i64 [ %indvars.iv.next45, %41 ], [ %indvars.iv.next, %20 ]
   %.in = phi i64 [ %42, %41 ], [ %21, %20 ]
-  %24 = trunc i64 %.in47 to i32
+  %24 = trunc i64 %.in54 to i32
   %25 = inttoptr i64 %.in to ptr
   %26 = zext nneg i32 %23 to i64
   %27 = getelementptr [4 x ptr], ptr @dma_resv_describe.usage, i64 0, i64 %26
@@ -2087,8 +2087,8 @@ define dso_local void @dma_resv_describe(ptr noundef %0, ptr noundef %1) #0 alig
   %30 = icmp ugt i32 %29, %24
   br i1 %30, label %.preheader.preheader, label %.thread
 
-.preheader.preheader:                             ; preds = %.preheader59
-  %31 = and i64 %.in47, 4294967295
+.preheader.preheader:                             ; preds = %.preheader66
+  %31 = and i64 %.in54, 4294967295
   %32 = zext i32 %29 to i64
   br label %.preheader
 
@@ -2110,9 +2110,9 @@ define dso_local void @dma_resv_describe(ptr noundef %0, ptr noundef %1) #0 alig
 41:                                               ; preds = %.preheader
   %42 = and i64 %37, -4
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %.thread, label %.preheader59, !llvm.loop !39
+  br i1 %43, label %.thread, label %.preheader66, !llvm.loop !39
 
-.thread:                                          ; preds = %12, %.preheader59, %41, %33, %7, %2, %20
+.thread:                                          ; preds = %12, %.preheader66, %41, %33, %7, %2, %20
   ret void
 }
 

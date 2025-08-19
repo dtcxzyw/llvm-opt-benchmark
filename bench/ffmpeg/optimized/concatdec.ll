@@ -820,9 +820,9 @@ concat_parse_script.exit:                         ; preds = %281
   br i1 %324, label %.thread, label %327
 
 .thread:                                          ; preds = %321, %322
-  %.1188 = phi i64 [ %.2, %322 ], [ %319, %321 ]
+  %.1214 = phi i64 [ %.2, %322 ], [ %319, %321 ]
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %.1188, ptr %325, align 8, !tbaa !76
+  store i64 %.1214, ptr %325, align 8, !tbaa !76
   %326 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i32 1, ptr %326, align 4, !tbaa !77
   br label %327
@@ -1510,10 +1510,10 @@ define internal i32 @concat_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2,
 49:                                               ; preds = %49, %.lr.ph.i
   %.04464.i = phi i32 [ 0, %.lr.ph.i ], [ %.044..i, %49 ]
   %.14663.i = phi i32 [ %42, %.lr.ph.i ], [ %..146.i, %49 ]
-  %50 = add nsw i32 %.14663.i, %.04464.i
-  %51 = sdiv i32 %50, 2
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.ConcatFile, ptr %48, i64 %52, i32 1
+  %50 = add nuw nsw i32 %.14663.i, %.04464.i
+  %51 = lshr i32 %50, 1
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw %struct.ConcatFile, ptr %48, i64 %52, i32 1
   %54 = load i64, ptr %53, align 8, !tbaa !50
   %55 = icmp slt i64 %38, %54
   %..146.i = select i1 %55, i32 %51, i32 %.14663.i
@@ -1527,8 +1527,8 @@ define internal i32 @concat_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2,
   %.044.lcssa.i = phi i32 [ 0, %.._crit_edge_crit_edge.i ], [ %.044..i, %49 ]
   %59 = load ptr, ptr %19, align 8, !tbaa !81
   %60 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %61 = sext i32 %.044.lcssa.i to i64
-  %62 = getelementptr inbounds %struct.ConcatFile, ptr %58, i64 %61
+  %61 = zext nneg i32 %.044.lcssa.i to i64
+  %62 = getelementptr inbounds nuw %struct.ConcatFile, ptr %58, i64 %61
   %.not53.i = icmp eq ptr %59, %62
   br i1 %.not53.i, label %66, label %63
 
@@ -1629,8 +1629,8 @@ real_seek.exit.thread27:                          ; preds = %try_seek.exit.i
 109:                                              ; preds = %105
   %110 = load ptr, ptr %60, align 8, !tbaa !46
   %111 = add nuw nsw i32 %.044.lcssa.i, 1
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds %struct.ConcatFile, ptr %110, i64 %112, i32 1
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds nuw %struct.ConcatFile, ptr %110, i64 %112, i32 1
   %114 = load i64, ptr %113, align 8, !tbaa !50
   %115 = load i64, ptr %15, align 8, !tbaa !42
   %116 = icmp slt i64 %114, %115
@@ -1638,7 +1638,7 @@ real_seek.exit.thread27:                          ; preds = %try_seek.exit.i
 
 117:                                              ; preds = %109
   %118 = load ptr, ptr %19, align 8, !tbaa !81
-  %119 = getelementptr inbounds %struct.ConcatFile, ptr %110, i64 %61
+  %119 = getelementptr inbounds nuw %struct.ConcatFile, ptr %110, i64 %61
   %120 = icmp eq ptr %118, %119
   br i1 %120, label %121, label %122
 

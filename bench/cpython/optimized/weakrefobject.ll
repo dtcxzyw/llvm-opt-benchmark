@@ -2606,11 +2606,11 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %19, %26
 .thread.thread.i.i:                               ; preds = %.thread.i..thread.thread.i_crit_edge.i, %38
   %.0.val19.i.i = phi ptr [ %.0.val19.i.pre.i, %.thread.i..thread.thread.i_crit_edge.i ], [ %.val.i.i, %38 ]
   %.017.i = phi ptr [ %32, %.thread.i..thread.thread.i_crit_edge.i ], [ null, %38 ]
-  %.02227.i.i = phi ptr [ %42, %.thread.i..thread.thread.i_crit_edge.i ], [ %32, %38 ]
+  %.02228.i.i = phi ptr [ %42, %.thread.i..thread.thread.i_crit_edge.i ], [ %32, %38 ]
   %.not24.i.i = icmp eq ptr %.0.val19.i.i, @_PyWeakref_ProxyType
   %.not25.i.i = icmp eq ptr %.0.val19.i.i, @_PyWeakref_CallableProxyType
   %or.cond.i.i = or i1 %.not24.i.i, %.not25.i.i
-  %spec.select21.i = select i1 %or.cond.i.i, ptr %.02227.i.i, ptr null
+  %spec.select21.i = select i1 %or.cond.i.i, ptr %.02228.i.i, ptr null
   br label %get_basic_refs.exit.i
 
 get_basic_refs.exit.i:                            ; preds = %.thread.thread.i.i, %.thread.i.i, %40, %34, %33
@@ -2703,11 +2703,11 @@ get_basic_refs.exit.i:                            ; preds = %.thread.thread.i.i,
 .thread.thread.i.i46:                             ; preds = %.thread.i..thread.thread.i_crit_edge.i57, %71
   %.0.val19.i.i47 = phi ptr [ %.0.val19.i.pre.i59, %.thread.i..thread.thread.i_crit_edge.i57 ], [ %.val.i.i44, %71 ]
   %.016.i = phi ptr [ %66, %.thread.i..thread.thread.i_crit_edge.i57 ], [ null, %71 ]
-  %.02227.i.i48 = phi ptr [ %75, %.thread.i..thread.thread.i_crit_edge.i57 ], [ %66, %71 ]
+  %.02228.i.i48 = phi ptr [ %75, %.thread.i..thread.thread.i_crit_edge.i57 ], [ %66, %71 ]
   %.not24.i.i49 = icmp eq ptr %.0.val19.i.i47, @_PyWeakref_ProxyType
   %.not25.i.i50 = icmp eq ptr %.0.val19.i.i47, @_PyWeakref_CallableProxyType
   %or.cond.i.i51 = or i1 %.not24.i.i49, %.not25.i.i50
-  %spec.select.i52 = select i1 %or.cond.i.i51, ptr %.02227.i.i48, ptr null
+  %spec.select.i52 = select i1 %or.cond.i.i51, ptr %.02228.i.i48, ptr null
   br label %get_basic_refs.exit.i39
 
 get_basic_refs.exit.i39:                          ; preds = %.thread.thread.i.i46, %.thread.i.i54, %73, %67, %63
@@ -2838,11 +2838,11 @@ insert_after.exit.i:                              ; preds = %89, %85
 .thread.thread.i.i82:                             ; preds = %.thread.i..thread.thread.i_crit_edge.i94, %113
   %.0.val19.i.i83 = phi ptr [ %.0.val19.i.pre.i96, %.thread.i..thread.thread.i_crit_edge.i94 ], [ %.val.i.i80, %113 ]
   %.016.i84 = phi ptr [ %108, %.thread.i..thread.thread.i_crit_edge.i94 ], [ null, %113 ]
-  %.02227.i.i85 = phi ptr [ %117, %.thread.i..thread.thread.i_crit_edge.i94 ], [ %108, %113 ]
+  %.02228.i.i85 = phi ptr [ %117, %.thread.i..thread.thread.i_crit_edge.i94 ], [ %108, %113 ]
   %.not24.i.i86 = icmp eq ptr %.0.val19.i.i83, @_PyWeakref_ProxyType
   %.not25.i.i87 = icmp eq ptr %.0.val19.i.i83, @_PyWeakref_CallableProxyType
   %or.cond.i.i88 = or i1 %.not24.i.i86, %.not25.i.i87
-  %spec.select.i89 = select i1 %or.cond.i.i88, ptr %.02227.i.i85, ptr null
+  %spec.select.i89 = select i1 %or.cond.i.i88, ptr %.02228.i.i85, ptr null
   br label %get_basic_refs.exit.i64
 
 get_basic_refs.exit.i64:                          ; preds = %.thread.thread.i.i82, %.thread.i.i91, %115, %109, %105
@@ -3086,8 +3086,8 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %3, %6, %PyObject_Ty
 
 _PyWeakref_GET_REF.exit:                          ; preds = %11
   %13 = add nuw i32 %.val.i.i, 1
-  %.not.i22 = icmp slt i32 %13, 0
-  %spec.store.select = select i1 %.not.i22, i32 %13, i32 %.val.i.i
+  %.not.i24 = icmp slt i32 %13, 0
+  %spec.store.select = select i1 %.not.i24, i32 %13, i32 %.val.i.i
   store i32 %spec.store.select, ptr %.val14, align 8
   br label %Py_DECREF.exit
 
@@ -3208,8 +3208,8 @@ _PyWeakref_GetWeakrefCount.exit:                  ; preds = %.lr.ph.i
   br i1 %45, label %_PyWeakref_GetWeakrefCount.exit.thread, label %89
 
 46:                                               ; preds = %is_basic_ref.exit.i71, %.preheader117.split.preheader
-  %.pr.pre126 = phi ptr [ %24, %.preheader117.split.preheader ], [ %.pr.pre127131, %is_basic_ref.exit.i71 ]
-  %.pr123 = phi ptr [ %24, %.preheader117.split.preheader ], [ %.pr132, %is_basic_ref.exit.i71 ]
+  %.pr.pre126 = phi ptr [ %24, %.preheader117.split.preheader ], [ %.pr.pre127151, %is_basic_ref.exit.i71 ]
+  %.pr123 = phi ptr [ %24, %.preheader117.split.preheader ], [ %.pr152, %is_basic_ref.exit.i71 ]
   %47 = getelementptr inbounds nuw i8, ptr %.pr123, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !41
   %49 = icmp eq ptr %48, null
@@ -3306,15 +3306,15 @@ is_basic_ref_or_proxy.exit.thread:                ; preds = %82, %is_basic_ref_o
   br i1 %83, label %.split.us, label %is_basic_ref_or_proxy.exit.thread.thread
 
 is_basic_ref_or_proxy.exit.thread.thread:         ; preds = %46, %is_basic_ref.exit.i, %is_basic_ref_or_proxy.exit.thread
-  %.pr132 = phi ptr [ %.pr.pre, %is_basic_ref_or_proxy.exit.thread ], [ %.pr123, %is_basic_ref.exit.i ], [ %.pr123, %46 ]
-  %.pr.pre127131 = phi ptr [ %.pr.pre, %is_basic_ref_or_proxy.exit.thread ], [ %.pr.pre126, %is_basic_ref.exit.i ], [ %.pr.pre126, %46 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.pr132, i64 24
+  %.pr152 = phi ptr [ %.pr.pre, %is_basic_ref_or_proxy.exit.thread ], [ %.pr123, %is_basic_ref.exit.i ], [ %.pr123, %46 ]
+  %.pr.pre127151 = phi ptr [ %.pr.pre, %is_basic_ref_or_proxy.exit.thread ], [ %.pr.pre126, %is_basic_ref.exit.i ], [ %.pr.pre126, %46 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.pr152, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !41
   %86 = icmp eq ptr %85, null
   br i1 %86, label %is_basic_ref.exit.i71, label %.split.us
 
 is_basic_ref.exit.i71:                            ; preds = %is_basic_ref_or_proxy.exit.thread.thread
-  %87 = getelementptr i8, ptr %.pr132, i64 8
+  %87 = getelementptr i8, ptr %.pr152, i64 8
   %.val.i.i72 = load ptr, ptr %87, align 8, !tbaa !4
   %.not.i73 = icmp eq ptr %.val.i.i72, @_PyWeakref_RefType
   %.not.i.i74 = icmp eq ptr %.val.i.i72, @_PyWeakref_ProxyType
@@ -3440,7 +3440,7 @@ _PyWeakref_ClearWeakRefsNoCallbacks.exit:         ; preds = %_PyWeakref_ClearRef
   br i1 %.not54, label %.preheader, label %.preheader116.split.preheader
 
 .preheader116.split.preheader:                    ; preds = %.preheader116, %.preheader116.splitthread-pre-split
-  %.041118137 = phi i64 [ %.1114, %.preheader116.splitthread-pre-split ], [ 0, %.preheader116 ]
+  %.041118157 = phi i64 [ %.1114, %.preheader116.splitthread-pre-split ], [ 0, %.preheader116 ]
   %137 = phi ptr [ %.pr, %.preheader116.splitthread-pre-split ], [ %95, %.preheader116 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8, !tbaa !37
@@ -3532,12 +3532,12 @@ clear_weakref_lock_held.exit94:                   ; preds = %.preheader116.split
   br label %176
 
 176:                                              ; preds = %172, %174
-  %177 = getelementptr [1 x ptr], ptr %94, i64 0, i64 %.041118137
+  %177 = getelementptr [1 x ptr], ptr %94, i64 0, i64 %.041118157
   store ptr %137, ptr %177, align 8, !tbaa !45
-  %178 = add i64 %.041118137, 1
+  %178 = add i64 %.041118157, 1
   %179 = getelementptr [1 x ptr], ptr %94, i64 0, i64 %178
   store ptr %171, ptr %179, align 8, !tbaa !45
-  %180 = add i64 %.041118137, 2
+  %180 = add i64 %.041118157, 2
   %.pre = load ptr, ptr %.0.i, align 8, !tbaa !33
   br label %Py_XDECREF.exit
 
@@ -3563,7 +3563,7 @@ _Py_TryIncref.exit:                               ; preds = %clear_weakref_lock_
 
 Py_XDECREF.exit:                                  ; preds = %176, %_Py_TryIncref.exit, %182, %184, %187
   %.in = phi ptr [ %181, %_Py_TryIncref.exit ], [ %181, %182 ], [ %181, %184 ], [ %181, %187 ], [ %.pre, %176 ]
-  %.1114 = phi i64 [ %.041118137, %_Py_TryIncref.exit ], [ %.041118137, %182 ], [ %.041118137, %184 ], [ %.041118137, %187 ], [ %180, %176 ]
+  %.1114 = phi i64 [ %.041118157, %_Py_TryIncref.exit ], [ %.041118157, %182 ], [ %.041118157, %184 ], [ %.041118157, %187 ], [ %180, %176 ]
   %.not120 = icmp eq ptr %.in, null
   br i1 %.not120, label %.preheader, label %.preheader116.splitthread-pre-split, !llvm.loop !52
 

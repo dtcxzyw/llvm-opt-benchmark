@@ -50,7 +50,7 @@ define noundef ptr @av_ts_make_time_string2(ptr noundef returned captures(ret: a
   %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = icmp eq i8 %24, 48
-  br i1 %25, label %21, label %.critedge.split.loop.exit50, !llvm.loop !7
+  br i1 %25, label %21, label %.critedge.split.loop.exit53, !llvm.loop !7
 
 26:                                               ; preds = %6
   %27 = tail call nsz double @llvm.fabs.f64(double %11)
@@ -58,12 +58,12 @@ define noundef ptr @av_ts_make_time_string2(ptr noundef returned captures(ret: a
   %29 = tail call nsz double @llvm.floor.f64(double %28)
   br label %.critedge38
 
-.critedge.split.loop.exit50:                      ; preds = %22
+.critedge.split.loop.exit53:                      ; preds = %22
   %30 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %21, %.critedge.split.loop.exit50
-  %.0.lcssa = phi i32 [ %30, %.critedge.split.loop.exit50 ], [ %20, %21 ]
+.critedge:                                        ; preds = %21, %.critedge.split.loop.exit53
+  %.0.lcssa = phi i32 [ %30, %.critedge.split.loop.exit53 ], [ %20, %21 ]
   %.not3541 = icmp eq i32 %.0.lcssa, 0
   br i1 %.not3541, label %.critedge3, label %.lr.ph.preheader
 

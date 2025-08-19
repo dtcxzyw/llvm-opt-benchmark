@@ -15,7 +15,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %.sroa.06.4.extract.trunc = trunc nuw i64 %.sroa.06.4.extract.shift to i32
   %5 = and i32 %.sroa.06.4.extract.trunc, 2147483647
   %6 = icmp samesign ult i32 %5, 1072243196
-  %indvars.iv.sroa.gep151 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv.sroa.gep153 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
@@ -196,7 +196,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
 
 107:                                              ; preds = %101, %107
   %108 = phi i1 [ true, %101 ], [ false, %107 ]
-  %indvars.iv.sroa.phi = phi ptr [ %3, %101 ], [ %indvars.iv.sroa.gep151, %107 ]
+  %indvars.iv.sroa.phi = phi ptr [ %3, %101 ], [ %indvars.iv.sroa.gep153, %107 ]
   %.0129141 = phi double [ %106, %101 ], [ %112, %107 ]
   %109 = fptosi double %.0129141 to i32
   %110 = sitofp i32 %109 to double
@@ -212,22 +212,22 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
 
 115:                                              ; preds = %116, %113
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %116 ], [ 3, %113 ]
-  %.not146 = icmp eq i64 %indvars.iv143, 0
-  br i1 %.not146, label %.critedge, label %116
+  %.not148 = icmp eq i64 %indvars.iv143, 0
+  br i1 %.not148, label %.critedge, label %116
 
 116:                                              ; preds = %115
   %indvars.iv.next144 = add nsw i64 %indvars.iv143, -1
   %117 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %indvars.iv.next144
   %118 = load double, ptr %117, align 8
   %119 = fcmp oeq double %118, 0.000000e+00
-  br i1 %119, label %115, label %.critedge.split.loop.exit147, !llvm.loop !6
+  br i1 %119, label %115, label %.critedge.split.loop.exit149, !llvm.loop !6
 
-.critedge.split.loop.exit147:                     ; preds = %116
+.critedge.split.loop.exit149:                     ; preds = %116
   %120 = trunc nuw nsw i64 %indvars.iv143 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %115, %.critedge.split.loop.exit147
-  %.0134.lcssa = phi i32 [ %120, %.critedge.split.loop.exit147 ], [ 0, %115 ]
+.critedge:                                        ; preds = %115, %.critedge.split.loop.exit149
+  %.0134.lcssa = phi i32 [ %120, %.critedge.split.loop.exit149 ], [ 0, %115 ]
   %121 = call i32 @__kernel_rem_pio2(ptr noundef nonnull %3, ptr noundef %1, i32 noundef %103, i32 noundef %.0134.lcssa, i32 noundef 2, ptr noundef nonnull @two_over_pi) #4
   %122 = icmp slt i64 %4, 0
   br i1 %122, label %123, label %130

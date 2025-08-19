@@ -625,8 +625,8 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %226 unwind label %223, !noalias !3
 
 226:                                              ; preds = %231, %225
-  %.sink70.i = phi ptr [ %21, %231 ], [ %20, %225 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sink70.i, i64 32, i1 false), !noalias !3
+  %.sink72.i = phi ptr [ %21, %231 ], [ %20, %225 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sink72.i, i64 32, i1 false), !noalias !3
   br i1 %64, label %232, label %233
 
 227:                                              ; preds = %218
@@ -767,8 +767,8 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %260 unwind label %239, !noalias !3
 
 260:                                              ; preds = %286, %259
-  %.sink71.i = phi ptr [ %19, %286 ], [ %13, %259 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink71.i, i64 32, i1 false)
+  %.sink73.i = phi ptr [ %19, %286 ], [ %13, %259 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink73.i, i64 32, i1 false)
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %22)
           to label %287 unwind label %220, !noalias !3
 

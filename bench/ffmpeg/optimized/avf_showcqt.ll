@@ -212,12 +212,12 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
 33:                                               ; preds = %30
   %34 = add nuw i32 %28, %25
   %35 = sub i32 %32, %34
-  br label %.thread117.thread130.sink.split
+  br label %.thread117.thread142.sink.split
 
 36:                                               ; preds = %30
   %37 = sub nsw i32 %32, %25
   %. = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %37)
-  br label %.thread117.thread130.sink.split
+  br label %.thread117.thread142.sink.split
 
 38:                                               ; preds = %19
   br i1 %29, label %39, label %.thread117.thread
@@ -234,7 +234,7 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 400
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !36
   %43 = icmp slt i32 %.pre, 0
-  br i1 %43, label %.thread117.thread, label %.thread117.thread130
+  br i1 %43, label %.thread117.thread, label %.thread117.thread142
 
 .thread117.thread:                                ; preds = %39, %38, %.thread117
   %44 = phi i32 [ %17, %.thread117 ], [ %.108, %39 ], [ %spec.select, %38 ]
@@ -248,30 +248,30 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %51 = load i32, ptr %50, align 8, !tbaa !37
   %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %.thread132, label %.thread131
+  br i1 %52, label %.thread144, label %.thread143
 
-.thread132:                                       ; preds = %.thread117.thread
+.thread144:                                       ; preds = %.thread117.thread
   %53 = add i32 %44, %51
   %54 = sub i32 %47, %53
   store i32 %54, ptr %45, align 8, !tbaa !36
   br label %65
 
-.thread117.thread130.sink.split:                  ; preds = %33, %36
+.thread117.thread142.sink.split:                  ; preds = %33, %36
   %..sink = phi i32 [ %., %36 ], [ %35, %33 ]
   store i32 %..sink, ptr %16, align 4, !tbaa !35
-  br label %.thread117.thread130
+  br label %.thread117.thread142
 
-.thread117.thread130:                             ; preds = %.thread117.thread130.sink.split, %.thread117
-  %55 = phi i32 [ %.pre, %.thread117 ], [ %25, %.thread117.thread130.sink.split ]
-  %56 = phi i32 [ %17, %.thread117 ], [ %..sink, %.thread117.thread130.sink.split ]
+.thread117.thread142:                             ; preds = %.thread117.thread142.sink.split, %.thread117
+  %55 = phi i32 [ %.pre, %.thread117 ], [ %25, %.thread117.thread142.sink.split ]
+  %56 = phi i32 [ %17, %.thread117 ], [ %..sink, %.thread117.thread142.sink.split ]
   %.phi.trans.insert126 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %.pre127 = load i32, ptr %.phi.trans.insert126, align 8, !tbaa !37
   %57 = icmp slt i32 %.pre127, 0
-  br i1 %57, label %.thread131, label %65
+  br i1 %57, label %.thread143, label %65
 
-.thread131:                                       ; preds = %.thread117.thread, %.thread117.thread130
-  %58 = phi i32 [ %55, %.thread117.thread130 ], [ %spec.select109, %.thread117.thread ]
-  %59 = phi i32 [ %56, %.thread117.thread130 ], [ %44, %.thread117.thread ]
+.thread143:                                       ; preds = %.thread117.thread, %.thread117.thread142
+  %58 = phi i32 [ %55, %.thread117.thread142 ], [ %spec.select109, %.thread117.thread ]
+  %59 = phi i32 [ %56, %.thread117.thread142 ], [ %44, %.thread117.thread ]
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 388
   %62 = load i32, ptr %61, align 4, !tbaa !34
@@ -280,10 +280,10 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   store i32 %64, ptr %60, align 8, !tbaa !37
   br label %65
 
-65:                                               ; preds = %.thread132, %.thread131, %.thread117.thread130
-  %66 = phi i32 [ %58, %.thread131 ], [ %55, %.thread117.thread130 ], [ %54, %.thread132 ]
-  %67 = phi i32 [ %59, %.thread131 ], [ %56, %.thread117.thread130 ], [ %44, %.thread132 ]
-  %68 = phi i32 [ %64, %.thread131 ], [ %.pre127, %.thread117.thread130 ], [ %51, %.thread132 ]
+65:                                               ; preds = %.thread144, %.thread143, %.thread117.thread142
+  %66 = phi i32 [ %58, %.thread143 ], [ %55, %.thread117.thread142 ], [ %54, %.thread144 ]
+  %67 = phi i32 [ %59, %.thread143 ], [ %56, %.thread117.thread142 ], [ %44, %.thread144 ]
+  %68 = phi i32 [ %64, %.thread143 ], [ %.pre127, %.thread117.thread142 ], [ %51, %.thread144 ]
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 384
   %70 = load i32, ptr %69, align 8, !tbaa !33
   %71 = and i32 %70, 1
@@ -300,8 +300,8 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   %or.cond = select i1 %.not102, i1 %.not103, i1 false
   %77 = and i32 %67, 1
   %.not104 = icmp eq i32 %77, 0
-  %or.cond134 = select i1 %or.cond, i1 %.not104, i1 false
-  br i1 %or.cond134, label %78, label %89
+  %or.cond146 = select i1 %or.cond, i1 %.not104, i1 false
+  br i1 %or.cond146, label %78, label %89
 
 78:                                               ; preds = %72
   %79 = or i32 %67, %66
@@ -1661,7 +1661,8 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
   br label %.lr.ph101.us
 
 .lr.ph101.us:                                     ; preds = %.lr.ph103, %._crit_edge.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 1, %.lr.ph103 ]
+  %exitcond108.not = phi i1 [ true, %._crit_edge.us ], [ false, %.lr.ph103 ]
+  %indvars.iv = phi i64 [ 2, %._crit_edge.us ], [ 1, %.lr.ph103 ]
   %21 = getelementptr inbounds nuw [8 x i32], ptr %13, i64 0, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !143
   %23 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %indvars.iv
@@ -1695,8 +1696,6 @@ define internal void @draw_sono(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %44, label %28, label %._crit_edge.us, !llvm.loop !144
 
 ._crit_edge.us:                                   ; preds = %28
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond108.not, label %._crit_edge104, label %.lr.ph101.us, !llvm.loop !145
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -2732,8 +2731,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %190
 
 190:                                              ; preds = %154, %158, %137
-  %.sink724 = phi i8 [ %157, %154 ], [ %189, %158 ], [ %153, %137 ]
-  store i8 %.sink724, ptr %131, align 1, !tbaa !148
+  %.sink730 = phi i8 [ %157, %154 ], [ %189, %158 ], [ %153, %137 ]
+  store i8 %.sink730, ptr %131, align 1, !tbaa !148
   %191 = getelementptr inbounds nuw i8, ptr %.0547665, i64 2
   %192 = getelementptr inbounds nuw i8, ptr %.0553664, i64 2
   %193 = getelementptr inbounds nuw i8, ptr %.0558663, i64 2
@@ -2797,8 +2796,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %222
 
 222:                                              ; preds = %207, %209, %201
-  %.sink725 = phi i8 [ %208, %207 ], [ %221, %209 ], [ %206, %201 ]
-  store i8 %.sink725, ptr %.1548656, align 1, !tbaa !148
+  %.sink731 = phi i8 [ %208, %207 ], [ %221, %209 ], [ %206, %201 ]
+  store i8 %.sink731, ptr %.1548656, align 1, !tbaa !148
   %223 = getelementptr inbounds nuw i8, ptr %.1548656, i64 1
   %224 = getelementptr inbounds nuw i8, ptr %.1564653, i64 1
   %225 = load i8, ptr %.1580650, align 1, !tbaa !148
@@ -2876,8 +2875,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %277
 
 277:                                              ; preds = %241, %.thread, %227
-  %.sink726 = phi i8 [ %243, %241 ], [ %276, %.thread ], [ %238, %227 ]
-  store i8 %.sink726, ptr %.1559654, align 1, !tbaa !148
+  %.sink732 = phi i8 [ %243, %241 ], [ %276, %.thread ], [ %238, %227 ]
+  store i8 %.sink732, ptr %.1559654, align 1, !tbaa !148
   %278 = getelementptr inbounds nuw i8, ptr %.1570652, i64 2
   %279 = getelementptr inbounds nuw i8, ptr %.1575651, i64 2
   %280 = getelementptr inbounds nuw i8, ptr %.1580650, i64 1
@@ -2919,8 +2918,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %307
 
 307:                                              ; preds = %291, %293, %284
-  %.sink727 = phi i8 [ %292, %291 ], [ %306, %293 ], [ %290, %284 ]
-  store i8 %.sink727, ptr %223, align 1, !tbaa !148
+  %.sink733 = phi i8 [ %292, %291 ], [ %306, %293 ], [ %290, %284 ]
+  store i8 %.sink733, ptr %223, align 1, !tbaa !148
   %308 = getelementptr inbounds nuw i8, ptr %.1548656, i64 2
   %309 = getelementptr inbounds nuw i8, ptr %.1564653, i64 2
   %310 = getelementptr inbounds nuw i8, ptr %.1580650, i64 2
@@ -2971,8 +2970,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %334
 
 334:                                              ; preds = %319, %321, %313
-  %.sink728 = phi i8 [ %320, %319 ], [ %333, %321 ], [ %318, %313 ]
-  store i8 %.sink728, ptr %.2549648, align 1, !tbaa !148
+  %.sink734 = phi i8 [ %320, %319 ], [ %333, %321 ], [ %318, %313 ]
+  store i8 %.sink734, ptr %.2549648, align 1, !tbaa !148
   %335 = getelementptr inbounds nuw i8, ptr %.2549648, i64 1
   %336 = getelementptr inbounds nuw i8, ptr %.2565645, i64 1
   %337 = load i8, ptr %.2581642, align 1, !tbaa !148
@@ -3101,8 +3100,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %430
 
 430:                                              ; preds = %367, %.thread630, %345
-  %.sink729 = phi i8 [ %369, %367 ], [ %429, %.thread630 ], [ %356, %345 ]
-  store i8 %.sink729, ptr %.2560646, align 1, !tbaa !148
+  %.sink735 = phi i8 [ %369, %367 ], [ %429, %.thread630 ], [ %356, %345 ]
+  store i8 %.sink735, ptr %.2560646, align 1, !tbaa !148
   %431 = getelementptr inbounds nuw i8, ptr %.2571644, i64 2
   %432 = getelementptr inbounds nuw i8, ptr %.2576643, i64 2
   %433 = getelementptr inbounds nuw i8, ptr %.2581642, i64 1
@@ -3144,8 +3143,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %460
 
 460:                                              ; preds = %444, %446, %437
-  %.sink730 = phi i8 [ %445, %444 ], [ %459, %446 ], [ %443, %437 ]
-  store i8 %.sink730, ptr %335, align 1, !tbaa !148
+  %.sink736 = phi i8 [ %445, %444 ], [ %459, %446 ], [ %443, %437 ]
+  store i8 %.sink736, ptr %335, align 1, !tbaa !148
   %461 = getelementptr inbounds nuw i8, ptr %.2549648, i64 2
   %462 = getelementptr inbounds nuw i8, ptr %.2565645, i64 2
   %463 = getelementptr inbounds nuw i8, ptr %.2581642, i64 2
@@ -3254,8 +3253,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %533
 
 533:                                              ; preds = %498, %502, %482
-  %.sink731 = phi i8 [ %501, %498 ], [ %532, %502 ], [ %497, %482 ]
-  store i8 %.sink731, ptr %.3561686, align 1, !tbaa !148
+  %.sink737 = phi i8 [ %501, %498 ], [ %532, %502 ], [ %497, %482 ]
+  store i8 %.sink737, ptr %.3561686, align 1, !tbaa !148
   %534 = getelementptr inbounds nuw i8, ptr %.3550688, i64 1
   %535 = getelementptr inbounds nuw i8, ptr %.3556687, i64 1
   %536 = getelementptr inbounds nuw i8, ptr %.3561686, i64 1
@@ -3335,8 +3334,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %595
 
 595:                                              ; preds = %559, %563, %542
-  %.sink732 = phi i8 [ %562, %559 ], [ %594, %563 ], [ %558, %542 ]
-  store i8 %.sink732, ptr %536, align 1, !tbaa !148
+  %.sink738 = phi i8 [ %562, %559 ], [ %594, %563 ], [ %558, %542 ]
+  store i8 %.sink738, ptr %536, align 1, !tbaa !148
   %596 = getelementptr inbounds nuw i8, ptr %.3550688, i64 2
   %597 = getelementptr inbounds nuw i8, ptr %.3556687, i64 2
   %598 = getelementptr inbounds nuw i8, ptr %.3561686, i64 2
@@ -3400,8 +3399,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %627
 
 627:                                              ; preds = %612, %614, %606
-  %.sink733 = phi i8 [ %613, %612 ], [ %626, %614 ], [ %611, %606 ]
-  store i8 %.sink733, ptr %.4551679, align 1, !tbaa !148
+  %.sink739 = phi i8 [ %613, %612 ], [ %626, %614 ], [ %611, %606 ]
+  store i8 %.sink739, ptr %.4551679, align 1, !tbaa !148
   %628 = getelementptr inbounds nuw i8, ptr %.4551679, i64 1
   %629 = getelementptr inbounds nuw i8, ptr %.4567676, i64 1
   %630 = load i8, ptr %.4583673, align 1, !tbaa !148
@@ -3479,8 +3478,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %682
 
 682:                                              ; preds = %646, %.thread631, %632
-  %.sink734 = phi i8 [ %648, %646 ], [ %681, %.thread631 ], [ %643, %632 ]
-  store i8 %.sink734, ptr %.4562677, align 1, !tbaa !148
+  %.sink740 = phi i8 [ %648, %646 ], [ %681, %.thread631 ], [ %643, %632 ]
+  store i8 %.sink740, ptr %.4562677, align 1, !tbaa !148
   %683 = getelementptr inbounds nuw i8, ptr %.4573675, i64 2
   %684 = getelementptr inbounds nuw i8, ptr %.4578674, i64 2
   %685 = getelementptr inbounds nuw i8, ptr %.4583673, i64 1
@@ -3522,8 +3521,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %712
 
 712:                                              ; preds = %696, %698, %689
-  %.sink735 = phi i8 [ %697, %696 ], [ %711, %698 ], [ %695, %689 ]
-  store i8 %.sink735, ptr %628, align 1, !tbaa !148
+  %.sink741 = phi i8 [ %697, %696 ], [ %711, %698 ], [ %695, %689 ]
+  store i8 %.sink741, ptr %628, align 1, !tbaa !148
   %713 = getelementptr inbounds nuw i8, ptr %.4551679, i64 2
   %714 = getelementptr inbounds nuw i8, ptr %.4567676, i64 2
   %715 = getelementptr inbounds nuw i8, ptr %.4583673, i64 2
@@ -3570,8 +3569,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %739
 
 739:                                              ; preds = %724, %726, %718
-  %.sink736 = phi i8 [ %725, %724 ], [ %738, %726 ], [ %723, %718 ]
-  store i8 %.sink736, ptr %.5552670, align 1, !tbaa !148
+  %.sink742 = phi i8 [ %725, %724 ], [ %738, %726 ], [ %723, %718 ]
+  store i8 %.sink742, ptr %.5552670, align 1, !tbaa !148
   %740 = getelementptr inbounds nuw i8, ptr %.5552670, i64 1
   %741 = getelementptr inbounds nuw i8, ptr %.5568669, i64 1
   %742 = getelementptr inbounds nuw i8, ptr %.5584668, i64 1
@@ -3611,8 +3610,8 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   br label %767
 
 767:                                              ; preds = %751, %753, %744
-  %.sink737 = phi i8 [ %752, %751 ], [ %766, %753 ], [ %750, %744 ]
-  store i8 %.sink737, ptr %740, align 1, !tbaa !148
+  %.sink743 = phi i8 [ %752, %751 ], [ %766, %753 ], [ %750, %744 ]
+  store i8 %.sink743, ptr %740, align 1, !tbaa !148
   %768 = getelementptr inbounds nuw i8, ptr %.5552670, i64 2
   %769 = getelementptr inbounds nuw i8, ptr %.5568669, i64 2
   %770 = getelementptr inbounds nuw i8, ptr %.5584668, i64 2
@@ -3855,20 +3854,20 @@ convert_axis_pixel_format.exit:                   ; preds = %switch.lookup, %16
   store i32 %36, ptr %37, align 4, !tbaa !142
   %38 = load i32, ptr %22, align 8, !tbaa !65
   %39 = icmp ult i32 %38, 6
-  %switch.maskindex25 = trunc i32 %38 to i8
-  %switch.shifted26 = lshr i8 53, %switch.maskindex25
-  %switch.lobit27 = trunc i8 %switch.shifted26 to i1
-  %or.cond30 = select i1 %39, i1 %switch.lobit27, i1 false
-  br i1 %or.cond30, label %switch.lookup24, label %convert_axis_pixel_format.exit22
+  %switch.maskindex28 = trunc i32 %38 to i8
+  %switch.shifted29 = lshr i8 53, %switch.maskindex28
+  %switch.lobit30 = trunc i8 %switch.shifted29 to i1
+  %or.cond33 = select i1 %39, i1 %switch.lobit30, i1 false
+  br i1 %or.cond33, label %switch.lookup27, label %convert_axis_pixel_format.exit22
 
-switch.lookup24:                                  ; preds = %32
+switch.lookup27:                                  ; preds = %32
   %40 = zext nneg i32 %38 to i64
-  %switch.gep28 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %40
-  %switch.load29 = load i32, ptr %switch.gep28, align 4
+  %switch.gep31 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %40
+  %switch.load32 = load i32, ptr %switch.gep31, align 4
   br label %convert_axis_pixel_format.exit22
 
-convert_axis_pixel_format.exit22:                 ; preds = %switch.lookup24, %32
-  %.0.i21 = phi i32 [ %38, %32 ], [ %switch.load29, %switch.lookup24 ]
+convert_axis_pixel_format.exit22:                 ; preds = %switch.lookup27, %32
+  %.0.i21 = phi i32 [ %38, %32 ], [ %switch.load32, %switch.lookup27 ]
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 116
   store i32 %.0.i21, ptr %41, align 4, !tbaa !137
   br label %44
@@ -4234,20 +4233,20 @@ convert_axis_pixel_format.exit:                   ; preds = %switch.lookup, %134
   store i32 %154, ptr %155, align 4, !tbaa !142
   %156 = load i32, ptr %141, align 8, !tbaa !65
   %157 = icmp ult i32 %156, 6
-  %switch.maskindex56 = trunc i32 %156 to i8
-  %switch.shifted57 = lshr i8 53, %switch.maskindex56
-  %switch.lobit58 = trunc i8 %switch.shifted57 to i1
-  %or.cond61 = select i1 %157, i1 %switch.lobit58, i1 false
-  br i1 %or.cond61, label %switch.lookup55, label %convert_axis_pixel_format.exit50
+  %switch.maskindex59 = trunc i32 %156 to i8
+  %switch.shifted60 = lshr i8 53, %switch.maskindex59
+  %switch.lobit61 = trunc i8 %switch.shifted60 to i1
+  %or.cond64 = select i1 %157, i1 %switch.lobit61, i1 false
+  br i1 %or.cond64, label %switch.lookup58, label %convert_axis_pixel_format.exit50
 
-switch.lookup55:                                  ; preds = %150
+switch.lookup58:                                  ; preds = %150
   %158 = zext nneg i32 %156 to i64
-  %switch.gep59 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %158
-  %switch.load60 = load i32, ptr %switch.gep59, align 4
+  %switch.gep62 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.init_axis_from_font.7, i64 0, i64 %158
+  %switch.load63 = load i32, ptr %switch.gep62, align 4
   br label %convert_axis_pixel_format.exit50
 
-convert_axis_pixel_format.exit50:                 ; preds = %switch.lookup55, %150
-  %.0.i49 = phi i32 [ %156, %150 ], [ %switch.load60, %switch.lookup55 ]
+convert_axis_pixel_format.exit50:                 ; preds = %switch.lookup58, %150
+  %.0.i49 = phi i32 [ %156, %150 ], [ %switch.load63, %switch.lookup58 ]
   %159 = getelementptr inbounds nuw i8, ptr %152, i64 116
   store i32 %.0.i49, ptr %159, align 4, !tbaa !137
   br label %162
@@ -4940,8 +4939,8 @@ define internal fastcc i32 @filter_frame(ptr noundef readonly captures(none) %0,
   br i1 %.not131, label %._crit_edge166, label %90, !llvm.loop !190
 
 ._crit_edge166:                                   ; preds = %.loopexit146, %.loopexit146.thread
-  %.2118195 = phi i32 [ %.0116162, %.loopexit146.thread ], [ %.1117, %.loopexit146 ]
-  %190 = icmp eq i32 %.2118195, 0
+  %.2118205 = phi i32 [ %.0116162, %.loopexit146.thread ], [ %.1117, %.loopexit146 ]
+  %190 = icmp eq i32 %.2118205, 0
   br i1 %190, label %._crit_edge166.thread, label %191
 
 ._crit_edge166.thread:                            ; preds = %75, %._crit_edge166
@@ -5259,17 +5258,17 @@ calculate_gamma.exit.i:                           ; preds = %120, %117, %113, %1
 .preheader.us.i:                                  ; preds = %._crit_edge123.us.i, %.preheader.lr.ph.split.us.i
   %indvars.iv158.i = phi i64 [ %indvars.iv.next159.i, %._crit_edge123.us.i ], [ 0, %.preheader.lr.ph.split.us.i ]
   %151 = mul nuw nsw i64 %indvars.iv158.i, %150
-  %invariant.gep168.i = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %.pre16, i64 %151
+  %invariant.gep181.i = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %.pre16, i64 %151
   br label %152
 
 152:                                              ; preds = %152, %.preheader.us.i
   %indvars.iv153.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next154.i, %152 ]
   %.sroa.6.1121.us.i = phi float [ 0.000000e+00, %.preheader.us.i ], [ %157, %152 ]
   %.sroa.0.1120.us.i = phi float [ 0.000000e+00, %.preheader.us.i ], [ %154, %152 ]
-  %gep169.i = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep168.i, i64 %indvars.iv153.i
-  %153 = load float, ptr %gep169.i, align 4, !tbaa !132
+  %gep182.i = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %invariant.gep181.i, i64 %indvars.iv153.i
+  %153 = load float, ptr %gep182.i, align 4, !tbaa !132
   %154 = fadd nsz float %.sroa.0.1120.us.i, %153
-  %155 = getelementptr inbounds nuw i8, ptr %gep169.i, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %gep182.i, i64 4
   %156 = load float, ptr %155, align 4, !tbaa !134
   %157 = fadd nsz float %.sroa.6.1121.us.i, %156
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1

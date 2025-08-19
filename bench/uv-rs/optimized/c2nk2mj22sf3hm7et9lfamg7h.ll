@@ -342,9 +342,9 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17hb0b5888038fa3bedE.exit29:
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h87cadb7af24f0b67E.exit
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h87cadb7af24f0b67E.exit: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd6b42bb67a87b3d4E.llvm.7145678236687640008.exit.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd6b42bb67a87b3d4E.llvm.7145678236687640008.exit4.i"
-  %.sink87 = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd6b42bb67a87b3d4E.llvm.7145678236687640008.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd6b42bb67a87b3d4E.llvm.7145678236687640008.exit4.i" ]
+  %.sink90 = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd6b42bb67a87b3d4E.llvm.7145678236687640008.exit.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hd6b42bb67a87b3d4E.llvm.7145678236687640008.exit4.i" ]
   %112 = load i64, ptr %6, align 8, !noalias !12, !noundef !12
-  %113 = add i64 %112, %.sink87
+  %113 = add i64 %112, %.sink90
   store i64 %113, ptr %6, align 8, !noalias !12
   br label %.outer
 }
@@ -1161,14 +1161,14 @@ _ZN10serde_json3ser9Formatter12begin_object17h60958f44c5e27e66E.exit.i.i.i.i.i.i
   br i1 %294, label %451, label %.lr.ph.i.i.i.i.i.i.i58.preheader
 
 .lr.ph.i.i.i.i.i.i.i58.preheader:                 ; preds = %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.thread.i.i.i.i.i", %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.i.i.i.i.i64"
-  %.ph79 = phi ptr [ %284, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.i.i.i.i.i64" ], [ %293, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.thread.i.i.i.i.i" ]
-  %.ph80 = phi { ptr, ptr } [ %283, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.i.i.i.i.i64" ], [ %292, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.thread.i.i.i.i.i" ]
+  %.ph129 = phi ptr [ %284, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.i.i.i.i.i64" ], [ %293, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.thread.i.i.i.i.i" ]
+  %.ph130 = phi { ptr, ptr } [ %283, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.i.i.i.i.i64" ], [ %292, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17ha4e184ff27c502f2E.exit.thread.i.i.i.i.i" ]
   br label %.lr.ph.i.i.i.i.i.i.i58
 
 .lr.ph.i.i.i.i.i.i.i58:                           ; preds = %.lr.ph.i.i.i.i.i.i.i58.preheader, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2d4a714f3ccd325E.exit.i.i.i.i.i.i.i"
   %295 = phi i1 [ false, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2d4a714f3ccd325E.exit.i.i.i.i.i.i.i" ], [ %.not, %.lr.ph.i.i.i.i.i.i.i58.preheader ]
-  %296 = phi ptr [ %437, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2d4a714f3ccd325E.exit.i.i.i.i.i.i.i" ], [ %.ph79, %.lr.ph.i.i.i.i.i.i.i58.preheader ]
-  %297 = phi { ptr, ptr } [ %436, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2d4a714f3ccd325E.exit.i.i.i.i.i.i.i" ], [ %.ph80, %.lr.ph.i.i.i.i.i.i.i58.preheader ]
+  %296 = phi ptr [ %437, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2d4a714f3ccd325E.exit.i.i.i.i.i.i.i" ], [ %.ph129, %.lr.ph.i.i.i.i.i.i.i58.preheader ]
+  %297 = phi { ptr, ptr } [ %436, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hc2d4a714f3ccd325E.exit.i.i.i.i.i.i.i" ], [ %.ph130, %.lr.ph.i.i.i.i.i.i.i58.preheader ]
   %298 = extractvalue { ptr, ptr } %297, 1
   %299 = icmp ne ptr %298, null
   call void @llvm.assume(i1 %299)

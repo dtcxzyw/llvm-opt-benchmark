@@ -1219,22 +1219,22 @@ _ZNK4ncnn3Mat5emptyEv.exit314:                    ; preds = %593
   %611 = mul nsw i32 %608, %610
   store i32 %611, ptr %14, align 4, !tbaa !31
   switch i32 %.0236, label %617 [
-    i32 16, label %.sink.split390
+    i32 16, label %.sink.split429
     i32 8, label %612
     i32 4, label %613
     i32 1, label %614
   ]
 
 612:                                              ; preds = %603
-  br label %.sink.split390
+  br label %.sink.split429
 
 613:                                              ; preds = %603
-  br label %.sink.split390
+  br label %.sink.split429
 
 614:                                              ; preds = %603
-  br label %.sink.split390
+  br label %.sink.split429
 
-.sink.split390:                                   ; preds = %603, %614, %612, %613
+.sink.split429:                                   ; preds = %603, %614, %612, %613
   %_ZNK4ncnn18Reshape_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.5.sink = phi ptr [ @_ZNK4ncnn18Reshape_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.5, %613 ], [ @_ZNK4ncnn18Reshape_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.4, %612 ], [ @_ZNK4ncnn18Reshape_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.6, %614 ], [ @_ZNK4ncnn18Reshape_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3, %603 ]
   %615 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %616 = load i32, ptr %615, align 4, !tbaa !54
@@ -1242,7 +1242,7 @@ _ZNK4ncnn3Mat5emptyEv.exit314:                    ; preds = %593
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull %_ZNK4ncnn18Reshape_x86_avx5127forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.5.sink, ptr nonnull %2, ptr nonnull %12, ptr nonnull %14)
   br label %617
 
-617:                                              ; preds = %.sink.split390, %603
+617:                                              ; preds = %.sink.split429, %603
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK4ncnn3Mat5emptyEv.exit314.thread
 

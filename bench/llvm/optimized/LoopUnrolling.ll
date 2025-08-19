@@ -1942,7 +1942,7 @@ _ZN5clang4entoL21isCapturedByReferenceEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.e
 
 319:                                              ; preds = %.backedge.i.i, %.lr.ph137.i.i
   %320 = phi ptr [ %290, %.lr.ph137.i.i ], [ %556, %.backedge.i.i ]
-  %.038134.i.i = phi ptr [ %3, %.lr.ph137.i.i ], [ %.139152.i.i, %.backedge.i.i ]
+  %.038134.i.i = phi ptr [ %3, %.lr.ph137.i.i ], [ %.139169.i.i, %.backedge.i.i ]
   %321 = call noundef ptr @_ZNK5clang4ento12ExplodedNode21getStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.038134.i.i) #19
   %.not.i25.i = icmp eq ptr %321, null
   br i1 %.not.i25.i, label %322, label %329
@@ -2434,9 +2434,9 @@ _ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread.i.i: ; preds = %_ZN5c
   %539 = and i64 %537, 1
   %540 = icmp ne i64 %539, 0
   %541 = or i1 %538, %540
-  br i1 %541, label %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread144.i.i, label %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.i.i
+  br i1 %541, label %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread161.i.i, label %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.i.i
 
-_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread144.i.i: ; preds = %536
+_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread161.i.i: ; preds = %536
   %542 = load ptr, ptr %11, align 8, !tbaa !143
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i
 
@@ -2470,9 +2470,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destr
   %.pre.i.i.i = load ptr, ptr %11, align 8, !tbaa !143
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i.i, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.i.i, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread144.i.i
-  %.240117.i.i = phi ptr [ %.240116.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i.i ], [ %544, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.i.i ], [ null, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread144.i.i ]
-  %553 = phi ptr [ %.pre.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i.i ], [ %545, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.i.i ], [ %542, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread144.i.i ]
+_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i.i, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.i.i, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread161.i.i
+  %.240117.i.i = phi ptr [ %.240116.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i.i ], [ %544, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.i.i ], [ null, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread161.i.i ]
+  %553 = phi ptr [ %.pre.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang12ast_matchers10BoundNodesELb0EE13destroy_rangeEPS3_S5_.exit.loopexit.i.i.i ], [ %545, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.i.i ], [ %542, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit83.thread161.i.i ]
   %554 = icmp eq ptr %553, %318
   br i1 %554, label %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i, label %555
 
@@ -2485,8 +2485,8 @@ _ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i: ; preds = %555, %_ZN4llvm
   br i1 %.not.i82.i.i, label %.backedge.i.i, label %_ZN5clang4entoL17isPossiblyEscapedEPNS0_12ExplodedNodeEPKNS_11DeclRefExprE.exit.i
 
 .backedge.i.i:                                    ; preds = %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i, %322
-  %.139152.i.i = phi ptr [ %.240117.i.i, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i ], [ %328, %322 ]
-  %556 = getelementptr inbounds nuw i8, ptr %.139152.i.i, i64 64
+  %.139169.i.i = phi ptr [ %.240117.i.i, %_ZN5clang4ento12ExplodedNode12getFirstPredEv.exit.i.i ], [ %328, %322 ]
+  %556 = getelementptr inbounds nuw i8, ptr %.139169.i.i, i64 64
   %557 = load i64, ptr %556, align 8, !tbaa !231
   %558 = icmp eq i64 %557, 0
   %559 = and i64 %557, 1
@@ -2638,9 +2638,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49: ; preds =
   br label %_ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread51.sink.split
 
 _ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread51.sink.split: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40
-  %.sink65 = phi ptr [ %70, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40 ], [ %602, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47 ], [ %606, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49 ], [ %590, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44 ]
+  %.sink108 = phi ptr [ %70, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40 ], [ %602, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47 ], [ %606, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49 ], [ %590, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44 ]
   %.sink = phi ptr [ %66, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40 ], [ %598, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47 ], [ %598, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49 ], [ %586, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44 ]
-  store ptr %.sink65, ptr %0, align 8, !tbaa !89
+  store ptr %.sink108, ptr %0, align 8, !tbaa !89
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sink) #19
   br label %_ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread51
 
@@ -4135,11 +4135,11 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   br label %68
 
 68:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit
-  %.sink10 = phi ptr [ %50, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit ], [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sink10, i64 64
+  %.sink15 = phi ptr [ %50, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_create_nodeIJRKSA_EEEPSt13_Rb_tree_nodeISA_EDpOT_.exit ], [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sink15, i64 64
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(40) %70, i64 40, i1 false)
-  ret ptr %.sink10
+  ret ptr %.sink15
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

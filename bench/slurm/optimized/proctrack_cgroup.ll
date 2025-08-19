@@ -235,7 +235,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
 
 17:                                               ; preds = %10
   %18 = icmp eq i32 %1, 19
-  br i1 %18, label %19, label %.thread35
+  br i1 %18, label %19, label %.thread39
 
 19:                                               ; preds = %17
   call void @slurm_xfree(ptr noundef nonnull %3) #8
@@ -252,12 +252,12 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
   call void @slurm_xfree(ptr noundef nonnull %3) #8
   br label %82
 
-.thread35:                                        ; preds = %17
+.thread39:                                        ; preds = %17
   %25 = load i32, ptr %4, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.split.preheader, label %._crit_edge
 
-.lr.ph.split.preheader:                           ; preds = %.thread35
+.lr.ph.split.preheader:                           ; preds = %.thread39
   %27 = trunc i64 %0 to i32
   br label %.lr.ph.split
 
@@ -347,7 +347,7 @@ define dso_local i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_u
   %78 = icmp slt i64 %indvars.iv.next, %77
   br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %75, %49, %.thread35
+._crit_edge:                                      ; preds = %75, %49, %.thread39
   call void @slurm_xfree(ptr noundef nonnull %3) #8
   %79 = icmp eq i32 %1, 18
   br i1 %79, label %80, label %82

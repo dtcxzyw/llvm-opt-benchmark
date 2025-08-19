@@ -7184,7 +7184,7 @@ define hidden noundef i32 @_ZN12ConstantPool21find_matching_operandEiRK18constan
 
 .preheader.i:                                     ; preds = %30
   %.not.i = icmp eq i16 %38, 0
-  br i1 %.not.i, label %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit18.split.loop.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit21.split.loop.exit, label %.lr.ph.i
 
 51:                                               ; preds = %.lr.ph.i
   %52 = add nuw nsw i32 %.026.i, 1
@@ -7226,12 +7226,12 @@ _ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit: ; 
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit
 
-_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit18.split.loop.exit: ; preds = %.preheader.i
+_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit21.split.loop.exit: ; preds = %.preheader.i
   %76 = trunc nuw nsw i64 %indvars.iv to i32
   br label %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit
 
-_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit: ; preds = %.loopexit, %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit18.split.loop.exit, %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit, %4
-  %.0 = phi i32 [ -1, %4 ], [ %75, %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit ], [ %76, %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit18.split.loop.exit ], [ -1, %.loopexit ]
+_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit: ; preds = %.loopexit, %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit21.split.loop.exit, %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit, %4
+  %.0 = phi i32 [ -1, %4 ], [ %75, %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit ], [ %76, %_ZN12ConstantPool18compare_operand_toEiRK18constantPoolHandlei.exit.loopexit21.split.loop.exit ], [ -1, %.loopexit ]
   ret i32 %.0
 }
 

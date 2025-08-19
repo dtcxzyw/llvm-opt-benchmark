@@ -1466,7 +1466,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111ChrootStateEEENS0_17ProgramSt
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i: ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %25, align 8
+  %.0.copyload.i.i.i.i8.i.i = load i64, ptr %25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
 
@@ -1482,7 +1482,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ; preds = %26, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i
   %29 = phi ptr [ %22, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i ], [ %27, %26 ]
-  %.in.in.i = phi i64 [ %.0.copyload.i.i.i.i7.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i ], [ %.0.copyload.i.i.i.i.i.i, %26 ]
+  %.in.in.i = phi i64 [ %.0.copyload.i.i.i.i8.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i ], [ %.0.copyload.i.i.i.i.i.i, %26 ]
   store ptr %24, ptr %7, align 8, !tbaa !207
   %.in.i = and i64 %.in.in.i, -8
   %30 = inttoptr i64 %.in.i to ptr

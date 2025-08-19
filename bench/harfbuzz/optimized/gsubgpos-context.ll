@@ -410,21 +410,21 @@ _ZNK9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object
 _ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer: ; preds = %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i, %_ZNK9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_E3endEv.exit
   %.sroa.7.0.ph = phi i32 [ %59, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %.val.i, %_ZNK9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_E3endEv.exit ]
   %.sroa.019.0.ph = phi ptr [ %60, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %.val1.i, %_ZNK9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_E3endEv.exit ]
-  %.sroa.13.0.ph = phi ptr [ %.sroa.13.0.ph38, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %.val3.i, %_ZNK9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_E3endEv.exit ]
+  %.sroa.13.0.ph = phi ptr [ %.sroa.13.0.ph40, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %.val3.i, %_ZNK9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_E3endEv.exit ]
   %.sroa.17.0.ph = phi i32 [ %.sroa.17.0, %_ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppEv.exit.i.i ], [ %.val2.i, %_ZNK9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_E3endEv.exit ]
   %.not.i.i = icmp ne ptr %.sroa.019.0.ph, %42
-  br label %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer36
+  br label %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer38
 
-_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer36: ; preds = %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer, %62
-  %.sroa.7.0.ph37 = phi i32 [ %.sroa.7.0.ph, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer ], [ 0, %62 ]
-  %.sroa.13.0.ph38 = phi ptr [ %.sroa.13.0.ph, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer ], [ %64, %62 ]
-  %.sroa.17.0.ph39 = phi i32 [ %.sroa.17.0.ph, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer ], [ %63, %62 ]
-  %.not.i3.i = icmp ne ptr %.sroa.13.0.ph38, %43
+_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer38: ; preds = %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer, %62
+  %.sroa.7.0.ph39 = phi i32 [ %.sroa.7.0.ph, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer ], [ 0, %62 ]
+  %.sroa.13.0.ph40 = phi ptr [ %.sroa.13.0.ph, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer ], [ %64, %62 ]
+  %.sroa.17.0.ph41 = phi i32 [ %.sroa.17.0.ph, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer ], [ %63, %62 ]
+  %.not.i3.i = icmp ne ptr %.sroa.13.0.ph40, %43
   br label %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit
 
-_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit: ; preds = %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer36, %61
-  %.sroa.7.0 = phi i32 [ 0, %61 ], [ %.sroa.7.0.ph37, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer36 ]
-  %.sroa.17.0 = phi i32 [ 0, %61 ], [ %.sroa.17.0.ph39, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer36 ]
+_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit: ; preds = %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer38, %61
+  %.sroa.7.0 = phi i32 [ 0, %61 ], [ %.sroa.7.0.ph39, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer38 ]
+  %.sroa.17.0 = phi i32 [ 0, %61 ], [ %.sroa.17.0.ph41, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer38 ]
   %44 = icmp ne i32 %.sroa.7.0, 0
   %45 = select i1 %.not.i.i, i1 true, i1 %44
   %46 = icmp ne i32 %.sroa.17.0, 0
@@ -435,7 +435,7 @@ _ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object
 _ZNK16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES5_EneERKS6_.exit.thread: ; preds = %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit
   %.not.i.i13 = icmp eq i32 %.sroa.7.0, 0
   %.not.i.i.i.i = icmp eq i32 %.sroa.17.0, 0
-  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_hb_NullPool, ptr %.sroa.13.0.ph38
+  %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr @_hb_NullPool, ptr %.sroa.13.0.ph40
   %.0.i.i14 = select i1 %.not.i.i13, ptr %spec.select.i.i.i.i, ptr %.sroa.019.0.ph
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i14, i64 8
   %49 = load i32, ptr %48, align 4, !tbaa !59
@@ -472,8 +472,8 @@ _ZNR9hb_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEERS4_EppE
 
 62:                                               ; preds = %61
   %63 = add i32 %.sroa.17.0, -1
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.13.0.ph38, i64 12
-  br label %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer36
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.13.0.ph40, i64 12
+  br label %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit.outer38
 
 .loopexit:                                        ; preds = %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE4pushEv.exit
   %.0 = phi i32 [ -1, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EE4pushEv.exit ], [ %25, %_ZNR9hb_iter_tI16hb_concat_iter_tI10hb_array_tIKN22hb_serialize_context_t8object_t6link_tEES6_ERS5_EppEv.exit ]
@@ -890,12 +890,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
   %.03143.fr = freeze i32 %.03143
   %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select67 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143.fr
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293961 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select67, %.loopexit ]
+  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
+  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, graph::Lookup *>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -935,7 +935,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %76 = load i16, ptr %75, align 2, !tbaa !106
   %77 = zext i16 %76 to i32
-  %78 = icmp ugt i32 %.0293961, %77
+  %78 = icmp ugt i32 %.0293962, %77
   br i1 %78, label %79, label %86, !prof !37
 
 79:                                               ; preds = %64
@@ -1152,12 +1152,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
   %.03143.fr = freeze i32 %.03143
   %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select67 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143.fr
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293961 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select67, %.loopexit ]
+  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
+  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, graph::Lookup *>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -1197,7 +1197,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjPN5graph6Lo
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %76 = load i16, ptr %75, align 2, !tbaa !106
   %77 = zext i16 %76 to i32
-  %78 = icmp ugt i32 %.0293961, %77
+  %78 = icmp ugt i32 %.0293962, %77
   br i1 %78, label %79, label %86, !prof !37
 
 79:                                               ; preds = %64
@@ -2153,12 +2153,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
   %.03143.fr = freeze i32 %.03143
   %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select67 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143.fr
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293961 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select67, %.loopexit ]
+  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
+  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -2198,7 +2198,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %76 = load i16, ptr %75, align 2, !tbaa !155
   %77 = zext i16 %76 to i32
-  %78 = icmp ugt i32 %.0293961, %77
+  %78 = icmp ugt i32 %.0293962, %77
   br i1 %78, label %79, label %86, !prof !37
 
 79:                                               ; preds = %64
@@ -2410,12 +2410,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
   %.03143.fr = freeze i32 %.03143
   %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select67 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143.fr
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
-  %.0293961 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
-  %50 = phi i32 [ %21, %.critedge ], [ %spec.select67, %.loopexit ]
+  %.0293962 = phi i32 [ 0, %.critedge ], [ %.02939, %.loopexit ]
+  %50 = phi i32 [ %21, %.critedge ], [ %spec.select68, %.loopexit ]
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int>::item_t", ptr %23, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -2455,7 +2455,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb0EE13set
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %76 = load i16, ptr %75, align 2, !tbaa !155
   %77 = zext i16 %76 to i32
-  %78 = icmp ugt i32 %.0293961, %77
+  %78 = icmp ugt i32 %.0293962, %77
   br i1 %78, label %79, label %86, !prof !37
 
 79:                                               ; preds = %64

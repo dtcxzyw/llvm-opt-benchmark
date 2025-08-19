@@ -680,11 +680,11 @@ rb_io_buffer_type_allocate.exit:                  ; preds = %io_buffer_experimen
   %.not23.i = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %..i = select i1 %.not23.i, i32 9, i32 64
-  %.25.i = select i1 %.not23.i, i32 1, i32 2
+  %.26.i = select i1 %.not23.i, i32 1, i32 2
   %24 = or i32 %.pre, %..i
   %25 = or i32 %24, %21
   store i32 %25, ptr %23, align 8, !tbaa !15
-  %26 = tail call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %.0.i, i32 noundef %.25.i, i32 noundef %20, i64 noundef %2) #25
+  %26 = tail call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %.0.i, i32 noundef %.26.i, i32 noundef %20, i64 noundef %2) #25
   %27 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
   br i1 %27, label %28, label %io_buffer_map_file.exit
 
@@ -7689,7 +7689,7 @@ io_buffer_extract_offset.exit:                    ; preds = %5
 
 .thread:                                          ; preds = %io_buffer_extract_offset.exit
   %23 = getelementptr i8, ptr %6, i64 8
-  %.val21 = load i64, ptr %23, align 8, !tbaa !16
+  %.val23 = load i64, ptr %23, align 8, !tbaa !16
   br label %io_buffer_default_length.exit
 
 24:                                               ; preds = %io_buffer_extract_offset.exit.thread, %io_buffer_extract_offset.exit
@@ -7733,9 +7733,9 @@ io_buffer_extract_offset.exit:                    ; preds = %5
   unreachable
 
 io_buffer_default_length.exit:                    ; preds = %.thread, %37
-  %.val23 = phi i64 [ %.val21, %.thread ], [ %.val, %37 ]
-  %storemerge1822 = phi i64 [ 0, %.thread ], [ %storemerge19, %37 ]
-  %42 = sub nuw i64 %.val23, %storemerge1822
+  %.val25 = phi i64 [ %.val23, %.thread ], [ %.val, %37 ]
+  %storemerge1824 = phi i64 [ 0, %.thread ], [ %storemerge19, %37 ]
+  %42 = sub nuw i64 %.val25, %storemerge1824
   br label %io_buffer_extract_length.exit
 
 io_buffer_extract_length.exit:                    ; preds = %35, %33, %io_buffer_default_length.exit

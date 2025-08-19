@@ -409,8 +409,8 @@ define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %
   br i1 %.not35, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %.preheader31
-  %.0274750 = phi i32 [ %spec.select, %.preheader31 ], [ 1024, %.thread ]
-  %wide.trip.count = zext nneg i32 %.0274750 to i64
+  %.0274851 = phi i32 [ %spec.select, %.preheader31 ], [ 1024, %.thread ]
+  %wide.trip.count = zext nneg i32 %.0274851 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %5

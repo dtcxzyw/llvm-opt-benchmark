@@ -1534,9 +1534,9 @@ define dso_local noundef nonnull ptr @_ZN4Luau7CodeGen15executeFORGPREPEP9lua_St
   br label %15
 
 15:                                               ; preds = %4, %14
-  %.sink71 = phi i64 [ 8, %14 ], [ 16, %4 ]
+  %.sink72 = phi i64 [ 8, %14 ], [ 16, %4 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !17
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink71
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink72
   %18 = load ptr, ptr %17, align 8, !tbaa !69
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.critedge, label %20

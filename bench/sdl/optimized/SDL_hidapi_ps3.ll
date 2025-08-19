@@ -1284,11 +1284,11 @@ HIDAPI_DriverPS3ThirdParty_HandleStatePacket19.exit: ; preds = %145, %103
   %187 = load i8, ptr %19, align 1
   %188 = lshr i8 %187, 1
   %189 = and i8 %188, 120
-  %switch.shiftamt36 = zext nneg i8 %189 to i64
-  %switch.downshift37 = lshr i64 650783357575234305, %switch.shiftamt36
-  %switch.masked38 = trunc i64 %switch.downshift37 to i8
+  %switch.shiftamt48 = zext nneg i8 %189 to i64
+  %switch.downshift49 = lshr i64 650783357575234305, %switch.shiftamt48
+  %switch.masked50 = trunc i64 %switch.downshift49 to i8
   %.inv = icmp slt i8 %187, 0
-  %.078.i = select i1 %.inv, i8 0, i8 %switch.masked38
+  %.078.i = select i1 %.inv, i8 0, i8 %switch.masked50
   call void @SDL_SendJoystickHat(i64 noundef %151, ptr noundef nonnull %12, i8 noundef zeroext 0, i8 noundef zeroext %.078.i) #10
   br label %190
 

@@ -715,7 +715,7 @@ define internal fastcc noundef zeroext i1 @SDL_DBus_CallMethodInternal(ptr nound
 
 37:                                               ; preds = %.backedge, %.preheader
   %38 = phi ptr [ %.promoted36, %.preheader ], [ %.be, %.backedge ]
-  %39 = phi i32 [ %.promoted, %.preheader ], [ %.be39, %.backedge ]
+  %39 = phi i32 [ %.promoted, %.preheader ], [ %.be52, %.backedge ]
   %40 = icmp ult i32 %39, 41
   br i1 %40, label %41, label %45
 
@@ -770,7 +770,7 @@ define internal fastcc noundef zeroext i1 @SDL_DBus_CallMethodInternal(ptr nound
 
 .backedge:                                        ; preds = %64, %66, %58
   %.be = phi ptr [ %59, %64 ], [ %67, %66 ], [ %59, %58 ]
-  %.be39 = phi i32 [ %65, %64 ], [ %60, %66 ], [ %60, %58 ]
+  %.be52 = phi i32 [ %65, %64 ], [ %60, %66 ], [ %60, %58 ]
   br label %37, !llvm.loop !3
 
 66:                                               ; preds = %62

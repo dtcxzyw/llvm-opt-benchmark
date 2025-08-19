@@ -95,7 +95,7 @@ cms_get_text_bio.exit:                            ; preds = %6, %11
   br i1 %15, label %16, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %9, %cms_get_text_bio.exit
-  %.0.i29 = phi ptr [ %.0.i, %cms_get_text_bio.exit ], [ %0, %9 ]
+  %.0.i31 = phi ptr [ %.0.i, %cms_get_text_bio.exit ], [ %0, %9 ]
   br label %.preheader
 
 16:                                               ; preds = %cms_get_text_bio.exit
@@ -126,7 +126,7 @@ cms_get_text_bio.exit:                            ; preds = %6, %11
   br i1 %.old1, label %.loopexit, label %29
 
 27:                                               ; preds = %.preheader
-  %28 = call i32 @BIO_write(ptr noundef nonnull %.0.i29, ptr noundef nonnull %4, i32 noundef %17) #4
+  %28 = call i32 @BIO_write(ptr noundef nonnull %.0.i31, ptr noundef nonnull %4, i32 noundef %17) #4
   %.not = icmp eq i32 %28, %17
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -136,7 +136,7 @@ cms_get_text_bio.exit:                            ; preds = %6, %11
   br i1 %.not22, label %.loopexit, label %31
 
 31:                                               ; preds = %29
-  %32 = call i32 @SMIME_text(ptr noundef nonnull %.0.i29, ptr noundef %0) #4
+  %32 = call i32 @SMIME_text(ptr noundef nonnull %.0.i31, ptr noundef %0) #4
   %.not23 = icmp eq i32 %32, 0
   br i1 %.not23, label %33, label %.loopexit
 
@@ -147,13 +147,13 @@ cms_get_text_bio.exit:                            ; preds = %6, %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %29, %31, %26, %22, %33, %16
-  %.0.i28 = phi ptr [ null, %16 ], [ %.0.i29, %22 ], [ %.0.i29, %33 ], [ %.0.i29, %26 ], [ %.0.i29, %31 ], [ %.0.i29, %29 ], [ %.0.i29, %27 ]
+  %.0.i30 = phi ptr [ null, %16 ], [ %.0.i31, %22 ], [ %.0.i31, %33 ], [ %.0.i31, %26 ], [ %.0.i31, %31 ], [ %.0.i31, %29 ], [ %.0.i31, %27 ]
   %.0 = phi i32 [ 0, %16 ], [ 0, %22 ], [ 0, %33 ], [ 0, %26 ], [ 1, %31 ], [ 1, %29 ], [ 0, %27 ]
-  %.not24 = icmp eq ptr %.0.i28, %0
+  %.not24 = icmp eq ptr %.0.i30, %0
   br i1 %.not24, label %36, label %34
 
 34:                                               ; preds = %.loopexit
-  %35 = call i32 @BIO_free(ptr noundef %.0.i28) #4
+  %35 = call i32 @BIO_free(ptr noundef %.0.i30) #4
   br label %36
 
 36:                                               ; preds = %34, %.loopexit
@@ -852,7 +852,7 @@ cms_signerinfo_verify_cert.exit.thread:           ; preds = %80, %91, %84
   br i1 %exitcond242.not, label %.loopexit215, label %.lr.ph228.split, !llvm.loop !18
 
 .loopexit215:                                     ; preds = %124, %117, %68, %.loopexit217
-  %.1135256 = phi ptr [ %.1135, %.loopexit217 ], [ %.2, %68 ], [ %.1135, %117 ], [ %.1135, %124 ]
+  %.1135269 = phi ptr [ %.1135, %.loopexit217 ], [ %.2, %68 ], [ %.1135, %117 ], [ %.1135, %124 ]
   br i1 %15, label %126, label %.thread205
 
 126:                                              ; preds = %.loopexit215
@@ -999,7 +999,7 @@ cms_get_text_bio.exit.thread:                     ; preds = %146, %cms_get_text_
   %.0144 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %153 ], [ null, %cms_get_text_bio.exit.thread ], [ %.1145, %179 ], [ %154, %163 ], [ %154, %156 ], [ null, %.thread205 ], [ %164, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1145, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1145, %.preheader213 ], [ %.1145, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
   %.0142 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1143, %153 ], [ %.1143, %cms_get_text_bio.exit.thread ], [ %.1143209, %179 ], [ %.1143, %163 ], [ %.1143, %156 ], [ %.1143208, %.thread205 ], [ %.1143208, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1143209, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1143209, %.preheader213 ], [ %.1143209, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
   %.0140 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ null, %153 ], [ %.0.i189211, %cms_get_text_bio.exit.thread ], [ %.1141, %179 ], [ %.0.i189211, %163 ], [ %.0.i189211, %156 ], [ null, %.thread205 ], [ null, %166 ], [ null, %66 ], [ null, %61 ], [ null, %56 ], [ %.1141, %168 ], [ null, %cms_signerinfo_verify_cert.exit.thread ], [ %.1141, %.preheader213 ], [ %.1141, %172 ], [ null, %106 ], [ null, %113 ], [ null, %121 ]
-  %.0134 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1135256, %153 ], [ %.1135256, %cms_get_text_bio.exit.thread ], [ %.1135256, %179 ], [ %.1135256, %163 ], [ %.1135256, %156 ], [ %.1135256, %.thread205 ], [ %.1135256, %166 ], [ %.2, %66 ], [ %.2, %61 ], [ %.2, %56 ], [ %.1135256, %168 ], [ %.2, %cms_signerinfo_verify_cert.exit.thread ], [ %.1135256, %.preheader213 ], [ %.1135256, %172 ], [ %.1135, %106 ], [ %.1135, %113 ], [ %.1135, %121 ]
+  %.0134 = phi ptr [ null, %33 ], [ null, %46 ], [ null, %51 ], [ %.1135269, %153 ], [ %.1135269, %cms_get_text_bio.exit.thread ], [ %.1135269, %179 ], [ %.1135269, %163 ], [ %.1135269, %156 ], [ %.1135269, %.thread205 ], [ %.1135269, %166 ], [ %.2, %66 ], [ %.2, %61 ], [ %.2, %56 ], [ %.1135269, %168 ], [ %.2, %cms_signerinfo_verify_cert.exit.thread ], [ %.1135269, %.preheader213 ], [ %.1135269, %172 ], [ %.1135, %106 ], [ %.1135, %113 ], [ %.1135, %121 ]
   %180 = and i32 %.0131, 128
   %181 = icmp eq i32 %180, 0
   %or.cond7 = and i1 %15, %181
@@ -1059,7 +1059,7 @@ do_free_upto.exit195:                             ; preds = %.preheader.i193, %1
 200:                                              ; preds = %137, %do_free_upto.exit195, %199
   %.4152 = phi i32 [ %.0148, %199 ], [ %.0148, %do_free_upto.exit195 ], [ %.3151, %137 ]
   %.1147 = phi i32 [ %.0146, %199 ], [ %.0146, %do_free_upto.exit195 ], [ 0, %137 ]
-  %.3 = phi ptr [ %.0134, %199 ], [ %.0134, %do_free_upto.exit195 ], [ %.1135256, %137 ]
+  %.3 = phi ptr [ %.0134, %199 ], [ %.0134, %do_free_upto.exit195 ], [ %.1135269, %137 ]
   %.not183 = icmp eq ptr %.3, null
   br i1 %.not183, label %204, label %.preheader
 
@@ -1238,10 +1238,10 @@ define ptr @CMS_sign_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %.not37, label %36, label %37
 
 .sink.split:                                      ; preds = %.lr.ph, %18, %14, %7, %10
-  %.sink43 = phi i32 [ 523, %10 ], [ 523, %7 ], [ 529, %14 ], [ 534, %18 ], [ 542, %.lr.ph ]
+  %.sink45 = phi i32 [ 523, %10 ], [ 523, %7 ], [ 529, %14 ], [ 534, %18 ], [ 542, %.lr.ph ]
   %.sink = phi i32 [ 524334, %10 ], [ 524334, %7 ], [ 524334, %14 ], [ 99, %18 ], [ 524334, %.lr.ph ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink43, ptr noundef nonnull @__func__.CMS_sign_ex) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink45, ptr noundef nonnull @__func__.CMS_sign_ex) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #4
   br label %36
 
@@ -1427,10 +1427,10 @@ define ptr @CMS_encrypt_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %.not28, label %.loopexit, label %31
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %13
-  %.sink31 = phi i32 [ 653, %13 ], [ 671, %29 ], [ 659, %.lr.ph ]
+  %.sink33 = phi i32 [ 653, %13 ], [ 671, %29 ], [ 659, %.lr.ph ]
   %.sink = phi i32 [ 524334, %13 ], [ 524334, %29 ], [ 137, %.lr.ph ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink31, ptr noundef nonnull @__func__.CMS_encrypt_ex) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink33, ptr noundef nonnull @__func__.CMS_encrypt_ex) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #4
   tail call void @CMS_ContentInfo_free(ptr noundef %14) #4
   br label %31
@@ -1492,7 +1492,7 @@ define range(i32 0, 2) i32 @CMS_decrypt_set1_pkey_and_peer(ptr noundef %0, ptr n
 .preheader:                                       ; preds = %.thread
   %18 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.thread101
+  br i1 %19, label %.lr.ph, label %.thread106
 
 .lr.ph:                                           ; preds = %.preheader
   %20 = icmp eq ptr %2, null
@@ -1613,9 +1613,9 @@ cms_kari_set1_pkey_and_peer.exit:                 ; preds = %34, %.split.i, %57,
   br label %cms_kari_set1_pkey_and_peer.exit.thread81
 
 66:                                               ; preds = %._crit_edge
-  br i1 %62, label %.thread101, label %cms_kari_set1_pkey_and_peer.exit.thread81
+  br i1 %62, label %.thread106, label %cms_kari_set1_pkey_and_peer.exit.thread81
 
-.thread101:                                       ; preds = %.preheader, %66
+.thread106:                                       ; preds = %.preheader, %66
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 793, ptr noundef nonnull @__func__.CMS_decrypt_set1_pkey_and_peer) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 132, ptr noundef null) #4
@@ -1625,8 +1625,8 @@ cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit: ; preds = %.
   %.mux.le = zext i1 %43 to i32
   br label %cms_kari_set1_pkey_and_peer.exit.thread81
 
-cms_kari_set1_pkey_and_peer.exit.thread81:        ; preds = %57, %cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit, %54, %53, %56, %66, %.thread101, %65, %22
-  %.0 = phi i32 [ 0, %22 ], [ 1, %65 ], [ 0, %.thread101 ], [ 0, %66 ], [ 1, %54 ], [ 1, %53 ], [ 0, %56 ], [ %.mux.le, %cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit ], [ 1, %57 ]
+cms_kari_set1_pkey_and_peer.exit.thread81:        ; preds = %57, %cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit, %54, %53, %56, %66, %.thread106, %65, %22
+  %.0 = phi i32 [ 0, %22 ], [ 1, %65 ], [ 0, %.thread106 ], [ 0, %66 ], [ 1, %54 ], [ 1, %53 ], [ 0, %56 ], [ %.mux.le, %cms_kari_set1_pkey_and_peer.exit.thread81.loopexit.split.loop.exit ], [ 1, %57 ]
   ret i32 %.0
 }
 
@@ -1719,10 +1719,10 @@ define range(i32 0, 2) i32 @CMS_decrypt_set1_key(ptr noundef %0, ptr noundef %1,
   br i1 %36, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %32, %._crit_edge, %5, %27
-  %.sink33 = phi i32 [ 822, %27 ], [ 830, %5 ], [ 830, %._crit_edge ], [ 830, %32 ]
+  %.sink35 = phi i32 [ 822, %27 ], [ 830, %5 ], [ 830, %._crit_edge ], [ 830, %32 ]
   %.sink = phi i32 [ 112, %27 ], [ 132, %5 ], [ 132, %._crit_edge ], [ 132, %32 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink33, ptr noundef nonnull @__func__.CMS_decrypt_set1_key) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink35, ptr noundef nonnull @__func__.CMS_decrypt_set1_key) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #4
   br label %.loopexit
 

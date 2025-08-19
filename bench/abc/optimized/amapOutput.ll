@@ -685,10 +685,10 @@ Amap_OutputStructAlloc.exit155:                   ; preds = %322, %329, %332
   br label %339
 
 339:                                              ; preds = %Amap_OutputStructAlloc.exit155, %Amap_OutputStructAlloc.exit152
-  %.sink195 = phi i32 [ %323, %Amap_OutputStructAlloc.exit155 ], [ %299, %Amap_OutputStructAlloc.exit152 ]
-  %.sink194 = phi ptr [ %327, %Amap_OutputStructAlloc.exit155 ], [ %303, %Amap_OutputStructAlloc.exit152 ]
-  %340 = trunc nuw nsw i32 %.sink195 to i16
-  %341 = getelementptr inbounds nuw i8, ptr %.sink194, i64 10
+  %.sink237 = phi i32 [ %323, %Amap_OutputStructAlloc.exit155 ], [ %299, %Amap_OutputStructAlloc.exit152 ]
+  %.sink236 = phi ptr [ %327, %Amap_OutputStructAlloc.exit155 ], [ %303, %Amap_OutputStructAlloc.exit152 ]
+  %340 = trunc nuw nsw i32 %.sink237 to i16
+  %341 = getelementptr inbounds nuw i8, ptr %.sink236, i64 10
   store i16 %340, ptr %341, align 2, !tbaa !17
   %342 = icmp eq i32 %.val107, %16
   br i1 %342, label %343, label %.Vec_PtrGrow.exit11_crit_edge.i156
@@ -751,7 +751,7 @@ Vec_PtrPush.exit162:                              ; preds = %.Vec_PtrGrow.exit11
   store i32 %367, ptr %4, align 4, !tbaa !18
   %368 = sext i32 %.val107 to i64
   %369 = getelementptr inbounds ptr, ptr %366, i64 %368
-  store ptr %.sink194, ptr %369, align 8, !tbaa !33
+  store ptr %.sink236, ptr %369, align 8, !tbaa !33
   br label %378
 
 370:                                              ; preds = %281
@@ -840,27 +840,27 @@ Vec_PtrPush.exit169:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_PtrPush.exit129, %Vec_PtrPush.exit149, %Vec_PtrPush.exit169
-  %.sink205 = phi i32 [ %412, %Vec_PtrPush.exit169 ], [ %279, %Vec_PtrPush.exit149 ], [ %111, %Vec_PtrPush.exit129 ]
-  %.sink204 = phi i32 [ %382, %Vec_PtrPush.exit169 ], [ %218, %Vec_PtrPush.exit149 ], [ %55, %Vec_PtrPush.exit129 ]
-  %.sink202 = phi ptr [ %411, %Vec_PtrPush.exit169 ], [ %278, %Vec_PtrPush.exit149 ], [ %110, %Vec_PtrPush.exit129 ]
-  %.sink200 = phi ptr [ %383, %Vec_PtrPush.exit169 ], [ %238, %Vec_PtrPush.exit149 ], [ %73, %Vec_PtrPush.exit129 ]
+  %.sink247 = phi i32 [ %412, %Vec_PtrPush.exit169 ], [ %279, %Vec_PtrPush.exit149 ], [ %111, %Vec_PtrPush.exit129 ]
+  %.sink246 = phi i32 [ %382, %Vec_PtrPush.exit169 ], [ %218, %Vec_PtrPush.exit149 ], [ %55, %Vec_PtrPush.exit129 ]
+  %.sink244 = phi ptr [ %411, %Vec_PtrPush.exit169 ], [ %278, %Vec_PtrPush.exit149 ], [ %110, %Vec_PtrPush.exit129 ]
+  %.sink242 = phi ptr [ %383, %Vec_PtrPush.exit169 ], [ %238, %Vec_PtrPush.exit149 ], [ %73, %Vec_PtrPush.exit129 ]
   %.ph = phi i32 [ %408, %Vec_PtrPush.exit169 ], [ %274, %Vec_PtrPush.exit149 ], [ %109, %Vec_PtrPush.exit129 ]
-  %.ph196 = phi i32 [ %409, %Vec_PtrPush.exit169 ], [ %275, %Vec_PtrPush.exit149 ], [ %109, %Vec_PtrPush.exit129 ]
-  %.ph197 = phi i32 [ %410, %Vec_PtrPush.exit169 ], [ %276, %Vec_PtrPush.exit149 ], [ %109, %Vec_PtrPush.exit129 ]
-  %.ph198 = phi i32 [ %410, %Vec_PtrPush.exit169 ], [ %277, %Vec_PtrPush.exit149 ], [ %109, %Vec_PtrPush.exit129 ]
-  store i32 %.sink205, ptr %4, align 4, !tbaa !18
-  %413 = sext i32 %.sink204 to i64
-  %414 = getelementptr inbounds ptr, ptr %.sink202, i64 %413
-  store ptr %.sink200, ptr %414, align 8, !tbaa !33
+  %.ph238 = phi i32 [ %409, %Vec_PtrPush.exit169 ], [ %275, %Vec_PtrPush.exit149 ], [ %109, %Vec_PtrPush.exit129 ]
+  %.ph239 = phi i32 [ %410, %Vec_PtrPush.exit169 ], [ %276, %Vec_PtrPush.exit149 ], [ %109, %Vec_PtrPush.exit129 ]
+  %.ph240 = phi i32 [ %410, %Vec_PtrPush.exit169 ], [ %277, %Vec_PtrPush.exit149 ], [ %109, %Vec_PtrPush.exit129 ]
+  store i32 %.sink247, ptr %4, align 4, !tbaa !18
+  %413 = sext i32 %.sink246 to i64
+  %414 = getelementptr inbounds ptr, ptr %.sink244, i64 %413
+  store ptr %.sink242, ptr %414, align 8, !tbaa !33
   br label %415
 
 415:                                              ; preds = %.sink.split, %12, %280, %Vec_PtrPush.exit139, %117, %Vec_PtrPush.exit
   %416 = phi i32 [ %13, %12 ], [ %52, %Vec_PtrPush.exit ], [ %13, %117 ], [ %212, %Vec_PtrPush.exit139 ], [ %13, %280 ], [ %.ph, %.sink.split ]
-  %417 = phi i32 [ %14, %12 ], [ %53, %Vec_PtrPush.exit ], [ %14, %117 ], [ %213, %Vec_PtrPush.exit139 ], [ %14, %280 ], [ %.ph196, %.sink.split ]
-  %418 = phi i32 [ %15, %12 ], [ %53, %Vec_PtrPush.exit ], [ %15, %117 ], [ %214, %Vec_PtrPush.exit139 ], [ %15, %280 ], [ %.ph197, %.sink.split ]
-  %419 = phi i32 [ %16, %12 ], [ %53, %Vec_PtrPush.exit ], [ %16, %117 ], [ %215, %Vec_PtrPush.exit139 ], [ %16, %280 ], [ %.ph198, %.sink.split ]
-  %420 = phi i32 [ %17, %12 ], [ %53, %Vec_PtrPush.exit ], [ %17, %117 ], [ %216, %Vec_PtrPush.exit139 ], [ %17, %280 ], [ %.ph198, %.sink.split ]
-  %.val108191 = phi i32 [ %.val107, %12 ], [ %55, %Vec_PtrPush.exit ], [ %.val107, %117 ], [ %218, %Vec_PtrPush.exit139 ], [ %.val107, %280 ], [ %.sink205, %.sink.split ]
+  %417 = phi i32 [ %14, %12 ], [ %53, %Vec_PtrPush.exit ], [ %14, %117 ], [ %213, %Vec_PtrPush.exit139 ], [ %14, %280 ], [ %.ph238, %.sink.split ]
+  %418 = phi i32 [ %15, %12 ], [ %53, %Vec_PtrPush.exit ], [ %15, %117 ], [ %214, %Vec_PtrPush.exit139 ], [ %15, %280 ], [ %.ph239, %.sink.split ]
+  %419 = phi i32 [ %16, %12 ], [ %53, %Vec_PtrPush.exit ], [ %16, %117 ], [ %215, %Vec_PtrPush.exit139 ], [ %16, %280 ], [ %.ph240, %.sink.split ]
+  %420 = phi i32 [ %17, %12 ], [ %53, %Vec_PtrPush.exit ], [ %17, %117 ], [ %216, %Vec_PtrPush.exit139 ], [ %17, %280 ], [ %.ph240, %.sink.split ]
+  %.val108191 = phi i32 [ %.val107, %12 ], [ %55, %Vec_PtrPush.exit ], [ %.val107, %117 ], [ %218, %Vec_PtrPush.exit139 ], [ %.val107, %280 ], [ %.sink247, %.sink.split ]
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %421 = load ptr, ptr %7, align 8, !tbaa !22
   %422 = getelementptr i8, ptr %421, i64 4

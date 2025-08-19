@@ -304,8 +304,8 @@ _ZN7meshoptL19decodeFilterOctSimdEPsm.exit11:     ; preds = %.lr.ph.i8, %120
   %245 = and <2 x i64> %244, splat (i64 -281474976710656)
   %246 = or disjoint <2 x i64> %245, %240
   store <2 x i64> %243, ptr %4, align 16, !tbaa !4
-  %.16..16..sroa_idx13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store <2 x i64> %246, ptr %.16..16..sroa_idx13, align 16, !tbaa !4
+  %.16..16..sroa_idx17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store <2 x i64> %246, ptr %.16..16..sroa_idx17, align 16, !tbaa !4
   br label %_ZN7meshoptL19decodeFilterOctSimdEPsm.exit, !llvm.loop !9
 
 _ZN7meshoptL19decodeFilterOctSimdEPsm.exit:       ; preds = %.lr.ph.i, %185
@@ -504,8 +504,8 @@ _ZN7meshoptL20decodeFilterQuatSimdEPsm.exit14:    ; preds = %.lr.ph.i3, %3
   %145 = sext i16 %144 to i64
   %146 = shl nsw i64 %145, 4
   %147 = tail call noundef i64 @llvm.fshl.i64(i64 %.sroa.5.16.vec.extract.i, i64 %.sroa.5.16.vec.extract.i, i64 %146)
-  %.16..16..sroa_idx16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %147, ptr %.16..16..sroa_idx16, align 16, !tbaa !10
+  %.16..16..sroa_idx17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %147, ptr %.16..16..sroa_idx17, align 16, !tbaa !10
   %.sroa.5.24.vec.extract.i = extractelement <2 x i64> %135, i64 1
   %148 = extractelement <8 x i16> %bc66.i, i64 7
   %149 = sext i16 %148 to i64
@@ -840,8 +840,8 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br i1 %or.cond, label %.loopexit95, label %.lr.ph
 
 .preheader94.thread:                              ; preds = %.lr.ph
-  %.not115132 = icmp eq i64 %1, 0
-  br i1 %.not115132, label %._crit_edge114, label %.lr.ph99.us
+  %.not115137 = icmp eq i64 %1, 0
+  br i1 %.not115137, label %._crit_edge114, label %.lr.ph99.us
 
 .lr.ph99.us:                                      ; preds = %.preheader94.thread, %._crit_edge.us
   %.077100.us = phi i64 [ %24, %._crit_edge.us ], [ 0, %.preheader94.thread ]
@@ -968,7 +968,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br i1 %.not118, label %._crit_edge, label %.lr.ph110.preheader
 
 .lr.ph110.preheader:                              ; preds = %.lr.ph103, %.lr.ph105, %.lr.ph108, %.loopexit
-  %.1140 = phi i32 [ -100, %.loopexit ], [ %40, %.lr.ph108 ], [ -100, %.lr.ph105 ], [ -100, %.lr.ph103 ]
+  %.1145 = phi i32 [ -100, %.loopexit ], [ %40, %.lr.ph108 ], [ -100, %.lr.ph105 ], [ -100, %.lr.ph103 ]
   br label %.lr.ph110
 
 ._crit_edge:                                      ; preds = %68, %.preheader, %.preheader90, %.preheader92, %.loopexit
@@ -986,7 +986,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br label %68
 
 68:                                               ; preds = %.lr.ph110, %65
-  %69 = phi i32 [ %67, %65 ], [ %.1140, %.lr.ph110 ]
+  %69 = phi i32 [ %67, %65 ], [ %.1145, %.lr.ph110 ]
   %reass.sub = sub i32 %69, %3
   %70 = add i32 %reass.sub, 1
   %71 = getelementptr inbounds nuw float, ptr %30, i64 %.078109

@@ -56,13 +56,13 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %.not51 = icmp eq ptr %10, null
-  br i1 %.not51, label %11, label %.preheader86
+  br i1 %.not51, label %11, label %.preheader90
 
 11:                                               ; preds = %8, %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.17) #8
   br label %77
 
-.preheader86:                                     ; preds = %8, %17
+.preheader90:                                     ; preds = %8, %17
   %12 = phi i32 [ %18, %17 ], [ 1, %8 ]
   %13 = phi i32 [ %19, %17 ], [ 1, %8 ]
   %.0.i = phi ptr [ %20, %17 ], [ %7, %8 ]
@@ -72,17 +72,17 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
     i8 124, label %15
   ]
 
-15:                                               ; preds = %.preheader86
+15:                                               ; preds = %.preheader90
   %16 = add nsw i32 %13, 1
   br label %17
 
-17:                                               ; preds = %15, %.preheader86
-  %18 = phi i32 [ %12, %.preheader86 ], [ %16, %15 ]
-  %19 = phi i32 [ %13, %.preheader86 ], [ %16, %15 ]
+17:                                               ; preds = %15, %.preheader90
+  %18 = phi i32 [ %12, %.preheader90 ], [ %16, %15 ]
+  %19 = phi i32 [ %13, %.preheader90 ], [ %16, %15 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %.preheader86, !llvm.loop !29
+  br label %.preheader90, !llvm.loop !29
 
-count_items.exit:                                 ; preds = %.preheader86
+count_items.exit:                                 ; preds = %.preheader90
   store i32 %12, ptr %2, align 4
   br label %21
 

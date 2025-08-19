@@ -2911,8 +2911,8 @@ define internal ptr @psql_completion(ptr readnone captures(none) %0, i32 noundef
   br i1 %.not86.i, label %.preheader.i, label %65
 
 .preheader.i:                                     ; preds = %57
-  %.not137.i = icmp eq i32 %.171103.i, 0
-  br i1 %.not137.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not139.i = icmp eq i32 %.171103.i, 0
+  br i1 %.not139.i, label %._crit_edge.i, label %.lr.ph.i
 
 65:                                               ; preds = %57
   %66 = add nsw i32 %.171103.i, -1
@@ -2944,7 +2944,7 @@ define internal ptr @psql_completion(ptr readnone captures(none) %0, i32 noundef
 75:                                               ; preds = %72
   %76 = add i32 %.065106.i, -1
   %77 = icmp slt i32 %76, 1
-  br i1 %77, label %._crit_edge.loopexit.split.loop.exit132.i, label %84
+  br i1 %77, label %._crit_edge.loopexit.split.loop.exit134.i, label %84
 
 78:                                               ; preds = %72
   %79 = icmp eq i32 %.065106.i, 0
@@ -2956,7 +2956,7 @@ define internal ptr @psql_completion(ptr readnone captures(none) %0, i32 noundef
   %83 = sext i8 %82 to i32
   %memchr87.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str, i32 %83, i64 13)
   %.not88.i = icmp eq ptr %memchr87.i, null
-  br i1 %.not88.i, label %84, label %._crit_edge.loopexit.split.loop.exit134.i
+  br i1 %.not88.i, label %84, label %._crit_edge.loopexit.split.loop.exit136.i
 
 84:                                               ; preds = %80, %78, %75, %73, %.lr.ph.i
   %.1.i = phi i32 [ %.065106.i, %.lr.ph.i ], [ %74, %73 ], [ %76, %75 ], [ 0, %80 ], [ %.065106.i, %78 ]
@@ -2964,16 +2964,16 @@ define internal ptr @psql_completion(ptr readnone captures(none) %0, i32 noundef
   %85 = icmp sgt i64 %indvars.iv121.i, 1
   br i1 %85, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !8
 
-._crit_edge.loopexit.split.loop.exit132.i:        ; preds = %75
+._crit_edge.loopexit.split.loop.exit134.i:        ; preds = %75
   %86 = trunc nuw nsw i64 %indvars.iv121.i to i32
   br label %._crit_edge.loopexit.i
 
-._crit_edge.loopexit.split.loop.exit134.i:        ; preds = %80
+._crit_edge.loopexit.split.loop.exit136.i:        ; preds = %80
   %87 = trunc nuw nsw i64 %indvars.iv121.i to i32
   br label %._crit_edge.loopexit.i
 
-._crit_edge.loopexit.i:                           ; preds = %84, %._crit_edge.loopexit.split.loop.exit134.i, %._crit_edge.loopexit.split.loop.exit132.i
-  %.069.lcssa.ph.i = phi i32 [ %86, %._crit_edge.loopexit.split.loop.exit132.i ], [ %87, %._crit_edge.loopexit.split.loop.exit134.i ], [ 0, %84 ]
+._crit_edge.loopexit.i:                           ; preds = %84, %._crit_edge.loopexit.split.loop.exit136.i, %._crit_edge.loopexit.split.loop.exit134.i
+  %.069.lcssa.ph.i = phi i32 [ %86, %._crit_edge.loopexit.split.loop.exit134.i ], [ %87, %._crit_edge.loopexit.split.loop.exit136.i ], [ 0, %84 ]
   %.pre.i = zext nneg i32 %.069.lcssa.ph.i to i64
   br label %._crit_edge.i
 
@@ -3572,8 +3572,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   %57 = icmp eq i32 %46, 1
   %58 = and i16 %54, 1024
   %.not18.i = icmp eq i16 %58, 0
-  %or.cond9.i = and i1 %57, %.not18.i
-  br i1 %or.cond9.i, label %59, label %.thread.i
+  %or.cond11.i = and i1 %57, %.not18.i
+  br i1 %or.cond11.i, label %59, label %.thread.i
 
 59:                                               ; preds = %56, %49, %44
   %60 = load i8, ptr %45, align 1
@@ -3876,8 +3876,8 @@ define internal fastcc noundef zeroext i1 @MatchesArray(i1 noundef zeroext %0, i
   %53 = tail call fastcc zeroext i1 @word_matches(ptr noundef %46, ptr noundef %52, i1 noundef zeroext %0)
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i54 = icmp ne i64 %indvars.iv.next.i53, %wide.trip.count.i49
-  %or.cond83.not = select i1 %53, i1 %exitcond.not.i54, i1 false
-  br i1 %or.cond83.not, label %.lr.ph.i50, label %HeadMatchesArray.exit, !llvm.loop !10
+  %or.cond88.not = select i1 %53, i1 %exitcond.not.i54, i1 false
+  br i1 %or.cond88.not, label %.lr.ph.i50, label %HeadMatchesArray.exit, !llvm.loop !10
 
 HeadMatchesArray.exit:                            ; preds = %.lr.ph.i41, %.lr.ph.i50, %.lr.ph.i, %.preheader.i47, %.preheader.i, %.loopexit, %25, %.thread58, %5
   %.0 = phi i1 [ false, %5 ], [ false, %.thread58 ], [ false, %25 ], [ false, %.loopexit ], [ true, %.preheader.i ], [ true, %.preheader.i47 ], [ %24, %.lr.ph.i ], [ %53, %.lr.ph.i50 ], [ false, %.lr.ph.i41 ]
@@ -9816,11 +9816,11 @@ ends_with.exit1123.thread:                        ; preds = %ends_with.exit1121,
   %1835 = getelementptr inbounds i8, ptr %1832, i64 %1834
   %1836 = load i8, ptr %1835, align 1
   %.not1088 = icmp eq i8 %1836, 39
-  %spec.select1133 = select i1 %.not1088, ptr @.str.2307, ptr @.str.2306
+  %spec.select1156 = select i1 %.not1088, ptr @.str.2307, ptr @.str.2306
   br label %1837
 
 1837:                                             ; preds = %1831, %1829, %1826
-  %.str.2306.sink = phi ptr [ @.str.2305, %1826 ], [ @.str.2306, %1829 ], [ %spec.select1133, %1831 ]
+  %.str.2306.sink = phi ptr [ @.str.2305, %1826 ], [ @.str.2306, %1829 ], [ %spec.select1156, %1831 ]
   store ptr %.str.2306.sink, ptr @completion_charp, align 8
   store ptr @match_previous_words.list.2304, ptr @completion_charpp, align 8
   store i1 true, ptr @completion_verbatim, align 1
@@ -10226,12 +10226,12 @@ ends_with.exit1127.thread:                        ; preds = %ends_with.exit1125,
   %1976 = getelementptr inbounds i8, ptr %1973, i64 %1975
   %1977 = load i8, ptr %1976, align 1
   %.not = icmp eq i8 %1977, 39
-  %spec.select1134 = select i1 %.not, ptr @.str.2307, ptr @.str.2306
+  %spec.select1157 = select i1 %.not, ptr @.str.2307, ptr @.str.2306
   br label %1978
 
 1978:                                             ; preds = %1972, %1970, %1967
-  %.str.2306.sink1132 = phi ptr [ @.str.2305, %1967 ], [ @.str.2306, %1970 ], [ %spec.select1134, %1972 ]
-  store ptr %.str.2306.sink1132, ptr @completion_charp, align 8
+  %.str.2306.sink1155 = phi ptr [ @.str.2305, %1967 ], [ @.str.2306, %1970 ], [ %spec.select1157, %1972 ]
+  store ptr %.str.2306.sink1155, ptr @completion_charp, align 8
   store ptr @match_previous_words.list.2365, ptr @completion_charpp, align 8
   store i1 true, ptr @completion_verbatim, align 1
   %1979 = tail call ptr @rl_completion_matches(ptr noundef nonnull %1, ptr noundef nonnull @complete_from_query) #11
@@ -10975,8 +10975,8 @@ define internal ptr @complete_from_const(ptr noundef readonly captures(none) %0,
   %21 = icmp eq i32 %10, 1
   %22 = and i16 %18, 1024
   %.not18.i = icmp eq i16 %22, 0
-  %or.cond9.i = and i1 %21, %.not18.i
-  br i1 %or.cond9.i, label %23, label %.thread.i
+  %or.cond11.i = and i1 %21, %.not18.i
+  br i1 %or.cond11.i, label %23, label %.thread.i
 
 23:                                               ; preds = %20, %13, %8
   %24 = load i8, ptr %9, align 1
@@ -11051,10 +11051,10 @@ define internal fastcc zeroext i1 @word_matches(ptr noundef %0, ptr noundef %1, 
   br i1 %6, label %tailrecurse, label %.lr.ph._crit_edge
 
 tailrecurse:                                      ; preds = %.lr.ph.preheader, %tailrecurse
-  %accumulator.tr8193 = phi i1 [ %8, %tailrecurse ], [ false, %.lr.ph.preheader ]
-  %.tr8292 = phi ptr [ %7, %tailrecurse ], [ %0, %.lr.ph.preheader ]
-  %7 = getelementptr inbounds nuw i8, ptr %.tr8292, i64 1
-  %8 = xor i1 %accumulator.tr8193, true
+  %accumulator.tr8195 = phi i1 [ %8, %tailrecurse ], [ false, %.lr.ph.preheader ]
+  %.tr8294 = phi ptr [ %7, %tailrecurse ], [ %0, %.lr.ph.preheader ]
+  %7 = getelementptr inbounds nuw i8, ptr %.tr8294, i64 1
+  %8 = xor i1 %accumulator.tr8195, true
   %9 = load i8, ptr %7, align 1
   %10 = icmp eq i8 %9, 33
   br i1 %10, label %tailrecurse, label %.lr.ph._crit_edge
@@ -11600,8 +11600,8 @@ define internal fastcc ptr @create_or_drop_command_generator(ptr noundef %0, i32
   %38 = icmp eq i32 %27, 1
   %39 = and i16 %35, 1024
   %.not18.i = icmp eq i16 %39, 0
-  %or.cond9.i = and i1 %38, %.not18.i
-  br i1 %or.cond9.i, label %40, label %.thread.i
+  %or.cond11.i = and i1 %38, %.not18.i
+  br i1 %or.cond11.i, label %40, label %.thread.i
 
 40:                                               ; preds = %37, %30, %25
   %41 = load i8, ptr %26, align 1
@@ -11901,14 +11901,14 @@ make_like_pattern.exit:                           ; preds = %25
 sub_0:                                            ; preds = %120
   %124 = load ptr, ptr %9, align 8
   %125 = load i8, ptr %124, align 1
-  %.not258 = icmp eq i8 %125, 112
-  br i1 %.not258, label %sub_1, label %.tail.thread
+  %.not259 = icmp eq i8 %125, 112
+  br i1 %.not259, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %127 = load i8, ptr %126, align 1
-  %.not259 = icmp eq i8 %127, 103
-  br i1 %.not259, label %.tail, label %.tail.thread
+  %.not260 = icmp eq i8 %127, 103
+  br i1 %.not260, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 2
@@ -11924,32 +11924,32 @@ sub_1:                                            ; preds = %sub_0
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %133 = load ptr, ptr %132, align 8
   %.not156 = icmp eq ptr %133, null
-  br i1 %.not156, label %179, label %sub_0235
+  br i1 %.not156, label %179, label %sub_0236
 
-sub_0235:                                         ; preds = %131
+sub_0236:                                         ; preds = %131
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.2483, ptr noundef %47) #11
   %134 = load ptr, ptr %9, align 8
   %135 = load i8, ptr %134, align 1
-  %.not260 = icmp eq i8 %135, 112
-  br i1 %.not260, label %sub_1236, label %.tail234.thread
+  %.not261 = icmp eq i8 %135, 112
+  br i1 %.not261, label %sub_1237, label %.tail235.thread
 
-sub_1236:                                         ; preds = %sub_0235
+sub_1237:                                         ; preds = %sub_0236
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 1
   %137 = load i8, ptr %136, align 1
-  %.not261 = icmp eq i8 %137, 103
-  br i1 %.not261, label %.tail234, label %.tail234.thread
+  %.not262 = icmp eq i8 %137, 103
+  br i1 %.not262, label %.tail235, label %.tail235.thread
 
-.tail234:                                         ; preds = %sub_1236
+.tail235:                                         ; preds = %sub_1237
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 2
   %139 = load i8, ptr %138, align 1
   %140 = icmp eq i8 %139, 95
-  br i1 %140, label %141, label %.tail234.thread
+  br i1 %140, label %141, label %.tail235.thread
 
-.tail234.thread:                                  ; preds = %sub_1236, %sub_0235, %.tail234
+.tail235.thread:                                  ; preds = %sub_1237, %sub_0236, %.tail235
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.2484) #11
   br label %141
 
-141:                                              ; preds = %.tail234.thread, %.tail234
+141:                                              ; preds = %.tail235.thread, %.tail235
   %142 = load i8, ptr @_complete_from_query.objectquoted, align 1, !range !13, !noundef !31
   store i8 %142, ptr @_complete_from_query.schemaquoted, align 1
   br label %179
@@ -12077,21 +12077,21 @@ exec_query.exit:                                  ; preds = %179, %185, %187, %1
 193:                                              ; preds = %exec_query.exit, %6
   %194 = load ptr, ptr @_complete_from_query.result, align 8
   %.not158 = icmp eq ptr %194, null
-  br i1 %.not158, label %.thread225, label %195
+  br i1 %.not158, label %.thread226, label %195
 
 195:                                              ; preds = %193
   %196 = call i32 @PQresultStatus(ptr noundef nonnull %194) #11
   %197 = icmp eq i32 %196, 2
-  br i1 %197, label %.preheader243, label %.thread225
+  br i1 %197, label %.preheader244, label %.thread226
 
-.preheader243:                                    ; preds = %195
+.preheader244:                                    ; preds = %195
   %198 = load i32, ptr @_complete_from_query.list_index, align 4
   %199 = load ptr, ptr @_complete_from_query.result, align 8
   %200 = call i32 @PQntuples(ptr noundef %199) #11
   %201 = icmp slt i32 %198, %200
   br i1 %201, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader243
+.lr.ph:                                           ; preds = %.preheader244
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -12135,7 +12135,7 @@ exec_query.exit:                                  ; preds = %179, %185, %187, %1
   %224 = add i32 %223, 1
   store i32 %224, ptr @_complete_from_query.num_query_other, align 4
   %225 = call ptr @pg_strdup(ptr noundef %.0119.us) #11
-  br label %.thread221
+  br label %.thread222
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %identifier_needs_quotes.exit.thread
   %226 = load ptr, ptr @_complete_from_query.result, align 8
@@ -12330,7 +12330,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
   br label %322, !llvm.loop !33
 
 .loopexit95.i:                                    ; preds = %322, %315, %312, %294
-  %.not.i176205 = phi i1 [ true, %294 ], [ false, %312 ], [ false, %315 ], [ false, %322 ]
+  %.not.i176206 = phi i1 [ true, %294 ], [ false, %312 ], [ false, %315 ], [ false, %322 ]
   %328 = phi i1 [ %300, %294 ], [ %305, %312 ], [ %305, %315 ], [ %320, %322 ]
   %.062.i = phi i1 [ %298, %294 ], [ false, %312 ], [ false, %315 ], [ true, %322 ]
   %.056.i = phi i64 [ 1, %294 ], [ %306, %312 ], [ %306, %315 ], [ %.157.i, %322 ]
@@ -12392,7 +12392,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
   %.064.i = phi i1 [ %328, %.loopexit95.i ], [ false, %338 ], [ false, %341 ], [ true, %346 ]
   %.359.i = phi i64 [ %.056.i, %.loopexit95.i ], [ %331, %338 ], [ %331, %341 ], [ %.460.i, %346 ]
   %352 = call ptr @pg_malloc(i64 noundef %.359.i) #11
-  br i1 %.not.i176205, label %371, label %353
+  br i1 %.not.i176206, label %371, label %353
 
 353:                                              ; preds = %.loopexit.i177
   br i1 %.062.i, label %354, label %356
@@ -12497,7 +12497,7 @@ identifier_needs_quotes.exit175:                  ; preds = %281, %278, %identif
 requote_identifier.exit:                          ; preds = %371, %._crit_edge104.i, %386
   %.5.i = phi ptr [ %387, %386 ], [ %.7.lcssa.i, %._crit_edge104.i ], [ %.055.i, %371 ]
   store i8 0, ptr %.5.i, align 1
-  br label %.thread221
+  br label %.thread222
 
 identifier_needs_quotes.exit.thread:              ; preds = %271, %281, %275, %254, %264, %258
   %388 = load i32, ptr @_complete_from_query.list_index, align 4
@@ -12506,35 +12506,35 @@ identifier_needs_quotes.exit.thread:              ; preds = %271, %281, %275, %2
   %391 = icmp slt i32 %388, %390
   br i1 %391, label %.lr.ph.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %identifier_needs_quotes.exit.thread, %.preheader243
+._crit_edge:                                      ; preds = %identifier_needs_quotes.exit.thread, %.preheader244
   %392 = load i32, ptr @_complete_from_query.list_index, align 4
   %393 = load ptr, ptr @_complete_from_query.result, align 8
   %394 = call i32 @PQntuples(ptr noundef %393) #11
   %395 = sub i32 %392, %394
   %.not159 = icmp eq ptr %1, null
-  br i1 %.not159, label %.thread213, label %396
+  br i1 %.not159, label %.thread214, label %396
 
 396:                                              ; preds = %._crit_edge
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %398 = load ptr, ptr %397, align 8
   %.not160 = icmp eq ptr %398, null
-  br i1 %.not160, label %.thread213, label %.preheader242
+  br i1 %.not160, label %.thread214, label %.preheader243
 
-.preheader242:                                    ; preds = %396
+.preheader243:                                    ; preds = %396
   %399 = load ptr, ptr %398, align 8
-  %.not161250 = icmp eq ptr %399, null
-  br i1 %.not161250, label %.thread213, label %.lr.ph253
+  %.not161251 = icmp eq ptr %399, null
+  br i1 %.not161251, label %.thread214, label %.lr.ph254
 
-.lr.ph253:                                        ; preds = %.preheader242, %pg_strdup_keyword_case.exit
-  %400 = phi ptr [ %438, %pg_strdup_keyword_case.exit ], [ %399, %.preheader242 ]
-  %.0111252 = phi ptr [ %401, %pg_strdup_keyword_case.exit ], [ %398, %.preheader242 ]
-  %.1121251 = phi i32 [ %402, %pg_strdup_keyword_case.exit ], [ %395, %.preheader242 ]
-  %401 = getelementptr inbounds nuw i8, ptr %.0111252, i64 8
-  %402 = add i32 %.1121251, -1
-  %403 = icmp sgt i32 %.1121251, 0
+.lr.ph254:                                        ; preds = %.preheader243, %pg_strdup_keyword_case.exit
+  %400 = phi ptr [ %438, %pg_strdup_keyword_case.exit ], [ %399, %.preheader243 ]
+  %.0111253 = phi ptr [ %401, %pg_strdup_keyword_case.exit ], [ %398, %.preheader243 ]
+  %.1121252 = phi i32 [ %402, %pg_strdup_keyword_case.exit ], [ %395, %.preheader243 ]
+  %401 = getelementptr inbounds nuw i8, ptr %.0111253, i64 8
+  %402 = add i32 %.1121252, -1
+  %403 = icmp sgt i32 %.1121252, 0
   br i1 %403, label %pg_strdup_keyword_case.exit, label %404, !llvm.loop !37
 
-404:                                              ; preds = %.lr.ph253
+404:                                              ; preds = %.lr.ph254
   %405 = load i32, ptr @_complete_from_query.list_index, align 4
   %406 = add i32 %405, 1
   store i32 %406, ptr @_complete_from_query.list_index, align 4
@@ -12571,13 +12571,13 @@ identifier_needs_quotes.exit.thread:              ; preds = %271, %281, %275, %2
   %425 = icmp eq i32 %414, 1
   %426 = and i16 %422, 1024
   %.not18.i = icmp eq i16 %426, 0
-  %or.cond9.i = and i1 %425, %.not18.i
-  br i1 %or.cond9.i, label %427, label %.thread.i182
+  %or.cond11.i186 = and i1 %425, %.not18.i
+  br i1 %or.cond11.i186, label %427, label %.thread.i182
 
 427:                                              ; preds = %424, %417, %410
   %428 = load i8, ptr %413, align 1
   %.not204.i = icmp eq i8 %428, 0
-  br i1 %.not204.i, label %.thread221, label %.lr.ph6.i
+  br i1 %.not204.i, label %.thread222, label %.lr.ph6.i
 
 .lr.ph6.i:                                        ; preds = %427, %.lr.ph6.i
   %429 = phi i8 [ %432, %.lr.ph6.i ], [ %428, %427 ]
@@ -12587,12 +12587,12 @@ identifier_needs_quotes.exit.thread:              ; preds = %271, %281, %275, %2
   %431 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
   %432 = load i8, ptr %431, align 1
   %.not20.i = icmp eq i8 %432, 0
-  br i1 %.not20.i, label %.thread221, label %.lr.ph6.i, !llvm.loop !15
+  br i1 %.not20.i, label %.thread222, label %.lr.ph6.i, !llvm.loop !15
 
 .thread.i182:                                     ; preds = %424, %416
   %433 = load i8, ptr %413, align 1
   %.not192.i = icmp eq i8 %433, 0
-  br i1 %.not192.i, label %.thread221, label %.lr.ph.i183
+  br i1 %.not192.i, label %.thread222, label %.lr.ph.i183
 
 .lr.ph.i183:                                      ; preds = %.thread.i182, %.lr.ph.i183
   %434 = phi i8 [ %437, %.lr.ph.i183 ], [ %433, %.thread.i182 ]
@@ -12602,40 +12602,40 @@ identifier_needs_quotes.exit.thread:              ; preds = %271, %281, %275, %2
   %436 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
   %437 = load i8, ptr %436, align 1
   %.not19.i = icmp eq i8 %437, 0
-  br i1 %.not19.i, label %.thread221, label %.lr.ph.i183, !llvm.loop !16
+  br i1 %.not19.i, label %.thread222, label %.lr.ph.i183, !llvm.loop !16
 
-pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph253
+pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph254
   %438 = load ptr, ptr %401, align 8
   %.not161 = icmp eq ptr %438, null
-  br i1 %.not161, label %.thread213, label %.lr.ph253
+  br i1 %.not161, label %.thread214, label %.lr.ph254
 
-.thread213:                                       ; preds = %pg_strdup_keyword_case.exit, %.preheader242, %396, %._crit_edge
-  %.0120 = phi i32 [ %395, %396 ], [ %395, %._crit_edge ], [ %395, %.preheader242 ], [ %402, %pg_strdup_keyword_case.exit ]
+.thread214:                                       ; preds = %pg_strdup_keyword_case.exit, %.preheader243, %396, %._crit_edge
+  %.0120 = phi i32 [ %395, %396 ], [ %395, %._crit_edge ], [ %395, %.preheader243 ], [ %402, %pg_strdup_keyword_case.exit ]
   %.not162 = icmp eq ptr %2, null
-  br i1 %.not162, label %.thread225, label %.preheader
+  br i1 %.not162, label %.thread226, label %.preheader
 
-.preheader:                                       ; preds = %.thread213
+.preheader:                                       ; preds = %.thread214
   %439 = load ptr, ptr %2, align 8
-  %.not163254 = icmp eq ptr %439, null
-  br i1 %.not163254, label %.thread225, label %.lr.ph257
+  %.not163255 = icmp eq ptr %439, null
+  br i1 %.not163255, label %.thread226, label %.lr.ph258
 
-.lr.ph257:                                        ; preds = %.preheader, %pg_strdup_keyword_case.exit200
-  %440 = phi ptr [ %478, %pg_strdup_keyword_case.exit200 ], [ %439, %.preheader ]
-  %.0109256 = phi ptr [ %441, %pg_strdup_keyword_case.exit200 ], [ %2, %.preheader ]
-  %.3123255 = phi i32 [ %442, %pg_strdup_keyword_case.exit200 ], [ %.0120, %.preheader ]
-  %441 = getelementptr inbounds nuw i8, ptr %.0109256, i64 8
-  %442 = add i32 %.3123255, -1
-  %443 = icmp sgt i32 %.3123255, 0
-  br i1 %443, label %pg_strdup_keyword_case.exit200, label %444, !llvm.loop !38
+.lr.ph258:                                        ; preds = %.preheader, %pg_strdup_keyword_case.exit201
+  %440 = phi ptr [ %478, %pg_strdup_keyword_case.exit201 ], [ %439, %.preheader ]
+  %.0109257 = phi ptr [ %441, %pg_strdup_keyword_case.exit201 ], [ %2, %.preheader ]
+  %.3123256 = phi i32 [ %442, %pg_strdup_keyword_case.exit201 ], [ %.0120, %.preheader ]
+  %441 = getelementptr inbounds nuw i8, ptr %.0109257, i64 8
+  %442 = add i32 %.3123256, -1
+  %443 = icmp sgt i32 %.3123256, 0
+  br i1 %443, label %pg_strdup_keyword_case.exit201, label %444, !llvm.loop !38
 
-444:                                              ; preds = %.lr.ph257
+444:                                              ; preds = %.lr.ph258
   %445 = load i32, ptr @_complete_from_query.list_index, align 4
   %446 = add i32 %445, 1
   store i32 %446, ptr @_complete_from_query.list_index, align 4
   %447 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
   %448 = call i32 @pg_strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull %440, i64 noundef %447) #11
   %449 = icmp eq i32 %448, 0
-  br i1 %449, label %450, label %pg_strdup_keyword_case.exit200
+  br i1 %449, label %450, label %pg_strdup_keyword_case.exit201
 
 450:                                              ; preds = %444
   %451 = load i32, ptr @_complete_from_query.num_keywords, align 4
@@ -12648,8 +12648,8 @@ pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph253
   br i1 %455, label %467, label %456
 
 456:                                              ; preds = %450
-  %or.cond.i186 = icmp ult i32 %454, 2
-  br i1 %or.cond.i186, label %457, label %.thread.i187
+  %or.cond.i187 = icmp ult i32 %454, 2
+  br i1 %or.cond.i187, label %457, label %.thread.i188
 
 457:                                              ; preds = %456
   %458 = tail call ptr @__ctype_b_loc() #12
@@ -12658,52 +12658,52 @@ pg_strdup_keyword_case.exit:                      ; preds = %404, %.lr.ph253
   %461 = getelementptr inbounds nuw i16, ptr %459, i64 %460
   %462 = load i16, ptr %461, align 2
   %463 = and i16 %462, 512
-  %.not.i193 = icmp eq i16 %463, 0
-  br i1 %.not.i193, label %464, label %467
+  %.not.i194 = icmp eq i16 %463, 0
+  br i1 %.not.i194, label %464, label %467
 
 464:                                              ; preds = %457
   %465 = icmp eq i32 %454, 1
   %466 = and i16 %462, 1024
-  %.not18.i198 = icmp eq i16 %466, 0
-  %or.cond9.i199 = and i1 %465, %.not18.i198
-  br i1 %or.cond9.i199, label %467, label %.thread.i187
+  %.not18.i199 = icmp eq i16 %466, 0
+  %or.cond11.i200 = and i1 %465, %.not18.i199
+  br i1 %or.cond11.i200, label %467, label %.thread.i188
 
 467:                                              ; preds = %464, %457, %450
   %468 = load i8, ptr %453, align 1
-  %.not204.i194 = icmp eq i8 %468, 0
-  br i1 %.not204.i194, label %.thread221, label %.lr.ph6.i195
+  %.not204.i195 = icmp eq i8 %468, 0
+  br i1 %.not204.i195, label %.thread222, label %.lr.ph6.i196
 
-.lr.ph6.i195:                                     ; preds = %467, %.lr.ph6.i195
-  %469 = phi i8 [ %472, %.lr.ph6.i195 ], [ %468, %467 ]
-  %.05.i196 = phi ptr [ %471, %.lr.ph6.i195 ], [ %453, %467 ]
+.lr.ph6.i196:                                     ; preds = %467, %.lr.ph6.i196
+  %469 = phi i8 [ %472, %.lr.ph6.i196 ], [ %468, %467 ]
+  %.05.i197 = phi ptr [ %471, %.lr.ph6.i196 ], [ %453, %467 ]
   %470 = call zeroext i8 @pg_tolower(i8 noundef zeroext %469) #11
-  store i8 %470, ptr %.05.i196, align 1
-  %471 = getelementptr inbounds nuw i8, ptr %.05.i196, i64 1
+  store i8 %470, ptr %.05.i197, align 1
+  %471 = getelementptr inbounds nuw i8, ptr %.05.i197, i64 1
   %472 = load i8, ptr %471, align 1
-  %.not20.i197 = icmp eq i8 %472, 0
-  br i1 %.not20.i197, label %.thread221, label %.lr.ph6.i195, !llvm.loop !15
+  %.not20.i198 = icmp eq i8 %472, 0
+  br i1 %.not20.i198, label %.thread222, label %.lr.ph6.i196, !llvm.loop !15
 
-.thread.i187:                                     ; preds = %464, %456
+.thread.i188:                                     ; preds = %464, %456
   %473 = load i8, ptr %453, align 1
-  %.not192.i188 = icmp eq i8 %473, 0
-  br i1 %.not192.i188, label %.thread221, label %.lr.ph.i189
+  %.not192.i189 = icmp eq i8 %473, 0
+  br i1 %.not192.i189, label %.thread222, label %.lr.ph.i190
 
-.lr.ph.i189:                                      ; preds = %.thread.i187, %.lr.ph.i189
-  %474 = phi i8 [ %477, %.lr.ph.i189 ], [ %473, %.thread.i187 ]
-  %.13.i190 = phi ptr [ %476, %.lr.ph.i189 ], [ %453, %.thread.i187 ]
+.lr.ph.i190:                                      ; preds = %.thread.i188, %.lr.ph.i190
+  %474 = phi i8 [ %477, %.lr.ph.i190 ], [ %473, %.thread.i188 ]
+  %.13.i191 = phi ptr [ %476, %.lr.ph.i190 ], [ %453, %.thread.i188 ]
   %475 = call zeroext i8 @pg_toupper(i8 noundef zeroext %474) #11
-  store i8 %475, ptr %.13.i190, align 1
-  %476 = getelementptr inbounds nuw i8, ptr %.13.i190, i64 1
+  store i8 %475, ptr %.13.i191, align 1
+  %476 = getelementptr inbounds nuw i8, ptr %.13.i191, i64 1
   %477 = load i8, ptr %476, align 1
-  %.not19.i191 = icmp eq i8 %477, 0
-  br i1 %.not19.i191, label %.thread221, label %.lr.ph.i189, !llvm.loop !16
+  %.not19.i192 = icmp eq i8 %477, 0
+  br i1 %.not19.i192, label %.thread222, label %.lr.ph.i190, !llvm.loop !16
 
-pg_strdup_keyword_case.exit200:                   ; preds = %444, %.lr.ph257
+pg_strdup_keyword_case.exit201:                   ; preds = %444, %.lr.ph258
   %478 = load ptr, ptr %441, align 8
   %.not163 = icmp eq ptr %478, null
-  br i1 %.not163, label %.thread225, label %.lr.ph257
+  br i1 %.not163, label %.thread226, label %.lr.ph258
 
-.thread225:                                       ; preds = %pg_strdup_keyword_case.exit200, %.preheader, %.thread213, %195, %193
+.thread226:                                       ; preds = %pg_strdup_keyword_case.exit201, %.preheader, %.thread214, %195, %193
   %479 = load i32, ptr @_complete_from_query.num_schema_only, align 4
   %480 = icmp sgt i32 %479, 0
   %481 = load i32, ptr @_complete_from_query.num_query_other, align 4
@@ -12714,18 +12714,18 @@ pg_strdup_keyword_case.exit200:                   ; preds = %444, %.lr.ph257
   %or.cond19 = select i1 %or.cond17, i1 %484, i1 false
   br i1 %or.cond19, label %485, label %486
 
-485:                                              ; preds = %.thread225
+485:                                              ; preds = %.thread226
   store i32 0, ptr @rl_completion_append_character, align 4
   br label %486
 
-486:                                              ; preds = %485, %.thread225
+486:                                              ; preds = %485, %.thread226
   %487 = load ptr, ptr @_complete_from_query.result, align 8
   call void @PQclear(ptr noundef %487) #11
   store ptr null, ptr @_complete_from_query.result, align 8
-  br label %.thread221
+  br label %.thread222
 
-.thread221:                                       ; preds = %.lr.ph.i183, %.lr.ph6.i, %.lr.ph.i189, %.lr.ph6.i195, %.thread.i187, %467, %requote_identifier.exit, %.split.us, %.thread.i182, %427, %486
-  %.11 = phi ptr [ null, %486 ], [ %413, %.thread.i182 ], [ %413, %427 ], [ %352, %requote_identifier.exit ], [ %225, %.split.us ], [ %453, %467 ], [ %453, %.thread.i187 ], [ %453, %.lr.ph6.i195 ], [ %453, %.lr.ph.i189 ], [ %413, %.lr.ph6.i ], [ %413, %.lr.ph.i183 ]
+.thread222:                                       ; preds = %.lr.ph.i183, %.lr.ph6.i, %.lr.ph.i190, %.lr.ph6.i196, %.thread.i188, %467, %requote_identifier.exit, %.split.us, %.thread.i182, %427, %486
+  %.11 = phi ptr [ null, %486 ], [ %413, %.thread.i182 ], [ %413, %427 ], [ %352, %requote_identifier.exit ], [ %225, %.split.us ], [ %453, %467 ], [ %453, %.thread.i188 ], [ %453, %.lr.ph6.i196 ], [ %453, %.lr.ph.i190 ], [ %413, %.lr.ph6.i ], [ %413, %.lr.ph.i183 ]
   ret ptr %.11
 }
 

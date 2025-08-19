@@ -429,7 +429,7 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25
   br i1 %8, label %.preheader66, label %54
 
 .preheader66:                                     ; preds = %14, %.preheader66
-  %.017.i = phi i32 [ %spec.select18.i, %.preheader66 ], [ 0, %14 ]
+  %.017.i = phi i32 [ %spec.select19.i, %.preheader66 ], [ 0, %14 ]
   %.01116.i = phi i64 [ %53, %.preheader66 ], [ 0, %14 ]
   %.01215.i = phi i32 [ %spec.select.i, %.preheader66 ], [ -1, %14 ]
   %33 = getelementptr inbounds nuw [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i
@@ -458,13 +458,13 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25
   %51 = icmp ult i32 %50, %.01215.i
   %52 = trunc i64 %34 to i32
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %50, i32 %.01215.i)
-  %spec.select18.i = select i1 %51, i32 %52, i32 %.017.i
+  %spec.select19.i = select i1 %51, i32 %52, i32 %.017.i
   %53 = add nuw nsw i64 %.01116.i, 1
   %exitcond.not.i = icmp eq i64 %53, 8
   br i1 %exitcond.not.i, label %get_color.exit, label %.preheader66, !llvm.loop !35
 
 get_color.exit:                                   ; preds = %.preheader66
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %spec.select18.i) #4
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %spec.select19.i) #4
   br label %55
 
 54:                                               ; preds = %14
@@ -504,7 +504,7 @@ get_color.exit:                                   ; preds = %.preheader66
   br i1 %8, label %.preheader, label %99
 
 .preheader:                                       ; preds = %77, %.preheader
-  %.017.i54 = phi i32 [ %spec.select18.i63, %.preheader ], [ 0, %77 ]
+  %.017.i54 = phi i32 [ %spec.select19.i63, %.preheader ], [ 0, %77 ]
   %.01116.i55 = phi i64 [ %98, %.preheader ], [ 0, %77 ]
   %.01215.i56 = phi i32 [ %spec.select.i62, %.preheader ], [ -1, %77 ]
   %78 = getelementptr inbounds nuw [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i55
@@ -533,13 +533,13 @@ get_color.exit:                                   ; preds = %.preheader66
   %96 = icmp ult i32 %95, %.01215.i56
   %97 = trunc i64 %79 to i32
   %spec.select.i62 = tail call i32 @llvm.umin.i32(i32 %95, i32 %.01215.i56)
-  %spec.select18.i63 = select i1 %96, i32 %97, i32 %.017.i54
+  %spec.select19.i63 = select i1 %96, i32 %97, i32 %.017.i54
   %98 = add nuw nsw i64 %.01116.i55, 1
   %exitcond.not.i64 = icmp eq i64 %98, 8
   br i1 %exitcond.not.i64, label %get_color.exit65, label %.preheader, !llvm.loop !35
 
 get_color.exit65:                                 ; preds = %.preheader
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %spec.select18.i63) #4
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %spec.select19.i63) #4
   br label %100
 
 99:                                               ; preds = %77
@@ -603,8 +603,8 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
 
 .preheader.us.preheader:                          ; preds = %.preheader61
   %15 = sub i32 0, %indvars.iv78
-  %.not83 = icmp eq i32 %11, %15
-  %wide.trip.count = select i1 %.not83, i64 1, i64 2
+  %.not88 = icmp eq i32 %11, %15
+  %wide.trip.count = select i1 %.not88, i64 1, i64 2
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us

@@ -2865,8 +2865,8 @@ define internal noundef zeroext i1 @"_ZN81_$LT$clap_builder..builder..styled_str
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !1134, !noalias !1131
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !1134, !noalias !1131
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 15:                                               ; preds = %6
@@ -2878,13 +2878,13 @@ define internal noundef zeroext i1 @"_ZN81_$LT$clap_builder..builder..styled_str
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !1134, !noalias !1131
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !1134, !noalias !1131
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !1134, !noalias !1131
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !1134, !noalias !1131
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 26:                                               ; preds = %6
@@ -3059,10 +3059,10 @@ define void @_ZN12clap_builder6output5usage5Usage23create_usage_with_title17hd7c
   %15 = icmp eq i16 %.sroa.15.0.copyload, 0
   %or.cond26 = select i1 %or.cond25, i1 %15, i1 false
   %spec.select = select i1 %or.cond26, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select27 = select i1 %or.cond26, i64 0, i64 4
+  %spec.select28 = select i1 %or.cond26, i64 0, i64 4
   store ptr %spec.select, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %spec.select27, ptr %16, align 8
+  store i64 %spec.select28, ptr %16, align 8
   store ptr %5, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %17, align 8
@@ -3530,10 +3530,10 @@ _ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85c
   %138 = icmp eq i16 %.sroa.15149.0.copyload.i, 0
   %or.cond204.i = select i1 %or.cond203.i, i1 %138, i1 false
   %spec.select.i = select i1 %or.cond204.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select221.i = select i1 %or.cond204.i, i64 0, i64 4
+  %spec.select222.i = select i1 %or.cond204.i, i64 0, i64 4
   store ptr %spec.select.i, ptr %41, align 8, !noalias !1258
   %139 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %spec.select221.i, ptr %139, align 8, !noalias !1258
+  store i64 %spec.select222.i, ptr %139, align 8, !noalias !1258
   store ptr %42, ptr %43, align 8, !noalias !1258
   %140 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %140, align 8, !noalias !1258
@@ -3578,11 +3578,11 @@ _ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85c
   %or.cond206.i = select i1 %or.cond205.i, i1 %152, i1 false
   %153 = icmp eq i16 %.sroa.15136.0.copyload.i, 0
   %or.cond207.i = select i1 %or.cond206.i, i1 %153, i1 false
-  %spec.select222.i = select i1 %or.cond207.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select223.i = select i1 %or.cond207.i, i64 0, i64 4
-  store ptr %spec.select222.i, ptr %45, align 8, !noalias !1258
+  %spec.select223.i = select i1 %or.cond207.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
+  %spec.select224.i = select i1 %or.cond207.i, i64 0, i64 4
+  store ptr %spec.select223.i, ptr %45, align 8, !noalias !1258
   %154 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i64 %spec.select223.i, ptr %154, align 8, !noalias !1258
+  store i64 %spec.select224.i, ptr %154, align 8, !noalias !1258
   store ptr %46, ptr %47, align 8, !noalias !1258
   %155 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %155, align 8, !noalias !1258
@@ -3667,11 +3667,11 @@ _ZN12clap_builder7builder7command7Command23get_usage_name_fallback17h1737c77d84d
   %or.cond209.i = select i1 %or.cond208.i, i1 %184, i1 false
   %185 = icmp eq i16 %.sroa.15.0.copyload.i, 0
   %or.cond210.i = select i1 %or.cond209.i, i1 %185, i1 false
-  %spec.select224.i = select i1 %or.cond210.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select225.i = select i1 %or.cond210.i, i64 0, i64 4
-  store ptr %spec.select224.i, ptr %53, align 8, !noalias !1258
+  %spec.select225.i = select i1 %or.cond210.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
+  %spec.select226.i = select i1 %or.cond210.i, i64 0, i64 4
+  store ptr %spec.select225.i, ptr %53, align 8, !noalias !1258
   %186 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %spec.select225.i, ptr %186, align 8, !noalias !1258
+  store i64 %spec.select226.i, ptr %186, align 8, !noalias !1258
   store ptr %54, ptr %55, align 8, !noalias !1258
   %187 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %187, align 8, !noalias !1258
@@ -3720,11 +3720,11 @@ _ZN12clap_builder7builder7command7Command23get_usage_name_fallback17h1737c77d84d
   %or.cond212.i = select i1 %or.cond211.i, i1 %199, i1 false
   %200 = icmp eq i16 %.sroa.15123.0.copyload.i, 0
   %or.cond213.i = select i1 %or.cond212.i, i1 %200, i1 false
-  %spec.select226.i = select i1 %or.cond213.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select227.i = select i1 %or.cond213.i, i64 0, i64 4
-  store ptr %spec.select226.i, ptr %49, align 8, !noalias !1258
+  %spec.select227.i = select i1 %or.cond213.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
+  %spec.select228.i = select i1 %or.cond213.i, i64 0, i64 4
+  store ptr %spec.select227.i, ptr %49, align 8, !noalias !1258
   %201 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %spec.select227.i, ptr %201, align 8, !noalias !1258
+  store i64 %spec.select228.i, ptr %201, align 8, !noalias !1258
   store ptr %50, ptr %51, align 8, !noalias !1258
   %202 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %202, align 8, !noalias !1258
@@ -5045,10 +5045,10 @@ _ZN12clap_builder7builder7command7Command23get_usage_name_fallback17h1737c77d84d
   %102 = icmp eq i16 %.sroa.15.0.copyload, 0
   %or.cond86 = select i1 %or.cond85, i1 %102, i1 false
   %spec.select = select i1 %or.cond86, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select248 = select i1 %or.cond86, i64 0, i64 4
+  %spec.select318 = select i1 %or.cond86, i64 0, i64 4
   store ptr %spec.select, ptr %74, align 8
   %103 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i64 %spec.select248, ptr %103, align 8
+  store i64 %spec.select318, ptr %103, align 8
   store ptr %75, ptr %76, align 8
   %104 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %104, align 8
@@ -5094,8 +5094,8 @@ _ZN12clap_builder7builder7command7Command23get_usage_name_fallback17h1737c77d84d
   %126 = getelementptr inbounds nuw i8, ptr %82, i64 216
   br label %127
 
-127:                                              ; preds = %.backedge344, %116
-  %128 = phi ptr [ %118, %116 ], [ %130, %.backedge344 ]
+127:                                              ; preds = %.backedge414, %116
+  %128 = phi ptr [ %118, %116 ], [ %130, %.backedge414 ]
   %.not22.not.not.i.not = icmp eq ptr %128, %121
   br i1 %.not22.not.not.i.not, label %_ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit.thread, label %129
 
@@ -5113,9 +5113,9 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
   %134 = load i32, ptr %133, align 8, !range !1334, !alias.scope !1527, !noalias !1520
   %.not2.i.i.i.i.i = icmp ne i32 %134, 1114112
   %.0.i.not.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not2.i.i.i.i.i
-  br i1 %.0.i.not.i.i.i.i, label %135, label %.backedge344
+  br i1 %.0.i.not.i.i.i.i, label %135, label %.backedge414
 
-.backedge344:                                     ; preds = %129, %184, %144, %.critedge30.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i"
+.backedge414:                                     ; preds = %129, %184, %144, %.critedge30.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i"
   br label %127
 
 135:                                              ; preds = %129
@@ -5134,17 +5134,17 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i": ; preds = %138
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %136, ptr noundef nonnull dereferenceable(4) @anon.3bea5f84750093931b71d3ae0bbb8a44.36, i64 4), !alias.scope !1533
   %140 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %140, label %.backedge344, label %.critedge30.i
+  br i1 %140, label %.backedge414, label %.critedge30.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i": ; preds = %138
   %bcmp.i36.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %136, ptr noundef nonnull dereferenceable(7) @anon.3bea5f84750093931b71d3ae0bbb8a44.38, i64 7), !alias.scope !1537
   %141 = icmp eq i32 %bcmp.i36.i, 0
-  br i1 %141, label %.backedge344, label %.critedge30.i
+  br i1 %141, label %.backedge414, label %.critedge30.i
 
 .critedge30.i:                                    ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i", %138, %135
   %142 = getelementptr inbounds nuw i8, ptr %128, i64 548
   %143 = load i8, ptr %142, align 4, !range !1541, !alias.scope !1542, !noundef !17
-  switch i8 %143, label %.backedge344 [
+  switch i8 %143, label %.backedge414 [
     i8 9, label %144
     i8 4, label %144
     i8 3, label %144
@@ -5158,7 +5158,7 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
   %146 = load i32, ptr %145, align 4, !alias.scope !1545, !noundef !17
   %147 = and i32 %146, 5
   %or.cond.i = icmp eq i32 %147, 0
-  br i1 %or.cond.i, label %148, label %.backedge344
+  br i1 %or.cond.i, label %148, label %.backedge414
 
 148:                                              ; preds = %144
   %149 = getelementptr inbounds nuw i8, ptr %128, i64 488
@@ -5237,7 +5237,7 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
 
 184:                                              ; preds = %"_ZN12clap_builder6output5usage5Usage17needs_options_tag28_$u7b$$u7b$closure$u7d$$u7d$17h877001fd37908b72E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  br label %.backedge344
+  br label %.backedge414
 
 _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit: ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
@@ -5261,11 +5261,11 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
   %or.cond88 = select i1 %or.cond87, i1 %187, i1 false
   %188 = icmp eq i16 %.sroa.1559.0.copyload, 0
   %or.cond89 = select i1 %or.cond88, i1 %188, i1 false
-  %spec.select249 = select i1 %or.cond89, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select250 = select i1 %or.cond89, i64 0, i64 4
-  store ptr %spec.select249, ptr %70, align 8
+  %spec.select319 = select i1 %or.cond89, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
+  %spec.select320 = select i1 %or.cond89, i64 0, i64 4
+  store ptr %spec.select319, ptr %70, align 8
   %189 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i64 %spec.select250, ptr %189, align 8
+  store i64 %spec.select320, ptr %189, align 8
   store ptr %71, ptr %72, align 8
   %190 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %190, align 8
@@ -6452,9 +6452,9 @@ common.resume.i:                                  ; preds = %808, %497, %203
   %576 = icmp eq i16 %.sroa.15.0.copyload.i, 0
   %or.cond617.i = select i1 %or.cond616.i, i1 %576, i1 false
   %spec.select.i = select i1 %or.cond617.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select805.i = select i1 %or.cond617.i, i64 0, i64 4
+  %spec.select870.i = select i1 %or.cond617.i, i64 0, i64 4
   store ptr %spec.select.i, ptr %45, align 8, !noalias !1609
-  store i64 %spec.select805.i, ptr %290, align 8, !noalias !1609
+  store i64 %spec.select870.i, ptr %290, align 8, !noalias !1609
   store ptr %46, ptr %47, align 8, !noalias !1609
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %291, align 8, !noalias !1609
   store ptr %45, ptr %292, align 8, !noalias !1609
@@ -6650,10 +6650,10 @@ common.resume.i:                                  ; preds = %808, %497, %203
   %or.cond619.i = select i1 %or.cond618.i, i1 %629, i1 false
   %630 = icmp eq i16 %.sroa.15406.0.copyload.i, 0
   %or.cond620.i = select i1 %or.cond619.i, i1 %630, i1 false
-  %spec.select806.i = select i1 %or.cond620.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select807.i = select i1 %or.cond620.i, i64 0, i64 4
-  store ptr %spec.select806.i, ptr %39, align 8, !noalias !1609
-  store i64 %spec.select807.i, ptr %303, align 8, !noalias !1609
+  %spec.select871.i = select i1 %or.cond620.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
+  %spec.select872.i = select i1 %or.cond620.i, i64 0, i64 4
+  store ptr %spec.select871.i, ptr %39, align 8, !noalias !1609
+  store i64 %spec.select872.i, ptr %303, align 8, !noalias !1609
   store ptr %40, ptr %41, align 8, !noalias !1609
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %304, align 8, !noalias !1609
   store ptr %39, ptr %305, align 8, !noalias !1609
@@ -6746,10 +6746,10 @@ common.resume.i:                                  ; preds = %808, %497, %203
   %or.cond622.i = select i1 %or.cond621.i, i1 %657, i1 false
   %658 = icmp eq i16 %.sroa.15419.0.copyload.i, 0
   %or.cond623.i = select i1 %or.cond622.i, i1 %658, i1 false
-  %spec.select808.i = select i1 %or.cond623.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select809.i = select i1 %or.cond623.i, i64 0, i64 4
-  store ptr %spec.select808.i, ptr %34, align 8, !noalias !1609
-  store i64 %spec.select809.i, ptr %315, align 8, !noalias !1609
+  %spec.select873.i = select i1 %or.cond623.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
+  %spec.select874.i = select i1 %or.cond623.i, i64 0, i64 4
+  store ptr %spec.select873.i, ptr %34, align 8, !noalias !1609
+  store i64 %spec.select874.i, ptr %315, align 8, !noalias !1609
   store ptr %35, ptr %36, align 8, !noalias !1609
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %316, align 8, !noalias !1609
   store ptr %34, ptr %317, align 8, !noalias !1609

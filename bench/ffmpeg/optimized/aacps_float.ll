@@ -533,7 +533,7 @@ hybrid_analysis.exit:                             ; preds = %223
 .lr.ph186.i:                                      ; preds = %.preheader166.i
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 134048
   %277 = zext nneg i32 %.1.lcssa.i to i64
-  %wide.trip.count217.i = zext i32 %274 to i64
+  %wide.trip.count217.i = zext nneg i32 %274 to i64
   br label %307
 
 278:                                              ; preds = %289, %.preheader167.i
@@ -586,8 +586,8 @@ hybrid_analysis.exit:                             ; preds = %223
 
 .lr.ph189.i:                                      ; preds = %.preheader.i37
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 134048
-  %306 = zext i32 %.2.lcssa.i to i64
-  %wide.trip.count = sext i32 %22 to i64
+  %306 = zext nneg i32 %.2.lcssa.i to i64
+  %wide.trip.count = zext nneg i32 %22 to i64
   br label %318
 
 307:                                              ; preds = %307, %.lr.ph186.i

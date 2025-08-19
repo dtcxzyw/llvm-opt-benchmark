@@ -376,9 +376,9 @@ define hidden i32 @_sodium_argon2_encode_string(ptr noundef %0, i64 noundef %1, 
   br label %17
 
 17:                                               ; preds = %16, %13
-  %.sink230 = phi i64 [ 11, %16 ], [ 12, %13 ]
+  %.sink244 = phi i64 [ 11, %16 ], [ 12, %13 ]
   %.sink = phi i64 [ -11, %16 ], [ -12, %13 ]
-  %18 = getelementptr i8, ptr %0, i64 %.sink230
+  %18 = getelementptr i8, ptr %0, i64 %.sink244
   %19 = add i64 %1, %.sink
   %20 = tail call i32 @_sodium_argon2_validate_inputs(ptr noundef %2) #9
   %.not = icmp eq i32 %20, 0

@@ -261,9 +261,9 @@ define dso_local range(i32 0, 3) i32 @php_stream_from_persistent_id(ptr noundef 
   br label %.critedge35.sink.split
 
 .critedge35.sink.split:                           ; preds = %.critedge, %31
-  %.sink41 = phi ptr [ %14, %31 ], [ %41, %.critedge ]
+  %.sink46 = phi ptr [ %14, %31 ], [ %41, %.critedge ]
   %.lcssa.sink = phi ptr [ %27, %31 ], [ %40, %.critedge ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sink41, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %.sink46, i64 120
   store ptr %.lcssa.sink, ptr %42, align 8, !tbaa !26
   br label %.critedge35
 
@@ -987,8 +987,8 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   br label %17
 
 17:                                               ; preds = %.loopexit, %9
-  %.0184 = phi ptr [ %3, %9 ], [ %.2186.lcssa285, %.loopexit ]
-  %.0181 = phi ptr [ %4, %9 ], [ %.2183.lcssa287, %.loopexit ]
+  %.0184 = phi ptr [ %3, %9 ], [ %.2186.lcssa307, %.loopexit ]
+  %.0181 = phi ptr [ %4, %9 ], [ %.2183.lcssa309, %.loopexit ]
   %18 = load i16, ptr %5, align 8
   %19 = and i16 %18, 8
   %.not212 = icmp eq i16 %19, 0
@@ -1046,7 +1046,7 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   %.0178 = phi i32 [ %42, %37 ], [ %45, %.thread ]
   %.0175244 = load ptr, ptr %7, align 8, !tbaa !107
   %.not215245 = icmp eq ptr %.0175244, null
-  br i1 %.not215245, label %._crit_edge.thread288, label %.lr.ph
+  br i1 %.not215245, label %._crit_edge.thread310, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %50
   %.0175248 = phi ptr [ %.0175, %50 ], [ %.0175244, %46 ]
@@ -1057,7 +1057,7 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   %49 = call i32 %48(ptr noundef nonnull %0, ptr noundef nonnull %.0175248, ptr noundef %.2186246, ptr noundef %.2183247, ptr noundef null, i32 noundef %.0178) #27
   switch i32 %49, label %.loopexit [
     i32 2, label %50
-    i32 0, label %._crit_edge.thread288
+    i32 0, label %._crit_edge.thread310
   ]
 
 50:                                               ; preds = %.lr.ph
@@ -1170,26 +1170,26 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   %.not219 = icmp eq ptr %99, null
   br i1 %.not219, label %.loopexit, label %.lr.ph256
 
-._crit_edge.thread288:                            ; preds = %46, %.lr.ph
-  %.2183.lcssa293 = phi ptr [ %.2183247, %.lr.ph ], [ %.0181, %46 ]
-  %.2186.lcssa292 = phi ptr [ %.2186246, %.lr.ph ], [ %.0184, %46 ]
+._crit_edge.thread310:                            ; preds = %46, %.lr.ph
+  %.2183.lcssa315 = phi ptr [ %.2183247, %.lr.ph ], [ %.0181, %46 ]
+  %.2186.lcssa314 = phi ptr [ %.2186246, %.lr.ph ], [ %.0184, %46 ]
   %100 = load i16, ptr %5, align 8
   %101 = or i16 %100, 8
   store i16 %101, ptr %5, align 8
-  %102 = load ptr, ptr %.2186.lcssa292, align 8, !tbaa !111
+  %102 = load ptr, ptr %.2186.lcssa314, align 8, !tbaa !111
   %.not217257 = icmp eq ptr %102, null
   br i1 %.not217257, label %.preheader, label %.lr.ph259
 
-.preheader:                                       ; preds = %.lr.ph259, %._crit_edge.thread288
-  %103 = load ptr, ptr %.2183.lcssa293, align 8, !tbaa !111
+.preheader:                                       ; preds = %.lr.ph259, %._crit_edge.thread310
+  %103 = load ptr, ptr %.2183.lcssa315, align 8, !tbaa !111
   %.not218260 = icmp eq ptr %103, null
   br i1 %.not218260, label %._crit_edge262, label %.lr.ph261
 
-.lr.ph259:                                        ; preds = %._crit_edge.thread288, %.lr.ph259
-  %104 = phi ptr [ %105, %.lr.ph259 ], [ %102, %._crit_edge.thread288 ]
+.lr.ph259:                                        ; preds = %._crit_edge.thread310, %.lr.ph259
+  %104 = phi ptr [ %105, %.lr.ph259 ], [ %102, %._crit_edge.thread310 ]
   call void @php_stream_bucket_unlink(ptr noundef nonnull %104) #27
   call void @php_stream_bucket_delref(ptr noundef nonnull %104) #27
-  %105 = load ptr, ptr %.2186.lcssa292, align 8, !tbaa !111
+  %105 = load ptr, ptr %.2186.lcssa314, align 8, !tbaa !111
   %.not217 = icmp eq ptr %105, null
   br i1 %.not217, label %.preheader, label %.lr.ph259
 
@@ -1197,13 +1197,13 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_fill_read_buffer(ptr noundef 
   %106 = phi ptr [ %107, %.lr.ph261 ], [ %103, %.preheader ]
   call void @php_stream_bucket_unlink(ptr noundef nonnull %106) #27
   call void @php_stream_bucket_delref(ptr noundef nonnull %106) #27
-  %107 = load ptr, ptr %.2183.lcssa293, align 8, !tbaa !111
+  %107 = load ptr, ptr %.2183.lcssa315, align 8, !tbaa !111
   %.not218 = icmp eq ptr %107, null
   br i1 %.not218, label %._crit_edge262, label %.lr.ph261
 
 .loopexit:                                        ; preds = %.lr.ph, %95, %.preheader243
-  %.2183.lcssa287 = phi ptr [ %.2186246, %.preheader243 ], [ %.2186246, %95 ], [ %.2183247, %.lr.ph ]
-  %.2186.lcssa285 = phi ptr [ %.2183247, %.preheader243 ], [ %.2183247, %95 ], [ %.2186246, %.lr.ph ]
+  %.2183.lcssa309 = phi ptr [ %.2186246, %.preheader243 ], [ %.2186246, %95 ], [ %.2183247, %.lr.ph ]
+  %.2186.lcssa307 = phi ptr [ %.2183247, %.preheader243 ], [ %.2183247, %95 ], [ %.2186246, %.lr.ph ]
   %108 = icmp slt i64 %30, 1
   br i1 %108, label %.thread238, label %17
 
@@ -2278,8 +2278,8 @@ define dso_local noundef ptr @php_stream_get_record(ptr noundef %0, i64 noundef 
   %49 = phi i1 [ %40, %.thread..thread99_crit_edge ], [ false, %.lr.ph.split.split ], [ false, %.lr.ph.split.us.split ]
   %.pre119 = sub nsw i64 %.pre, %.pre116
   %.not90 = icmp ult i64 %.pre119, %1
-  %or.cond135 = select i1 %5, i1 true, i1 %.not90
-  br i1 %or.cond135, label %.thread99._crit_edge, label %zend_string_alloc.exit
+  %or.cond143 = select i1 %5, i1 true, i1 %.not90
+  br i1 %or.cond143, label %.thread99._crit_edge, label %zend_string_alloc.exit
 
 .thread99._crit_edge:                             ; preds = %.thread99
   %50 = icmp ult i64 %.pre119, %1
@@ -2460,7 +2460,7 @@ define internal fastcc i64 @_php_stream_write_filtered(ptr noundef %0, ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.040 = load ptr, ptr %11, align 8, !tbaa !107
   %.not3741 = icmp eq ptr %.040, null
-  br i1 %.not3741, label %._crit_edge.thread54, label %.lr.ph
+  br i1 %.not3741, label %._crit_edge.thread58, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %17
   %.044 = phi ptr [ %.0, %17 ], [ %.040, %10 ]
@@ -2474,7 +2474,7 @@ define internal fastcc i64 @_php_stream_write_filtered(ptr noundef %0, ptr nound
   %16 = call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %.044, ptr noundef nonnull %.03242, ptr noundef nonnull %.03143, ptr noundef %., i32 noundef %3) #27
   switch i32 %16, label %.loopexit [
     i32 2, label %17
-    i32 0, label %._crit_edge.thread54
+    i32 0, label %._crit_edge.thread58
   ]
 
 17:                                               ; preds = %.lr.ph
@@ -2512,9 +2512,9 @@ define internal fastcc i64 @_php_stream_write_filtered(ptr noundef %0, ptr nound
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %.preheader
   %30 = load i64, ptr %5, align 8, !tbaa !131
-  br label %._crit_edge.thread54
+  br label %._crit_edge.thread58
 
-._crit_edge.thread54:                             ; preds = %.lr.ph, %10, %.loopexit
+._crit_edge.thread58:                             ; preds = %.lr.ph, %10, %.loopexit
   %.030 = phi i64 [ %30, %.loopexit ], [ -1, %10 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3568,8 +3568,8 @@ zend_string_truncate.exit:                        ; preds = %219, %zend_string_a
   br label %zend_string_truncate.exit113
 
 ._crit_edge.thread:                               ; preds = %zend_string_alloc.exit, %._crit_edge
-  %.1.lcssa152 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %134, %zend_string_alloc.exit ]
-  %249 = getelementptr inbounds nuw i8, ptr %.1.lcssa152, i64 4
+  %.1.lcssa167 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %134, %zend_string_alloc.exit ]
+  %249 = getelementptr inbounds nuw i8, ptr %.1.lcssa167, i64 4
   %250 = load i32, ptr %249, align 4, !tbaa !21
   %251 = and i32 %250, 64
   %.not.i115 = icmp eq i32 %251, 0
@@ -3581,11 +3581,11 @@ zend_string_truncate.exit:                        ; preds = %219, %zend_string_a
   br i1 %.not4.i116, label %255, label %254
 
 254:                                              ; preds = %252
-  call void @free(ptr noundef nonnull %.1.lcssa152) #27
+  call void @free(ptr noundef nonnull %.1.lcssa167) #27
   br label %zend_string_truncate.exit113
 
 255:                                              ; preds = %252
-  call void @_efree(ptr noundef nonnull %.1.lcssa152) #27
+  call void @_efree(ptr noundef nonnull %.1.lcssa167) #27
   br label %zend_string_truncate.exit113
 
 zend_string_truncate.exit113:                     ; preds = %255, %254, %._crit_edge.thread, %100, %99, %94, %90, %zend_string_alloc.exit.i110, %67, %zend_string_truncate.exit, %.critedge.thread, %6
@@ -5345,8 +5345,8 @@ zend_string_release_ex.exit167:                   ; preds = %167, %171, %176
   br label %177
 
 177:                                              ; preds = %.thread193, %146, %151, %153, %162, %164, %165, %zend_string_release_ex.exit167, %163
-  %.3113213 = phi ptr [ %71, %.thread193 ], [ %71, %146 ], [ %71, %151 ], [ %71, %153 ], [ %71, %162 ], [ null, %164 ], [ null, %165 ], [ null, %zend_string_release_ex.exit167 ], [ null, %163 ]
-  %.2197210 = phi ptr [ %.3, %.thread193 ], [ %.3, %146 ], [ %.3, %151 ], [ %.3, %153 ], [ %.3, %162 ], [ %.2197.ph, %164 ], [ %.2197.ph, %165 ], [ %.2197.ph, %zend_string_release_ex.exit167 ], [ %.2197.ph, %163 ]
+  %.3113223 = phi ptr [ %71, %.thread193 ], [ %71, %146 ], [ %71, %151 ], [ %71, %153 ], [ %71, %162 ], [ null, %164 ], [ null, %165 ], [ null, %zend_string_release_ex.exit167 ], [ null, %163 ]
+  %.2197220 = phi ptr [ %.3, %.thread193 ], [ %.3, %146 ], [ %.3, %151 ], [ %.3, %153 ], [ %.3, %162 ], [ %.2197.ph, %164 ], [ %.2197.ph, %165 ], [ %.2197.ph, %zend_string_release_ex.exit167 ], [ %.2197.ph, %163 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %47, ptr %6, align 8, !tbaa !42
   %178 = icmp ne ptr %47, null
@@ -5361,31 +5361,31 @@ zend_string_release_ex.exit167:                   ; preds = %167, %171, %176
 
 php_stream_tidy_wrapper_error_log.exit:           ; preds = %177, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not163 = icmp eq ptr %.2197210, null
+  %.not163 = icmp eq ptr %.2197220, null
   br i1 %.not163, label %zend_string_release_ex.exit175, label %183
 
 183:                                              ; preds = %php_stream_tidy_wrapper_error_log.exit
-  %184 = getelementptr inbounds nuw i8, ptr %.2197210, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %.2197220, i64 4
   %185 = load i32, ptr %184, align 4, !tbaa !21
   %186 = and i32 %185, 64
   %.not.i = icmp eq i32 %186, 0
   br i1 %.not.i, label %187, label %zend_string_release_ex.exit175
 
 187:                                              ; preds = %183
-  %188 = load i32, ptr %.2197210, align 4, !tbaa !41
+  %188 = load i32, ptr %.2197220, align 4, !tbaa !41
   %189 = icmp ne i32 %188, 0
   call void @llvm.assume(i1 %189)
   %190 = add i32 %188, -1
-  store i32 %190, ptr %.2197210, align 4, !tbaa !41
+  store i32 %190, ptr %.2197220, align 4, !tbaa !41
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %192, label %zend_string_release_ex.exit175
 
 192:                                              ; preds = %187
-  call void @_efree(ptr noundef nonnull %.2197210) #27
+  call void @_efree(ptr noundef nonnull %.2197220) #27
   br label %zend_string_release_ex.exit175
 
 zend_string_release_ex.exit175:                   ; preds = %192, %187, %183, %zend_string_release_ex.exit171.thread, %63, %58, %54, %45, %40, %36, %php_stream_tidy_wrapper_error_log.exit, %53, %35, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %35 ], [ null, %53 ], [ %.3113213, %php_stream_tidy_wrapper_error_log.exit ], [ null, %36 ], [ null, %40 ], [ null, %45 ], [ null, %54 ], [ null, %58 ], [ null, %63 ], [ %.1.ph, %zend_string_release_ex.exit171.thread ], [ %.3113213, %183 ], [ %.3113213, %187 ], [ %.3113213, %192 ]
+  %.0 = phi ptr [ null, %19 ], [ null, %35 ], [ null, %53 ], [ %.3113223, %php_stream_tidy_wrapper_error_log.exit ], [ null, %36 ], [ null, %40 ], [ null, %45 ], [ null, %54 ], [ null, %58 ], [ null, %63 ], [ %.1.ph, %zend_string_release_ex.exit171.thread ], [ %.3113223, %183 ], [ %.3113223, %187 ], [ %.3113223, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
@@ -5788,19 +5788,19 @@ select.unfold50._crit_edge:                       ; preds = %select.unfold50._cr
   br i1 %.not64, label %._crit_edge, label %.lr.ph61.preheader
 
 .lr.ph61.preheader:                               ; preds = %.thread, %40
-  %.23976 = phi ptr [ %.138, %.thread ], [ %.239, %40 ]
-  %.03557.lcssa75 = phi i64 [ 4294967295, %.thread ], [ %indvars.iv, %40 ]
-  %wide.trip.count = and i64 %.03557.lcssa75, 4294967295
+  %.23979 = phi ptr [ %.138, %.thread ], [ %.239, %40 ]
+  %.03557.lcssa78 = phi i64 [ 4294967295, %.thread ], [ %indvars.iv, %40 ]
+  %wide.trip.count = and i64 %.03557.lcssa78, 4294967295
   br label %.lr.ph61
 
 ._crit_edge:                                      ; preds = %.lr.ph61, %40
-  %.23977 = phi ptr [ %.239, %40 ], [ %.23976, %.lr.ph61 ]
-  call void @_efree(ptr noundef %.23977) #27
+  %.23980 = phi ptr [ %.239, %40 ], [ %.23979, %.lr.ph61 ]
+  call void @_efree(ptr noundef %.23980) #27
   br label %44
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
   %indvars.iv67 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next68, %.lr.ph61 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %.23976, i64 %indvars.iv67
+  %42 = getelementptr inbounds nuw ptr, ptr %.23979, i64 %indvars.iv67
   %43 = load ptr, ptr %42, align 8, !tbaa !133
   call void @_efree(ptr noundef %43) #27
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1

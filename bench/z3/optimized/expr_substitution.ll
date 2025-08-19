@@ -1918,8 +1918,8 @@ _ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_data
   %43 = icmp ugt i32 %32, 16
   %44 = mul i32 %32, 3
   %45 = icmp ugt i32 %42, %44
-  %or.cond16.i.i = select i1 %43, i1 %45, i1 false
-  br i1 %or.cond16.i.i, label %46, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond18.i.i, label %46, label %._crit_edge.thread.i.i
 
 46:                                               ; preds = %._crit_edge.i.i
   %47 = icmp eq ptr %31, null
@@ -2078,8 +2078,8 @@ _ZN14core_hashtableIN7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_d
   %48 = icmp ugt i32 %37, 16
   %49 = mul i32 %37, 3
   %50 = icmp ugt i32 %47, %49
-  %or.cond16.i.i = select i1 %48, i1 %50, i1 false
-  br i1 %or.cond16.i.i, label %51, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %48, i1 %50, i1 false
+  br i1 %or.cond18.i.i, label %51, label %._crit_edge.thread.i.i
 
 51:                                               ; preds = %._crit_edge.i.i
   %52 = icmp eq ptr %36, null
@@ -2423,9 +2423,9 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %42, label %.preheader, label %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit, !llvm.loop !152
 
 _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit: ; preds = %113, %41, %36, %33
-  %.sink21 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %113 ]
+  %.sink34 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %113 ]
   %114 = load ptr, ptr %21, align 8, !tbaa !153
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %114, i64 noundef %.sink21, ptr noundef nonnull %29)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %114, i64 noundef %.sink34, ptr noundef nonnull %29)
   %115 = load ptr, ptr %5, align 8, !tbaa !141
   %116 = icmp eq ptr %115, null
   br i1 %116, label %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit, !llvm.loop !154
@@ -4228,8 +4228,8 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %51 = icmp ugt i32 %40, 16
   %52 = mul i32 %40, 3
   %53 = icmp ugt i32 %50, %52
-  %or.cond16.i.i = select i1 %51, i1 %53, i1 false
-  br i1 %or.cond16.i.i, label %54, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %51, i1 %53, i1 false
+  br i1 %or.cond18.i.i, label %54, label %._crit_edge.thread.i.i
 
 54:                                               ; preds = %._crit_edge.i.i
   %55 = icmp eq ptr %39, null
@@ -4340,8 +4340,8 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
   %31 = icmp ugt i32 %3, 16
   %32 = mul nuw nsw i32 %3, 3
   %33 = icmp ugt i32 %30, %32
-  %or.cond16.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond16.i, label %34, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond18.i, label %34, label %._crit_edge.thread.i
 
 34:                                               ; preds = %._crit_edge.i
   %35 = icmp eq ptr %20, null
@@ -4452,8 +4452,8 @@ _ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_data
   %31 = icmp ugt i32 %3, 16
   %32 = mul nuw nsw i32 %3, 3
   %33 = icmp ugt i32 %30, %32
-  %or.cond16.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond16.i, label %34, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond18.i, label %34, label %._crit_edge.thread.i
 
 34:                                               ; preds = %._crit_edge.i
   %35 = icmp eq ptr %20, null
@@ -4564,8 +4564,8 @@ _ZN14core_hashtableIN7obj_mapI4exprPN18dependency_managerIN11ast_manager22expr_d
   %31 = icmp ugt i32 %3, 16
   %32 = mul nuw nsw i32 %3, 3
   %33 = icmp ugt i32 %30, %32
-  %or.cond16.i = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond16.i, label %34, label %._crit_edge.thread.i
+  %or.cond18.i = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond18.i, label %34, label %._crit_edge.thread.i
 
 34:                                               ; preds = %._crit_edge.i
   %35 = icmp eq ptr %20, null

@@ -192,7 +192,7 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
   br i1 %.not35, label %54, label %.thread
 
 .thread:                                          ; preds = %29, %50
-  %.22248 = phi i32 [ %.222.ph, %50 ], [ -12, %29 ]
+  %.22255 = phi i32 [ %.222.ph, %50 ], [ -12, %29 ]
   %51 = phi ptr [ %.pr, %50 ], [ %33, %29 ]
   call void @av_freep(ptr noundef nonnull %51) #11
   %52 = load ptr, ptr %5, align 8, !tbaa !21
@@ -202,20 +202,20 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
   br label %54
 
 54:                                               ; preds = %50, %.thread
-  %.22249 = phi i32 [ %.222.ph, %50 ], [ %.22248, %.thread ]
+  %.22256 = phi i32 [ %.222.ph, %50 ], [ %.22255, %.thread ]
   %55 = call i32 @close(i32 noundef %12) #11
-  %56 = icmp slt i32 %.22249, 0
+  %56 = icmp slt i32 %.22256, 0
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %14, %17, %54, %48
-  %.121 = phi i32 [ %.22249, %54 ], [ %38, %48 ], [ %.02043, %17 ], [ %.02043, %14 ]
+  %.121 = phi i32 [ %.22256, %54 ], [ %38, %48 ], [ %.02043, %17 ], [ %.02043, %14 ]
   %.1 = phi ptr [ %.01944, %54 ], [ %.2, %48 ], [ %.01944, %17 ], [ %.01944, %14 ]
   %58 = add nuw nsw i32 %.02342, 1
   %exitcond.not = icmp eq i32 %58, 32
   br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !34
 
 .loopexit:                                        ; preds = %57, %54, %.thread40, %1
-  %.0 = phi i32 [ -22, %1 ], [ -12, %.thread40 ], [ 0, %57 ], [ %.22249, %54 ]
+  %.0 = phi i32 [ -22, %1 ], [ -12, %.thread40 ], [ 0, %57 ], [ %.22256, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

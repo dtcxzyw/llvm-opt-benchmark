@@ -286,23 +286,23 @@ _ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26: ; preds = %46
     i8 -60, label %56
     i8 -38, label %58
     i8 -39, label %.critedge.thread
-    i8 -37, label %.critedge.thread.loopexit60
+    i8 -37, label %.critedge.thread.loopexit70
     i8 -1, label %.critedge.thread
   ]
 
 51:                                               ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26
   %52 = tail call noundef zeroext i1 @_ZN14LibRaw_SOFInfo9parse_sofER12ByteStreamBE(ptr noundef nonnull align 8 dereferenceable(41) %8, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %52, label %53, label %.critedge.thread.loopexit60
+  br i1 %52, label %53, label %.critedge.thread.loopexit70
 
 53:                                               ; preds = %51
   %54 = load i32, ptr %29, align 4, !tbaa !38
   %55 = add i32 %54, -17
   %or.cond = icmp ult i32 %55, -5
-  br i1 %or.cond, label %.critedge.thread.loopexit60, label %.critedge
+  br i1 %or.cond, label %.critedge.thread.loopexit70, label %.critedge
 
 56:                                               ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26
   %57 = call noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor9parse_dhtEPbPA17_jPA256_j(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  br i1 %57, label %.critedge, label %.critedge.thread.loopexit60
+  br i1 %57, label %.critedge, label %.critedge.thread.loopexit70
 
 58:                                               ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26
   %59 = tail call noundef i32 @_ZN14LibRaw_SOFInfo9parse_sosER12ByteStreamBE(ptr noundef nonnull align 8 dereferenceable(41) %8, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -314,7 +314,7 @@ _ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26: ; preds = %46
   %62 = add i32 %61, 2
   %63 = load i32, ptr %12, align 8, !tbaa !13
   %64 = icmp ugt i32 %62, %63
-  br i1 %64, label %.critedge.thread.loopexit60, label %.preheader.i.i
+  br i1 %64, label %.critedge.thread.loopexit70, label %.preheader.i.i
 
 65:                                               ; preds = %58
   %66 = lshr i32 %59, 8
@@ -417,12 +417,12 @@ _ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit:    ; preds = %_ZNSt6vectorI9HuffT
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %101, label %_ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit, !llvm.loop !57
 
-.critedge.thread.loopexit60:                      ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %51, %53, %56, %.critedge
+.critedge.thread.loopexit70:                      ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %51, %53, %56, %.critedge
   %.sink.ph = phi i32 [ 6, %51 ], [ 3, %53 ], [ 5, %56 ], [ 4, %.critedge ], [ 8, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ]
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.i.i, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %.critedge.thread.loopexit60, %.preheader, %58, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit, %_ZN12ByteStreamBE6get_u8Ev.exit.i, %101
-  %.sink = phi i32 [ 0, %101 ], [ 2, %_ZN12ByteStreamBE6get_u8Ev.exit.i ], [ 2, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit ], [ 7, %58 ], [ 4, %.preheader ], [ %.sink.ph, %.critedge.thread.loopexit60 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %.critedge.i.i ]
+.critedge.thread:                                 ; preds = %.critedge.i.i, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %.critedge.thread.loopexit70, %.preheader, %58, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit, %_ZN12ByteStreamBE6get_u8Ev.exit.i, %101
+  %.sink = phi i32 [ 0, %101 ], [ 2, %_ZN12ByteStreamBE6get_u8Ev.exit.i ], [ 2, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit ], [ 7, %58 ], [ 4, %.preheader ], [ %.sink.ph, %.critedge.thread.loopexit70 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %.critedge.i.i ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.sink, ptr %113, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -635,10 +635,10 @@ _ZN12ByteStreamBE6get_u8Ev.exit6:                 ; preds = %39
   br label %_ZN12ByteStreamBE14skip_to_markerEv.exit.thread.sink.split
 
 _ZN12ByteStreamBE14skip_to_markerEv.exit.thread.sink.split: ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit4, %_ZN12ByteStreamBE6get_u8Ev.exit6
-  %.lcssa16.sink = phi i32 [ %27, %_ZN12ByteStreamBE6get_u8Ev.exit6 ], [ %4, %_ZN12ByteStreamBE6get_u8Ev.exit4 ]
+  %.lcssa20.sink = phi i32 [ %27, %_ZN12ByteStreamBE6get_u8Ev.exit6 ], [ %4, %_ZN12ByteStreamBE6get_u8Ev.exit4 ]
   %.0.ph.in = phi ptr [ %42, %_ZN12ByteStreamBE6get_u8Ev.exit6 ], [ %19, %_ZN12ByteStreamBE6get_u8Ev.exit4 ]
   %.0.ph = load i8, ptr %.0.ph.in, align 1, !tbaa !15
-  %43 = add i32 %.lcssa16.sink, 2
+  %43 = add i32 %.lcssa20.sink, 2
   store i32 %43, ptr %3, align 4, !tbaa !6
   br label %_ZN12ByteStreamBE14skip_to_markerEv.exit.thread
 
@@ -1032,7 +1032,7 @@ _ZN12ByteStreamBE6get_u8Ev.exit45:                ; preds = %57
 ._crit_edge:                                      ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit45, %.preheader
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 %37
   store i8 1, ptr %68, align 1, !tbaa !54
-  %69 = trunc nuw i32 %54 to i16
+  %69 = trunc nuw nsw i32 %54 to i16
   %70 = sub i16 %.03655, %69
   %.not = icmp eq i16 %70, 0
   br i1 %.not, label %.thread, label %.lr.ph56, !llvm.loop !74
@@ -2517,7 +2517,7 @@ define linkonce_odr void @_ZNSt6vectorI9HuffTableSaIS0_EE17_M_default_appendEm(p
           to label %_ZSt10_ConstructI9HuffTableJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructI9HuffTableJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 2184
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP9HuffTablemS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !120
@@ -2582,7 +2582,7 @@ _ZNKSt6vectorI9HuffTableSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %32
           to label %_ZSt10_ConstructI9HuffTableJEEvPT_DpOT0_.exit.i.i.i33 unwind label %42
 
 _ZSt10_ConstructI9HuffTableJEEvPT_DpOT0_.exit.i.i.i33: ; preds = %.lr.ph.i.i.i30
-  %40 = add i64 %.01013.i.i.i32, -1
+  %40 = add nsw i64 %.01013.i.i.i32, -1
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i31, i64 2184
   %.not.i.i.i34 = icmp eq i64 %40, 0
   br i1 %.not.i.i.i34, label %_ZSt27__uninitialized_default_n_aIP9HuffTablemS0_ET_S2_T0_RSaIT1_E.exit36, label %.lr.ph.i.i.i30, !llvm.loop !120
@@ -2877,13 +2877,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !71
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !71
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

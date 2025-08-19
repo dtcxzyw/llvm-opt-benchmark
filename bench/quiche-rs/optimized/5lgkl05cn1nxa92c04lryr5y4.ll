@@ -5999,10 +5999,10 @@ define void @_ZN6quiche6ranges14InlineRangeSet6insert17h39cea2876ff74551E(ptr no
 
 ._crit_edge.thread:                               ; preds = %3
   %14 = load i64, ptr %8, align 8, !alias.scope !687, !noalias !690
-  %.sink10.i2387 = select i1 %6, i64 %14, i64 %5
+  %.sink10.i2398 = select i1 %6, i64 %14, i64 %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i64, ptr %15, align 8, !noundef !8
-  %17 = icmp eq i64 %.sink10.i2387, %16
+  %17 = icmp eq i64 %.sink10.i2398, %16
   br i1 %17, label %22, label %26
 
 .lr.ph:                                           ; preds = %3, %43
@@ -6231,8 +6231,8 @@ define void @_ZN6quiche6ranges14InlineRangeSet12remove_until17hb743b7939747e3b5E
   %.sink10.i12 = select i1 %6, ptr %8, ptr %0
   %9 = getelementptr inbounds nuw i8, ptr %.sink10.i12, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !8
-  %.not238 = icmp ult i64 %1, %10
-  br i1 %.not238, label %.lr.ph._crit_edge, label %"_ZN8smallvec17SmallVec$LT$A$GT$6remove17h910897be9bd7f870E.exit"
+  %.not241 = icmp ult i64 %1, %10
+  br i1 %.not241, label %.lr.ph._crit_edge, label %"_ZN8smallvec17SmallVec$LT$A$GT$6remove17h910897be9bd7f870E.exit"
 
 .lr.ph:                                           ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$6remove17h910897be9bd7f870E.exit"
   %11 = load ptr, ptr %0, align 8, !alias.scope !733, !noalias !736, !nonnull !8
@@ -6246,10 +6246,10 @@ define void @_ZN6quiche6ranges14InlineRangeSet12remove_until17hb743b7939747e3b5E
   ret void
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa36 = phi i64 [ %7, %.lr.ph.preheader ], [ %23, %.lr.ph ]
+  %.lcssa39 = phi i64 [ %7, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %.sink9.i16.lcssa = phi ptr [ %.sink9.i13, %.lr.ph.preheader ], [ %.sink9.i, %.lr.ph ]
   %.sink10.i15.lcssa = phi ptr [ %.sink10.i12, %.lr.ph.preheader ], [ %.sink10.i, %.lr.ph ]
-  %.lcssa32 = phi i1 [ %6, %.lr.ph.preheader ], [ %22, %.lr.ph ]
+  %.lcssa35 = phi i1 [ %6, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %.lcssa = phi i64 [ %10, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %14 = add nuw i64 %1, 1
   %15 = load i64, ptr %.sink10.i15.lcssa, align 8, !noundef !8
@@ -6259,14 +6259,14 @@ define void @_ZN6quiche6ranges14InlineRangeSet12remove_until17hb743b7939747e3b5E
   br i1 %16, label %"_ZN8smallvec17SmallVec$LT$A$GT$6remove17h910897be9bd7f870E.exit5", label %.loopexit
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6remove17h910897be9bd7f870E.exit": ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sink10.i1540 = phi ptr [ %.sink10.i, %.lr.ph ], [ %.sink10.i12, %.lr.ph.preheader ]
-  %.sink9.i1639 = phi ptr [ %.sink9.i, %.lr.ph ], [ %.sink9.i13, %.lr.ph.preheader ]
+  %.sink10.i1543 = phi ptr [ %.sink10.i, %.lr.ph ], [ %.sink10.i12, %.lr.ph.preheader ]
+  %.sink9.i1642 = phi ptr [ %.sink9.i, %.lr.ph ], [ %.sink9.i13, %.lr.ph.preheader ]
   %17 = phi i64 [ %23, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %18 = add i64 %17, -1
-  store i64 %18, ptr %.sink9.i1639, align 8, !alias.scope !738
-  %19 = getelementptr inbounds nuw i8, ptr %.sink10.i1540, i64 16
+  store i64 %18, ptr %.sink9.i1642, align 8, !alias.scope !738
+  %19 = getelementptr inbounds nuw i8, ptr %.sink10.i1543, i64 16
   %20 = shl i64 %18, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.sink10.i1540, ptr nonnull align 8 %19, i64 %20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.sink10.i1543, ptr nonnull align 8 %19, i64 %20, i1 false)
   %21 = load i64, ptr %3, align 8, !alias.scope !733, !noalias !736, !noundef !8
   %22 = icmp ugt i64 %21, 4
   %.sink9.i = select i1 %22, ptr %4, ptr %3
@@ -6276,8 +6276,8 @@ define void @_ZN6quiche6ranges14InlineRangeSet12remove_until17hb743b7939747e3b5E
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6remove17h910897be9bd7f870E.exit5": ; preds = %.lr.ph._crit_edge
   %24 = load ptr, ptr %0, align 8, !alias.scope !741, !noalias !746, !nonnull !8
-  %.sink10.i.i4 = select i1 %.lcssa32, ptr %24, ptr %0
-  %25 = add i64 %.lcssa36, -1
+  %.sink10.i.i4 = select i1 %.lcssa35, ptr %24, ptr %0
+  %25 = add i64 %.lcssa39, -1
   store i64 %25, ptr %.sink9.i16.lcssa, align 8, !alias.scope !748
   %26 = getelementptr inbounds nuw i8, ptr %.sink10.i.i4, i64 16
   %27 = shl i64 %25, 4

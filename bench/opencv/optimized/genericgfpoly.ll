@@ -970,8 +970,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %107
   %173 = ptrtoint ptr %171 to i64
   %174 = ptrtoint ptr %172 to i64
   %175 = sub i64 %173, %174
-  %sext130 = shl i64 %175, 30
-  %176 = ashr i64 %sext130, 32
+  %sext135 = shl i64 %175, 30
+  %176 = ashr i64 %sext135, 32
   %177 = icmp slt i64 %indvars.iv.next127, %176
   br i1 %177, label %.lr.ph124, label %._crit_edge, !llvm.loop !47
 

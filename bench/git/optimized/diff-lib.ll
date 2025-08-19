@@ -178,21 +178,21 @@ define dso_local void @run_diff_files(ptr noundef %0, i32 noundef %1) local_unna
   %76 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
   %.not11.i = icmp eq i32 %76, 0
   %or.cond14.i = and i1 %71, %.not11.i
-  br i1 %or.cond14.i, label %._crit_edge.i..thread28.i_crit_edge, label %80
+  br i1 %or.cond14.i, label %._crit_edge.i..thread30.i_crit_edge, label %80
 
-._crit_edge.i..thread28.i_crit_edge:              ; preds = %._crit_edge.i
+._crit_edge.i..thread30.i_crit_edge:              ; preds = %._crit_edge.i
   %.pre = load i32, ptr %47, align 4, !tbaa !92
   %.pre287 = and i32 %.pre, 61440
-  br label %.thread28.i
+  br label %.thread30.i
 
 .thread.i:                                        ; preds = %72
   %77 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
-  %.not1116.i = icmp eq i32 %77, 0
-  br i1 %.not1116.i, label %.thread28.i, label %.thread25.i
+  %.not1118.i = icmp eq i32 %77, 0
+  br i1 %.not1118.i, label %.thread30.i, label %.thread27.i
 
-.thread28.i:                                      ; preds = %._crit_edge.i..thread28.i_crit_edge, %.thread.i
-  %.pre-phi288 = phi i32 [ %.pre287, %._crit_edge.i..thread28.i_crit_edge ], [ %74, %.thread.i ]
-  %78 = phi i32 [ %.pre, %._crit_edge.i..thread28.i_crit_edge ], [ %73, %.thread.i ]
+.thread30.i:                                      ; preds = %._crit_edge.i..thread30.i_crit_edge, %.thread.i
+  %.pre-phi288 = phi i32 [ %.pre287, %._crit_edge.i..thread30.i_crit_edge ], [ %74, %.thread.i ]
+  %78 = phi i32 [ %.pre, %._crit_edge.i..thread30.i_crit_edge ], [ %73, %.thread.i ]
   %79 = icmp eq i32 %.pre-phi288, 32768
   %spec.select257 = select i1 %79, i32 %78, i32 33188
   br label %ce_mode_from_stat.exit
@@ -207,12 +207,12 @@ define dso_local void @run_diff_files(ptr noundef %0, i32 noundef %1) local_unna
 
 84:                                               ; preds = %82
   %trunc.i.i = trunc nuw i32 %70 to i16
-  switch i16 %trunc.i.i, label %.thread25.i [
+  switch i16 %trunc.i.i, label %.thread27.i [
     i16 16384, label %ce_mode_from_stat.exit
     i16 -8192, label %ce_mode_from_stat.exit
   ]
 
-.thread25.i:                                      ; preds = %84, %.thread.i
+.thread27.i:                                      ; preds = %84, %.thread.i
   %85 = and i32 %68, 64
   %.not.i.i = icmp eq i32 %85, 0
   %86 = select i1 %.not.i.i, i32 33188, i32 33261
@@ -226,8 +226,8 @@ define dso_local void @run_diff_files(ptr noundef %0, i32 noundef %1) local_unna
   call void @perror(ptr noundef nonnull %53) #17
   br label %.thread230
 
-ce_mode_from_stat.exit:                           ; preds = %.thread28.i, %.thread25.i, %84, %84, %82, %80, %72, %87
-  %.0125 = phi i32 [ 0, %87 ], [ %73, %72 ], [ %86, %.thread25.i ], [ 40960, %80 ], [ 16384, %82 ], [ 57344, %84 ], [ 57344, %84 ], [ %spec.select257, %.thread28.i ]
+ce_mode_from_stat.exit:                           ; preds = %.thread30.i, %.thread27.i, %84, %84, %82, %80, %72, %87
+  %.0125 = phi i32 [ 0, %87 ], [ %73, %72 ], [ %86, %.thread27.i ], [ 40960, %80 ], [ 16384, %82 ], [ 57344, %84 ], [ 57344, %84 ], [ %spec.select257, %.thread30.i ]
   %90 = load i32, ptr %45, align 8, !tbaa !92
   %91 = zext i32 %90 to i64
   %92 = call ptr @null_oid() #15
@@ -254,7 +254,7 @@ ce_mode_from_stat.exit:                           ; preds = %.thread28.i, %.thre
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 108
   %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %102) #16
   %.not149 = icmp eq i32 %103, 0
-  br i1 %.not149, label %104, label %.thread.split.loop.exit310
+  br i1 %.not149, label %104, label %.thread.split.loop.exit324
 
 104:                                              ; preds = %97
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 56
@@ -295,21 +295,21 @@ ce_mode_from_stat.exit:                           ; preds = %.thread28.i, %.thre
   %129 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
   %.not11.i170 = icmp eq i32 %129, 0
   %or.cond14.i171 = and i1 %124, %.not11.i170
-  br i1 %or.cond14.i171, label %._crit_edge.i169..thread28.i177_crit_edge, label %133
+  br i1 %or.cond14.i171, label %._crit_edge.i169..thread30.i177_crit_edge, label %133
 
-._crit_edge.i169..thread28.i177_crit_edge:        ; preds = %._crit_edge.i169
+._crit_edge.i169..thread30.i177_crit_edge:        ; preds = %._crit_edge.i169
   %.pre278 = load i32, ptr %111, align 4, !tbaa !92
   %.pre285 = and i32 %.pre278, 61440
-  br label %.thread28.i177
+  br label %.thread30.i177
 
 .thread.i179:                                     ; preds = %125
   %130 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
-  %.not1116.i180 = icmp eq i32 %130, 0
-  br i1 %.not1116.i180, label %.thread28.i177, label %.thread25.i174
+  %.not1118.i180 = icmp eq i32 %130, 0
+  br i1 %.not1118.i180, label %.thread30.i177, label %.thread27.i174
 
-.thread28.i177:                                   ; preds = %._crit_edge.i169..thread28.i177_crit_edge, %.thread.i179
-  %.pre-phi286 = phi i32 [ %.pre285, %._crit_edge.i169..thread28.i177_crit_edge ], [ %127, %.thread.i179 ]
-  %131 = phi i32 [ %.pre278, %._crit_edge.i169..thread28.i177_crit_edge ], [ %126, %.thread.i179 ]
+.thread30.i177:                                   ; preds = %._crit_edge.i169..thread30.i177_crit_edge, %.thread.i179
+  %.pre-phi286 = phi i32 [ %.pre285, %._crit_edge.i169..thread30.i177_crit_edge ], [ %127, %.thread.i179 ]
+  %131 = phi i32 [ %.pre278, %._crit_edge.i169..thread30.i177_crit_edge ], [ %126, %.thread.i179 ]
   %132 = icmp eq i32 %.pre-phi286, 32768
   %spec.select259 = select i1 %132, i32 %131, i32 33188
   br label %ce_mode_from_stat.exit181
@@ -324,19 +324,19 @@ ce_mode_from_stat.exit:                           ; preds = %.thread28.i, %.thre
 
 137:                                              ; preds = %135
   %trunc.i.i172 = trunc nuw i32 %123 to i16
-  switch i16 %trunc.i.i172, label %.thread25.i174 [
+  switch i16 %trunc.i.i172, label %.thread27.i174 [
     i16 16384, label %ce_mode_from_stat.exit181
     i16 -8192, label %ce_mode_from_stat.exit181
   ]
 
-.thread25.i174:                                   ; preds = %137, %.thread.i179
+.thread27.i174:                                   ; preds = %137, %.thread.i179
   %138 = and i32 %112, 64
   %.not.i.i175 = icmp eq i32 %138, 0
   %139 = select i1 %.not.i.i175, i32 33188, i32 33261
   br label %ce_mode_from_stat.exit181
 
-ce_mode_from_stat.exit181:                        ; preds = %.thread28.i177, %125, %133, %135, %137, %137, %.thread25.i174
-  %.0.i173 = phi i32 [ %126, %125 ], [ %139, %.thread25.i174 ], [ 40960, %133 ], [ 16384, %135 ], [ 57344, %137 ], [ 57344, %137 ], [ %spec.select259, %.thread28.i177 ]
+ce_mode_from_stat.exit181:                        ; preds = %.thread30.i177, %125, %133, %135, %137, %137, %.thread27.i174
+  %.0.i173 = phi i32 [ %126, %125 ], [ %139, %.thread27.i174 ], [ 40960, %133 ], [ 16384, %135 ], [ 57344, %137 ], [ 57344, %137 ], [ %spec.select259, %.thread30.i177 ]
   %140 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 %.0.i173, ptr %140, align 4, !tbaa !99
   store i8 77, ptr %116, align 8, !tbaa !101
@@ -350,14 +350,14 @@ ce_mode_from_stat.exit181:                        ; preds = %.thread28.i177, %12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
   br i1 %exitcond.not, label %.thread, label %97
 
-.thread.split.loop.exit310:                       ; preds = %97
+.thread.split.loop.exit324:                       ; preds = %97
   %143 = trunc nsw i64 %indvars.iv to i32
   br label %.thread
 
-.thread:                                          ; preds = %141, %.thread.split.loop.exit310
-  %.2128.lcssa.ph = phi ptr [ %.2128265, %.thread.split.loop.exit310 ], [ %spec.select, %141 ]
-  %.0121.lcssa.ph = phi i32 [ %.0121266, %.thread.split.loop.exit310 ], [ %.3124, %141 ]
-  %.4.lcssa.ph = phi i32 [ %143, %.thread.split.loop.exit310 ], [ %17, %141 ]
+.thread:                                          ; preds = %141, %.thread.split.loop.exit324
+  %.2128.lcssa.ph = phi ptr [ %.2128265, %.thread.split.loop.exit324 ], [ %spec.select, %141 ]
+  %.0121.lcssa.ph = phi i32 [ %.0121266, %.thread.split.loop.exit324 ], [ %.3124, %141 ]
+  %.4.lcssa.ph = phi i32 [ %143, %.thread.split.loop.exit324 ], [ %17, %141 ]
   %144 = icmp eq i32 %.0121.lcssa.ph, 2
   %145 = add nsw i32 %.4.lcssa.ph, -1
   %146 = load i64, ptr %24, align 8
@@ -373,9 +373,9 @@ ce_mode_from_stat.exit181:                        ; preds = %.thread28.i177, %12
 
 150:                                              ; preds = %.thread.thread, %.thread
   %151 = phi i32 [ %95, %.thread.thread ], [ %145, %.thread ]
-  %.2128.lcssa293 = phi ptr [ %41, %.thread.thread ], [ %.2128.lcssa.ph, %.thread ]
+  %.2128.lcssa307 = phi ptr [ %41, %.thread.thread ], [ %.2128.lcssa.ph, %.thread ]
   call void @free(ptr noundef %93) #15
-  %152 = getelementptr inbounds nuw i8, ptr %.2128.lcssa293, i64 108
+  %152 = getelementptr inbounds nuw i8, ptr %.2128.lcssa307, i64 108
   %153 = call ptr @diff_unmerge(ptr noundef nonnull %10, ptr noundef nonnull %152) #15
   %.not150 = icmp eq i32 %.0125, 0
   br i1 %.not150, label %159, label %154
@@ -394,7 +394,7 @@ ce_mode_from_stat.exit181:                        ; preds = %.thread28.i177, %12
   br label %.thread242
 
 159:                                              ; preds = %150, %154
-  %160 = getelementptr inbounds nuw i8, ptr %.2128.lcssa293, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %.2128.lcssa307, i64 56
   %161 = load i32, ptr %160, align 8, !tbaa !92
   %162 = lshr i32 %161, 12
   %163 = and i32 %162, 3
@@ -408,7 +408,7 @@ ce_mode_from_stat.exit181:                        ; preds = %.thread28.i177, %12
 
 164:                                              ; preds = %._crit_edge, %61
   %165 = phi i32 [ %.pre279, %._crit_edge ], [ %63, %61 ]
-  %.0126 = phi ptr [ %.2128.lcssa293, %._crit_edge ], [ %41, %61 ]
+  %.0126 = phi ptr [ %.2128.lcssa307, %._crit_edge ], [ %41, %61 ]
   %.2 = phi i32 [ %151, %._crit_edge ], [ %.0274, %61 ]
   %166 = getelementptr inbounds nuw i8, ptr %.0126, i64 56
   %167 = and i32 %165, 1074003968
@@ -418,7 +418,7 @@ ce_mode_from_stat.exit181:                        ; preds = %.thread28.i177, %12
 168:                                              ; preds = %164
   %169 = and i32 %165, 2129920
   %.not154 = icmp eq i32 %169, 0
-  br i1 %.not154, label %170, label %.thread294
+  br i1 %.not154, label %170, label %.thread308
 
 170:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -477,22 +477,22 @@ ce_mode_from_stat.exit181:                        ; preds = %.thread28.i177, %12
   %197 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
   %.not11.i185 = icmp eq i32 %197, 0
   %or.cond14.i186 = and i1 %191, %.not11.i185
-  br i1 %or.cond14.i186, label %._crit_edge.i184..thread28.i192_crit_edge, label %201
+  br i1 %or.cond14.i186, label %._crit_edge.i184..thread30.i192_crit_edge, label %201
 
-._crit_edge.i184..thread28.i192_crit_edge:        ; preds = %._crit_edge.i184
+._crit_edge.i184..thread30.i192_crit_edge:        ; preds = %._crit_edge.i184
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0126, i64 52
   %.pre280 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !92
   %.pre283 = and i32 %.pre280, 61440
-  br label %.thread28.i192
+  br label %.thread30.i192
 
 .thread.i194:                                     ; preds = %192
   %198 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
-  %.not1116.i195 = icmp eq i32 %198, 0
-  br i1 %.not1116.i195, label %.thread28.i192, label %.thread25.i189
+  %.not1118.i195 = icmp eq i32 %198, 0
+  br i1 %.not1118.i195, label %.thread30.i192, label %.thread27.i189
 
-.thread28.i192:                                   ; preds = %._crit_edge.i184..thread28.i192_crit_edge, %.thread.i194
-  %.pre-phi284 = phi i32 [ %.pre283, %._crit_edge.i184..thread28.i192_crit_edge ], [ %195, %.thread.i194 ]
-  %199 = phi i32 [ %.pre280, %._crit_edge.i184..thread28.i192_crit_edge ], [ %194, %.thread.i194 ]
+.thread30.i192:                                   ; preds = %._crit_edge.i184..thread30.i192_crit_edge, %.thread.i194
+  %.pre-phi284 = phi i32 [ %.pre283, %._crit_edge.i184..thread30.i192_crit_edge ], [ %195, %.thread.i194 ]
+  %199 = phi i32 [ %.pre280, %._crit_edge.i184..thread30.i192_crit_edge ], [ %194, %.thread.i194 ]
   %200 = icmp eq i32 %.pre-phi284, 32768
   %spec.select261 = select i1 %200, i32 %199, i32 33188
   br label %ce_mode_from_stat.exit196
@@ -507,19 +507,19 @@ ce_mode_from_stat.exit181:                        ; preds = %.thread28.i177, %12
 
 205:                                              ; preds = %203
   %trunc.i.i187 = trunc nuw i32 %190 to i16
-  switch i16 %trunc.i.i187, label %.thread25.i189 [
+  switch i16 %trunc.i.i187, label %.thread27.i189 [
     i16 16384, label %ce_mode_from_stat.exit196
     i16 -8192, label %ce_mode_from_stat.exit196
   ]
 
-.thread25.i189:                                   ; preds = %205, %.thread.i194
+.thread27.i189:                                   ; preds = %205, %.thread.i194
   %206 = and i32 %188, 64
   %.not.i.i190 = icmp eq i32 %206, 0
   %207 = select i1 %.not.i.i190, i32 33188, i32 33261
   br label %ce_mode_from_stat.exit196
 
-ce_mode_from_stat.exit196:                        ; preds = %.thread28.i192, %192, %201, %203, %205, %205, %.thread25.i189
-  %.0.i188 = phi i32 [ %194, %192 ], [ %207, %.thread25.i189 ], [ 40960, %201 ], [ 16384, %203 ], [ 57344, %205 ], [ 57344, %205 ], [ %spec.select261, %.thread28.i192 ]
+ce_mode_from_stat.exit196:                        ; preds = %.thread30.i192, %192, %201, %203, %205, %205, %.thread27.i189
+  %.0.i188 = phi i32 [ %194, %192 ], [ %207, %.thread27.i189 ], [ 40960, %201 ], [ 16384, %203 ], [ 57344, %205 ], [ 57344, %205 ], [ %spec.select261, %.thread30.i192 ]
   %208 = call ptr @null_oid() #15
   %209 = getelementptr inbounds nuw i8, ptr %.0126, i64 108
   call void @diff_addremove(ptr noundef nonnull %10, i32 noundef 43, i32 noundef %.0.i188, ptr noundef %208, i32 noundef 0, ptr noundef nonnull %209, i32 noundef 0) #15
@@ -601,21 +601,21 @@ match_stat_with_submodule.exit:                   ; preds = %210, %234
   %243 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
   %.not11.i201 = icmp eq i32 %243, 0
   %or.cond14.i202 = and i1 %238, %.not11.i201
-  br i1 %or.cond14.i202, label %._crit_edge.i200..thread28.i208_crit_edge, label %247
+  br i1 %or.cond14.i202, label %._crit_edge.i200..thread30.i208_crit_edge, label %247
 
-._crit_edge.i200..thread28.i208_crit_edge:        ; preds = %._crit_edge.i200
+._crit_edge.i200..thread30.i208_crit_edge:        ; preds = %._crit_edge.i200
   %.pre281 = load i32, ptr %215, align 4, !tbaa !92
   %.pre282 = and i32 %.pre281, 61440
-  br label %.thread28.i208
+  br label %.thread30.i208
 
 .thread.i210:                                     ; preds = %239
   %244 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
-  %.not1116.i211 = icmp eq i32 %244, 0
-  br i1 %.not1116.i211, label %.thread28.i208, label %.thread25.i205
+  %.not1118.i211 = icmp eq i32 %244, 0
+  br i1 %.not1118.i211, label %.thread30.i208, label %.thread27.i205
 
-.thread28.i208:                                   ; preds = %._crit_edge.i200..thread28.i208_crit_edge, %.thread.i210
-  %.pre-phi = phi i32 [ %.pre282, %._crit_edge.i200..thread28.i208_crit_edge ], [ %241, %.thread.i210 ]
-  %245 = phi i32 [ %.pre281, %._crit_edge.i200..thread28.i208_crit_edge ], [ %240, %.thread.i210 ]
+.thread30.i208:                                   ; preds = %._crit_edge.i200..thread30.i208_crit_edge, %.thread.i210
+  %.pre-phi = phi i32 [ %.pre282, %._crit_edge.i200..thread30.i208_crit_edge ], [ %241, %.thread.i210 ]
+  %245 = phi i32 [ %.pre281, %._crit_edge.i200..thread30.i208_crit_edge ], [ %240, %.thread.i210 ]
   %246 = icmp eq i32 %.pre-phi, 32768
   %spec.select263 = select i1 %246, i32 %245, i32 33188
   br label %254
@@ -630,12 +630,12 @@ match_stat_with_submodule.exit:                   ; preds = %210, %234
 
 251:                                              ; preds = %249
   %trunc.i.i203 = trunc nuw i32 %237 to i16
-  switch i16 %trunc.i.i203, label %.thread25.i205 [
+  switch i16 %trunc.i.i203, label %.thread27.i205 [
     i16 16384, label %254
     i16 -8192, label %254
   ]
 
-.thread25.i205:                                   ; preds = %251, %.thread.i210
+.thread27.i205:                                   ; preds = %251, %.thread.i210
   %252 = and i32 %235, 64
   %.not.i.i206 = icmp eq i32 %252, 0
   %253 = select i1 %.not.i.i206, i32 33188, i32 33261
@@ -645,21 +645,21 @@ ce_mode_from_stat.exit212:                        ; preds = %ce_mode_from_stat.e
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread242
 
-254:                                              ; preds = %.thread25.i205, %251, %251, %249, %247, %239, %.thread28.i208
-  %.3120.ph = phi i32 [ 57344, %251 ], [ 57344, %251 ], [ 16384, %249 ], [ 40960, %247 ], [ %253, %.thread25.i205 ], [ %240, %239 ], [ %spec.select263, %.thread28.i208 ]
+254:                                              ; preds = %.thread27.i205, %251, %251, %249, %247, %239, %.thread30.i208
+  %.3120.ph = phi i32 [ 57344, %251 ], [ 57344, %251 ], [ 16384, %249 ], [ 40960, %247 ], [ %253, %.thread27.i205 ], [ %240, %239 ], [ %spec.select263, %.thread30.i208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %255 = icmp ne i32 %.0.i197, 0
   %256 = icmp ne i32 %.3224, 0
   %or.cond4 = select i1 %255, i1 true, i1 %256
   br i1 %or.cond4, label %285, label %259
 
-.thread294:                                       ; preds = %168
+.thread308:                                       ; preds = %168
   %257 = getelementptr inbounds nuw i8, ptr %.0126, i64 52
   %258 = load i32, ptr %257, align 4, !tbaa !92
   br label %259
 
-259:                                              ; preds = %.thread294, %254
-  %.2119304 = phi i32 [ %258, %.thread294 ], [ %.3120.ph, %254 ]
+259:                                              ; preds = %.thread308, %254
+  %.2119318 = phi i32 [ %258, %.thread308 ], [ %.3120.ph, %254 ]
   %260 = load i32, ptr %166, align 8, !tbaa !92
   %261 = or i32 %260, 262144
   store i32 %261, ptr %166, align 8, !tbaa !92
@@ -723,8 +723,8 @@ mark_fsmonitor_valid.exit:                        ; preds = %259, %265, %268, %2
   br label %291
 
 291:                                              ; preds = %.thread240, %285, %289
-  %.2119303 = phi i32 [ %.3120.ph, %289 ], [ %.3120.ph, %285 ], [ %.2119304, %.thread240 ]
-  %.0221299 = phi i32 [ %.3224, %289 ], [ %.3224, %285 ], [ 0, %.thread240 ]
+  %.2119317 = phi i32 [ %.3120.ph, %289 ], [ %.3120.ph, %285 ], [ %.2119318, %.thread240 ]
+  %.0221313 = phi i32 [ %.3224, %289 ], [ %.3224, %285 ], [ 0, %.thread240 ]
   %292 = phi ptr [ %288, %289 ], [ %288, %285 ], [ %284, %.thread240 ]
   %293 = phi i32 [ %287, %289 ], [ %287, %285 ], [ %283, %.thread240 ]
   %294 = phi ptr [ %290, %289 ], [ %288, %285 ], [ %284, %.thread240 ]
@@ -735,7 +735,7 @@ mark_fsmonitor_valid.exit:                        ; preds = %259, %265, %268, %2
   %.not.i218 = icmp ne i32 %bcmp.i217, 0
   %296 = zext i1 %.not.i218 to i32
   %297 = getelementptr inbounds nuw i8, ptr %.0126, i64 108
-  call void @diff_change(ptr noundef nonnull %10, i32 noundef %293, i32 noundef %.2119303, ptr noundef nonnull %292, ptr noundef nonnull %294, i32 noundef %295, i32 noundef %296, ptr noundef nonnull %297, i32 noundef 0, i32 noundef %.0221299) #15
+  call void @diff_change(ptr noundef nonnull %10, i32 noundef %293, i32 noundef %.2119317, ptr noundef nonnull %292, ptr noundef nonnull %294, i32 noundef %295, i32 noundef %296, ptr noundef nonnull %297, i32 noundef 0, i32 noundef %.0221313) #15
   br label %.thread242
 
 .thread242:                                       ; preds = %159, %.thread230, %mark_fsmonitor_valid.exit, %164, %57, %43, %ce_mode_from_stat.exit212, %291
@@ -1878,21 +1878,21 @@ match_stat_with_submodule.exit:                   ; preds = %23, %53
   %64 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
   %.not11.i = icmp eq i32 %64, 0
   %or.cond14.i = and i1 %59, %.not11.i
-  br i1 %or.cond14.i, label %._crit_edge.i..thread28.i_crit_edge, label %68
+  br i1 %or.cond14.i, label %._crit_edge.i..thread30.i_crit_edge, label %68
 
-._crit_edge.i..thread28.i_crit_edge:              ; preds = %._crit_edge.i
+._crit_edge.i..thread30.i_crit_edge:              ; preds = %._crit_edge.i
   %.pre = load i32, ptr %11, align 4, !tbaa !92
   %.pre39 = and i32 %.pre, 61440
-  br label %.thread28.i
+  br label %.thread30.i
 
 .thread.i:                                        ; preds = %60
   %65 = load i32, ptr @trust_executable_bit, align 4, !tbaa !92
-  %.not1116.i = icmp eq i32 %65, 0
-  br i1 %.not1116.i, label %.thread28.i, label %.thread25.i
+  %.not1118.i = icmp eq i32 %65, 0
+  br i1 %.not1118.i, label %.thread30.i, label %.thread27.i
 
-.thread28.i:                                      ; preds = %._crit_edge.i..thread28.i_crit_edge, %.thread.i
-  %.pre-phi = phi i32 [ %.pre39, %._crit_edge.i..thread28.i_crit_edge ], [ %62, %.thread.i ]
-  %66 = phi i32 [ %.pre, %._crit_edge.i..thread28.i_crit_edge ], [ %61, %.thread.i ]
+.thread30.i:                                      ; preds = %._crit_edge.i..thread30.i_crit_edge, %.thread.i
+  %.pre-phi = phi i32 [ %.pre39, %._crit_edge.i..thread30.i_crit_edge ], [ %62, %.thread.i ]
+  %66 = phi i32 [ %.pre, %._crit_edge.i..thread30.i_crit_edge ], [ %61, %.thread.i ]
   %67 = icmp eq i32 %.pre-phi, 32768
   %spec.select = select i1 %67, i32 %66, i32 33188
   br label %ce_mode_from_stat.exit
@@ -1907,19 +1907,19 @@ match_stat_with_submodule.exit:                   ; preds = %23, %53
 
 72:                                               ; preds = %70
   %trunc.i.i = trunc nuw i32 %58 to i16
-  switch i16 %trunc.i.i, label %.thread25.i [
+  switch i16 %trunc.i.i, label %.thread27.i [
     i16 16384, label %ce_mode_from_stat.exit
     i16 -8192, label %ce_mode_from_stat.exit
   ]
 
-.thread25.i:                                      ; preds = %72, %.thread.i
+.thread27.i:                                      ; preds = %72, %.thread.i
   %73 = and i32 %56, 64
   %.not.i.i = icmp eq i32 %73, 0
   %74 = select i1 %.not.i.i, i32 33188, i32 33261
   br label %ce_mode_from_stat.exit
 
-ce_mode_from_stat.exit:                           ; preds = %.thread28.i, %60, %68, %70, %72, %72, %.thread25.i
-  %.0.i34 = phi i32 [ %61, %60 ], [ %74, %.thread25.i ], [ 40960, %68 ], [ 16384, %70 ], [ 57344, %72 ], [ 57344, %72 ], [ %spec.select, %.thread28.i ]
+ce_mode_from_stat.exit:                           ; preds = %.thread30.i, %60, %68, %70, %72, %72, %.thread27.i
+  %.0.i34 = phi i32 [ %61, %60 ], [ %74, %.thread27.i ], [ 40960, %68 ], [ 16384, %70 ], [ 57344, %72 ], [ 57344, %72 ], [ %spec.select, %.thread30.i ]
   %75 = call ptr @null_oid() #15
   br label %76
 

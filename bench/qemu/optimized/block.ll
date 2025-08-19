@@ -174,10 +174,10 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
   %.not4958 = icmp eq i32 %18, 0
-  br i1 %.not4958, label %.thread94.thread, label %.thread72
+  br i1 %.not4958, label %.thread100.thread, label %.thread72
 
 19:                                               ; preds = %14
-  br i1 %.041.shrunk, label %20, label %.thread94
+  br i1 %.041.shrunk, label %20, label %.thread100
 
 20:                                               ; preds = %19
   %21 = load i32, ptr %3, align 8
@@ -191,25 +191,25 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   %.not50 = icmp eq i32 %24, 0
   br i1 %.not50, label %31, label %35
 
-.thread94:                                        ; preds = %19
+.thread100:                                       ; preds = %19
   store i32 512, ptr %15, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8
-  %.not5098 = icmp eq i32 %26, 0
-  br i1 %.not5098, label %.thread105, label %35
+  %.not50104 = icmp eq i32 %26, 0
+  br i1 %.not50104, label %.thread111, label %35
 
-.thread94.thread:                                 ; preds = %.thread
+.thread100.thread:                                ; preds = %.thread
   store i32 512, ptr %17, align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i32, ptr %27, align 8
-  %.not5098113 = icmp eq i32 %28, 0
-  br i1 %.not5098113, label %.thread105.thread, label %.thread88
+  %.not50104119 = icmp eq i32 %28, 0
+  br i1 %.not50104119, label %.thread111.thread, label %.thread88
 
-.thread105.thread:                                ; preds = %.thread94.thread
+.thread111.thread:                                ; preds = %.thread100.thread
   store i32 512, ptr %27, align 8
   br label %.thread88
 
-.thread105:                                       ; preds = %.thread94
+.thread111:                                       ; preds = %.thread100
   store i32 512, ptr %25, align 8
   br i1 %.0, label %37, label %.thread88
 
@@ -236,12 +236,12 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   store i32 512, ptr %23, align 8
   br i1 %.0, label %37, label %.thread88
 
-35:                                               ; preds = %.thread94, %22
-  %36 = phi i32 [ %26, %.thread94 ], [ %24, %22 ]
+35:                                               ; preds = %.thread100, %22
+  %36 = phi i32 [ %26, %.thread100 ], [ %24, %22 ]
   br i1 %.0, label %37, label %.thread88
 
-37:                                               ; preds = %.thread105, %.thread82, %32, %35
-  %38 = phi i32 [ 512, %.thread82 ], [ %34, %32 ], [ %36, %35 ], [ 512, %.thread105 ]
+37:                                               ; preds = %.thread111, %.thread82, %32, %35
+  %38 = phi i32 [ 512, %.thread82 ], [ %34, %32 ], [ %36, %35 ], [ 512, %.thread111 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
   %.not51 = icmp eq i32 %40, 0
@@ -279,9 +279,9 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   store i32 %54, ptr %45, align 8
   br label %.thread88
 
-.thread88:                                        ; preds = %.thread94.thread, %.thread105.thread, %.thread105, %.thread82.thread, %.thread72, %.thread82, %32, %44, %52, %55, %51, %35
-  %56 = phi i32 [ %38, %44 ], [ %38, %52 ], [ %38, %55 ], [ %38, %51 ], [ %36, %35 ], [ %34, %32 ], [ 512, %.thread82 ], [ %30, %.thread72 ], [ 512, %.thread82.thread ], [ 512, %.thread105 ], [ 512, %.thread105.thread ], [ %28, %.thread94.thread ]
-  %57 = phi ptr [ %15, %44 ], [ %15, %52 ], [ %15, %55 ], [ %15, %51 ], [ %15, %35 ], [ %15, %32 ], [ %15, %.thread82 ], [ %17, %.thread72 ], [ %17, %.thread82.thread ], [ %15, %.thread105 ], [ %17, %.thread105.thread ], [ %17, %.thread94.thread ]
+.thread88:                                        ; preds = %.thread100.thread, %.thread111.thread, %.thread111, %.thread82.thread, %.thread72, %.thread82, %32, %44, %52, %55, %51, %35
+  %56 = phi i32 [ %38, %44 ], [ %38, %52 ], [ %38, %55 ], [ %38, %51 ], [ %36, %35 ], [ %34, %32 ], [ 512, %.thread82 ], [ %30, %.thread72 ], [ 512, %.thread82.thread ], [ 512, %.thread111 ], [ 512, %.thread111.thread ], [ %28, %.thread100.thread ]
+  %57 = phi ptr [ %15, %44 ], [ %15, %52 ], [ %15, %55 ], [ %15, %51 ], [ %15, %35 ], [ %15, %32 ], [ %15, %.thread82 ], [ %17, %.thread72 ], [ %17, %.thread82.thread ], [ %15, %.thread111 ], [ %17, %.thread111.thread ], [ %17, %.thread100.thread ]
   %58 = load i32, ptr %57, align 4
   %59 = icmp ugt i32 %56, %58
   br i1 %59, label %60, label %61

@@ -333,7 +333,7 @@ do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
   %54 = lshr i64 %indvars.iv, 1
   %umax = call i64 @llvm.umax.i64(i64 %54, i64 1)
   %exitcond94.not.i = icmp eq i64 %indvars.iv90.i, %19
-  br i1 %exitcond94.not.i, label %compute_lpc_coefs.exit.thread22, label %55
+  br i1 %exitcond94.not.i, label %compute_lpc_coefs.exit.thread24, label %55
 
 55:                                               ; preds = %.preheader.i
   %56 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv90.i
@@ -391,15 +391,15 @@ do_hybrid_window.exit:                            ; preds = %convolve.exit32.i
 
 compute_lpc_coefs.exit:                           ; preds = %._crit_edge82.i
   %.not.le.i.not = icmp samesign ult i64 %indvars.iv90.i, %19
-  br i1 %.not.le.i.not, label %compute_lpc_coefs.exit.thread, label %compute_lpc_coefs.exit.thread22
+  br i1 %.not.le.i.not, label %compute_lpc_coefs.exit.thread, label %compute_lpc_coefs.exit.thread24
 
-compute_lpc_coefs.exit.thread22:                  ; preds = %.preheader.i, %compute_lpc_coefs.exit
+compute_lpc_coefs.exit.thread24:                  ; preds = %.preheader.i, %compute_lpc_coefs.exit
   %80 = load ptr, ptr %0, align 16, !tbaa !35
   %81 = and i32 %15, 112
   call void %80(ptr noundef %4, ptr noundef %4, ptr noundef %5, i32 noundef %81) #7
   br label %compute_lpc_coefs.exit.thread
 
-compute_lpc_coefs.exit.thread:                    ; preds = %do_hybrid_window.exit, %compute_lpc_coefs.exit.thread22, %compute_lpc_coefs.exit
+compute_lpc_coefs.exit.thread:                    ; preds = %do_hybrid_window.exit, %compute_lpc_coefs.exit.thread24, %compute_lpc_coefs.exit
   %82 = getelementptr inbounds nuw float, ptr %1, i64 %26
   %83 = shl nuw nsw i32 %9, 2
   %84 = zext nneg i32 %83 to i64

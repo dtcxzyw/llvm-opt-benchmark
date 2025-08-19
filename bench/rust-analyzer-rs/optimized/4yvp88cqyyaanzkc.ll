@@ -6184,7 +6184,7 @@ define hidden void @"_ZN81_$LT$object..read..any..File$LT$R$GT$$u20$as$u20$objec
   %16 = alloca { i32, [9 x i32] }, align 8
   %.sroa.20.sroa.13 = alloca [2 x i64], align 8
   %17 = load i64, ptr %1, align 8, !range !2092, !noundef !23
-  switch i64 %17, label %default.unreachable213 [
+  switch i64 %17, label %default.unreachable218 [
     i64 0, label %18
     i64 1, label %36
     i64 2, label %54
@@ -6195,7 +6195,7 @@ define hidden void @"_ZN81_$LT$object..read..any..File$LT$R$GT$$u20$as$u20$objec
     i64 7, label %84
   ]
 
-default.unreachable213:                           ; preds = %4
+default.unreachable218:                           ; preds = %4
   unreachable
 
 18:                                               ; preds = %4
@@ -6464,7 +6464,7 @@ define hidden void @"_ZN83_$LT$alloc..vec..set_len_on_drop..SetLenOnDrop$u20$as$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN91_$LT$object..read..any..Section$LT$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$4data17hb7d3b1744ccec7acE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !range !2092, !noundef !23
-  switch i64 %3, label %default.unreachable46 [
+  switch i64 %3, label %default.unreachable47 [
     i64 0, label %4
     i64 1, label %28
     i64 2, label %52
@@ -6475,7 +6475,7 @@ define hidden void @"_ZN91_$LT$object..read..any..Section$LT$R$GT$$u20$as$u20$ob
     i64 7, label %195
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable47:                            ; preds = %2
   unreachable
 
 4:                                                ; preds = %2

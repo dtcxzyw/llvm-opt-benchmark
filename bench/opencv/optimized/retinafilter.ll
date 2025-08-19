@@ -1361,9 +1361,9 @@ _ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit: ; pre
   br i1 %or.cond32, label %.sink.split, label %213
 
 .sink.split:                                      ; preds = %206, %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit
-  %.sink67 = phi i64 [ 16, %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit ], [ 232, %206 ]
+  %.sink84 = phi i64 [ 16, %_ZN2cv11bioinspired12RetinaFilter31_processRetinaParvoMagnoMappingEv.exit ], [ 232, %206 ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink67
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink84
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   %212 = load float, ptr %211, align 4, !tbaa !54
   tail call void @_ZN2cv11bioinspired11RetinaColor22runColorDemultiplexingERKSt8valarrayIfEbf(ptr noundef nonnull align 8 dereferenceable(349) %209, ptr noundef nonnull align 8 dereferenceable(16) %210, i1 noundef zeroext %2, float noundef %212)

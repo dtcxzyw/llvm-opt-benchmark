@@ -310,7 +310,7 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
   br i1 %cond, label %33, label %.thread58.thread
 
 .thread58.thread:                                 ; preds = %12, %18, %21, %24, %.thread58
-  %.380 = phi ptr [ %27, %.thread58 ], [ %16, %12 ], [ %19, %18 ], [ %22, %21 ], [ %25, %24 ]
+  %.386 = phi ptr [ %27, %.thread58 ], [ %16, %12 ], [ %19, %18 ], [ %22, %21 ], [ %25, %24 ]
   %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not72 = icmp eq ptr %28, null
   br i1 %.not72, label %56, label %29
@@ -366,7 +366,7 @@ define hidden noundef ptr @_ZN9metaspace12ChunkManager16get_chunk_lockedEaam(ptr
   br label %.thread64
 
 56:                                               ; preds = %.thread58.thread, %29, %43, %45
-  %.4.ph = phi ptr [ %35, %43 ], [ %35, %45 ], [ %.380, %29 ], [ %.380, %.thread58.thread ]
+  %.4.ph = phi ptr [ %35, %43 ], [ %35, %45 ], [ %.386, %29 ], [ %.386, %.thread58.thread ]
   %57 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 24
   %58 = load i8, ptr %57, align 8
   %59 = icmp slt i8 %58, %1

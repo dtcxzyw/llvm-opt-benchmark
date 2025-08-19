@@ -1086,8 +1086,8 @@ define void @_ZN6icu_7721UTF8CollationIterator20forwardNumCodePointsEiR10UErrorC
   br i1 %73, label %.sink.split, label %75
 
 .sink.split:                                      ; preds = %69, %49, %42
-  %.sink33 = phi i32 [ 3, %42 ], [ 2, %49 ], [ 4, %69 ]
-  %74 = add nsw i32 %12, %.sink33
+  %.sink39 = phi i32 [ 3, %42 ], [ 2, %49 ], [ 4, %69 ]
+  %74 = add nsw i32 %12, %.sink39
   store i32 %74, ptr %6, align 8, !tbaa !15
   br label %75
 
@@ -2578,7 +2578,7 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %.thread.thread
 120:                                              ; preds = %_ZN6icu_7712CollationFCD7hasTcccEi.exit
   %121 = and i32 %.38996, 2096897
   %.not98 = icmp eq i32 %121, 3841
-  br i1 %.not98, label %.thread113, label %122
+  br i1 %.not98, label %.thread133, label %122
 
 122:                                              ; preds = %120
   %.not81 = icmp eq i32 %108, %14
@@ -2595,13 +2595,13 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %.thread.thread
 
 127:                                              ; preds = %125
   %128 = icmp ult i32 %.38996, 2048
-  br i1 %128, label %133, label %.thread113
+  br i1 %128, label %133, label %.thread133
 
-.thread113:                                       ; preds = %120, %127
+.thread133:                                       ; preds = %120, %127
   %129 = icmp ult i32 %.38996, 55296
   br i1 %129, label %133, label %130
 
-130:                                              ; preds = %.thread113
+130:                                              ; preds = %.thread133
   %131 = add i32 %.38996, -1114112
   %or.cond = icmp ult i32 %131, -1056768
   %132 = icmp ult i32 %.38996, 65536
@@ -2609,8 +2609,8 @@ _ZN6icu_7712CollationFCD7hasTcccEi.exit:          ; preds = %.thread.thread
   %.neg83 = select i1 %or.cond, i32 0, i32 %.neg
   br label %133
 
-133:                                              ; preds = %127, %.thread113, %130, %125
-  %.neg84 = phi i32 [ -1, %125 ], [ -2, %127 ], [ %.neg83, %130 ], [ -3, %.thread113 ]
+133:                                              ; preds = %127, %.thread133, %130, %125
+  %.neg84 = phi i32 [ -1, %125 ], [ -2, %127 ], [ %.neg83, %130 ], [ -3, %.thread133 ]
   %134 = add i32 %108, %.neg84
   store i32 %134, ptr %4, align 8, !tbaa !15
   %135 = tail call noundef signext i8 @_ZN6icu_7724FCDUTF8CollationIterator11nextSegmentER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -2878,7 +2878,7 @@ _ZN6icu_7712CollationFCD7hasLcccEi.exit:          ; preds = %39
 50:                                               ; preds = %_ZN6icu_7712CollationFCD7hasLcccEi.exit
   %51 = and i32 %.0, 2096897
   %.not39 = icmp eq i32 %51, 3841
-  br i1 %.not39, label %.thread58, label %52
+  br i1 %.not39, label %.thread67, label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %5, align 8, !tbaa !15
@@ -2937,13 +2937,13 @@ _ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit: ; preds = %70
 
 83:                                               ; preds = %81
   %84 = icmp ult i32 %.0, 2048
-  br i1 %84, label %91, label %.thread58
+  br i1 %84, label %91, label %.thread67
 
-.thread58:                                        ; preds = %50, %83
+.thread67:                                        ; preds = %50, %83
   %85 = icmp ult i32 %.0, 55296
   br i1 %85, label %91, label %86
 
-86:                                               ; preds = %.thread58
+86:                                               ; preds = %.thread67
   %87 = add i32 %.0, -1114112
   %or.cond = icmp ult i32 %87, -1056768
   %88 = icmp ult i32 %.0, 65536
@@ -2951,8 +2951,8 @@ _ZNK6icu_7724FCDUTF8CollationIterator15previousHasTcccEv.exit: ; preds = %70
   %90 = select i1 %or.cond, i32 0, i32 %89
   br label %91
 
-91:                                               ; preds = %83, %.thread58, %86, %81
-  %92 = phi i32 [ 1, %81 ], [ 2, %83 ], [ %90, %86 ], [ 3, %.thread58 ]
+91:                                               ; preds = %83, %.thread67, %86, %81
+  %92 = phi i32 [ 1, %81 ], [ 2, %83 ], [ %90, %86 ], [ 3, %.thread67 ]
   %93 = load i32, ptr %5, align 8, !tbaa !15
   %94 = add nsw i32 %93, %92
   store i32 %94, ptr %5, align 8, !tbaa !15

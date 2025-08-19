@@ -257,7 +257,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat9evaluator3imp9eval_ineq
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !51
   %.not26 = icmp eq i32 %7, 0
-  br i1 %.not26, label %.thread30, label %.lr.ph
+  br i1 %.not26, label %.thread31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -345,15 +345,15 @@ _ZN5nlsat9evaluator3imp9eval_signEPN10polynomial10polynomialE.exit: ; preds = %2
 
 42:                                               ; preds = %._crit_edge
   %43 = icmp slt i32 %39, 0
-  br i1 %43, label %44, label %.thread30
+  br i1 %43, label %44, label %.thread31
 
 44:                                               ; preds = %42
   %45 = icmp ult i32 %5, 14
-  br i1 %45, label %switch.lookup35, label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
+  br i1 %45, label %switch.lookup36, label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
-.thread30:                                        ; preds = %3, %42
+.thread31:                                        ; preds = %3, %42
   %46 = icmp ult i32 %5, 15
-  br i1 %46, label %switch.lookup40, label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
+  br i1 %46, label %switch.lookup41, label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
 switch.lookup:                                    ; preds = %.thread
   %switch.cast = trunc nuw i32 %5 to i15
@@ -361,20 +361,20 @@ switch.lookup:                                    ; preds = %.thread
   %switch.masked = trunc i15 %switch.downshift to i1
   br label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
-switch.lookup35:                                  ; preds = %44
-  %switch.cast36 = trunc nuw i32 %5 to i14
-  %switch.downshift38 = lshr i14 -6142, %switch.cast36
-  %switch.masked39 = trunc i14 %switch.downshift38 to i1
+switch.lookup36:                                  ; preds = %44
+  %switch.cast37 = trunc nuw i32 %5 to i14
+  %switch.downshift39 = lshr i14 -6142, %switch.cast37
+  %switch.masked40 = trunc i14 %switch.downshift39 to i1
   br label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
-switch.lookup40:                                  ; preds = %.thread30
-  %switch.cast41 = trunc nuw i32 %5 to i15
-  %switch.downshift43 = lshr i15 -12284, %switch.cast41
-  %switch.masked44 = trunc i15 %switch.downshift43 to i1
+switch.lookup41:                                  ; preds = %.thread31
+  %switch.cast42 = trunc nuw i32 %5 to i15
+  %switch.downshift44 = lshr i15 -12284, %switch.cast42
+  %switch.masked45 = trunc i15 %switch.downshift44 to i1
   br label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
-_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit: ; preds = %.thread30, %switch.lookup40, %.thread, %44, %switch.lookup35, %switch.lookup
-  %47 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked39, %switch.lookup35 ], [ false, %44 ], [ false, %.thread ], [ %switch.masked44, %switch.lookup40 ], [ false, %.thread30 ]
+_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit: ; preds = %.thread31, %switch.lookup41, %.thread, %44, %switch.lookup36, %switch.lookup
+  %47 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked40, %switch.lookup36 ], [ false, %44 ], [ false, %.thread ], [ %switch.masked45, %switch.lookup41 ], [ false, %.thread31 ]
   %spec.select.i = xor i1 %2, %47
   ret i1 %spec.select.i
 }
@@ -393,7 +393,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %3
   %10 = getelementptr inbounds i8, ptr %8, i64 -4
   %11 = load i32, ptr %10, align 4, !tbaa !62
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %._crit_edge.thread9.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.thread10.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -403,9 +403,9 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %3
 ._crit_edge.i:                                    ; preds = %15
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i, label %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit, label %._crit_edge.thread9.i
+  br i1 %.not.i.i, label %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit, label %._crit_edge.thread10.i
 
-._crit_edge.thread9.i:                            ; preds = %._crit_edge.i, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
+._crit_edge.thread10.i:                           ; preds = %._crit_edge.i, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
   %13 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %8, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i ]
   %14 = getelementptr inbounds i8, ptr %13, i64 -4
   store i32 0, ptr %14, align 4, !tbaa !62
@@ -421,7 +421,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %3
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !63
 
-_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit: ; preds = %3, %._crit_edge.i, %._crit_edge.thread9.i
+_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit: ; preds = %3, %._crit_edge.i, %._crit_edge.thread10.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -522,11 +522,11 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit: ; preds = %_ZN7obj_ref
 
 67:                                               ; preds = %65
   %68 = icmp ult i32 %6, 14
-  br i1 %68, label %switch.lookup19, label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
+  br i1 %68, label %switch.lookup26, label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
 69:                                               ; preds = %65
   %70 = icmp ult i32 %6, 15
-  br i1 %70, label %switch.lookup24, label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
+  br i1 %70, label %switch.lookup31, label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
 switch.lookup:                                    ; preds = %63
   %switch.cast = trunc nuw i32 %6 to i15
@@ -534,20 +534,20 @@ switch.lookup:                                    ; preds = %63
   %switch.masked = trunc i15 %switch.downshift to i1
   br label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
-switch.lookup19:                                  ; preds = %67
-  %switch.cast20 = trunc nuw i32 %6 to i14
-  %switch.downshift22 = lshr i14 -6142, %switch.cast20
-  %switch.masked23 = trunc i14 %switch.downshift22 to i1
+switch.lookup26:                                  ; preds = %67
+  %switch.cast27 = trunc nuw i32 %6 to i14
+  %switch.downshift29 = lshr i14 -6142, %switch.cast27
+  %switch.masked30 = trunc i14 %switch.downshift29 to i1
   br label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
-switch.lookup24:                                  ; preds = %69
-  %switch.cast25 = trunc nuw i32 %6 to i15
-  %switch.downshift27 = lshr i15 -12284, %switch.cast25
-  %switch.masked28 = trunc i15 %switch.downshift27 to i1
+switch.lookup31:                                  ; preds = %69
+  %switch.cast32 = trunc nuw i32 %6 to i15
+  %switch.downshift34 = lshr i15 -12284, %switch.cast32
+  %switch.masked35 = trunc i15 %switch.downshift34 to i1
   br label %_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit
 
-_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit: ; preds = %69, %switch.lookup24, %63, %67, %switch.lookup19, %switch.lookup
-  %71 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked23, %switch.lookup19 ], [ false, %67 ], [ false, %63 ], [ %switch.masked28, %switch.lookup24 ], [ false, %69 ]
+_ZN5nlsat9evaluator3imp9satisfiedEiNS_4atom4kindEb.exit: ; preds = %69, %switch.lookup31, %63, %67, %switch.lookup26, %switch.lookup
+  %71 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked30, %switch.lookup26 ], [ false, %67 ], [ false, %63 ], [ %switch.masked35, %switch.lookup31 ], [ false, %69 ]
   %spec.select.i = xor i1 %2, %71
   br label %72
 
@@ -671,7 +671,7 @@ _ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i: ; pr
   %12 = getelementptr inbounds i8, ptr %10, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !62
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %._crit_edge.thread14.i, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %._crit_edge.thread19.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i
   %wide.trip.count.i = zext i32 %13 to i64
@@ -680,16 +680,16 @@ _ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i: ; pr
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !80
   %.not.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i, label %_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i, label %._crit_edge.thread14.i
+  br i1 %.not.i.i, label %_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i, label %._crit_edge.thread19.i
 
-._crit_edge.thread14.i:                           ; preds = %._crit_edge.i, %_ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i
+._crit_edge.thread19.i:                           ; preds = %._crit_edge.i, %_ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i
   %14 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %10, %_ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i ]
   %15 = getelementptr inbounds i8, ptr %14, i64 -4
   store i32 0, ptr %15, align 4, !tbaa !62
   br label %_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i
 
-_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i: ; preds = %._crit_edge.thread14.i, %._crit_edge.i, %5
-  %16 = phi ptr [ %14, %._crit_edge.thread14.i ], [ null, %._crit_edge.i ], [ null, %5 ]
+_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i: ; preds = %._crit_edge.thread19.i, %._crit_edge.i, %5
+  %16 = phi ptr [ %14, %._crit_edge.thread19.i ], [ null, %._crit_edge.i ], [ null, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %18 = load ptr, ptr %17, align 8, !tbaa !81
   %.not.i4.i = icmp eq ptr %18, null
@@ -845,7 +845,7 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit: ; preds
   %76 = load ptr, ptr %29, align 8, !tbaa !83
   %77 = load ptr, ptr %21, align 8
   %78 = load ptr, ptr %9, align 8
-  %.sink83.i = load ptr, ptr %25, align 8
+  %.sink86.i = load ptr, ptr %25, align 8
   br label %79
 
 79:                                               ; preds = %163, %.lr.ph.i82
@@ -979,7 +979,7 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEED2Ev.exit: ; preds
 .loopexit.sink.split.i:                           ; preds = %136, %130, %121, %._crit_edge.i124
   %.sink.i = phi i32 [ %123, %121 ], [ %133, %130 ], [ %139, %136 ], [ %100, %._crit_edge.i124 ]
   %153 = zext i32 %.sink.i to i64
-  %154 = getelementptr inbounds nuw i32, ptr %.sink83.i, i64 %153
+  %154 = getelementptr inbounds nuw i32, ptr %.sink86.i, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !105
   br label %.noexc
 
@@ -1285,16 +1285,16 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105: ;
           to label %.sink.split unwind label %182
 
 .sink.split:                                      ; preds = %.noexc116, %275, %.noexc98, %217
-  %.sink155 = phi ptr [ %213, %217 ], [ %213, %.noexc98 ], [ %271, %275 ], [ %271, %.noexc116 ]
+  %.sink178 = phi ptr [ %213, %217 ], [ %213, %.noexc98 ], [ %271, %275 ], [ %271, %.noexc116 ]
   %.174.ph = phi i8 [ %.073136, %217 ], [ %.073136, %.noexc98 ], [ %.275, %275 ], [ %.275, %.noexc116 ]
   %.170.ph = phi i8 [ %.069137, %217 ], [ %.069137, %.noexc98 ], [ %.271, %275 ], [ %.271, %.noexc116 ]
   %.167.ph = phi i32 [ %.066138, %217 ], [ %.066138, %.noexc98 ], [ %.268, %275 ], [ %.268, %.noexc116 ]
   %.1.ph = phi i8 [ 1, %217 ], [ 1, %.noexc98 ], [ 0, %275 ], [ 0, %.noexc116 ]
-  store ptr %.sink155, ptr %0, align 8, !tbaa !87
+  store ptr %.sink178, ptr %0, align 8, !tbaa !87
   br label %277
 
 277:                                              ; preds = %.sink.split, %246, %168
-  %278 = phi ptr [ %74, %168 ], [ %247, %246 ], [ %.sink155, %.sink.split ]
+  %278 = phi ptr [ %74, %168 ], [ %247, %246 ], [ %.sink178, %.sink.split ]
   %.174 = phi i8 [ %.073136, %168 ], [ %.275, %246 ], [ %.174.ph, %.sink.split ]
   %.170 = phi i8 [ %.069137, %168 ], [ %.271, %246 ], [ %.170.ph, %.sink.split ]
   %.167 = phi i32 [ %.066138, %168 ], [ %.268, %246 ], [ %.167.ph, %.sink.split ]
@@ -1338,7 +1338,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %5
   %22 = getelementptr inbounds i8, ptr %20, i64 -4
   %23 = load i32, ptr %22, align 4, !tbaa !62
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %._crit_edge.thread9.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.thread10.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -1348,9 +1348,9 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %5
 ._crit_edge.i:                                    ; preds = %27
   %.pre.i = load ptr, ptr %19, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i, label %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit, label %._crit_edge.thread9.i
+  br i1 %.not.i.i, label %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit, label %._crit_edge.thread10.i
 
-._crit_edge.thread9.i:                            ; preds = %._crit_edge.i, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
+._crit_edge.thread10.i:                           ; preds = %._crit_edge.i, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
   %25 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i ]
   %26 = getelementptr inbounds i8, ptr %25, i64 -4
   store i32 0, ptr %26, align 4, !tbaa !62
@@ -1366,7 +1366,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %5
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !63
 
-_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit: ; preds = %5, %._crit_edge.i, %._crit_edge.thread9.i
+_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit: ; preds = %5, %._crit_edge.i, %._crit_edge.thread10.i
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %32 = load i32, ptr %31, align 4, !tbaa !86
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1913,7 +1913,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %70
   %75 = getelementptr inbounds i8, ptr %73, i64 -4
   %76 = load i32, ptr %75, align 4, !tbaa !62
   %.not.i = icmp eq i32 %76, 0
-  br i1 %.not.i, label %._crit_edge.thread9.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.thread10.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1923,9 +1923,9 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %70
 ._crit_edge.i:                                    ; preds = %80
   %.pre.i = load ptr, ptr %71, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i, label %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit, label %._crit_edge.thread9.i
+  br i1 %.not.i.i, label %_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit, label %._crit_edge.thread10.i
 
-._crit_edge.thread9.i:                            ; preds = %._crit_edge.i, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
+._crit_edge.thread10.i:                           ; preds = %._crit_edge.i, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i
   %78 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %73, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -4
   store i32 0, ptr %79, align 4, !tbaa !62
@@ -1941,7 +1941,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit.i: ; preds = %70
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %80, !llvm.loop !63
 
-_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit: ; preds = %70, %._crit_edge.i, %._crit_edge.thread9.i
+_ZN22_scoped_numeral_vectorIN17algebraic_numbers7managerEE5resetEv.exit: ; preds = %70, %._crit_edge.i, %._crit_edge.thread10.i
   %84 = load ptr, ptr %72, align 8, !tbaa !82
   %.not.i15 = icmp eq ptr %84, null
   br i1 %.not.i15, label %_ZN6vectorI4signLb0EjE5resetEv.exit, label %85
@@ -2669,7 +2669,7 @@ _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit: ; preds = %_ZNK6vector
   br label %25
 
 .preheader91:                                     ; preds = %145, %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit
-  %.0.i48112 = phi i32 [ %17, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %17, %145 ]
+  %.0.i48137 = phi i32 [ %17, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %17, %145 ]
   %.044.lcssa = phi i32 [ 0, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %146, %145 ]
   %.041.lcssa = phi i32 [ 0, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %.142, %145 ]
   %.0.lcssa = phi i32 [ 0, %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ], [ %.1, %145 ]
@@ -2911,7 +2911,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit64:          ; preds = %131, %137
 
 .preheader:                                       ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit68, %.preheader91
   %.145.lcssa = phi i32 [ %.044.lcssa, %.preheader91 ], [ %175, %_ZN6vectorIjLb0EjE9push_backERKj.exit68 ]
-  %150 = icmp ult i32 %.041.lcssa, %.0.i48112
+  %150 = icmp ult i32 %.041.lcssa, %.0.i48137
   br i1 %150, label %.lr.ph103, label %._crit_edge
 
 .lr.ph103:                                        ; preds = %.preheader
@@ -3065,7 +3065,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit83:          ; preds = %216, %222
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %229 = add i32 %.246101, 1
   %lftr.wideiv109 = trunc i64 %indvars.iv.next107 to i32
-  %exitcond110.not = icmp eq i32 %.0.i48112, %lftr.wideiv109
+  %exitcond110.not = icmp eq i32 %.0.i48137, %lftr.wideiv109
   br i1 %exitcond110.not, label %._crit_edge, label %176, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit83, %.preheader
@@ -3586,7 +3586,7 @@ _ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i: ; pr
   %5 = getelementptr inbounds i8, ptr %3, i64 -4
   %6 = load i32, ptr %5, align 4, !tbaa !62
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %._crit_edge.thread14.i, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %._crit_edge.thread19.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i
   %wide.trip.count.i = zext i32 %6 to i64
@@ -3595,15 +3595,15 @@ _ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i: ; pr
 ._crit_edge.i:                                    ; preds = %.noexc
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !80
   %.not.i.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i, label %_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i, label %._crit_edge.thread14.i
+  br i1 %.not.i.i, label %_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i, label %._crit_edge.thread19.i
 
-._crit_edge.thread14.i:                           ; preds = %._crit_edge.i, %_ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i
+._crit_edge.thread19.i:                           ; preds = %._crit_edge.i, %_ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i
   %7 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %3, %_ZNK6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE4sizeEv.exit.i ]
   %8 = getelementptr inbounds i8, ptr %7, i64 -4
   store i32 0, ptr %8, align 4, !tbaa !62
   br label %_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i
 
-_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i: ; preds = %._crit_edge.thread14.i, %._crit_edge.i, %1
+_ZN6vectorIN5nlsat9evaluator3imp10sign_table7sectionELb0EjE5resetEv.exit.i: ; preds = %._crit_edge.thread19.i, %._crit_edge.i, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !81
   %.not.i4.i = icmp eq ptr %10, null

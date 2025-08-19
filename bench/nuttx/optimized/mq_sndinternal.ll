@@ -155,34 +155,34 @@ define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef initializes((17, 19
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = icmp ugt i32 %4, %16
-  br i1 %17, label %._crit_edge, label %.lr.ph73
+  br i1 %17, label %._crit_edge, label %.lr.ph74
 
-.lr.ph73:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0525972 = phi ptr [ %.052, %.lr.ph ], [ %.05256, %.lr.ph.preheader ]
-  %18 = getelementptr inbounds nuw i8, ptr %.0525972, i64 8
+.lr.ph74:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0525973 = phi ptr [ %.052, %.lr.ph ], [ %.05256, %.lr.ph.preheader ]
+  %18 = getelementptr inbounds nuw i8, ptr %.0525973, i64 8
   %.052 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.052, %12
-  br i1 %.not, label %._crit_edge.thread64, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge.thread65, label %.lr.ph, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %.lr.ph73
+.lr.ph:                                           ; preds = %.lr.ph74
   %19 = getelementptr inbounds nuw i8, ptr %.052, i64 17
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = icmp ugt i32 %4, %21
-  br i1 %22, label %._crit_edge, label %.lr.ph73, !llvm.loop !8
+  br i1 %22, label %._crit_edge, label %.lr.ph74, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader
-  %.058.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0525972, %.lr.ph ]
+  %.058.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0525973, %.lr.ph ]
   %.not53 = icmp eq ptr %.058.lcssa, null
-  br i1 %.not53, label %._crit_edge.thread, label %._crit_edge.thread64
+  br i1 %.not53, label %._crit_edge.thread, label %._crit_edge.thread65
 
-._crit_edge.thread64:                             ; preds = %.lr.ph73, %._crit_edge
-  %.0.lcssa67 = phi ptr [ %.058.lcssa, %._crit_edge ], [ %.0525972, %.lr.ph73 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa67, i64 8
+._crit_edge.thread65:                             ; preds = %.lr.ph74, %._crit_edge
+  %.0.lcssa68 = phi ptr [ %.058.lcssa, %._crit_edge ], [ %.0525973, %.lr.ph74 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa68, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %24, ptr %25, align 8
-  store ptr %.0.lcssa67, ptr %1, align 8
+  store ptr %.0.lcssa68, ptr %1, align 8
   %26 = load ptr, ptr %23, align 8
   store ptr %1, ptr %26, align 8
   store ptr %1, ptr %23, align 8
@@ -197,7 +197,7 @@ define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef initializes((17, 19
   store ptr %1, ptr %13, align 8
   br label %29
 
-29:                                               ; preds = %._crit_edge.thread, %._crit_edge.thread64
+29:                                               ; preds = %._crit_edge.thread, %._crit_edge.thread65
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %31 = load i16, ptr %30, align 2
   %32 = add i16 %31, 1

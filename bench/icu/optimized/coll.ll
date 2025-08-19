@@ -461,7 +461,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 54:                                               ; preds = %50
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 55:                                               ; preds = %50
   %.not90.i = icmp eq i32 %51, 0
@@ -469,7 +469,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 56:                                               ; preds = %55
   store i32 16, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 57:                                               ; preds = %55
   %58 = call noundef i32 @_ZNK6icu_776Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -479,7 +479,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 61:                                               ; preds = %57
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 62:                                               ; preds = %57
   %.not92.i = icmp eq i32 %58, 0
@@ -487,7 +487,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 63:                                               ; preds = %62
   store i32 16, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 64:                                               ; preds = %62
   %65 = icmp eq i32 %59, -124
@@ -513,7 +513,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 74:                                               ; preds = %67
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 75:                                               ; preds = %67
   %76 = icmp eq i32 %70, 0
@@ -526,7 +526,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 .thread.i:                                        ; preds = %77
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 .preheader129.i:                                  ; preds = %75, %77
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %77 ], [ 0, %75 ]
@@ -562,7 +562,7 @@ _ZN6icu_778Collator12makeInstanceERKNS_6LocaleER10UErrorCode.exit: ; preds = %.s
 
 95:                                               ; preds = %.critedge.i
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 96:                                               ; preds = %.critedge.i
   %.not96.i = icmp eq i32 %91, 0
@@ -636,7 +636,7 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %114, %108
 .thread121.i:                                     ; preds = %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i, %98, %117
   store i32 1, ptr %1, align 4, !tbaa !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread149.i
+  br label %.thread151.i
 
 123:                                              ; preds = %119
   %124 = trunc nuw nsw i64 %indvars.iv.next147.i to i32
@@ -657,11 +657,11 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %114, %108
 
 133:                                              ; preds = %128
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 134:                                              ; preds = %128
   %.not98.i = icmp eq i32 %129, 0
-  br i1 %.not98.i, label %.thread149.i, label %.preheader.i
+  br i1 %.not98.i, label %.thread151.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %134, %139
   %indvars.iv.i106.i = phi i64 [ %indvars.iv.next.i107.i, %139 ], [ 0, %134 ]
@@ -678,7 +678,7 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit.i: ; preds = %114, %108
 
 _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i: ; preds = %139
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
 140:                                              ; preds = %.preheader.i
   %141 = trunc nuw nsw i64 %indvars.iv.i106.i to i32
@@ -689,19 +689,19 @@ _ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i: ; preds = %139
   %146 = call noundef nonnull align 8 dereferenceable(8) ptr %145(ptr noundef nonnull align 8 dereferenceable(8) %.016, i32 noundef %142, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %.pre.i = load i32, ptr %1, align 4, !tbaa !6
   %147 = icmp slt i32 %.pre.i, 1
-  br i1 %147, label %.thread149.i, label %148
+  br i1 %147, label %.thread151.i, label %148
 
 148:                                              ; preds = %140
   store i32 1, ptr %1, align 4, !tbaa !6
-  br label %.thread149.i
+  br label %.thread151.i
 
-.thread149.i:                                     ; preds = %148, %140, %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i, %134, %133, %.thread121.i, %95, %.thread.i, %74, %63, %61, %56, %54
+.thread151.i:                                     ; preds = %148, %140, %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i, %134, %133, %.thread121.i, %95, %.thread.i, %74, %63, %61, %56, %54
   %149 = phi i32 [ 1, %148 ], [ %.pre.i, %140 ], [ 1, %_ZN6icu_7712_GLOBAL__N_114getReorderCodeEPKc.exit110.thread.i ], [ %130, %134 ], [ 1, %133 ], [ 1, %.thread121.i ], [ 1, %95 ], [ 1, %.thread.i ], [ 1, %74 ], [ 16, %63 ], [ 1, %61 ], [ 16, %56 ], [ 1, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit: ; preds = %._ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit_crit_edge, %.thread149.i
-  %150 = phi i32 [ %.pre, %._ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit_crit_edge ], [ %149, %.thread149.i ]
+_ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit: ; preds = %._ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit_crit_edge, %.thread151.i
+  %150 = phi i32 [ %.pre, %._ZN6icu_7712_GLOBAL__N_125setAttributesFromKeywordsERKNS_6LocaleERNS_8CollatorER10UErrorCode.exit_crit_edge ], [ %149, %.thread151.i ]
   %151 = icmp slt i32 %150, 1
   br i1 %151, label %156, label %152
 

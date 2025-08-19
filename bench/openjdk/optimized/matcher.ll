@@ -1958,10 +1958,10 @@ _ZN7Matcher10clone_nodeEP4NodeS1_RNS_6MStackE.exit.us: ; preds = %147
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %160, %155
-  %.sink81 = phi ptr [ %157, %155 ], [ %162, %160 ], [ %.pre.i.i53.us, %.sink.split.sink.split ]
+  %.sink95 = phi ptr [ %157, %155 ], [ %162, %160 ], [ %.pre.i.i53.us, %.sink.split.sink.split ]
   %.sink = phi i32 [ 1, %155 ], [ 0, %160 ], [ %.sink.ph, %.sink.split.sink.split ]
-  store ptr %145, ptr %.sink81, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %.sink81, i64 8
+  store ptr %145, ptr %.sink95, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %.sink95, i64 8
   store i32 %.sink, ptr %164, align 8
   br label %165
 
@@ -1995,7 +1995,7 @@ _ZN7Matcher10clone_nodeEP4NodeS1_RNS_6MStackE.exit.us: ; preds = %147
   store ptr %181, ptr %3, align 8
   %182 = load ptr, ptr %35, align 8
   %.not.i.i.i = icmp ult ptr %181, %182
-  br i1 %.not.i.i.i, label %.sink.split82, label %.sink.split82.sink.split
+  br i1 %.not.i.i.i, label %.sink.split96, label %.sink.split96.sink.split
 
 _ZN7Matcher10clone_nodeEP4NodeS1_RNS_6MStackE.exit: ; preds = %171
   %183 = call noundef zeroext i1 @_ZN7Matcher13pd_clone_nodeEP4NodeS1_RNS_6MStackE(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %53, ptr noundef nonnull %169, ptr noundef nonnull align 8 dereferenceable(32) %3) #15
@@ -2041,23 +2041,23 @@ _ZN7Matcher10is_visitedEP4Node.exit51.thread:     ; preds = %191, %_ZN7Matcher10
   store ptr %206, ptr %3, align 8
   %207 = load ptr, ptr %35, align 8
   %.not.i.i52 = icmp ult ptr %206, %207
-  br i1 %.not.i.i52, label %.sink.split82, label %.sink.split82.sink.split
+  br i1 %.not.i.i52, label %.sink.split96, label %.sink.split96.sink.split
 
-.sink.split82.sink.split:                         ; preds = %204, %179
-  %.sink83.ph = phi i32 [ 1, %179 ], [ 0, %204 ]
+.sink.split96.sink.split:                         ; preds = %204, %179
+  %.sink97.ph = phi i32 [ 1, %179 ], [ 0, %204 ]
   call void @_ZN10Node_Stack4growEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   %.pre.i.i53 = load ptr, ptr %3, align 8
-  br label %.sink.split82
+  br label %.sink.split96
 
-.sink.split82:                                    ; preds = %.sink.split82.sink.split, %204, %179
-  %.sink86 = phi ptr [ %181, %179 ], [ %206, %204 ], [ %.pre.i.i53, %.sink.split82.sink.split ]
-  %.sink83 = phi i32 [ 1, %179 ], [ 0, %204 ], [ %.sink83.ph, %.sink.split82.sink.split ]
-  store ptr %169, ptr %.sink86, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %.sink86, i64 8
-  store i32 %.sink83, ptr %208, align 8
+.sink.split96:                                    ; preds = %.sink.split96.sink.split, %204, %179
+  %.sink100 = phi ptr [ %181, %179 ], [ %206, %204 ], [ %.pre.i.i53, %.sink.split96.sink.split ]
+  %.sink97 = phi i32 [ 1, %179 ], [ 0, %204 ], [ %.sink97.ph, %.sink.split96.sink.split ]
+  store ptr %169, ptr %.sink100, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %.sink100, i64 8
+  store i32 %.sink97, ptr %208, align 8
   br label %209
 
-209:                                              ; preds = %.sink.split82, %_ZN7Matcher10is_visitedEP4Node.exit51.thread, %_ZN7Matcher10clone_nodeEP4NodeS1_RNS_6MStackE.exit, %.lr.ph.split
+209:                                              ; preds = %.sink.split96, %_ZN7Matcher10is_visitedEP4Node.exit51.thread, %_ZN7Matcher10clone_nodeEP4NodeS1_RNS_6MStackE.exit, %.lr.ph.split
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, -1
   %210 = icmp sgt i64 %indvars.iv74, 0
   br i1 %210, label %.lr.ph.split, label %.backedge, !llvm.loop !15
@@ -2707,11 +2707,11 @@ _ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit153: ; preds = %319, %324
   br label %326
 
 326:                                              ; preds = %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit150, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit153
-  %.sink204 = phi i32 [ 0, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit150 ], [ %.2116179, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit153 ]
+  %.sink235 = phi i32 [ 0, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit150 ], [ %.2116179, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit153 ]
   %.sink = phi ptr [ %313, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit150 ], [ %294, %_ZN7Matcher6MStack4pushEP4NodeNS_10Node_StateES2_i.exit153 ]
   %327 = load ptr, ptr %4, align 8
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  store i32 %.sink204, ptr %328, align 8
+  store i32 %.sink235, ptr %328, align 8
   %329 = getelementptr inbounds nuw i8, ptr %327, i64 16
   store ptr %329, ptr %4, align 8
   store ptr %.sink, ptr %329, align 8
@@ -9368,8 +9368,8 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %74, %63, %59, %55, 
   %86 = getelementptr inbounds nuw i8, ptr %.03336, i64 1260
   %87 = load ptr, ptr %80, align 8
   %88 = load ptr, ptr %82, align 8
-  %.sink41 = select i1 %85, ptr %88, ptr %87
-  %89 = getelementptr inbounds i32, ptr %.sink41, i64 %81
+  %.sink49 = select i1 %85, ptr %88, ptr %87
+  %89 = getelementptr inbounds i32, ptr %.sink49, i64 %81
   %90 = load i32, ptr %89, align 4
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw [315 x i16], ptr %86, i64 0, i64 %91
@@ -12288,8 +12288,8 @@ _ZN16Unique_Node_List3popEv.exit:                 ; preds = %53, %58
   %67 = getelementptr inbounds nuw i8, ptr %40, i64 44
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 3
-  %.not16 = icmp eq i32 %69, 2
-  br i1 %.not16, label %70, label %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit
+  %.not22 = icmp eq i32 %69, 2
+  br i1 %.not22, label %70, label %_ZN7Matcher20specialize_mach_nodeEP8MachNode.exit
 
 70:                                               ; preds = %_ZN16Unique_Node_List3popEv.exit
   %71 = call noundef zeroext i1 @_ZN7Matcher15is_reg2reg_moveEP8MachNode(ptr noundef nonnull %40) #15

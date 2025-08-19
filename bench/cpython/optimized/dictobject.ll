@@ -4304,9 +4304,9 @@ dictkeys_set_index.exit:                          ; preds = %68, %73, %77, %79
 
 89:                                               ; preds = %87, %85
   %storemerge = phi i64 [ %2, %87 ], [ %86, %85 ]
-  %.sink2 = phi i64 [ 16, %87 ], [ 8, %85 ]
+  %.sink9 = phi i64 [ 16, %87 ], [ 8, %85 ]
   store i64 %storemerge, ptr %84, align 8, !tbaa !41
-  %90 = getelementptr inbounds nuw i8, ptr %84, i64 %.sink2
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 %.sink9
   store ptr %3, ptr %90, align 8, !tbaa !64
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load i64, ptr %91, align 8, !tbaa !43
@@ -9836,8 +9836,8 @@ Py_DECREF.exit62.i.i:                             ; preds = %90, %87, %Py_DECREF
   br i1 %102, label %26, label %dict_equal.exit.thread, !llvm.loop !185
 
 dict_equal.exit:                                  ; preds = %96
-  %.not25 = icmp eq i32 %.fr.i.i, 0
-  br i1 %.not25, label %dict_equal.exit.thread, label %_Py_NewRef.exit
+  %.not37 = icmp eq i32 %.fr.i.i, 0
+  br i1 %.not37, label %dict_equal.exit.thread, label %_Py_NewRef.exit
 
 dict_equal.exit.thread:                           ; preds = %.thread.i.i, %.thread78.i.i, %.preheader.i.i, %15, %dict_equal.exit
   %.0.i.i18 = phi i32 [ 0, %dict_equal.exit ], [ 1, %.preheader.i.i ], [ 0, %15 ], [ 0, %.thread78.i.i ], [ 1, %.thread.i.i ]
@@ -11665,15 +11665,15 @@ PyObject_TypeCheck.exit:                          ; preds = %2
 
 PyObject_TypeCheck.exit84:                        ; preds = %5
   %6 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyDictItems_Type) #23
-  %.fr117 = freeze i32 %6
-  %.not = icmp eq i32 %.fr117, 0
+  %.fr131 = freeze i32 %6
+  %.not = icmp eq i32 %.fr131, 0
   %spec.select = select i1 %.not, ptr %0, ptr %1
-  %spec.select119 = select i1 %.not, ptr %1, ptr %0
+  %spec.select133 = select i1 %.not, ptr %1, ptr %0
   br label %PyObject_TypeCheck.exit.thread
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.exit84, %5, %2, %PyObject_TypeCheck.exit
   %.040 = phi ptr [ %1, %PyObject_TypeCheck.exit ], [ %1, %2 ], [ %1, %5 ], [ %spec.select, %PyObject_TypeCheck.exit84 ]
-  %.039 = phi ptr [ %0, %PyObject_TypeCheck.exit ], [ %0, %2 ], [ %0, %5 ], [ %spec.select119, %PyObject_TypeCheck.exit84 ]
+  %.039 = phi ptr [ %0, %PyObject_TypeCheck.exit ], [ %0, %2 ], [ %0, %5 ], [ %spec.select133, %PyObject_TypeCheck.exit84 ]
   %7 = getelementptr inbounds nuw i8, ptr %.039, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !203
   %.not.i85 = icmp eq ptr %8, null
@@ -16038,7 +16038,7 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
   %41 = getelementptr i32, ptr %8, i64 %.017.us2753
   %42 = load i32, ptr %41, align 4, !tbaa !50
   %.not2042 = icmp eq i32 %42, -1
-  br i1 %.not2042, label %.loopexit76, label %dictkeys_get_index.exit
+  br i1 %.not2042, label %.loopexit78, label %dictkeys_get_index.exit
 
 .split29.us:                                      ; preds = %dictkeys_get_index.exit.us, %.split.split.us
   %.us-phi = phi i64 [ %.017.us2753, %.split.split.us ], [ %.017.us27, %dictkeys_get_index.exit.us ]
@@ -16053,14 +16053,14 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
   store i64 %.01967, ptr %45, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
-.loopexit76:                                      ; preds = %dictkeys_get_index.exit, %.split.split.split
+.loopexit78:                                      ; preds = %dictkeys_get_index.exit, %.split.split.split
   %.us-phi.ph = phi i64 [ %.017.us2753, %.split.split.split ], [ %.017, %dictkeys_get_index.exit ]
   %46 = trunc i64 %.01967 to i32
   %47 = getelementptr i32, ptr %8, i64 %.us-phi.ph
   store i32 %46, ptr %47, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
-dictkeys_set_index.exit:                          ; preds = %.thread.split.us, %.split29.us, %.loopexit, %.loopexit76
+dictkeys_set_index.exit:                          ; preds = %.thread.split.us, %.split29.us, %.loopexit, %.loopexit78
   %48 = add nuw i64 %.01967, 1
   %49 = getelementptr i8, ptr %.01868, i64 24
   %.not = icmp eq i64 %48, %2
@@ -16077,7 +16077,7 @@ dictkeys_get_index.exit:                          ; preds = %.split.split.split,
   %54 = getelementptr i32, ptr %8, i64 %.017
   %55 = load i32, ptr %54, align 4, !tbaa !50
   %.not20 = icmp eq i32 %55, -1
-  br i1 %.not20, label %.loopexit76, label %dictkeys_get_index.exit, !llvm.loop !236
+  br i1 %.not20, label %.loopexit78, label %dictkeys_get_index.exit, !llvm.loop !236
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -16185,7 +16185,7 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
   %42 = getelementptr i32, ptr %8, i64 %.017.us2753
   %43 = load i32, ptr %42, align 4, !tbaa !50
   %.not2042 = icmp eq i32 %43, -1
-  br i1 %.not2042, label %.loopexit76, label %dictkeys_get_index.exit
+  br i1 %.not2042, label %.loopexit78, label %dictkeys_get_index.exit
 
 .split29.us:                                      ; preds = %dictkeys_get_index.exit.us, %.split.split.us
   %.us-phi = phi i64 [ %.017.us2753, %.split.split.us ], [ %.017.us27, %dictkeys_get_index.exit.us ]
@@ -16200,14 +16200,14 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
   store i64 %.01967, ptr %46, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
-.loopexit76:                                      ; preds = %dictkeys_get_index.exit, %.split.split.split
+.loopexit78:                                      ; preds = %dictkeys_get_index.exit, %.split.split.split
   %.us-phi.ph = phi i64 [ %.017.us2753, %.split.split.split ], [ %.017, %dictkeys_get_index.exit ]
   %47 = trunc i64 %.01967 to i32
   %48 = getelementptr i32, ptr %8, i64 %.us-phi.ph
   store i32 %47, ptr %48, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
-dictkeys_set_index.exit:                          ; preds = %.thread.split.us, %.split29.us, %.loopexit, %.loopexit76
+dictkeys_set_index.exit:                          ; preds = %.thread.split.us, %.split29.us, %.loopexit, %.loopexit78
   %49 = add nuw i64 %.01967, 1
   %50 = getelementptr i8, ptr %.01868, i64 16
   %.not = icmp eq i64 %49, %2
@@ -16224,7 +16224,7 @@ dictkeys_get_index.exit:                          ; preds = %.split.split.split,
   %55 = getelementptr i32, ptr %8, i64 %.017
   %56 = load i32, ptr %55, align 4, !tbaa !50
   %.not20 = icmp eq i32 %56, -1
-  br i1 %.not20, label %.loopexit76, label %dictkeys_get_index.exit, !llvm.loop !238
+  br i1 %.not20, label %.loopexit78, label %dictkeys_get_index.exit, !llvm.loop !238
 }
 
 declare void @_PyErr_SetKeyError(ptr noundef) local_unnamed_addr #1

@@ -2650,20 +2650,20 @@ define internal fastcc ptr @mmap_gfind(ptr noundef readonly captures(none) %0, p
   %32 = add i64 %.pre, %29
   store i64 %32, ptr %5, align 8, !tbaa !12
   %33 = icmp slt i64 %32, 0
-  br i1 %33, label %.sink.split31, label %.thread30
+  br i1 %33, label %.sink.split41, label %.thread30
 
 .thread30:                                        ; preds = %27, %31
   %34 = phi i64 [ %32, %31 ], [ %29, %27 ]
   %35 = icmp sgt i64 %34, %.pre
-  br i1 %35, label %.sink.split31, label %36
+  br i1 %35, label %.sink.split41, label %36
 
-.sink.split31:                                    ; preds = %.thread30, %31
-  %.pre.sink33 = phi i64 [ 0, %31 ], [ %.pre, %.thread30 ]
-  store i64 %.pre.sink33, ptr %5, align 8, !tbaa !12
+.sink.split41:                                    ; preds = %.thread30, %31
+  %.pre.sink43 = phi i64 [ 0, %31 ], [ %.pre, %.thread30 ]
+  store i64 %.pre.sink43, ptr %5, align 8, !tbaa !12
   br label %36
 
-36:                                               ; preds = %.sink.split31, %.thread30
-  %37 = phi i64 [ %34, %.thread30 ], [ %.pre.sink33, %.sink.split31 ]
+36:                                               ; preds = %.sink.split41, %.thread30
+  %37 = phi i64 [ %34, %.thread30 ], [ %.pre.sink43, %.sink.split41 ]
   %38 = load ptr, ptr %11, align 8, !tbaa !31
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %42

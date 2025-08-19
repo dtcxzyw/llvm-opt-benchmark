@@ -623,13 +623,13 @@ define internal fastcc void @emit_header(ptr noundef captures(none) %0, i32 noun
   br label %76
 
 76:                                               ; preds = %.lr.ph.split.us, %72
-  %.sink88 = phi i32 [ %75, %72 ], [ %65, %.lr.ph.split.us ]
+  %.sink92 = phi i32 [ %75, %72 ], [ %65, %.lr.ph.split.us ]
   %77 = load ptr, ptr %22, align 8, !tbaa !70
-  %78 = tail call i32 @putc(i32 noundef %.sink88, ptr noundef %77)
+  %78 = tail call i32 @putc(i32 noundef %.sink92, ptr noundef %77)
   %79 = load ptr, ptr %22, align 8, !tbaa !70
-  %80 = tail call i32 @putc(i32 noundef %.sink88, ptr noundef %79)
+  %80 = tail call i32 @putc(i32 noundef %.sink92, ptr noundef %79)
   %81 = load ptr, ptr %22, align 8, !tbaa !70
-  %82 = tail call i32 @putc(i32 noundef %.sink88, ptr noundef %81)
+  %82 = tail call i32 @putc(i32 noundef %.sink92, ptr noundef %81)
   %83 = add nuw nsw i32 %.076.us, 1
   %exitcond83.not = icmp eq i32 %83, %smax82
   br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !85
@@ -681,9 +681,9 @@ define internal fastcc void @emit_header(ptr noundef captures(none) %0, i32 noun
   br label %118
 
 118:                                              ; preds = %113, %97, %110
-  %.sink90 = phi i32 [ %65, %113 ], [ %109, %97 ], [ %94, %110 ]
+  %.sink94 = phi i32 [ %65, %113 ], [ %109, %97 ], [ %94, %110 ]
   %119 = load ptr, ptr %22, align 8, !tbaa !70
-  %120 = tail call i32 @putc(i32 noundef %.sink90, ptr noundef %119)
+  %120 = tail call i32 @putc(i32 noundef %.sink94, ptr noundef %119)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !85

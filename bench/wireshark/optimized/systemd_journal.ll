@@ -303,8 +303,8 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   %68 = icmp ult i64 %67, -262145
   %69 = add nuw nsw i32 %.066117, 1
   %exitcond.not = icmp eq i32 %69, 100
-  %or.cond149 = select i1 %68, i1 true, i1 %exitcond.not
-  br i1 %or.cond149, label %70, label %12, !llvm.loop !8
+  %or.cond152 = select i1 %68, i1 true, i1 %exitcond.not
+  br i1 %or.cond152, label %70, label %12, !llvm.loop !8
 
 70:                                               ; preds = %66, %12
   %.176 = phi i8 [ %.277, %66 ], [ %.075114, %12 ]

@@ -2396,10 +2396,10 @@ if.then44:                                        ; preds = %land.lhs.true40
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then44, %if.then
-  %div.sink177 = phi double [ %div, %if.then ], [ %div66, %if.then44 ]
+  %div.sink194 = phi double [ %div, %if.then ], [ %div66, %if.then44 ]
   %add.sink = phi i64 [ %add, %if.then ], [ %j.0173, %if.then44 ]
-  %cmp.i = fcmp ogt double %div.sink177, 0.000000e+00
-  %.sroa.speculated150 = select i1 %cmp.i, double %div.sink177, double 0.000000e+00
+  %cmp.i = fcmp ogt double %div.sink194, 0.000000e+00
+  %.sroa.speculated150 = select i1 %cmp.i, double %div.sink194, double 0.000000e+00
   %arrayidx.i96 = getelementptr inbounds nuw double, ptr %12, i64 %add.sink
   store double %.sroa.speculated150, ptr %arrayidx.i96, align 8, !tbaa !41
   br label %for.inc
@@ -2458,10 +2458,10 @@ if.then113:                                       ; preds = %land.lhs.true109
   br label %for.inc139.sink.split
 
 for.inc139.sink.split:                            ; preds = %if.then113, %if.then84
-  %div102.sink178 = phi double [ %div102, %if.then84 ], [ %div134, %if.then113 ]
+  %div102.sink195 = phi double [ %div102, %if.then84 ], [ %div134, %if.then113 ]
   %add81.sink = phi i64 [ %add81, %if.then84 ], [ %j71.0171, %if.then113 ]
-  %cmp.i119 = fcmp ogt double %div102.sink178, 0.000000e+00
-  %.sroa.speculated148 = select i1 %cmp.i119, double %div102.sink178, double 0.000000e+00
+  %cmp.i119 = fcmp ogt double %div102.sink195, 0.000000e+00
+  %.sroa.speculated148 = select i1 %cmp.i119, double %div102.sink195, double 0.000000e+00
   %arrayidx.i121 = getelementptr inbounds nuw double, ptr %7, i64 %add81.sink
   store double %.sroa.speculated148, ptr %arrayidx.i121, align 8, !tbaa !41
   br label %for.inc139
@@ -3691,13 +3691,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8, !tbaa !41
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !41
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i

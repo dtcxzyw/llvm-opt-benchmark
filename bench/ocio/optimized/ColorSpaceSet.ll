@@ -2402,8 +2402,8 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_poli
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
-  %sext19 = shl i64 %81, 28
-  %82 = ashr i64 %sext19, 32
+  %sext20 = shl i64 %81, 28
+  %82 = ashr i64 %sext20, 32
   %83 = icmp slt i64 %indvars.iv.next, %82
   br i1 %83, label %22, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13ColorSpaceSetELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !llvm.loop !76
 }
@@ -2626,8 +2626,8 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_poli
   %79 = ptrtoint ptr %77 to i64
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
-  %sext19 = shl i64 %81, 28
-  %82 = ashr i64 %sext19, 32
+  %sext20 = shl i64 %81, 28
+  %82 = ashr i64 %sext20, 32
   %83 = icmp slt i64 %indvars.iv.next, %82
   br i1 %83, label %22, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13ColorSpaceSetELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !llvm.loop !84
 }

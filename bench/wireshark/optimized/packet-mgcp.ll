@@ -1093,8 +1093,8 @@ is_mgcp_rspcode.exit.i:                           ; preds = %133
   %181 = call i32 @tvb_captured_length_remaining(ptr noundef %147, i32 noundef %.0.i39.i)
   %182 = icmp sgt i32 %181, 3
   %183 = icmp sgt i32 %156, 2
-  %or.cond379.i.i = and i1 %183, %182
-  br i1 %or.cond379.i.i, label %184, label %.critedge.sink.split.i.i
+  %or.cond418.i.i = and i1 %183, %182
+  br i1 %or.cond418.i.i, label %184, label %.critedge.sink.split.i.i
 
 184:                                              ; preds = %180
   %185 = call i32 @tvb_get_raw_bytes_as_string(ptr noundef %147, i32 noundef %.0.i39.i, ptr noundef nonnull %7, i64 noundef 4)

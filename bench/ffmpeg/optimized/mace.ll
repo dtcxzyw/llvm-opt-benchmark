@@ -117,14 +117,14 @@ define internal i32 @mace_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %49 = add nuw i32 %48, %47
   %50 = shl i32 %49, %17
   %51 = sext i32 %50 to i64
-  %invariant.gep129 = getelementptr i8, ptr %7, i64 %51
+  %invariant.gep143 = getelementptr i8, ptr %7, i64 %51
   br label %.split.us.us.us.us.us
 
 .split.us.us.us.us.us:                            ; preds = %.split85.us.us.us.us.us, %.preheader.us.us.us
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.split85.us.us.us.us.us ], [ 0, %.preheader.us.us.us ]
   %.187.us.us.us.us = phi ptr [ %105, %.split85.us.us.us.us.us ], [ %.06692.us.us.us, %.preheader.us.us.us ]
-  %gep130 = getelementptr i8, ptr %invariant.gep129, i64 %indvars.iv118
-  %52 = load i8, ptr %gep130, align 1, !tbaa !40
+  %gep144 = getelementptr i8, ptr %invariant.gep143, i64 %indvars.iv118
+  %52 = load i8, ptr %gep144, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = lshr i8 %52, 5
   %54 = lshr i8 %52, 3
@@ -324,7 +324,7 @@ read_table.exit.i.us:                             ; preds = %147, %138
 165:                                              ; preds = %read_table.exit.i.us
   %166 = icmp slt i16 %164, -32454
   %167 = add nsw i16 %164, -314
-  %spec.select42.i.us = select i1 %166, i16 -32767, i16 %167
+  %spec.select45.i.us = select i1 %166, i16 -32767, i16 %167
   br label %chomp6.exit.us
 
 168:                                              ; preds = %read_table.exit.i.us
@@ -333,7 +333,7 @@ read_table.exit.i.us:                             ; preds = %147, %138
   br label %chomp6.exit.us
 
 chomp6.exit.us:                                   ; preds = %168, %165
-  %.sink.i.us = phi i16 [ %spec.select.i.us, %168 ], [ %spec.select42.i.us, %165 ]
+  %.sink.i.us = phi i16 [ %spec.select.i.us, %168 ], [ %spec.select45.i.us, %165 ]
   store i16 %.sink.i.us, ptr %113, align 2, !tbaa !56
   %170 = sext i16 %.0.i.i78.us to i32
   %171 = load i16, ptr %114, align 2, !tbaa !49

@@ -1078,8 +1078,8 @@ define hidden noundef ptr @_ZN10decode_env12handle_eventEPKcPh(ptr noundef nonnu
   ]
 
 11:                                               ; preds = %3
-  %.not76 = icmp eq i64 %4, 5
-  br i1 %.not76, label %.thread, label %45
+  %.not81 = icmp eq i64 %4, 5
+  br i1 %.not81, label %.thread, label %45
 
 .thread:                                          ; preds = %6, %8, %11
   %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.36, i64 noundef 5) #13
@@ -1099,12 +1099,12 @@ define hidden noundef ptr @_ZN10decode_env12handle_eventEPKcPh(ptr noundef nonnu
 16:                                               ; preds = %.thread, %13
   %17 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.37, i64 noundef 5) #13
   %.not.i29 = icmp eq i32 %17, 0
-  br i1 %.not.i29, label %18, label %.thread70
+  br i1 %.not.i29, label %18, label %.thread75
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %20 = load i8, ptr %19, align 1
-  switch i8 %20, label %.thread70 [
+  switch i8 %20, label %.thread75 [
     i8 47, label %_ZN10decode_env5matchEPKcS1_.exit31
     i8 32, label %_ZN10decode_env5matchEPKcS1_.exit31
     i8 0, label %_ZN10decode_env5matchEPKcS1_.exit31
@@ -1160,15 +1160,15 @@ _ZN10decode_env5matchEPKcS1_.exit31:              ; preds = %18, %18, %18, %18
 
 45:                                               ; preds = %11
   %46 = icmp samesign ult i64 %4, 4
-  br i1 %46, label %_ZN10decode_env8end_insnEPh.exit46, label %.thread70
+  br i1 %46, label %_ZN10decode_env8end_insnEPh.exit46, label %.thread75
 
-.thread70:                                        ; preds = %16, %18, %45
+.thread75:                                        ; preds = %16, %18, %45
   %47 = phi i1 [ true, %45 ], [ false, %18 ], [ false, %16 ]
   %48 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.38, i64 noundef 4) #13
   %.not.i33 = icmp eq i32 %48, 0
   br i1 %.not.i33, label %49, label %77
 
-49:                                               ; preds = %.thread70
+49:                                               ; preds = %.thread75
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %77 [
@@ -1213,11 +1213,11 @@ _ZN12outputStream3bolEv.exit.i:                   ; preds = %57, %_ZN10decode_en
   br i1 %.not6.i.i, label %_ZN10decode_env10start_insnEPh.exit, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %63, %60
-  %.sink10.i.i = phi ptr [ %62, %60 ], [ %65, %63 ]
-  %66 = load ptr, ptr %.sink10.i.i, align 8
+  %.sink11.i.i = phi ptr [ %62, %60 ], [ %65, %63 ]
+  %66 = load ptr, ptr %.sink11.i.i, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef nonnull align 8 dereferenceable(54) %.sink10.i.i, ptr noundef %.pre4.i, ptr noundef %.pre2.i) #12
+  tail call void %68(ptr noundef nonnull align 8 dereferenceable(54) %.sink11.i.i, ptr noundef %.pre4.i, ptr noundef %.pre2.i) #12
   %.pre.i36 = load ptr, ptr %52, align 8
   %.pre3.i = load ptr, ptr %0, align 8
   br label %_ZN10decode_env10start_insnEPh.exit
@@ -1233,7 +1233,7 @@ _ZN10decode_env10start_insnEPh.exit:              ; preds = %_ZN12outputStream3b
   %76 = tail call noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12outputStreambb(ptr noundef %70, i32 noundef 4, i32 noundef 4, ptr noundef %69, i1 noundef zeroext true, i1 noundef zeroext false) #12
   br label %_ZN10decode_env8end_insnEPh.exit46
 
-77:                                               ; preds = %49, %.thread70
+77:                                               ; preds = %49, %.thread75
   br i1 %47, label %104, label %78
 
 78:                                               ; preds = %77
@@ -1341,12 +1341,12 @@ _ZN10decode_env8end_insnEPh.exit46:               ; preds = %45, %106, %104, %10
 123:                                              ; preds = %_ZN10decode_env8end_insnEPh.exit46
   %124 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.40, i64 noundef 5) #13
   %.not.i50 = icmp eq i32 %124, 0
-  br i1 %.not.i50, label %125, label %.thread74
+  br i1 %.not.i50, label %125, label %.thread79
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %127 = load i8, ptr %126, align 1
-  switch i8 %127, label %.thread74 [
+  switch i8 %127, label %.thread79 [
     i8 47, label %_ZN10decode_env5matchEPKcS1_.exit
     i8 32, label %_ZN10decode_env5matchEPKcS1_.exit
     i8 0, label %_ZN10decode_env5matchEPKcS1_.exit
@@ -1354,15 +1354,15 @@ _ZN10decode_env8end_insnEPh.exit46:               ; preds = %45, %106, %104, %10
   ]
 
 128:                                              ; preds = %_ZN10decode_env8end_insnEPh.exit46
-  %.not77 = icmp eq i64 %121, 4
-  br i1 %.not77, label %.thread74, label %.thread75
+  %.not82 = icmp eq i64 %121, 4
+  br i1 %.not82, label %.thread79, label %.thread80
 
-.thread74:                                        ; preds = %123, %125, %128
+.thread79:                                        ; preds = %123, %125, %128
   %129 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.39, i64 noundef 4) #13
   %.not.i53 = icmp eq i32 %129, 0
   br i1 %.not.i53, label %130, label %133
 
-130:                                              ; preds = %.thread74
+130:                                              ; preds = %.thread79
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %132 = load i8, ptr %131, align 1
   switch i8 %132, label %133 [
@@ -1376,15 +1376,15 @@ _ZN10decode_env5matchEPKcS1_.exit55:              ; preds = %130, %130, %130, %1
   tail call void @_ZN10decode_env13print_addressEPh(ptr noundef nonnull align 8 dereferenceable(583) %0, ptr noundef %2)
   br label %_ZN10decode_env5matchEPKcS1_.exit
 
-133:                                              ; preds = %.thread74, %130
+133:                                              ; preds = %.thread79, %130
   %134 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.41, i64 noundef 4) #13
   %.not.i56 = icmp eq i32 %134, 0
-  br i1 %.not.i56, label %135, label %.thread75
+  br i1 %.not.i56, label %135, label %.thread80
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %137 = load i8, ptr %136, align 1
-  switch i8 %137, label %.thread75 [
+  switch i8 %137, label %.thread80 [
     i8 47, label %_ZN10decode_env5matchEPKcS1_.exit58
     i8 32, label %_ZN10decode_env5matchEPKcS1_.exit58
     i8 0, label %_ZN10decode_env5matchEPKcS1_.exit58
@@ -1401,19 +1401,19 @@ _ZN10decode_env5matchEPKcS1_.exit58:              ; preds = %135, %135, %135, %1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.42, i32 noundef 546, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44) #14
   unreachable
 
-.thread75:                                        ; preds = %128, %135, %133
+.thread80:                                        ; preds = %128, %135, %133
   %140 = tail call noundef zeroext i1 @_ZN10decode_env5matchEPKcS1_(ptr noundef nonnull %1, ptr noundef nonnull @.str.45)
   br i1 %140, label %141, label %_ZN10decode_env5matchEPKcS1_.exit
 
-141:                                              ; preds = %.thread75
+141:                                              ; preds = %.thread80
   %142 = ptrtoint ptr %2 to i64
   %143 = trunc i64 %142 to i32
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i32 %143, ptr %144, align 8
   br label %_ZN10decode_env5matchEPKcS1_.exit
 
-_ZN10decode_env5matchEPKcS1_.exit:                ; preds = %125, %125, %125, %125, %44, %40, %13, %13, %13, %13, %8, %8, %8, %8, %.thread75, %_ZN10decode_env5matchEPKcS1_.exit58, %141, %_ZN10decode_env5matchEPKcS1_.exit55, %110, %109
-  %.0 = phi ptr [ %2, %_ZN10decode_env5matchEPKcS1_.exit55 ], [ null, %141 ], [ %2, %109 ], [ null, %110 ], [ null, %_ZN10decode_env5matchEPKcS1_.exit58 ], [ null, %.thread75 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %13 ], [ null, %13 ], [ null, %13 ], [ null, %13 ], [ null, %40 ], [ null, %44 ], [ %2, %125 ], [ %2, %125 ], [ %2, %125 ], [ %2, %125 ]
+_ZN10decode_env5matchEPKcS1_.exit:                ; preds = %125, %125, %125, %125, %44, %40, %13, %13, %13, %13, %8, %8, %8, %8, %.thread80, %_ZN10decode_env5matchEPKcS1_.exit58, %141, %_ZN10decode_env5matchEPKcS1_.exit55, %110, %109
+  %.0 = phi ptr [ %2, %_ZN10decode_env5matchEPKcS1_.exit55 ], [ null, %141 ], [ %2, %109 ], [ null, %110 ], [ null, %_ZN10decode_env5matchEPKcS1_.exit58 ], [ null, %.thread80 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %8 ], [ null, %13 ], [ null, %13 ], [ null, %13 ], [ null, %13 ], [ null, %40 ], [ null, %44 ], [ %2, %125 ], [ %2, %125 ], [ %2, %125 ], [ %2, %125 ]
   ret ptr %.0
 }
 
@@ -1643,11 +1643,11 @@ define hidden void @_ZN10decode_env17print_insn_labelsEv(ptr noundef nonnull rea
   br i1 %.not6, label %16, label %.sink.split
 
 .sink.split:                                      ; preds = %10, %4
-  %.sink10 = phi ptr [ %9, %4 ], [ %12, %10 ]
-  %13 = load ptr, ptr %.sink10, align 8
+  %.sink11 = phi ptr [ %9, %4 ], [ %12, %10 ]
+  %13 = load ptr, ptr %.sink11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(54) %.sink10, ptr noundef %7, ptr noundef %6) #12
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(54) %.sink11, ptr noundef %7, ptr noundef %6) #12
   br label %16
 
 16:                                               ; preds = %.sink.split, %10, %1
@@ -1969,9 +1969,9 @@ thread-pre-split:                                 ; preds = %7, %48
 71:                                               ; preds = %69
   %72 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 4097, ptr noundef nonnull @.str.56, ptr noundef nonnull @_ZL18hsdis_library_name, ptr noundef nonnull @.str.57) #12
   %73 = icmp slt i32 %72, 4097
-  br i1 %73, label %thread-pre-split49, label %thread-pre-split49.thread53
+  br i1 %73, label %thread-pre-split49, label %thread-pre-split49.thread56
 
-thread-pre-split49.thread53:                      ; preds = %71
+thread-pre-split49.thread56:                      ; preds = %71
   store ptr null, ptr @_ZN12Disassembler8_libraryE, align 8
   br label %77
 
@@ -1987,7 +1987,7 @@ thread-pre-split49.thread:                        ; preds = %69, %thread-pre-spl
   store ptr %76, ptr @_ZN12Disassembler28_decode_instructions_virtualE, align 8
   br label %80
 
-77:                                               ; preds = %thread-pre-split49.thread53, %thread-pre-split49
+77:                                               ; preds = %thread-pre-split49.thread56, %thread-pre-split49
   %78 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not51 = icmp eq ptr %78, null
   br i1 %.not51, label %80, label %79

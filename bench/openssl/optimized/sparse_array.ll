@@ -565,10 +565,10 @@ define range(i32 0, 2) i32 @ossl_sa_set(ptr noundef captures(address_is_null) %0
   br i1 %.not, label %.sink.split, label %48
 
 .sink.split:                                      ; preds = %44, %43
-  %.sink75 = phi i64 [ -1, %43 ], [ 1, %44 ]
+  %.sink82 = phi i64 [ -1, %43 ], [ 1, %44 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !15
-  %47 = add i64 %46, %.sink75
+  %47 = add i64 %46, %.sink82
   store i64 %47, ptr %45, align 8, !tbaa !15
   br label %48
 

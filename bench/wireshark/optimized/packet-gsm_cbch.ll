@@ -490,7 +490,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %176, label %.lr.ph237.i.preheader, label %.critedge.i
 
 .lr.ph237.i.preheader:                            ; preds = %.preheader.i
-  %177 = zext i8 %.3198240.i to i64
+  %177 = zext nneg i8 %.3198240.i to i64
   br label %.lr.ph237.i
 
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i.preheader, %180

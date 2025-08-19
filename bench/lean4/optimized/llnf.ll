@@ -5567,17 +5567,17 @@ _ZN4lean10object_refD2Ev.exit136.i:               ; preds = %110, %109, %107, %_
 ._crit_edge.thread.i:                             ; preds = %_ZN4lean10object_refD2Ev.exit136.i
   %137 = load ptr, ptr %29, align 8, !tbaa !97
   %138 = load i64, ptr %32, align 8, !tbaa !100
-  %.idx394.i = mul nuw nsw i64 %138, 24
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx394.i
-  %.not344395.i = icmp eq i64 %138, 0
-  br i1 %.not344395.i, label %._crit_edge359.i, label %.lr.ph348.preheader.i
+  %.idx448.i = mul nuw nsw i64 %138, 24
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 %.idx448.i
+  %.not344449.i = icmp eq i64 %138, 0
+  br i1 %.not344449.i, label %._crit_edge359.i, label %.lr.ph348.preheader.i
 
 .lr.ph348.preheader.i:                            ; preds = %._crit_edge.thread.i, %._crit_edge.i
   %140 = phi ptr [ %139, %._crit_edge.thread.i ], [ %136, %._crit_edge.i ]
   %141 = phi ptr [ %137, %._crit_edge.thread.i ], [ %134, %._crit_edge.i ]
-  %.lcssa400.i = phi i64 [ %115, %._crit_edge.thread.i ], [ %513, %._crit_edge.i ]
-  %.075.lcssa398.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.176.i, %._crit_edge.i ]
-  %.0.lcssa396.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
+  %.lcssa454.i = phi i64 [ %115, %._crit_edge.thread.i ], [ %513, %._crit_edge.i ]
+  %.075.lcssa452.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.176.i, %._crit_edge.i ]
+  %.0.lcssa450.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
   br label %.lr.ph348.i
 
 142:                                              ; preds = %44
@@ -6131,9 +6131,9 @@ _ZN4lean10field_info9mk_scalarEjRKNS_4exprE.exit.i: ; preds = %322, %321, %319, 
 
 337:                                              ; preds = %332
   %.not.i.i.i.i.i.i177.i = icmp eq i32 %.val.i.i.i.i.i.i176.i, 0
-  br i1 %.not.i.i.i.i.i.i177.i, label %.thread378.i, label %340
+  br i1 %.not.i.i.i.i.i.i177.i, label %.thread432.i, label %340
 
-.thread378.i:                                     ; preds = %337
+.thread432.i:                                     ; preds = %337
   %338 = load i64, ptr %32, align 8, !tbaa !100
   %339 = add i64 %338, 1
   store i64 %339, ptr %32, align 8, !tbaa !100
@@ -6178,7 +6178,7 @@ _ZN4lean10field_info9mk_scalarEjRKNS_4exprE.exit.i: ; preds = %322, %321, %319, 
   call void @__clang_call_terminate(ptr %355) #19
   unreachable
 
-_ZN4lean10field_infoD2Ev.exit183.i:               ; preds = %352, %351, %348, %341, %.thread378.i
+_ZN4lean10field_infoD2Ev.exit183.i:               ; preds = %352, %351, %348, %341, %.thread432.i
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %492
 
@@ -6316,9 +6316,9 @@ _ZN4lean10field_info9mk_scalarEjRKNS_4exprE.exit190.i: ; preds = %393, %392, %39
 403:                                              ; preds = %398
   %.val.i.i.i.i.i.i194.i = load i32, ptr %385, align 4, !tbaa !10
   %404 = icmp sgt i32 %.val.i.i.i.i.i.i194.i, 0
-  br i1 %404, label %.thread383.i, label %408, !prof !13
+  br i1 %404, label %.thread437.i, label %408, !prof !13
 
-.thread383.i:                                     ; preds = %403
+.thread437.i:                                     ; preds = %403
   %405 = add nuw nsw i32 %.val.i.i.i.i.i.i194.i, 1
   store i32 %405, ptr %385, align 4, !tbaa !10
   %406 = load i64, ptr %32, align 8, !tbaa !100
@@ -6328,9 +6328,9 @@ _ZN4lean10field_info9mk_scalarEjRKNS_4exprE.exit190.i: ; preds = %393, %392, %39
 
 408:                                              ; preds = %403
   %.not.i.i.i.i.i.i195.i = icmp eq i32 %.val.i.i.i.i.i.i194.i, 0
-  br i1 %.not.i.i.i.i.i.i195.i, label %.thread385.i, label %411
+  br i1 %.not.i.i.i.i.i.i195.i, label %.thread439.i, label %411
 
-.thread385.i:                                     ; preds = %408
+.thread439.i:                                     ; preds = %408
   %409 = load i64, ptr %32, align 8, !tbaa !100
   %410 = add i64 %409, 1
   store i64 %410, ptr %32, align 8, !tbaa !100
@@ -6347,21 +6347,21 @@ _ZN4lean10field_info9mk_scalarEjRKNS_4exprE.exit190.i: ; preds = %393, %392, %39
   br label %_ZN4lean10field_infoD2Ev.exit201.i
 
 415:                                              ; preds = %411
-  %.pr382.i = load i32, ptr %385, align 4, !tbaa !10
+  %.pr436.i = load i32, ptr %385, align 4, !tbaa !10
   %416 = load i64, ptr %32, align 8, !tbaa !100
   %417 = add i64 %416, 1
   store i64 %417, ptr %32, align 8, !tbaa !100
-  %418 = icmp sgt i32 %.pr382.i, 1
+  %418 = icmp sgt i32 %.pr436.i, 1
   br i1 %418, label %419, label %422, !prof !122
 
-419:                                              ; preds = %415, %.thread383.i
-  %420 = phi i32 [ %405, %.thread383.i ], [ %.pr382.i, %415 ]
+419:                                              ; preds = %415, %.thread437.i
+  %420 = phi i32 [ %405, %.thread437.i ], [ %.pr436.i, %415 ]
   %421 = add nsw i32 %420, -1
   store i32 %421, ptr %385, align 4, !tbaa !10
   br label %_ZN4lean10field_infoD2Ev.exit201.i
 
 422:                                              ; preds = %415
-  %.not.i.i.i.i200.i = icmp eq i32 %.pr382.i, 0
+  %.not.i.i.i.i200.i = icmp eq i32 %.pr436.i, 0
   br i1 %.not.i.i.i.i200.i, label %_ZN4lean10field_infoD2Ev.exit201.i, label %423
 
 423:                                              ; preds = %422
@@ -6375,7 +6375,7 @@ _ZN4lean10field_info9mk_scalarEjRKNS_4exprE.exit190.i: ; preds = %393, %392, %39
   call void @__clang_call_terminate(ptr %426) #19
   unreachable
 
-_ZN4lean10field_infoD2Ev.exit201.i:               ; preds = %423, %422, %419, %412, %.thread385.i
+_ZN4lean10field_infoD2Ev.exit201.i:               ; preds = %423, %422, %419, %412, %.thread439.i
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %427 = load i8, ptr %26, align 8, !tbaa !123, !range !77, !noundef !78
   %428 = trunc nuw i8 %427 to i1
@@ -6649,11 +6649,11 @@ _ZN4lean10object_refD2Ev.exit218.i:               ; preds = %507, %506, %504, %4
   br label %620
 
 .preheader245.i:                                  ; preds = %522
-  %.not89356.i = icmp eq i32 %.0.lcssa396.i, 0
+  %.not89356.i = icmp eq i32 %.0.lcssa450.i, 0
   br i1 %.not89356.i, label %._crit_edge359.i, label %.preheader.i
 
 .lr.ph348.i:                                      ; preds = %522, %.lr.ph348.preheader.i
-  %.085346.i = phi i32 [ %.186.i, %522 ], [ %.075.lcssa398.i, %.lr.ph348.preheader.i ]
+  %.085346.i = phi i32 [ %.186.i, %522 ], [ %.075.lcssa452.i, %.lr.ph348.preheader.i ]
   %.087345.i = phi ptr [ %523, %522 ], [ %141, %.lr.ph348.preheader.i ]
   %517 = load i32, ptr %.087345.i, align 8, !tbaa !67
   %518 = icmp eq i32 %517, 2
@@ -6672,16 +6672,16 @@ _ZN4lean10object_refD2Ev.exit218.i:               ; preds = %507, %506, %504, %4
   br i1 %.not.i, label %.preheader245.i, label %.lr.ph348.i
 
 .preheader.i:                                     ; preds = %.preheader245.i, %._crit_edge354.i
-  %.080358.i = phi i32 [ %606, %._crit_edge354.i ], [ %.0.lcssa396.i, %.preheader245.i ]
+  %.080358.i = phi i32 [ %606, %._crit_edge354.i ], [ %.0.lcssa450.i, %.preheader245.i ]
   %.081357.i = phi i32 [ %.283.i, %._crit_edge354.i ], [ 0, %.preheader245.i ]
   br label %607
 
 ._crit_edge359.i:                                 ; preds = %._crit_edge354.i, %.preheader245.i, %._crit_edge.thread.i, %._crit_edge.i
-  %.lcssa399.i = phi i64 [ %.lcssa400.i, %.preheader245.i ], [ %115, %._crit_edge.thread.i ], [ %513, %._crit_edge.i ], [ %.lcssa400.i, %._crit_edge354.i ]
+  %.lcssa453.i = phi i64 [ %.lcssa454.i, %.preheader245.i ], [ %115, %._crit_edge.thread.i ], [ %513, %._crit_edge.i ], [ %.lcssa454.i, %._crit_edge354.i ]
   %524 = load ptr, ptr %13, align 8, !tbaa !102
-  %.idx.i.i.i.i = shl nuw nsw i64 %.lcssa399.i, 3
+  %.idx.i.i.i.i = shl nuw nsw i64 %.lcssa453.i, 3
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 %.idx.i.i.i.i
-  %.not4.i.i.i.i.i = icmp eq i64 %.lcssa399.i, 0
+  %.not4.i.i.i.i.i = icmp eq i64 %.lcssa453.i, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN4lean6bufferINS_4exprELm16EE16destroy_elementsEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge359.i, %_ZZN4lean6bufferINS_4exprELm16EE16destroy_elementsEvENKUlRS1_E_clES3_.exit.i.i.i.i.i
@@ -12919,8 +12919,8 @@ _ZNK4lean10local_decl9get_valueEv.exit.thread:    ; preds = %_ZNK4lean9local_ctx
   %.pre69 = ptrtoint ptr %.pre67 to i64
   store ptr %.pre67, ptr %9, align 8, !tbaa !8
   %117 = and i64 %.pre69, 1
-  %.not.i.i.i2772 = icmp eq i64 %117, 0
-  br i1 %.not.i.i.i2772, label %118, label %_ZN4lean8optionalINS_4exprEED2Ev.exit
+  %.not.i.i.i2796 = icmp eq i64 %117, 0
+  br i1 %.not.i.i.i2796, label %118, label %_ZN4lean8optionalINS_4exprEED2Ev.exit
 
 118:                                              ; preds = %_ZNK4lean10local_decl9get_valueEv.exit.thread, %_ZNK4lean10local_decl9get_valueEv.exit
   %119 = phi ptr [ %.pre67, %_ZNK4lean10local_decl9get_valueEv.exit.thread ], [ %107, %_ZNK4lean10local_decl9get_valueEv.exit ]

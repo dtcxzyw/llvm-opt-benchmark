@@ -2692,12 +2692,12 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNKSt14default_del
   br label %553
 
 ._crit_edge.thread:                               ; preds = %.preheader278, %._crit_edge
-  %.176.lcssa330 = phi i64 [ %.277, %._crit_edge ], [ 0, %.preheader278 ]
+  %.176.lcssa395 = phi i64 [ %.277, %._crit_edge ], [ 0, %.preheader278 ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %154
 
 154:                                              ; preds = %._crit_edge.thread
-  store i64 %.176.lcssa330, ptr %5, align 8, !tbaa !86
+  store i64 %.176.lcssa395, ptr %5, align 8, !tbaa !86
   br label %.loopexit
 
 .critedge:                                        ; preds = %._crit_edge, %6

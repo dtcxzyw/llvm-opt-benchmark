@@ -1008,7 +1008,7 @@ _ZL22Testd2i_AutoPrivateKeyv.exit.thread:         ; preds = %268, %273, %278, %2
 
 320:                                              ; preds = %317
   invoke void @ERR_clear_error()
-          to label %.thread8.i unwind label %321
+          to label %.thread9.i unwind label %321
 
 321:                                              ; preds = %320
   %322 = landingpad { ptr, i32 }
@@ -1020,7 +1020,7 @@ _ZL22Testd2i_AutoPrivateKeyv.exit.thread:         ; preds = %268, %273, %278, %2
   %324 = load ptr, ptr @stderr, align 8, !tbaa !13
   %325 = call i64 @fwrite(ptr nonnull @.str.27, i64 24, i64 1, ptr %324) #16
   invoke void @EVP_PKEY_free(ptr noundef nonnull %316)
-          to label %.thread8.i unwind label %326
+          to label %.thread9.i unwind label %326
 
 326:                                              ; preds = %323
   %327 = landingpad { ptr, i32 }
@@ -1029,7 +1029,7 @@ _ZL22Testd2i_AutoPrivateKeyv.exit.thread:         ; preds = %268, %273, %278, %2
   call void @__clang_call_terminate(ptr %328) #20
   unreachable
 
-.thread8.i:                                       ; preds = %323, %320
+.thread9.i:                                       ; preds = %323, %320
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %333
 
@@ -1052,8 +1052,8 @@ _ZL18TestEVP_PKCS82PKEYv.exit.thread:             ; preds = %330
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %337
 
-333:                                              ; preds = %330, %.thread8.i
-  %.0411.i = phi i1 [ %.not.i26, %.thread8.i ], [ false, %330 ]
+333:                                              ; preds = %330, %.thread9.i
+  %.0412.i = phi i1 [ %.not.i26, %.thread9.i ], [ false, %330 ]
   invoke void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %311)
           to label %_ZL18TestEVP_PKCS82PKEYv.exit unwind label %334
 
@@ -1067,7 +1067,7 @@ _ZL18TestEVP_PKCS82PKEYv.exit.thread:             ; preds = %330
 _ZL18TestEVP_PKCS82PKEYv.exit:                    ; preds = %333
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.0411.i, label %341, label %337
+  br i1 %.0412.i, label %341, label %337
 
 337:                                              ; preds = %_ZL18TestEVP_PKCS82PKEYv.exit.thread, %_ZL18TestEVP_PKCS82PKEYv.exit
   %338 = load ptr, ptr @stderr, align 8, !tbaa !13
@@ -1386,7 +1386,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %_ZNSt6vectorIhSaIhE
   br i1 %.not.i.i33, label %_ZL18Testd2i_PrivateKeyv.exit, label %446
 
 446:                                              ; preds = %444, %.thread.i37
-  %.01444.i = phi i1 [ false, %.thread.i37 ], [ %.014.i, %444 ]
+  %.01451.i = phi i1 [ false, %.thread.i37 ], [ %.014.i, %444 ]
   %447 = phi ptr [ %423, %.thread.i37 ], [ %445, %444 ]
   invoke void @EVP_PKEY_free(ptr noundef nonnull %447)
           to label %_ZL18Testd2i_PrivateKeyv.exit unwind label %448
@@ -1406,10 +1406,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %_ZNSt6vectorIhSaIhE
   br label %common.resume
 
 _ZL18Testd2i_PrivateKeyv.exit:                    ; preds = %444, %446
-  %.01445.i = phi i1 [ %.014.i, %444 ], [ %.01444.i, %446 ]
+  %.01452.i = phi i1 [ %.014.i, %444 ], [ %.01451.i, %446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br i1 %.01445.i, label %455, label %451
+  br i1 %.01452.i, label %455, label %451
 
 451:                                              ; preds = %_ZL18Testd2i_PrivateKeyv.exit
   %452 = load ptr, ptr @stderr, align 8, !tbaa !13
@@ -1707,7 +1707,7 @@ define internal fastcc noundef zeroext i1 @_ZL19TestValidPrivateKeyPKhmi(ptr nou
   br i1 %.not.i, label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %13, %12, %18
-  %.011 = phi i1 [ false, %18 ], [ true, %12 ], [ false, %13 ]
+  %.012 = phi i1 [ false, %18 ], [ true, %12 ], [ false, %13 ]
   invoke void @EVP_PKEY_free(ptr noundef nonnull %6)
           to label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit unwind label %21
 
@@ -1719,10 +1719,10 @@ define internal fastcc noundef zeroext i1 @_ZL19TestValidPrivateKeyPKhmi(ptr nou
   unreachable
 
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit: ; preds = %18, %.thread
-  %.012 = phi i1 [ false, %18 ], [ %.011, %.thread ]
+  %.013 = phi i1 [ false, %18 ], [ %.012, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.012
+  ret i1 %.013
 }
 
 declare ptr @d2i_AutoPrivateKey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

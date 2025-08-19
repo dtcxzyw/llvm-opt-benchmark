@@ -240,7 +240,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 
 88:                                               ; preds = %87
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.preheader137, label %89
+  br i1 %.not, label %.preheader142, label %89
 
 89:                                               ; preds = %88
   %90 = mul nsw i32 %2, %1
@@ -252,14 +252,14 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   %96 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %95
   %97 = load i32, ptr %96, align 4
   store i32 %97, ptr %6, align 4
-  br label %.preheader137
+  br label %.preheader142
 
-.preheader137:                                    ; preds = %89, %88
+.preheader142:                                    ; preds = %89, %88
   br label %98
 
-98:                                               ; preds = %.preheader137, %98
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %98 ], [ 0, %.preheader137 ]
-  %.078104 = phi i32 [ %104, %98 ], [ 0, %.preheader137 ]
+98:                                               ; preds = %.preheader142, %98
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %98 ], [ 0, %.preheader142 ]
+  %.078104 = phi i32 [ %104, %98 ], [ 0, %.preheader142 ]
   %99 = getelementptr inbounds nuw [18 x i32], ptr %9, i64 0, i64 %indvars.iv126
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds nuw [3 x i32], ptr @av1_fast_palette_color_index_context.hash_multipliers, i64 0, i64 %indvars.iv126

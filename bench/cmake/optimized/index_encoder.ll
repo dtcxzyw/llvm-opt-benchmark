@@ -116,7 +116,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
 25:                                               ; preds = %15
   %26 = tail call zeroext i8 @lzma_index_iter_next(ptr noundef nonnull %13, i32 noundef 2) #5
   %.not74 = icmp eq i8 %26, 0
-  br i1 %.not74, label %.thread103, label %27
+  br i1 %.not74, label %.thread111, label %27
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %14, align 8, !tbaa !20
@@ -126,7 +126,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   store i32 5, ptr %0, align 8, !tbaa !13
   br label %66
 
-.thread103:                                       ; preds = %25
+.thread111:                                       ; preds = %25
   store i32 2, ptr %0, align 8, !tbaa !13
   br label %33
 
@@ -134,7 +134,7 @@ define internal i32 @index_encode(ptr noundef %0, ptr readnone captures(none) %1
   %32 = icmp eq i32 %.fr, 2
   br i1 %32, label %33, label %34
 
-33:                                               ; preds = %.thread103, %31
+33:                                               ; preds = %.thread111, %31
   br label %34
 
 34:                                               ; preds = %31, %33

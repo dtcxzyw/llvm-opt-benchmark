@@ -552,8 +552,8 @@ _ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv.exit: 
   br label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %92, %.noexc, %..loopexit_crit_edge21.i.i.i.i
-  %.not385 = icmp eq i64 %.030377, 0
-  br i1 %.not385, label %.loopexit._ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit_crit_edge, label %125
+  %.not483 = icmp eq i64 %.030377, 0
+  br i1 %.not483, label %.loopexit._ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit_crit_edge, label %125
 
 .loopexit._ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit_crit_edge: ; preds = %.loopexit
   %.pre384 = load ptr, ptr %11, align 8, !tbaa !46

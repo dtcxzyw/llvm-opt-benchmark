@@ -751,8 +751,8 @@ common.resume:                                    ; preds = %69, %13
   br i1 %63, label %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51, label %68
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %31
-  %.044.lcssa100.i = phi i64 [ %49, %._crit_edge.i ], [ 4, %31 ]
-  %64 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %.044.lcssa100.i, i64 noundef 0, ptr noundef nonnull @.str.6)
+  %.044.lcssa105.i = phi i64 [ %49, %._crit_edge.i ], [ 4, %31 ]
+  %64 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %.044.lcssa105.i, i64 noundef 0, ptr noundef nonnull @.str.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %65 = load ptr, ptr %64, align 8, !tbaa !27
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -804,9 +804,9 @@ _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread: ; preds = %68
   br label %80
 
 80:                                               ; preds = %77, %79
-  %.sink89 = phi ptr [ %23, %79 ], [ %16, %77 ]
+  %.sink103 = phi ptr [ %23, %79 ], [ %16, %77 ]
   %81 = load ptr, ptr %24, align 8, !tbaa !32
-  %82 = tail call noundef i32 @_Z35alts_grpc_record_protocol_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %81, ptr noundef nonnull %.sink89, ptr noundef %2)
+  %82 = tail call noundef i32 @_Z35alts_grpc_record_protocol_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %81, ptr noundef nonnull %.sink103, ptr noundef %2)
   store i32 0, ptr %18, align 8, !tbaa !23
   %.not = icmp eq i32 %82, 0
   br i1 %.not, label %25, label %.thread, !llvm.loop !51

@@ -2586,7 +2586,7 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap27total_
 57:                                               ; preds = %114
   br i1 %.1, label %171, label %"_ZN4core3ptr37drop_in_place$LT$memmap2..MmapMut$GT$17h27afca2cc7bf5868E.exit93"
 
-.thread:                                          ; preds = %.invoke126, %.invoke, %51, %100, %106, %161, %165
+.thread:                                          ; preds = %.invoke139, %.invoke, %51, %100, %106, %161, %165
   %58 = landingpad { ptr, i32 }
           cleanup
   br label %171
@@ -2621,7 +2621,7 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap27total_
 72:                                               ; preds = %64
   %73 = add i64 %71, 16
   %74 = icmp ugt i64 %73, %63
-  br i1 %74, label %.invoke126, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i"
+  br i1 %74, label %.invoke139, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i"
 
 .invoke:                                          ; preds = %64, %87
   %75 = phi i64 [ %.026.i, %87 ], [ -16, %64 ]
@@ -2633,14 +2633,14 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap27total_
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.invoke126:                                       ; preds = %72, %96
+.invoke139:                                       ; preds = %72, %96
   %78 = phi i64 [ %94, %96 ], [ %73, %72 ]
   %79 = phi i64 [ %86, %96 ], [ %63, %72 ]
   %80 = phi ptr [ @anon.20b2b994cad5c991457c4b7e848f440a.50, %96 ], [ @anon.20b2b994cad5c991457c4b7e848f440a.48, %72 ]
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %78, i64 noundef %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %80) #18
-          to label %.cont127 unwind label %.thread
+          to label %.cont140 unwind label %.thread
 
-.cont127:                                         ; preds = %.invoke126
+.cont140:                                         ; preds = %.invoke139
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i": ; preds = %72
@@ -2678,7 +2678,7 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap20save_p
 
 96:                                               ; preds = %87
   %97 = icmp ugt i64 %94, %86
-  br i1 %97, label %.invoke126, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i84"
+  br i1 %97, label %.invoke139, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i84"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i84": ; preds = %96
   %98 = getelementptr inbounds i8, ptr %85, i64 %.026.i

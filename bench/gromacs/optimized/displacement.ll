@@ -372,12 +372,12 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23Analys
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.08, label %.sink.split45, label %96
+  br i1 %.08, label %.sink.split48, label %96
 
 .sink.split:                                      ; preds = %.thread, %.thread33
   %.pn21.pn32.ph = phi { ptr, i32 } [ %39, %.thread33 ], [ %38, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split45
+  br label %.sink.split48
 
 42:                                               ; preds = %18
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -418,13 +418,13 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23Analys
 .thread36:                                        ; preds = %49
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split44
+  br label %.sink.split47
 
 .thread40:                                        ; preds = %51
   %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #29
-  br label %.sink.split44
+  br label %.sink.split47
 
 57:                                               ; preds = %52, %54
   %.0 = phi i1 [ false, %54 ], [ true, %52 ]
@@ -435,12 +435,12 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23Analys
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #29
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split45, label %96
+  br i1 %.0, label %.sink.split48, label %96
 
-.sink.split44:                                    ; preds = %.thread36, %.thread40
+.sink.split47:                                    ; preds = %.thread36, %.thread40
   %.pn.pn39.ph = phi { ptr, i32 } [ %56, %.thread40 ], [ %55, %.thread36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split45
+  br label %.sink.split48
 
 59:                                               ; preds = %29, %42, %14
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -498,14 +498,14 @@ define void @_ZN3gmx30AnalysisDataDisplacementModule12frameStartedERKNS_23Analys
   store i8 0, ptr %95, align 4, !tbaa !42
   ret void
 
-.sink.split45:                                    ; preds = %57, %.sink.split44, %40, %.sink.split
-  %.sink = phi ptr [ %33, %.sink.split ], [ %33, %40 ], [ %50, %.sink.split44 ], [ %50, %57 ]
-  %.pn21.pn.pn.ph = phi { ptr, i32 } [ %.pn21.pn32.ph, %.sink.split ], [ %41, %40 ], [ %.pn.pn39.ph, %.sink.split44 ], [ %58, %57 ]
+.sink.split48:                                    ; preds = %57, %.sink.split47, %40, %.sink.split
+  %.sink = phi ptr [ %33, %.sink.split ], [ %33, %40 ], [ %50, %.sink.split47 ], [ %50, %57 ]
+  %.pn21.pn.pn.ph = phi { ptr, i32 } [ %.pn21.pn32.ph, %.sink.split ], [ %41, %40 ], [ %.pn.pn39.ph, %.sink.split47 ], [ %58, %57 ]
   call void @__cxa_free_exception(ptr %.sink) #29
   br label %96
 
-96:                                               ; preds = %.sink.split45, %57, %40
-  %.pn21.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %58, %57 ], [ %.pn21.pn.pn.ph, %.sink.split45 ]
+96:                                               ; preds = %.sink.split48, %57, %40
+  %.pn21.pn.pn = phi { ptr, i32 } [ %41, %40 ], [ %58, %57 ], [ %.pn21.pn.pn.ph, %.sink.split48 ]
   resume { ptr, i32 } %.pn21.pn.pn
 
 97:                                               ; preds = %54, %37

@@ -690,8 +690,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
 
 18:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %19, align 8
-  %20 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %19, align 8
+  %20 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %21 = inttoptr i64 %20 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = load ptr, ptr %8, align 8, !tbaa !54

@@ -2053,8 +2053,8 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BoxedValueEEERKN7dropbox6oxygen2nnI
   store ptr %17, ptr %34, align 8, !tbaa !27
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.012.022, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !19
-  %.not.i.i.i.i.i1026 = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i.i1026, label %70, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
+  %.not.i.i.i.i.i1031 = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i.i1031, label %70, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
 
 37:                                               ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS1_10BoxedValueEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit
   %.not7.i.i.i.i.i = icmp eq ptr %30, null

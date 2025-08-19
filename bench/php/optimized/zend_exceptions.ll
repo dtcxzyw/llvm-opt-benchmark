@@ -589,22 +589,22 @@ zend_object_release.exit.thread25:                ; preds = %2
   %46 = phi ptr [ %22, %zend_object_release.exit.thread25 ], [ %21, %zend_object_release.exit ]
   %47 = load ptr, ptr @zend_throw_exception_hook, align 8, !tbaa !54
   %.not21 = icmp eq ptr %47, null
-  br i1 %.not21, label %.thread31, label %48
+  br i1 %.not21, label %.thread39, label %48
 
 48:                                               ; preds = %45
   tail call void %47(ptr noundef %0) #15
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !53
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %zend_object_release.exit.thread, label %.thread31
+  br i1 %.not.i, label %zend_object_release.exit.thread, label %.thread39
 
-.thread31:                                        ; preds = %45, %48
+.thread39:                                        ; preds = %45, %48
   %49 = phi ptr [ %.pre, %48 ], [ %46, %45 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !55
   %.not5.i = icmp eq ptr %51, null
   br i1 %.not5.i, label %zend_object_release.exit.thread, label %52
 
-52:                                               ; preds = %.thread31
+52:                                               ; preds = %.thread39
   %53 = load i8, ptr %51, align 8, !tbaa !16
   %.not6.i = icmp eq i8 %53, 1
   br i1 %.not6.i, label %zend_object_release.exit.thread, label %is_handle_exception_set.exit
@@ -621,7 +621,7 @@ is_handle_exception_set.exit:                     ; preds = %52
   store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %49, align 8, !tbaa !58
   br label %zend_object_release.exit.thread
 
-zend_object_release.exit.thread:                  ; preds = %48, %.thread31, %52, %20, %19, %14, %13, %is_handle_exception_set.exit, %38, %40, %23, %58
+zend_object_release.exit.thread:                  ; preds = %48, %.thread39, %52, %20, %19, %14, %13, %is_handle_exception_set.exit, %38, %40, %23, %58
   ret void
 }
 
@@ -2862,7 +2862,7 @@ smart_str_alloc.exit122.i:                        ; preds = %250, %245
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 24
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 %251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %254, ptr noundef nonnull align 1 dereferenceable(9) @.str.30, i64 9, i1 false)
-  br label %.sink.split271.i
+  br label %.sink.split343.i
 
 255:                                              ; preds = %236
   %256 = load ptr, ptr %235, align 8, !tbaa !16
@@ -2895,16 +2895,16 @@ smart_str_alloc.exit127.i:                        ; preds = %265, %260
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 %266
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %269, ptr nonnull align 1 %257, i64 %258, i1 false)
-  br label %.sink.split271.i
+  br label %.sink.split343.i
 
-.sink.split271.i:                                 ; preds = %smart_str_alloc.exit127.i, %smart_str_alloc.exit122.i
+.sink.split343.i:                                 ; preds = %smart_str_alloc.exit127.i, %smart_str_alloc.exit122.i
   %.1.i126.sink.i = phi i64 [ %.1.i126.i, %smart_str_alloc.exit127.i ], [ %.1.i121.i, %smart_str_alloc.exit122.i ]
   %270 = load ptr, ptr %7, align 8, !tbaa !85
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
   store i64 %.1.i126.sink.i, ptr %271, align 8, !tbaa !76
   br label %272
 
-272:                                              ; preds = %.sink.split271.i, %231
+272:                                              ; preds = %.sink.split343.i, %231
   %273 = load ptr, ptr @zend_known_strings, align 8, !tbaa !18
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
   %275 = load ptr, ptr %274, align 8, !tbaa !20
@@ -3793,9 +3793,9 @@ i_get_exception_base.exit:                        ; preds = %7, %instanceof_func
   br i1 %.not17, label %38, label %.sink.split
 
 .sink.split:                                      ; preds = %25, %28
-  %.sink22 = phi i32 [ %32, %28 ], [ %23, %25 ]
+  %.sink23 = phi i32 [ %32, %28 ], [ %23, %25 ]
   %.sink.in = phi ptr [ %30, %28 ], [ %21, %25 ]
-  %34 = and i32 %.sink22, 65280
+  %34 = and i32 %.sink23, 65280
   %35 = icmp ne i32 %34, 0
   call void @llvm.assume(i1 %35)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !16
@@ -4293,7 +4293,7 @@ i_get_exception_base.exit139:                     ; preds = %zend_string_release
   br i1 %243, label %.critedge.thread, label %zend_string_release_ex.exit116
 
 .critedge.thread:                                 ; preds = %11, %.critedge
-  %.185177 = phi ptr [ %.185.ph, %.critedge ], [ %12, %11 ]
+  %.185197 = phi ptr [ %.185.ph, %.critedge ], [ %12, %11 ]
   %244 = load i32, ptr %13, align 4, !tbaa !15
   %245 = icmp ne i32 %244, 0
   call void @llvm.assume(i1 %245)
@@ -4307,7 +4307,7 @@ i_get_exception_base.exit139:                     ; preds = %zend_string_release
   br label %zend_string_release_ex.exit116
 
 zend_string_release_ex.exit116:                   ; preds = %.critedge, %.critedge.thread, %248
-  %.185176 = phi ptr [ %.185.ph, %.critedge ], [ %.185177, %.critedge.thread ], [ %.185177, %248 ]
+  %.185196 = phi ptr [ %.185.ph, %.critedge ], [ %.185197, %.critedge.thread ], [ %.185197, %248 ]
   %249 = load i8, ptr %19, align 8, !tbaa !16
   %250 = icmp eq i8 %249, 8
   br i1 %250, label %.lr.ph160, label %.critedge2
@@ -4421,8 +4421,8 @@ instanceof_function.exit.i148:                    ; preds = %.critedge2
 i_get_exception_base.exit151:                     ; preds = %.critedge2, %instanceof_function.exit.i148
   %300 = phi ptr [ %.pre173, %instanceof_function.exit.i148 ], [ %293, %.critedge2 ]
   %301 = phi ptr [ %spec.select.i150, %instanceof_function.exit.i148 ], [ %295, %.critedge2 ]
-  store ptr %.185176, ptr %6, align 8, !tbaa !16
-  %302 = getelementptr inbounds nuw i8, ptr %.185176, i64 4
+  store ptr %.185196, ptr %6, align 8, !tbaa !16
+  %302 = getelementptr inbounds nuw i8, ptr %.185196, i64 4
   %303 = load i32, ptr %302, align 4, !tbaa !16
   %304 = and i32 %303, 64
   %.not102 = icmp eq i32 %304, 0
@@ -4433,7 +4433,7 @@ i_get_exception_base.exit151:                     ; preds = %.critedge2, %instan
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 224
   %309 = load ptr, ptr %308, align 8, !tbaa !20
   call void @zend_update_property_ex(ptr noundef %301, ptr noundef %300, ptr noundef %309, ptr noundef nonnull %6) #15
-  store ptr %.185176, ptr %1, align 8, !tbaa !16
+  store ptr %.185196, ptr %1, align 8, !tbaa !16
   %310 = load i32, ptr %302, align 4, !tbaa !16
   %311 = and i32 %310, 64
   %.not103 = icmp eq i32 %311, 0

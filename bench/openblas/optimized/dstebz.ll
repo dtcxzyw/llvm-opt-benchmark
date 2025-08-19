@@ -125,12 +125,12 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not714, label %69, label %.critedge.thread
 
 .critedge.thread.sink.split:                      ; preds = %62, %58, %53, %.thread754, %49, %47, %.thread
-  %.sink967 = phi i32 [ -1, %.thread ], [ -1, %47 ], [ -2, %49 ], [ -3, %.thread754 ], [ -5, %53 ], [ -6, %58 ], [ -7, %62 ]
-  store i32 %.sink967, ptr %17, align 4, !tbaa !3
+  %.sink993 = phi i32 [ -1, %.thread ], [ -1, %47 ], [ -2, %49 ], [ -3, %.thread754 ], [ -5, %53 ], [ -6, %58 ], [ -7, %62 ]
+  store i32 %.sink993, ptr %17, align 4, !tbaa !3
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %.critedge
-  %66 = phi i32 [ %.pr, %.critedge ], [ %.sink967, %.critedge.thread.sink.split ]
+  %66 = phi i32 [ %.pr, %.critedge ], [ %.sink993, %.critedge.thread.sink.split ]
   %67 = sub nsw i32 0, %66
   store i32 %67, ptr %19, align 4, !tbaa !3
   %68 = call i32 @xerbla_(ptr noundef nonnull @.str.5, ptr noundef nonnull %19, i32 noundef 6) #6
@@ -396,8 +396,8 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %220 = load i32, ptr %214, align 4, !tbaa !3
   %221 = load i32, ptr %6, align 4, !tbaa !3
   %222 = icmp eq i32 %220, %221
-  %.975 = select i1 %222, ptr %16, ptr %203
-  %.0630 = load i32, ptr %.975, align 4, !tbaa !3
+  %.1001 = select i1 %222, ptr %16, ptr %203
+  %.0630 = load i32, ptr %.1001, align 4, !tbaa !3
   %223 = icmp slt i32 %.0630, 0
   br i1 %223, label %236, label %224
 
@@ -405,20 +405,20 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %225 = load i32, ptr %2, align 4, !tbaa !3
   %226 = sext i32 %225 to i64
   %227 = getelementptr double, ptr %31, i64 %226
-  %.974 = select i1 %222, i64 16, i64 8
-  %228 = getelementptr i8, ptr %227, i64 %.974
-  %.973 = select i1 %222, i64 32, i64 24
-  %229 = getelementptr i8, ptr %227, i64 %.973
-  %.972 = select i1 %222, i64 24, i64 32
-  %230 = getelementptr i8, ptr %227, i64 %.972
+  %.1000 = select i1 %222, i64 16, i64 8
+  %228 = getelementptr i8, ptr %227, i64 %.1000
+  %.999 = select i1 %222, i64 32, i64 24
+  %229 = getelementptr i8, ptr %227, i64 %.999
+  %.998 = select i1 %222, i64 24, i64 32
+  %230 = getelementptr i8, ptr %227, i64 %.998
   %. = select i1 %222, i64 8, i64 16
   %231 = getelementptr i8, ptr %227, i64 %.
-  %.976 = select i1 %222, ptr %209, ptr %206
+  %.1002 = select i1 %222, ptr %209, ptr %206
   %.0650 = load double, ptr %231, align 8, !tbaa !7
   %.0643 = load double, ptr %229, align 8, !tbaa !7
   %.0628 = load double, ptr %230, align 8, !tbaa !7
   %.0626 = load double, ptr %228, align 8, !tbaa !7
-  %.0622 = load i32, ptr %.976, align 4, !tbaa !3
+  %.0622 = load i32, ptr %.1002, align 4, !tbaa !3
   %232 = icmp sge i32 %.0630, %225
   %233 = icmp slt i32 %.0622, 1
   %234 = icmp sgt i32 %.0622, %225
@@ -849,16 +849,16 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond9, label %473, label %517
 
 473:                                              ; preds = %470
-  br i1 %471, label %.preheader977, label %.loopexit776
+  br i1 %471, label %.preheader1003, label %.loopexit776
 
-.preheader977:                                    ; preds = %473, %._crit_edge848
+.preheader1003:                                   ; preds = %473, %._crit_edge848
   %.0671852 = phi double [ %.1672.lcssa, %._crit_edge848 ], [ %.1644, %473 ]
   %.0677851 = phi i32 [ %487, %._crit_edge848 ], [ 1, %473 ]
   %474 = load i32, ptr %10, align 4, !tbaa !3
   %.not733842 = icmp slt i32 %474, 1
   br i1 %.not733842, label %._crit_edge848, label %.lr.ph847.preheader
 
-.lr.ph847.preheader:                              ; preds = %.preheader977
+.lr.ph847.preheader:                              ; preds = %.preheader1003
   %475 = add nuw i32 %474, 1
   %wide.trip.count925 = zext i32 %475 to i64
   br label %.lr.ph847
@@ -894,14 +894,14 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %485 = sext i32 %.1653 to i64
   br label %._crit_edge848
 
-._crit_edge848:                                   ; preds = %._crit_edge848.loopexit, %.preheader977
-  %.1672.lcssa = phi double [ %.0671852, %.preheader977 ], [ %.2673, %._crit_edge848.loopexit ]
-  %.0652.lcssa = phi i64 [ 0, %.preheader977 ], [ %485, %._crit_edge848.loopexit ]
+._crit_edge848:                                   ; preds = %._crit_edge848.loopexit, %.preheader1003
+  %.1672.lcssa = phi double [ %.0671852, %.preheader1003 ], [ %.2673, %._crit_edge848.loopexit ]
+  %.0652.lcssa = phi i64 [ 0, %.preheader1003 ], [ %485, %._crit_edge848.loopexit ]
   %486 = getelementptr inbounds i32, ptr %33, i64 %.0652.lcssa
   store i32 0, ptr %486, align 4, !tbaa !3
   %487 = add nuw i32 %.0677851, 1
   %exitcond927.not = icmp eq i32 %.0677851, %.0645
-  br i1 %exitcond927.not, label %.loopexit776, label %.preheader977, !llvm.loop !18
+  br i1 %exitcond927.not, label %.loopexit776, label %.preheader1003, !llvm.loop !18
 
 .loopexit776:                                     ; preds = %._crit_edge848, %473
   br i1 %472, label %.preheader, label %.loopexit775

@@ -127,12 +127,12 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %4, %.thread
   %16 = xor i64 %8, -1
   %17 = add nsw i64 %.0114.i.i, %16
   %spec.select = select i1 %14, i64 %17, i64 %8
-  %spec.select22 = select i1 %14, ptr %15, ptr %.05.i.i
+  %spec.select23 = select i1 %14, ptr %15, ptr %.05.i.i
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i", %_ZSt7advanceIPKilEvRT_T0_.exit.i.i
   %18 = phi i64 [ %8, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
-  %19 = phi ptr [ %.05.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %spec.select22, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
+  %19 = phi ptr [ %.05.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %spec.select23, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ]
   %20 = icmp sgt i64 %18, 0
   br i1 %20, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPKiiZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryES1_miE3$_0ET_S9_S9_RKT0_T1_.exit", !llvm.loop !17
 

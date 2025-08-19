@@ -1694,10 +1694,10 @@ define internal fastcc noundef range(i32 -97, 1) i32 @xfrm_inner_extract_output(
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 4
   %117 = icmp eq i32 %116, 0
-  %.not19 = and i1 %110, %117
+  %.not28 = and i1 %110, %117
   %118 = icmp ult i32 %105, 2
-  %or.cond16 = select i1 %.not19, i1 true, i1 %118
-  br i1 %or.cond16, label %126, label %119
+  %or.cond25 = select i1 %.not28, i1 true, i1 %118
+  br i1 %or.cond25, label %126, label %119
 
 .thread:                                          ; preds = %93
   %.old = icmp ult i32 %105, 2

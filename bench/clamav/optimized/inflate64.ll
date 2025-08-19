@@ -397,7 +397,7 @@ define range(i32 -5, 3) i32 @inflate64(ptr noundef captures(address_is_null) %0,
   store i32 %134, ptr %56, align 4, !tbaa !34
   %135 = lshr i32 %133, 1
   %136 = and i32 %135, 3
-  switch i32 %136, label %default.unreachable2225 [
+  switch i32 %136, label %default.unreachable2261 [
     i32 0, label %140
     i32 1, label %137
     i32 2, label %138
@@ -417,7 +417,7 @@ define range(i32 -5, 3) i32 @inflate64(ptr noundef captures(address_is_null) %0,
 139:                                              ; preds = %132
   br label %140
 
-default.unreachable2225:                          ; preds = %132
+default.unreachable2261:                          ; preds = %132
   unreachable
 
 140:                                              ; preds = %132, %137, %138, %139
@@ -569,13 +569,13 @@ default.unreachable2225:                          ; preds = %132
   br i1 %202, label %.preheader816.preheader, label %.preheader833
 
 .preheader816.preheader:                          ; preds = %.split.thread, %.split
-  %.25922235 = phi i32 [ %201, %.split.thread ], [ %.0590, %.split ]
-  %.26012234 = phi i64 [ %200, %.split.thread ], [ %.0599, %.split ]
-  %.26442233 = phi i32 [ %.16658.lcssa, %.split.thread ], [ %.0642, %.split ]
-  %.26882232 = phi ptr [ %.16702.lcssa, %.split.thread ], [ %.0686, %.split ]
+  %.25922271 = phi i32 [ %201, %.split.thread ], [ %.0590, %.split ]
+  %.26012270 = phi i64 [ %200, %.split.thread ], [ %.0599, %.split ]
+  %.26442269 = phi i32 [ %.16658.lcssa, %.split.thread ], [ %.0642, %.split ]
+  %.26882268 = phi ptr [ %.16702.lcssa, %.split.thread ], [ %.0686, %.split ]
   %203 = phi i32 [ %199, %.split.thread ], [ %.pre2212, %.split ]
-  %.promoted2231 = phi i32 [ 0, %.split.thread ], [ %.promoted.pre, %.split ]
-  %204 = zext i32 %.promoted2231 to i64
+  %.promoted2267 = phi i32 [ 0, %.split.thread ], [ %.promoted.pre, %.split ]
+  %204 = zext i32 %.promoted2267 to i64
   %wide.trip.count = zext i32 %203 to i64
   br label %.preheader816
 
@@ -594,10 +594,10 @@ default.unreachable2225:                          ; preds = %132
 
 .preheader816:                                    ; preds = %.preheader816.preheader, %217
   %indvars.iv2140 = phi i64 [ %204, %.preheader816.preheader ], [ %indvars.iv.next2141, %217 ]
-  %.171354 = phi i32 [ %.25922235, %.preheader816.preheader ], [ %226, %217 ]
-  %.176161353 = phi i64 [ %.26012234, %.preheader816.preheader ], [ %225, %217 ]
-  %.176591352 = phi i32 [ %.26442233, %.preheader816.preheader ], [ %.18660.lcssa, %217 ]
-  %.177031351 = phi ptr [ %.26882232, %.preheader816.preheader ], [ %.18704.lcssa, %217 ]
+  %.171354 = phi i32 [ %.25922271, %.preheader816.preheader ], [ %226, %217 ]
+  %.176161353 = phi i64 [ %.26012270, %.preheader816.preheader ], [ %225, %217 ]
+  %.176591352 = phi i32 [ %.26442269, %.preheader816.preheader ], [ %.18660.lcssa, %217 ]
+  %.177031351 = phi ptr [ %.26882268, %.preheader816.preheader ], [ %.18704.lcssa, %217 ]
   %207 = icmp ult i32 %.171354, 3
   br i1 %207, label %.lr.ph1225, label %217
 
@@ -714,7 +714,7 @@ default.unreachable2225:                          ; preds = %132
   %.216631370 = phi i32 [ %.196611431, %.lr.ph1373.preheader ], [ %251, %250 ]
   %.217071369 = phi ptr [ %.197051430, %.lr.ph1373.preheader ], [ %252, %250 ]
   %249 = icmp eq i32 %.216631370, 0
-  br i1 %249, label %.loopexit.loopexit2236, label %250
+  br i1 %249, label %.loopexit.loopexit2272, label %250
 
 250:                                              ; preds = %.lr.ph1373
   %251 = add i32 %.216631370, -1
@@ -780,7 +780,7 @@ default.unreachable2225:                          ; preds = %132
   br i1 %276, label %.lr.ph1420, label %._crit_edge1421.loopexit
 
 ._crit_edge1421.loopexit:                         ; preds = %269
-  %277 = trunc nuw i64 %indvars.iv.next2160 to i32
+  %277 = trunc nuw nsw i64 %indvars.iv.next2160 to i32
   br label %._crit_edge1421
 
 ._crit_edge1421:                                  ; preds = %._crit_edge1421.loopexit, %.preheader804
@@ -854,7 +854,7 @@ default.unreachable2225:                          ; preds = %132
   br i1 %305, label %.lr.ph1397, label %._crit_edge1398.loopexit
 
 ._crit_edge1398.loopexit:                         ; preds = %298
-  %306 = trunc nuw i64 %indvars.iv.next2154 to i32
+  %306 = trunc nuw nsw i64 %indvars.iv.next2154 to i32
   br label %._crit_edge1398
 
 ._crit_edge1398:                                  ; preds = %._crit_edge1398.loopexit, %.preheader810
@@ -904,7 +904,7 @@ default.unreachable2225:                          ; preds = %132
   br i1 %330, label %.lr.ph1387, label %._crit_edge1388.loopexit
 
 ._crit_edge1388.loopexit:                         ; preds = %323
-  %331 = trunc nuw i64 %indvars.iv.next2151 to i32
+  %331 = trunc nuw nsw i64 %indvars.iv.next2151 to i32
   br label %._crit_edge1388
 
 ._crit_edge1388:                                  ; preds = %._crit_edge1388.loopexit, %.preheader812
@@ -942,7 +942,7 @@ default.unreachable2225:                          ; preds = %132
   br i1 %347, label %.lr.ph1407, label %._crit_edge1408.loopexit
 
 ._crit_edge1408.loopexit:                         ; preds = %340
-  %348 = trunc nuw i64 %indvars.iv.next2157 to i32
+  %348 = trunc nuw nsw i64 %indvars.iv.next2157 to i32
   br label %._crit_edge1408
 
 ._crit_edge1408:                                  ; preds = %._crit_edge1408.loopexit, %.preheader808
@@ -1065,7 +1065,7 @@ default.unreachable2225:                          ; preds = %132
   %.286701445 = phi i32 [ %.4646, %.lr.ph1449.preheader ], [ %390, %389 ]
   %.287141444 = phi ptr [ %.4690, %.lr.ph1449.preheader ], [ %391, %389 ]
   %388 = icmp eq i32 %.286701445, 0
-  br i1 %388, label %.loopexit.loopexit2242, label %389
+  br i1 %388, label %.loopexit.loopexit2278, label %389
 
 389:                                              ; preds = %.lr.ph1449
   %390 = add i32 %.286701445, -1
@@ -1134,7 +1134,7 @@ default.unreachable2225:                          ; preds = %132
   %.296711464 = phi i32 [ %.28670.lcssa, %.lr.ph1467.preheader ], [ %419, %418 ]
   %.297151463 = phi ptr [ %.28714.lcssa, %.lr.ph1467.preheader ], [ %420, %418 ]
   %417 = icmp eq i32 %.296711464, 0
-  br i1 %417, label %.loopexit.loopexit2241, label %418
+  br i1 %417, label %.loopexit.loopexit2277, label %418
 
 418:                                              ; preds = %.lr.ph1467
   %419 = add i32 %.296711464, -1
@@ -1159,7 +1159,7 @@ default.unreachable2225:                          ; preds = %132
   br i1 %.not768, label %.lr.ph1467, label %._crit_edge1468.loopexit
 
 ._crit_edge1468.loopexit:                         ; preds = %418
-  %434 = trunc nuw i64 %indvars.iv.next2167 to i32
+  %434 = trunc nuw nsw i64 %indvars.iv.next2167 to i32
   br label %._crit_edge1468
 
 ._crit_edge1468:                                  ; preds = %._crit_edge1468.loopexit, %.preheader830
@@ -1243,7 +1243,7 @@ default.unreachable2225:                          ; preds = %132
   %.326741476 = phi i32 [ %460, %459 ], [ %.5647, %.preheader828 ]
   %.327181475 = phi ptr [ %461, %459 ], [ %.5691, %.preheader828 ]
   %458 = icmp eq i32 %.326741476, 0
-  br i1 %458, label %.loopexit.loopexit2240, label %459
+  br i1 %458, label %.loopexit.loopexit2276, label %459
 
 459:                                              ; preds = %.lr.ph1479
   %460 = add i32 %.326741476, -1
@@ -1312,7 +1312,7 @@ default.unreachable2225:                          ; preds = %132
   %.336751490 = phi i32 [ %.6648, %.lr.ph1494.preheader ], [ %490, %489 ]
   %.337191489 = phi ptr [ %.6692, %.lr.ph1494.preheader ], [ %491, %489 ]
   %488 = icmp eq i32 %.336751490, 0
-  br i1 %488, label %.loopexit.loopexit2239, label %489
+  br i1 %488, label %.loopexit.loopexit2275, label %489
 
 489:                                              ; preds = %.lr.ph1494
   %490 = add i32 %.336751490, -1
@@ -1380,7 +1380,7 @@ default.unreachable2225:                          ; preds = %132
   %.346761509 = phi i32 [ %.33675.lcssa, %.lr.ph1512.preheader ], [ %519, %518 ]
   %.347201508 = phi ptr [ %.33719.lcssa, %.lr.ph1512.preheader ], [ %520, %518 ]
   %517 = icmp eq i32 %.346761509, 0
-  br i1 %517, label %.loopexit.loopexit2238, label %518
+  br i1 %517, label %.loopexit.loopexit2274, label %518
 
 518:                                              ; preds = %.lr.ph1512
   %519 = add i32 %.346761509, -1
@@ -1405,7 +1405,7 @@ default.unreachable2225:                          ; preds = %132
   br i1 %.not776, label %.lr.ph1512, label %._crit_edge1513.loopexit
 
 ._crit_edge1513.loopexit:                         ; preds = %518
-  %534 = trunc nuw i64 %indvars.iv.next2176 to i32
+  %534 = trunc nuw nsw i64 %indvars.iv.next2176 to i32
   br label %._crit_edge1513
 
 ._crit_edge1513:                                  ; preds = %._crit_edge1513.loopexit, %.preheader825
@@ -1476,7 +1476,7 @@ default.unreachable2225:                          ; preds = %132
   %.376791521 = phi i32 [ %554, %553 ], [ %.7649, %.preheader823 ]
   %.377231520 = phi ptr [ %555, %553 ], [ %.7693, %.preheader823 ]
   %552 = icmp eq i32 %.376791521, 0
-  br i1 %552, label %.loopexit.loopexit2237, label %553
+  br i1 %552, label %.loopexit.loopexit2273, label %553
 
 553:                                              ; preds = %.lr.ph1524
   %554 = add i32 %.376791521, -1
@@ -1559,11 +1559,11 @@ default.unreachable2225:                          ; preds = %132
   br label %595
 
 595:                                              ; preds = %593, %589
-  %.sink2571 = phi i32 [ %594, %593 ], [ %592, %589 ]
+  %.sink2607 = phi i32 [ %594, %593 ], [ %592, %589 ]
   %.4581 = phi i32 [ %586, %593 ], [ %590, %589 ]
-  %.sink2569 = load ptr, ptr %53, align 8, !tbaa !46
-  %596 = zext i32 %.sink2571 to i64
-  %597 = getelementptr inbounds nuw i8, ptr %.sink2569, i64 %596
+  %.sink2605 = load ptr, ptr %53, align 8, !tbaa !46
+  %596 = zext i32 %.sink2607 to i64
+  %597 = getelementptr inbounds nuw i8, ptr %.sink2605, i64 %596
   %598 = load i32, ptr %36, align 4, !tbaa !29
   %spec.select794 = tail call i32 @llvm.umin.i32(i32 %.4581, i32 %598)
   br label %604
@@ -1718,19 +1718,19 @@ default.unreachable2225:                          ; preds = %132
   br label %.loopexit
 
 .loopexit.loopexit1789:                           ; preds = %.lr.ph1420
-  %654 = trunc nuw i64 %indvars.iv2159 to i32
+  %654 = trunc nuw nsw i64 %indvars.iv2159 to i32
   br label %.loopexit
 
 .loopexit.loopexit1790:                           ; preds = %.lr.ph1407
-  %655 = trunc nuw i64 %indvars.iv2156 to i32
+  %655 = trunc nuw nsw i64 %indvars.iv2156 to i32
   br label %.loopexit
 
 .loopexit.loopexit1791:                           ; preds = %.lr.ph1397
-  %656 = trunc nuw i64 %indvars.iv2153 to i32
+  %656 = trunc nuw nsw i64 %indvars.iv2153 to i32
   br label %.loopexit
 
 .loopexit.loopexit1792:                           ; preds = %.lr.ph1387
-  %657 = trunc nuw i64 %indvars.iv2150 to i32
+  %657 = trunc nuw nsw i64 %indvars.iv2150 to i32
   br label %.loopexit
 
 .loopexit.loopexit1794:                           ; preds = %.lr.ph1772
@@ -1760,64 +1760,64 @@ default.unreachable2225:                          ; preds = %132
   %663 = icmp samesign ugt i32 %662, 23
   br label %.loopexit
 
-.loopexit.loopexit2236:                           ; preds = %.lr.ph1373
+.loopexit.loopexit2272:                           ; preds = %.lr.ph1373
   %664 = zext i32 %.196611431 to i64
   %665 = shl i32 %.196611431, 3
   %666 = add i32 %665, %.191433
   %scevgep.le = getelementptr i8, ptr %.197051430, i64 %664
   br label %.loopexit
 
-.loopexit.loopexit2237:                           ; preds = %.lr.ph1524
+.loopexit.loopexit2273:                           ; preds = %.lr.ph1524
   %667 = shl i32 %.7649, 3
   %668 = add i32 %.7597, %667
   %669 = zext i32 %.7649 to i64
   %scevgep2179.le = getelementptr i8, ptr %.7693, i64 %669
   br label %.loopexit
 
-.loopexit.loopexit2238:                           ; preds = %.lr.ph1512
+.loopexit.loopexit2274:                           ; preds = %.lr.ph1512
   %670 = zext i32 %.33675.lcssa to i64
   %671 = shl i32 %.33675.lcssa, 3
   %672 = add i32 %671, %.33.lcssa
   %scevgep2177.le = getelementptr i8, ptr %.33719.lcssa, i64 %670
   br label %.loopexit
 
-.loopexit.loopexit2239:                           ; preds = %.lr.ph1494
+.loopexit.loopexit2275:                           ; preds = %.lr.ph1494
   %673 = zext i32 %.6648 to i64
   %674 = shl i32 %.6648, 3
   %675 = add i32 %674, %.6596
   %scevgep2173.le = getelementptr i8, ptr %.6692, i64 %673
   br label %.loopexit
 
-.loopexit.loopexit2240:                           ; preds = %.lr.ph1479
+.loopexit.loopexit2276:                           ; preds = %.lr.ph1479
   %676 = shl i32 %.5647, 3
   %677 = add i32 %.5595, %676
   %678 = zext i32 %.5647 to i64
   %scevgep2170.le = getelementptr i8, ptr %.5691, i64 %678
   br label %.loopexit
 
-.loopexit.loopexit2241:                           ; preds = %.lr.ph1467
+.loopexit.loopexit2277:                           ; preds = %.lr.ph1467
   %679 = zext i32 %.28670.lcssa to i64
   %680 = shl i32 %.28670.lcssa, 3
   %681 = add i32 %680, %.28.lcssa
   %scevgep2168.le = getelementptr i8, ptr %.28714.lcssa, i64 %679
   br label %.loopexit
 
-.loopexit.loopexit2242:                           ; preds = %.lr.ph1449
+.loopexit.loopexit2278:                           ; preds = %.lr.ph1449
   %682 = zext i32 %.4646 to i64
   %683 = shl i32 %.4646, 3
   %684 = add i32 %683, %.4594
   %scevgep2164.le = getelementptr i8, ptr %.4690, i64 %682
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %.lr.ph1225, %.loopexit.loopexit2242, %.loopexit.loopexit2241, %.loopexit.loopexit2240, %.loopexit.loopexit2239, %.loopexit.loopexit2238, %.loopexit.loopexit2237, %.loopexit.loopexit2236, %.loopexit.loopexit1806, %.loopexit.loopexit1804, %.loopexit.loopexit1803, %.loopexit.loopexit1795, %.loopexit.loopexit1794, %.loopexit.loopexit1792, %.loopexit.loopexit1791, %.loopexit.loopexit1790, %.loopexit.loopexit1789, %.loopexit.loopexit, %652
-  %685 = phi i1 [ true, %652 ], [ false, %.loopexit.loopexit ], [ false, %.loopexit.loopexit1789 ], [ false, %.loopexit.loopexit1790 ], [ false, %.loopexit.loopexit1791 ], [ false, %.loopexit.loopexit1792 ], [ false, %.loopexit.loopexit1794 ], [ false, %.loopexit.loopexit1795 ], [ false, %.loopexit.loopexit1803 ], [ true, %.loopexit.loopexit1804 ], [ %663, %.loopexit.loopexit1806 ], [ false, %.loopexit.loopexit2236 ], [ false, %.loopexit.loopexit2237 ], [ false, %.loopexit.loopexit2238 ], [ false, %.loopexit.loopexit2239 ], [ false, %.loopexit.loopexit2240 ], [ false, %.loopexit.loopexit2241 ], [ false, %.loopexit.loopexit2242 ], [ false, %.lr.ph1225 ], [ true, %59 ]
-  %.06402063 = phi i32 [ %.0640, %652 ], [ %.0640, %.loopexit.loopexit ], [ %.0640, %.loopexit.loopexit1789 ], [ %.0640, %.loopexit.loopexit1790 ], [ %.0640, %.loopexit.loopexit1791 ], [ %.0640, %.loopexit.loopexit1792 ], [ %.0640, %.loopexit.loopexit1794 ], [ %.0640, %.loopexit.loopexit1795 ], [ %.0640, %.loopexit.loopexit1803 ], [ %.0640, %.loopexit.loopexit1804 ], [ %.0640.lcssa2043, %.loopexit.loopexit1806 ], [ %.0640, %.loopexit.loopexit2236 ], [ %.0640, %.loopexit.loopexit2237 ], [ %.0640, %.loopexit.loopexit2238 ], [ %.0640, %.loopexit.loopexit2239 ], [ %.0640, %.loopexit.loopexit2240 ], [ %.0640, %.loopexit.loopexit2241 ], [ %.0640, %.loopexit.loopexit2242 ], [ %.0640, %.lr.ph1225 ], [ %.0640, %59 ]
-  %.40726 = phi ptr [ %.38724, %652 ], [ %.126981779, %.loopexit.loopexit ], [ %.227081416, %.loopexit.loopexit1789 ], [ %.277131403, %.loopexit.loopexit1790 ], [ %.247101393, %.loopexit.loopexit1791 ], [ %.267121383, %.loopexit.loopexit1792 ], [ %.116971768, %.loopexit.loopexit1794 ], [ %.157011530, %.loopexit.loopexit1795 ], [ %.167021211, %.loopexit.loopexit1803 ], [ %.397251204, %.loopexit.loopexit1804 ], [ %.40726.ph, %.loopexit.loopexit1806 ], [ %scevgep.le, %.loopexit.loopexit2236 ], [ %scevgep2179.le, %.loopexit.loopexit2237 ], [ %scevgep2177.le, %.loopexit.loopexit2238 ], [ %scevgep2173.le, %.loopexit.loopexit2239 ], [ %scevgep2170.le, %.loopexit.loopexit2240 ], [ %scevgep2168.le, %.loopexit.loopexit2241 ], [ %scevgep2164.le, %.loopexit.loopexit2242 ], [ %.177031351, %.lr.ph1225 ], [ %.0686, %59 ]
-  %.40682 = phi i32 [ %.38680, %652 ], [ 0, %.loopexit.loopexit ], [ 0, %.loopexit.loopexit1789 ], [ 0, %.loopexit.loopexit1790 ], [ 0, %.loopexit.loopexit1791 ], [ 0, %.loopexit.loopexit1792 ], [ 0, %.loopexit.loopexit1794 ], [ 0, %.loopexit.loopexit1795 ], [ 0, %.loopexit.loopexit1803 ], [ 0, %.loopexit.loopexit1804 ], [ %.40682.ph, %.loopexit.loopexit1806 ], [ 0, %.loopexit.loopexit2236 ], [ 0, %.loopexit.loopexit2237 ], [ 0, %.loopexit.loopexit2238 ], [ 0, %.loopexit.loopexit2239 ], [ 0, %.loopexit.loopexit2240 ], [ 0, %.loopexit.loopexit2241 ], [ 0, %.loopexit.loopexit2242 ], [ 0, %.lr.ph1225 ], [ %.0642, %59 ]
-  %.40639 = phi i64 [ %.38637, %652 ], [ %.126111781, %.loopexit.loopexit ], [ %.226211418, %.loopexit.loopexit1789 ], [ %.276261405, %.loopexit.loopexit1790 ], [ %.246231395, %.loopexit.loopexit1791 ], [ %.266251385, %.loopexit.loopexit1792 ], [ %.116101770, %.loopexit.loopexit1794 ], [ %.156141532, %.loopexit.loopexit1795 ], [ %.166151213, %.loopexit.loopexit1803 ], [ %.396381206, %.loopexit.loopexit1804 ], [ %.40639.ph, %.loopexit.loopexit1806 ], [ %.216201371, %.loopexit.loopexit2236 ], [ %.376361522, %.loopexit.loopexit2237 ], [ %.346331510, %.loopexit.loopexit2238 ], [ %.336321491, %.loopexit.loopexit2239 ], [ %.326311477, %.loopexit.loopexit2240 ], [ %.296281465, %.loopexit.loopexit2241 ], [ %.286271446, %.loopexit.loopexit2242 ], [ %.176161353, %.lr.ph1225 ], [ %.0599, %59 ]
-  %.40 = phi i32 [ %.38, %652 ], [ %653, %.loopexit.loopexit ], [ %654, %.loopexit.loopexit1789 ], [ %655, %.loopexit.loopexit1790 ], [ %656, %.loopexit.loopexit1791 ], [ %657, %.loopexit.loopexit1792 ], [ %658, %.loopexit.loopexit1794 ], [ %659, %.loopexit.loopexit1795 ], [ %660, %.loopexit.loopexit1803 ], [ %661, %.loopexit.loopexit1804 ], [ %.40.ph, %.loopexit.loopexit1806 ], [ %666, %.loopexit.loopexit2236 ], [ %668, %.loopexit.loopexit2237 ], [ %672, %.loopexit.loopexit2238 ], [ %675, %.loopexit.loopexit2239 ], [ %677, %.loopexit.loopexit2240 ], [ %681, %.loopexit.loopexit2241 ], [ %684, %.loopexit.loopexit2242 ], [ %.171354, %.lr.ph1225 ], [ %.0590, %59 ]
-  %.4589 = phi i32 [ %.3588, %652 ], [ %.0585, %.loopexit.loopexit ], [ %.0585, %.loopexit.loopexit1789 ], [ %.0585, %.loopexit.loopexit1790 ], [ %.0585, %.loopexit.loopexit1791 ], [ %.0585, %.loopexit.loopexit1792 ], [ %.0585, %.loopexit.loopexit1794 ], [ %.0585, %.loopexit.loopexit1795 ], [ %.0585, %.loopexit.loopexit1803 ], [ %.0585, %.loopexit.loopexit1804 ], [ %.0585, %.loopexit.loopexit1806 ], [ %.0585, %.loopexit.loopexit2236 ], [ %.0585, %.loopexit.loopexit2237 ], [ %.0585, %.loopexit.loopexit2238 ], [ %.0585, %.loopexit.loopexit2239 ], [ %.0585, %.loopexit.loopexit2240 ], [ %.0585, %.loopexit.loopexit2241 ], [ %.0585, %.loopexit.loopexit2242 ], [ %.0585, %.lr.ph1225 ], [ %.0585, %59 ]
-  %.8 = phi i32 [ 1, %652 ], [ %.0, %.loopexit.loopexit ], [ %.1, %.loopexit.loopexit1789 ], [ %.1, %.loopexit.loopexit1790 ], [ %.1, %.loopexit.loopexit1791 ], [ %.1, %.loopexit.loopexit1792 ], [ %.0, %.loopexit.loopexit1794 ], [ %.0, %.loopexit.loopexit1795 ], [ %.0, %.loopexit.loopexit1803 ], [ %.0, %.loopexit.loopexit1804 ], [ %.8.ph, %.loopexit.loopexit1806 ], [ %.1, %.loopexit.loopexit2236 ], [ %.5, %.loopexit.loopexit2237 ], [ %.4, %.loopexit.loopexit2238 ], [ %.4, %.loopexit.loopexit2239 ], [ %.3, %.loopexit.loopexit2240 ], [ %.2, %.loopexit.loopexit2241 ], [ %.2, %.loopexit.loopexit2242 ], [ %.0, %.lr.ph1225 ], [ 1, %59 ]
+.loopexit:                                        ; preds = %59, %.lr.ph1225, %.loopexit.loopexit2278, %.loopexit.loopexit2277, %.loopexit.loopexit2276, %.loopexit.loopexit2275, %.loopexit.loopexit2274, %.loopexit.loopexit2273, %.loopexit.loopexit2272, %.loopexit.loopexit1806, %.loopexit.loopexit1804, %.loopexit.loopexit1803, %.loopexit.loopexit1795, %.loopexit.loopexit1794, %.loopexit.loopexit1792, %.loopexit.loopexit1791, %.loopexit.loopexit1790, %.loopexit.loopexit1789, %.loopexit.loopexit, %652
+  %685 = phi i1 [ true, %652 ], [ false, %.loopexit.loopexit ], [ false, %.loopexit.loopexit1789 ], [ false, %.loopexit.loopexit1790 ], [ false, %.loopexit.loopexit1791 ], [ false, %.loopexit.loopexit1792 ], [ false, %.loopexit.loopexit1794 ], [ false, %.loopexit.loopexit1795 ], [ false, %.loopexit.loopexit1803 ], [ true, %.loopexit.loopexit1804 ], [ %663, %.loopexit.loopexit1806 ], [ false, %.loopexit.loopexit2272 ], [ false, %.loopexit.loopexit2273 ], [ false, %.loopexit.loopexit2274 ], [ false, %.loopexit.loopexit2275 ], [ false, %.loopexit.loopexit2276 ], [ false, %.loopexit.loopexit2277 ], [ false, %.loopexit.loopexit2278 ], [ false, %.lr.ph1225 ], [ true, %59 ]
+  %.06402063 = phi i32 [ %.0640, %652 ], [ %.0640, %.loopexit.loopexit ], [ %.0640, %.loopexit.loopexit1789 ], [ %.0640, %.loopexit.loopexit1790 ], [ %.0640, %.loopexit.loopexit1791 ], [ %.0640, %.loopexit.loopexit1792 ], [ %.0640, %.loopexit.loopexit1794 ], [ %.0640, %.loopexit.loopexit1795 ], [ %.0640, %.loopexit.loopexit1803 ], [ %.0640, %.loopexit.loopexit1804 ], [ %.0640.lcssa2043, %.loopexit.loopexit1806 ], [ %.0640, %.loopexit.loopexit2272 ], [ %.0640, %.loopexit.loopexit2273 ], [ %.0640, %.loopexit.loopexit2274 ], [ %.0640, %.loopexit.loopexit2275 ], [ %.0640, %.loopexit.loopexit2276 ], [ %.0640, %.loopexit.loopexit2277 ], [ %.0640, %.loopexit.loopexit2278 ], [ %.0640, %.lr.ph1225 ], [ %.0640, %59 ]
+  %.40726 = phi ptr [ %.38724, %652 ], [ %.126981779, %.loopexit.loopexit ], [ %.227081416, %.loopexit.loopexit1789 ], [ %.277131403, %.loopexit.loopexit1790 ], [ %.247101393, %.loopexit.loopexit1791 ], [ %.267121383, %.loopexit.loopexit1792 ], [ %.116971768, %.loopexit.loopexit1794 ], [ %.157011530, %.loopexit.loopexit1795 ], [ %.167021211, %.loopexit.loopexit1803 ], [ %.397251204, %.loopexit.loopexit1804 ], [ %.40726.ph, %.loopexit.loopexit1806 ], [ %scevgep.le, %.loopexit.loopexit2272 ], [ %scevgep2179.le, %.loopexit.loopexit2273 ], [ %scevgep2177.le, %.loopexit.loopexit2274 ], [ %scevgep2173.le, %.loopexit.loopexit2275 ], [ %scevgep2170.le, %.loopexit.loopexit2276 ], [ %scevgep2168.le, %.loopexit.loopexit2277 ], [ %scevgep2164.le, %.loopexit.loopexit2278 ], [ %.177031351, %.lr.ph1225 ], [ %.0686, %59 ]
+  %.40682 = phi i32 [ %.38680, %652 ], [ 0, %.loopexit.loopexit ], [ 0, %.loopexit.loopexit1789 ], [ 0, %.loopexit.loopexit1790 ], [ 0, %.loopexit.loopexit1791 ], [ 0, %.loopexit.loopexit1792 ], [ 0, %.loopexit.loopexit1794 ], [ 0, %.loopexit.loopexit1795 ], [ 0, %.loopexit.loopexit1803 ], [ 0, %.loopexit.loopexit1804 ], [ %.40682.ph, %.loopexit.loopexit1806 ], [ 0, %.loopexit.loopexit2272 ], [ 0, %.loopexit.loopexit2273 ], [ 0, %.loopexit.loopexit2274 ], [ 0, %.loopexit.loopexit2275 ], [ 0, %.loopexit.loopexit2276 ], [ 0, %.loopexit.loopexit2277 ], [ 0, %.loopexit.loopexit2278 ], [ 0, %.lr.ph1225 ], [ %.0642, %59 ]
+  %.40639 = phi i64 [ %.38637, %652 ], [ %.126111781, %.loopexit.loopexit ], [ %.226211418, %.loopexit.loopexit1789 ], [ %.276261405, %.loopexit.loopexit1790 ], [ %.246231395, %.loopexit.loopexit1791 ], [ %.266251385, %.loopexit.loopexit1792 ], [ %.116101770, %.loopexit.loopexit1794 ], [ %.156141532, %.loopexit.loopexit1795 ], [ %.166151213, %.loopexit.loopexit1803 ], [ %.396381206, %.loopexit.loopexit1804 ], [ %.40639.ph, %.loopexit.loopexit1806 ], [ %.216201371, %.loopexit.loopexit2272 ], [ %.376361522, %.loopexit.loopexit2273 ], [ %.346331510, %.loopexit.loopexit2274 ], [ %.336321491, %.loopexit.loopexit2275 ], [ %.326311477, %.loopexit.loopexit2276 ], [ %.296281465, %.loopexit.loopexit2277 ], [ %.286271446, %.loopexit.loopexit2278 ], [ %.176161353, %.lr.ph1225 ], [ %.0599, %59 ]
+  %.40 = phi i32 [ %.38, %652 ], [ %653, %.loopexit.loopexit ], [ %654, %.loopexit.loopexit1789 ], [ %655, %.loopexit.loopexit1790 ], [ %656, %.loopexit.loopexit1791 ], [ %657, %.loopexit.loopexit1792 ], [ %658, %.loopexit.loopexit1794 ], [ %659, %.loopexit.loopexit1795 ], [ %660, %.loopexit.loopexit1803 ], [ %661, %.loopexit.loopexit1804 ], [ %.40.ph, %.loopexit.loopexit1806 ], [ %666, %.loopexit.loopexit2272 ], [ %668, %.loopexit.loopexit2273 ], [ %672, %.loopexit.loopexit2274 ], [ %675, %.loopexit.loopexit2275 ], [ %677, %.loopexit.loopexit2276 ], [ %681, %.loopexit.loopexit2277 ], [ %684, %.loopexit.loopexit2278 ], [ %.171354, %.lr.ph1225 ], [ %.0590, %59 ]
+  %.4589 = phi i32 [ %.3588, %652 ], [ %.0585, %.loopexit.loopexit ], [ %.0585, %.loopexit.loopexit1789 ], [ %.0585, %.loopexit.loopexit1790 ], [ %.0585, %.loopexit.loopexit1791 ], [ %.0585, %.loopexit.loopexit1792 ], [ %.0585, %.loopexit.loopexit1794 ], [ %.0585, %.loopexit.loopexit1795 ], [ %.0585, %.loopexit.loopexit1803 ], [ %.0585, %.loopexit.loopexit1804 ], [ %.0585, %.loopexit.loopexit1806 ], [ %.0585, %.loopexit.loopexit2272 ], [ %.0585, %.loopexit.loopexit2273 ], [ %.0585, %.loopexit.loopexit2274 ], [ %.0585, %.loopexit.loopexit2275 ], [ %.0585, %.loopexit.loopexit2276 ], [ %.0585, %.loopexit.loopexit2277 ], [ %.0585, %.loopexit.loopexit2278 ], [ %.0585, %.lr.ph1225 ], [ %.0585, %59 ]
+  %.8 = phi i32 [ 1, %652 ], [ %.0, %.loopexit.loopexit ], [ %.1, %.loopexit.loopexit1789 ], [ %.1, %.loopexit.loopexit1790 ], [ %.1, %.loopexit.loopexit1791 ], [ %.1, %.loopexit.loopexit1792 ], [ %.0, %.loopexit.loopexit1794 ], [ %.0, %.loopexit.loopexit1795 ], [ %.0, %.loopexit.loopexit1803 ], [ %.0, %.loopexit.loopexit1804 ], [ %.8.ph, %.loopexit.loopexit1806 ], [ %.1, %.loopexit.loopexit2272 ], [ %.5, %.loopexit.loopexit2273 ], [ %.4, %.loopexit.loopexit2274 ], [ %.4, %.loopexit.loopexit2275 ], [ %.3, %.loopexit.loopexit2276 ], [ %.2, %.loopexit.loopexit2277 ], [ %.2, %.loopexit.loopexit2278 ], [ %.0, %.lr.ph1225 ], [ 1, %59 ]
   store ptr %.0683, ptr %9, align 8, !tbaa !22
   store i32 %.06402063, ptr %23, align 4, !tbaa !26
   store ptr %.40726, ptr %0, align 8, !tbaa !23
@@ -1828,8 +1828,8 @@ default.unreachable2225:                          ; preds = %132
   %.not789 = icmp eq i32 %686, 0
   %.not790 = icmp eq i32 %.4589, %.06402063
   %or.cond803 = select i1 %685, i1 true, i1 %.not790
-  %or.cond2572 = select i1 %.not789, i1 %or.cond803, i1 false
-  br i1 %or.cond2572, label %updatewindow.exit.thread, label %687
+  %or.cond2608 = select i1 %.not789, i1 %or.cond803, i1 false
+  br i1 %or.cond2608, label %updatewindow.exit.thread, label %687
 
 687:                                              ; preds = %.loopexit
   %688 = load ptr, ptr %5, align 8, !tbaa !3
@@ -2083,13 +2083,13 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
 30:                                               ; preds = %27
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next297, 16
-  br i1 %exitcond299.not, label %.split.loop.exit334, label %27
+  br i1 %exitcond299.not, label %.split.loop.exit343, label %27
 
 .split.loop.exit:                                 ; preds = %27
   %31 = trunc nuw nsw i64 %indvars.iv296 to i32
-  br label %.split.loop.exit334
+  br label %.split.loop.exit343
 
-.split.loop.exit334:                              ; preds = %30, %.split.loop.exit
+.split.loop.exit343:                              ; preds = %30, %.split.loop.exit
   %.0212.lcssa = phi i32 [ %31, %.split.loop.exit ], [ 16, %30 ]
   %spec.select240 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.0212.lcssa)
   br label %33
@@ -2099,9 +2099,9 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
   %exitcond303.not = icmp eq i64 %indvars.iv.next301, 16
   br i1 %exitcond303.not, label %40, label %33
 
-33:                                               ; preds = %.split.loop.exit334, %32
-  %indvars.iv300 = phi i64 [ 1, %.split.loop.exit334 ], [ %indvars.iv.next301, %32 ]
-  %.0200262 = phi i32 [ 1, %.split.loop.exit334 ], [ %38, %32 ]
+33:                                               ; preds = %.split.loop.exit343, %32
+  %indvars.iv300 = phi i64 [ 1, %.split.loop.exit343 ], [ %indvars.iv.next301, %32 ]
+  %.0200262 = phi i32 [ 1, %.split.loop.exit343 ], [ %38, %32 ]
   %34 = shl i32 %.0200262, 1
   %35 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv300
   %36 = load i16, ptr %35, align 2, !tbaa !40
@@ -2183,9 +2183,9 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
 
 .preheader:                                       ; preds = %63, %._crit_edge266, %64
   %66 = phi i1 [ true, %64 ], [ false, %._crit_edge266 ], [ false, %63 ]
-  %.0321 = phi i32 [ 256, %64 ], [ 19, %._crit_edge266 ], [ -1, %63 ]
-  %.0185320 = phi ptr [ getelementptr inbounds (i8, ptr @inflate_table.lext, i64 -514), %64 ], [ %5, %._crit_edge266 ], [ @inflate_table.dext, %63 ]
-  %.0186319 = phi ptr [ getelementptr inbounds (i8, ptr @inflate_table.lbase, i64 -514), %64 ], [ %5, %._crit_edge266 ], [ @inflate_table.dbase, %63 ]
+  %.0330 = phi i32 [ 256, %64 ], [ 19, %._crit_edge266 ], [ -1, %63 ]
+  %.0185329 = phi ptr [ getelementptr inbounds (i8, ptr @inflate_table.lext, i64 -514), %64 ], [ %5, %._crit_edge266 ], [ @inflate_table.dext, %63 ]
+  %.0186328 = phi ptr [ getelementptr inbounds (i8, ptr @inflate_table.lbase, i64 -514), %64 ], [ %5, %._crit_edge266 ], [ @inflate_table.dbase, %63 ]
   %67 = shl nuw i32 1, %spec.select240
   %68 = add i32 %67, -1
   %69 = load ptr, ptr %3, align 8, !tbaa !50
@@ -2214,19 +2214,19 @@ define internal fastcc range(i32 -1, 2) i32 @inflate_table(i32 noundef range(i32
   %76 = getelementptr inbounds nuw i16, ptr %5, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !40
   %78 = zext i16 %77 to i32
-  %79 = icmp sgt i32 %.0321, %78
+  %79 = icmp sgt i32 %.0330, %78
   br i1 %79, label %89, label %80
 
 80:                                               ; preds = %72
-  %81 = icmp slt i32 %.0321, %78
+  %81 = icmp slt i32 %.0330, %78
   br i1 %81, label %82, label %89
 
 82:                                               ; preds = %80
   %83 = zext i16 %77 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %.0185320, i64 %83
+  %84 = getelementptr inbounds nuw i16, ptr %.0185329, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !40
   %86 = trunc i16 %85 to i8
-  %87 = getelementptr inbounds nuw i16, ptr %.0186319, i64 %83
+  %87 = getelementptr inbounds nuw i16, ptr %.0186328, i64 %83
   %88 = load i16, ptr %87, align 2, !tbaa !40
   br label %89
 
@@ -2419,8 +2419,8 @@ select.unfold:                                    ; preds = %170
   %173 = add i32 %.1193, -1
   %174 = and i32 %173, %.2196277
   %175 = add i32 %174, %.1193
-  %.not234336 = icmp eq i32 %175, 0
-  %.not234 = select i1 %.not238, i1 true, i1 %.not234336
+  %.not234345 = icmp eq i32 %175, 0
+  %.not234 = select i1 %.not238, i1 true, i1 %.not234345
   br i1 %.not234, label %select.unfold._crit_edge, label %.lr.ph280
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %select.unfold.preheader

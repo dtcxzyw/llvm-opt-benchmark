@@ -1576,8 +1576,8 @@ phpdbg_add_empty_array.exit:                      ; preds = %40, %43
   %54 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !133
   %.not81 = icmp eq ptr %55, %.056
-  %or.cond96 = select i1 %.not80, i1 %.not81, i1 false
-  br i1 %or.cond96, label %zend_string_release.exit, label %._crit_edge
+  %or.cond108 = select i1 %.not80, i1 %.not81, i1 false
+  br i1 %or.cond108, label %zend_string_release.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53
   %56 = icmp eq ptr %55, null

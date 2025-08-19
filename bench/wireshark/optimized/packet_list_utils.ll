@@ -204,13 +204,13 @@ define hidden noundef zeroext i1 @display_column_strings(i32 noundef %0, ptr nou
   br i1 %.not46, label %30, label %28
 
 28:                                               ; preds = %25
-  %switch.tableidx102 = add i32 %23, -3
-  %29 = icmp ult i32 %switch.tableidx102, 33
-  %switch.maskindex105 = zext nneg i32 %switch.tableidx102 to i64
-  %switch.shifted106 = lshr i64 4295098367, %switch.maskindex105
-  %switch.lobit107 = trunc i64 %switch.shifted106 to i1
-  %or.cond108 = select i1 %29, i1 %switch.lobit107, i1 false
-  br i1 %or.cond108, label %.loopexit, label %30
+  %switch.tableidx106 = add i32 %23, -3
+  %29 = icmp ult i32 %switch.tableidx106, 33
+  %switch.maskindex109 = zext nneg i32 %switch.tableidx106 to i64
+  %switch.shifted110 = lshr i64 4295098367, %switch.maskindex109
+  %switch.lobit111 = trunc i64 %switch.shifted110 to i1
+  %or.cond112 = select i1 %29, i1 %switch.lobit111, i1 false
+  br i1 %or.cond112, label %.loopexit, label %30
 
 30:                                               ; preds = %28, %25, %.lr.ph
   %31 = add nuw i32 %.04147, 1

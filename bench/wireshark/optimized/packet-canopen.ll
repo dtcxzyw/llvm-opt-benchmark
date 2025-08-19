@@ -848,8 +848,8 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
   br i1 %162, label %.thread.i, label %sdo_cmd_fields_ccs.exit.i
 
 .thread.i:                                        ; preds = %161, %147
-  %.081.ph119178.i = phi i8 [ 0, %161 ], [ 1, %147 ]
-  %.084.ph118177.i = phi i8 [ 2, %161 ], [ 4, %147 ]
+  %.081.ph119185.i = phi i8 [ 0, %161 ], [ 1, %147 ]
+  %.084.ph118184.i = phi i8 [ 2, %161 ], [ 4, %147 ]
   %163 = zext nneg i8 %145 to i64
   %164 = getelementptr [2 x ptr], ptr @_sdo_cmd_fields_ccs6, i64 0, i64 %163
   %165 = load ptr, ptr %164, align 8
@@ -858,8 +858,8 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
 sdo_cmd_fields_ccs.exit.i:                        ; preds = %.thread.i, %161, %157, %155, %151
   %.077115.i = phi i8 [ 0, %151 ], [ %141, %157 ], [ %145, %.thread.i ], [ %145, %161 ], [ %141, %155 ]
   %.078113.i = phi i8 [ 0, %151 ], [ %spec.select.i, %157 ], [ 0, %.thread.i ], [ 0, %161 ], [ %spec.select.i, %155 ]
-  %.081111.i = phi i8 [ %.081.ph.i, %151 ], [ %spec.select.i, %157 ], [ %.081.ph119178.i, %.thread.i ], [ 0, %161 ], [ %spec.select.i, %155 ]
-  %.084109.i = phi i8 [ %.084.ph.i, %151 ], [ 0, %157 ], [ %.084.ph118177.i, %.thread.i ], [ 2, %161 ], [ 0, %155 ]
+  %.081111.i = phi i8 [ %.081.ph.i, %151 ], [ %spec.select.i, %157 ], [ %.081.ph119185.i, %.thread.i ], [ 0, %161 ], [ %spec.select.i, %155 ]
+  %.084109.i = phi i8 [ %.084.ph.i, %151 ], [ 0, %157 ], [ %.084.ph118184.i, %.thread.i ], [ 2, %161 ], [ 0, %155 ]
   %.0.i.i = phi ptr [ %154, %151 ], [ %160, %157 ], [ %165, %.thread.i ], [ null, %161 ], [ null, %155 ]
   %166 = icmp eq i8 %.078113.i, 0
   br label %sdo_cmd_fields_scs.exit.i
@@ -902,7 +902,7 @@ sdo_cmd_fields_ccs.exit.i:                        ; preds = %.thread.i, %161, %1
 179:                                              ; preds = %176
   %180 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 3, i32 noundef 3)
   %.not93.i = icmp eq i8 %180, 0
-  br i1 %.not93.i, label %.thread179.i, label %dissect_sdo.exit
+  br i1 %.not93.i, label %.thread186.i, label %dissect_sdo.exit
 
 181:                                              ; preds = %176
   %182 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 6, i32 noundef 1)
@@ -929,22 +929,22 @@ sdo_cmd_fields_ccs.exit.i:                        ; preds = %.thread.i, %161, %1
 
 193:                                              ; preds = %181
   %194 = icmp eq i8 %177, 1
-  br i1 %194, label %.thread179.i, label %sdo_cmd_fields_scs.exit.thread.i
+  br i1 %194, label %.thread186.i, label %sdo_cmd_fields_scs.exit.thread.i
 
-.thread179.i:                                     ; preds = %193, %179
-  %.3.ph149183.i = phi i8 [ 0, %193 ], [ 1, %179 ]
-  %.286.ph148182.i = phi i8 [ 2, %193 ], [ 4, %179 ]
+.thread186.i:                                     ; preds = %193, %179
+  %.3.ph149190.i = phi i8 [ 0, %193 ], [ 1, %179 ]
+  %.286.ph148189.i = phi i8 [ 2, %193 ], [ 4, %179 ]
   %195 = zext nneg i8 %177 to i64
   %196 = getelementptr [2 x ptr], ptr @_sdo_cmd_fields_scs6, i64 0, i64 %195
   %197 = load ptr, ptr %196, align 8
   br label %sdo_cmd_fields_scs.exit.i
 
-sdo_cmd_fields_scs.exit.i:                        ; preds = %.thread179.i, %189, %183, %sdo_cmd_fields_ccs.exit.i
-  %.185.i = phi i8 [ %.084109.i, %sdo_cmd_fields_ccs.exit.i ], [ %.286.ph.i, %183 ], [ 0, %189 ], [ %.286.ph148182.i, %.thread179.i ]
-  %.283.i = phi i8 [ %.081111.i, %sdo_cmd_fields_ccs.exit.i ], [ %.3.ph.i, %183 ], [ %spec.select101.i, %189 ], [ %.3.ph149183.i, %.thread179.i ]
-  %.280.i = phi i1 [ %166, %sdo_cmd_fields_ccs.exit.i ], [ true, %183 ], [ true, %189 ], [ true, %.thread179.i ]
-  %.1.i = phi i8 [ %.077115.i, %sdo_cmd_fields_ccs.exit.i ], [ 0, %183 ], [ %173, %189 ], [ %177, %.thread179.i ]
-  %.0.i137 = phi ptr [ %.0.i.i, %sdo_cmd_fields_ccs.exit.i ], [ %186, %183 ], [ %192, %189 ], [ %197, %.thread179.i ]
+sdo_cmd_fields_scs.exit.i:                        ; preds = %.thread186.i, %189, %183, %sdo_cmd_fields_ccs.exit.i
+  %.185.i = phi i8 [ %.084109.i, %sdo_cmd_fields_ccs.exit.i ], [ %.286.ph.i, %183 ], [ 0, %189 ], [ %.286.ph148189.i, %.thread186.i ]
+  %.283.i = phi i8 [ %.081111.i, %sdo_cmd_fields_ccs.exit.i ], [ %.3.ph.i, %183 ], [ %spec.select101.i, %189 ], [ %.3.ph149190.i, %.thread186.i ]
+  %.280.i = phi i1 [ %166, %sdo_cmd_fields_ccs.exit.i ], [ true, %183 ], [ true, %189 ], [ true, %.thread186.i ]
+  %.1.i = phi i8 [ %.077115.i, %sdo_cmd_fields_ccs.exit.i ], [ 0, %183 ], [ %173, %189 ], [ %177, %.thread186.i ]
+  %.0.i137 = phi ptr [ %.0.i.i, %sdo_cmd_fields_ccs.exit.i ], [ %186, %183 ], [ %192, %189 ], [ %197, %.thread186.i ]
   %198 = icmp eq ptr %.0.i137, null
   br i1 %198, label %sdo_cmd_fields_scs.exit.thread.i, label %201
 

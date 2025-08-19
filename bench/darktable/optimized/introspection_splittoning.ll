@@ -1466,7 +1466,7 @@ hsl2rgb.exit.i:                                   ; preds = %159, %157, %hue2rgb
   br label %update_balance_slider_colors.exit
 
 update_balance_slider_colors.exit:                ; preds = %hsl2rgb.exit.i, %122, %hsl2rgb.exit15.i, %81
-  %.sink74 = phi ptr [ %88, %81 ], [ %91, %hsl2rgb.exit15.i ], [ %130, %122 ], [ %133, %hsl2rgb.exit.i ]
+  %.sink98 = phi ptr [ %88, %81 ], [ %91, %hsl2rgb.exit15.i ], [ %130, %122 ], [ %133, %hsl2rgb.exit.i ]
   %.0.i57 = phi float [ -1.000000e+00, %81 ], [ %.0.i5661, %hsl2rgb.exit15.i ], [ -1.000000e+00, %122 ], [ %.0.i5869, %hsl2rgb.exit.i ]
   %.047.i53 = phi float [ %32, %81 ], [ %.047.i5564, %hsl2rgb.exit15.i ], [ %32, %122 ], [ %.047.i5471, %hsl2rgb.exit.i ]
   %.030 = phi ptr [ %82, %81 ], [ %95, %hsl2rgb.exit15.i ], [ %7, %122 ], [ %7, %hsl2rgb.exit.i ]
@@ -1475,7 +1475,7 @@ update_balance_slider_colors.exit:                ; preds = %hsl2rgb.exit.i, %12
   %.027 = phi ptr [ %61, %81 ], [ %96, %hsl2rgb.exit15.i ], [ %125, %122 ], [ %136, %hsl2rgb.exit.i ]
   %.0 = phi ptr [ %87, %81 ], [ %92, %hsl2rgb.exit15.i ], [ %129, %122 ], [ %134, %hsl2rgb.exit.i ]
   %163 = tail call i64 @gtk_widget_get_type() #23
-  %164 = tail call ptr @g_type_check_instance_cast(ptr noundef %.sink74, i64 noundef %163) #20
+  %164 = tail call ptr @g_type_check_instance_cast(ptr noundef %.sink98, i64 noundef %163) #20
   tail call void @gtk_widget_queue_draw(ptr noundef %164) #20
   %165 = load float, ptr %.030, align 4, !tbaa !84
   %166 = fsub reassoc nsz arcp contract afn float %165, %.0.i57
@@ -2373,8 +2373,8 @@ hsl2rgb.exit15.i:                                 ; preds = %132, %130, %hue2rgb
   br label %update_balance_slider_colors.exit
 
 update_balance_slider_colors.exit:                ; preds = %hsl2rgb.exit15.i, %104, %hsl2rgb.exit.i, %72
-  %.sink20 = phi ptr [ %77, %72 ], [ %77, %hsl2rgb.exit.i ], [ %109, %104 ], [ %109, %hsl2rgb.exit15.i ]
-  %136 = call ptr @g_type_check_instance_cast(ptr noundef %.sink20, i64 noundef %66) #20
+  %.sink35 = phi ptr [ %77, %72 ], [ %77, %hsl2rgb.exit.i ], [ %109, %104 ], [ %109, %hsl2rgb.exit15.i ]
+  %136 = call ptr @g_type_check_instance_cast(ptr noundef %.sink35, i64 noundef %66) #20
   call void @gtk_widget_queue_draw(ptr noundef %136) #20
   %137 = load ptr, ptr %9, align 8, !tbaa !113
   %138 = call ptr @g_type_check_instance_cast(ptr noundef %137, i64 noundef %66) #20

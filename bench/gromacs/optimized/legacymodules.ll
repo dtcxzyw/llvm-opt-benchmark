@@ -377,12 +377,12 @@ _ZNKSt14default_deleteIN3gmx18ICommandLineModuleEEclEPS1_.exit.i.i: ; preds = %5
   br i1 %.not.i6.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %58, %158, %147, %136, %125, %114
-  %.sink182 = phi ptr [ %116, %114 ], [ %127, %125 ], [ %138, %136 ], [ %149, %147 ], [ %160, %158 ], [ %60, %58 ]
+  %.sink205 = phi ptr [ %116, %114 ], [ %127, %125 ], [ %138, %136 ], [ %149, %147 ], [ %160, %158 ], [ %60, %58 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %115, %114 ], [ %126, %125 ], [ %137, %136 ], [ %148, %147 ], [ %159, %158 ], [ %59, %58 ]
-  %61 = load ptr, ptr %.sink182, align 8, !tbaa !12
+  %61 = load ptr, ptr %.sink205, align 8, !tbaa !12
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(8) %.sink182) #15
+  call void %63(ptr noundef nonnull align 8 dereferenceable(8) %.sink205) #15
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %178, %181, %186, %189, %194, %197, %202, %205, %210, %213, %218, %221, %158, %147, %136, %125, %114, %58

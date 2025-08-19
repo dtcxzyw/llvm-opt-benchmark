@@ -1453,8 +1453,8 @@ read_config.exit:                                 ; preds = %279, %202, %207, %2
   br i1 %or.cond.i217, label %285, label %set_verbosity.exit
 
 read_config.exit.thread:                          ; preds = %219
-  %or.cond.i217316 = icmp ugt i32 %220, 8
-  br i1 %or.cond.i217316, label %.thread235, label %handle_opts_upfront.exit.thread
+  %or.cond.i217354 = icmp ugt i32 %220, 8
+  br i1 %or.cond.i217354, label %.thread235, label %handle_opts_upfront.exit.thread
 
 285:                                              ; preds = %read_config.exit
   %286 = icmp slt i32 %.pr, 3
@@ -2474,7 +2474,7 @@ get_opts.exit:                                    ; preds = %._crit_edge.i220
   %654 = load ptr, ptr @opt_rspout, align 8
   %655 = icmp ne ptr %654, null
   %or.cond15 = select i1 %653, i1 true, i1 %655
-  br i1 %or.cond15, label %656, label %.thread321
+  br i1 %or.cond15, label %656, label %.thread359
 
 656:                                              ; preds = %651
   %657 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
@@ -2492,7 +2492,7 @@ get_opts.exit:                                    ; preds = %._crit_edge.i220
   %663 = icmp ne ptr %.pre, null
   %664 = icmp ne i32 %.pre309, 0
   %665 = select i1 %663, i1 %664, i1 false
-  br i1 %665, label %666, label %.thread321
+  br i1 %665, label %666, label %.thread359
 
 666:                                              ; preds = %662
   %667 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
@@ -2504,17 +2504,17 @@ get_opts.exit:                                    ; preds = %._crit_edge.i220
   %671 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %670, ptr noundef nonnull @.str.369, ptr noundef nonnull @__func__.cmp_main, ptr noundef nonnull @.str.351, i32 noundef 3717, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %handle_opts_upfront.exit.thread
 
-.thread321:                                       ; preds = %651, %662
+.thread359:                                       ; preds = %651, %662
   %672 = load i32, ptr @opt_ignore_keyusage, align 4, !tbaa !10
   %.not172 = icmp eq i32 %672, 0
   br i1 %.not172, label %676, label %673
 
-673:                                              ; preds = %.thread321
+673:                                              ; preds = %.thread359
   %674 = load ptr, ptr @cmp_ctx, align 8, !tbaa !36
   %675 = call i32 @OSSL_CMP_CTX_set_option(ptr noundef %674, i32 noundef 35, i32 noundef 1) #12
   br label %676
 
-676:                                              ; preds = %673, %.thread321
+676:                                              ; preds = %673, %.thread359
   %677 = load i32, ptr @opt_no_cache_extracerts, align 4, !tbaa !10
   %.not173 = icmp eq i32 %677, 0
   br i1 %.not173, label %681, label %678
@@ -3999,13 +3999,13 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 .tail.thread.thread.i:                            ; preds = %sub_1.i
   %118 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(4) @.str.467) #13
-  %.not641.i = icmp eq i32 %118, 0
-  br i1 %.not641.i, label %145, label %.tail17.thread.i
+  %.not645.i = icmp eq i32 %118, 0
+  br i1 %.not645.i, label %145, label %.tail17.thread.i
 
 .thread.i:                                        ; preds = %.tail.i
   %119 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(4) @.str.467) #13
-  %.not634.i = icmp eq i32 %119, 0
-  br i1 %.not634.i, label %145, label %.tail17.thread.i
+  %.not638.i = icmp eq i32 %119, 0
+  br i1 %.not638.i, label %145, label %.tail17.thread.i
 
 sub_018.i:                                        ; preds = %.tail.thread.i
   %.not29.i = icmp eq i8 %111, 99
@@ -4021,17 +4021,17 @@ sub_119.i:                                        ; preds = %sub_018.i
   %122 = getelementptr inbounds nuw i8, ptr %110, i64 2
   %123 = load i8, ptr %122, align 1
   %124 = icmp eq i8 %123, 0
-  br i1 %124, label %145, label %.thread37.i
+  br i1 %124, label %145, label %.thread41.i
 
 .tail17.thread.i:                                 ; preds = %sub_119.i, %sub_018.i, %.thread.i, %.tail.thread.thread.i
   %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(6) @.str.469) #13
   %.not8.i = icmp eq i32 %125, 0
   br i1 %.not8.i, label %145, label %sub_023.i
 
-.thread37.i:                                      ; preds = %.tail17.i
+.thread41.i:                                      ; preds = %.tail17.i
   %126 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(6) @.str.469) #13
-  %.not838.i = icmp eq i32 %126, 0
-  br i1 %.not838.i, label %145, label %.tail22.thread.i
+  %.not842.i = icmp eq i32 %126, 0
+  br i1 %.not842.i, label %145, label %.tail22.thread.i
 
 sub_023.i:                                        ; preds = %.tail17.thread.i
   %.not31.i = icmp eq i8 %111, 114
@@ -4049,7 +4049,7 @@ sub_124.i:                                        ; preds = %sub_023.i
   %131 = icmp eq i8 %130, 0
   br i1 %131, label %145, label %.tail22.thread.i
 
-.tail22.thread.i:                                 ; preds = %.tail22.i, %sub_124.i, %sub_023.i, %.thread37.i
+.tail22.thread.i:                                 ; preds = %.tail22.i, %sub_124.i, %sub_023.i, %.thread41.i
   %132 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(5) @.str.471) #13
   %.not10.i = icmp eq i32 %132, 0
   br i1 %.not10.i, label %145, label %133
@@ -4074,8 +4074,8 @@ sub_124.i:                                        ; preds = %sub_023.i
   %144 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %143, ptr noundef nonnull @.str.473, ptr noundef nonnull @__func__.transform_opts, ptr noundef nonnull @.str.351, i32 noundef 1098, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %transform_opts.exit.thread
 
-145:                                              ; preds = %.tail22.thread.i, %.tail22.i, %.thread37.i, %.tail17.thread.i, %.tail17.i, %.thread.i, %.tail.thread.thread.i, %.tail.thread.i, %.tail.i
-  %.sink.i = phi i32 [ 0, %.tail.i ], [ 1, %.tail.thread.thread.i ], [ 1, %.thread.i ], [ 1, %.tail.thread.i ], [ 2, %.tail17.i ], [ 3, %.thread37.i ], [ 3, %.tail17.thread.i ], [ 4, %.tail22.i ], [ 5, %.tail22.thread.i ]
+145:                                              ; preds = %.tail22.thread.i, %.tail22.i, %.thread41.i, %.tail17.thread.i, %.tail17.i, %.thread.i, %.tail.thread.thread.i, %.tail.thread.i, %.tail.i
+  %.sink.i = phi i32 [ 0, %.tail.i ], [ 1, %.tail.thread.thread.i ], [ 1, %.thread.i ], [ 1, %.tail.thread.i ], [ 2, %.tail17.i ], [ 3, %.thread41.i ], [ 3, %.tail17.thread.i ], [ 4, %.tail22.i ], [ 5, %.tail22.thread.i ]
   store i32 %.sink.i, ptr @opt_cmd, align 4, !tbaa !10
   %146 = load ptr, ptr @opt_keyform_s, align 8, !tbaa !4
   %.not11.i = icmp eq ptr %146, null
@@ -5412,8 +5412,8 @@ define internal fastcc range(i32 0, 2) i32 @do_genm(ptr noundef %0) unnamed_addr
   br label %.thread
 
 .thread:                                          ; preds = %134, %143, %150, %139
-  %.150105 = phi ptr [ %137, %143 ], [ %137, %150 ], [ %137, %139 ], [ null, %134 ]
-  %153 = call i32 @OSSL_CMP_get1_crlUpdate(ptr noundef %0, ptr noundef %.047, ptr noundef %.150105, ptr noundef nonnull %11) #12
+  %.150126 = phi ptr [ %137, %143 ], [ %137, %150 ], [ %137, %139 ], [ null, %134 ]
+  %153 = call i32 @OSSL_CMP_get1_crlUpdate(ptr noundef %0, ptr noundef %.047, ptr noundef %.150126, ptr noundef nonnull %11) #12
   %.not80 = icmp eq i32 %153, 0
   br i1 %.not80, label %166, label %154
 
@@ -5438,7 +5438,7 @@ define internal fastcc range(i32 0, 2) i32 @do_genm(ptr noundef %0) unnamed_addr
   br label %166
 
 166:                                              ; preds = %162, %.thread, %136, %129
-  %.049 = phi ptr [ null, %129 ], [ null, %136 ], [ %.150105, %.thread ], [ %.150105, %162 ]
+  %.049 = phi ptr [ null, %129 ], [ null, %136 ], [ %.150126, %.thread ], [ %.150126, %162 ]
   %.148 = phi ptr [ null, %129 ], [ %.047, %136 ], [ %.047, %.thread ], [ %.047, %162 ]
   %.046 = phi i32 [ 0, %129 ], [ 0, %136 ], [ 0, %.thread ], [ %165, %162 ]
   call void @X509_free(ptr noundef %.148) #12
@@ -7160,7 +7160,7 @@ set_name.exit:                                    ; preds = %26, %21
 73:                                               ; preds = %64
   %74 = load ptr, ptr @opt_newkeyout, align 8, !tbaa !4
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %.thread369
+  br i1 %75, label %76, label %.thread395
 
 76:                                               ; preds = %73
   %77 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
@@ -7172,7 +7172,7 @@ set_name.exit:                                    ; preds = %26, %21
   %81 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.529, ptr noundef nonnull @__func__.setup_request_ctx, ptr noundef nonnull @.str.351, i32 noundef 1721, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %.critedge
 
-.thread369:                                       ; preds = %73
+.thread395:                                       ; preds = %73
   store i32 -1, ptr @opt_popo, align 4, !tbaa !10
   br label %112
 
@@ -7226,7 +7226,7 @@ set_name.exit:                                    ; preds = %26, %21
   %111 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %110, ptr noundef nonnull @.str.533, ptr noundef nonnull @__func__.setup_request_ctx, ptr noundef nonnull @.str.351, i32 noundef 1738, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %.critedge
 
-112:                                              ; preds = %.thread369, %103, %82
+112:                                              ; preds = %.thread395, %103, %82
   %113 = load ptr, ptr @opt_certout, align 8, !tbaa !4
   %114 = icmp eq ptr %113, null
   %115 = load ptr, ptr @opt_reqout_only, align 8

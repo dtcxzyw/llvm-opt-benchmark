@@ -699,8 +699,8 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   br i1 %.not111.i, label %.loopexit, label %85
 
 ._crit_edge140.thread.i:                          ; preds = %64
-  %.not111201.i = icmp eq i32 %26, 1
-  br i1 %.not111201.i, label %.loopexit, label %.thread.i
+  %.not111204.i = icmp eq i32 %26, 1
+  br i1 %.not111204.i, label %.loopexit, label %.thread.i
 
 .thread.i:                                        ; preds = %._crit_edge140.thread.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 56, ptr noundef nonnull @.str.10, i32 noundef %24) #9
@@ -868,10 +868,10 @@ define internal noundef i32 @slice_normalize(ptr noundef readonly captures(none)
   br i1 %36, label %.lr.ph55.us.preheader, label %.loopexit.us
 
 .lr.ph55.us.preheader:                            ; preds = %.preheader.us
-  %sext75 = shl i64 %27, 32
-  %37 = ashr exact i64 %sext75, 32
-  %sext76 = shl i64 %30, 32
-  %wide.trip.count68 = ashr exact i64 %sext76, 32
+  %sext78 = shl i64 %27, 32
+  %37 = ashr exact i64 %sext78, 32
+  %sext79 = shl i64 %30, 32
+  %wide.trip.count68 = ashr exact i64 %sext79, 32
   br label %.lr.ph55.us
 
 .lr.ph55.us:                                      ; preds = %.lr.ph55.us.preheader, %.lr.ph55.us
@@ -921,8 +921,8 @@ define internal noundef i32 @slice_normalize(ptr noundef readonly captures(none)
 .lr.ph.preheader:                                 ; preds = %.split
   %sext = shl i64 %52, 32
   %64 = ashr exact i64 %sext, 32
-  %sext74 = shl i64 %55, 32
-  %wide.trip.count = ashr exact i64 %sext74, 32
+  %sext77 = shl i64 %55, 32
+  %wide.trip.count = ashr exact i64 %sext77, 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1011,18 +1011,18 @@ define internal noundef i32 @filter_slice_grey_edge(ptr noundef readonly capture
   %.promoted89.us94.us = phi double [ %..us.us, %._crit_edge.us92.us ], [ 0.000000e+00, %.preheader.lr.ph.split.us.us ]
   %37 = mul nsw i64 %indvars.iv120, %35
   %38 = mul nsw i64 %indvars.iv120, %36
-  %invariant.gep132 = getelementptr double, ptr %30, i64 %37
-  %invariant.gep134 = getelementptr i8, ptr %28, i64 %38
+  %invariant.gep137 = getelementptr double, ptr %30, i64 %37
+  %invariant.gep139 = getelementptr i8, ptr %28, i64 %38
   br label %39
 
 39:                                               ; preds = %39, %.preheader.us.us
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %39 ], [ 0, %.preheader.us.us ]
   %.90.us.us = phi double [ %..us.us, %39 ], [ %.promoted89.us94.us, %.preheader.us.us ]
-  %gep133 = getelementptr double, ptr %invariant.gep132, i64 %indvars.iv115
-  %40 = load double, ptr %gep133, align 8, !tbaa !51
+  %gep138 = getelementptr double, ptr %invariant.gep137, i64 %indvars.iv115
+  %40 = load double, ptr %gep138, align 8, !tbaa !51
   %41 = tail call nsz double @llvm.fabs.f64(double %40)
-  %gep135 = getelementptr i8, ptr %invariant.gep134, i64 %indvars.iv115
-  %42 = load i8, ptr %gep135, align 1, !tbaa !81
+  %gep140 = getelementptr i8, ptr %invariant.gep139, i64 %indvars.iv115
+  %42 = load i8, ptr %gep140, align 1, !tbaa !81
   %43 = icmp ne i8 %42, -1
   %44 = uitofp i1 %43 to double
   %45 = fmul nsz double %41, %44
@@ -1058,8 +1058,8 @@ define internal noundef i32 @filter_slice_grey_edge(ptr noundef readonly capture
   store double 0.000000e+00, ptr %61, align 8, !tbaa !51
   %62 = icmp slt i32 %54, %56
   %63 = icmp sgt i32 %50, 0
-  %or.cond136 = select i1 %62, i1 %63, i1 false
-  br i1 %or.cond136, label %.preheader81.lr.ph.split.us, label %.loopexit84
+  %or.cond141 = select i1 %62, i1 %63, i1 false
+  br i1 %or.cond141, label %.preheader81.lr.ph.split.us, label %.loopexit84
 
 .preheader81.lr.ph.split.us:                      ; preds = %.preheader83
   %64 = sext i32 %54 to i64
@@ -1075,7 +1075,7 @@ define internal noundef i32 @filter_slice_grey_edge(ptr noundef readonly capture
   %67 = mul nsw i64 %indvars.iv106, %65
   %68 = mul nsw i64 %indvars.iv106, %66
   %invariant.gep = getelementptr double, ptr %60, i64 %67
-  %invariant.gep130 = getelementptr i8, ptr %58, i64 %68
+  %invariant.gep135 = getelementptr i8, ptr %58, i64 %68
   br label %69
 
 69:                                               ; preds = %.preheader81.us, %69
@@ -1086,8 +1086,8 @@ define internal noundef i32 @filter_slice_grey_edge(ptr noundef readonly capture
   %72 = fdiv nsz double %71, 2.550000e+02
   %73 = tail call nsz double @llvm.fabs.f64(double %72)
   %74 = tail call nsz double @llvm.pow.f64(double %73, double %16)
-  %gep131 = getelementptr i8, ptr %invariant.gep130, i64 %indvars.iv
-  %75 = load i8, ptr %gep131, align 1, !tbaa !81
+  %gep136 = getelementptr i8, ptr %invariant.gep135, i64 %indvars.iv
+  %75 = load i8, ptr %gep136, align 1, !tbaa !81
   %76 = icmp ne i8 %75, -1
   %77 = uitofp i1 %76 to double
   %78 = tail call nsz double @llvm.fmuladd.f64(double %74, double %77, double %70)
@@ -1202,13 +1202,13 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
   %..i.us.us.us.us = tail call i32 @llvm.smin.i32(i32 %57, i32 %51)
   %.0.i.us.us.us.us = select i1 %56, i32 0, i32 %..i.us.us.us.us
   %58 = mul nsw i32 %.0.i.us.us.us.us, %40
-  %invariant.gep216 = getelementptr double, ptr %42, i64 %55
+  %invariant.gep227 = getelementptr double, ptr %42, i64 %55
   br label %.lr.ph.us.us.us133.us.us
 
 .lr.ph.us.us.us133.us.us:                         ; preds = %._crit_edge.us.us.us135.us.us, %.preheader.us.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %._crit_edge.us.us.us135.us.us ], [ 0, %.preheader.us.us.us.us ]
-  %gep217 = getelementptr double, ptr %invariant.gep216, i64 %indvars.iv197
-  store double 0.000000e+00, ptr %gep217, align 8, !tbaa !51
+  %gep228 = getelementptr double, ptr %invariant.gep227, i64 %indvars.iv197
+  store double 0.000000e+00, ptr %gep228, align 8, !tbaa !51
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.us.us.us133.us.us
@@ -1228,7 +1228,7 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
   %70 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv189
   %71 = load double, ptr %70, align 8, !tbaa !51
   %72 = tail call nsz double @llvm.fmuladd.f64(double %69, double %71, double %60)
-  store double %72, ptr %gep217, align 8, !tbaa !51
+  store double %72, ptr %gep228, align 8, !tbaa !51
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
   br i1 %exitcond193.not, label %._crit_edge.us.us.us135.us.us, label %59, !llvm.loop !87
@@ -1332,14 +1332,14 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
   %112 = trunc nsw i64 %indvars.iv172 to i32
   %..i107.us.us.us = tail call i32 @llvm.smin.i32(i32 %112, i32 %108)
   %.0.i108.us.us.us = select i1 %111, i32 0, i32 %..i107.us.us.us
-  %invariant.gep214 = getelementptr double, ptr %98, i64 %indvars.iv172
+  %invariant.gep225 = getelementptr double, ptr %98, i64 %indvars.iv172
   br label %.lr.ph.us.us.us.us
 
 .lr.ph.us.us.us.us:                               ; preds = %._crit_edge.us.us.us.us, %.preheader109.us.us.us
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %._crit_edge.us.us.us.us ], [ 0, %.preheader109.us.us.us ]
   %113 = mul nsw i64 %indvars.iv167, %109
-  %gep215 = getelementptr double, ptr %invariant.gep214, i64 %113
-  store double 0.000000e+00, ptr %gep215, align 8, !tbaa !51
+  %gep226 = getelementptr double, ptr %invariant.gep225, i64 %113
+  store double 0.000000e+00, ptr %gep226, align 8, !tbaa !51
   br label %114
 
 114:                                              ; preds = %114, %.lr.ph.us.us.us.us
@@ -1359,7 +1359,7 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
   %125 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv162
   %126 = load double, ptr %125, align 8, !tbaa !51
   %127 = tail call nsz double @llvm.fmuladd.f64(double %124, double %126, double %115)
-  store double %127, ptr %gep215, align 8, !tbaa !51
+  store double %127, ptr %gep226, align 8, !tbaa !51
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
   br i1 %exitcond166.not, label %._crit_edge.us.us.us.us, label %114, !llvm.loop !90
@@ -1388,8 +1388,8 @@ define internal noundef i32 @slice_get_derivative(ptr noundef readonly captures(
   %137 = sdiv i32 %136, %3
   %138 = icmp slt i32 %135, %137
   %139 = icmp sgt i32 %129, 0
-  %or.cond218 = select i1 %138, i1 %139, i1 false
-  br i1 %or.cond218, label %.preheader109.us.preheader, label %.loopexit110
+  %or.cond229 = select i1 %138, i1 %139, i1 false
+  br i1 %or.cond229, label %.preheader109.us.preheader, label %.loopexit110
 
 .preheader109.us.preheader:                       ; preds = %.split.split
   %140 = sext i32 %131 to i64

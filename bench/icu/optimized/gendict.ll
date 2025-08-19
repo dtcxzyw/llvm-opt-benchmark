@@ -1037,18 +1037,18 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %.preheader289, %219
   br i1 %232, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %219, %.critedge
-  %.0177.lcssa495 = phi i32 [ %231, %.critedge ], [ %220, %219 ]
+  %.0177.lcssa516 = phi i32 [ %231, %.critedge ], [ %220, %219 ]
   %233 = load i16, ptr %154, align 8, !tbaa !36
   %234 = icmp slt i16 %233, 0
   %235 = ashr i16 %233, 5
   %236 = sext i16 %235 to i32
   %237 = load i32, ptr %158, align 4
   %238 = select i1 %234, i32 %237, i32 %236
-  %239 = icmp slt i32 %.0177.lcssa495, %238
+  %239 = icmp slt i32 %.0177.lcssa516, %238
   br i1 %239, label %.lr.ph.preheader, label %.critedge3
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %240 = zext nneg i32 %.0177.lcssa495 to i64
+  %240 = zext nneg i32 %.0177.lcssa516 to i64
   br label %.lr.ph
 
 .critedge.thread:                                 ; preds = %.preheader289, %.critedge
@@ -1063,7 +1063,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %.preheader289, %219
   %indvars.iv489 = phi i64 [ %240, %.lr.ph.preheader ], [ %indvars.iv.next490, %256 ]
   %243 = phi i32 [ %238, %.lr.ph.preheader ], [ %263, %256 ]
   %244 = phi i16 [ %233, %.lr.ph.preheader ], [ %258, %256 ]
-  %.0178393 = phi i32 [ %.0177.lcssa495, %.lr.ph.preheader ], [ %257, %256 ]
+  %.0178393 = phi i32 [ %.0177.lcssa516, %.lr.ph.preheader ], [ %257, %256 ]
   %245 = zext i32 %243 to i64
   %246 = icmp samesign ult i64 %indvars.iv489, %245
   br i1 %246, label %247, label %_ZNK6icu_7713UnicodeStringixEi.exit246
@@ -1085,7 +1085,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit246:           ; preds = %247, %.lr.ph
 
 255:                                              ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit246
   %.not214 = icmp eq i8 %254, 0
-  br i1 %.not214, label %.critedge3.loopexit.split.loop.exit597, label %256
+  br i1 %.not214, label %.critedge3.loopexit.split.loop.exit618, label %256
 
 256:                                              ; preds = %255
   %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
@@ -1110,13 +1110,13 @@ _ZNK6icu_7713UnicodeStringixEi.exit246:           ; preds = %247, %.lr.ph
           cleanup
   br label %.body242
 
-.critedge3.loopexit.split.loop.exit597:           ; preds = %255
+.critedge3.loopexit.split.loop.exit618:           ; preds = %255
   %266 = trunc nuw nsw i64 %indvars.iv489 to i32
   br label %.critedge3
 
-.critedge3:                                       ; preds = %256, %.critedge3.loopexit.split.loop.exit597, %.preheader
-  %.0178.lcssa = phi i32 [ %.0177.lcssa495, %.preheader ], [ %266, %.critedge3.loopexit.split.loop.exit597 ], [ %257, %256 ]
-  %267 = icmp samesign ult i32 %.0177.lcssa495, %.0178.lcssa
+.critedge3:                                       ; preds = %256, %.critedge3.loopexit.split.loop.exit618, %.preheader
+  %.0178.lcssa = phi i32 [ %.0177.lcssa516, %.preheader ], [ %266, %.critedge3.loopexit.split.loop.exit618 ], [ %257, %256 ]
+  %267 = icmp samesign ult i32 %.0177.lcssa516, %.0178.lcssa
   br i1 %267, label %268, label %321
 
 268:                                              ; preds = %.critedge3
@@ -1167,7 +1167,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit246:           ; preds = %247, %.lr.ph
 
 294:                                              ; preds = %287
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  invoke void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef %.0177.lcssa495)
+  invoke void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef %.0177.lcssa516)
           to label %295 unwind label %312
 
 295:                                              ; preds = %294
@@ -1219,8 +1219,8 @@ _ZNK6icu_7713UnicodeStringixEi.exit246:           ; preds = %247, %.lr.ph
 .thread281:                                       ; preds = %310, %308
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %spec.select = call i32 @llvm.smin.i32(i32 %.0177.lcssa495, i32 %.0154.ph)
-  %.4166 = call i32 @llvm.smax.i32(i32 %.0177.lcssa495, i32 %.0162.ph)
+  %spec.select = call i32 @llvm.smin.i32(i32 %.0177.lcssa516, i32 %.0154.ph)
+  %.4166 = call i32 @llvm.smax.i32(i32 %.0177.lcssa516, i32 %.0162.ph)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %343
@@ -1260,7 +1260,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit246:           ; preds = %247, %.lr.ph
 
 321:                                              ; preds = %.critedge3
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  invoke void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %14, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef %.0177.lcssa495)
+  invoke void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %14, ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef 0, i32 noundef %.0177.lcssa516)
           to label %322 unwind label %338
 
 322:                                              ; preds = %321
@@ -1311,8 +1311,8 @@ _ZNK6icu_7713UnicodeStringixEi.exit246:           ; preds = %247, %.lr.ph
 _ZN8DataDict7addWordERKN6icu_7713UnicodeStringEiR10UErrorCode.exit258: ; preds = %334, %336
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %14) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %spec.select234 = call i32 @llvm.smin.i32(i32 %.0177.lcssa495, i32 %.0154.ph)
-  %spec.select235 = call i32 @llvm.smax.i32(i32 %.0177.lcssa495, i32 %.0162.ph)
+  %spec.select234 = call i32 @llvm.smin.i32(i32 %.0177.lcssa516, i32 %.0154.ph)
+  %spec.select235 = call i32 @llvm.smax.i32(i32 %.0177.lcssa516, i32 %.0162.ph)
   br label %343
 
 338:                                              ; preds = %321

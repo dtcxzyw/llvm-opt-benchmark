@@ -519,10 +519,10 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread
 
 .critedge102:                                     ; preds = %100, %98
-  %.sink104 = phi i32 [ 189, %98 ], [ 193, %100 ]
+  %.sink116 = phi i32 [ 189, %98 ], [ 193, %100 ]
   %.sink = phi i32 [ 103, %98 ], [ 105, %100 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink104, ptr noundef nonnull @__func__.aes_set_ctx_params) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink116, ptr noundef nonnull @__func__.aes_set_ctx_params) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ossl_param_is_empty.exit.thread

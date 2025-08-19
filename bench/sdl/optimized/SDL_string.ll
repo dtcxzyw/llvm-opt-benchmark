@@ -742,9 +742,9 @@ define internal fastcc range(i32 0, 1966080) i32 @StepUTF8(ptr noundef captures(
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %49, %8, %.critedge.thread, %.critedge, %.critedge80
-  %.sink88 = phi i64 [ 4, %.critedge80 ], [ 2, %.critedge ], [ 1, %.critedge.thread ], [ 1, %8 ], [ 3, %49 ]
+  %.sink93 = phi i64 [ 4, %.critedge80 ], [ 2, %.critedge ], [ 1, %.critedge.thread ], [ 1, %8 ], [ 3, %49 ]
   %.0.ph = phi i32 [ %87, %.critedge80 ], [ %25, %.critedge ], [ 65533, %.critedge.thread ], [ %6, %8 ], [ %51, %49 ]
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink88
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink93
   store ptr %88, ptr %0, align 8
   br label %.thread
 
@@ -1164,7 +1164,7 @@ define hidden i64 @SDL_strlcpy_REAL(ptr noundef %0, ptr noundef %1, i64 noundef 
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @SDL_utf8strlcpy_REAL(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #15 {
+define hidden range(i64 0, -1) i64 @SDL_utf8strlcpy_REAL(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #15 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %25, label %4
 

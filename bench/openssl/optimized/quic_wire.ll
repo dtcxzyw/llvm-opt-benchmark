@@ -1302,8 +1302,8 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_frame_ack(ptr noundef captures
   %24 = and i64 %19, -2
   %.not6.i = icmp ne i64 %24, 2
   %25 = icmp eq i64 %22, %16
-  %or.cond153 = select i1 %.not6.i, i1 true, i1 %25
-  br i1 %or.cond153, label %.critedge, label %26
+  %or.cond174 = select i1 %.not6.i, i1 true, i1 %25
+  br i1 %or.cond174, label %.critedge, label %26
 
 26:                                               ; preds = %18
   %27 = load i8, ptr %21, align 1, !tbaa !55
@@ -1426,8 +1426,8 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %82
-  %.not150 = icmp eq i64 %62, 0
-  br i1 %.not150, label %._crit_edge.thread, label %.lr.ph.split.us.preheader
+  %.not171 = icmp eq i64 %62, 0
+  br i1 %.not171, label %._crit_edge.thread, label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %100
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1566,23 +1566,23 @@ safe_mul_uint64_t.exit.thread:                    ; preds = %84
 181:                                              ; preds = %172, %176
   %.150 = phi i64 [ %177, %176 ], [ %.049144, %172 ]
   %exitcond.not = icmp eq i64 %173, %62
-  br i1 %exitcond.not, label %._crit_edge.thread151, label %.lr.ph.split, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge.thread172, label %.lr.ph.split, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %136, %100
-  br i1 %.not71, label %._crit_edge.thread, label %._crit_edge.thread151
+  br i1 %.not71, label %._crit_edge.thread, label %._crit_edge.thread172
 
-._crit_edge.thread151:                            ; preds = %181, %._crit_edge
+._crit_edge.thread172:                            ; preds = %181, %._crit_edge
   %182 = add i64 %62, 1
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %184 = load i64, ptr %183, align 8, !tbaa !3
   %185 = icmp ult i64 %182, %184
   br i1 %185, label %186, label %._crit_edge.thread
 
-186:                                              ; preds = %._crit_edge.thread151
+186:                                              ; preds = %._crit_edge.thread172
   store i64 %182, ptr %183, align 8, !tbaa !3
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.thread, %186, %._crit_edge.thread151, %._crit_edge
+._crit_edge.thread:                               ; preds = %.thread, %186, %._crit_edge.thread172, %._crit_edge
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %189, label %187
 
@@ -2153,9 +2153,9 @@ PACKET_get_quic_vlint.exit39:                     ; preds = %63
   br i1 %86, label %expect_frame_header_mask.exit.thread, label %.thread54.thread
 
 .thread54.thread:                                 ; preds = %.thread
-  %.val3260 = load ptr, ptr %0, align 8, !tbaa !54
+  %.val3267 = load ptr, ptr %0, align 8, !tbaa !54
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %.val3260, ptr %87, align 8, !tbaa !39
+  store ptr %.val3267, ptr %87, align 8, !tbaa !39
   br label %PACKET_forward.exit
 
 88:                                               ; preds = %79
@@ -2176,12 +2176,12 @@ PACKET_get_quic_vlint.exit39:                     ; preds = %63
   br i1 %92, label %expect_frame_header_mask.exit.thread, label %PACKET_forward.exit
 
 PACKET_forward.exit:                              ; preds = %.thread54.thread, %.thread54
-  %.val3262 = phi ptr [ %.val3260, %.thread54.thread ], [ %.val32, %.thread54 ]
+  %.val3269 = phi ptr [ %.val3267, %.thread54.thread ], [ %.val32, %.thread54 ]
   %93 = phi i64 [ %.val, %.thread54.thread ], [ %80, %.thread54 ]
-  %.val.i4061 = phi i64 [ %.val, %.thread54.thread ], [ %.val.i40.pre, %.thread54 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.val3262, i64 %93
+  %.val.i4068 = phi i64 [ %.val, %.thread54.thread ], [ %.val.i40.pre, %.thread54 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.val3269, i64 %93
   store ptr %94, ptr %0, align 8, !tbaa !54
-  %95 = sub nuw i64 %.val.i4061, %93
+  %95 = sub nuw i64 %.val.i4068, %93
   store i64 %95, ptr %4, align 8, !tbaa !52
   br label %expect_frame_header_mask.exit.thread
 
@@ -2637,8 +2637,8 @@ expect_frame_header.exit:                         ; preds = %5
   %47 = load i64, ptr %1, align 8, !tbaa !44
   %48 = icmp ult i64 %47, %42
   %.not.i.i = icmp eq i64 %45, %39
-  %or.cond48 = select i1 %48, i1 true, i1 %.not.i.i
-  br i1 %or.cond48, label %expect_frame_header.exit.thread, label %PACKET_get_1.exit
+  %or.cond54 = select i1 %48, i1 true, i1 %.not.i.i
+  br i1 %or.cond54, label %expect_frame_header.exit.thread, label %PACKET_get_1.exit
 
 PACKET_get_1.exit:                                ; preds = %41
   %49 = load i8, ptr %44, align 1, !tbaa !55

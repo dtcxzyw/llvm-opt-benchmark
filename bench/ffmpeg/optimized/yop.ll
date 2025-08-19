@@ -276,17 +276,17 @@ yop_get_next_nibble.exit.thread:                  ; preds = %104
   %109 = load i8, ptr %105, align 1, !tbaa !36
   %110 = and i8 %109, 15
   store ptr null, ptr %38, align 8, !tbaa !49
-  %.not85105 = icmp eq i8 %110, 15
-  br i1 %.not85105, label %156, label %111
+  %.not85120 = icmp eq i8 %110, 15
+  br i1 %.not85120, label %156, label %111
 
 111:                                              ; preds = %yop_get_next_nibble.exit.thread, %yop_get_next_nibble.exit
-  %.0.in.i106 = phi i8 [ %110, %yop_get_next_nibble.exit.thread ], [ %108, %yop_get_next_nibble.exit ]
+  %.0.in.i121 = phi i8 [ %110, %yop_get_next_nibble.exit.thread ], [ %108, %yop_get_next_nibble.exit ]
   %112 = phi ptr [ %96, %yop_get_next_nibble.exit.thread ], [ %106, %yop_get_next_nibble.exit ]
   %113 = load ptr, ptr %37, align 8, !tbaa !48
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %112 to i64
   %116 = sub i64 %114, %115
-  %117 = zext nneg i8 %.0.in.i106 to i64
+  %117 = zext nneg i8 %.0.in.i121 to i64
   %118 = getelementptr inbounds nuw [15 x [4 x i8]], ptr @paint_lut, i64 0, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 3
   %120 = load i8, ptr %119, align 1, !tbaa !36

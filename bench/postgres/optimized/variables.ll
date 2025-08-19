@@ -372,7 +372,7 @@ valid_variable_name.exit:                         ; preds = %12, %47
   br i1 %.not64, label %.thread68, label %49
 
 49:                                               ; preds = %.thread71
-  %.052.in.le82 = getelementptr inbounds nuw i8, ptr %.051, i64 32
+  %.052.in.le89 = getelementptr inbounds nuw i8, ptr %.051, i64 32
   %50 = tail call ptr @pg_malloc(i64 noundef 40) #11
   %51 = tail call ptr @pg_strdup(ptr noundef nonnull %1) #11
   store ptr %51, ptr %50, align 8
@@ -381,10 +381,10 @@ valid_variable_name.exit:                         ; preds = %12, %47
   store ptr %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  %55 = load ptr, ptr %.052.in.le82, align 8
+  %55 = load ptr, ptr %.052.in.le89, align 8
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr %55, ptr %56, align 8
-  store ptr %50, ptr %.052.in.le82, align 8
+  store ptr %50, ptr %.052.in.le89, align 8
   br label %.thread68
 
 .thread68:                                        ; preds = %46, %42, %39, %36, %.thread, %.thread71, %49, %.loopexit, %3, %14

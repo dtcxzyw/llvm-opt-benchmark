@@ -5906,9 +5906,9 @@ emitter_table_row.exit:                           ; preds = %emitter_col_init.ex
   %451 = icmp sgt i64 %450, -1
   %452 = inttoptr i64 %450 to ptr
   %spec.select = select i1 %451, i32 7, i32 9
-  %spec.select531 = select i1 %451, ptr %452, ptr @.str.315
+  %spec.select599 = select i1 %451, ptr %452, ptr @.str.315
   store i32 %spec.select, ptr %414, align 8, !tbaa !38
-  store ptr %spec.select531, ptr %415, align 8, !tbaa !8
+  store ptr %spec.select599, ptr %415, align 8, !tbaa !8
   store i32 6, ptr %418, align 8, !tbaa !38
   %453 = load i64, ptr %131, align 8, !tbaa !4
   store i64 %453, ptr %419, align 8, !tbaa !8
@@ -5954,10 +5954,10 @@ emitter_table_row.exit201:                        ; preds = %emitter_table_row.e
   %467 = load i64, ptr %128, align 8, !tbaa !4
   %468 = icmp sgt i64 %467, -1
   %469 = inttoptr i64 %467 to ptr
-  %spec.select532 = select i1 %468, i32 7, i32 9
-  %spec.select533 = select i1 %468, ptr %469, ptr @.str.315
-  store i32 %spec.select532, ptr %414, align 8, !tbaa !38
-  store ptr %spec.select533, ptr %415, align 8, !tbaa !8
+  %spec.select600 = select i1 %468, i32 7, i32 9
+  %spec.select601 = select i1 %468, ptr %469, ptr @.str.315
+  store i32 %spec.select600, ptr %414, align 8, !tbaa !38
+  store ptr %spec.select601, ptr %415, align 8, !tbaa !8
   store i32 6, ptr %418, align 8, !tbaa !38
   %470 = load i64, ptr %132, align 8, !tbaa !4
   store i64 %470, ptr %419, align 8, !tbaa !8

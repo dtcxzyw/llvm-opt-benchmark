@@ -231,9 +231,9 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 39, ptr noundef %2, ptr noundef %3)
-  br i1 %57, label %.thread4, label %.critedge
+  br i1 %57, label %.thread6, label %.critedge
 
-.thread4:                                         ; preds = %56
+.thread6:                                         ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 35
   %.val78 = load i8, ptr %58, align 1
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -326,8 +326,8 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   store i32 %110, ptr %53, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread4, %47, %107, %105
-  %.167.neg3 = phi i64 [ %.167.neg, %107 ], [ %.167.neg, %105 ], [ -37, %47 ], [ -76, %.thread4 ]
+.thread:                                          ; preds = %.thread6, %47, %107, %105
+  %.167.neg3 = phi i64 [ %.167.neg, %107 ], [ %.167.neg, %105 ], [ -37, %47 ], [ -76, %.thread6 ]
   %114 = call i64 @file_seek(ptr noundef %0, i64 noundef %.167.neg3, i32 noundef 1, ptr noundef %2)
   %115 = icmp eq i64 %114, -1
   br i1 %115, label %119, label %116

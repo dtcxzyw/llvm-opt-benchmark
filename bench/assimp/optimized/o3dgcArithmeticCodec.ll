@@ -1278,11 +1278,11 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
 
 .lr.ph48.preheader:                               ; preds = %._crit_edge43.thread, %._crit_edge43
   %79 = phi ptr [ %31, %._crit_edge43.thread ], [ %76, %._crit_edge43 ]
-  %.031.lcssa69 = phi i32 [ 0, %._crit_edge43.thread ], [ %.132.lcssa, %._crit_edge43 ]
+  %.031.lcssa70 = phi i32 [ 0, %._crit_edge43.thread ], [ %.132.lcssa, %._crit_edge43 ]
   br label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
-  %.246 = phi i32 [ %83, %.lr.ph48 ], [ %.031.lcssa69, %.lr.ph48.preheader ]
+  %.246 = phi i32 [ %83, %.lr.ph48 ], [ %.031.lcssa70, %.lr.ph48.preheader ]
   %80 = load i32, ptr %29, align 4
   %81 = add i32 %80, -1
   %82 = load ptr, ptr %79, align 8

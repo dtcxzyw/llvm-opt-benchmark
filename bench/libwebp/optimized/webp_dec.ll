@@ -94,7 +94,7 @@ define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0,
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i, label %25, label %ParseRIFF.exit.thread166
+  br i1 %.not.i, label %25, label %ParseRIFF.exit.thread180
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -130,9 +130,9 @@ ParseRIFF.exit:                                   ; preds = %35
   %40 = add i64 %1, -12
   store i64 %40, ptr %10, align 8, !tbaa !14
   %41 = icmp ult i64 %40, 8
-  br i1 %41, label %ParseRIFF.exit.thread, label %ParseRIFF.exit.thread166
+  br i1 %41, label %ParseRIFF.exit.thread, label %ParseRIFF.exit.thread180
 
-ParseRIFF.exit.thread166:                         ; preds = %21, %ParseRIFF.exit
+ParseRIFF.exit.thread180:                         ; preds = %21, %ParseRIFF.exit
   %42 = phi i64 [ %40, %ParseRIFF.exit ], [ %1, %21 ]
   %43 = phi i64 [ %36, %ParseRIFF.exit ], [ 0, %21 ]
   %44 = phi ptr [ %39, %ParseRIFF.exit ], [ %0, %21 ]
@@ -140,7 +140,7 @@ ParseRIFF.exit.thread166:                         ; preds = %21, %ParseRIFF.exit
   %.not.i99 = icmp eq i32 %bcmp.i98, 0
   br i1 %.not.i99, label %45, label %ParseVP8X.exit.thread125
 
-45:                                               ; preds = %ParseRIFF.exit.thread166
+45:                                               ; preds = %ParseRIFF.exit.thread180
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.val.i.i100 = load i32, ptr %46, align 1
   %.not28.i = icmp eq i32 %.val.i.i100, 10
@@ -185,14 +185,14 @@ ParseVP8X.exit:                                   ; preds = %49
   %.lobit = lshr exact i32 %70, 1
   br i1 %.not.i, label %ParseVP8X.exit.thread125, label %ParseRIFF.exit.thread
 
-ParseVP8X.exit.thread125:                         ; preds = %ParseRIFF.exit.thread166, %ParseVP8X.exit
-  %72 = phi ptr [ %68, %ParseVP8X.exit ], [ %44, %ParseRIFF.exit.thread166 ]
-  %73 = phi i64 [ %69, %ParseVP8X.exit ], [ %42, %ParseRIFF.exit.thread166 ]
-  %or.cond5 = phi i1 [ %71, %ParseVP8X.exit ], [ false, %ParseRIFF.exit.thread166 ]
-  %.lobit137 = phi i32 [ %.lobit, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread166 ]
-  %.0110136 = phi i32 [ %.val.i29.i, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread166 ]
-  %.0112134 = phi i32 [ %65, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread166 ]
-  %.0113133 = phi i32 [ %57, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread166 ]
+ParseVP8X.exit.thread125:                         ; preds = %ParseRIFF.exit.thread180, %ParseVP8X.exit
+  %72 = phi ptr [ %68, %ParseVP8X.exit ], [ %44, %ParseRIFF.exit.thread180 ]
+  %73 = phi i64 [ %69, %ParseVP8X.exit ], [ %42, %ParseRIFF.exit.thread180 ]
+  %or.cond5 = phi i1 [ %71, %ParseVP8X.exit ], [ false, %ParseRIFF.exit.thread180 ]
+  %.lobit137 = phi i32 [ %.lobit, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread180 ]
+  %.0110136 = phi i32 [ %.val.i29.i, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread180 ]
+  %.0112134 = phi i32 [ %65, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread180 ]
+  %.0113133 = phi i32 [ %57, %ParseVP8X.exit ], [ 0, %ParseRIFF.exit.thread180 ]
   %.not82 = icmp eq ptr %4, null
   br i1 %.not82, label %76, label %74
 
@@ -756,7 +756,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 62:                                               ; preds = %60
   %63 = call i32 @VP8LDecodeHeader(ptr noundef nonnull %61, ptr noundef nonnull %6) #10
   %.not56 = icmp eq i32 %63, 0
-  br i1 %.not56, label %.sink.split64, label %64
+  br i1 %.not56, label %.sink.split69, label %64
 
 64:                                               ; preds = %62
   %65 = load i32, ptr %6, align 8, !tbaa !49
@@ -772,14 +772,14 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
 73:                                               ; preds = %64
   %74 = call i32 @VP8LDecodeImage(ptr noundef nonnull %61) #10
   %.not57 = icmp eq i32 %74, 0
-  br i1 %.not57, label %.sink.split64, label %76
+  br i1 %.not57, label %.sink.split69, label %76
 
-.sink.split64:                                    ; preds = %73, %62
+.sink.split69:                                    ; preds = %73, %62
   %75 = load i32, ptr %61, align 8, !tbaa !54
   br label %76
 
-76:                                               ; preds = %.sink.split64, %64, %73
-  %.4 = phi i32 [ 0, %73 ], [ %71, %64 ], [ %75, %.sink.split64 ]
+76:                                               ; preds = %.sink.split69, %64, %73
+  %.4 = phi i32 [ 0, %73 ], [ %71, %64 ], [ %75, %.sink.split69 ]
   call void @VP8LDelete(ptr noundef nonnull %61) #10
   br label %77
 

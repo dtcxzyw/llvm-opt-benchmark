@@ -132,7 +132,7 @@ bytestream2_get_le32.exit139:                     ; preds = %bytestream2_get_le3
   br i1 %.not121, label %.preheader, label %bytestream2_get_le32.exit139.thread
 
 .preheader:                                       ; preds = %bytestream2_get_le32.exit139
-  %37 = icmp ugt i32 %22, 20
+  %37 = icmp samesign ugt i32 %22, 20
   br i1 %37, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1954,7 +1954,7 @@ default.unreachable:                              ; preds = %126
   %556 = and i32 %555, %524
   %557 = add i32 %.sroa.6.092.i, %513
   %558 = call i32 @llvm.umin.i32(i32 %536, i32 %557)
-  %559 = trunc nuw i32 %556 to i8
+  %559 = trunc nuw nsw i32 %556 to i8
   %560 = getelementptr inbounds nuw i8, ptr %549, i64 2
   store i8 %559, ptr %560, align 1, !tbaa !59
   %561 = add nsw i32 %.07494.i, 1
@@ -3791,8 +3791,8 @@ huff_reader_get_symbol.exit336:                   ; preds = %905, %908, %get_vlc
   br i1 %994, label %.thread, label %1004
 
 .thread:                                          ; preds = %972, %974
-  %.0247.in432 = phi i32 [ %993, %974 ], [ %.0.i331, %972 ]
-  %995 = zext nneg i32 %.0247.in432 to i64
+  %.0247.in455 = phi i32 [ %993, %974 ], [ %.0.i331, %972 ]
+  %995 = zext nneg i32 %.0247.in455 to i64
   %996 = getelementptr inbounds nuw [120 x [2 x i8]], ptr @lz77_distance_offsets, i64 0, i64 %995
   %997 = load i8, ptr %996, align 2, !tbaa !59
   %998 = sext i8 %997 to i32

@@ -328,7 +328,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_get_bit(ptr noundef readonly captu
   br i1 %17, label %18, label %.preheader, !llvm.loop !11
 
 18:                                               ; preds = %15
-  %19 = trunc i64 %1 to i32
+  %19 = trunc nuw i64 %1 to i32
   %20 = sub i32 %19, %12
   %21 = icmp ugt i32 %20, 383
   br i1 %21, label %22, label %23, !prof !12

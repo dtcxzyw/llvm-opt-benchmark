@@ -4411,14 +4411,14 @@ define hidden void @_ZN8uv_types4hash12HashStrategy3get17h9694dd8446326ab2E(ptr 
   %4 = alloca [88 x i8], align 8
   %5 = alloca [88 x i8], align 8
   %6 = load i8, ptr %1, align 8, !range !244, !noundef !8
-  switch i8 %6, label %default.unreachable11 [
+  switch i8 %6, label %default.unreachable12 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %12
     i8 3, label %17
   ]
 
-default.unreachable11:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -7114,7 +7114,7 @@ define noundef range(i8 0, 4) i8 @_ZN12uv_installer9satisfies23RequirementSatisf
 305:                                              ; preds = %296
   %306 = load i64, ptr %277, align 8, !range !75, !noundef !8
   %307 = icmp eq i64 %306, -9223372036854775808
-  br i1 %307, label %.thread635, label %334
+  br i1 %307, label %.thread661, label %334
 
 308:                                              ; preds = %302
   %309 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12uv_installer9satisfies23RequirementSatisfaction5check10__CALLSITE17hc8de9a803d4ad2e7E, i64 16) monotonic, align 8
@@ -7217,14 +7217,14 @@ define noundef range(i8 0, 4) i8 @_ZN12uv_installer9satisfies23RequirementSatisf
   %trunc470 = trunc nuw i64 %339 to i1
   br i1 %trunc470, label %346, label %.critedge488
 
-.thread635:                                       ; preds = %305
+.thread661:                                       ; preds = %305
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @_ZN12uv_git_types6GitUrl7precise17h401529f0891ff2a7E(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %99)
   %340 = load i64, ptr %63, align 8, !range !281, !noundef !8
-  %trunc470638 = trunc nuw i64 %340 to i1
-  br i1 %trunc470638, label %341, label %.thread633
+  %trunc470664 = trunc nuw i64 %340 to i1
+  br i1 %trunc470664, label %341, label %.thread633
 
-341:                                              ; preds = %.thread635
+341:                                              ; preds = %.thread661
   %342 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %343 = call { ptr, i64 } @_ZN12uv_git_types3oid6GitOid6as_str17h5d29038eb382cb74E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %342)
   %344 = extractvalue { ptr, i64 } %343, 0
@@ -7246,7 +7246,7 @@ define noundef range(i8 0, 4) i8 @_ZN12uv_installer9satisfies23RequirementSatisf
   %353 = icmp eq i32 %bcmp.i546, 0
   br i1 %353, label %.thread633, label %.critedge488
 
-.thread633:                                       ; preds = %.thread635, %341, %352
+.thread633:                                       ; preds = %.thread661, %341, %352
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
@@ -7521,7 +7521,7 @@ define noundef range(i8 0, 4) i8 @_ZN12uv_installer9satisfies23RequirementSatisf
 437:                                              ; preds = %.thread594, %426
   call fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17he09810062408c07bE"(ptr noalias noundef align 8 dereferenceable(24) %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  br label %.sink.split646
+  br label %.sink.split672
 
 438:                                              ; preds = %504, %496, %439
   %.pn467 = phi { ptr, i32 } [ %505, %504 ], [ %440, %439 ], [ %497, %496 ]
@@ -7668,7 +7668,7 @@ define noundef range(i8 0, 4) i8 @_ZN12uv_installer9satisfies23RequirementSatisf
 .critedge498:                                     ; preds = %455, %482, %463, %481, %459, %452, %503
   %.sroa.0.6 = phi i8 [ %.sroa.0.7, %503 ], [ 0, %452 ], [ 0, %459 ], [ 0, %481 ], [ 0, %463 ], [ 2, %482 ], [ %456, %455 ]
   call void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1d12f4ff3d9ce15bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56)
-  br label %.sink.split646
+  br label %.sink.split672
 
 482:                                              ; preds = %449, %441
   %483 = load i64, ptr %150, align 8, !range !270, !noundef !8
@@ -7846,13 +7846,13 @@ define noundef range(i8 0, 4) i8 @_ZN12uv_installer9satisfies23RequirementSatisf
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %503
 
-.sink.split646:                                   ; preds = %437, %.critedge498
+.sink.split672:                                   ; preds = %437, %.critedge498
   %.sroa.0.5.ph = phi i8 [ %.sroa.0.6, %.critedge498 ], [ 0, %437 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %538
 
-538:                                              ; preds = %.sink.split646, %408, %413, %148
-  %.sroa.0.5 = phi i8 [ 0, %148 ], [ 0, %413 ], [ 0, %408 ], [ %.sroa.0.5.ph, %.sink.split646 ]
+538:                                              ; preds = %.sink.split672, %408, %413, %148
+  %.sroa.0.5 = phi i8 [ 0, %148 ], [ 0, %413 ], [ 0, %408 ], [ %.sroa.0.5.ph, %.sink.split672 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.critedge479
 

@@ -904,13 +904,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !19
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !19
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1186,14 +1186,14 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br i1 %.not.i.i.i2.i, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %32, %_ZN3gmx21OuterProductEvaluatorD2Ev.exit
-  %.sink19 = phi ptr [ %72, %_ZN3gmx21OuterProductEvaluatorD2Ev.exit ], [ %34, %32 ]
+  %.sink22 = phi ptr [ %72, %_ZN3gmx21OuterProductEvaluatorD2Ev.exit ], [ %34, %32 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %64, %_ZN3gmx21OuterProductEvaluatorD2Ev.exit ], [ %33, %32 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !18
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.sink19 to i64
+  %38 = ptrtoint ptr %.sink22 to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink19, i64 noundef %39) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink22, i64 noundef %39) #23
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN3gmx21OuterProductEvaluatorD2Ev.exit, %32
@@ -1543,7 +1543,7 @@ _ZN3gmx21OuterProductEvaluatorclENS_8ArrayRefIKfEES3_.exit: ; preds = %_ZN3gmx13
   %122 = sext i32 %107 to i64
   %wide.trip.count102 = sext i32 %109 to i64
   %wide.trip.count97 = sext i32 %112 to i64
-  %invariant.gep108 = getelementptr float, ptr %97, i64 %120
+  %invariant.gep121 = getelementptr float, ptr %97, i64 %120
   %wide.trip.count = sext i32 %115 to i64
   %invariant.gep = getelementptr float, ptr %100, i64 %118
   br label %.lr.ph.split.us.split.us
@@ -1569,15 +1569,15 @@ _ZNK3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14ac
   %129 = getelementptr inbounds float, ptr %.sroa.650.0.copyload, i64 %128
   %130 = add nsw i64 %indvars.iv99, %122
   %131 = mul nsw i64 %.sroa.360.8.copyload, %130
-  %gep109 = getelementptr float, ptr %invariant.gep108, i64 %131
+  %gep122 = getelementptr float, ptr %invariant.gep121, i64 %131
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %_ZNK3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIfEEEixIiNS0_IfNS1_IJLln1ELln1EEEES3_S5_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS2_4rankEvEELi1EL_ZSt9is_same_vIS3_S3_EEET0_E4typeESB_.exit.us.us
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %._crit_edge.us.us.us ], [ %119, %_ZNK3gmx12basic_mdspanIfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIfEEEixIiNS0_IfNS1_IJLln1ELln1EEEES3_S5_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS2_4rankEvEELi1EL_ZSt9is_same_vIS3_S3_EEET0_E4typeESB_.exit.us.us ]
   %132 = mul nsw i64 %.sroa.4.0.copyload, %indvars.iv94
   %133 = getelementptr inbounds float, ptr %129, i64 %132
-  %gep107 = getelementptr float, ptr %gep109, i64 %indvars.iv94
-  %134 = load float, ptr %gep107, align 4, !tbaa !19
+  %gep120 = getelementptr float, ptr %gep122, i64 %indvars.iv94
+  %134 = load float, ptr %gep120, align 4, !tbaa !19
   br label %135
 
 135:                                              ; preds = %135, %.lr.ph.us.us.us

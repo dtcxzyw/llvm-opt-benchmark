@@ -719,7 +719,7 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not48.us.us, label %.critedge.us.us, label %.split.us.thread
 
 .split.us.thread:                                 ; preds = %31
-  %.pre99102 = load i64, ptr %4, align 8, !tbaa !102
+  %.pre99106 = load i64, ptr %4, align 8, !tbaa !102
   br label %.loopexit.sink.split
 
 .critedge.us.us:                                  ; preds = %31, %28, %23, %.lr.ph.split.us.split.split.us
@@ -769,9 +769,9 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
 57:                                               ; preds = %52
   %58 = sext i32 %.062 to i64
   %59 = icmp ult i64 %.pre, %58
-  %or.cond108 = select i1 %56, i1 true, i1 %59
+  %or.cond112 = select i1 %56, i1 true, i1 %59
   %60 = trunc i64 %.pre to i32
-  %spec.select = select i1 %or.cond108, i32 %60, i32 %.062
+  %spec.select = select i1 %or.cond112, i32 %60, i32 %.062
   br label %.critedge.thread
 
 .split.us:                                        ; preds = %52
@@ -806,7 +806,7 @@ define hidden ptr @ssl3_choose_cipher(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %73, label %.lr.ph.split.split, label %.loopexit, !llvm.loop !103
 
 .loopexit.sink.split:                             ; preds = %.split.us, %61, %64, %.split.us.thread, %.split64
-  %.sink = phi i64 [ %69, %.split64 ], [ %62, %64 ], [ %.pre, %61 ], [ %.pre, %.split.us ], [ %.pre99102, %.split.us.thread ]
+  %.sink = phi i64 [ %69, %.split64 ], [ %62, %64 ], [ %.pre, %61 ], [ %.pre, %.split.us ], [ %.pre99106, %.split.us.thread ]
   %74 = call ptr @sk_value(ptr noundef %.044, i64 noundef %.sink) #15
   br label %.loopexit
 
@@ -836,7 +836,7 @@ define hidden range(i32 0, 3) i32 @ssl3_get_req_cert_type(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i64 @tls12_get_psigalgs(ptr noundef %0, ptr noundef nonnull %3) #15
   %.not21 = icmp eq i64 %4, 0
-  br i1 %.not21, label %.thread32, label %.lr.ph.preheader
+  br i1 %.not21, label %.thread33, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %.promoted = load ptr, ptr %3, align 8
@@ -876,9 +876,9 @@ define hidden range(i32 0, 3) i32 @ssl3_get_req_cert_type(ptr noundef %0, ptr no
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %12, ptr %3, align 8, !tbaa !85
   %13 = icmp ult i64 %11, %4
-  br i1 %13, label %.lr.ph, label %._crit_edge.thread29, !llvm.loop !105
+  br i1 %13, label %.lr.ph, label %._crit_edge.thread30, !llvm.loop !105
 
-._crit_edge.thread29:                             ; preds = %.thread
+._crit_edge.thread30:                             ; preds = %.thread
   %14 = icmp ne i32 %.019.ph, 0
   br label %17
 
@@ -887,27 +887,27 @@ define hidden range(i32 0, 3) i32 @ssl3_get_req_cert_type(ptr noundef %0, ptr no
   %16 = icmp ne i32 %.1, 0
   br i1 %15, label %19, label %17
 
-17:                                               ; preds = %._crit_edge.thread29, %._crit_edge
-  %18 = phi i1 [ %14, %._crit_edge.thread29 ], [ %16, %._crit_edge ]
+17:                                               ; preds = %._crit_edge.thread30, %._crit_edge
+  %18 = phi i1 [ %14, %._crit_edge.thread30 ], [ %16, %._crit_edge ]
   store i8 1, ptr %1, align 1, !tbaa !37
   br label %19
 
 19:                                               ; preds = %17, %._crit_edge
-  %.0.lcssa24 = phi i1 [ %18, %17 ], [ %16, %._crit_edge ]
+  %.0.lcssa25 = phi i1 [ %18, %17 ], [ %16, %._crit_edge ]
   %.014 = phi i32 [ 1, %17 ], [ 0, %._crit_edge ]
   %20 = load i32, ptr %0, align 8, !tbaa !41
   %21 = icmp sgt i32 %20, 768
-  %or.cond = select i1 %21, i1 %.0.lcssa24, i1 false
-  br i1 %or.cond, label %22, label %.thread32
+  %or.cond = select i1 %21, i1 %.0.lcssa25, i1 false
+  br i1 %or.cond, label %22, label %.thread33
 
 22:                                               ; preds = %19
   %23 = add nuw nsw i32 %.014, 1
   %24 = zext nneg i32 %.014 to i64
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
   store i8 64, ptr %25, align 1, !tbaa !37
-  br label %.thread32
+  br label %.thread33
 
-.thread32:                                        ; preds = %2, %22, %19
+.thread33:                                        ; preds = %2, %22, %19
   %.115 = phi i32 [ %23, %22 ], [ %.014, %19 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.115

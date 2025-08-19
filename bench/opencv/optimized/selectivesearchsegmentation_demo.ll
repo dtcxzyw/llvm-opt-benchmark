@@ -242,10 +242,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   br label %.invoke
 
 .invoke:                                          ; preds = %49, %72
-  %.sink85 = phi i64 [ 88, %72 ], [ 80, %49 ]
+  %.sink97 = phi i64 [ 88, %72 ], [ 80, %49 ]
   %73 = load ptr, ptr %6, align 8, !tbaa !17
   %74 = load ptr, ptr %73, align 8, !tbaa !29
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %.sink85
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %.sink97
   %76 = load ptr, ptr %75, align 8
   invoke void %76(ptr noundef nonnull align 8 dereferenceable(8) %73, i32 noundef 150, i32 noundef 150, float noundef 0x3FE99999A0000000)
           to label %78 unwind label %70

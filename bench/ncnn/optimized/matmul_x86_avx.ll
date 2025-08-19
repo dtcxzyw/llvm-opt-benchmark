@@ -416,8 +416,8 @@ _ZN4ncnn3MatD2Ev.exit426:                         ; preds = %112, %_ZN4ncnn3Mata
   %130 = getelementptr inbounds nuw i8, ptr %37, i64 116
   %131 = load i32, ptr %130, align 4, !tbaa !41
   %. = select i1 %.not335, i32 1, i32 %131
-  %.2500 = select i1 %.not335, i32 %131, i32 1
-  invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %., i32 noundef %.2500, ptr noundef null)
+  %.2904 = select i1 %.not335, i32 %131, i32 1
+  invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %., i32 noundef %.2904, ptr noundef null)
           to label %132 unwind label %329
 
 132:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit426
@@ -1703,9 +1703,9 @@ _ZN4ncnn3MataSERKS0_.exit366:                     ; preds = %.noexc365, %681
   %.not320 = icmp eq i32 %733, 0
   %734 = getelementptr inbounds nuw i8, ptr %37, i64 116
   %735 = load i32, ptr %734, align 4, !tbaa !41
-  %.2501 = select i1 %.not320, i32 1, i32 %735
-  %.2502 = select i1 %.not320, i32 %735, i32 1
-  invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %13, ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %.2501, i32 noundef %.2502, ptr noundef null)
+  %.2905 = select i1 %.not320, i32 1, i32 %735
+  %.2906 = select i1 %.not320, i32 %735, i32 1
+  invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %13, ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %.2905, i32 noundef %.2906, ptr noundef null)
           to label %736 unwind label %915
 
 736:                                              ; preds = %_ZN4ncnn3MataSERKS0_.exit366
@@ -2505,7 +2505,7 @@ _ZN4ncnn3MatD2Ev.exit440:                         ; preds = %1111, %1110, %1106,
   %1143 = load i32, ptr %979, align 8, !tbaa !32, !noalias !56
   %1144 = add nsw i32 %1143, -1
   %1145 = icmp eq i32 %1143, 4
-  %spec.select2493 = select i1 %1145, i64 %1138, i64 %1142
+  %spec.select2897 = select i1 %1145, i64 %1138, i64 %1142
   %1146 = getelementptr inbounds nuw i8, ptr %1121, i64 8
   %1147 = getelementptr inbounds nuw i8, ptr %1121, i64 16
   %1148 = getelementptr inbounds nuw i8, ptr %1121, i64 24
@@ -2524,7 +2524,7 @@ _ZN4ncnn3MatD2Ev.exit440:                         ; preds = %1111, %1110, %1106,
   store i32 %1126, ptr %1151, align 8, !tbaa !46
   store i32 1, ptr %1152, align 4, !tbaa !47
   store i32 %1127, ptr %1153, align 8, !tbaa !48
-  store i64 %spec.select2493, ptr %1124, align 8, !tbaa !37
+  store i64 %spec.select2897, ptr %1124, align 8, !tbaa !37
   %.pre2464 = load ptr, ptr %1021, align 8, !tbaa !4
   %.pre2465 = load ptr, ptr %.pre2464, align 8, !tbaa !29
   %.phi.trans.insert2466 = getelementptr inbounds nuw i8, ptr %.pre2465, i64 48
@@ -3412,21 +3412,21 @@ _ZNK4ncnn3Mat5emptyEv.exit494:                    ; preds = %1519
   %1548 = load i32, ptr %1547, align 4, !tbaa !41
   %1549 = load i32, ptr %1520, align 8, !tbaa !46
   invoke void @_ZNK4ncnn3Mat7reshapeEiiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %23, ptr noundef nonnull align 8 dereferenceable(72) %37, i32 noundef %1548, i32 noundef %1549, i32 noundef %1526, ptr noundef null)
-          to label %.invoke2494 unwind label %1580
+          to label %.invoke2898 unwind label %1580
 
-.invoke2494:                                      ; preds = %1546
+.invoke2898:                                      ; preds = %1546
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %1550 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1551 = load i32, ptr %1550, align 8, !tbaa !28
   %.not = icmp eq i32 %1551, 0
   %1552 = getelementptr inbounds nuw i8, ptr %37, i64 116
   %1553 = load i32, ptr %1552, align 4, !tbaa !41
-  %.2503 = select i1 %.not, i32 1, i32 %1553
-  %.2504 = select i1 %.not, i32 %1553, i32 1
-  invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %24, ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %.2503, i32 noundef %.2504, ptr noundef null)
+  %.2907 = select i1 %.not, i32 1, i32 %1553
+  %.2908 = select i1 %.not, i32 %1553, i32 1
+  invoke void @_ZNK4ncnn3Mat7reshapeEiiPNS_9AllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %24, ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %.2907, i32 noundef %.2908, ptr noundef null)
           to label %1554 unwind label %1582
 
-1554:                                             ; preds = %.invoke2494
+1554:                                             ; preds = %.invoke2898
   %1555 = icmp sgt i32 %1526, 0
   br i1 %1555, label %.lr.ph2149, label %._crit_edge2150
 
@@ -3466,7 +3466,7 @@ _ZNK4ncnn3Mat5emptyEv.exit494:                    ; preds = %1519
           cleanup
   br label %_ZN4ncnn3MatD2Ev.exit466
 
-1582:                                             ; preds = %.invoke2494
+1582:                                             ; preds = %.invoke2898
   %1583 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4ncnn3MatD2Ev.exit465
@@ -3519,7 +3519,7 @@ _ZNK4ncnn3Mat5emptyEv.exit494:                    ; preds = %1519
   %1609 = load i32, ptr %1565, align 8, !tbaa !32, !noalias !60
   %1610 = add nsw i32 %1609, -1
   %1611 = icmp eq i32 %1609, 4
-  %spec.select2495 = select i1 %1611, i64 %1604, i64 %1608
+  %spec.select2899 = select i1 %1611, i64 %1604, i64 %1608
   %1612 = getelementptr inbounds nuw i8, ptr %1585, i64 8
   %1613 = load ptr, ptr %1612, align 8, !tbaa !42
   %.not.i850 = icmp eq ptr %1613, null
@@ -3572,7 +3572,7 @@ _ZN4ncnn3MatD2Ev.exit454:                         ; preds = %1614, %.noexc500, %
   store i32 %1592, ptr %1631, align 8, !tbaa !46
   store i32 1, ptr %1632, align 4, !tbaa !47
   store i32 %1593, ptr %1633, align 8, !tbaa !48
-  store i64 %spec.select2495, ptr %1634, align 8, !tbaa !37
+  store i64 %spec.select2899, ptr %1634, align 8, !tbaa !37
   %.pre2439 = load ptr, ptr %25, align 8, !tbaa !31
   %1636 = getelementptr inbounds nuw i8, ptr %.pre2439, i64 72
   %1637 = icmp eq ptr %1636, %24
@@ -3690,7 +3690,7 @@ _ZN4ncnn3MataSERKS0_.exit393:                     ; preds = %.noexc392, %_ZN4ncn
   %1700 = load i32, ptr %1533, align 8, !tbaa !32, !noalias !63
   %1701 = add nsw i32 %1700, -1
   %1702 = icmp eq i32 %1700, 4
-  %spec.select2496 = select i1 %1702, i64 %1695, i64 %1699
+  %spec.select2900 = select i1 %1702, i64 %1695, i64 %1699
   %1703 = getelementptr inbounds nuw i8, ptr %1678, i64 8
   %1704 = getelementptr inbounds nuw i8, ptr %1678, i64 16
   %1705 = getelementptr inbounds nuw i8, ptr %1678, i64 24
@@ -3709,7 +3709,7 @@ _ZN4ncnn3MataSERKS0_.exit393:                     ; preds = %.noexc392, %_ZN4ncn
   store i32 %1683, ptr %1708, align 8, !tbaa !46
   store i32 1, ptr %1709, align 4, !tbaa !47
   store i32 %1684, ptr %1710, align 8, !tbaa !48
-  store i64 %spec.select2496, ptr %1681, align 8, !tbaa !37
+  store i64 %spec.select2900, ptr %1681, align 8, !tbaa !37
   %.pre2446 = load ptr, ptr %1578, align 8, !tbaa !4
   %.pre2447 = load ptr, ptr %.pre2446, align 8, !tbaa !29
   %.phi.trans.insert2448 = getelementptr inbounds nuw i8, ptr %.pre2447, i64 48
@@ -4807,7 +4807,7 @@ _ZNK4ncnn3Mat5emptyEv.exit495:                    ; preds = %2166
   %2237 = load i32, ptr %2185, align 8, !tbaa !32, !noalias !67
   %2238 = add nsw i32 %2237, -1
   %2239 = icmp eq i32 %2237, 4
-  %spec.select2497 = select i1 %2239, i64 %2232, i64 %2236
+  %spec.select2901 = select i1 %2239, i64 %2232, i64 %2236
   %2240 = getelementptr inbounds nuw i8, ptr %2210, i64 8
   %2241 = load ptr, ptr %2240, align 8, !tbaa !42
   %.not.i830 = icmp eq ptr %2241, null
@@ -4860,7 +4860,7 @@ _ZNK4ncnn3Mat5emptyEv.exit495:                    ; preds = %2166
   store i32 %2218, ptr %2259, align 8, !tbaa !46
   store i32 1, ptr %2260, align 4, !tbaa !47
   store i32 %2219, ptr %2261, align 8, !tbaa !48
-  store i64 %spec.select2497, ptr %2262, align 8, !tbaa !37
+  store i64 %spec.select2901, ptr %2262, align 8, !tbaa !37
   %.pre2411 = load i32, ptr %2154, align 4, !tbaa !41, !noalias !70
   %.pre2412 = load i32, ptr %2156, align 8, !tbaa !46, !noalias !70
   %.pre2413 = load i32, ptr %2186, align 4, !tbaa !47, !noalias !70
@@ -4884,7 +4884,7 @@ _ZNK4ncnn3Mat5emptyEv.exit495:                    ; preds = %2166
   %2275 = udiv i64 %2274, %.pre2416
   %2276 = add nsw i32 %.pre2419, -1
   %2277 = icmp eq i32 %.pre2419, 4
-  %spec.select2498 = select i1 %2277, i64 %2271, i64 %2275
+  %spec.select2902 = select i1 %2277, i64 %2271, i64 %2275
   %2278 = load ptr, ptr %31, align 8, !tbaa !31
   %2279 = getelementptr inbounds nuw i8, ptr %2278, i64 72
   %2280 = getelementptr inbounds nuw i8, ptr %2278, i64 80
@@ -4939,7 +4939,7 @@ _ZN4ncnn3MatD2Ev.exit469:                         ; preds = %2294, %2293, %2289,
   store i32 %.pre2412, ptr %2299, align 8, !tbaa !46
   store i32 1, ptr %2300, align 4, !tbaa !47
   store i32 %.pre2413, ptr %2301, align 8, !tbaa !48
-  store i64 %spec.select2498, ptr %2302, align 8, !tbaa !37
+  store i64 %spec.select2902, ptr %2302, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %2304 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
           to label %.noexc1240 unwind label %2401
@@ -4975,7 +4975,7 @@ _ZN4ncnn3MatD2Ev.exit469:                         ; preds = %2294, %2293, %2289,
   %2326 = load i32, ptr %2200, align 8, !tbaa !32, !noalias !73
   %2327 = add nsw i32 %2326, -1
   %2328 = icmp eq i32 %2326, 4
-  %spec.select2499 = select i1 %2328, i64 %2321, i64 %2325
+  %spec.select2903 = select i1 %2328, i64 %2321, i64 %2325
   %2329 = getelementptr inbounds nuw i8, ptr %2304, i64 8
   %2330 = getelementptr inbounds nuw i8, ptr %2304, i64 16
   %2331 = getelementptr inbounds nuw i8, ptr %2304, i64 24
@@ -4994,7 +4994,7 @@ _ZN4ncnn3MatD2Ev.exit469:                         ; preds = %2294, %2293, %2289,
   store i32 %2309, ptr %2334, align 8, !tbaa !46
   store i32 1, ptr %2335, align 4, !tbaa !47
   store i32 %2310, ptr %2336, align 8, !tbaa !48
-  store i64 %spec.select2499, ptr %2307, align 8, !tbaa !37
+  store i64 %spec.select2903, ptr %2307, align 8, !tbaa !37
   %.pre2430 = load ptr, ptr %2201, align 8, !tbaa !4
   %.pre2431 = load ptr, ptr %.pre2430, align 8, !tbaa !29
   %.phi.trans.insert2432 = getelementptr inbounds nuw i8, ptr %.pre2431, i64 48

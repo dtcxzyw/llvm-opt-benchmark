@@ -274,7 +274,7 @@ gv_calloc.exit238.i:                              ; preds = %gv_calloc.exit.i
   br i1 %123, label %.split.us.i, label %124
 
 124:                                              ; preds = %118
-  %125 = shl i64 %.0169268.us317.i, 3
+  %125 = shl nuw i64 %.0169268.us317.i, 3
   %126 = shl nuw i64 %122, 3
   %127 = icmp eq i64 %122, 0
   br i1 %127, label %136, label %128
@@ -368,7 +368,7 @@ gv_recalloc.exit.us.i:                            ; preds = %136, %133, %131, %1
   unreachable
 
 167:                                              ; preds = %159
-  %168 = shl i64 %.0169268305.i, 3
+  %168 = shl nuw i64 %.0169268305.i, 3
   %169 = shl nuw i64 %163, 3
   %170 = icmp eq i64 %163, 0
   br i1 %170, label %171, label %172
@@ -435,7 +435,7 @@ gv_recalloc.exit.i:                               ; preds = %179, %177, %171, %1
   unreachable
 
 197:                                              ; preds = %188
-  %198 = shl i64 %.0169.lcssa.i, 3
+  %198 = shl nuw i64 %.0169.lcssa.i, 3
   %199 = shl nuw i64 %192, 3
   %200 = icmp ne i64 %192, 0
   call void @llvm.assume(i1 %200)
@@ -469,8 +469,8 @@ gv_recalloc.exit240.i:                            ; preds = %208, %206, %.crited
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %gv_recalloc.exit.us.i, %.lr.ph321.i, %gv_recalloc.exit240.i, %.lr.ph.split.us.split.i, %gv_calloc.exit238.i
-  %.sroa.0.1408.i = phi double [ %.sroa.0.1.i, %gv_recalloc.exit240.i ], [ 0.000000e+00, %.lr.ph.split.us.split.i ], [ 0.000000e+00, %gv_calloc.exit238.i ], [ 0.000000e+00, %.lr.ph321.i ], [ 0.000000e+00, %gv_recalloc.exit.us.i ]
-  %.sroa.7.1407.i = phi double [ %.sroa.7.1.i, %gv_recalloc.exit240.i ], [ 0.000000e+00, %.lr.ph.split.us.split.i ], [ 0.000000e+00, %gv_calloc.exit238.i ], [ 0.000000e+00, %.lr.ph321.i ], [ 0.000000e+00, %gv_recalloc.exit.us.i ]
+  %.sroa.0.1447.i = phi double [ %.sroa.0.1.i, %gv_recalloc.exit240.i ], [ 0.000000e+00, %.lr.ph.split.us.split.i ], [ 0.000000e+00, %gv_calloc.exit238.i ], [ 0.000000e+00, %.lr.ph321.i ], [ 0.000000e+00, %gv_recalloc.exit.us.i ]
+  %.sroa.7.1446.i = phi double [ %.sroa.7.1.i, %gv_recalloc.exit240.i ], [ 0.000000e+00, %.lr.ph.split.us.split.i ], [ 0.000000e+00, %gv_calloc.exit238.i ], [ 0.000000e+00, %.lr.ph321.i ], [ 0.000000e+00, %gv_recalloc.exit.us.i ]
   %.3191.i = phi i64 [ %.1189.i, %gv_recalloc.exit240.i ], [ -1, %.lr.ph.split.us.split.i ], [ -1, %gv_calloc.exit238.i ], [ %.0188263.us320.i, %.lr.ph321.i ], [ %.0188263.us320.i, %gv_recalloc.exit.us.i ]
   %.2177.i = phi ptr [ %.3178.i, %gv_recalloc.exit240.i ], [ %96, %.lr.ph.split.us.split.i ], [ %96, %gv_calloc.exit238.i ], [ %.1176.us.i, %gv_recalloc.exit.us.i ], [ %.0175267.us318.i, %.lr.ph321.i ]
   %.not219.i = icmp eq ptr %95, null
@@ -505,8 +505,8 @@ gv_recalloc.exit240.i:                            ; preds = %208, %206, %.crited
   %.0192328.i176 = phi i64 [ %.1193.i, %gv_recalloc.exit242.i ], [ 100, %.lr.ph335.preheader.i ]
   %.0184329.i175 = phi i64 [ %.2186.i, %gv_recalloc.exit242.i ], [ 0, %.lr.ph335.preheader.i ]
   %.0182330.i174 = phi i32 [ %232, %gv_recalloc.exit242.i ], [ 0, %.lr.ph335.preheader.i ]
-  %.sroa.7.3331.i173 = phi double [ %.sroa.7.5.i, %gv_recalloc.exit242.i ], [ %.sroa.7.1407.i, %.lr.ph335.preheader.i ]
-  %.sroa.0.3332.i172 = phi double [ %.sroa.0.5.i, %gv_recalloc.exit242.i ], [ %.sroa.0.1408.i, %.lr.ph335.preheader.i ]
+  %.sroa.7.3331.i173 = phi double [ %.sroa.7.5.i, %gv_recalloc.exit242.i ], [ %.sroa.7.1446.i, %.lr.ph335.preheader.i ]
+  %.sroa.0.3332.i172 = phi double [ %.sroa.0.5.i, %gv_recalloc.exit242.i ], [ %.sroa.0.1447.i, %.lr.ph335.preheader.i ]
   %.0171333.i171 = phi ptr [ %.1172.i, %gv_recalloc.exit242.i ], [ %101, %.lr.ph335.preheader.i ]
   %.1168334.i170 = phi ptr [ %235, %gv_recalloc.exit242.i ], [ %.0167.ph.i, %.lr.ph335.preheader.i ]
   %225 = icmp eq i32 %.0182330.i174, 0
@@ -552,7 +552,7 @@ gv_recalloc.exit240.i:                            ; preds = %208, %206, %.crited
   unreachable
 
 246:                                              ; preds = %237
-  %247 = shl i64 %.0192328.i176, 3
+  %247 = shl nuw i64 %.0192328.i176, 3
   %248 = shl nuw i64 %241, 3
   %249 = icmp eq i64 %241, 0
   br i1 %249, label %250, label %251
@@ -596,8 +596,8 @@ gv_recalloc.exit242.i:                            ; preds = %259, %257, %250, %2
   %.0171333.i.lcssa = phi ptr [ %101, %.lr.ph335.preheader.i ], [ %.0171333.i171, %231 ], [ %.1172.i, %gv_recalloc.exit242.i ]
   %.0192328.i.lcssa = phi i64 [ 100, %.lr.ph335.preheader.i ], [ %.0192328.i176, %231 ], [ %.1193.i, %gv_recalloc.exit242.i ]
   %.1185.i = phi i64 [ 0, %.lr.ph335.preheader.i ], [ %.2186.i, %231 ], [ %.2186.i, %gv_recalloc.exit242.i ]
-  %.sroa.7.4.i = phi double [ %.sroa.7.1407.i, %.lr.ph335.preheader.i ], [ %.sroa.7.5.i, %231 ], [ %.sroa.7.5.i, %gv_recalloc.exit242.i ]
-  %.sroa.0.4.i = phi double [ %.sroa.0.1408.i, %.lr.ph335.preheader.i ], [ %.sroa.0.5.i, %231 ], [ %.sroa.0.5.i, %gv_recalloc.exit242.i ]
+  %.sroa.7.4.i = phi double [ %.sroa.7.1446.i, %.lr.ph335.preheader.i ], [ %.sroa.7.5.i, %231 ], [ %.sroa.7.5.i, %gv_recalloc.exit242.i ]
+  %.sroa.0.4.i = phi double [ %.sroa.0.1447.i, %.lr.ph335.preheader.i ], [ %.sroa.0.5.i, %231 ], [ %.sroa.0.5.i, %gv_recalloc.exit242.i ]
   br i1 %.not220.i, label %266, label %.critedge4.thread.i
 
 266:                                              ; preds = %.critedge4.i
@@ -621,7 +621,7 @@ gv_recalloc.exit242.i:                            ; preds = %259, %257, %250, %2
   unreachable
 
 278:                                              ; preds = %269
-  %279 = shl i64 %.0192328.i.lcssa, 3
+  %279 = shl nuw i64 %.0192328.i.lcssa, 3
   %280 = shl nuw i64 %273, 3
   %281 = icmp ne i64 %273, 0
   call void @llvm.assume(i1 %281)

@@ -1636,8 +1636,8 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   %.0195279.us = phi ptr [ %45, %.preheader.lr.ph.split.us ], [ %spec.select.us, %._crit_edge.us ]
   %.0196278.us = phi ptr [ %47, %.preheader.lr.ph.split.us ], [ %400, %._crit_edge.us ]
   %.0199277.us = phi i32 [ %41, %.preheader.lr.ph.split.us ], [ %406, %._crit_edge.us ]
-  %.0200276.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %.2202.us316, %._crit_edge.us ]
-  %.0203275.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %.2205.us314, %._crit_edge.us ]
+  %.0200276.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %.2202.us322, %._crit_edge.us ]
+  %.0203275.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %.2205.us320, %._crit_edge.us ]
   %.0208274.us = phi i32 [ %43, %.preheader.lr.ph.split.us ], [ %405, %._crit_edge.us ]
   %66 = trunc i32 %.0199277.us to i16
   %67 = add i32 %27, %.0199277.us
@@ -1648,8 +1648,8 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   %.1270.us = phi ptr [ %.0195279.us, %.preheader.us ], [ %spec.select.us, %398 ]
   %.1197269.us = phi ptr [ %.0196278.us, %.preheader.us ], [ %400, %398 ]
   %.0198268.us = phi i32 [ %40, %.preheader.us ], [ %403, %398 ]
-  %.1201267.us = phi i32 [ %.0200276.us, %.preheader.us ], [ %.2202.us316, %398 ]
-  %.1204266.us = phi i32 [ %.0203275.us, %.preheader.us ], [ %.2205.us314, %398 ]
+  %.1201267.us = phi i32 [ %.0200276.us, %.preheader.us ], [ %.2202.us322, %398 ]
+  %.1204266.us = phi i32 [ %.0203275.us, %.preheader.us ], [ %.2205.us320, %398 ]
   %.0207265.us = phi i32 [ %.0208274.us, %.preheader.us ], [ %402, %398 ]
   %70 = trunc i32 %.0198268.us to i16
   store i16 %70, ptr %.1197269.us, align 4, !tbaa !140
@@ -1896,13 +1896,13 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   br label %.sink.split
 
 .sink.split:                                      ; preds = %189, %199
-  %.sink331 = phi i8 [ %224, %199 ], [ %191, %189 ]
-  %.ph330 = phi i32 [ %218, %199 ], [ %183, %189 ]
-  store i8 %.sink331, ptr %186, align 2, !tbaa !148
+  %.sink337 = phi i8 [ %224, %199 ], [ %191, %189 ]
+  %.ph336 = phi i32 [ %218, %199 ], [ %183, %189 ]
+  store i8 %.sink337, ptr %186, align 2, !tbaa !148
   br label %225
 
 225:                                              ; preds = %.sink.split, %197, %195, %193, %188
-  %226 = phi i32 [ %183, %193 ], [ %183, %195 ], [ %183, %197 ], [ %183, %188 ], [ %.ph330, %.sink.split ]
+  %226 = phi i32 [ %183, %193 ], [ %183, %195 ], [ %183, %197 ], [ %183, %188 ], [ %.ph336, %.sink.split ]
   %.not223.us = icmp eq i8 %.sink, 0
   br i1 %.not223.us, label %362, label %227
 
@@ -1937,14 +1937,14 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   %247 = add nsw i32 %246, %245
   %248 = ashr i32 %247, %24
   %249 = trunc i32 %248 to i8
-  br label %.sink.split332
+  br label %.sink.split338
 
 250:                                              ; preds = %229
   %251 = getelementptr inbounds nuw i8, ptr %.1197269.us, i64 11
   store i8 %231, ptr %251, align 1, !tbaa !153
   %252 = getelementptr inbounds nuw i8, ptr %.1270.us, i64 12
   %253 = load i8, ptr %252, align 4, !tbaa !152
-  br label %.sink.split332
+  br label %.sink.split338
 
 254:                                              ; preds = %227
   %255 = load ptr, ptr %57, align 8, !tbaa !150
@@ -2003,16 +2003,16 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   %304 = icmp eq i8 %.sink, 3
   br i1 %304, label %.thread.us, label %306
 
-.sink.split332:                                   ; preds = %232, %250
-  %.sink333 = phi i8 [ %253, %250 ], [ %249, %232 ]
+.sink.split338:                                   ; preds = %232, %250
+  %.sink339 = phi i8 [ %253, %250 ], [ %249, %232 ]
   %305 = getelementptr inbounds nuw i8, ptr %.1197269.us, i64 12
-  store i8 %.sink333, ptr %305, align 4, !tbaa !152
+  store i8 %.sink339, ptr %305, align 4, !tbaa !152
   br label %306
 
-306:                                              ; preds = %.sink.split332, %254, %228
-  %307 = phi i32 [ %226, %228 ], [ %294, %254 ], [ %226, %.sink.split332 ]
-  %.3206.us = phi i32 [ %.1204266.us, %228 ], [ %278, %254 ], [ %.1204266.us, %.sink.split332 ]
-  %.3.us = phi i32 [ %.1201267.us, %228 ], [ %299, %254 ], [ %.1201267.us, %.sink.split332 ]
+306:                                              ; preds = %.sink.split338, %254, %228
+  %307 = phi i32 [ %226, %228 ], [ %294, %254 ], [ %226, %.sink.split338 ]
+  %.3206.us = phi i32 [ %.1204266.us, %228 ], [ %278, %254 ], [ %.1204266.us, %.sink.split338 ]
+  %.3.us = phi i32 [ %.1201267.us, %228 ], [ %299, %254 ], [ %.1201267.us, %.sink.split338 ]
   %308 = icmp eq i8 %.sink, 2
   br i1 %308, label %309, label %365
 
@@ -2130,8 +2130,8 @@ define internal range(i32 -1094995529, 1) i32 @decode_mb_info(ptr noundef captur
   br i1 %397, label %.split286.us, label %398
 
 398:                                              ; preds = %362, %382
-  %.2202.us316 = phi i32 [ %.2202.us.ph, %382 ], [ %.1201267.us, %362 ]
-  %.2205.us314 = phi i32 [ %.2205.us.ph, %382 ], [ %.1204266.us, %362 ]
+  %.2202.us322 = phi i32 [ %.2202.us.ph, %382 ], [ %.1201267.us, %362 ]
+  %.2205.us320 = phi i32 [ %.2205.us.ph, %382 ], [ %.1204266.us, %362 ]
   %399 = phi i32 [ %.ph, %382 ], [ %226, %362 ]
   %400 = getelementptr inbounds nuw i8, ptr %.1197269.us, i64 16
   %.not233.us = icmp eq ptr %.1270.us, null

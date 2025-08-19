@@ -139,8 +139,8 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #2 {
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !42
   %.not75 = icmp eq i32 %15, %32
-  %or.cond85 = select i1 %.not74, i1 %.not75, i1 false
-  br i1 %or.cond85, label %38, label %.critedge
+  %or.cond90 = select i1 %.not74, i1 %.not75, i1 false
+  br i1 %or.cond90, label %38, label %.critedge
 
 .critedge:                                        ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -229,8 +229,8 @@ define internal i32 @config_output(ptr noundef captures(none) %0) #2 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %78, %.thread
-  %.sink86 = phi i64 [ 68, %.thread ], [ 132, %78 ]
-  %81 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink86
+  %.sink91 = phi i64 [ 68, %.thread ], [ 132, %78 ]
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink91
   store i32 2, ptr %81, align 4, !tbaa !49
   br label %82
 

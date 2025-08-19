@@ -352,7 +352,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %61 = getelementptr inbounds nuw i8, ptr %14, i64 216
   %62 = load ptr, ptr %61, align 8, !tbaa !60
   %.not97 = icmp eq ptr %62, null
-  br i1 %.not97, label %63, label %.thread204
+  br i1 %.not97, label %63, label %.thread243
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -389,20 +389,20 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br label %1774
 
 79:                                               ; preds = %55
-  br i1 %.not, label %.thread, label %.thread204
+  br i1 %.not, label %.thread, label %.thread243
 
-.thread204:                                       ; preds = %60, %79
+.thread243:                                       ; preds = %60, %79
   %80 = getelementptr inbounds nuw i8, ptr %14, i64 232
   %81 = getelementptr inbounds nuw i8, ptr %14, i64 216
   %82 = load ptr, ptr %81, align 8, !tbaa !60
   %.not100 = icmp eq ptr %82, null
   br i1 %.not100, label %.thread, label %83
 
-.thread:                                          ; preds = %59, %.thread204, %79
+.thread:                                          ; preds = %59, %.thread243, %79
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.53) #11
   br label %1774
 
-83:                                               ; preds = %.thread204
+83:                                               ; preds = %.thread243
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %85 = load i32, ptr %84, align 4, !tbaa !44
   %86 = lshr i32 %85, 1
@@ -633,9 +633,9 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   br label %217
 
 217:                                              ; preds = %207, %211
-  %.sink462.in.i = phi ptr [ %216, %211 ], [ %199, %207 ]
-  %.sink462.i = load i8, ptr %.sink462.in.i, align 1, !tbaa !50
-  %218 = zext i8 %.sink462.i to i64
+  %.sink490.in.i = phi ptr [ %216, %211 ], [ %199, %207 ]
+  %.sink490.i = load i8, ptr %.sink490.in.i, align 1, !tbaa !50
+  %218 = zext i8 %.sink490.i to i64
   %219 = getelementptr inbounds nuw %struct.vorbis_floor, ptr %210, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8, !tbaa !83
@@ -722,7 +722,7 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %indvars.iv401.i = phi i64 [ %indvars.iv.next402.i, %.loopexit.i ], [ 0, %.preheader.lr.ph.i ]
   %264 = phi i8 [ %1635, %.loopexit.i ], [ %244, %.preheader.lr.ph.i ]
   %.0220330.i = phi ptr [ %1633, %.loopexit.i ], [ %125, %.preheader.lr.ph.i ]
-  %.0222329.i = phi i8 [ %.1223.lcssa418422.i, %.loopexit.i ], [ 0, %.preheader.lr.ph.i ]
+  %.0222329.i = phi i8 [ %.1223.lcssa446450.i, %.loopexit.i ], [ 0, %.preheader.lr.ph.i ]
   %.0225328.i = phi i32 [ %1634, %.loopexit.i ], [ %126, %.preheader.lr.ph.i ]
   %265 = load i8, ptr %91, align 8, !tbaa !51
   %.not350.i = icmp eq i8 %265, 0
@@ -1235,15 +1235,15 @@ get_vlc2.exit344.i.i.us.i:                        ; preds = %541, %520, %503
 .lr.ph394.preheader.i.us.i:                       ; preds = %564
   %565 = mul nuw nsw i32 %.062.i342.i.i.us.i, %471
   %566 = zext nneg i32 %565 to i64
-  %invariant.gep631.i.us.i = getelementptr inbounds nuw float, ptr %468, i64 %566
+  %invariant.gep652.i.us.i = getelementptr inbounds nuw float, ptr %468, i64 %566
   br label %.lr.ph394.i.us.i
 
 .lr.ph394.i.us.i:                                 ; preds = %.lr.ph394.i.us.i, %.lr.ph394.preheader.i.us.i
   %indvars.iv555.i.us.i = phi i64 [ 0, %.lr.ph394.preheader.i.us.i ], [ %indvars.iv.next556.i.us.i, %.lr.ph394.i.us.i ]
   %.1.i392.i.us.i = phi i32 [ %.0.i401.i.us.i, %.lr.ph394.preheader.i.us.i ], [ %spec.select338.i.i.us.i, %.lr.ph394.i.us.i ]
   %.1264.i391.i.us.i = phi i32 [ %.0263.i400.i.us.i, %.lr.ph394.preheader.i.us.i ], [ %spec.select.i.i.us.i, %.lr.ph394.i.us.i ]
-  %gep632.i.us.i = getelementptr inbounds nuw float, ptr %invariant.gep631.i.us.i, i64 %indvars.iv555.i.us.i
-  %567 = load float, ptr %gep632.i.us.i, align 4, !tbaa !115
+  %gep653.i.us.i = getelementptr inbounds nuw float, ptr %invariant.gep652.i.us.i, i64 %indvars.iv555.i.us.i
+  %567 = load float, ptr %gep653.i.us.i, align 4, !tbaa !115
   %568 = mul i32 %.1.i392.i.us.i, %176
   %569 = add i32 %568, %.1264.i391.i.us.i
   %570 = zext i32 %569 to i64
@@ -1606,20 +1606,20 @@ get_vlc2.exit348.i.i.us.i:                        ; preds = %802, %781, %764
 .lr.ph415.preheader.i.us.i:                       ; preds = %825
   %826 = mul nuw nsw i32 %.062.i346.i.i.us.i, %471
   %827 = zext nneg i32 %826 to i64
-  %invariant.gep633.i.us.i = getelementptr inbounds nuw float, ptr %468, i64 %827
+  %invariant.gep654.i.us.i = getelementptr inbounds nuw float, ptr %468, i64 %827
   br label %.lr.ph415.i.us.i
 
 .lr.ph415.i.us.i:                                 ; preds = %.lr.ph415.i.us.i, %.lr.ph415.preheader.i.us.i
   %indvars.iv570.i.us.i = phi i64 [ 0, %.lr.ph415.preheader.i.us.i ], [ %indvars.iv.next571.i.us.i, %.lr.ph415.i.us.i ]
   %.4290.i412.i.us.i = phi i32 [ %.3289.i418.i.us.i, %.lr.ph415.preheader.i.us.i ], [ %840, %.lr.ph415.i.us.i ]
-  %gep634.i.us.i = getelementptr inbounds nuw float, ptr %invariant.gep633.i.us.i, i64 %indvars.iv570.i.us.i
-  %828 = load float, ptr %gep634.i.us.i, align 4, !tbaa !115
+  %gep655.i.us.i = getelementptr inbounds nuw float, ptr %invariant.gep654.i.us.i, i64 %indvars.iv570.i.us.i
+  %828 = load float, ptr %gep655.i.us.i, align 4, !tbaa !115
   %829 = zext i32 %.4290.i412.i.us.i to i64
   %830 = getelementptr inbounds nuw float, ptr %.0220330.i, i64 %829
   %831 = load float, ptr %830, align 4, !tbaa !115
   %832 = fadd nsz float %828, %831
   store float %832, ptr %830, align 4, !tbaa !115
-  %833 = getelementptr inbounds nuw i8, ptr %gep634.i.us.i, i64 4
+  %833 = getelementptr inbounds nuw i8, ptr %gep655.i.us.i, i64 4
   %834 = load float, ptr %833, align 4, !tbaa !115
   %835 = add i32 %.4290.i412.i.us.i, %176
   %836 = zext i32 %835 to i64
@@ -2008,7 +2008,7 @@ setup_classifs.exit140.thread.i.i:                ; preds = %.loopexit229.i.i, %
   %indvars.iv540.i.i = phi i64 [ %1080, %.preheader228.preheader.i.i ], [ %indvars.iv.next541.i.i, %1190 ]
   %.0271.i49354.i.i = phi i32 [ 0, %.preheader228.preheader.i.i ], [ %1193, %1190 ]
   %.1297.i47352.i.i = phi i32 [ %.0296.i32358.i.i, %.preheader228.preheader.i.i ], [ %1192, %1190 ]
-  %invariant.gep629.i.i = getelementptr i8, ptr %930, i64 %indvars.iv540.i.i
+  %invariant.gep650.i.i = getelementptr i8, ptr %930, i64 %indvars.iv540.i.i
   br label %1081
 
 1081:                                             ; preds = %.thread190.i.i, %.preheader228.i.i
@@ -2020,8 +2020,8 @@ setup_classifs.exit140.thread.i.i:                ; preds = %.loopexit229.i.i, %
   br i1 %.not330.i54.i.i, label %1084, label %.thread190.i.i
 
 1084:                                             ; preds = %1081
-  %gep630.i.i = getelementptr i8, ptr %invariant.gep629.i.i, i64 %indvars.iv533.i.i
-  %1085 = load i8, ptr %gep630.i.i, align 1, !tbaa !50
+  %gep651.i.i = getelementptr i8, ptr %invariant.gep650.i.i, i64 %indvars.iv533.i.i
+  %1085 = load i8, ptr %gep651.i.i, align 1, !tbaa !50
   %1086 = zext i8 %1085 to i64
   %gep351.i.i = getelementptr inbounds nuw [64 x [8 x i16]], ptr %invariant.gep350.i.i, i64 0, i64 %1086
   %1087 = load i16, ptr %gep351.i.i, align 2, !tbaa !112
@@ -2160,14 +2160,14 @@ get_vlc2.exit360.i.i.i:                           ; preds = %1157, %1136, %1119
 .lr.ph340.preheader.i.i:                          ; preds = %1180
   %1181 = mul nuw nsw i32 %.062.i358.i.i.i, %1097
   %1182 = zext nneg i32 %1181 to i64
-  %invariant.gep627.i.i = getelementptr inbounds nuw float, ptr %1094, i64 %1182
+  %invariant.gep648.i.i = getelementptr inbounds nuw float, ptr %1094, i64 %1182
   br label %.lr.ph340.i.i
 
 .lr.ph340.i.i:                                    ; preds = %.lr.ph340.i.i, %.lr.ph340.preheader.i.i
   %indvars.iv524.i.i = phi i64 [ 0, %.lr.ph340.preheader.i.i ], [ %indvars.iv.next525.i.i, %.lr.ph340.i.i ]
   %.1287.i337.i.i = phi i32 [ %.0286.i343.i.i, %.lr.ph340.preheader.i.i ], [ %1188, %.lr.ph340.i.i ]
-  %gep628.i.i = getelementptr inbounds nuw float, ptr %invariant.gep627.i.i, i64 %indvars.iv524.i.i
-  %1183 = load float, ptr %gep628.i.i, align 4, !tbaa !115
+  %gep649.i.i = getelementptr inbounds nuw float, ptr %invariant.gep648.i.i, i64 %indvars.iv524.i.i
+  %1183 = load float, ptr %gep649.i.i, align 4, !tbaa !115
   %1184 = zext i32 %.1287.i337.i.i to i64
   %1185 = getelementptr inbounds nuw float, ptr %.0220330.i, i64 %1184
   %1186 = load float, ptr %1185, align 4, !tbaa !115
@@ -2572,7 +2572,7 @@ setup_classifs.exit.thread.i.i:                   ; preds = %.loopexit237.i.i, %
   %indvars.iv508.i.i = phi i64 [ %1431, %.preheader236.preheader.i.i ], [ %indvars.iv.next509.i.i, %1545 ]
   %.0271.i95308.i.i = phi i32 [ 0, %.preheader236.preheader.i.i ], [ %1548, %1545 ]
   %.1297.i93306.i.i = phi i32 [ %.0296.i78311.i.i, %.preheader236.preheader.i.i ], [ %1547, %1545 ]
-  %invariant.gep625.i.i = getelementptr i8, ptr %1281, i64 %indvars.iv508.i.i
+  %invariant.gep646.i.i = getelementptr i8, ptr %1281, i64 %indvars.iv508.i.i
   br label %1432
 
 1432:                                             ; preds = %.thread204.i.i, %.preheader236.i.i
@@ -2584,8 +2584,8 @@ setup_classifs.exit.thread.i.i:                   ; preds = %.loopexit237.i.i, %
   br i1 %.not330.i100.i.i, label %1435, label %.thread204.i.i
 
 1435:                                             ; preds = %1432
-  %gep626.i.i = getelementptr i8, ptr %invariant.gep625.i.i, i64 %indvars.iv501.i.i
-  %1436 = load i8, ptr %gep626.i.i, align 1, !tbaa !50
+  %gep647.i.i = getelementptr i8, ptr %invariant.gep646.i.i, i64 %indvars.iv501.i.i
+  %1436 = load i8, ptr %gep647.i.i, align 1, !tbaa !50
   %1437 = zext i8 %1436 to i64
   %gep.i.i = getelementptr inbounds nuw [64 x [8 x i16]], ptr %invariant.gep.i.i, i64 0, i64 %1437
   %1438 = load i16, ptr %gep.i.i, align 2, !tbaa !112
@@ -2724,13 +2724,13 @@ get_vlc2.exit364.i.i.i:                           ; preds = %1508, %1487, %1470
   %1532 = mul nuw nsw i32 %.062.i362.i.i.i, %1448
   %1533 = add i32 %1465, %.0275.i301.i.i
   %1534 = zext nneg i32 %1532 to i64
-  %invariant.gep623.i.i = getelementptr inbounds nuw float, ptr %1445, i64 %1534
+  %invariant.gep644.i.i = getelementptr inbounds nuw float, ptr %1445, i64 %1534
   br label %1535
 
 1535:                                             ; preds = %1535, %.lr.ph300.i.i
   %indvars.iv493.i.i = phi i64 [ 0, %.lr.ph300.i.i ], [ %indvars.iv.next494.i.i, %1535 ]
-  %gep624.i.i = getelementptr inbounds nuw float, ptr %invariant.gep623.i.i, i64 %indvars.iv493.i.i
-  %1536 = load float, ptr %gep624.i.i, align 4, !tbaa !115
+  %gep645.i.i = getelementptr inbounds nuw float, ptr %invariant.gep644.i.i, i64 %indvars.iv493.i.i
+  %1536 = load float, ptr %gep645.i.i, align 4, !tbaa !115
   %1537 = trunc nuw nsw i64 %indvars.iv493.i.i to i32
   %1538 = mul i32 %1537, %1459
   %1539 = add i32 %1533, %1538
@@ -2882,12 +2882,12 @@ get_vlc2.exit.i87.i.i:                            ; preds = %1603, %1582, %1555
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.thread212.i.i, %.thread198.i.i, %.thread184.i.i, %.loopexit.sink.split.i, %314, %291, %.preheader.i
-  %.0229.lcssa417423.i = phi i32 [ %.1230.i, %314 ], [ 0, %291 ], [ 0, %.preheader.i ], [ %.1230.i, %.loopexit.sink.split.i ], [ %.1230.i, %.thread184.i.i ], [ %.1230.i, %.thread198.i.i ], [ %.1230.i, %.thread212.i.i ]
-  %.1223.lcssa418422.i = phi i8 [ %.2224.i, %314 ], [ %.2224.i, %291 ], [ %.0222329.i, %.preheader.i ], [ %.2224.i, %.loopexit.sink.split.i ], [ %.2224.i, %.thread184.i.i ], [ %.2224.i, %.thread198.i.i ], [ %.2224.i, %.thread212.i.i ]
-  %1631 = mul i32 %.0229.lcssa417423.i, %176
+  %.0229.lcssa445451.i = phi i32 [ %.1230.i, %314 ], [ 0, %291 ], [ 0, %.preheader.i ], [ %.1230.i, %.loopexit.sink.split.i ], [ %.1230.i, %.thread184.i.i ], [ %.1230.i, %.thread198.i.i ], [ %.1230.i, %.thread212.i.i ]
+  %.1223.lcssa446450.i = phi i8 [ %.2224.i, %314 ], [ %.2224.i, %291 ], [ %.0222329.i, %.preheader.i ], [ %.2224.i, %.loopexit.sink.split.i ], [ %.2224.i, %.thread184.i.i ], [ %.2224.i, %.thread198.i.i ], [ %.2224.i, %.thread212.i.i ]
+  %1631 = mul i32 %.0229.lcssa445451.i, %176
   %1632 = zext i32 %1631 to i64
   %1633 = getelementptr inbounds nuw float, ptr %.0220330.i, i64 %1632
-  %1634 = sub i32 %.0225328.i, %.0229.lcssa417423.i
+  %1634 = sub i32 %.0225328.i, %.0229.lcssa445451.i
   %indvars.iv.next402.i = add nuw nsw i64 %indvars.iv401.i, 1
   %1635 = load i8, ptr %169, align 8, !tbaa !79
   %1636 = zext i8 %1635 to i64
@@ -4107,7 +4107,7 @@ define internal fastcc i32 @vorbis_parse_setup_hdr_codebooks(ptr noundef capture
 
 .lr.ph:                                           ; preds = %151
   %176 = trunc nuw nsw i32 %.0202292 to i8
-  %177 = zext i32 %.0203291 to i64
+  %177 = zext nneg i32 %.0203291 to i64
   %wide.trip.count = zext i32 %174 to i64
   br label %178
 
@@ -6984,7 +6984,7 @@ get_vlc2.exit:                                    ; preds = %170, %187, %208
   %232 = mul nuw nsw i32 %.062.i, %165
   %233 = zext nneg i32 %232 to i64
   %invariant.gep = getelementptr inbounds nuw float, ptr %.sroa.754.0.copyload, i64 %233
-  %invariant.gep203 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv187
+  %invariant.gep209 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv187
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -6992,8 +6992,8 @@ get_vlc2.exit:                                    ; preds = %170, %187, %208
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %234 = load float, ptr %gep, align 4, !tbaa !115
   %235 = fadd nsz float %.0120155, %234
-  %gep204 = getelementptr inbounds nuw float, ptr %invariant.gep203, i64 %indvars.iv
-  store float %235, ptr %gep204, align 4, !tbaa !115
+  %gep210 = getelementptr inbounds nuw float, ptr %invariant.gep209, i64 %indvars.iv
+  store float %235, ptr %gep210, align 4, !tbaa !115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !222
@@ -7009,9 +7009,9 @@ get_vlc2.exit:                                    ; preds = %170, %187, %208
   br i1 %240, label %170, label %.preheader147, !llvm.loop !223
 
 .preheader:                                       ; preds = %.lr.ph161, %.preheader147.thread
-  %.pn207.in = phi i16 [ %160, %.preheader147.thread ], [ %169, %.lr.ph161 ]
-  %.pn207 = uitofp i16 %.pn207.in to double
-  %.in = fdiv nsz double 0x400921FB54442D18, %.pn207
+  %.pn213.in = phi i16 [ %160, %.preheader147.thread ], [ %169, %.lr.ph161 ]
+  %.pn213 = uitofp i16 %.pn213.in to double
+  %.in = fdiv nsz double 0x400921FB54442D18, %.pn213
   %241 = fptrunc double %.in to float
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %243 = zext i8 %12 to i64

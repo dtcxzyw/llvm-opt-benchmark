@@ -488,12 +488,12 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %70 = load i32, ptr %29, align 8, !tbaa !29
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next147, %71
-  br i1 %72, label %.outer, label %._crit_edge.thread152, !llvm.loop !67
+  br i1 %72, label %.outer, label %._crit_edge.thread170, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %66
-  br i1 %33, label %._crit_edge.thread152, label %._crit_edge.thread
+  br i1 %33, label %._crit_edge.thread170, label %._crit_edge.thread
 
-._crit_edge.thread152:                            ; preds = %.thread, %._crit_edge
+._crit_edge.thread170:                            ; preds = %.thread, %._crit_edge
   tail call void @ff_filter_set_ready(ptr noundef nonnull %0, i32 noundef 100) #8
   br label %.thread88
 
@@ -874,8 +874,8 @@ ff_clz_c.exit287.i:                               ; preds = %109, %ff_clz_c.exit
 .lr.ph330.i:                                      ; preds = %.lr.ph330.i, %.lr.ph330.preheader.i
   %indvars.iv357.i = phi i64 [ 0, %.lr.ph330.preheader.i ], [ %indvars.iv.next358.i, %.lr.ph330.i ]
   %307 = sub nsw i64 %306, %indvars.iv357.i
-  %.idx365.i = shl i64 %307, 3
-  %308 = getelementptr i8, ptr %284, i64 %.idx365.i
+  %.idx381.i = shl i64 %307, 3
+  %308 = getelementptr i8, ptr %284, i64 %.idx381.i
   %309 = getelementptr i8, ptr %308, i64 -8
   %310 = load float, ptr %309, align 4, !tbaa !74
   %311 = fmul nsz float %100, %310
@@ -1189,8 +1189,8 @@ headphone_frame.exit:                             ; preds = %422, %451
   call void @ff_inlink_request_frame(ptr noundef %14) #8
   br label %.thread88
 
-.thread88:                                        ; preds = %.lr.ph, %.preheader104, %.loopexit, %57, %59, %47, %64, %._crit_edge.thread152, %460, %headphone_frame.exit.thread, %463, %465, %457, %headphone_frame.exit, %407
-  %.1 = phi i32 [ 0, %460 ], [ -541478725, %407 ], [ %455, %headphone_frame.exit ], [ %414, %457 ], [ 0, %465 ], [ 0, %463 ], [ -12, %headphone_frame.exit.thread ], [ -1094995529, %64 ], [ 0, %._crit_edge.thread152 ], [ 0, %57 ], [ 0, %59 ], [ -22, %47 ], [ %.0.i77.ph, %.loopexit ], [ 0, %.preheader104 ], [ 0, %.lr.ph ]
+.thread88:                                        ; preds = %.lr.ph, %.preheader104, %.loopexit, %57, %59, %47, %64, %._crit_edge.thread170, %460, %headphone_frame.exit.thread, %463, %465, %457, %headphone_frame.exit, %407
+  %.1 = phi i32 [ 0, %460 ], [ -541478725, %407 ], [ %455, %headphone_frame.exit ], [ %414, %457 ], [ 0, %465 ], [ 0, %463 ], [ -12, %headphone_frame.exit.thread ], [ -1094995529, %64 ], [ 0, %._crit_edge.thread170 ], [ 0, %57 ], [ 0, %59 ], [ -22, %47 ], [ %.0.i77.ph, %.loopexit ], [ 0, %.preheader104 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
@@ -1693,8 +1693,8 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv184 = phi i64 [ %64, %.lr.ph158.preheader ], [ %indvars.iv.next185, %.lr.ph158 ]
-  %.idx215 = shl nsw i64 %indvars.iv184, 3
-  %71 = getelementptr inbounds i8, ptr %59, i64 %.idx215
+  %.idx221 = shl nsw i64 %indvars.iv184, 3
+  %71 = getelementptr inbounds i8, ptr %59, i64 %.idx221
   store float 0.000000e+00, ptr %71, align 4, !tbaa !74
   %indvars.iv.next185 = add nsw i64 %indvars.iv184, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next185 to i32
@@ -1732,17 +1732,17 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
 
 .lr.ph167.preheader:                              ; preds = %.preheader152
   %wide.trip.count200 = zext nneg i32 %84 to i64
-  %invariant.gep221 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv202
+  %invariant.gep227 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv202
   br label %.lr.ph167
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %.lr.ph167
   %indvars.iv197 = phi i64 [ 0, %.lr.ph167.preheader ], [ %indvars.iv.next198, %.lr.ph167 ]
   %86 = mul nuw nsw i64 %indvars.iv197, %79
-  %gep222 = getelementptr inbounds nuw float, ptr %invariant.gep221, i64 %86
-  %87 = load float, ptr %gep222, align 4, !tbaa !74
+  %gep228 = getelementptr inbounds nuw float, ptr %invariant.gep227, i64 %86
+  %87 = load float, ptr %gep228, align 4, !tbaa !74
   %88 = load float, ptr %78, align 8, !tbaa !117
-  %.idx216 = shl nuw nsw i64 %indvars.iv197, 3
-  %89 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx216
+  %.idx222 = shl nuw nsw i64 %indvars.iv197, 3
+  %89 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx222
   %90 = load float, ptr %89, align 4, !tbaa !74
   %91 = tail call nsz float @llvm.fmuladd.f32(float %87, float %88, float %90)
   store float %91, ptr %89, align 4, !tbaa !74
@@ -1830,7 +1830,7 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %127 = add nsw i32 %25, -1
   %128 = sext i32 %.lcssa to i64
   %wide.trip.count213 = zext nneg i32 %127 to i64
-  %invariant.gep223 = getelementptr %struct.AVComplexFloat, ptr %35, i64 %128
+  %invariant.gep229 = getelementptr %struct.AVComplexFloat, ptr %35, i64 %128
   br label %.lr.ph178
 
 .lr.ph175:                                        ; preds = %._crit_edge172, %140
@@ -1838,8 +1838,8 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %indvars.iv207 = phi i64 [ %indvars.iv.next208, %140 ], [ 0, %._crit_edge172 ]
   %130 = getelementptr inbounds nuw %struct.AVComplexFloat, ptr %35, i64 %indvars.iv207
   %131 = load float, ptr %130, align 4, !tbaa !89
-  %.idx217 = shl nuw nsw i64 %indvars.iv207, 3
-  %132 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx217
+  %.idx223 = shl nuw nsw i64 %indvars.iv207, 3
+  %132 = getelementptr inbounds nuw i8, ptr %59, i64 %.idx223
   %133 = load float, ptr %132, align 4, !tbaa !74
   %134 = tail call nsz float @llvm.fmuladd.f32(float %131, float %57, float %133)
   store float %134, ptr %132, align 4, !tbaa !74
@@ -1866,8 +1866,8 @@ define internal noundef i32 @headphone_fast_convolute(ptr noundef readonly captu
   %144 = trunc i64 %indvars.iv210 to i32
   %145 = add i32 %.0.lcssa, %144
   %146 = and i32 %145, %32
-  %gep224 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep223, i64 %indvars.iv210
-  %147 = load float, ptr %gep224, align 4, !tbaa !89
+  %gep230 = getelementptr %struct.AVComplexFloat, ptr %invariant.gep229, i64 %indvars.iv210
+  %147 = load float, ptr %gep230, align 4, !tbaa !89
   %148 = sext i32 %146 to i64
   %149 = getelementptr inbounds float, ptr %23, i64 %148
   %150 = load float, ptr %149, align 4, !tbaa !74

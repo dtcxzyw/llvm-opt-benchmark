@@ -518,8 +518,8 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   ]
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader68.i
-  %.033.lcssa118.i = phi ptr [ %.134.i, %._crit_edge.i ], [ %100, %.preheader68.i ]
-  %179 = call i32 @ref_transaction_commit(ptr noundef %.033.lcssa118.i, ptr noundef nonnull %6) #11
+  %.033.lcssa120.i = phi ptr [ %.134.i, %._crit_edge.i ], [ %100, %.preheader68.i ]
+  %179 = call i32 @ref_transaction_commit(ptr noundef %.033.lcssa120.i, ptr noundef nonnull %6) #11
   %.not51.i = icmp eq i32 %179, 0
   br i1 %.not51.i, label %183, label %180
 
@@ -530,7 +530,7 @@ define dso_local i32 @cmd_update_ref(i32 noundef %0, ptr noundef %1, ptr noundef
   unreachable
 
 183:                                              ; preds = %._crit_edge.thread.i
-  call void @ref_transaction_free(ptr noundef %.033.lcssa118.i) #11
+  call void @ref_transaction_free(ptr noundef %.033.lcssa120.i) #11
   br label %update_refs_stdin.exit
 
 184:                                              ; preds = %._crit_edge.i, %._crit_edge.i

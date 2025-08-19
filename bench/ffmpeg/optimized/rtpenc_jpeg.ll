@@ -95,7 +95,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br i1 %46, label %.thread.sink.split, label %47
 
 47:                                               ; preds = %37
-  %48 = add nsw i32 %.0195327, %42
+  %48 = add nuw nsw i32 %.0195327, %42
   %49 = icmp sgt i32 %48, 4
   br i1 %49, label %.thread.sink.split, label %.preheader
 
@@ -105,7 +105,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 
 .lr.ph325:                                        ; preds = %.preheader
   %50 = getelementptr inbounds nuw i8, ptr %28, i64 5
-  %51 = sext i32 %.0195327 to i64
+  %51 = zext nneg i32 %.0195327 to i64
   %wide.trip.count = zext nneg i16 %41 to i64
   br label %52
 
@@ -113,8 +113,8 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %indvars.iv = phi i64 [ 0, %.lr.ph325 ], [ %indvars.iv.next, %52 ]
   %53 = mul nuw nsw i64 %indvars.iv, 65
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
-  %55 = add nsw i64 %indvars.iv, %51
-  %56 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %55
+  %55 = add nuw nsw i64 %indvars.iv, %51
+  %56 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %55
   store ptr %54, ptr %56, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -241,18 +241,18 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br label %.loopexit251
 
 .outer.thread:                                    ; preds = %84, %82, %.split, %89, %87, %.split303, %94, %92, %.split308, %99, %97, %.split313
-  %.5398 = add nsw i32 %.0181.ph321, %.4191.ph319
+  %.5406 = add nsw i32 %.0181.ph321, %.4191.ph319
   br label %.loopexit251
 
 .outer:                                           ; preds = %99, %94, %89, %84
-  %.sink443 = phi i32 [ 1, %84 ], [ 2, %89 ], [ 4, %94 ], [ 8, %99 ]
+  %.sink451 = phi i32 [ 1, %84 ], [ 2, %89 ], [ 4, %94 ], [ 8, %99 ]
   %.sink = phi i32 [ -29, %84 ], [ -29, %89 ], [ -179, %94 ], [ -179, %99 ]
   %.0181.pn = phi i32 [ 29, %84 ], [ 29, %89 ], [ 179, %94 ], [ 179, %99 ]
-  %102 = or i32 %.3.ph320, %.sink443
+  %102 = or i32 %.3.ph320, %.sink451
   %103 = add nsw i32 %.0181.ph321, %.sink
   %.5 = add nsw i32 %.0181.pn, %.4191.ph319
-  %.not444 = icmp eq i32 %103, 0
-  br i1 %.not444, label %.loopexit251, label %.lr.ph, !llvm.loop !48
+  %.not452 = icmp eq i32 %103, 0
+  br i1 %.not452, label %.loopexit251, label %.lr.ph, !llvm.loop !48
 
 104:                                              ; preds = %30
   %105 = getelementptr i8, ptr %28, i64 2
@@ -267,7 +267,7 @@ define void @ff_rtp_send_jpeg(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 .loopexit251:                                     ; preds = %.outer, %52, %.outer.thread, %..loopexit253_crit_edge, %.preheader, %30, %67, %63, %66, %.lr.ph330
   %.1199 = phi i8 [ %.0198326, %.lr.ph330 ], [ 1, %66 ], [ 0, %63 ], [ %.0198326, %67 ], [ %.0198326, %30 ], [ %.0198326, %.preheader ], [ %.0198326, %..loopexit253_crit_edge ], [ %.0198326, %.outer.thread ], [ %.0198326, %52 ], [ %.0198326, %.outer ]
   %.1196 = phi i32 [ %.0195327, %.lr.ph330 ], [ %.0195327, %66 ], [ %.0195327, %63 ], [ %.0195327, %67 ], [ %.0195327, %30 ], [ %48, %.preheader ], [ %.0195327, %..loopexit253_crit_edge ], [ %.0195327, %.outer.thread ], [ %48, %52 ], [ %.0195327, %.outer ]
-  %.2189 = phi i32 [ %.0187328, %.lr.ph330 ], [ %.0187328, %66 ], [ %.0187328, %63 ], [ %73, %67 ], [ %.0187328, %30 ], [ %.0187328, %.preheader ], [ %101, %..loopexit253_crit_edge ], [ %.5398, %.outer.thread ], [ %.0187328, %52 ], [ %.5, %.outer ]
+  %.2189 = phi i32 [ %.0187328, %.lr.ph330 ], [ %.0187328, %66 ], [ %.0187328, %63 ], [ %73, %67 ], [ %.0187328, %30 ], [ %.0187328, %.preheader ], [ %101, %..loopexit253_crit_edge ], [ %.5406, %.outer.thread ], [ %.0187328, %52 ], [ %.5, %.outer ]
   %.1186 = phi i32 [ %.0185329, %.lr.ph330 ], [ %.0185329, %66 ], [ %.0185329, %63 ], [ %72, %67 ], [ %.0185329, %30 ], [ %.0185329, %.preheader ], [ %.3.ph320, %..loopexit253_crit_edge ], [ %.3.ph320, %.outer.thread ], [ %.0185329, %52 ], [ %102, %.outer ]
   %112 = add nsw i32 %.2189, 1
   %113 = icmp slt i32 %112, %2

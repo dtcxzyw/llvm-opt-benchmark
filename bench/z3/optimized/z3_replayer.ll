@@ -1022,9 +1022,9 @@ define linkonce_odr hidden void @_ZN11z3_replayer3imp5parseEv(ptr noundef nonnul
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %31
 
-31:                                               ; preds = %.backedge283, %1
-  %.035 = phi i32 [ 0, %1 ], [ %.136, %.backedge283 ]
-  %.034 = phi i64 [ 0, %1 ], [ %.1, %.backedge283 ]
+31:                                               ; preds = %.backedge327, %1
+  %.035 = phi i32 [ 0, %1 ], [ %.136, %.backedge327 ]
+  %.034 = phi i64 [ 0, %1 ], [ %.1, %.backedge327 ]
   %32 = call noundef i32 @_Z19get_verbosity_levelv()
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %90, label %33
@@ -1150,27 +1150,27 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit151: ; preds = %8
     i32 -1, label %.critedge
     i32 86, label %.preheader
     i32 82, label %104
-    i32 80, label %.preheader254
-    i32 83, label %.preheader255
+    i32 80, label %.preheader298
+    i32 83, label %.preheader299
     i32 78, label %233
-    i32 36, label %.preheader256
-    i32 35, label %.preheader257
-    i32 73, label %.preheader258
-    i32 85, label %.preheader259
-    i32 70, label %.preheader260
-    i32 68, label %.preheader261
-    i32 112, label %.preheader281
-    i32 115, label %.preheader281
-    i32 117, label %.preheader281
-    i32 105, label %.preheader281
-    i32 67, label %.preheader262
-    i32 61, label %.preheader263
-    i32 42, label %.preheader264
-    i32 64, label %.preheader265
-    i32 77, label %.preheader266
+    i32 36, label %.preheader300
+    i32 35, label %.preheader301
+    i32 73, label %.preheader302
+    i32 85, label %.preheader303
+    i32 70, label %.preheader304
+    i32 68, label %.preheader305
+    i32 112, label %.preheader325
+    i32 115, label %.preheader325
+    i32 117, label %.preheader325
+    i32 105, label %.preheader325
+    i32 67, label %.preheader306
+    i32 61, label %.preheader307
+    i32 42, label %.preheader308
+    i32 64, label %.preheader309
+    i32 77, label %.preheader310
   ]
 
-.preheader281:                                    ; preds = %91, %91, %91, %91
+.preheader325:                                    ; preds = %91, %91, %91, %91
   br label %398
 
 93:                                               ; preds = %91
@@ -1206,9 +1206,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit151: ; preds = %8
 
 _ZN11z3_replayer3imp10skip_blankEv.exit62:        ; preds = %.preheader
   call void @_ZN11z3_replayer3imp16read_string_coreEc(ptr noundef nonnull align 8 dereferenceable(184) %0, i8 noundef signext 34)
-  br label %.backedge283
+  br label %.backedge327
 
-.backedge283:                                     ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit62, %104, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit76, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit80, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit86, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit92, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit98, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit104, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit110, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit116, %_ZN11z3_replayer3imp10skip_blankEv.exit127, %_ZN11z3_replayer3imp10skip_blankEv.exit131, %_ZN11z3_replayer3imp10skip_blankEv.exit137, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit140, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit70, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit, %407, %409, %408, %406, %447, %_ZNSolsEPFRSoS_E.exit
+.backedge327:                                     ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit62, %104, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit76, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit80, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit86, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit92, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit98, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit104, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit110, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit116, %_ZN11z3_replayer3imp10skip_blankEv.exit127, %_ZN11z3_replayer3imp10skip_blankEv.exit131, %_ZN11z3_replayer3imp10skip_blankEv.exit137, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit140, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit70, %_ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit, %407, %409, %408, %406, %447, %_ZNSolsEPFRSoS_E.exit
   br label %31, !llvm.loop !117
 
 104:                                              ; preds = %91
@@ -1216,28 +1216,28 @@ _ZN11z3_replayer3imp10skip_blankEv.exit62:        ; preds = %.preheader
   %106 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %105)
   store i32 %106, ptr %12, align 8, !tbaa !24
   call void @_ZN11z3_replayer3imp5resetEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader254:                                    ; preds = %91, %.preheader254.backedge
+.preheader298:                                    ; preds = %91, %.preheader298.backedge
   %107 = load ptr, ptr %13, align 8, !tbaa !68
   %108 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %107)
   store i32 %108, ptr %12, align 8, !tbaa !24
   switch i32 %108, label %_ZN11z3_replayer3imp10skip_blankEv.exit64 [
     i32 10, label %109
-    i32 32, label %.preheader254.backedge
-    i32 9, label %.preheader254.backedge
+    i32 32, label %.preheader298.backedge
+    i32 9, label %.preheader298.backedge
   ]
 
-109:                                              ; preds = %.preheader254
+109:                                              ; preds = %.preheader298
   %110 = load i32, ptr %14, align 4, !tbaa !56
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr %14, align 4, !tbaa !56
-  br label %.preheader254.backedge
+  br label %.preheader298.backedge
 
-.preheader254.backedge:                           ; preds = %109, %.preheader254, %.preheader254
-  br label %.preheader254
+.preheader298.backedge:                           ; preds = %109, %.preheader298, %.preheader298
+  br label %.preheader298
 
-_ZN11z3_replayer3imp10skip_blankEv.exit64:        ; preds = %.preheader254
+_ZN11z3_replayer3imp10skip_blankEv.exit64:        ; preds = %.preheader298
   call void @_ZN11z3_replayer3imp8read_ptrEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %112 = load i64, ptr %20, align 8, !tbaa !118
   %113 = icmp eq i64 %112, 0
@@ -1276,7 +1276,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit: ; preds = %117, 
   %130 = load i32, ptr %129, align 4, !tbaa !70
   %131 = add i32 %130, 1
   store i32 %131, ptr %129, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
 132:                                              ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit64
   %133 = trunc i64 %112 to i32
@@ -1459,28 +1459,28 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit70: ; preds = %194
   %207 = load i32, ptr %206, align 4, !tbaa !70
   %208 = add i32 %207, 1
   store i32 %208, ptr %206, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader255:                                    ; preds = %91, %.preheader255.backedge
+.preheader299:                                    ; preds = %91, %.preheader299.backedge
   %209 = load ptr, ptr %13, align 8, !tbaa !68
   %210 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %209)
   store i32 %210, ptr %12, align 8, !tbaa !24
   switch i32 %210, label %_ZN11z3_replayer3imp10skip_blankEv.exit72 [
     i32 10, label %211
-    i32 32, label %.preheader255.backedge
-    i32 9, label %.preheader255.backedge
+    i32 32, label %.preheader299.backedge
+    i32 9, label %.preheader299.backedge
   ]
 
-211:                                              ; preds = %.preheader255
+211:                                              ; preds = %.preheader299
   %212 = load i32, ptr %14, align 4, !tbaa !56
   %213 = add nsw i32 %212, 1
   store i32 %213, ptr %14, align 4, !tbaa !56
-  br label %.preheader255.backedge
+  br label %.preheader299.backedge
 
-.preheader255.backedge:                           ; preds = %211, %.preheader255, %.preheader255
-  br label %.preheader255
+.preheader299.backedge:                           ; preds = %211, %.preheader299, %.preheader299
+  br label %.preheader299
 
-_ZN11z3_replayer3imp10skip_blankEv.exit72:        ; preds = %.preheader255
+_ZN11z3_replayer3imp10skip_blankEv.exit72:        ; preds = %.preheader299
   call void @_ZN11z3_replayer3imp16read_string_coreEc(ptr noundef nonnull align 8 dereferenceable(184) %0, i8 noundef signext 34)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %214 = load ptr, ptr %15, align 8, !tbaa !124
@@ -1519,7 +1519,7 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit76: ; preds = %218
   %232 = add i32 %231, 1
   store i32 %232, ptr %230, align 4, !tbaa !70
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.backedge283
+  br label %.backedge327
 
 233:                                              ; preds = %91
   %234 = load ptr, ptr %13, align 8, !tbaa !68
@@ -1558,28 +1558,28 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit80: ; preds = %239
   %252 = load i32, ptr %251, align 4, !tbaa !70
   %253 = add i32 %252, 1
   store i32 %253, ptr %251, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader256:                                    ; preds = %91, %.preheader256.backedge
+.preheader300:                                    ; preds = %91, %.preheader300.backedge
   %254 = load ptr, ptr %13, align 8, !tbaa !68
   %255 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %254)
   store i32 %255, ptr %12, align 8, !tbaa !24
   switch i32 %255, label %_ZN11z3_replayer3imp10skip_blankEv.exit82 [
     i32 10, label %256
-    i32 32, label %.preheader256.backedge
-    i32 9, label %.preheader256.backedge
+    i32 32, label %.preheader300.backedge
+    i32 9, label %.preheader300.backedge
   ]
 
-256:                                              ; preds = %.preheader256
+256:                                              ; preds = %.preheader300
   %257 = load i32, ptr %14, align 4, !tbaa !56
   %258 = add nsw i32 %257, 1
   store i32 %258, ptr %14, align 4, !tbaa !56
-  br label %.preheader256.backedge
+  br label %.preheader300.backedge
 
-.preheader256.backedge:                           ; preds = %256, %.preheader256, %.preheader256
-  br label %.preheader256
+.preheader300.backedge:                           ; preds = %256, %.preheader300, %.preheader300
+  br label %.preheader300
 
-_ZN11z3_replayer3imp10skip_blankEv.exit82:        ; preds = %.preheader256
+_ZN11z3_replayer3imp10skip_blankEv.exit82:        ; preds = %.preheader300
   call void @_ZN11z3_replayer3imp16read_string_coreEc(ptr noundef nonnull align 8 dereferenceable(184) %0, i8 noundef signext 124)
   %259 = load ptr, ptr %15, align 8, !tbaa !124
   %260 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6symbolaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %259)
@@ -1616,28 +1616,28 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit86: ; preds = %264
   %277 = load i32, ptr %276, align 4, !tbaa !70
   %278 = add i32 %277, 1
   store i32 %278, ptr %276, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader257:                                    ; preds = %91, %.preheader257.backedge
+.preheader301:                                    ; preds = %91, %.preheader301.backedge
   %279 = load ptr, ptr %13, align 8, !tbaa !68
   %280 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %279)
   store i32 %280, ptr %12, align 8, !tbaa !24
   switch i32 %280, label %_ZN11z3_replayer3imp10skip_blankEv.exit88 [
     i32 10, label %281
-    i32 32, label %.preheader257.backedge
-    i32 9, label %.preheader257.backedge
+    i32 32, label %.preheader301.backedge
+    i32 9, label %.preheader301.backedge
   ]
 
-281:                                              ; preds = %.preheader257
+281:                                              ; preds = %.preheader301
   %282 = load i32, ptr %14, align 4, !tbaa !56
   %283 = add nsw i32 %282, 1
   store i32 %283, ptr %14, align 4, !tbaa !56
-  br label %.preheader257.backedge
+  br label %.preheader301.backedge
 
-.preheader257.backedge:                           ; preds = %281, %.preheader257, %.preheader257
-  br label %.preheader257
+.preheader301.backedge:                           ; preds = %281, %.preheader301, %.preheader301
+  br label %.preheader301
 
-_ZN11z3_replayer3imp10skip_blankEv.exit88:        ; preds = %.preheader257
+_ZN11z3_replayer3imp10skip_blankEv.exit88:        ; preds = %.preheader301
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %284 = load i64, ptr %16, align 8, !tbaa !126
   %285 = shl i64 %284, 3
@@ -1676,28 +1676,28 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit92: ; preds = %291
   %304 = load i32, ptr %303, align 4, !tbaa !70
   %305 = add i32 %304, 1
   store i32 %305, ptr %303, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader258:                                    ; preds = %91, %.preheader258.backedge
+.preheader302:                                    ; preds = %91, %.preheader302.backedge
   %306 = load ptr, ptr %13, align 8, !tbaa !68
   %307 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %306)
   store i32 %307, ptr %12, align 8, !tbaa !24
   switch i32 %307, label %_ZN11z3_replayer3imp10skip_blankEv.exit94 [
     i32 10, label %308
-    i32 32, label %.preheader258.backedge
-    i32 9, label %.preheader258.backedge
+    i32 32, label %.preheader302.backedge
+    i32 9, label %.preheader302.backedge
   ]
 
-308:                                              ; preds = %.preheader258
+308:                                              ; preds = %.preheader302
   %309 = load i32, ptr %14, align 4, !tbaa !56
   %310 = add nsw i32 %309, 1
   store i32 %310, ptr %14, align 4, !tbaa !56
-  br label %.preheader258.backedge
+  br label %.preheader302.backedge
 
-.preheader258.backedge:                           ; preds = %308, %.preheader258, %.preheader258
-  br label %.preheader258
+.preheader302.backedge:                           ; preds = %308, %.preheader302, %.preheader302
+  br label %.preheader302
 
-_ZN11z3_replayer3imp10skip_blankEv.exit94:        ; preds = %.preheader258
+_ZN11z3_replayer3imp10skip_blankEv.exit94:        ; preds = %.preheader302
   call void @_ZN11z3_replayer3imp10read_int64Ev(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %311 = load i64, ptr %28, align 8, !tbaa !127
   %312 = load ptr, ptr %17, align 8, !tbaa !69
@@ -1732,28 +1732,28 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit98: ; preds = %314
   %327 = load i32, ptr %326, align 4, !tbaa !70
   %328 = add i32 %327, 1
   store i32 %328, ptr %326, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader259:                                    ; preds = %91, %.preheader259.backedge
+.preheader303:                                    ; preds = %91, %.preheader303.backedge
   %329 = load ptr, ptr %13, align 8, !tbaa !68
   %330 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %329)
   store i32 %330, ptr %12, align 8, !tbaa !24
   switch i32 %330, label %_ZN11z3_replayer3imp10skip_blankEv.exit100 [
     i32 10, label %331
-    i32 32, label %.preheader259.backedge
-    i32 9, label %.preheader259.backedge
+    i32 32, label %.preheader303.backedge
+    i32 9, label %.preheader303.backedge
   ]
 
-331:                                              ; preds = %.preheader259
+331:                                              ; preds = %.preheader303
   %332 = load i32, ptr %14, align 4, !tbaa !56
   %333 = add nsw i32 %332, 1
   store i32 %333, ptr %14, align 4, !tbaa !56
-  br label %.preheader259.backedge
+  br label %.preheader303.backedge
 
-.preheader259.backedge:                           ; preds = %331, %.preheader259, %.preheader259
-  br label %.preheader259
+.preheader303.backedge:                           ; preds = %331, %.preheader303, %.preheader303
+  br label %.preheader303
 
-_ZN11z3_replayer3imp10skip_blankEv.exit100:       ; preds = %.preheader259
+_ZN11z3_replayer3imp10skip_blankEv.exit100:       ; preds = %.preheader303
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %334 = load i64, ptr %16, align 8, !tbaa !126
   %335 = load ptr, ptr %17, align 8, !tbaa !69
@@ -1788,28 +1788,28 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit104: ; preds = %33
   %350 = load i32, ptr %349, align 4, !tbaa !70
   %351 = add i32 %350, 1
   store i32 %351, ptr %349, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader260:                                    ; preds = %91, %.preheader260.backedge
+.preheader304:                                    ; preds = %91, %.preheader304.backedge
   %352 = load ptr, ptr %13, align 8, !tbaa !68
   %353 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %352)
   store i32 %353, ptr %12, align 8, !tbaa !24
   switch i32 %353, label %_ZN11z3_replayer3imp10skip_blankEv.exit106 [
     i32 10, label %354
-    i32 32, label %.preheader260.backedge
-    i32 9, label %.preheader260.backedge
+    i32 32, label %.preheader304.backedge
+    i32 9, label %.preheader304.backedge
   ]
 
-354:                                              ; preds = %.preheader260
+354:                                              ; preds = %.preheader304
   %355 = load i32, ptr %14, align 4, !tbaa !56
   %356 = add nsw i32 %355, 1
   store i32 %356, ptr %14, align 4, !tbaa !56
-  br label %.preheader260.backedge
+  br label %.preheader304.backedge
 
-.preheader260.backedge:                           ; preds = %354, %.preheader260, %.preheader260
-  br label %.preheader260
+.preheader304.backedge:                           ; preds = %354, %.preheader304, %.preheader304
+  br label %.preheader304
 
-_ZN11z3_replayer3imp10skip_blankEv.exit106:       ; preds = %.preheader260
+_ZN11z3_replayer3imp10skip_blankEv.exit106:       ; preds = %.preheader304
   call void @_ZN11z3_replayer3imp10read_floatEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %357 = load float, ptr %27, align 8, !tbaa !128
   %358 = load ptr, ptr %17, align 8, !tbaa !69
@@ -1844,28 +1844,28 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit110: ; preds = %36
   %373 = load i32, ptr %372, align 4, !tbaa !70
   %374 = add i32 %373, 1
   store i32 %374, ptr %372, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader261:                                    ; preds = %91, %.preheader261.backedge
+.preheader305:                                    ; preds = %91, %.preheader305.backedge
   %375 = load ptr, ptr %13, align 8, !tbaa !68
   %376 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %375)
   store i32 %376, ptr %12, align 8, !tbaa !24
   switch i32 %376, label %_ZN11z3_replayer3imp10skip_blankEv.exit112 [
     i32 10, label %377
-    i32 32, label %.preheader261.backedge
-    i32 9, label %.preheader261.backedge
+    i32 32, label %.preheader305.backedge
+    i32 9, label %.preheader305.backedge
   ]
 
-377:                                              ; preds = %.preheader261
+377:                                              ; preds = %.preheader305
   %378 = load i32, ptr %14, align 4, !tbaa !56
   %379 = add nsw i32 %378, 1
   store i32 %379, ptr %14, align 4, !tbaa !56
-  br label %.preheader261.backedge
+  br label %.preheader305.backedge
 
-.preheader261.backedge:                           ; preds = %377, %.preheader261, %.preheader261
-  br label %.preheader261
+.preheader305.backedge:                           ; preds = %377, %.preheader305, %.preheader305
+  br label %.preheader305
 
-_ZN11z3_replayer3imp10skip_blankEv.exit112:       ; preds = %.preheader261
+_ZN11z3_replayer3imp10skip_blankEv.exit112:       ; preds = %.preheader305
   call void @_ZN11z3_replayer3imp11read_doubleEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %380 = load double, ptr %26, align 8, !tbaa !129
   %381 = load ptr, ptr %17, align 8, !tbaa !69
@@ -1900,9 +1900,9 @@ _ZN6vectorIN11z3_replayer3imp5valueELb0EjE9push_backEOS2_.exit116: ; preds = %38
   %396 = load i32, ptr %395, align 4, !tbaa !70
   %397 = add i32 %396, 1
   store i32 %397, ptr %395, align 4, !tbaa !70
-  br label %.backedge283
+  br label %.backedge327
 
-398:                                              ; preds = %.backedge, %.preheader281
+398:                                              ; preds = %.backedge, %.preheader325
   %399 = load ptr, ptr %13, align 8, !tbaa !68
   %400 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %399)
   store i32 %400, ptr %12, align 8, !tbaa !24
@@ -1933,40 +1933,40 @@ _ZN11z3_replayer3imp10skip_blankEv.exit118:       ; preds = %398
 
 406:                                              ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit118
   call void @_ZN11z3_replayer3imp10push_arrayEjNS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %405, i32 noundef 5)
-  br label %.backedge283
+  br label %.backedge327
 
 407:                                              ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit118
   call void @_ZN11z3_replayer3imp10push_arrayEjNS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %405, i32 noundef 4)
-  br label %.backedge283
+  br label %.backedge327
 
 408:                                              ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit118
   call void @_ZN11z3_replayer3imp10push_arrayEjNS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %405, i32 noundef 0)
-  br label %.backedge283
+  br label %.backedge327
 
 409:                                              ; preds = %_ZN11z3_replayer3imp10skip_blankEv.exit118
   call void @_ZN11z3_replayer3imp10push_arrayEjNS0_10value_kindE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %405, i32 noundef 1)
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader262:                                    ; preds = %91, %.preheader262.backedge
+.preheader306:                                    ; preds = %91, %.preheader306.backedge
   %410 = load ptr, ptr %13, align 8, !tbaa !68
   %411 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %410)
   store i32 %411, ptr %12, align 8, !tbaa !24
   switch i32 %411, label %_ZN11z3_replayer3imp10skip_blankEv.exit120 [
     i32 10, label %412
-    i32 32, label %.preheader262.backedge
-    i32 9, label %.preheader262.backedge
+    i32 32, label %.preheader306.backedge
+    i32 9, label %.preheader306.backedge
   ]
 
-412:                                              ; preds = %.preheader262
+412:                                              ; preds = %.preheader306
   %413 = load i32, ptr %14, align 4, !tbaa !56
   %414 = add nsw i32 %413, 1
   store i32 %414, ptr %14, align 4, !tbaa !56
-  br label %.preheader262.backedge
+  br label %.preheader306.backedge
 
-.preheader262.backedge:                           ; preds = %412, %.preheader262, %.preheader262
-  br label %.preheader262
+.preheader306.backedge:                           ; preds = %412, %.preheader306, %.preheader306
+  br label %.preheader306
 
-_ZN11z3_replayer3imp10skip_blankEv.exit120:       ; preds = %.preheader262
+_ZN11z3_replayer3imp10skip_blankEv.exit120:       ; preds = %.preheader306
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %415 = load i64, ptr %16, align 8, !tbaa !126
   %416 = load ptr, ptr %25, align 8, !tbaa !89
@@ -2063,7 +2063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125.thread: ; pred
   %450 = load ptr, ptr %449, align 8, !tbaa !91
   %451 = load ptr, ptr %0, align 8, !tbaa !130
   invoke void %450(ptr noundef nonnull align 8 dereferenceable(8) %451)
-          to label %.backedge283 unwind label %452
+          to label %.backedge327 unwind label %452
 
 452:                                              ; preds = %447
   %453 = landingpad { ptr, i32 }
@@ -2122,7 +2122,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %472
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %480
   call void @__cxa_end_catch()
-  br label %.backedge283
+  br label %.backedge327
 
 482:                                              ; preds = %480, %472, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %483 = landingpad { ptr, i32 }
@@ -2142,26 +2142,26 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %480
   invoke void @__cxa_end_catch()
           to label %.loopexit209 unwind label %597
 
-.preheader263:                                    ; preds = %91, %.preheader263.backedge
+.preheader307:                                    ; preds = %91, %.preheader307.backedge
   %488 = load ptr, ptr %13, align 8, !tbaa !68
   %489 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %488)
   store i32 %489, ptr %12, align 8, !tbaa !24
   switch i32 %489, label %_ZN11z3_replayer3imp10skip_blankEv.exit127 [
     i32 10, label %490
-    i32 32, label %.preheader263.backedge
-    i32 9, label %.preheader263.backedge
+    i32 32, label %.preheader307.backedge
+    i32 9, label %.preheader307.backedge
   ]
 
-490:                                              ; preds = %.preheader263
+490:                                              ; preds = %.preheader307
   %491 = load i32, ptr %14, align 4, !tbaa !56
   %492 = add nsw i32 %491, 1
   store i32 %492, ptr %14, align 4, !tbaa !56
-  br label %.preheader263.backedge
+  br label %.preheader307.backedge
 
-.preheader263.backedge:                           ; preds = %490, %.preheader263, %.preheader263
-  br label %.preheader263
+.preheader307.backedge:                           ; preds = %490, %.preheader307, %.preheader307
+  br label %.preheader307
 
-_ZN11z3_replayer3imp10skip_blankEv.exit127:       ; preds = %.preheader263
+_ZN11z3_replayer3imp10skip_blankEv.exit127:       ; preds = %.preheader307
   call void @_ZN11z3_replayer3imp8read_ptrEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %493 = load i64, ptr %20, align 8, !tbaa !135
@@ -2170,28 +2170,28 @@ _ZN11z3_replayer3imp10skip_blankEv.exit127:       ; preds = %.preheader263
   store ptr %494, ptr %24, align 8, !tbaa !123
   call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader264:                                    ; preds = %91, %.preheader264.backedge
+.preheader308:                                    ; preds = %91, %.preheader308.backedge
   %495 = load ptr, ptr %13, align 8, !tbaa !68
   %496 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %495)
   store i32 %496, ptr %12, align 8, !tbaa !24
   switch i32 %496, label %_ZN11z3_replayer3imp10skip_blankEv.exit129 [
     i32 10, label %497
-    i32 32, label %.preheader264.backedge
-    i32 9, label %.preheader264.backedge
+    i32 32, label %.preheader308.backedge
+    i32 9, label %.preheader308.backedge
   ]
 
-497:                                              ; preds = %.preheader264
+497:                                              ; preds = %.preheader308
   %498 = load i32, ptr %14, align 4, !tbaa !56
   %499 = add nsw i32 %498, 1
   store i32 %499, ptr %14, align 4, !tbaa !56
-  br label %.preheader264.backedge
+  br label %.preheader308.backedge
 
-.preheader264.backedge:                           ; preds = %497, %.preheader264, %.preheader264
-  br label %.preheader264
+.preheader308.backedge:                           ; preds = %497, %.preheader308, %.preheader308
+  br label %.preheader308
 
-_ZN11z3_replayer3imp10skip_blankEv.exit129:       ; preds = %.preheader264
+_ZN11z3_replayer3imp10skip_blankEv.exit129:       ; preds = %.preheader308
   call void @_ZN11z3_replayer3imp8read_ptrEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %.pre.i130 = load i32, ptr %12, align 8, !tbaa !24
   br label %500
@@ -2231,28 +2231,28 @@ _ZN11z3_replayer3imp10skip_blankEv.exit131:       ; preds = %500
   store ptr %514, ptr %22, align 8, !tbaa !123
   call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader265:                                    ; preds = %91, %.preheader265.backedge
+.preheader309:                                    ; preds = %91, %.preheader309.backedge
   %515 = load ptr, ptr %13, align 8, !tbaa !68
   %516 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %515)
   store i32 %516, ptr %12, align 8, !tbaa !24
   switch i32 %516, label %_ZN11z3_replayer3imp10skip_blankEv.exit133 [
     i32 10, label %517
-    i32 32, label %.preheader265.backedge
-    i32 9, label %.preheader265.backedge
+    i32 32, label %.preheader309.backedge
+    i32 9, label %.preheader309.backedge
   ]
 
-517:                                              ; preds = %.preheader265
+517:                                              ; preds = %.preheader309
   %518 = load i32, ptr %14, align 4, !tbaa !56
   %519 = add nsw i32 %518, 1
   store i32 %519, ptr %14, align 4, !tbaa !56
-  br label %.preheader265.backedge
+  br label %.preheader309.backedge
 
-.preheader265.backedge:                           ; preds = %517, %.preheader265, %.preheader265
-  br label %.preheader265
+.preheader309.backedge:                           ; preds = %517, %.preheader309, %.preheader309
+  br label %.preheader309
 
-_ZN11z3_replayer3imp10skip_blankEv.exit133:       ; preds = %.preheader265
+_ZN11z3_replayer3imp10skip_blankEv.exit133:       ; preds = %.preheader309
   call void @_ZN11z3_replayer3imp8read_ptrEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %.pre.i134 = load i32, ptr %12, align 8, !tbaa !24
   br label %520
@@ -2325,28 +2325,28 @@ _ZN11z3_replayer3imp10skip_blankEv.exit137:       ; preds = %535
   store ptr %550, ptr %21, align 8, !tbaa !123
   call void @_ZN14core_hashtableI17default_map_entryImPvEN9table2mapIS2_11size_t_hash9size_t_eqE15entry_hash_procENS6_13entry_eq_procEE6insertEO9_key_dataImS1_E(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.backedge283
+  br label %.backedge327
 
-.preheader266:                                    ; preds = %91, %.preheader266.backedge
+.preheader310:                                    ; preds = %91, %.preheader310.backedge
   %551 = load ptr, ptr %13, align 8, !tbaa !68
   %552 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %551)
   store i32 %552, ptr %12, align 8, !tbaa !24
   switch i32 %552, label %_ZN11z3_replayer3imp10skip_blankEv.exit139 [
     i32 10, label %553
-    i32 32, label %.preheader266.backedge
-    i32 9, label %.preheader266.backedge
+    i32 32, label %.preheader310.backedge
+    i32 9, label %.preheader310.backedge
   ]
 
-553:                                              ; preds = %.preheader266
+553:                                              ; preds = %.preheader310
   %554 = load i32, ptr %14, align 4, !tbaa !56
   %555 = add nsw i32 %554, 1
   store i32 %555, ptr %14, align 4, !tbaa !56
-  br label %.preheader266.backedge
+  br label %.preheader310.backedge
 
-.preheader266.backedge:                           ; preds = %553, %.preheader266, %.preheader266
-  br label %.preheader266
+.preheader310.backedge:                           ; preds = %553, %.preheader310, %.preheader310
+  br label %.preheader310
 
-_ZN11z3_replayer3imp10skip_blankEv.exit139:       ; preds = %.preheader266
+_ZN11z3_replayer3imp10skip_blankEv.exit139:       ; preds = %.preheader310
   call void @_ZN11z3_replayer3imp16read_string_coreEc(ptr noundef nonnull align 8 dereferenceable(184) %0, i8 noundef signext 34)
   %556 = load ptr, ptr %15, align 8, !tbaa !124
   %.not.i = icmp eq ptr %556, null
@@ -2371,7 +2371,7 @@ _ZN11z3_replayer3imp10skip_blankEv.exit139:       ; preds = %.preheader266
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit140: ; preds = %557, %565
   %568 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.29, i64 noundef 1)
   %569 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout)
-  br label %.backedge283
+  br label %.backedge327
 
 570:                                              ; preds = %91
   %571 = call ptr @__cxa_allocate_exception(i64 40) #26

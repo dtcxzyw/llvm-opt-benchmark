@@ -1183,7 +1183,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   %166 = phi ptr [ %156, %.lr.ph ], [ %239, %.thread42 ]
   %167 = phi ptr [ %163, %.lr.ph ], [ %238, %.thread42 ]
   %168 = phi i16 [ %161, %.lr.ph ], [ %236, %.thread42 ]
-  %169 = phi ptr [ %154, %.lr.ph ], [ %.sink139, %.thread42 ]
+  %169 = phi ptr [ %154, %.lr.ph ], [ %.sink182, %.thread42 ]
   %170 = phi i32 [ %152, %.lr.ph ], [ %233, %.thread42 ]
   %171 = and i32 %165, %147
   %.reass = or i32 %165, %invariant.op
@@ -1208,14 +1208,14 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   %183 = icmp slt i32 %182, 0
   %184 = icmp ne i32 %171, 0
   %185 = or i1 %184, %183
-  br i1 %185, label %.preheader178, label %213
+  br i1 %185, label %.preheader221, label %213
 
-.preheader178:                                    ; preds = %186, %180
+.preheader221:                                    ; preds = %186, %180
   br label %189
 
 186:                                              ; preds = %176, %173, %164
   %187 = icmp eq i32 %171, 0
-  br i1 %187, label %._crit_edge, label %.preheader178
+  br i1 %187, label %._crit_edge, label %.preheader221
 
 ._crit_edge:                                      ; preds = %186
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %167, i64 32
@@ -1225,9 +1225,9 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   %188 = icmp eq i8 %.pre115, 0
   br label %213
 
-189:                                              ; preds = %.preheader178, %199
-  %190 = phi i32 [ %197, %199 ], [ %170, %.preheader178 ]
-  %191 = phi ptr [ %201, %199 ], [ %169, %.preheader178 ]
+189:                                              ; preds = %.preheader221, %199
+  %190 = phi i32 [ %197, %199 ], [ %170, %.preheader221 ]
+  %191 = phi ptr [ %201, %199 ], [ %169, %.preheader221 ]
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 144
   %193 = load i32, ptr %192, align 8
   %194 = xor i32 %193, 32
@@ -1288,16 +1288,16 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef nonnull 
   br label %.thread42
 
 .thread42:                                        ; preds = %210, %228
-  %.sink139 = phi ptr [ %212, %210 ], [ %231, %228 ]
-  %.lcssa136.sink = phi i64 [ %200, %210 ], [ %232, %228 ]
+  %.sink182 = phi ptr [ %212, %210 ], [ %231, %228 ]
+  %.lcssa179.sink = phi i64 [ %200, %210 ], [ %232, %228 ]
   %233 = phi i32 [ %205, %210 ], [ %229, %228 ]
-  %234 = getelementptr inbounds nuw i8, ptr %.sink139, i64 152
-  store i64 %.lcssa136.sink, ptr %234, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %.sink139, i64 140
+  %234 = getelementptr inbounds nuw i8, ptr %.sink182, i64 152
+  store i64 %.lcssa179.sink, ptr %234, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %.sink182, i64 140
   %236 = load i16, ptr %235, align 4
   %237 = zext i16 %236 to i64
-  %238 = getelementptr i8, ptr %.sink139, i64 %237
-  %239 = getelementptr inbounds nuw i8, ptr %.sink139, i64 144
+  %238 = getelementptr i8, ptr %.sink182, i64 %237
+  %239 = getelementptr inbounds nuw i8, ptr %.sink182, i64 144
   %240 = load i32, ptr %239, align 8
   %241 = and i32 %240, 32
   %242 = icmp eq i32 %241, 0
@@ -2711,7 +2711,7 @@ define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 nou
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp ugt i32 %34, %30
-  br i1 %35, label %.thread17, label %36
+  br i1 %35, label %.thread34, label %36
 
 36:                                               ; preds = %26, %32
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -2720,27 +2720,27 @@ define internal fastcc i32 @__do_replace(ptr noundef %0, ptr noundef %1, i32 nou
   %.pre = load i32, ptr %27, align 4
   %.pre15 = load i32, ptr %29, align 8
   %39 = icmp ugt i32 %.pre, %.pre15
-  br i1 %39, label %40, label %.thread17
+  br i1 %39, label %40, label %.thread34
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = icmp ugt i32 %42, %.pre15
-  br i1 %43, label %.thread17, label %44
+  br i1 %43, label %.thread34, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %46 = load ptr, ptr %45, align 8
   call void @module_put(ptr noundef %46) #14
-  br label %.thread17
+  br label %.thread34
 
-.thread17:                                        ; preds = %32, %44, %40, %36
+.thread34:                                        ; preds = %32, %44, %40, %36
   call void @xt_table_unlock(ptr noundef %13) #14
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 64
   br label %48
 
-48:                                               ; preds = %.thread17, %.loopexit11
-  %49 = phi i64 [ 0, %.thread17 ], [ %111, %.loopexit11 ]
+48:                                               ; preds = %.thread34, %.loopexit11
+  %49 = phi i64 [ 0, %.thread34 ], [ %111, %.loopexit11 ]
   %50 = load i64, ptr @__cpu_possible_mask, align 8
   %51 = shl nsw i64 -1, %49
   %52 = and i64 %50, %51

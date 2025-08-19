@@ -2119,7 +2119,7 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   %.idx = mul nsw i64 %1, 24
   %52 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %53 = icmp eq i64 %1, 0
-  br i1 %53, label %.thread128, label %.lr.ph
+  br i1 %53, label %.thread137, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -2627,9 +2627,9 @@ _ZN6uu_cat10cat_handle17h816f1852f8c538a7E.exit.i: ; preds = %173, %_ZN6uu_cat13
           to label %.body unwind label %161, !noalias !734
 
 199:                                              ; preds = %206, %._crit_edge
-  %.pr127 = load i64, ptr %51, align 8
-  %200 = icmp eq i64 %.pr127, 0
-  br i1 %200, label %.thread128, label %207
+  %.pr136 = load i64, ptr %51, align 8
+  %200 = icmp eq i64 %.pr136, 0
+  br i1 %200, label %.thread137, label %207
 
 201:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -2657,7 +2657,7 @@ _ZN6uu_cat10cat_handle17h816f1852f8c538a7E.exit.i: ; preds = %173, %_ZN6uu_cat13
   %208 = invoke { ptr, i64 } @_ZN6uucore9util_name17hcdedd272bee2ebc0E()
           to label %211 unwind label %.loopexit.split-lp
 
-.thread128:                                       ; preds = %46, %199, %244
+.thread137:                                       ; preds = %46, %199, %244
   %.sroa.0.0 = phi ptr [ %228, %244 ], [ null, %199 ], [ null, %46 ]
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h448b13ec6a9b3c87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
@@ -2776,7 +2776,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %211
 244:                                              ; preds = %242, %238, %.noexc57
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !791
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %.thread128
+  br label %.thread137
 
 245:                                              ; preds = %.body66, %.body55, %.body
   %246 = landingpad { ptr, i32 }

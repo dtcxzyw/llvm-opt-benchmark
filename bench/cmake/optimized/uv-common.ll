@@ -2631,18 +2631,18 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
 41:                                               ; preds = %.lr.ph.split
   %42 = getelementptr inbounds i8, ptr %.01426, i64 -16
   %43 = load i32, ptr %42, align 8, !tbaa !45
-  %switch.tableidx31 = add i32 %43, -1
-  %44 = icmp ult i32 %switch.tableidx31, 16
-  br i1 %44, label %switch.lookup30, label %46
+  %switch.tableidx34 = add i32 %43, -1
+  %44 = icmp ult i32 %switch.tableidx34, 16
+  br i1 %44, label %switch.lookup33, label %46
 
-switch.lookup30:                                  ; preds = %41
-  %45 = zext nneg i32 %switch.tableidx31 to i64
-  %switch.gep32 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.uv__print_handles.1, i64 0, i64 %45
-  %switch.load33 = load ptr, ptr %switch.gep32, align 8
+switch.lookup33:                                  ; preds = %41
+  %45 = zext nneg i32 %switch.tableidx34 to i64
+  %switch.gep35 = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.uv__print_handles.1, i64 0, i64 %45
+  %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %46
 
-46:                                               ; preds = %41, %switch.lookup30
-  %.015 = phi ptr [ %switch.load33, %switch.lookup30 ], [ @.str.181, %41 ]
+46:                                               ; preds = %41, %switch.lookup33
+  %.015 = phi ptr [ %switch.load36, %switch.lookup33 ], [ @.str.181, %41 ]
   %47 = lshr i32 %39, 3
   %.lobit = and i32 %47, 1
   %48 = xor i32 %.lobit, 1

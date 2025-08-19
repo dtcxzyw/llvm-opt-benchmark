@@ -1248,13 +1248,13 @@ define hidden noundef i32 @mbedtls_sha1_update(ptr noundef captures(none) %0, pt
   br i1 %.not45, label %35, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %18, %._crit_edge
-  %.1.lcssa60 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
-  %.137.lcssa59 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
-  %.05358 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
+  %.1.lcssa64 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
+  %.137.lcssa63 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
+  %.05762 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %33 = zext nneg i32 %.05358 to i64
+  %33 = zext nneg i32 %.05762 to i64
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa59, i64 %.1.lcssa60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa63, i64 %.1.lcssa64, i1 false)
   br label %35
 
 35:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
@@ -1624,14 +1624,14 @@ mbedtls_sha1_finish.exit:                         ; preds = %57, %60
   br i1 %exitcond49.not, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %83, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %83 ], [ %indvars.iv.next50, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %83 ], [ %indvars.iv.next53, %.thread ]
   br label %.backedge, !llvm.loop !21
 
 .thread:                                          ; preds = %82
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond49.not51 = icmp eq i64 %indvars.iv.next50, 3
-  br i1 %exitcond49.not51, label %84, label %.backedge.backedge
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond49.not54 = icmp eq i64 %indvars.iv.next53, 3
+  br i1 %exitcond49.not54, label %84, label %.backedge.backedge
 
 84:                                               ; preds = %.thread
   %putchar = call i32 @putchar(i32 10)

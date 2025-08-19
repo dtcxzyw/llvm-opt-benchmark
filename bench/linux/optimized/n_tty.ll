@@ -597,8 +597,8 @@ define internal i64 @n_tty_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 272:                                              ; preds = %266, %261
   %273 = icmp eq ptr %171, %2
-  %or.cond36 = select i1 %155, i1 %273, i1 false
-  br i1 %or.cond36, label %274, label %277
+  %or.cond44 = select i1 %155, i1 %273, i1 false
+  br i1 %or.cond44, label %274, label %277
 
 274:                                              ; preds = %272
   %275 = getelementptr i8, ptr %171, i64 1
@@ -1116,13 +1116,13 @@ define internal i64 @n_tty_write(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .sink.split:                                      ; preds = %.thread21.thread26, %215, %167, %219, %.preheader
   %.ph = phi i64 [ %200, %.preheader ], [ -512, %219 ], [ %165, %167 ], [ -11, %215 ], [ -11, %.thread21.thread26 ]
-  %.ph127 = phi ptr [ %195, %.preheader ], [ %210, %219 ], [ %81, %167 ], [ %210, %215 ], [ %210, %.thread21.thread26 ]
+  %.ph143 = phi ptr [ %195, %.preheader ], [ %210, %219 ], [ %81, %167 ], [ %210, %215 ], [ %210, %.thread21.thread26 ]
   call void @remove_wait_queue(ptr noundef nonnull %50, ptr noundef nonnull %5) #13
   br label %226
 
 226:                                              ; preds = %.sink.split, %.critedge
   %227 = phi i64 [ %224, %.critedge ], [ %.ph, %.sink.split ]
-  %228 = phi ptr [ %.lcssa47, %.critedge ], [ %.ph127, %.sink.split ]
+  %228 = phi ptr [ %.lcssa47, %.critedge ], [ %.ph143, %.sink.split ]
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %230 = load ptr, ptr %229, align 8
   %231 = icmp eq ptr %230, null
@@ -4717,8 +4717,8 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noun
   %.pre66 = load i32, ptr %12, align 4
   %886 = and i32 %.pre66, 32768
   %887 = icmp eq i32 %886, 0
-  %or.cond89 = select i1 %885, i1 true, i1 %887
-  br i1 %or.cond89, label %923, label %888
+  %or.cond114 = select i1 %885, i1 true, i1 %887
+  br i1 %or.cond114, label %923, label %888
 
 888:                                              ; preds = %883, %._crit_edge
   %889 = phi i32 [ %.pre58, %._crit_edge ], [ %.pre66, %883 ]

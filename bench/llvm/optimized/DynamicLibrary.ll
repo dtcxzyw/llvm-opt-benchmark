@@ -307,13 +307,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm3sys14DynamicLibrary9Hand
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !3
   %27 = icmp eq ptr %26, %1
-  br i1 %27, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit27, label %28
+  br i1 %27, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit34, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = icmp eq ptr %30, %1
-  br i1 %31, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit29, label %32
+  br i1 %31, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit36, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 32
@@ -366,16 +366,16 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit: ; 
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 8
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
 
-_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit27: ; preds = %24
+_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit34: ; preds = %24
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 16
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
 
-_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit29: ; preds = %28
+_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit36: ; preds = %28
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i, i64 24
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit
 
-_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit: ; preds = %17, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit27, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit29, %37, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %37 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %48, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit ], [ %49, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit27 ], [ %50, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit29 ], [ %.sroa.032.051.i.i.i.i.i, %17 ]
+_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit: ; preds = %17, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit34, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit36, %37, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i, %37 ], [ %.sroa.032.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i ], [ %48, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit ], [ %49, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit34 ], [ %50, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.loopexit.split.loop.exit36 ], [ %.sroa.032.051.i.i.i.i.i, %17 ]
   %.not13 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %10
   br i1 %.not13, label %.critedge, label %51
 
@@ -711,13 +711,13 @@ _ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit: ; preds = %_ZN12_G
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = icmp eq ptr %30, %10
-  br i1 %31, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit19, label %32
+  br i1 %31, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit23, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = icmp eq ptr %34, %10
-  br i1 %35, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit21, label %36
+  br i1 %35, label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit25, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 32
@@ -770,16 +770,16 @@ _ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit: 
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 8
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i
 
-_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit19: ; preds = %28
+_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit23: ; preds = %28
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 16
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i
 
-_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit21: ; preds = %32
+_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit25: ; preds = %32
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i.i.i, i64 24
   br label %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i
 
-_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i: ; preds = %21, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit19, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit21, %._crit_edge._crit_edge57.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %41
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %41 ], [ %.sroa.032.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i ], [ %52, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit ], [ %53, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit19 ], [ %54, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit21 ], [ %.sroa.032.051.i.i.i.i.i.i, %21 ]
+_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i: ; preds = %21, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit23, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit25, %._crit_edge._crit_edge57.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %41
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %41 ], [ %.sroa.032.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i ], [ %52, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit ], [ %53, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit23 ], [ %54, %_ZN4llvm3sys14DynamicLibrary9HandleSet4FindEPv.exit.i.loopexit.split.loop.exit25 ], [ %.sroa.032.051.i.i.i.i.i.i, %21 ]
   %.not.i5 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %14
   br i1 %.not.i5, label %_ZN4llvm3sys14DynamicLibrary9HandleSet12CloseLibraryEPv.exit, label %55
 

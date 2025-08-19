@@ -80,8 +80,8 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %37 = icmp slt i32 %36, 1
   %38 = icmp samesign ugt i32 %33, %36
   %or.cond = and i1 %.not.not, %38
-  %or.cond742 = select i1 %37, i1 true, i1 %or.cond
-  br i1 %or.cond742, label %.thread545.sink.split, label %39
+  %or.cond757 = select i1 %37, i1 true, i1 %or.cond
+  br i1 %or.cond757, label %.thread545.sink.split, label %39
 
 39:                                               ; preds = %35
   %.pr = load i32, ptr %7, align 4, !tbaa !3
@@ -246,16 +246,16 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %115, label %.sink.split, label %116
 
 .sink.split:                                      ; preds = %113, %110
-  %.sink745 = phi ptr [ %18, %110 ], [ %17, %113 ]
-  %.ph743 = xor i1 %112, true
+  %.sink760 = phi ptr [ %18, %110 ], [ %17, %113 ]
+  %.ph758 = xor i1 %112, true
   store i32 %104, ptr %9, align 4, !tbaa !3
-  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %15, ptr noundef nonnull %.sink745, ptr noundef nonnull %9, ptr noundef nonnull @c__1, ptr noundef nonnull %106, ptr noundef nonnull %1, ptr noundef nonnull %7) #6
+  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %15, ptr noundef nonnull %.sink760, ptr noundef nonnull %9, ptr noundef nonnull @c__1, ptr noundef nonnull %106, ptr noundef nonnull %1, ptr noundef nonnull %7) #6
   store i32 %103, ptr %9, align 4, !tbaa !3
-  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %15, ptr noundef nonnull %.sink745, ptr noundef nonnull %9, ptr noundef nonnull @c__1, ptr noundef nonnull %107, ptr noundef nonnull %1, ptr noundef nonnull %7) #6
+  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %15, ptr noundef nonnull %.sink760, ptr noundef nonnull %9, ptr noundef nonnull @c__1, ptr noundef nonnull %107, ptr noundef nonnull %1, ptr noundef nonnull %7) #6
   br label %116
 
 116:                                              ; preds = %.sink.split, %113
-  %117 = phi i1 [ false, %113 ], [ %.ph743, %.sink.split ]
+  %117 = phi i1 [ false, %113 ], [ %.ph758, %.sink.split ]
   %118 = sext i32 %.1495 to i64
   %119 = getelementptr inbounds double, ptr %21, i64 %118
   %120 = load double, ptr %119, align 8, !tbaa !7
@@ -335,8 +335,8 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 164:                                              ; preds = %144
   %165 = trunc nsw i64 %indvars.iv682 to i32
-  %sext705 = shl i64 %indvars.iv682, 32
-  %166 = ashr exact i64 %sext705, 29
+  %sext720 = shl i64 %indvars.iv682, 32
+  %166 = ashr exact i64 %sext720, 29
   %167 = getelementptr inbounds i8, ptr %22, i64 %166
   store double 0.000000e+00, ptr %167, align 8, !tbaa !7
   br label %.thread548
@@ -755,9 +755,9 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit556:                                     ; preds = %394, %306, %258, %181, %317, %185
   %.2 = phi i32 [ %58, %185 ], [ %58, %317 ], [ %.1, %181 ], [ %.1, %258 ], [ %.3, %306 ], [ %.3, %394 ]
   %brmerge = or i1 %112, %117
-  br i1 %brmerge, label %.sink.split746, label %395
+  br i1 %brmerge, label %.sink.split761, label %395
 
-.sink.split746:                                   ; preds = %.loopexit556
+.sink.split761:                                   ; preds = %.loopexit556
   %.mux = select i1 %112, ptr %18, ptr %17
   store i32 %104, ptr %9, align 4, !tbaa !3
   call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %.mux, ptr noundef nonnull %15, ptr noundef nonnull %9, ptr noundef nonnull @c__1, ptr noundef nonnull %106, ptr noundef nonnull %1, ptr noundef nonnull %7) #6
@@ -765,7 +765,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %.mux, ptr noundef nonnull %15, ptr noundef nonnull %9, ptr noundef nonnull @c__1, ptr noundef nonnull %107, ptr noundef nonnull %1, ptr noundef nonnull %7) #6
   br label %395
 
-395:                                              ; preds = %.loopexit556, %.sink.split746
+395:                                              ; preds = %.loopexit556, %.sink.split761
   %396 = icmp slt i32 %.2, %58
   br i1 %396, label %.outer564, label %397
 

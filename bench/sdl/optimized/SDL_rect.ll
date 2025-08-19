@@ -188,10 +188,10 @@ SDL_RectCanOverflow.exit.thread:                  ; preds = %22, %25, %29, %8, %
   %39 = icmp slt i32 %20, 1
   %or.cond = or i1 %38, %39
   %40 = icmp slt i32 %31, 1
-  %or.cond59 = or i1 %or.cond, %40
+  %or.cond65 = or i1 %or.cond, %40
   %41 = icmp slt i32 %34, 1
-  %or.cond60 = or i1 %or.cond59, %41
-  br i1 %or.cond60, label %SDL_RectEmpty.exit.thread, label %42
+  %or.cond66 = or i1 %or.cond65, %41
+  br i1 %or.cond66, label %SDL_RectEmpty.exit.thread, label %42
 
 42:                                               ; preds = %37
   %43 = add nsw i32 %17, %9
@@ -298,10 +298,10 @@ SDL_RectCanOverflow.exit.thread:                  ; preds = %23, %26, %30, %9, %
   %43 = icmp slt i32 %21, 1
   %or.cond = or i1 %42, %43
   %44 = icmp slt i32 %32, 1
-  %or.cond71 = or i1 %or.cond, %44
+  %or.cond78 = or i1 %or.cond, %44
   %45 = icmp slt i32 %35, 1
-  %or.cond72 = or i1 %or.cond71, %45
-  br i1 %or.cond72, label %SDL_RectEmpty.exit61.thread, label %SDL_RectEmpty.exit
+  %or.cond79 = or i1 %or.cond78, %45
+  br i1 %or.cond79, label %SDL_RectEmpty.exit61.thread, label %SDL_RectEmpty.exit
 
 SDL_RectEmpty.exit61.thread:                      ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -427,11 +427,11 @@ SDL_RectCanOverflow.exit.thread:                  ; preds = %23, %26, %30, %9, %
   %or.cond = or i1 %42, %43
   %44 = icmp slt i32 %32, 1
   %45 = icmp slt i32 %35, 1
-  %or.cond71 = or i1 %44, %45
+  %or.cond78 = or i1 %44, %45
   br i1 %or.cond, label %SDL_RectEmpty.exit64.thread, label %47
 
 SDL_RectEmpty.exit64.thread:                      ; preds = %41
-  br i1 %or.cond71, label %SDL_RectEmpty.exit63.thread, label %46
+  br i1 %or.cond78, label %SDL_RectEmpty.exit63.thread, label %46
 
 SDL_RectEmpty.exit63.thread:                      ; preds = %SDL_RectEmpty.exit64.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -442,7 +442,7 @@ SDL_RectEmpty.exit63.thread:                      ; preds = %SDL_RectEmpty.exit6
   br label %62
 
 47:                                               ; preds = %41
-  br i1 %or.cond71, label %SDL_RectEmpty.exit.thread, label %48
+  br i1 %or.cond78, label %SDL_RectEmpty.exit.thread, label %48
 
 SDL_RectEmpty.exit.thread:                        ; preds = %47
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
@@ -630,19 +630,19 @@ define hidden zeroext i1 @SDL_GetRectEnclosingPoints_REAL(ptr noundef readonly c
   br i1 %exitcond177.not, label %.loopexit.thread, label %.lr.ph162, !llvm.loop !6
 
 .loopexit.thread:                                 ; preds = %.lr.ph162, %._crit_edge, %45
-  %.4191 = phi i32 [ %46, %45 ], [ %.2, %._crit_edge ], [ %.6, %.lr.ph162 ]
-  %.381190 = phi i32 [ %48, %45 ], [ %.280, %._crit_edge ], [ %.583, %.lr.ph162 ]
-  %.488189 = phi i32 [ %46, %45 ], [ %.286, %._crit_edge ], [ %.690, %.lr.ph162 ]
-  %.399188 = phi i32 [ %48, %45 ], [ %.298, %._crit_edge ], [ %.5101, %.lr.ph162 ]
-  store i32 %.4191, ptr %3, align 4
+  %.4199 = phi i32 [ %46, %45 ], [ %.2, %._crit_edge ], [ %.6, %.lr.ph162 ]
+  %.381198 = phi i32 [ %48, %45 ], [ %.280, %._crit_edge ], [ %.583, %.lr.ph162 ]
+  %.488197 = phi i32 [ %46, %45 ], [ %.286, %._crit_edge ], [ %.690, %.lr.ph162 ]
+  %.399196 = phi i32 [ %48, %45 ], [ %.298, %._crit_edge ], [ %.5101, %.lr.ph162 ]
+  store i32 %.4199, ptr %3, align 4
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.381190, ptr %55, align 4
-  %56 = add i32 %.488189, 1
-  %57 = sub i32 %56, %.4191
+  store i32 %.381198, ptr %55, align 4
+  %56 = add i32 %.488197, 1
+  %57 = sub i32 %56, %.4199
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %57, ptr %58, align 4
-  %59 = add i32 %.399188, 1
-  %60 = sub i32 %59, %.381190
+  %59 = add i32 %.399196, 1
+  %60 = sub i32 %59, %.381198
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %60, ptr %61, align 4
   br label %.thread
@@ -725,8 +725,8 @@ SDL_RectCanOverflow.exit.thread:                  ; preds = %8, %11, %15, %SDL_R
 35:                                               ; preds = %32
   %36 = icmp slt i32 %17, 1
   %37 = icmp slt i32 %20, 1
-  %or.cond330 = or i1 %36, %37
-  br i1 %or.cond330, label %SDL_RectEmpty.exit.thread, label %38
+  %or.cond344 = or i1 %36, %37
+  br i1 %or.cond344, label %SDL_RectEmpty.exit.thread, label %38
 
 38:                                               ; preds = %35
   %39 = load i32, ptr %1, align 4
@@ -797,14 +797,14 @@ SDL_RectCanOverflow.exit.thread:                  ; preds = %8, %11, %15, %SDL_R
 
 58:                                               ; preds = %56
   %59 = select i1 %.not241, i1 %.not242.not, i1 false
-  br i1 %59, label %60, label %.sink.split331
+  br i1 %59, label %60, label %.sink.split345
 
-.sink.split331:                                   ; preds = %58
-  %.mux334 = select i1 %.not241, i32 %46, i32 %13
-  store i32 %.mux334, ptr %2, align 4
+.sink.split345:                                   ; preds = %58
+  %.mux348 = select i1 %.not241, i32 %46, i32 %13
+  store i32 %.mux348, ptr %2, align 4
   br label %60
 
-60:                                               ; preds = %58, %.sink.split331
+60:                                               ; preds = %58, %.sink.split345
   br i1 %.not243, label %62, label %61
 
 61:                                               ; preds = %60
@@ -1164,10 +1164,10 @@ SDL_RectCanOverflowFloat.exit53:                  ; preds = %33
   %39 = fcmp olt float %21, 0.000000e+00
   %or.cond = or i1 %38, %39
   %40 = fcmp olt float %31, 0.000000e+00
-  %or.cond56 = or i1 %or.cond, %40
+  %or.cond62 = or i1 %or.cond, %40
   %41 = fcmp olt float %35, 0.000000e+00
-  %or.cond57 = or i1 %or.cond56, %41
-  br i1 %or.cond57, label %SDL_RectEmptyFloat.exit.thread, label %42
+  %or.cond63 = or i1 %or.cond62, %41
+  br i1 %or.cond63, label %SDL_RectEmptyFloat.exit.thread, label %42
 
 42:                                               ; preds = %SDL_RectCanOverflowFloat.exit53
   %43 = fadd float %9, %17
@@ -1281,10 +1281,10 @@ SDL_RectCanOverflowFloat.exit66:                  ; preds = %34
   %43 = fcmp olt float %22, 0.000000e+00
   %or.cond = or i1 %42, %43
   %44 = fcmp olt float %32, 0.000000e+00
-  %or.cond72 = or i1 %or.cond, %44
+  %or.cond79 = or i1 %or.cond, %44
   %45 = fcmp olt float %36, 0.000000e+00
-  %or.cond73 = or i1 %or.cond72, %45
-  br i1 %or.cond73, label %SDL_RectEmptyFloat.exit62.thread, label %SDL_RectEmptyFloat.exit
+  %or.cond80 = or i1 %or.cond79, %45
+  br i1 %or.cond80, label %SDL_RectEmptyFloat.exit62.thread, label %SDL_RectEmptyFloat.exit
 
 SDL_RectEmptyFloat.exit62.thread:                 ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1414,11 +1414,11 @@ SDL_RectCanOverflowFloat.exit69:                  ; preds = %34
   %or.cond = or i1 %42, %43
   %44 = fcmp olt float %32, 0.000000e+00
   %45 = fcmp olt float %36, 0.000000e+00
-  %or.cond72 = or i1 %44, %45
+  %or.cond79 = or i1 %44, %45
   br i1 %or.cond, label %SDL_RectEmptyFloat.exit65.thread, label %47
 
 SDL_RectEmptyFloat.exit65.thread:                 ; preds = %41
-  br i1 %or.cond72, label %SDL_RectEmptyFloat.exit64.thread, label %46
+  br i1 %or.cond79, label %SDL_RectEmptyFloat.exit64.thread, label %46
 
 SDL_RectEmptyFloat.exit64.thread:                 ; preds = %SDL_RectEmptyFloat.exit65.thread
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1429,7 +1429,7 @@ SDL_RectEmptyFloat.exit64.thread:                 ; preds = %SDL_RectEmptyFloat.
   br label %66
 
 47:                                               ; preds = %41
-  br i1 %or.cond72, label %SDL_RectEmptyFloat.exit.thread, label %48
+  br i1 %or.cond79, label %SDL_RectEmptyFloat.exit.thread, label %48
 
 SDL_RectEmptyFloat.exit.thread:                   ; preds = %47
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
@@ -1517,15 +1517,15 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   %27 = load float, ptr %26, align 4
   %28 = fcmp uge float %25, %13
   %29 = fcmp ule float %25, %18
-  %or.cond.us.not186 = and i1 %28, %29
+  %or.cond.us.not197 = and i1 %28, %29
   %30 = fcmp uge float %27, %15
-  %or.cond116.us.not183 = select i1 %or.cond.us.not186, i1 %30, i1 false
+  %or.cond116.us.not194 = select i1 %or.cond.us.not197, i1 %30, i1 false
   %31 = fcmp ule float %27, %21
-  %or.cond117.us.not = select i1 %or.cond116.us.not183, i1 %31, i1 false
+  %or.cond117.us.not = select i1 %or.cond116.us.not194, i1 %31, i1 false
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count160
-  %or.cond187 = select i1 %or.cond117.us.not, i1 true, i1 %exitcond161.not
-  br i1 %or.cond187, label %.thread, label %.lr.ph.split.us, !llvm.loop !8
+  %or.cond198 = select i1 %or.cond117.us.not, i1 true, i1 %exitcond161.not
+  br i1 %or.cond198, label %.thread, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph ]
@@ -1653,18 +1653,18 @@ define hidden noundef zeroext i1 @SDL_GetRectEnclosingPointsFloat_REAL(ptr nound
   br i1 %.not115, label %.thread, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %55, %.loopexit
-  %.4180 = phi float [ %.4, %.loopexit ], [ %56, %55 ]
-  %.381179 = phi float [ %.381, %.loopexit ], [ %58, %55 ]
-  %.488178 = phi float [ %.488, %.loopexit ], [ %56, %55 ]
-  %.399177 = phi float [ %.399, %.loopexit ], [ %58, %55 ]
-  store float %.4180, ptr %3, align 4
+  %.4191 = phi float [ %.4, %.loopexit ], [ %56, %55 ]
+  %.381190 = phi float [ %.381, %.loopexit ], [ %58, %55 ]
+  %.488189 = phi float [ %.488, %.loopexit ], [ %56, %55 ]
+  %.399188 = phi float [ %.399, %.loopexit ], [ %58, %55 ]
+  store float %.4191, ptr %3, align 4
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %.381179, ptr %73, align 4
-  %74 = fsub float %.488178, %.4180
+  store float %.381190, ptr %73, align 4
+  %74 = fsub float %.488189, %.4191
   %75 = fadd float %74, 0.000000e+00
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %75, ptr %76, align 4
-  %77 = fsub float %.399177, %.381179
+  %77 = fsub float %.399188, %.381190
   %78 = fadd float %77, 0.000000e+00
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %78, ptr %79, align 4
@@ -1748,8 +1748,8 @@ SDL_RectCanOverflowFloat.exit:                    ; preds = %19
 36:                                               ; preds = %33
   %37 = fcmp olt float %17, 0.000000e+00
   %38 = fcmp olt float %21, 0.000000e+00
-  %or.cond301 = or i1 %37, %38
-  br i1 %or.cond301, label %SDL_RectEmptyFloat.exit.thread, label %39
+  %or.cond319 = or i1 %37, %38
+  br i1 %or.cond319, label %SDL_RectEmptyFloat.exit.thread, label %39
 
 39:                                               ; preds = %36
   %40 = load float, ptr %1, align 4
@@ -1808,8 +1808,8 @@ SDL_RectCanOverflowFloat.exit:                    ; preds = %19
   br i1 %brmerge, label %.sink.split, label %72
 
 .sink.split:                                      ; preds = %71
-  %.mux305 = select i1 %58, float %9, float %44
-  store float %.mux305, ptr %1, align 4
+  %.mux323 = select i1 %58, float %9, float %44
+  store float %.mux323, ptr %1, align 4
   br label %72
 
 72:                                               ; preds = %71, %.sink.split
@@ -1831,15 +1831,15 @@ SDL_RectCanOverflowFloat.exit:                    ; preds = %19
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %76
-  %brmerge306 = or i1 %64, %67
-  br i1 %brmerge306, label %.sink.split302, label %79
+  %brmerge324 = or i1 %64, %67
+  br i1 %brmerge324, label %.sink.split320, label %79
 
-.sink.split302:                                   ; preds = %78
-  %.mux307 = select i1 %64, float %13, float %45
-  store float %.mux307, ptr %2, align 4
+.sink.split320:                                   ; preds = %78
+  %.mux325 = select i1 %64, float %13, float %45
+  store float %.mux325, ptr %2, align 4
   br label %79
 
-79:                                               ; preds = %78, %.sink.split302
+79:                                               ; preds = %78, %.sink.split320
   br i1 %65, label %80, label %81
 
 80:                                               ; preds = %79
@@ -1873,12 +1873,12 @@ ComputeOutCodeFloat.exit:                         ; preds = %84, %86, %87
   %.1.i = phi i32 [ %85, %84 ], [ %88, %87 ], [ %.0.i256, %86 ]
   %.mux283 = zext i1 %68 to i32
   %.0.i257 = select i1 %65, i32 2, i32 %.mux283
-  %brmerge308 = or i1 %59, %62
-  br i1 %brmerge308, label %ComputeOutCodeFloat.exit259.thread, label %ComputeOutCodeFloat.exit259
+  %brmerge326 = or i1 %59, %62
+  br i1 %brmerge326, label %ComputeOutCodeFloat.exit259.thread, label %ComputeOutCodeFloat.exit259
 
 ComputeOutCodeFloat.exit259.thread:               ; preds = %ComputeOutCodeFloat.exit
-  %.mux309 = select i1 %59, i32 4, i32 8
-  %89 = or disjoint i32 %.0.i257, %.mux309
+  %.mux327 = select i1 %59, i32 4, i32 8
+  %89 = or disjoint i32 %.0.i257, %.mux327
   %90 = icmp ne i32 %.1.i, 0
   br label %.lr.ph.preheader
 

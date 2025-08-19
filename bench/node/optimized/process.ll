@@ -239,10 +239,10 @@ if.end6:                                          ; preds = %entry
   br i1 %cmp7, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry, %if.end6
-  %pipes.0146 = phi ptr [ %call, %if.end6 ], [ %pipes_storage, %entry ]
+  %pipes.0148 = phi ptr [ %call, %if.end6 ], [ %pipes_storage, %entry ]
   %2 = zext nneg i32 %spec.store.select to i64
   %3 = shl nuw nsw i64 %2, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pipes.0146, i8 -1, i64 %3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %pipes.0148, i8 -1, i64 %3, i1 false)
   %4 = load i32, ptr %stdio_count3, align 4
   %cmp19121 = icmp sgt i32 %4, 0
   br i1 %cmp19121, label %for.body21.lr.ph, label %for.end30
@@ -255,7 +255,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next, %for.inc28 ]
   %5 = load ptr, ptr %stdio, align 8
   %add.ptr = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %5, i64 %indvars.iv
-  %arrayidx23 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0146, i64 %indvars.iv
+  %arrayidx23 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0148, i64 %indvars.iv
   %6 = load i32, ptr %add.ptr, align 8
   %and.i = and i32 %6, 7
   switch i32 %and.i, label %error [
@@ -354,7 +354,7 @@ if.end.i.i:                                       ; preds = %if.end.i75
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end13.i.i
 
 if.then12.i.i:                                    ; preds = %if.end.i.i
-  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %options, i32 noundef %spec.store.select, ptr noundef nonnull %pipes.0146, i32 noundef %12)
+  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %options, i32 noundef %spec.store.select, ptr noundef nonnull %pipes.0148, i32 noundef %12)
   unreachable
 
 if.end13.i.i:                                     ; preds = %if.end.i.i
@@ -506,7 +506,7 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %indvars.iv133 = phi i64 [ 0, %for.body62.lr.ph ], [ %indvars.iv.next134, %for.inc78 ]
   %30 = load ptr, ptr %stdio63, align 8
   %add.ptr65 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %30, i64 %indvars.iv133
-  %arrayidx67 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0146, i64 %indvars.iv133
+  %arrayidx67 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0148, i64 %indvars.iv133
   %31 = load i32, ptr %add.ptr65, align 8
   %and.i80 = and i32 %31, 1
   %tobool.not.i81 = icmp eq i32 %and.i80, 0
@@ -581,7 +581,7 @@ for.inc78:                                        ; preds = %uv__process_open_st
   br i1 %cmp60, label %for.body62, label %for.end80
 
 for.end80:                                        ; preds = %for.inc78, %if.end57
-  %cmp82.not = icmp eq ptr %pipes.0146, %pipes_storage
+  %cmp82.not = icmp eq ptr %pipes.0148, %pipes_storage
   br i1 %cmp82.not, label %return, label %return.sink.split
 
 error:                                            ; preds = %for.body21, %if.end.i, %sw.bb1.i, %uv__process_init_stdio.exit, %uv__process_close_stream.exit, %while.cond.preheader
@@ -605,7 +605,7 @@ if.then96:                                        ; preds = %for.body92
   br i1 %tobool102.not, label %if.end105, label %for.inc128
 
 if.end105:                                        ; preds = %if.then96, %for.body92
-  %arrayidx107 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0146, i64 %indvars.iv141
+  %arrayidx107 = getelementptr inbounds nuw [2 x i32], ptr %pipes.0148, i64 %indvars.iv141
   %49 = load i32, ptr %arrayidx107, align 4
   %cmp109.not = icmp eq i32 %49, -1
   br i1 %cmp109.not, label %if.end116, label %if.then111
@@ -630,12 +630,12 @@ for.inc128:                                       ; preds = %if.end116, %if.then
   br i1 %exitcond.not, label %for.end130, label %for.body92
 
 for.end130:                                       ; preds = %for.inc128
-  %cmp132.not = icmp eq ptr %pipes.0146, %pipes_storage
+  %cmp132.not = icmp eq ptr %pipes.0148, %pipes_storage
   br i1 %cmp132.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %for.end130, %for.end80
   %retval.0.ph = phi i32 [ %retval.0.i74103, %for.end80 ], [ %err.0, %for.end130 ]
-  call void @uv__free(ptr noundef nonnull %pipes.0146) #12
+  call void @uv__free(ptr noundef nonnull %pipes.0148) #12
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end6, %for.end130, %for.end80
@@ -1020,7 +1020,7 @@ if.then69:                                        ; preds = %if.end67
 
 for.inc72:                                        ; preds = %if.end67, %if.then69, %if.then37
   %fd.2 = phi i32 [ %fd.1174, %if.then37 ], [ %fd.3151157, %if.then69 ], [ %fd.3151157, %if.end67 ]
-  %inc73 = add nsw i32 %fd.2, 1
+  %inc73 = add nuw nsw i32 %fd.2, 1
   %cmp31 = icmp slt i32 %inc73, %stdio_count
   br i1 %cmp31, label %for.body32, label %for.end74
 

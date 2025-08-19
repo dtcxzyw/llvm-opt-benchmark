@@ -192,7 +192,7 @@ calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit,
   %74 = trunc i32 %73 to i16
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i16 %74, ptr %75, align 4, !tbaa !7
-  br label %.loopexit286
+  br label %.loopexit295
 
 76:                                               ; preds = %64, %62, %53
   %.2182.ph = phi i32 [ 384, %53 ], [ %.0180224, %62 ], [ %66, %64 ]
@@ -204,32 +204,32 @@ calc_lowcomp1.exit215:                            ; preds = %calc_lowcomp1.exit,
   store i16 %80, ptr %81, align 2, !tbaa !7
   %82 = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp sgt i16 %55, %58
-  br i1 %.not, label %83, label %.loopexit286.split.loop.exit291
+  br i1 %.not, label %83, label %.loopexit295.split.loop.exit300
 
 83:                                               ; preds = %76
   %exitcond.not = icmp eq i64 %82, 7
-  br i1 %exitcond.not, label %.loopexit286.split.loop.exit, label %51, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit295.split.loop.exit, label %51, !llvm.loop !16
 
-.loopexit286.split.loop.exit:                     ; preds = %83
+.loopexit295.split.loop.exit:                     ; preds = %83
   %84 = sub nsw i32 %56, %78
-  br label %.loopexit286
+  br label %.loopexit295
 
-.loopexit286.split.loop.exit291:                  ; preds = %76
+.loopexit295.split.loop.exit300:                  ; preds = %76
   %85 = sub nsw i32 %56, %78
   %86 = trunc nuw nsw i64 %82 to i32
-  br label %.loopexit286
+  br label %.loopexit295
 
-.loopexit286:                                     ; preds = %.loopexit286.split.loop.exit, %.loopexit286.split.loop.exit291, %.thread
-  %87 = phi i32 [ %71, %.thread ], [ %78, %.loopexit286.split.loop.exit ], [ %78, %.loopexit286.split.loop.exit291 ]
-  %.0190 = phi i32 [ 7, %.thread ], [ 7, %.loopexit286.split.loop.exit ], [ %86, %.loopexit286.split.loop.exit291 ]
-  %.1181 = phi i32 [ %.0180224, %.thread ], [ %.2182.ph, %.loopexit286.split.loop.exit ], [ %.2182.ph, %.loopexit286.split.loop.exit291 ]
-  %.1176 = phi i32 [ %70, %.thread ], [ %77, %.loopexit286.split.loop.exit ], [ %77, %.loopexit286.split.loop.exit291 ]
-  %.1174 = phi i32 [ %72, %.thread ], [ %84, %.loopexit286.split.loop.exit ], [ %85, %.loopexit286.split.loop.exit291 ]
+.loopexit295:                                     ; preds = %.loopexit295.split.loop.exit, %.loopexit295.split.loop.exit300, %.thread
+  %87 = phi i32 [ %71, %.thread ], [ %78, %.loopexit295.split.loop.exit ], [ %78, %.loopexit295.split.loop.exit300 ]
+  %.0190 = phi i32 [ 7, %.thread ], [ 7, %.loopexit295.split.loop.exit ], [ %86, %.loopexit295.split.loop.exit300 ]
+  %.1181 = phi i32 [ %.0180224, %.thread ], [ %.2182.ph, %.loopexit295.split.loop.exit ], [ %.2182.ph, %.loopexit295.split.loop.exit300 ]
+  %.1176 = phi i32 [ %70, %.thread ], [ %77, %.loopexit295.split.loop.exit ], [ %77, %.loopexit295.split.loop.exit300 ]
+  %.1174 = phi i32 [ %72, %.thread ], [ %84, %.loopexit295.split.loop.exit ], [ %85, %.loopexit295.split.loop.exit300 ]
   %88 = tail call i32 @llvm.umin.i32(i32 %24, i32 21)
   %.not210225 = icmp sgt i32 %.0190, %88
   br i1 %.not210225, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit286
+.lr.ph:                                           ; preds = %.loopexit295
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load i32, ptr %89, align 4, !tbaa !17
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -330,10 +330,10 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %143 = add nsw i32 %142, 768
   br label %.loopexit
 
-.loopexit:                                        ; preds = %calc_lowcomp.exit, %.loopexit286, %135
-  %.1191 = phi i32 [ %19, %135 ], [ 22, %.loopexit286 ], [ 22, %calc_lowcomp.exit ]
-  %.3178 = phi i32 [ %139, %135 ], [ %.1176, %.loopexit286 ], [ %., %calc_lowcomp.exit ]
-  %.3 = phi i32 [ %143, %135 ], [ %.1174, %.loopexit286 ], [ %130, %calc_lowcomp.exit ]
+.loopexit:                                        ; preds = %calc_lowcomp.exit, %.loopexit295, %135
+  %.1191 = phi i32 [ %19, %135 ], [ 22, %.loopexit295 ], [ 22, %calc_lowcomp.exit ]
+  %.3178 = phi i32 [ %139, %135 ], [ %.1176, %.loopexit295 ], [ %., %calc_lowcomp.exit ]
+  %.3 = phi i32 [ %143, %135 ], [ %.1174, %.loopexit295 ], [ %130, %calc_lowcomp.exit ]
   %.not209231 = icmp samesign ugt i32 %.1191, %24
   br i1 %.not209231, label %.preheader222, label %.lr.ph235
 

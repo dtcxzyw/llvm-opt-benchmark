@@ -170,18 +170,18 @@ define dso_local void @drm_syncobj_add_point(ptr noundef %0, ptr noundef %1, ptr
   %44 = add i32 %41, 1
   %45 = or i32 %44, %41
   %46 = icmp sgt i32 %45, -1
-  br i1 %46, label %.preheader11, label %47, !prof !8
+  br i1 %46, label %.preheader19, label %47, !prof !8
 
 47:                                               ; preds = %43, %39
   %48 = phi i32 [ 2, %39 ], [ 1, %43 ]
   tail call void @refcount_warn_saturate(ptr noundef nonnull %40, i32 noundef %48) #12
-  br label %.preheader11
+  br label %.preheader19
 
-.preheader11:                                     ; preds = %47, %43
+.preheader19:                                     ; preds = %47, %43
   br label %49
 
-49:                                               ; preds = %.preheader11, %49
-  %50 = phi ptr [ %51, %49 ], [ %18, %.preheader11 ]
+49:                                               ; preds = %.preheader19, %49
+  %50 = phi ptr [ %51, %49 ], [ %18, %.preheader19 ]
   %51 = tail call ptr @dma_fence_chain_walk(ptr noundef nonnull %50) #12
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.critedge, label %49, !llvm.loop !14
@@ -2674,9 +2674,9 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_reset_ioctl(ptr noun
 
 38:                                               ; preds = %.preheader
   %39 = icmp eq i32 %35, 0
-  br i1 %39, label %.loopexit, label %.preheader8
+  br i1 %39, label %.loopexit, label %.preheader12
 
-.preheader8:                                      ; preds = %38, %.thread6
+.preheader12:                                     ; preds = %38, %.thread6
   %40 = phi i64 [ %49, %.thread6 ], [ 0, %38 ]
   %41 = getelementptr ptr, ptr %30, i64 %40
   %42 = load ptr, ptr %41, align 8
@@ -2684,7 +2684,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_reset_ioctl(ptr noun
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %48, label %45
 
-45:                                               ; preds = %.preheader8
+45:                                               ; preds = %.preheader12
   %46 = icmp sgt i32 %43, 0
   br i1 %46, label %.thread6, label %47, !prof !8
 
@@ -2692,7 +2692,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_reset_ioctl(ptr noun
   tail call void @refcount_warn_saturate(ptr noundef %42, i32 noundef 3) #12
   br label %.thread6
 
-48:                                               ; preds = %.preheader8
+48:                                               ; preds = %.preheader12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
   tail call void @drm_syncobj_free(ptr noundef %42) #12, !callees !17
   br label %.thread6
@@ -2700,7 +2700,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_reset_ioctl(ptr noun
 .thread6:                                         ; preds = %45, %47, %48
   %49 = add nuw nsw i64 %40, 1
   %50 = icmp eq i64 %49, %36
-  br i1 %50, label %.loopexit, label %.preheader8, !llvm.loop !35
+  br i1 %50, label %.loopexit, label %.preheader12, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.thread6, %27, %38
   tail call void @kfree(ptr noundef %30) #12
@@ -2950,16 +2950,16 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
 
 65:                                               ; preds = %.preheader
   %66 = icmp eq i64 %60, 0
-  br i1 %66, label %.thread, label %.preheader33
+  br i1 %66, label %.thread, label %.preheader45
 
-.preheader33:                                     ; preds = %65, %.preheader33
-  %67 = phi i64 [ %70, %.preheader33 ], [ 0, %65 ]
+.preheader45:                                     ; preds = %65, %.preheader45
+  %67 = phi i64 [ %70, %.preheader45 ], [ 0, %65 ]
   %68 = getelementptr ptr, ptr %51, i64 %67
   %69 = load ptr, ptr %68, align 8
   tail call void @kfree(ptr noundef %69) #12
   %70 = add nuw nsw i64 %67, 1
   %71 = icmp eq i64 %70, %60
-  br i1 %71, label %.thread, label %.preheader33, !llvm.loop !43
+  br i1 %71, label %.thread, label %.preheader45, !llvm.loop !43
 
 72:                                               ; preds = %.preheader
   %73 = add nuw nsw i64 %60, 1
@@ -3007,8 +3007,8 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
   %98 = icmp samesign ult i64 %95, %97
   br i1 %98, label %77, label %.thread, !llvm.loop !45
 
-.thread:                                          ; preds = %.thread13, %.preheader33, %53, %65, %56
-  %99 = phi i32 [ -12, %65 ], [ 0, %56 ], [ 0, %53 ], [ -12, %.preheader33 ], [ 0, %.thread13 ]
+.thread:                                          ; preds = %.thread13, %.preheader45, %53, %65, %56
+  %99 = phi i32 [ -12, %65 ], [ 0, %56 ], [ 0, %53 ], [ -12, %.preheader45 ], [ 0, %.thread13 ]
   tail call void @kfree(ptr noundef nonnull %51) #12
   br label %100
 

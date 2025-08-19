@@ -532,8 +532,8 @@ bytestream2_get_byte.exit.us:                     ; preds = %50, %.preheader142.
   %63 = zext i8 %62 to i32
   %64 = icmp slt i32 %61, %63
   %.not172 = icmp eq i8 %62, 0
-  %or.cond183 = or i1 %64, %.not172
-  br i1 %or.cond183, label %.thread138, label %.lr.ph
+  %or.cond195 = or i1 %64, %.not172
+  br i1 %or.cond195, label %.thread138, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60, %bytestream2_get_byte.exit79
   %.161163 = phi i32 [ %74, %bytestream2_get_byte.exit79 ], [ 0, %60 ]

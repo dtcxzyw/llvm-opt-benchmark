@@ -2567,8 +2567,8 @@ common.resume.i.i.i:                              ; preds = %43, %common.resume.
   unreachable
 
 "_ZN4core3ptr61drop_in_place$LT$http..response..Response$LT$$LP$$RP$$GT$$GT$17hbbf2a7157356ddd0E.exit.sink.split.i.i.i": ; preds = %51, %24
-  %.sink4.i.i.i = phi ptr [ %22, %24 ], [ %49, %51 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sink4.i.i.i, i64 noundef 32, i64 noundef 8) #26, !noalias !4
+  %.sink6.i.i.i = phi ptr [ %22, %24 ], [ %49, %51 ]
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sink6.i.i.i, i64 noundef 32, i64 noundef 8) #26, !noalias !4
   br label %"_ZN4core3ptr92drop_in_place$LT$h2..proto..streams..buffer..Slot$LT$h2..proto..streams..recv..Event$GT$$GT$17h40d8c99a63de0e16E.exit"
 
 57:                                               ; preds = %4
@@ -2629,9 +2629,9 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$brotli..enc..encode..Brotli
   br i1 %12, label %"_ZN4core3ptr112drop_in_place$LT$brotli..enc..backward_references..UnionHasher$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h96e8f061245e5a60E.exit", label %"_ZN4core3ptr313drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10$LT$alloc_stdlib..std_alloc..StandardAlloc$C$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$C$brotli..enc..backward_references..hash_to_binary_tree..H10DefaultParams$GT$$GT$17h3d08e1516bf1b4f1E.exit.sink.split.i"
 
 "_ZN4core3ptr313drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10$LT$alloc_stdlib..std_alloc..StandardAlloc$C$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$C$brotli..enc..backward_references..hash_to_binary_tree..H10DefaultParams$GT$$GT$17h3d08e1516bf1b4f1E.exit.sink.split.i": ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i15.i", %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i12.i", %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i9.i", %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i6.i", %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i.i", %28, %24, %20, %16, %"_ZN4core3ptr132drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h1679d9c2d30dc52cE.exit.i.i"
-  %.sink19.i = phi i64 [ 8, %16 ], [ 8, %20 ], [ 8, %24 ], [ 8, %28 ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i.i" ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i6.i" ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i9.i" ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i12.i" ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i15.i" ], [ 24, %"_ZN4core3ptr132drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h1679d9c2d30dc52cE.exit.i.i" ]
+  %.sink34.i = phi i64 [ 8, %16 ], [ 8, %20 ], [ 8, %24 ], [ 8, %28 ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i.i" ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i6.i" ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i9.i" ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i12.i" ], [ 24, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i15.i" ], [ 24, %"_ZN4core3ptr132drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h1679d9c2d30dc52cE.exit.i.i" ]
   %.sink.i = phi i64 [ %18, %16 ], [ %22, %20 ], [ %26, %24 ], [ %30, %28 ], [ %40, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i.i" ], [ %50, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i6.i" ], [ %60, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i9.i" ], [ %70, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i12.i" ], [ %80, %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit.i15.i" ], [ %11, %"_ZN4core3ptr132drop_in_place$LT$brotli..enc..backward_references..hash_to_binary_tree..H10Buckets$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h1679d9c2d30dc52cE.exit.i.i" ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink19.i
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink34.i
   %14 = shl nsw i64 %.sink.i, 2
   %15 = load ptr, ptr %13, align 8, !alias.scope !988, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %14, i64 noundef 4) #26, !noalias !988
@@ -6473,14 +6473,14 @@ define hidden void @"_ZN4core3ptr231drop_in_place$LT$actix_http..body..message_b
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h913c0795b75189e1E.llvm.14998522591088738574"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2534, !noundef !4
-  switch i64 %2, label %default.unreachable1 [
+  switch i64 %2, label %default.unreachable2 [
     i64 0, label %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h4ff4c0206e9133ffE.exit"
     i64 1, label %24
     i64 2, label %37
     i64 3, label %3
   ]
 
-default.unreachable1:                             ; preds = %1
+default.unreachable2:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -8465,10 +8465,10 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$bitflags..parser..ParseError
   br i1 %6, label %"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseErrorKind$GT$17h640d465437335dc3E.llvm.14998522591088738574.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b83d7f773c8921E.exit.sink.split.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b83d7f773c8921E.exit.sink.split.i": ; preds = %9, %3
-  %.sink3.i = phi i64 [ %11, %9 ], [ %5, %3 ]
+  %.sink4.i = phi i64 [ %11, %9 ], [ %5, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !3434, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3.i, i64 noundef 1) #26, !noalias !3434
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4.i, i64 noundef 1) #26, !noalias !3434
   br label %"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseErrorKind$GT$17h640d465437335dc3E.llvm.14998522591088738574.exit"
 
 9:                                                ; preds = %1
@@ -9575,10 +9575,10 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseError
   br i1 %6, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b83d7f773c8921E.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b83d7f773c8921E.exit.sink.split"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b83d7f773c8921E.exit.sink.split": ; preds = %3, %9
-  %.sink3 = phi i64 [ %11, %9 ], [ %5, %3 ]
+  %.sink4 = phi i64 [ %11, %9 ], [ %5, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3, i64 noundef 1) #26, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4, i64 noundef 1) #26, !noalias !4
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b83d7f773c8921E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b83d7f773c8921E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b83d7f773c8921E.exit.sink.split", %9, %3, %1
@@ -12164,8 +12164,8 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..oneshot..Sender
   br i1 %23, label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h85075e0687c05ad1E.llvm.14998522591088738574.exit3", label %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c4f08fbbb9cc0c4E.llvm.14998522591088738574.exit.thread"
 
 "_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c4f08fbbb9cc0c4E.llvm.14998522591088738574.exit.thread": ; preds = %.noexc, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c4f08fbbb9cc0c4E.llvm.14998522591088738574.exit"
-  %.pr6 = phi ptr [ %.pr.pre, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c4f08fbbb9cc0c4E.llvm.14998522591088738574.exit" ], [ %2, %.noexc ]
-  %24 = atomicrmw sub ptr %.pr6, i64 1 release, align 8, !noalias !4694
+  %.pr7 = phi ptr [ %.pr.pre, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2c4f08fbbb9cc0c4E.llvm.14998522591088738574.exit" ], [ %2, %.noexc ]
+  %24 = atomicrmw sub ptr %.pr7, i64 1 release, align 8, !noalias !4694
   %25 = icmp eq i64 %24, 1
   br i1 %25, label %26, label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h85075e0687c05ad1E.llvm.14998522591088738574.exit3"
 

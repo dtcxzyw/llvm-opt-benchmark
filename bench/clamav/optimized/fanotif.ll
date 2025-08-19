@@ -110,16 +110,16 @@ define dso_local range(i32 0, 4) i32 @onas_setup_fanotif(ptr noundef readonly ca
 
 .sink.split:                                      ; preds = %30, %15
   %.str.5.sink = phi ptr [ @.str.3, %15 ], [ @.str.5, %30 ]
-  %.sink77.ph = phi i64 [ 196608, %15 ], [ 33, %30 ]
+  %.sink83.ph = phi i64 [ 196608, %15 ], [ 33, %30 ]
   %37 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull %.str.5.sink) #13
   br label %38
 
 38:                                               ; preds = %.sink.split, %22, %30
-  %.sink77 = phi i64 [ 33, %30 ], [ 33, %22 ], [ %.sink77.ph, %.sink.split ]
+  %.sink83 = phi i64 [ 33, %30 ], [ 33, %22 ], [ %.sink83.ph, %.sink.split ]
   %39 = load ptr, ptr %0, align 8, !tbaa !8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i64, ptr %40, align 1, !tbaa !16
-  %42 = or i64 %41, %.sink77
+  %42 = or i64 %41, %.sink83
   store i64 %42, ptr %40, align 1, !tbaa !16
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 1, !tbaa !17

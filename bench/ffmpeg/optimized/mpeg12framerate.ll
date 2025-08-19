@@ -93,14 +93,14 @@ av_cmp_q.exit.thread.us150:                       ; preds = %.split.split.us
 
 35:                                               ; preds = %.split.split
   %36 = icmp ugt i64 %30, 4294967295
-  br i1 %36, label %av_cmp_q.exit.thread101.loopexit215, label %37
+  br i1 %36, label %av_cmp_q.exit.thread101.loopexit221, label %37
 
 37:                                               ; preds = %35
   %38 = icmp ne i32 %.sroa.0.0.extract.trunc.i, 0
   %.unshifted = xor i32 %.sroa.0.0.extract.trunc.i, %.sroa.011.0.extract.trunc.i
   %39 = icmp sgt i32 %.unshifted, -1
   %or.cond122 = and i1 %38, %39
-  br i1 %or.cond122, label %av_cmp_q.exit.thread101.loopexit215, label %av_cmp_q.exit.thread
+  br i1 %or.cond122, label %av_cmp_q.exit.thread101.loopexit221, label %av_cmp_q.exit.thread
 
 av_cmp_q.exit.thread:                             ; preds = %.split.split, %37
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
@@ -276,14 +276,14 @@ av_cmp_q.exit.thread101.loopexit:                 ; preds = %av_cmp_q.exit89, %5
   %101 = trunc nuw nsw i64 %indvars.iv202 to i32
   br label %av_cmp_q.exit.thread101
 
-av_cmp_q.exit.thread101.loopexit215:              ; preds = %35, %37
+av_cmp_q.exit.thread101.loopexit221:              ; preds = %35, %37
   %102 = trunc nuw nsw i64 %indvars.iv192 to i32
   br label %av_cmp_q.exit.thread101
 
-av_cmp_q.exit.thread101:                          ; preds = %98, %av_cmp_q.exit.thread101.loopexit215, %av_cmp_q.exit.thread101.loopexit, %av_cmp_q.exit.thread101.loopexit183, %av_cmp_q.exit.thread101.loopexit179
-  %.065 = phi i32 [ 1, %av_cmp_q.exit.thread101.loopexit179 ], [ 1, %av_cmp_q.exit.thread101.loopexit183 ], [ %101, %av_cmp_q.exit.thread101.loopexit ], [ 1, %av_cmp_q.exit.thread101.loopexit215 ], [ %.469.ph, %98 ]
-  %.059 = phi i32 [ 1, %av_cmp_q.exit.thread101.loopexit179 ], [ 1, %av_cmp_q.exit.thread101.loopexit183 ], [ %44, %av_cmp_q.exit.thread101.loopexit ], [ 1, %av_cmp_q.exit.thread101.loopexit215 ], [ %.463.ph, %98 ]
-  %.057 = phi i32 [ %99, %av_cmp_q.exit.thread101.loopexit179 ], [ %100, %av_cmp_q.exit.thread101.loopexit183 ], [ %42, %av_cmp_q.exit.thread101.loopexit ], [ %102, %av_cmp_q.exit.thread101.loopexit215 ], [ %.4.ph, %98 ]
+av_cmp_q.exit.thread101:                          ; preds = %98, %av_cmp_q.exit.thread101.loopexit221, %av_cmp_q.exit.thread101.loopexit, %av_cmp_q.exit.thread101.loopexit183, %av_cmp_q.exit.thread101.loopexit179
+  %.065 = phi i32 [ 1, %av_cmp_q.exit.thread101.loopexit179 ], [ 1, %av_cmp_q.exit.thread101.loopexit183 ], [ %101, %av_cmp_q.exit.thread101.loopexit ], [ 1, %av_cmp_q.exit.thread101.loopexit221 ], [ %.469.ph, %98 ]
+  %.059 = phi i32 [ 1, %av_cmp_q.exit.thread101.loopexit179 ], [ 1, %av_cmp_q.exit.thread101.loopexit183 ], [ %44, %av_cmp_q.exit.thread101.loopexit ], [ 1, %av_cmp_q.exit.thread101.loopexit221 ], [ %.463.ph, %98 ]
+  %.057 = phi i32 [ %99, %av_cmp_q.exit.thread101.loopexit179 ], [ %100, %av_cmp_q.exit.thread101.loopexit183 ], [ %42, %av_cmp_q.exit.thread101.loopexit ], [ %102, %av_cmp_q.exit.thread101.loopexit221 ], [ %.4.ph, %98 ]
   store i32 %.057, ptr %1, align 4, !tbaa !9
   br i1 %8, label %103, label %106
 

@@ -227,8 +227,8 @@ _ZNK3ue25depthcvjEv.exit62:                       ; preds = %_ZNK3ue25depthcvjEv
   store i32 0, ptr %7, align 8
   %90 = load i32, ptr %3, align 4
   %91 = add i32 %90, -2147483646
-  %or.cond138 = icmp ult i32 %91, -2147483647
-  br i1 %or.cond138, label %_ZNK3ue25depthplEi.exit68.thread.invoke, label %_ZNK3ue25depthplEi.exit68
+  %or.cond161 = icmp ult i32 %91, -2147483647
+  br i1 %or.cond161, label %_ZNK3ue25depthplEi.exit68.thread.invoke, label %_ZNK3ue25depthplEi.exit68
 
 _ZNK3ue25depthplEi.exit68:                        ; preds = %89
   %92 = add i32 %90, 8
@@ -294,7 +294,7 @@ _ZNK3ue25depthcvjEv.exit.i:                       ; preds = %98
   %115 = ptrtoint ptr %113 to i64
   %116 = sub i64 %114, %115
   %117 = icmp eq i64 %116, 9223372036854775800
-  br i1 %117, label %.invoke133, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i
+  br i1 %117, label %.invoke156, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %112
   %118 = ashr exact i64 %116, 3
@@ -374,13 +374,13 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit.i:         ; preds = %_ZNSt6vectorImSaImE
   %149 = ptrtoint ptr %135 to i64
   %150 = sub i64 %148, %149
   %151 = icmp eq i64 %150, 9223372036854775800
-  br i1 %151, label %.invoke133, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i32.i
+  br i1 %151, label %.invoke156, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i32.i
 
-.invoke133:                                       ; preds = %112, %147
+.invoke156:                                       ; preds = %112, %147
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #17
-          to label %.cont134 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont157 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont134:                                         ; preds = %.invoke133
+.cont157:                                         ; preds = %.invoke156
   unreachable
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i32.i: ; preds = %147
@@ -418,7 +418,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 _ZNSt6vectorImSaImEE9push_backEOm.exit38.i:       ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i37.i, %144
   %164 = phi ptr [ %.pre6.i, %144 ], [ %158, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i37.i ]
   %165 = phi ptr [ %146, %144 ], [ %162, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i37.i ]
-  %166 = zext i32 %.027.i to i64
+  %166 = zext nneg i32 %.027.i to i64
   %167 = getelementptr inbounds nuw i64, ptr %164, i64 %166
   %168 = load i64, ptr %167, align 8
   %169 = getelementptr inbounds nuw i64, ptr %164, i64 %134
@@ -430,7 +430,7 @@ _ZN3ue2L16repeatRecurTableEPNS_15RepeatStateInfoERKNS_5depthEj.exit: ; preds = %
   %spec.select.i = phi i32 [ %.027.in.i, %_ZNSt6vectorImSaImEE9push_backEOm.exit38.i ], [ 0, %.preheader.i ]
   %172 = load i32, ptr %3, align 4
   %173 = icmp ult i32 %172, 2147483647
-  br i1 %173, label %_ZNK3ue25depthcvjEv.exit81, label %.invoke135
+  br i1 %173, label %_ZNK3ue25depthcvjEv.exit81, label %.invoke158
 
 _ZNK3ue25depthcvjEv.exit81:                       ; preds = %_ZN3ue2L16repeatRecurTableEPNS_15RepeatStateInfoERKNS_5depthEj.exit
   %174 = icmp ult i32 %172, %4
@@ -451,12 +451,12 @@ _ZNK3ue25depthcvjEv.exit83:                       ; preds = %_ZNK3ue25depthcvjEv
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke133, %100
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke156, %100
   %lpad.loopexit.split-lp126 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-175:                                              ; preds = %.invoke135
+175:                                              ; preds = %.invoke158
   %176 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -474,14 +474,14 @@ _ZNK3ue25depthcvjEv.exit.i84:                     ; preds = %_ZNK3ue25depthcvjEv
   %.02029.i = phi i32 [ %.121.i, %197 ], [ -1, %_ZNK3ue25depthcvjEv.exit.i84 ]
   %177 = load i32, ptr %3, align 4
   %178 = icmp ult i32 %177, 2147483647
-  br i1 %178, label %_ZNK3ue25depthcvjEv.exit26.i, label %.invoke135
+  br i1 %178, label %_ZNK3ue25depthcvjEv.exit26.i, label %.invoke158
 
-.invoke135:                                       ; preds = %.lr.ph.i, %_ZN3ue2L16repeatRecurTableEPNS_15RepeatStateInfoERKNS_5depthEj.exit
+.invoke158:                                       ; preds = %.lr.ph.i, %_ZN3ue2L16repeatRecurTableEPNS_15RepeatStateInfoERKNS_5depthEj.exit
   %179 = tail call ptr @__cxa_allocate_exception(i64 1) #16
   invoke void @__cxa_throw(ptr %179, ptr nonnull @_ZTIN3ue218DepthOverflowErrorE, ptr null) #17
-          to label %.cont136 unwind label %175
+          to label %.cont159 unwind label %175
 
-.cont136:                                         ; preds = %.invoke135
+.cont159:                                         ; preds = %.invoke158
   unreachable
 
 _ZNK3ue25depthcvjEv.exit26.i:                     ; preds = %.lr.ph.i
@@ -1478,13 +1478,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false)
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

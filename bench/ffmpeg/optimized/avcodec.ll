@@ -508,9 +508,9 @@ define range(i32 -2147483648, 1) i32 @avcodec_open2(ptr noundef %0, ptr noundef 
   br i1 %166, label %169, label %181
 
 169:                                              ; preds = %164
-  br i1 %.not239, label %172, label %.thread299
+  br i1 %.not239, label %172, label %.thread327
 
-.thread299:                                       ; preds = %169
+.thread327:                                       ; preds = %169
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 356
   br label %184
@@ -520,9 +520,9 @@ define range(i32 -2147483648, 1) i32 @avcodec_open2(ptr noundef %0, ptr noundef 
   %174 = load i32, ptr %173, align 8, !tbaa !73
   %175 = and i32 %174, 1024
   %.not240 = icmp eq i32 %175, 0
-  br i1 %.not240, label %178, label %.thread297
+  br i1 %.not240, label %178, label %.thread325
 
-.thread297:                                       ; preds = %172
+.thread325:                                       ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 356
   br label %.thread283
@@ -540,9 +540,9 @@ define range(i32 -2147483648, 1) i32 @avcodec_open2(ptr noundef %0, ptr noundef 
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 356
   br i1 %.not239, label %.thread283, label %184
 
-184:                                              ; preds = %.thread299, %181
-  %185 = phi ptr [ %171, %.thread299 ], [ %183, %181 ]
-  %186 = phi ptr [ %170, %.thread299 ], [ %182, %181 ]
+184:                                              ; preds = %.thread327, %181
+  %185 = phi ptr [ %171, %.thread327 ], [ %183, %181 ]
+  %186 = phi ptr [ %170, %.thread327 ], [ %182, %181 ]
   %187 = tail call i32 @av_channel_layout_check(ptr noundef nonnull %186) #12
   %.not243 = icmp eq i32 %187, 0
   br i1 %.not243, label %188, label %189
@@ -560,9 +560,9 @@ define range(i32 -2147483648, 1) i32 @avcodec_open2(ptr noundef %0, ptr noundef 
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.pr) #12
   br label %320
 
-.thread283:                                       ; preds = %.thread297, %181, %189
-  %192 = phi ptr [ %177, %.thread297 ], [ %183, %181 ], [ %185, %189 ]
-  %193 = phi ptr [ %176, %.thread297 ], [ %182, %181 ], [ %186, %189 ]
+.thread283:                                       ; preds = %.thread325, %181, %189
+  %192 = phi ptr [ %177, %.thread325 ], [ %183, %181 ], [ %185, %189 ]
+  %193 = phi ptr [ %176, %.thread325 ], [ %182, %181 ], [ %186, %189 ]
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i64 0, ptr %194, align 8, !tbaa !74
   %195 = load i32, ptr %20, align 8, !tbaa !39

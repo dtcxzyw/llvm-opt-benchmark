@@ -2155,7 +2155,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..E
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = load i64, ptr %0, align 8, !range !345, !noundef !4
-  switch i64 %7, label %default.unreachable29 [
+  switch i64 %7, label %default.unreachable43 [
     i64 0, label %33
     i64 1, label %47
     i64 2, label %61
@@ -2174,7 +2174,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..E
     i64 15, label %8
   ]
 
-default.unreachable29:                            ; preds = %1
+default.unreachable43:                            ; preds = %1
   unreachable
 
 8:                                                ; preds = %1
@@ -3108,7 +3108,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..co
 "_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i": ; preds = %22
   %28 = atomicrmw sub ptr %24, i64 1 release, align 8, !noalias !518
   %29 = icmp eq i64 %28, 1
-  br i1 %29, label %.invoke12, label %"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connection..worker..Command$GT$17h122e4d03c0238dd6E.exit"
+  br i1 %29, label %.invoke15, label %"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connection..worker..Command$GT$17h122e4d03c0238dd6E.exit"
 
 30:                                               ; preds = %26
   %31 = landingpad { ptr, i32 }
@@ -3134,7 +3134,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..co
 "_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i11.i": ; preds = %32
   %38 = atomicrmw sub ptr %34, i64 1 release, align 8, !noalias !533
   %39 = icmp eq i64 %38, 1
-  br i1 %39, label %.invoke12, label %"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connection..worker..Command$GT$17h122e4d03c0238dd6E.exit"
+  br i1 %39, label %.invoke15, label %"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connection..worker..Command$GT$17h122e4d03c0238dd6E.exit"
 
 40:                                               ; preds = %36
   %41 = landingpad { ptr, i32 }
@@ -3163,9 +3163,9 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..co
 "_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i.i": ; preds = %46
   %50 = atomicrmw sub ptr %44, i64 1 release, align 8, !noalias !547
   %51 = icmp eq i64 %50, 1
-  br i1 %51, label %.invoke12, label %"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connection..worker..Command$GT$17h122e4d03c0238dd6E.exit"
+  br i1 %51, label %.invoke15, label %"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connection..worker..Command$GT$17h122e4d03c0238dd6E.exit"
 
-.invoke12:                                        ; preds = %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i.i", %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i11.i", %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i"
+.invoke15:                                        ; preds = %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i.i", %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i11.i", %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i"
   %52 = phi ptr [ %23, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i" ], [ %33, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i11.i" ], [ %43, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i.i" ]
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1f50bfbd612473a5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %52)
@@ -3403,7 +3403,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..co
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #31
   unreachable
 
-125:                                              ; preds = %.invoke12, %.invoke, %.noexc10, %118, %.noexc8, %79, %.noexc6, %63
+125:                                              ; preds = %.invoke15, %.invoke, %.noexc10, %118, %.noexc8, %79, %.noexc6, %63
   %126 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3414,7 +3414,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..co
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3c214464d5f3ac84E"(ptr noalias noundef align 8 dereferenceable(40) %127) #30
           to label %131 unwind label %129
 
-"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connection..worker..Command$GT$17h122e4d03c0238dd6E.exit": ; preds = %.invoke12, %.invoke, %.noexc11, %"_ZN64_$LT$flume..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed9fa452d17524d1E.llvm.6910714394678848989.exit.i.i", %.noexc9, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef4774eae8a1af03E.llvm.6910714394678848989.exit.i.i", %.noexc7, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2e87dfbdbd92b718E.llvm.6910714394678848989.exit.i.i", %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i.i", %42, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i11.i", %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i", %1
+"_ZN4core3ptr61drop_in_place$LT$sqlx_sqlite..connection..worker..Command$GT$17h122e4d03c0238dd6E.exit": ; preds = %.invoke15, %.invoke, %.noexc11, %"_ZN64_$LT$flume..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed9fa452d17524d1E.llvm.6910714394678848989.exit.i.i", %.noexc9, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hef4774eae8a1af03E.llvm.6910714394678848989.exit.i.i", %.noexc7, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2e87dfbdbd92b718E.llvm.6910714394678848989.exit.i.i", %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i.i", %42, %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i11.i", %"_ZN83_$LT$futures_channel..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hed43e2cc180bae67E.llvm.6910714394678848989.exit.i.i.i", %1
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3c214464d5f3ac84E"(ptr noalias noundef align 8 dereferenceable(40) %128)
   ret void
@@ -10784,7 +10784,7 @@ thread-pre-split:                                 ; preds = %187, %565, %678, %"
     i8 5, label %136
   ]
 
-default.unreachable:                              ; preds = %145
+default.unreachable679:                           ; preds = %145
   unreachable
 
 .loopexit538:                                     ; preds = %181, %113, %581, %476
@@ -10879,7 +10879,7 @@ default.unreachable:                              ; preds = %145
   store i32 %.sroa.4170.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
   store i8 %139, ptr %.sroa.3.0..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5, i64 3, i1 false)
-  switch i8 %139, label %default.unreachable [
+  switch i8 %139, label %default.unreachable679 [
     i8 0, label %146
     i8 1, label %146
     i8 2, label %146
@@ -11514,8 +11514,8 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit: ; preds = %309
   br i1 %.not.i313, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit316", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit316.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit316": ; preds = %338
-  %lhsc621 = load i8, ptr %.fca.0.extract67, align 1
-  %340 = icmp eq i8 %lhsc621, 91
+  %lhsc680 = load i8, ptr %.fca.0.extract67, align 1
+  %340 = icmp eq i8 %lhsc680, 91
   br i1 %340, label %342, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit316.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit316.thread": ; preds = %338, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8b144d685046224fE.exit316"
@@ -12062,10 +12062,10 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit318: ; preds = %34
   br label %511
 
 511:                                              ; preds = %529, %526, %508
-  %.sink688 = phi ptr [ %530, %529 ], [ %527, %526 ], [ %509, %508 ]
-  %.pn692 = phi { ptr, i64 } [ %492, %529 ], [ %490, %526 ], [ %488, %508 ]
-  %.sink = extractvalue { ptr, i64 } %.pn692, 1
-  store ptr %.sink688, ptr %0, align 8
+  %.sink747 = phi ptr [ %530, %529 ], [ %527, %526 ], [ %509, %508 ]
+  %.pn751 = phi { ptr, i64 } [ %492, %529 ], [ %490, %526 ], [ %488, %508 ]
+  %.sink = extractvalue { ptr, i64 } %.pn751, 1
+  store ptr %.sink747, ptr %0, align 8
   %.sroa.0120.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %.sroa.0120.sroa.4.0..sroa_idx, align 8
   %.sroa.0120.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12370,12 +12370,12 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit318: ; preds = %34
   br label %613
 
 613:                                              ; preds = %617, %614, %610
-  %.sink690 = phi ptr [ %618, %617 ], [ %615, %614 ], [ %611, %610 ]
-  %.pn691 = phi { ptr, i64 } [ %597, %617 ], [ %595, %614 ], [ %593, %610 ]
-  %.sink689 = extractvalue { ptr, i64 } %.pn691, 1
-  store ptr %.sink690, ptr %0, align 8
+  %.sink749 = phi ptr [ %618, %617 ], [ %615, %614 ], [ %611, %610 ]
+  %.pn750 = phi { ptr, i64 } [ %597, %617 ], [ %595, %614 ], [ %593, %610 ]
+  %.sink748 = extractvalue { ptr, i64 } %.pn750, 1
+  store ptr %.sink749, ptr %0, align 8
   %.sroa.0135.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink689, ptr %.sroa.0135.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink748, ptr %.sroa.0135.sroa.4.0..sroa_idx, align 8
   %.sroa.0135.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 24, ptr %.sroa.0135.sroa.5.0..sroa_idx, align 8
   %.sroa.4136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

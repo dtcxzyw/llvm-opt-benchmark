@@ -1679,7 +1679,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %brmerge18 = select i1 %cmp21366.not, i1 true, i1 %cmp74.not
   %brmerge = select i1 %cmp74.not.2, i1 true, i1 %cmp79370.3
   %indvars.iv.next387.2 = add nsw i64 %10, -1
-  %indvars.iv.next387.327 = add nsw i64 %10, -1
+  %indvars.iv.next387.342 = add nsw i64 %10, -1
   %indvars.iv.next387.3 = add nsw i64 %10, -1
   br label %while.body
 
@@ -2066,10 +2066,10 @@ for.body80.preheader.new.3:                       ; preds = %if.then91.prol.3, %
   br i1 %cmp85.not.3, label %for.inc104.3, label %if.then91.3
 
 for.body80.preheader.new.3.thread:                ; preds = %land.lhs.true86.prol.3
-  %arrayidx84.328 = getelementptr inbounds [4 x ptr], ptr %Textures55, i64 0, i64 %indvars.iv.next387.327
-  %66 = load ptr, ptr %arrayidx84.328, align 8, !tbaa !61
-  %cmp85.not.329 = icmp eq ptr %66, null
-  br i1 %cmp85.not.329, label %for.inc104.3, label %for.end108
+  %arrayidx84.343 = getelementptr inbounds [4 x ptr], ptr %Textures55, i64 0, i64 %indvars.iv.next387.342
+  %66 = load ptr, ptr %arrayidx84.343, align 8, !tbaa !61
+  %cmp85.not.344 = icmp eq ptr %66, null
+  br i1 %cmp85.not.344, label %for.inc104.3, label %for.end108
 
 if.then91.3:                                      ; preds = %for.body80.preheader.new.3
   store ptr %65, ptr %arrayidx84.prol.3, align 8, !tbaa !61
@@ -2077,14 +2077,14 @@ if.then91.3:                                      ; preds = %for.body80.preheade
   br label %for.inc104.3
 
 for.inc104.3:                                     ; preds = %for.body80.preheader.new.3.thread, %if.then91.3, %for.body80.preheader.new.3
-  %arrayidx84.332 = phi ptr [ %arrayidx84.3, %if.then91.3 ], [ %arrayidx84.3, %for.body80.preheader.new.3 ], [ %arrayidx84.328, %for.body80.preheader.new.3.thread ]
+  %arrayidx84.347 = phi ptr [ %arrayidx84.3, %if.then91.3 ], [ %arrayidx84.3, %for.body80.preheader.new.3 ], [ %arrayidx84.343, %for.body80.preheader.new.3.thread ]
   %arrayidx84.1.3 = getelementptr inbounds nuw [4 x ptr], ptr %Textures55, i64 0, i64 %10
   %67 = load ptr, ptr %arrayidx84.1.3, align 8, !tbaa !61
   %cmp85.not.1.3 = icmp eq ptr %67, null
   br i1 %cmp85.not.1.3, label %for.end108, label %if.then91.1.3
 
 if.then91.1.3:                                    ; preds = %for.inc104.3
-  store ptr %67, ptr %arrayidx84.332, align 8, !tbaa !61
+  store ptr %67, ptr %arrayidx84.347, align 8, !tbaa !61
   store ptr null, ptr %arrayidx84.1.3, align 8, !tbaa !61
   br label %for.end108
 

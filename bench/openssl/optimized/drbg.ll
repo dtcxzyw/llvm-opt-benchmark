@@ -1177,10 +1177,10 @@ define range(i32 0, 2) i32 @ossl_drbg_enable_locking(ptr noundef captures(addres
   br i1 %14, label %.sink.split, label %15
 
 .sink.split:                                      ; preds = %12, %8
-  %.sink12 = phi i32 [ 763, %8 ], [ 768, %12 ]
+  %.sink14 = phi i32 [ 763, %8 ], [ 768, %12 ]
   %.sink = phi i32 [ 182, %8 ], [ 180, %12 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.ossl_drbg_enable_locking) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink14, ptr noundef nonnull @__func__.ossl_drbg_enable_locking) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #8
   br label %15
 

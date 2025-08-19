@@ -512,8 +512,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit76:                 ; preds = %128
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78.sink.split: ; preds = %128, %132
-  %.sink176 = phi ptr [ %10, %132 ], [ %9, %128 ]
-  store ptr null, ptr %.sink176, align 8, !tbaa !318
+  %.sink188 = phi ptr [ %10, %132 ], [ %9, %128 ]
+  store ptr null, ptr %.sink188, align 8, !tbaa !318
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit78.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit76
@@ -580,8 +580,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit87:                 ; preds = %149
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89.sink.split: ; preds = %149, %155
-  %.sink177 = phi ptr [ %12, %155 ], [ %11, %149 ]
-  store ptr null, ptr %.sink177, align 8, !tbaa !318
+  %.sink189 = phi ptr [ %12, %155 ], [ %11, %149 ]
+  store ptr null, ptr %.sink189, align 8, !tbaa !318
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit87
@@ -719,9 +719,9 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %2, %._crit_edge154, %201
-  %.0.lcssa163173 = phi i1 [ %.1.lcssa, %._crit_edge154 ], [ %.1.lcssa, %201 ], [ false, %2 ]
+  %.0.lcssa175185 = phi i1 [ %.1.lcssa, %._crit_edge154 ], [ %.1.lcssa, %201 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %.0.lcssa163173
+  ret i1 %.0.lcssa175185
 
 .lr.ph153:                                        ; preds = %._crit_edge148, %.lr.ph153
   %.059151 = phi ptr [ %203, %.lr.ph153 ], [ %.pre, %._crit_edge148 ]

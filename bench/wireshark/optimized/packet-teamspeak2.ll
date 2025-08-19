@@ -582,13 +582,13 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
-  %.sink123 = select i1 %28, i64 36, i64 44
-  %.sink122 = select i1 %28, i64 40, i64 48
-  %.sink119.idx = select i1 %28, i64 0, i64 4
-  %.sink119 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink119.idx
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink123
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink122
-  %31 = call fastcc zeroext i1 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef %.sink119, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %7)
+  %.sink127 = select i1 %28, i64 36, i64 44
+  %.sink126 = select i1 %28, i64 40, i64 48
+  %.sink123.idx = select i1 %28, i64 0, i64 4
+  %.sink123 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink123.idx
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink127
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink126
+  %31 = call fastcc zeroext i1 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef %.sink123, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %7)
   %32 = getelementptr inbounds nuw i8, ptr %.092, i64 8
   %33 = zext i1 %31 to i8
   store i8 %33, ptr %32, align 4

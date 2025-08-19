@@ -783,11 +783,11 @@ smb_send_tree_connect.exit.thread:                ; preds = %28, %smb_send_tree_
   %196 = and i32 %195, 524288
   %.not.i = icmp eq i32 %196, 0
   %spec.select.i = select i1 %.not.i, i32 -2147483648, i32 -1073741824
-  %spec.select11.i = select i1 %.not.i, i32 1, i32 5
+  %spec.select14.i = select i1 %.not.i, i32 1, i32 5
   %197 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %spec.select.i, ptr %197, align 1, !tbaa !146
   %198 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 %spec.select11.i, ptr %198, align 1, !tbaa !147
+  store i32 %spec.select14.i, ptr %198, align 1, !tbaa !147
   %199 = trunc nuw nsw i64 %187 to i16
   %200 = getelementptr inbounds nuw i8, ptr %8, i64 49
   store i16 %199, ptr %200, align 1, !tbaa !148

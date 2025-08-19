@@ -977,22 +977,22 @@ define noundef zeroext i1 @_ZN2cv16AVIReadContainer10parseIndexEjRSt5dequeISt4pa
   %19 = tail call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %11)
   %20 = extractvalue { i64, i64 } %19, 0
   %21 = icmp ult i64 %20, %10
-  br i1 %21, label %.lr.ph9, label %.critedge
+  br i1 %21, label %.lr.ph12, label %.critedge
 
 22:                                               ; preds = %55
   %23 = call { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(560) %56)
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = icmp ult i64 %24, %10
-  br i1 %25, label %.lr.ph9, label %.critedge, !llvm.loop !70
+  br i1 %25, label %.lr.ph12, label %.critedge, !llvm.loop !70
 
-.lr.ph9:                                          ; preds = %.lr.ph, %22
+.lr.ph12:                                         ; preds = %.lr.ph, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = load ptr, ptr %0, align 8, !tbaa !68
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = call noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull readonly align 8 dereferenceable(9) %27) #29
   br i1 %28, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit.thread
 
-_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit: ; preds = %.lr.ph9
+_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit: ; preds = %.lr.ph12
   %29 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(560) %26, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 noundef 16)
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !38
@@ -1005,7 +1005,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit: ; preds = %.lr.ph9
   %36 = icmp eq i32 %.pre, %35
   br i1 %36, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit.thread, label %55
 
-_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit.thread: ; preds = %.lr.ph9, %_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit
+_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit.thread: ; preds = %.lr.ph12, %_ZN2cvrsERNS_16VideoInputStreamERNS_8AviIndexE.exit
   %37 = load i64, ptr %13, align 8, !tbaa !81
   %38 = load i32, ptr %14, align 4, !tbaa !82
   %39 = zext i32 %38 to i64
@@ -1429,7 +1429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %65, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit, label %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread.thread
 
 _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread.thread: ; preds = %60
-  %.pre3335 = load i32, ptr @_ZN2cvL7STRL_CCE, align 4, !tbaa !52
+  %.pre3338 = load i32, ptr @_ZN2cvL7STRL_CCE, align 4, !tbaa !52
   br label %74
 
 _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit: ; preds = %60
@@ -1456,10 +1456,10 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread: ; preds = %_ZN2cvrsE
   br i1 %73, label %74, label %87
 
 74:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread.thread, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread
-  %.pre3336 = phi i32 [ %.pre3335, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread.thread ], [ %.pre33, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread ]
+  %.pre3339 = phi i32 [ %.pre3338, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread.thread ], [ %.pre33, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread ]
   %75 = phi ptr [ %63, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread.thread ], [ %.pr20, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread ]
   %76 = load i32, ptr %58, align 4, !tbaa !109
-  %77 = icmp eq i32 %76, %.pre3336
+  %77 = icmp eq i32 %76, %.pre3339
   br i1 %77, label %78, label %87
 
 78:                                               ; preds = %74
@@ -1474,7 +1474,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread: ; preds = %_ZN2cvrsE
   br label %89
 
 87:                                               ; preds = %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge, %74, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread
-  %88 = phi i32 [ %.pre32, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge ], [ %.pre3336, %74 ], [ %.pre33, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread ]
+  %88 = phi i32 [ %.pre32, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit._crit_edge ], [ %.pre3339, %74 ], [ %.pre33, %_ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit.thread ]
   call void @_ZN2cv16AVIReadContainer10printErrorERNS_8RiffListEj(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 1 dereferenceable(12) %7, i32 noundef %88)
   br label %89
 
@@ -2295,7 +2295,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnu
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %23
 
@@ -2522,7 +2522,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

@@ -139,9 +139,9 @@ if.else:                                          ; preds = %if.then30
   br i1 %cmp33, label %calculate_version.sink.split, label %calculate_version
 
 calculate_version.sink.split:                     ; preds = %if.else, %if.then30
-  %.sink6 = phi i32 [ 4, %if.then30 ], [ 3, %if.else ]
+  %.sink7 = phi i32 [ 4, %if.then30 ], [ 3, %if.else ]
   %.sink = phi i32 [ -60, %if.then30 ], [ -40, %if.else ]
-  store i32 %.sink6, ptr %major, align 4
+  store i32 %.sink7, ptr %major, align 4
   %sub35 = add i32 %3, %.sink
   store i32 %sub35, ptr %minor, align 4
   store i32 0, ptr %patch, align 4
@@ -3396,7 +3396,7 @@ if.end88:                                         ; preds = %if.then85, %if.end8
 if.then91:                                        ; preds = %if.end88
   %sub.ptr.div = lshr exact i64 %model.0.add, 6
   %conv93 = trunc nuw nsw i64 %sub.ptr.div to i32
-  %idxprom94 = zext i32 %6 to i64
+  %idxprom94 = zext nneg i32 %6 to i64
   %model96 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %call4, i64 0, i64 %idxprom94, i32 6
   store i32 %conv93, ptr %model96, align 8
   br label %while.cond98.preheader
@@ -3507,7 +3507,7 @@ for.body159:                                      ; preds = %if.end153, %for.inc
   br i1 %tobool167.not, label %for.inc198, label %if.end169
 
 if.end169:                                        ; preds = %for.body159
-  %idx.ext171 = zext i32 %storemerge5465 to i64
+  %idx.ext171 = zext nneg i32 %storemerge5465 to i64
   %add.ptr172 = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %idx.ext171
   %13 = load ptr, ptr %ci, align 8
   %inc173 = add i32 %i.066, 1
@@ -4764,16 +4764,16 @@ if.else19.i:                                      ; preds = %if.end6.i.thread
   br label %if.end27.i
 
 if.else25.i:                                      ; preds = %if.end19
-  %rbe_parent33.i = getelementptr inbounds nuw i8, ptr %call16, i64 16
-  %rbe_color35.i = getelementptr inbounds nuw i8, ptr %call16, i64 24
+  %rbe_parent45.i = getelementptr inbounds nuw i8, ptr %call16, i64 16
+  %rbe_color47.i = getelementptr inbounds nuw i8, ptr %call16, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call16, i8 0, i64 24, i1 false)
-  store i32 1, ptr %rbe_color35.i, align 8
+  store i32 1, ptr %rbe_color47.i, align 8
   store ptr %call16, ptr %6, align 8
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.else25.i, %if.else19.i, %if.then16.i
-  %rbe_parent37.i = phi ptr [ %rbe_parent.i, %if.then16.i ], [ %rbe_parent.i42, %if.else19.i ], [ %rbe_parent33.i, %if.else25.i ]
-  %9 = load ptr, ptr %rbe_parent37.i, align 8
+  %rbe_parent49.i = phi ptr [ %rbe_parent.i, %if.then16.i ], [ %rbe_parent.i42, %if.else19.i ], [ %rbe_parent45.i, %if.else25.i ]
+  %9 = load ptr, ptr %rbe_parent49.i, align 8
   %cmp.not115.i.i = icmp eq ptr %9, null
   br i1 %cmp.not115.i.i, label %watcher_root_RB_INSERT_COLOR.exit.i, label %land.rhs.i.i
 
@@ -4831,8 +4831,8 @@ do.body23.i.i:                                    ; preds = %if.end.i.i
   br i1 %cmp30.not.i.i, label %do.end38.thread.i.i, label %do.end38.i.i
 
 do.end38.thread.i.i:                              ; preds = %do.body23.i.i
-  %rbe_parent42118.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %12, ptr %rbe_parent42118.i.i, align 8
+  %rbe_parent42130.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr %12, ptr %rbe_parent42130.i.i, align 8
   %.pre30.i = load ptr, ptr %rbe_parent5.i.i, align 8
   br label %if.then44.i.i
 
@@ -4949,8 +4949,8 @@ do.body160.i.i:                                   ; preds = %if.end155.i.i
   br i1 %cmp167.not.i.i, label %do.end175.thread.i.i, label %do.end175.i.i
 
 do.end175.thread.i.i:                             ; preds = %do.body160.i.i
-  %rbe_parent179120.i.i = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %12, ptr %rbe_parent179120.i.i, align 8
+  %rbe_parent179132.i.i = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr %12, ptr %rbe_parent179132.i.i, align 8
   %.pre.i = load ptr, ptr %rbe_parent5.i.i, align 8
   br label %if.then181.i.i
 

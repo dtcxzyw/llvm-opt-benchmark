@@ -293,8 +293,8 @@ define internal fastcc range(i32 0, 2) i32 @opj_jp2_apply_color_postprocessing(p
 
 ._crit_edge.thread.i:                             ; preds = %56
   %69 = tail call ptr @opj_calloc(i64 noundef 0, i64 noundef 4) #6
-  %.not167260.i = icmp eq ptr %69, null
-  br i1 %.not167260.i, label %.critedge182.i, label %opj_jp2_check_color.exit.sink.split
+  %.not167276.i = icmp eq ptr %69, null
+  br i1 %.not167276.i, label %.critedge182.i, label %opj_jp2_check_color.exit.sink.split
 
 .critedge182.i:                                   ; preds = %._crit_edge.thread.i, %._crit_edge.i
   %70 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.13) #6
@@ -551,8 +551,8 @@ opj_jp2_free_pclr.exit:                           ; preds = %130, %141
 
 ._crit_edge.thread.i37:                           ; preds = %143
   %171 = tail call ptr @opj_malloc(i64 noundef 0) #6
-  %.not191.i = icmp eq ptr %171, null
-  br i1 %.not191.i, label %172, label %._crit_edge148.i
+  %.not196.i = icmp eq ptr %171, null
+  br i1 %.not196.i, label %172, label %._crit_edge148.i
 
 172:                                              ; preds = %._crit_edge.thread.i37, %._crit_edge.i27
   %173 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.22) #6
@@ -574,8 +574,8 @@ opj_jp2_free_pclr.exit:                           ; preds = %130, %141
   br label %183
 
 183:                                              ; preds = %179, %.lr.ph136.i
-  %.sink199.i = phi i64 [ %182, %179 ], [ %indvars.iv.i30, %.lr.ph136.i ]
-  %184 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %170, i64 %.sink199.i
+  %.sink204.i = phi i64 [ %182, %179 ], [ %indvars.iv.i30, %.lr.ph136.i ]
+  %184 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %170, i64 %.sink204.i
   %185 = zext i16 %175 to i64
   %186 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %.pre.i25, i64 %185
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %184, ptr noundef nonnull align 8 dereferenceable(64) %186, i64 64, i1 false)
@@ -1094,9 +1094,9 @@ switch.lookup:                                    ; preds = %79
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %78
-  %.sink208 = phi i32 [ 0, %78 ], [ %switch.load, %switch.lookup ]
+  %.sink216 = phi i32 [ 0, %78 ], [ %switch.load, %switch.lookup ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %.sink208, ptr %84, align 4, !tbaa !101
+  store i32 %.sink216, ptr %84, align 4, !tbaa !101
   br label %85
 
 85:                                               ; preds = %79, %.sink.split
@@ -1130,19 +1130,19 @@ switch.lookup:                                    ; preds = %79
 90:                                               ; preds = %._crit_edge175
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %92 = load i32, ptr %91, align 4, !tbaa !101
-  %switch.tableidx213 = add i32 %92, -16
-  %93 = icmp ult i32 %switch.tableidx213, 3
-  br i1 %93, label %switch.lookup212, label %.critedge.sink.split
+  %switch.tableidx221 = add i32 %92, -16
+  %93 = icmp ult i32 %switch.tableidx221, 3
+  br i1 %93, label %switch.lookup220, label %.critedge.sink.split
 
-switch.lookup212:                                 ; preds = %90
-  %94 = zext nneg i32 %switch.tableidx213 to i64
-  %switch.gep214 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.opj_jp2_setup_encoder.6, i64 0, i64 %94
-  %switch.load215 = load i32, ptr %switch.gep214, align 4
-  %.not155 = icmp ugt i32 %57, %switch.load215
+switch.lookup220:                                 ; preds = %90
+  %94 = zext nneg i32 %switch.tableidx221 to i64
+  %switch.gep222 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.opj_jp2_setup_encoder.6, i64 0, i64 %94
+  %switch.load223 = load i32, ptr %switch.gep222, align 4
+  %.not155 = icmp ugt i32 %57, %switch.load223
   br i1 %.not155, label %95, label %.critedge.sink.split
 
-95:                                               ; preds = %switch.lookup212
-  %96 = icmp ult i32 %spec.select162, %switch.load215
+95:                                               ; preds = %switch.lookup220
+  %96 = icmp ult i32 %spec.select162, %switch.load223
   br i1 %96, label %.critedge.sink.split, label %97
 
 97:                                               ; preds = %95
@@ -1175,11 +1175,11 @@ switch.lookup212:                                 ; preds = %90
   %112 = trunc i32 %111 to i16
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i16 %112, ptr %113, align 8, !tbaa !26
-  %wide.trip.count197 = zext nneg i32 %switch.load215 to i64
+  %wide.trip.count197 = zext nneg i32 %switch.load223 to i64
   br label %117
 
 .preheader:                                       ; preds = %117
-  %114 = icmp ult i32 %switch.load215, %111
+  %114 = icmp ult i32 %switch.load223, %111
   br i1 %114, label %.lr.ph180, label %.critedge
 
 .lr.ph180:                                        ; preds = %.preheader
@@ -1208,21 +1208,21 @@ switch.lookup212:                                 ; preds = %90
   %124 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %115, i64 %indvars.iv201, i32 12
   %125 = load i16, ptr %124, align 8, !tbaa !72
   %.not158 = icmp eq i16 %125, 0
-  %spec.select210 = select i1 %.not158, i16 -1, i16 1
-  %spec.select211 = sext i1 %.not158 to i16
+  %spec.select218 = select i1 %.not158, i16 -1, i16 1
+  %spec.select219 = sext i1 %.not158 to i16
   %.sink205 = trunc i64 %indvars.iv201 to i16
   %126 = getelementptr inbounds nuw %struct.opj_jp2_cdef_info, ptr %106, i64 %indvars.iv201
   store i16 %.sink205, ptr %126, align 2, !tbaa !34
   %127 = getelementptr inbounds nuw %struct.opj_jp2_cdef_info, ptr %106, i64 %indvars.iv201, i32 1
-  store i16 %spec.select210, ptr %127, align 2, !tbaa !71
+  store i16 %spec.select218, ptr %127, align 2, !tbaa !71
   %128 = getelementptr inbounds nuw %struct.opj_jp2_cdef_info, ptr %106, i64 %indvars.iv201, i32 2
-  store i16 %spec.select211, ptr %128, align 2, !tbaa !39
+  store i16 %spec.select219, ptr %128, align 2, !tbaa !39
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %129 = icmp samesign ult i64 %indvars.iv.next202, %116
   br i1 %129, label %123, label %.critedge, !llvm.loop !104
 
-.critedge.sink.split:                             ; preds = %90, %._crit_edge175, %95, %switch.lookup212
-  %.str.3.sink = phi ptr [ @.str.3, %90 ], [ @.str.4, %switch.lookup212 ], [ @.str.5, %95 ], [ @.str.6, %._crit_edge175 ]
+.critedge.sink.split:                             ; preds = %90, %._crit_edge175, %95, %switch.lookup220
+  %.str.3.sink = phi ptr [ @.str.3, %90 ], [ @.str.4, %switch.lookup220 ], [ @.str.5, %95 ], [ @.str.6, %._crit_edge175 ]
   %130 = tail call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %3, i32 noundef 2, ptr noundef nonnull %.str.3.sink) #6
   br label %.critedge
 
@@ -2216,12 +2216,12 @@ opj_jp2_find_handler.exit:                        ; preds = %54, %.preheader
 opj_jp2_img_find_handler.exit:                    ; preds = %58
   %63 = sub i32 %46, %.1
   %.not = icmp eq ptr %.0.i103, null
-  br i1 %.not, label %123, label %.thread202
+  br i1 %.not, label %123, label %.thread210
 
 64:                                               ; preds = %59
   %65 = sub i32 %46, %.1
   %66 = icmp eq ptr %.0.i103, null
-  br i1 %66, label %67, label %.thread202
+  br i1 %66, label %67, label %.thread210
 
 67:                                               ; preds = %64
   %68 = lshr i32 %36, 24
@@ -2234,7 +2234,7 @@ opj_jp2_img_find_handler.exit:                    ; preds = %58
   %75 = load i32, ptr %11, align 4, !tbaa !125
   %76 = and i32 %75, 4
   %.not97 = icmp eq i32 %76, 0
-  br i1 %.not97, label %77, label %.thread202
+  br i1 %.not97, label %77, label %.thread210
 
 77:                                               ; preds = %67
   %78 = load i32, ptr %10, align 4, !tbaa !124
@@ -2258,7 +2258,7 @@ opj_jp2_img_find_handler.exit:                    ; preds = %58
   call void @opj_free(ptr noundef %.076.ph.ph) #6
   br label %143
 
-.thread202:                                       ; preds = %opj_jp2_img_find_handler.exit, %67, %64
+.thread210:                                       ; preds = %opj_jp2_img_find_handler.exit, %67, %64
   %92 = phi i32 [ %65, %64 ], [ %65, %67 ], [ %63, %opj_jp2_img_find_handler.exit ]
   %.080 = phi ptr [ %60, %67 ], [ %.0.i103, %64 ], [ %.0.i103, %opj_jp2_img_find_handler.exit ]
   %93 = zext i32 %92 to i64
@@ -2266,7 +2266,7 @@ opj_jp2_img_find_handler.exit:                    ; preds = %58
   %95 = icmp slt i64 %94, %93
   br i1 %95, label %96, label %108
 
-96:                                               ; preds = %.thread202
+96:                                               ; preds = %.thread210
   %97 = load i32, ptr %6, align 4, !tbaa !122
   %98 = load i32, ptr %10, align 4, !tbaa !124
   %99 = lshr i32 %98, 24
@@ -2281,7 +2281,7 @@ opj_jp2_img_find_handler.exit:                    ; preds = %58
   call void @opj_free(ptr noundef %.076.ph.ph) #6
   br label %143
 
-108:                                              ; preds = %.thread202
+108:                                              ; preds = %.thread210
   %109 = icmp ugt i32 %92, %.081.ph.ph
   br i1 %109, label %110, label %113
 

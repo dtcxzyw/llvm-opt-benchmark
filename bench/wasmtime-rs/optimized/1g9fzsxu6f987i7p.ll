@@ -1653,8 +1653,8 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %41, label %53, label %.thread.thread.i.i
 
 .thread.thread.i.i:                               ; preds = %.thread.i.i, %29, %27
-  %.sroa.67.05773.i.i = phi i64 [ %.sroa.67.057.i.i, %.thread.i.i ], [ %..i.i.i, %27 ], [ 1, %29 ]
-  %42 = shl nuw i64 %.sroa.67.05773.i.i, 3
+  %.sroa.67.05777.i.i = phi i64 [ %.sroa.67.057.i.i, %.thread.i.i ], [ %..i.i.i, %27 ], [ 1, %29 ]
+  %42 = shl nuw i64 %.sroa.67.05777.i.i, 3
   %43 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %42, i64 15)
   %44 = extractvalue { i64, i1 } %43, 1
   br i1 %44, label %53, label %45
@@ -1662,7 +1662,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 45:                                               ; preds = %.thread.thread.i.i
   %46 = extractvalue { i64, i1 } %43, 0
   %47 = and i64 %46, -16
-  %48 = add nuw nsw i64 %.sroa.67.05773.i.i, 16
+  %48 = add nuw nsw i64 %.sroa.67.05777.i.i, 16
   %49 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %47, i64 %48)
   %50 = extractvalue { i64, i1 } %49, 1
   %51 = extractvalue { i64, i1 } %49, 0
@@ -1692,9 +1692,9 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hde28f6fe7035b411E.e
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17h7e15a1713599bad9E.exit": ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hde28f6fe7035b411E.exit.i.i.i
   %60 = getelementptr inbounds i8, ptr %56, i64 %47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %60, i8 -1, i64 %48, i1 false), !noalias !311
-  %61 = add nsw i64 %.sroa.67.05773.i.i, -1
+  %61 = add nsw i64 %.sroa.67.05777.i.i, -1
   %62 = icmp ult i64 %61, 8
-  %63 = lshr i64 %.sroa.67.05773.i.i, 3
+  %63 = lshr i64 %.sroa.67.05777.i.i, 3
   %64 = mul nuw nsw i64 %63, 7
   %.0.i.i.i = select i1 %62, i64 %61, i64 %64
   %65 = sub i64 %.0.i.i.i, %6
@@ -1900,9 +1900,9 @@ common.resume:                                    ; preds = %156, %67
 
 ._crit_edge.i.i7:                                 ; preds = %149
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %17, i64 16)
-  %spec.select60.i = tail call i64 @llvm.umin.i64(i64 %17, i64 16)
+  %spec.select64.i = tail call i64 @llvm.umin.i64(i64 %17, i64 16)
   %148 = getelementptr inbounds i8, ptr %.val16.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %148, ptr nonnull align 1 %.val16.i, i64 %spec.select60.i, i1 false), !noalias !336
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %148, ptr nonnull align 1 %.val16.i, i64 %spec.select64.i, i1 false), !noalias !336
   br label %160
 
 149:                                              ; preds = %149, %.lr.ph.i.i6

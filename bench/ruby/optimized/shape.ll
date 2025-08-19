@@ -392,8 +392,8 @@ rb_shape_get_shape.exit.thread:                   ; preds = %1
   %17 = getelementptr %struct.rb_shape, ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i8, ptr %18, align 8, !tbaa !27
-  %.not11 = icmp eq i8 %19, 2
-  br i1 %.not11, label %34, label %rb_shape_obj_too_complex.exit
+  %.not13 = icmp eq i8 %19, 2
+  br i1 %.not13, label %34, label %rb_shape_obj_too_complex.exit
 
 rb_shape_obj_too_complex.exit:                    ; preds = %rb_shape_get_shape.exit.thread
   %20 = inttoptr i64 %0 to ptr
@@ -917,23 +917,23 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !55
   %.not = icmp eq ptr %66, null
-  br i1 %.not, label %.preheader137, label %67
+  br i1 %.not, label %.preheader150, label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %69 = load i32, ptr %68, align 8, !tbaa !40
   %70 = icmp ugt i32 %69, 9
   %spec.select = select i1 %70, i32 2, i32 2147483647
-  br label %.preheader137
+  br label %.preheader150
 
-.preheader137:                                    ; preds = %67, %62
+.preheader150:                                    ; preds = %67, %62
   %.185.ph = phi i32 [ %spec.select, %67 ], [ 2147483647, %62 ]
   br label %71
 
-71:                                               ; preds = %.preheader137, %103
-  %.185 = phi i32 [ %108, %103 ], [ %.185.ph, %.preheader137 ]
-  %.04084 = phi ptr [ %.141.lcssa, %103 ], [ %64, %.preheader137 ]
-  %.04483 = phi ptr [ %107, %103 ], [ %9, %.preheader137 ]
+71:                                               ; preds = %.preheader150, %103
+  %.185 = phi i32 [ %108, %103 ], [ %.185.ph, %.preheader150 ]
+  %.04084 = phi ptr [ %.141.lcssa, %103 ], [ %64, %.preheader150 ]
+  %.04483 = phi ptr [ %107, %103 ], [ %9, %.preheader150 ]
   %72 = getelementptr inbounds nuw i8, ptr %.04483, i64 16
   %73 = load i32, ptr %72, align 8, !tbaa !40
   %74 = icmp ugt i32 %73, %5
@@ -2256,12 +2256,12 @@ redblack_id_for.exit.i212.i:                      ; preds = %330, %322
   br i1 %341, label %redblack_new.exit.sink.split, label %redblack_new.exit.sink.split.sink.split.i
 
 redblack_new.exit.sink.split.sink.split.i:        ; preds = %redblack_id_for.exit.i212.i, %299, %redblack_id_for.exit.i.i
-  %.sink254.i = phi ptr [ %.0, %redblack_id_for.exit.i.i ], [ %274, %299 ], [ %.0, %redblack_id_for.exit.i212.i ]
-  %.sink250.ph.i = phi ptr [ %222, %redblack_id_for.exit.i.i ], [ %304, %299 ], [ %327, %redblack_id_for.exit.i212.i ]
+  %.sink265.i = phi ptr [ %.0, %redblack_id_for.exit.i.i ], [ %274, %299 ], [ %.0, %redblack_id_for.exit.i212.i ]
+  %.sink261.ph.i = phi ptr [ %222, %redblack_id_for.exit.i.i ], [ %304, %299 ], [ %327, %redblack_id_for.exit.i212.i ]
   %342 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 24
   %344 = load ptr, ptr %343, align 8, !tbaa !59
-  %345 = ptrtoint ptr %.sink254.i to i64
+  %345 = ptrtoint ptr %.sink265.i to i64
   %346 = ptrtoint ptr %344 to i64
   %347 = sub i64 %345, %346
   %348 = sdiv exact i64 %347, 24
@@ -2270,14 +2270,14 @@ redblack_new.exit.sink.split.sink.split.i:        ; preds = %redblack_id_for.exi
   br label %redblack_new.exit.sink.split
 
 redblack_new.exit.sink.split:                     ; preds = %redblack_id_for.exit.i.i, %redblack_id_for.exit.i212.i, %redblack_new.exit.sink.split.sink.split.i, %11
-  %.sink250.i.sink = phi ptr [ %16, %11 ], [ %222, %redblack_id_for.exit.i.i ], [ %327, %redblack_id_for.exit.i212.i ], [ %.sink250.ph.i, %redblack_new.exit.sink.split.sink.split.i ]
+  %.sink261.i.sink = phi ptr [ %16, %11 ], [ %222, %redblack_id_for.exit.i.i ], [ %327, %redblack_id_for.exit.i212.i ], [ %.sink261.ph.i, %redblack_new.exit.sink.split.sink.split.i ]
   %.0.i11.i215.sink.i.sink = phi i32 [ 0, %11 ], [ 0, %redblack_id_for.exit.i.i ], [ 0, %redblack_id_for.exit.i212.i ], [ %350, %redblack_new.exit.sink.split.sink.split.i ]
-  %351 = getelementptr inbounds nuw i8, ptr %.sink250.i.sink, i64 20
+  %351 = getelementptr inbounds nuw i8, ptr %.sink261.i.sink, i64 20
   store i32 %.0.i11.i215.sink.i.sink, ptr %351, align 4, !tbaa !60
   br label %redblack_new.exit
 
 redblack_new.exit:                                ; preds = %redblack_new.exit.sink.split, %316, %redblack_new.exit205.i, %redblack_new.exit199.i, %redblack_right.exit132.i, %redblack_red_p.exit174.thread.i, %5, %45
-  %.022 = phi ptr [ %0, %45 ], [ null, %5 ], [ null, %redblack_red_p.exit174.thread.i ], [ null, %redblack_new.exit205.i ], [ null, %316 ], [ null, %redblack_new.exit199.i ], [ null, %redblack_right.exit132.i ], [ %.sink250.i.sink, %redblack_new.exit.sink.split ]
+  %.022 = phi ptr [ %0, %45 ], [ null, %5 ], [ null, %redblack_red_p.exit174.thread.i ], [ null, %redblack_new.exit205.i ], [ null, %316 ], [ null, %redblack_new.exit199.i ], [ null, %redblack_right.exit132.i ], [ %.sink261.i.sink, %redblack_new.exit.sink.split ]
   ret ptr %.022
 }
 

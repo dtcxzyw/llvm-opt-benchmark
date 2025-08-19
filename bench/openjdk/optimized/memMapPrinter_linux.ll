@@ -302,9 +302,9 @@ define linkonce_odr hidden void @_ZNK16ProcSmapsPrinter20print_single_mappingERK
   %49 = and i64 %43, 1048575
   %50 = icmp eq i64 %49, 0
   %or.cond14.i = and i1 %48, %50
-  br i1 %or.cond14.i, label %.thread80, label %53
+  br i1 %or.cond14.i, label %.thread82, label %53
 
-.thread80:                                        ; preds = %47
+.thread82:                                        ; preds = %47
   %51 = lshr exact i64 %43, 20
   br label %_Z24exact_unit_for_byte_sizem.exit
 
@@ -326,9 +326,9 @@ _Z23byte_size_in_exact_unitm.exit:                ; preds = %41
   %spec.select.i69 = select i1 %or.cond11.i, ptr @.str.40, ptr @.str.41
   br label %_Z24exact_unit_for_byte_sizem.exit
 
-_Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byte_size_in_exact_unitm.exit, %53
-  %.0.i73 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %53 ], [ %51, %.thread80 ]
-  %.0.i70 = phi ptr [ @.str.38, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i69, %53 ], [ @.str.39, %.thread80 ]
+_Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread82, %_Z23byte_size_in_exact_unitm.exit, %53
+  %.0.i73 = phi i64 [ %52, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i, %53 ], [ %51, %.thread82 ]
+  %.0.i70 = phi ptr [ @.str.38, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i69, %53 ], [ @.str.39, %.thread82 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.26, i64 noundef %.0.i73, ptr noundef nonnull %.0.i70) #7
   %61 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 87) #7
   %62 = icmp eq i32 %61, 0
@@ -408,7 +408,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 1117
   %96 = load i8, ptr %95, align 1
   %97 = trunc i8 %96 to i1
-  br i1 %97, label %.thread82, label %98
+  br i1 %97, label %.thread84, label %98
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 1119
@@ -417,41 +417,41 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread80, %_Z23byt
   %.not79 = icmp eq i32 %.4.fr, 0
   br i1 %101, label %.thread, label %107
 
-.thread82:                                        ; preds = %94
+.thread84:                                        ; preds = %94
   %.not78 = icmp eq i32 %.4.fr, 0
   %102 = select i1 %.not78, ptr @.str.29, ptr @.str.28
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.27, ptr noundef nonnull %102, ptr noundef nonnull @.str.35) #7
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 1119
   %104 = load i8, ptr %103, align 1
   %105 = trunc i8 %104 to i1
-  br i1 %105, label %.thread.thread, label %.thread86
+  br i1 %105, label %.thread.thread, label %.thread88
 
 .thread:                                          ; preds = %98
   %spec.select = select i1 %.not79, ptr @.str.29, ptr @.str.28
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %.thread82
-  %106 = phi ptr [ @.str.28, %.thread82 ], [ %spec.select, %.thread ]
+.thread.thread:                                   ; preds = %.thread, %.thread84
+  %106 = phi ptr [ @.str.28, %.thread84 ], [ %spec.select, %.thread ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.27, ptr noundef nonnull %106, ptr noundef nonnull @.str.36) #7
-  br label %.thread86
+  br label %.thread88
 
 107:                                              ; preds = %98
-  br i1 %.not79, label %108, label %.thread86
+  br i1 %.not79, label %108, label %.thread88
 
 108:                                              ; preds = %107
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.37) #7
-  br label %.thread86
+  br label %.thread88
 
-.thread86:                                        ; preds = %.thread82, %.thread.thread, %108, %107
+.thread88:                                        ; preds = %.thread84, %.thread.thread, %108, %107
   %109 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 104) #7
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %112
 
-111:                                              ; preds = %.thread86
+111:                                              ; preds = %.thread88
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.23) #7
   br label %112
 
-112:                                              ; preds = %111, %.thread86
+112:                                              ; preds = %111, %.thread88
   %113 = load ptr, ptr %0, align 8
   %114 = load ptr, ptr %1, align 8
   %115 = load ptr, ptr %7, align 8

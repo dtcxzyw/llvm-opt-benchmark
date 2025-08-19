@@ -197,11 +197,11 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_iso8859_1(ptr noundef rea
   br label %45
 
 45:                                               ; preds = %24, %39
-  %.sink108 = phi i8 [ %44, %39 ], [ %20, %24 ]
-  %.sink107 = phi i64 [ 2, %39 ], [ 1, %24 ]
+  %.sink110 = phi i8 [ %44, %39 ], [ %20, %24 ]
+  %.sink109 = phi i64 [ 2, %39 ], [ 1, %24 ]
   %.sink = phi i32 [ -2, %39 ], [ -1, %24 ]
-  store i8 %.sink108, ptr %.04980, align 1
-  %46 = getelementptr inbounds nuw i8, ptr %.04881, i64 %.sink107
+  store i8 %.sink110, ptr %.04980, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %.04881, i64 %.sink109
   %47 = add nsw i32 %.05379, %.sink
   %.251 = getelementptr inbounds nuw i8, ptr %.04980, i64 1
   %48 = icmp sgt i32 %47, 0

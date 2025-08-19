@@ -12573,7 +12573,7 @@ _ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit: ; 
   unreachable
 
 41:                                               ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit.thread, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit
-  %.0.i72 = phi ptr [ %29, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit.thread ], [ %34, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit ]
+  %.0.i73 = phi ptr [ %29, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit.thread ], [ %34, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit ]
   %sext = shl nuw i64 %.sroa.4.0.extract.trunc, 48
   %42 = ashr exact i64 %sext, 48
   %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %42
@@ -12618,7 +12618,7 @@ _ZN13SkipNullValue11should_skipEPv.exit.thread60: ; preds = %59
   %65 = load ptr, ptr %7, align 8
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull %.0.i3759, ptr noundef nonnull %.0.i72) #9
+  call void %67(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull %.0.i3759, ptr noundef nonnull %.0.i73) #9
   br label %_ZN13SkipNullValue11should_skipEPv.exit.thread
 
 _ZN13SkipNullValue11should_skipEPv.exit.thread:   ; preds = %59, %56, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit38, %_ZN13SkipNullValue11should_skipEPv.exit.thread60, %_ZN12OopMapStream7is_doneEv.exit.thread
@@ -12698,11 +12698,11 @@ _ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46: 
   unreachable
 
 101:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46
-  %.0.i4575 = phi ptr [ %89, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread ], [ %94, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46 ]
+  %.0.i4576 = phi ptr [ %89, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46.thread ], [ %94, %_ZNK5frame21oopmapreg_to_locationI16SmallRegisterMapEEPhP9VMRegImplPKT_.exit46 ]
   br i1 %.not28, label %102, label %113
 
 102:                                              ; preds = %101
-  %103 = load ptr, ptr %.0.i4575, align 8
+  %103 = load ptr, ptr %.0.i4576, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %_ZN13SkipNullValue11should_skipEPv.exit47.thread, label %105
 
@@ -12718,7 +12718,7 @@ _ZN13SkipNullValue11should_skipEPv.exit47.thread62: ; preds = %105
   %110 = load ptr, ptr %0, align 8
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %.0.i4575) #9
+  call void %112(ptr noundef nonnull align 8 dereferenceable(8) %110, ptr noundef nonnull %.0.i4576) #9
   br label %_ZN13SkipNullValue11should_skipEPv.exit47.thread
 
 113:                                              ; preds = %101
@@ -12726,7 +12726,7 @@ _ZN13SkipNullValue11should_skipEPv.exit47.thread62: ; preds = %105
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull %.0.i4575) #9
+  call void %117(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull %.0.i4576) #9
   br label %_ZN13SkipNullValue11should_skipEPv.exit47.thread
 
 _ZN13SkipNullValue11should_skipEPv.exit47.thread: ; preds = %_ZN12OopMapStream7is_doneEv.exit42.thread, %105, %102, %_ZN13SkipNullValue11should_skipEPv.exit47.thread62, %113

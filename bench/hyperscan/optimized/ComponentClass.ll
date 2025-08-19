@@ -2081,11 +2081,11 @@ define internal fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr dead_on_unw
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %45, %20, %17
-  %.sink38.i.i = phi i64 [ %48, %45 ], [ %13, %20 ], [ %13, %17 ]
-  %.sink37.i.i = phi i64 [ %47, %45 ], [ %24, %20 ], [ %18, %17 ]
-  %49 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.sink38.i.i
+  %.sink42.i.i = phi i64 [ %48, %45 ], [ %13, %20 ], [ %13, %17 ]
+  %.sink41.i.i = phi i64 [ %47, %45 ], [ %24, %20 ], [ %18, %17 ]
+  %49 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.sink42.i.i
   %50 = load i64, ptr %49, align 8
-  %51 = or i64 %50, %.sink37.i.i
+  %51 = or i64 %50, %.sink41.i.i
   store i64 %51, ptr %49, align 8
   br label %_ZN3ue29CharReach8setRangeEhh.exit
 

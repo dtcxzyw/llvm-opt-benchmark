@@ -382,13 +382,13 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i66:      ; preds = %_ZN4llvm9BitVectorC
   br i1 %.not.i.i67, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72, label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72.sink.split
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72.sink.split: ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i66, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72.loopexit
-  %.sink291 = phi ptr [ %108, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72.loopexit ], [ %104, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i66 ]
+  %.sink316 = phi ptr [ %108, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72.loopexit ], [ %104, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i66 ]
   %109 = shl nuw nsw i64 %103, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.sink291, i8 -1, i64 %109, i1 false), !tbaa !11
+  call void @llvm.memset.p0.i64(ptr align 8 %.sink316, i8 -1, i64 %109, i1 false), !tbaa !11
   br label %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72
 
 _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72:     ; preds = %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72.sink.split, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i66
-  %110 = phi ptr [ %104, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i66 ], [ %.sink291, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72.sink.split ]
+  %110 = phi ptr [ %104, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i66 ], [ %.sink316, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i72.sink.split ]
   store i32 %102, ptr %105, align 8, !tbaa !67
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %80, ptr %111, align 8, !tbaa !68

@@ -890,8 +890,8 @@ define i32 @ff_mpv_common_init(ptr noundef %0) local_unnamed_addr #1 {
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %26 = load i32, ptr %25, align 4, !tbaa !68
   %.not52 = icmp eq i32 %26, 0
-  %or.cond62 = select i1 %.not51, i1 %.not52, i1 false
-  br i1 %or.cond62, label %28, label %._crit_edge
+  %or.cond67 = select i1 %.not51, i1 %.not52, i1 false
+  br i1 %or.cond67, label %28, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22
   %27 = tail call i32 @av_image_check_size(i32 noundef %24, i32 noundef %26, i32 noundef 0, ptr noundef nonnull %3) #12

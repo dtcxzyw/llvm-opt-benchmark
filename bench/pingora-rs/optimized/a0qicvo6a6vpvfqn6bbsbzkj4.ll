@@ -315,8 +315,8 @@ define noundef zeroext i1 @_ZN11pingora_lru11linked_list10LinkedList15exist_near
   br i1 %exitcond.not, label %20, label %10
 
 10:                                               ; preds = %9
-  %cond12 = icmp eq i64 %.sroa.01.0, 0
-  br i1 %cond12, label %"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E.exit", label %11
+  %cond18 = icmp eq i64 %.sroa.01.0, 0
+  br i1 %cond18, label %"_ZN88_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h47cba79213488d53E.exit", label %11
 
 11:                                               ; preds = %10
   %12 = add i64 %.sroa.01.0, -2

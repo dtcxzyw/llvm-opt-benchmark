@@ -145,10 +145,10 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %8 = load i32, ptr %7, align 8, !tbaa !19
   %. = select i1 %.not, i32 1, i32 %8
-  %.146 = select i1 %.not, i32 %8, i32 1
+  %.155 = select i1 %.not, i32 %8, i32 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 524
   %10 = load i32, ptr %9, align 4, !tbaa !20
-  %11 = mul nsw i32 %10, %.146
+  %11 = mul nsw i32 %10, %.155
   %12 = load i32, ptr %0, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 520
   %14 = icmp eq i32 %12, %8

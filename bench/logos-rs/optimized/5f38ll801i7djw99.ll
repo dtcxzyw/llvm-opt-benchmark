@@ -798,7 +798,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
 
 54:                                               ; preds = %43
   %55 = invoke i8 @_ZN4core3cmp6max_by17h65cb59d3ef3cdfc9E(i8 %32, i8 65)
-          to label %.invoke36 unwind label %85
+          to label %.invoke38 unwind label %85
 
 56:                                               ; preds = %38, %70
   %57 = icmp samesign ult i32 %22, 66
@@ -842,9 +842,9 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
 77:                                               ; preds = %75
   %78 = add i8 %76, 32
   %79 = zext i8 %78 to i32
-  br label %.invoke36
+  br label %.invoke38
 
-.invoke36:                                        ; preds = %54, %77
+.invoke38:                                        ; preds = %54, %77
   %.in.in = phi i8 [ %74, %77 ], [ %55, %54 ]
   %80 = phi i32 [ %79, %77 ], [ 90, %54 ]
   %.in = add i8 %.in.in, 32
@@ -852,7 +852,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
   %82 = invoke { i32, i32 } @_ZN12regex_syntax3hir17ClassUnicodeRange3new17h88a94ff24d8e2e00E(i32 %81, i32 %80)
           to label %.invoke unwind label %85
 
-.invoke:                                          ; preds = %.invoke36
+.invoke:                                          ; preds = %.invoke38
   %83 = extractvalue { i32, i32 } %82, 0
   %84 = extractvalue { i32, i32 } %82, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7123da6baf67c99bE"(ptr nonnull align 8 %7, i32 %83, i32 %84)
@@ -866,7 +866,7 @@ define void @"_ZN125_$LT$regex_syntax..hir..ClassUnicode$u20$as$u20$logos_codege
   invoke void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..ClassUnicode$GT$17hb51ac6a31b6a9ce4E"(ptr align 8 %1) #6
           to label %86 unwind label %29
 
-85:                                               ; preds = %.invoke36, %.invoke, %75, %73, %70, %64, %62, %60, %54, %51, %47, %45, %.backedge
+85:                                               ; preds = %.invoke38, %.invoke, %75, %73, %70, %64, %62, %60, %54, %51, %47, %45, %.backedge
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$regex_syntax..hir..ClassUnicodeRange$GT$$GT$17h1058b65fed97bc83E"(ptr nonnull align 8 %7) #6

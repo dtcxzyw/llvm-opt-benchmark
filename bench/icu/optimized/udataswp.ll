@@ -261,19 +261,19 @@ define range(i32 0, 65536) i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noun
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv
   %71 = load i8, ptr %70, align 1, !tbaa !11
   %.not94 = icmp eq i8 %71, 0
-  br i1 %.not94, label %.critedge.loopexit.split.loop.exit101, label %72
+  br i1 %.not94, label %.critedge.loopexit.split.loop.exit112, label %72
 
 72:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !31
 
-.critedge.loopexit.split.loop.exit101:            ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit112:            ; preds = %.lr.ph
   %73 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %72, %.critedge.loopexit.split.loop.exit101, %53
-  %.081.lcssa = phi i32 [ 0, %53 ], [ %73, %.critedge.loopexit.split.loop.exit101 ], [ %68, %72 ]
+.critedge:                                        ; preds = %72, %.critedge.loopexit.split.loop.exit112, %53
+  %.081.lcssa = phi i32 [ 0, %53 ], [ %73, %.critedge.loopexit.split.loop.exit112 ], [ %68, %72 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %75 = load ptr, ptr %74, align 8, !tbaa !14
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 %43

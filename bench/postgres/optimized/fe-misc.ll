@@ -452,9 +452,9 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
 11:                                               ; preds = %.preheader
   %.not44 = xor i1 %7, true
   %or.cond = or i1 %9, %.not44
-  br i1 %or.cond, label %.preheader75, label %12
+  br i1 %or.cond, label %.preheader80, label %12
 
-.preheader75:                                     ; preds = %._crit_edge, %11
+.preheader80:                                     ; preds = %._crit_edge, %11
   %.1.ph = phi i32 [ %4, %11 ], [ %.pre, %._crit_edge ]
   br label %17
 
@@ -467,15 +467,15 @@ define range(i32 -1, 1) i32 @pqCheckOutBufferSpace(i64 noundef %0, ptr noundef %
 
 ._crit_edge:                                      ; preds = %12
   %.pre = load i32, ptr %3, align 8
-  br label %.preheader75
+  br label %.preheader80
 
 16:                                               ; preds = %12
   store ptr %15, ptr %13, align 8
   store i32 %6, ptr %3, align 8
   br label %31
 
-17:                                               ; preds = %.preheader75, %17
-  %.1 = phi i32 [ %18, %17 ], [ %.1.ph, %.preheader75 ]
+17:                                               ; preds = %.preheader80, %17
+  %.1 = phi i32 [ %18, %17 ], [ %.1.ph, %.preheader80 ]
   %18 = add i32 %.1, 8192
   %19 = icmp sgt i32 %18, 0
   %20 = sext i32 %18 to i64
@@ -739,8 +739,8 @@ pqCheckOutBufferSpace.exit:                       ; preds = %25, %26
   br label %44
 
 .sink.split:                                      ; preds = %31, %19
-  %.lcssa38.sink = phi i32 [ %9, %19 ], [ %21, %31 ]
-  store i32 %.lcssa38.sink, ptr %7, align 8
+  %.lcssa45.sink = phi i32 [ %9, %19 ], [ %21, %31 ]
+  store i32 %.lcssa45.sink, ptr %7, align 8
   br label %33
 
 33:                                               ; preds = %.sink.split, %2
@@ -1082,7 +1082,7 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
   %59 = load i32, ptr %58, align 4
   switch i32 %59, label %.loopexit [
     i32 4, label %46
-    i32 11, label %.loopexit.loopexit139
+    i32 11, label %.loopexit.loopexit143
     i32 32, label %.loopexit60
     i32 104, label %.loopexit60
     i32 103, label %.loopexit60
@@ -1174,11 +1174,11 @@ define range(i32 -1, 2) i32 @pqReadData(ptr noundef %0) local_unnamed_addr #2 {
 .loopexit.loopexit:                               ; preds = %82
   br label %.loopexit
 
-.loopexit.loopexit139:                            ; preds = %57
+.loopexit.loopexit143:                            ; preds = %57
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %65, %57, %82, %.loopexit.loopexit139, %.loopexit.loopexit, %70, %69, %39, %.loopexit60, %86, %5
-  %.051 = phi i32 [ -1, %5 ], [ -1, %.loopexit60 ], [ 1, %86 ], [ -1, %39 ], [ 1, %69 ], [ %71, %70 ], [ 0, %.loopexit.loopexit ], [ %.0.ph, %.loopexit.loopexit139 ], [ -1, %82 ], [ -1, %57 ], [ 1, %65 ], [ 1, %61 ]
+.loopexit:                                        ; preds = %61, %65, %57, %82, %.loopexit.loopexit143, %.loopexit.loopexit, %70, %69, %39, %.loopexit60, %86, %5
+  %.051 = phi i32 [ -1, %5 ], [ -1, %.loopexit60 ], [ 1, %86 ], [ -1, %39 ], [ 1, %69 ], [ %71, %70 ], [ 0, %.loopexit.loopexit ], [ %.0.ph, %.loopexit.loopexit143 ], [ -1, %82 ], [ -1, %57 ], [ 1, %65 ], [ 1, %61 ]
   ret i32 %.051
 }
 
@@ -1437,8 +1437,8 @@ define i32 @PQsocketPoll(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 nou
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 0, ptr %10, align 2
   %11 = or i32 %1, %2
-  %.not18 = icmp eq i32 %11, 0
-  br i1 %.not18, label %14, label %12
+  %.not20 = icmp eq i32 %11, 0
+  br i1 %.not20, label %14, label %12
 
 12:                                               ; preds = %8
   %.not17.not = icmp eq i32 %2, 0

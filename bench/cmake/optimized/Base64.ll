@@ -560,8 +560,8 @@ cmsysBase64_Decode3.exit91:                       ; preds = %94, %.lr.ph135, %78
   br label %cmsysBase64_Decode3.exit91.thread123
 
 cmsysBase64_Decode3.exit91.thread123:             ; preds = %cmsysBase64_Decode3.exit, %164, %140, %cmsysBase64_Decode3.exit85, %138, %102, %._crit_edge, %cmsysBase64_Decode3.exit91, %.thread
-  %.sink152 = phi ptr [ %170, %cmsysBase64_Decode3.exit91 ], [ %48, %.thread ], [ %.359.lcssa, %140 ], [ %169, %164 ], [ %.359.lcssa, %102 ], [ %139, %138 ], [ %137, %cmsysBase64_Decode3.exit85 ], [ %.359.lcssa, %._crit_edge ], [ %49, %cmsysBase64_Decode3.exit ]
-  %171 = ptrtoint ptr %.sink152 to i64
+  %.sink168 = phi ptr [ %170, %cmsysBase64_Decode3.exit91 ], [ %48, %.thread ], [ %.359.lcssa, %140 ], [ %169, %164 ], [ %.359.lcssa, %102 ], [ %139, %138 ], [ %137, %cmsysBase64_Decode3.exit85 ], [ %.359.lcssa, %._crit_edge ], [ %49, %cmsysBase64_Decode3.exit ]
+  %171 = ptrtoint ptr %.sink168 to i64
   %172 = ptrtoint ptr %2 to i64
   %173 = sub i64 %171, %172
   ret i64 %173

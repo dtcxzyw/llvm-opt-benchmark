@@ -444,14 +444,14 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %.074.us.us.i.i = phi i32 [ %96, %..loopexit_crit_edge.us.us.i.i ], [ 0, %.preheader.us.us.preheader.i.i ]
   %.05972.us.us.i.i = phi ptr [ %94, %..loopexit_crit_edge.us.us.i.i ], [ %69, %.preheader.us.us.preheader.i.i ]
   %.06070.us.us.i.i = phi ptr [ %95, %..loopexit_crit_edge.us.us.i.i ], [ %71, %.preheader.us.us.preheader.i.i ]
-  %invariant.gep112.i.i = getelementptr i8, ptr %.06070.us.us.i.i, i64 %89
+  %invariant.gep116.i.i = getelementptr i8, ptr %.06070.us.us.i.i, i64 %89
   br label %90
 
 90:                                               ; preds = %90, %.preheader.us.us.i.i
   %indvars.iv102.i.i = phi i64 [ 0, %.preheader.us.us.i.i ], [ %indvars.iv.next103.i.i, %90 ]
   %91 = mul nsw i64 %indvars.iv102.i.i, %88
-  %gep113.i.i = getelementptr i8, ptr %invariant.gep112.i.i, i64 %91
-  %92 = load i8, ptr %gep113.i.i, align 1, !tbaa !76
+  %gep117.i.i = getelementptr i8, ptr %invariant.gep116.i.i, i64 %91
+  %92 = load i8, ptr %gep117.i.i, align 1, !tbaa !76
   %93 = getelementptr inbounds nuw i8, ptr %.05972.us.us.i.i, i64 %indvars.iv102.i.i
   store i8 %92, ptr %93, align 1, !tbaa !76
   %indvars.iv.next103.i.i = add nuw nsw i64 %indvars.iv102.i.i, 1
@@ -479,18 +479,18 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %.074.us77.us.i.i = phi i32 [ %110, %..loopexit62_crit_edge.us.us.i.i ], [ 0, %.preheader61.us.us.preheader.i.i ]
   %.05972.us78.us.i.i = phi ptr [ %108, %..loopexit62_crit_edge.us.us.i.i ], [ %69, %.preheader61.us.us.preheader.i.i ]
   %.06070.us79.us.i.i = phi ptr [ %109, %..loopexit62_crit_edge.us.us.i.i ], [ %71, %.preheader61.us.us.preheader.i.i ]
-  %invariant.gep110.i.i = getelementptr i8, ptr %.06070.us79.us.i.i, i64 %99
+  %invariant.gep114.i.i = getelementptr i8, ptr %.06070.us79.us.i.i, i64 %99
   br label %100
 
 100:                                              ; preds = %100, %.preheader61.us.us.i.i
   %indvars.iv96.i.i = phi i64 [ 0, %.preheader61.us.us.i.i ], [ %indvars.iv.next97.i.i, %100 ]
   %101 = mul nsw i64 %indvars.iv96.i.i, %98
-  %gep111.i.i = getelementptr i8, ptr %invariant.gep110.i.i, i64 %101
-  %102 = load i8, ptr %gep111.i.i, align 1, !tbaa !76
+  %gep115.i.i = getelementptr i8, ptr %invariant.gep114.i.i, i64 %101
+  %102 = load i8, ptr %gep115.i.i, align 1, !tbaa !76
   %103 = shl nuw nsw i64 %indvars.iv96.i.i, 1
   %104 = getelementptr inbounds nuw i8, ptr %.05972.us78.us.i.i, i64 %103
   store i8 %102, ptr %104, align 1, !tbaa !76
-  %105 = getelementptr i8, ptr %gep111.i.i, i64 1
+  %105 = getelementptr i8, ptr %gep115.i.i, i64 1
   %106 = load i8, ptr %105, align 1, !tbaa !76
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 1
   store i8 %106, ptr %107, align 1, !tbaa !76

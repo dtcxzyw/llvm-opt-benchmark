@@ -656,16 +656,16 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load i32, ptr %8, align 4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.lr.ph113.preheader, label %.critedge
+  br i1 %18, label %.lr.ph123.preheader, label %.critedge
 
-.lr.ph113.preheader:                              ; preds = %.lr.ph
+.lr.ph123.preheader:                              ; preds = %.lr.ph
   %. = select i1 %.not81, i64 24, i64 36
-  br label %.lr.ph113
+  br label %.lr.ph123
 
-.lr.ph113:                                        ; preds = %.lr.ph113.preheader, %126
-  %indvars.iv112 = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.lr.ph113.preheader ]
+.lr.ph123:                                        ; preds = %.lr.ph123.preheader, %126
+  %indvars.iv122 = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.lr.ph123.preheader ]
   %19 = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv112
+  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv122
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.
   %.sink = load i32, ptr %22, align 4
@@ -742,7 +742,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph92.split.split:                             ; preds = %.lr.ph92
   br i1 %32, label %.lr.ph98, label %.critedge88
 
-57:                                               ; preds = %.lr.ph113
+57:                                               ; preds = %.lr.ph123
   %58 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %59 = load i32, ptr %58, align 8
   %.not83 = icmp eq i32 %59, 0
@@ -752,7 +752,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   call void @add_function_cost(ptr noundef %0, i32 noundef %59, ptr noundef null, ptr noundef %2) #5
   br label %61
 
-61:                                               ; preds = %60, %57, %.lr.ph113
+61:                                               ; preds = %60, %57, %.lr.ph123
   br i1 %.not84, label %66, label %62
 
 62:                                               ; preds = %61
@@ -862,16 +862,16 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %104, %119, %123
-  %.sink110 = phi i64 [ %125, %123 ], [ %122, %119 ], [ %110, %104 ]
-  store i64 %.sink110, ptr %16, align 8
+  %.sink120 = phi i64 [ %125, %123 ], [ %122, %119 ], [ %110, %104 ]
+  store i64 %.sink120, ptr %16, align 8
   br label %126
 
 126:                                              ; preds = %.sink.split, %111
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv112, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv122, 1
   %127 = load i32, ptr %8, align 4
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next, %128
-  br i1 %129, label %.lr.ph113, label %.critedge
+  br i1 %129, label %.lr.ph123, label %.critedge
 
 .lr.ph98:                                         ; preds = %.lr.ph92.split.split, %147
   %130 = phi i32 [ %148, %147 ], [ %31, %.lr.ph92.split.split ]

@@ -331,7 +331,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN8facebook5velox14getVectorSerdeEv() local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN8facebook5velox14getVectorSerdeEv() local_unnamed_addr #1 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox12_GLOBAL__N_118getVectorSerdeImplEvE5serde acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

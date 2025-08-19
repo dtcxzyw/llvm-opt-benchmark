@@ -371,7 +371,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb14LayoutItemBase11tailPaddingEv(ptr n
   br i1 %.not.i.i, label %16, label %22, !llvm.loop !40
 
 22:                                               ; preds = %17
-  %23 = trunc nuw i64 %indvars.iv.i.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %24 = shl i32 %23, 6
   %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.i.i, i1 true)
   %26 = trunc nuw nsw i64 %25 to i32
@@ -1983,7 +1983,7 @@ _ZNSt10unique_ptrIN4llvm3pdb20PDBSymbolTypeBuiltinESt14default_deleteIS2_EED2Ev.
   br i1 %.not.i.i52, label %416, label %422, !llvm.loop !40
 
 422:                                              ; preds = %417
-  %423 = trunc nuw i64 %indvars.iv.i.i to i32
+  %423 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %424 = shl i32 %423, 6
   %425 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.i.i, i1 true)
   %426 = trunc nuw nsw i64 %425 to i32
@@ -2128,7 +2128,7 @@ _ZNSt10unique_ptrIN4llvm3pdb15BaseClassLayoutESt14default_deleteIS2_EED2Ev.exit6
   br i1 %.not.i.i74, label %480, label %486, !llvm.loop !40
 
 486:                                              ; preds = %481
-  %487 = trunc nuw i64 %indvars.iv.i.i70 to i32
+  %487 = trunc nuw nsw i64 %indvars.iv.i.i70 to i32
   %488 = shl i32 %487, 6
   %489 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.i.i73, i1 true)
   %490 = trunc nuw nsw i64 %489 to i32
@@ -2325,7 +2325,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13UDTLayoutBase11tailPaddingEv(ptr no
   br i1 %.not.i.i.i, label %16, label %22, !llvm.loop !40
 
 22:                                               ; preds = %17
-  %23 = trunc nuw i64 %indvars.iv.i.i.i to i32
+  %23 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %24 = shl i32 %23, 6
   %25 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.i.i.i, i1 true)
   %26 = trunc nuw nsw i64 %25 to i32
@@ -2380,7 +2380,7 @@ _ZNK4llvm3pdb14LayoutItemBase11tailPaddingEv.exit: ; preds = %16, %1, %22
   br i1 %.not.i.i.i13, label %51, label %57, !llvm.loop !40
 
 57:                                               ; preds = %52
-  %58 = trunc nuw i64 %indvars.iv.i.i.i9 to i32
+  %58 = trunc nuw nsw i64 %indvars.iv.i.i.i9 to i32
   %59 = shl i32 %58, 6
   %60 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.i.i.i12, i1 true)
   %61 = trunc nuw nsw i64 %60 to i32
@@ -2590,11 +2590,11 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
 
 _ZN4llvm9BitVector3setEjj.exit.sink.split:        ; preds = %101, %74
   %.sink = phi i32 [ %71, %74 ], [ %105, %101 ]
-  %.sink19 = phi i64 [ %80, %74 ], [ %104, %101 ]
+  %.sink28 = phi i64 [ %80, %74 ], [ %104, %101 ]
   %106 = zext nneg i32 %.sink to i64
   %107 = getelementptr inbounds nuw i64, ptr %61, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !33
-  %109 = or i64 %108, %.sink19
+  %109 = or i64 %108, %.sink28
   store i64 %109, ptr %107, align 8, !tbaa !33
   br label %_ZN4llvm9BitVector3setEjj.exit
 

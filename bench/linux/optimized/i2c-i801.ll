@@ -1525,9 +1525,9 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   %141 = load i32, ptr %38, align 8
   %142 = and i32 %141, 8
   %143 = icmp eq i32 %142, 0
-  br i1 %143, label %146, label %.thread15.thread55
+  br i1 %143, label %146, label %.thread15.thread61
 
-.thread15.thread55:                               ; preds = %140
+.thread15.thread61:                               ; preds = %140
   %144 = load i8, ptr %6, align 2
   %145 = zext i8 %144 to i32
   br label %303
@@ -1762,11 +1762,11 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   call void @llvm.write_register.i64(metadata !0, i64 %302)
   br label %303
 
-303:                                              ; preds = %.thread15.thread55, %285, %.thread15
-  %304 = phi i1 [ true, %285 ], [ false, %.thread15 ], [ false, %.thread15.thread55 ]
-  %305 = phi i32 [ %286, %285 ], [ %283, %.thread15 ], [ %145, %.thread15.thread55 ]
-  %306 = phi i8 [ %287, %285 ], [ %282, %.thread15 ], [ %144, %.thread15.thread55 ]
-  %307 = phi i1 [ %288, %285 ], [ true, %.thread15 ], [ false, %.thread15.thread55 ]
+303:                                              ; preds = %.thread15.thread61, %285, %.thread15
+  %304 = phi i1 [ true, %285 ], [ false, %.thread15 ], [ false, %.thread15.thread61 ]
+  %305 = phi i32 [ %286, %285 ], [ %283, %.thread15 ], [ %145, %.thread15.thread61 ]
+  %306 = phi i8 [ %287, %285 ], [ %282, %.thread15 ], [ %144, %.thread15.thread61 ]
+  %307 = phi i1 [ %288, %285 ], [ true, %.thread15 ], [ false, %.thread15.thread61 ]
   %308 = icmp eq i32 %5, 8
   %309 = and i1 %97, %308
   %310 = select i1 %309, i32 24, i32 20

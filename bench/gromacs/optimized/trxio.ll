@@ -1058,7 +1058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.thread141
 
 .thread149:                                       ; preds = %129, %123, %.loopexit
-  %.0124186 = phi ptr [ %.0124, %.loopexit ], [ %125, %123 ], [ %125, %129 ]
+  %.0124191 = phi ptr [ %.0124, %.loopexit ], [ %125, %123 ], [ %125, %129 ]
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %145 = load ptr, ptr %144, align 8, !tbaa !28
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1066,8 +1066,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %149 = load float, ptr %148, align 4, !tbaa !54
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %151 = tail call noundef i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noundef %145, i32 noundef %2, i64 noundef %147, float noundef %149, ptr noundef nonnull %150, ptr noundef %.0124186, float noundef %.092)
-  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, i32 noundef 480, ptr noundef %.0124186)
+  %151 = tail call noundef i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noundef %145, i32 noundef %2, i64 noundef %147, float noundef %149, ptr noundef nonnull %150, ptr noundef %.0124191, float noundef %.092)
+  tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, i32 noundef 480, ptr noundef %.0124191)
   br label %.thread135
 
 152:                                              ; preds = %.loopexit
@@ -3297,7 +3297,7 @@ _ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit: ; preds = %194, %_Z24t
   %223 = call noundef range(i32 -1, 2) i32 @_Z12check_times2ffb(float noundef %218, float noundef %218, i1 zeroext poison)
   %224 = icmp sgt i32 %223, 0
   %225 = load float, ptr %23, align 4, !tbaa !54
-  br i1 %224, label %226, label %.thread139
+  br i1 %224, label %226, label %.thread141
 
 226:                                              ; preds = %222
   %227 = load ptr, ptr %1, align 8, !tbaa !107
@@ -3312,17 +3312,17 @@ _ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit: ; preds = %194, %_Z24t
   store float %230, ptr %232, align 4, !tbaa !74
   br label %235
 
-.thread139:                                       ; preds = %222
+.thread141:                                       ; preds = %222
   %233 = call noundef range(i32 -1, 2) i32 @_Z12check_times2ffb(float noundef %225, float noundef %225, i1 zeroext poison)
   %234 = icmp slt i32 %233, 0
   br i1 %234, label %235, label %238
 
-235:                                              ; preds = %229, %.thread139
+235:                                              ; preds = %229, %.thread141
   %236 = load ptr, ptr %1, align 8, !tbaa !107
   %237 = call noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatusP10t_trxframe(ptr noundef %0, ptr noundef %236, ptr noundef nonnull %3)
   br i1 %237, label %238, label %245
 
-238:                                              ; preds = %_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit, %235, %.thread139
+238:                                              ; preds = %_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit, %235, %.thread141
   %239 = load float, ptr %23, align 4, !tbaa !54
   %240 = load ptr, ptr %1, align 8, !tbaa !107
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8

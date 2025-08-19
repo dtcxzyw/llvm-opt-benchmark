@@ -98,7 +98,7 @@ define internal i32 @buffer_write(ptr noundef %0, ptr noundef %1, i32 noundef %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %.080123, i64 %46, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %.080123, i64 %46
   %48 = sub nsw i32 %.076124, %37
-  %49 = add nsw i32 %37, %.075125
+  %49 = add nuw nsw i32 %37, %.075125
   %50 = load i32, ptr %16, align 8, !tbaa !20
   %51 = add nsw i32 %50, %37
   store i32 %51, ptr %16, align 8, !tbaa !20
@@ -176,7 +176,7 @@ define internal i32 @buffer_write(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %.loopexit93
 
 85:                                               ; preds = %76
-  %86 = add nsw i32 %78, %.3
+  %86 = add nuw nsw i32 %78, %.3
   %87 = zext nneg i32 %78 to i64
   %88 = getelementptr inbounds nuw i8, ptr %.383, i64 %87
   %89 = sub nsw i32 %.379, %78

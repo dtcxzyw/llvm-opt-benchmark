@@ -55,7 +55,7 @@ define hidden double @SDL_uclibc_atan2(double noundef %0, double noundef %1) loc
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %24
-  switch i32 %28, label %default.unreachable52 [
+  switch i32 %28, label %default.unreachable55 [
     i32 0, label %67
     i32 1, label %67
     i32 2, label %32
@@ -68,7 +68,7 @@ define hidden double @SDL_uclibc_atan2(double noundef %0, double noundef %1) loc
 33:                                               ; preds = %31
   br label %67
 
-default.unreachable52:                            ; preds = %58, %31
+default.unreachable55:                            ; preds = %58, %31
   unreachable
 
 34:                                               ; preds = %24
@@ -87,7 +87,7 @@ default.unreachable52:                            ; preds = %58, %31
 
 42:                                               ; preds = %39
   %43 = zext nneg i32 %28 to i64
-  br i1 %41, label %switch.lookup, label %switch.lookup53
+  br i1 %41, label %switch.lookup, label %switch.lookup56
 
 44:                                               ; preds = %39
   br i1 %41, label %45, label %47
@@ -116,7 +116,7 @@ default.unreachable52:                            ; preds = %58, %31
 
 58:                                               ; preds = %51, %47, %54
   %.049 = phi double [ %57, %54 ], [ 0x3FF921FB54442D18, %47 ], [ 0.000000e+00, %51 ]
-  switch i32 %28, label %default.unreachable52 [
+  switch i32 %28, label %default.unreachable55 [
     i32 0, label %67
     i32 1, label %59
     i32 2, label %61
@@ -142,13 +142,13 @@ switch.lookup:                                    ; preds = %42
   %switch.load = load double, ptr %switch.gep, align 8
   br label %67
 
-switch.lookup53:                                  ; preds = %42
-  %switch.gep54 = getelementptr inbounds nuw [4 x double], ptr @switch.table.SDL_uclibc_atan2.1, i64 0, i64 %43
-  %switch.load55 = load double, ptr %switch.gep54, align 8
+switch.lookup56:                                  ; preds = %42
+  %switch.gep57 = getelementptr inbounds nuw [4 x double], ptr @switch.table.SDL_uclibc_atan2.1, i64 0, i64 %43
+  %switch.load58 = load double, ptr %switch.gep57, align 8
   br label %67
 
-67:                                               ; preds = %switch.lookup53, %switch.lookup, %58, %31, %31, %64, %61, %59, %45, %37, %33, %32, %22, %16
-  %.0 = phi double [ %17, %16 ], [ %23, %22 ], [ %38, %37 ], [ %46, %45 ], [ %66, %64 ], [ %60, %59 ], [ %63, %61 ], [ 0x400921FB54442D18, %32 ], [ 0xC00921FB54442D18, %33 ], [ %0, %31 ], [ %0, %31 ], [ %.049, %58 ], [ %switch.load, %switch.lookup ], [ %switch.load55, %switch.lookup53 ]
+67:                                               ; preds = %switch.lookup56, %switch.lookup, %58, %31, %31, %64, %61, %59, %45, %37, %33, %32, %22, %16
+  %.0 = phi double [ %17, %16 ], [ %23, %22 ], [ %38, %37 ], [ %46, %45 ], [ %66, %64 ], [ %60, %59 ], [ %63, %61 ], [ 0x400921FB54442D18, %32 ], [ 0xC00921FB54442D18, %33 ], [ %0, %31 ], [ %0, %31 ], [ %.049, %58 ], [ %switch.load, %switch.lookup ], [ %switch.load58, %switch.lookup56 ]
   ret double %.0
 }
 

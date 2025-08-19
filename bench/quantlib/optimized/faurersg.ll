@@ -880,8 +880,8 @@ for.body149:                                      ; preds = %for.body149.lr.ph, 
 for.cond.cleanup175:                              ; preds = %for.body176, %for.cond173.preheader
   %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593, 1
   %93 = load i64, ptr %mbit_, align 8, !tbaa !46
-  %sext605 = shl i64 %93, 32
-  %94 = ashr exact i64 %sext605, 32
+  %sext646 = shl i64 %93, 32
+  %94 = ashr exact i64 %sext646, 32
   %cmp136 = icmp slt i64 %indvars.iv.next594, %94
   br i1 %cmp136, label %for.body138, label %for.cond.cleanup137, !llvm.loop !53
 
@@ -2144,13 +2144,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i64 0, ptr %0, align 8, !tbaa !34
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !34
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i

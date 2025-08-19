@@ -2145,7 +2145,7 @@ if.then10:                                        ; preds = %for.body
   br label %for.end
 
 if.else:                                          ; preds = %for.body
-  %sub16 = sub nuw i64 %written.026, %4
+  %sub16 = sub nuw nsw i64 %written.026, %4
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %vbufs.027, i64 16
   %dec = add i64 %vcount.028, -1
   %cmp8.not = icmp eq i64 %dec, 0
@@ -2212,7 +2212,7 @@ if.then10.i:                                      ; preds = %for.body.i
   br label %for.end.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %sub16.i = sub nuw i64 %written.026.i, %4
+  %sub16.i = sub nuw nsw i64 %written.026.i, %4
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %vbufs.027.i, i64 16
   %dec.i = add i64 %vcount.028.i, -1
   %cmp8.not.i = icmp eq i64 %dec.i, 0

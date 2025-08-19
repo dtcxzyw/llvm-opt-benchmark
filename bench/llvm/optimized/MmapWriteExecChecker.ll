@@ -865,8 +865,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.i:           ; preds = %27, %20
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %40, align 8
-  %41 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %40, align 8
+  %41 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %42 = inttoptr i64 %41 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8

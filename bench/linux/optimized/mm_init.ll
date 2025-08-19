@@ -1094,13 +1094,13 @@ define dso_local void @free_area_init(ptr noundef readonly captures(none) %0) lo
   br label %20
 
 20:                                               ; preds = %18, %36
-  %indvars.iv37 = phi i64 [ 0, %18 ], [ %indvars.iv.next, %36 ]
-  %21 = getelementptr [4 x ptr], ptr @zone_names, i64 0, i64 %indvars.iv37
+  %indvars.iv44 = phi i64 [ 0, %18 ], [ %indvars.iv.next, %36 ]
+  %21 = getelementptr [4 x ptr], ptr @zone_names, i64 0, i64 %indvars.iv44
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %22) #21
-  %24 = getelementptr [4 x i64], ptr @arch_zone_lowest_possible_pfn, i64 0, i64 %indvars.iv37
+  %24 = getelementptr [4 x i64], ptr @arch_zone_lowest_possible_pfn, i64 0, i64 %indvars.iv44
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr [4 x i64], ptr @arch_zone_highest_possible_pfn, i64 0, i64 %indvars.iv37
+  %26 = getelementptr [4 x i64], ptr @arch_zone_highest_possible_pfn, i64 0, i64 %indvars.iv44
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %25, %27
   br i1 %28, label %29, label %31
@@ -1117,7 +1117,7 @@ define dso_local void @free_area_init(ptr noundef readonly captures(none) %0) lo
   br label %36
 
 36:                                               ; preds = %31, %29
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv37, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv44, 1
   %37 = icmp eq i64 %indvars.iv.next, 3
   br i1 %37, label %38, label %20
 
@@ -2119,9 +2119,9 @@ define dso_local nonnull ptr @alloc_large_system_hash(ptr noundef %0, i64 nounde
 80:                                               ; preds = %71
   %81 = tail call noalias ptr @vmalloc_huge(i64 noundef %65, i32 noundef %60) #26
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %90, label %.thread23
+  br i1 %82, label %90, label %.thread29
 
-.thread23:                                        ; preds = %80
+.thread29:                                        ; preds = %80
   %83 = tail call ptr @find_vm_area(ptr noundef nonnull %81) #22
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load i32, ptr %84, align 8
@@ -2145,12 +2145,12 @@ define dso_local nonnull ptr @alloc_large_system_hash(ptr noundef %0, i64 nounde
 95:                                               ; preds = %90
   %96 = add i64 %64, -1
   %97 = icmp eq i64 %96, 0
-  br i1 %97, label %.thread21, label %63, !llvm.loop !58
+  br i1 %97, label %.thread27, label %63, !llvm.loop !58
 
 98:                                               ; preds = %90
-  br i1 %92, label %.thread21, label %99
+  br i1 %92, label %.thread27, label %99
 
-.thread21:                                        ; preds = %95, %98
+.thread27:                                        ; preds = %95, %98
   tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.21, ptr noundef %0) #25
   unreachable
 
@@ -2158,10 +2158,10 @@ define dso_local nonnull ptr @alloc_large_system_hash(ptr noundef %0, i64 nounde
   %100 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %65, i32 -1) #20, !srcloc !57
   br label %101
 
-101:                                              ; preds = %99, %.thread23
-  %.in = phi i32 [ %87, %.thread23 ], [ %100, %99 ]
-  %102 = phi ptr [ %81, %.thread23 ], [ %91, %99 ]
-  %103 = phi ptr [ %86, %.thread23 ], [ %spec.select, %99 ]
+101:                                              ; preds = %99, %.thread29
+  %.in = phi i32 [ %87, %.thread29 ], [ %100, %99 ]
+  %102 = phi ptr [ %81, %.thread29 ], [ %91, %99 ]
+  %103 = phi ptr [ %86, %.thread29 ], [ %spec.select, %99 ]
   %104 = shl nuw i64 1, %64
   %105 = add i32 %.in, -12
   %106 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %0, i64 noundef %104, i32 noundef %105, i64 noundef %65, ptr noundef nonnull %103) #21

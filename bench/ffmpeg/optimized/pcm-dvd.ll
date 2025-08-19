@@ -164,9 +164,9 @@ define internal i32 @pcm_dvd_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   br label %90
 
 90:                                               ; preds = %84, %81, %76, %72
-  %.sink59.i = phi i64 [ 16, %76 ], [ 16, %81 ], [ 16, %84 ], [ 4, %72 ]
+  %.sink62.i = phi i64 [ 16, %76 ], [ 16, %81 ], [ 16, %84 ], [ 4, %72 ]
   %.sink.i = phi i32 [ 1, %76 ], [ 2, %81 ], [ %63, %84 ], [ %74, %72 ]
-  %91 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink59.i
+  %91 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink62.i
   store i32 %.sink.i, ptr %91, align 4, !tbaa !38
   store i32 %26, ptr %10, align 4, !tbaa !27
   br label %92
@@ -528,11 +528,11 @@ bytestream2_init.exit:                            ; preds = %4
   br i1 %.not77, label %.loopexit, label %.preheader107, !llvm.loop !62
 
 .preheader109.splitthread-pre-split:              ; preds = %._crit_edge
-  %.pr146 = load i32, ptr %105, align 4, !tbaa !55
+  %.pr152 = load i32, ptr %105, align 4, !tbaa !55
   br label %.preheader109.split
 
 .preheader109.split:                              ; preds = %.preheader109, %.preheader109.splitthread-pre-split
-  %134 = phi i32 [ %.pr146, %.preheader109.splitthread-pre-split ], [ %106, %.preheader109 ]
+  %134 = phi i32 [ %.pr152, %.preheader109.splitthread-pre-split ], [ %106, %.preheader109 ]
   %.sroa.0.7 = phi ptr [ %.sroa.0.8.lcssa, %.preheader109.splitthread-pre-split ], [ %1, %.preheader109 ]
   %.370 = phi i32 [ %180, %.preheader109.splitthread-pre-split ], [ %3, %.preheader109 ]
   %.8 = phi ptr [ %.9.lcssa, %.preheader109.splitthread-pre-split ], [ %2, %.preheader109 ]

@@ -50,11 +50,9 @@ define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr nounde
   br i1 %.not86, label %.loopexit.loopexit, label %.preheader
 
 .loopexit.loopexit:                               ; preds = %27
-  %28 = add nsw i32 %9, -1
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr i8, ptr %2, i64 %29
-  %scevgep = getelementptr i8, ptr %30, i64 1
-  %31 = sub i32 %3, %9
+  %28 = zext nneg i32 %9 to i64
+  %scevgep = getelementptr i8, ptr %2, i64 %28
+  %29 = sub nsw i32 %3, %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
@@ -62,79 +60,79 @@ define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr nounde
   %.071 = phi i32 [ %6, %4 ], [ %.273, %.loopexit.loopexit ]
   %.066 = phi i32 [ %7, %4 ], [ %.268, %.loopexit.loopexit ]
   %.063 = phi i32 [ %5, %4 ], [ %.265, %.loopexit.loopexit ]
-  %.061 = phi i32 [ %3, %4 ], [ %31, %.loopexit.loopexit ]
-  %32 = and i32 %.061, -4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %.076, i64 %33
-  %35 = icmp sgt i32 %.061, 3
-  br i1 %35, label %.lr.ph, label %._crit_edge
+  %.061 = phi i32 [ %3, %4 ], [ %29, %.loopexit.loopexit ]
+  %30 = and i32 %.061, -4
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %.076, i64 %31
+  %33 = icmp sgt i32 %.061, 3
+  br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.394 = phi i32 [ %45, %.lr.ph ], [ %.063, %.loopexit ]
-  %.27893 = phi ptr [ %46, %.lr.ph ], [ %.076, %.loopexit ]
-  %36 = load i32, ptr %.27893, align 4, !tbaa !4
-  %37 = mul i32 %36, -862048943
-  %38 = mul i32 %36, 380141568
-  %39 = lshr i32 %37, 17
-  %40 = or disjoint i32 %39, %38
-  %41 = mul i32 %40, 461845907
-  %42 = xor i32 %41, %.394
-  %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 13)
-  %44 = mul i32 %43, 5
-  %45 = add i32 %44, -430675100
-  %46 = getelementptr inbounds nuw i8, ptr %.27893, i64 4
-  %47 = icmp ult ptr %46, %34
-  br i1 %47, label %.lr.ph, label %._crit_edge
+  %.394 = phi i32 [ %43, %.lr.ph ], [ %.063, %.loopexit ]
+  %.27893 = phi ptr [ %44, %.lr.ph ], [ %.076, %.loopexit ]
+  %34 = load i32, ptr %.27893, align 4, !tbaa !4
+  %35 = mul i32 %34, -862048943
+  %36 = mul i32 %34, 380141568
+  %37 = lshr i32 %35, 17
+  %38 = or disjoint i32 %37, %36
+  %39 = mul i32 %38, 461845907
+  %40 = xor i32 %39, %.394
+  %41 = tail call i32 @llvm.fshl.i32(i32 %40, i32 %40, i32 13)
+  %42 = mul i32 %41, 5
+  %43 = add i32 %42, -430675100
+  %44 = getelementptr inbounds nuw i8, ptr %.27893, i64 4
+  %45 = icmp ult ptr %44, %32
+  br i1 %45, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
-  %.278.lcssa = phi ptr [ %.076, %.loopexit ], [ %46, %.lr.ph ]
-  %.3.lcssa = phi i32 [ %.063, %.loopexit ], [ %45, %.lr.ph ]
-  %48 = and i32 %.061, 3
-  %.not8796 = icmp eq i32 %48, 0
+  %.278.lcssa = phi ptr [ %.076, %.loopexit ], [ %44, %.lr.ph ]
+  %.3.lcssa = phi i32 [ %.063, %.loopexit ], [ %43, %.lr.ph ]
+  %46 = and i32 %.061, 3
+  %.not8796 = icmp eq i32 %46, 0
   br i1 %.not8796, label %._crit_edge103, label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %._crit_edge, %66
-  %.in107 = phi i32 [ %49, %66 ], [ %48, %._crit_edge ]
-  %.4100 = phi i32 [ %.5, %66 ], [ %.3.lcssa, %._crit_edge ]
-  %.36999 = phi i32 [ %.470, %66 ], [ %.066, %._crit_edge ]
-  %.37498 = phi i32 [ %.475, %66 ], [ %.071, %._crit_edge ]
-  %.37997 = phi ptr [ %50, %66 ], [ %.278.lcssa, %._crit_edge ]
-  %49 = add nsw i32 %.in107, -1
-  %50 = getelementptr inbounds nuw i8, ptr %.37997, i64 1
-  %51 = load i8, ptr %.37997, align 1, !tbaa !8
-  %52 = zext i8 %51 to i32
-  %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %.37498, i32 24)
-  %54 = add nuw nsw i32 %.36999, 1
-  %55 = icmp eq i32 %54, 4
-  br i1 %55, label %56, label %66
+.lr.ph102:                                        ; preds = %._crit_edge, %64
+  %.in107 = phi i32 [ %47, %64 ], [ %46, %._crit_edge ]
+  %.4100 = phi i32 [ %.5, %64 ], [ %.3.lcssa, %._crit_edge ]
+  %.36999 = phi i32 [ %.470, %64 ], [ %.066, %._crit_edge ]
+  %.37498 = phi i32 [ %.475, %64 ], [ %.071, %._crit_edge ]
+  %.37997 = phi ptr [ %48, %64 ], [ %.278.lcssa, %._crit_edge ]
+  %47 = add nsw i32 %.in107, -1
+  %48 = getelementptr inbounds nuw i8, ptr %.37997, i64 1
+  %49 = load i8, ptr %.37997, align 1, !tbaa !8
+  %50 = zext i8 %49 to i32
+  %51 = tail call i32 @llvm.fshl.i32(i32 %50, i32 %.37498, i32 24)
+  %52 = add nuw nsw i32 %.36999, 1
+  %53 = icmp eq i32 %52, 4
+  br i1 %53, label %54, label %64
 
-56:                                               ; preds = %.lr.ph102
-  %57 = mul i32 %53, -862048943
-  %58 = mul i32 %53, 380141568
-  %59 = lshr i32 %57, 17
-  %60 = or disjoint i32 %59, %58
-  %61 = mul i32 %60, 461845907
-  %62 = xor i32 %61, %.4100
-  %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 13)
-  %64 = mul i32 %63, 5
-  %65 = add i32 %64, -430675100
-  br label %66
+54:                                               ; preds = %.lr.ph102
+  %55 = mul i32 %51, -862048943
+  %56 = mul i32 %51, 380141568
+  %57 = lshr i32 %55, 17
+  %58 = or disjoint i32 %57, %56
+  %59 = mul i32 %58, 461845907
+  %60 = xor i32 %59, %.4100
+  %61 = tail call i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 13)
+  %62 = mul i32 %61, 5
+  %63 = add i32 %62, -430675100
+  br label %64
 
-66:                                               ; preds = %56, %.lr.ph102
-  %.475 = phi i32 [ %61, %56 ], [ %53, %.lr.ph102 ]
-  %.470 = phi i32 [ 0, %56 ], [ %54, %.lr.ph102 ]
-  %.5 = phi i32 [ %65, %56 ], [ %.4100, %.lr.ph102 ]
-  %.not87 = icmp eq i32 %49, 0
+64:                                               ; preds = %54, %.lr.ph102
+  %.475 = phi i32 [ %59, %54 ], [ %51, %.lr.ph102 ]
+  %.470 = phi i32 [ 0, %54 ], [ %52, %.lr.ph102 ]
+  %.5 = phi i32 [ %63, %54 ], [ %.4100, %.lr.ph102 ]
+  %.not87 = icmp eq i32 %47, 0
   br i1 %.not87, label %._crit_edge103, label %.lr.ph102
 
-._crit_edge103:                                   ; preds = %66, %._crit_edge
-  %.374.lcssa = phi i32 [ %.071, %._crit_edge ], [ %.475, %66 ]
-  %.369.lcssa = phi i32 [ %.066, %._crit_edge ], [ %.470, %66 ]
-  %.4.lcssa = phi i32 [ %.3.lcssa, %._crit_edge ], [ %.5, %66 ]
+._crit_edge103:                                   ; preds = %64, %._crit_edge
+  %.374.lcssa = phi i32 [ %.071, %._crit_edge ], [ %.475, %64 ]
+  %.369.lcssa = phi i32 [ %.066, %._crit_edge ], [ %.470, %64 ]
+  %.4.lcssa = phi i32 [ %.3.lcssa, %._crit_edge ], [ %.5, %64 ]
   store i32 %.4.lcssa, ptr %0, align 4, !tbaa !4
-  %67 = and i32 %.374.lcssa, -256
-  %68 = or i32 %67, %.369.lcssa
-  store i32 %68, ptr %1, align 4, !tbaa !4
+  %65 = and i32 %.374.lcssa, -256
+  %66 = or i32 %65, %.369.lcssa
+  store i32 %66, ptr %1, align 4, !tbaa !4
   ret void
 }
 

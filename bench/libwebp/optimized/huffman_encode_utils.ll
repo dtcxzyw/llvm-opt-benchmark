@@ -23,32 +23,32 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr noundef readonly captures
   %.02958 = phi i32 [ 8, %.lr.ph60 ], [ %.130, %CodeRepeatedZeros.exit ]
   %.03157 = phi i32 [ 0, %.lr.ph60 ], [ %.028.lcssa, %CodeRepeatedZeros.exit ]
   %9 = load ptr, ptr %6, align 8, !tbaa !11
-  %10 = sext i32 %.03157 to i64
-  %11 = getelementptr inbounds i8, ptr %9, i64 %10
+  %10 = zext nneg i32 %.03157 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !12
   %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %.03157, 1
+  %14 = add nuw nsw i32 %.03157, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 %14)
   br label %15
 
 15:                                               ; preds = %17, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ %10, %8 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %16 = icmp slt i64 %indvars.iv.next, %7
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %16 = icmp samesign ult i64 %indvars.iv.next, %7
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next
   %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = icmp eq i8 %19, %12
-  br i1 %20, label %15, label %.critedge.split.loop.exit84, !llvm.loop !13
+  br i1 %20, label %15, label %.critedge.split.loop.exit90, !llvm.loop !13
 
-.critedge.split.loop.exit84:                      ; preds = %17
-  %21 = trunc nsw i64 %indvars.iv.next to i32
+.critedge.split.loop.exit90:                      ; preds = %17
+  %21 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %.critedge.split.loop.exit84
-  %.028.lcssa = phi i32 [ %21, %.critedge.split.loop.exit84 ], [ %smax, %15 ]
+.critedge:                                        ; preds = %15, %.critedge.split.loop.exit90
+  %.028.lcssa = phi i32 [ %21, %.critedge.split.loop.exit90 ], [ %smax, %15 ]
   %22 = sub nsw i32 %.028.lcssa, %.03157
   %23 = icmp eq i8 %12, 0
   br i1 %23, label %24, label %48
@@ -136,61 +136,61 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr noundef readonly captures
   %55 = add nsw i32 %.025.i, -1
   %56 = urem i32 %55, 6
   %57 = icmp samesign ult i32 %.025.i, 3
-  br i1 %57, label %.lr.ph38.i.preheader, label %.lr.ph
+  br i1 %57, label %.lr.ph38.i, label %.lr.ph
 
-.lr.ph38.i.preheader:                             ; preds = %.lr.ph.i36, %.lr.ph.preheader.i34
-  %.135.i.lcssa = phi i32 [ %.025.i, %.lr.ph.preheader.i34 ], [ %69, %.lr.ph.i36 ]
-  %.12734.i.lcssa = phi ptr [ %.026.i, %.lr.ph.preheader.i34 ], [ %68, %.lr.ph.i36 ]
-  br label %.lr.ph38.i
+.lr.ph38.i:                                       ; preds = %.lr.ph.i36, %.lr.ph.preheader.i34
+  %.135.i.lcssa = phi i32 [ %.025.i, %.lr.ph.preheader.i34 ], [ %70, %.lr.ph.i36 ]
+  %.12734.i.lcssa = phi ptr [ %.026.i, %.lr.ph.preheader.i34 ], [ %69, %.lr.ph.i36 ]
+  br label %58
 
-.lr.ph38.i:                                       ; preds = %.lr.ph38.i.preheader, %.lr.ph38.i
-  %.037.i = phi i32 [ %60, %.lr.ph38.i ], [ 0, %.lr.ph38.i.preheader ]
-  %.336.i = phi ptr [ %59, %.lr.ph38.i ], [ %.12734.i.lcssa, %.lr.ph38.i.preheader ]
+58:                                               ; preds = %58, %.lr.ph38.i
+  %.037.i = phi i32 [ 0, %.lr.ph38.i ], [ %61, %58 ]
+  %.336.i = phi ptr [ %.12734.i.lcssa, %.lr.ph38.i ], [ %60, %58 ]
   store i8 %12, ptr %.336.i, align 1, !tbaa !15
-  %58 = getelementptr inbounds nuw i8, ptr %.336.i, i64 1
-  store i8 0, ptr %58, align 1, !tbaa !17
-  %59 = getelementptr inbounds nuw i8, ptr %.336.i, i64 2
-  %60 = add nuw nsw i32 %.037.i, 1
-  %exitcond.not.i = icmp eq i32 %60, %.135.i.lcssa
-  br i1 %exitcond.not.i, label %CodeRepeatedZeros.exit, label %.lr.ph38.i, !llvm.loop !18
+  %59 = getelementptr inbounds nuw i8, ptr %.336.i, i64 1
+  store i8 0, ptr %59, align 1, !tbaa !17
+  %60 = getelementptr inbounds nuw i8, ptr %.336.i, i64 2
+  %61 = add nuw nsw i32 %.037.i, 1
+  %exitcond.not.i = icmp eq i32 %61, %.135.i.lcssa
+  br i1 %exitcond.not.i, label %CodeRepeatedZeros.exit, label %58, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i34, %.lr.ph.i36
-  %.12734.i47 = phi ptr [ %68, %.lr.ph.i36 ], [ %.026.i, %.lr.ph.preheader.i34 ]
-  %.135.i46 = phi i32 [ %69, %.lr.ph.i36 ], [ %.025.i, %.lr.ph.preheader.i34 ]
-  %61 = icmp samesign ult i32 %.135.i46, 7
+  %.12734.i47 = phi ptr [ %69, %.lr.ph.i36 ], [ %.026.i, %.lr.ph.preheader.i34 ]
+  %.135.i46 = phi i32 [ %70, %.lr.ph.i36 ], [ %.025.i, %.lr.ph.preheader.i34 ]
+  %62 = icmp samesign ult i32 %.135.i46, 7
   store i8 16, ptr %.12734.i47, align 1, !tbaa !15
-  br i1 %61, label %62, label %.lr.ph.i36
+  br i1 %62, label %63, label %.lr.ph.i36
 
-62:                                               ; preds = %.lr.ph
-  %63 = trunc nuw nsw i32 %56 to i8
-  %64 = add nsw i8 %63, -2
-  %65 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 1
-  store i8 %64, ptr %65, align 1, !tbaa !17
-  %66 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 2
+63:                                               ; preds = %.lr.ph
+  %64 = trunc nuw nsw i32 %56 to i8
+  %65 = add nsw i8 %64, -2
+  %66 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 1
+  store i8 %65, ptr %66, align 1, !tbaa !17
+  %67 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 2
   br label %CodeRepeatedZeros.exit
 
 .lr.ph.i36:                                       ; preds = %.lr.ph
-  %67 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 1
-  store i8 3, ptr %67, align 1, !tbaa !17
-  %68 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 2
-  %69 = add nsw i32 %.135.i46, -6
-  %70 = icmp samesign ult i32 %69, 3
-  br i1 %70, label %.lr.ph38.i.preheader, label %.lr.ph
+  %68 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 1
+  store i8 3, ptr %68, align 1, !tbaa !17
+  %69 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 2
+  %70 = add nsw i32 %.135.i46, -6
+  %71 = icmp samesign ult i32 %70, 3
+  br i1 %71, label %.lr.ph38.i, label %.lr.ph
 
-CodeRepeatedZeros.exit:                           ; preds = %.lr.ph38.i, %62, %53, %41, %35, %.lr.ph35.preheader.i, %24
-  %.130 = phi i32 [ %.02958, %24 ], [ %.02958, %.lr.ph35.preheader.i ], [ %.02958, %35 ], [ %.02958, %41 ], [ %13, %53 ], [ %13, %62 ], [ %13, %.lr.ph38.i ]
-  %.1 = phi ptr [ %.059, %24 ], [ %scevgep53.i, %.lr.ph35.preheader.i ], [ %indvars.iv.i52, %35 ], [ %indvars.iv.i52, %41 ], [ %.026.i, %53 ], [ %66, %62 ], [ %59, %.lr.ph38.i ]
-  %71 = icmp slt i32 %.028.lcssa, %4
-  br i1 %71, label %8, label %._crit_edge, !llvm.loop !19
+CodeRepeatedZeros.exit:                           ; preds = %58, %63, %53, %41, %35, %.lr.ph35.preheader.i, %24
+  %.130 = phi i32 [ %.02958, %24 ], [ %.02958, %.lr.ph35.preheader.i ], [ %.02958, %35 ], [ %.02958, %41 ], [ %13, %53 ], [ %13, %63 ], [ %13, %58 ]
+  %.1 = phi ptr [ %.059, %24 ], [ %scevgep53.i, %.lr.ph35.preheader.i ], [ %indvars.iv.i52, %35 ], [ %indvars.iv.i52, %41 ], [ %.026.i, %53 ], [ %67, %63 ], [ %60, %58 ]
+  %72 = icmp slt i32 %.028.lcssa, %4
+  br i1 %72, label %8, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %CodeRepeatedZeros.exit, %3
   %.0.lcssa = phi ptr [ %1, %3 ], [ %.1, %CodeRepeatedZeros.exit ]
-  %72 = ptrtoint ptr %.0.lcssa to i64
-  %73 = ptrtoint ptr %1 to i64
-  %74 = sub i64 %72, %73
-  %75 = lshr exact i64 %74, 1
-  %76 = trunc i64 %75 to i32
-  ret i32 %76
+  %73 = ptrtoint ptr %.0.lcssa to i64
+  %74 = ptrtoint ptr %1 to i64
+  %75 = sub i64 %73, %74
+  %76 = lshr exact i64 %75, 1
+  %77 = trunc i64 %76 to i32
+  ret i32 %77
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -205,9 +205,9 @@ define hidden void @VP8LCreateHuffmanTree(ptr noundef captures(none) %0, i32 nou
 
 .lr.ph.i.preheader:                               ; preds = %5
   %11 = icmp eq i32 %8, 0
-  br i1 %11, label %OptimizeHuffmanForRle.exit.thread38, label %.lr.ph
+  br i1 %11, label %OptimizeHuffmanForRle.exit.thread45, label %.lr.ph
 
-OptimizeHuffmanForRle.exit.thread38:              ; preds = %.lr.ph.i.preheader
+OptimizeHuffmanForRle.exit.thread45:              ; preds = %.lr.ph.i.preheader
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %GenerateOptimalTree.exit
 
@@ -446,7 +446,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   %118 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %3, i64 %117
   %.not111.i = icmp eq i32 %spec.select.i, 1
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.not216.i = icmp eq i32 %8, 1
+  %.not219.i = icmp eq i32 %8, 1
   br i1 %.not111.i, label %.lr.ph117.us.us.i, label %.split.i
 
 .lr.ph117.us.us.i:                                ; preds = %116, %._crit_edge134.us.us.i
@@ -507,7 +507,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   store i8 1, ptr %138, align 1, !tbaa !12
   %139 = load i8, ptr %111, align 1, !tbaa !12
   %140 = zext i8 %139 to i32
-  br i1 %.not216.i, label %._crit_edge134.us.us.i, label %.lr.ph133.us.us.i
+  br i1 %.not219.i, label %._crit_edge134.us.us.i, label %.lr.ph133.us.us.i
 
 .split.i:                                         ; preds = %116
   %141 = icmp sgt i32 %spec.select.i, 1
@@ -635,7 +635,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   tail call fastcc void @SetBitDepths(ptr noundef nonnull %3, ptr noundef nonnull %118, ptr noundef %111, i32 noundef 0)
   %185 = load i8, ptr %111, align 1, !tbaa !12
   %186 = zext i8 %185 to i32
-  br i1 %.not216.i, label %._crit_edge134.us150.i, label %.lr.ph133.us149.i
+  br i1 %.not219.i, label %._crit_edge134.us150.i, label %.lr.ph133.us149.i
 
 .split.split.i:                                   ; preds = %.split.i, %._crit_edge134.i
   %.093.i = phi i32 [ %203, %._crit_edge134.i ], [ 1, %.split.i ]
@@ -675,7 +675,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   tail call fastcc void @SetBitDepths(ptr noundef %3, ptr noundef nonnull %118, ptr noundef %111, i32 noundef 0)
   %198 = load i8, ptr %111, align 1, !tbaa !12
   %199 = zext i8 %198 to i32
-  br i1 %.not216.i, label %._crit_edge134.i, label %.lr.ph133.i
+  br i1 %.not219.i, label %._crit_edge134.i, label %.lr.ph133.i
 
 .lr.ph133.i:                                      ; preds = %.preheader.i, %.lr.ph133.i
   %indvars.iv170.i = phi i64 [ %indvars.iv.next171.i, %.lr.ph133.i ], [ 1, %.preheader.i ]
@@ -694,8 +694,8 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %108
   %203 = shl i32 %.093.i, 1
   br i1 %.not.i18, label %.split.split.i, label %GenerateOptimalTree.exit
 
-GenerateOptimalTree.exit:                         ; preds = %._crit_edge134.i, %._crit_edge134.us150.i, %._crit_edge134.us.us.i, %OptimizeHuffmanForRle.exit.thread38, %OptimizeHuffmanForRle.exit.thread, %._crit_edge.i17
-  %204 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %110, %._crit_edge.i17 ], [ %12, %OptimizeHuffmanForRle.exit.thread38 ], [ %110, %._crit_edge134.us.us.i ], [ %110, %._crit_edge134.us150.i ], [ %110, %._crit_edge134.i ]
+GenerateOptimalTree.exit:                         ; preds = %._crit_edge134.i, %._crit_edge134.us150.i, %._crit_edge134.us.us.i, %OptimizeHuffmanForRle.exit.thread45, %OptimizeHuffmanForRle.exit.thread, %._crit_edge.i17
+  %204 = phi ptr [ %13, %OptimizeHuffmanForRle.exit.thread ], [ %110, %._crit_edge.i17 ], [ %12, %OptimizeHuffmanForRle.exit.thread45 ], [ %110, %._crit_edge134.us.us.i ], [ %110, %._crit_edge134.us150.i ], [ %110, %._crit_edge134.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)

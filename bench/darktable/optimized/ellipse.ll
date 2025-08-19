@@ -1631,8 +1631,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %17
   %.0313405 = phi float [ 0x47EFFFFFE0000000, %.lr.ph408.preheader ], [ %.1314, %254 ]
   %.0316404 = phi float [ 0x3810000000000000, %.lr.ph408.preheader ], [ %.1317, %254 ]
   %.0318403 = phi float [ 0x3810000000000000, %.lr.ph408.preheader ], [ %.1319, %254 ]
-  %.idx461 = shl nuw nsw i64 %indvars.iv436, 3
-  %239 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx461
+  %.idx471 = shl nuw nsw i64 %indvars.iv436, 3
+  %239 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx471
   %240 = load float, ptr %239, align 8, !tbaa !24
   %241 = tail call i1 @llvm.is.fpclass.f32(float %240, i32 759)
   br i1 %241, label %254, label %242
@@ -2434,11 +2434,11 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   br label %.sink.split
 
 106:                                              ; preds = %103
-  %.mux292 = select i1 %79, i32 3, i32 4
+  %.mux300 = select i1 %79, i32 3, i32 4
   switch i32 %68, label %108 [
     i32 2, label %.sink.split
     i32 1, label %.sink.split
-    i32 3, label %.sink.split.fold.split293
+    i32 3, label %.sink.split.fold.split301
     i32 4, label %107
   ]
 
@@ -2448,11 +2448,11 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
 .sink.split.fold.split:                           ; preds = %104
   br label %.sink.split
 
-.sink.split.fold.split293:                        ; preds = %106
+.sink.split.fold.split301:                        ; preds = %106
   br label %.sink.split
 
-.sink.split:                                      ; preds = %106, %106, %.sink.split.fold.split293, %104, %104, %.sink.split.fold.split, %107, %105
-  %.sink = phi i32 [ 2, %105 ], [ 1, %107 ], [ %.mux, %104 ], [ %.mux292, %106 ], [ %.mux, %104 ], [ 1, %.sink.split.fold.split ], [ %.mux292, %106 ], [ 2, %.sink.split.fold.split293 ]
+.sink.split:                                      ; preds = %106, %106, %.sink.split.fold.split301, %104, %104, %.sink.split.fold.split, %107, %105
+  %.sink = phi i32 [ 2, %105 ], [ 1, %107 ], [ %.mux, %104 ], [ %.mux300, %106 ], [ %.mux, %104 ], [ 1, %.sink.split.fold.split ], [ %.mux300, %106 ], [ 2, %.sink.split.fold.split301 ]
   store i32 %.sink, ptr %67, align 8, !tbaa !146
   br label %108
 
@@ -2507,7 +2507,7 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   %141 = fmul reassoc nsz arcp contract afn float %140, %116
   %142 = fsub reassoc nsz arcp contract afn float %141, %130
   %143 = fcmp reassoc nsz arcp contract afn ogt float %142, %120
-  br i1 %143, label %175, label %.thread283
+  br i1 %143, label %175, label %.thread291
 
 .thread271:                                       ; preds = %113
   %144 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -2532,12 +2532,12 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   %161 = fcmp reassoc nsz arcp contract afn olt float %160, 0x3F50624DE0000000
   br i1 %161, label %175, label %168
 
-.thread283:                                       ; preds = %.thread
+.thread291:                                       ; preds = %.thread
   %162 = fadd reassoc nsz arcp contract afn float %134, %130
   %163 = fmul reassoc nsz arcp contract afn float %162, %116
   %164 = fsub reassoc nsz arcp contract afn float %163, %130
   %165 = fcmp reassoc nsz arcp contract afn olt float %164, 0x3F50624DE0000000
-  br i1 %165, label %175, label %.thread284
+  br i1 %165, label %175, label %.thread292
 
 .thread273:                                       ; preds = %.thread271
   %166 = fmul reassoc nsz arcp contract afn float %149, 0x3F50624DE0000000
@@ -2553,14 +2553,14 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   %171 = fsub reassoc nsz arcp contract afn float %170, %128
   br label %175
 
-.thread284:                                       ; preds = %.thread283
+.thread292:                                       ; preds = %.thread291
   %172 = fadd reassoc nsz arcp contract afn float %134, %130
   %173 = fmul reassoc nsz arcp contract afn float %172, %116
   %174 = fsub reassoc nsz arcp contract afn float %173, %130
   br label %175
 
-175:                                              ; preds = %.thread283, %.thread, %.thread273, %.thread271, %157, %135, %168, %.thread284, %.thread274
-  %176 = phi reassoc nsz arcp contract afn float [ %154, %.thread274 ], [ %171, %168 ], [ %174, %.thread284 ], [ %120, %135 ], [ 0x3F50624DE0000000, %157 ], [ %155, %.thread271 ], [ %166, %.thread273 ], [ %120, %.thread ], [ 0x3F50624DE0000000, %.thread283 ]
+175:                                              ; preds = %.thread291, %.thread, %.thread273, %.thread271, %157, %135, %168, %.thread292, %.thread274
+  %176 = phi reassoc nsz arcp contract afn float [ %154, %.thread274 ], [ %171, %168 ], [ %174, %.thread292 ], [ %120, %135 ], [ 0x3F50624DE0000000, %157 ], [ %155, %.thread271 ], [ %166, %.thread273 ], [ %120, %.thread ], [ 0x3F50624DE0000000, %.thread291 ]
   %177 = getelementptr inbounds nuw i8, ptr %115, i64 20
   store float %176, ptr %177, align 4, !tbaa !28
   tail call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #12
@@ -2651,9 +2651,9 @@ define internal range(i32 0, 2) i32 @_ellipse_events_mouse_moved(ptr noundef %0,
   %244 = load float, ptr %243, align 4, !tbaa !29
   %245 = fpext reassoc nsz arcp contract afn float %244 to double
   %246 = fneg reassoc nsz arcp contract afn double %242
-  %.sink290.p = select i1 %240, double %246, double %242
-  %.sink290 = fadd reassoc nsz arcp contract afn double %.sink290.p, %245
-  %247 = fptrunc reassoc nsz arcp contract afn double %.sink290 to float
+  %.sink298.p = select i1 %240, double %246, double %242
+  %.sink298 = fadd reassoc nsz arcp contract afn double %.sink298.p, %245
+  %247 = fptrunc reassoc nsz arcp contract afn double %.sink298 to float
   store float %247, ptr %243, align 4, !tbaa !29
   %248 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %249 = load i32, ptr %248, align 8, !tbaa !25
@@ -3976,9 +3976,9 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %203 = load float, ptr %202, align 4, !tbaa !29
   %204 = fpext reassoc nsz arcp contract afn float %203 to double
   %205 = fneg reassoc nsz arcp contract afn double %201
-  %.sink179.p = select i1 %199, double %205, double %201
-  %.sink179 = fadd reassoc nsz arcp contract afn double %.sink179.p, %204
-  %206 = fptrunc reassoc nsz arcp contract afn double %.sink179 to float
+  %.sink182.p = select i1 %199, double %205, double %201
+  %.sink182 = fadd reassoc nsz arcp contract afn double %.sink182.p, %204
+  %206 = fptrunc reassoc nsz arcp contract afn double %.sink182 to float
   store float %206, ptr %202, align 4, !tbaa !29
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %208 = load i32, ptr %207, align 8, !tbaa !25
@@ -4598,12 +4598,12 @@ declare i32 @dt_masks_point_in_form_near(float noundef, float noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #0 {
   %9 = fcmp reassoc nsz arcp contract afn ult float %2, %3
-  %.sink132 = select i1 %9, float %3, float %2
-  %.sink130 = select i1 %9, float %2, float %3
+  %.sink135 = select i1 %9, float %3, float %2
+  %.sink133 = select i1 %9, float %2, float %3
   %10 = fcmp reassoc nsz arcp contract afn olt float %5, %6
   %11 = select reassoc nsz arcp contract afn i1 %10, float %5, float %6
-  %12 = fmul reassoc nsz arcp contract afn float %11, %.sink132
-  %13 = fmul reassoc nsz arcp contract afn float %11, %.sink130
+  %12 = fmul reassoc nsz arcp contract afn float %11, %.sink135
+  %13 = fmul reassoc nsz arcp contract afn float %11, %.sink133
   %14 = fsub reassoc nsz arcp contract afn float %12, %13
   %15 = fadd reassoc nsz arcp contract afn float %12, %13
   %16 = fdiv reassoc nsz arcp contract afn float %14, %15

@@ -1547,7 +1547,7 @@ define hidden void @"_ZN11ruff_linter8settings5types1_95_$LT$impl$u20$serde..de.
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr85drop_in_place$LT$toml..map..Map$LT$alloc..string..String$C$toml..value..Value$GT$$GT$17hc40c886cd569fd86E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #26
-          to label %.thread29 unwind label %89, !noalias !82
+          to label %.thread31 unwind label %89, !noalias !82
 
 89:                                               ; preds = %101, %100, %88
   %90 = landingpad { ptr, i32 }
@@ -1585,16 +1585,16 @@ define hidden void @"_ZN11ruff_linter8settings5types1_95_$LT$impl$u20$serde..de.
 
 100:                                              ; preds = %98
   invoke fastcc void @"_ZN4core3ptr39drop_in_place$LT$toml..value..Value$GT$17h930dab10349e5fa3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #26
-          to label %.thread29 unwind label %89, !noalias !75
+          to label %.thread31 unwind label %89, !noalias !75
 
-.thread29:                                        ; preds = %88, %101, %100
-  %.pn.i16 = phi { ptr, i32 } [ %99, %101 ], [ %99, %100 ], [ %lpad.thr_comm.split-lp.i, %88 ]
-  resume { ptr, i32 } %.pn.i16
+.thread31:                                        ; preds = %88, %101, %100
+  %.pn.i18 = phi { ptr, i32 } [ %99, %101 ], [ %99, %100 ], [ %lpad.thr_comm.split-lp.i, %88 ]
+  resume { ptr, i32 } %.pn.i18
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %102) #26
-          to label %.thread29 unwind label %89, !noalias !75
+          to label %.thread31 unwind label %89, !noalias !75
 
 "_ZN62_$LT$toml..value..Value$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17h4abe6783118613a1E.exit": ; preds = %95, %93, %39, %91, %96
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -52840,8 +52840,8 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter14print_duration17h48a9a38474b8f886E, i64 0, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   %41 = zext nneg i8 %39 to i64
-  %switch.gep69 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter14print_duration17h48a9a38474b8f886E.210, i64 0, i64 %41
-  %switch.load70 = load ptr, ptr %switch.gep69, align 8
+  %switch.gep75 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4jiff3fmt8friendly7printer11SpanPrinter14print_duration17h48a9a38474b8f886E.210, i64 0, i64 %41
+  %switch.load76 = load ptr, ptr %switch.gep75, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i8, ptr %42, align 1, !range !787, !alias.scope !1041, !noalias !1042, !noundef !8
   switch i8 %43, label %default.unreachable [
@@ -52926,7 +52926,7 @@ _ZN4jiff3fmt8friendly7printer9Direction4sign17hf6bdad7f431e76fcE.exit.i.i: ; pre
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i64 10, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1036, !noalias !1044
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 56
-  store ptr %switch.load70, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !1036, !noalias !1044
+  store ptr %switch.load76, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !1036, !noalias !1044
   %.sroa.13.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 64
   store i64 10, ptr %.sroa.13.0..sroa_idx.i.i, align 8, !alias.scope !1036, !noalias !1044
   store i64 %.sroa.0.0.i.i, ptr %26, align 8, !alias.scope !1036, !noalias !1044
@@ -70235,10 +70235,10 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   br label %.invoke
 
 .invoke:                                          ; preds = %34, %16
-  %.sink48 = phi ptr [ %35, %34 ], [ %18, %16 ]
+  %.sink50 = phi ptr [ %35, %34 ], [ %18, %16 ]
   %.sink = phi i64 [ %36, %34 ], [ 0, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sink48, ptr %19, align 8
+  store ptr %.sink50, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sink, ptr %20, align 8
   store i8 5, ptr %3, align 8
@@ -70388,10 +70388,10 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   br label %.invoke
 
 .invoke:                                          ; preds = %34, %16
-  %.sink48 = phi ptr [ %35, %34 ], [ %18, %16 ]
+  %.sink50 = phi ptr [ %35, %34 ], [ %18, %16 ]
   %.sink = phi i64 [ %36, %34 ], [ 0, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sink48, ptr %19, align 8
+  store ptr %.sink50, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sink, ptr %20, align 8
   store i8 5, ptr %3, align 8
@@ -70541,10 +70541,10 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   br label %.invoke
 
 .invoke:                                          ; preds = %34, %16
-  %.sink48 = phi ptr [ %35, %34 ], [ %18, %16 ]
+  %.sink50 = phi ptr [ %35, %34 ], [ %18, %16 ]
   %.sink = phi i64 [ %36, %34 ], [ 0, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sink48, ptr %19, align 8
+  store ptr %.sink50, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sink, ptr %20, align 8
   store i8 5, ptr %3, align 8
@@ -70694,10 +70694,10 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   br label %.invoke
 
 .invoke:                                          ; preds = %35, %17
-  %.sink48 = phi ptr [ %36, %35 ], [ %19, %17 ]
+  %.sink50 = phi ptr [ %36, %35 ], [ %19, %17 ]
   %.sink = phi i64 [ %37, %35 ], [ 0, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sink48, ptr %20, align 8
+  store ptr %.sink50, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sink, ptr %21, align 8
   store i8 5, ptr %4, align 8
@@ -70847,10 +70847,10 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   br label %.invoke
 
 .invoke:                                          ; preds = %34, %16
-  %.sink48 = phi ptr [ %35, %34 ], [ %18, %16 ]
+  %.sink50 = phi ptr [ %35, %34 ], [ %18, %16 ]
   %.sink = phi i64 [ %36, %34 ], [ 0, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sink48, ptr %19, align 8
+  store ptr %.sink50, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sink, ptr %20, align 8
   store i8 5, ptr %3, align 8

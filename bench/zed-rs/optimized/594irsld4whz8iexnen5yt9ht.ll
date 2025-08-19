@@ -14181,14 +14181,14 @@ define hidden { i64, ptr } @"_ZN86_$LT$language_selector..LanguageSelectorDelega
   %11 = alloca [8 x i8], align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load i8, ptr %12, align 8, !range !487, !noundef !4
-  switch i8 %13, label %default.unreachable143 [
+  switch i8 %13, label %default.unreachable146 [
     i8 0, label %15
     i8 1, label %18
     i8 2, label %19
     i8 3, label %14
   ]
 
-default.unreachable143:                           ; preds = %20, %2
+default.unreachable146:                           ; preds = %20, %2
   unreachable
 
 14:                                               ; preds = %2
@@ -14214,7 +14214,7 @@ default.unreachable143:                           ; preds = %20, %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %23 = load i8, ptr %22, align 8, !range !487, !noalias !2533, !noundef !4
-  switch i8 %23, label %default.unreachable143 [
+  switch i8 %23, label %default.unreachable146 [
     i8 0, label %24
     i8 1, label %27
     i8 2, label %28
@@ -14767,14 +14767,14 @@ define hidden noundef zeroext i1 @"_ZN86_$LT$language_selector..LanguageSelector
   %22 = alloca [448 x i8], align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %24 = load i8, ptr %23, align 8, !range !487, !noundef !4
-  switch i8 %24, label %default.unreachable69 [
+  switch i8 %24, label %default.unreachable84 [
     i8 0, label %26
     i8 1, label %55
     i8 2, label %56
     i8 3, label %25
   ]
 
-default.unreachable69:                            ; preds = %186, %57, %2
+default.unreachable84:                            ; preds = %186, %57, %2
   unreachable
 
 25:                                               ; preds = %2
@@ -14881,7 +14881,7 @@ default.unreachable69:                            ; preds = %186, %57, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 602
   %60 = load i8, ptr %59, align 2, !range !487, !noalias !2615, !noundef !4
-  switch i8 %60, label %default.unreachable69 [
+  switch i8 %60, label %default.unreachable84 [
     i8 0, label %61
     i8 1, label %184
     i8 2, label %185
@@ -15225,7 +15225,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17he4ff1f3e9565793aE.exit.i: ; pre
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 377
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !487, !noalias !2696
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2615
-  switch i8 %.pre.i, label %default.unreachable69 [
+  switch i8 %.pre.i, label %default.unreachable84 [
     i8 0, label %._crit_edge
     i8 1, label %277
     i8 2, label %278

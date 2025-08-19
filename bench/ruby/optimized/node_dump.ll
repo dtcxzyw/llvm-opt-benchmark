@@ -5895,14 +5895,14 @@ add_id.exit5010:                                  ; preds = %3458, %3462, %3465
   %3504 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %3505 = load ptr, ptr %3504, align 8, !tbaa !481
   %.not4234 = icmp eq ptr %3505, null
-  br i1 %.not4234, label %.thread5135, label %3506
+  br i1 %.not4234, label %.thread5218, label %3506
 
 3506:                                             ; preds = %.critedge4900
   %3507 = load i32, ptr %3505, align 8, !tbaa !485
   %3508 = icmp eq i32 %3507, 0
-  br i1 %3508, label %.thread5135, label %3510
+  br i1 %3508, label %.thread5218, label %3510
 
-.thread5135:                                      ; preds = %3506, %.critedge4900
+.thread5218:                                      ; preds = %3506, %.critedge4900
   %3509 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.452, i64 noundef 7) #5
   br label %._crit_edge
 
@@ -5955,7 +5955,7 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %3515, !llvm.loop !487
 
-._crit_edge:                                      ; preds = %3531, %.thread5135, %3510
+._crit_edge:                                      ; preds = %3531, %.thread5218, %3510
   %3532 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %3533 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3534 = select i1 %.not4230, i32 7, i32 19
@@ -6367,8 +6367,8 @@ define internal fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noun
   br i1 %.not5356, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.val60 = load i64, ptr %23, align 8, !tbaa !12
-  %24 = and i64 %.val60, 32512
+  %.val61 = load i64, ptr %23, align 8, !tbaa !12
+  %24 = and i64 %.val61, 32512
   %25 = icmp eq i64 %24, 11008
   br i1 %25, label %.loopexit, label %.critedge
 

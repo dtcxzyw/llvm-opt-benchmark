@@ -1348,7 +1348,7 @@ define hidden void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef
 
 23:                                               ; preds = %.lr.ph, %40
   %.059 = phi i32 [ %4, %.lr.ph ], [ %24, %40 ]
-  %24 = add i32 %.059, 1
+  %24 = add nsw i32 %.059, 1
   store i32 %24, ptr %2, align 4
   switch i32 %.059, label %40 [
     i32 0, label %.sink.split

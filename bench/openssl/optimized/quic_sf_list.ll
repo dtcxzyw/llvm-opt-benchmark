@@ -150,7 +150,7 @@ stream_frame_new.exit.thread:                     ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %.082110, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !19
   %33 = icmp ult i64 %32, %29
-  br i1 %33, label %.lr.ph138, label %.critedge
+  br i1 %33, label %.lr.ph154, label %.critedge
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -196,22 +196,22 @@ append_frame.exit:                                ; preds = %42, %47
   store i64 %51, ptr %49, align 8, !tbaa !28
   br label %138
 
-.lr.ph:                                           ; preds = %.lr.ph138
+.lr.ph:                                           ; preds = %.lr.ph154
   %52 = getelementptr inbounds nuw i8, ptr %.082, i64 16
   %53 = load i64, ptr %52, align 8, !tbaa !19
   %54 = icmp ult i64 %53, %29
-  br i1 %54, label %.lr.ph138, label %.critedge, !llvm.loop !32
+  br i1 %54, label %.lr.ph154, label %.critedge, !llvm.loop !32
 
-.lr.ph138:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.082113137 = phi ptr [ %.082, %.lr.ph ], [ %.082110, %.lr.ph.preheader ]
-  %55 = getelementptr inbounds nuw i8, ptr %.082113137, i64 8
+.lr.ph154:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.082113153 = phi ptr [ %.082, %.lr.ph ], [ %.082110, %.lr.ph.preheader ]
+  %55 = getelementptr inbounds nuw i8, ptr %.082113153, i64 8
   %.082 = load ptr, ptr %55, align 8, !tbaa !30
   %.not87 = icmp eq ptr %.082, null
   br i1 %.not87, label %.critedge97, label %.lr.ph, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
   %.082113.lcssa = phi ptr [ %.082110, %.lr.ph.preheader ], [ %.082, %.lr.ph ]
-  %.081112.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.082113137, %.lr.ph ]
+  %.081112.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.082113153, %.lr.ph ]
   %.not88 = icmp eq ptr %.081112.lcssa, null
   br i1 %.not88, label %59, label %56
 
@@ -391,8 +391,8 @@ stream_frame_free.exit:                           ; preds = %114, %117, %120
   br label %138
 
 .critedge2:                                       ; preds = %stream_frame_new.exit102.split.us, %.critedge2.thread
-  %.us-phi125 = phi ptr [ %.080114, %.critedge2.thread ], [ %.080114.us, %stream_frame_new.exit102.split.us ]
-  store ptr %60, ptr %.us-phi125, align 8, !tbaa !31
+  %.us-phi141 = phi ptr [ %.080114, %.critedge2.thread ], [ %.080114.us, %stream_frame_new.exit102.split.us ]
+  store ptr %60, ptr %.us-phi141, align 8, !tbaa !31
   br label %131
 
 .critedge98:                                      ; preds = %stream_frame_free.exit, %stream_frame_free.exit.us
@@ -400,7 +400,7 @@ stream_frame_free.exit:                           ; preds = %114, %117, %120
   br label %131
 
 131:                                              ; preds = %.critedge98, %.critedge2
-  %.080107 = phi ptr [ null, %.critedge98 ], [ %.us-phi125, %.critedge2 ]
+  %.080107 = phi ptr [ null, %.critedge98 ], [ %.us-phi141, %.critedge2 ]
   %132 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %.080107, ptr %132, align 8, !tbaa !11
   store ptr %.081112.lcssa, ptr %60, align 8, !tbaa !31
@@ -437,8 +437,8 @@ stream_frame_free.exit:                           ; preds = %114, %117, %120
   store i32 %145, ptr %146, align 8, !tbaa !34
   br label %.critedge97
 
-.critedge97:                                      ; preds = %.lr.ph138, %.preheader, %59, %37, %stream_frame_new.exit.thread, %144
-  %.0 = phi i32 [ 1, %144 ], [ 0, %stream_frame_new.exit.thread ], [ 0, %37 ], [ 0, %59 ], [ 0, %.preheader ], [ 0, %.lr.ph138 ]
+.critedge97:                                      ; preds = %.lr.ph154, %.preheader, %59, %37, %stream_frame_new.exit.thread, %144
+  %.0 = phi i32 [ 1, %144 ], [ 0, %stream_frame_new.exit.thread ], [ 0, %37 ], [ 0, %59 ], [ 0, %.preheader ], [ 0, %.lr.ph154 ]
   ret i32 %.0
 }
 
@@ -717,7 +717,7 @@ define range(i32 0, 2) i32 @ossl_sframe_list_move_data(ptr noundef captures(none
   br i1 %.not6579, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %11
-  %.05787 = phi ptr [ %13, %11 ], [ %4, %8 ]
+  %.05793 = phi ptr [ %13, %11 ], [ %4, %8 ]
   %14 = getelementptr i8, ptr %0, i64 44
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -726,7 +726,7 @@ define range(i32 0, 2) i32 @ossl_sframe_list_move_data(ptr noundef captures(none
 17:                                               ; preds = %.lr.ph, %62
   %.05282 = phi i64 [ %6, %.lr.ph ], [ %41, %62 ]
   %.05581 = phi ptr [ null, %.lr.ph ], [ %.259.ph, %62 ]
-  %.15880 = phi ptr [ %.05787, %.lr.ph ], [ %64, %62 ]
+  %.15880 = phi ptr [ %.05793, %.lr.ph ], [ %64, %62 ]
   %18 = getelementptr inbounds nuw i8, ptr %.15880, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %.15880, i64 16

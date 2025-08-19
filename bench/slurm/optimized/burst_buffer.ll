@@ -255,8 +255,8 @@ define dso_local i32 @bb_g_fini() local_unnamed_addr #0 {
   br i1 %6, label %18, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not24 = icmp eq i32 %5, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.preheader
+  %.not27 = icmp eq i32 %5, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre22 = load ptr, ptr @g_context, align 8
@@ -536,8 +536,8 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_state_pack(i32 noundef %0, 
 
 ._crit_edge.thread:                               ; preds = %.preheader
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #11
-  %.not3343 = icmp eq i32 %28, 0
-  br i1 %.not3343, label %.thread, label %29
+  %.not3344 = icmp eq i32 %28, 0
+  br i1 %.not3344, label %.thread, label %29
 
 29:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %30 = phi i32 [ %28, %._crit_edge.thread ], [ %27, %._crit_edge ]
@@ -558,14 +558,14 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_state_pack(i32 noundef %0, 
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %32, %33
-  %.029.lcssa4549 = phi i32 [ %23, %32 ], [ %23, %33 ], [ 0, %._crit_edge.thread ]
+  %.029.lcssa4650 = phi i32 [ %23, %32 ], [ %23, %33 ], [ 0, %._crit_edge.thread ]
   %35 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #11
   call void @slurm_diff_tv_str(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 20, ptr noundef nonnull @__func__.bb_g_state_pack, i64 noundef 0, ptr noundef nonnull %7) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.029.lcssa4549
+  ret i32 %.029.lcssa4650
 }
 
 declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #4

@@ -5031,12 +5031,12 @@ define linkonce_odr hidden void @_ZN23InterpreterFrameClosure9offset_doEi(ptr no
   br i1 %.not, label %35, label %.sink.split
 
 .sink.split:                                      ; preds = %17, %8
-  %.sink12 = phi ptr [ %16, %8 ], [ %21, %17 ]
+  %.sink14 = phi ptr [ %16, %8 ], [ %21, %17 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %.sink12) #21
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %.sink14) #21
   br label %35
 
 35:                                               ; preds = %.sink.split, %17

@@ -205,13 +205,13 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.thr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %.not.i.i = icmp eq i32 %26, -1
-  br i1 %.not.i.i, label %.preheader43, label %35
+  br i1 %.not.i.i, label %.preheader48, label %35
 
 35:                                               ; preds = %34
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %26) #15
-  br label %.preheader43
+  br label %.preheader48
 
-.preheader43:                                     ; preds = %35, %34
+.preheader48:                                     ; preds = %35, %34
   br label %38
 
 37:                                               ; preds = %38
@@ -219,8 +219,8 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.thr
   %.not.i.i.i = icmp eq i64 %.011.add.i.i.i, 1176
   br i1 %.not.i.i.i, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i, label %38
 
-38:                                               ; preds = %.preheader43, %37
-  %.011.idx15.i.i.i = phi i64 [ %.011.add.i.i.i, %37 ], [ 0, %.preheader43 ]
+38:                                               ; preds = %.preheader48, %37
+  %.011.idx15.i.i.i = phi i64 [ %.011.add.i.i.i, %37 ], [ 0, %.preheader48 ]
   %.011.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i
   %39 = load i32, ptr %.011.ptr16.i.i.i, align 8, !tbaa !4
   %.not12.i.i.i = icmp eq i32 %39, %0

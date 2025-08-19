@@ -170,16 +170,16 @@ define dso_local void @intel_dmc_enable_pipe(ptr noundef %0, i32 noundef %1) loc
   %21 = zext nneg i32 %19 to i64
   %22 = shl nuw i64 1, %21
   %23 = trunc i64 %22 to i32
-  %.sink10 = select i1 %18, i32 283216, i32 %20
-  %.sink8 = select i1 %18, i32 %23, i32 1
+  %.sink11 = select i1 %18, i32 283216, i32 %20
+  %.sink9 = select i1 %18, i32 %23, i32 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef nonnull %24, i32 %.sink10, i1 noundef zeroext true) #12
-  %28 = or i32 %27, %.sink8
+  %27 = tail call i32 %26(ptr noundef nonnull %24, i32 %.sink11, i1 noundef zeroext true) #12
+  %28 = or i32 %27, %.sink9
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull %24, i32 %.sink10, i32 noundef %28, i1 noundef zeroext true) #12
+  tail call void %30(ptr noundef nonnull %24, i32 %.sink11, i32 noundef %28, i1 noundef zeroext true) #12
   br label %31
 
 31:                                               ; preds = %.sink.split, %9, %5, %2
@@ -317,11 +317,11 @@ thread-pre-split:                                 ; preds = %27, %13
 
 .split26thread-pre-split:                         ; preds = %.thread.us, %.loopexit24
   %45 = phi i64 [ %81, %.loopexit24 ], [ 1, %.thread.us ]
-  %.pr31 = load ptr, ptr %2, align 8
+  %.pr40 = load ptr, ptr %2, align 8
   br label %.split26
 
 .split26:                                         ; preds = %40, %.split26thread-pre-split
-  %46 = phi ptr [ %.pr31, %.split26thread-pre-split ], [ %43, %40 ]
+  %46 = phi ptr [ %.pr40, %.split26thread-pre-split ], [ %43, %40 ]
   %47 = phi i64 [ %45, %.split26thread-pre-split ], [ 0, %40 ]
   %48 = icmp eq ptr %46, null
   br i1 %48, label %.loopexit24, label %49
@@ -764,11 +764,11 @@ thread-pre-split:                                 ; preds = %27, %13
 
 .split7thread-pre-split:                          ; preds = %.thread.us, %.loopexit5
   %45 = phi i64 [ %81, %.loopexit5 ], [ 1, %.thread.us ]
-  %.pr10 = load ptr, ptr %2, align 8
+  %.pr14 = load ptr, ptr %2, align 8
   br label %.split7
 
 .split7:                                          ; preds = %40, %.split7thread-pre-split
-  %46 = phi ptr [ %.pr10, %.split7thread-pre-split ], [ %43, %40 ]
+  %46 = phi ptr [ %.pr14, %.split7thread-pre-split ], [ %43, %40 ]
   %47 = phi i64 [ %45, %.split7thread-pre-split ], [ 0, %40 ]
   %48 = icmp eq ptr %46, null
   br i1 %48, label %.loopexit5, label %49
@@ -1451,9 +1451,9 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
   br i1 %130, label %134, label %136
 
 134:                                              ; preds = %126
-  br i1 %133, label %144, label %.thread74
+  br i1 %133, label %144, label %.thread110
 
-.thread74:                                        ; preds = %134
+.thread110:                                       ; preds = %134
   %135 = icmp eq i8 %37, %129
   br label %139
 
@@ -1462,9 +1462,9 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
   %138 = select i1 %133, i1 %137, i1 false
   br i1 %138, label %144, label %139
 
-139:                                              ; preds = %.thread74, %136
-  %140 = phi i1 [ %135, %.thread74 ], [ %137, %136 ]
-  %141 = phi i1 [ false, %.thread74 ], [ %133, %136 ]
+139:                                              ; preds = %.thread110, %136
+  %140 = phi i1 [ %135, %.thread110 ], [ %137, %136 ]
+  %141 = phi i1 [ false, %.thread110 ], [ %133, %136 ]
   %142 = and i1 %130, %141
   %143 = or i1 %140, %142
   br i1 %143, label %144, label %147
@@ -1496,8 +1496,8 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
   %159 = getelementptr inbounds nuw i8, ptr %155, i64 2
   %160 = load i8, ptr %159, align 1
   %161 = icmp eq i8 %.fr58, %160
-  %or.cond82 = select i1 %158, i1 %161, i1 false
-  br i1 %or.cond82, label %167, label %._crit_edge67
+  %or.cond118 = select i1 %158, i1 %161, i1 false
+  br i1 %or.cond118, label %167, label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %154
   %162 = icmp eq i8 %.fr58, %160
@@ -1565,9 +1565,9 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
   br i1 %194, label %198, label %200
 
 198:                                              ; preds = %190
-  br i1 %197, label %208, label %.thread75
+  br i1 %197, label %208, label %.thread111
 
-.thread75:                                        ; preds = %198
+.thread111:                                       ; preds = %198
   %199 = icmp eq i8 %37, %193
   br label %203
 
@@ -1576,9 +1576,9 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
   %202 = select i1 %197, i1 %201, i1 false
   br i1 %202, label %208, label %203
 
-203:                                              ; preds = %.thread75, %200
-  %204 = phi i1 [ %199, %.thread75 ], [ %201, %200 ]
-  %205 = phi i1 [ false, %.thread75 ], [ %197, %200 ]
+203:                                              ; preds = %.thread111, %200
+  %204 = phi i1 [ %199, %.thread111 ], [ %201, %200 ]
+  %205 = phi i1 [ false, %.thread111 ], [ %197, %200 ]
   %206 = and i1 %194, %205
   %207 = or i1 %204, %206
   br i1 %207, label %208, label %212
@@ -1634,8 +1634,8 @@ define internal void @dmc_load_work_fn(ptr noundef captures(none) %0) #1 align 1
   %236 = getelementptr inbounds nuw i8, ptr %232, i64 2
   %237 = load i8, ptr %236, align 1
   %238 = icmp eq i8 %.fr58, %237
-  %or.cond83 = select i1 %235, i1 %238, i1 false
-  br i1 %or.cond83, label %244, label %._crit_edge
+  %or.cond119 = select i1 %235, i1 %238, i1 false
+  br i1 %or.cond119, label %244, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %231
   %239 = icmp eq i8 %.fr58, %237
@@ -2588,7 +2588,7 @@ define internal noundef range(i32 -19, 1) i32 @intel_dmc_debugfs_status_show(ptr
   %89 = tail call i32 %88(ptr noundef nonnull %86, i32 %85, i1 noundef zeroext true) #12
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.69, i32 noundef %89) #12
   %spec.select = select i1 %84, i32 0, i32 1052808
-  %spec.select12 = select i1 %84, i32 1261908, i32 1052804
+  %spec.select18 = select i1 %84, i32 1261908, i32 1052804
   br label %select.unfold
 
 90:                                               ; preds = %69
@@ -2599,12 +2599,12 @@ define internal noundef range(i32 -19, 1) i32 @intel_dmc_debugfs_status_show(ptr
   %95 = select i1 %94, i32 524336, i32 524344
   %96 = and i64 %92, 335544320
   %97 = icmp eq i64 %96, 0
-  %spec.select13 = select i1 %97, i32 524332, i32 0
+  %spec.select19 = select i1 %97, i32 524332, i32 0
   br label %select.unfold
 
 select.unfold:                                    ; preds = %90, %76
-  %98 = phi i32 [ %spec.select, %76 ], [ %spec.select13, %90 ]
-  %99 = phi i32 [ %spec.select12, %76 ], [ %95, %90 ]
+  %98 = phi i32 [ %spec.select, %76 ], [ %spec.select19, %90 ]
+  %99 = phi i32 [ %spec.select18, %76 ], [ %95, %90 ]
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 7512
   %102 = load ptr, ptr %101, align 8

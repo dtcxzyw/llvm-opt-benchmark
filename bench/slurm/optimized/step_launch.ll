@@ -595,8 +595,8 @@ _msg_thr_create.exit:                             ; preds = %.lr.ph.split.i, %.l
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, null
   %244 = load ptr, ptr @environ, align 8
-  %.sink147 = select i1 %243, ptr %244, ptr %242
-  call void @env_array_merge(ptr noundef nonnull %8, ptr noundef %.sink147) #14
+  %.sink163 = select i1 %243, ptr %244, ptr %242
+  call void @env_array_merge(ptr noundef nonnull %8, ptr noundef %.sink163) #14
   %245 = load i32, ptr %221, align 8
   %.not129 = icmp ne i32 %245, -2
   %246 = load ptr, ptr %102, align 8
@@ -3223,10 +3223,10 @@ define dso_local noundef i32 @step_launch_notify_io_failure(ptr noundef %0, i32 
   br i1 %.not24, label %33, label %.sink.split
 
 .sink.split:                                      ; preds = %26, %18
-  %.sink27 = phi i32 [ %22, %18 ], [ %30, %26 ]
+  %.sink30 = phi i32 [ %22, %18 ], [ %30, %26 ]
   %.sink = phi i32 [ 1771, %18 ], [ 1785, %26 ]
   %31 = tail call ptr @__errno_location() #15
-  store i32 %.sink27, ptr %31, align 4
+  store i32 %.sink30, ptr %31, align 4
   %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.step_launch_notify_io_failure) #14
   br label %33
 
@@ -3466,8 +3466,8 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
 
 .thread:                                          ; preds = %39
   %63 = load i32, ptr %.val, align 8
-  %.not54.i75 = icmp eq i32 %63, 0
-  br i1 %.not54.i75, label %.loopexit.i, label %._crit_edge.i
+  %.not54.i121 = icmp eq i32 %63, 0
+  br i1 %.not54.i121, label %.loopexit.i, label %._crit_edge.i
 
 .preheader1.i:                                    ; preds = %60
   br i1 %61, label %._crit_edge.i, label %.lr.ph.i
@@ -4421,10 +4421,10 @@ _node_fail_handler.exit:                          ; preds = %294, %297, %376
   br i1 %exitcond9.not.i, label %.loopexit.i58, label %451, !llvm.loop !30
 
 .loopexit.sink.split.i:                           ; preds = %514, %489
-  %.sink12.i = phi i32 [ %492, %489 ], [ %517, %514 ]
+  %.sink25.i = phi i32 [ %492, %489 ], [ %517, %514 ]
   %.sink.i = phi i32 [ 1424, %489 ], [ 1451, %514 ]
   %530 = tail call ptr @__errno_location() #15
-  store i32 %.sink12.i, ptr %530, align 4
+  store i32 %.sink25.i, ptr %530, align 4
   %531 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef %.sink.i, ptr noundef nonnull @__func__._step_missing_handler) #14
   br label %.loopexit.i58
 

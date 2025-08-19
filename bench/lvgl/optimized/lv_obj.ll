@@ -83,28 +83,28 @@ lv_obj_get_group.exit:                            ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.thread20, label %9
+  br i1 %.not, label %.thread22, label %9
 
 9:                                                ; preds = %lv_obj_get_group.exit
   tail call void @lv_group_remove_obj(ptr noundef nonnull %1) #8
   %.pr.pre = load ptr, ptr %5, align 8, !tbaa !20
   %.not14 = icmp eq ptr %.pr.pre, null
-  br i1 %.not14, label %.thread, label %.thread20
+  br i1 %.not14, label %.thread, label %.thread22
 
-.thread20:                                        ; preds = %lv_obj_get_group.exit, %9
-  %.pr23 = phi ptr [ %.pr.pre, %9 ], [ %6, %lv_obj_get_group.exit ]
-  %10 = load ptr, ptr %.pr23, align 8, !tbaa !30
+.thread22:                                        ; preds = %lv_obj_get_group.exit, %9
+  %.pr25 = phi ptr [ %.pr.pre, %9 ], [ %6, %lv_obj_get_group.exit ]
+  %10 = load ptr, ptr %.pr25, align 8, !tbaa !30
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %13, label %11
 
-11:                                               ; preds = %.thread20
+11:                                               ; preds = %.thread22
   tail call void @lv_free(ptr noundef nonnull %10) #8
   %12 = load ptr, ptr %5, align 8, !tbaa !20
   store ptr null, ptr %12, align 8, !tbaa !30
   br label %13
 
-13:                                               ; preds = %11, %.thread20
-  %14 = phi ptr [ %12, %11 ], [ %.pr23, %.thread20 ]
+13:                                               ; preds = %11, %.thread22
+  %14 = phi ptr [ %12, %11 ], [ %.pr25, %.thread22 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @lv_event_remove_all(ptr noundef nonnull %15) #8
   %16 = load ptr, ptr %5, align 8, !tbaa !20
@@ -289,8 +289,8 @@ lv_obj_has_flag.exit208:                          ; preds = %49
   br i1 %.not6.i214, label %lv_obj_add_state.exit212, label %lv_obj_add_state.exit212.sink.split
 
 lv_obj_add_state.exit212.sink.split:              ; preds = %61, %56
-  %.sink289 = phi i16 [ %59, %56 ], [ %64, %61 ]
-  tail call fastcc void @update_obj_state(ptr noundef %14, i16 noundef zeroext %.sink289)
+  %.sink313 = phi i16 [ %59, %56 ], [ %64, %61 ]
+  tail call fastcc void @update_obj_state(ptr noundef %14, i16 noundef zeroext %.sink313)
   br label %lv_obj_add_state.exit212
 
 lv_obj_add_state.exit212:                         ; preds = %lv_obj_add_state.exit212.sink.split, %56, %61, %60

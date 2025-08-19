@@ -901,11 +901,11 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i:           ; preds = %39, %_ZSt7advanceIP
 _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElRKNS_9ArraySpanEll.exit: ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i, %39, %28, %17
   %.sink = phi ptr [ %18, %17 ], [ %29, %28 ], [ %40, %39 ], [ %40, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %18, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %29, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
   %.0.lcssa.i.i.i.i20.sink = phi ptr [ %18, %17 ], [ %29, %28 ], [ %40, %39 ], [ %.1.i.i.i.i26, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %.1.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %.1.i.i.i.i19, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
-  %.sink27 = phi i64 [ 1, %17 ], [ 2, %28 ], [ 3, %39 ], [ 3, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ 1, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ 2, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
+  %.sink30 = phi i64 [ 1, %17 ], [ 2, %28 ], [ 3, %39 ], [ 3, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ 1, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ 2, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ]
   %49 = ptrtoint ptr %.sink to i64
   %50 = ptrtoint ptr %.0.lcssa.i.i.i.i20.sink to i64
   %51 = sub i64 %50, %49
-  %52 = ashr exact i64 %51, %.sink27
+  %52 = ashr exact i64 %51, %.sink30
   ret i64 %52
 }
 

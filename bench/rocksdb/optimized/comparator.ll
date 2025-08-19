@@ -3119,14 +3119,14 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %3
   br i1 %27, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !129
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %_ZN7rocksdb6StatusD2Ev.exit.thread, %22, %18, %14, %_ZN7rocksdb6StatusD2Ev.exit
-  %.01113 = phi i64 [ %.0.copyload.i.i, %14 ], [ %.0.copyload.i.i, %18 ], [ %.0.copyload.i.i, %22 ], [ %.0.copyload.i.i, %_ZN7rocksdb6StatusD2Ev.exit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit.thread ], [ %.0.copyload.i.i, %24 ]
+  %.01214 = phi i64 [ %.0.copyload.i.i, %14 ], [ %.0.copyload.i.i, %18 ], [ %.0.copyload.i.i, %22 ], [ %.0.copyload.i.i, %_ZN7rocksdb6StatusD2Ev.exit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit.thread ], [ %.0.copyload.i.i, %24 ]
   %.0.i.i = phi i32 [ %15, %14 ], [ %19, %18 ], [ %23, %22 ], [ 1, %_ZN7rocksdb6StatusD2Ev.exit ], [ 1, %_ZN7rocksdb6StatusD2Ev.exit.thread ], [ %26, %24 ]
   %28 = zext i32 %.0.i.i to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %0, align 8, !tbaa !44, !alias.scope !126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %28, i8 noundef signext 0)
   %30 = load ptr, ptr %0, align 8, !tbaa !42, !alias.scope !126
-  %31 = icmp ugt i64 %.01113, 99
+  %31 = icmp ugt i64 %.01214, 99
   br i1 %31, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
@@ -3137,7 +3137,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %_ZN7rocksdb6St
   br label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %.lr.ph.preheader.i.i
-  %.020.i.i = phi i64 [ %38, %.lr.ph.i4.i ], [ %.01113, %.lr.ph.preheader.i.i ]
+  %.020.i.i = phi i64 [ %38, %.lr.ph.i4.i ], [ %.01214, %.lr.ph.preheader.i.i ]
   %.01819.i.i = phi i32 [ %49, %.lr.ph.i4.i ], [ %35, %.lr.ph.preheader.i.i ]
   %36 = urem i64 %.020.i.i, 100
   %37 = shl nuw nsw i64 %36, 1
@@ -3159,7 +3159,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %_ZN7rocksdb6St
   br i1 %50, label %.lr.ph.i4.i, label %._crit_edge.i.i, !llvm.loop !130
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i4.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
-  %.0.lcssa.i.i = phi i64 [ %.01113, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %38, %.lr.ph.i4.i ]
+  %.0.lcssa.i.i = phi i64 [ %.01214, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %38, %.lr.ph.i4.i ]
   %51 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
   br i1 %51, label %52, label %60
 
@@ -3795,14 +3795,14 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %3
   br i1 %27, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !129
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %_ZN7rocksdb6StatusD2Ev.exit.thread, %22, %18, %14, %_ZN7rocksdb6StatusD2Ev.exit
-  %.01113 = phi i64 [ %.0.copyload.i.i, %14 ], [ %.0.copyload.i.i, %18 ], [ %.0.copyload.i.i, %22 ], [ %.0.copyload.i.i, %_ZN7rocksdb6StatusD2Ev.exit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit.thread ], [ %.0.copyload.i.i, %24 ]
+  %.01214 = phi i64 [ %.0.copyload.i.i, %14 ], [ %.0.copyload.i.i, %18 ], [ %.0.copyload.i.i, %22 ], [ %.0.copyload.i.i, %_ZN7rocksdb6StatusD2Ev.exit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit.thread ], [ %.0.copyload.i.i, %24 ]
   %.0.i.i = phi i32 [ %15, %14 ], [ %19, %18 ], [ %23, %22 ], [ 1, %_ZN7rocksdb6StatusD2Ev.exit ], [ 1, %_ZN7rocksdb6StatusD2Ev.exit.thread ], [ %26, %24 ]
   %28 = zext i32 %.0.i.i to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %0, align 8, !tbaa !44, !alias.scope !134
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %28, i8 noundef signext 0)
   %30 = load ptr, ptr %0, align 8, !tbaa !42, !alias.scope !134
-  %31 = icmp ugt i64 %.01113, 99
+  %31 = icmp ugt i64 %.01214, 99
   br i1 %31, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
@@ -3813,7 +3813,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %_ZN7rocksdb6St
   br label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %.lr.ph.preheader.i.i
-  %.020.i.i = phi i64 [ %38, %.lr.ph.i4.i ], [ %.01113, %.lr.ph.preheader.i.i ]
+  %.020.i.i = phi i64 [ %38, %.lr.ph.i4.i ], [ %.01214, %.lr.ph.preheader.i.i ]
   %.01819.i.i = phi i32 [ %49, %.lr.ph.i4.i ], [ %35, %.lr.ph.preheader.i.i ]
   %36 = urem i64 %.020.i.i, 100
   %37 = shl nuw nsw i64 %36, 1
@@ -3835,7 +3835,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %24, %_ZN7rocksdb6St
   br i1 %50, label %.lr.ph.i4.i, label %._crit_edge.i.i, !llvm.loop !130
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i4.i, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i
-  %.0.lcssa.i.i = phi i64 [ %.01113, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %38, %.lr.ph.i4.i ]
+  %.0.lcssa.i.i = phi i64 [ %.01214, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i ], [ %38, %.lr.ph.i4.i ]
   %51 = icmp samesign ugt i64 %.0.lcssa.i.i, 9
   br i1 %51, label %52, label %60
 

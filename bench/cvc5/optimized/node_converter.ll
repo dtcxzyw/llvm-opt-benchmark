@@ -888,19 +888,19 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit253: ; preds = %298, %302, %308
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit255 unwind label %490
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit255.sink.split: ; preds = %326, %315
-  %.sink1102 = phi i32 [ %320, %315 ], [ %330, %326 ]
+  %.sink1209 = phi i32 [ %320, %315 ], [ %330, %326 ]
   %.sink = phi i64 [ %317, %315 ], [ %327, %326 ]
-  %.sink1097 = phi ptr [ %316, %315 ], [ %312, %326 ]
-  %336 = add nuw nsw i32 %.sink1102, 1
+  %.sink1204 = phi ptr [ %316, %315 ], [ %312, %326 ]
+  %336 = add nuw nsw i32 %.sink1209, 1
   %337 = zext nneg i32 %336 to i64
   %338 = shl nuw nsw i64 %337, 40
   %339 = and i64 %.sink, -1152920405095219201
   %340 = or i64 %338, %339
-  store i64 %340, ptr %.sink1097, align 8
+  store i64 %340, ptr %.sink1204, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit255
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit255: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit255.sink.split, %332, %334, %322, %324
-  %341 = phi ptr [ %312, %332 ], [ %312, %334 ], [ %316, %322 ], [ %316, %324 ], [ %.sink1097, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit255.sink.split ]
+  %341 = phi ptr [ %312, %332 ], [ %312, %334 ], [ %316, %322 ], [ %316, %324 ], [ %.sink1204, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit255.sink.split ]
   %342 = load ptr, ptr %12, align 8, !tbaa !28
   %.not.i258 = icmp eq ptr %342, %341
   br i1 %.not.i258, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit263, label %343, !prof !34
@@ -4873,7 +4873,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit: ; preds = %_ZN4c
   %.sroa.06.0.in.i.i = phi ptr [ %96, %149 ], [ %.sroa.06.0.i.i, %152 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !45
   %.not.i.i88 = icmp eq ptr %.sroa.06.0.i.i, null
-  br i1 %.not.i.i88, label %.loopexit474, label %152
+  br i1 %.not.i.i88, label %.loopexit558, label %152
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
@@ -4892,7 +4892,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit: ; preds = %_ZN4c
   %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %159
   %162 = load ptr, ptr %161, align 8, !tbaa !47
   %.not.i.i.i.i = icmp eq ptr %162, null
-  br i1 %.not.i.i.i.i, label %.loopexit474, label %163
+  br i1 %.not.i.i.i.i, label %.loopexit558, label %163
 
 163:                                              ; preds = %.noexc89
   %164 = load ptr, ptr %162, align 8, !tbaa !45
@@ -4918,7 +4918,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit: ; preds = %_ZN4c
   %.020.i.i.i.i = phi ptr [ %179, %173 ], [ %164, %163 ]
   %179 = load ptr, ptr %.020.i.i.i.i, align 8, !tbaa !45
   %.not18.i.i.i.i = icmp eq ptr %179, null
-  br i1 %.not18.i.i.i.i, label %.loopexit474, label %180
+  br i1 %.not18.i.i.i.i, label %.loopexit558, label %180
 
 180:                                              ; preds = %.lr.ph.i.i.i.i
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 24
@@ -4928,9 +4928,9 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit: ; preds = %_ZN4c
   br i1 %.not19.i.i.i.i, label %173, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !93
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %180
-  br label %.loopexit474, !llvm.loop !93
+  br label %.loopexit558, !llvm.loop !93
 
-.loopexit474:                                     ; preds = %.lr.ph.i.i.i.i, %151, %.noexc89, %..loopexit_crit_edge21.i.i.i.i
+.loopexit558:                                     ; preds = %.lr.ph.i.i.i.i, %151, %.noexc89, %..loopexit_crit_edge21.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %184 = load ptr, ptr @_ZN4cvc58internal8TypeNode6s_nullE, align 8, !tbaa !57, !noalias !94
@@ -4942,7 +4942,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit: ; preds = %_ZN4c
   %189 = icmp samesign ult i32 %188, 1048574
   br i1 %189, label %190, label %196, !prof !33
 
-190:                                              ; preds = %.loopexit474
+190:                                              ; preds = %.loopexit558
   %191 = add nuw nsw i32 %188, 1
   %192 = zext nneg i32 %191 to i64
   %193 = shl nuw nsw i64 %192, 40
@@ -4951,7 +4951,7 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE8pop_backEv.exit: ; preds = %_ZN4c
   store i64 %195, ptr %184, align 8, !noalias !94
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit
 
-196:                                              ; preds = %.loopexit474
+196:                                              ; preds = %.loopexit558
   %197 = icmp eq i32 %188, 1048574
   br i1 %197, label %198, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !34
 
@@ -5156,19 +5156,19 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit118:           ; preds = %258, %262, %268
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit120 unwind label %439
 
 _ZN4cvc58internal8TypeNode4nullEv.exit120.sink.split: ; preds = %286, %275
-  %.sink485 = phi i32 [ %280, %275 ], [ %290, %286 ]
+  %.sink569 = phi i32 [ %280, %275 ], [ %290, %286 ]
   %.sink = phi i64 [ %277, %275 ], [ %287, %286 ]
-  %.sink480 = phi ptr [ %276, %275 ], [ %272, %286 ]
-  %296 = add nuw nsw i32 %.sink485, 1
+  %.sink564 = phi ptr [ %276, %275 ], [ %272, %286 ]
+  %296 = add nuw nsw i32 %.sink569, 1
   %297 = zext nneg i32 %296 to i64
   %298 = shl nuw nsw i64 %297, 40
   %299 = and i64 %.sink, -1152920405095219201
   %300 = or i64 %298, %299
-  store i64 %300, ptr %.sink480, align 8
+  store i64 %300, ptr %.sink564, align 8
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit120
 
 _ZN4cvc58internal8TypeNode4nullEv.exit120:        ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit120.sink.split, %292, %294, %282, %284
-  %301 = phi ptr [ %272, %292 ], [ %272, %294 ], [ %276, %282 ], [ %276, %284 ], [ %.sink480, %_ZN4cvc58internal8TypeNode4nullEv.exit120.sink.split ]
+  %301 = phi ptr [ %272, %292 ], [ %272, %294 ], [ %276, %282 ], [ %276, %284 ], [ %.sink564, %_ZN4cvc58internal8TypeNode4nullEv.exit120.sink.split ]
   %302 = load ptr, ptr %7, align 8, !tbaa !57
   %.not.i123 = icmp eq ptr %302, %301
   br i1 %.not.i123, label %_ZN4cvc58internal8TypeNodeaSERKS1_.exit128, label %303, !prof !34

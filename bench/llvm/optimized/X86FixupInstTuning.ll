@@ -4264,8 +4264,8 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_122X86FixupInstTuni
   %88 = zext i16 %85 to i64
   %89 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %87, i64 %88
   %90 = tail call noundef i32 @_ZN4llvm12MCSchedModel19computeInstrLatencyERKNS_15MCSubtargetInfoERKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(304) %75, ptr noundef nonnull align 2 dereferenceable(14) %89) #11
-  %.not52 = icmp eq i32 %70, %90
-  br i1 %.not52, label %93, label %91
+  %.not56 = icmp eq i32 %70, %90
+  br i1 %.not56, label %93, label %91
 
 91:                                               ; preds = %53
   %92 = icmp slt i32 %70, %90

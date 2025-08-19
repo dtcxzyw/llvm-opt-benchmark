@@ -311,8 +311,8 @@ define hidden void @_ZN11VtableStubs24check_and_set_size_limitEbii(i1 noundef ze
   %17 = icmp sgt i32 %_ZN11VtableStubs15_vtab_stub_sizeE.val.i, 0
   %or.cond = select i1 %14, i1 %17, i1 false
   %18 = icmp sgt i32 %15, %_ZN11VtableStubs15_vtab_stub_sizeE.val.i
-  %or.cond43 = select i1 %or.cond, i1 %18, i1 false
-  br i1 %or.cond43, label %19, label %._crit_edge39
+  %or.cond47 = select i1 %or.cond, i1 %18, i1 false
+  br i1 %or.cond47, label %19, label %._crit_edge39
 
 19:                                               ; preds = %16
   %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE176ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -333,8 +333,8 @@ define hidden void @_ZN11VtableStubs24check_and_set_size_limitEbii(i1 noundef ze
   %25 = icmp sgt i32 %_ZN11VtableStubs15_itab_stub_sizeE.val.i, 0
   %or.cond3 = select i1 %14, i1 %25, i1 false
   %26 = icmp sgt i32 %15, %_ZN11VtableStubs15_itab_stub_sizeE.val.i
-  %or.cond44 = select i1 %or.cond3, i1 %26, i1 false
-  br i1 %or.cond44, label %27, label %._crit_edge
+  %or.cond48 = select i1 %or.cond3, i1 %26, i1 false
+  br i1 %or.cond48, label %27, label %._crit_edge
 
 27:                                               ; preds = %24
   %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE176ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8

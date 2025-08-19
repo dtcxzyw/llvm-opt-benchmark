@@ -521,8 +521,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility1
   br i1 %.not, label %.preheader38, label %.lr.ph, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph45, %.preheader38
-  %.not52 = icmp eq i32 %.028.lcssa, 0
-  br i1 %.not52, label %.loopexit, label %.lr.ph48
+  %.not54 = icmp eq i32 %.028.lcssa, 0
+  br i1 %.not54, label %.loopexit, label %.lr.ph48
 
 .lr.ph45:                                         ; preds = %.preheader38, %.lr.ph45
   %.13144 = phi i32 [ %22, %.lr.ph45 ], [ %.030.lcssa, %.preheader38 ]
@@ -1043,16 +1043,16 @@ define void @_ZN6icu_7711ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(pt
   br i1 %25, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %16
-  %.not125 = icmp eq i32 %24, 1
-  br i1 %.not125, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph
+  %.not132 = icmp eq i32 %24, 1
+  br i1 %.not132, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %28 = and i16 %18, 2
-  %.not.i.i.i132 = icmp eq i16 %28, 0
+  %.not.i.i.i139 = icmp eq i16 %28, 0
   %29 = load ptr, ptr %27, align 8
-  %30 = select i1 %.not.i.i.i132, ptr %29, ptr %26
+  %30 = select i1 %.not.i.i.i139, ptr %29, ptr %26
   %31 = load i16, ptr %30, align 2, !tbaa !15
   %32 = icmp eq i16 %31, 39
   br i1 %32, label %_ZNK6icu_7713UnicodeString6charAtEi.exit85, label %.critedge.loopexit

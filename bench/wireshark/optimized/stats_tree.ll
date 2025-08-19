@@ -2207,30 +2207,30 @@ define noalias ptr @stats_tree_get_values_from_node(ptr noundef readonly capture
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load i32, ptr %64, align 8
   %66 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef %65)
-  br label %.sink.split77
+  br label %.sink.split81
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load float, ptr %68, align 8
   %70 = fpext float %69 to double
   %71 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22, double noundef %70)
-  br label %.sink.split77
+  br label %.sink.split81
 
 72:                                               ; preds = %58
   %73 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.20)
-  br label %.sink.split77
+  br label %.sink.split81
 
 74:                                               ; preds = %55
   %75 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1)
-  br label %.sink.split77
+  br label %.sink.split81
 
-.sink.split77:                                    ; preds = %74, %63, %67, %72
-  %.sink78 = phi ptr [ %73, %72 ], [ %71, %67 ], [ %66, %63 ], [ %75, %74 ]
+.sink.split81:                                    ; preds = %74, %63, %67, %72
+  %.sink82 = phi ptr [ %73, %72 ], [ %71, %67 ], [ %66, %63 ], [ %75, %74 ]
   %76 = getelementptr i8, ptr %8, i64 24
-  store ptr %.sink78, ptr %76, align 8
+  store ptr %.sink82, ptr %76, align 8
   br label %77
 
-77:                                               ; preds = %.sink.split77, %60
+77:                                               ; preds = %.sink.split81, %60
   %78 = load i32, ptr %9, align 8
   %79 = and i32 %78, 268435456
   %.not69 = icmp eq i32 %79, 0
@@ -2259,30 +2259,30 @@ define noalias ptr @stats_tree_get_values_from_node(ptr noundef readonly capture
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %90 = load i32, ptr %89, align 4
   %91 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef %90)
-  br label %.sink.split80
+  br label %.sink.split84
 
 92:                                               ; preds = %85
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %94 = load float, ptr %93, align 4
   %95 = fpext float %94 to double
   %96 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22, double noundef %95)
-  br label %.sink.split80
+  br label %.sink.split84
 
 97:                                               ; preds = %83
   %98 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.20)
-  br label %.sink.split80
+  br label %.sink.split84
 
 99:                                               ; preds = %80
   %100 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.1)
-  br label %.sink.split80
+  br label %.sink.split84
 
-.sink.split80:                                    ; preds = %99, %88, %92, %97
-  %.sink81 = phi ptr [ %98, %97 ], [ %96, %92 ], [ %91, %88 ], [ %100, %99 ]
+.sink.split84:                                    ; preds = %99, %88, %92, %97
+  %.sink85 = phi ptr [ %98, %97 ], [ %96, %92 ], [ %91, %88 ], [ %100, %99 ]
   %101 = getelementptr i8, ptr %8, i64 32
-  store ptr %.sink81, ptr %101, align 8
+  store ptr %.sink85, ptr %101, align 8
   br label %102
 
-102:                                              ; preds = %.sink.split80, %85
+102:                                              ; preds = %.sink.split84, %85
   %103 = load ptr, ptr %2, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load double, ptr %104, align 8

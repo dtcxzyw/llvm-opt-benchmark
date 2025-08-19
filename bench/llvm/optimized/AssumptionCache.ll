@@ -640,7 +640,7 @@ _ZN4llvm11SmallVectorINS_15AssumptionCache10ResultElemELj16EED2Ev.exit: ; preds 
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %26
   %.pre-phi80.i.i.i.i.i = phi i32 [ %60, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val12, %26 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %.val, %26 ]
-  switch i32 %.pre-phi80.i.i.i.i.i, label %._crit_edge.i.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi80.i.i.i.i.i, label %default.unreachable [
     i32 3, label %61
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge77.i.i.i.i.i
@@ -699,7 +699,7 @@ _ZN4llvm11SmallVectorINS_15AssumptionCache10ResultElemELj16EED2Ev.exit: ; preds 
   %81 = icmp eq i32 %.2.val53.i.i.i.i.i, %80
   br i1 %81, label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit", label %"_ZN4llvm7none_ofIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEEZNS2_20updateAffectedValuesEPNS_10AssumeInstEE3$_0EEbOT_T0_.exit.thread"
 
-._crit_edge.i.i.i.i.unreachabledefault.i:         ; preds = %._crit_edge.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
   unreachable
 
 .loopexit.split.loop.exit61.i.i.i.i.i:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm15AssumptionCache20updateAffectedValuesEPNS2_10AssumeInstEE3$_0EclIPNS3_10ResultElemEEEbT_.exit54.i.i.i.i.i"
@@ -966,8 +966,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread66:       ; preds = %44
   br i1 %.not24, label %"_ZZL18findAffectedValuesPN4llvm8CallBaseEPNS_19TargetTransformInfoERNS_15SmallVectorImplINS_15AssumptionCache10ResultElemEEEENK3$_1clEPNS_5ValueEj.exit35", label %82
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread66.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.not2470 = icmp eq i32 %60, %56
-  br i1 %.not2470, label %"_ZZL18findAffectedValuesPN4llvm8CallBaseEPNS_19TargetTransformInfoERNS_15SmallVectorImplINS_15AssumptionCache10ResultElemEEEENK3$_1clEPNS_5ValueEj.exit35", label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %.not2471 = icmp eq i32 %60, %56
+  br i1 %.not2471, label %"_ZZL18findAffectedValuesPN4llvm8CallBaseEPNS_19TargetTransformInfoERNS_15SmallVectorImplINS_15AssumptionCache10ResultElemEEEENK3$_1clEPNS_5ValueEj.exit35", label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 82:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread66
   %.not.i.i = icmp eq i64 %63, 6
@@ -1855,7 +1855,7 @@ _ZN4llvm10CallbackVHD2Ev.exit17:                  ; preds = %_ZN4llvm15Assumptio
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %62
   %.pre-phi57.i.i.i.i = phi i32 [ %91, %._crit_edge.loopexit.i.i.i.i ], [ %64, %62 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %63, %62 ]
-  switch i32 %.pre-phi57.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi57.i.i.i.i, label %default.unreachable [
     i32 3, label %92
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
@@ -1904,7 +1904,7 @@ _ZN4llvm10CallbackVHD2Ev.exit17:                  ; preds = %_ZN4llvm15Assumptio
   %111 = icmp eq ptr %110, %108
   br i1 %111, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit, label %_ZN4llvm12is_containedIRNS_11SmallVectorINS_15AssumptionCache10ResultElemELj1EEES3_EEbOT_RKT0_.exit.thread
 
-._crit_edge.i.i.i.unreachabledefault.i:           ; preds = %._crit_edge.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   unreachable
 
 .loopexit.split.loop.exit37.i.i.i.i:              ; preds = %75
@@ -2810,13 +2810,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbac
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm15AssumptionCacheESt14default_deleteIS1_EED2Ev.exit.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit.thread
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit.thread: ; preds = %93, %75, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit
-  %.sink25.i.i36 = phi ptr [ %103, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit ], [ %84, %75 ], [ %99, %93 ]
+  %.sink29.i.i48 = phi ptr [ %103, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit ], [ %84, %75 ], [ %99, %93 ]
   %104 = phi ptr [ %.pre30, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit ], [ %53, %75 ], [ %53, %93 ]
   call void @_ZNKSt14default_deleteIN4llvm15AssumptionCacheEEclEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %104)
   br label %_ZNSt10unique_ptrIN4llvm15AssumptionCacheESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm15AssumptionCacheESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit.thread, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit
-  %.sink25.i.i37 = phi ptr [ %.sink25.i.i36, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit.thread ], [ %103, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit ]
+  %.sink29.i.i49 = phi ptr [ %.sink29.i.i48, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit.thread ], [ %103, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E6insertEOSt4pairIS3_S8_E.exit ]
   store ptr null, ptr %71, align 8, !tbaa !177
   %105 = load ptr, ptr %64, align 8, !tbaa !60
   %magicptr.i.i.i9 = ptrtoint ptr %105 to i64
@@ -2849,7 +2849,7 @@ _ZN4llvm10CallbackVHD2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
   br label %108
 
 108:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E7find_asIPNS_8FunctionEEENS_16DenseMapIteratorIS3_S8_SC_SF_Lb0EEERKT_.exit, %_ZN4llvm10CallbackVHD2Ev.exit
-  %.sroa.0.1.i.pn = phi ptr [ %.sink25.i.i37, %_ZN4llvm10CallbackVHD2Ev.exit ], [ %.sroa.0.1.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E7find_asIPNS_8FunctionEEENS_16DenseMapIteratorIS3_S8_SC_SF_Lb0EEERKT_.exit ]
+  %.sroa.0.1.i.pn = phi ptr [ %.sink29.i.i49, %_ZN4llvm10CallbackVHD2Ev.exit ], [ %.sroa.0.1.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_22AssumptionCacheTracker18FunctionCallbackVHESt10unique_ptrINS_15AssumptionCacheESt14default_deleteIS5_EENS_12DenseMapInfoIPNS_5ValueEvEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SC_SF_E7find_asIPNS_8FunctionEEENS_16DenseMapIteratorIS3_S8_SC_SF_Lb0EEERKT_.exit ]
   %.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.pn, i64 40
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !177
   ret ptr %.0

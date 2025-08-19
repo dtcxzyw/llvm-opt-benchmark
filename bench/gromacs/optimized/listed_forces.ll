@@ -232,7 +232,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i:              ; preds = %41, %39
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %.body6.thread, %.body6, %54
-  %eh.lpad-body713 = phi { ptr, i32 } [ %53, %.body6.thread ], [ %38, %.body6 ], [ %38, %54 ]
+  %eh.lpad-body719 = phi { ptr, i32 } [ %53, %.body6.thread ], [ %38, %.body6 ], [ %38, %54 ]
   %60 = load ptr, ptr %15, align 8, !tbaa !69
   %.not.i.i.i8 = icmp eq ptr %60, null
   br i1 %.not.i.i.i8, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %61
@@ -251,7 +251,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3gmx1
   br label %.body
 
 .body:                                            ; preds = %51, %11, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body713, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %52, %51 ], [ %12, %11 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body719, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %52, %51 ], [ %12, %11 ]
   tail call void @_ZN22InteractionDefinitionsD2Ev(ptr noundef nonnull align 8 dereferenceable(2760) %8) #15
   resume { ptr, i32 } %.pn
 }
@@ -434,13 +434,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !85
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !85
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

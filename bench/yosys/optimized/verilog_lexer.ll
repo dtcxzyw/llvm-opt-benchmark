@@ -559,16 +559,16 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   br label %.loopexit2573
 
 .loopexit2573.loopexit:                           ; preds = %5238, %5242, %._crit_edge25.i2553
-  %.41192.ph4634 = phi ptr [ %5256, %._crit_edge25.i2553 ], [ %5256, %5242 ], [ %5172, %5238 ]
-  %.71187.ph4635 = phi ptr [ %5250, %._crit_edge25.i2553 ], [ %5250, %5242 ], [ %5239, %5238 ]
+  %.41192.ph4909 = phi ptr [ %5256, %._crit_edge25.i2553 ], [ %5256, %5242 ], [ %5172, %5238 ]
+  %.71187.ph4910 = phi ptr [ %5250, %._crit_edge25.i2553 ], [ %5250, %5242 ], [ %5239, %5238 ]
   %.7.ph = phi i32 [ %5294, %._crit_edge25.i2553 ], [ %5251, %5242 ], [ %5236, %5238 ]
   %_ZL12yy_state_ptr.promoted.pre = load ptr, ptr @_ZL12yy_state_ptr, align 8, !tbaa !27
   br label %.loopexit2573
 
 .loopexit2573:                                    ; preds = %.loopexit2573.loopexit, %211
   %_ZL12yy_state_ptr.promoted = phi ptr [ %215, %211 ], [ %_ZL12yy_state_ptr.promoted.pre, %.loopexit2573.loopexit ]
-  %.01188 = phi ptr [ %.pre4609, %211 ], [ %.41192.ph4634, %.loopexit2573.loopexit ]
-  %.01180 = phi ptr [ %.pre4609, %211 ], [ %.71187.ph4635, %.loopexit2573.loopexit ]
+  %.01188 = phi ptr [ %.pre4609, %211 ], [ %.41192.ph4909, %.loopexit2573.loopexit ]
+  %.01180 = phi ptr [ %.pre4609, %211 ], [ %.71187.ph4910, %.loopexit2573.loopexit ]
   %.01104 = phi i32 [ %213, %211 ], [ %.7.ph, %.loopexit2573.loopexit ]
   br label %216
 
@@ -1059,7 +1059,7 @@ _Z33frontend_verilog_yy_create_bufferP8_IO_FILEi.exit: ; preds = %177
   %355 = load ptr, ptr @_ZN5Yosys3AST16current_filenameB5cxx11E, align 8, !tbaa !13
   %356 = load i8, ptr %355, align 1, !tbaa !19
   %357 = icmp eq i8 %356, 34
-  br i1 %357, label %358, label %.thread4623
+  br i1 %357, label %358, label %.thread4898
 
 358:                                              ; preds = %354
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1085,20 +1085,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr2570.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5Yosys3AST16current_filenameB5cxx11E, i64 8), align 8, !tbaa !18
   %367 = icmp eq i64 %.pr2570.pre, 0
-  br i1 %367, label %.thread2571, label %.thread4623
+  br i1 %367, label %.thread2571, label %.thread4898
 
-.thread4623:                                      ; preds = %354, %366
-  %.pr25704625 = phi i64 [ %.pr2570.pre, %366 ], [ %346, %354 ]
+.thread4898:                                      ; preds = %354, %366
+  %.pr25704900 = phi i64 [ %.pr2570.pre, %366 ], [ %346, %354 ]
   %368 = load ptr, ptr @_ZN5Yosys3AST16current_filenameB5cxx11E, align 8, !tbaa !13
-  %369 = getelementptr i8, ptr %368, i64 %.pr25704625
+  %369 = getelementptr i8, ptr %368, i64 %.pr25704900
   %370 = getelementptr i8, ptr %369, i64 -1
   %371 = load i8, ptr %370, align 1, !tbaa !19
   %372 = icmp eq i8 %371, 34
   br i1 %372, label %373, label %.thread2571
 
-373:                                              ; preds = %.thread4623
+373:                                              ; preds = %.thread4898
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %374 = add i64 %.pr25704625, -1
+  %374 = add i64 %.pr25704900, -1
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, i64 noundef 0, i64 noundef %374)
   %375 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5Yosys3AST16current_filenameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %5) #42
   %376 = load ptr, ptr %5, align 8, !tbaa !13
@@ -1121,7 +1121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2172: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread2571
 
-.thread2571:                                      ; preds = %341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2172, %.thread4623, %366
+.thread2571:                                      ; preds = %341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2172, %.thread4898, %366
   store i32 0, ptr @frontend_verilog_yylineno, align 4, !tbaa !28
   store i32 0, ptr %195, align 4, !tbaa !53
   store i32 0, ptr %1, align 4, !tbaa !55
@@ -9353,8 +9353,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2421: ; preds = %_
 
 .lr.ph3316.preheader:                             ; preds = %3478
   %frontend_verilog_yylineno.promoted3313 = load i32, ptr @frontend_verilog_yylineno, align 4
-  %sext4622 = shl i64 %3483, 32
-  %3487 = ashr exact i64 %sext4622, 32
+  %sext4897 = shl i64 %3483, 32
+  %3487 = ashr exact i64 %sext4897, 32
   %wide.trip.count4301 = sext i32 %3485 to i64
   br label %.lr.ph3316
 
@@ -13911,7 +13911,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2539
 
 5240:                                             ; preds = %5151
   %5241 = call fastcc noundef i32 @_ZL18yy_get_next_bufferv()
-  switch i32 %5241, label %default.unreachable4620 [
+  switch i32 %5241, label %default.unreachable4895 [
     i32 1, label %_ZL16yy_try_NUL_transi.exit.thread
     i32 0, label %5242
     i32 2, label %5298
@@ -14101,7 +14101,7 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %._crit_edge.i2539
   store ptr %5353, ptr @_ZL12yy_state_ptr, align 8, !tbaa !27
   br label %.preheader.loopexit
 
-default.unreachable4620:                          ; preds = %5240
+default.unreachable4895:                          ; preds = %5240
   unreachable
 
 _ZL16yy_try_NUL_transi.exit.thread:               ; preds = %5240
@@ -14967,7 +14967,7 @@ _Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread: ; preds = %5
   %18 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !36
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread15
+  br i1 %20, label %21, label %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread17
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -14981,9 +14981,9 @@ _Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread: ; preds = %5
   store ptr %26, ptr @frontend_verilog_yyin, align 8, !tbaa !30
   %27 = load i8, ptr %25, align 1, !tbaa !19
   store i8 %27, ptr @_ZL12yy_hold_char, align 1, !tbaa !19
-  br label %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread15
+  br label %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread17
 
-_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread15: ; preds = %16, %21
+_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread17: ; preds = %16, %21
   store ptr %1, ptr %0, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %28, align 4, !tbaa !282
@@ -14996,7 +14996,7 @@ _Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit: ; preds = %2
   %.not = icmp eq ptr %.pr.pre, null
   br i1 %.not, label %.critedge, label %30
 
-30:                                               ; preds = %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread15, %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit
+30:                                               ; preds = %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit.thread17, %_Z32frontend_verilog_yy_flush_bufferP15yy_buffer_state.exit
   %31 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !36
@@ -15662,7 +15662,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL7yyinputv() #4 {
   %18 = load ptr, ptr @frontend_verilog_yytext, align 8, !tbaa !44
   store ptr %15, ptr @_ZL10yy_c_buf_p, align 8, !tbaa !44
   %19 = tail call fastcc noundef i32 @_ZL18yy_get_next_bufferv()
-  switch i32 %19, label %default.unreachable8 [
+  switch i32 %19, label %default.unreachable10 [
     i32 2, label %20
     i32 1, label %38
     i32 0, label %.critedge
@@ -15684,7 +15684,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL7yyinputv() #4 {
   %.pre = load i8, ptr %27, align 1, !tbaa !19
   br label %28
 
-default.unreachable8:                             ; preds = %17
+default.unreachable10:                            ; preds = %17
   unreachable
 
 28:                                               ; preds = %.critedge, %0

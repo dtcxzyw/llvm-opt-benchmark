@@ -134,12 +134,12 @@ define internal i32 @dissect_l2rcop(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %44
 
 44:                                               ; preds = %.lr.ph, %40
-  %.sink106 = phi i32 [ 2, %40 ], [ 1, %.lr.ph ]
-  %.sink105 = phi i32 [ %41, %40 ], [ %9, %.lr.ph ]
-  %45 = add i32 %.07186, %.sink106
-  %46 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %45, i32 noundef %.sink105)
+  %.sink107 = phi i32 [ 2, %40 ], [ 1, %.lr.ph ]
+  %.sink106 = phi i32 [ %41, %40 ], [ %9, %.lr.ph ]
+  %45 = add i32 %.07186, %.sink107
+  %46 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %45, i32 noundef %.sink106)
   %47 = tail call i32 @call_data_dissector(ptr noundef %46, ptr noundef %1, ptr noundef %14)
-  %48 = add i32 %45, %.sink105
+  %48 = add i32 %45, %.sink106
   %49 = icmp ult i32 %48, %5
   br i1 %49, label %.lr.ph, label %.thread, !llvm.loop !6
 

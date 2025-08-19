@@ -1528,11 +1528,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i:        ; preds = %102
   br i1 %106, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i.i, label %107
 
 107:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i
-  %.sink71.i.i.i = phi float [ %95, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %86, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ]
+  %.sink79.i.i.i = phi float [ %95, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %86, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ]
   %.sink.i.i.i = phi i64 [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %88, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ]
   %.1.i.i.i = phi i64 [ %80, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %79, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ]
   %108 = getelementptr inbounds nuw float, ptr %68, i64 %.062.i.i.i
-  store float %.sink71.i.i.i, ptr %108, align 4, !tbaa !76
+  store float %.sink79.i.i.i, ptr %108, align 4, !tbaa !76
   %109 = getelementptr inbounds nuw i64, ptr %69, i64 %.062.i.i.i
   store i64 %.sink.i.i.i, ptr %109, align 8, !tbaa !24
   %110 = shl i64 %.1.i.i.i, 1
@@ -1665,11 +1665,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i:        ; preds = %169
   br i1 %173, label %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i.i, label %174
 
 174:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i
-  %.sink71.i.i.i39 = phi float [ %162, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %153, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ]
+  %.sink79.i.i.i39 = phi float [ %162, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %153, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ]
   %.sink.i.i.i40 = phi i64 [ %165, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %155, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ]
   %.1.i.i.i41 = phi i64 [ %147, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %146, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ]
   %175 = getelementptr inbounds nuw float, ptr %135, i64 %.062.i.i.i38
-  store float %.sink71.i.i.i39, ptr %175, align 4, !tbaa !76
+  store float %.sink79.i.i.i39, ptr %175, align 4, !tbaa !76
   %176 = getelementptr inbounds nuw i64, ptr %136, i64 %.062.i.i.i38
   store i64 %.sink.i.i.i40, ptr %176, align 8, !tbaa !24
   %177 = shl i64 %.1.i.i.i41, 1
@@ -2257,13 +2257,13 @@ define internal void @_ZN5faiss23IndexIVFScalarQuantizer8add_coreElPKfPKlS4_Pv.o
   %12 = load i32, ptr %11, align 8, !tbaa !75
   %13 = sext i32 %12 to i64
   %14 = icmp slt i32 %12, 0
-  br i1 %14, label %.invoke56, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
+  br i1 %14, label %.invoke61, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
-.invoke56:                                        ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, %10
+.invoke61:                                        ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit, %10
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #24
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke56
+.cont:                                            ; preds = %.invoke61
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
@@ -2293,7 +2293,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %23 = load i64, ptr %22, align 8, !tbaa !53
   %24 = icmp slt i64 %23, 0
-  br i1 %24, label %.invoke56, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  br i1 %24, label %.invoke61, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   %.not.i.i.i.i33 = icmp eq i64 %23, 0
@@ -2447,7 +2447,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
           catch ptr null
   br label %99
 
-.loopexit.split-lp:                               ; preds = %.invoke56, %15, %25
+.loopexit.split-lp:                               ; preds = %.invoke61, %15, %25
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   br label %99

@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %32 = zext nneg i32 %10 to i64
   %33 = zext nneg i32 %10 to i64
   %invariant.gep = getelementptr i64, ptr %22, i64 %32
-  %invariant.gep58 = getelementptr i64, ptr %22, i64 %33
+  %invariant.gep61 = getelementptr i64, ptr %22, i64 %33
   %34 = add nuw nsw i64 %32, %31
   %35 = shl nuw nsw i64 %34, 3
   %scevgep = getelementptr i8, ptr %22, i64 %35
@@ -66,7 +66,7 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
 .lr.ph51.preheader:                               ; preds = %.preheader
   %36 = zext nneg i32 %23 to i64
   %37 = zext nneg i32 %10 to i64
-  %invariant.gep60 = getelementptr i64, ptr %22, i64 %37
+  %invariant.gep63 = getelementptr i64, ptr %22, i64 %37
   br label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
@@ -74,8 +74,8 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
   %38 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.next55
   %39 = load i64, ptr %38, align 8, !tbaa !15
-  %gep61 = getelementptr i64, ptr %invariant.gep60, i64 %indvars.iv.next55
-  store i64 %39, ptr %gep61, align 8, !tbaa !15
+  %gep64 = getelementptr i64, ptr %invariant.gep63, i64 %indvars.iv.next55
+  store i64 %39, ptr %gep64, align 8, !tbaa !15
   %40 = icmp samesign ugt i64 %indvars.iv54, 1
   br i1 %40, label %.lr.ph51, label %.loopexit, !llvm.loop !17
 
@@ -90,8 +90,8 @@ define hidden range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonl
   %45 = or i64 %store_forwarded, %44
   store i64 %45, ptr %gep, align 8, !tbaa !15
   %46 = shl i64 %43, %30
-  %gep59 = getelementptr i64, ptr %invariant.gep58, i64 %indvars.iv.next
-  store i64 %46, ptr %gep59, align 8, !tbaa !15
+  %gep62 = getelementptr i64, ptr %invariant.gep61, i64 %indvars.iv.next
+  store i64 %46, ptr %gep62, align 8, !tbaa !15
   %47 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %47, label %41, label %.loopexit, !llvm.loop !19
 

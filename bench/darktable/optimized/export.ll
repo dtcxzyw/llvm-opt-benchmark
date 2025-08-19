@@ -2965,25 +2965,25 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
 .lr.ph:                                           ; preds = %86
   %111 = getelementptr inbounds nuw i8, ptr %82, i64 104
   %112 = load ptr, ptr %111, align 8, !tbaa !135
-  %.not183231 = icmp eq ptr %112, null
-  br i1 %.not183231, label %.loopexit, label %.lr.ph235
+  %.not183244 = icmp eq ptr %112, null
+  br i1 %.not183244, label %.loopexit, label %.lr.ph248
 
 113:                                              ; preds = %117
   %114 = load ptr, ptr %111, align 8, !tbaa !135
   %.not183 = icmp eq ptr %114, null
-  br i1 %.not183, label %.loopexit, label %.lr.ph235
+  br i1 %.not183, label %.loopexit, label %.lr.ph248
 
-.lr.ph235:                                        ; preds = %.lr.ph, %113
+.lr.ph248:                                        ; preds = %.lr.ph, %113
   %115 = phi ptr [ %114, %113 ], [ %112, %.lr.ph ]
-  %.0161196234 = phi ptr [ %116, %113 ], [ %109, %.lr.ph ]
-  %.0159197233 = phi i32 [ %119, %113 ], [ %92, %.lr.ph ]
-  %.0157198232 = phi i64 [ %118, %113 ], [ %100, %.lr.ph ]
-  %116 = call ptr %115(ptr noundef nonnull %82, ptr noundef %.0161196234, i64 noundef %.0157198232, i32 noundef %.0159197233, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
+  %.0161196247 = phi ptr [ %116, %113 ], [ %109, %.lr.ph ]
+  %.0159197246 = phi i32 [ %119, %113 ], [ %92, %.lr.ph ]
+  %.0157198245 = phi i64 [ %118, %113 ], [ %100, %.lr.ph ]
+  %116 = call ptr %115(ptr noundef nonnull %82, ptr noundef %.0161196247, i64 noundef %.0157198245, i32 noundef %.0159197246, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not184 = icmp eq ptr %116, null
   br i1 %.not184, label %.loopexit, label %117
 
-117:                                              ; preds = %.lr.ph235
-  call void @free(ptr noundef %.0161196234) #19
+117:                                              ; preds = %.lr.ph248
+  call void @free(ptr noundef %.0161196247) #19
   %118 = load i64, ptr %5, align 8, !tbaa !134
   %119 = load i32, ptr %4, align 4, !tbaa !116
   %120 = icmp slt i32 %119, %105
@@ -3002,25 +3002,25 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
 .lr.ph206:                                        ; preds = %._crit_edge
   %123 = getelementptr inbounds nuw i8, ptr %83, i64 144
   %124 = load ptr, ptr %123, align 8, !tbaa !136
-  %.not181238 = icmp eq ptr %124, null
-  br i1 %.not181238, label %.loopexit, label %.lr.ph242
+  %.not181251 = icmp eq ptr %124, null
+  br i1 %.not181251, label %.loopexit, label %.lr.ph255
 
 125:                                              ; preds = %129
   %126 = load ptr, ptr %123, align 8, !tbaa !136
   %.not181 = icmp eq ptr %126, null
-  br i1 %.not181, label %.loopexit, label %.lr.ph242
+  br i1 %.not181, label %.loopexit, label %.lr.ph255
 
-.lr.ph242:                                        ; preds = %.lr.ph206, %125
+.lr.ph255:                                        ; preds = %.lr.ph206, %125
   %127 = phi ptr [ %126, %125 ], [ %124, %.lr.ph206 ]
-  %.1162201241 = phi ptr [ %128, %125 ], [ %121, %.lr.ph206 ]
-  %.1160202240 = phi i32 [ %131, %125 ], [ %94, %.lr.ph206 ]
-  %.0158203239 = phi i64 [ %130, %125 ], [ %102, %.lr.ph206 ]
-  %128 = call ptr %127(ptr noundef nonnull %83, ptr noundef %.1162201241, i64 noundef %.0158203239, i32 noundef %.1160202240, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
+  %.1162201254 = phi ptr [ %128, %125 ], [ %121, %.lr.ph206 ]
+  %.1160202253 = phi i32 [ %131, %125 ], [ %94, %.lr.ph206 ]
+  %.0158203252 = phi i64 [ %130, %125 ], [ %102, %.lr.ph206 ]
+  %128 = call ptr %127(ptr noundef nonnull %83, ptr noundef %.1162201254, i64 noundef %.0158203252, i32 noundef %.1160202253, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not182 = icmp eq ptr %128, null
   br i1 %.not182, label %.loopexit, label %129
 
-129:                                              ; preds = %.lr.ph242
-  call void @free(ptr noundef %.1162201241) #19
+129:                                              ; preds = %.lr.ph255
+  call void @free(ptr noundef %.1162201254) #19
   %130 = load i64, ptr %5, align 8, !tbaa !134
   %131 = load i32, ptr %4, align 4, !tbaa !116
   %132 = icmp slt i32 %131, %108
@@ -3031,18 +3031,18 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
   br label %134
 
 ._crit_edge207:                                   ; preds = %._crit_edge
-  %.not226 = icmp eq ptr %.0153.lcssa, null
-  br i1 %.not226, label %220, label %134
+  %.not239 = icmp eq ptr %.0153.lcssa, null
+  br i1 %.not239, label %220, label %134
 
 134:                                              ; preds = %._crit_edge207.thread, %._crit_edge207
   %135 = phi i1 [ %133, %._crit_edge207.thread ], [ true, %._crit_edge207 ]
-  %.1156.lcssa221 = phi ptr [ %128, %._crit_edge207.thread ], [ null, %._crit_edge207 ]
-  %.0158.lcssa220 = phi i64 [ %130, %._crit_edge207.thread ], [ %102, %._crit_edge207 ]
+  %.1156.lcssa234 = phi ptr [ %128, %._crit_edge207.thread ], [ null, %._crit_edge207 ]
+  %.0158.lcssa233 = phi i64 [ %130, %._crit_edge207.thread ], [ %102, %._crit_edge207 ]
   %136 = add nsw i32 %98, %96
   %137 = sext i32 %136 to i64
   %138 = sub nsw i64 %36, %137
   %139 = add i64 %.0157.lcssa, %138
-  %140 = add i64 %139, %.0158.lcssa220
+  %140 = add i64 %139, %.0158.lcssa233
   %141 = call noalias ptr @malloc(i64 noundef %140) #22
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr align 1 %33, i64 %91, i1 false)
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 %91
@@ -3053,7 +3053,7 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
   %.0.extract.trunc61 = trunc i64 %.0157.lcssa to i32
   store i32 %.0.extract.trunc61, ptr %144, align 1
   %145 = getelementptr i8, ptr %142, i64 12
-  %.0.extract.trunc = trunc i64 %.0158.lcssa220 to i32
+  %.0.extract.trunc = trunc i64 %.0158.lcssa233 to i32
   store i32 %.0.extract.trunc, ptr %145, align 1
   %146 = add i64 %91, 16
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 %146
@@ -3073,7 +3073,7 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
   br i1 %122, label %153, label %154
 
 153:                                              ; preds = %150
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %152, ptr nonnull align 1 %.1156.lcssa221, i64 %.0158.lcssa220, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %152, ptr nonnull align 1 %.1156.lcssa234, i64 %.0158.lcssa233, i1 false)
   br label %155
 
 154:                                              ; preds = %150
@@ -3142,14 +3142,14 @@ define void @init_presets(ptr noundef readonly captures(none) %0) local_unnamed_
   %191 = load ptr, ptr %6, align 8, !tbaa !121
   %192 = call i32 @sqlite3_finalize(ptr noundef %191) #19
   call void @free(ptr noundef %.0153.lcssa) #19
-  call void @free(ptr noundef %.1156.lcssa221) #19
+  call void @free(ptr noundef %.1156.lcssa234) #19
   call void @free(ptr noundef nonnull %141) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %220
 
-.loopexit:                                        ; preds = %.lr.ph235, %113, %.lr.ph242, %125, %.lr.ph, %.lr.ph206
-  %.0155 = phi ptr [ null, %.lr.ph206 ], [ null, %.lr.ph ], [ %128, %125 ], [ null, %.lr.ph242 ], [ null, %113 ], [ null, %.lr.ph235 ]
-  %.1154 = phi ptr [ %.0153.lcssa, %.lr.ph206 ], [ null, %.lr.ph ], [ %.0153.lcssa, %125 ], [ %.0153.lcssa, %.lr.ph242 ], [ null, %.lr.ph235 ], [ %116, %113 ]
+.loopexit:                                        ; preds = %.lr.ph248, %113, %.lr.ph255, %125, %.lr.ph, %.lr.ph206
+  %.0155 = phi ptr [ null, %.lr.ph206 ], [ null, %.lr.ph ], [ %128, %125 ], [ null, %.lr.ph255 ], [ null, %113 ], [ null, %.lr.ph248 ]
+  %.1154 = phi ptr [ %.0153.lcssa, %.lr.ph206 ], [ null, %.lr.ph ], [ %.0153.lcssa, %125 ], [ %.0153.lcssa, %.lr.ph255 ], [ null, %.lr.ph248 ], [ %116, %113 ]
   call void @free(ptr noundef %.1154) #19
   call void @free(ptr noundef %.0155) #19
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.111, ptr noundef %38, i32 noundef %92, i32 noundef %94, i32 noundef %105, i32 noundef %108) #19
@@ -4743,8 +4743,8 @@ define internal fastcc void @_export_with_current_settings(ptr readonly captures
   br label %_scale_optim.exit
 
 _scale_optim.exit:                                ; preds = %66, %72, %82, %84, %103, %105
-  %.sink20.i = phi ptr [ %86, %84 ], [ %3, %82 ], [ %106, %105 ], [ %3, %103 ], [ %3, %72 ], [ %63, %66 ]
-  %107 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull %.sink20.i, i64 noundef 64) #19
+  %.sink21.i = phi ptr [ %86, %84 ], [ %3, %82 ], [ %106, %105 ], [ %3, %103 ], [ %3, %72 ], [ %63, %66 ]
+  %107 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef nonnull %.sink21.i, i64 noundef 64) #19
   call void @dt_conf_set_string(ptr noundef nonnull @.str.9, ptr noundef nonnull %4) #19
   call void @free(ptr noundef nonnull %63) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

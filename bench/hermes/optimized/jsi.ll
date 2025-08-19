@@ -1285,9 +1285,9 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 
 eh.resume.sink.split:                             ; preds = %lpad, %lpad4, %lpad11, %lpad17, %lpad23, %lpad29, %lpad35
-  %ref.tmp34.sink33 = phi ptr [ %ref.tmp34, %lpad35 ], [ %ref.tmp28, %lpad29 ], [ %ref.tmp22, %lpad23 ], [ %ref.tmp16, %lpad17 ], [ %ref.tmp10, %lpad11 ], [ %ref.tmp3, %lpad4 ], [ %ref.tmp, %lpad ]
+  %ref.tmp34.sink34 = phi ptr [ %ref.tmp34, %lpad35 ], [ %ref.tmp28, %lpad29 ], [ %ref.tmp22, %lpad23 ], [ %ref.tmp16, %lpad17 ], [ %ref.tmp10, %lpad11 ], [ %ref.tmp3, %lpad4 ], [ %ref.tmp, %lpad ]
   %.pn12.ph = phi { ptr, i32 } [ %8, %lpad35 ], [ %7, %lpad29 ], [ %6, %lpad23 ], [ %5, %lpad17 ], [ %4, %lpad11 ], [ %2, %lpad4 ], [ %1, %lpad ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.sink33) #25
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34.sink34) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %eh.resume.sink.split, %if.then.i.i26, %cleanup.action47, %ehcleanup

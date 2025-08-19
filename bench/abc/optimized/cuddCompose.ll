@@ -1249,29 +1249,29 @@ define ptr @Cudd_addVectorCompose(ptr noundef initializes((448, 452)) %0, ptr no
   %31 = load ptr, ptr %30, align 8, !tbaa !32
   %32 = load ptr, ptr %9, align 8, !tbaa !36
   %33 = icmp eq ptr %31, %32
-  br i1 %33, label %ddIsIthAddVar.exit, label %ddIsIthAddVar.exit.thread.split.loop.exit36
+  br i1 %33, label %ddIsIthAddVar.exit, label %ddIsIthAddVar.exit.thread.split.loop.exit39
 
 ddIsIthAddVar.exit:                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !32
   %36 = load ptr, ptr %10, align 8, !tbaa !37
   %.not = icmp eq ptr %35, %36
-  br i1 %.not, label %16, label %ddIsIthAddVar.exit.thread.split.loop.exit38, !llvm.loop !57
+  br i1 %.not, label %16, label %ddIsIthAddVar.exit.thread.split.loop.exit41, !llvm.loop !57
 
 ddIsIthAddVar.exit.thread.split.loop.exit:        ; preds = %19
-  %indvars.le44 = trunc i64 %indvars.iv.next to i32
+  %indvars.le47 = trunc i64 %indvars.iv.next to i32
   br label %ddIsIthAddVar.exit.thread
 
-ddIsIthAddVar.exit.thread.split.loop.exit36:      ; preds = %29
-  %indvars.le42 = trunc i64 %indvars.iv.next to i32
+ddIsIthAddVar.exit.thread.split.loop.exit39:      ; preds = %29
+  %indvars.le45 = trunc i64 %indvars.iv.next to i32
   br label %ddIsIthAddVar.exit.thread
 
-ddIsIthAddVar.exit.thread.split.loop.exit38:      ; preds = %ddIsIthAddVar.exit
+ddIsIthAddVar.exit.thread.split.loop.exit41:      ; preds = %ddIsIthAddVar.exit
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %ddIsIthAddVar.exit.thread
 
-ddIsIthAddVar.exit.thread:                        ; preds = %16, %ddIsIthAddVar.exit.thread.split.loop.exit38, %ddIsIthAddVar.exit.thread.split.loop.exit36, %ddIsIthAddVar.exit.thread.split.loop.exit
-  %.024.lcssa = phi i32 [ %indvars.le44, %ddIsIthAddVar.exit.thread.split.loop.exit ], [ %indvars.le42, %ddIsIthAddVar.exit.thread.split.loop.exit36 ], [ %indvars.le, %ddIsIthAddVar.exit.thread.split.loop.exit38 ], [ %15, %16 ]
+ddIsIthAddVar.exit.thread:                        ; preds = %16, %ddIsIthAddVar.exit.thread.split.loop.exit41, %ddIsIthAddVar.exit.thread.split.loop.exit39, %ddIsIthAddVar.exit.thread.split.loop.exit
+  %.024.lcssa = phi i32 [ %indvars.le47, %ddIsIthAddVar.exit.thread.split.loop.exit ], [ %indvars.le45, %ddIsIthAddVar.exit.thread.split.loop.exit39 ], [ %indvars.le, %ddIsIthAddVar.exit.thread.split.loop.exit41 ], [ %15, %16 ]
   %37 = tail call fastcc ptr @cuddAddVectorComposeRecur(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %1, ptr noundef %2, i32 noundef %.024.lcssa)
   %.not27 = icmp eq ptr %37, null
   br i1 %.not27, label %38, label %.thread
@@ -1463,60 +1463,60 @@ define ptr @Cudd_addGeneralVectorCompose(ptr noundef initializes((448, 452)) %0,
 32:                                               ; preds = %20
   %33 = load i32, ptr %29, align 8, !tbaa !30
   %34 = icmp eq i32 %33, %24
-  br i1 %34, label %35, label %ddIsIthAddVarPair.exit.thread.split.loop.exit39
+  br i1 %34, label %35, label %ddIsIthAddVarPair.exit.thread.split.loop.exit45
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !32
   %38 = load ptr, ptr %10, align 8, !tbaa !36
   %39 = icmp eq ptr %37, %38
-  br i1 %39, label %40, label %ddIsIthAddVarPair.exit.thread.split.loop.exit41
+  br i1 %39, label %40, label %ddIsIthAddVarPair.exit.thread.split.loop.exit47
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !32
   %43 = load ptr, ptr %11, align 8, !tbaa !37
   %44 = icmp eq ptr %42, %43
-  br i1 %44, label %45, label %ddIsIthAddVarPair.exit.thread.split.loop.exit43
+  br i1 %44, label %45, label %ddIsIthAddVarPair.exit.thread.split.loop.exit49
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !32
   %48 = icmp eq ptr %47, %42
-  br i1 %48, label %ddIsIthAddVarPair.exit, label %ddIsIthAddVarPair.exit.thread.split.loop.exit45
+  br i1 %48, label %ddIsIthAddVarPair.exit, label %ddIsIthAddVarPair.exit.thread.split.loop.exit51
 
 ddIsIthAddVarPair.exit:                           ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !32
   %.not = icmp eq ptr %50, %37
-  br i1 %.not, label %17, label %ddIsIthAddVarPair.exit.thread.split.loop.exit47, !llvm.loop !59
+  br i1 %.not, label %17, label %ddIsIthAddVarPair.exit.thread.split.loop.exit53, !llvm.loop !59
 
 ddIsIthAddVarPair.exit.thread.split.loop.exit:    ; preds = %20
+  %indvars.le65 = trunc i64 %indvars.iv.next to i32
+  br label %ddIsIthAddVarPair.exit.thread
+
+ddIsIthAddVarPair.exit.thread.split.loop.exit45:  ; preds = %32
+  %indvars.le63 = trunc i64 %indvars.iv.next to i32
+  br label %ddIsIthAddVarPair.exit.thread
+
+ddIsIthAddVarPair.exit.thread.split.loop.exit47:  ; preds = %35
+  %indvars.le61 = trunc i64 %indvars.iv.next to i32
+  br label %ddIsIthAddVarPair.exit.thread
+
+ddIsIthAddVarPair.exit.thread.split.loop.exit49:  ; preds = %40
   %indvars.le59 = trunc i64 %indvars.iv.next to i32
   br label %ddIsIthAddVarPair.exit.thread
 
-ddIsIthAddVarPair.exit.thread.split.loop.exit39:  ; preds = %32
+ddIsIthAddVarPair.exit.thread.split.loop.exit51:  ; preds = %45
   %indvars.le57 = trunc i64 %indvars.iv.next to i32
   br label %ddIsIthAddVarPair.exit.thread
 
-ddIsIthAddVarPair.exit.thread.split.loop.exit41:  ; preds = %35
-  %indvars.le55 = trunc i64 %indvars.iv.next to i32
-  br label %ddIsIthAddVarPair.exit.thread
-
-ddIsIthAddVarPair.exit.thread.split.loop.exit43:  ; preds = %40
-  %indvars.le53 = trunc i64 %indvars.iv.next to i32
-  br label %ddIsIthAddVarPair.exit.thread
-
-ddIsIthAddVarPair.exit.thread.split.loop.exit45:  ; preds = %45
-  %indvars.le51 = trunc i64 %indvars.iv.next to i32
-  br label %ddIsIthAddVarPair.exit.thread
-
-ddIsIthAddVarPair.exit.thread.split.loop.exit47:  ; preds = %ddIsIthAddVarPair.exit
+ddIsIthAddVarPair.exit.thread.split.loop.exit53:  ; preds = %ddIsIthAddVarPair.exit
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %ddIsIthAddVarPair.exit.thread
 
-ddIsIthAddVarPair.exit.thread:                    ; preds = %17, %ddIsIthAddVarPair.exit.thread.split.loop.exit47, %ddIsIthAddVarPair.exit.thread.split.loop.exit45, %ddIsIthAddVarPair.exit.thread.split.loop.exit43, %ddIsIthAddVarPair.exit.thread.split.loop.exit41, %ddIsIthAddVarPair.exit.thread.split.loop.exit39, %ddIsIthAddVarPair.exit.thread.split.loop.exit
-  %.027.lcssa = phi i32 [ %indvars.le59, %ddIsIthAddVarPair.exit.thread.split.loop.exit ], [ %indvars.le57, %ddIsIthAddVarPair.exit.thread.split.loop.exit39 ], [ %indvars.le55, %ddIsIthAddVarPair.exit.thread.split.loop.exit41 ], [ %indvars.le53, %ddIsIthAddVarPair.exit.thread.split.loop.exit43 ], [ %indvars.le51, %ddIsIthAddVarPair.exit.thread.split.loop.exit45 ], [ %indvars.le, %ddIsIthAddVarPair.exit.thread.split.loop.exit47 ], [ %16, %17 ]
+ddIsIthAddVarPair.exit.thread:                    ; preds = %17, %ddIsIthAddVarPair.exit.thread.split.loop.exit53, %ddIsIthAddVarPair.exit.thread.split.loop.exit51, %ddIsIthAddVarPair.exit.thread.split.loop.exit49, %ddIsIthAddVarPair.exit.thread.split.loop.exit47, %ddIsIthAddVarPair.exit.thread.split.loop.exit45, %ddIsIthAddVarPair.exit.thread.split.loop.exit
+  %.027.lcssa = phi i32 [ %indvars.le65, %ddIsIthAddVarPair.exit.thread.split.loop.exit ], [ %indvars.le63, %ddIsIthAddVarPair.exit.thread.split.loop.exit45 ], [ %indvars.le61, %ddIsIthAddVarPair.exit.thread.split.loop.exit47 ], [ %indvars.le59, %ddIsIthAddVarPair.exit.thread.split.loop.exit49 ], [ %indvars.le57, %ddIsIthAddVarPair.exit.thread.split.loop.exit51 ], [ %indvars.le, %ddIsIthAddVarPair.exit.thread.split.loop.exit53 ], [ %16, %17 ]
   %51 = tail call fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.027.lcssa)
   %.not30 = icmp eq ptr %51, null
   br i1 %.not30, label %52, label %.thread
@@ -2246,7 +2246,7 @@ define ptr @Cudd_bddVectorCompose(ptr noundef initializes((448, 452)) %0, ptr no
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ %13, %10 ]
   %16 = trunc nuw i64 %indvars.iv to i32
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %.split.loop.exit35
+  br i1 %17, label %18, label %.split.loop.exit38
 
 18:                                               ; preds = %15
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2265,15 +2265,15 @@ define ptr @Cudd_bddVectorCompose(ptr noundef initializes((448, 452)) %0, ptr no
 
 .split.loop.exit:                                 ; preds = %18
   %indvars.le = trunc i64 %indvars.iv.next to i32
-  br label %.split.loop.exit35
+  br label %.split.loop.exit38
 
-.split.loop.exit35:                               ; preds = %15, %.split.loop.exit
+.split.loop.exit38:                               ; preds = %15, %.split.loop.exit
   %.024.lcssa = phi i32 [ %indvars.le, %.split.loop.exit ], [ %14, %15 ]
   %29 = tail call fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %.024.lcssa)
   %.not27 = icmp eq ptr %29, null
   br i1 %.not27, label %30, label %.thread
 
-30:                                               ; preds = %.split.loop.exit35
+30:                                               ; preds = %.split.loop.exit38
   tail call void @cuddHashTableQuit(ptr noundef nonnull %11) #7
   %31 = load i32, ptr %4, align 8, !tbaa !26
   %32 = icmp eq i32 %31, 1
@@ -2285,7 +2285,7 @@ define ptr @Cudd_bddVectorCompose(ptr noundef initializes((448, 452)) %0, ptr no
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit, label %10, !llvm.loop !66
 
-.thread:                                          ; preds = %.split.loop.exit35
+.thread:                                          ; preds = %.split.loop.exit38
   %35 = ptrtoint ptr %29 to i64
   %36 = and i64 %35, -2
   %37 = inttoptr i64 %36 to ptr

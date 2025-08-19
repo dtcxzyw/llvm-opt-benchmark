@@ -430,7 +430,7 @@ get_vlc2.exit.i:                                  ; preds = %192, %174
 
 216:                                              ; preds = %215
   %217 = lshr i32 %.062.i.i, 4
-  %218 = add nsw i32 %217, %.03660.i
+  %218 = add nuw nsw i32 %217, %.03660.i
   %219 = icmp sgt i32 %218, 63
   br i1 %219, label %decode_block.exit, label %220
 
@@ -651,7 +651,7 @@ get_vlc2.exit.i326:                               ; preds = %342, %324
 
 366:                                              ; preds = %365
   %367 = lshr i32 %.062.i.i328, 4
-  %368 = add nsw i32 %367, %.03660.i325
+  %368 = add nuw nsw i32 %367, %.03660.i325
   %369 = icmp sgt i32 %368, 63
   br i1 %369, label %decode_block.exit335, label %370
 
@@ -960,7 +960,7 @@ get_vlc2.exit.i345:                               ; preds = %529, %511
 
 553:                                              ; preds = %552
   %554 = lshr i32 %.062.i.i347, 4
-  %555 = add nsw i32 %554, %.03660.i344
+  %555 = add nuw nsw i32 %554, %.03660.i344
   %556 = icmp sgt i32 %555, 63
   br i1 %556, label %copy_block8.exit.thread, label %557
 
@@ -1252,7 +1252,7 @@ get_vlc2.exit.i365:                               ; preds = %705, %687
 
 729:                                              ; preds = %728
   %730 = lshr i32 %.062.i.i367, 4
-  %731 = add nsw i32 %730, %.03660.i364
+  %731 = add nuw nsw i32 %730, %.03660.i364
   %732 = icmp sgt i32 %731, 63
   br i1 %732, label %765, label %733
 

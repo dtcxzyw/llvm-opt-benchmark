@@ -257,15 +257,15 @@ for.cond20.preheader:                             ; preds = %invoke.cont14
 
 for.cond20.preheader.thread:                      ; preds = %for.body
   %13 = load ptr, ptr %_M_finish.i, align 8, !tbaa !21
-  %sub.ptr.lhs.cast.i94173 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i95174 = ptrtoint ptr %.pre to i64
-  %sub.ptr.sub.i96175 = sub i64 %sub.ptr.lhs.cast.i94173, %sub.ptr.rhs.cast.i95174
-  %sub.ptr.div.i97176 = ashr exact i64 %sub.ptr.sub.i96175, 3
-  %cmp22164177 = icmp ugt i64 %sub.ptr.div.i97176, 1
-  br i1 %cmp22164177, label %for.body23.us.preheader, label %for.cond.cleanup
+  %sub.ptr.lhs.cast.i94184 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i95185 = ptrtoint ptr %.pre to i64
+  %sub.ptr.sub.i96186 = sub i64 %sub.ptr.lhs.cast.i94184, %sub.ptr.rhs.cast.i95185
+  %sub.ptr.div.i97187 = ashr exact i64 %sub.ptr.sub.i96186, 3
+  %cmp22164188 = icmp ugt i64 %sub.ptr.div.i97187, 1
+  br i1 %cmp22164188, label %for.body23.us.preheader, label %for.cond.cleanup
 
 for.body23.us.preheader:                          ; preds = %for.cond20.preheader.thread
-  %conv28182 = uitofp i64 %numberSubSteps to double
+  %conv28193 = uitofp i64 %numberSubSteps to double
   %fneg.us = fneg double %reversionSpeed
   br label %for.body23.us
 
@@ -282,7 +282,7 @@ for.body23.us:                                    ; preds = %for.body23.us.prehe
   %add.ptr.i100.us = getelementptr i8, ptr %add.ptr.i99.us, i64 -8
   %15 = load double, ptr %add.ptr.i100.us, align 8, !tbaa !24
   %sub26.us = fsub double %14, %15
-  %div29.us = fdiv double %sub26.us, %conv28182
+  %div29.us = fdiv double %sub26.us, %conv28193
   %mul31.us = fmul double %div29.us, %fneg.us
   %call32.us = tail call double @exp(double noundef %mul31.us) #24, !tbaa !28
   %cmp33.us = fcmp ogt double %div29.us, 0.000000e+00
@@ -302,7 +302,7 @@ for.body67.us:                                    ; preds = %for.body23.us, %for
 
 for.cond63.for.cond.cleanup66_crit_edge.us:       ; preds = %for.body67.us
   %inc79.us = add nuw i64 %i.0166.us, 1
-  %exitcond170.not = icmp eq i64 %inc79.us, %sub.ptr.div.i97176
+  %exitcond170.not = icmp eq i64 %inc79.us, %sub.ptr.div.i97187
   br i1 %exitcond170.not, label %for.cond.cleanup, label %for.body23.us, !llvm.loop !32
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

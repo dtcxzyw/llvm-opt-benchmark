@@ -1861,9 +1861,9 @@ _ZN11MyTickMeter5startEv.exit:                    ; preds = %631
           to label %.noexc274 unwind label %.loopexit485
 
 .noexc274:                                        ; preds = %637
-  %.not975 = icmp eq i64 %633, 0
+  %.not1056 = icmp eq i64 %633, 0
   %639 = sub i64 %638, %633
-  %640 = select i1 %.not975, i64 0, i64 %639
+  %640 = select i1 %.not1056, i64 0, i64 %639
   %.sroa.6447.4 = add nsw i64 %640, %.sroa.6447.0890
   %641 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %.noexc275 unwind label %.loopexit485

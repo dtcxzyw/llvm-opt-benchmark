@@ -408,26 +408,26 @@ define dso_local ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i
   br label %23
 
 17:                                               ; preds = %28
-  %18 = add nuw nsw i64 %.02026, 1
+  %18 = add nuw nsw i64 %.02027, 1
   %.val = load i32, ptr %31, align 8, !tbaa !23
   %19 = lshr i32 %.val, %6
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 %30, %20
   %22 = and i64 %21, %16
-  %.not = icmp samesign ult i64 %.02026, %22
+  %.not = icmp samesign ult i64 %.02027, %22
   br i1 %.not, label %23, label %._crit_edge
 
 23:                                               ; preds = %.lr.ph, %17
-  %.0181927 = phi i64 [ %8, %.lr.ph ], [ %30, %17 ]
-  %.02026 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
+  %.0181928 = phi i64 [ %8, %.lr.ph ], [ %30, %17 ]
+  %.02027 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
   %24 = phi ptr [ %11, %.lr.ph ], [ %33, %17 ]
-  %25 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %.0181927, i32 1
+  %25 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %.0181928, i32 1
   %26 = load i32, ptr %25, align 4, !tbaa !24
   %27 = icmp eq i32 %26, %1
   br i1 %27, label %._crit_edge, label %28
 
 28:                                               ; preds = %23
-  %29 = add nuw nsw i64 %.0181927, 1
+  %29 = add nuw nsw i64 %.0181928, 1
   %30 = and i64 %29, %16
   %31 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8

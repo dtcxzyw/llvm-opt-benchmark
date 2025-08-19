@@ -636,9 +636,9 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit: ; preds = %58
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit, %36
-  %.016.lcssa61 = phi i32 [ %60, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit ], [ 1, %36 ]
+  %.016.lcssa66 = phi i32 [ %60, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit ], [ 1, %36 ]
   %53 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEiNS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store i32 %.016.lcssa61, ptr %53, align 4, !tbaa !16
+  store i32 %.016.lcssa66, ptr %53, align 4, !tbaa !16
   br label %65
 
 .lr.ph:                                           ; preds = %58, %.lr.ph.preheader
@@ -667,7 +667,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit29: ; preds = %.lr.ph
   resume { ptr, i32 } %62
 
 65:                                               ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27, %33
-  %.0 = phi i32 [ %35, %33 ], [ %.016.lcssa61, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27 ]
+  %.0 = phi i32 [ %35, %33 ], [ %.016.lcssa66, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit27 ]
   ret i32 %.0
 }
 

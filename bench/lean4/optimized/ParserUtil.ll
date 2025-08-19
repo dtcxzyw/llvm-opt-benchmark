@@ -11741,18 +11741,18 @@ _init_l_Lake_Toml_atom_formatter___rarg___closed__5.exit: ; preds = %_init_l_Lak
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_Toml_atom_formatter___rarg___closed__5.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %80, %_init_l_Lake_Toml_atom_formatter___rarg___closed__5.exit ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink25 = phi ptr [ %4, %3 ], [ %80, %_init_l_Lake_Toml_atom_formatter___rarg___closed__5.exit ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
+  store i32 1, ptr %.sink25, align 4, !tbaa !4
   store i32 131096, ptr %83, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %84, align 8, !tbaa !10
-  %85 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %85, align 8, !tbaa !10
   br label %86
 
 86:                                               ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink25, %.sink.split ]
   ret ptr %.0
 }
 

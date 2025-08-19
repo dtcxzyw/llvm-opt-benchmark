@@ -1226,16 +1226,16 @@ switch.lookup:                                    ; preds = %47
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %92 = load i32, ptr %91, align 4
   %93 = icmp ult i32 %92, 4
-  br i1 %93, label %switch.lookup175, label %95
+  br i1 %93, label %switch.lookup185, label %95
 
-switch.lookup175:                                 ; preds = %66
+switch.lookup185:                                 ; preds = %66
   %94 = zext nneg i32 %92 to i64
-  %switch.gep176 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dump_monitor_info.13, i64 0, i64 %94
-  %switch.load177 = load ptr, ptr %switch.gep176, align 8
+  %switch.gep186 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dump_monitor_info.13, i64 0, i64 %94
+  %switch.load187 = load ptr, ptr %switch.gep186, align 8
   br label %95
 
-95:                                               ; preds = %66, %switch.lookup175
-  %.0107 = phi ptr [ %switch.load177, %switch.lookup175 ], [ @.str.24, %66 ]
+95:                                               ; preds = %66, %switch.lookup185
+  %.0107 = phi ptr [ %switch.load187, %switch.lookup185 ], [ @.str.24, %66 ]
   %96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef nonnull %.0107)
   br label %97
 
@@ -1460,16 +1460,16 @@ switch.lookup175:                                 ; preds = %66
   %250 = load i32, ptr %249, align 4
   %switch.tableidx = add i32 %250, -1
   %251 = icmp ult i32 %switch.tableidx, 6
-  br i1 %251, label %switch.lookup178, label %253
+  br i1 %251, label %switch.lookup188, label %253
 
-switch.lookup178:                                 ; preds = %208
+switch.lookup188:                                 ; preds = %208
   %252 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep179 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dump_monitor_info.14, i64 0, i64 %252
-  %switch.load180 = load ptr, ptr %switch.gep179, align 8
+  %switch.gep189 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dump_monitor_info.14, i64 0, i64 %252
+  %switch.load190 = load ptr, ptr %switch.gep189, align 8
   br label %253
 
-253:                                              ; preds = %switch.lookup178, %208
-  %.0 = phi ptr [ @.str.81, %208 ], [ %switch.load180, %switch.lookup178 ]
+253:                                              ; preds = %switch.lookup188, %208
+  %.0 = phi ptr [ @.str.81, %208 ], [ %switch.load190, %switch.lookup188 ]
   %254 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.88, ptr noundef nonnull %.0)
   %255 = getelementptr inbounds nuw i8, ptr %203, i64 60
   %256 = load i32, ptr %255, align 4

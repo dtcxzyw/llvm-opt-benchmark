@@ -17943,7 +17943,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake_serve___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_serve___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not59 = icmp eq i64 %1, %2
   br i1 %.not59, label %._crit_edge, label %.lr.ph
 
@@ -23594,7 +23594,7 @@ declare ptr @l_Lake_Log_toString(ptr noundef) local_unnamed_addr #1
 declare ptr @l_Lake_Workspace_augmentedEnvVars(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake_serve___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_serve___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
   %.val16 = load i64, ptr %6, align 8, !tbaa !12
   %7 = ptrtoint ptr %1 to i64
@@ -24054,18 +24054,18 @@ _init_l_Lake_serve___lambda__1___closed__3.exit:  ; preds = %_init_l_Lake_serve_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_serve___lambda__1___closed__3.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %97, %_init_l_Lake_serve___lambda__1___closed__3.exit ]
-  %100 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !8
+  %.sink47 = phi ptr [ %4, %3 ], [ %97, %_init_l_Lake_serve___lambda__1___closed__3.exit ]
+  %100 = getelementptr inbounds nuw i8, ptr %.sink47, i64 4
+  store i32 1, ptr %.sink47, align 4, !tbaa !8
   store i32 131096, ptr %100, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.sink47, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %101, align 8, !tbaa !4
-  %102 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.sink47, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %102, align 8, !tbaa !4
   br label %103
 
 103:                                              ; preds = %.sink.split, %lean_dec_ref.exit18, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink47, %.sink.split ]
   ret ptr %.0
 }
 

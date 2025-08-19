@@ -1330,17 +1330,17 @@ define void @If_ManNodeShape2_rec(ptr noundef %0, ptr noundef %1, ptr noundef ca
   %9 = getelementptr i8, ptr %0, i64 328
   %.val = load ptr, ptr %9, align 8, !tbaa !62
   %10 = getelementptr i8, ptr %2, i64 80
-  %.0.val30 = load i32, ptr %10, align 8, !tbaa !3
-  %11 = sext i32 %.0.val30 to i64
+  %.0.val35 = load i32, ptr %10, align 8, !tbaa !3
+  %11 = sext i32 %.0.val35 to i64
   %12 = getelementptr i32, ptr %.val, i64 %11
   %13 = getelementptr i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !3
-  %.not2831 = icmp eq i32 %14, 1
-  br i1 %.not2831, label %._crit_edge, label %.lr.ph
+  %.not2836 = icmp eq i32 %14, 1
+  br i1 %.not2836, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.02932 = phi ptr [ %16, %.lr.ph ], [ %2, %7 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.02932, i64 40
+  %.02937 = phi ptr [ %16, %.lr.ph ], [ %2, %7 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.02937, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !13, !nonnull !73, !noundef !73
   %17 = getelementptr i8, ptr %16, i64 80
   %.0.val = load i32, ptr %17, align 4, !tbaa !3
@@ -1577,7 +1577,7 @@ define noundef i32 @If_ManNodeShapeSat(ptr noundef %0, ptr noundef %1, ptr nound
 
 60:                                               ; preds = %.lr.ph143, %149
   %indvars.iv169 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next170, %149 ]
-  %.pre.i145 = phi ptr [ %52, %.lr.ph143 ], [ %.pre.i146189, %149 ]
+  %.pre.i145 = phi ptr [ %52, %.lr.ph143 ], [ %.pre.i146197, %149 ]
   %.val113 = load ptr, ptr %55, align 8, !tbaa !11
   %61 = getelementptr inbounds nuw ptr, ptr %.val113, i64 %indvars.iv169
   %62 = load ptr, ptr %61, align 8, !tbaa !12
@@ -1587,7 +1587,7 @@ define noundef i32 @If_ManNodeShapeSat(ptr noundef %0, ptr noundef %1, ptr nound
 
 ._crit_edge.thread:                               ; preds = %60
   %63 = getelementptr i8, ptr %62, i64 80
-  %.val127187 = load i32, ptr %63, align 4, !tbaa !3
+  %.val127195 = load i32, ptr %63, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.preheader.critedge.i
 
@@ -1705,17 +1705,17 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %111
 
 .preheader.critedge.i:                            ; preds = %._crit_edge.thread, %._crit_edge
-  %.val127191 = phi i32 [ %.val127187, %._crit_edge.thread ], [ %.val127, %._crit_edge ]
+  %.val127199 = phi i32 [ %.val127195, %._crit_edge.thread ], [ %.val127, %._crit_edge ]
   %104 = phi ptr [ %63, %._crit_edge.thread ], [ %91, %._crit_edge ]
-  %.pre.i146190 = phi ptr [ %.pre.i145, %._crit_edge.thread ], [ %.pre.i147, %._crit_edge ]
-  %.val129188 = phi i32 [ 0, %._crit_edge.thread ], [ %.val129.pre, %._crit_edge ]
-  %105 = shl nsw i32 %.val127191, 1
+  %.pre.i146198 = phi ptr [ %.pre.i145, %._crit_edge.thread ], [ %.pre.i147, %._crit_edge ]
+  %.val129196 = phi i32 [ 0, %._crit_edge.thread ], [ %.val129.pre, %._crit_edge ]
+  %105 = shl nsw i32 %.val127199, 1
   %106 = or disjoint i32 %105, 1
-  store i32 %106, ptr %.pre.i146190, align 4, !tbaa !3
-  %107 = sext i32 %.val129188 to i64
-  %108 = getelementptr inbounds i32, ptr %.pre.i146190, i64 %107
+  store i32 %106, ptr %.pre.i146198, align 4, !tbaa !3
+  %107 = sext i32 %.val129196 to i64
+  %108 = getelementptr inbounds i32, ptr %.pre.i146198, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
-  %110 = call i32 @sat_solver_addclause(ptr noundef %43, ptr noundef nonnull %.pre.i146190, ptr noundef nonnull %109) #15
+  %110 = call i32 @sat_solver_addclause(ptr noundef %43, ptr noundef nonnull %.pre.i146198, ptr noundef nonnull %109) #15
   br label %sat_solver_add_choice.exit
 
 111:                                              ; preds = %111, %.lr.ph8.i
@@ -1764,7 +1764,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 sat_solver_add_choice.exit:                       ; preds = %.loopexit.i, %.preheader.critedge.i
   %128 = phi ptr [ %104, %.preheader.critedge.i ], [ %91, %.loopexit.i ]
-  %.pre.i146189 = phi ptr [ %.pre.i146190, %.preheader.critedge.i ], [ %.pre.i147, %.loopexit.i ]
+  %.pre.i146197 = phi ptr [ %.pre.i146198, %.preheader.critedge.i ], [ %.pre.i147, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %129 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %130 = load ptr, ptr %129, align 8, !tbaa !19
@@ -1812,11 +1812,11 @@ sat_solver_add_choice.exit:                       ; preds = %.loopexit.i, %.preh
   br i1 %151, label %60, label %..critedge4_crit_edge, !llvm.loop !82
 
 ..critedge4_crit_edge:                            ; preds = %149
-  store ptr %.pre.i146189, ptr %53, align 8
+  store ptr %.pre.i146197, ptr %53, align 8
   br label %.critedge4
 
 .critedge4:                                       ; preds = %..critedge4_crit_edge, %.critedge2
-  %152 = phi ptr [ %.pre.i146189, %..critedge4_crit_edge ], [ %52, %.critedge2 ]
+  %152 = phi ptr [ %.pre.i146197, %..critedge4_crit_edge ], [ %52, %.critedge2 ]
   %.not.i = icmp eq ptr %152, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %153
 

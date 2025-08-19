@@ -3559,7 +3559,7 @@ default.unreachable:                              ; preds = %166
   br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
 
 .body202.thread:                                  ; preds = %189, %199, %196
-  %lpad.thr_comm306 = landingpad { ptr, i32 }
+  %lpad.thr_comm316 = landingpad { ptr, i32 }
           cleanup
   br label %242
 
@@ -3744,14 +3744,14 @@ default.unreachable:                              ; preds = %166
   unreachable
 
 242:                                              ; preds = %.thread, %.body202.thread
-  %.pn148305 = phi { ptr, i32 } [ %lpad.thr_comm306, %.body202.thread ], [ %165, %.thread ]
+  %.pn148315 = phi { ptr, i32 } [ %lpad.thr_comm316, %.body202.thread ], [ %165, %.thread ]
   %243 = load i32, ptr %32, align 4, !alias.scope !842, !noundef !4
   %244 = invoke noundef i32 @close(i32 noundef %243)
           to label %.thread265 unwind label %240
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit: ; preds = %166, %174
-  %.sink311 = phi i64 [ 15, %174 ], [ 16, %166 ]
-  %245 = getelementptr i8, ptr %.val175, i64 %.sink311
+  %.sink321 = phi i64 [ 15, %174 ], [ 16, %166 ]
+  %245 = getelementptr i8, ptr %.val175, i64 %.sink321
   %.0.i = load i8, ptr %245, align 8, !range !853, !noundef !4
   %246 = icmp eq i8 %.0.i, 1
   br i1 %246, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread271, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
@@ -3900,7 +3900,7 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread: ; preds = %170, %17
           to label %.thread265 unwind label %240
 
 .thread265:                                       ; preds = %242, %239, %230, %184, %207, %276, %300, %292, %302
-  %.pn152 = phi { ptr, i32 } [ %303, %302 ], [ %301, %300 ], [ %lpad.thr_comm.split-lp278, %292 ], [ %277, %276 ], [ %.pn148305, %242 ], [ %231, %230 ], [ %lpad.thr_comm.split-lp, %239 ], [ %185, %184 ], [ %208, %207 ]
+  %.pn152 = phi { ptr, i32 } [ %303, %302 ], [ %301, %300 ], [ %lpad.thr_comm.split-lp278, %292 ], [ %277, %276 ], [ %.pn148315, %242 ], [ %231, %230 ], [ %lpad.thr_comm.split-lp, %239 ], [ %185, %184 ], [ %208, %207 ]
   resume { ptr, i32 } %.pn152
 
 302:                                              ; preds = %355, %339, %330, %324, %313, %304, %_ZN7uu_tail5paths13HeaderPrinter11print_input17h31ddadad9224c8c2E.exit
@@ -3968,11 +3968,11 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread: ; preds = %170, %17
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %326 = load i8, ptr %325, align 8, !range !146, !noundef !4
   %327 = trunc nuw i8 %326 to i1
-  %spec.select312 = select i1 %327, ptr @anon.31baa48ba8e046f427e0adc953308359.11.llvm.1595114882763162607, ptr @anon.31baa48ba8e046f427e0adc953308359.52
-  %spec.select313 = select i1 %327, i64 0, i64 24
-  store ptr %spec.select312, ptr %39, align 8
+  %spec.select322 = select i1 %327, ptr @anon.31baa48ba8e046f427e0adc953308359.11.llvm.1595114882763162607, ptr @anon.31baa48ba8e046f427e0adc953308359.52
+  %spec.select323 = select i1 %327, i64 0, i64 24
+  store ptr %spec.select322, ptr %39, align 8
   %328 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i64 %spec.select313, ptr %328, align 8
+  store i64 %spec.select323, ptr %328, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -4143,7 +4143,7 @@ define internal fastcc void @_ZN7uu_tail12bounded_tail17hdb3b4428fad77660E(ptr n
   %27 = alloca { i64, [1 x i64] }, align 8
   %28 = alloca { i64, [1 x i64] }, align 8
   %29 = load i64, ptr %1, align 8, !range !920, !noundef !4
-  switch i64 %29, label %default.unreachable28 [
+  switch i64 %29, label %default.unreachable39 [
     i64 4, label %30
     i64 0, label %79
     i64 1, label %146
@@ -4154,14 +4154,14 @@ define internal fastcc void @_ZN7uu_tail12bounded_tail17hdb3b4428fad77660E(ptr n
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8, !range !921, !noundef !4
-  switch i64 %32, label %default.unreachable28 [
+  switch i64 %32, label %default.unreachable39 [
     i64 0, label %36
     i64 1, label %62
     i64 3, label %66
     i64 2, label %33
   ]
 
-default.unreachable28:                            ; preds = %30, %2
+default.unreachable39:                            ; preds = %30, %2
   unreachable
 
 33:                                               ; preds = %146, %62, %2, %30, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit12", %_ZN7uu_tail19backwards_thru_file17hb09e289d2979cdb2E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit15", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7267fca1caebbd74E.exit18"

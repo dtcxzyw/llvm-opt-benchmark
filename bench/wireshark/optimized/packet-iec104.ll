@@ -2674,11 +2674,11 @@ get_HAL.exit.i:                                   ; preds = %819
   %switch.downshift = lshr i7 39, %switch.cast
   %switch.masked = trunc i7 %switch.downshift to i1
   %903 = shl nuw nsw i8 %899, 3
-  %switch.shiftamt430 = zext nneg i8 %903 to i56
-  %switch.downshift431 = lshr i56 3377768574222336, %switch.shiftamt430
-  %switch.masked432 = trunc i56 %switch.downshift431 to i8
+  %switch.shiftamt448 = zext nneg i8 %903 to i56
+  %switch.downshift449 = lshr i56 3377768574222336, %switch.shiftamt448
+  %switch.masked450 = trunc i56 %switch.downshift449 to i8
   %.not.i102.i = select i1 %902, i1 %switch.masked, i1 true
-  %.0.i.i = select i1 %902, i8 %switch.masked432, i8 0
+  %.0.i.i = select i1 %902, i8 %switch.masked450, i8 0
   %904 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0.i, i32 noundef 9)
   %905 = load i32, ptr @hf_cln, align 4
   %906 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %905, ptr noundef %.0.i, i32 noundef 9, i32 noundef 2, i32 noundef -2147483648)
@@ -2872,8 +2872,8 @@ dissect_iec60870_segment.exit:                    ; preds = %1011, %get_HMAC.exi
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %dissect_iec60870_segment.exit, %1019, %1038
-  %.sink426 = phi i8 [ %1039, %1038 ], [ %1025, %1019 ], [ %1018, %dissect_iec60870_segment.exit ]
-  store i8 %.sink426, ptr %8, align 1
+  %.sink444 = phi i8 [ %1039, %1038 ], [ %1025, %1019 ], [ %1018, %dissect_iec60870_segment.exit ]
+  store i8 %.sink444, ptr %8, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %759, %.loopexit.sink.split, %139
@@ -4258,8 +4258,8 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph.split.split.us119, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %.lr.ph.split.split.us119, %.lr.ph.split.split.us117, %.lr.ph.split.split.us115
-  %.lcssa135.sink = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %194, %.lr.ph.split.split.us117 ], [ %200, %.lr.ph.split.split.us119 ]
-  store i8 %.lcssa135.sink, ptr %7, align 1
+  %.lcssa136.sink = phi i8 [ %185, %.lr.ph.split.split.us115 ], [ %194, %.lr.ph.split.split.us117 ], [ %200, %.lr.ph.split.split.us119 ]
+  store i8 %.lcssa136.sink, ptr %7, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.us, %178, %.loopexit.sink.split, %.lr.ph.split, %57, %42

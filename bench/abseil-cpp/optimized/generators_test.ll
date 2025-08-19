@@ -4293,8 +4293,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !250
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %10, double %8)
+  %.0.i.i.i33 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %10, double %8)
   br i1 %15, label %97, label %99
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -4508,8 +4508,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !251
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %96, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %98 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %10, double %8)
+  %.0.i.i.i33 = phi double [ %96, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %98 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %10, double %8)
   br i1 %15, label %99, label %101
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -4718,8 +4718,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !252
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %96, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %98 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %10, double %8)
+  %.0.i.i.i33 = phi double [ %96, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %98 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %10, double %8)
   br i1 %15, label %99, label %101
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -4928,8 +4928,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !253
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %96, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %98 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %10, double %8)
+  %.0.i.i.i33 = phi double [ %96, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %98 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %10, double %8)
   br i1 %15, label %99, label %101
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -5136,8 +5136,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !254
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %10, double %8)
+  %.0.i.i.i33 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %10, double %8)
   br i1 %15, label %97, label %99
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -5346,8 +5346,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !255
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %10, double %8)
+  %.0.i.i.i33 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %10, double %8)
   br i1 %15, label %97, label %99
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -5556,8 +5556,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !256
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %10, double %8)
+  %.0.i.i.i33 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %10, double %8)
   br i1 %15, label %97, label %99
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -5770,8 +5770,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !257
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i31 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %10, double %8)
+  %.0.i.i.i35 = phi double [ %94, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %96 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i35, double %10, double %8)
   br i1 %15, label %97, label %99
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -5989,8 +5989,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !258
 
 _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit: ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %95, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
-  %97 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %11, double %9)
+  %.0.i.i.i34 = phi double [ %95, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit ]
+  %97 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i34, double %11, double %9)
   br i1 %16, label %98, label %100
 
 98:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
@@ -7391,9 +7391,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18Distribut
   br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
 
 _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %13
-  %.sink17.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
+  %.sink18.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
   %.sink.i.i.i = phi i32 [ 64, %15 ], [ 128, %13 ]
-  %17 = trunc nuw nsw i64 %.sink17.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.sink18.i.i.i to i32
   %18 = sub nuw nsw i32 %.sink.i.i.i, %17
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
@@ -7831,9 +7831,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18Distribut
   br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
 
 _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %13
-  %.sink17.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
+  %.sink18.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
   %.sink.i.i.i = phi i32 [ 64, %15 ], [ 128, %13 ]
-  %17 = trunc nuw nsw i64 %.sink17.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.sink18.i.i.i to i32
   %18 = sub nuw nsw i32 %.sink.i.i.i, %17
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EEC2ES1_S1_S1_.exit
 
@@ -13362,10 +13362,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !351
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i32 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %39 = load double, ptr %10, align 8, !tbaa !65
   %40 = load double, ptr %11, align 8, !tbaa !66
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %40, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %40, double %39)
   %42 = load double, ptr %12, align 8, !tbaa !62
   %43 = load double, ptr %13, align 8, !tbaa !63
   %44 = fcmp oeq double %43, -1.000000e+00
@@ -13509,10 +13509,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !352
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i32 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %39 = load double, ptr %10, align 8, !tbaa !74
   %40 = load double, ptr %11, align 8, !tbaa !75
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %40, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %40, double %39)
   %42 = load double, ptr %12, align 8, !tbaa !71
   %43 = load double, ptr %13, align 8, !tbaa !72
   %44 = fcmp oeq double %43, -1.000000e+00
@@ -13656,10 +13656,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !353
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i32 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %39 = load double, ptr %10, align 8, !tbaa !84
   %40 = load double, ptr %11, align 8, !tbaa !85
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %40, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %40, double %39)
   %42 = load double, ptr %12, align 8, !tbaa !81
   %43 = load double, ptr %13, align 8, !tbaa !82
   %44 = fcmp oeq double %43, -1.000000e+00
@@ -13803,10 +13803,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !354
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i32 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %39 = load double, ptr %10, align 8, !tbaa !93
   %40 = load double, ptr %11, align 8, !tbaa !94
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %40, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %40, double %39)
   %42 = load double, ptr %12, align 8, !tbaa !90
   %43 = load double, ptr %13, align 8, !tbaa !91
   %44 = fcmp oeq double %43, -1.000000e+00
@@ -13950,10 +13950,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !355
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i32 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %39 = load double, ptr %10, align 8, !tbaa !102
   %40 = load double, ptr %11, align 8, !tbaa !103
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %40, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %40, double %39)
   %42 = load double, ptr %12, align 8, !tbaa !99
   %43 = load double, ptr %13, align 8, !tbaa !100
   %44 = fcmp oeq double %43, -1.000000e+00
@@ -14097,10 +14097,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !356
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i32 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %39 = load double, ptr %10, align 8, !tbaa !111
   %40 = load double, ptr %11, align 8, !tbaa !112
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %40, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %40, double %39)
   %42 = load double, ptr %12, align 8, !tbaa !108
   %43 = load double, ptr %13, align 8, !tbaa !109
   %44 = fcmp oeq double %43, -1.000000e+00
@@ -14244,10 +14244,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !357
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i29 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i32 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %39 = load double, ptr %10, align 8, !tbaa !120
   %40 = load double, ptr %11, align 8, !tbaa !121
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %40, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %40, double %39)
   %42 = load double, ptr %12, align 8, !tbaa !117
   %43 = load double, ptr %13, align 8, !tbaa !118
   %44 = fcmp oeq double %43, -1.000000e+00
@@ -14392,10 +14392,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !358
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i31 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i34 = phi double [ %37, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %39 = load double, ptr %10, align 8, !tbaa !131
   %40 = load double, ptr %11, align 16, !tbaa !132
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %40, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i34, double %40, double %39)
   %42 = load double, ptr %12, align 8, !tbaa !128
   %43 = load double, ptr %13, align 16, !tbaa !129
   %44 = fcmp oeq double %43, -1.000000e+00
@@ -14551,10 +14551,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.critedge, !llvm.loop !359
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %38, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
+  %.0.i.i.i33 = phi double [ %38, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit.i.i ]
   %40 = load double, ptr %11, align 8, !tbaa !140
   %41 = load double, ptr %12, align 16, !tbaa !141
-  %42 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %41, double %40)
+  %42 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %41, double %40)
   %43 = load double, ptr %13, align 8, !tbaa !137
   %44 = load double, ptr %14, align 16, !tbaa !138
   %45 = fcmp oeq double %44, -1.000000e+00
@@ -16008,9 +16008,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18Distribut
   br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
 
 _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %13
-  %.sink17.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
+  %.sink18.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
   %.sink.i.i.i = phi i32 [ 64, %15 ], [ 128, %13 ]
-  %17 = trunc nuw nsw i64 %.sink17.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.sink18.i.i.i to i32
   %18 = sub nuw nsw i32 %.sink.i.i.i, %17
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
@@ -16564,9 +16564,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18Distribut
   br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
 
 _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %13
-  %.sink17.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
+  %.sink18.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
   %.sink.i.i.i = phi i32 [ 64, %15 ], [ 128, %13 ]
-  %17 = trunc nuw nsw i64 %.sink17.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.sink18.i.i.i to i32
   %18 = sub nuw nsw i32 %.sink.i.i.i, %17
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EEC2ES1_S1_S1_.exit
 
@@ -21094,8 +21094,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !393
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %7, double %5)
+  %.0.i.i.i31 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
   br i1 %12, label %36, label %38
 
 36:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -21230,8 +21230,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !394
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %35, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
-  %37 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %7, double %5)
+  %.0.i.i.i31 = phi double [ %35, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %37 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
   br i1 %12, label %38, label %40
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -21364,8 +21364,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !395
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %35, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
-  %37 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %7, double %5)
+  %.0.i.i.i31 = phi double [ %35, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %37 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
   br i1 %12, label %38, label %40
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -21498,8 +21498,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !396
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %35, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
-  %37 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %7, double %5)
+  %.0.i.i.i31 = phi double [ %35, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %37 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
   br i1 %12, label %38, label %40
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -21630,8 +21630,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !397
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %7, double %5)
+  %.0.i.i.i31 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
   br i1 %12, label %36, label %38
 
 36:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -21764,10 +21764,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !398
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %.0.i.i.i31 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, ptr %1, align 16, !tbaa !20
   store i64 %.narrow.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !20
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %7, double %5)
+  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
   br i1 %12, label %36, label %38
 
 36:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -21898,10 +21898,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !399
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i30 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %.0.i.i.i31 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, ptr %1, align 16, !tbaa !20
   store i64 %.narrow.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !20
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %7, double %5)
+  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
   br i1 %12, label %36, label %38
 
 36:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -22036,10 +22036,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !400
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i32 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %.0.i.i.i33 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, ptr %1, align 16, !tbaa !20
   store i64 %.narrow.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !20
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %7, double %5)
+  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i33, double %7, double %5)
   br i1 %12, label %36, label %38
 
 36:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -22179,10 +22179,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !401
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i31 = phi double [ %34, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %.0.i.i.i32 = phi double [ %34, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, ptr %1, align 16, !tbaa !20
   store i64 %.narrow.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !20
-  %36 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %8, double %6)
+  %36 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %8, double %6)
   br i1 %13, label %37, label %39
 
 37:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -23959,9 +23959,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18Distribut
   br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
 
 _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %13
-  %.sink17.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
+  %.sink18.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
   %.sink.i.i.i = phi i32 [ 64, %15 ], [ 128, %13 ]
-  %17 = trunc nuw nsw i64 %.sink17.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.sink18.i.i.i to i32
   %18 = sub nuw nsw i32 %.sink.i.i.i, %17
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
@@ -24466,9 +24466,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18Distribut
   br label %_ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i
 
 _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %13
-  %.sink17.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
+  %.sink18.i.i.i = phi i64 [ %16, %15 ], [ %14, %13 ]
   %.sink.i.i.i = phi i32 [ 64, %15 ], [ 128, %13 ]
-  %17 = trunc nuw nsw i64 %.sink17.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.sink18.i.i.i to i32
   %18 = sub nuw nsw i32 %.sink.i.i.i, %17
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EEC2ES1_S1_S1_.exit
 

@@ -381,25 +381,25 @@ provider_conf_activate.exit.i:                    ; preds = %prov_already_activa
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   %.not58.i = icmp eq ptr %.145.i, null
-  br i1 %.not58.i, label %.thread96.i, label %131
+  br i1 %.not58.i, label %.thread111.i, label %131
 
 131:                                              ; preds = %130, %.thread.i
-  %.053.lcssa8894.i = phi ptr [ null, %.thread.i ], [ %.154.i, %130 ]
-  %.044.lcssa8993.i = phi ptr [ %.0.i.i, %.thread.i ], [ %.145.i, %130 ]
-  %132 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.044.lcssa8993.i, ptr noundef nonnull @.str, i32 noundef 369) #5
+  %.053.lcssa103109.i = phi ptr [ null, %.thread.i ], [ %.154.i, %130 ]
+  %.044.lcssa104108.i = phi ptr [ %.0.i.i, %.thread.i ], [ %.145.i, %130 ]
+  %132 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.044.lcssa104108.i, ptr noundef nonnull @.str, i32 noundef 369) #5
   store ptr %132, ptr %6, align 8, !tbaa !22
   %133 = icmp ne ptr %132, null
-  %134 = icmp ne ptr %.053.lcssa8894.i, null
+  %134 = icmp ne ptr %.053.lcssa103109.i, null
   %or.cond.i = select i1 %133, i1 %134, i1 false
   br i1 %or.cond.i, label %135, label %138
 
-.thread96.i:                                      ; preds = %130
-  %.not104.i = icmp eq ptr %.154.i, null
-  br i1 %.not104.i, label %.thread71.i, label %135
+.thread111.i:                                     ; preds = %130
+  %.not119.i = icmp eq ptr %.154.i, null
+  br i1 %.not119.i, label %.thread71.i, label %135
 
-135:                                              ; preds = %.thread96.i, %131
-  %.053.lcssa8895100.i = phi ptr [ %.154.i, %.thread96.i ], [ %.053.lcssa8894.i, %131 ]
-  %136 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.053.lcssa8895100.i, ptr noundef nonnull @.str, i32 noundef 374) #5
+135:                                              ; preds = %.thread111.i, %131
+  %.053.lcssa103110115.i = phi ptr [ %.154.i, %.thread111.i ], [ %.053.lcssa103109.i, %131 ]
+  %136 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.053.lcssa103110115.i, ptr noundef nonnull @.str, i32 noundef 374) #5
   store ptr %136, ptr %11, align 8, !tbaa !25
   %137 = icmp eq ptr %136, null
   br i1 %137, label %provider_conf_params.exit.thread.i, label %.thread71.i
@@ -407,7 +407,7 @@ provider_conf_activate.exit.i:                    ; preds = %prov_already_activa
 138:                                              ; preds = %131
   br i1 %133, label %.thread71.i, label %provider_conf_params.exit.thread.i
 
-.thread71.i:                                      ; preds = %138, %135, %.thread96.i
+.thread71.i:                                      ; preds = %138, %135, %.thread111.i
   %139 = call ptr @OPENSSL_sk_new_null() #5
   %140 = icmp eq ptr %139, null
   br i1 %140, label %provider_conf_params.exit.thread.i, label %provider_conf_params.exit.i

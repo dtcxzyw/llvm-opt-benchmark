@@ -250,12 +250,12 @@ d2i_dhp.exit:                                     ; preds = %21, %23
   br label %40
 
 39:                                               ; preds = %31, %26, %d2i_dhp.exit, %10
-  %.sink19 = phi i32 [ 77, %10 ], [ 86, %d2i_dhp.exit ], [ 91, %26 ], [ 97, %31 ]
+  %.sink20 = phi i32 [ 77, %10 ], [ 86, %d2i_dhp.exit ], [ 91, %26 ], [ 97, %31 ]
   %.sink = phi i32 [ 105, %10 ], [ 104, %d2i_dhp.exit ], [ 104, %26 ], [ 109, %31 ]
   %.013 = phi ptr [ null, %10 ], [ null, %d2i_dhp.exit ], [ null, %26 ], [ %29, %31 ]
   %.0 = phi ptr [ null, %10 ], [ null, %d2i_dhp.exit ], [ %.0.i, %26 ], [ %.0.i, %31 ]
   call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str.11, i32 noundef %.sink19, ptr noundef nonnull @__func__.dh_pub_decode) #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str.11, i32 noundef %.sink20, ptr noundef nonnull @__func__.dh_pub_decode) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef %.sink, ptr noundef null) #5
   call void @ASN1_INTEGER_free(ptr noundef %.013) #5
   call void @DH_free(ptr noundef %.0) #5

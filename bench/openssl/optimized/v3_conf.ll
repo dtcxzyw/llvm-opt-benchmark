@@ -652,19 +652,19 @@ define range(i32 0, 2) i32 @X509V3_EXT_add_nconf_sk(ptr noundef %0, ptr noundef 
 
 55:                                               ; preds = %.lr.ph56.split
   %56 = icmp eq i32 %.14455, %.041.lcssa
-  br i1 %56, label %.sink.split73, label %57
+  br i1 %56, label %.sink.split82, label %57
 
 57:                                               ; preds = %55
   %58 = icmp eq i32 %.14455, %.0.lcssa
-  br i1 %58, label %.sink.split73, label %60
+  br i1 %58, label %.sink.split82, label %60
 
-.sink.split73:                                    ; preds = %57, %55
-  %.0.lcssa.sink74 = phi i32 [ %.0.lcssa, %55 ], [ %.041.lcssa, %57 ]
-  %59 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.0.lcssa.sink74) #6
+.sink.split82:                                    ; preds = %57, %55
+  %.0.lcssa.sink83 = phi i32 [ %.0.lcssa, %55 ], [ %.041.lcssa, %57 ]
+  %59 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %.0.lcssa.sink83) #6
   br label %60
 
-60:                                               ; preds = %.sink.split73, %57, %.lr.ph56.split
-  %.045 = phi ptr [ %54, %57 ], [ %54, %.lr.ph56.split ], [ %59, %.sink.split73 ]
+60:                                               ; preds = %.sink.split82, %57, %.lr.ph56.split
+  %.045 = phi ptr [ %54, %57 ], [ %54, %.lr.ph56.split ], [ %59, %.sink.split82 ]
   %61 = load ptr, ptr %.045, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !35

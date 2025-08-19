@@ -1116,9 +1116,9 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
   %.sroa.033.1161 = phi ptr [ %.sroa.033.1159, %.lr.ph163 ], [ %.sroa.033.1, %108 ]
   %.sroa.033.0160 = phi ptr [ %.pre, %.lr.ph163 ], [ %.sroa.033.1161, %108 ]
   %104 = load i64, ptr %.sroa.033.0160, align 8, !range !81, !noundef !3
-  %switch210 = icmp samesign ult i64 %104, 2
-  %.212 = select i1 %switch210, i64 72, i64 40
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.033.0160, i64 %.212
+  %switch214 = icmp samesign ult i64 %104, 2
+  %.216 = select i1 %switch214, i64 72, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.033.0160, i64 %.216
   %106 = load i64, ptr %105, align 8, !range !40, !noundef !3
   %.not54 = icmp eq i64 %106, -9223372036854775808
   br i1 %.not54, label %.preheader, label %108
@@ -1877,7 +1877,7 @@ define hidden void @_ZN13ruff_notebook8notebook8Notebook11build_index17ha6ce64a2
   %32 = zext i32 %31 to i64
   %33 = load i64, ptr %19, align 8, !noundef !3
   %34 = icmp ugt i64 %33, %32
-  br i1 %34, label %37, label %.invoke120
+  br i1 %34, label %37, label %.invoke129
 
 35:                                               ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -1903,7 +1903,7 @@ define hidden void @_ZN13ruff_notebook8notebook8Notebook11build_index17ha6ce64a2
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke120, %.split.i.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h46803085811fc72eE.exit.thread.i.i.i"
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke129, %.split.i.i.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17h46803085811fc72eE.exit.thread.i.i.i"
   %lpad.loopexit.split-lp28 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1976,7 +1976,7 @@ define hidden void @_ZN13ruff_notebook8notebook8Notebook11build_index17ha6ce64a2
 
 .noexc20:                                         ; preds = %66
   %69 = icmp ult i64 %68, %58
-  br i1 %69, label %70, label %.invoke120
+  br i1 %69, label %70, label %.invoke129
 
 70:                                               ; preds = %.noexc20
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 %68
@@ -1986,14 +1986,14 @@ define hidden void @_ZN13ruff_notebook8notebook8Notebook11build_index17ha6ce64a2
     i8 13, label %77
   ]
 
-.invoke120:                                       ; preds = %29, %.noexc20
+.invoke129:                                       ; preds = %29, %.noexc20
   %73 = phi i64 [ %68, %.noexc20 ], [ %32, %29 ]
   %74 = phi i64 [ %58, %.noexc20 ], [ %33, %29 ]
   %75 = phi ptr [ @anon.3fc28e486149e932ea71a070040c162f.6, %.noexc20 ], [ @anon.3fc28e486149e932ea71a070040c162f.74, %29 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %73, i64 noundef %74, ptr noalias noundef readonly align 8 dereferenceable(24) %75) #22
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke120
+.cont:                                            ; preds = %.invoke129
   unreachable
 
 76:                                               ; preds = %70
@@ -2617,7 +2617,7 @@ define noundef zeroext i1 @"_ZN74_$LT$ruff_notebook..notebook..Notebook$u20$as$u
   br i1 %23, label %24, label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 24:                                               ; preds = %22
-  switch i8 %16, label %default.unreachable9.i.i.i [
+  switch i8 %16, label %default.unreachable [
     i8 1, label %25
     i8 2, label %31
     i8 3, label %47
@@ -2626,10 +2626,7 @@ define noundef zeroext i1 @"_ZN74_$LT$ruff_notebook..notebook..Notebook$u20$as$u
     i8 0, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread24.i.i"
   ]
 
-default.unreachable:                              ; preds = %116, %36
-  unreachable
-
-default.unreachable9.i.i.i:                       ; preds = %24
+default.unreachable:                              ; preds = %116, %104, %36, %24
   unreachable
 
 25:                                               ; preds = %24
@@ -2792,7 +2789,7 @@ default.unreachable9.i.i.i:                       ; preds = %24
   br i1 %103, label %104, label %"_ZN75_$LT$ruff_notebook..schema..RawNotebook$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha3ffdeeee1796bf5E.exit"
 
 104:                                              ; preds = %102
-  switch i8 %96, label %default.unreachable9.i.i.i.i [
+  switch i8 %96, label %default.unreachable [
     i8 1, label %105
     i8 2, label %111
     i8 3, label %127
@@ -2800,9 +2797,6 @@ default.unreachable9.i.i.i:                       ; preds = %24
     i8 5, label %139
     i8 0, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h81285fa3c9dd7937E.exit.thread28.i.i.i"
   ]
-
-default.unreachable9.i.i.i.i:                     ; preds = %104
-  unreachable
 
 105:                                              ; preds = %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 113

@@ -526,12 +526,12 @@ define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr 
   %336 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %337 = load i8, ptr %336, align 8
   %338 = icmp eq i8 %337, 0
-  %spec.select57 = select i1 %338, i64 28, i64 -1
+  %spec.select74 = select i1 %338, i64 28, i64 -1
   br label %.thread34.thread
 
 .thread34.thread:                                 ; preds = %333, %331, %329, %.thread22
   %339 = phi i32 [ 2432, %331 ], [ 1664, %329 ], [ 832, %.thread22 ], [ %335, %333 ]
-  %340 = phi i64 [ 28, %331 ], [ 28, %329 ], [ 22, %.thread22 ], [ %spec.select57, %333 ]
+  %340 = phi i64 [ 28, %331 ], [ 28, %329 ], [ 22, %.thread22 ], [ %spec.select74, %333 ]
   %341 = getelementptr i32, ptr %0, i64 %340
   %342 = getelementptr i8, ptr %341, i64 4
   store i32 %339, ptr %342, align 4
@@ -1091,12 +1091,12 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
   %138 = select i1 %137, i32 1472, i32 0
   %139 = load i8, ptr %26, align 8
   %140 = icmp eq i8 %139, 0
-  %spec.select20 = select i1 %140, i64 28, i64 -1
+  %spec.select23 = select i1 %140, i64 28, i64 -1
   br label %.thread15.thread
 
 .thread15.thread:                                 ; preds = %136, %134, %132, %.thread
   %141 = phi i32 [ 2432, %134 ], [ 1664, %132 ], [ 832, %.thread ], [ %138, %136 ]
-  %142 = phi i64 [ 28, %134 ], [ 28, %132 ], [ 22, %.thread ], [ %spec.select20, %136 ]
+  %142 = phi i64 [ 28, %134 ], [ 28, %132 ], [ 22, %.thread ], [ %spec.select23, %136 ]
   %143 = getelementptr i32, ptr %99, i64 %142
   %144 = getelementptr i8, ptr %143, i64 4
   store i32 %141, ptr %144, align 4
@@ -1792,7 +1792,7 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, 2
-  br i1 %118, label %.thread25, label %119
+  br i1 %118, label %.thread32, label %119
 
 119:                                              ; preds = %109
   %120 = load ptr, ptr %115, align 8
@@ -1806,7 +1806,7 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   %128 = or disjoint i32 %124, %127
   %129 = add nsw i32 %128, -3072
   %130 = icmp ult i32 %129, 11
-  br i1 %130, label %131, label %.thread22
+  br i1 %130, label %131, label %.thread29
 
 131:                                              ; preds = %119
   %132 = getelementptr i8, ptr %112, i64 4
@@ -1821,9 +1821,9 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   %.phi.trans.insert6 = getelementptr inbounds nuw i8, ptr %.pre5, i64 16
   %.pre7 = load i32, ptr %.phi.trans.insert6, align 8
   %135 = icmp eq i32 %.pre7, 2
-  br i1 %135, label %.thread25, label %.thread22
+  br i1 %135, label %.thread32, label %.thread29
 
-.thread22:                                        ; preds = %119, %131
+.thread29:                                        ; preds = %119, %131
   %136 = phi ptr [ %134, %131 ], [ %112, %119 ]
   %137 = phi ptr [ %.pre4, %131 ], [ %113, %119 ]
   %138 = phi ptr [ %.pre5, %131 ], [ %115, %119 ]
@@ -1837,9 +1837,9 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   %146 = zext i8 %145 to i32
   %147 = or disjoint i32 %143, %146
   %148 = icmp eq i32 %147, 3142
-  br i1 %148, label %149, label %.thread26
+  br i1 %148, label %149, label %.thread33
 
-149:                                              ; preds = %.thread22
+149:                                              ; preds = %.thread29
   %150 = getelementptr inbounds nuw i8, ptr %139, i64 7200
   %151 = load i8, ptr %150, align 8
   %152 = icmp eq i8 %151, 0
@@ -1896,11 +1896,11 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %.pre15 = load i32, ptr %.phi.trans.insert14, align 8
   %181 = icmp eq i32 %.pre15, 2
-  br i1 %181, label %.thread25, label %.thread26
+  br i1 %181, label %.thread32, label %.thread33
 
-.thread26:                                        ; preds = %.thread22, %180
-  %182 = phi ptr [ %177, %180 ], [ %137, %.thread22 ]
-  %183 = phi ptr [ %176, %180 ], [ %138, %.thread22 ]
+.thread33:                                        ; preds = %.thread29, %180
+  %182 = phi ptr [ %177, %180 ], [ %137, %.thread29 ]
+  %183 = phi ptr [ %176, %180 ], [ %138, %.thread29 ]
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 7176
   %186 = load i8, ptr %185, align 8
@@ -1911,9 +1911,9 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   %191 = zext i8 %190 to i32
   %192 = or disjoint i32 %188, %191
   %193 = icmp eq i32 %192, 3143
-  br i1 %193, label %194, label %.thread25
+  br i1 %193, label %194, label %.thread32
 
-194:                                              ; preds = %.thread26
+194:                                              ; preds = %.thread33
   %195 = getelementptr inbounds nuw i8, ptr %184, i64 7200
   %196 = load i8, ptr %195, align 8
   %197 = icmp eq i8 %196, 0
@@ -1963,11 +1963,11 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   %221 = phi ptr [ %.pre16, %217 ], [ %182, %194 ]
   %222 = add i8 %220, -1
   %223 = icmp ult i8 %222, 4
-  br i1 %223, label %231, label %.thread25
+  br i1 %223, label %231, label %.thread32
 
-.thread25:                                        ; preds = %109, %131, %219, %.thread26, %180
-  %224 = phi ptr [ %136, %219 ], [ %136, %.thread26 ], [ %136, %180 ], [ %134, %131 ], [ %112, %109 ]
-  %225 = phi ptr [ %221, %219 ], [ %182, %.thread26 ], [ %177, %180 ], [ %.pre4, %131 ], [ %113, %109 ]
+.thread32:                                        ; preds = %109, %131, %219, %.thread33, %180
+  %224 = phi ptr [ %136, %219 ], [ %136, %.thread33 ], [ %136, %180 ], [ %134, %131 ], [ %112, %109 ]
+  %225 = phi ptr [ %221, %219 ], [ %182, %.thread33 ], [ %177, %180 ], [ %.pre4, %131 ], [ %113, %109 ]
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr i8, ptr %226, i64 7188
   %228 = load i32, ptr %227, align 4
@@ -1975,8 +1975,8 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %236, label %231
 
-231:                                              ; preds = %.thread25, %219, %174
-  %232 = phi ptr [ %224, %.thread25 ], [ %136, %219 ], [ %136, %174 ]
+231:                                              ; preds = %.thread32, %219, %174
+  %232 = phi ptr [ %224, %.thread32 ], [ %136, %219 ], [ %136, %174 ]
   %233 = getelementptr i8, ptr %232, i64 4
   store i32 285212673, ptr %232, align 4
   %234 = getelementptr i8, ptr %232, i64 8
@@ -1985,8 +1985,8 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(n
   store i32 1023, ptr %234, align 4
   br label %236
 
-236:                                              ; preds = %231, %.thread25
-  %237 = phi ptr [ %235, %231 ], [ %224, %.thread25 ]
+236:                                              ; preds = %231, %.thread32
+  %237 = phi ptr [ %235, %231 ], [ %224, %.thread32 ]
   ret ptr %237
 }
 

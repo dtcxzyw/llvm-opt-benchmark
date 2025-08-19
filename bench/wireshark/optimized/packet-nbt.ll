@@ -1496,8 +1496,8 @@ nbns_add_nbns_flags.exit.us.i:                    ; preds = %.lr.ph473.split.us.
   %143 = mul nuw nsw i32 %140, 18
   %144 = add i32 %139, %143
   %145 = zext i8 %136 to i16
-  %.neg515.i = mul nsw i16 %145, -18
-  %146 = add i16 %.neg515.i, %38
+  %.neg545.i = mul nsw i16 %145, -18
+  %146 = add i16 %.neg545.i, %38
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %151, %.lr.ph.split.us.preheader.i

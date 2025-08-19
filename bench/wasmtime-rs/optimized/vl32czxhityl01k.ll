@@ -3296,9 +3296,9 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   %.sroa.24329.16.copyload336 = load i64, ptr %.sroa.24329.16..sroa_idx335, align 8, !noalias !6
   %.sroa.25337.16..sroa_idx343 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %.sroa.25337.16.copyload344 = load i64, ptr %.sroa.25337.16..sroa_idx343, align 8, !noalias !6
-  br label %.loopexit2930
+  br label %.loopexit2984
 
-.loopexit2930:                                    ; preds = %617, %616, %611
+.loopexit2984:                                    ; preds = %617, %616, %611
   %.sroa.7294.0 = phi i64 [ %613, %616 ], [ %608, %611 ], [ %.sroa.7294.8.copyload296, %617 ]
   %.sroa.15.0 = phi i8 [ %.sroa.15.16.copyload302, %616 ], [ %.sroa.15.16.copyload304, %611 ], [ %.sroa.15.8.copyload300, %617 ]
   %.sroa.20.0 = phi i56 [ %.sroa.20.16.copyload308, %616 ], [ %.sroa.20.16.copyload311, %611 ], [ %.sroa.20.8.copyload307, %617 ]
@@ -3337,7 +3337,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   %.sroa.25337.16.copyload341 = load i64, ptr %.sroa.25337.16..sroa.270.0..sroa_idx.i.sroa_idx, align 8, !noalias !6
   %.sroa.26345.16..sroa.270.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 64
   %.sroa.26345.16.copyload349 = load i64, ptr %.sroa.26345.16..sroa.270.0..sroa_idx.i.sroa_idx, align 8, !noalias !6
-  br label %.loopexit2930
+  br label %.loopexit2984
 
 617:                                              ; preds = %615
   %618 = load i64, ptr %34, align 16, !range !55, !noalias !74, !noundef !4
@@ -3351,19 +3351,19 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   %.sroa.24329.8.copyload332 = load i64, ptr %.sroa.24329.8..sroa_idx, align 8, !noalias !6
   %.sroa.25337.8.copyload340 = load i64, ptr %.sroa.25337.8..sroa_idx, align 16, !noalias !6
   %.sroa.26345.8.copyload348 = load i64, ptr %.sroa.26345.8..sroa_idx, align 8, !noalias !6
-  br i1 %.not.i56, label %.loopexit2930, label %733
+  br i1 %.not.i56, label %.loopexit2984, label %733
 
 619:                                              ; preds = %620, %604
   %.pn.i54 = phi { ptr, i32 } [ %621, %620 ], [ %lpad.phi.i, %604 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$cranelift_isle..ast..Ident$GT$17h298a620e5e24d21cE"(ptr nonnull align 8 %40) #9
           to label %.body.i unwind label %623, !noalias !74
 
-620:                                              ; preds = %.loopexit2930
+620:                                              ; preds = %.loopexit2984
   %621 = landingpad { ptr, i32 }
           cleanup
   br label %619
 
-622:                                              ; preds = %.loopexit2930
+622:                                              ; preds = %.loopexit2984
   invoke void @"_ZN4core3ptr47drop_in_place$LT$cranelift_isle..ast..Ident$GT$17h298a620e5e24d21cE"(ptr nonnull align 8 %40)
           to label %734 unwind label %.loopexit.split-lp682
 
@@ -6182,7 +6182,7 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit: ; preds = 
   %80 = invoke zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17h258b431eed502f1dE(ptr nonnull align 16 %1)
           to label %_ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113 unwind label %.loopexit
 
-.loopexit:                                        ; preds = %.noexc316, %.noexc, %119, %79, %85, %81, %.noexc124
+.loopexit:                                        ; preds = %.noexc326, %.noexc, %119, %79, %85, %81, %.noexc124
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6222,13 +6222,13 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit113: ; preds
 .noexc:                                           ; preds = %.noexc124
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nonnull sret({ i64, [9 x i64] }) align 16 %4, ptr nonnull align 16 %1)
-          to label %.noexc316 unwind label %.loopexit
+          to label %.noexc326 unwind label %.loopexit
 
-.noexc316:                                        ; preds = %.noexc
+.noexc326:                                        ; preds = %.noexc
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8bfbdbb287f8451cE"(ptr nonnull sret({ i64, [8 x i64] }) align 8 %15, ptr nonnull align 16 %4)
           to label %.noexc114 unwind label %.loopexit
 
-.noexc114:                                        ; preds = %.noexc316
+.noexc114:                                        ; preds = %.noexc326
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %83 = load i64, ptr %15, align 8, !range !9, !noundef !4
   %84 = icmp eq i64 %83, -9223372036854775808

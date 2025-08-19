@@ -456,7 +456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %154 = load float, ptr %153, align 4, !tbaa !50
   %155 = fadd float %.013661.us.us.i, %154
   %156 = fcmp olt float %154, 0x3E80000000000000
-  br i1 %156, label %.thread22.us.us.loopexit.split.loop.exit201.i, label %157
+  br i1 %156, label %.thread22.us.us.loopexit.split.loop.exit207.i, label %157
 
 157:                                              ; preds = %.lr.ph63.us.us.i
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 8
@@ -531,13 +531,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %193 = icmp sgt i64 %indvars.iv149.i, 1
   br i1 %193, label %.lr.ph73.us.us.i, label %.preheader.us.us.i, !llvm.loop !61
 
-.thread22.us.us.loopexit.split.loop.exit201.i:    ; preds = %.lr.ph63.us.us.i
+.thread22.us.us.loopexit.split.loop.exit207.i:    ; preds = %.lr.ph63.us.us.i
   %194 = trunc nuw nsw i64 %indvars.iv143.i to i32
   br label %.thread22.us.us.i
 
-.thread22.us.us.i:                                ; preds = %166, %.thread22.us.us.loopexit.split.loop.exit201.i, %._crit_edge74.us.us.i, %148
-  %storemerge16137.us.us.i = phi i32 [ %169, %._crit_edge74.us.us.i ], [ 0, %148 ], [ %194, %.thread22.us.us.loopexit.split.loop.exit201.i ], [ %111, %166 ]
-  %.113725.us.us.i = phi float [ %170, %._crit_edge74.us.us.i ], [ 0.000000e+00, %148 ], [ %155, %.thread22.us.us.loopexit.split.loop.exit201.i ], [ %155, %166 ]
+.thread22.us.us.i:                                ; preds = %166, %.thread22.us.us.loopexit.split.loop.exit207.i, %._crit_edge74.us.us.i, %148
+  %storemerge16137.us.us.i = phi i32 [ %169, %._crit_edge74.us.us.i ], [ 0, %148 ], [ %194, %.thread22.us.us.loopexit.split.loop.exit207.i ], [ %111, %166 ]
+  %.113725.us.us.i = phi float [ %170, %._crit_edge74.us.us.i ], [ 0.000000e+00, %148 ], [ %155, %.thread22.us.us.loopexit.split.loop.exit207.i ], [ %155, %166 ]
   %.sroa.speculated.us.us.i = call i32 @llvm.smin.i32(i32 %136, i32 %storemerge16137.us.us.i)
   %195 = sext i32 %.sroa.speculated.us.us.i to i64
   %196 = getelementptr inbounds %"struct.cv::bgsegm::MixData", ptr %.113089.us.us.i, i64 %195, i32 1
@@ -554,7 +554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   br label %.loopexit.us.us.i
 
 .loopexit.us.us.i:                                ; preds = %.lr.ph80.us.us.i, %.preheader.us.us.i, %.thread22.us.us.i
-  %.4144.us.us.i = phi i32 [ %.sroa.speculated.us.us.i, %.thread22.us.us.i ], [ %.0128.in.lcssa.us.us174.i, %.preheader.us.us.i ], [ %.0128.in.lcssa.us.us174.i, %.lr.ph80.us.us.i ]
+  %.4144.us.us.i = phi i32 [ %.sroa.speculated.us.us.i, %.thread22.us.us.i ], [ %.0128.in.lcssa.us.us180.i, %.preheader.us.us.i ], [ %.0128.in.lcssa.us.us180.i, %.lr.ph80.us.us.i ]
   %.4.us.us.i = phi float [ %199, %.thread22.us.us.i ], [ %170, %.preheader.us.us.i ], [ %191, %.lr.ph80.us.us.i ]
   %203 = fdiv float 1.000000e+00, %.4.us.us.i
   br i1 %134, label %.lr.ph86.us.us.i, label %._crit_edge87.us.us.i
@@ -593,7 +593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   br i1 %exitcond162.not.i, label %._crit_edge87.us.us.i, label %.lr.ph86.us.us.i, !llvm.loop !63
 
 .preheader.us.us.i:                               ; preds = %192, %._crit_edge74.us.us.i, %167
-  %.0128.in.lcssa.us.us174.i = phi i32 [ %187, %._crit_edge74.us.us.i ], [ 0, %167 ], [ 0, %192 ]
+  %.0128.in.lcssa.us.us180.i = phi i32 [ %187, %._crit_edge74.us.us.i ], [ 0, %167 ], [ 0, %192 ]
   %218 = icmp sgt i32 %111, %169
   br i1 %218, label %.lr.ph80.us.us.i, label %.loopexit.us.us.i
 
@@ -690,10 +690,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   br label %..loopexit30_crit_edge.us.us.us.us.us.i
 
 ..loopexit30_crit_edge.us.us.us.us.us.i:          ; preds = %247, %233, %253, %254
-  %.1134.us.us.us.us.us176.i = phi i32 [ %248, %254 ], [ %248, %253 ], [ -1, %233 ], [ -1, %247 ]
+  %.1134.us.us.us.us.us182.i = phi i32 [ %248, %254 ], [ %248, %253 ], [ -1, %233 ], [ -1, %247 ]
   %.0131.us.us.us.us.us.i = phi i32 [ %256, %254 ], [ -1, %253 ], [ -1, %233 ], [ -1, %247 ]
-  %257 = icmp slt i32 %.1134.us.us.us.us.us176.i, 0
-  %258 = icmp sge i32 %.1134.us.us.us.us.us176.i, %.0131.us.us.us.us.us.i
+  %257 = icmp slt i32 %.1134.us.us.us.us.us182.i, 0
+  %258 = icmp sge i32 %.1134.us.us.us.us.us182.i, %.0131.us.us.us.us.us.i
   %259 = select i1 %257, i1 true, i1 %258
   %260 = sext i1 %259 to i8
   %261 = getelementptr inbounds nuw i8, ptr %229, i64 %indvars.iv133.i
@@ -815,7 +815,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %329 = load float, ptr %328, align 4, !tbaa !68
   %330 = fadd float %.013282.us.us.i, %329
   %331 = fcmp olt float %329, 0x3E80000000000000
-  br i1 %331, label %.thread47.us.us.loopexit.split.loop.exit233.i, label %332
+  br i1 %331, label %.thread47.us.us.loopexit.split.loop.exit238.i, label %332
 
 332:                                              ; preds = %.lr.ph84.us.us.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1027,13 +1027,13 @@ _ZN2cvplIfLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.us.us.i: ; preds = %370
   %419 = icmp sgt i64 %indvars.iv182.i, 1
   br i1 %419, label %.lr.ph93.us.us.i, label %._crit_edge94.us.us.thread.i, !llvm.loop !89
 
-.thread47.us.us.loopexit.split.loop.exit233.i:    ; preds = %.lr.ph84.us.us.i
+.thread47.us.us.loopexit.split.loop.exit238.i:    ; preds = %.lr.ph84.us.us.i
   %420 = trunc nuw nsw i64 %indvars.iv176.i to i32
   br label %.thread47.us.us.i
 
-.thread47.us.us.i:                                ; preds = %360, %.thread47.us.us.loopexit.split.loop.exit233.i, %._crit_edge94.us.us.i, %317
-  %storemerge15360.us.us.i = phi i32 [ %377, %._crit_edge94.us.us.i ], [ 0, %317 ], [ %420, %.thread47.us.us.loopexit.split.loop.exit233.i ], [ %270, %360 ]
-  %.113350.us.us.i = phi float [ %378, %._crit_edge94.us.us.i ], [ 0.000000e+00, %317 ], [ %330, %.thread47.us.us.loopexit.split.loop.exit233.i ], [ %330, %360 ]
+.thread47.us.us.i:                                ; preds = %360, %.thread47.us.us.loopexit.split.loop.exit238.i, %._crit_edge94.us.us.i, %317
+  %storemerge15360.us.us.i = phi i32 [ %377, %._crit_edge94.us.us.i ], [ 0, %317 ], [ %420, %.thread47.us.us.loopexit.split.loop.exit238.i ], [ %270, %360 ]
+  %.113350.us.us.i = phi float [ %378, %._crit_edge94.us.us.i ], [ 0.000000e+00, %317 ], [ %330, %.thread47.us.us.loopexit.split.loop.exit238.i ], [ %330, %360 ]
   %.sroa.speculated.us.us.i57 = call i32 @llvm.smin.i32(i32 %305, i32 %storemerge15360.us.us.i)
   %421 = sext i32 %.sroa.speculated.us.us.i57 to i64
   %422 = getelementptr inbounds %"struct.cv::bgsegm::MixData.6", ptr %.1127109.us.us.i, i64 %421, i32 1
@@ -1054,7 +1054,7 @@ _ZN2cvplIfLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.us.us.i: ; preds = %370
   br label %.loopexit.us.us.i58
 
 .loopexit.us.us.i58:                              ; preds = %.lr.ph100.us.us.i, %.preheader.us.us.i63, %.thread47.us.us.i
-  %.4142.us.us.i = phi i32 [ %.sroa.speculated.us.us.i57, %.thread47.us.us.i ], [ %.0125.in.lcssa.us.us207.i, %.preheader.us.us.i63 ], [ %.0125.in.lcssa.us.us207.i, %.lr.ph100.us.us.i ]
+  %.4142.us.us.i = phi i32 [ %.sroa.speculated.us.us.i57, %.thread47.us.us.i ], [ %.0125.in.lcssa.us.us212.i, %.preheader.us.us.i63 ], [ %.0125.in.lcssa.us.us212.i, %.lr.ph100.us.us.i ]
   %.4.us.us.i59 = phi float [ %425, %.thread47.us.us.i ], [ %378, %.preheader.us.us.i63 ], [ %414, %.lr.ph100.us.us.i ]
   %429 = fdiv float 1.000000e+00, %.4.us.us.i59
   br i1 %295, label %.lr.ph106.us.us.i, label %._crit_edge107.us.us.i
@@ -1094,7 +1094,7 @@ _ZN2cvplIfLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.us.us.i: ; preds = %370
   br i1 %exitcond195.not.i, label %._crit_edge107.us.us.i, label %.lr.ph106.us.us.i, !llvm.loop !91
 
 .preheader.us.us.i63:                             ; preds = %._crit_edge94.us.us.i, %._crit_edge94.us.us.thread.i
-  %.0125.in.lcssa.us.us207.i = phi i32 [ 0, %._crit_edge94.us.us.thread.i ], [ %410, %._crit_edge94.us.us.i ]
+  %.0125.in.lcssa.us.us212.i = phi i32 [ 0, %._crit_edge94.us.us.thread.i ], [ %410, %._crit_edge94.us.us.i ]
   %444 = icmp sgt i32 %270, %377
   br i1 %444, label %.lr.ph100.us.us.i, label %.loopexit.us.us.i58
 
@@ -1257,9 +1257,9 @@ _ZNK2cv4MatxIfLi3ELi1EE3dotERKS1_.exit184._crit_edge.us.us.us.i: ; preds = %_ZNK
 
 .loopexit52.us.us.us.i:                           ; preds = %497, %465, %503, %504
   %507 = phi i1 [ false, %504 ], [ false, %503 ], [ true, %465 ], [ true, %497 ]
-  %.1123.us.us.us210.i = phi i32 [ %498, %504 ], [ %498, %503 ], [ -1, %465 ], [ -1, %497 ]
+  %.1123.us.us.us215.i = phi i32 [ %498, %504 ], [ %498, %503 ], [ -1, %465 ], [ -1, %497 ]
   %.0120.us.us.us.i = phi i32 [ %506, %504 ], [ -1, %503 ], [ -1, %465 ], [ -1, %497 ]
-  %508 = icmp sge i32 %.1123.us.us.us210.i, %.0120.us.us.us.i
+  %508 = icmp sge i32 %.1123.us.us.us215.i, %.0120.us.us.us.i
   %509 = select i1 %507, i1 true, i1 %508
   %510 = sext i1 %509 to i8
   %511 = getelementptr inbounds nuw i8, ptr %454, i64 %indvars.iv162.i

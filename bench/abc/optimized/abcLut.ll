@@ -339,7 +339,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %110, %114
 Abc_NodeLutMap.exit:                              ; preds = %147, %118
   %149 = phi i32 [ %124, %118 ], [ %148, %147 ]
   %150 = and i32 %149, -4096
-  %151 = add i32 %150, 4096
+  %151 = add nuw i32 %150, 4096
   %152 = and i32 %149, 4095
   %153 = or disjoint i32 %151, %152
   store i32 %153, ptr %121, align 4
@@ -695,9 +695,9 @@ Abc_NodeDecomposeSort.exit.i.i:                   ; preds = %._crit_edge.us.i.i.
   br i1 %303, label %select.unfold.preheader.i.i.i, label %Extra_TruthCopy.exit.thread.i.i
 
 select.unfold.preheader.i.i.i:                    ; preds = %Abc_NodeDecomposeSort.exit.i.i.thread, %Abc_NodeDecomposeSort.exit.i.i
-  %spec.select.i.i.i271 = phi i32 [ 1, %Abc_NodeDecomposeSort.exit.i.i.thread ], [ %spec.select.i.i.i, %Abc_NodeDecomposeSort.exit.i.i ]
+  %spec.select.i.i.i302 = phi i32 [ 1, %Abc_NodeDecomposeSort.exit.i.i.thread ], [ %spec.select.i.i.i, %Abc_NodeDecomposeSort.exit.i.i ]
   %304 = load ptr, ptr %275, align 8, !tbaa !39
-  %305 = zext nneg i32 %spec.select.i.i.i271 to i64
+  %305 = zext nneg i32 %spec.select.i.i.i302 to i64
   br label %select.unfold.i.i.i
 
 select.unfold.i.i.i:                              ; preds = %select.unfold.i.i.i, %select.unfold.preheader.i.i.i
@@ -802,10 +802,9 @@ Extra_TruthCopy.exit221.loopexit.us.us.i.i:       ; preds = %select.unfold.i218.
 
 .lr.ph.i87.i:                                     ; preds = %.preheader288.i.i
   %340 = trunc nuw nsw i64 %indvars.iv366.i.i to i32
-  %341 = shl nuw i32 1, %340
+  %341 = shl nuw nsw i32 1, %340
   %342 = getelementptr inbounds nuw [15 x i32], ptr %99, i64 0, i64 %indvars.iv366.i.i
   %343 = sext i32 %.0180300.i.i to i64
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %341, i32 1)
   %344 = load i32, ptr %342, align 4, !tbaa !40
   br label %Extra_TruthCopy.exit215.i.i
 
@@ -820,7 +819,7 @@ Extra_TruthCopy.exit215.i.i:                      ; preds = %Extra_TruthCopy.exi
   tail call void @Extra_TruthCofactor1(ptr noundef %348, i32 noundef %.val71117.i, i32 noundef %344) #16
   %indvars.iv.next.i89.i = add nsw i64 %indvars.iv.i88.i, 2
   %349 = add nuw nsw i32 %.0182298.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %349, %smax.i.i
+  %exitcond.not.i.i = icmp eq i32 %349, %341
   br i1 %exitcond.not.i.i, label %._crit_edge.split.loopexit.i.i, label %Extra_TruthCopy.exit215.i.i, !llvm.loop !81
 
 ._crit_edge.split.loopexit.i.i:                   ; preds = %Extra_TruthCopy.exit215.i.i
@@ -838,7 +837,7 @@ Extra_TruthCopy.exit215.i.i:                      ; preds = %Extra_TruthCopy.exi
 
 ._crit_edge302.i.i:                               ; preds = %._crit_edge.split.i.i, %._crit_edge.split.us.us.i.i
   %355 = phi i1 [ true, %._crit_edge.split.us.us.i.i ], [ false, %._crit_edge.split.i.i ]
-  %spec.select.i.i.i270 = phi i32 [ %spec.select.i.i.i271, %._crit_edge.split.us.us.i.i ], [ %spec.select.i.i.i, %._crit_edge.split.i.i ]
+  %spec.select.i.i.i301 = phi i32 [ %spec.select.i.i.i302, %._crit_edge.split.us.us.i.i ], [ %spec.select.i.i.i, %._crit_edge.split.i.i ]
   %.pre429.i.i258 = phi i32 [ %.fr, %._crit_edge.split.us.us.i.i ], [ %.pre429.i.i, %._crit_edge.split.i.i ]
   %356 = phi i32 [ %.fr, %._crit_edge.split.us.us.i.i ], [ %351, %._crit_edge.split.i.i ]
   %.lcssa297.i.i = phi i32 [ %.fr, %._crit_edge.split.us.us.i.i ], [ %352, %._crit_edge.split.i.i ]
@@ -847,12 +846,12 @@ Extra_TruthCopy.exit215.i.i:                      ; preds = %Extra_TruthCopy.exi
 
 .lr.ph311.i.i:                                    ; preds = %._crit_edge302.i.i, %Extra_TruthCopy.exit.thread.i.i, %Extra_TruthCopy.exit.i.i
   %357 = phi i1 [ false, %Extra_TruthCopy.exit.thread.i.i ], [ true, %Extra_TruthCopy.exit.i.i ], [ %355, %._crit_edge302.i.i ]
-  %spec.select.i.i.i269 = phi i32 [ -2147483648, %Extra_TruthCopy.exit.thread.i.i ], [ %spec.select.i.i.i271, %Extra_TruthCopy.exit.i.i ], [ %spec.select.i.i.i270, %._crit_edge302.i.i ]
+  %spec.select.i.i.i300 = phi i32 [ -2147483648, %Extra_TruthCopy.exit.thread.i.i ], [ %spec.select.i.i.i302, %Extra_TruthCopy.exit.i.i ], [ %spec.select.i.i.i301, %._crit_edge302.i.i ]
   %.pre429.i.i257 = phi i32 [ %.pre429.i.i, %Extra_TruthCopy.exit.thread.i.i ], [ %.fr, %Extra_TruthCopy.exit.i.i ], [ %.pre429.i.i258, %._crit_edge302.i.i ]
   %358 = phi i32 [ %280, %Extra_TruthCopy.exit.thread.i.i ], [ %.fr, %Extra_TruthCopy.exit.i.i ], [ %356, %._crit_edge302.i.i ]
   %.lcssa297.ph.pn.i.i = phi i32 [ %280, %Extra_TruthCopy.exit.thread.i.i ], [ %.fr, %Extra_TruthCopy.exit.i.i ], [ %.lcssa297.i.i, %._crit_edge302.i.i ]
   %359 = shl nuw nsw i32 1, %.lcssa297.ph.pn.i.i
-  %360 = zext i32 %spec.select.i.i.i269 to i64
+  %360 = zext i32 %spec.select.i.i.i300 to i64
   %361 = lshr i32 %359, 1
   %362 = zext nneg i32 %359 to i64
   %invariant.gep.i.i = getelementptr ptr, ptr %274, i64 %362
@@ -950,9 +949,9 @@ Extra_TruthIsEqual.exit.i.i:                      ; preds = %select.unfold.i223.
 select.unfold.preheader.i226.i.i:                 ; preds = %._crit_edge.i.i, %._crit_edge.thread.i.i
   %399 = phi i32 [ %spec.select.i84.i, %._crit_edge.i.i ], [ 0, %._crit_edge.thread.i.i ]
   %400 = phi i32 [ %359, %._crit_edge.i.i ], [ -2147483648, %._crit_edge.thread.i.i ]
-  %.0176.lcssa439.i.i276 = phi i32 [ %.1.fr.i.i, %._crit_edge.i.i ], [ 0, %._crit_edge.thread.i.i ]
-  %spec.select.i.i.i272274 = phi i32 [ %spec.select.i.i.i269, %._crit_edge.i.i ], [ %spec.select.i.i.i270, %._crit_edge.thread.i.i ]
-  %401 = zext nneg i32 %spec.select.i.i.i272274 to i64
+  %.0176.lcssa451.i.i307 = phi i32 [ %.1.fr.i.i, %._crit_edge.i.i ], [ 0, %._crit_edge.thread.i.i ]
+  %spec.select.i.i.i303305 = phi i32 [ %spec.select.i.i.i300, %._crit_edge.i.i ], [ %spec.select.i.i.i301, %._crit_edge.thread.i.i ]
+  %401 = zext nneg i32 %spec.select.i.i.i303305 to i64
   %402 = shl nuw nsw i64 %401, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %188, i8 0, i64 %402, i1 false), !tbaa !40
   br label %Extra_TruthClear.exit.i.i
@@ -960,16 +959,16 @@ select.unfold.preheader.i226.i.i:                 ; preds = %._crit_edge.i.i, %.
 Extra_TruthClear.exit.i.i:                        ; preds = %._crit_edge.i.i, %select.unfold.preheader.i226.i.i
   %403 = phi i32 [ %spec.select.i84.i, %._crit_edge.i.i ], [ %399, %select.unfold.preheader.i226.i.i ]
   %404 = phi i32 [ %359, %._crit_edge.i.i ], [ %400, %select.unfold.preheader.i226.i.i ]
-  %.0176.lcssa439.i.i275 = phi i32 [ %.1.fr.i.i, %._crit_edge.i.i ], [ %.0176.lcssa439.i.i276, %select.unfold.preheader.i226.i.i ]
-  %spec.select.i.i.i272273 = phi i32 [ %spec.select.i.i.i269, %._crit_edge.i.i ], [ %spec.select.i.i.i272274, %select.unfold.preheader.i226.i.i ]
+  %.0176.lcssa451.i.i306 = phi i32 [ %.1.fr.i.i, %._crit_edge.i.i ], [ %.0176.lcssa451.i.i307, %select.unfold.preheader.i226.i.i ]
+  %spec.select.i.i.i303304 = phi i32 [ %spec.select.i.i.i300, %._crit_edge.i.i ], [ %spec.select.i.i.i303305, %select.unfold.preheader.i226.i.i ]
   %405 = phi i1 [ false, %._crit_edge.i.i ], [ true, %select.unfold.preheader.i226.i.i ]
-  %406 = icmp sgt i32 %.0176.lcssa439.i.i275, 0
+  %406 = icmp sgt i32 %.0176.lcssa451.i.i306, 0
   br i1 %406, label %.lr.ph318.i.i, label %._crit_edge319.i.i
 
 .lr.ph318.i.i:                                    ; preds = %Extra_TruthClear.exit.i.i
-  %407 = zext nneg i32 %spec.select.i.i.i272273 to i64
+  %407 = zext nneg i32 %spec.select.i.i.i303304 to i64
   %408 = tail call i32 @llvm.umax.i32(i32 %403, i32 1)
-  %wide.trip.count396.i.i = zext nneg i32 %.0176.lcssa439.i.i275 to i64
+  %wide.trip.count396.i.i = zext nneg i32 %.0176.lcssa451.i.i306 to i64
   %wide.trip.count391.i.i = zext nneg i32 %408 to i64
   %409 = load ptr, ptr %35, align 8, !tbaa !36
   br label %.lr.ph315.preheader.i.i
@@ -1054,12 +1053,12 @@ Extra_TruthOr.exit.i.i:                           ; preds = %select.unfold.i239.
 .lr.ph336.i.i:                                    ; preds = %._crit_edge319.i.i
   %447 = getelementptr inbounds nuw i8, ptr %282, i64 256
   %wide.trip.count417.i.i = zext nneg i32 %403 to i64
-  %wide.trip.count409.i.i = zext nneg i32 %.0176.lcssa439.i.i275 to i64
+  %wide.trip.count409.i.i = zext nneg i32 %.0176.lcssa451.i.i306 to i64
   %448 = icmp slt i32 %.fr, 6
   %449 = add nsw i32 %.fr, -5
   %450 = shl nuw i32 1, %449
-  %.fr267 = freeze i32 %450
-  %spec.select.i242.i.i = select i1 %448, i32 1, i32 %.fr267
+  %.fr298 = freeze i32 %450
+  %spec.select.i242.i.i = select i1 %448, i32 1, i32 %.fr298
   %451 = icmp sgt i32 %spec.select.i242.i.i, 0
   %452 = zext nneg i32 %spec.select.i242.i.i to i64
   %453 = shl nuw nsw i64 %452, 2
@@ -1335,7 +1334,7 @@ Abc_NodeGetLevel.exit.i.i:                        ; preds = %.critedge.loopexit.
 
 .preheader.i.i:                                   ; preds = %._crit_edge.thread.i.i, %.preheader.i.i.loopexit, %._crit_edge319.i.i
   %548 = phi i32 [ %403, %.preheader.i.i.loopexit ], [ %403, %._crit_edge319.i.i ], [ 0, %._crit_edge.thread.i.i ]
-  %spec.select.i.i.i272273280283 = phi i32 [ %spec.select.i.i.i272273, %.preheader.i.i.loopexit ], [ %spec.select.i.i.i272273, %._crit_edge319.i.i ], [ %spec.select.i.i.i270, %._crit_edge.thread.i.i ]
+  %spec.select.i.i.i303304311314 = phi i32 [ %spec.select.i.i.i303304, %.preheader.i.i.loopexit ], [ %spec.select.i.i.i303304, %._crit_edge319.i.i ], [ %spec.select.i.i.i301, %._crit_edge.thread.i.i ]
   %549 = phi i1 [ %405, %.preheader.i.i.loopexit ], [ %405, %._crit_edge319.i.i ], [ false, %._crit_edge.thread.i.i ]
   %550 = phi i32 [ %.pre266, %.preheader.i.i.loopexit ], [ %278, %._crit_edge319.i.i ], [ %278, %._crit_edge.thread.i.i ]
   %551 = icmp slt i32 %548, %550
@@ -1452,7 +1451,7 @@ Abc_NodeLeavesRemove.exit.i.i:                    ; preds = %590, %._crit_edge34
   br i1 %549, label %select.unfold.preheader.i275.i.i, label %.critedge100.i
 
 select.unfold.preheader.i275.i.i:                 ; preds = %Abc_NodeLeavesRemove.exit.i.i
-  %597 = zext nneg i32 %spec.select.i.i.i272273280283 to i64
+  %597 = zext nneg i32 %spec.select.i.i.i303304311314 to i64
   br label %select.unfold.i276.i.i
 
 select.unfold.i276.i.i:                           ; preds = %select.unfold.i276.i.i, %select.unfold.preheader.i275.i.i
@@ -3663,9 +3662,9 @@ Vec_IntGrow.exit23thread-pre-split.i216:          ; preds = %Vec_IntPushOrder.ex
   %305 = shl nuw nsw i32 %301, 1
   %306 = zext nneg i32 %305 to i64
   %307 = shl nuw nsw i64 %306, 2
-  %.sink295 = select i1 %304, i64 64, i64 %307
+  %.sink334 = select i1 %304, i64 64, i64 %307
   %.sink.i217 = select i1 %304, i32 16, i32 %305
-  %308 = tail call ptr @realloc(ptr noundef nonnull %286, i64 noundef %.sink295) #17
+  %308 = tail call ptr @realloc(ptr noundef nonnull %286, i64 noundef %.sink334) #17
   store ptr %308, ptr %136, align 8, !tbaa !119
   store i32 %.sink.i217, ptr %66, align 8, !tbaa !127
   %.pr.i218 = load i32, ptr %188, align 4, !tbaa !118
@@ -3702,11 +3701,11 @@ Vec_IntGrow.exit23.i209:                          ; preds = %Vec_IntGrow.exit23t
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %318, %._crit_edge.loopexit.split.loop.exit.i214, %Vec_IntGrow.exit23.i209, %Vec_IntPush.exit182, %Vec_IntPush.exit170
-  %.sink299 = phi i32 [ %123, %Vec_IntPush.exit170 ], [ %258, %Vec_IntPush.exit182 ], [ %310, %Vec_IntGrow.exit23.i209 ], [ %321, %._crit_edge.loopexit.split.loop.exit.i214 ], [ 0, %318 ]
-  %.sink297 = phi ptr [ %122, %Vec_IntPush.exit170 ], [ %257, %Vec_IntPush.exit182 ], [ %309, %Vec_IntGrow.exit23.i209 ], [ %309, %._crit_edge.loopexit.split.loop.exit.i214 ], [ %309, %318 ]
+  %.sink338 = phi i32 [ %123, %Vec_IntPush.exit170 ], [ %258, %Vec_IntPush.exit182 ], [ %310, %Vec_IntGrow.exit23.i209 ], [ %321, %._crit_edge.loopexit.split.loop.exit.i214 ], [ 0, %318 ]
+  %.sink336 = phi ptr [ %122, %Vec_IntPush.exit170 ], [ %257, %Vec_IntPush.exit182 ], [ %309, %Vec_IntGrow.exit23.i209 ], [ %309, %._crit_edge.loopexit.split.loop.exit.i214 ], [ %309, %318 ]
   %.val157.sink = phi i32 [ %.val157, %Vec_IntPush.exit170 ], [ %.val153, %Vec_IntPush.exit182 ], [ %.val150, %Vec_IntGrow.exit23.i209 ], [ %.val150, %._crit_edge.loopexit.split.loop.exit.i214 ], [ %.val150, %318 ]
-  %322 = sext i32 %.sink299 to i64
-  %323 = getelementptr inbounds i32, ptr %.sink297, i64 %322
+  %322 = sext i32 %.sink338 to i64
+  %323 = getelementptr inbounds i32, ptr %.sink336, i64 %322
   store i32 %.val157.sink, ptr %323, align 4, !tbaa !40
   br label %.critedge
 
@@ -3753,8 +3752,8 @@ Vec_IntGrow.exit23.i209:                          ; preds = %Vec_IntGrow.exit23t
   %343 = load i32, ptr %335, align 4
   %344 = and i32 %343, 32
   %.not115 = icmp eq i32 %344, 0
-  %.str.6.sink301 = select i1 %.not115, ptr @.str.6, ptr @.str.7
-  %345 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.6.sink301)
+  %.str.6.sink340 = select i1 %.not115, ptr @.str.6, ptr @.str.7
+  %345 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.6.sink340)
   %346 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val158, i64 %indvars.iv271
   %347 = getelementptr i8, ptr %346, i64 4
   %.val6.i222 = load i32, ptr %347, align 4, !tbaa !118
@@ -4053,9 +4052,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #14

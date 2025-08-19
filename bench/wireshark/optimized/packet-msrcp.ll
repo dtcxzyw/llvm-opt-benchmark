@@ -261,14 +261,14 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread153.sink.split
 
 .thread153.sink.split:                            ; preds = %.thread, %57
-  %.sink157 = phi ptr [ %48, %57 ], [ %80, %.thread ]
+  %.sink166 = phi ptr [ %48, %57 ], [ %80, %.thread ]
   %.sink = phi i8 [ 1, %57 ], [ 0, %.thread ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sink157, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %.sink166, i64 28
   store i8 %.sink, ptr %84, align 4
   br label %.thread153
 
 .thread153:                                       ; preds = %.thread153.sink.split, %53, %66, %77, %18
-  %.0 = phi ptr [ %.1, %77 ], [ null, %18 ], [ %48, %53 ], [ %61, %66 ], [ %.sink157, %.thread153.sink.split ]
+  %.0 = phi ptr [ %.1, %77 ], [ null, %18 ], [ %48, %53 ], [ %61, %66 ], [ %.sink166, %.thread153.sink.split ]
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8
   call void @col_set_str(ptr noundef %86, i32 noundef 35, ptr noundef nonnull @.str.29)

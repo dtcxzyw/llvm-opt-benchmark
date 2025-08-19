@@ -1205,7 +1205,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit: ; preds = %51
 
 53:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit
   %54 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter15_GetPrimAdapterERKNS_7UsdPrimEb(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false)
-          to label %55 unwind label %.thread63
+          to label %55 unwind label %.thread80
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %54, align 8
@@ -1258,7 +1258,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEEC2
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit39
 
-.thread63:                                        ; preds = %53
+.thread80:                                        ; preds = %53
   %73 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit39
@@ -1771,8 +1771,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
   %.not49 = icmp eq ptr %320, %15
   br i1 %.not49, label %.loopexit, label %42, !llvm.loop !10
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit39: ; preds = %.thread63, %286, %284, %71
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn.pn, %284 ], [ %.pn.pn, %286 ], [ %73, %.thread63 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit39: ; preds = %.thread80, %286, %284, %71
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %72, %71 ], [ %.pn.pn, %284 ], [ %.pn.pn, %286 ], [ %73, %.thread80 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdVolFieldBaseD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
   br label %321
 

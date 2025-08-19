@@ -420,9 +420,9 @@ define internal i32 @pop3_connect(ptr noundef %0, ptr noundef writeonly captures
   %40 = load i16, ptr %39, align 2, !tbaa !113
   %switch.selectcmp.i = icmp eq i16 %40, -33
   %switch.select.i = select i1 %switch.selectcmp.i, i8 7, i8 4
-  %switch.selectcmp58.i = icmp eq i16 %40, 0
-  %switch.select59.i = select i1 %switch.selectcmp58.i, i8 0, i8 %switch.select.i
-  store i8 %switch.select59.i, ptr %10, align 1, !tbaa !101
+  %switch.selectcmp60.i = icmp eq i16 %40, 0
+  %switch.select61.i = select i1 %switch.selectcmp60.i, i8 0, i8 %switch.select.i
+  store i8 %switch.select61.i, ptr %10, align 1, !tbaa !101
   br label %pop3_parse_url_options.exit
 
 pop3_parse_url_options.exit:                      ; preds = %.critedge.i, %.sink.split.i
@@ -720,8 +720,8 @@ define internal i32 @pop3_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not99, label %.thread111, label %.loopexit
 
 .thread111.sink.split:                            ; preds = %22, %13, %20
-  %.sink145 = phi i64 [ %21, %20 ], [ 4, %13 ], [ 3, %22 ]
-  store i64 %.sink145, ptr %7, align 8, !tbaa !118
+  %.sink151 = phi i64 [ %21, %20 ], [ 4, %13 ], [ 3, %22 ]
+  store i64 %.sink151, ptr %7, align 8, !tbaa !118
   br label %.thread111
 
 .thread111:                                       ; preds = %27, %.thread111.sink.split, %.critedge102, %30, %14, %15, %24

@@ -1343,9 +1343,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 24:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
   %25 = icmp sgt i64 %23, 0
-  br i1 %25, label %28, label %.thread26
+  br i1 %25, label %28, label %.thread31
 
-.thread26:                                        ; preds = %24
+.thread31:                                        ; preds = %24
   store i64 %13, ptr %17, align 8, !tbaa !101
   store i64 %15, ptr %18, align 8, !tbaa !106
   %.nonneg = sub i64 0, %23
@@ -1384,15 +1384,15 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %28
   %36 = shufflevector <2 x double> %.sroa.7.24.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   br label %.lr.ph.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread26, %.thread, %34
-  %37 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread26 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i25 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread26 ], [ %31, %.lr.ph.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread31, %.thread, %34
+  %37 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread31 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i30 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread31 ], [ %31, %.lr.ph.i.i.i.i.i.i.i ]
   %38 = icmp slt i64 %37, %23
   br i1 %38, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIddEEKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EEEEE4evalEv.exit
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i.i.i.i ], [ %37, %._crit_edge.i.i.i.i.i.i.i ]
-  %39 = getelementptr inbounds double, ptr %.pre.i25, i64 %.05.i.i.i.i.i.i.i.i
+  %39 = getelementptr inbounds double, ptr %.pre.i30, i64 %.05.i.i.i.i.i.i.i.i
   %40 = getelementptr inbounds double, ptr %16, i64 %.05.i.i.i.i.i.i.i.i
   %41 = load double, ptr %40, align 8, !tbaa !34
   %42 = fdiv double %41, %1
@@ -2197,9 +2197,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 24:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i
   %25 = icmp sgt i64 %23, 0
-  br i1 %25, label %28, label %.thread26
+  br i1 %25, label %28, label %.thread31
 
-.thread26:                                        ; preds = %24
+.thread31:                                        ; preds = %24
   store i64 %13, ptr %17, align 8, !tbaa !142
   store i64 %15, ptr %18, align 8, !tbaa !147
   %.nonneg = sub i64 0, %23
@@ -2238,15 +2238,15 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %28
   %36 = shufflevector <2 x double> %.sroa.7.24.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
   br label %.lr.ph.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread26, %.thread, %34
-  %37 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread26 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
-  %.pre.i25 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread26 ], [ %31, %.lr.ph.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread31, %.thread, %34
+  %37 = phi i64 [ 0, %.thread ], [ %35, %34 ], [ %27, %.thread31 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
+  %.pre.i30 = phi ptr [ null, %.thread ], [ %31, %34 ], [ null, %.thread31 ], [ %31, %.lr.ph.i.i.i.i.i.i.i ]
   %38 = icmp slt i64 %37, %23
   br i1 %38, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal18scalar_quotient_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIdEES7_EEEEE4evalEv.exit
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i.i.i.i ], [ %37, %._crit_edge.i.i.i.i.i.i.i ]
-  %39 = getelementptr inbounds double, ptr %.pre.i25, i64 %.05.i.i.i.i.i.i.i.i
+  %39 = getelementptr inbounds double, ptr %.pre.i30, i64 %.05.i.i.i.i.i.i.i.i
   %40 = getelementptr inbounds double, ptr %16, i64 %.05.i.i.i.i.i.i.i.i
   %41 = load double, ptr %40, align 8, !tbaa !34
   %42 = fdiv double %41, %1

@@ -220,13 +220,13 @@ define hidden noundef zeroext i1 @_ZN8xml5ever9tokenizer5qname17QualNameTokenize
   %3 = load i8, ptr %2, align 8, !range !22, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i8 %3, label %default.unreachable2 [
+  switch i8 %3, label %default.unreachable15 [
     i8 0, label %6
     i8 1, label %21
     i8 2, label %39
   ]
 
-default.unreachable2:                             ; preds = %1
+default.unreachable15:                            ; preds = %1
   unreachable
 
 6:                                                ; preds = %1

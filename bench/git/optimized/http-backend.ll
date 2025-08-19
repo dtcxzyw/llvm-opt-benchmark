@@ -1540,9 +1540,9 @@ thread-pre-split.us.i:                            ; preds = %write_to_child.exit
 
 .split.split.i.loopexit:                          ; preds = %thread-pre-split.i
   %.not39.i = icmp eq ptr %.pre.i43, null
-  br i1 %.not39.i, label %.split.split.i.preheader, label %.thread89.i, !llvm.loop !62
+  br i1 %.not39.i, label %.split.split.i.preheader, label %.thread97.i, !llvm.loop !62
 
-.thread89.i:                                      ; preds = %.split.split.i.loopexit
+.thread97.i:                                      ; preds = %.split.split.i.loopexit
   store ptr %.pre.i43, ptr %63, align 8, !tbaa !53
   br label %.split48.us.i
 
@@ -1554,7 +1554,7 @@ thread-pre-split.us.i:                            ; preds = %write_to_child.exit
   %95 = icmp slt i64 %94, 1
   br i1 %95, label %.split48.us.i, label %96
 
-.split48.us.i:                                    ; preds = %.split.split.i.preheader, %.split.us.split.us.i.loopexit, %.split.us.split.i.loopexit, %.split.us.split.us.i.preheader, %.split.us.split.i.preheader, %.thread89.i
+.split48.us.i:                                    ; preds = %.split.split.i.preheader, %.split.us.split.us.i.loopexit, %.split.us.split.i.loopexit, %.split.us.split.us.i.preheader, %.split.us.split.i.preheader, %.thread97.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.80) #20
   unreachable
 

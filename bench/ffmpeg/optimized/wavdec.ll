@@ -712,9 +712,9 @@ wav_parse_bext_string.exit73.i:                   ; preds = %230
   br i1 %266, label %wav_parse_bext_tag.exit.thread, label %267
 
 267:                                              ; preds = %264, %246, %239
-  %.sink92.i = phi i64 [ 190, %264 ], [ 190, %246 ], [ 254, %239 ]
+  %.sink107.i = phi i64 [ 190, %264 ], [ 190, %246 ], [ 254, %239 ]
   %268 = load ptr, ptr %12, align 8, !tbaa !12
-  %269 = call i64 @avio_skip(ptr noundef %268, i64 noundef %.sink92.i) #10
+  %269 = call i64 @avio_skip(ptr noundef %268, i64 noundef %.sink107.i) #10
   %270 = icmp ugt i32 %.0.in.i, 602
   br i1 %270, label %271, label %wav_parse_bext_tag.exit
 
@@ -1163,7 +1163,7 @@ wav_seek_tag.exit:                                ; preds = %409, %.thread400
   %482 = icmp eq i32 %481, 86069
   %483 = icmp ne i64 %.5301, 0
   %or.cond31 = select i1 %482, i1 %483, i1 false
-  %484 = shl i64 %.5295430435, 3
+  %484 = shl nuw nsw i64 %.5295430435, 3
   %485 = icmp sgt i64 %484, %.5301
   %or.cond375 = select i1 %or.cond31, i1 %485, i1 false
   br i1 %or.cond375, label %.thread436, label %486

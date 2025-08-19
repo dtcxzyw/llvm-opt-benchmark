@@ -1596,8 +1596,8 @@ Py_DECREF.exit61.thread.i:                        ; preds = %104, %101, %99
   br i1 %109, label %_Py_NewRef.exit.i, label %_Py_NewRef.exit.sink.split.i
 
 _Py_NewRef.exit.sink.split.i:                     ; preds = %.split51.i, %.split.i
-  %.sink15.i = phi i32 [ %94, %.split.i ], [ %108, %.split51.i ]
-  %110 = add nuw i32 %.sink15.i, 1
+  %.sink29.i = phi i32 [ %94, %.split.i ], [ %108, %.split51.i ]
+  %110 = add nuw i32 %.sink29.i, 1
   store i32 %110, ptr %15, align 8, !tbaa !20
   br label %_Py_NewRef.exit.i
 
@@ -5673,7 +5673,7 @@ _Py_NewRef.exit:                                  ; preds = %Py_INCREF.exit, %24
   %63 = ptrtoint ptr %58 to i64
   %64 = sub i64 %63, %38
   %65 = sdiv i64 %64, %40
-  %66 = add nuw i64 %.06472, 2
+  %66 = add nuw nsw i64 %.06472, 2
   %67 = getelementptr [1 x i64], ptr %42, i64 0, i64 %66
   store i64 %65, ptr %67, align 8, !tbaa !66
   %68 = ptrtoint ptr %61 to i64
@@ -5953,7 +5953,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %94, %110, %127, %379, %396, %410, %421, %440, %461, %478, %503, %525, %543, %569, %593, %613, %639, %651, %1215, %1952, %1996, %2031, %2071, %2088, %2112, %2122
-  %.sink2772.sink.be = phi i32 [ %96, %94 ], [ %112, %110 ], [ %129, %127 ], [ %381, %379 ], [ %398, %396 ], [ %412, %410 ], [ %423, %421 ], [ %442, %440 ], [ %463, %461 ], [ %480, %478 ], [ %505, %503 ], [ %527, %525 ], [ %545, %543 ], [ %571, %569 ], [ %595, %593 ], [ %615, %613 ], [ %641, %639 ], [ %653, %651 ], [ %1216, %1215 ], [ %1954, %1952 ], [ %1998, %1996 ], [ %2033, %2031 ], [ %2073, %2071 ], [ %2090, %2088 ], [ %2114, %2112 ], [ %2124, %2122 ]
+  %.sink2911.sink.be = phi i32 [ %96, %94 ], [ %112, %110 ], [ %129, %127 ], [ %381, %379 ], [ %398, %396 ], [ %412, %410 ], [ %423, %421 ], [ %442, %440 ], [ %463, %461 ], [ %480, %478 ], [ %505, %503 ], [ %527, %525 ], [ %545, %543 ], [ %571, %569 ], [ %595, %593 ], [ %615, %613 ], [ %641, %639 ], [ %653, %651 ], [ %1216, %1215 ], [ %1954, %1952 ], [ %1998, %1996 ], [ %2033, %2031 ], [ %2073, %2071 ], [ %2090, %2088 ], [ %2114, %2112 ], [ %2124, %2122 ]
   %.01520.be = phi ptr [ %.01520, %94 ], [ %104, %110 ], [ %121, %127 ], [ %.01520, %379 ], [ %390, %396 ], [ %404, %410 ], [ %415, %421 ], [ %434, %440 ], [ %455, %461 ], [ %472, %478 ], [ %497, %503 ], [ %519, %525 ], [ %537, %543 ], [ %563, %569 ], [ %587, %593 ], [ %607, %613 ], [ %633, %639 ], [ %.01520, %651 ], [ %1187, %1215 ], [ %.111531.lcssa, %1952 ], [ %.121532.lcssa, %1996 ], [ %.131533.lcssa, %2031 ], [ %.141534.lcssa, %2071 ], [ %.01520, %2088 ], [ %.01520, %2112 ], [ %.01520, %2122 ]
   %.21507.be = phi ptr [ %.21507, %94 ], [ %.21507, %110 ], [ %.21507, %127 ], [ %.21507, %379 ], [ %.21507, %396 ], [ %.21507, %410 ], [ %.21507, %421 ], [ %.21507, %440 ], [ %.21507, %461 ], [ %.21507, %478 ], [ %.21507, %503 ], [ %.21507, %525 ], [ %.21507, %543 ], [ %.21507, %569 ], [ %.21507, %593 ], [ %.21507, %613 ], [ %.21507, %639 ], [ %.21507, %651 ], [ %1186, %1215 ], [ %.21507, %1952 ], [ %.21507, %1996 ], [ %.21507, %2031 ], [ %.21507, %2071 ], [ %.21507, %2088 ], [ %.21507, %2112 ], [ %.21507, %2122 ]
   %.21494.be = phi i32 [ %89, %94 ], [ %105, %110 ], [ %122, %127 ], [ %374, %379 ], [ %391, %396 ], [ %405, %410 ], [ %416, %421 ], [ %435, %440 ], [ %456, %461 ], [ %473, %478 ], [ %498, %503 ], [ %520, %525 ], [ %538, %543 ], [ %564, %569 ], [ %588, %593 ], [ %608, %613 ], [ %634, %639 ], [ %646, %651 ], [ %1210, %1215 ], [ %1947, %1952 ], [ %1991, %1996 ], [ %2026, %2031 ], [ %2066, %2071 ], [ %2083, %2088 ], [ %2107, %2112 ], [ %2117, %2122 ]
@@ -6160,8 +6160,8 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 202:                                              ; preds = %199, %194, %191, %187
   %203 = phi i64 [ 0, %187 ], [ 0, %191 ], [ 1, %194 ], [ %201, %199 ]
-  %.not2798 = icmp eq i64 %203, %188
-  br i1 %.not2798, label %.critedge1899, label %sre_ucs1_at.exit.thread
+  %.not2937 = icmp eq i64 %203, %188
+  br i1 %.not2937, label %.critedge1899, label %sre_ucs1_at.exit.thread
 
 204:                                              ; preds = %143
   %205 = load ptr, ptr %46, align 8, !tbaa !89
@@ -6262,8 +6262,8 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 267:                                              ; preds = %264, %256, %252
   %268 = phi i64 [ 0, %252 ], [ 1, %256 ], [ %266, %264 ]
-  %.not2797 = icmp eq i64 %268, %253
-  br i1 %.not2797, label %.critedge1899, label %sre_ucs1_at.exit.thread
+  %.not2936 = icmp eq i64 %268, %253
+  br i1 %.not2936, label %.critedge1899, label %sre_ucs1_at.exit.thread
 
 269:                                              ; preds = %143
   %270 = load ptr, ptr %46, align 8, !tbaa !89
@@ -6384,8 +6384,8 @@ Py_UNICODE_ISALNUM.exit103.i:                     ; preds = %328
 
 Py_UNICODE_ISALNUM.exit103.thread.i:              ; preds = %331, %Py_UNICODE_ISALNUM.exit103.i, %328, %326, %322, %Py_UNICODE_ISALNUM.exit.thread.i
   %335 = phi i64 [ 0, %Py_UNICODE_ISALNUM.exit.thread.i ], [ 1, %Py_UNICODE_ISALNUM.exit103.i ], [ %334, %331 ], [ 1, %328 ], [ 1, %326 ], [ 1, %322 ]
-  %.not2796 = icmp eq i64 %335, %319
-  br i1 %.not2796, label %.critedge1899, label %sre_ucs1_at.exit.thread
+  %.not2935 = icmp eq i64 %335, %319
+  br i1 %.not2935, label %.critedge1899, label %sre_ucs1_at.exit.thread
 
 336:                                              ; preds = %143
   %337 = load ptr, ptr %46, align 8, !tbaa !89
@@ -7117,12 +7117,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.pre2507 = phi ptr [ %713, %717 ], [ %.pre2507.pre, %706 ]
   %.not1789 = icmp eq i64 %.21481, -1
   %720 = getelementptr i8, ptr %.pre2507, i64 %.21481
-  %spec.select2773 = select i1 %.not1789, ptr %.41509, ptr %720
+  %spec.select2912 = select i1 %.not1789, ptr %.41509, ptr %720
   br label %721
 
 721:                                              ; preds = %719, %.thread._crit_edge
   %722 = phi ptr [ %.pre2506, %.thread._crit_edge ], [ %.pre2507, %719 ]
-  %.61511 = phi ptr [ %.41509, %.thread._crit_edge ], [ %spec.select2773, %719 ]
+  %.61511 = phi ptr [ %.41509, %.thread._crit_edge ], [ %spec.select2912, %719 ]
   %723 = getelementptr i8, ptr %722, i64 %702
   %724 = load i64, ptr %8, align 8, !tbaa !122
   %725 = add i64 %724, 56
@@ -7321,12 +7321,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1702 = icmp eq i64 %.11480.ph, -1
   %.pre2457 = load ptr, ptr %30, align 8, !tbaa !88
   %836 = getelementptr i8, ptr %.pre2457, i64 %.11480.ph
-  %spec.select2774 = select i1 %.not1702, ptr %792, ptr %836
+  %spec.select2913 = select i1 %.not1702, ptr %792, ptr %836
   br label %837
 
 837:                                              ; preds = %835, %822
   %838 = phi ptr [ %791, %822 ], [ %.pre2457, %835 ]
-  %.81513 = phi ptr [ %792, %822 ], [ %spec.select2774, %835 ]
+  %.81513 = phi ptr [ %792, %822 ], [ %spec.select2913, %835 ]
   %839 = load i64, ptr %8, align 8, !tbaa !122
   %840 = getelementptr i8, ptr %838, i64 %839
   %841 = load ptr, ptr %39, align 8, !tbaa !94
@@ -7425,12 +7425,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1709 = icmp eq i64 %.41483, -1
   %.pre2465 = load ptr, ptr %30, align 8, !tbaa !88
   %881 = getelementptr i8, ptr %.pre2465, i64 %.41483
-  %spec.select2775 = select i1 %.not1709, ptr %.91514, ptr %881
+  %spec.select2914 = select i1 %.not1709, ptr %.91514, ptr %881
   br label %882
 
 882:                                              ; preds = %880, %.critedge._crit_edge
   %883 = phi ptr [ %.pre2464, %.critedge._crit_edge ], [ %.pre2465, %880 ]
-  %.101515 = phi ptr [ %.91514, %.critedge._crit_edge ], [ %spec.select2775, %880 ]
+  %.101515 = phi ptr [ %.91514, %.critedge._crit_edge ], [ %spec.select2914, %880 ]
   %884 = getelementptr i8, ptr %883, i64 %871
   %885 = load i64, ptr %8, align 8, !tbaa !122
   %886 = add i64 %885, 56
@@ -7556,12 +7556,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1705 = icmp eq i64 %.51484, -1
   %.pre2462 = load ptr, ptr %30, align 8, !tbaa !88
   %953 = getelementptr i8, ptr %.pre2462, i64 %.51484
-  %spec.select2776 = select i1 %.not1705, ptr %.111516, ptr %953
+  %spec.select2915 = select i1 %.not1705, ptr %.111516, ptr %953
   br label %954
 
 954:                                              ; preds = %952, %._crit_edge2460
   %955 = phi ptr [ %.pre2461, %._crit_edge2460 ], [ %.pre2462, %952 ]
-  %.121517 = phi ptr [ %.111516, %._crit_edge2460 ], [ %spec.select2776, %952 ]
+  %.121517 = phi ptr [ %.111516, %._crit_edge2460 ], [ %spec.select2915, %952 ]
   %956 = getelementptr i8, ptr %955, i64 %943
   %957 = load i64, ptr %8, align 8, !tbaa !122
   %958 = add i64 %957, 56
@@ -7774,12 +7774,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1692 = icmp eq i64 %.11480.ph, -1
   %.pre2454 = load ptr, ptr %30, align 8, !tbaa !88
   %1075 = getelementptr i8, ptr %.pre2454, i64 %.11480.ph
-  %spec.select2780 = select i1 %.not1692, ptr %.141519, ptr %1075
+  %spec.select2919 = select i1 %.not1692, ptr %.141519, ptr %1075
   br label %1076
 
 1076:                                             ; preds = %1074, %._crit_edge2452
   %1077 = phi ptr [ %.pre2453, %._crit_edge2452 ], [ %.pre2454, %1074 ]
-  %.15 = phi ptr [ %.141519, %._crit_edge2452 ], [ %spec.select2780, %1074 ]
+  %.15 = phi ptr [ %.141519, %._crit_edge2452 ], [ %spec.select2919, %1074 ]
   %1078 = load i64, ptr %8, align 8, !tbaa !122
   %1079 = getelementptr i8, ptr %1077, i64 %1078
   %1080 = load ptr, ptr %39, align 8, !tbaa !94
@@ -7835,12 +7835,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1695 = icmp eq i64 %.61485, -1
   %.pre2456 = load ptr, ptr %30, align 8, !tbaa !88
   %1102 = getelementptr i8, ptr %.pre2456, i64 %.61485
-  %spec.select2781 = select i1 %.not1695, ptr %.16, ptr %1102
+  %spec.select2920 = select i1 %.not1695, ptr %.16, ptr %1102
   br label %1103
 
 1103:                                             ; preds = %1101, %.critedge4._crit_edge
   %1104 = phi ptr [ %.pre2455, %.critedge4._crit_edge ], [ %.pre2456, %1101 ]
-  %.18 = phi ptr [ %.16, %.critedge4._crit_edge ], [ %spec.select2781, %1101 ]
+  %.18 = phi ptr [ %.16, %.critedge4._crit_edge ], [ %spec.select2920, %1101 ]
   %1105 = getelementptr i8, ptr %1104, i64 %1092
   %1106 = load i64, ptr %8, align 8, !tbaa !122
   %1107 = add i64 %1106, 56
@@ -8078,12 +8078,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1712 = icmp eq i64 %.11480.ph, -1
   %.pre2468 = load ptr, ptr %30, align 8, !tbaa !88
   %1242 = getelementptr i8, ptr %.pre2468, i64 %.11480.ph
-  %spec.select2782 = select i1 %.not1712, ptr %.21507, ptr %1242
+  %spec.select2921 = select i1 %.not1712, ptr %.21507, ptr %1242
   br label %1243
 
 1243:                                             ; preds = %1241, %._crit_edge2466
   %1244 = phi ptr [ %.pre2467, %._crit_edge2466 ], [ %.pre2468, %1241 ]
-  %.19 = phi ptr [ %.21507, %._crit_edge2466 ], [ %spec.select2782, %1241 ]
+  %.19 = phi ptr [ %.21507, %._crit_edge2466 ], [ %spec.select2921, %1241 ]
   %1245 = getelementptr i8, ptr %1244, i64 %1232
   %1246 = load i64, ptr %8, align 8, !tbaa !122
   %1247 = add i64 %1246, 56
@@ -8159,12 +8159,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1732 = icmp eq i64 %.11480.ph, -1
   %.pre2491 = load ptr, ptr %30, align 8, !tbaa !88
   %1287 = getelementptr i8, ptr %.pre2491, i64 %.11480.ph
-  %spec.select2783 = select i1 %.not1732, ptr %.21507, ptr %1287
+  %spec.select2922 = select i1 %.not1732, ptr %.21507, ptr %1287
   br label %1288
 
 1288:                                             ; preds = %1286, %._crit_edge2489
   %1289 = phi ptr [ %.pre2490, %._crit_edge2489 ], [ %.pre2491, %1286 ]
-  %.20 = phi ptr [ %.21507, %._crit_edge2489 ], [ %spec.select2783, %1286 ]
+  %.20 = phi ptr [ %.21507, %._crit_edge2489 ], [ %spec.select2922, %1286 ]
   %1290 = getelementptr i8, ptr %1289, i64 %1277
   %1291 = load i64, ptr %8, align 8, !tbaa !122
   %1292 = add i64 %1291, 56
@@ -8258,12 +8258,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1729 = icmp eq i64 %.11480.ph, -1
   %.pre2481 = load ptr, ptr %30, align 8, !tbaa !88
   %1343 = getelementptr i8, ptr %.pre2481, i64 %.11480.ph
-  %spec.select2784 = select i1 %.not1729, ptr %.21507, ptr %1343
+  %spec.select2923 = select i1 %.not1729, ptr %.21507, ptr %1343
   br label %1344
 
 1344:                                             ; preds = %1342, %._crit_edge2479
   %1345 = phi ptr [ %.pre2480, %._crit_edge2479 ], [ %.pre2481, %1342 ]
-  %.22 = phi ptr [ %.21507, %._crit_edge2479 ], [ %spec.select2784, %1342 ]
+  %.22 = phi ptr [ %.21507, %._crit_edge2479 ], [ %spec.select2923, %1342 ]
   %1346 = load i64, ptr %8, align 8, !tbaa !122
   %1347 = getelementptr i8, ptr %1345, i64 %1346
   %1348 = load ptr, ptr %39, align 8, !tbaa !94
@@ -8298,12 +8298,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1730 = icmp eq i64 %.11480.ph, -1
   %.pre2485 = load ptr, ptr %30, align 8, !tbaa !88
   %1362 = getelementptr i8, ptr %.pre2485, i64 %.11480.ph
-  %spec.select2785 = select i1 %.not1730, ptr %.23, ptr %1362
+  %spec.select2924 = select i1 %.not1730, ptr %.23, ptr %1362
   br label %1363
 
 1363:                                             ; preds = %1361, %._crit_edge2483
   %1364 = phi ptr [ %.pre2484, %._crit_edge2483 ], [ %.pre2485, %1361 ]
-  %.24 = phi ptr [ %.23, %._crit_edge2483 ], [ %spec.select2785, %1361 ]
+  %.24 = phi ptr [ %.23, %._crit_edge2483 ], [ %spec.select2924, %1361 ]
   %1365 = load i64, ptr %8, align 8, !tbaa !122
   %1366 = getelementptr i8, ptr %1364, i64 %1365
   %1367 = getelementptr inbounds nuw i8, ptr %.24, i64 8
@@ -8344,12 +8344,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1731 = icmp eq i64 %.11480.ph, -1
   %.pre2488 = load ptr, ptr %30, align 8, !tbaa !88
   %1387 = getelementptr i8, ptr %.pre2488, i64 %.11480.ph
-  %spec.select2786 = select i1 %.not1731, ptr %.24, ptr %1387
+  %spec.select2925 = select i1 %.not1731, ptr %.24, ptr %1387
   br label %1388
 
 1388:                                             ; preds = %1386, %._crit_edge2486
   %1389 = phi ptr [ %.pre2487, %._crit_edge2486 ], [ %.pre2488, %1386 ]
-  %.25 = phi ptr [ %.24, %._crit_edge2486 ], [ %spec.select2786, %1386 ]
+  %.25 = phi ptr [ %.24, %._crit_edge2486 ], [ %spec.select2925, %1386 ]
   %1390 = getelementptr i8, ptr %1389, i64 %1372
   %1391 = load i64, ptr %8, align 8, !tbaa !122
   %1392 = add i64 %1391, 56
@@ -8488,12 +8488,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.pre2521 = phi ptr [ %1458, %1462 ], [ %.pre2521.pre, %1451 ]
   %.not1798 = icmp eq i64 %.71486, -1
   %1465 = getelementptr i8, ptr %.pre2521, i64 %.71486
-  %spec.select2787 = select i1 %.not1798, ptr %.21, ptr %1465
+  %spec.select2926 = select i1 %.not1798, ptr %.21, ptr %1465
   br label %1466
 
 1466:                                             ; preds = %1464, %._crit_edge2519
   %1467 = phi ptr [ %.pre2520, %._crit_edge2519 ], [ %.pre2521, %1464 ]
-  %.26 = phi ptr [ %.21, %._crit_edge2519 ], [ %spec.select2787, %1464 ]
+  %.26 = phi ptr [ %.21, %._crit_edge2519 ], [ %spec.select2926, %1464 ]
   %1468 = getelementptr i8, ptr %1467, i64 %1442
   %1469 = load i64, ptr %8, align 8, !tbaa !122
   %1470 = add i64 %1469, 56
@@ -8564,12 +8564,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1726 = icmp eq i64 %.11480.ph, -1
   %.pre2478 = load ptr, ptr %30, align 8, !tbaa !88
   %1504 = getelementptr i8, ptr %.pre2478, i64 %.11480.ph
-  %spec.select2788 = select i1 %.not1726, ptr %.21507, ptr %1504
+  %spec.select2927 = select i1 %.not1726, ptr %.21507, ptr %1504
   br label %1505
 
 1505:                                             ; preds = %1503, %._crit_edge2476
   %1506 = phi ptr [ %.pre2477, %._crit_edge2476 ], [ %.pre2478, %1503 ]
-  %.27 = phi ptr [ %.21507, %._crit_edge2476 ], [ %spec.select2788, %1503 ]
+  %.27 = phi ptr [ %.21507, %._crit_edge2476 ], [ %spec.select2927, %1503 ]
   %1507 = getelementptr i8, ptr %1506, i64 %1494
   %1508 = load i64, ptr %8, align 8, !tbaa !122
   %1509 = add i64 %1508, 56
@@ -8648,12 +8648,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1724 = icmp eq i64 %.11480.ph, -1
   %.pre2471 = load ptr, ptr %30, align 8, !tbaa !88
   %1553 = getelementptr i8, ptr %.pre2471, i64 %.11480.ph
-  %spec.select2789 = select i1 %.not1724, ptr %.21507, ptr %1553
+  %spec.select2928 = select i1 %.not1724, ptr %.21507, ptr %1553
   br label %1554
 
 1554:                                             ; preds = %1552, %._crit_edge2469
   %1555 = phi ptr [ %.pre2470, %._crit_edge2469 ], [ %.pre2471, %1552 ]
-  %.29 = phi ptr [ %.21507, %._crit_edge2469 ], [ %spec.select2789, %1552 ]
+  %.29 = phi ptr [ %.21507, %._crit_edge2469 ], [ %spec.select2928, %1552 ]
   %1556 = load i64, ptr %8, align 8, !tbaa !122
   %1557 = getelementptr i8, ptr %1555, i64 %1556
   %1558 = load ptr, ptr %39, align 8, !tbaa !94
@@ -8692,12 +8692,12 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %617, %sre_ucs1_char
   %.not1725 = icmp eq i64 %.11480.ph, -1
   %.pre2475 = load ptr, ptr %30, align 8, !tbaa !88
   %1574 = getelementptr i8, ptr %.pre2475, i64 %.11480.ph
-  %spec.select2790 = select i1 %.not1725, ptr %.28, ptr %1574
+  %spec.select2929 = select i1 %.not1725, ptr %.28, ptr %1574
   br label %1575
 
 1575:                                             ; preds = %1573, %._crit_edge2473
   %1576 = phi ptr [ %.pre2474, %._crit_edge2473 ], [ %.pre2475, %1573 ]
-  %.30 = phi ptr [ %.28, %._crit_edge2473 ], [ %spec.select2790, %1573 ]
+  %.30 = phi ptr [ %.28, %._crit_edge2473 ], [ %spec.select2929, %1573 ]
   %1577 = getelementptr i8, ptr %1576, i64 %1562
   %1578 = load i64, ptr %8, align 8, !tbaa !122
   %1579 = add i64 %1578, 56
@@ -9120,12 +9120,12 @@ repeat_pool_free.exit:                            ; preds = %1755, %1756
   %.pre2442 = phi ptr [ %1788, %1792 ], [ %.pre2442.pre, %1781 ]
   %.not1776 = icmp eq i64 %.91488, -1
   %1795 = getelementptr i8, ptr %.pre2442, i64 %.91488
-  %spec.select2791 = select i1 %.not1776, ptr %.34, ptr %1795
+  %spec.select2930 = select i1 %.not1776, ptr %.34, ptr %1795
   br label %1796
 
 1796:                                             ; preds = %1794, %._crit_edge2440
   %1797 = phi ptr [ %.pre2441, %._crit_edge2440 ], [ %.pre2442, %1794 ]
-  %.36 = phi ptr [ %.34, %._crit_edge2440 ], [ %spec.select2791, %1794 ]
+  %.36 = phi ptr [ %.34, %._crit_edge2440 ], [ %spec.select2930, %1794 ]
   %1798 = load i64, ptr %8, align 8, !tbaa !122
   %1799 = getelementptr i8, ptr %1797, i64 %1798
   %1800 = load ptr, ptr %39, align 8, !tbaa !94
@@ -9375,7 +9375,7 @@ repeat_pool_free.exit1849:                        ; preds = %1869, %1870
   %.21494.ph = phi i32 [ %2164, %2158 ], [ %2164, %2167 ], [ %2263, %2259 ], [ %2263, %2266 ], [ %65, %64 ], [ %65, %68 ], [ %1878, %repeat_pool_free.exit1849 ], [ %1878, %1881 ], [ %1915, %1908 ], [ %1915, %1918 ]
   %.11480.ph = phi i64 [ %2270, %2158 ], [ %2270, %2167 ], [ %.111490, %2259 ], [ %.111490, %2266 ], [ %.01479, %64 ], [ %.01479, %68 ], [ %.101489, %repeat_pool_free.exit1849 ], [ %.101489, %1881 ], [ %2270, %1908 ], [ %2270, %1918 ]
   %1920 = getelementptr i8, ptr %.1.sink, i64 4
-  %.sink2793 = load i32, ptr %.1.sink, align 4, !tbaa !40
+  %.sink2932 = load i32, ptr %.1.sink, align 4, !tbaa !40
   br label %.backedge
 
 1921:                                             ; preds = %.backedge
@@ -9482,7 +9482,7 @@ repeat_pool_free.exit1849:                        ; preds = %1869, %1870
   %.1215322158 = phi ptr [ %1989, %1987 ], [ %.01520, %.lr.ph2159.preheader ]
   %.015392157 = phi ptr [ %1988, %1987 ], [ %1963, %.lr.ph2159.preheader ]
   %.not1680 = icmp ult ptr %.1215322158, %5
-  br i1 %.not1680, label %1974, label %.critedge1899.loopexit3045
+  br i1 %.not1680, label %1974, label %.critedge1899.loopexit3184
 
 1974:                                             ; preds = %.lr.ph2159
   %1975 = load i8, ptr %.1215322158, align 1, !tbaa !20
@@ -9510,7 +9510,7 @@ sre_lower_ascii.exit1850:                         ; preds = %1974, %1977
 sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exit1850, %1983
   %.in1888 = phi i8 [ %1986, %1983 ], [ %1981, %sre_lower_ascii.exit1850 ]
   %.not1681 = icmp eq i8 %.in1887, %.in1888
-  br i1 %.not1681, label %1987, label %.critedge1899.loopexit3045
+  br i1 %.not1681, label %1987, label %.critedge1899.loopexit3184
 
 1987:                                             ; preds = %sre_lower_ascii.exit1851
   %1988 = getelementptr i8, ptr %.015392157, i64 1
@@ -9565,7 +9565,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %.1315332163 = phi ptr [ %2024, %2022 ], [ %.01520, %.preheader1901 ]
   %.015402162 = phi ptr [ %2023, %2022 ], [ %2007, %.preheader1901 ]
   %.not1715 = icmp ult ptr %.1315332163, %5
-  br i1 %.not1715, label %2015, label %.critedge1899.loopexit3044
+  br i1 %.not1715, label %2015, label %.critedge1899.loopexit3183
 
 2015:                                             ; preds = %.lr.ph2164
   %2016 = load i8, ptr %.1315332163, align 1, !tbaa !20
@@ -9575,7 +9575,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %2020 = zext i8 %2019 to i32
   %2021 = tail call i32 @_PyUnicode_ToLowercase(i32 noundef %2020) #14
   %.not1716 = icmp eq i32 %2018, %2021
-  br i1 %.not1716, label %2022, label %.critedge1899.loopexit3044
+  br i1 %.not1716, label %2022, label %.critedge1899.loopexit3183
 
 2022:                                             ; preds = %2015
   %2023 = getelementptr i8, ptr %.015402162, i64 1
@@ -9637,7 +9637,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %.1415342156 = phi ptr [ %2064, %2062 ], [ %.01520, %.lr.ph.preheader ]
   %.015372155 = phi ptr [ %2063, %2062 ], [ %2042, %.lr.ph.preheader ]
   %.not1668 = icmp ult ptr %.1415342156, %5
-  br i1 %.not1668, label %2053, label %.critedge1899.loopexit3046
+  br i1 %.not1668, label %2053, label %.critedge1899.loopexit3185
 
 2053:                                             ; preds = %.lr.ph
   %2054 = load i8, ptr %.1415342156, align 1, !tbaa !20
@@ -9651,7 +9651,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %2061 = getelementptr i32, ptr %2056, i64 %2060
   %.0.i.i1852 = load i32, ptr %2061, align 4, !tbaa !40
   %.not1669 = icmp eq i32 %.0.i.i, %.0.i.i1852
-  br i1 %.not1669, label %2062, label %.critedge1899.loopexit3046
+  br i1 %.not1669, label %2062, label %.critedge1899.loopexit3185
 
 2062:                                             ; preds = %2053
   %2063 = getelementptr i8, ptr %.015372155, i64 1
@@ -9880,12 +9880,12 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %.not1765 = icmp eq i64 %.11480.ph, -1
   %.pre2497 = load ptr, ptr %30, align 8, !tbaa !88
   %2199 = getelementptr i8, ptr %.pre2497, i64 %.11480.ph
-  %spec.select2794 = select i1 %.not1765, ptr %.21507, ptr %2199
+  %spec.select2933 = select i1 %.not1765, ptr %.21507, ptr %2199
   br label %2200
 
 2200:                                             ; preds = %2198, %._crit_edge2495
   %2201 = phi ptr [ %.pre2496, %._crit_edge2495 ], [ %.pre2497, %2198 ]
-  %.40 = phi ptr [ %.21507, %._crit_edge2495 ], [ %spec.select2794, %2198 ]
+  %.40 = phi ptr [ %.21507, %._crit_edge2495 ], [ %spec.select2933, %2198 ]
   %2202 = load i64, ptr %8, align 8, !tbaa !122
   %2203 = getelementptr i8, ptr %2201, i64 %2202
   %2204 = load ptr, ptr %39, align 8, !tbaa !94
@@ -10008,21 +10008,21 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
 .critedge1899.loopexit:                           ; preds = %.lr.ph2173, %1940
   br label %.critedge1899
 
-.critedge1899.loopexit3044:                       ; preds = %.lr.ph2164, %2015
+.critedge1899.loopexit3183:                       ; preds = %.lr.ph2164, %2015
   br label %.critedge1899
 
-.critedge1899.loopexit3045:                       ; preds = %.lr.ph2159, %sre_lower_ascii.exit1851
+.critedge1899.loopexit3184:                       ; preds = %.lr.ph2159, %sre_lower_ascii.exit1851
   br label %.critedge1899
 
-.critedge1899.loopexit3046:                       ; preds = %.lr.ph, %2053
+.critedge1899.loopexit3185:                       ; preds = %.lr.ph, %2053
   br label %.critedge1899
 
-.critedge1899:                                    ; preds = %.critedge1899.loopexit3046, %.critedge1899.loopexit3045, %.critedge1899.loopexit3044, %.critedge1899.loopexit, %2229, %2230, %2234, %1624, %1611, %1586, %1587, %1591, %1412, %1408, %1159, %1161, %1165, %1120, %1121, %1125, %1002, %1004, %._crit_edge2180, %931, %.sink.split, %971, %972, %976, %899, %900, %904, %770, %766, %764, %732, %733, %737, %sre_ucs1_charset_loc_ignore.exit, %616, %625, %597, %596, %sre_lower_ascii.exit1817, %572, %char_loc_ignore.exit1816, %546, %552, %547, %529, %528, %sre_lower_ascii.exit1813, %506, %char_loc_ignore.exit, %481, %465, %464, %sre_lower_ascii.exit, %443, %425, %424, %400, %399, %383, %382, %139, %135, %114, %113, %98, %97, %161, %165, %151, %Py_UNICODE_ISALNUM.exit111.thread.i, %Py_UNICODE_ISALNUM.exit103.thread.i, %299, %267, %234, %202, %169, %145, %143, %.backedge, %2372, %2125, %2038, %2034, %2003, %1999, %1959, %1955, %1925, %1921, %2306, %2324, %2293, %2323, %repeat_pool_free.exit1855, %1184, %1171, %1027, %1013, %790, %776, %413, %sre_ucs1_at.exit, %51, %1905, %repeat_pool_free.exit, %1686, %1525, %1477, %1308, %1260, %1208, %1053, %814, %142
-  %.11506 = phi ptr [ %2279, %1477 ], [ %2279, %1686 ], [ %2279, %1308 ], [ %2279, %1525 ], [ %.21507, %142 ], [ %792, %814 ], [ %.141519, %1053 ], [ %1186, %1208 ], [ %2279, %repeat_pool_free.exit ], [ %2279, %1260 ], [ %2279, %1905 ], [ %.01505, %51 ], [ %.21507, %sre_ucs1_at.exit ], [ %.21507, %413 ], [ %.21507, %776 ], [ %792, %790 ], [ %.21507, %1013 ], [ %1029, %1027 ], [ %.21507, %1171 ], [ %1186, %1184 ], [ %2279, %repeat_pool_free.exit1855 ], [ %2279, %2323 ], [ %2279, %2293 ], [ %2279, %2324 ], [ %2279, %2306 ], [ %.21507, %1921 ], [ %.21507, %1925 ], [ %.21507, %1955 ], [ %.21507, %1959 ], [ %.21507, %1999 ], [ %.21507, %2003 ], [ %.21507, %2034 ], [ %.21507, %2038 ], [ %.21507, %2125 ], [ %2279, %2372 ], [ %.21507, %.backedge ], [ %.21507, %143 ], [ %.21507, %145 ], [ %.21507, %169 ], [ %.21507, %202 ], [ %.21507, %234 ], [ %.21507, %267 ], [ %.21507, %299 ], [ %.21507, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ %.21507, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ %.21507, %151 ], [ %.21507, %165 ], [ %.21507, %161 ], [ %.21507, %97 ], [ %.21507, %98 ], [ %.21507, %113 ], [ %.21507, %114 ], [ %.21507, %135 ], [ %.21507, %139 ], [ %.21507, %382 ], [ %.21507, %383 ], [ %.21507, %399 ], [ %.21507, %400 ], [ %.21507, %424 ], [ %.21507, %425 ], [ %.21507, %443 ], [ %.21507, %sre_lower_ascii.exit ], [ %.21507, %464 ], [ %.21507, %465 ], [ %.21507, %481 ], [ %.21507, %char_loc_ignore.exit ], [ %.21507, %506 ], [ %.21507, %sre_lower_ascii.exit1813 ], [ %.21507, %528 ], [ %.21507, %529 ], [ %.21507, %547 ], [ %.21507, %552 ], [ %.21507, %546 ], [ %.21507, %char_loc_ignore.exit1816 ], [ %.21507, %572 ], [ %.21507, %sre_lower_ascii.exit1817 ], [ %.21507, %596 ], [ %.21507, %597 ], [ %.21507, %625 ], [ %.21507, %616 ], [ %.21507, %sre_ucs1_charset_loc_ignore.exit ], [ %2279, %737 ], [ %2279, %733 ], [ %2279, %732 ], [ %.41509, %764 ], [ %.41509, %766 ], [ %.41509, %770 ], [ %2279, %904 ], [ %2279, %900 ], [ %2279, %899 ], [ %2279, %976 ], [ %2279, %972 ], [ %2279, %971 ], [ %.91514, %931 ], [ %.91514, %._crit_edge2180 ], [ %.111516, %1004 ], [ %.111516, %1002 ], [ %.131518.ph, %.sink.split ], [ %2279, %1125 ], [ %2279, %1121 ], [ %2279, %1120 ], [ %.17, %1165 ], [ %.17, %1161 ], [ %.17, %1159 ], [ %2279, %1408 ], [ %2279, %1412 ], [ %2279, %1591 ], [ %2279, %1587 ], [ %2279, %1586 ], [ %2279, %1611 ], [ %2279, %1624 ], [ %2279, %2234 ], [ %2279, %2230 ], [ %2279, %2229 ], [ %.21507, %.critedge1899.loopexit ], [ %.21507, %.critedge1899.loopexit3044 ], [ %.21507, %.critedge1899.loopexit3045 ], [ %.21507, %.critedge1899.loopexit3046 ]
-  %.11493 = phi i32 [ %.11493, %1477 ], [ %.11493, %1686 ], [ %.11493, %1308 ], [ %.11493, %1525 ], [ %.21494, %142 ], [ %.21494, %814 ], [ %.21494, %1053 ], [ %.21494, %1208 ], [ %.11493, %repeat_pool_free.exit ], [ %.11493, %1260 ], [ %.11493, %1905 ], [ %.01492, %51 ], [ %.21494, %sre_ucs1_at.exit ], [ %.21494, %413 ], [ %.21494, %776 ], [ %.21494, %790 ], [ %.21494, %1013 ], [ %.21494, %1027 ], [ %.21494, %1171 ], [ %.21494, %1184 ], [ %.11493, %repeat_pool_free.exit1855 ], [ %.11493, %2323 ], [ %.11493, %2293 ], [ %.11493, %2324 ], [ %.11493, %2306 ], [ %.21494, %1921 ], [ %.21494, %1925 ], [ %.21494, %1955 ], [ %.21494, %1959 ], [ %.21494, %1999 ], [ %.21494, %2003 ], [ %.21494, %2034 ], [ %.21494, %2038 ], [ %.21494, %2125 ], [ %.11493, %2372 ], [ %.21494, %.backedge ], [ %.21494, %143 ], [ %.21494, %145 ], [ %.21494, %169 ], [ %.21494, %202 ], [ %.21494, %234 ], [ %.21494, %267 ], [ %.21494, %299 ], [ %.21494, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ %.21494, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ %.21494, %151 ], [ %.21494, %165 ], [ %.21494, %161 ], [ %.21494, %97 ], [ %.21494, %98 ], [ %.21494, %113 ], [ %.21494, %114 ], [ %.21494, %135 ], [ %.21494, %139 ], [ %.21494, %382 ], [ %.21494, %383 ], [ %.21494, %399 ], [ %.21494, %400 ], [ %.21494, %424 ], [ %.21494, %425 ], [ %.21494, %443 ], [ %.21494, %sre_lower_ascii.exit ], [ %.21494, %464 ], [ %.21494, %465 ], [ %.21494, %481 ], [ %.21494, %char_loc_ignore.exit ], [ %.21494, %506 ], [ %.21494, %sre_lower_ascii.exit1813 ], [ %.21494, %528 ], [ %.21494, %529 ], [ %.21494, %547 ], [ %.21494, %552 ], [ %.21494, %546 ], [ %.21494, %char_loc_ignore.exit1816 ], [ %.21494, %572 ], [ %.21494, %sre_lower_ascii.exit1817 ], [ %.21494, %596 ], [ %.21494, %597 ], [ %.21494, %625 ], [ %.21494, %616 ], [ %.21494, %sre_ucs1_charset_loc_ignore.exit ], [ %.11493, %737 ], [ %.11493, %733 ], [ %.11493, %732 ], [ %.31495, %764 ], [ %.31495, %766 ], [ %.31495, %770 ], [ %.11493, %904 ], [ %.11493, %900 ], [ %.11493, %899 ], [ %.11493, %976 ], [ %.11493, %972 ], [ %.11493, %971 ], [ %.51497, %931 ], [ %.51497, %._crit_edge2180 ], [ %.61498, %1004 ], [ %.61498, %1002 ], [ %.71499.ph, %.sink.split ], [ %.11493, %1125 ], [ %.11493, %1121 ], [ %.11493, %1120 ], [ %.91501, %1165 ], [ %.91501, %1161 ], [ %.91501, %1159 ], [ %.11493, %1408 ], [ %.11493, %1412 ], [ %.11493, %1591 ], [ %.11493, %1587 ], [ %.11493, %1586 ], [ %.11493, %1611 ], [ %.11493, %1624 ], [ %.11493, %2234 ], [ %.11493, %2230 ], [ %.11493, %2229 ], [ %.21494, %.critedge1899.loopexit ], [ %.21494, %.critedge1899.loopexit3044 ], [ %.21494, %.critedge1899.loopexit3045 ], [ %.21494, %.critedge1899.loopexit3046 ]
-  %.not1641 = phi i1 [ true, %1477 ], [ true, %1686 ], [ true, %1308 ], [ true, %1525 ], [ false, %142 ], [ false, %814 ], [ false, %1053 ], [ false, %1208 ], [ true, %repeat_pool_free.exit ], [ true, %1260 ], [ true, %1905 ], [ true, %51 ], [ true, %sre_ucs1_at.exit ], [ true, %413 ], [ true, %776 ], [ true, %790 ], [ true, %1013 ], [ true, %1027 ], [ true, %1171 ], [ true, %1184 ], [ false, %repeat_pool_free.exit1855 ], [ false, %2323 ], [ false, %2293 ], [ false, %2324 ], [ false, %2306 ], [ true, %1921 ], [ true, %1925 ], [ true, %1955 ], [ true, %1959 ], [ true, %1999 ], [ true, %2003 ], [ true, %2034 ], [ true, %2038 ], [ true, %2125 ], [ true, %2372 ], [ true, %.backedge ], [ true, %143 ], [ true, %145 ], [ true, %169 ], [ true, %202 ], [ true, %234 ], [ true, %267 ], [ true, %299 ], [ true, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ true, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ true, %151 ], [ true, %165 ], [ true, %161 ], [ true, %97 ], [ true, %98 ], [ true, %113 ], [ true, %114 ], [ true, %135 ], [ true, %139 ], [ true, %382 ], [ true, %383 ], [ true, %399 ], [ true, %400 ], [ true, %424 ], [ true, %425 ], [ true, %443 ], [ true, %sre_lower_ascii.exit ], [ true, %464 ], [ true, %465 ], [ true, %481 ], [ true, %char_loc_ignore.exit ], [ true, %506 ], [ true, %sre_lower_ascii.exit1813 ], [ true, %528 ], [ true, %529 ], [ true, %547 ], [ true, %552 ], [ true, %546 ], [ true, %char_loc_ignore.exit1816 ], [ true, %572 ], [ true, %sre_lower_ascii.exit1817 ], [ true, %596 ], [ true, %597 ], [ true, %625 ], [ true, %616 ], [ true, %sre_ucs1_charset_loc_ignore.exit ], [ false, %737 ], [ false, %733 ], [ false, %732 ], [ true, %764 ], [ true, %766 ], [ true, %770 ], [ false, %904 ], [ false, %900 ], [ false, %899 ], [ false, %976 ], [ false, %972 ], [ false, %971 ], [ true, %931 ], [ true, %._crit_edge2180 ], [ true, %1004 ], [ true, %1002 ], [ true, %.sink.split ], [ false, %1125 ], [ false, %1121 ], [ false, %1120 ], [ true, %1165 ], [ true, %1161 ], [ true, %1159 ], [ false, %1408 ], [ false, %1412 ], [ false, %1591 ], [ false, %1587 ], [ false, %1586 ], [ true, %1611 ], [ true, %1624 ], [ true, %2234 ], [ true, %2230 ], [ true, %2229 ], [ true, %.critedge1899.loopexit ], [ true, %.critedge1899.loopexit3044 ], [ true, %.critedge1899.loopexit3045 ], [ true, %.critedge1899.loopexit3046 ]
-  %2268 = phi i1 [ false, %1477 ], [ false, %1686 ], [ false, %1308 ], [ false, %1525 ], [ true, %142 ], [ true, %814 ], [ true, %1053 ], [ true, %1208 ], [ false, %repeat_pool_free.exit ], [ false, %1260 ], [ false, %1905 ], [ false, %51 ], [ false, %sre_ucs1_at.exit ], [ false, %413 ], [ false, %776 ], [ false, %790 ], [ false, %1013 ], [ false, %1027 ], [ false, %1171 ], [ false, %1184 ], [ true, %repeat_pool_free.exit1855 ], [ true, %2323 ], [ true, %2293 ], [ true, %2324 ], [ true, %2306 ], [ false, %1921 ], [ false, %1925 ], [ false, %1955 ], [ false, %1959 ], [ false, %1999 ], [ false, %2003 ], [ false, %2034 ], [ false, %2038 ], [ false, %2125 ], [ false, %2372 ], [ false, %.backedge ], [ false, %143 ], [ false, %145 ], [ false, %169 ], [ false, %202 ], [ false, %234 ], [ false, %267 ], [ false, %299 ], [ false, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ false, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ false, %151 ], [ false, %165 ], [ false, %161 ], [ false, %97 ], [ false, %98 ], [ false, %113 ], [ false, %114 ], [ false, %135 ], [ false, %139 ], [ false, %382 ], [ false, %383 ], [ false, %399 ], [ false, %400 ], [ false, %424 ], [ false, %425 ], [ false, %443 ], [ false, %sre_lower_ascii.exit ], [ false, %464 ], [ false, %465 ], [ false, %481 ], [ false, %char_loc_ignore.exit ], [ false, %506 ], [ false, %sre_lower_ascii.exit1813 ], [ false, %528 ], [ false, %529 ], [ false, %547 ], [ false, %552 ], [ false, %546 ], [ false, %char_loc_ignore.exit1816 ], [ false, %572 ], [ false, %sre_lower_ascii.exit1817 ], [ false, %596 ], [ false, %597 ], [ false, %625 ], [ false, %616 ], [ false, %sre_ucs1_charset_loc_ignore.exit ], [ true, %737 ], [ true, %733 ], [ true, %732 ], [ false, %764 ], [ false, %766 ], [ false, %770 ], [ true, %904 ], [ true, %900 ], [ true, %899 ], [ true, %976 ], [ true, %972 ], [ true, %971 ], [ false, %931 ], [ false, %._crit_edge2180 ], [ false, %1004 ], [ false, %1002 ], [ false, %.sink.split ], [ true, %1125 ], [ true, %1121 ], [ true, %1120 ], [ false, %1165 ], [ false, %1161 ], [ false, %1159 ], [ true, %1408 ], [ true, %1412 ], [ true, %1591 ], [ true, %1587 ], [ true, %1586 ], [ false, %1611 ], [ false, %1624 ], [ false, %2234 ], [ false, %2230 ], [ false, %2229 ], [ false, %.critedge1899.loopexit ], [ false, %.critedge1899.loopexit3044 ], [ false, %.critedge1899.loopexit3045 ], [ false, %.critedge1899.loopexit3046 ]
-  %.01491 = phi i64 [ 0, %1477 ], [ 0, %1686 ], [ 0, %1308 ], [ 0, %1525 ], [ 1, %142 ], [ 1, %814 ], [ 1, %1053 ], [ 1, %1208 ], [ 0, %repeat_pool_free.exit ], [ 0, %1260 ], [ 0, %1905 ], [ 0, %51 ], [ 0, %sre_ucs1_at.exit ], [ 0, %413 ], [ 0, %776 ], [ 0, %790 ], [ 0, %1013 ], [ 0, %1027 ], [ 0, %1171 ], [ 0, %1184 ], [ 1, %repeat_pool_free.exit1855 ], [ 1, %2323 ], [ 1, %2293 ], [ 1, %2324 ], [ 1, %2306 ], [ 0, %1921 ], [ 0, %1925 ], [ 0, %1955 ], [ 0, %1959 ], [ 0, %1999 ], [ 0, %2003 ], [ 0, %2034 ], [ 0, %2038 ], [ 0, %2125 ], [ 0, %2372 ], [ 0, %.backedge ], [ 0, %143 ], [ 0, %145 ], [ 0, %169 ], [ 0, %202 ], [ 0, %234 ], [ 0, %267 ], [ 0, %299 ], [ 0, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ 0, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ 0, %151 ], [ 0, %165 ], [ 0, %161 ], [ 0, %97 ], [ 0, %98 ], [ 0, %113 ], [ 0, %114 ], [ 0, %135 ], [ 0, %139 ], [ 0, %382 ], [ 0, %383 ], [ 0, %399 ], [ 0, %400 ], [ 0, %424 ], [ 0, %425 ], [ 0, %443 ], [ 0, %sre_lower_ascii.exit ], [ 0, %464 ], [ 0, %465 ], [ 0, %481 ], [ 0, %char_loc_ignore.exit ], [ 0, %506 ], [ 0, %sre_lower_ascii.exit1813 ], [ 0, %528 ], [ 0, %529 ], [ 0, %547 ], [ 0, %552 ], [ 0, %546 ], [ 0, %char_loc_ignore.exit1816 ], [ 0, %572 ], [ 0, %sre_lower_ascii.exit1817 ], [ 0, %596 ], [ 0, %597 ], [ 0, %625 ], [ 0, %616 ], [ 0, %sre_ucs1_charset_loc_ignore.exit ], [ 1, %737 ], [ 1, %733 ], [ 1, %732 ], [ 0, %764 ], [ 0, %766 ], [ 0, %770 ], [ 1, %904 ], [ 1, %900 ], [ 1, %899 ], [ 1, %976 ], [ 1, %972 ], [ 1, %971 ], [ 0, %931 ], [ 0, %._crit_edge2180 ], [ 0, %1004 ], [ 0, %1002 ], [ 0, %.sink.split ], [ 1, %1125 ], [ 1, %1121 ], [ 1, %1120 ], [ 0, %1165 ], [ 0, %1161 ], [ 0, %1159 ], [ 1, %1408 ], [ 1, %1412 ], [ 1, %1591 ], [ 1, %1587 ], [ 1, %1586 ], [ 0, %1611 ], [ 0, %1624 ], [ 0, %2234 ], [ 0, %2230 ], [ 0, %2229 ], [ 0, %.critedge1899.loopexit ], [ 0, %.critedge1899.loopexit3044 ], [ 0, %.critedge1899.loopexit3045 ], [ 0, %.critedge1899.loopexit3046 ]
+.critedge1899:                                    ; preds = %.critedge1899.loopexit3185, %.critedge1899.loopexit3184, %.critedge1899.loopexit3183, %.critedge1899.loopexit, %2229, %2230, %2234, %1624, %1611, %1586, %1587, %1591, %1412, %1408, %1159, %1161, %1165, %1120, %1121, %1125, %1002, %1004, %._crit_edge2180, %931, %.sink.split, %971, %972, %976, %899, %900, %904, %770, %766, %764, %732, %733, %737, %sre_ucs1_charset_loc_ignore.exit, %616, %625, %597, %596, %sre_lower_ascii.exit1817, %572, %char_loc_ignore.exit1816, %546, %552, %547, %529, %528, %sre_lower_ascii.exit1813, %506, %char_loc_ignore.exit, %481, %465, %464, %sre_lower_ascii.exit, %443, %425, %424, %400, %399, %383, %382, %139, %135, %114, %113, %98, %97, %161, %165, %151, %Py_UNICODE_ISALNUM.exit111.thread.i, %Py_UNICODE_ISALNUM.exit103.thread.i, %299, %267, %234, %202, %169, %145, %143, %.backedge, %2372, %2125, %2038, %2034, %2003, %1999, %1959, %1955, %1925, %1921, %2306, %2324, %2293, %2323, %repeat_pool_free.exit1855, %1184, %1171, %1027, %1013, %790, %776, %413, %sre_ucs1_at.exit, %51, %1905, %repeat_pool_free.exit, %1686, %1525, %1477, %1308, %1260, %1208, %1053, %814, %142
+  %.11506 = phi ptr [ %2279, %1477 ], [ %2279, %1686 ], [ %2279, %1308 ], [ %2279, %1525 ], [ %.21507, %142 ], [ %792, %814 ], [ %.141519, %1053 ], [ %1186, %1208 ], [ %2279, %repeat_pool_free.exit ], [ %2279, %1260 ], [ %2279, %1905 ], [ %.01505, %51 ], [ %.21507, %sre_ucs1_at.exit ], [ %.21507, %413 ], [ %.21507, %776 ], [ %792, %790 ], [ %.21507, %1013 ], [ %1029, %1027 ], [ %.21507, %1171 ], [ %1186, %1184 ], [ %2279, %repeat_pool_free.exit1855 ], [ %2279, %2323 ], [ %2279, %2293 ], [ %2279, %2324 ], [ %2279, %2306 ], [ %.21507, %1921 ], [ %.21507, %1925 ], [ %.21507, %1955 ], [ %.21507, %1959 ], [ %.21507, %1999 ], [ %.21507, %2003 ], [ %.21507, %2034 ], [ %.21507, %2038 ], [ %.21507, %2125 ], [ %2279, %2372 ], [ %.21507, %.backedge ], [ %.21507, %143 ], [ %.21507, %145 ], [ %.21507, %169 ], [ %.21507, %202 ], [ %.21507, %234 ], [ %.21507, %267 ], [ %.21507, %299 ], [ %.21507, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ %.21507, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ %.21507, %151 ], [ %.21507, %165 ], [ %.21507, %161 ], [ %.21507, %97 ], [ %.21507, %98 ], [ %.21507, %113 ], [ %.21507, %114 ], [ %.21507, %135 ], [ %.21507, %139 ], [ %.21507, %382 ], [ %.21507, %383 ], [ %.21507, %399 ], [ %.21507, %400 ], [ %.21507, %424 ], [ %.21507, %425 ], [ %.21507, %443 ], [ %.21507, %sre_lower_ascii.exit ], [ %.21507, %464 ], [ %.21507, %465 ], [ %.21507, %481 ], [ %.21507, %char_loc_ignore.exit ], [ %.21507, %506 ], [ %.21507, %sre_lower_ascii.exit1813 ], [ %.21507, %528 ], [ %.21507, %529 ], [ %.21507, %547 ], [ %.21507, %552 ], [ %.21507, %546 ], [ %.21507, %char_loc_ignore.exit1816 ], [ %.21507, %572 ], [ %.21507, %sre_lower_ascii.exit1817 ], [ %.21507, %596 ], [ %.21507, %597 ], [ %.21507, %625 ], [ %.21507, %616 ], [ %.21507, %sre_ucs1_charset_loc_ignore.exit ], [ %2279, %737 ], [ %2279, %733 ], [ %2279, %732 ], [ %.41509, %764 ], [ %.41509, %766 ], [ %.41509, %770 ], [ %2279, %904 ], [ %2279, %900 ], [ %2279, %899 ], [ %2279, %976 ], [ %2279, %972 ], [ %2279, %971 ], [ %.91514, %931 ], [ %.91514, %._crit_edge2180 ], [ %.111516, %1004 ], [ %.111516, %1002 ], [ %.131518.ph, %.sink.split ], [ %2279, %1125 ], [ %2279, %1121 ], [ %2279, %1120 ], [ %.17, %1165 ], [ %.17, %1161 ], [ %.17, %1159 ], [ %2279, %1408 ], [ %2279, %1412 ], [ %2279, %1591 ], [ %2279, %1587 ], [ %2279, %1586 ], [ %2279, %1611 ], [ %2279, %1624 ], [ %2279, %2234 ], [ %2279, %2230 ], [ %2279, %2229 ], [ %.21507, %.critedge1899.loopexit ], [ %.21507, %.critedge1899.loopexit3183 ], [ %.21507, %.critedge1899.loopexit3184 ], [ %.21507, %.critedge1899.loopexit3185 ]
+  %.11493 = phi i32 [ %.11493, %1477 ], [ %.11493, %1686 ], [ %.11493, %1308 ], [ %.11493, %1525 ], [ %.21494, %142 ], [ %.21494, %814 ], [ %.21494, %1053 ], [ %.21494, %1208 ], [ %.11493, %repeat_pool_free.exit ], [ %.11493, %1260 ], [ %.11493, %1905 ], [ %.01492, %51 ], [ %.21494, %sre_ucs1_at.exit ], [ %.21494, %413 ], [ %.21494, %776 ], [ %.21494, %790 ], [ %.21494, %1013 ], [ %.21494, %1027 ], [ %.21494, %1171 ], [ %.21494, %1184 ], [ %.11493, %repeat_pool_free.exit1855 ], [ %.11493, %2323 ], [ %.11493, %2293 ], [ %.11493, %2324 ], [ %.11493, %2306 ], [ %.21494, %1921 ], [ %.21494, %1925 ], [ %.21494, %1955 ], [ %.21494, %1959 ], [ %.21494, %1999 ], [ %.21494, %2003 ], [ %.21494, %2034 ], [ %.21494, %2038 ], [ %.21494, %2125 ], [ %.11493, %2372 ], [ %.21494, %.backedge ], [ %.21494, %143 ], [ %.21494, %145 ], [ %.21494, %169 ], [ %.21494, %202 ], [ %.21494, %234 ], [ %.21494, %267 ], [ %.21494, %299 ], [ %.21494, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ %.21494, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ %.21494, %151 ], [ %.21494, %165 ], [ %.21494, %161 ], [ %.21494, %97 ], [ %.21494, %98 ], [ %.21494, %113 ], [ %.21494, %114 ], [ %.21494, %135 ], [ %.21494, %139 ], [ %.21494, %382 ], [ %.21494, %383 ], [ %.21494, %399 ], [ %.21494, %400 ], [ %.21494, %424 ], [ %.21494, %425 ], [ %.21494, %443 ], [ %.21494, %sre_lower_ascii.exit ], [ %.21494, %464 ], [ %.21494, %465 ], [ %.21494, %481 ], [ %.21494, %char_loc_ignore.exit ], [ %.21494, %506 ], [ %.21494, %sre_lower_ascii.exit1813 ], [ %.21494, %528 ], [ %.21494, %529 ], [ %.21494, %547 ], [ %.21494, %552 ], [ %.21494, %546 ], [ %.21494, %char_loc_ignore.exit1816 ], [ %.21494, %572 ], [ %.21494, %sre_lower_ascii.exit1817 ], [ %.21494, %596 ], [ %.21494, %597 ], [ %.21494, %625 ], [ %.21494, %616 ], [ %.21494, %sre_ucs1_charset_loc_ignore.exit ], [ %.11493, %737 ], [ %.11493, %733 ], [ %.11493, %732 ], [ %.31495, %764 ], [ %.31495, %766 ], [ %.31495, %770 ], [ %.11493, %904 ], [ %.11493, %900 ], [ %.11493, %899 ], [ %.11493, %976 ], [ %.11493, %972 ], [ %.11493, %971 ], [ %.51497, %931 ], [ %.51497, %._crit_edge2180 ], [ %.61498, %1004 ], [ %.61498, %1002 ], [ %.71499.ph, %.sink.split ], [ %.11493, %1125 ], [ %.11493, %1121 ], [ %.11493, %1120 ], [ %.91501, %1165 ], [ %.91501, %1161 ], [ %.91501, %1159 ], [ %.11493, %1408 ], [ %.11493, %1412 ], [ %.11493, %1591 ], [ %.11493, %1587 ], [ %.11493, %1586 ], [ %.11493, %1611 ], [ %.11493, %1624 ], [ %.11493, %2234 ], [ %.11493, %2230 ], [ %.11493, %2229 ], [ %.21494, %.critedge1899.loopexit ], [ %.21494, %.critedge1899.loopexit3183 ], [ %.21494, %.critedge1899.loopexit3184 ], [ %.21494, %.critedge1899.loopexit3185 ]
+  %.not1641 = phi i1 [ true, %1477 ], [ true, %1686 ], [ true, %1308 ], [ true, %1525 ], [ false, %142 ], [ false, %814 ], [ false, %1053 ], [ false, %1208 ], [ true, %repeat_pool_free.exit ], [ true, %1260 ], [ true, %1905 ], [ true, %51 ], [ true, %sre_ucs1_at.exit ], [ true, %413 ], [ true, %776 ], [ true, %790 ], [ true, %1013 ], [ true, %1027 ], [ true, %1171 ], [ true, %1184 ], [ false, %repeat_pool_free.exit1855 ], [ false, %2323 ], [ false, %2293 ], [ false, %2324 ], [ false, %2306 ], [ true, %1921 ], [ true, %1925 ], [ true, %1955 ], [ true, %1959 ], [ true, %1999 ], [ true, %2003 ], [ true, %2034 ], [ true, %2038 ], [ true, %2125 ], [ true, %2372 ], [ true, %.backedge ], [ true, %143 ], [ true, %145 ], [ true, %169 ], [ true, %202 ], [ true, %234 ], [ true, %267 ], [ true, %299 ], [ true, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ true, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ true, %151 ], [ true, %165 ], [ true, %161 ], [ true, %97 ], [ true, %98 ], [ true, %113 ], [ true, %114 ], [ true, %135 ], [ true, %139 ], [ true, %382 ], [ true, %383 ], [ true, %399 ], [ true, %400 ], [ true, %424 ], [ true, %425 ], [ true, %443 ], [ true, %sre_lower_ascii.exit ], [ true, %464 ], [ true, %465 ], [ true, %481 ], [ true, %char_loc_ignore.exit ], [ true, %506 ], [ true, %sre_lower_ascii.exit1813 ], [ true, %528 ], [ true, %529 ], [ true, %547 ], [ true, %552 ], [ true, %546 ], [ true, %char_loc_ignore.exit1816 ], [ true, %572 ], [ true, %sre_lower_ascii.exit1817 ], [ true, %596 ], [ true, %597 ], [ true, %625 ], [ true, %616 ], [ true, %sre_ucs1_charset_loc_ignore.exit ], [ false, %737 ], [ false, %733 ], [ false, %732 ], [ true, %764 ], [ true, %766 ], [ true, %770 ], [ false, %904 ], [ false, %900 ], [ false, %899 ], [ false, %976 ], [ false, %972 ], [ false, %971 ], [ true, %931 ], [ true, %._crit_edge2180 ], [ true, %1004 ], [ true, %1002 ], [ true, %.sink.split ], [ false, %1125 ], [ false, %1121 ], [ false, %1120 ], [ true, %1165 ], [ true, %1161 ], [ true, %1159 ], [ false, %1408 ], [ false, %1412 ], [ false, %1591 ], [ false, %1587 ], [ false, %1586 ], [ true, %1611 ], [ true, %1624 ], [ true, %2234 ], [ true, %2230 ], [ true, %2229 ], [ true, %.critedge1899.loopexit ], [ true, %.critedge1899.loopexit3183 ], [ true, %.critedge1899.loopexit3184 ], [ true, %.critedge1899.loopexit3185 ]
+  %2268 = phi i1 [ false, %1477 ], [ false, %1686 ], [ false, %1308 ], [ false, %1525 ], [ true, %142 ], [ true, %814 ], [ true, %1053 ], [ true, %1208 ], [ false, %repeat_pool_free.exit ], [ false, %1260 ], [ false, %1905 ], [ false, %51 ], [ false, %sre_ucs1_at.exit ], [ false, %413 ], [ false, %776 ], [ false, %790 ], [ false, %1013 ], [ false, %1027 ], [ false, %1171 ], [ false, %1184 ], [ true, %repeat_pool_free.exit1855 ], [ true, %2323 ], [ true, %2293 ], [ true, %2324 ], [ true, %2306 ], [ false, %1921 ], [ false, %1925 ], [ false, %1955 ], [ false, %1959 ], [ false, %1999 ], [ false, %2003 ], [ false, %2034 ], [ false, %2038 ], [ false, %2125 ], [ false, %2372 ], [ false, %.backedge ], [ false, %143 ], [ false, %145 ], [ false, %169 ], [ false, %202 ], [ false, %234 ], [ false, %267 ], [ false, %299 ], [ false, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ false, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ false, %151 ], [ false, %165 ], [ false, %161 ], [ false, %97 ], [ false, %98 ], [ false, %113 ], [ false, %114 ], [ false, %135 ], [ false, %139 ], [ false, %382 ], [ false, %383 ], [ false, %399 ], [ false, %400 ], [ false, %424 ], [ false, %425 ], [ false, %443 ], [ false, %sre_lower_ascii.exit ], [ false, %464 ], [ false, %465 ], [ false, %481 ], [ false, %char_loc_ignore.exit ], [ false, %506 ], [ false, %sre_lower_ascii.exit1813 ], [ false, %528 ], [ false, %529 ], [ false, %547 ], [ false, %552 ], [ false, %546 ], [ false, %char_loc_ignore.exit1816 ], [ false, %572 ], [ false, %sre_lower_ascii.exit1817 ], [ false, %596 ], [ false, %597 ], [ false, %625 ], [ false, %616 ], [ false, %sre_ucs1_charset_loc_ignore.exit ], [ true, %737 ], [ true, %733 ], [ true, %732 ], [ false, %764 ], [ false, %766 ], [ false, %770 ], [ true, %904 ], [ true, %900 ], [ true, %899 ], [ true, %976 ], [ true, %972 ], [ true, %971 ], [ false, %931 ], [ false, %._crit_edge2180 ], [ false, %1004 ], [ false, %1002 ], [ false, %.sink.split ], [ true, %1125 ], [ true, %1121 ], [ true, %1120 ], [ false, %1165 ], [ false, %1161 ], [ false, %1159 ], [ true, %1408 ], [ true, %1412 ], [ true, %1591 ], [ true, %1587 ], [ true, %1586 ], [ false, %1611 ], [ false, %1624 ], [ false, %2234 ], [ false, %2230 ], [ false, %2229 ], [ false, %.critedge1899.loopexit ], [ false, %.critedge1899.loopexit3183 ], [ false, %.critedge1899.loopexit3184 ], [ false, %.critedge1899.loopexit3185 ]
+  %.01491 = phi i64 [ 0, %1477 ], [ 0, %1686 ], [ 0, %1308 ], [ 0, %1525 ], [ 1, %142 ], [ 1, %814 ], [ 1, %1053 ], [ 1, %1208 ], [ 0, %repeat_pool_free.exit ], [ 0, %1260 ], [ 0, %1905 ], [ 0, %51 ], [ 0, %sre_ucs1_at.exit ], [ 0, %413 ], [ 0, %776 ], [ 0, %790 ], [ 0, %1013 ], [ 0, %1027 ], [ 0, %1171 ], [ 0, %1184 ], [ 1, %repeat_pool_free.exit1855 ], [ 1, %2323 ], [ 1, %2293 ], [ 1, %2324 ], [ 1, %2306 ], [ 0, %1921 ], [ 0, %1925 ], [ 0, %1955 ], [ 0, %1959 ], [ 0, %1999 ], [ 0, %2003 ], [ 0, %2034 ], [ 0, %2038 ], [ 0, %2125 ], [ 0, %2372 ], [ 0, %.backedge ], [ 0, %143 ], [ 0, %145 ], [ 0, %169 ], [ 0, %202 ], [ 0, %234 ], [ 0, %267 ], [ 0, %299 ], [ 0, %Py_UNICODE_ISALNUM.exit103.thread.i ], [ 0, %Py_UNICODE_ISALNUM.exit111.thread.i ], [ 0, %151 ], [ 0, %165 ], [ 0, %161 ], [ 0, %97 ], [ 0, %98 ], [ 0, %113 ], [ 0, %114 ], [ 0, %135 ], [ 0, %139 ], [ 0, %382 ], [ 0, %383 ], [ 0, %399 ], [ 0, %400 ], [ 0, %424 ], [ 0, %425 ], [ 0, %443 ], [ 0, %sre_lower_ascii.exit ], [ 0, %464 ], [ 0, %465 ], [ 0, %481 ], [ 0, %char_loc_ignore.exit ], [ 0, %506 ], [ 0, %sre_lower_ascii.exit1813 ], [ 0, %528 ], [ 0, %529 ], [ 0, %547 ], [ 0, %552 ], [ 0, %546 ], [ 0, %char_loc_ignore.exit1816 ], [ 0, %572 ], [ 0, %sre_lower_ascii.exit1817 ], [ 0, %596 ], [ 0, %597 ], [ 0, %625 ], [ 0, %616 ], [ 0, %sre_ucs1_charset_loc_ignore.exit ], [ 1, %737 ], [ 1, %733 ], [ 1, %732 ], [ 0, %764 ], [ 0, %766 ], [ 0, %770 ], [ 1, %904 ], [ 1, %900 ], [ 1, %899 ], [ 1, %976 ], [ 1, %972 ], [ 1, %971 ], [ 0, %931 ], [ 0, %._crit_edge2180 ], [ 0, %1004 ], [ 0, %1002 ], [ 0, %.sink.split ], [ 1, %1125 ], [ 1, %1121 ], [ 1, %1120 ], [ 0, %1165 ], [ 0, %1161 ], [ 0, %1159 ], [ 1, %1408 ], [ 1, %1412 ], [ 1, %1591 ], [ 1, %1587 ], [ 1, %1586 ], [ 0, %1611 ], [ 0, %1624 ], [ 0, %2234 ], [ 0, %2230 ], [ 0, %2229 ], [ 0, %.critedge1899.loopexit ], [ 0, %.critedge1899.loopexit3183 ], [ 0, %.critedge1899.loopexit3184 ], [ 0, %.critedge1899.loopexit3185 ]
   %2269 = getelementptr inbounds nuw i8, ptr %.11506, i64 48
   %2270 = load i64, ptr %2269, align 8, !tbaa !124
   %2271 = getelementptr inbounds nuw i8, ptr %.11506, i64 44
@@ -10228,12 +10228,12 @@ repeat_pool_free.exit1855:                        ; preds = %2349, %2350
   ret i64 %.0
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader1904
-  %.sink2772.sink = phi i32 [ %.sink2793, %.preheader1904 ], [ %.sink2772.sink.be, %.backedge.backedge ]
+  %.sink2911.sink = phi i32 [ %.sink2932, %.preheader1904 ], [ %.sink2911.sink.be, %.backedge.backedge ]
   %.01520 = phi ptr [ %.01520.ph, %.preheader1904 ], [ %.01520.be, %.backedge.backedge ]
   %.21507 = phi ptr [ %.21507.ph, %.preheader1904 ], [ %.21507.be, %.backedge.backedge ]
   %.21494 = phi i32 [ %.21494.ph, %.preheader1904 ], [ %.21494.be, %.backedge.backedge ]
   %.2 = phi ptr [ %1920, %.preheader1904 ], [ %.2.be, %.backedge.backedge ]
-  %2381 = zext i32 %.sink2772.sink to i64
+  %2381 = zext i32 %.sink2911.sink to i64
   %2382 = getelementptr [43 x ptr], ptr @sre_ucs1_match.sre_targets, i64 0, i64 %2381
   %2383 = load ptr, ptr %2382, align 8, !tbaa !95
   indirectbr ptr %2383, [label %.critedge1899, label %130, label %399, label %413, label %2125, label %2169, label %143, label %654, label %382, label %.loopexit, label %528, label %1921, label %2074, label %424, label %642, label %464, label %97, label %70, label %1261, label %1478, label %113, label %596, label %1999, label %1218, label %776, label %546, label %1013, label %1883, label %1690, label %1171, label %1955, label %572, label %443, label %506, label %2034, label %616, label %481]
@@ -10421,7 +10421,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %96, %112, %129, %385, %402, %416, %427, %446, %469, %486, %512, %536, %554, %580, %606, %626, %653, %665, %1231, %1944, %1992, %2028, %2076, %2093, %2117, %2127
-  %.sink2750.sink.be = phi i32 [ %98, %96 ], [ %114, %112 ], [ %131, %129 ], [ %387, %385 ], [ %404, %402 ], [ %418, %416 ], [ %429, %427 ], [ %448, %446 ], [ %471, %469 ], [ %488, %486 ], [ %514, %512 ], [ %538, %536 ], [ %556, %554 ], [ %582, %580 ], [ %608, %606 ], [ %628, %626 ], [ %655, %653 ], [ %667, %665 ], [ %1232, %1231 ], [ %1946, %1944 ], [ %1994, %1992 ], [ %2030, %2028 ], [ %2078, %2076 ], [ %2095, %2093 ], [ %2119, %2117 ], [ %2129, %2127 ]
+  %.sink2888.sink.be = phi i32 [ %98, %96 ], [ %114, %112 ], [ %131, %129 ], [ %387, %385 ], [ %404, %402 ], [ %418, %416 ], [ %429, %427 ], [ %448, %446 ], [ %471, %469 ], [ %488, %486 ], [ %514, %512 ], [ %538, %536 ], [ %556, %554 ], [ %582, %580 ], [ %608, %606 ], [ %628, %626 ], [ %655, %653 ], [ %667, %665 ], [ %1232, %1231 ], [ %1946, %1944 ], [ %1994, %1992 ], [ %2030, %2028 ], [ %2078, %2076 ], [ %2095, %2093 ], [ %2119, %2117 ], [ %2129, %2127 ]
   %.01520.be = phi ptr [ %.01520, %96 ], [ %106, %112 ], [ %123, %129 ], [ %.01520, %385 ], [ %396, %402 ], [ %410, %416 ], [ %421, %427 ], [ %440, %446 ], [ %463, %469 ], [ %480, %486 ], [ %506, %512 ], [ %530, %536 ], [ %548, %554 ], [ %574, %580 ], [ %600, %606 ], [ %620, %626 ], [ %647, %653 ], [ %.01520, %665 ], [ %1203, %1231 ], [ %.111531.lcssa, %1944 ], [ %.121532.lcssa, %1992 ], [ %.131533.lcssa, %2028 ], [ %.141534.lcssa, %2076 ], [ %.01520, %2093 ], [ %.01520, %2117 ], [ %.01520, %2127 ]
   %.21507.be = phi ptr [ %.21507, %96 ], [ %.21507, %112 ], [ %.21507, %129 ], [ %.21507, %385 ], [ %.21507, %402 ], [ %.21507, %416 ], [ %.21507, %427 ], [ %.21507, %446 ], [ %.21507, %469 ], [ %.21507, %486 ], [ %.21507, %512 ], [ %.21507, %536 ], [ %.21507, %554 ], [ %.21507, %580 ], [ %.21507, %606 ], [ %.21507, %626 ], [ %.21507, %653 ], [ %.21507, %665 ], [ %1202, %1231 ], [ %.21507, %1944 ], [ %.21507, %1992 ], [ %.21507, %2028 ], [ %.21507, %2076 ], [ %.21507, %2093 ], [ %.21507, %2117 ], [ %.21507, %2127 ]
   %.21494.be = phi i32 [ %91, %96 ], [ %107, %112 ], [ %124, %129 ], [ %380, %385 ], [ %397, %402 ], [ %411, %416 ], [ %422, %427 ], [ %441, %446 ], [ %464, %469 ], [ %481, %486 ], [ %507, %512 ], [ %531, %536 ], [ %549, %554 ], [ %575, %580 ], [ %601, %606 ], [ %621, %626 ], [ %648, %653 ], [ %660, %665 ], [ %1226, %1231 ], [ %1939, %1944 ], [ %1987, %1992 ], [ %2023, %2028 ], [ %2071, %2076 ], [ %2088, %2093 ], [ %2112, %2117 ], [ %2122, %2127 ]
@@ -10628,8 +10628,8 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 204:                                              ; preds = %201, %196, %193, %189
   %205 = phi i64 [ 0, %189 ], [ 0, %193 ], [ 1, %196 ], [ %203, %201 ]
-  %.not2776 = icmp eq i64 %205, %190
-  br i1 %.not2776, label %.critedge1878, label %sre_ucs2_at.exit.thread
+  %.not2914 = icmp eq i64 %205, %190
+  br i1 %.not2914, label %.critedge1878, label %sre_ucs2_at.exit.thread
 
 206:                                              ; preds = %145
   %207 = load ptr, ptr %43, align 8, !tbaa !89
@@ -10738,8 +10738,8 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 271:                                              ; preds = %268, %261, %255
   %272 = phi i64 [ 0, %255 ], [ 1, %261 ], [ %270, %268 ]
-  %.not2775 = icmp eq i64 %272, %256
-  br i1 %.not2775, label %.critedge1878, label %sre_ucs2_at.exit.thread
+  %.not2913 = icmp eq i64 %272, %256
+  br i1 %.not2913, label %.critedge1878, label %sre_ucs2_at.exit.thread
 
 273:                                              ; preds = %145
   %274 = load ptr, ptr %43, align 8, !tbaa !89
@@ -10868,8 +10868,8 @@ Py_UNICODE_ISALNUM.exit107.i:                     ; preds = %334
 
 Py_UNICODE_ISALNUM.exit107.thread.i:              ; preds = %337, %Py_UNICODE_ISALNUM.exit107.i, %334, %332, %328, %Py_UNICODE_ISALNUM.exit.thread.i
   %341 = phi i64 [ 0, %Py_UNICODE_ISALNUM.exit.thread.i ], [ 1, %Py_UNICODE_ISALNUM.exit107.i ], [ %340, %337 ], [ 1, %334 ], [ 1, %332 ], [ 1, %328 ]
-  %.not2774 = icmp eq i64 %341, %325
-  br i1 %.not2774, label %.critedge1878, label %sre_ucs2_at.exit.thread
+  %.not2912 = icmp eq i64 %341, %325
+  br i1 %.not2912, label %.critedge1878, label %sre_ucs2_at.exit.thread
 
 342:                                              ; preds = %145
   %343 = load ptr, ptr %43, align 8, !tbaa !89
@@ -11618,12 +11618,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.pre2480 = phi ptr [ %727, %731 ], [ %.pre2480.pre, %720 ]
   %.not1789 = icmp eq i64 %.21481, -1
   %734 = getelementptr i8, ptr %.pre2480, i64 %.21481
-  %spec.select2751 = select i1 %.not1789, ptr %.41509, ptr %734
+  %spec.select2889 = select i1 %.not1789, ptr %.41509, ptr %734
   br label %735
 
 735:                                              ; preds = %733, %.thread._crit_edge
   %736 = phi ptr [ %.pre2479, %.thread._crit_edge ], [ %.pre2480, %733 ]
-  %.61511 = phi ptr [ %.41509, %.thread._crit_edge ], [ %spec.select2751, %733 ]
+  %.61511 = phi ptr [ %.41509, %.thread._crit_edge ], [ %spec.select2889, %733 ]
   %737 = getelementptr i8, ptr %736, i64 %716
   %738 = load i64, ptr %8, align 8, !tbaa !122
   %739 = add i64 %738, 56
@@ -11823,12 +11823,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1702 = icmp eq i64 %.11480.ph, -1
   %.pre2421 = load ptr, ptr %30, align 8, !tbaa !88
   %851 = getelementptr i8, ptr %.pre2421, i64 %.11480.ph
-  %spec.select2752 = select i1 %.not1702, ptr %807, ptr %851
+  %spec.select2890 = select i1 %.not1702, ptr %807, ptr %851
   br label %852
 
 852:                                              ; preds = %850, %837
   %853 = phi ptr [ %806, %837 ], [ %.pre2421, %850 ]
-  %.81513 = phi ptr [ %807, %837 ], [ %spec.select2752, %850 ]
+  %.81513 = phi ptr [ %807, %837 ], [ %spec.select2890, %850 ]
   %854 = load i64, ptr %8, align 8, !tbaa !122
   %855 = getelementptr i8, ptr %853, i64 %854
   %856 = load ptr, ptr %39, align 8, !tbaa !94
@@ -11927,12 +11927,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1709 = icmp eq i64 %.41483, -1
   %.pre2468 = load ptr, ptr %30, align 8, !tbaa !88
   %896 = getelementptr i8, ptr %.pre2468, i64 %.41483
-  %spec.select2753 = select i1 %.not1709, ptr %.91514, ptr %896
+  %spec.select2891 = select i1 %.not1709, ptr %.91514, ptr %896
   br label %897
 
 897:                                              ; preds = %895, %.critedge._crit_edge
   %898 = phi ptr [ %.pre2467, %.critedge._crit_edge ], [ %.pre2468, %895 ]
-  %.101515 = phi ptr [ %.91514, %.critedge._crit_edge ], [ %spec.select2753, %895 ]
+  %.101515 = phi ptr [ %.91514, %.critedge._crit_edge ], [ %spec.select2891, %895 ]
   %899 = getelementptr i8, ptr %898, i64 %886
   %900 = load i64, ptr %8, align 8, !tbaa !122
   %901 = add i64 %900, 56
@@ -12058,12 +12058,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1705 = icmp eq i64 %.51484, -1
   %.pre2465 = load ptr, ptr %30, align 8, !tbaa !88
   %968 = getelementptr i8, ptr %.pre2465, i64 %.51484
-  %spec.select2754 = select i1 %.not1705, ptr %.111516, ptr %968
+  %spec.select2892 = select i1 %.not1705, ptr %.111516, ptr %968
   br label %969
 
 969:                                              ; preds = %967, %._crit_edge2463
   %970 = phi ptr [ %.pre2464, %._crit_edge2463 ], [ %.pre2465, %967 ]
-  %.121517 = phi ptr [ %.111516, %._crit_edge2463 ], [ %spec.select2754, %967 ]
+  %.121517 = phi ptr [ %.111516, %._crit_edge2463 ], [ %spec.select2892, %967 ]
   %971 = getelementptr i8, ptr %970, i64 %958
   %972 = load i64, ptr %8, align 8, !tbaa !122
   %973 = add i64 %972, 56
@@ -12277,12 +12277,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1692 = icmp eq i64 %.11480.ph, -1
   %.pre2420 = load ptr, ptr %30, align 8, !tbaa !88
   %1091 = getelementptr i8, ptr %.pre2420, i64 %.11480.ph
-  %spec.select2758 = select i1 %.not1692, ptr %.141519, ptr %1091
+  %spec.select2896 = select i1 %.not1692, ptr %.141519, ptr %1091
   br label %1092
 
 1092:                                             ; preds = %1090, %._crit_edge2418
   %1093 = phi ptr [ %.pre2419, %._crit_edge2418 ], [ %.pre2420, %1090 ]
-  %.15 = phi ptr [ %.141519, %._crit_edge2418 ], [ %spec.select2758, %1090 ]
+  %.15 = phi ptr [ %.141519, %._crit_edge2418 ], [ %spec.select2896, %1090 ]
   %1094 = load i64, ptr %8, align 8, !tbaa !122
   %1095 = getelementptr i8, ptr %1093, i64 %1094
   %1096 = load ptr, ptr %39, align 8, !tbaa !94
@@ -12338,12 +12338,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1695 = icmp eq i64 %.61485, -1
   %.pre2460 = load ptr, ptr %30, align 8, !tbaa !88
   %1118 = getelementptr i8, ptr %.pre2460, i64 %.61485
-  %spec.select2759 = select i1 %.not1695, ptr %.16, ptr %1118
+  %spec.select2897 = select i1 %.not1695, ptr %.16, ptr %1118
   br label %1119
 
 1119:                                             ; preds = %1117, %.critedge4._crit_edge
   %1120 = phi ptr [ %.pre2459, %.critedge4._crit_edge ], [ %.pre2460, %1117 ]
-  %.18 = phi ptr [ %.16, %.critedge4._crit_edge ], [ %spec.select2759, %1117 ]
+  %.18 = phi ptr [ %.16, %.critedge4._crit_edge ], [ %spec.select2897, %1117 ]
   %1121 = getelementptr i8, ptr %1120, i64 %1108
   %1122 = load i64, ptr %8, align 8, !tbaa !122
   %1123 = add i64 %1122, 56
@@ -12581,12 +12581,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1712 = icmp eq i64 %.11480.ph, -1
   %.pre2424 = load ptr, ptr %30, align 8, !tbaa !88
   %1258 = getelementptr i8, ptr %.pre2424, i64 %.11480.ph
-  %spec.select2760 = select i1 %.not1712, ptr %.21507, ptr %1258
+  %spec.select2898 = select i1 %.not1712, ptr %.21507, ptr %1258
   br label %1259
 
 1259:                                             ; preds = %1257, %._crit_edge2422
   %1260 = phi ptr [ %.pre2423, %._crit_edge2422 ], [ %.pre2424, %1257 ]
-  %.19 = phi ptr [ %.21507, %._crit_edge2422 ], [ %spec.select2760, %1257 ]
+  %.19 = phi ptr [ %.21507, %._crit_edge2422 ], [ %spec.select2898, %1257 ]
   %1261 = getelementptr i8, ptr %1260, i64 %1248
   %1262 = load i64, ptr %8, align 8, !tbaa !122
   %1263 = add i64 %1262, 56
@@ -12662,12 +12662,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1732 = icmp eq i64 %.11480.ph, -1
   %.pre2447 = load ptr, ptr %30, align 8, !tbaa !88
   %1303 = getelementptr i8, ptr %.pre2447, i64 %.11480.ph
-  %spec.select2761 = select i1 %.not1732, ptr %.21507, ptr %1303
+  %spec.select2899 = select i1 %.not1732, ptr %.21507, ptr %1303
   br label %1304
 
 1304:                                             ; preds = %1302, %._crit_edge2445
   %1305 = phi ptr [ %.pre2446, %._crit_edge2445 ], [ %.pre2447, %1302 ]
-  %.20 = phi ptr [ %.21507, %._crit_edge2445 ], [ %spec.select2761, %1302 ]
+  %.20 = phi ptr [ %.21507, %._crit_edge2445 ], [ %spec.select2899, %1302 ]
   %1306 = getelementptr i8, ptr %1305, i64 %1293
   %1307 = load i64, ptr %8, align 8, !tbaa !122
   %1308 = add i64 %1307, 56
@@ -12761,12 +12761,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1729 = icmp eq i64 %.11480.ph, -1
   %.pre2437 = load ptr, ptr %30, align 8, !tbaa !88
   %1359 = getelementptr i8, ptr %.pre2437, i64 %.11480.ph
-  %spec.select2762 = select i1 %.not1729, ptr %.21507, ptr %1359
+  %spec.select2900 = select i1 %.not1729, ptr %.21507, ptr %1359
   br label %1360
 
 1360:                                             ; preds = %1358, %._crit_edge2435
   %1361 = phi ptr [ %.pre2436, %._crit_edge2435 ], [ %.pre2437, %1358 ]
-  %.22 = phi ptr [ %.21507, %._crit_edge2435 ], [ %spec.select2762, %1358 ]
+  %.22 = phi ptr [ %.21507, %._crit_edge2435 ], [ %spec.select2900, %1358 ]
   %1362 = load i64, ptr %8, align 8, !tbaa !122
   %1363 = getelementptr i8, ptr %1361, i64 %1362
   %1364 = load ptr, ptr %39, align 8, !tbaa !94
@@ -12801,12 +12801,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1730 = icmp eq i64 %.11480.ph, -1
   %.pre2441 = load ptr, ptr %30, align 8, !tbaa !88
   %1378 = getelementptr i8, ptr %.pre2441, i64 %.11480.ph
-  %spec.select2763 = select i1 %.not1730, ptr %.23, ptr %1378
+  %spec.select2901 = select i1 %.not1730, ptr %.23, ptr %1378
   br label %1379
 
 1379:                                             ; preds = %1377, %._crit_edge2439
   %1380 = phi ptr [ %.pre2440, %._crit_edge2439 ], [ %.pre2441, %1377 ]
-  %.24 = phi ptr [ %.23, %._crit_edge2439 ], [ %spec.select2763, %1377 ]
+  %.24 = phi ptr [ %.23, %._crit_edge2439 ], [ %spec.select2901, %1377 ]
   %1381 = load i64, ptr %8, align 8, !tbaa !122
   %1382 = getelementptr i8, ptr %1380, i64 %1381
   %1383 = getelementptr inbounds nuw i8, ptr %.24, i64 8
@@ -12847,12 +12847,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1731 = icmp eq i64 %.11480.ph, -1
   %.pre2444 = load ptr, ptr %30, align 8, !tbaa !88
   %1403 = getelementptr i8, ptr %.pre2444, i64 %.11480.ph
-  %spec.select2764 = select i1 %.not1731, ptr %.24, ptr %1403
+  %spec.select2902 = select i1 %.not1731, ptr %.24, ptr %1403
   br label %1404
 
 1404:                                             ; preds = %1402, %._crit_edge2442
   %1405 = phi ptr [ %.pre2443, %._crit_edge2442 ], [ %.pre2444, %1402 ]
-  %.25 = phi ptr [ %.24, %._crit_edge2442 ], [ %spec.select2764, %1402 ]
+  %.25 = phi ptr [ %.24, %._crit_edge2442 ], [ %spec.select2902, %1402 ]
   %1406 = getelementptr i8, ptr %1405, i64 %1388
   %1407 = load i64, ptr %8, align 8, !tbaa !122
   %1408 = add i64 %1407, 56
@@ -12991,12 +12991,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.pre2494 = phi ptr [ %1474, %1478 ], [ %.pre2494.pre, %1467 ]
   %.not1798 = icmp eq i64 %.71486, -1
   %1481 = getelementptr i8, ptr %.pre2494, i64 %.71486
-  %spec.select2765 = select i1 %.not1798, ptr %.21, ptr %1481
+  %spec.select2903 = select i1 %.not1798, ptr %.21, ptr %1481
   br label %1482
 
 1482:                                             ; preds = %1480, %._crit_edge2492
   %1483 = phi ptr [ %.pre2493, %._crit_edge2492 ], [ %.pre2494, %1480 ]
-  %.26 = phi ptr [ %.21, %._crit_edge2492 ], [ %spec.select2765, %1480 ]
+  %.26 = phi ptr [ %.21, %._crit_edge2492 ], [ %spec.select2903, %1480 ]
   %1484 = getelementptr i8, ptr %1483, i64 %1458
   %1485 = load i64, ptr %8, align 8, !tbaa !122
   %1486 = add i64 %1485, 56
@@ -13067,12 +13067,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1726 = icmp eq i64 %.11480.ph, -1
   %.pre2434 = load ptr, ptr %30, align 8, !tbaa !88
   %1520 = getelementptr i8, ptr %.pre2434, i64 %.11480.ph
-  %spec.select2766 = select i1 %.not1726, ptr %.21507, ptr %1520
+  %spec.select2904 = select i1 %.not1726, ptr %.21507, ptr %1520
   br label %1521
 
 1521:                                             ; preds = %1519, %._crit_edge2432
   %1522 = phi ptr [ %.pre2433, %._crit_edge2432 ], [ %.pre2434, %1519 ]
-  %.27 = phi ptr [ %.21507, %._crit_edge2432 ], [ %spec.select2766, %1519 ]
+  %.27 = phi ptr [ %.21507, %._crit_edge2432 ], [ %spec.select2904, %1519 ]
   %1523 = getelementptr i8, ptr %1522, i64 %1510
   %1524 = load i64, ptr %8, align 8, !tbaa !122
   %1525 = add i64 %1524, 56
@@ -13151,12 +13151,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1724 = icmp eq i64 %.11480.ph, -1
   %.pre2427 = load ptr, ptr %30, align 8, !tbaa !88
   %1569 = getelementptr i8, ptr %.pre2427, i64 %.11480.ph
-  %spec.select2767 = select i1 %.not1724, ptr %.21507, ptr %1569
+  %spec.select2905 = select i1 %.not1724, ptr %.21507, ptr %1569
   br label %1570
 
 1570:                                             ; preds = %1568, %._crit_edge2425
   %1571 = phi ptr [ %.pre2426, %._crit_edge2425 ], [ %.pre2427, %1568 ]
-  %.29 = phi ptr [ %.21507, %._crit_edge2425 ], [ %spec.select2767, %1568 ]
+  %.29 = phi ptr [ %.21507, %._crit_edge2425 ], [ %spec.select2905, %1568 ]
   %1572 = load i64, ptr %8, align 8, !tbaa !122
   %1573 = getelementptr i8, ptr %1571, i64 %1572
   %1574 = load ptr, ptr %39, align 8, !tbaa !94
@@ -13195,12 +13195,12 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1725 = icmp eq i64 %.11480.ph, -1
   %.pre2431 = load ptr, ptr %30, align 8, !tbaa !88
   %1590 = getelementptr i8, ptr %.pre2431, i64 %.11480.ph
-  %spec.select2768 = select i1 %.not1725, ptr %.28, ptr %1590
+  %spec.select2906 = select i1 %.not1725, ptr %.28, ptr %1590
   br label %1591
 
 1591:                                             ; preds = %1589, %._crit_edge2429
   %1592 = phi ptr [ %.pre2430, %._crit_edge2429 ], [ %.pre2431, %1589 ]
-  %.30 = phi ptr [ %.28, %._crit_edge2429 ], [ %spec.select2768, %1589 ]
+  %.30 = phi ptr [ %.28, %._crit_edge2429 ], [ %spec.select2906, %1589 ]
   %1593 = getelementptr i8, ptr %1592, i64 %1578
   %1594 = load i64, ptr %8, align 8, !tbaa !122
   %1595 = add i64 %1594, 56
@@ -13574,12 +13574,12 @@ repeat_pool_free.exit:                            ; preds = %1764, %1765
   %.not1776 = icmp eq i64 %.91488, -1
   %.pre2472 = load ptr, ptr %30, align 8, !tbaa !88
   %1796 = getelementptr i8, ptr %.pre2472, i64 %.91488
-  %spec.select2769 = select i1 %.not1776, ptr %.34, ptr %1796
+  %spec.select2907 = select i1 %.not1776, ptr %.34, ptr %1796
   br label %1797
 
 1797:                                             ; preds = %1795, %._crit_edge2470
   %1798 = phi ptr [ %.pre2471, %._crit_edge2470 ], [ %.pre2472, %1795 ]
-  %.36 = phi ptr [ %.34, %._crit_edge2470 ], [ %spec.select2769, %1795 ]
+  %.36 = phi ptr [ %.34, %._crit_edge2470 ], [ %spec.select2907, %1795 ]
   %1799 = load i64, ptr %8, align 8, !tbaa !122
   %1800 = getelementptr i8, ptr %1798, i64 %1799
   %1801 = load ptr, ptr %39, align 8, !tbaa !94
@@ -13804,7 +13804,7 @@ repeat_pool_free.exit1831:                        ; preds = %1863, %1864
   %.21494.ph = phi i32 [ %2170, %2164 ], [ %2170, %2173 ], [ %2270, %2266 ], [ %2270, %2273 ], [ %67, %66 ], [ %67, %70 ], [ %1872, %repeat_pool_free.exit1831 ], [ %1872, %1875 ], [ %1909, %1902 ], [ %1909, %1912 ]
   %.11480.ph = phi i64 [ %2277, %2164 ], [ %2277, %2173 ], [ %.111490, %2266 ], [ %.111490, %2273 ], [ %.01479, %66 ], [ %.01479, %70 ], [ %.101489, %repeat_pool_free.exit1831 ], [ %.101489, %1875 ], [ %2277, %1902 ], [ %2277, %1912 ]
   %1914 = getelementptr i8, ptr %.1.sink, i64 4
-  %.sink2771 = load i32, ptr %.1.sink, align 4, !tbaa !40
+  %.sink2909 = load i32, ptr %.1.sink, align 4, !tbaa !40
   br label %.backedge
 
 1915:                                             ; preds = %.backedge
@@ -13897,7 +13897,7 @@ repeat_pool_free.exit1831:                        ; preds = %1863, %1864
   %.1215322139 = phi ptr [ %1984, %1982 ], [ %.01520, %.preheader1881 ]
   %.015392138 = phi ptr [ %1983, %1982 ], [ %1955, %.preheader1881 ]
   %.not1680 = icmp ult ptr %.1215322139, %5
-  br i1 %.not1680, label %1963, label %.critedge1878.loopexit3029
+  br i1 %.not1680, label %1963, label %.critedge1878.loopexit3167
 
 1963:                                             ; preds = %.lr.ph2140
   %1964 = load i16, ptr %.1215322139, align 2, !tbaa !131
@@ -13929,7 +13929,7 @@ sre_lower_ascii.exit1832:                         ; preds = %1963, %1967
 sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exit1832, %1976
   %1981 = phi i32 [ %1980, %1976 ], [ %1974, %sre_lower_ascii.exit1832 ]
   %.not1681 = icmp eq i32 %1972, %1981
-  br i1 %.not1681, label %1982, label %.critedge1878.loopexit3029
+  br i1 %.not1681, label %1982, label %.critedge1878.loopexit3167
 
 1982:                                             ; preds = %sre_lower_ascii.exit1833
   %1983 = getelementptr i8, ptr %.015392138, i64 2
@@ -13984,7 +13984,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
   %.1315332144 = phi ptr [ %2020, %2018 ], [ %.01520, %.preheader1880 ]
   %.015402143 = phi ptr [ %2019, %2018 ], [ %2003, %.preheader1880 ]
   %.not1715 = icmp ult ptr %.1315332144, %5
-  br i1 %.not1715, label %2011, label %.critedge1878.loopexit3028
+  br i1 %.not1715, label %2011, label %.critedge1878.loopexit3166
 
 2011:                                             ; preds = %.lr.ph2145
   %2012 = load i16, ptr %.1315332144, align 2, !tbaa !131
@@ -13994,7 +13994,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
   %2016 = zext i16 %2015 to i32
   %2017 = tail call i32 @_PyUnicode_ToLowercase(i32 noundef %2016) #14
   %.not1716 = icmp eq i32 %2014, %2017
-  br i1 %.not1716, label %2018, label %.critedge1878.loopexit3028
+  br i1 %.not1716, label %2018, label %.critedge1878.loopexit3166
 
 2018:                                             ; preds = %2011
   %2019 = getelementptr i8, ptr %.015402143, i64 2
@@ -14049,7 +14049,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
   %.1415342137 = phi ptr [ %2068, %2066 ], [ %.01520, %.preheader1882 ]
   %.015372136 = phi ptr [ %2067, %2066 ], [ %2039, %.preheader1882 ]
   %.not1668 = icmp ult ptr %.1415342137, %5
-  br i1 %.not1668, label %2047, label %.critedge1878.loopexit3030
+  br i1 %.not1668, label %2047, label %.critedge1878.loopexit3168
 
 2047:                                             ; preds = %.lr.ph
   %2048 = load i16, ptr %.1415342137, align 2, !tbaa !131
@@ -14083,7 +14083,7 @@ sre_lower_locale.exit:                            ; preds = %2047, %2051
 sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.exit, %2060
   %2065 = phi i32 [ %.0.i.i1834, %2060 ], [ %2058, %sre_lower_locale.exit ]
   %.not1669 = icmp eq i32 %2056, %2065
-  br i1 %.not1669, label %2066, label %.critedge1878.loopexit3030
+  br i1 %.not1669, label %2066, label %.critedge1878.loopexit3168
 
 2066:                                             ; preds = %sre_lower_locale.exit1835
   %2067 = getelementptr i8, ptr %.015372136, i64 2
@@ -14314,12 +14314,12 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %.not1765 = icmp eq i64 %.11480.ph, -1
   %.pre2453 = load ptr, ptr %30, align 8, !tbaa !88
   %2206 = getelementptr i8, ptr %.pre2453, i64 %.11480.ph
-  %spec.select2772 = select i1 %.not1765, ptr %.21507, ptr %2206
+  %spec.select2910 = select i1 %.not1765, ptr %.21507, ptr %2206
   br label %2207
 
 2207:                                             ; preds = %2205, %._crit_edge2451
   %2208 = phi ptr [ %.pre2452, %._crit_edge2451 ], [ %.pre2453, %2205 ]
-  %.40 = phi ptr [ %.21507, %._crit_edge2451 ], [ %spec.select2772, %2205 ]
+  %.40 = phi ptr [ %.21507, %._crit_edge2451 ], [ %spec.select2910, %2205 ]
   %2209 = load i64, ptr %8, align 8, !tbaa !122
   %2210 = getelementptr i8, ptr %2208, i64 %2209
   %2211 = load ptr, ptr %39, align 8, !tbaa !94
@@ -14442,21 +14442,21 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
 .critedge1878.loopexit:                           ; preds = %.lr.ph2154, %1931
   br label %.critedge1878
 
-.critedge1878.loopexit3028:                       ; preds = %.lr.ph2145, %2011
+.critedge1878.loopexit3166:                       ; preds = %.lr.ph2145, %2011
   br label %.critedge1878
 
-.critedge1878.loopexit3029:                       ; preds = %.lr.ph2140, %sre_lower_ascii.exit1833
+.critedge1878.loopexit3167:                       ; preds = %.lr.ph2140, %sre_lower_ascii.exit1833
   br label %.critedge1878
 
-.critedge1878.loopexit3030:                       ; preds = %.lr.ph, %sre_lower_locale.exit1835
+.critedge1878.loopexit3168:                       ; preds = %.lr.ph, %sre_lower_locale.exit1835
   br label %.critedge1878
 
-.critedge1878:                                    ; preds = %.critedge1878.loopexit3030, %.critedge1878.loopexit3029, %.critedge1878.loopexit3028, %.critedge1878.loopexit, %2236, %2237, %2241, %1640, %1627, %1602, %1603, %1607, %1428, %1424, %1175, %1177, %1181, %1136, %1137, %1141, %1017, %1019, %._crit_edge2162, %946, %.sink.split, %986, %987, %991, %914, %915, %919, %784, %780, %778, %746, %747, %751, %sre_ucs2_charset_loc_ignore.exit, %629, %sre_upper_locale.exit.i, %610, %609, %sre_lower_ascii.exit1813, %583, %char_loc_ignore.exit1812, %557, %sre_lower_locale.exit.i1809, %558, %540, %539, %sre_lower_ascii.exit1808, %515, %char_loc_ignore.exit, %489, %495, %473, %472, %sre_lower_ascii.exit, %449, %431, %430, %406, %405, %389, %388, %141, %137, %116, %115, %100, %99, %163, %167, %153, %Py_UNICODE_ISALNUM.exit115.thread.i, %Py_UNICODE_ISALNUM.exit107.thread.i, %305, %271, %236, %204, %171, %147, %145, %.backedge, %2379, %2130, %2035, %2031, %1999, %1995, %1951, %1947, %1919, %1915, %2313, %2331, %2300, %2330, %repeat_pool_free.exit1838, %1200, %1187, %1043, %1028, %805, %790, %419, %sre_ucs2_at.exit, %54, %1899, %repeat_pool_free.exit, %1702, %1541, %1493, %1324, %1276, %1224, %1069, %829, %144
-  %.11506 = phi ptr [ %2286, %1493 ], [ %2286, %1702 ], [ %2286, %1324 ], [ %2286, %1541 ], [ %.21507, %144 ], [ %807, %829 ], [ %.141519, %1069 ], [ %1202, %1224 ], [ %2286, %repeat_pool_free.exit ], [ %2286, %1276 ], [ %2286, %1899 ], [ %.01505, %54 ], [ %.21507, %sre_ucs2_at.exit ], [ %.21507, %419 ], [ %.21507, %790 ], [ %807, %805 ], [ %.21507, %1028 ], [ %1045, %1043 ], [ %.21507, %1187 ], [ %1202, %1200 ], [ %2286, %repeat_pool_free.exit1838 ], [ %2286, %2330 ], [ %2286, %2300 ], [ %2286, %2331 ], [ %2286, %2313 ], [ %.21507, %1915 ], [ %.21507, %1919 ], [ %.21507, %1947 ], [ %.21507, %1951 ], [ %.21507, %1995 ], [ %.21507, %1999 ], [ %.21507, %2031 ], [ %.21507, %2035 ], [ %.21507, %2130 ], [ %2286, %2379 ], [ %.21507, %.backedge ], [ %.21507, %145 ], [ %.21507, %147 ], [ %.21507, %171 ], [ %.21507, %204 ], [ %.21507, %236 ], [ %.21507, %271 ], [ %.21507, %305 ], [ %.21507, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ %.21507, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ %.21507, %153 ], [ %.21507, %167 ], [ %.21507, %163 ], [ %.21507, %99 ], [ %.21507, %100 ], [ %.21507, %115 ], [ %.21507, %116 ], [ %.21507, %137 ], [ %.21507, %141 ], [ %.21507, %388 ], [ %.21507, %389 ], [ %.21507, %405 ], [ %.21507, %406 ], [ %.21507, %430 ], [ %.21507, %431 ], [ %.21507, %449 ], [ %.21507, %sre_lower_ascii.exit ], [ %.21507, %472 ], [ %.21507, %473 ], [ %.21507, %495 ], [ %.21507, %489 ], [ %.21507, %char_loc_ignore.exit ], [ %.21507, %515 ], [ %.21507, %sre_lower_ascii.exit1808 ], [ %.21507, %539 ], [ %.21507, %540 ], [ %.21507, %558 ], [ %.21507, %sre_lower_locale.exit.i1809 ], [ %.21507, %557 ], [ %.21507, %char_loc_ignore.exit1812 ], [ %.21507, %583 ], [ %.21507, %sre_lower_ascii.exit1813 ], [ %.21507, %609 ], [ %.21507, %610 ], [ %.21507, %sre_upper_locale.exit.i ], [ %.21507, %629 ], [ %.21507, %sre_ucs2_charset_loc_ignore.exit ], [ %2286, %751 ], [ %2286, %747 ], [ %2286, %746 ], [ %.41509, %778 ], [ %.41509, %780 ], [ %.41509, %784 ], [ %2286, %919 ], [ %2286, %915 ], [ %2286, %914 ], [ %2286, %991 ], [ %2286, %987 ], [ %2286, %986 ], [ %.91514, %946 ], [ %.91514, %._crit_edge2162 ], [ %.111516, %1019 ], [ %.111516, %1017 ], [ %.131518.ph, %.sink.split ], [ %2286, %1141 ], [ %2286, %1137 ], [ %2286, %1136 ], [ %.17, %1181 ], [ %.17, %1177 ], [ %.17, %1175 ], [ %2286, %1424 ], [ %2286, %1428 ], [ %2286, %1607 ], [ %2286, %1603 ], [ %2286, %1602 ], [ %2286, %1627 ], [ %2286, %1640 ], [ %2286, %2241 ], [ %2286, %2237 ], [ %2286, %2236 ], [ %.21507, %.critedge1878.loopexit ], [ %.21507, %.critedge1878.loopexit3028 ], [ %.21507, %.critedge1878.loopexit3029 ], [ %.21507, %.critedge1878.loopexit3030 ]
-  %.11493 = phi i32 [ %.11493, %1493 ], [ %.11493, %1702 ], [ %.11493, %1324 ], [ %.11493, %1541 ], [ %.21494, %144 ], [ %.21494, %829 ], [ %.21494, %1069 ], [ %.21494, %1224 ], [ %.11493, %repeat_pool_free.exit ], [ %.11493, %1276 ], [ %.11493, %1899 ], [ %.01492, %54 ], [ %.21494, %sre_ucs2_at.exit ], [ %.21494, %419 ], [ %.21494, %790 ], [ %.21494, %805 ], [ %.21494, %1028 ], [ %.21494, %1043 ], [ %.21494, %1187 ], [ %.21494, %1200 ], [ %.11493, %repeat_pool_free.exit1838 ], [ %.11493, %2330 ], [ %.11493, %2300 ], [ %.11493, %2331 ], [ %.11493, %2313 ], [ %.21494, %1915 ], [ %.21494, %1919 ], [ %.21494, %1947 ], [ %.21494, %1951 ], [ %.21494, %1995 ], [ %.21494, %1999 ], [ %.21494, %2031 ], [ %.21494, %2035 ], [ %.21494, %2130 ], [ %.11493, %2379 ], [ %.21494, %.backedge ], [ %.21494, %145 ], [ %.21494, %147 ], [ %.21494, %171 ], [ %.21494, %204 ], [ %.21494, %236 ], [ %.21494, %271 ], [ %.21494, %305 ], [ %.21494, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ %.21494, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ %.21494, %153 ], [ %.21494, %167 ], [ %.21494, %163 ], [ %.21494, %99 ], [ %.21494, %100 ], [ %.21494, %115 ], [ %.21494, %116 ], [ %.21494, %137 ], [ %.21494, %141 ], [ %.21494, %388 ], [ %.21494, %389 ], [ %.21494, %405 ], [ %.21494, %406 ], [ %.21494, %430 ], [ %.21494, %431 ], [ %.21494, %449 ], [ %.21494, %sre_lower_ascii.exit ], [ %.21494, %472 ], [ %.21494, %473 ], [ %.21494, %495 ], [ %.21494, %489 ], [ %.21494, %char_loc_ignore.exit ], [ %.21494, %515 ], [ %.21494, %sre_lower_ascii.exit1808 ], [ %.21494, %539 ], [ %.21494, %540 ], [ %.21494, %558 ], [ %.21494, %sre_lower_locale.exit.i1809 ], [ %.21494, %557 ], [ %.21494, %char_loc_ignore.exit1812 ], [ %.21494, %583 ], [ %.21494, %sre_lower_ascii.exit1813 ], [ %.21494, %609 ], [ %.21494, %610 ], [ %.21494, %sre_upper_locale.exit.i ], [ %.21494, %629 ], [ %.21494, %sre_ucs2_charset_loc_ignore.exit ], [ %.11493, %751 ], [ %.11493, %747 ], [ %.11493, %746 ], [ %.31495, %778 ], [ %.31495, %780 ], [ %.31495, %784 ], [ %.11493, %919 ], [ %.11493, %915 ], [ %.11493, %914 ], [ %.11493, %991 ], [ %.11493, %987 ], [ %.11493, %986 ], [ %.51497, %946 ], [ %.51497, %._crit_edge2162 ], [ %.61498, %1019 ], [ %.61498, %1017 ], [ %.71499.ph, %.sink.split ], [ %.11493, %1141 ], [ %.11493, %1137 ], [ %.11493, %1136 ], [ %.91501, %1181 ], [ %.91501, %1177 ], [ %.91501, %1175 ], [ %.11493, %1424 ], [ %.11493, %1428 ], [ %.11493, %1607 ], [ %.11493, %1603 ], [ %.11493, %1602 ], [ %.11493, %1627 ], [ %.11493, %1640 ], [ %.11493, %2241 ], [ %.11493, %2237 ], [ %.11493, %2236 ], [ %.21494, %.critedge1878.loopexit ], [ %.21494, %.critedge1878.loopexit3028 ], [ %.21494, %.critedge1878.loopexit3029 ], [ %.21494, %.critedge1878.loopexit3030 ]
-  %.not1641 = phi i1 [ true, %1493 ], [ true, %1702 ], [ true, %1324 ], [ true, %1541 ], [ false, %144 ], [ false, %829 ], [ false, %1069 ], [ false, %1224 ], [ true, %repeat_pool_free.exit ], [ true, %1276 ], [ true, %1899 ], [ true, %54 ], [ true, %sre_ucs2_at.exit ], [ true, %419 ], [ true, %790 ], [ true, %805 ], [ true, %1028 ], [ true, %1043 ], [ true, %1187 ], [ true, %1200 ], [ false, %repeat_pool_free.exit1838 ], [ false, %2330 ], [ false, %2300 ], [ false, %2331 ], [ false, %2313 ], [ true, %1915 ], [ true, %1919 ], [ true, %1947 ], [ true, %1951 ], [ true, %1995 ], [ true, %1999 ], [ true, %2031 ], [ true, %2035 ], [ true, %2130 ], [ true, %2379 ], [ true, %.backedge ], [ true, %145 ], [ true, %147 ], [ true, %171 ], [ true, %204 ], [ true, %236 ], [ true, %271 ], [ true, %305 ], [ true, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ true, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ true, %153 ], [ true, %167 ], [ true, %163 ], [ true, %99 ], [ true, %100 ], [ true, %115 ], [ true, %116 ], [ true, %137 ], [ true, %141 ], [ true, %388 ], [ true, %389 ], [ true, %405 ], [ true, %406 ], [ true, %430 ], [ true, %431 ], [ true, %449 ], [ true, %sre_lower_ascii.exit ], [ true, %472 ], [ true, %473 ], [ true, %495 ], [ true, %489 ], [ true, %char_loc_ignore.exit ], [ true, %515 ], [ true, %sre_lower_ascii.exit1808 ], [ true, %539 ], [ true, %540 ], [ true, %558 ], [ true, %sre_lower_locale.exit.i1809 ], [ true, %557 ], [ true, %char_loc_ignore.exit1812 ], [ true, %583 ], [ true, %sre_lower_ascii.exit1813 ], [ true, %609 ], [ true, %610 ], [ true, %sre_upper_locale.exit.i ], [ true, %629 ], [ true, %sre_ucs2_charset_loc_ignore.exit ], [ false, %751 ], [ false, %747 ], [ false, %746 ], [ true, %778 ], [ true, %780 ], [ true, %784 ], [ false, %919 ], [ false, %915 ], [ false, %914 ], [ false, %991 ], [ false, %987 ], [ false, %986 ], [ true, %946 ], [ true, %._crit_edge2162 ], [ true, %1019 ], [ true, %1017 ], [ true, %.sink.split ], [ false, %1141 ], [ false, %1137 ], [ false, %1136 ], [ true, %1181 ], [ true, %1177 ], [ true, %1175 ], [ false, %1424 ], [ false, %1428 ], [ false, %1607 ], [ false, %1603 ], [ false, %1602 ], [ true, %1627 ], [ true, %1640 ], [ true, %2241 ], [ true, %2237 ], [ true, %2236 ], [ true, %.critedge1878.loopexit ], [ true, %.critedge1878.loopexit3028 ], [ true, %.critedge1878.loopexit3029 ], [ true, %.critedge1878.loopexit3030 ]
-  %2275 = phi i1 [ false, %1493 ], [ false, %1702 ], [ false, %1324 ], [ false, %1541 ], [ true, %144 ], [ true, %829 ], [ true, %1069 ], [ true, %1224 ], [ false, %repeat_pool_free.exit ], [ false, %1276 ], [ false, %1899 ], [ false, %54 ], [ false, %sre_ucs2_at.exit ], [ false, %419 ], [ false, %790 ], [ false, %805 ], [ false, %1028 ], [ false, %1043 ], [ false, %1187 ], [ false, %1200 ], [ true, %repeat_pool_free.exit1838 ], [ true, %2330 ], [ true, %2300 ], [ true, %2331 ], [ true, %2313 ], [ false, %1915 ], [ false, %1919 ], [ false, %1947 ], [ false, %1951 ], [ false, %1995 ], [ false, %1999 ], [ false, %2031 ], [ false, %2035 ], [ false, %2130 ], [ false, %2379 ], [ false, %.backedge ], [ false, %145 ], [ false, %147 ], [ false, %171 ], [ false, %204 ], [ false, %236 ], [ false, %271 ], [ false, %305 ], [ false, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ false, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ false, %153 ], [ false, %167 ], [ false, %163 ], [ false, %99 ], [ false, %100 ], [ false, %115 ], [ false, %116 ], [ false, %137 ], [ false, %141 ], [ false, %388 ], [ false, %389 ], [ false, %405 ], [ false, %406 ], [ false, %430 ], [ false, %431 ], [ false, %449 ], [ false, %sre_lower_ascii.exit ], [ false, %472 ], [ false, %473 ], [ false, %495 ], [ false, %489 ], [ false, %char_loc_ignore.exit ], [ false, %515 ], [ false, %sre_lower_ascii.exit1808 ], [ false, %539 ], [ false, %540 ], [ false, %558 ], [ false, %sre_lower_locale.exit.i1809 ], [ false, %557 ], [ false, %char_loc_ignore.exit1812 ], [ false, %583 ], [ false, %sre_lower_ascii.exit1813 ], [ false, %609 ], [ false, %610 ], [ false, %sre_upper_locale.exit.i ], [ false, %629 ], [ false, %sre_ucs2_charset_loc_ignore.exit ], [ true, %751 ], [ true, %747 ], [ true, %746 ], [ false, %778 ], [ false, %780 ], [ false, %784 ], [ true, %919 ], [ true, %915 ], [ true, %914 ], [ true, %991 ], [ true, %987 ], [ true, %986 ], [ false, %946 ], [ false, %._crit_edge2162 ], [ false, %1019 ], [ false, %1017 ], [ false, %.sink.split ], [ true, %1141 ], [ true, %1137 ], [ true, %1136 ], [ false, %1181 ], [ false, %1177 ], [ false, %1175 ], [ true, %1424 ], [ true, %1428 ], [ true, %1607 ], [ true, %1603 ], [ true, %1602 ], [ false, %1627 ], [ false, %1640 ], [ false, %2241 ], [ false, %2237 ], [ false, %2236 ], [ false, %.critedge1878.loopexit ], [ false, %.critedge1878.loopexit3028 ], [ false, %.critedge1878.loopexit3029 ], [ false, %.critedge1878.loopexit3030 ]
-  %.01491 = phi i64 [ 0, %1493 ], [ 0, %1702 ], [ 0, %1324 ], [ 0, %1541 ], [ 1, %144 ], [ 1, %829 ], [ 1, %1069 ], [ 1, %1224 ], [ 0, %repeat_pool_free.exit ], [ 0, %1276 ], [ 0, %1899 ], [ 0, %54 ], [ 0, %sre_ucs2_at.exit ], [ 0, %419 ], [ 0, %790 ], [ 0, %805 ], [ 0, %1028 ], [ 0, %1043 ], [ 0, %1187 ], [ 0, %1200 ], [ 1, %repeat_pool_free.exit1838 ], [ 1, %2330 ], [ 1, %2300 ], [ 1, %2331 ], [ 1, %2313 ], [ 0, %1915 ], [ 0, %1919 ], [ 0, %1947 ], [ 0, %1951 ], [ 0, %1995 ], [ 0, %1999 ], [ 0, %2031 ], [ 0, %2035 ], [ 0, %2130 ], [ 0, %2379 ], [ 0, %.backedge ], [ 0, %145 ], [ 0, %147 ], [ 0, %171 ], [ 0, %204 ], [ 0, %236 ], [ 0, %271 ], [ 0, %305 ], [ 0, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ 0, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ 0, %153 ], [ 0, %167 ], [ 0, %163 ], [ 0, %99 ], [ 0, %100 ], [ 0, %115 ], [ 0, %116 ], [ 0, %137 ], [ 0, %141 ], [ 0, %388 ], [ 0, %389 ], [ 0, %405 ], [ 0, %406 ], [ 0, %430 ], [ 0, %431 ], [ 0, %449 ], [ 0, %sre_lower_ascii.exit ], [ 0, %472 ], [ 0, %473 ], [ 0, %495 ], [ 0, %489 ], [ 0, %char_loc_ignore.exit ], [ 0, %515 ], [ 0, %sre_lower_ascii.exit1808 ], [ 0, %539 ], [ 0, %540 ], [ 0, %558 ], [ 0, %sre_lower_locale.exit.i1809 ], [ 0, %557 ], [ 0, %char_loc_ignore.exit1812 ], [ 0, %583 ], [ 0, %sre_lower_ascii.exit1813 ], [ 0, %609 ], [ 0, %610 ], [ 0, %sre_upper_locale.exit.i ], [ 0, %629 ], [ 0, %sre_ucs2_charset_loc_ignore.exit ], [ 1, %751 ], [ 1, %747 ], [ 1, %746 ], [ 0, %778 ], [ 0, %780 ], [ 0, %784 ], [ 1, %919 ], [ 1, %915 ], [ 1, %914 ], [ 1, %991 ], [ 1, %987 ], [ 1, %986 ], [ 0, %946 ], [ 0, %._crit_edge2162 ], [ 0, %1019 ], [ 0, %1017 ], [ 0, %.sink.split ], [ 1, %1141 ], [ 1, %1137 ], [ 1, %1136 ], [ 0, %1181 ], [ 0, %1177 ], [ 0, %1175 ], [ 1, %1424 ], [ 1, %1428 ], [ 1, %1607 ], [ 1, %1603 ], [ 1, %1602 ], [ 0, %1627 ], [ 0, %1640 ], [ 0, %2241 ], [ 0, %2237 ], [ 0, %2236 ], [ 0, %.critedge1878.loopexit ], [ 0, %.critedge1878.loopexit3028 ], [ 0, %.critedge1878.loopexit3029 ], [ 0, %.critedge1878.loopexit3030 ]
+.critedge1878:                                    ; preds = %.critedge1878.loopexit3168, %.critedge1878.loopexit3167, %.critedge1878.loopexit3166, %.critedge1878.loopexit, %2236, %2237, %2241, %1640, %1627, %1602, %1603, %1607, %1428, %1424, %1175, %1177, %1181, %1136, %1137, %1141, %1017, %1019, %._crit_edge2162, %946, %.sink.split, %986, %987, %991, %914, %915, %919, %784, %780, %778, %746, %747, %751, %sre_ucs2_charset_loc_ignore.exit, %629, %sre_upper_locale.exit.i, %610, %609, %sre_lower_ascii.exit1813, %583, %char_loc_ignore.exit1812, %557, %sre_lower_locale.exit.i1809, %558, %540, %539, %sre_lower_ascii.exit1808, %515, %char_loc_ignore.exit, %489, %495, %473, %472, %sre_lower_ascii.exit, %449, %431, %430, %406, %405, %389, %388, %141, %137, %116, %115, %100, %99, %163, %167, %153, %Py_UNICODE_ISALNUM.exit115.thread.i, %Py_UNICODE_ISALNUM.exit107.thread.i, %305, %271, %236, %204, %171, %147, %145, %.backedge, %2379, %2130, %2035, %2031, %1999, %1995, %1951, %1947, %1919, %1915, %2313, %2331, %2300, %2330, %repeat_pool_free.exit1838, %1200, %1187, %1043, %1028, %805, %790, %419, %sre_ucs2_at.exit, %54, %1899, %repeat_pool_free.exit, %1702, %1541, %1493, %1324, %1276, %1224, %1069, %829, %144
+  %.11506 = phi ptr [ %2286, %1493 ], [ %2286, %1702 ], [ %2286, %1324 ], [ %2286, %1541 ], [ %.21507, %144 ], [ %807, %829 ], [ %.141519, %1069 ], [ %1202, %1224 ], [ %2286, %repeat_pool_free.exit ], [ %2286, %1276 ], [ %2286, %1899 ], [ %.01505, %54 ], [ %.21507, %sre_ucs2_at.exit ], [ %.21507, %419 ], [ %.21507, %790 ], [ %807, %805 ], [ %.21507, %1028 ], [ %1045, %1043 ], [ %.21507, %1187 ], [ %1202, %1200 ], [ %2286, %repeat_pool_free.exit1838 ], [ %2286, %2330 ], [ %2286, %2300 ], [ %2286, %2331 ], [ %2286, %2313 ], [ %.21507, %1915 ], [ %.21507, %1919 ], [ %.21507, %1947 ], [ %.21507, %1951 ], [ %.21507, %1995 ], [ %.21507, %1999 ], [ %.21507, %2031 ], [ %.21507, %2035 ], [ %.21507, %2130 ], [ %2286, %2379 ], [ %.21507, %.backedge ], [ %.21507, %145 ], [ %.21507, %147 ], [ %.21507, %171 ], [ %.21507, %204 ], [ %.21507, %236 ], [ %.21507, %271 ], [ %.21507, %305 ], [ %.21507, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ %.21507, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ %.21507, %153 ], [ %.21507, %167 ], [ %.21507, %163 ], [ %.21507, %99 ], [ %.21507, %100 ], [ %.21507, %115 ], [ %.21507, %116 ], [ %.21507, %137 ], [ %.21507, %141 ], [ %.21507, %388 ], [ %.21507, %389 ], [ %.21507, %405 ], [ %.21507, %406 ], [ %.21507, %430 ], [ %.21507, %431 ], [ %.21507, %449 ], [ %.21507, %sre_lower_ascii.exit ], [ %.21507, %472 ], [ %.21507, %473 ], [ %.21507, %495 ], [ %.21507, %489 ], [ %.21507, %char_loc_ignore.exit ], [ %.21507, %515 ], [ %.21507, %sre_lower_ascii.exit1808 ], [ %.21507, %539 ], [ %.21507, %540 ], [ %.21507, %558 ], [ %.21507, %sre_lower_locale.exit.i1809 ], [ %.21507, %557 ], [ %.21507, %char_loc_ignore.exit1812 ], [ %.21507, %583 ], [ %.21507, %sre_lower_ascii.exit1813 ], [ %.21507, %609 ], [ %.21507, %610 ], [ %.21507, %sre_upper_locale.exit.i ], [ %.21507, %629 ], [ %.21507, %sre_ucs2_charset_loc_ignore.exit ], [ %2286, %751 ], [ %2286, %747 ], [ %2286, %746 ], [ %.41509, %778 ], [ %.41509, %780 ], [ %.41509, %784 ], [ %2286, %919 ], [ %2286, %915 ], [ %2286, %914 ], [ %2286, %991 ], [ %2286, %987 ], [ %2286, %986 ], [ %.91514, %946 ], [ %.91514, %._crit_edge2162 ], [ %.111516, %1019 ], [ %.111516, %1017 ], [ %.131518.ph, %.sink.split ], [ %2286, %1141 ], [ %2286, %1137 ], [ %2286, %1136 ], [ %.17, %1181 ], [ %.17, %1177 ], [ %.17, %1175 ], [ %2286, %1424 ], [ %2286, %1428 ], [ %2286, %1607 ], [ %2286, %1603 ], [ %2286, %1602 ], [ %2286, %1627 ], [ %2286, %1640 ], [ %2286, %2241 ], [ %2286, %2237 ], [ %2286, %2236 ], [ %.21507, %.critedge1878.loopexit ], [ %.21507, %.critedge1878.loopexit3166 ], [ %.21507, %.critedge1878.loopexit3167 ], [ %.21507, %.critedge1878.loopexit3168 ]
+  %.11493 = phi i32 [ %.11493, %1493 ], [ %.11493, %1702 ], [ %.11493, %1324 ], [ %.11493, %1541 ], [ %.21494, %144 ], [ %.21494, %829 ], [ %.21494, %1069 ], [ %.21494, %1224 ], [ %.11493, %repeat_pool_free.exit ], [ %.11493, %1276 ], [ %.11493, %1899 ], [ %.01492, %54 ], [ %.21494, %sre_ucs2_at.exit ], [ %.21494, %419 ], [ %.21494, %790 ], [ %.21494, %805 ], [ %.21494, %1028 ], [ %.21494, %1043 ], [ %.21494, %1187 ], [ %.21494, %1200 ], [ %.11493, %repeat_pool_free.exit1838 ], [ %.11493, %2330 ], [ %.11493, %2300 ], [ %.11493, %2331 ], [ %.11493, %2313 ], [ %.21494, %1915 ], [ %.21494, %1919 ], [ %.21494, %1947 ], [ %.21494, %1951 ], [ %.21494, %1995 ], [ %.21494, %1999 ], [ %.21494, %2031 ], [ %.21494, %2035 ], [ %.21494, %2130 ], [ %.11493, %2379 ], [ %.21494, %.backedge ], [ %.21494, %145 ], [ %.21494, %147 ], [ %.21494, %171 ], [ %.21494, %204 ], [ %.21494, %236 ], [ %.21494, %271 ], [ %.21494, %305 ], [ %.21494, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ %.21494, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ %.21494, %153 ], [ %.21494, %167 ], [ %.21494, %163 ], [ %.21494, %99 ], [ %.21494, %100 ], [ %.21494, %115 ], [ %.21494, %116 ], [ %.21494, %137 ], [ %.21494, %141 ], [ %.21494, %388 ], [ %.21494, %389 ], [ %.21494, %405 ], [ %.21494, %406 ], [ %.21494, %430 ], [ %.21494, %431 ], [ %.21494, %449 ], [ %.21494, %sre_lower_ascii.exit ], [ %.21494, %472 ], [ %.21494, %473 ], [ %.21494, %495 ], [ %.21494, %489 ], [ %.21494, %char_loc_ignore.exit ], [ %.21494, %515 ], [ %.21494, %sre_lower_ascii.exit1808 ], [ %.21494, %539 ], [ %.21494, %540 ], [ %.21494, %558 ], [ %.21494, %sre_lower_locale.exit.i1809 ], [ %.21494, %557 ], [ %.21494, %char_loc_ignore.exit1812 ], [ %.21494, %583 ], [ %.21494, %sre_lower_ascii.exit1813 ], [ %.21494, %609 ], [ %.21494, %610 ], [ %.21494, %sre_upper_locale.exit.i ], [ %.21494, %629 ], [ %.21494, %sre_ucs2_charset_loc_ignore.exit ], [ %.11493, %751 ], [ %.11493, %747 ], [ %.11493, %746 ], [ %.31495, %778 ], [ %.31495, %780 ], [ %.31495, %784 ], [ %.11493, %919 ], [ %.11493, %915 ], [ %.11493, %914 ], [ %.11493, %991 ], [ %.11493, %987 ], [ %.11493, %986 ], [ %.51497, %946 ], [ %.51497, %._crit_edge2162 ], [ %.61498, %1019 ], [ %.61498, %1017 ], [ %.71499.ph, %.sink.split ], [ %.11493, %1141 ], [ %.11493, %1137 ], [ %.11493, %1136 ], [ %.91501, %1181 ], [ %.91501, %1177 ], [ %.91501, %1175 ], [ %.11493, %1424 ], [ %.11493, %1428 ], [ %.11493, %1607 ], [ %.11493, %1603 ], [ %.11493, %1602 ], [ %.11493, %1627 ], [ %.11493, %1640 ], [ %.11493, %2241 ], [ %.11493, %2237 ], [ %.11493, %2236 ], [ %.21494, %.critedge1878.loopexit ], [ %.21494, %.critedge1878.loopexit3166 ], [ %.21494, %.critedge1878.loopexit3167 ], [ %.21494, %.critedge1878.loopexit3168 ]
+  %.not1641 = phi i1 [ true, %1493 ], [ true, %1702 ], [ true, %1324 ], [ true, %1541 ], [ false, %144 ], [ false, %829 ], [ false, %1069 ], [ false, %1224 ], [ true, %repeat_pool_free.exit ], [ true, %1276 ], [ true, %1899 ], [ true, %54 ], [ true, %sre_ucs2_at.exit ], [ true, %419 ], [ true, %790 ], [ true, %805 ], [ true, %1028 ], [ true, %1043 ], [ true, %1187 ], [ true, %1200 ], [ false, %repeat_pool_free.exit1838 ], [ false, %2330 ], [ false, %2300 ], [ false, %2331 ], [ false, %2313 ], [ true, %1915 ], [ true, %1919 ], [ true, %1947 ], [ true, %1951 ], [ true, %1995 ], [ true, %1999 ], [ true, %2031 ], [ true, %2035 ], [ true, %2130 ], [ true, %2379 ], [ true, %.backedge ], [ true, %145 ], [ true, %147 ], [ true, %171 ], [ true, %204 ], [ true, %236 ], [ true, %271 ], [ true, %305 ], [ true, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ true, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ true, %153 ], [ true, %167 ], [ true, %163 ], [ true, %99 ], [ true, %100 ], [ true, %115 ], [ true, %116 ], [ true, %137 ], [ true, %141 ], [ true, %388 ], [ true, %389 ], [ true, %405 ], [ true, %406 ], [ true, %430 ], [ true, %431 ], [ true, %449 ], [ true, %sre_lower_ascii.exit ], [ true, %472 ], [ true, %473 ], [ true, %495 ], [ true, %489 ], [ true, %char_loc_ignore.exit ], [ true, %515 ], [ true, %sre_lower_ascii.exit1808 ], [ true, %539 ], [ true, %540 ], [ true, %558 ], [ true, %sre_lower_locale.exit.i1809 ], [ true, %557 ], [ true, %char_loc_ignore.exit1812 ], [ true, %583 ], [ true, %sre_lower_ascii.exit1813 ], [ true, %609 ], [ true, %610 ], [ true, %sre_upper_locale.exit.i ], [ true, %629 ], [ true, %sre_ucs2_charset_loc_ignore.exit ], [ false, %751 ], [ false, %747 ], [ false, %746 ], [ true, %778 ], [ true, %780 ], [ true, %784 ], [ false, %919 ], [ false, %915 ], [ false, %914 ], [ false, %991 ], [ false, %987 ], [ false, %986 ], [ true, %946 ], [ true, %._crit_edge2162 ], [ true, %1019 ], [ true, %1017 ], [ true, %.sink.split ], [ false, %1141 ], [ false, %1137 ], [ false, %1136 ], [ true, %1181 ], [ true, %1177 ], [ true, %1175 ], [ false, %1424 ], [ false, %1428 ], [ false, %1607 ], [ false, %1603 ], [ false, %1602 ], [ true, %1627 ], [ true, %1640 ], [ true, %2241 ], [ true, %2237 ], [ true, %2236 ], [ true, %.critedge1878.loopexit ], [ true, %.critedge1878.loopexit3166 ], [ true, %.critedge1878.loopexit3167 ], [ true, %.critedge1878.loopexit3168 ]
+  %2275 = phi i1 [ false, %1493 ], [ false, %1702 ], [ false, %1324 ], [ false, %1541 ], [ true, %144 ], [ true, %829 ], [ true, %1069 ], [ true, %1224 ], [ false, %repeat_pool_free.exit ], [ false, %1276 ], [ false, %1899 ], [ false, %54 ], [ false, %sre_ucs2_at.exit ], [ false, %419 ], [ false, %790 ], [ false, %805 ], [ false, %1028 ], [ false, %1043 ], [ false, %1187 ], [ false, %1200 ], [ true, %repeat_pool_free.exit1838 ], [ true, %2330 ], [ true, %2300 ], [ true, %2331 ], [ true, %2313 ], [ false, %1915 ], [ false, %1919 ], [ false, %1947 ], [ false, %1951 ], [ false, %1995 ], [ false, %1999 ], [ false, %2031 ], [ false, %2035 ], [ false, %2130 ], [ false, %2379 ], [ false, %.backedge ], [ false, %145 ], [ false, %147 ], [ false, %171 ], [ false, %204 ], [ false, %236 ], [ false, %271 ], [ false, %305 ], [ false, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ false, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ false, %153 ], [ false, %167 ], [ false, %163 ], [ false, %99 ], [ false, %100 ], [ false, %115 ], [ false, %116 ], [ false, %137 ], [ false, %141 ], [ false, %388 ], [ false, %389 ], [ false, %405 ], [ false, %406 ], [ false, %430 ], [ false, %431 ], [ false, %449 ], [ false, %sre_lower_ascii.exit ], [ false, %472 ], [ false, %473 ], [ false, %495 ], [ false, %489 ], [ false, %char_loc_ignore.exit ], [ false, %515 ], [ false, %sre_lower_ascii.exit1808 ], [ false, %539 ], [ false, %540 ], [ false, %558 ], [ false, %sre_lower_locale.exit.i1809 ], [ false, %557 ], [ false, %char_loc_ignore.exit1812 ], [ false, %583 ], [ false, %sre_lower_ascii.exit1813 ], [ false, %609 ], [ false, %610 ], [ false, %sre_upper_locale.exit.i ], [ false, %629 ], [ false, %sre_ucs2_charset_loc_ignore.exit ], [ true, %751 ], [ true, %747 ], [ true, %746 ], [ false, %778 ], [ false, %780 ], [ false, %784 ], [ true, %919 ], [ true, %915 ], [ true, %914 ], [ true, %991 ], [ true, %987 ], [ true, %986 ], [ false, %946 ], [ false, %._crit_edge2162 ], [ false, %1019 ], [ false, %1017 ], [ false, %.sink.split ], [ true, %1141 ], [ true, %1137 ], [ true, %1136 ], [ false, %1181 ], [ false, %1177 ], [ false, %1175 ], [ true, %1424 ], [ true, %1428 ], [ true, %1607 ], [ true, %1603 ], [ true, %1602 ], [ false, %1627 ], [ false, %1640 ], [ false, %2241 ], [ false, %2237 ], [ false, %2236 ], [ false, %.critedge1878.loopexit ], [ false, %.critedge1878.loopexit3166 ], [ false, %.critedge1878.loopexit3167 ], [ false, %.critedge1878.loopexit3168 ]
+  %.01491 = phi i64 [ 0, %1493 ], [ 0, %1702 ], [ 0, %1324 ], [ 0, %1541 ], [ 1, %144 ], [ 1, %829 ], [ 1, %1069 ], [ 1, %1224 ], [ 0, %repeat_pool_free.exit ], [ 0, %1276 ], [ 0, %1899 ], [ 0, %54 ], [ 0, %sre_ucs2_at.exit ], [ 0, %419 ], [ 0, %790 ], [ 0, %805 ], [ 0, %1028 ], [ 0, %1043 ], [ 0, %1187 ], [ 0, %1200 ], [ 1, %repeat_pool_free.exit1838 ], [ 1, %2330 ], [ 1, %2300 ], [ 1, %2331 ], [ 1, %2313 ], [ 0, %1915 ], [ 0, %1919 ], [ 0, %1947 ], [ 0, %1951 ], [ 0, %1995 ], [ 0, %1999 ], [ 0, %2031 ], [ 0, %2035 ], [ 0, %2130 ], [ 0, %2379 ], [ 0, %.backedge ], [ 0, %145 ], [ 0, %147 ], [ 0, %171 ], [ 0, %204 ], [ 0, %236 ], [ 0, %271 ], [ 0, %305 ], [ 0, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ 0, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ 0, %153 ], [ 0, %167 ], [ 0, %163 ], [ 0, %99 ], [ 0, %100 ], [ 0, %115 ], [ 0, %116 ], [ 0, %137 ], [ 0, %141 ], [ 0, %388 ], [ 0, %389 ], [ 0, %405 ], [ 0, %406 ], [ 0, %430 ], [ 0, %431 ], [ 0, %449 ], [ 0, %sre_lower_ascii.exit ], [ 0, %472 ], [ 0, %473 ], [ 0, %495 ], [ 0, %489 ], [ 0, %char_loc_ignore.exit ], [ 0, %515 ], [ 0, %sre_lower_ascii.exit1808 ], [ 0, %539 ], [ 0, %540 ], [ 0, %558 ], [ 0, %sre_lower_locale.exit.i1809 ], [ 0, %557 ], [ 0, %char_loc_ignore.exit1812 ], [ 0, %583 ], [ 0, %sre_lower_ascii.exit1813 ], [ 0, %609 ], [ 0, %610 ], [ 0, %sre_upper_locale.exit.i ], [ 0, %629 ], [ 0, %sre_ucs2_charset_loc_ignore.exit ], [ 1, %751 ], [ 1, %747 ], [ 1, %746 ], [ 0, %778 ], [ 0, %780 ], [ 0, %784 ], [ 1, %919 ], [ 1, %915 ], [ 1, %914 ], [ 1, %991 ], [ 1, %987 ], [ 1, %986 ], [ 0, %946 ], [ 0, %._crit_edge2162 ], [ 0, %1019 ], [ 0, %1017 ], [ 0, %.sink.split ], [ 1, %1141 ], [ 1, %1137 ], [ 1, %1136 ], [ 0, %1181 ], [ 0, %1177 ], [ 0, %1175 ], [ 1, %1424 ], [ 1, %1428 ], [ 1, %1607 ], [ 1, %1603 ], [ 1, %1602 ], [ 0, %1627 ], [ 0, %1640 ], [ 0, %2241 ], [ 0, %2237 ], [ 0, %2236 ], [ 0, %.critedge1878.loopexit ], [ 0, %.critedge1878.loopexit3166 ], [ 0, %.critedge1878.loopexit3167 ], [ 0, %.critedge1878.loopexit3168 ]
   %2276 = getelementptr inbounds nuw i8, ptr %.11506, i64 48
   %2277 = load i64, ptr %2276, align 8, !tbaa !153
   %2278 = getelementptr inbounds nuw i8, ptr %.11506, i64 44
@@ -14662,12 +14662,12 @@ repeat_pool_free.exit1838:                        ; preds = %2356, %2357
   ret i64 %.0
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader1883
-  %.sink2750.sink = phi i32 [ %.sink2771, %.preheader1883 ], [ %.sink2750.sink.be, %.backedge.backedge ]
+  %.sink2888.sink = phi i32 [ %.sink2909, %.preheader1883 ], [ %.sink2888.sink.be, %.backedge.backedge ]
   %.01520 = phi ptr [ %.01520.ph, %.preheader1883 ], [ %.01520.be, %.backedge.backedge ]
   %.21507 = phi ptr [ %.21507.ph, %.preheader1883 ], [ %.21507.be, %.backedge.backedge ]
   %.21494 = phi i32 [ %.21494.ph, %.preheader1883 ], [ %.21494.be, %.backedge.backedge ]
   %.2 = phi ptr [ %1914, %.preheader1883 ], [ %.2.be, %.backedge.backedge ]
-  %2388 = zext i32 %.sink2750.sink to i64
+  %2388 = zext i32 %.sink2888.sink to i64
   %2389 = getelementptr [43 x ptr], ptr @sre_ucs2_match.sre_targets, i64 0, i64 %2388
   %2390 = load ptr, ptr %2389, align 8, !tbaa !95
   indirectbr ptr %2390, [label %.critedge1878, label %132, label %405, label %419, label %2130, label %2175, label %145, label %668, label %388, label %.loopexit, label %539, label %1915, label %2079, label %430, label %656, label %472, label %99, label %72, label %1277, label %1494, label %115, label %609, label %1995, label %1234, label %790, label %557, label %1028, label %1877, label %1706, label %1187, label %1947, label %583, label %449, label %515, label %2031, label %629, label %489]
@@ -14855,7 +14855,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %96, %111, %127, %383, %399, %413, %424, %442, %464, %480, %505, %528, %545, %570, %595, %614, %640, %652, %1215, %1928, %1974, %2008, %2054, %2071, %2095, %2105
-  %.sink2750.sink.be = phi i32 [ %98, %96 ], [ %113, %111 ], [ %129, %127 ], [ %385, %383 ], [ %401, %399 ], [ %415, %413 ], [ %426, %424 ], [ %444, %442 ], [ %466, %464 ], [ %482, %480 ], [ %507, %505 ], [ %530, %528 ], [ %547, %545 ], [ %572, %570 ], [ %597, %595 ], [ %616, %614 ], [ %642, %640 ], [ %654, %652 ], [ %1216, %1215 ], [ %1930, %1928 ], [ %1976, %1974 ], [ %2010, %2008 ], [ %2056, %2054 ], [ %2073, %2071 ], [ %2097, %2095 ], [ %2107, %2105 ]
+  %.sink2896.sink.be = phi i32 [ %98, %96 ], [ %113, %111 ], [ %129, %127 ], [ %385, %383 ], [ %401, %399 ], [ %415, %413 ], [ %426, %424 ], [ %444, %442 ], [ %466, %464 ], [ %482, %480 ], [ %507, %505 ], [ %530, %528 ], [ %547, %545 ], [ %572, %570 ], [ %597, %595 ], [ %616, %614 ], [ %642, %640 ], [ %654, %652 ], [ %1216, %1215 ], [ %1930, %1928 ], [ %1976, %1974 ], [ %2010, %2008 ], [ %2056, %2054 ], [ %2073, %2071 ], [ %2097, %2095 ], [ %2107, %2105 ]
   %.01520.be = phi ptr [ %.01520, %96 ], [ %105, %111 ], [ %121, %127 ], [ %.01520, %383 ], [ %393, %399 ], [ %407, %413 ], [ %418, %424 ], [ %436, %442 ], [ %458, %464 ], [ %474, %480 ], [ %499, %505 ], [ %522, %528 ], [ %539, %545 ], [ %564, %570 ], [ %589, %595 ], [ %608, %614 ], [ %634, %640 ], [ %.01520, %652 ], [ %1187, %1215 ], [ %.111531.lcssa, %1928 ], [ %.121532.lcssa, %1974 ], [ %.131533.lcssa, %2008 ], [ %.141534.lcssa, %2054 ], [ %.01520, %2071 ], [ %.01520, %2095 ], [ %.01520, %2105 ]
   %.21507.be = phi ptr [ %.21507, %96 ], [ %.21507, %111 ], [ %.21507, %127 ], [ %.21507, %383 ], [ %.21507, %399 ], [ %.21507, %413 ], [ %.21507, %424 ], [ %.21507, %442 ], [ %.21507, %464 ], [ %.21507, %480 ], [ %.21507, %505 ], [ %.21507, %528 ], [ %.21507, %545 ], [ %.21507, %570 ], [ %.21507, %595 ], [ %.21507, %614 ], [ %.21507, %640 ], [ %.21507, %652 ], [ %1186, %1215 ], [ %.21507, %1928 ], [ %.21507, %1974 ], [ %.21507, %2008 ], [ %.21507, %2054 ], [ %.21507, %2071 ], [ %.21507, %2095 ], [ %.21507, %2105 ]
   %.21494.be = phi i32 [ %91, %96 ], [ %106, %111 ], [ %122, %127 ], [ %378, %383 ], [ %394, %399 ], [ %408, %413 ], [ %419, %424 ], [ %437, %442 ], [ %459, %464 ], [ %475, %480 ], [ %500, %505 ], [ %523, %528 ], [ %540, %545 ], [ %565, %570 ], [ %590, %595 ], [ %609, %614 ], [ %635, %640 ], [ %647, %652 ], [ %1210, %1215 ], [ %1923, %1928 ], [ %1969, %1974 ], [ %2003, %2008 ], [ %2049, %2054 ], [ %2066, %2071 ], [ %2090, %2095 ], [ %2100, %2105 ]
@@ -15062,8 +15062,8 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 204:                                              ; preds = %201, %195, %192, %188
   %205 = phi i64 [ 0, %188 ], [ 0, %192 ], [ 1, %195 ], [ %203, %201 ]
-  %.not2776 = icmp eq i64 %205, %189
-  br i1 %.not2776, label %.critedge1878, label %sre_ucs4_at.exit.thread
+  %.not2922 = icmp eq i64 %205, %189
+  br i1 %.not2922, label %.critedge1878, label %sre_ucs4_at.exit.thread
 
 206:                                              ; preds = %143
   %207 = load ptr, ptr %43, align 8, !tbaa !89
@@ -15174,8 +15174,8 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 273:                                              ; preds = %270, %263, %257
   %274 = phi i64 [ 0, %257 ], [ 1, %263 ], [ %272, %270 ]
-  %.not2775 = icmp eq i64 %274, %258
-  br i1 %.not2775, label %.critedge1878, label %sre_ucs4_at.exit.thread
+  %.not2921 = icmp eq i64 %274, %258
+  br i1 %.not2921, label %.critedge1878, label %sre_ucs4_at.exit.thread
 
 275:                                              ; preds = %143
   %276 = load ptr, ptr %43, align 8, !tbaa !89
@@ -15302,8 +15302,8 @@ Py_UNICODE_ISALNUM.exit107.i:                     ; preds = %334
 
 Py_UNICODE_ISALNUM.exit107.thread.i:              ; preds = %337, %Py_UNICODE_ISALNUM.exit107.i, %334, %332, %329, %Py_UNICODE_ISALNUM.exit.thread.i
   %341 = phi i64 [ 0, %Py_UNICODE_ISALNUM.exit.thread.i ], [ 1, %Py_UNICODE_ISALNUM.exit107.i ], [ %340, %337 ], [ 1, %334 ], [ 1, %332 ], [ 1, %329 ]
-  %.not2774 = icmp eq i64 %341, %326
-  br i1 %.not2774, label %.critedge1878, label %sre_ucs4_at.exit.thread
+  %.not2920 = icmp eq i64 %341, %326
+  br i1 %.not2920, label %.critedge1878, label %sre_ucs4_at.exit.thread
 
 342:                                              ; preds = %143
   %343 = load ptr, ptr %43, align 8, !tbaa !89
@@ -16037,12 +16037,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.pre2480 = phi ptr [ %712, %716 ], [ %.pre2480.pre, %705 ]
   %.not1789 = icmp eq i64 %.21481, -1
   %719 = getelementptr i8, ptr %.pre2480, i64 %.21481
-  %spec.select2751 = select i1 %.not1789, ptr %.41509, ptr %719
+  %spec.select2897 = select i1 %.not1789, ptr %.41509, ptr %719
   br label %720
 
 720:                                              ; preds = %718, %.thread._crit_edge
   %721 = phi ptr [ %.pre2479, %.thread._crit_edge ], [ %.pre2480, %718 ]
-  %.61511 = phi ptr [ %.41509, %.thread._crit_edge ], [ %spec.select2751, %718 ]
+  %.61511 = phi ptr [ %.41509, %.thread._crit_edge ], [ %spec.select2897, %718 ]
   %722 = getelementptr i8, ptr %721, i64 %701
   %723 = load i64, ptr %8, align 8, !tbaa !122
   %724 = add i64 %723, 56
@@ -16242,12 +16242,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1702 = icmp eq i64 %.11480.ph, -1
   %.pre2421 = load ptr, ptr %30, align 8, !tbaa !88
   %836 = getelementptr i8, ptr %.pre2421, i64 %.11480.ph
-  %spec.select2752 = select i1 %.not1702, ptr %792, ptr %836
+  %spec.select2898 = select i1 %.not1702, ptr %792, ptr %836
   br label %837
 
 837:                                              ; preds = %835, %822
   %838 = phi ptr [ %791, %822 ], [ %.pre2421, %835 ]
-  %.81513 = phi ptr [ %792, %822 ], [ %spec.select2752, %835 ]
+  %.81513 = phi ptr [ %792, %822 ], [ %spec.select2898, %835 ]
   %839 = load i64, ptr %8, align 8, !tbaa !122
   %840 = getelementptr i8, ptr %838, i64 %839
   %841 = load ptr, ptr %39, align 8, !tbaa !94
@@ -16345,12 +16345,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1709 = icmp eq i64 %.41483, -1
   %.pre2468 = load ptr, ptr %30, align 8, !tbaa !88
   %880 = getelementptr i8, ptr %.pre2468, i64 %.41483
-  %spec.select2753 = select i1 %.not1709, ptr %.91514, ptr %880
+  %spec.select2899 = select i1 %.not1709, ptr %.91514, ptr %880
   br label %881
 
 881:                                              ; preds = %879, %.critedge._crit_edge
   %882 = phi ptr [ %.pre2467, %.critedge._crit_edge ], [ %.pre2468, %879 ]
-  %.101515 = phi ptr [ %.91514, %.critedge._crit_edge ], [ %spec.select2753, %879 ]
+  %.101515 = phi ptr [ %.91514, %.critedge._crit_edge ], [ %spec.select2899, %879 ]
   %883 = getelementptr i8, ptr %882, i64 %870
   %884 = load i64, ptr %8, align 8, !tbaa !122
   %885 = add i64 %884, 56
@@ -16476,12 +16476,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1705 = icmp eq i64 %.51484, -1
   %.pre2465 = load ptr, ptr %30, align 8, !tbaa !88
   %952 = getelementptr i8, ptr %.pre2465, i64 %.51484
-  %spec.select2754 = select i1 %.not1705, ptr %.111516, ptr %952
+  %spec.select2900 = select i1 %.not1705, ptr %.111516, ptr %952
   br label %953
 
 953:                                              ; preds = %951, %._crit_edge2463
   %954 = phi ptr [ %.pre2464, %._crit_edge2463 ], [ %.pre2465, %951 ]
-  %.121517 = phi ptr [ %.111516, %._crit_edge2463 ], [ %spec.select2754, %951 ]
+  %.121517 = phi ptr [ %.111516, %._crit_edge2463 ], [ %spec.select2900, %951 ]
   %955 = getelementptr i8, ptr %954, i64 %942
   %956 = load i64, ptr %8, align 8, !tbaa !122
   %957 = add i64 %956, 56
@@ -16695,12 +16695,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1692 = icmp eq i64 %.11480.ph, -1
   %.pre2420 = load ptr, ptr %30, align 8, !tbaa !88
   %1075 = getelementptr i8, ptr %.pre2420, i64 %.11480.ph
-  %spec.select2758 = select i1 %.not1692, ptr %.141519, ptr %1075
+  %spec.select2904 = select i1 %.not1692, ptr %.141519, ptr %1075
   br label %1076
 
 1076:                                             ; preds = %1074, %._crit_edge2418
   %1077 = phi ptr [ %.pre2419, %._crit_edge2418 ], [ %.pre2420, %1074 ]
-  %.15 = phi ptr [ %.141519, %._crit_edge2418 ], [ %spec.select2758, %1074 ]
+  %.15 = phi ptr [ %.141519, %._crit_edge2418 ], [ %spec.select2904, %1074 ]
   %1078 = load i64, ptr %8, align 8, !tbaa !122
   %1079 = getelementptr i8, ptr %1077, i64 %1078
   %1080 = load ptr, ptr %39, align 8, !tbaa !94
@@ -16756,12 +16756,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1695 = icmp eq i64 %.61485, -1
   %.pre2460 = load ptr, ptr %30, align 8, !tbaa !88
   %1102 = getelementptr i8, ptr %.pre2460, i64 %.61485
-  %spec.select2759 = select i1 %.not1695, ptr %.16, ptr %1102
+  %spec.select2905 = select i1 %.not1695, ptr %.16, ptr %1102
   br label %1103
 
 1103:                                             ; preds = %1101, %.critedge4._crit_edge
   %1104 = phi ptr [ %.pre2459, %.critedge4._crit_edge ], [ %.pre2460, %1101 ]
-  %.18 = phi ptr [ %.16, %.critedge4._crit_edge ], [ %spec.select2759, %1101 ]
+  %.18 = phi ptr [ %.16, %.critedge4._crit_edge ], [ %spec.select2905, %1101 ]
   %1105 = getelementptr i8, ptr %1104, i64 %1092
   %1106 = load i64, ptr %8, align 8, !tbaa !122
   %1107 = add i64 %1106, 56
@@ -16999,12 +16999,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1712 = icmp eq i64 %.11480.ph, -1
   %.pre2424 = load ptr, ptr %30, align 8, !tbaa !88
   %1242 = getelementptr i8, ptr %.pre2424, i64 %.11480.ph
-  %spec.select2760 = select i1 %.not1712, ptr %.21507, ptr %1242
+  %spec.select2906 = select i1 %.not1712, ptr %.21507, ptr %1242
   br label %1243
 
 1243:                                             ; preds = %1241, %._crit_edge2422
   %1244 = phi ptr [ %.pre2423, %._crit_edge2422 ], [ %.pre2424, %1241 ]
-  %.19 = phi ptr [ %.21507, %._crit_edge2422 ], [ %spec.select2760, %1241 ]
+  %.19 = phi ptr [ %.21507, %._crit_edge2422 ], [ %spec.select2906, %1241 ]
   %1245 = getelementptr i8, ptr %1244, i64 %1232
   %1246 = load i64, ptr %8, align 8, !tbaa !122
   %1247 = add i64 %1246, 56
@@ -17080,12 +17080,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1732 = icmp eq i64 %.11480.ph, -1
   %.pre2447 = load ptr, ptr %30, align 8, !tbaa !88
   %1287 = getelementptr i8, ptr %.pre2447, i64 %.11480.ph
-  %spec.select2761 = select i1 %.not1732, ptr %.21507, ptr %1287
+  %spec.select2907 = select i1 %.not1732, ptr %.21507, ptr %1287
   br label %1288
 
 1288:                                             ; preds = %1286, %._crit_edge2445
   %1289 = phi ptr [ %.pre2446, %._crit_edge2445 ], [ %.pre2447, %1286 ]
-  %.20 = phi ptr [ %.21507, %._crit_edge2445 ], [ %spec.select2761, %1286 ]
+  %.20 = phi ptr [ %.21507, %._crit_edge2445 ], [ %spec.select2907, %1286 ]
   %1290 = getelementptr i8, ptr %1289, i64 %1277
   %1291 = load i64, ptr %8, align 8, !tbaa !122
   %1292 = add i64 %1291, 56
@@ -17179,12 +17179,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1729 = icmp eq i64 %.11480.ph, -1
   %.pre2437 = load ptr, ptr %30, align 8, !tbaa !88
   %1343 = getelementptr i8, ptr %.pre2437, i64 %.11480.ph
-  %spec.select2762 = select i1 %.not1729, ptr %.21507, ptr %1343
+  %spec.select2908 = select i1 %.not1729, ptr %.21507, ptr %1343
   br label %1344
 
 1344:                                             ; preds = %1342, %._crit_edge2435
   %1345 = phi ptr [ %.pre2436, %._crit_edge2435 ], [ %.pre2437, %1342 ]
-  %.22 = phi ptr [ %.21507, %._crit_edge2435 ], [ %spec.select2762, %1342 ]
+  %.22 = phi ptr [ %.21507, %._crit_edge2435 ], [ %spec.select2908, %1342 ]
   %1346 = load i64, ptr %8, align 8, !tbaa !122
   %1347 = getelementptr i8, ptr %1345, i64 %1346
   %1348 = load ptr, ptr %39, align 8, !tbaa !94
@@ -17219,12 +17219,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1730 = icmp eq i64 %.11480.ph, -1
   %.pre2441 = load ptr, ptr %30, align 8, !tbaa !88
   %1362 = getelementptr i8, ptr %.pre2441, i64 %.11480.ph
-  %spec.select2763 = select i1 %.not1730, ptr %.23, ptr %1362
+  %spec.select2909 = select i1 %.not1730, ptr %.23, ptr %1362
   br label %1363
 
 1363:                                             ; preds = %1361, %._crit_edge2439
   %1364 = phi ptr [ %.pre2440, %._crit_edge2439 ], [ %.pre2441, %1361 ]
-  %.24 = phi ptr [ %.23, %._crit_edge2439 ], [ %spec.select2763, %1361 ]
+  %.24 = phi ptr [ %.23, %._crit_edge2439 ], [ %spec.select2909, %1361 ]
   %1365 = load i64, ptr %8, align 8, !tbaa !122
   %1366 = getelementptr i8, ptr %1364, i64 %1365
   %1367 = getelementptr inbounds nuw i8, ptr %.24, i64 8
@@ -17265,12 +17265,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1731 = icmp eq i64 %.11480.ph, -1
   %.pre2444 = load ptr, ptr %30, align 8, !tbaa !88
   %1387 = getelementptr i8, ptr %.pre2444, i64 %.11480.ph
-  %spec.select2764 = select i1 %.not1731, ptr %.24, ptr %1387
+  %spec.select2910 = select i1 %.not1731, ptr %.24, ptr %1387
   br label %1388
 
 1388:                                             ; preds = %1386, %._crit_edge2442
   %1389 = phi ptr [ %.pre2443, %._crit_edge2442 ], [ %.pre2444, %1386 ]
-  %.25 = phi ptr [ %.24, %._crit_edge2442 ], [ %spec.select2764, %1386 ]
+  %.25 = phi ptr [ %.24, %._crit_edge2442 ], [ %spec.select2910, %1386 ]
   %1390 = getelementptr i8, ptr %1389, i64 %1372
   %1391 = load i64, ptr %8, align 8, !tbaa !122
   %1392 = add i64 %1391, 56
@@ -17409,12 +17409,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.pre2494 = phi ptr [ %1458, %1462 ], [ %.pre2494.pre, %1451 ]
   %.not1798 = icmp eq i64 %.71486, -1
   %1465 = getelementptr i8, ptr %.pre2494, i64 %.71486
-  %spec.select2765 = select i1 %.not1798, ptr %.21, ptr %1465
+  %spec.select2911 = select i1 %.not1798, ptr %.21, ptr %1465
   br label %1466
 
 1466:                                             ; preds = %1464, %._crit_edge2492
   %1467 = phi ptr [ %.pre2493, %._crit_edge2492 ], [ %.pre2494, %1464 ]
-  %.26 = phi ptr [ %.21, %._crit_edge2492 ], [ %spec.select2765, %1464 ]
+  %.26 = phi ptr [ %.21, %._crit_edge2492 ], [ %spec.select2911, %1464 ]
   %1468 = getelementptr i8, ptr %1467, i64 %1442
   %1469 = load i64, ptr %8, align 8, !tbaa !122
   %1470 = add i64 %1469, 56
@@ -17485,12 +17485,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1726 = icmp eq i64 %.11480.ph, -1
   %.pre2434 = load ptr, ptr %30, align 8, !tbaa !88
   %1504 = getelementptr i8, ptr %.pre2434, i64 %.11480.ph
-  %spec.select2766 = select i1 %.not1726, ptr %.21507, ptr %1504
+  %spec.select2912 = select i1 %.not1726, ptr %.21507, ptr %1504
   br label %1505
 
 1505:                                             ; preds = %1503, %._crit_edge2432
   %1506 = phi ptr [ %.pre2433, %._crit_edge2432 ], [ %.pre2434, %1503 ]
-  %.27 = phi ptr [ %.21507, %._crit_edge2432 ], [ %spec.select2766, %1503 ]
+  %.27 = phi ptr [ %.21507, %._crit_edge2432 ], [ %spec.select2912, %1503 ]
   %1507 = getelementptr i8, ptr %1506, i64 %1494
   %1508 = load i64, ptr %8, align 8, !tbaa !122
   %1509 = add i64 %1508, 56
@@ -17569,12 +17569,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1724 = icmp eq i64 %.11480.ph, -1
   %.pre2427 = load ptr, ptr %30, align 8, !tbaa !88
   %1553 = getelementptr i8, ptr %.pre2427, i64 %.11480.ph
-  %spec.select2767 = select i1 %.not1724, ptr %.21507, ptr %1553
+  %spec.select2913 = select i1 %.not1724, ptr %.21507, ptr %1553
   br label %1554
 
 1554:                                             ; preds = %1552, %._crit_edge2425
   %1555 = phi ptr [ %.pre2426, %._crit_edge2425 ], [ %.pre2427, %1552 ]
-  %.29 = phi ptr [ %.21507, %._crit_edge2425 ], [ %spec.select2767, %1552 ]
+  %.29 = phi ptr [ %.21507, %._crit_edge2425 ], [ %spec.select2913, %1552 ]
   %1556 = load i64, ptr %8, align 8, !tbaa !122
   %1557 = getelementptr i8, ptr %1555, i64 %1556
   %1558 = load ptr, ptr %39, align 8, !tbaa !94
@@ -17613,12 +17613,12 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.not1725 = icmp eq i64 %.11480.ph, -1
   %.pre2431 = load ptr, ptr %30, align 8, !tbaa !88
   %1574 = getelementptr i8, ptr %.pre2431, i64 %.11480.ph
-  %spec.select2768 = select i1 %.not1725, ptr %.28, ptr %1574
+  %spec.select2914 = select i1 %.not1725, ptr %.28, ptr %1574
   br label %1575
 
 1575:                                             ; preds = %1573, %._crit_edge2429
   %1576 = phi ptr [ %.pre2430, %._crit_edge2429 ], [ %.pre2431, %1573 ]
-  %.30 = phi ptr [ %.28, %._crit_edge2429 ], [ %spec.select2768, %1573 ]
+  %.30 = phi ptr [ %.28, %._crit_edge2429 ], [ %spec.select2914, %1573 ]
   %1577 = getelementptr i8, ptr %1576, i64 %1562
   %1578 = load i64, ptr %8, align 8, !tbaa !122
   %1579 = add i64 %1578, 56
@@ -17992,12 +17992,12 @@ repeat_pool_free.exit:                            ; preds = %1748, %1749
   %.not1776 = icmp eq i64 %.91488, -1
   %.pre2472 = load ptr, ptr %30, align 8, !tbaa !88
   %1780 = getelementptr i8, ptr %.pre2472, i64 %.91488
-  %spec.select2769 = select i1 %.not1776, ptr %.34, ptr %1780
+  %spec.select2915 = select i1 %.not1776, ptr %.34, ptr %1780
   br label %1781
 
 1781:                                             ; preds = %1779, %._crit_edge2470
   %1782 = phi ptr [ %.pre2471, %._crit_edge2470 ], [ %.pre2472, %1779 ]
-  %.36 = phi ptr [ %.34, %._crit_edge2470 ], [ %spec.select2769, %1779 ]
+  %.36 = phi ptr [ %.34, %._crit_edge2470 ], [ %spec.select2915, %1779 ]
   %1783 = load i64, ptr %8, align 8, !tbaa !122
   %1784 = getelementptr i8, ptr %1782, i64 %1783
   %1785 = load ptr, ptr %39, align 8, !tbaa !94
@@ -18222,7 +18222,7 @@ repeat_pool_free.exit1831:                        ; preds = %1847, %1848
   %.21494.ph = phi i32 [ %2148, %2142 ], [ %2148, %2151 ], [ %2248, %2244 ], [ %2248, %2251 ], [ %67, %66 ], [ %67, %70 ], [ %1856, %repeat_pool_free.exit1831 ], [ %1856, %1859 ], [ %1893, %1886 ], [ %1893, %1896 ]
   %.11480.ph = phi i64 [ %2255, %2142 ], [ %2255, %2151 ], [ %.111490, %2244 ], [ %.111490, %2251 ], [ %.01479, %66 ], [ %.01479, %70 ], [ %.101489, %repeat_pool_free.exit1831 ], [ %.101489, %1859 ], [ %2255, %1886 ], [ %2255, %1896 ]
   %1898 = getelementptr i8, ptr %.1.sink, i64 4
-  %.sink2771 = load i32, ptr %.1.sink, align 4, !tbaa !40
+  %.sink2917 = load i32, ptr %.1.sink, align 4, !tbaa !40
   br label %.backedge
 
 1899:                                             ; preds = %.backedge
@@ -18315,7 +18315,7 @@ repeat_pool_free.exit1831:                        ; preds = %1847, %1848
   %.1215322139 = phi ptr [ %1966, %1964 ], [ %.01520, %.preheader1881 ]
   %.015392138 = phi ptr [ %1965, %1964 ], [ %1939, %.preheader1881 ]
   %.not1680 = icmp ult ptr %.1215322139, %5
-  br i1 %.not1680, label %1947, label %.critedge1878.loopexit3029
+  br i1 %.not1680, label %1947, label %.critedge1878.loopexit3175
 
 1947:                                             ; preds = %.lr.ph2140
   %1948 = load i32, ptr %.1215322139, align 4, !tbaa !40
@@ -18345,7 +18345,7 @@ sre_lower_ascii.exit1832:                         ; preds = %1947, %1950
 sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exit1832, %1958
   %1963 = phi i32 [ %1962, %1958 ], [ %1956, %sre_lower_ascii.exit1832 ]
   %.not1681 = icmp eq i32 %1955, %1963
-  br i1 %.not1681, label %1964, label %.critedge1878.loopexit3029
+  br i1 %.not1681, label %1964, label %.critedge1878.loopexit3175
 
 1964:                                             ; preds = %sre_lower_ascii.exit1833
   %1965 = getelementptr i8, ptr %.015392138, i64 4
@@ -18400,7 +18400,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
   %.1315332144 = phi ptr [ %2000, %1998 ], [ %.01520, %.preheader1880 ]
   %.015402143 = phi ptr [ %1999, %1998 ], [ %1985, %.preheader1880 ]
   %.not1715 = icmp ult ptr %.1315332144, %5
-  br i1 %.not1715, label %1993, label %.critedge1878.loopexit3028
+  br i1 %.not1715, label %1993, label %.critedge1878.loopexit3174
 
 1993:                                             ; preds = %.lr.ph2145
   %1994 = load i32, ptr %.1315332144, align 4, !tbaa !40
@@ -18408,7 +18408,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
   %1996 = load i32, ptr %.015402143, align 4, !tbaa !40
   %1997 = tail call i32 @_PyUnicode_ToLowercase(i32 noundef %1996) #14
   %.not1716 = icmp eq i32 %1995, %1997
-  br i1 %.not1716, label %1998, label %.critedge1878.loopexit3028
+  br i1 %.not1716, label %1998, label %.critedge1878.loopexit3174
 
 1998:                                             ; preds = %1993
   %1999 = getelementptr i8, ptr %.015402143, i64 4
@@ -18463,7 +18463,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
   %.1415342137 = phi ptr [ %2046, %2044 ], [ %.01520, %.preheader1882 ]
   %.015372136 = phi ptr [ %2045, %2044 ], [ %2019, %.preheader1882 ]
   %.not1668 = icmp ult ptr %.1415342137, %5
-  br i1 %.not1668, label %2027, label %.critedge1878.loopexit3030
+  br i1 %.not1668, label %2027, label %.critedge1878.loopexit3176
 
 2027:                                             ; preds = %.lr.ph
   %2028 = load i32, ptr %.1415342137, align 4, !tbaa !40
@@ -18495,7 +18495,7 @@ sre_lower_locale.exit:                            ; preds = %2027, %2030
 sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.exit, %2038
   %2043 = phi i32 [ %.0.i.i1834, %2038 ], [ %2036, %sre_lower_locale.exit ]
   %.not1669 = icmp eq i32 %2035, %2043
-  br i1 %.not1669, label %2044, label %.critedge1878.loopexit3030
+  br i1 %.not1669, label %2044, label %.critedge1878.loopexit3176
 
 2044:                                             ; preds = %sre_lower_locale.exit1835
   %2045 = getelementptr i8, ptr %.015372136, i64 4
@@ -18726,12 +18726,12 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %.not1765 = icmp eq i64 %.11480.ph, -1
   %.pre2453 = load ptr, ptr %30, align 8, !tbaa !88
   %2184 = getelementptr i8, ptr %.pre2453, i64 %.11480.ph
-  %spec.select2772 = select i1 %.not1765, ptr %.21507, ptr %2184
+  %spec.select2918 = select i1 %.not1765, ptr %.21507, ptr %2184
   br label %2185
 
 2185:                                             ; preds = %2183, %._crit_edge2451
   %2186 = phi ptr [ %.pre2452, %._crit_edge2451 ], [ %.pre2453, %2183 ]
-  %.40 = phi ptr [ %.21507, %._crit_edge2451 ], [ %spec.select2772, %2183 ]
+  %.40 = phi ptr [ %.21507, %._crit_edge2451 ], [ %spec.select2918, %2183 ]
   %2187 = load i64, ptr %8, align 8, !tbaa !122
   %2188 = getelementptr i8, ptr %2186, i64 %2187
   %2189 = load ptr, ptr %39, align 8, !tbaa !94
@@ -18854,21 +18854,21 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
 .critedge1878.loopexit:                           ; preds = %.lr.ph2154, %1915
   br label %.critedge1878
 
-.critedge1878.loopexit3028:                       ; preds = %.lr.ph2145, %1993
+.critedge1878.loopexit3174:                       ; preds = %.lr.ph2145, %1993
   br label %.critedge1878
 
-.critedge1878.loopexit3029:                       ; preds = %.lr.ph2140, %sre_lower_ascii.exit1833
+.critedge1878.loopexit3175:                       ; preds = %.lr.ph2140, %sre_lower_ascii.exit1833
   br label %.critedge1878
 
-.critedge1878.loopexit3030:                       ; preds = %.lr.ph, %sre_lower_locale.exit1835
+.critedge1878.loopexit3176:                       ; preds = %.lr.ph, %sre_lower_locale.exit1835
   br label %.critedge1878
 
-.critedge1878:                                    ; preds = %.critedge1878.loopexit3030, %.critedge1878.loopexit3029, %.critedge1878.loopexit3028, %.critedge1878.loopexit, %2214, %2215, %2219, %1624, %1611, %1586, %1587, %1591, %1412, %1408, %1159, %1161, %1165, %1120, %1121, %1125, %1001, %1003, %._crit_edge2162, %930, %.sink.split, %970, %971, %975, %898, %899, %903, %769, %765, %763, %731, %732, %736, %sre_ucs4_charset_loc_ignore.exit, %617, %sre_upper_locale.exit.i, %599, %598, %sre_lower_ascii.exit1813, %573, %char_loc_ignore.exit1812, %548, %sre_lower_locale.exit.i1809, %549, %532, %531, %sre_lower_ascii.exit1808, %508, %char_loc_ignore.exit, %483, %488, %468, %467, %sre_lower_ascii.exit, %445, %428, %427, %403, %402, %387, %386, %139, %135, %115, %114, %100, %99, %161, %165, %151, %Py_UNICODE_ISALNUM.exit115.thread.i, %Py_UNICODE_ISALNUM.exit107.thread.i, %307, %273, %238, %204, %169, %145, %143, %.backedge, %2357, %2108, %2015, %2011, %1981, %1977, %1935, %1931, %1903, %1899, %2291, %2309, %2278, %2308, %repeat_pool_free.exit1838, %1184, %1171, %1027, %1012, %790, %775, %416, %sre_ucs4_at.exit, %54, %1883, %repeat_pool_free.exit, %1686, %1525, %1477, %1308, %1260, %1208, %1053, %814, %142
-  %.11506 = phi ptr [ %2264, %1477 ], [ %2264, %1686 ], [ %2264, %1308 ], [ %2264, %1525 ], [ %.21507, %142 ], [ %792, %814 ], [ %.141519, %1053 ], [ %1186, %1208 ], [ %2264, %repeat_pool_free.exit ], [ %2264, %1260 ], [ %2264, %1883 ], [ %.01505, %54 ], [ %.21507, %sre_ucs4_at.exit ], [ %.21507, %416 ], [ %.21507, %775 ], [ %792, %790 ], [ %.21507, %1012 ], [ %1029, %1027 ], [ %.21507, %1171 ], [ %1186, %1184 ], [ %2264, %repeat_pool_free.exit1838 ], [ %2264, %2308 ], [ %2264, %2278 ], [ %2264, %2309 ], [ %2264, %2291 ], [ %.21507, %1899 ], [ %.21507, %1903 ], [ %.21507, %1931 ], [ %.21507, %1935 ], [ %.21507, %1977 ], [ %.21507, %1981 ], [ %.21507, %2011 ], [ %.21507, %2015 ], [ %.21507, %2108 ], [ %2264, %2357 ], [ %.21507, %.backedge ], [ %.21507, %143 ], [ %.21507, %145 ], [ %.21507, %169 ], [ %.21507, %204 ], [ %.21507, %238 ], [ %.21507, %273 ], [ %.21507, %307 ], [ %.21507, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ %.21507, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ %.21507, %151 ], [ %.21507, %165 ], [ %.21507, %161 ], [ %.21507, %99 ], [ %.21507, %100 ], [ %.21507, %114 ], [ %.21507, %115 ], [ %.21507, %135 ], [ %.21507, %139 ], [ %.21507, %386 ], [ %.21507, %387 ], [ %.21507, %402 ], [ %.21507, %403 ], [ %.21507, %427 ], [ %.21507, %428 ], [ %.21507, %445 ], [ %.21507, %sre_lower_ascii.exit ], [ %.21507, %467 ], [ %.21507, %468 ], [ %.21507, %488 ], [ %.21507, %483 ], [ %.21507, %char_loc_ignore.exit ], [ %.21507, %508 ], [ %.21507, %sre_lower_ascii.exit1808 ], [ %.21507, %531 ], [ %.21507, %532 ], [ %.21507, %549 ], [ %.21507, %sre_lower_locale.exit.i1809 ], [ %.21507, %548 ], [ %.21507, %char_loc_ignore.exit1812 ], [ %.21507, %573 ], [ %.21507, %sre_lower_ascii.exit1813 ], [ %.21507, %598 ], [ %.21507, %599 ], [ %.21507, %sre_upper_locale.exit.i ], [ %.21507, %617 ], [ %.21507, %sre_ucs4_charset_loc_ignore.exit ], [ %2264, %736 ], [ %2264, %732 ], [ %2264, %731 ], [ %.41509, %763 ], [ %.41509, %765 ], [ %.41509, %769 ], [ %2264, %903 ], [ %2264, %899 ], [ %2264, %898 ], [ %2264, %975 ], [ %2264, %971 ], [ %2264, %970 ], [ %.91514, %930 ], [ %.91514, %._crit_edge2162 ], [ %.111516, %1003 ], [ %.111516, %1001 ], [ %.131518.ph, %.sink.split ], [ %2264, %1125 ], [ %2264, %1121 ], [ %2264, %1120 ], [ %.17, %1165 ], [ %.17, %1161 ], [ %.17, %1159 ], [ %2264, %1408 ], [ %2264, %1412 ], [ %2264, %1591 ], [ %2264, %1587 ], [ %2264, %1586 ], [ %2264, %1611 ], [ %2264, %1624 ], [ %2264, %2219 ], [ %2264, %2215 ], [ %2264, %2214 ], [ %.21507, %.critedge1878.loopexit ], [ %.21507, %.critedge1878.loopexit3028 ], [ %.21507, %.critedge1878.loopexit3029 ], [ %.21507, %.critedge1878.loopexit3030 ]
-  %.11493 = phi i32 [ %.11493, %1477 ], [ %.11493, %1686 ], [ %.11493, %1308 ], [ %.11493, %1525 ], [ %.21494, %142 ], [ %.21494, %814 ], [ %.21494, %1053 ], [ %.21494, %1208 ], [ %.11493, %repeat_pool_free.exit ], [ %.11493, %1260 ], [ %.11493, %1883 ], [ %.01492, %54 ], [ %.21494, %sre_ucs4_at.exit ], [ %.21494, %416 ], [ %.21494, %775 ], [ %.21494, %790 ], [ %.21494, %1012 ], [ %.21494, %1027 ], [ %.21494, %1171 ], [ %.21494, %1184 ], [ %.11493, %repeat_pool_free.exit1838 ], [ %.11493, %2308 ], [ %.11493, %2278 ], [ %.11493, %2309 ], [ %.11493, %2291 ], [ %.21494, %1899 ], [ %.21494, %1903 ], [ %.21494, %1931 ], [ %.21494, %1935 ], [ %.21494, %1977 ], [ %.21494, %1981 ], [ %.21494, %2011 ], [ %.21494, %2015 ], [ %.21494, %2108 ], [ %.11493, %2357 ], [ %.21494, %.backedge ], [ %.21494, %143 ], [ %.21494, %145 ], [ %.21494, %169 ], [ %.21494, %204 ], [ %.21494, %238 ], [ %.21494, %273 ], [ %.21494, %307 ], [ %.21494, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ %.21494, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ %.21494, %151 ], [ %.21494, %165 ], [ %.21494, %161 ], [ %.21494, %99 ], [ %.21494, %100 ], [ %.21494, %114 ], [ %.21494, %115 ], [ %.21494, %135 ], [ %.21494, %139 ], [ %.21494, %386 ], [ %.21494, %387 ], [ %.21494, %402 ], [ %.21494, %403 ], [ %.21494, %427 ], [ %.21494, %428 ], [ %.21494, %445 ], [ %.21494, %sre_lower_ascii.exit ], [ %.21494, %467 ], [ %.21494, %468 ], [ %.21494, %488 ], [ %.21494, %483 ], [ %.21494, %char_loc_ignore.exit ], [ %.21494, %508 ], [ %.21494, %sre_lower_ascii.exit1808 ], [ %.21494, %531 ], [ %.21494, %532 ], [ %.21494, %549 ], [ %.21494, %sre_lower_locale.exit.i1809 ], [ %.21494, %548 ], [ %.21494, %char_loc_ignore.exit1812 ], [ %.21494, %573 ], [ %.21494, %sre_lower_ascii.exit1813 ], [ %.21494, %598 ], [ %.21494, %599 ], [ %.21494, %sre_upper_locale.exit.i ], [ %.21494, %617 ], [ %.21494, %sre_ucs4_charset_loc_ignore.exit ], [ %.11493, %736 ], [ %.11493, %732 ], [ %.11493, %731 ], [ %.31495, %763 ], [ %.31495, %765 ], [ %.31495, %769 ], [ %.11493, %903 ], [ %.11493, %899 ], [ %.11493, %898 ], [ %.11493, %975 ], [ %.11493, %971 ], [ %.11493, %970 ], [ %.51497, %930 ], [ %.51497, %._crit_edge2162 ], [ %.61498, %1003 ], [ %.61498, %1001 ], [ %.71499.ph, %.sink.split ], [ %.11493, %1125 ], [ %.11493, %1121 ], [ %.11493, %1120 ], [ %.91501, %1165 ], [ %.91501, %1161 ], [ %.91501, %1159 ], [ %.11493, %1408 ], [ %.11493, %1412 ], [ %.11493, %1591 ], [ %.11493, %1587 ], [ %.11493, %1586 ], [ %.11493, %1611 ], [ %.11493, %1624 ], [ %.11493, %2219 ], [ %.11493, %2215 ], [ %.11493, %2214 ], [ %.21494, %.critedge1878.loopexit ], [ %.21494, %.critedge1878.loopexit3028 ], [ %.21494, %.critedge1878.loopexit3029 ], [ %.21494, %.critedge1878.loopexit3030 ]
-  %.not1641 = phi i1 [ true, %1477 ], [ true, %1686 ], [ true, %1308 ], [ true, %1525 ], [ false, %142 ], [ false, %814 ], [ false, %1053 ], [ false, %1208 ], [ true, %repeat_pool_free.exit ], [ true, %1260 ], [ true, %1883 ], [ true, %54 ], [ true, %sre_ucs4_at.exit ], [ true, %416 ], [ true, %775 ], [ true, %790 ], [ true, %1012 ], [ true, %1027 ], [ true, %1171 ], [ true, %1184 ], [ false, %repeat_pool_free.exit1838 ], [ false, %2308 ], [ false, %2278 ], [ false, %2309 ], [ false, %2291 ], [ true, %1899 ], [ true, %1903 ], [ true, %1931 ], [ true, %1935 ], [ true, %1977 ], [ true, %1981 ], [ true, %2011 ], [ true, %2015 ], [ true, %2108 ], [ true, %2357 ], [ true, %.backedge ], [ true, %143 ], [ true, %145 ], [ true, %169 ], [ true, %204 ], [ true, %238 ], [ true, %273 ], [ true, %307 ], [ true, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ true, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ true, %151 ], [ true, %165 ], [ true, %161 ], [ true, %99 ], [ true, %100 ], [ true, %114 ], [ true, %115 ], [ true, %135 ], [ true, %139 ], [ true, %386 ], [ true, %387 ], [ true, %402 ], [ true, %403 ], [ true, %427 ], [ true, %428 ], [ true, %445 ], [ true, %sre_lower_ascii.exit ], [ true, %467 ], [ true, %468 ], [ true, %488 ], [ true, %483 ], [ true, %char_loc_ignore.exit ], [ true, %508 ], [ true, %sre_lower_ascii.exit1808 ], [ true, %531 ], [ true, %532 ], [ true, %549 ], [ true, %sre_lower_locale.exit.i1809 ], [ true, %548 ], [ true, %char_loc_ignore.exit1812 ], [ true, %573 ], [ true, %sre_lower_ascii.exit1813 ], [ true, %598 ], [ true, %599 ], [ true, %sre_upper_locale.exit.i ], [ true, %617 ], [ true, %sre_ucs4_charset_loc_ignore.exit ], [ false, %736 ], [ false, %732 ], [ false, %731 ], [ true, %763 ], [ true, %765 ], [ true, %769 ], [ false, %903 ], [ false, %899 ], [ false, %898 ], [ false, %975 ], [ false, %971 ], [ false, %970 ], [ true, %930 ], [ true, %._crit_edge2162 ], [ true, %1003 ], [ true, %1001 ], [ true, %.sink.split ], [ false, %1125 ], [ false, %1121 ], [ false, %1120 ], [ true, %1165 ], [ true, %1161 ], [ true, %1159 ], [ false, %1408 ], [ false, %1412 ], [ false, %1591 ], [ false, %1587 ], [ false, %1586 ], [ true, %1611 ], [ true, %1624 ], [ true, %2219 ], [ true, %2215 ], [ true, %2214 ], [ true, %.critedge1878.loopexit ], [ true, %.critedge1878.loopexit3028 ], [ true, %.critedge1878.loopexit3029 ], [ true, %.critedge1878.loopexit3030 ]
-  %2253 = phi i1 [ false, %1477 ], [ false, %1686 ], [ false, %1308 ], [ false, %1525 ], [ true, %142 ], [ true, %814 ], [ true, %1053 ], [ true, %1208 ], [ false, %repeat_pool_free.exit ], [ false, %1260 ], [ false, %1883 ], [ false, %54 ], [ false, %sre_ucs4_at.exit ], [ false, %416 ], [ false, %775 ], [ false, %790 ], [ false, %1012 ], [ false, %1027 ], [ false, %1171 ], [ false, %1184 ], [ true, %repeat_pool_free.exit1838 ], [ true, %2308 ], [ true, %2278 ], [ true, %2309 ], [ true, %2291 ], [ false, %1899 ], [ false, %1903 ], [ false, %1931 ], [ false, %1935 ], [ false, %1977 ], [ false, %1981 ], [ false, %2011 ], [ false, %2015 ], [ false, %2108 ], [ false, %2357 ], [ false, %.backedge ], [ false, %143 ], [ false, %145 ], [ false, %169 ], [ false, %204 ], [ false, %238 ], [ false, %273 ], [ false, %307 ], [ false, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ false, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ false, %151 ], [ false, %165 ], [ false, %161 ], [ false, %99 ], [ false, %100 ], [ false, %114 ], [ false, %115 ], [ false, %135 ], [ false, %139 ], [ false, %386 ], [ false, %387 ], [ false, %402 ], [ false, %403 ], [ false, %427 ], [ false, %428 ], [ false, %445 ], [ false, %sre_lower_ascii.exit ], [ false, %467 ], [ false, %468 ], [ false, %488 ], [ false, %483 ], [ false, %char_loc_ignore.exit ], [ false, %508 ], [ false, %sre_lower_ascii.exit1808 ], [ false, %531 ], [ false, %532 ], [ false, %549 ], [ false, %sre_lower_locale.exit.i1809 ], [ false, %548 ], [ false, %char_loc_ignore.exit1812 ], [ false, %573 ], [ false, %sre_lower_ascii.exit1813 ], [ false, %598 ], [ false, %599 ], [ false, %sre_upper_locale.exit.i ], [ false, %617 ], [ false, %sre_ucs4_charset_loc_ignore.exit ], [ true, %736 ], [ true, %732 ], [ true, %731 ], [ false, %763 ], [ false, %765 ], [ false, %769 ], [ true, %903 ], [ true, %899 ], [ true, %898 ], [ true, %975 ], [ true, %971 ], [ true, %970 ], [ false, %930 ], [ false, %._crit_edge2162 ], [ false, %1003 ], [ false, %1001 ], [ false, %.sink.split ], [ true, %1125 ], [ true, %1121 ], [ true, %1120 ], [ false, %1165 ], [ false, %1161 ], [ false, %1159 ], [ true, %1408 ], [ true, %1412 ], [ true, %1591 ], [ true, %1587 ], [ true, %1586 ], [ false, %1611 ], [ false, %1624 ], [ false, %2219 ], [ false, %2215 ], [ false, %2214 ], [ false, %.critedge1878.loopexit ], [ false, %.critedge1878.loopexit3028 ], [ false, %.critedge1878.loopexit3029 ], [ false, %.critedge1878.loopexit3030 ]
-  %.01491 = phi i64 [ 0, %1477 ], [ 0, %1686 ], [ 0, %1308 ], [ 0, %1525 ], [ 1, %142 ], [ 1, %814 ], [ 1, %1053 ], [ 1, %1208 ], [ 0, %repeat_pool_free.exit ], [ 0, %1260 ], [ 0, %1883 ], [ 0, %54 ], [ 0, %sre_ucs4_at.exit ], [ 0, %416 ], [ 0, %775 ], [ 0, %790 ], [ 0, %1012 ], [ 0, %1027 ], [ 0, %1171 ], [ 0, %1184 ], [ 1, %repeat_pool_free.exit1838 ], [ 1, %2308 ], [ 1, %2278 ], [ 1, %2309 ], [ 1, %2291 ], [ 0, %1899 ], [ 0, %1903 ], [ 0, %1931 ], [ 0, %1935 ], [ 0, %1977 ], [ 0, %1981 ], [ 0, %2011 ], [ 0, %2015 ], [ 0, %2108 ], [ 0, %2357 ], [ 0, %.backedge ], [ 0, %143 ], [ 0, %145 ], [ 0, %169 ], [ 0, %204 ], [ 0, %238 ], [ 0, %273 ], [ 0, %307 ], [ 0, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ 0, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ 0, %151 ], [ 0, %165 ], [ 0, %161 ], [ 0, %99 ], [ 0, %100 ], [ 0, %114 ], [ 0, %115 ], [ 0, %135 ], [ 0, %139 ], [ 0, %386 ], [ 0, %387 ], [ 0, %402 ], [ 0, %403 ], [ 0, %427 ], [ 0, %428 ], [ 0, %445 ], [ 0, %sre_lower_ascii.exit ], [ 0, %467 ], [ 0, %468 ], [ 0, %488 ], [ 0, %483 ], [ 0, %char_loc_ignore.exit ], [ 0, %508 ], [ 0, %sre_lower_ascii.exit1808 ], [ 0, %531 ], [ 0, %532 ], [ 0, %549 ], [ 0, %sre_lower_locale.exit.i1809 ], [ 0, %548 ], [ 0, %char_loc_ignore.exit1812 ], [ 0, %573 ], [ 0, %sre_lower_ascii.exit1813 ], [ 0, %598 ], [ 0, %599 ], [ 0, %sre_upper_locale.exit.i ], [ 0, %617 ], [ 0, %sre_ucs4_charset_loc_ignore.exit ], [ 1, %736 ], [ 1, %732 ], [ 1, %731 ], [ 0, %763 ], [ 0, %765 ], [ 0, %769 ], [ 1, %903 ], [ 1, %899 ], [ 1, %898 ], [ 1, %975 ], [ 1, %971 ], [ 1, %970 ], [ 0, %930 ], [ 0, %._crit_edge2162 ], [ 0, %1003 ], [ 0, %1001 ], [ 0, %.sink.split ], [ 1, %1125 ], [ 1, %1121 ], [ 1, %1120 ], [ 0, %1165 ], [ 0, %1161 ], [ 0, %1159 ], [ 1, %1408 ], [ 1, %1412 ], [ 1, %1591 ], [ 1, %1587 ], [ 1, %1586 ], [ 0, %1611 ], [ 0, %1624 ], [ 0, %2219 ], [ 0, %2215 ], [ 0, %2214 ], [ 0, %.critedge1878.loopexit ], [ 0, %.critedge1878.loopexit3028 ], [ 0, %.critedge1878.loopexit3029 ], [ 0, %.critedge1878.loopexit3030 ]
+.critedge1878:                                    ; preds = %.critedge1878.loopexit3176, %.critedge1878.loopexit3175, %.critedge1878.loopexit3174, %.critedge1878.loopexit, %2214, %2215, %2219, %1624, %1611, %1586, %1587, %1591, %1412, %1408, %1159, %1161, %1165, %1120, %1121, %1125, %1001, %1003, %._crit_edge2162, %930, %.sink.split, %970, %971, %975, %898, %899, %903, %769, %765, %763, %731, %732, %736, %sre_ucs4_charset_loc_ignore.exit, %617, %sre_upper_locale.exit.i, %599, %598, %sre_lower_ascii.exit1813, %573, %char_loc_ignore.exit1812, %548, %sre_lower_locale.exit.i1809, %549, %532, %531, %sre_lower_ascii.exit1808, %508, %char_loc_ignore.exit, %483, %488, %468, %467, %sre_lower_ascii.exit, %445, %428, %427, %403, %402, %387, %386, %139, %135, %115, %114, %100, %99, %161, %165, %151, %Py_UNICODE_ISALNUM.exit115.thread.i, %Py_UNICODE_ISALNUM.exit107.thread.i, %307, %273, %238, %204, %169, %145, %143, %.backedge, %2357, %2108, %2015, %2011, %1981, %1977, %1935, %1931, %1903, %1899, %2291, %2309, %2278, %2308, %repeat_pool_free.exit1838, %1184, %1171, %1027, %1012, %790, %775, %416, %sre_ucs4_at.exit, %54, %1883, %repeat_pool_free.exit, %1686, %1525, %1477, %1308, %1260, %1208, %1053, %814, %142
+  %.11506 = phi ptr [ %2264, %1477 ], [ %2264, %1686 ], [ %2264, %1308 ], [ %2264, %1525 ], [ %.21507, %142 ], [ %792, %814 ], [ %.141519, %1053 ], [ %1186, %1208 ], [ %2264, %repeat_pool_free.exit ], [ %2264, %1260 ], [ %2264, %1883 ], [ %.01505, %54 ], [ %.21507, %sre_ucs4_at.exit ], [ %.21507, %416 ], [ %.21507, %775 ], [ %792, %790 ], [ %.21507, %1012 ], [ %1029, %1027 ], [ %.21507, %1171 ], [ %1186, %1184 ], [ %2264, %repeat_pool_free.exit1838 ], [ %2264, %2308 ], [ %2264, %2278 ], [ %2264, %2309 ], [ %2264, %2291 ], [ %.21507, %1899 ], [ %.21507, %1903 ], [ %.21507, %1931 ], [ %.21507, %1935 ], [ %.21507, %1977 ], [ %.21507, %1981 ], [ %.21507, %2011 ], [ %.21507, %2015 ], [ %.21507, %2108 ], [ %2264, %2357 ], [ %.21507, %.backedge ], [ %.21507, %143 ], [ %.21507, %145 ], [ %.21507, %169 ], [ %.21507, %204 ], [ %.21507, %238 ], [ %.21507, %273 ], [ %.21507, %307 ], [ %.21507, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ %.21507, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ %.21507, %151 ], [ %.21507, %165 ], [ %.21507, %161 ], [ %.21507, %99 ], [ %.21507, %100 ], [ %.21507, %114 ], [ %.21507, %115 ], [ %.21507, %135 ], [ %.21507, %139 ], [ %.21507, %386 ], [ %.21507, %387 ], [ %.21507, %402 ], [ %.21507, %403 ], [ %.21507, %427 ], [ %.21507, %428 ], [ %.21507, %445 ], [ %.21507, %sre_lower_ascii.exit ], [ %.21507, %467 ], [ %.21507, %468 ], [ %.21507, %488 ], [ %.21507, %483 ], [ %.21507, %char_loc_ignore.exit ], [ %.21507, %508 ], [ %.21507, %sre_lower_ascii.exit1808 ], [ %.21507, %531 ], [ %.21507, %532 ], [ %.21507, %549 ], [ %.21507, %sre_lower_locale.exit.i1809 ], [ %.21507, %548 ], [ %.21507, %char_loc_ignore.exit1812 ], [ %.21507, %573 ], [ %.21507, %sre_lower_ascii.exit1813 ], [ %.21507, %598 ], [ %.21507, %599 ], [ %.21507, %sre_upper_locale.exit.i ], [ %.21507, %617 ], [ %.21507, %sre_ucs4_charset_loc_ignore.exit ], [ %2264, %736 ], [ %2264, %732 ], [ %2264, %731 ], [ %.41509, %763 ], [ %.41509, %765 ], [ %.41509, %769 ], [ %2264, %903 ], [ %2264, %899 ], [ %2264, %898 ], [ %2264, %975 ], [ %2264, %971 ], [ %2264, %970 ], [ %.91514, %930 ], [ %.91514, %._crit_edge2162 ], [ %.111516, %1003 ], [ %.111516, %1001 ], [ %.131518.ph, %.sink.split ], [ %2264, %1125 ], [ %2264, %1121 ], [ %2264, %1120 ], [ %.17, %1165 ], [ %.17, %1161 ], [ %.17, %1159 ], [ %2264, %1408 ], [ %2264, %1412 ], [ %2264, %1591 ], [ %2264, %1587 ], [ %2264, %1586 ], [ %2264, %1611 ], [ %2264, %1624 ], [ %2264, %2219 ], [ %2264, %2215 ], [ %2264, %2214 ], [ %.21507, %.critedge1878.loopexit ], [ %.21507, %.critedge1878.loopexit3174 ], [ %.21507, %.critedge1878.loopexit3175 ], [ %.21507, %.critedge1878.loopexit3176 ]
+  %.11493 = phi i32 [ %.11493, %1477 ], [ %.11493, %1686 ], [ %.11493, %1308 ], [ %.11493, %1525 ], [ %.21494, %142 ], [ %.21494, %814 ], [ %.21494, %1053 ], [ %.21494, %1208 ], [ %.11493, %repeat_pool_free.exit ], [ %.11493, %1260 ], [ %.11493, %1883 ], [ %.01492, %54 ], [ %.21494, %sre_ucs4_at.exit ], [ %.21494, %416 ], [ %.21494, %775 ], [ %.21494, %790 ], [ %.21494, %1012 ], [ %.21494, %1027 ], [ %.21494, %1171 ], [ %.21494, %1184 ], [ %.11493, %repeat_pool_free.exit1838 ], [ %.11493, %2308 ], [ %.11493, %2278 ], [ %.11493, %2309 ], [ %.11493, %2291 ], [ %.21494, %1899 ], [ %.21494, %1903 ], [ %.21494, %1931 ], [ %.21494, %1935 ], [ %.21494, %1977 ], [ %.21494, %1981 ], [ %.21494, %2011 ], [ %.21494, %2015 ], [ %.21494, %2108 ], [ %.11493, %2357 ], [ %.21494, %.backedge ], [ %.21494, %143 ], [ %.21494, %145 ], [ %.21494, %169 ], [ %.21494, %204 ], [ %.21494, %238 ], [ %.21494, %273 ], [ %.21494, %307 ], [ %.21494, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ %.21494, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ %.21494, %151 ], [ %.21494, %165 ], [ %.21494, %161 ], [ %.21494, %99 ], [ %.21494, %100 ], [ %.21494, %114 ], [ %.21494, %115 ], [ %.21494, %135 ], [ %.21494, %139 ], [ %.21494, %386 ], [ %.21494, %387 ], [ %.21494, %402 ], [ %.21494, %403 ], [ %.21494, %427 ], [ %.21494, %428 ], [ %.21494, %445 ], [ %.21494, %sre_lower_ascii.exit ], [ %.21494, %467 ], [ %.21494, %468 ], [ %.21494, %488 ], [ %.21494, %483 ], [ %.21494, %char_loc_ignore.exit ], [ %.21494, %508 ], [ %.21494, %sre_lower_ascii.exit1808 ], [ %.21494, %531 ], [ %.21494, %532 ], [ %.21494, %549 ], [ %.21494, %sre_lower_locale.exit.i1809 ], [ %.21494, %548 ], [ %.21494, %char_loc_ignore.exit1812 ], [ %.21494, %573 ], [ %.21494, %sre_lower_ascii.exit1813 ], [ %.21494, %598 ], [ %.21494, %599 ], [ %.21494, %sre_upper_locale.exit.i ], [ %.21494, %617 ], [ %.21494, %sre_ucs4_charset_loc_ignore.exit ], [ %.11493, %736 ], [ %.11493, %732 ], [ %.11493, %731 ], [ %.31495, %763 ], [ %.31495, %765 ], [ %.31495, %769 ], [ %.11493, %903 ], [ %.11493, %899 ], [ %.11493, %898 ], [ %.11493, %975 ], [ %.11493, %971 ], [ %.11493, %970 ], [ %.51497, %930 ], [ %.51497, %._crit_edge2162 ], [ %.61498, %1003 ], [ %.61498, %1001 ], [ %.71499.ph, %.sink.split ], [ %.11493, %1125 ], [ %.11493, %1121 ], [ %.11493, %1120 ], [ %.91501, %1165 ], [ %.91501, %1161 ], [ %.91501, %1159 ], [ %.11493, %1408 ], [ %.11493, %1412 ], [ %.11493, %1591 ], [ %.11493, %1587 ], [ %.11493, %1586 ], [ %.11493, %1611 ], [ %.11493, %1624 ], [ %.11493, %2219 ], [ %.11493, %2215 ], [ %.11493, %2214 ], [ %.21494, %.critedge1878.loopexit ], [ %.21494, %.critedge1878.loopexit3174 ], [ %.21494, %.critedge1878.loopexit3175 ], [ %.21494, %.critedge1878.loopexit3176 ]
+  %.not1641 = phi i1 [ true, %1477 ], [ true, %1686 ], [ true, %1308 ], [ true, %1525 ], [ false, %142 ], [ false, %814 ], [ false, %1053 ], [ false, %1208 ], [ true, %repeat_pool_free.exit ], [ true, %1260 ], [ true, %1883 ], [ true, %54 ], [ true, %sre_ucs4_at.exit ], [ true, %416 ], [ true, %775 ], [ true, %790 ], [ true, %1012 ], [ true, %1027 ], [ true, %1171 ], [ true, %1184 ], [ false, %repeat_pool_free.exit1838 ], [ false, %2308 ], [ false, %2278 ], [ false, %2309 ], [ false, %2291 ], [ true, %1899 ], [ true, %1903 ], [ true, %1931 ], [ true, %1935 ], [ true, %1977 ], [ true, %1981 ], [ true, %2011 ], [ true, %2015 ], [ true, %2108 ], [ true, %2357 ], [ true, %.backedge ], [ true, %143 ], [ true, %145 ], [ true, %169 ], [ true, %204 ], [ true, %238 ], [ true, %273 ], [ true, %307 ], [ true, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ true, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ true, %151 ], [ true, %165 ], [ true, %161 ], [ true, %99 ], [ true, %100 ], [ true, %114 ], [ true, %115 ], [ true, %135 ], [ true, %139 ], [ true, %386 ], [ true, %387 ], [ true, %402 ], [ true, %403 ], [ true, %427 ], [ true, %428 ], [ true, %445 ], [ true, %sre_lower_ascii.exit ], [ true, %467 ], [ true, %468 ], [ true, %488 ], [ true, %483 ], [ true, %char_loc_ignore.exit ], [ true, %508 ], [ true, %sre_lower_ascii.exit1808 ], [ true, %531 ], [ true, %532 ], [ true, %549 ], [ true, %sre_lower_locale.exit.i1809 ], [ true, %548 ], [ true, %char_loc_ignore.exit1812 ], [ true, %573 ], [ true, %sre_lower_ascii.exit1813 ], [ true, %598 ], [ true, %599 ], [ true, %sre_upper_locale.exit.i ], [ true, %617 ], [ true, %sre_ucs4_charset_loc_ignore.exit ], [ false, %736 ], [ false, %732 ], [ false, %731 ], [ true, %763 ], [ true, %765 ], [ true, %769 ], [ false, %903 ], [ false, %899 ], [ false, %898 ], [ false, %975 ], [ false, %971 ], [ false, %970 ], [ true, %930 ], [ true, %._crit_edge2162 ], [ true, %1003 ], [ true, %1001 ], [ true, %.sink.split ], [ false, %1125 ], [ false, %1121 ], [ false, %1120 ], [ true, %1165 ], [ true, %1161 ], [ true, %1159 ], [ false, %1408 ], [ false, %1412 ], [ false, %1591 ], [ false, %1587 ], [ false, %1586 ], [ true, %1611 ], [ true, %1624 ], [ true, %2219 ], [ true, %2215 ], [ true, %2214 ], [ true, %.critedge1878.loopexit ], [ true, %.critedge1878.loopexit3174 ], [ true, %.critedge1878.loopexit3175 ], [ true, %.critedge1878.loopexit3176 ]
+  %2253 = phi i1 [ false, %1477 ], [ false, %1686 ], [ false, %1308 ], [ false, %1525 ], [ true, %142 ], [ true, %814 ], [ true, %1053 ], [ true, %1208 ], [ false, %repeat_pool_free.exit ], [ false, %1260 ], [ false, %1883 ], [ false, %54 ], [ false, %sre_ucs4_at.exit ], [ false, %416 ], [ false, %775 ], [ false, %790 ], [ false, %1012 ], [ false, %1027 ], [ false, %1171 ], [ false, %1184 ], [ true, %repeat_pool_free.exit1838 ], [ true, %2308 ], [ true, %2278 ], [ true, %2309 ], [ true, %2291 ], [ false, %1899 ], [ false, %1903 ], [ false, %1931 ], [ false, %1935 ], [ false, %1977 ], [ false, %1981 ], [ false, %2011 ], [ false, %2015 ], [ false, %2108 ], [ false, %2357 ], [ false, %.backedge ], [ false, %143 ], [ false, %145 ], [ false, %169 ], [ false, %204 ], [ false, %238 ], [ false, %273 ], [ false, %307 ], [ false, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ false, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ false, %151 ], [ false, %165 ], [ false, %161 ], [ false, %99 ], [ false, %100 ], [ false, %114 ], [ false, %115 ], [ false, %135 ], [ false, %139 ], [ false, %386 ], [ false, %387 ], [ false, %402 ], [ false, %403 ], [ false, %427 ], [ false, %428 ], [ false, %445 ], [ false, %sre_lower_ascii.exit ], [ false, %467 ], [ false, %468 ], [ false, %488 ], [ false, %483 ], [ false, %char_loc_ignore.exit ], [ false, %508 ], [ false, %sre_lower_ascii.exit1808 ], [ false, %531 ], [ false, %532 ], [ false, %549 ], [ false, %sre_lower_locale.exit.i1809 ], [ false, %548 ], [ false, %char_loc_ignore.exit1812 ], [ false, %573 ], [ false, %sre_lower_ascii.exit1813 ], [ false, %598 ], [ false, %599 ], [ false, %sre_upper_locale.exit.i ], [ false, %617 ], [ false, %sre_ucs4_charset_loc_ignore.exit ], [ true, %736 ], [ true, %732 ], [ true, %731 ], [ false, %763 ], [ false, %765 ], [ false, %769 ], [ true, %903 ], [ true, %899 ], [ true, %898 ], [ true, %975 ], [ true, %971 ], [ true, %970 ], [ false, %930 ], [ false, %._crit_edge2162 ], [ false, %1003 ], [ false, %1001 ], [ false, %.sink.split ], [ true, %1125 ], [ true, %1121 ], [ true, %1120 ], [ false, %1165 ], [ false, %1161 ], [ false, %1159 ], [ true, %1408 ], [ true, %1412 ], [ true, %1591 ], [ true, %1587 ], [ true, %1586 ], [ false, %1611 ], [ false, %1624 ], [ false, %2219 ], [ false, %2215 ], [ false, %2214 ], [ false, %.critedge1878.loopexit ], [ false, %.critedge1878.loopexit3174 ], [ false, %.critedge1878.loopexit3175 ], [ false, %.critedge1878.loopexit3176 ]
+  %.01491 = phi i64 [ 0, %1477 ], [ 0, %1686 ], [ 0, %1308 ], [ 0, %1525 ], [ 1, %142 ], [ 1, %814 ], [ 1, %1053 ], [ 1, %1208 ], [ 0, %repeat_pool_free.exit ], [ 0, %1260 ], [ 0, %1883 ], [ 0, %54 ], [ 0, %sre_ucs4_at.exit ], [ 0, %416 ], [ 0, %775 ], [ 0, %790 ], [ 0, %1012 ], [ 0, %1027 ], [ 0, %1171 ], [ 0, %1184 ], [ 1, %repeat_pool_free.exit1838 ], [ 1, %2308 ], [ 1, %2278 ], [ 1, %2309 ], [ 1, %2291 ], [ 0, %1899 ], [ 0, %1903 ], [ 0, %1931 ], [ 0, %1935 ], [ 0, %1977 ], [ 0, %1981 ], [ 0, %2011 ], [ 0, %2015 ], [ 0, %2108 ], [ 0, %2357 ], [ 0, %.backedge ], [ 0, %143 ], [ 0, %145 ], [ 0, %169 ], [ 0, %204 ], [ 0, %238 ], [ 0, %273 ], [ 0, %307 ], [ 0, %Py_UNICODE_ISALNUM.exit107.thread.i ], [ 0, %Py_UNICODE_ISALNUM.exit115.thread.i ], [ 0, %151 ], [ 0, %165 ], [ 0, %161 ], [ 0, %99 ], [ 0, %100 ], [ 0, %114 ], [ 0, %115 ], [ 0, %135 ], [ 0, %139 ], [ 0, %386 ], [ 0, %387 ], [ 0, %402 ], [ 0, %403 ], [ 0, %427 ], [ 0, %428 ], [ 0, %445 ], [ 0, %sre_lower_ascii.exit ], [ 0, %467 ], [ 0, %468 ], [ 0, %488 ], [ 0, %483 ], [ 0, %char_loc_ignore.exit ], [ 0, %508 ], [ 0, %sre_lower_ascii.exit1808 ], [ 0, %531 ], [ 0, %532 ], [ 0, %549 ], [ 0, %sre_lower_locale.exit.i1809 ], [ 0, %548 ], [ 0, %char_loc_ignore.exit1812 ], [ 0, %573 ], [ 0, %sre_lower_ascii.exit1813 ], [ 0, %598 ], [ 0, %599 ], [ 0, %sre_upper_locale.exit.i ], [ 0, %617 ], [ 0, %sre_ucs4_charset_loc_ignore.exit ], [ 1, %736 ], [ 1, %732 ], [ 1, %731 ], [ 0, %763 ], [ 0, %765 ], [ 0, %769 ], [ 1, %903 ], [ 1, %899 ], [ 1, %898 ], [ 1, %975 ], [ 1, %971 ], [ 1, %970 ], [ 0, %930 ], [ 0, %._crit_edge2162 ], [ 0, %1003 ], [ 0, %1001 ], [ 0, %.sink.split ], [ 1, %1125 ], [ 1, %1121 ], [ 1, %1120 ], [ 0, %1165 ], [ 0, %1161 ], [ 0, %1159 ], [ 1, %1408 ], [ 1, %1412 ], [ 1, %1591 ], [ 1, %1587 ], [ 1, %1586 ], [ 0, %1611 ], [ 0, %1624 ], [ 0, %2219 ], [ 0, %2215 ], [ 0, %2214 ], [ 0, %.critedge1878.loopexit ], [ 0, %.critedge1878.loopexit3174 ], [ 0, %.critedge1878.loopexit3175 ], [ 0, %.critedge1878.loopexit3176 ]
   %2254 = getelementptr inbounds nuw i8, ptr %.11506, i64 48
   %2255 = load i64, ptr %2254, align 8, !tbaa !173
   %2256 = getelementptr inbounds nuw i8, ptr %.11506, i64 44
@@ -19074,12 +19074,12 @@ repeat_pool_free.exit1838:                        ; preds = %2334, %2335
   ret i64 %.0
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader1883
-  %.sink2750.sink = phi i32 [ %.sink2771, %.preheader1883 ], [ %.sink2750.sink.be, %.backedge.backedge ]
+  %.sink2896.sink = phi i32 [ %.sink2917, %.preheader1883 ], [ %.sink2896.sink.be, %.backedge.backedge ]
   %.01520 = phi ptr [ %.01520.ph, %.preheader1883 ], [ %.01520.be, %.backedge.backedge ]
   %.21507 = phi ptr [ %.21507.ph, %.preheader1883 ], [ %.21507.be, %.backedge.backedge ]
   %.21494 = phi i32 [ %.21494.ph, %.preheader1883 ], [ %.21494.be, %.backedge.backedge ]
   %.2 = phi ptr [ %1898, %.preheader1883 ], [ %.2.be, %.backedge.backedge ]
-  %2366 = zext i32 %.sink2750.sink to i64
+  %2366 = zext i32 %.sink2896.sink to i64
   %2367 = getelementptr [43 x ptr], ptr @sre_ucs4_match.sre_targets, i64 0, i64 %2366
   %2368 = load ptr, ptr %2367, align 8, !tbaa !95
   indirectbr ptr %2368, [label %.critedge1878, label %130, label %402, label %416, label %2108, label %2153, label %143, label %655, label %386, label %.loopexit, label %531, label %1899, label %2057, label %427, label %643, label %467, label %99, label %72, label %1261, label %1478, label %114, label %598, label %1977, label %1218, label %775, label %548, label %1012, label %1861, label %1690, label %1171, label %1931, label %573, label %445, label %508, label %2011, label %617, label %483]

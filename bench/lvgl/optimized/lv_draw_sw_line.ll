@@ -55,8 +55,8 @@ define void @lv_draw_sw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %33 = load float, ptr %32, align 4, !tbaa !20
   %34 = fcmp oeq float %31, %33
-  %or.cond102 = select i1 %29, i1 %34, i1 false
-  br i1 %or.cond102, label %371, label %._crit_edge
+  %or.cond117 = select i1 %29, i1 %34, i1 false
+  br i1 %or.cond117, label %371, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -404,9 +404,9 @@ draw_line_ver.exit:                               ; preds = %150, %208
 209:                                              ; preds = %144
   %210 = fcmp olt float %59, %61
   %..i83 = select i1 %210, ptr %25, ptr %27
-  %.163.i = select i1 %210, ptr %27, ptr %25
+  %.172.i = select i1 %210, ptr %27, ptr %25
   %211 = call i64 @lv_point_from_precise(ptr noundef nonnull %..i83) #6
-  %212 = call i64 @lv_point_from_precise(ptr noundef nonnull %.163.i) #6
+  %212 = call i64 @lv_point_from_precise(ptr noundef nonnull %.172.i) #6
   %.sroa.17115.0.in.i = lshr i64 %211, 32
   %.sroa.17115.0.i = trunc nuw i64 %.sroa.17115.0.in.i to i32
   %.sroa.0101.0.i = trunc i64 %211 to i32
@@ -419,10 +419,10 @@ draw_line_ver.exit:                               ; preds = %150, %208
   %216 = call i32 @llvm.abs.i32(i32 %213, i1 true)
   %217 = call i32 @llvm.abs.i32(i32 %214, i1 true)
   %218 = load i32, ptr %17, align 4, !tbaa !3
-  %.sink162.i = call i32 @llvm.umin.i32(i32 %216, i32 %217)
-  %.sink161.i = call i32 @llvm.umax.i32(i32 %216, i32 %217)
-  %219 = shl i32 %.sink162.i, 5
-  %220 = sdiv i32 %219, %.sink161.i
+  %.sink171.i = call i32 @llvm.umin.i32(i32 %216, i32 %217)
+  %.sink170.i = call i32 @llvm.umax.i32(i32 %216, i32 %217)
+  %219 = shl i32 %.sink171.i, 5
+  %220 = sdiv i32 %219, %.sink170.i
   %221 = sext i32 %220 to i64
   %222 = getelementptr inbounds [33 x i8], ptr @draw_line_skew.wcorr, i64 0, i64 %221
   %223 = load i8, ptr %222, align 1, !tbaa !32

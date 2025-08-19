@@ -3679,22 +3679,22 @@ define noundef i32 @dt_iop_show_hide_header_buttons(ptr noundef readonly capture
   %53 = select i1 %or.cond.not, i1 %46, i1 false
   %54 = zext i1 %53 to i32
   %55 = load ptr, ptr %49, align 8, !tbaa !40
-  %.not96125 = icmp eq ptr %55, null
-  br i1 %.not96125, label %.critedge115, label %.lr.ph127
+  %.not96132 = icmp eq ptr %55, null
+  br i1 %.not96132, label %.critedge115, label %.lr.ph134
 
-.lr.ph127:                                        ; preds = %.lr.ph, %.critedge113
+.lr.ph134:                                        ; preds = %.lr.ph, %.critedge113
   %56 = phi ptr [ %72, %.critedge113 ], [ %55, %.lr.ph ]
-  %.078121126 = phi ptr [ %71, %.critedge113 ], [ %49, %.lr.ph ]
+  %.078121133 = phi ptr [ %71, %.critedge113 ], [ %49, %.lr.ph ]
   %57 = load ptr, ptr %56, align 8, !tbaa !340
   %.not97 = icmp eq ptr %57, null
   br i1 %.not97, label %61, label %58
 
-58:                                               ; preds = %.lr.ph127
+58:                                               ; preds = %.lr.ph134
   %59 = load i64, ptr %57, align 8, !tbaa !343
   %60 = icmp eq i64 %59, %50
   br i1 %60, label %.critedge113, label %61
 
-61:                                               ; preds = %58, %.lr.ph127
+61:                                               ; preds = %58, %.lr.ph134
   %62 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %56, i64 noundef %50) #27
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %.critedge, label %.critedge113
@@ -3703,20 +3703,20 @@ define noundef i32 @dt_iop_show_hide_header_buttons(ptr noundef readonly capture
   %64 = tail call i64 @gtk_widget_get_type() #26
   %65 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %56, i64 noundef %64) #24
   tail call void @gtk_widget_set_no_show_all(ptr noundef %65, i32 noundef 1) #24
-  %66 = load ptr, ptr %.078121126, align 8, !tbaa !40
+  %66 = load ptr, ptr %.078121133, align 8, !tbaa !40
   %67 = tail call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %64) #24
   tail call void @gtk_widget_set_visible(ptr noundef %67, i32 noundef %54) #24
-  %68 = load ptr, ptr %.078121126, align 8, !tbaa !40
+  %68 = load ptr, ptr %.078121133, align 8, !tbaa !40
   %69 = tail call ptr @g_type_check_instance_cast(ptr noundef %68, i64 noundef %64) #24
   tail call void @gtk_widget_set_opacity(ptr noundef %69, double noundef %.077) #24
-  %70 = getelementptr inbounds nuw i8, ptr %.078121126, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.078121133, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !266, !nonnull !365, !noundef !365
   %72 = load ptr, ptr %71, align 8, !tbaa !40
   %.not96 = icmp eq ptr %72, null
-  br i1 %.not96, label %.critedge115, label %.lr.ph127
+  br i1 %.not96, label %.critedge115, label %.lr.ph134
 
 .critedge:                                        ; preds = %61
-  %.pr = load ptr, ptr %.078121126, align 8, !tbaa !40
+  %.pr = load ptr, ptr %.078121133, align 8, !tbaa !40
   %73 = tail call i64 @gtk_drawing_area_get_type() #26
   %.not99 = icmp eq ptr %.pr, null
   br i1 %.not99, label %.critedge115, label %74
@@ -4057,10 +4057,10 @@ define void @dt_iop_gui_update_header(ptr noundef %0) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %.tail.thread.i, %31, %23
-  %.str.70.sink22.i = phi ptr [ @.str.70, %31 ], [ %26, %.tail.thread.i ], [ @.str.197, %23 ]
+  %.str.70.sink24.i = phi ptr [ @.str.70, %31 ], [ %26, %.tail.thread.i ], [ @.str.197, %23 ]
   %.str.70.sink.i = phi ptr [ @.str.70, %31 ], [ @.str.155, %.tail.thread.i ], [ @.str.198, %23 ]
   %.015.i = phi ptr [ %32, %31 ], [ %33, %.tail.thread.i ], [ %24, %23 ]
-  %35 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.70.sink22.i) #24
+  %35 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.70.sink24.i) #24
   %36 = tail call i64 @gtk_widget_get_type() #26
   %37 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %36) #24
   tail call void @gtk_widget_set_name(ptr noundef %37, ptr noundef nonnull %.str.70.sink.i) #24
@@ -4801,8 +4801,8 @@ define ptr @dt_iop_load_modules_ext(ptr noundef initializes((2048, 2052)) %0, i3
   br i1 %.not26, label %._crit_edge, label %.lr.ph47
 
 ._crit_edge:                                      ; preds = %.lr.ph47, %2, %.preheader
-  %.025.ph.lcssa52 = phi ptr [ null, %.preheader ], [ null, %2 ], [ %12, %.lr.ph47 ]
-  ret ptr %.025.ph.lcssa52
+  %.025.ph.lcssa53 = phi ptr [ null, %.preheader ], [ null, %2 ], [ %12, %.lr.ph47 ]
+  ret ptr %.025.ph.lcssa53
 }
 
 declare ptr @g_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -5187,8 +5187,8 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   %.phi.trans.insert238 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %.pre239 = load i32, ptr %.phi.trans.insert238, align 4, !tbaa !92
   %96 = icmp sle i32 %93, %.pre239
-  %narrow264 = and i1 %.not158, %96
-  %97 = zext i1 %narrow264 to i32
+  %narrow273 = and i1 %.not158, %96
+  %97 = zext i1 %narrow273 to i32
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %99 = load i32, ptr %98, align 8, !tbaa !92
   %100 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.107, i32 noundef %93, i32 noundef %95, i32 noundef %.pre239, i32 noundef %99) #24
@@ -5202,8 +5202,8 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   %.phi.trans.insert235 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %.pre236 = load i32, ptr %.phi.trans.insert235, align 4, !tbaa !92
   %104 = icmp ule i32 %101, %.pre236
-  %narrow263 = and i1 %.not157, %104
-  %105 = zext i1 %narrow263 to i32
+  %narrow272 = and i1 %.not157, %104
+  %105 = zext i1 %narrow272 to i32
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %107 = load i32, ptr %106, align 8, !tbaa !92
   %108 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.108, i32 noundef %101, i32 noundef %103, i32 noundef %.pre236, i32 noundef %107) #24
@@ -5217,8 +5217,8 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   %.phi.trans.insert232 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %.pre233 = load i16, ptr %.phi.trans.insert232, align 2, !tbaa !92
   %112 = icmp ule i16 %109, %.pre233
-  %narrow262 = and i1 %.not156, %112
-  %113 = zext i1 %narrow262 to i32
+  %narrow271 = and i1 %.not156, %112
+  %113 = zext i1 %narrow271 to i32
   %114 = zext i16 %109 to i32
   %115 = zext i16 %111 to i32
   %116 = zext i16 %.pre233 to i32
@@ -5239,8 +5239,8 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   %.pre230 = load i8, ptr %.phi.trans.insert229, align 1, !tbaa !92
   %.pre243 = sext i8 %.pre230 to i32
   %126 = icmp sle i32 %122, %.pre243
-  %narrow261 = and i1 %.not155, %126
-  %127 = zext i1 %narrow261 to i32
+  %narrow270 = and i1 %.not155, %126
+  %127 = zext i1 %narrow270 to i32
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %129 = load i8, ptr %128, align 2, !tbaa !92
   %130 = sext i8 %129 to i32
@@ -5302,28 +5302,28 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
 
 .lr.ph.preheader:                                 ; preds = %164
   %167 = load ptr, ptr %166, align 8, !tbaa !388
-  %.not153267 = icmp eq ptr %167, null
-  br i1 %.not153267, label %.critedge, label %.lr.ph269.preheader
+  %.not153276 = icmp eq ptr %167, null
+  br i1 %.not153276, label %.critedge, label %.lr.ph278.preheader
 
-.lr.ph269.preheader:                              ; preds = %.lr.ph.preheader
+.lr.ph278.preheader:                              ; preds = %.lr.ph.preheader
   %168 = load i32, ptr %7, align 4, !tbaa !94
-  br label %.lr.ph269
+  br label %.lr.ph278
 
-.lr.ph:                                           ; preds = %.lr.ph269
-  %169 = getelementptr inbounds nuw i8, ptr %.0205268, i64 24
+.lr.ph:                                           ; preds = %.lr.ph278
+  %169 = getelementptr inbounds nuw i8, ptr %.0205277, i64 24
   %170 = load ptr, ptr %169, align 8, !tbaa !388
   %.not153 = icmp eq ptr %170, null
-  br i1 %.not153, label %.critedge, label %.lr.ph269
+  br i1 %.not153, label %.critedge, label %.lr.ph278
 
-.lr.ph269:                                        ; preds = %.lr.ph269.preheader, %.lr.ph
-  %.0205268 = phi ptr [ %169, %.lr.ph ], [ %166, %.lr.ph269.preheader ]
-  %171 = getelementptr inbounds nuw i8, ptr %.0205268, i64 8
+.lr.ph278:                                        ; preds = %.lr.ph278.preheader, %.lr.ph
+  %.0205277 = phi ptr [ %169, %.lr.ph ], [ %166, %.lr.ph278.preheader ]
+  %171 = getelementptr inbounds nuw i8, ptr %.0205277, i64 8
   %172 = load i32, ptr %171, align 8, !tbaa !390
   %173 = icmp eq i32 %172, %168
   br i1 %173, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %.lr.ph269, %.lr.ph, %.lr.ph.preheader, %164
-  %.8 = phi i32 [ 0, %164 ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ 1, %.lr.ph269 ]
+.critedge:                                        ; preds = %.lr.ph278, %.lr.ph, %.lr.ph.preheader, %164
+  %.8 = phi i32 [ 0, %164 ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph ], [ 1, %.lr.ph278 ]
   %174 = load i32, ptr %7, align 4, !tbaa !94
   %175 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.110, i32 noundef %174) #24
   br label %.loopexit
@@ -5353,7 +5353,7 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   br i1 %.not168, label %.thread175.thread, label %.thread175.thread.sink.split
 
 .thread175.thread.sink.split:                     ; preds = %60, %28, %.thread175, %56, %47, %.loopexit, %44, %176, %4, %.preheader202, %.preheader
-  %.0139180199.sink256 = phi ptr [ %.0139, %.loopexit ], [ null, %44 ], [ %178, %176 ], [ null, %4 ], [ null, %.preheader202 ], [ null, %.preheader ], [ %.0139180, %.thread175 ], [ null, %56 ], [ null, %47 ], [ null, %28 ], [ null, %60 ]
+  %.0139180199.sink265 = phi ptr [ %.0139, %.loopexit ], [ null, %44 ], [ %178, %176 ], [ null, %4 ], [ null, %.preheader202 ], [ null, %.preheader ], [ %.0139180, %.thread175 ], [ null, %56 ], [ null, %47 ], [ null, %28 ], [ null, %60 ]
   %.str.114.sink = phi ptr [ @.str.112, %.loopexit ], [ @.str.112, %44 ], [ @.str.112, %176 ], [ @.str.112, %4 ], [ @.str.112, %.preheader202 ], [ @.str.112, %.preheader ], [ @.str.114, %.thread175 ], [ @.str.114, %56 ], [ @.str.114, %47 ], [ @.str.112, %28 ], [ @.str.112, %60 ]
   %.0134181.ph = phi i32 [ 1, %.loopexit ], [ 1, %44 ], [ 1, %176 ], [ %8, %4 ], [ 1, %.preheader202 ], [ 1, %.preheader ], [ 0, %.thread175 ], [ 0, %56 ], [ 0, %47 ], [ 1, %28 ], [ 1, %60 ]
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5363,14 +5363,14 @@ define range(i32 0, 2) i32 @_iop_validate_params(ptr noundef readonly captures(n
   %188 = load i8, ptr %187, align 1, !tbaa !92
   %.not169 = icmp eq i8 %188, 0
   %189 = select i1 %.not169, ptr @.str.70, ptr @.str.113
-  %.not170 = icmp eq ptr %.0139180199.sink256, null
-  %190 = select i1 %.not170, ptr @.str.70, ptr %.0139180199.sink256
+  %.not170 = icmp eq ptr %.0139180199.sink265, null
+  %190 = select i1 %.not170, ptr @.str.70, ptr %.0139180199.sink265
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %.str.114.sink, ptr noundef %3, ptr noundef %185, ptr noundef nonnull %189, ptr noundef nonnull %187, ptr noundef nonnull %190) #24
   br label %.thread175.thread
 
 .thread175.thread:                                ; preds = %.thread175.thread.sink.split, %46, %55, %.thread175
   %.0134181 = phi i32 [ 0, %.thread175 ], [ 0, %55 ], [ 0, %46 ], [ %.0134181.ph, %.thread175.thread.sink.split ]
-  %.0139179 = phi ptr [ %.0139180, %.thread175 ], [ null, %55 ], [ null, %46 ], [ %.0139180199.sink256, %.thread175.thread.sink.split ]
+  %.0139179 = phi ptr [ %.0139180, %.thread175 ], [ null, %55 ], [ null, %46 ], [ %.0139180199.sink265, %.thread175.thread.sink.split ]
   tail call void @g_free(ptr noundef %.0139179) #24
   ret i32 %.0134181
 }
@@ -6066,29 +6066,29 @@ define internal void @_header_size_callback(ptr readnone captures(none) %0, ptr 
   %.not96 = icmp eq i32 %.068, 0
   %67 = zext i1 %.not96 to i32
   %68 = load ptr, ptr %65, align 8, !tbaa !40
-  %.not92135 = icmp eq ptr %68, null
-  br i1 %.not92135, label %.critedge2, label %.lr.ph139
+  %.not92142 = icmp eq ptr %68, null
+  br i1 %.not92142, label %.critedge2, label %.lr.ph146
 
 69:                                               ; preds = %85
   %70 = load ptr, ptr %87, align 8, !tbaa !40
   %.not92 = icmp eq ptr %70, null
-  br i1 %.not92, label %.critedge2, label %.lr.ph139
+  br i1 %.not92, label %.critedge2, label %.lr.ph146
 
-.lr.ph139:                                        ; preds = %.lr.ph120, %69
+.lr.ph146:                                        ; preds = %.lr.ph120, %69
   %71 = phi ptr [ %70, %69 ], [ %68, %.lr.ph120 ]
-  %.177117138 = phi i32 [ %.3, %69 ], [ %.076, %.lr.ph120 ]
-  %.070118137 = phi ptr [ %.1119136, %69 ], [ null, %.lr.ph120 ]
-  %.1119136 = phi ptr [ %87, %69 ], [ %65, %.lr.ph120 ]
+  %.177117145 = phi i32 [ %.3, %69 ], [ %.076, %.lr.ph120 ]
+  %.070118144 = phi ptr [ %.1119143, %69 ], [ null, %.lr.ph120 ]
+  %.1119143 = phi ptr [ %87, %69 ], [ %65, %.lr.ph120 ]
   %72 = load ptr, ptr %71, align 8, !tbaa !340
   %.not93 = icmp eq ptr %72, null
   br i1 %.not93, label %76, label %73
 
-73:                                               ; preds = %.lr.ph139
+73:                                               ; preds = %.lr.ph146
   %74 = load i64, ptr %72, align 8, !tbaa !343
   %75 = icmp eq i64 %74, %66
   br i1 %75, label %.critedge102, label %76
 
-76:                                               ; preds = %73, %.lr.ph139
+76:                                               ; preds = %73, %.lr.ph146
   %77 = call i32 @g_type_check_instance_is_a(ptr noundef nonnull %71, i64 noundef %66) #27
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.critedge2, label %.critedge102
@@ -6100,25 +6100,25 @@ define internal void @_header_size_callback(ptr readnone captures(none) %0, ptr 
   br i1 %.not95, label %81, label %85
 
 81:                                               ; preds = %.critedge102
-  %82 = icmp eq i32 %.177117138, 0
+  %82 = icmp eq i32 %.177117145, 0
   br i1 %82, label %.critedge2, label %83
 
 83:                                               ; preds = %81
-  %84 = add nsw i32 %.177117138, -1
+  %84 = add nsw i32 %.177117145, -1
   br label %85
 
 85:                                               ; preds = %.critedge102, %83
-  %.3 = phi i32 [ %.177117138, %.critedge102 ], [ %84, %83 ]
+  %.3 = phi i32 [ %.177117145, %.critedge102 ], [ %84, %83 ]
   call void @gtk_widget_set_visible(ptr noundef %79, i32 noundef %67) #24
   call void @gtk_widget_set_opacity(ptr noundef %79, double noundef %.072) #24
-  %86 = getelementptr inbounds nuw i8, ptr %.1119136, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.1119143, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !266
   %.not91 = icmp eq ptr %87, null
   br i1 %.not91, label %.critedge2, label %69
 
 .critedge2:                                       ; preds = %81, %69, %85, %76, %.lr.ph120
-  %.070.lcssa = phi ptr [ null, %.lr.ph120 ], [ %.070118137, %81 ], [ %.1119136, %69 ], [ %.1119136, %85 ], [ %.070118137, %76 ]
-  %.278 = phi i32 [ %.076, %.lr.ph120 ], [ 0, %81 ], [ %.3, %69 ], [ %.3, %85 ], [ %.177117138, %76 ]
+  %.070.lcssa = phi ptr [ null, %.lr.ph120 ], [ %.070118144, %81 ], [ %.1119143, %69 ], [ %.1119143, %85 ], [ %.070118144, %76 ]
+  %.278 = phi i32 [ %.076, %.lr.ph120 ], [ 0, %81 ], [ %.3, %69 ], [ %.3, %85 ], [ %.177117145, %76 ]
   %88 = icmp ne ptr %.070.lcssa, null
   %89 = icmp eq i32 %.278, 0
   %or.cond = select i1 %88, i1 %89, i1 false
@@ -7743,27 +7743,27 @@ define range(i32 0, 2) i32 @dt_iop_breakpoint(ptr noundef readonly captures(none
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %7 = load ptr, ptr %6, align 8, !tbaa !315
   %.not14 = icmp eq ptr %1, %7
-  br i1 %.not14, label %.thread21, label %8
+  br i1 %.not14, label %.thread23, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @sched_yield() #24
   %.pre = load ptr, ptr %3, align 16, !tbaa !314
   %10 = icmp eq ptr %1, %.pre
-  br i1 %10, label %.thread, label %.thread21
+  br i1 %10, label %.thread, label %.thread23
 
-.thread21:                                        ; preds = %5, %8
+.thread23:                                        ; preds = %5, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %12 = load ptr, ptr %11, align 8, !tbaa !315
   %.not16 = icmp eq ptr %1, %12
   br i1 %.not16, label %.thread, label %13
 
-13:                                               ; preds = %.thread21
+13:                                               ; preds = %.thread23
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %15 = load i32, ptr %14, align 16, !tbaa !406
   %16 = icmp eq i32 %15, 8
   br i1 %16, label %22, label %.thread
 
-.thread:                                          ; preds = %2, %13, %.thread21, %8
+.thread:                                          ; preds = %2, %13, %.thread23, %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %18 = load i32, ptr %17, align 16, !tbaa !406
   switch i32 %18, label %22 [
@@ -8170,11 +8170,11 @@ define void @dt_iop_so_gui_set_state(ptr noundef initializes((528, 532)) %0, i32
   br i1 %.not, label %.sink.split, label %.lr.ph
 
 .sink.split:                                      ; preds = %54, %39, %18, %41, %20, %24, %5
-  %.sink65 = phi i32 [ 0, %5 ], [ 1, %24 ], [ 1, %20 ], [ 1, %41 ], [ 0, %18 ], [ 1, %39 ], [ 1, %54 ]
+  %.sink68 = phi i32 [ 0, %5 ], [ 1, %24 ], [ 1, %20 ], [ 1, %41 ], [ 0, %18 ], [ 1, %39 ], [ 1, %54 ]
   %.sink = phi i32 [ 0, %5 ], [ 0, %24 ], [ 0, %20 ], [ 1, %41 ], [ 0, %18 ], [ 0, %39 ], [ 1, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.63, ptr noundef nonnull %56) #24
-  call void @dt_conf_set_bool(ptr noundef nonnull %3, i32 noundef %.sink65) #24
+  call void @dt_conf_set_bool(ptr noundef nonnull %3, i32 noundef %.sink68) #24
   %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef nonnull %56) #24
   call void @dt_conf_set_bool(ptr noundef nonnull %3, i32 noundef %.sink) #24
   br label %59

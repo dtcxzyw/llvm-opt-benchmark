@@ -1051,8 +1051,8 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv77 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next78, %.lr.ph ]
   %.074 = phi i32 [ %24, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %.idx85 = shl nuw nsw i64 %indvars.iv77, 3
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx85
+  %.idx92 = shl nuw nsw i64 %indvars.iv77, 3
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx92
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !3
   %28 = shl nsw i32 %.074, 1
@@ -1068,8 +1068,8 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.idx86 = shl nuw nsw i64 %indvars.iv80, 3
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx86
+  %.idx93 = shl nuw nsw i64 %indvars.iv80, 3
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx93
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = shl nsw i32 %spec.select, 1
   %38 = sext i32 %37 to i64

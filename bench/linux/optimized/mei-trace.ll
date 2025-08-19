@@ -283,11 +283,11 @@ define internal void @trace_event_raw_event_mei_reg_read(ptr noundef %0, ptr nou
 36:                                               ; preds = %30
   %37 = load ptr, ptr %1, align 8
   %38 = icmp eq ptr %37, null
-  %spec.select9 = select i1 %38, ptr @.str, ptr %37
+  %spec.select13 = select i1 %38, ptr @.str, ptr %37
   br label %.thread6
 
 .thread6:                                         ; preds = %36, %30
-  %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
+  %39 = phi ptr [ %35, %30 ], [ %spec.select13, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
@@ -374,11 +374,11 @@ define internal void @perf_trace_mei_reg_read(ptr noundef %0, ptr noundef readon
 47:                                               ; preds = %34
   %48 = load ptr, ptr %1, align 8
   %49 = icmp eq ptr %48, null
-  %spec.select9 = select i1 %49, ptr @.str, ptr %48
+  %spec.select13 = select i1 %49, ptr @.str, ptr %48
   br label %.thread6
 
 .thread6:                                         ; preds = %47, %34
-  %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
+  %50 = phi ptr [ %46, %34 ], [ %spec.select13, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8
@@ -459,11 +459,11 @@ define internal void @trace_event_raw_event_mei_reg_write(ptr noundef %0, ptr no
 36:                                               ; preds = %30
   %37 = load ptr, ptr %1, align 8
   %38 = icmp eq ptr %37, null
-  %spec.select9 = select i1 %38, ptr @.str, ptr %37
+  %spec.select13 = select i1 %38, ptr @.str, ptr %37
   br label %.thread6
 
 .thread6:                                         ; preds = %36, %30
-  %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
+  %39 = phi ptr [ %35, %30 ], [ %spec.select13, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
@@ -550,11 +550,11 @@ define internal void @perf_trace_mei_reg_write(ptr noundef %0, ptr noundef reado
 47:                                               ; preds = %34
   %48 = load ptr, ptr %1, align 8
   %49 = icmp eq ptr %48, null
-  %spec.select9 = select i1 %49, ptr @.str, ptr %48
+  %spec.select13 = select i1 %49, ptr @.str, ptr %48
   br label %.thread6
 
 .thread6:                                         ; preds = %47, %34
-  %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
+  %50 = phi ptr [ %46, %34 ], [ %spec.select13, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8
@@ -629,11 +629,11 @@ define internal void @trace_event_raw_event_mei_pci_cfg_read(ptr noundef %0, ptr
 36:                                               ; preds = %30
   %37 = load ptr, ptr %1, align 8
   %38 = icmp eq ptr %37, null
-  %spec.select9 = select i1 %38, ptr @.str, ptr %37
+  %spec.select13 = select i1 %38, ptr @.str, ptr %37
   br label %.thread6
 
 .thread6:                                         ; preds = %36, %30
-  %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
+  %39 = phi ptr [ %35, %30 ], [ %spec.select13, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
@@ -720,11 +720,11 @@ define internal void @perf_trace_mei_pci_cfg_read(ptr noundef %0, ptr noundef re
 47:                                               ; preds = %34
   %48 = load ptr, ptr %1, align 8
   %49 = icmp eq ptr %48, null
-  %spec.select9 = select i1 %49, ptr @.str, ptr %48
+  %spec.select13 = select i1 %49, ptr @.str, ptr %48
   br label %.thread6
 
 .thread6:                                         ; preds = %47, %34
-  %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
+  %50 = phi ptr [ %46, %34 ], [ %spec.select13, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8

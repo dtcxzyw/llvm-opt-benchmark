@@ -2088,20 +2088,20 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit107:  ; preds = %._crit_edge190, %10
 ._crit_edge186:                                   ; preds = %.preheader, %._crit_edge186.loopexit
   %106 = phi ptr [ %204, %._crit_edge186.loopexit ], [ %88, %.preheader ]
   %107 = phi ptr [ %.pre209, %._crit_edge186.loopexit ], [ %89, %.preheader ]
-  %.1.lcssa = phi i32 [ %.3217, %._crit_edge186.loopexit ], [ %.0189, %.preheader ]
+  %.1.lcssa = phi i32 [ %.3235, %._crit_edge186.loopexit ], [ %.0189, %.preheader ]
   %108 = ptrtoint ptr %107 to i64
   %109 = ptrtoint ptr %106 to i64
   %110 = sub i64 %108, %109
   %111 = sdiv exact i64 %110, 24
-  %sext211 = shl i64 %111, 32
-  %112 = ashr exact i64 %sext211, 32
+  %sext229 = shl i64 %111, 32
+  %112 = ashr exact i64 %sext229, 32
   %113 = icmp slt i64 %100, %112
   br i1 %113, label %.preheader, label %._crit_edge190, !llvm.loop !149
 
 114:                                              ; preds = %.lr.ph185, %.critedge
   %indvars.iv202 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next203, %.critedge ]
   %115 = phi ptr [ %93, %.lr.ph185 ], [ %208, %.critedge ]
-  %.1184 = phi i32 [ %.0189, %.lr.ph185 ], [ %.3217, %.critedge ]
+  %.1184 = phi i32 [ %.0189, %.lr.ph185 ], [ %.3235, %.critedge ]
   %116 = load ptr, ptr %13, align 8, !tbaa !42
   %117 = getelementptr inbounds nuw %"struct.cv::TEvolution", ptr %116, i64 %100
   %118 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %115, i64 %indvars.iv202
@@ -2165,8 +2165,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit107:  ; preds = %._crit_edge190, %10
   br i1 %153, label %.loopexit.thread, label %.critedge
 
 .loopexit.thread:                                 ; preds = %147, %114, %.loopexit
-  %.3216 = phi i32 [ %148, %.loopexit ], [ %.1184, %114 ], [ %.1184, %147 ]
-  %.180215 = phi i1 [ false, %.loopexit ], [ true, %114 ], [ true, %147 ]
+  %.3234 = phi i32 [ %148, %.loopexit ], [ %.1184, %114 ], [ %.1184, %147 ]
+  %.180233 = phi i1 [ false, %.loopexit ], [ true, %114 ], [ true, %147 ]
   %154 = load float, ptr %118, align 4, !tbaa !157
   %155 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %156 = load float, ptr %155, align 4, !tbaa !158
@@ -2212,7 +2212,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit107:  ; preds = %._crit_edge190, %10
   br label %215
 
 180:                                              ; preds = %177
-  br i1 %.180215, label %181, label %201
+  br i1 %.180233, label %181, label %201
 
 181:                                              ; preds = %180
   %182 = load ptr, ptr %87, align 8, !tbaa !144
@@ -2282,13 +2282,13 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   br label %.critedge
 
 201:                                              ; preds = %180
-  %202 = sext i32 %.3216 to i64
+  %202 = sext i32 %.3234 to i64
   %203 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %120, i64 %202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %203, ptr noundef nonnull align 4 dereferenceable(28) %118, i64 28, i1 false), !tbaa.struct !146
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %183, %.loopexit.thread, %166, %177, %201, %.loopexit
-  %.3217 = phi i32 [ %.3216, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.3216, %183 ], [ %.3216, %.loopexit.thread ], [ %.3216, %166 ], [ %.3216, %177 ], [ %.3216, %201 ], [ %.1184, %.loopexit ]
+  %.3235 = phi i32 [ %.3234, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.3234, %183 ], [ %.3234, %.loopexit.thread ], [ %.3234, %166 ], [ %.3234, %177 ], [ %.3234, %201 ], [ %.1184, %.loopexit ]
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %204 = load ptr, ptr %6, align 8, !tbaa !93
   %205 = getelementptr inbounds nuw %"class.std::vector.23", ptr %204, i64 %indvars.iv205
@@ -3250,17 +3250,17 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   br label %99
 
 99:                                               ; preds = %96, %58
-  %.sink194 = phi i64 [ %97, %96 ], [ %82, %58 ]
+  %.sink202 = phi i64 [ %97, %96 ], [ %82, %58 ]
   %.sink = phi float [ 0.000000e+00, %96 ], [ %93, %58 ]
   %100 = phi float [ 0.000000e+00, %96 ], [ %81, %58 ]
-  %101 = getelementptr inbounds nuw float, ptr %5, i64 %.sink194
+  %101 = getelementptr inbounds nuw float, ptr %5, i64 %.sink202
   store float %.sink, ptr %101, align 4, !tbaa !8
   %102 = invoke noundef float @_ZN2cv9fastAtan2Eff(float noundef %.sink, float noundef %100)
           to label %103 unwind label %94
 
 103:                                              ; preds = %99
   %104 = fmul float %102, 0x3F91DF46A0000000
-  %105 = getelementptr inbounds nuw float, ptr %7, i64 %.sink194
+  %105 = getelementptr inbounds nuw float, ptr %7, i64 %.sink202
   store float %104, ptr %105, align 4, !tbaa !8
   %106 = add nsw i32 %.1106164, 1
   br label %107

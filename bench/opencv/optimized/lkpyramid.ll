@@ -264,8 +264,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %2, %26
   %73 = icmp sgt i64 %indvars.iv121, 0
   %74 = add i64 %indvars.iv121, 4294967295
   %75 = select i1 %73, i64 %74, i64 %44
-  %sext126 = shl i64 %75, 32
-  %76 = ashr exact i64 %sext126, 32
+  %sext130 = shl i64 %75, 32
+  %76 = ashr exact i64 %sext130, 32
   %77 = mul i64 %49, %76
   %78 = getelementptr inbounds nuw i8, ptr %46, i64 %77
   %79 = mul i64 %49, %indvars.iv121
@@ -787,11 +787,11 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   br i1 %236, label %.lr.ph497.us.preheader, label %._crit_edge507
 
 .lr.ph497.us.preheader:                           ; preds = %.lr.ph506
-  %sext606 = shl i64 %212, 32
-  %241 = ashr exact i64 %sext606, 32
+  %sext633 = shl i64 %212, 32
+  %241 = ashr exact i64 %sext633, 32
   %242 = sext i32 %154 to i64
-  %sext607 = shl i64 %204, 32
-  %243 = ashr exact i64 %sext607, 32
+  %sext634 = shl i64 %204, 32
+  %243 = ashr exact i64 %sext634, 32
   %wide.trip.count581 = zext nneg i32 %161 to i64
   %wide.trip.count = zext nneg i32 %235 to i64
   br label %.lr.ph497.us
@@ -810,8 +810,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %248 = getelementptr inbounds nuw i8, ptr %229, i64 %247
   %249 = mul i64 %234, %indvars.iv578
   %250 = getelementptr inbounds nuw i8, ptr %232, i64 %249
-  %invariant.gep621 = getelementptr inbounds nuw i8, ptr %gep.us, i64 %140
-  %invariant.gep622 = getelementptr i8, ptr %gep.us, i64 %140
+  %invariant.gep648 = getelementptr inbounds nuw i8, ptr %gep.us, i64 %140
+  %invariant.gep649 = getelementptr i8, ptr %gep.us, i64 %140
   br label %251
 
 251:                                              ; preds = %.lr.ph497.us, %251
@@ -825,7 +825,7 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %253 = load i8, ptr %252, align 1, !tbaa !34
   %254 = zext i8 %253 to i32
   %255 = mul nsw i32 %185, %254
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep621, i64 %indvars.iv575
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep648, i64 %indvars.iv575
   %256 = load i8, ptr %gep, align 1, !tbaa !34
   %257 = zext i8 %256 to i32
   %258 = mul nsw i32 %189, %257
@@ -834,8 +834,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %261 = load i8, ptr %260, align 1, !tbaa !34
   %262 = zext i8 %261 to i32
   %263 = mul nsw i32 %193, %262
-  %gep623 = getelementptr i8, ptr %invariant.gep622, i64 %259
-  %264 = load i8, ptr %gep623, align 1, !tbaa !34
+  %gep650 = getelementptr i8, ptr %invariant.gep649, i64 %259
+  %264 = load i8, ptr %gep650, align 1, !tbaa !34
   %265 = zext i8 %264 to i32
   %266 = mul nsw i32 %196, %265
   %267 = add i32 %255, 256
@@ -987,8 +987,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %.val394 = load float, ptr %371, align 4, !tbaa !73
   %372 = fsub float %.val394, %17
   %.sroa.0.4.vec.insert.i414 = insertelement <2 x float> %.sroa.0.0.vec.insert.i413, float %372, i64 1
-  %sext608 = shl i64 %220, 32
-  %373 = ashr exact i64 %sext608, 32
+  %sext635 = shl i64 %220, 32
+  %373 = ashr exact i64 %sext635, 32
   br label %.lr.ph541
 
 .lr.ph541:                                        ; preds = %.lr.ph541.preheader, %516
@@ -1091,8 +1091,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %433 = getelementptr inbounds nuw i8, ptr %421, i64 %432
   %434 = mul i64 %426, %indvars.iv588
   %435 = getelementptr inbounds nuw i8, ptr %424, i64 %434
-  %invariant.gep624 = getelementptr inbounds nuw i8, ptr %gep.us532, i64 %140
-  %invariant.gep626 = getelementptr i8, ptr %gep.us532, i64 %140
+  %invariant.gep651 = getelementptr inbounds nuw i8, ptr %gep.us532, i64 %140
+  %invariant.gep653 = getelementptr i8, ptr %gep.us532, i64 %140
   br label %436
 
 436:                                              ; preds = %.lr.ph520.us, %436
@@ -1104,8 +1104,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %438 = load i8, ptr %437, align 1, !tbaa !34
   %439 = zext i8 %438 to i32
   %440 = mul nsw i32 %405, %439
-  %gep625 = getelementptr inbounds nuw i8, ptr %invariant.gep624, i64 %indvars.iv583
-  %441 = load i8, ptr %gep625, align 1, !tbaa !34
+  %gep652 = getelementptr inbounds nuw i8, ptr %invariant.gep651, i64 %indvars.iv583
+  %441 = load i8, ptr %gep652, align 1, !tbaa !34
   %442 = zext i8 %441 to i32
   %443 = mul nsw i32 %409, %442
   %444 = add nsw i64 %indvars.iv583, %373
@@ -1113,8 +1113,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %446 = load i8, ptr %445, align 1, !tbaa !34
   %447 = zext i8 %446 to i32
   %448 = mul nsw i32 %413, %447
-  %gep627 = getelementptr i8, ptr %invariant.gep626, i64 %444
-  %449 = load i8, ptr %gep627, align 1, !tbaa !34
+  %gep654 = getelementptr i8, ptr %invariant.gep653, i64 %444
+  %449 = load i8, ptr %gep654, align 1, !tbaa !34
   %450 = zext i8 %449 to i32
   %451 = mul nsw i32 %416, %450
   %452 = add i32 %440, 256
@@ -1314,8 +1314,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   br i1 %581, label %.lr.ph546.us.preheader, label %._crit_edge552
 
 .lr.ph546.us.preheader:                           ; preds = %.lr.ph551
-  %sext609 = shl i64 %220, 32
-  %582 = ashr exact i64 %sext609, 32
+  %sext636 = shl i64 %220, 32
+  %582 = ashr exact i64 %sext636, 32
   %583 = sext i32 %539 to i64
   %wide.trip.count601 = zext nneg i32 %546 to i64
   %wide.trip.count596 = zext nneg i32 %580 to i64
@@ -1329,8 +1329,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %gep.us555 = getelementptr i8, ptr %invariant.gep554, i64 %585
   %586 = mul i64 %579, %indvars.iv598
   %587 = getelementptr inbounds nuw i8, ptr %577, i64 %586
-  %invariant.gep628 = getelementptr inbounds nuw i8, ptr %gep.us555, i64 %140
-  %invariant.gep630 = getelementptr i8, ptr %gep.us555, i64 %140
+  %invariant.gep655 = getelementptr inbounds nuw i8, ptr %gep.us555, i64 %140
+  %invariant.gep657 = getelementptr i8, ptr %gep.us555, i64 %140
   br label %588
 
 588:                                              ; preds = %.lr.ph546.us, %588
@@ -1340,8 +1340,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %590 = load i8, ptr %589, align 1, !tbaa !34
   %591 = zext i8 %590 to i32
   %592 = mul nsw i32 %561, %591
-  %gep629 = getelementptr inbounds nuw i8, ptr %invariant.gep628, i64 %indvars.iv593
-  %593 = load i8, ptr %gep629, align 1, !tbaa !34
+  %gep656 = getelementptr inbounds nuw i8, ptr %invariant.gep655, i64 %indvars.iv593
+  %593 = load i8, ptr %gep656, align 1, !tbaa !34
   %594 = zext i8 %593 to i32
   %595 = mul nsw i32 %565, %594
   %596 = add nsw i64 %indvars.iv593, %582
@@ -1349,8 +1349,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %598 = load i8, ptr %597, align 1, !tbaa !34
   %599 = zext i8 %598 to i32
   %600 = mul nsw i32 %569, %599
-  %gep631 = getelementptr i8, ptr %invariant.gep630, i64 %596
-  %601 = load i8, ptr %gep631, align 1, !tbaa !34
+  %gep658 = getelementptr i8, ptr %invariant.gep657, i64 %596
+  %601 = load i8, ptr %gep658, align 1, !tbaa !34
   %602 = zext i8 %601 to i32
   %603 = mul nsw i32 %572, %602
   %604 = add i32 %592, 256
@@ -1399,8 +1399,8 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc408, %_ZN2cv1
   %625 = load ptr, ptr %5, align 8, !tbaa !22
   %.not.i.i421 = icmp eq ptr %625, %45
   %626 = icmp eq ptr %625, null
-  %or.cond637 = or i1 %.not.i.i421, %626
-  br i1 %or.cond637, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit, label %627
+  %or.cond664 = or i1 %.not.i.i421, %626
+  br i1 %or.cond664, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit, label %627
 
 627:                                              ; preds = %._crit_edge561
   call void @_ZdaPv(ptr noundef nonnull %625) #29
@@ -1411,8 +1411,8 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit:             ; preds = %627, %._crit_edge56
   %628 = load ptr, ptr %4, align 8, !tbaa !68
   %.not.i.i422 = icmp eq ptr %628, %scevgep.i
   %629 = icmp eq ptr %628, null
-  %or.cond638 = or i1 %.not.i.i422, %629
-  br i1 %or.cond638, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit, label %630
+  %or.cond665 = or i1 %.not.i.i422, %629
+  br i1 %or.cond665, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit, label %630
 
 630:                                              ; preds = %_ZN2cv10AutoBufferIsLm520EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %628) #29
@@ -1446,8 +1446,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferI
   %638 = load ptr, ptr %5, align 8, !tbaa !22
   %.not.i.i423 = icmp eq ptr %638, %45
   %639 = icmp eq ptr %638, null
-  %or.cond639 = or i1 %.not.i.i423, %639
-  br i1 %or.cond639, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit424, label %640
+  %or.cond666 = or i1 %.not.i.i423, %639
+  br i1 %or.cond666, label %_ZN2cv10AutoBufferIsLm520EED2Ev.exit424, label %640
 
 640:                                              ; preds = %637
   call void @_ZdaPv(ptr noundef nonnull %638) #29
@@ -1459,8 +1459,8 @@ _ZN2cv10AutoBufferIsLm520EED2Ev.exit424:          ; preds = %640, %637, %77
   %641 = load ptr, ptr %4, align 8, !tbaa !68
   %.not.i.i425 = icmp eq ptr %641, %scevgep.i
   %642 = icmp eq ptr %641, null
-  %or.cond640 = or i1 %.not.i.i425, %642
-  br i1 %or.cond640, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit426, label %643
+  %or.cond667 = or i1 %.not.i.i425, %642
+  br i1 %or.cond667, label %_ZN2cv10AutoBufferINS_6Point_IfEELm136EED2Ev.exit426, label %643
 
 643:                                              ; preds = %_ZN2cv10AutoBufferIsLm520EED2Ev.exit424
   call void @_ZdaPv(ptr noundef nonnull %641) #29
@@ -3302,7 +3302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %_Z
   br i1 %.not28.i.i, label %262, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i: ; preds = %251
-  %261 = shl nuw i64 %252, 3
+  %261 = shl nuw nsw i64 %252, 3
   call void @llvm.memset.p0.i64(ptr align 4 %244, i8 0, i64 %261, i1 false), !tbaa !67
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %244, i64 %261
   store ptr %scevgep.i.i.i.i.i, ptr %243, align 8, !tbaa !145
@@ -3395,7 +3395,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %280, %278, %276, 
   br i1 %.not28.i.i199, label %300, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i200
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i200: ; preds = %289
-  %299 = shl nuw i64 %290, 3
+  %299 = shl nuw nsw i64 %290, 3
   call void @llvm.memset.p0.i64(ptr align 4 %282, i8 0, i64 %299, i1 false), !tbaa !67
   %scevgep.i.i.i.i.i201 = getelementptr i8, ptr %282, i64 %299
   store ptr %scevgep.i.i.i.i.i201, ptr %281, align 8, !tbaa !145
@@ -3488,7 +3488,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit214: ; preds = %318, %316, %31
 335:                                              ; preds = %326
   store i8 0, ptr %320, align 1, !tbaa !34
   %336 = getelementptr inbounds nuw i8, ptr %320, i64 1
-  %337 = add i64 %327, -1
+  %337 = add nsw i64 %327, -1
   %338 = icmp eq i64 %337, 0
   br i1 %338, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i, label %339
 
@@ -3752,7 +3752,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %_ZSt27__uninitializ
   br i1 %.not28.i.i221, label %444, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i222
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i222: ; preds = %433
-  %443 = shl nuw i64 %434, 3
+  %443 = shl nuw nsw i64 %434, 3
   call void @llvm.memset.p0.i64(ptr align 4 %426, i8 0, i64 %443, i1 false), !tbaa !67
   %scevgep.i.i.i.i.i223 = getelementptr i8, ptr %426, i64 %443
   store ptr %scevgep.i.i.i.i.i223, ptr %243, align 8, !tbaa !145
@@ -3809,12 +3809,12 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i233: 
   %459 = phi i64 [ %404, %._crit_edge.thread ], [ %431, %._crit_edge ]
   %460 = phi ptr [ %400, %._crit_edge.thread ], [ %427, %._crit_edge ]
   %461 = phi ptr [ %399, %._crit_edge.thread ], [ %426, %._crit_edge ]
-  %.2106.lcssa314 = phi i64 [ 0, %._crit_edge.thread ], [ %425, %._crit_edge ]
-  %462 = icmp ugt i64 %459, %.2106.lcssa314
+  %.2106.lcssa372 = phi i64 [ 0, %._crit_edge.thread ], [ %425, %._crit_edge ]
+  %462 = icmp ugt i64 %459, %.2106.lcssa372
   br i1 %462, label %463, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit236
 
 463:                                              ; preds = %458
-  %464 = getelementptr inbounds nuw %"class.cv::Point_", ptr %460, i64 %.2106.lcssa314
+  %464 = getelementptr inbounds nuw %"class.cv::Point_", ptr %460, i64 %.2106.lcssa372
   %.not.i4.i220 = icmp eq ptr %461, %464
   br i1 %.not.i4.i220, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit236, label %465
 
@@ -3823,18 +3823,18 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i233: 
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit236
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit236: ; preds = %465, %463, %458, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i233, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i222
-  %.2106.lcssa313 = phi i64 [ %.2106.lcssa314, %465 ], [ %.2106.lcssa314, %463 ], [ %.2106.lcssa314, %458 ], [ %425, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i233 ], [ %425, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i222 ]
+  %.2106.lcssa371 = phi i64 [ %.2106.lcssa372, %465 ], [ %.2106.lcssa372, %463 ], [ %.2106.lcssa372, %458 ], [ %425, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i233 ], [ %425, %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i222 ]
   %466 = load ptr, ptr %281, align 8, !tbaa !145
   %467 = load ptr, ptr %9, align 8, !tbaa !147
   %468 = ptrtoint ptr %466 to i64
   %469 = ptrtoint ptr %467 to i64
   %470 = sub i64 %468, %469
   %471 = ashr exact i64 %470, 3
-  %472 = icmp ult i64 %471, %.2106.lcssa313
+  %472 = icmp ult i64 %471, %.2106.lcssa371
   br i1 %472, label %473, label %498
 
 473:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit236
-  %474 = sub nuw nsw i64 %.2106.lcssa313, %471
+  %474 = sub nuw nsw i64 %.2106.lcssa371, %471
   %475 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %476 = load ptr, ptr %475, align 8, !tbaa !148
   %477 = ptrtoint ptr %476 to i64
@@ -3849,7 +3849,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit236: ; preds = %465, %463, %45
   br i1 %.not28.i.i238, label %484, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i239
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i239: ; preds = %473
-  %483 = shl nuw i64 %474, 3
+  %483 = shl nuw nsw i64 %474, 3
   call void @llvm.memset.p0.i64(ptr align 4 %466, i8 0, i64 %483, i1 false), !tbaa !67
   %scevgep.i.i.i.i.i240 = getelementptr i8, ptr %466, i64 %483
   store ptr %scevgep.i.i.i.i.i240, ptr %281, align 8, !tbaa !145
@@ -3910,11 +3910,11 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i250: 
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit253
 
 498:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit236
-  %499 = icmp ugt i64 %471, %.2106.lcssa313
+  %499 = icmp ugt i64 %471, %.2106.lcssa371
   br i1 %499, label %500, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit253
 
 500:                                              ; preds = %498
-  %501 = getelementptr inbounds nuw %"class.cv::Point_", ptr %467, i64 %.2106.lcssa313
+  %501 = getelementptr inbounds nuw %"class.cv::Point_", ptr %467, i64 %.2106.lcssa371
   %.not.i4.i237 = icmp eq ptr %466, %501
   br i1 %.not.i4.i237, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit253, label %502
 

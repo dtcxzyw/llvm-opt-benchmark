@@ -4044,12 +4044,12 @@ define dso_local i64 @objectComputeSize(ptr noundef %0, ptr noundef %1, i64 noun
   %281 = load ptr, ptr %260, align 8, !tbaa !82
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i64, ptr %282, align 8, !tbaa !50
-  %.not176245.not = icmp eq i64 %283, 0
-  br i1 %.not176245.not, label %284, label %.thread
+  %.not176254.not = icmp eq i64 %283, 0
+  br i1 %.not176254.not, label %284, label %.thread
 
 284:                                              ; preds = %.critedge.thread, %.critedge
-  %.0147.lcssa247 = phi i64 [ 0, %.critedge.thread ], [ %.0147.lcssa, %.critedge ]
-  %285 = add i64 %.0147.lcssa247, %268
+  %.0147.lcssa256 = phi i64 [ 0, %.critedge.thread ], [ %.0147.lcssa, %.critedge ]
+  %285 = add i64 %.0147.lcssa256, %268
   br label %299
 
 286:                                              ; preds = %.critedge
@@ -4301,12 +4301,12 @@ define dso_local noalias noundef ptr @getMemoryOverheadData() local_unnamed_addr
   %44 = icmp sgt i64 %.pre, %43
   %45 = sub i64 %.pre, %43
   %spec.select = select i1 %44, i64 %45, i64 0
-  %spec.select125 = tail call i64 @llvm.smin.i64(i64 %.pre, i64 %43)
+  %spec.select128 = tail call i64 @llvm.smin.i64(i64 %.pre, i64 %43)
   br label %46
 
 46:                                               ; preds = %42, %0
   %.sink = phi i64 [ 0, %0 ], [ %spec.select, %42 ]
-  %.pre.sink = phi i64 [ %.pre, %0 ], [ %spec.select125, %42 ]
+  %.pre.sink = phi i64 [ %.pre, %0 ], [ %spec.select128, %42 ]
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %.sink, ptr %47, align 8, !tbaa !155
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24

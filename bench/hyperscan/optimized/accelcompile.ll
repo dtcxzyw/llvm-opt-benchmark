@@ -146,7 +146,7 @@ _ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread17: ; preds = %
 _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %11
   %37 = trunc nuw i32 %31 to i8
   %.not.i = icmp eq i64 %29, 0
-  br i1 %.not.i, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader, label %38
+  br i1 %.not.i, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader, label %38
 
 38:                                               ; preds = %_ZN3ue29verify_u8IjEEhT_.exit.i
   %39 = icmp eq i64 %26, 0
@@ -300,23 +300,23 @@ _ZN3ue2L16isCaselessDoubleERKNS_8flat_setISt4pairIhhESt4lessIS2_ESaIS2_EEE.exit.
 
 _ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread: ; preds = %.critedge.i, %108
   store i8 0, ptr %1, align 16
-  br label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader
+  br label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader
 
 _ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit: ; preds = %108
   %.pr14.pr.pre = load i8, ptr %1, align 16
   %115 = icmp eq i8 %.pr14.pr.pre, 0
-  br i1 %115, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader, label %_ZN3ue2L16buildAccelSingleERKNS_9AccelInfoEP8AccelAux.exit
+  br i1 %115, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader, label %_ZN3ue2L16buildAccelSingleERKNS_9AccelInfoEP8AccelAux.exit
 
-_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader: ; preds = %_ZN3ue29verify_u8IjEEhT_.exit.i, %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread, %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit
-  br label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40
+_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader: ; preds = %_ZN3ue29verify_u8IjEEhT_.exit.i, %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread, %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit
+  br label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47
 
-116:                                              ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40
+116:                                              ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47
   %117 = add nuw nsw i64 %.0813.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %117, 3
-  br i1 %exitcond.not.i.i.i, label %_ZNK3ue29CharReach3allEv.exit.i, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40, !llvm.loop !63
+  br i1 %exitcond.not.i.i.i, label %_ZNK3ue29CharReach3allEv.exit.i, label %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47, !llvm.loop !63
 
-_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40: ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader, %116
-  %.0813.i.i.i = phi i64 [ %117, %116 ], [ 0, %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40.preheader ]
+_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47: ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader, %116
+  %.0813.i.i.i = phi i64 [ %117, %116 ], [ 0, %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47.preheader ]
   %118 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %.0813.i.i.i
   %119 = load i64, ptr %118, align 8
   %.not.i.i.i12 = icmp eq i64 %119, -1
@@ -328,7 +328,7 @@ _ZNK3ue29CharReach3allEv.exit.i:                  ; preds = %116
   %122 = icmp eq i64 %121, -1
   br i1 %122, label %_ZN3ue2L16buildAccelSingleERKNS_9AccelInfoEP8AccelAux.exit, label %_ZNK3ue29CharReach3allEv.exit.thread.i
 
-_ZNK3ue29CharReach3allEv.exit.thread.loopexit.i:  ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread40
+_ZNK3ue29CharReach3allEv.exit.thread.loopexit.i:  ; preds = %_ZN3ue2L16buildAccelDoubleERKNS_9AccelInfoEP8AccelAux.exit.thread47
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK3ue29CharReach3allEv.exit.thread.i

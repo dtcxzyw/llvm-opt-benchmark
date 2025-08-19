@@ -383,13 +383,13 @@ Vec_IntPush.exit26:                               ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit26
-  %.sink30 = phi i32 [ %83, %Vec_IntPush.exit26 ], [ %41, %Vec_IntPush.exit ]
-  %.sink28 = phi ptr [ %82, %Vec_IntPush.exit26 ], [ %40, %Vec_IntPush.exit ]
+  %.sink35 = phi i32 [ %83, %Vec_IntPush.exit26 ], [ %41, %Vec_IntPush.exit ]
+  %.sink33 = phi ptr [ %82, %Vec_IntPush.exit26 ], [ %40, %Vec_IntPush.exit ]
   %.sink.in.in = phi i64 [ %55, %Vec_IntPush.exit26 ], [ %13, %Vec_IntPush.exit ]
   %.sink.in = sdiv exact i64 %.sink.in.in, 12
   %.sink = trunc i64 %.sink.in to i32
-  %85 = sext i32 %.sink30 to i64
-  %86 = getelementptr inbounds i32, ptr %.sink28, i64 %85
+  %85 = sext i32 %.sink35 to i64
+  %86 = getelementptr inbounds i32, ptr %.sink33, i64 %85
   store i32 %.sink, ptr %86, align 4, !tbaa !46
   br label %87
 
@@ -1062,11 +1062,11 @@ Vec_IntPush.exit114:                              ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_IntPush.exit114, %Vec_IntPush.exit
-  %.sink142 = phi i32 [ %153, %Vec_IntPush.exit ], [ %184, %Vec_IntPush.exit114 ]
-  %.sink140 = phi ptr [ %152, %Vec_IntPush.exit ], [ %183, %Vec_IntPush.exit114 ]
+  %.sink148 = phi i32 [ %153, %Vec_IntPush.exit ], [ %184, %Vec_IntPush.exit114 ]
+  %.sink146 = phi ptr [ %152, %Vec_IntPush.exit ], [ %183, %Vec_IntPush.exit114 ]
   %.sink = phi i32 [ %128, %Vec_IntPush.exit ], [ %159, %Vec_IntPush.exit114 ]
-  %186 = sext i32 %.sink142 to i64
-  %187 = getelementptr inbounds i32, ptr %.sink140, i64 %186
+  %186 = sext i32 %.sink148 to i64
+  %187 = getelementptr inbounds i32, ptr %.sink146, i64 %186
   store i32 %.sink, ptr %187, align 4, !tbaa !46
   br label %188
 
@@ -1414,8 +1414,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %83
-  %.sink62 = phi i64 [ %88, %83 ], [ %99, %.sink.split.sink.split ]
-  %100 = or i64 %.sink62, 4611686018427387904
+  %.sink65 = phi i64 [ %88, %83 ], [ %99, %.sink.split.sink.split ]
+  %100 = or i64 %.sink65, 4611686018427387904
   store i64 %100, ptr %78, align 4
   br label %101
 
@@ -1822,7 +1822,7 @@ define void @Txs_ManPropagatePrio(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Txs_ManFindMinId(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define range(i32 -2147483648, 2147483647) i32 @Txs_ManFindMinId(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %4, align 4, !tbaa !12
   %5 = icmp sgt i32 %.val, 0
@@ -2277,8 +2277,8 @@ define void @Txs_ManVerify(ptr noundef readonly captures(none) %0, ptr noundef r
   %.not57 = icmp eq i32 %65, 0
   %66 = load i64, ptr %64, align 4
   %67 = and i64 %66, -4611686019501129729
-  %.114 = select i1 %.not57, i64 4611686018427387904, i64 1073741824
-  %68 = or disjoint i64 %67, %.114
+  %.115 = select i1 %.not57, i64 4611686018427387904, i64 1073741824
+  %68 = or disjoint i64 %67, %.115
   store i64 %68, ptr %64, align 4
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %.val61 = load i32, ptr %29, align 4, !tbaa !12

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @l_Lean_NameSet_empty = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_CollectAxioms_collect___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_CollectAxioms_collect___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not64 = icmp eq i64 %1, %2
   br i1 %.not64, label %.._crit_edge_crit_edge, label %.lr.ph
 
@@ -228,7 +228,7 @@ lean_dec.exit35:                                  ; preds = %72, %71, %69, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Lean_CollectAxioms_collect(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Lean_CollectAxioms_collect(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = ptrtoint ptr %5 to i64
@@ -6000,7 +6000,7 @@ declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @l_Lean_Expr_getUsedConstants(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_CollectAxioms_collect___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_CollectAxioms_collect___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %7, align 8, !tbaa !12
   %8 = ptrtoint ptr %1 to i64
@@ -6519,18 +6519,18 @@ _init_l_Lean_collectAxioms___rarg___lambda__1___closed__2.exit: ; preds = %lean_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_collectAxioms___rarg___lambda__1___closed__2.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %37, %_init_l_Lean_collectAxioms___rarg___lambda__1___closed__2.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink23 = phi ptr [ %4, %3 ], [ %37, %_init_l_Lean_collectAxioms___rarg___lambda__1___closed__2.exit ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !4
   store i32 131096, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %41, align 8, !tbaa !10
-  %42 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %42, align 8, !tbaa !10
   br label %43
 
 43:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 

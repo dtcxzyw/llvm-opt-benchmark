@@ -806,8 +806,8 @@ get_unary.exit.i.i.i:                             ; preds = %378, %367
   br i1 %392, label %read_high_coeffs.exit.thread.i.i, label %393
 
 393:                                              ; preds = %391
-  %mulshl.i.i.i = shl i32 %.fr.i.i.i, %.0112.i.i.i
-  %394 = sub i32 %mulshl.i.i.i, %.fr.i.i.i
+  %mulshl.i.i.i = shl nuw nsw i32 %.fr.i.i.i, %.0112.i.i.i
+  %394 = sub nsw i32 %mulshl.i.i.i, %.fr.i.i.i
   %395 = lshr i32 %spec.select.i.i.i.i.i, 3
   %396 = zext nneg i32 %395 to i64
   %397 = getelementptr inbounds nuw i8, ptr %335, i64 %396
@@ -815,7 +815,7 @@ get_unary.exit.i.i.i:                             ; preds = %378, %367
   %399 = tail call i32 @llvm.bswap.i32(i32 %398)
   %400 = and i32 %spec.select.i.i.i.i.i, 7
   %401 = shl i32 %399, %400
-  %402 = sub nsw i32 32, %.0112.i.i.i
+  %402 = sub nuw nsw i32 32, %.0112.i.i.i
   %403 = lshr i32 %401, %402
   %404 = icmp ult i32 %403, 2
   br i1 %404, label %405, label %409
@@ -831,14 +831,14 @@ get_unary.exit.i.i.i:                             ; preds = %378, %367
   %410 = add i32 %spec.select.i.i.i.i.i, %.0112.i.i.i
   %411 = tail call i32 @llvm.umin.i32(i32 %344, i32 %410)
   store i32 %411, ptr %273, align 8, !tbaa !62
-  %412 = add i32 %394, -1
-  %413 = add i32 %412, %403
+  %412 = add nsw i32 %394, -1
+  %413 = add nsw i32 %412, %403
   br label %414
 
 414:                                              ; preds = %409, %405, %380
   %storemerge32.i.i.i = phi i32 [ %390, %380 ], [ %408, %405 ], [ %411, %409 ]
   %.0115.i.i.i = phi i32 [ %388, %380 ], [ %394, %405 ], [ %413, %409 ]
-  %415 = add i32 %.0115.i.i.i, %.011025.i.i.i
+  %415 = add nsw i32 %.0115.i.i.i, %.011025.i.i.i
   %416 = icmp eq i32 %415, 0
   br i1 %416, label %427, label %417
 
@@ -856,7 +856,7 @@ get_unary.exit.i.i.i:                             ; preds = %378, %367
 
 427:                                              ; preds = %417, %414
   %.1113.i.i.i = phi i16 [ %426, %417 ], [ 0, %414 ]
-  %428 = add i32 %.012222.i.i.i, 1
+  %428 = add nuw i32 %.012222.i.i.i, 1
   %429 = add i32 %.011823.i.i.i, 1
   %430 = zext i32 %.011823.i.i.i to i64
   %431 = getelementptr inbounds nuw i16, ptr %.011124.i.i.i, i64 %430
@@ -992,9 +992,9 @@ get_unary.exit170.thread.i.i.i:                   ; preds = %467, %get_unary.exi
   %509 = and i32 %spec.select.i.i.i.i, 7
   %510 = shl i32 %508, %509
   %..i70.i.i = select i1 %.not144.i.i.i, i32 24, i32 16
-  %.47.i.i.i = select i1 %.not144.i.i.i, i32 8, i32 16
+  %.63.i.i.i = select i1 %.not144.i.i.i, i32 8, i32 16
   %511 = lshr i32 %510, %..i70.i.i
-  %512 = add i32 %.47.i.i.i, %spec.select.i.i.i.i
+  %512 = add i32 %.63.i.i.i, %spec.select.i.i.i.i
   %513 = tail call i32 @llvm.umin.i32(i32 %344, i32 %512)
   store i32 %513, ptr %273, align 8, !tbaa !62
   %514 = shl nuw nsw i32 %455, 3
@@ -1102,7 +1102,7 @@ read_highpass.exit.i:                             ; preds = %537, %252
   %wide.trip.count.i114.i = zext nneg i32 %542 to i64
   %scevgep = getelementptr i8, ptr %541, i64 2
   %548 = shl nuw nsw i64 %wide.trip.count.i114.i, 1
-  %scevgep442 = getelementptr i8, ptr %541, i64 %548
+  %scevgep485 = getelementptr i8, ptr %541, i64 %548
   %549 = shl nsw i64 %132, 1
   %550 = getelementptr i8, ptr %179, i64 %548
   br label %.lver.check
@@ -1112,14 +1112,14 @@ read_highpass.exit.i:                             ; preds = %537, %252
   %.02731.us.i.i = phi i32 [ %571, %._crit_edge.us.i.i ], [ 0, %.lr.ph.us.preheader.i.i ]
   %.02830.us.i.i = phi ptr [ %570, %._crit_edge.us.i.i ], [ %179, %.lr.ph.us.preheader.i.i ]
   %551 = mul i64 %549, %indvar
-  %scevgep443 = getelementptr i8, ptr %550, i64 %551
+  %scevgep486 = getelementptr i8, ptr %550, i64 %551
   %552 = load i16, ptr %541, align 2, !tbaa !42
   %553 = load i16, ptr %.02830.us.i.i, align 2, !tbaa !42
   %554 = add i16 %553, %552
   store i16 %554, ptr %541, align 2, !tbaa !42
   store i16 %554, ptr %.02830.us.i.i, align 2, !tbaa !42
-  %bound0 = icmp ult ptr %scevgep, %scevgep443
-  %bound1 = icmp ult ptr %.02830.us.i.i, %scevgep442
+  %bound0 = icmp ult ptr %scevgep, %scevgep486
+  %bound1 = icmp ult ptr %.02830.us.i.i, %scevgep485
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %.ph.lver.orig, label %.ph
 
@@ -1946,7 +1946,7 @@ get_unary.exit:                                   ; preds = %17
   %mulshl = shl nuw nsw i32 %.05.i, %.0.i.lcssa
   %50 = xor i32 %.05.i, -1
   %51 = add nsw i32 %mulshl, %50
-  %52 = add i32 %51, %40
+  %52 = add nsw i32 %51, %40
   br label %63
 
 get_unary.exit.thread:                            ; preds = %28, %get_unary.exit
@@ -1979,7 +1979,7 @@ get_unary.exit.thread:                            ; preds = %28, %get_unary.exit
   %74 = zext i32 %.08025 to i64
   %75 = getelementptr inbounds nuw i16, ptr %.08324, i64 %74
   store i16 %72, ptr %75, align 2, !tbaa !42
-  %76 = add i32 %.07926, 1
+  %76 = add nuw i32 %.07926, 1
   %77 = icmp eq i32 %73, %2
   %spec.select100.idx = select i1 %77, i64 %3, i64 0
   %spec.select100 = getelementptr inbounds i16, ptr %.08324, i64 %spec.select100.idx

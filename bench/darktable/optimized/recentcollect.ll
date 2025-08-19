@@ -421,9 +421,9 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
   %37 = load i32, ptr %9, align 4, !tbaa !69
   %switch.selectcmp.i = icmp eq i32 %37, 1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.26, ptr @.str.27
-  %switch.selectcmp91.i = icmp eq i32 %37, 0
-  %switch.select92.i = select i1 %switch.selectcmp91.i, ptr @.str.25, ptr %switch.select.i
-  %38 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.select92.i, i32 noundef 5) #10
+  %switch.selectcmp92.i = icmp eq i32 %37, 0
+  %switch.select93.i = select i1 %switch.selectcmp92.i, ptr @.str.25, ptr %switch.select.i
+  %38 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.select93.i, i32 noundef 5) #10
   %39 = call i64 @g_strlcpy(ptr noundef %.05778.i, ptr noundef %38, i64 noundef %.05479.i) #10
   %sext67.i = shl i64 %39, 32
   %40 = ashr exact i64 %sext67.i, 32

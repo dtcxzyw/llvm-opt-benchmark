@@ -213,7 +213,7 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
   %53 = call i32 @setsockopt(i32 noundef %50, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #9
   %.not27 = icmp eq i32 %53, 0
   %54 = load i32, ptr %0, align 4, !tbaa !3
-  br i1 %.not27, label %55, label %.sink.split42
+  br i1 %.not27, label %55, label %.sink.split44
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %.032, i64 24
@@ -226,16 +226,16 @@ define hidden range(i32 -82, 1) i32 @mbedtls_net_bind(ptr noundef captures(none)
 
 61:                                               ; preds = %55
   %62 = load i32, ptr %0, align 4, !tbaa !3
-  br label %.sink.split42
+  br label %.sink.split44
 
-.sink.split42:                                    ; preds = %52, %61
-  %.sink43 = phi i32 [ %62, %61 ], [ %54, %52 ]
+.sink.split44:                                    ; preds = %52, %61
+  %.sink45 = phi i32 [ %62, %61 ], [ %54, %52 ]
   %.2.ph = phi i32 [ -70, %61 ], [ -66, %52 ]
-  %63 = call i32 @close(i32 noundef %.sink43) #9
+  %63 = call i32 @close(i32 noundef %.sink45) #9
   br label %64
 
-64:                                               ; preds = %.sink.split42, %.lr.ph.split
-  %.2 = phi i32 [ -66, %.lr.ph.split ], [ %.2.ph, %.sink.split42 ]
+64:                                               ; preds = %.sink.split44, %.lr.ph.split
+  %.2 = phi i32 [ -66, %.lr.ph.split ], [ %.2.ph, %.sink.split44 ]
   %65 = getelementptr inbounds nuw i8, ptr %.032, i64 40
   %.0 = load ptr, ptr %65, align 8, !tbaa !15
   %.not26 = icmp eq ptr %.0, null

@@ -821,9 +821,9 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1291, ptr noundef nonnull @.str.30, ptr noundef nonnull %308, i64 noundef %302) #12
   %309 = add nuw nsw i64 %304, 1
   %310 = icmp ugt i64 %205, %309
-  br i1 %310, label %313, label %.thread679.i
+  br i1 %310, label %313, label %.thread718.i
 
-.thread679.i:                                     ; preds = %307
+.thread718.i:                                     ; preds = %307
   %311 = getelementptr inbounds nuw i8, ptr %204, i64 %309
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 2
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1318, ptr noundef nonnull @.str.31, ptr noundef nonnull %312, i64 noundef 0) #12
@@ -866,10 +866,10 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %.0458636.ph.i = phi i32 [ %.0458636.i, %379 ], [ 0, %325 ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.thread686.i, %.lr.ph.outer.i
-  %.1444639.i = phi i64 [ %382, %.thread686.i ], [ %.1444639.ph.i, %.lr.ph.outer.i ]
-  %.0449638.i = phi ptr [ %383, %.thread686.i ], [ %.0449638.ph.i, %.lr.ph.outer.i ]
-  %.0458636.i = phi i32 [ 1, %.thread686.i ], [ %.0458636.ph.i, %.lr.ph.outer.i ]
+.lr.ph.i:                                         ; preds = %.thread725.i, %.lr.ph.outer.i
+  %.1444639.i = phi i64 [ %382, %.thread725.i ], [ %.1444639.ph.i, %.lr.ph.outer.i ]
+  %.0449638.i = phi ptr [ %383, %.thread725.i ], [ %.0449638.ph.i, %.lr.ph.outer.i ]
+  %.0458636.i = phi i32 [ 1, %.thread725.i ], [ %.0458636.ph.i, %.lr.ph.outer.i ]
   %327 = icmp ult i64 %.1444639.i, 4
   br i1 %327, label %328, label %330
 
@@ -930,7 +930,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 %333
   %350 = tail call i32 @mbedtls_ssl_parse_sig_alg_ext(ptr noundef nonnull %0, ptr noundef nonnull %348, ptr noundef nonnull %349) #12
   %.not542.i = icmp eq i32 %350, 0
-  br i1 %.not542.i, label %.thread686.i, label %ssl_parse_client_hello.exit
+  br i1 %.not542.i, label %.thread725.i, label %ssl_parse_client_hello.exit
 
 351:                                              ; preds = %338
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1379, ptr noundef nonnull @.str.35) #12
@@ -1003,30 +1003,30 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %.not520.i = icmp eq i64 %380, 0
   br i1 %.not520.i, label %._crit_edge.i, label %.lr.ph.outer.i, !llvm.loop !68
 
-.thread686.i:                                     ; preds = %347
+.thread725.i:                                     ; preds = %347
   %382 = sub i64 %.1444639.i, %334
   %383 = getelementptr inbounds nuw i8, ptr %.0449638.i, i64 %334
-  %.not520689.i = icmp eq i64 %382, 0
-  br i1 %.not520689.i, label %._crit_edge.thread692.i, label %.lr.ph.i, !llvm.loop !68
+  %.not520728.i = icmp eq i64 %382, 0
+  br i1 %.not520728.i, label %._crit_edge.thread731.i, label %.lr.ph.i, !llvm.loop !68
 
 ._crit_edge.i:                                    ; preds = %379
   %384 = icmp eq i32 %.0458636.i, 0
-  br i1 %384, label %._crit_edge.thread.i, label %._crit_edge.thread692.i
+  br i1 %384, label %._crit_edge.thread.i, label %._crit_edge.thread731.i
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %325, %.thread679.i
-  %.0455.lcssa685.i = phi i32 [ %.2457.i, %._crit_edge.i ], [ 0, %325 ], [ 0, %.thread679.i ]
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %325, %.thread718.i
+  %.0455.lcssa724.i = phi i32 [ %.2457.i, %._crit_edge.i ], [ 0, %325 ], [ 0, %.thread718.i ]
   %385 = load ptr, ptr %102, align 8, !tbaa !45
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %386, ptr noundef nonnull align 2 dereferenceable(6) @__const.ssl_parse_client_hello.default_sig_algs, i64 6, i1 false)
-  br label %._crit_edge.thread692.i
+  br label %._crit_edge.thread731.i
 
-._crit_edge.thread692.i:                          ; preds = %.thread686.i, %._crit_edge.thread.i, %._crit_edge.i
-  %.0455.lcssa684.i = phi i32 [ %.0455.lcssa685.i, %._crit_edge.thread.i ], [ %.2457.i, %._crit_edge.i ], [ %.0455637.ph.i, %.thread686.i ]
+._crit_edge.thread731.i:                          ; preds = %.thread725.i, %._crit_edge.thread.i, %._crit_edge.i
+  %.0455.lcssa723.i = phi i32 [ %.0455.lcssa724.i, %._crit_edge.thread.i ], [ %.2457.i, %._crit_edge.i ], [ %.0455637.ph.i, %.thread725.i ]
   br label %387
 
-387:                                              ; preds = %400, %._crit_edge.thread692.i
-  %.0435642.i = phi i64 [ 0, %._crit_edge.thread692.i ], [ %401, %400 ]
-  %.0446641.i = phi ptr [ %299, %._crit_edge.thread692.i ], [ %402, %400 ]
+387:                                              ; preds = %400, %._crit_edge.thread731.i
+  %.0435642.i = phi i64 [ 0, %._crit_edge.thread731.i ], [ %401, %400 ]
+  %.0446641.i = phi ptr [ %299, %._crit_edge.thread731.i ], [ %402, %400 ]
   %388 = load i8, ptr %.0446641.i, align 1, !tbaa !38
   %389 = icmp eq i8 %388, 0
   br i1 %389, label %390, label %400
@@ -1041,14 +1041,14 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1532, ptr noundef nonnull @.str.44) #12
   %395 = load i32, ptr %22, align 4, !tbaa !34
   %396 = icmp eq i32 %395, 1
-  br i1 %396, label %397, label %.thread701.i
+  br i1 %396, label %397, label %.thread740.i
 
 397:                                              ; preds = %394
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1536, ptr noundef nonnull @.str.45) #12
   %398 = tail call i32 @mbedtls_ssl_send_alert_message(ptr noundef nonnull %0, i8 noundef zeroext 2, i8 noundef zeroext 40) #12
   br label %ssl_parse_client_hello.exit
 
-.thread701.i:                                     ; preds = %394
+.thread740.i:                                     ; preds = %394
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i32 1, ptr %399, align 8, !tbaa !70
   br label %..thread591_crit_edge.i
@@ -1077,16 +1077,16 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %.critedge551.i
 
 410:                                              ; preds = %404, %.loopexit600.i
-  %.pr700.i = load i32, ptr %22, align 4, !tbaa !34
-  %411 = icmp eq i32 %.pr700.i, 1
+  %.pr739.i = load i32, ptr %22, align 4, !tbaa !34
+  %411 = icmp eq i32 %.pr739.i, 1
   br i1 %411, label %412, label %..thread591_crit_edge.i
 
-..thread591_crit_edge.i:                          ; preds = %410, %.thread701.i
+..thread591_crit_edge.i:                          ; preds = %410, %.thread740.i
   %.pre675.i = load ptr, ptr %0, align 8, !tbaa !3
   br label %.thread591.i
 
 412:                                              ; preds = %410
-  %413 = icmp eq i32 %.0455.lcssa684.i, 0
+  %413 = icmp eq i32 %.0455.lcssa723.i, 0
   %or.cond6.i = select i1 %.not522.i, i1 %413, i1 false
   br i1 %or.cond6.i, label %414, label %415
 
@@ -1110,7 +1110,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %.critedge551.i
 
 422:                                              ; preds = %417
-  %423 = icmp eq i32 %.0455.lcssa684.i, 1
+  %423 = icmp eq i32 %.0455.lcssa723.i, 1
   br i1 %423, label %424, label %.thread591.i
 
 424:                                              ; preds = %422
@@ -1164,11 +1164,11 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 .preheaderthread-pre-split.i:                     ; preds = %._crit_edge654.i
   %443 = getelementptr inbounds nuw i8, ptr %.1447656.i, i64 2
-  %.pr697.i = load i32, ptr %437, align 4, !tbaa !77
+  %.pr736.i = load i32, ptr %437, align 4, !tbaa !77
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader593.i, %.preheaderthread-pre-split.i
-  %444 = phi i32 [ %.pr697.i, %.preheaderthread-pre-split.i ], [ %441, %.preheader593.i ]
+  %444 = phi i32 [ %.pr736.i, %.preheaderthread-pre-split.i ], [ %441, %.preheader593.i ]
   %.0428658.i = phi i32 [ %.1429.lcssa.i, %.preheaderthread-pre-split.i ], [ 0, %.preheader593.i ]
   %.0439657.i = phi i64 [ %456, %.preheaderthread-pre-split.i ], [ 0, %.preheader593.i ]
   %.1447656.i = phi ptr [ %443, %.preheaderthread-pre-split.i ], [ %299, %.preheader593.i ]
@@ -2504,11 +2504,11 @@ ssl_prepare_server_key_exchange.exit.thread.i:    ; preds = %mbedtls_ssl_own_key
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %1083, %mbedtls_ssl_ciphersuite_uses_ecdhe.exit.thread.i.i
-  %.pre6567.i = load ptr, ptr %902, align 8, !tbaa !87
+  %.pre6595.i = load ptr, ptr %902, align 8, !tbaa !87
   br label %1102
 
 1102:                                             ; preds = %.sink.split.i, %ssl_prepare_server_key_exchange.exit.thread.i
-  %1103 = phi ptr [ %.pre65.i, %ssl_prepare_server_key_exchange.exit.thread.i ], [ %.pre6567.i, %.sink.split.i ]
+  %1103 = phi ptr [ %.pre65.i, %ssl_prepare_server_key_exchange.exit.thread.i ], [ %.pre6595.i, %.sink.split.i ]
   %1104 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 22, ptr %1104, align 8, !tbaa !91
   store i8 12, ptr %1103, align 1, !tbaa !38
@@ -2610,8 +2610,8 @@ mbedtls_ssl_get_sig_algs.exit.i:                  ; preds = %1141, %1137, %1130
   br i1 %1147, label %ssl_write_certificate_request.exit, label %.preheader.i39
 
 .preheader.i39:                                   ; preds = %mbedtls_ssl_get_sig_algs.exit.i, %1141
-  %.0.i110139.i = phi ptr [ %1146, %mbedtls_ssl_get_sig_algs.exit.i ], [ %1143, %1141 ]
-  %1148 = load i16, ptr %.0.i110139.i, align 2, !tbaa !122
+  %.0.i110148.i = phi ptr [ %1146, %mbedtls_ssl_get_sig_algs.exit.i ], [ %1143, %1141 ]
+  %1148 = load i16, ptr %.0.i110148.i, align 2, !tbaa !122
   %.not101122.i = icmp eq i16 %1148, 0
   br i1 %.not101122.i, label %._crit_edge.i41, label %.lr.ph.i40
 
@@ -2621,7 +2621,7 @@ mbedtls_ssl_get_sig_algs.exit.i:                  ; preds = %1141, %1137, %1130
 
 1150:                                             ; preds = %mbedtls_ssl_sig_alg_is_supported.exit.thread.i, %.lr.ph.i40
   %1151 = phi i16 [ %1148, %.lr.ph.i40 ], [ %1165, %mbedtls_ssl_sig_alg_is_supported.exit.thread.i ]
-  %.084124.i = phi ptr [ %.0.i110139.i, %.lr.ph.i40 ], [ %1164, %mbedtls_ssl_sig_alg_is_supported.exit.thread.i ]
+  %.084124.i = phi ptr [ %.0.i110148.i, %.lr.ph.i40 ], [ %1164, %mbedtls_ssl_sig_alg_is_supported.exit.thread.i ]
   %.092123.i = phi i64 [ 0, %.lr.ph.i40 ], [ %.193.i, %mbedtls_ssl_sig_alg_is_supported.exit.thread.i ]
   %1152 = lshr i16 %1151, 8
   %1153 = zext nneg i16 %1152 to i32
@@ -2715,12 +2715,12 @@ mbedtls_ssl_sig_alg_is_supported.exit.thread.i:   ; preds = %mbedtls_ssl_sig_alg
   br i1 %.not105125.i, label %.critedge.i, label %.lr.ph130.i
 
 .lr.ph130.i:                                      ; preds = %1184, %1181, %1178, %1174
-  %.086142.i = phi ptr [ %1186, %1184 ], [ %1183, %1181 ], [ %1180, %1178 ], [ %1177, %1174 ]
+  %.086151.i = phi ptr [ %1186, %1184 ], [ %1183, %1181 ], [ %1180, %1178 ], [ %1177, %1174 ]
   %1187 = ptrtoint ptr %1117 to i64
   br label %1188
 
 1188:                                             ; preds = %1203, %.lr.ph130.i
-  %.187128.i = phi ptr [ %.086142.i, %.lr.ph130.i ], [ %1212, %1203 ]
+  %.187128.i = phi ptr [ %.086151.i, %.lr.ph130.i ], [ %1212, %1203 ]
   %.189127.i = phi ptr [ %1169, %.lr.ph130.i ], [ %1208, %1203 ]
   %.191126.i = phi i16 [ 0, %.lr.ph130.i ], [ %1210, %1203 ]
   %1189 = getelementptr inbounds nuw i8, ptr %.187128.i, i64 56
@@ -3635,10 +3635,10 @@ define internal fastcc range(i32 -32512, 1) i32 @ssl_parse_supported_groups_ext(
   br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !157
 
 .loopexit.sink.split.sink.split:                  ; preds = %10, %5, %3
-  %.sink45 = phi i32 [ 190, %3 ], [ 198, %5 ], [ 206, %10 ]
+  %.sink48 = phi i32 [ 190, %3 ], [ 198, %5 ], [ 206, %10 ]
   %.sink.ph = phi i8 [ 50, %3 ], [ 50, %5 ], [ 47, %10 ]
   %.0.ph.ph = phi i32 [ -29440, %3 ], [ -29440, %5 ], [ -26112, %10 ]
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef %.sink45, ptr noundef nonnull @.str.8) #12
+  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef %.sink48, ptr noundef nonnull @.str.8) #12
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %15
@@ -4515,9 +4515,9 @@ mbedtls_ssl_own_cert.exit.i:                      ; preds = %17
 mbedtls_ssl_own_cert.exit.thread38.i:             ; preds = %14
   %24 = load ptr, ptr %16, align 8, !tbaa !173
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %mbedtls_ssl_own_cert.exit.thread.i, label %.thread44.i
+  br i1 %25, label %mbedtls_ssl_own_cert.exit.thread.i, label %.thread53.i
 
-.thread44.i:                                      ; preds = %mbedtls_ssl_own_cert.exit.thread38.i
+.thread53.i:                                      ; preds = %mbedtls_ssl_own_cert.exit.thread38.i
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 360
   br label %mbedtls_ssl_own_key.exit.i
 
@@ -4536,9 +4536,9 @@ mbedtls_ssl_own_cert.exit.thread.i:               ; preds = %mbedtls_ssl_own_cer
   %spec.select = select i1 %.not8.i35.i, ptr %20, ptr %.pre.i
   br label %mbedtls_ssl_own_key.exit.i
 
-mbedtls_ssl_own_key.exit.i:                       ; preds = %29, %.thread44.i, %27
-  %30 = phi ptr [ %26, %.thread44.i ], [ %28, %27 ], [ %28, %29 ]
-  %.010.i37.i = phi ptr [ %16, %.thread44.i ], [ %20, %27 ], [ %spec.select, %29 ]
+mbedtls_ssl_own_key.exit.i:                       ; preds = %29, %.thread53.i, %27
+  %30 = phi ptr [ %26, %.thread53.i ], [ %28, %27 ], [ %28, %29 ]
+  %.010.i37.i = phi ptr [ %16, %.thread53.i ], [ %20, %27 ], [ %spec.select, %29 ]
   %31 = getelementptr inbounds nuw i8, ptr %.010.i37.i, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !113
   %33 = tail call i64 @mbedtls_pk_get_bitlen(ptr noundef nonnull %30) #12

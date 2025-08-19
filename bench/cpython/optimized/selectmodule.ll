@@ -894,7 +894,7 @@ update_ufd_array.exit.i:                          ; preds = %.lr.ph.i.i, %55
   %87 = call i64 @_PyDeadline_Get(i64 noundef %.046.i) #8
   store i64 %87, ptr %7, align 8, !tbaa !25
   %88 = icmp slt i64 %87, 0
-  br i1 %88, label %.thread109.i, label %89
+  br i1 %88, label %.thread120.i, label %89
 
 89:                                               ; preds = %86
   %90 = call i64 @_PyTime_AsMilliseconds(i64 noundef %87, i32 noundef 1) #8
@@ -938,7 +938,7 @@ update_ufd_array.exit.i:                          ; preds = %.lr.ph.i.i, %55
   %.not64.i = icmp eq ptr %106, null
   br i1 %.not64.i, label %select_poll_poll_impl.exit, label %.preheader85.i
 
-.thread109.i:                                     ; preds = %86
+.thread120.i:                                     ; preds = %86
   store i32 0, ptr %34, align 8, !tbaa !27
   %107 = call ptr @PyList_New(i64 noundef 0) #8
   br label %select_poll_poll_impl.exit
@@ -1042,8 +1042,8 @@ Py_DECREF.exit71.i:                               ; preds = %115, %Py_DECREF.exi
   call void @_Py_Dealloc(ptr noundef nonnull %106) #8
   br label %select_poll_poll_impl.exit
 
-select_poll_poll_impl.exit:                       ; preds = %143, %17, %20, %26, %36, %update_ufd_array.exit.thread.i, %.thread79.i, %101, %104, %.thread109.i, %.preheader85.i, %Py_DECREF.exit71.i, %147, %150
-  %.0.i = phi ptr [ null, %26 ], [ null, %36 ], [ null, %20 ], [ null, %17 ], [ null, %101 ], [ null, %104 ], [ null, %update_ufd_array.exit.thread.i ], [ null, %Py_DECREF.exit71.i ], [ null, %147 ], [ null, %150 ], [ null, %.thread79.i ], [ %106, %.preheader85.i ], [ %107, %.thread109.i ], [ %106, %143 ]
+select_poll_poll_impl.exit:                       ; preds = %143, %17, %20, %26, %36, %update_ufd_array.exit.thread.i, %.thread79.i, %101, %104, %.thread120.i, %.preheader85.i, %Py_DECREF.exit71.i, %147, %150
+  %.0.i = phi ptr [ null, %26 ], [ null, %36 ], [ null, %20 ], [ null, %17 ], [ null, %101 ], [ null, %104 ], [ null, %update_ufd_array.exit.thread.i ], [ null, %Py_DECREF.exit71.i ], [ null, %147 ], [ null, %150 ], [ null, %.thread79.i ], [ %106, %.preheader85.i ], [ %107, %.thread120.i ], [ %106, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %151
 
@@ -2581,7 +2581,7 @@ select_poll_impl.exit:                            ; preds = %2, %8, %15, %17, %2
 declare i32 @_PyTime_AsTimeval(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @seq2set(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 128)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1025) i32 @seq2set(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 128)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   store ptr null, ptr %2, align 8, !tbaa !58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false), !tbaa !25
   %4 = tail call ptr @PySequence_Fast(ptr noundef %0, ptr noundef nonnull @.str.68) #8

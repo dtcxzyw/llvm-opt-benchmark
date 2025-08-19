@@ -413,9 +413,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.sink.split
 
 .sink.split:                                      ; preds = %195, %197
-  %.sink279 = phi i32 [ 1, %197 ], [ 5, %195 ]
+  %.sink294 = phi i32 [ 1, %197 ], [ 5, %195 ]
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 292
-  store i32 %.sink279, ptr %198, align 4, !tbaa !66
+  store i32 %.sink294, ptr %198, align 4, !tbaa !66
   br label %199
 
 199:                                              ; preds = %.sink.split, %195
@@ -1351,8 +1351,8 @@ bits_read_nz_be.exit:                             ; preds = %75
   br label %bits_read_nz_be.exit319
 
 bits_read_nz_be.exit319:                          ; preds = %75, %bits_read_nz_be.exit
-  %.sroa.0.9564 = phi i1 [ %84, %bits_read_nz_be.exit ], [ true, %75 ]
-  %.sroa.104.1412561 = phi i32 [ %78, %bits_read_nz_be.exit ], [ 0, %75 ]
+  %.sroa.0.9587 = phi i1 [ %84, %bits_read_nz_be.exit ], [ true, %75 ]
+  %.sroa.104.1412584 = phi i32 [ %78, %bits_read_nz_be.exit ], [ 0, %75 ]
   %.sroa.50.10 = phi ptr [ %81, %bits_read_nz_be.exit ], [ %71, %75 ]
   %.sroa.0.10 = phi i64 [ %82, %bits_read_nz_be.exit ], [ 0, %75 ]
   %85 = phi i32 [ 48, %bits_read_nz_be.exit ], [ 0, %75 ]
@@ -1366,7 +1366,7 @@ bits_read_nz_be.exit319:                          ; preds = %75, %bits_read_nz_b
   %93 = sext i32 %92 to i64
   %94 = mul nsw i64 %58, %93
   %95 = getelementptr inbounds i16, ptr %90, i64 %94
-  br i1 %.sroa.0.9564, label %.preheader448, label %103
+  br i1 %.sroa.0.9587, label %.preheader448, label %103
 
 .preheader448:                                    ; preds = %bits_read_nz_be.exit319
   %96 = icmp slt i32 %43, 0
@@ -1388,18 +1388,18 @@ bits_read_nz_be.exit319:                          ; preds = %75, %bits_read_nz_b
   %106 = sub i64 %104, %105
   %.tr.i = trunc i64 %106 to i32
   %107 = shl i32 %.tr.i, 3
-  %108 = add nuw i32 %85, %.sroa.104.1412561
+  %108 = add nuw i32 %85, %.sroa.104.1412584
   %109 = add i32 %108, %107
-  %.neg579 = mul i32 %43, %8
-  %110 = mul i32 %.neg579, %49
+  %.neg602 = mul i32 %43, %8
+  %110 = mul i32 %.neg602, %49
   %111 = icmp slt i32 %109, %110
   br i1 %111, label %bits_init8_be.exit.thread, label %.preheader450
 
 .preheader450:                                    ; preds = %103
   %112 = icmp slt i32 %43, 0
   %113 = icmp slt i32 %49, 0
-  %or.cond572 = select i1 %112, i1 %113, i1 false
-  br i1 %or.cond572, label %.preheader445.us.preheader, label %.loopexit449
+  %or.cond595 = select i1 %112, i1 %113, i1 false
+  br i1 %or.cond595, label %.preheader445.us.preheader, label %.loopexit449
 
 .preheader445.us.preheader:                       ; preds = %.preheader450
   %wide.trip.count = zext nneg i32 %50 to i64
@@ -1474,7 +1474,7 @@ bits_read_nz_be.exit323.us:                       ; preds = %bits_priv_refill_32
   %135 = sub i64 %99, %134
   %.tr.i324 = trunc i64 %135 to i32
   %136 = shl i32 %.tr.i324, 3
-  %137 = add i32 %.sroa.74.6468, %.sroa.104.1412561
+  %137 = add i32 %.sroa.74.6468, %.sroa.104.1412584
   %138 = add i32 %137, %136
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %140, label %.critedge
@@ -1668,7 +1668,7 @@ bits_read_vlc_multi_be.exit:                      ; preds = %161, %229
   %242 = sub i64 %99, %241
   %.tr.i327 = trunc i64 %242 to i32
   %243 = shl i32 %.tr.i327, 3
-  %244 = add i32 %.sroa.74.7480, %.sroa.104.1412561
+  %244 = add i32 %.sroa.74.7480, %.sroa.104.1412584
   %245 = add i32 %244, %243
   %246 = icmp sgt i32 %245, 0
   br i1 %246, label %247, label %.critedge2

@@ -726,9 +726,9 @@ define internal ptr @phar_wrapper_open_url(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not183, label %148, label %.sink.split
 
 .sink.split:                                      ; preds = %135, %138
-  %.sink199 = phi i32 [ %142, %138 ], [ %133, %135 ]
+  %.sink211 = phi i32 [ %142, %138 ], [ %133, %135 ]
   %.sink.in = phi ptr [ %140, %138 ], [ %122, %135 ]
-  %144 = and i32 %.sink199, 65280
+  %144 = and i32 %.sink211, 65280
   %145 = icmp ne i32 %144, 0
   call void @llvm.assume(i1 %145)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !9
@@ -2831,11 +2831,11 @@ define internal range(i32 -1, 1) i32 @phar_stream_stat(ptr noundef readonly capt
   br label %16
 
 16:                                               ; preds = %3, %12
-  %.sink7 = phi i32 [ 32768, %12 ], [ 16384, %3 ]
+  %.sink8 = phi i32 [ 32768, %12 ], [ 16384, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !43
   %19 = and i32 %18, 511
-  %20 = or disjoint i32 %19, %.sink7
+  %20 = or disjoint i32 %19, %.sink8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %20, ptr %21, align 8, !tbaa !44
   %.sink53.in.i = getelementptr inbounds nuw i8, ptr %8, i64 4

@@ -71,12 +71,12 @@ define hidden void @SDL_ListRemove(ptr noundef captures(none) %0, ptr noundef re
 .lr.ph.preheader:                                 ; preds = %2
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
-  br i1 %5, label %.lr.ph._crit_edge, label %.lr.ph20
+  br i1 %5, label %.lr.ph._crit_edge, label %.lr.ph21
 
-.lr.ph:                                           ; preds = %.lr.ph20
+.lr.ph:                                           ; preds = %.lr.ph21
   %6 = load ptr, ptr %13, align 8
   %7 = icmp eq ptr %6, %1
-  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph20, !llvm.loop !5
+  br i1 %7, label %.lr.ph._crit_edge.loopexit, label %.lr.ph21, !llvm.loop !5
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -91,14 +91,14 @@ define hidden void @SDL_ListRemove(ptr noundef captures(none) %0, ptr noundef re
   tail call void @SDL_free_REAL(ptr noundef nonnull %.lcssa) #2
   br label %.loopexit
 
-.lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph21:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %11 = phi ptr [ %13, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
-.loopexit:                                        ; preds = %.lr.ph20, %2, %.lr.ph._crit_edge
+.loopexit:                                        ; preds = %.lr.ph21, %2, %.lr.ph._crit_edge
   ret void
 }
 

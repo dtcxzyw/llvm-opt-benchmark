@@ -1429,7 +1429,7 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %147 = load ptr, ptr %146, align 8
   %.not137 = icmp eq ptr %147, null
-  br i1 %.not137, label %.thread158, label %148
+  br i1 %.not137, label %.thread172, label %148
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -1440,14 +1440,14 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
   tail call void @slurm_xfree(ptr noundef nonnull %146) #14
   %.pr.pre = load ptr, ptr %140, align 8
   %152 = icmp eq ptr %.pr.pre, null
-  br i1 %152, label %.thread158, label %.thread
+  br i1 %152, label %.thread172, label %.thread
 
-.thread158:                                       ; preds = %145, %148
+.thread172:                                       ; preds = %145, %148
   %.pr = load ptr, ptr %143, align 8
   %.not139 = icmp eq ptr %.pr, null
   br i1 %.not139, label %207, label %.thread
 
-.thread:                                          ; preds = %142, %139, %.thread158, %148
+.thread:                                          ; preds = %142, %139, %.thread172, %148
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %153 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1557,7 +1557,7 @@ _get_tres_prio_weighted.exit:                     ; preds = %_get_tres_prio_weig
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %207
 
-207:                                              ; preds = %205, %.thread158
+207:                                              ; preds = %205, %.thread172
   %208 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %209 = and i64 %208, 2048
   %.not148 = icmp eq i64 %209, 0
@@ -2568,11 +2568,11 @@ define dso_local ptr @priority_p_get_priority_factors_list(i32 noundef %0) local
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 255
   %19 = icmp eq i32 %18, 0
-  %or.cond49 = select i1 %.not30, i1 true, i1 %19
+  %or.cond57 = select i1 %.not30, i1 true, i1 %19
   %20 = and i32 %17, 524288
   %.not31 = icmp eq i32 %20, 0
-  %or.cond50 = select i1 %or.cond49, i1 %.not31, i1 false
-  br i1 %or.cond50, label %21, label %.backedge
+  %or.cond58 = select i1 %or.cond57, i1 %.not31, i1 false
+  br i1 %or.cond58, label %21, label %.backedge
 
 21:                                               ; preds = %12
   %22 = and i32 %14, 1
@@ -3051,18 +3051,18 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 64
   %152 = load double, ptr %151, align 16
-  %.0145..0144212 = select i1 %.not172, double %.0145, double %.0144
-  %.0143..0142213 = select i1 %.not172, double %.0143, double %.0142
-  %.214 = select i1 %.not172, ptr %9, ptr %10
-  %153 = fadd double %.0145..0144212, %152
+  %.0145..0144222 = select i1 %.not172, double %.0145, double %.0144
+  %.0143..0142223 = select i1 %.not172, double %.0143, double %.0142
+  %.224 = select i1 %.not172, ptr %9, ptr %10
+  %153 = fadd double %.0145..0144222, %152
   store double %153, ptr %151, align 16
-  %154 = fpext double %.0143..0142213 to x86_fp80
+  %154 = fpext double %.0143..0142223 to x86_fp80
   %155 = load ptr, ptr %149, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 96
   %157 = load x86_fp80, ptr %156, align 16
   %158 = fadd x86_fp80 %157, %154
   store x86_fp80 %158, ptr %156, align 16
-  call fastcc void @_handle_qos_tres_run_secs(ptr noundef nonnull %.214, ptr noundef %8, ptr noundef nonnull %0, ptr noundef nonnull %145)
+  call fastcc void @_handle_qos_tres_run_secs(ptr noundef nonnull %.224, ptr noundef %8, ptr noundef nonnull %0, ptr noundef nonnull %145)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %143, %140
@@ -3541,7 +3541,7 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   br i1 %.not129, label %130, label %.thread
 
 130:                                              ; preds = %125
-  br i1 %.not130, label %.thread.thread162, label %131
+  br i1 %.not130, label %.thread.thread193, label %131
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 232
@@ -3555,23 +3555,23 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   br label %.thread.thread
 
 .thread:                                          ; preds = %125
-  br i1 %.not130, label %.thread.thread162, label %.thread.thread
+  br i1 %.not130, label %.thread.thread193, label %.thread.thread
 
 .thread.thread:                                   ; preds = %134, %131, %.thread
-  %.0105160 = phi i32 [ %127, %.thread ], [ %136, %134 ], [ %133, %131 ]
+  %.0105191 = phi i32 [ %127, %.thread ], [ %136, %134 ], [ %133, %131 ]
   %137 = getelementptr inbounds nuw i8, ptr %129, i64 284
   %138 = load i32, ptr %137, align 4
-  br label %.thread.thread162
+  br label %.thread.thread193
 
-.thread.thread162:                                ; preds = %130, %.thread.thread, %.thread
-  %.0105161 = phi i32 [ %.0105160, %.thread.thread ], [ %127, %.thread ], [ 0, %130 ]
+.thread.thread193:                                ; preds = %130, %.thread.thread, %.thread
+  %.0105192 = phi i32 [ %.0105191, %.thread.thread ], [ %127, %.thread ], [ 0, %130 ]
   %.0104 = phi i32 [ %138, %.thread.thread ], [ 1, %.thread ], [ 1, %130 ]
   %139 = load i32, ptr @flags, align 4
   %140 = and i32 %139, 4
   %.not135 = icmp eq i32 %140, 0
   br i1 %.not135, label %180, label %141
 
-141:                                              ; preds = %.thread.thread162
+141:                                              ; preds = %.thread.thread193
   %142 = uitofp i32 %.0104 to double
   %143 = uitofp i32 %123 to double
   %144 = fmul double %143, %142
@@ -3580,7 +3580,7 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   %147 = load ptr, ptr %5, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 32
   store double %146, ptr %148, align 8
-  %149 = uitofp i32 %.0105161 to double
+  %149 = uitofp i32 %.0105192 to double
   %150 = load ptr, ptr %5, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %152 = load double, ptr %151, align 8
@@ -3633,7 +3633,7 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   store double %179, ptr %177, align 8
   br label %221
 
-180:                                              ; preds = %.thread.thread162
+180:                                              ; preds = %.thread.thread193
   %181 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 840), align 8
   %.not136 = icmp eq i16 %181, 0
   br i1 %.not136, label %203, label %182
@@ -3644,15 +3644,15 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   %185 = uitofp i32 %184 to double
   %186 = sitofp i32 %121 to double
   %187 = fdiv double %185, %186
-  %.sink168 = select i1 %183, double %187, double 0.000000e+00
+  %.sink199 = select i1 %183, double %187, double 0.000000e+00
   %188 = load ptr, ptr %5, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
-  store double %.sink168, ptr %189, align 8
-  %.not138 = icmp eq i32 %.0105161, 0
+  store double %.sink199, ptr %189, align 8
+  %.not138 = icmp eq i32 %.0105192, 0
   br i1 %.not138, label %221, label %190
 
 190:                                              ; preds = %182
-  %191 = sub i32 %123, %.0105161
+  %191 = sub i32 %123, %.0105192
   %192 = uitofp i32 %191 to double
   %193 = uitofp i32 %123 to double
   %194 = fdiv double %192, %193
@@ -3675,11 +3675,11 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   %207 = load ptr, ptr %5, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 32
   store double %206, ptr %208, align 8
-  %.not137 = icmp eq i32 %.0105161, 0
+  %.not137 = icmp eq i32 %.0105192, 0
   br i1 %.not137, label %221, label %209
 
 209:                                              ; preds = %203
-  %210 = uitofp i32 %.0105161 to double
+  %210 = uitofp i32 %.0105192 to double
   %211 = uitofp i32 %123 to double
   %212 = fdiv double %210, %211
   %213 = load ptr, ptr %5, align 8
@@ -3699,18 +3699,18 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 32
   %224 = load double, ptr %223, align 8
   %225 = fcmp olt double %224, 0.000000e+00
-  br i1 %225, label %.sink.split171, label %226
+  br i1 %225, label %.sink.split202, label %226
 
 226:                                              ; preds = %221
   %227 = fcmp ogt double %224, 1.000000e+00
-  br i1 %227, label %.sink.split171, label %228
+  br i1 %227, label %.sink.split202, label %228
 
-.sink.split171:                                   ; preds = %226, %221
-  %.sink172 = phi double [ 0.000000e+00, %221 ], [ 1.000000e+00, %226 ]
-  store double %.sink172, ptr %223, align 8
+.sink.split202:                                   ; preds = %226, %221
+  %.sink203 = phi double [ 0.000000e+00, %221 ], [ 1.000000e+00, %226 ]
+  store double %.sink203, ptr %223, align 8
   br label %228
 
-228:                                              ; preds = %.sink.split171, %226, %118
+228:                                              ; preds = %.sink.split202, %226, %118
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %230 = load ptr, ptr %229, align 8
   %.not142 = icmp eq ptr %230, null
@@ -3839,9 +3839,9 @@ _get_fairshare_priority.exit:                     ; preds = %37, %40, %115
   br label %303
 
 303:                                              ; preds = %297, %300
-  %.sink173 = phi i32 [ %302, %300 ], [ -2147483648, %297 ]
+  %.sink204 = phi i32 [ %302, %300 ], [ -2147483648, %297 ]
   %304 = load ptr, ptr %5, align 8
-  store i32 %.sink173, ptr %304, align 8
+  store i32 %.sink204, ptr %304, align 8
   %305 = load ptr, ptr @weight_tres, align 8
   %.not148 = icmp eq ptr %305, null
   br i1 %.not148, label %_get_tres_factors.exit, label %306
@@ -5237,8 +5237,8 @@ define internal noundef i32 @_create_prio_list_qos(ptr noundef readonly captures
   br i1 %.not51, label %29, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %21
-  %.sink67 = phi ptr [ %0, %21 ], [ %26, %24 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sink67, i64 264
+  %.sink83 = phi ptr [ %0, %21 ], [ %26, %24 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.sink83, i64 264
   %28 = load ptr, ptr %27, align 8
   br label %29
 

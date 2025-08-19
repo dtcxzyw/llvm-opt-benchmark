@@ -501,8 +501,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   %166 = icmp sgt i32 %165, 0
   %167 = load i32, ptr %89, align 4
   %168 = icmp sgt i32 %167, 0
-  %or.cond132 = select i1 %166, i1 %168, i1 false
-  br i1 %or.cond132, label %.preheader, label %._crit_edge.i.i100
+  %or.cond142 = select i1 %166, i1 %168, i1 false
+  br i1 %or.cond142, label %.preheader, label %._crit_edge.i.i100
 
 .preheader:                                       ; preds = %164, %._crit_edge
   %169 = phi i32 [ %177, %._crit_edge ], [ %165, %164 ]

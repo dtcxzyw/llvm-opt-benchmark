@@ -65,7 +65,7 @@ define internal void @dct_unquantize_h263_intra_c(ptr noundef readonly captures(
   br i1 %.not3133, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %19
-  %.038 = phi i64 [ %28, %19 ], [ 63, %16 ]
+  %.039 = phi i64 [ %28, %19 ], [ 63, %16 ]
   %29 = sub i32 0, %.026
   br label %30
 
@@ -88,7 +88,7 @@ define internal void @dct_unquantize_h263_intra_c(ptr noundef readonly captures(
 
 38:                                               ; preds = %30, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv, %.038
+  %exitcond.not = icmp eq i64 %indvars.iv, %.039
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %38, %19

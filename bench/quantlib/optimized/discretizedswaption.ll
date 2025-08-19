@@ -2338,19 +2338,19 @@ invoke.cont165.thread:                            ; preds = %cond.false.i263
   br label %invoke.cont189
 
 invoke.cont189:                                   ; preds = %invoke.cont155, %invoke.cont165.thread
-  %.sink480 = phi ptr [ %.pre.i264, %invoke.cont165.thread ], [ %109, %invoke.cont155 ]
-  %fixedRate_.i448 = getelementptr inbounds nuw i8, ptr %.sink480, i64 424
+  %.sink526 = phi ptr [ %.pre.i264, %invoke.cont165.thread ], [ %109, %invoke.cont155 ]
+  %fixedRate_.i448 = getelementptr inbounds nuw i8, ptr %.sink526, i64 424
   %110 = load double, ptr %fixedRate_.i448, align 8, !tbaa !159
   store double %110, ptr %ref.tmp157, align 8, !tbaa !39
-  %fixedDayCount_.i = getelementptr inbounds nuw i8, ptr %.sink480, i64 432
-  %iborIndex_.i = getelementptr inbounds nuw i8, ptr %.sink480, i64 608
+  %fixedDayCount_.i = getelementptr inbounds nuw i8, ptr %.sink526, i64 432
+  %iborIndex_.i = getelementptr inbounds nuw i8, ptr %.sink526, i64 608
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp174)
-  %spread_.i = getelementptr inbounds nuw i8, ptr %.sink480, i64 624
+  %spread_.i = getelementptr inbounds nuw i8, ptr %.sink526, i64 624
   %111 = load double, ptr %spread_.i, align 8, !tbaa !160
   store double %111, ptr %ref.tmp174, align 8, !tbaa !39
-  %floatingDayCount_.i = getelementptr inbounds nuw i8, ptr %.sink480, i64 632
+  %floatingDayCount_.i = getelementptr inbounds nuw i8, ptr %.sink526, i64 632
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp186)
-  %paymentConvention_.i = getelementptr inbounds nuw i8, ptr %.sink480, i64 648
+  %paymentConvention_.i = getelementptr inbounds nuw i8, ptr %.sink526, i64 648
   %112 = load i32, ptr %paymentConvention_.i, align 8, !tbaa !161
   store i32 %112, ptr %ref.tmp186, align 4, !tbaa !162
   invoke void @_ZN5boost11make_sharedIN8QuantLib11VanillaSwapEJNS1_4Swap4TypeEdRNS1_8ScheduleEdRKNS1_10DayCounterES6_RKNS_10shared_ptrINS1_9IborIndexEEEdS9_NS1_21BusinessDayConventionEEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.62") align 8 %snappedSwap, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp143, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp150, ptr noundef nonnull align 8 dereferenceable(136) %snappedFixedSchedule, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp157, ptr noundef nonnull align 8 dereferenceable(16) %fixedDayCount_.i, ptr noundef nonnull align 8 dereferenceable(136) %snappedFloatSchedule, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp174, ptr noundef nonnull align 8 dereferenceable(16) %floatingDayCount_.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp186)
@@ -4874,13 +4874,13 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.045.i.i.i, i64 8
   %7 = load double, ptr %incdec.ptr.i.i.i.i, align 8, !tbaa !39
   %cmp.i.i9.i.i.i = fcmp ult double %7, 0.000000e+00
-  br i1 %cmp.i.i9.i.i.i, label %if.end10.i.i.i, label %invoke.cont.loopexit.split.loop.exit21
+  br i1 %cmp.i.i9.i.i.i, label %if.end10.i.i.i, label %invoke.cont.loopexit.split.loop.exit22
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
   %incdec.ptr.i10.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.045.i.i.i, i64 16
   %8 = load double, ptr %incdec.ptr.i10.i.i.i, align 8, !tbaa !39
   %cmp.i.i11.i.i.i = fcmp ult double %8, 0.000000e+00
-  br i1 %cmp.i.i11.i.i.i, label %if.end16.i.i.i, label %invoke.cont.loopexit.split.loop.exit19
+  br i1 %cmp.i.i11.i.i.i, label %if.end16.i.i.i, label %invoke.cont.loopexit.split.loop.exit20
 
 if.end16.i.i.i:                                   ; preds = %if.end10.i.i.i
   %incdec.ptr.i12.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.045.i.i.i, i64 24
@@ -4941,16 +4941,16 @@ invoke.cont.loopexit.split.loop.exit:             ; preds = %if.end16.i.i.i
   %incdec.ptr.i12.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.045.i.i.i, i64 24
   br label %invoke.cont
 
-invoke.cont.loopexit.split.loop.exit19:           ; preds = %if.end10.i.i.i
+invoke.cont.loopexit.split.loop.exit20:           ; preds = %if.end10.i.i.i
   %incdec.ptr.i10.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.045.i.i.i, i64 16
   br label %invoke.cont
 
-invoke.cont.loopexit.split.loop.exit21:           ; preds = %if.end.i.i.i
+invoke.cont.loopexit.split.loop.exit22:           ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.045.i.i.i, i64 8
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %for.body.i.i.i, %invoke.cont.loopexit.split.loop.exit, %invoke.cont.loopexit.split.loop.exit19, %invoke.cont.loopexit.split.loop.exit21, %if.end43.i.i.i, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i, %for.end.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %__first.sroa.0.2.i.i.i, %sw.bb38.i.i.i ], [ %4, %if.end43.i.i.i ], [ %4, %for.end.i.i.i ], [ %incdec.ptr.i12.i.i.i.le, %invoke.cont.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.le, %invoke.cont.loopexit.split.loop.exit19 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont.loopexit.split.loop.exit21 ], [ %__first.sroa.0.045.i.i.i, %for.body.i.i.i ]
+invoke.cont:                                      ; preds = %for.body.i.i.i, %invoke.cont.loopexit.split.loop.exit, %invoke.cont.loopexit.split.loop.exit20, %invoke.cont.loopexit.split.loop.exit22, %if.end43.i.i.i, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i, %for.end.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %__first.sroa.0.2.i.i.i, %sw.bb38.i.i.i ], [ %4, %if.end43.i.i.i ], [ %4, %for.end.i.i.i ], [ %incdec.ptr.i12.i.i.i.le, %invoke.cont.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.le, %invoke.cont.loopexit.split.loop.exit20 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont.loopexit.split.loop.exit22 ], [ %__first.sroa.0.045.i.i.i, %for.body.i.i.i ]
   %_M_finish.i2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %13 = load ptr, ptr %_M_finish.i2, align 8, !tbaa !3
   %14 = load ptr, ptr %agg.result, align 8, !tbaa !3
@@ -7782,13 +7782,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8, !tbaa !39
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !39
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i

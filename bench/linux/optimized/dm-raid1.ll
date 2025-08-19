@@ -2231,14 +2231,14 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 .loopexit47:                                      ; preds = %389, %310, %306
   %392 = load ptr, ptr %6, align 8
   %393 = icmp eq ptr %392, null
-  br i1 %393, label %.loopexit132, label %.preheader131
+  br i1 %393, label %.loopexit160, label %.preheader159
 
-.loopexit132:                                     ; preds = %.preheader131, %.loopexit47
+.loopexit160:                                     ; preds = %.preheader159, %.loopexit47
   %394 = load ptr, ptr %5, align 8
   %395 = icmp eq ptr %394, null
   br i1 %395, label %.loopexit45, label %396
 
-396:                                              ; preds = %.loopexit132
+396:                                              ; preds = %.loopexit160
   %397 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %398 = getelementptr i8, ptr %0, i64 -24
   %399 = getelementptr i8, ptr %0, i64 -88
@@ -2247,14 +2247,14 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %402 = getelementptr i8, ptr %0, i64 -16
   br label %407
 
-.preheader131:                                    ; preds = %.loopexit47, %.preheader131
-  %403 = phi ptr [ %404, %.preheader131 ], [ %392, %.loopexit47 ]
+.preheader159:                                    ; preds = %.loopexit47, %.preheader159
+  %403 = phi ptr [ %404, %.preheader159 ], [ %392, %.loopexit47 ]
   %404 = load ptr, ptr %403, align 8
   %405 = icmp eq ptr %404, null
   store ptr null, ptr %403, align 8
   %406 = load ptr, ptr %20, align 8
   call void @dm_rh_delay(ptr noundef %406, ptr noundef nonnull %403) #12
-  br i1 %405, label %.loopexit132, label %.preheader131, !llvm.loop !35
+  br i1 %405, label %.loopexit160, label %.preheader159, !llvm.loop !35
 
 407:                                              ; preds = %458, %396
   %408 = phi ptr [ %394, %396 ], [ %459, %458 ]
@@ -2346,7 +2346,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %460 = icmp eq ptr %459, null
   br i1 %460, label %.loopexit45, label %407, !llvm.loop !36
 
-.loopexit45:                                      ; preds = %458, %.loopexit132, %.loopexit51
+.loopexit45:                                      ; preds = %458, %.loopexit160, %.loopexit51
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

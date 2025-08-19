@@ -235,24 +235,24 @@ xfree.exit93:                                     ; preds = %xfree.exit, %55
 80:                                               ; preds = %._crit_edge115
   %81 = icmp sgt i32 %76, 0
   %82 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @virusaction_lock) #21
-  br i1 %81, label %.preheader120, label %89
+  br i1 %81, label %.preheader134, label %89
 
-.preheader120:                                    ; preds = %80, %85
+.preheader134:                                    ; preds = %80, %85
   %83 = call i32 @waitpid(i32 noundef %76, ptr noundef null, i32 noundef 0) #21
   %84 = icmp eq i32 %83, -1
   br i1 %84, label %85, label %.critedge
 
-85:                                               ; preds = %.preheader120
+85:                                               ; preds = %.preheader134
   %86 = call ptr @__errno_location() #27
   %87 = load i32, ptr %86, align 4, !tbaa !17
   %88 = icmp eq i32 %87, 4
-  br i1 %88, label %.preheader120, label %.critedge
+  br i1 %88, label %.preheader134, label %.critedge
 
 89:                                               ; preds = %80
   %90 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.11) #21
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader120, %85, %89
+.critedge:                                        ; preds = %.preheader134, %85, %89
   br i1 %.not83, label %xfree.exit99, label %91
 
 91:                                               ; preds = %.critedge
@@ -853,9 +853,9 @@ fds_lock.exit:                                    ; preds = %fds_unlock.exit, %8
 .preheader:                                       ; preds = %fds_lock.exit
   %92 = load i64, ptr %46, align 8, !tbaa !40
   %.not154 = icmp eq i64 %92, 0
-  br i1 %.not154, label %.critedge.thread166, label %.lr.ph151
+  br i1 %.not154, label %.critedge.thread190, label %.lr.ph151
 
-.critedge.thread166:                              ; preds = %.preheader
+.critedge.thread190:                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %243
 
@@ -1014,8 +1014,8 @@ fds_lock.exit:                                    ; preds = %fds_unlock.exit, %8
 170:                                              ; preds = %169
   %171 = icmp ult i64 %160, 16
   %172 = load ptr, ptr %69, align 8
-  %.not444752.i = icmp eq ptr %172, null
-  %.not4447.i = select i1 %171, i1 true, i1 %.not444752.i
+  %.not444762.i = icmp eq ptr %172, null
+  %.not4447.i = select i1 %171, i1 true, i1 %.not444762.i
   br i1 %.not4447.i, label %read_fd_data.exit, label %.lr.ph.ithread-pre-split
 
 .lr.ph.ithread-pre-split:                         ; preds = %170
@@ -1173,20 +1173,20 @@ read_fd_data.exit.thread131:                      ; preds = %125, %read_fd_data.
 
 .critedge.thread:                                 ; preds = %.critedge
   %.pre164 = tail call ptr @__errno_location() #27
-  %.pr167 = load i32, ptr %.pre164, align 4, !tbaa !17
-  %.not110 = icmp eq i32 %.pr167, 4
+  %.pr191 = load i32, ptr %.pre164, align 4, !tbaa !17
+  %.not110 = icmp eq i32 %.pr191, 4
   br i1 %.not110, label %243, label %.critedge.thread.thread
 
 .critedge.thread.thread:                          ; preds = %235, %.critedge.thread
-  %240 = phi i32 [ %.pr167, %.critedge.thread ], [ %237, %235 ]
+  %240 = phi i32 [ %.pr191, %.critedge.thread ], [ %237, %235 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %241 = call ptr @cli_strerror(i32 noundef %240, ptr noundef nonnull %10, i64 noundef 128) #21
   %242 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.20, ptr noundef %241) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %243
 
-243:                                              ; preds = %.critedge.thread166, %realloc_polldata.exit, %.critedge, %.critedge.thread, %.critedge.thread.thread, %4
-  %.0 = phi i32 [ 0, %4 ], [ -1, %realloc_polldata.exit ], [ -1, %.critedge.thread.thread ], [ -1, %.critedge.thread ], [ %88, %.critedge ], [ %88, %.critedge.thread166 ]
+243:                                              ; preds = %.critedge.thread190, %realloc_polldata.exit, %.critedge, %.critedge.thread, %.critedge.thread.thread, %4
+  %.0 = phi i32 [ 0, %4 ], [ -1, %realloc_polldata.exit ], [ -1, %.critedge.thread.thread ], [ -1, %.critedge.thread ], [ %88, %.critedge ], [ %88, %.critedge.thread190 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

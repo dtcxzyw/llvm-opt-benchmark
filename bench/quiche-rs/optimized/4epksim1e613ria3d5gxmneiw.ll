@@ -2287,8 +2287,8 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %131 = load i64, ptr %127, align 16, !range !212
   %.not45 = icmp ne i64 %131, 3
-  %or.cond.not70 = select i1 %129, i1 %.not45, i1 false
-  br i1 %or.cond.not70, label %134, label %132
+  %or.cond.not75 = select i1 %129, i1 %.not45, i1 false
+  br i1 %or.cond.not75, label %134, label %132
 
 132:                                              ; preds = %130, %"_ZN4core3ptr71drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$qlog..Error$GT$$GT$17h9baaa62f56c37685E.exit"
   %133 = invoke noundef i64 @_ZN6octets9OctetsMut3off17ha4c1eb6eb910d44bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
@@ -3137,8 +3137,8 @@ select.unfold.i.i.i:                              ; preds = %._crit_edge.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !248
   %344 = load i64, ptr %264, align 16, !range !212, !alias.scope !305, !noalias !306
   %.not114.i.i = icmp ne i64 %344, 3
-  %or.cond164.not.i.i = select i1 %343, i1 %.not114.i.i, i1 false
-  br i1 %or.cond164.not.i.i, label %363, label %362
+  %or.cond176.not.i.i = select i1 %343, i1 %.not114.i.i, i1 false
+  br i1 %or.cond176.not.i.i, label %363, label %362
 
 345:                                              ; preds = %337
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !248
@@ -3909,8 +3909,8 @@ select.unfold.i129.i:                             ; preds = %._crit_edge.i.i.i12
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !225
   %652 = load i64, ptr %648, align 16, !range !212, !alias.scope !223, !noalias !228
   %.not95.i = icmp ne i64 %652, 3
-  %or.cond205.not.i = select i1 %650, i1 %.not95.i, i1 false
-  br i1 %or.cond205.not.i, label %655, label %653
+  %or.cond232.not.i = select i1 %650, i1 %.not95.i, i1 false
+  br i1 %or.cond232.not.i, label %655, label %653
 
 653:                                              ; preds = %"_ZN4core3ptr71drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$qlog..Error$GT$$GT$17h9baaa62f56c37685E.exit.i", %651
   %654 = invoke fastcc noundef align 8 dereferenceable_or_null(120) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h56c9f833899d3790E"(ptr noalias noundef align 8 dereferenceable(32) %85, ptr noalias noundef readonly align 8 dereferenceable(8) %73)

@@ -423,11 +423,11 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i121: ; preds = %_ZNSt6vecto
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit133
 
 82:                                               ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i110, %.noexc115
-  %.ph349 = phi ptr [ %81, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i110 ], [ %77, %.noexc115 ]
+  %.ph363 = phi ptr [ %81, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i110 ], [ %77, %.noexc115 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %75, ptr %7, align 8, !tbaa !46
-  store ptr %.ph349, ptr %83, align 8, !tbaa !47
+  store ptr %.ph363, ptr %83, align 8, !tbaa !47
   store ptr %76, ptr %84, align 8, !tbaa !48
   %85 = shl nuw nsw i64 %59, 3
   %86 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %85) #16
@@ -449,7 +449,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i123: ; preds = %.noexc128
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit133
 
 _ZNSt6vectorIdSaIdEED2Ev.exit133:                 ; preds = %.noexc128, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i123, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i121
-  %93 = phi ptr [ %.ph349, %.noexc128 ], [ %.ph349, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i123 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i121 ]
+  %93 = phi ptr [ %.ph363, %.noexc128 ], [ %.ph363, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i123 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i121 ]
   %94 = phi ptr [ %75, %.noexc128 ], [ %75, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i123 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i121 ]
   %95 = phi ptr [ %64, %.noexc128 ], [ %64, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i123 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i121 ]
   %96 = phi ptr [ %.ph, %.noexc128 ], [ %.ph, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i123 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i121 ]

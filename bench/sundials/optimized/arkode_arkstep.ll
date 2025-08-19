@@ -787,13 +787,13 @@ arkStep_AccessStepMem.exit:                       ; preds = %3
   br label %42
 
 42:                                               ; preds = %36, %39
-  %.sink231 = phi ptr [ %41, %39 ], [ %38, %36 ]
-  %43 = load i32, ptr %.sink231, align 8, !tbaa !126
+  %.sink242 = phi ptr [ %41, %39 ], [ %38, %36 ]
+  %43 = load i32, ptr %.sink242, align 8, !tbaa !126
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %45 = load ptr, ptr %44, align 8, !tbaa !129
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 92
   store i32 %43, ptr %46, align 4, !tbaa !130
-  %47 = getelementptr inbounds nuw i8, ptr %.sink231, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.sink242, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !133
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 88
   store i32 %48, ptr %49, align 8, !tbaa !134
@@ -1427,7 +1427,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %5
   br i1 %.not143, label %106, label %98
 
 98:                                               ; preds = %94
-  br i1 %97, label %.thread214, label %99
+  br i1 %97, label %.thread218, label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -1440,7 +1440,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %5
   br label %114
 
 106:                                              ; preds = %94
-  br i1 %97, label %.thread214, label %107
+  br i1 %97, label %.thread218, label %107
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -1449,14 +1449,14 @@ arkStep_AccessStepMem.exit:                       ; preds = %5
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %110, ptr noundef %3) #13
   br label %114
 
-.thread214:                                       ; preds = %98, %106
+.thread218:                                       ; preds = %98, %106
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %112 = load ptr, ptr %111, align 8, !tbaa !139
   %113 = load ptr, ptr %112, align 8, !tbaa !161
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %113, ptr noundef %3) #13
   br label %114
 
-114:                                              ; preds = %107, %.thread214, %99
+114:                                              ; preds = %107, %.thread218, %99
   %115 = load i32, ptr %17, align 8, !tbaa !110
   %116 = icmp eq i32 %115, 1
   br i1 %116, label %117, label %127
@@ -1727,7 +1727,7 @@ arkStep_ApplyForcing.exit:                        ; preds = %147, %133
   br i1 %.not130, label %272, label %264
 
 264:                                              ; preds = %260
-  br i1 %263, label %.thread216, label %265
+  br i1 %263, label %.thread220, label %265
 
 265:                                              ; preds = %264
   %266 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -1740,7 +1740,7 @@ arkStep_ApplyForcing.exit:                        ; preds = %147, %133
   br label %280
 
 272:                                              ; preds = %260
-  br i1 %263, label %.thread216, label %273
+  br i1 %263, label %.thread220, label %273
 
 273:                                              ; preds = %272
   %274 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -1749,14 +1749,14 @@ arkStep_ApplyForcing.exit:                        ; preds = %147, %133
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %276, ptr noundef %3) #13
   br label %280
 
-.thread216:                                       ; preds = %264, %272
+.thread220:                                       ; preds = %264, %272
   %277 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %278 = load ptr, ptr %277, align 8, !tbaa !139
   %279 = load ptr, ptr %278, align 8, !tbaa !161
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %279, ptr noundef %3) #13
   br label %280
 
-280:                                              ; preds = %273, %.thread216, %265
+280:                                              ; preds = %273, %.thread220, %265
   %281 = load i32, ptr %17, align 8, !tbaa !110
   %282 = icmp eq i32 %281, 1
   br i1 %282, label %283, label %293
@@ -2042,18 +2042,18 @@ arkStep_AccessStepMem.exit:                       ; preds = %3
   br i1 %.not179, label %33, label %38
 
 33:                                               ; preds = %30
-  br i1 %.not181, label %34, label %.thread279
+  br i1 %.not181, label %34, label %.thread292
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 376
   %36 = load i32, ptr %35, align 8, !tbaa !110
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %.thread.thread281, label %.thread253
+  br i1 %37, label %.thread.thread294, label %.thread253
 
 38:                                               ; preds = %30
-  br i1 %.not181, label %.thread253, label %.thread279
+  br i1 %.not181, label %.thread253, label %.thread292
 
-.thread279:                                       ; preds = %33, %38
+.thread292:                                       ; preds = %33, %38
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %40 = load i32, ptr %39, align 4, !tbaa !78
   %41 = icmp ne i32 %40, 0
@@ -2067,10 +2067,10 @@ arkStep_AccessStepMem.exit:                       ; preds = %3
   %49 = fcmp ogt double %48, 1.000000e-10
   br i1 %49, label %.thread253, label %.thread
 
-.thread:                                          ; preds = %.thread279
-  br i1 %.not179, label %.thread.thread281, label %.thread253
+.thread:                                          ; preds = %.thread292
+  br i1 %.not179, label %.thread.thread294, label %.thread253
 
-.thread.thread281:                                ; preds = %34, %.thread
+.thread.thread294:                                ; preds = %34, %.thread
   %50 = phi i1 [ %41, %.thread ], [ false, %34 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %52 = load ptr, ptr %51, align 8, !tbaa !177
@@ -2080,12 +2080,12 @@ arkStep_AccessStepMem.exit:                       ; preds = %3
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %52, ptr noundef %55) #13
   br label %.thread253
 
-.thread253:                                       ; preds = %38, %34, %.thread279, %.thread.thread281, %.thread
-  %56 = phi i1 [ true, %.thread.thread281 ], [ false, %.thread ], [ %.not179, %.thread279 ], [ false, %34 ], [ false, %38 ]
-  %.0155256 = phi i32 [ 1, %.thread.thread281 ], [ 1, %.thread ], [ 0, %.thread279 ], [ 1, %34 ], [ 1, %38 ]
-  %57 = phi i1 [ true, %.thread.thread281 ], [ true, %.thread ], [ false, %.thread279 ], [ true, %34 ], [ true, %38 ]
-  %58 = phi i1 [ false, %.thread.thread281 ], [ false, %.thread ], [ true, %.thread279 ], [ false, %34 ], [ false, %38 ]
-  %59 = phi i1 [ %50, %.thread.thread281 ], [ %41, %.thread ], [ %41, %.thread279 ], [ false, %34 ], [ false, %38 ]
+.thread253:                                       ; preds = %38, %34, %.thread292, %.thread.thread294, %.thread
+  %56 = phi i1 [ true, %.thread.thread294 ], [ false, %.thread ], [ %.not179, %.thread292 ], [ false, %34 ], [ false, %38 ]
+  %.0155256 = phi i32 [ 1, %.thread.thread294 ], [ 1, %.thread ], [ 0, %.thread292 ], [ 1, %34 ], [ 1, %38 ]
+  %57 = phi i1 [ true, %.thread.thread294 ], [ true, %.thread ], [ false, %.thread292 ], [ true, %34 ], [ true, %38 ]
+  %58 = phi i1 [ false, %.thread.thread294 ], [ false, %.thread ], [ true, %.thread292 ], [ false, %34 ], [ false, %38 ]
+  %59 = phi i1 [ %50, %.thread.thread294 ], [ %41, %.thread ], [ %41, %.thread292 ], [ false, %34 ], [ false, %38 ]
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %61 = load i32, ptr %60, align 4, !tbaa !78
   %.not183 = icmp eq i32 %61, 0
@@ -2332,17 +2332,17 @@ arkStep_AccessStepMem.exit:                       ; preds = %3
   br label %211
 
 211:                                              ; preds = %209, %196
-  %.sink289 = phi ptr [ %210, %209 ], [ %197, %196 ]
+  %.sink302 = phi ptr [ %210, %209 ], [ %197, %196 ]
   %212 = phi i1 [ false, %209 ], [ %208, %196 ]
   %.1157267 = phi i32 [ 0, %209 ], [ %.1157.ph, %196 ]
   %213 = phi i1 [ false, %209 ], [ %205, %196 ]
-  %.sink285 = load double, ptr %165, align 8, !tbaa !180
-  %214 = getelementptr inbounds nuw i8, ptr %.sink289, i64 24
+  %.sink298 = load double, ptr %165, align 8, !tbaa !180
+  %214 = getelementptr inbounds nuw i8, ptr %.sink302, i64 24
   %215 = load ptr, ptr %214, align 8, !tbaa !184
   %216 = getelementptr inbounds nuw double, ptr %215, i64 %indvars.iv
   %217 = load double, ptr %216, align 8, !tbaa !112
   %218 = load double, ptr %166, align 8, !tbaa !165
-  %219 = tail call double @llvm.fmuladd.f64(double %217, double %218, double %.sink285)
+  %219 = tail call double @llvm.fmuladd.f64(double %217, double %218, double %.sink298)
   store double %219, ptr %167, align 8, !tbaa !154
   %220 = load i32, ptr %169, align 8, !tbaa !110
   %221 = icmp eq i32 %220, 2
@@ -2768,7 +2768,7 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %69 = load i32, ptr %68, align 8, !tbaa !89
   %.not72 = icmp eq i32 %69, 0
-  br i1 %.not72, label %.thread103, label %70
+  br i1 %.not72, label %.thread106, label %70
 
 70:                                               ; preds = %67
   %71 = call i32 @SUNNonlinSolFree(ptr noundef nonnull %66) #13
@@ -2800,15 +2800,15 @@ arkStep_AccessStepMem.exit:                       ; preds = %6
   store i32 1, ptr %68, align 8, !tbaa !89
   %.pr.pre = load ptr, ptr %65, align 8, !tbaa !158
   %81 = icmp eq ptr %.pr.pre, null
-  br i1 %81, label %.thread, label %.thread103
+  br i1 %81, label %.thread, label %.thread106
 
-.thread103:                                       ; preds = %67, %80
+.thread106:                                       ; preds = %67, %80
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 400
   store i64 0, ptr %82, align 8, !tbaa !103
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit, %arkStep_AccessStepMem.exit, %80, %.thread103, %70, %79, %76, %64, %51, %37, %33, %29
-  %.060 = phi i32 [ -20, %51 ], [ -20, %64 ], [ -20, %76 ], [ -20, %79 ], [ -20, %37 ], [ -20, %33 ], [ -20, %29 ], [ -21, %arkStep_AccessStepMem.exit ], [ %71, %70 ], [ 0, %.thread103 ], [ 0, %80 ], [ 0, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %arkStep_AccessStepMem.exit, %80, %.thread106, %70, %79, %76, %64, %51, %37, %33, %29
+  %.060 = phi i32 [ -20, %51 ], [ -20, %64 ], [ -20, %76 ], [ -20, %79 ], [ -20, %37 ], [ -20, %33 ], [ -20, %29 ], [ -21, %arkStep_AccessStepMem.exit ], [ %71, %70 ], [ 0, %.thread106 ], [ 0, %80 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.060
@@ -3372,11 +3372,11 @@ arkStep_AccessStepMem.exit:                       ; preds = %5
   %.not18 = icmp ne i32 %13, 0
   %spec.select = zext i1 %.not18 to i32
   %not..not18 = xor i1 %.not18, true
-  %spec.select40 = zext i1 %not..not18 to i32
+  %spec.select44 = zext i1 %not..not18 to i32
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 444
   store i32 %spec.select, ptr %14, align 4, !tbaa !147
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 448
-  store i32 %spec.select40, ptr %15, align 8, !tbaa !148
+  store i32 %spec.select44, ptr %15, align 8, !tbaa !148
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 456
   store double %1, ptr %16, align 8, !tbaa !167
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 464
@@ -3698,9 +3698,9 @@ define range(i32 -21, 1) i32 @arkStep_SetButcherTables(ptr noundef %0) local_unn
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %27 = load i32, ptr %26, align 8, !tbaa !135
-  %switch.tableidx69 = add i32 %27, -1
-  %28 = icmp ult i32 %switch.tableidx69, 5
-  br i1 %28, label %switch.lookup68, label %29
+  %switch.tableidx72 = add i32 %27, -1
+  %28 = icmp ult i32 %switch.tableidx72, 5
+  br i1 %28, label %switch.lookup71, label %29
 
 29:                                               ; preds = %25
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 2262, ptr noundef nonnull @__func__.arkStep_SetButcherTables, ptr noundef nonnull @.str, ptr noundef nonnull @.str.59) #13
@@ -3709,22 +3709,22 @@ define range(i32 -21, 1) i32 @arkStep_SetButcherTables(ptr noundef %0) local_unn
 .thread:                                          ; preds = %18, %24
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %31 = load i32, ptr %30, align 8, !tbaa !135
-  %switch.tableidx73 = add i32 %31, -1
-  %32 = icmp ult i32 %switch.tableidx73, 9
-  br i1 %32, label %switch.lookup72, label %33
+  %switch.tableidx76 = add i32 %31, -1
+  %32 = icmp ult i32 %switch.tableidx76, 9
+  br i1 %32, label %switch.lookup75, label %33
 
 33:                                               ; preds = %.thread
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef 99, i32 noundef 2284, ptr noundef nonnull @__func__.arkStep_SetButcherTables, ptr noundef nonnull @.str, ptr noundef nonnull @.str.60) #13
   br label %.thread60
 
-switch.lookup72:                                  ; preds = %.thread
-  %34 = zext nneg i32 %switch.tableidx73 to i64
-  %switch.gep74 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.arkStep_SetButcherTables.3, i64 0, i64 %34
-  %switch.load75 = load i32, ptr %switch.gep74, align 4
+switch.lookup75:                                  ; preds = %.thread
+  %34 = zext nneg i32 %switch.tableidx76 to i64
+  %switch.gep77 = getelementptr inbounds nuw [9 x i32], ptr @switch.table.arkStep_SetButcherTables.3, i64 0, i64 %34
+  %switch.load78 = load i32, ptr %switch.gep77, align 4
   br label %.thread60
 
-.thread60:                                        ; preds = %switch.lookup72, %33
-  %.040.ph.ph = phi i32 [ 21, %33 ], [ %switch.load75, %switch.lookup72 ]
+.thread60:                                        ; preds = %switch.lookup75, %33
+  %.040.ph.ph = phi i32 [ 21, %33 ], [ %switch.load78, %switch.lookup75 ]
   %35 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.040.ph.ph) #13
   store ptr %35, ptr %9, align 8, !tbaa !125
   br label %42
@@ -3734,25 +3734,25 @@ switch.lookup:                                    ; preds = %19
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.arkStep_SetButcherTables, i64 0, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep66 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.arkStep_SetButcherTables.1, i64 0, i64 %37
-  %switch.load67 = load i32, ptr %switch.gep66, align 4
+  %switch.gep69 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.arkStep_SetButcherTables.1, i64 0, i64 %37
+  %switch.load70 = load i32, ptr %switch.gep69, align 4
   br label %38
 
 38:                                               ; preds = %switch.lookup, %23
   %.040.ph = phi i32 [ 9, %23 ], [ %switch.load, %switch.lookup ]
-  %.039.ph = phi i32 [ 111, %23 ], [ %switch.load67, %switch.lookup ]
+  %.039.ph = phi i32 [ 111, %23 ], [ %switch.load70, %switch.lookup ]
   %39 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.040.ph) #13
   store ptr %39, ptr %9, align 8, !tbaa !125
   br label %.thread56
 
-switch.lookup68:                                  ; preds = %25
-  %40 = zext nneg i32 %switch.tableidx69 to i64
-  %switch.gep70 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.arkStep_SetButcherTables.2, i64 0, i64 %40
-  %switch.load71 = load i32, ptr %switch.gep70, align 4
+switch.lookup71:                                  ; preds = %25
+  %40 = zext nneg i32 %switch.tableidx72 to i64
+  %switch.gep73 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.arkStep_SetButcherTables.2, i64 0, i64 %40
+  %switch.load74 = load i32, ptr %switch.gep73, align 4
   br label %.thread56
 
-.thread56:                                        ; preds = %switch.lookup68, %29, %38
-  %.0395358 = phi i32 [ %.039.ph, %38 ], [ 111, %29 ], [ %switch.load71, %switch.lookup68 ]
+.thread56:                                        ; preds = %switch.lookup71, %29, %38
+  %.0395358 = phi i32 [ %.039.ph, %38 ], [ 111, %29 ], [ %switch.load74, %switch.lookup71 ]
   %41 = tail call ptr @ARKodeButcherTable_LoadDIRK(i32 noundef %.0395358) #13
   store ptr %41, ptr %12, align 8, !tbaa !124
   %.pre64 = load ptr, ptr %9, align 8, !tbaa !125
@@ -5224,7 +5224,7 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr noundef readonly capt
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !78
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %.thread238, label %18
+  br i1 %.not, label %.thread245, label %18
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -5236,24 +5236,24 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr noundef readonly capt
   %.not136 = icmp eq i32 %23, 0
   br i1 %.not136, label %31, label %26
 
-.thread238:                                       ; preds = %7
+.thread245:                                       ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !84
-  %.not136240 = icmp eq i32 %25, 0
-  br i1 %.not136240, label %.thread243, label %26
+  %.not136247 = icmp eq i32 %25, 0
+  br i1 %.not136247, label %.thread250, label %26
 
-26:                                               ; preds = %.thread238, %18
-  %27 = phi ptr [ %24, %.thread238 ], [ %22, %18 ]
-  %.0125242 = phi i1 [ false, %.thread238 ], [ %.not135.not, %18 ]
+26:                                               ; preds = %.thread245, %18
+  %27 = phi ptr [ %24, %.thread245 ], [ %22, %18 ]
+  %.0125249 = phi i1 [ false, %.thread245 ], [ %.not135.not, %18 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %29 = load ptr, ptr %28, align 8, !tbaa !124
   %30 = tail call i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef %29) #13
   %.not137 = icmp eq i32 %30, 0
-  %or.cond = select i1 %.not137, i1 true, i1 %.0125242
-  br i1 %or.cond, label %.thread, label %.thread243
+  %or.cond = select i1 %.not137, i1 true, i1 %.0125249
+  br i1 %or.cond, label %.thread, label %.thread250
 
 31:                                               ; preds = %18
-  br i1 %.not135.not, label %.thread, label %.thread243
+  br i1 %.not135.not, label %.thread, label %.thread250
 
 .thread:                                          ; preds = %26, %31
   %32 = phi ptr [ %27, %26 ], [ %22, %31 ]
@@ -5469,22 +5469,22 @@ arkStep_ApplyForcing.exit:                        ; preds = %._crit_edge.us.i, %
   %.3194 = phi i32 [ %.0191.lcssa, %80 ], [ %132, %arkStep_ApplyForcing.exit ]
   %134 = tail call i32 @N_VLinearCombination(i32 noundef %.3194, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %9) #13
   %.not143 = icmp eq i32 %134, 0
-  br i1 %.not143, label %.thread243, label %259
+  br i1 %.not143, label %.thread250, label %259
 
-.thread243:                                       ; preds = %.thread238, %26, %133, %31
-  %135 = phi ptr [ %27, %26 ], [ %32, %133 ], [ %22, %31 ], [ %24, %.thread238 ]
+.thread250:                                       ; preds = %.thread245, %26, %133, %31
+  %135 = phi ptr [ %27, %26 ], [ %32, %133 ], [ %22, %31 ], [ %24, %.thread245 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %137 = load i32, ptr %136, align 8, !tbaa !118
   %.not146 = icmp eq i32 %137, 0
   br i1 %.not146, label %141, label %138
 
-138:                                              ; preds = %.thread243
+138:                                              ; preds = %.thread250
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %140 = load i32, ptr %139, align 8, !tbaa !120
   %.not147 = icmp eq i32 %140, 0
   br i1 %.not147, label %259, label %141
 
-141:                                              ; preds = %138, %.thread243
+141:                                              ; preds = %138, %.thread250
   %142 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %143 = load i32, ptr %142, align 4, !tbaa !140
   %144 = icmp sgt i32 %143, 0

@@ -155,14 +155,14 @@ lean_inc.exit49:                                  ; preds = %46, %45, %43, %36
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-common.ret117:                                    ; preds = %lean_inc.exit56, %166, %168, %169, %130, %134, %136, %137, %lean_inc.exit55, %lean_inc.exit52, %lean_dec.exit
-  %common.ret117.op = phi ptr [ %55, %lean_dec.exit ], [ %92, %lean_inc.exit52 ], [ %129, %lean_inc.exit55 ], [ %1, %137 ], [ %1, %136 ], [ %1, %134 ], [ %1, %130 ], [ %154, %169 ], [ %154, %168 ], [ %154, %166 ], [ %154, %lean_inc.exit56 ]
-  ret ptr %common.ret117.op
+common.ret129:                                    ; preds = %lean_inc.exit56, %166, %168, %169, %130, %134, %136, %137, %lean_inc.exit55, %lean_inc.exit52, %lean_dec.exit
+  %common.ret129.op = phi ptr [ %55, %lean_dec.exit ], [ %92, %lean_inc.exit52 ], [ %129, %lean_inc.exit55 ], [ %1, %137 ], [ %1, %136 ], [ %1, %134 ], [ %1, %130 ], [ %154, %169 ], [ %154, %168 ], [ %154, %166 ], [ %154, %lean_inc.exit56 ]
+  ret ptr %common.ret129.op
 
 lean_dec.exit:                                    ; preds = %53, %52, %50, %lean_inc.exit49
   %54 = tail call ptr @l_Lean_Level_replace(ptr noundef %0, ptr noundef %38)
   %55 = tail call ptr @l_Lean_Level_succ___override(ptr noundef %54) #3
-  br label %common.ret117
+  br label %common.ret129
 
 56:                                               ; preds = %lean_obj_tag.exit84
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -262,7 +262,7 @@ lean_inc.exit52:                                  ; preds = %89, %88, %86, %lean
   %90 = tail call ptr @l_Lean_Level_replace(ptr noundef %0, ptr noundef %58)
   %91 = tail call ptr @l_Lean_Level_replace(ptr noundef %0, ptr noundef %68)
   %92 = tail call ptr @l_Lean_mkLevelMax_x27(ptr noundef %90, ptr noundef %91) #3
-  br label %common.ret117
+  br label %common.ret129
 
 93:                                               ; preds = %lean_obj_tag.exit84
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -362,10 +362,10 @@ lean_inc.exit55:                                  ; preds = %126, %125, %123, %l
   %127 = tail call ptr @l_Lean_Level_replace(ptr noundef %0, ptr noundef %95)
   %128 = tail call ptr @l_Lean_Level_replace(ptr noundef %0, ptr noundef %105)
   %129 = tail call ptr @l_Lean_mkLevelIMax_x27(ptr noundef %127, ptr noundef %128) #3
-  br label %common.ret117
+  br label %common.ret129
 
 130:                                              ; preds = %lean_obj_tag.exit84
-  br i1 %.not, label %131, label %common.ret117
+  br i1 %.not, label %131, label %common.ret129
 
 131:                                              ; preds = %130
   %132 = load i32, ptr %0, align 4, !tbaa !4
@@ -375,15 +375,15 @@ lean_inc.exit55:                                  ; preds = %126, %125, %123, %l
 134:                                              ; preds = %131
   %135 = add nsw i32 %132, -1
   store i32 %135, ptr %0, align 4, !tbaa !4
-  br label %common.ret117
+  br label %common.ret129
 
 136:                                              ; preds = %131
   %.not.i67 = icmp eq i32 %132, 0
-  br i1 %.not.i67, label %common.ret117, label %137
+  br i1 %.not.i67, label %common.ret129, label %137
 
 137:                                              ; preds = %136
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
-  br label %common.ret117
+  br label %common.ret129
 
 138:                                              ; preds = %lean_obj_tag.exit
   br i1 %.not109, label %139, label %lean_dec.exit60
@@ -454,7 +454,7 @@ lean_dec.exit61:                                  ; preds = %152, %151, %149, %l
   br label %lean_inc.exit56
 
 lean_inc.exit56:                                  ; preds = %162, %161, %159, %lean_dec.exit61
-  br i1 %.not.i79, label %163, label %common.ret117
+  br i1 %.not.i79, label %163, label %common.ret129
 
 163:                                              ; preds = %lean_inc.exit56
   %164 = load i32, ptr %19, align 4, !tbaa !4
@@ -464,15 +464,15 @@ lean_inc.exit56:                                  ; preds = %162, %161, %159, %l
 166:                                              ; preds = %163
   %167 = add nsw i32 %164, -1
   store i32 %167, ptr %19, align 4, !tbaa !4
-  br label %common.ret117
+  br label %common.ret129
 
 168:                                              ; preds = %163
   %.not.i = icmp eq i32 %164, 0
-  br i1 %.not.i, label %common.ret117, label %169
+  br i1 %.not.i, label %common.ret129, label %169
 
 169:                                              ; preds = %168
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %19) #3
-  br label %common.ret117
+  br label %common.ret129
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1149,8 +1149,8 @@ lean_dec.exit628:                                 ; preds = %76, %75, %73
 
 lean_dec.exit628.thread:                          ; preds = %53
   %77 = tail call ptr @l_Lean_Level_replace(ptr noundef %0, ptr noundef %55)
-  %.not10891093 = icmp eq ptr %55, %77
-  br i1 %.not10891093, label %lean_dec.exit627, label %78
+  %.not10891245 = icmp eq ptr %55, %77
+  br i1 %.not10891245, label %lean_dec.exit627, label %78
 
 78:                                               ; preds = %lean_dec.exit628.thread, %lean_dec.exit628
   %79 = phi ptr [ %77, %lean_dec.exit628.thread ], [ %70, %lean_dec.exit628 ]
@@ -4657,18 +4657,18 @@ _init_l_Lean_Expr_ReplaceLevelImpl_initCache___closed__6.exit: ; preds = %lean_d
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Expr_ReplaceLevelImpl_initCache___closed__6.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %35, %_init_l_Lean_Expr_ReplaceLevelImpl_initCache___closed__6.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink13 = phi ptr [ %4, %3 ], [ %35, %_init_l_Lean_Expr_ReplaceLevelImpl_initCache___closed__6.exit ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !4
   store i32 131096, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %39, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %40, align 8, !tbaa !10
   br label %41
 
 41:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
   ret ptr %.0
 }
 

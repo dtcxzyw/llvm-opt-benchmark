@@ -897,9 +897,9 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
   %41 = load i32, ptr @nf_ct_helper_hsize, align 4
   %42 = icmp eq i32 %41, 0
   %.pre.pre = load ptr, ptr @nf_ct_helper_hash, align 8
-  br i1 %42, label %.loopexit15, label %.preheader19
+  br i1 %42, label %.loopexit15, label %.preheader28
 
-.preheader19:                                     ; preds = %40, %.loopexit14
+.preheader28:                                     ; preds = %40, %.loopexit14
   %43 = phi i32 [ %67, %.loopexit14 ], [ 0, %40 ]
   %44 = sext i32 %43 to i64
   %45 = getelementptr %struct.hlist_head, ptr %.pre.pre, i64 %44
@@ -907,8 +907,8 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit14, label %.preheader12
 
-.preheader12:                                     ; preds = %.preheader19, %64
-  %48 = phi ptr [ %65, %64 ], [ %46, %.preheader19 ]
+.preheader12:                                     ; preds = %.preheader28, %64
+  %48 = phi ptr [ %65, %64 ], [ %46, %.preheader28 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %30) #11
   %51 = icmp eq i32 %50, 0
@@ -937,10 +937,10 @@ define dso_local noundef range(i32 -22, 1) i32 @nf_conntrack_helper_register(ptr
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.loopexit14, label %.preheader12, !llvm.loop !34
 
-.loopexit14:                                      ; preds = %64, %.preheader19
+.loopexit14:                                      ; preds = %64, %.preheader28
   %67 = add nuw i32 %43, 1
   %68 = icmp eq i32 %67, %41
-  br i1 %68, label %.loopexit15, label %.preheader19, !llvm.loop !35
+  br i1 %68, label %.loopexit15, label %.preheader28, !llvm.loop !35
 
 .loopexit15:                                      ; preds = %.loopexit14, %40
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 132

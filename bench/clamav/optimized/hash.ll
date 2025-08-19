@@ -1565,7 +1565,7 @@ onas_ht_get.exit:                                 ; preds = %.lr.ph.i
   br i1 %50, label %.critedge, label %51
 
 51:                                               ; preds = %49
-  %52 = trunc i64 %2 to i32
+  %52 = trunc nuw i64 %2 to i32
   %53 = add i32 %52, -2
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %.lr.ph.i60, label %.critedge.i59
@@ -1612,7 +1612,7 @@ onas_get_parent.exit:                             ; preds = %.critedge.i59
   br i1 %.not5770, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67
-  %72 = add i64 %2, 2
+  %72 = add nuw nsw i64 %2, 2
   %73 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %74 = add nsw i32 %3, 1
   br label %75

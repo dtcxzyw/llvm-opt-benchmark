@@ -85,20 +85,20 @@ define dso_local noundef zeroext i1 @_ZN4llvm20nonMicrosoftDemangleESt17basic_st
   br i1 %.not.i, label %.thread42, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %7, %16
-  %.sroa.0.056 = phi i64 [ %.sroa.0.0, %16 ], [ %0, %7 ]
-  %.sroa.10.055 = phi ptr [ %.sroa.10.0, %16 ], [ %1, %7 ]
+  %.sroa.0.059 = phi i64 [ %.sroa.0.0, %16 ], [ %0, %7 ]
+  %.sroa.10.058 = phi ptr [ %.sroa.10.0, %16 ], [ %1, %7 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %20
   %.06.i.i = phi i64 [ %21, %20 ], [ 0, %.lr.ph.i.i.preheader ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.10.055, i64 %.06.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.10.058, i64 %.06.i.i
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = icmp eq i8 %18, 95
   br i1 %19, label %20, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i
 
 20:                                               ; preds = %.lr.ph.i.i
   %21 = add nuw i64 %.06.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %21, %.sroa.0.056
+  %exitcond.not.i.i = icmp eq i64 %21, %.sroa.0.059
   br i1 %exitcond.not.i.i, label %_ZL17isItaniumEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %.lr.ph.i.i, !llvm.loop !13
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; preds = %.lr.ph.i.i
@@ -109,29 +109,29 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
   br i1 %or.cond, label %24, label %_ZL17isItaniumEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 24:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i
-  %25 = tail call noundef ptr @_ZN4llvm15itaniumDemangleESt17basic_string_viewIcSt11char_traitsIcEEb(i64 %.sroa.0.056, ptr nonnull %.sroa.10.055, i1 noundef zeroext %4) #6
+  %25 = tail call noundef ptr @_ZN4llvm15itaniumDemangleESt17basic_string_viewIcSt11char_traitsIcEEb(i64 %.sroa.0.059, ptr nonnull %.sroa.10.058, i1 noundef zeroext %4) #6
   br label %33
 
 _ZL17isItaniumEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %20, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i
-  %26 = icmp eq i64 %.sroa.0.056, 1
+  %26 = icmp eq i64 %.sroa.0.059, 1
   br i1 %26, label %.thread42, label %_ZL14isRustEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZL14isRustEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZL17isItaniumEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %.sroa.10.055, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %.sroa.10.058, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
   %27 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %27, label %28, label %_ZL15isDLangEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 28:                                               ; preds = %_ZL14isRustEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %29 = tail call noundef ptr @_ZN4llvm12rustDemangleESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.sroa.0.056, ptr nonnull %.sroa.10.055) #6
+  %29 = tail call noundef ptr @_ZN4llvm12rustDemangleESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.sroa.0.059, ptr nonnull %.sroa.10.058) #6
   br label %33
 
 _ZL15isDLangEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZL14isRustEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %bcmp.i.i.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %.sroa.10.055, ptr noundef nonnull dereferenceable(2) @.str.4, i64 2)
+  %bcmp.i.i.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %.sroa.10.058, ptr noundef nonnull dereferenceable(2) @.str.4, i64 2)
   %30 = icmp eq i32 %bcmp.i.i.i20, 0
   br i1 %30, label %31, label %.thread42
 
 31:                                               ; preds = %_ZL15isDLangEncodingSt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %32 = tail call noundef ptr @_ZN4llvm13dlangDemangleESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.sroa.0.056, ptr nonnull %.sroa.10.055) #6
+  %32 = tail call noundef ptr @_ZN4llvm13dlangDemangleESt17basic_string_viewIcSt11char_traitsIcEE(i64 %.sroa.0.059, ptr nonnull %.sroa.10.058) #6
   br label %33
 
 33:                                               ; preds = %28, %31, %24

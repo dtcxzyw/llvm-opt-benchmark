@@ -366,20 +366,20 @@ define void @_ZN5boost4urls6detail16params_iter_impl9decrementEv(ptr noundef non
 .sink.split:                                      ; preds = %66, %70
   %.sink = phi i64 [ %71, %70 ], [ 0, %66 ]
   %.ph = phi i64 [ %53, %70 ], [ %68, %66 ]
-  %.ph71 = phi i64 [ %55, %70 ], [ %69, %66 ]
+  %.ph75 = phi i64 [ %55, %70 ], [ %69, %66 ]
   store i64 %.sink, ptr %5, align 8, !tbaa !3
   br label %72
 
 72:                                               ; preds = %.sink.split, %.lr.ph47
   %73 = phi i64 [ %53, %.lr.ph47 ], [ %.ph, %.sink.split ]
-  %74 = phi i64 [ %55, %.lr.ph47 ], [ %.ph71, %.sink.split ]
+  %74 = phi i64 [ %55, %.lr.ph47 ], [ %.ph75, %.sink.split ]
   %75 = phi i64 [ %54, %.lr.ph47 ], [ %.sink, %.sink.split ]
   %76 = icmp eq ptr %56, %8
   br i1 %76, label %._crit_edge48, label %.lr.ph47, !llvm.loop !21
 
 77:                                               ; preds = %58, %._crit_edge48, %24, %._crit_edge
-  %.sink74 = phi i64 [ %65, %58 ], [ %52, %._crit_edge48 ], [ %27, %24 ], [ %17, %._crit_edge ]
-  %78 = sub i64 %10, %.sink74
+  %.sink78 = phi i64 [ %65, %58 ], [ %52, %._crit_edge48 ], [ %27, %24 ], [ %17, %._crit_edge ]
+  %78 = sub i64 %10, %.sink78
   store i64 %78, ptr %9, align 8, !tbaa !12
   ret void
 }

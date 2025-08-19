@@ -21,41 +21,41 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %7 = load i8, ptr %.080123, align 1
   %.not105124 = icmp eq i8 %7, 0
   %8 = load i8, ptr %.082.ptr122, align 1
-  %.not107175.not = icmp eq i8 %8, 0
+  %.not107189.not = icmp eq i8 %8, 0
   br i1 %.not105124, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader120
-  br i1 %.not107175.not, label %.critedge, label %.lr.ph196
+  br i1 %.not107189.not, label %.critedge, label %.lr.ph210
 
 .critedge.thread:                                 ; preds = %.preheader120
-  %.mux177 = select i1 %.not107175.not, ptr %6, ptr null
+  %.mux191 = select i1 %.not107189.not, ptr %6, ptr null
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph196
+.lr.ph:                                           ; preds = %.lr.ph210
   %9 = load i8, ptr %.082.ptr, align 1
   %.not106 = icmp eq i8 %9, 0
-  br i1 %.not106, label %.critedge, label %.lr.ph196, !llvm.loop !6
+  br i1 %.not106, label %.critedge, label %.lr.ph210, !llvm.loop !6
 
-.lr.ph196:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph210:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %10 = phi i8 [ %9, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.081126195 = phi i1 [ %13, %.lr.ph ], [ true, %.lr.ph.preheader ]
-  %.082.ptr127194 = phi ptr [ %.082.ptr, %.lr.ph ], [ %.082.ptr122, %.lr.ph.preheader ]
-  %.080128193 = phi ptr [ %.080, %.lr.ph ], [ %.080123, %.lr.ph.preheader ]
+  %.081126209 = phi i1 [ %13, %.lr.ph ], [ true, %.lr.ph.preheader ]
+  %.082.ptr127208 = phi ptr [ %.082.ptr, %.lr.ph ], [ %.082.ptr122, %.lr.ph.preheader ]
+  %.080128207 = phi ptr [ %.080, %.lr.ph ], [ %.080123, %.lr.ph.preheader ]
   %11 = phi i8 [ %14, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %12 = icmp eq i8 %11, %10
-  %13 = and i1 %.081126195, %12
-  %.082.ptr = getelementptr inbounds nuw i8, ptr %.082.ptr127194, i64 1
-  %.080 = getelementptr inbounds nuw i8, ptr %.080128193, i64 1
+  %13 = and i1 %.081126209, %12
+  %.082.ptr = getelementptr inbounds nuw i8, ptr %.082.ptr127208, i64 1
+  %.080 = getelementptr inbounds nuw i8, ptr %.080128207, i64 1
   %14 = load i8, ptr %.080, align 1
   %.not105 = icmp eq i8 %14, 0
   br i1 %.not105, label %..critedge_crit_edge, label %.lr.ph, !llvm.loop !6
 
-..critedge_crit_edge:                             ; preds = %.lr.ph196
+..critedge_crit_edge:                             ; preds = %.lr.ph210
   br label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader
   %15 = phi i8 [ 0, %..critedge_crit_edge ], [ %7, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.pn113.lcssa = phi ptr [ %.082.ptr127194, %..critedge_crit_edge ], [ %1, %.lr.ph.preheader ], [ %.082.ptr127194, %.lr.ph ]
+  %.pn113.lcssa = phi ptr [ %.082.ptr127208, %..critedge_crit_edge ], [ %1, %.lr.ph.preheader ], [ %.082.ptr127208, %.lr.ph ]
   %.081.lcssa = phi i1 [ %13, %..critedge_crit_edge ], [ true, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %.082.ptr.lcssa = phi ptr [ %.082.ptr, %..critedge_crit_edge ], [ %.082.ptr122, %.lr.ph.preheader ], [ %.082.ptr, %.lr.ph ]
   %.080.lcssa = phi ptr [ %.080, %..critedge_crit_edge ], [ %.080123, %.lr.ph.preheader ], [ %.080, %.lr.ph ]
@@ -207,7 +207,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader118, %54, %57, %72, %42, %44, %.critedge.thread, %.preheader, %33, %.critedge, %4, %2, %81, %66
-  %.0 = phi ptr [ %67, %66 ], [ %83, %81 ], [ %0, %2 ], [ null, %4 ], [ %.mux, %.critedge ], [ null, %33 ], [ null, %.preheader ], [ %.mux177, %.critedge.thread ], [ %40, %42 ], [ null, %44 ], [ null, %72 ], [ %52, %54 ], [ null, %57 ], [ null, %.preheader118 ]
+  %.0 = phi ptr [ %67, %66 ], [ %83, %81 ], [ %0, %2 ], [ null, %4 ], [ %.mux, %.critedge ], [ null, %33 ], [ null, %.preheader ], [ %.mux191, %.critedge.thread ], [ %40, %42 ], [ null, %44 ], [ null, %72 ], [ %52, %54 ], [ null, %57 ], [ null, %.preheader118 ]
   ret ptr %.0
 }
 

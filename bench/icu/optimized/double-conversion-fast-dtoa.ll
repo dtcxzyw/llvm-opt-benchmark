@@ -142,11 +142,11 @@ _ZNK6icu_7717double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit
   br label %74
 
 74:                                               ; preds = %_ZNK6icu_7717double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, %_ZNK6icu_7717double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i
-  %.sink135.i = phi i32 [ %73, %_ZNK6icu_7717double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ], [ %45, %_ZNK6icu_7717double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ]
+  %.sink159.i = phi i32 [ %73, %_ZNK6icu_7717double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ], [ %45, %_ZNK6icu_7717double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ]
   %.sroa.012.0.i49.sink.in.i = phi i64 [ %.sroa.012.0.v.i48.i, %_ZNK6icu_7717double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ], [ %.sroa.012.0.v.i.i, %_ZNK6icu_7717double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ]
   %.sroa.073.0.i = phi i64 [ %.1.lcssa.i.i.i47.i, %_ZNK6icu_7717double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ], [ %.1.lcssa.i.i.i.i, %_ZNK6icu_7717double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ]
   %.sroa.012.0.i49.sink.i = add nsw i64 %.sroa.012.0.i49.sink.in.i, -1
-  %75 = zext nneg i32 %.sink135.i to i64
+  %75 = zext nneg i32 %.sink159.i to i64
   %76 = shl i64 %.sroa.012.0.i49.sink.i, %75
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !7
@@ -690,7 +690,7 @@ _ZNK6icu_7717double_conversion6Double17AsNormalizedDiyFpEv.exit.i14: ; preds = %
   br i1 %385, label %398, label %.thread
 
 398:                                              ; preds = %397, %393
-  %399 = sub nuw i64 %382, %373
+  %399 = sub nuw nsw i64 %382, %373
   %400 = sub i64 %302, %399
   %.not32.i50.i.i = icmp ugt i64 %400, %399
   br i1 %.not32.i50.i.i, label %.thread, label %401

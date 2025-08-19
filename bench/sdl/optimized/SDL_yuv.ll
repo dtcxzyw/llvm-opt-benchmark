@@ -1177,8 +1177,8 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
   %indvars.iv1619 = phi i64 [ 0, %.lr.ph1529 ], [ %indvars.iv.next1620, %279 ]
   %233 = phi ptr [ %.promoted1526, %.lr.ph1529 ], [ %267, %279 ]
   %234 = phi ptr [ %.promoted1527, %.lr.ph1529 ], [ %281, %279 ]
-  %.idx1640 = shl nuw nsw i64 %indvars.iv1619, 3
-  %235 = getelementptr inbounds nuw i8, ptr %.11314.lcssa, i64 %.idx1640
+  %.idx1688 = shl nuw nsw i64 %indvars.iv1619, 3
+  %235 = getelementptr inbounds nuw i8, ptr %.11314.lcssa, i64 %.idx1688
   %236 = load i32, ptr %235, align 4
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %238 = load i32, ptr %237, align 4
@@ -1562,8 +1562,8 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
 495:                                              ; preds = %.lr.ph1500, %540
   %indvars.iv1608 = phi i64 [ 0, %.lr.ph1500 ], [ %indvars.iv.next1609, %540 ]
   %.313231498 = phi ptr [ %.01320.lcssa, %.lr.ph1500 ], [ %542, %540 ]
-  %.idx1639 = shl nuw nsw i64 %indvars.iv1608, 3
-  %496 = getelementptr inbounds nuw i8, ptr %.21315.lcssa, i64 %.idx1639
+  %.idx1687 = shl nuw nsw i64 %indvars.iv1608, 3
+  %496 = getelementptr inbounds nuw i8, ptr %.21315.lcssa, i64 %.idx1687
   %497 = load i32, ptr %496, align 4
   %498 = getelementptr inbounds nuw i8, ptr %496, i64 4
   %499 = load i32, ptr %498, align 4
@@ -1945,8 +1945,8 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
 755:                                              ; preds = %.lr.ph1547, %800
   %indvars.iv1630 = phi i64 [ 0, %.lr.ph1547 ], [ %indvars.iv.next1631, %800 ]
   %.713271545 = phi ptr [ %.41324.lcssa, %.lr.ph1547 ], [ %802, %800 ]
-  %.idx1641 = shl nuw nsw i64 %indvars.iv1630, 3
-  %756 = getelementptr inbounds nuw i8, ptr %.31316.lcssa, i64 %.idx1641
+  %.idx1689 = shl nuw nsw i64 %indvars.iv1630, 3
+  %756 = getelementptr inbounds nuw i8, ptr %.31316.lcssa, i64 %.idx1689
   %757 = load i32, ptr %756, align 4
   %758 = getelementptr inbounds nuw i8, ptr %756, i64 4
   %759 = load i32, ptr %758, align 4
@@ -2206,8 +2206,8 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
 917:                                              ; preds = %.lr.ph1467, %992
   %indvars.iv1590 = phi i64 [ 0, %.lr.ph1467 ], [ %indvars.iv.next1591, %992 ]
   %.113341465 = phi ptr [ %.013331471, %.lr.ph1467 ], [ %994, %992 ]
-  %.idx1638 = shl nuw nsw i64 %indvars.iv1590, 3
-  %918 = getelementptr inbounds nuw i8, ptr %.013301472, i64 %.idx1638
+  %.idx1686 = shl nuw nsw i64 %indvars.iv1590, 3
+  %918 = getelementptr inbounds nuw i8, ptr %.013301472, i64 %.idx1686
   %919 = load i32, ptr %918, align 4
   %920 = lshr i32 %919, 16
   %921 = and i32 %920, 255
@@ -2417,8 +2417,8 @@ define internal fastcc zeroext i1 @SDL_ConvertPixels_XRGB8888_to_YUV(i32 noundef
 1069:                                             ; preds = %.lr.ph1458, %1131
   %indvars.iv1584 = phi i64 [ 0, %.lr.ph1458 ], [ %indvars.iv.next1585, %1131 ]
   %.413371456 = phi ptr [ %.313361462, %.lr.ph1458 ], [ %1146, %1131 ]
-  %.idx1637 = shl nuw nsw i64 %indvars.iv1584, 3
-  %1070 = getelementptr inbounds nuw i8, ptr %.113311463, i64 %.idx1637
+  %.idx1685 = shl nuw nsw i64 %indvars.iv1584, 3
+  %1070 = getelementptr inbounds nuw i8, ptr %.113311463, i64 %.idx1685
   %1071 = load i32, ptr %1070, align 4
   %1072 = lshr i32 %1071, 16
   %1073 = and i32 %1072, 255
@@ -2915,8 +2915,8 @@ define internal fastcc noundef zeroext i1 @SDL_ConvertPixels_XBGR2101010_to_P010
   br i1 %exitcond216.not, label %._crit_edge191, label %.preheader185.us, !llvm.loop !22
 
 ._crit_edge191:                                   ; preds = %._crit_edge.us, %.preheader185.lr.ph
-  %.not232 = icmp eq i32 %1, 1
-  br i1 %.not232, label %._crit_edge199, label %.preheader184.lr.ph
+  %.not235 = icmp eq i32 %1, 1
+  br i1 %.not235, label %._crit_edge199, label %.preheader184.lr.ph
 
 .preheader184.lr.ph:                              ; preds = %._crit_edge191
   %.neg = sdiv i32 %15, -2

@@ -3133,12 +3133,12 @@ thread-pre-split.i:                               ; preds = %_ZNSt7__cxx1112basi
   br i1 %.not76.i, label %.loopexit.i, label %573
 
 .loopexit.i:                                      ; preds = %"_ZZZNK6open3d8geometry12TriangleMesh13SubdivideLoopEiENK3$_0clEiRKSt10shared_ptrIS1_ERS4_RKSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEERKSt13unordered_mapIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESE_NS_7utility10hash_eigenISK_EESB_ISK_ESaISt4pairIKSK_SE_EEEENKUliE_clEi.exit38.i", %"_ZZZNK6open3d8geometry12TriangleMesh13SubdivideLoopEiENK3$_0clEiRKSt10shared_ptrIS1_ERS4_RKSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEERKSt13unordered_mapIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESE_NS_7utility10hash_eigenISK_EESB_ISK_ESaISt4pairIKSK_SE_EEEENKUliE_clEi.exit.i", %.preheader.i
-  %.pr106.i = load ptr, ptr %245, align 8, !tbaa !157
-  %.not5.i.i.i.i.i = icmp eq ptr %.pr106.i, null
+  %.pr115.i = load ptr, ptr %245, align 8, !tbaa !157
+  %.not5.i.i.i.i.i = icmp eq ptr %.pr115.i, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i183
 
 .lr.ph.i.i.i.i.i183:                              ; preds = %.loopexit.i, %.lr.ph.i.i.i.i.i183
-  %.06.i.i.i.i.i = phi ptr [ %622, %.lr.ph.i.i.i.i.i183 ], [ %.pr106.i, %.loopexit.i ]
+  %.06.i.i.i.i.i = phi ptr [ %622, %.lr.ph.i.i.i.i.i183 ], [ %.pr115.i, %.loopexit.i ]
   %622 = load ptr, ptr %.06.i.i.i.i.i, align 8, !tbaa !67
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef 16) #24
   %.not.i.i.i.i.i184 = icmp eq ptr %622, null
@@ -3628,7 +3628,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 24
+  %22 = mul nuw nsw i64 %12, 24
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !4
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
@@ -3722,7 +3722,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaI
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !58
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit

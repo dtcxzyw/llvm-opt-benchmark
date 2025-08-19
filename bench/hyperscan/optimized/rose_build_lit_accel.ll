@@ -837,11 +837,11 @@ _ZZN3ue2L9findSVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candida
 320:                                              ; preds = %._crit_edge.i108
   %321 = trunc nuw i8 %.sroa.11.1.i to i1
   %322 = and i8 %.sroa.019.1.i, -33
-  %spec.select93.i = add i8 %.sroa.11.1.i, 1
-  %spec.select94.i = select i1 %321, i8 %322, i8 %.sroa.019.1.i
-  store i8 %spec.select93.i, ptr %2, align 16
+  %spec.select105.i = add i8 %.sroa.11.1.i, 1
+  %spec.select106.i = select i1 %321, i8 %322, i8 %.sroa.019.1.i
+  store i8 %spec.select105.i, ptr %2, align 16
   %323 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %spec.select94.i, ptr %323, align 2
+  store i8 %spec.select106.i, ptr %323, align 2
   %.not.i.i77.i = icmp ult i32 %.sroa.7.1.i107, 256
   br i1 %.not.i.i77.i, label %_ZN3ue2L9findSVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAux.exit, label %324
 
@@ -1093,8 +1093,8 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %.lr.ph.i128, %350, 
   br label %_ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit.sink.split
 
 _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit.sink.split: ; preds = %.loopexit, %427
-  %.sink292 = phi i8 [ %.0.i96, %427 ], [ %426, %.loopexit ]
-  %441 = zext i8 %.sink292 to i64
+  %.sink330 = phi i8 [ %.0.i96, %427 ], [ %426, %.loopexit ]
+  %441 = zext i8 %.sink330 to i64
   %442 = and i64 %441, 63
   %443 = shl nuw i64 1, %442
   %444 = lshr i64 %441, 6
@@ -1166,7 +1166,7 @@ _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit: ; pre
 477:                                              ; preds = %476
   %478 = tail call ptr @__cxa_allocate_exception(i64 48) #14
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %478)
-          to label %.invoke293 unwind label %479
+          to label %.invoke331 unwind label %479
 
 479:                                              ; preds = %477
   %480 = landingpad { ptr, i32 }
@@ -1174,7 +1174,7 @@ _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit: ; pre
   tail call void @__cxa_free_exception(ptr nonnull %478) #14
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150
 
-481:                                              ; preds = %.invoke293, %483, %469
+481:                                              ; preds = %.invoke331, %483, %469
   %482 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit150
@@ -1191,14 +1191,14 @@ _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit: ; pre
 485:                                              ; preds = %484
   %486 = tail call ptr @__cxa_allocate_exception(i64 48) #14
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %486)
-          to label %.invoke293 unwind label %488
+          to label %.invoke331 unwind label %488
 
-.invoke293:                                       ; preds = %477, %485
+.invoke331:                                       ; preds = %477, %485
   %487 = phi ptr [ %486, %485 ], [ %478, %477 ]
   invoke void @__cxa_throw(ptr nonnull %487, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #11
-          to label %.cont294 unwind label %481
+          to label %.cont332 unwind label %481
 
-.cont294:                                         ; preds = %.invoke293
+.cont332:                                         ; preds = %.invoke331
   unreachable
 
 488:                                              ; preds = %485

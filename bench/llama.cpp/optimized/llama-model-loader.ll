@@ -3177,7 +3177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %462
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !128
   %491 = load ptr, ptr %23, align 8, !tbaa !3, !noalias !128
   %492 = icmp eq ptr %491, %435
-  br i1 %492, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i323, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+  br i1 %492, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i323, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i323: ; preds = %486
   %493 = load i64, ptr %436, align 8, !tbaa !11, !noalias !128
@@ -3187,13 +3187,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
   %496 = icmp eq ptr %495, %475
   br i1 %496, label %499, label %.thread.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i: ; preds = %486
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i: ; preds = %486
   %497 = load ptr, ptr %25, align 8, !tbaa !3, !noalias !128
   %498 = icmp eq ptr %497, %475
   br i1 %498, label %499, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i
 
-499:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i323
-  %500 = phi ptr [ %497, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i ], [ %495, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i323 ]
+499:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i323
+  %500 = phi ptr [ %497, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i ], [ %495, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i323 ]
   %501 = load i64, ptr %489, align 8, !tbaa !11, !noalias !128
   %502 = icmp ult i64 %501, 16
   call void @llvm.assume(i1 %502)
@@ -3228,7 +3228,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i: ;
   store i64 %510, ptr %435, align 8, !tbaa !12, !noalias !128
   br label %515
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
   %511 = load i64, ptr %435, align 8, !tbaa !12, !noalias !128
   store ptr %497, ptr %23, align 8, !tbaa !3, !noalias !128
   %512 = load i64, ptr %489, align 8, !tbaa !11, !noalias !128
@@ -3358,7 +3358,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   %.098.i = phi i32 [ 0, %.lr.ph.i ], [ %590, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i ]
   %555 = load ptr, ptr %23, align 8, !tbaa !3, !noalias !128
   %556 = invoke i32 @llama_split_path(ptr noundef nonnull %.sroa.073.0.i, i64 noundef %446, ptr noundef %555, i32 noundef %.098.i, i32 noundef range(i32 0, 65536) %434)
-          to label %557 unwind label %.thread101.i
+          to label %557 unwind label %.thread129.i
 
 557:                                              ; preds = %554
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !128
@@ -3468,7 +3468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62.i: ; preds = %_
   %exitcond.not.i = icmp eq i32 %590, %434
   br i1 %exitcond.not.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %554, !llvm.loop !134
 
-.thread101.i:                                     ; preds = %554
+.thread129.i:                                     ; preds = %554
   %591 = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
@@ -3507,8 +3507,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i63
   %.not.i.i.i66.i = icmp eq ptr %.sroa.073.0.i, null
   br i1 %.not.i.i.i66.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit67.i, label %.thread.i
 
-.thread.i:                                        ; preds = %.thread, %602, %.thread101.i, %547, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48.i
-  %.pn37.pn94.i = phi { ptr, i32 } [ %.pn37.pn.i, %602 ], [ %538, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48.i ], [ %538, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49.i ], [ %.pn3791.i, %547 ], [ %591, %.thread101.i ], [ %.pn34.i, %.thread ]
+.thread.i:                                        ; preds = %.thread, %602, %.thread129.i, %547, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48.i
+  %.pn37.pn94.i = phi { ptr, i32 } [ %.pn37.pn.i, %602 ], [ %538, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i48.i ], [ %538, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49.i ], [ %.pn3791.i, %547 ], [ %591, %.thread129.i ], [ %.pn34.i, %.thread ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.073.0.i, i64 noundef %446) #32
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit67.i
 
@@ -4961,7 +4961,7 @@ _Z23llama_file_version_name10llama_fver.exit:     ; preds = %1102, %switch.looku
   %switch.shifted = lshr i64 53166964175, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
   %or.cond = select i1 %1118, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup942, label %1174
+  br i1 %or.cond, label %switch.lookup1132, label %1174
 
 1119:                                             ; preds = %1395, %_Z23llama_file_version_name10llama_fver.exit, %1096, %1093
   %1120 = landingpad { ptr, i32 }
@@ -5112,14 +5112,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412: ; preds = %_Z
           cleanup
   br label %1396
 
-switch.lookup942:                                 ; preds = %._crit_edge724
+switch.lookup1132:                                ; preds = %._crit_edge724
   %1179 = zext nneg i32 %.1166 to i64
-  %switch.gep943 = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEbbPK23llama_model_kv_override.103, i64 0, i64 %1179
-  %switch.load944 = load i32, ptr %switch.gep943, align 4
+  %switch.gep1133 = getelementptr inbounds nuw [36 x i32], ptr @switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEbbPK23llama_model_kv_override.103, i64 0, i64 %1179
+  %switch.load1134 = load i32, ptr %switch.gep1133, align 4
   br label %._crit_edge724.thread
 
-._crit_edge724.thread:                            ; preds = %switch.lookup942, %1176, %1109
-  %1180 = phi i32 [ 1024, %1109 ], [ 1024, %1176 ], [ %switch.load944, %switch.lookup942 ]
+._crit_edge724.thread:                            ; preds = %switch.lookup1132, %1176, %1109
+  %1180 = phi i32 [ 1024, %1109 ], [ 1024, %1176 ], [ %switch.load1134, %switch.lookup1132 ]
   %1181 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1180, ptr %1181, align 8, !tbaa !167
   %1182 = load ptr, ptr %81, align 8, !tbaa !13
@@ -5312,7 +5312,7 @@ switch.lookup942:                                 ; preds = %._crit_edge724
 1259:                                             ; preds = %1255
   %1260 = load ptr, ptr %58, align 8, !tbaa !3
   %1261 = icmp eq ptr %1260, %1202
-  br i1 %1261, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %1261, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %1259
   %1262 = load i64, ptr %1199, align 8, !tbaa !11
@@ -5322,13 +5322,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %1265 = icmp eq ptr %1264, %1203
   br i1 %1265, label %1268, label %.thread.i422
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %1259
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %1259
   %1266 = load ptr, ptr %59, align 8, !tbaa !3
   %1267 = icmp eq ptr %1266, %1203
   br i1 %1267, label %1268, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-1268:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %1269 = phi ptr [ %1266, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %1264, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+1268:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %1269 = phi ptr [ %1266, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %1264, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %1270 = load i64, ptr %1204, align 8, !tbaa !11
   %1271 = icmp ult i64 %1270, 16
   call void @llvm.assume(i1 %1271)
@@ -5363,7 +5363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %1279, ptr %1202, align 8, !tbaa !12
   br label %1284
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %1280 = load i64, ptr %1202, align 8, !tbaa !12
   store ptr %1266, ptr %58, align 8, !tbaa !3
   %1281 = load i64, ptr %1204, align 8, !tbaa !11
@@ -7104,7 +7104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.sink.split77
+  br label %.sink.split90
 
 28:                                               ; preds = %26, %25
   %.028 = phi i1 [ false, %26 ], [ true, %25 ]
@@ -7121,14 +7121,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %35 = icmp ult i64 %34, 16
   call void @llvm.assume(i1 %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.028, label %.sink.split77, label %96
+  br i1 %.028, label %.sink.split90, label %96
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28
   %36 = load i64, ptr %31, align 8, !tbaa !12
   %37 = add i64 %36, 1
   call void @_ZdlPvm(ptr noundef %30, i64 noundef %37) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.028, label %.sink.split77, label %96
+  br i1 %.028, label %.sink.split90, label %96
 
 38:                                               ; preds = %.preheader, %.thread
   %.02676 = phi i64 [ 0, %.preheader ], [ %48, %.thread ]
@@ -7270,7 +7270,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.assume(i1 %93)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.3, label %.sink.split77, label %96
+  br i1 %.3, label %.sink.split90, label %96
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54
   %94 = load i64, ptr %80, align 8, !tbaa !12
@@ -7278,26 +7278,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   call void @_ZdlPvm(ptr noundef %79, i64 noundef %95) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.3, label %.sink.split77, label %96
+  br i1 %.3, label %.sink.split90, label %96
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57.thread73
   %.pn.pn.pn64.ph = phi { ptr, i32 } [ %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57.thread73 ], [ %82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56.thread ], [ %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split77
+  br label %.sink.split90
 
 .critedge:                                        ; preds = %.thread, %_ZNK18llama_model_loader15get_tensor_metaEPKc.exit.thread
   %.039 = phi ptr [ null, %_ZNK18llama_model_loader15get_tensor_metaEPKc.exit.thread ], [ %12, %.thread ]
   ret ptr %.039
 
-.sink.split77:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56, %.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+.sink.split90:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56, %.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %.sink = phi ptr [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %50, %.sink.split ], [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56 ], [ %50, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ]
   %.pn46.pn.ph = phi { ptr, i32 } [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn.pn.pn64.ph, %.sink.split ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ]
   call void @__cxa_free_exception(ptr %.sink) #33
   br label %96
 
-96:                                               ; preds = %.sink.split77, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn46.pn = phi { ptr, i32 } [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56 ], [ %.pn46.pn.ph, %.sink.split77 ]
+96:                                               ; preds = %.sink.split90, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn46.pn = phi { ptr, i32 } [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56 ], [ %.pn46.pn.ph, %.sink.split90 ]
   resume { ptr, i32 } %.pn46.pn
 
 97:                                               ; preds = %57, %26
@@ -9342,7 +9342,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
 
 .thread504.thread:                                ; preds = %274, %.thread504
   %291 = phi i64 [ %.pre1231, %.thread504 ], [ %269, %274 ]
-  %.pre-phi1238 = phi i64 [ %.pre1233, %.thread504 ], [ %270, %274 ]
+  %.pre-phi1310 = phi i64 [ %.pre1233, %.thread504 ], [ %270, %274 ]
   %292 = phi ptr [ %.pre1235, %.thread504 ], [ %273, %274 ]
   %293 = load ptr, ptr %292, align 8, !tbaa !183
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
@@ -9365,7 +9365,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
   %302 = load i32, ptr %301, align 4, !tbaa !18
   %303 = zext i32 %302 to i64
   %304 = urem i64 %303, %291
-  %.not19.i.i.i.i.i239 = icmp eq i64 %304, %.pre-phi1238
+  %.not19.i.i.i.i.i239 = icmp eq i64 %304, %.pre-phi1310
   br i1 %.not19.i.i.i.i.i239, label %297, label %..loopexit_crit_edge21.i.i.i.i.i240, !llvm.loop !256
 
 ..loopexit_crit_edge21.i.i.i.i.i240:              ; preds = %300
@@ -10584,9 +10584,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %703
   %.not555906 = icmp eq ptr %729, %730
   br i1 %.not555906, label %.critedge915, label %.lr.ph910.outer
 
-.lr.ph910.outer:                                  ; preds = %728, %.thread1239
-  %.0154908.ph = phi i1 [ true, %.thread1239 ], [ false, %728 ]
-  %.sroa.0329.0907.ph = phi ptr [ %768, %.thread1239 ], [ %729, %728 ]
+.lr.ph910.outer:                                  ; preds = %728, %.thread1311
+  %.0154908.ph = phi i1 [ true, %.thread1311 ], [ false, %728 ]
+  %.sroa.0329.0907.ph = phi ptr [ %768, %.thread1311 ], [ %729, %728 ]
   br label %.lr.ph910
 
 ._crit_edge911:                                   ; preds = %766
@@ -10673,7 +10673,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %753,
 
 763:                                              ; preds = %761
   invoke void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._ZN18llama_model_loader13load_all_dataEP12ggml_contextRSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEEPSt6vectorISt10unique_ptrI11llama_mlockSt14default_deleteISH_EESaISK_EEPFbfPvESO_, ptr noundef %762)
-          to label %.thread1239 unwind label %764
+          to label %.thread1311 unwind label %764
 
 764:                                              ; preds = %763, %761
   %765 = landingpad { ptr, i32 }
@@ -10685,12 +10685,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %753,
   %.not555 = icmp eq ptr %767, %730
   br i1 %.not555, label %._crit_edge911, label %.lr.ph910
 
-.thread1239:                                      ; preds = %763
+.thread1311:                                      ; preds = %763
   %768 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0907, i64 16
-  %.not5551241 = icmp eq ptr %768, %730
-  br i1 %.not5551241, label %._crit_edge911.thread, label %.lr.ph910.outer
+  %.not5551313 = icmp eq ptr %768, %730
+  br i1 %.not5551313, label %._crit_edge911.thread, label %.lr.ph910.outer
 
-._crit_edge911.thread:                            ; preds = %.thread1239, %._crit_edge911
+._crit_edge911.thread:                            ; preds = %.thread1311, %._crit_edge911
   %769 = call ptr @__cxa_allocate_exception(i64 16) #33
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %769, ptr noundef nonnull @.str.43)
           to label %770 unwind label %771
@@ -12399,16 +12399,16 @@ _ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = load i32, ptr %1, align 8, !tbaa !374
   %28 = icmp ult i32 %27, 4
-  br i1 %28, label %switch.lookup35, label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit26
+  br i1 %28, label %switch.lookup40, label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-switch.lookup35:                                  ; preds = %25
+switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep36 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
-  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup35
-  %.0.i25 = phi ptr [ %switch.load37, %switch.lookup35 ], [ @.str.3, %25 ]
+_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup40
+  %.0.i25 = phi ptr [ %switch.load42, %switch.lookup40 ], [ @.str.3, %25 ]
   invoke void (ptr, ptr, ...) @_Z6formatB5cxx11PKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0.i25, ptr noundef nonnull %10)
           to label %30 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -12458,27 +12458,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 44:                                               ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = icmp ult i32 %0, 4
-  br i1 %46, label %switch.lookup38, label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
+  br i1 %46, label %switch.lookup43, label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-switch.lookup38:                                  ; preds = %44
+switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep39 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
-  %switch.load40 = load ptr, ptr %switch.gep39, align 8
+  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup38
-  %.0.i27 = phi ptr [ %switch.load40, %switch.lookup38 ], [ @.str.3, %44 ]
+_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup43
+  %.0.i27 = phi ptr [ %switch.load45, %switch.lookup43 ], [ @.str.3, %44 ]
   %48 = icmp ult i32 %5, 4
-  br i1 %48, label %switch.lookup41, label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit30
+  br i1 %48, label %switch.lookup46, label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-switch.lookup41:                                  ; preds = %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
+switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
-  %switch.load43 = load ptr, ptr %switch.gep42, align 8
+  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup41
-  %.0.i29 = phi ptr [ %switch.load43, %switch.lookup41 ], [ @.str.3, %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
+_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup46
+  %.0.i29 = phi ptr [ %switch.load48, %switch.lookup46 ], [ @.str.3, %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 3, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._ZN8GGUFMeta3GKVIbE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override, ptr noundef nonnull %45, ptr noundef nonnull %.0.i27, ptr noundef nonnull %.0.i29)
   br label %50
 
@@ -12640,16 +12640,16 @@ _ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = load i32, ptr %1, align 8, !tbaa !374
   %28 = icmp ult i32 %27, 4
-  br i1 %28, label %switch.lookup35, label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit26
+  br i1 %28, label %switch.lookup40, label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-switch.lookup35:                                  ; preds = %25
+switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep36 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
-  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup35
-  %.0.i25 = phi ptr [ %switch.load37, %switch.lookup35 ], [ @.str.3, %25 ]
+_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup40
+  %.0.i25 = phi ptr [ %switch.load42, %switch.lookup40 ], [ @.str.3, %25 ]
   invoke void (ptr, ptr, ...) @_Z6formatB5cxx11PKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0.i25, ptr noundef nonnull %10)
           to label %30 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -12699,27 +12699,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 44:                                               ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = icmp ult i32 %0, 4
-  br i1 %46, label %switch.lookup38, label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
+  br i1 %46, label %switch.lookup43, label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-switch.lookup38:                                  ; preds = %44
+switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep39 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
-  %switch.load40 = load ptr, ptr %switch.gep39, align 8
+  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup38
-  %.0.i27 = phi ptr [ %switch.load40, %switch.lookup38 ], [ @.str.3, %44 ]
+_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup43
+  %.0.i27 = phi ptr [ %switch.load45, %switch.lookup43 ], [ @.str.3, %44 ]
   %48 = icmp ult i32 %5, 4
-  br i1 %48, label %switch.lookup41, label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit30
+  br i1 %48, label %switch.lookup46, label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-switch.lookup41:                                  ; preds = %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
+switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
-  %switch.load43 = load ptr, ptr %switch.gep42, align 8
+  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup41
-  %.0.i29 = phi ptr [ %switch.load43, %switch.lookup41 ], [ @.str.3, %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
+_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup46
+  %.0.i29 = phi ptr [ %switch.load48, %switch.lookup46 ], [ @.str.3, %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 3, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._ZN8GGUFMeta3GKVIbE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override, ptr noundef nonnull %45, ptr noundef nonnull %.0.i27, ptr noundef nonnull %.0.i29)
   br label %50
 
@@ -12881,16 +12881,16 @@ _ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = load i32, ptr %1, align 8, !tbaa !374
   %28 = icmp ult i32 %27, 4
-  br i1 %28, label %switch.lookup35, label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit26
+  br i1 %28, label %switch.lookup40, label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-switch.lookup35:                                  ; preds = %25
+switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep36 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
-  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup35
-  %.0.i25 = phi ptr [ %switch.load37, %switch.lookup35 ], [ @.str.3, %25 ]
+_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup40
+  %.0.i25 = phi ptr [ %switch.load42, %switch.lookup40 ], [ @.str.3, %25 ]
   invoke void (ptr, ptr, ...) @_Z6formatB5cxx11PKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0.i25, ptr noundef nonnull %10)
           to label %30 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -12940,27 +12940,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 44:                                               ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = icmp ult i32 %0, 4
-  br i1 %46, label %switch.lookup38, label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
+  br i1 %46, label %switch.lookup43, label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-switch.lookup38:                                  ; preds = %44
+switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep39 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
-  %switch.load40 = load ptr, ptr %switch.gep39, align 8
+  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup38
-  %.0.i27 = phi ptr [ %switch.load40, %switch.lookup38 ], [ @.str.3, %44 ]
+_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup43
+  %.0.i27 = phi ptr [ %switch.load45, %switch.lookup43 ], [ @.str.3, %44 ]
   %48 = icmp ult i32 %5, 4
-  br i1 %48, label %switch.lookup41, label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit30
+  br i1 %48, label %switch.lookup46, label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-switch.lookup41:                                  ; preds = %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
+switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
-  %switch.load43 = load ptr, ptr %switch.gep42, align 8
+  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup41
-  %.0.i29 = phi ptr [ %switch.load43, %switch.lookup41 ], [ @.str.3, %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
+_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup46
+  %.0.i29 = phi ptr [ %switch.load48, %switch.lookup46 ], [ @.str.3, %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 3, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._ZN8GGUFMeta3GKVIbE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override, ptr noundef nonnull %45, ptr noundef nonnull %.0.i27, ptr noundef nonnull %.0.i29)
   br label %50
 
@@ -13000,7 +13000,7 @@ _ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12try_over
   %14 = load ptr, ptr %2, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = icmp eq ptr %14, %15
-  br i1 %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13012,14 +13012,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %22 = icmp eq ptr %20, %21
   br i1 %22, label %26, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %13
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %13
   %23 = load ptr, ptr %5, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-26:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %27 = phi ptr [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+26:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %27 = phi ptr [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !11
   %30 = icmp ult i64 %29, 16
@@ -13061,7 +13061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %41, ptr %15, align 8, !tbaa !12
   br label %48
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %42 = load i64, ptr %15, align 8, !tbaa !12
   store ptr %23, ptr %2, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -13307,16 +13307,16 @@ _ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = load i32, ptr %1, align 8, !tbaa !374
   %28 = icmp ult i32 %27, 4
-  br i1 %28, label %switch.lookup35, label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit26
+  br i1 %28, label %switch.lookup40, label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-switch.lookup35:                                  ; preds = %25
+switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep36 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
-  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup35
-  %.0.i25 = phi ptr [ %switch.load37, %switch.lookup35 ], [ @.str.3, %25 ]
+_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup40
+  %.0.i25 = phi ptr [ %switch.load42, %switch.lookup40 ], [ @.str.3, %25 ]
   invoke void (ptr, ptr, ...) @_Z6formatB5cxx11PKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0.i25, ptr noundef nonnull %10)
           to label %30 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -13366,27 +13366,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 44:                                               ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = icmp ult i32 %0, 4
-  br i1 %46, label %switch.lookup38, label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
+  br i1 %46, label %switch.lookup43, label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-switch.lookup38:                                  ; preds = %44
+switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep39 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
-  %switch.load40 = load ptr, ptr %switch.gep39, align 8
+  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup38
-  %.0.i27 = phi ptr [ %switch.load40, %switch.lookup38 ], [ @.str.3, %44 ]
+_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup43
+  %.0.i27 = phi ptr [ %switch.load45, %switch.lookup43 ], [ @.str.3, %44 ]
   %48 = icmp ult i32 %5, 4
-  br i1 %48, label %switch.lookup41, label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit30
+  br i1 %48, label %switch.lookup46, label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-switch.lookup41:                                  ; preds = %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
+switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
-  %switch.load43 = load ptr, ptr %switch.gep42, align 8
+  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup41
-  %.0.i29 = phi ptr [ %switch.load43, %switch.lookup41 ], [ @.str.3, %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
+_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup46
+  %.0.i29 = phi ptr [ %switch.load48, %switch.lookup46 ], [ @.str.3, %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 3, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._ZN8GGUFMeta3GKVIbE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override, ptr noundef nonnull %45, ptr noundef nonnull %.0.i27, ptr noundef nonnull %.0.i29)
   br label %50
 
@@ -14032,7 +14032,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread.thread
 
 _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread.thread: ; preds = %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread
-  %.sroa.036.0.ph68 = phi ptr [ %.sroa.036.0.ph, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread ], [ %.sroa.032.054, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit ]
+  %.sroa.036.0.ph73 = phi ptr [ %.sroa.036.0.ph, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread ], [ %.sroa.032.054, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit ]
   %75 = phi i64 [ %74, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread ], [ %.fr56, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit ]
   %76 = load ptr, ptr %6, align 8, !tbaa !3
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -14056,7 +14056,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %.critedge27, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23llama_model_kv_overrideELb1EEEEE18_M_deallocate_nodeEPSC_.exit.i
   %.sroa.4.044 = phi i8 [ 0, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread ], [ 0, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23llama_model_kv_overrideELb1EEEEE18_M_deallocate_nodeEPSC_.exit.i ], [ 1, %.critedge27 ]
-  %.sroa.036.043 = phi ptr [ %.sroa.036.0.ph, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread ], [ %.sroa.036.0.ph68, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23llama_model_kv_overrideELb1EEEEE18_M_deallocate_nodeEPSC_.exit.i ], [ %71, %.critedge27 ]
+  %.sroa.036.043 = phi ptr [ %.sroa.036.0.ph, %_ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_23llama_model_kv_overrideENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS8_RKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread ], [ %.sroa.036.0.ph73, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23llama_model_kv_overrideELb1EEEEE18_M_deallocate_nodeEPSC_.exit.i ], [ %71, %.critedge27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.036.043, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.044, 1
@@ -15205,18 +15205,18 @@ _ZNK18llama_model_loader20weight_name_comparerclERKNSt7__cxx1112basic_stringIcSt
   br i1 %.0.i33, label %._crit_edge.thread, label %38
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.031.lcssa43 = phi ptr [ %.03238, %._crit_edge ], [ %8, %2 ]
+  %.031.lcssa48 = phi ptr [ %.03238, %._crit_edge ], [ %8, %2 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !83
-  %35 = icmp eq ptr %.031.lcssa43, %34
+  %35 = icmp eq ptr %.031.lcssa48, %34
   br i1 %35, label %60, label %36
 
 36:                                               ; preds = %._crit_edge.thread
-  %37 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.031.lcssa43) #37
+  %37 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.031.lcssa48) #37
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.031.lcssa42 = phi ptr [ %.031.lcssa43, %36 ], [ %.03238, %._crit_edge ]
+  %.031.lcssa47 = phi ptr [ %.031.lcssa48, %36 ], [ %.03238, %._crit_edge ]
   %.sroa.017.0 = phi ptr [ %37, %36 ], [ %.03238, %._crit_edge ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -15273,7 +15273,7 @@ _ZNK18llama_model_loader20weight_name_comparerclERKNSt7__cxx1112basic_stringIcSt
 
 60:                                               ; preds = %_ZNK18llama_model_loader20weight_name_comparerclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit16, %46, %._crit_edge.thread, %59
   %.sroa.030.0 = phi ptr [ %.sroa.017.0, %59 ], [ null, %._crit_edge.thread ], [ null, %46 ], [ null, %_ZNK18llama_model_loader20weight_name_comparerclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit16 ]
-  %.sroa.4.0 = phi ptr [ null, %59 ], [ %.031.lcssa43, %._crit_edge.thread ], [ %.031.lcssa42, %46 ], [ %.031.lcssa42, %_ZNK18llama_model_loader20weight_name_comparerclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit16 ]
+  %.sroa.4.0 = phi ptr [ null, %59 ], [ %.031.lcssa48, %._crit_edge.thread ], [ %.031.lcssa47, %46 ], [ %.031.lcssa47, %_ZNK18llama_model_loader20weight_name_comparerclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit16 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.030.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -15503,16 +15503,16 @@ _ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = load i32, ptr %1, align 8, !tbaa !374
   %28 = icmp ult i32 %27, 4
-  br i1 %28, label %switch.lookup35, label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit26
+  br i1 %28, label %switch.lookup40, label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-switch.lookup35:                                  ; preds = %25
+switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep36 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
-  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup35
-  %.0.i25 = phi ptr [ %switch.load37, %switch.lookup35 ], [ @.str.3, %25 ]
+_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup40
+  %.0.i25 = phi ptr [ %switch.load42, %switch.lookup40 ], [ @.str.3, %25 ]
   invoke void (ptr, ptr, ...) @_Z6formatB5cxx11PKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0.i25, ptr noundef nonnull %10)
           to label %30 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -15562,27 +15562,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 44:                                               ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = icmp ult i32 %0, 4
-  br i1 %46, label %switch.lookup38, label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
+  br i1 %46, label %switch.lookup43, label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-switch.lookup38:                                  ; preds = %44
+switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep39 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
-  %switch.load40 = load ptr, ptr %switch.gep39, align 8
+  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup38
-  %.0.i27 = phi ptr [ %switch.load40, %switch.lookup38 ], [ @.str.3, %44 ]
+_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup43
+  %.0.i27 = phi ptr [ %switch.load45, %switch.lookup43 ], [ @.str.3, %44 ]
   %48 = icmp ult i32 %5, 4
-  br i1 %48, label %switch.lookup41, label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit30
+  br i1 %48, label %switch.lookup46, label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-switch.lookup41:                                  ; preds = %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
+switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
-  %switch.load43 = load ptr, ptr %switch.gep42, align 8
+  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup41
-  %.0.i29 = phi ptr [ %switch.load43, %switch.lookup41 ], [ @.str.3, %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
+_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup46
+  %.0.i29 = phi ptr [ %switch.load48, %switch.lookup46 ], [ @.str.3, %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 3, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._ZN8GGUFMeta3GKVIbE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override, ptr noundef nonnull %45, ptr noundef nonnull %.0.i27, ptr noundef nonnull %.0.i29)
   br label %50
 
@@ -15742,16 +15742,16 @@ _ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit: ;
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = load i32, ptr %1, align 8, !tbaa !374
   %28 = icmp ult i32 %27, 4
-  br i1 %28, label %switch.lookup35, label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit26
+  br i1 %28, label %switch.lookup40, label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-switch.lookup35:                                  ; preds = %25
+switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep36 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
-  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %switch.gep41 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %29
+  %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit26
 
-_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup35
-  %.0.i25 = phi ptr [ %switch.load37, %switch.lookup35 ], [ @.str.3, %25 ]
+_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit26: ; preds = %25, %switch.lookup40
+  %.0.i25 = phi ptr [ %switch.load42, %switch.lookup40 ], [ @.str.3, %25 ]
   invoke void (ptr, ptr, ...) @_Z6formatB5cxx11PKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0.i25, ptr noundef nonnull %10)
           to label %30 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -15801,27 +15801,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 44:                                               ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = icmp ult i32 %0, 4
-  br i1 %46, label %switch.lookup38, label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
+  br i1 %46, label %switch.lookup43, label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-switch.lookup38:                                  ; preds = %44
+switch.lookup43:                                  ; preds = %44
   %47 = zext nneg i32 %0 to i64
-  %switch.gep39 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
-  %switch.load40 = load ptr, ptr %switch.gep39, align 8
+  %switch.gep44 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %47
+  %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
 
-_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup38
-  %.0.i27 = phi ptr [ %switch.load40, %switch.lookup38 ], [ @.str.3, %44 ]
+_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28: ; preds = %44, %switch.lookup43
+  %.0.i27 = phi ptr [ %switch.load45, %switch.lookup43 ], [ @.str.3, %44 ]
   %48 = icmp ult i32 %5, 4
-  br i1 %48, label %switch.lookup41, label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit30
+  br i1 %48, label %switch.lookup46, label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-switch.lookup41:                                  ; preds = %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
+switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
   %49 = zext nneg i32 %5 to i64
-  %switch.gep42 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
-  %switch.load43 = load ptr, ptr %switch.gep42, align 8
+  %switch.gep47 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 0, i64 %49
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit30
 
-_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup41
-  %.0.i29 = phi ptr [ %switch.load43, %switch.lookup41 ], [ @.str.3, %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
+_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit30: ; preds = %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28, %switch.lookup46
+  %.0.i29 = phi ptr [ %switch.load48, %switch.lookup46 ], [ @.str.3, %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28 ]
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 3, ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__._ZN8GGUFMeta3GKVIbE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override, ptr noundef nonnull %45, ptr noundef nonnull %.0.i27, ptr noundef nonnull %.0.i29)
   br label %50
 
@@ -15888,14 +15888,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Se
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !83
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #37
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #37
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4, !tbaa !165
   %.pre82 = load i32, ptr %2, align 4, !tbaa !165
@@ -15904,11 +15904,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Se
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i32 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i32 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp slt i32 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 32:                                               ; preds = %3
@@ -15960,23 +15960,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Se
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #37
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #37
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4, !tbaa !165
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i32 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp slt i32 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 61:                                               ; preds = %32
@@ -16025,30 +16025,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Se
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !83
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #37
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #37
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !165
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i32 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp slt i32 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 _ZNSt8_Rb_treeI9ggml_typeSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

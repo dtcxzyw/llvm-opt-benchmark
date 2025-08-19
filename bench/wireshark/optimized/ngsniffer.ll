@@ -182,8 +182,8 @@ define hidden range(i32 -1, 2) i32 @ngsniffer_open(ptr noundef captures(none) %0
   br i1 %switch, label %.sink.split, label %64
 
 .sink.split:                                      ; preds = %61, %62
-  %.sink105 = phi i32 [ 17, %62 ], [ 27, %61 ]
-  store i32 %.sink105, ptr %47, align 8
+  %.sink108 = phi i32 [ 17, %62 ], [ 27, %61 ]
+  store i32 %.sink108, ptr %47, align 8
   br label %64
 
 64:                                               ; preds = %.sink.split, %62, %61, %55, %58
@@ -206,14 +206,14 @@ define hidden range(i32 -1, 2) i32 @ngsniffer_open(ptr noundef captures(none) %0
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %76 = load i8, ptr %75, align 2
   %.not94 = icmp ne i8 %76, 1
-  %spec.select106 = zext i1 %.not94 to i8
+  %spec.select109 = zext i1 %.not94 to i8
   %ngsniffer_compressed_file_type_subtype.val = load i32, ptr @ngsniffer_compressed_file_type_subtype, align 4
   %ngsniffer_uncompressed_file_type_subtype.val = load i32, ptr @ngsniffer_uncompressed_file_type_subtype, align 4
   %.sink104 = select i1 %.not94, i32 %ngsniffer_compressed_file_type_subtype.val, i32 %ngsniffer_uncompressed_file_type_subtype.val
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink104, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i8 %spec.select106, ptr %78, align 8
+  store i8 %spec.select109, ptr %78, align 8
   %79 = zext i16 %52 to i32
   store i32 %79, ptr %73, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -2064,9 +2064,9 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %33
-  %.sink130 = phi i64 [ 104, %33 ], [ 112, %28 ]
+  %.sink136 = phi i64 [ 104, %33 ], [ 112, %28 ]
   %.sink = phi ptr [ %42, %33 ], [ %30, %28 ]
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink130
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink136
   store ptr %.sink, ptr %43, align 8
   br label %44
 

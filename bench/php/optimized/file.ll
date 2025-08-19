@@ -700,26 +700,26 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %27
 
 .lr.ph.preheader:                                 ; preds = %65
   %70 = load i8, ptr %69, align 1, !tbaa !21
-  %.not174241 = icmp eq i8 %70, 0
-  br i1 %.not174241, label %.critedge5, label %.lr.ph243
+  %.not174246 = icmp eq i8 %70, 0
+  br i1 %.not174246, label %.critedge5, label %.lr.ph248
 
-.lr.ph243:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph248:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %71 = phi i8 [ %75, %.lr.ph ], [ %70, %.lr.ph.preheader ]
-  %.0143223242 = phi ptr [ %74, %.lr.ph ], [ %69, %.lr.ph.preheader ]
+  %.0143223247 = phi ptr [ %74, %.lr.ph ], [ %69, %.lr.ph.preheader ]
   %72 = sext i8 %71 to i32
   %memchr175 = call ptr @memchr(ptr nonnull dereferenceable(1) @.str.6, i32 %72, i64 13)
   %.not176 = icmp eq ptr %memchr175, null
   br i1 %.not176, label %.lr.ph, label %73
 
-73:                                               ; preds = %.lr.ph243
-  store i8 95, ptr %.0143223242, align 1, !tbaa !21
+73:                                               ; preds = %.lr.ph248
+  store i8 95, ptr %.0143223247, align 1, !tbaa !21
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %73, %.lr.ph243
-  %74 = getelementptr inbounds nuw i8, ptr %.0143223242, i64 1
+.lr.ph:                                           ; preds = %73, %.lr.ph248
+  %74 = getelementptr inbounds nuw i8, ptr %.0143223247, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !21
   %.not174 = icmp eq i8 %75, 0
-  br i1 %.not174, label %.critedge5, label %.lr.ph243
+  br i1 %.not174, label %.critedge5, label %.lr.ph248
 
 76:                                               ; preds = %62
   %.not170 = icmp eq i32 %.0135232, 0
@@ -789,26 +789,26 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %27
 
 .lr.ph227.preheader:                              ; preds = %101
   %106 = load i8, ptr %105, align 1, !tbaa !21
-  %.not166244 = icmp eq i8 %106, 0
-  br i1 %.not166244, label %.critedge5, label %.lr.ph246
+  %.not166249 = icmp eq i8 %106, 0
+  br i1 %.not166249, label %.critedge5, label %.lr.ph251
 
-.lr.ph246:                                        ; preds = %.lr.ph227.preheader, %.lr.ph227
+.lr.ph251:                                        ; preds = %.lr.ph227.preheader, %.lr.ph227
   %107 = phi i8 [ %111, %.lr.ph227 ], [ %106, %.lr.ph227.preheader ]
-  %.1144226245 = phi ptr [ %110, %.lr.ph227 ], [ %105, %.lr.ph227.preheader ]
+  %.1144226250 = phi ptr [ %110, %.lr.ph227 ], [ %105, %.lr.ph227.preheader ]
   %108 = sext i8 %107 to i32
   %memchr = call ptr @memchr(ptr nonnull dereferenceable(1) @.str.6, i32 %108, i64 13)
   %.not167 = icmp eq ptr %memchr, null
   br i1 %.not167, label %.lr.ph227, label %109
 
-109:                                              ; preds = %.lr.ph246
-  store i8 95, ptr %.1144226245, align 1, !tbaa !21
+109:                                              ; preds = %.lr.ph251
+  store i8 95, ptr %.1144226250, align 1, !tbaa !21
   br label %.lr.ph227
 
-.lr.ph227:                                        ; preds = %109, %.lr.ph246
-  %110 = getelementptr inbounds nuw i8, ptr %.1144226245, i64 1
+.lr.ph227:                                        ; preds = %109, %.lr.ph251
+  %110 = getelementptr inbounds nuw i8, ptr %.1144226250, i64 1
   %111 = load i8, ptr %110, align 1, !tbaa !21
   %.not166 = icmp eq i8 %111, 0
-  br i1 %.not166, label %.critedge5, label %.lr.ph246
+  br i1 %.not166, label %.critedge5, label %.lr.ph251
 
 112:                                              ; preds = %98
   %.not162 = icmp eq i32 %.0135232, 0
@@ -871,8 +871,8 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %27
 .critedge5:                                       ; preds = %.lr.ph, %.lr.ph227, %.lr.ph.preheader, %.lr.ph227.preheader, %65, %101, %55, %120, %121, %122, %115, %112, %86, %79, %76, %128, %48, %93, %90, %84
   %.2147 = phi ptr [ %.0145229, %48 ], [ %.0145229, %93 ], [ %.0145229, %90 ], [ %.0145229, %84 ], [ null, %128 ], [ %.0145229, %55 ], [ %83, %79 ], [ %.0145229, %76 ], [ %.0145229, %86 ], [ %119, %115 ], [ %.0145229, %112 ], [ %.0145229, %122 ], [ %.0145229, %121 ], [ %.0145229, %120 ], [ %.0145229, %101 ], [ %.0145229, %65 ], [ %.0145229, %.lr.ph227.preheader ], [ %.0145229, %.lr.ph.preheader ], [ %.0145229, %.lr.ph227 ], [ %.0145229, %.lr.ph ]
   %.2141 = phi ptr [ %.0139230, %48 ], [ %.0139230, %93 ], [ %.0139230, %90 ], [ %.0139230, %84 ], [ null, %128 ], [ %.0139230, %55 ], [ %.0139230, %79 ], [ %.0139230, %76 ], [ %.0139230, %86 ], [ %.0139230, %115 ], [ %.0139230, %112 ], [ %.0139230, %122 ], [ %.0139230, %121 ], [ %.0139230, %120 ], [ null, %101 ], [ null, %65 ], [ %105, %.lr.ph227.preheader ], [ %69, %.lr.ph.preheader ], [ %105, %.lr.ph227 ], [ %69, %.lr.ph ]
-  %.1136 = phi i32 [ %.0135232, %48 ], [ 1, %93 ], [ %.0135232, %90 ], [ %.0135232, %84 ], [ 0, %128 ], [ %.0135232, %55 ], [ %.0135232, %79 ], [ 0, %76 ], [ 0, %86 ], [ %.0135232, %115 ], [ 0, %112 ], [ 0, %122 ], [ %.0135232, %121 ], [ %.0135232, %120 ], [ %.0135232, %101 ], [ %.0135232, %65 ], [ %.0135232, %.lr.ph227.preheader ], [ %.0135232, %.lr.ph.preheader ], [ %.0135232, %.lr.ph227 ], [ %.0135232, %.lr.ph ]
-  %.1133 = phi i32 [ %.0132233, %48 ], [ 0, %93 ], [ %.0132233, %90 ], [ %.0132233, %84 ], [ 0, %128 ], [ %.0132233, %55 ], [ 0, %79 ], [ 0, %76 ], [ 1, %86 ], [ 0, %115 ], [ 0, %112 ], [ 0, %122 ], [ %.0132233, %121 ], [ %.0132233, %120 ], [ %.0132233, %101 ], [ %.0132233, %65 ], [ %.0132233, %.lr.ph227.preheader ], [ %.0132233, %.lr.ph.preheader ], [ %.0132233, %.lr.ph227 ], [ %.0132233, %.lr.ph ]
+  %.1136 = phi i32 [ %.0135232, %48 ], [ 1, %93 ], [ %.0135232, %90 ], [ %.0135232, %84 ], [ 0, %128 ], [ %.0135232, %55 ], [ 1, %79 ], [ 0, %76 ], [ 0, %86 ], [ 1, %115 ], [ 0, %112 ], [ 0, %122 ], [ %.0135232, %121 ], [ %.0135232, %120 ], [ %.0135232, %101 ], [ %.0135232, %65 ], [ %.0135232, %.lr.ph227.preheader ], [ %.0135232, %.lr.ph.preheader ], [ %.0135232, %.lr.ph227 ], [ %.0135232, %.lr.ph ]
+  %.1133 = phi i32 [ %.0132233, %48 ], [ 0, %93 ], [ %.0132233, %90 ], [ %.0132233, %84 ], [ 0, %128 ], [ %.0132233, %55 ], [ 0, %79 ], [ 0, %76 ], [ 1, %86 ], [ 0, %115 ], [ 0, %112 ], [ 0, %122 ], [ %.0132233, %121 ], [ %.0132233, %120 ], [ 1, %101 ], [ 1, %65 ], [ 1, %.lr.ph227.preheader ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph227 ], [ 1, %.lr.ph ]
   %.2129 = phi i32 [ %.0127234, %48 ], [ %.0127234, %93 ], [ %.0127234, %90 ], [ %.0127234, %84 ], [ 0, %128 ], [ %.0127234, %55 ], [ 1, %79 ], [ %.0127234, %76 ], [ %.0127234, %86 ], [ 1, %115 ], [ %.0127234, %112 ], [ 0, %122 ], [ %.0127234, %121 ], [ %.0127234, %120 ], [ %.0127234, %101 ], [ %.0127234, %65 ], [ %.0127234, %.lr.ph227.preheader ], [ %.0127234, %.lr.ph.preheader ], [ %.0127234, %.lr.ph227 ], [ %.0127234, %.lr.ph ]
   %.2126 = phi i32 [ %.0124235, %48 ], [ %.0124235, %93 ], [ %.0124235, %90 ], [ %.0124235, %84 ], [ 0, %128 ], [ %.0124235, %55 ], [ %.0124235, %79 ], [ %.0124235, %76 ], [ %.0124235, %86 ], [ %.0124235, %115 ], [ %.0124235, %112 ], [ 0, %122 ], [ %.0124235, %121 ], [ %.0124235, %120 ], [ 1, %101 ], [ 1, %65 ], [ 1, %.lr.ph227.preheader ], [ 1, %.lr.ph.preheader ], [ 1, %.lr.ph227 ], [ 1, %.lr.ph ]
   %.1120 = phi i32 [ %.0119236, %48 ], [ 1, %93 ], [ %.0119236, %90 ], [ %.0119236, %84 ], [ 0, %128 ], [ %.0119236, %55 ], [ 0, %79 ], [ 0, %76 ], [ 1, %86 ], [ 0, %115 ], [ 0, %112 ], [ 0, %122 ], [ 0, %121 ], [ %.0119236, %120 ], [ 0, %101 ], [ 0, %65 ], [ 0, %.lr.ph227.preheader ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph227 ], [ 0, %.lr.ph ]
@@ -974,14 +974,14 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr noundef captures(none
   switch i32 %.2, label %53 [
     i32 60, label %.critedge2
     i32 62, label %.critedge2.loopexit176
-    i32 61, label %.critedge2.loopexit184
-    i32 47, label %.critedge2.loopexit192
+    i32 61, label %.critedge2.loopexit189
+    i32 47, label %.critedge2.loopexit197
     i32 39, label %20
     i32 34, label %20
     i32 10, label %.backedge
     i32 13, label %.backedge
     i32 9, label %.backedge
-    i32 32, label %.critedge2.loopexit202
+    i32 32, label %.critedge2.loopexit207
   ]
 
 .backedge:                                        ; preds = %19, %19, %19
@@ -1145,17 +1145,17 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr noundef captures(none
 .critedge2.loopexit176:                           ; preds = %19
   br label %.critedge2
 
-.critedge2.loopexit184:                           ; preds = %19
+.critedge2.loopexit189:                           ; preds = %19
   br label %.critedge2
 
-.critedge2.loopexit192:                           ; preds = %19
+.critedge2.loopexit197:                           ; preds = %19
   br label %.critedge2
 
-.critedge2.loopexit202:                           ; preds = %19
+.critedge2.loopexit207:                           ; preds = %19
   br label %.critedge2
 
-.critedge2:                                       ; preds = %10, %.critedge, %7, %19, %.critedge2.loopexit202, %.critedge2.loopexit192, %.critedge2.loopexit184, %.critedge2.loopexit176, %53, %.critedge5.thread, %44, %90
-  %.0 = phi i32 [ 6, %90 ], [ 7, %44 ], [ 7, %.critedge5.thread ], [ 8, %53 ], [ 2, %.critedge2.loopexit176 ], [ 4, %.critedge2.loopexit184 ], [ 3, %.critedge2.loopexit192 ], [ 1, %19 ], [ 0, %10 ], [ 0, %.critedge ], [ 0, %7 ], [ 5, %.critedge2.loopexit202 ]
+.critedge2:                                       ; preds = %10, %.critedge, %7, %19, %.critedge2.loopexit207, %.critedge2.loopexit197, %.critedge2.loopexit189, %.critedge2.loopexit176, %53, %.critedge5.thread, %44, %90
+  %.0 = phi i32 [ 6, %90 ], [ 7, %44 ], [ 7, %.critedge5.thread ], [ 8, %53 ], [ 2, %.critedge2.loopexit176 ], [ 4, %.critedge2.loopexit189 ], [ 3, %.critedge2.loopexit197 ], [ 1, %19 ], [ 0, %10 ], [ 0, %.critedge ], [ 0, %7 ], [ 5, %.critedge2.loopexit207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -1765,7 +1765,7 @@ zend_memnstr.exit:                                ; preds = %84
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load i64, ptr %128, align 8, !tbaa !60
   %.not162 = icmp eq i64 %129, 0
-  br i1 %.not162, label %.sink.split281, label %130
+  br i1 %.not162, label %.sink.split301, label %130
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 24
@@ -1789,13 +1789,13 @@ zend_memnstr.exit:                                ; preds = %84
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 28
   %141 = load i32, ptr %140, align 4, !tbaa !87
   %.not157 = icmp eq i32 %141, 0
-  br i1 %.not157, label %.sink.split281, label %142
+  br i1 %.not157, label %.sink.split301, label %142
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %144 = load i32, ptr %143, align 8, !tbaa !88
   %.not158273 = icmp eq i32 %144, 0
-  br i1 %.not158273, label %.sink.split281, label %.lr.ph278
+  br i1 %.not158273, label %.sink.split301, label %.lr.ph278
 
 .lr.ph278:                                        ; preds = %142
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 16
@@ -1979,12 +1979,12 @@ zend_tmp_string_release.exit:                     ; preds = %zend_tmp_string_rel
   store i32 2, ptr %224, align 8, !tbaa !21
   br label %228
 
-.sink.split281:                                   ; preds = %138, %126, %142
+.sink.split301:                                   ; preds = %138, %126, %142
   %225 = call i32 @_php_stream_free(ptr noundef nonnull %96, i32 noundef 3) #18
   br label %226
 
-226:                                              ; preds = %.sink.split281, %zend_tmp_string_release.exit
-  %.1267 = phi i64 [ %.1, %zend_tmp_string_release.exit ], [ 0, %.sink.split281 ]
+226:                                              ; preds = %.sink.split301, %zend_tmp_string_release.exit
+  %.1267 = phi i64 [ %.1, %zend_tmp_string_release.exit ], [ 0, %.sink.split301 ]
   store i64 %.1267, ptr %1, align 8, !tbaa !21
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %227, align 8, !tbaa !21
@@ -5751,8 +5751,8 @@ zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_
   br label %zend_parse_arg_resource.exit.thread194
 
 zend_parse_arg_str_ex.exit137.thread:             ; preds = %zend_parse_arg_str_ex.exit137, %34
-  %.in271 = phi ptr [ %35, %34 ], [ %4, %zend_parse_arg_str_ex.exit137 ]
-  %40 = load ptr, ptr %.in271, align 8, !tbaa !21
+  %.in276 = phi ptr [ %35, %34 ], [ %4, %zend_parse_arg_str_ex.exit137 ]
+  %40 = load ptr, ptr %.in276, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !60
@@ -5871,8 +5871,8 @@ zend_parse_arg_resource.exit.thread194:           ; preds = %zend_parse_arg_str_
   br label %select.unfold
 
 .critedge.thread227.thread:                       ; preds = %21, %.critedge.thread250, %.critedge.thread227
-  %.0110270 = phi i8 [ %70, %.critedge.thread227 ], [ 34, %.critedge.thread250 ], [ 34, %21 ]
-  %.0236268 = phi i8 [ %69, %.critedge.thread227 ], [ %61, %.critedge.thread250 ], [ 44, %21 ]
+  %.0110275 = phi i8 [ %70, %.critedge.thread227 ], [ 34, %.critedge.thread250 ], [ 34, %21 ]
+  %.0236273 = phi i8 [ %69, %.critedge.thread227 ], [ %61, %.critedge.thread250 ], [ 44, %21 ]
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.51) #18
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !23
   %.not7.i = icmp eq ptr %83, null
@@ -5884,8 +5884,8 @@ php_csv_handle_escape_argument.exit:              ; preds = %75, %.critedge.thre
   br label %98
 
 select.unfold:                                    ; preds = %.critedge.thread227.thread, %79, %77
-  %.0110269 = phi i8 [ %70, %77 ], [ %70, %79 ], [ %.0110270, %.critedge.thread227.thread ]
-  %.0236267 = phi i8 [ %69, %77 ], [ %69, %79 ], [ %.0236268, %.critedge.thread227.thread ]
+  %.0110274 = phi i8 [ %70, %77 ], [ %70, %79 ], [ %.0110275, %.critedge.thread227.thread ]
+  %.0236272 = phi i8 [ %69, %77 ], [ %69, %79 ], [ %.0236273, %.critedge.thread227.thread ]
   %.0.i141.ph = phi i32 [ -1, %77 ], [ %82, %79 ], [ 92, %.critedge.thread227.thread ]
   %85 = load ptr, ptr %12, align 8, !tbaa !21
   %86 = call i32 @php_file_le_stream() #18
@@ -5896,7 +5896,7 @@ select.unfold:                                    ; preds = %.critedge.thread227
 
 90:                                               ; preds = %select.unfold
   %91 = load ptr, ptr %6, align 8, !tbaa !59
-  %92 = call i64 @php_fputcsv(ptr noundef nonnull %88, ptr noundef nonnull %17, i8 noundef signext %.0236267, i8 noundef signext %.0110269, i32 noundef %.0.i141.ph, ptr noundef %91)
+  %92 = call i64 @php_fputcsv(ptr noundef nonnull %88, ptr noundef nonnull %17, i8 noundef signext %.0236272, i8 noundef signext %.0110274, i32 noundef %.0.i141.ph, ptr noundef %91)
   %93 = icmp slt i64 %92, 0
   br i1 %93, label %94, label %96
 
@@ -6496,8 +6496,8 @@ zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_
   br label %zend_parse_arg_resource.exit.thread195
 
 zend_parse_arg_str_ex.exit140.thread:             ; preds = %zend_parse_arg_str_ex.exit140, %40
-  %.in265 = phi ptr [ %41, %40 ], [ %5, %zend_parse_arg_str_ex.exit140 ]
-  %46 = load ptr, ptr %.in265, align 8, !tbaa !21
+  %.in273 = phi ptr [ %41, %40 ], [ %5, %zend_parse_arg_str_ex.exit140 ]
+  %46 = load ptr, ptr %.in273, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load i64, ptr %48, align 8, !tbaa !60
@@ -6870,18 +6870,18 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   %69 = getelementptr inbounds nuw i8, ptr %.1264, i64 1
   br label %70
 
-70:                                               ; preds = %.backedge705, %68
-  %.1326 = phi i32 [ %61, %68 ], [ %.1326.be, %.backedge705 ]
-  %.2318 = phi i64 [ %.0316, %68 ], [ %.5321, %.backedge705 ]
-  %.0304 = phi ptr [ %69, %68 ], [ %.8312, %.backedge705 ]
-  %.0298 = phi ptr [ %.0256, %68 ], [ %.5303, %.backedge705 ]
-  %.0291 = phi i32 [ 0, %68 ], [ %.2293, %.backedge705 ]
-  %.2286 = phi i64 [ %.0284, %68 ], [ %.5289, %.backedge705 ]
-  %.2279 = phi ptr [ %.0277, %68 ], [ %.5282, %.backedge705 ]
-  %.2272 = phi ptr [ %.0270, %68 ], [ %.5275, %.backedge705 ]
-  %.4267 = phi ptr [ %69, %68 ], [ %.8, %.backedge705 ]
-  %.2258 = phi ptr [ %.0256, %68 ], [ %.5261, %.backedge705 ]
-  %.2 = phi ptr [ %.0, %68 ], [ %.5, %.backedge705 ]
+70:                                               ; preds = %.backedge722, %68
+  %.1326 = phi i32 [ %61, %68 ], [ %.1326.be, %.backedge722 ]
+  %.2318 = phi i64 [ %.0316, %68 ], [ %.5321, %.backedge722 ]
+  %.0304 = phi ptr [ %69, %68 ], [ %.8312, %.backedge722 ]
+  %.0298 = phi ptr [ %.0256, %68 ], [ %.5303, %.backedge722 ]
+  %.0291 = phi i32 [ 0, %68 ], [ %.2293, %.backedge722 ]
+  %.2286 = phi i64 [ %.0284, %68 ], [ %.5289, %.backedge722 ]
+  %.2279 = phi ptr [ %.0277, %68 ], [ %.5282, %.backedge722 ]
+  %.2272 = phi ptr [ %.0270, %68 ], [ %.5275, %.backedge722 ]
+  %.4267 = phi ptr [ %69, %68 ], [ %.8, %.backedge722 ]
+  %.2258 = phi ptr [ %.0256, %68 ], [ %.5261, %.backedge722 ]
+  %.2 = phi ptr [ %.0, %68 ], [ %.5, %.backedge722 ]
   switch i32 %.1326, label %151 [
     i32 0, label %71
     i32 -2, label %128
@@ -6890,7 +6890,7 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   ]
 
 71:                                               ; preds = %70
-  switch i32 %.0291, label %default.unreachable575 [
+  switch i32 %.0291, label %default.unreachable592 [
     i32 2, label %72
     i32 1, label %78
     i32 0, label %83
@@ -7116,7 +7116,7 @@ php_fgetcsv_lookup_trailing_spaces.exit:          ; preds = %6, %._crit_edge.i, 
   %167 = getelementptr inbounds i8, ptr %.4267, i64 %166
   br label %168
 
-default.unreachable575:                           ; preds = %71
+default.unreachable592:                           ; preds = %71
   unreachable
 
 168:                                              ; preds = %.thread410, %158, %165, %131, %141, %145
@@ -7131,23 +7131,23 @@ default.unreachable575:                           ; preds = %71
   %.5261 = phi ptr [ %.2258, %165 ], [ %.2258, %158 ], [ %.2258, %145 ], [ %.2258, %131 ], [ %.2258, %141 ], [ %101, %.thread410 ]
   %.5 = phi ptr [ %.2, %165 ], [ %.2, %158 ], [ %.2, %145 ], [ %.2, %131 ], [ %.2, %141 ], [ %97, %.thread410 ]
   %169 = icmp ult ptr %.8, %.5282
-  br i1 %169, label %170, label %.backedge705
+  br i1 %169, label %170, label %.backedge722
 
-.backedge705:                                     ; preds = %168, %173, %170
+.backedge722:                                     ; preds = %168, %173, %170
   %.1326.be = phi i32 [ %177, %173 ], [ 1, %170 ], [ 0, %168 ]
   br label %70
 
 170:                                              ; preds = %168
   %171 = load i8, ptr %.8, align 1, !tbaa !21
   %172 = icmp eq i8 %171, 0
-  br i1 %172, label %.backedge705, label %173
+  br i1 %172, label %.backedge722, label %173
 
 173:                                              ; preds = %170
   %174 = ptrtoint ptr %.5282 to i64
   %175 = ptrtoint ptr %.8 to i64
   %176 = sub i64 %174, %175
   %177 = call i32 @mblen(ptr noundef nonnull %.8, i64 noundef %176) #18
-  br label %.backedge705
+  br label %.backedge722
 
 178:                                              ; preds = %125, %91, %93, %152, %137, %72
   %.2306 = phi ptr [ %.4267, %152 ], [ %.4267, %72 ], [ %spec.select355, %93 ], [ %.3307, %91 ], [ %.5309, %125 ], [ %.4267, %137 ]
@@ -7156,9 +7156,9 @@ default.unreachable575:                           ; preds = %71
   %179 = ptrtoint ptr %.2279 to i64
   br label %180
 
-180:                                              ; preds = %.backedge704, %178
-  %.2327 = phi i32 [ %.1326, %178 ], [ %.2327.be, %.backedge704 ]
-  %.9 = phi ptr [ %.5268, %178 ], [ %188, %.backedge704 ]
+180:                                              ; preds = %.backedge721, %178
+  %.2327 = phi i32 [ %.1326, %178 ], [ %.2327.be, %.backedge721 ]
+  %.9 = phi ptr [ %.5268, %178 ], [ %188, %.backedge721 ]
   switch i32 %.2327, label %186 [
     i32 0, label %197
     i32 -2, label %181
@@ -7180,22 +7180,22 @@ default.unreachable575:                           ; preds = %71
   %187 = sext i32 %.5330 to i64
   %188 = getelementptr inbounds i8, ptr %.9, i64 %187
   %189 = icmp ult ptr %188, %.2279
-  br i1 %189, label %190, label %.backedge704
+  br i1 %189, label %190, label %.backedge721
 
-.backedge704:                                     ; preds = %186, %193, %190
+.backedge721:                                     ; preds = %186, %193, %190
   %.2327.be = phi i32 [ %196, %193 ], [ 1, %190 ], [ 0, %186 ]
   br label %180
 
 190:                                              ; preds = %186
   %191 = load i8, ptr %188, align 1, !tbaa !21
   %192 = icmp eq i8 %191, 0
-  br i1 %192, label %.backedge704, label %193
+  br i1 %192, label %.backedge721, label %193
 
 193:                                              ; preds = %190
   %194 = ptrtoint ptr %188 to i64
   %195 = sub i64 %179, %194
   %196 = call i32 @mblen(ptr noundef nonnull %188, i64 noundef %195) #18
-  br label %.backedge704
+  br label %.backedge721
 
 197:                                              ; preds = %183, %180
   %.4329 = phi i32 [ %.2327, %180 ], [ 1, %183 ]

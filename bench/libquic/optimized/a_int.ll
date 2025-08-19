@@ -108,17 +108,17 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
 .loopexit94.thread:                               ; preds = %18
   %29 = add nsw i32 %5, 1
   %30 = icmp eq ptr %1, null
-  br i1 %30, label %68, label %.thread127
+  br i1 %30, label %68, label %.thread132
 
-.thread127:                                       ; preds = %.loopexit94.thread
+.thread132:                                       ; preds = %.loopexit94.thread
   %31 = load ptr, ptr %1, align 8, !tbaa !19
   br label %36
 
 .thread:                                          ; preds = %4
   %32 = icmp eq ptr %1, null
-  br i1 %32, label %68, label %.thread130
+  br i1 %32, label %68, label %.thread135
 
-.thread130:                                       ; preds = %.thread
+.thread135:                                       ; preds = %.thread
   %33 = load ptr, ptr %1, align 8, !tbaa !19
   br label %43
 
@@ -126,12 +126,12 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
   %35 = load ptr, ptr %1, align 8, !tbaa !19
   br i1 %26, label %40, label %36
 
-36:                                               ; preds = %.thread127, %34
-  %37 = phi ptr [ %31, %.thread127 ], [ %35, %34 ]
-  %.1126129 = phi i8 [ -1, %.thread127 ], [ %.1, %34 ]
-  %38 = phi i32 [ %29, %.thread127 ], [ %27, %34 ]
+36:                                               ; preds = %.thread132, %34
+  %37 = phi ptr [ %31, %.thread132 ], [ %35, %34 ]
+  %.1131134 = phi i8 [ -1, %.thread132 ], [ %.1, %34 ]
+  %38 = phi i32 [ %29, %.thread132 ], [ %27, %34 ]
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  store i8 %.1126129, ptr %37, align 1, !tbaa !16
+  store i8 %.1131134, ptr %37, align 1, !tbaa !16
   %.pre = load i32, ptr %0, align 8, !tbaa !14
   br label %40
 
@@ -142,10 +142,10 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %44
 
-43:                                               ; preds = %.thread130, %40
-  %.056136 = phi ptr [ %33, %.thread130 ], [ %.056, %40 ]
-  %.0638291135 = phi i32 [ 1, %.thread130 ], [ %.0638291, %40 ]
-  store i8 0, ptr %.056136, align 1, !tbaa !16
+43:                                               ; preds = %.thread135, %40
+  %.056141 = phi ptr [ %33, %.thread135 ], [ %.056, %40 ]
+  %.0638291140 = phi i32 [ 1, %.thread135 ], [ %.0638291, %40 ]
+  store i8 0, ptr %.056141, align 1, !tbaa !16
   br label %.loopexit
 
 44:                                               ; preds = %40
@@ -209,15 +209,15 @@ define hidden i32 @i2c_ASN1_INTEGER(ptr noundef readonly captures(address_is_nul
   br i1 %64, label %.lr.ph117, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph117, %._crit_edge, %47, %43
-  %.0638291134 = phi i32 [ %.0638291, %._crit_edge ], [ %.0638291, %47 ], [ %.0638291135, %43 ], [ %.0638291, %.lr.ph117 ]
+  %.0638291139 = phi i32 [ %.0638291, %._crit_edge ], [ %.0638291, %47 ], [ %.0638291140, %43 ], [ %.0638291, %.lr.ph117 ]
   %65 = load ptr, ptr %1, align 8, !tbaa !19
-  %66 = sext i32 %.0638291134 to i64
+  %66 = sext i32 %.0638291139 to i64
   %67 = getelementptr inbounds i8, ptr %65, i64 %66
   store ptr %67, ptr %1, align 8, !tbaa !19
   br label %68
 
 68:                                               ; preds = %.loopexit94.thread, %.thread, %.loopexit94, %2, %.loopexit
-  %.066 = phi i32 [ %.0638291134, %.loopexit ], [ 0, %2 ], [ %27, %.loopexit94 ], [ 1, %.thread ], [ %29, %.loopexit94.thread ]
+  %.066 = phi i32 [ %.0638291139, %.loopexit ], [ 0, %2 ], [ %27, %.loopexit94 ], [ 1, %.thread ], [ %29, %.loopexit94.thread ]
   ret i32 %.066
 }
 
@@ -569,31 +569,31 @@ define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr noundef captures(none) i
   %calloc = tail call dereferenceable_or_null(9) ptr @calloc(i64 1, i64 9)
   store ptr %calloc, ptr %7, align 8, !tbaa !15
   %.not35 = icmp eq ptr %calloc, null
-  br i1 %.not35, label %.thread, label %.thread52
+  br i1 %.not35, label %.thread, label %.thread55
 
 12:                                               ; preds = %2
-  br i1 %.not, label %.thread, label %.thread52
+  br i1 %.not, label %.thread, label %.thread55
 
 .thread:                                          ; preds = %11, %12
   tail call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 360) #10
   br label %29
 
-.thread52:                                        ; preds = %11, %12
+.thread55:                                        ; preds = %11, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp slt i64 %1, 0
-  br i1 %14, label %.thread53, label %16
+  br i1 %14, label %.thread56, label %16
 
-.thread53:                                        ; preds = %.thread52
+.thread56:                                        ; preds = %.thread55
   %15 = sub nsw i64 0, %1
   store i32 258, ptr %4, align 4, !tbaa !6
   br label %.lr.ph.preheader
 
-16:                                               ; preds = %.thread52
+16:                                               ; preds = %.thread55
   %17 = icmp eq i64 %1, 0
   br i1 %17, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread53, %16
-  %.137.ph = phi i64 [ %1, %16 ], [ %15, %.thread53 ]
+.lr.ph.preheader:                                 ; preds = %.thread56, %16
+  %.137.ph = phi i64 [ %1, %16 ], [ %15, %.thread56 ]
   br label %.lr.ph
 
 .lr.ph40.preheader:                               ; preds = %.lr.ph

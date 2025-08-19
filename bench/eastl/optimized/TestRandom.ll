@@ -438,7 +438,7 @@ for.end13:                                        ; preds = %for.inc, %for.inc.u
   br i1 %bReturnValue.0.lcssa, label %if.then15, label %if.end49
 
 if.then15:                                        ; preds = %entry, %for.end13
-  %argIndex.0.lcssa46 = phi i32 [ %argIndex.0.lcssa, %for.end13 ], [ 0, %entry ]
+  %argIndex.0.lcssa47 = phi i32 [ %argIndex.0.lcssa, %for.end13 ], [ 0, %entry ]
   %gp_offset18 = load i32, ptr %args, align 16
   %fits_in_gp19 = icmp ult i32 %gp_offset18, 41
   br i1 %fits_in_gp19, label %vaarg.in_reg20, label %vaarg.in_mem22
@@ -476,7 +476,7 @@ do.body.preheader:                                ; preds = %vaarg.end26
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end41
   %overflow_arg_area3939 = phi ptr [ %overflow_arg_area3938, %vaarg.end41 ], [ %overflow_arg_area_p38.promoted, %do.body.preheader ]
   %gp_offset3337 = phi i32 [ %gp_offset3336, %vaarg.end41 ], [ %args.promoted, %do.body.preheader ]
-  %argIndex.1 = phi i32 [ %inc30, %vaarg.end41 ], [ %argIndex.0.lcssa46, %do.body.preheader ]
+  %argIndex.1 = phi i32 [ %inc30, %vaarg.end41 ], [ %argIndex.0.lcssa47, %do.body.preheader ]
   %inc30 = add nuw nsw i32 %argIndex.1, 1
   %fits_in_gp34 = icmp ult i32 %gp_offset3337, 41
   br i1 %fits_in_gp34, label %vaarg.in_reg35, label %vaarg.in_mem37
@@ -506,11 +506,11 @@ do.end:                                           ; preds = %vaarg.end41
   br i1 %tobool44.not, label %if.else46, label %if.then45
 
 if.then45:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull %pName, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa46)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull %pName, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa47)
   br label %if.end49
 
 if.else46:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.12, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa46)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.12, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa47)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then45, %if.else46, %vaarg.end26, %for.end13
@@ -609,14 +609,14 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i.i, label %if.then7.i, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit
 
 if.then7.i:                                       ; preds = %while.end.i, %entry
-  %pLowerBound.0.lcssa21.i = phi ptr [ %pCurrent.017.i, %while.end.i ], [ %this, %entry ]
+  %pLowerBound.0.lcssa22.i = phi ptr [ %pCurrent.017.i, %while.end.i ], [ %this, %entry ]
   %mpNodeLeft9.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %mpNodeLeft9.i, align 8
-  %cmp.not.i = icmp eq ptr %pLowerBound.0.lcssa21.i, %2
+  %cmp.not.i = icmp eq ptr %pLowerBound.0.lcssa22.i, %2
   br i1 %cmp.not.i, label %if.then, label %if.then12.i
 
 if.then12.i:                                      ; preds = %if.then7.i
-  %call13.i = tail call noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %pLowerBound.0.lcssa21.i)
+  %call13.i = tail call noundef ptr @_ZN5eastl15RBTreeDecrementEPKNS_16rbtree_node_baseE(ptr noundef nonnull %pLowerBound.0.lcssa22.i)
   %mValue17.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call13.i, i64 32
   %.pre = load i64, ptr %mValue17.i.phi.trans.insert, align 8
   %.pre14 = load i64, ptr %mValue.i, align 8
@@ -625,14 +625,14 @@ if.then12.i:                                      ; preds = %if.then7.i
 _ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit: ; preds = %while.end.i, %if.then12.i
   %3 = phi i64 [ %.pre14, %if.then12.i ], [ %0, %while.end.i ]
   %4 = phi i64 [ %.pre, %if.then12.i ], [ %1, %while.end.i ]
-  %pLowerBound.0.lcssa22.i = phi ptr [ %pLowerBound.0.lcssa21.i, %if.then12.i ], [ %pCurrent.017.i, %while.end.i ]
+  %pLowerBound.0.lcssa21.i = phi ptr [ %pLowerBound.0.lcssa22.i, %if.then12.i ], [ %pCurrent.017.i, %while.end.i ]
   %pLowerBound.1.i = phi ptr [ %call13.i, %if.then12.i ], [ %pCurrent.017.i, %while.end.i ]
   %cmp.i.i14.i = icmp ult i64 %4, %3
   br i1 %cmp.i.i14.i, label %if.then, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE10DoFreeNodeEPNS_11rbtree_nodeImEE.exit
 
 if.then:                                          ; preds = %if.then7.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit
   %5 = phi i64 [ %3, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit ], [ %0, %if.then7.i ]
-  %retval.0.i13 = phi ptr [ %pLowerBound.0.lcssa22.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit ], [ %pLowerBound.0.lcssa21.i, %if.then7.i ]
+  %retval.0.i13 = phi ptr [ %pLowerBound.0.lcssa21.i, %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRKm.exit ], [ %pLowerBound.0.lcssa22.i, %if.then7.i ]
   %cmp.i = icmp eq ptr %retval.0.i13, %this
   br i1 %cmp.i, label %_ZN5eastl6rbtreeImmNS_4lessImEENS_9allocatorENS_8use_selfImEELb0ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRKmPNS_11rbtree_nodeImEE.exit, label %lor.lhs.false2.i
 

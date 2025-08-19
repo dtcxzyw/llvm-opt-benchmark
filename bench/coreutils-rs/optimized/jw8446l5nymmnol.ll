@@ -347,7 +347,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br label %121
 
 121:                                              ; preds = %.sink.split.i.i, %.lr.ph.i9.i
-  %122 = phi i64 [ %.promoted.i5.i, %.lr.ph.i9.i ], [ %.ph83.i.i, %.sink.split.i.i ]
+  %122 = phi i64 [ %.promoted.i5.i, %.lr.ph.i9.i ], [ %.ph90.i.i, %.sink.split.i.i ]
   %123 = phi i64 [ %101, %.lr.ph.i9.i ], [ %.sink.i.i, %.sink.split.i.i ]
   %124 = phi i64 [ %114, %.lr.ph.i9.i ], [ %135, %.sink.split.i.i ]
   %125 = getelementptr inbounds i8, ptr %104, i64 %124
@@ -369,8 +369,8 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
 
 .sink.split.i.i:                                  ; preds = %163, %150, %132
   %.sink.i.i = phi i64 [ %120, %150 ], [ 0, %163 ], [ 0, %132 ]
-  %.ph83.i.i = phi i64 [ %151, %150 ], [ %165, %163 ], [ %133, %132 ]
-  %135 = add i64 %.ph83.i.i, %112
+  %.ph90.i.i = phi i64 [ %151, %150 ], [ %165, %163 ], [ %133, %132 ]
+  %135 = add i64 %.ph90.i.i, %112
   %.not37.i15.i = icmp ult i64 %135, %106
   br i1 %.not37.i15.i, label %121, label %.thread
 

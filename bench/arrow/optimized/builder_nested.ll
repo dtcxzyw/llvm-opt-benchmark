@@ -2383,8 +2383,8 @@ _ZN5arrow6StatusD2Ev.exit49:                      ; preds = %_ZN5arrow12ArrayBui
   br i1 %.not39, label %36, label %.critedge.sink.split, !llvm.loop !182
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit49, %.critedge42, %_ZN5arrow6StatusD2Ev.exit47
-  %.sink57 = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit47 ], [ %93, %_ZN5arrow6StatusD2Ev.exit49 ], [ null, %.critedge42 ]
-  store ptr %.sink57, ptr %0, align 8
+  %.sink61 = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit47 ], [ %93, %_ZN5arrow6StatusD2Ev.exit49 ], [ null, %.critedge42 ]
+  store ptr %.sink61, ptr %0, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %_ZN5arrow6StatusD2Ev.exit
@@ -3887,8 +3887,8 @@ _ZN5arrow6StatusD2Ev.exit49:                      ; preds = %_ZN5arrow12ArrayBui
   br i1 %.not39, label %36, label %.critedge.sink.split, !llvm.loop !265
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit49, %.critedge42, %_ZN5arrow6StatusD2Ev.exit47
-  %.sink57 = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit47 ], [ %91, %_ZN5arrow6StatusD2Ev.exit49 ], [ null, %.critedge42 ]
-  store ptr %.sink57, ptr %0, align 8
+  %.sink61 = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit47 ], [ %91, %_ZN5arrow6StatusD2Ev.exit49 ], [ null, %.critedge42 ]
+  store ptr %.sink61, ptr %0, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %_ZN5arrow6StatusD2Ev.exit
@@ -5254,8 +5254,8 @@ _ZN5arrow6StatusD2Ev.exit48:                      ; preds = %_ZN5arrow12ArrayBui
   br i1 %.not38, label %39, label %.critedge.sink.split, !llvm.loop !349
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit48, %.critedge41, %_ZN5arrow6StatusD2Ev.exit46
-  %.sink56 = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit46 ], [ %93, %_ZN5arrow6StatusD2Ev.exit48 ], [ null, %.critedge41 ]
-  store ptr %.sink56, ptr %0, align 8
+  %.sink60 = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit46 ], [ %93, %_ZN5arrow6StatusD2Ev.exit48 ], [ null, %.critedge41 ]
+  store ptr %.sink60, ptr %0, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %_ZN5arrow6StatusD2Ev.exit
@@ -6550,8 +6550,8 @@ _ZN5arrow6StatusD2Ev.exit48:                      ; preds = %_ZN5arrow12ArrayBui
   br i1 %.not38, label %39, label %.critedge.sink.split, !llvm.loop !436
 
 .critedge.sink.split:                             ; preds = %_ZN5arrow6StatusD2Ev.exit48, %.critedge41, %_ZN5arrow6StatusD2Ev.exit46
-  %.sink56 = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit46 ], [ %91, %_ZN5arrow6StatusD2Ev.exit48 ], [ null, %.critedge41 ]
-  store ptr %.sink56, ptr %0, align 8
+  %.sink60 = phi ptr [ null, %_ZN5arrow6StatusD2Ev.exit46 ], [ %91, %_ZN5arrow6StatusD2Ev.exit48 ], [ null, %.critedge41 ]
+  store ptr %.sink60, ptr %0, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %_ZN5arrow6StatusD2Ev.exit

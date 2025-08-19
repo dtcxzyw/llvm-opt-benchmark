@@ -546,8 +546,8 @@ isReferenceTag.exit79.i.i:                        ; preds = %155, %151, %148
 
 165:                                              ; preds = %164, %.thread100.i.i, %.thread100.thread.i.i
   %166 = phi i1 [ %104, %.thread100.thread.i.i ], [ %163, %164 ], [ %163, %.thread100.i.i ]
-  %.0828893103136.i.i = phi ptr [ %.082.ph.i.i, %.thread100.thread.i.i ], [ %.0.ph.i.i, %164 ], [ %.0.ph.i.i, %.thread100.i.i ]
-  %.3104135.i.i = phi i32 [ 188, %.thread100.thread.i.i ], [ %.3104.i.i, %164 ], [ %.3104.i.i, %.thread100.i.i ]
+  %.0828893103142.i.i = phi ptr [ %.082.ph.i.i, %.thread100.thread.i.i ], [ %.0.ph.i.i, %164 ], [ %.0.ph.i.i, %.thread100.i.i ]
+  %.3104141.i.i = phi i32 [ 188, %.thread100.thread.i.i ], [ %.3104.i.i, %164 ], [ %.3104.i.i, %.thread100.i.i ]
   %167 = load ptr, ptr %13, align 8
   %.not71.i.i = icmp eq ptr %167, null
   br i1 %.not71.i.i, label %169, label %168
@@ -567,7 +567,7 @@ isReferenceTag.exit79.i.i:                        ; preds = %155, %151, %148
 .lr.ph122.i.i:                                    ; preds = %.preheader.i.i, %176
   %172 = phi i32 [ %177, %176 ], [ %170, %.preheader.i.i ]
   %indvars.iv127.i.i = phi i64 [ %indvars.iv.next128.i.i, %176 ], [ 0, %.preheader.i.i ]
-  %173 = getelementptr inbounds nuw ptr, ptr %.0828893103136.i.i, i64 %indvars.iv127.i.i
+  %173 = getelementptr inbounds nuw ptr, ptr %.0828893103142.i.i, i64 %indvars.iv127.i.i
   %174 = load ptr, ptr %173, align 8
   %.not72.i.i = icmp eq ptr %174, null
   br i1 %.not72.i.i, label %176, label %175
@@ -589,7 +589,7 @@ createGlobalRefs.exit.thread7.i:                  ; preds = %159, %.lr.ph119.i.i
   br label %createGlobalRefs.exit.thread.i
 
 createGlobalRefs.exit.i:                          ; preds = %176, %.preheader.i.i
-  call void @jvmtiDeallocate(ptr noundef nonnull %.0828893103136.i.i) #5
+  call void @jvmtiDeallocate(ptr noundef nonnull %.0828893103142.i.i) #5
   br label %createGlobalRefs.exit.thread3.i
 
 createGlobalRefs.exit.thread3.i:                  ; preds = %createGlobalRefs.exit.i, %169
@@ -611,7 +611,7 @@ createGlobalRefs.exit.thread.i:                   ; preds = %createGlobalRefs.ex
   br label %182
 
 fillInvokeRequest.exit.thread:                    ; preds = %createGlobalRefs.exit.thread3.i, %60, %63, %85
-  %.1.ph = phi i32 [ %87, %85 ], [ 190, %63 ], [ 203, %60 ], [ %.3104135.i.i, %createGlobalRefs.exit.thread3.i ]
+  %.1.ph = phi i32 [ %87, %85 ], [ 190, %63 ], [ 203, %60 ], [ %.3104141.i.i, %createGlobalRefs.exit.thread3.i ]
   %181 = load ptr, ptr @invokerLock, align 8
   call void @debugMonitorExit(ptr noundef %181) #5
   br label %189
@@ -1198,30 +1198,30 @@ isReferenceTag.exit.i55:                          ; preds = %277, %switch.early.
   %283 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %284 = load ptr, ptr %283, align 8
   %.not90.i = icmp eq ptr %284, null
-  br i1 %.not90.i, label %.thread101.i, label %.thread101.i.thread79
+  br i1 %.not90.i, label %.thread103.i, label %.thread103.i.thread90
 
-.thread101.i:                                     ; preds = %282
+.thread103.i:                                     ; preds = %282
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 539, ptr noundef nonnull @.str.22) #5
   %.pr.pre.i = load ptr, ptr @gdata, align 8, !nonnull !10, !noundef !10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 17
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %285 = icmp eq i8 %.pre, 0
-  br i1 %285, label %.thread.i, label %.thread101.i.thread79
+  br i1 %285, label %.thread.i, label %.thread103.i.thread90
 
-.thread101.i.thread79:                            ; preds = %282, %.thread101.i
-  %.pr104.i82 = phi ptr [ %.pr.pre.i, %.thread101.i ], [ %279, %282 ]
+.thread103.i.thread90:                            ; preds = %282, %.thread103.i
+  %.pr106.i93 = phi ptr [ %.pr.pre.i, %.thread103.i ], [ %279, %282 ]
   %286 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %287 = load ptr, ptr %286, align 8
   %.not93.i = icmp eq ptr %287, null
   br i1 %.not93.i, label %288, label %.thread.i
 
-288:                                              ; preds = %.thread101.i.thread79
+288:                                              ; preds = %.thread103.i.thread90
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 540, ptr noundef nonnull @.str.35) #5
   %.pre.i58 = load ptr, ptr @gdata, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %278, %288, %.thread101.i.thread79, %.thread101.i
-  %289 = phi ptr [ %.pr.pre.i, %.thread101.i ], [ %.pr104.i82, %.thread101.i.thread79 ], [ %.pre.i58, %288 ], [ %279, %278 ]
+.thread.i:                                        ; preds = %278, %288, %.thread103.i.thread90, %.thread103.i
+  %289 = phi ptr [ %.pr.pre.i, %.thread103.i ], [ %.pr106.i93, %.thread103.i.thread90 ], [ %.pre.i58, %288 ], [ %279, %278 ]
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 528
   %291 = load i32, ptr %290, align 8
   %292 = and i32 %291, 2
@@ -2023,27 +2023,27 @@ define hidden void @invoker_completeInvokeRequest(ptr noundef %0) local_unnamed_
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 17
   %26 = load i8, ptr %25, align 1
   %.not47 = icmp eq i8 %26, 0
-  br i1 %.not47, label %.thread61, label %27
+  br i1 %.not47, label %.thread66, label %27
 
 27:                                               ; preds = %24
   %28 = load i8, ptr %17, align 8
   %.not48 = icmp eq i8 %28, 0
-  br i1 %.not48, label %29, label %.thread61
+  br i1 %.not48, label %29, label %.thread66
 
 29:                                               ; preds = %27
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 730, ptr noundef nonnull @.str.13) #5
   %.pr.pre = load ptr, ptr @gdata, align 8
   %.not49 = icmp eq ptr %.pr.pre, null
-  br i1 %.not49, label %.thread, label %.thread61
+  br i1 %.not49, label %.thread, label %.thread66
 
-.thread61:                                        ; preds = %24, %27, %29
-  %.pr64 = phi ptr [ %.pr.pre, %29 ], [ %23, %27 ], [ %23, %24 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.pr64, i64 17
+.thread66:                                        ; preds = %24, %27, %29
+  %.pr69 = phi ptr [ %.pr.pre, %29 ], [ %23, %27 ], [ %23, %24 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.pr69, i64 17
   %31 = load i8, ptr %30, align 1
   %.not50 = icmp eq i8 %31, 0
   br i1 %.not50, label %.thread, label %32
 
-32:                                               ; preds = %.thread61
+32:                                               ; preds = %.thread66
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %34 = load i8, ptr %33, align 1
   %.not51 = icmp eq i8 %34, 0
@@ -2053,7 +2053,7 @@ define hidden void @invoker_completeInvokeRequest(ptr noundef %0) local_unnamed_
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @.str.14) #5
   br label %.thread
 
-.thread:                                          ; preds = %22, %29, %.thread61, %32, %35
+.thread:                                          ; preds = %22, %29, %.thread66, %32, %35
   store i8 0, ptr %17, align 8
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 0, ptr %36, align 1

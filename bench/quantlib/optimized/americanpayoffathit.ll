@@ -1472,10 +1472,10 @@ if.else360:                                       ; preds = %lor.end.thread276, 
   br label %if.end373
 
 if.end373:                                        ; preds = %if.else360, %if.then359
-  %.sink399 = phi i64 [ 184, %if.else360 ], [ 192, %if.then359 ]
+  %.sink461 = phi i64 [ 184, %if.else360 ], [ 192, %if.then359 ]
   %call371.sink = phi double [ %call371, %if.else360 ], [ 0.000000e+00, %if.then359 ]
   %inTheMoney_274 = phi ptr [ %inTheMoney_283, %if.else360 ], [ %inTheMoney_275, %if.then359 ]
-  %X_372 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink399
+  %X_372 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink461
   store double %call371.sink, ptr %X_372, align 8, !tbaa !64
   %175 = load ptr, ptr %payoff, align 8, !tbaa !28, !noalias !65
   %176 = icmp eq ptr %175, null
@@ -1510,7 +1510,7 @@ if.end381:                                        ; preds = %cond.true.i, %if.th
   br i1 %181, label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit, label %dynamic_cast.end3.i205
 
 dynamic_cast.end3.i205:                           ; preds = %dynamic_cast.end3.i, %if.end381
-  %coo.sroa.5.0385396 = phi ptr [ %coo.sroa.5.0, %if.end381 ], [ null, %dynamic_cast.end3.i ]
+  %coo.sroa.5.0447458 = phi ptr [ %coo.sroa.5.0, %if.end381 ], [ null, %dynamic_cast.end3.i ]
   %182 = phi ptr [ %.pr, %if.end381 ], [ %175, %dynamic_cast.end3.i ]
   %183 = call ptr @__dynamic_cast(ptr nonnull %182, ptr nonnull @_ZTIN8QuantLib17StrikedTypePayoffE, ptr nonnull @_ZTIN8QuantLib20AssetOrNothingPayoffE, i64 0) #19, !noalias !73
   %tobool.not.i206 = icmp eq ptr %183, null
@@ -1532,13 +1532,13 @@ if.then383:                                       ; preds = %if.then.i.i.i211, %
   %186 = load i8, ptr %inTheMoney_274, align 8, !tbaa !61, !range !76, !noundef !65
   %loadedv385 = trunc nuw i8 %186 to i1
   %strike_.i219 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %.sink401.in = select i1 %loadedv385, ptr %this, ptr %strike_.i219
-  %.sink400 = select i1 %loadedv385, double 0.000000e+00, double 1.000000e+00
-  %.sink401 = load double, ptr %.sink401.in, align 8, !tbaa !64
+  %.sink463.in = select i1 %loadedv385, ptr %this, ptr %strike_.i219
+  %.sink462 = select i1 %loadedv385, double 0.000000e+00, double 1.000000e+00
+  %.sink463 = load double, ptr %.sink463.in, align 8, !tbaa !64
   %K_388 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store double %.sink401, ptr %K_388, align 8, !tbaa !71
+  store double %.sink463, ptr %K_388, align 8, !tbaa !71
   %DKDstrike_389 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store double %.sink400, ptr %DKDstrike_389, align 8, !tbaa !72
+  store double %.sink462, ptr %DKDstrike_389, align 8, !tbaa !72
   %cmp.not.i.i = icmp eq ptr %aoo.sroa.5.0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit, label %if.then.i.i220
 
@@ -1576,34 +1576,34 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %i
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit: ; preds = %dynamic_cast.end3.i205, %if.end381, %if.then383, %if.then.i.i220, %.noexc.i.i, %if.then.i.i.i.i
-  %coo.sroa.5.0385392 = phi ptr [ %coo.sroa.5.0385396, %if.then383 ], [ %coo.sroa.5.0385396, %if.then.i.i220 ], [ %coo.sroa.5.0385396, %.noexc.i.i ], [ %coo.sroa.5.0385396, %if.then.i.i.i.i ], [ %coo.sroa.5.0, %if.end381 ], [ %coo.sroa.5.0385396, %dynamic_cast.end3.i205 ]
-  %cmp.not.i.i224 = icmp eq ptr %coo.sroa.5.0385392, null
+  %coo.sroa.5.0447454 = phi ptr [ %coo.sroa.5.0447458, %if.then383 ], [ %coo.sroa.5.0447458, %if.then.i.i220 ], [ %coo.sroa.5.0447458, %.noexc.i.i ], [ %coo.sroa.5.0447458, %if.then.i.i.i.i ], [ %coo.sroa.5.0, %if.end381 ], [ %coo.sroa.5.0447458, %dynamic_cast.end3.i205 ]
+  %cmp.not.i.i224 = icmp eq ptr %coo.sroa.5.0447454, null
   br i1 %cmp.not.i.i224, label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit, label %if.then.i.i225
 
 if.then.i.i225:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit
-  %use_count_.i.i.i226 = getelementptr inbounds nuw i8, ptr %coo.sroa.5.0385392, i64 8
+  %use_count_.i.i.i226 = getelementptr inbounds nuw i8, ptr %coo.sroa.5.0447454, i64 8
   %193 = atomicrmw sub ptr %use_count_.i.i.i226, i32 1 acq_rel, align 4
   %cmp.i.i.i227 = icmp eq i32 %193, 1
   br i1 %cmp.i.i.i227, label %if.then.i.i.i228, label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit
 
 if.then.i.i.i228:                                 ; preds = %if.then.i.i225
-  %vtable.i.i.i229 = load ptr, ptr %coo.sroa.5.0385392, align 8, !tbaa !14
+  %vtable.i.i.i229 = load ptr, ptr %coo.sroa.5.0447454, align 8, !tbaa !14
   %vfn.i.i.i230 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i229, i64 16
   %194 = load ptr, ptr %vfn.i.i.i230, align 8
-  invoke void %194(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0385392)
+  invoke void %194(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0447454)
           to label %.noexc.i.i232 unwind label %terminate.lpad.i.i231
 
 .noexc.i.i232:                                    ; preds = %if.then.i.i.i228
-  %weak_count_.i.i.i.i233 = getelementptr inbounds nuw i8, ptr %coo.sroa.5.0385392, i64 12
+  %weak_count_.i.i.i.i233 = getelementptr inbounds nuw i8, ptr %coo.sroa.5.0447454, i64 12
   %195 = atomicrmw sub ptr %weak_count_.i.i.i.i233, i32 1 acq_rel, align 4
   %cmp.i.i.i.i234 = icmp eq i32 %195, 1
   br i1 %cmp.i.i.i.i234, label %if.then.i.i.i.i235, label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit
 
 if.then.i.i.i.i235:                               ; preds = %.noexc.i.i232
-  %vtable.i.i.i.i236 = load ptr, ptr %coo.sroa.5.0385392, align 8, !tbaa !14
+  %vtable.i.i.i.i236 = load ptr, ptr %coo.sroa.5.0447454, align 8, !tbaa !14
   %vfn.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i236, i64 24
   %196 = load ptr, ptr %vfn.i.i.i.i237, align 8
-  invoke void %196(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0385392)
+  invoke void %196(ptr noundef nonnull align 8 dereferenceable(16) %coo.sroa.5.0447454)
           to label %_ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit unwind label %terminate.lpad.i.i231
 
 terminate.lpad.i.i231:                            ; preds = %if.then.i.i.i.i235, %if.then.i.i.i228

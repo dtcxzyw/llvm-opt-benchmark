@@ -4885,7 +4885,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$L
 
 22:                                               ; preds = %0
   %23 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  br label %.invoke1
+  br label %.invoke13
 
 24:                                               ; preds = %0
   %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
@@ -5003,7 +5003,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$L
   switch i64 %73, label %.unreachabledefault.i.i [
     i64 0, label %84
     i64 1, label %94
-    i64 2, label %.invoke1
+    i64 2, label %.invoke13
     i64 3, label %105
     i64 4, label %.invoke
     i64 5, label %116
@@ -5082,7 +5082,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$L
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1947
   br label %"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17h9aa67b32f23f4cf5E.exit"
 
-.invoke1:                                         ; preds = %68, %22
+.invoke13:                                        ; preds = %68, %22
   %104 = phi ptr [ %23, %22 ], [ %69, %68 ]
   invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$uv_git_types..GitUrlParseError$GT$17h4f60cb1b407e42feE"(ptr noalias noundef align 8 dereferenceable(112) %104)
           to label %"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17h9aa67b32f23f4cf5E.exit" unwind label %179
@@ -5235,8 +5235,8 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$L
           to label %181 unwind label %165
 
 "_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit.i.invoke": ; preds = %24, %0, %0, %0
-  %.sink2 = phi i64 [ 8, %0 ], [ 8, %0 ], [ 8, %0 ], [ 16, %24 ]
-  %164 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.sink2
+  %.sink14 = phi i64 [ 8, %0 ], [ 8, %0 ], [ 8, %0 ], [ 16, %24 ]
+  %164 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.sink14
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.4810286183617026763"(ptr noalias noundef nonnull align 8 dereferenceable(8) %164)
           to label %"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17h9aa67b32f23f4cf5E.exit" unwind label %179
 
@@ -5277,12 +5277,12 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$L
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !2017
   br label %"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17h9aa67b32f23f4cf5E.exit"
 
-179:                                              ; preds = %.invoke1, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit.i.invoke", %174, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit2.i", %156, %151, %144, %139, %131, %126, %121, %116, %110, %105, %99, %94, %79, %74, %63, %58, %53, %48, %43, %38, %31, %26, %20, %16
+179:                                              ; preds = %.invoke13, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit.i.invoke", %174, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit2.i", %156, %151, %144, %139, %131, %126, %121, %116, %110, %105, %99, %94, %79, %74, %63, %58, %53, %48, %43, %38, %31, %26, %20, %16
   %180 = landingpad { ptr, i32 }
           cleanup
   br label %181
 
-"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17h9aa67b32f23f4cf5E.exit": ; preds = %.invoke1, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit.i.invoke", %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0ba814b26996c149E.exit5.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h4416ee25d76b2784E.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit6.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit5.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit4.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit3.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit2.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h4416ee25d76b2784E.exit.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit4.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit3.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit.i", %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0ba814b26996c149E.exit.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hcb986ed8572ba299E.exit.i", %0, %0, %0, %0
+"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17h9aa67b32f23f4cf5E.exit": ; preds = %.invoke13, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h3b0e4fc01ea2f559E.exit.i.invoke", %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0ba814b26996c149E.exit5.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h4416ee25d76b2784E.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit6.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit5.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit4.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit3.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit2.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h4416ee25d76b2784E.exit.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit4.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit3.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5a1ccd9caa09ec64E.exit.i", %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h0ba814b26996c149E.exit.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hcb986ed8572ba299E.exit.i", %0, %0, %0, %0
   call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 120, i64 noundef 8) #19
   ret void
 

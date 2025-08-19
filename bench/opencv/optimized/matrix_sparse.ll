@@ -313,12 +313,12 @@ define void @_ZN2cv9SparseMat3HdrC2EiPKii(ptr noundef nonnull align 8 dereferenc
   br i1 %29, label %.lr.ph21, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
 
 .lr.ph21:                                         ; preds = %4, %.preheader
-  %.0.lcssa27 = phi i32 [ %1, %.preheader ], [ 0, %4 ]
-  %30 = shl nuw nsw i32 %.0.lcssa27, 2
+  %.0.lcssa29 = phi i32 [ %1, %.preheader ], [ 0, %4 ]
+  %30 = shl nuw nsw i32 %.0.lcssa29, 2
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr i8, ptr %0, i64 %31
   %scevgep = getelementptr i8, ptr %32, i64 88
-  %33 = shl nuw nsw i32 %.0.lcssa27, 2
+  %33 = shl nuw nsw i32 %.0.lcssa29, 2
   %narrow = sub nuw nsw i32 128, %33
   %34 = zext nneg i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %34, i1 false), !tbaa !23
@@ -443,7 +443,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 
@@ -4049,9 +4049,9 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %23, %21
   %67 = getelementptr inbounds nuw i8, ptr %45, i64 %.031.us63
   %68 = load i64, ptr %67, align 8, !tbaa !49
   %69 = icmp eq i64 %68, %32
-  br i1 %69, label %.split.us.thread90, label %.lr.ph
+  br i1 %69, label %.split.us.thread93, label %.lr.ph
 
-.split.us.thread90:                               ; preds = %66
+.split.us.thread93:                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %45, i64 %.031.us63
   br label %74
 
@@ -4068,11 +4068,11 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %23, %21
   %.not.i42 = icmp eq i64 %.03057.us, 0
   br i1 %.not.i42, label %80, label %74
 
-74:                                               ; preds = %.split.us.thread90, %.split.us
-  %75 = phi ptr [ %70, %.split.us.thread90 ], [ %73, %.split.us ]
-  %.us-phi6095 = phi i64 [ %.031.us63, %.split.us.thread90 ], [ %.03158.us, %.split.us ]
-  %.us-phi94 = phi i64 [ %.03158.us6173, %.split.us.thread90 ], [ %.03057.us, %.split.us ]
-  %76 = getelementptr inbounds nuw i8, ptr %45, i64 %.us-phi94
+74:                                               ; preds = %.split.us.thread93, %.split.us
+  %75 = phi ptr [ %70, %.split.us.thread93 ], [ %73, %.split.us ]
+  %.us-phi6098 = phi i64 [ %.031.us63, %.split.us.thread93 ], [ %.03158.us, %.split.us ]
+  %.us-phi97 = phi i64 [ %.03158.us6173, %.split.us.thread93 ], [ %.03057.us, %.split.us ]
+  %76 = getelementptr inbounds nuw i8, ptr %45, i64 %.us-phi97
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !75
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -4081,7 +4081,7 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %23, %21
 
 80:                                               ; preds = %.split.us.thread, %.split.us
   %81 = phi ptr [ %65, %.split.us.thread ], [ %73, %.split.us ]
-  %.us-phi6089 = phi i64 [ %.03155, %.split.us.thread ], [ %.03158.us, %.split.us ]
+  %.us-phi6092 = phi i64 [ %.03155, %.split.us.thread ], [ %.03158.us, %.split.us ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !75
   store i64 %83, ptr %43, align 8, !tbaa !64
@@ -4089,12 +4089,12 @@ _ZNK2cv9SparseMat4hashEPKi.exit:                  ; preds = %.lr.ph.i, %23, %21
 
 _ZN2cv9SparseMat10removeNodeEmmm.exit:            ; preds = %74, %80
   %84 = phi ptr [ %75, %74 ], [ %81, %80 ]
-  %.us-phi6088 = phi i64 [ %.us-phi6095, %74 ], [ %.us-phi6089, %80 ]
+  %.us-phi6091 = phi i64 [ %.us-phi6098, %74 ], [ %.us-phi6092, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %86 = load i64, ptr %85, align 8, !tbaa !74
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 %86, ptr %87, align 8, !tbaa !75
-  store i64 %.us-phi6088, ptr %85, align 8, !tbaa !74
+  store i64 %.us-phi6091, ptr %85, align 8, !tbaa !74
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %89 = load i64, ptr %88, align 8, !tbaa !43
   %90 = add i64 %89, -1
@@ -9726,13 +9726,13 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !64
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

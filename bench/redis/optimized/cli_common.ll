@@ -331,9 +331,9 @@ define dso_local ptr @getSdsArrayFromArgv(i32 noundef %0, ptr noundef readonly c
   br i1 %or.cond.i, label %unquoteCString.exit, label %18
 
 18:                                               ; preds = %.lr.ph.split
-  br i1 %15, label %unquoteCString.exit.thread55, label %.preheader.sink.split
+  br i1 %15, label %unquoteCString.exit.thread56, label %.preheader.sink.split
 
-unquoteCString.exit.thread55:                     ; preds = %18
+unquoteCString.exit.thread56:                     ; preds = %18
   call void @hi_sdsfreesplitres(ptr noundef nonnull %14, i32 noundef %16) #12
   br label %.preheader.sink.split
 
@@ -345,7 +345,7 @@ unquoteCString.exit:                              ; preds = %.lr.ph.split
   %.not32.not = icmp eq ptr %19, null
   br i1 %.not32.not, label %.preheader, label %.thread
 
-.preheader.sink.split:                            ; preds = %18, %unquoteCString.exit.thread55
+.preheader.sink.split:                            ; preds = %18, %unquoteCString.exit.thread56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader
 

@@ -373,7 +373,7 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   store ptr %9, ptr %4, align 8
   %10 = load i32, ptr @ett_evrc, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
-  switch i32 %2, label %default.unreachable20 [
+  switch i32 %2, label %default.unreachable28 [
     i32 5, label %12
     i32 0, label %35
     i32 1, label %39
@@ -423,7 +423,7 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %or.cond153 = or i1 %or.cond, %.not150
   br i1 %or.cond153, label %.critedge.loopexit, label %.lr.ph7, !llvm.loop !8
 
-default.unreachable20:                            ; preds = %6
+default.unreachable28:                            ; preds = %6
   unreachable
 
 35:                                               ; preds = %6
@@ -491,10 +491,10 @@ default.unreachable20:                            ; preds = %6
   %76 = icmp ult i8 %74, 80
   %77 = lshr i8 %74, 1
   %78 = and i8 %77, 120
-  %switch.shiftamt30 = zext nneg i8 %78 to i40
-  %switch.downshift31 = lshr i40 94657380864, %switch.shiftamt30
-  %switch.masked32 = trunc i40 %switch.downshift31 to i8
-  %.0.i154 = select i1 %76, i8 %switch.masked32, i8 0
+  %switch.shiftamt38 = zext nneg i8 %78 to i40
+  %switch.downshift39 = lshr i40 94657380864, %switch.shiftamt38
+  %switch.masked40 = trunc i40 %switch.downshift39 to i8
+  %.0.i154 = select i1 %76, i8 %switch.masked40, i8 0
   %79 = zext i8 %.01391 to i64
   %80 = getelementptr [32 x i8], ptr %5, i64 0, i64 %79
   store i8 %.0.i154, ptr %80, align 1
@@ -507,11 +507,11 @@ evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   %83 = and i8 %74, 15
   %84 = icmp samesign ult i8 %83, 5
   %85 = shl nuw nsw i8 %83, 3
-  %switch.shiftamt35 = zext nneg i8 %85 to i40
-  %switch.downshift36 = lshr i40 94657380864, %switch.shiftamt35
-  %switch.masked37 = trunc i40 %switch.downshift36 to i8
-  %.0.i156 = select i1 %84, i8 %switch.masked37, i8 0
-  %86 = zext i8 %81 to i64
+  %switch.shiftamt43 = zext nneg i8 %85 to i40
+  %switch.downshift44 = lshr i40 94657380864, %switch.shiftamt43
+  %switch.masked45 = trunc i40 %switch.downshift44 to i8
+  %.0.i156 = select i1 %84, i8 %switch.masked45, i8 0
+  %86 = zext nneg i8 %81 to i64
   %87 = getelementptr [32 x i8], ptr %5, i64 0, i64 %86
   store i8 %.0.i156, ptr %87, align 1
   %88 = add i8 %.01391, 2

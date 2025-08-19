@@ -197,7 +197,7 @@ define hidden void @_ZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiii(ptr no
   %14 = alloca %"class.cv::mjpeg::MjpegEncoder", align 8
   %15 = alloca %"class.cv::Range", align 8
   %.b123 = load i1, ptr @_ZZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiiiE14init_cat_table, align 1
-  %indvars.iv172.sroa.gep198 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %indvars.iv172.sroa.gep225 = getelementptr inbounds nuw i8, ptr %10, i64 128
   br i1 %.b123, label %26, label %.preheader148
 
 16:                                               ; preds = %.preheader148
@@ -305,7 +305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 61:                                               ; preds = %50, %81
   %62 = phi i1 [ true, %50 ], [ false, %81 ]
-  %indvars.iv172.sroa.phi = phi ptr [ %10, %50 ], [ %indvars.iv172.sroa.gep198, %81 ]
+  %indvars.iv172.sroa.phi = phi ptr [ %10, %50 ], [ %indvars.iv172.sroa.gep225, %81 ]
   %indvars.iv172 = phi i32 [ 0, %50 ], [ 1, %81 ]
   %_ZN2cv5mjpegL13jpegTableK1_TE._ZN2cv5mjpegL13jpegTableK2_TE = select i1 %62, ptr @_ZN2cv5mjpegL13jpegTableK1_TE, ptr @_ZN2cv5mjpegL13jpegTableK2_TE
   tail call void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull align 8 dereferenceable(136) %27, i32 noundef 65499)
@@ -779,13 +779,13 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeper5resetEv.exit:   ; preds = %_ZNSt5dequeIN2cv5mj
 277:                                              ; preds = %271, %274
   %.pre-phi.i = phi i32 [ %.pre.i, %274 ], [ %272, %271 ]
   %278 = phi i32 [ %276, %274 ], [ %spec.select, %271 ]
-  %279 = select i1 %51, i32 16, i32 8
-  %280 = add nsw i32 %31, -1
-  %281 = sdiv i32 %280, %279
-  %282 = add nsw i32 %281, 1
+  %279 = add nsw i32 %31, -1
+  %280 = select i1 %51, i32 4, i32 3
+  %281 = lshr i32 %279, %280
+  %282 = add nuw nsw i32 %281, 1
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %282, i32 %278)
   store i32 %.sroa.speculated.i, ptr %269, align 8, !tbaa !96
-  %283 = shl nsw i32 %.pre-phi.i, 1
+  %283 = shl nuw nsw i32 %.pre-phi.i, 1
   %284 = sdiv i32 %283, %.sroa.speculated.i
   invoke void @_ZN2cv5mjpeg19mjpeg_buffer_keeper16allocate_buffersEii(ptr noundef nonnull align 8 dereferenceable(112) %192, i32 noundef %.sroa.speculated.i, i32 noundef %284)
           to label %287 unwind label %285
@@ -1051,10 +1051,10 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
   br label %80
 
 80:                                               ; preds = %76, %74
-  %.sink99 = phi i64 [ %79, %76 ], [ %75, %74 ]
-  %81 = getelementptr inbounds ptr, ptr %7, i64 %.sink99
+  %.sink104 = phi i64 [ %79, %76 ], [ %75, %74 ]
+  %81 = getelementptr inbounds ptr, ptr %7, i64 %.sink104
   %82 = load ptr, ptr %81, align 8, !tbaa !71, !noalias !102
-  %.idx.i.i.i.i53 = mul i64 %.sink99, -480
+  %.idx.i.i.i.i53 = mul i64 %.sink104, -480
   %83 = getelementptr i8, ptr %82, i64 %.idx.i.i.i.i53
   %84 = getelementptr i8, ptr %83, i64 %36
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
@@ -2096,7 +2096,7 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
   br i1 %279, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i243.us, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i241.us
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i241.us: ; preds = %276
-  %280 = shl nsw i64 %269, 2
+  %280 = shl nuw nsw i64 %269, 2
   %281 = add nsw i64 %280, -4
   call void @llvm.memset.p0.i64(ptr align 4 %277, i8 0, i64 %281, i1 false), !tbaa !49
   %.idx.i.i.i.i.i.i242.us = shl nuw nsw i64 %278, 2
@@ -2269,7 +2269,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit185.us: ; preds = %318, %309
   br i1 %367, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i.us, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.us
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.us: ; preds = %364
-  %368 = shl nsw i64 %357, 2
+  %368 = shl nuw nsw i64 %357, 2
   %369 = add nsw i64 %368, -4
   call void @llvm.memset.p0.i64(ptr align 4 %365, i8 0, i64 %369, i1 false), !tbaa !49
   %.idx.i.i.i.i.i.i.us = shl nuw nsw i64 %366, 2
@@ -2444,7 +2444,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us:   ; preds = %404, %395
   br i1 %459, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i294.us, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i292.us
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i292.us: ; preds = %456
-  %460 = shl nsw i64 %449, 2
+  %460 = shl nuw nsw i64 %449, 2
   %461 = add nsw i64 %460, -4
   call void @llvm.memset.p0.i64(ptr align 4 %457, i8 0, i64 %461, i1 false), !tbaa !49
   %.idx.i.i.i.i.i.i293.us = shl nuw nsw i64 %458, 2
@@ -2655,7 +2655,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit238.us: ; preds = %496, %487, %421
   br i1 %577, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i277.us, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i275.us
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i275.us: ; preds = %574
-  %578 = shl nsw i64 %567, 2
+  %578 = shl nuw nsw i64 %567, 2
   %579 = add nsw i64 %578, -4
   call void @llvm.memset.p0.i64(ptr align 4 %575, i8 0, i64 %579, i1 false), !tbaa !49
   %.idx.i.i.i.i.i.i276.us = shl nuw nsw i64 %576, 2
@@ -2833,7 +2833,7 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit209.us: ; preds = %620, %611
   br i1 %670, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i214.us, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i212.us
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i212.us: ; preds = %667
-  %671 = shl nsw i64 %660, 2
+  %671 = shl nuw nsw i64 %660, 2
   %672 = add nsw i64 %671, -4
   call void @llvm.memset.p0.i64(ptr align 4 %668, i8 0, i64 %672, i1 false), !tbaa !49
   %.idx.i.i.i.i.i.i213.us = shl nuw nsw i64 %669, 2
@@ -3009,7 +3009,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i168.us: ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %767, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit.i260.us, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i258.us
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i258.us: ; preds = %764
-  %768 = shl nsw i64 %757, 2
+  %768 = shl nuw nsw i64 %757, 2
   %769 = add nsw i64 %768, -4
   call void @llvm.memset.p0.i64(ptr align 4 %765, i8 0, i64 %769, i1 false), !tbaa !49
   %.idx.i.i.i.i.i.i259.us = shl nuw nsw i64 %766, 2
@@ -3740,13 +3740,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !49
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !49
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

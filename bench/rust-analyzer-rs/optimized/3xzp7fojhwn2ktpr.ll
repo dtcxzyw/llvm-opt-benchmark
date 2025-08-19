@@ -814,7 +814,7 @@ define hidden noalias noundef ptr @_ZN3std10sys_common9backtrace28__rust_begin_s
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.8.0..sroa_idx, i64 168, i1 false), !alias.scope !150, !noalias !135
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !135
   %.not.i = icmp eq i64 %23, -9223372036854775804
-  br i1 %.not.i, label %.loopexit27.i, label %33
+  br i1 %.not.i, label %.loopexit28.i, label %33
 
 33:                                               ; preds = %32
   %34 = icmp eq i64 %23, -9223372036854775805
@@ -876,7 +876,7 @@ _ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit.i: ; preds = 
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i": ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !135
-  br i1 %.0.i, label %.loopexit27.i, label %49
+  br i1 %.0.i, label %.loopexit28.i, label %49
 
 49:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
@@ -888,19 +888,19 @@ _ZN10lsp_server3msg12Notification7is_exit17ha4d320aa32c19713E.exit.i: ; preds = 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24
   unreachable
 
-.loopexit27.i:                                    ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i", %32
+.loopexit28.i:                                    ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3fe3643c24fd6699E.exit.i", %32
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb3d764e97cbe4022E.llvm.12355220772335189349"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
           to label %"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hc154c7653bcdab96E.llvm.12355220772335189349.exit.i.i" unwind label %52
 
-52:                                               ; preds = %.loopexit27.i
+52:                                               ; preds = %.loopexit28.i
   %53 = landingpad { ptr, i32 }
           cleanup
   %54 = load i32, ptr %18, align 8, !alias.scope !165, !noalias !135, !noundef !13
   %55 = invoke noundef i32 @close(i32 noundef %54)
           to label %.body11.i unwind label %58
 
-"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hc154c7653bcdab96E.llvm.12355220772335189349.exit.i.i": ; preds = %.loopexit27.i
+"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffer..Buffer$GT$17hc154c7653bcdab96E.llvm.12355220772335189349.exit.i.i": ; preds = %.loopexit28.i
   %56 = load i32, ptr %18, align 8, !alias.scope !180, !noalias !135, !noundef !13
   %57 = invoke noundef i32 @close(i32 noundef %56)
           to label %"_ZN4core3ptr92drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..net..tcp..TcpStream$GT$$GT$17hbb5b7b9f0c1c0d66E.exit.i" unwind label %19
@@ -1184,13 +1184,13 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17h0605bb5
 
 .sink.split:                                      ; preds = %30, %74, %61
   %.sink = phi i64 [ %17, %61 ], [ 0, %74 ], [ 0, %30 ]
-  %.ph83 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
+  %.ph90 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
   store i64 %.sink, ptr %14, align 8
   br label %33
 
 33:                                               ; preds = %.sink.split, %61, %74, %30
   %34 = phi i64 [ %19, %61 ], [ %19, %74 ], [ %19, %30 ], [ %.sink, %.sink.split ]
-  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph83, %.sink.split ]
+  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph90, %.sink.split ]
   %36 = add i64 %9, %35
   %.not37 = icmp ult i64 %36, %3
   br i1 %.not37, label %18, label %._crit_edge

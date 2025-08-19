@@ -714,8 +714,8 @@ st_mult.exit.i.i:                                 ; preds = %verify_buffer_safe.
   br i1 %214, label %215, label %223
 
 215:                                              ; preds = %212
-  %216 = mul i64 %.289145.i125.i49, 3
-  %217 = add i64 %216, 48
+  %216 = mul nuw nsw i64 %.289145.i125.i49, 3
+  %217 = add nuw nsw i64 %216, 48
   %218 = lshr i64 %217, 1
   %..i.i = call i64 @llvm.umax.i64(i64 %218, i64 %213)
   %219 = icmp ugt i64 %..i.i, 1152921504606846975
@@ -797,22 +797,22 @@ cmp_packed_ref_records.exit.thread113.i.i:        ; preds = %cmp_packed_ref_reco
 
 cmp_packed_ref_records.exit.thread113.thread.i.i: ; preds = %cmp_packed_ref_records.exit.i.i, %243
   %249 = icmp ult ptr %.092.i.i, %169
-  br i1 %249, label %.lr.ph.backedge.i.i, label %._crit_edge.thread177.i.i
+  br i1 %249, label %.lr.ph.backedge.i.i, label %._crit_edge.thread184.i.i
 
 ._crit_edge.i.i:                                  ; preds = %cmp_packed_ref_records.exit.thread113.i.i
   %250 = icmp eq i32 %.194.i.i, 0
-  br i1 %250, label %._crit_edge.thread177.i.i, label %sort_snapshot.exit.i
+  br i1 %250, label %._crit_edge.thread184.i.i, label %sort_snapshot.exit.i
 
-._crit_edge.thread177.i.i:                        ; preds = %cmp_packed_ref_records.exit.thread113.thread.i.i, %._crit_edge.i.i
+._crit_edge.thread184.i.i:                        ; preds = %cmp_packed_ref_records.exit.thread113.thread.i.i, %._crit_edge.i.i
   %251 = call i32 @git_qsort_s(ptr noundef %.2.i.i, i64 noundef %213, i64 noundef 16, ptr noundef nonnull @cmp_packed_ref_records, ptr noundef nonnull %40) #18
   %.not106.i.i = icmp eq i32 %251, 0
   br i1 %.not106.i.i, label %253, label %252
 
-252:                                              ; preds = %._crit_edge.thread177.i.i
+252:                                              ; preds = %._crit_edge.thread184.i.i
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 414, ptr noundef nonnull @.str.30) #19
   unreachable
 
-253:                                              ; preds = %._crit_edge.thread177.i.i
+253:                                              ; preds = %._crit_edge.thread184.i.i
   %254 = call ptr @xmalloc(i64 noundef %174) #18
   %.not154.i.i = icmp eq i64 %213, 0
   br i1 %.not154.i.i, label %._crit_edge153.i.i, label %.lr.ph152.i.i
@@ -869,8 +869,8 @@ clear_snapshot_buffer.exit.i.i:                   ; preds = %275, %274
   br label %sort_snapshot.exit.i
 
 sort_snapshot.exit.i:                             ; preds = %clear_snapshot_buffer.exit.i.i, %._crit_edge.i.i, %st_mult.exit.i.i
-  %.1.lcssa174.i.i = phi ptr [ %.2.i.i, %._crit_edge.i.i ], [ %.2.i.i, %clear_snapshot_buffer.exit.i.i ], [ %179, %st_mult.exit.i.i ]
-  call void @free(ptr noundef %.1.lcssa174.i.i) #18
+  %.1.lcssa181.i.i = phi ptr [ %.2.i.i, %._crit_edge.i.i ], [ %.2.i.i, %clear_snapshot_buffer.exit.i.i ], [ %179, %st_mult.exit.i.i ]
+  call void @free(ptr noundef %.1.lcssa181.i.i) #18
   %.pre.i = load ptr, ptr %88, align 8, !tbaa !39
   %.pre160.i = load ptr, ptr %90, align 8, !tbaa !32
   %277 = icmp eq ptr %.pre.i, %.pre160.i
@@ -1440,13 +1440,13 @@ select.unfold.preheader.i:                        ; preds = %57
   %.not98.i = icmp eq i32 %61, 0
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %spec.select82 = select i1 %.not98.i, ptr %60, ptr null
+  %spec.select85 = select i1 %.not98.i, ptr %60, ptr null
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %select.unfold.i.backedge, %select.unfold.preheader.i
   %.090.i = phi i32 [ %61, %select.unfold.preheader.i ], [ %.090.i.be, %select.unfold.i.backedge ]
   %.085.i = phi i64 [ 0, %select.unfold.preheader.i ], [ %.085.i.be, %select.unfold.i.backedge ]
-  %.3.i = phi ptr [ %spec.select82, %select.unfold.preheader.i ], [ %.3.i.be, %select.unfold.i.backedge ]
+  %.3.i = phi ptr [ %spec.select85, %select.unfold.preheader.i ], [ %.3.i.be, %select.unfold.i.backedge ]
   %.not99.i = icmp eq ptr %.3.i, null
   %64 = load i64, ptr %62, align 8, !tbaa !91
   %65 = icmp ult i64 %.085.i, %64

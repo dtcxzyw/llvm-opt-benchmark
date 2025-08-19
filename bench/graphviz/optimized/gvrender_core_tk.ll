@@ -233,11 +233,11 @@ switch.lookup:                                    ; preds = %62
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.tkgen_polyline, i64 0, i64 %70
   %switch.load = load ptr, ptr %switch.gep, align 8
   %71 = zext nneg i32 %65 to i64
-  %switch.gep35 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %71
-  %switch.load36 = load i32, ptr %switch.gep35, align 4
+  %switch.gep36 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.tkgen_polyline.5, i64 0, i64 %71
+  %switch.load37 = load i32, ptr %switch.gep36, align 4
   %.014.in.i = getelementptr inbounds nuw i8, ptr %63, i64 16
   %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !35
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load36, ptr noundef nonnull %switch.load, ptr noundef %.014.i) #6
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %switch.load37, ptr noundef nonnull %switch.load, ptr noundef %.014.i) #6
   %72 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #6
   br label %73
 

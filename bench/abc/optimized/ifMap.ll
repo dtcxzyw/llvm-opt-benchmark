@@ -30,13 +30,13 @@ define i32 @If_ManCutAigDelay_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i32, ptr %7, align 8, !tbaa !3
-  br label %common.ret27
+  br label %common.ret29
 
 9:                                                ; preds = %3
   %10 = and i32 %4, 15
   %.off = add nsw i32 %10, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %common.ret27, label %11
+  br i1 %switch, label %common.ret29, label %11
 
 11:                                               ; preds = %9
   %12 = or disjoint i32 %4, 512
@@ -99,9 +99,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %24, %22
   store i32 %28, ptr %2, align 8, !tbaa !10
   br label %Vec_PtrPush.exit
 
-common.ret27:                                     ; preds = %6, %9, %Vec_PtrPush.exit
-  %common.ret27.op = phi i32 [ %54, %Vec_PtrPush.exit ], [ %8, %6 ], [ -1, %9 ]
-  ret i32 %common.ret27.op
+common.ret29:                                     ; preds = %6, %9, %Vec_PtrPush.exit
+  %common.ret29.op = phi i32 [ %54, %Vec_PtrPush.exit ], [ %8, %6 ], [ -1, %9 ]
+  ret i32 %common.ret29.op
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %37
   %39 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %38, %37 ], [ %26, %Vec_PtrGrow.exit.i ]
@@ -125,7 +125,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %54 = select i1 %or.cond, i32 %53, i32 -1
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %54, ptr %55, align 8, !tbaa !3
-  br label %common.ret27
+  br label %common.ret29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1022,8 +1022,8 @@ define void @If_ObjPerformMappingAnd(ptr noundef %0, ptr noundef %1, i32 noundef
   %406 = load i64, ptr %405, align 4
   %.mask598 = and i64 %406, 4278190080
   %407 = icmp eq i64 %.mask598, 33554432
-  %or.cond1015 = select i1 %71, i1 %407, i1 false
-  br i1 %or.cond1015, label %408, label %._crit_edge950
+  %or.cond1077 = select i1 %71, i1 %407, i1 false
+  br i1 %or.cond1077, label %408, label %._crit_edge950
 
 408:                                              ; preds = %404
   %409 = getelementptr inbounds nuw i8, ptr %309, i64 36
@@ -1163,8 +1163,8 @@ Abc_Clock.exit686:                                ; preds = %457, %460
   %.pre960.pre972 = load i64, ptr %424, align 4
   %.mask605 = and i64 %.pre960.pre972, 4278190080
   %481 = icmp eq i64 %.mask605, 100663296
-  %or.cond1016 = select i1 %.not604, i1 %481, i1 false
-  br i1 %or.cond1016, label %482, label %484
+  %or.cond1078 = select i1 %.not604, i1 %481, i1 false
+  br i1 %or.cond1078, label %482, label %484
 
 482:                                              ; preds = %477
   %483 = call i32 @If_CutCheckTruth6(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
@@ -1645,12 +1645,12 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   br label %737
 
 737:                                              ; preds = %If_CutTruthW.exit, %If_CutTruth.exit, %634
-  %.sink1018 = phi i64 [ %693, %If_CutTruthW.exit ], [ %736, %If_CutTruth.exit ], [ %650, %634 ]
+  %.sink1080 = phi i64 [ %693, %If_CutTruthW.exit ], [ %736, %If_CutTruth.exit ], [ %650, %634 ]
   %.sink = load i64, ptr %424, align 4
   %738 = and i64 %.sink, -16385
-  %739 = or disjoint i64 %738, %.sink1018
+  %739 = or disjoint i64 %738, %.sink1080
   store i64 %739, ptr %424, align 4
-  %740 = trunc nuw nsw i64 %.sink1018 to i32
+  %740 = trunc nuw nsw i64 %.sink1080 to i32
   %741 = lshr i32 %740, 14
   %742 = and i32 %741, 1
   %743 = load i32, ptr %264, align 4, !tbaa !127
@@ -2365,8 +2365,8 @@ Abc_TtProcessBiDec.exit:                          ; preds = %.lr.ph18.preheader.
   %.pre964 = load i64, ptr %424, align 4
   %1131 = and i64 %.pre964, 16384
   %.not620 = icmp eq i64 %1131, 0
-  %or.cond1019 = select i1 %.not619, i1 %.not620, i1 false
-  br i1 %or.cond1019, label %.thread832, label %1132
+  %or.cond1081 = select i1 %.not619, i1 %.not620, i1 false
+  br i1 %or.cond1081, label %.thread832, label %1132
 
 1132:                                             ; preds = %1128
   %1133 = load i32, ptr %427, align 4, !tbaa !86
@@ -2508,8 +2508,8 @@ If_CutTruthWR.exit774:                            ; preds = %._crit_edge893, %11
   %1209 = add nsw i32 %1207, 1
   %.not.i775 = icmp sle i32 %1204, %1209
   %.not123.i = icmp ult i32 %1203, 16777216
-  %or.cond158.i = or i1 %.not123.i, %.not.i775
-  br i1 %or.cond158.i, label %Abc_TtCheckCondDep.exit, label %.lr.ph.i
+  %or.cond166.i = or i1 %.not123.i, %.not.i775
+  br i1 %or.cond166.i, label %Abc_TtCheckCondDep.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %If_CutTruthWR.exit774
   %1210 = add nsw i32 %1204, -6
@@ -2870,19 +2870,19 @@ Abc_TtHasVar.exit96.i:                            ; preds = %._crit_edge.us.i87.
 1367:                                             ; preds = %Abc_TtHasVar.exit96.i
   %1368 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.not43.i = icmp eq i32 %1204, %1368
-  br i1 %.not43.i, label %.loopexit.loopexit.split.loop.exit156.i, label %1369
+  br i1 %.not43.i, label %.loopexit.loopexit.split.loop.exit164.i, label %1369
 
 1369:                                             ; preds = %1367
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next131.i, %wide.trip.count133.i
   br i1 %exitcond134.not.i, label %Abc_TtCheckCondDep.exit, label %1222, !llvm.loop !145
 
-.loopexit.loopexit.split.loop.exit156.i:          ; preds = %1367
+.loopexit.loopexit.split.loop.exit164.i:          ; preds = %1367
   %1370 = trunc nuw nsw i64 %indvars.iv130.i to i32
   br label %Abc_TtCheckCondDep.exit
 
-Abc_TtCheckCondDep.exit:                          ; preds = %1369, %If_CutTruthWR.exit774, %.thread.i, %.loopexit.loopexit.split.loop.exit156.i
-  %.035.i = phi i32 [ 0, %If_CutTruthWR.exit774 ], [ %1366, %.thread.i ], [ %1370, %.loopexit.loopexit.split.loop.exit156.i ], [ %1204, %1369 ]
+Abc_TtCheckCondDep.exit:                          ; preds = %1369, %If_CutTruthWR.exit774, %.thread.i, %.loopexit.loopexit.split.loop.exit164.i
+  %.035.i = phi i32 [ 0, %If_CutTruthWR.exit774 ], [ %1366, %.thread.i ], [ %1370, %.loopexit.loopexit.split.loop.exit164.i ], [ %1204, %1369 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1371 = trunc i32 %.035.i to i8
@@ -3253,7 +3253,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1522, %If_CutTruthW
   br i1 %1573, label %.thread827, label %1574
 
 1574:                                             ; preds = %1571
-  br i1 %72, label %.thread986, label %1575
+  br i1 %72, label %.thread1048, label %1575
 
 1575:                                             ; preds = %1574
   %1576 = load float, ptr %279, align 4, !tbaa !67
@@ -3268,7 +3268,7 @@ If_CutArrTimeProfile.exit:                        ; preds = %1522, %If_CutTruthW
   br i1 %1582, label %.thread827, label %1583
 
 1583:                                             ; preds = %1580, %1575
-  br i1 %281, label %1584, label %.thread986
+  br i1 %281, label %1584, label %.thread1048
 
 1584:                                             ; preds = %1583
   %1585 = call float @If_CutAreaDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
@@ -3279,20 +3279,20 @@ If_CutArrTimeProfile.exit:                        ; preds = %1522, %If_CutTruthW
   %.not646 = icmp eq i32 %1588, 0
   br i1 %.not646, label %1601, label %1593
 
-.thread986:                                       ; preds = %1583, %1574
+.thread1048:                                      ; preds = %1583, %1574
   %1589 = call float @If_CutAreaFlow(ptr noundef %0, ptr noundef nonnull %309) #22
   store float %1589, ptr %309, align 4, !tbaa !70
   %1590 = load ptr, ptr %13, align 8, !tbaa !43
   %1591 = getelementptr inbounds nuw i8, ptr %1590, i64 76
   %1592 = load i32, ptr %1591, align 4, !tbaa !71
-  %.not646987 = icmp eq i32 %1592, 0
-  br i1 %.not646987, label %.thread989, label %1595
+  %.not6461049 = icmp eq i32 %1592, 0
+  br i1 %.not6461049, label %.thread1051, label %1595
 
 1593:                                             ; preds = %1584
   %1594 = call float @If_CutEdgeDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
   br label %1597
 
-1595:                                             ; preds = %.thread986
+1595:                                             ; preds = %.thread1048
   %1596 = call float @If_CutEdgeFlow(ptr noundef nonnull %0, ptr noundef nonnull %309) #22
   br label %1597
 
@@ -3312,30 +3312,30 @@ If_CutArrTimeProfile.exit:                        ; preds = %1522, %If_CutTruthW
   %.not647 = icmp eq i32 %1605, 0
   br i1 %.not647, label %1615, label %1608
 
-.thread989:                                       ; preds = %.thread986
+.thread1051:                                      ; preds = %.thread1048
   %1606 = getelementptr inbounds nuw i8, ptr %1590, i64 80
   %1607 = load i32, ptr %1606, align 8, !tbaa !73
-  %.not647990 = icmp eq i32 %1607, 0
-  br i1 %.not647990, label %1615, label %.thread991
+  %.not6471052 = icmp eq i32 %1607, 0
+  br i1 %.not6471052, label %1615, label %.thread1053
 
 1608:                                             ; preds = %1601
-  br i1 %1602, label %1609, label %.thread991
+  br i1 %1602, label %1609, label %.thread1053
 
 1609:                                             ; preds = %1608
   %1610 = call float @If_CutPowerDerefed(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1) #22
   br label %1612
 
-.thread991:                                       ; preds = %.thread989, %1608
+.thread1053:                                      ; preds = %.thread1051, %1608
   %1611 = call float @If_CutPowerFlow(ptr noundef nonnull %0, ptr noundef nonnull %309, ptr noundef %1) #22
   br label %1612
 
-1612:                                             ; preds = %.thread991, %1609
-  %1613 = phi float [ %1610, %1609 ], [ %1611, %.thread991 ]
+1612:                                             ; preds = %.thread1053, %1609
+  %1613 = phi float [ %1610, %1609 ], [ %1611, %.thread1053 ]
   %1614 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store float %1613, ptr %1614, align 4, !tbaa !74
   br label %1615
 
-1615:                                             ; preds = %.thread989, %1612, %1601
+1615:                                             ; preds = %.thread1051, %1612, %1601
   call void @If_CutSort(ptr noundef nonnull %0, ptr noundef %97, ptr noundef nonnull %309) #22
   br label %.thread827
 
@@ -4549,9 +4549,9 @@ define internal fastcc i32 @Abc_TtProcessBiDecInt(ptr noundef nonnull readonly c
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not.i = icmp eq i32 %1, 0
   %indvar.i.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 512
-  br i1 %.not.i, label %Abc_TtCheckBiDecSimple.exit.thread153, label %.lr.ph.i
+  br i1 %.not.i, label %Abc_TtCheckBiDecSimple.exit.thread173, label %.lr.ph.i
 
-Abc_TtCheckBiDecSimple.exit.thread153:            ; preds = %3
+Abc_TtCheckBiDecSimple.exit.thread173:            ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit110
@@ -4813,7 +4813,7 @@ Abc_TtCheckBiDecSimple.exit:                      ; preds = %Abc_TtIsConst0.exit
   %124 = trunc i64 %123 to i32
   %125 = shl nsw i32 %2, 1
   %126 = sub nsw i32 %125, %1
-  %127 = zext i32 %111 to i64
+  %127 = zext nneg i32 %111 to i64
   br label %128
 
 128:                                              ; preds = %Abc_TtCheckBiDecSimple.exit, %.thread
@@ -5235,13 +5235,13 @@ Abc_TtCofactor1p.exit144..loopexit_crit_edge.i:   ; preds = %234, %221
 
 .sink.split.i:                                    ; preds = %312, %296
   %.pn.i = phi i32 [ %293, %296 ], [ %295, %312 ]
-  %.sink197.i = phi i32 [ %130, %296 ], [ %198, %312 ]
-  %.sink199.i = shl nuw i32 1, %.pn.i
+  %.sink206.i = phi i32 [ %130, %296 ], [ %198, %312 ]
+  %.sink208.i = shl nuw i32 1, %.pn.i
   %315 = load i32, ptr %131, align 4, !tbaa !34
-  %316 = or i32 %315, %.sink199.i
+  %316 = or i32 %315, %.sink208.i
   store i32 %316, ptr %131, align 4, !tbaa !34
   %317 = load i32, ptr %294, align 4, !tbaa !34
-  %318 = or i32 %317, %.sink197.i
+  %318 = or i32 %317, %.sink206.i
   store i32 %318, ptr %294, align 4, !tbaa !34
   br label %319
 
@@ -5568,8 +5568,8 @@ Abc_TtCheckBiDec.exit:                            ; preds = %.lr.ph.i90
   %exitcond148.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count190.i
   br i1 %exitcond148.not, label %.loopexit110, label %128, !llvm.loop !182
 
-.loopexit110:                                     ; preds = %324, %.thread, %Abc_TtCheckBiDecSimple.exit.thread153, %.loopexit, %Abc_TtCheckBiDecSimple.exit.thread
-  %.040 = phi i32 [ %438, %.loopexit ], [ %106, %Abc_TtCheckBiDecSimple.exit.thread ], [ 0, %Abc_TtCheckBiDecSimple.exit.thread153 ], [ 0, %.thread ], [ 0, %324 ]
+.loopexit110:                                     ; preds = %324, %.thread, %Abc_TtCheckBiDecSimple.exit.thread173, %.loopexit, %Abc_TtCheckBiDecSimple.exit.thread
+  %.040 = phi i32 [ %438, %.loopexit ], [ %106, %Abc_TtCheckBiDecSimple.exit.thread ], [ 0, %Abc_TtCheckBiDecSimple.exit.thread173 ], [ 0, %.thread ], [ 0, %324 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.040
 }

@@ -190,7 +190,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %6)
-  %calloc144 = tail call ptr @calloc(i64 1, i64 %6)
+  %calloc150 = tail call ptr @calloc(i64 1, i64 %6)
   %.not110 = icmp slt i32 %3, 0
   br i1 %.not110, label %.preheader106, label %.lr.ph113
 
@@ -268,7 +268,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 35:                                               ; preds = %31
   %36 = sext i16 %34 to i64
-  %37 = getelementptr i32, ptr %calloc144, i64 %36
+  %37 = getelementptr i32, ptr %calloc150, i64 %36
   %38 = getelementptr i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !45
   %40 = add nsw i32 %39, 1
@@ -316,7 +316,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 58:                                               ; preds = %50
   %59 = sext i16 %57 to i64
-  %60 = getelementptr i32, ptr %calloc144, i64 %59
+  %60 = getelementptr i32, ptr %calloc150, i64 %59
   %61 = getelementptr i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !45
   %63 = add nsw i32 %62, 1
@@ -346,7 +346,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 78:                                               ; preds = %70
   %79 = sext i16 %77 to i64
-  %80 = getelementptr i32, ptr %calloc144, i64 %79
+  %80 = getelementptr i32, ptr %calloc150, i64 %79
   %81 = getelementptr i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !45
   %83 = add nsw i32 %82, 1
@@ -375,7 +375,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 89:                                               ; preds = %87
   %90 = load i32, ptr %calloc, align 4, !tbaa !45
-  %91 = load i32, ptr %calloc144, align 4, !tbaa !45
+  %91 = load i32, ptr %calloc150, align 4, !tbaa !45
   %92 = sub nsw i32 %90, %91
   %93 = load ptr, ptr %86, align 8, !tbaa !18
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -390,7 +390,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
   %100 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv140
   %101 = load i32, ptr %100, align 4, !tbaa !45
   %102 = add nsw i32 %101, %99
-  %103 = getelementptr inbounds nuw i32, ptr %calloc144, i64 %indvars.iv140
+  %103 = getelementptr inbounds nuw i32, ptr %calloc150, i64 %indvars.iv140
   %104 = load i32, ptr %103, align 4, !tbaa !45
   %105 = sub i32 %102, %104
   %106 = getelementptr inbounds nuw %struct._reo_plane, ptr %96, i64 %indvars.iv140, i32 2
@@ -433,11 +433,11 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
   br label %123
 
 123:                                              ; preds = %._crit_edge128, %122
-  %.not99 = icmp eq ptr %calloc144, null
+  %.not99 = icmp eq ptr %calloc150, null
   br i1 %.not99, label %125, label %124
 
 124:                                              ; preds = %123
-  tail call void @free(ptr noundef nonnull %calloc144) #8
+  tail call void @free(ptr noundef nonnull %calloc150) #8
   br label %125
 
 125:                                              ; preds = %123, %124

@@ -559,9 +559,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %78
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !19, !range !65, !noundef !88
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %85, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !19, !range !65, !noundef !88
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %85, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 85:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %77)

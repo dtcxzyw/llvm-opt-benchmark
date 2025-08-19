@@ -961,7 +961,7 @@ define internal void @blkiolatency_timer_fn(ptr noundef readonly captures(none) 
 47:                                               ; preds = %.thread11
   %48 = inttoptr i64 %44 to ptr
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %48, ptr elementtype(i64) %48) #14, !srcloc !25
-  br label %.loopexit14
+  br label %.loopexit24
 
 49:                                               ; preds = %.thread11
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 64
@@ -978,14 +978,14 @@ define internal void @blkiolatency_timer_fn(ptr noundef readonly captures(none) 
   %58 = icmp ult i8 %57, 2
   tail call void @llvm.assume(i1 %58)
   %59 = icmp eq i8 %57, 0
-  br i1 %59, label %60, label %.loopexit14, !prof !28
+  br i1 %59, label %60, label %.loopexit24, !prof !28
 
 60:                                               ; preds = %.lr.ph
   %61 = extractvalue { i8, i64 } %56, 1
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %.thread.sink.split, label %.lr.ph, !prof !29, !llvm.loop !30
 
-.loopexit14:                                      ; preds = %.lr.ph, %47
+.loopexit24:                                      ; preds = %.lr.ph, %47
   tail call void @__rcu_read_unlock() #14
   %63 = getelementptr inbounds nuw i8, ptr %42, i64 208
   %64 = load i32, ptr @blkcg_policy_iolatency, align 8
@@ -995,7 +995,7 @@ define internal void @blkiolatency_timer_fn(ptr noundef readonly captures(none) 
   %68 = icmp eq ptr %67, null
   br i1 %68, label %112, label %69
 
-69:                                               ; preds = %.loopexit14
+69:                                               ; preds = %.loopexit24
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 168
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 208
   %72 = load volatile i32, ptr %71, align 4
@@ -1065,7 +1065,7 @@ define internal void @blkiolatency_timer_fn(ptr noundef readonly captures(none) 
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %70, i64 noundef %75) #14
   br label %112
 
-112:                                              ; preds = %111, %69, %.loopexit14
+112:                                              ; preds = %111, %69, %.loopexit24
   tail call void @__rcu_read_lock() #14
   %113 = load volatile i64, ptr %43, align 8
   %114 = and i64 %113, 3
@@ -1699,9 +1699,9 @@ define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, p
   %142 = inttoptr i64 %141 to ptr
   %143 = load i8, ptr %118, align 8, !range !11, !noundef !12
   %144 = icmp eq i8 %143, 0
-  br i1 %144, label %152, label %.thread24
+  br i1 %144, label %152, label %.thread43
 
-.thread24:                                        ; preds = %135
+.thread43:                                        ; preds = %135
   %145 = load i64, ptr %142, align 8
   %146 = load i64, ptr %3, align 8
   %147 = add i64 %146, %145
@@ -1719,7 +1719,7 @@ define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, p
   %153 = icmp eq i8 %.pre, 0
   br i1 %153, label %155, label %154
 
-154:                                              ; preds = %.thread24, %152
+154:                                              ; preds = %.thread43, %152
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %142, i8 0, i64 16, i1 false)
   br label %156
 
@@ -1949,8 +1949,8 @@ define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, p
   %299 = icmp eq ptr %298, null
   %.pre23 = load i64, ptr %55, align 8
   %300 = icmp ugt i64 %291, %.pre23
-  %or.cond25 = select i1 %299, i1 true, i1 %300
-  br i1 %or.cond25, label %301, label %302
+  %or.cond44 = select i1 %299, i1 true, i1 %300
+  br i1 %or.cond44, label %301, label %302
 
 301:                                              ; preds = %296
   store volatile i64 %.pre23, ptr %290, align 8

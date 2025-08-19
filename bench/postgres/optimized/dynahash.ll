@@ -118,20 +118,20 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @string_hash, ptr %39, align 8
   %40 = and i32 %3, 128
-  %.not138166 = icmp eq i32 %40, 0
-  br i1 %.not138166, label %.thread167, label %41
+  %.not138176 = icmp eq i32 %40, 0
+  br i1 %.not138176, label %.thread177, label %41
 
 41:                                               ; preds = %.thread, %36
   %42 = phi i1 [ true, %.thread ], [ %37, %36 ]
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %44 = load ptr, ptr %43, align 8
-  br label %.thread167
+  br label %.thread177
 
 45:                                               ; preds = %36
   %spec.select = select i1 %37, ptr @string_compare, ptr @memcmp
-  br label %.thread167
+  br label %.thread177
 
-.thread167:                                       ; preds = %45, %.thread, %41
+.thread177:                                       ; preds = %45, %.thread, %41
   %string_compare.sink = phi ptr [ %44, %41 ], [ @string_compare, %.thread ], [ %spec.select, %45 ]
   %46 = phi i1 [ %42, %41 ], [ true, %.thread ], [ %37, %45 ]
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -140,14 +140,14 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   %.not139 = icmp eq i32 %48, 0
   br i1 %.not139, label %53, label %49
 
-49:                                               ; preds = %.thread167
+49:                                               ; preds = %.thread177
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %51, ptr %52, align 8
   br label %57
 
-53:                                               ; preds = %.thread167
+53:                                               ; preds = %.thread177
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 32
   br i1 %46, label %55, label %56
 
@@ -173,7 +173,7 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   %63 = phi ptr [ %61, %59 ], [ @DynaHashAlloc, %57 ]
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %63, ptr %64, align 8
-  br i1 %.not, label %.thread168, label %65
+  br i1 %.not, label %.thread178, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -205,7 +205,7 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   store i32 %81, ptr %82, align 8
   br label %301
 
-.thread168:                                       ; preds = %62
+.thread178:                                       ; preds = %62
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %83 = load ptr, ptr @CurrentDynaHashCxt, align 8
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -218,7 +218,7 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   %.not142 = icmp eq ptr %67, null
   br i1 %.not142, label %87, label %hdefault.exit
 
-87:                                               ; preds = %.thread168, %86
+87:                                               ; preds = %.thread178, %86
   %88 = tail call ptr %63(i64 noundef 848) #17
   store ptr %88, ptr %14, align 8
   %.not143 = icmp eq ptr %88, null
@@ -936,8 +936,8 @@ define dso_local ptr @hash_search_with_hash_value(ptr noundef captures(address) 
   br i1 %or.cond.i.i, label %66, label %dir_realloc.exit.sink.split.i
 
 66:                                               ; preds = %59
-  %.not42.i.i = icmp eq i64 %60, 0
-  br i1 %.not42.i.i, label %dir_realloc.exit.i, label %.lr.ph.preheader.i.i
+  %.not44.i.i = icmp eq i64 %60, 0
+  br i1 %.not44.i.i, label %dir_realloc.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %66
   %67 = add nuw nsw i64 %60, 8
@@ -1009,8 +1009,8 @@ seg_alloc.exit.i:                                 ; preds = %77
   br label %has_seq_scans.exit
 
 .sink.split.i:                                    ; preds = %.lr.ph.preheader.i65.i, %85
-  %.sink76.i = phi i64 [ %98, %.lr.ph.preheader.i65.i ], [ %87, %85 ]
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %84, i8 0, i64 %.sink76.i, i1 false)
+  %.sink88.i = phi i64 [ %98, %.lr.ph.preheader.i65.i ], [ %87, %85 ]
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %84, i8 0, i64 %.sink88.i, i1 false)
   br label %102
 
 102:                                              ; preds = %.sink.split.i, %92

@@ -134,14 +134,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %or.cond19, label %.preheader192.sink.split, label %.preheader192
 
 .preheader192.sink.split:                         ; preds = %26, %2
-  %.sink239 = phi i16 [ 0, %2 ], [ 13333, %26 ]
-  store i16 %.sink239, ptr %4, align 16, !tbaa !21
-  store i16 %.sink239, ptr %11, align 2, !tbaa !22
+  %.sink253 = phi i16 [ 0, %2 ], [ 13333, %26 ]
+  store i16 %.sink253, ptr %4, align 16, !tbaa !21
+  store i16 %.sink253, ptr %11, align 2, !tbaa !22
   store i16 102, ptr %14, align 4, !tbaa !23
   br label %.preheader192
 
 .preheader192:                                    ; preds = %.preheader192.sink.split, %26
-  %30 = phi i16 [ %20, %26 ], [ %.sink239, %.preheader192.sink.split ]
+  %30 = phi i16 [ %20, %26 ], [ %.sink253, %.preheader192.sink.split ]
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %31, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40

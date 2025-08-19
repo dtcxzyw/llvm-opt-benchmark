@@ -3817,14 +3817,14 @@ define hidden void @"_ZN3zip5write25GenericZipWriter$LT$W$GT$9switch_to17h38d1f1
   %18 = alloca [96 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = load i64, ptr %1, align 8, !range !915, !noundef !8
-  switch i64 %20, label %default.unreachable215 [
+  switch i64 %20, label %default.unreachable216 [
     i64 0, label %.critedge
     i64 1, label %24
     i64 2, label %22
     i64 3, label %23
   ]
 
-default.unreachable215:                           ; preds = %46, %6
+default.unreachable216:                           ; preds = %46, %6
   unreachable
 
 21:                                               ; preds = %28
@@ -3960,7 +3960,7 @@ common.resume:                                    ; preds = %78, %74, %112, %102
 
 46:                                               ; preds = %54, %51, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
-  switch i16 %2, label %default.unreachable215 [
+  switch i16 %2, label %default.unreachable216 [
     i16 0, label %55
     i16 1, label %56
     i16 2, label %58
@@ -4283,14 +4283,14 @@ define hidden void @"_ZN3zip5write25GenericZipWriter$LT$W$GT$9switch_to17h69262d
   %18 = alloca [120 x i8], align 8
   %19 = alloca [72 x i8], align 8
   %20 = load i64, ptr %1, align 8, !range !915, !noundef !8
-  switch i64 %20, label %default.unreachable213 [
+  switch i64 %20, label %default.unreachable214 [
     i64 0, label %.critedge
     i64 1, label %24
     i64 2, label %22
     i64 3, label %23
   ]
 
-default.unreachable213:                           ; preds = %46, %6
+default.unreachable214:                           ; preds = %46, %6
   unreachable
 
 21:                                               ; preds = %28
@@ -4426,7 +4426,7 @@ common.resume:                                    ; preds = %78, %113, %106, %42
 
 46:                                               ; preds = %54, %51, %29
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.12)
-  switch i16 %2, label %default.unreachable213 [
+  switch i16 %2, label %default.unreachable214 [
     i16 0, label %55
     i16 1, label %56
     i16 2, label %58
@@ -4646,9 +4646,9 @@ _ZN4core3ops5range11RangeBounds8contains17hb9aa3bef5ca3131fE.exit.thread: ; pred
   store ptr %98, ptr %102, align 8, !alias.scope !1012, !noalias !1015
   %103 = load i64, ptr %13, align 8, !range !9, !alias.scope !1018, !noalias !1012, !noundef !8
   %104 = icmp eq i64 %103, -9223372036854775808
-  br i1 %104, label %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit.thread214", label %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit.thread", !prof !1021
+  br i1 %104, label %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit.thread215", label %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit.thread", !prof !1021
 
-"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit.thread214": ; preds = %101
+"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit.thread215": ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @"_ZN4core3ptr77drop_in_place$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2d11aeeac4edb789E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %105), !noalias !1012
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -4682,7 +4682,7 @@ _ZN4core3ops5range11RangeBounds8contains17hb9aa3bef5ca3131fE.exit.thread: ; pred
   call void @llvm.experimental.noalias.scope.decl(metadata !1022)
   br i1 %110, label %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit._crit_edge", label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc0db9fc0bf2b1cd0E.exit", !prof !974
 
-"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit._crit_edge": ; preds = %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit.thread214", %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit"
+"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit._crit_edge": ; preds = %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit.thread215", %"_ZN4zstd6stream5write16Encoder$LT$W$GT$15with_dictionary17hd1e66e2ca7e2cba7E.exit"
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !1022, !noalias !1025
   br label %111
@@ -4884,8 +4884,8 @@ define hidden void @_ZN3zip5write30write_central_directory_header17h2dcc12731e34
   br i1 %.not.i260, label %.preheader.i, label %.preheader14.i
 
 .preheader14.i:                                   ; preds = %76
-  %.not37.i = icmp eq i64 %.sroa.01.0.i, -32
-  br i1 %.not37.i, label %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread, label %.lr.ph.i
+  %.not38.i = icmp eq i64 %.sroa.01.0.i, -32
+  br i1 %.not38.i, label %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %76
   %78 = icmp ult i64 %.sroa.01.0.i, %75
@@ -4940,14 +4940,14 @@ _ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread: ; preds = %.prehe
 96:                                               ; preds = %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %98 = load i16, ptr %97, align 8, !range !247, !noundef !8
-  switch i16 %98, label %default.unreachable277 [
+  switch i16 %98, label %default.unreachable300 [
     i16 0, label %104
     i16 1, label %99
     i16 2, label %100
     i16 3, label %101
   ]
 
-default.unreachable277:                           ; preds = %96
+default.unreachable300:                           ; preds = %96
   unreachable
 
 99:                                               ; preds = %96
@@ -5303,8 +5303,8 @@ define hidden void @_ZN3zip5write30write_central_directory_header17hc7beee6cfaa3
   br i1 %.not.i280, label %.preheader.i, label %.preheader14.i
 
 .preheader14.i:                                   ; preds = %76
-  %.not37.i = icmp eq i64 %.sroa.01.0.i, -32
-  br i1 %.not37.i, label %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread, label %.lr.ph.i
+  %.not38.i = icmp eq i64 %.sroa.01.0.i, -32
+  br i1 %.not38.i, label %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %76
   %78 = icmp ult i64 %.sroa.01.0.i, %75
@@ -5359,14 +5359,14 @@ _ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread: ; preds = %.prehe
 96:                                               ; preds = %_ZN4core5slice5ascii8is_ascii17h32283d86efc4bdd2E.exit.thread
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %98 = load i16, ptr %97, align 8, !range !247, !noundef !8
-  switch i16 %98, label %default.unreachable297 [
+  switch i16 %98, label %default.unreachable320 [
     i16 0, label %104
     i16 1, label %99
     i16 2, label %100
     i16 3, label %101
   ]
 
-default.unreachable297:                           ; preds = %96
+default.unreachable320:                           ; preds = %96
   unreachable
 
 99:                                               ; preds = %96

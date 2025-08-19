@@ -252,7 +252,7 @@ define dso_local void @intel_dram_detect(ptr noundef %0) local_unnamed_addr #0 a
   tail call void @vlv_iosf_sb_put(ptr noundef %0, i64 noundef 128) #8
   %100 = lshr i32 %99, 6
   %101 = and i32 %100, 3
-  switch i32 %101, label %default.unreachable7 [
+  switch i32 %101, label %default.unreachable9 [
     i32 0, label %102
     i32 1, label %102
     i32 2, label %104
@@ -274,7 +274,7 @@ define dso_local void @intel_dram_detect(ptr noundef %0) local_unnamed_addr #0 a
   store i32 1333, ptr %107, align 8
   br label %108
 
-default.unreachable7:                             ; preds = %98
+default.unreachable9:                             ; preds = %98
   unreachable
 
 108:                                              ; preds = %106, %104, %102, %95, %94, %93, %82, %75, %73, %71, %69, %67, %65, %63, %27

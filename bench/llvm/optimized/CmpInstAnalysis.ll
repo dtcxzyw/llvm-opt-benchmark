@@ -296,8 +296,8 @@ define dso_local void @_ZN4llvm20decomposeBitTestICmpEPNS_5ValueES1_NS_7CmpInst9
   br label %460
 
 37:                                               ; preds = %33, %20
-  %.sink30.i.i = phi ptr [ %2, %20 ], [ %32, %33 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink30.i.i, i64 24
+  %.sink31.i.i = phi ptr [ %2, %20 ], [ %32, %33 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 24
   %39 = and i32 %3, -6
   %switch107 = icmp eq i32 %39, 34
   br i1 %switch107, label %40, label %42
@@ -310,7 +310,7 @@ define dso_local void @_ZN4llvm20decomposeBitTestICmpEPNS_5ValueES1_NS_7CmpInst9
   %.017 = phi i32 [ %41, %40 ], [ %3, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %.sink30.i.i, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.sink31.i.i, i64 32
   %45 = load i32, ptr %44, align 8, !tbaa !25
   store i32 %45, ptr %43, align 8, !tbaa !25
   %46 = icmp ult i32 %45, 65
@@ -987,14 +987,14 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit48.thread:      ; preds = %._ZNK4llvm5APInt10i
   %351 = load i64, ptr %.in.i.i.i.i.i59, align 8, !tbaa !27
   %352 = and i64 %351, %347
   %.not.i.i60 = icmp eq i64 %352, 0
-  br i1 %.not.i.i60, label %.thread123, label %353
+  br i1 %.not.i.i60, label %.thread156, label %353
 
 353:                                              ; preds = %_ZNK4llvm5APInt10isPowerOf2Ev.exit48.thread
   br i1 %289, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67, label %354
 
 354:                                              ; preds = %353
   %355 = icmp eq i32 %95, 0
-  br i1 %355, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread120, label %356, !prof !56
+  br i1 %355, label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread153, label %356, !prof !56
 
 356:                                              ; preds = %354
   %357 = sub nuw nsw i32 64, %95
@@ -1003,25 +1003,25 @@ _ZNK4llvm5APInt10isPowerOf2Ev.exit48.thread:      ; preds = %._ZNK4llvm5APInt10i
   %360 = xor i64 %359, -1
   %361 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %360, i1 false)
   %362 = trunc nuw nsw i64 %361 to i32
-  br label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread120
+  br label %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread153
 
 _ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67:      ; preds = %353
   %363 = call noundef i32 @_ZNK4llvm5APInt24countLeadingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #11
   %364 = call noundef i32 @_ZNK4llvm5APInt26countTrailingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %7) #11
   %365 = add i32 %364, %363
   %366 = icmp eq i32 %365, %95
-  br i1 %366, label %_ZN4llvm5APIntaSERKS0_.exit, label %.thread123
+  br i1 %366, label %_ZN4llvm5APIntaSERKS0_.exit, label %.thread156
 
-_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread120: ; preds = %354, %356
+_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread153: ; preds = %354, %356
   %.0.i.ph.i65 = phi i32 [ 0, %354 ], [ %362, %356 ]
   %367 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.pre-phi, i1 false)
   %368 = trunc nuw nsw i64 %367 to i32
   %..i.i66 = call i32 @llvm.umin.i32(i32 %95, i32 %368)
   %369 = add nuw nsw i32 %..i.i66, %.0.i.ph.i65
   %370 = icmp eq i32 %369, %95
-  br i1 %370, label %_ZN4llvm5APIntaSERKS0_.exit.thread, label %.thread123
+  br i1 %370, label %_ZN4llvm5APIntaSERKS0_.exit.thread, label %.thread156
 
-_ZN4llvm5APIntaSERKS0_.exit.thread:               ; preds = %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread120
+_ZN4llvm5APIntaSERKS0_.exit.thread:               ; preds = %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread153
   store i64 %.pre-phi, ptr %91, align 8, !tbaa !27
   store i32 %95, ptr %92, align 8, !tbaa !25
   br label %372
@@ -1052,7 +1052,7 @@ _ZN4llvm5APIntaSERKS0_.exit68:                    ; preds = %375, %377
   store i32 33, ptr %378, align 8, !tbaa !40
   br label %387
 
-.thread123:                                       ; preds = %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67, %_ZNK4llvm5APInt10isPowerOf2Ev.exit48.thread, %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread120
+.thread156:                                       ; preds = %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67, %_ZNK4llvm5APInt10isPowerOf2Ev.exit48.thread, %_ZNK4llvm5APInt17isNegatedPowerOf2Ev.exit67.thread153
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %379, align 8, !tbaa !22
   br label %_ZN4llvm5APIntD2Ev.exit.i
@@ -1217,7 +1217,7 @@ _ZN4llvm5APIntD2Ev.exit76:                        ; preds = %428, %425, %_ZN4llv
   call void @_ZdaPv(ptr noundef nonnull %444) #12
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
-_ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %.thread123, %.thread103, %446, %443, %441
+_ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %.thread156, %.thread103, %446, %443, %441
   %447 = load i32, ptr %92, align 8, !tbaa !25
   %448 = icmp ugt i32 %447, 64
   br i1 %448, label %449, label %_ZN4llvm17DecomposedBitTestD2Ev.exit

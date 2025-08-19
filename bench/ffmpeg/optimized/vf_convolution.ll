@@ -592,9 +592,9 @@ define internal fastcc range(i32 -22, 1) i32 @param_init(ptr noundef %0) unnamed
   br label %124
 
 124:                                              ; preds = %120, %122
-  %.sink420 = phi i32 [ 0, %122 ], [ 1, %120 ]
+  %.sink427 = phi i32 [ 0, %122 ], [ 1, %120 ]
   %125 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 0, i64 %indvars.iv375
-  store i32 %.sink420, ptr %125, align 4, !tbaa !39
+  store i32 %.sink427, ptr %125, align 4, !tbaa !39
   %126 = getelementptr inbounds nuw [4 x ptr], ptr %65, i64 0, i64 %indvars.iv375
   store ptr @setup_5x5, ptr %126, align 8, !tbaa !47
   br label %134
@@ -612,9 +612,9 @@ define internal fastcc range(i32 -22, 1) i32 @param_init(ptr noundef %0) unnamed
   br label %131
 
 131:                                              ; preds = %127, %129
-  %.sink422 = phi i32 [ 0, %129 ], [ 1, %127 ]
+  %.sink429 = phi i32 [ 0, %129 ], [ 1, %127 ]
   %132 = getelementptr inbounds nuw [4 x i32], ptr %67, i64 0, i64 %indvars.iv375
-  store i32 %.sink422, ptr %132, align 4, !tbaa !39
+  store i32 %.sink429, ptr %132, align 4, !tbaa !39
   %133 = getelementptr inbounds nuw [4 x ptr], ptr %65, i64 0, i64 %indvars.iv375
   store ptr @setup_7x7, ptr %133, align 8, !tbaa !47
   br label %134

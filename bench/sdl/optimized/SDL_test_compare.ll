@@ -347,7 +347,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CompareMemory(ptr noundef %0, i64 
   %13 = icmp eq i64 %1, %3
   %14 = zext i1 %13 to i32
   %15 = tail call i32 (i32, ptr, ...) @SDLTest_AssertCheck(i32 noundef %14, ptr noundef nonnull @.str.16, i64 noundef %1, i64 noundef %3) #6
-  %.06884.sroa.gep89 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.06884.sroa.gep95 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %13, label %16, label %.critedge
 
 16:                                               ; preds = %4
@@ -382,7 +382,7 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CompareMemory(ptr noundef %0, i64 
 
 .preheader:                                       ; preds = %74, %.lr.ph
   %31 = phi i1 [ true, %.lr.ph ], [ false, %74 ]
-  %.06884.sroa.phi = phi ptr [ %5, %.lr.ph ], [ %.06884.sroa.gep89, %74 ]
+  %.06884.sroa.phi = phi ptr [ %5, %.lr.ph ], [ %.06884.sroa.gep95, %74 ]
   %.06983 = phi i64 [ %30, %.lr.ph ], [ %78, %74 ]
   %32 = getelementptr inbounds nuw i8, ptr %.06884.sroa.phi, i64 16
   %33 = load i64, ptr %32, align 8

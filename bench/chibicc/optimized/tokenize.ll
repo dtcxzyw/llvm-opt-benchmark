@@ -551,19 +551,19 @@ sub_017.i:                                        ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 76
-  br i1 %79, label %83, label %.thread40.i
+  br i1 %79, label %83, label %.thread43.i
 
 .tail20.i:                                        ; preds = %sub_017.i
   %80 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 108
-  br i1 %82, label %83, label %.thread40.i
+  br i1 %82, label %83, label %.thread43.i
 
 83:                                               ; preds = %.tail20.i, %.tail16.i
   %84 = getelementptr inbounds nuw i8, ptr %44, i64 2
   br label %88
 
-.thread40.i:                                      ; preds = %.tail20.i, %.tail16.i
+.thread43.i:                                      ; preds = %.tail20.i, %.tail16.i
   %85 = getelementptr inbounds nuw i8, ptr %44, i64 1
   br label %88
 
@@ -571,10 +571,10 @@ sub_017.i:                                        ; preds = %73
   %87 = getelementptr inbounds nuw i8, ptr %44, i64 1
   br label %88
 
-88:                                               ; preds = %86, %.thread40.i, %83, %sub_017.i, %75, %70
-  %89 = phi ptr [ %71, %70 ], [ %84, %83 ], [ %85, %.thread40.i ], [ %87, %86 ], [ %76, %75 ], [ %44, %sub_017.i ]
-  %.029.i.i = phi i1 [ true, %70 ], [ true, %83 ], [ true, %.thread40.i ], [ false, %86 ], [ true, %75 ], [ false, %sub_017.i ]
-  %.028.i.i = phi i1 [ true, %70 ], [ false, %83 ], [ false, %.thread40.i ], [ true, %86 ], [ true, %75 ], [ false, %sub_017.i ]
+88:                                               ; preds = %86, %.thread43.i, %83, %sub_017.i, %75, %70
+  %89 = phi ptr [ %71, %70 ], [ %84, %83 ], [ %85, %.thread43.i ], [ %87, %86 ], [ %76, %75 ], [ %44, %sub_017.i ]
+  %.029.i.i = phi i1 [ true, %70 ], [ true, %83 ], [ true, %.thread43.i ], [ false, %86 ], [ true, %75 ], [ false, %sub_017.i ]
+  %.028.i.i = phi i1 [ true, %70 ], [ false, %83 ], [ false, %.thread43.i ], [ true, %86 ], [ true, %75 ], [ false, %sub_017.i ]
   %90 = load ptr, ptr %9, align 16, !tbaa !32
   %91 = load i32, ptr %11, align 8, !tbaa !33
   %92 = sext i32 %91 to i64
@@ -1105,7 +1105,7 @@ sub_0:                                            ; preds = %1, %.backedge
   br i1 %.not116, label %39, label %47
 
 39:                                               ; preds = %37
-  switch i8 %6, label %.thread186 [
+  switch i8 %6, label %.thread192 [
     i8 46, label %40
     i8 34, label %86
     i8 117, label %sub_1137
@@ -1122,7 +1122,7 @@ sub_0:                                            ; preds = %1, %.backedge
   %45 = load i16, ptr %44, align 2, !tbaa !43
   %46 = and i16 %45, 2048
   %.not117 = icmp eq i16 %46, 0
-  br i1 %.not117, label %.thread186, label %47
+  br i1 %.not117, label %.thread192, label %47
 
 47:                                               ; preds = %40, %37
   %48 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
@@ -1239,7 +1239,7 @@ sub_1137:                                         ; preds = %39
   %106 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %107, 34
-  br i1 %108, label %109, label %.thread186
+  br i1 %108, label %109, label %.thread192
 
 109:                                              ; preds = %.tail139
   %110 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
@@ -1256,7 +1256,7 @@ sub_1137:                                         ; preds = %39
   %117 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 34
-  br i1 %119, label %120, label %.thread186
+  br i1 %119, label %120, label %.thread192
 
 120:                                              ; preds = %.tail143
   %121 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
@@ -1274,7 +1274,7 @@ sub_1137:                                         ; preds = %39
   %129 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
   %130 = load i8, ptr %129, align 1
   %131 = icmp eq i8 %130, 34
-  br i1 %131, label %132, label %.thread186
+  br i1 %131, label %132, label %.thread192
 
 132:                                              ; preds = %.tail147
   %133 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
@@ -1304,11 +1304,11 @@ sub_1137:                                         ; preds = %39
   %151 = getelementptr inbounds i8, ptr %.0157, i64 %150
   br label %.backedge
 
-.thread186:                                       ; preds = %39, %.tail139, %40, %.tail143, %.tail147
+.thread192:                                       ; preds = %39, %.tail139, %40, %.tail143, %.tail147
   %152 = tail call fastcc zeroext i1 @startswith(ptr noundef nonnull %.0157, ptr noundef nonnull @.str.12)
   br i1 %152, label %153, label %165
 
-153:                                              ; preds = %.thread186
+153:                                              ; preds = %.thread192
   %154 = getelementptr inbounds nuw i8, ptr %.0157, i64 1
   %155 = load ptr, ptr @ty_ushort, align 8, !tbaa !45
   %156 = tail call fastcc ptr @read_char_literal(ptr noundef nonnull %.0157, ptr noundef nonnull %154, ptr noundef %155)
@@ -1324,7 +1324,7 @@ sub_1137:                                         ; preds = %39
   %164 = getelementptr inbounds i8, ptr %.0157, i64 %163
   br label %.backedge
 
-165:                                              ; preds = %.thread186
+165:                                              ; preds = %.thread192
   %166 = tail call fastcc zeroext i1 @startswith(ptr noundef nonnull %.0157, ptr noundef nonnull @.str.13)
   br i1 %166, label %167, label %176
 
@@ -1371,11 +1371,11 @@ sub_1137:                                         ; preds = %39
   unreachable
 
 192:                                              ; preds = %189, %187
-  %.sink195 = phi i32 [ %188, %187 ], [ %190, %189 ]
-  %.sink192 = phi i32 [ 0, %187 ], [ 1, %189 ]
-  %193 = sext i32 %.sink195 to i64
+  %.sink201 = phi i32 [ %188, %187 ], [ %190, %189 ]
+  %.sink198 = phi i32 [ 0, %187 ], [ 1, %189 ]
+  %193 = sext i32 %.sink201 to i64
   %194 = getelementptr inbounds i8, ptr %.0157, i64 %193
-  %195 = tail call fastcc ptr @new_token(i32 noundef %.sink192, ptr noundef nonnull %.0157, ptr noundef nonnull %194)
+  %195 = tail call fastcc ptr @new_token(i32 noundef %.sink198, ptr noundef nonnull %.0157, ptr noundef nonnull %194)
   %196 = getelementptr inbounds nuw i8, ptr %.0107156, i64 8
   store ptr %195, ptr %196, align 8, !tbaa !34
   %.pn.in.in = getelementptr inbounds nuw i8, ptr %195, i64 56

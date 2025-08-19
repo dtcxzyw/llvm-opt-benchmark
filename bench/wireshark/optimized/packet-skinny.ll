@@ -9051,13 +9051,13 @@ define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr noundef rea
   br i1 %16, label %.sink.split, label %25
 
 .sink.split:                                      ; preds = %13, %9
-  %.sink48 = phi i32 [ %11, %9 ], [ %15, %13 ]
-  %.sink42.ph = phi i32 [ 24, %9 ], [ 25, %13 ]
+  %.sink49 = phi i32 [ %11, %9 ], [ %15, %13 ]
+  %.sink43.ph = phi i32 [ 24, %9 ], [ 25, %13 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
   %20 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
-  %21 = tail call ptr @tvb_format_stringzpad(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %.sink48)
+  %21 = tail call ptr @tvb_format_stringzpad(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %.sink49)
   %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2159, ptr noundef %21)
   %23 = load ptr, ptr @si, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
@@ -9065,9 +9065,9 @@ define internal void @handle_DialedNumberMessage(ptr noundef %0, ptr noundef rea
   br label %25
 
 25:                                               ; preds = %.sink.split, %13, %9
-  %.sink42 = phi i32 [ 24, %9 ], [ 25, %13 ], [ %.sink42.ph, %.sink.split ]
+  %.sink43 = phi i32 [ 24, %9 ], [ 25, %13 ], [ %.sink43.ph, %.sink.split ]
   %26 = load i32, ptr @hf_skinny_dialedNumber, align 4
-  %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef %.sink42, i32 noundef 0)
+  %27 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %26, i32 noundef %.sink43, i32 noundef 0)
   %28 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
   %29 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %30 = tail call i32 @tvb_get_letohl(ptr noundef %28, i32 noundef %29)

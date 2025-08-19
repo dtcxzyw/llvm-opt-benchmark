@@ -1146,8 +1146,8 @@ _ZN2cv12MatIterator_IdEppEv.exit8.i:              ; preds = %471, %466, %_ZN2cv1
   %486 = ptrtoint ptr %314 to i64
   %487 = sub i64 %485, %486
   %488 = sdiv exact i64 %487, 96
-  %sext407 = shl i64 %488, 32
-  %489 = ashr exact i64 %sext407, 32
+  %sext431 = shl i64 %488, 32
+  %489 = ashr exact i64 %sext431, 32
   %490 = icmp slt i64 %indvars.iv.next379, %489
   br i1 %490, label %.lr.ph335, label %.preheader293.loopexit, !llvm.loop !93
 

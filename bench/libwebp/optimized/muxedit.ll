@@ -425,24 +425,24 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %.thread76, label %9
+  br i1 %or.cond, label %.thread84, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4, !tbaa !31
   %.not = icmp eq i32 %11, 3
-  br i1 %.not, label %12, label %.thread76
+  br i1 %.not, label %12, label %.thread84
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %1, align 8, !tbaa !33
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread76, label %15
+  br i1 %14, label %.thread84, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !34
   %18 = icmp ugt i64 %17, 4294967286
-  br i1 %18, label %.thread76, label %19
+  br i1 %18, label %.thread84, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8, !tbaa !21
@@ -452,14 +452,14 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 21:                                               ; preds = %19
   %22 = load ptr, ptr %20, align 8, !tbaa !35
   %.not52 = icmp eq ptr %22, null
-  br i1 %.not52, label %.thread76, label %23
+  br i1 %.not52, label %.thread84, label %23
 
 23:                                               ; preds = %21
   %24 = load i32, ptr %22, align 8, !tbaa !17
   %25 = tail call i32 @ChunkGetIdFromTag(i32 noundef %24) #7
   %.pre = load i32, ptr %10, align 4, !tbaa !31
   %26 = icmp eq i32 %25, %.pre
-  br i1 %26, label %27, label %.thread76
+  br i1 %26, label %27, label %.thread84
 
 27:                                               ; preds = %23, %19
   call void @MuxImageInit(ptr noundef nonnull %4) #7
@@ -524,14 +524,14 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = call i32 @MuxImagePush(ptr noundef nonnull %4, ptr noundef nonnull %0) #7
   %.not58 = icmp eq i32 %56, 1
-  br i1 %.not58, label %.thread76, label %57
+  br i1 %.not58, label %.thread84, label %57
 
 57:                                               ; preds = %.thread, %55, %27
   %.039 = phi i32 [ %28, %27 ], [ %56, %55 ], [ %.140.ph, %.thread ]
   %58 = call ptr @MuxImageRelease(ptr noundef nonnull %4) #7
-  br label %.thread76
+  br label %.thread84
 
-.thread76:                                        ; preds = %21, %55, %12, %15, %9, %3, %23, %57
+.thread84:                                        ; preds = %21, %55, %12, %15, %9, %3, %23, %57
   %.0 = phi i32 [ %.039, %57 ], [ -1, %23 ], [ -1, %3 ], [ -1, %9 ], [ -1, %15 ], [ -1, %12 ], [ 1, %55 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -968,7 +968,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly captures(addre
   br i1 %.not10.i.i.i, label %MuxCleanup.exit.thread, label %.lr.ph.i.i.outer.i.outer
 
 .lr.ph.i.i.outer.i.outer:                         ; preds = %55, %.lr.ph.i.i.i._crit_edge.thread
-  %.ph.i.ph = phi ptr [ %.pre.i.i.i77, %.lr.ph.i.i.i._crit_edge.thread ], [ %57, %55 ]
+  %.ph.i.ph = phi ptr [ %.pre.i.i.i101, %.lr.ph.i.i.i._crit_edge.thread ], [ %57, %55 ]
   %.012.i.i.ph.i.ph = phi ptr [ %66, %.lr.ph.i.i.i._crit_edge.thread ], [ %56, %55 ]
   %.not25.not.i = phi i1 [ false, %.lr.ph.i.i.i._crit_edge.thread ], [ true, %55 ]
   %58 = load i32, ptr %.ph.i.ph, align 8, !tbaa !17
@@ -981,7 +981,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly captures(addre
   br i1 %61, label %.thread.i.preheader.loopexit, label %.lr.ph.i.i.i._crit_edge, !llvm.loop !20
 
 .thread.i.preheader.loopexit:                     ; preds = %.lr.ph.i.i.outer.i
-  %62 = getelementptr inbounds nuw i8, ptr %.ph.i98, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.ph.i122, i64 24
   br label %.thread.i.preheader
 
 .thread.i.preheader:                              ; preds = %.thread.i.preheader.loopexit, %.lr.ph.i.i.outer.i.outer
@@ -995,24 +995,24 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly captures(addre
   br i1 %64, label %.thread.i, label %.lr.ph.i.i.i._crit_edge.thread, !llvm.loop !20
 
 .lr.ph.i.i.i._crit_edge:                          ; preds = %.lr.ph.i.i.outer.i.outer, %.lr.ph.i.i.outer.i
-  %.ph.i98 = phi ptr [ %.pre.i.i.i, %.lr.ph.i.i.outer.i ], [ %.ph.i.ph, %.lr.ph.i.i.outer.i.outer ]
-  %65 = getelementptr inbounds nuw i8, ptr %.ph.i98, i64 24
+  %.ph.i122 = phi ptr [ %.pre.i.i.i, %.lr.ph.i.i.outer.i ], [ %.ph.i.ph, %.lr.ph.i.i.outer.i.outer ]
+  %65 = getelementptr inbounds nuw i8, ptr %.ph.i122, i64 24
   %.pre.i.i.i = load ptr, ptr %65, align 8, !tbaa !15
   %.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
   br i1 %.not.i.i.i, label %MuxDeleteAllNamedData.exit.i, label %.lr.ph.i.i.outer.i, !llvm.loop !20
 
 .lr.ph.i.i.i._crit_edge.thread:                   ; preds = %.lr.ph.i.i.i
   %66 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %.pre.i.i.i77 = load ptr, ptr %66, align 8, !tbaa !15
-  %.not.i.i.i78 = icmp eq ptr %.pre.i.i.i77, null
-  br i1 %.not.i.i.i78, label %.loopexit, label %.lr.ph.i.i.outer.i.outer, !llvm.loop !20
+  %.pre.i.i.i101 = load ptr, ptr %66, align 8, !tbaa !15
+  %.not.i.i.i102 = icmp eq ptr %.pre.i.i.i101, null
+  br i1 %.not.i.i.i102, label %.loopexit, label %.lr.ph.i.i.outer.i.outer, !llvm.loop !20
 
 .thread.i:                                        ; preds = %.thread.i.preheader, %.lr.ph.i.i.i
   %67 = phi ptr [ %68, %.lr.ph.i.i.i ], [ %.ph.i.lcssa, %.thread.i.preheader ]
   %68 = call ptr @ChunkDelete(ptr noundef nonnull %67) #7
   store ptr %68, ptr %.012.i.i.ph.i.lcssa, align 8, !tbaa !15
-  %.not.i.i30.i = icmp eq ptr %68, null
-  br i1 %.not.i.i30.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !20
+  %.not.i.i35.i = icmp eq ptr %68, null
+  br i1 %.not.i.i35.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !20
 
 MuxDeleteAllNamedData.exit.i:                     ; preds = %.lr.ph.i.i.i._crit_edge
   br i1 %.not25.not.i, label %MuxCleanup.exit.thread, label %.loopexit

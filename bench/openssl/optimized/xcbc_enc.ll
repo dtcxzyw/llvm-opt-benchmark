@@ -276,21 +276,21 @@ define void @DES_xcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %.not303, label %245, label %._crit_edge324.thread
 
 ._crit_edge324.thread:                            ; preds = %139, %._crit_edge324
-  %.1.lcssa352 = phi i64 [ %.1316, %._crit_edge324 ], [ %.1, %139 ]
-  %.1.in.lcssa351 = phi i64 [ %2, %._crit_edge324 ], [ %.1321, %139 ]
-  %.8.lcssa350 = phi ptr [ %0, %._crit_edge324 ], [ %162, %139 ]
-  %.0274.lcssa349 = phi i32 [ %62, %._crit_edge324 ], [ %166, %139 ]
-  %.0276.lcssa348 = phi i32 [ %60, %._crit_edge324 ], [ %152, %139 ]
-  %.1295.lcssa347 = phi ptr [ %1, %._crit_edge324 ], [ %175, %139 ]
-  %177 = load i16, ptr %.8.lcssa350, align 1
+  %.1.lcssa354 = phi i64 [ %.1316, %._crit_edge324 ], [ %.1, %139 ]
+  %.1.in.lcssa353 = phi i64 [ %2, %._crit_edge324 ], [ %.1321, %139 ]
+  %.8.lcssa352 = phi ptr [ %0, %._crit_edge324 ], [ %162, %139 ]
+  %.0274.lcssa351 = phi i32 [ %62, %._crit_edge324 ], [ %166, %139 ]
+  %.0276.lcssa350 = phi i32 [ %60, %._crit_edge324 ], [ %152, %139 ]
+  %.1295.lcssa349 = phi ptr [ %1, %._crit_edge324 ], [ %175, %139 ]
+  %177 = load i16, ptr %.8.lcssa352, align 1
   %178 = zext i16 %177 to i32
-  %179 = getelementptr inbounds nuw i8, ptr %.8.lcssa350, i64 2
-  %180 = getelementptr inbounds nuw i8, ptr %.8.lcssa350, i64 3
+  %179 = getelementptr inbounds nuw i8, ptr %.8.lcssa352, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %.8.lcssa352, i64 3
   %181 = load i8, ptr %179, align 1, !tbaa !3
   %182 = zext i8 %181 to i32
   %183 = shl nuw nsw i32 %182, 16
   %184 = or disjoint i32 %183, %178
-  %185 = getelementptr inbounds nuw i8, ptr %.8.lcssa350, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %.8.lcssa352, i64 4
   %186 = load i8, ptr %180, align 1, !tbaa !3
   %187 = zext i8 %186 to i32
   %188 = shl nuw i32 %187, 24
@@ -299,8 +299,8 @@ define void @DES_xcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   store i32 %190, ptr %9, align 4, !tbaa !6
   %191 = load i16, ptr %185, align 1
   %192 = zext i16 %191 to i32
-  %193 = getelementptr inbounds nuw i8, ptr %.8.lcssa350, i64 6
-  %194 = getelementptr inbounds nuw i8, ptr %.8.lcssa350, i64 7
+  %193 = getelementptr inbounds nuw i8, ptr %.8.lcssa352, i64 6
+  %194 = getelementptr inbounds nuw i8, ptr %.8.lcssa352, i64 7
   %195 = load i8, ptr %193, align 1, !tbaa !3
   %196 = zext i8 %195 to i32
   %197 = shl nuw nsw i32 %196, 16
@@ -314,14 +314,14 @@ define void @DES_xcbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   store i32 %203, ptr %204, align 4, !tbaa !6
   call void @DES_encrypt1(ptr noundef nonnull %9, ptr noundef %3, i32 noundef 0) #3
   %205 = load i32, ptr %9, align 4, !tbaa !6
-  %206 = xor i32 %205, %.0276.lcssa348
+  %206 = xor i32 %205, %.0276.lcssa350
   %207 = xor i32 %206, %22
   %208 = load i32, ptr %204, align 4, !tbaa !6
-  %209 = xor i32 %208, %.0274.lcssa349
+  %209 = xor i32 %208, %.0274.lcssa351
   %210 = xor i32 %209, %34
-  %211 = getelementptr i8, ptr %.1295.lcssa347, i64 %.1.lcssa352
-  %212 = getelementptr i8, ptr %.1295.lcssa347, i64 %.1.in.lcssa351
-  switch i64 %.1.in.lcssa351, label %245 [
+  %211 = getelementptr i8, ptr %.1295.lcssa349, i64 %.1.lcssa354
+  %212 = getelementptr i8, ptr %.1295.lcssa349, i64 %.1.in.lcssa353
+  switch i64 %.1.in.lcssa353, label %245 [
     i64 8, label %213
     i64 7, label %217
     i64 6, label %223

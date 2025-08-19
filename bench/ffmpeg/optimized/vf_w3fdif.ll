@@ -679,24 +679,24 @@ define internal noundef i32 @deinterlace_slice(ptr noundef readonly captures(non
   %155 = getelementptr inbounds ptr, ptr %154, i64 %15
   %156 = load ptr, ptr %155, align 8, !tbaa !61
   switch i8 %134, label %158 [
-    i8 3, label %.sink.split49.i
+    i8 3, label %.sink.split53.i
     i8 5, label %157
   ]
 
 157:                                              ; preds = %._crit_edge16.i
-  br label %.sink.split49.i
+  br label %.sink.split53.i
 
-.sink.split49.i:                                  ; preds = %._crit_edge16.i, %157
-  %.sink50.in.i = phi ptr [ %104, %157 ], [ %106, %._crit_edge16.i ]
-  %.sink50.i = load ptr, ptr %.sink50.in.i, align 8, !tbaa !83
-  call void %.sink50.i(ptr noundef %156, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %105, i32 noundef %30) #11
+.sink.split53.i:                                  ; preds = %._crit_edge16.i, %157
+  %.sink54.in.i = phi ptr [ %104, %157 ], [ %106, %._crit_edge16.i ]
+  %.sink54.i = load ptr, ptr %.sink54.in.i, align 8, !tbaa !83
+  call void %.sink54.i(ptr noundef %156, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %105, i32 noundef %30) #11
   %.pre = load ptr, ptr %99, align 8, !tbaa !25
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %15
   %.pre20 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !61
   br label %158
 
-158:                                              ; preds = %.sink.split49.i, %._crit_edge16.i
-  %159 = phi ptr [ %.pre20, %.sink.split49.i ], [ %156, %._crit_edge16.i ]
+158:                                              ; preds = %.sink.split53.i, %._crit_edge16.i
+  %159 = phi ptr [ %.pre20, %.sink.split53.i ], [ %156, %._crit_edge16.i ]
   %160 = load ptr, ptr %107, align 8, !tbaa !70
   call void %160(ptr noundef %.113420.i, ptr noundef %159, i32 noundef %30, i32 noundef %48) #11
   %161 = add nsw i32 %.121.i, 2

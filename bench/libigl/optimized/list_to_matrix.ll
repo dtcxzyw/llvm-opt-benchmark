@@ -326,8 +326,8 @@ _ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.us:   ; preds = %71
   %85 = add nsw i32 %84, 1
   store atomic i32 %85, ptr %83 monotonic, align 4
   %86 = load ptr, ptr %80, align 8, !tbaa !16
-  %.not4.i.i.i.us = icmp eq ptr %86, null
-  br i1 %.not4.i.i.i.us, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit.us, label %.thread.i.i.i.us
+  %.not6.i.i.i.us = icmp eq ptr %86, null
+  br i1 %.not6.i.i.i.us, label %_ZN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEEaSERKSE_.exit.us, label %.thread.i.i.i.us
 
 .thread.i.i.i.us:                                 ; preds = %_ZNK4CGAL6Handle6increfEv.exit.thread.i.i.i.us
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8

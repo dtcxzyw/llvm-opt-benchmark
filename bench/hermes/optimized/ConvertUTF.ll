@@ -518,7 +518,7 @@ if.end21.us:                                      ; preds = %if.else14.us, %if.e
   br i1 %cmp22.us, label %while.end, label %if.end28.us
 
 if.end28.us:                                      ; preds = %if.end21.us
-  switch i16 %bytesToWrite.0.us, label %default.unreachable57 [
+  switch i16 %bytesToWrite.0.us, label %default.unreachable61 [
     i16 4, label %sw.bb.us
     i16 3, label %sw.bb32.us
     i16 2, label %sw.bb38.us
@@ -608,7 +608,7 @@ if.end21:                                         ; preds = %if.else14, %if.else
   br i1 %cmp22, label %while.end, label %if.end28
 
 if.end28:                                         ; preds = %if.end21
-  switch i16 %bytesToWrite.0, label %default.unreachable57 [
+  switch i16 %bytesToWrite.0, label %default.unreachable61 [
     i16 4, label %sw.bb
     i16 3, label %sw.bb32
     i16 2, label %sw.bb38
@@ -659,7 +659,7 @@ sw.bb44:                                          ; preds = %sw.bb38, %if.end28
   %cmp = icmp ult ptr %incdec.ptr, %sourceEnd
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
-default.unreachable57:                            ; preds = %if.end28.us, %if.end28
+default.unreachable61:                            ; preds = %if.end28.us, %if.end28
   unreachable
 
 while.end:                                        ; preds = %sw.bb44.us, %if.end21.us, %sw.bb44, %while.body, %if.end21, %entry

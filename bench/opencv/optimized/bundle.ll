@@ -1083,11 +1083,11 @@ define linkonce_odr hidden void @_ZNK2cv4usac31RelativePoseJacobianAccumulator10
   br label %73
 
 73:                                               ; preds = %59, %66, %43, %50
-  %.sink304 = phi double [ %61, %59 ], [ %68, %66 ], [ %45, %43 ], [ %52, %50 ]
-  %.sink303 = phi double [ %63, %59 ], [ %70, %66 ], [ %47, %43 ], [ %54, %50 ]
+  %.sink307 = phi double [ %61, %59 ], [ %68, %66 ], [ %45, %43 ], [ %52, %50 ]
+  %.sink306 = phi double [ %63, %59 ], [ %70, %66 ], [ %47, %43 ], [ %54, %50 ]
   %.sink = phi double [ %65, %59 ], [ %72, %66 ], [ %49, %43 ], [ %56, %50 ]
-  store double %.sink304, ptr %8, align 8
-  store double %.sink303, ptr %.sroa.4237.0..sroa_idx, align 8
+  store double %.sink307, ptr %8, align 8
+  store double %.sink306, ptr %.sroa.4237.0..sroa_idx, align 8
   store double %.sink, ptr %.sroa.5238.0..sroa_idx, align 8
   br label %74
 

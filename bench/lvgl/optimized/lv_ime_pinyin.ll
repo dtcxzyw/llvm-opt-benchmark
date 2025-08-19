@@ -1175,19 +1175,19 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %96
   %99 = tail call i64 @lv_strlen(ptr noundef nonnull %12) #6
   %.not161 = icmp eq i64 %99, 0
-  br i1 %.not161, label %.loopexit165, label %.lr.ph158
+  br i1 %.not161, label %.loopexit169, label %.lr.ph158
 
-.loopexit165:                                     ; preds = %.lr.ph158, %.preheader
+.loopexit169:                                     ; preds = %.lr.ph158, %.preheader
   tail call fastcc void @pinyin_ime_clear_data(ptr noundef nonnull %4)
   tail call void @lv_textarea_set_cursor_pos(ptr noundef %17, i32 noundef 32767) #6
   %100 = load ptr, ptr %15, align 8, !tbaa !36
   %.not8.i = icmp eq ptr %100, null
   br i1 %.not8.i, label %.preheader9.i, label %lv_ime_pinyin_set_mode.exit
 
-.preheader9.i:                                    ; preds = %.loopexit165, %.preheader9.i
+.preheader9.i:                                    ; preds = %.loopexit169, %.preheader9.i
   br label %.preheader9.i
 
-lv_ime_pinyin_set_mode.exit:                      ; preds = %.loopexit165
+lv_ime_pinyin_set_mode.exit:                      ; preds = %.loopexit169
   store i32 2, ptr %18, align 4, !tbaa !11
   tail call void @lv_keyboard_set_mode(ptr noundef %3, i32 noundef 3) #6
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -1202,7 +1202,7 @@ lv_ime_pinyin_set_mode.exit:                      ; preds = %.loopexit165
   %104 = zext i16 %103 to i64
   %105 = tail call i64 @lv_strlen(ptr noundef nonnull %12) #6
   %106 = icmp ugt i64 %105, %104
-  br i1 %106, label %.lr.ph158, label %.loopexit165, !llvm.loop !38
+  br i1 %106, label %.lr.ph158, label %.loopexit169, !llvm.loop !38
 
 107:                                              ; preds = %96
   %108 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.676) #6

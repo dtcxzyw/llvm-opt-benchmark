@@ -365,9 +365,9 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   br label %.loopexit
 
 153:                                              ; preds = %145
-  %154 = add nsw i32 %.0155229, -1
-  %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw i32, ptr %.0157228, i64 %155
+  %154 = zext nneg i32 %.0155229 to i64
+  %155 = getelementptr i32, ptr %.0157228, i64 %154
+  %156 = getelementptr i8, ptr %155, i64 -4
   %157 = load i32, ptr %156, align 4, !tbaa !59
   %158 = udiv i32 %157, %151
   %159 = zext i32 %158 to i64

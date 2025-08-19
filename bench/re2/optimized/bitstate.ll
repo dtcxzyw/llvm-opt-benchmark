@@ -240,8 +240,8 @@ if.end24:                                         ; preds = %_ZN3re28BitState9Gr
   %8 = phi i32 [ %3, %_ZN3re28BitState9GrowStackEv.exit ], [ %0, %entry ]
   %cmp25 = icmp sgt i32 %id, -1
   %cmp27 = icmp sgt i32 %8, 0
-  %or.cond15 = and i1 %cmp25, %cmp27
-  br i1 %or.cond15, label %if.then28, label %if.end45
+  %or.cond20 = and i1 %cmp25, %cmp27
+  br i1 %or.cond20, label %if.then28, label %if.end45
 
 if.then28:                                        ; preds = %if.end24
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -856,16 +856,16 @@ if.end:                                           ; preds = %entry
 if.end12:                                         ; preds = %if.end.thread, %if.end
   %4 = phi i8 [ %1, %if.end.thread ], [ %3, %if.end ]
   %5 = phi ptr [ %0, %if.end.thread ], [ %2, %if.end ]
-  %agg.tmp16.sroa.0.0.copyload82 = phi ptr [ %text.coerce0, %if.end.thread ], [ %context.coerce0, %if.end ]
-  %agg.tmp16.sroa.2.0.copyload81 = phi i64 [ %text.coerce1, %if.end.thread ], [ %context.coerce1, %if.end ]
+  %agg.tmp16.sroa.0.0.copyload85 = phi ptr [ %text.coerce0, %if.end.thread ], [ %context.coerce0, %if.end ]
+  %agg.tmp16.sroa.2.0.copyload84 = phi i64 [ %text.coerce1, %if.end.thread ], [ %context.coerce1, %if.end ]
   %anchor_end_.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %6 = load i8, ptr %anchor_end_.i, align 1
   %tobool.i19 = trunc i8 %6 to i1
-  %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp16.sroa.0.0.copyload82, i64 %agg.tmp16.sroa.2.0.copyload81
+  %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp16.sroa.0.0.copyload85, i64 %agg.tmp16.sroa.2.0.copyload84
   %add.ptr.i20 = getelementptr inbounds i8, ptr %text.coerce0, i64 %text.coerce1
   %cmp21.not = icmp ne ptr %add.ptr.i, %add.ptr.i20
-  %or.cond.not84 = select i1 %tobool.i19, i1 %cmp21.not, i1 false
-  br i1 %or.cond.not84, label %return, label %if.end23
+  %or.cond.not87 = select i1 %tobool.i19, i1 %cmp21.not, i1 false
+  br i1 %or.cond.not87, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end12
   %7 = and i8 %4, 1
@@ -1060,8 +1060,8 @@ if.end95:                                         ; preds = %if.end88
   %cmp96 = icmp eq ptr %p.1, null
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.1, i64 1
   %cmp76.not = icmp ugt ptr %incdec.ptr, %add.ptr
-  %or.cond83 = select i1 %cmp96, i1 true, i1 %cmp76.not
-  br i1 %or.cond83, label %return, label %for.body77, !llvm.loop !8
+  %or.cond86 = select i1 %cmp96, i1 true, i1 %cmp76.not
+  br i1 %or.cond86, label %return, label %for.body77, !llvm.loop !8
 
 return:                                           ; preds = %if.end88, %if.end95, %if.end12, %if.end71, %if.end, %if.then63
   %retval.0 = phi i1 [ %call70, %if.then63 ], [ false, %if.end ], [ false, %if.end71 ], [ false, %if.end12 ], [ %call93, %if.end95 ], [ %call93, %if.end88 ]

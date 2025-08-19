@@ -3438,7 +3438,7 @@ _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit: ; pr
   %77 = icmp eq i64 %76, 5
   br i1 %77, label %.critedge155, label %78
 
-default.unreachable289:                           ; preds = %243
+default.unreachable297:                           ; preds = %243
   unreachable
 
 78:                                               ; preds = %75
@@ -3932,7 +3932,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit179
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN10tokio_util4util8poll_buf13poll_read_buf17hf6c764e690874226E(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(88) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %34)
   %244 = load i64, ptr %9, align 8, !range !57, !noundef !10
-  switch i64 %244, label %default.unreachable289 [
+  switch i64 %244, label %default.unreachable297 [
     i64 2, label %247
     i64 0, label %249
     i64 1, label %252
@@ -4118,7 +4118,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h21
   %77 = icmp eq i64 %76, 5
   br i1 %77, label %.critedge146, label %78
 
-default.unreachable290:                           ; preds = %255
+default.unreachable298:                           ; preds = %255
   unreachable
 
 78:                                               ; preds = %75
@@ -4633,7 +4633,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit175
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN10tokio_util4util8poll_buf13poll_read_buf17h1d04fa84271fa05cE(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(96) %34, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %36)
   %256 = load i64, ptr %11, align 8, !range !57, !noundef !10
-  switch i64 %256, label %default.unreachable290 [
+  switch i64 %256, label %default.unreachable298 [
     i64 2, label %259
     i64 0, label %260
     i64 1, label %263
@@ -4839,7 +4839,7 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h72
   %77 = icmp eq i64 %76, 5
   br i1 %77, label %.critedge146, label %78
 
-default.unreachable290:                           ; preds = %255
+default.unreachable298:                           ; preds = %255
   unreachable
 
 78:                                               ; preds = %75
@@ -5354,7 +5354,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit175
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN10tokio_util4util8poll_buf13poll_read_buf17hf6c764e690874226E(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(88) %34, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %36)
   %256 = load i64, ptr %11, align 8, !range !57, !noundef !10
-  switch i64 %256, label %default.unreachable290 [
+  switch i64 %256, label %default.unreachable298 [
     i64 2, label %259
     i64 0, label %260
     i64 1, label %263
@@ -5577,7 +5577,7 @@ _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit: ; pr
   %77 = icmp eq i64 %76, 5
   br i1 %77, label %.critedge155, label %78
 
-default.unreachable297:                           ; preds = %243
+default.unreachable305:                           ; preds = %243
   unreachable
 
 78:                                               ; preds = %75
@@ -6071,7 +6071,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit179
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN10tokio_util4util8poll_buf13poll_read_buf17h642e099d0cc52b38E(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %34)
   %244 = load i64, ptr %9, align 8, !range !57, !noundef !10
-  switch i64 %244, label %default.unreachable297 [
+  switch i64 %244, label %default.unreachable305 [
     i64 2, label %247
     i64 0, label %249
     i64 1, label %252
@@ -6274,7 +6274,7 @@ _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit: ; pr
   %77 = icmp eq i64 %76, 5
   br i1 %77, label %.critedge155, label %78
 
-default.unreachable289:                           ; preds = %243
+default.unreachable297:                           ; preds = %243
   unreachable
 
 78:                                               ; preds = %75
@@ -6768,7 +6768,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit179
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN10tokio_util4util8poll_buf13poll_read_buf17h1d04fa84271fa05cE(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(96) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %34)
   %244 = load i64, ptr %9, align 8, !range !57, !noundef !10
-  switch i64 %244, label %default.unreachable289 [
+  switch i64 %244, label %default.unreachable297 [
     i64 2, label %247
     i64 0, label %249
     i64 1, label %252

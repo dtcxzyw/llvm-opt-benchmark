@@ -2555,9 +2555,9 @@ define internal fastcc i32 @i2c_register_adapter(ptr noundef %0) unnamed_addr #1
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
   %brmerge = select i1 %95, i1 true, i1 %98
-  br i1 %brmerge, label %.thread, label %.thread8
+  br i1 %brmerge, label %.thread, label %.thread17
 
-.thread8:                                         ; preds = %93
+.thread17:                                        ; preds = %93
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %50, ptr noundef nonnull @.str.82) #24
   br label %99
 
@@ -2565,7 +2565,7 @@ define internal fastcc i32 @i2c_register_adapter(ptr noundef %0) unnamed_addr #1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   br label %99
 
-99:                                               ; preds = %.thread, %.thread8, %92
+99:                                               ; preds = %.thread, %.thread17, %92
   %100 = load ptr, ptr %84, align 8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null

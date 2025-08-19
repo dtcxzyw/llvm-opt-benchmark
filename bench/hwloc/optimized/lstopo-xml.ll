@@ -63,9 +63,9 @@ sub_0:                                            ; preds = %4, %6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %21
-  %.sink19 = phi i32 [ %23, %21 ], [ 17, %12 ]
+  %.sink20 = phi i32 [ %23, %21 ], [ 17, %12 ]
   %.sink = load ptr, ptr @stderr, align 8, !tbaa !23
-  %24 = tail call ptr @strerror(i32 noundef %.sink19) #8
+  %24 = tail call ptr @strerror(i32 noundef %.sink20) #8
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull @.str.2, ptr noundef nonnull %.0, ptr noundef %24) #10
   br label %26
 

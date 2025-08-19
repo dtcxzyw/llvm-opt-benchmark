@@ -6090,9 +6090,9 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
 
 .noexc:                                           ; preds = %29
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread97, label %39
+  br i1 %38, label %.thread99, label %39
 
-.thread97:                                        ; preds = %.noexc
+.thread99:                                        ; preds = %.noexc
   store i64 0, ptr %17, align 8, !alias.scope !1497, !noalias !1500
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %46
@@ -6123,7 +6123,7 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %47, label %46
 
-46:                                               ; preds = %.thread97, %41
+46:                                               ; preds = %.thread99, %41
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$rpc..proto_client..EntityMessageSubscriber$GT$$GT$17h3bd72a54959a153bE"(ptr noalias noundef align 8 dereferenceable(40) %17)
           to label %150 unwind label %.thread
 
@@ -6535,9 +6535,9 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
 
 .noexc:                                           ; preds = %29
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread97, label %39
+  br i1 %38, label %.thread99, label %39
 
-.thread97:                                        ; preds = %.noexc
+.thread99:                                        ; preds = %.noexc
   store i64 0, ptr %17, align 8, !alias.scope !1556, !noalias !1559
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %46
@@ -6568,7 +6568,7 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %47, label %46
 
-46:                                               ; preds = %.thread97, %41
+46:                                               ; preds = %.thread99, %41
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$rpc..proto_client..EntityMessageSubscriber$GT$$GT$17h3bd72a54959a153bE"(ptr noalias noundef align 8 dereferenceable(40) %17)
           to label %150 unwind label %.thread
 
@@ -13705,7 +13705,7 @@ define internal fastcc { i64, ptr } @"_ZN7channel12channel_chat11ChannelChat22ha
   %9 = alloca [32 x i8], align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 265
   %11 = load i8, ptr %10, align 1, !range !463, !noundef !5
-  switch i8 %11, label %default.unreachable149 [
+  switch i8 %11, label %default.unreachable164 [
     i8 0, label %13
     i8 1, label %30
     i8 2, label %31
@@ -13714,7 +13714,7 @@ define internal fastcc { i64, ptr } @"_ZN7channel12channel_chat11ChannelChat22ha
     i8 5, label %177
   ]
 
-default.unreachable149:                           ; preds = %2
+default.unreachable164:                           ; preds = %2
   unreachable
 
 12:                                               ; preds = %2
@@ -14621,14 +14621,14 @@ define hidden { i64, ptr } @"_ZN7channel12channel_chat11ChannelChat19handle_mess
   %7 = alloca [32 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %9 = load i8, ptr %8, align 8, !range !426, !noundef !5
-  switch i8 %9, label %default.unreachable95 [
+  switch i8 %9, label %default.unreachable101 [
     i8 0, label %10
     i8 1, label %66
     i8 2, label %67
     i8 3, label %18
   ]
 
-default.unreachable95:                            ; preds = %2
+default.unreachable101:                           ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -15085,13 +15085,13 @@ define hidden { i64, ptr } @"_ZN7channel12channel_chat11ChannelChat22handle_mess
   %5 = alloca [32 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i8, ptr %6, align 8, !range !134, !noundef !5
-  switch i8 %7, label %default.unreachable14 [
+  switch i8 %7, label %default.unreachable17 [
     i8 0, label %8
     i8 1, label %68
     i8 2, label %69
   ]
 
-default.unreachable14:                            ; preds = %2
+default.unreachable17:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -15192,8 +15192,8 @@ default.unreachable14:                            ; preds = %2
   resume { ptr, i32 } %.pn8
 
 "_ZN4core3ptr91drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_chat..ChannelChat$GT$$GT$17h86df8776ffab7918E.exit12.sink.split": ; preds = %64, %40
-  %.sink15 = phi ptr [ %41, %40 ], [ %65, %64 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink15, i64 noundef 80, i64 noundef 8) #39, !noalias !5
+  %.sink18 = phi ptr [ %41, %40 ], [ %65, %64 ]
+  call void @__rust_dealloc(ptr noundef nonnull %.sink18, i64 noundef 80, i64 noundef 8) #39, !noalias !5
   br label %"_ZN4core3ptr91drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_chat..ChannelChat$GT$$GT$17h86df8776ffab7918E.exit12"
 
 "_ZN4core3ptr91drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_chat..ChannelChat$GT$$GT$17h86df8776ffab7918E.exit12": ; preds = %"_ZN4core3ptr91drop_in_place$LT$gpui..app..entity_map..Model$LT$channel..channel_chat..ChannelChat$GT$$GT$17h86df8776ffab7918E.exit12.sink.split", %32, %36, %56, %60
@@ -15279,14 +15279,14 @@ define hidden { i64, ptr } @"_ZN7channel12channel_chat11ChannelChat22handle_mess
   %8 = alloca [32 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %10 = load i8, ptr %9, align 8, !range !426, !noundef !5
-  switch i8 %10, label %default.unreachable101 [
+  switch i8 %10, label %default.unreachable107 [
     i8 0, label %11
     i8 1, label %64
     i8 2, label %65
     i8 3, label %19
   ]
 
-default.unreachable101:                           ; preds = %2
+default.unreachable107:                           ; preds = %2
   unreachable
 
 11:                                               ; preds = %2
@@ -15816,17 +15816,17 @@ define internal fastcc { i64, ptr } @"_ZN7channel12channel_chat19messages_from_p
   %20 = alloca [24 x i8], align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %22 = load i8, ptr %21, align 8, !range !426, !noundef !5
-  switch i8 %22, label %default.unreachable56 [
-    i8 0, label %.thread57
+  switch i8 %22, label %default.unreachable62 [
+    i8 0, label %.thread63
     i8 1, label %30
     i8 2, label %31
     i8 3, label %32
   ]
 
-default.unreachable56:                            ; preds = %32, %2
+default.unreachable62:                            ; preds = %32, %2
   unreachable
 
-.thread57:                                        ; preds = %2
+.thread63:                                        ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !nonnull !5, !align !37, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15862,7 +15862,7 @@ default.unreachable56:                            ; preds = %32, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.576.i)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  switch i8 %.pre, label %default.unreachable56 [
+  switch i8 %.pre, label %default.unreachable62 [
     i8 0, label %37
     i8 1, label %107
     i8 2, label %108
@@ -15880,9 +15880,9 @@ default.unreachable56:                            ; preds = %32, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.069.i)
   br label %168
 
-37:                                               ; preds = %.thread57, %32
-  %38 = phi ptr [ %29, %.thread57 ], [ %34, %32 ]
-  %39 = phi ptr [ %28, %.thread57 ], [ %33, %32 ]
+37:                                               ; preds = %.thread63, %32
+  %38 = phi ptr [ %29, %.thread63 ], [ %34, %32 ]
+  %39 = phi ptr [ %28, %.thread63 ], [ %33, %32 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 121
   store i8 1, ptr %40, align 1, !noalias !3036
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -16703,14 +16703,14 @@ define internal fastcc void @"_ZN7channel12channel_chat14ChannelMessage10from_pr
   %16 = alloca [8 x i8], align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %18 = load i8, ptr %17, align 8, !range !426, !noundef !5
-  switch i8 %18, label %default.unreachable126 [
+  switch i8 %18, label %default.unreachable141 [
     i8 0, label %19
     i8 1, label %43
     i8 2, label %44
     i8 3, label %28
   ]
 
-default.unreachable126:                           ; preds = %3
+default.unreachable141:                           ; preds = %3
   unreachable
 
 19:                                               ; preds = %3

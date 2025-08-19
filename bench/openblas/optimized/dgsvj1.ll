@@ -396,11 +396,11 @@ cdce.end:                                         ; preds = %79, %cdce.call
   br label %211
 
 211:                                              ; preds = %197, %206, %169, %180
-  %.sink992 = phi ptr [ %22, %197 ], [ %22, %206 ], [ %22, %169 ], [ %23, %180 ]
-  %.sink990 = phi double [ %205, %197 ], [ %210, %206 ], [ %179, %169 ], [ %186, %180 ]
+  %.sink1006 = phi ptr [ %22, %197 ], [ %22, %206 ], [ %22, %169 ], [ %23, %180 ]
+  %.sink1004 = phi double [ %205, %197 ], [ %210, %206 ], [ %179, %169 ], [ %186, %180 ]
   %.1756.in = phi i1 [ %.2757.in, %197 ], [ %.2757.in, %206 ], [ %.0755.in, %169 ], [ %.0755.in, %180 ]
-  %212 = load double, ptr %.sink992, align 8, !tbaa !7
-  %213 = fdiv double %.sink990, %212
+  %212 = load double, ptr %.sink1006, align 8, !tbaa !7
+  %213 = fdiv double %.sink1004, %212
   store double %.3740868, ptr %21, align 8, !tbaa !7
   %214 = fcmp oge double %213, 0.000000e+00
   %215 = fneg double %213
@@ -783,7 +783,7 @@ cdce.end:                                         ; preds = %79, %cdce.call
   %447 = getelementptr double, ptr %33, i64 %446
   %448 = getelementptr i8, ptr %447, i64 8
   %449 = call double @dnrm2_(ptr noundef nonnull %1, ptr noundef %448, ptr noundef nonnull @c__1) #6
-  br label %.sink.split993
+  br label %.sink.split1007
 
 450:                                              ; preds = %442
   store double 0.000000e+00, ptr %26, align 8, !tbaa !7
@@ -796,17 +796,17 @@ cdce.end:                                         ; preds = %79, %cdce.call
   %455 = load double, ptr %23, align 8, !tbaa !7
   %456 = call double @sqrt(double noundef %455) #6, !tbaa !3
   %457 = fmul double %454, %456
-  br label %.sink.split993
+  br label %.sink.split1007
 
-.sink.split993:                                   ; preds = %450, %445
-  %.sink995 = phi double [ %449, %445 ], [ %457, %450 ]
+.sink.split1007:                                  ; preds = %450, %445
+  %.sink1009 = phi double [ %449, %445 ], [ %457, %450 ]
   %458 = getelementptr double, ptr %6, i64 %indvars.iv949
   %459 = load double, ptr %458, align 8, !tbaa !7
-  %460 = fmul double %.sink995, %459
+  %460 = fmul double %.sink1009, %459
   store double %460, ptr %154, align 8, !tbaa !7
   br label %461
 
-461:                                              ; preds = %.sink.split993, %436
+461:                                              ; preds = %.sink.split1007, %436
   %462 = load double, ptr %22, align 8, !tbaa !7
   %463 = fdiv double %462, %158
   store double %463, ptr %21, align 8, !tbaa !7
@@ -835,9 +835,9 @@ cdce.end:                                         ; preds = %79, %cdce.call
   br label %476
 
 476:                                              ; preds = %471, %469
-  %.sink998 = phi double [ %475, %471 ], [ %470, %469 ]
+  %.sink1012 = phi double [ %475, %471 ], [ %470, %469 ]
   %477 = load double, ptr %147, align 8, !tbaa !7
-  %478 = fmul double %.sink998, %477
+  %478 = fmul double %.sink1012, %477
   store double %478, ptr %22, align 8, !tbaa !7
   store double %478, ptr %139, align 8, !tbaa !7
   br label %487
@@ -1007,20 +1007,20 @@ cdce.end:                                         ; preds = %79, %cdce.call
   br label %537
 
 537:                                              ; preds = %528, %522
-  %.sink1003 = phi double [ %536, %528 ], [ %527, %522 ]
+  %.sink1017 = phi double [ %536, %528 ], [ %527, %522 ]
   %538 = load i32, ptr %2, align 4, !tbaa !3
   %539 = sext i32 %538 to i64
   %540 = getelementptr inbounds double, ptr %30, i64 %539
   %541 = load double, ptr %540, align 8, !tbaa !7
-  %542 = fmul double %.sink1003, %541
+  %542 = fmul double %.sink1017, %541
   %543 = getelementptr inbounds double, ptr %29, i64 %539
   store double %542, ptr %543, align 8, !tbaa !7
   %544 = icmp samesign ult i32 %.0760925, %.0745926
   %545 = fcmp ugt double %.0737.lcssa, %93
   %.not798 = icmp sgt i32 %.0718.lcssa, %538
-  %or.cond1008 = select i1 %545, i1 %.not798, i1 false
-  %spec.select1009 = select i1 %or.cond1008, i32 %.0745926, i32 %.0760925
-  %.1746 = select i1 %544, i32 %spec.select1009, i32 %.0745926
+  %or.cond1022 = select i1 %545, i1 %.not798, i1 false
+  %spec.select1023 = select i1 %or.cond1022, i32 %.0745926, i32 %.0760925
+  %.1746 = select i1 %544, i32 %spec.select1023, i32 %.0745926
   %546 = add nuw nsw i32 %.1746, 1
   %547 = icmp samesign ugt i32 %.0760925, %546
   br i1 %547, label %548, label %557

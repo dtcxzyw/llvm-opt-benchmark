@@ -1237,8 +1237,8 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %111 = getelementptr i8, ptr %110, i64 -8
   %112 = load i16, ptr %111, align 8
   %113 = and i16 %112, 3
-  %or.cond43.not = icmp eq i16 %113, 3
-  br i1 %or.cond43.not, label %114, label %125
+  %or.cond51.not = icmp eq i16 %113, 3
+  br i1 %or.cond51.not, label %114, label %125
 
 114:                                              ; preds = %.split.split.split.us.split
   %115 = getelementptr i8, ptr %110, i64 -12
@@ -1265,8 +1265,8 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr noundef rea
   %128 = getelementptr i8, ptr %127, i64 -8
   %129 = load i16, ptr %128, align 8
   %130 = and i16 %129, 3
-  %or.cond45.not = icmp eq i16 %130, 3
-  br i1 %or.cond45.not, label %131, label %149
+  %or.cond53.not = icmp eq i16 %130, 3
+  br i1 %or.cond53.not, label %131, label %149
 
 131:                                              ; preds = %.split.split.split
   %132 = getelementptr i8, ptr %127, i64 -16
@@ -1642,7 +1642,7 @@ define internal fastcc range(i32 0, 2) i32 @parent_has_perm(ptr noundef readonly
 define internal fastcc noundef range(i32 -12, 1) i32 @dev_exception_add(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = tail call dereferenceable_or_null(48) ptr @kmemdup(ptr noundef %1, i64 noundef 48, i32 noundef 3264) #10
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.thread6, label %5
+  br i1 %4, label %.thread10, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -1656,9 +1656,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exception_add(ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %.outer
 
-.outer:                                           ; preds = %.thread5, %9
-  %.ph = phi ptr [ %36, %.thread5 ], [ %7, %9 ]
-  %.ph7 = phi ptr [ null, %.thread5 ], [ %3, %9 ]
+.outer:                                           ; preds = %.thread9, %9
+  %.ph = phi ptr [ %36, %.thread9 ], [ %7, %9 ]
+  %.ph11 = phi ptr [ null, %.thread9 ], [ %3, %9 ]
   %13 = load i16, ptr %10, align 8
   br label %14
 
@@ -1681,30 +1681,30 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exception_add(ptr noun
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %11, align 4
   %28 = icmp eq i32 %26, %27
-  br i1 %28, label %.thread5, label %29
+  br i1 %28, label %.thread9, label %29
 
 29:                                               ; preds = %24, %19, %14
   %30 = load ptr, ptr %15, align 8
   %31 = icmp eq ptr %30, %6
   br i1 %31, label %38, label %14, !llvm.loop !22
 
-.thread5:                                         ; preds = %24
+.thread9:                                         ; preds = %24
   %32 = load i16, ptr %12, align 2
   %33 = getelementptr i8, ptr %15, i64 -6
   %34 = load i16, ptr %33, align 2
   %35 = or i16 %34, %32
   store i16 %35, ptr %33, align 2
-  tail call void @kfree(ptr noundef %.ph7) #9
+  tail call void @kfree(ptr noundef %.ph11) #9
   %36 = load ptr, ptr %15, align 8
   %37 = icmp eq ptr %36, %6
-  br i1 %37, label %.thread6, label %.outer, !llvm.loop !22
+  br i1 %37, label %.thread10, label %.outer, !llvm.loop !22
 
 38:                                               ; preds = %29
-  %39 = icmp eq ptr %.ph7, null
-  br i1 %39, label %.thread6, label %.thread
+  %39 = icmp eq ptr %.ph11, null
+  br i1 %39, label %.thread10, label %.thread
 
 .thread:                                          ; preds = %5, %38
-  %40 = phi ptr [ %.ph7, %38 ], [ %3, %5 ]
+  %40 = phi ptr [ %.ph11, %38 ], [ %3, %5 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %43 = load ptr, ptr %42, align 8
@@ -1714,10 +1714,10 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exception_add(ptr noun
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !23
   store volatile ptr %41, ptr %43, align 8
   store ptr %41, ptr %42, align 8
-  br label %.thread6
+  br label %.thread10
 
-.thread6:                                         ; preds = %.thread5, %.thread, %38, %2
-  %45 = phi i32 [ -12, %2 ], [ 0, %.thread ], [ 0, %38 ], [ 0, %.thread5 ]
+.thread10:                                        ; preds = %.thread9, %.thread, %38, %2
+  %45 = phi i32 [ -12, %2 ], [ 0, %.thread ], [ 0, %38 ], [ 0, %.thread9 ]
   ret i32 %45
 }
 
@@ -1768,9 +1768,9 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   %29 = icmp eq ptr %28, %27
   br i1 %29, label %.thread, label %.preheader20.outer
 
-.preheader20.outer:                               ; preds = %26, %.thread24
-  %.ph = phi ptr [ %52, %.thread24 ], [ %28, %26 ]
-  %.ph26 = phi ptr [ null, %.thread24 ], [ %24, %26 ]
+.preheader20.outer:                               ; preds = %26, %.thread41
+  %.ph = phi ptr [ %52, %.thread41 ], [ %28, %26 ]
+  %.ph43 = phi ptr [ null, %.thread41 ], [ %24, %26 ]
   %30 = load i16, ptr %7, align 8
   br label %.preheader20
 
@@ -1793,30 +1793,30 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %8, align 4
   %44 = icmp eq i32 %42, %43
-  br i1 %44, label %.thread24, label %45
+  br i1 %44, label %.thread41, label %45
 
 45:                                               ; preds = %40, %35, %.preheader20
   %46 = load ptr, ptr %31, align 8
   %47 = icmp eq ptr %46, %27
   br i1 %47, label %54, label %.preheader20, !llvm.loop !22
 
-.thread24:                                        ; preds = %40
+.thread41:                                        ; preds = %40
   %48 = load i16, ptr %9, align 2
   %49 = getelementptr i8, ptr %31, i64 -6
   %50 = load i16, ptr %49, align 2
   %51 = or i16 %50, %48
   store i16 %51, ptr %49, align 2
-  tail call void @kfree(ptr noundef %.ph26) #9
+  tail call void @kfree(ptr noundef %.ph43) #9
   %52 = load ptr, ptr %31, align 8
   %53 = icmp eq ptr %52, %27
   br i1 %53, label %.loopexit22, label %.preheader20.outer, !llvm.loop !22
 
 54:                                               ; preds = %45
-  %55 = icmp eq ptr %.ph26, null
+  %55 = icmp eq ptr %.ph43, null
   br i1 %55, label %.loopexit22, label %.thread
 
 .thread:                                          ; preds = %26, %54
-  %56 = phi ptr [ %.ph26, %54 ], [ %24, %26 ]
+  %56 = phi ptr [ %.ph43, %54 ], [ %24, %26 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 208
   %59 = load ptr, ptr %58, align 8
@@ -1886,7 +1886,7 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   %96 = icmp eq ptr %67, %62
   br i1 %96, label %.loopexit22, label %.preheader21, !llvm.loop !21
 
-.loopexit22:                                      ; preds = %95, %.thread24, %54, %.thread, %61
+.loopexit22:                                      ; preds = %95, %.thread41, %54, %.thread, %61
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, %97

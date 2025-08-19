@@ -83,8 +83,8 @@ define void @Fraig_NodeRemoveFaninFanout(ptr noundef captures(address) %0, ptr n
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
   %11 = icmp eq ptr %0, %10
-  %.33 = select i1 %11, i64 144, i64 152
-  %12 = getelementptr inbounds nuw i8, ptr %.sink, i64 %.33
+  %.34 = select i1 %11, i64 144, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %.sink, i64 %.34
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = icmp eq ptr %.sink, %1
   br i1 %14, label %23, label %15

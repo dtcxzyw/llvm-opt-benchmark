@@ -933,10 +933,10 @@ if.else:                                          ; preds = %entry
 
 return.sink.split:                                ; preds = %if.else, %if.then
   %.sink = phi i64 [ 104, %if.then ], [ 48, %if.else ]
-  %.sink52 = phi ptr [ %53, %if.then ], [ %106, %if.else ]
+  %.sink53 = phi ptr [ %53, %if.then ], [ %106, %if.else ]
   %isolate_.i48 = getelementptr inbounds nuw i8, ptr %binding_data, i64 %.sink
   %107 = load ptr, ptr %isolate_.i48, align 8
-  %108 = load i64, ptr %.sink52, align 8
+  %108 = load i64, ptr %.sink53, align 8
   %call.i.i49 = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %107, i64 noundef %108) #14
   br label %return
 

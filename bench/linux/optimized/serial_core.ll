@@ -451,7 +451,7 @@ define dso_local ptr @uart_get_console(ptr noundef readonly captures(ret: addres
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %.loopexit.loopexit.split.loop.exit4
+  br i1 %30, label %31, label %.loopexit.loopexit.split.loop.exit5
 
 31:                                               ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -462,12 +462,12 @@ define dso_local ptr @uart_get_console(ptr noundef readonly captures(ret: addres
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit4:              ; preds = %27
+.loopexit.loopexit.split.loop.exit5:              ; preds = %27
   %34 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %31, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit4, %20, %16, %10
-  %35 = phi i32 [ %6, %16 ], [ %6, %10 ], [ 0, %20 ], [ %33, %.loopexit.loopexit.split.loop.exit ], [ %34, %.loopexit.loopexit.split.loop.exit4 ], [ %1, %31 ]
+.loopexit:                                        ; preds = %31, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit5, %20, %16, %10
+  %35 = phi i32 [ %6, %16 ], [ %6, %10 ], [ 0, %20 ], [ %33, %.loopexit.loopexit.split.loop.exit ], [ %34, %.loopexit.loopexit.split.loop.exit5 ], [ %1, %31 ]
   %36 = trunc i32 %35 to i16
   store i16 %36, ptr %4, align 2
   %37 = sext i32 %35 to i64
@@ -1049,7 +1049,7 @@ define dso_local noundef i32 @uart_resume_port(ptr noundef %0, ptr noundef %1) #
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread11, label %45
+  br i1 %44, label %.thread20, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 74
@@ -1057,7 +1057,7 @@ define dso_local noundef i32 @uart_resume_port(ptr noundef %0, ptr noundef %1) #
   %48 = sext i16 %47 to i32
   %49 = load i32, ptr %7, align 4
   %50 = icmp eq i32 %49, %48
-  br i1 %50, label %51, label %.thread11
+  br i1 %50, label %51, label %.thread20
 
 51:                                               ; preds = %45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 36, i1 false)
@@ -1133,7 +1133,7 @@ define dso_local noundef i32 @uart_resume_port(ptr noundef %0, ptr noundef %1) #
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 72
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %.thread11, label %99
+  br i1 %98, label %.thread20, label %99
 
 99:                                               ; preds = %94
   call void @_raw_spin_lock_irq(ptr noundef %1) #20
@@ -1144,21 +1144,21 @@ define dso_local noundef i32 @uart_resume_port(ptr noundef %0, ptr noundef %1) #
   call void @_raw_spin_unlock_irq(ptr noundef %1) #20
   %.pr.pre = load i8, ptr @console_suspend_enabled, align 1
   %103 = icmp eq i8 %.pr.pre, 0
-  br i1 %103, label %.thread11, label %.thread
+  br i1 %103, label %.thread20, label %.thread
 
 .thread:                                          ; preds = %87, %99
   %104 = load ptr, ptr %42, align 8
   call void @console_start(ptr noundef %104) #20
-  br label %.thread11
+  br label %.thread20
 
-.thread11:                                        ; preds = %94, %.thread, %99, %45, %41
+.thread20:                                        ; preds = %94, %.thread, %99, %45, %41
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 240
   %106 = load volatile i64, ptr %105, align 8
   %107 = and i64 %106, 2
   %108 = icmp eq i64 %107, 0
   br i1 %108, label %171, label %109
 
-109:                                              ; preds = %.thread11
+109:                                              ; preds = %.thread20
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 432
@@ -1270,7 +1270,7 @@ define dso_local noundef i32 @uart_resume_port(ptr noundef %0, ptr noundef %1) #
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %105, i32 -3, ptr nonnull elementtype(i8) %105) #20, !srcloc !18
   br label %171
 
-171:                                              ; preds = %170, %.thread11, %40
+171:                                              ; preds = %170, %.thread20, %40
   call void @mutex_unlock(ptr noundef nonnull %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6151,13 +6151,13 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef no
   %41 = load i32, ptr %4, align 4
   %42 = and i32 %41, 1
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.thread3, label %44
+  br i1 %43, label %.thread4, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.thread5, label %48, !prof !21
+  br i1 %47, label %.thread6, label %48, !prof !21
 
 48:                                               ; preds = %44
   call void asm sideeffect "392: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 392b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 392) #20, !srcloc !22
@@ -6166,21 +6166,21 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef no
   %.pre = load i32, ptr %4, align 4
   %.pre2 = and i32 %.pre, 1
   %49 = icmp eq i32 %.pre2, 0
-  br i1 %49, label %.thread3, label %.thread5
+  br i1 %49, label %.thread4, label %.thread6
 
-.thread5:                                         ; preds = %44, %48
+.thread6:                                         ; preds = %44, %48
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread3, label %53, !prof !21
+  br i1 %52, label %.thread4, label %53, !prof !21
 
-53:                                               ; preds = %.thread5
+53:                                               ; preds = %.thread6
   call void asm sideeffect "392: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 392b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 392) #20, !srcloc !22
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.19, i32 440, i32 2305, i64 12) #20, !srcloc !23
   call void asm sideeffect "393: nop\0A\09.pushsection .discard.instr_end\0A\09.long 393b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 393) #20, !srcloc !24
-  br label %.thread3
+  br label %.thread4
 
-.thread3:                                         ; preds = %40, %53, %.thread5, %48
+.thread4:                                         ; preds = %40, %53, %.thread6, %48
   %54 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %1) #20
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %56 = load ptr, ptr %55, align 8
@@ -6189,7 +6189,7 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef no
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %76
 
-60:                                               ; preds = %.thread3
+60:                                               ; preds = %.thread4
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false)
   %62 = load i32, ptr %4, align 4
@@ -6214,7 +6214,7 @@ define internal fastcc i32 @uart_set_rs485_config(ptr noundef %0, ptr noundef no
   %75 = select i1 %74, i32 0, i32 -14
   br label %.thread
 
-76:                                               ; preds = %.thread3
+76:                                               ; preds = %.thread4
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %1, i64 noundef %54) #20
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %78 = load ptr, ptr %77, align 8

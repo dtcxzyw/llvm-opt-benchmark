@@ -506,7 +506,7 @@ define internal range(i32 -2147483648, 1) i32 @amv_init(ptr noundef %0) #1 {
 59:                                               ; preds = %55
   %60 = load i32, ptr %45, align 8, !tbaa !60
   %.not81 = icmp eq i32 %58, %60
-  br i1 %.not81, label %61, label %.thread92
+  br i1 %.not81, label %61, label %.thread99
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 156
@@ -515,23 +515,23 @@ define internal range(i32 -2147483648, 1) i32 @amv_init(ptr noundef %0) #1 {
   %.not82 = icmp eq i32 %63, %64
   br i1 %.not82, label %70, label %.thread
 
-.thread92:                                        ; preds = %59
+.thread99:                                        ; preds = %59
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.30, i32 noundef %58, i32 noundef %60) #8
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 156
   %66 = load i32, ptr %65, align 4, !tbaa !63
   %67 = load i32, ptr %49, align 4, !tbaa !61
-  %.not8293 = icmp eq i32 %66, %67
-  br i1 %.not8293, label %.thread94, label %.thread
+  %.not82100 = icmp eq i32 %66, %67
+  br i1 %.not82100, label %.thread101, label %.thread
 
-.thread:                                          ; preds = %.thread92, %61
-  %68 = phi i32 [ %67, %.thread92 ], [ %64, %61 ]
-  %69 = phi i32 [ %66, %.thread92 ], [ %63, %61 ]
+.thread:                                          ; preds = %.thread99, %61
+  %68 = phi i32 [ %67, %.thread99 ], [ %64, %61 ]
+  %69 = phi i32 [ %66, %.thread99 ], [ %63, %61 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.31, i32 noundef %69, i32 noundef %68) #8
-  br label %.thread94
+  br label %.thread101
 
-.thread94:                                        ; preds = %.thread92, %.thread
-  %.pre9095 = load i32, ptr %45, align 8, !tbaa !60
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.32, i32 noundef %.pre9095) #8
+.thread101:                                       ; preds = %.thread99, %.thread
+  %.pre90102 = load i32, ptr %45, align 8, !tbaa !60
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.32, i32 noundef %.pre90102) #8
   br label %.critedge
 
 70:                                               ; preds = %61
@@ -605,8 +605,8 @@ define internal range(i32 -2147483648, 1) i32 @amv_init(ptr noundef %0) #1 {
   store i64 1, ptr %108, align 8, !tbaa !69
   br label %.critedge
 
-.critedge:                                        ; preds = %85, %.thread94, %75, %92, %.critedge87, %106, %54, %26, %18, %7
-  %.0 = phi i32 [ -22, %7 ], [ -22, %18 ], [ -22, %54 ], [ 0, %106 ], [ -22, %85 ], [ -22, %26 ], [ %90, %.critedge87 ], [ -12, %92 ], [ -22, %75 ], [ -22, %.thread94 ]
+.critedge:                                        ; preds = %85, %.thread101, %75, %92, %.critedge87, %106, %54, %26, %18, %7
+  %.0 = phi i32 [ -22, %7 ], [ -22, %18 ], [ -22, %54 ], [ 0, %106 ], [ -22, %85 ], [ -22, %26 ], [ %90, %.critedge87 ], [ -12, %92 ], [ -22, %75 ], [ -22, %.thread101 ]
   ret i32 %.0
 }
 
@@ -661,10 +661,10 @@ define internal fastcc void @amv_write_packet_internal(ptr noundef %0, ptr nound
   unreachable
 
 9:                                                ; preds = %2, %7
-  %.sink23 = phi i32 [ 1651978544, %7 ], [ 1667510320, %2 ]
+  %.sink24 = phi i32 [ 1651978544, %7 ], [ 1667510320, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !24
-  tail call void @avio_wl32(ptr noundef %11, i32 noundef %.sink23) #8
+  tail call void @avio_wl32(ptr noundef %11, i32 noundef %.sink24) #8
   %12 = load i32, ptr %5, align 4, !tbaa !51
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %20

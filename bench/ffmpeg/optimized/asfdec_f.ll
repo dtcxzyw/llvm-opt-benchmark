@@ -425,9 +425,9 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %171 = load i32, ptr %170, align 4, !tbaa !57
   %172 = icmp ne i32 %171, 86018
-  %spec.select198.i = zext i1 %172 to i32
+  %spec.select207.i = zext i1 %172 to i32
   %173 = getelementptr inbounds nuw i8, ptr %91, i64 808
-  store i32 %spec.select198.i, ptr %173, align 8, !tbaa !76
+  store i32 %spec.select207.i, ptr %173, align 8, !tbaa !76
   %174 = call i64 @avio_seek(ptr noundef %85, i64 noundef 0, i32 noundef 1) #14
   %reass.sub = sub i64 %174, %90
   %175 = add i64 %reass.sub, 32
@@ -467,8 +467,8 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_header(ptr noundef %0) #
   %196 = srem i32 %194, %191
   %197 = icmp sge i32 %195, 2
   %.not176.i = icmp eq i32 %196, 0
-  %or.cond267 = and i1 %197, %.not176.i
-  br i1 %or.cond267, label %asf_read_file_properties.exit, label %198
+  %or.cond303 = and i1 %197, %.not176.i
+  br i1 %or.cond303, label %asf_read_file_properties.exit, label %198
 
 198:                                              ; preds = %192, %189
   store i32 0, ptr %186, align 8, !tbaa !77
@@ -1221,12 +1221,12 @@ asf_read_file_properties.exit.thread:             ; preds = %357, %310, %312, %2
   br i1 %568, label %.sink.split, label %574
 
 .sink.split:                                      ; preds = %566, %556
-  %.sink259 = phi i32 [ %554, %556 ], [ %561, %566 ]
-  %.sink258 = phi i32 [ %558, %556 ], [ %564, %566 ]
+  %.sink295 = phi i32 [ %554, %556 ], [ %561, %566 ]
+  %.sink294 = phi i32 [ %558, %556 ], [ %564, %566 ]
   %569 = getelementptr inbounds nuw i8, ptr %543, i64 72
   %570 = getelementptr inbounds nuw i8, ptr %543, i64 76
-  %571 = zext nneg i32 %.sink259 to i64
-  %572 = zext nneg i32 %.sink258 to i64
+  %571 = zext nneg i32 %.sink295 to i64
+  %572 = zext nneg i32 %.sink294 to i64
   %573 = call i32 @av_reduce(ptr noundef nonnull %569, ptr noundef nonnull %570, i64 noundef %571, i64 noundef %572, i64 noundef 2147483647) #14
   br label %574
 
@@ -1348,7 +1348,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_packet(ptr noundef %0, p
   br i1 %40, label %42, label %63
 
 42:                                               ; preds = %38
-  br i1 %41, label %.thread.i, label %.thread382.i
+  br i1 %41, label %.thread.i, label %.thread419.i
 
 .thread.i:                                        ; preds = %42
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 161688
@@ -1393,7 +1393,7 @@ define internal range(i32 -2147483648, 1) i32 @asf_read_packet(ptr noundef %0, p
   br i1 %.not318.i, label %asf_parse_packet.exit, label %.loopexit
 
 63:                                               ; preds = %38
-  br i1 %41, label %64, label %.thread382.i
+  br i1 %41, label %64, label %.thread419.i
 
 64:                                               ; preds = %63
   %65 = load ptr, ptr %3, align 8, !tbaa !11
@@ -1861,31 +1861,31 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   store ptr %305, ptr %24, align 8, !tbaa !136
   %306 = load i32, ptr %25, align 4, !tbaa !122
   %.not292.i = icmp eq i32 %306, 0
-  br i1 %.not292.i, label %307, label %.thread383.i
+  br i1 %.not292.i, label %307, label %.thread420.i
 
 307:                                              ; preds = %304
   %308 = getelementptr inbounds nuw i8, ptr %305, i64 136
   store i32 0, ptr %308, align 8, !tbaa !135
-  br label %.thread383.i
+  br label %.thread420.i
 
-.thread382.i:                                     ; preds = %63, %42
+.thread419.i:                                     ; preds = %63, %42
   %.pre373.i = load ptr, ptr %24, align 8, !tbaa !136
   %.not293.i = icmp eq ptr %.pre373.i, null
-  br i1 %.not293.i, label %309, label %.thread383.i
+  br i1 %.not293.i, label %309, label %.thread420.i
 
-309:                                              ; preds = %.thread382.i
+309:                                              ; preds = %.thread419.i
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.32, i32 noundef 1182) #14
   tail call void @abort() #16
   unreachable
 
-.thread383.i:                                     ; preds = %.thread382.i, %307, %304
-  %310 = phi ptr [ %.pre373.i, %.thread382.i ], [ %305, %304 ], [ %305, %307 ]
+.thread420.i:                                     ; preds = %.thread419.i, %307, %304
+  %310 = phi ptr [ %.pre373.i, %.thread419.i ], [ %305, %304 ], [ %305, %307 ]
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 112
   %312 = load i32, ptr %311, align 8, !tbaa !137
   %.not294.i = icmp eq i32 %312, 0
   br i1 %.not294.i, label %313, label %323
 
-313:                                              ; preds = %.thread383.i
+313:                                              ; preds = %.thread420.i
   %314 = load i32, ptr %25, align 4, !tbaa !122
   %.not295.i = icmp eq i32 %314, 0
   br i1 %.not295.i, label %323, label %315
@@ -1902,7 +1902,7 @@ default.unreachable:                              ; preds = %661, %648, %632, %2
   store i32 %322, ptr %17, align 8, !tbaa !106
   br label %559
 
-323:                                              ; preds = %313, %.thread383.i
+323:                                              ; preds = %313, %.thread420.i
   %324 = load i32, ptr %27, align 8, !tbaa !123
   %325 = icmp eq i32 %324, 1
   br i1 %325, label %326, label %._crit_edge374.i

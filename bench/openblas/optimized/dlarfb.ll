@@ -153,19 +153,19 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph823:                                        ; preds = %.lr.ph823.preheader, %._crit_edge824
   %indvars.iv955 = phi i64 [ 1, %.lr.ph823.preheader ], [ %indvars.iv.next956, %._crit_edge824 ]
   %79 = mul nsw i64 %indvars.iv955, %77
-  %invariant.gep1083 = getelementptr double, ptr %26, i64 %79
-  %invariant.gep1085 = getelementptr double, ptr %23, i64 %indvars.iv955
+  %invariant.gep1149 = getelementptr double, ptr %26, i64 %79
+  %invariant.gep1151 = getelementptr double, ptr %23, i64 %indvars.iv955
   br label %80
 
 80:                                               ; preds = %.lr.ph823, %80
   %indvars.iv950 = phi i64 [ 1, %.lr.ph823 ], [ %indvars.iv.next951, %80 ]
-  %gep1084 = getelementptr double, ptr %invariant.gep1083, i64 %indvars.iv950
-  %81 = load double, ptr %gep1084, align 8, !tbaa !10
+  %gep1150 = getelementptr double, ptr %invariant.gep1149, i64 %indvars.iv950
+  %81 = load double, ptr %gep1150, align 8, !tbaa !10
   %82 = mul nsw i64 %indvars.iv950, %75
-  %gep1086 = getelementptr double, ptr %invariant.gep1085, i64 %82
-  %83 = load double, ptr %gep1086, align 8, !tbaa !10
+  %gep1152 = getelementptr double, ptr %invariant.gep1151, i64 %82
+  %83 = load double, ptr %gep1152, align 8, !tbaa !10
   %84 = fsub double %83, %81
-  store double %84, ptr %gep1086, align 8, !tbaa !10
+  store double %84, ptr %gep1152, align 8, !tbaa !10
   %indvars.iv.next951 = add nuw nsw i64 %indvars.iv950, 1
   %exitcond954.not = icmp eq i64 %indvars.iv.next951, %wide.trip.count953
   br i1 %exitcond954.not, label %._crit_edge824, label %80, !llvm.loop !12
@@ -272,18 +272,18 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv970 = phi i64 [ 1, %.lr.ph837.preheader ], [ %indvars.iv.next971, %._crit_edge838 ]
   %132 = mul nsw i64 %indvars.iv970, %129
   %133 = mul nsw i64 %indvars.iv970, %130
-  %invariant.gep1087 = getelementptr double, ptr %26, i64 %132
-  %invariant.gep1089 = getelementptr double, ptr %23, i64 %133
+  %invariant.gep1153 = getelementptr double, ptr %26, i64 %132
+  %invariant.gep1155 = getelementptr double, ptr %23, i64 %133
   br label %134
 
 134:                                              ; preds = %.lr.ph837, %134
   %indvars.iv965 = phi i64 [ 1, %.lr.ph837 ], [ %indvars.iv.next966, %134 ]
-  %gep1088 = getelementptr double, ptr %invariant.gep1087, i64 %indvars.iv965
-  %135 = load double, ptr %gep1088, align 8, !tbaa !10
-  %gep1090 = getelementptr double, ptr %invariant.gep1089, i64 %indvars.iv965
-  %136 = load double, ptr %gep1090, align 8, !tbaa !10
+  %gep1154 = getelementptr double, ptr %invariant.gep1153, i64 %indvars.iv965
+  %135 = load double, ptr %gep1154, align 8, !tbaa !10
+  %gep1156 = getelementptr double, ptr %invariant.gep1155, i64 %indvars.iv965
+  %136 = load double, ptr %gep1156, align 8, !tbaa !10
   %137 = fsub double %136, %135
-  store double %137, ptr %gep1090, align 8, !tbaa !10
+  store double %137, ptr %gep1156, align 8, !tbaa !10
   %indvars.iv.next966 = add nuw nsw i64 %indvars.iv965, 1
   %exitcond969.not = icmp eq i64 %indvars.iv.next966, %wide.trip.count968
   br i1 %exitcond969.not, label %._crit_edge838, label %134, !llvm.loop !15
@@ -397,13 +397,13 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %185 = mul nsw i64 %indvars.iv985, %183
   %186 = trunc nuw nsw i64 %indvars.iv985 to i32
   %invariant.op.reass = add i32 %invariant.op857, %186
-  %invariant.gep1091 = getelementptr double, ptr %26, i64 %185
+  %invariant.gep1157 = getelementptr double, ptr %26, i64 %185
   br label %187
 
 187:                                              ; preds = %.lr.ph851, %187
   %indvars.iv980 = phi i64 [ 1, %.lr.ph851 ], [ %indvars.iv.next981, %187 ]
-  %gep1092 = getelementptr double, ptr %invariant.gep1091, i64 %indvars.iv980
-  %188 = load double, ptr %gep1092, align 8, !tbaa !10
+  %gep1158 = getelementptr double, ptr %invariant.gep1157, i64 %indvars.iv980
+  %188 = load double, ptr %gep1158, align 8, !tbaa !10
   %189 = trunc i64 %indvars.iv980 to i32
   %190 = mul i32 %21, %189
   %.reass = add i32 %190, %invariant.op.reass
@@ -530,18 +530,18 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.reass872 = add i32 %invariant.op, %245
   %246 = mul nsw i32 %.reass872, %21
   %247 = sext i32 %246 to i64
-  %invariant.gep1093 = getelementptr double, ptr %26, i64 %244
-  %invariant.gep1095 = getelementptr double, ptr %23, i64 %247
+  %invariant.gep1159 = getelementptr double, ptr %26, i64 %244
+  %invariant.gep1161 = getelementptr double, ptr %23, i64 %247
   br label %248
 
 248:                                              ; preds = %.lr.ph866, %248
   %indvars.iv995 = phi i64 [ 1, %.lr.ph866 ], [ %indvars.iv.next996, %248 ]
-  %gep1094 = getelementptr double, ptr %invariant.gep1093, i64 %indvars.iv995
-  %249 = load double, ptr %gep1094, align 8, !tbaa !10
-  %gep1096 = getelementptr double, ptr %invariant.gep1095, i64 %indvars.iv995
-  %250 = load double, ptr %gep1096, align 8, !tbaa !10
+  %gep1160 = getelementptr double, ptr %invariant.gep1159, i64 %indvars.iv995
+  %249 = load double, ptr %gep1160, align 8, !tbaa !10
+  %gep1162 = getelementptr double, ptr %invariant.gep1161, i64 %indvars.iv995
+  %250 = load double, ptr %gep1162, align 8, !tbaa !10
   %251 = fsub double %250, %249
-  store double %251, ptr %gep1096, align 8, !tbaa !10
+  store double %251, ptr %gep1162, align 8, !tbaa !10
   %indvars.iv.next996 = add nuw nsw i64 %indvars.iv995, 1
   %exitcond999.not = icmp eq i64 %indvars.iv.next996, %wide.trip.count998
   br i1 %exitcond999.not, label %._crit_edge867, label %248, !llvm.loop !21
@@ -577,16 +577,16 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %261 = sext i32 %24 to i64
   %262 = add nuw i32 %259, 1
   %wide.trip.count1008 = zext i32 %262 to i64
-  %invariant.gep1097 = getelementptr double, ptr %23, i64 %260
+  %invariant.gep1163 = getelementptr double, ptr %23, i64 %260
   br label %.lr.ph876
 
 .lr.ph876:                                        ; preds = %.lr.ph876.preheader, %.lr.ph876
   %indvars.iv1005 = phi i64 [ 1, %.lr.ph876.preheader ], [ %indvars.iv.next1006, %.lr.ph876 ]
-  %gep1098 = getelementptr double, ptr %invariant.gep1097, i64 %indvars.iv1005
+  %gep1164 = getelementptr double, ptr %invariant.gep1163, i64 %indvars.iv1005
   %263 = mul nsw i64 %indvars.iv1005, %261
   %264 = getelementptr double, ptr %26, i64 %263
   %265 = getelementptr i8, ptr %264, i64 8
-  tail call void @dcopy_(ptr noundef nonnull %5, ptr noundef %gep1098, ptr noundef nonnull %12, ptr noundef %265, ptr noundef nonnull @c__1) #3
+  tail call void @dcopy_(ptr noundef nonnull %5, ptr noundef %gep1164, ptr noundef nonnull %12, ptr noundef %265, ptr noundef nonnull @c__1) #3
   %indvars.iv.next1006 = add nuw nsw i64 %indvars.iv1005, 1
   %exitcond1009.not = icmp eq i64 %indvars.iv.next1006, %wide.trip.count1008
   br i1 %exitcond1009.not, label %._crit_edge877, label %.lr.ph876, !llvm.loop !23
@@ -656,19 +656,19 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph881:                                        ; preds = %.lr.ph881.preheader, %._crit_edge882
   %indvars.iv1015 = phi i64 [ 1, %.lr.ph881.preheader ], [ %indvars.iv.next1016, %._crit_edge882 ]
   %300 = mul nsw i64 %indvars.iv1015, %298
-  %invariant.gep1099 = getelementptr double, ptr %26, i64 %300
-  %invariant.gep1101 = getelementptr double, ptr %23, i64 %indvars.iv1015
+  %invariant.gep1165 = getelementptr double, ptr %26, i64 %300
+  %invariant.gep1167 = getelementptr double, ptr %23, i64 %indvars.iv1015
   br label %301
 
 301:                                              ; preds = %.lr.ph881, %301
   %indvars.iv1010 = phi i64 [ 1, %.lr.ph881 ], [ %indvars.iv.next1011, %301 ]
-  %gep1100 = getelementptr double, ptr %invariant.gep1099, i64 %indvars.iv1010
-  %302 = load double, ptr %gep1100, align 8, !tbaa !10
+  %gep1166 = getelementptr double, ptr %invariant.gep1165, i64 %indvars.iv1010
+  %302 = load double, ptr %gep1166, align 8, !tbaa !10
   %303 = mul nsw i64 %indvars.iv1010, %296
-  %gep1102 = getelementptr double, ptr %invariant.gep1101, i64 %303
-  %304 = load double, ptr %gep1102, align 8, !tbaa !10
+  %gep1168 = getelementptr double, ptr %invariant.gep1167, i64 %303
+  %304 = load double, ptr %gep1168, align 8, !tbaa !10
   %305 = fsub double %304, %302
-  store double %305, ptr %gep1102, align 8, !tbaa !10
+  store double %305, ptr %gep1168, align 8, !tbaa !10
   %indvars.iv.next1011 = add nuw nsw i64 %indvars.iv1010, 1
   %exitcond1014.not = icmp eq i64 %indvars.iv.next1011, %wide.trip.count1013
   br i1 %exitcond1014.not, label %._crit_edge882, label %301, !llvm.loop !24
@@ -777,18 +777,18 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv1030 = phi i64 [ 1, %.lr.ph895.preheader ], [ %indvars.iv.next1031, %._crit_edge896 ]
   %355 = mul nsw i64 %indvars.iv1030, %352
   %356 = mul nsw i64 %indvars.iv1030, %353
-  %invariant.gep1103 = getelementptr double, ptr %26, i64 %355
-  %invariant.gep1105 = getelementptr double, ptr %23, i64 %356
+  %invariant.gep1169 = getelementptr double, ptr %26, i64 %355
+  %invariant.gep1171 = getelementptr double, ptr %23, i64 %356
   br label %357
 
 357:                                              ; preds = %.lr.ph895, %357
   %indvars.iv1025 = phi i64 [ 1, %.lr.ph895 ], [ %indvars.iv.next1026, %357 ]
-  %gep1104 = getelementptr double, ptr %invariant.gep1103, i64 %indvars.iv1025
-  %358 = load double, ptr %gep1104, align 8, !tbaa !10
-  %gep1106 = getelementptr double, ptr %invariant.gep1105, i64 %indvars.iv1025
-  %359 = load double, ptr %gep1106, align 8, !tbaa !10
+  %gep1170 = getelementptr double, ptr %invariant.gep1169, i64 %indvars.iv1025
+  %358 = load double, ptr %gep1170, align 8, !tbaa !10
+  %gep1172 = getelementptr double, ptr %invariant.gep1171, i64 %indvars.iv1025
+  %359 = load double, ptr %gep1172, align 8, !tbaa !10
   %360 = fsub double %359, %358
-  store double %360, ptr %gep1106, align 8, !tbaa !10
+  store double %360, ptr %gep1172, align 8, !tbaa !10
   %indvars.iv.next1026 = add nuw nsw i64 %indvars.iv1025, 1
   %exitcond1029.not = icmp eq i64 %indvars.iv.next1026, %wide.trip.count1028
   br i1 %exitcond1029.not, label %._crit_edge896, label %357, !llvm.loop !27
@@ -905,13 +905,13 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %411 = mul nsw i64 %indvars.iv1045, %409
   %412 = trunc nuw nsw i64 %indvars.iv1045 to i32
   %invariant.op911.reass = add i32 %invariant.op917, %412
-  %invariant.gep1107 = getelementptr double, ptr %26, i64 %411
+  %invariant.gep1173 = getelementptr double, ptr %26, i64 %411
   br label %413
 
 413:                                              ; preds = %.lr.ph909, %413
   %indvars.iv1040 = phi i64 [ 1, %.lr.ph909 ], [ %indvars.iv.next1041, %413 ]
-  %gep1108 = getelementptr double, ptr %invariant.gep1107, i64 %indvars.iv1040
-  %414 = load double, ptr %gep1108, align 8, !tbaa !10
+  %gep1174 = getelementptr double, ptr %invariant.gep1173, i64 %indvars.iv1040
+  %414 = load double, ptr %gep1174, align 8, !tbaa !10
   %415 = trunc i64 %indvars.iv1040 to i32
   %416 = mul i32 %21, %415
   %.reass912 = add i32 %416, %invariant.op911.reass
@@ -1041,18 +1041,18 @@ define void @dlarfb_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.reass933 = add i32 %invariant.op932, %474
   %475 = mul nsw i32 %.reass933, %21
   %476 = sext i32 %475 to i64
-  %invariant.gep1109 = getelementptr double, ptr %26, i64 %473
-  %invariant.gep1111 = getelementptr double, ptr %23, i64 %476
+  %invariant.gep1175 = getelementptr double, ptr %26, i64 %473
+  %invariant.gep1177 = getelementptr double, ptr %23, i64 %476
   br label %477
 
 477:                                              ; preds = %.lr.ph926, %477
   %indvars.iv1055 = phi i64 [ 1, %.lr.ph926 ], [ %indvars.iv.next1056, %477 ]
-  %gep1110 = getelementptr double, ptr %invariant.gep1109, i64 %indvars.iv1055
-  %478 = load double, ptr %gep1110, align 8, !tbaa !10
-  %gep1112 = getelementptr double, ptr %invariant.gep1111, i64 %indvars.iv1055
-  %479 = load double, ptr %gep1112, align 8, !tbaa !10
+  %gep1176 = getelementptr double, ptr %invariant.gep1175, i64 %indvars.iv1055
+  %478 = load double, ptr %gep1176, align 8, !tbaa !10
+  %gep1178 = getelementptr double, ptr %invariant.gep1177, i64 %indvars.iv1055
+  %479 = load double, ptr %gep1178, align 8, !tbaa !10
   %480 = fsub double %479, %478
-  store double %480, ptr %gep1112, align 8, !tbaa !10
+  store double %480, ptr %gep1178, align 8, !tbaa !10
   %indvars.iv.next1056 = add nuw nsw i64 %indvars.iv1055, 1
   %exitcond1059.not = icmp eq i64 %indvars.iv.next1056, %wide.trip.count1058
   br i1 %exitcond1059.not, label %._crit_edge927, label %477, !llvm.loop !33

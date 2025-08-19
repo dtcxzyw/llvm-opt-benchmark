@@ -117,7 +117,7 @@ define internal range(i32 0, 2) i32 @aes_wrap_cipher(ptr noundef %0, ptr noundef
   %26 = icmp eq i64 %.pre.i, 0
   %.not33.i = icmp ne i8 %17, 0
   %or.cond38.i = or i1 %26, %.not33.i
-  br i1 %or.cond38.i, label %.thread43.i, label %27
+  br i1 %or.cond38.i, label %.thread47.i, label %27
 
 27:                                               ; preds = %25
   tail call void @ERR_new() #3
@@ -129,17 +129,17 @@ define internal range(i32 0, 2) i32 @aes_wrap_cipher(ptr noundef %0, ptr noundef
   %29 = icmp eq ptr %1, null
   br i1 %29, label %aes_wrap_cipher_internal.exit, label %33
 
-.thread43.i:                                      ; preds = %25
+.thread47.i:                                      ; preds = %25
   %30 = icmp eq ptr %1, null
-  br i1 %30, label %.thread46.i, label %33
+  br i1 %30, label %.thread50.i, label %33
 
-.thread46.i:                                      ; preds = %.thread43.i
+.thread50.i:                                      ; preds = %.thread47.i
   %31 = add i64 %5, 7
   %32 = and i64 %31, 4294967288
   %.027.i = select i1 %.not33.i, i64 %32, i64 %5
   br label %aes_wrap_cipher_internal.exit
 
-33:                                               ; preds = %.thread43.i, %28
+33:                                               ; preds = %.thread47.i, %28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %35 = load ptr, ptr %34, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -173,11 +173,11 @@ define internal range(i32 0, 2) i32 @aes_wrap_cipher(ptr noundef %0, ptr noundef
   %48 = trunc nuw nsw i64 %42 to i32
   br label %aes_wrap_cipher_internal.exit.thread
 
-aes_wrap_cipher_internal.exit:                    ; preds = %28, %.thread46.i
-  %.027.i.sink = phi i64 [ %.027.i, %.thread46.i ], [ %5, %28 ]
-  %.sink18 = phi i32 [ 8, %.thread46.i ], [ -8, %28 ]
+aes_wrap_cipher_internal.exit:                    ; preds = %28, %.thread50.i
+  %.027.i.sink = phi i64 [ %.027.i, %.thread50.i ], [ %5, %28 ]
+  %.sink21 = phi i32 [ 8, %.thread50.i ], [ -8, %28 ]
   %49 = trunc i64 %.027.i.sink to i32
-  %50 = add i32 %.sink18, %49
+  %50 = add i32 %.sink21, %49
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %aes_wrap_cipher_internal.exit.thread16, label %aes_wrap_cipher_internal.exit.thread
 
@@ -297,10 +297,10 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not9, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit.thread.sink.split
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %10, %8
-  %.sink11 = phi i32 [ 275, %8 ], [ 279, %10 ]
+  %.sink13 = phi i32 [ 275, %8 ], [ 279, %10 ]
   %.sink = phi i32 [ 103, %8 ], [ 105, %10 ]
   call void @ERR_new() #3
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink11, ptr noundef nonnull @__func__.aes_wrap_set_ctx_params) #3
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13, ptr noundef nonnull @__func__.aes_wrap_set_ctx_params) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #3
   br label %ossl_param_is_empty.exit.thread
 
@@ -807,10 +807,10 @@ ossl_param_is_empty.exit.i:                       ; preds = %.thread
   br i1 %.not9.i, label %aes_wrap_set_ctx_params.exit, label %ossl_param_is_empty.exit.thread.sink.split.i
 
 ossl_param_is_empty.exit.thread.sink.split.i:     ; preds = %46, %44
-  %.sink11.i = phi i32 [ 275, %44 ], [ 279, %46 ]
+  %.sink13.i = phi i32 [ 275, %44 ], [ 279, %46 ]
   %.sink.i = phi i32 [ 103, %44 ], [ 105, %46 ]
   call void @ERR_new() #3
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink11.i, ptr noundef nonnull @__func__.aes_wrap_set_ctx_params) #3
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13.i, ptr noundef nonnull @__func__.aes_wrap_set_ctx_params) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #3
   br label %aes_wrap_set_ctx_params.exit
 

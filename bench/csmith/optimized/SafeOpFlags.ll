@@ -535,9 +535,9 @@ _ZN11SafeOpFlags17return_float_typeEPK4TypeS2_S2_10eBinaryOps.exit.thread: ; pre
   br i1 %42, label %43, label %54
 
 43:                                               ; preds = %41
-  br i1 %.0.i27, label %.thread30, label %46
+  br i1 %.0.i27, label %.thread33, label %46
 
-.thread30:                                        ; preds = %43
+.thread33:                                        ; preds = %43
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 1, ptr %44, align 1, !tbaa !25
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -552,9 +552,9 @@ _ZN11SafeOpFlags17return_float_typeEPK4TypeS2_S2_10eBinaryOps.exit.thread: ; pre
   %50 = icmp eq i32 %.pre, 0
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %49, ptr %51, align 1, !tbaa !25
-  br i1 %50, label %.thread31, label %53
+  br i1 %50, label %.thread34, label %53
 
-.thread31:                                        ; preds = %46
+.thread34:                                        ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 1, ptr %52, align 2, !tbaa !26
   br label %59
@@ -570,12 +570,12 @@ _ZN11SafeOpFlags17return_float_typeEPK4TypeS2_S2_10eBinaryOps.exit.thread: ; pre
   store i8 1, ptr %56, align 2, !tbaa !26
   br i1 %.0.i27, label %57, label %59
 
-57:                                               ; preds = %.thread30, %54
+57:                                               ; preds = %.thread33, %54
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 4, ptr %58, align 4, !tbaa !27
   br label %63
 
-59:                                               ; preds = %.thread31, %54
+59:                                               ; preds = %.thread34, %54
   %60 = tail call noundef ptr @_ZN13Probabilities15get_prob_filterE8ProbName(i32 noundef 91)
   %61 = tail call noundef i32 @_Z8rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef 4, ptr noundef %60, ptr noundef null)
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -872,9 +872,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i: ; pre
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %.invoke, %27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
-          to label %.invoke38 unwind label %107
+          to label %.invoke48 unwind label %107
 
-.invoke38:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
+.invoke48:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %40 = load i8, ptr %39, align 2, !tbaa !26, !range !28, !noundef !29
   %41 = trunc nuw i8 %40 to i1
@@ -883,7 +883,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %.in
   %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.7..str.8, i64 noundef %.)
           to label %_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit unwind label %109
 
-_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit:    ; preds = %.invoke38
+_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit:    ; preds = %.invoke48
   invoke void @_ZNK11SafeOpFlags10OutputSizeERSo(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %43 unwind label %109
 
@@ -900,8 +900,8 @@ _ZNK11SafeOpFlags9OutputOp1ERSo.exit:             ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %49 = load i8, ptr %48, align 1, !range !28
   %50 = load i8, ptr %1, align 4, !range !28
-  %.sink39 = select i1 %or.cond, i8 %49, i8 %50
-  %51 = trunc nuw i8 %.sink39 to i1
+  %.sink49 = select i1 %or.cond, i8 %49, i8 %50
+  %51 = trunc nuw i8 %.sink49 to i1
   %.str.9..str.10.i.i24 = select i1 %51, ptr @.str.9, ptr @.str.10
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.9..str.10.i.i24, i64 noundef 2)
           to label %_ZNK11SafeOpFlags9OutputOp2ERSo.exit unwind label %109
@@ -1039,7 +1039,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
           cleanup
   br label %120
 
-109:                                              ; preds = %.invoke38, %_ZNK11SafeOpFlags9OutputOp1ERSo.exit, %43, %_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit
+109:                                              ; preds = %.invoke48, %_ZNK11SafeOpFlags9OutputOp1ERSo.exit, %43, %_ZNK11SafeOpFlags17OutputFuncOrMacroERSo.exit
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %119

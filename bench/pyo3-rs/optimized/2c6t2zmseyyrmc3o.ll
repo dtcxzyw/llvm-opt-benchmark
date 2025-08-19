@@ -6372,9 +6372,9 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   store ptr inttoptr (i64 8 to ptr), ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %29, align 8
-  %.sink140.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink140.sroa.gep141 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink140.sroa.gep142 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink144.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink144.sroa.gep145 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %.sink144.sroa.gep146 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %30 = invoke { ptr, i64 } @"_ZN82_$LT$std..path..PathBuf$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h61482c5eeae77637E"(ptr nonnull align 8 %1)
           to label %34 unwind label %32
 
@@ -6596,7 +6596,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18) #11
           to label %95 unwind label %77
 
-102:                                              ; preds = %.invoke138, %190, %186, %185, %183, %170, %168, %167, %155, %149, %143, %141, %136, %135, %133, %128, %126, %124, %119, %117, %112, %111, %109, %104, %99
+102:                                              ; preds = %.invoke142, %190, %186, %185, %183, %170, %168, %167, %155, %149, %143, %141, %136, %135, %133, %128, %126, %124, %119, %117, %112, %111, %109, %104, %99
   %103 = landingpad { ptr, i32 }
           cleanup
   br label %101
@@ -6687,7 +6687,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 147:                                              ; preds = %143
   br i1 %146, label %135, label %148
 
-148:                                              ; preds = %.invoke138, %147
+148:                                              ; preds = %.invoke142, %147
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18)
           to label %184 unwind label %.loopexit127
 
@@ -6707,13 +6707,13 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
           to label %194 unwind label %.loopexit127
 
 154:                                              ; preds = %150, %191, %187
-  %.sink140.sroa.phi = phi ptr [ %.sink140.sroa.gep, %187 ], [ %.sink140.sroa.gep141, %191 ], [ %.sink140.sroa.gep142, %150 ]
-  %.lcssa137.sink = phi i64 [ %188, %187 ], [ %192, %191 ], [ %151, %150 ]
-  %.sink139 = phi ptr [ %49, %187 ], [ %50, %191 ], [ %46, %150 ]
-  %.sroa.384.0.copyload = load i64, ptr %.sink140.sroa.phi, align 8
-  store i64 %.lcssa137.sink, ptr %0, align 8
+  %.sink144.sroa.phi = phi ptr [ %.sink144.sroa.gep, %187 ], [ %.sink144.sroa.gep145, %191 ], [ %.sink144.sroa.gep146, %150 ]
+  %.lcssa141.sink = phi i64 [ %188, %187 ], [ %192, %191 ], [ %151, %150 ]
+  %.sink143 = phi ptr [ %49, %187 ], [ %50, %191 ], [ %46, %150 ]
+  %.sroa.384.0.copyload = load i64, ptr %.sink144.sroa.phi, align 8
+  store i64 %.lcssa141.sink, ptr %0, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.286.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sink139, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.286.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sink143, i64 24, i1 false)
   %.sroa.387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.384.0.copyload, ptr %.sroa.387.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18)
@@ -6742,7 +6742,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
           to label %166 unwind label %160
 
 166:                                              ; preds = %162
-  br i1 %165, label %167, label %.invoke138
+  br i1 %165, label %167, label %.invoke142
 
 167:                                              ; preds = %166
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %15)
@@ -6775,9 +6775,9 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
           to label %181 unwind label %175
 
 181:                                              ; preds = %177
-  br i1 %180, label %183, label %.invoke138
+  br i1 %180, label %183, label %.invoke142
 
-.invoke138:                                       ; preds = %181, %166
+.invoke142:                                       ; preds = %181, %166
   %182 = phi ptr [ %15, %166 ], [ %14, %181 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %182)
           to label %148 unwind label %102
@@ -6919,9 +6919,9 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
   store ptr inttoptr (i64 8 to ptr), ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %30, align 8
-  %.sink140.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink140.sroa.gep141 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %.sink140.sroa.gep142 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink144.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink144.sroa.gep145 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %.sink144.sroa.gep146 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %31 = invoke { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17had12cacb55ee95fbE"(ptr nonnull align 8 %28)
           to label %35 unwind label %33
 
@@ -7142,7 +7142,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18) #11
           to label %96 unwind label %78
 
-103:                                              ; preds = %.invoke138, %191, %187, %186, %184, %171, %169, %168, %156, %150, %144, %142, %137, %136, %134, %129, %127, %125, %120, %118, %113, %112, %110, %105, %100
+103:                                              ; preds = %.invoke142, %191, %187, %186, %184, %171, %169, %168, %156, %150, %144, %142, %137, %136, %134, %129, %127, %125, %120, %118, %113, %112, %110, %105, %100
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %102
@@ -7233,7 +7233,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
 148:                                              ; preds = %144
   br i1 %147, label %136, label %149
 
-149:                                              ; preds = %.invoke138, %148
+149:                                              ; preds = %.invoke142, %148
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18)
           to label %185 unwind label %.loopexit127
 
@@ -7253,13 +7253,13 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
           to label %195 unwind label %.loopexit127
 
 155:                                              ; preds = %151, %192, %188
-  %.sink140.sroa.phi = phi ptr [ %.sink140.sroa.gep, %188 ], [ %.sink140.sroa.gep141, %192 ], [ %.sink140.sroa.gep142, %151 ]
-  %.lcssa137.sink = phi i64 [ %189, %188 ], [ %193, %192 ], [ %152, %151 ]
-  %.sink139 = phi ptr [ %50, %188 ], [ %51, %192 ], [ %47, %151 ]
-  %.sroa.384.0.copyload = load i64, ptr %.sink140.sroa.phi, align 8
-  store i64 %.lcssa137.sink, ptr %0, align 8
+  %.sink144.sroa.phi = phi ptr [ %.sink144.sroa.gep, %188 ], [ %.sink144.sroa.gep145, %192 ], [ %.sink144.sroa.gep146, %151 ]
+  %.lcssa141.sink = phi i64 [ %189, %188 ], [ %193, %192 ], [ %152, %151 ]
+  %.sink143 = phi ptr [ %50, %188 ], [ %51, %192 ], [ %47, %151 ]
+  %.sroa.384.0.copyload = load i64, ptr %.sink144.sroa.phi, align 8
+  store i64 %.lcssa141.sink, ptr %0, align 8
   %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.286.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sink139, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.286.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sink143, i64 24, i1 false)
   %.sroa.387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.384.0.copyload, ptr %.sroa.387.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18)
@@ -7288,7 +7288,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
           to label %167 unwind label %161
 
 167:                                              ; preds = %163
-  br i1 %166, label %168, label %.invoke138
+  br i1 %166, label %168, label %.invoke142
 
 168:                                              ; preds = %167
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %15)
@@ -7321,9 +7321,9 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
           to label %182 unwind label %176
 
 182:                                              ; preds = %178
-  br i1 %181, label %184, label %.invoke138
+  br i1 %181, label %184, label %.invoke142
 
-.invoke138:                                       ; preds = %182, %167
+.invoke142:                                       ; preds = %182, %167
   %183 = phi ptr [ %15, %167 ], [ %14, %182 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %183)
           to label %149 unwind label %103

@@ -331,7 +331,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge, label %160
 
 171:                                              ; preds = %.outer, %.thread
-  %indvars.iv161 = phi i64 [ %indvars.iv.next162165, %.thread ], [ %indvars.iv161.ph, %.outer ]
+  %indvars.iv161 = phi i64 [ %indvars.iv.next162169, %.thread ], [ %indvars.iv161.ph, %.outer ]
   br i1 %.not123, label %176, label %172
 
 172:                                              ; preds = %171
@@ -374,21 +374,21 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %171
 
 .thread:                                          ; preds = %172
-  %indvars.iv.next162165 = add nuw nsw i64 %indvars.iv161, 1
-  %exitcond163.not166 = icmp eq i64 %indvars.iv.next162165, 8
-  br i1 %exitcond163.not166, label %.thread168, label %171, !llvm.loop !7
+  %indvars.iv.next162169 = add nuw nsw i64 %indvars.iv161, 1
+  %exitcond163.not170 = icmp eq i64 %indvars.iv.next162169, 8
+  br i1 %exitcond163.not170, label %.thread172, label %171, !llvm.loop !7
 
 187:                                              ; preds = %186
-  br i1 %.not123, label %190, label %.thread168
+  br i1 %.not123, label %190, label %.thread172
 
-.thread168:                                       ; preds = %.thread, %187
-  %.9167170 = phi i1 [ %.9, %187 ], [ %.8155.ph, %.thread ]
+.thread172:                                       ; preds = %.thread, %187
+  %.9171174 = phi i1 [ %.9, %187 ], [ %.8155.ph, %.thread ]
   %188 = load i64, ptr %165, align 8
   %189 = and i64 %188, 80
   %or.cond133 = icmp eq i64 %189, 0
   br i1 %or.cond133, label %190, label %195
 
-190:                                              ; preds = %.thread168, %187
+190:                                              ; preds = %.thread172, %187
   %191 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
   br i1 %191, label %192, label %195
 
@@ -398,8 +398,8 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 253, ptr noundef nonnull @__func__.ginvalidate) #4
   br label %195
 
-195:                                              ; preds = %190, %192, %.thread168
-  %.10 = phi i1 [ %.9167170, %.thread168 ], [ false, %192 ], [ false, %190 ]
+195:                                              ; preds = %190, %192, %.thread172
+  %.10 = phi i1 [ %.9171174, %.thread172 ], [ false, %192 ], [ false, %190 ]
   tail call void @ReleaseCatCacheList(ptr noundef %23) #4
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %22) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4

@@ -226,13 +226,13 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %50, %53, %54, %55, %56, %57, %58, %59, %60
-  %.sink338 = phi i16 [ 12, %60 ], [ 12, %59 ], [ 12, %58 ], [ 9, %57 ], [ 9, %56 ], [ 9, %55 ], [ 1, %54 ], [ 1, %53 ], [ 1, %50 ]
-  %.sink336 = phi i16 [ 13, %60 ], [ 18, %59 ], [ 16, %58 ], [ 18, %57 ], [ 16, %56 ], [ 8, %55 ], [ 8, %54 ], [ 1, %53 ], [ 13, %50 ]
+  %.sink361 = phi i16 [ 12, %60 ], [ 12, %59 ], [ 12, %58 ], [ 9, %57 ], [ 9, %56 ], [ 9, %55 ], [ 1, %54 ], [ 1, %53 ], [ 1, %50 ]
+  %.sink359 = phi i16 [ 13, %60 ], [ 18, %59 ], [ 16, %58 ], [ 18, %57 ], [ 16, %56 ], [ 8, %55 ], [ 8, %54 ], [ 1, %53 ], [ 13, %50 ]
   %.sink = phi i16 [ 12, %60 ], [ 12, %59 ], [ 12, %58 ], [ 9, %57 ], [ 9, %56 ], [ 9, %55 ], [ 1, %54 ], [ 1, %53 ], [ 6, %50 ]
   %61 = getelementptr inbounds nuw i8, ptr %40, i64 112
-  store i16 %.sink338, ptr %61, align 8, !tbaa !64
+  store i16 %.sink361, ptr %61, align 8, !tbaa !64
   %62 = getelementptr inbounds nuw i8, ptr %40, i64 114
-  store i16 %.sink336, ptr %62, align 2, !tbaa !72
+  store i16 %.sink359, ptr %62, align 2, !tbaa !72
   %63 = getelementptr inbounds nuw i8, ptr %40, i64 116
   store i16 %.sink, ptr %63, align 4, !tbaa !73
   br label %64
@@ -333,8 +333,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 .preheader317:                                    ; preds = %96
   %.not = icmp eq i32 %20, 0
   %.not324 = icmp eq i32 %17, 0
-  %or.cond340 = select i1 %.not, i1 true, i1 %.not324
-  br i1 %or.cond340, label %.loopexit, label %.preheader316.us
+  %or.cond363 = select i1 %.not, i1 true, i1 %.not324
+  br i1 %or.cond363, label %.loopexit, label %.preheader316.us
 
 .preheader316.us:                                 ; preds = %.preheader317, %._crit_edge.us
   %.0238320.us = phi i64 [ %149, %._crit_edge.us ], [ 0, %.preheader317 ]
@@ -417,8 +417,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 150:                                              ; preds = %96, %96
   %.not325 = icmp eq i32 %20, 0
   %.not326 = icmp eq i32 %17, 0
-  %or.cond341 = select i1 %.not325, i1 true, i1 %.not326
-  br i1 %or.cond341, label %.loopexit, label %.preheader.us
+  %or.cond364 = select i1 %.not325, i1 true, i1 %.not326
+  br i1 %or.cond364, label %.loopexit, label %.preheader.us
 
 .preheader.us:                                    ; preds = %150, %._crit_edge.us323
   %.0243322.us = phi i64 [ %194, %._crit_edge.us323 ], [ 0, %150 ]
@@ -563,7 +563,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   store i32 8, ptr %219, align 8, !tbaa !85
   %220 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i32 0, ptr %220, align 8, !tbaa !91
-  br label %.sink.split342
+  br label %.sink.split365
 
 221:                                              ; preds = %215
   %222 = getelementptr inbounds nuw i8, ptr %209, i64 32
@@ -582,15 +582,15 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %233 = icmp ugt i32 %227, 5899
   %234 = add nuw nsw i32 %228, 5
   %235 = select i1 %233, i32 63, i32 %234
-  br label %.sink.split342
+  br label %.sink.split365
 
-.sink.split342:                                   ; preds = %218, %221
-  %.sink343 = phi i32 [ %235, %221 ], [ 0, %218 ]
+.sink.split365:                                   ; preds = %218, %221
+  %.sink366 = phi i32 [ %235, %221 ], [ 0, %218 ]
   %236 = getelementptr inbounds nuw i8, ptr %209, i64 12
-  store i32 %.sink343, ptr %236, align 4, !tbaa !92
+  store i32 %.sink366, ptr %236, align 4, !tbaa !92
   br label %237
 
-237:                                              ; preds = %.sink.split342, %215
+237:                                              ; preds = %.sink.split365, %215
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %239 = load i32, ptr %238, align 4, !tbaa !93
   %cond = icmp eq i32 %239, 0
@@ -1212,7 +1212,7 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %9
-  %15 = trunc i64 %.018 to i32
+  %15 = trunc nuw nsw i64 %.018 to i32
   br label %.loopexit
 
 16:                                               ; preds = %9

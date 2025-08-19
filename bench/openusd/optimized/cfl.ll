@@ -5811,7 +5811,7 @@ max_intra_block_height.exit:                      ; preds = %max_intra_block_wid
   %80 = add i32 %57, -4
   %81 = tail call i32 @llvm.fshl.i32(i32 %80, i32 %80, i32 30)
   %82 = icmp ult i32 %81, 8
-  br i1 %82, label %switch.lookup30, label %86
+  br i1 %82, label %switch.lookup34, label %86
 
 83:                                               ; preds = %76
   switch i32 %57, label %86 [
@@ -5835,14 +5835,14 @@ switch.lookup:                                    ; preds = %69
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %get_tx_size.exit
 
-switch.lookup30:                                  ; preds = %79
+switch.lookup34:                                  ; preds = %79
   %88 = zext nneg i32 %81 to i64
-  %switch.gep31 = getelementptr inbounds nuw [8 x i64], ptr @switch.table.cfl_store_block.3, i64 0, i64 %88
-  %switch.load32 = load i64, ptr %switch.gep31, align 8
+  %switch.gep35 = getelementptr inbounds nuw [8 x i64], ptr @switch.table.cfl_store_block.3, i64 0, i64 %88
+  %switch.load36 = load i64, ptr %switch.gep35, align 8
   br label %get_tx_size.exit
 
-get_tx_size.exit:                                 ; preds = %switch.lookup30, %switch.lookup, %59, %59, %60, %61, %62, %63, %73, %74, %75, %83, %84, %85, %86
-  %.0.i = phi i64 [ 0, %86 ], [ 15, %74 ], [ 17, %75 ], [ 16, %84 ], [ 18, %85 ], [ 13, %73 ], [ 14, %83 ], [ 0, %63 ], [ 3, %60 ], [ 2, %61 ], [ 1, %62 ], [ 4, %59 ], [ 4, %59 ], [ %switch.load, %switch.lookup ], [ %switch.load32, %switch.lookup30 ]
+get_tx_size.exit:                                 ; preds = %switch.lookup34, %switch.lookup, %59, %59, %60, %61, %62, %63, %73, %74, %75, %83, %84, %85, %86
+  %.0.i = phi i64 [ 0, %86 ], [ 15, %74 ], [ 17, %75 ], [ 16, %84 ], [ 18, %85 ], [ 13, %73 ], [ 14, %83 ], [ 0, %63 ], [ 3, %60 ], [ 2, %61 ], [ 1, %62 ], [ 4, %59 ], [ 4, %59 ], [ %switch.load, %switch.lookup ], [ %switch.load36, %switch.lookup34 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 56

@@ -595,25 +595,25 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
 
 29:                                               ; preds = %24
   %30 = icmp eq ptr %10, null
-  br i1 %30, label %.thread39, label %31
+  br i1 %30, label %.thread56, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %33 = load ptr, ptr %32, align 8
-  br label %.thread39
+  br label %.thread56
 
 34:                                               ; preds = %24
   %35 = icmp ugt i32 %27, 7
   br i1 %35, label %38, label %44
 
-.thread39:                                        ; preds = %29, %31
+.thread56:                                        ; preds = %29, %31
   %36 = phi ptr [ %33, %31 ], [ null, %29 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %36, i32 noundef 1, ptr noundef nonnull @.str.4) #11
   %.pr = load i32, ptr %26, align 4
   %37 = icmp ugt i32 %.pr, 7
-  br i1 %37, label %38, label %.thread40
+  br i1 %37, label %38, label %.thread57
 
-38:                                               ; preds = %.thread39, %34
+38:                                               ; preds = %.thread56, %34
   %39 = icmp eq ptr %10, null
   br i1 %39, label %.thread, label %40
 
@@ -625,10 +625,10 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
 .thread:                                          ; preds = %38, %40
   %43 = phi ptr [ %42, %40 ], [ null, %38 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %43, i32 noundef 1, ptr noundef nonnull @.str.5) #11
-  br label %.thread40
+  br label %.thread57
 
 44:                                               ; preds = %34
-  br i1 %16, label %45, label %.thread40
+  br i1 %16, label %45, label %.thread57
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -648,7 +648,7 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
 
 .thread17:                                        ; preds = %49
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread40
+  br label %.thread57
 
 55:                                               ; preds = %49
   %56 = load i16, ptr %4, align 4
@@ -723,9 +723,9 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %101 = load i32, ptr %100, align 8
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %.thread41
+  br i1 %102, label %103, label %.thread58
 
-.thread41:                                        ; preds = %.loopexit20
+.thread58:                                        ; preds = %.loopexit20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false), !annotation !20
   br label %118
@@ -753,7 +753,7 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
 .loopexit:                                        ; preds = %107, %103
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %95, ptr %115, align 4
-  br label %.thread40
+  br label %.thread57
 
 116:                                              ; preds = %84, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -764,9 +764,9 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
   %117 = icmp eq i32 %.pre, 0
   br i1 %117, label %152, label %118
 
-118:                                              ; preds = %.thread41, %116
-  %119 = phi i32 [ %97, %.thread41 ], [ %50, %116 ]
-  %120 = phi i32 [ %101, %.thread41 ], [ %.pre, %116 ]
+118:                                              ; preds = %.thread58, %116
+  %119 = phi i32 [ %97, %.thread58 ], [ %50, %116 ]
+  %120 = phi i32 [ %101, %.thread58 ], [ %.pre, %116 ]
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %5, align 16
   %122 = icmp sgt i32 %120, 0
@@ -863,15 +863,15 @@ define internal range(i32 -22, 1) i32 @ext_set_placements(ptr noundef %0, ptr no
   %183 = phi ptr [ %181, %179 ], [ null, %.loopexit18 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %183, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread40
+  br label %.thread57
 
-.thread40:                                        ; preds = %.thread39, %.thread17, %.thread, %182, %.loopexit, %44
-  %184 = phi i32 [ -22, %182 ], [ 0, %.loopexit ], [ %25, %44 ], [ -22, %.thread ], [ -14, %.thread17 ], [ -22, %.thread39 ]
+.thread57:                                        ; preds = %.thread56, %.thread17, %.thread, %182, %.loopexit, %44
+  %184 = phi i32 [ -22, %182 ], [ 0, %.loopexit ], [ %25, %44 ], [ -22, %.thread ], [ -14, %.thread17 ], [ -22, %.thread56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %185
 
-185:                                              ; preds = %.thread40, %2
-  %186 = phi i32 [ %184, %.thread40 ], [ -14, %2 ]
+185:                                              ; preds = %.thread57, %2
+  %186 = phi i32 [ %184, %.thread57 ], [ -14, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %186
 }

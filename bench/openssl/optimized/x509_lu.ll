@@ -430,10 +430,10 @@ define ptr @X509_STORE_new() local_unnamed_addr #0 {
   br label %32
 
 24:                                               ; preds = %18, %15, %11, %7, %3
-  %.sink18 = phi i32 [ 189, %3 ], [ 194, %7 ], [ 199, %11 ], [ 203, %15 ], [ 209, %18 ]
+  %.sink19 = phi i32 [ 189, %3 ], [ 194, %7 ], [ 199, %11 ], [ 203, %15 ], [ 209, %18 ]
   %.sink = phi i32 [ 524303, %3 ], [ 524303, %7 ], [ 524299, %11 ], [ 524303, %15 ], [ 524303, %18 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.X509_STORE_new) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink19, ptr noundef nonnull @__func__.X509_STORE_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #6
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !39
@@ -560,8 +560,8 @@ X509_LOOKUP_shutdown.exit:                        ; preds = %17
   br i1 %.not.i15, label %X509_LOOKUP_free.exit, label %X509_LOOKUP_shutdown.exit.thread
 
 X509_LOOKUP_shutdown.exit.thread:                 ; preds = %17, %X509_LOOKUP_shutdown.exit
-  %.pr23 = phi ptr [ %.pr.pre, %X509_LOOKUP_shutdown.exit ], [ %15, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.pr23, i64 16
+  %.pr28 = phi ptr [ %.pr.pre, %X509_LOOKUP_shutdown.exit ], [ %15, %17 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.pr28, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   %.not8.i = icmp eq ptr %22, null
   br i1 %.not8.i, label %X509_LOOKUP_free.exit, label %23

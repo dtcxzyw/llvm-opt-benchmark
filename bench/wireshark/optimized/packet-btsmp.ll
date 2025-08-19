@@ -242,9 +242,9 @@ define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %28 = load ptr, ptr %24, align 8
   %switch.selectcmp = icmp eq i32 %27, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.116, ptr @.str.117
-  %switch.selectcmp133 = icmp eq i32 %27, 0
-  %switch.select134 = select i1 %switch.selectcmp133, ptr @.str.115, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %switch.select134)
+  %switch.selectcmp134 = icmp eq i32 %27, 0
+  %switch.select135 = select i1 %switch.selectcmp134, ptr @.str.115, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %switch.select135)
   %29 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %107, label %31

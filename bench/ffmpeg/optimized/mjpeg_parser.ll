@@ -123,7 +123,7 @@ thread-pre-split.i:                               ; preds = %33, %20
   %58 = or disjoint i32 %53, %57
   %59 = add i32 %53, 4194304
   %or.cond7.i = icmp ult i32 %59, 4128768
-  br i1 %or.cond7.i, label %60, label %thread-pre-split122.i
+  br i1 %or.cond7.i, label %60, label %thread-pre-split127.i
 
 60:                                               ; preds = %52
   %61 = icmp ugt i32 %58, -2555969
@@ -147,26 +147,26 @@ thread-pre-split.i:                               ; preds = %33, %20
 
 69:                                               ; preds = %65
   %70 = or disjoint i32 %57, 16767232
-  br label %thread-pre-split122.i
+  br label %thread-pre-split127.i
 
 71:                                               ; preds = %65
   %72 = add nsw i32 %53, 2490368
   %or.cond11.i = icmp ult i32 %72, -655360
-  br i1 %or.cond11.i, label %73, label %thread-pre-split122.i
+  br i1 %or.cond11.i, label %73, label %thread-pre-split127.i
 
 73:                                               ; preds = %71
   %74 = add nsw i32 %68, -1
   store i32 %74, ptr %51, align 8, !tbaa !20
   br label %75
 
-thread-pre-split122.i:                            ; preds = %71, %69, %52
+thread-pre-split127.i:                            ; preds = %71, %69, %52
   %.4.ph.i = phi i32 [ %58, %52 ], [ %58, %71 ], [ %70, %69 ]
-  %.pr123.i = load i32, ptr %51, align 8, !tbaa !20
+  %.pr128.i = load i32, ptr %51, align 8, !tbaa !20
   br label %75
 
-75:                                               ; preds = %thread-pre-split122.i, %73
-  %76 = phi i32 [ %.pr123.i, %thread-pre-split122.i ], [ %74, %73 ]
-  %.4.i = phi i32 [ %.4.ph.i, %thread-pre-split122.i ], [ %58, %73 ]
+75:                                               ; preds = %thread-pre-split127.i, %73
+  %76 = phi i32 [ %.pr128.i, %thread-pre-split127.i ], [ %74, %73 ]
+  %.4.i = phi i32 [ %.4.ph.i, %thread-pre-split127.i ], [ %58, %73 ]
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %83
 

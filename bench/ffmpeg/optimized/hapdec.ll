@@ -571,10 +571,10 @@ bytestream2_get_le32.exit89.i:                    ; preds = %181, %180
 ._crit_edge.i101:                                 ; preds = %.loopexit.i
   %194 = icmp eq i32 %.265.i, 0
   %195 = icmp eq i32 %.268.i, 0
-  %.not160.i = select i1 %194, i1 true, i1 %195
+  %.not170.i = select i1 %194, i1 true, i1 %195
   %196 = icmp ne i32 %.271.i, 0
-  %brmerge.i = select i1 %.not160.i, i1 true, i1 %196
-  %.mux.i = select i1 %.not160.i, i32 -1094995529, i32 0
+  %brmerge.i = select i1 %.not170.i, i1 true, i1 %196
+  %.mux.i = select i1 %.not170.i, i32 -1094995529, i32 0
   br i1 %brmerge.i, label %hap_parse_decode_instructions.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i101

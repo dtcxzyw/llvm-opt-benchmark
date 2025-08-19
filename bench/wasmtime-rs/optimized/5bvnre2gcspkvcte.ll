@@ -163,11 +163,11 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
           to label %72 unwind label %44
 
 .sink.split:                                      ; preds = %.thread56, %.thread
-  %.sink68 = phi i64 [ 40, %.thread ], [ 72, %.thread56 ]
-  %.sink67 = phi ptr [ %41, %.thread ], [ %101, %.thread56 ]
+  %.sink70 = phi i64 [ 40, %.thread ], [ 72, %.thread56 ]
+  %.sink69 = phi ptr [ %41, %.thread ], [ %101, %.thread56 ]
   %.sink.ph = phi ptr [ %35, %.thread ], [ %26, %.thread56 ]
-  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink68
-  store ptr %.sink67, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 8
+  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink70
+  store ptr %.sink69, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   br label %72
 
 72:                                               ; preds = %.sink.split, %52, %71, %111, %134, %103

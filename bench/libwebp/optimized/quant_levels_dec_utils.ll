@@ -183,8 +183,8 @@ CountLevels.exit.i:                               ; preds = %65
   store i16 0, ptr %69, align 2, !tbaa !10
   %95 = icmp sgt i32 %.sroa.49.1, 2
   %96 = icmp sgt i32 %2, %19
-  %or.cond99 = select i1 %95, i1 %96, i1 false
-  br i1 %or.cond99, label %.lr.ph.preheader.i.lr.ph, label %.loopexit
+  %or.cond108 = select i1 %95, i1 %96, i1 false
+  br i1 %or.cond108, label %.lr.ph.preheader.i.lr.ph, label %.loopexit
 
 .lr.ph.preheader.i.lr.ph:                         ; preds = %92
   %97 = zext nneg i32 %.1 to i64
@@ -253,7 +253,7 @@ CountLevels.exit.i:                               ; preds = %65
   %125 = load i16, ptr %124, align 2, !tbaa !10
   %126 = add i16 %125, %122
   %127 = zext i16 %126 to i32
-  %128 = mul i32 %94, %127
+  %128 = mul nuw i32 %94, %127
   %129 = lshr i32 %128, 16
   %130 = trunc nuw i32 %129 to i16
   %131 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i36
@@ -277,8 +277,8 @@ CountLevels.exit.i:                               ; preds = %65
 
 .lr.ph57.i:                                       ; preds = %.preheader53.i, %.lr.ph57.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.lr.ph57.i ], [ %wide.trip.count.i34, %.preheader53.i ]
-  %gep72.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv63.i
-  %135 = load i16, ptr %gep72.i, align 2, !tbaa !10
+  %gep74.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv63.i
+  %135 = load i16, ptr %gep74.i, align 2, !tbaa !10
   %136 = trunc nsw i64 %indvars.iv63.i to i32
   %137 = add i32 %136, %101
   %138 = sext i32 %137 to i64
@@ -286,7 +286,7 @@ CountLevels.exit.i:                               ; preds = %65
   %140 = load i16, ptr %139, align 2, !tbaa !10
   %141 = sub i16 %135, %140
   %142 = zext i16 %141 to i32
-  %143 = mul i32 %94, %142
+  %143 = mul nuw i32 %94, %142
   %144 = lshr i32 %143, 16
   %145 = trunc nuw i32 %144 to i16
   %146 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv63.i
@@ -312,7 +312,7 @@ CountLevels.exit.i:                               ; preds = %65
   %161 = add i16 %156, %160
   %162 = sub i16 %150, %161
   %163 = zext i16 %162 to i32
-  %164 = mul i32 %94, %163
+  %164 = mul nuw i32 %94, %163
   %165 = lshr i32 %164, 16
   %166 = trunc nuw i32 %165 to i16
   %167 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv66.i

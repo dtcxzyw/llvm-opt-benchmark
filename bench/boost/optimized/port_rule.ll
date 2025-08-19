@@ -157,11 +157,11 @@ define hidden void @_ZNK5boost4urls6detail9port_rule5parseERPKcS4_(ptr dead_on_u
   br label %43
 
 .critedge33:                                      ; preds = %.critedge2, %15
-  %.sink72 = phi i64 [ %33, %.critedge2 ], [ %19, %15 ]
+  %.sink75 = phi i64 [ %33, %.critedge2 ], [ %19, %15 ]
   %.sink = phi i16 [ 0, %.critedge2 ], [ %20, %15 ]
   store ptr %7, ptr %0, align 8, !tbaa !3
   %.sroa.9.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink72, ptr %.sroa.9.0..sroa_idx41, align 8, !tbaa !16
+  store i64 %.sink75, ptr %.sroa.9.0..sroa_idx41, align 8, !tbaa !16
   %.sroa.12.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %.sink, ptr %.sroa.12.0..sroa_idx45, align 8, !tbaa !13
   %.sroa.15.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -304,32 +304,32 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
   %56 = load i8, ptr %storemerge102, align 1, !tbaa !7
   %57 = add i8 %56, -48
   %58 = icmp ult i8 %57, 10
-  br i1 %58, label %.lr.ph116, label %.critedge
+  br i1 %58, label %.lr.ph122, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph116
+.lr.ph:                                           ; preds = %.lr.ph122
   %59 = load i8, ptr %storemerge, align 1, !tbaa !7
   %60 = add i8 %59, -48
   %61 = icmp ult i8 %60, 10
-  br i1 %61, label %.lr.ph116, label %.critedge, !llvm.loop !38
+  br i1 %61, label %.lr.ph122, label %.critedge, !llvm.loop !38
 
-.lr.ph116:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph122:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %62 = phi i8 [ %60, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.0104115 = phi i16 [ %65, %.lr.ph ], [ %55, %.lr.ph.preheader ]
-  %storemerge106114 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge102, %.lr.ph.preheader ]
-  %63 = mul i16 %.0104115, 10
+  %.0104121 = phi i16 [ %65, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %storemerge106120 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge102, %.lr.ph.preheader ]
+  %63 = mul i16 %.0104121, 10
   %64 = zext nneg i8 %62 to i16
   %65 = add i16 %63, %64
-  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge106114, i64 1
+  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge106120, i64 1
   store ptr %storemerge, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %storemerge, %.032
   br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !38
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph116
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph122
   br label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %48
   %.0.lcssa = phi i16 [ %55, %48 ], [ %65, %..critedge.loopexit_crit_edge ], [ %55, %.lr.ph.preheader ], [ %65, %.lr.ph ]
-  %.pn.lcssa = phi ptr [ %5, %48 ], [ %storemerge106114, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %storemerge106114, %.lr.ph ]
+  %.pn.lcssa = phi ptr [ %5, %48 ], [ %storemerge106120, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %storemerge106120, %.lr.ph ]
   %storemerge.lcssa = phi ptr [ %storemerge102, %48 ], [ %storemerge, %..critedge.loopexit_crit_edge ], [ %storemerge102, %.lr.ph.preheader ], [ %storemerge, %.lr.ph ]
   %.not40 = icmp eq ptr %storemerge.lcssa, %3
   br i1 %.not40, label %103, label %66
@@ -533,7 +533,7 @@ define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr d
   br label %48
 
 .critedge33.i.i:                                  ; preds = %.critedge2.i.i, %22
-  %.sink72.i.i = phi i64 [ %40, %.critedge2.i.i ], [ %26, %22 ]
+  %.sink75.i.i = phi i64 [ %40, %.critedge2.i.i ], [ %26, %22 ]
   %.sink.i.i = phi i16 [ 0, %.critedge2.i.i ], [ %27, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !47
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !47
@@ -542,7 +542,7 @@ define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr d
 48:                                               ; preds = %.critedge.thread.i.i, %.critedge33.i.i
   %.sroa.11.0 = phi i8 [ %47, %.critedge.thread.i.i ], [ 1, %.critedge33.i.i ]
   %.sroa.8.0 = phi i16 [ 0, %.critedge.thread.i.i ], [ %.sink.i.i, %.critedge33.i.i ]
-  %.sroa.6.0 = phi i64 [ %45, %.critedge.thread.i.i ], [ %.sink72.i.i, %.critedge33.i.i ]
+  %.sroa.6.0 = phi i64 [ %45, %.critedge.thread.i.i ], [ %.sink75.i.i, %.critedge33.i.i ]
   store i8 1, ptr %0, align 8, !tbaa !18
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx12.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx12.sroa_idx, align 8, !tbaa !3

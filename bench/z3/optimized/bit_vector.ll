@@ -822,7 +822,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
   %9 = shl nuw nsw i64 %8, 2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %.not8 = icmp eq i32 %7, 0
-  br i1 %.not8, label %._crit_edge.thread12, label %.lr.ph
+  br i1 %.not8, label %._crit_edge.thread14, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -850,14 +850,14 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
 25:                                               ; preds = %16, %13
   %26 = getelementptr inbounds nuw i8, ptr %.09, i64 4
   %.not = icmp eq ptr %26, %10
-  br i1 %.not, label %._crit_edge.thread12, label %13, !llvm.loop !27
+  br i1 %.not, label %._crit_edge.thread14, label %13, !llvm.loop !27
 
-._crit_edge.thread12:                             ; preds = %25, %_ZN6vectorIjLb0EjE3endEv.exit
+._crit_edge.thread14:                             ; preds = %25, %_ZN6vectorIjLb0EjE3endEv.exit
   %27 = getelementptr inbounds i8, ptr %4, i64 -4
   store i32 0, ptr %27, align 4, !tbaa !12
   br label %_ZN6vectorIjLb0EjE5resetEv.exit
 
-_ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %1, %._crit_edge.thread12
+_ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %1, %._crit_edge.thread14
   ret void
 }
 

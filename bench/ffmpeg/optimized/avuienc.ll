@@ -143,8 +143,8 @@ define internal range(i32 -2147483648, 1) i32 @avui_encode_frame(ptr noundef %0,
 .lr.ph.us.preheader:                              ; preds = %.split.us
   %54 = icmp eq i32 %39, 486
   %55 = sub nuw nsw i32 1, %.05361.us
-  %.sink76 = select i1 %54, i32 %55, i32 %.05361.us
-  %56 = mul nuw nsw i32 %41, %.sink76
+  %.sink80 = select i1 %54, i32 %55, i32 %.05361.us
+  %56 = mul nuw nsw i32 %41, %.sink80
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %40, i64 %57
   br label %.lr.ph.us

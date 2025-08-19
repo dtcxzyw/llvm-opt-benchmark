@@ -337,8 +337,8 @@ define ptr @l_Lake_Package_leanLibs(ptr noundef %0) local_unnamed_addr #0 {
 lean_nat_lt.exit:                                 ; preds = %8, %10, %11
   %12 = getelementptr i8, ptr %3, i64 8
   %.val = load i64, ptr %12, align 8, !tbaa !12
-  %.mask56 = and i64 %.val, 9223372036854775807
-  %.not52 = icmp eq i64 %.mask56, 0
+  %.mask63 = and i64 %.val, 9223372036854775807
+  %.not52 = icmp eq i64 %.mask63, 0
   br i1 %.not52, label %lean_dec.exit32, label %33
 
 lean_nat_lt.exit.thread:                          ; preds = %1
@@ -8407,18 +8407,18 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %23, %lean_dec_ref.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink12 = phi ptr [ %4, %3 ], [ %23, %lean_dec_ref.exit ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !8
   store i32 131096, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %27, align 8, !tbaa !4
-  %28 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %28, align 8, !tbaa !4
   br label %29
 
 29:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
   ret ptr %.0
 }
 

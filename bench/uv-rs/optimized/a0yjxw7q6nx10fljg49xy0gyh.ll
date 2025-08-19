@@ -3147,7 +3147,7 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   %47 = load i32, ptr %27, align 8, !alias.scope !1190, !noalias !1193, !noundef !8
   %48 = load i32, ptr %28, align 4, !alias.scope !1190, !noalias !1193, !noundef !8
   %.not.i.i = icmp eq i32 %47, %48
-  br i1 %.not.i.i, label %49, label %.thread114.i
+  br i1 %.not.i.i, label %49, label %.thread121.i
 
 49:                                               ; preds = %43
   %50 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %..i.i, i64 208)
@@ -3155,7 +3155,7 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   %52 = extractvalue { i64, i1 } %50, 1
   %53 = icmp slt i64 %51, 0
   %or.cond.i.i = or i1 %52, %53
-  br i1 %or.cond.i.i, label %.thread114.i, label %54, !prof !1196
+  br i1 %or.cond.i.i, label %.thread121.i, label %54, !prof !1196
 
 54:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1197
@@ -3305,7 +3305,7 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   %.sroa.695.0.copyload.i = load ptr, ptr %.sroa.695.0..sroa_idx.i, align 8, !noalias !1187
   br label %.sink.split.i
 
-.thread114.i:                                     ; preds = %49, %43
+.thread121.i:                                     ; preds = %49, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1187
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1187
   br label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$zip..read..zip_archive..SharedBuilder$C$zip..result..ZipError$GT$$GT$17hb6fc17e5935499faE.exit.i"
@@ -3368,7 +3368,7 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1214
   br label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$zip..read..zip_archive..SharedBuilder$C$zip..result..ZipError$GT$$GT$17hb6fc17e5935499faE.exit.i"
 
-"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$zip..read..zip_archive..SharedBuilder$C$zip..result..ZipError$GT$$GT$17hb6fc17e5935499faE.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h03038832a0b96419E.exit.i.i.i", %.sink.split.i, %.thread114.i
+"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$zip..read..zip_archive..SharedBuilder$C$zip..result..ZipError$GT$$GT$17hb6fc17e5935499faE.exit.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h03038832a0b96419E.exit.i.i.i", %.sink.split.i, %.thread121.i
   %98 = load i64, ptr %.sroa.512.0..sroa_idx.i, align 8, !noalias !1187, !noundef !8
   call void @llvm.experimental.noalias.scope.decl(metadata !1227)
   call void @llvm.experimental.noalias.scope.decl(metadata !1230)
@@ -3709,8 +3709,8 @@ define hidden void @"_ZN3zip4read61_$LT$impl$u20$zip..read..zip_archive..ZipArch
   %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.629, i64 24, i1 false)
   store i64 2, ptr %0, align 8
-  %.sroa.5.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %.sroa.5.0..sroa_idx60, align 8
+  %.sroa.5.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %16, ptr %.sroa.5.0..sroa_idx61, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %45, ptr %.sroa.534.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.629)
@@ -8429,9 +8429,9 @@ common.resume:                                    ; preds = %.body, %.body18, %.
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1704
   %.promoted.i.i.i = load ptr, ptr %57, align 8, !alias.scope !2718, !noalias !2719
   %.not7.i.i.i = icmp eq ptr %.promoted.i.i.i, %56
-  br i1 %.not7.i.i.i, label %.thread89, label %.lr.ph.i.i.i
+  br i1 %.not7.i.i.i, label %.thread93, label %.lr.ph.i.i.i
 
-.thread89:                                        ; preds = %51
+.thread93:                                        ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2711
   br label %"_ZN4core3ptr1010drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$22"
 
@@ -8502,7 +8502,7 @@ common.resume:                                    ; preds = %.body, %.body18, %.
   store i64 10, ptr %1, align 8
   br label %common.resume
 
-"_ZN4core3ptr1010drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$22": ; preds = %.thread89, %"_ZN4core3ptr1010drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$G", %63, %"_ZN4core3ptr982drop_in_place$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc01ae467953c3d32E.exit17"
+"_ZN4core3ptr1010drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$22": ; preds = %.thread93, %"_ZN4core3ptr1010drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$G", %63, %"_ZN4core3ptr982drop_in_place$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc01ae467953c3d32E.exit17"
   store i64 10, ptr %1, align 8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %76 = load i64, ptr %75, align 8, !range !216, !noundef !8
@@ -8831,9 +8831,9 @@ common.resume:                                    ; preds = %.body, %.body19, %.
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 1720
   %.promoted.i.i.i = load ptr, ptr %64, align 8, !alias.scope !2868, !noalias !2869
   %.not7.i.i.i = icmp eq ptr %.promoted.i.i.i, %63
-  br i1 %.not7.i.i.i, label %.thread91, label %.lr.ph.i.i.i
+  br i1 %.not7.i.i.i, label %.thread95, label %.lr.ph.i.i.i
 
-.thread91:                                        ; preds = %58
+.thread95:                                        ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2861
   br label %"_ZN4core3ptr1037drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u723"
 
@@ -8922,7 +8922,7 @@ common.resume:                                    ; preds = %.body, %.body19, %.
   store i64 10, ptr %1, align 8
   br label %common.resume
 
-"_ZN4core3ptr1037drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u723": ; preds = %.thread91, %"_ZN4core3ptr1037drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$", %70, %"_ZN4core3ptr1009drop_in_place$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$18"
+"_ZN4core3ptr1037drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u723": ; preds = %.thread95, %"_ZN4core3ptr1037drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$", %70, %"_ZN4core3ptr1009drop_in_place$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$18"
   store i64 10, ptr %1, align 8
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 856
   %90 = load i64, ptr %89, align 8, !range !216, !noundef !8
@@ -9251,9 +9251,9 @@ common.resume:                                    ; preds = %.body, %.body17, %.
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1704
   %.promoted.i.i.i = load ptr, ptr %57, align 8, !alias.scope !3018, !noalias !3019
   %.not7.i.i.i = icmp eq ptr %.promoted.i.i.i, %56
-  br i1 %.not7.i.i.i, label %.thread87, label %.lr.ph.i.i.i
+  br i1 %.not7.i.i.i, label %.thread91, label %.lr.ph.i.i.i
 
-.thread87:                                        ; preds = %51
+.thread91:                                        ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3011
   br label %"_ZN4core3ptr1008drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$G21"
 
@@ -9324,7 +9324,7 @@ common.resume:                                    ; preds = %.body, %.body17, %.
   store i64 10, ptr %1, align 8
   br label %common.resume
 
-"_ZN4core3ptr1008drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$G21": ; preds = %.thread87, %"_ZN4core3ptr1008drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$", %63, %"_ZN4core3ptr980drop_in_place$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h588a822257fe38efE.exit.i16"
+"_ZN4core3ptr1008drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$G21": ; preds = %.thread91, %"_ZN4core3ptr1008drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$", %63, %"_ZN4core3ptr980drop_in_place$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..requires_dist..RequiresDist..from_project_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h588a822257fe38efE.exit.i16"
   store i64 10, ptr %1, align 8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %76 = load i64, ptr %75, align 8, !range !216, !noundef !8
@@ -9635,9 +9635,9 @@ common.resume:                                    ; preds = %.body, %.body17, %.
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1704
   %.promoted.i.i.i = load ptr, ptr %57, align 8, !alias.scope !3168, !noalias !3169
   %.not7.i.i.i = icmp eq ptr %.promoted.i.i.i, %56
-  br i1 %.not7.i.i.i, label %.thread87, label %.lr.ph.i.i.i
+  br i1 %.not7.i.i.i, label %.thread91, label %.lr.ph.i.i.i
 
-.thread87:                                        ; preds = %51
+.thread91:                                        ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3161
   br label %"_ZN4core3ptr1002drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc21"
 
@@ -9708,7 +9708,7 @@ common.resume:                                    ; preds = %.body, %.body17, %.
   store i64 10, ptr %1, align 8
   br label %common.resume
 
-"_ZN4core3ptr1002drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc21": ; preds = %.thread87, %"_ZN4core3ptr1002drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc8d", %63, %"_ZN4core3ptr974drop_in_place$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h25b0d06565e6d0faE.exit.i16"
+"_ZN4core3ptr1002drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc21": ; preds = %.thread91, %"_ZN4core3ptr1002drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hc8d", %63, %"_ZN4core3ptr974drop_in_place$LT$core..iter..adapters..map..Map$LT$either..Either$LT$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_workspace..pyproject..Source$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..sources..once..Once$LT$core..result..Result$LT$uv_distribution..metadata..lowering..LoweredRequirement$C$uv_distribution..metadata..lowering..LoweringError$GT$$GT$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_distribution..metadata..build_requires..BuildRequires..from_workspace..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h25b0d06565e6d0faE.exit.i16"
   store i64 10, ptr %1, align 8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %76 = load i64, ptr %75, align 8, !range !216, !noundef !8
@@ -14998,8 +14998,8 @@ default.unreachable:                              ; preds = %348
   invoke void @"_ZN4core3ptr139drop_in_place$LT$hashbrown..map..HashMap$LT$$RF$uv_distribution_types..index_name..IndexName$C$$LP$$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h3c506b1faf7ec7f5E.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(32) %370)
           to label %"_ZN4core3ptr1123drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..chain..Chain$LT$either..Either$LT$core..iter..sources..empty..Empty$LT$$RF$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$core..slice..iter..Iter$LT$uv_distribution_types..index..Index$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution_types..index_url..IndexLocations..implicit_indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$core..option..IntoIter$LT$$RF$uv_distribution_types..index..Index$GT$$GT$$C$uv_distribution_types..index_url..IndexLocations..indexes..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..slice..iter..Iter$LT$uv239" unwind label %.body242.thread378
 
-.body242.thread378:                               ; preds = %.invoke491, %369, %387
-  %.sroa.0109.2.ph = phi i1 [ false, %387 ], [ true, %369 ], [ false, %.invoke491 ]
+.body242.thread378:                               ; preds = %.invoke522, %369, %387
+  %.sroa.0109.2.ph = phi i1 [ false, %387 ], [ true, %369 ], [ false, %.invoke522 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body242.thread
@@ -15152,7 +15152,7 @@ default.unreachable:                              ; preds = %348
   invoke void @"_ZN171_$LT$uv_pypi_types..conflicts..ConflictItem$u20$as$u20$core..convert..From$LT$$LP$uv_normalize..package_name..PackageName$C$uv_normalize..group_name..GroupName$RP$$GT$$GT$4from17hec177e6e164c73c5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %48, ptr noundef nonnull %.val, ptr noundef nonnull %374)
           to label %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf19fe71a73c621c2E.exit.i" unwind label %409, !noalias !4274
 
-.invoke491:                                       ; preds = %431, %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf19fe71a73c621c2E.exit.i"
+.invoke522:                                       ; preds = %431, %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf19fe71a73c621c2E.exit.i"
   %429 = phi ptr [ %50, %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf19fe71a73c621c2E.exit.i" ], [ %391, %431 ]
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(8) %429)
           to label %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0a9a9920d2718E.exit" unwind label %.body242.thread378
@@ -15162,14 +15162,14 @@ default.unreachable:                              ; preds = %348
   call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !4274
   %430 = load ptr, ptr %50, align 8, !noalias !4274, !noundef !8
   %.not9.not.i = icmp eq ptr %430, null
-  br i1 %.not9.not.i, label %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0a9a9920d2718E.exit", label %.invoke491
+  br i1 %.not9.not.i, label %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0a9a9920d2718E.exit", label %.invoke522
 
 431:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !4274
   %432 = load ptr, ptr %391, align 8, !alias.scope !4285, !noalias !4274, !noundef !8
   %433 = icmp eq ptr %432, null
-  br i1 %433, label %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0a9a9920d2718E.exit", label %.invoke491
+  br i1 %433, label %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0a9a9920d2718E.exit", label %.invoke522
 
 434:                                              ; preds = %409
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(8) %50)
@@ -15186,7 +15186,7 @@ default.unreachable:                              ; preds = %348
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(8) %391)
           to label %.body242.thread unwind label %412, !noalias !4274
 
-"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0a9a9920d2718E.exit": ; preds = %.invoke491, %414, %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf19fe71a73c621c2E.exit.i", %431
+"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd4b0a9a9920d2718E.exit": ; preds = %.invoke522, %414, %"_ZN15uv_distribution8metadata8lowering18LoweredRequirement16from_requirement28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf19fe71a73c621c2E.exit.i", %431
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %"_ZN4core3ptr152drop_in_place$LT$uv_distribution..metadata..lowering..LoweredRequirement..from_requirement..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7675eef998061793E.exit"
 
@@ -16549,7 +16549,7 @@ default.unreachable:                              ; preds = %348
           to label %883 unwind label %881
 
 880:                                              ; preds = %890, %.body.thread, %.body, %881
-  %.pn196 = phi { ptr, i32 } [ %882, %881 ], [ %.pn193.pn463, %.body.thread ], [ %.pn193440, %.body ], [ %lpad.thr_comm.split-lp481, %890 ]
+  %.pn196 = phi { ptr, i32 } [ %882, %881 ], [ %.pn193.pn463, %.body.thread ], [ %.pn193440, %.body ], [ %lpad.thr_comm.split-lp512, %890 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$uv_workspace..workspace..WorkspaceMember$GT$17h67a866b89ade945bE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %73) #41
           to label %.body276 unwind label %213
 
@@ -16586,12 +16586,12 @@ default.unreachable:                              ; preds = %348
   br i1 %.sroa.0105.3439, label %.body.thread, label %880
 
 .thread:                                          ; preds = %905, %912, %888, %891, %895, %897
-  %lpad.thr_comm480 = landingpad { ptr, i32 }
+  %lpad.thr_comm511 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
 890:                                              ; preds = %962
-  %lpad.thr_comm.split-lp481 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp512 = landingpad { ptr, i32 }
           cleanup
   br label %880
 
@@ -16845,28 +16845,28 @@ default.unreachable:                              ; preds = %348
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h278cd38f3da8afaaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %66)
           to label %962 unwind label %.thread444
 
-.sink.split500:                                   ; preds = %981, %982
-  %.pn511 = phi { ptr, i64 } [ %980, %982 ], [ %978, %981 ]
-  %.sink502 = phi i8 [ 1, %982 ], [ 0, %981 ]
+.sink.split531:                                   ; preds = %981, %982
+  %.pn542 = phi { ptr, i64 } [ %980, %982 ], [ %978, %981 ]
+  %.sink533 = phi i8 [ 1, %982 ], [ 0, %981 ]
   %.sink = phi i8 [ 0, %982 ], [ 1, %981 ]
-  %.sink504 = extractvalue { ptr, i64 } %.pn511, 1
-  %.sink510 = extractvalue { ptr, i64 } %.pn511, 0
-  %966 = icmp ne ptr %.sink510, null
+  %.sink535 = extractvalue { ptr, i64 } %.pn542, 1
+  %.sink541 = extractvalue { ptr, i64 } %.pn542, 0
+  %966 = icmp ne ptr %.sink541, null
   call void @llvm.assume(i1 %966)
   %967 = getelementptr inbounds nuw i8, ptr %56, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %967, ptr noundef nonnull align 8 dereferenceable(96) %72, i64 96, i1 false)
   %968 = getelementptr inbounds nuw i8, ptr %56, i64 104
-  store ptr %.sink510, ptr %968, align 8
+  store ptr %.sink541, ptr %968, align 8
   %969 = getelementptr inbounds nuw i8, ptr %56, i64 112
-  store i64 %.sink504, ptr %969, align 8
+  store i64 %.sink535, ptr %969, align 8
   %970 = getelementptr inbounds nuw i8, ptr %56, i64 120
-  store i8 %.sink502, ptr %970, align 8
+  store i8 %.sink533, ptr %970, align 8
   %971 = getelementptr inbounds nuw i8, ptr %56, i64 121
   store i8 %.sink, ptr %971, align 1
   store i64 6, ptr %56, align 8
   br label %972
 
-972:                                              ; preds = %.sink.split500, %962
+972:                                              ; preds = %.sink.split531, %962
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   invoke void @"_ZN4core3ptr61drop_in_place$LT$uv_workspace..workspace..WorkspaceMember$GT$17h67a866b89ade945bE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %73)
@@ -16898,11 +16898,11 @@ default.unreachable:                              ; preds = %348
 
 981:                                              ; preds = %977
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  br label %.sink.split500
+  br label %.sink.split531
 
 982:                                              ; preds = %979
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br label %.sink.split500
+  br label %.sink.split531
 
 983:                                              ; preds = %972
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
@@ -17305,7 +17305,7 @@ default.unreachable:                              ; preds = %348
           to label %1151 unwind label %199
 
 .body.thread:                                     ; preds = %.thread, %908, %925, %.body
-  %.pn193.pn463 = phi { ptr, i32 } [ %.pn193440, %.body ], [ %909, %908 ], [ %lpad.thr_comm.split-lp443, %925 ], [ %lpad.thr_comm480, %.thread ]
+  %.pn193.pn463 = phi { ptr, i32 } [ %.pn193440, %.body ], [ %909, %908 ], [ %lpad.thr_comm.split-lp443, %925 ], [ %lpad.thr_comm511, %.thread ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$17h0251c639a139e266E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %72) #41
           to label %880 unwind label %213
 

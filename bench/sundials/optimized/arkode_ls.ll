@@ -452,9 +452,9 @@ switch.early.test:                                ; preds = %60
   br label %.thread
 
 .thread:                                          ; preds = %140, %150
-  %.sink143 = phi i32 [ %154, %150 ], [ 1, %140 ]
+  %.sink150 = phi i32 [ %154, %150 ], [ 1, %140 ]
   %155 = getelementptr inbounds nuw i8, ptr %calloc, i64 36
-  store i32 %.sink143, ptr %155, align 4, !tbaa !65
+  store i32 %.sink150, ptr %155, align 4, !tbaa !65
   %156 = load ptr, ptr %67, align 8, !tbaa !32
   %157 = tail call i32 %156(ptr noundef nonnull %0, ptr noundef nonnull @arkLsInitialize, ptr noundef nonnull @arkLsSetup, ptr noundef nonnull @arkLsSolve, ptr noundef nonnull @arkLsFree, i32 noundef %24, ptr noundef nonnull %calloc) #13
   %.not140 = icmp eq i32 %157, 0

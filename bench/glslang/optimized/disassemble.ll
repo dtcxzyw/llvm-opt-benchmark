@@ -2044,7 +2044,7 @@ _ZN3spv11SpirvStream12outputIndentEv.exit149:     ; preds = %617
 753:                                              ; preds = %741
   %switch.tableidx = add i32 %748, -1
   %754 = icmp ult i32 %switch.tableidx, 4
-  br i1 %754, label %switch.lookup307, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
+  br i1 %754, label %switch.lookup332, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
 755:                                              ; preds = %741
   %756 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %679, ptr noundef nonnull dereferenceable(30) @.str.55) #22
@@ -2052,9 +2052,9 @@ _ZN3spv11SpirvStream12outputIndentEv.exit149:     ; preds = %617
   br i1 %757, label %758, label %760
 
 758:                                              ; preds = %755
-  %switch.tableidx311 = add i32 %748, -1
-  %759 = icmp ult i32 %switch.tableidx311, 9
-  br i1 %759, label %switch.lookup310, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
+  %switch.tableidx336 = add i32 %748, -1
+  %759 = icmp ult i32 %switch.tableidx336, 9
+  br i1 %759, label %switch.lookup335, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
 760:                                              ; preds = %755
   %761 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %679, ptr noundef nonnull dereferenceable(41) @.str.56) #22
@@ -2072,30 +2072,30 @@ _ZN3spv11SpirvStream12outputIndentEv.exit149:     ; preds = %617
   br i1 %766, label %767, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
 767:                                              ; preds = %764
-  %switch.tableidx315 = add i32 %748, -1
-  %768 = icmp ult i32 %switch.tableidx315, 3
-  br i1 %768, label %switch.lookup314, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
+  %switch.tableidx340 = add i32 %748, -1
+  %768 = icmp ult i32 %switch.tableidx340, 3
+  br i1 %768, label %switch.lookup339, label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
-switch.lookup307:                                 ; preds = %753
+switch.lookup332:                                 ; preds = %753
   %769 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep308 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.2, i64 0, i64 %769
-  %switch.load309 = load ptr, ptr %switch.gep308, align 8
+  %switch.gep333 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.2, i64 0, i64 %769
+  %switch.load334 = load ptr, ptr %switch.gep333, align 8
   br label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
-switch.lookup310:                                 ; preds = %758
-  %770 = zext nneg i32 %switch.tableidx311 to i64
-  %switch.gep312 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.3, i64 0, i64 %770
-  %switch.load313 = load ptr, ptr %switch.gep312, align 8
+switch.lookup335:                                 ; preds = %758
+  %770 = zext nneg i32 %switch.tableidx336 to i64
+  %switch.gep337 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.3, i64 0, i64 %770
+  %switch.load338 = load ptr, ptr %switch.gep337, align 8
   br label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
-switch.lookup314:                                 ; preds = %767
-  %771 = zext nneg i32 %switch.tableidx315 to i64
-  %switch.gep316 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.4, i64 0, i64 %771
-  %switch.load317 = load ptr, ptr %switch.gep316, align 8
+switch.lookup339:                                 ; preds = %767
+  %771 = zext nneg i32 %switch.tableidx340 to i64
+  %switch.gep341 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.4, i64 0, i64 %771
+  %switch.load342 = load ptr, ptr %switch.gep341, align 8
   br label %_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit
 
-_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %764, %767, %switch.lookup314, %758, %switch.lookup310, %753, %switch.lookup307, %763
-  %.0.i162 = phi ptr [ %.str.81..str.71.i, %763 ], [ %switch.load309, %switch.lookup307 ], [ @.str.71, %753 ], [ %switch.load313, %switch.lookup310 ], [ @.str.71, %758 ], [ %switch.load317, %switch.lookup314 ], [ @.str.71, %767 ], [ @.str.71, %764 ]
+_ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %764, %767, %switch.lookup339, %758, %switch.lookup335, %753, %switch.lookup332, %763
+  %.0.i162 = phi ptr [ %.str.81..str.71.i, %763 ], [ %switch.load334, %switch.lookup332 ], [ @.str.71, %753 ], [ %switch.load338, %switch.lookup335 ], [ @.str.71, %758 ], [ %switch.load342, %switch.lookup339 ], [ @.str.71, %767 ], [ @.str.71, %764 ]
   %772 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %750, ptr noundef nonnull %.0.i162) #19
   %773 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %772, ptr noundef nonnull @.str.13) #19
   br label %.thread224
@@ -2150,18 +2150,18 @@ _ZN3spvL23GLSLextAMDGetDebugNamesEPKcj.exit:      ; preds = %764, %767, %switch.
   br i1 %806, label %807, label %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit
 
 807:                                              ; preds = %804, %801, %798, %795, %792, %789, %786, %774
-  %switch.tableidx319 = add i32 %781, -5248
-  %808 = icmp ult i32 %switch.tableidx319, 40
-  br i1 %808, label %switch.lookup318, label %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit
+  %switch.tableidx344 = add i32 %781, -5248
+  %808 = icmp ult i32 %switch.tableidx344, 40
+  br i1 %808, label %switch.lookup343, label %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit
 
-switch.lookup318:                                 ; preds = %807
-  %809 = zext nneg i32 %switch.tableidx319 to i64
-  %switch.gep320 = getelementptr inbounds nuw [40 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.5, i64 0, i64 %809
-  %switch.load321 = load ptr, ptr %switch.gep320, align 8
+switch.lookup343:                                 ; preds = %807
+  %809 = zext nneg i32 %switch.tableidx344 to i64
+  %switch.gep345 = getelementptr inbounds nuw [40 x ptr], ptr @switch.table._ZN3spv11SpirvStream22disassembleInstructionEjjNS_2OpEi.5, i64 0, i64 %809
+  %switch.load346 = load ptr, ptr %switch.gep345, align 8
   br label %_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit
 
-_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit:       ; preds = %807, %switch.lookup318, %804
-  %.0.i163 = phi ptr [ @.str.71, %804 ], [ %switch.load321, %switch.lookup318 ], [ @.str.71, %807 ]
+_ZN3spvL22GLSLextNVGetDebugNamesEPKcj.exit:       ; preds = %807, %switch.lookup343, %804
+  %.0.i163 = phi ptr [ @.str.71, %804 ], [ %switch.load346, %switch.lookup343 ], [ @.str.71, %807 ]
   %810 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %783, ptr noundef nonnull %.0.i163) #19
   %811 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %810, ptr noundef nonnull @.str.13) #19
   br label %.thread224
@@ -3095,16 +3095,16 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 2
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -3157,7 +3157,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds i32, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw i32, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw i32, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8
@@ -3265,7 +3265,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %33
   store ptr %27, ptr %0, align 8
-  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %28, i64 %1
+  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %1
   store ptr %37, ptr %4, align 8
   %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %25
   store ptr %38, ptr %11, align 8

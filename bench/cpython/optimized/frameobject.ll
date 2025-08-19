@@ -1712,10 +1712,10 @@ frame_init_get_vars.exit:                         ; preds = %11, %22, %25, %._cr
   br i1 %116, label %120, label %PyCell_GetRef.exit.sink.split.i
 
 PyCell_GetRef.exit.sink.split.i:                  ; preds = %114, %110, %107, %96
-  %.sink38.i = phi i32 [ %97, %96 ], [ %108, %107 ], [ %111, %110 ], [ %115, %114 ]
-  %.sink37.i = phi ptr [ %.val30.i, %96 ], [ %.val31.i, %107 ], [ %101, %110 ], [ %101, %114 ]
-  %117 = add nuw i32 %.sink38.i, 1
-  store i32 %117, ptr %.sink37.i, align 8, !tbaa !9
+  %.sink43.i = phi i32 [ %97, %96 ], [ %108, %107 ], [ %111, %110 ], [ %115, %114 ]
+  %.sink42.i = phi ptr [ %.val30.i, %96 ], [ %.val31.i, %107 ], [ %101, %110 ], [ %101, %114 ]
+  %117 = add nuw i32 %.sink43.i, 1
+  store i32 %117, ptr %.sink42.i, align 8, !tbaa !9
   br label %120
 
 .thread40:                                        ; preds = %60, %75, %102, %79, %.thread.i, %92, %105, %113, %frame_init_get_vars.exit
@@ -1724,7 +1724,7 @@ PyCell_GetRef.exit.sink.split.i:                  ; preds = %114, %110, %107, %9
   br label %120
 
 120:                                              ; preds = %PyCell_GetRef.exit.sink.split.i, %114, %110, %107, %96, %.thread40, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %.thread40 ], [ %.sink37.i, %PyCell_GetRef.exit.sink.split.i ], [ %101, %114 ], [ %101, %110 ], [ %.val31.i, %107 ], [ %.val30.i, %96 ]
+  %.0 = phi ptr [ null, %6 ], [ null, %.thread40 ], [ %.sink42.i, %PyCell_GetRef.exit.sink.split.i ], [ %101, %114 ], [ %101, %110 ], [ %.val31.i, %107 ], [ %.val30.i, %96 ]
   ret ptr %.0
 }
 
@@ -2510,8 +2510,8 @@ Py_XINCREF.exit:                                  ; preds = %.thread60, %37
   br i1 %.not55, label %PyCell_SetTakeRef.exit, label %47
 
 .thread.thread:                                   ; preds = %33
-  %.not5568 = icmp eq ptr %2, %34
-  br i1 %.not5568, label %PyCell_SetTakeRef.exit, label %Py_DECREF.exit
+  %.not5577 = icmp eq ptr %2, %34
+  br i1 %.not5577, label %PyCell_SetTakeRef.exit, label %Py_DECREF.exit
 
 47:                                               ; preds = %.thread
   %48 = icmp eq i64 %.sroa.012.0.copyload, 0
@@ -2639,13 +2639,13 @@ define internal fastcc i32 @framelocalsproxy_getkeyindex(ptr noundef readonly ca
   %30 = and i8 %28, 64
   %.not.i.us = icmp eq i8 %30, 0
   %or.cond.i.us = and i1 %29, %.not.i.us
-  br i1 %or.cond.i.us, label %.thread77.loopexit130, label %framelocalsproxy_getval.exit.us
+  br i1 %or.cond.i.us, label %.thread77.loopexit134, label %framelocalsproxy_getval.exit.us
 
 framelocalsproxy_getval.exit.us:                  ; preds = %25
   %31 = getelementptr i8, ptr %23, i64 16
   %.0.val.i.us = load ptr, ptr %31, align 8, !tbaa !157
   %32 = icmp eq ptr %.0.val.i.us, null
-  br i1 %32, label %framelocalsproxy_getval.exit.thread.us, label %.thread77.loopexit130
+  br i1 %32, label %framelocalsproxy_getval.exit.thread.us, label %.thread77.loopexit134
 
 framelocalsproxy_getval.exit.thread.us:           ; preds = %framelocalsproxy_getval.exit.us, %18, %.lr.ph.split.us
   %.252.us = phi i1 [ %.05092.us, %.lr.ph.split.us ], [ true, %framelocalsproxy_getval.exit.us ], [ true, %18 ]
@@ -2722,13 +2722,13 @@ framelocalsproxy_getval.exit.thread:              ; preds = %36, %.lr.ph.split
   %65 = and i8 %63, 64
   %.not.i67.us = icmp eq i8 %65, 0
   %or.cond.i68.us = and i1 %64, %.not.i67.us
-  br i1 %or.cond.i68.us, label %.thread77.loopexit.split.loop.exit141, label %framelocalsproxy_getval.exit71.us
+  br i1 %or.cond.i68.us, label %.thread77.loopexit.split.loop.exit145, label %framelocalsproxy_getval.exit71.us
 
 framelocalsproxy_getval.exit71.us:                ; preds = %60
   %66 = getelementptr i8, ptr %58, i64 16
   %.0.val.i69.us = load ptr, ptr %66, align 8, !tbaa !157
   %67 = icmp eq ptr %.0.val.i69.us, null
-  br i1 %67, label %framelocalsproxy_getval.exit71.thread.us, label %.thread77.loopexit.split.loop.exit139
+  br i1 %67, label %framelocalsproxy_getval.exit71.thread.us, label %.thread77.loopexit.split.loop.exit143
 
 framelocalsproxy_getval.exit71.thread.us:         ; preds = %framelocalsproxy_getval.exit71.us, %53, %52, %.lr.ph97.split.us
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
@@ -2763,7 +2763,7 @@ framelocalsproxy_getval.exit71.thread.us:         ; preds = %framelocalsproxy_ge
   %83 = load i8, ptr %82, align 1, !tbaa !9
   %84 = and i8 %83, 16
   %.not62 = icmp eq i8 %84, 0
-  br i1 %.not62, label %.thread77.loopexit128.split.loop.exit135, label %framelocalsproxy_getval.exit71.thread
+  br i1 %.not62, label %.thread77.loopexit132.split.loop.exit139, label %framelocalsproxy_getval.exit71.thread
 
 framelocalsproxy_getval.exit71.thread:            ; preds = %78, %79, %.lr.ph97.split
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -2776,24 +2776,24 @@ framelocalsproxy_getval.exit71.thread:            ; preds = %78, %79, %.lr.ph97.
   %87 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread77
 
-.thread77.loopexit.split.loop.exit139:            ; preds = %framelocalsproxy_getval.exit71.us
+.thread77.loopexit.split.loop.exit143:            ; preds = %framelocalsproxy_getval.exit71.us
   %88 = trunc nuw nsw i64 %indvars.iv124 to i32
   br label %.thread77
 
-.thread77.loopexit.split.loop.exit141:            ; preds = %60
+.thread77.loopexit.split.loop.exit145:            ; preds = %60
   %89 = trunc nuw nsw i64 %indvars.iv124 to i32
   br label %.thread77
 
-.thread77.loopexit128.split.loop.exit135:         ; preds = %79
+.thread77.loopexit132.split.loop.exit139:         ; preds = %79
   %90 = trunc nuw nsw i64 %indvars.iv121 to i32
   br label %.thread77
 
-.thread77.loopexit130:                            ; preds = %25, %framelocalsproxy_getval.exit.us
+.thread77.loopexit134:                            ; preds = %25, %framelocalsproxy_getval.exit.us
   %91 = trunc nuw nsw i64 %indvars.iv117 to i32
   br label %.thread77
 
-.thread77:                                        ; preds = %framelocalsproxy_getval.exit71.thread, %75, %framelocalsproxy_getval.exit71.thread.us, %49, %.thread77.loopexit128.split.loop.exit135, %.thread77.loopexit.split.loop.exit139, %.thread77.loopexit.split.loop.exit141, %.thread77.loopexit130, %.preheader85, %.thread77.loopexit113, %._crit_edge, %3
-  %.0 = phi i32 [ -2, %3 ], [ -1, %._crit_edge ], [ %87, %.thread77.loopexit113 ], [ -1, %.preheader85 ], [ %91, %.thread77.loopexit130 ], [ %88, %.thread77.loopexit.split.loop.exit139 ], [ %89, %.thread77.loopexit.split.loop.exit141 ], [ %90, %.thread77.loopexit128.split.loop.exit135 ], [ -1, %framelocalsproxy_getval.exit71.thread.us ], [ -2, %49 ], [ -1, %framelocalsproxy_getval.exit71.thread ], [ -2, %75 ]
+.thread77:                                        ; preds = %framelocalsproxy_getval.exit71.thread, %75, %framelocalsproxy_getval.exit71.thread.us, %49, %.thread77.loopexit132.split.loop.exit139, %.thread77.loopexit.split.loop.exit143, %.thread77.loopexit.split.loop.exit145, %.thread77.loopexit134, %.preheader85, %.thread77.loopexit113, %._crit_edge, %3
+  %.0 = phi i32 [ -2, %3 ], [ -1, %._crit_edge ], [ %87, %.thread77.loopexit113 ], [ -1, %.preheader85 ], [ %91, %.thread77.loopexit134 ], [ %88, %.thread77.loopexit.split.loop.exit143 ], [ %89, %.thread77.loopexit.split.loop.exit145 ], [ %90, %.thread77.loopexit132.split.loop.exit139 ], [ -1, %framelocalsproxy_getval.exit71.thread.us ], [ -2, %49 ], [ -1, %framelocalsproxy_getval.exit71.thread ], [ -2, %75 ]
   ret i32 %.0
 }
 
@@ -3664,8 +3664,8 @@ Py_DECREF.exit:                                   ; preds = %93, %95, %98
   br i1 %.not52, label %.critedge57, label %.lr.ph88, !llvm.loop !178
 
 .critedge56.sink.split:                           ; preds = %90, %77
-  %.lcssa93.sink = phi ptr [ %11, %77 ], [ %73, %90 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.lcssa93.sink) #11
+  %.lcssa105.sink = phi ptr [ %11, %77 ], [ %73, %90 ]
+  call void @_Py_Dealloc(ptr noundef nonnull %.lcssa105.sink) #11
   br label %.critedge56
 
 .critedge56:                                      ; preds = %.critedge56.sink.split, %90, %Py_DECREF.exit61, %77, %75
@@ -4534,7 +4534,7 @@ explain_incompatible_stack.exit:                  ; preds = %115, %114, %113, %1
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %169, %166, %163, %161, %153
-  %170 = ashr i64 %.1104173, 3
+  %170 = lshr i64 %.1104173, 3
   %171 = icmp sgt i64 %170, %.299
   br i1 %171, label %146, label %._crit_edge176, !llvm.loop !191
 
@@ -5330,10 +5330,10 @@ pop_to_level.exit:                                ; preds = %235
   br label %pop_to_level.exit.thread
 
 pop_to_level.exit.thread:                         ; preds = %228, %pop_to_level.exit
-  %.0.i225293 = phi i64 [ %.08.i, %pop_to_level.exit ], [ 0, %228 ]
+  %.0.i225306 = phi i64 [ %.08.i, %pop_to_level.exit ], [ 0, %228 ]
   %241 = phi i64 [ %spec.select, %pop_to_level.exit ], [ 5, %228 ]
-  %.not185294 = icmp eq i32 %219, 0
-  %.0 = select i1 %.not185294, i64 %.0.i225293, i64 %241
+  %.not185307 = icmp eq i32 %219, 0
+  %.0 = select i1 %.not185307, i64 %.0.i225306, i64 %241
   %242 = icmp ugt i64 %.0, 1152921504606846975
   %243 = shl nuw nsw i64 %.0, 3
   %244 = or disjoint i64 %243, 2

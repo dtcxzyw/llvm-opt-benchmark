@@ -2176,9 +2176,9 @@ rb_native_mutex_lock.exit.i:                      ; preds = %19
   %51 = add i64 %50, %48
   %52 = load i64, ptr @get_sysconf_page_size.page_size, align 8, !tbaa !145
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %get_sysconf_page_size.exit.i.i, label %get_sysconf_page_size.exit5.thread10.i.i, !prof !137
+  br i1 %53, label %get_sysconf_page_size.exit.i.i, label %get_sysconf_page_size.exit5.thread15.i.i, !prof !137
 
-get_sysconf_page_size.exit5.thread10.i.i:         ; preds = %45
+get_sysconf_page_size.exit5.thread15.i.i:         ; preds = %45
   %54 = trunc i64 %52 to i32
   %55 = trunc i64 %51 to i32
   %factor.i = shl i32 %54, 1
@@ -2209,11 +2209,11 @@ get_sysconf_page_size.exit5.i.i:                  ; preds = %get_sysconf_page_si
   %68 = icmp eq i64 %65, 0
   br i1 %68, label %get_sysconf_page_size.exit6.i.i, label %get_sysconf_page_size.exit6.thread.i.i, !prof !164
 
-get_sysconf_page_size.exit6.thread.i.i:           ; preds = %get_sysconf_page_size.exit5.i.i, %get_sysconf_page_size.exit5.thread.i.i, %get_sysconf_page_size.exit5.thread10.i.i
-  %.pre-phi.i = phi i32 [ %.pre.i.i, %get_sysconf_page_size.exit5.i.i ], [ %59, %get_sysconf_page_size.exit5.thread.i.i ], [ %54, %get_sysconf_page_size.exit5.thread10.i.i ]
-  %.ph.i.i = phi i64 [ %65, %get_sysconf_page_size.exit5.i.i ], [ %58, %get_sysconf_page_size.exit5.thread.i.i ], [ %52, %get_sysconf_page_size.exit5.thread10.i.i ]
-  %.ph12.i.i = phi i32 [ %67, %get_sysconf_page_size.exit5.i.i ], [ %64, %get_sysconf_page_size.exit5.thread.i.i ], [ %57, %get_sysconf_page_size.exit5.thread10.i.i ]
-  %69 = sdiv i32 %.ph12.i.i, %.pre-phi.i
+get_sysconf_page_size.exit6.thread.i.i:           ; preds = %get_sysconf_page_size.exit5.i.i, %get_sysconf_page_size.exit5.thread.i.i, %get_sysconf_page_size.exit5.thread15.i.i
+  %.pre-phi.i = phi i32 [ %.pre.i.i, %get_sysconf_page_size.exit5.i.i ], [ %59, %get_sysconf_page_size.exit5.thread.i.i ], [ %54, %get_sysconf_page_size.exit5.thread15.i.i ]
+  %.ph.i.i = phi i64 [ %65, %get_sysconf_page_size.exit5.i.i ], [ %58, %get_sysconf_page_size.exit5.thread.i.i ], [ %52, %get_sysconf_page_size.exit5.thread15.i.i ]
+  %.ph17.i.i = phi i32 [ %67, %get_sysconf_page_size.exit5.i.i ], [ %64, %get_sysconf_page_size.exit5.thread.i.i ], [ %57, %get_sysconf_page_size.exit5.thread15.i.i ]
+  %69 = sdiv i32 %.ph17.i.i, %.pre-phi.i
   br label %get_sysconf_page_size.exit7.i.i
 
 get_sysconf_page_size.exit6.i.i:                  ; preds = %get_sysconf_page_size.exit5.i.i
@@ -2461,13 +2461,13 @@ define hidden range(i32 0, 2) i32 @ruby_stack_overflowed_p(ptr noundef readonly 
   br label %27
 
 27:                                               ; preds = %22, %16
-  %.sink14.in = phi ptr [ %25, %22 ], [ %6, %16 ]
+  %.sink15.in = phi ptr [ %25, %22 ], [ %6, %16 ]
   %.sink.in = phi ptr [ %26, %22 ], [ %5, %16 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !48
-  %.sink14 = load i64, ptr %.sink14.in, align 8, !tbaa !145
-  %28 = sub i64 0, %.sink14
+  %.sink15 = load i64, ptr %.sink15.in, align 8, !tbaa !145
+  %28 = sub i64 0, %.sink15
   %29 = getelementptr i8, ptr %.sink, i64 %28
-  %30 = udiv i64 %.sink14, 5
+  %30 = udiv i64 %.sink15, 5
   %31 = ptrtoint ptr %29 to i64
   %spec.store.select = call i64 @llvm.umin.i64(i64 %30, i64 %31)
   %spec.select = call i64 @llvm.umin.i64(i64 %spec.store.select, i64 1048576)
@@ -3324,7 +3324,7 @@ thread_mutex_remove.exit:                         ; preds = %.critedge.i, %12
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 240
   %36 = load i8, ptr %35, align 8
   %37 = and i8 %36, 3
-  switch i8 %37, label %default.unreachable25 [
+  switch i8 %37, label %default.unreachable32 [
     i8 0, label %38
     i8 2, label %38
     i8 1, label %53
@@ -3374,7 +3374,7 @@ threadptr_interrupt_locked.exit.i.i:              ; preds = %48, %rb_native_mute
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.159) #47
   unreachable
 
-default.unreachable25:                            ; preds = %34
+default.unreachable32:                            ; preds = %34
   unreachable
 
 rb_threadptr_interrupt.exit:                      ; preds = %threadptr_interrupt_locked.exit.i.i, %30, %thread_mutex_remove.exit, %6, %3
@@ -5101,9 +5101,9 @@ nt_guard_page.exit.i.i.i:                         ; preds = %172
   %224 = load i64, ptr %223, align 8, !tbaa !154
   %225 = add i64 %224, %222
   %226 = icmp eq i64 %.pre.i.i.i.i, 0
-  br i1 %226, label %get_sysconf_page_size.exit.i.i.i.i.i, label %get_sysconf_page_size.exit5.thread10.i.i.i.i.i, !prof !137
+  br i1 %226, label %get_sysconf_page_size.exit.i.i.i.i.i, label %get_sysconf_page_size.exit5.thread15.i.i.i.i.i, !prof !137
 
-get_sysconf_page_size.exit5.thread10.i.i.i.i.i:   ; preds = %219
+get_sysconf_page_size.exit5.thread15.i.i.i.i.i:   ; preds = %219
   %227 = trunc i64 %.pre.i.i.i.i to i32
   %228 = trunc i64 %225 to i32
   %factor.i.i.i.i = shl i32 %227, 1
@@ -5134,11 +5134,11 @@ get_sysconf_page_size.exit5.i.i.i.i.i:            ; preds = %get_sysconf_page_si
   %241 = icmp eq i64 %238, 0
   br i1 %241, label %get_sysconf_page_size.exit6.i.i.i.i.i, label %get_sysconf_page_size.exit6.thread.i.i.i.i.i, !prof !164
 
-get_sysconf_page_size.exit6.thread.i.i.i.i.i:     ; preds = %get_sysconf_page_size.exit5.i.i.i.i.i, %get_sysconf_page_size.exit5.thread.i.i.i.i.i, %get_sysconf_page_size.exit5.thread10.i.i.i.i.i
-  %.pre-phi39.i.i.i.i = phi i32 [ %.pre.i.i.i.i.i, %get_sysconf_page_size.exit5.i.i.i.i.i ], [ %232, %get_sysconf_page_size.exit5.thread.i.i.i.i.i ], [ %227, %get_sysconf_page_size.exit5.thread10.i.i.i.i.i ]
-  %.ph.i.i.i.i.i = phi i64 [ %238, %get_sysconf_page_size.exit5.i.i.i.i.i ], [ %231, %get_sysconf_page_size.exit5.thread.i.i.i.i.i ], [ %.pre.i.i.i.i, %get_sysconf_page_size.exit5.thread10.i.i.i.i.i ]
-  %.ph12.i.i.i.i.i = phi i32 [ %240, %get_sysconf_page_size.exit5.i.i.i.i.i ], [ %237, %get_sysconf_page_size.exit5.thread.i.i.i.i.i ], [ %230, %get_sysconf_page_size.exit5.thread10.i.i.i.i.i ]
-  %242 = sdiv i32 %.ph12.i.i.i.i.i, %.pre-phi39.i.i.i.i
+get_sysconf_page_size.exit6.thread.i.i.i.i.i:     ; preds = %get_sysconf_page_size.exit5.i.i.i.i.i, %get_sysconf_page_size.exit5.thread.i.i.i.i.i, %get_sysconf_page_size.exit5.thread15.i.i.i.i.i
+  %.pre-phi39.i.i.i.i = phi i32 [ %.pre.i.i.i.i.i, %get_sysconf_page_size.exit5.i.i.i.i.i ], [ %232, %get_sysconf_page_size.exit5.thread.i.i.i.i.i ], [ %227, %get_sysconf_page_size.exit5.thread15.i.i.i.i.i ]
+  %.ph.i.i.i.i.i = phi i64 [ %238, %get_sysconf_page_size.exit5.i.i.i.i.i ], [ %231, %get_sysconf_page_size.exit5.thread.i.i.i.i.i ], [ %.pre.i.i.i.i, %get_sysconf_page_size.exit5.thread15.i.i.i.i.i ]
+  %.ph17.i.i.i.i.i = phi i32 [ %240, %get_sysconf_page_size.exit5.i.i.i.i.i ], [ %237, %get_sysconf_page_size.exit5.thread.i.i.i.i.i ], [ %230, %get_sysconf_page_size.exit5.thread15.i.i.i.i.i ]
+  %242 = sdiv i32 %.ph17.i.i.i.i.i, %.pre-phi39.i.i.i.i
   br label %get_sysconf_page_size.exit7.i.i.i.i.i
 
 get_sysconf_page_size.exit6.i.i.i.i.i:            ; preds = %get_sysconf_page_size.exit5.i.i.i.i.i
@@ -5211,9 +5211,9 @@ get_sysconf_page_size.exit27.i.i.i.i:             ; preds = %268, %get_sysconf_p
 
 271:                                              ; preds = %get_sysconf_page_size.exit27.i.i.i.i
   %272 = icmp eq i64 %.pr.i.i.i.i, 0
-  br i1 %272, label %get_sysconf_page_size.exit28.i.i.i.i, label %get_sysconf_page_size.exit29.thread40.i.i.i.i, !prof !137
+  br i1 %272, label %get_sysconf_page_size.exit28.i.i.i.i, label %get_sysconf_page_size.exit29.thread51.i.i.i.i, !prof !137
 
-get_sysconf_page_size.exit29.thread40.i.i.i.i:    ; preds = %271
+get_sysconf_page_size.exit29.thread51.i.i.i.i:    ; preds = %271
   %273 = add i32 %265, 23
   %274 = add i32 %273, %.pre-phi.i.i.i.i
   %275 = sdiv i32 %274, %.pre-phi.i.i.i.i
@@ -5241,11 +5241,11 @@ get_sysconf_page_size.exit29.i.i.i.i:             ; preds = %get_sysconf_page_si
   %284 = icmp eq i64 %282, 0
   br i1 %284, label %get_sysconf_page_size.exit30.i.i.i.i, label %get_sysconf_page_size.exit30.thread.i.i.i.i, !prof !164
 
-get_sysconf_page_size.exit30.thread.i.i.i.i:      ; preds = %get_sysconf_page_size.exit29.i.i.i.i, %get_sysconf_page_size.exit29.thread.i.i.i.i, %get_sysconf_page_size.exit29.thread40.i.i.i.i
-  %.pre-phi.i.i.i = phi i32 [ %.pre35.i.i.i.i, %get_sysconf_page_size.exit29.i.i.i.i ], [ %277, %get_sysconf_page_size.exit29.thread.i.i.i.i ], [ %.pre.i.i.i, %get_sysconf_page_size.exit29.thread40.i.i.i.i ]
-  %.ph42.i.i.i.i = phi i32 [ %283, %get_sysconf_page_size.exit29.i.i.i.i ], [ %281, %get_sysconf_page_size.exit29.thread.i.i.i.i ], [ %275, %get_sysconf_page_size.exit29.thread40.i.i.i.i ]
+get_sysconf_page_size.exit30.thread.i.i.i.i:      ; preds = %get_sysconf_page_size.exit29.i.i.i.i, %get_sysconf_page_size.exit29.thread.i.i.i.i, %get_sysconf_page_size.exit29.thread51.i.i.i.i
+  %.pre-phi.i.i.i = phi i32 [ %.pre35.i.i.i.i, %get_sysconf_page_size.exit29.i.i.i.i ], [ %277, %get_sysconf_page_size.exit29.thread.i.i.i.i ], [ %.pre.i.i.i, %get_sysconf_page_size.exit29.thread51.i.i.i.i ]
+  %.ph53.i.i.i.i = phi i32 [ %283, %get_sysconf_page_size.exit29.i.i.i.i ], [ %281, %get_sysconf_page_size.exit29.thread.i.i.i.i ], [ %275, %get_sysconf_page_size.exit29.thread51.i.i.i.i ]
   %285 = sdiv i32 536870912, %.pre-phi.i.i.i
-  %286 = xor i32 %.ph42.i.i.i.i, -1
+  %286 = xor i32 %.ph53.i.i.i.i, -1
   %287 = add i32 %285, %286
   br label %get_sysconf_page_size.exit31.i.i.i.i
 
@@ -5266,7 +5266,7 @@ get_sysconf_page_size.exit30.i.i.i.i:             ; preds = %get_sysconf_page_si
 
 get_sysconf_page_size.exit31.i.i.i.i:             ; preds = %293, %get_sysconf_page_size.exit30.i.i.i.i, %get_sysconf_page_size.exit30.thread.i.i.i.i
   %295 = phi i32 [ %291, %get_sysconf_page_size.exit30.i.i.i.i ], [ %291, %293 ], [ %287, %get_sysconf_page_size.exit30.thread.i.i.i.i ]
-  %296 = phi i32 [ %283, %get_sysconf_page_size.exit30.i.i.i.i ], [ %283, %293 ], [ %.ph42.i.i.i.i, %get_sysconf_page_size.exit30.thread.i.i.i.i ]
+  %296 = phi i32 [ %283, %get_sysconf_page_size.exit30.i.i.i.i ], [ %283, %293 ], [ %.ph53.i.i.i.i, %get_sysconf_page_size.exit30.thread.i.i.i.i ]
   %.pre-phi38.i.i.i.i = phi i32 [ %289, %get_sysconf_page_size.exit30.i.i.i.i ], [ %.pre37.i.i.i.i, %293 ], [ %.pre-phi.i.i.i, %get_sysconf_page_size.exit30.thread.i.i.i.i ]
   %297 = mul i32 %.pre-phi38.i.i.i.i, %295
   %298 = sext i32 %297 to i64
@@ -15428,9 +15428,9 @@ get_sysconf_page_size.exit:                       ; preds = %2, %7
   %16 = load i64, ptr %15, align 8, !tbaa !154
   %17 = add i64 %16, %14
   %18 = icmp eq i64 %9, 0
-  br i1 %18, label %get_sysconf_page_size.exit.i, label %get_sysconf_page_size.exit5.thread10.i, !prof !137
+  br i1 %18, label %get_sysconf_page_size.exit.i, label %get_sysconf_page_size.exit5.thread15.i, !prof !137
 
-get_sysconf_page_size.exit5.thread10.i:           ; preds = %11
+get_sysconf_page_size.exit5.thread15.i:           ; preds = %11
   %19 = trunc i64 %9 to i32
   %20 = trunc i64 %17 to i32
   %factor = shl i32 %19, 1
@@ -15461,11 +15461,11 @@ get_sysconf_page_size.exit5.i:                    ; preds = %get_sysconf_page_si
   %33 = icmp eq i64 %30, 0
   br i1 %33, label %get_sysconf_page_size.exit6.i, label %get_sysconf_page_size.exit6.thread.i, !prof !164
 
-get_sysconf_page_size.exit6.thread.i:             ; preds = %get_sysconf_page_size.exit5.i, %get_sysconf_page_size.exit5.thread.i, %get_sysconf_page_size.exit5.thread10.i
-  %.pre-phi = phi i32 [ %.pre.i, %get_sysconf_page_size.exit5.i ], [ %24, %get_sysconf_page_size.exit5.thread.i ], [ %19, %get_sysconf_page_size.exit5.thread10.i ]
-  %.ph.i = phi i64 [ %30, %get_sysconf_page_size.exit5.i ], [ %23, %get_sysconf_page_size.exit5.thread.i ], [ %9, %get_sysconf_page_size.exit5.thread10.i ]
-  %.ph12.i = phi i32 [ %32, %get_sysconf_page_size.exit5.i ], [ %29, %get_sysconf_page_size.exit5.thread.i ], [ %22, %get_sysconf_page_size.exit5.thread10.i ]
-  %34 = sdiv i32 %.ph12.i, %.pre-phi
+get_sysconf_page_size.exit6.thread.i:             ; preds = %get_sysconf_page_size.exit5.i, %get_sysconf_page_size.exit5.thread.i, %get_sysconf_page_size.exit5.thread15.i
+  %.pre-phi = phi i32 [ %.pre.i, %get_sysconf_page_size.exit5.i ], [ %24, %get_sysconf_page_size.exit5.thread.i ], [ %19, %get_sysconf_page_size.exit5.thread15.i ]
+  %.ph.i = phi i64 [ %30, %get_sysconf_page_size.exit5.i ], [ %23, %get_sysconf_page_size.exit5.thread.i ], [ %9, %get_sysconf_page_size.exit5.thread15.i ]
+  %.ph17.i = phi i32 [ %32, %get_sysconf_page_size.exit5.i ], [ %29, %get_sysconf_page_size.exit5.thread.i ], [ %22, %get_sysconf_page_size.exit5.thread15.i ]
+  %34 = sdiv i32 %.ph17.i, %.pre-phi
   br label %get_sysconf_page_size.exit7.i
 
 get_sysconf_page_size.exit6.i:                    ; preds = %get_sysconf_page_size.exit5.i
@@ -16728,7 +16728,7 @@ thread_sched_lock_.exit:                          ; preds = %26
 thread_sched_wakeup_running_thread.exit.thread:   ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %49, align 8, !tbaa !85
-  br label %thread_sched_wakeup_running_thread.exit.thread44
+  br label %thread_sched_wakeup_running_thread.exit.thread53
 
 thread_sched_deq.exit.i:                          ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -16747,7 +16747,7 @@ thread_sched_deq.exit.i:                          ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %54, ptr %58, align 8, !tbaa !85
   %.not.i36 = icmp eq ptr %54, null
-  br i1 %.not.i36, label %thread_sched_wakeup_running_thread.exit.thread44, label %59
+  br i1 %.not.i36, label %thread_sched_wakeup_running_thread.exit.thread53, label %59
 
 59:                                               ; preds = %thread_sched_deq.exit.i
   %60 = getelementptr i8, ptr %48, i64 -32
@@ -16778,15 +16778,15 @@ thread_sched_deq.exit.i:                          ; preds = %42
 
 thread_sched_wakeup_running_thread.exit:          ; preds = %67, %59, %62
   %.not.i = icmp eq ptr %1, %54
-  br i1 %.not.i, label %thread_sched_wakeup_next_thread.exit, label %thread_sched_wakeup_running_thread.exit.thread44
+  br i1 %.not.i, label %thread_sched_wakeup_next_thread.exit, label %thread_sched_wakeup_running_thread.exit.thread53
 
-thread_sched_wakeup_running_thread.exit.thread44: ; preds = %thread_sched_deq.exit.i, %thread_sched_wakeup_running_thread.exit.thread, %thread_sched_wakeup_running_thread.exit
+thread_sched_wakeup_running_thread.exit.thread53: ; preds = %thread_sched_deq.exit.i, %thread_sched_wakeup_running_thread.exit.thread, %thread_sched_wakeup_running_thread.exit
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %71 = load ptr, ptr %70, align 8, !tbaa !53
   call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %71, ptr noundef null, ptr noundef nonnull %1, ptr noundef null)
   br label %thread_sched_wakeup_next_thread.exit
 
-thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_wakeup_running_thread.exit, %thread_sched_wakeup_running_thread.exit.thread44
+thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_wakeup_running_thread.exit, %thread_sched_wakeup_running_thread.exit.thread53
   call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext true)
   br label %72
 
@@ -17308,38 +17308,38 @@ rb_native_mutex_unlock.exit:                      ; preds = %44
   br i1 %.not6373, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %61
-  %.0427683 = getelementptr i8, ptr %62, i64 -24
-  %63 = load i32, ptr %.0427683, align 8, !tbaa !429
+  %.0427689 = getelementptr i8, ptr %62, i64 -24
+  %63 = load i32, ptr %.0427689, align 8, !tbaa !429
   %64 = and i32 %63, 1
-  %.not6484 = icmp eq i32 %64, 0
-  br i1 %.not6484, label %._crit_edge, label %.lr.ph88
+  %.not6490 = icmp eq i32 %64, 0
+  br i1 %.not6490, label %._crit_edge, label %.lr.ph94
 
 .lr.ph:                                           ; preds = %70
   %.04276 = getelementptr i8, ptr %71, i64 -24
   %65 = load i32, ptr %.04276, align 8, !tbaa !429
   %66 = and i32 %65, 1
   %.not64 = icmp eq i32 %66, 0
-  br i1 %.not64, label %._crit_edge, label %.lr.ph88, !llvm.loop !430
+  br i1 %.not64, label %._crit_edge, label %.lr.ph94, !llvm.loop !430
 
-.lr.ph88:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0427687 = phi ptr [ %.04276, %.lr.ph ], [ %.0427683, %.lr.ph.preheader ]
-  %.pn7486 = phi ptr [ %71, %.lr.ph ], [ %62, %.lr.ph.preheader ]
-  %.07585 = phi ptr [ %.0427687, %.lr.ph ], [ null, %.lr.ph.preheader ]
-  %67 = getelementptr i8, ptr %.pn7486, i64 -16
+.lr.ph94:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0427693 = phi ptr [ %.04276, %.lr.ph ], [ %.0427689, %.lr.ph.preheader ]
+  %.pn7492 = phi ptr [ %71, %.lr.ph ], [ %62, %.lr.ph.preheader ]
+  %.07591 = phi ptr [ %.0427693, %.lr.ph ], [ null, %.lr.ph.preheader ]
+  %67 = getelementptr i8, ptr %.pn7492, i64 -16
   %68 = load i64, ptr %67, align 8, !tbaa !431
   %69 = icmp ult i64 %68, %.045
   br i1 %69, label %70, label %._crit_edge
 
-70:                                               ; preds = %.lr.ph88
-  %71 = load ptr, ptr %.pn7486, align 8, !tbaa !84
+70:                                               ; preds = %.lr.ph94
+  %71 = load ptr, ptr %.pn7492, align 8, !tbaa !84
   %.not63 = icmp eq ptr %71, getelementptr inbounds nuw (i8, ptr @timer_th, i64 224)
   br i1 %.not63, label %.._crit_edge_crit_edge, label %.lr.ph, !llvm.loop !430
 
 .._crit_edge_crit_edge:                           ; preds = %70
   br label %._crit_edge, !llvm.loop !430
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph88, %.._crit_edge_crit_edge, %.lr.ph.preheader
-  %.0.lcssa = phi ptr [ %.0427687, %.._crit_edge_crit_edge ], [ null, %.lr.ph.preheader ], [ %.0427687, %.lr.ph ], [ %.07585, %.lr.ph88 ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph94, %.._crit_edge_crit_edge, %.lr.ph.preheader
+  %.0.lcssa = phi ptr [ %.0427693, %.._crit_edge_crit_edge ], [ null, %.lr.ph.preheader ], [ %.0427693, %.lr.ph ], [ %.07591, %.lr.ph94 ]
   %.not65 = icmp eq ptr %.0.lcssa, null
   br i1 %.not65, label %._crit_edge.thread, label %72
 
@@ -19601,10 +19601,10 @@ thread_sched_switch0.exit:                        ; preds = %39, %47
   br label %54
 
 54:                                               ; preds = %thread_sched_switch0.exit, %52, %27
-  %.sink39 = phi i64 [ 192, %thread_sched_switch0.exit ], [ 96, %52 ], [ 96, %27 ]
-  %.sink38 = phi ptr [ %34, %thread_sched_switch0.exit ], [ %22, %52 ], [ %22, %27 ]
+  %.sink42 = phi i64 [ 192, %thread_sched_switch0.exit ], [ 96, %52 ], [ 96, %27 ]
+  %.sink41 = phi ptr [ %34, %thread_sched_switch0.exit ], [ %22, %52 ], [ %22, %27 ]
   %.sink = phi ptr [ %42, %thread_sched_switch0.exit ], [ %1, %52 ], [ %1, %27 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.sink38, i64 %.sink39
+  %55 = getelementptr inbounds nuw i8, ptr %.sink41, i64 %.sink42
   %56 = load ptr, ptr %55, align 8, !tbaa !452
   %57 = call ptr @coroutine_transfer(ptr noundef %.sink, ptr noundef %56) #16
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.183) #47
@@ -20039,12 +20039,12 @@ ractor_sched_lock_.exit.i.i.i:                    ; preds = %ubf_wakeup_all_thre
   %117 = load i32, ptr %10, align 8, !tbaa !409
   %.not14.i.i.i = icmp eq i32 %117, 0
   %spec.select.i.i.i = zext i1 %.not14.i.i.i to i8
-  %spec.select26.i.i.i = select i1 %.not14.i.i.i, i32 -1, i32 10
+  %spec.select30.i.i.i = select i1 %.not14.i.i.i, i32 -1, i32 10
   br label %118
 
 118:                                              ; preds = %116, %ractor_sched_lock_.exit.i.i.i
   %.sink.i.i.i = phi i8 [ 0, %ractor_sched_lock_.exit.i.i.i ], [ %spec.select.i.i.i, %116 ]
-  %.0.i.i.i = phi i32 [ 10, %ractor_sched_lock_.exit.i.i.i ], [ %spec.select26.i.i.i, %116 ]
+  %.0.i.i.i = phi i32 [ 10, %ractor_sched_lock_.exit.i.i.i ], [ %spec.select30.i.i.i, %116 ]
   store i8 %.sink.i.i.i, ptr %11, align 8, !tbaa !144
   %119 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #16
   %.not.i.i17.i.i.i = icmp eq i32 %119, 0

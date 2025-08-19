@@ -774,14 +774,14 @@ overlap.exit239.thread.i:                         ; preds = %207, %206, %204, %2
   %.phi.trans.insert.i = getelementptr i8, ptr %240, i64 -16
   %.pre262.i = load double, ptr %.phi.trans.insert.i, align 8, !tbaa !46
   %244 = fcmp ogt double %239, %.pre262.i
-  %or.cond265.i = select i1 %243, i1 true, i1 %244
+  %or.cond291.i = select i1 %243, i1 true, i1 %244
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !56
   %.phi.trans.insert439 = getelementptr i8, ptr %240, i64 -24
   %.pre440 = load double, ptr %.phi.trans.insert439, align 8, !tbaa !47
   %245 = fcmp olt double %.pre, %.pre440
-  %or.cond463 = select i1 %or.cond265.i, i1 true, i1 %245
-  br i1 %or.cond463, label %._crit_edge261.i, label %246
+  %or.cond501 = select i1 %or.cond291.i, i1 true, i1 %245
+  br i1 %or.cond501, label %._crit_edge261.i, label %246
 
 246:                                              ; preds = %234
   %247 = getelementptr i8, ptr %240, i64 -8
@@ -976,12 +976,12 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
   br label %.critedge357
 
 .sink.split:                                      ; preds = %340, %322, %330
-  %.sink464.in = phi ptr [ %338, %330 ], [ %329, %322 ], [ %348, %340 ]
+  %.sink502.in = phi ptr [ %338, %330 ], [ %329, %322 ], [ %348, %340 ]
   %350 = getelementptr inbounds nuw %struct.pointf_s, ptr %273, i64 %.0327383
-  %.sink464 = load double, ptr %.sink464.in, align 8, !tbaa !18
+  %.sink502 = load double, ptr %.sink502.in, align 8, !tbaa !18
   %351 = add i64 %.0327383, 2
   %352 = getelementptr i8, ptr %350, i64 24
-  store double %.sink464, ptr %352, align 8, !tbaa !8
+  store double %.sink502, ptr %352, align 8, !tbaa !8
   br label %353
 
 353:                                              ; preds = %.sink.split, %339
@@ -1175,14 +1175,14 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
   br i1 %exitcond432.not, label %.loopexit366, label %.lr.ph396, !llvm.loop !66
 
 .loopexit366:                                     ; preds = %.lr.ph396, %.preheader365, %._crit_edge
-  %.3330.lcssa443 = phi i64 [ 0, %.preheader365 ], [ %.4331, %._crit_edge ], [ %.4331, %.lr.ph396 ]
+  %.3330.lcssa481 = phi i64 [ 0, %.preheader365 ], [ %.4331, %._crit_edge ], [ %.4331, %.lr.ph396 ]
   br label %.lr.ph399
 
 ._crit_edge400:                                   ; preds = %.lr.ph399, %.preheader369
-  %.3330.lcssa443450 = phi i64 [ 0, %.preheader369 ], [ %.3330.lcssa443, %.lr.ph399 ]
+  %.3330.lcssa481488 = phi i64 [ 0, %.preheader369 ], [ %.3330.lcssa481, %.lr.ph399 ]
   store ptr %273, ptr %4, align 8, !tbaa !16
   %454 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.3330.lcssa443450, ptr %454, align 8, !tbaa !9
+  store i64 %.3330.lcssa481488, ptr %454, align 8, !tbaa !9
   store double %236, ptr %7, align 16, !tbaa !3
   %455 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %235, ptr %455, align 8, !tbaa !8
@@ -1324,7 +1324,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
   %.0335413 = phi i32 [ %526, %.loopexit ], [ 0, %.preheader.preheader ]
   %516 = load i64, ptr %509, align 8, !tbaa !9
   call fastcc void @limitBoxes(ptr noundef nonnull %24, i64 noundef %13, ptr noundef nonnull %511, i64 noundef %516, double noundef %.0313414)
-  br i1 %.not254.i, label %.thread454, label %.lr.ph410
+  br i1 %.not254.i, label %.thread492, label %.lr.ph410
 
 .lr.ph410:                                        ; preds = %.preheader, %522
   %.0408 = phi i64 [ %523, %522 ], [ 0, %.preheader ]
@@ -1342,7 +1342,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
 522:                                              ; preds = %519
   %523 = add nuw i64 %.0408, 1
   %exitcond435.not = icmp eq i64 %523, %13
-  br i1 %exitcond435.not, label %.thread454, label %.lr.ph410, !llvm.loop !75
+  br i1 %exitcond435.not, label %.thread492, label %.lr.ph410, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph410, %519
   %524 = fmul double %.0313414, 2.000000e+00
@@ -1353,7 +1353,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
   br i1 %528, label %.preheader, label %529, !llvm.loop !76
 
 529:                                              ; preds = %.loopexit
-  br i1 %525, label %530, label %.thread454
+  br i1 %525, label %530, label %.thread492
 
 530:                                              ; preds = %529
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1381,16 +1381,16 @@ gv_calloc.exit:                                   ; preds = %.thread.i358, %266
   %550 = load i64, ptr %549, align 8, !tbaa !9
   call fastcc void @limitBoxes(ptr noundef nonnull %24, i64 noundef %13, ptr noundef %548, i64 noundef %550, double noundef 1.000000e+01)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread454
+  br label %.thread492
 
-.thread454:                                       ; preds = %.preheader, %522, %530, %529
+.thread492:                                       ; preds = %.preheader, %522, %530, %529
   %551 = load i64, ptr %509, align 8, !tbaa !9
   store i64 %551, ptr %1, align 8, !tbaa !21
   call void @free(ptr noundef %273) #19
   br label %.critedge357
 
-.critedge357:                                     ; preds = %508, %73, %55, %349, %413, %515, %.thread454, %463, %434, %.critedge355
-  %.0315 = phi ptr [ null, %.critedge355 ], [ null, %463 ], [ null, %508 ], [ null, %434 ], [ null, %515 ], [ %511, %.thread454 ], [ null, %413 ], [ null, %349 ], [ null, %55 ], [ null, %73 ]
+.critedge357:                                     ; preds = %508, %73, %55, %349, %413, %515, %.thread492, %463, %434, %.critedge355
+  %.0315 = phi ptr [ null, %.critedge355 ], [ null, %463 ], [ null, %508 ], [ null, %434 ], [ null, %515 ], [ %511, %.thread492 ], [ null, %413 ], [ null, %349 ], [ null, %55 ], [ null, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1648,8 +1648,8 @@ nodes_delete.exit.i.i.i.i:                        ; preds = %97, %.lr.ph.i.i.i.i
   br i1 %exitcond.not.i.i, label %find_all_cycles.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !88
 
 find_all_cycles.exit.i:                           ; preds = %nodes_delete.exit.i.i.i.i, %._crit_edge.i.i, %57
-  %.sroa.0.0.lcssa50.i.i = phi ptr [ %.sroa.0.1.i.i, %._crit_edge.i.i ], [ null, %57 ], [ %.sroa.0.1.i.i, %nodes_delete.exit.i.i.i.i ]
-  tail call void @free(ptr noundef %.sroa.0.0.lcssa50.i.i) #19, !noalias !81
+  %.sroa.0.0.lcssa55.i.i = phi ptr [ %.sroa.0.1.i.i, %._crit_edge.i.i ], [ null, %57 ], [ %.sroa.0.1.i.i, %nodes_delete.exit.i.i.i.i ]
+  tail call void @free(ptr noundef %.sroa.0.0.lcssa55.i.i) #19, !noalias !81
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val16.i.i = load i64, ptr %101, align 8, !tbaa !89
   %.not.i19.i = icmp eq i64 %.val16.i.i, 0
@@ -2088,8 +2088,8 @@ define internal fastcc void @limitBoxes(ptr noundef captures(none) %0, i64 nound
   %9 = fcmp ult double %7, 0.000000e+00
   %or.cond = or i1 %8, %9
   %.not = icmp eq i64 %1, 0
-  %or.cond89 = or i1 %or.cond, %.not
-  br i1 %or.cond89, label %._crit_edge, label %.preheader.us85
+  %or.cond95 = or i1 %or.cond, %.not
+  br i1 %or.cond95, label %._crit_edge, label %.preheader.us85
 
 .preheader.us85:                                  ; preds = %5, %..loopexit_crit_edge.split.us.us
   %10 = phi i64 [ %61, %..loopexit_crit_edge.split.us.us ], [ 3, %5 ]

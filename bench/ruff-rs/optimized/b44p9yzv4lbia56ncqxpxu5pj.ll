@@ -1578,13 +1578,13 @@ define { ptr, i64 } @"_ZN100_$LT$ruff_python_semantic..binding..AnyImport$u20$as
   %2 = load i64, ptr %0, align 8, !range !166, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !5, !noundef !4
-  switch i64 %2, label %default.unreachable8 [
+  switch i64 %2, label %default.unreachable12 [
     i64 0, label %5
     i64 1, label %21
     i64 2, label %37
   ]
 
-default.unreachable8:                             ; preds = %1
+default.unreachable12:                            ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
@@ -1878,13 +1878,13 @@ define { ptr, i64 } @"_ZN100_$LT$ruff_python_semantic..binding..AnyImport$u20$as
   %2 = load i64, ptr %0, align 8, !range !166, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !5, !noundef !4
-  switch i64 %2, label %default.unreachable7 [
+  switch i64 %2, label %default.unreachable11 [
     i64 0, label %5
     i64 1, label %14
     i64 2, label %23
   ]
 
-default.unreachable7:                             ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
@@ -1958,10 +1958,10 @@ default.unreachable7:                             ; preds = %1
   unreachable
 
 "_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit.sink.split": ; preds = %14, %5
-  %.sink9 = phi ptr [ %6, %5 ], [ %15, %14 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %.sink13 = phi ptr [ %6, %5 ], [ %15, %14 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   %41 = load ptr, ptr %40, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw i8, ptr %.sink9, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.sink13, i64 24
   %43 = load i64, ptr %42, align 8, !noalias !4, !noundef !4
   br label %"_ZN97_$LT$ruff_python_semantic..binding..Import$u20$as$u20$ruff_python_semantic..binding..Imported$GT$11source_name17h68d0a749dfbe3076E.exit"
 

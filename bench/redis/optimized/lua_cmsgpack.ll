@@ -205,8 +205,8 @@ define dso_local void @mp_encode_bytes(ptr noundef %0, ptr noundef captures(none
 14:                                               ; preds = %12
   store i8 -39, ptr %7, align 1, !tbaa !4
   %15 = trunc nuw i64 %3 to i8
-  %.1..1..1..sroa_idx31 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %15, ptr %.1..1..1..sroa_idx31, align 1, !tbaa !4
+  %.1..1..1..sroa_idx36 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 %15, ptr %.1..1..1..sroa_idx36, align 1, !tbaa !4
   br label %30
 
 16:                                               ; preds = %12
@@ -220,16 +220,16 @@ define dso_local void @mp_encode_bytes(ptr noundef %0, ptr noundef captures(none
   %.1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %20, ptr %.1..1..1..sroa_idx, align 1, !tbaa !4
   %21 = trunc i64 %3 to i8
-  %.2..2..2..sroa_idx32 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 %21, ptr %.2..2..2..sroa_idx32, align 1, !tbaa !4
+  %.2..2..2..sroa_idx37 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i8 %21, ptr %.2..2..2..sroa_idx37, align 1, !tbaa !4
   br label %30
 
 22:                                               ; preds = %16
   store i8 -37, ptr %7, align 1, !tbaa !4
   %23 = lshr i64 %3, 24
   %24 = trunc i64 %23 to i8
-  %.1..1..1..sroa_idx30 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %24, ptr %.1..1..1..sroa_idx30, align 1, !tbaa !4
+  %.1..1..1..sroa_idx35 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store i8 %24, ptr %.1..1..1..sroa_idx35, align 1, !tbaa !4
   %25 = lshr i64 %3, 16
   %26 = trunc i64 %25 to i8
   %.2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -529,8 +529,8 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
 13:                                               ; preds = %11
   store i8 -52, ptr %5, align 1, !tbaa !4
   %14 = trunc nuw i64 %2 to i8
-  %.1..1..1..sroa_idx94 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %14, ptr %.1..1..1..sroa_idx94, align 1, !tbaa !4
+  %.1..1..1..sroa_idx98 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %14, ptr %.1..1..1..sroa_idx98, align 1, !tbaa !4
   br label %87
 
 15:                                               ; preds = %11
@@ -541,11 +541,11 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
   store i8 -51, ptr %5, align 1, !tbaa !4
   %18 = lshr i64 %2, 8
   %19 = trunc nuw i64 %18 to i8
-  %.1..1..1..sroa_idx93 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %19, ptr %.1..1..1..sroa_idx93, align 1, !tbaa !4
+  %.1..1..1..sroa_idx97 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %19, ptr %.1..1..1..sroa_idx97, align 1, !tbaa !4
   %20 = trunc i64 %2 to i8
-  %.2..2..2..sroa_idx99 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %20, ptr %.2..2..2..sroa_idx99, align 1, !tbaa !4
+  %.2..2..2..sroa_idx103 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %20, ptr %.2..2..2..sroa_idx103, align 1, !tbaa !4
   br label %87
 
 21:                                               ; preds = %15
@@ -556,54 +556,54 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
   store i8 -50, ptr %5, align 1, !tbaa !4
   %24 = lshr i64 %2, 24
   %25 = trunc nuw i64 %24 to i8
-  %.1..1..1..sroa_idx91 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %25, ptr %.1..1..1..sroa_idx91, align 1, !tbaa !4
+  %.1..1..1..sroa_idx95 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %25, ptr %.1..1..1..sroa_idx95, align 1, !tbaa !4
   %26 = lshr i64 %2, 16
   %27 = trunc i64 %26 to i8
-  %.2..2..2..sroa_idx97 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %27, ptr %.2..2..2..sroa_idx97, align 1, !tbaa !4
+  %.2..2..2..sroa_idx101 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %27, ptr %.2..2..2..sroa_idx101, align 1, !tbaa !4
   %28 = lshr i64 %2, 8
   %29 = trunc i64 %28 to i8
-  %.3..3..3..sroa_idx101 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %29, ptr %.3..3..3..sroa_idx101, align 1, !tbaa !4
+  %.3..3..3..sroa_idx105 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %29, ptr %.3..3..3..sroa_idx105, align 1, !tbaa !4
   %30 = trunc i64 %2 to i8
-  %.4..4..4..sroa_idx105 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i8 %30, ptr %.4..4..4..sroa_idx105, align 1, !tbaa !4
+  %.4..4..4..sroa_idx109 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i8 %30, ptr %.4..4..4..sroa_idx109, align 1, !tbaa !4
   br label %87
 
 31:                                               ; preds = %21
   store i8 -49, ptr %5, align 1, !tbaa !4
   %32 = lshr i64 %2, 56
   %33 = trunc nuw nsw i64 %32 to i8
-  %.1..1..1..sroa_idx92 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %33, ptr %.1..1..1..sroa_idx92, align 1, !tbaa !4
+  %.1..1..1..sroa_idx96 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %33, ptr %.1..1..1..sroa_idx96, align 1, !tbaa !4
   %34 = lshr i64 %2, 48
   %35 = trunc i64 %34 to i8
-  %.2..2..2..sroa_idx98 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %35, ptr %.2..2..2..sroa_idx98, align 1, !tbaa !4
+  %.2..2..2..sroa_idx102 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %35, ptr %.2..2..2..sroa_idx102, align 1, !tbaa !4
   %36 = lshr i64 %2, 40
   %37 = trunc i64 %36 to i8
-  %.3..3..3..sroa_idx102 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %37, ptr %.3..3..3..sroa_idx102, align 1, !tbaa !4
+  %.3..3..3..sroa_idx106 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %37, ptr %.3..3..3..sroa_idx106, align 1, !tbaa !4
   %38 = lshr i64 %2, 32
   %39 = trunc i64 %38 to i8
-  %.4..4..4..sroa_idx104 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i8 %39, ptr %.4..4..4..sroa_idx104, align 1, !tbaa !4
+  %.4..4..4..sroa_idx108 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i8 %39, ptr %.4..4..4..sroa_idx108, align 1, !tbaa !4
   %40 = lshr i64 %2, 24
   %41 = trunc i64 %40 to i8
-  %.5..5..5..sroa_idx106 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  store i8 %41, ptr %.5..5..5..sroa_idx106, align 1, !tbaa !4
+  %.5..5..5..sroa_idx110 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  store i8 %41, ptr %.5..5..5..sroa_idx110, align 1, !tbaa !4
   %42 = lshr i64 %2, 16
   %43 = trunc i64 %42 to i8
-  %.6..6..6..sroa_idx107 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  store i8 %43, ptr %.6..6..6..sroa_idx107, align 1, !tbaa !4
+  %.6..6..6..sroa_idx111 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  store i8 %43, ptr %.6..6..6..sroa_idx111, align 1, !tbaa !4
   %44 = lshr i64 %2, 8
   %45 = trunc i64 %44 to i8
-  %.7..7..7..sroa_idx108 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  store i8 %45, ptr %.7..7..7..sroa_idx108, align 1, !tbaa !4
+  %.7..7..7..sroa_idx112 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  store i8 %45, ptr %.7..7..7..sroa_idx112, align 1, !tbaa !4
   %46 = trunc i64 %2 to i8
-  %.8..8..8..sroa_idx109 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %46, ptr %.8..8..8..sroa_idx109, align 1, !tbaa !4
+  %.8..8..8..sroa_idx113 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 %46, ptr %.8..8..8..sroa_idx113, align 1, !tbaa !4
   br label %87
 
 47:                                               ; preds = %3
@@ -622,8 +622,8 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
 53:                                               ; preds = %51
   store i8 -48, ptr %5, align 1, !tbaa !4
   %54 = trunc nsw i64 %2 to i8
-  %.1..1..1..sroa_idx90 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %54, ptr %.1..1..1..sroa_idx90, align 1, !tbaa !4
+  %.1..1..1..sroa_idx94 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %54, ptr %.1..1..1..sroa_idx94, align 1, !tbaa !4
   br label %87
 
 55:                                               ; preds = %51
@@ -634,11 +634,11 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
   store i8 -47, ptr %5, align 1, !tbaa !4
   %58 = lshr i64 %2, 8
   %59 = trunc i64 %58 to i8
-  %.1..1..1..sroa_idx89 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %59, ptr %.1..1..1..sroa_idx89, align 1, !tbaa !4
+  %.1..1..1..sroa_idx93 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %59, ptr %.1..1..1..sroa_idx93, align 1, !tbaa !4
   %60 = trunc i64 %2 to i8
-  %.2..2..2..sroa_idx96 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %60, ptr %.2..2..2..sroa_idx96, align 1, !tbaa !4
+  %.2..2..2..sroa_idx100 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %60, ptr %.2..2..2..sroa_idx100, align 1, !tbaa !4
   br label %87
 
 61:                                               ; preds = %55
@@ -660,24 +660,24 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
   %.3..3..3..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %69, ptr %.3..3..3..sroa_idx, align 1, !tbaa !4
   %70 = trunc i64 %2 to i8
-  %.4..4..4..sroa_idx103 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i8 %70, ptr %.4..4..4..sroa_idx103, align 1, !tbaa !4
+  %.4..4..4..sroa_idx107 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i8 %70, ptr %.4..4..4..sroa_idx107, align 1, !tbaa !4
   br label %87
 
 71:                                               ; preds = %61
   store i8 -45, ptr %5, align 1, !tbaa !4
   %72 = lshr i64 %2, 56
   %73 = trunc nuw i64 %72 to i8
-  %.1..1..1..sroa_idx88 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %73, ptr %.1..1..1..sroa_idx88, align 1, !tbaa !4
+  %.1..1..1..sroa_idx92 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %73, ptr %.1..1..1..sroa_idx92, align 1, !tbaa !4
   %74 = lshr i64 %2, 48
   %75 = trunc i64 %74 to i8
-  %.2..2..2..sroa_idx95 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %75, ptr %.2..2..2..sroa_idx95, align 1, !tbaa !4
+  %.2..2..2..sroa_idx99 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %75, ptr %.2..2..2..sroa_idx99, align 1, !tbaa !4
   %76 = lshr i64 %2, 40
   %77 = trunc i64 %76 to i8
-  %.3..3..3..sroa_idx100 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %77, ptr %.3..3..3..sroa_idx100, align 1, !tbaa !4
+  %.3..3..3..sroa_idx104 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %77, ptr %.3..3..3..sroa_idx104, align 1, !tbaa !4
   %78 = lshr i64 %2, 32
   %79 = trunc i64 %78 to i8
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -781,16 +781,16 @@ define dso_local void @mp_encode_array(ptr noundef %0, ptr noundef captures(none
   %.1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %14, ptr %.1..1..1..sroa_idx, align 1, !tbaa !4
   %15 = trunc i64 %2 to i8
-  %.2..2..2..sroa_idx17 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %15, ptr %.2..2..2..sroa_idx17, align 1, !tbaa !4
+  %.2..2..2..sroa_idx21 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %15, ptr %.2..2..2..sroa_idx21, align 1, !tbaa !4
   br label %24
 
 16:                                               ; preds = %10
   store i8 -35, ptr %5, align 1, !tbaa !4
   %17 = lshr i64 %2, 24
   %18 = trunc i64 %17 to i8
-  %.1..1..1..sroa_idx16 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %18, ptr %.1..1..1..sroa_idx16, align 1, !tbaa !4
+  %.1..1..1..sroa_idx20 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %18, ptr %.1..1..1..sroa_idx20, align 1, !tbaa !4
   %19 = lshr i64 %2, 16
   %20 = trunc i64 %19 to i8
   %.2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -886,16 +886,16 @@ define dso_local void @mp_encode_map(ptr noundef %0, ptr noundef captures(none) 
   %.1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %14, ptr %.1..1..1..sroa_idx, align 1, !tbaa !4
   %15 = trunc i64 %2 to i8
-  %.2..2..2..sroa_idx17 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %15, ptr %.2..2..2..sroa_idx17, align 1, !tbaa !4
+  %.2..2..2..sroa_idx21 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %15, ptr %.2..2..2..sroa_idx21, align 1, !tbaa !4
   br label %24
 
 16:                                               ; preds = %10
   store i8 -33, ptr %5, align 1, !tbaa !4
   %17 = lshr i64 %2, 24
   %18 = trunc i64 %17 to i8
-  %.1..1..1..sroa_idx16 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %18, ptr %.1..1..1..sroa_idx16, align 1, !tbaa !4
+  %.1..1..1..sroa_idx20 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %18, ptr %.1..1..1..sroa_idx20, align 1, !tbaa !4
   %19 = lshr i64 %2, 16
   %20 = trunc i64 %19 to i8
   %.2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2

@@ -34,28 +34,28 @@ define range(i32 -38, 1) i32 @ff_mov_get_channel_layout_tag(ptr noundef %0, ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = icmp eq i32 %6, 86018
-  br i1 %7, label %._crit_edge126, label %.lr.ph125
+  br i1 %7, label %._crit_edge134, label %.lr.ph133
 
-.lr.ph125:                                        ; preds = %4, %8
-  %indvars.iv123 = phi i64 [ %indvars.iv.next, %8 ], [ 0, %4 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv123, 1
+.lr.ph133:                                        ; preds = %4, %8
+  %indvars.iv131 = phi i64 [ %indvars.iv.next, %8 ], [ 0, %4 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv131, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 15
   br i1 %exitcond, label %.sink.split, label %8, !llvm.loop !15
 
-8:                                                ; preds = %.lr.ph125
+8:                                                ; preds = %.lr.ph133
   %9 = getelementptr inbounds nuw [16 x %struct.anon], ptr @mov_codec_ch_layouts, i64 0, i64 %indvars.iv.next
   %10 = load i32, ptr %9, align 16, !tbaa !17
   %11 = icmp eq i32 %10, %6
-  br i1 %11, label %._crit_edge126, label %.lr.ph125, !llvm.loop !15
+  br i1 %11, label %._crit_edge134, label %.lr.ph133, !llvm.loop !15
 
-._crit_edge126:                                   ; preds = %8, %4
-  %.lcssa121 = phi ptr [ @mov_codec_ch_layouts, %4 ], [ %9, %8 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.lcssa121, i64 8
+._crit_edge134:                                   ; preds = %8, %4
+  %.lcssa129 = phi ptr [ @mov_codec_ch_layouts, %4 ], [ %9, %8 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.lcssa129, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %.not50 = icmp eq ptr %13, null
   br i1 %.not50, label %.sink.split, label %.preheader68
 
-.preheader68:                                     ; preds = %._crit_edge126
+.preheader68:                                     ; preds = %._crit_edge134
   %14 = load i32, ptr %13, align 4, !tbaa !20
   %.not5184 = icmp eq i32 %14, 0
   br i1 %.not5184, label %.sink.split, label %.lr.ph
@@ -143,7 +143,7 @@ find_layout_map.exit.thread.i:                    ; preds = %.lr.ph.i, %find_lay
   %42 = icmp eq i32 %.pr, 0
   br i1 %42, label %43, label %.thread65
 
-.sink.split:                                      ; preds = %.lr.ph125, %find_layout_map.exit.thread.i, %._crit_edge126, %.preheader68
+.sink.split:                                      ; preds = %.lr.ph133, %find_layout_map.exit.thread.i, %._crit_edge134, %.preheader68
   store i32 0, ptr %1, align 4, !tbaa !20
   store i32 0, ptr %2, align 4, !tbaa !20
   store ptr null, ptr %3, align 8, !tbaa !26

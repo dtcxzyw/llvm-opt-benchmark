@@ -1872,7 +1872,7 @@ if.then20:                                        ; preds = %if.else18
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %first, i64 %div6.i
   %1 = load i8, ptr %arrayidx1.i, align 1
   %sub.i31 = add nsw i64 %len, -1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %first, i64 %sub.i31
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %first, i64 %sub.i31
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
@@ -2980,12 +2980,12 @@ if.end14:                                         ; preds = %while.body.i, %if.t
   br label %return
 
 return:                                           ; preds = %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit, %if.then.i.i.i.i, %if.end.i.i.i.i, %if.end14
-  %.sink31 = phi ptr [ %17, %if.end14 ], [ %iter.sroa.0.0.i3, %if.end.i.i.i.i ], [ %iter.sroa.0.0.i3, %if.then.i.i.i.i ], [ %iter.sroa.0.0.i3, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
-  %.sink30 = phi i32 [ %18, %if.end14 ], [ %iter.sroa.7.0.i, %if.end.i.i.i.i ], [ %iter.sroa.7.0.i, %if.then.i.i.i.i ], [ %iter.sroa.7.0.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
+  %.sink40 = phi ptr [ %17, %if.end14 ], [ %iter.sroa.0.0.i3, %if.end.i.i.i.i ], [ %iter.sroa.0.0.i3, %if.then.i.i.i.i ], [ %iter.sroa.0.0.i3, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
+  %.sink39 = phi i32 [ %18, %if.end14 ], [ %iter.sroa.7.0.i, %if.end.i.i.i.i ], [ %iter.sroa.7.0.i, %if.then.i.i.i.i ], [ %iter.sroa.7.0.i, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
   %.sink = phi i8 [ 1, %if.end14 ], [ 0, %if.end.i.i.i.i ], [ 0, %if.then.i.i.i.i ], [ 0, %_ZNK4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE12compare_keysIS7_S7_EEbRKT_RKT0_.exit ]
-  store ptr %.sink31, ptr %agg.result, align 8
+  store ptr %.sink40, ptr %agg.result, align 8
   %ref.tmp15.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i32 %.sink30, ptr %ref.tmp15.sroa.2.0.agg.result.sroa_idx, align 8
+  store i32 %.sink39, ptr %ref.tmp15.sroa.2.0.agg.result.sroa_idx, align 8
   %second.i16 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i8 %.sink, ptr %second.i16, align 8
   ret void

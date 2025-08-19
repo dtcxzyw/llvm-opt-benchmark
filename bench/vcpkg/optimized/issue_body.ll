@@ -1262,7 +1262,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %141 = getelementptr inbounds nuw i8, ptr %18, i64 64
   invoke void @_ZN5vcpkg4PathC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %141, ptr noundef nonnull @.str.9)
-          to label %.noexc56 unwind label %.body.thread237
+          to label %.noexc56 unwind label %.body.thread320
 
 .noexc56:                                         ; preds = %136
   %142 = getelementptr inbounds nuw i8, ptr %18, i64 96
@@ -1332,7 +1332,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %168 = getelementptr inbounds nuw i8, ptr %18, i64 128
   invoke void @_ZN5vcpkg4PathC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %168, ptr noundef nonnull @.str.12)
-          to label %.noexc66 unwind label %.body.thread237
+          to label %.noexc66 unwind label %.body.thread320
 
 .noexc66:                                         ; preds = %163
   %169 = getelementptr inbounds nuw i8, ptr %18, i64 160
@@ -1801,7 +1801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %652
 
-.body.thread237:                                  ; preds = %136, %163
+.body.thread320:                                  ; preds = %136, %163
   %.023.ph = phi ptr [ %168, %163 ], [ %141, %136 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
@@ -1812,20 +1812,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
           cleanup
   br label %.body.thread
 
-.preheader.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52, %.body.thread237
-  %eh.lpad-body235 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread237 ], [ %181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i64 ], [ %181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62 ], [ %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i54 ], [ %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52 ]
-  %.023.lpad-body234 = phi ptr [ %.023.ph, %.body.thread237 ], [ %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i64 ], [ %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62 ], [ %141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i54 ], [ %141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52 ]
+.preheader.preheader:                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52, %.body.thread320
+  %eh.lpad-body318 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread320 ], [ %181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i64 ], [ %181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62 ], [ %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i54 ], [ %154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52 ]
+  %.023.lpad-body317 = phi ptr [ %.023.ph, %.body.thread320 ], [ %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i64 ], [ %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i62 ], [ %141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i54 ], [ %141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i52 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %342 = phi ptr [ %343, %.preheader ], [ %.023.lpad-body234, %.preheader.preheader ]
+  %342 = phi ptr [ %343, %.preheader ], [ %.023.lpad-body317, %.preheader.preheader ]
   %343 = getelementptr inbounds i8, ptr %342, i64 -64
   call void @_ZNSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %343) #21
   %344 = icmp eq ptr %343, %18
   br i1 %344, label %.body.thread, label %.preheader
 
 .body71:                                          ; preds = %.body188.thread, %.body188, %212
-  %eh.lpad-body189230 = phi { ptr, i32 } [ %211, %.body188.thread ], [ %206, %.body188 ], [ %206, %212 ]
+  %eh.lpad-body189313 = phi { ptr, i32 } [ %211, %.body188.thread ], [ %206, %.body188 ], [ %206, %212 ]
   br label %345
 
 345:                                              ; preds = %345, %.body71
@@ -1836,7 +1836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   br i1 %348, label %.body.thread, label %345
 
 .body.thread:                                     ; preds = %.preheader, %345, %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %.pn28 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %eh.lpad-body189230, %345 ], [ %eh.lpad-body235, %.preheader ]
+  %.pn28 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %eh.lpad-body189313, %345 ], [ %eh.lpad-body318, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %559
 
@@ -2443,7 +2443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160: ; preds = %_Z
   br i1 %570, label %.body135.thread, label %567
 
 .body140:                                         ; preds = %.body196.thread, %.body196, %478
-  %eh.lpad-body197242 = phi { ptr, i32 } [ %477, %.body196.thread ], [ %472, %.body196 ], [ %472, %478 ]
+  %eh.lpad-body197325 = phi { ptr, i32 } [ %477, %.body196.thread ], [ %472, %.body196 ], [ %472, %478 ]
   br label %571
 
 571:                                              ; preds = %571, %.body140
@@ -2454,7 +2454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160: ; preds = %_Z
   br i1 %574, label %.body135.thread, label %571
 
 .body135.thread:                                  ; preds = %567, %571, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i130, %.body135.thread216
-  %.pn36 = phi { ptr, i32 } [ %430, %.body135.thread216 ], [ %443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i130 ], [ %443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i132 ], [ %eh.lpad-body197242, %571 ], [ %566, %567 ]
+  %.pn36 = phi { ptr, i32 } [ %430, %.body135.thread216 ], [ %443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i130 ], [ %443, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i132 ], [ %eh.lpad-body197325, %571 ], [ %566, %567 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %645
 

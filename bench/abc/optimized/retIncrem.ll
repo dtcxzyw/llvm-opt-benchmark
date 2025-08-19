@@ -73,7 +73,7 @@ Abc_NtkRetimeOneWay.exit.thread:                  ; preds = %22
   %32 = getelementptr i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !25
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.split.i.us, label %.loopexit50.i.thread73
+  br i1 %34, label %.split.i.us, label %.loopexit50.i.thread78
 
 .thread:                                          ; preds = %27
   tail call void @Abc_NtkRetimeTranferToCopy(ptr noundef nonnull %0) #9
@@ -243,8 +243,8 @@ Abc_NtkRetimeNodeIsEnabled.exit.us.i.us:          ; preds = %54, %.loopexit.us.A
   br label %Abc_NtkRetimeNodeIsEnabled.exit.i
 
 .critedge.thread.i:                               ; preds = %.loopexit49.i, %.loopexit.us.i.us
-  %.034.i6270 = phi ptr [ %29, %.loopexit.us.i.us ], [ null, %.loopexit49.i ]
-  %.0.i6468 = phi ptr [ %30, %.loopexit.us.i.us ], [ null, %.loopexit49.i ]
+  %.034.i6775 = phi ptr [ %29, %.loopexit.us.i.us ], [ null, %.loopexit49.i ]
+  %.0.i6973 = phi ptr [ %30, %.loopexit.us.i.us ], [ null, %.loopexit49.i ]
   %.us-phi.i = phi i32 [ %63, %.loopexit.us.i.us ], [ %96, %.loopexit49.i ]
   %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.us-phi.i)
   br label %.loopexit50.i
@@ -267,30 +267,30 @@ Abc_NtkRetimeNodeIsEnabled.exit.i:                ; preds = %88, %.loopexit49.Ab
   br i1 %105, label %.split.i, label %.loopexit50.i, !llvm.loop !38
 
 .loopexit50.i:                                    ; preds = %.split.i, %.critedge.i.loopexit46, %.critedge.i.loopexit.us, %.split.i.us, %.critedge.thread.i
-  %.0.i63 = phi ptr [ %.0.i6468, %.critedge.thread.i ], [ %30, %.split.i.us ], [ %30, %.critedge.i.loopexit.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
-  %.034.i61 = phi ptr [ %.034.i6270, %.critedge.thread.i ], [ %29, %.split.i.us ], [ %29, %.critedge.i.loopexit.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
-  br i1 %.not.i, label %.loopexit50.i.thread73, label %.loopexit50.i.thread
+  %.0.i68 = phi ptr [ %.0.i6973, %.critedge.thread.i ], [ %30, %.split.i.us ], [ %30, %.critedge.i.loopexit.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
+  %.034.i66 = phi ptr [ %.034.i6775, %.critedge.thread.i ], [ %29, %.split.i.us ], [ %29, %.critedge.i.loopexit.us ], [ null, %.critedge.i.loopexit46 ], [ null, %.split.i ]
+  br i1 %.not.i, label %.loopexit50.i.thread78, label %.loopexit50.i.thread
 
 .loopexit50.i.thread:                             ; preds = %.thread, %.loopexit50.i
   tail call void @Abc_NtkRetimeTranferFromCopy(ptr noundef nonnull %0) #9
   br label %Abc_NtkRetimeOneWay.exit
 
-.loopexit50.i.thread73:                           ; preds = %28, %.loopexit50.i
-  %.034.i6177 = phi ptr [ %.034.i61, %.loopexit50.i ], [ %29, %28 ]
-  %.0.i6376 = phi ptr [ %.0.i63, %.loopexit50.i ], [ %30, %28 ]
-  tail call void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef nonnull %0, ptr noundef %.0.i6376, ptr noundef %.034.i6177, i32 noundef %6) #9
-  tail call void @Abc_NtkDelete(ptr noundef %.0.i6376) #9
-  %106 = getelementptr inbounds nuw i8, ptr %.034.i6177, i64 8
+.loopexit50.i.thread78:                           ; preds = %28, %.loopexit50.i
+  %.034.i6682 = phi ptr [ %.034.i66, %.loopexit50.i ], [ %29, %28 ]
+  %.0.i6881 = phi ptr [ %.0.i68, %.loopexit50.i ], [ %30, %28 ]
+  tail call void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef nonnull %0, ptr noundef %.0.i6881, ptr noundef %.034.i6682, i32 noundef %6) #9
+  tail call void @Abc_NtkDelete(ptr noundef %.0.i6881) #9
+  %106 = getelementptr inbounds nuw i8, ptr %.034.i6682, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !43
   %.not.i42.i = icmp eq ptr %107, null
   br i1 %.not.i42.i, label %Vec_IntFree.exit.i, label %108
 
-108:                                              ; preds = %.loopexit50.i.thread73
+108:                                              ; preds = %.loopexit50.i.thread78
   tail call void @free(ptr noundef nonnull %107) #9
   br label %Vec_IntFree.exit.i
 
-Vec_IntFree.exit.i:                               ; preds = %108, %.loopexit50.i.thread73
-  tail call void @free(ptr noundef nonnull %.034.i6177) #9
+Vec_IntFree.exit.i:                               ; preds = %108, %.loopexit50.i.thread78
+  tail call void @free(ptr noundef nonnull %.034.i6682) #9
   br label %Abc_NtkRetimeOneWay.exit
 
 Abc_NtkRetimeOneWay.exit:                         ; preds = %.loopexit50.i.thread, %Vec_IntFree.exit.i, %Abc_NtkRetimeOneWay.exit.thread

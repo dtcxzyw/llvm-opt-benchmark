@@ -2718,8 +2718,8 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   %663 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %664 = load ptr, ptr %663, align 8, !tbaa !156
   %665 = call ptr @g_type_check_instance_cast(ptr noundef %664, i64 noundef %37) #18
-  %.593 = zext i1 %.not516 to i32
-  call void @gtk_toggle_button_set_active(ptr noundef %665, i32 noundef %.593) #18
+  %.609 = zext i1 %.not516 to i32
+  call void @gtk_toggle_button_set_active(ptr noundef %665, i32 noundef %.609) #18
   ret void
 }
 
@@ -7139,14 +7139,14 @@ define internal range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(n
 30:                                               ; preds = %12
   %31 = icmp sgt i32 %22, 0
   %32 = icmp sgt i32 %18, 0
-  %or.cond78 = and i1 %31, %32
+  %or.cond89 = and i1 %31, %32
   br i1 %15, label %.preheader44, label %.preheader46
 
 .preheader46:                                     ; preds = %30
-  br i1 %or.cond78, label %.preheader45, label %.loopexit
+  br i1 %or.cond89, label %.preheader45, label %.loopexit
 
 .preheader44:                                     ; preds = %30
-  br i1 %or.cond78, label %.preheader, label %.loopexit
+  br i1 %or.cond89, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.preheader44, %._crit_edge59
   %33 = phi i32 [ %36, %._crit_edge59 ], [ %22, %.preheader44 ]

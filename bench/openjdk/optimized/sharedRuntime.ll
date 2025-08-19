@@ -434,8 +434,8 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %_ZNK5frame6senderEP
 
 _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %_ZNK5frame6senderEP11RegisterMap.exit
   %.old = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
-  %.old33 = icmp eq ptr %.pre, %.old
-  br i1 %.old33, label %36, label %30
+  %.old37 = icmp eq ptr %.pre, %.old
+  br i1 %.old37, label %36, label %30
 
 30:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit, %_ZNK5frame20is_interpreted_frameEv.exit.thread
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7164,7 +7164,7 @@ define hidden noundef ptr @_ZN21AdapterHandlerLibrary14create_adapterERP11Adapte
   br i1 %47, label %.preheader.preheader.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit
 
 .preheader.preheader.i:                           ; preds = %42, %.thread.i
-  %.040.i = phi ptr [ %41, %.thread.i ], [ %34, %42 ]
+  %.041.i = phi ptr [ %41, %.thread.i ], [ %34, %42 ]
   %48 = zext nneg i32 %1 to i64
   %smax.i = call i32 @llvm.smax.i32(i32 %36, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
@@ -7216,7 +7216,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.02130.i, %.preheader.i ], [ %63, %._crit_edge.loopexit.i ]
   %.019.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %58, %._crit_edge.loopexit.i ]
-  %64 = getelementptr inbounds nuw i32, ptr %.040.i, i64 %indvars.iv36.i
+  %64 = getelementptr inbounds nuw i32, ptr %.041.i, i64 %indvars.iv36.i
   store i32 %.019.lcssa.i, ptr %64, align 4
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i
@@ -7713,7 +7713,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN24Adapte
   br i1 %.not5.i, label %_ZN18AdapterFingerPrintC2EiP9BasicType.exit.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %101, %.thread.i.i
-  %.040.i.i = phi ptr [ %100, %.thread.i.i ], [ %2, %101 ]
+  %.041.i.i = phi ptr [ %100, %.thread.i.i ], [ %2, %101 ]
   %106 = zext i16 %42 to i64
   %107 = call i32 @llvm.umax.i32(i32 %95, i32 1)
   %wide.trip.count.i.i = zext nneg i32 %107 to i64
@@ -7765,7 +7765,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.02130.i.i, %.preheader.i.i ], [ %122, %._crit_edge.loopexit.i.i ]
   %.019.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %117, %._crit_edge.loopexit.i.i ]
-  %123 = getelementptr inbounds nuw i32, ptr %.040.i.i, i64 %indvars.iv36.i.i
+  %123 = getelementptr inbounds nuw i32, ptr %.041.i.i, i64 %indvars.iv36.i.i
   store i32 %.019.lcssa.i.i, ptr %123, align 4
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, %wide.trip.count.i.i
@@ -9155,8 +9155,8 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %44
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 32768
-  %.not45 = icmp eq i32 %62, 0
-  br i1 %.not45, label %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit, label %80
+  %.not53 = icmp eq i32 %62, 0
+  br i1 %.not53, label %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit, label %80
 
 _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %44, %_ZNK5frame20is_interpreted_frameEv.exit
   %63 = load ptr, ptr %24, align 8
@@ -9202,9 +9202,9 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %44, %_ZNK5frame20is
   br i1 %.2, label %80, label %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit
 
 80:                                               ; preds = %57, %.loopexit
-  %.01744 = phi ptr [ %56, %57 ], [ %71, %.loopexit ]
+  %.01752 = phi ptr [ %56, %57 ], [ %71, %.loopexit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
-  %81 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.01744) #18
+  %81 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.01752) #18
   %82 = add nsw i32 %.019, 1
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.55, ptr noundef %81, i32 noundef %.019) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %5, i8 0, i64 19, i1 false)
@@ -9217,7 +9217,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %44, %_ZNK5frame20is
   store i64 %85, ptr %5, align 8
   store i8 1, ptr %25, align 1
   store i8 1, ptr %26, align 2
-  store ptr %.01744, ptr %27, align 8
+  store ptr %.01752, ptr %27, align 8
   call void @_ZN8JfrEventI28EventReservedStackActivationE11write_eventEv(ptr noundef nonnull align 8 dereferenceable(19) %5)
   br label %_ZN8JfrEventI28EventReservedStackActivationE13should_commitEv.exit
 

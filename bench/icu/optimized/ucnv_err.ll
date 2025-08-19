@@ -479,8 +479,8 @@ switch.early.test:                                ; preds = %switch.early.test16
   br label %97
 
 97:                                               ; preds = %89, %94
-  %.sink202 = phi i32 [ %96, %94 ], [ %4, %89 ]
-  %98 = call i32 @uprv_itou_77(ptr noundef nonnull %93, i32 noundef 45, i32 noundef %.sink202, i32 noundef 16, i32 noundef 0)
+  %.sink206 = phi i32 [ %96, %94 ], [ %4, %89 ]
+  %98 = call i32 @uprv_itou_77(ptr noundef nonnull %93, i32 noundef 45, i32 noundef %.sink206, i32 noundef 16, i32 noundef 0)
   %.4 = add nsw i32 %98, 3
   %99 = add nsw i32 %98, 4
   %100 = sext i32 %.4 to i64
@@ -504,8 +504,8 @@ switch.early.test:                                ; preds = %switch.early.test16
   br label %110
 
 110:                                              ; preds = %102, %107
-  %.sink203 = phi i32 [ %109, %107 ], [ %4, %102 ]
-  %111 = call i32 @uprv_itou_77(ptr noundef nonnull %106, i32 noundef 45, i32 noundef %.sink203, i32 noundef 16, i32 noundef 4)
+  %.sink207 = phi i32 [ %109, %107 ], [ %4, %102 ]
+  %111 = call i32 @uprv_itou_77(ptr noundef nonnull %106, i32 noundef 45, i32 noundef %.sink207, i32 noundef 16, i32 noundef 4)
   %.5 = add nsw i32 %111, 3
   %112 = add nsw i32 %111, 4
   %113 = sext i32 %.5 to i64
@@ -563,8 +563,8 @@ switch.early.test:                                ; preds = %switch.early.test16
   br i1 %142, label %143, label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit, %25, %20, %switch.early.test, %switch.early.test, %switch.early.test168, %switch.early.test168, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18
-  %.sink204 = phi i32 [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %switch.early.test168 ], [ 0, %switch.early.test168 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %20 ], [ %28, %25 ], [ %141, %.loopexit ]
-  store i32 %.sink204, ptr %6, align 4, !tbaa !3
+  %.sink208 = phi i32 [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %switch.early.test168 ], [ 0, %switch.early.test168 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 0, %20 ], [ %28, %25 ], [ %141, %.loopexit ]
+  store i32 %.sink208, ptr %6, align 4, !tbaa !3
   br label %143
 
 143:                                              ; preds = %.sink.split, %.loopexit, %7

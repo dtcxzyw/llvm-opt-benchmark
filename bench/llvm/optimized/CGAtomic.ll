@@ -2669,7 +2669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14.i: ; preds =
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14.i
   %1093 = load ptr, ptr %58, align 8, !tbaa !700
   %1094 = icmp eq ptr %1093, %674
-  br i1 %1094, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %1094, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %1095 = load i64, ptr %675, align 8, !tbaa !695
@@ -2680,14 +2680,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %1099 = icmp eq ptr %1097, %1098
   br i1 %1099, label %1103, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %1100 = load ptr, ptr %59, align 8, !tbaa !700
   %1101 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %1102 = icmp eq ptr %1100, %1101
   br i1 %1102, label %1103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-1103:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %1104 = phi ptr [ %1100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %1097, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+1103:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %1104 = phi ptr [ %1100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %1097, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %1105 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %1106 = load i64, ptr %1105, align 8, !tbaa !695
   %1107 = icmp ult i64 %1106, 16
@@ -2724,7 +2724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %1116, ptr %674, align 8, !tbaa !8
   br label %1122
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %1117 = load i64, ptr %674, align 8, !tbaa !8
   store ptr %1100, ptr %58, align 8, !tbaa !700
   %1118 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -3258,7 +3258,7 @@ _ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
 
 1346:                                             ; preds = %1339
   %1347 = trunc nuw nsw i64 %.0.i.i to i32
-  switch i32 %1347, label %default.unreachable [
+  switch i32 %1347, label %default.unreachable1057 [
     i32 0, label %.sink.split
     i32 1, label %1348
     i32 2, label %1348
@@ -3280,7 +3280,7 @@ _ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
 1351:                                             ; preds = %1346
   br label %.sink.split
 
-default.unreachable:                              ; preds = %1346
+default.unreachable1057:                          ; preds = %1346
   unreachable
 
 .sink.split:                                      ; preds = %1350, %1349, %1348, %1346, %1351
@@ -4355,8 +4355,8 @@ _ZNK5clang7CodeGen6LValue21getRawBitFieldPointerERNS0_15CodeGenFunctionE.exit: ;
   %.sroa.0.0.copyload.i.i113 = load i64, ptr %82, align 8, !tbaa !623
   %144 = ptrtoint ptr %130 to i64
   %145 = and i64 %144, -5
-  %.sroa.6.7..sroa_idx159 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx159, i8 0, i64 16, i1 false)
+  %.sroa.6.7..sroa_idx160 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.7..sroa_idx160, i8 0, i64 16, i1 false)
   %.sroa.0.0.copyload.i114 = load i64, ptr %33, align 8, !tbaa !8
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %.sroa.0.0.copyload.i115 = load i32, ptr %146, align 4, !tbaa !627
@@ -6100,7 +6100,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE
   %260 = trunc nuw i8 %.val.i60 to i1
   %switch.tableidx = add nsw i32 %3, -2
   %261 = zext nneg i32 %switch.tableidx to i64
-  br i1 %260, label %switch.lookup, label %switch.lookup170
+  br i1 %260, label %switch.lookup, label %switch.lookup181
 
 switch.lookup:                                    ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0.i.i.i)
@@ -6379,11 +6379,11 @@ _ZN12_GLOBAL__N_110AtomicInfo23EmitAtomicUpdateLibcallEN4llvm14AtomicOrderingEN5
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.sroa.0.i.i.i)
   br label %_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicUpdateEN4llvm14AtomicOrderingEN5clang7CodeGen6RValueEb.exit
 
-switch.lookup170:                                 ; preds = %258
+switch.lookup181:                                 ; preds = %258
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.0.i.i6.i)
-  %switch.gep172 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %261
-  %switch.load173 = load i32, ptr %switch.gep172, align 4
-  %370 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %27, i32 noundef %switch.load173, i1 noundef zeroext %4, i1 noundef zeroext true)
+  %switch.gep183 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %261
+  %switch.load184 = load i32, ptr %switch.gep183, align 4
+  %370 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %27, i32 noundef %switch.load184, i1 noundef zeroext %4, i1 noundef zeroext true)
   %371 = load ptr, ptr %27, align 8, !tbaa !747
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %372 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -6433,13 +6433,13 @@ switch.lookup170:                                 ; preds = %258
   %401 = icmp eq i32 %398, %400
   br i1 %401, label %402, label %403
 
-402:                                              ; preds = %switch.lookup170
+402:                                              ; preds = %switch.lookup181
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %395) #15
   %.pre.i.i.i = load i32, ptr %396, align 4
   br label %403
 
-403:                                              ; preds = %402, %switch.lookup170
-  %404 = phi i32 [ %.pre.i.i.i, %402 ], [ %397, %switch.lookup170 ]
+403:                                              ; preds = %402, %switch.lookup181
+  %404 = phi i32 [ %.pre.i.i.i, %402 ], [ %397, %switch.lookup181 ]
   %405 = add i32 %404, 1
   %406 = and i32 %405, 134217727
   %407 = and i32 %404, -134217728
@@ -6636,7 +6636,7 @@ _ZL21EmitAtomicUpdateValueRN5clang7CodeGen15CodeGenFunctionERN12_GLOBAL__N_110At
   store i16 257, ptr %481, align 8
   %487 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(160) %480, ptr noundef %442, ptr noundef %483, i16 %.sroa.02.0.insert.insert.i23.i.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %488 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_110AtomicInfo27EmitAtomicCompareExchangeOpEPN4llvm5ValueES3_NS1_14AtomicOrderingES4_b(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef nonnull %395, ptr noundef %487, i32 noundef %3, i32 noundef %switch.load173, i1 noundef zeroext false)
+  %488 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_110AtomicInfo27EmitAtomicCompareExchangeOpEPN4llvm5ValueES3_NS1_14AtomicOrderingES4_b(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef nonnull %395, ptr noundef %487, i32 noundef %3, i32 noundef %switch.load184, i1 noundef zeroext false)
   %489 = extractvalue { ptr, ptr } %488, 0
   %490 = extractvalue { ptr, ptr } %488, 1
   %491 = load ptr, ptr %27, align 8, !tbaa !747
@@ -7434,7 +7434,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_
   %26 = trunc nuw i8 %.val.i to i1
   %switch.tableidx = add nsw i32 %2, -2
   %27 = zext nneg i32 %switch.tableidx to i64
-  br i1 %26, label %switch.lookup, label %switch.lookup3
+  br i1 %26, label %switch.lookup, label %switch.lookup7
 
 switch.lookup:                                    ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -7660,11 +7660,11 @@ _ZN12_GLOBAL__N_110AtomicInfo23EmitAtomicUpdateLibcallEN4llvm14AtomicOrderingERK
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicUpdateEN4llvm14AtomicOrderingERKNS1_12function_refIFN5clang7CodeGen6RValueES6_EEEb.exit
 
-switch.lookup3:                                   ; preds = %5
+switch.lookup7:                                   ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %switch.gep5 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %27
-  %switch.load6 = load i32, ptr %switch.gep5, align 4
-  %127 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %24, i32 noundef %switch.load6, i1 noundef zeroext %4, i1 noundef zeroext true)
+  %switch.gep9 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction16EmitAtomicUpdateENS0_6LValueEN4llvm14AtomicOrderingERKNS3_12function_refIFNS0_6RValueES6_EEEb.20, i64 0, i64 %27
+  %switch.load10 = load i32, ptr %switch.gep9, align 4
+  %127 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110AtomicInfo16EmitAtomicLoadOpEN4llvm14AtomicOrderingEbb(ptr noundef nonnull align 8 dereferenceable(232) %24, i32 noundef %switch.load10, i1 noundef zeroext %4, i1 noundef zeroext true)
   %128 = load ptr, ptr %24, align 8, !tbaa !747
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -7714,13 +7714,13 @@ switch.lookup3:                                   ; preds = %5
   %158 = icmp eq i32 %155, %157
   br i1 %158, label %159, label %160
 
-159:                                              ; preds = %switch.lookup3
+159:                                              ; preds = %switch.lookup7
   call void @_ZN4llvm7PHINode12growOperandsEv(ptr noundef nonnull align 8 dereferenceable(76) %152) #15
   %.pre.i.i.i = load i32, ptr %153, align 4
   br label %160
 
-160:                                              ; preds = %159, %switch.lookup3
-  %161 = phi i32 [ %.pre.i.i.i, %159 ], [ %154, %switch.lookup3 ]
+160:                                              ; preds = %159, %switch.lookup7
+  %161 = phi i32 [ %.pre.i.i.i, %159 ], [ %154, %switch.lookup7 ]
   %162 = add i32 %161, 1
   %163 = and i32 %162, 134217727
   %164 = and i32 %161, -134217728
@@ -7898,7 +7898,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   store i16 257, ptr %232, align 8
   %233 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(160) %231, ptr noundef %.sroa.743.0.i.i, ptr noundef %.pre-phi110.i.i, i16 %.sroa.02.0.insert.insert.i27.pre-phi.i.i, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %234 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_110AtomicInfo27EmitAtomicCompareExchangeOpEPN4llvm5ValueES3_NS1_14AtomicOrderingES4_b(ptr noundef nonnull align 8 dereferenceable(232) %24, ptr noundef nonnull %152, ptr noundef %233, i32 noundef %2, i32 noundef %switch.load6, i1 noundef zeroext false)
+  %234 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_110AtomicInfo27EmitAtomicCompareExchangeOpEPN4llvm5ValueES3_NS1_14AtomicOrderingES4_b(ptr noundef nonnull align 8 dereferenceable(232) %24, ptr noundef nonnull %152, ptr noundef %233, i32 noundef %2, i32 noundef %switch.load10, i1 noundef zeroext false)
   %235 = extractvalue { ptr, ptr } %234, 0
   %236 = extractvalue { ptr, ptr } %234, 1
   %237 = load ptr, ptr %24, align 8, !tbaa !747

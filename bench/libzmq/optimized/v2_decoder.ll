@@ -483,8 +483,8 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31
   br i1 %7, label %10, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not64 = icmp eq i64 %2, 0
-  br i1 %.not64, label %.thread, label %.lr.ph
+  %.not74 = icmp eq i64 %2, 0
+  br i1 %.not74, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32

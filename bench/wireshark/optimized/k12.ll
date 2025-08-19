@@ -1722,12 +1722,12 @@ define internal fastcc noundef zeroext i1 @k12_dump_record(ptr noundef %0, i32 n
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %26, %24
-  %.sink34 = phi i32 [ %25, %24 ], [ %1, %26 ]
+  %.sink36 = phi i32 [ %25, %24 ], [ %1, %26 ]
   %30 = load i32, ptr %7, align 4
-  %31 = add i32 %30, %.sink34
+  %31 = add i32 %30, %.sink36
   store i32 %31, ptr %7, align 4
   %32 = load i32, ptr %6, align 4
-  %33 = add i32 %32, %.sink34
+  %33 = add i32 %32, %.sink36
   store i32 %33, ptr %6, align 4
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %35 = load i32, ptr %34, align 4

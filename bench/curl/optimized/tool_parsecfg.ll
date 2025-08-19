@@ -218,7 +218,7 @@ my_get_line.exit:                                 ; preds = %21
   switch i8 %47, label %.preheader.preheader [
     i8 61, label %.critedge10
     i8 58, label %.critedge10
-    i8 34, label %.loopexit420
+    i8 34, label %.loopexit428
   ]
 
 .critedge10:                                      ; preds = %51, %51, %48, %.loopexit272, %.loopexit272
@@ -227,12 +227,12 @@ my_get_line.exit:                                 ; preds = %21
 
 .critedge8:                                       ; preds = %50
   %53 = icmp eq i8 %47, 34
-  br i1 %53, label %.loopexit420, label %.preheader.preheader
+  br i1 %53, label %.loopexit428, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.loopexit272, %51, %.critedge8
   br label %.preheader
 
-.loopexit420:                                     ; preds = %51, %.critedge8
+.loopexit428:                                     ; preds = %51, %.critedge8
   %54 = getelementptr inbounds nuw i8, ptr %.3159, i64 1
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #8
   %56 = add i64 %55, 1
@@ -240,9 +240,9 @@ my_get_line.exit:                                 ; preds = %21
   %.not206 = icmp eq ptr %57, null
   br i1 %.not206, label %.critedge, label %.outer.i
 
-.outer.i:                                         ; preds = %.loopexit420, %66
-  %.014.ph.i = phi ptr [ %.216.i, %66 ], [ %54, %.loopexit420 ]
-  %.013.ph.i = phi ptr [ %.2.i, %66 ], [ %57, %.loopexit420 ]
+.outer.i:                                         ; preds = %.loopexit428, %66
+  %.014.ph.i = phi ptr [ %.216.i, %66 ], [ %54, %.loopexit428 ]
+  %.013.ph.i = phi ptr [ %.2.i, %66 ], [ %57, %.loopexit428 ]
   %.pre.i = load i8, ptr %.014.ph.i, align 1, !tbaa !21
   br label %58
 
@@ -258,10 +258,10 @@ my_get_line.exit:                                 ; preds = %21
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %.014.i, i64 1
   %62 = load i8, ptr %61, align 1, !tbaa !21
-  switch i8 %62, label %.thread.i.loopexit351 [
+  switch i8 %62, label %.thread.i.loopexit359 [
     i8 0, label %58
-    i8 116, label %.thread.i.loopexit384
-    i8 110, label %.thread.i.loopexit418
+    i8 116, label %.thread.i.loopexit392
+    i8 110, label %.thread.i.loopexit426
     i8 114, label %.thread.i
     i8 118, label %.thread.i.loopexit311
   ], !llvm.loop !26
@@ -269,17 +269,17 @@ my_get_line.exit:                                 ; preds = %21
 .thread.i.loopexit311:                            ; preds = %60
   br label %.thread.i
 
-.thread.i.loopexit351:                            ; preds = %60
+.thread.i.loopexit359:                            ; preds = %60
   br label %.thread.i
 
-.thread.i.loopexit384:                            ; preds = %60
+.thread.i.loopexit392:                            ; preds = %60
   br label %.thread.i
 
-.thread.i.loopexit418:                            ; preds = %60
+.thread.i.loopexit426:                            ; preds = %60
   br label %.thread.i
 
-.thread.i:                                        ; preds = %60, %.thread.i.loopexit418, %.thread.i.loopexit384, %.thread.i.loopexit351, %.thread.i.loopexit311
-  %.012.i = phi i8 [ 11, %.thread.i.loopexit311 ], [ %62, %.thread.i.loopexit351 ], [ 9, %.thread.i.loopexit384 ], [ 10, %.thread.i.loopexit418 ], [ 13, %60 ]
+.thread.i:                                        ; preds = %60, %.thread.i.loopexit426, %.thread.i.loopexit392, %.thread.i.loopexit359, %.thread.i.loopexit311
+  %.012.i = phi i8 [ 11, %.thread.i.loopexit311 ], [ %62, %.thread.i.loopexit359 ], [ 9, %.thread.i.loopexit392 ], [ 10, %.thread.i.loopexit426 ], [ 13, %60 ]
   store i8 %.012.i, ptr %.013.ph.i, align 1, !tbaa !21
   %63 = getelementptr inbounds nuw i8, ptr %.014.i, i64 2
   br label %66
@@ -461,8 +461,8 @@ sub_1269:                                         ; preds = %sub_0268
   %.not196 = icmp eq i32 %.2166, 0
   br i1 %.not196, label %20, label %.critedge
 
-.critedge:                                        ; preds = %.loopexit420, %28, %.critedge2.thread, %my_get_line.exit, %my_get_line.exit.thread242
-  %.1224 = phi i32 [ 1, %my_get_line.exit.thread242 ], [ 1, %.loopexit420 ], [ 1, %28 ], [ %.2166, %.critedge2.thread ], [ 0, %my_get_line.exit ]
+.critedge:                                        ; preds = %.loopexit428, %28, %.critedge2.thread, %my_get_line.exit, %my_get_line.exit.thread242
+  %.1224 = phi i32 [ 1, %my_get_line.exit.thread242 ], [ 1, %.loopexit428 ], [ 1, %28 ], [ %.2166, %.critedge2.thread ], [ 0, %my_get_line.exit ]
   call void @curlx_dyn_free(ptr noundef nonnull %5) #7
   %118 = load ptr, ptr @stdin, align 8, !tbaa !18
   %.not211 = icmp eq ptr %.2155237, %118

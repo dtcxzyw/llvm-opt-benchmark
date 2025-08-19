@@ -678,7 +678,7 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
 
 25:                                               ; preds = %.sink.split, %10
   %trunc = trunc i32 %11 to i8
-  switch i8 %trunc, label %.sink.split15 [
+  switch i8 %trunc, label %.sink.split16 [
     i8 1, label %26
     i8 2, label %30
     i8 4, label %34
@@ -688,27 +688,27 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
   %27 = load ptr, ptr %7, align 8
   %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %27, i32 noundef 0)
   %29 = zext i8 %28 to i32
-  br label %.sink.split15
+  br label %.sink.split16
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %7, align 8
   %32 = call zeroext i16 @tvb_get_ntohs(ptr noundef %31, i32 noundef 0)
   %33 = zext i16 %32 to i32
-  br label %.sink.split15
+  br label %.sink.split16
 
 34:                                               ; preds = %25
   %35 = load ptr, ptr %7, align 8
   %36 = call i32 @tvb_get_ntohl(ptr noundef %35, i32 noundef 0)
-  br label %.sink.split15
+  br label %.sink.split16
 
-.sink.split15:                                    ; preds = %25, %34, %30, %26
-  %.sink16 = phi i32 [ %29, %26 ], [ %33, %30 ], [ %36, %34 ], [ 0, %25 ]
+.sink.split16:                                    ; preds = %25, %34, %30, %26
+  %.sink17 = phi i32 [ %29, %26 ], [ %33, %30 ], [ %36, %34 ], [ 0, %25 ]
   %37 = load ptr, ptr @gp_tcapsrt_info, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  store i32 %.sink16, ptr %38, align 4
+  store i32 %.sink17, ptr %38, align 4
   br label %39
 
-39:                                               ; preds = %.sink.split15, %6
+39:                                               ; preds = %.sink.split16, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }

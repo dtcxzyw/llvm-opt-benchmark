@@ -755,7 +755,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.21.18.lcssa = phi i64 [ %.sroa.21.17, %.lr.ph.split.us.preheader.i ], [ %.sroa.21.19, %.lr.ph.split.us.i ]
   %104 = sub nsw i64 %.028.ph72.i, %.sroa.21.18.lcssa
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 %104
-  %106 = sub i64 %2, %.030.ph70.i
+  %106 = sub nsw i64 %2, %.030.ph70.i
   %107 = sub nsw i64 %.sroa.37.18.lcssa, %.028.ph72.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %107, i64 %106)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i, ptr nonnull align 1 %105, i64 %.sroa.speculated.i, i1 false)
@@ -889,7 +889,7 @@ _ZN4absl13base_internal8SpinLock7TryLockEv.exit:  ; preds = %1
   br i1 %15, label %.lr.ph17.preheader, label %._crit_edge
 
 .lr.ph17.preheader:                               ; preds = %.preheader
-  %wide.trip.count26 = zext i32 %14 to i64
+  %wide.trip.count26 = zext nneg i32 %14 to i64
   br label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %.lr.ph17
@@ -1615,14 +1615,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvm
   %.sroa.17.9.i.i.i = phi i64 [ %.sroa.17.6.i.i.i, %.lr.ph.split.us.preheader.i.i57.i.i.i ], [ %.sroa.17.8.i.i.i, %.lr.ph.split.us.i.i64.i.i.i ]
   %184 = sub nsw i64 %.028.ph72.i.i58.i.i.i, %.sroa.17.9.i.i.i
   %185 = getelementptr inbounds nuw i8, ptr %10, i64 %184
-  %186 = sub nsw i64 56, %.030.ph70.i.i60.i.i.i
+  %186 = sub nuw nsw i64 56, %.030.ph70.i.i60.i.i.i
   %187 = sub nsw i64 %.sroa.30.9.i.i.i, %.028.ph72.i.i58.i.i.i
   %.sroa.speculated.i.i70.i.i.i = tail call i64 @llvm.umin.i64(i64 %187, i64 %186)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i.i59.i.i.i, ptr nonnull align 1 %185, i64 %.sroa.speculated.i.i70.i.i.i, i1 false)
   %188 = getelementptr inbounds nuw i8, ptr %.029.ph71.i.i59.i.i.i, i64 %.sroa.speculated.i.i70.i.i.i
-  %189 = add i64 %.sroa.speculated.i.i70.i.i.i, %.030.ph70.i.i60.i.i.i
+  %189 = add nuw nsw i64 %.sroa.speculated.i.i70.i.i.i, %.030.ph70.i.i60.i.i.i
   %190 = add nsw i64 %.sroa.speculated.i.i70.i.i.i, %.028.ph72.i.i58.i.i.i
-  %191 = icmp ult i64 %189, 56
+  %191 = icmp samesign ult i64 %189, 56
   br i1 %191, label %.lr.ph.split.us.preheader.i.i57.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.i.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile19ReadFromOffsetExactEPvml.exit76.thread.i.i.i: ; preds = %179
@@ -2127,9 +2127,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i, %375
-  %.04067.lcssa71.sink.i.i.i = phi i64 [ %.04067.i.i.i, %375 ], [ %.144.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i ]
+  %.04067.lcssa74.sink.i.i.i = phi i64 [ %.04067.i.i.i, %375 ], [ %.144.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i ]
   %.1.i.i.i = phi ptr [ %369, %375 ], [ %389, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i ]
-  %391 = getelementptr inbounds nuw [4 x i32], ptr %358, i64 0, i64 %.04067.lcssa71.sink.i.i.i
+  %391 = getelementptr inbounds nuw [4 x i32], ptr %358, i64 0, i64 %.04067.lcssa74.sink.i.i.i
   store i32 0, ptr %391, align 4, !tbaa !10
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit
 
@@ -3320,7 +3320,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN4absl18debugging_internalL14ReadPersistentEiPvm(i32 noundef %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef range(i64 -1, -9223372036854775808) i64 @_ZN4absl18debugging_internalL14ReadPersistentEiPvm(i32 noundef %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp sgt i32 %0, -1
   br i1 %4, label %6, label %5
 
@@ -3473,7 +3473,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22GetSec
   %38 = load ptr, ptr %11, align 8, !tbaa !73
   %39 = sub nsw i64 %.028.ph72.i, %.lcssa69
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
-  %41 = sub i64 %16, %.030.ph70.i
+  %41 = sub nsw i64 %16, %.030.ph70.i
   %42 = sub nsw i64 %.lcssa, %.028.ph72.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %41)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i, ptr align 1 %40, i64 %.sroa.speculated.i, i1 false)
@@ -3636,7 +3636,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN4absl18debugging_internal
   %43 = load ptr, ptr %15, align 8, !tbaa !73
   %44 = sub nsw i64 %.028.ph72.i, %.lcssa27
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
-  %46 = sub i64 %19, %.030.ph70.i
+  %46 = sub nsw i64 %19, %.030.ph70.i
   %47 = sub nsw i64 %.lcssa24, %.028.ph72.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %47, i64 %46)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i, ptr align 1 %45, i64 %.sroa.speculated.i, i1 false)
@@ -3817,14 +3817,14 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   %115 = load ptr, ptr %94, align 8, !tbaa !73
   %116 = sub nsw i64 %.028.ph72.i87, %.lcssa17
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 %116
-  %118 = sub nsw i64 3072, %.030.ph70.i89
+  %118 = sub nuw nsw i64 3072, %.030.ph70.i89
   %119 = sub nsw i64 %.lcssa, %.028.ph72.i87
   %.sroa.speculated.i96 = tail call i64 @llvm.umin.i64(i64 %119, i64 %118)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.029.ph71.i88, ptr align 1 %117, i64 %.sroa.speculated.i96, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %.029.ph71.i88, i64 %.sroa.speculated.i96
-  %121 = add nuw i64 %.sroa.speculated.i96, %.030.ph70.i89
+  %121 = add nuw nsw i64 %.sroa.speculated.i96, %.030.ph70.i89
   %122 = add nsw i64 %.sroa.speculated.i96, %.028.ph72.i87
-  %123 = icmp ult i64 %121, 3072
+  %123 = icmp samesign ult i64 %121, 3072
   br i1 %123, label %.lr.ph.split.us.preheader.i86, label %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97
 
 _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97.thread: ; preds = %108
@@ -3837,7 +3837,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exi
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97.thread, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97
-  %.2.i9312 = phi i64 [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97.thread ], [ %.2.i93, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97 ]
+  %.2.i9312 = phi i64 [ -1, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97.thread ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_111CachingFile14ReadFromOffsetEPvml.exit97 ]
   %.val84 = load i32, ptr %1, align 8, !tbaa !71
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 877, ptr noundef nonnull @.str.31, i32 noundef %.val84, i64 noundef %91, i64 noundef %.2.i9312)
   br label %._crit_edge57.thread

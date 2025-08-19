@@ -1328,9 +1328,9 @@ thread-pre-split:                                 ; preds = %72, %73
   br i1 %.not243, label %.sink.split, label %.thread257
 
 .sink.split:                                      ; preds = %213, %193
-  %.sink275 = phi i64 [ 208, %193 ], [ 192, %213 ]
+  %.sink312 = phi i64 [ 208, %193 ], [ 192, %213 ]
   %219 = getelementptr inbounds nuw i8, ptr %2, i64 244
-  %220 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink275
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink312
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %219, ptr noundef nonnull align 4 dereferenceable(12) %220, i64 12, i1 false)
   br label %221
 
@@ -1876,7 +1876,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %.266.i = phi i32 [ 0, %27 ], [ %.4.ph.i, %.thread53.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
-  switch i32 %35, label %default.unreachable.i [
+  switch i32 %35, label %default.unreachable [
     i32 0, label %36
     i32 1, label %37
     i32 2, label %38
@@ -1946,7 +1946,7 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %69 = call i32 @wc_Md5Final(ptr noundef nonnull %5, ptr noundef nonnull %68) #7
   br label %.thread53.i
 
-default.unreachable.i:                            ; preds = %34
+default.unreachable:                              ; preds = %34
   unreachable
 
 .thread53.i:                                      ; preds = %64, %61, %58, %.thread50.i

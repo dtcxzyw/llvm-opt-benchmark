@@ -1849,10 +1849,10 @@ define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(addres
   br i1 %19, label %25, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader23, %._crit_edge
-  %.016.lcssa30 = phi i64 [ %20, %._crit_edge ], [ 0, %.preheader23 ]
+  %.016.lcssa32 = phi i64 [ %20, %._crit_edge ], [ 0, %.preheader23 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !21
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.016.lcssa30
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.016.lcssa32
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   br label %25
 

@@ -1339,9 +1339,9 @@ lbtrm_transport_sqn_find.exit.i:                  ; preds = %357
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %385, %378
-  %.sink131.i = phi i64 [ 36, %378 ], [ 32, %385 ]
+  %.sink148.i = phi i64 [ 36, %378 ], [ 32, %385 ]
   %.sink.i = phi i32 [ %379, %378 ], [ %389, %385 ]
-  %390 = getelementptr inbounds nuw i8, ptr %345, i64 %.sink131.i
+  %390 = getelementptr inbounds nuw i8, ptr %345, i64 %.sink148.i
   store i32 %.sink.i, ptr %390, align 4
   br label %391
 
@@ -2670,8 +2670,8 @@ define internal fastcc ptr @lbtrm_tag_find(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !19
 
 .loopexit.sink.split:                             ; preds = %68, %.thread, %50, %39
-  %.lcssa59.sink = phi ptr [ %29, %39 ], [ %29, %50 ], [ %29, %.thread ], [ %64, %68 ]
-  %73 = load ptr, ptr %.lcssa59.sink, align 8
+  %.lcssa63.sink = phi ptr [ %29, %39 ], [ %29, %50 ], [ %29, %.thread ], [ %64, %68 ]
+  %73 = load ptr, ptr %.lcssa63.sink, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %61, %.loopexit.sink.split, %4, %1

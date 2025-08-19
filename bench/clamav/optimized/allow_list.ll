@@ -425,9 +425,9 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br label %50
 
 50:                                               ; preds = %44, %41
-  %.sink209 = phi i32 [ 3, %44 ], [ 1, %41 ]
+  %.sink214 = phi i32 [ 3, %44 ], [ 1, %41 ]
   %.sink = phi i32 [ -3, %44 ], [ -1, %41 ]
-  %51 = add nsw i32 %.590180, %.sink209
+  %51 = add nsw i32 %.590180, %.sink214
   %52 = add nsw i32 %.596179, %.sink
   %53 = getelementptr inbounds nuw i8, ptr %.080181, i64 1
   %54 = load i8, ptr %53, align 1, !tbaa !16
@@ -461,10 +461,10 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br i1 %60, label %._crit_edge191.thread, label %.thread150
 
 ._crit_edge191.thread:                            ; preds = %.preheader, %._crit_edge191
-  %.085.lcssa206 = phi i64 [ %63, %._crit_edge191 ], [ 0, %.preheader ]
-  %.098.lcssa204 = phi i64 [ %62, %._crit_edge191 ], [ 4, %.preheader ]
-  %.2106.lcssa203 = phi ptr [ %.3107, %._crit_edge191 ], [ null, %.preheader ]
-  %64 = call ptr @realloc(ptr noundef %.2106.lcssa203, i64 noundef %.098.lcssa204) #12
+  %.085.lcssa211 = phi i64 [ %63, %._crit_edge191 ], [ 0, %.preheader ]
+  %.098.lcssa209 = phi i64 [ %62, %._crit_edge191 ], [ 4, %.preheader ]
+  %.2106.lcssa208 = phi ptr [ %.3107, %._crit_edge191 ], [ null, %.preheader ]
+  %64 = call ptr @realloc(ptr noundef %.2106.lcssa208, i64 noundef %.098.lcssa209) #12
   %.not121 = icmp eq ptr %64, null
   br i1 %.not121, label %65, label %.thread150
 
@@ -474,9 +474,9 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   br label %.thread145
 
 .thread150:                                       ; preds = %._crit_edge191, %._crit_edge191.thread
-  %.085.lcssa205 = phi i64 [ %.085.lcssa206, %._crit_edge191.thread ], [ %63, %._crit_edge191 ]
+  %.085.lcssa210 = phi i64 [ %.085.lcssa211, %._crit_edge191.thread ], [ %63, %._crit_edge191 ]
   %.6110 = phi ptr [ %64, %._crit_edge191.thread ], [ %.3107, %._crit_edge191 ]
-  %68 = getelementptr i8, ptr %.6110, i64 %.085.lcssa205
+  %68 = getelementptr i8, ptr %.6110, i64 %.085.lcssa210
   %69 = getelementptr i8, ptr %68, i64 -1
   store i8 41, ptr %69, align 1, !tbaa !16
   store i8 36, ptr %68, align 1, !tbaa !16

@@ -1766,7 +1766,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %76 = load i64, ptr %75, align 4
   %77 = and i64 %76, 1048576
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %109, label %.thread84
+  br i1 %78, label %109, label %.thread89
 
 .thread69:                                        ; preds = %.thread62
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -1788,20 +1788,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 87:                                               ; preds = %.thread69
   %88 = and i8 %25, 1
   %.not45 = icmp eq i8 %88, 0
-  br i1 %.not45, label %.thread84, label %89
+  br i1 %.not45, label %.thread89, label %89
 
 89:                                               ; preds = %87
   %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not79 = icmp eq ptr %90, null
-  br i1 %.not79, label %.thread84, label %91
+  br i1 %.not79, label %.thread89, label %91
 
 91:                                               ; preds = %89
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %67, ptr noundef %.04057)
-  br label %.thread84
+  br label %.thread89
 
-.thread84:                                        ; preds = %74, %91, %89, %87
-  %.not4588 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
-  %.142647287 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
+.thread89:                                        ; preds = %74, %91, %89, %87
+  %.not4593 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
+  %.142647292 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
   %92 = call noundef i32 @_ZN8JvmtiEnv13SuspendThreadEP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1) #7
   %.not46 = icmp eq i32 %92, 0
   %93 = and i8 %25, 4
@@ -1809,8 +1809,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not47, %.not46
   br i1 %or.cond, label %104, label %94
 
-94:                                               ; preds = %.thread84
-  br i1 %.not4588, label %95, label %98
+94:                                               ; preds = %.thread89
+  br i1 %.not4593, label %95, label %98
 
 95:                                               ; preds = %94
   %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -1818,7 +1818,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not80, label %98, label %97
 
 97:                                               ; preds = %95
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647292, ptr noundef %.04057)
   br label %98
 
 98:                                               ; preds = %97, %95, %94
@@ -1830,10 +1830,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %101 = sext i32 %92 to i64
   %102 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647287, ptr noundef %.04057, ptr noundef %103)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647292, ptr noundef %.04057, ptr noundef %103)
   br label %109
 
-104:                                              ; preds = %.thread84
+104:                                              ; preds = %.thread89
   %105 = and i8 %25, 2
   %.not48 = icmp eq i8 %105, 0
   br i1 %.not48, label %109, label %106
@@ -1844,7 +1844,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not82, label %109, label %108
 
 108:                                              ; preds = %106
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647292, ptr noundef %.04057)
   br label %109
 
 109:                                              ; preds = %74, %65, %98, %100, %108, %106, %104, %83, %85, %69, %71
@@ -2066,7 +2066,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %76 = load i64, ptr %75, align 4
   %77 = and i64 %76, 1048576
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %109, label %.thread84
+  br i1 %78, label %109, label %.thread89
 
 .thread69:                                        ; preds = %.thread62
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2088,20 +2088,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 87:                                               ; preds = %.thread69
   %88 = and i8 %25, 1
   %.not45 = icmp eq i8 %88, 0
-  br i1 %.not45, label %.thread84, label %89
+  br i1 %.not45, label %.thread89, label %89
 
 89:                                               ; preds = %87
   %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not79 = icmp eq ptr %90, null
-  br i1 %.not79, label %.thread84, label %91
+  br i1 %.not79, label %.thread89, label %91
 
 91:                                               ; preds = %89
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %67, ptr noundef %.04057)
-  br label %.thread84
+  br label %.thread89
 
-.thread84:                                        ; preds = %74, %91, %89, %87
-  %.not4588 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
-  %.142647287 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
+.thread89:                                        ; preds = %74, %91, %89, %87
+  %.not4593 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
+  %.142647292 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
   %92 = call noundef i32 @_ZN8JvmtiEnv12ResumeThreadEP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1) #7
   %.not46 = icmp eq i32 %92, 0
   %93 = and i8 %25, 4
@@ -2109,8 +2109,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not47, %.not46
   br i1 %or.cond, label %104, label %94
 
-94:                                               ; preds = %.thread84
-  br i1 %.not4588, label %95, label %98
+94:                                               ; preds = %.thread89
+  br i1 %.not4593, label %95, label %98
 
 95:                                               ; preds = %94
   %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -2118,7 +2118,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not80, label %98, label %97
 
 97:                                               ; preds = %95
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647292, ptr noundef %.04057)
   br label %98
 
 98:                                               ; preds = %97, %95, %94
@@ -2130,10 +2130,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %101 = sext i32 %92 to i64
   %102 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647287, ptr noundef %.04057, ptr noundef %103)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647292, ptr noundef %.04057, ptr noundef %103)
   br label %109
 
-104:                                              ; preds = %.thread84
+104:                                              ; preds = %.thread89
   %105 = and i8 %25, 2
   %.not48 = icmp eq i8 %105, 0
   br i1 %.not48, label %109, label %106
@@ -2144,7 +2144,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not82, label %109, label %108
 
 108:                                              ; preds = %106
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647292, ptr noundef %.04057)
   br label %109
 
 109:                                              ; preds = %74, %65, %98, %100, %108, %106, %104, %83, %85, %69, %71
@@ -2366,7 +2366,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %77 = load i64, ptr %76, align 4
   %78 = and i64 %77, 1024
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %110, label %.thread85
+  br i1 %79, label %110, label %.thread90
 
 .thread70:                                        ; preds = %.thread63
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2388,20 +2388,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 88:                                               ; preds = %.thread70
   %89 = and i8 %26, 1
   %.not46 = icmp eq i8 %89, 0
-  br i1 %.not46, label %.thread85, label %90
+  br i1 %.not46, label %.thread90, label %90
 
 90:                                               ; preds = %88
   %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not80 = icmp eq ptr %91, null
-  br i1 %.not80, label %.thread85, label %92
+  br i1 %.not80, label %.thread90, label %92
 
 92:                                               ; preds = %90
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %68, ptr noundef %.04158)
-  br label %.thread85
+  br label %.thread90
 
-.thread85:                                        ; preds = %75, %92, %90, %88
-  %.not4689 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
-  %.143657388 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04257, %75 ]
+.thread90:                                        ; preds = %75, %92, %90, %88
+  %.not4694 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
+  %.143657393 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04257, %75 ]
   %93 = call noundef i32 @_ZN8JvmtiEnv10StopThreadEP8_jobjectS1_(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef %2) #7
   %.not47 = icmp eq i32 %93, 0
   %94 = and i8 %26, 4
@@ -2409,8 +2409,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not48, %.not47
   br i1 %or.cond, label %105, label %95
 
-95:                                               ; preds = %.thread85
-  br i1 %.not4689, label %96, label %99
+95:                                               ; preds = %.thread90
+  br i1 %.not4694, label %96, label %99
 
 96:                                               ; preds = %95
   %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -2418,7 +2418,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not81, label %99, label %98
 
 98:                                               ; preds = %96
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.143657388, ptr noundef %.04158)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.143657393, ptr noundef %.04158)
   br label %99
 
 99:                                               ; preds = %98, %96, %95
@@ -2430,10 +2430,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.143657388, ptr noundef %.04158, ptr noundef %104)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.143657393, ptr noundef %.04158, ptr noundef %104)
   br label %110
 
-105:                                              ; preds = %.thread85
+105:                                              ; preds = %.thread90
   %106 = and i8 %26, 2
   %.not49 = icmp eq i8 %106, 0
   br i1 %.not49, label %110, label %107
@@ -2444,7 +2444,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not83, label %110, label %109
 
 109:                                              ; preds = %107
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.143657388, ptr noundef %.04158)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.143657393, ptr noundef %.04158)
   br label %110
 
 110:                                              ; preds = %75, %66, %99, %101, %109, %107, %105, %84, %86, %70, %72
@@ -2666,7 +2666,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %76 = load i64, ptr %75, align 4
   %77 = and i64 %76, 1024
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %109, label %.thread84
+  br i1 %78, label %109, label %.thread89
 
 .thread69:                                        ; preds = %.thread62
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2688,20 +2688,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 87:                                               ; preds = %.thread69
   %88 = and i8 %25, 1
   %.not45 = icmp eq i8 %88, 0
-  br i1 %.not45, label %.thread84, label %89
+  br i1 %.not45, label %.thread89, label %89
 
 89:                                               ; preds = %87
   %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not79 = icmp eq ptr %90, null
-  br i1 %.not79, label %.thread84, label %91
+  br i1 %.not79, label %.thread89, label %91
 
 91:                                               ; preds = %89
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %67, ptr noundef %.04057)
-  br label %.thread84
+  br label %.thread89
 
-.thread84:                                        ; preds = %74, %91, %89, %87
-  %.not4588 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
-  %.142647287 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
+.thread89:                                        ; preds = %74, %91, %89, %87
+  %.not4593 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
+  %.142647292 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
   %92 = call noundef i32 @_ZN8JvmtiEnv15InterruptThreadEP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1) #7
   %.not46 = icmp eq i32 %92, 0
   %93 = and i8 %25, 4
@@ -2709,8 +2709,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not47, %.not46
   br i1 %or.cond, label %104, label %94
 
-94:                                               ; preds = %.thread84
-  br i1 %.not4588, label %95, label %98
+94:                                               ; preds = %.thread89
+  br i1 %.not4593, label %95, label %98
 
 95:                                               ; preds = %94
   %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -2718,7 +2718,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not80, label %98, label %97
 
 97:                                               ; preds = %95
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647292, ptr noundef %.04057)
   br label %98
 
 98:                                               ; preds = %97, %95, %94
@@ -2730,10 +2730,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %101 = sext i32 %92 to i64
   %102 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647287, ptr noundef %.04057, ptr noundef %103)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647292, ptr noundef %.04057, ptr noundef %103)
   br label %109
 
-104:                                              ; preds = %.thread84
+104:                                              ; preds = %.thread89
   %105 = and i8 %25, 2
   %.not48 = icmp eq i8 %105, 0
   br i1 %.not48, label %109, label %106
@@ -2744,7 +2744,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not82, label %109, label %108
 
 108:                                              ; preds = %106
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647292, ptr noundef %.04057)
   br label %109
 
 109:                                              ; preds = %74, %65, %98, %100, %108, %106, %104, %83, %85, %69, %71
@@ -31350,7 +31350,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %76 = load i64, ptr %75, align 4
   %77 = and i64 %76, 256
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %109, label %.thread84
+  br i1 %78, label %109, label %.thread89
 
 .thread69:                                        ; preds = %.thread62
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -31372,20 +31372,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 87:                                               ; preds = %.thread69
   %88 = and i8 %25, 1
   %.not45 = icmp eq i8 %88, 0
-  br i1 %.not45, label %.thread84, label %89
+  br i1 %.not45, label %.thread89, label %89
 
 89:                                               ; preds = %87
   %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not79 = icmp eq ptr %90, null
-  br i1 %.not79, label %.thread84, label %91
+  br i1 %.not79, label %.thread89, label %91
 
 91:                                               ; preds = %89
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %67, ptr noundef %.04057)
-  br label %.thread84
+  br label %.thread89
 
-.thread84:                                        ; preds = %74, %91, %89, %87
-  %.not4588 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
-  %.142647287 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
+.thread89:                                        ; preds = %74, %91, %89, %87
+  %.not4593 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
+  %.142647292 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
   %92 = call noundef i32 @_ZN8JvmtiEnv8PopFrameEP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1) #7
   %.not46 = icmp eq i32 %92, 0
   %93 = and i8 %25, 4
@@ -31393,8 +31393,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not47, %.not46
   br i1 %or.cond, label %104, label %94
 
-94:                                               ; preds = %.thread84
-  br i1 %.not4588, label %95, label %98
+94:                                               ; preds = %.thread89
+  br i1 %.not4593, label %95, label %98
 
 95:                                               ; preds = %94
   %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -31402,7 +31402,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not80, label %98, label %97
 
 97:                                               ; preds = %95
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647292, ptr noundef %.04057)
   br label %98
 
 98:                                               ; preds = %97, %95, %94
@@ -31414,10 +31414,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %101 = sext i32 %92 to i64
   %102 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647287, ptr noundef %.04057, ptr noundef %103)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647292, ptr noundef %.04057, ptr noundef %103)
   br label %109
 
-104:                                              ; preds = %.thread84
+104:                                              ; preds = %.thread89
   %105 = and i8 %25, 2
   %.not48 = icmp eq i8 %105, 0
   br i1 %.not48, label %109, label %106
@@ -31428,7 +31428,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not82, label %109, label %108
 
 108:                                              ; preds = %106
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647292, ptr noundef %.04057)
   br label %109
 
 109:                                              ; preds = %74, %65, %98, %100, %108, %106, %104, %83, %85, %69, %71
@@ -31650,7 +31650,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %77 = load i64, ptr %76, align 4
   %78 = and i64 %77, 8589934592
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %110, label %.thread85
+  br i1 %79, label %110, label %.thread90
 
 .thread70:                                        ; preds = %.thread63
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -31672,20 +31672,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 88:                                               ; preds = %.thread70
   %89 = and i8 %26, 1
   %.not46 = icmp eq i8 %89, 0
-  br i1 %.not46, label %.thread85, label %90
+  br i1 %.not46, label %.thread90, label %90
 
 90:                                               ; preds = %88
   %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not80 = icmp eq ptr %91, null
-  br i1 %.not80, label %.thread85, label %92
+  br i1 %.not80, label %.thread90, label %92
 
 92:                                               ; preds = %90
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %68, ptr noundef %.04158)
-  br label %.thread85
+  br label %.thread90
 
-.thread85:                                        ; preds = %75, %92, %90, %88
-  %.not4689 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
-  %.143657388 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04257, %75 ]
+.thread90:                                        ; preds = %75, %92, %90, %88
+  %.not4694 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
+  %.143657393 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04257, %75 ]
   %93 = call noundef i32 @_ZN8JvmtiEnv22ForceEarlyReturnObjectEP8_jobjectS1_(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef %2) #7
   %.not47 = icmp eq i32 %93, 0
   %94 = and i8 %26, 4
@@ -31693,8 +31693,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not48, %.not47
   br i1 %or.cond, label %105, label %95
 
-95:                                               ; preds = %.thread85
-  br i1 %.not4689, label %96, label %99
+95:                                               ; preds = %.thread90
+  br i1 %.not4694, label %96, label %99
 
 96:                                               ; preds = %95
   %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -31702,7 +31702,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not81, label %99, label %98
 
 98:                                               ; preds = %96
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.143657388, ptr noundef %.04158)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.143657393, ptr noundef %.04158)
   br label %99
 
 99:                                               ; preds = %98, %96, %95
@@ -31714,10 +31714,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.143657388, ptr noundef %.04158, ptr noundef %104)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.143657393, ptr noundef %.04158, ptr noundef %104)
   br label %110
 
-105:                                              ; preds = %.thread85
+105:                                              ; preds = %.thread90
   %106 = and i8 %26, 2
   %.not49 = icmp eq i8 %106, 0
   br i1 %.not49, label %110, label %107
@@ -31728,7 +31728,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not83, label %110, label %109
 
 109:                                              ; preds = %107
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.143657388, ptr noundef %.04158)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.143657393, ptr noundef %.04158)
   br label %110
 
 110:                                              ; preds = %75, %66, %99, %101, %109, %107, %105, %84, %86, %70, %72
@@ -31950,7 +31950,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %77 = load i64, ptr %76, align 4
   %78 = and i64 %77, 8589934592
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %110, label %.thread87
+  br i1 %79, label %110, label %.thread92
 
 .thread72:                                        ; preds = %.thread65
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -31972,20 +31972,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 88:                                               ; preds = %.thread72
   %89 = and i8 %26, 1
   %.not48 = icmp eq i8 %89, 0
-  br i1 %.not48, label %.thread87, label %90
+  br i1 %.not48, label %.thread92, label %90
 
 90:                                               ; preds = %88
   %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not82 = icmp eq ptr %91, null
-  br i1 %.not82, label %.thread87, label %92
+  br i1 %.not82, label %.thread92, label %92
 
 92:                                               ; preds = %90
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.368, ptr noundef %68, ptr noundef %.04360, i32 noundef %2)
-  br label %.thread87
+  br label %.thread92
 
-.thread87:                                        ; preds = %75, %92, %90, %88
-  %.not4891 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
-  %.145677590 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04459, %75 ]
+.thread92:                                        ; preds = %75, %92, %90, %88
+  %.not4896 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
+  %.145677595 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04459, %75 ]
   %93 = call noundef i32 @_ZN8JvmtiEnv19ForceEarlyReturnIntEP8_jobjecti(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, i32 noundef %2) #7
   %.not49 = icmp eq i32 %93, 0
   %94 = and i8 %26, 4
@@ -31993,8 +31993,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not50, %.not49
   br i1 %or.cond, label %105, label %95
 
-95:                                               ; preds = %.thread87
-  br i1 %.not4891, label %96, label %99
+95:                                               ; preds = %.thread92
+  br i1 %.not4896, label %96, label %99
 
 96:                                               ; preds = %95
   %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -32002,7 +32002,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not83, label %99, label %98
 
 98:                                               ; preds = %96
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.368, ptr noundef %.145677590, ptr noundef %.04360, i32 noundef %2)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.368, ptr noundef %.145677595, ptr noundef %.04360, i32 noundef %2)
   br label %99
 
 99:                                               ; preds = %98, %96, %95
@@ -32014,10 +32014,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.145677590, ptr noundef %.04360, ptr noundef %104)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.145677595, ptr noundef %.04360, ptr noundef %104)
   br label %110
 
-105:                                              ; preds = %.thread87
+105:                                              ; preds = %.thread92
   %106 = and i8 %26, 2
   %.not51 = icmp eq i8 %106, 0
   br i1 %.not51, label %110, label %107
@@ -32028,7 +32028,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not85, label %110, label %109
 
 109:                                              ; preds = %107
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.145677590, ptr noundef %.04360)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.145677595, ptr noundef %.04360)
   br label %110
 
 110:                                              ; preds = %75, %66, %99, %101, %109, %107, %105, %84, %86, %70, %72
@@ -32250,7 +32250,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %77 = load i64, ptr %76, align 4
   %78 = and i64 %77, 8589934592
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %110, label %.thread87
+  br i1 %79, label %110, label %.thread92
 
 .thread72:                                        ; preds = %.thread65
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -32272,20 +32272,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 88:                                               ; preds = %.thread72
   %89 = and i8 %26, 1
   %.not48 = icmp eq i8 %89, 0
-  br i1 %.not48, label %.thread87, label %90
+  br i1 %.not48, label %.thread92, label %90
 
 90:                                               ; preds = %88
   %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not82 = icmp eq ptr %91, null
-  br i1 %.not82, label %.thread87, label %92
+  br i1 %.not82, label %.thread92, label %92
 
 92:                                               ; preds = %90
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.369, ptr noundef %68, ptr noundef %.04360, i64 noundef %2)
-  br label %.thread87
+  br label %.thread92
 
-.thread87:                                        ; preds = %75, %92, %90, %88
-  %.not4891 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
-  %.145677590 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04459, %75 ]
+.thread92:                                        ; preds = %75, %92, %90, %88
+  %.not4896 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
+  %.145677595 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04459, %75 ]
   %93 = call noundef i32 @_ZN8JvmtiEnv20ForceEarlyReturnLongEP8_jobjectl(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, i64 noundef %2) #7
   %.not49 = icmp eq i32 %93, 0
   %94 = and i8 %26, 4
@@ -32293,8 +32293,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not50, %.not49
   br i1 %or.cond, label %105, label %95
 
-95:                                               ; preds = %.thread87
-  br i1 %.not4891, label %96, label %99
+95:                                               ; preds = %.thread92
+  br i1 %.not4896, label %96, label %99
 
 96:                                               ; preds = %95
   %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -32302,7 +32302,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not83, label %99, label %98
 
 98:                                               ; preds = %96
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.369, ptr noundef %.145677590, ptr noundef %.04360, i64 noundef %2)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.369, ptr noundef %.145677595, ptr noundef %.04360, i64 noundef %2)
   br label %99
 
 99:                                               ; preds = %98, %96, %95
@@ -32314,10 +32314,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.145677590, ptr noundef %.04360, ptr noundef %104)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.145677595, ptr noundef %.04360, ptr noundef %104)
   br label %110
 
-105:                                              ; preds = %.thread87
+105:                                              ; preds = %.thread92
   %106 = and i8 %26, 2
   %.not51 = icmp eq i8 %106, 0
   br i1 %.not51, label %110, label %107
@@ -32328,7 +32328,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not85, label %110, label %109
 
 109:                                              ; preds = %107
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.145677590, ptr noundef %.04360)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.145677595, ptr noundef %.04360)
   br label %110
 
 110:                                              ; preds = %75, %66, %99, %101, %109, %107, %105, %84, %86, %70, %72
@@ -32550,7 +32550,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %77 = load i64, ptr %76, align 4
   %78 = and i64 %77, 8589934592
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %112, label %.thread87
+  br i1 %79, label %112, label %.thread92
 
 .thread72:                                        ; preds = %.thread65
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -32572,21 +32572,21 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 88:                                               ; preds = %.thread72
   %89 = and i8 %26, 1
   %.not48 = icmp eq i8 %89, 0
-  br i1 %.not48, label %.thread87, label %90
+  br i1 %.not48, label %.thread92, label %90
 
 90:                                               ; preds = %88
   %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not82 = icmp eq ptr %91, null
-  br i1 %.not82, label %.thread87, label %92
+  br i1 %.not82, label %.thread92, label %92
 
 92:                                               ; preds = %90
   %93 = fpext float %2 to double
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.370, ptr noundef %68, ptr noundef %.04360, double noundef %93)
-  br label %.thread87
+  br label %.thread92
 
-.thread87:                                        ; preds = %75, %92, %90, %88
-  %.not4891 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
-  %.145677590 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04459, %75 ]
+.thread92:                                        ; preds = %75, %92, %90, %88
+  %.not4896 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
+  %.145677595 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04459, %75 ]
   %94 = call noundef i32 @_ZN8JvmtiEnv21ForceEarlyReturnFloatEP8_jobjectf(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, float noundef %2) #7
   %.not49 = icmp eq i32 %94, 0
   %95 = and i8 %26, 4
@@ -32594,8 +32594,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not50, %.not49
   br i1 %or.cond, label %107, label %96
 
-96:                                               ; preds = %.thread87
-  br i1 %.not4891, label %97, label %101
+96:                                               ; preds = %.thread92
+  br i1 %.not4896, label %97, label %101
 
 97:                                               ; preds = %96
   %98 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -32604,7 +32604,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 99:                                               ; preds = %97
   %100 = fpext float %2 to double
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.370, ptr noundef %.145677590, ptr noundef %.04360, double noundef %100)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.370, ptr noundef %.145677595, ptr noundef %.04360, double noundef %100)
   br label %101
 
 101:                                              ; preds = %99, %97, %96
@@ -32616,10 +32616,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %104 = sext i32 %94 to i64
   %105 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.145677590, ptr noundef %.04360, ptr noundef %106)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.145677595, ptr noundef %.04360, ptr noundef %106)
   br label %112
 
-107:                                              ; preds = %.thread87
+107:                                              ; preds = %.thread92
   %108 = and i8 %26, 2
   %.not51 = icmp eq i8 %108, 0
   br i1 %.not51, label %112, label %109
@@ -32630,7 +32630,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not85, label %112, label %111
 
 111:                                              ; preds = %109
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.145677590, ptr noundef %.04360)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.145677595, ptr noundef %.04360)
   br label %112
 
 112:                                              ; preds = %75, %66, %101, %103, %111, %109, %107, %84, %86, %70, %72
@@ -32852,7 +32852,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %77 = load i64, ptr %76, align 4
   %78 = and i64 %77, 8589934592
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %110, label %.thread87
+  br i1 %79, label %110, label %.thread92
 
 .thread72:                                        ; preds = %.thread65
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -32874,20 +32874,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 88:                                               ; preds = %.thread72
   %89 = and i8 %26, 1
   %.not48 = icmp eq i8 %89, 0
-  br i1 %.not48, label %.thread87, label %90
+  br i1 %.not48, label %.thread92, label %90
 
 90:                                               ; preds = %88
   %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not82 = icmp eq ptr %91, null
-  br i1 %.not82, label %.thread87, label %92
+  br i1 %.not82, label %.thread92, label %92
 
 92:                                               ; preds = %90
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.370, ptr noundef %68, ptr noundef %.04360, double noundef %2)
-  br label %.thread87
+  br label %.thread92
 
-.thread87:                                        ; preds = %75, %92, %90, %88
-  %.not4891 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
-  %.145677590 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04459, %75 ]
+.thread92:                                        ; preds = %75, %92, %90, %88
+  %.not4896 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
+  %.145677595 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04459, %75 ]
   %93 = call noundef i32 @_ZN8JvmtiEnv22ForceEarlyReturnDoubleEP8_jobjectd(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, double noundef %2) #7
   %.not49 = icmp eq i32 %93, 0
   %94 = and i8 %26, 4
@@ -32895,8 +32895,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not50, %.not49
   br i1 %or.cond, label %105, label %95
 
-95:                                               ; preds = %.thread87
-  br i1 %.not4891, label %96, label %99
+95:                                               ; preds = %.thread92
+  br i1 %.not4896, label %96, label %99
 
 96:                                               ; preds = %95
   %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -32904,7 +32904,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not83, label %99, label %98
 
 98:                                               ; preds = %96
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.370, ptr noundef %.145677590, ptr noundef %.04360, double noundef %2)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.370, ptr noundef %.145677595, ptr noundef %.04360, double noundef %2)
   br label %99
 
 99:                                               ; preds = %98, %96, %95
@@ -32916,10 +32916,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.145677590, ptr noundef %.04360, ptr noundef %104)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.145677595, ptr noundef %.04360, ptr noundef %104)
   br label %110
 
-105:                                              ; preds = %.thread87
+105:                                              ; preds = %.thread92
   %106 = and i8 %26, 2
   %.not51 = icmp eq i8 %106, 0
   br i1 %.not51, label %110, label %107
@@ -32930,7 +32930,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not85, label %110, label %109
 
 109:                                              ; preds = %107
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.145677590, ptr noundef %.04360)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.145677595, ptr noundef %.04360)
   br label %110
 
 110:                                              ; preds = %75, %66, %99, %101, %109, %107, %105, %84, %86, %70, %72
@@ -33152,7 +33152,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %76 = load i64, ptr %75, align 4
   %77 = and i64 %76, 8589934592
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %109, label %.thread84
+  br i1 %78, label %109, label %.thread89
 
 .thread69:                                        ; preds = %.thread62
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -33174,20 +33174,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 87:                                               ; preds = %.thread69
   %88 = and i8 %25, 1
   %.not45 = icmp eq i8 %88, 0
-  br i1 %.not45, label %.thread84, label %89
+  br i1 %.not45, label %.thread89, label %89
 
 89:                                               ; preds = %87
   %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not79 = icmp eq ptr %90, null
-  br i1 %.not79, label %.thread84, label %91
+  br i1 %.not79, label %.thread89, label %91
 
 91:                                               ; preds = %89
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %67, ptr noundef %.04057)
-  br label %.thread84
+  br label %.thread89
 
-.thread84:                                        ; preds = %74, %91, %89, %87
-  %.not4588 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
-  %.142647287 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
+.thread89:                                        ; preds = %74, %91, %89, %87
+  %.not4593 = phi i1 [ false, %91 ], [ false, %89 ], [ true, %87 ], [ true, %74 ]
+  %.142647292 = phi ptr [ %67, %91 ], [ %67, %89 ], [ %67, %87 ], [ %.04156, %74 ]
   %92 = call noundef i32 @_ZN8JvmtiEnv20ForceEarlyReturnVoidEP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1) #7
   %.not46 = icmp eq i32 %92, 0
   %93 = and i8 %25, 4
@@ -33195,8 +33195,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not47, %.not46
   br i1 %or.cond, label %104, label %94
 
-94:                                               ; preds = %.thread84
-  br i1 %.not4588, label %95, label %98
+94:                                               ; preds = %.thread89
+  br i1 %.not4593, label %95, label %98
 
 95:                                               ; preds = %94
   %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -33204,7 +33204,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not80, label %98, label %97
 
 97:                                               ; preds = %95
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.142647292, ptr noundef %.04057)
   br label %98
 
 98:                                               ; preds = %97, %95, %94
@@ -33216,10 +33216,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %101 = sext i32 %92 to i64
   %102 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647287, ptr noundef %.04057, ptr noundef %103)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.142647292, ptr noundef %.04057, ptr noundef %103)
   br label %109
 
-104:                                              ; preds = %.thread84
+104:                                              ; preds = %.thread89
   %105 = and i8 %25, 2
   %.not48 = icmp eq i8 %105, 0
   br i1 %.not48, label %109, label %106
@@ -33230,7 +33230,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not82, label %109, label %108
 
 108:                                              ; preds = %106
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647287, ptr noundef %.04057)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.142647292, ptr noundef %.04057)
   br label %109
 
 109:                                              ; preds = %74, %65, %98, %100, %108, %106, %104, %83, %85, %69, %71
@@ -39377,7 +39377,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 66:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %67 = call noundef zeroext i1 @_ZN12JvmtiEnvBase8is_validEv(ptr noundef nonnull align 8 dereferenceable(460) %0) #7
-  br i1 %67, label %.thread70, label %99
+  br i1 %67, label %.thread74, label %99
 
 .thread:                                          ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %68 = call noundef ptr @_ZN10JvmtiTrace28safe_get_current_thread_nameEv() #7
@@ -39398,21 +39398,21 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 75:                                               ; preds = %.thread
   %76 = and i8 %26, 1
   %.not47 = icmp eq i8 %76, 0
-  br i1 %.not47, label %.thread70, label %77
+  br i1 %.not47, label %.thread74, label %77
 
 77:                                               ; preds = %75
   %78 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not65 = icmp eq ptr %78, null
-  br i1 %.not65, label %.thread70, label %79
+  br i1 %.not65, label %.thread74, label %79
 
 79:                                               ; preds = %77
   %80 = ptrtoint ptr %2 to i64
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.402, ptr noundef %68, ptr noundef %.040, i64 noundef %80)
-  br label %.thread70
+  br label %.thread74
 
-.thread70:                                        ; preds = %66, %79, %77, %75
-  %.not4774 = phi i1 [ false, %79 ], [ false, %77 ], [ true, %75 ], [ true, %66 ]
-  %.1425773 = phi ptr [ %68, %79 ], [ %68, %77 ], [ %68, %75 ], [ %.041, %66 ]
+.thread74:                                        ; preds = %66, %79, %77, %75
+  %.not4778 = phi i1 [ false, %79 ], [ false, %77 ], [ true, %75 ], [ true, %66 ]
+  %.1425777 = phi ptr [ %68, %79 ], [ %68, %77 ], [ %68, %75 ], [ %.041, %66 ]
   %81 = call noundef i32 @_ZN8JvmtiEnv21SetThreadLocalStorageEP8_jobjectPKv(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef %2) #7
   %.not48 = icmp eq i32 %81, 0
   %82 = and i8 %26, 4
@@ -39420,8 +39420,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not49, %.not48
   br i1 %or.cond, label %94, label %83
 
-83:                                               ; preds = %.thread70
-  br i1 %.not4774, label %84, label %88
+83:                                               ; preds = %.thread74
+  br i1 %.not4778, label %84, label %88
 
 84:                                               ; preds = %83
   %85 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -39430,7 +39430,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 86:                                               ; preds = %84
   %87 = ptrtoint ptr %2 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.402, ptr noundef %.1425773, ptr noundef %.040, i64 noundef %87)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.402, ptr noundef %.1425777, ptr noundef %.040, i64 noundef %87)
   br label %88
 
 88:                                               ; preds = %86, %84, %83
@@ -39442,10 +39442,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %91 = sext i32 %81 to i64
   %92 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %91
   %93 = load ptr, ptr %92, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.1425773, ptr noundef %.040, ptr noundef %93)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.1425777, ptr noundef %.040, ptr noundef %93)
   br label %99
 
-94:                                               ; preds = %.thread70
+94:                                               ; preds = %.thread74
   %95 = and i8 %26, 2
   %.not50 = icmp eq i8 %95, 0
   br i1 %.not50, label %99, label %96
@@ -39456,7 +39456,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not68, label %99, label %98
 
 98:                                               ; preds = %96
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.1425773, ptr noundef %.040)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.1425777, ptr noundef %.040)
   br label %99
 
 99:                                               ; preds = %66, %88, %90, %98, %96, %94, %70, %72
@@ -40392,7 +40392,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %77 = load i64, ptr %76, align 4
   %78 = and i64 %77, 1
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %110, label %.thread82
+  br i1 %79, label %110, label %.thread86
 
 .thread66:                                        ; preds = %.thread
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -40414,20 +40414,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 88:                                               ; preds = %.thread66
   %89 = and i8 %26, 1
   %.not51 = icmp eq i8 %89, 0
-  br i1 %.not51, label %.thread82, label %90
+  br i1 %.not51, label %.thread86, label %90
 
 90:                                               ; preds = %88
   %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not77 = icmp eq ptr %91, null
-  br i1 %.not77, label %.thread82, label %92
+  br i1 %.not77, label %.thread86, label %92
 
 92:                                               ; preds = %90
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.407, ptr noundef %68, ptr noundef %.044, i64 noundef %2)
-  br label %.thread82
+  br label %.thread86
 
-.thread82:                                        ; preds = %75, %92, %90, %88
-  %.not5186 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
-  %.146616985 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.045, %75 ]
+.thread86:                                        ; preds = %75, %92, %90, %88
+  %.not5190 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
+  %.146616989 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.045, %75 ]
   %93 = call noundef i32 @_ZN8JvmtiEnv6SetTagEP8_jobjectl(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, i64 noundef %2) #7
   %.not52 = icmp eq i32 %93, 0
   %94 = and i8 %26, 4
@@ -40435,8 +40435,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not53, %.not52
   br i1 %or.cond, label %105, label %95
 
-95:                                               ; preds = %.thread82
-  br i1 %.not5186, label %96, label %99
+95:                                               ; preds = %.thread86
+  br i1 %.not5190, label %96, label %99
 
 96:                                               ; preds = %95
   %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -40444,7 +40444,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not78, label %99, label %98
 
 98:                                               ; preds = %96
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.407, ptr noundef %.146616985, ptr noundef %.044, i64 noundef %2)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.407, ptr noundef %.146616989, ptr noundef %.044, i64 noundef %2)
   br label %99
 
 99:                                               ; preds = %98, %96, %95
@@ -40456,10 +40456,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.146616985, ptr noundef %.044, ptr noundef %104)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.146616989, ptr noundef %.044, ptr noundef %104)
   br label %110
 
-105:                                              ; preds = %.thread82
+105:                                              ; preds = %.thread86
   %106 = and i8 %26, 2
   %.not54 = icmp eq i8 %106, 0
   br i1 %.not54, label %110, label %107
@@ -40470,7 +40470,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not80, label %110, label %109
 
 109:                                              ; preds = %107
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.146616985, ptr noundef %.044)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.146616989, ptr noundef %.044)
   br label %110
 
 110:                                              ; preds = %75, %66, %99, %101, %109, %107, %105, %84, %86, %70, %72
@@ -40669,7 +40669,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 64:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %65 = call noundef zeroext i1 @_ZN12JvmtiEnvBase8is_validEv(ptr noundef nonnull align 8 dereferenceable(460) %0) #7
-  br i1 %65, label %.thread71, label %95
+  br i1 %65, label %.thread76, label %95
 
 .thread57:                                        ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %66 = call noundef ptr @_ZN10JvmtiTrace28safe_get_current_thread_nameEv() #7
@@ -40690,20 +40690,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 73:                                               ; preds = %.thread57
   %74 = and i8 %24, 1
   %.not40 = icmp eq i8 %74, 0
-  br i1 %.not40, label %.thread71, label %75
+  br i1 %.not40, label %.thread76, label %75
 
 75:                                               ; preds = %73
   %76 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not66 = icmp eq ptr %76, null
-  br i1 %.not66, label %.thread71, label %77
+  br i1 %.not66, label %.thread76, label %77
 
 77:                                               ; preds = %75
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %66, ptr noundef %.03552)
-  br label %.thread71
+  br label %.thread76
 
-.thread71:                                        ; preds = %64, %77, %75, %73
-  %.not4075 = phi i1 [ false, %77 ], [ false, %75 ], [ true, %73 ], [ true, %64 ]
-  %.1375974 = phi ptr [ %66, %77 ], [ %66, %75 ], [ %66, %73 ], [ %.03651, %64 ]
+.thread76:                                        ; preds = %64, %77, %75, %73
+  %.not4080 = phi i1 [ false, %77 ], [ false, %75 ], [ true, %73 ], [ true, %64 ]
+  %.1375979 = phi ptr [ %66, %77 ], [ %66, %75 ], [ %66, %73 ], [ %.03651, %64 ]
   %78 = call noundef i32 @_ZN8JvmtiEnv22ForceGarbageCollectionEv(ptr noundef nonnull align 8 dereferenceable(460) %0) #7
   %.not41 = icmp eq i32 %78, 0
   %79 = and i8 %24, 4
@@ -40711,8 +40711,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not42, %.not41
   br i1 %or.cond, label %90, label %80
 
-80:                                               ; preds = %.thread71
-  br i1 %.not4075, label %81, label %84
+80:                                               ; preds = %.thread76
+  br i1 %.not4080, label %81, label %84
 
 81:                                               ; preds = %80
   %82 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -40720,7 +40720,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not67, label %84, label %83
 
 83:                                               ; preds = %81
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.1375974, ptr noundef %.03552)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.1375979, ptr noundef %.03552)
   br label %84
 
 84:                                               ; preds = %83, %81, %80
@@ -40732,10 +40732,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %87 = sext i32 %78 to i64
   %88 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %87
   %89 = load ptr, ptr %88, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.1375974, ptr noundef %.03552, ptr noundef %89)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.1375979, ptr noundef %.03552, ptr noundef %89)
   br label %95
 
-90:                                               ; preds = %.thread71
+90:                                               ; preds = %.thread76
   %91 = and i8 %24, 2
   %.not43 = icmp eq i8 %91, 0
   br i1 %.not43, label %95, label %92
@@ -40746,7 +40746,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not69, label %95, label %94
 
 94:                                               ; preds = %92
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.1375974, ptr noundef %.03552)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.1375979, ptr noundef %.03552)
   br label %95
 
 95:                                               ; preds = %64, %84, %86, %94, %92, %90, %68, %70
@@ -41302,7 +41302,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %79 = load i64, ptr %78, align 4
   %80 = and i64 %79, 1
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %114, label %.thread89
+  br i1 %81, label %114, label %.thread94
 
 .thread74:                                        ; preds = %.thread67
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -41324,21 +41324,21 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 90:                                               ; preds = %.thread74
   %91 = and i8 %28, 1
   %.not50 = icmp eq i8 %91, 0
-  br i1 %.not50, label %.thread89, label %92
+  br i1 %.not50, label %.thread94, label %92
 
 92:                                               ; preds = %90
   %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not84 = icmp eq ptr %93, null
-  br i1 %.not84, label %.thread89, label %94
+  br i1 %.not84, label %.thread94, label %94
 
 94:                                               ; preds = %92
   %95 = ptrtoint ptr %4 to i64
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.409, ptr noundef %70, ptr noundef %.04562, i64 noundef %95)
-  br label %.thread89
+  br label %.thread94
 
-.thread89:                                        ; preds = %77, %94, %92, %90
-  %.not5093 = phi i1 [ false, %94 ], [ false, %92 ], [ true, %90 ], [ true, %77 ]
-  %.147697792 = phi ptr [ %70, %94 ], [ %70, %92 ], [ %70, %90 ], [ %.04661, %77 ]
+.thread94:                                        ; preds = %77, %94, %92, %90
+  %.not5098 = phi i1 [ false, %94 ], [ false, %92 ], [ true, %90 ], [ true, %77 ]
+  %.147697797 = phi ptr [ %70, %94 ], [ %70, %92 ], [ %70, %90 ], [ %.04661, %77 ]
   %96 = call noundef i32 @_ZN8JvmtiEnv27IterateOverReachableObjectsEPF21jvmtiIterationControl17jvmtiHeapRootKindllPlPvEPFS0_S1_llS2_liP10_jmethodIDiS3_EPFS0_24jvmtiObjectReferenceKindllS2_liS3_EPKv(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #7
   %.not51 = icmp eq i32 %96, 0
   %97 = and i8 %28, 4
@@ -41346,8 +41346,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not52, %.not51
   br i1 %or.cond, label %109, label %98
 
-98:                                               ; preds = %.thread89
-  br i1 %.not5093, label %99, label %103
+98:                                               ; preds = %.thread94
+  br i1 %.not5098, label %99, label %103
 
 99:                                               ; preds = %98
   %100 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -41356,7 +41356,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 101:                                              ; preds = %99
   %102 = ptrtoint ptr %4 to i64
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.409, ptr noundef %.147697792, ptr noundef %.04562, i64 noundef %102)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.409, ptr noundef %.147697797, ptr noundef %.04562, i64 noundef %102)
   br label %103
 
 103:                                              ; preds = %101, %99, %98
@@ -41368,10 +41368,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %106 = sext i32 %96 to i64
   %107 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %106
   %108 = load ptr, ptr %107, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.147697792, ptr noundef %.04562, ptr noundef %108)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.147697797, ptr noundef %.04562, ptr noundef %108)
   br label %114
 
-109:                                              ; preds = %.thread89
+109:                                              ; preds = %.thread94
   %110 = and i8 %28, 2
   %.not53 = icmp eq i8 %110, 0
   br i1 %.not53, label %114, label %111
@@ -41382,7 +41382,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not87, label %114, label %113
 
 113:                                              ; preds = %111
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.147697792, ptr noundef %.04562)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.147697797, ptr noundef %.04562)
   br label %114
 
 114:                                              ; preds = %77, %68, %103, %105, %113, %111, %109, %86, %88, %72, %74
@@ -45184,7 +45184,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 
 65:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %66 = call noundef zeroext i1 @_ZN12JvmtiEnvBase8is_validEv(ptr noundef nonnull align 8 dereferenceable(460) %0) #7
-  br i1 %66, label %.thread79, label %102
+  br i1 %66, label %.thread84, label %102
 
 .thread65:                                        ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   %67 = call noundef ptr @_ZN10JvmtiTrace28safe_get_current_thread_nameEv() #7
@@ -45205,12 +45205,12 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 74:                                               ; preds = %.thread65
   %75 = and i8 %25, 1
   %.not45 = icmp eq i8 %75, 0
-  br i1 %.not45, label %.thread79, label %76
+  br i1 %.not45, label %.thread84, label %76
 
 76:                                               ; preds = %74
   %77 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not74 = icmp eq ptr %77, null
-  br i1 %.not74, label %.thread79, label %78
+  br i1 %.not74, label %.thread84, label %78
 
 78:                                               ; preds = %76
   %79 = add i32 %1, -50
@@ -45220,11 +45220,11 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %.0.in.i = select i1 %or.cond.i, ptr %81, ptr @_ZZN10JvmtiTrace10event_nameEiE14ext_event_name
   %.0.i = load ptr, ptr %.0.in.i, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.429, ptr noundef %67, ptr noundef %.04060, i32 noundef %1, ptr noundef %.0.i)
-  br label %.thread79
+  br label %.thread84
 
-.thread79:                                        ; preds = %65, %78, %76, %74
-  %.not4583 = phi i1 [ false, %78 ], [ false, %76 ], [ true, %74 ], [ true, %65 ]
-  %.1426782 = phi ptr [ %67, %78 ], [ %67, %76 ], [ %67, %74 ], [ %.04159, %65 ]
+.thread84:                                        ; preds = %65, %78, %76, %74
+  %.not4588 = phi i1 [ false, %78 ], [ false, %76 ], [ true, %74 ], [ true, %65 ]
+  %.1426787 = phi ptr [ %67, %78 ], [ %67, %76 ], [ %67, %74 ], [ %.04159, %65 ]
   %82 = call noundef i32 @_ZN8JvmtiEnv14GenerateEventsE10jvmtiEvent(ptr noundef nonnull align 8 dereferenceable(460) %0, i32 noundef %1) #7
   %.not46 = icmp eq i32 %82, 0
   %83 = and i8 %25, 4
@@ -45232,8 +45232,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not47, %.not46
   br i1 %or.cond, label %97, label %84
 
-84:                                               ; preds = %.thread79
-  br i1 %.not4583, label %85, label %91
+84:                                               ; preds = %.thread84
+  br i1 %.not4588, label %85, label %91
 
 85:                                               ; preds = %84
   %86 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -45247,7 +45247,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %90 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN10JvmtiTrace12_event_namesE, i64 0, i64 %89
   %.0.in.i50 = select i1 %or.cond.i49, ptr %90, ptr @_ZZN10JvmtiTrace10event_nameEiE14ext_event_name
   %.0.i51 = load ptr, ptr %.0.in.i50, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.429, ptr noundef %.1426782, ptr noundef %.04060, i32 noundef %1, ptr noundef %.0.i51)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.429, ptr noundef %.1426787, ptr noundef %.04060, i32 noundef %1, ptr noundef %.0.i51)
   br label %91
 
 91:                                               ; preds = %87, %85, %84
@@ -45259,10 +45259,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %94 = sext i32 %82 to i64
   %95 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %94
   %96 = load ptr, ptr %95, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.1426782, ptr noundef %.04060, ptr noundef %96)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.1426787, ptr noundef %.04060, ptr noundef %96)
   br label %102
 
-97:                                               ; preds = %.thread79
+97:                                               ; preds = %.thread84
   %98 = and i8 %25, 2
   %.not48 = icmp eq i8 %98, 0
   br i1 %.not48, label %102, label %99
@@ -45273,7 +45273,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not77, label %102, label %101
 
 101:                                              ; preds = %99
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.1426782, ptr noundef %.04060)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.1426787, ptr noundef %.04060)
   br label %102
 
 102:                                              ; preds = %65, %91, %93, %101, %99, %97, %69, %71
@@ -50633,7 +50633,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %77 = load i64, ptr %76, align 4
   %78 = and i64 %77, 8388608
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %110, label %.thread85
+  br i1 %79, label %110, label %.thread90
 
 .thread70:                                        ; preds = %.thread63
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -50655,20 +50655,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 88:                                               ; preds = %.thread70
   %89 = and i8 %26, 1
   %.not46 = icmp eq i8 %89, 0
-  br i1 %.not46, label %.thread85, label %90
+  br i1 %.not46, label %.thread90, label %90
 
 90:                                               ; preds = %88
   %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not80 = icmp eq ptr %91, null
-  br i1 %.not80, label %.thread85, label %92
+  br i1 %.not80, label %.thread90, label %92
 
 92:                                               ; preds = %90
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %68, ptr noundef %.04158)
-  br label %.thread85
+  br label %.thread90
 
-.thread85:                                        ; preds = %75, %92, %90, %88
-  %.not4689 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
-  %.143657388 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04257, %75 ]
+.thread90:                                        ; preds = %75, %92, %90, %88
+  %.not4694 = phi i1 [ false, %92 ], [ false, %90 ], [ true, %88 ], [ true, %75 ]
+  %.143657393 = phi ptr [ %68, %92 ], [ %68, %90 ], [ %68, %88 ], [ %.04257, %75 ]
   %93 = call noundef i32 @_ZN8JvmtiEnv16GetThreadCpuTimeEP8_jobjectPl(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef %2) #7
   %.not47 = icmp eq i32 %93, 0
   %94 = and i8 %26, 4
@@ -50676,8 +50676,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %or.cond = or i1 %.not48, %.not47
   br i1 %or.cond, label %105, label %95
 
-95:                                               ; preds = %.thread85
-  br i1 %.not4689, label %96, label %99
+95:                                               ; preds = %.thread90
+  br i1 %.not4694, label %96, label %99
 
 96:                                               ; preds = %95
   %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -50685,7 +50685,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not81, label %99, label %98
 
 98:                                               ; preds = %96
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.143657388, ptr noundef %.04158)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.288, ptr noundef %.143657393, ptr noundef %.04158)
   br label %99
 
 99:                                               ; preds = %98, %96, %95
@@ -50697,10 +50697,10 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %102 = sext i32 %93 to i64
   %103 = getelementptr inbounds [0 x ptr], ptr @_ZN9JvmtiUtil12_error_namesE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.143657388, ptr noundef %.04158, ptr noundef %104)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.284, ptr noundef %.143657393, ptr noundef %.04158, ptr noundef %104)
   br label %110
 
-105:                                              ; preds = %.thread85
+105:                                              ; preds = %.thread90
   %106 = and i8 %26, 2
   %.not49 = icmp eq i8 %106, 0
   br i1 %.not49, label %110, label %107
@@ -50711,7 +50711,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br i1 %.not83, label %110, label %109
 
 109:                                              ; preds = %107
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.143657388, ptr noundef %.04158)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE69ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.285, ptr noundef %.143657393, ptr noundef %.04158)
   br label %110
 
 110:                                              ; preds = %75, %66, %99, %101, %109, %107, %105, %84, %86, %70, %72

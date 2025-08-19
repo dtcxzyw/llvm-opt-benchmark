@@ -135,7 +135,7 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
   %.mask = and i32 %28, -268435456
   %.not94 = icmp eq i32 %.mask, 268435456
   %or.cond104 = or i1 %.not93, %.not94
-  br i1 %or.cond104, label %29, label %.thread138
+  br i1 %or.cond104, label %29, label %.thread140
 
 29:                                               ; preds = %27
   %30 = lshr i32 %28, 24
@@ -147,7 +147,7 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
 32:                                               ; preds = %29
   %33 = lshr i32 %28, 20
   %34 = and i32 %33, 15
-  switch i32 %34, label %.thread138 [
+  switch i32 %34, label %.thread140 [
     i32 3, label %.thread121
     i32 4, label %.thread121
     i32 7, label %.thread121
@@ -157,19 +157,19 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
 35:                                               ; preds = %29
   %.off108 = add nsw i32 %31, -7
   %switch109 = icmp ult i32 %.off108, 5
-  br i1 %switch109, label %36, label %.thread138
+  br i1 %switch109, label %36, label %.thread140
 
 36:                                               ; preds = %35
   %37 = lshr i32 %28, 20
   %38 = and i32 %37, 15
-  switch i32 %38, label %.thread138 [
+  switch i32 %38, label %.thread140 [
     i32 3, label %.thread121
     i32 2, label %.thread121
     i32 6, label %.thread121
     i32 5, label %.thread121
   ]
 
-.thread138:                                       ; preds = %32, %27, %35, %36
+.thread140:                                       ; preds = %32, %27, %35, %36
   %39 = load ptr, ptr @X11_XFree, align 8
   %40 = call i32 %39(ptr noundef nonnull %25) #4
   br label %.thread117
@@ -178,7 +178,7 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
   %.not97 = icmp eq ptr %25, null
   br i1 %.not97, label %.thread117, label %.thread121
 
-.thread117:                                       ; preds = %.thread, %.thread138, %19, %41
+.thread117:                                       ; preds = %.thread, %.thread140, %19, %41
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %2, ptr %42, align 8
   %43 = load ptr, ptr @X11_XGetVisualInfo, align 8
@@ -188,15 +188,15 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
   %or.cond135 = select i1 %3, i1 %.not103133, i1 false
   br i1 %or.cond135, label %.lr.ph, label %.thread121
 
-.lr.ph:                                           ; preds = %.thread117, %.thread141
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread141 ], [ 0, %.thread117 ]
+.lr.ph:                                           ; preds = %.thread117, %.thread143
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread143 ], [ 0, %.thread117 ]
   %46 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %44, i64 %indvars.iv
   %47 = call i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef %1, ptr noundef %46) #4
   %.not98 = icmp eq i32 %47, 0
   %.mask100 = and i32 %47, -268435456
   %.not99 = icmp eq i32 %.mask100, 268435456
   %or.cond106 = or i1 %.not98, %.not99
-  br i1 %or.cond106, label %48, label %.thread141
+  br i1 %or.cond106, label %48, label %.thread143
 
 48:                                               ; preds = %.lr.ph
   %49 = lshr i32 %47, 24
@@ -208,7 +208,7 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
 51:                                               ; preds = %48
   %52 = lshr i32 %47, 20
   %53 = and i32 %52, 15
-  switch i32 %53, label %.thread141 [
+  switch i32 %53, label %.thread143 [
     i32 3, label %58
     i32 4, label %58
     i32 7, label %58
@@ -218,12 +218,12 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
 54:                                               ; preds = %48
   %.off112 = add nsw i32 %50, -7
   %switch113 = icmp ult i32 %.off112, 5
-  br i1 %switch113, label %55, label %.thread141
+  br i1 %switch113, label %55, label %.thread143
 
 55:                                               ; preds = %54
   %56 = lshr i32 %47, 20
   %57 = and i32 %56, 15
-  switch i32 %57, label %.thread141 [
+  switch i32 %57, label %.thread143 [
     i32 3, label %58
     i32 2, label %58
     i32 6, label %58
@@ -242,15 +242,15 @@ define hidden ptr @X11_GLES_GetVisual(ptr noundef readonly captures(none) %0, pt
   %65 = call ptr %64(ptr noundef %1, i64 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   br label %.thread121
 
-.thread141:                                       ; preds = %51, %55, %54, %.lr.ph
+.thread143:                                       ; preds = %51, %55, %54, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %7, align 4
   %67 = sext i32 %66 to i64
   %.not103 = icmp slt i64 %indvars.iv.next, %67
   br i1 %.not103, label %.lr.ph, label %.thread121, !llvm.loop !3
 
-.thread121:                                       ; preds = %.thread141, %58, %32, %32, %32, %32, %36, %36, %36, %36, %41, %.thread117, %4
-  %.0 = phi ptr [ null, %4 ], [ %25, %41 ], [ %44, %.thread117 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %65, %58 ], [ %44, %.thread141 ]
+.thread121:                                       ; preds = %.thread143, %58, %32, %32, %32, %32, %36, %36, %36, %36, %41, %.thread117, %4
+  %.0 = phi ptr [ null, %4 ], [ %25, %41 ], [ %44, %.thread117 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %25, %36 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %25, %32 ], [ %65, %58 ], [ %44, %.thread143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

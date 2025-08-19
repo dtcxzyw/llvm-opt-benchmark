@@ -540,8 +540,8 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %147 = load i32, ptr @ett_fiveco_data, align 4
   %148 = call ptr @proto_item_add_subtree(ptr noundef %146, i32 noundef %147)
   switch i16 %24, label %437 [
-    i16 1, label %.preheader625
-    i16 7, label %.preheader625
+    i16 1, label %.preheader648
+    i16 7, label %.preheader648
     i16 2, label %.preheader
     i16 5, label %203
     i16 6, label %210
@@ -561,12 +561,12 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
     i16 43, label %436
   ]
 
-.preheader625:                                    ; preds = %143, %143
+.preheader648:                                    ; preds = %143, %143
   br label %149
 
-149:                                              ; preds = %.preheader625, %._crit_edge
-  %150 = phi i32 [ %177, %._crit_edge ], [ 0, %.preheader625 ]
-  %.0433532 = phi i32 [ %176, %._crit_edge ], [ 0, %.preheader625 ]
+149:                                              ; preds = %.preheader648, %._crit_edge
+  %150 = phi i32 [ %177, %._crit_edge ], [ 0, %.preheader648 ]
+  %.0433532 = phi i32 [ %176, %._crit_edge ], [ 0, %.preheader648 ]
   %151 = load i32, ptr @hf_fiveco_i2cadd, align 4
   %152 = add nuw nsw i32 %150, %145
   %153 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef 1, i32 noundef 0)

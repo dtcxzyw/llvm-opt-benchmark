@@ -1384,12 +1384,12 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.i:         ; preds = %_ZNSt6vectorIjSaIjE
 
 common.resume:                                    ; preds = %_ZN7testing7MessageD2Ev.exit25.i, %155, %49
   %.sroa.14.1.lcssa.sink = phi ptr [ %23, %49 ], [ %.sroa.14.1, %155 ], [ %.sroa.14.1, %_ZN7testing7MessageD2Ev.exit25.i ]
-  %.sroa.0.1.lcssa.sink36 = phi ptr [ %22, %49 ], [ %.sroa.0.1, %155 ], [ %.sroa.0.1, %_ZN7testing7MessageD2Ev.exit25.i ]
+  %.sroa.0.1.lcssa.sink49 = phi ptr [ %22, %49 ], [ %.sroa.0.1, %155 ], [ %.sroa.0.1, %_ZN7testing7MessageD2Ev.exit25.i ]
   %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %49 ], [ %156, %155 ], [ %.pn.pn.pn.pn.pn.i, %_ZN7testing7MessageD2Ev.exit25.i ]
   %50 = ptrtoint ptr %.sroa.14.1.lcssa.sink to i64
-  %51 = ptrtoint ptr %.sroa.0.1.lcssa.sink36 to i64
+  %51 = ptrtoint ptr %.sroa.0.1.lcssa.sink49 to i64
   %52 = sub i64 %50, %51
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.lcssa.sink36, i64 noundef %52) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.lcssa.sink49, i64 noundef %52) #18
   resume { ptr, i32 } %common.resume.op
 
 _ZN4absl12_GLOBAL__N_122GenerateRandomIntegersIjEESt6vectorIT_SaIS3_EEm.exit: ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit.i
@@ -1933,12 +1933,12 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit.i:         ; preds = %_ZNSt6vectorImSaImE
 
 common.resume:                                    ; preds = %_ZN7testing7MessageD2Ev.exit25.i, %151, %48
   %.sroa.14.1.lcssa.sink = phi ptr [ %23, %48 ], [ %.sroa.14.1, %151 ], [ %.sroa.14.1, %_ZN7testing7MessageD2Ev.exit25.i ]
-  %.sroa.0.1.lcssa.sink36 = phi ptr [ %22, %48 ], [ %.sroa.0.1, %151 ], [ %.sroa.0.1, %_ZN7testing7MessageD2Ev.exit25.i ]
+  %.sroa.0.1.lcssa.sink49 = phi ptr [ %22, %48 ], [ %.sroa.0.1, %151 ], [ %.sroa.0.1, %_ZN7testing7MessageD2Ev.exit25.i ]
   %common.resume.op = phi { ptr, i32 } [ %lpad.phi.i, %48 ], [ %152, %151 ], [ %.pn.pn.pn.pn.pn.i, %_ZN7testing7MessageD2Ev.exit25.i ]
   %49 = ptrtoint ptr %.sroa.14.1.lcssa.sink to i64
-  %50 = ptrtoint ptr %.sroa.0.1.lcssa.sink36 to i64
+  %50 = ptrtoint ptr %.sroa.0.1.lcssa.sink49 to i64
   %51 = sub i64 %49, %50
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.lcssa.sink36, i64 noundef %51) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.lcssa.sink49, i64 noundef %51) #18
   resume { ptr, i32 } %common.resume.op
 
 _ZN4absl12_GLOBAL__N_122GenerateRandomIntegersImEESt6vectorIT_SaIS3_EEm.exit: ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit.i

@@ -1840,9 +1840,9 @@ common.resume:                                    ; preds = %102, %39, %58, %75,
   br label %100
 
 _ZN4core3ops8function6FnOnce9call_once17h51978f1caa5c5171E.exit: ; preds = %38, %74, %94
-  %.lcssa32.sink.i.i.ph.i.i.i.i = phi ptr [ %84, %94 ], [ %61, %74 ], [ %28, %38 ]
+  %.lcssa36.sink.i.i.ph.i.i.i.i = phi ptr [ %84, %94 ], [ %61, %74 ], [ %28, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !358
-  store ptr %.lcssa32.sink.i.i.ph.i.i.i.i, ptr %12, align 8, !noalias !358
+  store ptr %.lcssa36.sink.i.i.ph.i.i.i.i, ptr %12, align 8, !noalias !358
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i.i.i.i, i64 32, i1 false), !noalias !358
   call void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9a94219f3b24c984E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 1 %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %12)
@@ -11842,8 +11842,8 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex4path
   invoke void @_ZN8uv_cache10CacheEntry3new17h094f3d1e7a1449adE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 1 @anon.f6c94c5c72552b52d54225627fc14e19.79, i64 noundef 12)
           to label %33 unwind label %31
 
-.body:                                            ; preds = %.thread107, %163, %31, %168, %44
-  %.pn50 = phi { ptr, i32 } [ %.pn48, %168 ], [ %.pn48, %44 ], [ %32, %31 ], [ %164, %163 ], [ %lpad.thr_comm.split-lp, %.thread107 ]
+.body:                                            ; preds = %.thread113, %163, %31, %168, %44
+  %.pn50 = phi { ptr, i32 } [ %.pn48, %168 ], [ %.pn48, %44 ], [ %32, %31 ], [ %164, %163 ], [ %lpad.thr_comm.split-lp, %.thread113 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$uv_cache..CacheShard$GT$17h44a92fa1ecb2f596E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #46
           to label %179 unwind label %154
 
@@ -11893,8 +11893,8 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex4path
           to label %48 unwind label %46
 
 44:                                               ; preds = %159, %52, %46
-  %.sroa.030.1 = phi i8 [ %.sroa.030.0, %46 ], [ %.sroa.030.3101, %159 ], [ 0, %52 ]
-  %.pn48 = phi { ptr, i32 } [ %47, %46 ], [ %.pn46102, %159 ], [ %.pn.pn, %52 ]
+  %.sroa.030.1 = phi i8 [ %.sroa.030.0, %46 ], [ %.sroa.030.3107, %159 ], [ 0, %52 ]
+  %.pn48 = phi { ptr, i32 } [ %47, %46 ], [ %.pn46108, %159 ], [ %.pn.pn, %52 ]
   %45 = trunc nuw i8 %.sroa.030.1 to i1
   br i1 %45, label %168, label %.body
 
@@ -11913,13 +11913,13 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex4path
 52:                                               ; preds = %61
   br i1 %.sroa.032.3, label %159, label %44
 
-.thread103:                                       ; preds = %_ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit, %53, %56
+.thread109:                                       ; preds = %_ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit, %53, %56
   %.sroa.030.2.ph = phi i8 [ 0, %56 ], [ 1, %53 ], [ 0, %_ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %159
 
-.thread107:                                       ; preds = %140
+.thread113:                                       ; preds = %140
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11938,7 +11938,7 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex4path
   %.sroa.415.sroa.4.0..sroa.415.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %.sroa.537.sroa.5.0.copyload, ptr %.sroa.415.sroa.4.0..sroa.415.0..sroa_idx.sroa_idx, align 8
   %54 = invoke fastcc noundef zeroext i1 @"_ZN77_$LT$uv_cache_info..cache_info..CacheInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc447bb1fe6714f24E"(ptr noalias noundef readonly align 8 dereferenceable(120) %20, ptr noalias noundef readonly align 8 dereferenceable(120) %23)
-          to label %55 unwind label %.thread103
+          to label %55 unwind label %.thread109
 
 55:                                               ; preds = %53
   br i1 %54, label %56, label %58
@@ -11950,7 +11950,7 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex4path
   %57 = getelementptr inbounds nuw i8, ptr %23, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %57, i64 40, i1 false)
   invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_cache_info..cache_info..CacheInfo$GT$17h230f87a8ae950eb0E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %17)
-          to label %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit unwind label %.thread103
+          to label %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit unwind label %.thread109
 
 58:                                               ; preds = %55
   store i64 2, ptr %0, align 8
@@ -12058,7 +12058,7 @@ _ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_distribution..source..revision..Revision$GT$17ha8de5113ddd40506E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
-          to label %96 unwind label %.thread103
+          to label %96 unwind label %.thread109
 
 96:                                               ; preds = %_ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -12220,7 +12220,7 @@ _ZN8uv_cache10CacheShard5shard17haebd1f96c38409deE.exit: ; preds = %.loopexit
 140:                                              ; preds = %144, %142, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_distribution..source..revision..Revision$GT$17ha8de5113ddd40506E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
-          to label %145 unwind label %.thread107
+          to label %145 unwind label %.thread113
 
 141:                                              ; preds = %127
   %.sroa.020.0.copyload22 = load i64, ptr %9, align 8
@@ -12280,9 +12280,9 @@ _ZN8uv_cache10CacheShard5shard17haebd1f96c38409deE.exit: ; preds = %.loopexit
   %158 = trunc nuw i8 %.sroa.030.4 to i1
   br i1 %158, label %162, label %"_ZN4core3ptr66drop_in_place$LT$uv_distribution..source..LocalRevisionPointer$GT$17he5dd2d1950aaec26E.exit"
 
-159:                                              ; preds = %.thread103, %52
-  %.pn46102 = phi { ptr, i32 } [ %.pn.pn, %52 ], [ %lpad.thr_comm, %.thread103 ]
-  %.sroa.030.3101 = phi i8 [ 0, %52 ], [ %.sroa.030.2.ph, %.thread103 ]
+159:                                              ; preds = %.thread109, %52
+  %.pn46108 = phi { ptr, i32 } [ %.pn.pn, %52 ], [ %lpad.thr_comm, %.thread109 ]
+  %.sroa.030.3107 = phi i8 [ 0, %52 ], [ %.sroa.030.2.ph, %.thread109 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_cache_info..cache_info..CacheInfo$GT$17h230f87a8ae950eb0E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %20) #46
           to label %44 unwind label %154
 
@@ -12423,8 +12423,8 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex9dire
   invoke void @_ZN8uv_cache10CacheEntry3new17h094f3d1e7a1449adE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 1 @anon.f6c94c5c72552b52d54225627fc14e19.79, i64 noundef 12)
           to label %41 unwind label %39
 
-.body:                                            ; preds = %.thread86, %173, %39, %178, %55
-  %.pn47 = phi { ptr, i32 } [ %.pn45, %178 ], [ %.pn45, %55 ], [ %40, %39 ], [ %174, %173 ], [ %lpad.thr_comm.split-lp, %.thread86 ]
+.body:                                            ; preds = %.thread92, %173, %39, %178, %55
+  %.pn47 = phi { ptr, i32 } [ %.pn45, %178 ], [ %.pn45, %55 ], [ %40, %39 ], [ %174, %173 ], [ %lpad.thr_comm.split-lp, %.thread92 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$uv_cache..CacheShard$GT$17h44a92fa1ecb2f596E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #46
           to label %189 unwind label %165
 
@@ -12478,8 +12478,8 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex9dire
           to label %59 unwind label %57
 
 55:                                               ; preds = %170, %63, %57
-  %.sroa.028.1 = phi i8 [ %.sroa.028.0, %57 ], [ %.sroa.028.380, %170 ], [ 0, %63 ]
-  %.pn45 = phi { ptr, i32 } [ %58, %57 ], [ %.pn4381, %170 ], [ %.pn.pn, %63 ]
+  %.sroa.028.1 = phi i8 [ %.sroa.028.0, %57 ], [ %.sroa.028.386, %170 ], [ 0, %63 ]
+  %.pn45 = phi { ptr, i32 } [ %58, %57 ], [ %.pn4387, %170 ], [ %.pn.pn, %63 ]
   %56 = trunc nuw i8 %.sroa.028.1 to i1
   br i1 %56, label %178, label %.body
 
@@ -12499,13 +12499,13 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex9dire
 63:                                               ; preds = %72
   br i1 %.sroa.030.3, label %170, label %55
 
-.thread82:                                        ; preds = %_ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit, %64, %67
+.thread88:                                        ; preds = %_ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit, %64, %67
   %.sroa.028.2.ph = phi i8 [ 0, %67 ], [ 1, %64 ], [ 0, %_ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %170
 
-.thread86:                                        ; preds = %151
+.thread92:                                        ; preds = %151
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -12520,7 +12520,7 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex9dire
   store i64 %60, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   %65 = invoke fastcc noundef zeroext i1 @"_ZN77_$LT$uv_cache_info..cache_info..CacheInfo$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc447bb1fe6714f24E"(ptr noalias noundef readonly align 8 dereferenceable(120) %20, ptr noalias noundef readonly align 8 dereferenceable(120) %23)
-          to label %66 unwind label %.thread82
+          to label %66 unwind label %.thread88
 
 66:                                               ; preds = %64
   br i1 %65, label %67, label %69
@@ -12532,7 +12532,7 @@ define void @_ZN15uv_distribution5index17built_wheel_index15BuiltWheelIndex9dire
   %68 = getelementptr inbounds nuw i8, ptr %23, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %68, i64 40, i1 false)
   invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_cache_info..cache_info..CacheInfo$GT$17h230f87a8ae950eb0E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %17)
-          to label %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit unwind label %.thread82
+          to label %_ZN15uv_distribution6source20LocalRevisionPointer13into_revision17h01ad7d868e612152E.exit unwind label %.thread88
 
 69:                                               ; preds = %66
   store i64 2, ptr %0, align 8
@@ -12640,7 +12640,7 @@ _ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store i64 2, ptr %0, align 8
   invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_distribution..source..revision..Revision$GT$17ha8de5113ddd40506E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
-          to label %107 unwind label %.thread82
+          to label %107 unwind label %.thread88
 
 107:                                              ; preds = %_ZN21uv_distribution_types4hash6Hashed9satisfies17h55b830f388060f70E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -12802,7 +12802,7 @@ _ZN8uv_cache10CacheShard5shard17haebd1f96c38409deE.exit: ; preds = %.loopexit
 151:                                              ; preds = %155, %153, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   invoke void @"_ZN4core3ptr64drop_in_place$LT$uv_distribution..source..revision..Revision$GT$17ha8de5113ddd40506E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18)
-          to label %156 unwind label %.thread86
+          to label %156 unwind label %.thread92
 
 152:                                              ; preds = %138
   %.sroa.018.0.copyload20 = load i64, ptr %9, align 8
@@ -12862,9 +12862,9 @@ _ZN8uv_cache10CacheShard5shard17haebd1f96c38409deE.exit: ; preds = %.loopexit
   %169 = trunc nuw i8 %.sroa.028.4 to i1
   br i1 %169, label %172, label %"_ZN4core3ptr66drop_in_place$LT$uv_distribution..source..LocalRevisionPointer$GT$17he5dd2d1950aaec26E.exit"
 
-170:                                              ; preds = %.thread82, %63
-  %.pn4381 = phi { ptr, i32 } [ %.pn.pn, %63 ], [ %lpad.thr_comm, %.thread82 ]
-  %.sroa.028.380 = phi i8 [ 0, %63 ], [ %.sroa.028.2.ph, %.thread82 ]
+170:                                              ; preds = %.thread88, %63
+  %.pn4387 = phi { ptr, i32 } [ %.pn.pn, %63 ], [ %lpad.thr_comm, %.thread88 ]
+  %.sroa.028.386 = phi i8 [ 0, %63 ], [ %.sroa.028.2.ph, %.thread88 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_cache_info..cache_info..CacheInfo$GT$17h230f87a8ae950eb0E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %20) #46
           to label %55 unwind label %165
 

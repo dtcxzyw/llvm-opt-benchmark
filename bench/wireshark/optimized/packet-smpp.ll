@@ -4634,14 +4634,14 @@ get_smpp_data.exit:                               ; preds = %5, %10
   br i1 %24, label %27, label %.thread
 
 .thread:                                          ; preds = %get_smpp_data.exit, %20
-  %.047 = phi i32 [ %23, %20 ], [ 0, %get_smpp_data.exit ]
+  %.048 = phi i32 [ %23, %20 ], [ 0, %get_smpp_data.exit ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %51, label %27
 
 27:                                               ; preds = %.thread, %20
-  %.045 = phi i32 [ %.047, %.thread ], [ %23, %20 ]
+  %.046 = phi i32 [ %.048, %.thread ], [ %23, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %29 = load i32, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 212
@@ -4684,7 +4684,7 @@ get_smpp_data.exit:                               ; preds = %5, %10
   br label %51
 
 51:                                               ; preds = %27, %.thread
-  %.046 = phi i32 [ %.045, %27 ], [ %.047, %.thread ]
+  %.047 = phi i32 [ %.046, %27 ], [ %.048, %.thread ]
   %52 = load i32, ptr %15, align 4
   switch i32 %52, label %68 [
     i32 -1, label %72
@@ -4697,13 +4697,13 @@ get_smpp_data.exit:                               ; preds = %5, %10
   br i1 %55, label %56, label %68
 
 56:                                               ; preds = %53
-  %57 = shl nuw nsw i32 %.046, 3
+  %57 = shl nuw nsw i32 %.047, 3
   %58 = trunc nuw nsw i32 %57 to i16
   %.lhs.trunc = add nsw i16 %58, -8
   %59 = srem i16 %.lhs.trunc, 7
   %narrow = sub nsw i16 6, %59
   %60 = zext nneg i16 %narrow to i32
-  %61 = sub i32 %17, %.046
+  %61 = sub i32 %17, %.047
   %62 = shl i32 %61, 3
   %63 = sub i32 %62, %60
   %64 = sdiv i32 %63, 7
@@ -4714,8 +4714,8 @@ get_smpp_data.exit:                               ; preds = %5, %10
 
 68:                                               ; preds = %51, %53
   %69 = load i32, ptr @hf_smpp_short_message, align 4
-  %70 = sub i32 %17, %.046
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %69, ptr noundef nonnull %1, i32 noundef %.046, i32 noundef %70, i32 noundef %16)
+  %70 = sub i32 %17, %.047
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %69, ptr noundef nonnull %1, i32 noundef %.047, i32 noundef %70, i32 noundef %16)
   br label %72
 
 72:                                               ; preds = %51, %56, %68

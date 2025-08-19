@@ -3793,8 +3793,8 @@ get_ipxnetbyaddr.exit.thread.i:                   ; preds = %24, %get_ipxnetbyad
   br label %ipxnet_name_lookup.exit
 
 ipxnet_name_lookup.exit:                          ; preds = %7, %39, %get_ipxnetbyaddr.exit.thread.i
-  %.sink25.i = phi ptr [ %11, %7 ], [ %15, %get_ipxnetbyaddr.exit.thread.i ], [ %15, %39 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 16
+  %.sink31.i = phi ptr [ %11, %7 ], [ %15, %get_ipxnetbyaddr.exit.thread.i ], [ %15, %39 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 16
   %46 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %45)
   br label %47
 
@@ -3853,9 +3853,9 @@ set_vlanent.exit.split.i.i:                       ; preds = %set_vlanent.exit.i.
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = load ptr, ptr @vlan_p, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit.i.thread19.i, label %.preheader.i.i.i
+  br i1 %27, label %.loopexit.i.thread26.i, label %.preheader.i.i.i
 
-.loopexit.i.thread19.i:                           ; preds = %set_vlanent.exit.split.i.i
+.loopexit.i.thread26.i:                           ; preds = %set_vlanent.exit.split.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i.thread.i
 
@@ -3928,7 +3928,7 @@ parse_vlan_line.exit.i.i.i:                       ; preds = %43, %40, %37
   store ptr null, ptr @vlan_p, align 8
   br label %.loopexit.i.thread.i
 
-.loopexit.i.thread.i:                             ; preds = %53, %.loopexit.i.i, %.loopexit.i.thread19.i, %set_vlanent.exit.i.i
+.loopexit.i.thread.i:                             ; preds = %53, %.loopexit.i.i, %.loopexit.i.thread26.i, %set_vlanent.exit.i.i
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %56 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %55, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull @.str.79, i32 noundef range(i32 0, 65536) %8)
   br label %vlan_name_lookup.exit
@@ -5178,12 +5178,12 @@ define internal fastcc noundef ptr @eth_addr_resolve(ptr noundef returned %0) un
   br i1 %39, label %.lr.ph27.preheader.i, label %._crit_edge28.i
 
 .lr.ph27.preheader.i:                             ; preds = %.lr.ph.preheader.i, %._crit_edge.thread.i
-  %.018.lcssa37.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %narrow.i, %.lr.ph.preheader.i ]
-  %40 = zext nneg i32 %.018.lcssa37.i to i64
+  %.018.lcssa40.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %narrow.i, %.lr.ph.preheader.i ]
+  %40 = zext nneg i32 %.018.lcssa40.i to i64
   %41 = getelementptr i8, ptr %7, i64 %40
   %scevgep.i = getelementptr i8, ptr %41, i64 1
-  %narrow34.i = sub nuw nsw i32 5, %.018.lcssa37.i
-  %42 = zext nneg i32 %narrow34.i to i64
+  %narrow37.i = sub nuw nsw i32 5, %.018.lcssa40.i
+  %42 = zext nneg i32 %narrow37.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %42, i1 false)
   br label %._crit_edge28.i
 
@@ -5267,10 +5267,10 @@ wka_name_lookup.exit:                             ; preds = %._crit_edge28.i
   %79 = zext nneg i32 %narrow.i109 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %79, i1 false)
   %80 = and i32 %77, -8
-  %.neg280 = sub i32 %80, %69
+  %.neg310 = sub i32 %80, %69
   %81 = getelementptr i8, ptr %11, i64 %79
   %82 = load i8, ptr %81, align 1
-  %83 = add i32 %.neg280, 16
+  %83 = add i32 %.neg310, 16
   %84 = shl nuw nsw i32 255, %83
   %85 = trunc i32 %84 to i8
   %86 = and i8 %82, %85
@@ -5280,12 +5280,12 @@ wka_name_lookup.exit:                             ; preds = %._crit_edge28.i
   br i1 %88, label %.lr.ph27.preheader.i101, label %._crit_edge28.i105
 
 .lr.ph27.preheader.i101:                          ; preds = %.lr.ph.preheader.i108, %._crit_edge.thread.i100
-  %.018.lcssa37.i102 = phi i32 [ 0, %._crit_edge.thread.i100 ], [ %narrow.i109, %.lr.ph.preheader.i108 ]
-  %89 = zext nneg i32 %.018.lcssa37.i102 to i64
+  %.018.lcssa40.i102 = phi i32 [ 0, %._crit_edge.thread.i100 ], [ %narrow.i109, %.lr.ph.preheader.i108 ]
+  %89 = zext nneg i32 %.018.lcssa40.i102 to i64
   %90 = getelementptr i8, ptr %6, i64 %89
   %scevgep.i103 = getelementptr i8, ptr %90, i64 1
-  %narrow34.i104 = sub nuw nsw i32 5, %.018.lcssa37.i102
-  %91 = zext nneg i32 %narrow34.i104 to i64
+  %narrow37.i104 = sub nuw nsw i32 5, %.018.lcssa40.i102
+  %91 = zext nneg i32 %narrow37.i104 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i103, i8 0, i64 %91, i1 false)
   br label %._crit_edge28.i105
 
@@ -5371,10 +5371,10 @@ wka_name_lookup.exit117:                          ; preds = %._crit_edge28.i105
   %130 = zext nneg i32 %narrow.i128 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %130, i1 false)
   %131 = and i32 %128, -8
-  %.neg281 = sub i32 %131, %120
+  %.neg311 = sub i32 %131, %120
   %132 = getelementptr i8, ptr %11, i64 %130
   %133 = load i8, ptr %132, align 1
-  %134 = add i32 %.neg281, 16
+  %134 = add i32 %.neg311, 16
   %135 = shl nuw nsw i32 255, %134
   %136 = trunc i32 %135 to i8
   %137 = and i8 %133, %136
@@ -5384,12 +5384,12 @@ wka_name_lookup.exit117:                          ; preds = %._crit_edge28.i105
   br i1 %139, label %.lr.ph27.preheader.i120, label %._crit_edge28.i124
 
 .lr.ph27.preheader.i120:                          ; preds = %.lr.ph.preheader.i127, %._crit_edge.thread.i119
-  %.018.lcssa37.i121 = phi i32 [ 0, %._crit_edge.thread.i119 ], [ %narrow.i128, %.lr.ph.preheader.i127 ]
-  %140 = zext nneg i32 %.018.lcssa37.i121 to i64
+  %.018.lcssa40.i121 = phi i32 [ 0, %._crit_edge.thread.i119 ], [ %narrow.i128, %.lr.ph.preheader.i127 ]
+  %140 = zext nneg i32 %.018.lcssa40.i121 to i64
   %141 = getelementptr i8, ptr %5, i64 %140
   %scevgep.i122 = getelementptr i8, ptr %141, i64 1
-  %narrow34.i123 = sub nuw nsw i32 5, %.018.lcssa37.i121
-  %142 = zext nneg i32 %narrow34.i123 to i64
+  %narrow37.i123 = sub nuw nsw i32 5, %.018.lcssa40.i121
+  %142 = zext nneg i32 %narrow37.i123 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i122, i8 0, i64 %142, i1 false)
   br label %._crit_edge28.i124
 
@@ -5507,10 +5507,10 @@ wka_name_lookup.exit136:                          ; preds = %._crit_edge28.i124
   %203 = zext nneg i32 %narrow.i147 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %203, i1 false)
   %204 = and i32 %201, -8
-  %.neg282 = sub i32 %204, %193
+  %.neg312 = sub i32 %204, %193
   %205 = getelementptr i8, ptr %11, i64 %203
   %206 = load i8, ptr %205, align 1
-  %207 = add i32 %.neg282, 16
+  %207 = add i32 %.neg312, 16
   %208 = shl nuw nsw i32 255, %207
   %209 = trunc i32 %208 to i8
   %210 = and i8 %206, %209
@@ -5520,12 +5520,12 @@ wka_name_lookup.exit136:                          ; preds = %._crit_edge28.i124
   br i1 %212, label %.lr.ph27.preheader.i139, label %._crit_edge28.i143
 
 .lr.ph27.preheader.i139:                          ; preds = %.lr.ph.preheader.i146, %._crit_edge.thread.i138
-  %.018.lcssa37.i140 = phi i32 [ 0, %._crit_edge.thread.i138 ], [ %narrow.i147, %.lr.ph.preheader.i146 ]
-  %213 = zext nneg i32 %.018.lcssa37.i140 to i64
+  %.018.lcssa40.i140 = phi i32 [ 0, %._crit_edge.thread.i138 ], [ %narrow.i147, %.lr.ph.preheader.i146 ]
+  %213 = zext nneg i32 %.018.lcssa40.i140 to i64
   %214 = getelementptr i8, ptr %4, i64 %213
   %scevgep.i141 = getelementptr i8, ptr %214, i64 1
-  %narrow34.i142 = sub nuw nsw i32 5, %.018.lcssa37.i140
-  %215 = zext nneg i32 %narrow34.i142 to i64
+  %narrow37.i142 = sub nuw nsw i32 5, %.018.lcssa40.i140
+  %215 = zext nneg i32 %narrow37.i142 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i141, i8 0, i64 %215, i1 false)
   br label %._crit_edge28.i143
 
@@ -5617,10 +5617,10 @@ wka_name_lookup.exit155:                          ; preds = %._crit_edge28.i143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %257, i1 false)
   %258 = add nuw i32 %248, 8
   %259 = and i32 %248, -8
-  %.neg283 = sub i32 %259, %258
+  %.neg313 = sub i32 %259, %258
   %260 = getelementptr i8, ptr %11, i64 %257
   %261 = load i8, ptr %260, align 1
-  %262 = add i32 %.neg283, 16
+  %262 = add i32 %.neg313, 16
   %263 = shl nuw nsw i32 255, %262
   %264 = trunc i32 %263 to i8
   %265 = and i8 %261, %264
@@ -5630,12 +5630,12 @@ wka_name_lookup.exit155:                          ; preds = %._crit_edge28.i143
   br i1 %267, label %.lr.ph27.preheader.i158, label %._crit_edge28.i162
 
 .lr.ph27.preheader.i158:                          ; preds = %.lr.ph.preheader.i165, %._crit_edge.thread.i157
-  %.018.lcssa37.i159 = phi i32 [ 0, %._crit_edge.thread.i157 ], [ %narrow.i166, %.lr.ph.preheader.i165 ]
-  %268 = zext nneg i32 %.018.lcssa37.i159 to i64
+  %.018.lcssa40.i159 = phi i32 [ 0, %._crit_edge.thread.i157 ], [ %narrow.i166, %.lr.ph.preheader.i165 ]
+  %268 = zext nneg i32 %.018.lcssa40.i159 to i64
   %269 = getelementptr i8, ptr %3, i64 %268
   %scevgep.i160 = getelementptr i8, ptr %269, i64 1
-  %narrow34.i161 = sub nuw nsw i32 5, %.018.lcssa37.i159
-  %270 = zext nneg i32 %narrow34.i161 to i64
+  %narrow37.i161 = sub nuw nsw i32 5, %.018.lcssa40.i159
+  %270 = zext nneg i32 %narrow37.i161 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i160, i8 0, i64 %270, i1 false)
   br label %._crit_edge28.i162
 
@@ -5733,10 +5733,10 @@ wka_name_lookup.exit174:                          ; preds = %._crit_edge28.i162
   %317 = zext nneg i32 %narrow.i185 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %317, i1 false)
   %318 = and i32 %315, -8
-  %.neg284 = sub i32 %318, %307
+  %.neg314 = sub i32 %318, %307
   %319 = getelementptr i8, ptr %11, i64 %317
   %320 = load i8, ptr %319, align 1
-  %321 = add i32 %.neg284, 16
+  %321 = add i32 %.neg314, 16
   %322 = shl nuw nsw i32 255, %321
   %323 = trunc i32 %322 to i8
   %324 = and i8 %320, %323
@@ -5746,12 +5746,12 @@ wka_name_lookup.exit174:                          ; preds = %._crit_edge28.i162
   br i1 %326, label %.lr.ph27.preheader.i177, label %._crit_edge28.i181
 
 .lr.ph27.preheader.i177:                          ; preds = %.lr.ph.preheader.i184, %._crit_edge.thread.i176
-  %.018.lcssa37.i178 = phi i32 [ 0, %._crit_edge.thread.i176 ], [ %narrow.i185, %.lr.ph.preheader.i184 ]
-  %327 = zext nneg i32 %.018.lcssa37.i178 to i64
+  %.018.lcssa40.i178 = phi i32 [ 0, %._crit_edge.thread.i176 ], [ %narrow.i185, %.lr.ph.preheader.i184 ]
+  %327 = zext nneg i32 %.018.lcssa40.i178 to i64
   %328 = getelementptr i8, ptr %2, i64 %327
   %scevgep.i179 = getelementptr i8, ptr %328, i64 1
-  %narrow34.i180 = sub nuw nsw i32 5, %.018.lcssa37.i178
-  %329 = zext nneg i32 %narrow34.i180 to i64
+  %narrow37.i180 = sub nuw nsw i32 5, %.018.lcssa40.i178
+  %329 = zext nneg i32 %narrow37.i180 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i179, i8 0, i64 %329, i1 false)
   br label %._crit_edge28.i181
 
@@ -6896,9 +6896,9 @@ fgetline.exit:                                    ; preds = %.preheader, %parse_
   br label %.sink.split.sink.split.i.i
 
 .sink.split.sink.split.i.i:                       ; preds = %156, %151
-  %.sink1.i.i = phi i8 [ 0, %156 ], [ %152, %151 ]
+  %.sink2.i.i = phi i8 [ 0, %156 ], [ %152, %151 ]
   %.sink.ph.i.i = phi i32 [ 28, %156 ], [ 36, %151 ]
-  store i8 %.sink1.i.i, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 4), align 1
+  store i8 %.sink2.i.i, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 4), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @get_ethent.eth, i64 5), align 1
   br label %parse_ether_address_fast.exit.i
 

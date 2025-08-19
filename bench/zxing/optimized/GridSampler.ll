@@ -460,7 +460,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %162
 
 222:                                              ; preds = %216
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.07.021.i108, i64 16
-  %224 = sitofp i32 %2 to double
+  %224 = uitofp nneg i32 %2 to double
   %225 = invoke { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %223, double %224, double 0.000000e+00)
           to label %.noexc114 unwind label %304
 
@@ -517,8 +517,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %162
 
 250:                                              ; preds = %244
   %251 = getelementptr inbounds nuw i8, ptr %.sroa.07.021.i120, i64 16
-  %252 = sitofp i32 %2 to double
-  %253 = sitofp i32 %3 to double
+  %252 = uitofp nneg i32 %2 to double
+  %253 = uitofp nneg i32 %3 to double
   %254 = invoke { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %251, double %252, double %253)
           to label %.noexc126 unwind label %304
 
@@ -575,7 +575,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %162
 
 279:                                              ; preds = %273
   %280 = getelementptr inbounds nuw i8, ptr %.sroa.07.021.i132, i64 16
-  %281 = sitofp i32 %3 to double
+  %281 = uitofp nneg i32 %3 to double
   %282 = invoke { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %280, double 0.000000e+00, double %281)
           to label %.noexc138 unwind label %304
 
@@ -593,9 +593,9 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %162
   br label %.thread
 
 .thread:                                          ; preds = %276, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.exit127", %.noexc138, %._crit_edge
-  %.sroa.013.0.insert.insert.i125227 = phi i64 [ %.sroa.013.0.insert.insert.i125, %.noexc138 ], [ %.sroa.013.0.insert.insert.i125, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.exit127" ], [ 0, %._crit_edge ], [ %.sroa.013.0.insert.insert.i125, %276 ]
-  %.sroa.013.0.insert.insert.i213218226 = phi i64 [ %.sroa.013.0.insert.insert.i, %.noexc138 ], [ %.sroa.013.0.insert.insert.i, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.exit127" ], [ 0, %._crit_edge ], [ %.sroa.013.0.insert.insert.i, %276 ]
-  %.sroa.013.0.insert.insert.i113219225 = phi i64 [ %.sroa.013.0.insert.insert.i113, %.noexc138 ], [ %.sroa.013.0.insert.insert.i113, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.exit127" ], [ 0, %._crit_edge ], [ %.sroa.013.0.insert.insert.i113, %276 ]
+  %.sroa.013.0.insert.insert.i125265 = phi i64 [ %.sroa.013.0.insert.insert.i125, %.noexc138 ], [ %.sroa.013.0.insert.insert.i125, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.exit127" ], [ 0, %._crit_edge ], [ %.sroa.013.0.insert.insert.i125, %276 ]
+  %.sroa.013.0.insert.insert.i251256264 = phi i64 [ %.sroa.013.0.insert.insert.i, %.noexc138 ], [ %.sroa.013.0.insert.insert.i, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.exit127" ], [ 0, %._crit_edge ], [ %.sroa.013.0.insert.insert.i, %276 ]
+  %.sroa.013.0.insert.insert.i113257263 = phi i64 [ %.sroa.013.0.insert.insert.i113, %.noexc138 ], [ %.sroa.013.0.insert.insert.i113, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.exit127" ], [ 0, %._crit_edge ], [ %.sroa.013.0.insert.insert.i113, %276 ]
   %.sroa.013.0.insert.insert.i137 = phi i64 [ %292, %.noexc138 ], [ 0, %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_1clENS_6PointTIiEE.exit127" ], [ 0, %._crit_edge ], [ 0, %276 ]
   %293 = load i64, ptr %6, align 8
   store i64 %293, ptr %0, align 8
@@ -612,11 +612,11 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %162
   %302 = load ptr, ptr %301, align 8, !tbaa !36
   store ptr %302, ptr %300, align 8, !tbaa !36
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.013.0.insert.insert.i213218226, ptr %303, align 8
+  store i64 %.sroa.013.0.insert.insert.i251256264, ptr %303, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.013.0.insert.insert.i113219225, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.013.0.insert.insert.i113257263, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sroa.013.0.insert.insert.i125227, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.013.0.insert.insert.i125265, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.013.0.insert.insert.i137, ptr %.sroa.7.0..sroa_idx, align 8
   br label %_ZN5ZXing9BitMatrixD2Ev.exit

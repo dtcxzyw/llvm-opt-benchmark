@@ -58,18 +58,18 @@ watcher_root_RB_MINMAX.exit.preheader:            ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %.05774, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !31
   %.not18.i = icmp eq ptr %18, null
-  br i1 %.not18.i, label %.preheader81, label %19
+  br i1 %.not18.i, label %.preheader95, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %18, align 8, !tbaa !29
   %21 = icmp eq ptr %.05774, %20
-  br i1 %21, label %watcher_root_RB_NEXT.exit, label %.preheader81
+  br i1 %21, label %watcher_root_RB_NEXT.exit, label %.preheader95
 
-.preheader81:                                     ; preds = %19, %16
+.preheader95:                                     ; preds = %19, %16
   br label %22
 
-22:                                               ; preds = %.preheader81, %25
-  %.2.i = phi ptr [ %24, %25 ], [ %.05774, %.preheader81 ]
+22:                                               ; preds = %.preheader95, %25
+  %.2.i = phi ptr [ %24, %25 ], [ %.05774, %.preheader95 ]
   %23 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !31
   %.not19.i = icmp eq ptr %24, null
@@ -612,7 +612,7 @@ define internal fastcc void @maybe_free_watcher_list(ptr noundef %0, ptr noundef
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %126 = load i32, ptr %125, align 8, !tbaa !46
   %127 = icmp eq i32 %126, 0
-  br i1 %127, label %278, label %.thread265.i.i
+  br i1 %127, label %278, label %.thread288.i.i
 
 split.i.i:                                        ; preds = %116
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 24
@@ -625,9 +625,9 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %130 = getelementptr inbounds nuw i8, ptr %.pre257.i.i, i64 24
   %131 = load i32, ptr %130, align 8, !tbaa !46
   %132 = icmp eq i32 %131, 0
-  br i1 %132, label %137, label %.thread265.i.i
+  br i1 %132, label %137, label %.thread288.i.i
 
-.thread265.i.i:                                   ; preds = %124, %split.thread.i.thread.i
+.thread288.i.i:                                   ; preds = %124, %split.thread.i.thread.i
   %133 = phi ptr [ %.pre257.i.i, %split.thread.i.thread.i ], [ %122, %124 ]
   %134 = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 24
   %135 = load i32, ptr %134, align 8, !tbaa !46
@@ -692,10 +692,10 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %.not205.i.i = icmp eq ptr %.pre259.i.i, null
   br i1 %.not205.i.i, label %165, label %160
 
-160:                                              ; preds = %154, %.thread265.i.i
-  %161 = phi ptr [ %.0.i.i, %.thread265.i.i ], [ %156, %154 ]
-  %162 = phi ptr [ %133, %.thread265.i.i ], [ %.pre259.i.i, %154 ]
-  %163 = phi ptr [ %113, %.thread265.i.i ], [ %155, %154 ]
+160:                                              ; preds = %154, %.thread288.i.i
+  %161 = phi ptr [ %.0.i.i, %.thread288.i.i ], [ %156, %154 ]
+  %162 = phi ptr [ %133, %.thread288.i.i ], [ %.pre259.i.i, %154 ]
+  %163 = phi ptr [ %113, %.thread288.i.i ], [ %155, %154 ]
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store i32 0, ptr %164, align 8, !tbaa !46
   br label %165
@@ -811,7 +811,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %214 = load i32, ptr %213, align 8, !tbaa !46
   %215 = icmp eq i32 %214, 0
-  br i1 %215, label %216, label %.thread269.i.i
+  br i1 %215, label %216, label %.thread292.i.i
 
 216:                                              ; preds = %212, %208
   %217 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 8
@@ -834,7 +834,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %210, i64 24
   %.pre251.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !46
   %227 = icmp eq i32 %.pre251.i.i, 0
-  br i1 %227, label %228, label %.thread269.i.i
+  br i1 %227, label %228, label %.thread292.i.i
 
 228:                                              ; preds = %.thread.i.i, %224
   store i32 0, ptr %226, align 8, !tbaa !46
@@ -876,7 +876,7 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   store ptr %218, ptr %10, align 8, !tbaa !48
   br label %247
 
-.thread269.i.i:                                   ; preds = %212, %.thread.i.i
+.thread292.i.i:                                   ; preds = %212, %.thread.i.i
   %244 = getelementptr inbounds nuw i8, ptr %.0179.i.i, i64 24
   %245 = load i32, ptr %244, align 8, !tbaa !46
   %246 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 24
@@ -898,10 +898,10 @@ split.thread.i.thread.i:                          ; preds = %split.i.i
   %.not197.i.i = icmp eq ptr %.pre254.i.i, null
   br i1 %.not197.i.i, label %258, label %253
 
-253:                                              ; preds = %247, %.thread269.i.i
-  %254 = phi ptr [ %.2.i.i, %.thread269.i.i ], [ %249, %247 ]
-  %255 = phi ptr [ %210, %.thread269.i.i ], [ %.pre254.i.i, %247 ]
-  %256 = phi ptr [ %209, %.thread269.i.i ], [ %248, %247 ]
+253:                                              ; preds = %247, %.thread292.i.i
+  %254 = phi ptr [ %.2.i.i, %.thread292.i.i ], [ %249, %247 ]
+  %255 = phi ptr [ %210, %.thread292.i.i ], [ %.pre254.i.i, %247 ]
+  %256 = phi ptr [ %209, %.thread292.i.i ], [ %248, %247 ]
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 24
   store i32 0, ptr %257, align 8, !tbaa !46
   br label %258
@@ -1318,9 +1318,9 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   %142 = load ptr, ptr %141, align 8, !tbaa !25
   store ptr %142, ptr %67, align 8, !tbaa !29
   %.not122.i.i = icmp eq ptr %142, null
-  br i1 %.not122.i.i, label %.thread137.i.i, label %144
+  br i1 %.not122.i.i, label %.thread151.i.i, label %144
 
-.thread137.i.i:                                   ; preds = %140
+.thread151.i.i:                                   ; preds = %140
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr %73, ptr %143, align 8, !tbaa !31
   %.pre.i = load ptr, ptr %72, align 8, !tbaa !31
@@ -1335,8 +1335,8 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   %.not123.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not123.i.i, label %154, label %147
 
-147:                                              ; preds = %144, %.thread137.i.i
-  %148 = phi ptr [ %.pre.i.i, %144 ], [ %.pre.i, %.thread137.i.i ]
+147:                                              ; preds = %144, %.thread151.i.i
+  %148 = phi ptr [ %.pre.i.i, %144 ], [ %.pre.i, %.thread151.i.i ]
   %149 = load ptr, ptr %148, align 8, !tbaa !29
   %150 = icmp eq ptr %67, %149
   br i1 %150, label %151, label %152

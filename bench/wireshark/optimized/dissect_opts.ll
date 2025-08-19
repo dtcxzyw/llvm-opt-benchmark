@@ -129,14 +129,14 @@ sub_163:                                          ; preds = %.tail57
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %.sink.split, label %.thread112
+  br i1 %34, label %.sink.split, label %.thread117
 
 .tail61.thread:                                   ; preds = %sub_0, %.tail, %sub_163
   %35 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(5) @.str.7) #6
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.sink.split, label %sub_066
 
-.thread112:                                       ; preds = %.tail61
+.thread117:                                       ; preds = %.tail61
   %37 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(5) @.str.7) #6
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.sink.split, label %.tail82.thread
@@ -190,7 +190,7 @@ sub_184:                                          ; preds = %.tail78
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %.sink.split, label %.tail82.thread
 
-.tail82.thread:                                   ; preds = %sub_066, %.thread112, %sub_171, %.tail69, %.tail74, %sub_184, %.tail82
+.tail82.thread:                                   ; preds = %sub_066, %.thread117, %sub_171, %.tail69, %.tail74, %sub_184, %.tail82
   %58 = call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(5) @.str.13) #6
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.sink.split, label %60
@@ -208,8 +208,8 @@ sub_184:                                          ; preds = %.tail78
   store i8 46, ptr %13, align 1
   br label %93
 
-.sink.split:                                      ; preds = %.tail82.thread, %.tail82, %.tail78, %.tail74, %.tail69, %.tail65, %.tail61.thread, %.thread112, %.tail61, %.tail57, %.tail
-  %.sink = phi i32 [ 0, %.tail ], [ 1, %.tail57 ], [ 2, %.tail61 ], [ 3, %.thread112 ], [ 3, %.tail61.thread ], [ 4, %.tail65 ], [ 5, %.tail69 ], [ 6, %.tail74 ], [ 7, %.tail78 ], [ 8, %.tail82 ], [ 9, %.tail82.thread ]
+.sink.split:                                      ; preds = %.tail82.thread, %.tail82, %.tail78, %.tail74, %.tail69, %.tail65, %.tail61.thread, %.thread117, %.tail61, %.tail57, %.tail
+  %.sink = phi i32 [ 0, %.tail ], [ 1, %.tail57 ], [ 2, %.tail61 ], [ 3, %.thread117 ], [ 3, %.tail61.thread ], [ 4, %.tail65 ], [ 5, %.tail69 ], [ 6, %.tail74 ], [ 7, %.tail78 ], [ 8, %.tail82 ], [ 9, %.tail82.thread ]
   store i32 %.sink, ptr @global_dissect_options, align 8
   br label %63
 
@@ -417,8 +417,8 @@ define hidden zeroext i1 @setup_enabled_and_disabled_protocols() local_unnamed_a
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %2)
   %19 = getelementptr inbounds nuw i8, ptr %.03236.i, i64 8
   %20 = load ptr, ptr %19, align 8
-  %.not.i71 = icmp eq ptr %20, null
-  br i1 %.not.i71, label %.critedge5, label %.lr.ph.i, !llvm.loop !9
+  %.not.i82 = icmp eq ptr %20, null
+  br i1 %.not.i82, label %.critedge5, label %.lr.ph.i, !llvm.loop !9
 
 process_enable_disable_list.exit:                 ; preds = %.loopexit.i
   br i1 %.330.i, label %process_enable_disable_list.exit.thread, label %.critedge5
@@ -492,8 +492,8 @@ process_enable_disable_list.exit.thread:          ; preds = %0, %process_enable_
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %22)
   %39 = getelementptr inbounds nuw i8, ptr %.03236.i10, i64 8
   %40 = load ptr, ptr %39, align 8
-  %.not.i2377 = icmp eq ptr %40, null
-  br i1 %.not.i2377, label %.critedge5, label %.lr.ph.i7, !llvm.loop !9
+  %.not.i2388 = icmp eq ptr %40, null
+  br i1 %.not.i2388, label %.critedge5, label %.lr.ph.i7, !llvm.loop !9
 
 process_enable_disable_list.exit25:               ; preds = %.loopexit.i20
   br i1 %.330.i21, label %.critedge, label %.critedge5
@@ -567,8 +567,8 @@ process_enable_disable_list.exit25:               ; preds = %.loopexit.i20
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.23, ptr noundef %42)
   %59 = getelementptr inbounds nuw i8, ptr %.03236.i30, i64 8
   %60 = load ptr, ptr %59, align 8
-  %.not.i4382 = icmp eq ptr %60, null
-  br i1 %.not.i4382, label %.critedge5, label %.lr.ph.i27, !llvm.loop !9
+  %.not.i4393 = icmp eq ptr %60, null
+  br i1 %.not.i4393, label %.critedge5, label %.lr.ph.i27, !llvm.loop !9
 
 process_enable_disable_list.exit45:               ; preds = %.loopexit.i40
   br i1 %.330.i41, label %process_enable_disable_list.exit45.thread, label %.critedge5

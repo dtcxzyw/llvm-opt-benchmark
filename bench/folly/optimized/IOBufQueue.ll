@@ -1557,8 +1557,8 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %79
   br label %"_ZZN5folly10IOBufQueue6appendEONS_5IOBufEbbENK3$_0clIS1_EEDaPT_.exit.i"
 
 "_ZZN5folly10IOBufQueue6appendEONS_5IOBufEbbENK3$_0clIS1_EEDaPT_.exit.i": ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i.i, %79
-  %.not.i1440 = icmp eq ptr %81, null
-  %.not.i14 = or i1 %86, %.not.i1440
+  %.not.i1452 = icmp eq ptr %81, null
+  %.not.i14 = or i1 %86, %.not.i1452
   br i1 %.not.i14, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit21, label %60, !llvm.loop !108
 
 .loopexit:                                        ; preds = %62, %60
@@ -1825,10 +1825,10 @@ _ZN5folly10IOBufQueue11updateGuardEb.exit14:      ; preds = %_ZN5folly10IOBufQue
   br label %.sink.split
 
 .sink.split:                                      ; preds = %60, %57
-  %.sink25 = phi i64 [ %59, %57 ], [ %61, %60 ]
+  %.sink34 = phi i64 [ %59, %57 ], [ %61, %60 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !35
-  %64 = add i64 %63, %.sink25
+  %64 = add i64 %63, %.sink34
   store i64 %64, ptr %62, align 8, !tbaa !35
   br label %65
 
@@ -2184,13 +2184,13 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %62
   br i1 %91, label %_ZN5folly6detail14ScopeGuardImplIZNS_10IOBufQueue11updateGuardEbEUlvE_Lb1EED2Ev.exit, label %92
 
 92:                                               ; preds = %._crit_edge
-  %.pr42 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !78
+  %.pr51 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !78
   %93 = load ptr, ptr %25, align 8, !tbaa !76
-  %.not.i.i.i = icmp eq ptr %.pr42, null
+  %.not.i.i.i = icmp eq ptr %.pr51, null
   br i1 %.not.i.i.i, label %.noexc.i.i, label %94
 
 94:                                               ; preds = %92
-  invoke void @_ZN5folly10IOBufQueue14maybeReuseTailERNS_5IOBufE(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(56) %.pr42)
+  invoke void @_ZN5folly10IOBufQueue14maybeReuseTailERNS_5IOBufE(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(56) %.pr51)
           to label %.noexc.i.i unwind label %131
 
 .noexc.i.i:                                       ; preds = %.thread, %94, %92
@@ -2624,14 +2624,14 @@ _ZN12_GLOBAL__N_113appendToChainERSt10unique_ptrIN5folly5IOBufESt14default_delet
   %94 = sub i64 %93, %.01149
   store i64 %94, ptr %30, align 8, !tbaa !35
   %.not.i26 = icmp eq ptr %86, null
-  br i1 %.not.i26, label %.loopexit.thread60, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i27
+  br i1 %.not.i26, label %.loopexit.thread70, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i27
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i27: ; preds = %_ZN12_GLOBAL__N_113appendToChainERSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEOS5_b.exit25
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %86) #15
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %86) #15
-  br label %.loopexit.thread60
+  br label %.loopexit.thread70
 
-.loopexit.thread60:                               ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i27, %_ZN12_GLOBAL__N_113appendToChainERSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEOS5_b.exit25
+.loopexit.thread70:                               ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i27, %_ZN12_GLOBAL__N_113appendToChainERSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEOS5_b.exit25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
@@ -2661,8 +2661,8 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i27: ; preds = %_ZN12_GLOBAL_
   invoke void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, i64 noundef 0)
           to label %.noexc.i.i unwind label %42
 
-.thread:                                          ; preds = %.loopexit.thread60, %.loopexit
-  %101 = phi i64 [ %85, %.loopexit.thread60 ], [ %100, %.loopexit ]
+.thread:                                          ; preds = %.loopexit.thread70, %.loopexit
+  %101 = phi i64 [ %85, %.loopexit.thread70 ], [ %100, %.loopexit ]
   store i64 %101, ptr %0, align 8, !tbaa !28
   br label %.noexc.i.i
 
@@ -3029,9 +3029,9 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EE5resetEPS1_.exit: ; pred
   br label %47
 
 47:                                               ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %.sink23 = phi ptr [ %25, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EE5resetEPS1_.exit ], [ %28, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ]
-  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink23) #15
-  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sink23) #15
+  %.sink31 = phi ptr [ %25, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EE5resetEPS1_.exit ], [ %28, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ]
+  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink31) #15
+  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sink31) #15
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %.noexc.i.i, label %24, !llvm.loop !156
 
@@ -3308,10 +3308,10 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i4: ; preds = %32, %_ZNSt10un
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5.sink.split
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5.sink.split: ; preds = %40, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i4
-  %.sroa.018.038.sink43 = phi ptr [ %29, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i4 ], [ %.sroa.018.038, %40 ]
+  %.sroa.018.038.sink48 = phi ptr [ %29, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i4 ], [ %.sroa.018.038, %40 ]
   %.sroa.018.132.ph = phi ptr [ %.sroa.018.038, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i4 ], [ %29, %40 ]
-  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.018.038.sink43) #15
-  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sroa.018.038.sink43) #15
+  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.018.038.sink48) #15
+  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sroa.018.038.sink48) #15
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit5.sink.split, %39
@@ -3412,7 +3412,7 @@ define void @_ZNK5folly10IOBufQueue14appendToStringERNSt7__cxx1112basic_stringIc
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.sink18 = phi i64 [ %14, %13 ], [ %12, %10 ]
+  %.sink24 = phi i64 [ %14, %13 ], [ %12, %10 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = load ptr, ptr %17, align 8, !tbaa !30
@@ -3420,7 +3420,7 @@ define void @_ZNK5folly10IOBufQueue14appendToStringERNSt7__cxx1112basic_stringIc
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = ptrtoint ptr %18 to i64
   %22 = ptrtoint ptr %20 to i64
-  %23 = add i64 %.sink18, %21
+  %23 = add i64 %.sink24, %21
   %24 = sub i64 %23, %22
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !175
@@ -3575,8 +3575,8 @@ _ZN5folly10IOBufQueue11updateGuardEb.exit.thread: ; preds = %2
   store i8 0, ptr %3, align 8, !tbaa !48, !alias.scope !185
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %20, align 8, !tbaa !53, !alias.scope !182
-  %.sroa.4.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %.sroa.4.0..sroa_idx.i5, align 8, !tbaa !28, !alias.scope !182
+  %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i10, align 8, !tbaa !28, !alias.scope !182
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %24
 

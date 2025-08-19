@@ -249,7 +249,7 @@ define hidden i32 @exr_attr_chlist_add_with_length(ptr noundef %0, ptr noundef c
   %71 = add nsw i32 %70, 1
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %4, ptr %72, align 8, !tbaa !35
-  %73 = trunc nuw i32 %5 to i8
+  %73 = trunc nuw nsw i32 %5 to i8
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 %73, ptr %74, align 4, !tbaa !36
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -388,7 +388,7 @@ define hidden i32 @exr_attr_chlist_duplicate(ptr noundef %0, ptr noundef capture
 14:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.not25.i = icmp eq i32 %7, 0
-  br i1 %.not25.i, label %exr_attr_chlist_init.exit.thread50, label %15
+  br i1 %.not25.i, label %exr_attr_chlist_init.exit.thread58, label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -397,7 +397,7 @@ define hidden i32 @exr_attr_chlist_duplicate(ptr noundef %0, ptr noundef capture
   %19 = shl nuw nsw i64 %18, 5
   %20 = tail call ptr %17(i64 noundef %19) #6
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %exr_attr_chlist_init.exit.thread50
+  br i1 %21, label %22, label %exr_attr_chlist_init.exit.thread58
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -405,7 +405,7 @@ define hidden i32 @exr_attr_chlist_duplicate(ptr noundef %0, ptr noundef capture
   %25 = tail call i32 %24(ptr noundef nonnull %0, i32 noundef 1) #6
   br label %exr_attr_chlist_init.exit
 
-exr_attr_chlist_init.exit.thread50:               ; preds = %14, %15
+exr_attr_chlist_init.exit.thread58:               ; preds = %14, %15
   %.0.i = phi ptr [ %20, %15 ], [ null, %14 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.0.i, ptr %26, align 8, !tbaa !25
@@ -418,7 +418,7 @@ exr_attr_chlist_init.exit:                        ; preds = %10, %22
   %.not = icmp eq i32 %.019.i, 0
   br i1 %.not, label %.preheader, label %exr_attr_chlist_init.exit.thread
 
-.preheader:                                       ; preds = %exr_attr_chlist_init.exit.thread50, %exr_attr_chlist_init.exit
+.preheader:                                       ; preds = %exr_attr_chlist_init.exit.thread58, %exr_attr_chlist_init.exit
   %.not4146 = icmp sgt i32 %7, 0
   br i1 %.not4146, label %exr_attr_chlist_destroy.exit.lr.ph, label %exr_attr_chlist_init.exit.thread
 

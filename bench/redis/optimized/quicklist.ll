@@ -1706,8 +1706,8 @@ define dso_local void @quicklistReplaceEntry(ptr noundef captures(none) %0, ptr 
   br i1 %.not.i, label %21, label %20, !prof !26
 
 20:                                               ; preds = %13
-  %.not132 = icmp ult i64 %3, %19
-  br i1 %.not132, label %29, label %.critedge, !prof !26
+  %.not138 = icmp ult i64 %3, %19
+  br i1 %.not138, label %29, label %.critedge, !prof !26
 
 21:                                               ; preds = %13
   %22 = icmp sgt i64 %17, -1
@@ -1785,8 +1785,8 @@ isLargeElement.exit:                              ; preds = %21
   br i1 %.not.i119, label %61, label %60, !prof !26
 
 60:                                               ; preds = %53
-  %.not133 = icmp ult i64 %3, %59
-  br i1 %.not133, label %85, label %69
+  %.not139 = icmp ult i64 %3, %59
+  br i1 %.not139, label %85, label %69
 
 61:                                               ; preds = %53
   %62 = icmp sgt i64 %57, -1
@@ -2700,8 +2700,8 @@ define dso_local void @_quicklistInsert(ptr noundef captures(none) %0, ptr nound
   br i1 %.not.i, label %17, label %16, !prof !26
 
 16:                                               ; preds = %14
-  %.not353 = icmp ult i64 %3, %15
-  br i1 %.not353, label %28, label %25, !prof !26
+  %.not370 = icmp ult i64 %3, %15
+  br i1 %.not370, label %28, label %25, !prof !26
 
 17:                                               ; preds = %14
   %18 = icmp sgt i64 %10, -1
@@ -2966,8 +2966,8 @@ quicklistNodeLimit.exit.i.i281:                   ; preds = %.quicklistNodeLimit
   %143 = phi i64 [ %.pre341, %.quicklistNodeLimit.exit.i_crit_edge.i277 ], [ %131, %.thread13.i292 ]
   %144 = phi i64 [ %141, %.quicklistNodeLimit.exit.i_crit_edge.i277 ], [ %136, %.thread13.i292 ]
   %145 = icmp ugt i64 %144, %143
-  %cond.fr350 = freeze i1 %145
-  br i1 %cond.fr350, label %_quicklistNodeAllowInsert.exit294.thread, label %.thread
+  %cond.fr367 = freeze i1 %145
+  br i1 %cond.fr367, label %_quicklistNodeAllowInsert.exit294.thread, label %.thread
 
 _quicklistNodeAllowInsert.exit294:                ; preds = %.thread.i293, %137
   %146 = phi i64 [ %128, %.thread.i293 ], [ %141, %137 ]
@@ -3064,8 +3064,8 @@ quicklistNodeLimit.exit.i.i303:                   ; preds = %.quicklistNodeLimit
   %188 = phi i64 [ %.pre339, %.quicklistNodeLimit.exit.i_crit_edge.i299 ], [ %176, %.thread13.i314 ]
   %189 = phi i64 [ %186, %.quicklistNodeLimit.exit.i_crit_edge.i299 ], [ %181, %.thread13.i314 ]
   %190 = icmp ugt i64 %189, %188
-  %cond.fr333351 = freeze i1 %190
-  br i1 %cond.fr333351, label %_quicklistNodeAllowInsert.exit316.thread, label %.thread
+  %cond.fr333368 = freeze i1 %190
+  br i1 %cond.fr333368, label %_quicklistNodeAllowInsert.exit316.thread, label %.thread
 
 _quicklistNodeAllowInsert.exit316:                ; preds = %.thread.i315, %182
   %191 = phi i64 [ %173, %.thread.i315 ], [ %186, %182 ]
@@ -3092,8 +3092,8 @@ _quicklistNodeAllowInsert.exit316.thread:         ; preds = %quicklistNodeLimit.
   br i1 %.not.i317, label %203, label %202, !prof !26
 
 202:                                              ; preds = %.thread
-  %.not352 = icmp ult i64 %3, %201
-  br i1 %.not352, label %227, label %211, !prof !26
+  %.not369 = icmp ult i64 %3, %201
+  br i1 %.not369, label %227, label %211, !prof !26
 
 203:                                              ; preds = %.thread
   %204 = icmp sgt i64 %10, -1
@@ -3961,10 +3961,10 @@ define dso_local range(i32 0, 2) i32 @quicklistNext(ptr noundef captures(address
   store ptr %14, ptr %1, align 8, !tbaa !37
   %15 = load ptr, ptr %10, align 8, !tbaa !41
   store ptr %15, ptr %7, align 8, !tbaa !33
-  %.not73103 = icmp eq ptr %15, null
-  br i1 %.not73103, label %.loopexit, label %.lr.ph104
+  %.not73107 = icmp eq ptr %15, null
+  br i1 %.not73107, label %.loopexit, label %.lr.ph108
 
-.lr.ph104:                                        ; preds = %.lr.ph, %tailrecurse
+.lr.ph108:                                        ; preds = %.lr.ph, %tailrecurse
   %16 = phi ptr [ %98, %tailrecurse ], [ %15, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8
@@ -3974,7 +3974,7 @@ define dso_local range(i32 0, 2) i32 @quicklistNext(ptr noundef captures(address
   %.not74 = icmp eq ptr %21, null
   br i1 %.not74, label %22, label %53
 
-22:                                               ; preds = %.lr.ph104
+22:                                               ; preds = %.lr.ph108
   %23 = and i32 %18, 196608
   %24 = icmp eq i32 %23, 131072
   br i1 %24, label %25, label %46
@@ -4028,7 +4028,7 @@ __quicklistDecompressNode.exit:                   ; preds = %37, %38
   %.pre = load i64, ptr %13, align 8, !tbaa !42
   br label %63
 
-53:                                               ; preds = %.lr.ph104
+53:                                               ; preds = %.lr.ph108
   br i1 %20, label %.thread, label %56, !prof !24
 
 .thread:                                          ; preds = %53
@@ -4135,10 +4135,10 @@ __quicklistDecompressNode.exit:                   ; preds = %37, %38
   br label %tailrecurse.sink.split
 
 tailrecurse.sink.split:                           ; preds = %92, %95
-  %.sink102.in = phi ptr [ %96, %95 ], [ %94, %92 ]
+  %.sink106.in = phi ptr [ %96, %95 ], [ %94, %92 ]
   %.sink = phi i64 [ -1, %95 ], [ 0, %92 ]
-  %.sink102 = load ptr, ptr %.sink102.in, align 8, !tbaa !16
-  store ptr %.sink102, ptr %10, align 8, !tbaa !41
+  %.sink106 = load ptr, ptr %.sink106.in, align 8, !tbaa !16
+  store ptr %.sink106, ptr %10, align 8, !tbaa !41
   store i64 %.sink, ptr %13, align 8, !tbaa !42
   br label %tailrecurse
 
@@ -4154,7 +4154,7 @@ tailrecurse:                                      ; preds = %tailrecurse.sink.sp
   %98 = load ptr, ptr %10, align 8, !tbaa !41
   store ptr %98, ptr %7, align 8, !tbaa !33
   %.not73 = icmp eq ptr %98, null
-  br i1 %.not73, label %.loopexit, label %.lr.ph104
+  br i1 %.not73, label %.loopexit, label %.lr.ph108
 
 .loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %2, %.thread83, %74
   %.0 = phi i32 [ 1, %.thread83 ], [ 1, %74 ], [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %tailrecurse ]

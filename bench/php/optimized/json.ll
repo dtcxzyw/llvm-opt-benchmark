@@ -833,14 +833,14 @@ switch.lookup:                                    ; preds = %22
   %switch.shiftamt = zext nneg i8 %28 to i24
   %switch.downshift = lshr i24 65536, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %switch.cast146 = trunc nuw i8 %switch.tableidx to i3
-  %switch.downshift148 = lshr i3 1, %switch.cast146
-  %switch.masked149 = trunc nuw i3 %switch.downshift148 to i1
+  %switch.cast147 = trunc nuw i8 %switch.tableidx to i3
+  %switch.downshift149 = lshr i3 1, %switch.cast147
+  %switch.masked150 = trunc nuw i3 %switch.downshift149 to i1
   store i8 %switch.masked, ptr %4, align 1, !tbaa !79
   br label %zend_parse_arg_bool_ex.exit.thread
 
 zend_parse_arg_bool_ex.exit.thread:               ; preds = %switch.lookup, %zend_parse_arg_bool_ex.exit
-  %.296110 = phi i1 [ false, %zend_parse_arg_bool_ex.exit ], [ %switch.masked149, %switch.lookup ]
+  %.296110 = phi i1 [ false, %zend_parse_arg_bool_ex.exit ], [ %switch.masked150, %switch.lookup ]
   %29 = icmp samesign ult i32 %8, 3
   br i1 %29, label %.critedge.thread, label %30, !prof !49
 
@@ -899,7 +899,7 @@ zend_parse_arg_long_ex.exit88..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   br i1 %.not82, label %.critedge.thread, label %.thread137
 
 .critedge.thread:                                 ; preds = %37, %zend_parse_arg_bool_ex.exit.thread, %zend_parse_arg_str_ex.exit.thread, %.critedge
-  %.195144 = phi i1 [ %.296110, %.critedge ], [ %.296110, %37 ], [ %.296110, %zend_parse_arg_bool_ex.exit.thread ], [ true, %zend_parse_arg_str_ex.exit.thread ]
+  %.195145 = phi i1 [ %.296110, %.critedge ], [ %.296110, %37 ], [ %.296110, %zend_parse_arg_bool_ex.exit.thread ], [ true, %zend_parse_arg_str_ex.exit.thread ]
   %47 = phi i64 [ %45, %.critedge ], [ 0, %37 ], [ 0, %zend_parse_arg_bool_ex.exit.thread ], [ 0, %zend_parse_arg_str_ex.exit.thread ]
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @json_globals, i64 8), align 4, !tbaa !31
   %.not83 = icmp eq i64 %20, 0
@@ -924,7 +924,7 @@ zend_parse_arg_long_ex.exit88..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   br label %73
 
 53:                                               ; preds = %.thread137, %.critedge.thread
-  %.195143 = phi i1 [ %.296110, %.thread137 ], [ %.195144, %.critedge.thread ]
+  %.195144 = phi i1 [ %.296110, %.thread137 ], [ %.195145, %.critedge.thread ]
   %54 = phi i64 [ %45, %.thread137 ], [ %47, %.critedge.thread ]
   %55 = load i64, ptr %5, align 8, !tbaa !47
   %56 = icmp slt i64 %55, 1
@@ -949,16 +949,16 @@ zend_parse_arg_long_ex.exit88..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   br label %73
 
 65:                                               ; preds = %60
-  br i1 %.195143, label %70, label %.sink.split
+  br i1 %.195144, label %70, label %.sink.split
 
 .sink.split:                                      ; preds = %65
   %66 = load i8, ptr %4, align 1, !tbaa !79, !range !81, !noundef !82
   %67 = trunc nuw i8 %66 to i1
   %68 = or i64 %54, 1
   %69 = and i64 %54, -2
-  %.sink145 = select i1 %67, i64 %68, i64 %69
+  %.sink146 = select i1 %67, i64 %68, i64 %69
   %.ph = select i1 %67, i64 %68, i64 %69
-  store i64 %.sink145, ptr %6, align 8, !tbaa !47
+  store i64 %.sink146, ptr %6, align 8, !tbaa !47
   br label %70
 
 70:                                               ; preds = %.sink.split, %65

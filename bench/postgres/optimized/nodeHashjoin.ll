@@ -100,10 +100,10 @@ define dso_local noundef ptr @ExecInitHashJoin(ptr noundef %0, ptr noundef %1, i
   unreachable
 
 .sink.split:                                      ; preds = %32, %32, %36, %37
-  %.sink127 = phi ptr [ %20, %37 ], [ %17, %36 ], [ %20, %32 ], [ %20, %32 ]
-  %.sink126 = phi i64 [ 288, %37 ], [ 280, %36 ], [ 288, %32 ], [ 288, %32 ]
-  %44 = tail call ptr @ExecInitNullTupleSlot(ptr noundef %1, ptr noundef %.sink127, ptr noundef nonnull @TTSOpsVirtual) #6
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink126
+  %.sink128 = phi ptr [ %20, %37 ], [ %17, %36 ], [ %20, %32 ], [ %20, %32 ]
+  %.sink127 = phi i64 [ 288, %37 ], [ 280, %36 ], [ 288, %32 ], [ 288, %32 ]
+  %44 = tail call ptr @ExecInitNullTupleSlot(ptr noundef %1, ptr noundef %.sink128, ptr noundef nonnull @TTSOpsVirtual) #6
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink127
   store ptr %44, ptr %45, align 8
   br label %46
 
@@ -443,9 +443,9 @@ ExecProcNode.exit:                                ; preds = %78, %80
   %113 = load i16, ptr %112, align 4
   %114 = and i16 %113, 2
   %.not44.i = icmp eq i16 %114, 0
-  br i1 %.not44.i, label %.thread58.i, label %115
+  br i1 %.not44.i, label %.thread62.i, label %115
 
-.thread58.i:                                      ; preds = %111
+.thread62.i:                                      ; preds = %111
   store ptr null, ptr %40, align 8
   br label %.lr.ph.i.preheader
 
@@ -464,8 +464,8 @@ ExecProcNode.exit:                                ; preds = %78, %80
   %121 = icmp eq ptr %120, null
   br i1 %121, label %ExecHashJoinOuterGetTuple.exit.thread, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %118, %.thread58.i
-  %.13855.i.ph = phi ptr [ %120, %118 ], [ %109, %.thread58.i ]
+.lr.ph.i.preheader:                               ; preds = %118, %.thread62.i
+  %.13855.i.ph = phi ptr [ %120, %118 ], [ %109, %.thread62.i ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %144
@@ -1039,7 +1039,7 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   br i1 %.not82.i, label %.thread.i8, label %428
 
 .critedge2.thread.i:                              ; preds = %406
-  br i1 %.not83.i, label %.thread119.i, label %413
+  br i1 %.not83.i, label %.thread126.i, label %413
 
 413:                                              ; preds = %.critedge2.thread.i
   %414 = load ptr, ptr %31, align 8
@@ -1054,14 +1054,14 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
 .thread.i8:                                       ; preds = %.critedge2.i
   %417 = load i32, ptr %404, align 4
   %.not88.i = icmp eq i32 %379, %417
-  br i1 %.not88.i, label %.thread119.i, label %428
+  br i1 %.not88.i, label %.thread126.i, label %428
 
 418:                                              ; preds = %415
   call void @BufFileClose(ptr noundef nonnull %.pre110.i) #6
   %.pre111.i = load ptr, ptr %402, align 8
-  br label %.thread119.i
+  br label %.thread126.i
 
-.thread119.i:                                     ; preds = %418, %.thread.i8, %.critedge2.thread.i
+.thread126.i:                                     ; preds = %418, %.thread.i8, %.critedge2.thread.i
   %419 = phi ptr [ %.pre111.i, %418 ], [ %.pre109.i, %.critedge2.thread.i ], [ %.pre109.i, %.thread.i8 ]
   %420 = getelementptr inbounds ptr, ptr %419, i64 %indvars.iv.i
   store ptr null, ptr %420, align 8
@@ -1071,13 +1071,13 @@ ExecHashJoinSaveTuple.exit:                       ; preds = %194, %203
   %.not90.i = icmp eq ptr %423, null
   br i1 %.not90.i, label %425, label %424
 
-424:                                              ; preds = %.thread119.i
+424:                                              ; preds = %.thread126.i
   call void @BufFileClose(ptr noundef nonnull %423) #6
   %.pre112.i = load ptr, ptr %401, align 8
   br label %425
 
-425:                                              ; preds = %424, %.thread119.i
-  %426 = phi ptr [ %.pre112.i, %424 ], [ %421, %.thread119.i ]
+425:                                              ; preds = %424, %.thread126.i
+  %426 = phi ptr [ %.pre112.i, %424 ], [ %421, %.thread126.i ]
   %427 = getelementptr inbounds ptr, ptr %426, i64 %indvars.iv.i
   store ptr null, ptr %427, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1

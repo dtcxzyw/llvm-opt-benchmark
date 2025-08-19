@@ -188,9 +188,9 @@ define internal fastcc void @x509v3_cache_extensions(ptr noundef %0) unnamed_add
   br label %36
 
 36:                                               ; preds = %24, %31, %34
-  %.sink130 = phi i64 [ 0, %31 ], [ %35, %34 ], [ -1, %24 ]
+  %.sink146 = phi i64 [ 0, %31 ], [ %35, %34 ], [ -1, %24 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sink130, ptr %37, align 8, !tbaa !44
+  store i64 %.sink146, ptr %37, align 8, !tbaa !44
   tail call void @BASIC_CONSTRAINTS_free(ptr noundef nonnull %18) #10
   %38 = load i64, ptr %3, align 8, !tbaa !6
   %39 = or i64 %38, 1
@@ -341,9 +341,9 @@ define internal fastcc void @x509v3_cache_extensions(ptr noundef %0) unnamed_add
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %100, %99, %98, %97, %96, %95, %94, %93
-  %.sink134 = phi i64 [ 2, %93 ], [ 4, %94 ], [ 8, %95 ], [ 16, %96 ], [ 32, %97 ], [ 64, %98 ], [ 128, %99 ], [ 256, %100 ], [ 1, %.lr.ph ]
+  %.sink150 = phi i64 [ 2, %93 ], [ 4, %94 ], [ 8, %95 ], [ 16, %96 ], [ 32, %97 ], [ 64, %98 ], [ 128, %99 ], [ 256, %100 ], [ 1, %.lr.ph ]
   %101 = load i64, ptr %85, align 8, !tbaa !53
-  %102 = or i64 %101, %.sink134
+  %102 = or i64 %101, %.sink150
   store i64 %102, ptr %85, align 8, !tbaa !53
   br label %103
 
@@ -814,18 +814,18 @@ X509_PURPOSE_get0.exit:                           ; preds = %11, %13
   %18 = load ptr, ptr %17, align 8, !tbaa !77
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %0) #11
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %.split.loop.exit9, label %20
+  br i1 %.not, label %.split.loop.exit10, label %20
 
 20:                                               ; preds = %X509_PURPOSE_get0.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %2, !llvm.loop !78
 
-.split.loop.exit9:                                ; preds = %X509_PURPOSE_get0.exit
+.split.loop.exit10:                               ; preds = %X509_PURPOSE_get0.exit
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %X509_PURPOSE_get_count.exit, %.split.loop.exit9
-  %.0 = phi i32 [ %21, %.split.loop.exit9 ], [ -1, %X509_PURPOSE_get_count.exit ]
+.split.loop.exit:                                 ; preds = %X509_PURPOSE_get_count.exit, %.split.loop.exit10
+  %.0 = phi i32 [ %21, %.split.loop.exit10 ], [ -1, %X509_PURPOSE_get_count.exit ]
   ret i32 %.0
 }
 

@@ -828,15 +828,15 @@ pretwiddle.exit:                                  ; preds = %45
   %53 = zext nneg i32 %2 to i64
   %narrow = add nuw i16 %27, 1
   %wide.trip.count85 = zext i16 %narrow to i64
-  %invariant.gep89 = getelementptr inbounds nuw float, ptr %0, i64 %wide.trip.count.i
+  %invariant.gep92 = getelementptr inbounds nuw float, ptr %0, i64 %wide.trip.count.i
   %54 = getelementptr float, ptr %1, i64 %53
   br label %55
 
 55:                                               ; preds = %.lr.ph70, %.loopexit
   %indvars.iv82 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next83, %.loopexit ]
   %.05169 = phi i32 [ %51, %.lr.ph70 ], [ %90, %.loopexit ]
-  %gep90 = getelementptr inbounds nuw float, ptr %invariant.gep89, i64 %indvars.iv82
-  %56 = load float, ptr %gep90, align 4, !tbaa !42
+  %gep93 = getelementptr inbounds nuw float, ptr %invariant.gep92, i64 %indvars.iv82
+  %56 = load float, ptr %gep93, align 4, !tbaa !42
   %57 = and i32 %.05169, %52
   %58 = icmp slt i32 %57, %4
   %59 = fpext nsz float %56 to double
@@ -2977,8 +2977,8 @@ on2avc_decode_quads.exit.i:                       ; preds = %374, %on2avc_decode
   %578 = load i32, ptr %63, align 8, !tbaa !96
   %.not47 = icmp ne i32 %578, 0
   %579 = icmp sgt i32 %568, 0
-  %or.cond201 = select i1 %.not47, i1 %579, i1 false
-  br i1 %or.cond201, label %.preheader.lr.ph.i59, label %on2avc_apply_ms.exit
+  %or.cond233 = select i1 %.not47, i1 %579, i1 false
+  br i1 %or.cond233, label %.preheader.lr.ph.i59, label %on2avc_apply_ms.exit
 
 .preheader.lr.ph.i59:                             ; preds = %577
   %580 = icmp sgt i32 %567, 0

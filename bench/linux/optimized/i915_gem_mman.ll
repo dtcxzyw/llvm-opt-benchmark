@@ -951,12 +951,12 @@ define dso_local i32 @i915_gem_mmap(ptr noundef readonly captures(none) %0, ptr 
 
 76:                                               ; preds = %75, %.thread11
   %77 = icmp eq i32 %71, 0
-  %spec.select21 = select i1 %77, ptr null, ptr %58
+  %spec.select28 = select i1 %77, ptr null, ptr %58
   br label %.thread
 
 .thread:                                          ; preds = %76, %55, %25, %11, %57, %35, %29
   %78 = phi i32 [ -13, %29 ], [ -13, %35 ], [ -13, %57 ], [ -22, %11 ], [ -22, %25 ], [ -13, %55 ], [ -13, %76 ]
-  %79 = phi ptr [ null, %29 ], [ null, %35 ], [ null, %57 ], [ null, %11 ], [ null, %25 ], [ %spec.select, %55 ], [ %spec.select21, %76 ]
+  %79 = phi ptr [ null, %29 ], [ null, %35 ], [ null, %57 ], [ null, %11 ], [ null, %25 ], [ %spec.select, %55 ], [ %spec.select28, %76 ]
   %80 = phi ptr [ null, %29 ], [ %23, %35 ], [ null, %57 ], [ null, %11 ], [ null, %25 ], [ %23, %55 ], [ null, %76 ]
   %81 = load ptr, ptr %13, align 8
   call void @_raw_read_unlock(ptr noundef %81) #13

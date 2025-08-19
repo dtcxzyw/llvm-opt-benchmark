@@ -545,17 +545,17 @@ define ptr @OCSP_accept_responses_new(ptr noundef readonly captures(address_is_n
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %4 = load ptr, ptr %0, align 8, !tbaa !35
-  %.not1320 = icmp eq ptr %4, null
-  br i1 %.not1320, label %.critedge, label %.lr.ph22
+  %.not1325 = icmp eq ptr %4, null
+  br i1 %.not1325, label %.critedge, label %.lr.ph27
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph27:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %5 = phi ptr [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.091821 = phi ptr [ %11, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.091826 = phi ptr [ %11, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %6 = tail call i32 @OBJ_txt2nid(ptr noundef nonnull %5) #4
   %.not14 = icmp eq i32 %6, 0
   br i1 %.not14, label %.lr.ph, label %7
 
-7:                                                ; preds = %.lr.ph22
+7:                                                ; preds = %.lr.ph27
   %8 = tail call ptr @OBJ_nid2obj(i32 noundef %6) #4
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %.lr.ph, label %9
@@ -565,11 +565,11 @@ define ptr @OCSP_accept_responses_new(ptr noundef readonly captures(address_is_n
   %.not16 = icmp eq i32 %10, 0
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9, %7, %.lr.ph22
-  %11 = getelementptr inbounds nuw i8, ptr %.091821, i64 8
+.lr.ph:                                           ; preds = %9, %7, %.lr.ph27
+  %11 = getelementptr inbounds nuw i8, ptr %.091826, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %.not13 = icmp eq ptr %12, null
-  br i1 %.not13, label %.critedge, label %.lr.ph22
+  br i1 %.not13, label %.critedge, label %.lr.ph27
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %.preheader
   %13 = tail call ptr @X509V3_EXT_i2d(i32 noundef 368, i32 noundef 0, ptr noundef nonnull %2) #4
@@ -649,22 +649,22 @@ define ptr @OCSP_url_svcloc_new(ptr noundef %0, ptr noundef readonly captures(ad
 .lr.ph:                                           ; preds = %10, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %1, align 8, !tbaa !35
-  %.not3339 = icmp eq ptr %17, null
-  br i1 %.not3339, label %.critedge, label %.lr.ph41
+  %.not3343 = icmp eq ptr %17, null
+  br i1 %.not3343, label %.critedge, label %.lr.ph45
 
 18:                                               ; preds = %32
-  %19 = getelementptr inbounds nuw i8, ptr %.0253740, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.0253744, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !35
   %.not33 = icmp eq ptr %20, null
-  br i1 %.not33, label %.critedge, label %.lr.ph41
+  br i1 %.not33, label %.critedge, label %.lr.ph45
 
-.lr.ph41:                                         ; preds = %.lr.ph, %18
-  %.0253740 = phi ptr [ %19, %18 ], [ %1, %.lr.ph ]
+.lr.ph45:                                         ; preds = %.lr.ph, %18
+  %.0253744 = phi ptr [ %19, %18 ], [ %1, %.lr.ph ]
   %21 = tail call ptr @ACCESS_DESCRIPTION_new() #4
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %23
 
-23:                                               ; preds = %.lr.ph41
+23:                                               ; preds = %.lr.ph45
   %24 = tail call ptr @OBJ_nid2obj(i32 noundef 178) #4
   store ptr %24, ptr %21, align 8, !tbaa !46
   %25 = icmp eq ptr %24, null
@@ -676,7 +676,7 @@ define ptr @OCSP_url_svcloc_new(ptr noundef %0, ptr noundef readonly captures(ad
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %.0253740, align 8, !tbaa !35
+  %30 = load ptr, ptr %.0253744, align 8, !tbaa !35
   %31 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %27, ptr noundef %30, i32 noundef -1) #4
   %.not34 = icmp eq i32 %31, 0
   br i1 %.not34, label %.loopexit, label %32
@@ -696,10 +696,10 @@ define ptr @OCSP_url_svcloc_new(ptr noundef %0, ptr noundef readonly captures(ad
   %38 = tail call ptr @X509V3_EXT_i2d(i32 noundef 371, i32 noundef 0, ptr noundef nonnull %3) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %29, %26, %23, %.lr.ph41, %12, %5, %2, %.critedge
-  %.024 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ %38, %.critedge ], [ null, %.lr.ph41 ], [ null, %23 ], [ null, %26 ], [ null, %29 ], [ null, %32 ]
-  %.022 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.critedge ], [ null, %32 ], [ %27, %29 ], [ null, %26 ], [ null, %23 ], [ null, %.lr.ph41 ]
-  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.critedge ], [ %21, %32 ], [ %21, %29 ], [ %21, %26 ], [ %21, %23 ], [ null, %.lr.ph41 ]
+.loopexit:                                        ; preds = %32, %29, %26, %23, %.lr.ph45, %12, %5, %2, %.critedge
+  %.024 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ %38, %.critedge ], [ null, %.lr.ph45 ], [ null, %23 ], [ null, %26 ], [ null, %29 ], [ null, %32 ]
+  %.022 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.critedge ], [ null, %32 ], [ %27, %29 ], [ null, %26 ], [ null, %23 ], [ null, %.lr.ph45 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %12 ], [ null, %.critedge ], [ %21, %32 ], [ %21, %29 ], [ %21, %26 ], [ %21, %23 ], [ null, %.lr.ph45 ]
   tail call void @ASN1_IA5STRING_free(ptr noundef %.022) #4
   tail call void @ACCESS_DESCRIPTION_free(ptr noundef %.0) #4
   tail call void @OCSP_SERVICELOC_free(ptr noundef %3) #4

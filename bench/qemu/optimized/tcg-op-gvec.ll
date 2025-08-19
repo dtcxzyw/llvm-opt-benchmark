@@ -4036,8 +4036,8 @@ define internal fastcc void @do_dup(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 .lr.ph.preheader:                                 ; preds = %7
   %9 = icmp eq ptr %5, null
-  %or.cond385 = or i1 %.not264, %9
-  br i1 %or.cond385, label %.lr.ph394, label %10
+  %or.cond388 = or i1 %.not264, %9
+  br i1 %or.cond388, label %.lr.ph397, label %10
 
 tailrecurse._crit_edge:                           ; preds = %7
   tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 547, ptr noundef nonnull @__PRETTY_FUNCTION__.do_dup) #11
@@ -4047,21 +4047,21 @@ tailrecurse._crit_edge:                           ; preds = %7
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 548, ptr noundef nonnull @__PRETTY_FUNCTION__.do_dup) #11
   unreachable
 
-.lr.ph394:                                        ; preds = %.lr.ph.preheader, %tailrecurse
+.lr.ph397:                                        ; preds = %.lr.ph.preheader, %tailrecurse
   %11 = phi i1 [ true, %tailrecurse ], [ %9, %.lr.ph.preheader ]
-  %.tr266393 = phi i32 [ 0, %tailrecurse ], [ %0, %.lr.ph.preheader ]
-  %.tr216267392 = phi i32 [ %183, %tailrecurse ], [ %1, %.lr.ph.preheader ]
-  %.tr217268391 = phi i32 [ %184, %tailrecurse ], [ %2, %.lr.ph.preheader ]
-  %.tr218269390 = phi i32 [ %184, %tailrecurse ], [ %3, %.lr.ph.preheader ]
-  %.tr219270389 = phi ptr [ null, %tailrecurse ], [ %4, %.lr.ph.preheader ]
-  %.tr220271388 = phi ptr [ null, %tailrecurse ], [ %5, %.lr.ph.preheader ]
-  %.tr221272387 = phi i64 [ 0, %tailrecurse ], [ %6, %.lr.ph.preheader ]
-  %.not273386 = phi i1 [ true, %tailrecurse ], [ %.not264, %.lr.ph.preheader ]
-  %or.cond3 = and i1 %.not273386, %11
+  %.tr266396 = phi i32 [ 0, %tailrecurse ], [ %0, %.lr.ph.preheader ]
+  %.tr216267395 = phi i32 [ %183, %tailrecurse ], [ %1, %.lr.ph.preheader ]
+  %.tr217268394 = phi i32 [ %184, %tailrecurse ], [ %2, %.lr.ph.preheader ]
+  %.tr218269393 = phi i32 [ %184, %tailrecurse ], [ %3, %.lr.ph.preheader ]
+  %.tr219270392 = phi ptr [ null, %tailrecurse ], [ %4, %.lr.ph.preheader ]
+  %.tr220271391 = phi ptr [ null, %tailrecurse ], [ %5, %.lr.ph.preheader ]
+  %.tr221272390 = phi i64 [ 0, %tailrecurse ], [ %6, %.lr.ph.preheader ]
+  %.not273389 = phi i1 [ true, %tailrecurse ], [ %.not264, %.lr.ph.preheader ]
+  %or.cond3 = and i1 %.not273389, %11
   br i1 %or.cond3, label %12, label %28
 
-12:                                               ; preds = %.lr.ph394
-  switch i32 %.tr266393, label %default.unreachable [
+12:                                               ; preds = %.lr.ph397
+  switch i32 %.tr266396, label %default.unreachable321 [
     i32 0, label %13
     i32 1, label %16
     i32 2, label %19
@@ -4069,25 +4069,25 @@ tailrecurse._crit_edge:                           ; preds = %7
   ]
 
 13:                                               ; preds = %12
-  %14 = and i64 %.tr221272387, 255
+  %14 = and i64 %.tr221272390, 255
   %15 = mul nuw i64 %14, 72340172838076673
   br label %dup_const.exit
 
 16:                                               ; preds = %12
-  %17 = and i64 %.tr221272387, 65535
+  %17 = and i64 %.tr221272390, 65535
   %18 = mul nuw i64 %17, 281479271743489
   br label %dup_const.exit
 
 19:                                               ; preds = %12
-  %20 = and i64 %.tr221272387, 4294967295
+  %20 = and i64 %.tr221272390, 4294967295
   %21 = mul nuw i64 %20, 4294967297
   br label %dup_const.exit
 
-default.unreachable:                              ; preds = %12
+default.unreachable321:                           ; preds = %12
   unreachable
 
 dup_const.exit:                                   ; preds = %19, %16, %13, %12
-  %22 = phi i64 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %.tr221272387, %12 ]
+  %22 = phi i64 [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %.tr221272390, %12 ]
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %.thread, label %24
 
@@ -4095,24 +4095,24 @@ dup_const.exit:                                   ; preds = %19, %16, %13, %12
   %25 = and i64 %22, 255
   %26 = mul nuw i64 %25, 72340172838076673
   %27 = icmp eq i64 %22, %26
-  %spec.select = select i1 %27, i32 0, i32 %.tr266393
+  %spec.select = select i1 %27, i32 0, i32 %.tr266396
   br label %.thread
 
-28:                                               ; preds = %.lr.ph394
-  br i1 %.not273386, label %.thread, label %31
+28:                                               ; preds = %.lr.ph397
+  br i1 %.not273389, label %.thread, label %31
 
 .thread:                                          ; preds = %dup_const.exit, %24, %28
-  %.0149197 = phi i32 [ %.tr266393, %28 ], [ %spec.select, %24 ], [ 0, %dup_const.exit ]
-  %.0150195 = phi i32 [ %.tr217268391, %28 ], [ %.tr217268391, %24 ], [ %.tr218269390, %dup_const.exit ]
-  %.0154193 = phi i64 [ %.tr221272387, %28 ], [ %22, %24 ], [ 0, %dup_const.exit ]
+  %.0149197 = phi i32 [ %.tr266396, %28 ], [ %spec.select, %24 ], [ 0, %dup_const.exit ]
+  %.0150195 = phi i32 [ %.tr217268394, %28 ], [ %.tr217268394, %24 ], [ %.tr218269393, %dup_const.exit ]
+  %.0154193 = phi i64 [ %.tr221272390, %28 ], [ %22, %24 ], [ 0, %dup_const.exit ]
   %29 = icmp eq i32 %.0149197, 3
   %30 = or i1 %11, %29
   br label %31
 
 31:                                               ; preds = %.thread, %28
-  %.0149196 = phi i32 [ %.tr266393, %28 ], [ %.0149197, %.thread ]
-  %.0150194 = phi i32 [ %.tr217268391, %28 ], [ %.0150195, %.thread ]
-  %.0154192 = phi i64 [ %.tr221272387, %28 ], [ %.0154193, %.thread ]
+  %.0149196 = phi i32 [ %.tr266396, %28 ], [ %.0149197, %.thread ]
+  %.0150194 = phi i32 [ %.tr217268394, %28 ], [ %.0150195, %.thread ]
+  %.0154192 = phi i64 [ %.tr221272390, %28 ], [ %.0154193, %.thread ]
   %32 = phi i1 [ false, %28 ], [ %30, %.thread ]
   %33 = tail call fastcc i32 @choose_vector_type(ptr noundef null, i32 noundef %.0149196, i32 noundef %.0150194, i1 noundef zeroext %32)
   %.not169 = icmp eq i32 %33, 0
@@ -4120,17 +4120,17 @@ dup_const.exit:                                   ; preds = %19, %16, %13, %12
 
 34:                                               ; preds = %31
   %35 = tail call ptr @tcg_temp_new_vec(i32 noundef %33) #10
-  br i1 %.not273386, label %37, label %36
+  br i1 %.not273389, label %37, label %36
 
 36:                                               ; preds = %34
-  tail call void @tcg_gen_dup_i32_vec(i32 noundef %.0149196, ptr noundef %35, ptr noundef nonnull %.tr219270389) #10
+  tail call void @tcg_gen_dup_i32_vec(i32 noundef %.0149196, ptr noundef %35, ptr noundef nonnull %.tr219270392) #10
   br label %40
 
 37:                                               ; preds = %34
   br i1 %11, label %39, label %38
 
 38:                                               ; preds = %37
-  tail call void @tcg_gen_dup_i64_vec(i32 noundef %.0149196, ptr noundef %35, ptr noundef nonnull %.tr220271388) #10
+  tail call void @tcg_gen_dup_i64_vec(i32 noundef %.0149196, ptr noundef %35, ptr noundef nonnull %.tr220271391) #10
   br label %40
 
 39:                                               ; preds = %37
@@ -4138,7 +4138,7 @@ dup_const.exit:                                   ; preds = %19, %16, %13, %12
   br label %40
 
 40:                                               ; preds = %38, %39, %36
-  tail call fastcc void @do_dup_store(i32 noundef %33, i32 noundef %.tr216267392, i32 noundef %.0150194, i32 noundef %.tr218269390, ptr noundef %35)
+  tail call fastcc void @do_dup_store(i32 noundef %33, i32 noundef %.tr216267395, i32 noundef %.0150194, i32 noundef %.tr218269393, ptr noundef %35)
   br label %.loopexit
 
 41:                                               ; preds = %31
@@ -4153,7 +4153,7 @@ check_size_impl.exit:                             ; preds = %41
   br i1 %45, label %46, label %check_size_impl.exit.thread
 
 46:                                               ; preds = %check_size_impl.exit
-  br i1 %.not273386, label %53, label %47
+  br i1 %.not273389, label %53, label %47
 
 47:                                               ; preds = %46
   %.not171 = icmp eq i32 %.0149196, 2
@@ -4161,7 +4161,7 @@ check_size_impl.exit:                             ; preds = %41
 
 .split:                                           ; preds = %47
   %48 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %48, ptr noundef nonnull %.tr219270389) #10
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %48, ptr noundef nonnull %.tr219270392) #10
   tail call void @tcg_gen_dup_i64(i32 noundef %.0149196, ptr noundef %48, ptr noundef %48)
   br label %72
 
@@ -4171,13 +4171,13 @@ check_size_impl.exit184:                          ; preds = %47
 
 .split156:                                        ; preds = %check_size_impl.exit184
   %50 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %50, ptr noundef nonnull %.tr219270389) #10
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %50, ptr noundef nonnull %.tr219270392) #10
   tail call void @tcg_gen_deposit_i64(ptr noundef %50, ptr noundef %50, ptr noundef %50, i32 noundef 32, i32 noundef 32) #10
   br label %72
 
 51:                                               ; preds = %check_size_impl.exit184
   %52 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_mov_i32(ptr noundef %52, ptr noundef nonnull %.tr219270389) #10
+  tail call void @tcg_gen_mov_i32(ptr noundef %52, ptr noundef nonnull %.tr219270392) #10
   br label %65
 
 53:                                               ; preds = %46
@@ -4185,7 +4185,7 @@ check_size_impl.exit184:                          ; preds = %47
 
 54:                                               ; preds = %53
   %55 = tail call ptr @tcg_temp_ebb_new_i64() #10
-  tail call void @tcg_gen_dup_i64(i32 noundef %.0149196, ptr noundef %55, ptr noundef nonnull %.tr220271388)
+  tail call void @tcg_gen_dup_i64(i32 noundef %.0149196, ptr noundef %55, ptr noundef nonnull %.tr220271391)
   br label %72
 
 56:                                               ; preds = %53
@@ -4214,7 +4214,7 @@ check_size_impl.exit188.thread:                   ; preds = %56
 .preheader:                                       ; preds = %65, %.preheader
   %.0151263 = phi i32 [ %69, %.preheader ], [ 0, %65 ]
   %66 = load ptr, ptr @tcg_env, align 8
-  %67 = add i32 %.0151263, %.tr216267392
+  %67 = add i32 %.0151263, %.tr216267395
   %68 = zext i32 %67 to i64
   tail call void @tcg_gen_st_i32(ptr noundef nonnull %.0152, ptr noundef %66, i64 noundef %68) #10
   %69 = add nuw nsw i32 %.0151263, 4
@@ -4233,7 +4233,7 @@ check_size_impl.exit188.thread:                   ; preds = %56
 .preheader223:                                    ; preds = %72, %.preheader223
   %.1262 = phi i32 [ %76, %.preheader223 ], [ 0, %72 ]
   %73 = load ptr, ptr @tcg_env, align 8
-  %74 = add i32 %.1262, %.tr216267392
+  %74 = add i32 %.1262, %.tr216267395
   %75 = zext i32 %74 to i64
   tail call void @tcg_gen_st_i64(ptr noundef nonnull %.0153.ph, ptr noundef %73, i64 noundef %75) #10
   %76 = add nuw nsw i32 %.1262, 8
@@ -4247,17 +4247,17 @@ check_size_impl.exit188.thread:                   ; preds = %56
 check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %check_size_impl.exit
   %79 = tail call ptr @tcg_temp_ebb_new_ptr() #10
   %80 = load ptr, ptr @tcg_env, align 8
-  %81 = zext i32 %.tr216267392 to i64
+  %81 = zext i32 %.tr216267395 to i64
   tail call void @tcg_gen_addi_i64(ptr noundef %79, ptr noundef %80, i64 noundef range(i64 0, 4294967296) %81) #10
-  %82 = icmp eq i32 %.0150194, %.tr218269390
+  %82 = icmp eq i32 %.0150194, %.tr218269393
   %83 = icmp eq i32 %.0149196, 0
   %or.cond9 = and i1 %83, %82
   br i1 %or.cond9, label %84, label %118
 
 84:                                               ; preds = %check_size_impl.exit.thread
-  %85 = zext i32 %.tr218269390 to i64
+  %85 = zext i32 %.tr218269393 to i64
   %86 = tail call ptr @tcg_constant_ptr_int(i64 noundef %85) #10
-  br i1 %.not273386, label %87, label %106
+  br i1 %.not273389, label %87, label %106
 
 87:                                               ; preds = %84
   %88 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
@@ -4267,7 +4267,7 @@ check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %chec
 
 .thread213:                                       ; preds = %87
   %91 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %91, ptr noundef nonnull %.tr220271388) #10
+  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %91, ptr noundef nonnull %.tr220271391) #10
   %92 = load ptr, ptr @helper_info_memset, align 8
   %93 = load ptr, ptr %88, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %89
@@ -4295,7 +4295,7 @@ check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %chec
   %109 = load ptr, ptr %108, align 8
   %110 = ptrtoint ptr %79 to i64
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 %110
-  %112 = ptrtoint ptr %.tr219270389 to i64
+  %112 = ptrtoint ptr %.tr219270392 to i64
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 %112
   %114 = ptrtoint ptr %86 to i64
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 %114
@@ -4303,7 +4303,7 @@ check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %chec
   br i1 %11, label %117, label %116
 
 116:                                              ; preds = %.thread213, %106
-  %.0215 = phi ptr [ %91, %.thread213 ], [ %.tr219270389, %106 ]
+  %.0215 = phi ptr [ %91, %.thread213 ], [ %.tr219270392, %106 ]
   tail call void @tcg_temp_free_i32(ptr noundef %.0215) #10
   br label %117
 
@@ -4319,21 +4319,21 @@ check_size_impl.exit.thread:                      ; preds = %65, %41, %72, %chec
   ]
 
 119:                                              ; preds = %118, %118, %118
-  %120 = icmp ule i32 %.0150194, %.tr218269390
+  %120 = icmp ule i32 %.0150194, %.tr218269393
   br label %simd_desc.exit
 
 simd_desc.exit:                                   ; preds = %118, %119
   %.sink.i.i = phi i1 [ %120, %119 ], [ %82, %118 ]
   tail call void @llvm.assume(i1 %.sink.i.i)
-  %121 = icmp ult i32 %.tr218269390, 2049
+  %121 = icmp ult i32 %.tr218269393, 2049
   tail call void @llvm.assume(i1 %121)
-  %122 = icmp samesign ugt i32 %.tr218269390, 15
+  %122 = icmp samesign ugt i32 %.tr218269393, 15
   %123 = select i1 %122, i32 15, i32 7
-  %124 = and i32 %123, %.tr218269390
+  %124 = and i32 %123, %.tr218269393
   %125 = icmp eq i32 %124, 0
   tail call void @llvm.assume(i1 %125)
   %126 = lshr i32 %.0150194, 3
-  %127 = lshr i32 %.tr218269390, 3
+  %127 = lshr i32 %.tr218269393, 3
   %128 = add nuw nsw i32 %127, 255
   %129 = icmp eq i32 %126, %127
   %130 = shl i32 %126, 8
@@ -4357,7 +4357,7 @@ simd_desc.exit:                                   ; preds = %118, %119
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
   %145 = ptrtoint ptr %136 to i64
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 %145
-  %147 = ptrtoint ptr %.tr220271388 to i64
+  %147 = ptrtoint ptr %.tr220271391 to i64
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 %147
   tail call void @tcg_gen_call3(ptr noundef %140, ptr noundef nonnull @helper_info_gvec_dup64, ptr noundef null, ptr noundef %144, ptr noundef %146, ptr noundef nonnull %148) #10
   br label %180
@@ -4377,13 +4377,13 @@ simd_desc.exit:                                   ; preds = %118, %119
   br label %180
 
 160:                                              ; preds = %simd_desc.exit
-  br i1 %.not273386, label %165, label %161
+  br i1 %.not273389, label %165, label %161
 
 161:                                              ; preds = %160
   %162 = zext nneg i32 %.0149196 to i64
   %163 = getelementptr inbounds nuw [3 x ptr], ptr @do_dup.fns, i64 0, i64 %162
   %164 = load ptr, ptr %163, align 8
-  tail call void %164(ptr noundef %79, ptr noundef %136, ptr noundef nonnull %.tr219270389) #10
+  tail call void %164(ptr noundef %79, ptr noundef %136, ptr noundef nonnull %.tr219270392) #10
   br label %180
 
 165:                                              ; preds = %160
@@ -4391,7 +4391,7 @@ simd_desc.exit:                                   ; preds = %118, %119
 
 166:                                              ; preds = %165
   %167 = tail call ptr @tcg_temp_ebb_new_i32() #10
-  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %167, ptr noundef nonnull %.tr220271388) #10
+  tail call void @tcg_gen_extrl_i64_i32(ptr noundef %167, ptr noundef nonnull %.tr220271391) #10
   %168 = zext nneg i32 %.0149196 to i64
   %169 = getelementptr inbounds nuw [3 x ptr], ptr @do_dup.fns, i64 0, i64 %168
   %170 = load ptr, ptr %169, align 8
@@ -4418,13 +4418,13 @@ simd_desc.exit:                                   ; preds = %118, %119
   br label %.loopexit
 
 181:                                              ; preds = %78, %71
-  %182 = icmp ult i32 %.0150194, %.tr218269390
+  %182 = icmp ult i32 %.0150194, %.tr218269393
   br i1 %182, label %tailrecurse, label %.loopexit
 
 tailrecurse:                                      ; preds = %181
-  %183 = add i32 %.0150194, %.tr216267392
-  %184 = sub nuw i32 %.tr218269390, %.0150194
-  br label %.lr.ph394
+  %183 = add i32 %.0150194, %.tr216267395
+  %184 = sub nuw i32 %.tr218269393, %.0150194
+  br label %.lr.ph397
 
 .loopexit:                                        ; preds = %181, %180, %117, %40
   ret void
@@ -4764,7 +4764,7 @@ check_size_align.exit:                            ; preds = %7, %9
 
 143:                                              ; preds = %.loopexit142
   %144 = add i32 %3, %1
-  %145 = sub nuw i32 %4, %3
+  %145 = sub nuw nsw i32 %4, %3
   tail call fastcc void @do_dup(i32 noundef 0, i32 noundef %144, i32 noundef %145, i32 noundef %145, ptr noundef null, ptr noundef null, i64 noundef 0)
   br label %147
 

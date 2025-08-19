@@ -329,8 +329,8 @@ define hidden void @_ZN10grep_regex6config13ConfiguredHIR3new17hc55ef79fea154375
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !21
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !20
   %164 = icmp eq ptr %120, %64
-  %or.cond77.i = select i1 %163, i1 true, i1 %164
-  br i1 %or.cond77.i, label %.loopexit.loopexit65.i, label %.lr.ph.split.split.us.i
+  %or.cond97.i = select i1 %163, i1 true, i1 %164
+  br i1 %or.cond97.i, label %.loopexit.loopexit65.i, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit.i
   %.sroa.025.036.i = phi ptr [ %165, %_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit.i ], [ %2, %.lr.ph.split.i ]
@@ -424,10 +424,10 @@ define hidden void @_ZN10grep_regex6config13ConfiguredHIR3new17hc55ef79fea154375
   ]
 
 .loopexit.loopexit.i:                             ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit.i23.us.i"
-  br i1 %221, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread348
+  br i1 %221, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread381
 
 .loopexit.loopexit60.i:                           ; preds = %_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i
-  br i1 %226, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread348
+  br i1 %226, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread381
 
 .loopexit.loopexit65.i:                           ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit.i.us.i"
   br i1 %163, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread
@@ -443,8 +443,8 @@ _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !21
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !20
   %209 = icmp eq ptr %165, %64
-  %or.cond78.i = select i1 %208, i1 true, i1 %209
-  br i1 %or.cond78.i, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit, label %.lr.ph.split.split.i
+  %or.cond98.i = select i1 %208, i1 true, i1 %209
+  br i1 %or.cond98.i, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit, label %.lr.ph.split.split.i
 
 210:                                              ; preds = %60
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 21
@@ -476,8 +476,8 @@ _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !20
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.051.us.i, i64 16
   %223 = icmp eq ptr %222, %213
-  %or.cond80.i = select i1 %221, i1 true, i1 %223
-  br i1 %or.cond80.i, label %.loopexit.loopexit.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit.i23.us.i"
+  %or.cond100.i = select i1 %221, i1 true, i1 %223
+  br i1 %or.cond100.i, label %.loopexit.loopexit.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit.i23.us.i"
 
 _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i: ; preds = %.lr.ph52.i, %_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i
   %.sroa.0.051.i = phi ptr [ %227, %_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i ], [ %2, %.lr.ph52.i ]
@@ -496,8 +496,8 @@ _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !20
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.051.i, i64 16
   %228 = icmp eq ptr %227, %213
-  %or.cond82.i = select i1 %226, i1 true, i1 %228
-  br i1 %or.cond82.i, label %.loopexit.loopexit60.i, label %_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i
+  %or.cond102.i = select i1 %226, i1 true, i1 %228
+  br i1 %or.cond102.i, label %.loopexit.loopexit60.i, label %_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i
 
 _ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit: ; preds = %_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit.i
   br i1 %208, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread
@@ -523,10 +523,10 @@ _ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread2
   br i1 %233, label %._crit_edge330, label %.lr.ph329
 
 .lr.ph329:                                        ; preds = %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264
-  %.idx59.i.pn363 = phi i64 [ %.idx59.i, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread ], [ %.idx331.pre-phi, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264 ]
+  %.idx59.i.pn396 = phi i64 [ %.idx59.i, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread ], [ %.idx331.pre-phi, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264 ]
   %234 = phi ptr [ %230, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread ], [ %232, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264 ]
   %235 = phi ptr [ %229, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264.thread ], [ %231, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread264 ]
-  %236 = getelementptr inbounds i8, ptr %2, i64 %.idx59.i.pn363
+  %236 = getelementptr inbounds i8, ptr %2, i64 %.idx59.i.pn396
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %238 = load i8, ptr %237, align 2, !range !10, !noundef !4
   %239 = trunc nuw i8 %238 to i1
@@ -554,7 +554,7 @@ _ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.
   store i64 0, ptr %246, align 8
   br label %._crit_edge
 
-_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread348: ; preds = %.loopexit.loopexit60.i, %.loopexit.loopexit.i
+_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread381: ; preds = %.loopexit.loopexit60.i, %.loopexit.loopexit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i64 0, ptr %49, align 8
   %247 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -574,10 +574,10 @@ _ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread:
   %251 = icmp eq i64 %3, 0
   br i1 %251, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread348, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread
-  %.idx59.i.pn = phi i64 [ %.idx59.i, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread348 ], [ %.idx.pre-phi, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread ]
-  %252 = phi ptr [ %248, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread348 ], [ %250, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread ]
-  %253 = phi ptr [ %247, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread348 ], [ %249, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread ]
+.lr.ph:                                           ; preds = %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread381, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread
+  %.idx59.i.pn = phi i64 [ %.idx59.i, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread381 ], [ %.idx.pre-phi, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread ]
+  %252 = phi ptr [ %248, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread381 ], [ %250, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread ]
+  %253 = phi ptr [ %247, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread.thread381 ], [ %249, %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread ]
   %254 = getelementptr inbounds i8, ptr %2, i64 %.idx59.i.pn
   %255 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 8

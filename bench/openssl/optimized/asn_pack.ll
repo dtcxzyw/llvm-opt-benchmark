@@ -56,10 +56,10 @@ define noundef ptr @ASN1_item_pack(ptr noundef %0, ptr noundef %1, ptr noundef c
   br label %29
 
 24:                                               ; preds = %16, %12
-  %.sink22 = phi i32 [ 32, %12 ], [ 36, %16 ]
+  %.sink25 = phi i32 [ 32, %12 ], [ 36, %16 ]
   %.sink = phi i32 [ 112, %12 ], [ 524301, %16 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink22, ptr noundef nonnull @__func__.ASN1_item_pack) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink25, ptr noundef nonnull @__func__.ASN1_item_pack) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #3
   br i1 %4, label %28, label %25
 

@@ -160,10 +160,10 @@ Tru_ManReadOne.exit:                              ; preds = %13
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Tru_ManReadOne.exit, %Tru_ManReadOne.exit38
-  %.sink69 = phi ptr [ %71, %Tru_ManReadOne.exit38 ], [ %16, %Tru_ManReadOne.exit ]
+  %.sink79 = phi ptr [ %71, %Tru_ManReadOne.exit38 ], [ %16, %Tru_ManReadOne.exit ]
   %.02746.sink = phi i32 [ %.02746, %Tru_ManReadOne.exit38 ], [ %15, %Tru_ManReadOne.exit ]
   %.sink = phi ptr [ %77, %Tru_ManReadOne.exit38 ], [ %22, %Tru_ManReadOne.exit ]
-  %23 = getelementptr i8, ptr %.sink69, i64 4
+  %23 = getelementptr i8, ptr %.sink79, i64 4
   %.val4.i.i37 = load i32, ptr %23, align 4, !tbaa !25
   %24 = and i32 %.val4.i.i37, %.02746.sink
   %25 = sext i32 %24 to i64
@@ -394,9 +394,9 @@ Tru_ManNot.exit.thread:                           ; preds = %27
   store i64 %34, ptr %32, align 8, !tbaa !14
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i42
-  br i1 %exitcond.not.i46, label %Tru_ManNot.exit.thread89, label %.lr.ph.i43, !llvm.loop !37
+  br i1 %exitcond.not.i46, label %Tru_ManNot.exit.thread98, label %.lr.ph.i43, !llvm.loop !37
 
-Tru_ManNot.exit.thread89:                         ; preds = %.lr.ph.i43
+Tru_ManNot.exit.thread98:                         ; preds = %.lr.ph.i43
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %37 = load i32, ptr %18, align 4, !tbaa !13
@@ -409,9 +409,9 @@ Tru_ManNot.exit:                                  ; preds = %23
   %41 = icmp sgt i32 %.pr.pre, 0
   br i1 %41, label %.lr.ph.preheader.i.i, label %Tru_ManHash.exit.i
 
-.lr.ph.preheader.i.i:                             ; preds = %Tru_ManNot.exit.thread89, %Tru_ManNot.exit
-  %42 = phi i32 [ %37, %Tru_ManNot.exit.thread89 ], [ %40, %Tru_ManNot.exit ]
-  %43 = phi ptr [ %36, %Tru_ManNot.exit.thread89 ], [ %39, %Tru_ManNot.exit ]
+.lr.ph.preheader.i.i:                             ; preds = %Tru_ManNot.exit.thread98, %Tru_ManNot.exit
+  %42 = phi i32 [ %37, %Tru_ManNot.exit.thread98 ], [ %40, %Tru_ManNot.exit ]
+  %43 = phi ptr [ %36, %Tru_ManNot.exit.thread98 ], [ %39, %Tru_ManNot.exit ]
   %wide.trip.count.i.i = zext nneg i32 %.pr.pre to i64
   br label %.lr.ph.i.i
 

@@ -236,9 +236,9 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40.i: ; preds = %74
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i42.invoke.i unwind label %.loopexit.split-lp63.i
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i42.invoke.sink.split.i: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i51.i, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40.i
-  %.sink94.i = phi ptr [ %108, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i51.i ], [ %80, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40.i ]
+  %.sink96.i = phi ptr [ %108, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i51.i ], [ %80, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40.i ]
   %.ph.i = phi ptr [ %101, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i51.i ], [ %73, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40.i ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sink94.i, i64 67
+  %88 = getelementptr inbounds nuw i8, ptr %.sink96.i, i64 67
   %89 = load i8, ptr %88, align 1, !tbaa !20
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i42.invoke.i
 
@@ -581,9 +581,9 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i55.i: ; preds = %211
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i57.invoke.i unwind label %.loopexit.split-lp83.i
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i57.invoke.sink.split.i: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i66.i, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i55.i
-  %.sink118.i = phi ptr [ %245, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i66.i ], [ %217, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i55.i ]
+  %.sink121.i = phi ptr [ %245, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i66.i ], [ %217, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i55.i ]
   %.ph.i20 = phi ptr [ %238, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i66.i ], [ %210, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i55.i ]
-  %225 = getelementptr inbounds nuw i8, ptr %.sink118.i, i64 67
+  %225 = getelementptr inbounds nuw i8, ptr %.sink121.i, i64 67
   %226 = load i8, ptr %225, align 1, !tbaa !20
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i57.invoke.i
 

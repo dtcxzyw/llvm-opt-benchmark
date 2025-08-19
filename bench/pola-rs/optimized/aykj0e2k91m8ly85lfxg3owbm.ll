@@ -4112,14 +4112,14 @@ define internal fastcc void @"_ZN4core3ptr61drop_in_place$LT$sqlparser..ast..ope
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$polars_plan..plans..lit..DynListLiteralValue$GT$17h40dfb738344a2189E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !33, !noundef !4
-  switch i64 %2, label %default.unreachable15 [
+  switch i64 %2, label %default.unreachable21 [
     i64 0, label %28
     i64 1, label %52
     i64 2, label %58
     i64 3, label %3
   ]
 
-default.unreachable15:                            ; preds = %1
+default.unreachable21:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -4176,10 +4176,10 @@ default.unreachable15:                            ; preds = %1
   unreachable
 
 common.resume:                                    ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i", %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i", %15, %39
-  %.sink20 = phi i64 [ %.val1, %39 ], [ %7, %15 ], [ %.val1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %7, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ]
+  %.sink26 = phi i64 [ %.val1, %39 ], [ %7, %15 ], [ %.val1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %7, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ]
   %.sink = phi ptr [ %.val, %39 ], [ %5, %15 ], [ %.val, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %5, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ]
   %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %16, %15 ], [ %40, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %16, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ]
-  %26 = mul nuw nsw i64 %.sink20, 24
+  %26 = mul nuw nsw i64 %.sink26, 24
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.sink, i64 noundef range(i64 1, -9223372036854775808) %26, i64 noundef 8) #19
   resume { ptr, i32 } %common.resume.op
 
@@ -8513,7 +8513,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !666, !noundef !4
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -8544,7 +8544,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -9076,7 +9076,7 @@ define internal fastcc void @"_ZN92_$LT$polars_plan..dsl..function_expr..range..
   %.sroa.06 = alloca [23 x i8], align 8
   %.sroa.02 = alloca [23 x i8], align 8
   %5 = load i8, ptr %1, align 16, !range !6, !noundef !4
-  switch i8 %5, label %default.unreachable26 [
+  switch i8 %5, label %default.unreachable27 [
     i8 0, label %6
     i8 1, label %12
     i8 2, label %13
@@ -9089,7 +9089,7 @@ define internal fastcc void @"_ZN92_$LT$polars_plan..dsl..function_expr..range..
     i8 9, label %46
   ]
 
-default.unreachable26:                            ; preds = %2
+default.unreachable27:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -10539,7 +10539,7 @@ define internal fastcc void @"_ZN98_$LT$polars_plan..dsl..function_expr..datetim
   %.sroa.03 = alloca [23 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 8, !range !765, !noundef !4
-  switch i8 %6, label %default.unreachable20 [
+  switch i8 %6, label %default.unreachable21 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -10586,7 +10586,7 @@ define internal fastcc void @"_ZN98_$LT$polars_plan..dsl..function_expr..datetim
     i8 43, label %59
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable21:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -12222,7 +12222,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %52 = invoke { ptr, i64 } @_ZN11polars_plan5plans3lit12LiteralValue11extract_str17h373d4a41f51c86fdE(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %19)
           to label %55 unwind label %53
 
-53:                                               ; preds = %.invoke46, %76, %74, %120, %81, %80, %57, %51
+53:                                               ; preds = %.invoke49, %76, %74, %120, %81, %80, %57, %51
   %54 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..lit..LiteralValue$GT$17he8a74f68955a4f4aE"(ptr noalias noundef align 16 dereferenceable(96) %18) #20
@@ -12231,7 +12231,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
 55:                                               ; preds = %51
   %56 = extractvalue { ptr, i64 } %52, 0
   %.not36 = icmp eq ptr %56, null
-  br i1 %.not36, label %.invoke46, label %57, !prof !37
+  br i1 %.not36, label %.invoke49, label %57, !prof !37
 
 57:                                               ; preds = %55
   %58 = extractvalue { ptr, i64 } %52, 1
@@ -12248,7 +12248,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
 62:                                               ; preds = %57
   %63 = extractvalue { ptr, i64 } %60, 0
   %.not37 = icmp eq ptr %63, null
-  br i1 %.not37, label %.invoke46, label %64, !prof !37
+  br i1 %.not37, label %.invoke49, label %64, !prof !37
 
 64:                                               ; preds = %62
   %65 = extractvalue { ptr, i64 } %60, 1
@@ -12258,12 +12258,12 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %67 = icmp eq i64 %65, 0
   br i1 %67, label %69, label %74
 
-.invoke46:                                        ; preds = %62, %55
+.invoke49:                                        ; preds = %62, %55
   %68 = phi ptr [ @anon.316f99d23408b8aa994a14532d0e1883.117, %55 ], [ @anon.316f99d23408b8aa994a14532d0e1883.118, %62 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %68) #18
-          to label %.cont47 unwind label %53
+          to label %.cont50 unwind label %53
 
-.cont47:                                          ; preds = %.invoke46
+.cont50:                                          ; preds = %.invoke49
   unreachable
 
 69:                                               ; preds = %64
@@ -15314,8 +15314,8 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
     i64 2, label %59
   ]
 
-36:                                               ; preds = %.invoke39, %.invoke, %79, %70, %49, %85, %74, %58, %53
-  %.sroa.0.0 = phi i1 [ true, %85 ], [ false, %58 ], [ true, %53 ], [ true, %74 ], [ true, %49 ], [ true, %70 ], [ true, %79 ], [ true, %.invoke ], [ true, %.invoke39 ]
+36:                                               ; preds = %.invoke43, %.invoke, %79, %70, %49, %85, %74, %58, %53
+  %.sroa.0.0 = phi i1 [ true, %85 ], [ false, %58 ], [ true, %53 ], [ true, %74 ], [ true, %49 ], [ true, %70 ], [ true, %79 ], [ true, %.invoke ], [ true, %.invoke43 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %2) #20
@@ -15339,7 +15339,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
 
 47:                                               ; preds = %38
   %48 = uitofp nneg i128 %40 to double
-  br label %.invoke39
+  br label %.invoke43
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
@@ -15385,7 +15385,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           cleanup
   br label %91
 
-58:                                               ; preds = %.invoke39
+58:                                               ; preds = %.invoke43
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %8, ptr noundef nonnull align 16 dereferenceable(192) %1, i64 192, i1 false)
@@ -15398,7 +15398,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %62 = fcmp oge double %61, 0.000000e+00
   %63 = fcmp ole double %61, 1.000000e+00
   %.sroa.06.0.i = and i1 %62, %63
-  br i1 %.sroa.06.0.i, label %.invoke39, label %64
+  br i1 %.sroa.06.0.i, label %.invoke43, label %64
 
 64:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -15410,7 +15410,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %68 = icmp ugt i64 %67, 1
   br i1 %68, label %70, label %.invoke
 
-.invoke39:                                        ; preds = %59, %47
+.invoke43:                                        ; preds = %59, %47
   %69 = phi double [ %48, %47 ], [ %61, %59 ]
   invoke void @"_ZN11polars_plan3dsl4from89_$LT$impl$u20$core..convert..From$LT$f64$GT$$u20$for$u20$polars_plan..dsl..expr..Expr$GT$4from17h882f0d9b3e53cf93E"(ptr noalias noundef nonnull sret([192 x i8]) align 16 captures(none) dereferenceable(192) %7, double noundef %69)
           to label %58 unwind label %36
@@ -15571,8 +15571,8 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
     i64 2, label %59
   ]
 
-36:                                               ; preds = %.invoke39, %.invoke, %79, %70, %49, %85, %74, %58, %53
-  %.sroa.0.0 = phi i1 [ true, %85 ], [ false, %58 ], [ true, %53 ], [ true, %74 ], [ true, %49 ], [ true, %70 ], [ true, %79 ], [ true, %.invoke ], [ true, %.invoke39 ]
+36:                                               ; preds = %.invoke43, %.invoke, %79, %70, %49, %85, %74, %58, %53
+  %.sroa.0.0 = phi i1 [ true, %85 ], [ false, %58 ], [ true, %53 ], [ true, %74 ], [ true, %49 ], [ true, %70 ], [ true, %79 ], [ true, %.invoke ], [ true, %.invoke43 ]
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %2) #20
@@ -15596,7 +15596,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
 
 47:                                               ; preds = %38
   %48 = uitofp nneg i128 %40 to double
-  br label %.invoke39
+  br label %.invoke43
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
@@ -15642,7 +15642,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
           cleanup
   br label %91
 
-58:                                               ; preds = %.invoke39
+58:                                               ; preds = %.invoke43
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %8, ptr noundef nonnull align 16 dereferenceable(192) %1, i64 192, i1 false)
@@ -15655,7 +15655,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %62 = fcmp oge double %61, 0.000000e+00
   %63 = fcmp ole double %61, 1.000000e+00
   %.sroa.06.0.i = and i1 %62, %63
-  br i1 %.sroa.06.0.i, label %.invoke39, label %64
+  br i1 %.sroa.06.0.i, label %.invoke43, label %64
 
 64:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -15667,7 +15667,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %68 = icmp ugt i64 %67, 1
   br i1 %68, label %70, label %.invoke
 
-.invoke39:                                        ; preds = %59, %47
+.invoke43:                                        ; preds = %59, %47
   %69 = phi double [ %48, %47 ], [ %61, %59 ]
   invoke void @"_ZN11polars_plan3dsl4from89_$LT$impl$u20$core..convert..From$LT$f64$GT$$u20$for$u20$polars_plan..dsl..expr..Expr$GT$4from17h882f0d9b3e53cf93E"(ptr noalias noundef nonnull sret([192 x i8]) align 16 captures(none) dereferenceable(192) %7, double noundef %69)
           to label %58 unwind label %36
@@ -42589,10 +42589,10 @@ default.unreachable:                              ; preds = %92
           to label %148 unwind label %.thread24
 
 145:                                              ; preds = %.thread41.thread, %.thread41
-  %.pn2251 = phi { ptr, i32 } [ %.pn2252, %.thread41.thread ], [ %.pn22, %.thread41 ]
-  %.sroa.09.649 = phi i8 [ %.sroa.09.650, %.thread41.thread ], [ %.sroa.09.6, %.thread41 ]
-  %146 = trunc nuw i8 %.sroa.09.649 to i1
-  br i1 %146, label %154, label %.thread57
+  %.pn2254 = phi { ptr, i32 } [ %.pn2255, %.thread41.thread ], [ %.pn22, %.thread41 ]
+  %.sroa.09.652 = phi i8 [ %.sroa.09.653, %.thread41.thread ], [ %.sroa.09.6, %.thread41 ]
+  %146 = trunc nuw i8 %.sroa.09.652 to i1
+  br i1 %146, label %154, label %.thread60
 
 .thread24:                                        ; preds = %144
   %147 = landingpad { ptr, i32 }
@@ -42605,7 +42605,7 @@ default.unreachable:                              ; preds = %92
 
 149:                                              ; preds = %39
   %150 = trunc nuw i8 %.sroa.09.0 to i1
-  br i1 %150, label %152, label %.thread57
+  br i1 %150, label %152, label %.thread60
 
 151:                                              ; preds = %.thread29, %39
   %.pn2040 = phi { ptr, i32 } [ %.pn18, %.thread29 ], [ %40, %39 ]
@@ -42620,19 +42620,19 @@ default.unreachable:                              ; preds = %92
           to label %.thread41.thread unwind label %103
 
 .thread41.thread:                                 ; preds = %152, %.thread41
-  %.pn2252 = phi { ptr, i32 } [ %.pn22, %.thread41 ], [ %40, %152 ]
-  %.sroa.09.650 = phi i8 [ %.sroa.09.6, %.thread41 ], [ 1, %152 ]
+  %.pn2255 = phi { ptr, i32 } [ %.pn22, %.thread41 ], [ %40, %152 ]
+  %.sroa.09.653 = phi i8 [ %.sroa.09.6, %.thread41 ], [ 1, %152 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %2) #20
           to label %145 unwind label %103
 
-.thread57:                                        ; preds = %149, %154, %145
-  %.pn22.pn27 = phi { ptr, i32 } [ %.pn22.pn28, %154 ], [ %.pn2251, %145 ], [ %40, %149 ]
+.thread60:                                        ; preds = %149, %154, %145
+  %.pn22.pn27 = phi { ptr, i32 } [ %.pn22.pn28, %154 ], [ %.pn2254, %145 ], [ %40, %149 ]
   resume { ptr, i32 } %.pn22.pn27
 
 154:                                              ; preds = %.thread24, %145
-  %.pn22.pn28 = phi { ptr, i32 } [ %147, %.thread24 ], [ %.pn2251, %145 ]
+  %.pn22.pn28 = phi { ptr, i32 } [ %147, %.thread24 ], [ %.pn2254, %145 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %1) #20
-          to label %.thread57 unwind label %103
+          to label %.thread60 unwind label %103
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

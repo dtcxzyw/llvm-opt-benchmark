@@ -1119,7 +1119,7 @@ define void @_ZN2cv13stereoRectifyERKNS_11_InputArrayES2_S2_S2_NS_5Size_IiEES2_S
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %109 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %5), !noalias !79
   %110 = icmp eq i32 %109, 65536
-  %indvars.iv588.sroa.gep601 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %indvars.iv588.sroa.gep615 = getelementptr inbounds nuw i8, ptr %60, i64 16
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %17
@@ -1396,7 +1396,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit366:              ; preds = %183
   %200 = load ptr, ptr %199, align 8
   %201 = load double, ptr %200, align 8, !tbaa !35
   %202 = call double @llvm.fabs.f64(double %201)
-  br i1 %198, label %.thread596, label %203
+  br i1 %198, label %.thread610, label %203
 
 203:                                              ; preds = %194
   %204 = getelementptr inbounds nuw i8, ptr %196, i64 4
@@ -1435,15 +1435,15 @@ _ZN2cv3Mat2atIdEERT_i.exit369:                    ; preds = %_ZNK2cv7MatExprcvNS
   %229 = load ptr, ptr %228, align 8, !tbaa !47
   %230 = load double, ptr %229, align 8, !tbaa !35
   %231 = call double @llvm.fabs.f64(double %230)
-  br label %.thread596
+  br label %.thread610
 
-.thread596:                                       ; preds = %194, %_ZN2cv3Mat2atIdEERT_i.exit369
+.thread610:                                       ; preds = %194, %_ZN2cv3Mat2atIdEERT_i.exit369
   %.sink = phi ptr [ %229, %_ZN2cv3Mat2atIdEERT_i.exit369 ], [ %200, %194 ]
-  %.sink598 = phi double [ %231, %_ZN2cv3Mat2atIdEERT_i.exit369 ], [ %202, %194 ]
+  %.sink612 = phi double [ %231, %_ZN2cv3Mat2atIdEERT_i.exit369 ], [ %202, %194 ]
   %232 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %233 = load double, ptr %232, align 8, !tbaa !35
   %234 = call double @llvm.fabs.f64(double %233)
-  %235 = fcmp ule double %.sink598, %234
+  %235 = fcmp ule double %.sink612, %234
   %236 = zext i1 %235 to i32
   %237 = zext i1 %235 to i64
   %238 = getelementptr inbounds nuw double, ptr %.sink, i64 %237
@@ -1484,10 +1484,10 @@ _ZN2cv3Mat2atIdEERT_i.exit369:                    ; preds = %_ZNK2cv7MatExprcvNS
   %265 = getelementptr inbounds double, ptr %263, i64 %264
   br label %266
 
-266:                                              ; preds = %253, %247, %.thread596
-  %267 = phi i32 [ %236, %.thread596 ], [ %243, %247 ], [ %243, %253 ]
-  %268 = phi i1 [ %235, %.thread596 ], [ %242, %247 ], [ %242, %253 ]
-  %.0.i371 = phi ptr [ %238, %.thread596 ], [ %252, %247 ], [ %265, %253 ]
+266:                                              ; preds = %253, %247, %.thread610
+  %267 = phi i32 [ %236, %.thread610 ], [ %243, %247 ], [ %243, %253 ]
+  %268 = phi i1 [ %235, %.thread610 ], [ %242, %247 ], [ %242, %253 ]
+  %.0.i371 = phi ptr [ %238, %.thread610 ], [ %252, %247 ], [ %265, %253 ]
   %269 = load double, ptr %.0.i371, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %270 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -2222,7 +2222,7 @@ _ZN2cv4Mat_IdEC2EONS_3MatE.exit403:               ; preds = %_ZNK2cv11_InputArra
 
 544:                                              ; preds = %471, %573
   %545 = phi i1 [ true, %471 ], [ false, %573 ]
-  %indvars.iv588.sroa.phi = phi ptr [ %60, %471 ], [ %indvars.iv588.sroa.gep601, %573 ]
+  %indvars.iv588.sroa.phi = phi ptr [ %60, %471 ], [ %indvars.iv588.sroa.gep615, %573 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %73, i8 0, i64 32, i1 false), !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
@@ -2576,7 +2576,7 @@ _ZN2cv4Mat_IdEC2EONS_3MatE.exit403:               ; preds = %_ZNK2cv11_InputArra
   %648 = load i32, ptr %647, align 4, !tbaa !38
   %649 = sdiv i32 %267, %648
   %650 = mul nsw i32 %649, %648
-  %.recomposed603 = srem i32 %267, %648
+  %.recomposed617 = srem i32 %267, %648
   %651 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %652 = load ptr, ptr %651, align 8, !tbaa !47
   %653 = getelementptr inbounds nuw i8, ptr %35, i64 72
@@ -2585,7 +2585,7 @@ _ZN2cv4Mat_IdEC2EONS_3MatE.exit403:               ; preds = %_ZNK2cv11_InputArra
   %656 = sext i32 %649 to i64
   %657 = mul i64 %655, %656
   %658 = getelementptr inbounds nuw i8, ptr %652, i64 %657
-  %659 = sext i32 %.recomposed603 to i64
+  %659 = sext i32 %.recomposed617 to i64
   %660 = getelementptr inbounds double, ptr %658, i64 %659
   br label %_ZN2cv3Mat2atIdEERT_i.exit406
 
@@ -4323,7 +4323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit355: ; preds = %_Z
   %442 = load i32, ptr %441, align 4, !tbaa !38
   %443 = sdiv i32 2, %442
   %444 = mul nsw i32 %443, %442
-  %.recomposed407 = srem i32 2, %442
+  %.recomposed413 = srem i32 2, %442
   %445 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %446 = load ptr, ptr %445, align 8, !tbaa !47
   %447 = getelementptr inbounds nuw i8, ptr %60, i64 72
@@ -4332,7 +4332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit355: ; preds = %_Z
   %450 = sext i32 %443 to i64
   %451 = mul i64 %449, %450
   %452 = getelementptr inbounds nuw i8, ptr %446, i64 %451
-  %453 = sext i32 %.recomposed407 to i64
+  %453 = sext i32 %.recomposed413 to i64
   %454 = getelementptr inbounds double, ptr %452, i64 %453
   br label %_ZN2cv3Mat2atIdEERT_i.exit359
 
@@ -4676,7 +4676,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit369:              ; preds = %565
   %601 = load i32, ptr %600, align 4, !tbaa !38
   %602 = sdiv i32 2, %601
   %603 = mul nsw i32 %602, %601
-  %.recomposed408 = srem i32 2, %601
+  %.recomposed414 = srem i32 2, %601
   %604 = load ptr, ptr %487, align 8, !tbaa !47
   %605 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %606 = load ptr, ptr %605, align 8, !tbaa !48
@@ -4684,7 +4684,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit369:              ; preds = %565
   %608 = sext i32 %602 to i64
   %609 = mul i64 %607, %608
   %610 = getelementptr inbounds nuw i8, ptr %604, i64 %609
-  %611 = sext i32 %.recomposed408 to i64
+  %611 = sext i32 %.recomposed414 to i64
   %612 = getelementptr inbounds double, ptr %610, i64 %611
   br label %_ZN2cv3Mat2atIdEERT_i.exit374
 

@@ -1997,7 +1997,7 @@ define i32 @Abc_TtCheck1Shared(ptr noundef readonly captures(none) %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 33) i32 @Abc_TtGetCMPat(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #2 {
+define range(i32 1, 32) i32 @Abc_TtGetCMPat(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #2 {
   %.sroa.0 = alloca i32, align 4
   %.sroa.6 = alloca i32, align 4
   %8 = alloca [16 x i32], align 16
@@ -3256,7 +3256,7 @@ define i32 @Abc_BSEvalBest(ptr noundef readonly captures(none) %0, ptr noundef c
   br i1 %13, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %9
-  %.not164 = icmp ne ptr %7, null
+  %.not171 = icmp ne ptr %7, null
   br label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %9
@@ -3292,7 +3292,7 @@ define i32 @Abc_BSEvalBest(ptr noundef readonly captures(none) %0, ptr noundef c
   br i1 %exitcond149.not, label %.loopexit, label %.lr.ph122, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph122, %._crit_edge.thread, %._crit_edge
-  %.not166 = phi i1 [ %.not164, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %.lr.ph122 ]
+  %.not173 = phi i1 [ %.not171, %._crit_edge.thread ], [ false, %._crit_edge ], [ true, %.lr.ph122 ]
   %19 = shl nuw i32 1, %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !81
@@ -3377,7 +3377,7 @@ Abc_TtGetCM.exit:                                 ; preds = %51, %53
   br i1 %exitcond.not.i, label %Abc_TtCopy.exit, label %.lr.ph.i, !llvm.loop !84
 
 Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %56
-  br i1 %.not166, label %60, label %61
+  br i1 %.not173, label %60, label %61
 
 60:                                               ; preds = %Abc_TtCopy.exit
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 16 %10, i64 %34, i1 false)
@@ -3637,7 +3637,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %.0132.us = phi ptr [ %0, %.preheader.lr.ph.split.us ], [ %86, %._crit_edge.us ]
-  %invariant.gep169 = getelementptr i64, ptr %.0132.us, i64 %73
+  %invariant.gep173 = getelementptr i64, ptr %.0132.us, i64 %73
   br label %74
 
 74:                                               ; preds = %.preheader.us, %74
@@ -3646,8 +3646,8 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   %76 = load i64, ptr %75, align 8, !tbaa !3
   %77 = and i64 %71, %76
   %78 = lshr i64 %77, %66
-  %gep170 = getelementptr i64, ptr %invariant.gep169, i64 %indvars.iv153
-  %79 = load i64, ptr %gep170, align 8, !tbaa !3
+  %gep174 = getelementptr i64, ptr %invariant.gep173, i64 %indvars.iv153
+  %79 = load i64, ptr %gep174, align 8, !tbaa !3
   %80 = shl i64 %79, %66
   %81 = and i64 %80, %71
   %82 = and i64 %76, %72
@@ -3655,7 +3655,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
   store i64 %83, ptr %75, align 8, !tbaa !3
   %84 = and i64 %79, %71
   %85 = or i64 %84, %78
-  store i64 %85, ptr %gep170, align 8, !tbaa !3
+  store i64 %85, ptr %gep174, align 8, !tbaa !3
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count157
   br i1 %exitcond158.not, label %._crit_edge.us, label %74, !llvm.loop !91
@@ -3693,20 +3693,20 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef captures(address) %0, i3
 .preheader120.us.us:                              ; preds = %.preheader120.us.us.preheader, %._crit_edge124.split.us.us.us
   %.1125.us.us = phi ptr [ %105, %._crit_edge124.split.us.us.us ], [ %0, %.preheader120.us.us.preheader ]
   %invariant.gep = getelementptr i64, ptr %.1125.us.us, i64 %97
-  %invariant.gep167 = getelementptr i64, ptr %.1125.us.us, i64 %98
+  %invariant.gep171 = getelementptr i64, ptr %.1125.us.us, i64 %98
   br label %.preheader119.us.us.us
 
 .preheader119.us.us.us:                           ; preds = %._crit_edge.us.us.us, %.preheader120.us.us
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %._crit_edge.us.us.us ], [ 0, %.preheader120.us.us ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv150
-  %gep168 = getelementptr i64, ptr %invariant.gep167, i64 %indvars.iv150
+  %gep172 = getelementptr i64, ptr %invariant.gep171, i64 %indvars.iv150
   br label %99
 
 99:                                               ; preds = %99, %.preheader119.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.preheader119.us.us.us ]
   %100 = getelementptr i64, ptr %gep, i64 %indvars.iv
   %101 = load i64, ptr %100, align 8, !tbaa !3
-  %102 = getelementptr i64, ptr %gep168, i64 %indvars.iv
+  %102 = getelementptr i64, ptr %gep172, i64 %indvars.iv
   %103 = load i64, ptr %102, align 8, !tbaa !3
   store i64 %103, ptr %100, align 8, !tbaa !3
   store i64 %101, ptr %102, align 8, !tbaa !3
@@ -4000,9 +4000,9 @@ Abc_TtClear.exit:                                 ; preds = %67, %.lr.ph.prehead
   br i1 %.not140, label %94, label %84
 
 .loopexit.thread:                                 ; preds = %Abc_TtClear.exit
-  br i1 %.not140, label %94, label %.thread213
+  br i1 %.not140, label %94, label %.thread227
 
-.thread213:                                       ; preds = %.loopexit.thread
+.thread227:                                       ; preds = %.loopexit.thread
   %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0176)
   br label %86
 
@@ -4010,7 +4010,7 @@ Abc_TtClear.exit:                                 ; preds = %67, %.lr.ph.prehead
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.0176)
   br i1 %53, label %88, label %86
 
-86:                                               ; preds = %.thread213, %84
+86:                                               ; preds = %.thread227, %84
   %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %3)
   br label %88
 

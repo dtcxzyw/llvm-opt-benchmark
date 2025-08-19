@@ -220,18 +220,18 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %144 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
   %145 = load double, ptr %144, align 8, !tbaa !7
   %146 = fcmp olt double %145, %140
-  br i1 %146, label %.sink.split2164, label %147
+  br i1 %146, label %.sink.split2181, label %147
 
 147:                                              ; preds = %143
   %148 = fcmp ogt double %145, %141
-  br i1 %148, label %.sink.split2164, label %149
+  br i1 %148, label %.sink.split2181, label %149
 
-.sink.split2164:                                  ; preds = %147, %143
-  %.sink2165 = phi double [ 0.000000e+00, %143 ], [ 0x3FF921FB54442D18, %147 ]
-  store double %.sink2165, ptr %144, align 8, !tbaa !7
+.sink.split2181:                                  ; preds = %147, %143
+  %.sink2182 = phi double [ 0.000000e+00, %143 ], [ 0x3FF921FB54442D18, %147 ]
+  store double %.sink2182, ptr %144, align 8, !tbaa !7
   br label %149
 
-149:                                              ; preds = %.sink.split2164, %147
+149:                                              ; preds = %.sink.split2181, %147
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %143, !llvm.loop !9
@@ -254,18 +254,18 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %153 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv2022
   %154 = load double, ptr %153, align 8, !tbaa !7
   %155 = fcmp olt double %154, %140
-  br i1 %155, label %.sink.split2166, label %156
+  br i1 %155, label %.sink.split2183, label %156
 
 156:                                              ; preds = %152
   %157 = fcmp ogt double %154, %150
-  br i1 %157, label %.sink.split2166, label %158
+  br i1 %157, label %.sink.split2183, label %158
 
-.sink.split2166:                                  ; preds = %156, %152
-  %.sink2167 = phi double [ 0.000000e+00, %152 ], [ 0x3FF921FB54442D18, %156 ]
-  store double %.sink2167, ptr %153, align 8, !tbaa !7
+.sink.split2183:                                  ; preds = %156, %152
+  %.sink2184 = phi double [ 0.000000e+00, %152 ], [ 0x3FF921FB54442D18, %156 ]
+  store double %.sink2184, ptr %153, align 8, !tbaa !7
   br label %158
 
-158:                                              ; preds = %.sink.split2166, %156
+158:                                              ; preds = %.sink.split2183, %156
   %indvars.iv.next2023 = add nuw nsw i64 %indvars.iv2022, 1
   %exitcond2026.not = icmp eq i64 %indvars.iv.next2023, %wide.trip.count2025
   br i1 %exitcond2026.not, label %.lr.ph1958.preheader, label %152, !llvm.loop !11
@@ -302,25 +302,25 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %170 = getelementptr i8, ptr %169, i64 -8
   %171 = load double, ptr %170, align 8, !tbaa !7
   %172 = fcmp une double %171, 0.000000e+00
-  br i1 %172, label %173, label %.loopexit1947.loopexit.split.loop.exit2142
+  br i1 %172, label %173, label %.loopexit1947.loopexit.split.loop.exit2159
 
 173:                                              ; preds = %.preheader1946
   %174 = trunc nuw i64 %indvars.iv2033 to i32
   %175 = icmp slt i32 %174, 4
   br i1 %175, label %.loopexit1947, label %.preheader1946, !llvm.loop !13
 
-.loopexit1947.loopexit.split.loop.exit2142:       ; preds = %.preheader1946
+.loopexit1947.loopexit.split.loop.exit2159:       ; preds = %.preheader1946
   %indvars.le = trunc i64 %indvars.iv.next2034 to i32
   br label %.loopexit1947
 
-.loopexit1947:                                    ; preds = %173, %.loopexit1947.loopexit.split.loop.exit2142
-  %.01839 = phi i32 [ %indvars.le, %.loopexit1947.loopexit.split.loop.exit2142 ], [ 1, %173 ]
+.loopexit1947:                                    ; preds = %173, %.loopexit1947.loopexit.split.loop.exit2159
+  %.01839 = phi i32 [ %indvars.le, %.loopexit1947.loopexit.split.loop.exit2159 ], [ 1, %173 ]
   %176 = icmp sgt i64 %indvars.iv2027, 1
   br i1 %176, label %.lr.ph1993, label %._crit_edge1994
 
 .lr.ph1993:                                       ; preds = %165, %.loopexit1947
-  %.018392133 = phi i32 [ %.01839, %.loopexit1947 ], [ 1, %165 ]
-  %.0183319502132 = phi i32 [ %166, %.loopexit1947 ], [ 2, %165 ]
+  %.018392150 = phi i32 [ %.01839, %.loopexit1947 ], [ 1, %165 ]
+  %.0183319502149 = phi i32 [ %166, %.loopexit1947 ], [ 2, %165 ]
   %177 = fsub double 0x3FF921FB54442D18, %140
   %178 = fmul double %140, %140
   %.not1894 = icmp eq i32 %71, 0
@@ -335,17 +335,17 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %184 = sext i32 %112 to i64
   %185 = sext i32 %111 to i64
   %invariant.gep = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2144 = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2146 = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2148 = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2150 = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2152 = getelementptr double, ptr %26, i64 %183
+  %invariant.gep2161 = getelementptr double, ptr %26, i64 %183
+  %invariant.gep2163 = getelementptr double, ptr %26, i64 %183
+  %invariant.gep2165 = getelementptr double, ptr %26, i64 %183
+  %invariant.gep2167 = getelementptr double, ptr %26, i64 %183
+  %invariant.gep2169 = getelementptr double, ptr %26, i64 %183
   br label %186
 
 186:                                              ; preds = %.lr.ph1993, %.loopexit1944
   %.018321990 = phi i32 [ 0, %.lr.ph1993 ], [ %276, %.loopexit1944 ]
-  %.118341989 = phi i32 [ %.0183319502132, %.lr.ph1993 ], [ %.21835, %.loopexit1944 ]
-  %.218411988 = phi i32 [ %.018392133, %.lr.ph1993 ], [ %.41843, %.loopexit1944 ]
+  %.118341989 = phi i32 [ %.0183319502149, %.lr.ph1993 ], [ %.21835, %.loopexit1944 ]
+  %.218411988 = phi i32 [ %.018392150, %.lr.ph1993 ], [ %.41843, %.loopexit1944 ]
   %187 = sext i32 %.218411988 to i64
   %188 = getelementptr inbounds double, ptr %46, i64 %187
   %189 = load double, ptr %188, align 8, !tbaa !7
@@ -509,7 +509,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.01828.lcssa = phi double [ %277, %274 ], [ %.11829, %.lr.ph1969 ]
   %.01826.lcssa = phi double [ %277, %274 ], [ %.11827, %.lr.ph1969 ]
   %285 = fcmp ogt double %.01826.lcssa, %177
-  br i1 %285, label %.thread2135.sink.split, label %286
+  br i1 %285, label %.thread2152.sink.split, label %286
 
 286:                                              ; preds = %._crit_edge1970
   %287 = fcmp olt double %.01828.lcssa, %140
@@ -537,7 +537,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %302 = call double @sqrt(double noundef %301) #6, !tbaa !3
   store double %302, ptr %39, align 8, !tbaa !7
   %303 = fcmp olt double %296, %140
-  br i1 %303, label %.thread2135.sink.split, label %309
+  br i1 %303, label %.thread2152.sink.split, label %309
 
 304:                                              ; preds = %288
   store double %297, ptr %39, align 8, !tbaa !7
@@ -552,14 +552,14 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %310 = phi double [ %297, %304 ], [ %302, %299 ]
   %311 = phi double [ %307, %304 ], [ %296, %299 ]
   %312 = fcmp ugt double %311, %310
-  br i1 %312, label %.thread, label %.thread2135
+  br i1 %312, label %.thread, label %.thread2152
 
-.thread2135.sink.split:                           ; preds = %299, %._crit_edge1970
+.thread2152.sink.split:                           ; preds = %299, %._crit_edge1970
   store double 0.000000e+00, ptr %38, align 8, !tbaa !7
   store double 1.000000e+00, ptr %39, align 8, !tbaa !7
-  br label %.thread2135
+  br label %.thread2152
 
-.thread2135:                                      ; preds = %.thread2135.sink.split, %309
+.thread2152:                                      ; preds = %.thread2152.sink.split, %309
   %313 = getelementptr inbounds double, ptr %61, i64 %187
   %314 = add nsw i32 %.218411988, %113
   %315 = sext i32 %314 to i64
@@ -590,9 +590,9 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlartgs_(ptr noundef nonnull %195, ptr noundef nonnull %322, ptr noundef nonnull %39, ptr noundef %326, ptr noundef %330) #6
   br label %331
 
-331:                                              ; preds = %.thread, %.thread2135
-  %.pre-phi2090 = phi i64 [ %328, %.thread ], [ %319, %.thread2135 ]
-  %.pre-phi2088 = phi i64 [ %324, %.thread ], [ %315, %.thread2135 ]
+331:                                              ; preds = %.thread, %.thread2152
+  %.pre-phi2090 = phi i64 [ %328, %.thread ], [ %319, %.thread2152 ]
+  %.pre-phi2088 = phi i64 [ %324, %.thread ], [ %315, %.thread2152 ]
   %332 = getelementptr double, ptr %68, i64 %.pre-phi2088
   %333 = getelementptr i8, ptr %332, i64 -8
   %334 = load double, ptr %333, align 8, !tbaa !7
@@ -1215,8 +1215,8 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond17, label %780, label %783
 
 780:                                              ; preds = %778
-  %gep2151 = getelementptr double, ptr %invariant.gep2150, i64 %indvars.iv2045.in
-  %781 = getelementptr i8, ptr %gep2151, i64 -8
+  %gep2168 = getelementptr double, ptr %invariant.gep2167, i64 %indvars.iv2045.in
+  %781 = getelementptr i8, ptr %gep2168, i64 -8
   %782 = getelementptr double, ptr %26, i64 %indvars.iv2045.in
   call void @dlartgp_(ptr noundef nonnull %42, ptr noundef nonnull %662, ptr noundef %781, ptr noundef nonnull %782, ptr noundef nonnull %32) #6
   br label %796
@@ -1226,8 +1226,8 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond19, label %787, label %784
 
 784:                                              ; preds = %783
-  %gep2145 = getelementptr double, ptr %invariant.gep2144, i64 %indvars.iv2045.in
-  %785 = getelementptr i8, ptr %gep2145, i64 -8
+  %gep2162 = getelementptr double, ptr %invariant.gep2161, i64 %indvars.iv2045.in
+  %785 = getelementptr i8, ptr %gep2162, i64 -8
   %786 = getelementptr double, ptr %26, i64 %indvars.iv2045.in
   call void @dlartgp_(ptr noundef nonnull %43, ptr noundef nonnull %698, ptr noundef %785, ptr noundef nonnull %786, ptr noundef nonnull %32) #6
   br label %796
@@ -1240,14 +1240,14 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %790, label %794, label %792
 
 792:                                              ; preds = %787
-  %gep2147 = getelementptr double, ptr %invariant.gep2146, i64 %indvars.iv2045.in
-  %793 = getelementptr i8, ptr %gep2147, i64 -8
+  %gep2164 = getelementptr double, ptr %invariant.gep2163, i64 %indvars.iv2045.in
+  %793 = getelementptr i8, ptr %gep2164, i64 -8
   call void @dlartgs_(ptr noundef nonnull %665, ptr noundef nonnull %673, ptr noundef nonnull %38, ptr noundef nonnull %791, ptr noundef %793) #6
   br label %796
 
 794:                                              ; preds = %787
-  %gep2149 = getelementptr double, ptr %invariant.gep2148, i64 %indvars.iv2045.in
-  %795 = getelementptr i8, ptr %gep2149, i64 -8
+  %gep2166 = getelementptr double, ptr %invariant.gep2165, i64 %indvars.iv2045.in
+  %795 = getelementptr i8, ptr %gep2166, i64 -8
   call void @dlartgs_(ptr noundef nonnull %703, ptr noundef nonnull %711, ptr noundef nonnull %39, ptr noundef nonnull %791, ptr noundef %795) #6
   br label %796
 
@@ -1337,8 +1337,8 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %849 = getelementptr double, ptr %26, i64 %indvars.iv2045.in
   %850 = load double, ptr %849, align 8, !tbaa !7
   %851 = load double, ptr %665, align 8, !tbaa !7
-  %gep2153 = getelementptr double, ptr %invariant.gep2152, i64 %indvars.iv2045.in
-  %852 = getelementptr i8, ptr %gep2153, i64 -8
+  %gep2170 = getelementptr double, ptr %invariant.gep2169, i64 %indvars.iv2045.in
+  %852 = getelementptr i8, ptr %gep2170, i64 -8
   %853 = load double, ptr %852, align 8, !tbaa !7
   %854 = load double, ptr %673, align 8, !tbaa !7
   %855 = fmul double %853, %854
@@ -1895,18 +1895,18 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1204 = getelementptr inbounds double, ptr %46, i64 %indvars.iv2049
   %1205 = load double, ptr %1204, align 8, !tbaa !7
   %1206 = fcmp olt double %1205, %140
-  br i1 %1206, label %.sink.split2168, label %1207
+  br i1 %1206, label %.sink.split2185, label %1207
 
 1207:                                             ; preds = %.lr.ph1981
   %1208 = fcmp ogt double %1205, %177
-  br i1 %1208, label %.sink.split2168, label %1209
+  br i1 %1208, label %.sink.split2185, label %1209
 
-.sink.split2168:                                  ; preds = %1207, %.lr.ph1981
-  %.sink2169 = phi double [ 0.000000e+00, %.lr.ph1981 ], [ 0x3FF921FB54442D18, %1207 ]
-  store double %.sink2169, ptr %1204, align 8, !tbaa !7
+.sink.split2185:                                  ; preds = %1207, %.lr.ph1981
+  %.sink2186 = phi double [ 0.000000e+00, %.lr.ph1981 ], [ 0x3FF921FB54442D18, %1207 ]
+  store double %.sink2186, ptr %1204, align 8, !tbaa !7
   br label %1209
 
-1209:                                             ; preds = %.sink.split2168, %1207
+1209:                                             ; preds = %.sink.split2185, %1207
   %indvars.iv.next2050 = add nsw i64 %indvars.iv2049, 1
   %lftr.wideiv2053 = trunc i64 %indvars.iv.next2050 to i32
   %exitcond2054.not = icmp eq i32 %1203, %lftr.wideiv2053
@@ -1925,18 +1925,18 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1210 = getelementptr inbounds double, ptr %47, i64 %indvars.iv2055
   %1211 = load double, ptr %1210, align 8, !tbaa !7
   %1212 = fcmp olt double %1211, %140
-  br i1 %1212, label %.sink.split2170, label %1213
+  br i1 %1212, label %.sink.split2187, label %1213
 
 1213:                                             ; preds = %.lr.ph1986
   %1214 = fcmp ogt double %1211, %177
-  br i1 %1214, label %.sink.split2170, label %1215
+  br i1 %1214, label %.sink.split2187, label %1215
 
-.sink.split2170:                                  ; preds = %1213, %.lr.ph1986
-  %.sink2171 = phi double [ 0.000000e+00, %.lr.ph1986 ], [ 0x3FF921FB54442D18, %1213 ]
-  store double %.sink2171, ptr %1210, align 8, !tbaa !7
+.sink.split2187:                                  ; preds = %1213, %.lr.ph1986
+  %.sink2188 = phi double [ 0.000000e+00, %.lr.ph1986 ], [ 0x3FF921FB54442D18, %1213 ]
+  store double %.sink2188, ptr %1210, align 8, !tbaa !7
   br label %1215
 
-1215:                                             ; preds = %.sink.split2170, %1213
+1215:                                             ; preds = %.sink.split2187, %1213
   %indvars.iv.next2056 = add nsw i64 %indvars.iv2055, 1
   %exitcond2060.not = icmp eq i64 %indvars.iv.next2056, %wide.trip.count2059
   br i1 %exitcond2060.not, label %.preheader1945.preheader, label %.lr.ph1986, !llvm.loop !19
@@ -1975,19 +1975,19 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1228 = getelementptr i8, ptr %1227, i64 -8
   %1229 = load double, ptr %1228, align 8, !tbaa !7
   %1230 = fcmp une double %1229, 0.000000e+00
-  br i1 %1230, label %1231, label %.loopexit1944.loopexit.split.loop.exit2154
+  br i1 %1230, label %1231, label %.loopexit1944.loopexit.split.loop.exit2171
 
 1231:                                             ; preds = %.preheader
   %indvars.iv.next2066 = add nsw i64 %indvars.iv2065, -1
   %1232 = icmp slt i64 %indvars.iv2065, 3
   br i1 %1232, label %.loopexit1944, label %.preheader, !llvm.loop !21
 
-.loopexit1944.loopexit.split.loop.exit2154:       ; preds = %.preheader
+.loopexit1944.loopexit.split.loop.exit2171:       ; preds = %.preheader
   %1233 = trunc nuw nsw i64 %indvars.iv2065 to i32
   br label %.loopexit1944
 
-.loopexit1944:                                    ; preds = %1231, %.loopexit1944.loopexit.split.loop.exit2154, %1223
-  %.41843 = phi i32 [ %spec.select, %1223 ], [ %1233, %.loopexit1944.loopexit.split.loop.exit2154 ], [ 1, %1231 ]
+.loopexit1944:                                    ; preds = %1231, %.loopexit1944.loopexit.split.loop.exit2171, %1223
+  %.41843 = phi i32 [ %spec.select, %1223 ], [ %1233, %.loopexit1944.loopexit.split.loop.exit2171 ], [ 1, %1231 ]
   %1234 = icmp sgt i32 %.21835, 1
   br i1 %1234, label %186, label %._crit_edge1994.loopexit, !llvm.loop !22
 
@@ -2010,10 +2010,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1237 = sext i32 %51 to i64
   %1238 = sext i32 %54 to i64
   %1239 = sext i32 %57 to i64
-  %invariant.gep2156 = getelementptr double, ptr %50, i64 %1236
-  %invariant.gep2158 = getelementptr double, ptr %53, i64 %1237
-  %invariant.gep2160 = getelementptr double, ptr %56, i64 %1238
-  %invariant.gep2162 = getelementptr double, ptr %59, i64 %1239
+  %invariant.gep2173 = getelementptr double, ptr %50, i64 %1236
+  %invariant.gep2175 = getelementptr double, ptr %53, i64 %1237
+  %invariant.gep2177 = getelementptr double, ptr %56, i64 %1238
+  %invariant.gep2179 = getelementptr double, ptr %59, i64 %1239
   br label %1240
 
 1240:                                             ; preds = %.lr.ph2007, %1323
@@ -2098,11 +2098,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1885, label %1281, label %1277
 
 1277:                                             ; preds = %1276
-  %gep2161 = getelementptr double, ptr %invariant.gep2160, i64 %indvars.iv2077
+  %gep2178 = getelementptr double, ptr %invariant.gep2177, i64 %indvars.iv2077
   %1278 = add nsw i32 %.01837.lcssa, %54
   %1279 = sext i32 %1278 to i64
   %1280 = getelementptr inbounds double, ptr %56, i64 %1279
-  call void @dswap_(ptr noundef nonnull %7, ptr noundef %gep2161, ptr noundef nonnull %15, ptr noundef %1280, ptr noundef nonnull %15) #6
+  call void @dswap_(ptr noundef nonnull %7, ptr noundef %gep2178, ptr noundef nonnull %15, ptr noundef %1280, ptr noundef nonnull %15) #6
   br label %1281
 
 1281:                                             ; preds = %1277, %1276
@@ -2113,22 +2113,22 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1284 = load i32, ptr %7, align 4, !tbaa !3
   %1285 = sub nsw i32 %1283, %1284
   store i32 %1285, ptr %31, align 4, !tbaa !3
-  %gep2163 = getelementptr double, ptr %invariant.gep2162, i64 %indvars.iv2077
+  %gep2180 = getelementptr double, ptr %invariant.gep2179, i64 %indvars.iv2077
   %1286 = add nsw i32 %.01837.lcssa, %57
   %1287 = sext i32 %1286 to i64
   %1288 = getelementptr inbounds double, ptr %59, i64 %1287
-  call void @dswap_(ptr noundef nonnull %31, ptr noundef %gep2163, ptr noundef nonnull %17, ptr noundef %1288, ptr noundef nonnull %17) #6
+  call void @dswap_(ptr noundef nonnull %31, ptr noundef %gep2180, ptr noundef nonnull %17, ptr noundef %1288, ptr noundef nonnull %17) #6
   br label %1323
 
 1289:                                             ; preds = %1252
   br i1 %.not1883, label %1294, label %1290
 
 1290:                                             ; preds = %1289
-  %gep2157 = getelementptr double, ptr %invariant.gep2156, i64 %indvars.iv2077
+  %gep2174 = getelementptr double, ptr %invariant.gep2173, i64 %indvars.iv2077
   %1291 = add nsw i32 %.01837.lcssa, %48
   %1292 = sext i32 %1291 to i64
   %1293 = getelementptr inbounds double, ptr %50, i64 %1292
-  call void @dswap_(ptr noundef nonnull %6, ptr noundef %gep2157, ptr noundef nonnull %11, ptr noundef %1293, ptr noundef nonnull %11) #6
+  call void @dswap_(ptr noundef nonnull %6, ptr noundef %gep2174, ptr noundef nonnull %11, ptr noundef %1293, ptr noundef nonnull %11) #6
   br label %1294
 
 1294:                                             ; preds = %1290, %1289
@@ -2139,11 +2139,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1297 = load i32, ptr %6, align 4, !tbaa !3
   %1298 = sub nsw i32 %1296, %1297
   store i32 %1298, ptr %31, align 4, !tbaa !3
-  %gep2159 = getelementptr double, ptr %invariant.gep2158, i64 %indvars.iv2077
+  %gep2176 = getelementptr double, ptr %invariant.gep2175, i64 %indvars.iv2077
   %1299 = add nsw i32 %.01837.lcssa, %51
   %1300 = sext i32 %1299 to i64
   %1301 = getelementptr inbounds double, ptr %53, i64 %1300
-  call void @dswap_(ptr noundef nonnull %31, ptr noundef %gep2159, ptr noundef nonnull %13, ptr noundef %1301, ptr noundef nonnull %13) #6
+  call void @dswap_(ptr noundef nonnull %31, ptr noundef %gep2176, ptr noundef nonnull %13, ptr noundef %1301, ptr noundef nonnull %13) #6
   br label %1302
 
 1302:                                             ; preds = %1295, %1294

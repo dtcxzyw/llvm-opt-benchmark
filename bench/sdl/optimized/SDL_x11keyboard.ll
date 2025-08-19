@@ -1034,7 +1034,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
 
 .critedge2.thread:                                ; preds = %29, %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %.critedge2.thread162
+  br label %.critedge2.thread177
 
 .lr.ph153.preheader:                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1060,14 +1060,14 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
 .critedge2:                                       ; preds = %.lr.ph153
   %.pre = load ptr, ptr %4, align 8
   %35 = icmp ugt ptr %32, %.pre
-  br i1 %35, label %39, label %.critedge2.thread162
+  br i1 %35, label %39, label %.critedge2.thread177
 
 36:                                               ; preds = %.lr.ph153
   %37 = call i32 @SDL_StepUTF8_REAL(ptr noundef nonnull %5, ptr noundef null) #9
   %38 = add nuw nsw i32 %.0101152, 1
   %.pr139 = load ptr, ptr %5, align 8
   %.not126 = icmp eq ptr %.pr139, null
-  br i1 %.not126, label %.critedge2.thread162, label %.lr.ph153, !llvm.loop !18
+  br i1 %.not126, label %.critedge2.thread177, label %.lr.ph153, !llvm.loop !18
 
 39:                                               ; preds = %.critedge2
   %40 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %32) #9
@@ -1076,7 +1076,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   %42 = add nsw i32 %.136, %13
   %43 = load i32, ptr %20, align 8
   %44 = icmp sgt i32 %42, %43
-  br i1 %44, label %45, label %.critedge2.thread162
+  br i1 %44, label %45, label %.critedge2.thread177
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 560
@@ -1089,17 +1089,17 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   %53 = sext i32 %52 to i64
   %54 = shl nsw i64 %53, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %49, ptr align 8 %51, i64 %54, i1 false)
-  br label %.critedge2.thread162
+  br label %.critedge2.thread177
 
-.critedge2.thread162:                             ; preds = %36, %.critedge2.thread, %39, %45, %.critedge2
+.critedge2.thread177:                             ; preds = %36, %.critedge2.thread, %39, %45, %.critedge2
   %55 = load i32, ptr %20, align 8
   %56 = sub nsw i32 %55, %.136
   store i32 %56, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
-57:                                               ; preds = %.thread, %.critedge2.thread162, %19
-  %58 = phi ptr [ %17, %.thread ], [ %23, %.critedge2.thread162 ], [ %23, %19 ]
+57:                                               ; preds = %.thread, %.critedge2.thread177, %19
+  %58 = phi ptr [ %17, %.thread ], [ %23, %.critedge2.thread177 ], [ %23, %19 ]
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %60 = load ptr, ptr %59, align 8
   %.not128 = icmp eq ptr %60, null

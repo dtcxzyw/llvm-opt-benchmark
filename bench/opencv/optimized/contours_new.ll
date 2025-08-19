@@ -2330,7 +2330,7 @@ define hidden noundef i32 @_ZN15ContourScanner_9findNextXEiiRiS0_(ptr noundef no
   store i32 %45, ptr %4, align 4, !tbaa !17
   %46 = load i32, ptr %3, align 4, !tbaa !17
   %47 = icmp eq i32 %46, %45
-  br i1 %47, label %48, label %.critedge.loopexit43.split.loop.exit
+  br i1 %47, label %48, label %.critedge.loopexit48.split.loop.exit
 
 48:                                               ; preds = %42
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -2342,12 +2342,12 @@ define hidden noundef i32 @_ZN15ContourScanner_9findNextXEiiRiS0_(ptr noundef no
   %49 = trunc nsw i64 %indvars.iv38 to i32
   br label %.critedge
 
-.critedge.loopexit43.split.loop.exit:             ; preds = %42
+.critedge.loopexit48.split.loop.exit:             ; preds = %42
   %50 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %48, %.critedge2, %.critedge.loopexit43.split.loop.exit, %.critedge.loopexit.split.loop.exit, %.preheader25, %.preheader
-  %.1 = phi i32 [ %1, %.preheader ], [ %1, %.preheader25 ], [ %49, %.critedge.loopexit.split.loop.exit ], [ %50, %.critedge.loopexit43.split.loop.exit ], [ %10, %.critedge2 ], [ %10, %48 ]
+.critedge:                                        ; preds = %48, %.critedge2, %.critedge.loopexit48.split.loop.exit, %.critedge.loopexit.split.loop.exit, %.preheader25, %.preheader
+  %.1 = phi i32 [ %1, %.preheader ], [ %1, %.preheader25 ], [ %49, %.critedge.loopexit.split.loop.exit ], [ %50, %.critedge.loopexit48.split.loop.exit ], [ %10, %.critedge2 ], [ %10, %48 ]
   ret i32 %.1
 }
 
@@ -2485,7 +2485,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_8findNextEv(ptr noundef no
   %79 = load i8, ptr %78, align 1, !tbaa !69
   %80 = sext i8 %79 to i32
   %81 = icmp eq i32 %.155, %80
-  br i1 %81, label %82, label %.critedge.loopexit43.split.loop.exit.i
+  br i1 %81, label %82, label %.critedge.loopexit48.split.loop.exit.i
 
 82:                                               ; preds = %77
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -2498,7 +2498,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_8findNextEv(ptr noundef no
   %83 = trunc nsw i64 %indvars.iv38.i to i32
   br label %_ZN15ContourScanner_9findNextXEiiRiS0_.exit
 
-.critedge.loopexit43.split.loop.exit.i:           ; preds = %77
+.critedge.loopexit48.split.loop.exit.i:           ; preds = %77
   store i32 %80, ptr %3, align 4, !tbaa !17
   %84 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZN15ContourScanner_9findNextXEiiRiS0_.exit
@@ -2511,10 +2511,10 @@ _ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42: ; preds = %82
   store i32 %.155, ptr %3, align 4, !tbaa !17
   br label %_ZN15ContourScanner_9findNextXEiiRiS0_.exit
 
-_ZN15ContourScanner_9findNextXEiiRiS0_.exit:      ; preds = %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit, %.preheader25.i, %.preheader.i, %.critedge.loopexit.split.loop.exit.i, %.critedge.loopexit43.split.loop.exit.i
-  %.3 = phi i32 [ %.2, %.critedge.loopexit.split.loop.exit.i ], [ %.155, %.preheader.i ], [ %.155, %.critedge.loopexit43.split.loop.exit.i ], [ %.155, %.preheader25.i ], [ %71, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %.155, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
-  %85 = phi i32 [ %71, %.critedge.loopexit.split.loop.exit.i ], [ %50, %.preheader.i ], [ %80, %.critedge.loopexit43.split.loop.exit.i ], [ %50, %.preheader25.i ], [ %71, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %.155, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
-  %.1.i = phi i32 [ %83, %.critedge.loopexit.split.loop.exit.i ], [ %.12356, %.preheader.i ], [ %84, %.critedge.loopexit43.split.loop.exit.i ], [ %.12356, %.preheader25.i ], [ %54, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %54, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
+_ZN15ContourScanner_9findNextXEiiRiS0_.exit:      ; preds = %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit, %.preheader25.i, %.preheader.i, %.critedge.loopexit.split.loop.exit.i, %.critedge.loopexit48.split.loop.exit.i
+  %.3 = phi i32 [ %.2, %.critedge.loopexit.split.loop.exit.i ], [ %.155, %.preheader.i ], [ %.155, %.critedge.loopexit48.split.loop.exit.i ], [ %.155, %.preheader25.i ], [ %71, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %.155, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
+  %85 = phi i32 [ %71, %.critedge.loopexit.split.loop.exit.i ], [ %50, %.preheader.i ], [ %80, %.critedge.loopexit48.split.loop.exit.i ], [ %50, %.preheader25.i ], [ %71, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %.155, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
+  %.1.i = phi i32 [ %83, %.critedge.loopexit.split.loop.exit.i ], [ %.12356, %.preheader.i ], [ %84, %.critedge.loopexit48.split.loop.exit.i ], [ %.12356, %.preheader25.i ], [ %54, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit ], [ %54, %_ZN15ContourScanner_9findNextXEiiRiS0_.exit.loopexit42 ]
   %.not = icmp slt i32 %.1.i, %13
   br i1 %.not, label %86, label %_ZN15ContourScanner_9findNextXEiiRiS0_.exit._crit_edge
 

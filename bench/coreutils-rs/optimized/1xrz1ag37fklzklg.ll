@@ -1876,15 +1876,15 @@ _ZN6uucore4mods5error12USimpleError3new17h8ebcc18f3eb0f9d0E.exit: ; preds = %.no
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !466
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !477
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h245890f535d1d475E.llvm.14174625302941592838"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %118)
-          to label %.noexc86 unwind label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha8c8a9da53d6e9aeE.exit.i"
+          to label %.noexc93 unwind label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha8c8a9da53d6e9aeE.exit.i"
 
-.noexc86:                                         ; preds = %_ZN6uucore4mods5error12USimpleError3new17h8ebcc18f3eb0f9d0E.exit
+.noexc93:                                         ; preds = %_ZN6uucore4mods5error12USimpleError3new17h8ebcc18f3eb0f9d0E.exit
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %126 = load i64, ptr %125, align 8, !range !4, !noalias !477, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %126, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$17h141fe6491d371170E.exit", label %127
 
-127:                                              ; preds = %.noexc86
+127:                                              ; preds = %.noexc93
   %128 = load ptr, ptr %6, align 8, !noalias !477, !nonnull !5, !noundef !5
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %130 = load i64, ptr %129, align 8, !noalias !477, !noundef !5
@@ -1898,7 +1898,7 @@ _ZN6uucore4mods5error12USimpleError3new17h8ebcc18f3eb0f9d0E.exit: ; preds = %.no
   call void @__rust_dealloc(ptr noundef nonnull %118, i64 noundef range(i64 1, -9223372036854775808) 32, i64 noundef range(i64 1, -9223372036854775807) 8) #12
   br label %common.resume
 
-"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$17h141fe6491d371170E.exit": ; preds = %.noexc86, %127
+"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$17h141fe6491d371170E.exit": ; preds = %.noexc93, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !477
   call void @__rust_dealloc(ptr noundef nonnull %118, i64 noundef range(i64 1, -9223372036854775808) 32, i64 noundef range(i64 1, -9223372036854775807) 8) #12
   br label %103

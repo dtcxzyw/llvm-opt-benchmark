@@ -1643,11 +1643,11 @@ define internal i32 @dissect_tibia(ptr noundef %0, ptr noundef %1, ptr noundef %
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %33 = load i32, ptr %32, align 8
   %..i = select i1 %31, i64 232, i64 208
-  %.34.i = select i1 %31, i32 %30, i32 %33
-  %.35.i = select i1 %31, i32 %33, i32 %30
+  %.37.i = select i1 %31, i32 %30, i32 %33
+  %.38.i = select i1 %31, i32 %33, i32 %30
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
-  %.sink.i = trunc i32 %.35.i to i16
-  %.sink32.i = trunc i32 %.34.i to i16
+  %.sink.i = trunc i32 %.38.i to i16
+  %.sink32.i = trunc i32 %.37.i to i16
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 68
   store i16 %.sink32.i, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 70
@@ -1998,8 +1998,8 @@ proto_item_set_generated.exit129.i:               ; preds = %210, %207, %204, %2
   br i1 %.not5.i131.i, label %proto_item_set_generated.exit.i, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %219, %198
-  %.sink149.i = phi ptr [ %200, %198 ], [ %221, %219 ]
-  %222 = getelementptr inbounds nuw i8, ptr %.sink149.i, i64 28
+  %.sink172.i = phi ptr [ %200, %198 ], [ %221, %219 ]
+  %222 = getelementptr inbounds nuw i8, ptr %.sink172.i, i64 28
   %223 = load i32, ptr %222, align 4
   %224 = or i32 %223, 2
   store i32 %224, ptr %222, align 4
@@ -3072,8 +3072,8 @@ get_version_traits.exit434:                       ; preds = %720, %730, %732, %7
   %.not398 = icmp ne i8 %838, 0
   %839 = and i32 %.pre450, 256
   %.not399 = icmp eq i32 %839, 0
-  %or.cond453 = select i1 %.not398, i1 true, i1 %.not399
-  br i1 %or.cond453, label %844, label %840
+  %or.cond482 = select i1 %.not398, i1 true, i1 %.not399
+  br i1 %or.cond482, label %844, label %840
 
 840:                                              ; preds = %836
   %841 = load i32, ptr @hf_tibia_loginflags_gm, align 4

@@ -862,9 +862,9 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
   %107 = icmp eq i8 %52, 1
   %108 = load i32, ptr @hf_iwarp_rdma_term_ddp_h, align 4
   %. = select i1 %107, i32 14, i32 18
-  %.137 = select i1 %107, i32 20, i32 24
+  %.138 = select i1 %107, i32 20, i32 24
   %109 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %108, ptr noundef %0, i32 noundef %106, i32 noundef %., i32 noundef 0)
-  %110 = add nuw nsw i32 %.0, %.137
+  %110 = add nuw nsw i32 %.0, %.138
   br label %111
 
 111:                                              ; preds = %.sink.split, %86

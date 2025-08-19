@@ -855,7 +855,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
   %11 = freeze i16 %.0.i
   %12 = add i16 %3, -1
   %or.cond.not = icmp ult i16 %12, %11
-  br i1 %or.cond.not, label %13, label %.loopexit55
+  br i1 %or.cond.not, label %13, label %.loopexit59
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -880,7 +880,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
   %.030.in = phi i16 [ %.030, %27 ], [ %3, %13 ]
   %.030 = add i16 %.030.in, 1
   %.not36 = icmp ugt i16 %.030, %11
-  br i1 %.not36, label %.loopexit55, label %27
+  br i1 %.not36, label %.loopexit59, label %27
 
 27:                                               ; preds = %.preheader
   %28 = zext i16 %.030 to i64
@@ -900,14 +900,14 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
   %39 = icmp eq i32 %38, %2
   br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !8
 
-.loopexit55:                                      ; preds = %.preheader, %4
+.loopexit59:                                      ; preds = %.preheader, %4
   %.0 = phi i16 [ %11, %4 ], [ %12, %.preheader ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not3749 = icmp eq i16 %.0, 0
   br i1 %.not3749, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit55, %53
-  %.150 = phi i16 [ %54, %53 ], [ 1, %.loopexit55 ]
+.lr.ph:                                           ; preds = %.loopexit59, %53
+  %.150 = phi i16 [ %54, %53 ], [ 1, %.loopexit59 ]
   %41 = zext i16 %.150 to i64
   %42 = add nsw i64 %41, -1
   %43 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %40, i64 0, i64 %42
@@ -930,8 +930,8 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
   %.not37 = icmp ugt i16 %54, %.0
   br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
-.loopexit:                                        ; preds = %27, %.lr.ph, %53, %.loopexit55, %13
-  %.031 = phi i16 [ %3, %13 ], [ 0, %.loopexit55 ], [ %.150, %.lr.ph ], [ 0, %53 ], [ %.030, %27 ]
+.loopexit:                                        ; preds = %27, %.lr.ph, %53, %.loopexit59, %13
+  %.031 = phi i16 [ %3, %13 ], [ 0, %.loopexit59 ], [ %.150, %.lr.ph ], [ 0, %53 ], [ %.030, %27 ]
   ret i16 %.031
 }
 

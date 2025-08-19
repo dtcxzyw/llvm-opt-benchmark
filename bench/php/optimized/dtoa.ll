@@ -561,14 +561,14 @@ lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.
   %305 = getelementptr inbounds nuw i8, ptr %.021, i64 2
   %306 = icmp slt i32 %265, 0
   %spec.select.i.i = select i1 %306, i8 45, i8 43
-  %spec.select23.i.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %265, i1 true)
+  %spec.select24.i.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %265, i1 true)
   store i8 %spec.select.i.i, ptr %305, align 1, !tbaa !4
   %307 = getelementptr inbounds nuw i8, ptr %5, i64 3
   br label %308
 
 308:                                              ; preds = %308, %304
   %.018.i.i = phi ptr [ %307, %304 ], [ %312, %308 ]
-  %.0.i.i25 = phi i32 [ %spec.select23.i.i, %304 ], [ %313, %308 ]
+  %.0.i.i25 = phi i32 [ %spec.select24.i.i, %304 ], [ %313, %308 ]
   %309 = urem i32 %.0.i.i25, 10
   %310 = trunc nuw nsw i32 %309 to i8
   %311 = or disjoint i8 %310, 48
@@ -624,14 +624,14 @@ lexbor_write_exponent.exit.i:                     ; preds = %314, %302
 333:                                              ; preds = %326
   %334 = icmp slt i32 %265, 0
   %spec.select.i120.i = select i1 %334, i8 45, i8 43
-  %spec.select23.i121.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %265, i1 true)
+  %spec.select24.i121.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %265, i1 true)
   store i8 %spec.select.i120.i, ptr %331, align 1, !tbaa !4
   %335 = getelementptr inbounds nuw i8, ptr %4, i64 3
   br label %336
 
 336:                                              ; preds = %336, %333
   %.018.i122.i = phi ptr [ %335, %333 ], [ %340, %336 ]
-  %.0.i123.i = phi i32 [ %spec.select23.i121.i, %333 ], [ %341, %336 ]
+  %.0.i123.i = phi i32 [ %spec.select24.i121.i, %333 ], [ %341, %336 ]
   %337 = urem i32 %.0.i123.i, 10
   %338 = trunc nuw nsw i32 %337 to i8
   %339 = or disjoint i8 %338, 48

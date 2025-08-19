@@ -144,9 +144,9 @@ define internal range(i32 -22, 1) i32 @tonemap_vaapi_init(ptr noundef %0) #0 {
   br label %64
 
 .thread78:                                        ; preds = %.thread, %27
-  %.sink81 = phi i32 [ %28, %27 ], [ 2, %.thread ]
+  %.sink89 = phi i32 [ %28, %27 ], [ 2, %.thread ]
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 180
-  store i32 %.sink81, ptr %31, align 4, !tbaa !36
+  store i32 %.sink89, ptr %31, align 4, !tbaa !36
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %33 = load ptr, ptr %32, align 8, !tbaa !37
   %.not73 = icmp eq ptr %33, null
@@ -162,9 +162,9 @@ define internal range(i32 -22, 1) i32 @tonemap_vaapi_init(ptr noundef %0) #0 {
   br label %64
 
 .thread79:                                        ; preds = %.thread78, %34
-  %.sink83 = phi i32 [ %35, %34 ], [ 2, %.thread78 ]
+  %.sink91 = phi i32 [ %35, %34 ], [ 2, %.thread78 ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  store i32 %.sink83, ptr %38, align 8, !tbaa !38
+  store i32 %.sink91, ptr %38, align 8, !tbaa !38
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %40 = load ptr, ptr %39, align 8, !tbaa !32
   %.not74 = icmp eq ptr %40, null

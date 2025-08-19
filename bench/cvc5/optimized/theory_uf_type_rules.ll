@@ -290,11 +290,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %94, %
   br i1 %109, label %.invoke, label %_ZN4cvc58internal8TypeNode4nullEv.exit, !prof !13
 
 .invoke:                                          ; preds = %108, %55
-  %.sink167 = phi i64 [ %44, %55 ], [ %97, %108 ]
-  %.sink166 = phi ptr [ %43, %55 ], [ %96, %108 ]
-  %110 = or i64 %.sink167, 1152920405095219200
-  store i64 %110, ptr %.sink166, align 8, !noalias !27
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink166)
+  %.sink179 = phi i64 [ %44, %55 ], [ %97, %108 ]
+  %.sink178 = phi ptr [ %43, %55 ], [ %96, %108 ]
+  %110 = or i64 %.sink179, 1152920405095219200
+  store i64 %110, ptr %.sink178, align 8, !noalias !27
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink178)
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %41
 
 111:                                              ; preds = %78

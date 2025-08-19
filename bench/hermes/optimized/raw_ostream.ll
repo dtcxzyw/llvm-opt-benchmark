@@ -1765,8 +1765,8 @@ if.then.lr.ph:                                    ; preds = %entry
   %OutBufStart = getelementptr inbounds nuw i8, ptr %this, i64 8
   %BufferMode = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %OutBufStart, align 8
-  %tobool.not30 = icmp eq ptr %2, null
-  br i1 %tobool.not30, label %if.then2, label %if.end5
+  %tobool.not33 = icmp eq ptr %2, null
+  br i1 %tobool.not33, label %if.then2, label %if.end5
 
 if.then:                                          ; preds = %if.end
   %3 = load ptr, ptr %OutBufStart, align 8
@@ -1794,9 +1794,9 @@ if.end:                                           ; preds = %if.then2
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.end5:                                          ; preds = %if.then, %if.then.lr.ph
-  %.lcssa26 = phi ptr [ %0, %if.then.lr.ph ], [ %6, %if.then ]
+  %.lcssa29 = phi ptr [ %0, %if.then.lr.ph ], [ %6, %if.then ]
   %.lcssa = phi ptr [ %2, %if.then.lr.ph ], [ %3, %if.then ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %.lcssa26 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %.lcssa29 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %.lcssa to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store ptr %.lcssa, ptr %OutBufCur, align 8
@@ -1842,8 +1842,8 @@ if.then.lr.ph:                                    ; preds = %if.then.lr.ph.lr.ph
   %Size.tr.ph94 = phi i64 [ %Size, %if.then.lr.ph.lr.ph ], [ %Size.tr.ph.be, %tailrecurse.outer.backedge ]
   %Ptr.tr.ph93 = phi ptr [ %Ptr, %if.then.lr.ph.lr.ph ], [ %Ptr.tr.ph.be, %tailrecurse.outer.backedge ]
   %3 = load ptr, ptr %OutBufStart, align 8
-  %tobool.not166 = icmp eq ptr %3, null
-  br i1 %tobool.not166, label %if.then2, label %if.end5
+  %tobool.not167 = icmp eq ptr %3, null
+  br i1 %tobool.not167, label %if.then2, label %if.end5
 
 if.then:                                          ; preds = %if.end
   %4 = load ptr, ptr %OutBufStart, align 8
@@ -1874,9 +1874,9 @@ if.end:                                           ; preds = %if.then2
 
 if.end5:                                          ; preds = %if.then, %if.then.lr.ph
   %sub.ptr.sub83.lcssa = phi i64 [ %sub.ptr.sub8195, %if.then.lr.ph ], [ %sub.ptr.sub, %if.then ]
-  %.lcssa152 = phi ptr [ %2, %if.then.lr.ph ], [ %8, %if.then ]
-  %.lcssa149 = phi ptr [ %3, %if.then.lr.ph ], [ %4, %if.then ]
-  %cmp13 = icmp eq ptr %.lcssa152, %.lcssa149
+  %.lcssa153 = phi ptr [ %2, %if.then.lr.ph ], [ %8, %if.then ]
+  %.lcssa150 = phi ptr [ %3, %if.then.lr.ph ], [ %4, %if.then ]
+  %cmp13 = icmp eq ptr %.lcssa153, %.lcssa150
   br i1 %cmp13, label %if.then14, label %if.end28
 
 if.then14:                                        ; preds = %if.end5
@@ -1967,13 +1967,13 @@ if.end28:                                         ; preds = %if.end5
 sw.bb.i35:                                        ; preds = %if.end28
   %arrayidx.i36 = getelementptr inbounds nuw i8, ptr %Ptr.tr.ph93, i64 3
   %21 = load i8, ptr %arrayidx.i36, align 1
-  %arrayidx2.i38 = getelementptr inbounds nuw i8, ptr %.lcssa152, i64 3
+  %arrayidx2.i38 = getelementptr inbounds nuw i8, ptr %.lcssa153, i64 3
   store i8 %21, ptr %arrayidx2.i38, align 1
   %.pre = load ptr, ptr %OutBufCur, align 8
   br label %sw.bb3.i31
 
 sw.bb3.i31:                                       ; preds = %sw.bb.i35, %if.end28
-  %22 = phi ptr [ %.pre, %sw.bb.i35 ], [ %.lcssa152, %if.end28 ]
+  %22 = phi ptr [ %.pre, %sw.bb.i35 ], [ %.lcssa153, %if.end28 ]
   %arrayidx4.i32 = getelementptr inbounds nuw i8, ptr %Ptr.tr.ph93, i64 2
   %23 = load i8, ptr %arrayidx4.i32, align 1
   %arrayidx6.i34 = getelementptr inbounds nuw i8, ptr %22, i64 2
@@ -1982,7 +1982,7 @@ sw.bb3.i31:                                       ; preds = %sw.bb.i35, %if.end2
   br label %sw.bb7.i27
 
 sw.bb7.i27:                                       ; preds = %sw.bb3.i31, %if.end28
-  %24 = phi ptr [ %.pre117, %sw.bb3.i31 ], [ %.lcssa152, %if.end28 ]
+  %24 = phi ptr [ %.pre117, %sw.bb3.i31 ], [ %.lcssa153, %if.end28 ]
   %arrayidx8.i28 = getelementptr inbounds nuw i8, ptr %Ptr.tr.ph93, i64 1
   %25 = load i8, ptr %arrayidx8.i28, align 1
   %arrayidx10.i30 = getelementptr inbounds nuw i8, ptr %24, i64 1
@@ -1991,13 +1991,13 @@ sw.bb7.i27:                                       ; preds = %sw.bb3.i31, %if.end
   br label %sw.bb11.i25
 
 sw.bb11.i25:                                      ; preds = %sw.bb7.i27, %if.end28
-  %26 = phi ptr [ %.pre118, %sw.bb7.i27 ], [ %.lcssa152, %if.end28 ]
+  %26 = phi ptr [ %.pre118, %sw.bb7.i27 ], [ %.lcssa153, %if.end28 ]
   %27 = load i8, ptr %Ptr.tr.ph93, align 1
   store i8 %27, ptr %26, align 1
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41
 
 sw.default.i39:                                   ; preds = %if.end28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa152, ptr readonly align 1 %Ptr.tr.ph93, i64 %sub.ptr.sub83.lcssa, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.lcssa153, ptr readonly align 1 %Ptr.tr.ph93, i64 %sub.ptr.sub83.lcssa, i1 false)
   br label %_ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41
 
 _ZN4llvh11raw_ostream14copy_to_bufferEPKcm.exit41: ; preds = %if.end28, %sw.bb11.i25, %sw.default.i39
@@ -2364,7 +2364,7 @@ if.end.i22:                                       ; preds = %sw.bb
 if.then4.i24:                                     ; preds = %if.end.i22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %agg.tmp10.sroa.0.0.copyload, i64 %0, i1 false)
   %8 = load ptr, ptr %OutBufCur.i17, align 8
-  %add.ptr.i25 = getelementptr inbounds i8, ptr %8, i64 %0
+  %add.ptr.i25 = getelementptr inbounds nuw i8, ptr %8, i64 %0
   store ptr %add.ptr.i25, ptr %OutBufCur.i17, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit28
 
@@ -3602,9 +3602,9 @@ do.body.i:                                        ; preds = %do.cond.i, %if.then
   %4 = load i32, ptr %FD, align 4
   %call2.i = tail call i64 @write(i32 noundef %4, ptr noundef %Ptr.addr.0.i, i64 noundef %.sroa.speculated.i) #26
   %cmp.i = icmp slt i64 %call2.i, 0
-  br i1 %cmp.i, label %if.then.i5, label %if.end13.i
+  br i1 %cmp.i, label %if.then.i9, label %if.end13.i
 
-if.then.i5:                                       ; preds = %do.body.i
+if.then.i9:                                       ; preds = %do.body.i
   %call3.i = tail call ptr @__errno_location() #28
   %5 = load i32, ptr %call3.i, align 4
   switch i32 %5, label %if.end.i [
@@ -3612,7 +3612,7 @@ if.then.i5:                                       ; preds = %do.body.i
     i32 11, label %do.cond.i
   ]
 
-if.end.i:                                         ; preds = %if.then.i5
+if.end.i:                                         ; preds = %if.then.i9
   %call12.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #28
   %EC2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %5, ptr %EC2.i.i, align 8
@@ -3625,9 +3625,9 @@ if.end13.i:                                       ; preds = %do.body.i
   %sub.i = sub i64 %Size.addr.0.i, %call2.i
   br label %do.cond.i
 
-do.cond.i:                                        ; preds = %if.end13.i, %if.then.i5, %if.then.i5
-  %Size.addr.1.i = phi i64 [ %Size.addr.0.i, %if.then.i5 ], [ %Size.addr.0.i, %if.then.i5 ], [ %sub.i, %if.end13.i ]
-  %Ptr.addr.1.i = phi ptr [ %Ptr.addr.0.i, %if.then.i5 ], [ %Ptr.addr.0.i, %if.then.i5 ], [ %add.ptr.i, %if.end13.i ]
+do.cond.i:                                        ; preds = %if.end13.i, %if.then.i9, %if.then.i9
+  %Size.addr.1.i = phi i64 [ %Size.addr.0.i, %if.then.i9 ], [ %Size.addr.0.i, %if.then.i9 ], [ %sub.i, %if.end13.i ]
+  %Ptr.addr.1.i = phi ptr [ %Ptr.addr.0.i, %if.then.i9 ], [ %Ptr.addr.0.i, %if.then.i9 ], [ %add.ptr.i, %if.end13.i ]
   %cmp14.not.i = icmp eq i64 %Size.addr.1.i, 0
   br i1 %cmp14.not.i, label %_ZN4llvh11raw_ostream5flushEv.exit, label %do.body.i, !llvm.loop !14
 

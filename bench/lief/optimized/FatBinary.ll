@@ -294,7 +294,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %22 = getelementptr i8, ptr %.val1.i24.i.i.i, i64 108
   %.val1.val.i25.i.i.i = load i32, ptr %22, align 4, !tbaa !18
   %23 = icmp eq i32 %.val1.val.i25.i.i.i, %2
-  br i1 %23, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit22", label %24
+  br i1 %23, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit28", label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 24
@@ -302,7 +302,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %26 = getelementptr i8, ptr %.val1.i26.i.i.i, i64 108
   %.val1.val.i27.i.i.i = load i32, ptr %26, align 4, !tbaa !18
   %27 = icmp eq i32 %.val1.val.i27.i.i.i, %2
-  br i1 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit24", label %28
+  br i1 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit30", label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 32
@@ -361,16 +361,16 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 8
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit22": ; preds = %20
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit28": ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 16
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit24": ; preds = %24
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit30": ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 24
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit22", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit24", %33, %38, %43
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %33 ], [ %.sroa.050.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit" ], [ %47, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit22" ], [ %48, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit24" ], [ %.sroa.050.069.i.i.i, %.lr.ph.i.i.i ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit": ; preds = %.lr.ph.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit28", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit30", %33, %38, %43
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.050.0.lcssa.i.i.i, %33 ], [ %.sroa.050.1.i.i.i, %38 ], [ %spec.select.i.i.i, %43 ], [ %46, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit" ], [ %47, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit28" ], [ %48, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit30" ], [ %.sroa.050.069.i.i.i, %.lr.ph.i.i.i ]
   %49 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %7
   br i1 %49, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.thread", label %50
 

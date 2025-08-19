@@ -4654,8 +4654,8 @@ fbuffer_append.exit75.i:                          ; preds = %200, %183
   store i32 808482140, ptr %204, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 4
   store i8 %188, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 5
-  store i8 %192, ptr %.sroa.5103.0..sroa_idx, align 1
+  %.sroa.5116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 5
+  store i8 %192, ptr %.sroa.5116.0..sroa_idx, align 1
   %205 = load i64, ptr %196, align 8, !tbaa !56
   %206 = add i64 %205, 6
   store i64 %206, ptr %196, align 8, !tbaa !56
@@ -4735,14 +4735,14 @@ fbuffer_append.exit77.i:                          ; preds = %246, %220
   %249 = load ptr, ptr %248, align 8, !tbaa !46
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 %247
   store i16 30044, ptr %250, align 1
-  %.sroa.5.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %250, i64 2
-  store i8 %224, ptr %.sroa.5.0..sroa_idx85, align 1
-  %.sroa.7.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %250, i64 3
-  store i8 %229, ptr %.sroa.7.0..sroa_idx88, align 1
-  %.sroa.9.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %250, i64 4
-  store i8 %234, ptr %.sroa.9.0..sroa_idx91, align 1
-  %.sroa.11.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %250, i64 5
-  store i8 %238, ptr %.sroa.11.0..sroa_idx94, align 1
+  %.sroa.5.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %250, i64 2
+  store i8 %224, ptr %.sroa.5.0..sroa_idx98, align 1
+  %.sroa.7.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %250, i64 3
+  store i8 %229, ptr %.sroa.7.0..sroa_idx101, align 1
+  %.sroa.9.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %250, i64 4
+  store i8 %234, ptr %.sroa.9.0..sroa_idx104, align 1
+  %.sroa.11.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %250, i64 5
+  store i8 %238, ptr %.sroa.11.0..sroa_idx107, align 1
   %251 = load i64, ptr %242, align 8, !tbaa !56
   %252 = add i64 %251, 6
   store i64 %252, ptr %242, align 8, !tbaa !56
@@ -4816,8 +4816,8 @@ fbuffer_append.exit79.i:                          ; preds = %298, %253
   store i8 %275, ptr %.sroa.11.0..sroa_idx, align 1
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 6
   store i16 30044, ptr %.sroa.13.0..sroa_idx, align 1
-  %.sroa.1397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 8
-  store i8 100, ptr %.sroa.1397.0..sroa_idx, align 1
+  %.sroa.13110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 8
+  store i8 100, ptr %.sroa.13110.0..sroa_idx, align 1
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 9
   store i8 %281, ptr %.sroa.14.0..sroa_idx, align 1
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %302, i64 10

@@ -383,7 +383,7 @@ fmap_readn.exit90:                                ; preds = %67
   br i1 %.not75, label %96, label %106
 
 96:                                               ; preds = %94, %86, %80
-  switch i32 %.050, label %default.unreachable103 [
+  switch i32 %.050, label %default.unreachable123 [
     i32 1, label %97
     i32 2, label %99
     i32 3, label %101
@@ -413,7 +413,7 @@ fmap_readn.exit90:                                ; preds = %67
   %.not77 = icmp eq i32 %104, 0
   br i1 %.not77, label %105, label %106
 
-default.unreachable103:                           ; preds = %96
+default.unreachable123:                           ; preds = %96
   unreachable
 
 105:                                              ; preds = %103, %99, %97

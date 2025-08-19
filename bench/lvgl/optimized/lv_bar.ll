@@ -107,8 +107,8 @@ define internal void @lv_bar_event(ptr readnone captures(none) %0, ptr noundef %
   %10 = alloca %struct._lv_draw_image_dsc_t, align 8
   %11 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_bar_class, ptr noundef %1) #7
   %.not = icmp eq i32 %11, 1
-  %.sink284.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.sink284.i.sroa.gep51 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink289.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.sink289.i.sroa.gep51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %.not, label %12, label %285
 
 12:                                               ; preds = %2
@@ -487,12 +487,12 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   %231 = getelementptr inbounds nuw i8, ptr %5, i64 67
   %232 = load i8, ptr %231, align 1
   %233 = and i8 %232, 15
-  %.285.i = select i1 %.0218.i, i8 2, i8 1
-  %234 = icmp ne i8 %233, %.285.i
+  %.290.i = select i1 %.0218.i, i8 2, i8 1
+  %234 = icmp ne i8 %233, %.290.i
   %235 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %236 = load ptr, ptr %235, align 8, !tbaa !54
   %.not242.i = icmp eq ptr %236, null
-  %spec.select251.not287.i = select i1 %.not242.i, i1 %234, i1 false
+  %spec.select251.not292.i = select i1 %.not242.i, i1 %234, i1 false
   %237 = icmp sgt i32 %.sroa.0.0.extract.trunc.i255.i, -1
   %238 = icmp sgt i32 %.sroa.0.0.extract.trunc.i256.i, -1
   %or.cond.not278.i = select i1 %237, i1 %238, i1 false
@@ -506,11 +506,11 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
 
 241:                                              ; preds = %228
   %242 = call zeroext i1 @lv_area_is_in(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %spec.select.i) #7
-  %or.cond7.not.i = and i1 %spec.select251.not287.i, %242
+  %or.cond7.not.i = and i1 %spec.select251.not292.i, %242
   br i1 %or.cond7.not.i, label %283, label %243
 
 .thread262.i:                                     ; preds = %228
-  br i1 %spec.select251.not287.i, label %283, label %.thread266.i
+  br i1 %spec.select251.not292.i, label %283, label %.thread266.i
 
 243:                                              ; preds = %241
   br i1 %242, label %.thread266.i, label %248
@@ -551,7 +551,7 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   store i8 0, ptr %255, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !66
-  br i1 %spec.select251.not287.i, label %270, label %256
+  br i1 %spec.select251.not292.i, label %270, label %256
 
 256:                                              ; preds = %251
   br i1 %.0218.i, label %257, label %262
@@ -574,9 +574,9 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   br label %268
 
 268:                                              ; preds = %262, %257
-  %.sink284.i.sroa.phi = phi ptr [ %.sink284.i.sroa.gep, %262 ], [ %.sink284.i.sroa.gep51, %257 ]
-  %.sink282.i = phi i32 [ %267, %262 ], [ %261, %257 ]
-  store i32 %.sink282.i, ptr %.sink284.i.sroa.phi, align 4, !tbaa !26
+  %.sink289.i.sroa.phi = phi ptr [ %.sink289.i.sroa.gep, %262 ], [ %.sink289.i.sroa.gep51, %257 ]
+  %.sink287.i = phi i32 [ %267, %262 ], [ %261, %257 ]
+  store i32 %.sink287.i, ptr %.sink289.i.sroa.phi, align 4, !tbaa !26
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 0, ptr %269, align 8, !tbaa !53
   br label %270
@@ -597,7 +597,7 @@ lv_bar_is_symmetrical.exit.i:                     ; preds = %63, %58
   br label %275
 
 275:                                              ; preds = %272, %270
-  br i1 %spec.select251.not287.i, label %279, label %276
+  br i1 %spec.select251.not292.i, label %279, label %276
 
 276:                                              ; preds = %275
   %277 = getelementptr inbounds nuw i8, ptr %9, i64 48

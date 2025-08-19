@@ -1757,7 +1757,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr noundef readonly captures(none)
   br i1 %36, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %30, %.split.us.backedge
-  %38 = phi i32 [ %.be39, %.split.us.backedge ], [ %15, %30 ]
+  %38 = phi i32 [ %.be47, %.split.us.backedge ], [ %15, %30 ]
   %39 = zext i32 %38 to i64
   %40 = tail call i64 @_find_next_zero_bit(ptr noundef %19, i64 noundef %34, i64 noundef %39) #11
   %41 = trunc i64 %40 to i32
@@ -1796,7 +1796,7 @@ define internal fastcc i32 @sbitmap_find_bit(ptr noundef readonly captures(none)
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %58, %49
-  %.be39 = phi i32 [ %15, %58 ], [ %53, %49 ]
+  %.be47 = phi i32 [ %15, %58 ], [ %53, %49 ]
   br label %.split.us, !llvm.loop !55
 
 .split:                                           ; preds = %30, %.split.backedge

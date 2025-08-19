@@ -1378,8 +1378,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %4
   br i1 %483, label %.critedge.i.sink.split.i, label %.critedge.i.i
 
 .critedge.i.sink.split.i:                         ; preds = %478, %218
-  %.sink566.i = phi ptr [ %219, %218 ], [ %479, %478 ]
-  %.sink562.ph.i = phi i64 [ %222, %218 ], [ %482, %478 ]
+  %.sink602.i = phi ptr [ %219, %218 ], [ %479, %478 ]
+  %.sink598.ph.i = phi i64 [ %222, %218 ], [ %482, %478 ]
   %.ph.i = phi i32 [ %123, %218 ], [ %423, %478 ]
   %.5277.i.ph.i = phi ptr [ %127, %218 ], [ %.4276.i.i, %478 ]
   %.5.i.ph.i = phi i64 [ %171, %218 ], [ %.4264.i.i, %478 ]
@@ -1387,7 +1387,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %4
   %.2251.i.ph.i = phi i32 [ %.1250.i370.fr.i, %218 ], [ %.3268.i.i, %478 ]
   store i32 2, ptr %68, align 8, !tbaa !47
   %484 = load ptr, ptr %1, align 8, !tbaa !48
-  %485 = ptrtoint ptr %.sink566.i to i64
+  %485 = ptrtoint ptr %.sink602.i to i64
   %486 = ptrtoint ptr %484 to i64
   %487 = sub i64 %485, %486
   %488 = lshr exact i64 %487, 3
@@ -1396,17 +1396,17 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %4
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.sink.split.i, %478, %218
-  %.sink562.i = phi i64 [ %222, %218 ], [ %482, %478 ], [ %.sink562.ph.i, %.critedge.i.sink.split.i ]
-  %.sink561.i = phi ptr [ %219, %218 ], [ %479, %478 ], [ %.sink566.i, %.critedge.i.sink.split.i ]
+  %.sink598.i = phi i64 [ %222, %218 ], [ %482, %478 ], [ %.sink598.ph.i, %.critedge.i.sink.split.i ]
+  %.sink597.i = phi ptr [ %219, %218 ], [ %479, %478 ], [ %.sink602.i, %.critedge.i.sink.split.i ]
   %490 = phi i32 [ %123, %218 ], [ %423, %478 ], [ %.ph.i, %.critedge.i.sink.split.i ]
   %.5277.i.i = phi ptr [ %127, %218 ], [ %.4276.i.i, %478 ], [ %.5277.i.ph.i, %.critedge.i.sink.split.i ]
   %.5.i.i = phi i64 [ %171, %218 ], [ %.4264.i.i, %478 ], [ %.5.i.ph.i, %.critedge.i.sink.split.i ]
   %.2255.i.i = phi i32 [ %.1254.i369.i, %218 ], [ %.1250.i370.fr.i, %478 ], [ %.2255.i.ph.i, %.critedge.i.sink.split.i ]
   %.2251.i.i = phi i32 [ %.1250.i370.fr.i, %218 ], [ %.3268.i.i, %478 ], [ %.2251.i.ph.i, %.critedge.i.sink.split.i ]
-  %491 = trunc i64 %.sink562.i to i16
-  %492 = getelementptr inbounds nuw i8, ptr %.sink561.i, i64 6
+  %491 = trunc i64 %.sink598.i to i16
+  %492 = getelementptr inbounds nuw i8, ptr %.sink597.i, i64 6
   store i16 %491, ptr %492, align 2, !tbaa !56
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %.sink561.i, i64 8
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %.sink597.i, i64 8
   store ptr %storemerge.i, ptr %69, align 8, !tbaa !44
   %493 = getelementptr inbounds nuw i8, ptr %.5277.i.i, i64 %.5.i.i
   %.not314.i.i = icmp ugt ptr %493, %32
@@ -2577,8 +2577,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i160: ; preds =
   br i1 %1025, label %.critedge.i.sink.split.i146, label %.critedge.i.i91
 
 .critedge.i.sink.split.i146:                      ; preds = %1020, %761
-  %.sink566.i147 = phi ptr [ %762, %761 ], [ %1021, %1020 ]
-  %.sink562.ph.i148 = phi i64 [ %765, %761 ], [ %1024, %1020 ]
+  %.sink602.i147 = phi ptr [ %762, %761 ], [ %1021, %1020 ]
+  %.sink598.ph.i148 = phi i64 [ %765, %761 ], [ %1024, %1020 ]
   %.ph.i149 = phi i32 [ %666, %761 ], [ %965, %1020 ]
   %.5277.i.ph.i150 = phi ptr [ %670, %761 ], [ %.4276.i.i83, %1020 ]
   %.5.i.ph.i151 = phi i64 [ %714, %761 ], [ %.4264.i.i85, %1020 ]
@@ -2586,7 +2586,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i160: ; preds =
   %.2251.i.ph.i153 = phi i32 [ %.1250.i370.fr.i32, %761 ], [ %.3268.i.i86, %1020 ]
   store i32 2, ptr %615, align 8, !tbaa !47
   %1026 = load ptr, ptr %1, align 8, !tbaa !48
-  %1027 = ptrtoint ptr %.sink566.i147 to i64
+  %1027 = ptrtoint ptr %.sink602.i147 to i64
   %1028 = ptrtoint ptr %1026 to i64
   %1029 = sub i64 %1027, %1028
   %1030 = lshr exact i64 %1029, 3
@@ -2595,17 +2595,17 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i160: ; preds =
   br label %.critedge.i.i91
 
 .critedge.i.i91:                                  ; preds = %.critedge.i.sink.split.i146, %1020, %761
-  %.sink562.i92 = phi i64 [ %765, %761 ], [ %1024, %1020 ], [ %.sink562.ph.i148, %.critedge.i.sink.split.i146 ]
-  %.sink561.i93 = phi ptr [ %762, %761 ], [ %1021, %1020 ], [ %.sink566.i147, %.critedge.i.sink.split.i146 ]
+  %.sink598.i92 = phi i64 [ %765, %761 ], [ %1024, %1020 ], [ %.sink598.ph.i148, %.critedge.i.sink.split.i146 ]
+  %.sink597.i93 = phi ptr [ %762, %761 ], [ %1021, %1020 ], [ %.sink602.i147, %.critedge.i.sink.split.i146 ]
   %1032 = phi i32 [ %666, %761 ], [ %965, %1020 ], [ %.ph.i149, %.critedge.i.sink.split.i146 ]
   %.5277.i.i94 = phi ptr [ %670, %761 ], [ %.4276.i.i83, %1020 ], [ %.5277.i.ph.i150, %.critedge.i.sink.split.i146 ]
   %.5.i.i95 = phi i64 [ %714, %761 ], [ %.4264.i.i85, %1020 ], [ %.5.i.ph.i151, %.critedge.i.sink.split.i146 ]
   %.2255.i.i96 = phi i32 [ %.1254.i369.i30, %761 ], [ %.1250.i370.fr.i32, %1020 ], [ %.2255.i.ph.i152, %.critedge.i.sink.split.i146 ]
   %.2251.i.i97 = phi i32 [ %.1250.i370.fr.i32, %761 ], [ %.3268.i.i86, %1020 ], [ %.2251.i.ph.i153, %.critedge.i.sink.split.i146 ]
-  %1033 = trunc i64 %.sink562.i92 to i16
-  %1034 = getelementptr inbounds nuw i8, ptr %.sink561.i93, i64 6
+  %1033 = trunc i64 %.sink598.i92 to i16
+  %1034 = getelementptr inbounds nuw i8, ptr %.sink597.i93, i64 6
   store i16 %1033, ptr %1034, align 2, !tbaa !56
-  %storemerge.i98 = getelementptr inbounds nuw i8, ptr %.sink561.i93, i64 8
+  %storemerge.i98 = getelementptr inbounds nuw i8, ptr %.sink597.i93, i64 8
   store ptr %storemerge.i98, ptr %616, align 8, !tbaa !44
   %1035 = getelementptr inbounds nuw i8, ptr %.5277.i.i94, i64 %.5.i.i95
   %.not314.i.i99 = icmp ugt ptr %1035, %32
@@ -3772,8 +3772,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i482: ; preds =
   br i1 %1564, label %.critedge.i.sink.split.i468, label %.critedge.i.i412
 
 .critedge.i.sink.split.i468:                      ; preds = %1559, %1300
-  %.sink566.i469 = phi ptr [ %1301, %1300 ], [ %1560, %1559 ]
-  %.sink562.ph.i470 = phi i64 [ %1304, %1300 ], [ %1563, %1559 ]
+  %.sink602.i469 = phi ptr [ %1301, %1300 ], [ %1560, %1559 ]
+  %.sink598.ph.i470 = phi i64 [ %1304, %1300 ], [ %1563, %1559 ]
   %.ph.i471 = phi i32 [ %1205, %1300 ], [ %1504, %1559 ]
   %.5277.i.ph.i472 = phi ptr [ %1209, %1300 ], [ %.4276.i.i404, %1559 ]
   %.5.i.ph.i473 = phi i64 [ %1253, %1300 ], [ %.4264.i.i406, %1559 ]
@@ -3781,7 +3781,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i482: ; preds =
   %.2251.i.ph.i475 = phi i32 [ %.1250.i370.fr.i353, %1300 ], [ %.3268.i.i407, %1559 ]
   store i32 2, ptr %1154, align 8, !tbaa !47
   %1565 = load ptr, ptr %1, align 8, !tbaa !48
-  %1566 = ptrtoint ptr %.sink566.i469 to i64
+  %1566 = ptrtoint ptr %.sink602.i469 to i64
   %1567 = ptrtoint ptr %1565 to i64
   %1568 = sub i64 %1566, %1567
   %1569 = lshr exact i64 %1568, 3
@@ -3790,17 +3790,17 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i482: ; preds =
   br label %.critedge.i.i412
 
 .critedge.i.i412:                                 ; preds = %.critedge.i.sink.split.i468, %1559, %1300
-  %.sink562.i413 = phi i64 [ %1304, %1300 ], [ %1563, %1559 ], [ %.sink562.ph.i470, %.critedge.i.sink.split.i468 ]
-  %.sink561.i414 = phi ptr [ %1301, %1300 ], [ %1560, %1559 ], [ %.sink566.i469, %.critedge.i.sink.split.i468 ]
+  %.sink598.i413 = phi i64 [ %1304, %1300 ], [ %1563, %1559 ], [ %.sink598.ph.i470, %.critedge.i.sink.split.i468 ]
+  %.sink597.i414 = phi ptr [ %1301, %1300 ], [ %1560, %1559 ], [ %.sink602.i469, %.critedge.i.sink.split.i468 ]
   %1571 = phi i32 [ %1205, %1300 ], [ %1504, %1559 ], [ %.ph.i471, %.critedge.i.sink.split.i468 ]
   %.5277.i.i415 = phi ptr [ %1209, %1300 ], [ %.4276.i.i404, %1559 ], [ %.5277.i.ph.i472, %.critedge.i.sink.split.i468 ]
   %.5.i.i416 = phi i64 [ %1253, %1300 ], [ %.4264.i.i406, %1559 ], [ %.5.i.ph.i473, %.critedge.i.sink.split.i468 ]
   %.2255.i.i417 = phi i32 [ %.1254.i369.i351, %1300 ], [ %.1250.i370.fr.i353, %1559 ], [ %.2255.i.ph.i474, %.critedge.i.sink.split.i468 ]
   %.2251.i.i418 = phi i32 [ %.1250.i370.fr.i353, %1300 ], [ %.3268.i.i407, %1559 ], [ %.2251.i.ph.i475, %.critedge.i.sink.split.i468 ]
-  %1572 = trunc i64 %.sink562.i413 to i16
-  %1573 = getelementptr inbounds nuw i8, ptr %.sink561.i414, i64 6
+  %1572 = trunc i64 %.sink598.i413 to i16
+  %1573 = getelementptr inbounds nuw i8, ptr %.sink597.i414, i64 6
   store i16 %1572, ptr %1573, align 2, !tbaa !56
-  %storemerge.i419 = getelementptr inbounds nuw i8, ptr %.sink561.i414, i64 8
+  %storemerge.i419 = getelementptr inbounds nuw i8, ptr %.sink597.i414, i64 8
   store ptr %storemerge.i419, ptr %1155, align 8, !tbaa !44
   %1574 = getelementptr inbounds nuw i8, ptr %.5277.i.i415, i64 %.5.i.i416
   %.not314.i.i420 = icmp ugt ptr %1574, %32
@@ -4967,8 +4967,8 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i804: ; preds =
   br i1 %2103, label %.critedge.i.sink.split.i790, label %.critedge.i.i734
 
 .critedge.i.sink.split.i790:                      ; preds = %2098, %1839
-  %.sink566.i791 = phi ptr [ %1840, %1839 ], [ %2099, %2098 ]
-  %.sink562.ph.i792 = phi i64 [ %1843, %1839 ], [ %2102, %2098 ]
+  %.sink602.i791 = phi ptr [ %1840, %1839 ], [ %2099, %2098 ]
+  %.sink598.ph.i792 = phi i64 [ %1843, %1839 ], [ %2102, %2098 ]
   %.ph.i793 = phi i32 [ %1744, %1839 ], [ %2043, %2098 ]
   %.5277.i.ph.i794 = phi ptr [ %1748, %1839 ], [ %.4276.i.i726, %2098 ]
   %.5.i.ph.i795 = phi i64 [ %1792, %1839 ], [ %.4264.i.i728, %2098 ]
@@ -4976,7 +4976,7 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i804: ; preds =
   %.2251.i.ph.i797 = phi i32 [ %.1250.i370.fr.i675, %1839 ], [ %.3268.i.i729, %2098 ]
   store i32 2, ptr %1693, align 8, !tbaa !47
   %2104 = load ptr, ptr %1, align 8, !tbaa !48
-  %2105 = ptrtoint ptr %.sink566.i791 to i64
+  %2105 = ptrtoint ptr %.sink602.i791 to i64
   %2106 = ptrtoint ptr %2104 to i64
   %2107 = sub i64 %2105, %2106
   %2108 = lshr exact i64 %2107, 3
@@ -4985,17 +4985,17 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i804: ; preds =
   br label %.critedge.i.i734
 
 .critedge.i.i734:                                 ; preds = %.critedge.i.sink.split.i790, %2098, %1839
-  %.sink562.i735 = phi i64 [ %1843, %1839 ], [ %2102, %2098 ], [ %.sink562.ph.i792, %.critedge.i.sink.split.i790 ]
-  %.sink561.i736 = phi ptr [ %1840, %1839 ], [ %2099, %2098 ], [ %.sink566.i791, %.critedge.i.sink.split.i790 ]
+  %.sink598.i735 = phi i64 [ %1843, %1839 ], [ %2102, %2098 ], [ %.sink598.ph.i792, %.critedge.i.sink.split.i790 ]
+  %.sink597.i736 = phi ptr [ %1840, %1839 ], [ %2099, %2098 ], [ %.sink602.i791, %.critedge.i.sink.split.i790 ]
   %2110 = phi i32 [ %1744, %1839 ], [ %2043, %2098 ], [ %.ph.i793, %.critedge.i.sink.split.i790 ]
   %.5277.i.i737 = phi ptr [ %1748, %1839 ], [ %.4276.i.i726, %2098 ], [ %.5277.i.ph.i794, %.critedge.i.sink.split.i790 ]
   %.5.i.i738 = phi i64 [ %1792, %1839 ], [ %.4264.i.i728, %2098 ], [ %.5.i.ph.i795, %.critedge.i.sink.split.i790 ]
   %.2255.i.i739 = phi i32 [ %.1254.i369.i673, %1839 ], [ %.1250.i370.fr.i675, %2098 ], [ %.2255.i.ph.i796, %.critedge.i.sink.split.i790 ]
   %.2251.i.i740 = phi i32 [ %.1250.i370.fr.i675, %1839 ], [ %.3268.i.i729, %2098 ], [ %.2251.i.ph.i797, %.critedge.i.sink.split.i790 ]
-  %2111 = trunc i64 %.sink562.i735 to i16
-  %2112 = getelementptr inbounds nuw i8, ptr %.sink561.i736, i64 6
+  %2111 = trunc i64 %.sink598.i735 to i16
+  %2112 = getelementptr inbounds nuw i8, ptr %.sink597.i736, i64 6
   store i16 %2111, ptr %2112, align 2, !tbaa !56
-  %storemerge.i741 = getelementptr inbounds nuw i8, ptr %.sink561.i736, i64 8
+  %storemerge.i741 = getelementptr inbounds nuw i8, ptr %.sink597.i736, i64 8
   store ptr %storemerge.i741, ptr %1694, align 8, !tbaa !44
   %2113 = getelementptr inbounds nuw i8, ptr %.5277.i.i737, i64 %.5.i.i738
   %.not314.i.i742 = icmp ugt ptr %2113, %32
@@ -5210,18 +5210,18 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit8.i770: ; preds 
   br i1 %2215, label %_ZN11duckdb_zstdL38ZSTD_compressBlock_doubleFast_noDict_4EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit, label %1696, !llvm.loop !57
 
 _ZN11duckdb_zstdL38ZSTD_compressBlock_doubleFast_noDict_4EPNS_17ZSTD_matchState_tEPNS_10seqStore_tEPjPKvm.exit: ; preds = %.critedge7.i.i429, %1382, %1197, %.critedge7.i.i108, %843, %658, %.critedge7.i.i751, %1921, %1736, %.critedge7.i.i, %301, %114, %1677, %1138, %599, %53
-  %.1250.i314.i695.sink2083 = phi i32 [ %.0249.i.i, %53 ], [ %.0249.i.i, %599 ], [ %.0249.i.i, %1138 ], [ %.0249.i.i, %1677 ], [ 0, %114 ], [ %.1250.i370.fr.i, %301 ], [ %.3.i.i, %.critedge7.i.i ], [ 0, %1736 ], [ %.1250.i370.fr.i675, %1921 ], [ %.3.i.i753, %.critedge7.i.i751 ], [ 0, %658 ], [ %.1250.i370.fr.i32, %843 ], [ %.3.i.i110, %.critedge7.i.i108 ], [ 0, %1197 ], [ %.1250.i370.fr.i353, %1382 ], [ %.3.i.i431, %.critedge7.i.i429 ]
-  %.1254.i316.i694.sink2081 = phi i32 [ %spec.select318.i.i, %53 ], [ %spec.select318.i.i, %599 ], [ %spec.select318.i.i, %1138 ], [ %spec.select318.i.i, %1677 ], [ %.1254.i369.i, %114 ], [ %.1254.i369.i, %301 ], [ %.3256.i.i, %.critedge7.i.i ], [ %.1254.i369.i673, %1736 ], [ %.1254.i369.i673, %1921 ], [ %.3256.i.i752, %.critedge7.i.i751 ], [ %.1254.i369.i30, %658 ], [ %.1254.i369.i30, %843 ], [ %.3256.i.i109, %.critedge7.i.i108 ], [ %.1254.i369.i351, %1197 ], [ %.1254.i369.i351, %1382 ], [ %.3256.i.i430, %.critedge7.i.i429 ]
+  %.1250.i314.i695.sink2259 = phi i32 [ %.0249.i.i, %53 ], [ %.0249.i.i, %599 ], [ %.0249.i.i, %1138 ], [ %.0249.i.i, %1677 ], [ 0, %114 ], [ %.1250.i370.fr.i, %301 ], [ %.3.i.i, %.critedge7.i.i ], [ 0, %1736 ], [ %.1250.i370.fr.i675, %1921 ], [ %.3.i.i753, %.critedge7.i.i751 ], [ 0, %658 ], [ %.1250.i370.fr.i32, %843 ], [ %.3.i.i110, %.critedge7.i.i108 ], [ 0, %1197 ], [ %.1250.i370.fr.i353, %1382 ], [ %.3.i.i431, %.critedge7.i.i429 ]
+  %.1254.i316.i694.sink2257 = phi i32 [ %spec.select318.i.i, %53 ], [ %spec.select318.i.i, %599 ], [ %spec.select318.i.i, %1138 ], [ %spec.select318.i.i, %1677 ], [ %.1254.i369.i, %114 ], [ %.1254.i369.i, %301 ], [ %.3256.i.i, %.critedge7.i.i ], [ %.1254.i369.i673, %1736 ], [ %.1254.i369.i673, %1921 ], [ %.3256.i.i752, %.critedge7.i.i751 ], [ %.1254.i369.i30, %658 ], [ %.1254.i369.i30, %843 ], [ %.3256.i.i109, %.critedge7.i.i108 ], [ %.1254.i369.i351, %1197 ], [ %.1254.i369.i351, %1382 ], [ %.3256.i.i430, %.critedge7.i.i429 ]
   %.0248.i312.i696.sink = phi ptr [ %3, %53 ], [ %3, %599 ], [ %3, %1138 ], [ %3, %1677 ], [ %.0248.i372.i, %114 ], [ %.0248.i372.i, %301 ], [ %.1.i.i, %.critedge7.i.i ], [ %.0248.i372.i671, %1736 ], [ %.0248.i372.i671, %1921 ], [ %.1.i.i754, %.critedge7.i.i751 ], [ %.0248.i372.i28, %658 ], [ %.0248.i372.i28, %843 ], [ %.1.i.i111, %.critedge7.i.i108 ], [ %.0248.i372.i349, %1197 ], [ %.0248.i372.i349, %1382 ], [ %.1.i.i432, %.critedge7.i.i429 ]
   %.0258.i.i697 = select i1 %49, i32 %33, i32 0
   %spec.select.i.i698 = select i1 %48, i32 %35, i32 0
-  %2216 = icmp ne i32 %.1250.i314.i695.sink2083, 0
+  %2216 = icmp ne i32 %.1250.i314.i695.sink2259, 0
   %or.cond.i.i699 = select i1 %49, i1 %2216, i1 false
   %2217 = select i1 %or.cond.i.i699, i32 %33, i32 %spec.select.i.i698
-  %2218 = select i1 %2216, i32 %.1250.i314.i695.sink2083, i32 %.0258.i.i697
+  %2218 = select i1 %2216, i32 %.1250.i314.i695.sink2259, i32 %.0258.i.i697
   store i32 %2218, ptr %2, align 4, !tbaa !25
-  %.not317.i.i700 = icmp eq i32 %.1254.i316.i694.sink2081, 0
-  %2219 = select i1 %.not317.i.i700, i32 %2217, i32 %.1254.i316.i694.sink2081
+  %.not317.i.i700 = icmp eq i32 %.1254.i316.i694.sink2257, 0
+  %2219 = select i1 %.not317.i.i700, i32 %2217, i32 %.1254.i316.i694.sink2257
   store i32 %2219, ptr %34, align 4, !tbaa !25
   %2220 = ptrtoint ptr %31 to i64
   %2221 = ptrtoint ptr %.0248.i312.i696.sink to i64
@@ -6247,15 +6247,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit475.i.i: ; preds
   br i1 %540, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i: ; preds = %535, %201
-  %.sink312.i = phi ptr [ %202, %201 ], [ %536, %535 ]
-  %.sink308.ph.i = phi i64 [ %205, %201 ], [ %539, %535 ]
+  %.sink354.i = phi ptr [ %202, %201 ], [ %536, %535 ]
+  %.sink350.ph.i = phi i64 [ %205, %201 ], [ %539, %535 ]
   %.2400.i.ph.i = phi i64 [ %154, %201 ], [ %.4402.i.i, %535 ]
   %.2392.i.ph.i = phi i32 [ %.0390.i244.i, %201 ], [ %.0384.i245.i, %535 ]
   %.2386.i.ph.i = phi i32 [ %.0384.i245.i, %201 ], [ %.3417.i.i, %535 ]
   %.2.i.ph.i = phi ptr [ %147, %201 ], [ %.4.i.i, %535 ]
   store i32 2, ptr %98, align 8, !tbaa !47
   %541 = load ptr, ptr %1, align 8, !tbaa !48
-  %542 = ptrtoint ptr %.sink312.i to i64
+  %542 = ptrtoint ptr %.sink354.i to i64
   %543 = ptrtoint ptr %541 to i64
   %544 = sub i64 %542, %543
   %545 = lshr exact i64 %544, 3
@@ -6264,16 +6264,16 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i, %535, %201
-  %.sink308.i = phi i64 [ %205, %201 ], [ %539, %535 ], [ %.sink308.ph.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i ]
-  %.sink307.i = phi ptr [ %202, %201 ], [ %536, %535 ], [ %.sink312.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i ]
+  %.sink350.i = phi i64 [ %205, %201 ], [ %539, %535 ], [ %.sink350.ph.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i ]
+  %.sink349.i = phi ptr [ %202, %201 ], [ %536, %535 ], [ %.sink354.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i ]
   %.2400.i.i = phi i64 [ %154, %201 ], [ %.4402.i.i, %535 ], [ %.2400.i.ph.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i ]
   %.2392.i.i = phi i32 [ %.0390.i244.i, %201 ], [ %.0384.i245.i, %535 ], [ %.2392.i.ph.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i ]
   %.2386.i.i = phi i32 [ %.0384.i245.i, %201 ], [ %.3417.i.i, %535 ], [ %.2386.i.ph.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i ]
   %.2.i.i = phi ptr [ %147, %201 ], [ %.4.i.i, %535 ], [ %.2.i.ph.i, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i ]
-  %547 = trunc i64 %.sink308.i to i16
-  %548 = getelementptr inbounds nuw i8, ptr %.sink307.i, i64 6
+  %547 = trunc i64 %.sink350.i to i16
+  %548 = getelementptr inbounds nuw i8, ptr %.sink349.i, i64 6
   store i16 %547, ptr %548, align 2, !tbaa !56
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %.sink307.i, i64 8
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %.sink349.i, i64 8
   store ptr %storemerge.i, ptr %99, align 8, !tbaa !44
   %549 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %.2400.i.i
   %.not452.i.i = icmp ugt ptr %549, %36
@@ -7350,15 +7350,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit475.i.i116: ; pr
   br i1 %1094, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i81
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103: ; preds = %1089, %755
-  %.sink312.i104 = phi ptr [ %756, %755 ], [ %1090, %1089 ]
-  %.sink308.ph.i105 = phi i64 [ %759, %755 ], [ %1093, %1089 ]
+  %.sink354.i104 = phi ptr [ %756, %755 ], [ %1090, %1089 ]
+  %.sink350.ph.i105 = phi i64 [ %759, %755 ], [ %1093, %1089 ]
   %.2400.i.ph.i106 = phi i64 [ %708, %755 ], [ %.4402.i.i75, %1089 ]
   %.2392.i.ph.i107 = phi i32 [ %.0390.i244.i44, %755 ], [ %.0384.i245.i43, %1089 ]
   %.2386.i.ph.i108 = phi i32 [ %.0384.i245.i43, %755 ], [ %.3417.i.i74, %1089 ]
   %.2.i.ph.i109 = phi ptr [ %701, %755 ], [ %.4.i.i76, %1089 ]
   store i32 2, ptr %654, align 8, !tbaa !47
   %1095 = load ptr, ptr %1, align 8, !tbaa !48
-  %1096 = ptrtoint ptr %.sink312.i104 to i64
+  %1096 = ptrtoint ptr %.sink354.i104 to i64
   %1097 = ptrtoint ptr %1095 to i64
   %1098 = sub i64 %1096, %1097
   %1099 = lshr exact i64 %1098, 3
@@ -7367,16 +7367,16 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i81
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i81: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103, %1089, %755
-  %.sink308.i82 = phi i64 [ %759, %755 ], [ %1093, %1089 ], [ %.sink308.ph.i105, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103 ]
-  %.sink307.i83 = phi ptr [ %756, %755 ], [ %1090, %1089 ], [ %.sink312.i104, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103 ]
+  %.sink350.i82 = phi i64 [ %759, %755 ], [ %1093, %1089 ], [ %.sink350.ph.i105, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103 ]
+  %.sink349.i83 = phi ptr [ %756, %755 ], [ %1090, %1089 ], [ %.sink354.i104, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103 ]
   %.2400.i.i84 = phi i64 [ %708, %755 ], [ %.4402.i.i75, %1089 ], [ %.2400.i.ph.i106, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103 ]
   %.2392.i.i85 = phi i32 [ %.0390.i244.i44, %755 ], [ %.0384.i245.i43, %1089 ], [ %.2392.i.ph.i107, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103 ]
   %.2386.i.i86 = phi i32 [ %.0384.i245.i43, %755 ], [ %.3417.i.i74, %1089 ], [ %.2386.i.ph.i108, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103 ]
   %.2.i.i87 = phi ptr [ %701, %755 ], [ %.4.i.i76, %1089 ], [ %.2.i.ph.i109, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i103 ]
-  %1101 = trunc i64 %.sink308.i82 to i16
-  %1102 = getelementptr inbounds nuw i8, ptr %.sink307.i83, i64 6
+  %1101 = trunc i64 %.sink350.i82 to i16
+  %1102 = getelementptr inbounds nuw i8, ptr %.sink349.i83, i64 6
   store i16 %1101, ptr %1102, align 2, !tbaa !56
-  %storemerge.i88 = getelementptr inbounds nuw i8, ptr %.sink307.i83, i64 8
+  %storemerge.i88 = getelementptr inbounds nuw i8, ptr %.sink349.i83, i64 8
   store ptr %storemerge.i88, ptr %655, align 8, !tbaa !44
   %1103 = getelementptr inbounds nuw i8, ptr %.2.i.i87, i64 %.2400.i.i84
   %.not452.i.i89 = icmp ugt ptr %1103, %36
@@ -8448,15 +8448,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit475.i.i357: ; pr
   br i1 %1645, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i320
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344: ; preds = %1640, %1306
-  %.sink312.i345 = phi ptr [ %1307, %1306 ], [ %1641, %1640 ]
-  %.sink308.ph.i346 = phi i64 [ %1310, %1306 ], [ %1644, %1640 ]
+  %.sink354.i345 = phi ptr [ %1307, %1306 ], [ %1641, %1640 ]
+  %.sink350.ph.i346 = phi i64 [ %1310, %1306 ], [ %1644, %1640 ]
   %.2400.i.ph.i347 = phi i64 [ %1259, %1306 ], [ %.4402.i.i314, %1640 ]
   %.2392.i.ph.i348 = phi i32 [ %.0390.i244.i283, %1306 ], [ %.0384.i245.i282, %1640 ]
   %.2386.i.ph.i349 = phi i32 [ %.0384.i245.i282, %1306 ], [ %.3417.i.i313, %1640 ]
   %.2.i.ph.i350 = phi ptr [ %1252, %1306 ], [ %.4.i.i315, %1640 ]
   store i32 2, ptr %1205, align 8, !tbaa !47
   %1646 = load ptr, ptr %1, align 8, !tbaa !48
-  %1647 = ptrtoint ptr %.sink312.i345 to i64
+  %1647 = ptrtoint ptr %.sink354.i345 to i64
   %1648 = ptrtoint ptr %1646 to i64
   %1649 = sub i64 %1647, %1648
   %1650 = lshr exact i64 %1649, 3
@@ -8465,16 +8465,16 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i320
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i320: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344, %1640, %1306
-  %.sink308.i321 = phi i64 [ %1310, %1306 ], [ %1644, %1640 ], [ %.sink308.ph.i346, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344 ]
-  %.sink307.i322 = phi ptr [ %1307, %1306 ], [ %1641, %1640 ], [ %.sink312.i345, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344 ]
+  %.sink350.i321 = phi i64 [ %1310, %1306 ], [ %1644, %1640 ], [ %.sink350.ph.i346, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344 ]
+  %.sink349.i322 = phi ptr [ %1307, %1306 ], [ %1641, %1640 ], [ %.sink354.i345, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344 ]
   %.2400.i.i323 = phi i64 [ %1259, %1306 ], [ %.4402.i.i314, %1640 ], [ %.2400.i.ph.i347, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344 ]
   %.2392.i.i324 = phi i32 [ %.0390.i244.i283, %1306 ], [ %.0384.i245.i282, %1640 ], [ %.2392.i.ph.i348, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344 ]
   %.2386.i.i325 = phi i32 [ %.0384.i245.i282, %1306 ], [ %.3417.i.i313, %1640 ], [ %.2386.i.ph.i349, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344 ]
   %.2.i.i326 = phi ptr [ %1252, %1306 ], [ %.4.i.i315, %1640 ], [ %.2.i.ph.i350, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i344 ]
-  %1652 = trunc i64 %.sink308.i321 to i16
-  %1653 = getelementptr inbounds nuw i8, ptr %.sink307.i322, i64 6
+  %1652 = trunc i64 %.sink350.i321 to i16
+  %1653 = getelementptr inbounds nuw i8, ptr %.sink349.i322, i64 6
   store i16 %1652, ptr %1653, align 2, !tbaa !56
-  %storemerge.i327 = getelementptr inbounds nuw i8, ptr %.sink307.i322, i64 8
+  %storemerge.i327 = getelementptr inbounds nuw i8, ptr %.sink349.i322, i64 8
   store ptr %storemerge.i327, ptr %1206, align 8, !tbaa !44
   %1654 = getelementptr inbounds nuw i8, ptr %.2.i.i326, i64 %.2400.i.i323
   %.not452.i.i328 = icmp ugt ptr %1654, %36
@@ -9546,15 +9546,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit475.i.i601: ; pr
   br i1 %2196, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588, label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i564
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588: ; preds = %2191, %1857
-  %.sink312.i589 = phi ptr [ %1858, %1857 ], [ %2192, %2191 ]
-  %.sink308.ph.i590 = phi i64 [ %1861, %1857 ], [ %2195, %2191 ]
+  %.sink354.i589 = phi ptr [ %1858, %1857 ], [ %2192, %2191 ]
+  %.sink350.ph.i590 = phi i64 [ %1861, %1857 ], [ %2195, %2191 ]
   %.2400.i.ph.i591 = phi i64 [ %1810, %1857 ], [ %.4402.i.i558, %2191 ]
   %.2392.i.ph.i592 = phi i32 [ %.0390.i244.i527, %1857 ], [ %.0384.i245.i526, %2191 ]
   %.2386.i.ph.i593 = phi i32 [ %.0384.i245.i526, %1857 ], [ %.3417.i.i557, %2191 ]
   %.2.i.ph.i594 = phi ptr [ %1803, %1857 ], [ %.4.i.i559, %2191 ]
   store i32 2, ptr %1756, align 8, !tbaa !47
   %2197 = load ptr, ptr %1, align 8, !tbaa !48
-  %2198 = ptrtoint ptr %.sink312.i589 to i64
+  %2198 = ptrtoint ptr %.sink354.i589 to i64
   %2199 = ptrtoint ptr %2197 to i64
   %2200 = sub i64 %2198, %2199
   %2201 = lshr exact i64 %2200, 3
@@ -9563,16 +9563,16 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i564
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.i564: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588, %2191, %1857
-  %.sink308.i565 = phi i64 [ %1861, %1857 ], [ %2195, %2191 ], [ %.sink308.ph.i590, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588 ]
-  %.sink307.i566 = phi ptr [ %1858, %1857 ], [ %2192, %2191 ], [ %.sink312.i589, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588 ]
+  %.sink350.i565 = phi i64 [ %1861, %1857 ], [ %2195, %2191 ], [ %.sink350.ph.i590, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588 ]
+  %.sink349.i566 = phi ptr [ %1858, %1857 ], [ %2192, %2191 ], [ %.sink354.i589, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588 ]
   %.2400.i.i567 = phi i64 [ %1810, %1857 ], [ %.4402.i.i558, %2191 ], [ %.2400.i.ph.i591, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588 ]
   %.2392.i.i568 = phi i32 [ %.0390.i244.i527, %1857 ], [ %.0384.i245.i526, %2191 ], [ %.2392.i.ph.i592, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588 ]
   %.2386.i.i569 = phi i32 [ %.0384.i245.i526, %1857 ], [ %.3417.i.i557, %2191 ], [ %.2386.i.ph.i593, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588 ]
   %.2.i.i570 = phi ptr [ %1803, %1857 ], [ %.4.i.i559, %2191 ], [ %.2.i.ph.i594, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit471.i.sink.split.i588 ]
-  %2203 = trunc i64 %.sink308.i565 to i16
-  %2204 = getelementptr inbounds nuw i8, ptr %.sink307.i566, i64 6
+  %2203 = trunc i64 %.sink350.i565 to i16
+  %2204 = getelementptr inbounds nuw i8, ptr %.sink349.i566, i64 6
   store i16 %2203, ptr %2204, align 2, !tbaa !56
-  %storemerge.i571 = getelementptr inbounds nuw i8, ptr %.sink307.i566, i64 8
+  %storemerge.i571 = getelementptr inbounds nuw i8, ptr %.sink349.i566, i64 8
   store ptr %storemerge.i571, ptr %1757, align 8, !tbaa !44
   %2205 = getelementptr inbounds nuw i8, ptr %.2.i.i570, i64 %.2400.i.i567
   %.not452.i.i572 = icmp ugt ptr %2205, %36
@@ -10635,15 +10635,15 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit366: ; preds = %
   br label %.thread, !llvm.loop !75
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split: ; preds = %348, %236, %159
-  %.sink568 = phi ptr [ %160, %159 ], [ %237, %236 ], [ %349, %348 ]
-  %.sink564.ph = phi i64 [ %163, %159 ], [ %240, %236 ], [ %352, %348 ]
+  %.sink602 = phi ptr [ %160, %159 ], [ %237, %236 ], [ %349, %348 ]
+  %.sink598.ph = phi i64 [ %163, %159 ], [ %240, %236 ], [ %352, %348 ]
   %.0327.ph = phi i64 [ %112, %159 ], [ %.1328.lcssa, %236 ], [ %.3330, %348 ]
   %.1319.ph = phi i32 [ %.0318529, %159 ], [ %.0312530, %236 ], [ %.0312530, %348 ]
   %.1313.ph = phi i32 [ %.0312530, %159 ], [ %176, %236 ], [ %.0333, %348 ]
   %.1.ph = phi ptr [ %105, %159 ], [ %.2.lcssa, %236 ], [ %.4, %348 ]
   store i32 2, ptr %57, align 8, !tbaa !47
   %360 = load ptr, ptr %1, align 8, !tbaa !48
-  %361 = ptrtoint ptr %.sink568 to i64
+  %361 = ptrtoint ptr %.sink602 to i64
   %362 = ptrtoint ptr %360 to i64
   %363 = sub i64 %361, %362
   %364 = lshr exact i64 %363, 3
@@ -10652,16 +10652,16 @@ _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split: 
   br label %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358
 
 _ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358: ; preds = %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split, %348, %236, %159
-  %.sink564 = phi i64 [ %163, %159 ], [ %240, %236 ], [ %352, %348 ], [ %.sink564.ph, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split ]
-  %.sink563 = phi ptr [ %160, %159 ], [ %237, %236 ], [ %349, %348 ], [ %.sink568, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split ]
+  %.sink598 = phi i64 [ %163, %159 ], [ %240, %236 ], [ %352, %348 ], [ %.sink598.ph, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split ]
+  %.sink597 = phi ptr [ %160, %159 ], [ %237, %236 ], [ %349, %348 ], [ %.sink602, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split ]
   %.0327 = phi i64 [ %112, %159 ], [ %.1328.lcssa, %236 ], [ %.3330, %348 ], [ %.0327.ph, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split ]
   %.1319 = phi i32 [ %.0318529, %159 ], [ %.0312530, %236 ], [ %.0312530, %348 ], [ %.1319.ph, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split ]
   %.1313 = phi i32 [ %.0312530, %159 ], [ %176, %236 ], [ %.0333, %348 ], [ %.1313.ph, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split ]
   %.1 = phi ptr [ %105, %159 ], [ %.2.lcssa, %236 ], [ %.4, %348 ], [ %.1.ph, %_ZN11duckdb_zstdL13ZSTD_storeSeqEPNS_10seqStore_tEmPKhS3_jm.exit358.sink.split ]
-  %366 = trunc i64 %.sink564 to i16
-  %367 = getelementptr inbounds nuw i8, ptr %.sink563, i64 6
+  %366 = trunc i64 %.sink598 to i16
+  %367 = getelementptr inbounds nuw i8, ptr %.sink597, i64 6
   store i16 %366, ptr %367, align 2, !tbaa !56
-  %368 = getelementptr inbounds nuw i8, ptr %.sink563, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %.sink597, i64 8
   store ptr %368, ptr %58, align 8, !tbaa !44
   %369 = getelementptr inbounds nuw i8, ptr %.1, i64 %.0327
   %.not341 = icmp ugt ptr %369, %17

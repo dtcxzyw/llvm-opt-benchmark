@@ -663,9 +663,9 @@ define hidden void @_ZN7NMTDCmd6reportEbm(ptr noundef nonnull readonly align 8 c
   %5 = alloca %class.MemSummaryReporter, align 8
   %6 = alloca %class.MemDetailReporter, align 8
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink.sroa.gep9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink.sroa.gep11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep12 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink.sroa.gep16 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -812,10 +812,10 @@ _ZN17MemDetailReporterD2Ev.exit:                  ; preds = %._crit_edge.i.i.i.i
   br label %65
 
 65:                                               ; preds = %_ZN17MemDetailReporterD2Ev.exit, %37
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN17MemDetailReporterD2Ev.exit ], [ %.sink.sroa.gep9, %37 ]
-  %.sink.sroa.phi10 = phi ptr [ %.sink.sroa.gep11, %_ZN17MemDetailReporterD2Ev.exit ], [ %.sink.sroa.gep12, %37 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN17MemDetailReporterD2Ev.exit ], [ %.sink.sroa.gep14, %37 ]
+  %.sink.sroa.phi15 = phi ptr [ %.sink.sroa.gep16, %_ZN17MemDetailReporterD2Ev.exit ], [ %.sink.sroa.gep17, %37 ]
   %66 = load ptr, ptr %.sink.sroa.phi, align 8
-  %67 = load i8, ptr %.sink.sroa.phi10, align 8
+  %67 = load i8, ptr %.sink.sroa.phi15, align 8
   %68 = trunc i8 %67 to i1
   %69 = call noundef zeroext i1 @_ZN12outputStream14set_autoindentEb(ptr noundef nonnull align 8 dereferenceable(56) %66, i1 noundef zeroext %68) #7
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %31, align 8
@@ -905,9 +905,9 @@ define hidden void @_ZN7NMTDCmd11report_diffEbm(ptr noundef nonnull readonly ali
   %5 = alloca %class.MemSummaryDiffReporter, align 8
   %6 = alloca %class.MemDetailDiffReporter, align 8
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink.sroa.gep11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink.sroa.gep13 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink.sroa.gep16 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink.sroa.gep18 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -1033,10 +1033,10 @@ _ZN21MemDetailDiffReporterD2Ev.exit:              ; preds = %._crit_edge.i.i.i.i
   br label %52
 
 52:                                               ; preds = %_ZN21MemDetailDiffReporterD2Ev.exit, %37
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN21MemDetailDiffReporterD2Ev.exit ], [ %.sink.sroa.gep11, %37 ]
-  %.sink.sroa.phi12 = phi ptr [ %.sink.sroa.gep13, %_ZN21MemDetailDiffReporterD2Ev.exit ], [ %.sink.sroa.gep14, %37 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %_ZN21MemDetailDiffReporterD2Ev.exit ], [ %.sink.sroa.gep16, %37 ]
+  %.sink.sroa.phi17 = phi ptr [ %.sink.sroa.gep18, %_ZN21MemDetailDiffReporterD2Ev.exit ], [ %.sink.sroa.gep19, %37 ]
   %53 = load ptr, ptr %.sink.sroa.phi, align 8
-  %54 = load i8, ptr %.sink.sroa.phi12, align 8
+  %54 = load i8, ptr %.sink.sroa.phi17, align 8
   %55 = trunc i8 %54 to i1
   %56 = call noundef zeroext i1 @_ZN12outputStream14set_autoindentEb(ptr noundef nonnull align 8 dereferenceable(56) %53, i1 noundef zeroext %55) #7
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE, i64 16), ptr %31, align 8
@@ -1709,15 +1709,15 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
   br i1 %19, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread5, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %5, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i
-  %.sink15.i.i.i.i = phi ptr [ %21, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i ], [ %.pre.i.i.i, %5 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink15.i.i.i.i, i64 48
+  %.sink17.i.i.i.i = phi ptr [ %21, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i ], [ %.pre.i.i.i, %5 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sink17.i.i.i.i, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow, i8 noundef zeroext 12) #7
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, label %24
 
 24:                                               ; preds = %.lr.ph.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sink17.i.i.i.i, i64 48, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %10, align 8
@@ -1863,15 +1863,15 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
   br i1 %20, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread21, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %6, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i
-  %.sink15.i.i.i.i = phi ptr [ %22, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i ], [ %.pre.i.i.i, %6 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink15.i.i.i.i, i64 48
+  %.sink17.i.i.i.i = phi ptr [ %22, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i ], [ %.pre.i.i.i, %6 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink17.i.i.i.i, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow, i8 noundef zeroext 12) #7
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, label %25
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sink17.i.i.i.i, i64 48, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr null, ptr %26, align 8
   %27 = load ptr, ptr %11, align 8
@@ -1956,15 +1956,15 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI20ReservedMemoryRegi
   br i1 %20, label %_ZNK14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE8new_nodeERKS0_.exit.thread10, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %6, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i
-  %.sink15.i.i.i.i = phi ptr [ %22, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i ], [ %.pre.i.i.i, %6 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink15.i.i.i.i, i64 48
+  %.sink17.i.i.i.i = phi ptr [ %22, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i ], [ %.pre.i.i.i, %6 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink17.i.i.i.i, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr @_ZN6AnyObjnwEmRKSt9nothrow_t8MEMFLAGS(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow, i8 noundef zeroext 12) #7
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i.i.i.i, label %25
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sink15.i.i.i.i, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sink17.i.i.i.i, i64 48, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr null, ptr %26, align 8
   %27 = load ptr, ptr %11, align 8

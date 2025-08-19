@@ -236,10 +236,10 @@ _atoi.exit289:                                    ; preds = %.lr.ph.i287, %90, %
   br i1 %108, label %thread-pre-split, label %111
 
 thread-pre-split:                                 ; preds = %_atoi.exit289, %_atoi.exit289, %_atoi.exit289, %104, %99
-  %.sink474 = phi i32 [ 768, %99 ], [ 192, %104 ], [ 256, %_atoi.exit289 ], [ 256, %_atoi.exit289 ], [ 256, %_atoi.exit289 ]
-  %.sink473 = phi i64 [ 2, %99 ], [ 2, %104 ], [ 1, %_atoi.exit289 ], [ 1, %_atoi.exit289 ], [ 1, %_atoi.exit289 ]
-  %109 = or i32 %.4, %.sink474
-  %110 = getelementptr inbounds nuw i8, ptr %.4356, i64 %.sink473
+  %.sink501 = phi i32 [ 768, %99 ], [ 192, %104 ], [ 256, %_atoi.exit289 ], [ 256, %_atoi.exit289 ], [ 256, %_atoi.exit289 ]
+  %.sink500 = phi i64 [ 2, %99 ], [ 2, %104 ], [ 1, %_atoi.exit289 ], [ 1, %_atoi.exit289 ], [ 1, %_atoi.exit289 ]
+  %109 = or i32 %.4, %.sink501
+  %110 = getelementptr inbounds nuw i8, ptr %.4356, i64 %.sink500
   %.pr366 = load i8, ptr %110, align 1, !tbaa !3
   br label %111
 
@@ -1958,10 +1958,10 @@ define internal fastcc noundef i64 @_ntoa_format(ptr noundef readonly captures(n
   br i1 %.not84, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %62, %60, %59
-  %.sink116 = phi i8 [ 45, %59 ], [ 43, %60 ], [ 32, %62 ]
+  %.sink121 = phi i8 [ 45, %59 ], [ 43, %60 ], [ 32, %62 ]
   %64 = add nuw nsw i64 %.3, 1
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 %.3
-  store i8 %.sink116, ptr %65, align 1, !tbaa !3
+  store i8 %.sink121, ptr %65, align 1, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.critedge90.thread, %62, %57

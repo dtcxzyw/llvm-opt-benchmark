@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(
   br i1 %or.cond29, label %16, label %37
 
 16:                                               ; preds = %.thread, %._crit_edge
-  %.049 = phi i1 [ %spec.select, %.thread ], [ %.not, %._crit_edge ]
+  %.050 = phi i1 [ %spec.select, %.thread ], [ %.not, %._crit_edge ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load i32, ptr %17, align 8, !tbaa !90
   %19 = icmp eq i32 %18, 768
@@ -177,7 +177,7 @@ define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(
 22:                                               ; preds = %16
   %23 = and i32 %1, 16
   %.not24 = icmp ne i32 %23, 0
-  %or.cond32.not = and i1 %.not24, %.049
+  %or.cond32.not = and i1 %.not24, %.050
   br i1 %or.cond32.not, label %37, label %24
 
 24:                                               ; preds = %22
@@ -186,14 +186,14 @@ define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(
   %26 = and i32 %2, 128
   %27 = icmp ne i32 %26, 0
   %28 = or i1 %.not25, %27
-  %or.cond35.not = or i1 %28, %.049
+  %or.cond35.not = or i1 %28, %.050
   br i1 %or.cond35.not, label %29, label %37
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %31 = load i32, ptr %30, align 8, !tbaa !91
   %32 = icmp eq i32 %31, 0
-  %or.cond = or i1 %.049, %32
+  %or.cond = or i1 %.050, %32
   %or.cond36 = or i1 %.not25, %or.cond
   br i1 %or.cond36, label %33, label %37
 
@@ -551,7 +551,7 @@ switch.early.test:                                ; preds = %110
   br i1 %or.cond29.i, label %159, label %extension_is_relevant.exit.thread
 
 159:                                              ; preds = %._crit_edge.i, %.thread.i89
-  %.049.i = phi i1 [ %spec.select.i90, %.thread.i89 ], [ %.not.i, %._crit_edge.i ]
+  %.050.i = phi i1 [ %spec.select.i90, %.thread.i89 ], [ %.not.i, %._crit_edge.i ]
   %160 = load i32, ptr %138, align 8, !tbaa !90
   %161 = icmp eq i32 %160, 768
   %162 = and i32 %146, 8
@@ -562,20 +562,20 @@ switch.early.test:                                ; preds = %110
 164:                                              ; preds = %159
   %165 = and i32 %146, 16
   %.not24.i = icmp ne i32 %165, 0
-  %or.cond32.not.i = and i1 %.not24.i, %.049.i
+  %or.cond32.not.i = and i1 %.not24.i, %.050.i
   br i1 %or.cond32.not.i, label %extension_is_relevant.exit.thread, label %166
 
 166:                                              ; preds = %164
   %167 = and i32 %146, 32
   %.not25.i = icmp eq i32 %167, 0
   %168 = or i1 %139, %.not25.i
-  %or.cond35.not.i = or i1 %168, %.049.i
+  %or.cond35.not.i = or i1 %168, %.050.i
   br i1 %or.cond35.not.i, label %169, label %extension_is_relevant.exit.thread
 
 169:                                              ; preds = %166
   %170 = load i32, ptr %31, align 8, !tbaa !91
   %171 = icmp eq i32 %170, 0
-  %or.cond.i = or i1 %.049.i, %171
+  %or.cond.i = or i1 %.050.i, %171
   %or.cond36.i = or i1 %.not25.i, %or.cond.i
   br i1 %or.cond36.i, label %extension_is_relevant.exit, label %extension_is_relevant.exit.thread
 
@@ -681,7 +681,7 @@ define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %or.cond29.i, label %32, label %.thread
 
 32:                                               ; preds = %._crit_edge.i, %.thread.i
-  %.049.i = phi i1 [ %spec.select.i, %.thread.i ], [ %.not.i, %._crit_edge.i ]
+  %.050.i = phi i1 [ %spec.select.i, %.thread.i ], [ %.not.i, %._crit_edge.i ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load i32, ptr %33, align 8, !tbaa !90
   %35 = icmp eq i32 %34, 768
@@ -693,7 +693,7 @@ define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 38:                                               ; preds = %32
   %39 = and i32 %19, 16
   %.not24.i = icmp ne i32 %39, 0
-  %or.cond32.not.i = and i1 %.not24.i, %.049.i
+  %or.cond32.not.i = and i1 %.not24.i, %.050.i
   br i1 %or.cond32.not.i, label %.thread, label %40
 
 40:                                               ; preds = %38
@@ -702,14 +702,14 @@ define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %42 = and i32 %2, 128
   %43 = icmp ne i32 %42, 0
   %44 = or i1 %43, %.not25.i
-  %or.cond35.not.i = or i1 %44, %.049.i
+  %or.cond35.not.i = or i1 %44, %.050.i
   br i1 %or.cond35.not.i, label %45, label %.thread
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %47 = load i32, ptr %46, align 8, !tbaa !91
   %48 = icmp eq i32 %47, 0
-  %or.cond.i = or i1 %.049.i, %48
+  %or.cond.i = or i1 %.050.i, %48
   %or.cond36.i = or i1 %.not25.i, %or.cond.i
   br i1 %or.cond36.i, label %extension_is_relevant.exit, label %.thread
 
@@ -844,7 +844,7 @@ define range(i32 0, 2) i32 @should_add_extension(ptr noundef readonly captures(n
   br i1 %or.cond29.i, label %20, label %extension_is_relevant.exit.thread
 
 20:                                               ; preds = %._crit_edge.i, %.thread.i
-  %.049.i = phi i1 [ %spec.select.i, %.thread.i ], [ %.not.i, %._crit_edge.i ]
+  %.050.i = phi i1 [ %spec.select.i, %.thread.i ], [ %.not.i, %._crit_edge.i ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i32, ptr %21, align 8, !tbaa !90
   %23 = icmp eq i32 %22, 768
@@ -856,7 +856,7 @@ define range(i32 0, 2) i32 @should_add_extension(ptr noundef readonly captures(n
 26:                                               ; preds = %20
   %27 = and i32 %1, 16
   %.not24.i = icmp ne i32 %27, 0
-  %or.cond32.not.i = and i1 %.not24.i, %.049.i
+  %or.cond32.not.i = and i1 %.not24.i, %.050.i
   br i1 %or.cond32.not.i, label %extension_is_relevant.exit.thread, label %28
 
 28:                                               ; preds = %26
@@ -865,14 +865,14 @@ define range(i32 0, 2) i32 @should_add_extension(ptr noundef readonly captures(n
   %30 = and i32 %2, 128
   %31 = icmp ne i32 %30, 0
   %32 = or i1 %.not25.i, %31
-  %or.cond35.not.i = or i1 %32, %.049.i
+  %or.cond35.not.i = or i1 %32, %.050.i
   br i1 %or.cond35.not.i, label %33, label %extension_is_relevant.exit.thread
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = load i32, ptr %34, align 8, !tbaa !91
   %36 = icmp eq i32 %35, 0
-  %or.cond.i = or i1 %.049.i, %36
+  %or.cond.i = or i1 %.050.i, %36
   %or.cond36.i = or i1 %.not25.i, %or.cond.i
   br i1 %or.cond36.i, label %extension_is_relevant.exit, label %extension_is_relevant.exit.thread
 
@@ -1019,7 +1019,7 @@ define range(i32 0, 2) i32 @tls_construct_extensions(ptr noundef %0, ptr noundef
   br i1 %or.cond29.i.i, label %53, label %should_add_extension.exit.thread
 
 53:                                               ; preds = %._crit_edge.i.i, %.thread.i.i
-  %.049.i.i = phi i1 [ %spec.select.i.i, %.thread.i.i ], [ %.not.i.i, %._crit_edge.i.i ]
+  %.050.i.i = phi i1 [ %spec.select.i.i, %.thread.i.i ], [ %.not.i.i, %._crit_edge.i.i ]
   %54 = load i32, ptr %30, align 8, !tbaa !90
   %55 = icmp eq i32 %54, 768
   %56 = and i32 %38, 8
@@ -1030,20 +1030,20 @@ define range(i32 0, 2) i32 @tls_construct_extensions(ptr noundef %0, ptr noundef
 58:                                               ; preds = %53
   %59 = and i32 %38, 16
   %.not24.i.i = icmp ne i32 %59, 0
-  %or.cond32.not.i.i = and i1 %.not24.i.i, %.049.i.i
+  %or.cond32.not.i.i = and i1 %.not24.i.i, %.050.i.i
   br i1 %or.cond32.not.i.i, label %should_add_extension.exit.thread, label %60
 
 60:                                               ; preds = %58
   %61 = and i32 %38, 32
   %.not25.i.i = icmp eq i32 %61, 0
   %62 = or i1 %31, %.not25.i.i
-  %or.cond35.not.i.i = or i1 %62, %.049.i.i
+  %or.cond35.not.i.i = or i1 %62, %.050.i.i
   br i1 %or.cond35.not.i.i, label %63, label %should_add_extension.exit.thread
 
 63:                                               ; preds = %60
   %64 = load i32, ptr %32, align 8, !tbaa !91
   %65 = icmp eq i32 %64, 0
-  %or.cond.i.i = or i1 %.049.i.i, %65
+  %or.cond.i.i = or i1 %.050.i.i, %65
   %or.cond36.i.i = or i1 %.not25.i.i, %or.cond.i.i
   br i1 %or.cond36.i.i, label %extension_is_relevant.exit.i, label %should_add_extension.exit.thread
 
@@ -1317,10 +1317,10 @@ define range(i32 -1, 2) i32 @tls_psk_do_binder(ptr noundef %0, ptr noundef %1, p
   br i1 %120, label %.thread146, label %121
 
 .thread146:                                       ; preds = %118, %78, %80, %95, %99, %71
-  %.sink150 = phi i32 [ 1619, %71 ], [ 1636, %99 ], [ 1636, %95 ], [ 1636, %80 ], [ 1636, %78 ], [ 1643, %118 ]
+  %.sink158 = phi i32 [ 1619, %71 ], [ 1636, %99 ], [ 1636, %95 ], [ 1636, %80 ], [ 1636, %78 ], [ 1643, %118 ]
   %.sink = phi i32 [ 332, %71 ], [ 786691, %99 ], [ 786691, %95 ], [ 786691, %80 ], [ 786691, %78 ], [ 786691, %118 ]
   call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink150, ptr noundef nonnull @__func__.tls_psk_do_binder) #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink158, ptr noundef nonnull @__func__.tls_psk_do_binder) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %155
@@ -1580,10 +1580,10 @@ define internal range(i32 0, 2) i32 @final_server_name(ptr noundef %0, i32 %1, i
 
 .sink.split:                                      ; preds = %19, %16
   %.sink = phi ptr [ %8, %16 ], [ %14, %19 ]
-  %.sink85 = phi ptr [ %18, %16 ], [ %21, %19 ]
+  %.sink90 = phi ptr [ %18, %16 ], [ %21, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %.sink, i64 568
   %23 = load ptr, ptr %22, align 8, !tbaa !148
-  %24 = call i32 %.sink85(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %23) #8
+  %24 = call i32 %.sink90(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %23) #8
   br label %25
 
 25:                                               ; preds = %.sink.split, %19

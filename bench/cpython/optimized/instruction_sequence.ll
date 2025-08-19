@@ -1649,12 +1649,12 @@ instr_sequence_next_inst.exit.i.i49:              ; preds = %.split33
 
 InstructionSequenceType_addop_impl.exit.sink.split: ; preds = %instr_sequence_next_inst.exit.i.i49, %instr_sequence_next_inst.exit.i.i
   %.sink = phi i32 [ %57, %instr_sequence_next_inst.exit.i.i ], [ %69, %instr_sequence_next_inst.exit.i.i49 ]
-  %.sink59.in = phi ptr [ %53, %instr_sequence_next_inst.exit.i.i ], [ %65, %instr_sequence_next_inst.exit.i.i49 ]
+  %.sink64.in = phi ptr [ %53, %instr_sequence_next_inst.exit.i.i ], [ %65, %instr_sequence_next_inst.exit.i.i49 ]
   %.sroa.0.4.insert.insert.i46.sink = phi i64 [ %.sroa.0.4.insert.insert.i, %instr_sequence_next_inst.exit.i.i ], [ %.sroa.0.4.insert.insert.i46, %instr_sequence_next_inst.exit.i.i49 ]
   %.sroa.5.12.insert.insert.i48.sink = phi i64 [ %.sroa.5.12.insert.insert.i, %instr_sequence_next_inst.exit.i.i ], [ %.sroa.5.12.insert.insert.i48, %instr_sequence_next_inst.exit.i.i49 ]
-  %.sink59 = load ptr, ptr %.sink59.in, align 8, !tbaa !20
+  %.sink64 = load ptr, ptr %.sink64.in, align 8, !tbaa !20
   %72 = sext i32 %.sink to i64
-  %73 = getelementptr %struct._PyInstruction, ptr %.sink59, i64 %72
+  %73 = getelementptr %struct._PyInstruction, ptr %.sink64, i64 %72
   store i32 %13, ptr %73, align 4, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %20, ptr %74, align 4, !tbaa !28

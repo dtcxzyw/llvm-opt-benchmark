@@ -366,9 +366,9 @@ define internal range(i32 0, 2) i32 @has_changes(ptr noundef readonly captures(a
   %26 = load i32, ptr %22, align 4, !tbaa !55
   %27 = sext i32 %26 to i64
   %.not63.us.i = icmp eq i64 %.043.us21.i, %27
-  br i1 %.not63.us.i, label %.thread44.i, label %29
+  br i1 %.not63.us.i, label %.thread54.i, label %29
 
-.thread44.i:                                      ; preds = %25
+.thread54.i:                                      ; preds = %25
   %28 = add i32 %.047.us20.i, 1
   br label %.critedge.thread.i
 
@@ -385,8 +385,8 @@ define internal range(i32 0, 2) i32 @has_changes(ptr noundef readonly captures(a
   %.not61.us.i = icmp eq i64 %.144.us.i, 0
   br i1 %.not61.us.i, label %.critedge.thread.i, label %.lr.ph.i
 
-.critedge.thread.i:                               ; preds = %29, %.lr.ph.i, %.thread44.i, %21
-  %.us-phi.i = phi i32 [ 0, %21 ], [ %28, %.thread44.i ], [ %35, %29 ], [ %.047.us20.i, %.lr.ph.i ]
+.critedge.thread.i:                               ; preds = %29, %.lr.ph.i, %.thread54.i, %21
+  %.us-phi.i = phi i32 [ 0, %21 ], [ %28, %.thread54.i ], [ %35, %29 ], [ %.047.us20.i, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %contains.exit
 
@@ -418,8 +418,8 @@ contains.exit.thread:                             ; preds = %.preheader.i
 .preheader.i32.thread:                            ; preds = %contains.exit.thread
   %40 = getelementptr i8, ptr %1, i64 8
   %.val1444 = load i64, ptr %40, align 8, !tbaa !51
-  %.not5926.i3376 = icmp eq i64 %.val1444, 0
-  br i1 %.not5926.i3376, label %contains.exit41, label %.lr.ph30.i34.thread
+  %.not5926.i3392 = icmp eq i64 %.val1444, 0
+  br i1 %.not5926.i3392, label %contains.exit41, label %.lr.ph30.i34.thread
 
 .lr.ph30.i34.thread:                              ; preds = %.preheader.i32.thread
   %.val1343 = load ptr, ptr %1, align 8, !tbaa !49
@@ -433,8 +433,8 @@ contains.exit.thread:                             ; preds = %.preheader.i
 
 .lr.ph30.split.i.preheader:                       ; preds = %.lr.ph30.i34.thread, %.lr.ph30.i34
   %43 = phi ptr [ %41, %.lr.ph30.i34.thread ], [ %42, %.lr.ph30.i34 ]
-  %.val14477783 = phi i64 [ %.val1444, %.lr.ph30.i34.thread ], [ %.val14, %.lr.ph30.i34 ]
-  %.val13467882 = phi ptr [ %.val1343, %.lr.ph30.i34.thread ], [ %.val13, %.lr.ph30.i34 ]
+  %.val14479399 = phi i64 [ %.val1444, %.lr.ph30.i34.thread ], [ %.val14, %.lr.ph30.i34 ]
+  %.val13469498 = phi ptr [ %.val1343, %.lr.ph30.i34.thread ], [ %.val13, %.lr.ph30.i34 ]
   %44 = phi i32 [ 1, %.lr.ph30.i34.thread ], [ %38, %.lr.ph30.i34 ]
   %45 = phi i32 [ 0, %.lr.ph30.i34.thread ], [ %36, %.lr.ph30.i34 ]
   br label %.lr.ph30.split.i
@@ -484,9 +484,9 @@ contains.exit.thread:                             ; preds = %.preheader.i
   %59 = load i32, ptr %55, align 4, !tbaa !55
   %60 = sext i32 %59 to i64
   %.not63.us.i26 = icmp eq i64 %.043.us21.i23, %60
-  br i1 %.not63.us.i26, label %.thread44.i31, label %62
+  br i1 %.not63.us.i26, label %.thread54.i31, label %62
 
-.thread44.i31:                                    ; preds = %58
+.thread54.i31:                                    ; preds = %58
   %61 = add i32 %.047.us20.i24, 1
   br label %.critedge.thread.i16
 
@@ -544,8 +544,8 @@ contains.exit.thread:                             ; preds = %.preheader.i
   %85 = icmp eq i32 %.047.i, %36
   br i1 %85, label %.critedge.i, label %.split.i, !llvm.loop !56
 
-.critedge.thread.i16:                             ; preds = %69, %.split.i, %62, %.lr.ph.i20, %.thread44.i31, %.split.us.i
-  %.us-phi.i17 = phi i32 [ 0, %.split.us.i ], [ %61, %.thread44.i31 ], [ %68, %62 ], [ %.047.us20.i24, %.lr.ph.i20 ], [ %.047.i, %.split.i ], [ %.047.i, %69 ]
+.critedge.thread.i16:                             ; preds = %69, %.split.i, %62, %.lr.ph.i20, %.thread54.i31, %.split.us.i
+  %.us-phi.i17 = phi i32 [ 0, %.split.us.i ], [ %61, %.thread54.i31 ], [ %68, %62 ], [ %.047.us20.i24, %.lr.ph.i20 ], [ %.047.i, %.split.i ], [ %.047.i, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %contains.exit41
 
@@ -554,8 +554,8 @@ contains.exit.thread:                             ; preds = %.preheader.i
   br label %contains.exit41
 
 .lr.ph30.split.i:                                 ; preds = %.lr.ph30.split.i.preheader, %92
-  %.24129.i = phi ptr [ %95, %92 ], [ %.val13467882, %.lr.ph30.split.i.preheader ]
-  %.24528.i = phi i64 [ %96, %92 ], [ %.val14477783, %.lr.ph30.split.i.preheader ]
+  %.24129.i = phi ptr [ %95, %92 ], [ %.val13469498, %.lr.ph30.split.i.preheader ]
+  %.24528.i = phi i64 [ %96, %92 ], [ %.val14479399, %.lr.ph30.split.i.preheader ]
   %.35027.i = phi i32 [ %90, %92 ], [ 0, %.lr.ph30.split.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %86 = call i64 @kwsexec(ptr noundef %4, ptr noundef %.24129.i, i64 noundef %.24528.i, ptr noundef nonnull %7) #9
@@ -698,7 +698,7 @@ define internal fastcc i32 @pickaxe_match(ptr noundef %0, ptr noundef %1, ptr no
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %18 = load ptr, ptr %17, align 8, !tbaa !66
   %.not44 = icmp eq ptr %18, null
-  br i1 %.not44, label %31, label %.thread69
+  br i1 %.not44, label %31, label %.thread74
 
 .thread:                                          ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 416
@@ -717,9 +717,9 @@ define internal fastcc i32 @pickaxe_match(ptr noundef %0, ptr noundef %1, ptr no
   %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   %.pre68 = load i16, ptr %.phi.trans.insert67, align 8, !tbaa !61
   %24 = icmp eq i16 %.pre68, 0
-  br i1 %24, label %84, label %.thread69
+  br i1 %24, label %84, label %.thread74
 
-.thread69:                                        ; preds = %16, %23
+.thread74:                                        ; preds = %16, %23
   %25 = phi ptr [ %19, %23 ], [ %17, %16 ]
   %26 = phi ptr [ %.pre, %23 ], [ %13, %16 ]
   %27 = load ptr, ptr %25, align 8, !tbaa !66
@@ -830,8 +830,8 @@ define internal fastcc i32 @pickaxe_match(ptr noundef %0, ptr noundef %1, ptr no
   call void @diff_free_filespec_data(ptr noundef %83) #9
   br label %84
 
-84:                                               ; preds = %52, %58, %.thread60, %21, %.thread69, %23, %11, %81
-  %.0 = phi i32 [ %75, %81 ], [ 0, %11 ], [ 1, %21 ], [ 0, %23 ], [ %30, %.thread69 ], [ 0, %.thread60 ], [ 0, %58 ], [ 0, %52 ]
+84:                                               ; preds = %52, %58, %.thread60, %21, %.thread74, %23, %11, %81
+  %.0 = phi i32 [ %75, %81 ], [ 0, %11 ], [ 1, %21 ], [ 0, %23 ], [ %30, %.thread74 ], [ 0, %.thread60 ], [ 0, %58 ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

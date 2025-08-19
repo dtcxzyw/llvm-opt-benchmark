@@ -487,14 +487,14 @@ define hidden noundef i32 @_ZN2cv4usac7Quality10getInliersERKNS_3PtrINS0_5ErrorE
   br i1 %.not25.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split: ; preds = %11, %7
-  %.sroa.0.0.copyload.i.sink31 = phi ptr [ %.sroa.0.0.copyload.i, %7 ], [ %5, %11 ]
+  %.sroa.0.0.copyload.i.sink33 = phi ptr [ %.sroa.0.0.copyload.i, %7 ], [ %5, %11 ]
   %12 = sub i32 64, %.sroa.2.0.copyload.i
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 -1, %13
   %15 = xor i64 %14, -1
-  %16 = load i64, ptr %.sroa.0.0.copyload.i.sink31, align 8, !tbaa !29
+  %16 = load i64, ptr %.sroa.0.0.copyload.i.sink33, align 8, !tbaa !29
   %17 = and i64 %16, %15
-  store i64 %17, ptr %.sroa.0.0.copyload.i.sink31, align 8, !tbaa !29
+  store i64 %17, ptr %.sroa.0.0.copyload.i.sink33, align 8, !tbaa !29
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split, %7, %11
@@ -578,14 +578,14 @@ define hidden noundef i32 @_ZN2cv4usac7Quality10getInliersERKSt6vectorIfSaIfEERS
   br i1 %.not25.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split: ; preds = %10, %6
-  %.sroa.0.0.copyload.i.sink34 = phi ptr [ %.sroa.0.0.copyload.i, %6 ], [ %4, %10 ]
+  %.sroa.0.0.copyload.i.sink38 = phi ptr [ %.sroa.0.0.copyload.i, %6 ], [ %4, %10 ]
   %11 = sub i32 64, %.sroa.2.0.copyload.i
   %12 = zext nneg i32 %11 to i64
   %13 = lshr i64 -1, %12
   %14 = xor i64 %13, -1
-  %15 = load i64, ptr %.sroa.0.0.copyload.i.sink34, align 8, !tbaa !29
+  %15 = load i64, ptr %.sroa.0.0.copyload.i.sink38, align 8, !tbaa !29
   %16 = and i64 %15, %14
-  store i64 %16, ptr %.sroa.0.0.copyload.i.sink34, align 8, !tbaa !29
+  store i64 %16, ptr %.sroa.0.0.copyload.i.sink38, align 8, !tbaa !29
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split, %6, %10
@@ -1451,14 +1451,14 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17RansacQualityImpl10getInli
   br i1 %.not25.i.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i: ; preds = %13, %9
-  %.sroa.0.0.copyload.i.sink31.i = phi ptr [ %.sroa.0.0.copyload.i.i, %9 ], [ %7, %13 ]
+  %.sroa.0.0.copyload.i.sink33.i = phi ptr [ %.sroa.0.0.copyload.i.i, %9 ], [ %7, %13 ]
   %14 = sub i32 64, %.sroa.2.0.copyload.i.i
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 -1, %15
   %17 = xor i64 %16, -1
-  %18 = load i64, ptr %.sroa.0.0.copyload.i.sink31.i, align 8, !tbaa !29
+  %18 = load i64, ptr %.sroa.0.0.copyload.i.sink33.i, align 8, !tbaa !29
   %19 = and i64 %18, %17
-  store i64 %19, ptr %.sroa.0.0.copyload.i.sink31.i, align 8, !tbaa !29
+  store i64 %19, ptr %.sroa.0.0.copyload.i.sink33.i, align 8, !tbaa !29
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i, %13, %9
@@ -2078,14 +2078,14 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac15MsacQualityImpl10getInlier
   br i1 %.not25.i.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i: ; preds = %13, %9
-  %.sroa.0.0.copyload.i.sink31.i = phi ptr [ %.sroa.0.0.copyload.i.i, %9 ], [ %7, %13 ]
+  %.sroa.0.0.copyload.i.sink33.i = phi ptr [ %.sroa.0.0.copyload.i.i, %9 ], [ %7, %13 ]
   %14 = sub i32 64, %.sroa.2.0.copyload.i.i
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 -1, %15
   %17 = xor i64 %16, -1
-  %18 = load i64, ptr %.sroa.0.0.copyload.i.sink31.i, align 8, !tbaa !29
+  %18 = load i64, ptr %.sroa.0.0.copyload.i.sink33.i, align 8, !tbaa !29
   %19 = and i64 %18, %17
-  store i64 %19, ptr %.sroa.0.0.copyload.i.sink31.i, align 8, !tbaa !29
+  store i64 %19, ptr %.sroa.0.0.copyload.i.sink33.i, align 8, !tbaa !29
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i, %13, %9
@@ -3051,14 +3051,14 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17MagsacQualityImpl10getInli
   br i1 %.not25.i.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i: ; preds = %13, %9
-  %.sroa.0.0.copyload.i.sink31.i = phi ptr [ %.sroa.0.0.copyload.i.i, %9 ], [ %7, %13 ]
+  %.sroa.0.0.copyload.i.sink33.i = phi ptr [ %.sroa.0.0.copyload.i.i, %9 ], [ %7, %13 ]
   %14 = sub i32 64, %.sroa.2.0.copyload.i.i
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 -1, %15
   %17 = xor i64 %16, -1
-  %18 = load i64, ptr %.sroa.0.0.copyload.i.sink31.i, align 8, !tbaa !29
+  %18 = load i64, ptr %.sroa.0.0.copyload.i.sink33.i, align 8, !tbaa !29
   %19 = and i64 %18, %17
-  store i64 %19, ptr %.sroa.0.0.copyload.i.sink31.i, align 8, !tbaa !29
+  store i64 %19, ptr %.sroa.0.0.copyload.i.sink33.i, align 8, !tbaa !29
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i, %13, %9
@@ -3697,14 +3697,14 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16LMedsQualityImpl10getInlie
   br i1 %.not25.i.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i: ; preds = %13, %9
-  %.sroa.0.0.copyload.i.sink31.i = phi ptr [ %.sroa.0.0.copyload.i.i, %9 ], [ %7, %13 ]
+  %.sroa.0.0.copyload.i.sink33.i = phi ptr [ %.sroa.0.0.copyload.i.i, %9 ], [ %7, %13 ]
   %14 = sub i32 64, %.sroa.2.0.copyload.i.i
   %15 = zext nneg i32 %14 to i64
   %16 = lshr i64 -1, %15
   %17 = xor i64 %16, -1
-  %18 = load i64, ptr %.sroa.0.0.copyload.i.sink31.i, align 8, !tbaa !29
+  %18 = load i64, ptr %.sroa.0.0.copyload.i.sink33.i, align 8, !tbaa !29
   %19 = and i64 %18, %17
-  store i64 %19, ptr %.sroa.0.0.copyload.i.sink31.i, align 8, !tbaa !29
+  store i64 %19, ptr %.sroa.0.0.copyload.i.sink33.i, align 8, !tbaa !29
   br label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i
 
 _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.sink.split.i, %13, %9

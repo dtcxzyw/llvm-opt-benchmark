@@ -4749,7 +4749,7 @@ define internal fastcc void @_ZN12uv_workspace17dependency_groups20FlatDependenc
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !701
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hed572379ee4cf219E.exit.thread"
 
-default.unreachable154:                           ; preds = %98
+default.unreachable163:                           ; preds = %98
   unreachable
 
 35:                                               ; preds = %31
@@ -4905,7 +4905,7 @@ default.unreachable154:                           ; preds = %98
   %.sroa.0104.0146 = phi ptr [ %89, %.lr.ph ], [ %99, %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hd5b6df13c25f499cE.exit" ]
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0146, i64 32
   %100 = load i64, ptr %.sroa.0104.0146, align 8, !range !734, !noundef !4
-  switch i64 %100, label %default.unreachable154 [
+  switch i64 %100, label %default.unreachable163 [
     i64 0, label %134
     i64 1, label %139
     i64 2, label %141
@@ -7832,16 +7832,16 @@ _ZN12uv_workspace9workspace9Workspace4venv33from_project_environment_variable17h
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %112 = load i64, ptr %111, align 8, !range !56, !noalias !1143, !noundef !4
   %113 = icmp eq i64 %112, 0
-  br i1 %113, label %.thread208, label %114
+  br i1 %113, label %.thread219, label %114
 
 114:                                              ; preds = %.noexc146
   %115 = load ptr, ptr %13, align 8, !noalias !1143, !nonnull !4, !noundef !4
   %116 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %117 = load i64, ptr %116, align 8, !noalias !1143, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.13882356391718250719"(ptr noalias noundef nonnull readonly align 1 %107, ptr noundef nonnull %115, i64 noundef %112, i64 noundef %117)
-          to label %.thread208 unwind label %148
+          to label %.thread219 unwind label %148
 
-.thread208:                                       ; preds = %.noexc146, %114
+.thread219:                                       ; preds = %.noexc146, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1143
   br label %.sink.split
 
@@ -8512,7 +8512,7 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i: ; preds = %256, %.no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   br label %322
 
-.sink.split:                                      ; preds = %.thread, %.thread208
+.sink.split:                                      ; preds = %.thread, %.thread219
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !1140
   br label %324
 
@@ -9038,16 +9038,16 @@ define void @_ZN12uv_workspace9workspace26is_excluded_from_workspace17h2b5bad99a
   %.sroa.5.0 = phi ptr [ %., %6 ], [ %.sroa.5.2.lcssa, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf0dc6b3a9ebf7e21E.exit49" ]
   %40 = icmp eq ptr %.sroa.8.0, null
   %41 = icmp eq ptr %.sroa.8.0, %.sroa.13.0
-  %or.cond123 = select i1 %40, i1 true, i1 %41
-  br i1 %or.cond123, label %select.unfold.us.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit"
+  %or.cond128 = select i1 %40, i1 true, i1 %41
+  br i1 %or.cond128, label %select.unfold.us.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit"
 
 select.unfold.us.i:                               ; preds = %.split.us.preheader.i, %.split.us.i
-  %.sroa.5.2124 = phi ptr [ null, %.split.us.i ], [ %.sroa.5.0, %.split.us.preheader.i ]
-  %42 = icmp eq ptr %.sroa.5.2124, null
+  %.sroa.5.2129 = phi ptr [ null, %.split.us.i ], [ %.sroa.5.0, %.split.us.preheader.i ]
+  %42 = icmp eq ptr %.sroa.5.2129, null
   br i1 %42, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hfb71d26c3278a539E.exit.thread.i", label %.split.us.i
 
 .split.us.i:                                      ; preds = %select.unfold.us.i
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.5.2124, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.5.2129, i64 16
   %44 = load i64, ptr %43, align 8, !alias.scope !1258, !noalias !1261, !noundef !4
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %select.unfold.us.i, label %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit_crit_edge"
@@ -9059,7 +9059,7 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
   br label %53
 
 ".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit_crit_edge": ; preds = %.split.us.i
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.5.2124, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.5.2129, i64 8
   %48 = load ptr, ptr %47, align 8, !alias.scope !1258, !noalias !1261, !nonnull !4, !noundef !4
   %.idx = mul nsw i64 %44, 56
   %49 = getelementptr inbounds i8, ptr %48, i64 %.idx
@@ -9458,16 +9458,16 @@ define void @_ZN12uv_workspace9workspace24is_included_in_workspace17h071c5514db1
   %.sroa.5.0 = phi ptr [ %., %6 ], [ %.sroa.5.2.lcssa, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf0dc6b3a9ebf7e21E.exit49" ]
   %39 = icmp eq ptr %.sroa.8.0, null
   %40 = icmp eq ptr %.sroa.8.0, %.sroa.13.0
-  %or.cond123 = select i1 %39, i1 true, i1 %40
-  br i1 %or.cond123, label %select.unfold.us.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit"
+  %or.cond128 = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond128, label %select.unfold.us.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit"
 
 select.unfold.us.i:                               ; preds = %.split.us.preheader.i, %.split.us.i
-  %.sroa.5.2124 = phi ptr [ null, %.split.us.i ], [ %.sroa.5.0, %.split.us.preheader.i ]
-  %41 = icmp eq ptr %.sroa.5.2124, null
+  %.sroa.5.2129 = phi ptr [ null, %.split.us.i ], [ %.sroa.5.0, %.split.us.preheader.i ]
+  %41 = icmp eq ptr %.sroa.5.2129, null
   br i1 %41, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hfb71d26c3278a539E.exit.thread.i", label %.split.us.i
 
 .split.us.i:                                      ; preds = %select.unfold.us.i
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.5.2124, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.5.2129, i64 16
   %43 = load i64, ptr %42, align 8, !alias.scope !1360, !noalias !1363, !noundef !4
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %select.unfold.us.i, label %".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit_crit_edge"
@@ -9479,7 +9479,7 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
   br label %52
 
 ".split.us.i._ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd97e2a30c8468c4E.exit_crit_edge": ; preds = %.split.us.i
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.5.2124, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.5.2129, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !1360, !noalias !1363, !nonnull !4, !noundef !4
   %.idx = mul nsw i64 %43, 56
   %48 = getelementptr inbounds i8, ptr %47, i64 %.idx

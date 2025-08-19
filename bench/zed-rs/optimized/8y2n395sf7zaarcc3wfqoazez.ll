@@ -328,11 +328,11 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %51, label %common.resume.sink.split.i.i.i.i.i.i.i.i.i, label %137
 
 common.resume.sink.split.i.i.i.i.i.i.i.i.i:       ; preds = %128, %.body.i1.i.i.i.i.i.i.i.i.i, %48
-  %.sink19.i.i.i.i.i.i.i.i.i = phi ptr [ %10, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %4, %128 ], [ %8, %48 ]
-  %.sink18.i.i.i.i.i.i.i.i.i = phi i64 [ %123, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %130, %128 ], [ %50, %48 ]
+  %.sink26.i.i.i.i.i.i.i.i.i = phi ptr [ %10, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %4, %128 ], [ %8, %48 ]
+  %.sink25.i.i.i.i.i.i.i.i.i = phi i64 [ %123, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %130, %128 ], [ %50, %48 ]
   %common.resume.op.ph.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %129, %128 ], [ %49, %48 ]
-  %52 = load ptr, ptr %.sink19.i.i.i.i.i.i.i.i.i, align 8, !noalias !61, !nonnull !9, !noundef !9
-  %53 = shl nuw i64 %.sink18.i.i.i.i.i.i.i.i.i, 3
+  %52 = load ptr, ptr %.sink26.i.i.i.i.i.i.i.i.i, align 8, !noalias !61, !nonnull !9, !noundef !9
+  %53 = shl nuw i64 %.sink25.i.i.i.i.i.i.i.i.i, 3
   call void @__rust_dealloc(ptr noundef nonnull %52, i64 noundef %53, i64 noundef 8) #30, !noalias !62
   br label %137
 
@@ -409,10 +409,10 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.llvm.1287813
   br label %common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i
 
 common.resume.sink.split.i.i.i.i.i.i.i.i.i.i.i:   ; preds = %83, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
-  %.sink2.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %79, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %85, %83 ]
+  %.sink5.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %79, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %85, %83 ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %81, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %87, %83 ]
   %common.resume.op.ph.i.i.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %78, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17h2497f5309a171237E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %lpad.phi.i.i.i.i.i.i, %83 ]
-  %82 = shl nuw i64 %.sink2.i.i.i.i.i.i.i.i.i.i.i, 3
+  %82 = shl nuw i64 %.sink5.i.i.i.i.i.i.i.i.i.i.i, 3
   call void @__rust_dealloc(ptr noundef nonnull %.sink.i.i.i.i.i.i.i.i.i.i.i, i64 noundef %82, i64 noundef 8) #30, !noalias !80
   br label %.body.i1.i.i.i.i.i.i.i.i.i
 
@@ -2878,10 +2878,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hd6ec36646875
   ret void
 
 ._crit_edge.thread:                               ; preds = %44, %._crit_edge
-  %.sroa.0.0.lcssa35 = phi ptr [ %15, %._crit_edge ], [ %46, %44 ]
-  %storemerge.lcssa34 = phi i64 [ %12, %._crit_edge ], [ %21, %44 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.lcssa35, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %31 = add i64 %storemerge.lcssa34, 1
+  %.sroa.0.0.lcssa39 = phi ptr [ %15, %._crit_edge ], [ %46, %44 ]
+  %storemerge.lcssa38 = phi i64 [ %12, %._crit_edge ], [ %21, %44 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.lcssa39, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %31 = add i64 %storemerge.lcssa38, 1
   store i64 %31, ptr %6, align 8
   br label %"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE.exit"
 

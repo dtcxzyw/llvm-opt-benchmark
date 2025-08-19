@@ -517,8 +517,8 @@ define internal noundef zeroext i8 @frames(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %75, label %102, label %100
 
 100:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.1.lcssa89 = phi i32 [ %.060, %._crit_edge.thread ], [ %74, %._crit_edge ]
-  %101 = call zeroext i16 @map2jdwpError(i32 noundef %.1.lcssa89) #4
+  %.1.lcssa92 = phi i32 [ %.060, %._crit_edge.thread ], [ %74, %._crit_edge ]
+  %101 = call zeroext i16 @map2jdwpError(i32 noundef %.1.lcssa92) #4
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %101) #4
   br label %102
 

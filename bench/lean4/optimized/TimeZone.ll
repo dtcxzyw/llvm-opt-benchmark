@@ -1760,18 +1760,18 @@ _init_l_Std_Time_TimeZone_GMT___closed__3.exit:   ; preds = %_init_l_Std_Time_Ti
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_TimeZone_GMT___closed__3.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %146, %_init_l_Std_Time_TimeZone_GMT___closed__3.exit ]
-  %149 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink26 = phi ptr [ %4, %3 ], [ %146, %_init_l_Std_Time_TimeZone_GMT___closed__3.exit ]
+  %149 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !8
   store i32 131096, ptr %149, align 4
-  %150 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %150, align 8, !tbaa !4
-  %151 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %151, align 8, !tbaa !4
   br label %152
 
 152:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink26, %.sink.split ]
   ret ptr %.0
 }
 

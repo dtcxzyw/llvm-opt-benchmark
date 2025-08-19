@@ -2668,20 +2668,20 @@ Vec_PtrGrow.exit.i34:                             ; preds = %71, %69
   br label %.sink.split
 
 .sink.split:                                      ; preds = %83, %Vec_PtrGrow.exit.i34, %.Vec_PtrGrow.exit11_crit_edge.i29, %57, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.sink43 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %58, %57 ], [ %47, %Vec_PtrGrow.exit.i ], [ %.pre.i31, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %84, %83 ], [ %73, %Vec_PtrGrow.exit.i34 ]
+  %.sink50 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %58, %57 ], [ %47, %Vec_PtrGrow.exit.i ], [ %.pre.i31, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %84, %83 ], [ %73, %Vec_PtrGrow.exit.i34 ]
   %.sink = phi ptr [ %37, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %37, %57 ], [ %37, %Vec_PtrGrow.exit.i ], [ %63, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %63, %83 ], [ %63, %Vec_PtrGrow.exit.i34 ]
   %.ph = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %49, %57 ], [ 16, %Vec_PtrGrow.exit.i ], [ %22, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %75, %83 ], [ 16, %Vec_PtrGrow.exit.i34 ]
-  %.ph40 = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %49, %57 ], [ 16, %Vec_PtrGrow.exit.i ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %75, %83 ], [ 16, %Vec_PtrGrow.exit.i34 ]
+  %.ph47 = phi i32 [ %22, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %49, %57 ], [ 16, %Vec_PtrGrow.exit.i ], [ %23, %.Vec_PtrGrow.exit11_crit_edge.i29 ], [ %75, %83 ], [ 16, %Vec_PtrGrow.exit.i34 ]
   %85 = add nsw i32 %24, 1
   store i32 %85, ptr %8, align 4, !tbaa !21
   %86 = sext i32 %24 to i64
-  %87 = getelementptr inbounds ptr, ptr %.sink43, i64 %86
+  %87 = getelementptr inbounds ptr, ptr %.sink50, i64 %86
   store ptr %.sink, ptr %87, align 8, !tbaa !37
   br label %88
 
 88:                                               ; preds = %.sink.split, %30, %21
   %89 = phi i32 [ %22, %30 ], [ %22, %21 ], [ %.ph, %.sink.split ]
-  %90 = phi i32 [ %23, %30 ], [ %23, %21 ], [ %.ph40, %.sink.split ]
+  %90 = phi i32 [ %23, %30 ], [ %23, %21 ], [ %.ph47, %.sink.split ]
   %91 = phi i32 [ %24, %30 ], [ %24, %21 ], [ %85, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = load ptr, ptr %15, align 8, !tbaa !3
@@ -2965,9 +2965,9 @@ Vec_IntDup.exit:                                  ; preds = %33, %38
   %.val69.val = load i32, ptr %51, align 4, !tbaa !21
   %52 = sext i32 %.val69.val to i64
   %53 = shl nsw i64 %52, 3
-  %calloc88 = tail call ptr @calloc(i64 1, i64 %53)
+  %calloc94 = tail call ptr @calloc(i64 1, i64 %53)
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  store ptr %calloc88, ptr %54, align 8, !tbaa !65
+  store ptr %calloc94, ptr %54, align 8, !tbaa !65
   br label %55
 
 55:                                               ; preds = %50, %47
@@ -3213,9 +3213,9 @@ Vec_IntDup.exit:                                  ; preds = %32, %37
   %.val85.val = load i32, ptr %50, align 4, !tbaa !21
   %51 = sext i32 %.val85.val to i64
   %52 = shl nsw i64 %51, 3
-  %calloc135 = tail call ptr @calloc(i64 1, i64 %52)
+  %calloc145 = tail call ptr @calloc(i64 1, i64 %52)
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 248
-  store ptr %calloc135, ptr %53, align 8, !tbaa !65
+  store ptr %calloc145, ptr %53, align 8, !tbaa !65
   br label %54
 
 54:                                               ; preds = %49, %46

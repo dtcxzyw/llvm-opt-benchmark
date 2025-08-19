@@ -2734,13 +2734,13 @@ find_entry.exit.thread:                           ; preds = %51, %find_entry.exi
 
 127:                                              ; preds = %._crit_edge.i117.us, %.split.us
   %.val32.i119.us.sink = phi i8 [ %.val32.i119.us, %._crit_edge.i117.us ], [ %.val.i109.us, %.split.us ]
-  %.sink303 = phi i64 [ %169, %._crit_edge.i117.us ], [ %34, %.split.us ]
+  %.sink332 = phi i64 [ %169, %._crit_edge.i117.us ], [ %34, %.split.us ]
   %.val32.pre.i118.us249 = phi i8 [ %.val32.pre.i118.us250, %._crit_edge.i117.us ], [ %.val.i109.us, %.split.us ]
   %.033.i111.us = phi i64 [ %166, %._crit_edge.i117.us ], [ %34, %.split.us ]
   %128 = zext nneg i8 %.val32.i119.us.sink to i64
   %notmask.i.i.i.i120.us = shl nsw i64 -1, %128
   %129 = xor i64 %notmask.i.i.i.i120.us, -1
-  %130 = and i64 %.sink303, %129
+  %130 = and i64 %.sink332, %129
   %131 = load ptr, ptr %8, align 8, !tbaa !25
   %.val31.i113.us = load i8, ptr %22, align 2, !tbaa !23
   switch i8 %.val31.i113.us, label %144 [
@@ -2836,7 +2836,7 @@ get_bin.exit.i114.us:                             ; preds = %144, %140, %136, %1
   br i1 %173, label %.lr.ph.i96, label %update_range_for_deleted.exit
 
 .lr.ph.i96:                                       ; preds = %.split, %.backedge
-  %.pre.i97 = phi i32 [ %.pre.i97245265, %.backedge ], [ %.pre.i97248, %.split ]
+  %.pre.i97 = phi i32 [ %.pre.i97245294, %.backedge ], [ %.pre.i97248, %.split ]
   %174 = phi i64 [ %195, %.backedge ], [ %172, %.split ]
   %175 = phi i64 [ %194, %.backedge ], [ %171, %.split ]
   %176 = load ptr, ptr %9, align 8, !tbaa !26
@@ -2889,7 +2889,7 @@ find_entry.exit108:                               ; preds = %.thread.i105, %.loo
   ], !prof !41
 
 .backedge:                                        ; preds = %.loopexit.split.loop.exit31.i102, %.thread.i105, %find_entry.exit108
-  %.pre.i97245265 = phi i32 [ %.pre.i97245, %find_entry.exit108 ], [ %.pre.i97246, %.thread.i105 ], [ %.pre39.i104, %.loopexit.split.loop.exit31.i102 ]
+  %.pre.i97245294 = phi i32 [ %.pre.i97245, %find_entry.exit108 ], [ %.pre.i97246, %.thread.i105 ], [ %.pre39.i104, %.loopexit.split.loop.exit31.i102 ]
   %194 = load i64, ptr %12, align 8, !tbaa !31
   %195 = load i64, ptr %10, align 8, !tbaa !32
   %196 = icmp ult i64 %195, %194
@@ -2964,7 +2964,7 @@ set_bin.exit:                                     ; preds = %find_entry.exit108,
 update_range_for_deleted.exit:                    ; preds = %find_entry.exit108, %.backedge, %.thread146, %164, %.split, %.critedge.i, %set_bin.exit, %120, %121, %26
   %.178 = phi i64 [ %.077197, %26 ], [ %.279, %120 ], [ %.279, %121 ], [ %.279, %set_bin.exit ], [ %.279, %.critedge.i ], [ %.279, %.split ], [ %.279, %164 ], [ %.279, %.thread146 ], [ %.279, %.backedge ], [ %.279, %find_entry.exit108 ]
   %.175 = phi ptr [ %.074198, %26 ], [ %.276, %120 ], [ %.276, %121 ], [ %.276, %set_bin.exit ], [ %.276, %.critedge.i ], [ %.276, %.split ], [ %.276, %164 ], [ %.276, %.thread146 ], [ %.276, %.backedge ], [ %.276, %find_entry.exit108 ]
-  %.1 = phi i32 [ %.071199, %26 ], [ %.2, %120 ], [ %.2, %121 ], [ %.2, %set_bin.exit ], [ %.2, %.critedge.i ], [ %.2, %.split ], [ 0, %164 ], [ %.2, %.thread146 ], [ %.2, %.backedge ], [ %.2, %find_entry.exit108 ]
+  %.1 = phi i32 [ %.071199, %26 ], [ %.2, %120 ], [ %.2, %121 ], [ %.2, %set_bin.exit ], [ %.2, %.critedge.i ], [ 1, %.split ], [ 0, %164 ], [ 1, %.thread146 ], [ 1, %.backedge ], [ 1, %find_entry.exit108 ]
   %227 = add i64 %.178, 1
   %228 = load i64, ptr %12, align 8, !tbaa !31
   %229 = icmp ult i64 %227, %228
@@ -3222,7 +3222,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %.035 = phi i64 [ %2, %3 ], [ %14, %.preheader ]
   %.033 = phi ptr [ %0, %3 ], [ %15, %.preheader ]
   %.0 = phi i64 [ %1, %3 ], [ %16, %.preheader ]
-  switch i64 %.0, label %.unreachabledefault [
+  switch i64 %.0, label %default.unreachable [
     i64 7, label %18
     i64 6, label %23
     i64 5, label %29
@@ -3297,7 +3297,7 @@ define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2)
   %58 = mul i64 %57, 5545529020109919103
   br label %59
 
-.unreachabledefault:                              ; preds = %.loopexit
+default.unreachable:                              ; preds = %.loopexit
   unreachable
 
 59:                                               ; preds = %.loopexit, %54
@@ -3721,7 +3721,7 @@ st_rehash_linear.exit.i:                          ; preds = %st_rehash_linear.ex
   %48 = load i64, ptr %47, align 8, !tbaa !35
   %49 = load i64, ptr %34, align 8, !tbaa !35
   %50 = icmp eq i64 %48, %49
-  br i1 %50, label %.thread55.i.i, label %51
+  br i1 %50, label %.thread63.i.i, label %51
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %19, align 8, !tbaa !11
@@ -3733,13 +3733,13 @@ st_rehash_linear.exit.i:                          ; preds = %st_rehash_linear.ex
 
 56:                                               ; preds = %51
   %57 = icmp eq i32 %54, 0
-  br i1 %57, label %.thread55.i.i, label %.update_range_for_deleted.exit_crit_edge.i.i
+  br i1 %57, label %.thread63.i.i, label %.update_range_for_deleted.exit_crit_edge.i.i
 
 .update_range_for_deleted.exit_crit_edge.i.i:     ; preds = %56
   %.pre50.i.i = load i64, ptr %16, align 8, !tbaa !31
   br label %update_range_for_deleted.exit.i.i
 
-.thread55.i.i:                                    ; preds = %56, %46
+.thread63.i.i:                                    ; preds = %56, %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !tbaa.struct !78
   store i64 -1, ptr %39, align 8, !tbaa !33
   %58 = load i64, ptr %20, align 8, !tbaa !27
@@ -3750,7 +3750,7 @@ st_rehash_linear.exit.i:                          ; preds = %st_rehash_linear.ex
   %.pre51.i.i = load i64, ptr %16, align 8, !tbaa !31
   br i1 %61, label %62, label %update_range_for_deleted.exit.i.i
 
-62:                                               ; preds = %.thread55.i.i
+62:                                               ; preds = %.thread63.i.i
   %63 = load ptr, ptr %17, align 8, !tbaa !26
   %64 = add i64 %.035.in44.i.i, 2
   %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %.pre51.i.i, i64 %64)
@@ -3773,9 +3773,9 @@ st_rehash_linear.exit.i:                          ; preds = %st_rehash_linear.ex
   store i64 %.0.lcssa.i.i.i, ptr %15, align 8, !tbaa !32
   br label %update_range_for_deleted.exit.i.i
 
-update_range_for_deleted.exit.i.i:                ; preds = %.critedge.i.i.i, %.thread55.i.i, %.update_range_for_deleted.exit_crit_edge.i.i, %42, %35
-  %71 = phi i64 [ %.pre50.i.i, %.update_range_for_deleted.exit_crit_edge.i.i ], [ %.pre51.i.i, %.critedge.i.i.i ], [ %.pre51.i.i, %.thread55.i.i ], [ %36, %35 ], [ %36, %42 ]
-  %72 = phi i64 [ %.pre50.i.i, %.update_range_for_deleted.exit_crit_edge.i.i ], [ %.pre51.i.i, %.critedge.i.i.i ], [ %.pre51.i.i, %.thread55.i.i ], [ %37, %35 ], [ %37, %42 ]
+update_range_for_deleted.exit.i.i:                ; preds = %.critedge.i.i.i, %.thread63.i.i, %.update_range_for_deleted.exit_crit_edge.i.i, %42, %35
+  %71 = phi i64 [ %.pre50.i.i, %.update_range_for_deleted.exit_crit_edge.i.i ], [ %.pre51.i.i, %.critedge.i.i.i ], [ %.pre51.i.i, %.thread63.i.i ], [ %36, %35 ], [ %36, %42 ]
+  %72 = phi i64 [ %.pre50.i.i, %.update_range_for_deleted.exit_crit_edge.i.i ], [ %.pre51.i.i, %.critedge.i.i.i ], [ %.pre51.i.i, %.thread63.i.i ], [ %37, %35 ], [ %37, %42 ]
   %.035.i.i = add nuw i64 %.03545.i.i, 1
   %73 = icmp ult i64 %.035.i.i, %72
   br i1 %73, label %35, label %.loopexit.i.i, !llvm.loop !79
@@ -3907,7 +3907,7 @@ get_bin.exit.i.i:                                 ; preds = %112, %108, %104, %1
   %140 = getelementptr i8, ptr %132, i64 -40
   %141 = load i64, ptr %140, align 8, !tbaa !35
   %142 = icmp eq i64 %139, %141
-  br i1 %142, label %.thread97.i.i, label %143
+  br i1 %142, label %.thread103.i.i, label %143
 
 143:                                              ; preds = %138
   %144 = load ptr, ptr %19, align 8, !tbaa !11
@@ -3919,13 +3919,13 @@ get_bin.exit.i.i:                                 ; preds = %112, %108, %104, %1
 
 148:                                              ; preds = %143
   %149 = icmp eq i32 %146, 0
-  br i1 %149, label %.thread97.i.i, label %.set_bin.exit_crit_edge.i.i
+  br i1 %149, label %.thread103.i.i, label %.set_bin.exit_crit_edge.i.i
 
 .set_bin.exit_crit_edge.i.i:                      ; preds = %148
   %.val65.pre.i.i = load i8, ptr %12, align 1, !tbaa !21
   br label %set_bin.exit.i.i
 
-.thread97.i.i:                                    ; preds = %148, %138
+.thread103.i.i:                                   ; preds = %148, %138
   %150 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %151 = load i64, ptr %150, align 8, !tbaa !48
   %152 = getelementptr i8, ptr %132, i64 -32
@@ -3938,7 +3938,7 @@ get_bin.exit.i.i:                                 ; preds = %112, %108, %104, %1
   %156 = icmp eq i64 %155, %115
   br i1 %156, label %157, label %174
 
-157:                                              ; preds = %.thread97.i.i
+157:                                              ; preds = %.thread103.i.i
   %158 = load i64, ptr %16, align 8, !tbaa !31
   %159 = load ptr, ptr %17, align 8, !tbaa !26
   %160 = add i64 %115, 1
@@ -3974,7 +3974,7 @@ set_bin.exit.i.i:                                 ; preds = %.set_bin.exit_crit_
   %173 = and i64 %170, %172
   br label %99
 
-174:                                              ; preds = %.critedge.i.i10.i, %.thread97.i.i, %128, %125, %122, %119, %.lr.ph.i4.i
+174:                                              ; preds = %.critedge.i.i10.i, %.thread103.i.i, %128, %125, %122, %119, %.lr.ph.i4.i
   %175 = add nuw i64 %.05085.i.i, 1
   %176 = load i64, ptr %16, align 8, !tbaa !31
   %177 = icmp ult i64 %175, %176
@@ -4379,7 +4379,7 @@ define internal i64 @strhash(i64 noundef %0) #14 {
   %.035.i = phi i64 [ 2166136261, %1 ], [ %14, %.preheader.i ]
   %.033.i = phi ptr [ %2, %1 ], [ %15, %.preheader.i ]
   %.0.i = phi i64 [ %3, %1 ], [ %16, %.preheader.i ]
-  switch i64 %.0.i, label %.unreachabledefault.i [
+  switch i64 %.0.i, label %default.unreachable [
     i64 7, label %18
     i64 6, label %23
     i64 5, label %29
@@ -4454,7 +4454,7 @@ define internal i64 @strhash(i64 noundef %0) #14 {
   %58 = mul i64 %57, 5545529020109919103
   br label %rb_st_hash.exit
 
-.unreachabledefault.i:                            ; preds = %.loopexit.i
+default.unreachable:                              ; preds = %.loopexit.i
   unreachable
 
 rb_st_hash.exit:                                  ; preds = %.loopexit.i, %54

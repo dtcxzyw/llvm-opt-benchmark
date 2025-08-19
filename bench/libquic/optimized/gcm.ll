@@ -616,13 +616,13 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
 .lr.ph205:                                        ; preds = %._crit_edge195
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.critedge256
+  br label %.critedge264
 
-.critedge256:                                     ; preds = %.lr.ph205, %.critedge256
-  %.5204 = phi ptr [ %.2.lcssa, %.lr.ph205 ], [ %118, %.critedge256 ]
-  %.5148203 = phi ptr [ %.2145.lcssa, %.lr.ph205 ], [ %117, %.critedge256 ]
-  %.4153202 = phi i64 [ %.2151.lcssa, %.lr.ph205 ], [ %119, %.critedge256 ]
-  %.4164201 = phi i32 [ %.1161.lcssa, %.lr.ph205 ], [ %101, %.critedge256 ]
+.critedge264:                                     ; preds = %.lr.ph205, %.critedge264
+  %.5204 = phi ptr [ %.2.lcssa, %.lr.ph205 ], [ %118, %.critedge264 ]
+  %.5148203 = phi ptr [ %.2145.lcssa, %.lr.ph205 ], [ %117, %.critedge264 ]
+  %.4153202 = phi i64 [ %.2151.lcssa, %.lr.ph205 ], [ %119, %.critedge264 ]
+  %.4164201 = phi i32 [ %.1161.lcssa, %.lr.ph205 ], [ %101, %.critedge264 ]
   tail call void %9(ptr noundef nonnull %0, ptr noundef nonnull %99, ptr noundef %1) #6
   %101 = add i32 %.4164201, 1
   %102 = lshr i32 %101, 24
@@ -650,9 +650,9 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr nou
   %118 = getelementptr inbounds nuw i8, ptr %.5204, i64 16
   %119 = add nsw i64 %.4153202, -16
   %120 = icmp ugt i64 %119, 15
-  br i1 %120, label %.critedge256, label %._crit_edge206, !llvm.loop !35
+  br i1 %120, label %.critedge264, label %._crit_edge206, !llvm.loop !35
 
-._crit_edge206:                                   ; preds = %.critedge256
+._crit_edge206:                                   ; preds = %.critedge264
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %123 = sub nsw i64 0, %98
@@ -892,13 +892,13 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   tail call void %13(ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef %.2.lcssa, i64 noundef %98) #6
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.critedge260
+  br label %.critedge268
 
-.critedge260:                                     ; preds = %.lr.ph210, %.critedge260
-  %.5208 = phi ptr [ %.2.lcssa, %.lr.ph210 ], [ %120, %.critedge260 ]
-  %.5151207 = phi ptr [ %.2148.lcssa, %.lr.ph210 ], [ %119, %.critedge260 ]
-  %.4156206 = phi i64 [ %.2154.lcssa, %.lr.ph210 ], [ %121, %.critedge260 ]
-  %.4167205 = phi i32 [ %.1164.lcssa, %.lr.ph210 ], [ %103, %.critedge260 ]
+.critedge268:                                     ; preds = %.lr.ph210, %.critedge268
+  %.5208 = phi ptr [ %.2.lcssa, %.lr.ph210 ], [ %120, %.critedge268 ]
+  %.5151207 = phi ptr [ %.2148.lcssa, %.lr.ph210 ], [ %119, %.critedge268 ]
+  %.4156206 = phi i64 [ %.2154.lcssa, %.lr.ph210 ], [ %121, %.critedge268 ]
+  %.4167205 = phi i32 [ %.1164.lcssa, %.lr.ph210 ], [ %103, %.critedge268 ]
   tail call void %9(ptr noundef nonnull %0, ptr noundef nonnull %101, ptr noundef %1) #6
   %103 = add i32 %.4167205, 1
   %104 = lshr i32 %103, 24
@@ -926,13 +926,13 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr nou
   %120 = getelementptr inbounds nuw i8, ptr %.5208, i64 16
   %121 = add nsw i64 %.4156206, -16
   %122 = icmp ugt i64 %121, 15
-  br i1 %122, label %.critedge260, label %.loopexit180, !llvm.loop !40
+  br i1 %122, label %.critedge268, label %.loopexit180, !llvm.loop !40
 
-.loopexit180:                                     ; preds = %.critedge260, %._crit_edge199
-  %.3166 = phi i32 [ %.1164.lcssa, %._crit_edge199 ], [ %103, %.critedge260 ]
-  %.3155 = phi i64 [ %.2154.lcssa, %._crit_edge199 ], [ %121, %.critedge260 ]
-  %.4150 = phi ptr [ %.2148.lcssa, %._crit_edge199 ], [ %119, %.critedge260 ]
-  %.4 = phi ptr [ %.2.lcssa, %._crit_edge199 ], [ %120, %.critedge260 ]
+.loopexit180:                                     ; preds = %.critedge268, %._crit_edge199
+  %.3166 = phi i32 [ %.1164.lcssa, %._crit_edge199 ], [ %103, %.critedge268 ]
+  %.3155 = phi i64 [ %.2154.lcssa, %._crit_edge199 ], [ %121, %.critedge268 ]
+  %.4150 = phi ptr [ %.2148.lcssa, %._crit_edge199 ], [ %119, %.critedge268 ]
+  %.4 = phi ptr [ %.2.lcssa, %._crit_edge199 ], [ %120, %.critedge268 ]
   %.not177 = icmp eq i64 %.3155, 0
   br i1 %.not177, label %.sink.split, label %123
 

@@ -5357,8 +5357,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit103: ; preds = %397, %401, %407
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit106: ; preds = %413, %417, %423
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %cond2 = icmp eq i32 %.226, 0
-  %brmerge.not117 = and i1 %cond2, %220
-  br i1 %brmerge.not117, label %219, label %.loopexit.loopexit
+  %brmerge.not130 = and i1 %cond2, %220
+  br i1 %brmerge.not130, label %219, label %.loopexit.loopexit
 
 .body:                                            ; preds = %285, %244, %411, %.body86
   %.pn57 = phi { ptr, i32 } [ %412, %411 ], [ %.pn54.pn, %.body86 ], [ %286, %285 ], [ %245, %244 ]

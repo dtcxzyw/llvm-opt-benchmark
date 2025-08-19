@@ -1156,15 +1156,15 @@ COVER_map_remove.exit.i:                          ; preds = %125, %._crit_edge.i
   br i1 %.not68.i, label %COVER_selectSegment.exit, label %.lr.ph24.i, !llvm.loop !53
 
 COVER_selectSegment.exit:                         ; preds = %.lr.ph24.i, %.preheader1.i, %.preheader.i
-  %.065.lcssa41.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.1.i, %.lr.ph24.i ]
-  %.066.lcssa40.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.167.i, %.lr.ph24.i ]
-  %.sroa.048.sroa.0.0.insert.ext.i = zext i32 %.066.lcssa40.i to i64
+  %.065.lcssa44.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.1.i, %.lr.ph24.i ]
+  %.066.lcssa43.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.167.i, %.lr.ph24.i ]
+  %.sroa.048.sroa.0.0.insert.ext.i = zext i32 %.066.lcssa43.i to i64
   %178 = icmp eq i32 %.sroa.12.1.i, 0
   br i1 %178, label %COVER_selectSegment.exit.thread, label %179
 
 179:                                              ; preds = %COVER_selectSegment.exit
-  %180 = add i32 %35, %.065.lcssa41.i
-  %181 = sub i32 %180, %.066.lcssa40.i
+  %180 = add i32 %35, %.065.lcssa44.i
+  %181 = sub i32 %180, %.066.lcssa43.i
   %182 = zext i32 %181 to i64
   %..045 = tail call i64 @llvm.umin.i64(i64 %.04530, i64 %182)
   %183 = icmp samesign ult i64 %..045, %36

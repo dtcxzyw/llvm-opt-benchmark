@@ -815,9 +815,9 @@ _ZN7uu_head12read_n_bytes17h9c3988130e973429E.exit: ; preds = %22, %31, %35
   br label %117
 
 117:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit55", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit"
-  %.sink105 = phi i64 [ %86, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit55" ], [ %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit" ]
+  %.sink118 = phi i64 [ %86, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit55" ], [ %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit" ]
   %118 = load i64, ptr %43, align 8, !noalias !5, !noundef !5
-  %119 = add i64 %118, %.sink105
+  %119 = add i64 %118, %.sink118
   store i64 %119, ptr %43, align 8, !noalias !5
   br label %.outer
 
@@ -1171,9 +1171,9 @@ define hidden noundef ptr @_ZN7uu_head21read_but_last_n_bytes17h9da0d1357b1e4985
   br label %93
 
 93:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit55", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit"
-  %.sink105 = phi i64 [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit55" ], [ %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit" ]
+  %.sink118 = phi i64 [ %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit55" ], [ %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h4b3761cdcaa34342E.exit" ]
   %94 = load i64, ptr %19, align 8, !noalias !5, !noundef !5
-  %95 = add i64 %94, %.sink105
+  %95 = add i64 %94, %.sink118
   store i64 %95, ptr %19, align 8, !noalias !5
   br label %.outer
 

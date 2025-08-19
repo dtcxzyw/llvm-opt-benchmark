@@ -1185,7 +1185,7 @@ _ZN7rocksdb6StatusD2Ev.exit27:                    ; preds = %_ZN7rocksdb6Statusa
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %350
 
-92:                                               ; preds = %.invoke94, %.invoke93, %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit, %213, %298
+92:                                               ; preds = %.invoke124, %.invoke123, %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm.exit, %213, %298
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %354
@@ -1263,8 +1263,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 132:                                              ; preds = %._crit_edge.i.i.thread, %._crit_edge.i.i
-  %.0.lcssa.i.i89 = phi i8 [ %107, %._crit_edge.i.i.thread ], [ %97, %._crit_edge.i.i ]
-  %133 = or disjoint i8 %.0.lcssa.i.i89, 48
+  %.0.lcssa.i.i119 = phi i8 [ %107, %._crit_edge.i.i.thread ], [ %97, %._crit_edge.i.i ]
+  %133 = or disjoint i8 %.0.lcssa.i.i119, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 134:                                              ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
@@ -1622,7 +1622,7 @@ _ZN7rocksdb6StatusD2Ev.exit57:                    ; preds = %_ZN7rocksdb6Statusa
 273:                                              ; preds = %236
   %274 = load i8, ptr %56, align 8, !tbaa !95
   %275 = icmp eq i8 %274, 1
-  br i1 %275, label %276, label %.invoke93
+  br i1 %275, label %276, label %.invoke123
 
 276:                                              ; preds = %273
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 58
@@ -1637,7 +1637,7 @@ _ZN7rocksdb6StatusD2Ev.exit57:                    ; preds = %_ZN7rocksdb6Statusa
   %282 = load i64, ptr %281, align 8, !tbaa !79
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %282, ptr %283, align 8, !tbaa !103
-  br label %.invoke94
+  br label %.invoke124
 
 284:                                              ; preds = %276
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1645,7 +1645,7 @@ _ZN7rocksdb6StatusD2Ev.exit57:                    ; preds = %_ZN7rocksdb6Statusa
   %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre87 = load i64, ptr %.phi.trans.insert86, align 8, !tbaa !79
   %285 = icmp eq i64 %.pre85, %.pre87
-  br i1 %285, label %.invoke94, label %286
+  br i1 %285, label %.invoke124, label %286
 
 286:                                              ; preds = %284
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1686,16 +1686,16 @@ _ZN7rocksdb6StatusD2Ev.exit62:                    ; preds = %_ZN7rocksdb6Status1
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %354
 
-.invoke94:                                        ; preds = %.thread, %284
+.invoke124:                                       ; preds = %.thread, %284
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.97 = select i1 %240, i64 %237, i64 %242
-  %.val101 = load ptr, ptr %7, align 8
-  %.val102 = load ptr, ptr %1, align 8
-  %296 = select i1 %240, ptr %.val101, ptr %.val102
-  %297 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %295, ptr noundef %296, i64 noundef %.97)
+  %.127 = select i1 %240, i64 %237, i64 %242
+  %.val131 = load ptr, ptr %7, align 8
+  %.val132 = load ptr, ptr %1, align 8
+  %296 = select i1 %240, ptr %.val131, ptr %.val132
+  %297 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %295, ptr noundef %296, i64 noundef %.127)
           to label %298 unwind label %92
 
-298:                                              ; preds = %.invoke94
+298:                                              ; preds = %.invoke124
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %300 = load ptr, ptr %2, align 8, !tbaa !77
   %301 = load i64, ptr %280, align 8, !tbaa !79
@@ -1709,16 +1709,16 @@ _ZN7rocksdb6StatusD2Ev.exit62:                    ; preds = %_ZN7rocksdb6Status1
   store i64 %306, ptr %304, align 8, !tbaa !104
   br label %310
 
-.invoke93:                                        ; preds = %273
+.invoke123:                                       ; preds = %273
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.99 = select i1 %240, i64 %237, i64 %242
+  %.129 = select i1 %240, i64 %237, i64 %242
   %.val = load ptr, ptr %7, align 8
-  %.val100 = load ptr, ptr %1, align 8
-  %308 = select i1 %240, ptr %.val, ptr %.val100
-  %309 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %307, ptr noundef %308, i64 noundef %.99)
+  %.val130 = load ptr, ptr %1, align 8
+  %308 = select i1 %240, ptr %.val, ptr %.val130
+  %309 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %307, ptr noundef %308, i64 noundef %.129)
           to label %310 unwind label %92
 
-310:                                              ; preds = %.invoke93, %303
+310:                                              ; preds = %.invoke123, %303
   %311 = load i64, ptr %23, align 8, !tbaa !76
   %312 = add i64 %311, 1
   store i64 %312, ptr %23, align 8, !tbaa !76
@@ -2451,9 +2451,9 @@ _ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit: ; preds = %113, %115
   %122 = getelementptr inbounds nuw %"struct.rocksdb::CuckooTableBuilder::CuckooBucket", ptr %121, i64 %storemerge175
   %123 = load i32, ptr %122, align 4, !tbaa !133
   %124 = icmp eq i32 %123, 2147483647
-  br i1 %124, label %.preheader.thread227, label %125
+  br i1 %124, label %.preheader.thread262, label %125
 
-.preheader.thread227:                             ; preds = %.lr.ph
+.preheader.thread262:                             ; preds = %.lr.ph
   store i64 %storemerge175, ptr %4, align 8
   br label %.critedge
 
@@ -2661,8 +2661,8 @@ _ZN7rocksdb10autovectorImLm8EE9push_backERKm.exit: ; preds = %_ZNSt6vectorImSaIm
 .loopexit134:                                     ; preds = %_ZN7rocksdb10autovectorImLm8EE9push_backERKm.exit, %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit
   %211 = add nuw i32 %.032186, 1
   %212 = load i32, ptr %46, align 8, !tbaa !20
-  %.not244 = icmp ult i32 %211, %212
-  br i1 %.not244, label %.lr.ph187, label %.lr.ph194.preheader, !llvm.loop !139
+  %.not279 = icmp ult i32 %211, %212
+  br i1 %.not279, label %.lr.ph187, label %.lr.ph194.preheader, !llvm.loop !139
 
 .lr.ph194:                                        ; preds = %.loopexit, %.lr.ph194.preheader
   %.249192 = phi i32 [ %213, %.loopexit ], [ %.047199, %.lr.ph194.preheader ]
@@ -2874,9 +2874,9 @@ _ZN7rocksdb10autovectorImLm8EE9push_backERKm.exit95: ; preds = %_ZNSt6vectorImSa
   %.pre217 = load i64, ptr %4, align 8, !tbaa !114
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader.thread227, %.critedge.loopexit
-  %288 = phi i64 [ %.pre217, %.critedge.loopexit ], [ %storemerge175, %.preheader.thread227 ]
-  %.350 = phi i32 [ %213, %.critedge.loopexit ], [ %.047199, %.preheader.thread227 ]
+.critedge:                                        ; preds = %.preheader.thread262, %.critedge.loopexit
+  %288 = phi i64 [ %.pre217, %.critedge.loopexit ], [ %storemerge175, %.preheader.thread262 ]
+  %.350 = phi i32 [ %213, %.critedge.loopexit ], [ %.047199, %.preheader.thread262 ]
   %289 = load ptr, ptr %2, align 8, !tbaa !122
   %290 = getelementptr inbounds nuw %"struct.rocksdb::CuckooTableBuilder::CuckooBucket", ptr %289, i64 %288
   store i32 %.046200, ptr %290, align 4, !tbaa !133
@@ -2998,8 +2998,8 @@ define noundef zeroext i1 @_ZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 913
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = ptrtoint ptr %.sroa.0105.0.lcssa to i64
-  %.not358 = icmp eq ptr %.sroa.16.0.lcssa, %.sroa.0105.0.lcssa
-  br i1 %.not358, label %._crit_edge, label %.lr.ph355
+  %.not373 = icmp eq ptr %.sroa.16.0.lcssa, %.sroa.0105.0.lcssa
+  br i1 %.not373, label %._crit_edge, label %.lr.ph370
 
 23:                                               ; preds = %.lr.ph, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmiiEEERSB_DpOT_.exit
   %.pre251 = phi i32 [ %7, %.lr.ph ], [ %.pre252, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmiiEEERSB_DpOT_.exit ]
@@ -3113,22 +3113,22 @@ _ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorI
           cleanup
   br label %210
 
-.lr.ph355:                                        ; preds = %.preheader, %._crit_edge205
+.lr.ph370:                                        ; preds = %.preheader, %._crit_edge205
   %61 = phi i64 [ %178, %._crit_edge205 ], [ %22, %.preheader ]
   %62 = phi i64 [ %176, %._crit_edge205 ], [ 0, %.preheader ]
-  %.0108210354 = phi i32 [ %175, %._crit_edge205 ], [ 0, %.preheader ]
-  %.sroa.24.2211353 = phi ptr [ %.sroa.24.5.lcssa, %._crit_edge205 ], [ %.sroa.24.0.lcssa, %.preheader ]
-  %.sroa.16.1212352 = phi ptr [ %.sroa.16.4.lcssa, %._crit_edge205 ], [ %.sroa.16.0.lcssa, %.preheader ]
-  %.sroa.0105.2213351 = phi ptr [ %.sroa.0105.5.lcssa, %._crit_edge205 ], [ %.sroa.0105.0.lcssa, %.preheader ]
+  %.0108210369 = phi i32 [ %175, %._crit_edge205 ], [ 0, %.preheader ]
+  %.sroa.24.2211368 = phi ptr [ %.sroa.24.5.lcssa, %._crit_edge205 ], [ %.sroa.24.0.lcssa, %.preheader ]
+  %.sroa.16.1212367 = phi ptr [ %.sroa.16.4.lcssa, %._crit_edge205 ], [ %.sroa.16.0.lcssa, %.preheader ]
+  %.sroa.0105.2213366 = phi ptr [ %.sroa.0105.5.lcssa, %._crit_edge205 ], [ %.sroa.0105.0.lcssa, %.preheader ]
   %63 = phi i32 [ %174, %._crit_edge205 ], [ %10, %.preheader ]
-  %64 = getelementptr inbounds nuw %struct.CuckooNode, ptr %.sroa.0105.2213351, i64 %62
+  %64 = getelementptr inbounds nuw %struct.CuckooNode, ptr %.sroa.0105.2213366, i64 %62
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !148
   %67 = load i32, ptr %11, align 4, !tbaa !52
   %.not = icmp ult i32 %66, %67
   br i1 %.not, label %68, label %.thread118
 
-68:                                               ; preds = %.lr.ph355
+68:                                               ; preds = %.lr.ph370
   %69 = load i64, ptr %64, align 8, !tbaa !146
   %70 = load ptr, ptr %3, align 8, !tbaa !122
   %71 = getelementptr inbounds nuw %"struct.rocksdb::CuckooTableBuilder::CuckooBucket", ptr %70, i64 %69
@@ -3141,9 +3141,9 @@ _ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorI
 
 74:                                               ; preds = %.lr.ph204, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge
   %.040202 = phi i32 [ 0, %.lr.ph204 ], [ %172, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
-  %.sroa.0105.5200 = phi ptr [ %.sroa.0105.2213351, %.lr.ph204 ], [ %.sroa.0105.7, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
-  %.sroa.16.4199 = phi ptr [ %.sroa.16.1212352, %.lr.ph204 ], [ %.sroa.16.6, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
-  %.sroa.24.5198 = phi ptr [ %.sroa.24.2211353, %.lr.ph204 ], [ %.sroa.24.7, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
+  %.sroa.0105.5200 = phi ptr [ %.sroa.0105.2213366, %.lr.ph204 ], [ %.sroa.0105.7, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
+  %.sroa.16.4199 = phi ptr [ %.sroa.16.1212367, %.lr.ph204 ], [ %.sroa.16.6, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
+  %.sroa.24.5198 = phi ptr [ %.sroa.24.2211368, %.lr.ph204 ], [ %.sroa.24.7, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
   %75 = load i32, ptr %71, align 4, !tbaa !133
   %76 = zext i32 %75 to i64
   %77 = load i8, ptr %12, align 8, !tbaa !55, !range !87, !noundef !88
@@ -3273,7 +3273,7 @@ _ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit: ; preds = %124, %122
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.16.5185, i64 8
   store i32 %73, ptr %138, align 8, !tbaa !148
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.16.5185, i64 12
-  store i32 %.0108210354, ptr %139, align 4, !tbaa !149
+  store i32 %.0108210369, ptr %139, align 4, !tbaa !149
   br label %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit
 
 140:                                              ; preds = %136
@@ -3310,7 +3310,7 @@ _ZNKSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovector
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i32 %73, ptr %155, align 8, !tbaa !148
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 12
-  store i32 %.0108210354, ptr %156, align 4, !tbaa !149
+  store i32 %.0108210369, ptr %156, align 4, !tbaa !149
   br i1 %147, label %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit41.i.i85, label %.lr.ph.i.i.i.i.i81
 
 .lr.ph.i.i.i.i.i81:                               ; preds = %.noexc89, %.lr.ph.i.i.i.i.i81
@@ -3382,22 +3382,22 @@ _ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorI
   %.sroa.0105.7 = phi ptr [ %.sroa.0105.5200, %_ZN7rocksdbL10CuckooHashERKNS_5SliceEjbmbPFmS2_jmE.exit ], [ %.sroa.0105.9, %165 ]
   %172 = add nuw i32 %.040202, 1
   %173 = load i32, ptr %6, align 8, !tbaa !20
-  %.not312 = icmp ult i32 %172, %173
-  br i1 %.not312, label %74, label %._crit_edge205, !llvm.loop !163
+  %.not327 = icmp ult i32 %172, %173
+  br i1 %.not327, label %74, label %._crit_edge205, !llvm.loop !163
 
 ._crit_edge205:                                   ; preds = %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge, %68
   %174 = phi i32 [ 0, %68 ], [ %173, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
-  %.sroa.24.5.lcssa = phi ptr [ %.sroa.24.2211353, %68 ], [ %.sroa.24.7, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
-  %.sroa.16.4.lcssa = phi ptr [ %.sroa.16.1212352, %68 ], [ %.sroa.16.6, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
-  %.sroa.0105.5.lcssa = phi ptr [ %.sroa.0105.2213351, %68 ], [ %.sroa.0105.7, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
-  %175 = add i32 %.0108210354, 1
+  %.sroa.24.5.lcssa = phi ptr [ %.sroa.24.2211368, %68 ], [ %.sroa.24.7, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
+  %.sroa.16.4.lcssa = phi ptr [ %.sroa.16.1212367, %68 ], [ %.sroa.16.6, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
+  %.sroa.0105.5.lcssa = phi ptr [ %.sroa.0105.2213366, %68 ], [ %.sroa.0105.7, %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit._crit_edge ]
+  %175 = add i32 %.0108210369, 1
   %176 = zext i32 %175 to i64
   %177 = ptrtoint ptr %.sroa.16.4.lcssa to i64
   %178 = ptrtoint ptr %.sroa.0105.5.lcssa to i64
   %179 = sub i64 %177, %178
   %180 = ashr exact i64 %179, 4
   %181 = icmp ugt i64 %180, %176
-  br i1 %181, label %.lr.ph355, label %._crit_edge
+  br i1 %181, label %.lr.ph370, label %._crit_edge
 
 .critedge:                                        ; preds = %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EE12emplace_backIJRmjRjEEERSB_DpOT_.exit
   %182 = load i32, ptr %6, align 8, !tbaa !20
@@ -3441,15 +3441,15 @@ _ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorI
 ._crit_edge:                                      ; preds = %._crit_edge205, %.preheader
   %.sroa.0105.2213.lcssa = phi ptr [ %.sroa.0105.0.lcssa, %.preheader ], [ %.sroa.0105.5.lcssa, %._crit_edge205 ]
   %.sroa.24.2211.lcssa = phi ptr [ %.sroa.24.0.lcssa, %.preheader ], [ %.sroa.24.5.lcssa, %._crit_edge205 ]
-  %.lcssa329 = phi i64 [ %22, %.preheader ], [ %178, %._crit_edge205 ]
+  %.lcssa344 = phi i64 [ %22, %.preheader ], [ %178, %._crit_edge205 ]
   %.not.i.i.i90 = icmp eq ptr %.sroa.0105.2213.lcssa, null
   br i1 %.not.i.i.i90, label %_ZNSt6vectorIZN7rocksdb18CuckooTableBuilder15MakeSpaceForKeyERKNS0_10autovectorImLm8EEEjPS_INS1_12CuckooBucketESaIS6_EEPmE10CuckooNodeSaISB_EED2Ev.exit, label %.thread118
 
-.thread118:                                       ; preds = %.lr.ph355, %.thread116, %._crit_edge
-  %.pre-phi = phi i64 [ %184, %.thread116 ], [ %.lcssa329, %._crit_edge ], [ %61, %.lr.ph355 ]
-  %.sroa.24.2165 = phi ptr [ %.sroa.24.11, %.thread116 ], [ %.sroa.24.2211.lcssa, %._crit_edge ], [ %.sroa.24.2211353, %.lr.ph355 ]
-  %.sroa.0105.2154 = phi ptr [ %.sroa.0105.11, %.thread116 ], [ %.sroa.0105.2213.lcssa, %._crit_edge ], [ %.sroa.0105.2213351, %.lr.ph355 ]
-  %206 = phi i1 [ true, %.thread116 ], [ false, %._crit_edge ], [ false, %.lr.ph355 ]
+.thread118:                                       ; preds = %.lr.ph370, %.thread116, %._crit_edge
+  %.pre-phi = phi i64 [ %184, %.thread116 ], [ %.lcssa344, %._crit_edge ], [ %61, %.lr.ph370 ]
+  %.sroa.24.2165 = phi ptr [ %.sroa.24.11, %.thread116 ], [ %.sroa.24.2211.lcssa, %._crit_edge ], [ %.sroa.24.2211368, %.lr.ph370 ]
+  %.sroa.0105.2154 = phi ptr [ %.sroa.0105.11, %.thread116 ], [ %.sroa.0105.2213.lcssa, %._crit_edge ], [ %.sroa.0105.2213366, %.lr.ph370 ]
+  %206 = phi i1 [ true, %.thread116 ], [ false, %._crit_edge ], [ false, %.lr.ph370 ]
   %207 = ptrtoint ptr %.sroa.24.2165 to i64
   %208 = sub i64 %207, %.pre-phi
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0105.2154, i64 noundef %208) #25
@@ -8501,18 +8501,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !63
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #28
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #28
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !16
@@ -8546,7 +8546,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

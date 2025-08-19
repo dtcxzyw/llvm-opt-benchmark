@@ -690,8 +690,8 @@ define range(i32 -1, 1) i32 @ff_huff_build_tree(ptr noundef %0, ptr noundef %1, 
   %130 = load i32, ptr %129, align 4, !tbaa !27
   %131 = add i32 %130, %127
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 2
-  %sext315 = shl i64 %indvars.iv298, 32
-  %132 = ashr exact i64 %sext315, 32
+  %sext327 = shl i64 %indvars.iv298, 32
+  %132 = ashr exact i64 %sext327, 32
   %133 = icmp sgt i64 %132, %indvars.iv.next307
   br i1 %133, label %.lr.ph248.us, label %._crit_edge249.us
 
@@ -831,18 +831,18 @@ define internal fastcc void @get_tree_codes(ptr noundef nonnull writeonly captur
 
 .lr.ph:                                           ; preds = %7, %tailrecurse.backedge
   %11 = phi ptr [ %17, %tailrecurse.backedge ], [ %9, %7 ]
-  %.tr3740 = phi i32 [ %.sink45, %tailrecurse.backedge ], [ %6, %7 ]
+  %.tr3740 = phi i32 [ %.sink46, %tailrecurse.backedge ], [ %6, %7 ]
   %.tr3539 = phi i32 [ %12, %tailrecurse.backedge ], [ %4, %7 ]
   %.not30 = icmp eq i32 %.tr3740, 0
   br i1 %.not30, label %tailrecurse.backedge, label %19
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %19
-  %.sink45 = phi i32 [ 1, %19 ], [ 0, %.lr.ph ]
+  %.sink46 = phi i32 [ 1, %19 ], [ 0, %.lr.ph ]
   %12 = add nsw i32 %.tr3539, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %14 = load i16, ptr %13, align 2, !tbaa !26
   %15 = sext i16 %14 to i32
-  tail call fastcc void @get_tree_codes(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %15, i32 noundef %12, ptr noundef %5, i32 noundef %.sink45)
+  tail call fastcc void @get_tree_codes(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %15, i32 noundef %12, ptr noundef %5, i32 noundef %.sink46)
   %.tr34.be.in.in = load i16, ptr %13, align 2, !tbaa !26
   %.tr34.be.in = sext i16 %.tr34.be.in.in to i64
   %16 = getelementptr %struct.Node, ptr %2, i64 %.tr34.be.in

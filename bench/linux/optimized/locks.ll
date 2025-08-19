@@ -2921,9 +2921,9 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   %273 = getelementptr i8, ptr %269, i64 64
   %274 = load ptr, ptr %273, align 8
   %275 = icmp eq ptr %272, %274
-  br i1 %275, label %.preheader276, label %.preheader90, !llvm.loop !66
+  br i1 %275, label %.preheader355, label %.preheader90, !llvm.loop !66
 
-.preheader276:                                    ; preds = %271, %504
+.preheader355:                                    ; preds = %271, %504
   %276 = phi ptr [ %508, %504 ], [ %1, %271 ]
   %277 = phi ptr [ %282, %504 ], [ %269, %271 ]
   %278 = phi ptr [ %507, %504 ], [ %59, %271 ]
@@ -2938,7 +2938,7 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   %287 = icmp eq ptr %284, %286
   br i1 %287, label %288, label %.thread79
 
-288:                                              ; preds = %.preheader276
+288:                                              ; preds = %.preheader355
   %289 = getelementptr inbounds nuw i8, ptr %276, i64 84
   %290 = load i8, ptr %289, align 4
   %291 = getelementptr i8, ptr %277, i64 76
@@ -3345,19 +3345,18 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %342, %387, %498
-  %.ph232 = phi i8 [ 1, %498 ], [ %359, %387 ], [ %280, %342 ]
-  %.ph233 = phi ptr [ null, %498 ], [ %278, %387 ], [ %278, %342 ]
-  %.ph234 = phi ptr [ %278, %498 ], [ %276, %387 ], [ %276, %342 ]
+  %.ph312 = phi ptr [ null, %498 ], [ %278, %387 ], [ %278, %342 ]
+  %.ph313 = phi ptr [ %278, %498 ], [ %276, %387 ], [ %276, %342 ]
   store volatile ptr %277, ptr %4, align 8
   br label %504
 
 504:                                              ; preds = %.sink.split, %362, %349, %318, %298
-  %505 = phi i8 [ %280, %298 ], [ %280, %349 ], [ %359, %362 ], [ 1, %318 ], [ %.ph232, %.sink.split ]
+  %505 = phi i8 [ %280, %298 ], [ %280, %349 ], [ %359, %362 ], [ 1, %318 ], [ 1, %.sink.split ]
   %506 = phi ptr [ %279, %298 ], [ %279, %349 ], [ %281, %362 ], [ %279, %318 ], [ %279, %.sink.split ]
-  %507 = phi ptr [ %278, %298 ], [ %278, %349 ], [ %278, %362 ], [ %278, %318 ], [ %.ph233, %.sink.split ]
-  %508 = phi ptr [ %276, %298 ], [ %276, %349 ], [ %276, %362 ], [ %281, %318 ], [ %.ph234, %.sink.split ]
+  %507 = phi ptr [ %278, %298 ], [ %278, %349 ], [ %278, %362 ], [ %278, %318 ], [ %.ph312, %.sink.split ]
+  %508 = phi ptr [ %276, %298 ], [ %276, %349 ], [ %276, %362 ], [ %281, %318 ], [ %.ph313, %.sink.split ]
   %509 = icmp eq ptr %282, %60
-  br i1 %509, label %.thread79, label %.preheader276, !llvm.loop !70
+  br i1 %509, label %.thread79, label %.preheader355, !llvm.loop !70
 
 510:                                              ; preds = %357
   %511 = select i1 %360, ptr %281, ptr %279
@@ -3368,28 +3367,28 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   %514 = icmp ne ptr %511, %281
   %515 = icmp ne ptr %58, null
   %516 = or i1 %515, %514
-  br i1 %516, label %.thread79.thread189, label %.loopexit89
+  br i1 %516, label %.thread79.thread269, label %.loopexit89
 
-.thread79:                                        ; preds = %351, %301, %.preheader276, %504, %510
-  %517 = phi ptr [ %511, %510 ], [ %506, %504 ], [ %279, %.preheader276 ], [ %279, %301 ], [ %279, %351 ]
-  %518 = phi i8 [ %359, %510 ], [ %505, %504 ], [ %280, %.preheader276 ], [ %280, %301 ], [ %280, %351 ]
-  %519 = phi ptr [ %276, %510 ], [ %508, %504 ], [ %276, %.preheader276 ], [ %276, %301 ], [ %276, %351 ]
-  %520 = phi ptr [ %277, %510 ], [ %282, %504 ], [ %277, %.preheader276 ], [ %277, %301 ], [ %277, %351 ]
-  %521 = phi ptr [ %278, %510 ], [ %507, %504 ], [ %278, %.preheader276 ], [ %278, %301 ], [ %278, %351 ]
+.thread79:                                        ; preds = %351, %301, %.preheader355, %504, %510
+  %517 = phi ptr [ %511, %510 ], [ %506, %504 ], [ %279, %.preheader355 ], [ %279, %301 ], [ %279, %351 ]
+  %518 = phi i8 [ %359, %510 ], [ %505, %504 ], [ %280, %.preheader355 ], [ %280, %301 ], [ %280, %351 ]
+  %519 = phi ptr [ %276, %510 ], [ %508, %504 ], [ %276, %.preheader355 ], [ %276, %301 ], [ %276, %351 ]
+  %520 = phi ptr [ %277, %510 ], [ %282, %504 ], [ %277, %.preheader355 ], [ %277, %301 ], [ %277, %351 ]
+  %521 = phi ptr [ %278, %510 ], [ %507, %504 ], [ %278, %.preheader355 ], [ %278, %301 ], [ %278, %351 ]
   %522 = icmp eq i8 %518, 0
   br i1 %522, label %.thread79..thread79.thread_crit_edge, label %709
 
-.thread79.thread189:                              ; preds = %513
+.thread79.thread269:                              ; preds = %513
   %523 = icmp eq i8 %359, 0
-  br i1 %523, label %.thread79..thread79.thread_crit_edge, label %.thread190
+  br i1 %523, label %.thread79..thread79.thread_crit_edge, label %.thread270
 
-.thread79..thread79.thread_crit_edge:             ; preds = %.thread79.thread189, %.thread79
-  %524 = phi ptr [ %278, %.thread79.thread189 ], [ %521, %.thread79 ]
-  %525 = phi ptr [ %277, %.thread79.thread189 ], [ %520, %.thread79 ]
-  %526 = phi ptr [ %276, %.thread79.thread189 ], [ %519, %.thread79 ]
-  %527 = phi ptr [ %281, %.thread79.thread189 ], [ null, %.thread79 ]
-  %528 = phi ptr [ %511, %.thread79.thread189 ], [ %517, %.thread79 ]
-  %529 = phi i1 [ false, %.thread79.thread189 ], [ true, %.thread79 ]
+.thread79..thread79.thread_crit_edge:             ; preds = %.thread79.thread269, %.thread79
+  %524 = phi ptr [ %278, %.thread79.thread269 ], [ %521, %.thread79 ]
+  %525 = phi ptr [ %277, %.thread79.thread269 ], [ %520, %.thread79 ]
+  %526 = phi ptr [ %276, %.thread79.thread269 ], [ %519, %.thread79 ]
+  %527 = phi ptr [ %281, %.thread79.thread269 ], [ null, %.thread79 ]
+  %528 = phi ptr [ %511, %.thread79.thread269 ], [ %517, %.thread79 ]
+  %529 = phi i1 [ false, %.thread79.thread269 ], [ true, %.thread79 ]
   %.phi.trans.insert187 = getelementptr inbounds nuw i8, ptr %526, i64 84
   %.pre188 = load i8, ptr %.phi.trans.insert187, align 4
   br label %.thread79.thread
@@ -3571,18 +3570,18 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   %630 = getelementptr inbounds nuw i8, ptr %531, i64 32
   store volatile ptr %624, ptr %630, align 8
   call void @_raw_spin_unlock(ptr noundef %620) #15
-  br i1 %536, label %709, label %.thread190
+  br i1 %536, label %709, label %.thread270
 
-.thread190:                                       ; preds = %.thread79.thread189, %629
-  %631 = phi ptr [ %531, %629 ], [ %281, %.thread79.thread189 ]
-  %632 = phi ptr [ null, %629 ], [ %278, %.thread79.thread189 ]
-  %633 = phi ptr [ %533, %629 ], [ %276, %.thread79.thread189 ]
-  %634 = phi ptr [ %535, %629 ], [ %511, %.thread79.thread189 ]
-  %635 = phi ptr [ %534, %629 ], [ %281, %.thread79.thread189 ]
+.thread270:                                       ; preds = %.thread79.thread269, %629
+  %631 = phi ptr [ %531, %629 ], [ %281, %.thread79.thread269 ]
+  %632 = phi ptr [ null, %629 ], [ %278, %.thread79.thread269 ]
+  %633 = phi ptr [ %533, %629 ], [ %276, %.thread79.thread269 ]
+  %634 = phi ptr [ %535, %629 ], [ %511, %.thread79.thread269 ]
+  %635 = phi ptr [ %534, %629 ], [ %281, %.thread79.thread269 ]
   %636 = icmp eq ptr %634, %635
   br i1 %636, label %637, label %702
 
-637:                                              ; preds = %.thread190
+637:                                              ; preds = %.thread270
   %638 = getelementptr inbounds nuw i8, ptr %58, i64 168
   %639 = load ptr, ptr %638, align 8
   %640 = icmp eq ptr %639, null
@@ -3695,9 +3694,9 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   call void @_raw_spin_unlock(ptr noundef %691) #15
   br label %702
 
-702:                                              ; preds = %700, %.thread190
-  %703 = phi ptr [ %58, %700 ], [ %634, %.thread190 ]
-  %704 = phi ptr [ null, %700 ], [ %58, %.thread190 ]
+702:                                              ; preds = %700, %.thread270
+  %703 = phi ptr [ %58, %700 ], [ %634, %.thread270 ]
+  %704 = phi ptr [ null, %700 ], [ %58, %.thread270 ]
   %705 = getelementptr inbounds nuw i8, ptr %633, i64 136
   %706 = load i64, ptr %705, align 8
   %707 = add i64 %706, 1
@@ -4320,7 +4319,7 @@ lease_alloc.exit.thread:                          ; preds = %3, %lease_alloc.exi
 137:                                              ; preds = %.loopexit28
   %138 = and i32 %1, 2048
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %.preheader49, label %140
+  br i1 %139, label %.preheader72, label %140
 
 140:                                              ; preds = %137
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_break_lease_noblock, i64 8), i32 2) #15
@@ -4364,9 +4363,9 @@ lease_alloc.exit.thread:                          ; preds = %3, %lease_alloc.exi
 
 .loopexit23:                                      ; preds = %291
   %.pre = load ptr, ptr %79, align 8
-  br label %.preheader49, !llvm.loop !82
+  br label %.preheader72, !llvm.loop !82
 
-.preheader49:                                     ; preds = %137, %.loopexit23
+.preheader72:                                     ; preds = %137, %.loopexit23
   %161 = phi ptr [ %.pre, %.loopexit23 ], [ %135, %137 ]
   %162 = getelementptr i8, ptr %161, i64 -8
   %163 = getelementptr i8, ptr %161, i64 144
@@ -4374,14 +4373,14 @@ lease_alloc.exit.thread:                          ; preds = %3, %lease_alloc.exi
   %165 = icmp eq i64 %164, 0
   br i1 %165, label %170, label %166
 
-166:                                              ; preds = %.preheader49
+166:                                              ; preds = %.preheader72
   %167 = load volatile i64, ptr @jiffies, align 64
   %168 = sub i64 %164, %167
   %169 = call i64 @llvm.umax.i64(i64 %168, i64 1)
   br label %170
 
-170:                                              ; preds = %166, %.preheader49
-  %171 = phi i64 [ %169, %166 ], [ 1, %.preheader49 ]
+170:                                              ; preds = %166, %.preheader72
+  %171 = phi i64 [ %169, %166 ], [ 1, %.preheader72 ]
   call void @_raw_spin_lock(ptr noundef nonnull @blocked_lock_lock) #15
   call fastcc void @__locks_insert_block(ptr noundef %162, ptr noundef %10, ptr noundef nonnull @leases_conflict)
   call void @_raw_spin_unlock(ptr noundef nonnull @blocked_lock_lock) #15
@@ -5537,7 +5536,7 @@ define dso_local i32 @generic_setlease(ptr noundef %0, i32 noundef %1, ptr nound
   %237 = getelementptr inbounds nuw i8, ptr %217, i64 340
   %238 = load volatile i32, ptr %237, align 4
   %239 = icmp eq i32 %238, %236
-  br i1 %239, label %select.unfold21.thread47, label %select.unfold
+  br i1 %239, label %select.unfold21.thread69, label %select.unfold
 
 select.unfold21:                                  ; preds = %215
   %240 = getelementptr inbounds nuw i8, ptr %193, i64 40
@@ -5545,13 +5544,13 @@ select.unfold21:                                  ; preds = %215
   %242 = icmp eq ptr %241, %240
   br i1 %242, label %.thread22, label %251
 
-select.unfold21.thread47:                         ; preds = %233
+select.unfold21.thread69:                         ; preds = %233
   %243 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %244 = load ptr, ptr %243, align 8
   %245 = icmp eq ptr %244, %243
-  br i1 %245, label %.thread22, label %.thread48
+  br i1 %245, label %.thread22, label %.thread70
 
-.thread48:                                        ; preds = %select.unfold21.thread47
+.thread70:                                        ; preds = %select.unfold21.thread69
   %246 = getelementptr inbounds nuw i8, ptr %158, i64 72
   br label %.split.us
 
@@ -5576,10 +5575,10 @@ select.unfold21.thread:                           ; preds = %221
   %256 = phi ptr [ %248, %.thread ], [ %241, %251 ]
   br label %.split
 
-.split.us:                                        ; preds = %.thread48, %251
-  %257 = phi ptr [ %246, %.thread48 ], [ %252, %251 ]
-  %258 = phi ptr [ %243, %.thread48 ], [ %240, %251 ]
-  %259 = phi ptr [ %244, %.thread48 ], [ %241, %251 ]
+.split.us:                                        ; preds = %.thread70, %251
+  %257 = phi ptr [ %246, %.thread70 ], [ %252, %251 ]
+  %258 = phi ptr [ %243, %.thread70 ], [ %240, %251 ]
+  %259 = phi ptr [ %244, %.thread70 ], [ %241, %251 ]
   %260 = getelementptr i8, ptr %259, i64 112
   %261 = load ptr, ptr %260, align 8
   %262 = icmp eq ptr %261, %0
@@ -5590,25 +5589,25 @@ select.unfold21.thread:                           ; preds = %221
   %264 = getelementptr i8, ptr %259, i64 64
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, %263
-  br i1 %266, label %.lr.ph65, label %select.unfold
+  br i1 %266, label %.lr.ph87, label %select.unfold
 
-267:                                              ; preds = %.lr.ph65
+267:                                              ; preds = %.lr.ph87
   %268 = getelementptr i8, ptr %276, i64 112
   %269 = load ptr, ptr %268, align 8
   %270 = icmp eq ptr %269, %0
-  br i1 %270, label %271, label %.select.unfold.loopexit57_crit_edge, !llvm.loop !121
+  br i1 %270, label %271, label %.select.unfold.loopexit79_crit_edge, !llvm.loop !121
 
 271:                                              ; preds = %267
   %272 = getelementptr i8, ptr %276, i64 64
   %273 = load ptr, ptr %272, align 8
   %274 = icmp eq ptr %273, %263
-  br i1 %274, label %.lr.ph65, label %select.unfold.loopexit74, !llvm.loop !121
+  br i1 %274, label %.lr.ph87, label %select.unfold.loopexit96, !llvm.loop !121
 
-.lr.ph65:                                         ; preds = %.lr.ph, %271
+.lr.ph87:                                         ; preds = %.lr.ph, %271
   %275 = phi ptr [ %276, %271 ], [ %259, %.lr.ph ]
   %276 = load ptr, ptr %275, align 8
   %277 = icmp eq ptr %276, %258
-  br i1 %277, label %.split33.us.loopexit73, label %267, !llvm.loop !121
+  br i1 %277, label %.split33.us.loopexit95, label %267, !llvm.loop !121
 
 .split:                                           ; preds = %.split.preheader, %294
   %278 = phi ptr [ %296, %294 ], [ %256, %.split.preheader ]
@@ -5639,13 +5638,13 @@ select.unfold21.thread:                           ; preds = %221
   %297 = icmp eq ptr %296, %255
   br i1 %297, label %.split33.us, label %.split, !llvm.loop !121
 
-.split33.us.loopexit73:                           ; preds = %.lr.ph65
+.split33.us.loopexit95:                           ; preds = %.lr.ph87
   %298 = getelementptr i8, ptr %275, i64 -8
   br label %.split33.us
 
-.split33.us:                                      ; preds = %294, %.split33.us.loopexit73
-  %299 = phi ptr [ %258, %.split33.us.loopexit73 ], [ %255, %294 ]
-  %.us-phi34 = phi ptr [ %298, %.split33.us.loopexit73 ], [ %295, %294 ]
+.split33.us:                                      ; preds = %294, %.split33.us.loopexit95
+  %299 = phi ptr [ %258, %.split33.us.loopexit95 ], [ %255, %294 ]
+  %.us-phi34 = phi ptr [ %298, %.split33.us.loopexit95 ], [ %295, %294 ]
   %300 = icmp eq ptr %.us-phi34, null
   br i1 %300, label %.thread22, label %301
 
@@ -5658,8 +5657,8 @@ select.unfold21.thread:                           ; preds = %221
   %307 = icmp eq i32 %306, 0
   br i1 %307, label %316, label %select.unfold
 
-.thread22:                                        ; preds = %select.unfold21.thread47, %select.unfold21.thread, %select.unfold21, %.split33.us
-  %308 = phi ptr [ %247, %select.unfold21.thread ], [ %240, %select.unfold21 ], [ %299, %.split33.us ], [ %243, %select.unfold21.thread47 ]
+.thread22:                                        ; preds = %select.unfold21.thread69, %select.unfold21.thread, %select.unfold21, %.split33.us
+  %308 = phi ptr [ %247, %select.unfold21.thread ], [ %240, %select.unfold21 ], [ %299, %.split33.us ], [ %243, %select.unfold21.thread69 ]
   %309 = load i32, ptr @leases_enable, align 4
   %310 = icmp eq i32 %309, 0
   br i1 %310, label %select.unfold, label %311
@@ -5690,17 +5689,17 @@ select.unfold21.thread:                           ; preds = %221
   call void %322(ptr noundef %318, ptr noundef %3) #15
   br label %select.unfold
 
-.select.unfold.loopexit57_crit_edge:              ; preds = %267
+.select.unfold.loopexit79_crit_edge:              ; preds = %267
   %325 = getelementptr i8, ptr %275, i64 -8
   br label %select.unfold, !llvm.loop !121
 
-select.unfold.loopexit74:                         ; preds = %271
+select.unfold.loopexit96:                         ; preds = %271
   %326 = getelementptr i8, ptr %275, i64 -8
   br label %select.unfold
 
-select.unfold:                                    ; preds = %289, %select.unfold.loopexit74, %.lr.ph, %.select.unfold.loopexit57_crit_edge, %.split.us, %221, %225, %233, %324, %316, %315, %.thread22, %301
-  %327 = phi i32 [ %306, %301 ], [ 0, %324 ], [ 0, %316 ], [ %313, %315 ], [ -22, %.thread22 ], [ -11, %225 ], [ -11, %233 ], [ -11, %221 ], [ -11, %.split.us ], [ -11, %.select.unfold.loopexit57_crit_edge ], [ -11, %.lr.ph ], [ -11, %select.unfold.loopexit74 ], [ -11, %289 ]
-  %328 = phi ptr [ %.us-phi34, %301 ], [ %317, %324 ], [ %317, %316 ], [ null, %315 ], [ null, %.thread22 ], [ null, %225 ], [ null, %233 ], [ null, %221 ], [ null, %.split.us ], [ %325, %.select.unfold.loopexit57_crit_edge ], [ null, %.lr.ph ], [ %326, %select.unfold.loopexit74 ], [ %279, %289 ]
+select.unfold:                                    ; preds = %289, %select.unfold.loopexit96, %.lr.ph, %.select.unfold.loopexit79_crit_edge, %.split.us, %221, %225, %233, %324, %316, %315, %.thread22, %301
+  %327 = phi i32 [ %306, %301 ], [ 0, %324 ], [ 0, %316 ], [ %313, %315 ], [ -22, %.thread22 ], [ -11, %225 ], [ -11, %233 ], [ -11, %221 ], [ -11, %.split.us ], [ -11, %.select.unfold.loopexit79_crit_edge ], [ -11, %.lr.ph ], [ -11, %select.unfold.loopexit96 ], [ -11, %289 ]
+  %328 = phi ptr [ %.us-phi34, %301 ], [ %317, %324 ], [ %317, %316 ], [ null, %315 ], [ null, %.thread22 ], [ null, %225 ], [ null, %233 ], [ null, %221 ], [ null, %.split.us ], [ %325, %.select.unfold.loopexit79_crit_edge ], [ null, %.lr.ph ], [ %326, %select.unfold.loopexit96 ], [ %279, %289 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %193) #15
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !57

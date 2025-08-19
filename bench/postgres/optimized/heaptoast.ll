@@ -558,7 +558,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %38, %._crit_edge
-  %.0.lcssa69 = phi i1 [ true, %38 ], [ false, %._crit_edge ], [ false, %3 ]
+  %.0.lcssa70 = phi i1 [ true, %38 ], [ false, %._crit_edge ], [ false, %3 ]
   %.053 = phi i32 [ %41, %38 ], [ 24, %._crit_edge ], [ 24, %3 ]
   %42 = call i64 @heap_compute_data_size(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %43 = trunc i64 %42 to i32
@@ -591,7 +591,7 @@ define dso_local noundef i64 @toast_flatten_tuple_to_datum(ptr noundef %0, i32 n
   %63 = ashr exact i64 %sext, 32
   %64 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 23
-  %spec.select = select i1 %.0.lcssa69, ptr %65, ptr null
+  %spec.select = select i1 %.0.lcssa70, ptr %65, ptr null
   call void @heap_fill_tuple(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %62, i64 noundef %63, ptr noundef nonnull %64, ptr noundef %spec.select) #8
   br i1 %15, label %.lr.ph61.preheader, label %._crit_edge62
 

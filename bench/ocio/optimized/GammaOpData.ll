@@ -1232,10 +1232,10 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i: ; preds = %2, %2, %2, %2, %2,
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i6
-  %lpad.thr_comm.split-lp32 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp36 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 8) #23
-  resume { ptr, i32 } %lpad.thr_comm.split-lp32
+  resume { ptr, i32 } %lpad.thr_comm.split-lp36
 
 _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i6: ; preds = %2, %2, %2, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1963,8 +1963,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11GammaOpData9isInver
   %122 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i60, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i59, i64 8
   %.not.i.i.i.i.i61 = icmp ne ptr %122, %106
-  %or.cond78.not = select i1 %121, i1 %.not.i.i.i.i.i61, i1 false
-  br i1 %or.cond78.not, label %.lr.ph.i.i.i.i.i58, label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit, !llvm.loop !80
+  %or.cond90.not = select i1 %121, i1 %.not.i.i.i.i.i61, i1 false
+  br i1 %or.cond90.not, label %.lr.ph.i.i.i.i.i58, label %_ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit, !llvm.loop !80
 
 _ZSteqIdSaIdEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i46, %.lr.ph.i.i.i.i.i52, %.lr.ph.i.i.i.i.i58, %118, %33, %36, %.loopexit67, %.loopexit65, %.loopexit
   %.0 = phi i1 [ false, %.loopexit ], [ false, %.loopexit65 ], [ false, %.loopexit67 ], [ false, %36 ], [ false, %33 ], [ true, %118 ], [ %121, %.lr.ph.i.i.i.i.i58 ], [ false, %.lr.ph.i.i.i.i.i52 ], [ false, %.lr.ph.i.i.i.i.i46 ], [ false, %.lr.ph.i.i.i.i.i ]
@@ -3117,11 +3117,11 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev11GammaOpData10mayCom
 
 11:                                               ; preds = %9
   %12 = icmp ult i32 %6, 10
-  br i1 %12, label %switch.lookup17, label %15
+  br i1 %12, label %switch.lookup18, label %15
 
 13:                                               ; preds = %9
   %14 = icmp ult i32 %6, 10
-  br i1 %14, label %switch.lookup22, label %15
+  br i1 %14, label %switch.lookup23, label %15
 
 switch.lookup:                                    ; preds = %7
   %switch.cast = trunc nuw i32 %6 to i10
@@ -3129,20 +3129,20 @@ switch.lookup:                                    ; preds = %7
   %switch.masked = trunc i10 %switch.downshift to i1
   br label %15
 
-switch.lookup17:                                  ; preds = %11
-  %switch.cast18 = trunc nuw i32 %6 to i10
-  %switch.downshift20 = lshr i10 15, %switch.cast18
-  %switch.masked21 = trunc i10 %switch.downshift20 to i1
+switch.lookup18:                                  ; preds = %11
+  %switch.cast19 = trunc nuw i32 %6 to i10
+  %switch.downshift21 = lshr i10 15, %switch.cast19
+  %switch.masked22 = trunc i10 %switch.downshift21 to i1
   br label %15
 
-switch.lookup22:                                  ; preds = %13
-  %switch.cast23 = trunc nuw i32 %6 to i10
-  %switch.downshift25 = lshr i10 51, %switch.cast23
-  %switch.masked26 = trunc i10 %switch.downshift25 to i1
+switch.lookup23:                                  ; preds = %13
+  %switch.cast24 = trunc nuw i32 %6 to i10
+  %switch.downshift26 = lshr i10 51, %switch.cast24
+  %switch.masked27 = trunc i10 %switch.downshift26 to i1
   br label %15
 
-15:                                               ; preds = %9, %7, %11, %13, %switch.lookup22, %switch.lookup17, %switch.lookup
-  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked21, %switch.lookup17 ], [ %switch.masked26, %switch.lookup22 ], [ false, %13 ], [ false, %11 ], [ false, %7 ], [ false, %9 ]
+15:                                               ; preds = %9, %7, %11, %13, %switch.lookup23, %switch.lookup18, %switch.lookup
+  %.0 = phi i1 [ %switch.masked, %switch.lookup ], [ %switch.masked22, %switch.lookup18 ], [ %switch.masked27, %switch.lookup23 ], [ false, %13 ], [ false, %11 ], [ false, %7 ], [ false, %9 ]
   ret i1 %.0
 }
 

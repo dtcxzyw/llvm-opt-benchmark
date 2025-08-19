@@ -358,7 +358,7 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
   br label %152
 
 152:                                              ; preds = %thread-pre-split, %146
-  %.0154180253260275 = phi i32 [ 0, %thread-pre-split ], [ %.0154.ph, %146 ]
+  %.0154180262269284 = phi i32 [ 0, %thread-pre-split ], [ %.0154.ph, %146 ]
   %153 = phi ptr [ %129, %thread-pre-split ], [ %123, %146 ]
   %154 = phi ptr [ %130, %thread-pre-split ], [ %124, %146 ]
   %155 = phi i32 [ %141, %thread-pre-split ], [ %147, %146 ]
@@ -371,11 +371,11 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
   br label %.thread190
 
 158:                                              ; preds = %152
-  %159 = and i32 %.0154180253260275, -3
+  %159 = and i32 %.0154180262269284, -3
   %or.cond = icmp eq i32 %159, 4
   %160 = icmp sgt i32 %155, 0
-  %or.cond282 = and i1 %or.cond, %160
-  br i1 %or.cond282, label %.lr.ph226, label %.loopexit200
+  %or.cond291 = and i1 %or.cond, %160
+  br i1 %or.cond291, label %.lr.ph226, label %.loopexit200
 
 .lr.ph226:                                        ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %11, i64 40

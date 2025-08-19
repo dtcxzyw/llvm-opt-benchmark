@@ -79,7 +79,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 17:                                               ; preds = %.lr.ph, %_ZNSt6vectorIlSaIlEED2Ev.exit19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEED2Ev.exit19 ]
-  %.021 = phi i64 [ %2, %.lr.ph ], [ %.128, %_ZNSt6vectorIlSaIlEED2Ev.exit19 ]
+  %.021 = phi i64 [ %2, %.lr.ph ], [ %.130, %_ZNSt6vectorIlSaIlEED2Ev.exit19 ]
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
@@ -113,7 +113,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   br i1 %.not.i.i.i18, label %_ZNSt6vectorIlSaIlEED2Ev.exit19, label %38
 
 38:                                               ; preds = %.thread, %37
-  %.127 = phi i64 [ %36, %.thread ], [ %.021, %37 ]
+  %.129 = phi i64 [ %36, %.thread ], [ %.021, %37 ]
   %39 = load ptr, ptr %16, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = sub i64 %40, %26
@@ -121,7 +121,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit19
 
 _ZNSt6vectorIlSaIlEED2Ev.exit19:                  ; preds = %37, %38
-  %.128 = phi i64 [ %.021, %37 ], [ %.127, %38 ]
+  %.130 = phi i64 [ %.021, %37 ], [ %.129, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %5, align 4
   %43 = sext i32 %42 to i64

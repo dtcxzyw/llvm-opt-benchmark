@@ -3828,9 +3828,9 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$
   store i64 0, ptr %6, align 8
   %.not = icmp eq i64 %2, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %.not, label %7, label %.thread20
+  br i1 %.not, label %7, label %.thread23
 
-.thread20:                                        ; preds = %3
+.thread23:                                        ; preds = %3
   store i64 %2, ptr %.phi.trans.insert, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3845,8 +3845,8 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$
   %8 = icmp eq i64 %.pre, 0
   br i1 %8, label %.thread, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h995ab88911bb5035E.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h995ab88911bb5035E.exit.i": ; preds = %.thread20, %7
-  %9 = phi i64 [ %2, %.thread20 ], [ %.pre, %7 ]
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h995ab88911bb5035E.exit.i": ; preds = %.thread23, %7
+  %9 = phi i64 [ %2, %.thread23 ], [ %.pre, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = add i64 %9, -1
   store i64 %11, ptr %10, align 8, !alias.scope !833, !noalias !838
@@ -6745,7 +6745,7 @@ define internal void @"_ZN128_$LT$actix_web..resource..ResourceFactory$u20$as$u2
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %9 = load i8, ptr %8, align 8, !range !644, !noundef !4
-  switch i8 %9, label %default.unreachable38 [
+  switch i8 %9, label %default.unreachable42 [
     i8 0, label %11
     i8 1, label %19
     i8 2, label %20
@@ -6760,7 +6760,7 @@ define internal void @"_ZN128_$LT$actix_web..resource..ResourceFactory$u20$as$u2
   %.pre37 = load ptr, ptr %.phi.trans.insert36, align 8, !alias.scope !1288, !noalias !1293
   br label %21
 
-default.unreachable38:                            ; preds = %3
+default.unreachable42:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -7647,7 +7647,7 @@ define internal void @"_ZN122_$LT$actix_web..scope..ScopeFactory$u20$as$u20$acti
   %13 = alloca { i64, [2 x i64] }, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %15 = load i8, ptr %14, align 8, !range !644, !noundef !4
-  switch i8 %15, label %default.unreachable74 [
+  switch i8 %15, label %default.unreachable80 [
     i8 0, label %17
     i8 1, label %25
     i8 2, label %26
@@ -7662,7 +7662,7 @@ define internal void @"_ZN122_$LT$actix_web..scope..ScopeFactory$u20$as$u20$acti
   %.pre72 = load ptr, ptr %.phi.trans.insert71, align 8, !alias.scope !1395, !noalias !1400
   br label %27
 
-default.unreachable74:                            ; preds = %3
+default.unreachable80:                            ; preds = %3
   unreachable
 
 16:                                               ; preds = %3

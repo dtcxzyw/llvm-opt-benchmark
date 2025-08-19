@@ -253,10 +253,10 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
   br label %.thread370
 
 .outer399._crit_edge.thread:                      ; preds = %3, %.outer399._crit_edge
-  %.0245.ph.lcssa544 = phi i32 [ %.0245.ph.lcssa, %.outer399._crit_edge ], [ 0, %3 ]
-  %.0265.ph.lcssa543 = phi i32 [ %.0265.ph.lcssa, %.outer399._crit_edge ], [ 0, %3 ]
-  %.0281.ph.lcssa541 = phi ptr [ %.0281.ph.lcssa, %.outer399._crit_edge ], [ null, %3 ]
-  %.0285.ph.lcssa540 = phi i32 [ %.0285.ph.lcssa, %.outer399._crit_edge ], [ 0, %3 ]
+  %.0245.ph.lcssa571 = phi i32 [ %.0245.ph.lcssa, %.outer399._crit_edge ], [ 0, %3 ]
+  %.0265.ph.lcssa570 = phi i32 [ %.0265.ph.lcssa, %.outer399._crit_edge ], [ 0, %3 ]
+  %.0281.ph.lcssa568 = phi ptr [ %.0281.ph.lcssa, %.outer399._crit_edge ], [ null, %3 ]
+  %.0285.ph.lcssa567 = phi i32 [ %.0285.ph.lcssa, %.outer399._crit_edge ], [ 0, %3 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load ptr, ptr %94, align 8, !tbaa !49
   %.fr = freeze ptr %95
@@ -271,21 +271,21 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
 101:                                              ; preds = %.outer399._crit_edge.thread
   %102 = getelementptr inbounds nuw i8, ptr %.fr, i64 28
   %103 = load i32, ptr %102, align 4, !tbaa !50
-  %.not307 = icmp eq i32 %.0245.ph.lcssa544, %103
+  %.not307 = icmp eq i32 %.0245.ph.lcssa571, %103
   br i1 %.not307, label %114, label %104
 
 104:                                              ; preds = %101
-  %.not312 = icmp ne i32 %.0285.ph.lcssa540, 2
-  %105 = icmp ugt i32 %.0245.ph.lcssa544, %103
+  %.not312 = icmp ne i32 %.0285.ph.lcssa567, 2
+  %105 = icmp ugt i32 %.0245.ph.lcssa571, %103
   %or.cond = select i1 %.not312, i1 %105, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit396
 
 .preheader:                                       ; preds = %104
-  %.not313.not465 = icmp eq ptr %.0281.ph.lcssa541, null
+  %.not313.not465 = icmp eq ptr %.0281.ph.lcssa568, null
   br i1 %.not313.not465, label %.critedge, label %.lr.ph467
 
 .lr.ph467:                                        ; preds = %.preheader, %110
-  %.0274466 = phi ptr [ %112, %110 ], [ %.0281.ph.lcssa541, %.preheader ]
+  %.0274466 = phi ptr [ %112, %110 ], [ %.0281.ph.lcssa568, %.preheader ]
   %106 = load ptr, ptr %.0274466, align 8, !tbaa !41
   %107 = getelementptr inbounds nuw i8, ptr %.0274466, i64 8
   %108 = load i64, ptr %107, align 8, !tbaa !44
@@ -305,14 +305,14 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
   br label %.thread370
 
 114:                                              ; preds = %101, %.outer399._crit_edge.thread
-  %.not308 = icmp eq ptr %.0281.ph.lcssa541, null
+  %.not308 = icmp eq ptr %.0281.ph.lcssa568, null
   br i1 %.not308, label %.loopexit, label %115
 
 115:                                              ; preds = %114
   %116 = lshr i16 %97, 2
   %117 = and i16 %116, 3
   %118 = zext nneg i16 %117 to i32
-  %119 = icmp eq i32 %.0285.ph.lcssa540, %118
+  %119 = icmp eq i32 %.0285.ph.lcssa567, %118
   br i1 %119, label %120, label %126
 
 120:                                              ; preds = %115
@@ -322,7 +322,7 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
   br i1 %.not309, label %123, label %126
 
 123:                                              ; preds = %120
-  %.not310 = icmp eq i32 %.0265.ph.lcssa543, 0
+  %.not310 = icmp eq i32 %.0265.ph.lcssa570, 0
   br i1 %.not310, label %.lr.ph491.preheader, label %124
 
 124:                                              ; preds = %123
@@ -330,7 +330,7 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
   br label %.loopexit393
 
 126:                                              ; preds = %120, %115
-  %127 = icmp eq i32 %.0285.ph.lcssa540, 1
+  %127 = icmp eq i32 %.0285.ph.lcssa567, 1
   br i1 %127, label %128, label %.critedge
 
 128:                                              ; preds = %126
@@ -346,7 +346,7 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader, %128, %126
   %131 = phi i16 [ %97, %126 ], [ %97, %128 ], [ %97, %.preheader ], [ %.pre, %.critedge.loopexit ]
-  %.4289 = phi i32 [ %.0285.ph.lcssa540, %126 ], [ %spec.select336, %128 ], [ %.0285.ph.lcssa540, %.preheader ], [ %.0285.ph.lcssa540, %.critedge.loopexit ]
+  %.4289 = phi i32 [ %.0285.ph.lcssa567, %126 ], [ %spec.select336, %128 ], [ %.0285.ph.lcssa567, %.preheader ], [ %.0285.ph.lcssa567, %.critedge.loopexit ]
   %.4289.fr = freeze i32 %.4289
   %132 = and i16 %131, 12
   %133 = icmp eq i16 %132, 0
@@ -354,7 +354,7 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
 
 134:                                              ; preds = %.critedge
   %135 = load i64, ptr %15, align 8, !tbaa !33
-  %136 = icmp ne ptr %.0281.ph.lcssa541, null
+  %136 = icmp ne ptr %.0281.ph.lcssa568, null
   %137 = and i1 %136, %100
   br i1 %137, label %.lr.ph486, label %.loopexit393
 
@@ -364,7 +364,7 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
   br i1 %138, label %.lr.ph486.split.us.split, label %.lr.ph486.split
 
 .lr.ph486.split.us.split:                         ; preds = %.lr.ph486, %.lr.ph486.split.us.split
-  %.1275483.us = phi ptr [ %141, %.lr.ph486.split.us.split ], [ %.0281.ph.lcssa541, %.lr.ph486 ]
+  %.1275483.us = phi ptr [ %141, %.lr.ph486.split.us.split ], [ %.0281.ph.lcssa568, %.lr.ph486 ]
   %140 = getelementptr inbounds nuw i8, ptr %.1275483.us, i64 32
   %141 = load ptr, ptr %140, align 8, !tbaa !48
   %.not492 = icmp eq ptr %141, null
@@ -372,7 +372,7 @@ define dso_local range(i32 -1, 2) i32 @pdo_parse_params(ptr noundef %0, ptr noun
 
 .lr.ph486.split:                                  ; preds = %.lr.ph486, %279
   %.1269484 = phi i64 [ %.2270, %279 ], [ %135, %.lr.ph486 ]
-  %.1275483 = phi ptr [ %281, %279 ], [ %.0281.ph.lcssa541, %.lr.ph486 ]
+  %.1275483 = phi ptr [ %281, %279 ], [ %.0281.ph.lcssa568, %.lr.ph486 ]
   %142 = getelementptr inbounds nuw i8, ptr %.1275483, i64 24
   %143 = load i32, ptr %142, align 8, !tbaa !47
   %144 = icmp eq i32 %143, -1
@@ -429,8 +429,8 @@ zend_hash_index_find_ptr.exit:                    ; preds = %149, %146
   %171 = getelementptr inbounds nuw i8, ptr %.0257, i64 8
   %172 = load i8, ptr %171, align 8, !tbaa !39
   %173 = icmp eq i8 %172, 9
-  %or.cond586 = select i1 %170, i1 %173, i1 false
-  br i1 %or.cond586, label %174, label %._crit_edge
+  %or.cond613 = select i1 %170, i1 %173, i1 false
+  br i1 %or.cond613, label %174, label %._crit_edge
 
 174:                                              ; preds = %167
   %175 = call i32 @php_file_le_stream() #12
@@ -644,8 +644,8 @@ zend_string_copy.exit353:                         ; preds = %266, %271
   %.2270 = phi i64 [ %.1269484, %.lr.ph486.split ], [ %278, %.thread382 ]
   %280 = getelementptr inbounds nuw i8, ptr %.1275483, i64 32
   %281 = load ptr, ptr %280, align 8, !tbaa !48
-  %.not535 = icmp eq ptr %281, null
-  br i1 %.not535, label %.loopexit393, label %.lr.ph486.split
+  %.not562 = icmp eq ptr %281, null
+  br i1 %.not562, label %.loopexit393, label %.lr.ph486.split
 
 .loopexit393:                                     ; preds = %zend_string_init.exit360, %zend_string_release.exit, %279, %.lr.ph486.split.us.split, %124, %134, %342, %422
   %.0268 = phi i64 [ %125, %124 ], [ %135, %134 ], [ %336, %342 ], [ %416, %422 ], [ %135, %.lr.ph486.split.us.split ], [ %.2270, %279 ], [ %.4272, %zend_string_release.exit ], [ %443, %zend_string_init.exit360 ]
@@ -664,7 +664,7 @@ zend_string_copy.exit353:                         ; preds = %266, %271
   br label %289
 
 289:                                              ; preds = %309, %.loopexit393
-  %.2276 = phi ptr [ %.0281.ph.lcssa541, %.loopexit393 ], [ %315, %309 ]
+  %.2276 = phi ptr [ %.0281.ph.lcssa568, %.loopexit393 ], [ %315, %309 ]
   %.0248 = phi ptr [ %13, %.loopexit393 ], [ %313, %309 ]
   %.0239 = phi ptr [ %288, %.loopexit393 ], [ %.2, %309 ]
   %290 = load ptr, ptr %.2276, align 8, !tbaa !41
@@ -763,7 +763,7 @@ zend_string_copy.exit353:                         ; preds = %266, %271
   br label %342
 
 342:                                              ; preds = %340, %333
-  %.not317474 = icmp eq ptr %.0281.ph.lcssa541, null
+  %.not317474 = icmp eq ptr %.0281.ph.lcssa568, null
   br i1 %.not317474, label %.loopexit393, label %.lr.ph481
 
 .lr.ph481:                                        ; preds = %342
@@ -774,7 +774,7 @@ zend_string_copy.exit353:                         ; preds = %266, %271
 345:                                              ; preds = %.lr.ph481, %zend_string_release.exit
   %.0242479 = phi i32 [ 1, %.lr.ph481 ], [ %.1243, %zend_string_release.exit ]
   %.3271478 = phi i64 [ %336, %.lr.ph481 ], [ %.4272, %zend_string_release.exit ]
-  %.3277475 = phi ptr [ %.0281.ph.lcssa541, %.lr.ph481 ], [ %414, %zend_string_release.exit ]
+  %.3277475 = phi ptr [ %.0281.ph.lcssa568, %.lr.ph481 ], [ %414, %zend_string_release.exit ]
   %346 = getelementptr inbounds nuw i8, ptr %.3277475, i64 24
   %347 = load i32, ptr %346, align 8, !tbaa !47
   %348 = icmp eq i32 %347, -1
@@ -942,7 +942,7 @@ zend_string_release.exit:                         ; preds = %412, %411, %404, %z
   br label %422
 
 422:                                              ; preds = %420, %415
-  %.not315468 = icmp eq ptr %.0281.ph.lcssa541, null
+  %.not315468 = icmp eq ptr %.0281.ph.lcssa568, null
   br i1 %.not315468, label %.loopexit393, label %.lr.ph472
 
 .lr.ph472:                                        ; preds = %422
@@ -951,7 +951,7 @@ zend_string_release.exit:                         ; preds = %412, %411, %404, %z
 
 zend_string_init.exit360:                         ; preds = %.lr.ph472, %zend_string_init.exit360
   %.5273470 = phi i64 [ %416, %.lr.ph472 ], [ %443, %zend_string_init.exit360 ]
-  %.4278469 = phi ptr [ %.0281.ph.lcssa541, %.lr.ph472 ], [ %445, %zend_string_init.exit360 ]
+  %.4278469 = phi ptr [ %.0281.ph.lcssa568, %.lr.ph472 ], [ %445, %zend_string_init.exit360 ]
   %424 = load ptr, ptr %.4278469, align 8, !tbaa !41
   %425 = getelementptr inbounds nuw i8, ptr %.4278469, i64 8
   %426 = load i64, ptr %425, align 8, !tbaa !44
@@ -990,18 +990,18 @@ zend_string_init.exit360:                         ; preds = %.lr.ph472, %zend_st
   br i1 %.not315, label %.loopexit393, label %zend_string_init.exit360
 
 .thread370:                                       ; preds = %200, %205, %zend_string_release_ex.exit347, %324, %154, %.loopexit396, %92
-  %.0281.ph.lcssa542 = phi ptr [ %.0281.ph.lcssa, %92 ], [ %.0281.ph.lcssa541, %.loopexit396 ], [ %.0281.ph.lcssa541, %154 ], [ %.0281.ph.lcssa541, %324 ], [ %.0281.ph.lcssa541, %zend_string_release_ex.exit347 ], [ %.0281.ph.lcssa541, %205 ], [ %.0281.ph.lcssa541, %200 ]
+  %.0281.ph.lcssa569 = phi ptr [ %.0281.ph.lcssa, %92 ], [ %.0281.ph.lcssa568, %.loopexit396 ], [ %.0281.ph.lcssa568, %154 ], [ %.0281.ph.lcssa568, %324 ], [ %.0281.ph.lcssa568, %zend_string_release_ex.exit347 ], [ %.0281.ph.lcssa568, %205 ], [ %.0281.ph.lcssa568, %200 ]
   %.0253 = phi i32 [ -1, %92 ], [ -1, %.loopexit396 ], [ -1, %154 ], [ 1, %324 ], [ -1, %zend_string_release_ex.exit347 ], [ -1, %205 ], [ -1, %200 ]
-  %.not330489 = icmp eq ptr %.0281.ph.lcssa542, null
+  %.not330489 = icmp eq ptr %.0281.ph.lcssa569, null
   br i1 %.not330489, label %.loopexit, label %.lr.ph491.preheader
 
 .lr.ph491.preheader:                              ; preds = %123, %.thread370
-  %.0253549 = phi i32 [ %.0253, %.thread370 ], [ 0, %123 ]
-  %.0281.ph.lcssa542548 = phi ptr [ %.0281.ph.lcssa542, %.thread370 ], [ %.0281.ph.lcssa541, %123 ]
+  %.0253576 = phi i32 [ %.0253, %.thread370 ], [ 0, %123 ]
+  %.0281.ph.lcssa569575 = phi ptr [ %.0281.ph.lcssa569, %.thread370 ], [ %.0281.ph.lcssa568, %123 ]
   br label %.lr.ph491
 
 .lr.ph491:                                        ; preds = %.lr.ph491.preheader, %zend_string_release_ex.exit349
-  %.3284490 = phi ptr [ %447, %zend_string_release_ex.exit349 ], [ %.0281.ph.lcssa542548, %.lr.ph491.preheader ]
+  %.3284490 = phi ptr [ %447, %zend_string_release_ex.exit349 ], [ %.0281.ph.lcssa569575, %.lr.ph491.preheader ]
   %446 = getelementptr inbounds nuw i8, ptr %.3284490, i64 32
   %447 = load ptr, ptr %446, align 8, !tbaa !48
   %448 = getelementptr inbounds nuw i8, ptr %.3284490, i64 16
@@ -1035,7 +1035,7 @@ zend_string_release_ex.exit349:                   ; preds = %459, %454, %450, %.
   br i1 %.not330, label %.loopexit, label %.lr.ph491
 
 .loopexit:                                        ; preds = %zend_string_release_ex.exit349, %.thread370, %114
-  %.0 = phi i32 [ 0, %114 ], [ %.0253, %.thread370 ], [ %.0253549, %zend_string_release_ex.exit349 ]
+  %.0 = phi i32 [ 0, %114 ], [ %.0253, %.thread370 ], [ %.0253576, %zend_string_release_ex.exit349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
@@ -1075,8 +1075,8 @@ define internal range(i32 1, 7) i32 @default_scanner(ptr noundef captures(none) 
 .loopexit:                                        ; preds = %.preheader221, %.preheader219
   %14 = phi ptr [ %46, %.preheader219 ], [ %56, %.preheader221 ]
   %.0 = phi i32 [ %.1, %.preheader219 ], [ %.2, %.preheader221 ]
-  %cond334 = icmp eq i32 %.0, 0
-  br i1 %cond334, label %.thread, label %.sink.split
+  %cond362 = icmp eq i32 %.0, 0
+  br i1 %cond362, label %.thread, label %.sink.split
 
 .preheader:                                       ; preds = %12, %16
   %.0155 = phi ptr [ %15, %16 ], [ %3, %12 ]
@@ -1419,9 +1419,9 @@ define internal range(i32 1, 7) i32 @default_scanner(ptr noundef captures(none) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader231, %75, %72, %.preheader229, %.lr.ph, %69, %.backedge, %.preheader226, %62, %.preheader224, %59, %57, %51, %49, %47, %41, %16, %16, %16, %16, %16, %16, %16, %.preheader, %.loopexit, %36, %.preheader228, %80, %38, %.thread
-  %.lcssa322.sink = phi ptr [ %21, %.thread ], [ %39, %38 ], [ %14, %.loopexit ], [ %81, %80 ], [ %32, %.preheader228 ], [ %37, %36 ], [ %15, %.preheader ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %43, %41 ], [ %48, %47 ], [ %48, %49 ], [ %53, %51 ], [ %58, %57 ], [ %58, %59 ], [ %61, %.preheader224 ], [ %61, %62 ], [ %77, %.preheader226 ], [ %66, %.backedge ], [ %scevgep, %69 ], [ %67, %.lr.ph ], [ %71, %.preheader229 ], [ %71, %72 ], [ %74, %75 ], [ %74, %.preheader231 ]
+  %.lcssa350.sink = phi ptr [ %21, %.thread ], [ %39, %38 ], [ %14, %.loopexit ], [ %81, %80 ], [ %32, %.preheader228 ], [ %37, %36 ], [ %15, %.preheader ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %15, %16 ], [ %43, %41 ], [ %48, %47 ], [ %48, %49 ], [ %53, %51 ], [ %58, %57 ], [ %58, %59 ], [ %61, %.preheader224 ], [ %61, %62 ], [ %77, %.preheader226 ], [ %66, %.backedge ], [ %scevgep, %69 ], [ %67, %.lr.ph ], [ %71, %.preheader229 ], [ %71, %72 ], [ %74, %75 ], [ %74, %.preheader231 ]
   %.0160.ph = phi i32 [ 1, %.thread ], [ 3, %38 ], [ 1, %.loopexit ], [ 1, %80 ], [ 6, %.preheader228 ], [ 6, %36 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 1, %16 ], [ 6, %.preheader ], [ 6, %41 ], [ 6, %47 ], [ 1, %49 ], [ 6, %51 ], [ 6, %57 ], [ 1, %59 ], [ 1, %62 ], [ 6, %.preheader224 ], [ 6, %.preheader226 ], [ 6, %.backedge ], [ 6, %69 ], [ 2, %.lr.ph ], [ 1, %72 ], [ 6, %.preheader229 ], [ 6, %.preheader231 ], [ 1, %75 ]
-  store ptr %.lcssa322.sink, ptr %2, align 8, !tbaa !31
+  store ptr %.lcssa350.sink, ptr %2, align 8, !tbaa !31
   br label %82
 
 82:                                               ; preds = %.sink.split, %1

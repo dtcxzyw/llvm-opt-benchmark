@@ -808,8 +808,8 @@ define internal void @_ZNK4ncnn13PReLU_x86_fma15forward_inplaceERNS_3MatERKNS_6O
   br i1 %44, label %.thread52, label %47
 
 .thread52:                                        ; preds = %40
-  %.idx82 = shl nsw i64 %indvars.iv, 4
-  %45 = getelementptr inbounds i8, ptr %36, i64 %.idx82
+  %.idx91 = shl nsw i64 %indvars.iv, 4
+  %45 = getelementptr inbounds i8, ptr %36, i64 %.idx91
   %46 = load <4 x float>, ptr %45, align 1, !tbaa !47
   br label %54
 
@@ -987,8 +987,8 @@ define internal void @_ZNK4ncnn13PReLU_x86_fma15forward_inplaceERNS_3MatERKNS_6O
   br i1 %42, label %.thread59, label %45
 
 .thread59:                                        ; preds = %38
-  %.idx87 = shl nsw i64 %indvars.iv, 4
-  %43 = getelementptr inbounds i8, ptr %34, i64 %.idx87
+  %.idx96 = shl nsw i64 %indvars.iv, 4
+  %43 = getelementptr inbounds i8, ptr %34, i64 %.idx96
   %44 = load <4 x float>, ptr %43, align 1, !tbaa !47
   br label %52
 

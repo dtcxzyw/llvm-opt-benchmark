@@ -2269,8 +2269,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond127 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond127, label %.noexc34.us.us.preheader, label %._crit_edge95
+  %or.cond132 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond132, label %.noexc34.us.us.preheader, label %._crit_edge95
 
 .noexc34.us.us.preheader:                         ; preds = %.noexc34.lr.ph
   %36 = sext i32 %20 to i64
@@ -2544,8 +2544,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond125 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond125, label %.noexc33.us.us.preheader, label %._crit_edge
+  %or.cond130 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond130, label %.noexc33.us.us.preheader, label %._crit_edge
 
 .noexc33.us.us.preheader:                         ; preds = %.noexc33.lr.ph
   %36 = sext i32 %20 to i64
@@ -2819,8 +2819,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond127 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond127, label %.noexc34.us.us.preheader, label %._crit_edge95
+  %or.cond132 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond132, label %.noexc34.us.us.preheader, label %._crit_edge95
 
 .noexc34.us.us.preheader:                         ; preds = %.noexc34.lr.ph
   %36 = sext i32 %20 to i64
@@ -3093,8 +3093,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond129 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond129, label %.noexc34.us.us.preheader, label %._crit_edge97
+  %or.cond134 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond134, label %.noexc34.us.us.preheader, label %._crit_edge97
 
 .noexc34.us.us.preheader:                         ; preds = %.noexc34.lr.ph
   %36 = sext i32 %20 to i64
@@ -3367,8 +3367,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond127 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond127, label %.noexc33.us.us.preheader, label %._crit_edge
+  %or.cond132 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond132, label %.noexc33.us.us.preheader, label %._crit_edge
 
 .noexc33.us.us.preheader:                         ; preds = %.noexc33.lr.ph
   %36 = sext i32 %20 to i64
@@ -3641,8 +3641,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond131 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond131, label %.noexc34.us.us.preheader, label %._crit_edge99
+  %or.cond136 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond136, label %.noexc34.us.us.preheader, label %._crit_edge99
 
 .noexc34.us.us.preheader:                         ; preds = %.noexc34.lr.ph
   %36 = sext i32 %20 to i64
@@ -3915,8 +3915,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond132 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond132, label %.noexc34.us.us.preheader, label %._crit_edge100
+  %or.cond137 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond137, label %.noexc34.us.us.preheader, label %._crit_edge100
 
 .noexc34.us.us.preheader:                         ; preds = %.noexc34.lr.ph
   %36 = sext i32 %20 to i64
@@ -4189,8 +4189,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond132 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond132, label %.noexc33.us.us.preheader, label %._crit_edge
+  %or.cond137 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond137, label %.noexc33.us.us.preheader, label %._crit_edge
 
 .noexc33.us.us.preheader:                         ; preds = %.noexc33.lr.ph
   %36 = sext i32 %20 to i64
@@ -4464,8 +4464,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond128 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond128, label %.noexc33.us.us.preheader, label %._crit_edge
+  %or.cond133 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond133, label %.noexc33.us.us.preheader, label %._crit_edge
 
 .noexc33.us.us.preheader:                         ; preds = %.noexc33.lr.ph
   %36 = sext i32 %20 to i64
@@ -4598,8 +4598,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond130 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond130, label %.noexc33.us.us.preheader, label %._crit_edge
+  %or.cond135 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond135, label %.noexc33.us.us.preheader, label %._crit_edge
 
 .noexc33.us.us.preheader:                         ; preds = %.noexc33.lr.ph
   %36 = sext i32 %20 to i64
@@ -4733,8 +4733,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond130 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond130, label %.noexc33.us.us.preheader, label %._crit_edge
+  %or.cond135 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond135, label %.noexc33.us.us.preheader, label %._crit_edge
 
 .noexc33.us.us.preheader:                         ; preds = %.noexc33.lr.ph
   %36 = sext i32 %20 to i64
@@ -5007,8 +5007,8 @@ define internal void @_ZNK4ncnn7Permute7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %or.cond = select i1 %27, i1 %33, i1 false
   %34 = load i32, ptr %7, align 4
   %35 = icmp sgt i32 %34, 0
-  %or.cond131 = select i1 %or.cond, i1 %35, i1 false
-  br i1 %or.cond131, label %.noexc33.us.us.preheader, label %._crit_edge
+  %or.cond136 = select i1 %or.cond, i1 %35, i1 false
+  br i1 %or.cond136, label %.noexc33.us.us.preheader, label %._crit_edge
 
 .noexc33.us.us.preheader:                         ; preds = %.noexc33.lr.ph
   %36 = sext i32 %20 to i64

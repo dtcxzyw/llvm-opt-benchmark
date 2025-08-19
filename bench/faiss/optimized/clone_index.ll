@@ -1024,7 +1024,7 @@ define noundef ptr @_ZN5faiss6Cloner11clone_IndexEPKNS_5IndexE(ptr noundef nonnu
 9:                                                ; preds = %7
   %10 = tail call noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #27
   invoke void @_ZN5faiss7IndexPQC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(404) %10, ptr noundef nonnull align 8 dereferenceable(404) %8)
-          to label %common.ret412 unwind label %11
+          to label %common.ret439 unwind label %11
 
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
@@ -1040,7 +1040,7 @@ define noundef ptr @_ZN5faiss6Cloner11clone_IndexEPKNS_5IndexE(ptr noundef nonnu
 15:                                               ; preds = %13
   %16 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #27
   invoke void @_ZN5faiss8IndexLSHC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %16, ptr noundef nonnull align 8 dereferenceable(184) %14)
-          to label %common.ret412 unwind label %17
+          to label %common.ret439 unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -1119,7 +1119,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
   %46 = phi ptr [ %35, %.noexc5.i.thread ], [ %42, %40 ]
   %47 = phi ptr [ %34, %.noexc5.i.thread ], [ %41, %40 ]
   store ptr %46, ptr %47, align 8, !tbaa !53
-  br label %common.ret412
+  br label %common.ret439
 
 48:                                               ; preds = %21
   %49 = landingpad { ptr, i32 }
@@ -1139,7 +1139,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 52:                                               ; preds = %50
   %53 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
   invoke void @_ZN5faiss11IndexFlatL2C2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %53, ptr noundef nonnull align 8 dereferenceable(96) %51)
-          to label %common.ret412 unwind label %54
+          to label %common.ret439 unwind label %54
 
 54:                                               ; preds = %52
   %55 = landingpad { ptr, i32 }
@@ -1155,7 +1155,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 58:                                               ; preds = %56
   %59 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
   invoke void @_ZN5faiss11IndexFlatIPC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %59, ptr noundef nonnull align 8 dereferenceable(72) %57)
-          to label %common.ret412 unwind label %60
+          to label %common.ret439 unwind label %60
 
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
@@ -1171,7 +1171,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 64:                                               ; preds = %62
   %65 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
   invoke void @_ZN5faiss9IndexFlatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %65, ptr noundef nonnull align 8 dereferenceable(72) %63)
-          to label %common.ret412 unwind label %66
+          to label %common.ret439 unwind label %66
 
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
@@ -1187,7 +1187,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 70:                                               ; preds = %68
   %71 = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #27
   invoke void @_ZN5faiss12IndexLatticeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %71, ptr noundef nonnull align 8 dereferenceable(344) %69)
-          to label %common.ret412 unwind label %72
+          to label %common.ret439 unwind label %72
 
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
@@ -1210,7 +1210,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %82 = load i64, ptr %81, align 8, !tbaa !56
   store i64 %82, ptr %80, align 8, !tbaa !56
-  br label %common.ret412
+  br label %common.ret439
 
 83:                                               ; preds = %74
   %84 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss15IndexPQFastScanE, i64 0) #26
@@ -1220,7 +1220,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 85:                                               ; preds = %83
   %86 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #27
   invoke void @_ZN5faiss15IndexPQFastScanC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %86, ptr noundef nonnull align 8 dereferenceable(352) %84)
-          to label %common.ret412 unwind label %87
+          to label %common.ret439 unwind label %87
 
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
@@ -1236,7 +1236,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 91:                                               ; preds = %89
   %92 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #27
   invoke void @_ZN5faiss20IndexScalarQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %92, ptr noundef nonnull align 8 dereferenceable(144) %90)
-          to label %common.ret412 unwind label %93
+          to label %common.ret439 unwind label %93
 
 93:                                               ; preds = %91
   %94 = landingpad { ptr, i32 }
@@ -1252,7 +1252,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 97:                                               ; preds = %95
   %98 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #27
   invoke void @_ZN5faiss19MultiIndexQuantizerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %98, ptr noundef nonnull align 8 dereferenceable(256) %96)
-          to label %common.ret412 unwind label %99
+          to label %common.ret439 unwind label %99
 
 99:                                               ; preds = %97
   %100 = landingpad { ptr, i32 }
@@ -1302,11 +1302,11 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 .critedge:                                        ; preds = %114
   %126 = tail call ptr @__dynamic_cast(ptr nonnull %107, ptr nonnull @_ZTIN5faiss8IndexIVFE, ptr nonnull @_ZTIN5faiss25IndexIVFAdditiveQuantizerE, i64 0) #26
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %common.ret412, label %128
+  br i1 %127, label %common.ret439, label %128
 
 128:                                              ; preds = %.critedge, %114
   tail call void @_ZN5faiss28reset_AdditiveQuantizerIndexEPNS_5IndexE(ptr noundef nonnull %107)
-  br label %common.ret412
+  br label %common.ret439
 
 129:                                              ; preds = %101
   %130 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss17IndexPreTransformE, i64 0) #26
@@ -1361,7 +1361,7 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
 ._crit_edge:                                      ; preds = %164, %133
   %161 = getelementptr inbounds nuw i8, ptr %132, i64 72
   store i8 1, ptr %161, align 8, !tbaa !90
-  br label %common.ret412
+  br label %common.ret439
 
 162:                                              ; preds = %131
   %163 = landingpad { ptr, i32 }
@@ -1408,16 +1408,16 @@ _ZN5faiss11IndexFlat1DC2ERKS0_.exit:              ; preds = %.noexc5.i.thread, %
   %188 = tail call noundef ptr %187(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %184)
   %189 = getelementptr inbounds nuw i8, ptr %181, i64 40
   store ptr %188, ptr %189, align 8, !tbaa !97
-  br label %common.ret412
+  br label %common.ret439
 
 190:                                              ; preds = %178
   %191 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss9IndexHNSWE, i64 0) #26
   %.not299 = icmp eq ptr %191, null
   br i1 %.not299, label %199, label %192
 
-common.ret412:                                    ; preds = %272, %244, %256, %231, %217, %201, %180, %._crit_edge, %.critedge, %128, %97, %91, %85, %76, %70, %64, %58, %52, %_ZN5faiss11IndexFlat1DC2ERKS0_.exit, %15, %9, %318, %192
-  %common.ret412.op = phi ptr [ %193, %192 ], [ null, %318 ], [ %273, %272 ], [ %245, %244 ], [ %245, %256 ], [ %230, %231 ], [ %218, %217 ], [ %202, %201 ], [ %181, %180 ], [ %132, %._crit_edge ], [ %107, %.critedge ], [ %107, %128 ], [ %98, %97 ], [ %92, %91 ], [ %86, %85 ], [ %77, %76 ], [ %71, %70 ], [ %65, %64 ], [ %59, %58 ], [ %53, %52 ], [ %22, %_ZN5faiss11IndexFlat1DC2ERKS0_.exit ], [ %16, %15 ], [ %10, %9 ]
-  ret ptr %common.ret412.op
+common.ret439:                                    ; preds = %272, %244, %256, %231, %217, %201, %180, %._crit_edge, %.critedge, %128, %97, %91, %85, %76, %70, %64, %58, %52, %_ZN5faiss11IndexFlat1DC2ERKS0_.exit, %15, %9, %318, %192
+  %common.ret439.op = phi ptr [ %193, %192 ], [ null, %318 ], [ %273, %272 ], [ %245, %244 ], [ %245, %256 ], [ %230, %231 ], [ %218, %217 ], [ %202, %201 ], [ %181, %180 ], [ %132, %._crit_edge ], [ %107, %.critedge ], [ %107, %128 ], [ %98, %97 ], [ %92, %91 ], [ %86, %85 ], [ %77, %76 ], [ %71, %70 ], [ %65, %64 ], [ %59, %58 ], [ %53, %52 ], [ %22, %_ZN5faiss11IndexFlat1DC2ERKS0_.exit ], [ %16, %15 ], [ %10, %9 ]
+  ret ptr %common.ret439.op
 
 192:                                              ; preds = %190
   %193 = tail call noundef ptr @_ZN5faiss15clone_IndexHNSWEPKNS_9IndexHNSWE(ptr noundef nonnull %191)
@@ -1428,7 +1428,7 @@ common.ret412:                                    ; preds = %272, %244, %256, %2
   %197 = tail call noundef ptr @_ZN5faiss6Cloner11clone_IndexEPKNS_5IndexE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %196)
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 5192
   store ptr %197, ptr %198, align 8, !tbaa !113
-  br label %common.ret412
+  br label %common.ret439
 
 199:                                              ; preds = %190
   %200 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss8IndexNSGE, i64 0) #26
@@ -1455,7 +1455,7 @@ common.ret412:                                    ; preds = %272, %244, %256, %2
   %213 = call noundef ptr %212(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %209)
   %214 = getelementptr inbounds nuw i8, ptr %202, i64 5096
   store ptr %213, ptr %214, align 8, !tbaa !123
-  br label %common.ret412
+  br label %common.ret439
 
 215:                                              ; preds = %199
   %216 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss14IndexNNDescentE, i64 0) #26
@@ -1474,7 +1474,7 @@ common.ret412:                                    ; preds = %272, %244, %256, %2
   %225 = tail call noundef ptr %224(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %221)
   %226 = getelementptr inbounds nuw i8, ptr %218, i64 136
   store ptr %225, ptr %226, align 8, !tbaa !132
-  br label %common.ret412
+  br label %common.ret439
 
 227:                                              ; preds = %215
   %228 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss11Index2LayerE, i64 0) #26
@@ -1497,7 +1497,7 @@ common.ret412:                                    ; preds = %272, %244, %256, %2
   %238 = load ptr, ptr %237, align 8
   %239 = tail call noundef ptr %238(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %235)
   store ptr %239, ptr %232, align 8, !tbaa !138
-  br label %common.ret412
+  br label %common.ret439
 
 240:                                              ; preds = %229
   %241 = landingpad { ptr, i32 }
@@ -1525,7 +1525,7 @@ common.ret412:                                    ; preds = %272, %244, %256, %2
   %254 = getelementptr inbounds nuw i8, ptr %243, i64 48
   %255 = load ptr, ptr %254, align 8, !tbaa !142
   %.not309 = icmp eq ptr %255, null
-  br i1 %.not309, label %common.ret412, label %256
+  br i1 %.not309, label %common.ret439, label %256
 
 256:                                              ; preds = %244
   %257 = getelementptr inbounds nuw i8, ptr %245, i64 57
@@ -1536,7 +1536,7 @@ common.ret412:                                    ; preds = %272, %244, %256, %2
   %261 = tail call noundef ptr %260(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %255)
   %262 = getelementptr inbounds nuw i8, ptr %245, i64 48
   store ptr %261, ptr %262, align 8, !tbaa !142
-  br label %common.ret412
+  br label %common.ret439
 
 263:                                              ; preds = %242
   %264 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss22IndexRowwiseMinMaxBaseE, i64 0) #26
@@ -1561,7 +1561,7 @@ common.ret412:                                    ; preds = %272, %244, %256, %2
 272:                                              ; preds = %.critedge341, %.critedge339, %265
   %273 = tail call noundef ptr @_ZN5faiss28clone_AdditiveQuantizerIndexEPKNS_5IndexE(ptr noundef nonnull %1)
   tail call void @_ZN5faiss28reset_AdditiveQuantizerIndexEPNS_5IndexE(ptr noundef nonnull %273)
-  br label %common.ret412
+  br label %common.ret439
 
 274:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1662,7 +1662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load ptr, ptr %323, align 8
   %325 = tail call noundef ptr %324(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %321)
-  br label %common.ret412
+  br label %common.ret439
 
 326:                                              ; preds = %17, %54, %66, %87, %99, %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %162, %93, %72, %60, %.body, %11
   %.pn334 = phi { ptr, i32 } [ %12, %11 ], [ %18, %17 ], [ %eh.lpad-body, %.body ], [ %55, %54 ], [ %61, %60 ], [ %67, %66 ], [ %73, %72 ], [ %88, %87 ], [ %94, %93 ], [ %100, %99 ], [ %163, %162 ], [ %241, %240 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
@@ -7428,14 +7428,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   resume { ptr, i32 } %.pn25
 
 25:                                               ; preds = %7, %5
-  %.sink34 = phi ptr [ %6, %5 ], [ %8, %7 ]
+  %.sink39 = phi ptr [ %6, %5 ], [ %8, %7 ]
   %.sink = phi ptr [ getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN5faiss22IndexRowwiseMinMaxFP16E, i64 16), %5 ], [ getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN5faiss18IndexRowwiseMinMaxE, i64 16), %7 ]
   %26 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %27, ptr noundef nonnull align 8 dereferenceable(28) %28, i64 28, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %30 = getelementptr inbounds nuw i8, ptr %.sink34, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.sink39, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %29, ptr noundef nonnull align 8 dereferenceable(9) %30, i64 9, i1 false)
   store ptr %.sink, ptr %26, align 8, !tbaa !4
   ret ptr %26
@@ -13012,7 +13012,7 @@ _ZN5faiss15IndexBinaryFlatC2ERKS0_.exit:          ; preds = %.noexc5.i.thread, %
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef nonnull align 8 dereferenceable(20) %33, i64 20, i1 false)
-  br label %common.ret59
+  br label %common.ret68
 
 34:                                               ; preds = %5
   %35 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss11IndexBinaryE, ptr nonnull @_ZTIN5faiss14IndexBinaryIVFE, i64 0) #26
@@ -13046,9 +13046,9 @@ _ZN5faiss20clone_IndexBinaryIVFEPKNS_14IndexBinaryIVFE.exit: ; preds = %36
   store i8 1, ptr %45, align 8, !tbaa !359
   br label %46
 
-common.ret59:                                     ; preds = %_ZN5faiss21clone_IndexBinaryHNSWEPKNS_15IndexBinaryHNSWE.exit, %46, %_ZN5faiss15IndexBinaryFlatC2ERKS0_.exit
-  %common.ret59.op = phi ptr [ %8, %_ZN5faiss15IndexBinaryFlatC2ERKS0_.exit ], [ %37, %46 ], [ %56, %_ZN5faiss21clone_IndexBinaryHNSWEPKNS_15IndexBinaryHNSWE.exit ]
-  ret ptr %common.ret59.op
+common.ret68:                                     ; preds = %_ZN5faiss21clone_IndexBinaryHNSWEPKNS_15IndexBinaryHNSWE.exit, %46, %_ZN5faiss15IndexBinaryFlatC2ERKS0_.exit
+  %common.ret68.op = phi ptr [ %8, %_ZN5faiss15IndexBinaryFlatC2ERKS0_.exit ], [ %37, %46 ], [ %56, %_ZN5faiss21clone_IndexBinaryHNSWEPKNS_15IndexBinaryHNSWE.exit ]
+  ret ptr %common.ret68.op
 
 46:                                               ; preds = %_ZN5faiss20clone_IndexBinaryIVFEPKNS_14IndexBinaryIVFE.exit, %43
   %.sink = phi ptr [ %44, %43 ], [ null, %_ZN5faiss20clone_IndexBinaryIVFEPKNS_14IndexBinaryIVFE.exit ]
@@ -13061,7 +13061,7 @@ common.ret59:                                     ; preds = %_ZN5faiss21clone_In
   %51 = tail call noundef ptr @_ZN5faiss18clone_binary_indexEPKNS_11IndexBinaryE(ptr noundef %50)
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 160
   store ptr %51, ptr %52, align 8, !tbaa !361
-  br label %common.ret59
+  br label %common.ret68
 
 53:                                               ; preds = %34
   %54 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss11IndexBinaryE, ptr nonnull @_ZTIN5faiss15IndexBinaryHNSWE, i64 0) #26
@@ -13096,7 +13096,7 @@ _ZN5faiss21clone_IndexBinaryHNSWEPKNS_15IndexBinaryHNSWE.exit: ; preds = %55
   %66 = tail call noundef ptr @_ZN5faiss18clone_binary_indexEPKNS_11IndexBinaryE(ptr noundef %65)
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 5184
   store ptr %66, ptr %67, align 8, !tbaa !364
-  br label %common.ret59
+  br label %common.ret68
 
 .thread54:                                        ; preds = %1, %53
   %68 = tail call ptr @__cxa_allocate_exception(i64 40) #26

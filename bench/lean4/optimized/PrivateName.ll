@@ -622,7 +622,7 @@ define ptr @l___private_Lean_PrivateName_0__Lean_privateToUserNameAux(ptr nounde
 lean_obj_tag.exit:                                ; preds = %4, %7
   %.0.i = phi i32 [ %6, %4 ], [ %9, %7 ]
   switch i32 %.0.i, label %40 [
-    i32 0, label %common.ret56
+    i32 0, label %common.ret62
     i32 1, label %10
   ]
 
@@ -699,14 +699,14 @@ lean_inc.exit28:                                  ; preds = %30, %29, %27, %lean
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit27
 
-common.ret56:                                     ; preds = %lean_dec.exit25, %116, %118, %119, %lean_obj_tag.exit, %102, %lean_dec.exit27
-  %common.ret56.op = phi ptr [ %39, %lean_dec.exit27 ], [ %104, %102 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %119 ], [ inttoptr (i64 1 to ptr), %118 ], [ inttoptr (i64 1 to ptr), %116 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit25 ]
-  ret ptr %common.ret56.op
+common.ret62:                                     ; preds = %lean_dec.exit25, %116, %118, %119, %lean_obj_tag.exit, %102, %lean_dec.exit27
+  %common.ret62.op = phi ptr [ %39, %lean_dec.exit27 ], [ %104, %102 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %119 ], [ inttoptr (i64 1 to ptr), %118 ], [ inttoptr (i64 1 to ptr), %116 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit25 ]
+  ret ptr %common.ret62.op
 
 lean_dec.exit27:                                  ; preds = %37, %36, %34, %lean_inc.exit28
   %38 = tail call ptr @l___private_Lean_PrivateName_0__Lean_privateToUserNameAux(ptr noundef %12)
   %39 = tail call ptr @l_Lean_Name_str___override(ptr noundef %38, ptr noundef %22) #3
-  br label %common.ret56
+  br label %common.ret62
 
 40:                                               ; preds = %lean_obj_tag.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -821,8 +821,8 @@ lean_nat_eq.exit.i:                               ; preds = %68
 
 lean_obj_tag.exit.i.i:                            ; preds = %85, %82
   %.0.i.i.i = phi i32 [ %84, %82 ], [ %87, %85 ]
-  %.not55.not = icmp ne i32 %.0.i.i.i, 1
-  br i1 %.not55.not, label %l_Lean_isPrivatePrefix.exit, label %88
+  %.not61.not = icmp ne i32 %.0.i.i.i, 1
+  br i1 %.not61.not, label %l_Lean_isPrivatePrefix.exit, label %88
 
 88:                                               ; preds = %lean_obj_tag.exit.i.i
   %89 = getelementptr inbounds nuw i8, ptr %.0918.i.i, i64 8
@@ -833,7 +833,7 @@ lean_obj_tag.exit.i.i:                            ; preds = %85, %82
   br i1 %93, label %.lr.ph.i.i, label %l_Lean_isPrivatePrefix.exit
 
 l_Lean_isPrivatePrefix.exit:                      ; preds = %lean_obj_tag.exit.i.i, %88, %lean_obj_tag.exit.i, %73, %lean_nat_eq.exit.i, %76
-  %94 = phi i1 [ true, %lean_nat_eq.exit.i ], [ true, %lean_obj_tag.exit.i ], [ false, %76 ], [ true, %73 ], [ %.not55.not, %88 ], [ %.not55.not, %lean_obj_tag.exit.i.i ]
+  %94 = phi i1 [ true, %lean_nat_eq.exit.i ], [ true, %lean_obj_tag.exit.i ], [ false, %76 ], [ true, %73 ], [ %.not61.not, %88 ], [ %.not61.not, %lean_obj_tag.exit.i.i ]
   br i1 %.not.i37, label %95, label %lean_dec.exit26
 
 95:                                               ; preds = %l_Lean_isPrivatePrefix.exit
@@ -860,7 +860,7 @@ lean_dec.exit26:                                  ; preds = %101, %100, %98, %l_
 102:                                              ; preds = %lean_dec.exit26
   %103 = tail call ptr @l___private_Lean_PrivateName_0__Lean_privateToUserNameAux(ptr noundef %42)
   %104 = tail call ptr @l_Lean_Name_num___override(ptr noundef %103, ptr noundef %52) #3
-  br label %common.ret56
+  br label %common.ret62
 
 105:                                              ; preds = %lean_dec.exit26
   br i1 %.not53, label %106, label %lean_dec.exit25
@@ -884,7 +884,7 @@ lean_dec.exit26:                                  ; preds = %101, %100, %98, %l_
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %112, %111, %109, %105
-  br i1 %.not52, label %113, label %common.ret56
+  br i1 %.not52, label %113, label %common.ret62
 
 113:                                              ; preds = %lean_dec.exit25
   %114 = load i32, ptr %42, align 4, !tbaa !8
@@ -894,15 +894,15 @@ lean_dec.exit25:                                  ; preds = %112, %111, %109, %1
 116:                                              ; preds = %113
   %117 = add nsw i32 %114, -1
   store i32 %117, ptr %42, align 4, !tbaa !8
-  br label %common.ret56
+  br label %common.ret62
 
 118:                                              ; preds = %113
   %.not.i35 = icmp eq i32 %114, 0
-  br i1 %.not.i35, label %common.ret56, label %119
+  br i1 %.not.i35, label %common.ret62, label %119
 
 119:                                              ; preds = %118
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %42) #3
-  br label %common.ret56
+  br label %common.ret62
 }
 
 declare ptr @l_Lean_Name_str___override(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1428,18 +1428,18 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit10, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %32, %lean_dec_ref.exit10 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink22 = phi ptr [ %4, %3 ], [ %32, %lean_dec_ref.exit10 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !8
   store i32 131096, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %36, align 8, !tbaa !4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %37, align 8, !tbaa !4
   br label %38
 
 38:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

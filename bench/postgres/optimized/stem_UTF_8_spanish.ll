@@ -306,9 +306,9 @@ define hidden range(i32 -2147483648, 2) i32 @spanish_UTF_8_stem(ptr noundef %0) 
   br i1 %40, label %.thread106.i, label %43
 
 .sink.split.i:                                    ; preds = %30, %22, %17
-  %.sink125.i = phi i32 [ %18, %17 ], [ %23, %22 ], [ %31, %30 ]
+  %.sink132.i = phi i32 [ %18, %17 ], [ %23, %22 ], [ %31, %30 ]
   %41 = load i32, ptr %11, align 8
-  %42 = add i32 %41, %.sink125.i
+  %42 = add i32 %41, %.sink132.i
   br label %43
 
 43:                                               ; preds = %.sink.split.i, %35

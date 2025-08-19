@@ -486,7 +486,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   %125 = getelementptr inbounds nuw i8, ptr %81, i64 112
   %126 = load i32, ptr %125, align 8, !tbaa !65
   %127 = icmp sgt i32 %126, -1
-  br i1 %127, label %.thread186.thread200.i, label %128
+  br i1 %127, label %.thread186.thread222.i, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %81, i64 116
@@ -513,17 +513,17 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %81, i64 112
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !65
   %142 = icmp sgt i32 %.pre.i, -1
-  br i1 %142, label %.thread186.thread200.i, label %.thread186.thread.i
+  br i1 %142, label %.thread186.thread222.i, label %.thread186.thread.i
 
-.thread186.thread200.i:                           ; preds = %.thread186.i, %124
+.thread186.thread222.i:                           ; preds = %.thread186.i, %124
   %143 = phi i32 [ %.pre.i, %.thread186.i ], [ %126, %124 ]
   %144 = trunc i32 %143 to i8
   %145 = getelementptr inbounds nuw i8, ptr %80, i64 1870
   store i8 %144, ptr %145, align 2, !tbaa !70
   br label %.thread186.thread.i
 
-.thread186.thread.i:                              ; preds = %.thread186.thread200.i, %.thread186.i, %136, %132, %128
-  %.5.i = phi i32 [ 1, %.thread186.thread200.i ], [ 1, %.thread186.i ], [ %.1.i, %128 ], [ %.1.i, %132 ], [ %.1.i, %136 ]
+.thread186.thread.i:                              ; preds = %.thread186.thread222.i, %.thread186.i, %136, %132, %128
+  %.5.i = phi i32 [ 1, %.thread186.thread222.i ], [ 1, %.thread186.i ], [ %.1.i, %128 ], [ %.1.i, %132 ], [ %.1.i, %136 ]
   %146 = getelementptr inbounds nuw i8, ptr %81, i64 116
   %147 = load i32, ptr %146, align 4, !tbaa !66
   %148 = icmp sgt i32 %147, -1
@@ -539,7 +539,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   %154 = getelementptr inbounds nuw i8, ptr %81, i64 124
   %155 = load i32, ptr %154, align 4, !tbaa !68
   %156 = icmp sgt i32 %155, -1
-  br i1 %156, label %.thread188.thread203.i, label %171
+  br i1 %156, label %.thread188.thread225.i, label %171
 
 .thread188.i:                                     ; preds = %.thread186.thread.i
   %157 = trunc i32 %147 to i8
@@ -548,30 +548,30 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   %.phi.trans.insert197.i = getelementptr inbounds nuw i8, ptr %81, i64 120
   %.pre198.i = load i32, ptr %.phi.trans.insert197.i, align 8, !tbaa !67
   %159 = icmp sgt i32 %.pre198.i, -1
-  br i1 %159, label %.thread188.thread.i, label %.thread188.thread203.i
+  br i1 %159, label %.thread188.thread.i, label %.thread188.thread225.i
 
 .thread188.thread.i:                              ; preds = %.thread188.i, %149
   %160 = phi i32 [ %.pre198.i, %.thread188.i ], [ %151, %149 ]
   %161 = trunc i32 %160 to i8
   %162 = getelementptr inbounds nuw i8, ptr %80, i64 1873
   store i8 %161, ptr %162, align 1, !tbaa !72
-  br label %.thread188.thread203.i
+  br label %.thread188.thread225.i
 
-.thread188.thread203.i:                           ; preds = %.thread188.thread.i, %.thread188.i, %153
+.thread188.thread225.i:                           ; preds = %.thread188.thread.i, %.thread188.i, %153
   %.8.i = phi i32 [ 1, %.thread188.thread.i ], [ 1, %.thread188.i ], [ %.5.i, %153 ]
   %163 = getelementptr inbounds nuw i8, ptr %81, i64 124
   %164 = load i32, ptr %163, align 4, !tbaa !68
   %165 = icmp sgt i32 %164, -1
   br i1 %165, label %166, label %169
 
-166:                                              ; preds = %.thread188.thread203.i
+166:                                              ; preds = %.thread188.thread225.i
   %167 = trunc i32 %164 to i8
   %168 = getelementptr inbounds nuw i8, ptr %80, i64 1874
   store i8 %167, ptr %168, align 2, !tbaa !73
   br label %169
 
-169:                                              ; preds = %166, %.thread188.thread203.i
-  %.9.i = phi i32 [ 1, %166 ], [ %.8.i, %.thread188.thread203.i ]
+169:                                              ; preds = %166, %.thread188.thread225.i
+  %.9.i = phi i32 [ 1, %166 ], [ %.8.i, %.thread188.thread225.i ]
   %170 = getelementptr inbounds nuw i8, ptr %80, i64 1871
   store i8 1, ptr %170, align 1, !tbaa !74
   br label %171
@@ -923,9 +923,9 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   br label %.sink.split.i81
 
 .sink.split.i81:                                  ; preds = %363, %361, %358
-  %.sink207.i = phi i64 [ 12, %363 ], [ 8, %361 ], [ 12, %358 ]
+  %.sink229.i = phi i64 [ 12, %363 ], [ 8, %361 ], [ 12, %358 ]
   %.sink.i = phi i8 [ %364, %363 ], [ 1, %361 ], [ 9, %358 ]
-  %365 = getelementptr inbounds nuw i8, ptr %80, i64 %.sink207.i
+  %365 = getelementptr inbounds nuw i8, ptr %80, i64 %.sink229.i
   store i8 %.sink.i, ptr %365, align 4, !tbaa !30
   br label %366
 

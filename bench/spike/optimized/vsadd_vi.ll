@@ -269,9 +269,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsadd_viP1
   %118 = ashr exact i64 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   %invariant.op = xor i32 %113, -1
-  %invariant.op135 = xor i16 %114, -1
-  %invariant.op136 = xor i8 %115, -1
-  %invariant.op137 = xor i64 %118, -1
+  %invariant.op138 = xor i16 %114, -1
+  %invariant.op139 = xor i8 %115, -1
+  %invariant.op140 = xor i64 %118, -1
   br label %124
 
 ._crit_edge:                                      ; preds = %174, %89
@@ -312,8 +312,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsadd_viP1
   %139 = lshr i8 %137, 7
   %narrow.i = add nuw i8 %139, 127
   %140 = xor i8 %narrow.i, %115
-  %.reass132.reass = xor i8 %138, %invariant.op136
-  %141 = or i8 %140, %.reass132.reass
+  %.reass135.reass = xor i8 %138, %invariant.op139
+  %141 = or i8 %140, %.reass135.reass
   %142 = icmp sgt i8 %141, -1
   %spec.select14.i = select i1 %142, i8 %narrow.i, i8 %138
   store i8 %spec.select14.i, ptr %135, align 1, !tbaa !150
@@ -327,8 +327,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsadd_viP1
   %148 = lshr i16 %146, 15
   %narrow.i100 = add nuw i16 %148, 32767
   %149 = xor i16 %narrow.i100, %114
-  %.reass130.reass = xor i16 %147, %invariant.op135
-  %150 = or i16 %149, %.reass130.reass
+  %.reass133.reass = xor i16 %147, %invariant.op138
+  %150 = or i16 %149, %.reass133.reass
   %151 = icmp sgt i16 %150, -1
   %spec.select14.i102 = select i1 %151, i16 %narrow.i100, i16 %147
   store i16 %spec.select14.i102, ptr %144, align 2, !tbaa !151
@@ -342,8 +342,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vsadd_viP1
   %157 = lshr i64 %155, 63
   %158 = add nuw i64 %157, 9223372036854775807
   %159 = xor i64 %158, %118
-  %.reass134.reass = xor i64 %156, %invariant.op137
-  %160 = or i64 %159, %.reass134.reass
+  %.reass137.reass = xor i64 %156, %invariant.op140
+  %160 = or i64 %159, %.reass137.reass
   %161 = icmp sgt i64 %160, -1
   %spec.select14.i106 = select i1 %161, i64 %158, i64 %156
   store i64 %spec.select14.i106, ptr %153, align 8, !tbaa !149
@@ -694,9 +694,9 @@ define noundef i64 @_Z19fast_rv64i_vsadd_viP11processor_t6insn_tm(ptr noundef %0
   %118 = ashr exact i64 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   %invariant.op = xor i32 %113, -1
-  %invariant.op135 = xor i16 %114, -1
-  %invariant.op136 = xor i8 %115, -1
-  %invariant.op137 = xor i64 %118, -1
+  %invariant.op138 = xor i16 %114, -1
+  %invariant.op139 = xor i8 %115, -1
+  %invariant.op140 = xor i64 %118, -1
   br label %122
 
 ._crit_edge:                                      ; preds = %172, %89
@@ -735,8 +735,8 @@ define noundef i64 @_Z19fast_rv64i_vsadd_viP11processor_t6insn_tm(ptr noundef %0
   %137 = lshr i8 %135, 7
   %narrow.i = add nuw i8 %137, 127
   %138 = xor i8 %narrow.i, %115
-  %.reass132.reass = xor i8 %136, %invariant.op136
-  %139 = or i8 %138, %.reass132.reass
+  %.reass135.reass = xor i8 %136, %invariant.op139
+  %139 = or i8 %138, %.reass135.reass
   %140 = icmp sgt i8 %139, -1
   %spec.select14.i = select i1 %140, i8 %narrow.i, i8 %136
   store i8 %spec.select14.i, ptr %133, align 1, !tbaa !150
@@ -750,8 +750,8 @@ define noundef i64 @_Z19fast_rv64i_vsadd_viP11processor_t6insn_tm(ptr noundef %0
   %146 = lshr i16 %144, 15
   %narrow.i100 = add nuw i16 %146, 32767
   %147 = xor i16 %narrow.i100, %114
-  %.reass130.reass = xor i16 %145, %invariant.op135
-  %148 = or i16 %147, %.reass130.reass
+  %.reass133.reass = xor i16 %145, %invariant.op138
+  %148 = or i16 %147, %.reass133.reass
   %149 = icmp sgt i16 %148, -1
   %spec.select14.i102 = select i1 %149, i16 %narrow.i100, i16 %145
   store i16 %spec.select14.i102, ptr %142, align 2, !tbaa !151
@@ -765,8 +765,8 @@ define noundef i64 @_Z19fast_rv64i_vsadd_viP11processor_t6insn_tm(ptr noundef %0
   %155 = lshr i64 %153, 63
   %156 = add nuw i64 %155, 9223372036854775807
   %157 = xor i64 %156, %118
-  %.reass134.reass = xor i64 %154, %invariant.op137
-  %158 = or i64 %157, %.reass134.reass
+  %.reass137.reass = xor i64 %154, %invariant.op140
+  %158 = or i64 %157, %.reass137.reass
   %159 = icmp sgt i64 %158, -1
   %spec.select14.i106 = select i1 %159, i64 %156, i64 %154
   store i64 %spec.select14.i106, ptr %151, align 8, !tbaa !149
@@ -999,9 +999,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsadd_vi
   %118 = ashr exact i64 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   %invariant.op = xor i32 %113, -1
-  %invariant.op135 = xor i16 %114, -1
-  %invariant.op136 = xor i8 %115, -1
-  %invariant.op137 = xor i64 %118, -1
+  %invariant.op138 = xor i16 %114, -1
+  %invariant.op139 = xor i8 %115, -1
+  %invariant.op140 = xor i64 %118, -1
   br label %124
 
 ._crit_edge:                                      ; preds = %174, %89
@@ -1042,8 +1042,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsadd_vi
   %139 = lshr i8 %137, 7
   %narrow.i = add nuw i8 %139, 127
   %140 = xor i8 %narrow.i, %115
-  %.reass132.reass = xor i8 %138, %invariant.op136
-  %141 = or i8 %140, %.reass132.reass
+  %.reass135.reass = xor i8 %138, %invariant.op139
+  %141 = or i8 %140, %.reass135.reass
   %142 = icmp sgt i8 %141, -1
   %spec.select14.i = select i1 %142, i8 %narrow.i, i8 %138
   store i8 %spec.select14.i, ptr %135, align 1, !tbaa !150
@@ -1057,8 +1057,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsadd_vi
   %148 = lshr i16 %146, 15
   %narrow.i100 = add nuw i16 %148, 32767
   %149 = xor i16 %narrow.i100, %114
-  %.reass130.reass = xor i16 %147, %invariant.op135
-  %150 = or i16 %149, %.reass130.reass
+  %.reass133.reass = xor i16 %147, %invariant.op138
+  %150 = or i16 %149, %.reass133.reass
   %151 = icmp sgt i16 %150, -1
   %spec.select14.i102 = select i1 %151, i16 %narrow.i100, i16 %147
   store i16 %spec.select14.i102, ptr %144, align 2, !tbaa !151
@@ -1072,8 +1072,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vsadd_vi
   %157 = lshr i64 %155, 63
   %158 = add nuw i64 %157, 9223372036854775807
   %159 = xor i64 %158, %118
-  %.reass134.reass = xor i64 %156, %invariant.op137
-  %160 = or i64 %159, %.reass134.reass
+  %.reass137.reass = xor i64 %156, %invariant.op140
+  %160 = or i64 %159, %.reass137.reass
   %161 = icmp sgt i64 %160, -1
   %spec.select14.i106 = select i1 %161, i64 %158, i64 %156
   store i64 %spec.select14.i106, ptr %153, align 8, !tbaa !149
@@ -1306,9 +1306,9 @@ define noundef i64 @_Z21logged_rv64i_vsadd_viP11processor_t6insn_tm(ptr noundef 
   %118 = ashr exact i64 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   %invariant.op = xor i32 %113, -1
-  %invariant.op135 = xor i16 %114, -1
-  %invariant.op136 = xor i8 %115, -1
-  %invariant.op137 = xor i64 %118, -1
+  %invariant.op138 = xor i16 %114, -1
+  %invariant.op139 = xor i8 %115, -1
+  %invariant.op140 = xor i64 %118, -1
   br label %122
 
 ._crit_edge:                                      ; preds = %172, %89
@@ -1347,8 +1347,8 @@ define noundef i64 @_Z21logged_rv64i_vsadd_viP11processor_t6insn_tm(ptr noundef 
   %137 = lshr i8 %135, 7
   %narrow.i = add nuw i8 %137, 127
   %138 = xor i8 %narrow.i, %115
-  %.reass132.reass = xor i8 %136, %invariant.op136
-  %139 = or i8 %138, %.reass132.reass
+  %.reass135.reass = xor i8 %136, %invariant.op139
+  %139 = or i8 %138, %.reass135.reass
   %140 = icmp sgt i8 %139, -1
   %spec.select14.i = select i1 %140, i8 %narrow.i, i8 %136
   store i8 %spec.select14.i, ptr %133, align 1, !tbaa !150
@@ -1362,8 +1362,8 @@ define noundef i64 @_Z21logged_rv64i_vsadd_viP11processor_t6insn_tm(ptr noundef 
   %146 = lshr i16 %144, 15
   %narrow.i100 = add nuw i16 %146, 32767
   %147 = xor i16 %narrow.i100, %114
-  %.reass130.reass = xor i16 %145, %invariant.op135
-  %148 = or i16 %147, %.reass130.reass
+  %.reass133.reass = xor i16 %145, %invariant.op138
+  %148 = or i16 %147, %.reass133.reass
   %149 = icmp sgt i16 %148, -1
   %spec.select14.i102 = select i1 %149, i16 %narrow.i100, i16 %145
   store i16 %spec.select14.i102, ptr %142, align 2, !tbaa !151
@@ -1377,8 +1377,8 @@ define noundef i64 @_Z21logged_rv64i_vsadd_viP11processor_t6insn_tm(ptr noundef 
   %155 = lshr i64 %153, 63
   %156 = add nuw i64 %155, 9223372036854775807
   %157 = xor i64 %156, %118
-  %.reass134.reass = xor i64 %154, %invariant.op137
-  %158 = or i64 %157, %.reass134.reass
+  %.reass137.reass = xor i64 %154, %invariant.op140
+  %158 = or i64 %157, %.reass137.reass
   %159 = icmp sgt i64 %158, -1
   %spec.select14.i106 = select i1 %159, i64 %156, i64 %154
   store i64 %spec.select14.i106, ptr %151, align 8, !tbaa !149
@@ -1611,9 +1611,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsadd_viP1
   %118 = ashr exact i64 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   %invariant.op = xor i32 %113, -1
-  %invariant.op135 = xor i16 %114, -1
-  %invariant.op136 = xor i8 %115, -1
-  %invariant.op137 = xor i64 %118, -1
+  %invariant.op138 = xor i16 %114, -1
+  %invariant.op139 = xor i8 %115, -1
+  %invariant.op140 = xor i64 %118, -1
   br label %124
 
 ._crit_edge:                                      ; preds = %174, %89
@@ -1654,8 +1654,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsadd_viP1
   %139 = lshr i8 %137, 7
   %narrow.i = add nuw i8 %139, 127
   %140 = xor i8 %narrow.i, %115
-  %.reass132.reass = xor i8 %138, %invariant.op136
-  %141 = or i8 %140, %.reass132.reass
+  %.reass135.reass = xor i8 %138, %invariant.op139
+  %141 = or i8 %140, %.reass135.reass
   %142 = icmp sgt i8 %141, -1
   %spec.select14.i = select i1 %142, i8 %narrow.i, i8 %138
   store i8 %spec.select14.i, ptr %135, align 1, !tbaa !150
@@ -1669,8 +1669,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsadd_viP1
   %148 = lshr i16 %146, 15
   %narrow.i100 = add nuw i16 %148, 32767
   %149 = xor i16 %narrow.i100, %114
-  %.reass130.reass = xor i16 %147, %invariant.op135
-  %150 = or i16 %149, %.reass130.reass
+  %.reass133.reass = xor i16 %147, %invariant.op138
+  %150 = or i16 %149, %.reass133.reass
   %151 = icmp sgt i16 %150, -1
   %spec.select14.i102 = select i1 %151, i16 %narrow.i100, i16 %147
   store i16 %spec.select14.i102, ptr %144, align 2, !tbaa !151
@@ -1684,8 +1684,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vsadd_viP1
   %157 = lshr i64 %155, 63
   %158 = add nuw i64 %157, 9223372036854775807
   %159 = xor i64 %158, %118
-  %.reass134.reass = xor i64 %156, %invariant.op137
-  %160 = or i64 %159, %.reass134.reass
+  %.reass137.reass = xor i64 %156, %invariant.op140
+  %160 = or i64 %159, %.reass137.reass
   %161 = icmp sgt i64 %160, -1
   %spec.select14.i106 = select i1 %161, i64 %158, i64 %156
   store i64 %spec.select14.i106, ptr %153, align 8, !tbaa !149
@@ -1918,9 +1918,9 @@ define noundef i64 @_Z19fast_rv64e_vsadd_viP11processor_t6insn_tm(ptr noundef %0
   %118 = ashr exact i64 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   %invariant.op = xor i32 %113, -1
-  %invariant.op135 = xor i16 %114, -1
-  %invariant.op136 = xor i8 %115, -1
-  %invariant.op137 = xor i64 %118, -1
+  %invariant.op138 = xor i16 %114, -1
+  %invariant.op139 = xor i8 %115, -1
+  %invariant.op140 = xor i64 %118, -1
   br label %122
 
 ._crit_edge:                                      ; preds = %172, %89
@@ -1959,8 +1959,8 @@ define noundef i64 @_Z19fast_rv64e_vsadd_viP11processor_t6insn_tm(ptr noundef %0
   %137 = lshr i8 %135, 7
   %narrow.i = add nuw i8 %137, 127
   %138 = xor i8 %narrow.i, %115
-  %.reass132.reass = xor i8 %136, %invariant.op136
-  %139 = or i8 %138, %.reass132.reass
+  %.reass135.reass = xor i8 %136, %invariant.op139
+  %139 = or i8 %138, %.reass135.reass
   %140 = icmp sgt i8 %139, -1
   %spec.select14.i = select i1 %140, i8 %narrow.i, i8 %136
   store i8 %spec.select14.i, ptr %133, align 1, !tbaa !150
@@ -1974,8 +1974,8 @@ define noundef i64 @_Z19fast_rv64e_vsadd_viP11processor_t6insn_tm(ptr noundef %0
   %146 = lshr i16 %144, 15
   %narrow.i100 = add nuw i16 %146, 32767
   %147 = xor i16 %narrow.i100, %114
-  %.reass130.reass = xor i16 %145, %invariant.op135
-  %148 = or i16 %147, %.reass130.reass
+  %.reass133.reass = xor i16 %145, %invariant.op138
+  %148 = or i16 %147, %.reass133.reass
   %149 = icmp sgt i16 %148, -1
   %spec.select14.i102 = select i1 %149, i16 %narrow.i100, i16 %145
   store i16 %spec.select14.i102, ptr %142, align 2, !tbaa !151
@@ -1989,8 +1989,8 @@ define noundef i64 @_Z19fast_rv64e_vsadd_viP11processor_t6insn_tm(ptr noundef %0
   %155 = lshr i64 %153, 63
   %156 = add nuw i64 %155, 9223372036854775807
   %157 = xor i64 %156, %118
-  %.reass134.reass = xor i64 %154, %invariant.op137
-  %158 = or i64 %157, %.reass134.reass
+  %.reass137.reass = xor i64 %154, %invariant.op140
+  %158 = or i64 %157, %.reass137.reass
   %159 = icmp sgt i64 %158, -1
   %spec.select14.i106 = select i1 %159, i64 %156, i64 %154
   store i64 %spec.select14.i106, ptr %151, align 8, !tbaa !149
@@ -2223,9 +2223,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsadd_vi
   %118 = ashr exact i64 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   %invariant.op = xor i32 %113, -1
-  %invariant.op135 = xor i16 %114, -1
-  %invariant.op136 = xor i8 %115, -1
-  %invariant.op137 = xor i64 %118, -1
+  %invariant.op138 = xor i16 %114, -1
+  %invariant.op139 = xor i8 %115, -1
+  %invariant.op140 = xor i64 %118, -1
   br label %124
 
 ._crit_edge:                                      ; preds = %174, %89
@@ -2266,8 +2266,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsadd_vi
   %139 = lshr i8 %137, 7
   %narrow.i = add nuw i8 %139, 127
   %140 = xor i8 %narrow.i, %115
-  %.reass132.reass = xor i8 %138, %invariant.op136
-  %141 = or i8 %140, %.reass132.reass
+  %.reass135.reass = xor i8 %138, %invariant.op139
+  %141 = or i8 %140, %.reass135.reass
   %142 = icmp sgt i8 %141, -1
   %spec.select14.i = select i1 %142, i8 %narrow.i, i8 %138
   store i8 %spec.select14.i, ptr %135, align 1, !tbaa !150
@@ -2281,8 +2281,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsadd_vi
   %148 = lshr i16 %146, 15
   %narrow.i100 = add nuw i16 %148, 32767
   %149 = xor i16 %narrow.i100, %114
-  %.reass130.reass = xor i16 %147, %invariant.op135
-  %150 = or i16 %149, %.reass130.reass
+  %.reass133.reass = xor i16 %147, %invariant.op138
+  %150 = or i16 %149, %.reass133.reass
   %151 = icmp sgt i16 %150, -1
   %spec.select14.i102 = select i1 %151, i16 %narrow.i100, i16 %147
   store i16 %spec.select14.i102, ptr %144, align 2, !tbaa !151
@@ -2296,8 +2296,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vsadd_vi
   %157 = lshr i64 %155, 63
   %158 = add nuw i64 %157, 9223372036854775807
   %159 = xor i64 %158, %118
-  %.reass134.reass = xor i64 %156, %invariant.op137
-  %160 = or i64 %159, %.reass134.reass
+  %.reass137.reass = xor i64 %156, %invariant.op140
+  %160 = or i64 %159, %.reass137.reass
   %161 = icmp sgt i64 %160, -1
   %spec.select14.i106 = select i1 %161, i64 %158, i64 %156
   store i64 %spec.select14.i106, ptr %153, align 8, !tbaa !149
@@ -2530,9 +2530,9 @@ define noundef i64 @_Z21logged_rv64e_vsadd_viP11processor_t6insn_tm(ptr noundef 
   %118 = ashr exact i64 %117, %116
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 266704
   %invariant.op = xor i32 %113, -1
-  %invariant.op135 = xor i16 %114, -1
-  %invariant.op136 = xor i8 %115, -1
-  %invariant.op137 = xor i64 %118, -1
+  %invariant.op138 = xor i16 %114, -1
+  %invariant.op139 = xor i8 %115, -1
+  %invariant.op140 = xor i64 %118, -1
   br label %122
 
 ._crit_edge:                                      ; preds = %172, %89
@@ -2571,8 +2571,8 @@ define noundef i64 @_Z21logged_rv64e_vsadd_viP11processor_t6insn_tm(ptr noundef 
   %137 = lshr i8 %135, 7
   %narrow.i = add nuw i8 %137, 127
   %138 = xor i8 %narrow.i, %115
-  %.reass132.reass = xor i8 %136, %invariant.op136
-  %139 = or i8 %138, %.reass132.reass
+  %.reass135.reass = xor i8 %136, %invariant.op139
+  %139 = or i8 %138, %.reass135.reass
   %140 = icmp sgt i8 %139, -1
   %spec.select14.i = select i1 %140, i8 %narrow.i, i8 %136
   store i8 %spec.select14.i, ptr %133, align 1, !tbaa !150
@@ -2586,8 +2586,8 @@ define noundef i64 @_Z21logged_rv64e_vsadd_viP11processor_t6insn_tm(ptr noundef 
   %146 = lshr i16 %144, 15
   %narrow.i100 = add nuw i16 %146, 32767
   %147 = xor i16 %narrow.i100, %114
-  %.reass130.reass = xor i16 %145, %invariant.op135
-  %148 = or i16 %147, %.reass130.reass
+  %.reass133.reass = xor i16 %145, %invariant.op138
+  %148 = or i16 %147, %.reass133.reass
   %149 = icmp sgt i16 %148, -1
   %spec.select14.i102 = select i1 %149, i16 %narrow.i100, i16 %145
   store i16 %spec.select14.i102, ptr %142, align 2, !tbaa !151
@@ -2601,8 +2601,8 @@ define noundef i64 @_Z21logged_rv64e_vsadd_viP11processor_t6insn_tm(ptr noundef 
   %155 = lshr i64 %153, 63
   %156 = add nuw i64 %155, 9223372036854775807
   %157 = xor i64 %156, %118
-  %.reass134.reass = xor i64 %154, %invariant.op137
-  %158 = or i64 %157, %.reass134.reass
+  %.reass137.reass = xor i64 %154, %invariant.op140
+  %158 = or i64 %157, %.reass137.reass
   %159 = icmp sgt i64 %158, -1
   %spec.select14.i106 = select i1 %159, i64 %156, i64 %154
   store i64 %spec.select14.i106, ptr %151, align 8, !tbaa !149
@@ -2750,14 +2750,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !174
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #18
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #18
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !149
   %.pre82 = load i64, ptr %2, align 8, !tbaa !149
@@ -2766,11 +2766,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult i64 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -2822,23 +2822,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #18
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #18
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !149
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult i64 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -2887,30 +2887,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !174
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #18
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !149
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult i64 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -1201,7 +1201,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i unwind label %15
 
 _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %13 = add i64 %.01114.i.i.i.i.i, -1
+  %13 = add nsw i64 %.01114.i.i.i.i.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
@@ -1606,8 +1606,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugP
 
 118:                                              ; preds = %.noexc.i.i, %.loopexit
   %.07.i.i.i.i = phi i64 [ %117, %.loopexit ], [ %119, %.noexc.i.i ]
-  %119 = add i64 %.07.i.i.i.i, -1
-  %120 = getelementptr inbounds %"struct.std::atomic.21", ptr %.0.i.i.i.i.i.i27, i64 %119
+  %119 = add nsw i64 %.07.i.i.i.i, -1
+  %120 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.0.i.i.i.i.i.i27, i64 %119
   %121 = load atomic i64, ptr %120 monotonic, align 8
   %.not6.i.i.i.i = icmp eq i64 %121, 0
   br i1 %.not6.i.i.i.i, label %.noexc.i.i, label %122
@@ -1779,8 +1779,8 @@ define linkonce_odr void @_ZN3tbb6detail2d117concurrent_vectorIN32pxrInternal_v0
 
 7:                                                ; preds = %.noexc.i, %1
   %.07.i.i.i = phi i64 [ %6, %1 ], [ %8, %.noexc.i ]
-  %8 = add i64 %.07.i.i.i, -1
-  %9 = getelementptr inbounds %"struct.std::atomic.21", ptr %.0.i.i.i.i.i, i64 %8
+  %8 = add nsw i64 %.07.i.i.i, -1
+  %9 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr %.0.i.i.i.i.i, i64 %8
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %.not6.i.i.i = icmp eq i64 %10, 0
   br i1 %.not6.i.i.i, label %.noexc.i, label %11
@@ -2021,17 +2021,17 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugPluginEEcvMS3_KFPS2_vEEv.exit.thread, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7JsValueESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit
-  %.pr26 = phi ptr [ %.pr.pre, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7JsValueESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ], [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugPluginEEcvMS3_KFPS2_vEEv.exit.thread ]
-  %45 = getelementptr inbounds nuw i8, ptr %.pr26, i64 8
+  %.pr28 = phi ptr [ %.pr.pre, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7JsValueESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit ], [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugPluginEEcvMS3_KFPS2_vEEv.exit.thread ]
+  %45 = getelementptr inbounds nuw i8, ptr %.pr28, i64 8
   %46 = atomicrmw sub ptr %45, i32 1 release, align 4
   %47 = icmp eq i32 %46, 1
   br i1 %47, label %48, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit
 
 48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
-  %49 = load ptr, ptr %.pr26, align 8
+  %49 = load ptr, ptr %.pr28, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(12) %.pr26) #15
+  call void %51(ptr noundef nonnull align 8 dereferenceable(12) %.pr28) #15
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit: ; preds = %.thread, %23, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7JsValueESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %48
@@ -2364,8 +2364,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12PlugRegistry11GetInstanceEv.exit: ; preds
   br i1 %.not.i.i.i.i.i, label %25, label %_ZN32pxrInternal_v0_24__pxrReserved__15TfCreateWeakPtrINS_12PlugRegistryEEENS_9TfWeakPtrIT_EEPS3_.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__15TfCreateWeakPtrINS_12PlugRegistryEEENS_9TfWeakPtrIT_EEPS3_.exit.thread: ; preds = %22
-  %.sink8.i.sink5.i.i.i.i.i34 = inttoptr i64 %23 to ptr
-  %24 = getelementptr inbounds nuw i8, ptr %.sink8.i.sink5.i.i.i.i.i34, i64 8
+  %.sink8.i.sink5.i.i.i.i.i41 = inttoptr i64 %23 to ptr
+  %24 = getelementptr inbounds nuw i8, ptr %.sink8.i.sink5.i.i.i.i.i41, i64 8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_12PlugRegistryEEcvMS3_KFPS2_vEEv.exit.thread.i.sink.split
 
 25:                                               ; preds = %22
@@ -2406,7 +2406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TfCreateWeakPtrINS_12PlugRegistryEEENS_9T
 
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_12PlugRegistryEEcvMS3_KFPS2_vEEv.exit.thread.i.sink.split: ; preds = %.noexc.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__15TfCreateWeakPtrINS_12PlugRegistryEEENS_9TfWeakPtrIT_EEPS3_.exit.thread
   %.sink = phi ptr [ %24, %_ZN32pxrInternal_v0_24__pxrReserved__15TfCreateWeakPtrINS_12PlugRegistryEEENS_9TfWeakPtrIT_EEPS3_.exit.thread ], [ %27, %.noexc.i.i ]
-  %.sink8.i.sink5.i.i.i.i.i27.ph = phi ptr [ %.sink8.i.sink5.i.i.i.i.i34, %_ZN32pxrInternal_v0_24__pxrReserved__15TfCreateWeakPtrINS_12PlugRegistryEEENS_9TfWeakPtrIT_EEPS3_.exit.thread ], [ %26, %.noexc.i.i ]
+  %.sink8.i.sink5.i.i.i.i.i27.ph = phi ptr [ %.sink8.i.sink5.i.i.i.i.i41, %_ZN32pxrInternal_v0_24__pxrReserved__15TfCreateWeakPtrINS_12PlugRegistryEEENS_9TfWeakPtrIT_EEPS3_.exit.thread ], [ %26, %.noexc.i.i ]
   %41 = atomicrmw add ptr %.sink, i32 1 monotonic, align 4, !noalias !36
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_12PlugRegistryEEcvMS3_KFPS2_vEEv.exit.thread.i
 

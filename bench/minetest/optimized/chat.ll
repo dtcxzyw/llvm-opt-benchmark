@@ -1296,7 +1296,7 @@ for.body.i.i.i.i.i.i.preheader:                   ; preds = %invoke.cont.i.i724
   %47 = sub i64 %cond.i.i.i.i.i1379, %42
   %diff.check1380 = icmp ult i64 %47, 32
   %or.cond1403 = or i1 %diff.check1380, %min.iters.check1383
-  br i1 %or.cond1403, label %for.body.i.i.i.i.i.i.preheader518, label %vector.ph1384
+  br i1 %or.cond1403, label %for.body.i.i.i.i.i.i.preheader652, label %vector.ph1384
 
 vector.ph1384:                                    ; preds = %for.body.i.i.i.i.i.i.preheader
   %n.vec1386 = and i64 %46, 9223372036854775800
@@ -1322,16 +1322,16 @@ middle.block1381:                                 ; preds = %vector.body1392
   %ind.end1387 = getelementptr i8, ptr %cond.i.i.i.i.i, i64 %51
   %ind.end1389 = getelementptr i8, ptr %40, i64 %51
   %cmp.n1391 = icmp eq i64 %46, %n.vec1386
-  br i1 %cmp.n1391, label %.noexc390, label %for.body.i.i.i.i.i.i.preheader518
+  br i1 %cmp.n1391, label %.noexc390, label %for.body.i.i.i.i.i.i.preheader652
 
-for.body.i.i.i.i.i.i.preheader518:                ; preds = %middle.block1381, %for.body.i.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.i.preheader652:                ; preds = %middle.block1381, %for.body.i.i.i.i.i.i.preheader
   %__cur.015.i.i.i.i.i.i.ph = phi ptr [ %ind.end1387, %middle.block1381 ], [ %cond.i.i.i.i.i, %for.body.i.i.i.i.i.i.preheader ]
   %__first.sroa.0.014.i.i.i.i.i.i.ph = phi ptr [ %ind.end1389, %middle.block1381 ], [ %40, %for.body.i.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.preheader518, %for.body.i.i.i.i.i.i
-  %__cur.015.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__cur.015.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader518 ]
-  %__first.sroa.0.014.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i725, %for.body.i.i.i.i.i.i ], [ %__first.sroa.0.014.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader518 ]
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.preheader652, %for.body.i.i.i.i.i.i
+  %__cur.015.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__cur.015.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader652 ]
+  %__first.sroa.0.014.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i725, %for.body.i.i.i.i.i.i ], [ %__first.sroa.0.014.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader652 ]
   %52 = load i32, ptr %__first.sroa.0.014.i.i.i.i.i.i, align 4, !tbaa !77
   store i32 %52, ptr %__cur.015.i.i.i.i.i.i, align 4, !tbaa !77
   %incdec.ptr.i.i.i.i.i.i.i725 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.014.i.i.i.i.i.i, i64 4
@@ -1356,8 +1356,8 @@ lpad.i:                                           ; preds = %lpad.i.loopexit.spl
   br i1 %cmp.i.i.i.i721, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i722, label %if.then.i.i9.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i722: ; preds = %lpad.i
-  %_M_string_length.i.i.i.i.i715394 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %54 = load i64, ptr %_M_string_length.i.i.i.i.i715394, align 8, !tbaa !46
+  %_M_string_length.i.i.i.i.i715528 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %54 = load i64, ptr %_M_string_length.i.i.i.i.i715528, align 8, !tbaa !46
   %cmp3.i.i.i.i723 = icmp ult i64 %54, 4
   call void @llvm.assume(i1 %cmp3.i.i.i.i723)
   br label %ehcleanup272
@@ -1960,7 +1960,7 @@ for.body.i.i.i.i.i.i765.preheader:                ; preds = %invoke.cont.i.i759
   %156 = sub i64 %cond.i.i.i.i.i7601354, %151
   %diff.check1355 = icmp ult i64 %156, 32
   %or.cond1404 = or i1 %diff.check1355, %min.iters.check1358
-  br i1 %or.cond1404, label %for.body.i.i.i.i.i.i765.preheader517, label %vector.ph1359
+  br i1 %or.cond1404, label %for.body.i.i.i.i.i.i765.preheader651, label %vector.ph1359
 
 vector.ph1359:                                    ; preds = %for.body.i.i.i.i.i.i765.preheader
   %n.vec1361 = and i64 %155, 9223372036854775800
@@ -1986,16 +1986,16 @@ middle.block1356:                                 ; preds = %vector.body1367
   %ind.end1362 = getelementptr i8, ptr %cond.i.i.i.i.i760, i64 %160
   %ind.end1364 = getelementptr i8, ptr %149, i64 %160
   %cmp.n1366 = icmp eq i64 %155, %n.vec1361
-  br i1 %cmp.n1366, label %.noexc434, label %for.body.i.i.i.i.i.i765.preheader517
+  br i1 %cmp.n1366, label %.noexc434, label %for.body.i.i.i.i.i.i765.preheader651
 
-for.body.i.i.i.i.i.i765.preheader517:             ; preds = %middle.block1356, %for.body.i.i.i.i.i.i765.preheader
+for.body.i.i.i.i.i.i765.preheader651:             ; preds = %middle.block1356, %for.body.i.i.i.i.i.i765.preheader
   %__cur.015.i.i.i.i.i.i766.ph = phi ptr [ %ind.end1362, %middle.block1356 ], [ %cond.i.i.i.i.i760, %for.body.i.i.i.i.i.i765.preheader ]
   %__first.sroa.0.014.i.i.i.i.i.i767.ph = phi ptr [ %ind.end1364, %middle.block1356 ], [ %149, %for.body.i.i.i.i.i.i765.preheader ]
   br label %for.body.i.i.i.i.i.i765
 
-for.body.i.i.i.i.i.i765:                          ; preds = %for.body.i.i.i.i.i.i765.preheader517, %for.body.i.i.i.i.i.i765
-  %__cur.015.i.i.i.i.i.i766 = phi ptr [ %incdec.ptr.i.i.i.i.i.i769, %for.body.i.i.i.i.i.i765 ], [ %__cur.015.i.i.i.i.i.i766.ph, %for.body.i.i.i.i.i.i765.preheader517 ]
-  %__first.sroa.0.014.i.i.i.i.i.i767 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i768, %for.body.i.i.i.i.i.i765 ], [ %__first.sroa.0.014.i.i.i.i.i.i767.ph, %for.body.i.i.i.i.i.i765.preheader517 ]
+for.body.i.i.i.i.i.i765:                          ; preds = %for.body.i.i.i.i.i.i765.preheader651, %for.body.i.i.i.i.i.i765
+  %__cur.015.i.i.i.i.i.i766 = phi ptr [ %incdec.ptr.i.i.i.i.i.i769, %for.body.i.i.i.i.i.i765 ], [ %__cur.015.i.i.i.i.i.i766.ph, %for.body.i.i.i.i.i.i765.preheader651 ]
+  %__first.sroa.0.014.i.i.i.i.i.i767 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i768, %for.body.i.i.i.i.i.i765 ], [ %__first.sroa.0.014.i.i.i.i.i.i767.ph, %for.body.i.i.i.i.i.i765.preheader651 ]
   %161 = load i32, ptr %__first.sroa.0.014.i.i.i.i.i.i767, align 4, !tbaa !77
   store i32 %161, ptr %__cur.015.i.i.i.i.i.i766, align 4, !tbaa !77
   %incdec.ptr.i.i.i.i.i.i.i768 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.014.i.i.i.i.i.i767, i64 4
@@ -2020,8 +2020,8 @@ lpad.i753:                                        ; preds = %lpad.i753.loopexit.
   br i1 %cmp.i.i.i.i754, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i757, label %if.then.i.i9.i755
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i757: ; preds = %lpad.i753
-  %_M_string_length.i.i.i.i.i739400 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %163 = load i64, ptr %_M_string_length.i.i.i.i.i739400, align 8, !tbaa !46
+  %_M_string_length.i.i.i.i.i739534 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %163 = load i64, ptr %_M_string_length.i.i.i.i.i739534, align 8, !tbaa !46
   %cmp3.i.i.i.i758 = icmp ult i64 %163, 4
   call void @llvm.assume(i1 %cmp3.i.i.i.i758)
   br label %ehcleanup272
@@ -2400,7 +2400,7 @@ for.body.i.i.i.i.i.i883.preheader:                ; preds = %invoke.cont.i.i877
   %222 = sub i64 %cond.i.i.i.i.i8781329, %217
   %diff.check1330 = icmp ult i64 %222, 32
   %or.cond1405 = or i1 %diff.check1330, %min.iters.check1333
-  br i1 %or.cond1405, label %for.body.i.i.i.i.i.i883.preheader516, label %vector.ph1334
+  br i1 %or.cond1405, label %for.body.i.i.i.i.i.i883.preheader650, label %vector.ph1334
 
 vector.ph1334:                                    ; preds = %for.body.i.i.i.i.i.i883.preheader
   %n.vec1336 = and i64 %221, 9223372036854775800
@@ -2426,16 +2426,16 @@ middle.block1331:                                 ; preds = %vector.body1342
   %ind.end1337 = getelementptr i8, ptr %cond.i.i.i.i.i878, i64 %226
   %ind.end1339 = getelementptr i8, ptr %215, i64 %226
   %cmp.n1341 = icmp eq i64 %221, %n.vec1336
-  br i1 %cmp.n1341, label %.noexc.i789, label %for.body.i.i.i.i.i.i883.preheader516
+  br i1 %cmp.n1341, label %.noexc.i789, label %for.body.i.i.i.i.i.i883.preheader650
 
-for.body.i.i.i.i.i.i883.preheader516:             ; preds = %middle.block1331, %for.body.i.i.i.i.i.i883.preheader
+for.body.i.i.i.i.i.i883.preheader650:             ; preds = %middle.block1331, %for.body.i.i.i.i.i.i883.preheader
   %__cur.015.i.i.i.i.i.i884.ph = phi ptr [ %ind.end1337, %middle.block1331 ], [ %cond.i.i.i.i.i878, %for.body.i.i.i.i.i.i883.preheader ]
   %__first.sroa.0.014.i.i.i.i.i.i885.ph = phi ptr [ %ind.end1339, %middle.block1331 ], [ %215, %for.body.i.i.i.i.i.i883.preheader ]
   br label %for.body.i.i.i.i.i.i883
 
-for.body.i.i.i.i.i.i883:                          ; preds = %for.body.i.i.i.i.i.i883.preheader516, %for.body.i.i.i.i.i.i883
-  %__cur.015.i.i.i.i.i.i884 = phi ptr [ %incdec.ptr.i.i.i.i.i.i887, %for.body.i.i.i.i.i.i883 ], [ %__cur.015.i.i.i.i.i.i884.ph, %for.body.i.i.i.i.i.i883.preheader516 ]
-  %__first.sroa.0.014.i.i.i.i.i.i885 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i886, %for.body.i.i.i.i.i.i883 ], [ %__first.sroa.0.014.i.i.i.i.i.i885.ph, %for.body.i.i.i.i.i.i883.preheader516 ]
+for.body.i.i.i.i.i.i883:                          ; preds = %for.body.i.i.i.i.i.i883.preheader650, %for.body.i.i.i.i.i.i883
+  %__cur.015.i.i.i.i.i.i884 = phi ptr [ %incdec.ptr.i.i.i.i.i.i887, %for.body.i.i.i.i.i.i883 ], [ %__cur.015.i.i.i.i.i.i884.ph, %for.body.i.i.i.i.i.i883.preheader650 ]
+  %__first.sroa.0.014.i.i.i.i.i.i885 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i886, %for.body.i.i.i.i.i.i883 ], [ %__first.sroa.0.014.i.i.i.i.i.i885.ph, %for.body.i.i.i.i.i.i883.preheader650 ]
   %227 = load i32, ptr %__first.sroa.0.014.i.i.i.i.i.i885, align 4, !tbaa !77
   store i32 %227, ptr %__cur.015.i.i.i.i.i.i884, align 4, !tbaa !77
   %incdec.ptr.i.i.i.i.i.i.i886 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.014.i.i.i.i.i.i885, i64 4
@@ -2461,8 +2461,8 @@ lpad.i871:                                        ; preds = %lpad.i871.loopexit.
   br i1 %cmp.i.i.i.i872, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i875, label %if.then.i.i9.i873
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i875: ; preds = %lpad.i871
-  %_M_string_length.i.i.i.i.i857382 = getelementptr inbounds nuw i8, ptr %__cur.020.i, i64 8
-  %229 = load i64, ptr %_M_string_length.i.i.i.i.i857382, align 8, !tbaa !46
+  %_M_string_length.i.i.i.i.i857516 = getelementptr inbounds nuw i8, ptr %__cur.020.i, i64 8
+  %229 = load i64, ptr %_M_string_length.i.i.i.i.i857516, align 8, !tbaa !46
   %cmp3.i.i.i.i876 = icmp ult i64 %229, 4
   call void @llvm.assume(i1 %cmp3.i.i.i.i876)
   br label %lpad.body.i
@@ -3403,7 +3403,7 @@ for.body.i.i.i.i.i.i829.preheader:                ; preds = %invoke.cont.i.i823
   %363 = sub i64 %cond.i.i.i.i.i8241320, %358
   %diff.check = icmp ult i64 %363, 32
   %or.cond1406 = or i1 %diff.check, %min.iters.check
-  br i1 %or.cond1406, label %for.body.i.i.i.i.i.i829.preheader519, label %vector.ph
+  br i1 %or.cond1406, label %for.body.i.i.i.i.i.i829.preheader653, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.i829.preheader
   %n.vec = and i64 %362, 9223372036854775800
@@ -3429,16 +3429,16 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %cond.i.i.i.i.i824, i64 %367
   %ind.end1321 = getelementptr i8, ptr %356, i64 %367
   %cmp.n = icmp eq i64 %362, %n.vec
-  br i1 %cmp.n, label %.noexc652, label %for.body.i.i.i.i.i.i829.preheader519
+  br i1 %cmp.n, label %.noexc652, label %for.body.i.i.i.i.i.i829.preheader653
 
-for.body.i.i.i.i.i.i829.preheader519:             ; preds = %middle.block, %for.body.i.i.i.i.i.i829.preheader
+for.body.i.i.i.i.i.i829.preheader653:             ; preds = %middle.block, %for.body.i.i.i.i.i.i829.preheader
   %__cur.015.i.i.i.i.i.i830.ph = phi ptr [ %ind.end, %middle.block ], [ %cond.i.i.i.i.i824, %for.body.i.i.i.i.i.i829.preheader ]
   %__first.sroa.0.014.i.i.i.i.i.i831.ph = phi ptr [ %ind.end1321, %middle.block ], [ %356, %for.body.i.i.i.i.i.i829.preheader ]
   br label %for.body.i.i.i.i.i.i829
 
-for.body.i.i.i.i.i.i829:                          ; preds = %for.body.i.i.i.i.i.i829.preheader519, %for.body.i.i.i.i.i.i829
-  %__cur.015.i.i.i.i.i.i830 = phi ptr [ %incdec.ptr.i.i.i.i.i.i833, %for.body.i.i.i.i.i.i829 ], [ %__cur.015.i.i.i.i.i.i830.ph, %for.body.i.i.i.i.i.i829.preheader519 ]
-  %__first.sroa.0.014.i.i.i.i.i.i831 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i832, %for.body.i.i.i.i.i.i829 ], [ %__first.sroa.0.014.i.i.i.i.i.i831.ph, %for.body.i.i.i.i.i.i829.preheader519 ]
+for.body.i.i.i.i.i.i829:                          ; preds = %for.body.i.i.i.i.i.i829.preheader653, %for.body.i.i.i.i.i.i829
+  %__cur.015.i.i.i.i.i.i830 = phi ptr [ %incdec.ptr.i.i.i.i.i.i833, %for.body.i.i.i.i.i.i829 ], [ %__cur.015.i.i.i.i.i.i830.ph, %for.body.i.i.i.i.i.i829.preheader653 ]
+  %__first.sroa.0.014.i.i.i.i.i.i831 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i832, %for.body.i.i.i.i.i.i829 ], [ %__first.sroa.0.014.i.i.i.i.i.i831.ph, %for.body.i.i.i.i.i.i829.preheader653 ]
   %368 = load i32, ptr %__first.sroa.0.014.i.i.i.i.i.i831, align 4, !tbaa !77
   store i32 %368, ptr %__cur.015.i.i.i.i.i.i830, align 4, !tbaa !77
   %incdec.ptr.i.i.i.i.i.i.i832 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.014.i.i.i.i.i.i831, i64 4
@@ -3463,8 +3463,8 @@ lpad.i817:                                        ; preds = %lpad.i817.loopexit.
   br i1 %cmp.i.i.i.i818, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i821, label %if.then.i.i9.i819
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i821: ; preds = %lpad.i817
-  %_M_string_length.i.i.i.i.i803438 = getelementptr inbounds nuw i8, ptr %343, i64 8
-  %370 = load i64, ptr %_M_string_length.i.i.i.i.i803438, align 8, !tbaa !46
+  %_M_string_length.i.i.i.i.i803572 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %370 = load i64, ptr %_M_string_length.i.i.i.i.i803572, align 8, !tbaa !46
   %cmp3.i.i.i.i822 = icmp ult i64 %370, 4
   call void @llvm.assume(i1 %cmp3.i.i.i.i822)
   br label %ehcleanup272
@@ -10462,7 +10462,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %_ZSt4copyIPN3irr5vi
   %21 = sub i64 %sub.ptr.rhs.cast.i114.pre-phi, %13
   %diff.check = icmp ult i64 %21, 32
   %or.cond = or i1 %min.iters.check, %diff.check
-  br i1 %or.cond, label %for.body.i.i.i.i.preheader4, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.i.preheader7, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.preheader
   %n.vec = and i64 %20, 9223372036854775800
@@ -10488,16 +10488,16 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %11, i64 %25
   %ind.end123 = getelementptr i8, ptr %add.ptr62, i64 %25
   %cmp.n = icmp eq i64 %20, %n.vec
-  br i1 %cmp.n, label %if.end69, label %for.body.i.i.i.i.preheader4
+  br i1 %cmp.n, label %if.end69, label %for.body.i.i.i.i.preheader7
 
-for.body.i.i.i.i.preheader4:                      ; preds = %middle.block, %for.body.i.i.i.i.preheader
+for.body.i.i.i.i.preheader7:                      ; preds = %middle.block, %for.body.i.i.i.i.preheader
   %__cur.013.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %11, %for.body.i.i.i.i.preheader ]
   %__first.addr.012.i.i.i.i.ph = phi ptr [ %ind.end123, %middle.block ], [ %add.ptr62, %for.body.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader4, %for.body.i.i.i.i
-  %__cur.013.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.013.i.i.i.i.ph, %for.body.i.i.i.i.preheader4 ]
-  %__first.addr.012.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.012.i.i.i.i.ph, %for.body.i.i.i.i.preheader4 ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader7, %for.body.i.i.i.i
+  %__cur.013.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.013.i.i.i.i.ph, %for.body.i.i.i.i.preheader7 ]
+  %__first.addr.012.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.012.i.i.i.i.ph, %for.body.i.i.i.i.preheader7 ]
   %26 = load i32, ptr %__first.addr.012.i.i.i.i, align 4, !tbaa !77
   store i32 %26, ptr %__cur.013.i.i.i.i, align 4, !tbaa !77
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.012.i.i.i.i, i64 4
@@ -10957,7 +10957,7 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont.i
   %19 = sub i64 %cond.i.i.i.i11, %14
   %diff.check = icmp ult i64 %19, 32
   %or.cond = or i1 %diff.check, %min.iters.check
-  br i1 %or.cond, label %for.body.i.i.i.i.i.preheader4, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.i.i.preheader7, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
   %n.vec = and i64 %18, 9223372036854775800
@@ -10983,16 +10983,16 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %cond.i.i.i.i, i64 %23
   %ind.end12 = getelementptr i8, ptr %12, i64 %23
   %cmp.n = icmp eq i64 %18, %n.vec
-  br i1 %cmp.n, label %invoke.cont, label %for.body.i.i.i.i.i.preheader4
+  br i1 %cmp.n, label %invoke.cont, label %for.body.i.i.i.i.i.preheader7
 
-for.body.i.i.i.i.i.preheader4:                    ; preds = %middle.block, %for.body.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.preheader7:                    ; preds = %middle.block, %for.body.i.i.i.i.i.preheader
   %__cur.015.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %cond.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %__first.sroa.0.014.i.i.i.i.i.ph = phi ptr [ %ind.end12, %middle.block ], [ %12, %for.body.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader4, %for.body.i.i.i.i.i
-  %__cur.015.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.015.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader4 ]
-  %__first.sroa.0.014.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.sroa.0.014.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader4 ]
+for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader7, %for.body.i.i.i.i.i
+  %__cur.015.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__cur.015.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader7 ]
+  %__first.sroa.0.014.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__first.sroa.0.014.i.i.i.i.i.ph, %for.body.i.i.i.i.i.preheader7 ]
   %24 = load i32, ptr %__first.sroa.0.014.i.i.i.i.i, align 4, !tbaa !77
   store i32 %24, ptr %__cur.015.i.i.i.i.i, align 4, !tbaa !77
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.014.i.i.i.i.i, i64 4

@@ -626,10 +626,10 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef readonl
   %311 = load i32, ptr %273, align 4, !tbaa !70
   %.not.i101 = icmp eq i32 %311, 0
   %..i102 = select i1 %.not.i101, i32 %305, i32 %310
-  %.24.i = select i1 %.not.i101, i32 %310, i32 %305
+  %.36.i = select i1 %.not.i101, i32 %310, i32 %305
   %312 = sext i32 %..i102 to i64
   %313 = getelementptr inbounds i32, ptr %269, i64 %312
-  store i32 %.24.i, ptr %313, align 4, !tbaa !48
+  store i32 %.36.i, ptr %313, align 4, !tbaa !48
   store i8 1, ptr %293, align 1, !tbaa !69
   %314 = load i32, ptr %273, align 4, !tbaa !70
   %.not78.i = icmp eq i32 %314, 0

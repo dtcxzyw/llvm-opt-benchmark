@@ -4394,10 +4394,10 @@ Vec_PtrPush.exit209:                              ; preds = %.Vec_PtrGrow.exit11
 
 .critedge4:                                       ; preds = %._crit_edge262, %.critedge8
   %.sink = phi ptr [ %265, %._crit_edge262 ], [ %172, %.critedge8 ]
-  %.sink331.in = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %.sink331 = load i32, ptr %.sink331.in, align 8, !tbaa !118
+  %.sink359.in = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %.sink359 = load i32, ptr %.sink359.in, align 8, !tbaa !118
   %.val181 = load ptr, ptr %37, align 8, !tbaa !28
-  %267 = sext i32 %.sink331 to i64
+  %267 = sext i32 %.sink359 to i64
   %268 = getelementptr inbounds ptr, ptr %.val181, i64 %267
   store ptr %.sink, ptr %268, align 8, !tbaa !29
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
@@ -4670,8 +4670,8 @@ Vec_PtrPush.exit230:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %394, label %.lr.ph281, label %.critedge16, !llvm.loop !122
 
 .critedge16:                                      ; preds = %Vec_PtrPush.exit230
-  %.not332 = icmp eq i32 %303, 0
-  br i1 %.not332, label %.critedge16.thread, label %395
+  %.not360 = icmp eq i32 %303, 0
+  br i1 %.not360, label %.critedge16.thread, label %395
 
 395:                                              ; preds = %.critedge16
   %396 = tail call ptr @Abc_NtkCreateNodeOr(ptr noundef %119, ptr noundef nonnull %22) #16

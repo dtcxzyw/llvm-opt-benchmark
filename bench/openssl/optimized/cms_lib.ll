@@ -147,12 +147,12 @@ ossl_cms_ctx_get0_propq.exit:                     ; preds = %1, %2
   %9 = load ptr, ptr %0, align 8, !tbaa !13
   %10 = tail call i32 @OBJ_obj2nid(ptr noundef %9) #5
   switch i32 %10, label %cms_get0_certificate_choices.exit.thread [
-    i32 22, label %cms_get0_certificate_choices.exit.thread21
+    i32 22, label %cms_get0_certificate_choices.exit.thread22
     i32 23, label %cms_get0_certificate_choices.exit
     i32 1059, label %cms_get0_certificate_choices.exit
   ]
 
-cms_get0_certificate_choices.exit.thread21:       ; preds = %ossl_cms_ctx_get0_propq.exit
+cms_get0_certificate_choices.exit.thread22:       ; preds = %ossl_cms_ctx_get0_propq.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -172,16 +172,16 @@ cms_get0_certificate_choices.exit:                ; preds = %ossl_cms_ctx_get0_p
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %cms_get0_certificate_choices.exit.thread21, %cms_get0_certificate_choices.exit
-  %.0.i24 = phi ptr [ %13, %cms_get0_certificate_choices.exit.thread21 ], [ %17, %cms_get0_certificate_choices.exit ]
-  %18 = load ptr, ptr %.0.i24, align 8, !tbaa !19
+.preheader:                                       ; preds = %cms_get0_certificate_choices.exit.thread22, %cms_get0_certificate_choices.exit
+  %.0.i25 = phi ptr [ %13, %cms_get0_certificate_choices.exit.thread22 ], [ %17, %cms_get0_certificate_choices.exit ]
+  %18 = load ptr, ptr %.0.i25, align 8, !tbaa !19
   %19 = tail call i32 @OPENSSL_sk_num(ptr noundef %18) #5
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %.020 = phi i32 [ %30, %29 ], [ 0, %.preheader ]
-  %21 = load ptr, ptr %.0.i24, align 8, !tbaa !19
+  %21 = load ptr, ptr %.0.i25, align 8, !tbaa !19
   %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %21, i32 noundef %.020) #5
   %23 = load i32, ptr %22, align 8, !tbaa !21
   %24 = icmp eq i32 %23, 0
@@ -195,7 +195,7 @@ cms_get0_certificate_choices.exit:                ; preds = %ossl_cms_ctx_get0_p
 
 29:                                               ; preds = %.lr.ph, %25
   %30 = add nuw nsw i32 %.020, 1
-  %31 = load ptr, ptr %.0.i24, align 8, !tbaa !19
+  %31 = load ptr, ptr %.0.i25, align 8, !tbaa !19
   %32 = tail call i32 @OPENSSL_sk_num(ptr noundef %31) #5
   %33 = icmp slt i32 %30, %32
   br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !24
@@ -942,11 +942,11 @@ ossl_cms_ctx_get0_propq.exit:                     ; preds = %2, %8
   br label %33
 
 31:                                               ; preds = %.thread, %27, %21
-  %.sink21 = phi i32 [ 424, %21 ], [ 431, %27 ], [ 431, %.thread ]
+  %.sink24 = phi i32 [ 424, %21 ], [ 431, %27 ], [ 431, %.thread ]
   %.sink = phi i32 [ 149, %21 ], [ 119, %27 ], [ 119, %.thread ]
   %.014 = phi ptr [ null, %21 ], [ %25, %27 ], [ %25, %.thread ]
   call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.ossl_cms_DigestAlgorithm_init_bio) #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink24, ptr noundef nonnull @__func__.ossl_cms_DigestAlgorithm_init_bio) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #5
   call void @EVP_MD_free(ptr noundef %14) #5
   %32 = call i32 @BIO_free(ptr noundef %.014) #5
@@ -1111,12 +1111,12 @@ define range(i32 0, 2) i32 @CMS_add0_cert(ptr noundef readonly captures(none) %0
   %3 = load ptr, ptr %0, align 8, !tbaa !13
   %4 = tail call i32 @OBJ_obj2nid(ptr noundef %3) #5
   switch i32 %4, label %cms_get0_certificate_choices.exit.thread [
-    i32 22, label %cms_get0_certificate_choices.exit.thread21
+    i32 22, label %cms_get0_certificate_choices.exit.thread22
     i32 23, label %cms_get0_certificate_choices.exit
     i32 1059, label %cms_get0_certificate_choices.exit
   ]
 
-cms_get0_certificate_choices.exit.thread21:       ; preds = %2
+cms_get0_certificate_choices.exit.thread22:       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1136,16 +1136,16 @@ cms_get0_certificate_choices.exit:                ; preds = %2, %2
   %12 = icmp eq ptr %11, null
   br i1 %12, label %34, label %.preheader
 
-.preheader:                                       ; preds = %cms_get0_certificate_choices.exit.thread21, %cms_get0_certificate_choices.exit
-  %.0.i23 = phi ptr [ %7, %cms_get0_certificate_choices.exit.thread21 ], [ %11, %cms_get0_certificate_choices.exit ]
-  %13 = load ptr, ptr %.0.i23, align 8, !tbaa !19
+.preheader:                                       ; preds = %cms_get0_certificate_choices.exit.thread22, %cms_get0_certificate_choices.exit
+  %.0.i24 = phi ptr [ %7, %cms_get0_certificate_choices.exit.thread22 ], [ %11, %cms_get0_certificate_choices.exit ]
+  %13 = load ptr, ptr %.0.i24, align 8, !tbaa !19
   %14 = tail call i32 @OPENSSL_sk_num(ptr noundef %13) #5
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %.020 = phi i32 [ %27, %26 ], [ 0, %.preheader ]
-  %16 = load ptr, ptr %.0.i23, align 8, !tbaa !19
+  %16 = load ptr, ptr %.0.i24, align 8, !tbaa !19
   %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %.020) #5
   %18 = load i32, ptr %17, align 8, !tbaa !21
   %19 = icmp eq i32 %18, 0
@@ -1164,7 +1164,7 @@ cms_get0_certificate_choices.exit:                ; preds = %2, %2
 
 26:                                               ; preds = %.lr.ph, %20
   %27 = add nuw nsw i32 %.020, 1
-  %28 = load ptr, ptr %.0.i23, align 8, !tbaa !19
+  %28 = load ptr, ptr %.0.i24, align 8, !tbaa !19
   %29 = tail call i32 @OPENSSL_sk_num(ptr noundef %28) #5
   %30 = icmp slt i32 %27, %29
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !63
@@ -1654,10 +1654,10 @@ define range(i32 0, 2) i32 @ossl_cms_set1_ias(ptr noundef captures(none) %0, ptr
   br label %18
 
 16:                                               ; preds = %8, %5, %2
-  %.sink12 = phi i32 [ 736, %2 ], [ 740, %5 ], [ 744, %8 ]
+  %.sink13 = phi i32 [ 736, %2 ], [ 740, %5 ], [ 744, %8 ]
   %.sink = phi i32 [ 524301, %2 ], [ 524299, %5 ], [ 524301, %8 ]
   tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink12, ptr noundef nonnull @__func__.ossl_cms_set1_ias) #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13, ptr noundef nonnull @__func__.ossl_cms_set1_ias) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #5
   %17 = tail call ptr @CMS_IssuerAndSerialNumber_it() #5
   tail call void @ASN1_item_free(ptr noundef %4, ptr noundef %17) #5

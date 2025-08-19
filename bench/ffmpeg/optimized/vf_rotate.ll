@@ -1295,8 +1295,8 @@ define internal i32 @config_props(ptr noundef captures(none) %0) #1 {
   %76 = icmp slt i32 %75, 0
   %.pre86 = load double, ptr %2, align 8, !tbaa !49
   %77 = fcmp uno double %.pre86, 0.000000e+00
-  %or.cond87 = select i1 %76, i1 true, i1 %77
-  br i1 %or.cond87, label %79, label %78
+  %or.cond89 = select i1 %76, i1 true, i1 %77
+  br i1 %or.cond89, label %79, label %78
 
 78:                                               ; preds = %65
   %or.cond = call i1 @llvm.is.fpclass.f64(double %.pre86, i32 636)
@@ -1318,8 +1318,8 @@ define internal i32 @config_props(ptr noundef captures(none) %0) #1 {
   %86 = icmp slt i32 %85, 0
   %.pre = load double, ptr %2, align 8, !tbaa !49
   %87 = fcmp uno double %.pre, 0.000000e+00
-  %or.cond88 = select i1 %86, i1 true, i1 %87
-  br i1 %or.cond88, label %89, label %88
+  %or.cond90 = select i1 %86, i1 true, i1 %87
+  br i1 %or.cond90, label %89, label %88
 
 88:                                               ; preds = %80
   %or.cond3 = call i1 @llvm.is.fpclass.f64(double %.pre, i32 636)

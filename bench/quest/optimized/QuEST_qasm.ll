@@ -1618,11 +1618,11 @@ addStringToQASM.exit:                             ; preds = %62, %74
   br label %._crit_edge69.thread
 
 ._crit_edge69.thread:                             ; preds = %86, %102, %._crit_edge69
-  %.2.lcssa84 = phi i32 [ %101, %102 ], [ %101, %._crit_edge69 ], [ 8, %86 ]
+  %.2.lcssa92 = phi i32 [ %101, %102 ], [ %101, %._crit_edge69 ], [ 8, %86 ]
   %103 = load ptr, ptr %14, align 8, !tbaa !18
   %104 = load i32, ptr %64, align 8, !tbaa !17
   %105 = load i32, ptr %66, align 4, !tbaa !20
-  %106 = add nsw i32 %105, %.2.lcssa84
+  %106 = add nsw i32 %105, %.2.lcssa92
   %107 = icmp sgt i32 %106, %104
   br i1 %107, label %108, label %addStringToQASM.exit60
 
@@ -2403,8 +2403,8 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
   %31 = sub nsw i32 1024, %.0222
   %32 = sext i32 %31 to i64
   %.str.82..str.83 = select i1 %18, ptr @.str.82, ptr @.str.83
-  %.str.82.sink327 = select i1 %or.cond, ptr @.str.81, ptr %.str.82..str.83
-  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %.str.82.sink327) #15
+  %.str.82.sink334 = select i1 %or.cond, ptr @.str.81, ptr %.str.82..str.83
+  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %32, ptr noundef nonnull %.str.82.sink334) #15
   %.1 = add nsw i32 %33, %.0222
   %34 = icmp slt i32 %3, 25
   br i1 %34, label %.preheader, label %77
@@ -2648,10 +2648,10 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph266, %getPhas
   %.10 = phi i32 [ %169, %163 ], [ 13, %159 ]
   %171 = add nsw i32 %5, -9
   %brmerge = icmp ult i32 %171, 3
-  %brmerge328 = or i1 %brmerge, %162
-  br i1 %brmerge328, label %.sink.split324, label %178
+  %brmerge335 = or i1 %brmerge, %162
+  br i1 %brmerge335, label %.sink.split331, label %178
 
-.sink.split324:                                   ; preds = %170
+.sink.split331:                                   ; preds = %170
   %.str.81.mux = select i1 %or.cond27, ptr @.str.81, ptr @.str.82
   %.str.81.mux.mux = select i1 %brmerge, ptr %.str.81.mux, ptr @.str.83
   %172 = sext i32 %.10 to i64
@@ -2662,8 +2662,8 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph266, %getPhas
   %177 = add nsw i32 %176, %.10
   br label %178
 
-178:                                              ; preds = %170, %.sink.split324
-  %.11 = phi i32 [ %177, %.sink.split324 ], [ %.10, %170 ]
+178:                                              ; preds = %170, %.sink.split331
+  %.11 = phi i32 [ %177, %.sink.split331 ], [ %.10, %170 ]
   %179 = icmp slt i32 %3, 25
   br i1 %179, label %.preheader254, label %257
 

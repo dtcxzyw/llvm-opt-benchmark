@@ -894,7 +894,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
 
 .preheader.backedge:                              ; preds = %19, %51
   %.0124167.be = phi i32 [ %21, %19 ], [ 0, %51 ]
-  %.1127166.be = phi i32 [ %20, %19 ], [ %.2128155, %51 ]
+  %.1127166.be = phi i32 [ %20, %19 ], [ 0, %51 ]
   br label %.preheader, !llvm.loop !100
 
 .critedge:                                        ; preds = %.preheader, %19
@@ -918,7 +918,6 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
 
 .thread:                                          ; preds = %..thread_crit_edge, %23
   %29 = phi i32 [ %.pre, %..thread_crit_edge ], [ %24, %23 ]
-  %.2128155 = phi i32 [ 0, %..thread_crit_edge ], [ %.1127.lcssa, %23 ]
   %30 = and i32 %29, -2
   %switch = icmp eq i32 %30, 4
   br i1 %switch, label %31, label %.loopexit162

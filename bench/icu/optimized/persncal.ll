@@ -530,8 +530,8 @@ _ZN6icu_77L17firstJulianOfYearEl.exit:            ; preds = %12, %20
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %_ZN6icu_77L17firstJulianOfYearEl.exit
-  %.b45 = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
-  %29 = select i1 %.b45, i64 1502, i64 0
+  %.b47 = load i1, ptr @_ZN12_GLOBAL__N_114gMinCorrectionE, align 4
+  %29 = select i1 %.b47, i64 1502, i64 0
   %.not = icmp slt i64 %9, %29
   br i1 %.not, label %.thread, label %30
 

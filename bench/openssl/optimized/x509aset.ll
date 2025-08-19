@@ -75,12 +75,12 @@ define internal fastcc range(i32 0, 2) i32 @replace_dirName(ptr noundef captures
   br label %17
 
 16:                                               ; preds = %11, %8, %5, %2
-  %.sink17 = phi i32 [ 44, %2 ], [ 49, %5 ], [ 54, %8 ], [ 59, %11 ]
+  %.sink20 = phi i32 [ 44, %2 ], [ 49, %5 ], [ 54, %8 ], [ 59, %11 ]
   %.sink = phi i32 [ 524301, %2 ], [ 524301, %5 ], [ 524301, %8 ], [ 524303, %11 ]
   %.012 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %8 ], [ %9, %11 ]
   %.011 = phi ptr [ null, %2 ], [ null, %5 ], [ %6, %8 ], [ %6, %11 ]
   tail call void @ERR_new() #2
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink17, ptr noundef nonnull @__func__.replace_dirName) #2
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink20, ptr noundef nonnull @__func__.replace_dirName) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #2
   tail call void @GENERAL_NAME_free(ptr noundef %.012) #2
   tail call void @OPENSSL_sk_free(ptr noundef %.011) #2

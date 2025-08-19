@@ -1941,15 +1941,15 @@ _asyncio_get_running_loop_impl.exit.i:            ; preds = %22
 
 Py_INCREF.exit.sink.split.i:                      ; preds = %30, %26
   %.val2735 = phi ptr [ %.val2737, %26 ], [ %.val27, %30 ]
-  %.sink2.i = phi i32 [ %27, %26 ], [ %31, %30 ]
-  %.sink1.i = phi ptr [ %25, %26 ], [ %19, %30 ]
-  %33 = add nuw i32 %.sink2.i, 1
-  store i32 %33, ptr %.sink1.i, align 8, !tbaa !36
+  %.sink7.i = phi i32 [ %27, %26 ], [ %31, %30 ]
+  %.sink6.i = phi ptr [ %25, %26 ], [ %19, %30 ]
+  %33 = add nuw i32 %.sink7.i, 1
+  store i32 %33, ptr %.sink6.i, align 8, !tbaa !36
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %Py_INCREF.exit.sink.split.i, %30, %26
   %.val2736 = phi ptr [ %.val27, %30 ], [ %.val2737, %26 ], [ %.val2735, %Py_INCREF.exit.sink.split.i ]
-  %.09.i = phi ptr [ %19, %30 ], [ %25, %26 ], [ %.sink1.i, %Py_INCREF.exit.sink.split.i ]
+  %.09.i = phi ptr [ %19, %30 ], [ %25, %26 ], [ %.sink6.i, %Py_INCREF.exit.sink.split.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.val2736, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !32
   %36 = call i32 @PyDict_GetItemRef(ptr noundef %35, ptr noundef nonnull %.09.i, ptr noundef nonnull %5) #8
@@ -2580,15 +2580,15 @@ _asyncio_get_running_loop_impl.exit.i:            ; preds = %22
 
 Py_INCREF.exit.sink.split.i:                      ; preds = %30, %26
   %.val2735 = phi ptr [ %.val2737, %26 ], [ %.val27, %30 ]
-  %.sink35.i = phi i32 [ %27, %26 ], [ %31, %30 ]
-  %.sink34.i = phi ptr [ %25, %26 ], [ %19, %30 ]
-  %33 = add nuw i32 %.sink35.i, 1
-  store i32 %33, ptr %.sink34.i, align 8, !tbaa !36
+  %.sink73.i = phi i32 [ %27, %26 ], [ %31, %30 ]
+  %.sink72.i = phi ptr [ %25, %26 ], [ %19, %30 ]
+  %33 = add nuw i32 %.sink73.i, 1
+  store i32 %33, ptr %.sink72.i, align 8, !tbaa !36
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %Py_INCREF.exit.sink.split.i, %30, %26
   %.val2736 = phi ptr [ %.val27, %30 ], [ %.val2737, %26 ], [ %.val2735, %Py_INCREF.exit.sink.split.i ]
-  %.061.i = phi ptr [ %19, %30 ], [ %25, %26 ], [ %.sink34.i, %Py_INCREF.exit.sink.split.i ]
+  %.061.i = phi ptr [ %19, %30 ], [ %25, %26 ], [ %.sink72.i, %Py_INCREF.exit.sink.split.i ]
   %34 = call ptr @PyList_New(i64 noundef 0) #8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %42
@@ -4708,9 +4708,9 @@ Py_XINCREF.exit.i.thread:                         ; preds = %91
 92:                                               ; preds = %91
   %93 = load i32, ptr %88, align 8, !tbaa !36
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %Py_XINCREF.exit.i.thread131, label %Py_XINCREF.exit.i
+  br i1 %94, label %Py_XINCREF.exit.i.thread190, label %Py_XINCREF.exit.i
 
-Py_XINCREF.exit.i.thread131:                      ; preds = %92
+Py_XINCREF.exit.i.thread190:                      ; preds = %92
   store ptr %88, ptr %87, align 8, !tbaa !37
   br label %96
 
@@ -4722,8 +4722,8 @@ Py_XINCREF.exit.i:                                ; preds = %92
   %.not.i12.i = icmp eq ptr %.pre, null
   br i1 %.not.i12.i, label %Py_XDECREF.exit.i, label %96
 
-96:                                               ; preds = %Py_XINCREF.exit.i.thread131, %Py_XINCREF.exit.i
-  %97 = phi ptr [ %88, %Py_XINCREF.exit.i.thread131 ], [ %.pre, %Py_XINCREF.exit.i ]
+96:                                               ; preds = %Py_XINCREF.exit.i.thread190, %Py_XINCREF.exit.i
+  %97 = phi ptr [ %88, %Py_XINCREF.exit.i.thread190 ], [ %.pre, %Py_XINCREF.exit.i ]
   %98 = load i32, ptr %97, align 8, !tbaa !36
   %.not.i.i.i = icmp sgt i32 %98, -1
   br i1 %.not.i.i.i, label %99, label %Py_XDECREF.exit.i
@@ -6955,7 +6955,7 @@ define internal noalias noundef ptr @FutureIter_throw(ptr noundef captures(none)
 16:                                               ; preds = %12, %10
   %17 = load ptr, ptr %1, align 8, !tbaa !37
   store ptr %17, ptr %4, align 8, !tbaa !37
-  switch i64 %2, label %.thread43 [
+  switch i64 %2, label %.thread57 [
     i64 3, label %18
     i64 2, label %23
   ]
@@ -6992,36 +6992,36 @@ thread-pre-split:                                 ; preds = %23, %18
 
 33:                                               ; preds = %30
   store ptr null, ptr %6, align 8, !tbaa !37
-  br label %.thread43
+  br label %.thread57
 
 34:                                               ; preds = %30
   %.not18 = icmp eq ptr %26, null
-  br i1 %.not18, label %.thread43, label %35
+  br i1 %.not18, label %.thread57, label %35
 
 35:                                               ; preds = %34
   %36 = getelementptr i8, ptr %26, i64 8
   %.val30 = load ptr, ptr %36, align 8, !tbaa !53
   %.not41 = icmp eq ptr %.val30, @PyTraceBack_Type
-  br i1 %.not41, label %.thread43, label %37
+  br i1 %.not41, label %.thread57, label %37
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !37
   tail call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.56) #8
   br label %Py_XDECREF.exit40
 
-.thread43:                                        ; preds = %16, %34, %35, %33
+.thread57:                                        ; preds = %16, %34, %35, %33
   %39 = phi ptr [ %31, %34 ], [ %31, %35 ], [ %31, %33 ], [ null, %16 ]
   %40 = phi ptr [ null, %34 ], [ %26, %35 ], [ null, %33 ], [ null, %16 ]
   %41 = load i32, ptr %17, align 8, !tbaa !36
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %Py_INCREF.exit25, label %43
 
-43:                                               ; preds = %.thread43
+43:                                               ; preds = %.thread57
   %44 = add nuw i32 %41, 1
   store i32 %44, ptr %17, align 8, !tbaa !36
   br label %Py_INCREF.exit25
 
-Py_INCREF.exit25:                                 ; preds = %.thread43, %43
+Py_INCREF.exit25:                                 ; preds = %.thread57, %43
   %.not.i34 = icmp eq ptr %39, null
   br i1 %.not.i34, label %Py_XINCREF.exit, label %45
 
@@ -9860,14 +9860,14 @@ get_event_loop.exit:                              ; preds = %114, %117, %120
   br i1 %123, label %Py_INCREF.exit, label %Py_INCREF.exit.sink.split
 
 Py_INCREF.exit.sink.split:                        ; preds = %121, %107
-  %.sink151 = phi i32 [ %108, %107 ], [ %122, %121 ]
-  %.sink150 = phi ptr [ %106, %107 ], [ %1, %121 ]
-  %124 = add nuw i32 %.sink151, 1
-  store i32 %124, ptr %.sink150, align 8, !tbaa !36
+  %.sink182 = phi i32 [ %108, %107 ], [ %122, %121 ]
+  %.sink181 = phi ptr [ %106, %107 ], [ %1, %121 ]
+  %124 = add nuw i32 %.sink182, 1
+  store i32 %124, ptr %.sink181, align 8, !tbaa !36
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %107, %121, %get_event_loop.exit
-  %.082 = phi ptr [ %115, %get_event_loop.exit ], [ %1, %121 ], [ %106, %107 ], [ %.sink150, %Py_INCREF.exit.sink.split ]
+  %.082 = phi ptr [ %115, %get_event_loop.exit ], [ %1, %121 ], [ %106, %107 ], [ %.sink181, %Py_INCREF.exit.sink.split ]
   store ptr %.082, ptr %5, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.082, ptr %3, align 8, !tbaa !37

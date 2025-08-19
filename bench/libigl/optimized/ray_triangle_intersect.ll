@@ -66,9 +66,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5
   %52 = load double, ptr %51, align 8, !tbaa !10, !noalias !20
   %53 = fsub double %52, %17
   %54 = fmul <2 x double> %.sroa.053.8.vec.insert, %50
-  %shift111 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop112 = fadd <2 x double> %54, %shift111
-  %55 = extractelement <2 x double> %foldExtExtBinop112, i64 0
+  %shift115 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop116 = fadd <2 x double> %54, %shift115
+  %55 = extractelement <2 x double> %foldExtExtBinop116, i64 0
   %56 = fmul double %37, %53
   %57 = fadd double %56, %55
   %58 = fmul double %47, %57
@@ -100,9 +100,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5
   %.sroa.038.8.vec.insert = insertelement <2 x double> %.sroa.038.0.vec.insert, double %70, i64 1
   %74 = load <2 x double>, ptr %1, align 1, !tbaa !4
   %75 = fmul <2 x double> %.sroa.038.8.vec.insert, %74
-  %shift114 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop115 = fadd <2 x double> %75, %shift114
-  %76 = extractelement <2 x double> %foldExtExtBinop115, i64 0
+  %shift118 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop119 = fadd <2 x double> %75, %shift118
+  %76 = extractelement <2 x double> %foldExtExtBinop119, i64 0
   %77 = load double, ptr %26, align 8, !tbaa !10
   %78 = fmul double %73, %77
   %79 = fadd double %78, %76
@@ -119,9 +119,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5
 
 86:                                               ; preds = %82
   %87 = fmul <2 x double> %20, %.sroa.038.8.vec.insert
-  %shift117 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop118 = fadd <2 x double> %87, %shift117
-  %88 = extractelement <2 x double> %foldExtExtBinop118, i64 0
+  %shift121 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop122 = fadd <2 x double> %87, %shift121
+  %88 = extractelement <2 x double> %foldExtExtBinop122, i64 0
   %89 = fmul double %23, %73
   %90 = fadd double %89, %88
   %91 = fmul double %47, %90

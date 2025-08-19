@@ -613,7 +613,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   br i1 %130, label %.thread46, label %133, !prof !14
 
 .thread46:                                        ; preds = %125
-  %.idx47 = shl i64 %126, 4
+  %.idx47 = shl nuw nsw i64 %126, 4
   %131 = getelementptr i8, ptr %124, i64 %.idx47
   %132 = getelementptr i8, ptr %131, i64 8
   store ptr null, ptr %132, align 8
@@ -623,7 +623,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   %134 = zext nneg i32 %129 to i64
   %135 = shl nuw nsw i64 %134, 4
   %136 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %135, i32 noundef 3520) #14
-  %.idx = shl i64 %126, 4
+  %.idx = shl nuw nsw i64 %126, 4
   %137 = getelementptr i8, ptr %124, i64 %.idx
   %138 = getelementptr i8, ptr %137, i64 8
   store ptr %136, ptr %138, align 8
@@ -779,7 +779,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
 216:                                              ; preds = %212
   %217 = load ptr, ptr %214, align 8
   %218 = icmp eq ptr %217, null
-  br i1 %218, label %.thread51.thread128, label %.preheader62.preheader
+  br i1 %218, label %.thread51.thread171, label %.preheader62.preheader
 
 .preheader62.preheader:                           ; preds = %216
   %219 = icmp eq i32 %2, 0
@@ -875,9 +875,9 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
 .thread51:                                        ; preds = %234, %266, %248, %242, %275, %273, %240
   %279 = phi i32 [ 0, %240 ], [ %278, %275 ], [ %244, %273 ], [ %244, %242 ], [ %244, %248 ], [ %244, %266 ], [ 0, %234 ]
   %280 = and i32 %279, 65535
-  br label %.thread51.thread128
+  br label %.thread51.thread171
 
-.thread51.thread128:                              ; preds = %216, %.thread51
+.thread51.thread171:                              ; preds = %216, %.thread51
   %storemerge = phi i32 [ %280, %.thread51 ], [ 0, %216 ]
   store i32 %storemerge, ptr %199, align 8
   %281 = getelementptr i8, ptr %199, i64 4
@@ -887,7 +887,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   %284 = icmp eq ptr %283, null
   br i1 %284, label %.thread55, label %.preheader59.preheader
 
-.preheader59.preheader:                           ; preds = %.thread51.thread128
+.preheader59.preheader:                           ; preds = %.thread51.thread171
   %285 = icmp eq i32 %2, 0
   br label %.preheader59
 
@@ -1082,8 +1082,8 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   %.pre127 = load i64, ptr %7, align 8
   br label %.thread55
 
-.thread55:                                        ; preds = %301, %380, %.thread51.thread, %.thread51.thread128, %405, %.thread57, %307
-  %409 = phi i64 [ %198, %.thread51.thread128 ], [ %.pre127, %405 ], [ %198, %.thread57 ], [ %198, %307 ], [ %198, %.thread51.thread ], [ %198, %380 ], [ %198, %301 ]
+.thread55:                                        ; preds = %301, %380, %.thread51.thread, %.thread51.thread171, %405, %.thread57, %307
+  %409 = phi i64 [ %198, %.thread51.thread171 ], [ %.pre127, %405 ], [ %198, %.thread57 ], [ %198, %307 ], [ %198, %.thread51.thread ], [ %198, %380 ], [ %198, %301 ]
   store i8 1, ptr %14, align 8
   %410 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %199, ptr %410, align 8
@@ -1347,14 +1347,14 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   %124 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %125 = load i32, ptr %124, align 8
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %.loopexit, label %.preheader61
+  br i1 %126, label %.loopexit, label %.preheader84
 
-127:                                              ; preds = %.preheader61
+127:                                              ; preds = %.preheader84
   %128 = add nuw i32 %130, 1
   %129 = icmp eq i32 %128, %125
-  br i1 %129, label %.loopexit, label %.preheader61, !llvm.loop !23
+  br i1 %129, label %.loopexit, label %.preheader84, !llvm.loop !23
 
-.preheader61:                                     ; preds = %123, %127
+.preheader84:                                     ; preds = %123, %127
   %130 = phi i32 [ %128, %127 ], [ 0, %123 ]
   %131 = sext i32 %130 to i64
   %132 = getelementptr %struct.__guc_mmio_reg_descr, ptr %98, i64 %131
@@ -1413,14 +1413,14 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   %167 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %168 = load i32, ptr %167, align 8
   %169 = icmp eq i32 %168, 0
-  br i1 %169, label %.thread21, label %.preheader59
+  br i1 %169, label %.thread21, label %.preheader82
 
-170:                                              ; preds = %.preheader59
+170:                                              ; preds = %.preheader82
   %171 = add nuw i32 %173, 1
   %172 = icmp eq i32 %171, %168
-  br i1 %172, label %.thread21, label %.preheader59, !llvm.loop !24
+  br i1 %172, label %.thread21, label %.preheader82, !llvm.loop !24
 
-.preheader59:                                     ; preds = %166, %170
+.preheader82:                                     ; preds = %166, %170
   %173 = phi i32 [ %171, %170 ], [ 0, %166 ]
   %174 = sext i32 %173 to i64
   %175 = getelementptr %struct.__guc_mmio_reg_descr, ptr %140, i64 %174
@@ -1432,7 +1432,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %89) #15
   br label %195
 
-178:                                              ; preds = %.preheader61
+178:                                              ; preds = %.preheader84
   %179 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
@@ -1442,7 +1442,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_guc_capture_print_engine_n
   tail call void (ptr, ptr, ...) @i915_error_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %89) #15
   br label %195
 
-.thread22:                                        ; preds = %.preheader59
+.thread22:                                        ; preds = %.preheader82
   %182 = getelementptr %struct.__guc_mmio_reg_descr, ptr %140, i64 %174, i32 3
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, null
@@ -1976,14 +1976,14 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 
 .sink.split:                                      ; preds = %141, %124
   %.sink = phi i32 [ %129, %124 ], [ 0, %141 ]
-  %.ph168 = phi i32 [ %128, %124 ], [ 0, %141 ]
-  %.ph169 = phi i32 [ 4, %124 ], [ 0, %141 ]
+  %.ph194 = phi i32 [ %128, %124 ], [ 0, %141 ]
+  %.ph195 = phi i32 [ 4, %124 ], [ 0, %141 ]
   store i32 %.sink, ptr %47, align 8
   br label %144
 
 144:                                              ; preds = %.sink.split, %.loopexit57
-  %145 = phi i32 [ 0, %.loopexit57 ], [ %.ph168, %.sink.split ]
-  %146 = phi i32 [ 0, %.loopexit57 ], [ %.ph169, %.sink.split ]
+  %145 = phi i32 [ 0, %.loopexit57 ], [ %.ph194, %.sink.split ]
+  %146 = phi i32 [ 0, %.loopexit57 ], [ %.ph195, %.sink.split ]
   %147 = add nuw nsw i32 %146, %112
   %148 = icmp eq i32 %147, 8
   br i1 %148, label %149, label %.loopexit59.sink.split
@@ -2119,7 +2119,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %240 = getelementptr i8, ptr %238, i64 %239
   %241 = load i32, ptr %240, align 4
   %242 = add i32 %231, 4
-  br label %.sink.split170
+  br label %.sink.split196
 
 243:                                              ; preds = %.preheader47
   %244 = icmp eq i32 %234, %231
@@ -2144,19 +2144,19 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 254:                                              ; preds = %251, %243
   %255 = add nsw i32 %232, -1
   %256 = icmp eq i32 %232, 0
-  br i1 %256, label %.sink.split170, label %.preheader47, !llvm.loop !30
+  br i1 %256, label %.sink.split196, label %.preheader47, !llvm.loop !30
 
-.sink.split170:                                   ; preds = %254, %237
-  %.sink173 = phi i32 [ %242, %237 ], [ 0, %254 ]
-  %.ph171 = phi i32 [ %241, %237 ], [ %170, %254 ]
-  %.ph172 = phi i32 [ 4, %237 ], [ 0, %254 ]
-  store i32 %.sink173, ptr %47, align 8
+.sink.split196:                                   ; preds = %254, %237
+  %.sink199 = phi i32 [ %242, %237 ], [ 0, %254 ]
+  %.ph197 = phi i32 [ %241, %237 ], [ %170, %254 ]
+  %.ph198 = phi i32 [ 4, %237 ], [ 0, %254 ]
+  store i32 %.sink199, ptr %47, align 8
   br label %257
 
-257:                                              ; preds = %.sink.split170, %.loopexit50
-  %.promoted97 = phi i32 [ %.promoted95, %.loopexit50 ], [ %.sink173, %.sink.split170 ]
-  %258 = phi i32 [ %170, %.loopexit50 ], [ %.ph171, %.sink.split170 ]
-  %259 = phi i32 [ 0, %.loopexit50 ], [ %.ph172, %.sink.split170 ]
+257:                                              ; preds = %.sink.split196, %.loopexit50
+  %.promoted97 = phi i32 [ %.promoted95, %.loopexit50 ], [ %.sink199, %.sink.split196 ]
+  %258 = phi i32 [ %170, %.loopexit50 ], [ %.ph197, %.sink.split196 ]
+  %259 = phi i32 [ 0, %.loopexit50 ], [ %.ph198, %.sink.split196 ]
   %260 = add nuw nsw i32 %259, %225
   %261 = icmp ult i32 %173, %.promoted97
   %262 = sub i32 %173, %.promoted97
@@ -2180,7 +2180,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %275 = getelementptr i8, ptr %273, i64 %274
   %276 = load i32, ptr %275, align 4
   %277 = add i32 %266, 4
-  br label %.sink.split174
+  br label %.sink.split200
 
 278:                                              ; preds = %.preheader45
   %279 = icmp eq i32 %269, %266
@@ -2205,19 +2205,19 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 289:                                              ; preds = %286, %278
   %290 = add nsw i32 %267, -1
   %291 = icmp eq i32 %267, 0
-  br i1 %291, label %.sink.split174, label %.preheader45, !llvm.loop !30
+  br i1 %291, label %.sink.split200, label %.preheader45, !llvm.loop !30
 
-.sink.split174:                                   ; preds = %289, %272
-  %.sink177 = phi i32 [ %277, %272 ], [ 0, %289 ]
-  %.ph175 = phi i32 [ %276, %272 ], [ %169, %289 ]
-  %.ph176 = phi i32 [ 4, %272 ], [ 0, %289 ]
-  store i32 %.sink177, ptr %47, align 8
+.sink.split200:                                   ; preds = %289, %272
+  %.sink203 = phi i32 [ %277, %272 ], [ 0, %289 ]
+  %.ph201 = phi i32 [ %276, %272 ], [ %169, %289 ]
+  %.ph202 = phi i32 [ 4, %272 ], [ 0, %289 ]
+  store i32 %.sink203, ptr %47, align 8
   br label %292
 
-292:                                              ; preds = %.sink.split174, %257
-  %.promoted99 = phi i32 [ %.promoted97, %257 ], [ %.sink177, %.sink.split174 ]
-  %293 = phi i32 [ %169, %257 ], [ %.ph175, %.sink.split174 ]
-  %294 = phi i32 [ 0, %257 ], [ %.ph176, %.sink.split174 ]
+292:                                              ; preds = %.sink.split200, %257
+  %.promoted99 = phi i32 [ %.promoted97, %257 ], [ %.sink203, %.sink.split200 ]
+  %293 = phi i32 [ %169, %257 ], [ %.ph201, %.sink.split200 ]
+  %294 = phi i32 [ 0, %257 ], [ %.ph202, %.sink.split200 ]
   %295 = add nuw nsw i32 %260, %294
   %296 = icmp ult i32 %173, %.promoted99
   %297 = sub i32 %173, %.promoted99
@@ -2241,7 +2241,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %310 = getelementptr i8, ptr %308, i64 %309
   %311 = load i32, ptr %310, align 4
   %312 = add i32 %301, 4
-  br label %.sink.split178
+  br label %.sink.split204
 
 313:                                              ; preds = %.preheader43
   %314 = icmp eq i32 %304, %301
@@ -2266,19 +2266,19 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 324:                                              ; preds = %321, %313
   %325 = add nsw i32 %302, -1
   %326 = icmp eq i32 %302, 0
-  br i1 %326, label %.sink.split178, label %.preheader43, !llvm.loop !30
+  br i1 %326, label %.sink.split204, label %.preheader43, !llvm.loop !30
 
-.sink.split178:                                   ; preds = %324, %307
-  %.sink181 = phi i32 [ %312, %307 ], [ 0, %324 ]
-  %.ph179 = phi i32 [ %311, %307 ], [ %168, %324 ]
-  %.ph180 = phi i32 [ 4, %307 ], [ 0, %324 ]
-  store i32 %.sink181, ptr %47, align 8
+.sink.split204:                                   ; preds = %324, %307
+  %.sink207 = phi i32 [ %312, %307 ], [ 0, %324 ]
+  %.ph205 = phi i32 [ %311, %307 ], [ %168, %324 ]
+  %.ph206 = phi i32 [ 4, %307 ], [ 0, %324 ]
+  store i32 %.sink207, ptr %47, align 8
   br label %327
 
-327:                                              ; preds = %.sink.split178, %292
-  %.promoted101 = phi i32 [ %.promoted99, %292 ], [ %.sink181, %.sink.split178 ]
-  %328 = phi i32 [ %168, %292 ], [ %.ph179, %.sink.split178 ]
-  %329 = phi i32 [ 0, %292 ], [ %.ph180, %.sink.split178 ]
+327:                                              ; preds = %.sink.split204, %292
+  %.promoted101 = phi i32 [ %.promoted99, %292 ], [ %.sink207, %.sink.split204 ]
+  %328 = phi i32 [ %168, %292 ], [ %.ph205, %.sink.split204 ]
+  %329 = phi i32 [ 0, %292 ], [ %.ph206, %.sink.split204 ]
   %330 = add nuw nsw i32 %295, %329
   %331 = icmp ult i32 %173, %.promoted101
   %332 = sub i32 %173, %.promoted101
@@ -2302,7 +2302,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %345 = getelementptr i8, ptr %343, i64 %344
   %346 = load i32, ptr %345, align 4
   %347 = add i32 %336, 4
-  br label %.sink.split182
+  br label %.sink.split208
 
 348:                                              ; preds = %.preheader
   %349 = icmp eq i32 %339, %336
@@ -2327,18 +2327,18 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 359:                                              ; preds = %356, %348
   %360 = add nsw i32 %337, -1
   %361 = icmp eq i32 %337, 0
-  br i1 %361, label %.sink.split182, label %.preheader, !llvm.loop !30
+  br i1 %361, label %.sink.split208, label %.preheader, !llvm.loop !30
 
-.sink.split182:                                   ; preds = %359, %342
-  %.sink185 = phi i32 [ %347, %342 ], [ 0, %359 ]
-  %.ph183 = phi i32 [ %346, %342 ], [ %167, %359 ]
-  %.ph184 = phi i32 [ 4, %342 ], [ 0, %359 ]
-  store i32 %.sink185, ptr %47, align 8
+.sink.split208:                                   ; preds = %359, %342
+  %.sink211 = phi i32 [ %347, %342 ], [ 0, %359 ]
+  %.ph209 = phi i32 [ %346, %342 ], [ %167, %359 ]
+  %.ph210 = phi i32 [ 4, %342 ], [ 0, %359 ]
+  store i32 %.sink211, ptr %47, align 8
   br label %362
 
-362:                                              ; preds = %.sink.split182, %327
-  %363 = phi i32 [ %167, %327 ], [ %.ph183, %.sink.split182 ]
-  %364 = phi i32 [ 0, %327 ], [ %.ph184, %.sink.split182 ]
+362:                                              ; preds = %.sink.split208, %327
+  %363 = phi i32 [ %167, %327 ], [ %.ph209, %.sink.split208 ]
+  %364 = phi i32 [ 0, %327 ], [ %.ph210, %.sink.split208 ]
   %365 = add nuw nsw i32 %330, %364
   %.not = icmp eq i32 %365, 20
   br i1 %.not, label %366, label %.critedge
@@ -2378,7 +2378,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   br i1 %387, label %.thread33, label %388
 
 388:                                              ; preds = %386
-  switch i32 %372, label %default.unreachable [
+  switch i32 %372, label %default.unreachable161 [
     i32 0, label %389
     i32 1, label %395
     i32 2, label %402
@@ -2424,11 +2424,11 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   store i32 %407, ptr %408, align 8
   br label %486
 
-default.unreachable:                              ; preds = %388
+default.unreachable161:                           ; preds = %388
   unreachable
 
 409:                                              ; preds = %402, %395
-  %.sink186 = phi i32 [ 1, %395 ], [ 3, %402 ]
+  %.sink212 = phi i32 [ 1, %395 ], [ 3, %402 ]
   %410 = load ptr, ptr %6, align 8
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 3120
   %412 = getelementptr inbounds nuw i8, ptr %410, i64 3128
@@ -2438,7 +2438,7 @@ default.unreachable:                              ; preds = %388
   %414 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store ptr %413, ptr %414, align 8
   store volatile ptr %157, ptr %413, align 8
-  %415 = tail call fastcc ptr @guc_capture_clone_node(ptr noundef %0, ptr noundef nonnull %157, i32 noundef %.sink186)
+  %415 = tail call fastcc ptr @guc_capture_clone_node(ptr noundef %0, ptr noundef nonnull %157, i32 noundef %.sink212)
   %416 = icmp eq ptr %415, null
   br i1 %416, label %.thread33, label %.thread35
 
@@ -2677,18 +2677,18 @@ default.unreachable:                              ; preds = %388
 
 553:                                              ; preds = %.preheader51, %550
   %554 = phi i64 [ %551, %550 ], [ 0, %.preheader51 ]
-  %.idx30 = shl i64 %554, 4
+  %.idx30 = shl nuw nsw i64 %554, 4
   %555 = getelementptr i8, ptr %549, i64 %.idx30
   %556 = load ptr, ptr %555, align 8
   %557 = icmp eq ptr %556, null
   br i1 %557, label %550, label %.critedge.thread.sink.split
 
 .critedge.thread.sink.split:                      ; preds = %550, %553
-  %.sink204 = phi i64 [ 3120, %553 ], [ 3096, %550 ]
-  %.sink202 = phi i64 [ 3128, %553 ], [ 3104, %550 ]
+  %.sink230 = phi i64 [ 3120, %553 ], [ 3096, %550 ]
+  %.sink228 = phi i64 [ 3128, %553 ], [ 3104, %550 ]
   %558 = load ptr, ptr %6, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %558, i64 %.sink204
-  %560 = getelementptr inbounds nuw i8, ptr %558, i64 %.sink202
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 %.sink230
+  %560 = getelementptr inbounds nuw i8, ptr %558, i64 %.sink228
   %561 = load ptr, ptr %560, align 8
   store ptr %547, ptr %560, align 8
   store ptr %559, ptr %547, align 8
@@ -3155,14 +3155,14 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   %168 = shl nuw i64 1, %142
   %169 = and i64 %168, %167
   %.not31 = icmp eq i64 %169, 0
-  br i1 %.not31, label %229, label %.preheader52
+  br i1 %.not31, label %229, label %.preheader73
 
 170:                                              ; preds = %161
   %171 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %55, i64 %142) #15, !srcloc !45
   %172 = icmp ult i8 %171, 2
   call void @llvm.assume(i1 %172)
   %.not30 = icmp eq i8 %171, 0
-  br i1 %.not30, label %229, label %.preheader52
+  br i1 %.not30, label %229, label %.preheader73
 
 173:                                              ; preds = %141
   %174 = load i32, ptr %3, align 4
@@ -3193,7 +3193,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   %193 = shl nuw i64 1, %192
   %194 = and i64 %193, %191
   %.not29 = icmp eq i64 %194, 0
-  br i1 %.not29, label %229, label %.preheader52
+  br i1 %.not29, label %229, label %.preheader73
 
 195:                                              ; preds = %183
   %196 = sext i32 %175 to i64
@@ -3201,15 +3201,15 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr nound
   %198 = icmp ult i8 %197, 2
   call void @llvm.assume(i1 %198)
   %.not28 = icmp eq i8 %197, 0
-  br i1 %.not28, label %229, label %.preheader52
+  br i1 %.not28, label %229, label %.preheader73
 
-.preheader52:                                     ; preds = %187, %165, %195, %170
+.preheader73:                                     ; preds = %187, %165, %195, %170
   br label %199
 
-199:                                              ; preds = %.preheader52, %199
-  %200 = phi i1 [ false, %199 ], [ true, %.preheader52 ]
-  %201 = phi i64 [ 1, %199 ], [ 0, %.preheader52 ]
-  %202 = phi ptr [ %216, %199 ], [ %143, %.preheader52 ]
+199:                                              ; preds = %.preheader73, %199
+  %200 = phi i1 [ false, %199 ], [ true, %.preheader73 ]
+  %201 = phi i64 [ 1, %199 ], [ 0, %.preheader73 ]
+  %202 = phi ptr [ %216, %199 ], [ %143, %.preheader73 ]
   %203 = getelementptr [2 x %struct.__ext_steer_reg], ptr @gen8_extregs, i64 0, i64 %201
   %204 = load i32, ptr %3, align 4
   %205 = load i32, ptr %4, align 4

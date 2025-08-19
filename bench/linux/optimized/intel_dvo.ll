@@ -254,12 +254,12 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %128, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %130, ptr noundef %132, ptr noundef %133) #7
   %134 = load i32, ptr %110, align 8
   switch i32 %134, label %136 [
-    i32 2, label %.thread8
+    i32 2, label %.thread14
     i32 1, label %139
     i32 5, label %139
   ]
 
-.thread8:                                         ; preds = %127
+.thread14:                                        ; preds = %127
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 2412
   store i8 6, ptr %135, align 4
   br label %139
@@ -275,8 +275,8 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   tail call void asm sideeffect "913: nop\0A\09.pushsection .discard.instr_end\0A\09.long 913b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 913) #7, !srcloc !20
   br label %139
 
-139:                                              ; preds = %127, %127, %.thread8, %136
-  %140 = phi i32 [ 0, %136 ], [ 2, %.thread8 ], [ 7, %127 ], [ 7, %127 ]
+139:                                              ; preds = %127, %127, %.thread14, %136
+  %140 = phi i32 [ 0, %136 ], [ 2, %.thread14 ], [ 7, %127 ], [ 7, %127 ]
   %141 = tail call ptr @intel_gmbus_get_adapter(ptr noundef %0, i32 noundef 4) #7
   %142 = tail call i32 @drm_connector_init_with_ddc(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @intel_dvo_connector_funcs, i32 noundef %140, ptr noundef %141) #7
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 1544

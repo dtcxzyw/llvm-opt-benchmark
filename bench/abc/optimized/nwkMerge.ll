@@ -2268,11 +2268,11 @@ Vec_IntPush.exit194:                              ; preds = %.Vec_IntGrow.exit10
   br label %649
 
 649:                                              ; preds = %Vec_IntPush.exit194, %Vec_IntPush.exit180
-  %.sink235 = phi i32 [ %647, %Vec_IntPush.exit194 ], [ %581, %Vec_IntPush.exit180 ]
-  %.sink233 = phi ptr [ %646, %Vec_IntPush.exit194 ], [ %580, %Vec_IntPush.exit180 ]
+  %.sink295 = phi i32 [ %647, %Vec_IntPush.exit194 ], [ %581, %Vec_IntPush.exit180 ]
+  %.sink293 = phi ptr [ %646, %Vec_IntPush.exit194 ], [ %580, %Vec_IntPush.exit180 ]
   %.sink = phi i32 [ %619, %Vec_IntPush.exit194 ], [ %553, %Vec_IntPush.exit180 ]
-  %650 = sext i32 %.sink235 to i64
-  %651 = getelementptr inbounds i32, ptr %.sink233, i64 %650
+  %650 = sext i32 %.sink295 to i64
+  %651 = getelementptr inbounds i32, ptr %.sink293, i64 %650
   store i32 %.sink, ptr %651, align 4, !tbaa !42
   ret void
 }
@@ -2627,10 +2627,10 @@ define ptr @Nwk_ManGraphListFindMin(ptr noundef readonly captures(none) %0, i32 
   %.phi.trans.insert50 = getelementptr inbounds nuw i8, ptr %.pre49, i64 12
   %.pre51 = load i32, ptr %.phi.trans.insert50, align 4, !tbaa !53
   %15 = icmp sgt i32 %.133, %.pre51
-  %spec.select55 = tail call i32 @llvm.smin.i32(i32 %.133, i32 %.pre51)
+  %spec.select61 = tail call i32 @llvm.smin.i32(i32 %.133, i32 %.pre51)
   %16 = select i1 %14, i1 true, i1 %15
   %.3 = select i1 %16, ptr %.02536, ptr %.22431
-  %.2 = select i1 %14, i32 %.pre51, i32 %spec.select55
+  %.2 = select i1 %14, i32 %.pre51, i32 %spec.select61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %._crit_edge45, !llvm.loop !69
@@ -2741,10 +2741,10 @@ define void @Nwk_ManGraphSolve(ptr noundef captures(none) initializes((200, 216)
   %.phi.trans.insert50.i = getelementptr inbounds nuw i8, ptr %.pre49.i, i64 12
   %.pre51.i = load i32, ptr %.phi.trans.insert50.i, align 4, !tbaa !53
   %30 = icmp sgt i32 %.133.i, %.pre51.i
-  %spec.select55.i = tail call i32 @llvm.smin.i32(i32 %.133.i, i32 %.pre51.i)
+  %spec.select61.i = tail call i32 @llvm.smin.i32(i32 %.133.i, i32 %.pre51.i)
   %31 = select i1 %29, i1 true, i1 %30
   %.3.i = select i1 %31, ptr %.02536.i, ptr %.22431.i
-  %.2.i = select i1 %29, i32 %.pre51.i, i32 %spec.select55.i
+  %.2.i = select i1 %29, i32 %.pre51.i, i32 %spec.select61.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %._crit_edge45.i, !llvm.loop !69

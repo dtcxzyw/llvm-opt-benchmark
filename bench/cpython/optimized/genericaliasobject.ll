@@ -2617,8 +2617,8 @@ define internal ptr @ga_repr(ptr noundef readonly captures(none) %0) #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %58
   %.03243 = phi i64 [ %59, %58 ], [ 0, %.preheader ]
-  %.not45 = icmp eq i64 %.03243, 0
-  br i1 %.not45, label %30, label %27
+  %.not48 = icmp eq i64 %.03243, 0
+  br i1 %.not48, label %30, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = tail call i32 @PyUnicodeWriter_WriteUTF8(ptr noundef nonnull %9, ptr noundef nonnull @.str.12, i64 noundef 2) #5

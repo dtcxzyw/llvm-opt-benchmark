@@ -80,8 +80,8 @@ define void @dlatsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %45, ptr %8, align 8, !tbaa !7
   %46 = tail call i32 @llvm.umin.i32(i32 %23, i32 %26)
   %47 = icmp eq i32 %46, 0
-  %or.cond164 = or i1 %22, %47
-  br i1 %or.cond164, label %96, label %48
+  %or.cond167 = or i1 %22, %47
+  br i1 %or.cond167, label %96, label %48
 
 48:                                               ; preds = %44
   %.not147 = icmp samesign ult i32 %28, %23

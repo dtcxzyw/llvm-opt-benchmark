@@ -4515,8 +4515,8 @@ if.else4.i51:                                     ; preds = %if.end20
   br label %if.end6.i45
 
 if.end6.i45:                                      ; preds = %if.then.i42, %if.else4.i51
-  %.sink2 = phi i32 [ 0, %if.else4.i51 ], [ 1, %if.then.i42 ]
-  tail call void @_ZN10ParsedText12enterElementENS_11ElementTypeE(ptr noundef nonnull align 8 dereferenceable(424) %this, i32 noundef %.sink2)
+  %.sink3 = phi i32 [ 0, %if.else4.i51 ], [ 1, %if.then.i42 ]
+  tail call void @_ZN10ParsedText12enterElementENS_11ElementTypeE(ptr noundef nonnull align 8 dereferenceable(424) %this, i32 noundef %.sink3)
   %10 = load ptr, ptr %m_element.i, align 8, !tbaa !96
   %text.i48 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %_M_string_length.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -18721,9 +18721,9 @@ if.then:                                          ; preds = %lpad2.i.i.i.i.i
   br label %invoke.cont21
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i, %lpad.body.i.i.i, %lpad2.i.i.i.i.i62
-  %.sink12 = phi { ptr, i32 } [ %20, %lpad2.i.i.i.i.i62 ], [ %5, %lpad.body.i.i.i ], [ %5, %while.body.i.i.i.i.i ]
+  %.sink19 = phi { ptr, i32 } [ %20, %lpad2.i.i.i.i.i62 ], [ %5, %lpad.body.i.i.i ], [ %5, %while.body.i.i.i.i.i ]
   %__new_finish.0.lpad-body84 = phi ptr [ %incdec.ptr, %lpad2.i.i.i.i.i62 ], [ %call5.i.i.i, %lpad.body.i.i.i ], [ %call5.i.i.i, %while.body.i.i.i.i.i ]
-  %33 = extractvalue { ptr, i32 } %.sink12, 0
+  %33 = extractvalue { ptr, i32 } %.sink19, 0
   %34 = tail call ptr @__cxa_begin_catch(ptr %33) #30
   invoke void @_ZSt8_DestroyIPN10ParsedText7ElementES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %call5.i.i.i, ptr noundef nonnull %__new_finish.0.lpad-body84, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont21 unwind label %lpad19

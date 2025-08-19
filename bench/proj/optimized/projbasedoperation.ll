@@ -3172,8 +3172,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
   br i1 %.not.i.i.i80, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit, label %185
 
 185:                                              ; preds = %.thread, %182
-  %.pr197 = phi ptr [ %174, %.thread ], [ %.pr.pre, %182 ]
-  %186 = getelementptr inbounds nuw i8, ptr %.pr197, i64 8
+  %.pr228 = phi ptr [ %174, %.thread ], [ %.pr.pre, %182 ]
+  %186 = getelementptr inbounds nuw i8, ptr %.pr228, i64 8
   %187 = load atomic i64, ptr %186 acquire, align 8
   %188 = icmp eq i64 %187, 4294967297
   %189 = trunc i64 %187 to i32
@@ -3181,16 +3181,16 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 
 190:                                              ; preds = %185
   store i32 0, ptr %186, align 8, !tbaa !11
-  %191 = getelementptr inbounds nuw i8, ptr %.pr197, i64 12
+  %191 = getelementptr inbounds nuw i8, ptr %.pr228, i64 12
   store i32 0, ptr %191, align 4, !tbaa !14
-  %192 = load ptr, ptr %.pr197, align 8, !tbaa !3
+  %192 = load ptr, ptr %.pr228, align 8, !tbaa !3
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 8
-  call void %194(ptr noundef nonnull align 8 dereferenceable(16) %.pr197) #24
-  %195 = load ptr, ptr %.pr197, align 8, !tbaa !3
+  call void %194(ptr noundef nonnull align 8 dereferenceable(16) %.pr228) #24
+  %195 = load ptr, ptr %.pr228, align 8, !tbaa !3
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
   %197 = load ptr, ptr %196, align 8
-  call void %197(ptr noundef nonnull align 8 dereferenceable(16) %.pr197) #24
+  call void %197(ptr noundef nonnull align 8 dereferenceable(16) %.pr228) #24
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit
 
 198:                                              ; preds = %185
@@ -3213,7 +3213,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %202, %20
   br i1 %204, label %205, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit, !prof !17
 
 205:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr197) #24
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr228) #24
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit: ; preds = %.thread169, %182, %190, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %205
@@ -4460,9 +4460,9 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %738 = getelementptr inbounds nuw i8, ptr %735, i64 8
   %739 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !69
   %.not.i.i.i.i.i159 = icmp eq i8 %739, 0
-  br i1 %.not.i.i.i.i.i159, label %743, label %.thread198
+  br i1 %.not.i.i.i.i.i159, label %743, label %.thread229
 
-.thread198:                                       ; preds = %737
+.thread229:                                       ; preds = %737
   %740 = load i32, ptr %738, align 4, !tbaa !16, !noalias !69
   %741 = add nsw i32 %740, 1
   store i32 %741, ptr %738, align 4, !tbaa !16, !noalias !69
@@ -4480,9 +4480,9 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.not.i.i.i161 = icmp eq ptr %.pr177.pre, null
   br i1 %.not.i.i.i161, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit165, label %746
 
-746:                                              ; preds = %.thread198, %743
-  %.pr177201 = phi ptr [ %735, %.thread198 ], [ %.pr177.pre, %743 ]
-  %747 = getelementptr inbounds nuw i8, ptr %.pr177201, i64 8
+746:                                              ; preds = %.thread229, %743
+  %.pr177232 = phi ptr [ %735, %.thread229 ], [ %.pr177.pre, %743 ]
+  %747 = getelementptr inbounds nuw i8, ptr %.pr177232, i64 8
   %748 = load atomic i64, ptr %747 acquire, align 8
   %749 = icmp eq i64 %748, 4294967297
   %750 = trunc i64 %748 to i32
@@ -4490,16 +4490,16 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 751:                                              ; preds = %746
   store i32 0, ptr %747, align 8, !tbaa !11
-  %752 = getelementptr inbounds nuw i8, ptr %.pr177201, i64 12
+  %752 = getelementptr inbounds nuw i8, ptr %.pr177232, i64 12
   store i32 0, ptr %752, align 4, !tbaa !14
-  %753 = load ptr, ptr %.pr177201, align 8, !tbaa !3
+  %753 = load ptr, ptr %.pr177232, align 8, !tbaa !3
   %754 = getelementptr inbounds nuw i8, ptr %753, i64 16
   %755 = load ptr, ptr %754, align 8
-  call void %755(ptr noundef nonnull align 8 dereferenceable(16) %.pr177201) #24
-  %756 = load ptr, ptr %.pr177201, align 8, !tbaa !3
+  call void %755(ptr noundef nonnull align 8 dereferenceable(16) %.pr177232) #24
+  %756 = load ptr, ptr %.pr177232, align 8, !tbaa !3
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 24
   %758 = load ptr, ptr %757, align 8
-  call void %758(ptr noundef nonnull align 8 dereferenceable(16) %.pr177201) #24
+  call void %758(ptr noundef nonnull align 8 dereferenceable(16) %.pr177232) #24
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit165
 
 759:                                              ; preds = %746
@@ -4522,7 +4522,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163: ; preds = %763, 
   br i1 %765, label %766, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit165, !prof !17
 
 766:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr177201) #24
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr177232) #24
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit165
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit165: ; preds = %.thread178, %743, %751, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i163, %766
@@ -6153,9 +6153,9 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation18PROJBasedOperationEEERKN7
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15, !noalias !98
   %.not.i.i.i.i.i7 = icmp eq i8 %45, 0
-  br i1 %.not.i.i.i.i.i7, label %49, label %.thread11
+  br i1 %.not.i.i.i.i.i7, label %49, label %.thread13
 
-.thread11:                                        ; preds = %43
+.thread13:                                        ; preds = %43
   %46 = load i32, ptr %44, align 4, !tbaa !16, !noalias !98
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %44, align 4, !tbaa !16, !noalias !98
@@ -6173,9 +6173,9 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation18PROJBasedOperationEEERKN7
   %.not.i.i.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit, label %52
 
-52:                                               ; preds = %.thread11, %49
-  %.pr14 = phi ptr [ %41, %.thread11 ], [ %.pr.pre, %49 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.pr14, i64 8
+52:                                               ; preds = %.thread13, %49
+  %.pr16 = phi ptr [ %41, %.thread13 ], [ %.pr.pre, %49 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.pr16, i64 8
   %54 = load atomic i64, ptr %53 acquire, align 8
   %55 = icmp eq i64 %54, 4294967297
   %56 = trunc i64 %54 to i32
@@ -6183,16 +6183,16 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation18PROJBasedOperationEEERKN7
 
 57:                                               ; preds = %52
   store i32 0, ptr %53, align 8, !tbaa !11
-  %58 = getelementptr inbounds nuw i8, ptr %.pr14, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.pr16, i64 12
   store i32 0, ptr %58, align 4, !tbaa !14
-  %59 = load ptr, ptr %.pr14, align 8, !tbaa !3
+  %59 = load ptr, ptr %.pr16, align 8, !tbaa !3
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr14) #24
-  %62 = load ptr, ptr %.pr14, align 8, !tbaa !3
+  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %.pr16) #24
+  %62 = load ptr, ptr %.pr16, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %.pr14) #24
+  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %.pr16) #24
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit
 
 65:                                               ; preds = %52
@@ -6215,7 +6215,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %69, %67
   br i1 %71, label %72, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit, !prof !17
 
 72:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr14) #24
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr16) #24
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev.exit: ; preds = %.thread, %49, %57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %72
@@ -7212,18 +7212,18 @@ _ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit: ; preds =
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !107
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #29
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #29
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !23
@@ -7257,7 +7257,7 @@ _ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit13: ; preds
 
 34:                                               ; preds = %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIN5osgeo4proj9operation15GridDescriptionEEclERKS3_S6_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

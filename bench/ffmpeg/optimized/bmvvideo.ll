@@ -259,22 +259,22 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %123 = icmp uge ptr %.1186.i, %95
   %.not.i = icmp ult ptr %.1186.i, %105
   %or.cond214.i = select i1 %123, i1 %.not.i, i1 false
-  br i1 %or.cond214.i, label %.thread281.i, label %.loopexit
+  br i1 %or.cond214.i, label %.thread285.i, label %.loopexit
 
 124:                                              ; preds = %119
   %125 = and i32 %.0174.i, 12
   %.not204.i = icmp eq i32 %125, 0
   br i1 %.not204.i, label %.preheader255.i.preheader, label %.thread235.i
 
-.thread281.i:                                     ; preds = %122
+.thread285.i:                                     ; preds = %122
   %126 = load i8, ptr %.1186.i, align 1, !tbaa !37
   %127 = zext i8 %126 to i32
   %128 = and i32 %127, 12
-  %.not204283.i = icmp eq i32 %128, 0
-  br i1 %.not204283.i, label %.preheader255.i.preheader, label %.thread.i
+  %.not204287.i = icmp eq i32 %128, 0
+  br i1 %.not204287.i, label %.preheader255.i.preheader, label %.thread.i
 
-.preheader255.i.preheader:                        ; preds = %.thread281.i, %124
-  %.1172.i.ph = phi i32 [ %.0174.i, %124 ], [ %127, %.thread281.i ]
+.preheader255.i.preheader:                        ; preds = %.thread285.i, %124
+  %.1172.i.ph = phi i32 [ %.0174.i, %124 ], [ %127, %.thread285.i ]
   br label %.preheader255.i
 
 .preheader255.i:                                  ; preds = %.preheader255.i.preheader, %140
@@ -324,10 +324,10 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %150 = add nsw i32 %.0.i, 6
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.thread.loopexit.i, %.thread281.i
-  %.2229.i = phi i32 [ %150, %.thread.loopexit.i ], [ 4, %.thread281.i ]
-  %.3228.i = phi i32 [ %138, %.thread.loopexit.i ], [ %127, %.thread281.i ]
-  %.4189227.i = phi ptr [ %.3188.i, %.thread.loopexit.i ], [ %.1186.i, %.thread281.i ]
+.thread.i:                                        ; preds = %.thread.loopexit.i, %.thread285.i
+  %.2229.i = phi i32 [ %150, %.thread.loopexit.i ], [ 4, %.thread285.i ]
+  %.3228.i = phi i32 [ %138, %.thread.loopexit.i ], [ %127, %.thread285.i ]
+  %.4189227.i = phi ptr [ %.3188.i, %.thread.loopexit.i ], [ %.1186.i, %.thread285.i ]
   %151 = lshr i32 %.3228.i, %.2229.i
   %notmask212.i = shl nsw i32 -1, %.2229.i
   %152 = xor i32 %notmask212.i, -1
@@ -393,13 +393,13 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %or.cond219.i, label %.loopexit, label %.lr.ph265.preheader.i
 
 .lr.ph265.preheader.i:                            ; preds = %173
-  %invariant.gep296.i = getelementptr i8, ptr %.1182.i, i64 %118
+  %invariant.gep300.i = getelementptr i8, ptr %.1182.i, i64 %118
   br label %.lr.ph265.i
 
 .lr.ph265.i:                                      ; preds = %.lr.ph265.i, %.lr.ph265.preheader.i
   %indvars.iv276.i = phi i64 [ 0, %.lr.ph265.preheader.i ], [ %indvars.iv.next277.i, %.lr.ph265.i ]
-  %gep297.i = getelementptr i8, ptr %invariant.gep296.i, i64 %indvars.iv276.i
-  %179 = load i8, ptr %gep297.i, align 1, !tbaa !37
+  %gep301.i = getelementptr i8, ptr %invariant.gep300.i, i64 %indvars.iv276.i
+  %179 = load i8, ptr %gep301.i, align 1, !tbaa !37
   %180 = getelementptr inbounds nuw i8, ptr %.1182.i, i64 %indvars.iv276.i
   store i8 %179, ptr %180, align 1, !tbaa !37
   %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, 1
@@ -440,8 +440,8 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %196 = getelementptr inbounds nuw i8, ptr %184, i64 %indvars.iv.i
   store i8 %195, ptr %196, align 1, !tbaa !37
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not299.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not299.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !44
+  %.not303.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not303.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !44
 
 197:                                              ; preds = %169
   %198 = ptrtoint ptr %.5240.i to i64

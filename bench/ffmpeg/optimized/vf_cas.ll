@@ -235,9 +235,9 @@ define internal noundef i32 @cas_slice8(ptr noundef readonly captures(none) %0, 
   %62 = sext i32 %60 to i64
   %invariant.gep = getelementptr i8, ptr %43, i64 %61
   %63 = getelementptr i8, ptr %43, i64 %59
-  %invariant.gep377 = getelementptr i8, ptr %43, i64 %59
+  %invariant.gep379 = getelementptr i8, ptr %43, i64 %59
   %64 = getelementptr i8, ptr %43, i64 %59
-  %invariant.gep379 = getelementptr i8, ptr %43, i64 %62
+  %invariant.gep381 = getelementptr i8, ptr %43, i64 %62
   br label %65
 
 65:                                               ; preds = %.lr.ph.us, %65
@@ -265,8 +265,8 @@ define internal noundef i32 @cas_slice8(ptr noundef readonly captures(none) %0, 
   %84 = getelementptr i8, ptr %63, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !59
   %86 = zext i8 %85 to i32
-  %gep378 = getelementptr i8, ptr %invariant.gep377, i64 %indvars.iv
-  %87 = load i8, ptr %gep378, align 1, !tbaa !59
+  %gep380 = getelementptr i8, ptr %invariant.gep379, i64 %indvars.iv
+  %87 = load i8, ptr %gep380, align 1, !tbaa !59
   %88 = sext i32 %70 to i64
   %89 = getelementptr i8, ptr %64, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !59
@@ -276,8 +276,8 @@ define internal noundef i32 @cas_slice8(ptr noundef readonly captures(none) %0, 
   %94 = getelementptr inbounds i8, ptr %43, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !59
   %96 = zext i8 %95 to i32
-  %gep380 = getelementptr i8, ptr %invariant.gep379, i64 %indvars.iv
-  %97 = load i8, ptr %gep380, align 1, !tbaa !59
+  %gep382 = getelementptr i8, ptr %invariant.gep381, i64 %indvars.iv
+  %97 = load i8, ptr %gep382, align 1, !tbaa !59
   %98 = zext i8 %97 to i32
   %99 = add nsw i32 %70, %60
   %100 = sext i32 %99 to i64
@@ -453,9 +453,9 @@ define internal noundef i32 @cas_slice16(ptr noundef readonly captures(none) %0,
   %70 = sext i32 %68 to i64
   %invariant.gep = getelementptr i16, ptr %49, i64 %69
   %71 = getelementptr i16, ptr %49, i64 %67
-  %invariant.gep381 = getelementptr i16, ptr %49, i64 %67
+  %invariant.gep384 = getelementptr i16, ptr %49, i64 %67
   %72 = getelementptr i16, ptr %49, i64 %67
-  %invariant.gep383 = getelementptr i16, ptr %49, i64 %70
+  %invariant.gep386 = getelementptr i16, ptr %49, i64 %70
   br label %73
 
 73:                                               ; preds = %.lr.ph.us, %73
@@ -483,8 +483,8 @@ define internal noundef i32 @cas_slice16(ptr noundef readonly captures(none) %0,
   %92 = getelementptr i16, ptr %71, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !64
   %94 = zext i16 %93 to i32
-  %gep382 = getelementptr i16, ptr %invariant.gep381, i64 %indvars.iv
-  %95 = load i16, ptr %gep382, align 2, !tbaa !64
+  %gep385 = getelementptr i16, ptr %invariant.gep384, i64 %indvars.iv
+  %95 = load i16, ptr %gep385, align 2, !tbaa !64
   %96 = sext i32 %78 to i64
   %97 = getelementptr i16, ptr %72, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !64
@@ -494,8 +494,8 @@ define internal noundef i32 @cas_slice16(ptr noundef readonly captures(none) %0,
   %102 = getelementptr inbounds i16, ptr %49, i64 %101
   %103 = load i16, ptr %102, align 2, !tbaa !64
   %104 = zext i16 %103 to i32
-  %gep384 = getelementptr i16, ptr %invariant.gep383, i64 %indvars.iv
-  %105 = load i16, ptr %gep384, align 2, !tbaa !64
+  %gep387 = getelementptr i16, ptr %invariant.gep386, i64 %indvars.iv
+  %105 = load i16, ptr %gep387, align 2, !tbaa !64
   %106 = zext i16 %105 to i32
   %107 = add nsw i32 %78, %68
   %108 = sext i32 %107 to i64

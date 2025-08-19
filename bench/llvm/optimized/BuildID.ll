@@ -264,9 +264,9 @@ _ZSt4moveIPhS0_ET0_T_S2_S1_.exit35.i:             ; preds = %73
 
 _ZSt4moveIPhS0_ET0_T_S2_S1_.exit35.i.thread:      ; preds = %73, %_ZSt4moveIPhS0_ET0_T_S2_S1_.exit35.i
   %75 = phi i64 [ %.pre9, %_ZSt4moveIPhS0_ET0_T_S2_S1_.exit35.i ], [ %65, %73 ]
-  %.pre10.pre1318 = phi ptr [ %.pre10.pre13.pre, %_ZSt4moveIPhS0_ET0_T_S2_S1_.exit35.i ], [ %.pre11, %73 ]
+  %.pre10.pre1330 = phi ptr [ %.pre10.pre13.pre, %_ZSt4moveIPhS0_ET0_T_S2_S1_.exit35.i ], [ %.pre11, %73 ]
   %76 = load ptr, ptr %0, align 8, !tbaa !13
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %.pre10.pre1318, i64 %75, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %.pre10.pre1330, i64 %75, i1 false)
   %.pre10.pre = load ptr, ptr %5, align 8, !tbaa !13
   br label %_ZN4llvm23SmallVectorTemplateBaseIhLb1EE18uninitialized_moveIPhS3_EEvT_S4_T0_.exit.i
 

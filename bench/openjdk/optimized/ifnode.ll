@@ -1754,10 +1754,10 @@ define hidden noundef zeroext i1 @_ZN6IfNode20fold_compares_helperEP8ProjNodeS1_
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 2147483647
-  %or.cond163 = select i1 %49, i1 %52, i1 false
+  %or.cond184 = select i1 %49, i1 %52, i1 false
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %54 = load i32, ptr %53, align 8
-  br i1 %or.cond163, label %55, label %._crit_edge
+  br i1 %or.cond184, label %55, label %._crit_edge
 
 55:                                               ; preds = %44
   %56 = icmp eq i32 %54, -2147483648
@@ -1873,8 +1873,8 @@ define hidden noundef zeroext i1 @_ZN6IfNode20fold_compares_helperEP8ProjNodeS1_
 ._crit_edge:                                      ; preds = %44
   %109 = icmp sgt i32 %54, %51
   %110 = icmp eq i32 %48, 2147483647
-  %or.cond164 = and i1 %109, %110
-  br i1 %or.cond164, label %111, label %.thread
+  %or.cond185 = and i1 %109, %110
+  br i1 %or.cond185, label %111, label %.thread
 
 111:                                              ; preds = %._crit_edge
   %112 = icmp eq i32 %46, -2147483648
@@ -3119,7 +3119,7 @@ _ZN10Node_Stack4pushEP4Nodej.exit:                ; preds = %24, %22
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 2408
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 28
-  %.not83157 = icmp eq ptr %2, null
+  %.not83177 = icmp eq ptr %2, null
   br label %50
 
 50:                                               ; preds = %.lr.ph135, %284
@@ -3349,7 +3349,7 @@ _ZN10Node_Stack4pushEP4Nodej.exit93:              ; preds = %90, %97
   br i1 %181, label %_ZN6IfNode10up_one_domEP4Nodeb.exit, label %_ZN6IfNode10up_one_domEP4Nodeb.exit.thread
 
 _ZN6IfNode10up_one_domEP4Nodeb.exit.thread:       ; preds = %116, %177, %175, %145, %141, %138, %133, %129
-  br i1 %.not83157, label %185, label %_ZN16Unique_Node_List4pushEP4Node.exit
+  br i1 %.not83177, label %185, label %_ZN16Unique_Node_List4pushEP4Node.exit
 
 _ZN6IfNode10up_one_domEP4Nodeb.exit:              ; preds = %113, %115, %124, %177
   %.027.i = phi ptr [ %128, %124 ], [ %114, %113 ], [ %112, %115 ], [ %.026.i, %177 ]
@@ -6832,16 +6832,16 @@ _ZL26subsuming_bool_test_encodeP4Node.exit:       ; preds = %50, %switch.lookup
   %54 = getelementptr i8, ptr %22, i64 52
   %.val46 = load i32, ptr %54, align 4
   %55 = icmp ult i32 %.val46, 8
-  br i1 %55, label %switch.lookup56, label %_ZL26subsuming_bool_test_encodeP4Node.exit48
+  br i1 %55, label %switch.lookup63, label %_ZL26subsuming_bool_test_encodeP4Node.exit48
 
-switch.lookup56:                                  ; preds = %_ZL26subsuming_bool_test_encodeP4Node.exit
+switch.lookup63:                                  ; preds = %_ZL26subsuming_bool_test_encodeP4Node.exit
   %56 = zext nneg i32 %.val46 to i64
-  %switch.gep57 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN6IfNode16simple_subsumingEP12PhaseIterGVN.2, i64 0, i64 %56
-  %switch.load58 = load i32, ptr %switch.gep57, align 4
+  %switch.gep64 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN6IfNode16simple_subsumingEP12PhaseIterGVN.2, i64 0, i64 %56
+  %switch.load65 = load i32, ptr %switch.gep64, align 4
   br label %_ZL26subsuming_bool_test_encodeP4Node.exit48
 
-_ZL26subsuming_bool_test_encodeP4Node.exit48:     ; preds = %_ZL26subsuming_bool_test_encodeP4Node.exit, %switch.lookup56
-  %.0.i47 = phi i32 [ %switch.load58, %switch.lookup56 ], [ -1, %_ZL26subsuming_bool_test_encodeP4Node.exit ]
+_ZL26subsuming_bool_test_encodeP4Node.exit48:     ; preds = %_ZL26subsuming_bool_test_encodeP4Node.exit, %switch.lookup63
+  %.0.i47 = phi i32 [ %switch.load65, %switch.lookup63 ], [ -1, %_ZL26subsuming_bool_test_encodeP4Node.exit ]
   %57 = or i32 %.0.i47, %.0.i
   %or.cond.not = icmp sgt i32 %57, -1
   br i1 %or.cond.not, label %58, label %129
@@ -7607,8 +7607,8 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   %.not110 = icmp eq ptr %74, null
   %75 = add nuw nsw i32 %.0101124, 1
   %exitcond.not = icmp eq i32 %75, 999
-  %or.cond137 = select i1 %.not110, i1 true, i1 %exitcond.not
-  br i1 %or.cond137, label %76, label %24, !llvm.loop !32
+  %or.cond143 = select i1 %.not110, i1 true, i1 %exitcond.not
+  br i1 %or.cond143, label %76, label %24, !llvm.loop !32
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7866,14 +7866,14 @@ _ZN4NodenwEm.exit44:                              ; preds = %81, %83
   br label %.sink.split
 
 .sink.split:                                      ; preds = %79, %86
-  %.0.i.i.i43.sink49 = phi ptr [ %.0.i.i.i43, %86 ], [ %.0.i.i.i40, %79 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i43.sink49, i64 44
+  %.0.i.i.i43.sink55 = phi ptr [ %.0.i.i.i43, %86 ], [ %.0.i.i.i40, %79 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i43.sink55, i64 44
   store i32 192, ptr %87, align 4
-  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8CmpUNode, i64 16), ptr %.0.i.i.i43.sink49, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8CmpUNode, i64 16), ptr %.0.i.i.i43.sink55, align 8
   br label %88
 
 88:                                               ; preds = %.sink.split, %_ZN4NodenwEm.exit44, %_ZN4NodenwEm.exit41
-  %89 = phi ptr [ null, %_ZN4NodenwEm.exit41 ], [ null, %_ZN4NodenwEm.exit44 ], [ %.0.i.i.i43.sink49, %.sink.split ]
+  %89 = phi ptr [ null, %_ZN4NodenwEm.exit41 ], [ null, %_ZN4NodenwEm.exit44 ], [ %.0.i.i.i43.sink55, %.sink.split ]
   %90 = load ptr, ptr %5, align 8
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(2400) %5, ptr noundef %89) #8

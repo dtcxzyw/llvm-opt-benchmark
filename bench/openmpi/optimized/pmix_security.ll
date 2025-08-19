@@ -1296,10 +1296,10 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %45
 
 .sink.split:                                      ; preds = %163, %157, %133, %127, %108, %102, %81, %73
   %.3113.sink = phi i32 [ %86, %81 ], [ -20, %73 ], [ %113, %108 ], [ -20, %102 ], [ %138, %133 ], [ -20, %127 ], [ %168, %163 ], [ -20, %157 ]
-  %.sink114 = phi i32 [ 67, %81 ], [ 67, %73 ], [ 78, %108 ], [ 78, %102 ], [ 86, %133 ], [ 86, %127 ], [ 94, %163 ], [ 94, %157 ]
+  %.sink126 = phi i32 [ 67, %81 ], [ 67, %73 ], [ 78, %108 ], [ 78, %102 ], [ 86, %133 ], [ 86, %127 ], [ 94, %163 ], [ 94, %157 ]
   %.073.ph = phi ptr [ null, %81 ], [ null, %73 ], [ null, %108 ], [ null, %102 ], [ null, %133 ], [ null, %127 ], [ %142, %163 ], [ %142, %157 ]
   %169 = call ptr @PMIx_Error_string(i32 noundef %.3113.sink) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %169, ptr noundef nonnull @.str.3, i32 noundef %.sink114) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %169, ptr noundef nonnull @.str.3, i32 noundef %.sink126) #12
   br label %170
 
 170:                                              ; preds = %.sink.split, %163, %163, %133, %108, %81, %139, %87
@@ -2621,10 +2621,10 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %44
 
 .sink.split:                                      ; preds = %137, %131, %107, %101, %80, %72
   %.297.sink = phi i32 [ %85, %80 ], [ -20, %72 ], [ %112, %107 ], [ -20, %101 ], [ %142, %137 ], [ -20, %131 ]
-  %.sink98 = phi i32 [ 287, %80 ], [ 287, %72 ], [ 298, %107 ], [ 298, %101 ], [ 306, %137 ], [ 306, %131 ]
+  %.sink109 = phi i32 [ 287, %80 ], [ 287, %72 ], [ 298, %107 ], [ 298, %101 ], [ 306, %137 ], [ 306, %131 ]
   %.063.ph = phi ptr [ null, %80 ], [ null, %72 ], [ null, %107 ], [ null, %101 ], [ %116, %137 ], [ %116, %131 ]
   %143 = call ptr @PMIx_Error_string(i32 noundef %.297.sink) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %143, ptr noundef nonnull @.str.3, i32 noundef %.sink98) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %143, ptr noundef nonnull @.str.3, i32 noundef %.sink109) #12
   br label %144
 
 144:                                              ; preds = %.sink.split, %137, %137, %107, %80, %113, %86

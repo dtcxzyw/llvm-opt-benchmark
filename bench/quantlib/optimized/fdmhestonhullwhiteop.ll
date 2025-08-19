@@ -5234,7 +5234,7 @@ lpad20:                                           ; preds = %invoke.cont19
   br label %ehcleanup32
 
 lpad23.body:                                      ; preds = %lpad.i.body.thread, %if.then.i.i.i
-  %eh.lpad-body5460 = phi { ptr, i32 } [ %8, %lpad.i.body.thread ], [ %5, %if.then.i.i.i ]
+  %eh.lpad-body5475 = phi { ptr, i32 } [ %8, %lpad.i.body.thread ], [ %5, %if.then.i.i.i ]
   br label %arraydestroy.body27
 
 arraydestroy.body27:                              ; preds = %arraydestroy.body27, %lpad23.body
@@ -5245,7 +5245,7 @@ arraydestroy.body27:                              ; preds = %arraydestroy.body27
   br i1 %arraydestroy.done30, label %ehcleanup32, label %arraydestroy.body27
 
 ehcleanup32:                                      ; preds = %arraydestroy.body27, %lpad20
-  %.pn.pn = phi { ptr, i32 } [ %42, %lpad20 ], [ %eh.lpad-body5460, %arraydestroy.body27 ]
+  %.pn.pn = phi { ptr, i32 } [ %42, %lpad20 ], [ %eh.lpad-body5475, %arraydestroy.body27 ]
   %cleanup.isactive.5 = phi i1 [ false, %lpad20 ], [ true, %arraydestroy.body27 ]
   call void @_ZN5boost7numeric5ublas17compressed_matrixIdNS1_15basic_row_majorImlEELm0ENS1_15unbounded_arrayImSaImEEENS5_IdSaIdEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp15) #24
   br label %ehcleanup33
@@ -5516,12 +5516,12 @@ invoke.cont6:
 
 if.then.i.thread:                                 ; preds = %invoke.cont6
   store i64 %.sroa.speculated.i, ptr %capacity_, align 8, !tbaa !195
-  %filled1_70 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 1, ptr %filled1_70, align 8, !tbaa !196
-  %filled2_71 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store i64 0, ptr %filled2_71, align 8, !tbaa !197
-  %size_.i73 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store i64 1, ptr %size_.i73, align 8, !tbaa !187
+  %filled1_73 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  store i64 1, ptr %filled1_73, align 8, !tbaa !196
+  %filled2_74 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  store i64 0, ptr %filled2_74, align 8, !tbaa !197
+  %size_.i76 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  store i64 1, ptr %size_.i76, align 8, !tbaa !187
   br label %if.end4.i.i
 
 invoke.cont16:                                    ; preds = %invoke.cont6
@@ -5557,22 +5557,22 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.then.i.thread, %if.then.i
-  %non_zeros.addr.0.i7586 = phi i64 [ %.sroa.speculated.i, %if.then.i.thread ], [ %spec.select.i, %if.then.i ]
-  %add7785 = phi i64 [ 1, %if.then.i.thread ], [ %add, %if.then.i ]
-  %size_.i7884 = phi ptr [ %size_.i73, %if.then.i.thread ], [ %size_.i, %if.then.i ]
-  %mul.i.i = shl nuw nsw i64 %add7785, 3
+  %non_zeros.addr.0.i7889 = phi i64 [ %.sroa.speculated.i, %if.then.i.thread ], [ %spec.select.i, %if.then.i ]
+  %add8088 = phi i64 [ 1, %if.then.i.thread ], [ %add, %if.then.i ]
+  %size_.i8187 = phi ptr [ %size_.i76, %if.then.i.thread ], [ %size_.i, %if.then.i ]
+  %mul.i.i = shl nuw nsw i64 %add8088, 3
   %call5.i2.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i) #28
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %if.end4.i.i, %invoke.cont16
-  %size_.i79 = phi ptr [ %size_.i, %invoke.cont16 ], [ %size_.i7884, %if.end4.i.i ]
-  %non_zeros.addr.0.i76 = phi i64 [ %spec.select.i, %invoke.cont16 ], [ %non_zeros.addr.0.i7586, %if.end4.i.i ]
+  %size_.i82 = phi ptr [ %size_.i, %invoke.cont16 ], [ %size_.i8187, %if.end4.i.i ]
+  %non_zeros.addr.0.i79 = phi i64 [ %spec.select.i, %invoke.cont16 ], [ %non_zeros.addr.0.i7889, %if.end4.i.i ]
   %4 = phi ptr [ null, %invoke.cont16 ], [ %call5.i2.i10, %if.end4.i.i ]
   %data_4.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %4, ptr %data_4.i, align 8, !tbaa !190
   %size_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store i64 %non_zeros.addr.0.i76, ptr %size_.i11, align 8, !tbaa !187
-  %tobool.not.i12 = icmp eq i64 %non_zeros.addr.0.i76, 0
+  store i64 %non_zeros.addr.0.i79, ptr %size_.i11, align 8, !tbaa !187
+  %tobool.not.i12 = icmp eq i64 %non_zeros.addr.0.i79, 0
   br i1 %tobool.not.i12, label %invoke.cont25.thread, label %if.then.i13
 
 invoke.cont25.thread:                             ; preds = %invoke.cont21
@@ -5583,11 +5583,11 @@ invoke.cont25.thread:                             ; preds = %invoke.cont21
   br label %invoke.cont29
 
 if.then.i13:                                      ; preds = %invoke.cont21
-  %cmp.i.i14 = icmp ugt i64 %non_zeros.addr.0.i76, 1152921504606846975
+  %cmp.i.i14 = icmp ugt i64 %non_zeros.addr.0.i79, 1152921504606846975
   br i1 %cmp.i.i14, label %if.then.i.i19, label %if.end4.i.i15, !prof !20
 
 if.then.i.i19:                                    ; preds = %if.then.i13
-  %cmp2.i.i20 = icmp ugt i64 %non_zeros.addr.0.i76, 2305843009213693951
+  %cmp2.i.i20 = icmp ugt i64 %non_zeros.addr.0.i79, 2305843009213693951
   br i1 %cmp2.i.i20, label %if.then3.i.i22, label %if.end.i.i21
 
 if.then3.i.i22:                                   ; preds = %if.then.i.i19
@@ -5605,7 +5605,7 @@ if.end.i.i21:                                     ; preds = %if.then.i.i19
   unreachable
 
 if.end4.i.i15:                                    ; preds = %if.then.i13
-  %mul.i.i16 = shl nuw nsw i64 %non_zeros.addr.0.i76, 3
+  %mul.i.i16 = shl nuw nsw i64 %non_zeros.addr.0.i79, 3
   %call5.i2.i26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i16) #28
           to label %if.end4.i.i32 unwind label %lpad24
 
@@ -5613,7 +5613,7 @@ if.end4.i.i32:                                    ; preds = %if.end4.i.i15
   %data_4.i18 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %call5.i2.i26, ptr %data_4.i18, align 8, !tbaa !190
   %size_.i28 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store i64 %non_zeros.addr.0.i76, ptr %size_.i28, align 8, !tbaa !183
+  store i64 %non_zeros.addr.0.i79, ptr %size_.i28, align 8, !tbaa !183
   %call5.i2.i43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i16) #28
           to label %invoke.cont29 unwind label %lpad28
 
@@ -5668,7 +5668,7 @@ if.then.i52:                                      ; preds = %ehcleanup
 
 ehcleanup39:                                      ; preds = %if.then.i52, %ehcleanup, %lpad24
   %.pn.pn = phi { ptr, i32 } [ %5, %lpad24 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i52 ]
-  %12 = load i64, ptr %size_.i79, align 8, !tbaa !187
+  %12 = load i64, ptr %size_.i82, align 8, !tbaa !187
   %tobool.not.i56 = icmp eq i64 %12, 0
   br i1 %tobool.not.i56, label %ehcleanup40, label %if.then.i57
 
@@ -7271,7 +7271,7 @@ invoke.cont12:                                    ; preds = %_ZN5boost7numeric5u
   %add.ptr.lcssa.sink.i.i176287 = phi ptr [ %add.ptr.lcssa.sink.i.i176, %invoke.cont10 ], [ %add.ptr101.i.i166, %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i197 ]
   %i.addr.0.lcssa.sink.i.i175285 = phi i64 [ %i.addr.0.lcssa.sink.i.i175, %invoke.cont10 ], [ %.pre.pre, %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i197 ]
   %cmp7.i.i = icmp eq i64 %i.addr.0.lcssa.sink.i.i, %i.addr.0.lcssa.sink.i.i29
-  %spec.select356 = select i1 %cmp7.i.i, i64 %.pre.pre, i64 %i.addr.0.lcssa.sink.i.i
+  %spec.select358 = select i1 %cmp7.i.i, i64 %.pre.pre, i64 %i.addr.0.lcssa.sink.i.i
   %cmp7.i.i244.not = icmp eq i64 %i.addr.0.lcssa.sink.i.i102, %i.addr.0.lcssa.sink.i.i175285
   %spec.select = select i1 %cmp7.i.i244.not, i64 %.pre.pre, i64 %i.addr.0.lcssa.sink.i.i102
   br label %invoke.cont32
@@ -7284,10 +7284,10 @@ if.then.i260:                                     ; preds = %if.then.i.i235
   br label %invoke.cont32
 
 invoke.cont32:                                    ; preds = %invoke.cont12, %if.then.i.i235, %if.then.i260
-  %i.addr.0.lcssa.sink.i.i175284335 = phi i64 [ %i.addr.0.lcssa.sink.i.i175, %if.then.i260 ], [ %i.addr.0.lcssa.sink.i.i175, %if.then.i.i235 ], [ %i.addr.0.lcssa.sink.i.i175285, %invoke.cont12 ]
-  %add.ptr.lcssa.sink.i.i176286327 = phi ptr [ %add.ptr.lcssa.sink.i.i176, %if.then.i260 ], [ %add.ptr.lcssa.sink.i.i176, %if.then.i.i235 ], [ %add.ptr.lcssa.sink.i.i176287, %invoke.cont12 ]
-  %add.ptr8.sink.i.i177288325 = phi ptr [ %add.ptr8.sink.i.i177, %if.then.i260 ], [ %add.ptr8.sink.i.i177, %if.then.i.i235 ], [ %add.ptr8.sink.i.i177289, %invoke.cont12 ]
-  %cond293301 = phi i64 [ %cond294, %if.then.i260 ], [ %cond294, %if.then.i.i235 ], [ %spec.select356, %invoke.cont12 ]
+  %i.addr.0.lcssa.sink.i.i175284337 = phi i64 [ %i.addr.0.lcssa.sink.i.i175, %if.then.i260 ], [ %i.addr.0.lcssa.sink.i.i175, %if.then.i.i235 ], [ %i.addr.0.lcssa.sink.i.i175285, %invoke.cont12 ]
+  %add.ptr.lcssa.sink.i.i176286329 = phi ptr [ %add.ptr.lcssa.sink.i.i176, %if.then.i260 ], [ %add.ptr.lcssa.sink.i.i176, %if.then.i.i235 ], [ %add.ptr.lcssa.sink.i.i176287, %invoke.cont12 ]
+  %add.ptr8.sink.i.i177288327 = phi ptr [ %add.ptr8.sink.i.i177, %if.then.i260 ], [ %add.ptr8.sink.i.i177, %if.then.i.i235 ], [ %add.ptr8.sink.i.i177289, %invoke.cont12 ]
+  %cond293301 = phi i64 [ %cond294, %if.then.i260 ], [ %cond294, %if.then.i.i235 ], [ %spec.select358, %invoke.cont12 ]
   %cond29 = phi i64 [ %sub.ptr.div.i266, %if.then.i260 ], [ %.mux, %if.then.i.i235 ], [ %spec.select, %invoke.cont12 ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %cond29, i64 %cond293301)
   store ptr %this, ptr %agg.result, align 8, !tbaa !220
@@ -7336,13 +7336,13 @@ invoke.cont32:                                    ; preds = %invoke.cont12, %if.
   %it21_end.sroa.5.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 176
   store i32 %rank, ptr %it21_end.sroa.5.0.it2_end_.i.sroa_idx, align 8
   %it21_end.sroa.7272.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 184
-  store i64 %i.addr.0.lcssa.sink.i.i175284335, ptr %it21_end.sroa.7272.0.it2_end_.i.sroa_idx, align 8
+  store i64 %i.addr.0.lcssa.sink.i.i175284337, ptr %it21_end.sroa.7272.0.it2_end_.i.sroa_idx, align 8
   %it21_end.sroa.9.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 192
   store i64 %j, ptr %it21_end.sroa.9.0.it2_end_.i.sroa_idx, align 8
   %it21_end.sroa.11.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 200
-  store ptr %add.ptr.lcssa.sink.i.i176286327, ptr %it21_end.sroa.11.0.it2_end_.i.sroa_idx, align 8
+  store ptr %add.ptr.lcssa.sink.i.i176286329, ptr %it21_end.sroa.11.0.it2_end_.i.sroa_idx, align 8
   %it21_end.sroa.12.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 208
-  store ptr %add.ptr8.sink.i.i177288325, ptr %it21_end.sroa.12.0.it2_end_.i.sroa_idx, align 8
+  store ptr %add.ptr8.sink.i.i177288327, ptr %it21_end.sroa.12.0.it2_end_.i.sroa_idx, align 8
   ret void
 }
 
@@ -7635,7 +7635,7 @@ invoke.cont12:                                    ; preds = %_ZN5boost7numeric5u
   %j.sink.i.i85249262 = phi i64 [ %j.sink.i.i85249, %invoke.cont10 ], [ %j.sink.i.i85, %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i169 ]
   %add.ptr8.sink.i.i86251260 = phi ptr [ %add.ptr8.sink.i.i86251, %invoke.cont10 ], [ %add.ptr8.sink.i.i86, %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i169 ]
   %cmp9.i.i = icmp eq i64 %j.sink.i.i242, %j.sink.i.i25
-  %spec.select339 = select i1 %cmp9.i.i, i64 %19, i64 %j.sink.i.i242
+  %spec.select342 = select i1 %cmp9.i.i, i64 %19, i64 %j.sink.i.i242
   %cmp9.i.i208.not = icmp eq i64 %j.sink.i.i85249262, %j.sink.i.i146264
   %spec.select = select i1 %cmp9.i.i208.not, i64 %19, i64 %j.sink.i.i85249262
   br label %cond.end28
@@ -7655,11 +7655,11 @@ cond.true22.then:                                 ; preds = %invoke.cont20
   br label %cond.end28
 
 cond.end28:                                       ; preds = %invoke.cont12, %invoke.cont20, %cond.true22.then
-  %add.ptr8.sink.i.i86251259319 = phi ptr [ %add.ptr8.sink.i.i86251, %cond.true22.then ], [ %add.ptr8.sink.i.i86251, %invoke.cont20 ], [ %add.ptr8.sink.i.i86251260, %invoke.cont12 ]
-  %j.sink.i.i85249261314 = phi i64 [ %j.sink.i.i85249, %cond.true22.then ], [ %j.sink.i.i85249, %invoke.cont20 ], [ %j.sink.i.i85249262, %invoke.cont12 ]
-  %j.sink.i.i146263309 = phi i64 [ %j.sink.i.i146, %cond.true22.then ], [ %j.sink.i.i146, %invoke.cont20 ], [ %j.sink.i.i146264, %invoke.cont12 ]
-  %add.ptr8.sink.i.i147265304 = phi ptr [ %add.ptr8.sink.i.i147, %cond.true22.then ], [ %add.ptr8.sink.i.i147, %invoke.cont20 ], [ %add.ptr8.sink.i.i147266, %invoke.cont12 ]
-  %cond273284 = phi i64 [ %cond274, %cond.true22.then ], [ %cond274, %invoke.cont20 ], [ %spec.select339, %invoke.cont12 ]
+  %add.ptr8.sink.i.i86251259322 = phi ptr [ %add.ptr8.sink.i.i86251, %cond.true22.then ], [ %add.ptr8.sink.i.i86251, %invoke.cont20 ], [ %add.ptr8.sink.i.i86251260, %invoke.cont12 ]
+  %j.sink.i.i85249261317 = phi i64 [ %j.sink.i.i85249, %cond.true22.then ], [ %j.sink.i.i85249, %invoke.cont20 ], [ %j.sink.i.i85249262, %invoke.cont12 ]
+  %j.sink.i.i146263312 = phi i64 [ %j.sink.i.i146, %cond.true22.then ], [ %j.sink.i.i146, %invoke.cont20 ], [ %j.sink.i.i146264, %invoke.cont12 ]
+  %add.ptr8.sink.i.i147265307 = phi ptr [ %add.ptr8.sink.i.i147, %cond.true22.then ], [ %add.ptr8.sink.i.i147, %invoke.cont20 ], [ %add.ptr8.sink.i.i147266, %invoke.cont12 ]
+  %cond273284 = phi i64 [ %cond274, %cond.true22.then ], [ %cond274, %invoke.cont20 ], [ %spec.select342, %invoke.cont12 ]
   %cond29 = phi i64 [ %retval.0.i221.then.val, %cond.true22.then ], [ %.mux, %invoke.cont20 ], [ %spec.select, %invoke.cont12 ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %cond29, i64 %cond273284)
   store ptr %this, ptr %agg.result, align 8, !tbaa !220
@@ -7698,11 +7698,11 @@ cond.end28:                                       ; preds = %invoke.cont12, %inv
   %it22.sroa.8229.0.it2_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 136
   store i64 %i, ptr %it22.sroa.8229.0.it2_.i.sroa_idx, align 8
   %it22.sroa.10.0.it2_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 144
-  store i64 %j.sink.i.i85249261314, ptr %it22.sroa.10.0.it2_.i.sroa_idx, align 8
+  store i64 %j.sink.i.i85249261317, ptr %it22.sroa.10.0.it2_.i.sroa_idx, align 8
   %it22.sroa.13.0.it2_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 152
   store ptr %add.ptr.i.i78, ptr %it22.sroa.13.0.it2_.i.sroa_idx, align 8
   %it22.sroa.14.0.it2_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 160
-  store ptr %add.ptr8.sink.i.i86251259319, ptr %it22.sroa.14.0.it2_.i.sroa_idx, align 8
+  store ptr %add.ptr8.sink.i.i86251259322, ptr %it22.sroa.14.0.it2_.i.sroa_idx, align 8
   %it2_end_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 168
   store ptr %20, ptr %it2_end_.i, align 8
   %it22_end.sroa.5.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 176
@@ -7710,11 +7710,11 @@ cond.end28:                                       ; preds = %invoke.cont12, %inv
   %it22_end.sroa.7227.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 184
   store i64 %i, ptr %it22_end.sroa.7227.0.it2_end_.i.sroa_idx, align 8
   %it22_end.sroa.9.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 192
-  store i64 %j.sink.i.i146263309, ptr %it22_end.sroa.9.0.it2_end_.i.sroa_idx, align 8
+  store i64 %j.sink.i.i146263312, ptr %it22_end.sroa.9.0.it2_end_.i.sroa_idx, align 8
   %it22_end.sroa.11.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 200
   store ptr %add.ptr.i.i78, ptr %it22_end.sroa.11.0.it2_end_.i.sroa_idx, align 8
   %it22_end.sroa.12.0.it2_end_.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 208
-  store ptr %add.ptr8.sink.i.i147265304, ptr %it22_end.sroa.12.0.it2_end_.i.sroa_idx, align 8
+  store ptr %add.ptr8.sink.i.i147265307, ptr %it22_end.sroa.12.0.it2_end_.i.sroa_idx, align 8
   ret void
 }
 

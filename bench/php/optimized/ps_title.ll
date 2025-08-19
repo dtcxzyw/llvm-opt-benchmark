@@ -61,7 +61,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   br i1 %.162, label %.preheader88, label %.thread
 
 .preheader88:                                     ; preds = %2, %._crit_edge
-  %.063.lcssa136 = phi ptr [ %12, %._crit_edge ], [ null, %2 ]
+  %.063.lcssa144 = phi ptr [ %12, %._crit_edge ], [ null, %2 ]
   %15 = load ptr, ptr @environ, align 8, !tbaa !4
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %.not96 = icmp eq ptr %16, null
@@ -70,7 +70,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 .lr.ph99:                                         ; preds = %.preheader88, %23
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %23 ], [ 0, %.preheader88 ]
   %17 = phi ptr [ %25, %23 ], [ %16, %.preheader88 ]
-  %.16497 = phi ptr [ %.265, %23 ], [ %.063.lcssa136, %.preheader88 ]
+  %.16497 = phi ptr [ %.265, %23 ], [ %.063.lcssa144, %.preheader88 ]
   %18 = getelementptr inbounds nuw i8, ptr %.16497, i64 1
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %20, label %23
@@ -95,7 +95,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   br label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %._crit_edge100.loopexit, %.preheader88
-  %.164.lcssa = phi ptr [ %.063.lcssa136, %.preheader88 ], [ %.265, %._crit_edge100.loopexit ]
+  %.164.lcssa = phi ptr [ %.063.lcssa144, %.preheader88 ], [ %.265, %._crit_edge100.loopexit ]
   %.160.lcssa = phi i64 [ 8, %.preheader88 ], [ %28, %._crit_edge100.loopexit ]
   %29 = load ptr, ptr %1, align 8, !tbaa !9
   store ptr %29, ptr @ps_buffer, align 8, !tbaa !9
@@ -187,8 +187,8 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   %59 = zext nneg i32 %0 to i64
   %60 = getelementptr inbounds nuw ptr, ptr %50, i64 %59
   store ptr null, ptr %60, align 8, !tbaa !9
-  %.not139 = icmp eq i32 %0, 1
-  br i1 %.not139, label %.loopexit, label %.lr.ph115
+  %.not147 = icmp eq i32 %0, 1
+  br i1 %.not147, label %.loopexit, label %.lr.ph115
 
 .lr.ph115:                                        ; preds = %._crit_edge112
   %61 = getelementptr inbounds nuw i8, ptr %29, i64 %32

@@ -52,7 +52,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 25:                                               ; preds = %20
   %26 = xor i32 %21, 1
-  %spec.select2180 = add nsw i32 %24, %26
+  %spec.select2225 = add nsw i32 %24, %26
   br label %30
 
 27:                                               ; preds = %20
@@ -61,7 +61,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %30
 
 30:                                               ; preds = %25, %27
-  %.0784 = phi i32 [ %29, %27 ], [ %spec.select2180, %25 ]
+  %.0784 = phi i32 [ %29, %27 ], [ %spec.select2225, %25 ]
   %31 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.2) #6
   %.not854 = icmp eq i32 %31, 0
   br i1 %.not854, label %128, label %32
@@ -174,11 +174,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %77 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not985 = icmp eq i32 %77, 0
   %.pre = load double, ptr %9, align 8
-  %spec.select2169 = select i1 %.not985, double %.41005, double %.pre
+  %spec.select2214 = select i1 %.not985, double %.41005, double %.pre
   br label %._crit_edge1937
 
 ._crit_edge1937:                                  ; preds = %76, %.lr.ph
-  %.5 = phi double [ %74, %.lr.ph ], [ %spec.select2169, %76 ]
+  %.5 = phi double [ %74, %.lr.ph ], [ %spec.select2214, %76 ]
   %78 = add nuw nsw i32 %.17961004, 1
   %79 = load i32, ptr %8, align 4, !tbaa !3
   %.not984.not = icmp slt i32 %.17961004, %79
@@ -237,11 +237,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %100 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not981 = icmp eq i32 %100, 0
   %.pre1949 = load double, ptr %9, align 8
-  %spec.select2170 = select i1 %.not981, double %.71037, double %.pre1949
+  %spec.select2215 = select i1 %.not981, double %.71037, double %.pre1949
   br label %._crit_edge1948
 
 ._crit_edge1948:                                  ; preds = %99, %.lr.ph1039
-  %.8 = phi double [ %97, %.lr.ph1039 ], [ %spec.select2170, %99 ]
+  %.8 = phi double [ %97, %.lr.ph1039 ], [ %spec.select2215, %99 ]
   %101 = add nuw nsw i32 %.27971036, 1
   %102 = load i32, ptr %8, align 4, !tbaa !3
   %.not980.not = icmp slt i32 %.27971036, %102
@@ -297,11 +297,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %122 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not977 = icmp eq i32 %122, 0
   %.pre1945 = load double, ptr %9, align 8
-  %spec.select2171 = select i1 %.not977, double %.101025, double %.pre1945
+  %spec.select2216 = select i1 %.not977, double %.101025, double %.pre1945
   br label %._crit_edge1944
 
 ._crit_edge1944:                                  ; preds = %121, %.lr.ph1027
-  %.11 = phi double [ %119, %.lr.ph1027 ], [ %spec.select2171, %121 ]
+  %.11 = phi double [ %119, %.lr.ph1027 ], [ %spec.select2216, %121 ]
   %123 = add nuw nsw i32 %.37981024, 1
   %124 = load i32, ptr %8, align 4, !tbaa !3
   %.not976.not = icmp slt i32 %.37981024, %124
@@ -389,14 +389,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .lr.ph1445:                                       ; preds = %151
   %wide.trip.count1844 = zext i32 %indvars.iv1842 to i64
-  %invariant.gep2149 = getelementptr double, ptr %4, i64 %153
+  %invariant.gep2194 = getelementptr double, ptr %4, i64 %153
   br label %154
 
 154:                                              ; preds = %.lr.ph1445, %154
   %indvars.iv1839 = phi i64 [ 0, %.lr.ph1445 ], [ %indvars.iv.next1840, %154 ]
   %155 = phi double [ 0.000000e+00, %.lr.ph1445 ], [ %160, %154 ]
-  %gep2150 = getelementptr double, ptr %invariant.gep2149, i64 %indvars.iv1839
-  %156 = load double, ptr %gep2150, align 8, !tbaa !7
+  %gep2195 = getelementptr double, ptr %invariant.gep2194, i64 %indvars.iv1839
+  %156 = load double, ptr %gep2195, align 8, !tbaa !7
   %157 = fcmp oge double %156, 0.000000e+00
   %158 = fneg double %156
   %159 = select i1 %157, double %156, double %158
@@ -444,7 +444,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph1454.preheader:                             ; preds = %174
   %186 = zext nneg i32 %.5800.lcssa to i64
   %187 = add nuw nsw i64 %186, 1
-  %invariant.gep2151 = getelementptr double, ptr %4, i64 %153
+  %invariant.gep2196 = getelementptr double, ptr %4, i64 %153
   br label %.lr.ph1454
 
 .lr.ph1454:                                       ; preds = %.lr.ph1454.preheader, %.lr.ph1454
@@ -453,8 +453,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %188 = phi double [ 0.000000e+00, %.lr.ph1454.preheader ], [ %193, %.lr.ph1454 ]
   %indvars.iv.next1849 = add nuw nsw i64 %indvars.iv1848, 1
   %indvars.iv.next1851 = add nuw nsw i64 %indvars.iv1850, 1
-  %gep2152 = getelementptr double, ptr %invariant.gep2151, i64 %indvars.iv.next1851
-  %189 = load double, ptr %gep2152, align 8, !tbaa !7
+  %gep2197 = getelementptr double, ptr %invariant.gep2196, i64 %indvars.iv.next1851
+  %189 = load double, ptr %gep2197, align 8, !tbaa !7
   %190 = fcmp oge double %189, 0.000000e+00
   %191 = fneg double %189
   %192 = select i1 %190, double %189, double %191
@@ -515,11 +515,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %210 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not972 = icmp eq i32 %210, 0
   %.pre1980 = load double, ptr %9, align 8
-  %spec.select2172 = select i1 %.not972, double %.131474, double %.pre1980
+  %spec.select2217 = select i1 %.not972, double %.131474, double %.pre1980
   br label %._crit_edge1979
 
 ._crit_edge1979:                                  ; preds = %209, %.lr.ph1476
-  %.14 = phi double [ %207, %.lr.ph1476 ], [ %spec.select2172, %209 ]
+  %.14 = phi double [ %207, %.lr.ph1476 ], [ %spec.select2217, %209 ]
   %indvars.iv.next1861 = add nuw nsw i64 %indvars.iv1860, 1
   %211 = load i32, ptr %7, align 4, !tbaa !3
   %212 = sext i32 %211 to i64
@@ -548,15 +548,15 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .preheader993:                                    ; preds = %.lr.ph1481.preheader, %213
   %224 = icmp sgt i32 %136, -2
-  br i1 %224, label %.lr.ph1505, label %.thread2035
+  br i1 %224, label %.lr.ph1505, label %.thread2080
 
-.thread2035:                                      ; preds = %.preheader993
+.thread2080:                                      ; preds = %.preheader993
   %225 = load double, ptr %5, align 8, !tbaa !7
   br label %.loopexit
 
 .lr.ph1505:                                       ; preds = %.preheader993
-  %226 = sext i32 %214 to i64
-  %invariant.gep2155 = getelementptr double, ptr %5, i64 %226
+  %226 = zext nneg i32 %214 to i64
+  %invariant.gep2200 = getelementptr inbounds nuw double, ptr %5, i64 %226
   %wide.trip.count1879 = sext i32 %215 to i64
   br label %227
 
@@ -571,22 +571,22 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %229 = sext i32 %228 to i64
   %230 = add nsw i32 %storemerge961.in1503, -2
   %wide.trip.count1870 = zext nneg i32 %230 to i64
-  %invariant.gep2153 = getelementptr double, ptr %4, i64 %229
+  %invariant.gep2198 = getelementptr double, ptr %4, i64 %229
   br label %231
 
 231:                                              ; preds = %.lr.ph1486, %231
   %indvars.iv1867 = phi i64 [ 0, %.lr.ph1486 ], [ %indvars.iv.next1868, %231 ]
   %232 = phi double [ 0.000000e+00, %.lr.ph1486 ], [ %237, %231 ]
-  %gep2154 = getelementptr double, ptr %invariant.gep2153, i64 %indvars.iv1867
-  %233 = load double, ptr %gep2154, align 8, !tbaa !7
+  %gep2199 = getelementptr double, ptr %invariant.gep2198, i64 %indvars.iv1867
+  %233 = load double, ptr %gep2199, align 8, !tbaa !7
   %234 = fcmp oge double %233, 0.000000e+00
   %235 = fneg double %233
   %236 = select i1 %234, double %233, double %235
   %237 = fadd double %232, %236
-  %gep2156 = getelementptr double, ptr %invariant.gep2155, i64 %indvars.iv1867
-  %238 = load double, ptr %gep2156, align 8, !tbaa !7
+  %gep2201 = getelementptr inbounds nuw double, ptr %invariant.gep2200, i64 %indvars.iv1867
+  %238 = load double, ptr %gep2201, align 8, !tbaa !7
   %239 = fadd double %236, %238
-  store double %239, ptr %gep2156, align 8, !tbaa !7
+  store double %239, ptr %gep2201, align 8, !tbaa !7
   %indvars.iv.next1868 = add nuw nsw i64 %indvars.iv1867, 1
   %exitcond1871.not = icmp eq i64 %indvars.iv.next1868, %wide.trip.count1870
   br i1 %exitcond1871.not, label %._crit_edge1487.thread, label %231, !llvm.loop !23
@@ -600,24 +600,24 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %255
 
 ._crit_edge1487.thread:                           ; preds = %231, %._crit_edge1487
-  %.9804.lcssa2034 = phi i32 [ 0, %._crit_edge1487 ], [ %230, %231 ]
-  %.lcssa149715002033 = phi double [ 0.000000e+00, %._crit_edge1487 ], [ %237, %231 ]
+  %.9804.lcssa2079 = phi i32 [ 0, %._crit_edge1487 ], [ %230, %231 ]
+  %.lcssa149715002078 = phi double [ 0.000000e+00, %._crit_edge1487 ], [ %237, %231 ]
   %240 = mul nsw i32 %storemerge961.in1508, %.0784
-  %241 = add nsw i32 %.9804.lcssa2034, %240
+  %241 = add nsw i32 %.9804.lcssa2079, %240
   %242 = sext i32 %241 to i64
   %243 = getelementptr inbounds double, ptr %4, i64 %242
   %244 = load double, ptr %243, align 8, !tbaa !7
   %245 = fcmp oge double %244, 0.000000e+00
   %246 = fneg double %244
   %247 = select i1 %245, double %244, double %246
-  %248 = fadd double %.lcssa149715002033, %247
-  %249 = add nsw i32 %.9804.lcssa2034, %214
-  %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds double, ptr %5, i64 %250
+  %248 = fadd double %.lcssa149715002078, %247
+  %249 = add nuw nsw i32 %.9804.lcssa2079, %214
+  %250 = zext nneg i32 %249 to i64
+  %251 = getelementptr inbounds nuw double, ptr %5, i64 %250
   %252 = load double, ptr %251, align 8, !tbaa !7
   %253 = fadd double %252, %248
   store double %253, ptr %251, align 8, !tbaa !7
-  %254 = add nuw nsw i32 %.9804.lcssa2034, 1
+  %254 = add nuw nsw i32 %.9804.lcssa2079, 1
   br label %255
 
 255:                                              ; preds = %._crit_edge1487._crit_edge, %._crit_edge1487.thread
@@ -639,7 +639,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph1495.preheader:                             ; preds = %255
   %265 = zext nneg i32 %.10805 to i64
   %266 = sext i32 %.pre-phi2007 to i64
-  %invariant.gep2157 = getelementptr double, ptr %4, i64 %266
+  %invariant.gep2202 = getelementptr double, ptr %4, i64 %266
   br label %.lr.ph1495
 
 .lr.ph1495:                                       ; preds = %.lr.ph1495.preheader, %.lr.ph1495
@@ -648,8 +648,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %267 = phi double [ 0.000000e+00, %.lr.ph1495.preheader ], [ %272, %.lr.ph1495 ]
   %indvars.iv.next1873 = add nsw i64 %indvars.iv1872, 1
   %indvars.iv.next1875 = add nuw nsw i64 %indvars.iv1874, 1
-  %gep2158 = getelementptr double, ptr %invariant.gep2157, i64 %indvars.iv.next1875
-  %268 = load double, ptr %gep2158, align 8, !tbaa !7
+  %gep2203 = getelementptr double, ptr %invariant.gep2202, i64 %indvars.iv.next1875
+  %268 = load double, ptr %gep2203, align 8, !tbaa !7
   %269 = fcmp oge double %268, 0.000000e+00
   %270 = fneg double %268
   %271 = select i1 %269, double %268, double %270
@@ -695,11 +695,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %285 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not963 = icmp eq i32 %285, 0
   %.pre1983 = load double, ptr %9, align 8
-  %spec.select2173 = select i1 %.not963, double %.151511, double %.pre1983
+  %spec.select2218 = select i1 %.not963, double %.151511, double %.pre1983
   br label %._crit_edge1982
 
 ._crit_edge1982:                                  ; preds = %284, %.lr.ph1513
-  %.16 = phi double [ %282, %.lr.ph1513 ], [ %spec.select2173, %284 ]
+  %.16 = phi double [ %282, %.lr.ph1513 ], [ %spec.select2218, %284 ]
   %indvars.iv.next1882 = add nuw nsw i64 %indvars.iv1881, 1
   %286 = load i32, ptr %7, align 4, !tbaa !3
   %287 = sext i32 %286 to i64
@@ -712,9 +712,9 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 289:                                              ; preds = %288
   %290 = add nsw i32 %137, -1
   %.not953.not1515 = icmp sgt i32 %136, 1
-  br i1 %.not953.not1515, label %.lr.ph1544.preheader, label %.thread2037
+  br i1 %.not953.not1515, label %.lr.ph1544.preheader, label %.thread2082
 
-.thread2037:                                      ; preds = %289
+.thread2082:                                      ; preds = %289
   %291 = load double, ptr %5, align 8, !tbaa !7
   br label %.loopexit
 
@@ -739,14 +739,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %.not958.not1521.not, label %._crit_edge1525, label %.lr.ph1524
 
 .lr.ph1524:                                       ; preds = %.lr.ph1544
-  %invariant.gep2159 = getelementptr double, ptr %4, i64 %.pre2004
+  %invariant.gep2204 = getelementptr double, ptr %4, i64 %.pre2004
   br label %300
 
 300:                                              ; preds = %.lr.ph1524, %300
   %indvars.iv1887 = phi i64 [ 0, %.lr.ph1524 ], [ %indvars.iv.next1888, %300 ]
   %301 = phi double [ 0.000000e+00, %.lr.ph1524 ], [ %306, %300 ]
-  %gep2160 = getelementptr double, ptr %invariant.gep2159, i64 %indvars.iv1887
-  %302 = load double, ptr %gep2160, align 8, !tbaa !7
+  %gep2205 = getelementptr double, ptr %invariant.gep2204, i64 %indvars.iv1887
+  %302 = load double, ptr %gep2205, align 8, !tbaa !7
   %303 = fcmp oge double %302, 0.000000e+00
   %304 = fneg double %302
   %305 = select i1 %303, double %302, double %304
@@ -794,7 +794,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph1533.preheader:                             ; preds = %._crit_edge1525
   %331 = zext nneg i32 %.14809.lcssa to i64
   %332 = add nuw nsw i64 %331, 1
-  %invariant.gep2161 = getelementptr double, ptr %4, i64 %.pre2004
+  %invariant.gep2206 = getelementptr double, ptr %4, i64 %.pre2004
   br label %.lr.ph1533
 
 .lr.ph1533:                                       ; preds = %.lr.ph1533.preheader, %.lr.ph1533
@@ -803,8 +803,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %333 = phi double [ 0.000000e+00, %.lr.ph1533.preheader ], [ %338, %.lr.ph1533 ]
   %indvars.iv.next1897 = add nuw nsw i64 %indvars.iv1896, 1
   %indvars.iv.next1899 = add nuw nsw i64 %indvars.iv1898, 1
-  %gep2162 = getelementptr double, ptr %invariant.gep2161, i64 %indvars.iv.next1899
-  %334 = load double, ptr %gep2162, align 8, !tbaa !7
+  %gep2207 = getelementptr double, ptr %invariant.gep2206, i64 %indvars.iv.next1899
+  %334 = load double, ptr %gep2207, align 8, !tbaa !7
   %335 = fcmp oge double %334, 0.000000e+00
   %336 = fneg double %334
   %337 = select i1 %335, double %334, double %336
@@ -852,11 +852,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %351 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not957 = icmp eq i32 %351, 0
   %.pre1986 = load double, ptr %9, align 8
-  %spec.select2174 = select i1 %.not957, double %.171550, double %.pre1986
+  %spec.select2219 = select i1 %.not957, double %.171550, double %.pre1986
   br label %._crit_edge1985
 
 ._crit_edge1985:                                  ; preds = %350, %.lr.ph1552
-  %.18 = phi double [ %348, %.lr.ph1552 ], [ %spec.select2174, %350 ]
+  %.18 = phi double [ %348, %.lr.ph1552 ], [ %spec.select2219, %350 ]
   %indvars.iv.next1913 = add nuw nsw i64 %indvars.iv1912, 1
   %352 = load i32, ptr %7, align 4, !tbaa !3
   %353 = sext i32 %352 to i64
@@ -866,7 +866,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 354:                                              ; preds = %288
   %355 = add i32 %136, -1
   %.not947.not1554 = icmp sgt i32 %136, 0
-  br i1 %.not947.not1554, label %.preheader, label %.thread2042
+  br i1 %.not947.not1554, label %.preheader, label %.thread2087
 
 .preheader:                                       ; preds = %354
   %356 = zext nneg i32 %137 to i64
@@ -880,13 +880,13 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %362 = shl nuw nsw i64 %361, 3
   %363 = add nuw nsw i64 %362, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep1915, i8 0, i64 %363, i1 false), !tbaa !7
-  %.not2181 = icmp eq i32 %136, 1
-  br i1 %.not2181, label %.thread2042, label %.lr.ph1583
+  %.not2226 = icmp eq i32 %136, 1
+  br i1 %.not2226, label %.thread2087, label %.lr.ph1583
 
 .lr.ph1583:                                       ; preds = %.preheader
   %storemerge9481580 = add nsw i32 %137, -1
   %364 = zext nneg i32 %137 to i64
-  %invariant.gep2165 = getelementptr inbounds nuw double, ptr %5, i64 %364
+  %invariant.gep2210 = getelementptr inbounds nuw double, ptr %5, i64 %364
   %wide.trip.count1932 = sext i32 %355 to i64
   br label %365
 
@@ -901,22 +901,22 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %366 = sext i32 %.pre2002 to i64
   %367 = add nsw i32 %storemerge948.in1581, -1
   %wide.trip.count1923 = zext nneg i32 %367 to i64
-  %invariant.gep2163 = getelementptr double, ptr %4, i64 %366
+  %invariant.gep2208 = getelementptr double, ptr %4, i64 %366
   br label %368
 
 368:                                              ; preds = %.lr.ph1562, %368
   %indvars.iv1920 = phi i64 [ 0, %.lr.ph1562 ], [ %indvars.iv.next1921, %368 ]
   %369 = phi double [ 0.000000e+00, %.lr.ph1562 ], [ %374, %368 ]
-  %gep2164 = getelementptr double, ptr %invariant.gep2163, i64 %indvars.iv1920
-  %370 = load double, ptr %gep2164, align 8, !tbaa !7
+  %gep2209 = getelementptr double, ptr %invariant.gep2208, i64 %indvars.iv1920
+  %370 = load double, ptr %gep2209, align 8, !tbaa !7
   %371 = fcmp oge double %370, 0.000000e+00
   %372 = fneg double %370
   %373 = select i1 %371, double %370, double %372
   %374 = fadd double %369, %373
-  %gep2166 = getelementptr inbounds nuw double, ptr %invariant.gep2165, i64 %indvars.iv1920
-  %375 = load double, ptr %gep2166, align 8, !tbaa !7
+  %gep2211 = getelementptr inbounds nuw double, ptr %invariant.gep2210, i64 %indvars.iv1920
+  %375 = load double, ptr %gep2211, align 8, !tbaa !7
   %376 = fadd double %373, %375
-  store double %376, ptr %gep2166, align 8, !tbaa !7
+  store double %376, ptr %gep2211, align 8, !tbaa !7
   %indvars.iv.next1921 = add nuw nsw i64 %indvars.iv1920, 1
   %exitcond1924.not = icmp eq i64 %indvars.iv.next1921, %wide.trip.count1923
   br i1 %exitcond1924.not, label %._crit_edge1563, label %368, !llvm.loop !31
@@ -932,9 +932,9 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %382 = fneg double %380
   %383 = select i1 %381, double %380, double %382
   %384 = fadd double %.lcssa15731575, %383
-  %385 = add nsw i32 %.18813.lcssa, %137
-  %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds double, ptr %5, i64 %386
+  %385 = add nuw nsw i32 %.18813.lcssa, %137
+  %386 = zext nneg i32 %385 to i64
+  %387 = getelementptr inbounds nuw double, ptr %5, i64 %386
   %388 = load double, ptr %387, align 8, !tbaa !7
   %389 = fadd double %388, %384
   store double %389, ptr %387, align 8, !tbaa !7
@@ -956,7 +956,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %400 = zext nneg i32 %.18813.lcssa to i64
   %401 = add nuw nsw i64 %400, 1
   %402 = sext i32 %.pre2002 to i64
-  %invariant.gep2167 = getelementptr double, ptr %4, i64 %402
+  %invariant.gep2212 = getelementptr double, ptr %4, i64 %402
   br label %.lr.ph1571
 
 .lr.ph1571:                                       ; preds = %.lr.ph1571.preheader, %.lr.ph1571
@@ -965,8 +965,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %403 = phi double [ 0.000000e+00, %.lr.ph1571.preheader ], [ %408, %.lr.ph1571 ]
   %indvars.iv.next1926 = add nsw i64 %indvars.iv1925, 1
   %indvars.iv.next1928 = add nuw nsw i64 %indvars.iv1927, 1
-  %gep2168 = getelementptr double, ptr %invariant.gep2167, i64 %indvars.iv.next1928
-  %404 = load double, ptr %gep2168, align 8, !tbaa !7
+  %gep2213 = getelementptr double, ptr %invariant.gep2212, i64 %indvars.iv.next1928
+  %404 = load double, ptr %gep2213, align 8, !tbaa !7
   %405 = fcmp oge double %404, 0.000000e+00
   %406 = fneg double %404
   %407 = select i1 %405, double %404, double %406
@@ -991,7 +991,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %414 = icmp sgt i32 %storemerge948.in1587, 0
   br i1 %414, label %365, label %416, !llvm.loop !33
 
-.thread2042:                                      ; preds = %354, %.preheader
+.thread2087:                                      ; preds = %354, %.preheader
   %415 = load double, ptr %5, align 8, !tbaa !7
   br label %.loopexit
 
@@ -1015,11 +1015,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %422 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not950 = icmp eq i32 %422, 0
   %.pre1989 = load double, ptr %9, align 8
-  %spec.select2175 = select i1 %.not950, double %.191590, double %.pre1989
+  %spec.select2220 = select i1 %.not950, double %.191590, double %.pre1989
   br label %._crit_edge1988
 
 ._crit_edge1988:                                  ; preds = %421, %.lr.ph1592
-  %.20 = phi double [ %419, %.lr.ph1592 ], [ %spec.select2175, %421 ]
+  %.20 = phi double [ %419, %.lr.ph1592 ], [ %spec.select2220, %421 ]
   %indvars.iv.next1935 = add nuw nsw i64 %indvars.iv1934, 1
   %423 = load i32, ptr %7, align 4, !tbaa !3
   %424 = sext i32 %423 to i64
@@ -1065,7 +1065,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %440 = sext i32 %.0784 to i64
   %wide.trip.count1661 = zext nneg i32 %137 to i64
   %wide.trip.count = zext nneg i32 %427 to i64
-  %invariant.gep2107 = getelementptr inbounds nuw double, ptr %5, i64 %439
+  %invariant.gep2152 = getelementptr inbounds nuw double, ptr %5, i64 %439
   br label %.lr.ph1157
 
 .lr.ph1157:                                       ; preds = %._crit_edge1158, %.lr.ph1166
@@ -1082,10 +1082,10 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %445 = fcmp oge double %444, 0.000000e+00
   %446 = fneg double %444
   %447 = select i1 %445, double %444, double %446
-  %gep2108 = getelementptr inbounds nuw double, ptr %invariant.gep2107, i64 %indvars.iv
-  %448 = load double, ptr %gep2108, align 8, !tbaa !7
+  %gep2153 = getelementptr inbounds nuw double, ptr %invariant.gep2152, i64 %indvars.iv
+  %448 = load double, ptr %gep2153, align 8, !tbaa !7
   %449 = fadd double %448, %447
-  store double %449, ptr %gep2108, align 8, !tbaa !7
+  store double %449, ptr %gep2153, align 8, !tbaa !7
   %450 = fadd double %447, %443
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1114,22 +1114,22 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph1175.preheader:                             ; preds = %._crit_edge1167
   %459 = zext nneg i32 %137 to i64
   %wide.trip.count1666 = zext nneg i32 %427 to i64
-  %invariant.gep2109 = getelementptr double, ptr %4, i64 %453
-  %invariant.gep2111 = getelementptr inbounds nuw double, ptr %5, i64 %459
+  %invariant.gep2154 = getelementptr double, ptr %4, i64 %453
+  %invariant.gep2156 = getelementptr inbounds nuw double, ptr %5, i64 %459
   br label %.lr.ph1175
 
 .lr.ph1175:                                       ; preds = %.lr.ph1175.preheader, %.lr.ph1175
   %indvars.iv1663 = phi i64 [ 1, %.lr.ph1175.preheader ], [ %indvars.iv.next1664, %.lr.ph1175 ]
   %460 = phi double [ %458, %.lr.ph1175.preheader ], [ %467, %.lr.ph1175 ]
-  %gep2110 = getelementptr double, ptr %invariant.gep2109, i64 %indvars.iv1663
-  %461 = load double, ptr %gep2110, align 8, !tbaa !7
+  %gep2155 = getelementptr double, ptr %invariant.gep2154, i64 %indvars.iv1663
+  %461 = load double, ptr %gep2155, align 8, !tbaa !7
   %462 = fcmp oge double %461, 0.000000e+00
   %463 = fneg double %461
   %464 = select i1 %462, double %461, double %463
-  %gep2112 = getelementptr inbounds nuw double, ptr %invariant.gep2111, i64 %indvars.iv1663
-  %465 = load double, ptr %gep2112, align 8, !tbaa !7
+  %gep2157 = getelementptr inbounds nuw double, ptr %invariant.gep2156, i64 %indvars.iv1663
+  %465 = load double, ptr %gep2157, align 8, !tbaa !7
   %466 = fadd double %465, %464
-  store double %466, ptr %gep2112, align 8, !tbaa !7
+  store double %466, ptr %gep2157, align 8, !tbaa !7
   %467 = fadd double %464, %460
   %indvars.iv.next1664 = add nuw nsw i64 %indvars.iv1663, 1
   %exitcond1667.not = icmp eq i64 %indvars.iv.next1664, %wide.trip.count1666
@@ -1170,14 +1170,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %.not9431179, label %._crit_edge1183, label %.lr.ph1182
 
 .lr.ph1182:                                       ; preds = %.lr.ph1202
-  %invariant.gep2113 = getelementptr double, ptr %4, i64 %.pre2024
+  %invariant.gep2158 = getelementptr double, ptr %4, i64 %.pre2024
   br label %481
 
 481:                                              ; preds = %.lr.ph1182, %481
   %indvars.iv1668 = phi i64 [ 0, %.lr.ph1182 ], [ %indvars.iv.next1669, %481 ]
   %482 = phi double [ 0.000000e+00, %.lr.ph1182 ], [ %490, %481 ]
-  %gep2114 = getelementptr double, ptr %invariant.gep2113, i64 %indvars.iv1668
-  %483 = load double, ptr %gep2114, align 8, !tbaa !7
+  %gep2159 = getelementptr double, ptr %invariant.gep2158, i64 %indvars.iv1668
+  %483 = load double, ptr %gep2159, align 8, !tbaa !7
   %484 = fcmp oge double %483, 0.000000e+00
   %485 = fneg double %483
   %486 = select i1 %484, double %483, double %485
@@ -1222,7 +1222,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .lr.ph1191.preheader:                             ; preds = %._crit_edge1183
   %510 = add nsw i64 %.24819.lcssa, 1
-  %invariant.gep2115 = getelementptr double, ptr %4, i64 %.pre2024
+  %invariant.gep2160 = getelementptr double, ptr %4, i64 %.pre2024
   br label %.lr.ph1191
 
 .lr.ph1191:                                       ; preds = %.lr.ph1191.preheader, %.lr.ph1191
@@ -1231,8 +1231,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %511 = phi double [ %509, %.lr.ph1191.preheader ], [ %519, %.lr.ph1191 ]
   %indvars.iv.next1678 = add nsw i64 %indvars.iv1677, 1
   %indvars.iv.next1680 = add nuw nsw i64 %indvars.iv1679, 1
-  %gep2116 = getelementptr double, ptr %invariant.gep2115, i64 %indvars.iv.next1680
-  %512 = load double, ptr %gep2116, align 8, !tbaa !7
+  %gep2161 = getelementptr double, ptr %invariant.gep2160, i64 %indvars.iv.next1680
+  %512 = load double, ptr %gep2161, align 8, !tbaa !7
   %513 = fcmp oge double %512, 0.000000e+00
   %514 = fneg double %512
   %515 = select i1 %513, double %512, double %514
@@ -1282,11 +1282,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %530 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not942 = icmp eq i32 %530, 0
   %.pre1971 = load double, ptr %9, align 8
-  %spec.select2176 = select i1 %.not942, double %.211208, double %.pre1971
+  %spec.select2221 = select i1 %.not942, double %.211208, double %.pre1971
   br label %._crit_edge1970
 
 ._crit_edge1970:                                  ; preds = %529, %.lr.ph1210
-  %.22 = phi double [ %527, %.lr.ph1210 ], [ %spec.select2176, %529 ]
+  %.22 = phi double [ %527, %.lr.ph1210 ], [ %spec.select2221, %529 ]
   %indvars.iv.next1694 = add nuw nsw i64 %indvars.iv1693, 1
   %531 = load i32, ptr %7, align 4, !tbaa !3
   %532 = sext i32 %531 to i64
@@ -1314,9 +1314,9 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %542 = add nsw i32 %137, -1
   store i32 %542, ptr %7, align 4, !tbaa !3
   %.not926.not1239 = icmp sgt i32 %136, 1
-  br i1 %.not926.not1239, label %.lr.ph1242.preheader, label %.thread2046
+  br i1 %.not926.not1239, label %.lr.ph1242.preheader, label %.thread2091
 
-.thread2046:                                      ; preds = %._crit_edge1216
+.thread2091:                                      ; preds = %._crit_edge1216
   store i32 0, ptr %10, align 4, !tbaa !3
   br label %._crit_edge1252
 
@@ -1336,14 +1336,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .lr.ph1221:                                       ; preds = %.lr.ph1242
   %547 = mul nsw i64 %indvars.iv1714, %543
-  %invariant.gep2117 = getelementptr double, ptr %4, i64 %547
+  %invariant.gep2162 = getelementptr double, ptr %4, i64 %547
   br label %548
 
 548:                                              ; preds = %.lr.ph1221, %548
   %indvars.iv1700 = phi i64 [ 0, %.lr.ph1221 ], [ %indvars.iv.next1701, %548 ]
   %549 = phi double [ 0.000000e+00, %.lr.ph1221 ], [ %557, %548 ]
-  %gep2118 = getelementptr double, ptr %invariant.gep2117, i64 %indvars.iv1700
-  %550 = load double, ptr %gep2118, align 8, !tbaa !7
+  %gep2163 = getelementptr double, ptr %invariant.gep2162, i64 %indvars.iv1700
+  %550 = load double, ptr %gep2163, align 8, !tbaa !7
   %551 = fcmp oge double %550, 0.000000e+00
   %552 = fneg double %550
   %553 = select i1 %551, double %550, double %552
@@ -1389,7 +1389,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph1230.preheader:                             ; preds = %._crit_edge1222
   %577 = zext nneg i32 %.28823.lcssa to i64
   %578 = add nuw nsw i64 %577, 1
-  %invariant.gep2119 = getelementptr double, ptr %4, i64 %.pre-phi2021
+  %invariant.gep2164 = getelementptr double, ptr %4, i64 %.pre-phi2021
   br label %.lr.ph1230
 
 .lr.ph1230:                                       ; preds = %.lr.ph1230.preheader, %.lr.ph1230
@@ -1398,8 +1398,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %579 = phi double [ %575, %.lr.ph1230.preheader ], [ %584, %.lr.ph1230 ]
   %indvars.iv.next1708 = add nuw nsw i64 %indvars.iv1707, 1
   %indvars.iv.next1710 = add nuw nsw i64 %indvars.iv1709, 1
-  %gep2120 = getelementptr double, ptr %invariant.gep2119, i64 %indvars.iv.next1710
-  %580 = load double, ptr %gep2120, align 8, !tbaa !7
+  %gep2165 = getelementptr double, ptr %invariant.gep2164, i64 %indvars.iv.next1710
+  %580 = load double, ptr %gep2165, align 8, !tbaa !7
   %581 = fcmp oge double %580, 0.000000e+00
   %582 = fneg double %580
   %583 = select i1 %581, double %580, double %582
@@ -1428,14 +1428,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %592 = mul nsw i32 %137, %.0784
   %593 = sext i32 %592 to i64
   %wide.trip.count1722 = zext nneg i32 %137 to i64
-  %invariant.gep2121 = getelementptr double, ptr %4, i64 %593
+  %invariant.gep2166 = getelementptr double, ptr %4, i64 %593
   br label %594
 
 594:                                              ; preds = %.lr.ph1251, %594
   %indvars.iv1719 = phi i64 [ 0, %.lr.ph1251 ], [ %indvars.iv.next1720, %594 ]
   %595 = phi double [ 0.000000e+00, %.lr.ph1251 ], [ %603, %594 ]
-  %gep2122 = getelementptr double, ptr %invariant.gep2121, i64 %indvars.iv1719
-  %596 = load double, ptr %gep2122, align 8, !tbaa !7
+  %gep2167 = getelementptr double, ptr %invariant.gep2166, i64 %indvars.iv1719
+  %596 = load double, ptr %gep2167, align 8, !tbaa !7
   %597 = fcmp oge double %596, 0.000000e+00
   %598 = fneg double %596
   %599 = select i1 %597, double %596, double %598
@@ -1448,10 +1448,10 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %exitcond1723.not = icmp eq i64 %indvars.iv.next1720, %wide.trip.count1722
   br i1 %exitcond1723.not, label %._crit_edge1252, label %594, !llvm.loop !45
 
-._crit_edge1252:                                  ; preds = %594, %.thread2046
-  %.pre-phi2023 = phi i32 [ 0, %.thread2046 ], [ %592, %594 ]
-  %604 = phi double [ 0.000000e+00, %.thread2046 ], [ %603, %594 ]
-  %.30.lcssa = phi i32 [ 0, %.thread2046 ], [ %137, %594 ]
+._crit_edge1252:                                  ; preds = %594, %.thread2091
+  %.pre-phi2023 = phi i32 [ 0, %.thread2091 ], [ %592, %594 ]
+  %604 = phi double [ 0.000000e+00, %.thread2091 ], [ %603, %594 ]
+  %.30.lcssa = phi i32 [ 0, %.thread2091 ], [ %137, %594 ]
   %605 = add nsw i32 %.30.lcssa, %.pre-phi2023
   %606 = sext i32 %605 to i64
   %607 = getelementptr inbounds double, ptr %4, i64 %606
@@ -1468,8 +1468,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .lr.ph1269:                                       ; preds = %._crit_edge1252
   %.not9321256 = icmp slt i32 %136, -1
-  %narrow2026 = add nsw i32 %137, 1
-  %615 = sext i32 %narrow2026 to i64
+  %narrow2071 = add nsw i32 %137, 1
+  %615 = sext i32 %narrow2071 to i64
   %616 = sext i32 %.0784 to i64
   %wide.trip.count1732 = sext i32 %136 to i64
   %wide.trip.count1727 = zext i32 %427 to i64
@@ -1481,14 +1481,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .lr.ph1259:                                       ; preds = %617
   %618 = mul nsw i64 %indvars.iv1729, %616
-  %invariant.gep2123 = getelementptr double, ptr %4, i64 %618
+  %invariant.gep2168 = getelementptr double, ptr %4, i64 %618
   br label %619
 
 619:                                              ; preds = %.lr.ph1259, %619
   %indvars.iv1724 = phi i64 [ 0, %.lr.ph1259 ], [ %indvars.iv.next1725, %619 ]
   %620 = phi double [ 0.000000e+00, %.lr.ph1259 ], [ %628, %619 ]
-  %gep2124 = getelementptr double, ptr %invariant.gep2123, i64 %indvars.iv1724
-  %621 = load double, ptr %gep2124, align 8, !tbaa !7
+  %gep2169 = getelementptr double, ptr %invariant.gep2168, i64 %indvars.iv1724
+  %621 = load double, ptr %gep2169, align 8, !tbaa !7
   %622 = fcmp oge double %621, 0.000000e+00
   %623 = fneg double %621
   %624 = select i1 %622, double %621, double %623
@@ -1538,11 +1538,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %638 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not931 = icmp eq i32 %638, 0
   %.pre1973 = load double, ptr %9, align 8
-  %spec.select2177 = select i1 %.not931, double %.231275, double %.pre1973
+  %spec.select2222 = select i1 %.not931, double %.231275, double %.pre1973
   br label %._crit_edge1972
 
 ._crit_edge1972:                                  ; preds = %637, %.lr.ph1277
-  %.24 = phi double [ %635, %.lr.ph1277 ], [ %spec.select2177, %637 ]
+  %.24 = phi double [ %635, %.lr.ph1277 ], [ %spec.select2222, %637 ]
   %indvars.iv.next1735 = add nuw nsw i64 %indvars.iv1734, 1
   %639 = load i32, ptr %7, align 4, !tbaa !3
   %640 = sext i32 %639 to i64
@@ -1583,27 +1583,27 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %654 = zext nneg i32 %137 to i64
   %655 = sext i32 %.0784 to i64
   %wide.trip.count1750 = zext nneg i32 %137 to i64
-  %invariant.gep2127 = getelementptr inbounds nuw double, ptr %5, i64 %654
+  %invariant.gep2172 = getelementptr inbounds nuw double, ptr %5, i64 %654
   br label %.lr.ph1288
 
 .lr.ph1288:                                       ; preds = %._crit_edge1289, %.lr.ph1299
   %indvars.iv1747 = phi i64 [ 0, %.lr.ph1299 ], [ %indvars.iv.next1748, %._crit_edge1289 ]
   %656 = mul nsw i64 %indvars.iv1747, %655
-  %invariant.gep2125 = getelementptr double, ptr %4, i64 %656
+  %invariant.gep2170 = getelementptr double, ptr %4, i64 %656
   br label %657
 
 657:                                              ; preds = %.lr.ph1288, %657
   %indvars.iv1742 = phi i64 [ 0, %.lr.ph1288 ], [ %indvars.iv.next1743, %657 ]
   %658 = phi double [ 0.000000e+00, %.lr.ph1288 ], [ %665, %657 ]
-  %gep2126 = getelementptr double, ptr %invariant.gep2125, i64 %indvars.iv1742
-  %659 = load double, ptr %gep2126, align 8, !tbaa !7
+  %gep2171 = getelementptr double, ptr %invariant.gep2170, i64 %indvars.iv1742
+  %659 = load double, ptr %gep2171, align 8, !tbaa !7
   %660 = fcmp oge double %659, 0.000000e+00
   %661 = fneg double %659
   %662 = select i1 %660, double %659, double %661
-  %gep2128 = getelementptr inbounds nuw double, ptr %invariant.gep2127, i64 %indvars.iv1742
-  %663 = load double, ptr %gep2128, align 8, !tbaa !7
+  %gep2173 = getelementptr inbounds nuw double, ptr %invariant.gep2172, i64 %indvars.iv1742
+  %663 = load double, ptr %gep2173, align 8, !tbaa !7
   %664 = fadd double %663, %662
-  store double %664, ptr %gep2128, align 8, !tbaa !7
+  store double %664, ptr %gep2173, align 8, !tbaa !7
   %665 = fadd double %662, %658
   %indvars.iv.next1743 = add nuw nsw i64 %indvars.iv1742, 1
   %exitcond1746.not = icmp eq i64 %indvars.iv.next1743, %wide.trip.count1750
@@ -1637,22 +1637,22 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %675 = zext nneg i32 %137 to i64
   %smax1755 = tail call i32 @llvm.smax.i32(i32 %137, i32 2)
   %wide.trip.count1756 = zext nneg i32 %smax1755 to i64
-  %invariant.gep2129 = getelementptr double, ptr %4, i64 %669
-  %invariant.gep2131 = getelementptr inbounds nuw double, ptr %5, i64 %675
+  %invariant.gep2174 = getelementptr double, ptr %4, i64 %669
+  %invariant.gep2176 = getelementptr inbounds nuw double, ptr %5, i64 %675
   br label %.lr.ph1308
 
 .lr.ph1308:                                       ; preds = %.lr.ph1308.preheader, %.lr.ph1308
   %indvars.iv1752 = phi i64 [ 1, %.lr.ph1308.preheader ], [ %indvars.iv.next1753, %.lr.ph1308 ]
   %676 = phi double [ %674, %.lr.ph1308.preheader ], [ %683, %.lr.ph1308 ]
-  %gep2130 = getelementptr double, ptr %invariant.gep2129, i64 %indvars.iv1752
-  %677 = load double, ptr %gep2130, align 8, !tbaa !7
+  %gep2175 = getelementptr double, ptr %invariant.gep2174, i64 %indvars.iv1752
+  %677 = load double, ptr %gep2175, align 8, !tbaa !7
   %678 = fcmp oge double %677, 0.000000e+00
   %679 = fneg double %677
   %680 = select i1 %678, double %677, double %679
-  %gep2132 = getelementptr inbounds nuw double, ptr %invariant.gep2131, i64 %indvars.iv1752
-  %681 = load double, ptr %gep2132, align 8, !tbaa !7
+  %gep2177 = getelementptr inbounds nuw double, ptr %invariant.gep2176, i64 %indvars.iv1752
+  %681 = load double, ptr %gep2177, align 8, !tbaa !7
   %682 = fadd double %681, %680
-  store double %682, ptr %gep2132, align 8, !tbaa !7
+  store double %682, ptr %gep2177, align 8, !tbaa !7
   %683 = fadd double %680, %676
   %indvars.iv.next1753 = add nuw nsw i64 %indvars.iv1752, 1
   %exitcond1757.not = icmp eq i64 %indvars.iv.next1753, %wide.trip.count1756
@@ -1688,14 +1688,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %692 = sext i32 %.pre2014 to i64
   %693 = sub i32 %storemerge916.in1335, %137
   %wide.trip.count1761 = zext i32 %693 to i64
-  %invariant.gep2133 = getelementptr double, ptr %4, i64 %692
+  %invariant.gep2178 = getelementptr double, ptr %4, i64 %692
   br label %694
 
 694:                                              ; preds = %.lr.ph1315, %694
   %indvars.iv1758 = phi i64 [ 0, %.lr.ph1315 ], [ %indvars.iv.next1759, %694 ]
   %695 = phi double [ 0.000000e+00, %.lr.ph1315 ], [ %703, %694 ]
-  %gep2134 = getelementptr double, ptr %invariant.gep2133, i64 %indvars.iv1758
-  %696 = load double, ptr %gep2134, align 8, !tbaa !7
+  %gep2179 = getelementptr double, ptr %invariant.gep2178, i64 %indvars.iv1758
+  %696 = load double, ptr %gep2179, align 8, !tbaa !7
   %697 = fcmp oge double %696, 0.000000e+00
   %698 = fneg double %696
   %699 = select i1 %697, double %696, double %698
@@ -1741,7 +1741,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %726 = sext i32 %.36.lcssa to i64
   %727 = add nsw i64 %726, 1
   %728 = sext i32 %.pre2014 to i64
-  %invariant.gep2135 = getelementptr double, ptr %4, i64 %728
+  %invariant.gep2180 = getelementptr double, ptr %4, i64 %728
   br label %.lr.ph1324
 
 .lr.ph1324:                                       ; preds = %.lr.ph1324.preheader, %.lr.ph1324
@@ -1750,8 +1750,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %729 = phi double [ %724, %.lr.ph1324.preheader ], [ %737, %.lr.ph1324 ]
   %indvars.iv.next1764 = add nsw i64 %indvars.iv1763, 1
   %indvars.iv.next1766 = add nuw nsw i64 %indvars.iv1765, 1
-  %gep2136 = getelementptr double, ptr %invariant.gep2135, i64 %indvars.iv.next1766
-  %730 = load double, ptr %gep2136, align 8, !tbaa !7
+  %gep2181 = getelementptr double, ptr %invariant.gep2180, i64 %indvars.iv.next1766
+  %730 = load double, ptr %gep2181, align 8, !tbaa !7
   %731 = fcmp oge double %730, 0.000000e+00
   %732 = fneg double %730
   %733 = select i1 %731, double %730, double %732
@@ -1790,14 +1790,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %743 = tail call i32 @llvm.smax.i32(i32 %137, i32 2)
   %744 = add nsw i32 %743, -1
   %wide.trip.count1778 = zext nneg i32 %744 to i64
-  %invariant.gep2137 = getelementptr double, ptr %4, i64 %742
+  %invariant.gep2182 = getelementptr double, ptr %4, i64 %742
   br label %745
 
 745:                                              ; preds = %.lr.ph1349, %745
   %indvars.iv1774 = phi i64 [ 0, %.lr.ph1349 ], [ %indvars.iv.next1775, %745 ]
   %746 = phi double [ 0.000000e+00, %.lr.ph1349 ], [ %754, %745 ]
-  %gep2138 = getelementptr double, ptr %invariant.gep2137, i64 %indvars.iv1774
-  %747 = load double, ptr %gep2138, align 8, !tbaa !7
+  %gep2183 = getelementptr double, ptr %invariant.gep2182, i64 %indvars.iv1774
+  %747 = load double, ptr %gep2183, align 8, !tbaa !7
   %748 = fcmp oge double %747, 0.000000e+00
   %749 = fneg double %747
   %750 = select i1 %748, double %747, double %749
@@ -1845,11 +1845,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %773 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not920 = icmp eq i32 %773, 0
   %.pre1975 = load double, ptr %9, align 8
-  %spec.select2178 = select i1 %.not920, double %.251355, double %.pre1975
+  %spec.select2223 = select i1 %.not920, double %.251355, double %.pre1975
   br label %._crit_edge1974
 
 ._crit_edge1974:                                  ; preds = %772, %.lr.ph1357
-  %.26 = phi double [ %770, %.lr.ph1357 ], [ %spec.select2178, %772 ]
+  %.26 = phi double [ %770, %.lr.ph1357 ], [ %spec.select2223, %772 ]
   %indvars.iv.next1781 = add nuw nsw i64 %indvars.iv1780, 1
   %774 = load i32, ptr %7, align 4, !tbaa !3
   %775 = sext i32 %774 to i64
@@ -1880,13 +1880,13 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %788 = select i1 %786, double %787, double %785
   %789 = add nsw i32 %137, -1
   %.not901.not1365 = icmp sgt i32 %136, 3
-  br i1 %.not901.not1365, label %.lr.ph1368.preheader, label %.thread2054
+  br i1 %.not901.not1365, label %.lr.ph1368.preheader, label %.thread2099
 
 .lr.ph1368.preheader:                             ; preds = %._crit_edge1363
   %790 = zext nneg i32 %137 to i64
   %smax1791 = tail call i32 @llvm.smax.i32(i32 %137, i32 2)
   %wide.trip.count1792 = zext nneg i32 %smax1791 to i64
-  %invariant.gep2139 = getelementptr inbounds nuw double, ptr %5, i64 %790
+  %invariant.gep2184 = getelementptr inbounds nuw double, ptr %5, i64 %790
   br label %.lr.ph1368
 
 .lr.ph1368:                                       ; preds = %.lr.ph1368.preheader, %.lr.ph1368
@@ -1897,16 +1897,16 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %794 = fcmp oge double %793, 0.000000e+00
   %795 = fneg double %793
   %796 = select i1 %794, double %793, double %795
-  %gep2140 = getelementptr inbounds nuw double, ptr %invariant.gep2139, i64 %indvars.iv1788
-  %797 = load double, ptr %gep2140, align 8, !tbaa !7
+  %gep2185 = getelementptr inbounds nuw double, ptr %invariant.gep2184, i64 %indvars.iv1788
+  %797 = load double, ptr %gep2185, align 8, !tbaa !7
   %798 = fadd double %797, %796
-  store double %798, ptr %gep2140, align 8, !tbaa !7
+  store double %798, ptr %gep2185, align 8, !tbaa !7
   %799 = fadd double %796, %791
   %indvars.iv.next1789 = add nuw nsw i64 %indvars.iv1788, 1
   %exitcond1793.not = icmp eq i64 %indvars.iv.next1789, %wide.trip.count1792
   br i1 %exitcond1793.not, label %.lr.ph1396.preheader, label %.lr.ph1368, !llvm.loop !57
 
-.thread2054:                                      ; preds = %._crit_edge1363
+.thread2099:                                      ; preds = %._crit_edge1363
   %800 = sext i32 %137 to i64
   %801 = getelementptr inbounds double, ptr %5, i64 %800
   %802 = load double, ptr %801, align 8, !tbaa !7
@@ -1941,14 +1941,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %.not9101372, label %._crit_edge1376, label %.lr.ph1375
 
 .lr.ph1375:                                       ; preds = %.lr.ph1396
-  %invariant.gep2141 = getelementptr double, ptr %4, i64 %.pre2010
+  %invariant.gep2186 = getelementptr double, ptr %4, i64 %.pre2010
   br label %812
 
 812:                                              ; preds = %.lr.ph1375, %812
   %indvars.iv1794 = phi i64 [ 0, %.lr.ph1375 ], [ %indvars.iv.next1795, %812 ]
   %813 = phi double [ 0.000000e+00, %.lr.ph1375 ], [ %821, %812 ]
-  %gep2142 = getelementptr double, ptr %invariant.gep2141, i64 %indvars.iv1794
-  %814 = load double, ptr %gep2142, align 8, !tbaa !7
+  %gep2187 = getelementptr double, ptr %invariant.gep2186, i64 %indvars.iv1794
+  %814 = load double, ptr %gep2187, align 8, !tbaa !7
   %815 = fcmp oge double %814, 0.000000e+00
   %816 = fneg double %814
   %817 = select i1 %815, double %814, double %816
@@ -1994,7 +1994,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph1384.preheader:                             ; preds = %._crit_edge1376
   %842 = zext nneg i32 %.42.lcssa to i64
   %843 = add nuw nsw i64 %842, 1
-  %invariant.gep2143 = getelementptr double, ptr %4, i64 %.pre2010
+  %invariant.gep2188 = getelementptr double, ptr %4, i64 %.pre2010
   br label %.lr.ph1384
 
 .lr.ph1384:                                       ; preds = %.lr.ph1384.preheader, %.lr.ph1384
@@ -2003,8 +2003,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %844 = phi double [ %840, %.lr.ph1384.preheader ], [ %849, %.lr.ph1384 ]
   %indvars.iv.next1804 = add nuw nsw i64 %indvars.iv1803, 1
   %indvars.iv.next1806 = add nuw nsw i64 %indvars.iv1805, 1
-  %gep2144 = getelementptr double, ptr %invariant.gep2143, i64 %indvars.iv.next1806
-  %845 = load double, ptr %gep2144, align 8, !tbaa !7
+  %gep2189 = getelementptr double, ptr %invariant.gep2188, i64 %indvars.iv.next1806
+  %845 = load double, ptr %gep2189, align 8, !tbaa !7
   %846 = fcmp oge double %845, 0.000000e+00
   %847 = fneg double %845
   %848 = select i1 %846, double %845, double %847
@@ -2036,14 +2036,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %860 = tail call i32 @llvm.smax.i32(i32 %137, i32 2)
   %861 = add nsw i32 %860, -1
   %wide.trip.count1824 = zext nneg i32 %861 to i64
-  %invariant.gep2145 = getelementptr double, ptr %4, i64 %859
+  %invariant.gep2190 = getelementptr double, ptr %4, i64 %859
   br label %862
 
 862:                                              ; preds = %.lr.ph1405, %862
   %indvars.iv1820 = phi i64 [ 0, %.lr.ph1405 ], [ %indvars.iv.next1821, %862 ]
   %863 = phi double [ 0.000000e+00, %.lr.ph1405 ], [ %871, %862 ]
-  %gep2146 = getelementptr double, ptr %invariant.gep2145, i64 %indvars.iv1820
-  %864 = load double, ptr %gep2146, align 8, !tbaa !7
+  %gep2191 = getelementptr double, ptr %invariant.gep2190, i64 %indvars.iv1820
+  %864 = load double, ptr %gep2191, align 8, !tbaa !7
   %865 = fcmp oge double %864, 0.000000e+00
   %866 = fneg double %864
   %867 = select i1 %865, double %864, double %866
@@ -2056,10 +2056,10 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %exitcond1825.not = icmp eq i64 %indvars.iv.next1821, %wide.trip.count1824
   br i1 %exitcond1825.not, label %._crit_edge1406, label %862, !llvm.loop !61
 
-._crit_edge1406:                                  ; preds = %862, %.thread2054
-  %.pre-phi2013 = phi i32 [ %.0784, %.thread2054 ], [ %858, %862 ]
-  %872 = phi double [ 0.000000e+00, %.thread2054 ], [ %871, %862 ]
-  %.44.lcssa = phi i32 [ 0, %.thread2054 ], [ %861, %862 ]
+._crit_edge1406:                                  ; preds = %862, %.thread2099
+  %.pre-phi2013 = phi i32 [ %.0784, %.thread2099 ], [ %858, %862 ]
+  %872 = phi double [ 0.000000e+00, %.thread2099 ], [ %871, %862 ]
+  %.44.lcssa = phi i32 [ 0, %.thread2099 ], [ %861, %862 ]
   %873 = add nsw i32 %.44.lcssa, %.pre-phi2013
   %874 = sext i32 %873 to i64
   %875 = getelementptr inbounds double, ptr %4, i64 %874
@@ -2072,9 +2072,9 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %882 = getelementptr inbounds nuw double, ptr %5, i64 %881
   store double %880, ptr %882, align 8, !tbaa !7
   %.not906.not1422 = icmp sgt i32 %136, 0
-  br i1 %.not906.not1422, label %.lr.ph1425, label %.thread2061
+  br i1 %.not906.not1422, label %.lr.ph1425, label %.thread2106
 
-.thread2061:                                      ; preds = %._crit_edge1406
+.thread2106:                                      ; preds = %._crit_edge1406
   %883 = load double, ptr %5, align 8, !tbaa !7
   br label %.loopexit
 
@@ -2093,14 +2093,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph1413:                                       ; preds = %885
   %886 = mul nsw i32 %storemerge905.in1429, %.0784
   %887 = sext i32 %886 to i64
-  %invariant.gep2147 = getelementptr double, ptr %4, i64 %887
+  %invariant.gep2192 = getelementptr double, ptr %4, i64 %887
   br label %888
 
 888:                                              ; preds = %.lr.ph1413, %888
   %indvars.iv1826 = phi i64 [ 0, %.lr.ph1413 ], [ %indvars.iv.next1827, %888 ]
   %889 = phi double [ 0.000000e+00, %.lr.ph1413 ], [ %897, %888 ]
-  %gep2148 = getelementptr double, ptr %invariant.gep2147, i64 %indvars.iv1826
-  %890 = load double, ptr %gep2148, align 8, !tbaa !7
+  %gep2193 = getelementptr double, ptr %invariant.gep2192, i64 %indvars.iv1826
+  %890 = load double, ptr %gep2193, align 8, !tbaa !7
   %891 = fcmp oge double %890, 0.000000e+00
   %892 = fneg double %890
   %893 = select i1 %891, double %890, double %892
@@ -2147,11 +2147,11 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %909 = call i32 @disnan_(ptr noundef nonnull %9) #6
   %.not908 = icmp eq i32 %909, 0
   %.pre1977 = load double, ptr %9, align 8
-  %spec.select2179 = select i1 %.not908, double %.271432, double %.pre1977
+  %spec.select2224 = select i1 %.not908, double %.271432, double %.pre1977
   br label %._crit_edge1976
 
 ._crit_edge1976:                                  ; preds = %908, %.lr.ph1434
-  %.28 = phi double [ %906, %.lr.ph1434 ], [ %spec.select2179, %908 ]
+  %.28 = phi double [ %906, %.lr.ph1434 ], [ %spec.select2224, %908 ]
   %indvars.iv.next1834 = add nuw nsw i64 %indvars.iv1833, 1
   %910 = load i32, ptr %7, align 4, !tbaa !3
   %911 = sext i32 %910 to i64
@@ -2878,8 +2878,8 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %1203 = fmul double %1200, %1202
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge1016, %._crit_edge1028, %._crit_edge1040, %._crit_edge1970, %._crit_edge1972, %._crit_edge1974, %._crit_edge1976, %._crit_edge1979, %._crit_edge1982, %._crit_edge1985, %._crit_edge1988, %.thread2061, %.thread2042, %.thread2037, %.thread2035, %.thread, %60, %37, %106, %84, %524, %632, %._crit_edge2000, %903, %202, %279, %914, %1199, %6, %15
-  %.0785 = phi double [ %19, %15 ], [ 0.000000e+00, %6 ], [ %1203, %1199 ], [ undef, %914 ], [ %280, %279 ], [ %204, %202 ], [ %904, %903 ], [ %768, %._crit_edge2000 ], [ %633, %632 ], [ %525, %524 ], [ 0.000000e+00, %84 ], [ 0.000000e+00, %106 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %60 ], [ %145, %.thread ], [ %225, %.thread2035 ], [ %291, %.thread2037 ], [ %415, %.thread2042 ], [ %883, %.thread2061 ], [ %.20, %._crit_edge1988 ], [ %.18, %._crit_edge1985 ], [ %.16, %._crit_edge1982 ], [ %.14, %._crit_edge1979 ], [ %.28, %._crit_edge1976 ], [ %.26, %._crit_edge1974 ], [ %.24, %._crit_edge1972 ], [ %.22, %._crit_edge1970 ], [ %.7.lcssa, %._crit_edge1040 ], [ %.10.lcssa, %._crit_edge1028 ], [ %.1.lcssa, %._crit_edge1016 ], [ %.4.lcssa, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %._crit_edge1016, %._crit_edge1028, %._crit_edge1040, %._crit_edge1970, %._crit_edge1972, %._crit_edge1974, %._crit_edge1976, %._crit_edge1979, %._crit_edge1982, %._crit_edge1985, %._crit_edge1988, %.thread2106, %.thread2087, %.thread2082, %.thread2080, %.thread, %60, %37, %106, %84, %524, %632, %._crit_edge2000, %903, %202, %279, %914, %1199, %6, %15
+  %.0785 = phi double [ %19, %15 ], [ 0.000000e+00, %6 ], [ %1203, %1199 ], [ undef, %914 ], [ %280, %279 ], [ %204, %202 ], [ %904, %903 ], [ %768, %._crit_edge2000 ], [ %633, %632 ], [ %525, %524 ], [ 0.000000e+00, %84 ], [ 0.000000e+00, %106 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %60 ], [ %145, %.thread ], [ %225, %.thread2080 ], [ %291, %.thread2082 ], [ %415, %.thread2087 ], [ %883, %.thread2106 ], [ %.20, %._crit_edge1988 ], [ %.18, %._crit_edge1985 ], [ %.16, %._crit_edge1982 ], [ %.14, %._crit_edge1979 ], [ %.28, %._crit_edge1976 ], [ %.26, %._crit_edge1974 ], [ %.24, %._crit_edge1972 ], [ %.22, %._crit_edge1970 ], [ %.7.lcssa, %._crit_edge1040 ], [ %.10.lcssa, %._crit_edge1028 ], [ %.1.lcssa, %._crit_edge1016 ], [ %.4.lcssa, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

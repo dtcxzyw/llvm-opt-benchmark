@@ -374,7 +374,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %182, %185
   %192 = load i32, ptr %191, align 4
   %193 = and i32 %192, 15
   %194 = icmp eq i32 %193, 12
-  br i1 %194, label %_ZNK5Block8get_nodeEj.exit._crit_edge.thread.split.loop.exit294, label %195
+  br i1 %194, label %_ZNK5Block8get_nodeEj.exit._crit_edge.thread.split.loop.exit328, label %195
 
 195:                                              ; preds = %_ZNK5Block8get_nodeEj.exit
   %196 = load ptr, ptr %129, align 8
@@ -522,7 +522,7 @@ _ZN8IndexSet6insertEj.exit108:                    ; preds = %283, %272, %255, %2
   %exitcond.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %243, !llvm.loop !13
 
-_ZNK5Block8get_nodeEj.exit._crit_edge.thread.split.loop.exit294: ; preds = %_ZNK5Block8get_nodeEj.exit
+_ZNK5Block8get_nodeEj.exit._crit_edge.thread.split.loop.exit328: ; preds = %_ZNK5Block8get_nodeEj.exit
   %286 = and i64 %indvars.iv216, 4294967295
   br label %_ZNK5Block8get_nodeEj.exit109.lr.ph
 
@@ -530,8 +530,8 @@ _ZNK5Block8get_nodeEj.exit._crit_edge:            ; preds = %_ZN9PhaseLive6getse
   %.not96172 = icmp eq i32 %174, 0
   br i1 %.not96172, label %.preheader154, label %_ZNK5Block8get_nodeEj.exit109.lr.ph
 
-_ZNK5Block8get_nodeEj.exit109.lr.ph:              ; preds = %.loopexit, %_ZNK5Block8get_nodeEj.exit._crit_edge.thread.split.loop.exit294, %_ZNK5Block8get_nodeEj.exit._crit_edge
-  %.087.lcssa287 = phi i64 [ 1, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %286, %_ZNK5Block8get_nodeEj.exit._crit_edge.thread.split.loop.exit294 ], [ 1, %.loopexit ]
+_ZNK5Block8get_nodeEj.exit109.lr.ph:              ; preds = %.loopexit, %_ZNK5Block8get_nodeEj.exit._crit_edge.thread.split.loop.exit328, %_ZNK5Block8get_nodeEj.exit._crit_edge
+  %.087.lcssa321 = phi i64 [ 1, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %286, %_ZNK5Block8get_nodeEj.exit._crit_edge.thread.split.loop.exit328 ], [ 1, %.loopexit ]
   %287 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %288 = getelementptr inbounds nuw i8, ptr %147, i64 32
   %289 = getelementptr inbounds nuw i8, ptr %172, i64 8
@@ -539,8 +539,8 @@ _ZNK5Block8get_nodeEj.exit109.lr.ph:              ; preds = %.loopexit, %_ZNK5Bl
   br label %_ZNK5Block8get_nodeEj.exit109
 
 .preheader154:                                    ; preds = %_ZN8IndexSet6removeEj.exit114, %_ZNK5Block8get_nodeEj.exit._crit_edge
-  %.not96172290 = phi i1 [ true, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ false, %_ZN8IndexSet6removeEj.exit114 ]
-  %.087.lcssa288 = phi i64 [ 0, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.087.lcssa287, %_ZN8IndexSet6removeEj.exit114 ]
+  %.not96172324 = phi i1 [ true, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ false, %_ZN8IndexSet6removeEj.exit114 ]
+  %.087.lcssa322 = phi i64 [ 0, %_ZNK5Block8get_nodeEj.exit._crit_edge ], [ %.087.lcssa321, %_ZN8IndexSet6removeEj.exit114 ]
   %291 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %292 = getelementptr inbounds nuw i8, ptr %147, i64 32
   %293 = load i32, ptr %291, align 8
@@ -554,7 +554,7 @@ _ZNK5Block8get_nodeEj.exit109.lr.ph:              ; preds = %.loopexit, %_ZNK5Bl
   br i1 %298, label %.lr.ph181, label %._crit_edge182
 
 _ZNK5Block8get_nodeEj.exit109:                    ; preds = %_ZNK5Block8get_nodeEj.exit109.lr.ph, %_ZN8IndexSet6removeEj.exit114
-  %indvars.iv219 = phi i64 [ %.087.lcssa287, %_ZNK5Block8get_nodeEj.exit109.lr.ph ], [ %300, %_ZN8IndexSet6removeEj.exit114 ]
+  %indvars.iv219 = phi i64 [ %.087.lcssa321, %_ZNK5Block8get_nodeEj.exit109.lr.ph ], [ %300, %_ZN8IndexSet6removeEj.exit114 ]
   %299 = load ptr, ptr %129, align 8
   %300 = add nsw i64 %indvars.iv219, -1
   %301 = load i32, ptr %287, align 8
@@ -651,10 +651,10 @@ _ZN8IndexSet6removeEj.exit114:                    ; preds = %_ZN8IndexSet6insert
   %359 = getelementptr inbounds nuw ptr, ptr %357, i64 %358
   %360 = load ptr, ptr %359, align 8
   call void @_ZN9PhaseLive11add_liveoutER10Block_ListP5BlockP8IndexSetR9VectorSet(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef %360, ptr noundef nonnull %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br i1 %.not96172290, label %._crit_edge178, label %.lr.ph177
+  br i1 %.not96172324, label %._crit_edge178, label %.lr.ph177
 
 .lr.ph177:                                        ; preds = %.lr.ph181, %386
-  %indvars.iv223 = phi i64 [ %361, %386 ], [ %.087.lcssa288, %.lr.ph181 ]
+  %indvars.iv223 = phi i64 [ %361, %386 ], [ %.087.lcssa322, %.lr.ph181 ]
   %361 = add nsw i64 %indvars.iv223, -1
   %362 = load i32, ptr %291, align 8
   %363 = zext i32 %362 to i64

@@ -1116,9 +1116,9 @@ discard_left_ext.exit._crit_edge.i:               ; preds = %discard_left_ext.ex
 discard_left_ext.exit200.us.i:                    ; preds = %.lr.ph.split.us.i.preheader, %.lr.ph.split.us.i
   %321 = phi i32 [ %319, %.lr.ph.split.us.i ], [ %316, %.lr.ph.split.us.i.preheader ]
   %322 = phi ptr [ %318, %.lr.ph.split.us.i ], [ %315, %.lr.ph.split.us.i.preheader ]
-  %indvars.iv221.i368 = phi i64 [ %indvars.iv.next222.i, %.lr.ph.split.us.i ], [ 1, %.lr.ph.split.us.i.preheader ]
+  %indvars.iv221.i421 = phi i64 [ %indvars.iv.next222.i, %.lr.ph.split.us.i ], [ 1, %.lr.ph.split.us.i.preheader ]
   %323 = load i32, ptr %182, align 4, !tbaa !58
-  %indvars.iv.next222.i = add nuw nsw i64 %indvars.iv221.i368, 1
+  %indvars.iv.next222.i = add nuw nsw i64 %indvars.iv221.i421, 1
   store i32 %321, ptr %291, align 8, !tbaa !106
   %324 = load ptr, ptr %264, align 8, !tbaa !104
   %325 = load ptr, ptr %284, align 8, !tbaa !105
@@ -1127,7 +1127,7 @@ discard_left_ext.exit200.us.i:                    ; preds = %.lr.ph.split.us.i.p
   %328 = load ptr, ptr %300, align 8, !tbaa !80
   %329 = load i32, ptr %302, align 8, !tbaa !79
   tail call fastcc void @conv_down(ptr noundef %324, ptr noundef %324, ptr noundef %325, i32 noundef %321, ptr noundef %326, ptr noundef %327, i32 noundef %323, i32 noundef %64, ptr noundef %328, i32 noundef %329)
-  %330 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv221.i368
+  %330 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv221.i421
   %331 = load ptr, ptr %330, align 8, !tbaa !97
   %332 = load ptr, ptr %284, align 8, !tbaa !105
   %333 = load i32, ptr %322, align 4, !tbaa !96
@@ -1146,9 +1146,9 @@ discard_left_ext.exit200.us.i:                    ; preds = %.lr.ph.split.us.i.p
 discard_left_ext.exit200.i:                       ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
   %339 = phi i32 [ %337, %.lr.ph.split.i ], [ %316, %.lr.ph.split.i.preheader ]
   %340 = phi ptr [ %336, %.lr.ph.split.i ], [ %315, %.lr.ph.split.i.preheader ]
-  %indvars.iv.i367 = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 1, %.lr.ph.split.i.preheader ]
+  %indvars.iv.i420 = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 1, %.lr.ph.split.i.preheader ]
   %341 = load i32, ptr %182, align 4, !tbaa !58
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i367, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i420, 1
   %342 = lshr i64 %314, %indvars.iv.next.i
   %343 = trunc nuw nsw i64 %342 to i32
   %reass.sub.i197.i = add nuw nsw i32 %343, 2
@@ -1167,7 +1167,7 @@ discard_left_ext.exit200.i:                       ; preds = %.lr.ph.split.i.preh
   %354 = load ptr, ptr %300, align 8, !tbaa !80
   %355 = load i32, ptr %302, align 8, !tbaa !79
   tail call fastcc void @conv_down(ptr noundef %350, ptr noundef %350, ptr noundef %351, i32 noundef %349, ptr noundef %352, ptr noundef %353, i32 noundef %341, i32 noundef %64, ptr noundef %354, i32 noundef %355)
-  %356 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i367
+  %356 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i420
   %357 = load ptr, ptr %356, align 8, !tbaa !97
   %358 = load ptr, ptr %284, align 8, !tbaa !105
   %359 = sext i32 %348 to i64
@@ -2665,7 +2665,7 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1) unnamed
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %31 = load i32, ptr %30, align 8, !tbaa !95
   %32 = icmp slt i32 %31, %.pre
-  br i1 %32, label %.thread108, label %65
+  br i1 %32, label %.thread116, label %65
 
 33:                                               ; preds = %20
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -2676,17 +2676,17 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1) unnamed
   %39 = sub nsw i64 %35, %38
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 136
   store i64 %39, ptr %40, align 8, !tbaa !133
-  %.pre106 = load i32, ptr %16, align 4, !tbaa !45
-  %41 = tail call ptr @ff_get_audio_buffer(ptr noundef %14, i32 noundef %.pre106) #12
+  %.pre114 = load i32, ptr %16, align 4, !tbaa !45
+  %41 = tail call ptr @ff_get_audio_buffer(ptr noundef %14, i32 noundef %.pre114) #12
   %.not78.not = icmp eq ptr %41, null
   br i1 %.not78.not, label %.thread92, label %.thread89
 
-.thread108:                                       ; preds = %21
+.thread116:                                       ; preds = %21
   %42 = tail call ptr @ff_get_audio_buffer(ptr noundef %14, i32 noundef %.pre) #12
-  %.not78.not110 = icmp eq ptr %42, null
-  br i1 %.not78.not110, label %.thread92, label %.thread111
+  %.not78.not118 = icmp eq ptr %42, null
+  br i1 %.not78.not118, label %.thread92, label %.thread119
 
-.thread92:                                        ; preds = %.thread108, %33
+.thread92:                                        ; preds = %.thread116, %33
   call void @av_frame_free(ptr noundef nonnull %3) #12
   call void @av_frame_free(ptr noundef nonnull %5) #12
   br label %171
@@ -2699,7 +2699,7 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1) unnamed
   store i32 %46, ptr %44, align 4, !tbaa !46
   br label %63
 
-.thread111:                                       ; preds = %.thread108
+.thread119:                                       ; preds = %.thread116
   %47 = tail call i32 @av_frame_copy_props(ptr noundef nonnull %42, ptr noundef nonnull %1) #12
   %48 = load i32, ptr %16, align 4, !tbaa !45
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -2720,8 +2720,8 @@ define internal fastcc i32 @filter_frame(ptr noundef %0, ptr noundef %1) unnamed
   %62 = tail call i32 @av_samples_copy(ptr noundef %55, ptr noundef %57, i32 noundef 0, i32 noundef 0, i32 noundef %50, i32 noundef %59, i32 noundef %61) #12
   br label %63
 
-63:                                               ; preds = %.thread111, %.thread89
-  %64 = phi ptr [ %42, %.thread111 ], [ %41, %.thread89 ]
+63:                                               ; preds = %.thread119, %.thread89
+  %64 = phi ptr [ %42, %.thread119 ], [ %41, %.thread89 ]
   call void @av_frame_free(ptr noundef nonnull %3) #12
   store ptr %64, ptr %3, align 8, !tbaa !43
   %.pre100 = load ptr, ptr %5, align 8, !tbaa !43

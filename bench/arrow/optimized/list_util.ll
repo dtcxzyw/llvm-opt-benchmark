@@ -840,7 +840,7 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
   %266 = phi ptr [ %202, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.thread.i ], [ %262, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i ]
   %267 = phi ptr [ %199, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.thread.i ], [ %261, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i ]
   %268 = phi i64 [ %256, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.thread.i ], [ %260, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i ]
-  %.sroa.069.0.i1934.i = phi i64 [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.thread.i ], [ %.sroa.069.0.i.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i ]
+  %.sroa.069.0.i1952.i = phi i64 [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.thread.i ], [ %.sroa.069.0.i.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.thread.i ]
   %269 = icmp slt i64 %265, 1
   br i1 %269, label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i, label %.lr.ph126.i.i41
 
@@ -927,13 +927,13 @@ _ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i
 
 _ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i: ; preds = %280, %278, %.thread91.sink.split.i.i31, %264
-  %.sroa.069.0.i1933.i = phi i64 [ %.sroa.069.0.i1934.i, %264 ], [ %.sroa.069.0.i.i, %.thread91.sink.split.i.i31 ], [ %.sroa.069.0.i1934.i, %278 ], [ %.sroa.069.0.i1934.i, %280 ]
+  %.sroa.069.0.i1951.i = phi i64 [ %.sroa.069.0.i1952.i, %264 ], [ %.sroa.069.0.i.i, %.thread91.sink.split.i.i31 ], [ %.sroa.069.0.i1952.i, %278 ], [ %.sroa.069.0.i1952.i, %280 ]
   %.5.i.i33 = phi i64 [ 0, %264 ], [ %.5.ph.i.i32, %.thread91.sink.split.i.i31 ], [ %.561.i.i45, %280 ], [ %268, %278 ]
-  %303 = sub nsw i64 %.5.i.i33, %.sroa.069.0.i1933.i
+  %303 = sub nsw i64 %.5.i.i33, %.sroa.069.0.i1951.i
   br label %_ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIlEESt4pairIllERKNS_9ArraySpanE.exit
 
 _ZN5arrow9list_util8internal12_GLOBAL__N_127RangeOfValuesUsedByListViewIlEESt4pairIllERKNS_9ArraySpanE.exit: ; preds = %185, %.preheader.i.i49, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i
-  %.sroa.014.0.i21 = phi i64 [ 0, %185 ], [ %.sroa.069.0.i1933.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i ], [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i ], [ 0, %.preheader.i.i49 ]
+  %.sroa.014.0.i21 = phi i64 [ 0, %185 ], [ %.sroa.069.0.i1951.i, %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i ], [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i ], [ 0, %.preheader.i.i49 ]
   %.sroa.4.0.i22 = phi i64 [ 0, %185 ], [ %303, %_ZN5arrow9list_util8internal12_GLOBAL__N_110MaxViewEndIlEElRKNS_9ArraySpanE.exit.i ], [ 0, %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i ], [ 0, %.preheader.i.i49 ]
   store ptr null, ptr %0, align 8, !tbaa !65
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 8

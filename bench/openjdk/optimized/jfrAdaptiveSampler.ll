@@ -136,10 +136,10 @@ define hidden noundef zeroext i1 @_ZN18JfrAdaptiveSampler10initializeEv(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %4, %1, %12
-  %.sink6 = phi i64 [ 32, %12 ], [ 16, %1 ], [ 24, %4 ]
+  %.sink8 = phi i64 [ 32, %12 ], [ 16, %1 ], [ 24, %4 ]
   %.sink = phi ptr [ %18, %12 ], [ null, %1 ], [ null, %4 ]
   %.0 = phi i1 [ true, %12 ], [ false, %1 ], [ false, %4 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8
   store ptr %.sink, ptr %19, align 8
   ret i1 %.0
 }
@@ -855,10 +855,10 @@ define hidden noundef zeroext i1 @_ZN24JfrGTestFixedRateSampler10initializeEv(pt
   br label %_ZN18JfrAdaptiveSampler10initializeEv.exit
 
 _ZN18JfrAdaptiveSampler10initializeEv.exit:       ; preds = %1, %4, %12
-  %.sink6.i = phi i64 [ 32, %12 ], [ 16, %1 ], [ 24, %4 ]
+  %.sink8.i = phi i64 [ 32, %12 ], [ 16, %1 ], [ 24, %4 ]
   %.sink.i = phi ptr [ %18, %12 ], [ null, %1 ], [ null, %4 ]
   %.0.i = phi i1 [ true, %12 ], [ false, %1 ], [ false, %4 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6.i
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink8.i
   store ptr %.sink.i, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef nonnull %20, ptr noundef null) #17

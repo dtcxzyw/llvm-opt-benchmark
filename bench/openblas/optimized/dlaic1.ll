@@ -366,12 +366,12 @@ define void @dlaic1_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br label %227
 
 227:                                              ; preds = %221, %190
-  %.sink393 = phi double [ %225, %221 ], [ %202, %190 ]
+  %.sink404 = phi double [ %225, %221 ], [ %202, %190 ]
   %.1339 = phi double [ %223, %221 ], [ %204, %190 ]
   %.1 = phi double [ %226, %221 ], [ %206, %190 ]
   %228 = fmul double %10, 4.000000e+00
   %229 = fmul double %10, %228
-  %230 = tail call double @llvm.fmuladd.f64(double %229, double %184, double %.sink393)
+  %230 = tail call double @llvm.fmuladd.f64(double %229, double %184, double %.sink404)
   %231 = tail call double @sqrt(double noundef %230) #5, !tbaa !7
   %storemerge = fmul double %22, %231
   store double %storemerge, ptr %6, align 8, !tbaa !3

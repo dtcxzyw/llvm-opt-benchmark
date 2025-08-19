@@ -426,7 +426,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %231 = add i32 %.sroa.12.6, 2
   %232 = tail call i32 @llvm.umin.i32(i32 %33, i32 %231)
   %trunc.i.i.i = trunc nuw nsw i32 %230 to i8
-  switch i8 %trunc.i.i.i, label %.unreachabledefault158 [
+  switch i8 %trunc.i.i.i, label %.unreachabledefault170 [
     i8 1, label %decode2x2.exit.i.i.loopexit.critedge
     i8 2, label %245
     i8 3, label %.preheader29.i.i.i
@@ -561,7 +561,7 @@ decode4x4.exit.i:                                 ; preds = %302, %216, %decode4
 305:                                              ; preds = %decode4x4.exit.i
   br i1 %131, label %.preheader31.i, label %decode8x8.exit, !llvm.loop !55
 
-.unreachabledefault158:                           ; preds = %220
+.unreachabledefault170:                           ; preds = %220
   unreachable
 
 .unreachabledefault:                              ; preds = %134

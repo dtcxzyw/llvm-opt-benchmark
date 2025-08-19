@@ -183,7 +183,7 @@ _ZN5arrow6StatusD2Ev.exit12:                      ; preds = %_ZN5arrow6StatusD2E
 32:                                               ; preds = %.noexc13, %_ZN5arrow6StatusD2Ev.exit12
   %33 = load i8, ptr %11, align 4, !tbaa !16, !range !21, !noundef !25
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %.thread25, label %_ZZN5arrow4util17CountingSemaphore4Impl7AcquireEjENKUlvE_clEv.exit.i.i
+  br i1 %34, label %.thread30, label %_ZZN5arrow4util17CountingSemaphore4Impl7AcquireEjENKUlvE_clEv.exit.i.i
 
 _ZZN5arrow4util17CountingSemaphore4Impl7AcquireEjENKUlvE_clEv.exit.i.i: ; preds = %32
   %35 = load i32, ptr %1, align 8, !tbaa !3
@@ -206,7 +206,7 @@ _ZZN5arrow4util17CountingSemaphore4Impl7AcquireEjENKUlvE_clEv.exit.i.i: ; preds 
 39:                                               ; preds = %.noexc13
   %40 = load i8, ptr %11, align 4, !tbaa !16, !range !21, !noundef !25
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %.thread25, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl7AcquireEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit
+  br i1 %41, label %.thread30, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl7AcquireEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit
 
 _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl7AcquireEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit: ; preds = %39
   %42 = load i32, ptr %1, align 8, !tbaa !3
@@ -278,7 +278,7 @@ _ZN5arrow6Status7InvalidIJRA44_KcRjRA10_S2_EEES0_DpOT_.exit: ; preds = %_ZNKSt7_
           cleanup
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit18
 
-67:                                               ; preds = %.thread25, %45
+67:                                               ; preds = %.thread30, %45
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit18
@@ -289,7 +289,7 @@ _ZN5arrow6Status7InvalidIJRA44_KcRjRA10_S2_EEES0_DpOT_.exit: ; preds = %_ZNKSt7_
   store i32 %71, ptr %18, align 8, !tbaa !15
   br label %.thread
 
-.thread25:                                        ; preds = %32, %39
+.thread30:                                        ; preds = %32, %39
   %72 = load i32, ptr %18, align 8, !tbaa !15
   %73 = sub i32 %72, %2
   store i32 %73, ptr %18, align 8, !tbaa !15
@@ -303,7 +303,7 @@ _ZN5arrow6Status7InvalidIJRA44_KcRjRA10_S2_EEES0_DpOT_.exit: ; preds = %_ZNKSt7_
   store ptr null, ptr %0, align 8, !tbaa !26, !alias.scope !51
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.thread, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6Status7InvalidIJRA44_KcRjRA10_S2_EEES0_DpOT_.exit, %.thread25
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.thread, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6Status7InvalidIJRA44_KcRjRA10_S2_EEES0_DpOT_.exit, %.thread30
   %76 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #15
   ret void
 
@@ -447,7 +447,7 @@ _ZN5arrow6StatusD2Ev.exit9:                       ; preds = %_ZN5arrow6StatusD2E
 29:                                               ; preds = %.noexc10, %_ZN5arrow6StatusD2Ev.exit9
   %30 = load i8, ptr %11, align 4, !tbaa !16, !range !21, !noundef !25
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread22, label %_ZZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjENKUlvE_clEv.exit.i.i
+  br i1 %31, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread27, label %_ZZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjENKUlvE_clEv.exit.i.i
 
 _ZZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjENKUlvE_clEv.exit.i.i: ; preds = %29
   %32 = load i32, ptr %25, align 8, !tbaa !15
@@ -470,14 +470,14 @@ _ZZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjENKUlvE_clEv.exit.i.i: 
 36:                                               ; preds = %.noexc10
   %37 = load i8, ptr %11, align 4, !tbaa !16, !range !21, !noundef !25
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread22, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit
+  br i1 %38, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread27, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit
 
 _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit: ; preds = %36
   %39 = load i32, ptr %25, align 8, !tbaa !15
   %.not = icmp ugt i32 %2, %39
   br i1 %.not, label %44, label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread
 
-_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread22: ; preds = %29, %36
+_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread27: ; preds = %29, %36
   invoke void @_ZN5arrow6Status8FromArgsIJRA43_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(43) @.str.4)
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit unwind label %42
 
@@ -486,7 +486,7 @@ _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17Co
           cleanup
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit15
 
-42:                                               ; preds = %44, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread22
+42:                                               ; preds = %44, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread27
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit15
@@ -552,7 +552,7 @@ _ZN5arrow6Status7InvalidIJRA23_KcRjRA31_S2_EEES0_DpOT_.exit: ; preds = %_ZNKSt7_
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !75
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6Status7InvalidIJRA23_KcRjRA31_S2_EEES0_DpOT_.exit, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread22
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6Status7InvalidIJRA23_KcRjRA31_S2_EEES0_DpOT_.exit, %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEZN5arrow4util17CountingSemaphore4Impl14WaitForWaitersEjEUlvE_EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit.thread.thread27
   %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #15
   ret void
 

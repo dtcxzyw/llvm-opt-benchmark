@@ -1013,9 +1013,9 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   %394 = and i32 %393, 255
   %395 = icmp samesign ugt i32 %394, 2
   %396 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 412
-  br i1 %395, label %.thread106.i, label %397
+  br i1 %395, label %.thread115.i, label %397
 
-.thread106.i:                                     ; preds = %391
+.thread115.i:                                     ; preds = %391
   store i32 0, ptr %396, align 4
   br label %480
 
@@ -1215,8 +1215,8 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   %479 = add nsw i32 %.057102.i, 1
   br label %480
 
-480:                                              ; preds = %478, %477, %465, %451, %442, %435, %432, %425, %418, %411, %404, %397, %.thread106.i
-  %.158.i = phi i32 [ %.057102.i, %397 ], [ %.057102.i, %404 ], [ %.057102.i, %411 ], [ %.057102.i, %418 ], [ %.057102.i, %425 ], [ %.057102.i, %432 ], [ %.057102.i, %435 ], [ %.057102.i, %442 ], [ %.057102.i, %477 ], [ %479, %478 ], [ %.057102.i, %465 ], [ %.057102.i, %451 ], [ %.057102.i, %.thread106.i ]
+480:                                              ; preds = %478, %477, %465, %451, %442, %435, %432, %425, %418, %411, %404, %397, %.thread115.i
+  %.158.i = phi i32 [ %.057102.i, %397 ], [ %.057102.i, %404 ], [ %.057102.i, %411 ], [ %.057102.i, %418 ], [ %.057102.i, %425 ], [ %.057102.i, %432 ], [ %.057102.i, %435 ], [ %.057102.i, %442 ], [ %.057102.i, %477 ], [ %479, %478 ], [ %.057102.i, %465 ], [ %.057102.i, %451 ], [ %.057102.i, %.thread115.i ]
   %481 = add nuw nsw i32 %.056103.i, 1
   %482 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 968
   %483 = load ptr, ptr @job_buffer_ptr, align 8
@@ -2510,8 +2510,8 @@ _build_jobid_str.exit.i:                          ; preds = %153, %150, %144, %1
   %269 = getelementptr inbounds nuw i8, ptr %.046138, i64 412
   %.not60 = icmp eq i32 %263, %0
   %or.cond = or i1 %260, %.not60
-  %or.cond269 = select i1 %268, i1 %or.cond, i1 false
-  br i1 %or.cond269, label %270, label %362
+  %or.cond311 = select i1 %268, i1 %or.cond, i1 false
+  br i1 %or.cond311, label %270, label %362
 
 270:                                              ; preds = %267
   %271 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !14, !noundef !15
@@ -2798,7 +2798,7 @@ _build_jobid_str.exit.us.us:                      ; preds = %.split.us, %_build_
   %23 = load i8, ptr %6, align 16
   %24 = and i8 %23, -33
   switch i8 %24, label %_build_jobid_str.exit.us.us.backedge [
-    i8 89, label %.fold.split.loopexit32
+    i8 89, label %.fold.split.loopexit38
     i8 78, label %.fold.split
   ]
 
@@ -2826,7 +2826,7 @@ _build_jobid_str.exit.us:                         ; preds = %.split.us, %_build_
   %34 = load i8, ptr %6, align 16
   %35 = and i8 %34, -33
   switch i8 %35, label %_build_jobid_str.exit.us.backedge [
-    i8 89, label %.fold.split.loopexit33
+    i8 89, label %.fold.split.loopexit39
     i8 78, label %.fold.split
   ]
 
@@ -2880,7 +2880,7 @@ _build_jobid_str.exit.us17:                       ; preds = %43, %41, %37
   %53 = load i8, ptr %6, align 16
   %54 = and i8 %53, -33
   switch i8 %54, label %.split.split.us.backedge [
-    i8 89, label %.fold.split.loopexit34
+    i8 89, label %.fold.split.loopexit40
     i8 78, label %.fold.split
   ]
 
@@ -2934,24 +2934,24 @@ _build_jobid_str.exit:                            ; preds = %56, %60, %62
   %72 = load i8, ptr %6, align 16
   %73 = and i8 %72, -33
   switch i8 %73, label %.split.split.backedge [
-    i8 89, label %.fold.split.loopexit35
+    i8 89, label %.fold.split.loopexit41
     i8 78, label %.fold.split
   ]
 
-.fold.split.loopexit32:                           ; preds = %22
+.fold.split.loopexit38:                           ; preds = %22
   br label %.fold.split
 
-.fold.split.loopexit33:                           ; preds = %33
+.fold.split.loopexit39:                           ; preds = %33
   br label %.fold.split
 
-.fold.split.loopexit34:                           ; preds = %52
+.fold.split.loopexit40:                           ; preds = %52
   br label %.fold.split
 
-.fold.split.loopexit35:                           ; preds = %71
+.fold.split.loopexit41:                           ; preds = %71
   br label %.fold.split
 
-.fold.split:                                      ; preds = %71, %52, %33, %22, %.fold.split.loopexit35, %.fold.split.loopexit34, %.fold.split.loopexit33, %.fold.split.loopexit32
-  %.0 = phi i32 [ 1, %.fold.split.loopexit32 ], [ 1, %.fold.split.loopexit33 ], [ 1, %.fold.split.loopexit34 ], [ 1, %.fold.split.loopexit35 ], [ 0, %22 ], [ 0, %33 ], [ 0, %52 ], [ 0, %71 ]
+.fold.split:                                      ; preds = %71, %52, %33, %22, %.fold.split.loopexit41, %.fold.split.loopexit40, %.fold.split.loopexit39, %.fold.split.loopexit38
+  %.0 = phi i32 [ 1, %.fold.split.loopexit38 ], [ 1, %.fold.split.loopexit39 ], [ 1, %.fold.split.loopexit40 ], [ 1, %.fold.split.loopexit41 ], [ 0, %22 ], [ 0, %33 ], [ 0, %52 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

@@ -404,9 +404,9 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   br i1 %84, label %__mincore_unmapped_range.exit, label %__mincore_unmapped_range.exit.sink.split
 
 __mincore_unmapped_range.exit.sink.split:         ; preds = %78, %57
-  %.sink4 = phi ptr [ %43, %57 ], [ %71, %78 ]
+  %.sink11 = phi ptr [ %43, %57 ], [ %71, %78 ]
   %.sink.ph = phi i8 [ %52, %57 ], [ %80, %78 ]
-  call void @__folio_put(ptr noundef %.sink4) #7
+  call void @__folio_put(ptr noundef %.sink11) #7
   br label %__mincore_unmapped_range.exit
 
 __mincore_unmapped_range.exit:                    ; preds = %__mincore_unmapped_range.exit.sink.split, %62, %78, %58, %32, %35, %50

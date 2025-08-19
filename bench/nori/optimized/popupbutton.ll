@@ -174,9 +174,9 @@ define hidden void @_ZN7nanogui11PopupButton4drawEP10NVGcontext(ptr noundef nonn
   %6 = trunc i8 %5 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.pre = load i8, ptr %.phi.trans.insert, align 8
-  %.not16 = xor i1 %6, true
+  %.not17 = xor i1 %6, true
   %7 = trunc i8 %.pre to i1
-  %or.cond = select i1 %.not16, i1 %7, i1 false
+  %or.cond = select i1 %.not17, i1 %7, i1 false
   br i1 %or.cond, label %8, label %._crit_edge
 
 8:                                                ; preds = %2

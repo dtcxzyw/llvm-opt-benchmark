@@ -1892,8 +1892,8 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
   %.pre53.pre = load i32, ptr %17, align 4, !tbaa !24
   %80 = sub i32 0, %.pre53.pre
   %81 = icmp eq i32 %.pre.pre, %80
-  %or.cond56 = or i1 %.not, %81
-  %spec.select = zext i1 %or.cond56 to i32
+  %or.cond62 = or i1 %.not, %81
+  %spec.select = zext i1 %or.cond62 to i32
   %82 = add nsw i32 %.pre.pre, %spec.select
   %83 = add nsw i32 %82, %.pre53.pre
   %.not31 = icmp eq i32 %83, 1
@@ -1907,7 +1907,7 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
 
 87:                                               ; preds = %4
   %88 = icmp ne i32 %78, 1
-  %or.cond = select i1 %or.cond56, i1 %88, i1 false
+  %or.cond = select i1 %or.cond62, i1 %88, i1 false
   br i1 %or.cond, label %89, label %92
 
 89:                                               ; preds = %87
@@ -1918,7 +1918,7 @@ define internal range(i32 -3, 2) i32 @merge(i32 noundef %0, ptr noundef %1, ptr 
 
 92:                                               ; preds = %87
   %93 = icmp eq i32 %78, 0
-  %or.cond3.not = select i1 %or.cond56, i1 true, i1 %93
+  %or.cond3.not = select i1 %or.cond62, i1 true, i1 %93
   br i1 %or.cond3.not, label %97, label %94
 
 94:                                               ; preds = %92

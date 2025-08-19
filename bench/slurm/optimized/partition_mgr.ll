@@ -1041,7 +1041,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 196352
   %or.cond136 = icmp eq i32 %62, 0
-  br i1 %or.cond136, label %63, label %.thread185
+  br i1 %or.cond136, label %63, label %.thread192
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 306
@@ -1049,7 +1049,7 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   %66 = icmp ugt i16 %65, 3
   br i1 %66, label %.thread, label %81
 
-.thread185:                                       ; preds = %58
+.thread192:                                       ; preds = %58
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 232
   %68 = load ptr, ptr %67, align 8
   %69 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef %68, i32 noundef %61) #16
@@ -1059,16 +1059,16 @@ define dso_local range(i32 0, 23) i32 @load_all_part_state(i16 noundef zeroext %
   %72 = icmp ugt i16 %71, 3
   br i1 %72, label %.thread, label %.thread153
 
-.thread:                                          ; preds = %63, %.thread185
-  %73 = phi i16 [ %71, %.thread185 ], [ %65, %63 ]
-  %74 = phi ptr [ %.pre, %.thread185 ], [ %59, %63 ]
+.thread:                                          ; preds = %63, %.thread192
+  %73 = phi i16 [ %71, %.thread192 ], [ %65, %63 ]
+  %74 = phi ptr [ %.pre, %.thread192 ], [ %59, %63 ]
   %75 = zext i16 %73 to i32
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 232
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef %77, i32 noundef %75) #16
   br label %.thread153
 
-.thread153:                                       ; preds = %.thread185, %.thread
+.thread153:                                       ; preds = %.thread192, %.thread
   %79 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #16
   %80 = load ptr, ptr %7, align 8
   call void @part_record_delete(ptr noundef %80) #16
@@ -2035,8 +2035,8 @@ define dso_local void @pack_part(ptr noundef %0, ptr noundef %1, i16 noundef zer
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, -2
-  %masksel334 = zext i1 %10 to i32
-  %.sink = or disjoint i32 %13, %masksel334
+  %masksel365 = zext i1 %10 to i32
+  %.sink = or disjoint i32 %13, %masksel365
   store i32 %.sink, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %15 = load ptr, ptr %14, align 8
@@ -2331,8 +2331,8 @@ define dso_local void @pack_part(ptr noundef %0, ptr noundef %1, i16 noundef zer
   %172 = load i32, ptr %171, align 8
   %173 = and i32 %172, -2
   %masksel = zext i1 %170 to i32
-  %.sink333 = or disjoint i32 %173, %masksel
-  store i32 %.sink333, ptr %171, align 8
+  %.sink364 = or disjoint i32 %173, %masksel
+  store i32 %.sink364, ptr %171, align 8
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %175 = load ptr, ptr %174, align 8
   %.not = icmp eq ptr %175, null
@@ -2815,9 +2815,9 @@ set_partition_billing_weights.exit.thread:        ; preds = %54, %60, %47
 71:                                               ; preds = %69, %66
   %72 = load i32, ptr %64, align 4
   %73 = icmp eq i32 %72, 524288
-  %spec.select565 = select i1 %73, i32 0, i32 %72
+  %spec.select596 = select i1 %73, i32 0, i32 %72
   %74 = getelementptr inbounds nuw i8, ptr %.0398, i64 104
-  store i32 %spec.select565, ptr %74, align 8
+  store i32 %spec.select596, ptr %74, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
 
@@ -3652,8 +3652,8 @@ set_partition_billing_weights.exit.thread:        ; preds = %54, %60, %47
   %503 = icmp eq i16 %501, %502
   %.pre = load i16, ptr %490, align 4
   %504 = icmp ult i16 %.pre, %501
-  %or.cond566 = select i1 %503, i1 %504, i1 false
-  br i1 %or.cond566, label %506, label %505
+  %or.cond597 = select i1 %503, i1 %504, i1 false
+  br i1 %or.cond597, label %506, label %505
 
 505:                                              ; preds = %499
   %.not549 = icmp ugt i16 %.pre, %502

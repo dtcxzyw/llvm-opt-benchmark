@@ -2916,11 +2916,11 @@ _copy_string_obj_raw.exit39.i:                    ; preds = %104, %102, %96, %90
   br label %_excinfo_init_type_from_exception.exitthread-pre-split
 
 _excinfo_init_type_from_exception.exitthread-pre-split: ; preds = %111, %108
-  %.pr48 = load ptr, ptr %106, align 8, !tbaa !132
+  %.pr100 = load ptr, ptr %106, align 8, !tbaa !132
   br label %_excinfo_init_type_from_exception.exit
 
 _excinfo_init_type_from_exception.exit:           ; preds = %_excinfo_init_type_from_exception.exitthread-pre-split, %_copy_string_obj_raw.exit39.i
-  %112 = phi ptr [ %.pr48, %_excinfo_init_type_from_exception.exitthread-pre-split ], [ %.0.i38.i, %_copy_string_obj_raw.exit39.i ]
+  %112 = phi ptr [ %.pr100, %_excinfo_init_type_from_exception.exitthread-pre-split ], [ %.0.i38.i, %_copy_string_obj_raw.exit39.i ]
   %113 = icmp eq ptr %112, null
   br i1 %113, label %_excinfo_init_type_from_exception.exit.thread, label %114
 
@@ -4121,8 +4121,8 @@ Py_DECREF.exit:                                   ; preds = %35, %39, %42
 
 .thread62:                                        ; preds = %Py_DECREF.exit, %.lr.ph, %.thread62.sink.split
   %.144 = phi i64 [ %.04369, %.thread62.sink.split ], [ %.24568, %.lr.ph ], [ %.24568, %Py_DECREF.exit ]
-  %.not82 = icmp eq i64 %.144, 0
-  br i1 %.not82, label %._crit_edge, label %.lr.ph72
+  %.not89 = icmp eq i64 %.144, 0
+  br i1 %.not89, label %._crit_edge, label %.lr.ph72
 
 ._crit_edge:                                      ; preds = %_sharednsitem_clear.exit, %.thread62.thread, %.thread62
   call void @PyMem_RawFree(ptr noundef nonnull %18) #11

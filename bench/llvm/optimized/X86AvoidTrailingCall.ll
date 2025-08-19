@@ -372,8 +372,8 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i: ; preds = %_ZN
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i64, ptr %90, align 8, !tbaa !210
   %92 = and i64 %91, 32
-  %.not86 = icmp eq i64 %92, 0
-  br i1 %.not86, label %.preheader.i.i.i, label %.critedge
+  %.not96 = icmp eq i64 %92, 0
+  br i1 %.not96, label %.preheader.i.i.i, label %.critedge
 
 _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit.i: ; preds = %82
   %93 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.03.0.lcssa.i.i.i.i, i64 noundef 32, i32 noundef 1) #12

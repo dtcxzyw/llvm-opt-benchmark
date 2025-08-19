@@ -1101,8 +1101,8 @@ default.unreachable:                              ; preds = %.noexc35.i
   br label %157
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8825a66a4833ef4fE.exit.i": ; preds = %100
-  %lhsc279.i = load i8, ptr %92, align 1, !noalias !64
-  %101 = icmp eq i8 %lhsc279.i, 42
+  %lhsc292.i = load i8, ptr %92, align 1, !noalias !64
+  %101 = icmp eq i8 %lhsc292.i, 42
   br i1 %101, label %107, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8825a66a4833ef4fE.exit.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8825a66a4833ef4fE.exit.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8825a66a4833ef4fE.exit.i", %100, %.thread69.i
@@ -3685,12 +3685,12 @@ define internal fastcc void @_ZN9uv_client9httpcache19ArchivedCachePolicy24set_r
   call void @_ZN4core6result13unwrap_failed17h3ff7104a9ace307aE(ptr noalias noundef nonnull readonly align 1 @anon.ca151689c2c9fcca59944ffb3f3f0566.111, i64 noundef 23, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ca151689c2c9fcca59944ffb3f3f0566.39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca151689c2c9fcca59944ffb3f3f0566.112) #22
   unreachable
 
-.sink.split16:                                    ; preds = %_ZN9uv_client9httpcache24unix_timestamp_to_header17h9a927faea8a397b4E.exit, %_ZN9uv_client9httpcache25unix_timestamp_to_rfc282217hec30bd419ff5be53E.exit.thread5.i, %_ZN9uv_client9httpcache25unix_timestamp_to_rfc282217hec30bd419ff5be53E.exit.thread.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h3e3fb16c494f7b00E.exit"
+.sink.split25:                                    ; preds = %_ZN9uv_client9httpcache24unix_timestamp_to_header17h9a927faea8a397b4E.exit, %_ZN9uv_client9httpcache25unix_timestamp_to_rfc282217hec30bd419ff5be53E.exit.thread5.i, %_ZN9uv_client9httpcache25unix_timestamp_to_rfc282217hec30bd419ff5be53E.exit.thread.i, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h3e3fb16c494f7b00E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   br label %50
 
-50:                                               ; preds = %.sink.split16, %22
+50:                                               ; preds = %.sink.split25, %22
   ret void
 
 51:                                               ; preds = %22
@@ -3741,7 +3741,7 @@ define internal fastcc void @_ZN9uv_client9httpcache19ArchivedCachePolicy24set_r
 
 _ZN9uv_client9httpcache25unix_timestamp_to_rfc282217hec30bd419ff5be53E.exit.thread.i: ; preds = %65, %62, %56, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !345
-  br label %.sink.split16
+  br label %.sink.split25
 
 66:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !345
@@ -3777,7 +3777,7 @@ _ZN9uv_client9httpcache25unix_timestamp_to_rfc282217hec30bd419ff5be53E.exit.thre
 _ZN9uv_client9httpcache25unix_timestamp_to_rfc282217hec30bd419ff5be53E.exit.thread5.i: ; preds = %77, %74, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !367
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !367
-  br label %.sink.split16
+  br label %.sink.split25
 
 78:                                               ; preds = %66
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3861,7 +3861,7 @@ _ZN9uv_client9httpcache25unix_timestamp_to_rfc282217hec30bd419ff5be53E.exit.thre
 _ZN9uv_client9httpcache24unix_timestamp_to_header17h9a927faea8a397b4E.exit: ; preds = %"_ZN4core3ptr123drop_in_place$LT$core..result..Result$LT$http..header..value..HeaderValue$C$http..header..value..InvalidHeaderValue$GT$$GT$17h8745f69aa607e323E.exit.i.i", %99
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !395
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !383
-  br i1 %95, label %.sink.split16, label %106
+  br i1 %95, label %.sink.split25, label %106
 
 106:                                              ; preds = %_ZN9uv_client9httpcache24unix_timestamp_to_header17h9a927faea8a397b4E.exit
   %107 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -3913,7 +3913,7 @@ _ZN9uv_client9httpcache24unix_timestamp_to_header17h9a927faea8a397b4E.exit: ; pr
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h3e3fb16c494f7b00E.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h621b24a063acc81aE.exit", %115
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.sink.split16
+  br label %.sink.split25
 }
 
 ; Function Attrs: nonlazybind uwtable

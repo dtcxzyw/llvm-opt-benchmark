@@ -3553,9 +3553,9 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17hd6cecd2cd974b7aeE.exit"
 
 161:                                              ; preds = %91, %99, %73
-  %.sink34.i = phi ptr [ %75, %73 ], [ %94, %91 ], [ %101, %99 ]
+  %.sink38.i = phi ptr [ %75, %73 ], [ %94, %91 ], [ %101, %99 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink34.i, ptr %162, align 8, !alias.scope !154, !noalias !201
+  store ptr %.sink38.i, ptr %162, align 8, !alias.scope !154, !noalias !201
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17hd6cecd2cd974b7aeE.exit"
 
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17hd6cecd2cd974b7aeE.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hb0b3ac8cf5ef9d1fE.exit.thread.i", %161
@@ -5184,9 +5184,9 @@ _ZN5wasmi6engine8executor5cache14CachedInstance11load_caches17hcb19514e98bbf501E
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h95f3f2504d300a02E.exit"
 
 173:                                              ; preds = %103, %111, %75
-  %.sink36.i = phi ptr [ %77, %75 ], [ %106, %103 ], [ %113, %111 ]
+  %.sink40.i = phi ptr [ %77, %75 ], [ %106, %103 ], [ %113, %111 ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink36.i, ptr %174, align 8, !alias.scope !378, !noalias !426
+  store ptr %.sink40.i, ptr %174, align 8, !alias.scope !378, !noalias !426
   br label %"_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h95f3f2504d300a02E.exit"
 
 "_ZN5wasmi6engine8executor6instrs4call59_$LT$impl$u20$wasmi..engine..executor..instrs..Executor$GT$17execute_host_func17h95f3f2504d300a02E.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hb0b3ac8cf5ef9d1fE.exit.thread.i", %173

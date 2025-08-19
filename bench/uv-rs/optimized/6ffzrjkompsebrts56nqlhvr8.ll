@@ -592,13 +592,13 @@ define void @_ZN8uv_shell5Shell19configuration_files17hd31c01d7cfaadc73E(ptr dea
   %.sroa.06.0.sroa.gep39 = getelementptr inbounds nuw i8, ptr %25, i64 16
   br i1 %33, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h1b789d0dc28885ccE.exit", label %34
 
-default.unreachable187:                           ; preds = %34
+default.unreachable203:                           ; preds = %34
   unreachable
 
 34:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  switch i8 %1, label %default.unreachable187 [
+  switch i8 %1, label %default.unreachable203 [
     i8 0, label %51
     i8 1, label %37
     i8 2, label %38
@@ -1079,7 +1079,7 @@ _ZN3std3env3var17hbff2ac79463c28fcE.exit70:       ; preds = %44
   invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h1b789d0dc28885ccE"(ptr noalias noundef align 8 dereferenceable(24) %25) #14
           to label %48 unwind label %99
 
-180:                                              ; preds = %.invoke188, %174, %171, %225, %190
+180:                                              ; preds = %.invoke204, %174, %171, %225, %190
   %181 = landingpad { ptr, i32 }
           cleanup
   br label %179
@@ -1191,7 +1191,7 @@ _ZN3std4path4Path4join17h12b6919243adeca1E.exit100: ; preds = %174
   br label %192
 
 227:                                              ; preds = %192
-  br i1 %197, label %.invoke188, label %228
+  br i1 %197, label %.invoke204, label %228
 
 228:                                              ; preds = %227
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -1245,7 +1245,7 @@ _ZN3std4path4Path4join17h12b6919243adeca1E.exit106: ; preds = %228
   br label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h1b789d0dc28885ccE.exit110"
 
 246:                                              ; preds = %192
-  br i1 %197, label %.invoke188, label %247
+  br i1 %197, label %.invoke204, label %247
 
 247:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1256,11 +1256,11 @@ _ZN3std4path4Path4join17h12b6919243adeca1E.exit106: ; preds = %228
   invoke void @_ZN3std4path4Path5_join17h8965b519821eba8eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 %249, i64 noundef %251, ptr noalias noundef nonnull readonly align 1 @anon.75544f3de6b056e55a1c78fad4b0b5bf.31, i64 noundef 7)
           to label %_ZN3std4path4Path4join17h12b6919243adeca1E.exit112 unwind label %252
 
-.invoke188:                                       ; preds = %246, %227
+.invoke204:                                       ; preds = %246, %227
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef 8, i64 noundef 24) #17
-          to label %.cont189 unwind label %180
+          to label %.cont205 unwind label %180
 
-.cont189:                                         ; preds = %.invoke188
+.cont205:                                         ; preds = %.invoke204
   unreachable
 
 252:                                              ; preds = %247
@@ -1769,7 +1769,7 @@ define void @_ZN8uv_shell5Shell12prepend_path17he0f68d2184570600E(ptr dead_on_un
   %55 = alloca [24 x i8], align 8
   %56 = alloca [16 x i8], align 8
   %57 = alloca [24 x i8], align 8
-  switch i8 %1, label %default.unreachable154 [
+  switch i8 %1, label %default.unreachable165 [
     i8 0, label %58
     i8 1, label %73
     i8 2, label %88
@@ -1780,7 +1780,7 @@ define void @_ZN8uv_shell5Shell12prepend_path17he0f68d2184570600E(ptr dead_on_un
     i8 7, label %58
   ]
 
-default.unreachable154:                           ; preds = %4
+default.unreachable165:                           ; preds = %4
   unreachable
 
 58:                                               ; preds = %4, %4, %4
@@ -2019,9 +2019,9 @@ common.resume:                                    ; preds = %248, %273, %.body, 
   %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
   %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
   %.sroa.0.i.i.3.i.i.3.i.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 3
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx155 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
-  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx157 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx156 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx166 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx168 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx167 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
   br label %113
 
 113:                                              ; preds = %_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.i, %.lr.ph.i
@@ -2119,12 +2119,12 @@ common.resume:                                    ; preds = %248, %273, %.body, 
   %165 = trunc i32 %164 to i8
   %166 = and i8 %165, 63
   %167 = or disjoint i8 %166, -128
-  store i8 %167, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx155, align 1, !alias.scope !459, !noalias !458
+  store i8 %167, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx166, align 1, !alias.scope !459, !noalias !458
   %168 = lshr i32 %.sroa.4.0.i.ph.i, 6
   %169 = trunc i32 %168 to i8
   %170 = and i8 %169, 63
   %171 = or disjoint i8 %170, -128
-  store i8 %171, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx157, align 2, !alias.scope !459, !noalias !458
+  store i8 %171, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2.gep1.sroa_idx168, align 2, !alias.scope !459, !noalias !458
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i
 
 172:                                              ; preds = %158
@@ -2136,7 +2136,7 @@ common.resume:                                    ; preds = %248, %273, %.body, 
   %177 = trunc i32 %176 to i8
   %178 = and i8 %177, 63
   %179 = or disjoint i8 %178, -128
-  store i8 %179, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx156, align 1, !alias.scope !459, !noalias !458
+  store i8 %179, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx167, align 1, !alias.scope !459, !noalias !458
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i.i
 
 180:                                              ; preds = %156
@@ -3039,9 +3039,9 @@ define internal fastcc void @_ZN8uv_shell16backslash_escape17hbe0559e334368af8E(
   %.sroa.0.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
   %.sroa.0.i.3.i.3.i.3.gep2.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 3
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx31 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx33 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
   %.sroa.0.i.1.i.1.i.1.gep.sroa_idx32 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx34 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx33 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit
@@ -3143,12 +3143,12 @@ define internal fastcc void @_ZN8uv_shell16backslash_escape17hbe0559e334368af8E(
   %68 = trunc i32 %67 to i8
   %69 = and i8 %68, 63
   %70 = or disjoint i8 %69, -128
-  store i8 %70, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx31, align 1, !alias.scope !699, !noalias !696
+  store i8 %70, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx32, align 1, !alias.scope !699, !noalias !696
   %71 = lshr i32 %.sroa.4.0.i.ph, 6
   %72 = trunc i32 %71 to i8
   %73 = and i8 %72, 63
   %74 = or disjoint i8 %73, -128
-  store i8 %74, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx33, align 2, !alias.scope !699, !noalias !696
+  store i8 %74, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx34, align 2, !alias.scope !699, !noalias !696
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i
 
 75:                                               ; preds = %61
@@ -3160,7 +3160,7 @@ define internal fastcc void @_ZN8uv_shell16backslash_escape17hbe0559e334368af8E(
   %80 = trunc i32 %79 to i8
   %81 = and i8 %80, 63
   %82 = or disjoint i8 %81, -128
-  store i8 %82, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx32, align 1, !alias.scope !699, !noalias !696
+  store i8 %82, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx33, align 1, !alias.scope !699, !noalias !696
   br label %_ZN4core4char7methods15encode_utf8_raw17ha4c6f67d3ae98f5fE.exit.i
 
 83:                                               ; preds = %59

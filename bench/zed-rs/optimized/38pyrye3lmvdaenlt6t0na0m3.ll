@@ -717,8 +717,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %17 = trunc i32 %16 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !217, !noalias !214
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %19, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx9, align 1, !alias.scope !217, !noalias !214
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 20:                                               ; preds = %6
@@ -731,14 +731,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 63
   %28 = or disjoint i8 %27, -128
-  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx7, align 1, !alias.scope !217, !noalias !214
+  %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %28, ptr %.sroa.0.i.1.i.1.i.1.gep.sroa_idx8, align 1, !alias.scope !217, !noalias !214
   %29 = lshr i32 %1, 6
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
-  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx9, align 2, !alias.scope !217, !noalias !214
+  %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %32, ptr %.sroa.0.i.2.i.2.i.2.gep1.sroa_idx10, align 2, !alias.scope !217, !noalias !214
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20, %12, %8
@@ -1587,7 +1587,7 @@ _ZN3std4sync4once4Once9call_once17h37312a6e6d7ca493E.exit.i.i.i: ; preds = %.noe
 
 .noexc14.i:                                       ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !357
-  switch i32 %.sroa.020.0117, label %default.unreachable126 [
+  switch i32 %.sroa.020.0117, label %default.unreachable135 [
     i32 0, label %149
     i32 1, label %147
     i32 2, label %148
@@ -1597,7 +1597,7 @@ _ZN3std4sync4once4Once9call_once17h37312a6e6d7ca493E.exit.i.i.i: ; preds = %.noe
   call void @llvm.trap()
   unreachable
 
-default.unreachable126:                           ; preds = %241, %.noexc14.i
+default.unreachable135:                           ; preds = %241, %.noexc14.i
   unreachable
 
 147:                                              ; preds = %.noexc14.i
@@ -1866,7 +1866,7 @@ default.unreachable126:                           ; preds = %241, %.noexc14.i
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %244 = load i8, ptr %243, align 8, !range !401, !noundef !4
-  switch i8 %244, label %default.unreachable126 [
+  switch i8 %244, label %default.unreachable135 [
     i8 0, label %261
     i8 1, label %245
     i8 2, label %246
@@ -2250,7 +2250,7 @@ switch.lookup:                                    ; preds = %299
   %372 = zext nneg i8 %371 to i64
   %switch.gep = getelementptr inbounds nuw [81 x i64], ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE", i64 0, i64 %372
   %373 = zext nneg i8 %371 to i64
-  %switch.gep131 = getelementptr inbounds nuw [81 x ptr], ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE.25", i64 0, i64 %373
+  %switch.gep140 = getelementptr inbounds nuw [81 x ptr], ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE.25", i64 0, i64 %373
   br label %377
 
 374:                                              ; preds = %299
@@ -2264,7 +2264,7 @@ switch.lookup:                                    ; preds = %299
 
 377:                                              ; preds = %switch.lookup, %374
   %.sroa.313.0.in = phi ptr [ %375, %374 ], [ %switch.gep, %switch.lookup ]
-  %.sroa.012.0.in = phi ptr [ %303, %374 ], [ %switch.gep131, %switch.lookup ]
+  %.sroa.012.0.in = phi ptr [ %303, %374 ], [ %switch.gep140, %switch.lookup ]
   %.sroa.012.0 = load ptr, ptr %.sroa.012.0.in, align 8
   %.sroa.313.0 = load i64, ptr %.sroa.313.0.in, align 8
   %378 = invoke { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hd9f09d81f3fd9171E(ptr noundef nonnull align 8 %295)
@@ -2376,13 +2376,13 @@ define internal void @"_ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client.
   %31 = alloca [264 x i8], align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %33 = load i8, ptr %32, align 8, !range !7, !noundef !4
-  switch i8 %33, label %default.unreachable187 [
+  switch i8 %33, label %default.unreachable192 [
     i8 0, label %34
     i8 1, label %208
     i8 2, label %209
   ]
 
-default.unreachable187:                           ; preds = %3
+default.unreachable192:                           ; preds = %3
   unreachable
 
 34:                                               ; preds = %3
@@ -3088,7 +3088,7 @@ define internal noundef zeroext i1 @"_ZN11ureq_client18UreqResponseReader3new28_
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i8, ptr %7, align 8, !range !74, !noundef !4
-  switch i8 %8, label %default.unreachable77 [
+  switch i8 %8, label %default.unreachable84 [
     i8 0, label %9
     i8 1, label %21
     i8 2, label %22
@@ -3096,7 +3096,7 @@ define internal noundef zeroext i1 @"_ZN11ureq_client18UreqResponseReader3new28_
     i8 4, label %23
   ]
 
-default.unreachable77:                            ; preds = %2
+default.unreachable84:                            ; preds = %2
   unreachable
 
 9:                                                ; preds = %2

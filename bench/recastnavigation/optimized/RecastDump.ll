@@ -305,8 +305,8 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   %32 = phi i32 [ %28, %.lr.ph50 ], [ %65, %._crit_edge47 ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next57, %._crit_edge47 ]
   %33 = load ptr, ptr %0, align 8
-  %.idx59 = shl nsw i64 %indvars.iv56, 4
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx59
+  %.idx61 = shl nsw i64 %indvars.iv56, 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx61
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 12

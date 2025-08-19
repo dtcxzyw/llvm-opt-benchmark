@@ -60,7 +60,7 @@ define internal i32 @flashsv_decode_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 4, 1) i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca [5 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !37
@@ -447,7 +447,7 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %250 = load i8, ptr %249, align 1, !tbaa !42
   %251 = icmp slt i32 %spec.select.i272.us, %24
   %252 = zext i1 %251 to i32
-  %spec.select.i273.us = add i32 %spec.select.i272.us, %252
+  %spec.select.i273.us = add nuw i32 %spec.select.i272.us, %252
   %253 = zext i8 %250 to i32
   %254 = and i32 %spec.select.i272.us, 7
   %255 = shl nuw nsw i32 %253, %254
@@ -460,7 +460,7 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %261 = load i8, ptr %260, align 1, !tbaa !42
   %262 = icmp slt i32 %spec.select.i273.us, %24
   %263 = zext i1 %262 to i32
-  %spec.select.i274.us = add i32 %spec.select.i273.us, %263
+  %spec.select.i274.us = add nuw i32 %spec.select.i273.us, %263
   %264 = zext i8 %261 to i32
   %265 = and i32 %spec.select.i273.us, 7
   %266 = shl nuw nsw i32 %264, %265
@@ -498,7 +498,7 @@ define internal i32 @flashsv_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %284 = and i32 %spec.select.i274.us, 7
   %285 = shl i32 %283, %284
   %286 = lshr i32 %285, 24
-  %287 = add i32 %spec.select.i274.us, 8
+  %287 = add nuw i32 %spec.select.i274.us, 8
   %288 = call i32 @llvm.umin.i32(i32 %24, i32 %287)
   store i32 %286, ptr %190, align 4, !tbaa !59
   %289 = lshr i32 %288, 3
@@ -969,7 +969,7 @@ flashsv_decode_block.exit.us:                     ; preds = %483, %.preheader.i.
   %520 = and i32 %.sroa.19.5.us, 7
   %521 = shl i32 %519, %520
   %522 = lshr i32 %521, 24
-  %523 = add i32 %.sroa.19.5.us, 8
+  %523 = add nuw i32 %.sroa.19.5.us, 8
   %524 = call i32 @llvm.umin.i32(i32 %24, i32 %523)
   %525 = lshr i32 %524, 3
   %526 = zext nneg i32 %525 to i64

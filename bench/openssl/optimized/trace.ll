@@ -131,24 +131,24 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %7 = icmp eq i32 %2, 0
   %8 = icmp ugt i64 %4, 80
   %or.cond = and i1 %7, %8
-  %.not32 = icmp eq i32 %1, 0
+  %.not33 = icmp eq i32 %1, 0
   br i1 %or.cond, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = trunc i64 %4 to i32
-  br i1 %.not32, label %.preheader, label %28
+  br i1 %.not33, label %.preheader, label %28
 
 .thread:                                          ; preds = %5
   %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef %4, i32 noundef 80) #4
-  br i1 %.not32, label %.lr.ph.preheader, label %28
+  br i1 %.not33, label %.lr.ph.preheader, label %28
 
 .preheader:                                       ; preds = %9
   %12 = icmp sgt i32 %10, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.thread, %.preheader
-  %.0203336 = phi i32 [ %10, %.preheader ], [ 80, %.thread ]
-  %wide.trip.count = zext nneg i32 %.0203336 to i64
+  %.0203437 = phi i32 [ %10, %.preheader ], [ 80, %.thread ]
+  %wide.trip.count = zext nneg i32 %.0203437 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
@@ -182,24 +182,24 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %21, label %24, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge
-  %.122.lcssa41 = phi ptr [ %3, %._crit_edge ], [ %20, %17 ]
-  %.020333539 = phi i32 [ %10, %._crit_edge ], [ %.0203336, %17 ]
-  %22 = getelementptr inbounds i8, ptr %.122.lcssa41, i64 -1
+  %.122.lcssa42 = phi ptr [ %3, %._crit_edge ], [ %20, %17 ]
+  %.020343640 = phi i32 [ %10, %._crit_edge ], [ %.0203437, %17 ]
+  %22 = getelementptr inbounds i8, ptr %.122.lcssa42, i64 -1
   %23 = load i8, ptr %22, align 1, !tbaa !15
   %.not24 = icmp eq i8 %23, 10
   br i1 %.not24, label %28, label %24
 
 24:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.020333540 = phi i32 [ %.020333539, %._crit_edge.thread ], [ 0, %._crit_edge ]
-  %25 = add nsw i32 %.020333540, 1
-  %26 = sext i32 %.020333540 to i64
+  %.020343641 = phi i32 [ %.020343640, %._crit_edge.thread ], [ 0, %._crit_edge ]
+  %25 = add nsw i32 %.020343641, 1
+  %26 = sext i32 %.020343641 to i64
   %27 = getelementptr inbounds [81 x i8], ptr %6, i64 0, i64 %26
   store i8 10, ptr %27, align 1, !tbaa !15
   br label %28
 
 28:                                               ; preds = %.thread, %._crit_edge.thread, %24, %9
   %.021 = phi ptr [ %3, %9 ], [ %6, %24 ], [ %6, %._crit_edge.thread ], [ %3, %.thread ]
-  %.1 = phi i32 [ %10, %9 ], [ %25, %24 ], [ %.020333539, %._crit_edge.thread ], [ 80, %.thread ]
+  %.1 = phi i32 [ %10, %9 ], [ %25, %24 ], [ %.020343640, %._crit_edge.thread ], [ 80, %.thread ]
   %29 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %.1, ptr noundef %.021) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %29

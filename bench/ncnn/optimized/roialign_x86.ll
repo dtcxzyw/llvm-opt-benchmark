@@ -872,8 +872,8 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %21 = add nsw i32 %1, -1
   %22 = sitofp i32 %21 to float
   %23 = icmp slt i32 %4, 1
-  %or.cond.not165 = or i1 %15, %23
-  %brmerge = or i1 %or.cond.not165, %16
+  %or.cond.not173 = or i1 %15, %23
+  %brmerge = or i1 %or.cond.not173, %16
   br i1 %brmerge, label %._crit_edge142, label %.preheader110.us.us.us.preheader
 
 .preheader110.us.us.us.preheader:                 ; preds = %.preheader110.lr.ph

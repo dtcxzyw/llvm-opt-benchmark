@@ -123,8 +123,8 @@ while.cond18.preheader:                           ; preds = %if.then14
 
 land.rhs.preheader:                               ; preds = %while.cond18.preheader
   %7 = trunc i64 %input.1303362.le to i32
-  %.neg371 = mul i32 %7, -255
-  %8 = add i32 %.neg371, %4
+  %.neg374 = mul i32 %7, -255
+  %8 = add i32 %.neg374, %4
   %scevgep367 = getelementptr i8, ptr %input.1303, i64 %inputLimit361
   %9 = sub i64 0, %input.1303362.le
   %scevgep368 = getelementptr i8, ptr %scevgep367, i64 %9
@@ -250,8 +250,8 @@ while.cond75.preheader:                           ; preds = %if.then70
 
 land.rhs77.preheader:                             ; preds = %while.cond75.preheader
   %15 = trunc i64 %input.1303362.le to i32
-  %.neg370 = mul i32 %15, -255
-  %16 = add i32 %.neg370, %3
+  %.neg373 = mul i32 %15, -255
+  %16 = add i32 %.neg373, %3
   %scevgep364 = getelementptr i8, ptr %input.1303, i64 %inputLimit361
   %17 = sub i64 0, %input.1303362.le
   %scevgep365 = getelementptr i8, ptr %scevgep364, i64 %17

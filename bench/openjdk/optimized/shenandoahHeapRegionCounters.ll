@@ -155,8 +155,8 @@ define hidden void @_ZN28ShenandoahHeapRegionCountersC2Ev(ptr noundef nonnull al
   %68 = add i32 %.037, 1
   %69 = zext i32 %68 to i64
   %70 = icmp ugt i64 %24, %69
-  %or.cond42 = select i1 %.not36, i1 %70, i1 false
-  br i1 %or.cond42, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %or.cond44 = select i1 %.not36, i1 %70, i1 false
+  br i1 %or.cond44, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %54, %48, %41, %36, %8
   %71 = load ptr, ptr %15, align 8

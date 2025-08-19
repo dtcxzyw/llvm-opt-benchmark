@@ -345,7 +345,7 @@ define dso_local noundef zeroext i1 @parse_module(ptr noundef %0, i32 noundef %1
     i32 66, label %37
     i32 65, label %37
     i32 8, label %parse_optional_module_params.exit.thread.sink.split.loopexit
-    i32 64, label %parse_optional_module_params.exit.thread.sink.split.loopexit246
+    i32 64, label %parse_optional_module_params.exit.thread.sink.split.loopexit259
     i32 67, label %parse_optional_module_params.exit.thread.sink.split
     i32 69, label %parse_optional_module_params.exit.thread.sink.split
   ]
@@ -417,11 +417,11 @@ parse_optional_module_params.exit:                ; preds = %61
 parse_optional_module_params.exit.thread.sink.split.loopexit: ; preds = %34
   br label %parse_optional_module_params.exit.thread.sink.split
 
-parse_optional_module_params.exit.thread.sink.split.loopexit246: ; preds = %34
+parse_optional_module_params.exit.thread.sink.split.loopexit259: ; preds = %34
   br label %parse_optional_module_params.exit.thread.sink.split
 
-parse_optional_module_params.exit.thread.sink.split: ; preds = %34, %34, %parse_optional_module_params.exit.thread.sink.split.loopexit246, %parse_optional_module_params.exit.thread.sink.split.loopexit, %31, %36
-  %.str.73.sink = phi ptr [ @.str.74, %36 ], [ @.str.70, %31 ], [ @.str.71, %parse_optional_module_params.exit.thread.sink.split.loopexit ], [ @.str.72, %parse_optional_module_params.exit.thread.sink.split.loopexit246 ], [ @.str.73, %34 ], [ @.str.73, %34 ]
+parse_optional_module_params.exit.thread.sink.split: ; preds = %34, %34, %parse_optional_module_params.exit.thread.sink.split.loopexit259, %parse_optional_module_params.exit.thread.sink.split.loopexit, %31, %36
+  %.str.73.sink = phi ptr [ @.str.74, %36 ], [ @.str.70, %31 ], [ @.str.71, %parse_optional_module_params.exit.thread.sink.split.loopexit ], [ @.str.72, %parse_optional_module_params.exit.thread.sink.split.loopexit259 ], [ @.str.73, %34 ], [ @.str.73, %34 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load i64, ptr %70, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %71, ptr noundef nonnull %.str.73.sink) #8
@@ -938,7 +938,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
   %trunc = trunc i16 %14 to i8
   switch i8 %trunc, label %40 [
     i8 30, label %.loopexit67.loopexit
-    i8 29, label %.loopexit67.loopexit123
+    i8 29, label %.loopexit67.loopexit132
     i8 16, label %.loopexit67
     i8 3, label %24
     i8 11, label %17
@@ -979,11 +979,11 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
 .loopexit67.loopexit:                             ; preds = %16
   br label %.loopexit67
 
-.loopexit67.loopexit123:                          ; preds = %16
+.loopexit67.loopexit132:                          ; preds = %16
   br label %.loopexit67
 
-.loopexit67:                                      ; preds = %16, %.loopexit67.loopexit123, %.loopexit67.loopexit
-  %.041.ph.ph = phi i32 [ 0, %.loopexit67.loopexit ], [ 1, %.loopexit67.loopexit123 ], [ 2, %16 ]
+.loopexit67:                                      ; preds = %16, %.loopexit67.loopexit132, %.loopexit67.loopexit
+  %.041.ph.ph = phi i32 [ 0, %.loopexit67.loopexit ], [ 1, %.loopexit67.loopexit132 ], [ 2, %16 ]
   br i1 %.not52, label %30, label %35
 
 30:                                               ; preds = %.loopexit67
@@ -1019,7 +1019,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
   %45 = getelementptr inbounds i8, ptr %43, i64 -8
   %46 = load i32, ptr %45, align 4
   %.not83 = icmp eq i32 %46, 0
-  br i1 %.not83, label %.loopexit99, label %.lr.ph.preheader
+  br i1 %.not83, label %.loopexit108, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %44
   %wide.trip.count = zext i32 %46 to i64
@@ -1028,7 +1028,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
 47:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit99, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit108, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
@@ -1051,15 +1051,15 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nounde
   store i32 8, ptr %57, align 4
   br label %59
 
-.loopexit99:                                      ; preds = %47, %44
+.loopexit108:                                     ; preds = %47, %44
   %58 = getelementptr inbounds i8, ptr %43, i64 -8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %43, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %59
 
-59:                                               ; preds = %.loopexit99, %._crit_edge
-  %60 = phi i32 [ %.pre.i, %.loopexit99 ], [ 8, %._crit_edge ]
-  %.0.i = phi ptr [ %58, %.loopexit99 ], [ %56, %._crit_edge ]
+59:                                               ; preds = %.loopexit108, %._crit_edge
+  %60 = phi i32 [ %.pre.i, %.loopexit108 ], [ 8, %._crit_edge ]
+  %.0.i = phi ptr [ %58, %.loopexit108 ], [ %56, %._crit_edge ]
   %61 = load i32, ptr %.0.i, align 4
   %62 = icmp eq i32 %61, %60
   br i1 %62, label %63, label %77
@@ -1783,7 +1783,7 @@ parse_vector_type_index.exit.backedge:            ; preds = %.critedge44.i, %223
   %238 = lshr i16 %237, 10
   %239 = and i16 %238, 15
   %240 = icmp samesign ult i16 %239, 3
-  br i1 %240, label %switch.lookup76, label %241
+  br i1 %240, label %switch.lookup81, label %241
 
 241:                                              ; preds = %236
   %242 = getelementptr inbounds nuw i8, ptr %.038, i64 16
@@ -1826,26 +1826,26 @@ extend_span_with_token.exit:                      ; preds = %251, %252
   store i64 %.sroa.010.0.insert.insert.i, ptr %246, align 8
   br label %.loopexit
 
-switch.lookup76:                                  ; preds = %236
+switch.lookup81:                                  ; preds = %236
   %261 = shl nuw nsw i16 %239, 4
-  %switch.shiftamt78 = zext nneg i16 %261 to i48
-  %switch.downshift79 = lshr i48 13194407969792, %switch.shiftamt78
-  %switch.masked80 = trunc i48 %switch.downshift79 to i16
+  %switch.shiftamt83 = zext nneg i16 %261 to i48
+  %switch.downshift84 = lshr i48 13194407969792, %switch.shiftamt83
+  %switch.masked85 = trunc i48 %switch.downshift84 to i16
   %262 = and i16 %237, -15361
-  %263 = or disjoint i16 %262, %switch.masked80
+  %263 = or disjoint i16 %262, %switch.masked85
   store i16 %263, ptr %.038, align 8
   %264 = and i16 %237, 7
   %265 = icmp eq i16 %264, 2
   br i1 %265, label %266, label %270
 
-266:                                              ; preds = %switch.lookup76
+266:                                              ; preds = %switch.lookup81
   %267 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %268 = load ptr, ptr %267, align 8
   %269 = tail call ptr @type_get_ptr(ptr noundef %268) #8
   store ptr %269, ptr %267, align 8
   br label %270
 
-270:                                              ; preds = %switch.lookup76, %266
+270:                                              ; preds = %switch.lookup81, %266
   %271 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %272 = load i64, ptr %271, align 8
   %273 = load i64, ptr %4, align 8
@@ -3669,12 +3669,12 @@ expand_.exit.sink.split:                          ; preds = %32, %45
   br label %expand_.exit
 
 expand_.exit:                                     ; preds = %expand_.exit.sink.split, %41, %.split
-  %.sink329 = phi i32 [ %30, %.split ], [ %43, %41 ], [ %.pre18.i209, %expand_.exit.sink.split ]
+  %.sink337 = phi i32 [ %30, %.split ], [ %43, %41 ], [ %.pre18.i209, %expand_.exit.sink.split ]
   %.1.i208.sink = phi ptr [ %28, %.split ], [ %42, %41 ], [ %.sink, %expand_.exit.sink.split ]
-  %58 = add i32 %.sink329, 1
+  %58 = add i32 %.sink337, 1
   store i32 %58, ptr %.1.i208.sink, align 4
   %phi.call = getelementptr inbounds nuw i8, ptr %.1.i208.sink, i64 8
-  %59 = zext i32 %.sink329 to i64
+  %59 = zext i32 %.sink337 to i64
   %60 = getelementptr inbounds nuw ptr, ptr %phi.call, i64 %59
   store ptr null, ptr %60, align 8
   %61 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
@@ -4729,11 +4729,11 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %57, label %.backedge.sink.split, label %.backedge
 
 .backedge.sink.split:                             ; preds = %54, %119
-  %.0.i.sink198 = phi ptr [ %.0.i138, %119 ], [ %.0.i, %54 ]
-  %.sink197 = phi i32 [ %120, %119 ], [ %55, %54 ]
+  %.0.i.sink207 = phi ptr [ %.0.i138, %119 ], [ %.0.i, %54 ]
+  %.sink206 = phi i32 [ %120, %119 ], [ %55, %54 ]
   %.0114.be.ph = phi i8 [ 0, %119 ], [ 1, %54 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i.sink198, i64 4
-  %59 = shl i32 %.sink197, 1
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.sink207, i64 4
+  %59 = shl i32 %.sink206, 1
   %60 = zext i32 %59 to i64
   %61 = shl nuw nsw i64 %60, 3
   %62 = or disjoint i64 %61, 8
@@ -4744,7 +4744,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   %66 = zext i32 %65 to i64
   %67 = shl nuw nsw i64 %66, 3
   %68 = add nuw nsw i64 %67, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %63, ptr noundef nonnull align 4 dereferenceable(1) %.0.i.sink198, i64 %68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %63, ptr noundef nonnull align 4 dereferenceable(1) %.0.i.sink207, i64 %68, i1 false)
   %69 = load i32, ptr %64, align 4
   %70 = shl i32 %69, 1
   store i32 %70, ptr %64, align 4
@@ -4752,14 +4752,14 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %54, %119
-  %.sink177 = phi i32 [ %121, %119 ], [ %56, %54 ], [ %.pre18.i, %.backedge.sink.split ]
-  %.1.i.sink176 = phi ptr [ %.0.i138, %119 ], [ %.0.i, %54 ], [ %63, %.backedge.sink.split ]
+  %.sink186 = phi i32 [ %121, %119 ], [ %56, %54 ], [ %.pre18.i, %.backedge.sink.split ]
+  %.1.i.sink185 = phi ptr [ %.0.i138, %119 ], [ %.0.i, %54 ], [ %63, %.backedge.sink.split ]
   %.0114.be = phi i8 [ 0, %119 ], [ 1, %54 ], [ %.0114.be.ph, %.backedge.sink.split ]
-  %71 = add i32 %.sink177, 1
-  store i32 %71, ptr %.1.i.sink176, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %.1.i.sink176, i64 8
+  %71 = add i32 %.sink186, 1
+  store i32 %71, ptr %.1.i.sink185, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %.1.i.sink185, i64 8
   store ptr %72, ptr %13, align 8
-  %73 = load i32, ptr %.1.i.sink176, align 4
+  %73 = load i32, ptr %.1.i.sink185, align 4
   %74 = add i32 %73, -1
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
@@ -6007,8 +6007,8 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
 
 .critedge:                                        ; preds = %50, %.split
   %.sink = phi i64 [ %58, %.split ], [ 0, %50 ]
-  %.sink61 = load ptr, ptr @ast_arena, align 8
-  %61 = ptrtoint ptr %.sink61 to i64
+  %.sink63 = load ptr, ptr @ast_arena, align 8
+  %61 = ptrtoint ptr %.sink63 to i64
   %62 = sub i64 %.sink, %61
   %phi.call.in = sdiv exact i64 %62, 48
   %phi.call = trunc i64 %phi.call.in to i32
@@ -6036,10 +6036,10 @@ define internal fastcc ptr @parse_func_definition(ptr noundef %0, i32 noundef %1
   br label %79
 
 .critedge2:                                       ; preds = %64, %.split52
-  %.sink62 = phi i64 [ %70, %.split52 ], [ 0, %64 ]
-  %.sink64 = load ptr, ptr @ast_arena, align 8
-  %73 = ptrtoint ptr %.sink64 to i64
-  %74 = sub i64 %.sink62, %73
+  %.sink64 = phi i64 [ %70, %.split52 ], [ 0, %64 ]
+  %.sink66 = load ptr, ptr @ast_arena, align 8
+  %73 = ptrtoint ptr %.sink66 to i64
+  %74 = sub i64 %.sink64, %73
   %phi.call54.in = sdiv exact i64 %74, 48
   %phi.call54 = trunc i64 %phi.call54.in to i32
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -6111,7 +6111,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 .critedge:                                        ; preds = %1, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6139,7 +6139,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   %25 = load i64, ptr %24, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %25, ptr noundef nonnull @.str.115) #8
   %26 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 ._crit_edge:                                      ; preds = %59, %.preheader
   %27 = load i32, ptr %9, align 8
@@ -6151,12 +6151,12 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
 29:                                               ; preds = %._crit_edge
   tail call void (i64, ptr, ...) @sema_error_at(i64 %28, ptr noundef nonnull @.str.116) #8
   %30 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 31:                                               ; preds = %._crit_edge
   tail call void (i64, ptr, ...) @sema_error_at(i64 %28, ptr noundef nonnull @.str.117) #8
   %32 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 .lr.ph:                                           ; preds = %.preheader, %59
   %33 = phi ptr [ %67, %59 ], [ %16, %.preheader ]
@@ -6275,7 +6275,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 101:                                              ; preds = %97
   %102 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 10) #8
@@ -6289,7 +6289,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   %105 = load i64, ptr %13, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %105, ptr noundef nonnull @.str.118) #8
   %106 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 107:                                              ; preds = %103
   %108 = tail call ptr @parse_expr(ptr noundef nonnull %0) #8
@@ -6310,7 +6310,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
 
 115:                                              ; preds = %110
   %116 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 117:                                              ; preds = %101
   %118 = getelementptr inbounds nuw i8, ptr %33, i64 64
@@ -6329,7 +6329,7 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   %125 = load i64, ptr %124, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %125, ptr noundef nonnull @.str.119) #8
   %126 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 thread-pre-split:                                 ; preds = %117, %.critedge2
   %.pr = load i32, ptr %9, align 8
@@ -6345,7 +6345,7 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
   %132 = load i64, ptr %131, align 8
   tail call void (i64, ptr, ...) @sema_error_at_after(i64 %132, ptr noundef nonnull @.str.16) #8
   %133 = load ptr, ptr @poisoned_decl, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
 134:                                              ; preds = %127
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -6356,7 +6356,7 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
   br i1 %.not115, label %.loopexit, label %137
 
 137:                                              ; preds = %134
-  br i1 %.not117, label %.loopexit.thread143, label %138
+  br i1 %.not117, label %.loopexit.thread149, label %138
 
 138:                                              ; preds = %137
   %139 = getelementptr inbounds i8, ptr %.1, i64 -8
@@ -6387,7 +6387,7 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph135, !llvm.loop !20
 
 .loopexit:                                        ; preds = %134
-  br i1 %.not117, label %.loopexit.thread143, label %.loopexit.thread
+  br i1 %.not117, label %.loopexit.thread149, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %147, %138, %.loopexit
   %148 = tail call ptr @vmem_alloc(ptr noundef nonnull @decl_arena, i64 noundef 136) #8
@@ -6398,9 +6398,9 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
   store i64 %152, ptr %149, align 8
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 80
   store ptr %.1, ptr %153, align 8
-  br label %.loopexit.thread143
+  br label %.loopexit.thread149
 
-.loopexit.thread143:                              ; preds = %137, %.loopexit, %.loopexit.thread, %130, %123, %115, %104, %99, %31, %29, %23, %7
+.loopexit.thread149:                              ; preds = %137, %.loopexit, %.loopexit.thread, %130, %123, %115, %104, %99, %31, %29, %23, %7
   %.0101 = phi ptr [ %26, %23 ], [ %106, %104 ], [ %148, %.loopexit.thread ], [ %133, %130 ], [ %116, %115 ], [ %126, %123 ], [ %100, %99 ], [ %30, %29 ], [ %32, %31 ], [ %8, %7 ], [ %33, %.loopexit ], [ %33, %137 ]
   ret ptr %.0101
 }
@@ -6523,8 +6523,8 @@ define internal fastcc ptr @parse_def(ptr noundef %0) unnamed_addr #0 {
 
 .critedge.i:                                      ; preds = %36, %.split.i
   %.sink.i = phi i64 [ %59, %.split.i ], [ 0, %36 ]
-  %.sink111.i = load ptr, ptr @type_info_arena, align 8
-  %62 = ptrtoint ptr %.sink111.i to i64
+  %.sink112.i = load ptr, ptr @type_info_arena, align 8
+  %62 = ptrtoint ptr %.sink112.i to i64
   %63 = sub i64 %.sink.i, %62
   %phi.call.in.i = sdiv exact i64 %63, 40
   %phi.call.i = trunc i64 %phi.call.in.i to i32
@@ -8320,8 +8320,8 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
 
 .critedge:                                        ; preds = %87, %.split
   %.sink = phi i64 [ %95, %.split ], [ 0, %87 ]
-  %.sink40 = load ptr, ptr @ast_arena, align 8
-  %98 = ptrtoint ptr %.sink40 to i64
+  %.sink44 = load ptr, ptr @ast_arena, align 8
+  %98 = ptrtoint ptr %.sink44 to i64
   %99 = sub i64 %.sink, %98
   %phi.call.in = sdiv exact i64 %99, 48
   %phi.call = trunc i64 %phi.call.in to i32
@@ -8349,10 +8349,10 @@ define internal fastcc ptr @parse_macro_declaration(ptr noundef %0, i32 noundef 
   br label %113
 
 .critedge2:                                       ; preds = %101, %.split32
-  %.sink41 = phi i64 [ %107, %.split32 ], [ 0, %101 ]
-  %.sink43 = load ptr, ptr @ast_arena, align 8
-  %110 = ptrtoint ptr %.sink43 to i64
-  %111 = sub i64 %.sink41, %110
+  %.sink45 = phi i64 [ %107, %.split32 ], [ 0, %101 ]
+  %.sink47 = load ptr, ptr @ast_arena, align 8
+  %110 = ptrtoint ptr %.sink47 to i64
+  %111 = sub i64 %.sink45, %110
   %phi.call34.in = sdiv exact i64 %111, 48
   %phi.call34 = trunc i64 %phi.call34.in to i32
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -9031,7 +9031,7 @@ consume_const_name.exit:                          ; preds = %53
   %72 = getelementptr inbounds i8, ptr %70, i64 -8
   %73 = load i32, ptr %72, align 4
   %.not102 = icmp eq i32 %73, 0
-  br i1 %.not102, label %.loopexit116, label %.lr.ph.preheader
+  br i1 %.not102, label %.loopexit119, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %71
   %wide.trip.count = zext i32 %73 to i64
@@ -9040,7 +9040,7 @@ consume_const_name.exit:                          ; preds = %53
 74:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit116, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit119, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
@@ -9066,15 +9066,15 @@ consume_const_name.exit:                          ; preds = %53
   store i32 8, ptr %86, align 4
   br label %88
 
-.loopexit116:                                     ; preds = %74, %71
+.loopexit119:                                     ; preds = %74, %71
   %87 = getelementptr inbounds i8, ptr %70, i64 -8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %70, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %88
 
-88:                                               ; preds = %.loopexit116, %._crit_edge
-  %89 = phi i32 [ %.pre.i, %.loopexit116 ], [ 8, %._crit_edge ]
-  %.0.i87 = phi ptr [ %87, %.loopexit116 ], [ %85, %._crit_edge ]
+88:                                               ; preds = %.loopexit119, %._crit_edge
+  %89 = phi i32 [ %.pre.i, %.loopexit119 ], [ 8, %._crit_edge ]
+  %.0.i87 = phi ptr [ %87, %.loopexit119 ], [ %85, %._crit_edge ]
   %90 = load i32, ptr %.0.i87, align 4
   %91 = icmp eq i32 %90, %89
   br i1 %91, label %92, label %106

@@ -284,18 +284,18 @@ WimaxasncpDict__switch_to_buffer.exit:            ; preds = %WimaxasncpDict__swi
   %108 = sext i16 %107 to i32
   %109 = getelementptr i8, ptr %.1335, i64 1
   %.not364 = icmp eq i16 %107, 332
-  br i1 %.not364, label %.backedge.sink.split1231, label %71, !llvm.loop !8
+  br i1 %.not364, label %.backedge.sink.split1307, label %71, !llvm.loop !8
 
-.backedge.sink.split1231:                         ; preds = %._crit_edge, %.backedge.sink.split1231.backedge
-  %.1342.ph = phi ptr [ %.1342.ph.be, %.backedge.sink.split1231.backedge ], [ %.0341, %._crit_edge ]
+.backedge.sink.split1307:                         ; preds = %._crit_edge, %.backedge.sink.split1307.backedge
+  %.1342.ph = phi ptr [ %.1342.ph.be, %.backedge.sink.split1307.backedge ], [ %.0341, %._crit_edge ]
   %110 = load ptr, ptr %57, align 8
   %111 = load i32, ptr %56, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1231
-  %.1342 = phi ptr [ %.1342.ph, %.backedge.sink.split1231 ], [ %1306, %.backedge.backedge ]
-  %.2336 = phi ptr [ %110, %.backedge.sink.split1231 ], [ %1308, %.backedge.backedge ]
-  %.3329 = phi i32 [ %111, %.backedge.sink.split1231 ], [ %.3329.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1307
+  %.1342 = phi ptr [ %.1342.ph, %.backedge.sink.split1307 ], [ %1306, %.backedge.backedge ]
+  %.2336 = phi ptr [ %110, %.backedge.sink.split1307 ], [ %1308, %.backedge.backedge ]
+  %.3329 = phi i32 [ %111, %.backedge.sink.split1307 ], [ %.3329.be, %.backedge.backedge ]
   %112 = sext i32 %.3329 to i64
   %113 = getelementptr [333 x i16], ptr @yy_accept, i64 0, i64 %112
   %114 = load i16, ptr %113, align 2
@@ -410,7 +410,7 @@ WimaxasncpDict__switch_to_buffer.exit:            ; preds = %WimaxasncpDict__swi
 122:                                              ; preds = %121
   %123 = load i8, ptr %54, align 8
   store i8 %123, ptr %.2336, align 1
-  br label %.backedge.sink.split1231.backedge
+  br label %.backedge.sink.split1307.backedge
 
 124:                                              ; preds = %121
   store i32 5, ptr %55, align 4
@@ -2266,13 +2266,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   %1100 = getelementptr [1159 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i489
   %1101 = load i16, ptr %1100, align 2
   switch i16 %1101, label %1102 [
-    i16 332, label %.backedge.sink.split1231.backedge
-    i16 0, label %.backedge.sink.split1231.backedge
+    i16 332, label %.backedge.sink.split1307.backedge
+    i16 0, label %.backedge.sink.split1307.backedge
   ]
 
-.backedge.sink.split1231.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %122
+.backedge.sink.split1307.backedge:                ; preds = %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit, %122
   %.1342.ph.be = phi ptr [ %.1342, %122 ], [ %1032, %yy_try_NUL_trans.exit ], [ %1032, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split1231
+  br label %.backedge.sink.split1307
 
 1102:                                             ; preds = %yy_try_NUL_trans.exit
   %1103 = sext i16 %1101 to i32
@@ -2443,10 +2443,10 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   br label %1185
 
 1185:                                             ; preds = %._crit_edge126.i, %1136
-  %.sink142.in.i = phi ptr [ %1184, %._crit_edge126.i ], [ %1137, %1136 ]
+  %.sink147.in.i = phi ptr [ %1184, %._crit_edge126.i ], [ %1137, %1136 ]
   %.sink.i = phi i32 [ %1181, %._crit_edge126.i ], [ 0, %1136 ]
-  %.sink142.i = load ptr, ptr %.sink142.in.i, align 8
-  %1186 = getelementptr inbounds nuw i8, ptr %.sink142.i, i64 28
+  %.sink147.i = load ptr, ptr %.sink147.in.i, align 8
+  %1186 = getelementptr inbounds nuw i8, ptr %.sink147.i, i64 28
   store i32 %.sink.i, ptr %1186, align 4
   %1187 = load i32, ptr %62, align 4
   %1188 = icmp eq i32 %1187, 0
@@ -2549,7 +2549,7 @@ yy_get_next_buffer.exit:                          ; preds = %1199, %1228
   %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 8
   %1254 = load ptr, ptr %1253, align 8
   store ptr %1254, ptr %58, align 8
-  switch i32 %.0102.i, label %default.unreachable1000 [
+  switch i32 %.0102.i, label %default.unreachable1076 [
     i32 1, label %yy_get_previous_state.exit512
     i32 0, label %1256
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread530_crit_edge
@@ -2569,8 +2569,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread530_crit_edge: ; preds = %
   %1258 = ptrtoint ptr %998 to i64
   %1259 = xor i64 %1258, -1
   %1260 = add i64 %1259, %1257
-  %sext1098 = shl i64 %1260, 32
-  %1261 = ashr exact i64 %sext1098, 32
+  %sext1174 = shl i64 %1260, 32
+  %1261 = ashr exact i64 %sext1174, 32
   %1262 = getelementptr i8, ptr %1254, i64 %1261
   store ptr %1262, ptr %53, align 8
   %1263 = load i32, ptr %55, align 4
@@ -2739,7 +2739,7 @@ yy_get_next_buffer.exit.thread530:                ; preds = %1118, %yy_get_next_
   %exitcond.not.i526 = icmp eq ptr %1351, %1308
   br i1 %exitcond.not.i526, label %.backedge.backedge, label %.lr.ph31.i514, !llvm.loop !13
 
-default.unreachable1000:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1076:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit512:                    ; preds = %yy_get_next_buffer.exit, %1118
@@ -3140,7 +3140,7 @@ define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @WimaxasncpDict_ensure_buffer_stack(ptr noundef %1)
@@ -3154,14 +3154,14 @@ define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #38
   %19 = load i32, ptr %18, align 4
   br label %WimaxasncpDict__flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -3172,7 +3172,7 @@ define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %WimaxasncpDict__flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3220,10 +3220,10 @@ define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(
   store i8 %55, ptr %56, align 8
   br label %WimaxasncpDict__flush_buffer.exit.i
 
-WimaxasncpDict__flush_buffer.exit.i:              ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+WimaxasncpDict__flush_buffer.exit.i:              ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -3363,7 +3363,7 @@ define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr noundef
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3388,23 +3388,23 @@ define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr noundef
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

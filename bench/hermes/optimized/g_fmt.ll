@@ -225,13 +225,13 @@ if.end78:                                         ; preds = %if.then76, %while.b
   br i1 %tobool68.not, label %for.cond80thread-pre-split, label %while.body69, !llvm.loop !10
 
 for.cond80thread-pre-split:                       ; preds = %if.end78, %if.end78.thread
-  %b.addr.967 = phi ptr [ %incdec.ptr70, %if.end78.thread ], [ %b.addr.9, %if.end78 ]
+  %b.addr.968 = phi ptr [ %incdec.ptr70, %if.end78.thread ], [ %b.addr.9, %if.end78 ]
   %.pr34.pre = load i32, ptr %decpt, align 4
   %23 = icmp sgt i32 %.pr34.pre, 0
   br i1 %23, label %for.body83.preheader, label %done0.sink.split
 
 for.body83.preheader:                             ; preds = %while.cond66.preheader, %for.cond80thread-pre-split
-  %b.addr.1041.ph = phi ptr [ %b.addr.0, %while.cond66.preheader ], [ %b.addr.967, %for.cond80thread-pre-split ]
+  %b.addr.1041.ph = phi ptr [ %b.addr.0, %while.cond66.preheader ], [ %b.addr.968, %for.cond80thread-pre-split ]
   br label %for.body83
 
 for.body83:                                       ; preds = %for.body83.preheader, %for.body83
@@ -245,7 +245,7 @@ for.body83:                                       ; preds = %for.body83.preheade
   br i1 %cmp81, label %for.body83, label %done0.sink.split, !llvm.loop !11
 
 done0.sink.split:                                 ; preds = %for.body83, %if.end41, %for.cond80thread-pre-split, %for.cond33.preheader
-  %incdec.ptr36.lcssa.sink = phi ptr [ %incdec.ptr3653, %for.cond33.preheader ], [ %b.addr.967, %for.cond80thread-pre-split ], [ %incdec.ptr36, %if.end41 ], [ %incdec.ptr84, %for.body83 ]
+  %incdec.ptr36.lcssa.sink = phi ptr [ %incdec.ptr3653, %for.cond33.preheader ], [ %b.addr.968, %for.cond80thread-pre-split ], [ %incdec.ptr36, %if.end41 ], [ %incdec.ptr84, %for.body83 ]
   store i8 0, ptr %incdec.ptr36.lcssa.sink, align 1
   br label %done0
 

@@ -81582,8 +81582,8 @@ _ZNK4entt9dense_mapIiiSt4hashIiESt8equal_toIvESaISt4pairIKiiEEE8containsERS6_.ex
   br label %378
 
 322:                                              ; preds = %320
-  %.idx321 = shl nsw i64 %.sroa.5.0.i.i.i239, 4
-  %323 = getelementptr inbounds i8, ptr %127, i64 %.idx321
+  %.idx403 = shl nsw i64 %.sroa.5.0.i.i.i239, 4
+  %323 = getelementptr inbounds i8, ptr %127, i64 %.idx403
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %325 = load i32, ptr %324, align 4, !tbaa !69
   %326 = icmp eq i32 %325, 0
@@ -82622,7 +82622,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.5.0.in.i.i.i419 = phi ptr [ %292, %291 ], [ %296, %295 ]
   %.sroa.5.0.i.i.i420 = load i64, ptr %.sroa.5.0.in.i.i.i419, align 8, !tbaa !68
   %.not.i.i.i421 = icmp eq i64 %.sroa.5.0.i.i.i420, -1
-  br i1 %.not.i.i.i421, label %.thread952, label %295
+  br i1 %.not.i.i.i421, label %.thread1099, label %295
 
 295:                                              ; preds = %294
   %296 = getelementptr inbounds %"struct.entt::internal::dense_map_node.262", ptr %293, i64 %.sroa.5.0.i.i.i420
@@ -82631,7 +82631,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %302, label %294, !llvm.loop !75
 
-.thread952:                                       ; preds = %294
+.thread1099:                                      ; preds = %294
   %300 = load ptr, ptr %168, align 8, !tbaa !50
   store ptr %300, ptr %16, align 8
   %301 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -82653,7 +82653,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %307 = icmp eq ptr %296, %.pre.i423
   br i1 %307, label %308, label %309
 
-308:                                              ; preds = %.thread952, %302
+308:                                              ; preds = %.thread1099, %302
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15)
           to label %_ZN7testing8internal8EqHelper7CompareIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS4_14dense_map_nodeIiiEESt6vectorIS9_SaIS9_EEEEEESG_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSQ_RKSI_RKSJ_.exit unwind label %313
 
@@ -83037,7 +83037,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.5.0.in.i.i.i478 = phi ptr [ %432, %431 ], [ %436, %435 ]
   %.sroa.5.0.i.i.i479 = load i64, ptr %.sroa.5.0.in.i.i.i478, align 8, !tbaa !68
   %.not.i.i.i480 = icmp eq i64 %.sroa.5.0.i.i.i479, -1
-  br i1 %.not.i.i.i480, label %.thread954, label %435
+  br i1 %.not.i.i.i480, label %.thread1101, label %435
 
 435:                                              ; preds = %434
   %436 = getelementptr inbounds %"struct.entt::internal::dense_map_node.262", ptr %433, i64 %.sroa.5.0.i.i.i479
@@ -83046,7 +83046,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %439 = icmp eq i32 %438, 0
   br i1 %439, label %442, label %434, !llvm.loop !78
 
-.thread954:                                       ; preds = %434
+.thread1101:                                      ; preds = %434
   %440 = load ptr, ptr %168, align 8, !tbaa !50
   store ptr %440, ptr %26, align 8
   %441 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -83068,7 +83068,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %447 = icmp eq ptr %436, %.pre.i482
   br i1 %447, label %448, label %449
 
-448:                                              ; preds = %.thread954, %442
+448:                                              ; preds = %.thread1101, %442
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %25)
           to label %_ZN7testing8internal8EqHelper7CompareIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS4_14dense_map_nodeIiiEESt6vectorIS9_SaIS9_EEEEEESF_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSP_RKSH_RKSI_.exit488 unwind label %453
 
@@ -83452,7 +83452,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.5.0.in.i.i.i538 = phi ptr [ %572, %571 ], [ %576, %575 ]
   %.sroa.5.0.i.i.i539 = load i64, ptr %.sroa.5.0.in.i.i.i538, align 8, !tbaa !68
   %.not.i.i.i540 = icmp eq i64 %.sroa.5.0.i.i.i539, -1
-  br i1 %.not.i.i.i540, label %.thread956, label %575
+  br i1 %.not.i.i.i540, label %.thread1103, label %575
 
 575:                                              ; preds = %574
   %576 = getelementptr inbounds %"struct.entt::internal::dense_map_node.262", ptr %573, i64 %.sroa.5.0.i.i.i539
@@ -83461,7 +83461,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %579 = icmp eq i32 %578, 0
   br i1 %579, label %582, label %574, !llvm.loop !76
 
-.thread956:                                       ; preds = %574
+.thread1103:                                      ; preds = %574
   %580 = load ptr, ptr %168, align 8, !tbaa !50
   store ptr %580, ptr %36, align 8
   %581 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -83483,7 +83483,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %587 = icmp eq ptr %576, %.pre.i542
   br i1 %587, label %588, label %589
 
-588:                                              ; preds = %.thread956, %582
+588:                                              ; preds = %.thread1103, %582
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %35)
           to label %_ZN7testing8internal8EqHelper7CompareIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS4_14dense_map_nodeIiiEESt6vectorIS9_SaIS9_EEEEEESG_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSQ_RKSI_RKSJ_.exit548 unwind label %593
 
@@ -83875,7 +83875,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.5.0.in.i.i.i598 = phi ptr [ %721, %711 ], [ %724, %723 ]
   %.sroa.5.0.i.i.i599 = load i64, ptr %.sroa.5.0.in.i.i.i598, align 8, !tbaa !68
   %.not.i.i.i600 = icmp eq i64 %.sroa.5.0.i.i.i599, -1
-  br i1 %.not.i.i.i600, label %.thread958, label %723
+  br i1 %.not.i.i.i600, label %.thread1105, label %723
 
 723:                                              ; preds = %722
   %724 = getelementptr inbounds %"struct.entt::internal::dense_map_node.262", ptr %720, i64 %.sroa.5.0.i.i.i599
@@ -83884,7 +83884,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %727 = icmp eq i32 %726, 4
   br i1 %727, label %730, label %722, !llvm.loop !77
 
-.thread958:                                       ; preds = %722
+.thread1105:                                      ; preds = %722
   %728 = load ptr, ptr %168, align 8, !tbaa !50
   store ptr %728, ptr %46, align 8
   %729 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -83910,7 +83910,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %45)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS3_14dense_map_nodeIiiEESt6vectorIS8_SaIS8_EEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_.exit unwind label %740
 
-736:                                              ; preds = %.thread958, %730
+736:                                              ; preds = %.thread1105, %730
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS3_14dense_map_nodeIiiEESt6vectorIS8_SaIS8_EEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_SH_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %45, ptr noundef nonnull @.str.272, ptr noundef nonnull @.str.22, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull @.str.377)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPNS3_14dense_map_nodeIiiEESt6vectorIS8_SaIS8_EEEEEESE_EENS_15AssertionResultEPKcSH_RKT_RKT0_.exit unwind label %740
 
@@ -84714,7 +84714,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.5.0.in.i.i.i722 = phi ptr [ %1022, %1012 ], [ %1025, %1024 ]
   %.sroa.5.0.i.i.i723 = load i64, ptr %.sroa.5.0.in.i.i.i722, align 8, !tbaa !68
   %.not.i.i.i724 = icmp eq i64 %.sroa.5.0.i.i.i723, -1
-  br i1 %.not.i.i.i724, label %.thread962, label %1024
+  br i1 %.not.i.i.i724, label %.thread1109, label %1024
 
 1024:                                             ; preds = %1023
   %1025 = getelementptr inbounds %"struct.entt::internal::dense_map_node.262", ptr %1021, i64 %.sroa.5.0.i.i.i723
@@ -84723,7 +84723,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %1028 = icmp eq i32 %1027, 4
   br i1 %1028, label %1031, label %1023, !llvm.loop !75
 
-.thread962:                                       ; preds = %1023
+.thread1109:                                      ; preds = %1023
   %1029 = load ptr, ptr %168, align 8, !tbaa !50
   store ptr %1029, ptr %64, align 8
   %1030 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -84749,7 +84749,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %63)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS3_14dense_map_nodeIiiEESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_.exit unwind label %1041
 
-1037:                                             ; preds = %.thread962, %1031
+1037:                                             ; preds = %.thread1109, %1031
   invoke void @_ZN7testing8internal18CmpHelperOpFailureIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS3_14dense_map_nodeIiiEESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_SI_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %63, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.266, ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull @.str.377)
           to label %_ZN7testing8internal11CmpHelperNEIN4entt8internal18dense_map_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS3_14dense_map_nodeIiiEESt6vectorIS8_SaIS8_EEEEEESF_EENS_15AssertionResultEPKcSI_RKT_RKT0_.exit unwind label %1041
 
@@ -109904,13 +109904,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !68
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !68
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -122758,7 +122758,7 @@ _ZNK4entt9dense_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hash
   %38 = load ptr, ptr %36, align 8, !tbaa !46
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %40 = icmp eq ptr %38, %39
-  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i
+  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNK4entt9dense_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS6_ESt8equal_toIvESaISt4pairIKS6_mEEE13key_to_bucketIS6_EEmRKT_.exit
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -122770,14 +122770,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %46 = icmp eq ptr %44, %45
   br i1 %46, label %50, label %.thread.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i: ; preds = %_ZNK4entt9dense_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS6_ESt8equal_toIvESaISt4pairIKS6_mEEE13key_to_bucketIS6_EEmRKT_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i: ; preds = %_ZNK4entt9dense_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4hashIS6_ESt8equal_toIvESaISt4pairIKS6_mEEE13key_to_bucketIS6_EEmRKT_.exit
   %47 = load ptr, ptr %37, align 8, !tbaa !46
   %48 = getelementptr inbounds i8, ptr %31, i64 -24
   %49 = icmp eq ptr %47, %48
   br i1 %49, label %50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i
 
-50:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %51 = phi ptr [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
+50:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %51 = phi ptr [ %47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
   %52 = getelementptr inbounds i8, ptr %31, i64 -32
   %53 = load i64, ptr %52, align 8, !tbaa !44
   %54 = icmp ult i64 %53, 16
@@ -122819,7 +122819,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
   store i64 %65, ptr %39, align 8, !tbaa !47
   br label %72
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
   %66 = load i64, ptr %39, align 8, !tbaa !47
   store ptr %47, ptr %36, align 8, !tbaa !46
   %67 = getelementptr inbounds i8, ptr %31, i64 -32
@@ -126574,7 +126574,7 @@ define linkonce_odr hidden void @_ZNSt6vectorImN4test18throwing_allocatorImEEE17
   br i1 %.not23, label %21, label %_ZSt27__uninitialized_default_n_aIPmmN4test18throwing_allocatorImEEET_S4_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPmmN4test18throwing_allocatorImEEET_S4_T0_RT1_.exit: ; preds = %3
-  %20 = shl nuw i64 %1, 3
+  %20 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %20, i1 false), !tbaa !68
   %scevgep.i = getelementptr i8, ptr %6, i64 %20
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !754
@@ -127856,7 +127856,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorImNSt3pmr21polymorphic_allocator
   br i1 %.not37, label %21, label %_ZSt27__uninitialized_default_n_aIPmmNSt3pmr21polymorphic_allocatorImEEET_S4_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPmmNSt3pmr21polymorphic_allocatorImEEET_S4_T0_RT1_.exit: ; preds = %3
-  %20 = shl nuw i64 %1, 3
+  %20 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %20, i1 false), !tbaa !68
   %scevgep.i = getelementptr i8, ptr %6, i64 %20
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !873

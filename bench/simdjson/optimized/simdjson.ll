@@ -675,9 +675,9 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr dead_on_unw
 ._crit_edge.thread:                               ; preds = %.preheader51
   store i32 0, ptr %0, align 4
   %38 = icmp eq i8 %15, 46
-  br i1 %38, label %.thread91, label %.thread
+  br i1 %38, label %.thread104, label %.thread
 
-.thread91:                                        ; preds = %._crit_edge.thread
+.thread104:                                       ; preds = %._crit_edge.thread
   %39 = getelementptr inbounds nuw i8, ptr %.promoted54, i64 1
   store ptr %39, ptr %1, align 8, !tbaa !18
   br label %.preheader
@@ -692,8 +692,8 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr dead_on_unw
   %.pre84 = load i8, ptr %41, align 1, !tbaa !4
   br label %.loopexit
 
-.preheader:                                       ; preds = %.thread91, %40
-  %43 = phi ptr [ %39, %.thread91 ], [ %41, %40 ]
+.preheader:                                       ; preds = %.thread104, %40
+  %43 = phi ptr [ %39, %.thread104 ], [ %41, %40 ]
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = icmp eq i8 %44, 48
   br i1 %45, label %.lr.ph61, label %.loopexit
@@ -708,7 +708,7 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr dead_on_unw
 
 .loopexit:                                        ; preds = %.lr.ph61, %..loopexit_crit_edge, %.preheader
   %50 = phi ptr [ %43, %.preheader ], [ %41, %..loopexit_crit_edge ], [ %43, %.lr.ph61 ]
-  %.promoted638994 = phi i32 [ 0, %.preheader ], [ %32, %..loopexit_crit_edge ], [ 0, %.lr.ph61 ]
+  %.promoted63102107 = phi i32 [ 0, %.preheader ], [ %32, %..loopexit_crit_edge ], [ 0, %.lr.ph61 ]
   %51 = phi i8 [ %44, %.preheader ], [ %.pre84, %..loopexit_crit_edge ], [ %48, %.lr.ph61 ]
   %.promoted62 = phi ptr [ %43, %.preheader ], [ %41, %..loopexit_crit_edge ], [ %47, %.lr.ph61 ]
   %52 = add i8 %51, -48
@@ -722,7 +722,7 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr dead_on_unw
 55:                                               ; preds = %.lr.ph66, %63
   %56 = phi i8 [ %52, %.lr.ph66 ], [ %67, %63 ]
   %57 = phi ptr [ %.promoted62, %.lr.ph66 ], [ %65, %63 ]
-  %58 = phi i32 [ %.promoted638994, %.lr.ph66 ], [ %64, %63 ]
+  %58 = phi i32 [ %.promoted63102107, %.lr.ph66 ], [ %64, %63 ]
   %59 = icmp ult i32 %58, 768
   br i1 %59, label %60, label %63
 
@@ -742,7 +742,7 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr dead_on_unw
   br i1 %68, label %55, label %._crit_edge67, !llvm.loop !25
 
 ._crit_edge67:                                    ; preds = %63, %.loopexit
-  %.lcssa64 = phi i32 [ %.promoted638994, %.loopexit ], [ %64, %63 ]
+  %.lcssa64 = phi i32 [ %.promoted63102107, %.loopexit ], [ %64, %63 ]
   %.lcssa = phi ptr [ %.promoted62, %.loopexit ], [ %65, %63 ]
   store i32 %.lcssa64, ptr %0, align 4
   %69 = ptrtoint ptr %50 to i64
@@ -757,9 +757,9 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr dead_on_unw
   %75 = phi ptr [ %.lcssa, %._crit_edge67 ], [ %33, %._crit_edge ]
   %76 = phi i32 [ %.lcssa64, %._crit_edge67 ], [ %32, %._crit_edge ]
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %.thread, label %.preheader107
+  br i1 %.not, label %.thread, label %.preheader120
 
-.preheader107:                                    ; preds = %73, %.critedge
+.preheader120:                                    ; preds = %73, %.critedge
   %.043 = phi i32 [ %spec.select, %.critedge ], [ 0, %73 ]
   %.pn = phi ptr [ %.0, %.critedge ], [ %75, %73 ]
   %.0 = getelementptr inbounds i8, ptr %.pn, i64 -1
@@ -769,13 +769,13 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr dead_on_unw
     i8 46, label %.critedge
   ]
 
-.critedge:                                        ; preds = %.preheader107, %.preheader107
+.critedge:                                        ; preds = %.preheader120, %.preheader120
   %78 = icmp eq i8 %77, 48
   %79 = zext i1 %78 to i32
   %spec.select = add nuw nsw i32 %.043, %79
-  br label %.preheader107, !llvm.loop !26
+  br label %.preheader120, !llvm.loop !26
 
-80:                                               ; preds = %.preheader107
+80:                                               ; preds = %.preheader120
   %81 = add nsw i32 %74, %76
   store i32 %81, ptr %3, align 4, !tbaa !16
   %82 = sub i32 %76, %.043
@@ -1007,9 +1007,9 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr dead_on_
   %68 = phi ptr [ %66, %.critedge2.thread.loopexit ], [ %61, %.critedge4 ], [ %23, %.critedge2 ]
   %69 = phi i32 [ %.lcssa99, %.critedge2.thread.loopexit ], [ %.lcssa107, %.critedge4 ], [ %.promoted106, %.critedge2 ]
   %.not90 = icmp eq i32 %69, 0
-  br i1 %.not90, label %.thread, label %.preheader138
+  br i1 %.not90, label %.thread, label %.preheader156
 
-.preheader138:                                    ; preds = %.critedge2.thread, %.critedge6
+.preheader156:                                    ; preds = %.critedge2.thread, %.critedge6
   %.069 = phi i32 [ %spec.select, %.critedge6 ], [ 0, %.critedge2.thread ]
   %.pn = phi ptr [ %.0, %.critedge6 ], [ %68, %.critedge2.thread ]
   %.0 = getelementptr inbounds i8, ptr %.pn, i64 -1
@@ -1019,13 +1019,13 @@ define dso_local void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr dead_on_
     i8 46, label %.critedge6
   ]
 
-.critedge6:                                       ; preds = %.preheader138, %.preheader138
+.critedge6:                                       ; preds = %.preheader156, %.preheader156
   %71 = icmp eq i8 %70, 48
   %72 = zext i1 %71 to i32
   %spec.select = add nuw nsw i32 %.069, %72
-  br label %.preheader138, !llvm.loop !32
+  br label %.preheader156, !llvm.loop !32
 
-73:                                               ; preds = %.preheader138
+73:                                               ; preds = %.preheader156
   %74 = add nsw i32 %67, %69
   store i32 %74, ptr %4, align 4, !tbaa !16
   %75 = sub i32 %69, %.069
@@ -1526,8 +1526,8 @@ define dso_local void @_ZN8simdjson8internal19decimal_right_shiftERNS0_7decimalE
   br i1 %.not4.i, label %_ZN8simdjson8internal12_GLOBAL__N_14trimERNS0_7decimalE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.145.lcssa92 = phi i32 [ %.246, %._crit_edge.thread ], [ %.044.lcssa, %._crit_edge ]
-  %60 = zext i32 %.145.lcssa92 to i64
+  %.145.lcssa94 = phi i32 [ %.246, %._crit_edge.thread ], [ %.044.lcssa, %._crit_edge ]
+  %60 = zext i32 %.145.lcssa94 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %65, %.lr.ph.preheader.i
@@ -4126,7 +4126,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
 
 ._crit_edge.thread.i:                             ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i
   %.ph.i = phi ptr [ %43, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %45, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
-  %.0136375.ph.i = phi i64 [ %.013.ph.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %.013.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
+  %.0136394.ph.i = phi i64 [ %.013.ph.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %.013.i, %_ZN8simdjson7haswell12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
 
@@ -4136,21 +4136,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   br i1 %659, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i: ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.sroa.32.0.lcssa6399.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %153, %._crit_edge.i ]
-  %.sroa.41542.0.lcssa6398.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.41542.3.i, %._crit_edge.i ]
-  %.sroa.70.0.lcssa6397.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.70.2.i, %._crit_edge.i ]
-  %.sroa.79.0.lcssa6396.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.79.3.i, %._crit_edge.i ]
-  %.sroa.89.0.lcssa6395.i = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %.sroa.89.2.i, %._crit_edge.i ]
-  %.sroa.226.0.lcssa6394.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %653, %._crit_edge.i ]
-  %.sroa.236.0.lcssa6393.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %656, %._crit_edge.i ]
-  %.sroa.12.0.lcssa6392.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.sroa.12.2.i, %._crit_edge.i ]
-  %.sroa.0.0.lcssa6391.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %181, %._crit_edge.i ]
-  %.sroa.11.0.lcssa6390.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %657, %._crit_edge.i ]
-  %.01363756389.i = phi i64 [ %.0136375.ph.i, %._crit_edge.thread.i ], [ %.013.i, %._crit_edge.i ]
+  %.sroa.32.0.lcssa6418.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %153, %._crit_edge.i ]
+  %.sroa.41542.0.lcssa6417.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.41542.3.i, %._crit_edge.i ]
+  %.sroa.70.0.lcssa6416.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.70.2.i, %._crit_edge.i ]
+  %.sroa.79.0.lcssa6415.i = phi <4 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.79.3.i, %._crit_edge.i ]
+  %.sroa.89.0.lcssa6414.i = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %.sroa.89.2.i, %._crit_edge.i ]
+  %.sroa.226.0.lcssa6413.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %653, %._crit_edge.i ]
+  %.sroa.236.0.lcssa6412.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %656, %._crit_edge.i ]
+  %.sroa.12.0.lcssa6411.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.sroa.12.2.i, %._crit_edge.i ]
+  %.sroa.0.0.lcssa6410.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %181, %._crit_edge.i ]
+  %.sroa.11.0.lcssa6409.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %657, %._crit_edge.i ]
+  %.01363946408.i = phi i64 [ %.0136394.ph.i, %._crit_edge.thread.i ], [ %.013.i, %._crit_edge.i ]
   %660 = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %45, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 32, i64 128, i1 false)
-  %661 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa6390.i
-  %662 = sub i64 %.01363756389.i, %.sroa.11.0.lcssa6390.i
+  %661 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa6409.i
+  %662 = sub i64 %.01363946408.i, %.sroa.11.0.lcssa6409.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %661, i64 %662, i1 false)
   %.0..0..0..0..0..i = load <4 x i64>, ptr %5, align 16, !tbaa !4, !noalias !145
   %.32..32..32..32..32..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -4173,13 +4173,13 @@ _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
   br i1 %.not.i62.i17.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i, label %673
 
 673:                                              ; preds = %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
-  %674 = xor i64 %.sroa.12.0.lcssa6392.i, -1
+  %674 = xor i64 %.sroa.12.0.lcssa6411.i, -1
   %675 = and i64 %672, %674
   %676 = shl i64 %675, 1
   %677 = or i64 %676, -6148914691236517206
   %678 = sub i64 %677, %675
   %679 = xor i64 %678, -6148914691236517206
-  %680 = or i64 %672, %.sroa.12.0.lcssa6392.i
+  %680 = or i64 %672, %.sroa.12.0.lcssa6411.i
   %681 = xor i64 %679, %680
   %682 = and i64 %679, %671
   %683 = lshr i64 %682, 63
@@ -4187,7 +4187,7 @@ _ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18.i: ; preds = %673, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
   %.sroa.12.3.i = phi i64 [ %683, %673 ], [ 0, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
-  %.sroa.0.0.i63.i19.i = phi i64 [ %681, %673 ], [ %.sroa.12.0.lcssa6392.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
+  %.sroa.0.0.i63.i19.i = phi i64 [ %681, %673 ], [ %.sroa.12.0.lcssa6411.i, %_ZNK8simdjson7haswell12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
   %684 = icmp eq <32 x i8> %663, splat (i8 34)
   %685 = icmp eq <32 x i8> %665, splat (i8 34)
   %686 = bitcast <32 x i1> %684 to i32
@@ -4201,7 +4201,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18
   %694 = insertelement <2 x i64> poison, i64 %693, i64 0
   %695 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %694, <2 x i64> <i64 -1, i64 poison>, i8 0)
   %696 = extractelement <2 x i64> %695, i64 0
-  %697 = xor i64 %696, %.sroa.32.0.lcssa6399.i
+  %697 = xor i64 %696, %.sroa.32.0.lcssa6418.i
   %698 = ashr i64 %697, 63
   %699 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %663)
   %700 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <32 x i8> %665)
@@ -4230,7 +4230,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18
   %723 = xor i64 %693, -1
   %724 = and i64 %722, %723
   %725 = shl i64 %724, 1
-  %726 = or disjoint i64 %725, %.sroa.0.0.lcssa6391.i
+  %726 = or disjoint i64 %725, %.sroa.0.0.lcssa6410.i
   %727 = bitcast <4 x i64> %.64..64..64..64..64..i to <32 x i8>
   %728 = icmp eq <32 x i8> %727, splat (i8 92)
   %729 = bitcast <4 x i64> %.96..96..96..96..96..i to <32 x i8>
@@ -4314,7 +4314,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18
   br i1 %799, label %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i, label %800, !prof !141
 
 800:                                              ; preds = %.noexc45.i
-  %801 = shufflevector <4 x i64> %.sroa.70.0.lcssa6397.i, <4 x i64> %.0..0..0..0..0..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
+  %801 = shufflevector <4 x i64> %.sroa.70.0.lcssa6416.i, <4 x i64> %.0..0..0..0..0..i, <4 x i32> <i32 poison, i32 3, i32 poison, i32 5>
   %802 = bitcast <4 x i64> %801 to <32 x i8>
   %803 = shufflevector <32 x i8> %802, <32 x i8> %663, <32 x i32> <i32 15, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 31, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62>
   %804 = bitcast <32 x i8> %803 to <16 x i16>
@@ -4372,41 +4372,41 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit67.i18
   br label %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
 
 _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i: ; preds = %.noexc45.i, %800
-  %.sroa.79.2.i = phi <4 x i64> [ %855, %800 ], [ %.sroa.79.0.lcssa6396.i, %.noexc45.i ]
-  %.sroa.70.1.i = phi <4 x i64> [ %.32..32..32..32..32..i, %800 ], [ %.sroa.70.0.lcssa6397.i, %.noexc45.i ]
-  %.sroa.79.0.lcssa6396.i.pn = phi <4 x i64> [ %853, %800 ], [ %.sroa.79.0.lcssa6396.i, %.noexc45.i ]
-  %.sroa.41542.2.i = or <4 x i64> %.sroa.79.0.lcssa6396.i.pn, %.sroa.41542.0.lcssa6398.i
-  %856 = trunc i64 %.sroa.11.0.lcssa6390.i to i32
+  %.sroa.79.2.i = phi <4 x i64> [ %855, %800 ], [ %.sroa.79.0.lcssa6415.i, %.noexc45.i ]
+  %.sroa.70.1.i = phi <4 x i64> [ %.32..32..32..32..32..i, %800 ], [ %.sroa.70.0.lcssa6416.i, %.noexc45.i ]
+  %.sroa.79.0.lcssa6415.i.pn = phi <4 x i64> [ %853, %800 ], [ %.sroa.79.0.lcssa6415.i, %.noexc45.i ]
+  %.sroa.41542.2.i = or <4 x i64> %.sroa.79.0.lcssa6415.i.pn, %.sroa.41542.0.lcssa6417.i
+  %856 = trunc i64 %.sroa.11.0.lcssa6409.i to i32
   %857 = add i32 %856, -64
-  %858 = icmp eq i64 %.sroa.226.0.lcssa6394.i, 0
+  %858 = icmp eq i64 %.sroa.226.0.lcssa6413.i, 0
   br i1 %858, label %.noexc42.i, label %.noexc106.i
 
 .noexc106.i:                                      ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
-  %859 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.226.0.lcssa6394.i)
-  %860 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.226.0.lcssa6394.i, i1 true)
+  %859 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.226.0.lcssa6413.i)
+  %860 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.226.0.lcssa6413.i, i1 true)
   %861 = trunc nuw nsw i64 %860 to i32
   %862 = or disjoint i32 %857, %861
-  store i32 %862, ptr %.sroa.89.0.lcssa6395.i, align 4, !tbaa !7
-  %863 = add i64 %.sroa.226.0.lcssa6394.i, -1
-  %864 = and i64 %863, %.sroa.226.0.lcssa6394.i
+  store i32 %862, ptr %.sroa.89.0.lcssa6414.i, align 4, !tbaa !7
+  %863 = add i64 %.sroa.226.0.lcssa6413.i, -1
+  %864 = and i64 %863, %.sroa.226.0.lcssa6413.i
   %865 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %864, i1 true)
   %866 = trunc nuw nsw i64 %865 to i32
   %867 = or disjoint i32 %857, %866
-  %868 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 4
+  %868 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 4
   store i32 %867, ptr %868, align 4, !tbaa !7
   %869 = add i64 %864, -1
   %870 = and i64 %869, %864
   %871 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %870, i1 true)
   %872 = trunc nuw nsw i64 %871 to i32
   %873 = or disjoint i32 %857, %872
-  %874 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 8
+  %874 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 8
   store i32 %873, ptr %874, align 4, !tbaa !7
   %875 = add i64 %870, -1
   %876 = and i64 %875, %870
   %877 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %876, i1 true)
   %878 = trunc nuw nsw i64 %877 to i32
   %879 = or disjoint i32 %857, %878
-  %880 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 12
+  %880 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 12
   store i32 %879, ptr %880, align 4, !tbaa !7
   %881 = icmp samesign ugt i64 %859, 4
   br i1 %881, label %.noexc143.i, label %.loopexit6273.i, !prof !127
@@ -4417,28 +4417,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %884 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %883, i1 true)
   %885 = trunc nuw nsw i64 %884 to i32
   %886 = or disjoint i32 %857, %885
-  %887 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 16
+  %887 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 16
   store i32 %886, ptr %887, align 4, !tbaa !7
   %888 = add i64 %883, -1
   %889 = and i64 %888, %883
   %890 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %889, i1 true)
   %891 = trunc nuw nsw i64 %890 to i32
   %892 = or disjoint i32 %857, %891
-  %893 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 20
+  %893 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 20
   store i32 %892, ptr %893, align 4, !tbaa !7
   %894 = add i64 %889, -1
   %895 = and i64 %894, %889
   %896 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %895, i1 true)
   %897 = trunc nuw nsw i64 %896 to i32
   %898 = or disjoint i32 %857, %897
-  %899 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 24
+  %899 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 24
   store i32 %898, ptr %899, align 4, !tbaa !7
   %900 = add i64 %895, -1
   %901 = and i64 %900, %895
   %902 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %901, i1 true)
   %903 = trunc nuw nsw i64 %902 to i32
   %904 = or disjoint i32 %857, %903
-  %905 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 28
+  %905 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 28
   store i32 %904, ptr %905, align 4, !tbaa !7
   %906 = icmp samesign ugt i64 %859, 8
   br i1 %906, label %.noexc208.i, label %.loopexit6273.i, !prof !127
@@ -4449,28 +4449,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %909 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %908, i1 true)
   %910 = trunc nuw nsw i64 %909 to i32
   %911 = or disjoint i32 %857, %910
-  %912 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 32
+  %912 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 32
   store i32 %911, ptr %912, align 4, !tbaa !7
   %913 = add i64 %908, -1
   %914 = and i64 %913, %908
   %915 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %914, i1 true)
   %916 = trunc nuw nsw i64 %915 to i32
   %917 = or disjoint i32 %857, %916
-  %918 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 36
+  %918 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 36
   store i32 %917, ptr %918, align 4, !tbaa !7
   %919 = add i64 %914, -1
   %920 = and i64 %919, %914
   %921 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %920, i1 true)
   %922 = trunc nuw nsw i64 %921 to i32
   %923 = or disjoint i32 %857, %922
-  %924 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 40
+  %924 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 40
   store i32 %923, ptr %924, align 4, !tbaa !7
   %925 = add i64 %920, -1
   %926 = and i64 %925, %920
   %927 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %926, i1 true)
   %928 = trunc nuw nsw i64 %927 to i32
   %929 = or disjoint i32 %857, %928
-  %930 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 44
+  %930 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 44
   store i32 %929, ptr %930, align 4, !tbaa !7
   %931 = icmp samesign ugt i64 %859, 12
   br i1 %931, label %.noexc273.i, label %.loopexit6273.i, !prof !127
@@ -4481,28 +4481,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %934 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %933, i1 true)
   %935 = trunc nuw nsw i64 %934 to i32
   %936 = or disjoint i32 %857, %935
-  %937 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 48
+  %937 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 48
   store i32 %936, ptr %937, align 4, !tbaa !7
   %938 = add i64 %933, -1
   %939 = and i64 %938, %933
   %940 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %939, i1 true)
   %941 = trunc nuw nsw i64 %940 to i32
   %942 = or disjoint i32 %857, %941
-  %943 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 52
+  %943 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 52
   store i32 %942, ptr %943, align 4, !tbaa !7
   %944 = add i64 %939, -1
   %945 = and i64 %944, %939
   %946 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %945, i1 true)
   %947 = trunc nuw nsw i64 %946 to i32
   %948 = or disjoint i32 %857, %947
-  %949 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 56
+  %949 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 56
   store i32 %948, ptr %949, align 4, !tbaa !7
   %950 = add i64 %945, -1
   %951 = and i64 %950, %945
   %952 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %951, i1 true)
   %953 = trunc nuw nsw i64 %952 to i32
   %954 = or disjoint i32 %857, %953
-  %955 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 60
+  %955 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 60
   store i32 %954, ptr %955, align 4, !tbaa !7
   %956 = icmp samesign ugt i64 %859, 16
   br i1 %956, label %.noexc338.i, label %.loopexit6273.i, !prof !127
@@ -4513,28 +4513,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %959 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %958, i1 true)
   %960 = trunc nuw nsw i64 %959 to i32
   %961 = or disjoint i32 %857, %960
-  %962 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 64
+  %962 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 64
   store i32 %961, ptr %962, align 4, !tbaa !7
   %963 = add i64 %958, -1
   %964 = and i64 %963, %958
   %965 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %964, i1 true)
   %966 = trunc nuw nsw i64 %965 to i32
   %967 = or disjoint i32 %857, %966
-  %968 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 68
+  %968 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 68
   store i32 %967, ptr %968, align 4, !tbaa !7
   %969 = add i64 %964, -1
   %970 = and i64 %969, %964
   %971 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %970, i1 true)
   %972 = trunc nuw nsw i64 %971 to i32
   %973 = or disjoint i32 %857, %972
-  %974 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 72
+  %974 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 72
   store i32 %973, ptr %974, align 4, !tbaa !7
   %975 = add i64 %970, -1
   %976 = and i64 %975, %970
   %977 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %976, i1 true)
   %978 = trunc nuw nsw i64 %977 to i32
   %979 = or disjoint i32 %857, %978
-  %980 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 76
+  %980 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 76
   store i32 %979, ptr %980, align 4, !tbaa !7
   %981 = icmp samesign ugt i64 %859, 20
   br i1 %981, label %.noexc75.i, label %.loopexit6273.i, !prof !127
@@ -4545,28 +4545,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %984 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %983, i1 true)
   %985 = trunc nuw nsw i64 %984 to i32
   %986 = or disjoint i32 %857, %985
-  %987 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 80
+  %987 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 80
   store i32 %986, ptr %987, align 4, !tbaa !7
   %988 = add i64 %983, -1
   %989 = and i64 %988, %983
   %990 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %989, i1 true)
   %991 = trunc nuw nsw i64 %990 to i32
   %992 = or disjoint i32 %857, %991
-  %993 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 84
+  %993 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 84
   store i32 %992, ptr %993, align 4, !tbaa !7
   %994 = add i64 %989, -1
   %995 = and i64 %994, %989
   %996 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %995, i1 true)
   %997 = trunc nuw nsw i64 %996 to i32
   %998 = or disjoint i32 %857, %997
-  %999 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 88
+  %999 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 88
   store i32 %998, ptr %999, align 4, !tbaa !7
   %1000 = add i64 %995, -1
   %1001 = and i64 %1000, %995
   %1002 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1001, i1 true)
   %1003 = trunc nuw nsw i64 %1002 to i32
   %1004 = or disjoint i32 %857, %1003
-  %1005 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6395.i, i64 92
+  %1005 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6414.i, i64 92
   store i32 %1004, ptr %1005, align 4, !tbaa !7
   %1006 = icmp samesign ugt i64 %859, 24
   br i1 %1006, label %.noexc76.i.preheader, label %.loopexit6273.i, !prof !142
@@ -4582,7 +4582,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1009 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.061856309.i, i1 true)
   %1010 = trunc nuw nsw i64 %1009 to i32
   %1011 = or disjoint i32 %857, %1010
-  %1012 = getelementptr inbounds nuw i32, ptr %.sroa.89.0.lcssa6395.i, i64 %indvars.iv6348.i
+  %1012 = getelementptr inbounds nuw i32, ptr %.sroa.89.0.lcssa6414.i, i64 %indvars.iv6348.i
   store i32 %1011, ptr %1012, align 4, !tbaa !7
   %1013 = add i64 %.061856309.i, -1
   %1014 = and i64 %1013, %.061856309.i
@@ -4591,11 +4591,11 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %exitcond6352.not.i, label %.loopexit6273.i, label %.noexc76.i, !llvm.loop !143
 
 .loopexit6273.i:                                  ; preds = %.noexc76.i, %.noexc75.i, %.noexc338.i, %.noexc273.i, %.noexc208.i, %.noexc143.i, %.noexc106.i
-  %1015 = getelementptr inbounds nuw i32, ptr %.sroa.89.0.lcssa6395.i, i64 %859
+  %1015 = getelementptr inbounds nuw i32, ptr %.sroa.89.0.lcssa6414.i, i64 %859
   br label %.noexc42.i
 
 .noexc42.i:                                       ; preds = %.loopexit6273.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
-  %.sroa.89.3.i = phi ptr [ %.sroa.89.0.lcssa6395.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i ], [ %1015, %.loopexit6273.i ]
+  %.sroa.89.3.i = phi ptr [ %.sroa.89.0.lcssa6414.i, %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i ], [ %1015, %.loopexit6273.i ]
   %1016 = xor i64 %726, -1
   %1017 = and i64 %1016, %722
   %1018 = or i64 %1017, %720
@@ -4690,27 +4690,27 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
 .noexc103.i:                                      ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
   %1096 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1021)
   %1097 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1021, i1 true)
-  %1098 = or disjoint i64 %1097, %.sroa.11.0.lcssa6390.i
+  %1098 = or disjoint i64 %1097, %.sroa.11.0.lcssa6409.i
   %1099 = trunc i64 %1098 to i32
   store i32 %1099, ptr %.sroa.89.3.i, align 4, !tbaa !7
   %1100 = add i64 %1021, -1
   %1101 = and i64 %1100, %1021
   %1102 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1101, i1 true)
-  %1103 = or disjoint i64 %1102, %.sroa.11.0.lcssa6390.i
+  %1103 = or disjoint i64 %1102, %.sroa.11.0.lcssa6409.i
   %1104 = trunc i64 %1103 to i32
   %1105 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 4
   store i32 %1104, ptr %1105, align 4, !tbaa !7
   %1106 = add i64 %1101, -1
   %1107 = and i64 %1106, %1101
   %1108 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1107, i1 true)
-  %1109 = or disjoint i64 %1108, %.sroa.11.0.lcssa6390.i
+  %1109 = or disjoint i64 %1108, %.sroa.11.0.lcssa6409.i
   %1110 = trunc i64 %1109 to i32
   %1111 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 8
   store i32 %1110, ptr %1111, align 4, !tbaa !7
   %1112 = add i64 %1107, -1
   %1113 = and i64 %1112, %1107
   %1114 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1113, i1 true)
-  %1115 = or disjoint i64 %1114, %.sroa.11.0.lcssa6390.i
+  %1115 = or disjoint i64 %1114, %.sroa.11.0.lcssa6409.i
   %1116 = trunc i64 %1115 to i32
   %1117 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 12
   store i32 %1116, ptr %1117, align 4, !tbaa !7
@@ -4721,28 +4721,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1119 = add i64 %1113, -1
   %1120 = and i64 %1119, %1113
   %1121 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1120, i1 true)
-  %1122 = or disjoint i64 %1121, %.sroa.11.0.lcssa6390.i
+  %1122 = or disjoint i64 %1121, %.sroa.11.0.lcssa6409.i
   %1123 = trunc i64 %1122 to i32
   %1124 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 16
   store i32 %1123, ptr %1124, align 4, !tbaa !7
   %1125 = add i64 %1120, -1
   %1126 = and i64 %1125, %1120
   %1127 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1126, i1 true)
-  %1128 = or disjoint i64 %1127, %.sroa.11.0.lcssa6390.i
+  %1128 = or disjoint i64 %1127, %.sroa.11.0.lcssa6409.i
   %1129 = trunc i64 %1128 to i32
   %1130 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 20
   store i32 %1129, ptr %1130, align 4, !tbaa !7
   %1131 = add i64 %1126, -1
   %1132 = and i64 %1131, %1126
   %1133 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1132, i1 true)
-  %1134 = or disjoint i64 %1133, %.sroa.11.0.lcssa6390.i
+  %1134 = or disjoint i64 %1133, %.sroa.11.0.lcssa6409.i
   %1135 = trunc i64 %1134 to i32
   %1136 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 24
   store i32 %1135, ptr %1136, align 4, !tbaa !7
   %1137 = add i64 %1132, -1
   %1138 = and i64 %1137, %1132
   %1139 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1138, i1 true)
-  %1140 = or disjoint i64 %1139, %.sroa.11.0.lcssa6390.i
+  %1140 = or disjoint i64 %1139, %.sroa.11.0.lcssa6409.i
   %1141 = trunc i64 %1140 to i32
   %1142 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 28
   store i32 %1141, ptr %1142, align 4, !tbaa !7
@@ -4753,28 +4753,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1144 = add i64 %1138, -1
   %1145 = and i64 %1144, %1138
   %1146 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1145, i1 true)
-  %1147 = or disjoint i64 %1146, %.sroa.11.0.lcssa6390.i
+  %1147 = or disjoint i64 %1146, %.sroa.11.0.lcssa6409.i
   %1148 = trunc i64 %1147 to i32
   %1149 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 32
   store i32 %1148, ptr %1149, align 4, !tbaa !7
   %1150 = add i64 %1145, -1
   %1151 = and i64 %1150, %1145
   %1152 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1151, i1 true)
-  %1153 = or disjoint i64 %1152, %.sroa.11.0.lcssa6390.i
+  %1153 = or disjoint i64 %1152, %.sroa.11.0.lcssa6409.i
   %1154 = trunc i64 %1153 to i32
   %1155 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 36
   store i32 %1154, ptr %1155, align 4, !tbaa !7
   %1156 = add i64 %1151, -1
   %1157 = and i64 %1156, %1151
   %1158 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1157, i1 true)
-  %1159 = or disjoint i64 %1158, %.sroa.11.0.lcssa6390.i
+  %1159 = or disjoint i64 %1158, %.sroa.11.0.lcssa6409.i
   %1160 = trunc i64 %1159 to i32
   %1161 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 40
   store i32 %1160, ptr %1161, align 4, !tbaa !7
   %1162 = add i64 %1157, -1
   %1163 = and i64 %1162, %1157
   %1164 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1163, i1 true)
-  %1165 = or disjoint i64 %1164, %.sroa.11.0.lcssa6390.i
+  %1165 = or disjoint i64 %1164, %.sroa.11.0.lcssa6409.i
   %1166 = trunc i64 %1165 to i32
   %1167 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 44
   store i32 %1166, ptr %1167, align 4, !tbaa !7
@@ -4785,28 +4785,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1169 = add i64 %1163, -1
   %1170 = and i64 %1169, %1163
   %1171 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1170, i1 true)
-  %1172 = or disjoint i64 %1171, %.sroa.11.0.lcssa6390.i
+  %1172 = or disjoint i64 %1171, %.sroa.11.0.lcssa6409.i
   %1173 = trunc i64 %1172 to i32
   %1174 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 48
   store i32 %1173, ptr %1174, align 4, !tbaa !7
   %1175 = add i64 %1170, -1
   %1176 = and i64 %1175, %1170
   %1177 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1176, i1 true)
-  %1178 = or disjoint i64 %1177, %.sroa.11.0.lcssa6390.i
+  %1178 = or disjoint i64 %1177, %.sroa.11.0.lcssa6409.i
   %1179 = trunc i64 %1178 to i32
   %1180 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 52
   store i32 %1179, ptr %1180, align 4, !tbaa !7
   %1181 = add i64 %1176, -1
   %1182 = and i64 %1181, %1176
   %1183 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1182, i1 true)
-  %1184 = or disjoint i64 %1183, %.sroa.11.0.lcssa6390.i
+  %1184 = or disjoint i64 %1183, %.sroa.11.0.lcssa6409.i
   %1185 = trunc i64 %1184 to i32
   %1186 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 56
   store i32 %1185, ptr %1186, align 4, !tbaa !7
   %1187 = add i64 %1182, -1
   %1188 = and i64 %1187, %1182
   %1189 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1188, i1 true)
-  %1190 = or disjoint i64 %1189, %.sroa.11.0.lcssa6390.i
+  %1190 = or disjoint i64 %1189, %.sroa.11.0.lcssa6409.i
   %1191 = trunc i64 %1190 to i32
   %1192 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 60
   store i32 %1191, ptr %1192, align 4, !tbaa !7
@@ -4817,28 +4817,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1194 = add i64 %1188, -1
   %1195 = and i64 %1194, %1188
   %1196 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1195, i1 true)
-  %1197 = or disjoint i64 %1196, %.sroa.11.0.lcssa6390.i
+  %1197 = or disjoint i64 %1196, %.sroa.11.0.lcssa6409.i
   %1198 = trunc i64 %1197 to i32
   %1199 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 64
   store i32 %1198, ptr %1199, align 4, !tbaa !7
   %1200 = add i64 %1195, -1
   %1201 = and i64 %1200, %1195
   %1202 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1201, i1 true)
-  %1203 = or disjoint i64 %1202, %.sroa.11.0.lcssa6390.i
+  %1203 = or disjoint i64 %1202, %.sroa.11.0.lcssa6409.i
   %1204 = trunc i64 %1203 to i32
   %1205 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 68
   store i32 %1204, ptr %1205, align 4, !tbaa !7
   %1206 = add i64 %1201, -1
   %1207 = and i64 %1206, %1201
   %1208 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1207, i1 true)
-  %1209 = or disjoint i64 %1208, %.sroa.11.0.lcssa6390.i
+  %1209 = or disjoint i64 %1208, %.sroa.11.0.lcssa6409.i
   %1210 = trunc i64 %1209 to i32
   %1211 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 72
   store i32 %1210, ptr %1211, align 4, !tbaa !7
   %1212 = add i64 %1207, -1
   %1213 = and i64 %1212, %1207
   %1214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1213, i1 true)
-  %1215 = or disjoint i64 %1214, %.sroa.11.0.lcssa6390.i
+  %1215 = or disjoint i64 %1214, %.sroa.11.0.lcssa6409.i
   %1216 = trunc i64 %1215 to i32
   %1217 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 76
   store i32 %1216, ptr %1217, align 4, !tbaa !7
@@ -4849,28 +4849,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1219 = add i64 %1213, -1
   %1220 = and i64 %1219, %1213
   %1221 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1220, i1 true)
-  %1222 = or disjoint i64 %1221, %.sroa.11.0.lcssa6390.i
+  %1222 = or disjoint i64 %1221, %.sroa.11.0.lcssa6409.i
   %1223 = trunc i64 %1222 to i32
   %1224 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 80
   store i32 %1223, ptr %1224, align 4, !tbaa !7
   %1225 = add i64 %1220, -1
   %1226 = and i64 %1225, %1220
   %1227 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1226, i1 true)
-  %1228 = or disjoint i64 %1227, %.sroa.11.0.lcssa6390.i
+  %1228 = or disjoint i64 %1227, %.sroa.11.0.lcssa6409.i
   %1229 = trunc i64 %1228 to i32
   %1230 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 84
   store i32 %1229, ptr %1230, align 4, !tbaa !7
   %1231 = add i64 %1226, -1
   %1232 = and i64 %1231, %1226
   %1233 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1232, i1 true)
-  %1234 = or disjoint i64 %1233, %.sroa.11.0.lcssa6390.i
+  %1234 = or disjoint i64 %1233, %.sroa.11.0.lcssa6409.i
   %1235 = trunc i64 %1234 to i32
   %1236 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 88
   store i32 %1235, ptr %1236, align 4, !tbaa !7
   %1237 = add i64 %1232, -1
   %1238 = and i64 %1237, %1232
   %1239 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1238, i1 true)
-  %1240 = or disjoint i64 %1239, %.sroa.11.0.lcssa6390.i
+  %1240 = or disjoint i64 %1239, %.sroa.11.0.lcssa6409.i
   %1241 = trunc i64 %1240 to i32
   %1242 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 92
   store i32 %1241, ptr %1242, align 4, !tbaa !7
@@ -4886,7 +4886,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %indvars.iv6353.i = phi i64 [ %indvars.iv.next6354.i, %.noexc80.i ], [ 24, %.noexc80.i.preheader ]
   %.061796311.i = phi i64 [ %1251, %.noexc80.i ], [ %1245, %.noexc80.i.preheader ]
   %1246 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.061796311.i, i1 true)
-  %1247 = or disjoint i64 %1246, %.sroa.11.0.lcssa6390.i
+  %1247 = or disjoint i64 %1246, %.sroa.11.0.lcssa6409.i
   %1248 = trunc i64 %1247 to i32
   %1249 = getelementptr inbounds nuw i32, ptr %.sroa.89.3.i, i64 %indvars.iv6353.i
   store i32 %1248, ptr %1249, align 4, !tbaa !7
@@ -4909,7 +4909,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %1257 = xor i64 %1256, -1
   %1258 = and i64 %1255, %1257
   %1259 = and i64 %759, %1030
-  %1260 = or i64 %1022, %.sroa.236.0.lcssa6393.i
+  %1260 = or i64 %1022, %.sroa.236.0.lcssa6412.i
   %1261 = or i64 %1260, %1259
   %1262 = or disjoint i32 %856, 64
   %1263 = icmp eq i64 %1258, 0
@@ -5146,7 +5146,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %1426 = trunc i64 %1425 to i32
   %1427 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1426, ptr %1427, align 8, !tbaa !70
-  %1428 = trunc i64 %.01363756389.i to i32
+  %1428 = trunc i64 %.01363946408.i to i32
   %1429 = and i64 %1425, 4294967295
   %1430 = getelementptr inbounds nuw i32, ptr %660, i64 %1429
   store i32 %1428, ptr %1430, align 4, !tbaa !7
@@ -5172,7 +5172,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %1445 = getelementptr inbounds nuw i32, ptr %660, i64 %1444
   %1446 = load i32, ptr %1445, align 4, !tbaa !7
   %1447 = zext i32 %1446 to i64
-  %1448 = icmp ult i64 %.01363756389.i, %1447
+  %1448 = icmp ult i64 %.01363946408.i, %1447
   br i1 %1448, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1449, !prof !127
 
 1449:                                             ; preds = %1442
@@ -5308,23 +5308,23 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %1497 = icmp ne i32 %.439.i.i, 0
   %1498 = icmp ne i32 %.448.i.i, 0
   %or.cond4.i.i = select i1 %1497, i1 true, i1 %1498
-  br i1 %or.cond4.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
+  br i1 %or.cond4.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i: ; preds = %1496, %1480
   %.0.i497.i = phi i32 [ %spec.select.i499.i, %1480 ], [ %1453, %1496 ]
   %.not6266.i = icmp eq i32 %.0.i497.i, 0
-  br i1 %.not6266.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i_crit_edge, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i
+  br i1 %.not6266.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i_crit_edge, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i_crit_edge: ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
+_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i_crit_edge: ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
   %.pre = load i32, ptr %660, align 4, !tbaa !7
-  br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i
+  br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i: ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i_crit_edge, %1496
-  %1499 = phi i32 [ %.pre, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i_crit_edge ], [ %1484, %1496 ]
+_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i: ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i_crit_edge, %1496
+  %1499 = phi i32 [ %.pre, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i_crit_edge ], [ %1484, %1496 ]
   %1500 = icmp eq i32 %1499, 0
   br i1 %1500, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1501
 
-1501:                                             ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i
+1501:                                             ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i
   store i32 0, ptr %1427, align 8, !tbaa !70
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
@@ -5487,8 +5487,8 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_p
   %1564 = select i1 %.not6267.i, i32 11, i32 0
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
-_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %1561, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i, %1501, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i, %1451, %1442, %1421, %.thread.i, %.noexc.i, %._crit_edge.i
-  %.1.i = phi i32 [ %1564, %1561 ], [ 14, %.thread.i ], [ 13, %1421 ], [ 24, %1442 ], [ 1, %1451 ], [ 13, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6403.i ], [ 13, %1501 ], [ 15, %.noexc.i ]
+_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %1561, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i, %1501, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i, %1451, %1442, %1421, %.thread.i, %.noexc.i, %._crit_edge.i
+  %.1.i = phi i32 [ %1564, %1561 ], [ 14, %.thread.i ], [ 13, %1421 ], [ 24, %1442 ], [ 1, %1451 ], [ 13, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit522.i ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson7haswell12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread6422.i ], [ 13, %1501 ], [ 15, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
@@ -6271,12 +6271,12 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit16.i
   br i1 %.not, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread, label %.noexc85.thread
 
 .noexc85.thread:                                  ; preds = %.lr.ph1732, %.noexc85
-  %.51143.lcssa1857 = phi i64 [ %.411421236, %.noexc85 ], [ %351, %.lr.ph1732 ]
-  %.51135.idx.lcssa17281856 = phi i64 [ %.31133.add, %.noexc85 ], [ %.51135.add, %.lr.ph1732 ]
+  %.51143.lcssa1907 = phi i64 [ %.411421236, %.noexc85 ], [ %351, %.lr.ph1732 ]
+  %.51135.idx.lcssa17281906 = phi i64 [ %.31133.add, %.noexc85 ], [ %.51135.add, %.lr.ph1732 ]
   %355 = phi i8 [ %345, %.noexc85 ], [ %352, %.lr.ph1732 ]
-  %.51135.ptr.le = getelementptr inbounds nuw i8, ptr %.01130.lcssa, i64 %.51135.idx.lcssa17281856
+  %.51135.ptr.le = getelementptr inbounds nuw i8, ptr %.01130.lcssa, i64 %.51135.idx.lcssa17281906
   %356 = ptrtoint ptr %.51135.ptr.le to i64
-  %gepdiff = sub nsw i64 1, %.51135.idx.lcssa17281856
+  %gepdiff = sub nsw i64 1, %.51135.idx.lcssa17281906
   %357 = sub i64 %356, %312
   %sext.i = shl i64 %357, 32
   %358 = ashr exact i64 %sext.i, 32
@@ -6285,7 +6285,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit16.i
 359:                                              ; preds = %.noexc85.thread, %318
   %360 = phi i8 [ %355, %.noexc85.thread ], [ %.lcssa1723, %318 ]
   %.01145 = phi i64 [ %gepdiff, %.noexc85.thread ], [ 0, %318 ]
-  %.11139 = phi i64 [ %.51143.lcssa1857, %.noexc85.thread ], [ %.01138.lcssa, %318 ]
+  %.11139 = phi i64 [ %.51143.lcssa1907, %.noexc85.thread ], [ %.01138.lcssa, %318 ]
   %.11131 = phi ptr [ %.51135.ptr.le, %.noexc85.thread ], [ %.01130.lcssa, %318 ]
   %.042.i = phi i64 [ %358, %.noexc85.thread ], [ %313, %318 ]
   switch i8 %360, label %389 [
@@ -6616,11 +6616,11 @@ select.unfold.sink.split:                         ; preds = %.noexc95, %430, %47
   br label %.thread1254
 
 .thread1254:                                      ; preds = %531, %528, %533
-  %.sink1935 = phi i64 [ 7782220156096217088, %533 ], [ 8430738502437568512, %528 ], [ 8430738502437568512, %531 ]
-  %.sink1933 = phi i64 [ %535, %533 ], [ %.11139, %528 ], [ %.11139, %531 ]
-  store i64 %.sink1935, ptr %18, align 8, !tbaa !11
+  %.sink1985 = phi i64 [ 7782220156096217088, %533 ], [ 8430738502437568512, %528 ], [ 8430738502437568512, %531 ]
+  %.sink1983 = phi i64 [ %535, %533 ], [ %.11139, %528 ], [ %.11139, %531 ]
+  store i64 %.sink1985, ptr %18, align 8, !tbaa !11
   %536 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %.sink1933, ptr %536, align 8
+  store i64 %.sink1983, ptr %536, align 8
   %537 = load i8, ptr %.11131, align 1, !tbaa !4
   %538 = zext i8 %537 to i64
   %539 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %538
@@ -6926,7 +6926,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i46: ; preds = %729, %1447, %1282, %564
   %.lcssa.sink = phi i32 [ %580, %564 ], [ %1298, %1282 ], [ %1453, %1447 ], [ %735, %729 ]
   %.01170.lcssa.sink = phi ptr [ %573, %564 ], [ %1291, %1282 ], [ %.11171, %1447 ], [ %.11157, %729 ]
-  %.sink1941 = phi ptr [ %573, %564 ], [ %1291, %1282 ], [ %1291, %1447 ], [ %573, %729 ]
+  %.sink1991 = phi ptr [ %573, %564 ], [ %1291, %1282 ], [ %1291, %1447 ], [ %573, %729 ]
   %.sroa.166.8.sink = phi ptr [ %.sroa.166.4, %564 ], [ %.sroa.166.8, %1282 ], [ %.sroa.166.8, %1447 ], [ %.sroa.166.4, %729 ]
   %.sroa.117.3 = phi i32 [ %542, %564 ], [ %.sroa.117.4, %1282 ], [ %.sroa.117.4, %1447 ], [ %542, %729 ]
   %.sroa.25.4.pn = phi ptr [ %.sroa.25.4, %564 ], [ %1267, %1282 ], [ %1267, %1447 ], [ %.sroa.25.4, %729 ]
@@ -6935,7 +6935,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i46:
   %739 = zext nneg i32 %738 to i64
   %740 = getelementptr inbounds nuw i8, ptr %.01170.lcssa.sink, i64 %739
   %741 = ptrtoint ptr %740 to i64
-  %742 = ptrtoint ptr %.sink1941 to i64
+  %742 = ptrtoint ptr %.sink1991 to i64
   %743 = sub i64 %741, %742
   %744 = trunc i64 %743 to i32
   store i32 %744, ptr %.sroa.166.8.sink, align 1
@@ -7388,12 +7388,12 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not1678, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread
 
 _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread: ; preds = %.lr.ph1771, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i
-  %.51106.lcssa1878 = phi i64 [ %.411051422, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1038, %.lr.ph1771 ]
-  %.71100.idx.lcssa17671877 = phi i64 [ %.51098.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.71100.add, %.lr.ph1771 ]
+  %.51106.lcssa1928 = phi i64 [ %.411051422, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1038, %.lr.ph1771 ]
+  %.71100.idx.lcssa17671927 = phi i64 [ %.51098.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.71100.add, %.lr.ph1771 ]
   %1042 = phi i8 [ %1032, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1039, %.lr.ph1771 ]
-  %.71100.ptr.le = getelementptr inbounds nuw i8, ptr %.01093.lcssa, i64 %.71100.idx.lcssa17671877
+  %.71100.ptr.le = getelementptr inbounds nuw i8, ptr %.01093.lcssa, i64 %.71100.idx.lcssa17671927
   %1043 = ptrtoint ptr %.71100.ptr.le to i64
-  %gepdiff1815 = sub nsw i64 1, %.71100.idx.lcssa17671877
+  %gepdiff1815 = sub nsw i64 1, %.71100.idx.lcssa17671927
   %1044 = sub i64 %1043, %998
   %sext.i.i = shl i64 %1044, 32
   %1045 = ashr exact i64 %sext.i.i, 32
@@ -7402,7 +7402,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 1046:                                             ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread, %1004
   %1047 = phi i8 [ %1042, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.lcssa1713, %1004 ]
   %.01108 = phi i64 [ %gepdiff1815, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ 0, %1004 ]
-  %.21103 = phi i64 [ %.51106.lcssa1878, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.01101.lcssa, %1004 ]
+  %.21103 = phi i64 [ %.51106.lcssa1928, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.01101.lcssa, %1004 ]
   %.11094 = phi ptr [ %.71100.ptr.le, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.01093.lcssa, %1004 ]
   %.042.i.i = phi i64 [ %1045, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %999, %1004 ]
   switch i8 %1047, label %1076 [
@@ -7724,11 +7724,11 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %.thread1440
 
 .thread1440:                                      ; preds = %1218, %1215, %1220
-  %.sink1947 = phi i64 [ 7782220156096217088, %1220 ], [ 8430738502437568512, %1215 ], [ 8430738502437568512, %1218 ]
-  %.sink1945 = phi i64 [ %1222, %1220 ], [ %.21103, %1215 ], [ %.21103, %1218 ]
-  store i64 %.sink1947, ptr %.sroa.0.6, align 8, !tbaa !11
+  %.sink1997 = phi i64 [ 7782220156096217088, %1220 ], [ 8430738502437568512, %1215 ], [ 8430738502437568512, %1218 ]
+  %.sink1995 = phi i64 [ %1222, %1220 ], [ %.21103, %1215 ], [ %.21103, %1218 ]
+  store i64 %.sink1997, ptr %.sroa.0.6, align 8, !tbaa !11
   %1223 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store i64 %.sink1945, ptr %1223, align 8
+  store i64 %.sink1995, ptr %1223, align 8
   %.sroa.0.25 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %1224 = load i8, ptr %.11094, align 1, !tbaa !4
   %1225 = zext i8 %1224 to i64
@@ -7798,11 +7798,11 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %1266
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit: ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i, %1116, %1157, %1159, %1187, %1112, %.noexc25.i, %1095
-  %.sink1948 = phi double [ %1088, %.noexc25.i ], [ %1096, %1095 ], [ %1196, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ %1195, %1187 ], [ %1171, %1159 ], [ %1158, %1157 ], [ %1117, %1116 ], [ %spec.select1663, %1112 ]
+  %.sink1998 = phi double [ %1088, %.noexc25.i ], [ %1096, %1095 ], [ %1196, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ %1195, %1187 ], [ %1171, %1159 ], [ %1158, %1157 ], [ %1117, %1116 ], [ %spec.select1663, %1112 ]
   %.0.i24.i = phi i32 [ %..i228, %.noexc25.i ], [ 0, %1095 ], [ 0, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ 0, %1187 ], [ 0, %1159 ], [ 0, %1157 ], [ 0, %1116 ], [ 0, %1112 ]
   store i64 7205759403792793600, ptr %.sroa.0.6, align 8, !tbaa !11
   %1264 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store double %.sink1948, ptr %1264, align 8
+  store double %.sink1998, ptr %1264, align 8
   %1265 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %.not60.i.i = icmp eq i32 %.0.i24.i, 0
   %..i.i = select i1 %.not59.i.i, i32 0, i32 9
@@ -8094,9 +8094,9 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1456:                                             ; preds = %1266, %2023
   %.sroa.117.6.sink = phi i32 [ %.sroa.117.6, %2023 ], [ %.sroa.117.4, %1266 ]
-  %.sink1973 = phi i64 [ 6701356245527298048, %2023 ], [ 9007199254740992000, %1266 ]
-  %.sroa.0.10.sink1971 = phi ptr [ %.sroa.0.10, %2023 ], [ %.sroa.0.8, %1266 ]
-  %.sink1953 = phi i64 [ 6557241057451442176, %2023 ], [ 8863084066665136128, %1266 ]
+  %.sink2023 = phi i64 [ 6701356245527298048, %2023 ], [ 9007199254740992000, %1266 ]
+  %.sroa.0.10.sink2021 = phi ptr [ %.sroa.0.10, %2023 ], [ %.sroa.0.8, %1266 ]
+  %.sink2003 = phi i64 [ 6557241057451442176, %2023 ], [ 8863084066665136128, %1266 ]
   %.sroa.25.8 = phi ptr [ %2024, %2023 ], [ %1267, %1266 ]
   %.sroa.166.9 = phi ptr [ %.sroa.166.10, %2023 ], [ %.sroa.166.8, %1266 ]
   %1457 = zext i32 %.sroa.117.6.sink to i64
@@ -8104,9 +8104,9 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %1459 = getelementptr inbounds nuw %"struct.simdjson::haswell::open_container", ptr %1458, i64 %1457
   %1460 = load i32, ptr %1459, align 4, !tbaa !176
   %1461 = zext i32 %1460 to i64
-  %1462 = or disjoint i64 %.sink1973, %1461
-  store i64 %1462, ptr %.sroa.0.10.sink1971, align 8, !tbaa !11
-  %1463 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1971, i64 8
+  %1462 = or disjoint i64 %.sink2023, %1461
+  store i64 %1462, ptr %.sroa.0.10.sink2021, align 8, !tbaa !11
+  %1463 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink2021, i64 8
   %1464 = getelementptr inbounds nuw i8, ptr %1459, i64 4
   %1465 = load i32, ptr %1464, align 4, !tbaa !178
   %1466 = tail call i32 @llvm.umin.i32(i32 %1465, i32 16777215)
@@ -8121,7 +8121,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %1475 = zext nneg i32 %1466 to i64
   %1476 = shl nuw nsw i64 %1475, 32
   %1477 = or disjoint i64 %1474, %1476
-  %1478 = or disjoint i64 %1477, %.sink1953
+  %1478 = or disjoint i64 %1477, %.sink2003
   store i64 %1478, ptr %1469, align 8, !tbaa !11
   %1479 = add i32 %.sroa.117.6.sink, -1
   %1480 = icmp eq i32 %1479, 0
@@ -8610,12 +8610,12 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not1683, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread
 
 _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread: ; preds = %.lr.ph1798, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177
-  %.51042.lcssa1892 = phi i64 [ %.410411575, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177 ], [ %1795, %.lr.ph1798 ]
-  %.71036.idx.lcssa17941891 = phi i64 [ %.51034.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177 ], [ %.71036.add, %.lr.ph1798 ]
+  %.51042.lcssa1942 = phi i64 [ %.410411575, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177 ], [ %1795, %.lr.ph1798 ]
+  %.71036.idx.lcssa17941941 = phi i64 [ %.51034.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177 ], [ %.71036.add, %.lr.ph1798 ]
   %1799 = phi i8 [ %1789, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177 ], [ %1796, %.lr.ph1798 ]
-  %.71036.ptr.le = getelementptr inbounds nuw i8, ptr %.01029.lcssa, i64 %.71036.idx.lcssa17941891
+  %.71036.ptr.le = getelementptr inbounds nuw i8, ptr %.01029.lcssa, i64 %.71036.idx.lcssa17941941
   %1800 = ptrtoint ptr %.71036.ptr.le to i64
-  %gepdiff1818 = sub nsw i64 1, %.71036.idx.lcssa17941891
+  %gepdiff1818 = sub nsw i64 1, %.71036.idx.lcssa17941941
   %1801 = sub i64 %1800, %1755
   %sext.i.i180 = shl i64 %1801, 32
   %1802 = ashr exact i64 %sext.i.i180, 32
@@ -8624,7 +8624,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 1803:                                             ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread, %1761
   %1804 = phi i8 [ %1799, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread ], [ %.lcssa1709, %1761 ]
   %.01044 = phi i64 [ %gepdiff1818, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread ], [ 0, %1761 ]
-  %.21039 = phi i64 [ %.51042.lcssa1892, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread ], [ %.01037.lcssa, %1761 ]
+  %.21039 = phi i64 [ %.51042.lcssa1942, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread ], [ %.01037.lcssa, %1761 ]
   %.11030 = phi ptr [ %.71036.ptr.le, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread ], [ %.01029.lcssa, %1761 ]
   %.042.i.i121 = phi i64 [ %1802, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i177.thread ], [ %1756, %1761 ]
   switch i8 %1804, label %1833 [
@@ -8946,11 +8946,11 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %.thread1593
 
 .thread1593:                                      ; preds = %1975, %1972, %1977
-  %.sink1980 = phi i64 [ 7782220156096217088, %1977 ], [ 8430738502437568512, %1972 ], [ 8430738502437568512, %1975 ]
-  %.sink1978 = phi i64 [ %1979, %1977 ], [ %.21039, %1972 ], [ %.21039, %1975 ]
-  store i64 %.sink1980, ptr %.sroa.0.2, align 8, !tbaa !11
+  %.sink2030 = phi i64 [ 7782220156096217088, %1977 ], [ 8430738502437568512, %1972 ], [ 8430738502437568512, %1975 ]
+  %.sink2028 = phi i64 [ %1979, %1977 ], [ %.21039, %1972 ], [ %.21039, %1975 ]
+  store i64 %.sink2030, ptr %.sroa.0.2, align 8, !tbaa !11
   %1980 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store i64 %.sink1978, ptr %1980, align 8
+  store i64 %.sink2028, ptr %1980, align 8
   %.sroa.0.31 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %1981 = load i8, ptr %.11030, align 1, !tbaa !4
   %1982 = zext i8 %1981 to i64
@@ -9020,11 +9020,11 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %2023
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit211: ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i153, %1873, %1914, %1916, %1944, %1869, %.noexc25.i172, %1852
-  %.sink1981 = phi double [ %1845, %.noexc25.i172 ], [ %1853, %1852 ], [ %1953, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i153 ], [ %1952, %1944 ], [ %1928, %1916 ], [ %1915, %1914 ], [ %1874, %1873 ], [ %spec.select1665, %1869 ]
+  %.sink2031 = phi double [ %1845, %.noexc25.i172 ], [ %1853, %1852 ], [ %1953, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i153 ], [ %1952, %1944 ], [ %1928, %1916 ], [ %1915, %1914 ], [ %1874, %1873 ], [ %spec.select1665, %1869 ]
   %.0.i24.i157 = phi i32 [ %..i229, %.noexc25.i172 ], [ 0, %1852 ], [ 0, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i153 ], [ 0, %1944 ], [ 0, %1916 ], [ 0, %1914 ], [ 0, %1873 ], [ 0, %1869 ]
   store i64 7205759403792793600, ptr %.sroa.0.2, align 8, !tbaa !11
   %2021 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store double %.sink1981, ptr %2021, align 8
+  store double %.sink2031, ptr %2021, align 8
   %2022 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %.not60.i.i158 = icmp eq i32 %.0.i24.i157, 0
   %..i.i160 = select i1 %.not59.i.i138, i32 0, i32 9
@@ -9658,12 +9658,12 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread, label %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread
 
 _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread: ; preds = %.lr.ph1500, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i
-  %.5914.lcssa1625 = phi i64 [ %.49131005, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %350, %.lr.ph1500 ]
-  %.7908.idx.lcssa14961624 = phi i64 [ %.5906.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7908.add, %.lr.ph1500 ]
+  %.5914.lcssa1675 = phi i64 [ %.49131005, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %350, %.lr.ph1500 ]
+  %.7908.idx.lcssa14961674 = phi i64 [ %.5906.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7908.add, %.lr.ph1500 ]
   %354 = phi i8 [ %344, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %351, %.lr.ph1500 ]
-  %.7908.ptr.le = getelementptr inbounds nuw i8, ptr %.0901.lcssa, i64 %.7908.idx.lcssa14961624
+  %.7908.ptr.le = getelementptr inbounds nuw i8, ptr %.0901.lcssa, i64 %.7908.idx.lcssa14961674
   %355 = ptrtoint ptr %.7908.ptr.le to i64
-  %gepdiff = sub nsw i64 1, %.7908.idx.lcssa14961624
+  %gepdiff = sub nsw i64 1, %.7908.idx.lcssa14961674
   %356 = sub i64 %355, %310
   %sext.i.i = shl i64 %356, 32
   %357 = ashr exact i64 %sext.i.i, 32
@@ -9672,7 +9672,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 358:                                              ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread, %316
   %359 = phi i8 [ %354, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.lcssa1491, %316 ]
   %.0916 = phi i64 [ %gepdiff, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ 0, %316 ]
-  %.2911 = phi i64 [ %.5914.lcssa1625, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0909.lcssa, %316 ]
+  %.2911 = phi i64 [ %.5914.lcssa1675, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0909.lcssa, %316 ]
   %.1902 = phi ptr [ %.7908.ptr.le, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0901.lcssa, %316 ]
   %.042.i.i = phi i64 [ %357, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %311, %316 ]
   switch i8 %359, label %388 [
@@ -10003,11 +10003,11 @@ select.unfold.sink.split:                         ; preds = %_ZN8simdjson7haswel
   br label %.thread1023
 
 .thread1023:                                      ; preds = %531, %528, %533
-  %.sink1703 = phi i64 [ 7782220156096217088, %533 ], [ 8430738502437568512, %528 ], [ 8430738502437568512, %531 ]
-  %.sink1701 = phi i64 [ %535, %533 ], [ %.2911, %528 ], [ %.2911, %531 ]
-  store i64 %.sink1703, ptr %22, align 8, !tbaa !11
+  %.sink1753 = phi i64 [ 7782220156096217088, %533 ], [ 8430738502437568512, %528 ], [ 8430738502437568512, %531 ]
+  %.sink1751 = phi i64 [ %535, %533 ], [ %.2911, %528 ], [ %.2911, %531 ]
+  store i64 %.sink1753, ptr %22, align 8, !tbaa !11
   %536 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %.sink1701, ptr %536, align 8
+  store i64 %.sink1751, ptr %536, align 8
   %537 = load i8, ptr %.1902, align 1, !tbaa !4
   %538 = zext i8 %537 to i64
   %539 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %538
@@ -10313,7 +10313,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i188.i: ; preds = %729, %1447, %1282, %564
   %.lcssa.sink = phi i32 [ %580, %564 ], [ %1298, %1282 ], [ %1453, %1447 ], [ %735, %729 ]
   %.0927.lcssa.sink = phi ptr [ %573, %564 ], [ %1291, %1282 ], [ %.1928, %1447 ], [ %.1942, %729 ]
-  %.sink1709 = phi ptr [ %573, %564 ], [ %1291, %1282 ], [ %1291, %1447 ], [ %573, %729 ]
+  %.sink1759 = phi ptr [ %573, %564 ], [ %1291, %1282 ], [ %1291, %1447 ], [ %573, %729 ]
   %.sroa.166.8.sink = phi ptr [ %.sroa.166.4, %564 ], [ %.sroa.166.8, %1282 ], [ %.sroa.166.8, %1447 ], [ %.sroa.166.4, %729 ]
   %.sroa.113.3 = phi i32 [ %542, %564 ], [ %.sroa.113.4, %1282 ], [ %.sroa.113.4, %1447 ], [ %542, %729 ]
   %.sroa.23.4.pn = phi ptr [ %.sroa.23.4, %564 ], [ %1267, %1282 ], [ %1267, %1447 ], [ %.sroa.23.4, %729 ]
@@ -10322,7 +10322,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i188
   %739 = zext nneg i32 %738 to i64
   %740 = getelementptr inbounds nuw i8, ptr %.0927.lcssa.sink, i64 %739
   %741 = ptrtoint ptr %740 to i64
-  %742 = ptrtoint ptr %.sink1709 to i64
+  %742 = ptrtoint ptr %.sink1759 to i64
   %743 = sub i64 %741, %742
   %744 = trunc i64 %743 to i32
   store i32 %744, ptr %.sroa.166.8.sink, align 1
@@ -10775,12 +10775,12 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not1446, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread
 
 _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread: ; preds = %.lr.ph1539, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i
-  %.5877.lcssa1646 = phi i64 [ %.48761191, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1038, %.lr.ph1539 ]
-  %.7871.idx.lcssa15351645 = phi i64 [ %.5869.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %.7871.add, %.lr.ph1539 ]
+  %.5877.lcssa1696 = phi i64 [ %.48761191, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1038, %.lr.ph1539 ]
+  %.7871.idx.lcssa15351695 = phi i64 [ %.5869.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %.7871.add, %.lr.ph1539 ]
   %1042 = phi i8 [ %1032, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1039, %.lr.ph1539 ]
-  %.7871.ptr.le = getelementptr inbounds nuw i8, ptr %.0864.lcssa, i64 %.7871.idx.lcssa15351645
+  %.7871.ptr.le = getelementptr inbounds nuw i8, ptr %.0864.lcssa, i64 %.7871.idx.lcssa15351695
   %1043 = ptrtoint ptr %.7871.ptr.le to i64
-  %gepdiff1583 = sub nsw i64 1, %.7871.idx.lcssa15351645
+  %gepdiff1583 = sub nsw i64 1, %.7871.idx.lcssa15351695
   %1044 = sub i64 %1043, %998
   %sext.i.i.i = shl i64 %1044, 32
   %1045 = ashr exact i64 %sext.i.i.i, 32
@@ -10789,7 +10789,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 1046:                                             ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread, %1004
   %1047 = phi i8 [ %1042, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.lcssa1481, %1004 ]
   %.0879 = phi i64 [ %gepdiff1583, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ 0, %1004 ]
-  %.2874 = phi i64 [ %.5877.lcssa1646, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0872.lcssa, %1004 ]
+  %.2874 = phi i64 [ %.5877.lcssa1696, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0872.lcssa, %1004 ]
   %.1865 = phi ptr [ %.7871.ptr.le, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0864.lcssa, %1004 ]
   %.042.i.i.i = phi i64 [ %1045, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %999, %1004 ]
   switch i8 %1047, label %1076 [
@@ -11111,11 +11111,11 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %.thread1209
 
 .thread1209:                                      ; preds = %1218, %1215, %1220
-  %.sink1715 = phi i64 [ 7782220156096217088, %1220 ], [ 8430738502437568512, %1215 ], [ 8430738502437568512, %1218 ]
-  %.sink1713 = phi i64 [ %1222, %1220 ], [ %.2874, %1215 ], [ %.2874, %1218 ]
-  store i64 %.sink1715, ptr %.sroa.0.6, align 8, !tbaa !11
+  %.sink1765 = phi i64 [ 7782220156096217088, %1220 ], [ 8430738502437568512, %1215 ], [ 8430738502437568512, %1218 ]
+  %.sink1763 = phi i64 [ %1222, %1220 ], [ %.2874, %1215 ], [ %.2874, %1218 ]
+  store i64 %.sink1765, ptr %.sroa.0.6, align 8, !tbaa !11
   %1223 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store i64 %.sink1713, ptr %1223, align 8
+  store i64 %.sink1763, ptr %1223, align 8
   %.sroa.0.19 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %1224 = load i8, ptr %.1865, align 1, !tbaa !4
   %1225 = zext i8 %1224 to i64
@@ -11185,11 +11185,11 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %1266
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit.i: ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i, %1116, %1157, %1159, %1187, %1112, %.noexc25.i.i, %1095
-  %.sink1716 = phi double [ %1088, %.noexc25.i.i ], [ %1096, %1095 ], [ %1196, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ %1195, %1187 ], [ %1171, %1159 ], [ %1158, %1157 ], [ %1117, %1116 ], [ %spec.select1432, %1112 ]
+  %.sink1766 = phi double [ %1088, %.noexc25.i.i ], [ %1096, %1095 ], [ %1196, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ %1195, %1187 ], [ %1171, %1159 ], [ %1158, %1157 ], [ %1117, %1116 ], [ %spec.select1432, %1112 ]
   %.0.i24.i.i = phi i32 [ %..i3, %.noexc25.i.i ], [ 0, %1095 ], [ 0, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ 0, %1187 ], [ 0, %1159 ], [ 0, %1157 ], [ 0, %1116 ], [ 0, %1112 ]
   store i64 7205759403792793600, ptr %.sroa.0.6, align 8, !tbaa !11
   %1264 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store double %.sink1716, ptr %1264, align 8
+  store double %.sink1766, ptr %1264, align 8
   %1265 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %.not60.i.i.i = icmp eq i32 %.0.i24.i.i, 0
   %..i.i.i = select i1 %.not59.i.i.i, i32 0, i32 9
@@ -11481,9 +11481,9 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1456:                                             ; preds = %1266, %2023
   %.sroa.113.6.sink = phi i32 [ %.sroa.113.6, %2023 ], [ %.sroa.113.4, %1266 ]
-  %.sink1741 = phi i64 [ 6701356245527298048, %2023 ], [ 9007199254740992000, %1266 ]
-  %.sroa.0.10.sink1739 = phi ptr [ %.sroa.0.10, %2023 ], [ %.sroa.0.8, %1266 ]
-  %.sink1721 = phi i64 [ 6557241057451442176, %2023 ], [ 8863084066665136128, %1266 ]
+  %.sink1791 = phi i64 [ 6701356245527298048, %2023 ], [ 9007199254740992000, %1266 ]
+  %.sroa.0.10.sink1789 = phi ptr [ %.sroa.0.10, %2023 ], [ %.sroa.0.8, %1266 ]
+  %.sink1771 = phi i64 [ 6557241057451442176, %2023 ], [ 8863084066665136128, %1266 ]
   %.sroa.23.8 = phi ptr [ %2024, %2023 ], [ %1267, %1266 ]
   %.sroa.166.9 = phi ptr [ %.sroa.166.10, %2023 ], [ %.sroa.166.8, %1266 ]
   %1457 = zext i32 %.sroa.113.6.sink to i64
@@ -11491,9 +11491,9 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %1459 = getelementptr inbounds nuw %"struct.simdjson::haswell::open_container", ptr %1458, i64 %1457
   %1460 = load i32, ptr %1459, align 4, !tbaa !176
   %1461 = zext i32 %1460 to i64
-  %1462 = or disjoint i64 %.sink1741, %1461
-  store i64 %1462, ptr %.sroa.0.10.sink1739, align 8, !tbaa !11
-  %1463 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1739, i64 8
+  %1462 = or disjoint i64 %.sink1791, %1461
+  store i64 %1462, ptr %.sroa.0.10.sink1789, align 8, !tbaa !11
+  %1463 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1789, i64 8
   %1464 = getelementptr inbounds nuw i8, ptr %1459, i64 4
   %1465 = load i32, ptr %1464, align 4, !tbaa !178
   %1466 = tail call i32 @llvm.umin.i32(i32 %1465, i32 16777215)
@@ -11508,7 +11508,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %1475 = zext nneg i32 %1466 to i64
   %1476 = shl nuw nsw i64 %1475, 32
   %1477 = or disjoint i64 %1474, %1476
-  %1478 = or disjoint i64 %1477, %.sink1721
+  %1478 = or disjoint i64 %1477, %.sink1771
   store i64 %1478, ptr %1469, align 8, !tbaa !11
   %1479 = add i32 %.sroa.113.6.sink, -1
   %1480 = icmp eq i32 %1479, 0
@@ -11997,12 +11997,12 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not1451, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread
 
 _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread: ; preds = %.lr.ph1566, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i
-  %.5813.lcssa1660 = phi i64 [ %.48121344, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i ], [ %1795, %.lr.ph1566 ]
-  %.7807.idx.lcssa15621659 = phi i64 [ %.5805.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i ], [ %.7807.add, %.lr.ph1566 ]
+  %.5813.lcssa1710 = phi i64 [ %.48121344, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i ], [ %1795, %.lr.ph1566 ]
+  %.7807.idx.lcssa15621709 = phi i64 [ %.5805.add, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i ], [ %.7807.add, %.lr.ph1566 ]
   %1799 = phi i8 [ %1789, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i ], [ %1796, %.lr.ph1566 ]
-  %.7807.ptr.le = getelementptr inbounds nuw i8, ptr %.0800.lcssa, i64 %.7807.idx.lcssa15621659
+  %.7807.ptr.le = getelementptr inbounds nuw i8, ptr %.0800.lcssa, i64 %.7807.idx.lcssa15621709
   %1800 = ptrtoint ptr %.7807.ptr.le to i64
-  %gepdiff1586 = sub nsw i64 1, %.7807.idx.lcssa15621659
+  %gepdiff1586 = sub nsw i64 1, %.7807.idx.lcssa15621709
   %1801 = sub i64 %1800, %1755
   %sext.i.i349.i = shl i64 %1801, 32
   %1802 = ashr exact i64 %sext.i.i349.i, 32
@@ -12011,7 +12011,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 1803:                                             ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread, %1761
   %1804 = phi i8 [ %1799, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread ], [ %.lcssa1477, %1761 ]
   %.0815 = phi i64 [ %gepdiff1586, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread ], [ 0, %1761 ]
-  %.2810 = phi i64 [ %.5813.lcssa1660, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread ], [ %.0808.lcssa, %1761 ]
+  %.2810 = phi i64 [ %.5813.lcssa1710, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread ], [ %.0808.lcssa, %1761 ]
   %.1801 = phi ptr [ %.7807.ptr.le, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread ], [ %.0800.lcssa, %1761 ]
   %.042.i.i290.i = phi i64 [ %1802, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i346.i.thread ], [ %1756, %1761 ]
   switch i8 %1804, label %1833 [
@@ -12333,11 +12333,11 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %.thread1362
 
 .thread1362:                                      ; preds = %1975, %1972, %1977
-  %.sink1748 = phi i64 [ 7782220156096217088, %1977 ], [ 8430738502437568512, %1972 ], [ 8430738502437568512, %1975 ]
-  %.sink1746 = phi i64 [ %1979, %1977 ], [ %.2810, %1972 ], [ %.2810, %1975 ]
-  store i64 %.sink1748, ptr %.sroa.0.2, align 8, !tbaa !11
+  %.sink1798 = phi i64 [ 7782220156096217088, %1977 ], [ 8430738502437568512, %1972 ], [ 8430738502437568512, %1975 ]
+  %.sink1796 = phi i64 [ %1979, %1977 ], [ %.2810, %1972 ], [ %.2810, %1975 ]
+  store i64 %.sink1798, ptr %.sroa.0.2, align 8, !tbaa !11
   %1980 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store i64 %.sink1746, ptr %1980, align 8
+  store i64 %.sink1796, ptr %1980, align 8
   %.sroa.0.28 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %1981 = load i8, ptr %.1801, align 1, !tbaa !4
   %1982 = zext i8 %1981 to i64
@@ -12407,11 +12407,11 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %2023
 
 _ZN8simdjson7haswell12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit380.i: ; preds = %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i322.i, %1873, %1914, %1916, %1944, %1869, %.noexc25.i341.i, %1852
-  %.sink1749 = phi double [ %1845, %.noexc25.i341.i ], [ %1853, %1852 ], [ %1953, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i322.i ], [ %1952, %1944 ], [ %1928, %1916 ], [ %1915, %1914 ], [ %1874, %1873 ], [ %spec.select1434, %1869 ]
+  %.sink1799 = phi double [ %1845, %.noexc25.i341.i ], [ %1853, %1852 ], [ %1953, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i322.i ], [ %1952, %1944 ], [ %1928, %1916 ], [ %1915, %1914 ], [ %1874, %1873 ], [ %spec.select1434, %1869 ]
   %.0.i24.i326.i = phi i32 [ %..i4, %.noexc25.i341.i ], [ 0, %1852 ], [ 0, %_ZN8simdjson7haswell13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i322.i ], [ 0, %1944 ], [ 0, %1916 ], [ 0, %1914 ], [ 0, %1873 ], [ 0, %1869 ]
   store i64 7205759403792793600, ptr %.sroa.0.2, align 8, !tbaa !11
   %2021 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store double %.sink1749, ptr %2021, align 8
+  store double %.sink1799, ptr %2021, align 8
   %2022 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %.not60.i.i327.i = icmp eq i32 %.0.i24.i326.i, 0
   %..i.i329.i = select i1 %.not59.i.i307.i, i32 0, i32 9
@@ -13145,15 +13145,15 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_1
   %59 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %11)
   %60 = icmp eq <64 x i8> %59, %11
   %61 = bitcast <64 x i1> %60 to i64
-  %.not750.i = xor i64 %36, -1
-  %62 = or i64 %32, %.not750.i
+  %.not755.i = xor i64 %36, -1
+  %62 = or i64 %32, %.not755.i
   %63 = bitcast i64 %62 to <64 x i1>
   %64 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %9, <64 x i8> zeroinitializer, <64 x i1> %63)
   store <64 x i8> %64, ptr %.sroa.41.0743.i, align 1, !tbaa !4
   %65 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %62)
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.41.0743.i, i64 %65
-  %.not751.i = xor i64 %61, -1
-  %67 = or i64 %57, %.not751.i
+  %.not756.i = xor i64 %61, -1
+  %67 = or i64 %57, %.not756.i
   %68 = bitcast i64 %67 to <64 x i1>
   %69 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %11, <64 x i8> zeroinitializer, <64 x i1> %68)
   store <64 x i8> %69, ptr %66, align 1, !tbaa !4
@@ -13244,15 +13244,15 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_1
   %122 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %.64..64..64..64..64.740.i)
   %123 = icmp eq <64 x i8> %.64..64..64..64..64.740.i, %122
   %124 = bitcast <64 x i1> %123 to i64
-  %.not752.i = xor i64 %101, -1
-  %125 = or i64 %97, %.not752.i
+  %.not757.i = xor i64 %101, -1
+  %125 = or i64 %97, %.not757.i
   %126 = bitcast i64 %125 to <64 x i1>
   %127 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %.0..0..0..0..0.739.i, <64 x i8> zeroinitializer, <64 x i1> %126)
   store <64 x i8> %127, ptr %7, align 16, !tbaa !4
   %128 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %125)
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 %128
-  %.not753.i = xor i64 %124, -1
-  %130 = or i64 %120, %.not753.i
+  %.not758.i = xor i64 %124, -1
+  %130 = or i64 %120, %.not758.i
   %131 = bitcast i64 %130 to <64 x i1>
   %132 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> %.64..64..64..64..64.740.i, <64 x i8> zeroinitializer, <64 x i1> %131)
   store <64 x i8> %132, ptr %129, align 1, !tbaa !4
@@ -13674,7 +13674,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
 
 ._crit_edge.thread.i:                             ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i
   %.ph.i = phi ptr [ %42, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %44, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
-  %.0133042.ph.i = phi i64 [ %.013.ph.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %.013.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
+  %.0133061.ph.i = phi i64 [ %.013.ph.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %.013.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
   %.sroa.81.0.lcssa.ph.i = phi ptr [ %43, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %45, %_ZN8simdjson7icelake12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
@@ -13685,21 +13685,21 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   br i1 %274, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i: ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.sroa.32.0.lcssa3064.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %110, %._crit_edge.i ]
-  %.sroa.41121.0.lcssa3063.i = phi <8 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.41121.3.i, %._crit_edge.i ]
-  %.sroa.62.0.lcssa3062.i = phi <8 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.62.2.i, %._crit_edge.i ]
-  %.sroa.71.0.lcssa3061.i = phi <8 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.71.3.i, %._crit_edge.i ]
-  %.sroa.81.0.lcssa3060.i = phi ptr [ %.sroa.81.0.lcssa.ph.i, %._crit_edge.thread.i ], [ %.sroa.81.2.i, %._crit_edge.i ]
-  %.sroa.113.0.lcssa3059.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %268, %._crit_edge.i ]
-  %.sroa.123.0.lcssa3058.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %271, %._crit_edge.i ]
-  %.sroa.12.0.lcssa3057.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.sroa.12.2.i, %._crit_edge.i ]
-  %.sroa.0.0.lcssa3056.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %123, %._crit_edge.i ]
-  %.sroa.11.0.lcssa3055.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %272, %._crit_edge.i ]
-  %.01330423054.i = phi i64 [ %.0133042.ph.i, %._crit_edge.thread.i ], [ %.013.i, %._crit_edge.i ]
+  %.sroa.32.0.lcssa3083.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %110, %._crit_edge.i ]
+  %.sroa.41121.0.lcssa3082.i = phi <8 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.41121.3.i, %._crit_edge.i ]
+  %.sroa.62.0.lcssa3081.i = phi <8 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.62.2.i, %._crit_edge.i ]
+  %.sroa.71.0.lcssa3080.i = phi <8 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.71.3.i, %._crit_edge.i ]
+  %.sroa.81.0.lcssa3079.i = phi ptr [ %.sroa.81.0.lcssa.ph.i, %._crit_edge.thread.i ], [ %.sroa.81.2.i, %._crit_edge.i ]
+  %.sroa.113.0.lcssa3078.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %268, %._crit_edge.i ]
+  %.sroa.123.0.lcssa3077.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %271, %._crit_edge.i ]
+  %.sroa.12.0.lcssa3076.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.sroa.12.2.i, %._crit_edge.i ]
+  %.sroa.0.0.lcssa3075.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %123, %._crit_edge.i ]
+  %.sroa.11.0.lcssa3074.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %272, %._crit_edge.i ]
+  %.01330613073.i = phi i64 [ %.0133061.ph.i, %._crit_edge.thread.i ], [ %.013.i, %._crit_edge.i ]
   %275 = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %44, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 32, i64 128, i1 false)
-  %276 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa3055.i
-  %277 = sub i64 %.01330423054.i, %.sroa.11.0.lcssa3055.i
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa3074.i
+  %277 = sub i64 %.01330613073.i, %.sroa.11.0.lcssa3074.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %276, i64 %277, i1 false)
   %.0..0..0..0..0..i = load <8 x i64>, ptr %5, align 16, !tbaa !4, !noalias !257
   %.64..64..64..64..64..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -13711,13 +13711,13 @@ _ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
   br i1 %.not.i26.i17.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit31.i18.i, label %281
 
 281:                                              ; preds = %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
-  %282 = xor i64 %.sroa.12.0.lcssa3057.i, -1
+  %282 = xor i64 %.sroa.12.0.lcssa3076.i, -1
   %283 = and i64 %280, %282
   %284 = shl i64 %283, 1
   %285 = or i64 %284, -6148914691236517206
   %286 = sub i64 %285, %283
   %287 = xor i64 %286, -6148914691236517206
-  %288 = or i64 %.sroa.12.0.lcssa3057.i, %280
+  %288 = or i64 %.sroa.12.0.lcssa3076.i, %280
   %289 = xor i64 %287, %288
   %290 = and i64 %287, %280
   %291 = lshr i64 %290, 63
@@ -13725,7 +13725,7 @@ _ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remain
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit31.i18.i: ; preds = %281, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i
   %.sroa.12.3.i = phi i64 [ %291, %281 ], [ 0, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
-  %.sroa.0.0.i27.i19.i = phi i64 [ %289, %281 ], [ %.sroa.12.0.lcssa3057.i, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
+  %.sroa.0.0.i27.i19.i = phi i64 [ %289, %281 ], [ %.sroa.12.0.lcssa3076.i, %_ZNK8simdjson7icelake12_GLOBAL__N_16stage116buf_block_readerILm128EE13get_remainderEPh.exit.i ]
   %292 = icmp eq <64 x i8> %278, splat (i8 34)
   %293 = bitcast <64 x i1> %292 to i64
   %294 = xor i64 %.sroa.0.0.i27.i19.i, -1
@@ -13733,7 +13733,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit31.i18
   %296 = insertelement <2 x i64> poison, i64 %295, i64 0
   %297 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %296, <2 x i64> <i64 -1, i64 poison>, i8 0)
   %298 = extractelement <2 x i64> %297, i64 0
-  %299 = xor i64 %298, %.sroa.32.0.lcssa3064.i
+  %299 = xor i64 %298, %.sroa.32.0.lcssa3083.i
   %300 = ashr i64 %299, 63
   %301 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100, i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <64 x i8> %278)
   %302 = icmp eq <64 x i8> %301, %278
@@ -13747,7 +13747,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit31.i18
   %310 = xor i64 %295, -1
   %311 = and i64 %309, %310
   %312 = shl i64 %311, 1
-  %313 = or disjoint i64 %312, %.sroa.0.0.lcssa3056.i
+  %313 = or disjoint i64 %312, %.sroa.0.0.lcssa3075.i
   %314 = bitcast <8 x i64> %.64..64..64..64..64..i to <64 x i8>
   %315 = icmp eq <64 x i8> %314, splat (i8 92)
   %316 = bitcast <64 x i1> %315 to i64
@@ -13795,7 +13795,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit31.i18
   br i1 %350, label %_ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i, label %351, !prof !141
 
 351:                                              ; preds = %.noexc45.i
-  %352 = shufflevector <8 x i64> %.sroa.62.0.lcssa3062.i, <8 x i64> %.0..0..0..0..0..i, <8 x i32> <i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13>
+  %352 = shufflevector <8 x i64> %.sroa.62.0.lcssa3081.i, <8 x i64> %.0..0..0..0..0..i, <8 x i32> <i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13>
   %353 = bitcast <8 x i64> %352 to <64 x i8>
   %354 = shufflevector <64 x i8> %353, <64 x i8> %278, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
   %355 = bitcast <64 x i8> %354 to <32 x i16>
@@ -13827,31 +13827,31 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage119json_escape_scanner4nextEm.exit31.i18
   br label %_ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
 
 _ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i: ; preds = %351, %.noexc45.i
-  %.sroa.71.2.i = phi <8 x i64> [ %380, %351 ], [ %.sroa.71.0.lcssa3061.i, %.noexc45.i ]
-  %.sroa.62.1.i = phi <8 x i64> [ %.0..0..0..0..0..i, %351 ], [ %.sroa.62.0.lcssa3062.i, %.noexc45.i ]
-  %.sroa.71.0.pn.i = phi <8 x i64> [ %377, %351 ], [ %.sroa.71.0.lcssa3061.i, %.noexc45.i ]
-  %381 = icmp eq i64 %.sroa.113.0.lcssa3059.i, 0
+  %.sroa.71.2.i = phi <8 x i64> [ %380, %351 ], [ %.sroa.71.0.lcssa3080.i, %.noexc45.i ]
+  %.sroa.62.1.i = phi <8 x i64> [ %.0..0..0..0..0..i, %351 ], [ %.sroa.62.0.lcssa3081.i, %.noexc45.i ]
+  %.sroa.71.0.pn.i = phi <8 x i64> [ %377, %351 ], [ %.sroa.71.0.lcssa3080.i, %.noexc45.i ]
+  %381 = icmp eq i64 %.sroa.113.0.lcssa3078.i, 0
   br i1 %381, label %.noexc42.i, label %382
 
 382:                                              ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
-  %383 = trunc i64 %.sroa.11.0.lcssa3055.i to i32
+  %383 = trunc i64 %.sroa.11.0.lcssa3074.i to i32
   %384 = add i32 %383, -64
-  %385 = bitcast i64 %.sroa.113.0.lcssa3059.i to <64 x i1>
+  %385 = bitcast i64 %.sroa.113.0.lcssa3078.i to <64 x i1>
   %386 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 33, i8 34, i8 35, i8 36, i8 37, i8 38, i8 39, i8 40, i8 41, i8 42, i8 43, i8 44, i8 45, i8 46, i8 47, i8 48, i8 49, i8 50, i8 51, i8 52, i8 53, i8 54, i8 55, i8 56, i8 57, i8 58, i8 59, i8 60, i8 61, i8 62, i8 63>, <64 x i8> zeroinitializer, <64 x i1> %385)
   %387 = insertelement <16 x i32> poison, i32 %384, i64 0
   %388 = shufflevector <16 x i32> %387, <16 x i32> poison, <16 x i32> zeroinitializer
-  %389 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.113.0.lcssa3059.i)
+  %389 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.113.0.lcssa3078.i)
   %390 = shufflevector <64 x i8> %386, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %391 = zext <16 x i8> %390 to <16 x i32>
   %392 = add <16 x i32> %388, %391
-  store <16 x i32> %392, ptr %.sroa.81.0.lcssa3060.i, align 1, !tbaa !4
+  store <16 x i32> %392, ptr %.sroa.81.0.lcssa3079.i, align 1, !tbaa !4
   %393 = icmp samesign ugt i64 %389, 16
   br i1 %393, label %394, label %411
 
 394:                                              ; preds = %382
   %395 = shufflevector <64 x i8> %386, <64 x i8> poison, <16 x i32> <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %396 = zext <16 x i8> %395 to <16 x i32>
-  %397 = getelementptr inbounds nuw i8, ptr %.sroa.81.0.lcssa3060.i, i64 64
+  %397 = getelementptr inbounds nuw i8, ptr %.sroa.81.0.lcssa3079.i, i64 64
   %398 = add <16 x i32> %388, %396
   store <16 x i32> %398, ptr %397, align 1, !tbaa !4
   %399 = icmp samesign ugt i64 %389, 32
@@ -13860,7 +13860,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
 400:                                              ; preds = %394
   %401 = shufflevector <64 x i8> %386, <64 x i8> poison, <16 x i32> <i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47>
   %402 = zext <16 x i8> %401 to <16 x i32>
-  %403 = getelementptr inbounds nuw i8, ptr %.sroa.81.0.lcssa3060.i, i64 128
+  %403 = getelementptr inbounds nuw i8, ptr %.sroa.81.0.lcssa3079.i, i64 128
   %404 = add <16 x i32> %388, %402
   store <16 x i32> %404, ptr %403, align 1, !tbaa !4
   %405 = icmp samesign ugt i64 %389, 48
@@ -13869,17 +13869,17 @@ _ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
 406:                                              ; preds = %400
   %407 = shufflevector <64 x i8> %386, <64 x i8> poison, <16 x i32> <i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
   %408 = zext <16 x i8> %407 to <16 x i32>
-  %409 = getelementptr inbounds nuw i8, ptr %.sroa.81.0.lcssa3060.i, i64 192
+  %409 = getelementptr inbounds nuw i8, ptr %.sroa.81.0.lcssa3079.i, i64 192
   %410 = add <16 x i32> %388, %408
   store <16 x i32> %410, ptr %409, align 1, !tbaa !4
   br label %411
 
 411:                                              ; preds = %406, %400, %394, %382
-  %412 = getelementptr inbounds nuw i32, ptr %.sroa.81.0.lcssa3060.i, i64 %389
+  %412 = getelementptr inbounds nuw i32, ptr %.sroa.81.0.lcssa3079.i, i64 %389
   br label %.noexc42.i
 
 .noexc42.i:                                       ; preds = %411, %_ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i
-  %.sroa.81.3.i = phi ptr [ %.sroa.81.0.lcssa3060.i, %_ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i ], [ %412, %411 ]
+  %.sroa.81.3.i = phi ptr [ %.sroa.81.0.lcssa3079.i, %_ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i44.i ], [ %412, %411 ]
   %413 = xor i64 %313, -1
   %414 = and i64 %413, %309
   %415 = or i64 %414, %306
@@ -13933,7 +13933,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %455, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i, label %456
 
 456:                                              ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
-  %457 = trunc i64 %.sroa.11.0.lcssa3055.i to i32
+  %457 = trunc i64 %.sroa.11.0.lcssa3074.i to i32
   %458 = bitcast i64 %418 to <64 x i1>
   %459 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 33, i8 34, i8 35, i8 36, i8 37, i8 38, i8 39, i8 40, i8 41, i8 42, i8 43, i8 44, i8 45, i8 46, i8 47, i8 48, i8 49, i8 50, i8 51, i8 52, i8 53, i8 54, i8 55, i8 56, i8 57, i8 58, i8 59, i8 60, i8 61, i8 62, i8 63>, <64 x i8> zeroinitializer, <64 x i1> %458)
   %460 = insertelement <16 x i32> poison, i32 %457, i64 0
@@ -13985,13 +13985,13 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %490 = xor i64 %489, -1
   %491 = and i64 %488, %490
   %492 = and i64 %333, %421
-  %493 = or i64 %419, %.sroa.123.0.lcssa3058.i
+  %493 = or i64 %419, %.sroa.123.0.lcssa3077.i
   %494 = or i64 %493, %492
   %495 = icmp eq i64 %491, 0
   br i1 %495, label %.noexc.i, label %496
 
 496:                                              ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit39.i
-  %497 = trunc i64 %.sroa.11.0.lcssa3055.i to i32
+  %497 = trunc i64 %.sroa.11.0.lcssa3074.i to i32
   %498 = or disjoint i32 %497, 64
   %499 = bitcast i64 %491 to <64 x i1>
   %500 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 33, i8 34, i8 35, i8 36, i8 37, i8 38, i8 39, i8 40, i8 41, i8 42, i8 43, i8 44, i8 45, i8 46, i8 47, i8 48, i8 49, i8 50, i8 51, i8 52, i8 53, i8 54, i8 55, i8 56, i8 57, i8 58, i8 59, i8 60, i8 61, i8 62, i8 63>, <64 x i8> zeroinitializer, <64 x i1> %499)
@@ -14054,7 +14054,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %533 = trunc i64 %532 to i32
   %534 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %533, ptr %534, align 8, !tbaa !70
-  %535 = trunc i64 %.01330423054.i to i32
+  %535 = trunc i64 %.01330613073.i to i32
   %536 = and i64 %532, 4294967295
   %537 = getelementptr inbounds nuw i32, ptr %528, i64 %536
   store i32 %535, ptr %537, align 4, !tbaa !7
@@ -14080,7 +14080,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %552 = getelementptr inbounds nuw i32, ptr %528, i64 %551
   %553 = load i32, ptr %552, align 4, !tbaa !7
   %554 = zext i32 %553 to i64
-  %555 = icmp ult i64 %.01330423054.i, %554
+  %555 = icmp ult i64 %.01330613073.i, %554
   br i1 %555, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %556, !prof !127
 
 556:                                              ; preds = %549
@@ -14217,23 +14217,23 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %604 = icmp ne i32 %.439.i.i, 0
   %605 = icmp ne i32 %.448.i.i, 0
   %or.cond4.i.i = select i1 %604, i1 true, i1 %605
-  br i1 %or.cond4.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
+  br i1 %or.cond4.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i: ; preds = %603, %587
   %.0.i76.i = phi i32 [ %spec.select.i78.i, %587 ], [ %560, %603 ]
   %.not2977.i = icmp eq i32 %.0.i76.i, 0
-  br i1 %.not2977.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i_crit_edge, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i
+  br i1 %.not2977.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i_crit_edge, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i
 
-_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i_crit_edge: ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
+_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i_crit_edge: ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
   %.pre = load i32, ptr %528, align 4, !tbaa !7
-  br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i
+  br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i
 
-_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i: ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i_crit_edge, %603
-  %606 = phi i32 [ %.pre, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i_crit_edge ], [ %591, %603 ]
+_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i: ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i_crit_edge, %603
+  %606 = phi i32 [ %.pre, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i_crit_edge ], [ %591, %603 ]
   %607 = icmp eq i32 %606, 0
   br i1 %607, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %608
 
-608:                                              ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i
+608:                                              ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i
   store i32 0, ptr %534, align 8, !tbaa !70
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
@@ -14391,7 +14391,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_p
   br i1 %667, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %668, !prof !127
 
 668:                                              ; preds = %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit101.i, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i, %556
-  %669 = or <8 x i64> %.sroa.71.0.pn.i, %.sroa.41121.0.lcssa3063.i
+  %669 = or <8 x i64> %.sroa.71.0.pn.i, %.sroa.41121.0.lcssa3082.i
   %670 = or <8 x i64> %669, %.sroa.71.1.i
   %671 = or <8 x i64> %670, %.sroa.71.2.pn.i
   %672 = bitcast <8 x i64> %671 to <64 x i8>
@@ -14401,8 +14401,8 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_p
   %675 = select i1 %.not.i.i41.not.i, i32 0, i32 11
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
-_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %668, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit101.i, %608, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i, %558, %549, %527, %.thread.i, %.noexc.i, %._crit_edge.i
-  %.1.i = phi i32 [ %675, %668 ], [ 14, %.thread.i ], [ 13, %527 ], [ 24, %549 ], [ 1, %558 ], [ 13, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit101.i ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3065.i ], [ 13, %608 ], [ 15, %.noexc.i ]
+_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %668, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit101.i, %608, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i, %558, %549, %527, %.thread.i, %.noexc.i, %._crit_edge.i
+  %.1.i = phi i32 [ %675, %668 ], [ 14, %.thread.i ], [ 13, %527 ], [ 24, %549 ], [ 1, %558 ], [ 13, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit101.i ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson7icelake12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread3084.i ], [ 13, %608 ], [ 15, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN8simdjson7icelake12_GLOBAL__N_16stage123json_structural_indexer5indexILm128EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
@@ -15119,12 +15119,12 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit16.i
   br i1 %.not, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread, label %.noexc81.thread
 
 .noexc81.thread:                                  ; preds = %.lr.ph1596, %.noexc81
-  %.51007.lcssa1721 = phi i64 [ %.410061100, %.noexc81 ], [ %347, %.lr.ph1596 ]
-  %.5999.idx.lcssa15921720 = phi i64 [ %.3997.add, %.noexc81 ], [ %.5999.add, %.lr.ph1596 ]
+  %.51007.lcssa1771 = phi i64 [ %.410061100, %.noexc81 ], [ %347, %.lr.ph1596 ]
+  %.5999.idx.lcssa15921770 = phi i64 [ %.3997.add, %.noexc81 ], [ %.5999.add, %.lr.ph1596 ]
   %351 = phi i8 [ %341, %.noexc81 ], [ %348, %.lr.ph1596 ]
-  %.5999.ptr.le = getelementptr inbounds nuw i8, ptr %.0994.lcssa, i64 %.5999.idx.lcssa15921720
+  %.5999.ptr.le = getelementptr inbounds nuw i8, ptr %.0994.lcssa, i64 %.5999.idx.lcssa15921770
   %352 = ptrtoint ptr %.5999.ptr.le to i64
-  %gepdiff = sub nsw i64 1, %.5999.idx.lcssa15921720
+  %gepdiff = sub nsw i64 1, %.5999.idx.lcssa15921770
   %353 = sub i64 %352, %308
   %sext.i = shl i64 %353, 32
   %354 = ashr exact i64 %sext.i, 32
@@ -15133,7 +15133,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit16.i
 355:                                              ; preds = %.noexc81.thread, %314
   %356 = phi i8 [ %351, %.noexc81.thread ], [ %.lcssa1587, %314 ]
   %.01009 = phi i64 [ %gepdiff, %.noexc81.thread ], [ 0, %314 ]
-  %.11003 = phi i64 [ %.51007.lcssa1721, %.noexc81.thread ], [ %.01002.lcssa, %314 ]
+  %.11003 = phi i64 [ %.51007.lcssa1771, %.noexc81.thread ], [ %.01002.lcssa, %314 ]
   %.1995 = phi ptr [ %.5999.ptr.le, %.noexc81.thread ], [ %.0994.lcssa, %314 ]
   %.042.i = phi i64 [ %354, %.noexc81.thread ], [ %309, %314 ]
   switch i8 %356, label %385 [
@@ -15464,11 +15464,11 @@ select.unfold.sink.split:                         ; preds = %.noexc91, %426, %46
   br label %.thread1118
 
 .thread1118:                                      ; preds = %528, %525, %530
-  %.sink1799 = phi i64 [ 7782220156096217088, %530 ], [ 8430738502437568512, %525 ], [ 8430738502437568512, %528 ]
-  %.sink1797 = phi i64 [ %532, %530 ], [ %.11003, %525 ], [ %.11003, %528 ]
-  store i64 %.sink1799, ptr %18, align 8, !tbaa !11
+  %.sink1849 = phi i64 [ 7782220156096217088, %530 ], [ 8430738502437568512, %525 ], [ 8430738502437568512, %528 ]
+  %.sink1847 = phi i64 [ %532, %530 ], [ %.11003, %525 ], [ %.11003, %528 ]
+  store i64 %.sink1849, ptr %18, align 8, !tbaa !11
   %533 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %.sink1797, ptr %533, align 8
+  store i64 %.sink1847, ptr %533, align 8
   %534 = load i8, ptr %.1995, align 1, !tbaa !4
   %535 = zext i8 %534 to i64
   %536 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %535
@@ -15771,7 +15771,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i42: ; preds = %723, %1433, %1271, %561
   %.lcssa.sink = phi i64 [ %577, %561 ], [ %1287, %1271 ], [ %1439, %1433 ], [ %729, %723 ]
   %.01034.lcssa.sink = phi ptr [ %570, %561 ], [ %1280, %1271 ], [ %.11035, %1433 ], [ %.11021, %723 ]
-  %.sink1805 = phi ptr [ %570, %561 ], [ %1280, %1271 ], [ %1280, %1433 ], [ %570, %723 ]
+  %.sink1855 = phi ptr [ %570, %561 ], [ %1280, %1271 ], [ %1280, %1433 ], [ %570, %723 ]
   %.sroa.166.8.sink = phi ptr [ %.sroa.166.4, %561 ], [ %.sroa.166.8, %1271 ], [ %.sroa.166.8, %1433 ], [ %.sroa.166.4, %723 ]
   %.sroa.117.3 = phi i32 [ %539, %561 ], [ %.sroa.117.4, %1271 ], [ %.sroa.117.4, %1433 ], [ %539, %723 ]
   %.sroa.25.4.pn = phi ptr [ %.sroa.25.4, %561 ], [ %1256, %1271 ], [ %1256, %1433 ], [ %.sroa.25.4, %723 ]
@@ -15779,7 +15779,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i42:
   %732 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa.sink, i1 true)
   %733 = getelementptr inbounds nuw i8, ptr %.01034.lcssa.sink, i64 %732
   %734 = ptrtoint ptr %733 to i64
-  %735 = ptrtoint ptr %.sink1805 to i64
+  %735 = ptrtoint ptr %.sink1855 to i64
   %736 = sub i64 %734, %735
   %737 = trunc i64 %736 to i32
   store i32 %737, ptr %.sroa.166.8.sink, align 1
@@ -16228,12 +16228,12 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not1542, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread
 
 _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread: ; preds = %.lr.ph1635, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i
-  %.5970.lcssa1742 = phi i64 [ %.49691286, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1027, %.lr.ph1635 ]
-  %.7964.idx.lcssa16311741 = phi i64 [ %.5962.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7964.add, %.lr.ph1635 ]
+  %.5970.lcssa1792 = phi i64 [ %.49691286, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1027, %.lr.ph1635 ]
+  %.7964.idx.lcssa16311791 = phi i64 [ %.5962.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7964.add, %.lr.ph1635 ]
   %1031 = phi i8 [ %1021, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1028, %.lr.ph1635 ]
-  %.7964.ptr.le = getelementptr inbounds nuw i8, ptr %.0957.lcssa, i64 %.7964.idx.lcssa16311741
+  %.7964.ptr.le = getelementptr inbounds nuw i8, ptr %.0957.lcssa, i64 %.7964.idx.lcssa16311791
   %1032 = ptrtoint ptr %.7964.ptr.le to i64
-  %gepdiff1679 = sub nsw i64 1, %.7964.idx.lcssa16311741
+  %gepdiff1679 = sub nsw i64 1, %.7964.idx.lcssa16311791
   %1033 = sub i64 %1032, %987
   %sext.i.i = shl i64 %1033, 32
   %1034 = ashr exact i64 %sext.i.i, 32
@@ -16242,7 +16242,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 1035:                                             ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread, %993
   %1036 = phi i8 [ %1031, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.lcssa1577, %993 ]
   %.0972 = phi i64 [ %gepdiff1679, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ 0, %993 ]
-  %.2967 = phi i64 [ %.5970.lcssa1742, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0965.lcssa, %993 ]
+  %.2967 = phi i64 [ %.5970.lcssa1792, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0965.lcssa, %993 ]
   %.1958 = phi ptr [ %.7964.ptr.le, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0957.lcssa, %993 ]
   %.042.i.i = phi i64 [ %1034, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %988, %993 ]
   switch i8 %1036, label %1065 [
@@ -16564,11 +16564,11 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %.thread1304
 
 .thread1304:                                      ; preds = %1207, %1204, %1209
-  %.sink1810 = phi i64 [ 7782220156096217088, %1209 ], [ 8430738502437568512, %1204 ], [ 8430738502437568512, %1207 ]
-  %.sink1808 = phi i64 [ %1211, %1209 ], [ %.2967, %1204 ], [ %.2967, %1207 ]
-  store i64 %.sink1810, ptr %.sroa.0.6, align 8, !tbaa !11
+  %.sink1860 = phi i64 [ 7782220156096217088, %1209 ], [ 8430738502437568512, %1204 ], [ 8430738502437568512, %1207 ]
+  %.sink1858 = phi i64 [ %1211, %1209 ], [ %.2967, %1204 ], [ %.2967, %1207 ]
+  store i64 %.sink1860, ptr %.sroa.0.6, align 8, !tbaa !11
   %1212 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store i64 %.sink1808, ptr %1212, align 8
+  store i64 %.sink1858, ptr %1212, align 8
   %.sroa.0.25 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %1213 = load i8, ptr %.1958, align 1, !tbaa !4
   %1214 = zext i8 %1213 to i64
@@ -16638,11 +16638,11 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %1255
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit: ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i, %1105, %1146, %1148, %1176, %1101, %.noexc25.i, %1084
-  %.sink1811 = phi double [ %1077, %.noexc25.i ], [ %1085, %1084 ], [ %1185, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ %1184, %1176 ], [ %1160, %1148 ], [ %1147, %1146 ], [ %1106, %1105 ], [ %spec.select1527, %1101 ]
+  %.sink1861 = phi double [ %1077, %.noexc25.i ], [ %1085, %1084 ], [ %1185, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ %1184, %1176 ], [ %1160, %1148 ], [ %1147, %1146 ], [ %1106, %1105 ], [ %spec.select1527, %1101 ]
   %.0.i24.i = phi i32 [ %..i222, %.noexc25.i ], [ 0, %1084 ], [ 0, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ 0, %1176 ], [ 0, %1148 ], [ 0, %1146 ], [ 0, %1105 ], [ 0, %1101 ]
   store i64 7205759403792793600, ptr %.sroa.0.6, align 8, !tbaa !11
   %1253 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store double %.sink1811, ptr %1253, align 8
+  store double %.sink1861, ptr %1253, align 8
   %1254 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %.not60.i.i = icmp eq i32 %.0.i24.i, 0
   %..i.i = select i1 %.not59.i.i, i32 0, i32 9
@@ -16931,9 +16931,9 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1442:                                             ; preds = %1255, %2005
   %.sroa.117.6.sink = phi i32 [ %.sroa.117.6, %2005 ], [ %.sroa.117.4, %1255 ]
-  %.sink1836 = phi i64 [ 6701356245527298048, %2005 ], [ 9007199254740992000, %1255 ]
-  %.sroa.0.10.sink1834 = phi ptr [ %.sroa.0.10, %2005 ], [ %.sroa.0.8, %1255 ]
-  %.sink1816 = phi i64 [ 6557241057451442176, %2005 ], [ 8863084066665136128, %1255 ]
+  %.sink1886 = phi i64 [ 6701356245527298048, %2005 ], [ 9007199254740992000, %1255 ]
+  %.sroa.0.10.sink1884 = phi ptr [ %.sroa.0.10, %2005 ], [ %.sroa.0.8, %1255 ]
+  %.sink1866 = phi i64 [ 6557241057451442176, %2005 ], [ 8863084066665136128, %1255 ]
   %.sroa.25.8 = phi ptr [ %2006, %2005 ], [ %1256, %1255 ]
   %.sroa.166.9 = phi ptr [ %.sroa.166.10, %2005 ], [ %.sroa.166.8, %1255 ]
   %1443 = zext i32 %.sroa.117.6.sink to i64
@@ -16941,9 +16941,9 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %1445 = getelementptr inbounds nuw %"struct.simdjson::icelake::open_container", ptr %1444, i64 %1443
   %1446 = load i32, ptr %1445, align 4, !tbaa !288
   %1447 = zext i32 %1446 to i64
-  %1448 = or disjoint i64 %.sink1836, %1447
-  store i64 %1448, ptr %.sroa.0.10.sink1834, align 8, !tbaa !11
-  %1449 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1834, i64 8
+  %1448 = or disjoint i64 %.sink1886, %1447
+  store i64 %1448, ptr %.sroa.0.10.sink1884, align 8, !tbaa !11
+  %1449 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1884, i64 8
   %1450 = getelementptr inbounds nuw i8, ptr %1445, i64 4
   %1451 = load i32, ptr %1450, align 4, !tbaa !290
   %1452 = tail call i32 @llvm.umin.i32(i32 %1451, i32 16777215)
@@ -16958,7 +16958,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %1461 = zext nneg i32 %1452 to i64
   %1462 = shl nuw nsw i64 %1461, 32
   %1463 = or disjoint i64 %1460, %1462
-  %1464 = or disjoint i64 %1463, %.sink1816
+  %1464 = or disjoint i64 %1463, %.sink1866
   store i64 %1464, ptr %1455, align 8, !tbaa !11
   %1465 = add i32 %.sroa.117.6.sink, -1
   %1466 = icmp eq i32 %1465, 0
@@ -17443,12 +17443,12 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not1547, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread
 
 _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread: ; preds = %.lr.ph1662, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173
-  %.5906.lcssa1756 = phi i64 [ %.49051439, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173 ], [ %1777, %.lr.ph1662 ]
-  %.7900.idx.lcssa16581755 = phi i64 [ %.5898.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173 ], [ %.7900.add, %.lr.ph1662 ]
+  %.5906.lcssa1806 = phi i64 [ %.49051439, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173 ], [ %1777, %.lr.ph1662 ]
+  %.7900.idx.lcssa16581805 = phi i64 [ %.5898.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173 ], [ %.7900.add, %.lr.ph1662 ]
   %1781 = phi i8 [ %1771, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173 ], [ %1778, %.lr.ph1662 ]
-  %.7900.ptr.le = getelementptr inbounds nuw i8, ptr %.0893.lcssa, i64 %.7900.idx.lcssa16581755
+  %.7900.ptr.le = getelementptr inbounds nuw i8, ptr %.0893.lcssa, i64 %.7900.idx.lcssa16581805
   %1782 = ptrtoint ptr %.7900.ptr.le to i64
-  %gepdiff1682 = sub nsw i64 1, %.7900.idx.lcssa16581755
+  %gepdiff1682 = sub nsw i64 1, %.7900.idx.lcssa16581805
   %1783 = sub i64 %1782, %1737
   %sext.i.i176 = shl i64 %1783, 32
   %1784 = ashr exact i64 %sext.i.i176, 32
@@ -17457,7 +17457,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 1785:                                             ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread, %1743
   %1786 = phi i8 [ %1781, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread ], [ %.lcssa1573, %1743 ]
   %.0908 = phi i64 [ %gepdiff1682, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread ], [ 0, %1743 ]
-  %.2903 = phi i64 [ %.5906.lcssa1756, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread ], [ %.0901.lcssa, %1743 ]
+  %.2903 = phi i64 [ %.5906.lcssa1806, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread ], [ %.0901.lcssa, %1743 ]
   %.1894 = phi ptr [ %.7900.ptr.le, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread ], [ %.0893.lcssa, %1743 ]
   %.042.i.i117 = phi i64 [ %1784, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i173.thread ], [ %1738, %1743 ]
   switch i8 %1786, label %1815 [
@@ -17779,11 +17779,11 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %.thread1457
 
 .thread1457:                                      ; preds = %1957, %1954, %1959
-  %.sink1843 = phi i64 [ 7782220156096217088, %1959 ], [ 8430738502437568512, %1954 ], [ 8430738502437568512, %1957 ]
-  %.sink1841 = phi i64 [ %1961, %1959 ], [ %.2903, %1954 ], [ %.2903, %1957 ]
-  store i64 %.sink1843, ptr %.sroa.0.2, align 8, !tbaa !11
+  %.sink1893 = phi i64 [ 7782220156096217088, %1959 ], [ 8430738502437568512, %1954 ], [ 8430738502437568512, %1957 ]
+  %.sink1891 = phi i64 [ %1961, %1959 ], [ %.2903, %1954 ], [ %.2903, %1957 ]
+  store i64 %.sink1893, ptr %.sroa.0.2, align 8, !tbaa !11
   %1962 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store i64 %.sink1841, ptr %1962, align 8
+  store i64 %.sink1891, ptr %1962, align 8
   %.sroa.0.31 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %1963 = load i8, ptr %.1894, align 1, !tbaa !4
   %1964 = zext i8 %1963 to i64
@@ -17853,11 +17853,11 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %2005
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit205: ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i149, %1855, %1896, %1898, %1926, %1851, %.noexc25.i168, %1834
-  %.sink1844 = phi double [ %1827, %.noexc25.i168 ], [ %1835, %1834 ], [ %1935, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i149 ], [ %1934, %1926 ], [ %1910, %1898 ], [ %1897, %1896 ], [ %1856, %1855 ], [ %spec.select1529, %1851 ]
+  %.sink1894 = phi double [ %1827, %.noexc25.i168 ], [ %1835, %1834 ], [ %1935, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i149 ], [ %1934, %1926 ], [ %1910, %1898 ], [ %1897, %1896 ], [ %1856, %1855 ], [ %spec.select1529, %1851 ]
   %.0.i24.i153 = phi i32 [ %..i223, %.noexc25.i168 ], [ 0, %1834 ], [ 0, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i149 ], [ 0, %1926 ], [ 0, %1898 ], [ 0, %1896 ], [ 0, %1855 ], [ 0, %1851 ]
   store i64 7205759403792793600, ptr %.sroa.0.2, align 8, !tbaa !11
   %2003 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store double %.sink1844, ptr %2003, align 8
+  store double %.sink1894, ptr %2003, align 8
   %2004 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %.not60.i.i154 = icmp eq i32 %.0.i24.i153, 0
   %..i.i156 = select i1 %.not59.i.i134, i32 0, i32 9
@@ -18487,12 +18487,12 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread, label %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread
 
 _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread: ; preds = %.lr.ph1370, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i
-  %.5784.lcssa1495 = phi i64 [ %.4783875, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %346, %.lr.ph1370 ]
-  %.7778.idx.lcssa13661494 = phi i64 [ %.5776.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7778.add, %.lr.ph1370 ]
+  %.5784.lcssa1545 = phi i64 [ %.4783875, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %346, %.lr.ph1370 ]
+  %.7778.idx.lcssa13661544 = phi i64 [ %.5776.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7778.add, %.lr.ph1370 ]
   %350 = phi i8 [ %340, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %347, %.lr.ph1370 ]
-  %.7778.ptr.le = getelementptr inbounds nuw i8, ptr %.0771.lcssa, i64 %.7778.idx.lcssa13661494
+  %.7778.ptr.le = getelementptr inbounds nuw i8, ptr %.0771.lcssa, i64 %.7778.idx.lcssa13661544
   %351 = ptrtoint ptr %.7778.ptr.le to i64
-  %gepdiff = sub nsw i64 1, %.7778.idx.lcssa13661494
+  %gepdiff = sub nsw i64 1, %.7778.idx.lcssa13661544
   %352 = sub i64 %351, %306
   %sext.i.i = shl i64 %352, 32
   %353 = ashr exact i64 %sext.i.i, 32
@@ -18501,7 +18501,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 354:                                              ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread, %312
   %355 = phi i8 [ %350, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.lcssa1361, %312 ]
   %.0786 = phi i64 [ %gepdiff, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ 0, %312 ]
-  %.2781 = phi i64 [ %.5784.lcssa1495, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0779.lcssa, %312 ]
+  %.2781 = phi i64 [ %.5784.lcssa1545, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0779.lcssa, %312 ]
   %.1772 = phi ptr [ %.7778.ptr.le, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0771.lcssa, %312 ]
   %.042.i.i = phi i64 [ %353, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %307, %312 ]
   switch i8 %355, label %384 [
@@ -18832,11 +18832,11 @@ select.unfold.sink.split:                         ; preds = %_ZN8simdjson7icelak
   br label %.thread893
 
 .thread893:                                       ; preds = %527, %524, %529
-  %.sink1573 = phi i64 [ 7782220156096217088, %529 ], [ 8430738502437568512, %524 ], [ 8430738502437568512, %527 ]
-  %.sink1571 = phi i64 [ %531, %529 ], [ %.2781, %524 ], [ %.2781, %527 ]
-  store i64 %.sink1573, ptr %22, align 8, !tbaa !11
+  %.sink1623 = phi i64 [ 7782220156096217088, %529 ], [ 8430738502437568512, %524 ], [ 8430738502437568512, %527 ]
+  %.sink1621 = phi i64 [ %531, %529 ], [ %.2781, %524 ], [ %.2781, %527 ]
+  store i64 %.sink1623, ptr %22, align 8, !tbaa !11
   %532 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %.sink1571, ptr %532, align 8
+  store i64 %.sink1621, ptr %532, align 8
   %533 = load i8, ptr %.1772, align 1, !tbaa !4
   %534 = zext i8 %533 to i64
   %535 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %534
@@ -19139,7 +19139,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i186.i: ; preds = %722, %1432, %1270, %560
   %.lcssa.sink = phi i64 [ %576, %560 ], [ %1286, %1270 ], [ %1438, %1432 ], [ %728, %722 ]
   %.0797.lcssa.sink = phi ptr [ %569, %560 ], [ %1279, %1270 ], [ %.1798, %1432 ], [ %.1812, %722 ]
-  %.sink1579 = phi ptr [ %569, %560 ], [ %1279, %1270 ], [ %1279, %1432 ], [ %569, %722 ]
+  %.sink1629 = phi ptr [ %569, %560 ], [ %1279, %1270 ], [ %1279, %1432 ], [ %569, %722 ]
   %.sroa.166.8.sink = phi ptr [ %.sroa.166.4, %560 ], [ %.sroa.166.8, %1270 ], [ %.sroa.166.8, %1432 ], [ %.sroa.166.4, %722 ]
   %.sroa.113.3 = phi i32 [ %538, %560 ], [ %.sroa.113.4, %1270 ], [ %.sroa.113.4, %1432 ], [ %538, %722 ]
   %.sroa.23.4.pn = phi ptr [ %.sroa.23.4, %560 ], [ %1255, %1270 ], [ %1255, %1432 ], [ %.sroa.23.4, %722 ]
@@ -19147,7 +19147,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i186
   %731 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa.sink, i1 true)
   %732 = getelementptr inbounds nuw i8, ptr %.0797.lcssa.sink, i64 %731
   %733 = ptrtoint ptr %732 to i64
-  %734 = ptrtoint ptr %.sink1579 to i64
+  %734 = ptrtoint ptr %.sink1629 to i64
   %735 = sub i64 %733, %734
   %736 = trunc i64 %735 to i32
   store i32 %736, ptr %.sroa.166.8.sink, align 1
@@ -19596,12 +19596,12 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not1316, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread
 
 _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread: ; preds = %.lr.ph1409, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i
-  %.5747.lcssa1516 = phi i64 [ %.47461061, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1026, %.lr.ph1409 ]
-  %.7741.idx.lcssa14051515 = phi i64 [ %.5739.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %.7741.add, %.lr.ph1409 ]
+  %.5747.lcssa1566 = phi i64 [ %.47461061, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1026, %.lr.ph1409 ]
+  %.7741.idx.lcssa14051565 = phi i64 [ %.5739.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %.7741.add, %.lr.ph1409 ]
   %1030 = phi i8 [ %1020, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1027, %.lr.ph1409 ]
-  %.7741.ptr.le = getelementptr inbounds nuw i8, ptr %.0734.lcssa, i64 %.7741.idx.lcssa14051515
+  %.7741.ptr.le = getelementptr inbounds nuw i8, ptr %.0734.lcssa, i64 %.7741.idx.lcssa14051565
   %1031 = ptrtoint ptr %.7741.ptr.le to i64
-  %gepdiff1453 = sub nsw i64 1, %.7741.idx.lcssa14051515
+  %gepdiff1453 = sub nsw i64 1, %.7741.idx.lcssa14051565
   %1032 = sub i64 %1031, %986
   %sext.i.i.i = shl i64 %1032, 32
   %1033 = ashr exact i64 %sext.i.i.i, 32
@@ -19610,7 +19610,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 1034:                                             ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread, %992
   %1035 = phi i8 [ %1030, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.lcssa1351, %992 ]
   %.0749 = phi i64 [ %gepdiff1453, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ 0, %992 ]
-  %.2744 = phi i64 [ %.5747.lcssa1516, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0742.lcssa, %992 ]
+  %.2744 = phi i64 [ %.5747.lcssa1566, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0742.lcssa, %992 ]
   %.1735 = phi ptr [ %.7741.ptr.le, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0734.lcssa, %992 ]
   %.042.i.i.i = phi i64 [ %1033, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %987, %992 ]
   switch i8 %1035, label %1064 [
@@ -19932,11 +19932,11 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %.thread1079
 
 .thread1079:                                      ; preds = %1206, %1203, %1208
-  %.sink1584 = phi i64 [ 7782220156096217088, %1208 ], [ 8430738502437568512, %1203 ], [ 8430738502437568512, %1206 ]
-  %.sink1582 = phi i64 [ %1210, %1208 ], [ %.2744, %1203 ], [ %.2744, %1206 ]
-  store i64 %.sink1584, ptr %.sroa.0.6, align 8, !tbaa !11
+  %.sink1634 = phi i64 [ 7782220156096217088, %1208 ], [ 8430738502437568512, %1203 ], [ 8430738502437568512, %1206 ]
+  %.sink1632 = phi i64 [ %1210, %1208 ], [ %.2744, %1203 ], [ %.2744, %1206 ]
+  store i64 %.sink1634, ptr %.sroa.0.6, align 8, !tbaa !11
   %1211 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store i64 %.sink1582, ptr %1211, align 8
+  store i64 %.sink1632, ptr %1211, align 8
   %.sroa.0.19 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %1212 = load i8, ptr %.1735, align 1, !tbaa !4
   %1213 = zext i8 %1212 to i64
@@ -20006,11 +20006,11 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %1254
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit.i: ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i, %1104, %1145, %1147, %1175, %1100, %.noexc25.i.i, %1083
-  %.sink1585 = phi double [ %1076, %.noexc25.i.i ], [ %1084, %1083 ], [ %1184, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ %1183, %1175 ], [ %1159, %1147 ], [ %1146, %1145 ], [ %1105, %1104 ], [ %spec.select1302, %1100 ]
+  %.sink1635 = phi double [ %1076, %.noexc25.i.i ], [ %1084, %1083 ], [ %1184, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ %1183, %1175 ], [ %1159, %1147 ], [ %1146, %1145 ], [ %1105, %1104 ], [ %spec.select1302, %1100 ]
   %.0.i24.i.i = phi i32 [ %..i3, %.noexc25.i.i ], [ 0, %1083 ], [ 0, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ 0, %1175 ], [ 0, %1147 ], [ 0, %1145 ], [ 0, %1104 ], [ 0, %1100 ]
   store i64 7205759403792793600, ptr %.sroa.0.6, align 8, !tbaa !11
   %1252 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store double %.sink1585, ptr %1252, align 8
+  store double %.sink1635, ptr %1252, align 8
   %1253 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %.not60.i.i.i = icmp eq i32 %.0.i24.i.i, 0
   %..i.i.i = select i1 %.not59.i.i.i, i32 0, i32 9
@@ -20299,9 +20299,9 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1441:                                             ; preds = %1254, %2004
   %.sroa.113.6.sink = phi i32 [ %.sroa.113.6, %2004 ], [ %.sroa.113.4, %1254 ]
-  %.sink1610 = phi i64 [ 6701356245527298048, %2004 ], [ 9007199254740992000, %1254 ]
-  %.sroa.0.10.sink1608 = phi ptr [ %.sroa.0.10, %2004 ], [ %.sroa.0.8, %1254 ]
-  %.sink1590 = phi i64 [ 6557241057451442176, %2004 ], [ 8863084066665136128, %1254 ]
+  %.sink1660 = phi i64 [ 6701356245527298048, %2004 ], [ 9007199254740992000, %1254 ]
+  %.sroa.0.10.sink1658 = phi ptr [ %.sroa.0.10, %2004 ], [ %.sroa.0.8, %1254 ]
+  %.sink1640 = phi i64 [ 6557241057451442176, %2004 ], [ 8863084066665136128, %1254 ]
   %.sroa.23.8 = phi ptr [ %2005, %2004 ], [ %1255, %1254 ]
   %.sroa.166.9 = phi ptr [ %.sroa.166.10, %2004 ], [ %.sroa.166.8, %1254 ]
   %1442 = zext i32 %.sroa.113.6.sink to i64
@@ -20309,9 +20309,9 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %1444 = getelementptr inbounds nuw %"struct.simdjson::icelake::open_container", ptr %1443, i64 %1442
   %1445 = load i32, ptr %1444, align 4, !tbaa !288
   %1446 = zext i32 %1445 to i64
-  %1447 = or disjoint i64 %.sink1610, %1446
-  store i64 %1447, ptr %.sroa.0.10.sink1608, align 8, !tbaa !11
-  %1448 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1608, i64 8
+  %1447 = or disjoint i64 %.sink1660, %1446
+  store i64 %1447, ptr %.sroa.0.10.sink1658, align 8, !tbaa !11
+  %1448 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1658, i64 8
   %1449 = getelementptr inbounds nuw i8, ptr %1444, i64 4
   %1450 = load i32, ptr %1449, align 4, !tbaa !290
   %1451 = tail call i32 @llvm.umin.i32(i32 %1450, i32 16777215)
@@ -20326,7 +20326,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %1460 = zext nneg i32 %1451 to i64
   %1461 = shl nuw nsw i64 %1460, 32
   %1462 = or disjoint i64 %1459, %1461
-  %1463 = or disjoint i64 %1462, %.sink1590
+  %1463 = or disjoint i64 %1462, %.sink1640
   store i64 %1463, ptr %1454, align 8, !tbaa !11
   %1464 = add i32 %.sroa.113.6.sink, -1
   %1465 = icmp eq i32 %1464, 0
@@ -20811,12 +20811,12 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
   br i1 %.not1321, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread
 
 _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread: ; preds = %.lr.ph1436, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i
-  %.5683.lcssa1530 = phi i64 [ %.46821214, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i ], [ %1776, %.lr.ph1436 ]
-  %.7677.idx.lcssa14321529 = phi i64 [ %.5675.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i ], [ %.7677.add, %.lr.ph1436 ]
+  %.5683.lcssa1580 = phi i64 [ %.46821214, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i ], [ %1776, %.lr.ph1436 ]
+  %.7677.idx.lcssa14321579 = phi i64 [ %.5675.add, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i ], [ %.7677.add, %.lr.ph1436 ]
   %1780 = phi i8 [ %1770, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i ], [ %1777, %.lr.ph1436 ]
-  %.7677.ptr.le = getelementptr inbounds nuw i8, ptr %.0670.lcssa, i64 %.7677.idx.lcssa14321529
+  %.7677.ptr.le = getelementptr inbounds nuw i8, ptr %.0670.lcssa, i64 %.7677.idx.lcssa14321579
   %1781 = ptrtoint ptr %.7677.ptr.le to i64
-  %gepdiff1456 = sub nsw i64 1, %.7677.idx.lcssa14321529
+  %gepdiff1456 = sub nsw i64 1, %.7677.idx.lcssa14321579
   %1782 = sub i64 %1781, %1736
   %sext.i.i345.i = shl i64 %1782, 32
   %1783 = ashr exact i64 %sext.i.i345.i, 32
@@ -20825,7 +20825,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separator
 1784:                                             ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread, %1742
   %1785 = phi i8 [ %1780, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread ], [ %.lcssa1347, %1742 ]
   %.0685 = phi i64 [ %gepdiff1456, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread ], [ 0, %1742 ]
-  %.2680 = phi i64 [ %.5683.lcssa1530, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread ], [ %.0678.lcssa, %1742 ]
+  %.2680 = phi i64 [ %.5683.lcssa1580, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread ], [ %.0678.lcssa, %1742 ]
   %.1671 = phi ptr [ %.7677.ptr.le, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread ], [ %.0670.lcssa, %1742 ]
   %.042.i.i286.i = phi i64 [ %1783, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i342.i.thread ], [ %1737, %1742 ]
   switch i8 %1785, label %1814 [
@@ -21147,11 +21147,11 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %.thread1232
 
 .thread1232:                                      ; preds = %1956, %1953, %1958
-  %.sink1617 = phi i64 [ 7782220156096217088, %1958 ], [ 8430738502437568512, %1953 ], [ 8430738502437568512, %1956 ]
-  %.sink1615 = phi i64 [ %1960, %1958 ], [ %.2680, %1953 ], [ %.2680, %1956 ]
-  store i64 %.sink1617, ptr %.sroa.0.2, align 8, !tbaa !11
+  %.sink1667 = phi i64 [ 7782220156096217088, %1958 ], [ 8430738502437568512, %1953 ], [ 8430738502437568512, %1956 ]
+  %.sink1665 = phi i64 [ %1960, %1958 ], [ %.2680, %1953 ], [ %.2680, %1956 ]
+  store i64 %.sink1667, ptr %.sroa.0.2, align 8, !tbaa !11
   %1961 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store i64 %.sink1615, ptr %1961, align 8
+  store i64 %.sink1665, ptr %1961, align 8
   %.sroa.0.28 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %1962 = load i8, ptr %.1671, align 1, !tbaa !4
   %1963 = zext i8 %1962 to i64
@@ -21221,11 +21221,11 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i
   br label %2004
 
 _ZN8simdjson7icelake12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit374.i: ; preds = %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i318.i, %1854, %1895, %1897, %1925, %1850, %.noexc25.i337.i, %1833
-  %.sink1618 = phi double [ %1826, %.noexc25.i337.i ], [ %1834, %1833 ], [ %1934, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i318.i ], [ %1933, %1925 ], [ %1909, %1897 ], [ %1896, %1895 ], [ %1855, %1854 ], [ %spec.select1304, %1850 ]
+  %.sink1668 = phi double [ %1826, %.noexc25.i337.i ], [ %1834, %1833 ], [ %1934, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i318.i ], [ %1933, %1925 ], [ %1909, %1897 ], [ %1896, %1895 ], [ %1855, %1854 ], [ %spec.select1304, %1850 ]
   %.0.i24.i322.i = phi i32 [ %..i4, %.noexc25.i337.i ], [ 0, %1833 ], [ 0, %_ZN8simdjson7icelake13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i318.i ], [ 0, %1925 ], [ 0, %1897 ], [ 0, %1895 ], [ 0, %1854 ], [ 0, %1850 ]
   store i64 7205759403792793600, ptr %.sroa.0.2, align 8, !tbaa !11
   %2002 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store double %.sink1618, ptr %2002, align 8
+  store double %.sink1668, ptr %2002, align 8
   %2003 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %.not60.i.i323.i = icmp eq i32 %.0.i24.i322.i, 0
   %..i.i325.i = select i1 %.not59.i.i303.i, i32 0, i32 9
@@ -22860,7 +22860,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
 
 ._crit_edge.thread.i:                             ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i
   %.ph.i = phi ptr [ %42, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %44, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
-  %.0131722.ph.i = phi i64 [ %.013.ph.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %.013.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
+  %.0131735.ph.i = phi i64 [ %.013.ph.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %.013.i, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
   %.sroa.59.0.lcssa.ph.i = phi ptr [ %43, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.thread.i ], [ %45, %_ZN8simdjson8westmere12_GLOBAL__N_16stage117trim_partial_utf8EPKhm.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
@@ -22872,21 +22872,21 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   br i1 %452, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
 
 _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i: ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.sroa.18.0.lcssa1745.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %105, %._crit_edge.i ]
-  %.sroa.23311.0.lcssa1744.i = phi <2 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.23311.2.i, %._crit_edge.i ]
-  %.sroa.48.0.lcssa1743.i = phi <16 x i8> [ zeroinitializer, %._crit_edge.thread.i ], [ %451, %._crit_edge.i ]
-  %.sroa.53.0.lcssa1742.i = phi <2 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.53.2.i, %._crit_edge.i ]
-  %.sroa.59.0.lcssa1741.i = phi ptr [ %.sroa.59.0.lcssa.ph.i, %._crit_edge.thread.i ], [ %.sroa.59.1.i, %._crit_edge.i ]
-  %.sroa.142.0.lcssa1740.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %446, %._crit_edge.i ]
-  %.sroa.148.0.lcssa1739.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %448, %._crit_edge.i ]
-  %.sroa.8.0.lcssa1738.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.sroa.8.1.i, %._crit_edge.i ]
-  %.sroa.0.0.lcssa1737.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %155, %._crit_edge.i ]
-  %.sroa.11.0.lcssa1736.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %449, %._crit_edge.i ]
-  %.01317221735.i = phi i64 [ %.0131722.ph.i, %._crit_edge.thread.i ], [ %.013.i, %._crit_edge.i ]
+  %.sroa.18.0.lcssa1758.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %105, %._crit_edge.i ]
+  %.sroa.23311.0.lcssa1757.i = phi <2 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.23311.2.i, %._crit_edge.i ]
+  %.sroa.48.0.lcssa1756.i = phi <16 x i8> [ zeroinitializer, %._crit_edge.thread.i ], [ %451, %._crit_edge.i ]
+  %.sroa.53.0.lcssa1755.i = phi <2 x i64> [ zeroinitializer, %._crit_edge.thread.i ], [ %.sroa.53.2.i, %._crit_edge.i ]
+  %.sroa.59.0.lcssa1754.i = phi ptr [ %.sroa.59.0.lcssa.ph.i, %._crit_edge.thread.i ], [ %.sroa.59.1.i, %._crit_edge.i ]
+  %.sroa.142.0.lcssa1753.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %446, %._crit_edge.i ]
+  %.sroa.148.0.lcssa1752.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %448, %._crit_edge.i ]
+  %.sroa.8.0.lcssa1751.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.sroa.8.1.i, %._crit_edge.i ]
+  %.sroa.0.0.lcssa1750.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %155, %._crit_edge.i ]
+  %.sroa.11.0.lcssa1749.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %449, %._crit_edge.i ]
+  %.01317351748.i = phi i64 [ %.0131735.ph.i, %._crit_edge.thread.i ], [ %.013.i, %._crit_edge.i ]
   %453 = phi ptr [ %.ph.i, %._crit_edge.thread.i ], [ %44, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 32, i64 64, i1 false)
-  %454 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa1736.i
-  %455 = sub i64 %.01317221735.i, %.sroa.11.0.lcssa1736.i
+  %454 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.11.0.lcssa1749.i
+  %455 = sub i64 %.01317351748.i, %.sroa.11.0.lcssa1749.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr readonly align 1 %454, i64 %455, i1 false)
   %.0..0..0..0..0..i = load <2 x i64>, ptr %5, align 16, !tbaa !4
   %.16..16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22918,18 +22918,18 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   br i1 %.not.i.i21.i, label %.noexc63.i, label %475
 
 475:                                              ; preds = %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
-  %476 = xor i64 %.sroa.8.0.lcssa1738.i, -1
+  %476 = xor i64 %.sroa.8.0.lcssa1751.i, -1
   %477 = and i64 %474, %476
   %478 = shl i64 %477, 1
   %479 = or i64 %478, -6148914691236517206
   %480 = sub i64 %479, %477
-  %481 = or i64 %474, %.sroa.8.0.lcssa1738.i
+  %481 = or i64 %474, %.sroa.8.0.lcssa1751.i
   %482 = xor i64 %481, %480
   %483 = xor i64 %482, -6148914691236517206
   br label %.noexc63.i
 
 .noexc63.i:                                       ; preds = %475, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i
-  %.sroa.0.0.i.i23.i = phi i64 [ %483, %475 ], [ %.sroa.8.0.lcssa1738.i, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i ]
+  %.sroa.0.0.i.i23.i = phi i64 [ %483, %475 ], [ %.sroa.8.0.lcssa1751.i, %_ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remainderEPh.exit.i ]
   %484 = icmp eq <16 x i8> %458, splat (i8 34)
   %485 = icmp eq <16 x i8> %460, splat (i8 34)
   %486 = bitcast <16 x i1> %484 to i16
@@ -22950,7 +22950,7 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   %501 = insertelement <2 x i64> poison, i64 %500, i64 0
   %502 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %501, <2 x i64> <i64 -1, i64 poison>, i8 0)
   %503 = extractelement <2 x i64> %502, i64 0
-  %504 = xor i64 %503, %.sroa.18.0.lcssa1745.i
+  %504 = xor i64 %503, %.sroa.18.0.lcssa1758.i
   %505 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %456)
   %506 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %457)
   %507 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 32, i8 100, i8 100, i8 100, i8 17, i8 100, i8 113, i8 2, i8 100, i8 9, i8 10, i8 112, i8 100, i8 13, i8 100, i8 100>, <16 x i8> %458)
@@ -22999,7 +22999,7 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   %550 = xor i64 %500, -1
   %551 = and i64 %549, %550
   %552 = shl i64 %551, 1
-  %553 = or disjoint i64 %552, %.sroa.0.0.lcssa1737.i
+  %553 = or disjoint i64 %552, %.sroa.0.0.lcssa1750.i
   %554 = icmp ult <16 x i8> %458, splat (i8 32)
   %555 = icmp ult <16 x i8> %460, splat (i8 32)
   %556 = bitcast <16 x i1> %554 to i16
@@ -23025,7 +23025,7 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   br i1 %575, label %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i, label %576, !prof !141
 
 576:                                              ; preds = %.noexc63.i
-  %577 = shufflevector <16 x i8> %.sroa.48.0.lcssa1743.i, <16 x i8> %456, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
+  %577 = shufflevector <16 x i8> %.sroa.48.0.lcssa1756.i, <16 x i8> %456, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
   %578 = bitcast <16 x i8> %577 to <8 x i16>
   %579 = lshr <8 x i16> %578, splat (i16 4)
   %580 = bitcast <8 x i16> %579 to <16 x i8>
@@ -23041,8 +23041,8 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   %590 = and <16 x i8> %584, %582
   %591 = and <16 x i8> %590, %589
   %592 = bitcast <16 x i8> %591 to <2 x i64>
-  %593 = shufflevector <16 x i8> %.sroa.48.0.lcssa1743.i, <16 x i8> %456, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
-  %594 = shufflevector <16 x i8> %.sroa.48.0.lcssa1743.i, <16 x i8> %456, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
+  %593 = shufflevector <16 x i8> %.sroa.48.0.lcssa1756.i, <16 x i8> %456, <16 x i32> <i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29>
+  %594 = shufflevector <16 x i8> %.sroa.48.0.lcssa1756.i, <16 x i8> %456, <16 x i32> <i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28>
   %595 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %593, <16 x i8> splat (i8 96))
   %596 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %594, <16 x i8> splat (i8 112))
   %597 = or <16 x i8> %595, %596
@@ -23129,40 +23129,40 @@ _ZNK8simdjson8westmere12_GLOBAL__N_16stage116buf_block_readerILm64EE13get_remain
   br label %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
 
 _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i: ; preds = %.noexc63.i, %576
-  %.sroa.53.1.i = phi <2 x i64> [ %677, %576 ], [ %.sroa.53.0.lcssa1742.i, %.noexc63.i ]
-  %.sroa.53.0.lcssa1742.i.pn = phi <2 x i64> [ %675, %576 ], [ %.sroa.53.0.lcssa1742.i, %.noexc63.i ]
-  %.sroa.23311.1.i = or <2 x i64> %.sroa.53.0.lcssa1742.i.pn, %.sroa.23311.0.lcssa1744.i
-  %678 = trunc i64 %.sroa.11.0.lcssa1736.i to i32
+  %.sroa.53.1.i = phi <2 x i64> [ %677, %576 ], [ %.sroa.53.0.lcssa1755.i, %.noexc63.i ]
+  %.sroa.53.0.lcssa1755.i.pn = phi <2 x i64> [ %675, %576 ], [ %.sroa.53.0.lcssa1755.i, %.noexc63.i ]
+  %.sroa.23311.1.i = or <2 x i64> %.sroa.53.0.lcssa1755.i.pn, %.sroa.23311.0.lcssa1757.i
+  %678 = trunc i64 %.sroa.11.0.lcssa1749.i to i32
   %679 = add i32 %678, -64
-  %680 = icmp eq i64 %.sroa.142.0.lcssa1740.i, 0
+  %680 = icmp eq i64 %.sroa.142.0.lcssa1753.i, 0
   br i1 %680, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i, label %.noexc141.i
 
 .noexc141.i:                                      ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
-  %681 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.142.0.lcssa1740.i)
-  %682 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.142.0.lcssa1740.i, i1 true)
+  %681 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.142.0.lcssa1753.i)
+  %682 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.142.0.lcssa1753.i, i1 true)
   %683 = trunc nuw nsw i64 %682 to i32
   %684 = or disjoint i32 %679, %683
-  store i32 %684, ptr %.sroa.59.0.lcssa1741.i, align 4, !tbaa !7
-  %685 = add i64 %.sroa.142.0.lcssa1740.i, -1
-  %686 = and i64 %685, %.sroa.142.0.lcssa1740.i
+  store i32 %684, ptr %.sroa.59.0.lcssa1754.i, align 4, !tbaa !7
+  %685 = add i64 %.sroa.142.0.lcssa1753.i, -1
+  %686 = and i64 %685, %.sroa.142.0.lcssa1753.i
   %687 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %686, i1 true)
   %688 = trunc nuw nsw i64 %687 to i32
   %689 = or disjoint i32 %679, %688
-  %690 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 4
+  %690 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 4
   store i32 %689, ptr %690, align 4, !tbaa !7
   %691 = add i64 %686, -1
   %692 = and i64 %691, %686
   %693 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %692, i1 true)
   %694 = trunc nuw nsw i64 %693 to i32
   %695 = or disjoint i32 %679, %694
-  %696 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 8
+  %696 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 8
   store i32 %695, ptr %696, align 4, !tbaa !7
   %697 = add i64 %692, -1
   %698 = and i64 %697, %692
   %699 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %698, i1 true)
   %700 = trunc nuw nsw i64 %699 to i32
   %701 = or disjoint i32 %679, %700
-  %702 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 12
+  %702 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 12
   store i32 %701, ptr %702, align 4, !tbaa !7
   %703 = icmp samesign ugt i64 %681, 4
   br i1 %703, label %.noexc154.i, label %.loopexit1638.i, !prof !127
@@ -23173,28 +23173,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %706 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %705, i1 true)
   %707 = trunc nuw nsw i64 %706 to i32
   %708 = or disjoint i32 %679, %707
-  %709 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 16
+  %709 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 16
   store i32 %708, ptr %709, align 4, !tbaa !7
   %710 = add i64 %705, -1
   %711 = and i64 %710, %705
   %712 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %711, i1 true)
   %713 = trunc nuw nsw i64 %712 to i32
   %714 = or disjoint i32 %679, %713
-  %715 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 20
+  %715 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 20
   store i32 %714, ptr %715, align 4, !tbaa !7
   %716 = add i64 %711, -1
   %717 = and i64 %716, %711
   %718 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %717, i1 true)
   %719 = trunc nuw nsw i64 %718 to i32
   %720 = or disjoint i32 %679, %719
-  %721 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 24
+  %721 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 24
   store i32 %720, ptr %721, align 4, !tbaa !7
   %722 = add i64 %717, -1
   %723 = and i64 %722, %717
   %724 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %723, i1 true)
   %725 = trunc nuw nsw i64 %724 to i32
   %726 = or disjoint i32 %679, %725
-  %727 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 28
+  %727 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 28
   store i32 %726, ptr %727, align 4, !tbaa !7
   %728 = icmp samesign ugt i64 %681, 8
   br i1 %728, label %.noexc177.i, label %.loopexit1638.i, !prof !127
@@ -23205,28 +23205,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %731 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %730, i1 true)
   %732 = trunc nuw nsw i64 %731 to i32
   %733 = or disjoint i32 %679, %732
-  %734 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 32
+  %734 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 32
   store i32 %733, ptr %734, align 4, !tbaa !7
   %735 = add i64 %730, -1
   %736 = and i64 %735, %730
   %737 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %736, i1 true)
   %738 = trunc nuw nsw i64 %737 to i32
   %739 = or disjoint i32 %679, %738
-  %740 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 36
+  %740 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 36
   store i32 %739, ptr %740, align 4, !tbaa !7
   %741 = add i64 %736, -1
   %742 = and i64 %741, %736
   %743 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %742, i1 true)
   %744 = trunc nuw nsw i64 %743 to i32
   %745 = or disjoint i32 %679, %744
-  %746 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 40
+  %746 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 40
   store i32 %745, ptr %746, align 4, !tbaa !7
   %747 = add i64 %742, -1
   %748 = and i64 %747, %742
   %749 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %748, i1 true)
   %750 = trunc nuw nsw i64 %749 to i32
   %751 = or disjoint i32 %679, %750
-  %752 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 44
+  %752 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 44
   store i32 %751, ptr %752, align 4, !tbaa !7
   %753 = icmp samesign ugt i64 %681, 12
   br i1 %753, label %.noexc200.i, label %.loopexit1638.i, !prof !127
@@ -23237,28 +23237,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %756 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %755, i1 true)
   %757 = trunc nuw nsw i64 %756 to i32
   %758 = or disjoint i32 %679, %757
-  %759 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 48
+  %759 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 48
   store i32 %758, ptr %759, align 4, !tbaa !7
   %760 = add i64 %755, -1
   %761 = and i64 %760, %755
   %762 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %761, i1 true)
   %763 = trunc nuw nsw i64 %762 to i32
   %764 = or disjoint i32 %679, %763
-  %765 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 52
+  %765 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 52
   store i32 %764, ptr %765, align 4, !tbaa !7
   %766 = add i64 %761, -1
   %767 = and i64 %766, %761
   %768 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %767, i1 true)
   %769 = trunc nuw nsw i64 %768 to i32
   %770 = or disjoint i32 %679, %769
-  %771 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 56
+  %771 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 56
   store i32 %770, ptr %771, align 4, !tbaa !7
   %772 = add i64 %767, -1
   %773 = and i64 %772, %767
   %774 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %773, i1 true)
   %775 = trunc nuw nsw i64 %774 to i32
   %776 = or disjoint i32 %679, %775
-  %777 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 60
+  %777 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 60
   store i32 %776, ptr %777, align 4, !tbaa !7
   %778 = icmp samesign ugt i64 %681, 16
   br i1 %778, label %.noexc223.i, label %.loopexit1638.i, !prof !127
@@ -23269,28 +23269,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %781 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %780, i1 true)
   %782 = trunc nuw nsw i64 %781 to i32
   %783 = or disjoint i32 %679, %782
-  %784 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 64
+  %784 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 64
   store i32 %783, ptr %784, align 4, !tbaa !7
   %785 = add i64 %780, -1
   %786 = and i64 %785, %780
   %787 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %786, i1 true)
   %788 = trunc nuw nsw i64 %787 to i32
   %789 = or disjoint i32 %679, %788
-  %790 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 68
+  %790 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 68
   store i32 %789, ptr %790, align 4, !tbaa !7
   %791 = add i64 %786, -1
   %792 = and i64 %791, %786
   %793 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %792, i1 true)
   %794 = trunc nuw nsw i64 %793 to i32
   %795 = or disjoint i32 %679, %794
-  %796 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 72
+  %796 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 72
   store i32 %795, ptr %796, align 4, !tbaa !7
   %797 = add i64 %792, -1
   %798 = and i64 %797, %792
   %799 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %798, i1 true)
   %800 = trunc nuw nsw i64 %799 to i32
   %801 = or disjoint i32 %679, %800
-  %802 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 76
+  %802 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 76
   store i32 %801, ptr %802, align 4, !tbaa !7
   %803 = icmp samesign ugt i64 %681, 20
   br i1 %803, label %.noexc103.i, label %.loopexit1638.i, !prof !127
@@ -23301,28 +23301,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %806 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %805, i1 true)
   %807 = trunc nuw nsw i64 %806 to i32
   %808 = or disjoint i32 %679, %807
-  %809 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 80
+  %809 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 80
   store i32 %808, ptr %809, align 4, !tbaa !7
   %810 = add i64 %805, -1
   %811 = and i64 %810, %805
   %812 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %811, i1 true)
   %813 = trunc nuw nsw i64 %812 to i32
   %814 = or disjoint i32 %679, %813
-  %815 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 84
+  %815 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 84
   store i32 %814, ptr %815, align 4, !tbaa !7
   %816 = add i64 %811, -1
   %817 = and i64 %816, %811
   %818 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %817, i1 true)
   %819 = trunc nuw nsw i64 %818 to i32
   %820 = or disjoint i32 %679, %819
-  %821 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 88
+  %821 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 88
   store i32 %820, ptr %821, align 4, !tbaa !7
   %822 = add i64 %817, -1
   %823 = and i64 %822, %817
   %824 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %823, i1 true)
   %825 = trunc nuw nsw i64 %824 to i32
   %826 = or disjoint i32 %679, %825
-  %827 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1741.i, i64 92
+  %827 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1754.i, i64 92
   store i32 %826, ptr %827, align 4, !tbaa !7
   %828 = icmp samesign ugt i64 %681, 24
   br i1 %828, label %.noexc104.i.preheader, label %.loopexit1638.i, !prof !142
@@ -23338,7 +23338,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %831 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.015821668.i, i1 true)
   %832 = trunc nuw nsw i64 %831 to i32
   %833 = or disjoint i32 %679, %832
-  %834 = getelementptr inbounds nuw i32, ptr %.sroa.59.0.lcssa1741.i, i64 %indvars.iv1700.i
+  %834 = getelementptr inbounds nuw i32, ptr %.sroa.59.0.lcssa1754.i, i64 %indvars.iv1700.i
   store i32 %833, ptr %834, align 4, !tbaa !7
   %835 = add i64 %.015821668.i, -1
   %836 = and i64 %835, %.015821668.i
@@ -23347,11 +23347,11 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %exitcond1704.not.i, label %.loopexit1638.i, label %.noexc104.i, !llvm.loop !343
 
 .loopexit1638.i:                                  ; preds = %.noexc104.i, %.noexc103.i, %.noexc223.i, %.noexc200.i, %.noexc177.i, %.noexc154.i, %.noexc141.i
-  %837 = getelementptr inbounds nuw i32, ptr %.sroa.59.0.lcssa1741.i, i64 %681
+  %837 = getelementptr inbounds nuw i32, ptr %.sroa.59.0.lcssa1754.i, i64 %681
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i: ; preds = %.loopexit1638.i, %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i
-  %.sroa.59.2.i = phi ptr [ %.sroa.59.0.lcssa1741.i, %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ], [ %837, %.loopexit1638.i ]
+  %.sroa.59.2.i = phi ptr [ %.sroa.59.0.lcssa1754.i, %_ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_inputERKNS1_4simd8simd8x64IhEE.exit.i.i ], [ %837, %.loopexit1638.i ]
   %838 = xor i64 %553, -1
   %839 = and i64 %838, %549
   %840 = or i64 %839, %547
@@ -23359,34 +23359,34 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %842 = xor i64 %841, -1
   %843 = and i64 %840, %842
   %844 = and i64 %504, %568
-  %845 = or i64 %844, %.sroa.148.0.lcssa1739.i
+  %845 = or i64 %844, %.sroa.148.0.lcssa1752.i
   %846 = icmp eq i64 %843, 0
   br i1 %846, label %.noexc.i, label %.noexc139.i
 
 .noexc139.i:                                      ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEEvPKhRNS2_16buf_block_readerIXT_EEE.exit52.i
   %847 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %843)
   %848 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %843, i1 true)
-  %849 = or disjoint i64 %848, %.sroa.11.0.lcssa1736.i
+  %849 = or disjoint i64 %848, %.sroa.11.0.lcssa1749.i
   %850 = trunc i64 %849 to i32
   store i32 %850, ptr %.sroa.59.2.i, align 4, !tbaa !7
   %851 = add i64 %843, -1
   %852 = and i64 %851, %843
   %853 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %852, i1 true)
-  %854 = or disjoint i64 %853, %.sroa.11.0.lcssa1736.i
+  %854 = or disjoint i64 %853, %.sroa.11.0.lcssa1749.i
   %855 = trunc i64 %854 to i32
   %856 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 4
   store i32 %855, ptr %856, align 4, !tbaa !7
   %857 = add i64 %852, -1
   %858 = and i64 %857, %852
   %859 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %858, i1 true)
-  %860 = or disjoint i64 %859, %.sroa.11.0.lcssa1736.i
+  %860 = or disjoint i64 %859, %.sroa.11.0.lcssa1749.i
   %861 = trunc i64 %860 to i32
   %862 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 8
   store i32 %861, ptr %862, align 4, !tbaa !7
   %863 = add i64 %858, -1
   %864 = and i64 %863, %858
   %865 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %864, i1 true)
-  %866 = or disjoint i64 %865, %.sroa.11.0.lcssa1736.i
+  %866 = or disjoint i64 %865, %.sroa.11.0.lcssa1749.i
   %867 = trunc i64 %866 to i32
   %868 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 12
   store i32 %867, ptr %868, align 4, !tbaa !7
@@ -23397,28 +23397,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %870 = add i64 %864, -1
   %871 = and i64 %870, %864
   %872 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %871, i1 true)
-  %873 = or disjoint i64 %872, %.sroa.11.0.lcssa1736.i
+  %873 = or disjoint i64 %872, %.sroa.11.0.lcssa1749.i
   %874 = trunc i64 %873 to i32
   %875 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 16
   store i32 %874, ptr %875, align 4, !tbaa !7
   %876 = add i64 %871, -1
   %877 = and i64 %876, %871
   %878 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %877, i1 true)
-  %879 = or disjoint i64 %878, %.sroa.11.0.lcssa1736.i
+  %879 = or disjoint i64 %878, %.sroa.11.0.lcssa1749.i
   %880 = trunc i64 %879 to i32
   %881 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 20
   store i32 %880, ptr %881, align 4, !tbaa !7
   %882 = add i64 %877, -1
   %883 = and i64 %882, %877
   %884 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %883, i1 true)
-  %885 = or disjoint i64 %884, %.sroa.11.0.lcssa1736.i
+  %885 = or disjoint i64 %884, %.sroa.11.0.lcssa1749.i
   %886 = trunc i64 %885 to i32
   %887 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 24
   store i32 %886, ptr %887, align 4, !tbaa !7
   %888 = add i64 %883, -1
   %889 = and i64 %888, %883
   %890 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %889, i1 true)
-  %891 = or disjoint i64 %890, %.sroa.11.0.lcssa1736.i
+  %891 = or disjoint i64 %890, %.sroa.11.0.lcssa1749.i
   %892 = trunc i64 %891 to i32
   %893 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 28
   store i32 %892, ptr %893, align 4, !tbaa !7
@@ -23429,28 +23429,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %895 = add i64 %889, -1
   %896 = and i64 %895, %889
   %897 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %896, i1 true)
-  %898 = or disjoint i64 %897, %.sroa.11.0.lcssa1736.i
+  %898 = or disjoint i64 %897, %.sroa.11.0.lcssa1749.i
   %899 = trunc i64 %898 to i32
   %900 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 32
   store i32 %899, ptr %900, align 4, !tbaa !7
   %901 = add i64 %896, -1
   %902 = and i64 %901, %896
   %903 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %902, i1 true)
-  %904 = or disjoint i64 %903, %.sroa.11.0.lcssa1736.i
+  %904 = or disjoint i64 %903, %.sroa.11.0.lcssa1749.i
   %905 = trunc i64 %904 to i32
   %906 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 36
   store i32 %905, ptr %906, align 4, !tbaa !7
   %907 = add i64 %902, -1
   %908 = and i64 %907, %902
   %909 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %908, i1 true)
-  %910 = or disjoint i64 %909, %.sroa.11.0.lcssa1736.i
+  %910 = or disjoint i64 %909, %.sroa.11.0.lcssa1749.i
   %911 = trunc i64 %910 to i32
   %912 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 40
   store i32 %911, ptr %912, align 4, !tbaa !7
   %913 = add i64 %908, -1
   %914 = and i64 %913, %908
   %915 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %914, i1 true)
-  %916 = or disjoint i64 %915, %.sroa.11.0.lcssa1736.i
+  %916 = or disjoint i64 %915, %.sroa.11.0.lcssa1749.i
   %917 = trunc i64 %916 to i32
   %918 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 44
   store i32 %917, ptr %918, align 4, !tbaa !7
@@ -23461,28 +23461,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %920 = add i64 %914, -1
   %921 = and i64 %920, %914
   %922 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %921, i1 true)
-  %923 = or disjoint i64 %922, %.sroa.11.0.lcssa1736.i
+  %923 = or disjoint i64 %922, %.sroa.11.0.lcssa1749.i
   %924 = trunc i64 %923 to i32
   %925 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 48
   store i32 %924, ptr %925, align 4, !tbaa !7
   %926 = add i64 %921, -1
   %927 = and i64 %926, %921
   %928 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %927, i1 true)
-  %929 = or disjoint i64 %928, %.sroa.11.0.lcssa1736.i
+  %929 = or disjoint i64 %928, %.sroa.11.0.lcssa1749.i
   %930 = trunc i64 %929 to i32
   %931 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 52
   store i32 %930, ptr %931, align 4, !tbaa !7
   %932 = add i64 %927, -1
   %933 = and i64 %932, %927
   %934 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %933, i1 true)
-  %935 = or disjoint i64 %934, %.sroa.11.0.lcssa1736.i
+  %935 = or disjoint i64 %934, %.sroa.11.0.lcssa1749.i
   %936 = trunc i64 %935 to i32
   %937 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 56
   store i32 %936, ptr %937, align 4, !tbaa !7
   %938 = add i64 %933, -1
   %939 = and i64 %938, %933
   %940 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %939, i1 true)
-  %941 = or disjoint i64 %940, %.sroa.11.0.lcssa1736.i
+  %941 = or disjoint i64 %940, %.sroa.11.0.lcssa1749.i
   %942 = trunc i64 %941 to i32
   %943 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 60
   store i32 %942, ptr %943, align 4, !tbaa !7
@@ -23493,28 +23493,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %945 = add i64 %939, -1
   %946 = and i64 %945, %939
   %947 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %946, i1 true)
-  %948 = or disjoint i64 %947, %.sroa.11.0.lcssa1736.i
+  %948 = or disjoint i64 %947, %.sroa.11.0.lcssa1749.i
   %949 = trunc i64 %948 to i32
   %950 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 64
   store i32 %949, ptr %950, align 4, !tbaa !7
   %951 = add i64 %946, -1
   %952 = and i64 %951, %946
   %953 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %952, i1 true)
-  %954 = or disjoint i64 %953, %.sroa.11.0.lcssa1736.i
+  %954 = or disjoint i64 %953, %.sroa.11.0.lcssa1749.i
   %955 = trunc i64 %954 to i32
   %956 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 68
   store i32 %955, ptr %956, align 4, !tbaa !7
   %957 = add i64 %952, -1
   %958 = and i64 %957, %952
   %959 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %958, i1 true)
-  %960 = or disjoint i64 %959, %.sroa.11.0.lcssa1736.i
+  %960 = or disjoint i64 %959, %.sroa.11.0.lcssa1749.i
   %961 = trunc i64 %960 to i32
   %962 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 72
   store i32 %961, ptr %962, align 4, !tbaa !7
   %963 = add i64 %958, -1
   %964 = and i64 %963, %958
   %965 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %964, i1 true)
-  %966 = or disjoint i64 %965, %.sroa.11.0.lcssa1736.i
+  %966 = or disjoint i64 %965, %.sroa.11.0.lcssa1749.i
   %967 = trunc i64 %966 to i32
   %968 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 76
   store i32 %967, ptr %968, align 4, !tbaa !7
@@ -23525,28 +23525,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %970 = add i64 %964, -1
   %971 = and i64 %970, %964
   %972 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %971, i1 true)
-  %973 = or disjoint i64 %972, %.sroa.11.0.lcssa1736.i
+  %973 = or disjoint i64 %972, %.sroa.11.0.lcssa1749.i
   %974 = trunc i64 %973 to i32
   %975 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 80
   store i32 %974, ptr %975, align 4, !tbaa !7
   %976 = add i64 %971, -1
   %977 = and i64 %976, %971
   %978 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %977, i1 true)
-  %979 = or disjoint i64 %978, %.sroa.11.0.lcssa1736.i
+  %979 = or disjoint i64 %978, %.sroa.11.0.lcssa1749.i
   %980 = trunc i64 %979 to i32
   %981 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 84
   store i32 %980, ptr %981, align 4, !tbaa !7
   %982 = add i64 %977, -1
   %983 = and i64 %982, %977
   %984 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %983, i1 true)
-  %985 = or disjoint i64 %984, %.sroa.11.0.lcssa1736.i
+  %985 = or disjoint i64 %984, %.sroa.11.0.lcssa1749.i
   %986 = trunc i64 %985 to i32
   %987 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 88
   store i32 %986, ptr %987, align 4, !tbaa !7
   %988 = add i64 %983, -1
   %989 = and i64 %988, %983
   %990 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %989, i1 true)
-  %991 = or disjoint i64 %990, %.sroa.11.0.lcssa1736.i
+  %991 = or disjoint i64 %990, %.sroa.11.0.lcssa1749.i
   %992 = trunc i64 %991 to i32
   %993 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 92
   store i32 %992, ptr %993, align 4, !tbaa !7
@@ -23562,7 +23562,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %indvars.iv1705.i = phi i64 [ %indvars.iv.next1706.i, %.noexc108.i ], [ 24, %.noexc108.i.preheader ]
   %.015801670.i = phi i64 [ %1002, %.noexc108.i ], [ %996, %.noexc108.i.preheader ]
   %997 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.015801670.i, i1 true)
-  %998 = or disjoint i64 %997, %.sroa.11.0.lcssa1736.i
+  %998 = or disjoint i64 %997, %.sroa.11.0.lcssa1749.i
   %999 = trunc i64 %998 to i32
   %1000 = getelementptr inbounds nuw i32, ptr %.sroa.59.2.i, i64 %indvars.iv1705.i
   store i32 %999, ptr %1000, align 4, !tbaa !7
@@ -23595,7 +23595,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %1010 = trunc i64 %1009 to i32
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1010, ptr %1011, align 8, !tbaa !70
-  %1012 = trunc i64 %.01317221735.i to i32
+  %1012 = trunc i64 %.01317351748.i to i32
   %1013 = and i64 %1009, 4294967295
   %1014 = getelementptr inbounds nuw i32, ptr %1005, i64 %1013
   store i32 %1012, ptr %1014, align 4, !tbaa !7
@@ -23621,7 +23621,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %1029 = getelementptr inbounds nuw i32, ptr %1005, i64 %1028
   %1030 = load i32, ptr %1029, align 4, !tbaa !7
   %1031 = zext i32 %1030 to i64
-  %1032 = icmp ult i64 %.01317221735.i, %1031
+  %1032 = icmp ult i64 %.01317351748.i, %1031
   br i1 %1032, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1033, !prof !127
 
 1033:                                             ; preds = %1026
@@ -23758,23 +23758,23 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %1081 = icmp ne i32 %.439.i.i, 0
   %1082 = icmp ne i32 %.448.i.i, 0
   %or.cond4.i.i = select i1 %1081, i1 true, i1 %1082
-  br i1 %or.cond4.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
+  br i1 %or.cond4.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i: ; preds = %1080, %1064
   %.0.i276.i = phi i32 [ %spec.select.i278.i, %1064 ], [ %1037, %1080 ]
   %.not1633.i = icmp eq i32 %.0.i276.i, 0
-  br i1 %.not1633.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i_crit_edge, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i
+  br i1 %.not1633.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i_crit_edge, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i_crit_edge: ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
+_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i_crit_edge: ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i
   %.pre = load i32, ptr %1005, align 4, !tbaa !7
-  br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i
+  br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i: ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i_crit_edge, %1080
-  %1083 = phi i32 [ %.pre, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i_crit_edge ], [ %1068, %1080 ]
+_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i: ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i_crit_edge, %1080
+  %1083 = phi i32 [ %.pre, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.i._ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i_crit_edge ], [ %1068, %1080 ]
   %1084 = icmp eq i32 %1083, 0
   br i1 %1084, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i, label %1085
 
-1085:                                             ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i
+1085:                                             ; preds = %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i
   store i32 0, ptr %1011, align 8, !tbaa !70
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
@@ -23938,8 +23938,8 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_
   %1148 = select i1 %.not1634.i, i32 11, i32 0
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i
 
-_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %1145, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i, %1085, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i, %1035, %1026, %1004, %.thread.i, %.noexc.i, %._crit_edge.i
-  %.1.i = phi i32 [ %1148, %1145 ], [ 14, %.thread.i ], [ 13, %1004 ], [ 24, %1026 ], [ 1, %1035 ], [ 13, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1748.i ], [ 13, %1085 ], [ 15, %.noexc.i ]
+_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer6finishERNS0_25dom_parser_implementationEmmNS_11stage1_modeE.exit.i: ; preds = %1145, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i, %1085, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i, %1035, %1026, %1004, %.thread.i, %.noexc.i, %._crit_edge.i
+  %.1.i = phi i32 [ %1148, %1145 ], [ 14, %.thread.i ], [ 13, %1004 ], [ 24, %1026 ], [ 1, %1035 ], [ 13, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit301.i ], [ 24, %._crit_edge.i ], [ 1, %_ZN8simdjson8westmere12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE.exit.thread1761.i ], [ 13, %1085 ], [ 15, %.noexc.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer5indexILm64EEENS_10error_codeEPKhmRNS0_25dom_parser_implementationENS_11stage1_modeE.exit
 
@@ -24364,9 +24364,9 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8westmere25dom_parser
   %61 = getelementptr inbounds nuw i8, ptr %22, i64 1
   br label %62
 
-62:                                               ; preds = %.backedge1826, %58
-  %.0854 = phi ptr [ %61, %58 ], [ %.0854.be, %.backedge1826 ]
-  %.0848 = phi ptr [ %60, %58 ], [ %.0848.be, %.backedge1826 ]
+62:                                               ; preds = %.backedge1876, %58
+  %.0854 = phi ptr [ %61, %58 ], [ %.0854.be, %.backedge1876 ]
+  %.0848 = phi ptr [ %60, %58 ], [ %.0848.be, %.backedge1876 ]
   %63 = load <2 x i64>, ptr %.0854, align 1, !tbaa !4
   %64 = getelementptr inbounds nuw i8, ptr %.0854, i64 16
   %65 = load <2 x i64>, ptr %64, align 1, !tbaa !4
@@ -24566,7 +24566,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.6860985.ph = phi ptr [ %.68609869929961002, %186 ], [ %113, %171 ], [ %113, %161 ], [ %113, %157 ]
   %.0.i40.i.ph = phi i64 [ 4, %186 ], [ 3, %171 ], [ 2, %161 ], [ 1, %157 ]
   %204 = getelementptr inbounds nuw i8, ptr %86, i64 %.0.i40.i.ph
-  br label %.backedge1826
+  br label %.backedge1876
 
 205:                                              ; preds = %76
   %206 = zext i8 %81 to i64
@@ -24582,9 +24582,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %212 = getelementptr inbounds nuw i8, ptr %.0854, i64 %210
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 2
   %214 = getelementptr inbounds nuw i8, ptr %.0848, i64 %79
-  br label %.backedge1826
+  br label %.backedge1876
 
-.backedge1826:                                    ; preds = %209, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.thread1007, %215
+.backedge1876:                                    ; preds = %209, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.thread1007, %215
   %.0854.be = phi ptr [ %216, %215 ], [ %213, %209 ], [ %.6860985.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.thread1007 ]
   %.0848.be = phi ptr [ %217, %215 ], [ %214, %209 ], [ %204, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.thread1007 ]
   br label %62
@@ -24592,7 +24592,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 215:                                              ; preds = %75
   %216 = getelementptr inbounds nuw i8, ptr %.0854, i64 32
   %217 = getelementptr inbounds nuw i8, ptr %.0848, i64 32
-  br label %.backedge1826
+  br label %.backedge1876
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i: ; preds = %62
   %218 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.6.0.extract.trunc, i1 true)
@@ -24827,12 +24827,12 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit16.
   br i1 %.not, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread, label %.noexc85.thread
 
 .noexc85.thread:                                  ; preds = %.lr.ph1528, %.noexc85
-  %.5944.lcssa1628 = phi i64 [ %.49431037, %.noexc85 ], [ %344, %.lr.ph1528 ]
-  %.5936.idx.lcssa15241627 = phi i64 [ %.3934.add, %.noexc85 ], [ %.5936.add, %.lr.ph1528 ]
+  %.5944.lcssa1678 = phi i64 [ %.49431037, %.noexc85 ], [ %344, %.lr.ph1528 ]
+  %.5936.idx.lcssa15241677 = phi i64 [ %.3934.add, %.noexc85 ], [ %.5936.add, %.lr.ph1528 ]
   %348 = phi i8 [ %338, %.noexc85 ], [ %345, %.lr.ph1528 ]
-  %.5936.ptr.le = getelementptr inbounds nuw i8, ptr %.0931.lcssa, i64 %.5936.idx.lcssa15241627
+  %.5936.ptr.le = getelementptr inbounds nuw i8, ptr %.0931.lcssa, i64 %.5936.idx.lcssa15241677
   %349 = ptrtoint ptr %.5936.ptr.le to i64
-  %gepdiff = sub nsw i64 1, %.5936.idx.lcssa15241627
+  %gepdiff = sub nsw i64 1, %.5936.idx.lcssa15241677
   %350 = sub i64 %349, %305
   %sext.i = shl i64 %350, 32
   %351 = ashr exact i64 %sext.i, 32
@@ -24841,7 +24841,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit16.
 352:                                              ; preds = %.noexc85.thread, %311
   %353 = phi i8 [ %348, %.noexc85.thread ], [ %.lcssa1519, %311 ]
   %.0946 = phi i64 [ %gepdiff, %.noexc85.thread ], [ 0, %311 ]
-  %.1940 = phi i64 [ %.5944.lcssa1628, %.noexc85.thread ], [ %.0939.lcssa, %311 ]
+  %.1940 = phi i64 [ %.5944.lcssa1678, %.noexc85.thread ], [ %.0939.lcssa, %311 ]
   %.1932 = phi ptr [ %.5936.ptr.le, %.noexc85.thread ], [ %.0931.lcssa, %311 ]
   %.042.i = phi i64 [ %351, %.noexc85.thread ], [ %306, %311 ]
   switch i8 %353, label %382 [
@@ -25172,11 +25172,11 @@ select.unfold.sink.split:                         ; preds = %.noexc95, %423, %46
   br label %.thread1055
 
 .thread1055:                                      ; preds = %525, %522, %527
-  %.sink1711 = phi i64 [ 7782220156096217088, %527 ], [ 8430738502437568512, %522 ], [ 8430738502437568512, %525 ]
-  %.sink1709 = phi i64 [ %529, %527 ], [ %.1940, %522 ], [ %.1940, %525 ]
-  store i64 %.sink1711, ptr %18, align 8, !tbaa !11
+  %.sink1761 = phi i64 [ 7782220156096217088, %527 ], [ 8430738502437568512, %522 ], [ 8430738502437568512, %525 ]
+  %.sink1759 = phi i64 [ %529, %527 ], [ %.1940, %522 ], [ %.1940, %525 ]
+  store i64 %.sink1761, ptr %18, align 8, !tbaa !11
   %530 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %.sink1709, ptr %530, align 8
+  store i64 %.sink1759, ptr %530, align 8
   %531 = load i8, ptr %.1932, align 1, !tbaa !4
   %532 = zext i8 %531 to i64
   %533 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %532
@@ -25245,9 +25245,9 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %568 = getelementptr inbounds nuw i8, ptr %556, i64 1
   br label %569
 
-569:                                              ; preds = %.backedge1822, %558
-  %.0957 = phi ptr [ %567, %558 ], [ %.0957.be, %.backedge1822 ]
-  %.0949 = phi ptr [ %568, %558 ], [ %.0949.be, %.backedge1822 ]
+569:                                              ; preds = %.backedge1872, %558
+  %.0957 = phi ptr [ %567, %558 ], [ %.0957.be, %.backedge1872 ]
+  %.0949 = phi ptr [ %568, %558 ], [ %.0949.be, %.backedge1872 ]
   %570 = load <2 x i64>, ptr %.0949, align 1, !tbaa !4
   %571 = getelementptr inbounds nuw i8, ptr %.0949, i64 16
   %572 = load <2 x i64>, ptr %571, align 1, !tbaa !4
@@ -25447,7 +25447,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.69551112.ph = phi ptr [ %.69551113111911231129, %693 ], [ %620, %678 ], [ %620, %668 ], [ %620, %664 ]
   %.0.i40.i62.ph = phi i64 [ 4, %693 ], [ 3, %678 ], [ 2, %668 ], [ 1, %664 ]
   %711 = getelementptr inbounds nuw i8, ptr %593, i64 %.0.i40.i62.ph
-  br label %.backedge1822
+  br label %.backedge1872
 
 712:                                              ; preds = %583
   %713 = zext i8 %588 to i64
@@ -25463,9 +25463,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %719 = getelementptr inbounds nuw i8, ptr %.0949, i64 %717
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 2
   %721 = getelementptr inbounds nuw i8, ptr %.0957, i64 %586
-  br label %.backedge1822
+  br label %.backedge1872
 
-.backedge1822:                                    ; preds = %716, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i58.thread1134, %722
+.backedge1872:                                    ; preds = %716, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i58.thread1134, %722
   %.0957.be = phi ptr [ %724, %722 ], [ %721, %716 ], [ %711, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i58.thread1134 ]
   %.0949.be = phi ptr [ %723, %722 ], [ %720, %716 ], [ %.69551112.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i58.thread1134 ]
   br label %569
@@ -25473,12 +25473,12 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 722:                                              ; preds = %582
   %723 = getelementptr inbounds nuw i8, ptr %.0949, i64 32
   %724 = getelementptr inbounds nuw i8, ptr %.0957, i64 32
-  br label %.backedge1822
+  br label %.backedge1872
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i16: ; preds = %569, %1273
   %.sroa.6503.0.extract.trunc.lcssa.sink = phi i32 [ %.sroa.6503.0.extract.trunc, %1273 ], [ %.sroa.6555.0.extract.trunc, %569 ]
   %.0971.lcssa.sink = phi ptr [ %.0971, %1273 ], [ %.0957, %569 ]
-  %.sink1717 = phi ptr [ %1271, %1273 ], [ %567, %569 ]
+  %.sink1767 = phi ptr [ %1271, %1273 ], [ %567, %569 ]
   %.sroa.166.8.sink = phi ptr [ %.sroa.166.8, %1273 ], [ %.sroa.166.4, %569 ]
   %.sroa.117.3 = phi i32 [ %.sroa.117.4, %1273 ], [ %536, %569 ]
   %.sroa.25.4.pn = phi ptr [ %1247, %1273 ], [ %.sroa.25.4, %569 ]
@@ -25487,7 +25487,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i16
   %726 = zext nneg i32 %725 to i64
   %727 = getelementptr inbounds nuw i8, ptr %.0971.lcssa.sink, i64 %726
   %728 = ptrtoint ptr %727 to i64
-  %729 = ptrtoint ptr %.sink1717 to i64
+  %729 = ptrtoint ptr %.sink1767 to i64
   %730 = sub i64 %728, %729
   %731 = trunc i64 %730 to i32
   store i32 %731, ptr %.sroa.166.8.sink, align 1
@@ -25582,9 +25582,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i16
   %795 = getelementptr inbounds nuw i8, ptr %741, i64 1
   br label %796
 
-796:                                              ; preds = %.backedge1817, %785
-  %.0920 = phi ptr [ %794, %785 ], [ %.0920.be, %.backedge1817 ]
-  %.0912 = phi ptr [ %795, %785 ], [ %.0912.be, %.backedge1817 ]
+796:                                              ; preds = %.backedge1867, %785
+  %.0920 = phi ptr [ %794, %785 ], [ %.0920.be, %.backedge1867 ]
+  %.0912 = phi ptr [ %795, %785 ], [ %.0912.be, %.backedge1867 ]
   %797 = load <2 x i64>, ptr %.0912, align 1, !tbaa !4
   %798 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %799 = load <2 x i64>, ptr %798, align 1, !tbaa !4
@@ -25784,7 +25784,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.69181173.ph = phi ptr [ %.69181174118011841190, %920 ], [ %847, %905 ], [ %847, %895 ], [ %847, %891 ]
   %.0.i40.i.i.ph = phi i64 [ 4, %920 ], [ 3, %905 ], [ 2, %895 ], [ 1, %891 ]
   %938 = getelementptr inbounds nuw i8, ptr %820, i64 %.0.i40.i.i.ph
-  br label %.backedge1817
+  br label %.backedge1867
 
 939:                                              ; preds = %810
   %940 = zext i8 %815 to i64
@@ -25800,9 +25800,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %946 = getelementptr inbounds nuw i8, ptr %.0912, i64 %944
   %947 = getelementptr inbounds nuw i8, ptr %946, i64 2
   %948 = getelementptr inbounds nuw i8, ptr %.0920, i64 %813
-  br label %.backedge1817
+  br label %.backedge1867
 
-.backedge1817:                                    ; preds = %943, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread1195, %949
+.backedge1867:                                    ; preds = %943, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread1195, %949
   %.0920.be = phi ptr [ %951, %949 ], [ %948, %943 ], [ %938, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread1195 ]
   %.0912.be = phi ptr [ %950, %949 ], [ %947, %943 ], [ %.69181173.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread1195 ]
   br label %796
@@ -25810,7 +25810,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 949:                                              ; preds = %809
   %950 = getelementptr inbounds nuw i8, ptr %.0912, i64 32
   %951 = getelementptr inbounds nuw i8, ptr %.0920, i64 32
-  br label %.backedge1817
+  br label %.backedge1867
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i: ; preds = %796
   %952 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.6646.0.extract.trunc, i1 true)
@@ -25934,12 +25934,12 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not1479, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread
 
 _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread: ; preds = %.lr.ph1549, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i
-  %.5907.lcssa1649 = phi i64 [ %.49061223, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1018, %.lr.ph1549 ]
-  %.7901.idx.lcssa15451648 = phi i64 [ %.5899.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7901.add, %.lr.ph1549 ]
+  %.5907.lcssa1699 = phi i64 [ %.49061223, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1018, %.lr.ph1549 ]
+  %.7901.idx.lcssa15451698 = phi i64 [ %.5899.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7901.add, %.lr.ph1549 ]
   %1022 = phi i8 [ %1012, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %1019, %.lr.ph1549 ]
-  %.7901.ptr.le = getelementptr inbounds nuw i8, ptr %.0894.lcssa, i64 %.7901.idx.lcssa15451648
+  %.7901.ptr.le = getelementptr inbounds nuw i8, ptr %.0894.lcssa, i64 %.7901.idx.lcssa15451698
   %1023 = ptrtoint ptr %.7901.ptr.le to i64
-  %gepdiff1581 = sub nsw i64 1, %.7901.idx.lcssa15451648
+  %gepdiff1581 = sub nsw i64 1, %.7901.idx.lcssa15451698
   %1024 = sub i64 %1023, %978
   %sext.i.i = shl i64 %1024, 32
   %1025 = ashr exact i64 %sext.i.i, 32
@@ -25948,7 +25948,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 1026:                                             ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread, %984
   %1027 = phi i8 [ %1022, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.lcssa1512, %984 ]
   %.0909 = phi i64 [ %gepdiff1581, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ 0, %984 ]
-  %.2904 = phi i64 [ %.5907.lcssa1649, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0902.lcssa, %984 ]
+  %.2904 = phi i64 [ %.5907.lcssa1699, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0902.lcssa, %984 ]
   %.1895 = phi ptr [ %.7901.ptr.le, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0894.lcssa, %984 ]
   %.042.i.i = phi i64 [ %1025, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %979, %984 ]
   switch i8 %1027, label %1056 [
@@ -26270,11 +26270,11 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %.thread1241
 
 .thread1241:                                      ; preds = %1198, %1195, %1200
-  %.sink1723 = phi i64 [ 7782220156096217088, %1200 ], [ 8430738502437568512, %1195 ], [ 8430738502437568512, %1198 ]
-  %.sink1721 = phi i64 [ %1202, %1200 ], [ %.2904, %1195 ], [ %.2904, %1198 ]
-  store i64 %.sink1723, ptr %.sroa.0.6, align 8, !tbaa !11
+  %.sink1773 = phi i64 [ 7782220156096217088, %1200 ], [ 8430738502437568512, %1195 ], [ 8430738502437568512, %1198 ]
+  %.sink1771 = phi i64 [ %1202, %1200 ], [ %.2904, %1195 ], [ %.2904, %1198 ]
+  store i64 %.sink1773, ptr %.sroa.0.6, align 8, !tbaa !11
   %1203 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store i64 %.sink1721, ptr %1203, align 8
+  store i64 %.sink1771, ptr %1203, align 8
   %.sroa.0.25 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %1204 = load i8, ptr %.1895, align 1, !tbaa !4
   %1205 = zext i8 %1204 to i64
@@ -26344,11 +26344,11 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %1246
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit: ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i, %1096, %1137, %1139, %1167, %1092, %.noexc25.i, %1075
-  %.sink1724 = phi double [ %1068, %.noexc25.i ], [ %1076, %1075 ], [ %1176, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ %1175, %1167 ], [ %1151, %1139 ], [ %1138, %1137 ], [ %1097, %1096 ], [ %spec.select1464, %1092 ]
+  %.sink1774 = phi double [ %1068, %.noexc25.i ], [ %1076, %1075 ], [ %1176, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ %1175, %1167 ], [ %1151, %1139 ], [ %1138, %1137 ], [ %1097, %1096 ], [ %spec.select1464, %1092 ]
   %.0.i24.i = phi i32 [ %..i225, %.noexc25.i ], [ 0, %1075 ], [ 0, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i ], [ 0, %1167 ], [ 0, %1139 ], [ 0, %1137 ], [ 0, %1096 ], [ 0, %1092 ]
   store i64 7205759403792793600, ptr %.sroa.0.6, align 8, !tbaa !11
   %1244 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store double %.sink1724, ptr %1244, align 8
+  store double %.sink1774, ptr %1244, align 8
   %1245 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %.not60.i.i = icmp eq i32 %.0.i24.i, 0
   %..i.i = select i1 %.not59.i.i, i32 0, i32 9
@@ -26636,9 +26636,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1429:                                             ; preds = %1246, %1989
   %.sroa.117.6.sink = phi i32 [ %.sroa.117.6, %1989 ], [ %.sroa.117.4, %1246 ]
-  %.sink1749 = phi i64 [ 6701356245527298048, %1989 ], [ 9007199254740992000, %1246 ]
-  %.sroa.0.10.sink1747 = phi ptr [ %.sroa.0.10, %1989 ], [ %.sroa.0.8, %1246 ]
-  %.sink1729 = phi i64 [ 6557241057451442176, %1989 ], [ 8863084066665136128, %1246 ]
+  %.sink1799 = phi i64 [ 6701356245527298048, %1989 ], [ 9007199254740992000, %1246 ]
+  %.sroa.0.10.sink1797 = phi ptr [ %.sroa.0.10, %1989 ], [ %.sroa.0.8, %1246 ]
+  %.sink1779 = phi i64 [ 6557241057451442176, %1989 ], [ 8863084066665136128, %1246 ]
   %.sroa.25.8 = phi ptr [ %1990, %1989 ], [ %1247, %1246 ]
   %.sroa.166.9 = phi ptr [ %.sroa.166.10, %1989 ], [ %.sroa.166.8, %1246 ]
   %1430 = zext i32 %.sroa.117.6.sink to i64
@@ -26646,9 +26646,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1432 = getelementptr inbounds nuw %"struct.simdjson::westmere::open_container", ptr %1431, i64 %1430
   %1433 = load i32, ptr %1432, align 4, !tbaa !349
   %1434 = zext i32 %1433 to i64
-  %1435 = or disjoint i64 %.sink1749, %1434
-  store i64 %1435, ptr %.sroa.0.10.sink1747, align 8, !tbaa !11
-  %1436 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1747, i64 8
+  %1435 = or disjoint i64 %.sink1799, %1434
+  store i64 %1435, ptr %.sroa.0.10.sink1797, align 8, !tbaa !11
+  %1436 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1797, i64 8
   %1437 = getelementptr inbounds nuw i8, ptr %1432, i64 4
   %1438 = load i32, ptr %1437, align 4, !tbaa !351
   %1439 = tail call i32 @llvm.umin.i32(i32 %1438, i32 16777215)
@@ -26663,7 +26663,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1448 = zext nneg i32 %1439 to i64
   %1449 = shl nuw nsw i64 %1448, 32
   %1450 = or disjoint i64 %1447, %1449
-  %1451 = or disjoint i64 %1450, %.sink1729
+  %1451 = or disjoint i64 %1450, %.sink1779
   store i64 %1451, ptr %1442, align 8, !tbaa !11
   %1452 = add i32 %.sroa.117.6.sink, -1
   %1453 = icmp eq i32 %1452, 0
@@ -26794,9 +26794,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1538 = getelementptr inbounds nuw i8, ptr %1484, i64 1
   br label %1539
 
-1539:                                             ; preds = %.backedge1806, %1528
-  %.0870 = phi ptr [ %1537, %1528 ], [ %.0870.be, %.backedge1806 ]
-  %.0862 = phi ptr [ %1538, %1528 ], [ %.0862.be, %.backedge1806 ]
+1539:                                             ; preds = %.backedge1856, %1528
+  %.0870 = phi ptr [ %1537, %1528 ], [ %.0870.be, %.backedge1856 ]
+  %.0862 = phi ptr [ %1538, %1528 ], [ %.0862.be, %.backedge1856 ]
   %1540 = load <2 x i64>, ptr %.0862, align 1, !tbaa !4
   %1541 = getelementptr inbounds nuw i8, ptr %.0862, i64 16
   %1542 = load <2 x i64>, ptr %1541, align 1, !tbaa !4
@@ -26996,7 +26996,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.68681326.ph = phi ptr [ %.68681327133313371343, %1663 ], [ %1590, %1648 ], [ %1590, %1638 ], [ %1590, %1634 ]
   %.0.i40.i.i203.ph = phi i64 [ 4, %1663 ], [ 3, %1648 ], [ 2, %1638 ], [ 1, %1634 ]
   %1681 = getelementptr inbounds nuw i8, ptr %1563, i64 %.0.i40.i.i203.ph
-  br label %.backedge1806
+  br label %.backedge1856
 
 1682:                                             ; preds = %1553
   %1683 = zext i8 %1558 to i64
@@ -27012,9 +27012,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1689 = getelementptr inbounds nuw i8, ptr %.0862, i64 %1687
   %1690 = getelementptr inbounds nuw i8, ptr %1689, i64 2
   %1691 = getelementptr inbounds nuw i8, ptr %.0870, i64 %1556
-  br label %.backedge1806
+  br label %.backedge1856
 
-.backedge1806:                                    ; preds = %1686, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i199.thread1348, %1692
+.backedge1856:                                    ; preds = %1686, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i199.thread1348, %1692
   %.0870.be = phi ptr [ %1694, %1692 ], [ %1691, %1686 ], [ %1681, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i199.thread1348 ]
   %.0862.be = phi ptr [ %1693, %1692 ], [ %1690, %1686 ], [ %.68681326.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i199.thread1348 ]
   br label %1539
@@ -27022,7 +27022,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 1692:                                             ; preds = %1552
   %1693 = getelementptr inbounds nuw i8, ptr %.0862, i64 32
   %1694 = getelementptr inbounds nuw i8, ptr %.0870, i64 32
-  br label %.backedge1806
+  br label %.backedge1856
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i186: ; preds = %1539
   %1695 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.6738.0.extract.trunc, i1 true)
@@ -27146,12 +27146,12 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not1484, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread
 
 _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread: ; preds = %.lr.ph1570, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174
-  %.5843.lcssa1663 = phi i64 [ %.48421376, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174 ], [ %1761, %.lr.ph1570 ]
-  %.7837.idx.lcssa15661662 = phi i64 [ %.5835.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174 ], [ %.7837.add, %.lr.ph1570 ]
+  %.5843.lcssa1713 = phi i64 [ %.48421376, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174 ], [ %1761, %.lr.ph1570 ]
+  %.7837.idx.lcssa15661712 = phi i64 [ %.5835.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174 ], [ %.7837.add, %.lr.ph1570 ]
   %1765 = phi i8 [ %1755, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174 ], [ %1762, %.lr.ph1570 ]
-  %.7837.ptr.le = getelementptr inbounds nuw i8, ptr %.0830.lcssa, i64 %.7837.idx.lcssa15661662
+  %.7837.ptr.le = getelementptr inbounds nuw i8, ptr %.0830.lcssa, i64 %.7837.idx.lcssa15661712
   %1766 = ptrtoint ptr %.7837.ptr.le to i64
-  %gepdiff1584 = sub nsw i64 1, %.7837.idx.lcssa15661662
+  %gepdiff1584 = sub nsw i64 1, %.7837.idx.lcssa15661712
   %1767 = sub i64 %1766, %1721
   %sext.i.i177 = shl i64 %1767, 32
   %1768 = ashr exact i64 %sext.i.i177, 32
@@ -27160,7 +27160,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 1769:                                             ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread, %1727
   %1770 = phi i8 [ %1765, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread ], [ %.lcssa, %1727 ]
   %.0845 = phi i64 [ %gepdiff1584, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread ], [ 0, %1727 ]
-  %.2840 = phi i64 [ %.5843.lcssa1663, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread ], [ %.0838.lcssa, %1727 ]
+  %.2840 = phi i64 [ %.5843.lcssa1713, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread ], [ %.0838.lcssa, %1727 ]
   %.1831 = phi ptr [ %.7837.ptr.le, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread ], [ %.0830.lcssa, %1727 ]
   %.042.i.i118 = phi i64 [ %1768, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i174.thread ], [ %1722, %1727 ]
   switch i8 %1770, label %1799 [
@@ -27482,11 +27482,11 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %.thread1394
 
 .thread1394:                                      ; preds = %1941, %1938, %1943
-  %.sink1756 = phi i64 [ 7782220156096217088, %1943 ], [ 8430738502437568512, %1938 ], [ 8430738502437568512, %1941 ]
-  %.sink1754 = phi i64 [ %1945, %1943 ], [ %.2840, %1938 ], [ %.2840, %1941 ]
-  store i64 %.sink1756, ptr %.sroa.0.2, align 8, !tbaa !11
+  %.sink1806 = phi i64 [ 7782220156096217088, %1943 ], [ 8430738502437568512, %1938 ], [ 8430738502437568512, %1941 ]
+  %.sink1804 = phi i64 [ %1945, %1943 ], [ %.2840, %1938 ], [ %.2840, %1941 ]
+  store i64 %.sink1806, ptr %.sroa.0.2, align 8, !tbaa !11
   %1946 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store i64 %.sink1754, ptr %1946, align 8
+  store i64 %.sink1804, ptr %1946, align 8
   %.sroa.0.31 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %1947 = load i8, ptr %.1831, align 1, !tbaa !4
   %1948 = zext i8 %1947 to i64
@@ -27556,11 +27556,11 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %1989
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit208: ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i150, %1839, %1880, %1882, %1910, %1835, %.noexc25.i169, %1818
-  %.sink1757 = phi double [ %1811, %.noexc25.i169 ], [ %1819, %1818 ], [ %1919, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i150 ], [ %1918, %1910 ], [ %1894, %1882 ], [ %1881, %1880 ], [ %1840, %1839 ], [ %spec.select1466, %1835 ]
+  %.sink1807 = phi double [ %1811, %.noexc25.i169 ], [ %1819, %1818 ], [ %1919, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i150 ], [ %1918, %1910 ], [ %1894, %1882 ], [ %1881, %1880 ], [ %1840, %1839 ], [ %spec.select1466, %1835 ]
   %.0.i24.i154 = phi i32 [ %..i226, %.noexc25.i169 ], [ 0, %1818 ], [ 0, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i150 ], [ 0, %1910 ], [ 0, %1882 ], [ 0, %1880 ], [ 0, %1839 ], [ 0, %1835 ]
   store i64 7205759403792793600, ptr %.sroa.0.2, align 8, !tbaa !11
   %1987 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store double %.sink1757, ptr %1987, align 8
+  store double %.sink1807, ptr %1987, align 8
   %1988 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %.not60.i.i155 = icmp eq i32 %.0.i24.i154, 0
   %..i.i157 = select i1 %.not59.i.i135, i32 0, i32 9
@@ -27720,9 +27720,9 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8westmere25dom_parser
   %51 = getelementptr inbounds nuw i8, ptr %26, i64 1
   br label %52
 
-52:                                               ; preds = %.backedge1597, %48
-  %.0628 = phi ptr [ %51, %48 ], [ %.0628.be, %.backedge1597 ]
-  %.0622 = phi ptr [ %50, %48 ], [ %.0622.be, %.backedge1597 ]
+52:                                               ; preds = %.backedge1647, %48
+  %.0628 = phi ptr [ %51, %48 ], [ %.0628.be, %.backedge1647 ]
+  %.0622 = phi ptr [ %50, %48 ], [ %.0622.be, %.backedge1647 ]
   %53 = load <2 x i64>, ptr %.0628, align 1, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %.0628, i64 16
   %55 = load <2 x i64>, ptr %54, align 1, !tbaa !4
@@ -27922,7 +27922,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.6634757.ph = phi ptr [ %.6634758764768774, %176 ], [ %103, %161 ], [ %103, %151 ], [ %103, %147 ]
   %.0.i40.i.i.ph = phi i64 [ 4, %176 ], [ 3, %161 ], [ 2, %151 ], [ 1, %147 ]
   %194 = getelementptr inbounds nuw i8, ptr %76, i64 %.0.i40.i.i.ph
-  br label %.backedge1597
+  br label %.backedge1647
 
 195:                                              ; preds = %66
   %196 = zext i8 %71 to i64
@@ -27938,9 +27938,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %202 = getelementptr inbounds nuw i8, ptr %.0628, i64 %200
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 2
   %204 = getelementptr inbounds nuw i8, ptr %.0622, i64 %69
-  br label %.backedge1597
+  br label %.backedge1647
 
-.backedge1597:                                    ; preds = %199, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread779, %205
+.backedge1647:                                    ; preds = %199, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread779, %205
   %.0628.be = phi ptr [ %206, %205 ], [ %203, %199 ], [ %.6634757.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread779 ]
   %.0622.be = phi ptr [ %207, %205 ], [ %204, %199 ], [ %194, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread779 ]
   br label %52
@@ -27948,7 +27948,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 205:                                              ; preds = %65
   %206 = getelementptr inbounds nuw i8, ptr %.0628, i64 32
   %207 = getelementptr inbounds nuw i8, ptr %.0622, i64 32
-  br label %.backedge1597
+  br label %.backedge1647
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i: ; preds = %52
   %208 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.6.0.extract.trunc, i1 true)
@@ -28188,12 +28188,12 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread, label %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread
 
 _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread: ; preds = %.lr.ph1299, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i
-  %.5718.lcssa1399 = phi i64 [ %.4717809, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %343, %.lr.ph1299 ]
-  %.7712.idx.lcssa12951398 = phi i64 [ %.5710.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7712.add, %.lr.ph1299 ]
+  %.5718.lcssa1449 = phi i64 [ %.4717809, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %343, %.lr.ph1299 ]
+  %.7712.idx.lcssa12951448 = phi i64 [ %.5710.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7712.add, %.lr.ph1299 ]
   %347 = phi i8 [ %337, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %344, %.lr.ph1299 ]
-  %.7712.ptr.le = getelementptr inbounds nuw i8, ptr %.0705.lcssa, i64 %.7712.idx.lcssa12951398
+  %.7712.ptr.le = getelementptr inbounds nuw i8, ptr %.0705.lcssa, i64 %.7712.idx.lcssa12951448
   %348 = ptrtoint ptr %.7712.ptr.le to i64
-  %gepdiff = sub nsw i64 1, %.7712.idx.lcssa12951398
+  %gepdiff = sub nsw i64 1, %.7712.idx.lcssa12951448
   %349 = sub i64 %348, %303
   %sext.i.i = shl i64 %349, 32
   %350 = ashr exact i64 %sext.i.i, 32
@@ -28202,7 +28202,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 351:                                              ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread, %309
   %352 = phi i8 [ %347, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.lcssa1290, %309 ]
   %.0720 = phi i64 [ %gepdiff, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ 0, %309 ]
-  %.2715 = phi i64 [ %.5718.lcssa1399, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0713.lcssa, %309 ]
+  %.2715 = phi i64 [ %.5718.lcssa1449, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0713.lcssa, %309 ]
   %.1706 = phi ptr [ %.7712.ptr.le, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0705.lcssa, %309 ]
   %.042.i.i = phi i64 [ %350, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %304, %309 ]
   switch i8 %352, label %381 [
@@ -28533,11 +28533,11 @@ select.unfold.sink.split:                         ; preds = %_ZN8simdjson8westme
   br label %.thread827
 
 .thread827:                                       ; preds = %524, %521, %526
-  %.sink1482 = phi i64 [ 7782220156096217088, %526 ], [ 8430738502437568512, %521 ], [ 8430738502437568512, %524 ]
-  %.sink1480 = phi i64 [ %528, %526 ], [ %.2715, %521 ], [ %.2715, %524 ]
-  store i64 %.sink1482, ptr %22, align 8, !tbaa !11
+  %.sink1532 = phi i64 [ 7782220156096217088, %526 ], [ 8430738502437568512, %521 ], [ 8430738502437568512, %524 ]
+  %.sink1530 = phi i64 [ %528, %526 ], [ %.2715, %521 ], [ %.2715, %524 ]
+  store i64 %.sink1532, ptr %22, align 8, !tbaa !11
   %529 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %.sink1480, ptr %529, align 8
+  store i64 %.sink1530, ptr %529, align 8
   %530 = load i8, ptr %.1706, align 1, !tbaa !4
   %531 = zext i8 %530 to i64
   %532 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %531
@@ -28606,9 +28606,9 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %567 = getelementptr inbounds nuw i8, ptr %555, i64 1
   br label %568
 
-568:                                              ; preds = %.backedge1593, %557
-  %.0745 = phi ptr [ %566, %557 ], [ %.0745.be, %.backedge1593 ]
-  %.0737 = phi ptr [ %567, %557 ], [ %.0737.be, %.backedge1593 ]
+568:                                              ; preds = %.backedge1643, %557
+  %.0745 = phi ptr [ %566, %557 ], [ %.0745.be, %.backedge1643 ]
+  %.0737 = phi ptr [ %567, %557 ], [ %.0737.be, %.backedge1643 ]
   %569 = load <2 x i64>, ptr %.0737, align 1, !tbaa !4
   %570 = getelementptr inbounds nuw i8, ptr %.0737, i64 16
   %571 = load <2 x i64>, ptr %570, align 1, !tbaa !4
@@ -28808,7 +28808,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.6743884.ph = phi ptr [ %.6743885891895901, %692 ], [ %619, %677 ], [ %619, %667 ], [ %619, %663 ]
   %.0.i40.i204.i.ph = phi i64 [ 4, %692 ], [ 3, %677 ], [ 2, %667 ], [ 1, %663 ]
   %710 = getelementptr inbounds nuw i8, ptr %592, i64 %.0.i40.i204.i.ph
-  br label %.backedge1593
+  br label %.backedge1643
 
 711:                                              ; preds = %582
   %712 = zext i8 %587 to i64
@@ -28824,9 +28824,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %718 = getelementptr inbounds nuw i8, ptr %.0737, i64 %716
   %719 = getelementptr inbounds nuw i8, ptr %718, i64 2
   %720 = getelementptr inbounds nuw i8, ptr %.0745, i64 %585
-  br label %.backedge1593
+  br label %.backedge1643
 
-.backedge1593:                                    ; preds = %715, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i200.i.thread906, %721
+.backedge1643:                                    ; preds = %715, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i200.i.thread906, %721
   %.0745.be = phi ptr [ %723, %721 ], [ %720, %715 ], [ %710, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i200.i.thread906 ]
   %.0737.be = phi ptr [ %722, %721 ], [ %719, %715 ], [ %.6743884.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i200.i.thread906 ]
   br label %568
@@ -28834,12 +28834,12 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 721:                                              ; preds = %581
   %722 = getelementptr inbounds nuw i8, ptr %.0737, i64 32
   %723 = getelementptr inbounds nuw i8, ptr %.0745, i64 32
-  br label %.backedge1593
+  br label %.backedge1643
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i218.i: ; preds = %568, %1272
   %.sroa.6329.0.extract.trunc.lcssa.sink = phi i32 [ %.sroa.6329.0.extract.trunc, %1272 ], [ %.sroa.6277.0.extract.trunc, %568 ]
   %.0731.lcssa.sink = phi ptr [ %.0731, %1272 ], [ %.0745, %568 ]
-  %.sink1488 = phi ptr [ %1270, %1272 ], [ %566, %568 ]
+  %.sink1538 = phi ptr [ %1270, %1272 ], [ %566, %568 ]
   %.sroa.166.8.sink = phi ptr [ %.sroa.166.8, %1272 ], [ %.sroa.166.4, %568 ]
   %.sroa.113.3 = phi i32 [ %.sroa.113.4, %1272 ], [ %535, %568 ]
   %.sroa.23.4.pn = phi ptr [ %1246, %1272 ], [ %.sroa.23.4, %568 ]
@@ -28848,7 +28848,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i21
   %725 = zext nneg i32 %724 to i64
   %726 = getelementptr inbounds nuw i8, ptr %.0731.lcssa.sink, i64 %725
   %727 = ptrtoint ptr %726 to i64
-  %728 = ptrtoint ptr %.sink1488 to i64
+  %728 = ptrtoint ptr %.sink1538 to i64
   %729 = sub i64 %727, %728
   %730 = trunc i64 %729 to i32
   store i32 %730, ptr %.sroa.166.8.sink, align 1
@@ -28943,9 +28943,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i21
   %794 = getelementptr inbounds nuw i8, ptr %740, i64 1
   br label %795
 
-795:                                              ; preds = %.backedge1588, %784
-  %.0694 = phi ptr [ %793, %784 ], [ %.0694.be, %.backedge1588 ]
-  %.0686 = phi ptr [ %794, %784 ], [ %.0686.be, %.backedge1588 ]
+795:                                              ; preds = %.backedge1638, %784
+  %.0694 = phi ptr [ %793, %784 ], [ %.0694.be, %.backedge1638 ]
+  %.0686 = phi ptr [ %794, %784 ], [ %.0686.be, %.backedge1638 ]
   %796 = load <2 x i64>, ptr %.0686, align 1, !tbaa !4
   %797 = getelementptr inbounds nuw i8, ptr %.0686, i64 16
   %798 = load <2 x i64>, ptr %797, align 1, !tbaa !4
@@ -29145,7 +29145,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.6692945.ph = phi ptr [ %.6692946952956962, %919 ], [ %846, %904 ], [ %846, %894 ], [ %846, %890 ]
   %.0.i40.i.i.i.ph = phi i64 [ 4, %919 ], [ 3, %904 ], [ 2, %894 ], [ 1, %890 ]
   %937 = getelementptr inbounds nuw i8, ptr %819, i64 %.0.i40.i.i.i.ph
-  br label %.backedge1588
+  br label %.backedge1638
 
 938:                                              ; preds = %809
   %939 = zext i8 %814 to i64
@@ -29161,9 +29161,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %945 = getelementptr inbounds nuw i8, ptr %.0686, i64 %943
   %946 = getelementptr inbounds nuw i8, ptr %945, i64 2
   %947 = getelementptr inbounds nuw i8, ptr %.0694, i64 %812
-  br label %.backedge1588
+  br label %.backedge1638
 
-.backedge1588:                                    ; preds = %942, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.i.thread967, %948
+.backedge1638:                                    ; preds = %942, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.i.thread967, %948
   %.0694.be = phi ptr [ %950, %948 ], [ %947, %942 ], [ %937, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.i.thread967 ]
   %.0686.be = phi ptr [ %949, %948 ], [ %946, %942 ], [ %.6692945.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.i.thread967 ]
   br label %795
@@ -29171,7 +29171,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 948:                                              ; preds = %808
   %949 = getelementptr inbounds nuw i8, ptr %.0686, i64 32
   %950 = getelementptr inbounds nuw i8, ptr %.0694, i64 32
-  br label %.backedge1588
+  br label %.backedge1638
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i.i: ; preds = %795
   %951 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.6420.0.extract.trunc, i1 true)
@@ -29295,12 +29295,12 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not1250, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread
 
 _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread: ; preds = %.lr.ph1320, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i
-  %.5681.lcssa1420 = phi i64 [ %.4680995, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1017, %.lr.ph1320 ]
-  %.7675.idx.lcssa13161419 = phi i64 [ %.5673.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %.7675.add, %.lr.ph1320 ]
+  %.5681.lcssa1470 = phi i64 [ %.4680995, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1017, %.lr.ph1320 ]
+  %.7675.idx.lcssa13161469 = phi i64 [ %.5673.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %.7675.add, %.lr.ph1320 ]
   %1021 = phi i8 [ %1011, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %1018, %.lr.ph1320 ]
-  %.7675.ptr.le = getelementptr inbounds nuw i8, ptr %.0668.lcssa, i64 %.7675.idx.lcssa13161419
+  %.7675.ptr.le = getelementptr inbounds nuw i8, ptr %.0668.lcssa, i64 %.7675.idx.lcssa13161469
   %1022 = ptrtoint ptr %.7675.ptr.le to i64
-  %gepdiff1352 = sub nsw i64 1, %.7675.idx.lcssa13161419
+  %gepdiff1352 = sub nsw i64 1, %.7675.idx.lcssa13161469
   %1023 = sub i64 %1022, %977
   %sext.i.i.i = shl i64 %1023, 32
   %1024 = ashr exact i64 %sext.i.i.i, 32
@@ -29309,7 +29309,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 1025:                                             ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread, %983
   %1026 = phi i8 [ %1021, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.lcssa1283, %983 ]
   %.0683 = phi i64 [ %gepdiff1352, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ 0, %983 ]
-  %.2678 = phi i64 [ %.5681.lcssa1420, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0676.lcssa, %983 ]
+  %.2678 = phi i64 [ %.5681.lcssa1470, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0676.lcssa, %983 ]
   %.1669 = phi ptr [ %.7675.ptr.le, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0668.lcssa, %983 ]
   %.042.i.i.i = phi i64 [ %1024, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %978, %983 ]
   switch i8 %1026, label %1055 [
@@ -29631,11 +29631,11 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %.thread1013
 
 .thread1013:                                      ; preds = %1197, %1194, %1199
-  %.sink1494 = phi i64 [ 7782220156096217088, %1199 ], [ 8430738502437568512, %1194 ], [ 8430738502437568512, %1197 ]
-  %.sink1492 = phi i64 [ %1201, %1199 ], [ %.2678, %1194 ], [ %.2678, %1197 ]
-  store i64 %.sink1494, ptr %.sroa.0.6, align 8, !tbaa !11
+  %.sink1544 = phi i64 [ 7782220156096217088, %1199 ], [ 8430738502437568512, %1194 ], [ 8430738502437568512, %1197 ]
+  %.sink1542 = phi i64 [ %1201, %1199 ], [ %.2678, %1194 ], [ %.2678, %1197 ]
+  store i64 %.sink1544, ptr %.sroa.0.6, align 8, !tbaa !11
   %1202 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store i64 %.sink1492, ptr %1202, align 8
+  store i64 %.sink1542, ptr %1202, align 8
   %.sroa.0.19 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %1203 = load i8, ptr %.1669, align 1, !tbaa !4
   %1204 = zext i8 %1203 to i64
@@ -29705,11 +29705,11 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %1245
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit.i: ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i, %1095, %1136, %1138, %1166, %1091, %.noexc25.i.i, %1074
-  %.sink1495 = phi double [ %1067, %.noexc25.i.i ], [ %1075, %1074 ], [ %1175, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ %1174, %1166 ], [ %1150, %1138 ], [ %1137, %1136 ], [ %1096, %1095 ], [ %spec.select1236, %1091 ]
+  %.sink1545 = phi double [ %1067, %.noexc25.i.i ], [ %1075, %1074 ], [ %1175, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ %1174, %1166 ], [ %1150, %1138 ], [ %1137, %1136 ], [ %1096, %1095 ], [ %spec.select1236, %1091 ]
   %.0.i24.i.i = phi i32 [ %..i3, %.noexc25.i.i ], [ 0, %1074 ], [ 0, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i.i ], [ 0, %1166 ], [ 0, %1138 ], [ 0, %1136 ], [ 0, %1095 ], [ 0, %1091 ]
   store i64 7205759403792793600, ptr %.sroa.0.6, align 8, !tbaa !11
   %1243 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store double %.sink1495, ptr %1243, align 8
+  store double %.sink1545, ptr %1243, align 8
   %1244 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %.not60.i.i.i = icmp eq i32 %.0.i24.i.i, 0
   %..i.i.i = select i1 %.not59.i.i.i, i32 0, i32 9
@@ -29997,9 +29997,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1428:                                             ; preds = %1245, %1988
   %.sroa.113.6.sink = phi i32 [ %.sroa.113.6, %1988 ], [ %.sroa.113.4, %1245 ]
-  %.sink1520 = phi i64 [ 6701356245527298048, %1988 ], [ 9007199254740992000, %1245 ]
-  %.sroa.0.10.sink1518 = phi ptr [ %.sroa.0.10, %1988 ], [ %.sroa.0.8, %1245 ]
-  %.sink1500 = phi i64 [ 6557241057451442176, %1988 ], [ 8863084066665136128, %1245 ]
+  %.sink1570 = phi i64 [ 6701356245527298048, %1988 ], [ 9007199254740992000, %1245 ]
+  %.sroa.0.10.sink1568 = phi ptr [ %.sroa.0.10, %1988 ], [ %.sroa.0.8, %1245 ]
+  %.sink1550 = phi i64 [ 6557241057451442176, %1988 ], [ 8863084066665136128, %1245 ]
   %.sroa.23.8 = phi ptr [ %1989, %1988 ], [ %1246, %1245 ]
   %.sroa.166.9 = phi ptr [ %.sroa.166.10, %1988 ], [ %.sroa.166.8, %1245 ]
   %1429 = zext i32 %.sroa.113.6.sink to i64
@@ -30007,9 +30007,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1431 = getelementptr inbounds nuw %"struct.simdjson::westmere::open_container", ptr %1430, i64 %1429
   %1432 = load i32, ptr %1431, align 4, !tbaa !349
   %1433 = zext i32 %1432 to i64
-  %1434 = or disjoint i64 %.sink1520, %1433
-  store i64 %1434, ptr %.sroa.0.10.sink1518, align 8, !tbaa !11
-  %1435 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1518, i64 8
+  %1434 = or disjoint i64 %.sink1570, %1433
+  store i64 %1434, ptr %.sroa.0.10.sink1568, align 8, !tbaa !11
+  %1435 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1568, i64 8
   %1436 = getelementptr inbounds nuw i8, ptr %1431, i64 4
   %1437 = load i32, ptr %1436, align 4, !tbaa !351
   %1438 = tail call i32 @llvm.umin.i32(i32 %1437, i32 16777215)
@@ -30024,7 +30024,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1447 = zext nneg i32 %1438 to i64
   %1448 = shl nuw nsw i64 %1447, 32
   %1449 = or disjoint i64 %1446, %1448
-  %1450 = or disjoint i64 %1449, %.sink1500
+  %1450 = or disjoint i64 %1449, %.sink1550
   store i64 %1450, ptr %1441, align 8, !tbaa !11
   %1451 = add i32 %.sroa.113.6.sink, -1
   %1452 = icmp eq i32 %1451, 0
@@ -30155,9 +30155,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1537 = getelementptr inbounds nuw i8, ptr %1483, i64 1
   br label %1538
 
-1538:                                             ; preds = %.backedge1577, %1527
-  %.0644 = phi ptr [ %1536, %1527 ], [ %.0644.be, %.backedge1577 ]
-  %.0636 = phi ptr [ %1537, %1527 ], [ %.0636.be, %.backedge1577 ]
+1538:                                             ; preds = %.backedge1627, %1527
+  %.0644 = phi ptr [ %1536, %1527 ], [ %.0644.be, %.backedge1627 ]
+  %.0636 = phi ptr [ %1537, %1527 ], [ %.0636.be, %.backedge1627 ]
   %1539 = load <2 x i64>, ptr %.0636, align 1, !tbaa !4
   %1540 = getelementptr inbounds nuw i8, ptr %.0636, i64 16
   %1541 = load <2 x i64>, ptr %1540, align 1, !tbaa !4
@@ -30357,7 +30357,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.66421098.ph = phi ptr [ %.66421099110511091115, %1662 ], [ %1589, %1647 ], [ %1589, %1637 ], [ %1589, %1633 ]
   %.0.i40.i.i372.i.ph = phi i64 [ 4, %1662 ], [ 3, %1647 ], [ 2, %1637 ], [ 1, %1633 ]
   %1680 = getelementptr inbounds nuw i8, ptr %1562, i64 %.0.i40.i.i372.i.ph
-  br label %.backedge1577
+  br label %.backedge1627
 
 1681:                                             ; preds = %1552
   %1682 = zext i8 %1557 to i64
@@ -30373,9 +30373,9 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1688 = getelementptr inbounds nuw i8, ptr %.0636, i64 %1686
   %1689 = getelementptr inbounds nuw i8, ptr %1688, i64 2
   %1690 = getelementptr inbounds nuw i8, ptr %.0644, i64 %1555
-  br label %.backedge1577
+  br label %.backedge1627
 
-.backedge1577:                                    ; preds = %1685, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i368.i.thread1120, %1691
+.backedge1627:                                    ; preds = %1685, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i368.i.thread1120, %1691
   %.0644.be = phi ptr [ %1693, %1691 ], [ %1690, %1685 ], [ %1680, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i368.i.thread1120 ]
   %.0636.be = phi ptr [ %1692, %1691 ], [ %1689, %1685 ], [ %.66421098.ph, %_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i368.i.thread1120 ]
   br label %1538
@@ -30383,7 +30383,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 1691:                                             ; preds = %1551
   %1692 = getelementptr inbounds nuw i8, ptr %.0636, i64 32
   %1693 = getelementptr inbounds nuw i8, ptr %.0644, i64 32
-  br label %.backedge1577
+  br label %.backedge1627
 
 _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i355.i: ; preds = %1538
   %1694 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.6512.0.extract.trunc, i1 true)
@@ -30507,12 +30507,12 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not1255, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread
 
 _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread: ; preds = %.lr.ph1341, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i
-  %.5617.lcssa1434 = phi i64 [ %.46161148, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i ], [ %1760, %.lr.ph1341 ]
-  %.7611.idx.lcssa13371433 = phi i64 [ %.5609.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i ], [ %.7611.add, %.lr.ph1341 ]
+  %.5617.lcssa1484 = phi i64 [ %.46161148, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i ], [ %1760, %.lr.ph1341 ]
+  %.7611.idx.lcssa13371483 = phi i64 [ %.5609.add, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i ], [ %.7611.add, %.lr.ph1341 ]
   %1764 = phi i8 [ %1754, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i ], [ %1761, %.lr.ph1341 ]
-  %.7611.ptr.le = getelementptr inbounds nuw i8, ptr %.0604.lcssa, i64 %.7611.idx.lcssa13371433
+  %.7611.ptr.le = getelementptr inbounds nuw i8, ptr %.0604.lcssa, i64 %.7611.idx.lcssa13371483
   %1765 = ptrtoint ptr %.7611.ptr.le to i64
-  %gepdiff1355 = sub nsw i64 1, %.7611.idx.lcssa13371433
+  %gepdiff1355 = sub nsw i64 1, %.7611.idx.lcssa13371483
   %1766 = sub i64 %1765, %1720
   %sext.i.i346.i = shl i64 %1766, 32
   %1767 = ashr exact i64 %sext.i.i346.i, 32
@@ -30521,7 +30521,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 1768:                                             ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread, %1726
   %1769 = phi i8 [ %1764, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread ], [ %.lcssa, %1726 ]
   %.0619 = phi i64 [ %gepdiff1355, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread ], [ 0, %1726 ]
-  %.2614 = phi i64 [ %.5617.lcssa1434, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread ], [ %.0612.lcssa, %1726 ]
+  %.2614 = phi i64 [ %.5617.lcssa1484, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread ], [ %.0612.lcssa, %1726 ]
   %.1605 = phi ptr [ %.7611.ptr.le, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread ], [ %.0604.lcssa, %1726 ]
   %.042.i.i287.i = phi i64 [ %1767, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i343.i.thread ], [ %1721, %1726 ]
   switch i8 %1769, label %1798 [
@@ -30843,11 +30843,11 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %.thread1166
 
 .thread1166:                                      ; preds = %1940, %1937, %1942
-  %.sink1527 = phi i64 [ 7782220156096217088, %1942 ], [ 8430738502437568512, %1937 ], [ 8430738502437568512, %1940 ]
-  %.sink1525 = phi i64 [ %1944, %1942 ], [ %.2614, %1937 ], [ %.2614, %1940 ]
-  store i64 %.sink1527, ptr %.sroa.0.2, align 8, !tbaa !11
+  %.sink1577 = phi i64 [ 7782220156096217088, %1942 ], [ 8430738502437568512, %1937 ], [ 8430738502437568512, %1940 ]
+  %.sink1575 = phi i64 [ %1944, %1942 ], [ %.2614, %1937 ], [ %.2614, %1940 ]
+  store i64 %.sink1577, ptr %.sroa.0.2, align 8, !tbaa !11
   %1945 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store i64 %.sink1525, ptr %1945, align 8
+  store i64 %.sink1575, ptr %1945, align 8
   %.sroa.0.28 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %1946 = load i8, ptr %.1605, align 1, !tbaa !4
   %1947 = zext i8 %1946 to i64
@@ -30917,11 +30917,11 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %1988
 
 _ZN8simdjson8westmere12_GLOBAL__N_16stage213json_iterator15visit_primitiveINS2_12tape_builderEEENS_10error_codeERT_PKh.exit377.i: ; preds = %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i319.i, %1838, %1879, %1881, %1909, %1834, %.noexc25.i338.i, %1817
-  %.sink1528 = phi double [ %1810, %.noexc25.i338.i ], [ %1818, %1817 ], [ %1918, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i319.i ], [ %1917, %1909 ], [ %1893, %1881 ], [ %1880, %1879 ], [ %1839, %1838 ], [ %spec.select1238, %1834 ]
+  %.sink1578 = phi double [ %1810, %.noexc25.i338.i ], [ %1818, %1817 ], [ %1918, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i319.i ], [ %1917, %1909 ], [ %1893, %1881 ], [ %1880, %1879 ], [ %1839, %1838 ], [ %spec.select1238, %1834 ]
   %.0.i24.i323.i = phi i32 [ %..i4, %.noexc25.i338.i ], [ 0, %1817 ], [ 0, %_ZN8simdjson8westmere13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.i319.i ], [ 0, %1909 ], [ 0, %1881 ], [ 0, %1879 ], [ 0, %1838 ], [ 0, %1834 ]
   store i64 7205759403792793600, ptr %.sroa.0.2, align 8, !tbaa !11
   %1986 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store double %.sink1528, ptr %1986, align 8
+  store double %.sink1578, ptr %1986, align 8
   %1987 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %.not60.i.i324.i = icmp eq i32 %.0.i24.i323.i, 0
   %..i.i326.i = select i1 %.not59.i.i304.i, i32 0, i32 9
@@ -31643,8 +31643,8 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN8simdjson8fallback25dom_parser
 
 35:                                               ; preds = %32
   %36 = add nuw i32 %.sroa.55.3175, 1
-  %.not228 = icmp ult i32 %.sroa.55.3175, %9
-  br i1 %.not228, label %37, label %42, !prof !141
+  %.not234 = icmp ult i32 %.sroa.55.3175, %9
+  br i1 %.not234, label %37, label %42, !prof !141
 
 37:                                               ; preds = %35
   %38 = zext i32 %36 to i64
@@ -31778,7 +31778,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN8simdjson8fallback25dom_parser
 98:                                               ; preds = %25
   %99 = icmp samesign ult i8 %22, 32
   %spec.select158 = select i1 %99, i32 14, i32 %.sroa.102.3176
-  %100 = add i32 %.sroa.55.3175, 1
+  %100 = add nuw i32 %.sroa.55.3175, 1
   br label %.noexc6
 
 .noexc6:                                          ; preds = %42, %37, %58, %52, %.critedge2.i..critedge2.i.thread_crit_edge, %.critedge4.i, %30, %43, %.thread, %.thread115, %98, %23
@@ -31818,27 +31818,27 @@ _ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
   %113 = load i8, ptr %112, align 1, !tbaa !4
   switch i8 %113, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit [
-    i8 123, label %.critedge.i.loopexit.split.loop.exit226
-    i8 125, label %.critedge.i.loopexit.split.loop.exit226
-    i8 91, label %.critedge.i.loopexit.split.loop.exit226
-    i8 93, label %.critedge.i.loopexit.split.loop.exit226
-    i8 44, label %.critedge.i.loopexit.split.loop.exit226
-    i8 58, label %.critedge.i.loopexit.split.loop.exit226
-    i8 32, label %.critedge.i.loopexit.split.loop.exit226
-    i8 13, label %.critedge.i.loopexit.split.loop.exit226
-    i8 10, label %.critedge.i.loopexit.split.loop.exit226
-    i8 9, label %.critedge.i.loopexit.split.loop.exit226
+    i8 123, label %.critedge.i.loopexit.split.loop.exit239
+    i8 125, label %.critedge.i.loopexit.split.loop.exit239
+    i8 91, label %.critedge.i.loopexit.split.loop.exit239
+    i8 93, label %.critedge.i.loopexit.split.loop.exit239
+    i8 44, label %.critedge.i.loopexit.split.loop.exit239
+    i8 58, label %.critedge.i.loopexit.split.loop.exit239
+    i8 32, label %.critedge.i.loopexit.split.loop.exit239
+    i8 13, label %.critedge.i.loopexit.split.loop.exit239
+    i8 10, label %.critedge.i.loopexit.split.loop.exit239
+    i8 9, label %.critedge.i.loopexit.split.loop.exit239
   ], !llvm.loop !368
 
-.critedge.i.loopexit.split.loop.exit226:          ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111
+.critedge.i.loopexit.split.loop.exit239:          ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111
   %114 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit, %.critedge.i.loopexit.split.loop.exit226, %104, %.noexc, %12, %12, %12, %12
-  %.sroa.55.1 = phi i32 [ %.sroa.55.3.lcssa, %.noexc ], [ %.sroa.55.0181, %104 ], [ %.sroa.55.0181, %12 ], [ %.sroa.55.0181, %12 ], [ %.sroa.55.0181, %12 ], [ %.sroa.55.0181, %12 ], [ %114, %.critedge.i.loopexit.split.loop.exit226 ], [ %109, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit ]
-  %.sroa.16.1 = phi ptr [ %17, %.noexc ], [ %105, %104 ], [ %.sroa.16.0182, %12 ], [ %.sroa.16.0182, %12 ], [ %.sroa.16.0182, %12 ], [ %.sroa.16.0182, %12 ], [ %107, %.critedge.i.loopexit.split.loop.exit226 ], [ %107, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit ]
-  %.sroa.102.2 = phi i32 [ %.sroa.102.3.lcssa, %.noexc ], [ %.sroa.102.0183, %104 ], [ %.sroa.102.0183, %12 ], [ %.sroa.102.0183, %12 ], [ %.sroa.102.0183, %12 ], [ %.sroa.102.0183, %12 ], [ %.sroa.102.0183, %.critedge.i.loopexit.split.loop.exit226 ], [ %.sroa.102.0183, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit ]
-  %.110.i = phi i8 [ %103, %.noexc ], [ %.09.i184, %104 ], [ %.09.i184, %12 ], [ %.09.i184, %12 ], [ %.09.i184, %12 ], [ %.09.i184, %12 ], [ %.09.i184, %.critedge.i.loopexit.split.loop.exit226 ], [ %.09.i184, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit ]
+.critedge.i:                                      ; preds = %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit, %.critedge.i.loopexit.split.loop.exit239, %104, %.noexc, %12, %12, %12, %12
+  %.sroa.55.1 = phi i32 [ %.sroa.55.3.lcssa, %.noexc ], [ %.sroa.55.0181, %104 ], [ %.sroa.55.0181, %12 ], [ %.sroa.55.0181, %12 ], [ %.sroa.55.0181, %12 ], [ %.sroa.55.0181, %12 ], [ %114, %.critedge.i.loopexit.split.loop.exit239 ], [ %109, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit ]
+  %.sroa.16.1 = phi ptr [ %17, %.noexc ], [ %105, %104 ], [ %.sroa.16.0182, %12 ], [ %.sroa.16.0182, %12 ], [ %.sroa.16.0182, %12 ], [ %.sroa.16.0182, %12 ], [ %107, %.critedge.i.loopexit.split.loop.exit239 ], [ %107, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit ]
+  %.sroa.102.2 = phi i32 [ %.sroa.102.3.lcssa, %.noexc ], [ %.sroa.102.0183, %104 ], [ %.sroa.102.0183, %12 ], [ %.sroa.102.0183, %12 ], [ %.sroa.102.0183, %12 ], [ %.sroa.102.0183, %12 ], [ %.sroa.102.0183, %.critedge.i.loopexit.split.loop.exit239 ], [ %.sroa.102.0183, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit ]
+  %.110.i = phi i8 [ %103, %.noexc ], [ %.09.i184, %104 ], [ %.09.i184, %12 ], [ %.09.i184, %12 ], [ %.09.i184, %12 ], [ %.09.i184, %12 ], [ %.09.i184, %.critedge.i.loopexit.split.loop.exit239 ], [ %.09.i184, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner25is_whitespace_or_operatorEh.exit ]
   %115 = add i32 %.sroa.55.1, 1
   %116 = icmp ult i32 %115, %9
   br i1 %116, label %12, label %._crit_edge.loopexit, !llvm.loop !369
@@ -32903,12 +32903,12 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit16.
   br i1 %.not, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread, label %.noexc77.thread
 
 .noexc77.thread:                                  ; preds = %.lr.ph1288, %.noexc77
-  %.5720.lcssa1386 = phi i64 [ %.4719828, %.noexc77 ], [ %324, %.lr.ph1288 ]
-  %.5727.idx.lcssa12841385 = phi i64 [ %.3725.add, %.noexc77 ], [ %.5727.add, %.lr.ph1288 ]
+  %.5720.lcssa1437 = phi i64 [ %.4719828, %.noexc77 ], [ %324, %.lr.ph1288 ]
+  %.5727.idx.lcssa12841436 = phi i64 [ %.3725.add, %.noexc77 ], [ %.5727.add, %.lr.ph1288 ]
   %328 = phi i8 [ %318, %.noexc77 ], [ %325, %.lr.ph1288 ]
-  %.5727.ptr.le = getelementptr inbounds nuw i8, ptr %.0722.lcssa, i64 %.5727.idx.lcssa12841385
+  %.5727.ptr.le = getelementptr inbounds nuw i8, ptr %.0722.lcssa, i64 %.5727.idx.lcssa12841436
   %329 = ptrtoint ptr %.5727.ptr.le to i64
-  %gepdiff = sub nsw i64 1, %.5727.idx.lcssa12841385
+  %gepdiff = sub nsw i64 1, %.5727.idx.lcssa12841436
   %330 = sub i64 %329, %285
   %sext.i = shl i64 %330, 32
   %331 = ashr exact i64 %sext.i, 32
@@ -32917,7 +32917,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit16.
 332:                                              ; preds = %.noexc77.thread, %291
   %333 = phi i8 [ %328, %.noexc77.thread ], [ %.lcssa1279, %291 ]
   %.1723 = phi ptr [ %.5727.ptr.le, %.noexc77.thread ], [ %.0722.lcssa, %291 ]
-  %.1716 = phi i64 [ %.5720.lcssa1386, %.noexc77.thread ], [ %.0715.lcssa, %291 ]
+  %.1716 = phi i64 [ %.5720.lcssa1437, %.noexc77.thread ], [ %.0715.lcssa, %291 ]
   %.0712 = phi i64 [ %gepdiff, %.noexc77.thread ], [ 0, %291 ]
   %.042.i = phi i64 [ %331, %.noexc77.thread ], [ %286, %291 ]
   switch i8 %333, label %362 [
@@ -33045,7 +33045,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   store i64 7205759403792793600, ptr %24, align 8, !tbaa !11
   %383 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store double %382, ptr %383, align 8
-  br i1 %.not59.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1408, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
+  br i1 %.not59.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1459, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
 
 384:                                              ; preds = %.critedge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -33252,7 +33252,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %502 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %501
   %503 = load i8, ptr %502, align 1, !tbaa !182, !range !35, !noundef !36
   %.not58.i = icmp eq i8 %503, 0
-  br i1 %.not58.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1408, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
+  br i1 %.not58.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1459, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
 
 504:                                              ; preds = %494
   %505 = icmp ne i8 %269, 49
@@ -33270,24 +33270,24 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   br label %.thread845
 
 .thread845:                                       ; preds = %507, %504, %509
-  %.sink1472 = phi i64 [ 7782220156096217088, %509 ], [ 8430738502437568512, %504 ], [ 8430738502437568512, %507 ]
-  %.sink1470 = phi i64 [ %511, %509 ], [ %.1716, %504 ], [ %.1716, %507 ]
-  store i64 %.sink1472, ptr %24, align 8, !tbaa !11
+  %.sink1523 = phi i64 [ 7782220156096217088, %509 ], [ 8430738502437568512, %504 ], [ 8430738502437568512, %507 ]
+  %.sink1521 = phi i64 [ %511, %509 ], [ %.1716, %504 ], [ %.1716, %507 ]
+  store i64 %.sink1523, ptr %24, align 8, !tbaa !11
   %512 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 %.sink1470, ptr %512, align 8
+  store i64 %.sink1521, ptr %512, align 8
   %513 = load i8, ptr %.1723, align 1, !tbaa !4
   %514 = zext i8 %513 to i64
   %515 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %514
   %516 = load i8, ptr %515, align 1, !tbaa !182, !range !35, !noundef !36
   %.not57.i = icmp eq i8 %516, 0
-  br i1 %.not57.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1408, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
+  br i1 %.not57.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1459, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread: ; preds = %288, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit, %489, %495, %497, %504, %.thread845, %.noexc77, %.noexc79, %.noexc79.thread, %340, %379
   %.0.i6854.ph = phi i32 [ 9, %.noexc79.thread ], [ %.0.i85, %.noexc79 ], [ 9, %.noexc77 ], [ 9, %.thread845 ], [ 9, %504 ], [ 9, %497 ], [ 10, %495 ], [ 10, %489 ], [ 9, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit ], [ 9, %288 ], [ 9, %340 ], [ 9, %379 ]
   tail call void @_ZdaPv(ptr noundef nonnull %264) #47
   br label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit
 
-_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1408: ; preds = %497, %.thread845, %.noexc79.thread
+_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1459: ; preds = %497, %.thread845, %.noexc79.thread
   %.sroa.0.17853.ph = getelementptr inbounds nuw i8, ptr %20, i64 24
   tail call void @_ZdaPv(ptr noundef nonnull %264) #47
   br label %.thread875
@@ -33540,25 +33540,25 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i50.thread924
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i50.thread924: ; preds = %657, %642, %632, %628, %679, %681
-  %.sink1473 = phi i64 [ 1, %679 ], [ 1, %681 ], [ 4, %657 ], [ 3, %642 ], [ 2, %632 ], [ 1, %628 ]
+  %.sink1524 = phi i64 [ 1, %679 ], [ 1, %681 ], [ 4, %657 ], [ 3, %642 ], [ 2, %632 ], [ 1, %628 ]
   %.1705 = phi ptr [ %680, %679 ], [ %682, %681 ], [ %.6710903909913919, %657 ], [ %584, %642 ], [ %584, %632 ], [ %584, %628 ]
-  %683 = getelementptr inbounds nuw i8, ptr %.0698, i64 %.sink1473
+  %683 = getelementptr inbounds nuw i8, ptr %.0698, i64 %.sink1524
   br label %551
 
 .loopexit:                                        ; preds = %551, %1207
-  %.0678.lcssa.sink1479 = phi ptr [ %.0678, %1207 ], [ %.0698, %551 ]
-  %.sink1478 = phi ptr [ %1205, %1207 ], [ %549, %551 ]
+  %.0678.lcssa.sink1530 = phi ptr [ %.0678, %1207 ], [ %.0698, %551 ]
+  %.sink1529 = phi ptr [ %1205, %1207 ], [ %549, %551 ]
   %.sroa.166.8.sink = phi ptr [ %.sroa.166.8, %1207 ], [ %.sroa.166.4, %551 ]
   %.sroa.117.3 = phi i32 [ %.sroa.117.4, %1207 ], [ %518, %551 ]
   %.sroa.25.4.pn = phi ptr [ %1181, %1207 ], [ %.sroa.25.4, %551 ]
   %.sroa.0.6 = phi ptr [ %1204, %1207 ], [ %548, %551 ]
-  %684 = ptrtoint ptr %.0678.lcssa.sink1479 to i64
-  %685 = ptrtoint ptr %.sink1478 to i64
+  %684 = ptrtoint ptr %.0678.lcssa.sink1530 to i64
+  %685 = ptrtoint ptr %.sink1529 to i64
   %686 = sub i64 %684, %685
   %687 = trunc i64 %686 to i32
   store i32 %687, ptr %.sroa.166.8.sink, align 1
-  store i8 0, ptr %.0678.lcssa.sink1479, align 1, !tbaa !4
-  %.sroa.166.6 = getelementptr inbounds nuw i8, ptr %.0678.lcssa.sink1479, i64 1
+  store i8 0, ptr %.0678.lcssa.sink1530, align 1, !tbaa !4
+  %.sroa.166.6 = getelementptr inbounds nuw i8, ptr %.0678.lcssa.sink1530, i64 1
   %.sroa.25.5 = getelementptr inbounds nuw i8, ptr %.sroa.25.4.pn, i64 4
   %688 = load i32, ptr %.sroa.25.5, align 4, !tbaa !7
   %689 = zext i32 %688 to i64
@@ -33644,7 +33644,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %748 = or i64 %747, 2449958197289549824
   store i64 %748, ptr %.sroa.0.6, align 8, !tbaa !11
   %749 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  %750 = getelementptr inbounds nuw i8, ptr %.0678.lcssa.sink1479, i64 5
+  %750 = getelementptr inbounds nuw i8, ptr %.0678.lcssa.sink1530, i64 5
   %751 = getelementptr inbounds nuw i8, ptr %697, i64 1
   br label %752
 
@@ -33841,9 +33841,9 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   br label %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread985
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.thread985: ; preds = %858, %843, %833, %829, %880, %882
-  %.sink1480 = phi i64 [ 1, %880 ], [ 1, %882 ], [ 4, %858 ], [ 3, %843 ], [ 2, %833 ], [ 1, %829 ]
+  %.sink1531 = phi i64 [ 1, %880 ], [ 1, %882 ], [ 4, %858 ], [ 3, %843 ], [ 2, %833 ], [ 1, %829 ]
   %.1743 = phi ptr [ %881, %880 ], [ %883, %882 ], [ %.6748964970974980, %858 ], [ %785, %843 ], [ %785, %833 ], [ %785, %829 ]
-  %884 = getelementptr inbounds nuw i8, ptr %.0736, i64 %.sink1480
+  %884 = getelementptr inbounds nuw i8, ptr %.0736, i64 %.sink1531
   br label %752
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i: ; preds = %752
@@ -33967,12 +33967,12 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not1248, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread
 
 _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread: ; preds = %.lr.ph1309, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i
-  %.5758.lcssa1416 = phi i64 [ %.47571013, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %948, %.lr.ph1309 ]
-  %.7767.idx.lcssa13051415 = phi i64 [ %.5765.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7767.add, %.lr.ph1309 ]
+  %.5758.lcssa1467 = phi i64 [ %.47571013, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %948, %.lr.ph1309 ]
+  %.7767.idx.lcssa13051466 = phi i64 [ %.5765.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7767.add, %.lr.ph1309 ]
   %952 = phi i8 [ %942, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %949, %.lr.ph1309 ]
-  %.7767.ptr.le = getelementptr inbounds nuw i8, ptr %.0760.lcssa, i64 %.7767.idx.lcssa13051415
+  %.7767.ptr.le = getelementptr inbounds nuw i8, ptr %.0760.lcssa, i64 %.7767.idx.lcssa13051466
   %953 = ptrtoint ptr %.7767.ptr.le to i64
-  %gepdiff1341 = sub nsw i64 1, %.7767.idx.lcssa13051415
+  %gepdiff1341 = sub nsw i64 1, %.7767.idx.lcssa13051466
   %954 = sub i64 %953, %908
   %sext.i.i = shl i64 %954, 32
   %955 = ashr exact i64 %sext.i.i, 32
@@ -33981,7 +33981,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 956:                                              ; preds = %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread, %914
   %957 = phi i8 [ %952, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.lcssa1275, %914 ]
   %.1761 = phi ptr [ %.7767.ptr.le, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0760.lcssa, %914 ]
-  %.2755 = phi i64 [ %.5758.lcssa1416, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0753.lcssa, %914 ]
+  %.2755 = phi i64 [ %.5758.lcssa1467, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0753.lcssa, %914 ]
   %.0750 = phi i64 [ %gepdiff1341, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ 0, %914 ]
   %.042.i.i = phi i64 [ %955, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %909, %914 ]
   switch i8 %957, label %986 [
@@ -34330,11 +34330,11 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %.thread1030
 
 .thread1030:                                      ; preds = %1134, %1131, %1136
-  %.sink1483 = phi i64 [ 7782220156096217088, %1136 ], [ 8430738502437568512, %1131 ], [ 8430738502437568512, %1134 ]
-  %.sink1481 = phi i64 [ %1138, %1136 ], [ %.2755, %1131 ], [ %.2755, %1134 ]
-  store i64 %.sink1483, ptr %.sroa.0.6, align 8, !tbaa !11
+  %.sink1534 = phi i64 [ 7782220156096217088, %1136 ], [ 8430738502437568512, %1131 ], [ 8430738502437568512, %1134 ]
+  %.sink1532 = phi i64 [ %1138, %1136 ], [ %.2755, %1131 ], [ %.2755, %1134 ]
+  store i64 %.sink1534, ptr %.sroa.0.6, align 8, !tbaa !11
   %1139 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store i64 %.sink1481, ptr %1139, align 8
+  store i64 %.sink1532, ptr %1139, align 8
   %.sroa.0.25 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %1140 = load i8, ptr %.1761, align 1, !tbaa !4
   %1141 = zext i8 %1140 to i64
@@ -34653,16 +34653,16 @@ select.unfold1031:                                ; preds = %.thread1030, %1123,
   br label %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i24.thread1073
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i24.thread1073: ; preds = %1313, %1298, %1288, %1284, %1335, %1337
-  %.sink1484 = phi i64 [ 1, %1335 ], [ 1, %1337 ], [ 4, %1313 ], [ 3, %1298 ], [ 2, %1288 ], [ 1, %1284 ]
+  %.sink1535 = phi i64 [ 1, %1335 ], [ 1, %1337 ], [ 4, %1313 ], [ 3, %1298 ], [ 2, %1288 ], [ 1, %1284 ]
   %.1685 = phi ptr [ %1336, %1335 ], [ %1338, %1337 ], [ %.66901052105810621068, %1313 ], [ %1240, %1298 ], [ %1240, %1288 ], [ %1240, %1284 ]
-  %1339 = getelementptr inbounds nuw i8, ptr %.0678, i64 %.sink1484
+  %1339 = getelementptr inbounds nuw i8, ptr %.0678, i64 %.sink1535
   br label %1207
 
 1340:                                             ; preds = %1180, %1878
   %.sroa.117.6.sink = phi i32 [ %.sroa.117.6, %1878 ], [ %.sroa.117.4, %1180 ]
-  %.sink1508 = phi i64 [ 6701356245527298048, %1878 ], [ 9007199254740992000, %1180 ]
-  %.sroa.0.10.sink1506 = phi ptr [ %.sroa.0.10, %1878 ], [ %.sroa.0.8, %1180 ]
-  %.sink1488 = phi i64 [ 6557241057451442176, %1878 ], [ 8863084066665136128, %1180 ]
+  %.sink1559 = phi i64 [ 6701356245527298048, %1878 ], [ 9007199254740992000, %1180 ]
+  %.sroa.0.10.sink1557 = phi ptr [ %.sroa.0.10, %1878 ], [ %.sroa.0.8, %1180 ]
+  %.sink1539 = phi i64 [ 6557241057451442176, %1878 ], [ 8863084066665136128, %1180 ]
   %.sroa.25.8 = phi ptr [ %1879, %1878 ], [ %1181, %1180 ]
   %.sroa.166.9 = phi ptr [ %.sroa.166.10, %1878 ], [ %.sroa.166.8, %1180 ]
   %1341 = zext i32 %.sroa.117.6.sink to i64
@@ -34670,9 +34670,9 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1343 = getelementptr inbounds nuw %"struct.simdjson::fallback::open_container", ptr %1342, i64 %1341
   %1344 = load i32, ptr %1343, align 4, !tbaa !375
   %1345 = zext i32 %1344 to i64
-  %1346 = or disjoint i64 %.sink1508, %1345
-  store i64 %1346, ptr %.sroa.0.10.sink1506, align 8, !tbaa !11
-  %1347 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1506, i64 8
+  %1346 = or disjoint i64 %.sink1559, %1345
+  store i64 %1346, ptr %.sroa.0.10.sink1557, align 8, !tbaa !11
+  %1347 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1557, i64 8
   %1348 = getelementptr inbounds nuw i8, ptr %1343, i64 4
   %1349 = load i32, ptr %1348, align 4, !tbaa !377
   %1350 = tail call i32 @llvm.umin.i32(i32 %1349, i32 16777215)
@@ -34687,7 +34687,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1359 = zext nneg i32 %1350 to i64
   %1360 = shl nuw nsw i64 %1359, 32
   %1361 = or disjoint i64 %1358, %1360
-  %1362 = or disjoint i64 %1361, %.sink1488
+  %1362 = or disjoint i64 %1361, %.sink1539
   store i64 %1362, ptr %1353, align 8, !tbaa !11
   %1363 = add i32 %.sroa.117.6.sink, -1
   %1364 = icmp eq i32 %1363, 0
@@ -35011,9 +35011,9 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   br label %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i189.thread1135
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i189.thread1135: ; preds = %1556, %1541, %1531, %1527, %1578, %1580
-  %.sink1513 = phi i64 [ 1, %1578 ], [ 1, %1580 ], [ 4, %1556 ], [ 3, %1541 ], [ 2, %1531 ], [ 1, %1527 ]
+  %.sink1564 = phi i64 [ 1, %1578 ], [ 1, %1580 ], [ 4, %1556 ], [ 3, %1541 ], [ 2, %1531 ], [ 1, %1527 ]
   %.1671 = phi ptr [ %1579, %1578 ], [ %1581, %1580 ], [ %.66761114112011241130, %1556 ], [ %1483, %1541 ], [ %1483, %1531 ], [ %1483, %1527 ]
-  %1582 = getelementptr inbounds nuw i8, ptr %.0692, i64 %.sink1513
+  %1582 = getelementptr inbounds nuw i8, ptr %.0692, i64 %.sink1564
   br label %1450
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i176: ; preds = %1450
@@ -35137,12 +35137,12 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not1251, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator13walk_documentILb0ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread
 
 _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread: ; preds = %.lr.ph1330, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167
-  %.5651.lcssa1430 = phi i64 [ %.46501163, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167 ], [ %1646, %.lr.ph1330 ]
-  %.7.idx.lcssa13261429 = phi i64 [ %.5.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167 ], [ %.7.add, %.lr.ph1330 ]
+  %.5651.lcssa1481 = phi i64 [ %.46501163, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167 ], [ %1646, %.lr.ph1330 ]
+  %.7.idx.lcssa13261480 = phi i64 [ %.5.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167 ], [ %.7.add, %.lr.ph1330 ]
   %1650 = phi i8 [ %1640, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167 ], [ %1647, %.lr.ph1330 ]
-  %.7.ptr.le = getelementptr inbounds nuw i8, ptr %.0643.lcssa, i64 %.7.idx.lcssa13261429
+  %.7.ptr.le = getelementptr inbounds nuw i8, ptr %.0643.lcssa, i64 %.7.idx.lcssa13261480
   %1651 = ptrtoint ptr %.7.ptr.le to i64
-  %gepdiff1344 = sub nsw i64 1, %.7.idx.lcssa13261429
+  %gepdiff1344 = sub nsw i64 1, %.7.idx.lcssa13261480
   %1652 = sub i64 %1651, %1606
   %sext.i.i170 = shl i64 %1652, 32
   %1653 = ashr exact i64 %sext.i.i170, 32
@@ -35151,7 +35151,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 1654:                                             ; preds = %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread, %1612
   %1655 = phi i8 [ %1650, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread ], [ %.lcssa, %1612 ]
   %.0653 = phi i64 [ %gepdiff1344, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread ], [ 0, %1612 ]
-  %.2648 = phi i64 [ %.5651.lcssa1430, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread ], [ %.0646.lcssa, %1612 ]
+  %.2648 = phi i64 [ %.5651.lcssa1481, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread ], [ %.0646.lcssa, %1612 ]
   %.1644 = phi ptr [ %.7.ptr.le, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread ], [ %.0643.lcssa, %1612 ]
   %.042.i.i111 = phi i64 [ %1653, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i167.thread ], [ %1607, %1612 ]
   switch i8 %1655, label %1684 [
@@ -35500,11 +35500,11 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %.thread1180
 
 .thread1180:                                      ; preds = %1832, %1829, %1834
-  %.sink1516 = phi i64 [ 7782220156096217088, %1834 ], [ 8430738502437568512, %1829 ], [ 8430738502437568512, %1832 ]
-  %.sink1514 = phi i64 [ %1836, %1834 ], [ %.2648, %1829 ], [ %.2648, %1832 ]
-  store i64 %.sink1516, ptr %.sroa.0.2, align 8, !tbaa !11
+  %.sink1567 = phi i64 [ 7782220156096217088, %1834 ], [ 8430738502437568512, %1829 ], [ 8430738502437568512, %1832 ]
+  %.sink1565 = phi i64 [ %1836, %1834 ], [ %.2648, %1829 ], [ %.2648, %1832 ]
+  store i64 %.sink1567, ptr %.sroa.0.2, align 8, !tbaa !11
   %1837 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store i64 %.sink1514, ptr %1837, align 8
+  store i64 %.sink1565, ptr %1837, align 8
   %.sroa.0.31 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %1838 = load i8, ptr %.1644, align 1, !tbaa !4
   %1839 = zext i8 %1838 to i64
@@ -35611,9 +35611,9 @@ select.unfold1181:                                ; preds = %.thread1180, %1821,
   store i32 %1889, ptr %1887, align 4, !tbaa !377
   br label %1391
 
-.thread875:                                       ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1408, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %257, %240, %220, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i, %51, %60, %1340
-  %.sroa.25.10 = phi ptr [ %.sroa.25.8, %1340 ], [ %61, %60 ], [ %52, %51 ], [ %25, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i ], [ %25, %220 ], [ %25, %240 ], [ %25, %257 ], [ %25, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ %25, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1408 ]
-  %.sroa.0.11 = phi ptr [ %1347, %1340 ], [ %63, %60 ], [ %54, %51 ], [ %65, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i ], [ %221, %220 ], [ %241, %240 ], [ %258, %257 ], [ %.sroa.0.22, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ %.sroa.0.17853.ph, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1408 ]
+.thread875:                                       ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1459, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %257, %240, %220, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i, %51, %60, %1340
+  %.sroa.25.10 = phi ptr [ %.sroa.25.8, %1340 ], [ %61, %60 ], [ %52, %51 ], [ %25, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i ], [ %25, %220 ], [ %25, %240 ], [ %25, %257 ], [ %25, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ %25, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1459 ]
+  %.sroa.0.11 = phi ptr [ %1347, %1340 ], [ %63, %60 ], [ %54, %51 ], [ %65, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i ], [ %221, %220 ], [ %241, %240 ], [ %258, %257 ], [ %.sroa.0.22, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ %.sroa.0.17853.ph, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1459 ]
   store i64 8214565720323784704, ptr %.sroa.0.11, align 8, !tbaa !11
   %1890 = getelementptr inbounds nuw i8, ptr %.sroa.0.11, i64 8
   %1891 = load ptr, ptr %9, align 8, !tbaa !373
@@ -36175,12 +36175,12 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread, label %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread
 
 _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread: ; preds = %.lr.ph1070, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i
-  %.5505.lcssa1168 = phi i64 [ %.4504611, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %323, %.lr.ph1070 ]
-  %.7514.idx.lcssa10661167 = phi i64 [ %.5512.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7514.add, %.lr.ph1070 ]
+  %.5505.lcssa1219 = phi i64 [ %.4504611, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %323, %.lr.ph1070 ]
+  %.7514.idx.lcssa10661218 = phi i64 [ %.5512.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %.7514.add, %.lr.ph1070 ]
   %327 = phi i8 [ %317, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ %324, %.lr.ph1070 ]
-  %.7514.ptr.le = getelementptr inbounds nuw i8, ptr %.0507.lcssa, i64 %.7514.idx.lcssa10661167
+  %.7514.ptr.le = getelementptr inbounds nuw i8, ptr %.0507.lcssa, i64 %.7514.idx.lcssa10661218
   %328 = ptrtoint ptr %.7514.ptr.le to i64
-  %gepdiff = sub nsw i64 1, %.7514.idx.lcssa10661167
+  %gepdiff = sub nsw i64 1, %.7514.idx.lcssa10661218
   %329 = sub i64 %328, %283
   %sext.i.i = shl i64 %329, 32
   %330 = ashr exact i64 %sext.i.i, 32
@@ -36189,7 +36189,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 331:                                              ; preds = %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread, %289
   %332 = phi i8 [ %327, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.lcssa1061, %289 ]
   %.1508 = phi ptr [ %.7514.ptr.le, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0507.lcssa, %289 ]
-  %.2502 = phi i64 [ %.5505.lcssa1168, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0500.lcssa, %289 ]
+  %.2502 = phi i64 [ %.5505.lcssa1219, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %.0500.lcssa, %289 ]
   %.0497 = phi i64 [ %gepdiff, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ 0, %289 ]
   %.042.i.i = phi i64 [ %330, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.thread ], [ %284, %289 ]
   switch i8 %332, label %361 [
@@ -36317,7 +36317,7 @@ _ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tap
   store i64 7205759403792793600, ptr %28, align 8, !tbaa !11
   %382 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store double %381, ptr %382, align 8
-  br i1 %.not59.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1190, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
+  br i1 %.not59.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1241, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
 
 383:                                              ; preds = %.critedge.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -36524,7 +36524,7 @@ _ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tap
   %501 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %500
   %502 = load i8, ptr %501, align 1, !tbaa !182, !range !35, !noundef !36
   %.not58.i.i = icmp eq i8 %502, 0
-  br i1 %.not58.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1190, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
+  br i1 %.not58.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1241, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
 
 503:                                              ; preds = %493
   %504 = icmp ne i8 %267, 49
@@ -36542,24 +36542,24 @@ _ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tap
   br label %.thread628
 
 .thread628:                                       ; preds = %506, %503, %508
-  %.sink1254 = phi i64 [ 7782220156096217088, %508 ], [ 8430738502437568512, %503 ], [ 8430738502437568512, %506 ]
-  %.sink1252 = phi i64 [ %510, %508 ], [ %.2502, %503 ], [ %.2502, %506 ]
-  store i64 %.sink1254, ptr %28, align 8, !tbaa !11
+  %.sink1305 = phi i64 [ 7782220156096217088, %508 ], [ 8430738502437568512, %503 ], [ 8430738502437568512, %506 ]
+  %.sink1303 = phi i64 [ %510, %508 ], [ %.2502, %503 ], [ %.2502, %506 ]
+  store i64 %.sink1305, ptr %28, align 8, !tbaa !11
   %511 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 %.sink1252, ptr %511, align 8
+  store i64 %.sink1303, ptr %511, align 8
   %512 = load i8, ptr %.1508, align 1, !tbaa !4
   %513 = zext i8 %512 to i64
   %514 = getelementptr inbounds nuw [256 x i8], ptr @_ZN8simdjson8internal32structural_or_whitespace_negatedE, i64 0, i64 %513
   %515 = load i8, ptr %514, align 1, !tbaa !182, !range !35, !noundef !36
   %.not57.i.i = icmp eq i8 %515, 0
-  br i1 %.not57.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1190, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
+  br i1 %.not57.i.i, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1241, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread
 
 _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread: ; preds = %286, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit.i, %488, %494, %496, %503, %.thread628, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i, %_ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tape_writerEEENS_10error_codeEPKhbmS8_mlRT_.exit.i, %_ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tape_writerEEENS_10error_codeEPKhbmS8_mlRT_.exit.i.thread, %339, %378
   %.0.i178.i637.ph = phi i32 [ 9, %_ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tape_writerEEENS_10error_codeEPKhbmS8_mlRT_.exit.i.thread ], [ %.0.i255.i, %_ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tape_writerEEENS_10error_codeEPKhbmS8_mlRT_.exit.i ], [ 9, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i ], [ 9, %.thread628 ], [ 9, %503 ], [ 9, %496 ], [ 10, %494 ], [ 10, %488 ], [ 9, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_111parse_digitImEEbhRT_.exit.i ], [ 9, %286 ], [ 9, %339 ], [ 9, %378 ]
   tail call void @_ZdaPv(ptr noundef nonnull %257) #47
   br label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit
 
-_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1190: ; preds = %496, %.thread628, %_ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tape_writerEEENS_10error_codeEPKhbmS8_mlRT_.exit.i.thread
+_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1241: ; preds = %496, %.thread628, %_ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tape_writerEEENS_10error_codeEPKhbmS8_mlRT_.exit.i.thread
   %.sroa.0.33636.ph = getelementptr inbounds nuw i8, ptr %24, i64 24
   tail call void @_ZdaPv(ptr noundef nonnull %257) #47
   br label %.thread658
@@ -36812,25 +36812,25 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i196.i.thread707
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i196.i.thread707: ; preds = %656, %641, %631, %627, %678, %680
-  %.sink1255 = phi i64 [ 1, %678 ], [ 1, %680 ], [ 4, %656 ], [ 3, %641 ], [ 2, %631 ], [ 1, %627 ]
+  %.sink1306 = phi i64 [ 1, %678 ], [ 1, %680 ], [ 4, %656 ], [ 3, %641 ], [ 2, %631 ], [ 1, %627 ]
   %.1470 = phi ptr [ %679, %678 ], [ %681, %680 ], [ %.6475686692696702, %656 ], [ %583, %641 ], [ %583, %631 ], [ %583, %627 ]
-  %682 = getelementptr inbounds nuw i8, ptr %.0463, i64 %.sink1255
+  %682 = getelementptr inbounds nuw i8, ptr %.0463, i64 %.sink1306
   br label %550
 
 .loopexit:                                        ; preds = %550, %1206
-  %.0483.lcssa.sink1261 = phi ptr [ %.0483, %1206 ], [ %.0463, %550 ]
-  %.sink1260 = phi ptr [ %1204, %1206 ], [ %548, %550 ]
+  %.0483.lcssa.sink1312 = phi ptr [ %.0483, %1206 ], [ %.0463, %550 ]
+  %.sink1311 = phi ptr [ %1204, %1206 ], [ %548, %550 ]
   %.sroa.166.8.sink = phi ptr [ %.sroa.166.8, %1206 ], [ %.sroa.166.4, %550 ]
   %.sroa.113.3 = phi i32 [ %.sroa.113.4, %1206 ], [ %517, %550 ]
   %.sroa.23.4.pn = phi ptr [ %1180, %1206 ], [ %.sroa.23.4, %550 ]
   %.sroa.0.6 = phi ptr [ %1203, %1206 ], [ %547, %550 ]
-  %683 = ptrtoint ptr %.0483.lcssa.sink1261 to i64
-  %684 = ptrtoint ptr %.sink1260 to i64
+  %683 = ptrtoint ptr %.0483.lcssa.sink1312 to i64
+  %684 = ptrtoint ptr %.sink1311 to i64
   %685 = sub i64 %683, %684
   %686 = trunc i64 %685 to i32
   store i32 %686, ptr %.sroa.166.8.sink, align 1
-  store i8 0, ptr %.0483.lcssa.sink1261, align 1, !tbaa !4
-  %.sroa.166.6 = getelementptr inbounds nuw i8, ptr %.0483.lcssa.sink1261, i64 1
+  store i8 0, ptr %.0483.lcssa.sink1312, align 1, !tbaa !4
+  %.sroa.166.6 = getelementptr inbounds nuw i8, ptr %.0483.lcssa.sink1312, i64 1
   %.sroa.23.5 = getelementptr inbounds nuw i8, ptr %.sroa.23.4.pn, i64 4
   %687 = load i32, ptr %.sroa.23.5, align 4, !tbaa !7
   %688 = zext i32 %687 to i64
@@ -36916,7 +36916,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %747 = or i64 %746, 2449958197289549824
   store i64 %747, ptr %.sroa.0.6, align 8, !tbaa !11
   %748 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  %749 = getelementptr inbounds nuw i8, ptr %.0483.lcssa.sink1261, i64 5
+  %749 = getelementptr inbounds nuw i8, ptr %.0483.lcssa.sink1312, i64 5
   %750 = getelementptr inbounds nuw i8, ptr %696, i64 1
   br label %751
 
@@ -37113,9 +37113,9 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   br label %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.i.thread768
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i.i.thread768: ; preds = %857, %842, %832, %828, %879, %881
-  %.sink1262 = phi i64 [ 1, %879 ], [ 1, %881 ], [ 4, %857 ], [ 3, %842 ], [ 2, %832 ], [ 1, %828 ]
+  %.sink1313 = phi i64 [ 1, %879 ], [ 1, %881 ], [ 4, %857 ], [ 3, %842 ], [ 2, %832 ], [ 1, %828 ]
   %.1528 = phi ptr [ %880, %879 ], [ %882, %881 ], [ %.6533747753757763, %857 ], [ %784, %842 ], [ %784, %832 ], [ %784, %828 ]
-  %883 = getelementptr inbounds nuw i8, ptr %.0521, i64 %.sink1262
+  %883 = getelementptr inbounds nuw i8, ptr %.0521, i64 %.sink1313
   br label %751
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i.i: ; preds = %751
@@ -37239,12 +37239,12 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not1030, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread
 
 _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread: ; preds = %.lr.ph1091, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i
-  %.5543.lcssa1198 = phi i64 [ %.4542796, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %947, %.lr.ph1091 ]
-  %.7552.idx.lcssa10871197 = phi i64 [ %.5550.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %.7552.add, %.lr.ph1091 ]
+  %.5543.lcssa1249 = phi i64 [ %.4542796, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %947, %.lr.ph1091 ]
+  %.7552.idx.lcssa10871248 = phi i64 [ %.5550.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %.7552.add, %.lr.ph1091 ]
   %951 = phi i8 [ %941, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i ], [ %948, %.lr.ph1091 ]
-  %.7552.ptr.le = getelementptr inbounds nuw i8, ptr %.0545.lcssa, i64 %.7552.idx.lcssa10871197
+  %.7552.ptr.le = getelementptr inbounds nuw i8, ptr %.0545.lcssa, i64 %.7552.idx.lcssa10871248
   %952 = ptrtoint ptr %.7552.ptr.le to i64
-  %gepdiff1123 = sub nsw i64 1, %.7552.idx.lcssa10871197
+  %gepdiff1123 = sub nsw i64 1, %.7552.idx.lcssa10871248
   %953 = sub i64 %952, %907
   %sext.i.i.i = shl i64 %953, 32
   %954 = ashr exact i64 %sext.i.i.i, 32
@@ -37253,7 +37253,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 955:                                              ; preds = %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread, %913
   %956 = phi i8 [ %951, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.lcssa1057, %913 ]
   %.1546 = phi ptr [ %.7552.ptr.le, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0545.lcssa, %913 ]
-  %.2540 = phi i64 [ %.5543.lcssa1198, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0538.lcssa, %913 ]
+  %.2540 = phi i64 [ %.5543.lcssa1249, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %.0538.lcssa, %913 ]
   %.0535 = phi i64 [ %gepdiff1123, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ 0, %913 ]
   %.042.i.i.i = phi i64 [ %954, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i.i.thread ], [ %908, %913 ]
   switch i8 %956, label %985 [
@@ -37602,11 +37602,11 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %.thread813
 
 .thread813:                                       ; preds = %1133, %1130, %1135
-  %.sink1265 = phi i64 [ 7782220156096217088, %1135 ], [ 8430738502437568512, %1130 ], [ 8430738502437568512, %1133 ]
-  %.sink1263 = phi i64 [ %1137, %1135 ], [ %.2540, %1130 ], [ %.2540, %1133 ]
-  store i64 %.sink1265, ptr %.sroa.0.6, align 8, !tbaa !11
+  %.sink1316 = phi i64 [ 7782220156096217088, %1135 ], [ 8430738502437568512, %1130 ], [ 8430738502437568512, %1133 ]
+  %.sink1314 = phi i64 [ %1137, %1135 ], [ %.2540, %1130 ], [ %.2540, %1133 ]
+  store i64 %.sink1316, ptr %.sroa.0.6, align 8, !tbaa !11
   %1138 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 8
-  store i64 %.sink1263, ptr %1138, align 8
+  store i64 %.sink1314, ptr %1138, align 8
   %.sroa.0.19 = getelementptr inbounds nuw i8, ptr %.sroa.0.6, i64 16
   %1139 = load i8, ptr %.1546, align 1, !tbaa !4
   %1140 = zext i8 %1139 to i64
@@ -37925,16 +37925,16 @@ select.unfold814:                                 ; preds = %.thread813, %1122, 
   br label %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i222.i.thread856
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i222.i.thread856: ; preds = %1312, %1297, %1287, %1283, %1334, %1336
-  %.sink1266 = phi i64 [ 1, %1334 ], [ 1, %1336 ], [ 4, %1312 ], [ 3, %1297 ], [ 2, %1287 ], [ 1, %1283 ]
+  %.sink1317 = phi i64 [ 1, %1334 ], [ 1, %1336 ], [ 4, %1312 ], [ 3, %1297 ], [ 2, %1287 ], [ 1, %1283 ]
   %.1490 = phi ptr [ %1335, %1334 ], [ %1337, %1336 ], [ %.6495835841845851, %1312 ], [ %1239, %1297 ], [ %1239, %1287 ], [ %1239, %1283 ]
-  %1338 = getelementptr inbounds nuw i8, ptr %.0483, i64 %.sink1266
+  %1338 = getelementptr inbounds nuw i8, ptr %.0483, i64 %.sink1317
   br label %1206
 
 1339:                                             ; preds = %1179, %1877
   %.sroa.113.6.sink = phi i32 [ %.sroa.113.6, %1877 ], [ %.sroa.113.4, %1179 ]
-  %.sink1290 = phi i64 [ 6701356245527298048, %1877 ], [ 9007199254740992000, %1179 ]
-  %.sroa.0.10.sink1288 = phi ptr [ %.sroa.0.10, %1877 ], [ %.sroa.0.8, %1179 ]
-  %.sink1270 = phi i64 [ 6557241057451442176, %1877 ], [ 8863084066665136128, %1179 ]
+  %.sink1341 = phi i64 [ 6701356245527298048, %1877 ], [ 9007199254740992000, %1179 ]
+  %.sroa.0.10.sink1339 = phi ptr [ %.sroa.0.10, %1877 ], [ %.sroa.0.8, %1179 ]
+  %.sink1321 = phi i64 [ 6557241057451442176, %1877 ], [ 8863084066665136128, %1179 ]
   %.sroa.23.8 = phi ptr [ %1878, %1877 ], [ %1180, %1179 ]
   %.sroa.166.9 = phi ptr [ %.sroa.166.10, %1877 ], [ %.sroa.166.8, %1179 ]
   %1340 = zext i32 %.sroa.113.6.sink to i64
@@ -37942,9 +37942,9 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1342 = getelementptr inbounds nuw %"struct.simdjson::fallback::open_container", ptr %1341, i64 %1340
   %1343 = load i32, ptr %1342, align 4, !tbaa !375
   %1344 = zext i32 %1343 to i64
-  %1345 = or disjoint i64 %.sink1290, %1344
-  store i64 %1345, ptr %.sroa.0.10.sink1288, align 8, !tbaa !11
-  %1346 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1288, i64 8
+  %1345 = or disjoint i64 %.sink1341, %1344
+  store i64 %1345, ptr %.sroa.0.10.sink1339, align 8, !tbaa !11
+  %1346 = getelementptr inbounds nuw i8, ptr %.sroa.0.10.sink1339, i64 8
   %1347 = getelementptr inbounds nuw i8, ptr %1342, i64 4
   %1348 = load i32, ptr %1347, align 4, !tbaa !377
   %1349 = tail call i32 @llvm.umin.i32(i32 %1348, i32 16777215)
@@ -37959,7 +37959,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %1358 = zext nneg i32 %1349 to i64
   %1359 = shl nuw nsw i64 %1358, 32
   %1360 = or disjoint i64 %1357, %1359
-  %1361 = or disjoint i64 %1360, %.sink1270
+  %1361 = or disjoint i64 %1360, %.sink1321
   store i64 %1361, ptr %1352, align 8, !tbaa !11
   %1362 = add i32 %.sroa.113.6.sink, -1
   %1363 = icmp eq i32 %1362, 0
@@ -38283,9 +38283,9 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   br label %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i358.i.thread918
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPhb.exit.i.i358.i.thread918: ; preds = %1555, %1540, %1530, %1526, %1577, %1579
-  %.sink1295 = phi i64 [ 1, %1577 ], [ 1, %1579 ], [ 4, %1555 ], [ 3, %1540 ], [ 2, %1530 ], [ 1, %1526 ]
+  %.sink1346 = phi i64 [ 1, %1577 ], [ 1, %1579 ], [ 4, %1555 ], [ 3, %1540 ], [ 2, %1530 ], [ 1, %1526 ]
   %.1456 = phi ptr [ %1578, %1577 ], [ %1580, %1579 ], [ %.6461897903907913, %1555 ], [ %1482, %1540 ], [ %1482, %1530 ], [ %1482, %1526 ]
-  %1581 = getelementptr inbounds nuw i8, ptr %.0477, i64 %.sink1295
+  %1581 = getelementptr inbounds nuw i8, ptr %.0477, i64 %.sink1346
   br label %1449
 
 _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i345.i: ; preds = %1449
@@ -38409,12 +38409,12 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
   br i1 %.not1033, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage213json_iterator13walk_documentILb1ENS2_12tape_builderEEENS_10error_codeERT0_.exit, label %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread
 
 _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread: ; preds = %.lr.ph1112, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i
-  %.5436.lcssa1212 = phi i64 [ %.4435946, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i ], [ %1645, %.lr.ph1112 ]
-  %.7.idx.lcssa11081211 = phi i64 [ %.5.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i ], [ %.7.add, %.lr.ph1112 ]
+  %.5436.lcssa1263 = phi i64 [ %.4435946, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i ], [ %1645, %.lr.ph1112 ]
+  %.7.idx.lcssa11081262 = phi i64 [ %.5.add, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i ], [ %.7.add, %.lr.ph1112 ]
   %1649 = phi i8 [ %1639, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i ], [ %1646, %.lr.ph1112 ]
-  %.7.ptr.le = getelementptr inbounds nuw i8, ptr %.0428.lcssa, i64 %.7.idx.lcssa11081211
+  %.7.ptr.le = getelementptr inbounds nuw i8, ptr %.0428.lcssa, i64 %.7.idx.lcssa11081262
   %1650 = ptrtoint ptr %.7.ptr.le to i64
-  %gepdiff1126 = sub nsw i64 1, %.7.idx.lcssa11081211
+  %gepdiff1126 = sub nsw i64 1, %.7.idx.lcssa11081262
   %1651 = sub i64 %1650, %1605
   %sext.i.i339.i = shl i64 %1651, 32
   %1652 = ashr exact i64 %sext.i.i339.i, 32
@@ -38423,7 +38423,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separato
 1653:                                             ; preds = %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread, %1611
   %1654 = phi i8 [ %1649, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread ], [ %.lcssa, %1611 ]
   %.0438 = phi i64 [ %gepdiff1126, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread ], [ 0, %1611 ]
-  %.2433 = phi i64 [ %.5436.lcssa1212, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread ], [ %.0431.lcssa, %1611 ]
+  %.2433 = phi i64 [ %.5436.lcssa1263, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread ], [ %.0431.lcssa, %1611 ]
   %.1429 = phi ptr [ %.7.ptr.le, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread ], [ %.0428.lcssa, %1611 ]
   %.042.i.i280.i = phi i64 [ %1652, %_ZN8simdjson8fallback13numberparsing12_GLOBAL__N_129parse_decimal_after_separatorEPKhRS4_RmRl.exit.i336.i.thread ], [ %1606, %1611 ]
   switch i8 %1654, label %1683 [
@@ -38772,11 +38772,11 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_116compute_float_64ElmbRd.exit.
   br label %.thread963
 
 .thread963:                                       ; preds = %1831, %1828, %1833
-  %.sink1298 = phi i64 [ 7782220156096217088, %1833 ], [ 8430738502437568512, %1828 ], [ 8430738502437568512, %1831 ]
-  %.sink1296 = phi i64 [ %1835, %1833 ], [ %.2433, %1828 ], [ %.2433, %1831 ]
-  store i64 %.sink1298, ptr %.sroa.0.2, align 8, !tbaa !11
+  %.sink1349 = phi i64 [ 7782220156096217088, %1833 ], [ 8430738502437568512, %1828 ], [ 8430738502437568512, %1831 ]
+  %.sink1347 = phi i64 [ %1835, %1833 ], [ %.2433, %1828 ], [ %.2433, %1831 ]
+  store i64 %.sink1349, ptr %.sroa.0.2, align 8, !tbaa !11
   %1836 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  store i64 %.sink1296, ptr %1836, align 8
+  store i64 %.sink1347, ptr %1836, align 8
   %.sroa.0.28 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 16
   %1837 = load i8, ptr %.1429, align 1, !tbaa !4
   %1838 = zext i8 %1837 to i64
@@ -38883,9 +38883,9 @@ select.unfold964:                                 ; preds = %.thread963, %1820, 
   store i32 %1888, ptr %1886, align 4, !tbaa !377
   br label %1390
 
-.thread658:                                       ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1190, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %250, %232, %211, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i, %40, %50, %1339
-  %.sroa.23.10 = phi ptr [ %.sroa.23.8, %1339 ], [ %51, %50 ], [ %41, %40 ], [ %29, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i ], [ %29, %211 ], [ %29, %232 ], [ %29, %250 ], [ %29, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ %29, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1190 ]
-  %.sroa.0.11 = phi ptr [ %1346, %1339 ], [ %53, %50 ], [ %43, %40 ], [ %55, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i ], [ %212, %211 ], [ %233, %232 ], [ %251, %250 ], [ %.sroa.0.37, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ %.sroa.0.33636.ph, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1190 ]
+.thread658:                                       ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1241, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %250, %232, %211, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i, %40, %50, %1339
+  %.sroa.23.10 = phi ptr [ %.sroa.23.8, %1339 ], [ %51, %50 ], [ %41, %40 ], [ %29, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i ], [ %29, %211 ], [ %29, %232 ], [ %29, %250 ], [ %29, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ %29, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1241 ]
+  %.sroa.0.11 = phi ptr [ %1346, %1339 ], [ %53, %50 ], [ %43, %40 ], [ %55, %_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i.i ], [ %212, %211 ], [ %233, %232 ], [ %251, %250 ], [ %.sroa.0.37, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ], [ %.sroa.0.33636.ph, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.thread1241 ]
   store i64 8214565720323784704, ptr %.sroa.0.11, align 8, !tbaa !11
   %1889 = getelementptr inbounds nuw i8, ptr %.sroa.0.11, i64 8
   %1890 = load ptr, ptr %9, align 8, !tbaa !373
@@ -39553,10 +39553,10 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit: ; preds = %_Z
   %15 = icmp ne ptr %14, null
   %or.cond = select i1 %13, i1 %15, i1 false
   %spec.select = select i1 %or.cond, i64 %1, i64 0
-  %spec.select6 = select i1 %or.cond, i32 0, i32 2
+  %spec.select8 = select i1 %or.cond, i32 0, i32 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %spec.select, ptr %16, align 8, !tbaa !192
-  ret i32 %spec.select6
+  ret i32 %spec.select8
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -39718,10 +39718,10 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit: ; preds = %_Z
   %15 = icmp ne ptr %14, null
   %or.cond = select i1 %13, i1 %15, i1 false
   %spec.select = select i1 %or.cond, i64 %1, i64 0
-  %spec.select6 = select i1 %or.cond, i32 0, i32 2
+  %spec.select8 = select i1 %or.cond, i32 0, i32 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %spec.select, ptr %16, align 8, !tbaa !192
-  ret i32 %spec.select6
+  ret i32 %spec.select8
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -39883,10 +39883,10 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit: ; preds = %_Z
   %15 = icmp ne ptr %14, null
   %or.cond = select i1 %13, i1 %15, i1 false
   %spec.select = select i1 %or.cond, i64 %1, i64 0
-  %spec.select6 = select i1 %or.cond, i32 0, i32 2
+  %spec.select8 = select i1 %or.cond, i32 0, i32 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %spec.select, ptr %16, align 8, !tbaa !192
-  ret i32 %spec.select6
+  ret i32 %spec.select8
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -40048,10 +40048,10 @@ _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EE5resetIPbvEEvT_.exit: ; preds = %_Z
   %15 = icmp ne ptr %14, null
   %or.cond = select i1 %13, i1 %15, i1 false
   %spec.select = select i1 %or.cond, i64 %1, i64 0
-  %spec.select6 = select i1 %or.cond, i32 0, i32 2
+  %spec.select8 = select i1 %or.cond, i32 0, i32 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %spec.select, ptr %16, align 8, !tbaa !192
-  ret i32 %spec.select6
+  ret i32 %spec.select8
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -40467,12 +40467,12 @@ define linkonce_odr dso_local void @_ZN8simdjson8internal9dtoa_impl16grisu2_digi
 36:                                               ; preds = %34
   %37 = icmp samesign ugt i32 %18, 9
   %..i = select i1 %37, i32 10, i32 1
-  %.20.i = select i1 %37, i32 2, i32 1
+  %.21.i = select i1 %37, i32 2, i32 1
   br label %_ZN8simdjson8internal9dtoa_impl18find_largest_pow10EjRj.exit.preheader
 
 _ZN8simdjson8internal9dtoa_impl18find_largest_pow10EjRj.exit.preheader: ; preds = %7, %22, %24, %26, %28, %30, %32, %34, %36
   %.077.ph = phi i32 [ %..i, %36 ], [ 100, %34 ], [ 1000, %32 ], [ 10000, %30 ], [ 100000, %28 ], [ 1000000, %26 ], [ 10000000, %24 ], [ 100000000, %22 ], [ 1000000000, %7 ]
-  %.056.ph = phi i32 [ %.20.i, %36 ], [ 3, %34 ], [ 4, %32 ], [ 5, %30 ], [ 6, %28 ], [ 7, %26 ], [ 8, %24 ], [ 9, %22 ], [ 10, %7 ]
+  %.056.ph = phi i32 [ %.21.i, %36 ], [ 3, %34 ], [ 4, %32 ], [ 5, %30 ], [ 6, %28 ], [ 7, %26 ], [ 8, %24 ], [ 9, %22 ], [ 10, %7 ]
   br label %_ZN8simdjson8internal9dtoa_impl18find_largest_pow10EjRj.exit
 
 _ZN8simdjson8internal9dtoa_impl18find_largest_pow10EjRj.exit: ; preds = %_ZN8simdjson8internal9dtoa_impl18find_largest_pow10EjRj.exit.preheader, %_ZN8simdjson8internal9dtoa_impl12grisu2_roundEPcimmmm.exit

@@ -271,13 +271,13 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   %35 = load i32, ptr %34, align 8, !tbaa !49
   %36 = tail call i32 @av_packet_from_data(ptr noundef nonnull %3, ptr noundef %33, i32 noundef %35) #7
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %.thread128
+  br i1 %37, label %38, label %.thread131
 
 38:                                               ; preds = %32
   tail call void @av_freep(ptr noundef nonnull %16) #7
-  br label %.thread128
+  br label %.thread131
 
-.thread128:                                       ; preds = %32, %38
+.thread131:                                       ; preds = %32, %38
   store ptr null, ptr %16, align 8, !tbaa !56
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %39, align 8, !tbaa !57
@@ -291,13 +291,13 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %41, label %.thread, label %.thread111
 
 .thread111:                                       ; preds = %21, %40
-  %.174.ph127 = phi i32 [ 1, %40 ], [ 0, %21 ]
+  %.174.ph130 = phi i32 [ 1, %40 ], [ 0, %21 ]
   %43 = load i32, ptr %4, align 4, !tbaa !54
   store i32 %43, ptr %13, align 4, !tbaa !55
   br label %50
 
-.thread:                                          ; preds = %.thread128, %15, %40
-  %.174110 = phi i32 [ 1, %40 ], [ 0, %15 ], [ 1, %.thread128 ]
+.thread:                                          ; preds = %.thread131, %15, %40
+  %.174110 = phi i32 [ 1, %40 ], [ 0, %15 ], [ 1, %.thread131 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !49
   %46 = zext i32 %45 to i64
@@ -313,7 +313,7 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   br label %.critedge
 
 50:                                               ; preds = %.thread111, %.thread, %9
-  %.073 = phi i32 [ %.174110, %.thread ], [ 0, %9 ], [ %.174.ph127, %.thread111 ]
+  %.073 = phi i32 [ %.174110, %.thread ], [ 0, %9 ], [ %.174.ph130, %.thread111 ]
   br label %51
 
 51:                                               ; preds = %53, %50

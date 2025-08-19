@@ -7169,7 +7169,7 @@ define internal fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, pt
   %22 = zext nneg i16 %18 to i64
   %23 = getelementptr %struct._someip_payload_parameter_item, ptr %4, i64 %22
   %.090 = select i1 %or.cond3, ptr %23, ptr null
-  switch i16 %17, label %default.unreachable124 [
+  switch i16 %17, label %default.unreachable138 [
     i16 0, label %24
     i16 1, label %24
     i16 2, label %24
@@ -7380,7 +7380,7 @@ dissect_someip_payload_peek_length_of_length.exit: ; preds = %50, %71, %80, %89
   %117 = add i32 %116, 4
   br label %118
 
-default.unreachable124:                           ; preds = %.lr.ph111
+default.unreachable138:                           ; preds = %.lr.ph111
   unreachable
 
 118:                                              ; preds = %91, %95, %99, %115, %111, %107, %24
@@ -7660,7 +7660,7 @@ get_base_type_config.exit.i:                      ; preds = %48
   store i64 0, ptr %15, align 8
   %99 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %100 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %101 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %98, ptr noundef %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %99, i32 noundef %100, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %15)
+  %101 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %98, ptr noundef %0, i32 noundef 0, i32 noundef %99, i32 noundef %100, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %15)
   %.not.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i, label %proto_item_set_hidden.exit.i.i, label %102
 
@@ -7764,7 +7764,7 @@ get_string_config.exit.i:                         ; preds = %123
   store i64 0, ptr %14, align 8
   %143 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %144 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %145 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %142, ptr noundef %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %143, i32 noundef %144, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %14)
+  %145 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %142, ptr noundef %0, i32 noundef 0, i32 noundef %143, i32 noundef %144, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %14)
   %.not.i.i.i65 = icmp eq ptr %145, null
   br i1 %.not.i.i.i65, label %proto_item_set_hidden.exit.i.i67, label %146
 
@@ -7971,7 +7971,7 @@ get_array_config.exit:                            ; preds = %216
   store i64 0, ptr %13, align 8
   %249 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %250 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %251 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i, ptr noundef %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %249, i32 noundef %250, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %13)
+  %251 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i, ptr noundef %0, i32 noundef range(i32 -1, 1) 0, i32 noundef %249, i32 noundef %250, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %13)
   %.not.i.i = icmp eq ptr %251, null
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %252
 
@@ -7993,14 +7993,14 @@ proto_item_set_hidden.exit.i:                     ; preds = %255, %252, %248
   %260 = trunc i64 %259 to i32
   %261 = lshr i32 %260, 12
   %262 = and i32 %261, 7
-  %switch.tableidx164 = add nsw i32 %262, -5
-  %263 = icmp ult i32 %switch.tableidx164, 3
-  br i1 %263, label %switch.lookup163, label %dissect_someip_payload_add_wtlv_if_needed.exit
+  %switch.tableidx216 = add nsw i32 %262, -5
+  %263 = icmp ult i32 %switch.tableidx216, 3
+  br i1 %263, label %switch.lookup215, label %dissect_someip_payload_add_wtlv_if_needed.exit
 
-switch.lookup163:                                 ; preds = %proto_item_set_hidden.exit.i
-  %264 = zext nneg i32 %switch.tableidx164 to i64
-  %switch.gep165 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %264
-  %switch.load166 = load i32, ptr %switch.gep165, align 4
+switch.lookup215:                                 ; preds = %proto_item_set_hidden.exit.i
+  %264 = zext nneg i32 %switch.tableidx216 to i64
+  %switch.gep217 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %264
+  %switch.load218 = load i32, ptr %switch.gep217, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %265 = load ptr, ptr %228, align 8
   %266 = getelementptr i8, ptr %265, i64 4
@@ -8024,11 +8024,11 @@ dissect_someip_payload_add_wtlv_if_needed.exit.thread: ; preds = %235, %dissect_
   %.not.i82 = icmp eq i32 %274, 0
   br i1 %.not.i82, label %280, label %.thread.i80
 
-.thread.i80:                                      ; preds = %switch.lookup163, %dissect_someip_payload_add_wtlv_if_needed.exit.thread
-  %275 = phi i32 [ %272, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %269, %switch.lookup163 ]
-  %276 = phi i32 [ %271, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %267, %switch.lookup163 ]
-  %.0.i84119 = phi i32 [ 0, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %switch.load166, %switch.lookup163 ]
-  %.03847.i = phi i32 [ %274, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %switch.load166, %switch.lookup163 ]
+.thread.i80:                                      ; preds = %switch.lookup215, %dissect_someip_payload_add_wtlv_if_needed.exit.thread
+  %275 = phi i32 [ %272, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %269, %switch.lookup215 ]
+  %276 = phi i32 [ %271, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %267, %switch.lookup215 ]
+  %.0.i84119 = phi i32 [ 0, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %switch.load218, %switch.lookup215 ]
+  %.03847.i = phi i32 [ %274, %dissect_someip_payload_add_wtlv_if_needed.exit.thread ], [ %switch.load218, %switch.lookup215 ]
   %277 = call fastcc i64 @dissect_someip_payload_length_field(ptr noundef %0, ptr noundef %1, ptr noundef %241, i32 noundef %3, i32 noundef %.03847.i)
   %278 = icmp slt i64 %277, 0
   %279 = lshr i32 %.03847.i, 3
@@ -8117,8 +8117,8 @@ get_struct_config.exit:                           ; preds = %305
   %315 = load i32, ptr @hf_payload_str_struct, align 4
   %316 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %317 = load ptr, ptr %316, align 8
-  %.inv161 = icmp slt i32 %8, 0
-  %. = select i1 %.inv161, i32 %3, i32 0
+  %.inv213 = icmp slt i32 %8, 0
+  %. = select i1 %.inv213, i32 %3, i32 0
   %318 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef nonnull %2, i32 noundef %315, ptr noundef nonnull %0, i32 noundef %., i32 noundef 0, ptr noundef %317, ptr noundef nonnull @.str.376, ptr noundef %6, ptr noundef %317)
   %319 = load i32, ptr @ett_someip_struct, align 4
   %320 = tail call ptr @proto_item_add_subtree(ptr noundef %318, i32 noundef %319)
@@ -8149,7 +8149,7 @@ get_struct_config.exit:                           ; preds = %305
   store i64 0, ptr %12, align 8
   %332 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %333 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %334 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i86, ptr noundef nonnull %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %332, i32 noundef %333, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %12)
+  %334 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i86, ptr noundef nonnull %0, i32 noundef range(i32 -1, 1) 0, i32 noundef %332, i32 noundef %333, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %12)
   %.not.i.i87 = icmp eq ptr %334, null
   br i1 %.not.i.i87, label %proto_item_set_hidden.exit.i89, label %335
 
@@ -8171,14 +8171,14 @@ proto_item_set_hidden.exit.i89:                   ; preds = %338, %335, %331
   %343 = trunc i64 %342 to i32
   %344 = lshr i32 %343, 12
   %345 = and i32 %344, 7
-  %switch.tableidx168 = add nsw i32 %345, -5
-  %346 = icmp ult i32 %switch.tableidx168, 3
-  br i1 %346, label %switch.lookup167, label %dissect_someip_payload_add_wtlv_if_needed.exit92
+  %switch.tableidx220 = add nsw i32 %345, -5
+  %346 = icmp ult i32 %switch.tableidx220, 3
+  br i1 %346, label %switch.lookup219, label %dissect_someip_payload_add_wtlv_if_needed.exit92
 
-switch.lookup167:                                 ; preds = %proto_item_set_hidden.exit.i89
-  %347 = zext nneg i32 %switch.tableidx168 to i64
-  %switch.gep169 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %347
-  %switch.load170 = load i32, ptr %switch.gep169, align 4
+switch.lookup219:                                 ; preds = %proto_item_set_hidden.exit.i89
+  %347 = zext nneg i32 %switch.tableidx220 to i64
+  %switch.gep221 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %347
+  %switch.load222 = load i32, ptr %switch.gep221, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %350
 
@@ -8191,8 +8191,8 @@ dissect_someip_payload_add_wtlv_if_needed.exit92.thread: ; preds = %324, %dissec
   %349 = load i32, ptr %348, align 8
   br label %350
 
-350:                                              ; preds = %switch.lookup167, %dissect_someip_payload_add_wtlv_if_needed.exit92.thread
-  %.072.i72 = phi i32 [ %349, %dissect_someip_payload_add_wtlv_if_needed.exit92.thread ], [ %switch.load170, %switch.lookup167 ]
+350:                                              ; preds = %switch.lookup219, %dissect_someip_payload_add_wtlv_if_needed.exit92.thread
+  %.072.i72 = phi i32 [ %349, %dissect_someip_payload_add_wtlv_if_needed.exit92.thread ], [ %switch.load222, %switch.lookup219 ]
   %351 = call i32 @tvb_captured_length_remaining(ptr noundef nonnull %0, i32 noundef 0)
   %352 = lshr i32 %.072.i72, 3
   %353 = icmp slt i32 %351, %352
@@ -8275,8 +8275,8 @@ get_union_config.exit:                            ; preds = %381
   %396 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %397 = load ptr, ptr %396, align 8
   %.inv = icmp slt i32 %8, 0
-  %.160 = select i1 %.inv, i32 %3, i32 0
-  %398 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %395, ptr noundef %0, i32 noundef %.160, i32 noundef 0, ptr noundef %6, ptr noundef nonnull @.str.379, ptr noundef %6, ptr noundef %397)
+  %.212 = select i1 %.inv, i32 %3, i32 0
+  %398 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %395, ptr noundef %0, i32 noundef %.212, i32 noundef 0, ptr noundef %6, ptr noundef nonnull @.str.379, ptr noundef %6, ptr noundef %397)
   %399 = load i32, ptr @ett_someip_union, align 4
   %400 = tail call ptr @proto_item_add_subtree(ptr noundef %398, i32 noundef %399)
   %401 = load i8, ptr @someip_deserializer_debugging_activated, align 1, !range !6, !noundef !7
@@ -8306,7 +8306,7 @@ get_union_config.exit:                            ; preds = %381
   store i64 0, ptr %10, align 8
   %412 = load i32, ptr @hf_payload_wtlv_tag, align 4
   %413 = load i32, ptr @ett_someip_wtlv_tag, align 4
-  %414 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i98, ptr noundef %0, i32 noundef range(i32 -1, 1) %8, i32 noundef %412, i32 noundef %413, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %10)
+  %414 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %.09.i98, ptr noundef %0, i32 noundef range(i32 -1, 1) 0, i32 noundef %412, i32 noundef %413, ptr noundef nonnull @dissect_someip_payload_add_wtlv_if_needed.tag_bitfield, i32 noundef 0, ptr noundef nonnull %10)
   %.not.i.i99 = icmp eq ptr %414, null
   br i1 %.not.i.i99, label %proto_item_set_hidden.exit.i101, label %415
 
@@ -8328,14 +8328,14 @@ proto_item_set_hidden.exit.i101:                  ; preds = %418, %415, %411
   %423 = trunc i64 %422 to i32
   %424 = lshr i32 %423, 12
   %425 = and i32 %424, 7
-  %switch.tableidx172 = add nsw i32 %425, -5
-  %426 = icmp ult i32 %switch.tableidx172, 3
-  br i1 %426, label %switch.lookup171, label %dissect_someip_payload_add_wtlv_if_needed.exit104
+  %switch.tableidx224 = add nsw i32 %425, -5
+  %426 = icmp ult i32 %switch.tableidx224, 3
+  br i1 %426, label %switch.lookup223, label %dissect_someip_payload_add_wtlv_if_needed.exit104
 
-switch.lookup171:                                 ; preds = %proto_item_set_hidden.exit.i101
-  %427 = zext nneg i32 %switch.tableidx172 to i64
-  %switch.gep173 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %427
-  %switch.load174 = load i32, ptr %switch.gep173, align 4
+switch.lookup223:                                 ; preds = %proto_item_set_hidden.exit.i101
+  %427 = zext nneg i32 %switch.tableidx224 to i64
+  %switch.gep225 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_someip_payload_parameter.8, i64 0, i64 %427
+  %switch.load226 = load i32, ptr %switch.gep225, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %430
 
@@ -8348,8 +8348,8 @@ dissect_someip_payload_add_wtlv_if_needed.exit104.thread: ; preds = %404, %disse
   %429 = load i32, ptr %428, align 8
   br label %430
 
-430:                                              ; preds = %switch.lookup171, %dissect_someip_payload_add_wtlv_if_needed.exit104.thread
-  %.0.i76 = phi i32 [ %429, %dissect_someip_payload_add_wtlv_if_needed.exit104.thread ], [ %switch.load174, %switch.lookup171 ]
+430:                                              ; preds = %switch.lookup223, %dissect_someip_payload_add_wtlv_if_needed.exit104.thread
+  %.0.i76 = phi i32 [ %429, %dissect_someip_payload_add_wtlv_if_needed.exit104.thread ], [ %switch.load226, %switch.lookup223 ]
   %431 = getelementptr inbounds nuw i8, ptr %387, i64 20
   %432 = load i32, ptr %431, align 4
   %433 = add i32 %432, %.0.i76
@@ -8429,8 +8429,8 @@ dissect_someip_payload_type_field.exit.thread:    ; preds = %445
   br label %dissect_someip_payload_typedef.exit
 
 proto_item_set_hidden.exit.sink.split.i:          ; preds = %465, %459, %453
-  %.sink31.i = phi ptr [ %455, %453 ], [ %461, %459 ], [ %467, %465 ]
-  %471 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 28
+  %.sink37.i = phi ptr [ %455, %453 ], [ %461, %459 ], [ %467, %465 ]
+  %471 = getelementptr inbounds nuw i8, ptr %.sink37.i, i64 28
   %472 = load i32, ptr %471, align 4
   %473 = or i32 %472, 1
   store i32 %473, ptr %471, align 4
@@ -8599,8 +8599,8 @@ define internal fastcc range(i64 -1, 4294967296) i64 @dissect_someip_payload_len
   br label %34
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %22, %16, %10
-  %.sink31 = phi ptr [ %12, %10 ], [ %18, %16 ], [ %24, %22 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sink31, i64 28
+  %.sink37 = phi ptr [ %12, %10 ], [ %18, %16 ], [ %24, %22 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sink37, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = or i32 %30, 1
   store i32 %31, ptr %29, align 4

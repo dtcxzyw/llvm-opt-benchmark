@@ -238,9 +238,9 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit15:
   %111 = fmul <2 x double> %108, %108
   %112 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %113 = fadd <2 x double> %110, %112
-  %shift53 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop54 = fadd <2 x double> %113, %shift53
-  %114 = extractelement <2 x double> %foldExtExtBinop54, i64 0
+  %shift54 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop55 = fadd <2 x double> %113, %shift54
+  %114 = extractelement <2 x double> %foldExtExtBinop55, i64 0
   %115 = fcmp ogt double %114, 0.000000e+00
   br i1 %115, label %116, label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit18
 

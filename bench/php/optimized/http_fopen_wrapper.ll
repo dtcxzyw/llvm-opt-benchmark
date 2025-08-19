@@ -505,9 +505,9 @@ zval_get_double.exit:                             ; preds = %164, %166
   br label %191
 
 191:                                              ; preds = %.thread8, %189
-  %.sink358 = phi i64 [ %187, %.thread8 ], [ 0, %189 ]
+  %.sink530 = phi i64 [ %187, %.thread8 ], [ 0, %189 ]
   %192 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %.sink358, ptr %192, align 8, !tbaa !38
+  store i64 %.sink530, ptr %192, align 8, !tbaa !38
   %193 = getelementptr inbounds nuw i8, ptr %.07864, i64 24
   %194 = getelementptr inbounds nuw i8, ptr %.07864, i64 16
   %195 = load i64, ptr %194, align 8, !tbaa !17
@@ -1148,16 +1148,16 @@ smart_str_alloc.exit1116:                         ; preds = %466, %472
   br label %477
 
 477:                                              ; preds = %smart_str_appendc_ex.exit1261, %smart_str_alloc.exit1116
-  %.sink360 = phi i64 [ %458, %smart_str_appendc_ex.exit1261 ], [ %.1.i1115, %smart_str_alloc.exit1116 ]
+  %.sink532 = phi i64 [ %458, %smart_str_appendc_ex.exit1261 ], [ %.1.i1115, %smart_str_alloc.exit1116 ]
   %.074921 = phi i32 [ %.0749.ph, %smart_str_appendc_ex.exit1261 ], [ %.074922, %smart_str_alloc.exit1116 ]
   %478 = load ptr, ptr %18, align 8, !tbaa !51
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 16
-  store i64 %.sink360, ptr %479, align 8, !tbaa !17
+  store i64 %.sink532, ptr %479, align 8, !tbaa !17
   br i1 %152, label %480, label %490
 
 480:                                              ; preds = %477
   %481 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  %482 = add i64 %.sink360, %481
+  %482 = add i64 %.sink532, %481
   %483 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %484 = load i64, ptr %483, align 8, !tbaa !54
   %.not12.i1118 = icmp ult i64 %482, %484
@@ -1171,7 +1171,7 @@ smart_str_alloc.exit1116:                         ; preds = %466, %472
   br label %smart_str_alloc.exit1121
 
 smart_str_alloc.exit1121:                         ; preds = %480, %485
-  %486 = phi i64 [ %.pre232, %485 ], [ %.sink360, %480 ]
+  %486 = phi i64 [ %.pre232, %485 ], [ %.sink532, %480 ]
   %487 = phi ptr [ %.pre230, %485 ], [ %478, %480 ]
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 24
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 %486
@@ -1193,7 +1193,7 @@ smart_str_alloc.exit1121:                         ; preds = %480, %485
 496:                                              ; preds = %493
   %497 = getelementptr inbounds nuw i8, ptr %492, i64 24
   %498 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %497) #19
-  %499 = add i64 %.sink360, %498
+  %499 = add i64 %.sink532, %498
   %500 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %501 = load i64, ptr %500, align 8, !tbaa !54
   %.not12.i1123 = icmp ult i64 %499, %501
@@ -1207,7 +1207,7 @@ smart_str_alloc.exit1121:                         ; preds = %480, %485
   br label %smart_str_alloc.exit1126
 
 smart_str_alloc.exit1126:                         ; preds = %496, %502
-  %503 = phi i64 [ %.pre224, %502 ], [ %.sink360, %496 ]
+  %503 = phi i64 [ %.pre224, %502 ], [ %.sink532, %496 ]
   %504 = phi ptr [ %.pre222, %502 ], [ %478, %496 ]
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 24
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 %503
@@ -1215,7 +1215,7 @@ smart_str_alloc.exit1126:                         ; preds = %496, %502
   br label %515
 
 507:                                              ; preds = %490, %493
-  %508 = add i64 %.sink360, 1
+  %508 = add i64 %.sink532, 1
   %509 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %510 = load i64, ptr %509, align 8, !tbaa !54
   %.not12.i.i1253 = icmp ult i64 %508, %510
@@ -1229,22 +1229,22 @@ smart_str_alloc.exit1126:                         ; preds = %496, %502
 smart_str_appendc_ex.exit1256:                    ; preds = %507, %511
   %512 = phi ptr [ %.pre225, %511 ], [ %478, %507 ]
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 24
-  %514 = getelementptr inbounds nuw [1 x i8], ptr %513, i64 0, i64 %.sink360
+  %514 = getelementptr inbounds nuw [1 x i8], ptr %513, i64 0, i64 %.sink532
   store i8 47, ptr %514, align 1, !tbaa !4
   br label %515
 
 515:                                              ; preds = %smart_str_appendc_ex.exit1256, %smart_str_alloc.exit1126
-  %.sink363 = phi i64 [ %508, %smart_str_appendc_ex.exit1256 ], [ %499, %smart_str_alloc.exit1126 ]
+  %.sink535 = phi i64 [ %508, %smart_str_appendc_ex.exit1256 ], [ %499, %smart_str_alloc.exit1126 ]
   %516 = load ptr, ptr %18, align 8, !tbaa !51
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 16
-  store i64 %.sink363, ptr %517, align 8, !tbaa !17
+  store i64 %.sink535, ptr %517, align 8, !tbaa !17
   %518 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %519 = load ptr, ptr %518, align 8, !tbaa !64
   %.not940 = icmp eq ptr %519, null
   br i1 %.not940, label %544, label %520
 
 520:                                              ; preds = %515
-  %521 = add i64 %.sink363, 1
+  %521 = add i64 %.sink535, 1
   %522 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %523 = load i64, ptr %522, align 8, !tbaa !54
   %.not12.i.i1248 = icmp ult i64 %521, %523
@@ -1258,7 +1258,7 @@ smart_str_appendc_ex.exit1256:                    ; preds = %507, %511
 525:                                              ; preds = %524, %520
   %526 = phi ptr [ %.pre226, %524 ], [ %516, %520 ]
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 24
-  %528 = getelementptr inbounds nuw [1 x i8], ptr %527, i64 0, i64 %.sink363
+  %528 = getelementptr inbounds nuw [1 x i8], ptr %527, i64 0, i64 %.sink535
   store i8 63, ptr %528, align 1, !tbaa !4
   %529 = load ptr, ptr %18, align 8, !tbaa !51
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 16
@@ -1288,15 +1288,15 @@ smart_str_alloc.exit1131:                         ; preds = %525, %537
   br label %.sink.split
 
 .sink.split:                                      ; preds = %smart_str_alloc.exit1121, %smart_str_alloc.exit1131
-  %.sink366 = phi i64 [ %534, %smart_str_alloc.exit1131 ], [ %482, %smart_str_alloc.exit1121 ]
+  %.sink538 = phi i64 [ %534, %smart_str_alloc.exit1131 ], [ %482, %smart_str_alloc.exit1121 ]
   %542 = load ptr, ptr %18, align 8, !tbaa !51
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 16
-  store i64 %.sink366, ptr %543, align 8, !tbaa !17
+  store i64 %.sink538, ptr %543, align 8, !tbaa !17
   br label %544
 
 544:                                              ; preds = %.sink.split, %515
   %545 = phi ptr [ %516, %515 ], [ %542, %.sink.split ]
-  br i1 %154, label %546, label %.thread343
+  br i1 %154, label %546, label %.thread515
 
 546:                                              ; preds = %544
   %547 = call ptr @php_stream_context_get_option(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26) #18
@@ -1405,9 +1405,9 @@ zval_get_double.exit1069:                         ; preds = %552, %554
 596:                                              ; preds = %546
   %.pre243 = load ptr, ptr %18, align 8, !tbaa !51
   %.not.i1147 = icmp eq ptr %.pre243, null
-  br i1 %.not.i1147, label %603, label %.thread343, !prof !66
+  br i1 %.not.i1147, label %603, label %.thread515, !prof !66
 
-.thread343:                                       ; preds = %544, %596
+.thread515:                                       ; preds = %544, %596
   %597 = phi ptr [ %.pre243, %596 ], [ %545, %544 ]
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 16
   %599 = load i64, ptr %598, align 8, !tbaa !17
@@ -1417,18 +1417,18 @@ zval_get_double.exit1069:                         ; preds = %552, %554
   %.not12.i1148 = icmp ult i64 %600, %602
   br i1 %.not12.i1148, label %604, label %603, !prof !28
 
-603:                                              ; preds = %.thread343, %596
-  %.0.i1149 = phi i64 [ 11, %596 ], [ %600, %.thread343 ]
+603:                                              ; preds = %.thread515, %596
+  %.0.i1149 = phi i64 [ 11, %596 ], [ %600, %.thread515 ]
   call void @smart_str_erealloc(ptr noundef nonnull %18, i64 noundef %.0.i1149) #18
   %.pre244 = load ptr, ptr %18, align 8, !tbaa !51
   %.phi.trans.insert245 = getelementptr inbounds nuw i8, ptr %.pre244, i64 16
   %.pre246 = load i64, ptr %.phi.trans.insert245, align 8, !tbaa !17
   br label %604
 
-604:                                              ; preds = %603, %.thread343
-  %605 = phi i64 [ %.pre246, %603 ], [ %599, %.thread343 ]
-  %606 = phi ptr [ %.pre244, %603 ], [ %597, %.thread343 ]
-  %.1.i1150 = phi i64 [ %.0.i1149, %603 ], [ %600, %.thread343 ]
+604:                                              ; preds = %603, %.thread515
+  %605 = phi i64 [ %.pre246, %603 ], [ %599, %.thread515 ]
+  %606 = phi ptr [ %.pre244, %603 ], [ %597, %.thread515 ]
+  %.1.i1150 = phi i64 [ %.0.i1149, %603 ], [ %600, %.thread515 ]
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 24
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 %605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %608, ptr noundef nonnull align 1 dereferenceable(11) @.str.29, i64 11, i1 false)
@@ -3559,7 +3559,7 @@ zend_string_release_ex.exit1074:                  ; preds = %1476, %1480, %1485
   br label %1534
 
 1534:                                             ; preds = %1517, %1525, %1532
-  call void @php_url_free(ptr noundef %34) #18
+  call void @php_url_free(ptr noundef nonnull %34) #18
   %1535 = call ptr @php_url_parse(ptr noundef nonnull %28) #18
   %1536 = icmp eq ptr %1535, null
   br i1 %1536, label %1537, label %1538
@@ -3970,15 +3970,15 @@ define internal fastcc range(i32 -1, 1) i32 @php_stream_handle_proxy_authorizati
   %11 = ptrtoint ptr %.142 to i64
   %12 = sub i64 %10, %11
   %13 = icmp eq i64 %12, 20
-  br i1 %13, label %14, label %.preheader101
+  br i1 %13, label %14, label %.preheader105
 
-.preheader101:                                    ; preds = %14, %8
+.preheader105:                                    ; preds = %14, %8
   br label %47
 
 14:                                               ; preds = %8
   %15 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %.142, i64 noundef 20, ptr noundef nonnull @.str.73, i64 noundef 20) #18
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.preheader, label %.preheader101
+  br i1 %16, label %.preheader, label %.preheader105
 
 .preheader:                                       ; preds = %14, %18
   %.2 = phi ptr [ %19, %18 ], [ %9, %14 ]
@@ -4051,8 +4051,8 @@ smart_str_alloc.exit:                             ; preds = %30, %40
   store i64 %37, ptr %46, align 8, !tbaa !17
   br label %.loopexit64
 
-47:                                               ; preds = %.preheader101, %49
-  %.3 = phi ptr [ %50, %49 ], [ %9, %.preheader101 ]
+47:                                               ; preds = %.preheader105, %49
+  %.3 = phi ptr [ %50, %49 ], [ %9, %.preheader105 ]
   %48 = load i8, ptr %.3, align 1, !tbaa !4
   switch i8 %48, label %49 [
     i8 0, label %.critedge6.preheader

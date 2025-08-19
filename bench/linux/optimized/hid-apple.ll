@@ -402,7 +402,7 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %72 = phi i16 [ %71, %69 ], [ %51, %67 ], [ %51, %47 ], [ %51, %63 ]
   %73 = load i32, ptr @iso_layout, align 4
   %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.preheader105, label %75
+  br i1 %74, label %.preheader134, label %75
 
 75:                                               ; preds = %.thread
   %76 = icmp eq i32 %73, 0
@@ -415,14 +415,14 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 13
-  br i1 %83, label %.preheader105, label %.thread21
+  br i1 %83, label %.preheader134, label %.thread21
 
-.preheader105:                                    ; preds = %80, %.thread
+.preheader134:                                    ; preds = %80, %.thread
   br label %84
 
-84:                                               ; preds = %.preheader105, %88
-  %85 = phi i16 [ %90, %88 ], [ 41, %.preheader105 ]
-  %86 = phi ptr [ %89, %88 ], [ @apple_iso_keyboard, %.preheader105 ]
+84:                                               ; preds = %.preheader134, %88
+  %85 = phi i16 [ %90, %88 ], [ 41, %.preheader134 ]
+  %86 = phi ptr [ %89, %88 ], [ @apple_iso_keyboard, %.preheader134 ]
   %87 = icmp eq i16 %85, %72
   br i1 %87, label %92, label %88
 
@@ -677,21 +677,21 @@ define internal noundef range(i32 0, 2) i32 @apple_event(ptr noundef readonly ca
   %212 = icmp ult i8 %211, 2
   tail call void @llvm.assume(i1 %212)
   %213 = icmp eq i8 %211, 0
-  br i1 %213, label %214, label %.preheader93
+  br i1 %213, label %214, label %.preheader122
 
 214:                                              ; preds = %208
   %215 = getelementptr inbounds nuw i8, ptr %49, i64 432
   %216 = load volatile i64, ptr %215, align 8
   %217 = and i64 %216, 1
   %218 = icmp eq i64 %217, 0
-  br i1 %218, label %.thread27, label %.preheader93
+  br i1 %218, label %.thread27, label %.preheader122
 
-.preheader93:                                     ; preds = %214, %208
+.preheader122:                                    ; preds = %214, %208
   br label %219
 
-219:                                              ; preds = %.preheader93, %223
-  %220 = phi i16 [ %225, %223 ], [ 36, %.preheader93 ]
-  %221 = phi ptr [ %224, %223 ], [ @powerbook_numlock_keys, %.preheader93 ]
+219:                                              ; preds = %.preheader122, %223
+  %220 = phi i16 [ %225, %223 ], [ 36, %.preheader122 ]
+  %221 = phi ptr [ %224, %223 ], [ @powerbook_numlock_keys, %.preheader122 ]
   %222 = icmp eq i16 %220, %204
   br i1 %222, label %227, label %223
 

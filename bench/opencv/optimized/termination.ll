@@ -1610,13 +1610,13 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   br i1 %.not97, label %._crit_edge102, label %.lr.ph101.preheader
 
 .lr.ph101.preheader:                              ; preds = %.preheader
-  %indvars.iv.next125153 = add nsw i64 %indvars.iv122, -1
-  %41 = getelementptr inbounds nuw double, ptr %.sroa.070.0, i64 %indvars.iv.next125153
+  %indvars.iv.next125161 = add nsw i64 %indvars.iv122, -1
+  %41 = getelementptr inbounds nuw double, ptr %.sroa.070.0, i64 %indvars.iv.next125161
   %42 = load double, ptr %41, align 8, !tbaa !123
   %43 = fcmp olt double %42, %29
-  br i1 %43, label %.lr.ph156, label %._crit_edge, !llvm.loop !124
+  br i1 %43, label %.lr.ph164, label %._crit_edge, !llvm.loop !124
 
-.lr.ph156:                                        ; preds = %.lr.ph101.preheader
+.lr.ph164:                                        ; preds = %.lr.ph101.preheader
   %44 = fadd double %42, 0.000000e+00
   br label %55, !llvm.loop !124
 
@@ -1638,15 +1638,15 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv122
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !126
 
-55:                                               ; preds = %.lr.ph156, %.lr.ph101
-  %56 = phi double [ %44, %.lr.ph156 ], [ %59, %.lr.ph101 ]
-  %indvars.iv.next125155 = phi i64 [ %indvars.iv.next125153, %.lr.ph156 ], [ %indvars.iv.next125, %.lr.ph101 ]
-  %indvars.iv124154 = phi i64 [ %indvars.iv122, %.lr.ph156 ], [ %indvars.iv.next125155, %.lr.ph101 ]
-  %.not.not113 = icmp sgt i64 %indvars.iv124154, %38
+55:                                               ; preds = %.lr.ph164, %.lr.ph101
+  %56 = phi double [ %44, %.lr.ph164 ], [ %59, %.lr.ph101 ]
+  %indvars.iv.next125163 = phi i64 [ %indvars.iv.next125161, %.lr.ph164 ], [ %indvars.iv.next125, %.lr.ph101 ]
+  %indvars.iv124162 = phi i64 [ %indvars.iv122, %.lr.ph164 ], [ %indvars.iv.next125163, %.lr.ph101 ]
+  %.not.not113 = icmp sgt i64 %indvars.iv124162, %38
   br i1 %.not.not113, label %.lr.ph101, label %._crit_edge102.loopexit, !llvm.loop !124
 
 .lr.ph101:                                        ; preds = %55
-  %indvars.iv.next125 = add nsw i64 %indvars.iv.next125155, -1
+  %indvars.iv.next125 = add nsw i64 %indvars.iv.next125163, -1
   %57 = getelementptr inbounds nuw double, ptr %.sroa.070.0, i64 %indvars.iv.next125
   %58 = load double, ptr %57, align 8, !tbaa !123
   %59 = fadd double %56, %58
@@ -1654,7 +1654,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   br i1 %60, label %55, label %.lr.ph101.._crit_edge_crit_edge, !llvm.loop !124
 
 .lr.ph101.._crit_edge_crit_edge:                  ; preds = %.lr.ph101
-  %61 = trunc nsw i64 %indvars.iv124154 to i32
+  %61 = trunc nsw i64 %indvars.iv124162 to i32
   br label %._crit_edge, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %.lr.ph101.._crit_edge_crit_edge, %.lr.ph101.preheader
@@ -1662,7 +1662,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   br label %._crit_edge102, !llvm.loop !124
 
 ._crit_edge102.loopexit:                          ; preds = %55
-  %62 = trunc nsw i64 %indvars.iv124154 to i32
+  %62 = trunc nsw i64 %indvars.iv124162 to i32
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %._crit_edge102.loopexit, %._crit_edge, %.preheader
@@ -1694,34 +1694,34 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   %73 = zext nneg i32 %23 to i64
   %74 = add nsw i64 %72, -1
   %75 = add nsw i64 %72, 49
-  %.not55157 = icmp slt i64 %75, %73
-  br i1 %.not55157, label %.lr.ph159, label %._crit_edge160
+  %.not55165 = icmp slt i64 %75, %73
+  br i1 %.not55165, label %.lr.ph167, label %._crit_edge168
 
 76:                                               ; preds = %98
-  %77 = add nsw i64 %indvars.iv132158, 49
-  %78 = add nsw i64 %indvars.iv132158, 99
+  %77 = add nsw i64 %indvars.iv132166, 49
+  %78 = add nsw i64 %indvars.iv132166, 99
   %.not55 = icmp slt i64 %78, %73
-  br i1 %.not55, label %.lr.ph159, label %._crit_edge160, !llvm.loop !128
+  br i1 %.not55, label %.lr.ph167, label %._crit_edge168, !llvm.loop !128
 
-._crit_edge160:                                   ; preds = %76, %.lr.ph112
+._crit_edge168:                                   ; preds = %76, %.lr.ph112
   %indvars.iv132.lcssa = phi i64 [ %72, %.lr.ph112 ], [ %indvars.iv.next133, %76 ]
-  %.lcssa147 = phi i32 [ %69, %.lr.ph112 ], [ %99, %76 ]
+  %.lcssa155 = phi i32 [ %69, %.lr.ph112 ], [ %99, %76 ]
   %.lcssa = phi i64 [ %74, %.lr.ph112 ], [ %77, %76 ]
   %79 = load ptr, ptr %10, align 8, !tbaa !120
   %sext = shl i64 %indvars.iv132.lcssa, 32
   %.idx = ashr exact i64 %sext, 30
   %80 = add nsw i64 %.idx, -4
-  %81 = sext i32 %.lcssa147 to i64
+  %81 = sext i32 %.lcssa155 to i64
   %.idx89 = shl nsw i64 %81, 2
   %82 = getelementptr inbounds i8, ptr %79, i64 %.idx89
-  %sext136 = shl i64 %.lcssa, 32
-  %83 = ashr exact i64 %sext136, 30
+  %sext144 = shl i64 %.lcssa, 32
+  %83 = ashr exact i64 %sext144, 30
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !16
   %.not5.i.i.i = icmp eq i64 %80, %.idx89
   br i1 %.not5.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i.i.i.preheader:                           ; preds = %._crit_edge160
+.lr.ph.i.i.i.preheader:                           ; preds = %._crit_edge168
   %86 = getelementptr inbounds i8, ptr %79, i64 %80
   br label %.lr.ph.i.i.i
 
@@ -1732,10 +1732,10 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   %.not.i.i.i65 = icmp eq ptr %87, %82
   br i1 %.not.i.i.i65, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !129
 
-.lr.ph159:                                        ; preds = %.lr.ph112, %76
+.lr.ph167:                                        ; preds = %.lr.ph112, %76
   %88 = phi i64 [ %78, %76 ], [ %75, %.lr.ph112 ]
   %89 = phi i64 [ %77, %76 ], [ %74, %.lr.ph112 ]
-  %indvars.iv132158 = phi i64 [ %indvars.iv.next133, %76 ], [ %72, %.lr.ph112 ]
+  %indvars.iv132166 = phi i64 [ %indvars.iv.next133, %76 ], [ %72, %.lr.ph112 ]
   %90 = getelementptr inbounds nuw i32, ptr %71, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !16
   %92 = getelementptr inbounds nuw i32, ptr %71, i64 %88
@@ -1744,18 +1744,18 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   %95 = sitofp i32 %94 to double
   %96 = fdiv double %95, 5.000000e+01
   %97 = sitofp i32 %91 to double
-  %invariant.gep = getelementptr i32, ptr %71, i64 %indvars.iv132158
+  %invariant.gep = getelementptr i32, ptr %71, i64 %indvars.iv132166
   br label %101
 
 98:                                               ; preds = %101
-  %indvars.iv.next133 = add nsw i64 %indvars.iv132158, 50
+  %indvars.iv.next133 = add nsw i64 %indvars.iv132166, 50
   %99 = load i32, ptr %2, align 4, !tbaa !109
   %100 = sext i32 %99 to i64
   %.not54 = icmp sgt i64 %indvars.iv.next133, %100
   br i1 %.not54, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %76, !llvm.loop !128
 
-101:                                              ; preds = %.lr.ph159, %101
-  %indvars.iv128 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next129, %101 ]
+101:                                              ; preds = %.lr.ph167, %101
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next129, %101 ]
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %102 = trunc nuw nsw i64 %indvars.iv.next129 to i32
   %103 = uitofp nneg i32 %102 to double
@@ -1766,7 +1766,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.noexc64, %_ZNSt6ve
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 49
   br i1 %exitcond131.not, label %98, label %101, !llvm.loop !130
 
-_ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %98, %.lr.ph.i.i.i, %._crit_edge107, %._crit_edge160
+_ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %98, %.lr.ph.i.i.i, %._crit_edge107, %._crit_edge168
   %.not.i.i.i67 = icmp eq ptr %.sroa.070.0, null
   br i1 %.not.i.i.i67, label %_ZNSt6vectorIdSaIdEED2Ev.exit68, label %106
 

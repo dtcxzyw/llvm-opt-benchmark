@@ -966,9 +966,9 @@ pmix_obj_new_tma.exit440:                         ; preds = %.lr.ph.i.i437, %404
   br i1 %423, label %.thread524, label %424
 
 424:                                              ; preds = %pmix_obj_new_tma.exit440, %421
-  %.sink653 = phi ptr [ %422, %421 ], [ %418, %pmix_obj_new_tma.exit440 ]
+  %.sink714 = phi ptr [ %422, %421 ], [ %418, %pmix_obj_new_tma.exit440 ]
   %425 = getelementptr inbounds nuw i8, ptr %48, i64 520
-  %426 = call i32 @PMIx_Value_xfer(ptr noundef nonnull %.sink653, ptr noundef nonnull %425) #14
+  %426 = call i32 @PMIx_Value_xfer(ptr noundef nonnull %.sink714, ptr noundef nonnull %425) #14
   switch i32 %426, label %.thread524 [
     i32 0, label %523
     i32 -2, label %.loopexit547

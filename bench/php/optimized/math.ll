@@ -139,8 +139,8 @@ php_round_get_basic_edge_case.exit81.i:           ; preds = %35
   %47 = fadd double %.1, %46
   %48 = fdiv double %47, %.0.i
   %49 = fmul double %.0.i, %47
-  %.sink86.i = select i1 %28, double %48, double %49
-  %50 = tail call double @llvm.fabs.f64(double %.sink86.i)
+  %.sink89.i = select i1 %28, double %48, double %49
+  %50 = tail call double @llvm.fabs.f64(double %.sink89.i)
   %51 = fcmp ogt double %36, %50
   br i1 %51, label %52, label %php_round_helper.exit
 
@@ -152,8 +152,8 @@ php_round_get_basic_edge_case.exit81.i:           ; preds = %35
 php_round_get_zero_edge_case.exit.i:              ; preds = %35
   %55 = fdiv double %.1, %.0.i
   %56 = fmul double %.0.i, %.1
-  %.sink87.i = select i1 %28, double %55, double %56
-  %57 = tail call double @llvm.fabs.f64(double %.sink87.i)
+  %.sink90.i = select i1 %28, double %55, double %56
+  %57 = tail call double @llvm.fabs.f64(double %.sink90.i)
   %58 = fcmp ogt double %0, 0.000000e+00
   %59 = fcmp ogt double %36, %57
   %or.cond.i = and i1 %58, %59
@@ -166,8 +166,8 @@ php_round_get_zero_edge_case.exit.i:              ; preds = %35
 php_round_get_zero_edge_case.exit84.i:            ; preds = %35
   %62 = fdiv double %.1, %.0.i
   %63 = fmul double %.0.i, %.1
-  %.sink88.i = select i1 %28, double %62, double %63
-  %64 = tail call double @llvm.fabs.f64(double %.sink88.i)
+  %.sink91.i = select i1 %28, double %62, double %63
+  %64 = tail call double @llvm.fabs.f64(double %.sink91.i)
   %65 = fcmp olt double %0, 0.000000e+00
   %66 = fcmp ogt double %36, %64
   %or.cond80.i = and i1 %65, %66
@@ -180,8 +180,8 @@ php_round_get_zero_edge_case.exit84.i:            ; preds = %35
 php_round_get_zero_edge_case.exit85.i:            ; preds = %35
   %69 = fdiv double %.1, %.0.i
   %70 = fmul double %.0.i, %.1
-  %.sink89.i = select i1 %28, double %69, double %70
-  %71 = tail call double @llvm.fabs.f64(double %.sink89.i)
+  %.sink92.i = select i1 %28, double %69, double %70
+  %71 = tail call double @llvm.fabs.f64(double %.sink92.i)
   %72 = fcmp ogt double %36, %71
   br i1 %72, label %73, label %php_round_helper.exit
 
@@ -195,8 +195,8 @@ php_round_get_basic_edge_case.exit82.i:           ; preds = %35
   %77 = fadd double %.1, %76
   %78 = fdiv double %77, %.0.i
   %79 = fmul double %.0.i, %77
-  %.sink90.i = select i1 %28, double %78, double %79
-  %80 = tail call double @llvm.fabs.f64(double %.sink90.i)
+  %.sink93.i = select i1 %28, double %78, double %79
+  %80 = tail call double @llvm.fabs.f64(double %.sink93.i)
   %81 = fcmp ogt double %36, %80
   br i1 %81, label %82, label %85
 
@@ -224,8 +224,8 @@ php_round_get_basic_edge_case.exit83.i:           ; preds = %35
   %94 = fadd double %.1, %93
   %95 = fdiv double %94, %.0.i
   %96 = fmul double %.0.i, %94
-  %.sink91.i = select i1 %28, double %95, double %96
-  %97 = tail call double @llvm.fabs.f64(double %.sink91.i)
+  %.sink94.i = select i1 %28, double %95, double %96
+  %97 = tail call double @llvm.fabs.f64(double %.sink94.i)
   %98 = fcmp ogt double %36, %97
   br i1 %98, label %99, label %102
 
@@ -2530,12 +2530,12 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   %99 = icmp eq i32 %.082.ph.lcssa, 1
   %100 = bitcast double %.079.ph.lcssa to i64
   %spec.select = select i1 %99, i64 %100, i64 %.0.ph.lcssa
-  %spec.select158 = select i1 %99, i32 5, i32 4
+  %spec.select164 = select i1 %99, i32 5, i32 4
   br label %.thread
 
 .thread:                                          ; preds = %98, %.thread105
   %.0.ph.lcssa.sink = phi i64 [ 0, %.thread105 ], [ %spec.select, %98 ]
-  %.sink = phi i32 [ 4, %.thread105 ], [ %spec.select158, %98 ]
+  %.sink = phi i32 [ 4, %.thread105 ], [ %spec.select164, %98 ]
   store i64 %.0.ph.lcssa.sink, ptr %2, align 8, !tbaa !11
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.sink, ptr %101, align 8, !tbaa !11
@@ -2969,7 +2969,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %6
   %26 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !11
   %.0.add.i = add nsw i64 %.0.idx.i, -1
-  %.ptr.i = getelementptr inbounds i8, ptr %19, i64 %.0.add.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %19, i64 %.0.add.i
   store i8 %27, ptr %.ptr.i, align 1, !tbaa !11
   %28 = lshr i64 %.017.i, 1
   %.not.i = icmp ult i64 %.017.i, 2
@@ -3065,7 +3065,7 @@ zend_string_alloc.exit:                           ; preds = %.critedge, %16
   %29 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !11
   %.0.add.i = add nsw i64 %.0.idx.i, -1
-  %.ptr.i = getelementptr inbounds i8, ptr %22, i64 %.0.add.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %.0.add.i
   store i8 %30, ptr %.ptr.i, align 1, !tbaa !11
   %31 = lshr i64 %.017.i, 3
   %.not.i = icmp ult i64 %.017.i, 8
@@ -3153,7 +3153,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %6
   %26 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !11
   %.0.add.i = add nsw i64 %.0.idx.i, -1
-  %.ptr.i = getelementptr inbounds i8, ptr %19, i64 %.0.add.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %19, i64 %.0.add.i
   store i8 %27, ptr %.ptr.i, align 1, !tbaa !11
   %28 = lshr i64 %.017.i, 4
   %.not.i = icmp ult i64 %.017.i, 16
@@ -3227,7 +3227,7 @@ zend_string_alloc.exit:                           ; preds = %thread-pre-split, %
   %22 = getelementptr inbounds nuw [37 x i8], ptr @_php_math_longtobase_pwr2.digits, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !11
   %.0.add.i = add nsw i64 %.0.idx.i, -1
-  %.ptr.i = getelementptr inbounds i8, ptr %15, i64 %.0.add.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0.add.i
   store i8 %23, ptr %.ptr.i, align 1, !tbaa !11
   %24 = lshr i64 %.017.i, 4
   %.not.i = icmp ult i64 %.017.i, 16

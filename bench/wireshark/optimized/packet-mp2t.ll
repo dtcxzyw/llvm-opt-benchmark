@@ -1310,9 +1310,9 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %438, %435, %303, %d
   %454 = icmp eq i32 %.pre.i.i, 0
   %455 = icmp ugt i32 %444, 3
   %or.cond.i.i = and i1 %455, %454
-  br i1 %or.cond.i.i, label %.thread322.i.i, label %._crit_edge.i.i
+  br i1 %or.cond.i.i, label %.thread336.i.i, label %._crit_edge.i.i
 
-.thread322.i.i:                                   ; preds = %453
+.thread336.i.i:                                   ; preds = %453
   %456 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.1.i)
   %457 = icmp eq i32 %456, 1
   %..i.i = select i1 %457, i32 2, i32 3
@@ -1323,8 +1323,8 @@ dissect_mp2t_adaptation_field.exit.i:             ; preds = %438, %435, %303, %d
   %458 = icmp eq i32 %.pre.i.i, 0
   br i1 %458, label %dissect_tsp.exit, label %459
 
-459:                                              ; preds = %._crit_edge.i.i, %.thread322.i.i
-  %460 = phi i32 [ %..i.i, %.thread322.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
+459:                                              ; preds = %._crit_edge.i.i, %.thread336.i.i
+  %460 = phi i32 [ %..i.i, %.thread336.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
   %.not.i123.i = icmp eq i32 %460, 2
   %or.cond257.i.i = or i1 %.not296.i.i, %.not.i123.i
   br i1 %or.cond257.i.i, label %471, label %461

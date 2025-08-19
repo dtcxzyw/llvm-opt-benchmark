@@ -3617,12 +3617,12 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit73:       ; preds = %237, %_ZN5Ipopt8Sma
   br i1 %270, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67.sink.split: ; preds = %266, %201
-  %.sink111 = phi ptr [ %9, %201 ], [ %265, %266 ]
+  %.sink125 = phi ptr [ %9, %201 ], [ %265, %266 ]
   %.pn21.pn.ph = phi { ptr, i32 } [ %202, %201 ], [ %.pn21, %266 ]
-  %271 = load ptr, ptr %.sink111, align 8, !tbaa !8
+  %271 = load ptr, ptr %.sink125, align 8, !tbaa !8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load ptr, ptr %272, align 8
-  call void %273(ptr noundef nonnull align 8 dereferenceable(280) %.sink111) #14
+  call void %273(ptr noundef nonnull align 8 dereferenceable(280) %.sink125) #14
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit67.sink.split, %266, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit73, %201
@@ -4812,12 +4812,12 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit143:      ; preds = %439, %_ZN5Ipopt8Sma
   br i1 %472, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137.sink.split, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137.sink.split: ; preds = %468, %347
-  %.sink217 = phi ptr [ %13, %347 ], [ %467, %468 ]
+  %.sink241 = phi ptr [ %13, %347 ], [ %467, %468 ]
   %.pn39.pn.ph = phi { ptr, i32 } [ %348, %347 ], [ %.pn39, %468 ]
-  %473 = load ptr, ptr %.sink217, align 8, !tbaa !8
+  %473 = load ptr, ptr %.sink241, align 8, !tbaa !8
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
   %475 = load ptr, ptr %474, align 8
-  call void %475(ptr noundef nonnull align 8 dereferenceable(280) %.sink217) #14
+  call void %475(ptr noundef nonnull align 8 dereferenceable(280) %.sink241) #14
   br label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137
 
 _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137: ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit137.sink.split, %468, %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit143, %347

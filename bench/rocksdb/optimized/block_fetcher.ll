@@ -852,19 +852,19 @@ _ZTWN7rocksdb10perf_levelE.exit.i119:             ; preds = %319, %317
   br label %_ZN7rocksdb13PerfStepTimer5StartEv.exit128
 
 334:                                              ; preds = %.noexc122, %325
-  %.ph441 = phi ptr [ %318, %325 ], [ %328, %.noexc122 ]
+  %.ph580 = phi ptr [ %318, %325 ], [ %328, %.noexc122 ]
   %335 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %.ph441, ptr %335, align 8, !tbaa !138
+  store ptr %.ph580, ptr %335, align 8, !tbaa !138
   %336 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %336, align 8, !tbaa !139
   %337 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %308, ptr %337, align 8, !tbaa !134
   %338 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %338, align 8, !tbaa !135
-  %339 = load ptr, ptr %.ph441, align 8, !tbaa !125
+  %339 = load ptr, ptr %.ph580, align 8, !tbaa !125
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 176
   %341 = load ptr, ptr %340, align 8
-  %342 = invoke noundef i64 %341(ptr noundef nonnull align 8 dereferenceable(32) %.ph441)
+  %342 = invoke noundef i64 %341(ptr noundef nonnull align 8 dereferenceable(32) %.ph580)
           to label %.noexc127 unwind label %391
 
 .noexc127:                                        ; preds = %334
@@ -1272,19 +1272,19 @@ _ZTWN7rocksdb10perf_levelE.exit.i169:             ; preds = %498, %496
   br label %_ZN7rocksdb13PerfStepTimer5StartEv.exit178
 
 513:                                              ; preds = %.noexc172, %504
-  %.ph445 = phi ptr [ %497, %504 ], [ %507, %.noexc172 ]
+  %.ph584 = phi ptr [ %497, %504 ], [ %507, %.noexc172 ]
   %514 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %.ph445, ptr %514, align 8, !tbaa !138
+  store ptr %.ph584, ptr %514, align 8, !tbaa !138
   %515 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %515, align 8, !tbaa !139
   %516 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %487, ptr %516, align 8, !tbaa !134
   %517 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %517, align 8, !tbaa !135
-  %518 = load ptr, ptr %.ph445, align 8, !tbaa !125
+  %518 = load ptr, ptr %.ph584, align 8, !tbaa !125
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 176
   %520 = load ptr, ptr %519, align 8
-  %521 = invoke noundef i64 %520(ptr noundef nonnull align 8 dereferenceable(32) %.ph445)
+  %521 = invoke noundef i64 %520(ptr noundef nonnull align 8 dereferenceable(32) %.ph584)
           to label %.noexc177 unwind label %571
 
 .noexc177:                                        ; preds = %513
@@ -1607,14 +1607,14 @@ _ZTWN7rocksdb10perf_levelE.exit213:               ; preds = %644, %645
   br i1 %.not.i214, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %649, %643, %637
-  %.sink464.ph = phi i64 [ 88, %637 ], [ 96, %643 ], [ 72, %649 ]
+  %.sink603.ph = phi i64 [ 88, %637 ], [ 96, %643 ], [ 72, %649 ]
   call void @_ZTHN7rocksdb12perf_contextE()
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %649, %643, %637
-  %.sink464 = phi i64 [ 88, %637 ], [ 96, %643 ], [ 72, %649 ], [ %.sink464.ph, %.sink.split.sink.split ]
+  %.sink603 = phi i64 [ 88, %637 ], [ 96, %643 ], [ 72, %649 ], [ %.sink603.ph, %.sink.split.sink.split ]
   %650 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  %651 = getelementptr inbounds nuw i8, ptr %650, i64 %.sink464
+  %651 = getelementptr inbounds nuw i8, ptr %650, i64 %.sink603
   %652 = load i64, ptr %651, align 8, !tbaa !195
   %653 = add i64 %652, 1
   store i64 %653, ptr %651, align 8, !tbaa !195

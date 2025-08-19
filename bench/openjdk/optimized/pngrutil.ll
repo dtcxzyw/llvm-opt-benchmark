@@ -2070,14 +2070,14 @@ define hidden void @png_handle_bKGD(ptr noalias noundef %0, ptr noalias noundef 
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
-  %.sink73.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %.sink73.sroa.gep77 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink73.sroa.gep78 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink73.sroa.gep79 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink76.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sink76.sroa.gep80 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %.sink76.sroa.gep81 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %.sink76.sroa.gep82 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.sink78.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.sink78.sroa.gep82 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink78.sroa.gep83 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink78.sroa.gep84 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink81.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sink81.sroa.gep85 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.sink81.sroa.gep86 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.sink81.sroa.gep87 = getelementptr inbounds nuw i8, ptr %5, i64 6
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
@@ -2295,12 +2295,12 @@ png_crc_read.exit:                                ; preds = %28
   br label %119
 
 119:                                              ; preds = %45, %60, %77, %100
-  %.sink76.sroa.phi = phi ptr [ %.sink76.sroa.gep, %77 ], [ %.sink76.sroa.gep80, %100 ], [ %.sink76.sroa.gep81, %60 ], [ %.sink76.sroa.gep82, %45 ]
-  %.sink74 = phi i16 [ %82, %77 ], [ %118, %100 ], [ 0, %60 ], [ %59, %45 ]
-  %.sink73.sroa.phi = phi ptr [ %.sink73.sroa.gep, %77 ], [ %.sink73.sroa.gep77, %100 ], [ %.sink73.sroa.gep78, %60 ], [ %.sink73.sroa.gep79, %45 ]
-  %.sink71 = phi i16 [ %82, %77 ], [ 0, %100 ], [ 0, %60 ], [ 0, %45 ]
-  store i16 %.sink74, ptr %.sink76.sroa.phi, align 2
-  store i16 %.sink71, ptr %.sink73.sroa.phi, align 2
+  %.sink81.sroa.phi = phi ptr [ %.sink81.sroa.gep, %77 ], [ %.sink81.sroa.gep85, %100 ], [ %.sink81.sroa.gep86, %60 ], [ %.sink81.sroa.gep87, %45 ]
+  %.sink79 = phi i16 [ %82, %77 ], [ %118, %100 ], [ 0, %60 ], [ %59, %45 ]
+  %.sink78.sroa.phi = phi ptr [ %.sink78.sroa.gep, %77 ], [ %.sink78.sroa.gep82, %100 ], [ %.sink78.sroa.gep83, %60 ], [ %.sink78.sroa.gep84, %45 ]
+  %.sink76 = phi i16 [ %82, %77 ], [ 0, %100 ], [ 0, %60 ], [ 0, %45 ]
+  store i16 %.sink79, ptr %.sink81.sroa.phi, align 2
+  store i16 %.sink76, ptr %.sink78.sroa.phi, align 2
   call void @png_set_bKGD(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5) #12
   br label %120
 

@@ -396,14 +396,14 @@ land.lhs.true65.i:                                ; preds = %for.end62.i
 
 if.end184.thread.i:                               ; preds = %land.lhs.true65.i
   %39 = load ptr, ptr %offp.i, align 8
-  %sub.ptr.lhs.cast173185.i = ptrtoint ptr %37 to i64
-  %sub.ptr.rhs.cast174186.i = ptrtoint ptr %39 to i64
-  %sub.ptr.sub175187.i = sub i64 %sub.ptr.lhs.cast173185.i, %sub.ptr.rhs.cast174186.i
-  store i64 %sub.ptr.sub175187.i, ptr %pmatch, align 8
-  %sub.ptr.lhs.cast179188.i = ptrtoint ptr %call55.lcssa.i to i64
-  %sub.ptr.sub181189.i = sub i64 %sub.ptr.lhs.cast179188.i, %sub.ptr.rhs.cast174186.i
-  %rm_eo183190.i = getelementptr inbounds nuw i8, ptr %pmatch, i64 8
-  store i64 %sub.ptr.sub181189.i, ptr %rm_eo183190.i, align 8
+  %sub.ptr.lhs.cast173189.i = ptrtoint ptr %37 to i64
+  %sub.ptr.rhs.cast174190.i = ptrtoint ptr %39 to i64
+  %sub.ptr.sub175191.i = sub i64 %sub.ptr.lhs.cast173189.i, %sub.ptr.rhs.cast174190.i
+  store i64 %sub.ptr.sub175191.i, ptr %pmatch, align 8
+  %sub.ptr.lhs.cast179192.i = ptrtoint ptr %call55.lcssa.i to i64
+  %sub.ptr.sub181193.i = sub i64 %sub.ptr.lhs.cast179192.i, %sub.ptr.rhs.cast174190.i
+  %rm_eo183194.i = getelementptr inbounds nuw i8, ptr %pmatch, i64 8
+  store i64 %sub.ptr.sub181193.i, ptr %rm_eo183194.i, align 8
   br label %if.end209.i
 
 if.end69.i:                                       ; preds = %land.lhs.true65.i, %for.end62.i
@@ -1610,25 +1610,25 @@ entry:
   %pmatch = getelementptr inbounds nuw i8, ptr %m, i64 16
   %offp = getelementptr inbounds nuw i8, ptr %m, i64 24
   %lastpos281 = getelementptr inbounds nuw i8, ptr %m, i64 56
-  %cmp277498502508 = icmp slt i64 %startst, %stopst
-  br i1 %cmp277498502508, label %for.body.lr.ph.lr.ph.lr.ph, label %if.then204
+  %cmp277499503509 = icmp slt i64 %startst, %stopst
+  br i1 %cmp277499503509, label %for.body.lr.ph.lr.ph.lr.ph, label %if.then204
 
 for.body.lr.ph.lr.ph.lr.ph:                       ; preds = %entry, %tailrecurse.outer.backedge
-  %rec.tr.ph512 = phi i32 [ %rec.tr.ph220505, %tailrecurse.outer.backedge ], [ %rec, %entry ]
-  %lev.tr.ph511 = phi i64 [ %lev.tr.ph.be, %tailrecurse.outer.backedge ], [ %lev, %entry ]
-  %startst.tr.ph510 = phi i64 [ %inc202349, %tailrecurse.outer.backedge ], [ %startst, %entry ]
-  %start.tr.ph509 = phi ptr [ %sp.0279, %tailrecurse.outer.backedge ], [ %start, %entry ]
+  %rec.tr.ph513 = phi i32 [ %rec.tr.ph220506, %tailrecurse.outer.backedge ], [ %rec, %entry ]
+  %lev.tr.ph512 = phi i64 [ %lev.tr.ph.be, %tailrecurse.outer.backedge ], [ %lev, %entry ]
+  %startst.tr.ph511 = phi i64 [ %inc202350, %tailrecurse.outer.backedge ], [ %startst, %entry ]
+  %start.tr.ph510 = phi ptr [ %sp.0279, %tailrecurse.outer.backedge ], [ %start, %entry ]
   br label %for.body.lr.ph.lr.ph
 
 for.body.lr.ph.lr.ph:                             ; preds = %for.body.lr.ph.lr.ph.lr.ph, %while.end
-  %rec.tr.ph220505 = phi i32 [ %rec.tr.ph512, %for.body.lr.ph.lr.ph.lr.ph ], [ %rec.addr.0, %while.end ]
-  %startst.tr.ph219504 = phi i64 [ %startst.tr.ph510, %for.body.lr.ph.lr.ph.lr.ph ], [ %inc259, %while.end ]
-  %start.tr.ph218503 = phi ptr [ %start.tr.ph509, %for.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr260, %while.end ]
+  %rec.tr.ph220506 = phi i32 [ %rec.tr.ph513, %for.body.lr.ph.lr.ph.lr.ph ], [ %rec.addr.0, %while.end ]
+  %startst.tr.ph219505 = phi i64 [ %startst.tr.ph511, %for.body.lr.ph.lr.ph.lr.ph ], [ %inc259, %while.end ]
+  %start.tr.ph218504 = phi ptr [ %start.tr.ph510, %for.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr260, %while.end ]
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.body.lr.ph.lr.ph, %if.end269
-  %startst.tr500 = phi i64 [ %startst.tr.ph219504, %for.body.lr.ph.lr.ph ], [ %add272, %if.end269 ]
-  %start.tr499 = phi ptr [ %start.tr.ph218503, %for.body.lr.ph.lr.ph ], [ %sp.0279, %if.end269 ]
+  %startst.tr501 = phi i64 [ %startst.tr.ph219505, %for.body.lr.ph.lr.ph ], [ %add272, %if.end269 ]
+  %start.tr500 = phi ptr [ %start.tr.ph218504, %for.body.lr.ph.lr.ph ], [ %sp.0279, %if.end269 ]
   %0 = load ptr, ptr %m, align 8
   %strip = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %strip, align 8
@@ -1637,8 +1637,8 @@ for.body.lr.ph:                                   ; preds = %for.body.lr.ph.lr.p
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %sp.0279 = phi ptr [ %start.tr499, %for.body.lr.ph ], [ %sp.1, %for.inc ]
-  %ss.0278 = phi i64 [ %startst.tr500, %for.body.lr.ph ], [ %inc202, %for.inc ]
+  %sp.0279 = phi ptr [ %start.tr500, %for.body.lr.ph ], [ %sp.1, %for.inc ]
+  %ss.0278 = phi i64 [ %startst.tr501, %for.body.lr.ph ], [ %inc202, %for.inc ]
   %arrayidx = getelementptr inbounds i64, ptr %1, i64 %ss.0278
   %2 = load i64, ptr %arrayidx, align 8
   %and = and i64 %2, 4160749568
@@ -1909,7 +1909,7 @@ if.then204:                                       ; preds = %tailrecurse.outer.b
   br label %return
 
 if.end209:                                        ; preds = %for.body
-  %inc202349 = add nsw i64 %ss.0278, 1
+  %inc202350 = add nsw i64 %ss.0278, 1
   %48 = load ptr, ptr %m, align 8
   %strip211 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %49 = load ptr, ptr %strip211, align 8
@@ -1944,12 +1944,12 @@ if.end222:                                        ; preds = %sw.bb214
   br i1 %cmp230, label %land.lhs.true232, label %if.end237
 
 land.lhs.true232:                                 ; preds = %if.end222
-  %inc233 = add nsw i32 %rec.tr.ph220505, 1
-  %cmp234 = icmp sgt i32 %rec.tr.ph220505, 100
+  %inc233 = add nsw i32 %rec.tr.ph220506, 1
+  %cmp234 = icmp sgt i32 %rec.tr.ph220506, 100
   br i1 %cmp234, label %return, label %if.end237
 
 if.end237:                                        ; preds = %land.lhs.true232, %if.end222
-  %rec.addr.0 = phi i32 [ %inc233, %land.lhs.true232 ], [ %rec.tr.ph220505, %if.end222 ]
+  %rec.addr.0 = phi i32 [ %inc233, %land.lhs.true232 ], [ %rec.tr.ph220506, %if.end222 ]
   %idx.neg = sub i64 0, %sub
   %add.ptr238 = getelementptr inbounds i8, ptr %stop, i64 %idx.neg
   %cmp239 = icmp ugt ptr %sp.0279, %add.ptr238
@@ -1976,60 +1976,60 @@ while.cond:                                       ; preds = %while.cond, %while.
 
 while.end:                                        ; preds = %while.cond
   %add.ptr260 = getelementptr inbounds i8, ptr %sp.0279, i64 %sub
-  %cmp277498 = icmp slt i64 %inc259, %stopst
-  br i1 %cmp277498, label %for.body.lr.ph.lr.ph, label %if.then204
+  %cmp277499 = icmp slt i64 %inc259, %stopst
+  br i1 %cmp277499, label %for.body.lr.ph.lr.ph, label %if.then204
 
 sw.bb263:                                         ; preds = %if.end209
-  %call265 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202349, i64 noundef %stopst, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call265 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202350, i64 noundef %stopst, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp266.not = icmp eq ptr %call265, null
   br i1 %cmp266.not, label %if.end269, label %return
 
 if.end269:                                        ; preds = %sw.bb263
   %and270 = and i64 %50, 134217727
-  %add272 = add i64 %and270, %inc202349
+  %add272 = add i64 %and270, %inc202350
   %cmp277 = icmp slt i64 %add272, %stopst
   br i1 %cmp277, label %for.body.lr.ph, label %if.then204
 
 sw.bb274:                                         ; preds = %if.end209
   %58 = load ptr, ptr %lastpos281, align 8
-  %add275 = add nsw i64 %lev.tr.ph511, 1
+  %add275 = add nsw i64 %lev.tr.ph512, 1
   %arrayidx276 = getelementptr inbounds ptr, ptr %58, i64 %add275
   store ptr %sp.0279, ptr %arrayidx276, align 8
   br label %tailrecurse.outer.backedge
 
 tailrecurse.outer.backedge:                       ; preds = %sw.bb274, %if.then285, %if.then298
   %lev.tr.ph.be = phi i64 [ %sub300, %if.then298 ], [ %sub287, %if.then285 ], [ %add275, %sw.bb274 ]
-  %cmp277498502 = icmp slt i64 %inc202349, %stopst
-  br i1 %cmp277498502, label %for.body.lr.ph.lr.ph.lr.ph, label %if.then204
+  %cmp277499503 = icmp slt i64 %inc202350, %stopst
+  br i1 %cmp277499503, label %for.body.lr.ph.lr.ph.lr.ph, label %if.then204
 
 sw.bb280:                                         ; preds = %if.end209
   %59 = load ptr, ptr %lastpos281, align 8
-  %arrayidx282 = getelementptr inbounds ptr, ptr %59, i64 %lev.tr.ph511
+  %arrayidx282 = getelementptr inbounds ptr, ptr %59, i64 %lev.tr.ph512
   %60 = load ptr, ptr %arrayidx282, align 8
   %cmp283 = icmp eq ptr %sp.0279, %60
   br i1 %cmp283, label %if.then285, label %if.end289
 
 if.then285:                                       ; preds = %sw.bb280
-  %sub287 = add nsw i64 %lev.tr.ph511, -1
+  %sub287 = add nsw i64 %lev.tr.ph512, -1
   br label %tailrecurse.outer.backedge
 
 if.end289:                                        ; preds = %sw.bb280
   store ptr %sp.0279, ptr %arrayidx282, align 8
   %and292 = and i64 %50, 134217727
-  %add294 = sub i64 %inc202349, %and292
-  %call295 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %add294, i64 noundef %stopst, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %add294 = sub i64 %inc202350, %and292
+  %call295 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %add294, i64 noundef %stopst, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp296 = icmp eq ptr %call295, null
   br i1 %cmp296, label %if.then298, label %return
 
 if.then298:                                       ; preds = %if.end289
-  %sub300 = add nsw i64 %lev.tr.ph511, -1
+  %sub300 = add nsw i64 %lev.tr.ph512, -1
   br label %tailrecurse.outer.backedge
 
 sw.bb303:                                         ; preds = %if.end209
   %and305 = and i64 %50, 134217727
   %add306 = add i64 %ss.0278, -1
   %sub307 = add i64 %add306, %and305
-  %call309282 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202349, i64 noundef %sub307, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call309282 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202350, i64 noundef %sub307, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp310.not283 = icmp eq ptr %call309282, null
   br i1 %cmp310.not283, label %if.end313, label %return
 
@@ -2057,7 +2057,7 @@ if.end321:                                        ; preds = %if.end313
   %cmp333 = icmp eq i64 %and332, 2281701376
   %dec336 = add i64 %and327, %esub.0284
   %spec.select = select i1 %cmp333, i64 %dec336, i64 %add328
-  %call309 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %add323, i64 noundef %spec.select, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call309 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %add323, i64 noundef %spec.select, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp310.not = icmp eq ptr %call309, null
   br i1 %cmp310.not, label %if.end313, label %return
 
@@ -2071,7 +2071,7 @@ sw.bb339:                                         ; preds = %if.end209
   %sub.ptr.rhs.cast = ptrtoint ptr %68 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %arrayidx344, align 8
-  %call352 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202349, i64 noundef %stopst, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call352 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202350, i64 noundef %stopst, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp353.not = icmp eq ptr %call352, null
   br i1 %cmp353.not, label %if.end356, label %return
 
@@ -2091,7 +2091,7 @@ sw.bb361:                                         ; preds = %if.end209
   %sub.ptr.rhs.cast370 = ptrtoint ptr %72 to i64
   %sub.ptr.sub371 = sub i64 %sub.ptr.lhs.cast369, %sub.ptr.rhs.cast370
   store i64 %sub.ptr.sub371, ptr %rm_eo367, align 8
-  %call377 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202349, i64 noundef %stopst, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call377 = tail call fastcc ptr @sbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202350, i64 noundef %stopst, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp378.not = icmp eq ptr %call377, null
   br i1 %cmp378.not, label %if.end381, label %return
 
@@ -2843,25 +2843,25 @@ entry:
   %pmatch = getelementptr inbounds nuw i8, ptr %m, i64 16
   %offp = getelementptr inbounds nuw i8, ptr %m, i64 24
   %lastpos281 = getelementptr inbounds nuw i8, ptr %m, i64 56
-  %cmp277498502508 = icmp slt i64 %startst, %stopst
-  br i1 %cmp277498502508, label %for.body.lr.ph.lr.ph.lr.ph, label %if.then204
+  %cmp277499503509 = icmp slt i64 %startst, %stopst
+  br i1 %cmp277499503509, label %for.body.lr.ph.lr.ph.lr.ph, label %if.then204
 
 for.body.lr.ph.lr.ph.lr.ph:                       ; preds = %entry, %tailrecurse.outer.backedge
-  %rec.tr.ph512 = phi i32 [ %rec.tr.ph220505, %tailrecurse.outer.backedge ], [ %rec, %entry ]
-  %lev.tr.ph511 = phi i64 [ %lev.tr.ph.be, %tailrecurse.outer.backedge ], [ %lev, %entry ]
-  %startst.tr.ph510 = phi i64 [ %inc202349, %tailrecurse.outer.backedge ], [ %startst, %entry ]
-  %start.tr.ph509 = phi ptr [ %sp.0279, %tailrecurse.outer.backedge ], [ %start, %entry ]
+  %rec.tr.ph513 = phi i32 [ %rec.tr.ph220506, %tailrecurse.outer.backedge ], [ %rec, %entry ]
+  %lev.tr.ph512 = phi i64 [ %lev.tr.ph.be, %tailrecurse.outer.backedge ], [ %lev, %entry ]
+  %startst.tr.ph511 = phi i64 [ %inc202350, %tailrecurse.outer.backedge ], [ %startst, %entry ]
+  %start.tr.ph510 = phi ptr [ %sp.0279, %tailrecurse.outer.backedge ], [ %start, %entry ]
   br label %for.body.lr.ph.lr.ph
 
 for.body.lr.ph.lr.ph:                             ; preds = %for.body.lr.ph.lr.ph.lr.ph, %while.end
-  %rec.tr.ph220505 = phi i32 [ %rec.tr.ph512, %for.body.lr.ph.lr.ph.lr.ph ], [ %rec.addr.0, %while.end ]
-  %startst.tr.ph219504 = phi i64 [ %startst.tr.ph510, %for.body.lr.ph.lr.ph.lr.ph ], [ %inc259, %while.end ]
-  %start.tr.ph218503 = phi ptr [ %start.tr.ph509, %for.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr260, %while.end ]
+  %rec.tr.ph220506 = phi i32 [ %rec.tr.ph513, %for.body.lr.ph.lr.ph.lr.ph ], [ %rec.addr.0, %while.end ]
+  %startst.tr.ph219505 = phi i64 [ %startst.tr.ph511, %for.body.lr.ph.lr.ph.lr.ph ], [ %inc259, %while.end ]
+  %start.tr.ph218504 = phi ptr [ %start.tr.ph510, %for.body.lr.ph.lr.ph.lr.ph ], [ %add.ptr260, %while.end ]
   br label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.body.lr.ph.lr.ph, %if.end269
-  %startst.tr500 = phi i64 [ %startst.tr.ph219504, %for.body.lr.ph.lr.ph ], [ %add272, %if.end269 ]
-  %start.tr499 = phi ptr [ %start.tr.ph218503, %for.body.lr.ph.lr.ph ], [ %sp.0279, %if.end269 ]
+  %startst.tr501 = phi i64 [ %startst.tr.ph219505, %for.body.lr.ph.lr.ph ], [ %add272, %if.end269 ]
+  %start.tr500 = phi ptr [ %start.tr.ph218504, %for.body.lr.ph.lr.ph ], [ %sp.0279, %if.end269 ]
   %0 = load ptr, ptr %m, align 8
   %strip = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %strip, align 8
@@ -2870,8 +2870,8 @@ for.body.lr.ph:                                   ; preds = %for.body.lr.ph.lr.p
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %sp.0279 = phi ptr [ %start.tr499, %for.body.lr.ph ], [ %sp.1, %for.inc ]
-  %ss.0278 = phi i64 [ %startst.tr500, %for.body.lr.ph ], [ %inc202, %for.inc ]
+  %sp.0279 = phi ptr [ %start.tr500, %for.body.lr.ph ], [ %sp.1, %for.inc ]
+  %ss.0278 = phi i64 [ %startst.tr501, %for.body.lr.ph ], [ %inc202, %for.inc ]
   %arrayidx = getelementptr inbounds i64, ptr %1, i64 %ss.0278
   %2 = load i64, ptr %arrayidx, align 8
   %and = and i64 %2, 4160749568
@@ -3142,7 +3142,7 @@ if.then204:                                       ; preds = %tailrecurse.outer.b
   br label %return
 
 if.end209:                                        ; preds = %for.body
-  %inc202349 = add nsw i64 %ss.0278, 1
+  %inc202350 = add nsw i64 %ss.0278, 1
   %48 = load ptr, ptr %m, align 8
   %strip211 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %49 = load ptr, ptr %strip211, align 8
@@ -3177,12 +3177,12 @@ if.end222:                                        ; preds = %sw.bb214
   br i1 %cmp230, label %land.lhs.true232, label %if.end237
 
 land.lhs.true232:                                 ; preds = %if.end222
-  %inc233 = add nsw i32 %rec.tr.ph220505, 1
-  %cmp234 = icmp sgt i32 %rec.tr.ph220505, 100
+  %inc233 = add nsw i32 %rec.tr.ph220506, 1
+  %cmp234 = icmp sgt i32 %rec.tr.ph220506, 100
   br i1 %cmp234, label %return, label %if.end237
 
 if.end237:                                        ; preds = %land.lhs.true232, %if.end222
-  %rec.addr.0 = phi i32 [ %inc233, %land.lhs.true232 ], [ %rec.tr.ph220505, %if.end222 ]
+  %rec.addr.0 = phi i32 [ %inc233, %land.lhs.true232 ], [ %rec.tr.ph220506, %if.end222 ]
   %idx.neg = sub i64 0, %sub
   %add.ptr238 = getelementptr inbounds i8, ptr %stop, i64 %idx.neg
   %cmp239 = icmp ugt ptr %sp.0279, %add.ptr238
@@ -3209,60 +3209,60 @@ while.cond:                                       ; preds = %while.cond, %while.
 
 while.end:                                        ; preds = %while.cond
   %add.ptr260 = getelementptr inbounds i8, ptr %sp.0279, i64 %sub
-  %cmp277498 = icmp slt i64 %inc259, %stopst
-  br i1 %cmp277498, label %for.body.lr.ph.lr.ph, label %if.then204
+  %cmp277499 = icmp slt i64 %inc259, %stopst
+  br i1 %cmp277499, label %for.body.lr.ph.lr.ph, label %if.then204
 
 sw.bb263:                                         ; preds = %if.end209
-  %call265 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202349, i64 noundef %stopst, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call265 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202350, i64 noundef %stopst, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp266.not = icmp eq ptr %call265, null
   br i1 %cmp266.not, label %if.end269, label %return
 
 if.end269:                                        ; preds = %sw.bb263
   %and270 = and i64 %50, 134217727
-  %add272 = add i64 %and270, %inc202349
+  %add272 = add i64 %and270, %inc202350
   %cmp277 = icmp slt i64 %add272, %stopst
   br i1 %cmp277, label %for.body.lr.ph, label %if.then204
 
 sw.bb274:                                         ; preds = %if.end209
   %58 = load ptr, ptr %lastpos281, align 8
-  %add275 = add nsw i64 %lev.tr.ph511, 1
+  %add275 = add nsw i64 %lev.tr.ph512, 1
   %arrayidx276 = getelementptr inbounds ptr, ptr %58, i64 %add275
   store ptr %sp.0279, ptr %arrayidx276, align 8
   br label %tailrecurse.outer.backedge
 
 tailrecurse.outer.backedge:                       ; preds = %sw.bb274, %if.then285, %if.then298
   %lev.tr.ph.be = phi i64 [ %sub300, %if.then298 ], [ %sub287, %if.then285 ], [ %add275, %sw.bb274 ]
-  %cmp277498502 = icmp slt i64 %inc202349, %stopst
-  br i1 %cmp277498502, label %for.body.lr.ph.lr.ph.lr.ph, label %if.then204
+  %cmp277499503 = icmp slt i64 %inc202350, %stopst
+  br i1 %cmp277499503, label %for.body.lr.ph.lr.ph.lr.ph, label %if.then204
 
 sw.bb280:                                         ; preds = %if.end209
   %59 = load ptr, ptr %lastpos281, align 8
-  %arrayidx282 = getelementptr inbounds ptr, ptr %59, i64 %lev.tr.ph511
+  %arrayidx282 = getelementptr inbounds ptr, ptr %59, i64 %lev.tr.ph512
   %60 = load ptr, ptr %arrayidx282, align 8
   %cmp283 = icmp eq ptr %sp.0279, %60
   br i1 %cmp283, label %if.then285, label %if.end289
 
 if.then285:                                       ; preds = %sw.bb280
-  %sub287 = add nsw i64 %lev.tr.ph511, -1
+  %sub287 = add nsw i64 %lev.tr.ph512, -1
   br label %tailrecurse.outer.backedge
 
 if.end289:                                        ; preds = %sw.bb280
   store ptr %sp.0279, ptr %arrayidx282, align 8
   %and292 = and i64 %50, 134217727
-  %add294 = sub i64 %inc202349, %and292
-  %call295 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %add294, i64 noundef %stopst, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %add294 = sub i64 %inc202350, %and292
+  %call295 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %add294, i64 noundef %stopst, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp296 = icmp eq ptr %call295, null
   br i1 %cmp296, label %if.then298, label %return
 
 if.then298:                                       ; preds = %if.end289
-  %sub300 = add nsw i64 %lev.tr.ph511, -1
+  %sub300 = add nsw i64 %lev.tr.ph512, -1
   br label %tailrecurse.outer.backedge
 
 sw.bb303:                                         ; preds = %if.end209
   %and305 = and i64 %50, 134217727
   %add306 = add i64 %ss.0278, -1
   %sub307 = add i64 %add306, %and305
-  %call309282 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202349, i64 noundef %sub307, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call309282 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202350, i64 noundef %sub307, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp310.not283 = icmp eq ptr %call309282, null
   br i1 %cmp310.not283, label %if.end313, label %return
 
@@ -3290,7 +3290,7 @@ if.end321:                                        ; preds = %if.end313
   %cmp333 = icmp eq i64 %and332, 2281701376
   %dec336 = add i64 %and327, %esub.0284
   %spec.select = select i1 %cmp333, i64 %dec336, i64 %add328
-  %call309 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %add323, i64 noundef %spec.select, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call309 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %add323, i64 noundef %spec.select, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp310.not = icmp eq ptr %call309, null
   br i1 %cmp310.not, label %if.end313, label %return
 
@@ -3304,7 +3304,7 @@ sw.bb339:                                         ; preds = %if.end209
   %sub.ptr.rhs.cast = ptrtoint ptr %68 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %arrayidx344, align 8
-  %call352 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202349, i64 noundef %stopst, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call352 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202350, i64 noundef %stopst, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp353.not = icmp eq ptr %call352, null
   br i1 %cmp353.not, label %if.end356, label %return
 
@@ -3324,7 +3324,7 @@ sw.bb361:                                         ; preds = %if.end209
   %sub.ptr.rhs.cast370 = ptrtoint ptr %72 to i64
   %sub.ptr.sub371 = sub i64 %sub.ptr.lhs.cast369, %sub.ptr.rhs.cast370
   store i64 %sub.ptr.sub371, ptr %rm_eo367, align 8
-  %call377 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202349, i64 noundef %stopst, i64 noundef %lev.tr.ph511, i32 noundef %rec.tr.ph220505)
+  %call377 = tail call fastcc ptr @lbackref(ptr noundef %m, ptr noundef %sp.0279, ptr noundef %stop, i64 noundef %inc202350, i64 noundef %stopst, i64 noundef %lev.tr.ph512, i32 noundef %rec.tr.ph220506)
   %cmp378.not = icmp eq ptr %call377, null
   br i1 %cmp378.not, label %if.end381, label %return
 

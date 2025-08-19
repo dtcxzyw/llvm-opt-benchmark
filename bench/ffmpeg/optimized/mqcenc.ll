@@ -135,10 +135,10 @@ define void @ff_mqc_encode(ptr noundef captures(none) %0, ptr noundef captures(n
   br label %byteout.exit.i
 
 byteout.exit.i:                                   ; preds = %58, %._crit_edge.i.i
-  %.sink26.i = phi i32 [ 1048575, %._crit_edge.i.i ], [ 524287, %58 ]
+  %.sink28.i = phi i32 [ 1048575, %._crit_edge.i.i ], [ 524287, %58 ]
   %.sink.i.i = phi i32 [ 7, %._crit_edge.i.i ], [ 8, %58 ]
   %62 = load i32, ptr %30, align 4, !tbaa !11
-  %63 = and i32 %62, %.sink26.i
+  %63 = and i32 %62, %.sink28.i
   store i32 %63, ptr %30, align 4, !tbaa !11
   store i32 %.sink.i.i, ptr %31, align 8, !tbaa !15
   %.pre20.i = load i32, ptr %9, align 8, !tbaa !4
@@ -244,10 +244,10 @@ byteout.exit.i:                                   ; preds = %58, %._crit_edge.i.
   br label %byteout.exit.i34
 
 byteout.exit.i34:                                 ; preds = %113, %._crit_edge.i.i32
-  %.sink26.i35 = phi i32 [ 1048575, %._crit_edge.i.i32 ], [ 524287, %113 ]
+  %.sink28.i35 = phi i32 [ 1048575, %._crit_edge.i.i32 ], [ 524287, %113 ]
   %.sink.i.i36 = phi i32 [ 7, %._crit_edge.i.i32 ], [ 8, %113 ]
   %117 = load i32, ptr %85, align 4, !tbaa !11
-  %118 = and i32 %117, %.sink26.i35
+  %118 = and i32 %117, %.sink28.i35
   store i32 %118, ptr %85, align 4, !tbaa !11
   store i32 %.sink.i.i36, ptr %86, align 8, !tbaa !15
   %.pre20.i37 = load i32, ptr %9, align 8, !tbaa !4
@@ -322,9 +322,9 @@ byteout.exit.i:                                   ; preds = %20, %._crit_edge.i.
   %24 = phi i8 [ %23, %20 ], [ %14, %._crit_edge.i.i ]
   %.sroa.18.2 = phi i32 [ %.sroa.18.0, %20 ], [ %.sroa.18.1, %._crit_edge.i.i ]
   %.sroa.0.0 = phi ptr [ %21, %20 ], [ %12, %._crit_edge.i.i ]
-  %.sink56.i = phi i32 [ 524287, %20 ], [ 1048575, %._crit_edge.i.i ]
+  %.sink59.i = phi i32 [ 524287, %20 ], [ 1048575, %._crit_edge.i.i ]
   %.sink.i.i = phi i32 [ 8, %20 ], [ 7, %._crit_edge.i.i ]
-  %25 = and i32 %.sink56.i, %.sroa.18.2
+  %25 = and i32 %.sink59.i, %.sroa.18.2
   %26 = shl nuw nsw i32 %25, %.sink.i.i
   %27 = icmp eq i8 %24, -1
   br i1 %27, label %._crit_edge.i18.i, label %.lr.ph.i16.i.preheader

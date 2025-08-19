@@ -300,10 +300,10 @@ define internal void @SDL_DrawLine1(ptr noundef readonly captures(none) %0, i32 
   br label %.lr.ph245
 
 .lr.ph245:                                        ; preds = %50, %56
-  %.sink252 = phi i32 [ %55, %50 ], [ %62, %56 ]
+  %.sink264 = phi i32 [ %55, %50 ], [ %62, %56 ]
   %.0194 = phi ptr [ %54, %50 ], [ %.1195, %56 ]
   %63 = zext i1 %6 to i32
-  %64 = add nuw nsw i32 %.sink252, %63
+  %64 = add nuw nsw i32 %.sink264, %63
   %65 = trunc i32 %5 to i8
   %66 = sext i32 %46 to i64
   br label %67
@@ -563,10 +563,10 @@ define internal void @SDL_DrawLine2(ptr noundef readonly captures(none) %0, i32 
   br label %.lr.ph449
 
 .lr.ph449:                                        ; preds = %56, %62
-  %.sink468 = phi i32 [ %61, %56 ], [ %68, %62 ]
+  %.sink488 = phi i32 [ %61, %56 ], [ %68, %62 ]
   %.0333 = phi ptr [ %60, %56 ], [ %.1334, %62 ]
   %69 = zext i1 %6 to i32
-  %70 = add nuw nsw i32 %.sink468, %69
+  %70 = add nuw nsw i32 %.sink488, %69
   %71 = trunc i32 %5 to i16
   %72 = sext i32 %52 to i64
   br label %73
@@ -981,10 +981,10 @@ define internal void @SDL_DrawLine4(ptr noundef readonly captures(none) %0, i32 
   br label %.lr.ph449
 
 .lr.ph449:                                        ; preds = %54, %60
-  %.sink468 = phi i32 [ %59, %54 ], [ %66, %60 ]
+  %.sink488 = phi i32 [ %59, %54 ], [ %66, %60 ]
   %.0333 = phi ptr [ %58, %54 ], [ %.1334, %60 ]
   %67 = zext i1 %6 to i32
-  %68 = add nuw nsw i32 %.sink468, %67
+  %68 = add nuw nsw i32 %.sink488, %67
   %69 = sext i32 %50 to i64
   br label %70
 

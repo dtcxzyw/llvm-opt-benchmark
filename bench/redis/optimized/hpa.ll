@@ -460,8 +460,8 @@ select.unfold:                                    ; preds = %.lr.ph, %select.unf
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = load ptr, ptr %2, align 8, !tbaa !61
   %.not27 = icmp eq ptr %15, %16
-  %.not39 = icmp eq ptr %15, null
-  %.not = or i1 %.not27, %.not39
+  %.not44 = icmp eq ptr %15, null
+  %.not = or i1 %.not27, %.not44
   br i1 %.not, label %select.unfold._crit_edge, label %select.unfold
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %4

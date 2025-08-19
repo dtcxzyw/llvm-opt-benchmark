@@ -1612,19 +1612,19 @@ recode_subtitle.exit:                             ; preds = %76, %51, %55
   %130 = load i32, ptr %129, align 8, !tbaa !122
   %131 = and i32 %130, 65536
   %.not84 = icmp eq i32 %131, 0
-  br i1 %.not84, label %132, label %.sink.split127
+  br i1 %.not84, label %132, label %.sink.split139
 
 132:                                              ; preds = %126
   %133 = and i32 %130, 131072
   %.not85 = icmp eq i32 %133, 0
-  br i1 %.not85, label %134, label %.sink.split127
+  br i1 %.not85, label %134, label %.sink.split139
 
-.sink.split127:                                   ; preds = %132, %126
+.sink.split139:                                   ; preds = %132, %126
   %.sink = phi i16 [ 0, %126 ], [ 1, %132 ]
   store i16 %.sink, ptr %1, align 8, !tbaa !124
   br label %134
 
-134:                                              ; preds = %.sink.split127, %132
+134:                                              ; preds = %.sink.split139, %132
   br i1 %.not80, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %134
@@ -2063,7 +2063,7 @@ define i32 @avcodec_get_hw_frames_parameters(ptr noundef %0, ptr noundef %1, i32
   %42 = load ptr, ptr %21, align 8, !tbaa !166
   %43 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef nonnull %24) #10
   %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %45, label %.thread46
+  br i1 %44, label %45, label %.thread53
 
 45:                                               ; preds = %.thread, %38
   %46 = phi i32 [ %43, %.thread ], [ %40, %38 ]
@@ -2108,15 +2108,15 @@ define i32 @avcodec_get_hw_frames_parameters(ptr noundef %0, ptr noundef %1, i32
   %68 = load ptr, ptr %26, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 112
   tail call void @av_freep(ptr noundef nonnull %69) #10
-  br label %.thread46
+  br label %.thread53
 
-.thread46:                                        ; preds = %.thread, %67
+.thread53:                                        ; preds = %.thread, %67
   %70 = phi i32 [ %40, %67 ], [ %43, %.thread ]
   call void @av_buffer_unref(ptr noundef nonnull %5) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %4, %66, %.thread46, %23, %17, %20, %37
-  %.0 = phi i32 [ -12, %37 ], [ -2, %20 ], [ -2, %17 ], [ -12, %23 ], [ %70, %.thread46 ], [ %46, %66 ], [ -2, %4 ], [ -2, %11 ]
+.loopexit:                                        ; preds = %11, %4, %66, %.thread53, %23, %17, %20, %37
+  %.0 = phi i32 [ -12, %37 ], [ -2, %20 ], [ -2, %17 ], [ -12, %23 ], [ %70, %.thread53 ], [ %46, %66 ], [ -2, %4 ], [ -2, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -3521,7 +3521,7 @@ define i32 @ff_reget_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %28 = load i32, ptr %27, align 8, !tbaa !228
   %.not36.i = icmp eq i32 %26, %28
-  br i1 %.not36.i, label %.thread43.i, label %._crit_edge.i
+  br i1 %.not36.i, label %.thread47.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %24, %21, %14
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -3537,13 +3537,13 @@ define i32 @ff_reget_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   tail call void @av_frame_unref(ptr noundef nonnull %1) #10
   %.pr.pre.i = load ptr, ptr %1, align 8, !tbaa !116
   %38 = icmp eq ptr %.pr.pre.i, null
-  br i1 %38, label %.thread.i, label %.thread43.i
+  br i1 %38, label %.thread.i, label %.thread47.i
 
 .thread.i:                                        ; preds = %._crit_edge.i, %9
   %39 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1)
   br label %reget_buffer_internal.exit
 
-.thread43.i:                                      ; preds = %._crit_edge.i, %24
+.thread47.i:                                      ; preds = %._crit_edge.i, %24
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 272
   tail call void @av_frame_side_data_free(ptr noundef nonnull %40, ptr noundef nonnull %41) #10
@@ -3551,12 +3551,12 @@ define i32 @ff_reget_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   %.not38.i = icmp eq i32 %42, 0
   br i1 %.not38.i, label %43, label %45
 
-43:                                               ; preds = %.thread43.i
+43:                                               ; preds = %.thread47.i
   %44 = tail call i32 @av_frame_is_writable(ptr noundef nonnull %1) #10
   %.not39.i = icmp eq i32 %44, 0
   br i1 %.not39.i, label %47, label %45
 
-45:                                               ; preds = %43, %.thread43.i
+45:                                               ; preds = %43, %.thread47.i
   %46 = tail call i32 @ff_decode_frame_props(ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %reget_buffer_internal.exit
 

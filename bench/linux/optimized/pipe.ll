@@ -1145,13 +1145,13 @@ define internal i64 @pipe_read(ptr noundef readonly captures(none) %0, ptr nound
 
 .thread27.outer:                                  ; preds = %.critedge, %10
   %27 = phi i1 [ false, %.critedge ], [ true, %10 ]
-  %.ph98.in = phi i1 [ %149, %.critedge ], [ %18, %10 ]
-  %.ph99 = phi i64 [ %102, %.critedge ], [ %5, %10 ]
+  %.ph109.in = phi i1 [ %149, %.critedge ], [ %18, %10 ]
+  %.ph110 = phi i64 [ %102, %.critedge ], [ %5, %10 ]
   br label %.thread27
 
 .thread27:                                        ; preds = %.thread27.backedge, %.thread27.outer
   %28 = phi i64 [ 0, %.thread27.outer ], [ %75, %.thread27.backedge ]
-  %29 = phi i64 [ %.ph99, %.thread27.outer ], [ %.be, %.thread27.backedge ]
+  %29 = phi i64 [ %.ph110, %.thread27.outer ], [ %.be, %.thread27.backedge ]
   %30 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
   %31 = load i32, ptr %13, align 4
@@ -1283,7 +1283,7 @@ define internal i64 @pipe_read(ptr noundef readonly captures(none) %0, ptr nound
 
 115:                                              ; preds = %111
   call void @mutex_unlock(ptr noundef %8) #15
-  br i1 %.ph98.in, label %116, label %117, !prof !6
+  br i1 %.ph109.in, label %116, label %117, !prof !6
 
 116:                                              ; preds = %115
   call void @__wake_up_sync_key(ptr noundef nonnull %24, i32 noundef 1, ptr noundef nonnull inttoptr (i64 260 to ptr)) #15
@@ -1355,7 +1355,7 @@ define internal i64 @pipe_read(ptr noundef readonly captures(none) %0, ptr nound
   %152 = load i32, ptr %13, align 4
   %153 = icmp eq i32 %151, %152
   call void @mutex_unlock(ptr noundef %8) #15
-  br i1 %.ph98.in, label %154, label %155
+  br i1 %.ph109.in, label %154, label %155
 
 154:                                              ; preds = %.thread20
   call void @__wake_up_sync_key(ptr noundef nonnull %24, i32 noundef 1, ptr noundef nonnull inttoptr (i64 260 to ptr)) #15
@@ -1523,7 +1523,7 @@ define internal i64 @pipe_write(ptr noundef readonly captures(none) %0, ptr noun
   %94 = load i32, ptr %71, align 8
   %95 = sub i32 %93, %89
   %96 = icmp ult i32 %95, %94
-  br i1 %96, label %97, label %.thread71
+  br i1 %96, label %97, label %.thread82
 
 97:                                               ; preds = %88
   %98 = load i32, ptr %72, align 4
@@ -1597,22 +1597,22 @@ define internal i64 @pipe_write(ptr noundef readonly captures(none) %0, ptr noun
   %.pre69 = load i32, ptr %71, align 8
   %.pre70 = sub i32 %93, %.pre68
   %139 = icmp ult i32 %.pre70, %.pre69
-  br i1 %139, label %200, label %.thread71
+  br i1 %139, label %200, label %.thread82
 
-.thread71:                                        ; preds = %88, %138
+.thread82:                                        ; preds = %88, %138
   %140 = phi i64 [ %136, %138 ], [ %92, %88 ]
   %141 = load i32, ptr %75, align 8
   %142 = and i32 %141, 2048
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %148
 
-144:                                              ; preds = %.thread71
+144:                                              ; preds = %.thread82
   %145 = load i32, ptr %76, align 8
   %146 = and i32 %145, 8
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %151, label %148
 
-148:                                              ; preds = %144, %.thread71
+148:                                              ; preds = %144, %.thread82
   %149 = icmp eq i64 %140, 0
   %150 = select i1 %149, i64 -11, i64 %140
   br label %.thread11
@@ -2068,7 +2068,7 @@ define internal noundef range(i32 -512, 1) i32 @fifo_open(ptr noundef %0, ptr no
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 3
-  switch i32 %36, label %default.unreachable3 [
+  switch i32 %36, label %default.unreachable5 [
     i32 1, label %37
     i32 2, label %65
     i32 3, label %95
@@ -2220,7 +2220,7 @@ define internal noundef range(i32 -512, 1) i32 @fifo_open(ptr noundef %0, ptr no
   %127 = tail call i32 @__wake_up(ptr noundef nonnull %126, i32 noundef 1, i32 noundef %125, ptr noundef null) #15
   br label %128
 
-default.unreachable3:                             ; preds = %30
+default.unreachable5:                             ; preds = %30
   unreachable
 
 128:                                              ; preds = %30, %123, %119, %115, %71

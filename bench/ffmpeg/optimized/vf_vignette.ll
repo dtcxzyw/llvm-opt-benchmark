@@ -717,10 +717,10 @@ define internal fastcc void @update_context(ptr noundef initializes((112, 128), 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16, %8, %24
-  %.sink91 = phi double [ 0x7FF8000000000000, %24 ], [ %23, %16 ], [ 0x7FF8000000000000, %8 ]
+  %.sink100 = phi double [ 0x7FF8000000000000, %24 ], [ %23, %16 ], [ 0x7FF8000000000000, %8 ]
   %.sink = phi double [ 0x7FF8000000000000, %24 ], [ %17, %16 ], [ 0x7FF8000000000000, %8 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double %.sink91, ptr %26, align 8, !tbaa !71
+  store double %.sink100, ptr %26, align 8, !tbaa !71
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %.sink, ptr %27, align 8, !tbaa !71
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -745,8 +745,8 @@ define internal fastcc void @update_context(ptr noundef initializes((112, 128), 
   %or.cond = select i1 %42, i1 true, i1 %43
   %.pre.pre = load double, ptr %32, align 8, !tbaa !84
   %44 = fcmp uno double %.pre.pre, 0.000000e+00
-  %or.cond93 = select i1 %or.cond, i1 true, i1 %44
-  br i1 %or.cond93, label %45, label %47
+  %or.cond102 = select i1 %or.cond, i1 true, i1 %44
+  br i1 %or.cond102, label %45, label %47
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 20

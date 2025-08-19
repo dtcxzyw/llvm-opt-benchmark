@@ -889,7 +889,7 @@ define internal fastcc i32 @ImportYUVAFromRGBA(ptr noundef nonnull %0, ptr nound
   br i1 %25, label %19, label %CheckNonOpaque.exit, !llvm.loop !17
 
 CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
-  %.not334 = phi i1 [ true, %9 ], [ true, %16 ], [ %.not.i, %19 ], [ %.not.i, %22 ]
+  %.not342 = phi i1 [ true, %9 ], [ true, %16 ], [ %.not.i, %19 ], [ %.not.i, %22 ]
   %26 = phi i32 [ 0, %9 ], [ 0, %16 ], [ 0, %22 ], [ 4, %19 ]
   %27 = icmp ult ptr %0, %2
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -930,13 +930,13 @@ CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
 PreprocessARGB.exit:                              ; preds = %34
   %49 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %8, i32 noundef 1) #9
   %.not209 = icmp eq i32 %49, 0
-  %brmerge = or i1 %.not334, %.not209
+  %brmerge = or i1 %.not342, %.not209
   %not..not209 = xor i1 %.not209, true
   %.mux = zext i1 %not..not209 to i32
   br i1 %brmerge, label %491, label %50
 
 PreprocessARGB.exit.thread:                       ; preds = %34
-  br i1 %.not334, label %491, label %50
+  br i1 %.not342, label %491, label %50
 
 50:                                               ; preds = %PreprocessARGB.exit, %PreprocessARGB.exit.thread
   %51 = load ptr, ptr @WebPExtractAlpha, align 8, !tbaa !16
@@ -1050,7 +1050,7 @@ InitGammaTables.exit:                             ; preds = %73, %InitGammaTable
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %106 = shl nsw i32 %5, 1
   %107 = sext i32 %106 to i64
-  %spec.select210.idx = select i1 %.not334, i64 0, i64 %107
+  %spec.select210.idx = select i1 %.not342, i64 0, i64 %107
   %WebPConvertRGB24ToY.WebPConvertBGR24ToY = select i1 %27, ptr @WebPConvertRGB24ToY, ptr @WebPConvertBGR24ToY
   br label %109
 
@@ -1274,7 +1274,7 @@ ConvertRowToY.exit231:                            ; preds = %RGBToY.exit.i217, %
   %246 = shl nsw i32 %245, 1
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds i8, ptr %.0184314, i64 %247
-  br i1 %.not334, label %.thread, label %249
+  br i1 %.not342, label %.thread, label %249
 
 249:                                              ; preds = %ConvertRowToY.exit231
   %250 = load ptr, ptr @WebPExtractAlpha, align 8, !tbaa !16
@@ -1532,7 +1532,7 @@ RGBToY.exit.i240:                                 ; preds = %.lr.ph.i238, %RGBTo
   br i1 %exitcond.not.i247, label %ConvertRowToY.exit254, label %RGBToY.exit.i240, !llvm.loop !40
 
 ConvertRowToY.exit254:                            ; preds = %RGBToY.exit.i240, %RGBToY.exit.us.i248, %ConvertRowToY.exit254.sink.split, %346
-  br i1 %.not334, label %.critedge, label %408
+  br i1 %.not342, label %.critedge, label %408
 
 408:                                              ; preds = %ConvertRowToY.exit254
   %409 = load ptr, ptr @WebPExtractAlpha, align 8, !tbaa !16
@@ -2235,15 +2235,15 @@ define internal fastcc void @AccumulateRGBA(ptr noundef nonnull readonly capture
   br label %272
 
 272:                                              ; preds = %140, %29
-  %.sink152 = phi i32 [ %270, %140 ], [ %138, %29 ]
-  %.sink151 = phi i32 [ %271, %140 ], [ %139, %29 ]
+  %.sink154 = phi i32 [ %270, %140 ], [ %138, %29 ]
+  %.sink153 = phi i32 [ %271, %140 ], [ %139, %29 ]
   %.0129.in = phi i32 [ %190, %140 ], [ %70, %29 ]
   %.0128.in = phi i32 [ %237, %140 ], [ %111, %29 ]
-  %273 = and i32 %.sink152, 511
-  %274 = zext nneg i32 %.sink151 to i64
+  %273 = and i32 %.sink154, 511
+  %274 = zext nneg i32 %.sink153 to i64
   %275 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %274
   %276 = load i32, ptr %275, align 4, !tbaa !29
-  %277 = add nuw nsw i32 %.sink151, 1
+  %277 = add nuw nsw i32 %.sink153, 1
   %278 = zext nneg i32 %277 to i64
   %279 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !29
@@ -2464,14 +2464,14 @@ define internal fastcc void @AccumulateRGBA(ptr noundef nonnull readonly capture
   br label %468
 
 468:                                              ; preds = %380, %307
-  %.sink164 = phi i32 [ %466, %380 ], [ %378, %307 ]
+  %.sink166 = phi i32 [ %466, %380 ], [ %378, %307 ]
   %.sink = phi i32 [ %467, %380 ], [ %379, %307 ]
   %.0125.in = phi i32 [ %415, %380 ], [ %335, %307 ]
   %.0124.in = phi i32 [ %447, %380 ], [ %363, %307 ]
-  %469 = zext nneg i32 %.sink164 to i64
+  %469 = zext nneg i32 %.sink166 to i64
   %470 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %469
   %471 = load i32, ptr %470, align 4, !tbaa !29
-  %472 = add nuw nsw i32 %.sink164, 1
+  %472 = add nuw nsw i32 %.sink166, 1
   %473 = zext nneg i32 %472 to i64
   %474 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %473
   %475 = load i32, ptr %474, align 4, !tbaa !29

@@ -1276,9 +1276,9 @@ define internal fastcc void @UpdateModel(ptr noundef %0) unnamed_addr #7 {
   br label %405
 
 .thread244.sink.split:                            ; preds = %108, %190
-  %.sink303 = phi ptr [ %192, %190 ], [ %.061.i, %108 ]
+  %.sink326 = phi ptr [ %192, %190 ], [ %.061.i, %108 ]
   %193 = load ptr, ptr %87, align 8, !tbaa !4
-  %194 = ptrtoint ptr %.sink303 to i64
+  %194 = ptrtoint ptr %.sink326 to i64
   %195 = ptrtoint ptr %193 to i64
   %196 = sub i64 %194, %195
   %197 = trunc i64 %196 to i32

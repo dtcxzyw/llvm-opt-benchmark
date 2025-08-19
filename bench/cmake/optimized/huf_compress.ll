@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.nodeElt_s = type { i32, i16, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i64 -119, 128) i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = ptrtoint ptr %5 to i64
@@ -831,8 +831,8 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
 
 .thread112.i:                                     ; preds = %205, %.lr.ph128.i
   %213 = and i64 %indvars.iv.next167.i, 4294967294
-  %.not178.i = icmp eq i64 %213, 0
-  br i1 %.not178.i, label %.lr.ph135.i.preheader, label %.lr.ph128.i, !llvm.loop !42
+  %.not191.i = icmp eq i64 %213, 0
+  br i1 %.not191.i, label %.lr.ph135.i.preheader, label %.lr.ph128.i, !llvm.loop !42
 
 .thread.i:                                        ; preds = %205, %203
   %214 = trunc nuw i64 %indvars.iv166.i to i32
@@ -848,19 +848,19 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %216 = getelementptr inbounds nuw [14 x i32], ptr %9, i64 0, i64 %indvars.iv169.i
   %217 = load i32, ptr %216, align 4, !tbaa !12
   %218 = icmp eq i32 %217, -252645136
-  br i1 %218, label %219, label %.critedge.loopexit.split.loop.exit185.i
+  br i1 %218, label %219, label %.critedge.loopexit.split.loop.exit198.i
 
 219:                                              ; preds = %.lr.ph135.i
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next170.i, 13
   br i1 %exitcond.not.i34, label %.critedge.i, label %.lr.ph135.i, !llvm.loop !43
 
-.critedge.loopexit.split.loop.exit185.i:          ; preds = %.lr.ph135.i
+.critedge.loopexit.split.loop.exit198.i:          ; preds = %.lr.ph135.i
   %220 = trunc nuw nsw i64 %indvars.iv169.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %219, %.critedge.loopexit.split.loop.exit185.i, %.thread.i
-  %.192.lcssa.i = phi i32 [ %214, %.thread.i ], [ %220, %.critedge.loopexit.split.loop.exit185.i ], [ 13, %219 ]
+.critedge.i:                                      ; preds = %219, %.critedge.loopexit.split.loop.exit198.i, %.thread.i
+  %.192.lcssa.i = phi i32 [ %214, %.thread.i ], [ %220, %.critedge.loopexit.split.loop.exit198.i ], [ 13, %219 ]
   %221 = add nsw i32 %.192.lcssa.i, -1
   %.neg.i = shl nsw i32 -1, %221
   %222 = add nsw i32 %.neg.i, %.187139.i
@@ -909,8 +909,8 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   br i1 %248, label %.preheader.i32, label %266
 
 .preheader.i32:                                   ; preds = %246
-  %sext179.i = shl i64 %.290.ph147.i, 32
-  %249 = ashr exact i64 %sext179.i, 32
+  %sext192.i = shl i64 %.290.ph147.i, 32
+  %249 = ashr exact i64 %sext192.i, 32
   br label %250
 
 250:                                              ; preds = %250, %.preheader.i32
@@ -953,7 +953,7 @@ HUF_buildTree.exit:                               ; preds = %.lr.ph103.i, %.preh
   %271 = load i8, ptr %270, align 1, !tbaa !36
   %272 = add i8 %271, -1
   store i8 %272, ptr %270, align 1, !tbaa !36
-  %273 = add nuw i32 %.2142.i, 1
+  %273 = add nuw nsw i32 %.2142.i, 1
   %exitcond173.not.i = icmp eq i32 %.2142.i, -1
   br i1 %exitcond173.not.i, label %.outer._crit_edge.i, label %246, !llvm.loop !46
 
@@ -1189,8 +1189,8 @@ define internal fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef %0, 
   br i1 %23, label %.preheader582.preheader, label %HUF_flushBits.exit
 
 .preheader582.preheader:                          ; preds = %21
-  %sext962 = shl i64 %3, 32
-  %24 = ashr exact i64 %sext962, 32
+  %sext970 = shl i64 %3, 32
+  %24 = ashr exact i64 %sext970, 32
   br label %.preheader582
 
 .preheader582:                                    ; preds = %.preheader582.preheader, %.preheader582
@@ -1403,8 +1403,8 @@ HUF_flushBits.exit66:                             ; preds = %105
   br i1 %146, label %.preheader590.preheader, label %168
 
 .preheader590.preheader:                          ; preds = %144
-  %sext960 = shl i64 %3, 32
-  %147 = ashr exact i64 %sext960, 32
+  %sext968 = shl i64 %3, 32
+  %147 = ashr exact i64 %sext968, 32
   br label %.preheader590
 
 .preheader590:                                    ; preds = %.preheader590.preheader, %.preheader590
@@ -1600,8 +1600,8 @@ HUF_flushBits.exit66:                             ; preds = %105
   br i1 %268, label %.preheader594.preheader, label %290
 
 .preheader594.preheader:                          ; preds = %266
-  %sext959 = shl i64 %3, 32
-  %269 = ashr exact i64 %sext959, 32
+  %sext967 = shl i64 %3, 32
+  %269 = ashr exact i64 %sext967, 32
   br label %.preheader594
 
 .preheader594:                                    ; preds = %.preheader594.preheader, %.preheader594
@@ -1794,8 +1794,8 @@ HUF_flushBits.exit66:                             ; preds = %105
   br i1 %387, label %.preheader598.preheader, label %409
 
 .preheader598.preheader:                          ; preds = %385
-  %sext958 = shl i64 %3, 32
-  %388 = ashr exact i64 %sext958, 32
+  %sext966 = shl i64 %3, 32
+  %388 = ashr exact i64 %sext966, 32
   br label %.preheader598
 
 .preheader598:                                    ; preds = %.preheader598.preheader, %.preheader598
@@ -1991,8 +1991,8 @@ HUF_flushBits.exit66:                             ; preds = %105
   br i1 %509, label %.preheader602.preheader, label %531
 
 .preheader602.preheader:                          ; preds = %507
-  %sext957 = shl i64 %3, 32
-  %510 = ashr exact i64 %sext957, 32
+  %sext965 = shl i64 %3, 32
+  %510 = ashr exact i64 %sext965, 32
   br label %.preheader602
 
 .preheader602:                                    ; preds = %.preheader602.preheader, %.preheader602
@@ -2385,8 +2385,8 @@ HUF_flushBits.exit66:                             ; preds = %105
   br i1 %753, label %.preheader586.preheader, label %775
 
 .preheader586.preheader:                          ; preds = %751
-  %sext961 = shl i64 %3, 32
-  %754 = ashr exact i64 %sext961, 32
+  %sext969 = shl i64 %3, 32
+  %754 = ashr exact i64 %sext969, 32
   br label %.preheader586
 
 .preheader586:                                    ; preds = %.preheader586.preheader, %.preheader586
@@ -2778,11 +2778,11 @@ HUF_cardinality.exit:                             ; preds = %.lr.ph.i
   br i1 %.not10.i, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %12, %.lr.ph
-  %.06.lcssa.i7276 = phi i32 [ %20, %.lr.ph ], [ poison, %12 ]
+  %.06.lcssa.i8488 = phi i32 [ %20, %.lr.ph ], [ poison, %12 ]
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %36
-  %.062.us = phi i32 [ %37, %36 ], [ %.06.lcssa.i7276, %.lr.ph.split.us.preheader ]
+  %.062.us = phi i32 [ %37, %36 ], [ %.06.lcssa.i8488, %.lr.ph.split.us.preheader ]
   %.04461.us = phi i32 [ %.1.us, %36 ], [ %0, %.lr.ph.split.us.preheader ]
   %.04560.us = phi i64 [ %.146.us, %36 ], [ -2, %.lr.ph.split.us.preheader ]
   %22 = tail call i64 @HUF_buildCTable_wksp(ptr noundef %5, ptr noundef %6, i32 noundef %2, i32 noundef %.062.us, ptr noundef %3, i64 noundef %4)
@@ -2792,7 +2792,7 @@ HUF_cardinality.exit:                             ; preds = %.lr.ph.i
 24:                                               ; preds = %.lr.ph.split.us
   %25 = zext i32 %.062.us to i64
   %26 = icmp samesign ult i64 %22, %25
-  %27 = icmp ugt i32 %.062.us, %.06.lcssa.i7276
+  %27 = icmp ugt i32 %.062.us, %.06.lcssa.i8488
   %or.cond.us = and i1 %26, %27
   br i1 %or.cond.us, label %.loopexit, label %28
 
@@ -2803,7 +2803,7 @@ HUF_cardinality.exit:                             ; preds = %.lr.ph.i
   br i1 %31, label %HUF_estimateCompressedSize.exit.us, label %36
 
 HUF_estimateCompressedSize.exit.us:               ; preds = %28
-  %32 = add nuw i64 %.04560.us, 1
+  %32 = add nsw i64 %.04560.us, 1
   %33 = icmp ugt i64 %30, %32
   br i1 %33, label %.loopexit, label %34
 
@@ -2858,8 +2858,8 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %28
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i55
   %56 = lshr i64 %55, 3
-  %57 = add i64 %56, %46
-  %58 = add nuw i64 %.04560, 1
+  %57 = add nuw nsw i64 %56, %46
+  %58 = add nsw i64 %.04560, 1
   %59 = icmp ugt i64 %57, %58
   br i1 %59, label %.loopexit, label %60
 
@@ -2939,8 +2939,8 @@ define internal fastcc i64 @HUF_compress_internal(ptr noundef %0, i64 noundef %1
   %33 = and i32 %11, 4
   %34 = icmp eq i32 %33, 0
   %35 = icmp eq ptr %10, null
-  %or.cond.not244 = or i1 %35, %34
-  br i1 %or.cond.not244, label %41, label %36
+  %or.cond.not260 = or i1 %35, %34
+  br i1 %or.cond.not260, label %41, label %36
 
 36:                                               ; preds = %31
   %37 = load i32, ptr %10, align 4, !tbaa !12
@@ -3039,8 +3039,8 @@ HUF_validateCTable.exit:                          ; preds = %.lr.ph.i
 
 HUF_validateCTable.exit.thread:                   ; preds = %70, %HUF_validateCTable.exit, %67
   %.not176 = icmp eq i32 %68, 0
-  %or.cond241 = or i1 %or.cond.not244, %.not176
-  br i1 %or.cond241, label %.thread212, label %84
+  %or.cond257 = or i1 %or.cond.not260, %.not176
+  br i1 %or.cond257, label %.thread212, label %84
 
 HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.exit
   store i32 0, ptr %10, align 4, !tbaa !12
@@ -3128,10 +3128,10 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
 HUF_estimateCompressedSize.exit206:               ; preds = %.lr.ph.i199
   %126 = lshr i64 %116, 3
   %127 = lshr i64 %125, 3
-  %128 = add i64 %127, %100
-  %.not180 = icmp ugt i64 %126, %128
-  %129 = add nuw i64 %100, 12
-  %.not181 = icmp ult i64 %129, %3
+  %128 = add nuw nsw i64 %127, %100
+  %.not180 = icmp samesign ugt i64 %126, %128
+  %129 = add nuw nsw i64 %100, 12
+  %.not181 = icmp samesign ult i64 %129, %3
   %or.cond186 = and i1 %.not181, %.not180
   br i1 %or.cond186, label %.thread220.thread, label %HUF_estimateCompressedSize.exit206.thread
 
@@ -3140,13 +3140,13 @@ HUF_estimateCompressedSize.exit206.thread:        ; preds = %105, %HUF_estimateC
   br label %.thread
 
 .thread220:                                       ; preds = %103
-  %.pre = add nuw i64 %100, 12
-  %131 = icmp ult i64 %.pre, %3
+  %.pre = add nuw nsw i64 %100, 12
+  %131 = icmp samesign ult i64 %.pre, %3
   br i1 %131, label %.thread220.thread, label %.thread
 
 .thread223:                                       ; preds = %102
-  %132 = add nuw i64 %100, 12
-  %.not182224 = icmp ult i64 %132, %3
+  %132 = add nuw nsw i64 %100, 12
+  %.not182224 = icmp samesign ult i64 %132, %3
   br i1 %.not182224, label %.thread225, label %.thread
 
 .thread220.thread:                                ; preds = %HUF_estimateCompressedSize.exit206, %.thread220

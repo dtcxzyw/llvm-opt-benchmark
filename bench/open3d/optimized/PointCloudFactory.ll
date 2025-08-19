@@ -439,8 +439,8 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %175 = getelementptr inbounds nuw i8, ptr %166, i64 48
-  %.sroa.0.8..sroa_idx100 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
-  %.sroa.0.16..sroa_idx101 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
+  %.sroa.0.8..sroa_idx114 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
+  %.sroa.0.16..sroa_idx115 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
@@ -495,8 +495,8 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
   %197 = fdiv double %196, %134
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store double %195, ptr %.sroa.0, align 16, !tbaa !45
-  store double %197, ptr %.sroa.0.8..sroa_idx100, align 8, !tbaa !45
-  store double %191, ptr %.sroa.0.16..sroa_idx101, align 16, !tbaa !45
+  store double %197, ptr %.sroa.0.8..sroa_idx114, align 8, !tbaa !45
+  store double %191, ptr %.sroa.0.16..sroa_idx115, align 16, !tbaa !45
   store double 1.000000e+00, ptr %.sroa.0.24..sroa_idx, align 8, !tbaa !45
   %.sroa.0.0..sroa.0.0..sroa.0.0. = load <2 x double>, ptr %.sroa.0, align 16
   %198 = shufflevector <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0., <2 x double> poison, <2 x i32> zeroinitializer
@@ -520,13 +520,13 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %shift = shufflevector <2 x double> %.sroa.0.16..sroa.0.16..sroa.0.16., <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fmul <2 x double> %shift, %130
-  %foldExtExtBinop87 = fmul <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0., %122
-  %foldExtExtBinop89 = fmul <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., %123
-  %foldExtExtBinop91 = fadd <2 x double> %foldExtExtBinop87, %foldExtExtBinop89
-  %foldExtExtBinop93 = fmul <2 x double> %.sroa.0.16..sroa.0.16..sroa.0.16., %129
-  %foldExtExtBinop95 = fadd <2 x double> %foldExtExtBinop91, %foldExtExtBinop93
-  %foldExtExtBinop97 = fadd <2 x double> %foldExtExtBinop, %foldExtExtBinop95
-  %.sroa.5.16.vec.extract = extractelement <2 x double> %foldExtExtBinop97, i64 0
+  %foldExtExtBinop101 = fmul <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0., %122
+  %foldExtExtBinop103 = fmul <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8., %123
+  %foldExtExtBinop105 = fadd <2 x double> %foldExtExtBinop101, %foldExtExtBinop103
+  %foldExtExtBinop107 = fmul <2 x double> %.sroa.0.16..sroa.0.16..sroa.0.16., %129
+  %foldExtExtBinop109 = fadd <2 x double> %foldExtExtBinop105, %foldExtExtBinop107
+  %foldExtExtBinop111 = fadd <2 x double> %foldExtExtBinop, %foldExtExtBinop109
+  %.sroa.5.16.vec.extract = extractelement <2 x double> %foldExtExtBinop111, i64 0
   store double %.sroa.5.16.vec.extract, ptr %212, align 8, !tbaa !45
   %213 = add nsw i32 %.170, 1
   br label %222
@@ -732,7 +732,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 24
+  %22 = mul nuw nsw i64 %12, 24
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !64
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
@@ -1265,8 +1265,8 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   br i1 %191, label %.lr.ph101.split.i.preheader, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
 .lr.ph101.split.i.preheader:                      ; preds = %.lr.ph101.i
-  %.sroa.0.i.8.i.8.i.8..sroa_idx246 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
-  %.sroa.0.i.16.i.16.i.16..sroa_idx247 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
+  %.sroa.0.i.8.i.8.i.8..sroa_idx292 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
+  %.sroa.0.i.16.i.16.i.16..sroa_idx293 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
   %.sroa.0.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 24
   %.sroa.0.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
   %.sroa.0.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
@@ -1333,8 +1333,8 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %228 = fdiv double %227, %147
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store double %226, ptr %.sroa.0.i, align 16, !tbaa !45, !noalias !77
-  store double %228, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx246, align 8, !tbaa !45, !noalias !77
-  store double %222, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx247, align 16, !tbaa !45, !noalias !77
+  store double %228, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx292, align 8, !tbaa !45, !noalias !77
+  store double %222, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx293, align 16, !tbaa !45, !noalias !77
   store double 1.000000e+00, ptr %.sroa.0.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !45, !noalias !77
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load <2 x double>, ptr %.sroa.0.i, align 16, !noalias !77
   %229 = shufflevector <2 x double> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -1358,13 +1358,13 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %shift = shufflevector <2 x double> %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop = fmul <2 x double> %143, %shift
-  %foldExtExtBinop197 = fmul <2 x double> %135, %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i
-  %foldExtExtBinop199 = fmul <2 x double> %136, %.sroa.0.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i
-  %foldExtExtBinop201 = fadd <2 x double> %foldExtExtBinop197, %foldExtExtBinop199
-  %foldExtExtBinop203 = fmul <2 x double> %142, %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i
-  %foldExtExtBinop205 = fadd <2 x double> %foldExtExtBinop201, %foldExtExtBinop203
-  %foldExtExtBinop207 = fadd <2 x double> %foldExtExtBinop, %foldExtExtBinop205
-  %.sroa.5.16.vec.extract.i = extractelement <2 x double> %foldExtExtBinop207, i64 0
+  %foldExtExtBinop243 = fmul <2 x double> %135, %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i
+  %foldExtExtBinop245 = fmul <2 x double> %136, %.sroa.0.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i
+  %foldExtExtBinop247 = fadd <2 x double> %foldExtExtBinop243, %foldExtExtBinop245
+  %foldExtExtBinop249 = fmul <2 x double> %142, %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i
+  %foldExtExtBinop251 = fadd <2 x double> %foldExtExtBinop247, %foldExtExtBinop249
+  %foldExtExtBinop253 = fadd <2 x double> %foldExtExtBinop, %foldExtExtBinop251
+  %.sroa.5.16.vec.extract.i = extractelement <2 x double> %foldExtExtBinop253, i64 0
   store double %.sroa.5.16.vec.extract.i, ptr %243, align 8, !tbaa !45, !noalias !77
   %244 = load i8, ptr %.03997.i, align 1, !tbaa !33, !noalias !77
   %245 = uitofp i8 %244 to double
@@ -1676,8 +1676,8 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   br i1 %446, label %.lr.ph101.split.i57.preheader, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
 .lr.ph101.split.i57.preheader:                    ; preds = %.lr.ph101.i52
-  %.sroa.0.i30.8.i30.8.i30.8..sroa_idx248 = getelementptr inbounds nuw i8, ptr %.sroa.0.i30, i64 8
-  %.sroa.0.i30.16.i30.16.i30.16..sroa_idx249 = getelementptr inbounds nuw i8, ptr %.sroa.0.i30, i64 16
+  %.sroa.0.i30.8.i30.8.i30.8..sroa_idx294 = getelementptr inbounds nuw i8, ptr %.sroa.0.i30, i64 8
+  %.sroa.0.i30.16.i30.16.i30.16..sroa_idx295 = getelementptr inbounds nuw i8, ptr %.sroa.0.i30, i64 16
   %.sroa.0.i30.24.i30.24.i30.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i30, i64 24
   %.sroa.0.i30.8.i30.8.i30.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i30, i64 8
   %.sroa.0.i30.16.i30.16.i30.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i30, i64 16
@@ -1744,8 +1744,8 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %483 = fdiv double %482, %402
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i30)
   store double %481, ptr %.sroa.0.i30, align 16, !tbaa !45, !noalias !89
-  store double %483, ptr %.sroa.0.i30.8.i30.8.i30.8..sroa_idx248, align 8, !tbaa !45, !noalias !89
-  store double %477, ptr %.sroa.0.i30.16.i30.16.i30.16..sroa_idx249, align 16, !tbaa !45, !noalias !89
+  store double %483, ptr %.sroa.0.i30.8.i30.8.i30.8..sroa_idx294, align 8, !tbaa !45, !noalias !89
+  store double %477, ptr %.sroa.0.i30.16.i30.16.i30.16..sroa_idx295, align 16, !tbaa !45, !noalias !89
   store double 1.000000e+00, ptr %.sroa.0.i30.24.i30.24.i30.24..sroa_idx, align 8, !tbaa !45, !noalias !89
   %.sroa.0.i30.0..sroa.0.i30.0..sroa.0.i30.0..sroa.0.0..sroa.0.0..i72 = load <2 x double>, ptr %.sroa.0.i30, align 16, !noalias !89
   %484 = shufflevector <2 x double> %.sroa.0.i30.0..sroa.0.i30.0..sroa.0.i30.0..sroa.0.0..sroa.0.0..i72, <2 x double> poison, <2 x i32> zeroinitializer
@@ -1767,15 +1767,15 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %497 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %496, i64 %495
   store <2 x double> %494, ptr %497, align 1, !tbaa !33, !noalias !89
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 16
-  %shift209 = shufflevector <2 x double> %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop210 = fmul <2 x double> %398, %shift209
-  %foldExtExtBinop212 = fmul <2 x double> %390, %.sroa.0.i30.0..sroa.0.i30.0..sroa.0.i30.0..sroa.0.0..sroa.0.0..i72
-  %foldExtExtBinop214 = fmul <2 x double> %391, %.sroa.0.i30.8..sroa.0.i30.8..sroa.0.i30.8..sroa.0.8..sroa.0.8..i73
-  %foldExtExtBinop216 = fadd <2 x double> %foldExtExtBinop212, %foldExtExtBinop214
-  %foldExtExtBinop218 = fmul <2 x double> %397, %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74
-  %foldExtExtBinop220 = fadd <2 x double> %foldExtExtBinop216, %foldExtExtBinop218
-  %foldExtExtBinop222 = fadd <2 x double> %foldExtExtBinop210, %foldExtExtBinop220
-  %.sroa.5.16.vec.extract.i75 = extractelement <2 x double> %foldExtExtBinop222, i64 0
+  %shift255 = shufflevector <2 x double> %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop256 = fmul <2 x double> %398, %shift255
+  %foldExtExtBinop258 = fmul <2 x double> %390, %.sroa.0.i30.0..sroa.0.i30.0..sroa.0.i30.0..sroa.0.0..sroa.0.0..i72
+  %foldExtExtBinop260 = fmul <2 x double> %391, %.sroa.0.i30.8..sroa.0.i30.8..sroa.0.i30.8..sroa.0.8..sroa.0.8..i73
+  %foldExtExtBinop262 = fadd <2 x double> %foldExtExtBinop258, %foldExtExtBinop260
+  %foldExtExtBinop264 = fmul <2 x double> %397, %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74
+  %foldExtExtBinop266 = fadd <2 x double> %foldExtExtBinop262, %foldExtExtBinop264
+  %foldExtExtBinop268 = fadd <2 x double> %foldExtExtBinop256, %foldExtExtBinop266
+  %.sroa.5.16.vec.extract.i75 = extractelement <2 x double> %foldExtExtBinop268, i64 0
   store double %.sroa.5.16.vec.extract.i75, ptr %498, align 8, !tbaa !45, !noalias !89
   %499 = load i8, ptr %.03997.i64, align 1, !tbaa !33, !noalias !89
   %500 = uitofp i8 %499 to double
@@ -2088,8 +2088,8 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   br i1 %702, label %.lr.ph101.split.i120.preheader, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
 .lr.ph101.split.i120.preheader:                   ; preds = %.lr.ph101.i115
-  %.sroa.0.i93.8.i93.8.i93.8..sroa_idx250 = getelementptr inbounds nuw i8, ptr %.sroa.0.i93, i64 8
-  %.sroa.0.i93.16.i93.16.i93.16..sroa_idx251 = getelementptr inbounds nuw i8, ptr %.sroa.0.i93, i64 16
+  %.sroa.0.i93.8.i93.8.i93.8..sroa_idx296 = getelementptr inbounds nuw i8, ptr %.sroa.0.i93, i64 8
+  %.sroa.0.i93.16.i93.16.i93.16..sroa_idx297 = getelementptr inbounds nuw i8, ptr %.sroa.0.i93, i64 16
   %.sroa.0.i93.24.i93.24.i93.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i93, i64 24
   %.sroa.0.i93.8.i93.8.i93.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i93, i64 8
   %.sroa.0.i93.16.i93.16.i93.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i93, i64 16
@@ -2156,8 +2156,8 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %739 = fdiv double %738, %658
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i93)
   store double %737, ptr %.sroa.0.i93, align 16, !tbaa !45, !noalias !98
-  store double %739, ptr %.sroa.0.i93.8.i93.8.i93.8..sroa_idx250, align 8, !tbaa !45, !noalias !98
-  store double %733, ptr %.sroa.0.i93.16.i93.16.i93.16..sroa_idx251, align 16, !tbaa !45, !noalias !98
+  store double %739, ptr %.sroa.0.i93.8.i93.8.i93.8..sroa_idx296, align 8, !tbaa !45, !noalias !98
+  store double %733, ptr %.sroa.0.i93.16.i93.16.i93.16..sroa_idx297, align 16, !tbaa !45, !noalias !98
   store double 1.000000e+00, ptr %.sroa.0.i93.24.i93.24.i93.24..sroa_idx, align 8, !tbaa !45, !noalias !98
   %.sroa.0.i93.0..sroa.0.i93.0..sroa.0.i93.0..sroa.0.0..sroa.0.0..i135 = load <2 x double>, ptr %.sroa.0.i93, align 16, !noalias !98
   %740 = shufflevector <2 x double> %.sroa.0.i93.0..sroa.0.i93.0..sroa.0.i93.0..sroa.0.0..sroa.0.0..i135, <2 x double> poison, <2 x i32> zeroinitializer
@@ -2179,15 +2179,15 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %753 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %752, i64 %751
   store <2 x double> %750, ptr %753, align 1, !tbaa !33, !noalias !98
   %754 = getelementptr inbounds nuw i8, ptr %753, i64 16
-  %shift224 = shufflevector <2 x double> %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop225 = fmul <2 x double> %654, %shift224
-  %foldExtExtBinop227 = fmul <2 x double> %646, %.sroa.0.i93.0..sroa.0.i93.0..sroa.0.i93.0..sroa.0.0..sroa.0.0..i135
-  %foldExtExtBinop229 = fmul <2 x double> %647, %.sroa.0.i93.8..sroa.0.i93.8..sroa.0.i93.8..sroa.0.8..sroa.0.8..i136
-  %foldExtExtBinop231 = fadd <2 x double> %foldExtExtBinop227, %foldExtExtBinop229
-  %foldExtExtBinop233 = fmul <2 x double> %653, %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137
-  %foldExtExtBinop235 = fadd <2 x double> %foldExtExtBinop231, %foldExtExtBinop233
-  %foldExtExtBinop237 = fadd <2 x double> %foldExtExtBinop225, %foldExtExtBinop235
-  %.sroa.5.16.vec.extract.i138 = extractelement <2 x double> %foldExtExtBinop237, i64 0
+  %shift270 = shufflevector <2 x double> %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop271 = fmul <2 x double> %654, %shift270
+  %foldExtExtBinop273 = fmul <2 x double> %646, %.sroa.0.i93.0..sroa.0.i93.0..sroa.0.i93.0..sroa.0.0..sroa.0.0..i135
+  %foldExtExtBinop275 = fmul <2 x double> %647, %.sroa.0.i93.8..sroa.0.i93.8..sroa.0.i93.8..sroa.0.8..sroa.0.8..i136
+  %foldExtExtBinop277 = fadd <2 x double> %foldExtExtBinop273, %foldExtExtBinop275
+  %foldExtExtBinop279 = fmul <2 x double> %653, %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137
+  %foldExtExtBinop281 = fadd <2 x double> %foldExtExtBinop277, %foldExtExtBinop279
+  %foldExtExtBinop283 = fadd <2 x double> %foldExtExtBinop271, %foldExtExtBinop281
+  %.sroa.5.16.vec.extract.i138 = extractelement <2 x double> %foldExtExtBinop283, i64 0
   store double %.sroa.5.16.vec.extract.i138, ptr %754, align 8, !tbaa !45, !noalias !98
   %755 = load float, ptr %.03997.i127, align 4, !tbaa !52, !noalias !98
   %756 = fpext float %755 to double

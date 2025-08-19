@@ -57,13 +57,13 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %41 = and i32 %30, %40
   %42 = and i32 %39, %32
   %43 = or i32 %41, %42
-  %.idx180 = shl nuw nsw i64 %indvars.iv172, 7
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %10, i64 %.idx180
+  %.idx189 = shl nuw nsw i64 %indvars.iv172, 7
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %10, i64 %.idx189
   br label %44
 
 .preheader138:                                    ; preds = %44
-  %.idx182 = shl nuw nsw i64 %indvars.iv172, 3
-  %invariant.gep186 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx182
+  %.idx191 = shl nuw nsw i64 %indvars.iv172, 3
+  %invariant.gep195 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx191
   br label %45
 
 44:                                               ; preds = %37, %44
@@ -77,9 +77,9 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
 
 45:                                               ; preds = %.preheader138, %45
   %indvars.iv168 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next169, %45 ]
-  %.idx181 = shl nuw nsw i64 %indvars.iv168, 7
-  %gep187 = getelementptr inbounds nuw i8, ptr %invariant.gep186, i64 %.idx181
-  %46 = getelementptr inbounds nuw i8, ptr %gep187, i64 4
+  %.idx190 = shl nuw nsw i64 %indvars.iv168, 7
+  %gep196 = getelementptr inbounds nuw i8, ptr %invariant.gep195, i64 %.idx190
+  %46 = getelementptr inbounds nuw i8, ptr %gep196, i64 4
   store i32 %43, ptr %46, align 4
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next169, 16
@@ -549,10 +549,10 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %147 = and i32 %39, %146
   %148 = and i32 %145, %41
   %149 = or i32 %147, %148
-  %.idx157 = shl nuw nsw i64 %indvars.iv148, 5
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %10, i64 %.idx157
-  %.idx159 = shl nuw nsw i64 %indvars.iv148, 3
-  %invariant.gep169 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx159
+  %.idx171 = shl nuw nsw i64 %indvars.iv148, 5
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %10, i64 %.idx171
+  %.idx173 = shl nuw nsw i64 %indvars.iv148, 3
+  %invariant.gep183 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx173
   br label %150
 
 150:                                              ; preds = %143, %150
@@ -560,9 +560,9 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i32 %149, ptr %gep, align 8
-  %.idx158 = shl nuw nsw i64 %indvars.iv, 5
-  %gep170 = getelementptr inbounds nuw i8, ptr %invariant.gep169, i64 %.idx158
-  %151 = getelementptr inbounds nuw i8, ptr %gep170, i64 4
+  %.idx172 = shl nuw nsw i64 %indvars.iv, 5
+  %gep184 = getelementptr inbounds nuw i8, ptr %invariant.gep183, i64 %.idx172
+  %151 = getelementptr inbounds nuw i8, ptr %gep184, i64 4
   store i32 %149, ptr %151, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

@@ -100,10 +100,10 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
   %32 = load ptr, ptr %4, align 8, !tbaa !33
   %33 = load i64, ptr %32, align 8, !tbaa !38
   store i64 %33, ptr %0, align 8, !tbaa !38
-  %.sroa.410.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %.sroa.410.0..sroa_idx13, align 8, !tbaa !40
-  %.sroa.511.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %.sroa.511.0..sroa_idx14, align 4, !tbaa !41
+  %.sroa.410.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %.sroa.410.0..sroa_idx14, align 8, !tbaa !40
+  %.sroa.511.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 0, ptr %.sroa.511.0..sroa_idx15, align 4, !tbaa !41
   store i8 1, ptr %5, align 8, !tbaa !3
   store i8 0, ptr %17, align 8, !tbaa !34
   call void @_ZdaPv(ptr noundef nonnull %32) #8
@@ -314,11 +314,11 @@ _ZNK4llvm5APInt12getSExtValueEv.exit23:           ; preds = %53, %61
   store i8 0, ptr %46, align 8, !tbaa !34
   %66 = icmp ult i32 %51, 65
   %67 = icmp eq ptr %64, null
-  %or.cond39 = select i1 %66, i1 true, i1 %67
+  %or.cond44 = select i1 %66, i1 true, i1 %67
   br i1 %65, label %70, label %68
 
 68:                                               ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit23
-  br i1 %or.cond39, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, label %69
+  br i1 %or.cond44, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, label %69
 
 69:                                               ; preds = %68
   call void @_ZdaPv(ptr noundef nonnull %64) #8
@@ -329,7 +329,7 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %42, %6
   br label %72
 
 70:                                               ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit23
-  br i1 %or.cond39, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24, label %71
+  br i1 %or.cond44, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24, label %71
 
 71:                                               ; preds = %70
   call void @_ZdaPv(ptr noundef nonnull %64) #8
@@ -649,8 +649,8 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %9, %17
   store i8 0, ptr %33, align 8, !tbaa !198
   %48 = icmp ult i32 %38, 65
   %49 = icmp eq ptr %40, null
-  %or.cond37 = select i1 %48, i1 true, i1 %49
-  br i1 %or.cond37, label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit23, label %50
+  %or.cond39 = select i1 %48, i1 true, i1 %49
+  br i1 %or.cond39, label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit23, label %50
 
 50:                                               ; preds = %47
   call void @_ZdaPv(ptr noundef nonnull %40) #8

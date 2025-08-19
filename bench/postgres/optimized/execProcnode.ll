@@ -1002,8 +1002,8 @@ tailrecurse.backedge.sink.split.sink.split:       ; preds = %tailrecurse, %tailr
   br label %tailrecurse.backedge.sink.split
 
 tailrecurse.backedge.sink.split:                  ; preds = %tailrecurse.backedge.sink.split.sink.split, %41
-  %.sink81 = phi i64 [ 224, %41 ], [ 72, %tailrecurse.backedge.sink.split.sink.split ]
-  %46 = getelementptr inbounds nuw i8, ptr %.tr54, i64 %.sink81
+  %.sink82 = phi i64 [ 224, %41 ], [ 72, %tailrecurse.backedge.sink.split.sink.split ]
+  %46 = getelementptr inbounds nuw i8, ptr %.tr54, i64 %.sink82
   %47 = load ptr, ptr %46, align 8
   br label %tailrecurse.backedge
 

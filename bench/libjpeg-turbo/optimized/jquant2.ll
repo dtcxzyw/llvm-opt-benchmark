@@ -109,11 +109,11 @@ define void @jinit_2pass_quantizer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %55, label %.sink.split, label %61
 
 .sink.split:                                      ; preds = %54, %50
-  %.sink66 = phi i32 [ 56, %50 ], [ 57, %54 ]
+  %.sink67 = phi i32 [ 56, %50 ], [ 57, %54 ]
   %.sink = phi i32 [ 8, %50 ], [ 256, %54 ]
   %56 = load ptr, ptr %0, align 8, !tbaa !30
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store i32 %.sink66, ptr %57, align 8, !tbaa !31
+  store i32 %.sink67, ptr %57, align 8, !tbaa !31
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 44
   store i32 %.sink, ptr %58, align 4, !tbaa !34
   %59 = load ptr, ptr %0, align 8, !tbaa !30
@@ -217,26 +217,26 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i32, ptr %7, align 8, !tbaa !64
   %.not.not = icmp eq i32 %8, 0
-  br i1 %.not.not, label %9, label %.thread44
+  br i1 %.not.not, label %9, label %.thread45
 
 9:                                                ; preds = %2
   %.not40 = icmp eq i32 %1, 0
   br i1 %.not40, label %13, label %10
 
-.thread44:                                        ; preds = %2
+.thread45:                                        ; preds = %2
   store i32 2, ptr %7, align 8, !tbaa !64
-  %.not4045 = icmp eq i32 %1, 0
-  br i1 %.not4045, label %13, label %10
+  %.not4046 = icmp eq i32 %1, 0
+  br i1 %.not4046, label %13, label %10
 
-10:                                               ; preds = %.thread44, %9
+10:                                               ; preds = %.thread45, %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @prescan_quantize, ptr %11, align 8, !tbaa !70
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @finish_pass1, ptr %12, align 8, !tbaa !71
-  br label %.sink.split53
+  br label %.sink.split54
 
-13:                                               ; preds = %9, %.thread44
-  %pass2_no_dither.sink = phi ptr [ @pass2_fs_dither, %.thread44 ], [ @pass2_no_dither, %9 ]
+13:                                               ; preds = %9, %.thread45
+  %pass2_no_dither.sink = phi ptr [ @pass2_fs_dither, %.thread45 ], [ @pass2_no_dither, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %pass2_no_dither.sink, ptr %14, align 8, !tbaa !70
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -251,11 +251,11 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %20, label %.sink.split, label %26
 
 .sink.split:                                      ; preds = %19, %13
-  %.sink50 = phi i32 [ 56, %13 ], [ 57, %19 ]
+  %.sink51 = phi i32 [ 56, %13 ], [ 57, %19 ]
   %.sink = phi i32 [ 1, %13 ], [ 256, %19 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i32 %.sink50, ptr %22, align 8, !tbaa !31
+  store i32 %.sink51, ptr %22, align 8, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 44
   store i32 %.sink, ptr %23, align 4, !tbaa !34
   %24 = load ptr, ptr %0, align 8, !tbaa !30
@@ -294,7 +294,7 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %47 = load ptr, ptr %46, align 8, !tbaa !47
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %.sink.split53
+  br i1 %48, label %49, label %.sink.split54
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %3, align 8, !tbaa !39
@@ -345,16 +345,16 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   store i32 -32, ptr %71, align 4, !tbaa !66
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, 256
-  br i1 %exitcond55.not.i, label %.sink.split53, label %.lr.ph41.i, !llvm.loop !69
+  br i1 %exitcond55.not.i, label %.sink.split54, label %.lr.ph41.i, !llvm.loop !69
 
-.sink.split53:                                    ; preds = %.lr.ph41.i, %44, %10
-  %.sink56 = phi i64 [ 64, %10 ], [ 80, %44 ], [ 80, %.lr.ph41.i ]
-  %.sink54 = phi i32 [ 1, %10 ], [ 0, %44 ], [ 0, %.lr.ph41.i ]
-  %72 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink56
-  store i32 %.sink54, ptr %72, align 8, !tbaa !66
+.sink.split54:                                    ; preds = %.lr.ph41.i, %44, %10
+  %.sink57 = phi i64 [ 64, %10 ], [ 80, %44 ], [ 80, %.lr.ph41.i ]
+  %.sink55 = phi i32 [ 1, %10 ], [ 0, %44 ], [ 0, %.lr.ph41.i ]
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink57
+  store i32 %.sink55, ptr %72, align 8, !tbaa !66
   br label %73
 
-73:                                               ; preds = %.sink.split53, %26
+73:                                               ; preds = %.sink.split54, %26
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %75 = load i32, ptr %74, align 8, !tbaa !58
   %.not41 = icmp eq i32 %75, 0
@@ -655,8 +655,8 @@ median_cut.exit.i:                                ; preds = %102, %find_biggest_
   br i1 %104, label %.lr.ph.i, label %select_colors.exit
 
 .lr.ph.i:                                         ; preds = %median_cut.exit.i, %1
-  %.0.lcssa.i57.i = phi i32 [ %.0.lcssa.i.i, %median_cut.exit.i ], [ 1, %1 ]
-  %wide.trip.count.i = zext nneg i32 %.0.lcssa.i57.i to i64
+  %.0.lcssa.i62.i = phi i32 [ %.0.lcssa.i.i, %median_cut.exit.i ], [ 1, %1 ]
+  %wide.trip.count.i = zext nneg i32 %.0.lcssa.i62.i to i64
   br label %105
 
 105:                                              ; preds = %compute_color.exit.i, %.lr.ph.i
@@ -815,14 +815,14 @@ compute_color.exit.i:                             ; preds = %._crit_edge87.split
   br i1 %exitcond.not.i, label %select_colors.exit, label %105, !llvm.loop !94
 
 select_colors.exit:                               ; preds = %compute_color.exit.i, %median_cut.exit.i
-  %.0.lcssa.i56.i = phi i32 [ %.0.lcssa.i.i, %median_cut.exit.i ], [ %.0.lcssa.i57.i, %compute_color.exit.i ]
+  %.0.lcssa.i61.i = phi i32 [ %.0.lcssa.i.i, %median_cut.exit.i ], [ %.0.lcssa.i62.i, %compute_color.exit.i ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %.0.lcssa.i56.i, ptr %177, align 4, !tbaa !72
+  store i32 %.0.lcssa.i61.i, ptr %177, align 4, !tbaa !72
   %178 = load ptr, ptr %0, align 8, !tbaa !30
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
   store i32 96, ptr %179, align 8, !tbaa !31
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 44
-  store i32 %.0.lcssa.i56.i, ptr %180, align 4, !tbaa !34
+  store i32 %.0.lcssa.i61.i, ptr %180, align 4, !tbaa !34
   %181 = load ptr, ptr %0, align 8, !tbaa !30
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !95
@@ -1244,8 +1244,8 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %.not222286 = icmp sgt i32 %11, %13
   %34 = sext i32 %15 to i64
   %.not223280 = icmp sgt i32 %15, %17
-  %or.cond473 = select i1 %.not222286, i1 true, i1 %.not223280
-  br i1 %or.cond473, label %.loopexit258, label %.preheader256.preheader
+  %or.cond499 = select i1 %.not222286, i1 true, i1 %.not223280
+  br i1 %or.cond499, label %.loopexit258, label %.preheader256.preheader
 
 .preheader256.preheader:                          ; preds = %.preheader257
   %35 = sext i32 %11 to i64
@@ -1304,8 +1304,8 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %.not226303 = icmp sgt i32 %.0195, %.0194
   %49 = sext i32 %15 to i64
   %.not227297 = icmp sgt i32 %15, %17
-  %or.cond474 = select i1 %.not226303, i1 true, i1 %.not227297
-  br i1 %or.cond474, label %.loopexit255, label %.preheader253.preheader
+  %or.cond500 = select i1 %.not226303, i1 true, i1 %.not227297
+  br i1 %or.cond500, label %.loopexit255, label %.preheader253.preheader
 
 .preheader253.preheader:                          ; preds = %.preheader254
   %50 = sext i32 %.0195 to i64
@@ -1366,8 +1366,8 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %.not230318 = icmp sgt i32 %.0195, %.0194
   %66 = sext i32 %15 to i64
   %.not231312 = icmp sgt i32 %15, %17
-  %or.cond475 = select i1 %.not230318, i1 true, i1 %.not231312
-  br i1 %or.cond475, label %.loopexit252, label %.preheader250.preheader
+  %or.cond501 = select i1 %.not230318, i1 true, i1 %.not231312
+  br i1 %or.cond501, label %.loopexit252, label %.preheader250.preheader
 
 .preheader250.preheader:                          ; preds = %.preheader251
   %67 = sext i32 %.0195 to i64
@@ -1426,8 +1426,8 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %.not234333 = icmp sgt i32 %.0195, %.0194
   %83 = sext i32 %.0193 to i64
   %.not235327 = icmp sgt i32 %.0193, %.0192
-  %or.cond476 = select i1 %.not234333, i1 true, i1 %.not235327
-  br i1 %or.cond476, label %.loopexit249, label %.preheader247.preheader
+  %or.cond502 = select i1 %.not234333, i1 true, i1 %.not235327
+  br i1 %or.cond502, label %.loopexit249, label %.preheader247.preheader
 
 .preheader247.preheader:                          ; preds = %.preheader248
   %84 = sext i32 %.0195 to i64
@@ -1488,8 +1488,8 @@ define internal fastcc void @update_box(ptr noundef readonly captures(none) %0, 
   %.not238348 = icmp sgt i32 %.0195, %.0194
   %100 = sext i32 %.0193 to i64
   %.not239342 = icmp sgt i32 %.0193, %.0192
-  %or.cond477 = select i1 %.not238348, i1 true, i1 %.not239342
-  br i1 %or.cond477, label %.loopexit, label %.preheader245.preheader
+  %or.cond503 = select i1 %.not238348, i1 true, i1 %.not239342
+  br i1 %or.cond503, label %.loopexit, label %.preheader245.preheader
 
 .preheader245.preheader:                          ; preds = %.preheader246
   %101 = sext i32 %.0195 to i64
@@ -1739,9 +1739,9 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
   br label %77
 
 77:                                               ; preds = %76, %71, %64
-  %.sink200.i = phi i32 [ %15, %71 ], [ %24, %64 ], [ %..i, %76 ]
+  %.sink220.i = phi i32 [ %15, %71 ], [ %24, %64 ], [ %..i, %76 ]
   %.0152.i = phi i64 [ %75, %71 ], [ %68, %64 ], [ 0, %76 ]
-  %78 = sub nsw i32 %62, %.sink200.i
+  %78 = sub nsw i32 %62, %.sink220.i
   %79 = mul nsw i32 %78, %48
   %80 = sext i32 %79 to i64
   %81 = mul nsw i64 %80, %80
@@ -1773,13 +1773,13 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
 
 100:                                              ; preds = %92
   %.not181.i = icmp samesign ult i32 %29, %84
-  %.213.i = select i1 %.not181.i, i32 %18, i32 %27
+  %.233.i = select i1 %.not181.i, i32 %18, i32 %27
   br label %101
 
 101:                                              ; preds = %100, %94, %86
-  %.sink206.i = phi i32 [ %18, %94 ], [ %27, %86 ], [ %.213.i, %100 ]
+  %.sink226.i = phi i32 [ %18, %94 ], [ %27, %86 ], [ %.233.i, %100 ]
   %.1153.i = phi i64 [ %99, %94 ], [ %91, %86 ], [ %.0152.i, %100 ]
-  %102 = sub nsw i32 %84, %.sink206.i
+  %102 = sub nsw i32 %84, %.sink226.i
   %103 = mul nsw i32 %102, %53
   %104 = sext i32 %103 to i64
   %105 = mul nsw i64 %104, %104
@@ -1812,13 +1812,13 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
 
 124:                                              ; preds = %116
   %.not182.i = icmp samesign ult i32 %32, %108
-  %.214.i = select i1 %.not182.i, i32 %21, i32 %30
+  %.234.i = select i1 %.not182.i, i32 %21, i32 %30
   br label %125
 
 125:                                              ; preds = %124, %118, %110
-  %.sink212.i = phi i32 [ %21, %118 ], [ %30, %110 ], [ %.214.i, %124 ]
+  %.sink232.i = phi i32 [ %21, %118 ], [ %30, %110 ], [ %.234.i, %124 ]
   %.2154.i = phi i64 [ %123, %118 ], [ %115, %110 ], [ %.1153.i, %124 ]
-  %126 = sub nsw i32 %108, %.sink212.i
+  %126 = sub nsw i32 %108, %.sink232.i
   %127 = mul nsw i32 %126, %58
   %128 = sext i32 %127 to i64
   %129 = mul nsw i64 %128, %128
@@ -2058,27 +2058,27 @@ find_best_colors.exit:                            ; preds = %266, %.preheader89.
   %270 = zext nneg i32 %269 to i64
   %271 = zext nneg i32 %268 to i64
   %272 = zext nneg i32 %267 to i64
-  %invariant.gep73 = getelementptr inbounds nuw ptr, ptr %12, i64 %272
+  %invariant.gep90 = getelementptr inbounds nuw ptr, ptr %12, i64 %272
   br label %.preheader
 
 .preheader:                                       ; preds = %find_best_colors.exit, %282
   %indvars.iv62 = phi i64 [ 0, %find_best_colors.exit ], [ %indvars.iv.next63, %282 ]
   %.03354 = phi ptr [ %8, %find_best_colors.exit ], [ %276, %282 ]
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep73, i64 %indvars.iv62
+  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep90, i64 %indvars.iv62
   %273 = load ptr, ptr %gep, align 8, !tbaa !55
   %invariant.gep = getelementptr inbounds nuw [32 x i16], ptr %273, i64 0, i64 %270
-  %invariant.gep71 = getelementptr inbounds nuw [32 x i16], ptr %invariant.gep, i64 %271
+  %invariant.gep88 = getelementptr inbounds nuw [32 x i16], ptr %invariant.gep, i64 %271
   br label %274
 
 274:                                              ; preds = %.preheader, %281
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %281 ]
   %.152 = phi ptr [ %.03354, %.preheader ], [ %276, %281 ]
-  %gep72 = getelementptr inbounds nuw [32 x i16], ptr %invariant.gep71, i64 %indvars.iv
+  %gep89 = getelementptr inbounds nuw [32 x i16], ptr %invariant.gep88, i64 %indvars.iv
   %scevgep = getelementptr i8, ptr %.152, i64 3
   br label %275
 
 275:                                              ; preds = %274, %275
-  %.050 = phi ptr [ %gep72, %274 ], [ %280, %275 ]
+  %.050 = phi ptr [ %gep89, %274 ], [ %280, %275 ]
   %.249 = phi ptr [ %.152, %274 ], [ %276, %275 ]
   %276 = getelementptr inbounds nuw i8, ptr %.249, i64 1
   %277 = load i8, ptr %.249, align 1, !tbaa !34

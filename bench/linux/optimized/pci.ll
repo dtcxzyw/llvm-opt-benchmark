@@ -1960,7 +1960,7 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
 
 9:                                                ; preds = %3
   %10 = icmp slt i32 %1, 0
-  br i1 %10, label %.thread15, label %11
+  br i1 %10, label %.thread22, label %11
 
 11:                                               ; preds = %9
   %12 = add nsw i32 %1, -1
@@ -1997,11 +1997,11 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   %35 = icmp eq i32 %34, %1
   br i1 %35, label %.thread14, label %42
 
-.thread15:                                        ; preds = %9
+.thread22:                                        ; preds = %9
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.thread14, label %.thread16
+  br i1 %38, label %.thread14, label %.thread23
 
 .thread:                                          ; preds = %3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2011,23 +2011,23 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
 
 42:                                               ; preds = %32
   %43 = icmp eq i32 %1, 0
-  br i1 %43, label %.thread16, label %84
+  br i1 %43, label %.thread23, label %84
 
-.thread16:                                        ; preds = %.thread15, %42
-  %44 = phi ptr [ %33, %42 ], [ %36, %.thread15 ]
+.thread23:                                        ; preds = %.thread22, %42
+  %44 = phi ptr [ %33, %42 ], [ %36, %.thread22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2, !annotation !8
   %45 = tail call i32 @pci_power_up(ptr noundef %0), !range !18
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %51
 
-47:                                               ; preds = %.thread16
+47:                                               ; preds = %.thread23
   %48 = load i32, ptr %44, align 8
   %49 = icmp eq i32 %48, 0
   %50 = select i1 %49, i32 0, i32 %45
   br label %82
 
-51:                                               ; preds = %.thread16
+51:                                               ; preds = %.thread23
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %53 = load i8, ptr %52, align 4
   %54 = zext i8 %53 to i32
@@ -2099,20 +2099,20 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 2
   %93 = icmp eq i16 %92, 0
-  br i1 %93, label %.thread17, label %.thread14
+  br i1 %93, label %.thread24, label %.thread14
 
 94:                                               ; preds = %.thread8
   %95 = icmp eq i32 %1, 4
-  br i1 %95, label %.thread17, label %.thread9
+  br i1 %95, label %.thread24, label %.thread9
 
-.thread17:                                        ; preds = %.thread8.thread, %94
+.thread24:                                        ; preds = %.thread8.thread, %94
   %96 = phi ptr [ %33, %94 ], [ %39, %.thread8.thread ]
   %97 = tail call fastcc i32 @pci_set_low_power_state(ptr noundef %0, i32 noundef 3, i1 noundef zeroext %2), !range !20
   %98 = tail call i32 @acpi_pci_set_power_state(ptr noundef %0, i32 noundef 4) #27
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %107
 
-100:                                              ; preds = %.thread17
+100:                                              ; preds = %.thread24
   %101 = tail call i32 @acpi_pci_get_power_state(ptr noundef %0) #27
   %102 = icmp eq i32 %101, 4
   br i1 %102, label %.thread12.sink.split, label %103
@@ -2123,7 +2123,7 @@ define internal fastcc range(i32 -22, 1) i32 @__pci_set_power_state(ptr noundef 
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %.thread12.sink.split, label %112
 
-107:                                              ; preds = %.thread17
+107:                                              ; preds = %.thread24
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %109 = load i8, ptr %108, align 4
   %110 = icmp eq i8 %109, 0
@@ -2225,8 +2225,8 @@ __pci_bus_set_current_state.exit:                 ; preds = %.thread12, %125, %1
   store i32 0, ptr %33, align 8
   br label %.thread14
 
-.thread14:                                        ; preds = %.thread8.thread, %.thread15, %133, %138, %147, %112, %__pci_bus_set_current_state.exit, %148, %152, %107, %111, %.thread, %.thread8, %82, %32, %25
-  %153 = phi i32 [ %83, %82 ], [ 0, %25 ], [ 0, %32 ], [ 0, %.thread8 ], [ 0, %.thread ], [ %97, %111 ], [ %97, %107 ], [ %127, %152 ], [ %127, %148 ], [ 0, %__pci_bus_set_current_state.exit ], [ 0, %112 ], [ 0, %147 ], [ 0, %138 ], [ 0, %133 ], [ 0, %.thread15 ], [ 0, %.thread8.thread ]
+.thread14:                                        ; preds = %.thread8.thread, %.thread22, %133, %138, %147, %112, %__pci_bus_set_current_state.exit, %148, %152, %107, %111, %.thread, %.thread8, %82, %32, %25
+  %153 = phi i32 [ %83, %82 ], [ 0, %25 ], [ 0, %32 ], [ 0, %.thread8 ], [ 0, %.thread ], [ %97, %111 ], [ %97, %107 ], [ %127, %152 ], [ %127, %148 ], [ 0, %__pci_bus_set_current_state.exit ], [ 0, %112 ], [ 0, %147 ], [ 0, %138 ], [ 0, %133 ], [ 0, %.thread22 ], [ 0, %.thread8.thread ]
   ret i32 %153
 }
 
@@ -4439,8 +4439,8 @@ define dso_local range(i32 -22, 1) i32 @pci_prepare_to_sleep(ptr noundef %0) #4 
   %or.cond = select i1 %32, i1 %34, i1 false
   %35 = and i24 %.pre, 16384
   %36 = icmp eq i24 %35, 0
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %36
-  br i1 %or.cond5, label %42, label %37
+  %or.cond7 = select i1 %or.cond, i1 true, i1 %36
+  br i1 %or.cond7, label %42, label %37
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 157
@@ -4671,8 +4671,8 @@ define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %
   %or.cond = select i1 %59, i1 %61, i1 false
   %62 = and i24 %.pre, 16384
   %63 = icmp eq i24 %62, 0
-  %or.cond9 = select i1 %or.cond, i1 true, i1 %63
-  br i1 %or.cond9, label %68, label %64
+  %or.cond12 = select i1 %or.cond, i1 true, i1 %63
+  br i1 %or.cond12, label %68, label %64
 
 64:                                               ; preds = %56
   %65 = tail call i32 @acpi_pci_wakeup(ptr noundef %0, i1 noundef zeroext false) #27
@@ -5472,9 +5472,9 @@ define dso_local void @pci_pm_init(ptr noundef %0) local_unnamed_addr #4 align 1
 
 52:                                               ; preds = %47
   %53 = and i16 %.pre4, 512
-  %.not5 = icmp eq i16 %53, 0
+  %.not8 = icmp eq i16 %53, 0
   %54 = or disjoint i24 %35, 4224
-  %55 = select i1 %.not5, i24 %36, i24 %54
+  %55 = select i1 %.not8, i24 %36, i24 %54
   %56 = lshr i16 %.pre4, 2
   %57 = and i16 %56, 256
   %58 = zext nneg i16 %57 to i24
@@ -10715,10 +10715,10 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.frozen25 = freeze i32 %54
-  %67 = udiv i32 %.frozen25, 1000
+  %.frozen31 = freeze i32 %54
+  %67 = udiv i32 %.frozen31, 1000
   %68 = mul i32 %67, 1000
-  %.decomposed26 = sub i32 %.frozen25, %68
+  %.decomposed32 = sub i32 %.frozen31, %68
   %69 = call ptr @pci_speed_string(i32 noundef %52) #27
   %70 = icmp eq ptr %53, null
   br i1 %70, label %78, label %71
@@ -10743,7 +10743,7 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
   %82 = load i32, ptr %5, align 4
   %83 = call ptr @pci_speed_string(i32 noundef %82) #27
   %84 = load i32, ptr %4, align 4
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %66, ptr noundef nonnull @.str.46, i32 noundef %67, i32 noundef %.decomposed26, ptr noundef %69, i32 noundef %51, ptr noundef %79, i32 noundef %80, i32 noundef %.decomposed, ptr noundef %83, i32 noundef %84) #28
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %66, ptr noundef nonnull @.str.46, i32 noundef %67, i32 noundef %.decomposed32, ptr noundef %69, i32 noundef %51, ptr noundef %79, i32 noundef %80, i32 noundef %.decomposed, ptr noundef %83, i32 noundef %84) #28
   br label %85
 
 85:                                               ; preds = %78, %64, %57

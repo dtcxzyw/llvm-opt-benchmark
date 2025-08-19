@@ -1336,10 +1336,10 @@ define dso_local noundef range(i32 -2, 1) i32 @genl_unregister_family(ptr nounde
   br label %.split
 
 .split:                                           ; preds = %43, %.split2
-  %.sink12 = phi i32 [ %47, %.split2 ], [ 1, %43 ]
+  %.sink16 = phi i32 [ %47, %.split2 ], [ 1, %43 ]
   %51 = load ptr, ptr %42, align 8
   %52 = getelementptr %struct.genl_multicast_group, ptr %51, i64 %44
-  tail call fastcc void @genl_ctrl_event(i32 noundef 8, ptr noundef %0, ptr noundef %52, i32 noundef %.sink12)
+  tail call fastcc void @genl_ctrl_event(i32 noundef 8, ptr noundef %0, ptr noundef %52, i32 noundef %.sink16)
   %53 = add nuw nsw i64 %44, 1
   %54 = load i8, ptr %37, align 8
   %55 = zext i8 %54 to i64
@@ -1777,9 +1777,9 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr noundef capture
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %115 = load i8, ptr %114, align 4
   %116 = icmp eq i8 %113, %115
-  br i1 %116, label %118, label %.thread20
+  br i1 %116, label %118, label %.thread29
 
-.thread20:                                        ; preds = %111
+.thread29:                                        ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %117, i8 0, i64 40, i1 false)
   br label %129
@@ -1814,9 +1814,9 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr noundef capture
   %.pre = load i32, ptr %3, align 4
   br label %129
 
-129:                                              ; preds = %.thread20, %.thread12, %128, %126
-  %130 = phi i32 [ %4, %.thread12 ], [ %.pre, %128 ], [ %4, %126 ], [ %4, %.thread20 ]
-  %131 = phi i32 [ %125, %.thread12 ], [ 0, %128 ], [ 1, %126 ], [ 1, %.thread20 ]
+129:                                              ; preds = %.thread29, %.thread12, %128, %126
+  %130 = phi i32 [ %4, %.thread12 ], [ %.pre, %128 ], [ %4, %126 ], [ %4, %.thread29 ]
+  %131 = phi i32 [ %125, %.thread12 ], [ 0, %128 ], [ 1, %126 ], [ 1, %.thread29 ]
   %132 = add i32 %130, %131
   store i32 %132, ptr %3, align 4
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1834,33 +1834,33 @@ define internal fastcc noundef zeroext i1 @genl_op_iter_next(ptr noundef capture
   br label %192
 
 .thread.sink.split:                               ; preds = %50, %40
-  %.sink32 = phi i8 [ %26, %40 ], [ %60, %50 ]
-  %.sink30 = phi i32 [ %38, %40 ], [ %68, %50 ]
+  %.sink41 = phi i8 [ %26, %40 ], [ %60, %50 ]
+  %.sink39 = phi i32 [ %38, %40 ], [ %68, %50 ]
   %.ph = phi ptr [ %14, %40 ], [ %56, %50 ]
-  %.ph21 = phi ptr [ %16, %40 ], [ null, %50 ]
-  %.ph22 = phi ptr [ %18, %40 ], [ %58, %50 ]
-  %.ph23 = phi ptr [ %20, %40 ], [ null, %50 ]
-  %.ph27 = phi i8 [ %28, %40 ], [ %62, %50 ]
-  %.ph28 = phi i8 [ %30, %40 ], [ %64, %50 ]
-  %.ph29 = phi i8 [ %32, %40 ], [ %66, %50 ]
+  %.ph30 = phi ptr [ %16, %40 ], [ null, %50 ]
+  %.ph31 = phi ptr [ %18, %40 ], [ %58, %50 ]
+  %.ph32 = phi ptr [ %20, %40 ], [ null, %50 ]
+  %.ph36 = phi i8 [ %28, %40 ], [ %62, %50 ]
+  %.ph37 = phi i8 [ %30, %40 ], [ %64, %50 ]
+  %.ph38 = phi i8 [ %32, %40 ], [ %66, %50 ]
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %137 = load i8, ptr %136, align 1
-  %138 = icmp ult i8 %.sink32, %137
+  %138 = icmp ult i8 %.sink41, %137
   %139 = select i1 %138, ptr null, ptr @genl_policy_reject_all
-  %140 = select i1 %138, i32 %.sink30, i32 1
+  %140 = select i1 %138, i32 %.sink39, i32 1
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %37, %50, %40
   %141 = phi ptr [ %14, %40 ], [ %56, %50 ], [ %14, %37 ], [ %.ph, %.thread.sink.split ]
-  %142 = phi ptr [ %16, %40 ], [ null, %50 ], [ %16, %37 ], [ %.ph21, %.thread.sink.split ]
-  %143 = phi ptr [ %18, %40 ], [ %58, %50 ], [ %18, %37 ], [ %.ph22, %.thread.sink.split ]
-  %144 = phi ptr [ %20, %40 ], [ null, %50 ], [ %20, %37 ], [ %.ph23, %.thread.sink.split ]
+  %142 = phi ptr [ %16, %40 ], [ null, %50 ], [ %16, %37 ], [ %.ph30, %.thread.sink.split ]
+  %143 = phi ptr [ %18, %40 ], [ %58, %50 ], [ %18, %37 ], [ %.ph31, %.thread.sink.split ]
+  %144 = phi ptr [ %20, %40 ], [ null, %50 ], [ %20, %37 ], [ %.ph32, %.thread.sink.split ]
   %145 = phi ptr [ %42, %40 ], [ %70, %50 ], [ %22, %37 ], [ %139, %.thread.sink.split ]
   %146 = phi i32 [ %38, %40 ], [ %68, %50 ], [ %38, %37 ], [ %140, %.thread.sink.split ]
-  %147 = phi i8 [ %26, %40 ], [ %60, %50 ], [ %26, %37 ], [ %.sink32, %.thread.sink.split ]
-  %148 = phi i8 [ %28, %40 ], [ %62, %50 ], [ %28, %37 ], [ %.ph27, %.thread.sink.split ]
-  %149 = phi i8 [ %30, %40 ], [ %64, %50 ], [ %30, %37 ], [ %.ph28, %.thread.sink.split ]
-  %150 = phi i8 [ %32, %40 ], [ %66, %50 ], [ %32, %37 ], [ %.ph29, %.thread.sink.split ]
+  %147 = phi i8 [ %26, %40 ], [ %60, %50 ], [ %26, %37 ], [ %.sink41, %.thread.sink.split ]
+  %148 = phi i8 [ %28, %40 ], [ %62, %50 ], [ %28, %37 ], [ %.ph36, %.thread.sink.split ]
+  %149 = phi i8 [ %30, %40 ], [ %64, %50 ], [ %30, %37 ], [ %.ph37, %.thread.sink.split ]
+  %150 = phi i8 [ %32, %40 ], [ %66, %50 ], [ %32, %37 ], [ %.ph38, %.thread.sink.split ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %152 = load i32, ptr %151, align 8
   %153 = add i32 %152, 1
@@ -3242,8 +3242,8 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
   br i1 %82, label %.thread13.sink.split, label %.thread13
 
 .thread13.sink.split:                             ; preds = %67, %47
-  %.lcssa49.sink = phi i8 [ %18, %47 ], [ %64, %67 ]
-  %.sink53 = phi i32 [ %45, %47 ], [ %79, %67 ]
+  %.lcssa58.sink = phi i8 [ %18, %47 ], [ %64, %67 ]
+  %.sink62 = phi i32 [ %45, %47 ], [ %79, %67 ]
   %.ph15.ph = phi ptr [ %23, %47 ], [ %69, %67 ]
   %.ph16.ph = phi ptr [ %25, %47 ], [ null, %67 ]
   %.ph17.ph = phi ptr [ %27, %47 ], [ %71, %67 ]
@@ -3253,9 +3253,9 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
   %.ph24.ph = phi i8 [ %39, %47 ], [ %77, %67 ]
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %84 = load i8, ptr %83, align 1
-  %85 = icmp ult i8 %.lcssa49.sink, %84
+  %85 = icmp ult i8 %.lcssa58.sink, %84
   %86 = select i1 %85, ptr null, ptr @genl_policy_reject_all
-  %87 = select i1 %85, i32 %.sink53, i32 1
+  %87 = select i1 %85, i32 %.sink62, i32 1
   br label %.thread13
 
 .thread13:                                        ; preds = %.thread13.sink.split, %44, %47, %67
@@ -3265,7 +3265,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @genl_get_cmd(i32 noundef %0
   %.ph18 = phi ptr [ null, %67 ], [ %29, %47 ], [ %29, %44 ], [ %.ph18.ph, %.thread13.sink.split ]
   %.ph19 = phi ptr [ %81, %67 ], [ %49, %47 ], [ %31, %44 ], [ %86, %.thread13.sink.split ]
   %.ph20 = phi i32 [ %79, %67 ], [ %45, %47 ], [ %45, %44 ], [ %87, %.thread13.sink.split ]
-  %.ph21 = phi i8 [ %64, %67 ], [ %18, %47 ], [ %18, %44 ], [ %.lcssa49.sink, %.thread13.sink.split ]
+  %.ph21 = phi i8 [ %64, %67 ], [ %18, %47 ], [ %18, %44 ], [ %.lcssa58.sink, %.thread13.sink.split ]
   %.ph22 = phi i8 [ %73, %67 ], [ %35, %47 ], [ %35, %44 ], [ %.ph22.ph, %.thread13.sink.split ]
   %.ph23 = phi i8 [ %75, %67 ], [ %37, %47 ], [ %37, %44 ], [ %.ph23.ph, %.thread13.sink.split ]
   %.ph24 = phi i8 [ %77, %67 ], [ %39, %47 ], [ %39, %44 ], [ %.ph24.ph, %.thread13.sink.split ]

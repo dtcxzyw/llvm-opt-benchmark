@@ -4443,9 +4443,9 @@ proto_item_set_hidden.exit47:                     ; preds = %proto_item_set_hidd
 
 .sink.split:                                      ; preds = %39, %46, %42
   %hf_qsig_tc.sink = phi ptr [ @hf_qsig_pc, %42 ], [ @hf_qsig_ie_data, %46 ], [ @hf_qsig_tc, %39 ]
-  %.sink1 = phi i32 [ 1, %42 ], [ %47, %46 ], [ 1, %39 ]
+  %.sink5 = phi i32 [ 1, %42 ], [ %47, %46 ], [ 1, %39 ]
   %48 = load i32, ptr %hf_qsig_tc.sink, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %48, ptr noundef %0, i32 noundef 2, i32 noundef %.sink1, i32 noundef 0)
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %48, ptr noundef %0, i32 noundef 2, i32 noundef %.sink5, i32 noundef 0)
   br label %50
 
 50:                                               ; preds = %.sink.split, %43, %proto_item_set_hidden.exit47

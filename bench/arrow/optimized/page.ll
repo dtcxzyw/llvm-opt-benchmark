@@ -1351,12 +1351,12 @@ define hidden void @_mi_page_retire(ptr noundef %0) local_unnamed_addr #1 {
   br label %mi_page_queue_of.exit
 
 mi_page_queue_of.exit.thread:                     ; preds = %18, %1
-  %.ph24 = phi i64 [ 73, %18 ], [ 74, %1 ]
+  %.ph28 = phi i64 [ 73, %18 ], [ 74, %1 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load atomic i64, ptr %31 monotonic, align 8
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1040
-  %35 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %34, i64 0, i64 %.ph24
+  %35 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %34, i64 0, i64 %.ph28
   br label %.critedge
 
 mi_page_queue_of.exit:                            ; preds = %6, %15, %20
@@ -2210,15 +2210,15 @@ _mi_heap_collect_retired.exit.i.i:                ; preds = %236, %._crit_edge.i
   br i1 %or.cond.i.i, label %tailrecurse.i.i, label %mi_find_free_page.exit
 
 mi_page_queue_find_free_ex.exit.sink.split.i:     ; preds = %_mi_page_free_collect.exit.i.i, %mi_page_extend_free.exit.i.i, %.sink.split.i.i.i, %119, %_mi_page_free_collect.exit.i, %.sink.split.i.i, %71
-  %.02651.i66.sink.i = phi ptr [ %32, %.sink.split.i.i ], [ %32, %71 ], [ %32, %_mi_page_free_collect.exit.i ], [ %.02651.i.i, %mi_page_extend_free.exit.i.i ], [ %.02651.i.i, %.sink.split.i.i.i ], [ %.02651.i.i, %119 ], [ %.02651.i.i, %_mi_page_free_collect.exit.i.i ]
-  %242 = getelementptr inbounds nuw i8, ptr %.02651.i66.sink.i, i64 15
+  %.02651.i78.sink.i = phi ptr [ %32, %.sink.split.i.i ], [ %32, %71 ], [ %32, %_mi_page_free_collect.exit.i ], [ %.02651.i.i, %mi_page_extend_free.exit.i.i ], [ %.02651.i.i, %.sink.split.i.i.i ], [ %.02651.i.i, %119 ], [ %.02651.i.i, %_mi_page_free_collect.exit.i.i ]
+  %242 = getelementptr inbounds nuw i8, ptr %.02651.i78.sink.i, i64 15
   %243 = load i8, ptr %242, align 1
   %244 = and i8 %243, 1
   store i8 %244, ptr %242, align 1
   br label %mi_find_free_page.exit
 
 mi_find_free_page.exit:                           ; preds = %_mi_heap_collect_retired.exit.i.i, %mi_page_queue_find_free_ex.exit.sink.split.i, %8, %7
-  %.0 = phi ptr [ null, %7 ], [ %9, %8 ], [ %.02651.i66.sink.i, %mi_page_queue_find_free_ex.exit.sink.split.i ], [ %240, %_mi_heap_collect_retired.exit.i.i ]
+  %.0 = phi ptr [ null, %7 ], [ %9, %8 ], [ %.02651.i78.sink.i, %mi_page_queue_find_free_ex.exit.sink.split.i ], [ %240, %_mi_heap_collect_retired.exit.i.i ]
   ret ptr %.0
 }
 

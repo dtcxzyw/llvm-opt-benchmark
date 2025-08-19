@@ -335,17 +335,17 @@ lean_dec.exit20:                                  ; preds = %29, %28, %26, %lean
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit20, %10
-  %.sink33 = phi ptr [ %12, %10 ], [ %30, %lean_dec.exit20 ]
-  %.sink28 = phi ptr [ inttoptr (i64 3 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit20 ]
+  %.sink38 = phi ptr [ %12, %10 ], [ %30, %lean_dec.exit20 ]
+  %.sink33 = phi ptr [ inttoptr (i64 3 to ptr), %10 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit20 ]
   %.sink = phi ptr [ %11, %10 ], [ %1, %lean_dec.exit20 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !9
+  %33 = getelementptr inbounds nuw i8, ptr %.sink38, i64 4
+  store i32 1, ptr %.sink38, align 4, !tbaa !9
   store i32 131096, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
-  store ptr %.sink28, ptr %34, align 8, !tbaa !5
-  %35 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
+  store ptr %.sink33, ptr %34, align 8, !tbaa !5
+  %35 = getelementptr inbounds nuw i8, ptr %.sink38, i64 16
   store ptr %.sink, ptr %35, align 8, !tbaa !5
-  ret ptr %.sink33
+  ret ptr %.sink38
 }
 
 declare ptr @l_Lean_RBNode_insert___at_Lean_IR_mkIndexSet___spec__1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -405,7 +405,7 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Array_anyMUnsafe_any___at_Lean_IR_UniqueIds_checkParams___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_IR_UniqueIds_checkParams___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not103 = icmp eq i64 %1, %2
   br i1 %.not103, label %._crit_edge, label %.lr.ph
 
@@ -726,7 +726,7 @@ lean_alloc_ctor.exit81:                           ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_IR_UniqueIds_checkParams(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_IR_UniqueIds_checkParams(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
 lean_nat_lt.exit:
   %2 = getelementptr i8, ptr %0, i64 8
   %.val77 = load i64, ptr %2, align 8, !tbaa !13
@@ -1017,7 +1017,7 @@ lean_alloc_ctor.exit87:                           ; preds = %lean_dec.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Array_anyMUnsafe_any___at_Lean_IR_UniqueIds_checkParams___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define nonnull ptr @l_Array_anyMUnsafe_any___at_Lean_IR_UniqueIds_checkParams___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %5, align 8, !tbaa !13
   %6 = ptrtoint ptr %1 to i64
@@ -1099,7 +1099,7 @@ lean_dec.exit:                                    ; preds = %34, %33, %31, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_IR_UniqueIds_checkParams___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_IR_UniqueIds_checkParams___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @l_Lean_IR_UniqueIds_checkParams(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
@@ -6251,7 +6251,7 @@ define ptr @l_Lean_IR_NormalizeIds_withVar___rarg(ptr noundef %0, ptr noundef %1
   br label %lean_inc.exit
 
 15:                                               ; preds = %7
-  %16 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %9) #4
+  %16 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_inc.exit
 
 17:                                               ; preds = %4
@@ -6328,7 +6328,7 @@ define ptr @l_Lean_IR_NormalizeIds_withJP___rarg(ptr noundef %0, ptr noundef %1,
   br label %lean_inc.exit
 
 15:                                               ; preds = %7
-  %16 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %9) #4
+  %16 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_inc.exit
 
 17:                                               ; preds = %4
@@ -7008,7 +7008,7 @@ lean_array_uset.exit80:                           ; preds = %lean_ensure_exclusi
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_NormalizeIds_withParams___spec__3(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_NormalizeIds_withParams___spec__3(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not45 = icmp eq i64 %1, %2
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
@@ -7064,7 +7064,7 @@ lean_array_uget.exit:                             ; preds = %7, %14, %16, %17
   br label %lean_nat_add.exit
 
 28:                                               ; preds = %20
-  %29 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %22) #4
+  %29 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %lean_array_uget.exit
@@ -7752,7 +7752,7 @@ lean_dec.exit:                                    ; preds = %34, %33, %31, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_NormalizeIds_withParams___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_NormalizeIds_withParams___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
   %.val16 = load i64, ptr %6, align 8, !tbaa !13
   %7 = ptrtoint ptr %1 to i64
@@ -9666,7 +9666,7 @@ lean_dec.exit:                                    ; preds = %15, %14, %12, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__5(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__5(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not75 = icmp ult i64 %1, %0
   %6 = ptrtoint ptr %3 to i64
   %7 = and i64 %6, 1
@@ -9998,7 +9998,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   br label %lean_inc.exit1155
 
 32:                                               ; preds = %24
-  %33 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %26) #4
+  %33 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_inc.exit1155
 
 34:                                               ; preds = %16
@@ -10265,7 +10265,7 @@ lean_dec.exit1211:                                ; preds = %123, %122, %120, %l
   br label %lean_inc.exit1148
 
 135:                                              ; preds = %127
-  %136 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %129) #4
+  %136 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_inc.exit1148
 
 137:                                              ; preds = %lean_dec.exit1211
@@ -11066,7 +11066,7 @@ lean_dec.exit1203:                                ; preds = %427, %426, %424, %l
   br label %lean_inc.exit1128
 
 438:                                              ; preds = %430
-  %439 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %432) #4
+  %439 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_inc.exit1128
 
 440:                                              ; preds = %lean_dec.exit1203
@@ -15439,7 +15439,7 @@ lean_dec.exit:                                    ; preds = %34, %33, %31, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__5___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__5___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 8
   %.val12 = load i64, ptr %6, align 8, !tbaa !13
   %7 = ptrtoint ptr %0 to i64
@@ -18654,16 +18654,16 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_inc.exit612
 
-common.ret1024:                                   ; preds = %1149, %1155, %1157, %1158, %1032, %1038, %1040, %1041, %1108, %lean_alloc_ctor.exit938, %1011, %lean_dec.exit617, %lean_alloc_ctor.exit929, %1087, %lean_inc.exit551, %lean_alloc_ctor.exit911, %lean_alloc_ctor.exit892, %lean_alloc_ctor.exit885, %lean_alloc_ctor.exit872, %lean_alloc_ctor.exit855, %lean_alloc_ctor.exit839, %lean_alloc_ctor.exit808, %lean_alloc_ctor.exit783, %217, %lean_dec.exit629, %lean_dec.exit628, %lean_alloc_ctor.exit767, %341, %lean_alloc_ctor.exit728, %lean_alloc_ctor.exit, %869, %lean_inc.exit557, %lean_inc.exit562, %lean_inc.exit567, %lean_inc.exit576, %lean_inc.exit584, %lean_inc.exit590, %lean_inc.exit606, %lean_inc.exit612
-  %common.ret1024.op = phi ptr [ %1, %lean_inc.exit612 ], [ %1, %lean_inc.exit606 ], [ %1, %lean_inc.exit590 ], [ %1, %lean_inc.exit584 ], [ %1, %lean_inc.exit576 ], [ %1, %lean_inc.exit567 ], [ %1, %lean_inc.exit562 ], [ %1, %lean_inc.exit557 ], [ %1, %869 ], [ %86, %lean_alloc_ctor.exit ], [ %169, %lean_alloc_ctor.exit728 ], [ %1, %217 ], [ %1, %lean_dec.exit629 ], [ %1, %lean_dec.exit628 ], [ %343, %341 ], [ %356, %lean_alloc_ctor.exit767 ], [ %427, %lean_alloc_ctor.exit783 ], [ %527, %lean_alloc_ctor.exit808 ], [ %648, %lean_alloc_ctor.exit839 ], [ %725, %lean_alloc_ctor.exit855 ], [ %801, %lean_alloc_ctor.exit872 ], [ %861, %lean_alloc_ctor.exit885 ], [ %902, %lean_alloc_ctor.exit892 ], [ %1, %lean_inc.exit551 ], [ %985, %lean_alloc_ctor.exit911 ], [ %1, %1011 ], [ %1, %lean_dec.exit617 ], [ %1089, %1087 ], [ %1101, %lean_alloc_ctor.exit929 ], [ %1, %1108 ], [ %1143, %lean_alloc_ctor.exit938 ], [ %1, %1041 ], [ %1, %1040 ], [ %1, %1038 ], [ %1, %1032 ], [ inttoptr (i64 27 to ptr), %1158 ], [ inttoptr (i64 27 to ptr), %1157 ], [ inttoptr (i64 27 to ptr), %1155 ], [ inttoptr (i64 27 to ptr), %1149 ]
-  ret ptr %common.ret1024.op
+common.ret1075:                                   ; preds = %1149, %1155, %1157, %1158, %1032, %1038, %1040, %1041, %1108, %lean_alloc_ctor.exit938, %1011, %lean_dec.exit617, %lean_alloc_ctor.exit929, %1087, %lean_inc.exit551, %lean_alloc_ctor.exit911, %lean_alloc_ctor.exit892, %lean_alloc_ctor.exit885, %lean_alloc_ctor.exit872, %lean_alloc_ctor.exit855, %lean_alloc_ctor.exit839, %lean_alloc_ctor.exit808, %lean_alloc_ctor.exit783, %217, %lean_dec.exit629, %lean_dec.exit628, %lean_alloc_ctor.exit767, %341, %lean_alloc_ctor.exit728, %lean_alloc_ctor.exit, %869, %lean_inc.exit557, %lean_inc.exit562, %lean_inc.exit567, %lean_inc.exit576, %lean_inc.exit584, %lean_inc.exit590, %lean_inc.exit606, %lean_inc.exit612
+  %common.ret1075.op = phi ptr [ %1, %lean_inc.exit612 ], [ %1, %lean_inc.exit606 ], [ %1, %lean_inc.exit590 ], [ %1, %lean_inc.exit584 ], [ %1, %lean_inc.exit576 ], [ %1, %lean_inc.exit567 ], [ %1, %lean_inc.exit562 ], [ %1, %lean_inc.exit557 ], [ %1, %869 ], [ %86, %lean_alloc_ctor.exit ], [ %169, %lean_alloc_ctor.exit728 ], [ %1, %217 ], [ %1, %lean_dec.exit629 ], [ %1, %lean_dec.exit628 ], [ %343, %341 ], [ %356, %lean_alloc_ctor.exit767 ], [ %427, %lean_alloc_ctor.exit783 ], [ %527, %lean_alloc_ctor.exit808 ], [ %648, %lean_alloc_ctor.exit839 ], [ %725, %lean_alloc_ctor.exit855 ], [ %801, %lean_alloc_ctor.exit872 ], [ %861, %lean_alloc_ctor.exit885 ], [ %902, %lean_alloc_ctor.exit892 ], [ %1, %lean_inc.exit551 ], [ %985, %lean_alloc_ctor.exit911 ], [ %1, %1011 ], [ %1, %lean_dec.exit617 ], [ %1089, %1087 ], [ %1101, %lean_alloc_ctor.exit929 ], [ %1, %1108 ], [ %1143, %lean_alloc_ctor.exit938 ], [ %1, %1041 ], [ %1, %1040 ], [ %1, %1038 ], [ %1, %1032 ], [ inttoptr (i64 27 to ptr), %1158 ], [ inttoptr (i64 27 to ptr), %1157 ], [ inttoptr (i64 27 to ptr), %1155 ], [ inttoptr (i64 27 to ptr), %1149 ]
+  ret ptr %common.ret1075.op
 
 lean_inc.exit612:                                 ; preds = %25, %24, %22, %13
   %26 = tail call ptr @l_Lean_IR_MapVars_mapExpr(ptr noundef %0, ptr noundef %15)
   %27 = tail call ptr @l_Lean_IR_MapVars_mapFnBody(ptr noundef %0, ptr noundef %17)
   store ptr %27, ptr %16, align 8, !tbaa !5
   store ptr %26, ptr %14, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 28:                                               ; preds = %11
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18838,7 +18838,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit607
   store ptr %84, ptr %92, align 8, !tbaa !5
   %93 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr %85, ptr %93, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 94:                                               ; preds = %lean_obj_tag.exit
   %.val688 = load i32, ptr %1, align 4, !tbaa !9
@@ -18878,7 +18878,7 @@ lean_inc.exit606:                                 ; preds = %108, %107, %105, %9
   %110 = tail call ptr @l_Lean_IR_MapVars_mapFnBody(ptr noundef %0, ptr noundef %100)
   store ptr %110, ptr %99, align 8, !tbaa !5
   store ptr %109, ptr %97, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 111:                                              ; preds = %94
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19053,7 +19053,7 @@ lean_alloc_ctor.exit728:                          ; preds = %lean_inc.exit601
   store ptr %167, ptr %175, align 8, !tbaa !5
   %176 = getelementptr inbounds nuw i8, ptr %169, i64 32
   store ptr %168, ptr %176, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 177:                                              ; preds = %lean_obj_tag.exit
   %.val687 = load i32, ptr %1, align 4, !tbaa !9
@@ -19149,7 +19149,7 @@ lean_obj_tag.exit738:                             ; preds = %206, %209
   store ptr %218, ptr %215, align 8, !tbaa !5
   store ptr %203, ptr %184, align 8, !tbaa !5
   store ptr %202, ptr %179, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 219:                                              ; preds = %213
   %220 = ptrtoint ptr %216 to i64
@@ -19204,7 +19204,7 @@ lean_dec.exit629:                                 ; preds = %234, %233, %231, %l
   store ptr %203, ptr %184, align 8, !tbaa !5
   store ptr %236, ptr %182, align 8, !tbaa !5
   store ptr %202, ptr %179, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 238:                                              ; preds = %lean_obj_tag.exit738
   br i1 %.not1006, label %239, label %lean_dec.exit628
@@ -19230,7 +19230,7 @@ lean_dec.exit629:                                 ; preds = %234, %233, %231, %l
 lean_dec.exit628:                                 ; preds = %245, %244, %242, %238
   store ptr %203, ptr %184, align 8, !tbaa !5
   store ptr %202, ptr %179, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 246:                                              ; preds = %177
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19500,7 +19500,7 @@ lean_dec_ref.exit673:                             ; preds = %335, %334, %332, %3
   store ptr %.0539, ptr %346, align 8, !tbaa !5
   %347 = getelementptr inbounds nuw i8, ptr %343, i64 32
   store ptr %309, ptr %347, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 348:                                              ; preds = %lean_obj_tag.exit763
   br i1 %.not1003, label %349, label %lean_dec.exit626
@@ -19545,7 +19545,7 @@ lean_alloc_ctor.exit767:                          ; preds = %lean_dec.exit626
   store ptr %250, ptr %362, align 8, !tbaa !5
   %363 = getelementptr inbounds nuw i8, ptr %356, i64 32
   store ptr %309, ptr %363, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 364:                                              ; preds = %lean_obj_tag.exit
   %.val684 = load i32, ptr %1, align 4, !tbaa !9
@@ -19585,7 +19585,7 @@ lean_inc.exit590:                                 ; preds = %378, %377, %375, %3
   %380 = tail call ptr @l_Lean_IR_MapVars_mapFnBody(ptr noundef %0, ptr noundef %370)
   store ptr %380, ptr %369, align 8, !tbaa !5
   store ptr %379, ptr %366, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 381:                                              ; preds = %364
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19730,7 +19730,7 @@ lean_alloc_ctor.exit783:                          ; preds = %lean_inc.exit586
   store ptr %383, ptr %432, align 8, !tbaa !5
   %433 = getelementptr inbounds nuw i8, ptr %427, i64 24
   store ptr %426, ptr %433, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 434:                                              ; preds = %lean_obj_tag.exit
   %.val683 = load i32, ptr %1, align 4, !tbaa !9
@@ -19797,7 +19797,7 @@ lean_inc.exit584:                                 ; preds = %458, %457, %455, %l
   store ptr %461, ptr %441, align 8, !tbaa !5
   store ptr %460, ptr %439, align 8, !tbaa !5
   store ptr %459, ptr %436, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 462:                                              ; preds = %434
   %463 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19994,7 +19994,7 @@ lean_alloc_ctor.exit808:                          ; preds = %lean_inc.exit578
   store ptr %525, ptr %533, align 8, !tbaa !5
   %534 = getelementptr inbounds nuw i8, ptr %527, i64 32
   store ptr %526, ptr %534, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 535:                                              ; preds = %lean_obj_tag.exit
   %.val682 = load i32, ptr %1, align 4, !tbaa !9
@@ -20061,7 +20061,7 @@ lean_inc.exit576:                                 ; preds = %559, %558, %556, %l
   store ptr %562, ptr %542, align 8, !tbaa !5
   store ptr %561, ptr %540, align 8, !tbaa !5
   store ptr %560, ptr %537, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 563:                                              ; preds = %535
   %564 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -20314,7 +20314,7 @@ lean_alloc_ctor.exit839:                          ; preds = %lean_inc.exit568
   store ptr %571, ptr %656, align 8, !tbaa !5
   %657 = getelementptr inbounds nuw i8, ptr %648, i64 48
   store ptr %647, ptr %657, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 658:                                              ; preds = %lean_obj_tag.exit
   %.val681 = load i32, ptr %1, align 4, !tbaa !9
@@ -20354,7 +20354,7 @@ lean_inc.exit567:                                 ; preds = %672, %671, %669, %6
   %674 = tail call ptr @l_Lean_IR_MapVars_mapFnBody(ptr noundef %0, ptr noundef %664)
   store ptr %674, ptr %663, align 8, !tbaa !5
   store ptr %673, ptr %660, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 675:                                              ; preds = %658
   %676 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -20508,7 +20508,7 @@ lean_alloc_ctor.exit855:                          ; preds = %lean_inc.exit563
   store i8 %679, ptr %729, align 8, !tbaa !16
   %733 = getelementptr inbounds nuw i8, ptr %725, i64 33
   store i8 %681, ptr %733, align 1, !tbaa !16
-  br label %common.ret1024
+  br label %common.ret1075
 
 734:                                              ; preds = %lean_obj_tag.exit
   %.val680 = load i32, ptr %1, align 4, !tbaa !9
@@ -20548,7 +20548,7 @@ lean_inc.exit562:                                 ; preds = %748, %747, %745, %7
   %750 = tail call ptr @l_Lean_IR_MapVars_mapFnBody(ptr noundef %0, ptr noundef %740)
   store ptr %750, ptr %739, align 8, !tbaa !5
   store ptr %749, ptr %736, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 751:                                              ; preds = %734
   %752 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -20702,7 +20702,7 @@ lean_alloc_ctor.exit872:                          ; preds = %lean_inc.exit558
   store i8 %755, ptr %805, align 8, !tbaa !16
   %809 = getelementptr inbounds nuw i8, ptr %801, i64 33
   store i8 %757, ptr %809, align 1, !tbaa !16
-  br label %common.ret1024
+  br label %common.ret1075
 
 810:                                              ; preds = %lean_obj_tag.exit
   %.val679 = load i32, ptr %1, align 4, !tbaa !9
@@ -20742,7 +20742,7 @@ lean_inc.exit557:                                 ; preds = %824, %823, %821, %8
   %826 = tail call ptr @l_Lean_IR_MapVars_mapFnBody(ptr noundef %0, ptr noundef %815)
   store ptr %826, ptr %814, align 8, !tbaa !5
   store ptr %825, ptr %812, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 827:                                              ; preds = %810
   %828 = ptrtoint ptr %815 to i64
@@ -20857,7 +20857,7 @@ lean_alloc_ctor.exit885:                          ; preds = %lean_inc.exit554
   store ptr %859, ptr %865, align 8, !tbaa !5
   %866 = getelementptr inbounds nuw i8, ptr %861, i64 16
   store ptr %860, ptr %866, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 867:                                              ; preds = %lean_obj_tag.exit
   %.val678 = load i32, ptr %1, align 4, !tbaa !9
@@ -20869,7 +20869,7 @@ lean_alloc_ctor.exit885:                          ; preds = %lean_inc.exit554
   %871 = load ptr, ptr %870, align 8, !tbaa !5
   %872 = tail call ptr @l_Lean_IR_MapVars_mapFnBody(ptr noundef %0, ptr noundef %871)
   store ptr %872, ptr %870, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 873:                                              ; preds = %867
   %874 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20963,7 +20963,7 @@ lean_alloc_ctor.exit892:                          ; preds = %lean_dec.exit619
   store ptr %875, ptr %906, align 8, !tbaa !5
   %907 = getelementptr inbounds nuw i8, ptr %902, i64 16
   store ptr %901, ptr %907, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 908:                                              ; preds = %lean_obj_tag.exit
   %.val677 = load i32, ptr %1, align 4, !tbaa !9
@@ -21005,7 +21005,7 @@ lean_inc.exit551:                                 ; preds = %922, %921, %919, %9
   %925 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_IR_MapVars_mapFnBody___spec__1(ptr noundef %0, i64 noundef %.val691, i64 noundef 0, ptr noundef %914)
   store ptr %925, ptr %913, align 8, !tbaa !5
   store ptr %923, ptr %911, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 926:                                              ; preds = %908
   %927 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21182,7 +21182,7 @@ lean_alloc_ctor.exit911:                          ; preds = %lean_inc.exit546
   store ptr %932, ptr %991, align 8, !tbaa !5
   %992 = getelementptr inbounds nuw i8, ptr %985, i64 32
   store ptr %984, ptr %992, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 993:                                              ; preds = %lean_obj_tag.exit
   %.val676 = load i32, ptr %1, align 4, !tbaa !9
@@ -21223,7 +21223,7 @@ lean_obj_tag.exit915:                             ; preds = %1000, %1003
 1011:                                             ; preds = %1007
   %1012 = tail call ptr @lean_apply_1(ptr noundef %0, ptr noundef %1010) #4
   store ptr %1012, ptr %1009, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 1013:                                             ; preds = %1007
   %1014 = ptrtoint ptr %1010 to i64
@@ -21276,13 +21276,13 @@ lean_dec.exit617:                                 ; preds = %1028, %1027, %1025,
   %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 8
   store ptr %1029, ptr %1031, align 8, !tbaa !5
   store ptr %1030, ptr %995, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 1032:                                             ; preds = %lean_obj_tag.exit915
   %1033 = ptrtoint ptr %0 to i64
   %1034 = and i64 %1033, 1
   %.not946 = icmp eq i64 %1034, 0
-  br i1 %.not946, label %1035, label %common.ret1024
+  br i1 %.not946, label %1035, label %common.ret1075
 
 1035:                                             ; preds = %1032
   %1036 = load i32, ptr %0, align 4, !tbaa !9
@@ -21292,15 +21292,15 @@ lean_dec.exit617:                                 ; preds = %1028, %1027, %1025,
 1038:                                             ; preds = %1035
   %1039 = add nsw i32 %1036, -1
   store i32 %1039, ptr %0, align 4, !tbaa !9
-  br label %common.ret1024
+  br label %common.ret1075
 
 1040:                                             ; preds = %1035
   %.not.i660 = icmp eq i32 %1036, 0
-  br i1 %.not.i660, label %common.ret1024, label %1041
+  br i1 %.not.i660, label %common.ret1075, label %1041
 
 1041:                                             ; preds = %1040
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
-  br label %common.ret1024
+  br label %common.ret1075
 
 1042:                                             ; preds = %993
   br i1 %.not.i912, label %1043, label %lean_inc.exit544
@@ -21434,7 +21434,7 @@ lean_dec_ref.exit671:                             ; preds = %1081, %1080, %1078,
   %1089 = tail call fastcc ptr @lean_alloc_ctor(i32 noundef 11, i32 noundef 1, i32 noundef 0)
   %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 8
   store ptr %.0541, ptr %1090, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 1091:                                             ; preds = %lean_obj_tag.exit925
   %1092 = ptrtoint ptr %0 to i64
@@ -21476,7 +21476,7 @@ lean_alloc_ctor.exit929:                          ; preds = %lean_dec.exit614
   store i32 184614928, ptr %1104, align 4
   %1105 = getelementptr inbounds nuw i8, ptr %1101, i64 8
   store ptr %996, ptr %1105, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 1106:                                             ; preds = %lean_obj_tag.exit
   %.val = load i32, ptr %1, align 4, !tbaa !9
@@ -21490,7 +21490,7 @@ lean_alloc_ctor.exit929:                          ; preds = %lean_dec.exit614
   %.val.i930 = load i64, ptr %1111, align 8, !tbaa !13
   %1112 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_IR_MapVars_mapArgs___spec__1(ptr noundef %0, i64 noundef %.val.i930, i64 noundef 0, ptr noundef %1110)
   store ptr %1112, ptr %1109, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 1113:                                             ; preds = %1106
   %1114 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21586,13 +21586,13 @@ lean_alloc_ctor.exit938:                          ; preds = %lean_dec.exit613
   store ptr %1115, ptr %1147, align 8, !tbaa !5
   %1148 = getelementptr inbounds nuw i8, ptr %1143, i64 16
   store ptr %1142, ptr %1148, align 8, !tbaa !5
-  br label %common.ret1024
+  br label %common.ret1075
 
 1149:                                             ; preds = %lean_obj_tag.exit
   %1150 = ptrtoint ptr %0 to i64
   %1151 = and i64 %1150, 1
   %.not1023 = icmp eq i64 %1151, 0
-  br i1 %.not1023, label %1152, label %common.ret1024
+  br i1 %.not1023, label %1152, label %common.ret1075
 
 1152:                                             ; preds = %1149
   %1153 = load i32, ptr %0, align 4, !tbaa !9
@@ -21602,15 +21602,15 @@ lean_alloc_ctor.exit938:                          ; preds = %lean_dec.exit613
 1155:                                             ; preds = %1152
   %1156 = add nsw i32 %1153, -1
   store i32 %1156, ptr %0, align 4, !tbaa !9
-  br label %common.ret1024
+  br label %common.ret1075
 
 1157:                                             ; preds = %1152
   %.not.i668 = icmp eq i32 %1153, 0
-  br i1 %.not.i668, label %common.ret1024, label %1158
+  br i1 %.not.i668, label %common.ret1075, label %1158
 
 1158:                                             ; preds = %1157
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
-  br label %common.ret1024
+  br label %common.ret1075
 }
 
 ; Function Attrs: nounwind uwtable
@@ -21987,18 +21987,18 @@ _init_l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__5___cl
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__5___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %25, %_init_l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__5___closed__1.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !9
+  %.sink13 = phi ptr [ %4, %3 ], [ %25, %_init_l_Array_mapMUnsafe_map___at_Lean_IR_NormalizeIds_normFnBody___spec__5___closed__1.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !9
   store i32 131096, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %29, align 8, !tbaa !5
-  %30 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %30, align 8, !tbaa !5
   br label %31
 
 31:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
   ret ptr %.0
 }
 

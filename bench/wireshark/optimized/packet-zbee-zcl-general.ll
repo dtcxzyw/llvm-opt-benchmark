@@ -8498,10 +8498,10 @@ define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0,
   br label %.thread146.sink.split
 
 .thread146.sink.split:                            ; preds = %24, %29, %73, %78, %88, %108
-  %.sink154 = phi i32 [ 1, %108 ], [ 1, %88 ], [ 1, %78 ], [ 2, %73 ], [ 1, %29 ], [ 1, %24 ]
+  %.sink160 = phi i32 [ 1, %108 ], [ 1, %88 ], [ 1, %78 ], [ 2, %73 ], [ 1, %29 ], [ 1, %24 ]
   %.0.ph = phi i8 [ %111, %108 ], [ %91, %88 ], [ %81, %78 ], [ %76, %73 ], [ %32, %29 ], [ %27, %24 ]
   %112 = load i32, ptr %2, align 4
-  %113 = add i32 %112, %.sink154
+  %113 = add i32 %112, %.sink160
   br label %.thread146
 
 .thread146:                                       ; preds = %.thread146.sink.split, %82, %.thread136, %56, %61, %.thread151, %83, %77, %66, %28, %23, %.lr.ph

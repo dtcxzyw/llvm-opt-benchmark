@@ -2417,10 +2417,10 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   br label %yytnamerr.exit68
 
 yytnamerr.exit68:                                 ; preds = %64, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink26 = phi i64 [ %91, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
+  %.sink30 = phi i64 [ %91, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
   %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
   %.1 = phi i32 [ %70, %.thread.thread.i ], [ %70, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %64 ]
-  %92 = getelementptr inbounds i8, ptr %.039, i64 %.sink26
+  %92 = getelementptr inbounds i8, ptr %.039, i64 %.sink30
   %93 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader
 

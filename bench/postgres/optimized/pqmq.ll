@@ -442,8 +442,8 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
   %19 = call zeroext i1 @IsLogicalParallelApplyWorker() #10
   %20 = load i32, ptr @pq_mq_parallel_leader_pid, align 4
   %21 = load i32, ptr @pq_mq_parallel_leader_proc_number, align 4
-  %.11 = select i1 %19, i32 6, i32 2
-  %22 = call i32 @SendProcSignal(i32 noundef %20, i32 noundef %.11, i32 noundef %21) #10
+  %.14 = select i1 %19, i32 6, i32 2
+  %22 = call i32 @SendProcSignal(i32 noundef %20, i32 noundef %.14, i32 noundef %21) #10
   br label %23
 
 23:                                               ; preds = %.sink.split, %15

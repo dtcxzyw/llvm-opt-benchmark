@@ -388,8 +388,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17he86b73826289d3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %15 = call noundef i8 @"_ZN83_$LT$ruff_python_stdlib..open_mode..OpenMode$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8f955c7b927656b0E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %14)
   store i8 %15, ptr %3, align 1
-  %.not711 = icmp eq i8 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i8 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -206,7 +206,7 @@ define internal range(i32 17, 0) i32 @escape130_decode_frame(ptr noundef %0, ptr
   %.0185264 = phi i32 [ 0, %.lr.ph ], [ %307, %306 ]
   %.0186263 = phi ptr [ %42, %.lr.ph ], [ %.1187, %306 ]
   %.sroa.18.0262 = phi i32 [ %45, %.lr.ph ], [ %.sroa.18.2, %306 ]
-  switch i32 %.0177268, label %decode_skip_count.exit.thread311 [
+  switch i32 %.0177268, label %decode_skip_count.exit.thread328 [
     i32 -1, label %53
     i32 0, label %decode_skip_count.exit.thread251
   ]
@@ -240,7 +240,7 @@ define internal range(i32 17, 0) i32 @escape130_decode_frame(ptr noundef %0, ptr
   %73 = add i32 %.sroa.18.0262, 4
   %74 = tail call i32 @llvm.umin.i32(i32 %25, i32 %73)
   %.not15.i = icmp eq i32 %72, 0
-  br i1 %.not15.i, label %75, label %decode_skip_count.exit.thread311
+  br i1 %.not15.i, label %75, label %decode_skip_count.exit.thread328
 
 75:                                               ; preds = %65
   %76 = lshr i32 %74, 3
@@ -257,7 +257,7 @@ define internal range(i32 17, 0) i32 @escape130_decode_frame(ptr noundef %0, ptr
 
 85:                                               ; preds = %75
   %86 = add nuw nsw i32 %82, 7
-  br label %decode_skip_count.exit.thread311
+  br label %decode_skip_count.exit.thread328
 
 87:                                               ; preds = %75
   %88 = lshr i32 %84, 3
@@ -271,15 +271,15 @@ define internal range(i32 17, 0) i32 @escape130_decode_frame(ptr noundef %0, ptr
   %96 = tail call i32 @llvm.umin.i32(i32 %25, i32 %95)
   %.not17.i = icmp eq i32 %94, 0
   %97 = add nuw nsw i32 %94, 262
-  br i1 %.not17.i, label %decode_skip_count.exit.thread, label %decode_skip_count.exit.thread311
+  br i1 %.not17.i, label %decode_skip_count.exit.thread, label %decode_skip_count.exit.thread328
 
 decode_skip_count.exit.thread:                    ; preds = %87, %53
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #6
   br label %387
 
-decode_skip_count.exit.thread311:                 ; preds = %52, %65, %85, %87
-  %.1178316 = phi i32 [ %72, %65 ], [ %86, %85 ], [ %97, %87 ], [ %.0177268, %52 ]
-  %.sroa.18.1315 = phi i32 [ %74, %65 ], [ %84, %85 ], [ %96, %87 ], [ %.sroa.18.0262, %52 ]
+decode_skip_count.exit.thread328:                 ; preds = %52, %65, %85, %87
+  %.1178333 = phi i32 [ %72, %65 ], [ %86, %85 ], [ %97, %87 ], [ %.0177268, %52 ]
+  %.sroa.18.1332 = phi i32 [ %74, %65 ], [ %84, %85 ], [ %96, %87 ], [ %.sroa.18.0262, %52 ]
   %98 = load i8, ptr %.0157278, align 1, !tbaa !44
   %99 = zext i8 %98 to i32
   store i32 %99, ptr %5, align 16, !tbaa !34
@@ -301,7 +301,7 @@ decode_skip_count.exit.thread311:                 ; preds = %52, %65, %85, %87
   %112 = zext i8 %111 to i32
   %113 = load i8, ptr %.0160274, align 1, !tbaa !44
   %114 = zext i8 %113 to i32
-  %115 = add nsw i32 %.1178316, -1
+  %115 = add nsw i32 %.1178333, -1
   br label %265
 
 decode_skip_count.exit.thread251:                 ; preds = %52, %56
@@ -508,12 +508,12 @@ decode_skip_count.exit.thread251:                 ; preds = %52, %56
   %264 = and i32 %263, 31
   br label %265
 
-265:                                              ; preds = %.loopexit, %250, %237, %decode_skip_count.exit.thread311
-  %.1178255 = phi i32 [ %115, %decode_skip_count.exit.thread311 ], [ -1, %.loopexit ], [ -1, %250 ], [ -1, %237 ]
-  %.sroa.18.2 = phi i32 [ %.sroa.18.1315, %decode_skip_count.exit.thread311 ], [ %spec.select.i206, %.loopexit ], [ %253, %250 ], [ %249, %237 ]
-  %.1182 = phi i32 [ %112, %decode_skip_count.exit.thread311 ], [ %.0181266, %.loopexit ], [ %259, %250 ], [ %238, %237 ]
-  %.1180 = phi i32 [ %114, %decode_skip_count.exit.thread311 ], [ %.0179267, %.loopexit ], [ %264, %250 ], [ %247, %237 ]
-  %.1174 = phi i32 [ %110, %decode_skip_count.exit.thread311 ], [ %.2175, %.loopexit ], [ %.2175, %250 ], [ %.2175, %237 ]
+265:                                              ; preds = %.loopexit, %250, %237, %decode_skip_count.exit.thread328
+  %.1178255 = phi i32 [ %115, %decode_skip_count.exit.thread328 ], [ -1, %.loopexit ], [ -1, %250 ], [ -1, %237 ]
+  %.sroa.18.2 = phi i32 [ %.sroa.18.1332, %decode_skip_count.exit.thread328 ], [ %spec.select.i206, %.loopexit ], [ %253, %250 ], [ %249, %237 ]
+  %.1182 = phi i32 [ %112, %decode_skip_count.exit.thread328 ], [ %.0181266, %.loopexit ], [ %259, %250 ], [ %238, %237 ]
+  %.1180 = phi i32 [ %114, %decode_skip_count.exit.thread328 ], [ %.0179267, %.loopexit ], [ %264, %250 ], [ %247, %237 ]
+  %.1174 = phi i32 [ %110, %decode_skip_count.exit.thread328 ], [ %.2175, %.loopexit ], [ %.2175, %250 ], [ %.2175, %237 ]
   %266 = trunc nuw i32 %.1174 to i8
   %267 = getelementptr inbounds nuw i8, ptr %.0167270, i64 1
   store i8 %266, ptr %.0167270, align 1, !tbaa !44

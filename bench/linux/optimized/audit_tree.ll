@@ -150,13 +150,13 @@ define dso_local zeroext i1 @audit_tree_match(ptr noundef readonly captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %6, label %.split.loop.exit4
+  br i1 %5, label %6, label %.split.loop.exit5
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
-  br i1 %9, label %.split.loop.exit4, label %.preheader.preheader
+  br i1 %9, label %.split.loop.exit5, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %6
   %10 = zext nneg i32 %4 to i64
@@ -166,7 +166,7 @@ define dso_local zeroext i1 @audit_tree_match(ptr noundef readonly captures(none
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i64 %indvars.iv.next, %10
-  br i1 %11, label %.split.loop.exit4, label %12, !llvm.loop !14
+  br i1 %11, label %.split.loop.exit5, label %12, !llvm.loop !14
 
 12:                                               ; preds = %.preheader
   %.idx = shl nuw nsw i64 %indvars.iv.next, 5
@@ -178,9 +178,9 @@ define dso_local zeroext i1 @audit_tree_match(ptr noundef readonly captures(none
 .split.loop.exit:                                 ; preds = %12
   %16 = trunc nuw nsw i64 %indvars.iv.next to i32
   %17 = icmp sgt i32 %4, %16
-  br label %.split.loop.exit4
+  br label %.split.loop.exit5
 
-.split.loop.exit4:                                ; preds = %.preheader, %.split.loop.exit, %6, %2
+.split.loop.exit5:                                ; preds = %.preheader, %.split.loop.exit, %6, %2
   %18 = phi i1 [ false, %2 ], [ true, %6 ], [ %17, %.split.loop.exit ], [ false, %.preheader ]
   ret i1 %18
 }

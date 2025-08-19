@@ -315,7 +315,7 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, 
 43:                                               ; preds = %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit
   %.not.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
   %44 = add nsw i32 %11, 1000000000
-  br i1 %.not.i.i.i.i, label %.thread14.i.i.i, label %48
+  br i1 %.not.i.i.i.i, label %.thread15.i.i.i, label %48
 
 45:                                               ; preds = %48, %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit
   %.sroa.011.0.i.i.i.i = phi i32 [ %44, %48 ], [ %11, %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit ]
@@ -323,7 +323,7 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, 
   %46 = icmp eq i64 %.sroa.04.0.i.i.i.i, 0
   br i1 %46, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, label %50
 
-.thread14.i.i.i:                                  ; preds = %43
+.thread15.i.i.i:                                  ; preds = %43
   %47 = add i32 %39, -1
   br label %56
 
@@ -339,11 +339,11 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, 
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, label %56
 
-56:                                               ; preds = %50, %.thread14.i.i.i
-  %57 = phi i32 [ 3599, %.thread14.i.i.i ], [ %54, %50 ]
-  %58 = phi i8 [ 23, %.thread14.i.i.i ], [ %53, %50 ]
-  %.sroa.011.0.i919.i.i.i = phi i32 [ %44, %.thread14.i.i.i ], [ %.sroa.011.0.i.i.i.i, %50 ]
-  %.sroa.02.0.i1218.i.i.i = phi i32 [ %47, %.thread14.i.i.i ], [ %39, %50 ]
+56:                                               ; preds = %50, %.thread15.i.i.i
+  %57 = phi i32 [ 3599, %.thread15.i.i.i ], [ %54, %50 ]
+  %58 = phi i8 [ 23, %.thread15.i.i.i ], [ %53, %50 ]
+  %.sroa.011.0.i1020.i.i.i = phi i32 [ %44, %.thread15.i.i.i ], [ %.sroa.011.0.i.i.i.i, %50 ]
+  %.sroa.02.0.i1319.i.i.i = phi i32 [ %47, %.thread15.i.i.i ], [ %39, %50 ]
   %.lhs.trunc2.i.i.i = trunc nuw nsw i32 %57 to i16
   %59 = udiv i16 %.lhs.trunc2.i.i.i, 60
   %60 = zext nneg i16 %59 to i64
@@ -354,12 +354,12 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, 
   br label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit
 
 _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %45, %50, %56
-  %.sroa.02.0.i13.i.i.i = phi i32 [ %39, %45 ], [ %39, %50 ], [ %.sroa.02.0.i1218.i.i.i, %56 ]
-  %.sroa.011.0.i10.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %45 ], [ %.sroa.011.0.i.i.i.i, %50 ], [ %.sroa.011.0.i919.i.i.i, %56 ]
+  %.sroa.02.0.i14.i.i.i = phi i32 [ %39, %45 ], [ %39, %50 ], [ %.sroa.02.0.i1319.i.i.i, %56 ]
+  %.sroa.011.0.i11.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %45 ], [ %.sroa.011.0.i.i.i.i, %50 ], [ %.sroa.011.0.i1020.i.i.i, %56 ]
   %.sroa.5.0.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %63, %56 ]
   %.sroa.4.0.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %64, %56 ]
   %.sroa.3.0.i.i.i.i = phi i8 [ 0, %45 ], [ %53, %50 ], [ %58, %56 ]
-  %65 = shl i32 %.sroa.02.0.i13.i.i.i, 2
+  %65 = shl i32 %.sroa.02.0.i14.i.i.i, 2
   %66 = add i32 %65, 50797691
   %67 = urem i32 %66, 146097
   %68 = or i32 %67, 3
@@ -391,7 +391,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %45, 
   %.sroa.8.10.insert.insert = or disjoint i32 %.sroa.8.8.insert.ext, %.sroa.8.10.insert.ext
   %.sroa.8.11.insert.shift = shl nuw nsw i32 %.sroa.014.3.extract.trunc.i, 24
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.insert, %.sroa.8.11.insert.shift
-  %.sroa.035.0.insert.ext = zext i32 %.sroa.011.0.i10.i.i.i to i64
+  %.sroa.035.0.insert.ext = zext i32 %.sroa.011.0.i11.i.i.i to i64
   %.sroa.035.4.insert.ext = zext nneg i8 %.sroa.3.0.i.i.i.i to i64
   %.sroa.035.4.insert.shift = shl nuw nsw i64 %.sroa.035.4.insert.ext, 32
   %.sroa.035.4.insert.insert = or disjoint i64 %.sroa.035.4.insert.shift, %.sroa.035.0.insert.ext
@@ -941,7 +941,7 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, 
 44:                                               ; preds = %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit
   %.not.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
   %45 = add nsw i32 %12, 1000000000
-  br i1 %.not.i.i.i.i, label %.thread14.i.i.i, label %49
+  br i1 %.not.i.i.i.i, label %.thread15.i.i.i, label %49
 
 46:                                               ; preds = %49, %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit
   %.sroa.011.0.i.i.i.i = phi i32 [ %45, %49 ], [ %12, %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit ]
@@ -949,7 +949,7 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, 
   %47 = icmp eq i64 %.sroa.04.0.i.i.i.i, 0
   br i1 %47, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, label %51
 
-.thread14.i.i.i:                                  ; preds = %44
+.thread15.i.i.i:                                  ; preds = %44
   %48 = add i32 %40, -1
   br label %57
 
@@ -965,11 +965,11 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, 
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, label %57
 
-57:                                               ; preds = %51, %.thread14.i.i.i
-  %58 = phi i32 [ 3599, %.thread14.i.i.i ], [ %55, %51 ]
-  %59 = phi i8 [ 23, %.thread14.i.i.i ], [ %54, %51 ]
-  %.sroa.011.0.i919.i.i.i = phi i32 [ %45, %.thread14.i.i.i ], [ %.sroa.011.0.i.i.i.i, %51 ]
-  %.sroa.02.0.i1218.i.i.i = phi i32 [ %48, %.thread14.i.i.i ], [ %40, %51 ]
+57:                                               ; preds = %51, %.thread15.i.i.i
+  %58 = phi i32 [ 3599, %.thread15.i.i.i ], [ %55, %51 ]
+  %59 = phi i8 [ 23, %.thread15.i.i.i ], [ %54, %51 ]
+  %.sroa.011.0.i1020.i.i.i = phi i32 [ %45, %.thread15.i.i.i ], [ %.sroa.011.0.i.i.i.i, %51 ]
+  %.sroa.02.0.i1319.i.i.i = phi i32 [ %48, %.thread15.i.i.i ], [ %40, %51 ]
   %.lhs.trunc2.i.i.i = trunc nuw nsw i32 %58 to i16
   %60 = udiv i16 %.lhs.trunc2.i.i.i, 60
   %61 = zext nneg i16 %60 to i64
@@ -980,12 +980,12 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %3, 
   br label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit
 
 _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %46, %51, %57
-  %.sroa.02.0.i13.i.i.i = phi i32 [ %40, %46 ], [ %40, %51 ], [ %.sroa.02.0.i1218.i.i.i, %57 ]
-  %.sroa.011.0.i10.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %46 ], [ %.sroa.011.0.i.i.i.i, %51 ], [ %.sroa.011.0.i919.i.i.i, %57 ]
+  %.sroa.02.0.i14.i.i.i = phi i32 [ %40, %46 ], [ %40, %51 ], [ %.sroa.02.0.i1319.i.i.i, %57 ]
+  %.sroa.011.0.i11.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %46 ], [ %.sroa.011.0.i.i.i.i, %51 ], [ %.sroa.011.0.i1020.i.i.i, %57 ]
   %.sroa.5.0.i.i.i.i = phi i64 [ 0, %46 ], [ 0, %51 ], [ %64, %57 ]
   %.sroa.4.0.i.i.i.i = phi i64 [ 0, %46 ], [ 0, %51 ], [ %65, %57 ]
   %.sroa.3.0.i.i.i.i = phi i8 [ 0, %46 ], [ %54, %51 ], [ %59, %57 ]
-  %66 = shl i32 %.sroa.02.0.i13.i.i.i, 2
+  %66 = shl i32 %.sroa.02.0.i14.i.i.i, 2
   %67 = add i32 %66, 50797691
   %68 = urem i32 %67, 146097
   %69 = or i32 %68, 3
@@ -1017,7 +1017,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %46, 
   %.sroa.8.10.insert.insert = or disjoint i32 %.sroa.8.8.insert.ext, %.sroa.8.10.insert.ext
   %.sroa.8.11.insert.shift = shl nuw nsw i32 %.sroa.014.3.extract.trunc.i, 24
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.insert, %.sroa.8.11.insert.shift
-  %.sroa.036.0.insert.ext = zext i32 %.sroa.011.0.i10.i.i.i to i64
+  %.sroa.036.0.insert.ext = zext i32 %.sroa.011.0.i11.i.i.i to i64
   %.sroa.036.4.insert.ext = zext nneg i8 %.sroa.3.0.i.i.i.i to i64
   %.sroa.036.4.insert.shift = shl nuw nsw i64 %.sroa.036.4.insert.ext, 32
   %.sroa.036.4.insert.insert = or disjoint i64 %.sroa.036.4.insert.shift, %.sroa.036.0.insert.ext
@@ -1537,7 +1537,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 22:                                               ; preds = %10
   %.not.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
   %23 = add nsw i32 %13, 1000000000
-  br i1 %.not.i.i.i.i, label %.thread14.i.i.i, label %27
+  br i1 %.not.i.i.i.i, label %.thread15.i.i.i, label %27
 
 24:                                               ; preds = %27, %10
   %.sroa.011.0.i.i.i.i = phi i32 [ %23, %27 ], [ %13, %10 ]
@@ -1545,7 +1545,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   %25 = icmp eq i64 %.sroa.04.0.i.i.i.i, 0
   br i1 %25, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, label %29
 
-.thread14.i.i.i:                                  ; preds = %22
+.thread15.i.i.i:                                  ; preds = %22
   %26 = add i32 %18, -1
   br label %35
 
@@ -1561,11 +1561,11 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, label %35
 
-35:                                               ; preds = %29, %.thread14.i.i.i
-  %36 = phi i32 [ 3599, %.thread14.i.i.i ], [ %33, %29 ]
-  %37 = phi i8 [ 23, %.thread14.i.i.i ], [ %32, %29 ]
-  %.sroa.011.0.i919.i.i.i = phi i32 [ %23, %.thread14.i.i.i ], [ %.sroa.011.0.i.i.i.i, %29 ]
-  %.sroa.02.0.i1218.i.i.i = phi i32 [ %26, %.thread14.i.i.i ], [ %18, %29 ]
+35:                                               ; preds = %29, %.thread15.i.i.i
+  %36 = phi i32 [ 3599, %.thread15.i.i.i ], [ %33, %29 ]
+  %37 = phi i8 [ 23, %.thread15.i.i.i ], [ %32, %29 ]
+  %.sroa.011.0.i1020.i.i.i = phi i32 [ %23, %.thread15.i.i.i ], [ %.sroa.011.0.i.i.i.i, %29 ]
+  %.sroa.02.0.i1319.i.i.i = phi i32 [ %26, %.thread15.i.i.i ], [ %18, %29 ]
   %.lhs.trunc2.i.i.i = trunc nuw nsw i32 %36 to i16
   %38 = udiv i16 %.lhs.trunc2.i.i.i, 60
   %39 = zext nneg i16 %38 to i64
@@ -1576,12 +1576,12 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   br label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit
 
 _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, %29, %35
-  %.sroa.02.0.i13.i.i.i = phi i32 [ %18, %24 ], [ %18, %29 ], [ %.sroa.02.0.i1218.i.i.i, %35 ]
-  %.sroa.011.0.i10.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %24 ], [ %.sroa.011.0.i.i.i.i, %29 ], [ %.sroa.011.0.i919.i.i.i, %35 ]
+  %.sroa.02.0.i14.i.i.i = phi i32 [ %18, %24 ], [ %18, %29 ], [ %.sroa.02.0.i1319.i.i.i, %35 ]
+  %.sroa.011.0.i11.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %24 ], [ %.sroa.011.0.i.i.i.i, %29 ], [ %.sroa.011.0.i1020.i.i.i, %35 ]
   %.sroa.5.0.i.i.i.i = phi i64 [ 0, %24 ], [ 0, %29 ], [ %42, %35 ]
   %.sroa.4.0.i.i.i.i = phi i64 [ 0, %24 ], [ 0, %29 ], [ %43, %35 ]
   %.sroa.3.0.i.i.i.i = phi i8 [ 0, %24 ], [ %32, %29 ], [ %37, %35 ]
-  %44 = shl i32 %.sroa.02.0.i13.i.i.i, 2
+  %44 = shl i32 %.sroa.02.0.i14.i.i.i, 2
   %45 = add i32 %44, 50797691
   %46 = urem i32 %45, 146097
   %47 = or i32 %46, 3
@@ -1613,7 +1613,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   %.sroa.8.10.insert.insert = or disjoint i32 %.sroa.8.8.insert.ext, %.sroa.8.10.insert.ext
   %.sroa.8.11.insert.shift = shl nuw nsw i32 %.sroa.014.3.extract.trunc.i, 24
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.insert, %.sroa.8.11.insert.shift
-  %.sroa.071.0.insert.ext = zext i32 %.sroa.011.0.i10.i.i.i to i64
+  %.sroa.071.0.insert.ext = zext i32 %.sroa.011.0.i11.i.i.i to i64
   %.sroa.071.4.insert.ext = zext nneg i8 %.sroa.3.0.i.i.i.i to i64
   %.sroa.071.4.insert.shift = shl nuw nsw i64 %.sroa.071.4.insert.ext, 32
   %.sroa.071.4.insert.insert = or disjoint i64 %.sroa.071.4.insert.shift, %.sroa.071.0.insert.ext
@@ -1664,7 +1664,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
 87:                                               ; preds = %77
   %.not.i.i.i.i67 = icmp eq i64 %spec.select.i.i.i.i40, 0
   %88 = add nsw i32 %80, 1000000000
-  br i1 %.not.i.i.i.i67, label %.thread14.i.i.i68, label %92
+  br i1 %.not.i.i.i.i67, label %.thread15.i.i.i68, label %92
 
 89:                                               ; preds = %92, %77
   %.sroa.011.0.i.i.i.i41 = phi i32 [ %88, %92 ], [ %80, %77 ]
@@ -1672,7 +1672,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   %90 = icmp eq i64 %.sroa.04.0.i.i.i.i42, 0
   br i1 %90, label %109, label %94
 
-.thread14.i.i.i68:                                ; preds = %87
+.thread15.i.i.i68:                                ; preds = %87
   %91 = add i32 %83, -1
   br label %100
 
@@ -1688,11 +1688,11 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %109, label %100
 
-100:                                              ; preds = %94, %.thread14.i.i.i68
-  %101 = phi i32 [ 3599, %.thread14.i.i.i68 ], [ %98, %94 ]
-  %102 = phi i8 [ 23, %.thread14.i.i.i68 ], [ %97, %94 ]
-  %.sroa.011.0.i919.i.i.i43 = phi i32 [ %88, %.thread14.i.i.i68 ], [ %.sroa.011.0.i.i.i.i41, %94 ]
-  %.sroa.02.0.i1218.i.i.i44 = phi i32 [ %91, %.thread14.i.i.i68 ], [ %83, %94 ]
+100:                                              ; preds = %94, %.thread15.i.i.i68
+  %101 = phi i32 [ 3599, %.thread15.i.i.i68 ], [ %98, %94 ]
+  %102 = phi i8 [ 23, %.thread15.i.i.i68 ], [ %97, %94 ]
+  %.sroa.011.0.i1020.i.i.i43 = phi i32 [ %88, %.thread15.i.i.i68 ], [ %.sroa.011.0.i.i.i.i41, %94 ]
+  %.sroa.02.0.i1319.i.i.i44 = phi i32 [ %91, %.thread15.i.i.i68 ], [ %83, %94 ]
   %.lhs.trunc2.i.i.i45 = trunc nuw nsw i32 %101 to i16
   %103 = udiv i16 %.lhs.trunc2.i.i.i45, 60
   %104 = zext nneg i16 %103 to i64
@@ -1703,12 +1703,12 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   br label %109
 
 109:                                              ; preds = %100, %94, %89
-  %.sroa.02.0.i13.i.i.i46 = phi i32 [ %83, %89 ], [ %83, %94 ], [ %.sroa.02.0.i1218.i.i.i44, %100 ]
-  %.sroa.011.0.i10.i.i.i47 = phi i32 [ %.sroa.011.0.i.i.i.i41, %89 ], [ %.sroa.011.0.i.i.i.i41, %94 ], [ %.sroa.011.0.i919.i.i.i43, %100 ]
+  %.sroa.02.0.i14.i.i.i46 = phi i32 [ %83, %89 ], [ %83, %94 ], [ %.sroa.02.0.i1319.i.i.i44, %100 ]
+  %.sroa.011.0.i11.i.i.i47 = phi i32 [ %.sroa.011.0.i.i.i.i41, %89 ], [ %.sroa.011.0.i.i.i.i41, %94 ], [ %.sroa.011.0.i1020.i.i.i43, %100 ]
   %.sroa.5.0.i.i.i.i48 = phi i64 [ 0, %89 ], [ 0, %94 ], [ %107, %100 ]
   %.sroa.4.0.i.i.i.i49 = phi i64 [ 0, %89 ], [ 0, %94 ], [ %108, %100 ]
   %.sroa.3.0.i.i.i.i50 = phi i8 [ 0, %89 ], [ %97, %94 ], [ %102, %100 ]
-  %110 = shl i32 %.sroa.02.0.i13.i.i.i46, 2
+  %110 = shl i32 %.sroa.02.0.i14.i.i.i46, 2
   %111 = add i32 %110, 50797691
   %112 = urem i32 %111, 146097
   %113 = or i32 %112, 3
@@ -1740,7 +1740,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   %.sroa.7.10.insert.insert = or disjoint i32 %.sroa.7.8.insert.ext, %.sroa.7.10.insert.ext
   %.sroa.7.11.insert.shift = shl nuw nsw i32 %.sroa.014.3.extract.trunc.i57, 24
   %.sroa.7.11.insert.insert = or disjoint i32 %.sroa.7.10.insert.insert, %.sroa.7.11.insert.shift
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.011.0.i10.i.i.i47 to i64
+  %.sroa.0.0.insert.ext = zext i32 %.sroa.011.0.i11.i.i.i47 to i64
   %.sroa.0.4.insert.ext = zext nneg i8 %.sroa.3.0.i.i.i.i50 to i64
   %.sroa.0.4.insert.shift = shl nuw nsw i64 %.sroa.0.4.insert.ext, 32
   %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
@@ -1804,7 +1804,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 22:                                               ; preds = %10
   %.not.i.i.i.i = icmp eq i64 %spec.select.i.i.i.i, 0
   %23 = add nsw i32 %13, 1000000000
-  br i1 %.not.i.i.i.i, label %.thread14.i.i.i, label %27
+  br i1 %.not.i.i.i.i, label %.thread15.i.i.i, label %27
 
 24:                                               ; preds = %27, %10
   %.sroa.011.0.i.i.i.i = phi i32 [ %23, %27 ], [ %13, %10 ]
@@ -1812,7 +1812,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   %25 = icmp eq i64 %.sroa.04.0.i.i.i.i, 0
   br i1 %25, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, label %29
 
-.thread14.i.i.i:                                  ; preds = %22
+.thread15.i.i.i:                                  ; preds = %22
   %26 = add i32 %18, -1
   br label %35
 
@@ -1828,11 +1828,11 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit, label %35
 
-35:                                               ; preds = %29, %.thread14.i.i.i
-  %36 = phi i32 [ 3599, %.thread14.i.i.i ], [ %33, %29 ]
-  %37 = phi i8 [ 23, %.thread14.i.i.i ], [ %32, %29 ]
-  %.sroa.011.0.i919.i.i.i = phi i32 [ %23, %.thread14.i.i.i ], [ %.sroa.011.0.i.i.i.i, %29 ]
-  %.sroa.02.0.i1218.i.i.i = phi i32 [ %26, %.thread14.i.i.i ], [ %18, %29 ]
+35:                                               ; preds = %29, %.thread15.i.i.i
+  %36 = phi i32 [ 3599, %.thread15.i.i.i ], [ %33, %29 ]
+  %37 = phi i8 [ 23, %.thread15.i.i.i ], [ %32, %29 ]
+  %.sroa.011.0.i1020.i.i.i = phi i32 [ %23, %.thread15.i.i.i ], [ %.sroa.011.0.i.i.i.i, %29 ]
+  %.sroa.02.0.i1319.i.i.i = phi i32 [ %26, %.thread15.i.i.i ], [ %18, %29 ]
   %.lhs.trunc2.i.i.i = trunc nuw nsw i32 %36 to i16
   %38 = udiv i16 %.lhs.trunc2.i.i.i, 60
   %39 = zext nneg i16 %38 to i64
@@ -1843,12 +1843,12 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
   br label %_ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit
 
 _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, %29, %35
-  %.sroa.02.0.i13.i.i.i = phi i32 [ %18, %24 ], [ %18, %29 ], [ %.sroa.02.0.i1218.i.i.i, %35 ]
-  %.sroa.011.0.i10.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %24 ], [ %.sroa.011.0.i.i.i.i, %29 ], [ %.sroa.011.0.i919.i.i.i, %35 ]
+  %.sroa.02.0.i14.i.i.i = phi i32 [ %18, %24 ], [ %18, %29 ], [ %.sroa.02.0.i1319.i.i.i, %35 ]
+  %.sroa.011.0.i11.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %24 ], [ %.sroa.011.0.i.i.i.i, %29 ], [ %.sroa.011.0.i1020.i.i.i, %35 ]
   %.sroa.5.0.i.i.i.i = phi i64 [ 0, %24 ], [ 0, %29 ], [ %42, %35 ]
   %.sroa.4.0.i.i.i.i = phi i64 [ 0, %24 ], [ 0, %29 ], [ %43, %35 ]
   %.sroa.3.0.i.i.i.i = phi i8 [ 0, %24 ], [ %32, %29 ], [ %37, %35 ]
-  %44 = shl i32 %.sroa.02.0.i13.i.i.i, 2
+  %44 = shl i32 %.sroa.02.0.i14.i.i.i, 2
   %45 = add i32 %44, 50797691
   %46 = urem i32 %45, 146097
   %47 = or i32 %46, 3
@@ -1880,7 +1880,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   %.sroa.8.10.insert.insert = or disjoint i32 %.sroa.8.8.insert.ext, %.sroa.8.10.insert.ext
   %.sroa.8.11.insert.shift = shl nuw nsw i32 %.sroa.014.3.extract.trunc.i, 24
   %.sroa.8.11.insert.insert = or disjoint i32 %.sroa.8.10.insert.insert, %.sroa.8.11.insert.shift
-  %.sroa.071.0.insert.ext = zext i32 %.sroa.011.0.i10.i.i.i to i64
+  %.sroa.071.0.insert.ext = zext i32 %.sroa.011.0.i11.i.i.i to i64
   %.sroa.071.4.insert.ext = zext nneg i8 %.sroa.3.0.i.i.i.i to i64
   %.sroa.071.4.insert.shift = shl nuw nsw i64 %.sroa.071.4.insert.ext, 32
   %.sroa.071.4.insert.insert = or disjoint i64 %.sroa.071.4.insert.shift, %.sroa.071.0.insert.ext
@@ -1931,7 +1931,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
 87:                                               ; preds = %77
   %.not.i.i.i.i67 = icmp eq i64 %spec.select.i.i.i.i40, 0
   %88 = add nsw i32 %80, 1000000000
-  br i1 %.not.i.i.i.i67, label %.thread14.i.i.i68, label %92
+  br i1 %.not.i.i.i.i67, label %.thread15.i.i.i68, label %92
 
 89:                                               ; preds = %92, %77
   %.sroa.011.0.i.i.i.i41 = phi i32 [ %88, %92 ], [ %80, %77 ]
@@ -1939,7 +1939,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   %90 = icmp eq i64 %.sroa.04.0.i.i.i.i42, 0
   br i1 %90, label %109, label %94
 
-.thread14.i.i.i68:                                ; preds = %87
+.thread15.i.i.i68:                                ; preds = %87
   %91 = add i32 %83, -1
   br label %100
 
@@ -1955,11 +1955,11 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %109, label %100
 
-100:                                              ; preds = %94, %.thread14.i.i.i68
-  %101 = phi i32 [ 3599, %.thread14.i.i.i68 ], [ %98, %94 ]
-  %102 = phi i8 [ 23, %.thread14.i.i.i68 ], [ %97, %94 ]
-  %.sroa.011.0.i919.i.i.i43 = phi i32 [ %88, %.thread14.i.i.i68 ], [ %.sroa.011.0.i.i.i.i41, %94 ]
-  %.sroa.02.0.i1218.i.i.i44 = phi i32 [ %91, %.thread14.i.i.i68 ], [ %83, %94 ]
+100:                                              ; preds = %94, %.thread15.i.i.i68
+  %101 = phi i32 [ 3599, %.thread15.i.i.i68 ], [ %98, %94 ]
+  %102 = phi i8 [ 23, %.thread15.i.i.i68 ], [ %97, %94 ]
+  %.sroa.011.0.i1020.i.i.i43 = phi i32 [ %88, %.thread15.i.i.i68 ], [ %.sroa.011.0.i.i.i.i41, %94 ]
+  %.sroa.02.0.i1319.i.i.i44 = phi i32 [ %91, %.thread15.i.i.i68 ], [ %83, %94 ]
   %.lhs.trunc2.i.i.i45 = trunc nuw nsw i32 %101 to i16
   %103 = udiv i16 %.lhs.trunc2.i.i.i45, 60
   %104 = zext nneg i16 %103 to i64
@@ -1970,12 +1970,12 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   br label %109
 
 109:                                              ; preds = %100, %94, %89
-  %.sroa.02.0.i13.i.i.i46 = phi i32 [ %83, %89 ], [ %83, %94 ], [ %.sroa.02.0.i1218.i.i.i44, %100 ]
-  %.sroa.011.0.i10.i.i.i47 = phi i32 [ %.sroa.011.0.i.i.i.i41, %89 ], [ %.sroa.011.0.i.i.i.i41, %94 ], [ %.sroa.011.0.i919.i.i.i43, %100 ]
+  %.sroa.02.0.i14.i.i.i46 = phi i32 [ %83, %89 ], [ %83, %94 ], [ %.sroa.02.0.i1319.i.i.i44, %100 ]
+  %.sroa.011.0.i11.i.i.i47 = phi i32 [ %.sroa.011.0.i.i.i.i41, %89 ], [ %.sroa.011.0.i.i.i.i41, %94 ], [ %.sroa.011.0.i1020.i.i.i43, %100 ]
   %.sroa.5.0.i.i.i.i48 = phi i64 [ 0, %89 ], [ 0, %94 ], [ %107, %100 ]
   %.sroa.4.0.i.i.i.i49 = phi i64 [ 0, %89 ], [ 0, %94 ], [ %108, %100 ]
   %.sroa.3.0.i.i.i.i50 = phi i8 [ 0, %89 ], [ %97, %94 ], [ %102, %100 ]
-  %110 = shl i32 %.sroa.02.0.i13.i.i.i46, 2
+  %110 = shl i32 %.sroa.02.0.i14.i.i.i46, 2
   %111 = add i32 %110, 50797691
   %112 = urem i32 %111, 146097
   %113 = or i32 %112, 3
@@ -2007,7 +2007,7 @@ _ZN4jiff2tz6offset6Offset11to_datetime17h03186c225dec61a4E.exit: ; preds = %24, 
   %.sroa.7.10.insert.insert = or disjoint i32 %.sroa.7.8.insert.ext, %.sroa.7.10.insert.ext
   %.sroa.7.11.insert.shift = shl nuw nsw i32 %.sroa.014.3.extract.trunc.i57, 24
   %.sroa.7.11.insert.insert = or disjoint i32 %.sroa.7.10.insert.insert, %.sroa.7.11.insert.shift
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.011.0.i10.i.i.i47 to i64
+  %.sroa.0.0.insert.ext = zext i32 %.sroa.011.0.i11.i.i.i47 to i64
   %.sroa.0.4.insert.ext = zext nneg i8 %.sroa.3.0.i.i.i.i50 to i64
   %.sroa.0.4.insert.shift = shl nuw nsw i64 %.sroa.0.4.insert.ext, 32
   %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
@@ -7480,7 +7480,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 .noexc15:                                         ; preds = %82
   %84 = trunc i64 %83 to i32
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.invoke105, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i"
+  br i1 %85, label %.invoke114, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i"
 
 "_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i": ; preds = %.noexc15
   %86 = sdiv i32 %74, %84
@@ -7493,13 +7493,13 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 .noexc17:                                         ; preds = %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i"
   %91 = trunc i64 %90 to i32
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.invoke105, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i"
+  br i1 %92, label %.invoke114, label %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i"
 
-.invoke105:                                       ; preds = %.noexc17, %.noexc15
+.invoke114:                                       ; preds = %.noexc17, %.noexc15
   invoke void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h2f1b89aaa7f0b171E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.defb23c543a0d58eda124284528ab762.5) #14
-          to label %.cont106 unwind label %264
+          to label %.cont115 unwind label %264
 
-.cont106:                                         ; preds = %.invoke105
+.cont115:                                         ; preds = %.invoke114
   unreachable
 
 "_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i": ; preds = %.noexc17
@@ -7510,7 +7510,7 @@ define hidden { i64, ptr } @_ZN4jiff3fmt8temporal7printer15DateTimePrinter15prin
 .noexc19:                                         ; preds = %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i"
   switch i32 %94, label %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.i [
     i32 -1, label %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
-    i32 0, label %.invoke103
+    i32 0, label %.invoke112
   ], !prof !17
 
 _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.i: ; preds = %.noexc19
@@ -7528,14 +7528,14 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
 .noexc21:                                         ; preds = %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
   switch i32 %99, label %100 [
     i32 -1, label %"_ZN4jiff4util8rangeint17ri32$LT$_$C$_$GT$8rem_ceil17he4f62bc978abf55dE.exit.i"
-    i32 0, label %.invoke103
+    i32 0, label %.invoke112
   ], !prof !17
 
-.invoke103:                                       ; preds = %.noexc21, %.noexc19
+.invoke112:                                       ; preds = %.noexc21, %.noexc19
   invoke void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1d770b6a397dd885E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.defb23c543a0d58eda124284528ab762.5) #14
-          to label %.cont104 unwind label %264
+          to label %.cont113 unwind label %264
 
-.cont104:                                         ; preds = %.invoke103
+.cont113:                                         ; preds = %.invoke112
   unreachable
 
 100:                                              ; preds = %.noexc21
@@ -7579,7 +7579,7 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
   store i8 %112, ptr %108, align 1, !alias.scope !574, !noalias !580
   %113 = zext i8 %112 to i64
   %114 = icmp ult i8 %112, 20
-  br i1 %114, label %115, label %.invoke101
+  br i1 %114, label %115, label %.invoke110
 
 115:                                              ; preds = %110
   %116 = udiv i64 %.sroa.0.0.i.i, 10
@@ -7608,7 +7608,7 @@ _ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i
   store i8 %129, ptr %108, align 1, !alias.scope !574, !noalias !580
   %130 = zext i8 %129 to i64
   %131 = icmp ult i8 %129, 20
-  br i1 %131, label %132, label %.invoke101
+  br i1 %131, label %132, label %.invoke110
 
 132:                                              ; preds = %127
   %133 = getelementptr inbounds nuw i8, ptr %9, i64 %130
@@ -7625,7 +7625,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %132, %.preh
   %140 = load i8, ptr %139, align 1, !noalias !571, !noundef !6
   %141 = zext i8 %140 to i64
   %142 = icmp ult i8 %140, %137
-  br i1 %142, label %.invoke99, label %143, !prof !16
+  br i1 %142, label %.invoke108, label %143, !prof !16
 
 143:                                              ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i
   %144 = icmp ugt i8 %140, 20
@@ -7688,7 +7688,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %132, %.preh
   store i8 %165, ptr %161, align 1, !alias.scope !581, !noalias !587
   %166 = zext i8 %165 to i64
   %167 = icmp ult i8 %165, 20
-  br i1 %167, label %168, label %.invoke101
+  br i1 %167, label %168, label %.invoke110
 
 168:                                              ; preds = %163
   %169 = udiv i64 %.sroa.0.0.i52.i, 10
@@ -7717,7 +7717,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i: ; preds = %132, %.preh
   store i8 %182, ptr %161, align 1, !alias.scope !581, !noalias !587
   %183 = zext i8 %182 to i64
   %184 = icmp ult i8 %182, 20
-  br i1 %184, label %185, label %.invoke101
+  br i1 %184, label %185, label %.invoke110
 
 185:                                              ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %8, i64 %183
@@ -7734,7 +7734,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i: ; preds = %185, %.pr
   %193 = load i8, ptr %192, align 1, !noalias !571, !noundef !6
   %194 = zext i8 %193 to i64
   %195 = icmp ult i8 %193, %190
-  br i1 %195, label %.invoke99, label %196, !prof !16
+  br i1 %195, label %.invoke108, label %196, !prof !16
 
 196:                                              ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i
   %197 = icmp ugt i8 %193, 20
@@ -7800,7 +7800,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i: ; preds = %185, %.pr
   store i8 %220, ptr %216, align 1, !alias.scope !588, !noalias !594
   %221 = zext i8 %220 to i64
   %222 = icmp ult i8 %220, 20
-  br i1 %222, label %223, label %.invoke101
+  br i1 %222, label %223, label %.invoke110
 
 223:                                              ; preds = %218
   %224 = udiv i64 %.sroa.0.0.i56.i, 10
@@ -7829,7 +7829,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i: ; preds = %185, %.pr
   store i8 %237, ptr %216, align 1, !alias.scope !588, !noalias !594
   %238 = zext i8 %237 to i64
   %239 = icmp ult i8 %237, 20
-  br i1 %239, label %240, label %.invoke101
+  br i1 %239, label %240, label %.invoke110
 
 240:                                              ; preds = %235
   %241 = getelementptr inbounds nuw i8, ptr %7, i64 %238
@@ -7839,13 +7839,13 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i: ; preds = %185, %.pr
   %244 = icmp ult i8 %243, %230
   br i1 %244, label %235, label %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i
 
-.invoke101:                                       ; preds = %110, %127, %163, %180, %218, %235
+.invoke110:                                       ; preds = %110, %127, %163, %180, %218, %235
   %245 = phi i64 [ %238, %235 ], [ %221, %218 ], [ %183, %180 ], [ %166, %163 ], [ %130, %127 ], [ %113, %110 ]
   %246 = phi ptr [ @anon.defb23c543a0d58eda124284528ab762.48, %235 ], [ @anon.defb23c543a0d58eda124284528ab762.47, %218 ], [ @anon.defb23c543a0d58eda124284528ab762.48, %180 ], [ @anon.defb23c543a0d58eda124284528ab762.47, %163 ], [ @anon.defb23c543a0d58eda124284528ab762.48, %127 ], [ @anon.defb23c543a0d58eda124284528ab762.47, %110 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %245, i64 noundef 20, ptr noalias noundef readonly align 8 dereferenceable(24) %246) #14
-          to label %.cont102 unwind label %264
+          to label %.cont111 unwind label %264
 
-.cont102:                                         ; preds = %.invoke101
+.cont111:                                         ; preds = %.invoke110
   unreachable
 
 _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i: ; preds = %240, %.preheader.i, %.noexc37
@@ -7855,19 +7855,19 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i: ; preds = %240, %.pr
   %250 = load i8, ptr %249, align 1, !noalias !571, !noundef !6
   %251 = zext i8 %250 to i64
   %252 = icmp ult i8 %250, %247
-  br i1 %252, label %.invoke99, label %253, !prof !16
+  br i1 %252, label %.invoke108, label %253, !prof !16
 
 253:                                              ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i
   %254 = icmp ugt i8 %250, 20
   br i1 %254, label %.invoke, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit49.i", !prof !16
 
-.invoke99:                                        ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i
+.invoke108:                                       ; preds = %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i
   %255 = phi i64 [ %138, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i ], [ %191, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i ], [ %248, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i ]
   %256 = phi i64 [ %141, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit.i ], [ %194, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit53.i ], [ %251, %_ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i ]
   invoke void @_ZN4core5slice5index22slice_index_order_fail17h16fcf642073d4bcdE(i64 noundef range(i64 0, 256) %255, i64 noundef range(i64 0, 256) %256, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.defb23c543a0d58eda124284528ab762.28) #14
-          to label %.cont100 unwind label %264
+          to label %.cont109 unwind label %264
 
-.cont100:                                         ; preds = %.invoke99
+.cont109:                                         ; preds = %.invoke108
   unreachable
 
 .invoke:                                          ; preds = %253, %196, %143
@@ -7893,7 +7893,7 @@ _ZN4jiff3fmt4util7Decimal3new17hfa803fb8c2dfdc3fE.exit57.i: ; preds = %240, %.pr
   %spec.select47.i = and i64 %261, 1
   br label %270
 
-264:                                              ; preds = %.invoke105, %.invoke103, %.invoke101, %.invoke99, %.invoke, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit49.i", %214, %206, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit48.i", %159, %151, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i", %106, %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i, %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i", %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i", %82, %.noexc, %72
+264:                                              ; preds = %.invoke114, %.invoke112, %.invoke110, %.invoke108, %.invoke, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit49.i", %214, %206, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit48.i", %159, %151, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i", %106, %_ZN4jiff2tz6offset6Offset19part_minutes_ranged17h7914e8167e40d755E.exit.thread.i, %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i.i", %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h6f251f722e09b7cbE.exit.i", %82, %.noexc, %72
   %265 = landingpad { ptr, i32 }
           cleanup
   %266 = load i32, ptr %22, align 8, !range !595, !alias.scope !596, !noundef !6

@@ -254,10 +254,10 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr readnone captures(no
   br label %76
 
 76:                                               ; preds = %38, %25, %13, %8
-  %.sink31 = phi i64 [ 3, %38 ], [ 1, %25 ], [ 1, %13 ], [ 1, %8 ]
+  %.sink32 = phi i64 [ 3, %38 ], [ 1, %25 ], [ 1, %13 ], [ 1, %8 ]
   %.sink = phi i8 [ %75, %38 ], [ %37, %25 ], [ %21, %13 ], [ %9, %8 ]
   %.0 = phi i64 [ 4, %38 ], [ 2, %25 ], [ 2, %13 ], [ 2, %8 ]
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink31
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink32
   store i8 %.sink, ptr %77, align 1, !tbaa !6
   ret i64 %.0
 }
@@ -1490,10 +1490,10 @@ define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr noundef captures(none)
   br label %fun_so_to_utf_32be.exit
 
 fun_so_to_utf_32be.exit:                          ; preds = %117, %101, %86, %79, %53, %37, %22, %15
-  %.sink20 = phi i64 [ 7, %15 ], [ 7, %22 ], [ 7, %37 ], [ 7, %53 ], [ 3, %79 ], [ 3, %86 ], [ 3, %101 ], [ 3, %117 ]
+  %.sink22 = phi i64 [ 7, %15 ], [ 7, %22 ], [ 7, %37 ], [ 7, %53 ], [ 3, %79 ], [ 3, %86 ], [ 3, %101 ], [ 3, %117 ]
   %.sink.i18.sink = phi i8 [ %18, %15 ], [ %33, %22 ], [ %52, %37 ], [ %75, %53 ], [ %82, %79 ], [ %97, %86 ], [ %116, %101 ], [ %139, %117 ]
   %.0 = phi i64 [ 8, %15 ], [ 8, %22 ], [ 8, %37 ], [ 8, %53 ], [ 4, %79 ], [ 4, %86 ], [ 4, %101 ], [ 4, %117 ]
-  %140 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink20
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink22
   store i8 %.sink.i18.sink, ptr %140, align 1, !tbaa !6
   ret i64 %.0
 }

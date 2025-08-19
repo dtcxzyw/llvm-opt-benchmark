@@ -1477,41 +1477,55 @@ declare dso_local ptr @proc_create(ptr noundef, i16 noundef zeroext, ptr noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @write_sysrq_trigger(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #2 align 16 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %.thread, label %.preheader
+  br i1 %5, label %.thread, label %.preheader.preheader
 
-.preheader:                                       ; preds = %4, %.thread3
-  %6 = phi i8 [ %20, %.thread3 ], [ 0, %4 ]
-  %7 = phi i64 [ %21, %.thread3 ], [ 0, %4 ]
-  %8 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %9 = getelementptr i8, ptr %1, i64 %7
-  %10 = tail call { ptr, i8, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %9, i64 1, i64 %8) #18, !srcloc !28
-  %11 = extractvalue { ptr, i8, i64 } %10, 0
-  %12 = extractvalue { ptr, i8, i64 } %10, 1
-  %13 = extractvalue { ptr, i8, i64 } %10, 2
-  %14 = ptrtoint ptr %11 to i64
-  tail call void @llvm.write_register.i64(metadata !0, i64 %13)
-  %15 = and i64 %14, 4294967295
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %.thread
+.preheader.preheader:                             ; preds = %4
+  %6 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %7 = tail call { ptr, i8, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 1, i64 %6) #18, !srcloc !28
+  %8 = extractvalue { ptr, i8, i64 } %7, 0
+  %9 = extractvalue { ptr, i8, i64 } %7, 2
+  %10 = ptrtoint ptr %8 to i64
+  tail call void @llvm.write_register.i64(metadata !0, i64 %9)
+  %11 = and i64 %10, 4294967295
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %.lr.ph, label %.thread
 
-17:                                               ; preds = %.preheader
-  %18 = icmp eq i8 %12, 95
-  br i1 %18, label %.thread3, label %19
+.lr.ph:                                           ; preds = %.preheader.preheader, %.preheader.backedge
+  %.pn = phi { ptr, i8, i64 } [ %21, %.preheader.backedge ], [ %7, %.preheader.preheader ]
+  %13 = phi i64 [ %.be, %.preheader.backedge ], [ 0, %.preheader.preheader ]
+  %switch.not9 = phi i1 [ false, %.preheader.backedge ], [ true, %.preheader.preheader ]
+  %14 = extractvalue { ptr, i8, i64 } %.pn, 1
+  %15 = icmp eq i8 %14, 95
+  br i1 %15, label %.thread3, label %16
 
-19:                                               ; preds = %17
-  tail call void @__handle_sysrq(i8 noundef zeroext %12, i1 noundef zeroext false)
-  %switch.not = icmp eq i8 %6, 0
-  br i1 %switch.not, label %.thread, label %.thread3
+16:                                               ; preds = %.lr.ph
+  tail call void @__handle_sysrq(i8 noundef zeroext %14, i1 noundef zeroext false)
+  %17 = add nuw i64 %13, 1
+  %18 = icmp eq i64 %17, %2
+  %or.cond = select i1 %switch.not9, i1 true, i1 %18
+  br i1 %or.cond, label %.thread, label %.preheader.backedge
 
-.thread3:                                         ; preds = %19, %17
-  %20 = phi i8 [ %6, %19 ], [ 1, %17 ]
-  %21 = add nuw i64 %7, 1
-  %22 = icmp eq i64 %21, %2
-  br i1 %22, label %.thread, label %.preheader, !llvm.loop !29
+.thread3:                                         ; preds = %.lr.ph
+  %.old = add nuw i64 %13, 1
+  %.old8 = icmp eq i64 %.old, %2
+  br i1 %.old8, label %.thread, label %.preheader.backedge
 
-.thread:                                          ; preds = %.thread3, %19, %.preheader, %4
-  %23 = phi i64 [ 0, %4 ], [ %2, %.thread3 ], [ %2, %19 ], [ -14, %.preheader ]
-  ret i64 %23
+.preheader.backedge:                              ; preds = %.thread3, %16
+  %.be = phi i64 [ %.old, %.thread3 ], [ %17, %16 ]
+  %19 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %20 = getelementptr i8, ptr %1, i64 %.be
+  %21 = tail call { ptr, i8, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %20, i64 1, i64 %19) #18, !srcloc !28
+  %22 = extractvalue { ptr, i8, i64 } %21, 0
+  %23 = extractvalue { ptr, i8, i64 } %21, 2
+  %24 = ptrtoint ptr %22 to i64
+  tail call void @llvm.write_register.i64(metadata !0, i64 %23)
+  %25 = and i64 %24, 4294967295
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %.lr.ph, label %.thread, !llvm.loop !29
+
+.thread:                                          ; preds = %.preheader.backedge, %16, %.thread3, %.preheader.preheader, %4
+  %27 = phi i64 [ 0, %4 ], [ -14, %.preheader.preheader ], [ %2, %.thread3 ], [ %2, %16 ], [ -14, %.preheader.backedge ]
+  ret i64 %27
 }
 
 ; Function Attrs: null_pointer_is_valid

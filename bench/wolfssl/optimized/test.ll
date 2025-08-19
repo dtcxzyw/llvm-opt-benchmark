@@ -3923,7 +3923,7 @@ define dso_local i32 @sha512_256_test() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 536866152) i32 @sha3_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1610817849, 1) i32 @sha3_test() local_unnamed_addr #0 {
   %1 = alloca %struct.wc_Sha3, align 8
   %2 = alloca [64 x i8], align 16
   %3 = alloca [64 x i8], align 16
@@ -4389,10 +4389,10 @@ sha3_384_test.exit.thread:                        ; preds = %116
   br i1 %.not48.i, label %158, label %sha3_384_test.exit.thread110
 
 sha3_384_test.exit.thread105:                     ; preds = %136, %133, %131, %129, %.preheader81.i
-  %.sink195 = phi i32 [ -1610617733, %.preheader81.i ], [ -1610617737, %129 ], [ -1610617741, %131 ], [ -1610617744, %133 ], [ -1610617747, %136 ]
+  %.sink211 = phi i32 [ -1610617733, %.preheader81.i ], [ -1610617737, %129 ], [ -1610617741, %131 ], [ -1610617744, %133 ], [ -1610617747, %136 ]
   %156 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   %narrow.neg76.i = mul nsw i32 %156, -100000
-  %157 = add nsw i32 %narrow.neg76.i, %.sink195
+  %157 = add nsw i32 %narrow.neg76.i, %.sink211
   call void @wc_Sha3_384_Free(ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6467,9 +6467,9 @@ define dso_local range(i32 -741587091, 1) i32 @gmac_test() local_unnamed_addr #0
   br i1 %.not31, label %35, label %.thread
 
 .thread:                                          ; preds = %30, %28, %26, %24, %22, %20
-  %.sink53 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink58 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ]
   %.sink = phi i32 [ -536887062, %20 ], [ -536887072, %22 ], [ -536887076, %24 ], [ -536887080, %26 ], [ -536887087, %28 ], [ -536887091, %30 ]
-  %32 = sub nsw i32 0, %.sink53
+  %32 = sub nsw i32 0, %.sink58
   %33 = and i32 %32, 2047
   %narrow.neg48 = mul nsw i32 %33, -100000
   %34 = add nsw i32 %narrow.neg48, %.sink
@@ -9965,9 +9965,9 @@ define dso_local range(i32 -1278463853, 1) i32 @rsa_test() local_unnamed_addr #0
   br i1 %.not197.i, label %207, label %rsa_decode_test.exit.thread114
 
 rsa_decode_test.exit.thread:                      ; preds = %192, %181, %170, %161, %73, %64, %55, %29
-  %.sink121 = phi i32 [ %30, %29 ], [ %57, %55 ], [ %66, %64 ], [ %75, %73 ], [ %163, %161 ], [ %172, %170 ], [ %183, %181 ], [ %194, %192 ]
+  %.sink158 = phi i32 [ %30, %29 ], [ %57, %55 ], [ %66, %64 ], [ %75, %73 ], [ %163, %161 ], [ %172, %170 ], [ %183, %181 ], [ %194, %192 ]
   %.sink = phi i32 [ -536890769, %29 ], [ -536890800, %55 ], [ -536890814, %64 ], [ -536890825, %73 ], [ -536890945, %161 ], [ -536890959, %170 ], [ -536890976, %181 ], [ -536890992, %192 ]
-  %203 = sub nsw i32 0, %.sink121
+  %203 = sub nsw i32 0, %.sink158
   %204 = and i32 %203, 2047
   %narrow.neg292.i = mul nsw i32 %204, -100000
   %205 = add nsw i32 %narrow.neg292.i, %.sink
@@ -10541,9 +10541,9 @@ define dso_local range(i32 -1611635703, 1) i32 @dh_test() local_unnamed_addr #0 
   br label %140
 
 .thread192:                                       ; preds = %53, %51, %49
-  %.sink197 = phi i32 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
+  %.sink217 = phi i32 [ %50, %49 ], [ %52, %51 ], [ %54, %53 ]
   %.sink = phi i32 [ -536894255, %49 ], [ -536894260, %51 ], [ -536894270, %53 ]
-  %131 = sub nsw i32 0, %.sink197
+  %131 = sub nsw i32 0, %.sink217
   %132 = and i32 %131, 2047
   %narrow.neg127 = mul nsw i32 %132, -100000
   %133 = add nsw i32 %narrow.neg127, %.sink
@@ -11196,9 +11196,9 @@ ecc_sig_test.exit.thread.i:                       ; preds = %222, %215, %209, %2
   ]
 
 ecc_ssh_test.exit.thread.i:                       ; preds = %240, %235, %233, %231, %229, %226
-  %.sink60.i = phi i32 [ %228, %226 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %.1.i.i, %240 ]
+  %.sink76.i = phi i32 [ %228, %226 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %.1.i.i, %240 ]
   %.sink.i = phi i32 [ -536902804, %226 ], [ -536902807, %229 ], [ -536902810, %231 ], [ -536902813, %233 ], [ -536902820, %235 ], [ -536902835, %240 ]
-  %241 = sub nsw i32 0, %.sink60.i
+  %241 = sub nsw i32 0, %.sink76.i
   %242 = and i32 %241, 2047
   %narrow.neg51.i.i = mul nsw i32 %242, -100000
   %243 = add nsw i32 %narrow.neg51.i.i, %.sink.i
@@ -11223,12 +11223,12 @@ ecc_ssh_test.exit.thread.i:                       ; preds = %240, %235, %233, %2
   br i1 %251, label %.thread.i, label %256
 
 .thread.i:                                        ; preds = %247, %244
-  %.sink61.i = phi i32 [ -1073773828, %244 ], [ -1073773833, %247 ]
+  %.sink77.i = phi i32 [ -1073773828, %244 ], [ -1073773833, %247 ]
   %252 = tail call ptr @__errno_location() #21
   %253 = load i32, ptr %252, align 4, !tbaa !22
   %254 = and i32 %253, 2047
   %narrow.neg36.i = mul nsw i32 %254, -100000
-  %255 = add nsw i32 %narrow.neg36.i, %.sink61.i
+  %255 = add nsw i32 %narrow.neg36.i, %.sink77.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ecc_def_curve_test.exit.thread
 

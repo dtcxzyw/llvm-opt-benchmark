@@ -31,7 +31,7 @@ define void @_ZN5folly10symbolizer4PathC2ENS_5RangeIPKcEES5_S5_(ptr noundef nonn
 14:                                               ; preds = %6
   %15 = load i8, ptr %9, align 1, !tbaa !16
   %16 = icmp eq i8 %15, 47
-  br i1 %16, label %.thread4, label %17
+  br i1 %16, label %.thread7, label %17
 
 17:                                               ; preds = %14
   %18 = icmp eq ptr %3, %4
@@ -40,13 +40,13 @@ define void @_ZN5folly10symbolizer4PathC2ENS_5RangeIPKcEES5_S5_(ptr noundef nonn
 19:                                               ; preds = %17
   %20 = load i8, ptr %3, align 1, !tbaa !16
   %21 = icmp eq i8 %20, 47
-  br i1 %21, label %.thread4, label %22
+  br i1 %21, label %.thread7, label %22
 
 22:                                               ; preds = %19, %17
   %23 = icmp eq ptr %1, %2
-  br i1 %23, label %.thread4, label %28
+  br i1 %23, label %.thread7, label %28
 
-.thread4:                                         ; preds = %19, %14, %22
+.thread7:                                         ; preds = %19, %14, %22
   %24 = phi ptr [ %1, %22 ], [ null, %14 ], [ null, %19 ]
   %25 = phi ptr [ %2, %22 ], [ null, %14 ], [ null, %19 ]
   %26 = phi ptr [ %4, %22 ], [ null, %14 ], [ %4, %19 ]
@@ -57,7 +57,7 @@ define void @_ZN5folly10symbolizer4PathC2ENS_5RangeIPKcEES5_S5_(ptr noundef nonn
   store ptr %25, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   br label %28
 
-28:                                               ; preds = %.thread4, %22, %13
+28:                                               ; preds = %.thread7, %22, %13
   ret void
 }
 
@@ -150,8 +150,8 @@ define noundef i64 @_ZNK5folly10symbolizer4Path8toBufferEPcm(ptr noundef nonnull
   br i1 %16, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit, label %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread"
 
 "_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread": ; preds = %8, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit"
-  %.598 = phi ptr [ %14, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %1, %8 ]
-  %.57997 = phi i64 [ %15, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %2, %8 ]
+  %.5108 = phi ptr [ %14, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %1, %8 ]
+  %.579107 = phi i64 [ %15, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %2, %8 ]
   %17 = phi ptr [ %.pre84, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %6, %8 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 -1
   %19 = load i8, ptr %18, align 1, !tbaa !16
@@ -160,8 +160,8 @@ define noundef i64 @_ZNK5folly10symbolizer4Path8toBufferEPcm(ptr noundef nonnull
   br label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit
 
 _ZNK5folly5RangeIPKcE8endsWithERS1_.exit:         ; preds = %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread", %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit", %3
-  %.074 = phi i64 [ %2, %3 ], [ %15, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %.57997, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
-  %.069 = phi ptr [ %1, %3 ], [ %14, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %.598, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
+  %.074 = phi i64 [ %2, %3 ], [ %15, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %.579107, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
+  %.069 = phi ptr [ %1, %3 ], [ %14, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %.5108, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
   %.067 = phi i64 [ 0, %3 ], [ %12, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %12, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
   %.0 = phi i8 [ 0, %3 ], [ 1, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit" ], [ %21, %"_ZZNK5folly10symbolizer4Path8toBufferEPcmENK3$_0clENS_5RangeIPKcEE.exit.thread" ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16

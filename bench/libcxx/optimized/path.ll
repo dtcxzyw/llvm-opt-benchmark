@@ -1563,7 +1563,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.threa
   %82 = load ptr, ptr %70, align 8, !tbaa !28
   %83 = load i8, ptr %82, align 1, !tbaa !4
   %84 = icmp eq i8 %83, 92
-  %.str.5..str.3.i84169 = select i1 %84, ptr @.str.5, ptr @.str.3
+  %.str.5..str.3.i84170 = select i1 %84, ptr @.str.5, ptr @.str.3
   br label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90
 
 85:                                               ; preds = %78, %78
@@ -1603,14 +1603,14 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread: ; pr
   %90 = load i8, ptr %89, align 1, !tbaa !4
   %91 = icmp eq i8 %90, 92
   %.str.5..str.3.i84 = select i1 %91, ptr @.str.5, ptr @.str.3
-  %.not.i86159 = icmp eq i64 %.sroa.6.0.i71, 1
-  br i1 %.not.i86159, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90, label %.critedge2
+  %.not.i86160 = icmp eq i64 %.sroa.6.0.i71, 1
+  br i1 %.not.i86160, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90, label %.critedge2
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85
-  %.sroa.0.0.i81162 = phi ptr [ %.str.5..str.3.i84, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.0.0.i81, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ %.str.5..str.3.i84169, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
-  %.sroa.6.0.i71150161 = phi i64 [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.6.0.i71, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
-  %.sroa.0.0.i72153160 = phi ptr [ %.sroa.0.0.i72, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.0.0.i72, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ %.str.5..str.3.i75, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
-  %bcmp.i89 = call i32 @bcmp(ptr %.sroa.0.0.i72153160, ptr %.sroa.0.0.i81162, i64 %.sroa.6.0.i71150161)
+  %.sroa.0.0.i81163 = phi ptr [ %.str.5..str.3.i84, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.0.0.i81, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ %.str.5..str.3.i84170, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
+  %.sroa.6.0.i71153162 = phi i64 [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.6.0.i71, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
+  %.sroa.0.0.i72155161 = phi ptr [ %.sroa.0.0.i72, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.0.0.i72, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ %.str.5..str.3.i75, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
+  %bcmp.i89 = call i32 @bcmp(ptr %.sroa.0.0.i72155161, ptr %.sroa.0.0.i81163, i64 %.sroa.6.0.i71153162)
   %92 = icmp eq i32 %bcmp.i89, 0
   %93 = icmp eq i8 %73, 3
   %or.cond141 = or i1 %93, %92
@@ -1927,8 +1927,8 @@ define dso_local noundef i32 @_ZNKSt3__14__fs10filesystem4path9__compareENS_17ba
   br i1 %26, label %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i, label %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit15.i"
 
 _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i: ; preds = %23, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i"
-  %.sroa.0.0.i25.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ], [ @.str.2, %23 ]
-  %.sroa.3.0.i23.i = phi i64 [ %.sroa.6.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ], [ 0, %23 ]
+  %.sroa.0.0.i26.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ], [ @.str.2, %23 ]
+  %.sroa.3.0.i24.i = phi i64 [ %.sroa.6.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ], [ 0, %23 ]
   %.sroa.0.0.copyload.i.i12.i = load ptr, ptr %19, align 8, !tbaa !13
   %.sroa.6.0..sroa_idx.i.i13.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.6.0.copyload.i.i14.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i13.i, align 8, !tbaa !19
@@ -1936,21 +1936,21 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i: ; preds
 
 "_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit15.i": ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i"
   %27 = phi i8 [ 2, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i ], [ %.pre.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ]
-  %.sroa.0.0.i24.i = phi ptr [ %.sroa.0.0.i25.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i ], [ %.sroa.0.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ]
-  %.sroa.3.0.i22.i = phi i64 [ %.sroa.3.0.i23.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i ], [ %.sroa.6.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ]
+  %.sroa.0.0.i25.i = phi ptr [ %.sroa.0.0.i26.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i ], [ %.sroa.0.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ]
+  %.sroa.3.0.i23.i = phi i64 [ %.sroa.3.0.i24.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i ], [ %.sroa.6.0.copyload.i.i.i, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ]
   %.sroa.3.0.i7.i = phi i64 [ %.sroa.6.0.copyload.i.i14.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i ], [ 0, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ]
   %.sroa.0.0.i8.i = phi ptr [ %.sroa.0.0.copyload.i.i12.i, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit.i11.i ], [ @.str.2, %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit.i" ]
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.i7.i, i64 %.sroa.3.0.i22.i)
-  %28 = call noundef i32 @memcmp(ptr noundef %.sroa.0.0.i24.i, ptr noundef %.sroa.0.0.i8.i, i64 noundef %.sroa.speculated.i.i) #22
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.i7.i, i64 %.sroa.3.0.i23.i)
+  %28 = call noundef i32 @memcmp(ptr noundef %.sroa.0.0.i25.i, ptr noundef %.sroa.0.0.i8.i, i64 noundef %.sroa.speculated.i.i) #22
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.i
 
 30:                                               ; preds = %"_ZZNSt3__14__fs10filesystemL15CompareRootNameEPNS1_6parser10PathParserES4_ENK3$_0clES4_.exit15.i"
-  %31 = icmp eq i64 %.sroa.3.0.i22.i, %.sroa.3.0.i7.i
+  %31 = icmp eq i64 %.sroa.3.0.i23.i, %.sroa.3.0.i7.i
   br i1 %31, label %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.i, label %32
 
 32:                                               ; preds = %30
-  %33 = icmp ult i64 %.sroa.3.0.i22.i, %.sroa.3.0.i7.i
+  %33 = icmp ult i64 %.sroa.3.0.i23.i, %.sroa.3.0.i7.i
   %34 = select i1 %33, i32 -1, i32 1
   br label %_ZNKSt3__117basic_string_viewIcNS_11char_traitsIcEEE7compareB8ne210000ES3_.exit.i
 
@@ -3511,7 +3511,7 @@ _ZNSt3__14__fs10filesystem20__is_pathable_stringINS_17basic_string_viewIcNS_11ch
 
 23:                                               ; preds = %20
   %24 = icmp eq i8 %21, 44
-  br i1 %24, label %.thread38.i.i, label %54
+  br i1 %24, label %.thread41.i.i, label %54
 
 .thread.i.i:                                      ; preds = %20
   %25 = load i64, ptr %0, align 8
@@ -3523,7 +3523,7 @@ _ZNSt3__14__fs10filesystem20__is_pathable_stringINS_17basic_string_viewIcNS_11ch
   %30 = icmp eq i64 %29, %27
   br i1 %30, label %.critedge.i.i, label %.thread24.i.i
 
-.thread38.i.i:                                    ; preds = %23
+.thread41.i.i:                                    ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %42
@@ -3544,18 +3544,18 @@ _ZNSt3__14__fs10filesystem20__is_pathable_stringINS_17basic_string_viewIcNS_11ch
   %spec.select.i.i = select i1 %.inv.i.inv.i.i.i.i, i64 23, i64 %41
   br label %42
 
-42:                                               ; preds = %36, %.thread38.i.i
-  %.01322283742.i.i = phi i64 [ 22, %.thread38.i.i ], [ %27, %36 ]
-  %43 = phi ptr [ %31, %.thread38.i.i ], [ %33, %36 ]
-  %44 = phi ptr [ %32, %.thread38.i.i ], [ %34, %36 ]
-  %45 = phi i64 [ 48, %.thread38.i.i ], [ %spec.select.i.i, %36 ]
-  %46 = add nuw nsw i64 %.01322283742.i.i, 1
+42:                                               ; preds = %36, %.thread41.i.i
+  %.01322283745.i.i = phi i64 [ 22, %.thread41.i.i ], [ %27, %36 ]
+  %43 = phi ptr [ %31, %.thread41.i.i ], [ %33, %36 ]
+  %44 = phi ptr [ %32, %.thread41.i.i ], [ %34, %36 ]
+  %45 = phi i64 [ 48, %.thread41.i.i ], [ %spec.select.i.i, %36 ]
+  %46 = add nuw nsw i64 %.01322283745.i.i, 1
   br label %47
 
 47:                                               ; preds = %42, %.critedge.i.i
   %48 = phi ptr [ %44, %42 ], [ %34, %.critedge.i.i ]
   %49 = phi ptr [ %43, %42 ], [ %33, %.critedge.i.i ]
-  %.013222836.i.i = phi i64 [ %.01322283742.i.i, %42 ], [ %27, %.critedge.i.i ]
+  %.013222836.i.i = phi i64 [ %.01322283745.i.i, %42 ], [ %27, %.critedge.i.i ]
   %.014192934.i.i = phi i64 [ %46, %42 ], [ %26, %.critedge.i.i ]
   %50 = phi i64 [ %45, %42 ], [ -9, %.critedge.i.i ]
   %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %50) #21
@@ -3647,7 +3647,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 
 20:                                               ; preds = %17
   %21 = icmp eq i8 %18, 44
-  br i1 %21, label %.thread38.i.i, label %51
+  br i1 %21, label %.thread41.i.i, label %51
 
 .thread.i.i:                                      ; preds = %17
   %22 = load i64, ptr %0, align 8
@@ -3659,7 +3659,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %27 = icmp eq i64 %26, %24
   br i1 %27, label %.critedge.i.i, label %.thread24.i.i
 
-.thread38.i.i:                                    ; preds = %20
+.thread41.i.i:                                    ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %39
@@ -3680,18 +3680,18 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %spec.select.i.i = select i1 %.inv.i.inv.i.i.i.i, i64 23, i64 %38
   br label %39
 
-39:                                               ; preds = %33, %.thread38.i.i
-  %.01322283742.i.i = phi i64 [ 22, %.thread38.i.i ], [ %24, %33 ]
-  %40 = phi ptr [ %28, %.thread38.i.i ], [ %30, %33 ]
-  %41 = phi ptr [ %29, %.thread38.i.i ], [ %31, %33 ]
-  %42 = phi i64 [ 48, %.thread38.i.i ], [ %spec.select.i.i, %33 ]
-  %43 = add nuw nsw i64 %.01322283742.i.i, 1
+39:                                               ; preds = %33, %.thread41.i.i
+  %.01322283745.i.i = phi i64 [ 22, %.thread41.i.i ], [ %24, %33 ]
+  %40 = phi ptr [ %28, %.thread41.i.i ], [ %30, %33 ]
+  %41 = phi ptr [ %29, %.thread41.i.i ], [ %31, %33 ]
+  %42 = phi i64 [ 48, %.thread41.i.i ], [ %spec.select.i.i, %33 ]
+  %43 = add nuw nsw i64 %.01322283745.i.i, 1
   br label %44
 
 44:                                               ; preds = %39, %.critedge.i.i
   %45 = phi ptr [ %41, %39 ], [ %31, %.critedge.i.i ]
   %46 = phi ptr [ %40, %39 ], [ %30, %.critedge.i.i ]
-  %.013222836.i.i = phi i64 [ %.01322283742.i.i, %39 ], [ %24, %.critedge.i.i ]
+  %.013222836.i.i = phi i64 [ %.01322283745.i.i, %39 ], [ %24, %.critedge.i.i ]
   %.014192934.i.i = phi i64 [ %43, %39 ], [ %23, %.critedge.i.i ]
   %47 = phi i64 [ %42, %39 ], [ -9, %.critedge.i.i ]
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #21
@@ -3782,7 +3782,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 
 20:                                               ; preds = %17
   %21 = icmp eq i8 %18, 44
-  br i1 %21, label %.thread38.i.i, label %51
+  br i1 %21, label %.thread41.i.i, label %51
 
 .thread.i.i:                                      ; preds = %17
   %22 = load i64, ptr %0, align 8
@@ -3794,7 +3794,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %27 = icmp eq i64 %26, %24
   br i1 %27, label %.critedge.i.i, label %.thread24.i.i
 
-.thread38.i.i:                                    ; preds = %20
+.thread41.i.i:                                    ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %39
@@ -3815,18 +3815,18 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %spec.select.i.i = select i1 %.inv.i.inv.i.i.i.i, i64 23, i64 %38
   br label %39
 
-39:                                               ; preds = %33, %.thread38.i.i
-  %.01322283742.i.i = phi i64 [ 22, %.thread38.i.i ], [ %24, %33 ]
-  %40 = phi ptr [ %28, %.thread38.i.i ], [ %30, %33 ]
-  %41 = phi ptr [ %29, %.thread38.i.i ], [ %31, %33 ]
-  %42 = phi i64 [ 48, %.thread38.i.i ], [ %spec.select.i.i, %33 ]
-  %43 = add nuw nsw i64 %.01322283742.i.i, 1
+39:                                               ; preds = %33, %.thread41.i.i
+  %.01322283745.i.i = phi i64 [ 22, %.thread41.i.i ], [ %24, %33 ]
+  %40 = phi ptr [ %28, %.thread41.i.i ], [ %30, %33 ]
+  %41 = phi ptr [ %29, %.thread41.i.i ], [ %31, %33 ]
+  %42 = phi i64 [ 48, %.thread41.i.i ], [ %spec.select.i.i, %33 ]
+  %43 = add nuw nsw i64 %.01322283745.i.i, 1
   br label %44
 
 44:                                               ; preds = %39, %.critedge.i.i
   %45 = phi ptr [ %41, %39 ], [ %31, %.critedge.i.i ]
   %46 = phi ptr [ %40, %39 ], [ %30, %.critedge.i.i ]
-  %.013222836.i.i = phi i64 [ %.01322283742.i.i, %39 ], [ %24, %.critedge.i.i ]
+  %.013222836.i.i = phi i64 [ %.01322283745.i.i, %39 ], [ %24, %.critedge.i.i ]
   %.014192934.i.i = phi i64 [ %43, %39 ], [ %23, %.critedge.i.i ]
   %47 = phi i64 [ %42, %39 ], [ -9, %.critedge.i.i ]
   %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #21

@@ -156,9 +156,9 @@ _ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %34, %18
   br label %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread
 
 _ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit.thread: ; preds = %.lr.ph.i, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit, %53
-  %.022.i24 = phi ptr [ %43, %53 ], [ %43, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ %32, %.lr.ph.i ]
+  %.022.i28 = phi ptr [ %43, %53 ], [ %43, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ %32, %.lr.ph.i ]
   %.sroa.3.0 = phi i8 [ 1, %53 ], [ 0, %_ZNK4llvm19SmallPtrSetImplBase13FindBucketForEPKv.exit ], [ 0, %.lr.ph.i ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.022.i24, 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.022.i28, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1
   ret { ptr, i8 } %.fca.1.insert
 }

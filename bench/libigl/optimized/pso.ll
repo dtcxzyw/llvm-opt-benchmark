@@ -336,8 +336,8 @@ _ZN5Eigen8internal23check_size_for_overflowIfEEvm.exit.i.i.i356.us: ; preds = %.
   br i1 %exitcond.not.i.i.i.i.i.i298.us, label %.loopexit712.us, label %.lr.ph.i.i.i.i.i.i296.us, !llvm.loop !23
 
 .loopexit712.us:                                  ; preds = %.lr.ph.i.i.i.i.i.i296.us, %48
-  %.sroa.0.4943 = phi ptr [ null, %48 ], [ %63, %.lr.ph.i.i.i.i.i.i296.us ]
-  %.sroa.0819.2923932942 = phi ptr [ null, %48 ], [ %52, %.lr.ph.i.i.i.i.i.i296.us ]
+  %.sroa.0.4984 = phi ptr [ null, %48 ], [ %63, %.lr.ph.i.i.i.i.i.i296.us ]
+  %.sroa.0819.2964973983 = phi ptr [ null, %48 ], [ %52, %.lr.ph.i.i.i.i.i.i296.us ]
   %74 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %calloc.i143, i64 %indvars.iv804
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %calloc.i131, i64 %indvars.iv804
@@ -399,7 +399,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i.thr
   %101 = getelementptr inbounds nuw float, ptr %78, i64 %.011.i.i.i.i.i.i.i.i201.us
   %102 = load <4 x float>, ptr %101, align 16, !tbaa !26
   %103 = fmul <4 x float> %102, splat (float 0x3FEF5C2900000000)
-  %104 = getelementptr inbounds nuw float, ptr %.sroa.0819.2923932942, i64 %.011.i.i.i.i.i.i.i.i201.us
+  %104 = getelementptr inbounds nuw float, ptr %.sroa.0819.2964973983, i64 %.011.i.i.i.i.i.i.i.i201.us
   %105 = load <4 x float>, ptr %104, align 16, !tbaa !26
   %106 = fmul <4 x float> %105, splat (float 0x3F847AE140000000)
   %107 = getelementptr inbounds nuw float, ptr %79, i64 %.011.i.i.i.i.i.i.i.i201.us
@@ -409,7 +409,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i.thr
   %111 = fsub <4 x float> %108, %110
   %112 = fmul <4 x float> %106, %111
   %113 = fadd <4 x float> %103, %112
-  %114 = getelementptr inbounds nuw float, ptr %.sroa.0.4943, i64 %.011.i.i.i.i.i.i.i.i201.us
+  %114 = getelementptr inbounds nuw float, ptr %.sroa.0.4984, i64 %.011.i.i.i.i.i.i.i.i201.us
   %115 = load <4 x float>, ptr %114, align 16, !tbaa !26
   %116 = fmul <4 x float> %115, splat (float 0x3F847AE140000000)
   %117 = getelementptr inbounds nuw float, ptr %81, i64 %.011.i.i.i.i.i.i.i.i201.us
@@ -432,7 +432,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i.thr
   %126 = getelementptr inbounds float, ptr %78, i64 %.05.i.i.i.i.i.i.i.i.i198.us
   %127 = load float, ptr %126, align 4, !tbaa !21
   %128 = fmul float %127, 0x3FEF5C2900000000
-  %129 = getelementptr inbounds float, ptr %.sroa.0819.2923932942, i64 %.05.i.i.i.i.i.i.i.i.i198.us
+  %129 = getelementptr inbounds float, ptr %.sroa.0819.2964973983, i64 %.05.i.i.i.i.i.i.i.i.i198.us
   %130 = load float, ptr %129, align 4, !tbaa !21
   %131 = fmul float %130, 0x3F847AE140000000
   %132 = getelementptr inbounds float, ptr %79, i64 %.05.i.i.i.i.i.i.i.i.i198.us
@@ -442,7 +442,7 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i.thr
   %136 = fsub float %134, %135
   %137 = fmul float %131, %136
   %138 = fadd float %128, %137
-  %139 = getelementptr inbounds float, ptr %.sroa.0.4943, i64 %.05.i.i.i.i.i.i.i.i.i198.us
+  %139 = getelementptr inbounds float, ptr %.sroa.0.4984, i64 %.05.i.i.i.i.i.i.i.i.i198.us
   %140 = load float, ptr %139, align 4, !tbaa !21
   %141 = fmul float %140, 0x3F847AE140000000
   %142 = getelementptr inbounds float, ptr %81, i64 %.05.i.i.i.i.i.i.i.i.i198.us
@@ -676,8 +676,8 @@ _ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i316.
 
 _ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSERKS1_.exit229.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i223.us, %._crit_edge.i.i.i.i.i.i.i.i222.us, %_ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSERKS1_.exit218.us, %172
   %.469.us = phi float [ %.368753.us, %_ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSERKS1_.exit218.us ], [ %.368753.us, %172 ], [ %208, %._crit_edge.i.i.i.i.i.i.i.i222.us ], [ %208, %.lr.ph.i.i.i.i.i.i.i.i.i223.us ]
-  call void @free(ptr noundef %.sroa.0.4943) #14
-  call void @free(ptr noundef %.sroa.0819.2923932942) #14
+  call void @free(ptr noundef %.sroa.0.4984) #14
+  call void @free(ptr noundef %.sroa.0819.2964973983) #14
   %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
   %exitcond809.not = icmp eq i64 %indvars.iv.next805, %wide.trip.count808
   br i1 %exitcond809.not, label %._crit_edge757.us, label %48, !llvm.loop !33
@@ -1142,7 +1142,7 @@ _ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSINS_13CwiseBinaryOpINS_8internal17sca
   unreachable
 
 417:                                              ; preds = %.split766.us, %.thread707
-  %.sroa.0819.2926 = phi ptr [ %52, %.split766.us ], [ null, %.thread707 ]
+  %.sroa.0819.2967 = phi ptr [ %52, %.split766.us ], [ null, %.thread707 ]
   %418 = landingpad { ptr, i32 }
           cleanup
   br label %.body300
@@ -1184,13 +1184,13 @@ _ZN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEaSINS_13CwiseBinaryOpINS_8internal17sca
 
 423:                                              ; preds = %.loopexit713.split.us, %.loopexit.split-lp, %420
   %.pn106 = phi { ptr, i32 } [ %421, %420 ], [ %lpad.loopexit.us, %.loopexit713.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @free(ptr noundef %.sroa.0.4943) #14
+  call void @free(ptr noundef %.sroa.0.4984) #14
   br label %.body300
 
 .body300:                                         ; preds = %417, %423
-  %.sroa.0819.2925 = phi ptr [ %.sroa.0819.2923932942, %423 ], [ %.sroa.0819.2926, %417 ]
+  %.sroa.0819.2966 = phi ptr [ %.sroa.0819.2964973983, %423 ], [ %.sroa.0819.2967, %417 ]
   %.pn106.pn = phi { ptr, i32 } [ %.pn106, %423 ], [ %418, %417 ]
-  call void @free(ptr noundef %.sroa.0819.2925) #14
+  call void @free(ptr noundef %.sroa.0819.2966) #14
   br label %.body288
 
 .split.us:                                        ; preds = %._crit_edge757.us
@@ -1234,8 +1234,8 @@ _ZSt8_DestroyIPN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit248
 
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEED2Ev.exit248: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEE17_S_check_init_lenEmRKS4_.exit.i, %.loopexit
-  %.us-phi96197098999510031008 = phi float [ %.469.us, %.loopexit ], [ 0x47EFFFFFE0000000, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEE17_S_check_init_lenEmRKS4_.exit.i ]
-  ret float %.us-phi96197098999510031008
+  %.us-phi100210111030103610441049 = phi float [ %.469.us, %.loopexit ], [ 0x47EFFFFFE0000000, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS0_17aligned_allocatorIS2_EEE17_S_check_init_lenEmRKS4_.exit.i ]
+  ret float %.us-phi100210111030103610441049
 
 .body288:                                         ; preds = %.body300, %413, %.loopexit716, %.loopexit.split-lp717, %355, %.body277
   %.pn118.pn.pn.pn = phi { ptr, i32 } [ %.pn118.pn, %.body277 ], [ %.pn114.pn.pn, %355 ], [ %lpad.loopexit718, %.loopexit716 ], [ %lpad.loopexit.split-lp719, %.loopexit.split-lp717 ], [ %.pn106.pn, %.body300 ], [ %414, %413 ]

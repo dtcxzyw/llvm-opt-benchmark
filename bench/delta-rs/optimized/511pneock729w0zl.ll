@@ -3922,14 +3922,14 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Cop
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !275, !noundef !5
-  switch i64 %4, label %default.unreachable3 [
+  switch i64 %4, label %default.unreachable6 [
     i64 0, label %15
     i64 1, label %15
     i64 2, label %16
     i64 3, label %5
   ]
 
-default.unreachable3:                             ; preds = %1
+default.unreachable6:                             ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
@@ -7679,7 +7679,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
   %80 = icmp eq i8 %79, 1
   br i1 %80, label %156, label %157
 
-"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138": ; preds = %113
+"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread151": ; preds = %113
   %81 = load i8, ptr %21, align 8, !range !339, !noundef !5
   %82 = icmp eq i8 %81, 1
   br i1 %82, label %.thread, label %157
@@ -7779,7 +7779,7 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
 113:                                              ; preds = %123, %114
   %.pn = phi { ptr, i32 } [ %115, %114 ], [ %124, %123 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$sqlparser..parser..Parser$GT$17h670d8b9ab4ad4952E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(64) %12)
-          to label %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138" unwind label %91
+          to label %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread151" unwind label %91
 
 114:                                              ; preds = %130, %110
   %115 = landingpad { ptr, i32 }
@@ -7921,17 +7921,17 @@ define void @_ZN13deltalake_sql6parser11DeltaParser15parse_statement17h4f665ceaf
 156:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105"
   br i1 %.not.not, label %.thread135, label %.thread
 
-157:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138", %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread", %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105"
-  %.pn94133 = phi { ptr, i32 } [ %.pn92, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread" ], [ %78, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105" ], [ %.pn, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138" ]
+157:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread151", %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread", %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105"
+  %.pn94133 = phi { ptr, i32 } [ %.pn92, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread" ], [ %78, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105" ], [ %.pn, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread151" ]
   invoke fastcc void @"_ZN4core3ptr48drop_in_place$LT$sqlparser..tokenizer..Token$GT$17h9854790fde37f459E"(ptr noalias noundef align 8 dereferenceable(56) %21) #15
           to label %.thread135 unwind label %91
 
 .thread135:                                       ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread", %.thread, %157, %156
-  %.pn94132 = phi { ptr, i32 } [ %.pn94140142, %.thread ], [ %.pn94133, %157 ], [ %78, %156 ], [ %.pn92, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread" ]
+  %.pn94132 = phi { ptr, i32 } [ %.pn94153155, %.thread ], [ %.pn94133, %157 ], [ %78, %156 ], [ %.pn92, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread" ]
   resume { ptr, i32 } %.pn94132
 
-.thread:                                          ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138", %156
-  %.pn94140142 = phi { ptr, i32 } [ %78, %156 ], [ %.pn, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread138" ]
+.thread:                                          ; preds = %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread151", %156
+  %.pn94153155 = phi { ptr, i32 } [ %78, %156 ], [ %.pn, %"_ZN4core3ptr53drop_in_place$LT$datafusion_sql..parser..DFParser$GT$17h29fb8f4633ab874bE.exit105.thread151" ]
   %158 = getelementptr inbounds nuw i8, ptr %21, i64 8
   invoke void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..tokenizer..Word$GT$17h0140193e9fc2225fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %158) #15
           to label %.thread135 unwind label %91

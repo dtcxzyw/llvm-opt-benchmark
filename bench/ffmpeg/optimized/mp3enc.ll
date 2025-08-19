@@ -395,9 +395,9 @@ id3v1_set_string.exit57.i:                        ; preds = %49, %id3v1_set_stri
   br i1 %.not49.i, label %69, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %61, %58, %id3v1_set_string.exit57.i
-  %.sink66.i = phi ptr [ %57, %id3v1_set_string.exit57.i ], [ %60, %58 ], [ %63, %61 ]
+  %.sink75.i = phi ptr [ %57, %id3v1_set_string.exit57.i ], [ %60, %58 ], [ %63, %61 ]
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 93
-  %65 = getelementptr inbounds nuw i8, ptr %.sink66.i, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sink75.i, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !53
   %67 = call i64 @av_strlcpy(ptr noundef nonnull %64, ptr noundef %66, i64 noundef 5) #12
   %68 = add nuw nsw i32 %55, 1
@@ -1001,7 +1001,7 @@ define internal fastcc void @mp3_write_xing(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond160.not, label %61, label %51, !llvm.loop !100
 
 61:                                               ; preds = %51
-  %62 = shl i32 %42, 10
+  %62 = shl nuw nsw i32 %42, 10
   %63 = or i32 %62, %.196128.ph
   %64 = or disjoint i32 %63, %.0104
   %65 = or i32 %64, -1900544
@@ -1277,31 +1277,31 @@ define internal fastcc i32 @mp3_write_audio_packet(ptr noundef %0, ptr noundef %
   br i1 %.not37, label %.thread, label %23
 
 23:                                               ; preds = %18
-  %.not49 = icmp eq i32 %20, %22
-  br i1 %.not49, label %.thread46, label %25
+  %.not53 = icmp eq i32 %20, %22
+  br i1 %.not53, label %.thread50, label %25
 
 .thread:                                          ; preds = %18
   %24 = icmp eq i32 %22, 0
   store i32 %22, ptr %19, align 8, !tbaa !111
-  br i1 %24, label %25, label %.thread46
+  br i1 %24, label %25, label %.thread50
 
 25:                                               ; preds = %23, %.thread
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 3308
   store i32 1, ptr %26, align 4, !tbaa !58
-  br label %.thread46
+  br label %.thread50
 
 27:                                               ; preds = %13
   %28 = load i32, ptr %10, align 8, !tbaa !110
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.26, i32 noundef %28, i32 noundef %15) #12
-  br label %.thread46
+  br label %.thread50
 
-.thread46:                                        ; preds = %23, %.thread, %25, %27
+.thread50:                                        ; preds = %23, %.thread, %25, %27
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %30 = load i32, ptr %29, align 8, !tbaa !57
   %.not39 = icmp eq i32 %30, 0
   br i1 %.not39, label %88, label %31
 
-31:                                               ; preds = %.thread46
+31:                                               ; preds = %.thread50
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val = load i32, ptr %10, align 8, !tbaa !110
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 84
@@ -1401,7 +1401,7 @@ mp3_xing_add_frame.exit:                          ; preds = %31, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
-88:                                               ; preds = %87, %.thread46
+88:                                               ; preds = %87, %.thread50
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %89
 

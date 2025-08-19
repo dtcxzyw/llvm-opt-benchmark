@@ -1453,16 +1453,16 @@ do_ssl_trace_str.exit:                            ; preds = %116, %113
   br i1 %.not4283, label %._crit_edge87, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %131, %do_ssl_trace_str.exit61
-  %.184 = phi i64 [ %150, %do_ssl_trace_str.exit61 ], [ %127, %131 ]
-  %135 = phi ptr [ %149, %do_ssl_trace_str.exit61 ], [ %128, %131 ]
+  %.184 = phi i64 [ %149, %do_ssl_trace_str.exit61 ], [ %127, %131 ]
+  %135 = phi ptr [ %148, %do_ssl_trace_str.exit61 ], [ %128, %131 ]
   %136 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef 8, i32 noundef 80) #3
   %137 = load i8, ptr %135, align 1, !tbaa !75
   %138 = zext i8 %137 to i32
   br label %139
 
 139:                                              ; preds = %145, %.lr.ph86
-  %.011.i57 = phi i64 [ 0, %.lr.ph86 ], [ %146, %145 ]
-  %.0810.i58 = phi ptr [ @ssl_comp_tbl, %.lr.ph86 ], [ %147, %145 ]
+  %exitcond.not.i59 = phi i1 [ false, %.lr.ph86 ], [ true, %145 ]
+  %.0810.i58 = phi ptr [ @ssl_comp_tbl, %.lr.ph86 ], [ %146, %145 ]
   %140 = load i32, ptr %.0810.i58, align 8, !tbaa !78
   %141 = icmp eq i32 %140, %138
   br i1 %141, label %142, label %145
@@ -1473,33 +1473,31 @@ do_ssl_trace_str.exit:                            ; preds = %116, %113
   br label %do_ssl_trace_str.exit61
 
 145:                                              ; preds = %139
-  %146 = add nuw nsw i64 %.011.i57, 1
-  %147 = getelementptr inbounds nuw i8, ptr %.0810.i58, i64 16
-  %exitcond.not.i59 = icmp eq i64 %146, 2
+  %146 = getelementptr inbounds nuw i8, ptr %.0810.i58, i64 16
   br i1 %exitcond.not.i59, label %do_ssl_trace_str.exit61, label %139, !llvm.loop !81
 
 do_ssl_trace_str.exit61:                          ; preds = %145, %142
   %.07.i60 = phi ptr [ %144, %142 ], [ @.str.15, %145 ]
-  %148 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %.07.i60, i32 noundef %138) #3
-  %149 = getelementptr inbounds nuw i8, ptr %135, i64 1
-  %150 = add nsw i64 %.184, -1
-  %.not42 = icmp eq i64 %150, 0
+  %147 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %.07.i60, i32 noundef %138) #3
+  %148 = getelementptr inbounds nuw i8, ptr %135, i64 1
+  %149 = add nsw i64 %.184, -1
+  %.not42 = icmp eq i64 %149, 0
   br i1 %.not42, label %._crit_edge87.loopexit, label %.lr.ph86, !llvm.loop !86
 
 ._crit_edge87.loopexit:                           ; preds = %do_ssl_trace_str.exit61
-  %151 = sub i64 %129, %127
+  %150 = sub i64 %129, %127
   br label %._crit_edge87
 
 ._crit_edge87:                                    ; preds = %._crit_edge87.loopexit, %131
-  %.lcssa82 = phi i64 [ %129, %131 ], [ %151, %._crit_edge87.loopexit ]
-  %.lcssa80 = phi ptr [ %128, %131 ], [ %149, %._crit_edge87.loopexit ]
+  %.lcssa82 = phi i64 [ %129, %131 ], [ %150, %._crit_edge87.loopexit ]
+  %.lcssa80 = phi ptr [ %128, %131 ], [ %148, %._crit_edge87.loopexit ]
   store ptr %.lcssa80, ptr %5, align 8
   store i64 %.lcssa82, ptr %6, align 8
-  %152 = call fastcc i32 @ssl_print_extensions(ptr noundef %0, i32 noundef 6, i32 noundef 0, i8 noundef zeroext 1, ptr noundef %5, ptr noundef %6)
+  %151 = call fastcc i32 @ssl_print_extensions(ptr noundef %0, i32 noundef 6, i32 noundef 0, i8 noundef zeroext 1, ptr noundef %5, ptr noundef %6)
   br label %ssl_print_version.exit.thread
 
 ssl_print_version.exit.thread:                    ; preds = %60, %58, %34, %30, %4, %._crit_edge87, %125, %._crit_edge, %79, %78, %ssl_print_hexbuf.exit56, %.loopexit70
-  %.0 = phi i32 [ 0, %.loopexit70 ], [ 0, %ssl_print_hexbuf.exit56 ], [ 0, %78 ], [ 0, %79 ], [ 0, %._crit_edge ], [ 0, %125 ], [ %152, %._crit_edge87 ], [ 0, %4 ], [ 0, %30 ], [ 0, %34 ], [ 0, %58 ], [ 0, %60 ]
+  %.0 = phi i32 [ 0, %.loopexit70 ], [ 0, %ssl_print_hexbuf.exit56 ], [ 0, %78 ], [ 0, %79 ], [ 0, %._crit_edge ], [ 0, %125 ], [ %151, %._crit_edge87 ], [ 0, %4 ], [ 0, %30 ], [ 0, %34 ], [ 0, %58 ], [ 0, %60 ]
   ret i32 %.0
 }
 
@@ -1718,7 +1716,7 @@ do_ssl_trace_str.exit:                            ; preds = %74, %71
   store ptr %78, ptr %4, align 8, !tbaa !83
   %79 = add i64 %54, -2
   store i64 %79, ptr %5, align 8, !tbaa !84
-  br i1 %.not16, label %98, label %80
+  br i1 %.not16, label %97, label %80
 
 80:                                               ; preds = %do_ssl_trace_str.exit
   %81 = icmp eq i64 %79, 0
@@ -1731,8 +1729,8 @@ do_ssl_trace_str.exit:                            ; preds = %74, %71
   br label %86
 
 86:                                               ; preds = %92, %82
-  %.011.i24 = phi i64 [ 0, %82 ], [ %93, %92 ]
-  %.0810.i25 = phi ptr [ @ssl_comp_tbl, %82 ], [ %94, %92 ]
+  %exitcond.not.i26 = phi i1 [ false, %82 ], [ true, %92 ]
+  %.0810.i25 = phi ptr [ @ssl_comp_tbl, %82 ], [ %93, %92 ]
   %87 = load i32, ptr %.0810.i25, align 8, !tbaa !78
   %88 = icmp eq i32 %87, %85
   br i1 %88, label %89, label %92
@@ -1743,26 +1741,24 @@ do_ssl_trace_str.exit:                            ; preds = %74, %71
   br label %do_ssl_trace_str.exit28
 
 92:                                               ; preds = %86
-  %93 = add nuw nsw i64 %.011.i24, 1
-  %94 = getelementptr inbounds nuw i8, ptr %.0810.i25, i64 16
-  %exitcond.not.i26 = icmp eq i64 %93, 2
+  %93 = getelementptr inbounds nuw i8, ptr %.0810.i25, i64 16
   br i1 %exitcond.not.i26, label %do_ssl_trace_str.exit28, label %86, !llvm.loop !81
 
 do_ssl_trace_str.exit28:                          ; preds = %92, %89
   %.07.i27 = phi ptr [ %91, %89 ], [ @.str.15, %92 ]
-  %95 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.418, ptr noundef %.07.i27, i32 noundef %85) #3
-  %96 = getelementptr inbounds nuw i8, ptr %55, i64 3
-  store ptr %96, ptr %4, align 8, !tbaa !83
-  %97 = add i64 %54, -3
-  store i64 %97, ptr %5, align 8, !tbaa !84
-  br label %98
+  %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.418, ptr noundef %.07.i27, i32 noundef %85) #3
+  %95 = getelementptr inbounds nuw i8, ptr %55, i64 3
+  store ptr %95, ptr %4, align 8, !tbaa !83
+  %96 = add i64 %54, -3
+  store i64 %96, ptr %5, align 8, !tbaa !84
+  br label %97
 
-98:                                               ; preds = %do_ssl_trace_str.exit28, %do_ssl_trace_str.exit
-  %99 = call fastcc i32 @ssl_print_extensions(ptr noundef %0, i32 noundef 6, i32 noundef 1, i8 noundef zeroext 2, ptr noundef %4, ptr noundef %5)
+97:                                               ; preds = %do_ssl_trace_str.exit28, %do_ssl_trace_str.exit
+  %98 = call fastcc i32 @ssl_print_extensions(ptr noundef %0, i32 noundef 6, i32 noundef 1, i8 noundef zeroext 2, ptr noundef %4, ptr noundef %5)
   br label %ssl_print_version.exit.thread
 
-ssl_print_version.exit.thread:                    ; preds = %34, %30, %3, %98, %80, %52, %ssl_print_hexbuf.exit, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %ssl_print_hexbuf.exit ], [ 0, %52 ], [ 0, %80 ], [ %99, %98 ], [ 0, %3 ], [ 0, %30 ], [ 0, %34 ]
+ssl_print_version.exit.thread:                    ; preds = %34, %30, %3, %97, %80, %52, %ssl_print_hexbuf.exit, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %ssl_print_hexbuf.exit ], [ 0, %52 ], [ 0, %80 ], [ %98, %97 ], [ 0, %3 ], [ 0, %30 ], [ 0, %34 ]
   ret i32 %.0
 }
 
@@ -3528,8 +3524,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %0,
   br label %35
 
 35:                                               ; preds = %28, %ssl_print_extension.exit.thread68
-  %.055103 = phi i64 [ %20, %28 ], [ %413, %ssl_print_extension.exit.thread68 ]
-  %.058102 = phi ptr [ %22, %28 ], [ %412, %ssl_print_extension.exit.thread68 ]
+  %.055103 = phi i64 [ %20, %28 ], [ %412, %ssl_print_extension.exit.thread68 ]
+  %.058102 = phi ptr [ %22, %28 ], [ %411, %ssl_print_extension.exit.thread68 ]
   %36 = icmp ult i64 %.055103, 4
   br i1 %36, label %.critedge, label %37
 
@@ -3587,7 +3583,7 @@ do_ssl_trace_str.exit.i:                          ; preds = %69, %66
   %.07.i.i = phi ptr [ %68, %66 ], [ @.str.15, %69 ]
   %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.580, ptr noundef %.07.i.i, i32 noundef range(i32 0, 65536) %44, i32 noundef %52) #3
   %trunc.i = trunc nuw i32 %44 to i16
-  switch i16 %trunc.i, label %410 [
+  switch i16 %trunc.i, label %409 [
     i16 27, label %73
     i16 1, label %101
     i16 11, label %118
@@ -3599,9 +3595,9 @@ do_ssl_trace_str.exit.i:                          ; preds = %69, %66
     i16 51, label %235
     i16 43, label %313
     i16 45, label %343
-    i16 42, label %364
-    i16 20, label %386
-    i16 19, label %386
+    i16 42, label %363
+    i16 20, label %385
+    i16 19, label %385
   ]
 
 73:                                               ; preds = %do_ssl_trace_str.exit.i
@@ -4155,7 +4151,7 @@ do_ssl_trace_str.exit312.i:                       ; preds = %330, %327
 
 .lr.ph.split.i319.i:                              ; preds = %349, %do_ssl_trace_str.exit.i325.i
   %.01925.i320.pn.i = phi ptr [ %.01925.i320.i, %do_ssl_trace_str.exit.i325.i ], [ %61, %349 ]
-  %.02024.i321.i = phi i64 [ %363, %do_ssl_trace_str.exit.i325.i ], [ %347, %349 ]
+  %.02024.i321.i = phi i64 [ %362, %do_ssl_trace_str.exit.i325.i ], [ %347, %349 ]
   %.01925.i320.i = getelementptr inbounds nuw i8, ptr %.01925.i320.pn.i, i64 1
   %350 = load i8, ptr %.01925.i320.i, align 1, !tbaa !75
   %351 = zext i8 %350 to i32
@@ -4163,8 +4159,8 @@ do_ssl_trace_str.exit312.i:                       ; preds = %330, %327
   br label %353
 
 353:                                              ; preds = %359, %.lr.ph.split.i319.i
-  %.011.i.i322.i = phi i64 [ 0, %.lr.ph.split.i319.i ], [ %360, %359 ]
-  %.0810.i.i323.i = phi ptr [ @ssl_psk_kex_modes_tbl, %.lr.ph.split.i319.i ], [ %361, %359 ]
+  %exitcond.not.i.i324.i = phi i1 [ false, %.lr.ph.split.i319.i ], [ true, %359 ]
+  %.0810.i.i323.i = phi ptr [ @ssl_psk_kex_modes_tbl, %.lr.ph.split.i319.i ], [ %360, %359 ]
   %354 = load i32, ptr %.0810.i.i323.i, align 8, !tbaa !78
   %355 = icmp eq i32 %354, %351
   br i1 %355, label %356, label %359
@@ -4175,125 +4171,123 @@ do_ssl_trace_str.exit312.i:                       ; preds = %330, %327
   br label %do_ssl_trace_str.exit.i325.i
 
 359:                                              ; preds = %353
-  %360 = add nuw nsw i64 %.011.i.i322.i, 1
-  %361 = getelementptr inbounds nuw i8, ptr %.0810.i.i323.i, i64 16
-  %exitcond.not.i.i324.i = icmp eq i64 %360, 2
+  %360 = getelementptr inbounds nuw i8, ptr %.0810.i.i323.i, i64 16
   br i1 %exitcond.not.i.i324.i, label %do_ssl_trace_str.exit.i325.i, label %353, !llvm.loop !81
 
 do_ssl_trace_str.exit.i325.i:                     ; preds = %359, %356
   %.07.i.i326.i = phi ptr [ %358, %356 ], [ @.str.15, %359 ]
-  %362 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i326.i, i32 noundef %351) #3
-  %363 = add nsw i64 %.02024.i321.i, -1
-  %.not21.i327.i = icmp eq i64 %363, 0
+  %361 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i326.i, i32 noundef %351) #3
+  %362 = add nsw i64 %.02024.i321.i, -1
+  %.not21.i327.i = icmp eq i64 %362, 0
   br i1 %.not21.i327.i, label %ssl_print_extension.exit.thread68, label %.lr.ph.split.i319.i, !llvm.loop !112
 
-364:                                              ; preds = %do_ssl_trace_str.exit.i
-  br i1 %.not232.i, label %365, label %ssl_print_extension.exit.thread68
+363:                                              ; preds = %do_ssl_trace_str.exit.i
+  br i1 %.not232.i, label %364, label %ssl_print_extension.exit.thread68
+
+364:                                              ; preds = %363
+  %.not233.i = icmp eq i32 %52, 4
+  br i1 %.not233.i, label %365, label %.critedge
 
 365:                                              ; preds = %364
-  %.not233.i = icmp eq i32 %52, 4
-  br i1 %.not233.i, label %366, label %.critedge
-
-366:                                              ; preds = %365
-  %367 = load i8, ptr %61, align 1, !tbaa !75
-  %368 = zext i8 %367 to i32
-  %369 = shl nuw i32 %368, 24
-  %370 = getelementptr inbounds nuw i8, ptr %.058102, i64 5
-  %371 = load i8, ptr %370, align 1, !tbaa !75
-  %372 = zext i8 %371 to i32
-  %373 = shl nuw nsw i32 %372, 16
-  %374 = or disjoint i32 %373, %369
-  %375 = getelementptr inbounds nuw i8, ptr %.058102, i64 6
-  %376 = load i8, ptr %375, align 1, !tbaa !75
-  %377 = zext i8 %376 to i32
-  %378 = shl nuw nsw i32 %377, 8
-  %379 = or disjoint i32 %374, %378
-  %380 = getelementptr inbounds nuw i8, ptr %.058102, i64 7
-  %381 = load i8, ptr %380, align 1, !tbaa !75
-  %382 = zext i8 %381 to i32
-  %383 = or disjoint i32 %379, %382
-  %384 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %32, i32 noundef 80) #3
-  %385 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.587, i32 noundef %383) #3
+  %366 = load i8, ptr %61, align 1, !tbaa !75
+  %367 = zext i8 %366 to i32
+  %368 = shl nuw i32 %367, 24
+  %369 = getelementptr inbounds nuw i8, ptr %.058102, i64 5
+  %370 = load i8, ptr %369, align 1, !tbaa !75
+  %371 = zext i8 %370 to i32
+  %372 = shl nuw nsw i32 %371, 16
+  %373 = or disjoint i32 %372, %368
+  %374 = getelementptr inbounds nuw i8, ptr %.058102, i64 6
+  %375 = load i8, ptr %374, align 1, !tbaa !75
+  %376 = zext i8 %375 to i32
+  %377 = shl nuw nsw i32 %376, 8
+  %378 = or disjoint i32 %373, %377
+  %379 = getelementptr inbounds nuw i8, ptr %.058102, i64 7
+  %380 = load i8, ptr %379, align 1, !tbaa !75
+  %381 = zext i8 %380 to i32
+  %382 = or disjoint i32 %378, %381
+  %383 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef %32, i32 noundef 80) #3
+  %384 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.587, i32 noundef %382) #3
   br label %ssl_print_extension.exit.thread68
 
-386:                                              ; preds = %do_ssl_trace_str.exit.i, %do_ssl_trace_str.exit.i
-  br i1 %.not.i, label %401, label %387
+385:                                              ; preds = %do_ssl_trace_str.exit.i, %do_ssl_trace_str.exit.i
+  br i1 %.not.i, label %400, label %386
 
-387:                                              ; preds = %386
+386:                                              ; preds = %385
   %.not231.i = icmp eq i32 %52, 1
   br i1 %.not231.i, label %.lr.ph.split.i331.i, label %.critedge
 
-.lr.ph.split.i331.i:                              ; preds = %387
-  %388 = load i8, ptr %61, align 1, !tbaa !75
-  %389 = zext i8 %388 to i32
-  %390 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #3
-  br label %391
+.lr.ph.split.i331.i:                              ; preds = %386
+  %387 = load i8, ptr %61, align 1, !tbaa !75
+  %388 = zext i8 %387 to i32
+  %389 = tail call i32 @BIO_indent(ptr noundef %0, i32 noundef range(i32 6, 13) %32, i32 noundef 80) #3
+  br label %390
 
-391:                                              ; preds = %397, %.lr.ph.split.i331.i
-  %.011.i.i334.i = phi i64 [ 0, %.lr.ph.split.i331.i ], [ %398, %397 ]
-  %.0810.i.i335.i = phi ptr [ @ssl_cert_type_tbl, %.lr.ph.split.i331.i ], [ %399, %397 ]
-  %392 = load i32, ptr %.0810.i.i335.i, align 8, !tbaa !78
-  %393 = icmp eq i32 %392, %389
-  br i1 %393, label %394, label %397
+390:                                              ; preds = %396, %.lr.ph.split.i331.i
+  %.011.i.i334.i = phi i64 [ 0, %.lr.ph.split.i331.i ], [ %397, %396 ]
+  %.0810.i.i335.i = phi ptr [ @ssl_cert_type_tbl, %.lr.ph.split.i331.i ], [ %398, %396 ]
+  %391 = load i32, ptr %.0810.i.i335.i, align 8, !tbaa !78
+  %392 = icmp eq i32 %391, %388
+  br i1 %392, label %393, label %396
 
-394:                                              ; preds = %391
-  %395 = getelementptr inbounds nuw i8, ptr %.0810.i.i335.i, i64 8
-  %396 = load ptr, ptr %395, align 8, !tbaa !80
+393:                                              ; preds = %390
+  %394 = getelementptr inbounds nuw i8, ptr %.0810.i.i335.i, i64 8
+  %395 = load ptr, ptr %394, align 8, !tbaa !80
   br label %do_ssl_trace_str.exit.i337.i
 
-397:                                              ; preds = %391
-  %398 = add nuw nsw i64 %.011.i.i334.i, 1
-  %399 = getelementptr inbounds nuw i8, ptr %.0810.i.i335.i, i64 16
-  %exitcond.not.i.i336.i = icmp eq i64 %398, 4
-  br i1 %exitcond.not.i.i336.i, label %do_ssl_trace_str.exit.i337.i, label %391, !llvm.loop !81
+396:                                              ; preds = %390
+  %397 = add nuw nsw i64 %.011.i.i334.i, 1
+  %398 = getelementptr inbounds nuw i8, ptr %.0810.i.i335.i, i64 16
+  %exitcond.not.i.i336.i = icmp eq i64 %397, 4
+  br i1 %exitcond.not.i.i336.i, label %do_ssl_trace_str.exit.i337.i, label %390, !llvm.loop !81
 
-do_ssl_trace_str.exit.i337.i:                     ; preds = %397, %394
-  %.07.i.i338.i = phi ptr [ %396, %394 ], [ @.str.15, %397 ]
-  %400 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i338.i, i32 noundef %389) #3
+do_ssl_trace_str.exit.i337.i:                     ; preds = %396, %393
+  %.07.i.i338.i = phi ptr [ %395, %393 ], [ @.str.15, %396 ]
+  %399 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i.i338.i, i32 noundef %388) #3
   br label %ssl_print_extension.exit.thread68
 
-401:                                              ; preds = %386
-  %402 = icmp eq i32 %52, 0
-  br i1 %402, label %.critedge, label %403
+400:                                              ; preds = %385
+  %401 = icmp eq i32 %52, 0
+  br i1 %401, label %.critedge, label %402
 
-403:                                              ; preds = %401
-  %404 = load i8, ptr %61, align 1, !tbaa !75
-  %405 = zext i8 %404 to i64
-  %406 = add nuw nsw i64 %405, 1
-  %.not230.i = icmp eq i64 %406, %53
-  br i1 %.not230.i, label %407, label %.critedge
+402:                                              ; preds = %400
+  %403 = load i8, ptr %61, align 1, !tbaa !75
+  %404 = zext i8 %403 to i64
+  %405 = add nuw nsw i64 %404, 1
+  %.not230.i = icmp eq i64 %405, %53
+  br i1 %.not230.i, label %406, label %.critedge
 
-407:                                              ; preds = %403
-  %408 = getelementptr inbounds nuw i8, ptr %.058102, i64 5
-  %409 = tail call fastcc i32 @do_ssl_trace_list(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %408, i64 noundef %405, i64 noundef 1, ptr noundef nonnull @ssl_cert_type_tbl, i64 noundef 4)
+406:                                              ; preds = %402
+  %407 = getelementptr inbounds nuw i8, ptr %.058102, i64 5
+  %408 = tail call fastcc i32 @do_ssl_trace_list(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %407, i64 noundef %404, i64 noundef 1, ptr noundef nonnull @ssl_cert_type_tbl, i64 noundef 4)
   br label %ssl_print_extension.exit
 
-410:                                              ; preds = %do_ssl_trace_str.exit.i
-  %411 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef nonnull %61, i32 noundef %52, i32 noundef %32) #3
+409:                                              ; preds = %do_ssl_trace_str.exit.i
+  %410 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef nonnull %61, i32 noundef %52, i32 noundef %32) #3
   br label %ssl_print_extension.exit.thread68
 
 .critedge255.i:                                   ; preds = %216
   tail call fastcc void @ssl_print_hex(ptr noundef %0, i32 noundef %33, ptr noundef nonnull @.str.581, ptr noundef nonnull %215, i64 noundef %212)
   br label %ssl_print_extension.exit.thread68
 
-ssl_print_extension.exit:                         ; preds = %150, %340, %407
-  %.0.i = phi i32 [ %152, %150 ], [ %342, %340 ], [ %409, %407 ]
+ssl_print_extension.exit:                         ; preds = %150, %340, %406
+  %.0.i = phi i32 [ %152, %150 ], [ %342, %340 ], [ %408, %406 ]
   %.not64 = icmp eq i32 %.0.i, 0
   br i1 %.not64, label %.critedge, label %ssl_print_extension.exit.thread68
 
-ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.exit.i325.i, %ssl_print_hex.exit307.i, %do_ssl_trace_str.exit288.i, %169, %do_ssl_trace_str.exit.i280.i, %do_ssl_trace_str.exit.i.i, %do_ssl_trace_str.exit.us.i.i, %do_ssl_trace_str.exit.i337.i, %268, %.preheader.i, %164, %349, %124, %.preheader.i.i, %do_ssl_trace_str.exit297.i, %366, %410, %219, %222, %ssl_print_hex.exit.i, %225, %364, %.critedge255.i, %do_ssl_trace_str.exit312.i, %ssl_print_extension.exit
-  %412 = getelementptr inbounds nuw i8, ptr %61, i64 %53
-  %413 = sub i64 %.055103, %54
-  %.not = icmp eq i64 %413, 0
-  br i1 %.not, label %414, label %35, !llvm.loop !118
+ssl_print_extension.exit.thread68:                ; preds = %do_ssl_trace_str.exit.i325.i, %ssl_print_hex.exit307.i, %do_ssl_trace_str.exit288.i, %169, %do_ssl_trace_str.exit.i280.i, %do_ssl_trace_str.exit.i.i, %do_ssl_trace_str.exit.us.i.i, %do_ssl_trace_str.exit.i337.i, %268, %.preheader.i, %164, %349, %124, %.preheader.i.i, %do_ssl_trace_str.exit297.i, %365, %409, %219, %222, %ssl_print_hex.exit.i, %225, %363, %.critedge255.i, %do_ssl_trace_str.exit312.i, %ssl_print_extension.exit
+  %411 = getelementptr inbounds nuw i8, ptr %61, i64 %53
+  %412 = sub i64 %.055103, %54
+  %.not = icmp eq i64 %412, 0
+  br i1 %.not, label %413, label %35, !llvm.loop !118
 
-414:                                              ; preds = %ssl_print_extension.exit.thread68
-  store ptr %412, ptr %4, align 8, !tbaa !83
+413:                                              ; preds = %ssl_print_extension.exit.thread68
+  store ptr %411, ptr %4, align 8, !tbaa !83
   store i64 %30, ptr %5, align 8, !tbaa !84
   br label %.critedge
 
-.critedge:                                        ; preds = %314, %403, %401, %387, %365, %345, %343, %336, %334, %259, %256, %217, %210, %208, %179, %177, %155, %153, %141, %139, %120, %118, %101, %75, %73, %35, %ssl_print_extension.exit, %.lr.ph.i, %271, %166, %56, %26, %6, %414, %24, %10
-  %.0 = phi i32 [ 1, %10 ], [ 1, %24 ], [ 1, %414 ], [ 0, %6 ], [ 0, %26 ], [ 0, %56 ], [ 0, %166 ], [ 0, %271 ], [ 0, %.lr.ph.i ], [ 0, %ssl_print_extension.exit ], [ 0, %35 ], [ 0, %73 ], [ 0, %75 ], [ 0, %101 ], [ 0, %118 ], [ 0, %120 ], [ 0, %139 ], [ 0, %141 ], [ 0, %153 ], [ 0, %155 ], [ 0, %177 ], [ 0, %179 ], [ 0, %208 ], [ 0, %210 ], [ 0, %217 ], [ 0, %256 ], [ 0, %259 ], [ 0, %334 ], [ 0, %336 ], [ 0, %343 ], [ 0, %345 ], [ 0, %365 ], [ 0, %387 ], [ 0, %401 ], [ 0, %403 ], [ 0, %314 ]
+.critedge:                                        ; preds = %314, %402, %400, %386, %364, %345, %343, %336, %334, %259, %256, %217, %210, %208, %179, %177, %155, %153, %141, %139, %120, %118, %101, %75, %73, %35, %ssl_print_extension.exit, %.lr.ph.i, %271, %166, %56, %26, %6, %413, %24, %10
+  %.0 = phi i32 [ 1, %10 ], [ 1, %24 ], [ 1, %413 ], [ 0, %6 ], [ 0, %26 ], [ 0, %56 ], [ 0, %166 ], [ 0, %271 ], [ 0, %.lr.ph.i ], [ 0, %ssl_print_extension.exit ], [ 0, %35 ], [ 0, %73 ], [ 0, %75 ], [ 0, %101 ], [ 0, %118 ], [ 0, %120 ], [ 0, %139 ], [ 0, %141 ], [ 0, %153 ], [ 0, %155 ], [ 0, %177 ], [ 0, %179 ], [ 0, %208 ], [ 0, %210 ], [ 0, %217 ], [ 0, %256 ], [ 0, %259 ], [ 0, %334 ], [ 0, %336 ], [ 0, %343 ], [ 0, %345 ], [ 0, %364 ], [ 0, %386 ], [ 0, %400 ], [ 0, %402 ], [ 0, %314 ]
   ret i32 %.0
 }
 
@@ -4381,8 +4375,8 @@ do_ssl_trace_str.exit.us:                         ; preds = %21, %24
 do_ssl_trace_str.exit:                            ; preds = %39, %36
   %.07.i = phi ptr [ %38, %36 ], [ @.str.15, %39 ]
   %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.586, ptr noundef %.07.i, i32 noundef %31) #3
-  %43 = getelementptr inbounds nuw i8, ptr %.01925, i64 %4
-  %44 = sub i64 %.02024, %4
+  %43 = getelementptr inbounds nuw i8, ptr %.01925, i64 1
+  %44 = add nsw i64 %.02024, -1
   %.not21 = icmp eq i64 %44, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph.split, !llvm.loop !112
 

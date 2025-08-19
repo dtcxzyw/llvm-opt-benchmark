@@ -1008,24 +1008,24 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
 
 .lr.ph93.preheader:                               ; preds = %.lr.ph.split.us.split
   %51 = icmp slt i32 %49, 0
-  br i1 %51, label %.lr.ph160.preheader, label %.split56.us
+  br i1 %51, label %.lr.ph169.preheader, label %.split56.us
 
-.lr.ph160.preheader:                              ; preds = %.lr.ph93.preheader
+.lr.ph169.preheader:                              ; preds = %.lr.ph93.preheader
   %52 = tail call ptr @__errno_location() #18
-  br label %.lr.ph160
+  br label %.lr.ph169
 
 .lr.ph93:                                         ; preds = %55
   %53 = icmp slt i32 %58, 0
-  br i1 %53, label %.lr.ph160, label %.split56.us
+  br i1 %53, label %.lr.ph169, label %.split56.us
 
-.lr.ph160:                                        ; preds = %.lr.ph160.preheader, %.lr.ph93
+.lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph93
   %54 = load i32, ptr %52, align 4
   switch i32 %54, label %.split59.us [
     i32 11, label %55
     i32 4, label %55
   ]
 
-55:                                               ; preds = %.lr.ph160, %.lr.ph160
+55:                                               ; preds = %.lr.ph169, %.lr.ph169
   %56 = load i32, ptr %4, align 8
   %57 = call i64 @read(i32 noundef %56, ptr noundef %.027.ph97, i64 noundef %.028.ph95) #15
   %58 = trunc i64 %57 to i32
@@ -1040,11 +1040,11 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
 
 .lr.ph78.preheader.preheader:                     ; preds = %.lr.ph.split.split
   %63 = icmp slt i32 %61, 0
-  br i1 %63, label %.lr.ph161.preheader, label %.split56.us
+  br i1 %63, label %.lr.ph170.preheader, label %.split56.us
 
-.lr.ph161.preheader:                              ; preds = %.lr.ph78.preheader.preheader
+.lr.ph170.preheader:                              ; preds = %.lr.ph78.preheader.preheader
   %64 = tail call ptr @__errno_location() #18
-  br label %.lr.ph161
+  br label %.lr.ph170
 
 .split62.us:                                      ; preds = %.lr.ph.split.split, %77
   %65 = call i32 @get_log_level() #15
@@ -1076,24 +1076,24 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
 
 .lr.ph78.preheader:                               ; preds = %77
   %75 = icmp slt i32 %80, 0
-  br i1 %75, label %.lr.ph161, label %.split56.us
+  br i1 %75, label %.lr.ph170, label %.split56.us
 
-.lr.ph161:                                        ; preds = %.lr.ph161.preheader, %.lr.ph78.preheader
+.lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph78.preheader
   %76 = load i32, ptr %64, align 4
   switch i32 %76, label %.split59.us [
     i32 11, label %77
     i32 4, label %77
   ]
 
-77:                                               ; preds = %.lr.ph161, %.lr.ph161
+77:                                               ; preds = %.lr.ph170, %.lr.ph170
   %78 = load i32, ptr %4, align 8
   %79 = call i64 @read(i32 noundef %78, ptr noundef %.027.ph97, i64 noundef 4) #15
   %80 = trunc i64 %79 to i32
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.split62.us, label %.lr.ph78.preheader
 
-.split59.us:                                      ; preds = %.lr.ph160, %.lr.ph161
-  %.028.ph95120 = phi i64 [ 4, %.lr.ph161 ], [ %.028.ph95, %.lr.ph160 ]
+.split59.us:                                      ; preds = %.lr.ph169, %.lr.ph170
+  %.028.ph95120 = phi i64 [ 4, %.lr.ph170 ], [ %.028.ph95, %.lr.ph169 ]
   %82 = call i32 @get_log_level() #15
   %83 = icmp sgt i32 %82, 4
   br i1 %83, label %84, label %99

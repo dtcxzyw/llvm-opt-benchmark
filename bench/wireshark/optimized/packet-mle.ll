@@ -629,9 +629,9 @@ define internal i32 @dissect_mle(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 1, ptr %8, align 4
   %55 = icmp eq i8 %52, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %27, i64 64
-  br i1 %55, label %58, label %.thread794
+  br i1 %55, label %58, label %.thread808
 
-.thread794:                                       ; preds = %40
+.thread808:                                       ; preds = %40
   %56 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store i32 0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -697,9 +697,9 @@ define internal i32 @dissect_mle(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 %86, ptr %84, align 4
   br label %proto_item_set_generated.exit
 
-87:                                               ; preds = %.thread794, %58
-  %88 = phi ptr [ %.phi.trans.insert, %.thread794 ], [ %62, %58 ]
-  %89 = phi ptr [ %57, %.thread794 ], [ %61, %58 ]
+87:                                               ; preds = %.thread808, %58
+  %88 = phi ptr [ %.phi.trans.insert, %.thread808 ], [ %62, %58 ]
+  %89 = phi ptr [ %57, %.thread808 ], [ %61, %58 ]
   store i32 1, ptr %9, align 4
   br label %proto_item_set_generated.exit
 
@@ -742,21 +742,21 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %104 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0..0..0..0.393, ptr noundef nonnull @ei_mle_packet_too_small)
   %.0..0..0..0.423 = load volatile ptr, ptr %5, align 8
   %105 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.423, ptr noundef %1, ptr noundef %2)
-  br label %.sink.split833
+  br label %.sink.split847
 
 106:                                              ; preds = %99
   %.0..0..0..0.394 = load volatile ptr, ptr %7, align 8
   %107 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0..0..0..0.394, ptr noundef nonnull @ei_mle_no_key)
   %.0..0..0..0.424 = load volatile ptr, ptr %5, align 8
   %108 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.424, ptr noundef %1, ptr noundef %2)
-  br label %.sink.split833
+  br label %.sink.split847
 
 109:                                              ; preds = %99
   %.0..0..0..0.395 = load volatile ptr, ptr %7, align 8
   %110 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0..0..0..0.395, ptr noundef nonnull @ei_mle_decrypt_failed)
   %.0..0..0..0.425 = load volatile ptr, ptr %5, align 8
   %111 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.425, ptr noundef %1, ptr noundef %2)
-  br label %.sink.split833
+  br label %.sink.split847
 
 112:                                              ; preds = %99
   %.0..0..0..0.396 = load volatile ptr, ptr %7, align 8
@@ -775,7 +775,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %119 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.426, ptr noundef %1, ptr noundef %2)
   %120 = load ptr, ptr %44, align 8
   call void @col_set_str(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.319)
-  br label %.sink.split833
+  br label %.sink.split847
 
 .thread:                                          ; preds = %101, %99, %112
   store i32 0, ptr %8, align 4
@@ -795,7 +795,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   store i32 %129, ptr %8, align 4
   %.0..0..0..0.429773 = load volatile ptr, ptr %5, align 8
   %130 = call zeroext i1 @tvb_offset_exists(ptr noundef %.0..0..0..0.429773, i32 noundef %129)
-  br i1 %130, label %.lr.ph774, label %.sink.split833
+  br i1 %130, label %.lr.ph774, label %.sink.split847
 
 .lr.ph774:                                        ; preds = %.thread
   %131 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -922,13 +922,13 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %176 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %175, ptr noundef %.0..0..0..0.437, i32 noundef %174, i32 noundef %143, i32 noundef 0)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef nonnull @.str.323)
   %.pre793 = load i32, ptr %8, align 4
-  %.0..0..0..0.438842 = load volatile ptr, ptr %5, align 8
-  %177 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0..0..0..0.438842, i32 noundef %.pre793)
+  %.0..0..0..0.438856 = load volatile ptr, ptr %5, align 8
+  %177 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0..0..0..0.438856, i32 noundef %.pre793)
   %178 = zext i8 %177 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef nonnull @.str.324, i32 noundef %178)
   %179 = add i8 %140, -1
-  %.not719843 = icmp eq i8 %179, 0
-  br i1 %.not719843, label %._crit_edge772, label %.lr.ph771
+  %.not719857 = icmp eq i8 %179, 0
+  br i1 %.not719857, label %._crit_edge772, label %.lr.ph771
 
 .lr.ph771:                                        ; preds = %.lr.ph771.preheader, %.lr.ph771
   %180 = phi i8 [ %185, %.lr.ph771 ], [ %179, %.lr.ph771.preheader ]
@@ -1438,8 +1438,8 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %440 = call zeroext i16 @tvb_get_ntohs(ptr noundef %.0..0..0..0.483, i32 noundef %161)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef nonnull @.str.323)
   %441 = load i32, ptr %8, align 4
-  %.0..0..0..0.484840 = load volatile ptr, ptr %5, align 8
-  %442 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0..0..0..0.484840, i32 noundef %441)
+  %.0..0..0..0.484854 = load volatile ptr, ptr %5, align 8
+  %442 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0..0..0..0.484854, i32 noundef %441)
   %443 = zext i8 %442 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef nonnull @.str.324, i32 noundef %443)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef nonnull @.str.325)
@@ -1606,11 +1606,11 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
 
 526:                                              ; preds = %520, %518
   %hf_mle_tlv_scan_mask_e.sink = phi ptr [ @hf_mle_tlv_scan_mask_e, %520 ], [ @hf_mle_tlv_unknown, %518 ]
-  %.sink816 = phi i32 [ 1, %520 ], [ %143, %518 ]
+  %.sink830 = phi i32 [ 1, %520 ], [ %143, %518 ]
   %527 = load i32, ptr %hf_mle_tlv_scan_mask_e.sink, align 4
   %.0..0..0..0.498 = load volatile ptr, ptr %5, align 8
   %528 = load i32, ptr %8, align 4
-  %529 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %527, ptr noundef %.0..0..0..0.498, i32 noundef %528, i32 noundef %.sink816, i32 noundef 0)
+  %529 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %527, ptr noundef %.0..0..0..0.498, i32 noundef %528, i32 noundef %.sink830, i32 noundef 0)
   %530 = load i32, ptr %8, align 4
   %531 = add i32 %530, %143
   store i32 %531, ptr %8, align 4
@@ -1722,11 +1722,11 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
 
 591:                                              ; preds = %588, %586
   %hf_mle_tlv_link_margin.sink = phi ptr [ @hf_mle_tlv_link_margin, %588 ], [ @hf_mle_tlv_unknown, %586 ]
-  %.sink818 = phi i32 [ 1, %588 ], [ %143, %586 ]
+  %.sink832 = phi i32 [ 1, %588 ], [ %143, %586 ]
   %592 = load i32, ptr %hf_mle_tlv_link_margin.sink, align 4
   %.0..0..0..0.512 = load volatile ptr, ptr %5, align 8
   %593 = load i32, ptr %8, align 4
-  %594 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %592, ptr noundef %.0..0..0..0.512, i32 noundef %593, i32 noundef %.sink818, i32 noundef 0)
+  %594 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %592, ptr noundef %.0..0..0..0.512, i32 noundef %593, i32 noundef %.sink832, i32 noundef 0)
   %595 = load i32, ptr %8, align 4
   %596 = add i32 %595, %143
   store i32 %596, ptr %8, align 4
@@ -1751,11 +1751,11 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
 
 603:                                              ; preds = %600, %598
   %hf_mle_tlv_status.sink = phi ptr [ @hf_mle_tlv_status, %600 ], [ @hf_mle_tlv_unknown, %598 ]
-  %.sink820 = phi i32 [ 1, %600 ], [ %143, %598 ]
+  %.sink834 = phi i32 [ 1, %600 ], [ %143, %598 ]
   %604 = load i32, ptr %hf_mle_tlv_status.sink, align 4
   %.0..0..0..0.515 = load volatile ptr, ptr %5, align 8
   %605 = load i32, ptr %8, align 4
-  %606 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %604, ptr noundef %.0..0..0..0.515, i32 noundef %605, i32 noundef %.sink820, i32 noundef 0)
+  %606 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %604, ptr noundef %.0..0..0..0.515, i32 noundef %605, i32 noundef %.sink834, i32 noundef 0)
   %607 = load i32, ptr %8, align 4
   %608 = add i32 %607, %143
   store i32 %608, ptr %8, align 4
@@ -1780,11 +1780,11 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
 
 615:                                              ; preds = %612, %610
   %hf_mle_tlv_version.sink = phi ptr [ @hf_mle_tlv_version, %612 ], [ @hf_mle_tlv_unknown, %610 ]
-  %.sink822 = phi i32 [ 2, %612 ], [ %143, %610 ]
+  %.sink836 = phi i32 [ 2, %612 ], [ %143, %610 ]
   %616 = load i32, ptr %hf_mle_tlv_version.sink, align 4
   %.0..0..0..0.518 = load volatile ptr, ptr %5, align 8
   %617 = load i32, ptr %8, align 4
-  %618 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %616, ptr noundef %.0..0..0..0.518, i32 noundef %617, i32 noundef %.sink822, i32 noundef 0)
+  %618 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %616, ptr noundef %.0..0..0..0.518, i32 noundef %617, i32 noundef %.sink836, i32 noundef 0)
   %619 = load i32, ptr %8, align 4
   %620 = add i32 %619, %143
   store i32 %620, ptr %8, align 4
@@ -1856,15 +1856,15 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
 
 647:                                              ; preds = %.lr.ph749, %643
   %hf_mle_tlv_addr_reg_ipv6.sink = phi ptr [ @hf_mle_tlv_addr_reg_iid, %643 ], [ @hf_mle_tlv_addr_reg_ipv6, %.lr.ph749 ]
-  %.sink825 = phi i32 [ 8, %643 ], [ 16, %.lr.ph749 ]
+  %.sink839 = phi i32 [ 8, %643 ], [ 16, %.lr.ph749 ]
   %648 = load i32, ptr %8, align 4
   %649 = add i32 %648, 1
   store i32 %649, ptr %8, align 4
   %650 = load i32, ptr %hf_mle_tlv_addr_reg_ipv6.sink, align 4
   %.0..0..0..0.527 = load volatile ptr, ptr %5, align 8
-  %651 = call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %650, ptr noundef %.0..0..0..0.527, i32 noundef %649, i32 noundef %.sink825, i32 noundef 0)
+  %651 = call ptr @proto_tree_add_item(ptr noundef %637, i32 noundef %650, ptr noundef %.0..0..0..0.527, i32 noundef %649, i32 noundef %.sink839, i32 noundef 0)
   %652 = load i32, ptr %8, align 4
-  %653 = add i32 %652, %.sink825
+  %653 = add i32 %652, %.sink839
   store i32 %653, ptr %8, align 4
   %654 = add nuw i8 %.0652748, 1
   %exitcond.not = icmp eq i8 %.0652748, %.0651742
@@ -1914,11 +1914,11 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
 
 675:                                              ; preds = %672, %673
   %hf_mle_tlv_pan_id.sink = phi ptr [ @hf_mle_tlv_unknown, %673 ], [ @hf_mle_tlv_pan_id, %672 ]
-  %.sink828 = phi i32 [ %143, %673 ], [ 2, %672 ]
+  %.sink842 = phi i32 [ %143, %673 ], [ 2, %672 ]
   %676 = load i32, ptr %hf_mle_tlv_pan_id.sink, align 4
   %.0..0..0..0.532 = load volatile ptr, ptr %5, align 8
   %677 = load i32, ptr %8, align 4
-  %678 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %676, ptr noundef %.0..0..0..0.532, i32 noundef %677, i32 noundef %.sink828, i32 noundef 0)
+  %678 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %676, ptr noundef %.0..0..0..0.532, i32 noundef %677, i32 noundef %.sink842, i32 noundef 0)
   %679 = load i32, ptr %8, align 4
   %680 = add i32 %679, %143
   store i32 %680, ptr %8, align 4
@@ -2241,9 +2241,9 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %801, %804, %838, %852, %799, %797, %819
-  %.sink830 = phi i32 [ 1, %819 ], [ 4, %797 ], [ 1, %799 ], [ %842, %852 ], [ 1, %838 ], [ %806, %804 ], [ 1, %801 ]
+  %.sink844 = phi i32 [ 1, %819 ], [ 4, %797 ], [ 1, %799 ], [ %842, %852 ], [ 1, %838 ], [ %806, %804 ], [ 1, %801 ]
   %853 = load i32, ptr %8, align 4
-  %854 = add i32 %853, %.sink830
+  %854 = add i32 %853, %.sink844
   store i32 %854, ptr %8, align 4
   br label %855
 
@@ -2287,11 +2287,11 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
 
 870:                                              ; preds = %867, %865
   %hf_mle_tlv_supervision_interval.sink = phi ptr [ @hf_mle_tlv_supervision_interval, %867 ], [ @hf_mle_tlv_unknown, %865 ]
-  %.sink832 = phi i32 [ 2, %867 ], [ %143, %865 ]
+  %.sink846 = phi i32 [ 2, %867 ], [ %143, %865 ]
   %871 = load i32, ptr %hf_mle_tlv_supervision_interval.sink, align 4
   %.0..0..0..0.575 = load volatile ptr, ptr %5, align 8
   %872 = load i32, ptr %8, align 4
-  %873 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %871, ptr noundef %.0..0..0..0.575, i32 noundef %872, i32 noundef %.sink832, i32 noundef 0)
+  %873 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %871, ptr noundef %.0..0..0..0.575, i32 noundef %872, i32 noundef %.sink846, i32 noundef 0)
   %874 = load i32, ptr %8, align 4
   %875 = add i32 %874, %143
   store i32 %875, ptr %8, align 4
@@ -2312,14 +2312,14 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %.0..0..0..0.429 = load volatile ptr, ptr %5, align 8
   %882 = load i32, ptr %8, align 4
   %883 = call zeroext i1 @tvb_offset_exists(ptr noundef %.0..0..0..0.429, i32 noundef %882)
-  br i1 %883, label %137, label %.sink.split833, !llvm.loop !18
+  br i1 %883, label %137, label %.sink.split847, !llvm.loop !18
 
-.sink.split833:                                   ; preds = %.loopexit731, %.thread, %103, %106, %109, %118
+.sink.split847:                                   ; preds = %.loopexit731, %.thread, %103, %106, %109, %118
   %884 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %885
 
-885:                                              ; preds = %.sink.split833, %4
-  %.0 = phi i32 [ 0, %4 ], [ %884, %.sink.split833 ]
+885:                                              ; preds = %.sink.split847, %4
+  %.0 = phi i32 [ 0, %4 ], [ %884, %.sink.split847 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

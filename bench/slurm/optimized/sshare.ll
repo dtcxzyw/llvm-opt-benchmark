@@ -411,14 +411,14 @@ thread-pre-split.thread:                          ; preds = %109, %thread-pre-sp
   br i1 %.not39, label %121, label %135
 
 121:                                              ; preds = %thread-pre-split.thread, %thread-pre-split
-  %.not38109 = phi i1 [ false, %thread-pre-split.thread ], [ true, %thread-pre-split ]
+  %.not38126 = phi i1 [ false, %thread-pre-split.thread ], [ true, %thread-pre-split ]
   %122 = call i32 @getuid() #14
   %123 = call ptr @uid_to_string_or_null(i32 noundef %122) #14
   %.not40 = icmp eq ptr %123, null
   br i1 %.not40, label %135, label %124
 
 124:                                              ; preds = %121
-  br i1 %.not38109, label %125, label %127
+  br i1 %.not38126, label %125, label %127
 
 125:                                              ; preds = %124
   %126 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #14

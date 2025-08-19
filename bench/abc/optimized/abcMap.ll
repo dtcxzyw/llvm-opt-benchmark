@@ -84,9 +84,9 @@ Abc_Clock.exit:                                   ; preds = %15, %21
   br label %34
 
 34:                                               ; preds = %31, %33
-  %.sink117 = phi ptr [ null, %33 ], [ %25, %31 ]
+  %.sink128 = phi ptr [ null, %33 ], [ %25, %31 ]
   %35 = call ptr (...) @Abc_FrameReadLibScl() #15
-  %36 = call ptr @Abc_SclDeriveGenlib(ptr noundef %35, ptr noundef %.sink117, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %14) #15
+  %36 = call ptr @Abc_SclDeriveGenlib(ptr noundef %35, ptr noundef %.sink128, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %14) #15
   %37 = call ptr (...) @Abc_FrameReadLibGen() #15
   %.not96 = icmp eq ptr %37, null
   br i1 %.not96, label %41, label %38
@@ -632,8 +632,8 @@ Scl_ConHasOutReqs.exit:                           ; preds = %80, %73
   br label %Abc_NtkMapCopyCoRequiredCon.exit
 
 Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i159, %._crit_edge.thread.i169, %._crit_edge.i167, %86
-  %.sink216 = phi ptr [ %90, %86 ], [ %109, %._crit_edge.i167 ], [ %109, %._crit_edge.thread.i169 ], [ %90, %.lr.ph.i159 ]
-  tail call void @Map_ManSetOutputRequireds(ptr noundef nonnull %17, ptr noundef %.sink216) #15
+  %.sink221 = phi ptr [ %90, %86 ], [ %109, %._crit_edge.i167 ], [ %109, %._crit_edge.thread.i169 ], [ %90, %.lr.ph.i159 ]
+  tail call void @Map_ManSetOutputRequireds(ptr noundef nonnull %17, ptr noundef %.sink221) #15
   tail call void @Abc_NtkCleanCopy(ptr noundef nonnull %0) #15
   %120 = tail call ptr @Map_ManReadConst1(ptr noundef nonnull %17) #15
   %121 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #15
@@ -2216,7 +2216,7 @@ Vec_IntPush.exit.thread:                          ; preds = %.critedge2
   store ptr %36, ptr %34, align 8, !tbaa !9
   store i32 16, ptr %31, align 8, !tbaa !69
   store i32 %.val81.val165, ptr %36, align 4, !tbaa !32
-  %.val84.val226 = load i32, ptr %27, align 4, !tbaa !30
+  %.val84.val253 = load i32, ptr %27, align 4, !tbaa !30
   br label %Vec_IntPush.exit108
 
 Vec_IntPush.exit:                                 ; preds = %.critedge2
@@ -2240,12 +2240,12 @@ Vec_IntGrow.exit.i107:                            ; preds = %Vec_IntPush.exit
   br label %Vec_IntPush.exit108
 
 Vec_IntPush.exit108:                              ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit.thread, %Vec_IntGrow.exit.i107
-  %.val84.val227 = phi i32 [ %.val84.val, %Vec_IntGrow.exit.i107 ], [ %.val84.val226, %Vec_IntPush.exit.thread ], [ %.val84.val, %Vec_IntPush.exit ]
+  %.val84.val254 = phi i32 [ %.val84.val, %Vec_IntGrow.exit.i107 ], [ %.val84.val253, %Vec_IntPush.exit.thread ], [ %.val84.val, %Vec_IntPush.exit ]
   %44 = phi ptr [ %40, %Vec_IntGrow.exit.i107 ], [ %34, %Vec_IntPush.exit.thread ], [ %40, %Vec_IntPush.exit ]
   %45 = phi ptr [ %43, %Vec_IntGrow.exit.i107 ], [ %36, %Vec_IntPush.exit.thread ], [ %39, %Vec_IntPush.exit ]
   store i32 2, ptr %33, align 4, !tbaa !36
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i32 %.val84.val227, ptr %46, align 4, !tbaa !32
+  store i32 %.val84.val254, ptr %46, align 4, !tbaa !32
   %.val96 = load i32, ptr %25, align 4, !tbaa !32
   %47 = load i32, ptr %31, align 8, !tbaa !69
   %48 = icmp eq i32 %47, 2
@@ -2277,9 +2277,9 @@ Vec_IntPush.exit122.sink.split:                   ; preds = %Vec_IntPush.exit115
   %60 = shl nuw nsw i32 %56, 1
   %61 = zext nneg i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 2
-  %.sink230 = select i1 %59, i64 64, i64 %62
+  %.sink257 = select i1 %59, i64 64, i64 %62
   %.sink = select i1 %59, i32 16, i32 %60
-  %63 = tail call ptr @realloc(ptr noundef nonnull %50, i64 noundef %.sink230) #19
+  %63 = tail call ptr @realloc(ptr noundef nonnull %50, i64 noundef %.sink257) #19
   store ptr %63, ptr %44, align 8, !tbaa !9
   store i32 %.sink, ptr %31, align 8, !tbaa !69
   br label %Vec_IntPush.exit122
@@ -2416,11 +2416,11 @@ Vec_IntPush.exit136.sink.split:                   ; preds = %110
   %125 = shl nuw nsw i32 %121, 1
   %126 = zext nneg i32 %125 to i64
   %127 = shl nuw nsw i64 %126, 2
-  %.sink233 = select i1 %124, i64 64, i64 %127
-  %.sink231 = select i1 %124, i32 16, i32 %125
-  %128 = tail call ptr @realloc(ptr noundef nonnull %111, i64 noundef %.sink233) #19
+  %.sink260 = select i1 %124, i64 64, i64 %127
+  %.sink258 = select i1 %124, i32 16, i32 %125
+  %128 = tail call ptr @realloc(ptr noundef nonnull %111, i64 noundef %.sink260) #19
   store ptr %128, ptr %44, align 8, !tbaa !9
-  store i32 %.sink231, ptr %31, align 8, !tbaa !69
+  store i32 %.sink258, ptr %31, align 8, !tbaa !69
   br label %Vec_IntPush.exit136
 
 Vec_IntPush.exit136:                              ; preds = %Vec_IntPush.exit136.sink.split, %110

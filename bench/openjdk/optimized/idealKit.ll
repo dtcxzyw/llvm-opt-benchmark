@@ -2095,19 +2095,19 @@ define hidden void @_ZN8IdealKit5goto_EP4Nodeb(ptr noundef nonnull readonly alig
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.critedge.loopexit.split.loop.exit90, label %15
+  br i1 %.not, label %.critedge.loopexit.split.loop.exit114, label %15
 
 15:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !9
 
-.critedge.loopexit.split.loop.exit90:             ; preds = %12
+.critedge.loopexit.split.loop.exit114:            ; preds = %12
   %16 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %.critedge.loopexit.split.loop.exit90, %3
-  %.038.lcssa = phi i32 [ 1, %3 ], [ %16, %.critedge.loopexit.split.loop.exit90 ], [ %8, %15 ]
+.critedge:                                        ; preds = %15, %.critedge.loopexit.split.loop.exit114, %3
+  %.038.lcssa = phi i32 [ 1, %3 ], [ %16, %.critedge.loopexit.split.loop.exit114 ], [ %8, %15 ]
   %17 = add i32 %8, -1
   %18 = icmp ne i32 %.038.lcssa, %17
   %spec.select = and i1 %2, %18
@@ -2435,10 +2435,10 @@ _ZN4Node7set_reqEjPS_.exit52:                     ; preds = %164, %_ZN4Node7del_
 
 _ZN4Node7set_reqEjPS_.exit.sink.split:            ; preds = %107, %202
   %.sink = phi i32 [ %203, %202 ], [ %108, %107 ]
-  %.sink92 = phi ptr [ %204, %202 ], [ %109, %107 ]
+  %.sink116 = phi ptr [ %204, %202 ], [ %109, %107 ]
   %.036.sink = phi ptr [ %.036, %202 ], [ %1, %107 ]
   %206 = zext i32 %.sink to i64
-  %207 = getelementptr inbounds nuw ptr, ptr %.sink92, i64 %206
+  %207 = getelementptr inbounds nuw ptr, ptr %.sink116, i64 %206
   store ptr %.036.sink, ptr %207, align 8
   br label %_ZN4Node7set_reqEjPS_.exit
 
@@ -3357,10 +3357,10 @@ _ZN4Node7del_outEPS_.exit.i80:                    ; preds = %241, %229, %_ZN4Nod
 
 _ZN4Node7set_reqEjPS_.exit60.sink.split:          ; preds = %58, %257
   %.sink = phi i32 [ %258, %257 ], [ %59, %58 ]
-  %.sink143 = phi ptr [ %259, %257 ], [ %60, %58 ]
+  %.sink174 = phi ptr [ %259, %257 ], [ %60, %58 ]
   %.0.sink = phi ptr [ %.0, %257 ], [ %2, %58 ]
   %261 = zext i32 %.sink to i64
-  %262 = getelementptr inbounds nuw ptr, ptr %.sink143, i64 %261
+  %262 = getelementptr inbounds nuw ptr, ptr %.sink174, i64 %261
   store ptr %.0.sink, ptr %262, align 8
   br label %_ZN4Node7set_reqEjPS_.exit60
 

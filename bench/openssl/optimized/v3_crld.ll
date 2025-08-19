@@ -1362,12 +1362,12 @@ define internal fastcc range(i32 -1, 2) i32 @set_dist_point_name(ptr noundef non
   br label %.thread54
 
 .thread.sink.split:                               ; preds = %36, %30, %3
-  %.sink57 = phi i32 [ 74, %3 ], [ 107, %30 ], [ 114, %36 ]
+  %.sink61 = phi i32 [ 74, %3 ], [ 107, %30 ], [ 114, %36 ]
   %.sink = phi i32 [ 124, %3 ], [ 161, %30 ], [ 160, %36 ]
   %.038.ph = phi ptr [ null, %3 ], [ %26, %30 ], [ %.139, %36 ]
   %.036.ph = phi ptr [ null, %3 ], [ null, %30 ], [ %.137, %36 ]
   tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef %.sink57, ptr noundef nonnull @__func__.set_dist_point_name) #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.5, i32 noundef %.sink61, ptr noundef nonnull @__func__.set_dist_point_name) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #5
   br label %.thread
 

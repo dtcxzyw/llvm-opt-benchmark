@@ -1045,11 +1045,11 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.
   %131 = and i32 %130, 64
   %.not67 = icmp eq i32 %131, 0
   %spec.select = select i1 %.not67, i32 17536, i32 18091
-  %spec.select233 = select i1 %.not67, i32 1024, i32 0
+  %spec.select273 = select i1 %.not67, i32 1024, i32 0
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   store i32 %spec.select, ptr %132, align 8, !tbaa !143
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 152992
-  store i32 %spec.select233, ptr %133, align 8, !tbaa !144
+  store i32 %spec.select273, ptr %133, align 8, !tbaa !144
   %134 = load ptr, ptr %2, align 8, !tbaa !30
   %.not.i.i.i137 = icmp eq ptr %134, null
   br i1 %.not.i.i.i137, label %_ZNSt6vectorItSaItEED2Ev.exit138, label %453
@@ -1117,8 +1117,8 @@ _ZN27LibRaw_SonyYCC_DecompressorC2EPhj.exit:      ; preds = %160
   %.not69 = icmp eq i32 %161, 3
   %162 = load i32, ptr %118, align 8
   %.not70 = icmp eq i32 %162, 0
-  %or.cond235 = select i1 %.not69, i1 %.not70, i1 false
-  br i1 %or.cond235, label %168, label %.invoke
+  %or.cond275 = select i1 %.not69, i1 %.not70, i1 false
+  br i1 %or.cond275, label %168, label %.invoke
 
 163:                                              ; preds = %160
   %164 = landingpad { ptr, i32 }
@@ -1319,8 +1319,8 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 
 .preheader101.i:                                  ; preds = %233
   %250 = icmp sgt i32 %239, 0
-  %or.cond147.i = and i1 %249, %250
-  br i1 %or.cond147.i, label %.lr.ph106.split.us.preheader.i, label %_ZL8copy_yccPA4_tiiiiPtiiii.exit
+  %or.cond151.i = and i1 %249, %250
+  br i1 %or.cond151.i, label %.lr.ph106.split.us.preheader.i, label %_ZL8copy_yccPA4_tiiiiPtiiii.exit
 
 .lr.ph106.split.us.preheader.i:                   ; preds = %.preheader101.i
   %251 = sext i32 %240 to i64
@@ -1416,7 +1416,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %290 = sub i32 %smax138.i, %238
   %wide.trip.count139.i = zext i32 %290 to i64
   %wide.trip.count141.i = zext nneg i32 %237 to i64
-  %invariant.gep145.i = getelementptr [4 x i16], ptr %231, i64 %287
+  %invariant.gep149.i = getelementptr [4 x i16], ptr %231, i64 %287
   %invariant.op.i = sub nsw i64 %288, %287
   %invariant.smin.i = call i64 @llvm.smin.i64(i64 %286, i64 %invariant.op.i)
   %smax = call i64 @llvm.smax.i64(i64 %invariant.smin.i, i64 1)
@@ -1430,7 +1430,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 .lr.ph.us113.i:                                   ; preds = %.lr.ph111.split.us.i
   %291 = add nsw i64 %indvars.iv135.i, %289
   %292 = mul nsw i64 %291, %288
-  %gep146.i = getelementptr [4 x i16], ptr %invariant.gep145.i, i64 %292
+  %gep150.i = getelementptr [4 x i16], ptr %invariant.gep149.i, i64 %292
   %293 = trunc i64 %indvars.iv135.i to i32
   %294 = mul i32 %239, %293
   %295 = zext i32 %294 to i64
@@ -1439,10 +1439,10 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 296:                                              ; preds = %296, %.lr.ph.us113.i
   %indvars.iv132.i = phi i64 [ 0, %.lr.ph.us113.i ], [ %indvars.iv.next133.i, %296 ]
   %297 = add nuw nsw i64 %indvars.iv132.i, %295
-  %.idx143.i = mul nuw nsw i64 %297, 6
-  %298 = getelementptr inbounds nuw i8, ptr %241, i64 %.idx143.i
+  %.idx147.i = mul nuw nsw i64 %297, 6
+  %298 = getelementptr inbounds nuw i8, ptr %241, i64 %.idx147.i
   %299 = load i16, ptr %298, align 2, !tbaa !61
-  %300 = getelementptr inbounds nuw [4 x i16], ptr %gep146.i, i64 %indvars.iv132.i
+  %300 = getelementptr inbounds nuw [4 x i16], ptr %gep150.i, i64 %indvars.iv132.i
   store i16 %299, ptr %300, align 2, !tbaa !61
   %301 = getelementptr i8, ptr %298, i64 2
   %302 = load i16, ptr %301, align 2, !tbaa !61
@@ -1490,7 +1490,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %324 = sub i32 %smax138.i104, %312
   %wide.trip.count139.i105 = zext i32 %324 to i64
   %wide.trip.count141.i106 = zext nneg i32 %311 to i64
-  %invariant.gep145.i107 = getelementptr [4 x i16], ptr %231, i64 %321
+  %invariant.gep149.i107 = getelementptr [4 x i16], ptr %231, i64 %321
   %invariant.op.i108 = sub nsw i64 %322, %321
   %invariant.smin.i109 = call i64 @llvm.smin.i64(i64 %320, i64 %invariant.op.i108)
   %smax214 = call i64 @llvm.smax.i64(i64 %invariant.smin.i109, i64 1)
@@ -1504,7 +1504,7 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 .lr.ph.us113.i113:                                ; preds = %.lr.ph111.split.us.i110
   %325 = add nsw i64 %indvars.iv135.i111, %323
   %326 = mul nsw i64 %325, %322
-  %gep146.i114 = getelementptr [4 x i16], ptr %invariant.gep145.i107, i64 %326
+  %gep150.i114 = getelementptr [4 x i16], ptr %invariant.gep149.i107, i64 %326
   %327 = trunc i64 %indvars.iv135.i111 to i32
   %328 = mul i32 %313, %327
   %329 = zext i32 %328 to i64
@@ -1513,10 +1513,10 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
 330:                                              ; preds = %330, %.lr.ph.us113.i113
   %indvars.iv132.i115 = phi i64 [ 0, %.lr.ph.us113.i113 ], [ %indvars.iv.next133.i118, %330 ]
   %331 = add nuw nsw i64 %indvars.iv132.i115, %329
-  %.idx143.i116 = mul nuw nsw i64 %331, 6
-  %332 = getelementptr inbounds nuw i8, ptr %315, i64 %.idx143.i116
+  %.idx147.i116 = mul nuw nsw i64 %331, 6
+  %332 = getelementptr inbounds nuw i8, ptr %315, i64 %.idx147.i116
   %333 = load i16, ptr %332, align 2, !tbaa !61
-  %334 = getelementptr inbounds nuw [4 x i16], ptr %gep146.i114, i64 %indvars.iv132.i115
+  %334 = getelementptr inbounds nuw [4 x i16], ptr %gep150.i114, i64 %indvars.iv132.i115
   store i16 %333, ptr %334, align 2, !tbaa !61
   %335 = getelementptr i8, ptr %332, i64 2
   %336 = load i16, ptr %335, align 2, !tbaa !61

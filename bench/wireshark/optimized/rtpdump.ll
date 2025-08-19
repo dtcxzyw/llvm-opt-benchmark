@@ -294,9 +294,9 @@ g_string_append_c_inline.exit:                    ; preds = %71, %65, %42
   br label %142
 
 142:                                              ; preds = %138, %139, %129
-  %.sink139 = phi ptr [ %9, %138 ], [ %9, %139 ], [ %8, %129 ]
+  %.sink140 = phi ptr [ %9, %138 ], [ %9, %139 ], [ %8, %129 ]
   %.sink = phi i16 [ 25, %138 ], [ 25, %139 ], [ 26, %129 ]
-  %143 = load i16, ptr %.sink139, align 2
+  %143 = load i16, ptr %.sink140, align 2
   %144 = zext i16 %143 to i32
   call void @wtap_buffer_append_epdu_uint(ptr noundef %127, i16 noundef zeroext %.sink, i32 noundef %144)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 96

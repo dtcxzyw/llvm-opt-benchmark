@@ -399,7 +399,7 @@ php_sock_stream_wait_for_data.exit.thread:        ; preds = %php_pollfd_for.exit
 
 php_sock_stream_wait_for_data.exit:               ; preds = %39, %41, %58, %60
   %.ph = phi ptr [ %27, %60 ], [ %27, %58 ], [ %26, %41 ], [ %26, %39 ]
-  %spec.select86.ph = phi i32 [ 64, %60 ], [ 64, %58 ], [ %spec.select, %41 ], [ %spec.select, %39 ]
+  %spec.select93.ph = phi i32 [ 64, %60 ], [ 64, %58 ], [ %spec.select, %41 ], [ %spec.select, %39 ]
   %.pr = load i8, ptr %.ph, align 8, !tbaa !27
   %.not60 = icmp eq i8 %.pr, 0
   br i1 %.not60, label %php_sock_stream_wait_for_data.exit..thread72_crit_edge, label %.critedge
@@ -410,7 +410,7 @@ php_sock_stream_wait_for_data.exit..thread72_crit_edge: ; preds = %php_sock_stre
 
 .thread72:                                        ; preds = %php_sock_stream_wait_for_data.exit..thread72_crit_edge, %13, %21, %10
   %63 = phi i32 [ %8, %10 ], [ %.pre, %php_sock_stream_wait_for_data.exit..thread72_crit_edge ], [ %8, %21 ], [ %8, %13 ]
-  %.051 = phi i32 [ 0, %10 ], [ %spec.select86.ph, %php_sock_stream_wait_for_data.exit..thread72_crit_edge ], [ 64, %21 ], [ 64, %13 ]
+  %.051 = phi i32 [ 0, %10 ], [ %spec.select93.ph, %php_sock_stream_wait_for_data.exit..thread72_crit_edge ], [ 64, %21 ], [ 64, %13 ]
   %64 = call i64 @recv(i32 noundef %63, ptr noundef %1, i64 noundef %2, i32 noundef %.051) #15
   %65 = icmp slt i64 %64, 0
   br i1 %65, label %66, label %74

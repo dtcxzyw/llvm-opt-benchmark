@@ -248,7 +248,7 @@ sub_1180:                                         ; preds = %.tail, %sub_1
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
-  br i1 %27, label %31, label %.thread333
+  br i1 %27, label %31, label %.thread339
 
 .tail178.thread:                                  ; preds = %sub_1180
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #21
@@ -257,22 +257,22 @@ sub_1180:                                         ; preds = %.tail, %sub_1
 
 .tail178.thread.thread:                           ; preds = %sub_0
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #21
-  %.not149371 = icmp eq i32 %29, 0
-  br i1 %.not149371, label %31, label %.tail213.thread
+  %.not149377 = icmp eq i32 %29, 0
+  br i1 %.not149377, label %31, label %.tail213.thread
 
-.thread333:                                       ; preds = %.tail178
+.thread339:                                       ; preds = %.tail178
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.2) #21
-  %.not149334 = icmp eq i32 %30, 0
-  br i1 %.not149334, label %31, label %sub_1185
+  %.not149340 = icmp eq i32 %30, 0
+  br i1 %.not149340, label %31, label %sub_1185
 
-31:                                               ; preds = %.tail178.thread.thread, %.thread333, %.tail178.thread, %.tail178
+31:                                               ; preds = %.tail178.thread.thread, %.thread339, %.tail178.thread, %.tail178
   %32 = tail call ptr @cliVersion() #20
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %32)
   tail call void @hi_sdsfree(ptr noundef %32) #20
   tail call void @exit(i32 noundef 0) #22
   unreachable
 
-sub_1185:                                         ; preds = %.tail178.thread, %.thread333
+sub_1185:                                         ; preds = %.tail178.thread, %.thread339
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %35 = load i8, ptr %34, align 1
   %.not285 = icmp eq i8 %35, 110
@@ -430,7 +430,7 @@ sub_1215:                                         ; preds = %.tail208, %sub_1210
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 0
-  br i1 %111, label %112, label %.thread348
+  br i1 %111, label %112, label %.thread354
 
 112:                                              ; preds = %.tail213
   br i1 %5, label %.loopexit268.loopexit, label %113
@@ -451,15 +451,15 @@ sub_1215:                                         ; preds = %.tail208, %sub_1210
 
 .tail213.thread.thread:                           ; preds = %sub_1215
   %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.12) #21
-  %.not157373 = icmp eq i32 %120, 0
-  br i1 %.not157373, label %122, label %sub_1220
+  %.not157379 = icmp eq i32 %120, 0
+  br i1 %.not157379, label %122, label %sub_1220
 
-.thread348:                                       ; preds = %.tail213
+.thread354:                                       ; preds = %.tail213
   %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.12) #21
-  %.not157349 = icmp eq i32 %121, 0
-  br i1 %.not157349, label %122, label %sub_1220
+  %.not157355 = icmp eq i32 %121, 0
+  br i1 %.not157355, label %122, label %sub_1220
 
-122:                                              ; preds = %.tail213.thread.thread, %.thread348, %.tail213.thread
+122:                                              ; preds = %.tail213.thread.thread, %.thread354, %.tail213.thread
   br i1 %5, label %.loopexit268.loopexit, label %123
 
 123:                                              ; preds = %122
@@ -471,7 +471,7 @@ sub_1215:                                         ; preds = %.tail208, %sub_1210
   store ptr %128, ptr getelementptr inbounds nuw (i8, ptr @config, i64 32), align 8, !tbaa !31
   br label %304
 
-sub_1220:                                         ; preds = %.tail213.thread.thread, %.thread348
+sub_1220:                                         ; preds = %.tail213.thread.thread, %.thread354
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %130 = load i8, ptr %129, align 1
   %.not299 = icmp eq i8 %130, 117
@@ -625,7 +625,7 @@ sub_1245:                                         ; preds = %.tail238, %sub_1240
   %201 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %202 = load i8, ptr %201, align 1
   %203 = icmp eq i8 %202, 0
-  br i1 %203, label %204, label %.thread361
+  br i1 %203, label %204, label %.thread367
 
 204:                                              ; preds = %.tail243
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @config, i64 216), align 8, !tbaa !37
@@ -638,19 +638,19 @@ sub_1245:                                         ; preds = %.tail238, %sub_1240
 
 .tail243.thread.thread:                           ; preds = %.tail213.thread
   %206 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(6) @.str.20) #21
-  %.not163375 = icmp eq i32 %206, 0
-  br i1 %.not163375, label %208, label %.tail258.thread
+  %.not163381 = icmp eq i32 %206, 0
+  br i1 %.not163381, label %208, label %.tail258.thread
 
-.thread361:                                       ; preds = %.tail243
+.thread367:                                       ; preds = %.tail243
   %207 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(6) @.str.20) #21
-  %.not163362 = icmp eq i32 %207, 0
-  br i1 %.not163362, label %208, label %sub_1250
+  %.not163368 = icmp eq i32 %207, 0
+  br i1 %.not163368, label %208, label %sub_1250
 
-208:                                              ; preds = %.tail243.thread.thread, %.thread361, %.tail243.thread
+208:                                              ; preds = %.tail243.thread.thread, %.thread367, %.tail243.thread
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @config, i64 220), align 4, !tbaa !38
   br label %304
 
-sub_1250:                                         ; preds = %.tail243.thread, %.thread361
+sub_1250:                                         ; preds = %.tail243.thread, %.thread367
   %209 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %210 = load i8, ptr %209, align 1
   %.not311 = icmp eq i8 %210, 108
@@ -692,7 +692,7 @@ sub_1260:                                         ; preds = %.tail253, %sub_1255
   %223 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %224 = load i8, ptr %223, align 1
   %225 = icmp eq i8 %224, 0
-  br i1 %225, label %226, label %.thread368
+  br i1 %225, label %226, label %.thread374
 
 226:                                              ; preds = %.tail258
   %227 = load ptr, ptr @stderr, align 8, !tbaa !26
@@ -706,15 +706,15 @@ sub_1260:                                         ; preds = %.tail253, %sub_1255
 
 .tail258.thread.thread:                           ; preds = %sub_1260
   %230 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.25) #21
-  %.not167377 = icmp eq i32 %230, 0
-  br i1 %.not167377, label %232, label %sub_1265
+  %.not167383 = icmp eq i32 %230, 0
+  br i1 %.not167383, label %232, label %sub_1265
 
-.thread368:                                       ; preds = %.tail258
+.thread374:                                       ; preds = %.tail258
   %231 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.25) #21
-  %.not167369 = icmp eq i32 %231, 0
-  br i1 %.not167369, label %232, label %sub_1265
+  %.not167375 = icmp eq i32 %231, 0
+  br i1 %.not167375, label %232, label %sub_1265
 
-232:                                              ; preds = %.tail258.thread.thread, %.thread368, %.tail258.thread
+232:                                              ; preds = %.tail258.thread.thread, %.thread374, %.tail258.thread
   br i1 %5, label %.loopexit268.loopexit, label %233
 
 233:                                              ; preds = %232
@@ -733,7 +733,7 @@ sub_1260:                                         ; preds = %.tail253, %sub_1255
 sub_0264:                                         ; preds = %.tail258.thread
   br i1 %.not280, label %sub_1265, label %.tail263.thread
 
-sub_1265:                                         ; preds = %.tail258.thread.thread, %.thread368, %sub_0264
+sub_1265:                                         ; preds = %.tail258.thread.thread, %.thread374, %sub_0264
   %241 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %242 = load i8, ptr %241, align 1
   %.not317 = icmp eq i8 %242, 116
@@ -2459,9 +2459,9 @@ test_is_selected.exit213:                         ; preds = %test_is_selected.ex
   %669 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %667, ptr noundef nonnull dereferenceable(1) %30) #21
   %.not397 = icmp eq ptr %669, null
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br i1 %.not397, label %.thread482, label %670
+  br i1 %.not397, label %.thread546, label %670
 
-.thread482:                                       ; preds = %test_is_selected.exit213
+.thread546:                                       ; preds = %test_is_selected.exit213
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   br label %test_is_selected.exit218
 
@@ -2480,8 +2480,8 @@ test_is_selected.exit218.thread:                  ; preds = %670
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %677
 
-test_is_selected.exit218:                         ; preds = %.thread482, %670
-  %675 = phi ptr [ %667, %.thread482 ], [ %.pre459, %670 ]
+test_is_selected.exit218:                         ; preds = %.thread546, %670
+  %675 = phi ptr [ %667, %.thread546 ], [ %.pre459, %670 ]
   store i8 44, ptr %29, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %567, ptr noundef nonnull align 1 dereferenceable(3) @.str.70, i64 3, i1 false)
   store i8 44, ptr %568, align 4, !tbaa !35
@@ -2489,9 +2489,9 @@ test_is_selected.exit218:                         ; preds = %.thread482, %670
   %676 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %675, ptr noundef nonnull dereferenceable(1) %29) #21
   %.not398 = icmp eq ptr %676, null
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br i1 %.not398, label %.thread483, label %677
+  br i1 %.not398, label %.thread547, label %677
 
-.thread483:                                       ; preds = %test_is_selected.exit218
+.thread547:                                       ; preds = %test_is_selected.exit218
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   br label %test_is_selected.exit223
 
@@ -2510,8 +2510,8 @@ test_is_selected.exit223.thread:                  ; preds = %677
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %684
 
-test_is_selected.exit223:                         ; preds = %.thread483, %677
-  %682 = phi ptr [ %675, %.thread483 ], [ %.pre460, %677 ]
+test_is_selected.exit223:                         ; preds = %.thread547, %677
+  %682 = phi ptr [ %675, %.thread547 ], [ %.pre460, %677 ]
   store i8 44, ptr %28, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %570, ptr noundef nonnull align 1 dereferenceable(3) @.str.73, i64 3, i1 false)
   store i8 44, ptr %571, align 4, !tbaa !35
@@ -2519,9 +2519,9 @@ test_is_selected.exit223:                         ; preds = %.thread483, %677
   %683 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %682, ptr noundef nonnull dereferenceable(1) %28) #21
   %.not399 = icmp eq ptr %683, null
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %.not399, label %.thread484, label %684
+  br i1 %.not399, label %.thread548, label %684
 
-.thread484:                                       ; preds = %test_is_selected.exit223
+.thread548:                                       ; preds = %test_is_selected.exit223
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   br label %test_is_selected.exit228
 
@@ -2540,8 +2540,8 @@ test_is_selected.exit228.thread:                  ; preds = %684
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %691
 
-test_is_selected.exit228:                         ; preds = %.thread484, %684
-  %689 = phi ptr [ %682, %.thread484 ], [ %.pre461, %684 ]
+test_is_selected.exit228:                         ; preds = %.thread548, %684
+  %689 = phi ptr [ %682, %.thread548 ], [ %.pre461, %684 ]
   store i8 44, ptr %27, align 16, !tbaa !35
   store i32 1919118953, ptr %573, align 1
   store i8 44, ptr %574, align 1, !tbaa !35
@@ -2549,9 +2549,9 @@ test_is_selected.exit228:                         ; preds = %.thread484, %684
   %690 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %689, ptr noundef nonnull dereferenceable(1) %27) #21
   %.not400 = icmp eq ptr %690, null
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br i1 %.not400, label %.thread485, label %691
+  br i1 %.not400, label %.thread549, label %691
 
-.thread485:                                       ; preds = %test_is_selected.exit228
+.thread549:                                       ; preds = %test_is_selected.exit228
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   br label %test_is_selected.exit233
 
@@ -2570,8 +2570,8 @@ test_is_selected.exit233.thread:                  ; preds = %691
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %698
 
-test_is_selected.exit233:                         ; preds = %.thread485, %691
-  %696 = phi ptr [ %689, %.thread485 ], [ %.pre462, %691 ]
+test_is_selected.exit233:                         ; preds = %.thread549, %691
+  %696 = phi ptr [ %689, %.thread549 ], [ %.pre462, %691 ]
   store i8 44, ptr %26, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %576, ptr noundef nonnull align 1 dereferenceable(5) @.str.79, i64 5, i1 false)
   store i8 44, ptr %577, align 2, !tbaa !35
@@ -2579,9 +2579,9 @@ test_is_selected.exit233:                         ; preds = %.thread485, %691
   %697 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %696, ptr noundef nonnull dereferenceable(1) %26) #21
   %.not401 = icmp eq ptr %697, null
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br i1 %.not401, label %.thread486, label %698
+  br i1 %.not401, label %.thread550, label %698
 
-.thread486:                                       ; preds = %test_is_selected.exit233
+.thread550:                                       ; preds = %test_is_selected.exit233
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   br label %test_is_selected.exit238
 
@@ -2600,8 +2600,8 @@ test_is_selected.exit238.thread:                  ; preds = %698
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %705
 
-test_is_selected.exit238:                         ; preds = %.thread486, %698
-  %703 = phi ptr [ %696, %.thread486 ], [ %.pre463, %698 ]
+test_is_selected.exit238:                         ; preds = %.thread550, %698
+  %703 = phi ptr [ %696, %.thread550 ], [ %.pre463, %698 ]
   store i8 44, ptr %25, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %579, ptr noundef nonnull align 1 dereferenceable(5) @.str.82, i64 5, i1 false)
   store i8 44, ptr %580, align 2, !tbaa !35
@@ -2609,9 +2609,9 @@ test_is_selected.exit238:                         ; preds = %.thread486, %698
   %704 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %703, ptr noundef nonnull dereferenceable(1) %25) #21
   %.not402 = icmp eq ptr %704, null
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br i1 %.not402, label %.thread487, label %705
+  br i1 %.not402, label %.thread551, label %705
 
-.thread487:                                       ; preds = %test_is_selected.exit238
+.thread551:                                       ; preds = %test_is_selected.exit238
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   br label %test_is_selected.exit243
 
@@ -2630,8 +2630,8 @@ test_is_selected.exit243.thread:                  ; preds = %705
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %712
 
-test_is_selected.exit243:                         ; preds = %.thread487, %705
-  %710 = phi ptr [ %703, %.thread487 ], [ %.pre464, %705 ]
+test_is_selected.exit243:                         ; preds = %.thread551, %705
+  %710 = phi ptr [ %703, %.thread551 ], [ %.pre464, %705 ]
   store i8 44, ptr %24, align 16, !tbaa !35
   store i32 1886351468, ptr %582, align 1
   store i8 44, ptr %583, align 1, !tbaa !35
@@ -2639,9 +2639,9 @@ test_is_selected.exit243:                         ; preds = %.thread487, %705
   %711 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %710, ptr noundef nonnull dereferenceable(1) %24) #21
   %.not403 = icmp eq ptr %711, null
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br i1 %.not403, label %.thread488, label %712
+  br i1 %.not403, label %.thread552, label %712
 
-.thread488:                                       ; preds = %test_is_selected.exit243
+.thread552:                                       ; preds = %test_is_selected.exit243
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   br label %test_is_selected.exit248
 
@@ -2660,8 +2660,8 @@ test_is_selected.exit248.thread:                  ; preds = %712
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %719
 
-test_is_selected.exit248:                         ; preds = %.thread488, %712
-  %717 = phi ptr [ %710, %.thread488 ], [ %.pre465, %712 ]
+test_is_selected.exit248:                         ; preds = %.thread552, %712
+  %717 = phi ptr [ %710, %.thread552 ], [ %.pre465, %712 ]
   store i8 44, ptr %23, align 16, !tbaa !35
   store i32 1886351474, ptr %585, align 1
   store i8 44, ptr %586, align 1, !tbaa !35
@@ -2669,9 +2669,9 @@ test_is_selected.exit248:                         ; preds = %.thread488, %712
   %718 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %717, ptr noundef nonnull dereferenceable(1) %23) #21
   %.not404 = icmp eq ptr %718, null
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br i1 %.not404, label %.thread489, label %719
+  br i1 %.not404, label %.thread553, label %719
 
-.thread489:                                       ; preds = %test_is_selected.exit248
+.thread553:                                       ; preds = %test_is_selected.exit248
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br label %test_is_selected.exit253
 
@@ -2690,8 +2690,8 @@ test_is_selected.exit253.thread:                  ; preds = %719
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %726
 
-test_is_selected.exit253:                         ; preds = %.thread489, %719
-  %724 = phi ptr [ %717, %.thread489 ], [ %.pre466, %719 ]
+test_is_selected.exit253:                         ; preds = %.thread553, %719
+  %724 = phi ptr [ %717, %.thread553 ], [ %.pre466, %719 ]
   store i8 44, ptr %22, align 16, !tbaa !35
   store i32 1684300147, ptr %588, align 1
   store i8 44, ptr %589, align 1, !tbaa !35
@@ -2699,9 +2699,9 @@ test_is_selected.exit253:                         ; preds = %.thread489, %719
   %725 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %724, ptr noundef nonnull dereferenceable(1) %22) #21
   %.not405 = icmp eq ptr %725, null
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br i1 %.not405, label %.thread490, label %726
+  br i1 %.not405, label %.thread554, label %726
 
-.thread490:                                       ; preds = %test_is_selected.exit253
+.thread554:                                       ; preds = %test_is_selected.exit253
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   br label %test_is_selected.exit258
 
@@ -2720,8 +2720,8 @@ test_is_selected.exit258.thread:                  ; preds = %726
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %733
 
-test_is_selected.exit258:                         ; preds = %.thread490, %726
-  %731 = phi ptr [ %724, %.thread490 ], [ %.pre467, %726 ]
+test_is_selected.exit258:                         ; preds = %.thread554, %726
+  %731 = phi ptr [ %724, %.thread554 ], [ %.pre467, %726 ]
   store i8 44, ptr %21, align 16, !tbaa !35
   store i32 1952805736, ptr %591, align 1
   store i8 44, ptr %592, align 1, !tbaa !35
@@ -2729,9 +2729,9 @@ test_is_selected.exit258:                         ; preds = %.thread490, %726
   %732 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %731, ptr noundef nonnull dereferenceable(1) %21) #21
   %.not406 = icmp eq ptr %732, null
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %.not406, label %.thread491, label %733
+  br i1 %.not406, label %.thread555, label %733
 
-.thread491:                                       ; preds = %test_is_selected.exit258
+.thread555:                                       ; preds = %test_is_selected.exit258
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   br label %test_is_selected.exit263
 
@@ -2750,8 +2750,8 @@ test_is_selected.exit263.thread:                  ; preds = %733
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %740
 
-test_is_selected.exit263:                         ; preds = %.thread491, %733
-  %738 = phi ptr [ %731, %.thread491 ], [ %.pre468, %733 ]
+test_is_selected.exit263:                         ; preds = %.thread555, %733
+  %738 = phi ptr [ %731, %.thread555 ], [ %.pre468, %733 ]
   store i8 44, ptr %20, align 16, !tbaa !35
   store i32 1886351475, ptr %594, align 1
   store i8 44, ptr %595, align 1, !tbaa !35
@@ -2759,9 +2759,9 @@ test_is_selected.exit263:                         ; preds = %.thread491, %733
   %739 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %738, ptr noundef nonnull dereferenceable(1) %20) #21
   %.not407 = icmp eq ptr %739, null
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br i1 %.not407, label %.thread492, label %740
+  br i1 %.not407, label %.thread556, label %740
 
-.thread492:                                       ; preds = %test_is_selected.exit263
+.thread556:                                       ; preds = %test_is_selected.exit263
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br label %test_is_selected.exit268
 
@@ -2780,8 +2780,8 @@ test_is_selected.exit268.thread:                  ; preds = %740
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %747
 
-test_is_selected.exit268:                         ; preds = %.thread492, %740
-  %745 = phi ptr [ %738, %.thread492 ], [ %.pre469, %740 ]
+test_is_selected.exit268:                         ; preds = %.thread556, %740
+  %745 = phi ptr [ %738, %.thread556 ], [ %.pre469, %740 ]
   store i8 44, ptr %19, align 16, !tbaa !35
   store i32 1684300154, ptr %597, align 1
   store i8 44, ptr %598, align 1, !tbaa !35
@@ -2789,9 +2789,9 @@ test_is_selected.exit268:                         ; preds = %.thread492, %740
   %746 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %745, ptr noundef nonnull dereferenceable(1) %19) #21
   %.not408 = icmp eq ptr %746, null
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %.not408, label %.thread493, label %747
+  br i1 %.not408, label %.thread557, label %747
 
-.thread493:                                       ; preds = %test_is_selected.exit268
+.thread557:                                       ; preds = %test_is_selected.exit268
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %test_is_selected.exit273
 
@@ -2813,8 +2813,8 @@ test_is_selected.exit273.thread:                  ; preds = %747
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %755
 
-test_is_selected.exit273:                         ; preds = %.thread493, %747
-  %753 = phi ptr [ %745, %.thread493 ], [ %.pre470, %747 ]
+test_is_selected.exit273:                         ; preds = %.thread557, %747
+  %753 = phi ptr [ %745, %.thread557 ], [ %.pre470, %747 ]
   store i8 44, ptr %18, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %600, ptr noundef nonnull align 1 dereferenceable(7) @.str.105, i64 7, i1 false)
   store i8 44, ptr %601, align 8, !tbaa !35
@@ -2822,9 +2822,9 @@ test_is_selected.exit273:                         ; preds = %.thread493, %747
   %754 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %753, ptr noundef nonnull dereferenceable(1) %18) #21
   %.not409 = icmp eq ptr %754, null
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %.not409, label %.thread494, label %755
+  br i1 %.not409, label %.thread558, label %755
 
-.thread494:                                       ; preds = %test_is_selected.exit273
+.thread558:                                       ; preds = %test_is_selected.exit273
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br label %test_is_selected.exit278
 
@@ -2843,8 +2843,8 @@ test_is_selected.exit278.thread:                  ; preds = %755
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %766
 
-test_is_selected.exit278:                         ; preds = %.thread494, %755
-  %760 = phi ptr [ %753, %.thread494 ], [ %.pre471, %755 ]
+test_is_selected.exit278:                         ; preds = %.thread558, %755
+  %760 = phi ptr [ %753, %.thread558 ], [ %.pre471, %755 ]
   store i8 44, ptr %17, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %603, ptr noundef nonnull align 1 dereferenceable(6) @.str.108, i64 6, i1 false)
   store i8 44, ptr %604, align 1, !tbaa !35
@@ -2896,9 +2896,9 @@ test_is_selected.exit298:                         ; preds = %test_is_selected.ex
   %765 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %760, ptr noundef nonnull dereferenceable(1) %13) #21
   %.not414 = icmp eq ptr %765, null
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.not414, label %.thread495, label %766
+  br i1 %.not414, label %.thread559, label %766
 
-.thread495:                                       ; preds = %test_is_selected.exit298
+.thread559:                                       ; preds = %test_is_selected.exit298
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %test_is_selected.exit303
 
@@ -2917,8 +2917,8 @@ test_is_selected.exit303.thread:                  ; preds = %766
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %774
 
-test_is_selected.exit303:                         ; preds = %.thread495, %766
-  %771 = phi ptr [ %760, %.thread495 ], [ %.pre472, %766 ]
+test_is_selected.exit303:                         ; preds = %.thread559, %766
+  %771 = phi ptr [ %760, %.thread559 ], [ %.pre472, %766 ]
   store i8 44, ptr %12, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %618, ptr noundef nonnull align 1 dereferenceable(6) @.str.108, i64 6, i1 false)
   store i8 44, ptr %619, align 1, !tbaa !35
@@ -2937,9 +2937,9 @@ test_is_selected.exit308:                         ; preds = %test_is_selected.ex
   %773 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %771, ptr noundef nonnull dereferenceable(1) %11) #21
   %.not416 = icmp eq ptr %773, null
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.not416, label %.thread496, label %774
+  br i1 %.not416, label %.thread560, label %774
 
-.thread496:                                       ; preds = %test_is_selected.exit308
+.thread560:                                       ; preds = %test_is_selected.exit308
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %test_is_selected.exit313
 
@@ -2958,8 +2958,8 @@ test_is_selected.exit313.thread:                  ; preds = %774
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %782
 
-test_is_selected.exit313:                         ; preds = %.thread496, %774
-  %779 = phi ptr [ %771, %.thread496 ], [ %.pre473, %774 ]
+test_is_selected.exit313:                         ; preds = %.thread560, %774
+  %779 = phi ptr [ %771, %.thread560 ], [ %.pre473, %774 ]
   store i8 44, ptr %10, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %624, ptr noundef nonnull align 1 dereferenceable(6) @.str.108, i64 6, i1 false)
   store i8 44, ptr %625, align 1, !tbaa !35
@@ -2978,9 +2978,9 @@ test_is_selected.exit318:                         ; preds = %test_is_selected.ex
   %781 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %779, ptr noundef nonnull dereferenceable(1) %9) #21
   %.not418 = icmp eq ptr %781, null
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.not418, label %.thread497, label %782
+  br i1 %.not418, label %.thread561, label %782
 
-.thread497:                                       ; preds = %test_is_selected.exit318
+.thread561:                                       ; preds = %test_is_selected.exit318
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %test_is_selected.exit323
 
@@ -2999,8 +2999,8 @@ test_is_selected.exit323.thread:                  ; preds = %782
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %790
 
-test_is_selected.exit323:                         ; preds = %.thread497, %782
-  %787 = phi ptr [ %779, %.thread497 ], [ %.pre474, %782 ]
+test_is_selected.exit323:                         ; preds = %.thread561, %782
+  %787 = phi ptr [ %779, %.thread561 ], [ %.pre474, %782 ]
   store i8 44, ptr %8, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %630, ptr noundef nonnull align 1 dereferenceable(6) @.str.108, i64 6, i1 false)
   store i8 44, ptr %631, align 1, !tbaa !35
@@ -3019,9 +3019,9 @@ test_is_selected.exit328:                         ; preds = %test_is_selected.ex
   %789 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %787, ptr noundef nonnull dereferenceable(1) %7) #21
   %.not420 = icmp eq ptr %789, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not420, label %.thread498, label %790
+  br i1 %.not420, label %.thread562, label %790
 
-.thread498:                                       ; preds = %test_is_selected.exit328
+.thread562:                                       ; preds = %test_is_selected.exit328
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %test_is_selected.exit333
 
@@ -3040,8 +3040,8 @@ test_is_selected.exit333.thread:                  ; preds = %790
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %798
 
-test_is_selected.exit333:                         ; preds = %.thread498, %790
-  %795 = phi ptr [ %787, %.thread498 ], [ %.pre475, %790 ]
+test_is_selected.exit333:                         ; preds = %.thread562, %790
+  %795 = phi ptr [ %787, %.thread562 ], [ %.pre475, %790 ]
   store i8 44, ptr %6, align 16, !tbaa !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %636, ptr noundef nonnull align 1 dereferenceable(6) @.str.108, i64 6, i1 false)
   store i8 44, ptr %637, align 1, !tbaa !35
@@ -3060,9 +3060,9 @@ test_is_selected.exit338:                         ; preds = %test_is_selected.ex
   %797 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %795, ptr noundef nonnull dereferenceable(1) %5) #21
   %.not422 = icmp eq ptr %797, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not422, label %.thread499, label %798
+  br i1 %.not422, label %.thread563, label %798
 
-.thread499:                                       ; preds = %test_is_selected.exit338
+.thread563:                                       ; preds = %test_is_selected.exit338
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %test_is_selected.exit343
 
@@ -3081,8 +3081,8 @@ test_is_selected.exit343.thread:                  ; preds = %798
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %805
 
-test_is_selected.exit343:                         ; preds = %.thread499, %798
-  %803 = phi ptr [ %795, %.thread499 ], [ %.pre476, %798 ]
+test_is_selected.exit343:                         ; preds = %.thread563, %798
+  %803 = phi ptr [ %795, %.thread563 ], [ %.pre476, %798 ]
   store i8 44, ptr %4, align 16, !tbaa !35
   store i32 1952805741, ptr %642, align 1
   store i8 44, ptr %643, align 1, !tbaa !35
@@ -3090,9 +3090,9 @@ test_is_selected.exit343:                         ; preds = %.thread499, %798
   %804 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %803, ptr noundef nonnull dereferenceable(1) %4) #21
   %.not423 = icmp eq ptr %804, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not423, label %.thread500, label %805
+  br i1 %.not423, label %.thread564, label %805
 
-.thread500:                                       ; preds = %test_is_selected.exit343
+.thread564:                                       ; preds = %test_is_selected.exit343
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %test_is_selected.exit348
 
@@ -3132,8 +3132,8 @@ test_is_selected.exit348.thread:                  ; preds = %813
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %821
 
-test_is_selected.exit348:                         ; preds = %.thread500, %813
-  %819 = phi ptr [ %803, %.thread500 ], [ %.pre477, %813 ]
+test_is_selected.exit348:                         ; preds = %.thread564, %813
+  %819 = phi ptr [ %803, %.thread564 ], [ %.pre477, %813 ]
   store i8 44, ptr %3, align 16, !tbaa !35
   store i32 1684300152, ptr %645, align 1
   store i8 44, ptr %646, align 1, !tbaa !35
@@ -3969,8 +3969,8 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
 
 .loopexit190.thread:                              ; preds = %252
   %276 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 272), align 8, !tbaa !43
-  %.not183217 = icmp eq i32 %276, 0
-  br i1 %.not183217, label %.loopexit, label %.thread
+  %.not183235 = icmp eq i32 %276, 0
+  br i1 %.not183235, label %.loopexit, label %.thread
 
 277:                                              ; preds = %.loopexit190
   br i1 %.not180, label %.thread, label %278
@@ -4002,7 +4002,7 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %296 = sub nsw i32 %293, %295
   %297 = sext i32 %296 to i64
   %wide.trip.count208 = and i64 %284, 2147483647
-  %invariant.gep221 = getelementptr i8, ptr %287, i64 %297
+  %invariant.gep239 = getelementptr i8, ptr %287, i64 %297
   br label %298
 
 298:                                              ; preds = %.lr.ph199, %298
@@ -4012,8 +4012,8 @@ hi_sdslen.exit188:                                ; preds = %178, %189, %192, %1
   %301 = ptrtoint ptr %300 to i64
   %302 = sub i64 %301, %292
   %303 = getelementptr inbounds nuw ptr, ptr %283, i64 %indvars.iv205
-  %gep222 = getelementptr i8, ptr %invariant.gep221, i64 %302
-  store ptr %gep222, ptr %303, align 8, !tbaa !5
+  %gep240 = getelementptr i8, ptr %invariant.gep239, i64 %302
+  store ptr %gep240, ptr %303, align 8, !tbaa !5
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %.loopexit, label %298, !llvm.loop !166

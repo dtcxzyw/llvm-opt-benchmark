@@ -720,9 +720,9 @@ pmix_obj_new_tma.exit125:                         ; preds = %.lr.ph.i.i122, %202
   br i1 %223, label %47, label %.loopexit152, !llvm.loop !91
 
 .loopexit152.sink.split:                          ; preds = %183, %179, %pmix_pointer_array_get_item.exit118, %170, %165, %47, %93, %60
-  %.sink174 = phi i32 [ 411, %60 ], [ 426, %93 ], [ 399, %47 ], [ 457, %165 ], [ 457, %170 ], [ 457, %pmix_pointer_array_get_item.exit118 ], [ 462, %179 ], [ 462, %183 ]
+  %.sink206 = phi i32 [ 411, %60 ], [ 426, %93 ], [ 399, %47 ], [ 457, %165 ], [ 457, %170 ], [ 457, %pmix_pointer_array_get_item.exit118 ], [ 462, %179 ], [ 462, %183 ]
   %224 = call ptr @prte_strerror(i32 noundef -13) #14
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %224, ptr noundef nonnull @.str.2, i32 noundef %.sink174) #14
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %224, ptr noundef nonnull @.str.2, i32 noundef %.sink206) #14
   br label %.loopexit152
 
 .loopexit152:                                     ; preds = %.loopexit150, %.loopexit152.sink.split, %pmix_obj_run_constructors.exit, %60
@@ -2398,14 +2398,14 @@ define noundef i32 @prte_pack_ctrl_options(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 .sink.split:                                      ; preds = %12, %9, %3
-  %.sink25 = phi i32 [ %6, %3 ], [ %11, %9 ], [ %13, %12 ]
-  %.sink24 = phi i32 [ 581, %3 ], [ 588, %9 ], [ 598, %12 ]
-  %14 = call ptr @PMIx_Error_string(i32 noundef %.sink25) #14
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef %.sink24) #14
+  %.sink26 = phi i32 [ %6, %3 ], [ %11, %9 ], [ %13, %12 ]
+  %.sink25 = phi i32 [ 581, %3 ], [ 588, %9 ], [ 598, %12 ]
+  %14 = call ptr @PMIx_Error_string(i32 noundef %.sink26) #14
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef %.sink25) #14
   br label %15
 
 15:                                               ; preds = %.sink.split, %12, %12, %9, %3
-  %.0 = phi i32 [ %6, %3 ], [ %11, %9 ], [ %13, %12 ], [ %13, %12 ], [ %.sink25, %.sink.split ]
+  %.0 = phi i32 [ %6, %3 ], [ %11, %9 ], [ %13, %12 ], [ %13, %12 ], [ %.sink26, %.sink.split ]
   call void @PMIx_Data_buffer_destruct(ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

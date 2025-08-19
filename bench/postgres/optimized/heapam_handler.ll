@@ -1330,8 +1330,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
 
 38:                                               ; preds = %.lr.ph, %92
   %39 = phi i32 [ %29, %.lr.ph ], [ %94, %92 ]
-  %.mask = and i32 %39, 65535
-  %40 = zext nneg i32 %.mask to i64
+  %40 = zext nneg i32 %39 to i64
   %41 = add nsw i64 %40, -1
   %42 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %31, i64 0, i64 %41
   %43 = load i32, ptr %42, align 4
@@ -2613,8 +2612,8 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
   br i1 %53, label %.preheader, label %74
 
 .preheader:                                       ; preds = %41
-  %.not111 = icmp eq i32 %52, 0
-  br i1 %.not111, label %.loopexit, label %.lr.ph99
+  %.not115 = icmp eq i32 %52, 0
+  br i1 %.not115, label %.loopexit, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.preheader
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 10
@@ -3073,17 +3072,17 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %.val = load i16, ptr %30, align 2
   %31 = and i16 %.val, 4
   %.not65 = icmp eq i16 %31, 0
-  br i1 %.not65, label %.thread91, label %48
+  br i1 %.not65, label %.thread95, label %48
 
-.thread91:                                        ; preds = %BufferGetPage.exit
+.thread95:                                        ; preds = %BufferGetPage.exit
   %32 = getelementptr i8, ptr %.0.i.i, i64 12
-  %.val5893 = load i16, ptr %32, align 4
-  %33 = icmp ult i16 %.val5893, 25
-  %34 = zext i16 %.val5893 to i32
+  %.val5897 = load i16, ptr %32, align 4
+  %33 = icmp ult i16 %.val5897, 25
+  %34 = zext i16 %.val5897 to i32
   %35 = add nuw nsw i32 %34, 262120
   %36 = lshr i32 %35, 2
   %37 = trunc i32 %36 to i16
-  %.0.i94 = select i1 %33, i16 0, i16 %37
+  %.0.i98 = select i1 %33, i16 0, i16 %37
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3123,17 +3122,17 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %53, label %.split.preheader, label %.split.us
 
-.split.preheader:                                 ; preds = %.thread91, %48
-  %71 = phi ptr [ %47, %.thread91 ], [ %70, %48 ]
-  %72 = phi ptr [ %46, %.thread91 ], [ %69, %48 ]
-  %73 = phi ptr [ %45, %.thread91 ], [ %68, %48 ]
-  %74 = phi i16 [ %44, %.thread91 ], [ %67, %48 ]
-  %75 = phi i16 [ %43, %.thread91 ], [ %66, %48 ]
-  %76 = phi ptr [ %41, %.thread91 ], [ %64, %48 ]
-  %77 = phi ptr [ %40, %.thread91 ], [ %63, %48 ]
-  %78 = phi ptr [ %39, %.thread91 ], [ %61, %48 ]
-  %79 = phi ptr [ %38, %.thread91 ], [ %60, %48 ]
-  %.0.i95 = phi i16 [ %.0.i94, %.thread91 ], [ %.0.i, %48 ]
+.split.preheader:                                 ; preds = %.thread95, %48
+  %71 = phi ptr [ %47, %.thread95 ], [ %70, %48 ]
+  %72 = phi ptr [ %46, %.thread95 ], [ %69, %48 ]
+  %73 = phi ptr [ %45, %.thread95 ], [ %68, %48 ]
+  %74 = phi i16 [ %44, %.thread95 ], [ %67, %48 ]
+  %75 = phi i16 [ %43, %.thread95 ], [ %66, %48 ]
+  %76 = phi ptr [ %41, %.thread95 ], [ %64, %48 ]
+  %77 = phi ptr [ %40, %.thread95 ], [ %63, %48 ]
+  %78 = phi ptr [ %39, %.thread95 ], [ %61, %48 ]
+  %79 = phi ptr [ %38, %.thread95 ], [ %60, %48 ]
+  %.0.i99 = phi i16 [ %.0.i98, %.thread95 ], [ %.0.i, %48 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
@@ -3235,7 +3234,7 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %113
 
 128:                                              ; preds = %127, %.split
   %129 = load ptr, ptr %79, align 8
-  %130 = tail call zeroext i16 %129(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i95) #11
+  %130 = tail call zeroext i16 %129(ptr noundef %1, i32 noundef %7, i16 noundef zeroext %.0.i99) #11
   %131 = add i16 %130, -1
   %132 = icmp ult i16 %131, 2048
   br i1 %132, label %133, label %.split71.us

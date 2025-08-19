@@ -376,21 +376,21 @@ sub_1:                                            ; preds = %sub_0
   br label %199
 
 157:                                              ; preds = %._crit_edge
-  %.not153 = icmp eq i32 %91, 1
-  br i1 %.not153, label %.thread149, label %.thread
+  %.not156 = icmp eq i32 %91, 1
+  br i1 %.not156, label %.thread152, label %.thread
 
 .thread:                                          ; preds = %114, %118, %123, %157
   %158 = load ptr, ptr %1, align 8, !tbaa !43
   %159 = call i32 @is_range_diff_range(ptr noundef %158) #10
   %.not95 = icmp eq i32 %159, 0
-  br i1 %.not95, label %.thread149, label %160
+  br i1 %.not95, label %.thread152, label %160
 
 160:                                              ; preds = %.thread
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !43
   %163 = call i32 @is_range_diff_range(ptr noundef %162) #10
   %.not96 = icmp eq i32 %163, 0
-  br i1 %.not96, label %.thread149, label %176
+  br i1 %.not96, label %.thread152, label %176
 
 .thread122:                                       ; preds = %111
   %164 = load ptr, ptr %1, align 8, !tbaa !43
@@ -427,7 +427,7 @@ sub_1:                                            ; preds = %sub_0
   call void @strbuf_add(ptr noundef nonnull %14, ptr noundef nonnull %180, i64 noundef %181) #10
   br label %199
 
-.thread149:                                       ; preds = %157, %.thread, %160
+.thread152:                                       ; preds = %157, %.thread, %160
   %182 = load ptr, ptr %1, align 8, !tbaa !43
   %183 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %182, ptr noundef nonnull dereferenceable(1) @.str.18) #12
   %.not97 = icmp eq ptr %183, null
@@ -445,9 +445,9 @@ sub_1:                                            ; preds = %sub_0
   call void (ptr, ptr, ptr, ...) @usage_msg_optf(ptr noundef %187, ptr noundef nonnull @builtin_range_diff_usage, ptr noundef %90, ptr noundef %188) #11
   unreachable
 
-189:                                              ; preds = %.thread149, %.thread133
-  %190 = phi ptr [ %184, %.thread133 ], [ %182, %.thread149 ]
-  %.1 = phi ptr [ %185, %.thread133 ], [ %183, %.thread149 ]
+189:                                              ; preds = %.thread152, %.thread133
+  %190 = phi ptr [ %184, %.thread133 ], [ %182, %.thread152 ]
+  %.1 = phi ptr [ %185, %.thread133 ], [ %183, %.thread152 ]
   %191 = icmp eq ptr %.1, %190
   %192 = ptrtoint ptr %.1 to i64
   %193 = ptrtoint ptr %190 to i64
@@ -463,14 +463,14 @@ sub_1:                                            ; preds = %sub_0
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %14, ptr noundef nonnull @.str.22, i32 noundef %.0, ptr noundef nonnull %.083, ptr noundef nonnull %.082) #10
   br label %199
 
-.thread130:                                       ; preds = %102, %111, %.thread149
+.thread130:                                       ; preds = %102, %111, %.thread152
   %198 = call fastcc ptr @_(ptr noundef nonnull @.str.23)
   call void @usage_msg_opt(ptr noundef %198, ptr noundef nonnull @builtin_range_diff_usage, ptr noundef %90) #11
   unreachable
 
 199:                                              ; preds = %.thread112, %189, %176
-  %.sink152 = phi i64 [ 24, %.thread112 ], [ 8, %189 ], [ 16, %176 ]
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink152
+  %.sink155 = phi i64 [ 24, %.thread112 ], [ 8, %189 ], [ 16, %176 ]
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink155
   call void @strvec_pushv(ptr noundef nonnull %6, ptr noundef nonnull %200) #10
   call void @free(ptr noundef %90) #10
   %201 = load i32, ptr %9, align 4, !tbaa !14

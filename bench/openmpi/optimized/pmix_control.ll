@@ -1543,9 +1543,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %62, %6
 
 .sink.split:                                      ; preds = %155, %149, %123, %117, %95, %87
   %.2121.sink = phi i32 [ %101, %95 ], [ -20, %87 ], [ %129, %123 ], [ -20, %117 ], [ %161, %155 ], [ -20, %149 ]
-  %.sink122 = phi i32 [ 80, %95 ], [ 80, %87 ], [ 91, %123 ], [ 91, %117 ], [ 99, %155 ], [ 99, %149 ]
+  %.sink137 = phi i32 [ 80, %95 ], [ 80, %87 ], [ 91, %123 ], [ 91, %117 ], [ 99, %155 ], [ 99, %149 ]
   %162 = call ptr @PMIx_Error_string(i32 noundef %.2121.sink) #11
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %162, ptr noundef nonnull @.str.5, i32 noundef %.sink122) #11
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %162, ptr noundef nonnull @.str.5, i32 noundef %.sink137) #11
   br label %163
 
 163:                                              ; preds = %.sink.split, %155, %155, %123, %95, %130, %102

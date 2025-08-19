@@ -313,7 +313,7 @@ ehcleanup:                                        ; preds = %if.end.i.i.i.i.i.i.
   br i1 %tobool.not.i.i.i104, label %ehcleanup29, label %if.then.i.i.i105
 
 if.then.i.i.i105:                                 ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn189 = phi { ptr, i32 } [ %11, %ehcleanup.thread ], [ %12, %ehcleanup ]
+  %.pn193 = phi { ptr, i32 } [ %11, %ehcleanup.thread ], [ %12, %ehcleanup ]
   %13 = phi ptr [ %call5.i.i.i.i2.i.i60, %ehcleanup.thread ], [ %.pre, %ehcleanup ]
   %14 = load ptr, ptr %_M_end_of_storage.i.i.i48, align 8, !tbaa !18
   %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %14 to i64
@@ -323,7 +323,7 @@ if.then.i.i.i105:                                 ; preds = %ehcleanup.thread, %
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %if.then.i.i.i105, %ehcleanup, %lpad15
-  %.pn.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %12, %ehcleanup ], [ %.pn189, %if.then.i.i.i105 ]
+  %.pn.pn = phi { ptr, i32 } [ %10, %lpad15 ], [ %12, %ehcleanup ], [ %.pn193, %if.then.i.i.i105 ]
   %15 = load ptr, ptr %cmSwapRates_138, align 8, !tbaa !17
   %tobool.not.i.i.i111 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i111, label %ehcleanup30, label %if.then.i.i.i112
@@ -804,11 +804,11 @@ for.body.lver.check:                              ; preds = %_ZSt4copyIN9__gnu_c
   %58 = getelementptr i8, ptr %56, i64 %57
   %scevgep = getelementptr i8, ptr %58, i64 8
   %59 = shl i64 %51, 3
-  %scevgep144 = getelementptr i8, ptr %56, i64 %59
-  %scevgep145 = getelementptr i8, ptr %54, i64 %57
-  %scevgep146 = getelementptr i8, ptr %54, i64 %59
-  %bound0 = icmp ult ptr %scevgep, %scevgep146
-  %bound1 = icmp ult ptr %scevgep145, %scevgep144
+  %scevgep160 = getelementptr i8, ptr %56, i64 %59
+  %scevgep161 = getelementptr i8, ptr %54, i64 %57
+  %scevgep162 = getelementptr i8, ptr %54, i64 %59
+  %bound0 = icmp ult ptr %scevgep, %scevgep162
+  %bound1 = icmp ult ptr %scevgep161, %scevgep160
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %for.body.lver.orig, label %for.body.ph
 
@@ -836,8 +836,8 @@ for.body.lver.orig:                               ; preds = %for.body.lver.check
 for.body.ph:                                      ; preds = %for.body.lver.check
   %66 = shl i64 %51, 3
   %67 = getelementptr i8, ptr %54, i64 %66
-  %scevgep148 = getelementptr i8, ptr %67, i64 -8
-  %load_initial = load double, ptr %scevgep148, align 8
+  %scevgep164 = getelementptr i8, ptr %67, i64 -8
+  %load_initial = load double, ptr %scevgep164, align 8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %for.body.lver.orig, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit.for.cond.cleanup_crit_edge

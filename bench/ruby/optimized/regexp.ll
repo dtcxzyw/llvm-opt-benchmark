@@ -497,19 +497,19 @@ pm_regexp_char_accept.exit63.thread:              ; preds = %.lr.ph, %.lr.ph112,
   %157 = load i8, ptr %156, align 8, !tbaa !18, !range !37, !noundef !38
   %.val168.i = load i8, ptr %20, align 1, !tbaa !46
   switch i8 %.val168.i, label %159 [
-    i8 3, label %.sink.split176
+    i8 3, label %.sink.split192
     i8 4, label %158
   ]
 
 158:                                              ; preds = %pm_regexp_char_accept.exit63.thread
-  br label %.sink.split176
+  br label %.sink.split192
 
-.sink.split176:                                   ; preds = %pm_regexp_char_accept.exit63.thread, %158
-  %.sink177 = phi i8 [ 0, %158 ], [ 1, %pm_regexp_char_accept.exit63.thread ]
-  store i8 %.sink177, ptr %156, align 8, !tbaa !18
+.sink.split192:                                   ; preds = %pm_regexp_char_accept.exit63.thread, %158
+  %.sink193 = phi i8 [ 0, %158 ], [ 1, %pm_regexp_char_accept.exit63.thread ]
+  store i8 %.sink193, ptr %156, align 8, !tbaa !18
   br label %159
 
-159:                                              ; preds = %.sink.split176, %pm_regexp_char_accept.exit63.thread
+159:                                              ; preds = %.sink.split192, %pm_regexp_char_accept.exit63.thread
   %.val.i119 = load ptr, ptr %4, align 8, !tbaa !16
   %.val139.i120 = load ptr, ptr %23, align 8, !tbaa !17
   %.not77121 = icmp ult ptr %.val.i119, %.val139.i120
@@ -607,8 +607,8 @@ pm_regexp_parse_group.exit.thread:                ; preds = %132, %127, %125, %1
   br label %240
 
 .loopexit84.sink.split:                           ; preds = %pm_regexp_char_expect.exit, %54, %138, %150
-  %.sink178 = phi ptr [ %151, %150 ], [ %139, %138 ], [ %55, %54 ], [ %180, %pm_regexp_char_expect.exit ]
-  store ptr %.sink178, ptr %4, align 8, !tbaa !16
+  %.sink194 = phi ptr [ %151, %150 ], [ %139, %138 ], [ %55, %54 ], [ %180, %pm_regexp_char_expect.exit ]
+  store ptr %.sink194, ptr %4, align 8, !tbaa !16
   br label %.loopexit84
 
 .loopexit84:                                      ; preds = %80, %76, %.loopexit84.sink.split

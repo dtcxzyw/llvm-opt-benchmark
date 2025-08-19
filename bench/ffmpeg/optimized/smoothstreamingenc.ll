@@ -1644,12 +1644,12 @@ add_fragment.exit.thread:                         ; preds = %130, %46, %36, %.th
   br label %307
 
 add_fragment.exit.sink.split:                     ; preds = %49, %parse_fragment.exit.thread156
-  %.2103.ph240 = phi i32 [ -5, %parse_fragment.exit.thread156 ], [ %55, %49 ]
+  %.2103.ph254 = phi i32 [ -5, %parse_fragment.exit.thread156 ], [ %55, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %add_fragment.exit
 
 add_fragment.exit:                                ; preds = %copy_moof.exit, %28, %add_fragment.exit.sink.split
-  %.2103 = phi i32 [ %.2103.ph240, %add_fragment.exit.sink.split ], [ %34, %28 ], [ %173, %copy_moof.exit ]
+  %.2103 = phi i32 [ %.2103.ph254, %add_fragment.exit.sink.split ], [ %34, %28 ], [ %173, %copy_moof.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

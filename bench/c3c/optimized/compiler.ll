@@ -1103,17 +1103,17 @@ exe_name.exit:                                    ; preds = %.sink.split.i251, %
 .thread296:                                       ; preds = %236, %243, %238
   %246 = load i8, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 168), align 8
   %247 = trunc i8 %246 to i1
-  br i1 %247, label %248, label %.preheader332
+  br i1 %247, label %248, label %.preheader358
 
 248:                                              ; preds = %.thread296
   %249 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.23)
-  br label %.preheader332
+  br label %.preheader358
 
-.preheader332:                                    ; preds = %248, %.thread296
+.preheader358:                                    ; preds = %248, %.thread296
   br label %250
 
-250:                                              ; preds = %.preheader332, %258
-  %indvars.iv321 = phi i64 [ %indvars.iv.next322, %258 ], [ 0, %.preheader332 ]
+250:                                              ; preds = %.preheader358, %258
+  %indvars.iv321 = phi i64 [ %indvars.iv.next322, %258 ], [ 0, %.preheader358 ]
   %251 = getelementptr inbounds nuw %struct.CompileData_, ptr %183, i64 %indvars.iv321, i32 1
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv321
@@ -2112,7 +2112,7 @@ define dso_local void @compile() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %31, %.thread.i
   %40 = phi ptr [ %.pre.i, %.thread.i ], [ %22, %31 ]
-  %.02642.i164 = phi ptr [ %34, %.thread.i ], [ null, %31 ]
+  %.02643.i173 = phi ptr [ %34, %.thread.i ], [ null, %31 ]
   %41 = phi i32 [ %.pre, %.thread.i ], [ %25, %31 ]
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %wide.trip.count.i = zext i32 %41 to i64
@@ -2132,9 +2132,9 @@ define dso_local void @compile() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %._crit_edge.i, label %43, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %43, %.thread.i, %39
-  %.0264348.i = phi ptr [ %34, %.thread.i ], [ %34, %39 ], [ %.02642.i164, %43 ]
-  %49 = call zeroext i1 @dir_change(ptr noundef %.0264348.i) #20
-  call void @free(ptr noundef %.0264348.i) #20
+  %.0264449.i = phi ptr [ %34, %.thread.i ], [ %34, %39 ], [ %.02643.i173, %43 ]
+  %49 = call zeroext i1 @dir_change(ptr noundef %.0264449.i) #20
+  call void @free(ptr noundef %.0264449.i) #20
   br label %execute_scripts.exit
 
 execute_scripts.exit:                             ; preds = %21, %23, %._crit_edge.i
@@ -2820,7 +2820,7 @@ define dso_local void @global_context_add_link(ptr noundef %0) local_unnamed_add
   %4 = getelementptr inbounds i8, ptr %2, i64 -8
   %5 = load i32, ptr %4, align 4
   %.not23 = icmp eq i32 %5, 0
-  br i1 %.not23, label %._crit_edge.thread28, label %.lr.ph.preheader
+  br i1 %.not23, label %._crit_edge.thread32, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext i32 %5 to i64
@@ -2841,7 +2841,7 @@ define dso_local void @global_context_add_link(ptr noundef %0) local_unnamed_add
 ._crit_edge:                                      ; preds = %6
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 104), align 8
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %._crit_edge.thread, label %._crit_edge.thread28
+  br i1 %.not.i, label %._crit_edge.thread, label %._crit_edge.thread32
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
   %10 = tail call ptr @calloc_arena(i64 noundef 72) #20
@@ -2849,16 +2849,16 @@ define dso_local void @global_context_add_link(ptr noundef %0) local_unnamed_add
   store i32 8, ptr %11, align 4
   br label %14
 
-._crit_edge.thread28:                             ; preds = %3, %._crit_edge
+._crit_edge.thread32:                             ; preds = %3, %._crit_edge
   %12 = phi ptr [ %.pre, %._crit_edge ], [ %2, %3 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %12, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %14
 
-14:                                               ; preds = %._crit_edge.thread28, %._crit_edge.thread
-  %15 = phi i32 [ %.pre.i, %._crit_edge.thread28 ], [ 8, %._crit_edge.thread ]
-  %.0.i = phi ptr [ %13, %._crit_edge.thread28 ], [ %10, %._crit_edge.thread ]
+14:                                               ; preds = %._crit_edge.thread32, %._crit_edge.thread
+  %15 = phi i32 [ %.pre.i, %._crit_edge.thread32 ], [ 8, %._crit_edge.thread ]
+  %.0.i = phi ptr [ %13, %._crit_edge.thread32 ], [ %10, %._crit_edge.thread ]
   %16 = load i32, ptr %.0.i, align 4
   %17 = icmp eq i32 %16, %15
   br i1 %17, label %18, label %32
@@ -2943,7 +2943,7 @@ scratch_buffer_interned.exit:                     ; preds = %.lr.ph.i.i, %1
   %12 = getelementptr inbounds i8, ptr %10, i64 -8
   %13 = load i32, ptr %12, align 4
   %.not43 = icmp eq i32 %13, 0
-  br i1 %.not43, label %.loopexit48, label %.lr.ph.preheader
+  br i1 %.not43, label %.loopexit53, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %11
   %wide.trip.count = zext i32 %13 to i64
@@ -2959,15 +2959,15 @@ scratch_buffer_interned.exit:                     ; preds = %.lr.ph.i.i, %1
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit48, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit53, label %.lr.ph, !llvm.loop !33
 
-.loopexit48:                                      ; preds = %17, %11
+.loopexit53:                                      ; preds = %17, %11
   %18 = getelementptr inbounds i8, ptr %10, i64 -8
   %19 = load i32, ptr %18, align 4
   %20 = icmp ugt i32 %19, 65533
   br i1 %20, label %21, label %24
 
-21:                                               ; preds = %.loopexit48
+21:                                               ; preds = %.loopexit53
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.102, i32 noundef 65534) #21
   unreachable
 
@@ -2978,7 +2978,7 @@ scratch_buffer_interned.exit:                     ; preds = %.lr.ph.i.i, %1
   %.pre = load i32, ptr %22, align 4
   br label %25
 
-24:                                               ; preds = %.loopexit48
+24:                                               ; preds = %.loopexit53
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %10, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %25

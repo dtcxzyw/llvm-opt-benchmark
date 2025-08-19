@@ -14,7 +14,7 @@ define internal i32 @hash4(ptr noundef readonly captures(none) %0, i64 noundef %
   %4 = add i64 %1, 7
   %5 = lshr i64 %4, 3
   %6 = and i64 %1, 7
-  switch i64 %6, label %default.unreachable48 [
+  switch i64 %6, label %default.unreachable50 [
     i64 0, label %7
     i64 7, label %14
     i64 6, label %20
@@ -115,7 +115,7 @@ define internal i32 @hash4(ptr noundef readonly captures(none) %0, i64 noundef %
   %.not47 = icmp eq i64 %55, 0
   br i1 %.not47, label %56, label %7, !llvm.loop !6
 
-default.unreachable48:                            ; preds = %3
+default.unreachable50:                            ; preds = %3
   unreachable
 
 56:                                               ; preds = %50, %2

@@ -1935,11 +1935,11 @@ define range(i32 -1, 1) i32 @H5FD_open(i1 noundef zeroext %0, ptr noundef writeo
   br i1 %112, label %.thread80, label %116
 
 .thread80:                                        ; preds = %108, %105
-  %H5E_CANTSET_g.sink94 = phi ptr [ @H5E_CANTSET_g, %105 ], [ @H5E_CANTRESTORE_g, %108 ]
-  %.sink91 = phi i32 [ 960, %105 ], [ 964, %108 ]
+  %H5E_CANTSET_g.sink99 = phi ptr [ @H5E_CANTSET_g, %105 ], [ @H5E_CANTRESTORE_g, %108 ]
+  %.sink96 = phi i32 [ 960, %105 ], [ 964, %108 ]
   %113 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %114 = load i64, ptr %H5E_CANTSET_g.sink94, align 8, !tbaa !10
-  %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_open, i32 noundef %.sink91, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.33) #11
+  %114 = load i64, ptr %H5E_CANTSET_g.sink99, align 8, !tbaa !10
+  %115 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD_open, i32 noundef %.sink96, i64 noundef %113, i64 noundef %114, ptr noundef nonnull @.str.33) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %168
 
@@ -2454,13 +2454,13 @@ define i32 @H5FD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre34 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !33
   %.not28 = icmp eq ptr %.pre34, null
-  br i1 %.not28, label %51, label %.thread39
+  br i1 %.not28, label %51, label %.thread45
 
 28:                                               ; preds = %20
   %.not29 = icmp eq ptr %1, null
-  br i1 %.not29, label %51, label %.thread39
+  br i1 %.not29, label %51, label %.thread45
 
-.thread39:                                        ; preds = %27, %28
+.thread45:                                        ; preds = %27, %28
   %29 = phi ptr [ %22, %28 ], [ %.pre34, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2468,7 +2468,7 @@ define i32 @H5FD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %51, label %33
 
-33:                                               ; preds = %.thread39
+33:                                               ; preds = %.thread45
   %34 = icmp ult ptr %29, %32
   br i1 %34, label %51, label %35
 
@@ -2502,8 +2502,8 @@ define i32 @H5FD_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
-51:                                               ; preds = %24, %42, %40, %35, %33, %.thread39, %28, %27, %23, %12, %44, %16
-  %.0 = phi i32 [ -1, %12 ], [ %49, %44 ], [ -1, %16 ], [ 0, %23 ], [ %.mux, %24 ], [ -1, %27 ], [ 1, %28 ], [ 1, %.thread39 ], [ -1, %33 ], [ 1, %35 ], [ -1, %40 ], [ %., %42 ]
+51:                                               ; preds = %24, %42, %40, %35, %33, %.thread45, %28, %27, %23, %12, %44, %16
+  %.0 = phi i32 [ -1, %12 ], [ %49, %44 ], [ -1, %16 ], [ 0, %23 ], [ %.mux, %24 ], [ -1, %27 ], [ 1, %28 ], [ 1, %.thread45 ], [ -1, %33 ], [ 1, %35 ], [ -1, %40 ], [ %., %42 ]
   ret i32 %.0
 }
 
@@ -6639,9 +6639,9 @@ define range(i32 -1, 1) i32 @H5FDget_vfd_handle(ptr noundef %0, i64 noundef %1, 
 62:                                               ; preds = %58
   %63 = call i32 @H5FD_get_vfd_handle(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2)
   %64 = icmp slt i32 %63, 0
-  br i1 %64, label %.thread54, label %71
+  br i1 %64, label %.thread55, label %71
 
-.thread54:                                        ; preds = %62
+.thread55:                                        ; preds = %62
   %65 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
   %66 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %67 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FDget_vfd_handle, i32 noundef 2860, i64 noundef %65, i64 noundef %66, ptr noundef nonnull @.str.108) #11
@@ -6664,7 +6664,7 @@ define range(i32 -1, 1) i32 @H5FDget_vfd_handle(ptr noundef %0, i64 noundef %1, 
   %72 = call i32 @H5CX_pop(i1 noundef zeroext true) #11
   br label %75
 
-.thread39.sink.split:                             ; preds = %69, %70, %.thread54, %.thread47
+.thread39.sink.split:                             ; preds = %69, %70, %.thread55, %.thread47
   %73 = call i32 @H5CX_pop(i1 noundef zeroext true) #11
   br label %.thread39
 

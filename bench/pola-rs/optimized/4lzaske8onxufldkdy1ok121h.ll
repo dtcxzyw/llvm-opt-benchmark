@@ -78,7 +78,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %17 = alloca [2 x i8], align 2
   store i16 %2, ptr %17, align 2
   %18 = load i8, ptr %1, align 16, !range !3, !noundef !4
-  switch i8 %18, label %default.unreachable129 [
+  switch i8 %18, label %default.unreachable131 [
     i8 0, label %19
     i8 1, label %21
     i8 2, label %23
@@ -109,7 +109,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %109
   ], !prof !5
 
-default.unreachable129:                           ; preds = %109, %3
+default.unreachable131:                           ; preds = %109, %3
   unreachable
 
 19:                                               ; preds = %3
@@ -401,7 +401,7 @@ common.resume:                                    ; preds = %142, %97, %83
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %111 = load i128, ptr %110, align 16, !range !32, !noundef !4
   %112 = trunc nuw nsw i128 %111 to i64
-  switch i64 %112, label %default.unreachable129 [
+  switch i64 %112, label %default.unreachable131 [
     i64 0, label %137
     i64 1, label %152
     i64 2, label %140
@@ -1457,7 +1457,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !3, !noundef !4
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -1488,7 +1488,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

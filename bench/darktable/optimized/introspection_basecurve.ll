@@ -290,10 +290,10 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %19, %._crit_edge, %37, %40
-  %.sink82 = phi ptr [ %41, %40 ], [ %38, %37 ], [ %25, %._crit_edge ], [ %20, %19 ], [ %8, %14 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sink82, i64 516
+  %.sink83 = phi ptr [ %41, %40 ], [ %38, %37 ], [ %25, %._crit_edge ], [ %20, %19 ], [ %8, %14 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.sink83, i64 516
   store i32 0, ptr %42, align 4, !tbaa !23
-  store ptr %.sink82, ptr %3, align 8, !tbaa !24
+  store ptr %.sink83, ptr %3, align 8, !tbaa !24
   store i32 520, ptr %4, align 4, !tbaa !13
   store i32 6, ptr %5, align 4, !tbaa !13
   br label %43
@@ -945,8 +945,8 @@ define hidden void @process_fusion(ptr readnone captures(none) %0, ptr noundef r
   br label %121
 
 121:                                              ; preds = %114, %106
-  %.sink33.i = phi float [ %120, %114 ], [ %113, %106 ]
-  %122 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.sink33.i, float 0.000000e+00)
+  %.sink35.i = phi float [ %120, %114 ], [ %113, %106 ]
+  %122 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.sink35.i, float 0.000000e+00)
   %123 = getelementptr inbounds nuw float, ptr %77, i64 %101
   store float %122, ptr %123, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1156,7 +1156,7 @@ gauss_reduce.exit:                                ; preds = %203, %215
   %.2273.lcssa = phi i32 [ %18, %.preheader327 ], [ %226, %._crit_edge346.loopexit ]
   %.2.lcssa = phi i32 [ %16, %.preheader327 ], [ %227, %._crit_edge346.loopexit ]
   %.not284 = icmp eq i64 %indvars.iv404, %72
-  br i1 %.not284, label %.thread430, label %232
+  br i1 %.not284, label %.thread448, label %232
 
 .lr.ph345:                                        ; preds = %.preheader327, %.lr.ph345
   %.0262344 = phi i32 [ %230, %.lr.ph345 ], [ 0, %.preheader327 ]
@@ -1182,7 +1182,7 @@ gauss_reduce.exit:                                ; preds = %203, %215
   %.not.i293 = icmp eq i32 %.2273.lcssa, 0
   %.not37.i = icmp eq i32 %.2.lcssa, 0
   %or.cond.i = or i1 %.not.i293, %.not37.i
-  br i1 %or.cond.i, label %.loopexit435, label %.preheader32.us.i
+  br i1 %or.cond.i, label %.loopexit453, label %.preheader32.us.i
 
 .preheader32.us.i:                                ; preds = %232, %._crit_edge.us.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.us.i ], [ 0, %232 ]
@@ -1221,24 +1221,24 @@ gauss_reduce.exit:                                ; preds = %203, %215
 ._crit_edge.us.i:                                 ; preds = %244
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 2
   %257 = icmp ult i64 %indvars.iv.next41.i, %237
-  br i1 %257, label %.preheader32.us.i, label %.loopexit435
+  br i1 %257, label %.preheader32.us.i, label %.loopexit453
 
-.loopexit435:                                     ; preds = %._crit_edge.us.i, %232
+.loopexit453:                                     ; preds = %._crit_edge.us.i, %232
   tail call fastcc void @gauss_blur(ptr noundef %3, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %236, i64 noundef range(i64 -2147483648, 2147483648) %237)
   %258 = shl nsw i64 %237, 2
   %259 = mul i64 %258, %236
   %.not379 = icmp eq i64 %259, 0
   br i1 %.not379, label %._crit_edge353, label %.lr.ph352
 
-.thread430:                                       ; preds = %._crit_edge346
+.thread448:                                       ; preds = %._crit_edge346
   %.pre426 = sext i32 %.2.lcssa to i64
   %.pre428 = sext i32 %.2273.lcssa to i64
   %260 = shl nsw i64 %.pre428, 2
   %261 = mul i64 %260, %.pre426
-  %.not379433 = icmp eq i64 %261, 0
-  br i1 %.not379433, label %._crit_edge353, label %.lr.ph352.thread
+  %.not379451 = icmp eq i64 %261, 0
+  br i1 %.not379451, label %._crit_edge353, label %.lr.ph352.thread
 
-.lr.ph352.thread:                                 ; preds = %.thread430
+.lr.ph352.thread:                                 ; preds = %.thread448
   %262 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv404
   %263 = load ptr, ptr %262, align 8, !tbaa !144
   %264 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv404
@@ -1247,7 +1247,7 @@ gauss_reduce.exit:                                ; preds = %203, %215
   %267 = load ptr, ptr %75, align 8, !tbaa !144
   br label %.preheader323.us
 
-.lr.ph352:                                        ; preds = %.loopexit435
+.lr.ph352:                                        ; preds = %.loopexit453
   %268 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv404
   %269 = load ptr, ptr %268, align 8, !tbaa !144
   %270 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv404
@@ -1287,7 +1287,7 @@ gauss_reduce.exit:                                ; preds = %203, %215
   %290 = icmp ult i64 %289, %261
   br i1 %290, label %.preheader323.us, label %._crit_edge353
 
-._crit_edge353:                                   ; preds = %.loopexit326, %.loopexit324.us, %.thread430, %.loopexit435
+._crit_edge353:                                   ; preds = %.loopexit326, %.loopexit324.us, %.thread448, %.loopexit453
   %indvars.iv.next405 = add nsw i64 %indvars.iv404, -1
   br i1 %222, label %.preheader327, label %223
 
@@ -2077,8 +2077,8 @@ define hidden void @process_lut(ptr readnone captures(none) %0, ptr noundef read
   br label %58
 
 58:                                               ; preds = %51, %43
-  %.sink33.i = phi float [ %57, %51 ], [ %50, %43 ]
-  %59 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.sink33.i, float 0.000000e+00)
+  %.sink35.i = phi float [ %57, %51 ], [ %50, %43 ]
+  %59 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.sink35.i, float 0.000000e+00)
   %60 = getelementptr inbounds nuw float, ptr %3, i64 %39
   store float %59, ptr %60, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4069,8 +4069,8 @@ to_lin.exit129:                                   ; preds = %to_lin.exit127, %13
   br i1 %173, label %.lr.ph37.preheader.i, label %.thread.._crit_edge38_crit_edge.i
 
 .thread.._crit_edge38_crit_edge.i:                ; preds = %171, %.thread.i, %.preheader.i
-  %.247.i = phi i32 [ %.2.i, %.thread.i ], [ %.pre.i, %.preheader.i ], [ %.pre.i, %171 ]
-  %.pre44.i = sext i32 %.247.i to i64
+  %.248.i = phi i32 [ %.2.i, %.thread.i ], [ %.pre.i, %.preheader.i ], [ %.pre.i, %171 ]
+  %.pre44.i = sext i32 %.248.i to i64
   br label %_add_node.exit
 
 .lr.ph37.preheader.i:                             ; preds = %.thread.i
@@ -4093,7 +4093,7 @@ to_lin.exit129:                                   ; preds = %to_lin.exit127, %13
   br i1 %182, label %.lr.ph37.i, label %_add_node.exit
 
 _add_node.exit:                                   ; preds = %.lr.ph37.i, %.thread.._crit_edge38_crit_edge.i
-  %.246.i = phi i32 [ %.247.i, %.thread.._crit_edge38_crit_edge.i ], [ %.2.i, %.lr.ph37.i ]
+  %.247.i = phi i32 [ %.248.i, %.thread.._crit_edge38_crit_edge.i ], [ %.2.i, %.lr.ph37.i ]
   %.pre-phi.i = phi i64 [ %.pre44.i, %.thread.._crit_edge38_crit_edge.i ], [ %175, %.lr.ph37.i ]
   %183 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %.pre-phi.i
   store float %.0.i139, ptr %183, align 4, !tbaa !11
@@ -4101,7 +4101,7 @@ _add_node.exit:                                   ; preds = %.lr.ph37.i, %.threa
   store float %.0.i117, ptr %184, align 4, !tbaa !19
   %185 = add nsw i32 %.pre.i, 1
   store i32 %185, ptr %9, align 4, !tbaa !13
-  store i32 %.246.i, ptr %96, align 8, !tbaa !190
+  store i32 %.247.i, ptr %96, align 8, !tbaa !190
   %186 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !228
   call void @dt_dev_add_history_item_target(ptr noundef %186, ptr noundef %2, i32 noundef 1, ptr noundef %0) #26
   %.pre = load i32, ptr %96, align 8, !tbaa !190
@@ -5004,8 +5004,8 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br i1 %13, label %.lr.ph37.preheader, label %.thread.._crit_edge38_crit_edge
 
 .thread.._crit_edge38_crit_edge:                  ; preds = %11, %.preheader, %.thread
-  %.247 = phi i32 [ %.2, %.thread ], [ %.pre, %.preheader ], [ %.pre, %11 ]
-  %.pre44 = sext i32 %.247 to i64
+  %.248 = phi i32 [ %.2, %.thread ], [ %.pre, %.preheader ], [ %.pre, %11 ]
+  %.pre44 = sext i32 %.248 to i64
   br label %._crit_edge38
 
 .lr.ph37.preheader:                               ; preds = %.thread
@@ -5014,7 +5014,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br label %.lr.ph37
 
 ._crit_edge38:                                    ; preds = %.lr.ph37, %.thread.._crit_edge38_crit_edge
-  %.246 = phi i32 [ %.247, %.thread.._crit_edge38_crit_edge ], [ %.2, %.lr.ph37 ]
+  %.247 = phi i32 [ %.248, %.thread.._crit_edge38_crit_edge ], [ %.2, %.lr.ph37 ]
   %.pre-phi = phi i64 [ %.pre44, %.thread.._crit_edge38_crit_edge ], [ %15, %.lr.ph37 ]
   %16 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %0, i64 %.pre-phi
   store float %2, ptr %16, align 4, !tbaa !11
@@ -5022,7 +5022,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   store float %3, ptr %17, align 4, !tbaa !19
   %18 = add nsw i32 %.pre, 1
   store i32 %18, ptr %1, align 4, !tbaa !13
-  ret i32 %.246
+  ret i32 %.247
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
   %indvars.iv41 = phi i64 [ %14, %.lr.ph37.preheader ], [ %indvars.iv.next42, %.lr.ph37 ]

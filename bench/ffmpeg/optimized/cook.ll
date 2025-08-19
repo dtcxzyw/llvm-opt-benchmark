@@ -794,7 +794,7 @@ define internal i32 @cook_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %reass.sub93 = sub i32 %104, %98
   %117 = add i32 %reass.sub93, 1
   %wide.trip.count49.i.i.i = zext i32 %117 to i64
-  %invariant.gep52.i.i.i = getelementptr i32, ptr %5, i64 %116
+  %invariant.gep54.i.i.i = getelementptr i32, ptr %5, i64 %116
   %118 = load i32, ptr %115, align 8, !tbaa !48
   %119 = sub nsw i32 32, %118
   %notmask.i.i.i = shl nsw i32 -1, %118
@@ -898,8 +898,8 @@ get_vlc2.exit.i.i.i:                              ; preds = %159, %138, %120
   br i1 %.not35.i.i.i, label %decouple_info.exit.i.i, label %194
 
 194:                                              ; preds = %181
-  %gep53.i.i.i = getelementptr i32, ptr %invariant.gep52.i.i.i, i64 %indvars.iv46.i.i.i
-  store i32 %190, ptr %gep53.i.i.i, align 4, !tbaa !92
+  %gep55.i.i.i = getelementptr i32, ptr %invariant.gep54.i.i.i, i64 %indvars.iv46.i.i.i
+  store i32 %190, ptr %gep55.i.i.i, align 4, !tbaa !92
   %indvars.iv.next47.i.i.i = add nuw nsw i64 %indvars.iv46.i.i.i, 1
   %exitcond50.not.i.i.i = icmp eq i64 %indvars.iv.next47.i.i.i, %wide.trip.count49.i.i.i
   br i1 %exitcond50.not.i.i.i, label %.loopexit61.i.i, label %181, !llvm.loop !95
@@ -1981,14 +1981,15 @@ decode_gain_info.exit:                            ; preds = %.loopexit.i, %decod
   %93 = zext nneg i32 %.0.lcssa.i to i64
   %94 = shl nuw nsw i64 %93, 2
   %scevgep.i = getelementptr i8, ptr %39, i64 %94
-  %95 = shl nuw nsw i32 %.0.lcssa.i, 2
-  %narrow = sub nsw i32 36, %95
-  %96 = zext i32 %narrow to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, i8 0, i64 %96, i1 false), !tbaa !92
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !118
-  store ptr %39, ptr %97, align 8, !tbaa !118
-  store ptr %98, ptr %3, align 8, !tbaa !101
+  %95 = shl i32 %.0.lcssa.i, 2
+  %96 = sub i32 32, %95
+  %97 = zext i32 %96 to i64
+  %98 = add nuw nsw i64 %97, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, i8 0, i64 %98, i1 false), !tbaa !92
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !118
+  store ptr %39, ptr %99, align 8, !tbaa !118
+  store ptr %100, ptr %3, align 8, !tbaa !101
   ret void
 }
 
@@ -2216,7 +2217,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   br label %.preheader14.i
 
 .preheader14.i:                                   ; preds = %.lr.ph.i21, %.split.i
-  %.us-phi92.i = phi i32 [ %spec.select.i, %.split.i ], [ %spec.select.us.i, %.lr.ph.i21 ]
+  %.us-phi99.i = phi i32 [ %spec.select.i, %.split.i ], [ %spec.select.us.i, %.lr.ph.i21 ]
   %.1117.lcssa.i = phi i32 [ 0, %.split.i ], [ %147, %.lr.ph.i21 ]
   %137 = icmp sgt i32 %113, 1
   br i1 %137, label %.lr.ph47.i, label %._crit_edge48.i
@@ -2279,7 +2280,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   %158 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv75.i
   %159 = load i32, ptr %158, align 4, !tbaa !92
   %160 = sub nsw i32 %157, %159
-  %161 = add nsw i32 %160, %.us-phi92.i
+  %161 = add nsw i32 %160, %.us-phi99.i
   %.not135.i = icmp slt i32 %161, %.09738.i
   %162 = trunc nuw nsw i64 %indvars.iv75.i to i32
   %spec.select137.i = select i1 %.not135.i, i32 %.111236.i, i32 %162
@@ -2298,9 +2299,9 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   br i1 %164, label %._crit_edge48.i, label %.thread.i
 
 .thread.i:                                        ; preds = %._crit_edge40.i
-  %165 = add nsw i32 %.010145.i, 1
-  %166 = sext i32 %.010145.i to i64
-  %167 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %166
+  %165 = add nuw nsw i32 %.010145.i, 1
+  %166 = zext nneg i32 %.010145.i to i64
+  %167 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %166
   store i32 %.2113.i, ptr %167, align 4, !tbaa !92
   %168 = sext i32 %.2113.i to i64
   %169 = getelementptr inbounds [102 x i32], ptr %7, i64 0, i64 %168
@@ -2331,7 +2332,7 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   %184 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv70.i
   %185 = load i32, ptr %184, align 4, !tbaa !92
   %186 = sub nsw i32 %183, %185
-  %187 = add nsw i32 %186, %.us-phi92.i
+  %187 = add nsw i32 %186, %.us-phi99.i
   %188 = icmp slt i32 %187, %.033.i
   %189 = trunc nuw nsw i64 %indvars.iv70.i to i32
   %spec.select139.i = select i1 %188, i32 %189, i32 %.311431.i
@@ -2389,11 +2390,11 @@ decode_envelope.exit:                             ; preds = %get_vlc2.exit.i
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader12.i, %.preheader13.i, %.lr.ph56.i.preheader, %._crit_edge48.i
-  %.099.lcssa96.i = phi i32 [ %.099.lcssa.i, %._crit_edge48.i ], [ %.099.lcssa.i, %.lr.ph56.i.preheader ], [ %.09946.i, %.preheader13.i ], [ %.09946.i, %.preheader12.i ]
+  %.099.lcssa103.i = phi i32 [ %.099.lcssa.i, %._crit_edge48.i ], [ %.099.lcssa.i, %.lr.ph56.i.preheader ], [ %.09946.i, %.preheader13.i ], [ %.09946.i, %.preheader12.i ]
   br i1 %137, label %.lr.ph59.preheader.i, label %categorize.exit
 
 .lr.ph59.preheader.i:                             ; preds = %.preheader.i
-  %210 = sext i32 %.099.lcssa96.i to i64
+  %210 = sext i32 %.099.lcssa103.i to i64
   %211 = add nsw i32 %113, -1
   %212 = zext nneg i32 %211 to i64
   %213 = shl nsw i64 %210, 2

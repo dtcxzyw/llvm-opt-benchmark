@@ -248,8 +248,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge: ; preds = %.noexc76
   store double 0.000000e+00, ptr %56, align 8, !tbaa !20
-  %.pre348355 = load ptr, ptr %1, align 8, !tbaa !16
-  %.pre349356 = load ptr, ptr %0, align 8, !tbaa !23, !noalias !24
+  %.pre348363 = load ptr, ptr %1, align 8, !tbaa !16
+  %.pre349364 = load ptr, ptr %0, align 8, !tbaa !23, !noalias !24
   %.phi.trans.insert350 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre351 = load i64, ptr %.phi.trans.insert350, align 8, !tbaa !27, !noalias !28
   br label %._crit_edge321
@@ -342,24 +342,24 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge: ; preds = %.noexc76
   br i1 %exitcond336.not, label %._crit_edge321, label %.lr.ph320.split, !llvm.loop !34
 
 ._crit_edge321:                                   ; preds = %.loopexit, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge
-  %.pre349365 = phi ptr [ %.pre349356, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge ], [ %.pre349, %.loopexit ]
-  %.pre348363 = phi ptr [ %.pre348355, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge ], [ %.pre348, %.loopexit ]
-  %.0.i.i.i.i.i361 = phi ptr [ %58, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge ], [ %94, %.loopexit ]
+  %.pre349373 = phi ptr [ %.pre349364, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge ], [ %.pre349, %.loopexit ]
+  %.pre348371 = phi ptr [ %.pre348363, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge ], [ %.pre348, %.loopexit ]
+  %.0.i.i.i.i.i369 = phi ptr [ %58, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge ], [ %94, %.loopexit ]
   %130 = phi i64 [ %.pre351, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.._crit_edge321_crit_edge ], [ %96, %.loopexit ]
-  %131 = ptrtoint ptr %.0.i.i.i.i.i361 to i64
+  %131 = ptrtoint ptr %.0.i.i.i.i.i369 to i64
   %132 = ptrtoint ptr %56 to i64
   %133 = sub i64 %131, %132
   %134 = getelementptr i8, ptr %56, i64 %133
   %135 = getelementptr i8, ptr %134, i64 -8
   %136 = load double, ptr %135, align 8, !tbaa !20
-  %137 = load i32, ptr %.pre348363, align 4, !tbaa !11
+  %137 = load i32, ptr %.pre348371, align 4, !tbaa !11
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds double, ptr %.pre349365, i64 %138
-  %140 = getelementptr i32, ptr %.pre348363, i64 %52
+  %139 = getelementptr inbounds double, ptr %.pre349373, i64 %138
+  %140 = getelementptr i32, ptr %.pre348371, i64 %52
   %141 = getelementptr i8, ptr %140, i64 -4
   %142 = load i32, ptr %141, align 4, !tbaa !11
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds double, ptr %.pre349365, i64 %143
+  %144 = getelementptr inbounds double, ptr %.pre349373, i64 %143
   %145 = icmp eq i64 %130, 0
   br i1 %145, label %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i, label %146
 

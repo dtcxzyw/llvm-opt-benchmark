@@ -428,8 +428,8 @@ define dso_local i32 @shmem_sg_alloc_table(ptr noundef %0, ptr noundef %1, i64 n
   %109 = phi ptr [ %86, %96 ], [ %37, %104 ]
   %110 = add nsw i64 %.pre-phi23, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %111 = add i64 %71, %36
-  %112 = icmp ult i64 %111, %10
+  %111 = add nuw nsw i64 %71, %36
+  %112 = icmp samesign ult i64 %111, %10
   br i1 %112, label %35, label %.loopexit9, !llvm.loop !27
 
 .loopexit9:                                       ; preds = %108, %22

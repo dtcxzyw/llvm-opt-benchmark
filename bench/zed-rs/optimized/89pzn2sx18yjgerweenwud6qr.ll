@@ -1337,10 +1337,10 @@ define void @_ZN4util5paths11PathMatcher3new17ha03709037c26ef9fE(ptr dead_on_unw
   br label %"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit44"
 
 "_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit.sink.split": ; preds = %.body.i47, %.body.i
-  %.sink76 = phi i64 [ %57, %.body.i ], [ %81, %.body.i47 ]
+  %.sink84 = phi i64 [ %57, %.body.i ], [ %81, %.body.i47 ]
   %.sink = phi ptr [ %41, %.body.i ], [ %65, %.body.i47 ]
   %eh.lpad-body.ph = phi { ptr, i32 } [ %51, %.body.i ], [ %75, %.body.i47 ]
-  %87 = mul nuw i64 %.sink76, 80
+  %87 = mul nuw i64 %.sink84, 80
   call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef %87, i64 noundef 8) #17, !noalias !13
   br label %"_ZN4core3ptr44drop_in_place$LT$globset..GlobSetBuilder$GT$17ha8355887ae0c938dE.exit"
 
@@ -1888,9 +1888,9 @@ _ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit24.i: ; preds = %129, %
   %.pn12.i = phi { ptr, i64 } [ %135, %134 ], [ %133, %132 ]
   %.sroa.05.0.i = extractvalue { ptr, i64 } %.pn12.i, 0
   %137 = icmp eq ptr %.sroa.05.0.i, null
-  br i1 %137, label %141, label %.sink.split39.i
+  br i1 %137, label %141, label %.sink.split40.i
 
-.sink.split39.i:                                  ; preds = %136
+.sink.split40.i:                                  ; preds = %136
   %.sroa.87.0.i = extractvalue { ptr, i64 } %.pn12.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !280
   call void @_ZN3std3sys6os_str5bytes5Slice6to_str17h49f0f197ab13a921E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.05.0.i, i64 noundef %.sroa.87.0.i), !noalias !280
@@ -1903,9 +1903,9 @@ _ZN3std4path9Component9as_os_str17hfcd77d4cc9ae67d6E.exit24.i: ; preds = %129, %
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !280
   br label %141
 
-141:                                              ; preds = %.sink.split39.i, %136
-  %.sroa.09.0.i = phi ptr [ inttoptr (i64 1 to ptr), %136 ], [ %.sroa.09.0.ph.i, %.sink.split39.i ]
-  %.sroa.310.0.i = phi i64 [ 0, %136 ], [ %.sroa.310.0.ph.i, %.sink.split39.i ]
+141:                                              ; preds = %.sink.split40.i, %136
+  %.sroa.09.0.i = phi ptr [ inttoptr (i64 1 to ptr), %136 ], [ %.sroa.09.0.ph.i, %.sink.split40.i ]
+  %.sroa.310.0.i = phi i64 [ 0, %136 ], [ %.sroa.310.0.ph.i, %.sink.split40.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !290)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !293
   %142 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 %.sroa.310.0.i

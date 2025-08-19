@@ -5337,18 +5337,18 @@ _init_l_Lake_DSL_runIO___closed__9.exit:          ; preds = %_init_l_Lake_DSL_ru
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_DSL_runIO___closed__9.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %1958, %_init_l_Lake_DSL_runIO___closed__9.exit ]
-  %1961 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink208 = phi ptr [ %4, %3 ], [ %1958, %_init_l_Lake_DSL_runIO___closed__9.exit ]
+  %1961 = getelementptr inbounds nuw i8, ptr %.sink208, i64 4
+  store i32 1, ptr %.sink208, align 4, !tbaa !4
   store i32 131096, ptr %1961, align 4
-  %1962 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %1962 = getelementptr inbounds nuw i8, ptr %.sink208, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1962, align 8, !tbaa !10
-  %1963 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %1963 = getelementptr inbounds nuw i8, ptr %.sink208, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1963, align 8, !tbaa !10
   br label %1964
 
 1964:                                             ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink208, %.sink.split ]
   ret ptr %.0
 }
 

@@ -308,8 +308,8 @@ hdr_get_line.exit150:                             ; preds = %89
   br i1 %156, label %.lr.ph59.i.preheader, label %decompress.exit.threadthread-pre-split
 
 .lr.ph59.i.preheader:                             ; preds = %155
-  %scevgep427 = getelementptr i8, ptr %144, i64 -4
-  %scevgep428 = getelementptr i8, ptr %scevgep427, i64 %147
+  %scevgep438 = getelementptr i8, ptr %144, i64 -4
+  %scevgep439 = getelementptr i8, ptr %scevgep438, i64 %147
   br label %.lr.ph59.i
 
 .lr.ph59.i:                                       ; preds = %.lr.ph59.i.preheader, %200
@@ -402,8 +402,8 @@ bytestream2_get_byte.exit45.i:                    ; preds = %bytestream2_get_byt
 
 .lr.ph.preheader.i:                               ; preds = %189
   %191 = shl nuw nsw i32 %.0.i44.i, %.03358.i
-  %scevgep429 = getelementptr i8, ptr %scevgep428, i64 %.03457.i.idx
-  %load_initial430 = load i32, ptr %scevgep429, align 1
+  %scevgep440 = getelementptr i8, ptr %scevgep439, i64 %.03457.i.idx
+  %load_initial441 = load i32, ptr %scevgep440, align 1
   br label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %189
@@ -418,7 +418,7 @@ bytestream2_get_byte.exit45.i:                    ; preds = %bytestream2_get_byt
   %.13553.i.idx = phi i64 [ %.13553.i.add, %.lr.ph.i ], [ %.03457.i.idx, %.lr.ph.preheader.i ]
   %.13752.i = phi i32 [ %194, %.lr.ph.i ], [ %.03656.i, %.lr.ph.preheader.i ]
   %.13553.i.ptr = getelementptr inbounds nuw i8, ptr %148, i64 %.13553.i.idx
-  store i32 %load_initial430, ptr %.13553.i.ptr, align 1
+  store i32 %load_initial441, ptr %.13553.i.ptr, align 1
   %.13553.i.add = add nuw nsw i64 %.13553.i.idx, 4
   %194 = add nsw i32 %.13752.i, -4
   %195 = add nsw i32 %.054.i, -1
@@ -451,8 +451,8 @@ bytestream2_peek_byte.exit:                       ; preds = %202
   br i1 %.not108, label %253, label %.lr.ph59.i155
 
 .lr.ph59.i155:                                    ; preds = %202, %bytestream2_peek_byte.exit
-  %scevgep422 = getelementptr i8, ptr %144, i64 -4
-  %scevgep423 = getelementptr i8, ptr %scevgep422, i64 %147
+  %scevgep433 = getelementptr i8, ptr %144, i64 -4
+  %scevgep434 = getelementptr i8, ptr %scevgep433, i64 %147
   br label %207
 
 207:                                              ; preds = %251, %.lr.ph59.i155
@@ -545,8 +545,8 @@ bytestream2_get_byte.exit45.i165:                 ; preds = %bytestream2_get_byt
 
 .lr.ph.preheader.i172:                            ; preds = %240
   %242 = shl nuw nsw i32 %.0.i44.i166, %.03358.i156
-  %scevgep424 = getelementptr i8, ptr %scevgep423, i64 %.03457.i157.idx
-  %load_initial425 = load i32, ptr %scevgep424, align 1
+  %scevgep435 = getelementptr i8, ptr %scevgep434, i64 %.03457.i157.idx
+  %load_initial436 = load i32, ptr %scevgep435, align 1
   br label %.lr.ph.i174
 
 .critedge.i180:                                   ; preds = %.lr.ph.i174, %240
@@ -561,7 +561,7 @@ bytestream2_get_byte.exit45.i165:                 ; preds = %bytestream2_get_byt
   %.13553.i176.idx = phi i64 [ %.13553.i176.add, %.lr.ph.i174 ], [ %.03457.i157.idx, %.lr.ph.preheader.i172 ]
   %.13752.i177 = phi i32 [ %245, %.lr.ph.i174 ], [ %.03656.i158, %.lr.ph.preheader.i172 ]
   %.13553.i176.ptr = getelementptr inbounds nuw i8, ptr %148, i64 %.13553.i176.idx
-  store i32 %load_initial425, ptr %.13553.i176.ptr, align 1
+  store i32 %load_initial436, ptr %.13553.i176.ptr, align 1
   %.13553.i176.add = add nuw nsw i64 %.13553.i176.idx, 4
   %245 = add nsw i32 %.13752.i177, -4
   %246 = add nsw i32 %.054.i175, -1
@@ -649,7 +649,7 @@ bytestream2_get_byte.exit121:                     ; preds = %bytestream2_get_byt
 .lr.ph59.i185.preheader:                          ; preds = %273
   %277 = add nsw i32 %275, -1
   %scevgep = getelementptr i8, ptr %144, i64 -4
-  %scevgep420 = getelementptr i8, ptr %scevgep, i64 %147
+  %scevgep431 = getelementptr i8, ptr %scevgep, i64 %147
   br label %.lr.ph59.i185
 
 .lr.ph59.i185:                                    ; preds = %.lr.ph59.i185.preheader, %321
@@ -742,8 +742,8 @@ bytestream2_get_byte.exit45.i195:                 ; preds = %bytestream2_get_byt
 
 .lr.ph.preheader.i202:                            ; preds = %310
   %312 = shl nuw nsw i32 %.0.i44.i196, %.03358.i186
-  %scevgep421 = getelementptr i8, ptr %scevgep420, i64 %.03457.i187.idx
-  %load_initial = load i32, ptr %scevgep421, align 1
+  %scevgep432 = getelementptr i8, ptr %scevgep431, i64 %.03457.i187.idx
+  %load_initial = load i32, ptr %scevgep432, align 1
   br label %.lr.ph.i204
 
 .critedge.i210:                                   ; preds = %.lr.ph.i204, %310
@@ -794,15 +794,15 @@ bytestream2_get_byte.exit45.i195:                 ; preds = %bytestream2_get_byt
   %332 = sub i64 %17, %331
   %333 = trunc i64 %332 to i32
   %334 = icmp sgt i32 %333, 0
-  %or.cond435 = select i1 %330, i1 %334, i1 false
-  br i1 %or.cond435, label %.lr.ph416, label %.critedge
+  %or.cond446 = select i1 %330, i1 %334, i1 false
+  br i1 %or.cond446, label %.lr.ph427, label %.critedge
 
 .lr.ph321:                                        ; preds = %.thread
   %335 = ptrtoint ptr %.sroa.0.6 to i64
   %336 = sub i64 %17, %335
   %337 = trunc i64 %336 to i32
   %338 = icmp sgt i32 %337, 0
-  br i1 %338, label %.lr.ph416, label %.critedge, !llvm.loop !39
+  br i1 %338, label %.lr.ph427, label %.critedge, !llvm.loop !39
 
 .thread..critedge.loopexit_crit_edge:             ; preds = %.thread
   br label %.critedge, !llvm.loop !39
@@ -814,16 +814,16 @@ bytestream2_get_byte.exit45.i195:                 ; preds = %bytestream2_get_byt
   %exitcond.not = icmp eq i64 %indvars.iv.next352, 4
   br i1 %exitcond.not, label %decompress.exit.threadthread-pre-split, label %.preheader305, !llvm.loop !40
 
-.lr.ph416:                                        ; preds = %.preheader305, %.lr.ph321
+.lr.ph427:                                        ; preds = %.preheader305, %.lr.ph321
   %340 = phi i64 [ %336, %.lr.ph321 ], [ %332, %.preheader305 ]
-  %.sroa.0.5319415 = phi ptr [ %.sroa.0.6, %.lr.ph321 ], [ %.sroa.0.4325, %.preheader305 ]
-  %.097320414 = phi i32 [ %.299, %.lr.ph321 ], [ 0, %.preheader305 ]
+  %.sroa.0.5319426 = phi ptr [ %.sroa.0.6, %.lr.ph321 ], [ %.sroa.0.4325, %.preheader305 ]
+  %.097320425 = phi i32 [ %.299, %.lr.ph321 ], [ 0, %.preheader305 ]
   %341 = icmp slt i64 %340, 1
   br i1 %341, label %.thread, label %bytestream2_get_byte.exit123
 
-bytestream2_get_byte.exit123:                     ; preds = %.lr.ph416
-  %342 = getelementptr inbounds nuw i8, ptr %.sroa.0.5319415, i64 1
-  %343 = load i8, ptr %.sroa.0.5319415, align 1, !tbaa !17
+bytestream2_get_byte.exit123:                     ; preds = %.lr.ph427
+  %342 = getelementptr inbounds nuw i8, ptr %.sroa.0.5319426, i64 1
+  %343 = load i8, ptr %.sroa.0.5319426, align 1, !tbaa !17
   %344 = zext i8 %343 to i32
   %345 = icmp ugt i8 %343, -128
   br i1 %345, label %346, label %363
@@ -835,7 +835,7 @@ bytestream2_get_byte.exit123:                     ; preds = %.lr.ph416
   br i1 %349, label %bytestream2_get_byte.exit125, label %350
 
 350:                                              ; preds = %346
-  %351 = getelementptr inbounds nuw i8, ptr %.sroa.0.5319415, i64 2
+  %351 = getelementptr inbounds nuw i8, ptr %.sroa.0.5319426, i64 2
   %352 = load i8, ptr %342, align 1, !tbaa !17
   br label %bytestream2_get_byte.exit125
 
@@ -847,9 +847,9 @@ bytestream2_get_byte.exit125:                     ; preds = %346, %350
   br i1 %.not114315, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %bytestream2_get_byte.exit125
-  %354 = sext i32 %.097320414 to i64
+  %354 = sext i32 %.097320425 to i64
   %355 = shl nuw nsw i32 %353, 2
-  %356 = add i32 %.097320414, %355
+  %356 = add i32 %.097320425, %355
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %360
@@ -859,7 +859,7 @@ bytestream2_get_byte.exit125:                     ; preds = %346, %350
   %358 = shl nsw i32 %357, 2
   %359 = sext i32 %358 to i64
   %.not115 = icmp slt i64 %indvars.iv348, %359
-  br i1 %.not115, label %360, label %.thread.loopexit.split.loop.exit401
+  br i1 %.not115, label %360, label %.thread.loopexit.split.loop.exit412
 
 360:                                              ; preds = %.lr.ph
   %361 = add nsw i32 %.in333, -1
@@ -874,9 +874,9 @@ bytestream2_get_byte.exit125:                     ; preds = %346, %350
   br i1 %.not111, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %363
-  %364 = sext i32 %.097320414 to i64
+  %364 = sext i32 %.097320425 to i64
   %365 = shl nuw nsw i32 %344, 2
-  %366 = add i32 %.097320414, %365
+  %366 = add i32 %.097320425, %365
   br label %367
 
 367:                                              ; preds = %.preheader, %bytestream2_get_byte.exit127
@@ -888,7 +888,7 @@ bytestream2_get_byte.exit125:                     ; preds = %346, %350
   %370 = shl nsw i32 %369, 2
   %371 = sext i32 %370 to i64
   %.not113 = icmp slt i64 %indvars.iv, %371
-  br i1 %.not113, label %372, label %.thread.loopexit389.split.loop.exit398
+  br i1 %.not113, label %372, label %.thread.loopexit400.split.loop.exit409
 
 372:                                              ; preds = %367
   %373 = ptrtoint ptr %.sroa.0.7313 to i64
@@ -910,17 +910,17 @@ bytestream2_get_byte.exit127:                     ; preds = %372, %376
   %.not112 = icmp eq i32 %368, 0
   br i1 %.not112, label %.thread, label %367, !llvm.loop !42
 
-.thread.loopexit.split.loop.exit401:              ; preds = %.lr.ph
+.thread.loopexit.split.loop.exit412:              ; preds = %.lr.ph
   %380 = trunc nsw i64 %indvars.iv348 to i32
   br label %.thread
 
-.thread.loopexit389.split.loop.exit398:           ; preds = %367
+.thread.loopexit400.split.loop.exit409:           ; preds = %367
   %381 = trunc nsw i64 %indvars.iv to i32
   br label %.thread
 
-.thread:                                          ; preds = %bytestream2_get_byte.exit127, %360, %.thread.loopexit389.split.loop.exit398, %.thread.loopexit.split.loop.exit401, %bytestream2_get_byte.exit125, %.lr.ph416, %363
-  %.sroa.0.6 = phi ptr [ %342, %363 ], [ %16, %.lr.ph416 ], [ %.sroa.0.12, %bytestream2_get_byte.exit125 ], [ %.sroa.0.12, %.thread.loopexit.split.loop.exit401 ], [ %.sroa.0.7313, %.thread.loopexit389.split.loop.exit398 ], [ %.sroa.0.12, %360 ], [ %.sroa.0.13, %bytestream2_get_byte.exit127 ]
-  %.299 = phi i32 [ %.097320414, %363 ], [ %.097320414, %.lr.ph416 ], [ %.097320414, %bytestream2_get_byte.exit125 ], [ %380, %.thread.loopexit.split.loop.exit401 ], [ %381, %.thread.loopexit389.split.loop.exit398 ], [ %356, %360 ], [ %366, %bytestream2_get_byte.exit127 ]
+.thread:                                          ; preds = %bytestream2_get_byte.exit127, %360, %.thread.loopexit400.split.loop.exit409, %.thread.loopexit.split.loop.exit412, %bytestream2_get_byte.exit125, %.lr.ph427, %363
+  %.sroa.0.6 = phi ptr [ %342, %363 ], [ %16, %.lr.ph427 ], [ %.sroa.0.12, %bytestream2_get_byte.exit125 ], [ %.sroa.0.12, %.thread.loopexit.split.loop.exit412 ], [ %.sroa.0.7313, %.thread.loopexit400.split.loop.exit409 ], [ %.sroa.0.12, %360 ], [ %.sroa.0.13, %bytestream2_get_byte.exit127 ]
+  %.299 = phi i32 [ %.097320425, %363 ], [ %.097320425, %.lr.ph427 ], [ %.097320425, %bytestream2_get_byte.exit125 ], [ %380, %.thread.loopexit.split.loop.exit412 ], [ %381, %.thread.loopexit400.split.loop.exit409 ], [ %356, %360 ], [ %366, %bytestream2_get_byte.exit127 ]
   %382 = load i32, ptr %5, align 4, !tbaa !4
   %383 = shl nsw i32 %382, 2
   %384 = icmp slt i32 %.299, %383

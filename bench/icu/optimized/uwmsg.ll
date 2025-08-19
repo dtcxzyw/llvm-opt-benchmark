@@ -199,12 +199,12 @@ define dso_local ptr @u_wmsg_errorName(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %6, label %7
 
 6:                                                ; preds = %1
-  %calloc5.i = tail call dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
-  store ptr %calloc5.i, ptr @gInfoMessages, align 8, !tbaa !17
+  %calloc7.i = tail call dereferenceable_or_null(72) ptr @calloc(i64 1, i64 72)
+  store ptr %calloc7.i, ptr @gInfoMessages, align 8, !tbaa !17
   br label %7
 
 7:                                                ; preds = %6, %1
-  %8 = phi ptr [ %calloc5.i, %6 ], [ %5, %1 ]
+  %8 = phi ptr [ %calloc7.i, %6 ], [ %5, %1 ]
   %9 = load ptr, ptr @gErrMessages, align 8, !tbaa !17
   %.not4.i = icmp eq ptr %9, null
   br i1 %.not4.i, label %10, label %fetchErrorName.exit

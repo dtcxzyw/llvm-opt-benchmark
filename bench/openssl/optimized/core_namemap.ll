@@ -747,17 +747,17 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   br label %60
 
 .preheader:                                       ; preds = %48
-  %20 = icmp ult ptr %8, %.05293
+  %20 = icmp ult ptr %8, %.052102
   br i1 %20, label %.lr.ph80, label %.thread
 
 21:                                               ; preds = %.lr.ph, %48
   %.04776 = phi i32 [ %1, %.lr.ph ], [ %.1, %48 ]
-  %.05075 = phi ptr [ %8, %.lr.ph ], [ %.05293, %48 ]
+  %.05075 = phi ptr [ %8, %.lr.ph ], [ %.052102, %48 ]
   %22 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.05075, i32 noundef %15) #7
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread91, label %26
+  br i1 %23, label %.thread100, label %26
 
-.thread91:                                        ; preds = %21
+.thread100:                                       ; preds = %21
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.05075) #7
   %25 = getelementptr inbounds nuw i8, ptr %.05075, i64 %24
   br label %.preheader.i.i
@@ -775,8 +775,8 @@ define i32 @ossl_namemap_add_names(ptr noundef captures(address_is_null) %0, i32
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 117, ptr noundef null) #6
   br label %.thread
 
-.preheader.i.i:                                   ; preds = %.thread91, %26
-  %.05293 = phi ptr [ %25, %.thread91 ], [ %27, %26 ]
+.preheader.i.i:                                   ; preds = %.thread100, %26
+  %.052102 = phi ptr [ %25, %.thread100 ], [ %27, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 64, i1 false)
   store i64 64, ptr %5, align 8, !tbaa !19
@@ -831,7 +831,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
 
 48:                                               ; preds = %46, %ossl_namemap_name2num.exit
   %.1 = phi i32 [ %.04776, %46 ], [ %.0.i, %ossl_namemap_name2num.exit ]
-  %49 = load i8, ptr %.05293, align 1, !tbaa !25
+  %49 = load i8, ptr %.052102, align 1, !tbaa !25
   %.not59 = icmp eq i8 %49, 0
   br i1 %.not59, label %.preheader, label %21
 
@@ -857,7 +857,7 @@ ossl_namemap_name2num.exit:                       ; preds = %ossl_ht_strcase.exi
 
 56:                                               ; preds = %55, %.lr.ph80
   %.6 = phi i32 [ %.479, %55 ], [ %53, %.lr.ph80 ]
-  %57 = icmp ult ptr %52, %.05293
+  %57 = icmp ult ptr %52, %.052102
   br i1 %57, label %.lr.ph80, label %.thread
 
 .thread:                                          ; preds = %56, %.preheader68, %.preheader, %47, %29, %.thread65

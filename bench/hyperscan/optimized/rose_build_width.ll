@@ -301,19 +301,19 @@ _ZN3ue2L15is_end_anchoredERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorIN
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.copyload, i64 240
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
-  %or.cond.i.not121 = select i1 %85, i1 %88, i1 false
+  %or.cond.i.not135 = select i1 %85, i1 %88, i1 false
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.copyload, i64 256
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
-  %or.cond5.i.not118 = select i1 %or.cond.i.not121, i1 %91, i1 false
+  %or.cond5.i.not132 = select i1 %or.cond.i.not135, i1 %91, i1 false
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.016.0.copyload, i64 272
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
-  %or.cond8.i.not116 = select i1 %or.cond5.i.not118, i1 %94, i1 false
+  %or.cond8.i.not130 = select i1 %or.cond5.i.not132, i1 %94, i1 false
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.016.0.copyload, i64 288
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not103 = icmp eq ptr %.pre, null
-  %or.cond = select i1 %or.cond8.i.not116, i1 %.not103, i1 false
+  %or.cond = select i1 %or.cond8.i.not130, i1 %.not103, i1 false
   br i1 %or.cond, label %111, label %_ZNK3ue214RoseSuffixInfocvbEv.exit.thread
 
 _ZNK3ue214RoseSuffixInfocvbEv.exit.thread:        ; preds = %_ZN3ue2L15is_end_anchoredERKNS_9RoseGraphENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit
@@ -638,17 +638,17 @@ _ZNK3ue214RoseSuffixInfocvbEv.exit.thread:        ; preds = %._ZNK3ue214RoseSuff
   %62 = icmp eq ptr %56, null
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.075.0111, i64 240
   %64 = icmp eq ptr %55, null
-  %or.cond.i65.not130 = select i1 %62, i1 %64, i1 false
+  %or.cond.i65.not137 = select i1 %62, i1 %64, i1 false
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.075.0111, i64 256
   %66 = icmp eq ptr %54, null
-  %or.cond5.i66.not127 = select i1 %or.cond.i65.not130, i1 %66, i1 false
+  %or.cond5.i66.not134 = select i1 %or.cond.i65.not137, i1 %66, i1 false
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.075.0111, i64 272
   %68 = icmp eq ptr %53, null
-  %or.cond8.i67.not125 = select i1 %or.cond5.i66.not127, i1 %68, i1 false
+  %or.cond8.i67.not132 = select i1 %or.cond5.i66.not134, i1 %68, i1 false
   %.phi.trans.insert121 = getelementptr inbounds nuw i8, ptr %.sroa.075.0111, i64 288
   %.pre122 = load ptr, ptr %.phi.trans.insert121, align 8
   %.not100 = icmp eq ptr %.pre122, null
-  %or.cond = select i1 %or.cond8.i67.not125, i1 %.not100, i1 false
+  %or.cond = select i1 %or.cond8.i67.not132, i1 %.not100, i1 false
   br i1 %or.cond, label %88, label %_ZNK3ue214RoseSuffixInfocvbEv.exit68.thread
 
 _ZNK3ue214RoseSuffixInfocvbEv.exit68.thread:      ; preds = %_ZNK3ue214RoseSuffixInfocvbEv.exit.thread
@@ -710,7 +710,7 @@ _ZNK3ue25depthcvjEv.exit:                         ; preds = %74
 
 .critedge63:                                      ; preds = %.critedge61, %.critedge
   %.2.lcssa = phi i64 [ %.092.lcssa, %.critedge ], [ %.3, %.critedge61 ]
-  %90 = trunc i64 %.2.lcssa to i32
+  %90 = trunc nuw i64 %.2.lcssa to i32
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.lr.ph, %88, %34, %_ZNK3ue214RoseSuffixInfocvbEv.exit68.thread, %74, %.critedge63, %1
@@ -941,20 +941,20 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.copyload, i64 240
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
-  %or.cond.i.not149 = select i1 %91, i1 %94, i1 false
+  %or.cond.i.not162 = select i1 %91, i1 %94, i1 false
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.copyload, i64 256
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
-  %or.cond5.i.not146 = select i1 %or.cond.i.not149, i1 %97, i1 false
+  %or.cond5.i.not159 = select i1 %or.cond.i.not162, i1 %97, i1 false
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.copyload, i64 272
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
-  %or.cond8.i.not144 = select i1 %or.cond5.i.not146, i1 %100, i1 false
+  %or.cond8.i.not157 = select i1 %or.cond5.i.not159, i1 %100, i1 false
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.018.0.copyload, i64 288
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not129 = icmp eq ptr %.pre, null
-  %or.cond142 = select i1 %or.cond8.i.not144, i1 %.not129, i1 false
-  br i1 %or.cond142, label %126, label %_ZNK3ue214RoseSuffixInfocvbEv.exit.thread
+  %or.cond155 = select i1 %or.cond8.i.not157, i1 %.not129, i1 false
+  br i1 %or.cond155, label %126, label %_ZNK3ue214RoseSuffixInfocvbEv.exit.thread
 
 _ZNK3ue214RoseSuffixInfocvbEv.exit.thread:        ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

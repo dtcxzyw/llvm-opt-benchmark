@@ -2962,11 +2962,11 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
   br i1 %38, label %51, label %39, !prof !261
 
 39:                                               ; preds = %31, %.thread
-  %.sroa.4.0.i.ph41.i.i69 = phi i64 [ %..i.i.i, %.thread ], [ %37, %31 ]
-  %40 = shl nuw i64 %.sroa.4.0.i.ph41.i.i69, 3
+  %.sroa.4.0.i.ph41.i.i78 = phi i64 [ %..i.i.i, %.thread ], [ %37, %31 ]
+  %40 = shl nuw i64 %.sroa.4.0.i.ph41.i.i78, 3
   %41 = add nuw i64 %40, 15
   %42 = and i64 %41, -16
-  %43 = add nuw nsw i64 %.sroa.4.0.i.ph41.i.i69, 16
+  %43 = add nuw nsw i64 %.sroa.4.0.i.ph41.i.i78, 16
   %44 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %42, i64 %43)
   %45 = extractvalue { i64, i1 } %44, 1
   br i1 %45, label %51, label %46, !prof !256
@@ -3000,9 +3000,9 @@ define { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_re
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17hdb068c07c4eedcecE.exit": ; preds = %46
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 %42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %57, i8 -1, i64 %43, i1 false), !noalias !269
-  %58 = icmp samesign ult i64 %.sroa.4.0.i.ph41.i.i69, 9
-  %59 = add nsw i64 %.sroa.4.0.i.ph41.i.i69, -1
-  %60 = lshr i64 %.sroa.4.0.i.ph41.i.i69, 3
+  %58 = icmp samesign ult i64 %.sroa.4.0.i.ph41.i.i78, 9
+  %59 = add nsw i64 %.sroa.4.0.i.ph41.i.i78, -1
+  %60 = lshr i64 %.sroa.4.0.i.ph41.i.i78, 3
   %61 = mul nuw nsw i64 %60, 7
   %.sroa.03.0.i.i.i = select i1 %58, i64 %59, i64 %61
   %62 = sub i64 %.sroa.03.0.i.i.i, %9
@@ -3193,9 +3193,9 @@ common.resume:                                    ; preds = %163, %90
 
 ._crit_edge.i.i8:                                 ; preds = %142
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %17, i64 16)
-  %spec.select65.i = tail call i64 @llvm.umin.i64(i64 %17, i64 16)
+  %spec.select67.i = tail call i64 @llvm.umin.i64(i64 %17, i64 16)
   %139 = getelementptr inbounds nuw i8, ptr %.val12.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %139, ptr nonnull align 1 %.val12.i, i64 %spec.select65.i, i1 false), !noalias !281
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %139, ptr nonnull align 1 %.val12.i, i64 %spec.select67.i, i1 false), !noalias !281
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !281
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %140, align 8, !noalias !281
@@ -3438,11 +3438,11 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
   br i1 %17, label %30, label %18, !prof !261
 
 18:                                               ; preds = %10, %.thread
-  %.sroa.4.0.i.ph41.i39 = phi i64 [ %..i.i, %.thread ], [ %16, %10 ]
-  %19 = shl nuw i64 %.sroa.4.0.i.ph41.i39, 3
+  %.sroa.4.0.i.ph41.i40 = phi i64 [ %..i.i, %.thread ], [ %16, %10 ]
+  %19 = shl nuw i64 %.sroa.4.0.i.ph41.i40, 3
   %20 = add nuw i64 %19, 15
   %21 = and i64 %20, -16
-  %22 = add nuw nsw i64 %.sroa.4.0.i.ph41.i39, 16
+  %22 = add nuw nsw i64 %.sroa.4.0.i.ph41.i40, 16
   %23 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %21, i64 %22)
   %24 = extractvalue { i64, i1 } %23, 1
   br i1 %24, label %30, label %25, !prof !256
@@ -3467,9 +3467,9 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17hec0dc2c3b4e4d7ecE.exit.thread"
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17hec0dc2c3b4e4d7ecE.exit": ; preds = %25
-  %36 = icmp samesign ult i64 %.sroa.4.0.i.ph41.i39, 9
-  %37 = add nsw i64 %.sroa.4.0.i.ph41.i39, -1
-  %38 = lshr i64 %.sroa.4.0.i.ph41.i39, 3
+  %36 = icmp samesign ult i64 %.sroa.4.0.i.ph41.i40, 9
+  %37 = add nsw i64 %.sroa.4.0.i.ph41.i40, -1
+  %38 = lshr i64 %.sroa.4.0.i.ph41.i40, 3
   %39 = mul nuw nsw i64 %38, 7
   %.sroa.03.0.i.i = select i1 %36, i64 %37, i64 %39
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 %21

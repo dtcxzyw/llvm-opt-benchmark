@@ -1546,11 +1546,11 @@ switch.lookup:                                    ; preds = %142
   %201 = add i32 %19, %.1649.ph
   %202 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %200, i32 noundef %201)
   %203 = icmp eq i8 %.0553.ph, 0
-  br i1 %203, label %204, label %.thread1066
+  br i1 %203, label %204, label %.thread1097
 
 204:                                              ; preds = %198, %.thread
-  %.51058 = phi ptr [ %202, %.thread ], [ null, %198 ]
-  %.25356991053 = phi ptr [ %196, %.thread ], [ null, %198 ]
+  %.51089 = phi ptr [ %202, %.thread ], [ null, %198 ]
+  %.25356991084 = phi ptr [ %196, %.thread ], [ null, %198 ]
   br i1 %.not596651.ph, label %.thread743.thread, label %.thread743
 
 .thread743.thread:                                ; preds = %204
@@ -1583,16 +1583,16 @@ switch.lookup:                                    ; preds = %142
   %228 = or disjoint i32 %224, %227
   br label %233
 
-.thread1066:                                      ; preds = %.thread
+.thread1097:                                      ; preds = %.thread
   %229 = getelementptr inbounds nuw i8, ptr %196, i64 12
   %230 = load i32, ptr %229, align 4
   %231 = icmp eq i8 %.0553.ph, 1
   br i1 %231, label %232, label %244
 
-232:                                              ; preds = %198, %.thread1066
-  %.05421074 = phi i32 [ %230, %.thread1066 ], [ 0, %198 ]
-  %.5105710631072 = phi ptr [ %202, %.thread1066 ], [ null, %198 ]
-  %.2535699104910651071 = phi ptr [ %196, %.thread1066 ], [ null, %198 ]
+232:                                              ; preds = %198, %.thread1097
+  %.05421105 = phi i32 [ %230, %.thread1097 ], [ 0, %198 ]
+  %.5108810941103 = phi ptr [ %202, %.thread1097 ], [ null, %198 ]
+  %.2535699108010961102 = phi ptr [ %196, %.thread1097 ], [ null, %198 ]
   br i1 %.not596651.ph, label %._crit_edge1038, label %233
 
 ._crit_edge1038:                                  ; preds = %232
@@ -1601,10 +1601,10 @@ switch.lookup:                                    ; preds = %142
 
 233:                                              ; preds = %.thread743, %232
   %234 = phi i1 [ true, %.thread743 ], [ false, %232 ]
-  %.51055 = phi ptr [ %.51058, %.thread743 ], [ %.5105710631072, %232 ]
-  %.25356991051 = phi ptr [ %.25356991053, %.thread743 ], [ %.2535699104910651071, %232 ]
+  %.51086 = phi ptr [ %.51089, %.thread743 ], [ %.5108810941103, %232 ]
+  %.25356991082 = phi ptr [ %.25356991084, %.thread743 ], [ %.2535699108010961102, %232 ]
   %.0553672694721764812 = phi i8 [ 0, %.thread743 ], [ 1, %232 ]
-  %.0542776800 = phi i32 [ %228, %.thread743 ], [ %.05421074, %232 ]
+  %.0542776800 = phi i32 [ %228, %.thread743 ], [ %.05421105, %232 ]
   %235 = getelementptr inbounds nuw i8, ptr %.0537645.ph, i64 20
   %236 = add nuw nsw i32 %.0552.ph, 6
   %237 = zext nneg i32 %236 to i64
@@ -1614,23 +1614,23 @@ switch.lookup:                                    ; preds = %142
 
 240:                                              ; preds = %._crit_edge1038, %.thread743.thread
   %241 = phi i1 [ false, %._crit_edge1038 ], [ true, %.thread743.thread ]
-  %.51056 = phi ptr [ %.5105710631072, %._crit_edge1038 ], [ %.51058, %.thread743.thread ]
-  %.25356991052 = phi ptr [ %.2535699104910651071, %._crit_edge1038 ], [ %.25356991053, %.thread743.thread ]
+  %.51087 = phi ptr [ %.5108810941103, %._crit_edge1038 ], [ %.51089, %.thread743.thread ]
+  %.25356991083 = phi ptr [ %.2535699108010961102, %._crit_edge1038 ], [ %.25356991084, %.thread743.thread ]
   %.pre-phi1044 = phi i32 [ %.pre1043, %._crit_edge1038 ], [ %205, %.thread743.thread ]
   %.0553672694721764813 = phi i8 [ 1, %._crit_edge1038 ], [ 0, %.thread743.thread ]
-  %.0542776801 = phi i32 [ %.05421074, %._crit_edge1038 ], [ %207, %.thread743.thread ]
+  %.0542776801 = phi i32 [ %.05421105, %._crit_edge1038 ], [ %207, %.thread743.thread ]
   %242 = add i32 %.pre-phi1044, 6
   %243 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %242)
   br label %247
 
-244:                                              ; preds = %.thread1066
+244:                                              ; preds = %.thread1097
   %245 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %246 = load i8, ptr %245, align 8
   br label %247
 
 247:                                              ; preds = %198, %244, %233, %240
-  %.51054 = phi ptr [ %.51056, %240 ], [ %.51055, %233 ], [ %202, %244 ], [ null, %198 ]
-  %.25356991050 = phi ptr [ %.25356991052, %240 ], [ %.25356991051, %233 ], [ %196, %244 ], [ null, %198 ]
+  %.51085 = phi ptr [ %.51087, %240 ], [ %.51086, %233 ], [ %202, %244 ], [ null, %198 ]
+  %.25356991081 = phi ptr [ %.25356991083, %240 ], [ %.25356991082, %233 ], [ %196, %244 ], [ null, %198 ]
   %.ph = phi i1 [ true, %240 ], [ true, %233 ], [ false, %244 ], [ false, %198 ]
   %.0542775.ph = phi i32 [ %.0542776801, %240 ], [ %.0542776800, %233 ], [ %230, %244 ], [ 0, %198 ]
   %.ph835 = phi i1 [ %197, %240 ], [ %197, %233 ], [ false, %244 ], [ true, %198 ]
@@ -1681,7 +1681,7 @@ switch.lookup:                                    ; preds = %142
   br i1 %.ph835, label %.thread915, label %279
 
 279:                                              ; preds = %278
-  %280 = getelementptr inbounds nuw i8, ptr %.25356991050, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %.25356991081, i64 8
   %281 = load i32, ptr %280, align 8
   br label %283
 
@@ -1704,24 +1704,24 @@ switch.lookup:                                    ; preds = %142
 
 283:                                              ; preds = %257, %274, %279
   %.0544 = phi i32 [ %281, %279 ], [ %273, %257 ], [ %277, %274 ]
-  %284 = icmp eq ptr %.51054, null
+  %284 = icmp eq ptr %.51085, null
   %or.cond.not602 = select i1 %.ph835, i1 true, i1 %284
   %285 = icmp samesign ult i8 %.0553672694721763.ph, 3
   %or.cond4 = select i1 %or.cond.not602, i1 true, i1 %285
   br i1 %or.cond4, label %297, label %286
 
 286:                                              ; preds = %283
-  %287 = getelementptr inbounds nuw i8, ptr %.51054, i64 40
+  %287 = getelementptr inbounds nuw i8, ptr %.51085, i64 40
   %288 = load i32, ptr %287, align 8
-  %289 = getelementptr inbounds nuw i8, ptr %.51054, i64 36
+  %289 = getelementptr inbounds nuw i8, ptr %.51085, i64 36
   %290 = load i32, ptr %289, align 4
   %291 = icmp eq i32 %288, %290
   br i1 %291, label %297, label %292
 
 292:                                              ; preds = %286
-  %293 = getelementptr inbounds nuw i8, ptr %.51054, i64 48
+  %293 = getelementptr inbounds nuw i8, ptr %.51085, i64 48
   %294 = load i32, ptr %293, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %.51054, i64 44
+  %295 = getelementptr inbounds nuw i8, ptr %.51085, i64 44
   %296 = load i32, ptr %295, align 4
   %.not603 = icmp eq i32 %294, %296
   br i1 %.not603, label %508, label %297
@@ -1762,7 +1762,7 @@ switch.lookup:                                    ; preds = %142
   br i1 %.ph836, label %310, label %356
 
 310:                                              ; preds = %298, %309
-  %.3536988 = phi ptr [ %303, %298 ], [ %.25356991050, %309 ]
+  %.3536988 = phi ptr [ %303, %298 ], [ %.25356991081, %309 ]
   %.0540914929987 = phi i32 [ %.0540914930, %298 ], [ %.1541, %309 ]
   %.0544913931984 = phi i32 [ %.0544913932, %298 ], [ %.0544, %309 ]
   %.0542775850912933981 = phi i32 [ %.0542775850912934, %298 ], [ %.0542775.ph, %309 ]
@@ -1836,7 +1836,7 @@ switch.lookup:                                    ; preds = %142
   br label %417
 
 356:                                              ; preds = %298, %309
-  %.3536990 = phi ptr [ %303, %298 ], [ %.25356991050, %309 ]
+  %.3536990 = phi ptr [ %303, %298 ], [ %.25356991081, %309 ]
   %357 = phi i1 [ %301, %298 ], [ %285, %309 ]
   %.0540914929986 = phi i32 [ %.0540914930, %298 ], [ %.1541, %309 ]
   %.0544913931983 = phi i32 [ %.0544913932, %298 ], [ %.0544, %309 ]
@@ -2027,9 +2027,9 @@ switch.lookup:                                    ; preds = %142
   %or.cond618.not = select i1 %not..not596653, i1 true, i1 %.not605
   %.pre1031 = load i32, ptr %432, align 4
   %.not606 = icmp sgt i32 %.pre1031, %.1521647668696717767858908939971
-  %or.cond1096 = select i1 %or.cond618.not, i1 true, i1 %.not606
+  %or.cond1127 = select i1 %or.cond618.not, i1 true, i1 %.not606
   %463 = getelementptr inbounds nuw i8, ptr %420, i64 8
-  br i1 %or.cond1096, label %476, label %464
+  br i1 %or.cond1127, label %476, label %464
 
 464:                                              ; preds = %426
   store i32 0, ptr %463, align 8
@@ -2050,9 +2050,9 @@ switch.lookup:                                    ; preds = %142
   %474 = sub i32 %.1521647668696717767858908939971, %472
   br label %.backedge
 
-.backedge:                                        ; preds = %.thread1083, %612, %621, %619, %464, %501
-  %.0520.be = phi i32 [ %.3523, %501 ], [ %474, %464 ], [ %602, %619 ], [ %602, %621 ], [ %602, %612 ], [ %602, %.thread1083 ]
-  %.0.be = phi i32 [ %.3, %501 ], [ %473, %464 ], [ %601, %619 ], [ %601, %621 ], [ %601, %612 ], [ %601, %.thread1083 ]
+.backedge:                                        ; preds = %.thread1114, %612, %621, %619, %464, %501
+  %.0520.be = phi i32 [ %.3523, %501 ], [ %474, %464 ], [ %602, %619 ], [ %602, %621 ], [ %602, %612 ], [ %602, %.thread1114 ]
+  %.0.be = phi i32 [ %.3, %501 ], [ %473, %464 ], [ %601, %619 ], [ %601, %621 ], [ %601, %612 ], [ %601, %.thread1114 ]
   %475 = icmp sgt i32 %.0520.be, 0
   br i1 %475, label %68, label %.loopexit, !llvm.loop !15
 
@@ -2118,13 +2118,13 @@ switch.lookup:                                    ; preds = %142
   br label %541
 
 508:                                              ; preds = %292
-  %509 = getelementptr inbounds nuw i8, ptr %.51054, i64 8
+  %509 = getelementptr inbounds nuw i8, ptr %.51085, i64 8
   %510 = load i32, ptr %509, align 8
   %.not604 = icmp eq i32 %510, 0
   br i1 %.not604, label %536, label %511
 
 511:                                              ; preds = %508
-  %512 = getelementptr inbounds nuw i8, ptr %.51054, i64 52
+  %512 = getelementptr inbounds nuw i8, ptr %.51085, i64 52
   %513 = load i8, ptr %512, align 4
   %514 = zext i8 %513 to i32
   %515 = add nuw nsw i32 %514, 3
@@ -2132,7 +2132,7 @@ switch.lookup:                                    ; preds = %142
   br i1 %516, label %517, label %536
 
 517:                                              ; preds = %511
-  %518 = getelementptr inbounds nuw i8, ptr %.51054, i64 16
+  %518 = getelementptr inbounds nuw i8, ptr %.51085, i64 16
   %519 = load ptr, ptr %518, align 8
   %520 = zext i8 %513 to i64
   %521 = getelementptr i8, ptr %519, i64 %520
@@ -2167,7 +2167,7 @@ switch.lookup:                                    ; preds = %142
   %542 = phi i32 [ %.pre1032, %._crit_edge ], [ %430, %506 ], [ %288, %536 ]
   %543 = phi i32 [ %101, %._crit_edge ], [ %spec.store.select, %506 ], [ %spec.store.select621, %536 ]
   %.2539 = phi ptr [ %72, %._crit_edge ], [ null, %506 ], [ null, %536 ]
-  %.4532 = phi ptr [ %98, %._crit_edge ], [ %420, %506 ], [ %.51054, %536 ]
+  %.4532 = phi ptr [ %98, %._crit_edge ], [ %420, %506 ], [ %.51085, %536 ]
   %.2522 = phi i32 [ %.05201016, %._crit_edge ], [ %.3523, %506 ], [ %540, %536 ]
   %.2 = phi i32 [ 0, %._crit_edge ], [ %.3, %506 ], [ %539, %536 ]
   %544 = getelementptr inbounds nuw i8, ptr %.4532, i64 44
@@ -2273,7 +2273,7 @@ switch.lookup:                                    ; preds = %142
   %602 = sub i32 %.2522, %spec.select622
   %603 = load i32, ptr %544, align 4
   %604 = icmp eq i32 %600, %603
-  br i1 %604, label %.thread1083, label %605
+  br i1 %604, label %.thread1114, label %605
 
 605:                                              ; preds = %595
   %606 = getelementptr inbounds nuw i8, ptr %.4532, i64 36
@@ -2281,7 +2281,7 @@ switch.lookup:                                    ; preds = %142
   %608 = icmp eq i32 %598, %607
   br i1 %608, label %612, label %619
 
-.thread1083:                                      ; preds = %595
+.thread1114:                                      ; preds = %595
   store i32 0, ptr %545, align 8
   store i32 0, ptr %544, align 4
   %609 = getelementptr inbounds nuw i8, ptr %.4532, i64 36
@@ -2289,7 +2289,7 @@ switch.lookup:                                    ; preds = %142
   %611 = icmp eq i32 %598, %610
   br i1 %611, label %612, label %.backedge
 
-612:                                              ; preds = %.thread1083, %605
+612:                                              ; preds = %.thread1114, %605
   %613 = load ptr, ptr %27, align 8
   tail call void @wmem_tree_insert32(ptr noundef %613, i32 noundef %.pre-phi1042, ptr noundef %.4532)
   %614 = load ptr, ptr %578, align 8
@@ -4006,11 +4006,11 @@ define internal fastcc ptr @rtmpt_get_amf_param(ptr noundef %0, i32 noundef rang
   br i1 %61, label %.lr.ph126, label %.thread
 
 .thread.sink.split:                               ; preds = %48, %23
-  %.lcssa152.sink = phi i32 [ %10, %23 ], [ %45, %48 ]
-  %.sink154 = phi i32 [ %26, %23 ], [ %51, %48 ]
+  %.lcssa159.sink = phi i32 [ %10, %23 ], [ %45, %48 ]
+  %.sink161 = phi i32 [ %26, %23 ], [ %51, %48 ]
   %62 = tail call ptr @wmem_packet_scope()
-  %63 = add i32 %.lcssa152.sink, 3
-  %64 = tail call ptr @tvb_get_string_enc(ptr noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef %.sink154, i32 noundef 0)
+  %63 = add i32 %.lcssa159.sink, 3
+  %64 = tail call ptr @tvb_get_string_enc(ptr noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef %.sink161, i32 noundef 0)
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %57, %.lr.ph126, %54, %.thread.sink.split, %5, %31, %23, %48, %46, %28, %._crit_edge

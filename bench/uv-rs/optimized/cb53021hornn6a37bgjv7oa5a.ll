@@ -633,9 +633,9 @@ _ZN14regex_automata4util4iter8Searcher7advance17hdecf70114ad42845E.exit.i: ; pre
   br label %114
 
 114:                                              ; preds = %_ZN14regex_automata4util4iter8Searcher7advance17hdecf70114ad42845E.exit.i, %102
-  %.sink58 = phi i64 [ 72, %102 ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17hdecf70114ad42845E.exit.i ]
+  %.sink60 = phi i64 [ 72, %102 ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17hdecf70114ad42845E.exit.i ]
   %.sink = phi i64 [ %110, %102 ], [ 2, %_ZN14regex_automata4util4iter8Searcher7advance17hdecf70114ad42845E.exit.i ]
-  %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink58
+  %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink60
   store i64 %.sink, ptr %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -1725,7 +1725,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h14a3e71b8d6f0741E.exit: ; 
   br i1 %122, label %119, label %134
 
 123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %2, i64 %.sroa.022.0
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.022.0
   %125 = load i8, ptr %124, align 1, !alias.scope !339, !noundef !3
   %126 = icmp sgt i8 %125, -65
   br i1 %126, label %119, label %134
@@ -1739,7 +1739,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h14a3e71b8d6f0741E.exit: ; 
   br i1 %129, label %135, label %134
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %2, i64 %114
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 %114
   %132 = load i8, ptr %131, align 1, !alias.scope !339, !noundef !3
   %133 = icmp sgt i8 %132, -65
   br i1 %133, label %135, label %134
@@ -1938,7 +1938,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h14a3e71b8d6f0741E.exit: ; 
   br i1 %198, label %204, label %203
 
 199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %2, i64 %.sroa.022.1
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.022.1
   %201 = load i8, ptr %200, align 1, !alias.scope !409, !noundef !3
   %202 = icmp sgt i8 %201, -65
   br i1 %202, label %204, label %203
@@ -4469,7 +4469,7 @@ define hidden void @"_ZN73_$LT$uv_pep508..marker..algebra..Variable$u20$as$u20$c
   %6 = add i64 %5, %4
   %7 = mul i64 %6, -1065810590584100411
   store i64 %7, ptr %1, align 8, !alias.scope !915
-  switch i8 %3, label %default.unreachable65 [
+  switch i8 %3, label %default.unreachable81 [
     i8 0, label %8
     i8 1, label %14
     i8 2, label %20
@@ -4477,7 +4477,7 @@ define hidden void @"_ZN73_$LT$uv_pep508..marker..algebra..Variable$u20$as$u20$c
     i8 4, label %164
   ]
 
-default.unreachable65:                            ; preds = %2
+default.unreachable81:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2

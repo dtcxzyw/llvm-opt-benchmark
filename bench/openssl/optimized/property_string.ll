@@ -93,10 +93,10 @@ define ptr @ossl_property_string_data_new(ptr noundef readnone captures(none) %0
   %19 = icmp eq ptr %14, null
   %or.cond = select i1 %18, i1 true, i1 %19
   %20 = icmp eq ptr %7, null
-  %or.cond15 = select i1 %or.cond, i1 true, i1 %20
+  %or.cond16 = select i1 %or.cond, i1 true, i1 %20
   %21 = icmp eq ptr %10, null
-  %or.cond16 = select i1 %or.cond15, i1 true, i1 %21
-  br i1 %or.cond16, label %22, label %23
+  %or.cond17 = select i1 %or.cond16, i1 true, i1 %21
+  br i1 %or.cond17, label %22, label %23
 
 22:                                               ; preds = %17, %4
   tail call void @ossl_property_string_data_free(ptr noundef nonnull %2)

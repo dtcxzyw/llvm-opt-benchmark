@@ -332,24 +332,24 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 179:                                              ; preds = %163, %172
   %180 = load i32, ptr %4, align 4, !tbaa !3
   %181 = icmp sgt i32 %180, 0
-  br i1 %181, label %.thread327, label %184
+  br i1 %181, label %.thread332, label %184
 
 .thread:                                          ; preds = %._crit_edge286
   %182 = load i32, ptr %4, align 4, !tbaa !3
   %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %.thread278, label %.thread331
+  br i1 %183, label %.thread278, label %.thread336
 
 184:                                              ; preds = %179
   %185 = load i32, ptr %5, align 4, !tbaa !3
   %186 = icmp sgt i32 %185, 0
   br i1 %186, label %.sink.split, label %201
 
-.thread331:                                       ; preds = %.thread
+.thread336:                                       ; preds = %.thread
   %187 = load i32, ptr %5, align 4, !tbaa !3
   %188 = icmp sgt i32 %187, 0
   br i1 %188, label %.sink.split, label %201
 
-.thread327:                                       ; preds = %179
+.thread332:                                       ; preds = %179
   %189 = load i32, ptr %21, align 4, !tbaa !3
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds double, ptr %33, i64 %190
@@ -367,15 +367,15 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %198 = icmp sgt i32 %197, 0
   br i1 %198, label %.sink.split, label %201
 
-.sink.split:                                      ; preds = %184, %.thread278, %.thread327, %.thread331
-  %.sink338 = phi ptr [ %2, %.thread331 ], [ %21, %.thread327 ], [ %2, %.thread278 ], [ %21, %184 ]
-  %.pre323330.sink = load i32, ptr %21, align 4, !tbaa !3
-  %199 = sext i32 %.pre323330.sink to i64
+.sink.split:                                      ; preds = %184, %.thread278, %.thread332, %.thread336
+  %.sink343 = phi ptr [ %2, %.thread336 ], [ %21, %.thread332 ], [ %2, %.thread278 ], [ %21, %184 ]
+  %.pre323335.sink = load i32, ptr %21, align 4, !tbaa !3
+  %199 = sext i32 %.pre323335.sink to i64
   %200 = getelementptr inbounds double, ptr %33, i64 %199
-  call void @dlasr_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %.sink338, ptr noundef nonnull %5, ptr noundef %14, ptr noundef nonnull %200, ptr noundef %12, ptr noundef nonnull %13) #4
+  call void @dlasr_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %.sink343, ptr noundef nonnull %5, ptr noundef %14, ptr noundef nonnull %200, ptr noundef %12, ptr noundef nonnull %13) #4
   br label %201
 
-201:                                              ; preds = %.sink.split, %.thread331, %.thread327, %.thread278, %184, %132
+201:                                              ; preds = %.sink.split, %.thread336, %.thread332, %.thread278, %184, %132
   call void @dbdsqr_(ptr noundef nonnull @.str, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef %12, ptr noundef nonnull %13, ptr noundef %14, ptr noundef nonnull %15) #4
   %202 = load i32, ptr %2, align 4, !tbaa !3
   %.not263296 = icmp slt i32 %202, 1
@@ -386,7 +386,7 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %204 = sext i32 %27 to i64
   %205 = sext i32 %30 to i64
   %invariant.gep = getelementptr double, ptr %26, i64 %203
-  %invariant.gep335 = getelementptr double, ptr %32, i64 %205
+  %invariant.gep340 = getelementptr double, ptr %32, i64 %205
   %206 = zext nneg i32 %202 to i64
   br label %.lr.ph299
 
@@ -470,8 +470,8 @@ define void @dlasdq_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %242 = add nsw i32 %.0248.lcssa, %30
   %243 = sext i32 %242 to i64
   %244 = getelementptr inbounds double, ptr %32, i64 %243
-  %gep336 = getelementptr double, ptr %invariant.gep335, i64 %indvars.iv318
-  call void @dswap_(ptr noundef nonnull %5, ptr noundef %244, ptr noundef nonnull %13, ptr noundef %gep336, ptr noundef nonnull %13) #4
+  %gep341 = getelementptr double, ptr %invariant.gep340, i64 %indvars.iv318
+  call void @dswap_(ptr noundef nonnull %5, ptr noundef %244, ptr noundef nonnull %13, ptr noundef %gep341, ptr noundef nonnull %13) #4
   br label %245
 
 245:                                              ; preds = %._crit_edge294, %241, %238

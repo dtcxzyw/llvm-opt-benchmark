@@ -3598,10 +3598,10 @@ _ZN4Node8init_reqEjPS_.exit105:                   ; preds = %271, %281, %292
 
 _ZN4Node8init_reqEjPS_.exit101.sink.split:        ; preds = %267, %315
   %.sink = phi i32 [ %316, %315 ], [ %268, %267 ]
-  %.sink216 = phi ptr [ %317, %315 ], [ %269, %267 ]
+  %.sink309 = phi ptr [ %317, %315 ], [ %269, %267 ]
   %.067.ph = phi ptr [ %276, %315 ], [ %223, %267 ]
   %319 = zext i32 %.sink to i64
-  %320 = getelementptr inbounds nuw ptr, ptr %.sink216, i64 %319
+  %320 = getelementptr inbounds nuw ptr, ptr %.sink309, i64 %319
   store ptr %.0.i.i.i82, ptr %320, align 8
   br label %_ZN4Node8init_reqEjPS_.exit101
 
@@ -4088,8 +4088,8 @@ _ZN4NodenwEm.exit133:                             ; preds = %596, %598
   br label %608
 
 608:                                              ; preds = %604, %549
-  %.sink218 = phi ptr [ %607, %604 ], [ %552, %549 ]
-  %609 = call noundef ptr @_ZN14LibraryCallKit14generate_guardEP4NodeP10RegionNodef(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %.sink218, ptr noundef nonnull %.0.i.i.i112, float noundef 0x3F50624DE0000000)
+  %.sink311 = phi ptr [ %607, %604 ], [ %552, %549 ]
+  %609 = call noundef ptr @_ZN14LibraryCallKit14generate_guardEP4NodeP10RegionNodef(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %.sink311, ptr noundef nonnull %.0.i.i.i112, float noundef 0x3F50624DE0000000)
   %610 = load ptr, ptr %449, align 8
   %611 = call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %610, i32 noundef 2147483647) #13
   %612 = load ptr, ptr %449, align 8
@@ -6213,7 +6213,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
   %..i = select i1 %107, ptr %99, ptr null
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %109 = load i32, ptr %108, align 8
-  %.not276 = icmp eq i32 %109, 22
+  %.not308 = icmp eq i32 %109, 22
   %.not = icmp eq ptr %..i, null
   br i1 %.not, label %117, label %110
 
@@ -6228,7 +6228,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
 
 117:                                              ; preds = %110, %89
   %118 = phi i1 [ false, %89 ], [ %116, %110 ]
-  br i1 %.not276, label %119, label %126
+  br i1 %.not308, label %119, label %126
 
 119:                                              ; preds = %117
   %120 = getelementptr inbounds nuw i8, ptr %104, i64 80
@@ -12025,12 +12025,12 @@ switch.lookup:                                    ; preds = %12
   unreachable
 
 78:                                               ; preds = %53, %21
-  %.sink88 = phi i32 [ %75, %53 ], [ %52, %21 ]
+  %.sink91 = phi i32 [ %75, %53 ], [ %52, %21 ]
   %.sink = phi ptr [ %64, %53 ], [ %36, %21 ]
   %.070 = phi ptr [ null, %53 ], [ %50, %21 ]
   %.069.in = phi ptr [ %74, %53 ], [ %46, %21 ]
   %.068 = phi ptr [ %67, %53 ], [ %39, %21 ]
-  %79 = zext i32 %.sink88 to i64
+  %79 = zext i32 %.sink91 to i64
   %80 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %79
   %.069 = load ptr, ptr %.069.in, align 8
   %.072 = load ptr, ptr %80, align 8
@@ -22920,11 +22920,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_array_copyOfEb(ptr
   br label %63
 
 63:                                               ; preds = %44, %33
-  %.sink108 = phi i32 [ %62, %44 ], [ %43, %33 ]
-  %.sink106 = phi ptr [ %58, %44 ], [ %29, %33 ]
+  %.sink126 = phi i32 [ %62, %44 ], [ %43, %33 ]
+  %.sink124 = phi ptr [ %58, %44 ], [ %29, %33 ]
   %.sink.in = phi ptr [ %60, %44 ], [ %41, %33 ]
-  %64 = zext i32 %.sink108 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %.sink106, i64 %64
+  %64 = zext i32 %.sink126 to i64
+  %65 = getelementptr inbounds nuw ptr, ptr %.sink124, i64 %64
   %.sink = load ptr, ptr %.sink.in, align 8
   store ptr %.sink, ptr %5, align 8
   %66 = load ptr, ptr %65, align 8
@@ -26469,10 +26469,10 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit22inline_unsafe_newArrayEb(
   br label %52
 
 52:                                               ; preds = %50, %17
-  %.sink130 = phi i32 [ %51, %50 ], [ %49, %17 ]
+  %.sink198 = phi i32 [ %51, %50 ], [ %49, %17 ]
   %.sink = phi ptr [ %14, %50 ], [ %46, %17 ]
   %.033.in = phi ptr [ %16, %50 ], [ %48, %17 ]
-  %53 = zext i32 %.sink130 to i64
+  %53 = zext i32 %.sink198 to i64
   %54 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %53
   %.033 = load ptr, ptr %.033.in, align 8
   %.034 = load ptr, ptr %54, align 8
@@ -27572,7 +27572,7 @@ _ZN8GraphKit7set_i_oEP4Node.exit:                 ; preds = %_ZN4Node7del_outEPS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_native_subtype_checkEv(ptr noundef nonnull align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
-  %.sroa.0204 = alloca ptr, align 16
+  %.sroa.0275 = alloca ptr, align 16
   %.sroa.3 = alloca ptr, align 8
   %.sroa.0 = alloca ptr, align 16
   %.sroa.4 = alloca ptr, align 8
@@ -27591,7 +27591,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_native_subtype_che
   %14 = zext i32 %11 to i64
   %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %.sroa.0204, align 16
+  store ptr %16, ptr %.sroa.0275, align 16
   %17 = add i32 %11, 1
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %18
@@ -27823,8 +27823,8 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
 149:                                              ; preds = %_ZNK8GraphKit15record_for_igvnEP4Node.exit, %169
   %150 = phi i1 [ true, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ false, %169 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ %.sroa.4, %169 ]
-  %indvars.iv.sroa.phi202 = phi ptr [ %.sroa.0204, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ %.sroa.3, %169 ]
-  %151 = load ptr, ptr %indvars.iv.sroa.phi202, align 8
+  %indvars.iv.sroa.phi273 = phi ptr [ %.sroa.0275, %_ZNK8GraphKit15record_for_igvnEP4Node.exit ], [ %.sroa.3, %169 ]
+  %151 = load ptr, ptr %indvars.iv.sroa.phi273, align 8
   %152 = load ptr, ptr %147, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %154 = load ptr, ptr %153, align 8
@@ -27845,7 +27845,7 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
   br i1 %168, label %181, label %169
 
 169:                                              ; preds = %149
-  store ptr %167, ptr %indvars.iv.sroa.phi202, align 8
+  store ptr %167, ptr %indvars.iv.sroa.phi273, align 8
   %170 = load ptr, ptr %147, align 8
   %171 = tail call noundef ptr @_ZN11PhaseValues7longconEl(ptr noundef nonnull align 8 dereferenceable(2400) %170, i64 noundef %148) #13
   %172 = tail call noundef ptr @_ZN8GraphKit14basic_plus_adrEP4NodeS1_S1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %167, ptr noundef %167, ptr noundef %171) #13
@@ -28192,9 +28192,9 @@ _ZN4NodenwEm.exit83:                              ; preds = %360, %362
   br i1 %364, label %367, label %365
 
 365:                                              ; preds = %_ZN4NodenwEm.exit83
-  %.sroa.0204.0..sroa.0204.0. = load ptr, ptr %.sroa.0204, align 16
+  %.sroa.0275.0..sroa.0275.0. = load ptr, ptr %.sroa.0275, align 16
   %.sroa.3.0..sroa.3.8. = load ptr, ptr %.sroa.3, align 8
-  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i82, ptr noundef null, ptr noundef %.sroa.0204.0..sroa.0204.0., ptr noundef %.sroa.3.0..sroa.3.8.) #13
+  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i82, ptr noundef null, ptr noundef %.sroa.0275.0..sroa.0275.0., ptr noundef %.sroa.3.0..sroa.3.8.) #13
   %366 = getelementptr inbounds nuw i8, ptr %.0.i.i.i82, i64 44
   store i32 192, ptr %366, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8CmpPNode, i64 16), ptr %.0.i.i.i82, align 8
@@ -28729,9 +28729,9 @@ _ZN4Node7del_outEPS_.exit.i130:                   ; preds = %640, %628, %622
 
 _ZN4Node7set_reqEjPS_.exit126.sink.split:         ; preds = %613, %656
   %.sink = phi i32 [ %657, %656 ], [ %614, %613 ]
-  %.sink180 = phi ptr [ %658, %656 ], [ %615, %613 ]
+  %.sink251 = phi ptr [ %658, %656 ], [ %615, %613 ]
   %660 = zext i32 %.sink to i64
-  %661 = getelementptr inbounds nuw ptr, ptr %.sink180, i64 %660
+  %661 = getelementptr inbounds nuw ptr, ptr %.sink251, i64 %660
   store ptr %.0.i.i.i63, ptr %661, align 8
   br label %_ZN4Node7set_reqEjPS_.exit126
 
@@ -32770,10 +32770,10 @@ _ZN4Node8init_reqEjPS_.exit.i32:                  ; preds = %300, %289, %264
 
 _ZN16CompressBitsNodeC2EP4NodeS1_PK4Type.exit.sink.split: ; preds = %79, %159, %239, %319
   %.sink = phi i32 [ %320, %319 ], [ %240, %239 ], [ %160, %159 ], [ %80, %79 ]
-  %.sink39 = phi ptr [ %321, %319 ], [ %241, %239 ], [ %161, %159 ], [ %81, %79 ]
+  %.sink70 = phi ptr [ %321, %319 ], [ %241, %239 ], [ %161, %159 ], [ %81, %79 ]
   %.0.i.i.i29.sink = phi ptr [ %.0.i.i.i29, %319 ], [ %.0.i.i.i18, %239 ], [ %.0.i.i.i8, %159 ], [ %.0.i.i.i, %79 ]
   %326 = zext i32 %.sink to i64
-  %327 = getelementptr inbounds nuw ptr, ptr %.sink39, i64 %326
+  %327 = getelementptr inbounds nuw ptr, ptr %.sink70, i64 %326
   store ptr %.0.i.i.i29.sink, ptr %327, align 8
   br label %_ZN16CompressBitsNodeC2EP4NodeS1_PK4Type.exit
 
@@ -37318,8 +37318,8 @@ _ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102: ; preds = %219, %195, %_ZN4No
   %242 = load i32, ptr %241, align 4
   %243 = icmp eq i32 %240, %242
   %244 = icmp ult i32 %240, 4
-  %or.cond130 = and i1 %243, %244
-  br i1 %or.cond130, label %switch.lookup, label %.critedge
+  %or.cond174 = and i1 %243, %244
+  br i1 %or.cond174, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit102
   %switch.idx.cast = trunc nuw i32 %240 to i8

@@ -423,7 +423,7 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scal
 146:                                              ; preds = %145
   %147 = sdiv i64 9223372036854775807, %144
   %148 = icmp sgt i64 %142, %147
-  br i1 %148, label %.invoke199, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i167
+  br i1 %148, label %.invoke242, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i167
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i167: ; preds = %146, %145
   %149 = mul nsw i64 %142, %144
@@ -432,21 +432,21 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 151:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i167
   %152 = icmp samesign ugt i64 %149, 4611686018427387903
-  br i1 %152, label %.invoke199, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i175
+  br i1 %152, label %.invoke242, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i175
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i175: ; preds = %151
   %153 = shl nuw i64 %149, 2
   %154 = call noalias ptr @malloc(i64 noundef %153) #19
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %.invoke199, label %_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit178
+  br i1 %155, label %.invoke242, label %_ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit178
 
-.invoke199:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i175, %151, %146
+.invoke242:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i175, %151, %146
   %156 = call ptr @__cxa_allocate_exception(i64 8) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %156, align 8, !tbaa !30
   invoke void @__cxa_throw(ptr nonnull %156, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #21
-          to label %.cont200 unwind label %168
+          to label %.cont243 unwind label %168
 
-.cont200:                                         ; preds = %.invoke199
+.cont243:                                         ; preds = %.invoke242
   unreachable
 
 _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit178: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i167, %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i175
@@ -482,7 +482,7 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit178: ; preds = %_ZN
   %exitcond15.not.i.i.i.i.i.i.i = icmp eq i64 %167, %144
   br i1 %exitcond15.not.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_11IndexedViewINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEESt6vectorIiSaIiEENS_8internal8AllRangeILin1EEEEEE4evalEv.exit, label %.preheader.us.i.i.i.i.i.i.i, !llvm.loop !61
 
-168:                                              ; preds = %.invoke199
+168:                                              ; preds = %.invoke242
   %169 = landingpad { ptr, i32 }
           cleanup
   br label %.body170

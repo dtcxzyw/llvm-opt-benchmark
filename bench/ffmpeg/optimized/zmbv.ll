@@ -156,8 +156,8 @@ define internal range(i32 1, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
   %52 = icmp eq i32 %51, 0
   %.pre = load i32, ptr %43, align 4, !tbaa !51
   %53 = icmp eq i32 %.pre, 0
-  %or.cond233 = select i1 %52, i1 true, i1 %53
-  br i1 %or.cond233, label %54, label %55
+  %or.cond241 = select i1 %52, i1 true, i1 %53
+  br i1 %or.cond241, label %54, label %55
 
 54:                                               ; preds = %50
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %51, i32 noundef %.pre) #6
@@ -196,9 +196,9 @@ define internal range(i32 1, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
   store i32 16, ptr %66, align 8, !tbaa !38
   store ptr @zmbv_decode_xor_16, ptr %44, align 8, !tbaa !52
   %67 = icmp eq i32 %59, 5
-  %spec.select234 = select i1 %67, i32 39, i32 37
+  %spec.select242 = select i1 %67, i32 39, i32 37
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %spec.select234, ptr %68, align 8, !tbaa !53
+  store i32 %spec.select242, ptr %68, align 8, !tbaa !53
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 816
   %70 = load i32, ptr %69, align 8, !tbaa !34
   %71 = shl nsw i32 %70, 1
@@ -429,23 +429,23 @@ define internal range(i32 1, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
   br label %317
 
 211:                                              ; preds = %.thread, %192
-  %.sink236 = phi i32 [ %209, %.thread ], [ %.0205, %192 ]
+  %.sink244 = phi i32 [ %209, %.thread ], [ %.0205, %192 ]
   %212 = getelementptr inbounds nuw i8, ptr %8, i64 856
-  store i32 %.sink236, ptr %212, align 8, !tbaa !66
+  store i32 %.sink244, ptr %212, align 8, !tbaa !66
   %213 = getelementptr inbounds nuw i8, ptr %8, i64 856
-  %214 = icmp sgt i32 %.1208, %.sink236
+  %214 = icmp sgt i32 %.1208, %.sink244
   br i1 %214, label %219, label %215
 
 215:                                              ; preds = %211
   %216 = load i32, ptr %15, align 8, !tbaa !46
   %217 = and i32 %216, 1
   %.not226 = icmp ne i32 %217, 0
-  %218 = icmp slt i32 %.1208, %.sink236
+  %218 = icmp slt i32 %.1208, %.sink244
   %or.cond229 = select i1 %.not226, i1 %218, i1 false
   br i1 %or.cond229, label %219, label %220
 
 219:                                              ; preds = %215, %211
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.sink236, i32 noundef %.1208) #6
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %.sink244, i32 noundef %.1208) #6
   br label %317
 
 220:                                              ; preds = %215
@@ -884,10 +884,10 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %121 = phi i32 [ %91, %..loopexit_crit_edge.us ], [ %116, %.loopexit ], [ %104, %.loopexit.us162 ]
   %122 = and i8 %50, 1
   %.not139 = icmp ne i8 %122, 0
-  %brmerge.not234 = select i1 %.not139, i1 %43, i1 false
+  %brmerge.not250 = select i1 %.not139, i1 %43, i1 false
   %123 = icmp sgt i32 %.143.fr, 0
-  %or.cond232 = and i1 %brmerge.not234, %123
-  br i1 %or.cond232, label %.preheader.us.preheader, label %.loopexit145
+  %or.cond248 = and i1 %brmerge.not250, %123
+  br i1 %or.cond248, label %.preheader.us.preheader, label %.loopexit145
 
 .preheader.us.preheader:                          ; preds = %._crit_edge
   %wide.trip.count209 = zext nneg i32 %.143.fr to i64
@@ -1110,8 +1110,8 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %75 = add nsw i64 %indvars.iv, %65
   %76 = icmp sgt i64 %75, -1
   %.not135.us = icmp slt i64 %75, %73
-  %or.cond214 = select i1 %76, i1 %.not135.us, i1 false
-  br i1 %or.cond214, label %77, label %80
+  %or.cond230 = select i1 %76, i1 %.not135.us, i1 false
+  br i1 %or.cond230, label %77, label %80
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i16, ptr %.0143.us, i64 %indvars.iv
@@ -1536,10 +1536,10 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %114 = phi i32 [ %84, %..loopexit_crit_edge.us ], [ %109, %.loopexit ], [ %97, %.loopexit.us151 ]
   %115 = and i8 %40, 1
   %.not132 = icmp ne i8 %115, 0
-  %brmerge.not217 = select i1 %.not132, i1 %33, i1 false
+  %brmerge.not233 = select i1 %.not132, i1 %33, i1 false
   %116 = icmp sgt i32 %.136.fr, 0
-  %or.cond215 = and i1 %brmerge.not217, %116
-  br i1 %or.cond215, label %.preheader.us.preheader, label %.loopexit138
+  %or.cond231 = and i1 %brmerge.not233, %116
+  br i1 %or.cond231, label %.preheader.us.preheader, label %.loopexit138
 
 .preheader.us.preheader:                          ; preds = %._crit_edge
   %wide.trip.count193 = zext nneg i32 %.136.fr to i64

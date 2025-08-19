@@ -287,10 +287,10 @@ define dso_local range(i32 -3, 2147483647) i32 @split_cmdline(ptr noundef %0, pt
   store ptr %0, ptr %3, align 8, !tbaa !18
   %4 = load i8, ptr %0, align 1, !tbaa !14
   %.not125 = icmp eq i8 %4, 0
-  br i1 %.not125, label %.thread145, label %.lr.ph
+  br i1 %.not125, label %.thread150, label %.lr.ph
 
-.thread145:                                       ; preds = %2
-  %.pre134149 = load ptr, ptr %1, align 8, !tbaa !26
+.thread150:                                       ; preds = %2
+  %.pre134154 = load ptr, ptr %1, align 8, !tbaa !26
   br label %74
 
 .lr.ph:                                           ; preds = %2, %56
@@ -343,8 +343,8 @@ define dso_local range(i32 -3, 2147483647) i32 @split_cmdline(ptr noundef %0, pt
   br label %34
 
 25:                                               ; preds = %.critedge
-  %26 = mul i64 %.078129, 3
-  %27 = add i64 %26, 48
+  %26 = mul nuw nsw i64 %.078129, 3
+  %27 = add nuw nsw i64 %26, 48
   %28 = lshr i64 %27, 1
   %. = tail call i64 @llvm.umax.i64(i64 %28, i64 %23)
   %29 = icmp ugt i64 %., 2305843009213693951
@@ -464,12 +464,12 @@ st_mult.exit116:                                  ; preds = %67
   store ptr %73, ptr %1, align 8, !tbaa !26
   br label %74
 
-74:                                               ; preds = %.thread145, %st_mult.exit116, %67
-  %.081.lcssa139144150 = phi i64 [ %.283, %st_mult.exit116 ], [ %.283, %67 ], [ 1, %.thread145 ]
-  %75 = phi ptr [ %73, %st_mult.exit116 ], [ %.pre134, %67 ], [ %.pre134149, %.thread145 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.081.lcssa139144150
+74:                                               ; preds = %.thread150, %st_mult.exit116, %67
+  %.081.lcssa144149155 = phi i64 [ %.283, %st_mult.exit116 ], [ %.283, %67 ], [ 1, %.thread150 ]
+  %75 = phi ptr [ %73, %st_mult.exit116 ], [ %.pre134, %67 ], [ %.pre134154, %.thread150 ]
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.081.lcssa144149155
   store ptr null, ptr %76, align 8, !tbaa !18
-  %77 = trunc nuw nsw i64 %.081.lcssa139144150 to i32
+  %77 = trunc nuw nsw i64 %.081.lcssa144149155 to i32
   br label %78
 
 78:                                               ; preds = %.critedge114, %74, %65, %61

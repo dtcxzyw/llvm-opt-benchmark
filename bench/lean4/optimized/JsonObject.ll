@@ -397,7 +397,7 @@ define ptr @l_Lean_RBNode_del___at_Lake_JsonObject_erase___spec__1(ptr noundef %
 lean_obj_tag.exit:                                ; preds = %5, %8
   %.0.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i, 0
-  br i1 %11, label %common.ret156, label %12
+  br i1 %11, label %common.ret169, label %12
 
 12:                                               ; preds = %lean_obj_tag.exit
   %.val = load i32, ptr %1, align 4, !tbaa !4
@@ -437,22 +437,22 @@ lean_string_dec_eq.exit.thread:                   ; preds = %26, %lean_string_de
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %33, label %36
 
-common.ret156:                                    ; preds = %118, %125, %156, %lean_obj_tag.exit, %lean_dec.exit123, %lean_alloc_ctor.exit, %lean_dec.exit, %64, %61, %36, %33
-  %common.ret156.op = phi ptr [ %1, %33 ], [ %38, %36 ], [ %1, %61 ], [ %66, %64 ], [ %119, %118 ], [ %126, %125 ], [ %157, %156 ], [ %57, %lean_dec.exit123 ], [ %141, %lean_dec.exit ], [ %147, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
-  ret ptr %common.ret156.op
+common.ret169:                                    ; preds = %118, %125, %156, %lean_obj_tag.exit, %lean_dec.exit123, %lean_alloc_ctor.exit, %lean_dec.exit, %64, %61, %36, %33
+  %common.ret169.op = phi ptr [ %1, %33 ], [ %38, %36 ], [ %1, %61 ], [ %66, %64 ], [ %119, %118 ], [ %126, %125 ], [ %157, %156 ], [ %57, %lean_dec.exit123 ], [ %141, %lean_dec.exit ], [ %147, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+  ret ptr %common.ret169.op
 
 33:                                               ; preds = %lean_string_dec_eq.exit.thread
   %34 = tail call ptr @l_Lean_RBNode_del___at_Lake_JsonObject_erase___spec__1(ptr noundef nonnull %0, ptr noundef %21)
   store ptr %34, ptr %20, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 0, ptr %35, align 8, !tbaa !17
-  br label %common.ret156
+  br label %common.ret169
 
 36:                                               ; preds = %lean_string_dec_eq.exit.thread
   tail call void @lean_free_object(ptr noundef nonnull %1) #4
   %37 = tail call ptr @l_Lean_RBNode_del___at_Lake_JsonObject_erase___spec__1(ptr noundef nonnull %0, ptr noundef %21)
   %38 = tail call ptr @l_Lean_RBNode_balRight___rarg(ptr noundef %15, ptr noundef nonnull %17, ptr noundef %19, ptr noundef %37) #4
-  br label %common.ret156
+  br label %common.ret169
 
 lean_string_dec_eq.exit.thread148:                ; preds = %24, %lean_string_dec_eq.exit
   tail call void @lean_free_object(ptr noundef nonnull %1) #4
@@ -505,7 +505,7 @@ lean_dec.exit124:                                 ; preds = %47, %46, %44, %lean
 
 lean_dec.exit123:                                 ; preds = %56, %55, %53, %lean_dec.exit124
   %57 = tail call ptr @l_Lean_RBNode_appendTrees___rarg(ptr noundef %15, ptr noundef %21) #4
-  br label %common.ret156
+  br label %common.ret169
 
 58:                                               ; preds = %22
   %59 = tail call zeroext i8 @l_Lean_RBNode_isBlack___rarg(ptr noundef %15) #4
@@ -517,13 +517,13 @@ lean_dec.exit123:                                 ; preds = %56, %55, %53, %lean
   store ptr %62, ptr %14, align 8, !tbaa !11
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 0, ptr %63, align 8, !tbaa !17
-  br label %common.ret156
+  br label %common.ret169
 
 64:                                               ; preds = %58
   tail call void @lean_free_object(ptr noundef nonnull %1) #4
   %65 = tail call ptr @l_Lean_RBNode_del___at_Lake_JsonObject_erase___spec__1(ptr noundef %0, ptr noundef %15)
   %66 = tail call ptr @l_Lean_RBNode_balLeft___rarg(ptr noundef %65, ptr noundef %17, ptr noundef %19, ptr noundef %21) #4
-  br label %common.ret156
+  br label %common.ret169
 
 67:                                               ; preds = %12
   %68 = ptrtoint ptr %21 to i64
@@ -680,11 +680,11 @@ lean_string_dec_eq.exit147.thread:                ; preds = %110, %lean_string_d
   store ptr %117, ptr %123, align 8, !tbaa !11
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 40
   store i8 0, ptr %124, align 8, !tbaa !17
-  br label %common.ret156
+  br label %common.ret169
 
 125:                                              ; preds = %lean_string_dec_eq.exit147.thread
   %126 = tail call ptr @l_Lean_RBNode_balRight___rarg(ptr noundef %15, ptr noundef nonnull %17, ptr noundef %19, ptr noundef %117) #4
-  br label %common.ret156
+  br label %common.ret169
 
 lean_string_dec_eq.exit147.thread149:             ; preds = %108, %lean_string_dec_eq.exit147
   br i1 %.not150, label %127, label %lean_dec.exit121
@@ -730,7 +730,7 @@ lean_dec.exit121:                                 ; preds = %133, %132, %130, %l
 
 lean_dec.exit:                                    ; preds = %140, %139, %137, %lean_dec.exit121
   %141 = tail call ptr @l_Lean_RBNode_appendTrees___rarg(ptr noundef %15, ptr noundef %21) #4
-  br label %common.ret156
+  br label %common.ret169
 
 142:                                              ; preds = %lean_dec.exit122
   %143 = tail call zeroext i8 @l_Lean_RBNode_isBlack___rarg(ptr noundef %15) #4
@@ -762,11 +762,11 @@ lean_alloc_ctor.exit:                             ; preds = %146
   store ptr %19, ptr %154, align 8, !tbaa !11
   %155 = getelementptr inbounds nuw i8, ptr %147, i64 32
   store ptr %21, ptr %155, align 8, !tbaa !11
-  br label %common.ret156
+  br label %common.ret169
 
 156:                                              ; preds = %142
   %157 = tail call ptr @l_Lean_RBNode_balLeft___rarg(ptr noundef %145, ptr noundef %17, ptr noundef %19, ptr noundef %21) #4
-  br label %common.ret156
+  br label %common.ret169
 }
 
 declare zeroext i8 @l_Lean_RBNode_isBlack___rarg(ptr noundef) local_unnamed_addr #2
@@ -2518,18 +2518,18 @@ _init_l_Lake_JsonObject_get_x3f___rarg___closed__1.exit: ; preds = %_init_l_Lake
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_JsonObject_get_x3f___rarg___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %42, %_init_l_Lake_JsonObject_get_x3f___rarg___closed__1.exit ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink15 = phi ptr [ %4, %3 ], [ %42, %_init_l_Lake_JsonObject_get_x3f___rarg___closed__1.exit ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
+  store i32 1, ptr %.sink15, align 4, !tbaa !4
   store i32 131096, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %46, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !11
   br label %48
 
 48:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink15, %.sink.split ]
   ret ptr %.0
 }
 

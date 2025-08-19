@@ -1452,8 +1452,8 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit32:
   %184 = ptrtoint ptr %182 to i64
   %185 = ptrtoint ptr %183 to i64
   %186 = sub i64 %184, %185
-  %sext38 = shl i64 %186, 28
-  %187 = ashr i64 %sext38, 32
+  %sext50 = shl i64 %186, 28
+  %187 = ashr i64 %sext50, 32
   %188 = icmp slt i64 %indvars.iv.next, %187
   br i1 %188, label %35, label %._crit_edge, !llvm.loop !100
 
@@ -2979,9 +2979,9 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread: ; preds = %182
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %189 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !45
   %.not.i.i.i.i57 = icmp eq i8 %189, 0
-  br i1 %.not.i.i.i.i57, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread92
+  br i1 %.not.i.i.i.i57, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread116
 
-_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread92: ; preds = %187
+_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread116: ; preds = %187
   %190 = load i32, ptr %188, align 4, !tbaa !79
   %191 = add nsw i32 %190, 1
   store i32 %191, ptr %188, align 4, !tbaa !79
@@ -3000,9 +3000,9 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58: ; preds = %187
   %.not.i.i.i.i.i59 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i.i59, label %_ZN5arrow8internal20checked_pointer_castINS_13ExtensionTypeENS_8DataTypeEEESt10shared_ptrIT_ES4_IT0_E.exit, label %193
 
-193:                                              ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread92, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58
-  %.pr95 = phi ptr [ %186, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread92 ], [ %.pr.pre, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58 ]
-  %194 = getelementptr inbounds nuw i8, ptr %.pr95, i64 8
+193:                                              ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread116, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58
+  %.pr119 = phi ptr [ %186, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58.thread116 ], [ %.pr.pre, %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit58 ]
+  %194 = getelementptr inbounds nuw i8, ptr %.pr119, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !45, !noalias !191
   %.not.i.i.i.i.i.i60 = icmp eq i8 %195, 0
   br i1 %.not.i.i.i.i.i.i60, label %199, label %196

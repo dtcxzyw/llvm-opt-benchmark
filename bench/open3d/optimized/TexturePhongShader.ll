@@ -1892,8 +1892,8 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit187:            ; preds = %._ZNSt6vectorIjSaIj
   %.pre-phi480 = phi i64 [ %.pre479, %._ZNSt6vectorIjSaIjEE6resizeEm.exit187_crit_edge ], [ %.pre-phi478, %_ZSt8_DestroyIPjjEvT_S1_RSaIT0_E.exit.i.i185 ], [ %.pre-phi478, %251 ], [ %.pre-phi478, %249 ]
   %253 = phi i32 [ %.pre469, %._ZNSt6vectorIjSaIjEE6resizeEm.exit187_crit_edge ], [ %237, %_ZSt8_DestroyIPjjEvT_S1_RSaIT0_E.exit.i.i185 ], [ %237, %251 ], [ %237, %249 ]
   %254 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.not481 = icmp eq i64 %.pre-phi480, 0
-  br i1 %.not481, label %_ZNSt6vectorIS_IN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEESaIS2_EESaIS4_EE6resizeEm.exit, label %255
+  %.not577 = icmp eq i64 %.pre-phi480, 0
+  br i1 %.not577, label %_ZNSt6vectorIS_IN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEESaIS2_EESaIS4_EE6resizeEm.exit, label %255
 
 255:                                              ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit187
   %256 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -2446,19 +2446,19 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit2
   %472 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d13visualization7gl_utilL19texture_format_map_E, i64 24), align 8, !tbaa !148
   %.not.not.i.i = icmp eq i64 %472, 0
   %473 = load i32, ptr %471, align 4
-  br i1 %.not.not.i.i, label %.preheader503, label %478
+  br i1 %.not.not.i.i, label %.preheader599, label %478
 
-.preheader503:                                    ; preds = %468, %474
+.preheader599:                                    ; preds = %468, %474
   %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %474 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6open3d13visualization7gl_utilL19texture_format_map_E, i64 16), %468 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !156
   %.not.i.i255 = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i255, label %.loopexit384.invoke, label %474
 
-474:                                              ; preds = %.preheader503
+474:                                              ; preds = %.preheader599
   %475 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %476 = load i32, ptr %475, align 4, !tbaa !57
   %477 = icmp eq i32 %473, %476
-  br i1 %477, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit, label %.preheader503, !llvm.loop !157
+  br i1 %477, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit, label %.preheader599, !llvm.loop !157
 
 478:                                              ; preds = %468
   %479 = sext i32 %473 to i64
@@ -2498,9 +2498,9 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit2
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %493
   br label %.loopexit384.invoke, !llvm.loop !161
 
-.loopexit384.invoke:                              ; preds = %478, %511, %.lr.ph.i.i.i.i254, %.preheader503, %.lr.ph.i.i.i.i258, %.preheader500, %..loopexit_crit_edge21.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i262
-  %498 = phi i32 [ 318, %..loopexit_crit_edge21.i.i.i.i262 ], [ 310, %..loopexit_crit_edge21.i.i.i.i ], [ 318, %.preheader500 ], [ 318, %.lr.ph.i.i.i.i258 ], [ 310, %.preheader503 ], [ 310, %.lr.ph.i.i.i.i254 ], [ 318, %511 ], [ 310, %478 ]
-  %499 = phi ptr [ @.str.30, %..loopexit_crit_edge21.i.i.i.i262 ], [ @.str.29, %..loopexit_crit_edge21.i.i.i.i ], [ @.str.30, %.preheader500 ], [ @.str.30, %.lr.ph.i.i.i.i258 ], [ @.str.29, %.preheader503 ], [ @.str.29, %.lr.ph.i.i.i.i254 ], [ @.str.30, %511 ], [ @.str.29, %478 ]
+.loopexit384.invoke:                              ; preds = %478, %511, %.lr.ph.i.i.i.i254, %.preheader599, %.lr.ph.i.i.i.i258, %.preheader596, %..loopexit_crit_edge21.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i262
+  %498 = phi i32 [ 318, %..loopexit_crit_edge21.i.i.i.i262 ], [ 310, %..loopexit_crit_edge21.i.i.i.i ], [ 318, %.preheader596 ], [ 318, %.lr.ph.i.i.i.i258 ], [ 310, %.preheader599 ], [ 310, %.lr.ph.i.i.i.i254 ], [ 318, %511 ], [ 310, %478 ]
+  %499 = phi ptr [ @.str.30, %..loopexit_crit_edge21.i.i.i.i262 ], [ @.str.29, %..loopexit_crit_edge21.i.i.i.i ], [ @.str.30, %.preheader596 ], [ @.str.30, %.lr.ph.i.i.i.i258 ], [ @.str.29, %.preheader599 ], [ @.str.29, %.lr.ph.i.i.i.i254 ], [ @.str.30, %511 ], [ @.str.29, %478 ]
   invoke void @_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.28, i32 noundef %498, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d13visualization4glsl33TexturePhongShaderForTriangleMesh14PrepareBindingERKNS_8geometry8GeometryERKNS0_12RenderOptionERKNS0_11ViewControlERSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaISG_EESJ_RSD_INSF_IfLi2ELi1ELi0ELi2ELi1EEESaISK_EE, ptr noundef nonnull %499)
           to label %.critedge unwind label %.loopexit.split-lp
 
@@ -2527,19 +2527,19 @@ _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
   %505 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6open3d13visualization7gl_utilL17texture_type_map_E, i64 24), align 8, !tbaa !148
   %.not.not.i.i256 = icmp eq i64 %505, 0
   %506 = load i32, ptr %504, align 4
-  br i1 %.not.not.i.i256, label %.preheader500, label %511
+  br i1 %.not.not.i.i256, label %.preheader596, label %511
 
-.preheader500:                                    ; preds = %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit, %507
+.preheader596:                                    ; preds = %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit, %507
   %.sroa.06.0.in.i.i264 = phi ptr [ %.sroa.06.0.i.i265, %507 ], [ getelementptr inbounds nuw (i8, ptr @_ZN6open3d13visualization7gl_utilL17texture_type_map_E, i64 16), %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit ]
   %.sroa.06.0.i.i265 = load ptr, ptr %.sroa.06.0.in.i.i264, align 8, !tbaa !156
   %.not.i.i266 = icmp eq ptr %.sroa.06.0.i.i265, null
   br i1 %.not.i.i266, label %.loopexit384.invoke, label %507
 
-507:                                              ; preds = %.preheader500
+507:                                              ; preds = %.preheader596
   %508 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i265, i64 8
   %509 = load i32, ptr %508, align 4, !tbaa !57
   %510 = icmp eq i32 %506, %509
-  br i1 %510, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit267, label %.preheader500, !llvm.loop !157
+  br i1 %510, label %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit267, label %.preheader596, !llvm.loop !157
 
 511:                                              ; preds = %_ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
   %512 = sext i32 %506 to i64
@@ -2667,7 +2667,7 @@ _ZNKSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEE4findERS5_.exit
 
 .lr.ph439.ph:                                     ; preds = %.lr.ph439.lver.check
   %load_initial = load i32, ptr %555, align 4
-  %load_initial523 = load i32, ptr %546, align 4
+  %load_initial619 = load i32, ptr %546, align 4
   br label %.lr.ph439
 
 ._crit_edge:                                      ; preds = %.lr.ph439, %.lr.ph439.lver.orig, %.critedge133
@@ -2709,7 +2709,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit272: ; p
   br i1 %588, label %.lr.ph441, label %._crit_edge442
 
 .lr.ph439:                                        ; preds = %.lr.ph439.ph, %.lr.ph439
-  %store_forwarded524 = phi i32 [ %load_initial523, %.lr.ph439.ph ], [ %599, %.lr.ph439 ]
+  %store_forwarded620 = phi i32 [ %load_initial619, %.lr.ph439.ph ], [ %599, %.lr.ph439 ]
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph439.ph ], [ %597, %.lr.ph439 ]
   %indvars.iv459 = phi i64 [ 1, %.lr.ph439.ph ], [ %indvars.iv.next460, %.lr.ph439 ]
   %589 = getelementptr inbounds nuw %"class.std::vector.36", ptr %275, i64 %indvars.iv459
@@ -2723,7 +2723,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE5clearEv.exit272: ; p
   %597 = trunc i64 %596 to i32
   %598 = getelementptr inbounds nuw i32, ptr %555, i64 %indvars.iv459
   store i32 %597, ptr %598, align 4, !tbaa !57
-  %599 = add nsw i32 %store_forwarded, %store_forwarded524
+  %599 = add nsw i32 %store_forwarded, %store_forwarded620
   %600 = getelementptr inbounds nuw i32, ptr %546, i64 %indvars.iv459
   store i32 %599, ptr %600, align 4, !tbaa !57
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
@@ -4001,13 +4001,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !57
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !57
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -4108,13 +4108,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !57
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !57
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

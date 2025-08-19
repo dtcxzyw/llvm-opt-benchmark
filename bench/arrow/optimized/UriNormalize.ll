@@ -120,8 +120,8 @@ uriContainsUppercaseLettersA.exit:                ; preds = %.preheader.i, %12
   %or.cond18.i217 = icmp ult i8 %28, -26
   %29 = getelementptr inbounds nuw i8, ptr %.01220.i216, i64 1
   %exitcond.not.i218 = icmp ne ptr %29, %24
-  %or.cond339.not = select i1 %or.cond18.i217, i1 %exitcond.not.i218, i1 false
-  br i1 %or.cond339.not, label %.preheader.i215, label %uriContainsUppercaseLettersA.exit219, !llvm.loop !18
+  %or.cond415.not = select i1 %or.cond18.i217, i1 %exitcond.not.i218, i1 false
+  br i1 %or.cond415.not, label %.preheader.i215, label %uriContainsUppercaseLettersA.exit219, !llvm.loop !18
 
 uriContainsUppercaseLettersA.exit219:             ; preds = %.preheader.i215, %uriContainsUppercaseLettersA.exit
   %.not183 = phi i1 [ true, %uriContainsUppercaseLettersA.exit ], [ %or.cond18.i217, %.preheader.i215 ]
@@ -1448,8 +1448,8 @@ uriContainsUppercaseLettersW.exit:                ; preds = %.preheader.i, %12
   %or.cond18.i217 = icmp ult i32 %29, -26
   %30 = getelementptr inbounds nuw i8, ptr %.01220.i216, i64 4
   %31 = icmp ult ptr %30, %25
-  %or.cond334 = select i1 %or.cond18.i217, i1 %31, i1 false
-  br i1 %or.cond334, label %.preheader.i215, label %uriContainsUppercaseLettersW.exit218, !llvm.loop !61
+  %or.cond410 = select i1 %or.cond18.i217, i1 %31, i1 false
+  br i1 %or.cond410, label %.preheader.i215, label %uriContainsUppercaseLettersW.exit218, !llvm.loop !61
 
 uriContainsUppercaseLettersW.exit218:             ; preds = %.preheader.i215, %uriContainsUppercaseLettersW.exit
   %.not183 = phi i1 [ true, %uriContainsUppercaseLettersW.exit ], [ %or.cond18.i217, %.preheader.i215 ]

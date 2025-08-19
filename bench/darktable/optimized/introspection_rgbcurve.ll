@@ -1466,9 +1466,8 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   br i1 %77, label %.lr.ph37.preheader.i, label %.thread.._crit_edge38_crit_edge.i
 
 .thread.._crit_edge38_crit_edge.i:                ; preds = %76, %.thread.i
-  %.247.i = phi i64 [ %indvars.iv.i, %.thread.i ], [ 5, %76 ]
-  %sext75 = shl i64 %.247.i, 32
-  %.pre44.i = ashr exact i64 %sext75, 32
+  %.248.i = phi i64 [ %indvars.iv.i, %.thread.i ], [ 5, %76 ]
+  %.pre44.i = and i64 %.248.i, 4294967295
   br label %_add_node.exit
 
 .lr.ph37.preheader.i:                             ; preds = %54, %.thread.i
@@ -1716,8 +1715,8 @@ dt_ioppr_get_rgb_matrix_luminance.exit:           ; preds = %79, %dt_ioppr_apply
   br i1 %134, label %.lr.ph37.preheader.i, label %.thread.._crit_edge38_crit_edge.i
 
 .thread.._crit_edge38_crit_edge.i:                ; preds = %132, %.thread.i, %.preheader.i
-  %.247.i = phi i32 [ %.2.i, %.thread.i ], [ %.pre.i, %.preheader.i ], [ %.pre.i, %132 ]
-  %.pre44.i = sext i32 %.247.i to i64
+  %.248.i = phi i32 [ %.2.i, %.thread.i ], [ %.pre.i, %.preheader.i ], [ %.pre.i, %132 ]
+  %.pre44.i = sext i32 %.248.i to i64
   br label %_add_node.exit
 
 .lr.ph37.preheader.i:                             ; preds = %.thread.i
@@ -1792,8 +1791,8 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br i1 %13, label %.lr.ph37.preheader, label %.thread.._crit_edge38_crit_edge
 
 .thread.._crit_edge38_crit_edge:                  ; preds = %11, %.preheader, %.thread
-  %.247 = phi i32 [ %.2, %.thread ], [ %.pre, %.preheader ], [ %.pre, %11 ]
-  %.pre44 = sext i32 %.247 to i64
+  %.248 = phi i32 [ %.2, %.thread ], [ %.pre, %.preheader ], [ %.pre, %11 ]
+  %.pre44 = sext i32 %.248 to i64
   br label %._crit_edge38
 
 .lr.ph37.preheader:                               ; preds = %.thread
@@ -1802,7 +1801,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   br label %.lr.ph37
 
 ._crit_edge38:                                    ; preds = %.lr.ph37, %.thread.._crit_edge38_crit_edge
-  %.246 = phi i32 [ %.247, %.thread.._crit_edge38_crit_edge ], [ %.2, %.lr.ph37 ]
+  %.247 = phi i32 [ %.248, %.thread.._crit_edge38_crit_edge ], [ %.2, %.lr.ph37 ]
   %.pre-phi = phi i64 [ %.pre44, %.thread.._crit_edge38_crit_edge ], [ %15, %.lr.ph37 ]
   %16 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %0, i64 %.pre-phi
   store float %2, ptr %16, align 4, !tbaa !15
@@ -1810,7 +1809,7 @@ define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef
   store float %3, ptr %17, align 4, !tbaa !17
   %18 = add nsw i32 %.pre, 1
   store i32 %18, ptr %1, align 4, !tbaa !6
-  ret i32 %.246
+  ret i32 %.247
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
   %indvars.iv41 = phi i64 [ %14, %.lr.ph37.preheader ], [ %indvars.iv.next42, %.lr.ph37 ]

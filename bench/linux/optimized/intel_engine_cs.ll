@@ -5255,7 +5255,7 @@ define internal fastcc void @hexdump(ptr noundef %0, ptr noundef %1, i64 noundef
   br label %24
 
 24:                                               ; preds = %23, %16, %14
-  %25 = phi i8 [ 0, %23 ], [ %7, %14 ], [ 1, %16 ]
+  %25 = phi i8 [ 0, %23 ], [ 1, %14 ], [ 1, %16 ]
   %26 = phi ptr [ %18, %23 ], [ %6, %14 ], [ %6, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = add i64 %8, 32

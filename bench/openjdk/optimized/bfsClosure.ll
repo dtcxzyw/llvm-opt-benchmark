@@ -3378,14 +3378,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #12, !srcloc !12
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #12, !srcloc !12
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -3807,14 +3807,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #12, !srcloc !12
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #12, !srcloc !12
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -3954,10 +3954,10 @@ _ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT
   unreachable
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %61, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i15, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i
-  %.sink18 = phi i64 [ %41, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i ], [ %57, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i15 ], [ %65, %61 ]
-  %.sink17 = phi ptr [ %44, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i ], [ %60, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i15 ], [ %68, %61 ]
-  %71 = shl i64 %.sink18, 1
-  tail call void @_ZN10BFSClosure12closure_implE13UnifiedOopRefP7oopDesc(ptr noundef nonnull align 8 dereferenceable(81) %2, i64 %71, ptr noundef nonnull %.sink17)
+  %.sink24 = phi i64 [ %41, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i ], [ %57, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i15 ], [ %65, %61 ]
+  %.sink23 = phi ptr [ %44, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i ], [ %60, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i15 ], [ %68, %61 ]
+  %71 = shl i64 %.sink24, 1
+  tail call void @_ZN10BFSClosure12closure_implE13UnifiedOopRefP7oopDesc(ptr noundef nonnull align 8 dereferenceable(81) %2, i64 %71, ptr noundef nonnull %.sink23)
   br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split, %61, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i15, %_ZN16InstanceRefKlass11do_referentIP7oopDesc10BFSClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc10BFSClosureEEbS2_13ReferenceTypePT0_.exit.i
@@ -4478,7 +4478,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !38
 
 57:                                               ; preds = %54
-  %58 = shl i64 %52, 6
+  %58 = shl nuw i64 %52, 6
   br label %59
 
 59:                                               ; preds = %57, %50
@@ -4691,7 +4691,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %57, !llvm.loop !38
 
 57:                                               ; preds = %54
-  %58 = shl i64 %52, 6
+  %58 = shl nuw i64 %52, 6
   br label %59
 
 59:                                               ; preds = %57, %50

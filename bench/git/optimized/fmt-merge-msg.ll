@@ -737,11 +737,11 @@ skip_prefix.exit83.i:                             ; preds = %235
   br label %sub_0.i
 
 sub_0.i:                                          ; preds = %skip_prefix.exit83.i, %240, %232, %222, %214
-  %.sink116.i = phi i32 [ 2, %232 ], [ 2, %skip_prefix.exit83.i ], [ 2, %240 ], [ 2, %222 ], [ 1, %214 ]
+  %.sink118.i = phi i32 [ 2, %232 ], [ 2, %skip_prefix.exit83.i ], [ 2, %240 ], [ 2, %222 ], [ 1, %214 ]
   %.090.i = phi ptr [ %192, %232 ], [ %.059.i53, %skip_prefix.exit83.i ], [ %scevgep112.i, %240 ], [ %scevgep.i, %222 ], [ %.059.i53, %214 ]
   %245 = getelementptr inbounds nuw i8, ptr %216, i64 160
   %246 = load i32, ptr %245, align 8, !tbaa !60
-  %247 = or i32 %246, %.sink116.i
+  %247 = or i32 %246, %.sink118.i
   store i32 %247, ptr %245, align 8, !tbaa !60
   %248 = load i8, ptr %.059.i53, align 1
   %249 = zext i8 %248 to i32
@@ -975,8 +975,8 @@ sub_1.i68:                                        ; preds = %sub_0.i60
   %353 = load ptr, ptr @suppress_dest_patterns, align 8, !tbaa !66
   %.not7.i.i = icmp eq ptr %353, null
   %354 = load i64, ptr getelementptr inbounds nuw (i8, ptr @suppress_dest_patterns, i64 8), align 8
-  %.not54.i65 = icmp eq i64 %354, 0
-  %or.cond.i = select i1 %.not7.i.i, i1 true, i1 %.not54.i65
+  %.not57.i65 = icmp eq i64 %354, 0
+  %or.cond.i = select i1 %.not7.i.i, i1 true, i1 %.not57.i65
   br i1 %or.cond.i, label %.loopexit.i66, label %.lr.ph51.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph51.i
@@ -1424,8 +1424,8 @@ strbuf_complete_line.exit:                        ; preds = %463, %472, %strbuf_
   %.pre79.i = load i8, ptr %2, align 8
   %537 = and i8 %.pre79.i, 2
   %.not67.i101 = icmp eq i8 %537, 0
-  %or.cond80.i = select i1 %.not66.i100, i1 true, i1 %.not67.i101
-  br i1 %or.cond80.i, label %539, label %538
+  %or.cond86.i = select i1 %.not66.i100, i1 true, i1 %.not67.i101
+  br i1 %or.cond86.i, label %539, label %538
 
 538:                                              ; preds = %536
   call fastcc void @record_person(i32 noundef 99, ptr noundef %7, ptr noundef %526)

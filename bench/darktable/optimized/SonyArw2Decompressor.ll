@@ -130,8 +130,8 @@ define hidden void @_ZN8rawspeed20SonyArw2DecompressorC2ENS_8RawImageENS_10ByteS
   %35 = icmp samesign ugt i32 %27, 9600
   %or.cond = or i1 %35, %.not5
   %36 = icmp samesign ugt i32 %30, 6376
-  %or.cond7 = select i1 %or.cond, i1 true, i1 %36
-  br i1 %or.cond7, label %37, label %39
+  %or.cond8 = select i1 %or.cond, i1 true, i1 %36
+  br i1 %or.cond8, label %37, label %39
 
 37:                                               ; preds = %33, %25
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20SonyArw2DecompressorC2ENS_8RawImageENS_10ByteStreamE, i32 noundef %27, i32 noundef %30) #14

@@ -198,8 +198,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !24, !noalias !21
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !24, !noalias !21
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 15:                                               ; preds = %6
@@ -211,13 +211,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !24, !noalias !21
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !24, !noalias !21
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !24, !noalias !21
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !24, !noalias !21
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 26:                                               ; preds = %6
@@ -494,7 +494,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h9cc0afff644bf853E.exit.i.i.i.i.i.i.i": ; preds = %78
   %80 = add nsw i64 %79, -1
-  %81 = getelementptr inbounds [0 x i8], ptr %8, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1, !alias.scope !80, !noalias !81, !noundef !5
   %.not.i.not.i.i.i.i.i.i.i = icmp eq i8 %82, %62
   br i1 %.not.i.not.i.i.i.i.i.i.i, label %78, label %83
@@ -513,12 +513,12 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   br label %.thread128.i.i.i.i.i.i
 
 .thread128.i.i.i.i.i.i:                           ; preds = %87, %.thread.i.i.i.i.i.i
-  %.sink100.i.i.i.i = phi i8 [ %62, %87 ], [ %67, %.thread.i.i.i.i.i.i ]
+  %.sink130.i.i.i.i = phi i8 [ %62, %87 ], [ %67, %.thread.i.i.i.i.i.i ]
   %89 = phi i64 [ %77, %87 ], [ 1, %.thread.i.i.i.i.i.i ]
   %90 = phi i64 [ %63, %87 ], [ 2, %.thread.i.i.i.i.i.i ]
   %91 = phi <1 x i8> [ %88, %87 ], [ %86, %.thread.i.i.i.i.i.i ]
   %storemerge127130.i.i.i.i.i.i = phi i64 [ %80, %87 ], [ 1, %.thread.i.i.i.i.i.i ]
-  %92 = insertelement <1 x i8> poison, i8 %.sink100.i.i.i.i, i64 0
+  %92 = insertelement <1 x i8> poison, i8 %.sink130.i.i.i.i, i64 0
   %93 = shufflevector <1 x i8> %92, <1 x i8> poison, <16 x i32> zeroinitializer
   %94 = shufflevector <1 x i8> %91, <1 x i8> poison, <16 x i32> zeroinitializer
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !89
@@ -553,7 +553,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %103 = shl nuw nsw i64 %.sroa.022.0142.i.i.i.i.i.i, 4
   %104 = getelementptr i8, ptr %100, i64 %103
   %.0.copyload.i.i.i.i.i.i.i = load <16 x i8>, ptr %104, align 1, !alias.scope !90, !noalias !91
-  %105 = getelementptr inbounds i8, ptr %104, i64 %storemerge127130.i.i.i.i.i.i
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %storemerge127130.i.i.i.i.i.i
   %.0.copyload2.i.i.i.i.i.i.i = load <16 x i8>, ptr %105, align 1, !alias.scope !90, !noalias !91
   %106 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i.i.i, %93
   %107 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i.i.i, %94
@@ -602,7 +602,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %128 = add i64 %127, -16
   %129 = getelementptr inbounds i8, ptr %1, i64 %128
   %.0.copyload.i84.i.i.i.i.i.i = load <16 x i8>, ptr %129, align 1, !alias.scope !90, !noalias !94
-  %130 = getelementptr inbounds i8, ptr %129, i64 %storemerge127130.i.i.i.i.i.i
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %storemerge127130.i.i.i.i.i.i
   %.0.copyload2.i85.i.i.i.i.i.i = load <16 x i8>, ptr %130, align 1, !alias.scope !90, !noalias !94
   %131 = icmp eq <16 x i8> %.0.copyload.i84.i.i.i.i.i.i, %93
   %132 = icmp eq <16 x i8> %.0.copyload2.i85.i.i.i.i.i.i, %94
@@ -615,7 +615,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %.166149.i.i.i.i.i.i = phi i64 [ %144, %143 ], [ %.065.lcssa.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ]
   %136 = getelementptr inbounds i8, ptr %1, i64 %.166149.i.i.i.i.i.i
   %.0.copyload.i86.i.i.i.i.i.i = load <16 x i8>, ptr %136, align 1, !alias.scope !90, !noalias !97
-  %137 = getelementptr inbounds i8, ptr %136, i64 %storemerge127130.i.i.i.i.i.i
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %storemerge127130.i.i.i.i.i.i
   %.0.copyload2.i87.i.i.i.i.i.i = load <16 x i8>, ptr %137, align 1, !alias.scope !90, !noalias !97
   %138 = icmp eq <16 x i8> %.0.copyload.i86.i.i.i.i.i.i, %93
   %139 = icmp eq <16 x i8> %.0.copyload2.i87.i.i.i.i.i.i, %94
@@ -829,7 +829,7 @@ _ZN4core3str11validations15next_code_point17h92873b5c146db81bE.exit.thread.i.i.i
   br label %238
 
 238:                                              ; preds = %.sink.split.i.i.i.i.i.i, %.lr.ph.i44.i.i.i.i.i
-  %239 = phi i64 [ %.promoted.i41.i.i.i.i.i, %.lr.ph.i44.i.i.i.i.i ], [ %.ph83.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
+  %239 = phi i64 [ %.promoted.i41.i.i.i.i.i, %.lr.ph.i44.i.i.i.i.i ], [ %.ph90.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
   %240 = phi i64 [ %225, %.lr.ph.i44.i.i.i.i.i ], [ %.sink.i.i.i.i.i.i, %.sink.split.i.i.i.i.i.i ]
   %241 = phi i64 [ %233, %.lr.ph.i44.i.i.i.i.i ], [ %252, %.sink.split.i.i.i.i.i.i ]
   %242 = getelementptr inbounds i8, ptr %227, i64 %241
@@ -851,8 +851,8 @@ _ZN4core3str11validations15next_code_point17h92873b5c146db81bE.exit.thread.i.i.i
 
 .sink.split.i.i.i.i.i.i:                          ; preds = %279, %267, %249
   %.sink.i.i.i.i.i.i = phi i64 [ %237, %267 ], [ 0, %279 ], [ 0, %249 ]
-  %.ph83.i.i.i.i.i.i = phi i64 [ %268, %267 ], [ %281, %279 ], [ %250, %249 ]
-  %252 = add i64 %.ph83.i.i.i.i.i.i, %231
+  %.ph90.i.i.i.i.i.i = phi i64 [ %268, %267 ], [ %281, %279 ], [ %250, %249 ]
+  %252 = add i64 %.ph90.i.i.i.i.i.i, %231
   %.not37.i.i.i.i.i.i = icmp ult i64 %252, %228
   br i1 %.not37.i.i.i.i.i.i, label %238, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h39dd9c4a3b4b9ae9E.exit.i.i.i.i.i"
 

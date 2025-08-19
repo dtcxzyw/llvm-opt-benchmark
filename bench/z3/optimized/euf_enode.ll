@@ -599,8 +599,8 @@ define hidden noundef ptr @_ZN3euf5enode19get_closest_th_nodeEi(ptr noundef nonn
   br i1 %12, label %.preheader.i.i._ZNK3euf5enode10get_th_varEi.exit_crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.i.i.preheader, %.preheader.i.ithread-pre-split
-  %.0.i.i24 = phi ptr [ %14, %.preheader.i.ithread-pre-split ], [ %4, %.preheader.i.i.preheader ]
-  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i24, i64 8
+  %.0.i.i25 = phi ptr [ %14, %.preheader.i.ithread-pre-split ], [ %4, %.preheader.i.i.preheader ]
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i25, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !43
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZNK3euf5enode10get_th_varEi.exit.thread, label %.preheader.i.ithread-pre-split, !llvm.loop !44

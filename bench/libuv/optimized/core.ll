@@ -891,7 +891,7 @@ uv__cloexec.exit:                                 ; preds = %28, %..critedge.i25
 
 uv__cloexec.exit.thread:                          ; preds = %uv__nonblock_ioctl.exit, %uv__cloexec.exit
   %32 = phi i32 [ %31, %uv__cloexec.exit ], [ %24, %uv__nonblock_ioctl.exit ]
-  %.035 = sub nsw i32 0, %32
+  %.042 = sub nsw i32 0, %32
   %33 = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %13) #23
   %34 = and i64 %33, 4294967295
   %35 = icmp eq i64 %34, 4294967295
@@ -902,7 +902,7 @@ uv__cloexec.exit.thread:                          ; preds = %uv__nonblock_ioctl.
   br label %uv__close.exit
 
 uv__close.exit:                                   ; preds = %26, %36, %uv__cloexec.exit.thread, %uv__cloexec.exit, %3, %15, %10
-  %.017 = phi i32 [ %11, %10 ], [ %17, %15 ], [ %6, %3 ], [ %13, %uv__cloexec.exit ], [ %.035, %uv__cloexec.exit.thread ], [ %.035, %36 ], [ %13, %26 ]
+  %.017 = phi i32 [ %11, %10 ], [ %17, %15 ], [ %6, %3 ], [ %13, %uv__cloexec.exit ], [ %.042, %uv__cloexec.exit.thread ], [ %.042, %36 ], [ %13, %26 ]
   ret i32 %.017
 }
 

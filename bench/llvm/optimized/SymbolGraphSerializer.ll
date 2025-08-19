@@ -1524,8 +1524,8 @@ switch.lookup:                                    ; preds = %5
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.28, i64 0, i64 %33
   %switch.load = load i64, ptr %switch.gep, align 8
   %34 = zext nneg i32 %1 to i64
-  %switch.gep70 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.29, i64 0, i64 %34
-  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %switch.gep94 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.29, i64 0, i64 %34
+  %switch.load95 = load ptr, ptr %switch.gep94, align 8
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !106
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -1537,13 +1537,13 @@ switch.lookup:                                    ; preds = %5
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %switch.lookup
-  %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %switch.load71, i64 noundef %switch.load) #18
+  %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %switch.load95, i64 noundef %switch.load) #18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %44, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !107
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 45:                                               ; preds = %switch.lookup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %switch.load71, i64 %switch.load, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %switch.load95, i64 %switch.load, i1 false)
   %46 = load ptr, ptr %37, align 8, !tbaa !107
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load
   store ptr %47, ptr %37, align 8, !tbaa !107
@@ -1959,12 +1959,12 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit50:               ; preds = %_ZN4llvm4json9Objec
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %207 = zext nneg i32 %1 to i64
-  %switch.gep73 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.28, i64 0, i64 %207
-  %switch.load74 = load i64, ptr %switch.gep73, align 8
+  %switch.gep97 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.28, i64 0, i64 %207
+  %switch.load98 = load i64, ptr %switch.gep97, align 8
   %208 = zext nneg i32 %1 to i64
-  %switch.gep75 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.29, i64 0, i64 %208
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr nonnull %switch.load76, i64 %switch.load74)
+  %switch.gep99 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang10extractapi21SymbolGraphSerializer21serializeRelationshipENS1_16RelationshipKindERKNS0_15SymbolReferenceES5_RNS0_14ExtendedModuleE.29, i64 0, i64 %208
+  %switch.load100 = load ptr, ptr %switch.gep99, align 8
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr nonnull %switch.load100, i64 %switch.load98)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr nonnull @.str.14, i64 4)
   %209 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %21) #18
@@ -2309,9 +2309,9 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit.i:               ; preds = %_ZNKSt14default_del
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %112
   %switch.load = load i64, ptr %switch.gep, align 8
   %113 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep121 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %113
-  %switch.load122 = load ptr, ptr %switch.gep121, align 8
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr nonnull %switch.load122, i64 %switch.load)
+  %switch.gep229 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %113
+  %switch.load230 = load ptr, ptr %switch.gep229, align 8
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr nonnull %switch.load230, i64 %switch.load)
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !128
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr nonnull @.str.52, i64 17)
   %114 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %58) #18
@@ -5201,24 +5201,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE23traverseName
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalFunctionRecordEPKNS0_20GlobalFunctionRecordE.exit: ; preds = %14
   %19 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i156 = icmp eq ptr %19, null
-  br i1 %.not.i156, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %20
+  %.not.i157 = icmp eq ptr %19, null
+  br i1 %.not.i157, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %20
 
 20:                                               ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalFunctionRecordEPKNS0_20GlobalFunctionRecordE.exit
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sroa.0.017.i157 = load ptr, ptr %21, align 8, !tbaa !198
-  %.not1618.i158 = icmp eq ptr %.sroa.0.017.i157, null
-  br i1 %.not1618.i158, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i159
+  %.sroa.0.017.i158 = load ptr, ptr %21, align 8, !tbaa !198
+  %.not1618.i159 = icmp eq ptr %.sroa.0.017.i158, null
+  br i1 %.not1618.i159, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i160
 
-22:                                               ; preds = %.lr.ph.i159
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i160, i64 360
-  %.sroa.0.0.i162 = load ptr, ptr %23, align 8, !tbaa !198
-  %.not16.i163 = icmp eq ptr %.sroa.0.0.i162, null
-  br i1 %.not16.i163, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i159
+22:                                               ; preds = %.lr.ph.i160
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i161, i64 360
+  %.sroa.0.0.i163 = load ptr, ptr %23, align 8, !tbaa !198
+  %.not16.i164 = icmp eq ptr %.sroa.0.0.i163, null
+  br i1 %.not16.i164, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i160
 
-.lr.ph.i159:                                      ; preds = %20, %22
-  %.sroa.0.019.i160 = phi ptr [ %.sroa.0.0.i162, %22 ], [ %.sroa.0.017.i157, %20 ]
-  %24 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i160)
+.lr.ph.i160:                                      ; preds = %20, %22
+  %.sroa.0.019.i161 = phi ptr [ %.sroa.0.0.i163, %22 ], [ %.sroa.0.017.i158, %20 ]
+  %24 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i161)
   br i1 %24, label %22, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 25:                                               ; preds = %2
@@ -5232,24 +5232,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlob
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalFunctionTemplateRecordEPKNS0_28GlobalFunctionTemplateRecordE.exit: ; preds = %25
   %31 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i165 = icmp eq ptr %31, null
-  br i1 %.not.i165, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %32
+  %.not.i166 = icmp eq ptr %31, null
+  br i1 %.not.i166, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %32
 
 32:                                               ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalFunctionTemplateRecordEPKNS0_28GlobalFunctionTemplateRecordE.exit
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.0.017.i166 = load ptr, ptr %33, align 8, !tbaa !198
-  %.not1618.i167 = icmp eq ptr %.sroa.0.017.i166, null
-  br i1 %.not1618.i167, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i168
+  %.sroa.0.017.i167 = load ptr, ptr %33, align 8, !tbaa !198
+  %.not1618.i168 = icmp eq ptr %.sroa.0.017.i167, null
+  br i1 %.not1618.i168, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i169
 
-34:                                               ; preds = %.lr.ph.i168
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i169, i64 360
-  %.sroa.0.0.i171 = load ptr, ptr %35, align 8, !tbaa !198
-  %.not16.i172 = icmp eq ptr %.sroa.0.0.i171, null
-  br i1 %.not16.i172, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i168
+34:                                               ; preds = %.lr.ph.i169
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i170, i64 360
+  %.sroa.0.0.i172 = load ptr, ptr %35, align 8, !tbaa !198
+  %.not16.i173 = icmp eq ptr %.sroa.0.0.i172, null
+  br i1 %.not16.i173, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i169
 
-.lr.ph.i168:                                      ; preds = %32, %34
-  %.sroa.0.019.i169 = phi ptr [ %.sroa.0.0.i171, %34 ], [ %.sroa.0.017.i166, %32 ]
-  %36 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i169)
+.lr.ph.i169:                                      ; preds = %32, %34
+  %.sroa.0.019.i170 = phi ptr [ %.sroa.0.0.i172, %34 ], [ %.sroa.0.017.i167, %32 ]
+  %36 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i170)
   br i1 %36, label %34, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 37:                                               ; preds = %2
@@ -5262,98 +5262,98 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlob
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalFunctionTemplateSpecializationRecordEPKNS0_42GlobalFunctionTemplateSpecializationRecordE.exit: ; preds = %37
   %42 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i174 = icmp eq ptr %42, null
-  br i1 %.not.i174, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %43
+  %.not.i175 = icmp eq ptr %42, null
+  br i1 %.not.i175, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %43
 
 43:                                               ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalFunctionTemplateSpecializationRecordEPKNS0_42GlobalFunctionTemplateSpecializationRecordE.exit
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %.sroa.0.017.i175 = load ptr, ptr %44, align 8, !tbaa !198
-  %.not1618.i176 = icmp eq ptr %.sroa.0.017.i175, null
-  br i1 %.not1618.i176, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i177
+  %.sroa.0.017.i176 = load ptr, ptr %44, align 8, !tbaa !198
+  %.not1618.i177 = icmp eq ptr %.sroa.0.017.i176, null
+  br i1 %.not1618.i177, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i178
 
-45:                                               ; preds = %.lr.ph.i177
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i178, i64 360
-  %.sroa.0.0.i180 = load ptr, ptr %46, align 8, !tbaa !198
-  %.not16.i181 = icmp eq ptr %.sroa.0.0.i180, null
-  br i1 %.not16.i181, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i177
+45:                                               ; preds = %.lr.ph.i178
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i179, i64 360
+  %.sroa.0.0.i181 = load ptr, ptr %46, align 8, !tbaa !198
+  %.not16.i182 = icmp eq ptr %.sroa.0.0.i181, null
+  br i1 %.not16.i182, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i178
 
-.lr.ph.i177:                                      ; preds = %43, %45
-  %.sroa.0.019.i178 = phi ptr [ %.sroa.0.0.i180, %45 ], [ %.sroa.0.017.i175, %43 ]
-  %47 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i178)
+.lr.ph.i178:                                      ; preds = %43, %45
+  %.sroa.0.019.i179 = phi ptr [ %.sroa.0.0.i181, %45 ], [ %.sroa.0.017.i176, %43 ]
+  %47 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i179)
   br i1 %47, label %45, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i184 = load ptr, ptr %48, align 8, !tbaa !198
-  %.not1618.i185 = icmp eq ptr %.sroa.0.017.i184, null
-  br i1 %.not1618.i185, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i186
+  %.sroa.0.017.i185 = load ptr, ptr %48, align 8, !tbaa !198
+  %.not1618.i186 = icmp eq ptr %.sroa.0.017.i185, null
+  br i1 %.not1618.i186, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i187
 
-49:                                               ; preds = %.lr.ph.i186
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i187, i64 360
-  %.sroa.0.0.i189 = load ptr, ptr %50, align 8, !tbaa !198
-  %.not16.i190 = icmp eq ptr %.sroa.0.0.i189, null
-  br i1 %.not16.i190, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i186
+49:                                               ; preds = %.lr.ph.i187
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i188, i64 360
+  %.sroa.0.0.i190 = load ptr, ptr %50, align 8, !tbaa !198
+  %.not16.i191 = icmp eq ptr %.sroa.0.0.i190, null
+  br i1 %.not16.i191, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i187
 
-.lr.ph.i186:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit, %49
-  %.sroa.0.019.i187 = phi ptr [ %.sroa.0.0.i189, %49 ], [ %.sroa.0.017.i184, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit ]
-  %51 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i187)
+.lr.ph.i187:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit, %49
+  %.sroa.0.019.i188 = phi ptr [ %.sroa.0.0.i190, %49 ], [ %.sroa.0.017.i185, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit ]
+  %51 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i188)
   br i1 %51, label %49, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %52 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer33visitGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i193 = load ptr, ptr %53, align 8, !tbaa !198
-  %.not1618.i194 = icmp eq ptr %.sroa.0.017.i193, null
-  br i1 %.not1618.i194, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i195
+  %.sroa.0.017.i194 = load ptr, ptr %53, align 8, !tbaa !198
+  %.not1618.i195 = icmp eq ptr %.sroa.0.017.i194, null
+  br i1 %.not1618.i195, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i196
 
-54:                                               ; preds = %.lr.ph.i195
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i196, i64 360
-  %.sroa.0.0.i198 = load ptr, ptr %55, align 8, !tbaa !198
-  %.not16.i199 = icmp eq ptr %.sroa.0.0.i198, null
-  br i1 %.not16.i199, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i195
+54:                                               ; preds = %.lr.ph.i196
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i197, i64 360
+  %.sroa.0.0.i199 = load ptr, ptr %55, align 8, !tbaa !198
+  %.not16.i200 = icmp eq ptr %.sroa.0.0.i199, null
+  br i1 %.not16.i200, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i196
 
-.lr.ph.i195:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit, %54
-  %.sroa.0.019.i196 = phi ptr [ %.sroa.0.0.i198, %54 ], [ %.sroa.0.017.i193, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit ]
-  %56 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i196)
+.lr.ph.i196:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit, %54
+  %.sroa.0.019.i197 = phi ptr [ %.sroa.0.0.i199, %54 ], [ %.sroa.0.017.i194, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit ]
+  %56 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i197)
   br i1 %56, label %54, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i202 = load ptr, ptr %57, align 8, !tbaa !198
-  %.not1618.i203 = icmp eq ptr %.sroa.0.017.i202, null
-  br i1 %.not1618.i203, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i204
+  %.sroa.0.017.i203 = load ptr, ptr %57, align 8, !tbaa !198
+  %.not1618.i204 = icmp eq ptr %.sroa.0.017.i203, null
+  br i1 %.not1618.i204, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i205
 
-58:                                               ; preds = %.lr.ph.i204
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i205, i64 360
-  %.sroa.0.0.i207 = load ptr, ptr %59, align 8, !tbaa !198
-  %.not16.i208 = icmp eq ptr %.sroa.0.0.i207, null
-  br i1 %.not16.i208, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i204
+58:                                               ; preds = %.lr.ph.i205
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i206, i64 360
+  %.sroa.0.0.i208 = load ptr, ptr %59, align 8, !tbaa !198
+  %.not16.i209 = icmp eq ptr %.sroa.0.0.i208, null
+  br i1 %.not16.i209, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i205
 
-.lr.ph.i204:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit, %58
-  %.sroa.0.019.i205 = phi ptr [ %.sroa.0.0.i207, %58 ], [ %.sroa.0.017.i202, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit ]
-  %60 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i205)
+.lr.ph.i205:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit, %58
+  %.sroa.0.019.i206 = phi ptr [ %.sroa.0.0.i208, %58 ], [ %.sroa.0.017.i203, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit ]
+  %60 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i206)
   br i1 %60, label %58, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %61 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer54visitGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i211 = load ptr, ptr %62, align 8, !tbaa !198
-  %.not1618.i212 = icmp eq ptr %.sroa.0.017.i211, null
-  br i1 %.not1618.i212, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i213
+  %.sroa.0.017.i212 = load ptr, ptr %62, align 8, !tbaa !198
+  %.not1618.i213 = icmp eq ptr %.sroa.0.017.i212, null
+  br i1 %.not1618.i213, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i214
 
-63:                                               ; preds = %.lr.ph.i213
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i214, i64 360
-  %.sroa.0.0.i216 = load ptr, ptr %64, align 8, !tbaa !198
-  %.not16.i217 = icmp eq ptr %.sroa.0.0.i216, null
-  br i1 %.not16.i217, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i213
+63:                                               ; preds = %.lr.ph.i214
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i215, i64 360
+  %.sroa.0.0.i217 = load ptr, ptr %64, align 8, !tbaa !198
+  %.not16.i218 = icmp eq ptr %.sroa.0.0.i217, null
+  br i1 %.not16.i218, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i214
 
-.lr.ph.i213:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit, %63
-  %.sroa.0.019.i214 = phi ptr [ %.sroa.0.0.i216, %63 ], [ %.sroa.0.017.i211, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit ]
-  %65 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i214)
+.lr.ph.i214:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit, %63
+  %.sroa.0.019.i215 = phi ptr [ %.sroa.0.0.i217, %63 ], [ %.sroa.0.017.i212, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit ]
+  %65 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i215)
   br i1 %65, label %63, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 66:                                               ; preds = %2
@@ -5365,151 +5365,151 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlob
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseEnumConstantRecordEPKNS0_18EnumConstantRecordE.exit: ; preds = %66
   %70 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i219 = icmp eq ptr %70, null
-  br i1 %.not.i219, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %71
+  %.not.i220 = icmp eq ptr %70, null
+  br i1 %.not.i220, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %71
 
 71:                                               ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseEnumConstantRecordEPKNS0_18EnumConstantRecordE.exit
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %.sroa.0.017.i220 = load ptr, ptr %72, align 8, !tbaa !198
-  %.not1618.i221 = icmp eq ptr %.sroa.0.017.i220, null
-  br i1 %.not1618.i221, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i222
+  %.sroa.0.017.i221 = load ptr, ptr %72, align 8, !tbaa !198
+  %.not1618.i222 = icmp eq ptr %.sroa.0.017.i221, null
+  br i1 %.not1618.i222, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i223
 
-73:                                               ; preds = %.lr.ph.i222
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i223, i64 360
-  %.sroa.0.0.i225 = load ptr, ptr %74, align 8, !tbaa !198
-  %.not16.i226 = icmp eq ptr %.sroa.0.0.i225, null
-  br i1 %.not16.i226, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i222
+73:                                               ; preds = %.lr.ph.i223
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i224, i64 360
+  %.sroa.0.0.i226 = load ptr, ptr %74, align 8, !tbaa !198
+  %.not16.i227 = icmp eq ptr %.sroa.0.0.i226, null
+  br i1 %.not16.i227, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i223
 
-.lr.ph.i222:                                      ; preds = %71, %73
-  %.sroa.0.019.i223 = phi ptr [ %.sroa.0.0.i225, %73 ], [ %.sroa.0.017.i220, %71 ]
-  %75 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i223)
+.lr.ph.i223:                                      ; preds = %71, %73
+  %.sroa.0.019.i224 = phi ptr [ %.sroa.0.0.i226, %73 ], [ %.sroa.0.017.i221, %71 ]
+  %75 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i224)
   br i1 %75, label %73, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i229 = load ptr, ptr %76, align 8, !tbaa !198
-  %.not1618.i230 = icmp eq ptr %.sroa.0.017.i229, null
-  br i1 %.not1618.i230, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i231
+  %.sroa.0.017.i230 = load ptr, ptr %76, align 8, !tbaa !198
+  %.not1618.i231 = icmp eq ptr %.sroa.0.017.i230, null
+  br i1 %.not1618.i231, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i232
 
-77:                                               ; preds = %.lr.ph.i231
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i232, i64 360
-  %.sroa.0.0.i234 = load ptr, ptr %78, align 8, !tbaa !198
-  %.not16.i235 = icmp eq ptr %.sroa.0.0.i234, null
-  br i1 %.not16.i235, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i231
+77:                                               ; preds = %.lr.ph.i232
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i233, i64 360
+  %.sroa.0.0.i235 = load ptr, ptr %78, align 8, !tbaa !198
+  %.not16.i236 = icmp eq ptr %.sroa.0.0.i235, null
+  br i1 %.not16.i236, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i232
 
-.lr.ph.i231:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit, %77
-  %.sroa.0.019.i232 = phi ptr [ %.sroa.0.0.i234, %77 ], [ %.sroa.0.017.i229, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit ]
-  %79 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i232)
+.lr.ph.i232:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit, %77
+  %.sroa.0.019.i233 = phi ptr [ %.sroa.0.0.i235, %77 ], [ %.sroa.0.017.i230, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit ]
+  %79 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i233)
   br i1 %79, label %77, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i238 = load ptr, ptr %80, align 8, !tbaa !198
-  %.not1618.i239 = icmp eq ptr %.sroa.0.017.i238, null
-  br i1 %.not1618.i239, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i240
+  %.sroa.0.017.i239 = load ptr, ptr %80, align 8, !tbaa !198
+  %.not1618.i240 = icmp eq ptr %.sroa.0.017.i239, null
+  br i1 %.not1618.i240, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i241
 
-81:                                               ; preds = %.lr.ph.i240
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i241, i64 360
-  %.sroa.0.0.i243 = load ptr, ptr %82, align 8, !tbaa !198
-  %.not16.i244 = icmp eq ptr %.sroa.0.0.i243, null
-  br i1 %.not16.i244, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i240
+81:                                               ; preds = %.lr.ph.i241
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i242, i64 360
+  %.sroa.0.0.i244 = load ptr, ptr %82, align 8, !tbaa !198
+  %.not16.i245 = icmp eq ptr %.sroa.0.0.i244, null
+  br i1 %.not16.i245, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i241
 
-.lr.ph.i240:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit, %81
-  %.sroa.0.019.i241 = phi ptr [ %.sroa.0.0.i243, %81 ], [ %.sroa.0.017.i238, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit ]
-  %83 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i241)
+.lr.ph.i241:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit, %81
+  %.sroa.0.019.i242 = phi ptr [ %.sroa.0.0.i244, %81 ], [ %.sroa.0.017.i239, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit ]
+  %83 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i242)
   br i1 %83, label %81, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i247 = load ptr, ptr %84, align 8, !tbaa !198
-  %.not1618.i248 = icmp eq ptr %.sroa.0.017.i247, null
-  br i1 %.not1618.i248, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i249
+  %.sroa.0.017.i248 = load ptr, ptr %84, align 8, !tbaa !198
+  %.not1618.i249 = icmp eq ptr %.sroa.0.017.i248, null
+  br i1 %.not1618.i249, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i250
 
-85:                                               ; preds = %.lr.ph.i249
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i250, i64 360
-  %.sroa.0.0.i252 = load ptr, ptr %86, align 8, !tbaa !198
-  %.not16.i253 = icmp eq ptr %.sroa.0.0.i252, null
-  br i1 %.not16.i253, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i249
+85:                                               ; preds = %.lr.ph.i250
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i251, i64 360
+  %.sroa.0.0.i253 = load ptr, ptr %86, align 8, !tbaa !198
+  %.not16.i254 = icmp eq ptr %.sroa.0.0.i253, null
+  br i1 %.not16.i254, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i250
 
-.lr.ph.i249:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit, %85
-  %.sroa.0.019.i250 = phi ptr [ %.sroa.0.0.i252, %85 ], [ %.sroa.0.017.i247, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit ]
-  %87 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i250)
+.lr.ph.i250:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit, %85
+  %.sroa.0.019.i251 = phi ptr [ %.sroa.0.0.i253, %85 ], [ %.sroa.0.017.i248, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit ]
+  %87 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i251)
   br i1 %87, label %85, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i256 = load ptr, ptr %88, align 8, !tbaa !198
-  %.not1618.i257 = icmp eq ptr %.sroa.0.017.i256, null
-  br i1 %.not1618.i257, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i258
+  %.sroa.0.017.i257 = load ptr, ptr %88, align 8, !tbaa !198
+  %.not1618.i258 = icmp eq ptr %.sroa.0.017.i257, null
+  br i1 %.not1618.i258, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i259
 
-89:                                               ; preds = %.lr.ph.i258
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i259, i64 360
-  %.sroa.0.0.i261 = load ptr, ptr %90, align 8, !tbaa !198
-  %.not16.i262 = icmp eq ptr %.sroa.0.0.i261, null
-  br i1 %.not16.i262, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i258
+89:                                               ; preds = %.lr.ph.i259
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i260, i64 360
+  %.sroa.0.0.i262 = load ptr, ptr %90, align 8, !tbaa !198
+  %.not16.i263 = icmp eq ptr %.sroa.0.0.i262, null
+  br i1 %.not16.i263, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i259
 
-.lr.ph.i258:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit, %89
-  %.sroa.0.019.i259 = phi ptr [ %.sroa.0.0.i261, %89 ], [ %.sroa.0.017.i256, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit ]
-  %91 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i259)
+.lr.ph.i259:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit, %89
+  %.sroa.0.019.i260 = phi ptr [ %.sroa.0.0.i262, %89 ], [ %.sroa.0.017.i257, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit ]
+  %91 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i260)
   br i1 %91, label %89, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i265 = load ptr, ptr %92, align 8, !tbaa !198
-  %.not1618.i266 = icmp eq ptr %.sroa.0.017.i265, null
-  br i1 %.not1618.i266, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i267
+  %.sroa.0.017.i266 = load ptr, ptr %92, align 8, !tbaa !198
+  %.not1618.i267 = icmp eq ptr %.sroa.0.017.i266, null
+  br i1 %.not1618.i267, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i268
 
-93:                                               ; preds = %.lr.ph.i267
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i268, i64 360
-  %.sroa.0.0.i270 = load ptr, ptr %94, align 8, !tbaa !198
-  %.not16.i271 = icmp eq ptr %.sroa.0.0.i270, null
-  br i1 %.not16.i271, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i267
+93:                                               ; preds = %.lr.ph.i268
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i269, i64 360
+  %.sroa.0.0.i271 = load ptr, ptr %94, align 8, !tbaa !198
+  %.not16.i272 = icmp eq ptr %.sroa.0.0.i271, null
+  br i1 %.not16.i272, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i268
 
-.lr.ph.i267:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit, %93
-  %.sroa.0.019.i268 = phi ptr [ %.sroa.0.0.i270, %93 ], [ %.sroa.0.017.i265, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit ]
-  %95 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i268)
+.lr.ph.i268:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit, %93
+  %.sroa.0.019.i269 = phi ptr [ %.sroa.0.0.i271, %93 ], [ %.sroa.0.017.i266, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit ]
+  %95 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i269)
   br i1 %95, label %93, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i274 = load ptr, ptr %96, align 8, !tbaa !198
-  %.not1618.i275 = icmp eq ptr %.sroa.0.017.i274, null
-  br i1 %.not1618.i275, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i276
+  %.sroa.0.017.i275 = load ptr, ptr %96, align 8, !tbaa !198
+  %.not1618.i276 = icmp eq ptr %.sroa.0.017.i275, null
+  br i1 %.not1618.i276, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i277
 
-97:                                               ; preds = %.lr.ph.i276
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i277, i64 360
-  %.sroa.0.0.i279 = load ptr, ptr %98, align 8, !tbaa !198
-  %.not16.i280 = icmp eq ptr %.sroa.0.0.i279, null
-  br i1 %.not16.i280, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i276
+97:                                               ; preds = %.lr.ph.i277
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i278, i64 360
+  %.sroa.0.0.i280 = load ptr, ptr %98, align 8, !tbaa !198
+  %.not16.i281 = icmp eq ptr %.sroa.0.0.i280, null
+  br i1 %.not16.i281, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i277
 
-.lr.ph.i276:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit, %97
-  %.sroa.0.019.i277 = phi ptr [ %.sroa.0.0.i279, %97 ], [ %.sroa.0.017.i274, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit ]
-  %99 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i277)
+.lr.ph.i277:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit, %97
+  %.sroa.0.019.i278 = phi ptr [ %.sroa.0.0.i280, %97 ], [ %.sroa.0.017.i275, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit ]
+  %99 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i278)
   br i1 %99, label %97, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %100 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer27visitCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i283 = load ptr, ptr %101, align 8, !tbaa !198
-  %.not1618.i284 = icmp eq ptr %.sroa.0.017.i283, null
-  br i1 %.not1618.i284, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i285
+  %.sroa.0.017.i284 = load ptr, ptr %101, align 8, !tbaa !198
+  %.not1618.i285 = icmp eq ptr %.sroa.0.017.i284, null
+  br i1 %.not1618.i285, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i286
 
-102:                                              ; preds = %.lr.ph.i285
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i286, i64 360
-  %.sroa.0.0.i288 = load ptr, ptr %103, align 8, !tbaa !198
-  %.not16.i289 = icmp eq ptr %.sroa.0.0.i288, null
-  br i1 %.not16.i289, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i285
+102:                                              ; preds = %.lr.ph.i286
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i287, i64 360
+  %.sroa.0.0.i289 = load ptr, ptr %103, align 8, !tbaa !198
+  %.not16.i290 = icmp eq ptr %.sroa.0.0.i289, null
+  br i1 %.not16.i290, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i286
 
-.lr.ph.i285:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit, %102
-  %.sroa.0.019.i286 = phi ptr [ %.sroa.0.0.i288, %102 ], [ %.sroa.0.017.i283, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit ]
-  %104 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i286)
+.lr.ph.i286:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit, %102
+  %.sroa.0.019.i287 = phi ptr [ %.sroa.0.0.i289, %102 ], [ %.sroa.0.017.i284, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit ]
+  %104 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i287)
   br i1 %104, label %102, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 105:                                              ; preds = %2
@@ -5522,24 +5522,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXF
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseCXXConstructorRecordEPKNS0_20CXXConstructorRecordE.exit: ; preds = %105
   %110 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i291 = icmp eq ptr %110, null
-  br i1 %.not.i291, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %111
+  %.not.i292 = icmp eq ptr %110, null
+  br i1 %.not.i292, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %111
 
 111:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseCXXConstructorRecordEPKNS0_20CXXConstructorRecordE.exit
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %.sroa.0.017.i292 = load ptr, ptr %112, align 8, !tbaa !198
-  %.not1618.i293 = icmp eq ptr %.sroa.0.017.i292, null
-  br i1 %.not1618.i293, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i294
+  %.sroa.0.017.i293 = load ptr, ptr %112, align 8, !tbaa !198
+  %.not1618.i294 = icmp eq ptr %.sroa.0.017.i293, null
+  br i1 %.not1618.i294, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i295
 
-113:                                              ; preds = %.lr.ph.i294
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i295, i64 360
-  %.sroa.0.0.i297 = load ptr, ptr %114, align 8, !tbaa !198
-  %.not16.i298 = icmp eq ptr %.sroa.0.0.i297, null
-  br i1 %.not16.i298, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i294
+113:                                              ; preds = %.lr.ph.i295
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i296, i64 360
+  %.sroa.0.0.i298 = load ptr, ptr %114, align 8, !tbaa !198
+  %.not16.i299 = icmp eq ptr %.sroa.0.0.i298, null
+  br i1 %.not16.i299, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i295
 
-.lr.ph.i294:                                      ; preds = %111, %113
-  %.sroa.0.019.i295 = phi ptr [ %.sroa.0.0.i297, %113 ], [ %.sroa.0.017.i292, %111 ]
-  %115 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i295)
+.lr.ph.i295:                                      ; preds = %111, %113
+  %.sroa.0.019.i296 = phi ptr [ %.sroa.0.0.i298, %113 ], [ %.sroa.0.017.i293, %111 ]
+  %115 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i296)
   br i1 %115, label %113, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 116:                                              ; preds = %2
@@ -5552,24 +5552,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseCXXC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseCXXDestructorRecordEPKNS0_19CXXDestructorRecordE.exit: ; preds = %116
   %121 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i300 = icmp eq ptr %121, null
-  br i1 %.not.i300, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %122
+  %.not.i301 = icmp eq ptr %121, null
+  br i1 %.not.i301, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %122
 
 122:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseCXXDestructorRecordEPKNS0_19CXXDestructorRecordE.exit
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %.sroa.0.017.i301 = load ptr, ptr %123, align 8, !tbaa !198
-  %.not1618.i302 = icmp eq ptr %.sroa.0.017.i301, null
-  br i1 %.not1618.i302, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i303
+  %.sroa.0.017.i302 = load ptr, ptr %123, align 8, !tbaa !198
+  %.not1618.i303 = icmp eq ptr %.sroa.0.017.i302, null
+  br i1 %.not1618.i303, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i304
 
-124:                                              ; preds = %.lr.ph.i303
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i304, i64 360
-  %.sroa.0.0.i306 = load ptr, ptr %125, align 8, !tbaa !198
-  %.not16.i307 = icmp eq ptr %.sroa.0.0.i306, null
-  br i1 %.not16.i307, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i303
+124:                                              ; preds = %.lr.ph.i304
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i305, i64 360
+  %.sroa.0.0.i307 = load ptr, ptr %125, align 8, !tbaa !198
+  %.not16.i308 = icmp eq ptr %.sroa.0.0.i307, null
+  br i1 %.not16.i308, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i304
 
-.lr.ph.i303:                                      ; preds = %122, %124
-  %.sroa.0.019.i304 = phi ptr [ %.sroa.0.0.i306, %124 ], [ %.sroa.0.017.i301, %122 ]
-  %126 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i304)
+.lr.ph.i304:                                      ; preds = %122, %124
+  %.sroa.0.019.i305 = phi ptr [ %.sroa.0.0.i307, %124 ], [ %.sroa.0.017.i302, %122 ]
+  %126 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i305)
   br i1 %126, label %124, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 127:                                              ; preds = %2
@@ -5582,24 +5582,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseCXXD
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseCXXStaticMethodRecordEPKNS0_21CXXStaticMethodRecordE.exit: ; preds = %127
   %132 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i309 = icmp eq ptr %132, null
-  br i1 %.not.i309, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %133
+  %.not.i310 = icmp eq ptr %132, null
+  br i1 %.not.i310, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %133
 
 133:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseCXXStaticMethodRecordEPKNS0_21CXXStaticMethodRecordE.exit
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %.sroa.0.017.i310 = load ptr, ptr %134, align 8, !tbaa !198
-  %.not1618.i311 = icmp eq ptr %.sroa.0.017.i310, null
-  br i1 %.not1618.i311, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i312
+  %.sroa.0.017.i311 = load ptr, ptr %134, align 8, !tbaa !198
+  %.not1618.i312 = icmp eq ptr %.sroa.0.017.i311, null
+  br i1 %.not1618.i312, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i313
 
-135:                                              ; preds = %.lr.ph.i312
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i313, i64 360
-  %.sroa.0.0.i315 = load ptr, ptr %136, align 8, !tbaa !198
-  %.not16.i316 = icmp eq ptr %.sroa.0.0.i315, null
-  br i1 %.not16.i316, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i312
+135:                                              ; preds = %.lr.ph.i313
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i314, i64 360
+  %.sroa.0.0.i316 = load ptr, ptr %136, align 8, !tbaa !198
+  %.not16.i317 = icmp eq ptr %.sroa.0.0.i316, null
+  br i1 %.not16.i317, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i313
 
-.lr.ph.i312:                                      ; preds = %133, %135
-  %.sroa.0.019.i313 = phi ptr [ %.sroa.0.0.i315, %135 ], [ %.sroa.0.017.i310, %133 ]
-  %137 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i313)
+.lr.ph.i313:                                      ; preds = %133, %135
+  %.sroa.0.019.i314 = phi ptr [ %.sroa.0.0.i316, %135 ], [ %.sroa.0.017.i311, %133 ]
+  %137 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i314)
   br i1 %137, label %135, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 138:                                              ; preds = %2
@@ -5612,24 +5612,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseCXXS
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXInstanceMethodRecordEPKNS0_23CXXInstanceMethodRecordE.exit: ; preds = %138
   %143 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i318 = icmp eq ptr %143, null
-  br i1 %.not.i318, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %144
+  %.not.i319 = icmp eq ptr %143, null
+  br i1 %.not.i319, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %144
 
 144:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXInstanceMethodRecordEPKNS0_23CXXInstanceMethodRecordE.exit
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %.sroa.0.017.i319 = load ptr, ptr %145, align 8, !tbaa !198
-  %.not1618.i320 = icmp eq ptr %.sroa.0.017.i319, null
-  br i1 %.not1618.i320, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i321
+  %.sroa.0.017.i320 = load ptr, ptr %145, align 8, !tbaa !198
+  %.not1618.i321 = icmp eq ptr %.sroa.0.017.i320, null
+  br i1 %.not1618.i321, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i322
 
-146:                                              ; preds = %.lr.ph.i321
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i322, i64 360
-  %.sroa.0.0.i324 = load ptr, ptr %147, align 8, !tbaa !198
-  %.not16.i325 = icmp eq ptr %.sroa.0.0.i324, null
-  br i1 %.not16.i325, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i321
+146:                                              ; preds = %.lr.ph.i322
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i323, i64 360
+  %.sroa.0.0.i325 = load ptr, ptr %147, align 8, !tbaa !198
+  %.not16.i326 = icmp eq ptr %.sroa.0.0.i325, null
+  br i1 %.not16.i326, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i322
 
-.lr.ph.i321:                                      ; preds = %144, %146
-  %.sroa.0.019.i322 = phi ptr [ %.sroa.0.0.i324, %146 ], [ %.sroa.0.017.i319, %144 ]
-  %148 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i322)
+.lr.ph.i322:                                      ; preds = %144, %146
+  %.sroa.0.019.i323 = phi ptr [ %.sroa.0.0.i325, %146 ], [ %.sroa.0.017.i320, %144 ]
+  %148 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i323)
   br i1 %148, label %146, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 149:                                              ; preds = %2
@@ -5643,24 +5643,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXI
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXMethodTemplateRecordEPKNS0_23CXXMethodTemplateRecordE.exit: ; preds = %149
   %155 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i327 = icmp eq ptr %155, null
-  br i1 %.not.i327, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %156
+  %.not.i328 = icmp eq ptr %155, null
+  br i1 %.not.i328, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %156
 
 156:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXMethodTemplateRecordEPKNS0_23CXXMethodTemplateRecordE.exit
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %.sroa.0.017.i328 = load ptr, ptr %157, align 8, !tbaa !198
-  %.not1618.i329 = icmp eq ptr %.sroa.0.017.i328, null
-  br i1 %.not1618.i329, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i330
+  %.sroa.0.017.i329 = load ptr, ptr %157, align 8, !tbaa !198
+  %.not1618.i330 = icmp eq ptr %.sroa.0.017.i329, null
+  br i1 %.not1618.i330, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i331
 
-158:                                              ; preds = %.lr.ph.i330
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i331, i64 360
-  %.sroa.0.0.i333 = load ptr, ptr %159, align 8, !tbaa !198
-  %.not16.i334 = icmp eq ptr %.sroa.0.0.i333, null
-  br i1 %.not16.i334, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i330
+158:                                              ; preds = %.lr.ph.i331
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i332, i64 360
+  %.sroa.0.0.i334 = load ptr, ptr %159, align 8, !tbaa !198
+  %.not16.i335 = icmp eq ptr %.sroa.0.0.i334, null
+  br i1 %.not16.i335, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i331
 
-.lr.ph.i330:                                      ; preds = %156, %158
-  %.sroa.0.019.i331 = phi ptr [ %.sroa.0.0.i333, %158 ], [ %.sroa.0.017.i328, %156 ]
-  %160 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i331)
+.lr.ph.i331:                                      ; preds = %156, %158
+  %.sroa.0.019.i332 = phi ptr [ %.sroa.0.0.i334, %158 ], [ %.sroa.0.017.i329, %156 ]
+  %160 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i332)
   br i1 %160, label %158, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 161:                                              ; preds = %2
@@ -5673,24 +5673,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXM
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE45traverseCXXMethodTemplateSpecializationRecordEPKNS0_37CXXMethodTemplateSpecializationRecordE.exit: ; preds = %161
   %166 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i336 = icmp eq ptr %166, null
-  br i1 %.not.i336, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %167
+  %.not.i337 = icmp eq ptr %166, null
+  br i1 %.not.i337, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %167
 
 167:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE45traverseCXXMethodTemplateSpecializationRecordEPKNS0_37CXXMethodTemplateSpecializationRecordE.exit
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %.sroa.0.017.i337 = load ptr, ptr %168, align 8, !tbaa !198
-  %.not1618.i338 = icmp eq ptr %.sroa.0.017.i337, null
-  br i1 %.not1618.i338, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i339
+  %.sroa.0.017.i338 = load ptr, ptr %168, align 8, !tbaa !198
+  %.not1618.i339 = icmp eq ptr %.sroa.0.017.i338, null
+  br i1 %.not1618.i339, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i340
 
-169:                                              ; preds = %.lr.ph.i339
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i340, i64 360
-  %.sroa.0.0.i342 = load ptr, ptr %170, align 8, !tbaa !198
-  %.not16.i343 = icmp eq ptr %.sroa.0.0.i342, null
-  br i1 %.not16.i343, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i339
+169:                                              ; preds = %.lr.ph.i340
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i341, i64 360
+  %.sroa.0.0.i343 = load ptr, ptr %170, align 8, !tbaa !198
+  %.not16.i344 = icmp eq ptr %.sroa.0.0.i343, null
+  br i1 %.not16.i344, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i340
 
-.lr.ph.i339:                                      ; preds = %167, %169
-  %.sroa.0.019.i340 = phi ptr [ %.sroa.0.0.i342, %169 ], [ %.sroa.0.017.i337, %167 ]
-  %171 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i340)
+.lr.ph.i340:                                      ; preds = %167, %169
+  %.sroa.0.019.i341 = phi ptr [ %.sroa.0.0.i343, %169 ], [ %.sroa.0.017.i338, %167 ]
+  %171 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i341)
   br i1 %171, label %169, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 172:                                              ; preds = %2
@@ -5702,24 +5702,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE45traverseCXXM
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstancePropertyRecordEPKNS0_26ObjCInstancePropertyRecordE.exit: ; preds = %172
   %176 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i345 = icmp eq ptr %176, null
-  br i1 %.not.i345, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %177
+  %.not.i346 = icmp eq ptr %176, null
+  br i1 %.not.i346, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %177
 
 177:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstancePropertyRecordEPKNS0_26ObjCInstancePropertyRecordE.exit
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %.sroa.0.017.i346 = load ptr, ptr %178, align 8, !tbaa !198
-  %.not1618.i347 = icmp eq ptr %.sroa.0.017.i346, null
-  br i1 %.not1618.i347, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i348
+  %.sroa.0.017.i347 = load ptr, ptr %178, align 8, !tbaa !198
+  %.not1618.i348 = icmp eq ptr %.sroa.0.017.i347, null
+  br i1 %.not1618.i348, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i349
 
-179:                                              ; preds = %.lr.ph.i348
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i349, i64 360
-  %.sroa.0.0.i351 = load ptr, ptr %180, align 8, !tbaa !198
-  %.not16.i352 = icmp eq ptr %.sroa.0.0.i351, null
-  br i1 %.not16.i352, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i348
+179:                                              ; preds = %.lr.ph.i349
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i350, i64 360
+  %.sroa.0.0.i352 = load ptr, ptr %180, align 8, !tbaa !198
+  %.not16.i353 = icmp eq ptr %.sroa.0.0.i352, null
+  br i1 %.not16.i353, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i349
 
-.lr.ph.i348:                                      ; preds = %177, %179
-  %.sroa.0.019.i349 = phi ptr [ %.sroa.0.0.i351, %179 ], [ %.sroa.0.017.i346, %177 ]
-  %181 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i349)
+.lr.ph.i349:                                      ; preds = %177, %179
+  %.sroa.0.019.i350 = phi ptr [ %.sroa.0.0.i352, %179 ], [ %.sroa.0.017.i347, %177 ]
+  %181 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i350)
   br i1 %181, label %179, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 182:                                              ; preds = %2
@@ -5731,24 +5731,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseObjCClassPropertyRecordEPKNS0_23ObjCClassPropertyRecordE.exit: ; preds = %182
   %186 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i354 = icmp eq ptr %186, null
-  br i1 %.not.i354, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %187
+  %.not.i355 = icmp eq ptr %186, null
+  br i1 %.not.i355, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %187
 
 187:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseObjCClassPropertyRecordEPKNS0_23ObjCClassPropertyRecordE.exit
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %.sroa.0.017.i355 = load ptr, ptr %188, align 8, !tbaa !198
-  %.not1618.i356 = icmp eq ptr %.sroa.0.017.i355, null
-  br i1 %.not1618.i356, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i357
+  %.sroa.0.017.i356 = load ptr, ptr %188, align 8, !tbaa !198
+  %.not1618.i357 = icmp eq ptr %.sroa.0.017.i356, null
+  br i1 %.not1618.i357, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i358
 
-189:                                              ; preds = %.lr.ph.i357
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i358, i64 360
-  %.sroa.0.0.i360 = load ptr, ptr %190, align 8, !tbaa !198
-  %.not16.i361 = icmp eq ptr %.sroa.0.0.i360, null
-  br i1 %.not16.i361, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i357
+189:                                              ; preds = %.lr.ph.i358
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i359, i64 360
+  %.sroa.0.0.i361 = load ptr, ptr %190, align 8, !tbaa !198
+  %.not16.i362 = icmp eq ptr %.sroa.0.0.i361, null
+  br i1 %.not16.i362, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i358
 
-.lr.ph.i357:                                      ; preds = %187, %189
-  %.sroa.0.019.i358 = phi ptr [ %.sroa.0.0.i360, %189 ], [ %.sroa.0.017.i355, %187 ]
-  %191 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i358)
+.lr.ph.i358:                                      ; preds = %187, %189
+  %.sroa.0.019.i359 = phi ptr [ %.sroa.0.0.i361, %189 ], [ %.sroa.0.017.i356, %187 ]
+  %191 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i359)
   br i1 %191, label %189, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 192:                                              ; preds = %2
@@ -5760,24 +5760,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstanceVariableRecordEPKNS0_26ObjCInstanceVariableRecordE.exit: ; preds = %192
   %196 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i363 = icmp eq ptr %196, null
-  br i1 %.not.i363, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %197
+  %.not.i364 = icmp eq ptr %196, null
+  br i1 %.not.i364, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %197
 
 197:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstanceVariableRecordEPKNS0_26ObjCInstanceVariableRecordE.exit
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %.sroa.0.017.i364 = load ptr, ptr %198, align 8, !tbaa !198
-  %.not1618.i365 = icmp eq ptr %.sroa.0.017.i364, null
-  br i1 %.not1618.i365, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i366
+  %.sroa.0.017.i365 = load ptr, ptr %198, align 8, !tbaa !198
+  %.not1618.i366 = icmp eq ptr %.sroa.0.017.i365, null
+  br i1 %.not1618.i366, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i367
 
-199:                                              ; preds = %.lr.ph.i366
-  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i367, i64 360
-  %.sroa.0.0.i369 = load ptr, ptr %200, align 8, !tbaa !198
-  %.not16.i370 = icmp eq ptr %.sroa.0.0.i369, null
-  br i1 %.not16.i370, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i366
+199:                                              ; preds = %.lr.ph.i367
+  %200 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i368, i64 360
+  %.sroa.0.0.i370 = load ptr, ptr %200, align 8, !tbaa !198
+  %.not16.i371 = icmp eq ptr %.sroa.0.0.i370, null
+  br i1 %.not16.i371, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i367
 
-.lr.ph.i366:                                      ; preds = %197, %199
-  %.sroa.0.019.i367 = phi ptr [ %.sroa.0.0.i369, %199 ], [ %.sroa.0.017.i364, %197 ]
-  %201 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i367)
+.lr.ph.i367:                                      ; preds = %197, %199
+  %.sroa.0.019.i368 = phi ptr [ %.sroa.0.0.i370, %199 ], [ %.sroa.0.017.i365, %197 ]
+  %201 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i368)
   br i1 %201, label %199, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 202:                                              ; preds = %2
@@ -5790,24 +5790,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE32traverseObjCInstanceMethodRecordEPKNS0_24ObjCInstanceMethodRecordE.exit: ; preds = %202
   %207 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i372 = icmp eq ptr %207, null
-  br i1 %.not.i372, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %208
+  %.not.i373 = icmp eq ptr %207, null
+  br i1 %.not.i373, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %208
 
 208:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE32traverseObjCInstanceMethodRecordEPKNS0_24ObjCInstanceMethodRecordE.exit
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  %.sroa.0.017.i373 = load ptr, ptr %209, align 8, !tbaa !198
-  %.not1618.i374 = icmp eq ptr %.sroa.0.017.i373, null
-  br i1 %.not1618.i374, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i375
+  %.sroa.0.017.i374 = load ptr, ptr %209, align 8, !tbaa !198
+  %.not1618.i375 = icmp eq ptr %.sroa.0.017.i374, null
+  br i1 %.not1618.i375, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i376
 
-210:                                              ; preds = %.lr.ph.i375
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i376, i64 360
-  %.sroa.0.0.i378 = load ptr, ptr %211, align 8, !tbaa !198
-  %.not16.i379 = icmp eq ptr %.sroa.0.0.i378, null
-  br i1 %.not16.i379, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i375
+210:                                              ; preds = %.lr.ph.i376
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i377, i64 360
+  %.sroa.0.0.i379 = load ptr, ptr %211, align 8, !tbaa !198
+  %.not16.i380 = icmp eq ptr %.sroa.0.0.i379, null
+  br i1 %.not16.i380, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i376
 
-.lr.ph.i375:                                      ; preds = %208, %210
-  %.sroa.0.019.i376 = phi ptr [ %.sroa.0.0.i378, %210 ], [ %.sroa.0.017.i373, %208 ]
-  %212 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i376)
+.lr.ph.i376:                                      ; preds = %208, %210
+  %.sroa.0.019.i377 = phi ptr [ %.sroa.0.0.i379, %210 ], [ %.sroa.0.017.i374, %208 ]
+  %212 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i377)
   br i1 %212, label %210, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 213:                                              ; preds = %2
@@ -5820,42 +5820,42 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE32traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseObjCClassMethodRecordEPKNS0_21ObjCClassMethodRecordE.exit: ; preds = %213
   %218 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i381 = icmp eq ptr %218, null
-  br i1 %.not.i381, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %219
+  %.not.i382 = icmp eq ptr %218, null
+  br i1 %.not.i382, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %219
 
 219:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseObjCClassMethodRecordEPKNS0_21ObjCClassMethodRecordE.exit
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
-  %.sroa.0.017.i382 = load ptr, ptr %220, align 8, !tbaa !198
-  %.not1618.i383 = icmp eq ptr %.sroa.0.017.i382, null
-  br i1 %.not1618.i383, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i384
+  %.sroa.0.017.i383 = load ptr, ptr %220, align 8, !tbaa !198
+  %.not1618.i384 = icmp eq ptr %.sroa.0.017.i383, null
+  br i1 %.not1618.i384, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i385
 
-221:                                              ; preds = %.lr.ph.i384
-  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i385, i64 360
-  %.sroa.0.0.i387 = load ptr, ptr %222, align 8, !tbaa !198
-  %.not16.i388 = icmp eq ptr %.sroa.0.0.i387, null
-  br i1 %.not16.i388, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i384
+221:                                              ; preds = %.lr.ph.i385
+  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i386, i64 360
+  %.sroa.0.0.i388 = load ptr, ptr %222, align 8, !tbaa !198
+  %.not16.i389 = icmp eq ptr %.sroa.0.0.i388, null
+  br i1 %.not16.i389, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i385
 
-.lr.ph.i384:                                      ; preds = %219, %221
-  %.sroa.0.019.i385 = phi ptr [ %.sroa.0.0.i387, %221 ], [ %.sroa.0.017.i382, %219 ]
-  %223 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i385)
+.lr.ph.i385:                                      ; preds = %219, %221
+  %.sroa.0.019.i386 = phi ptr [ %.sroa.0.0.i388, %221 ], [ %.sroa.0.017.i383, %219 ]
+  %223 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i386)
   br i1 %223, label %221, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit: ; preds = %2
   tail call void @_ZN5clang10extractapi21SymbolGraphSerializer18serializeAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull readonly %1)
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i391 = load ptr, ptr %224, align 8, !tbaa !198
-  %.not1618.i392 = icmp eq ptr %.sroa.0.017.i391, null
-  br i1 %.not1618.i392, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i393
+  %.sroa.0.017.i392 = load ptr, ptr %224, align 8, !tbaa !198
+  %.not1618.i393 = icmp eq ptr %.sroa.0.017.i392, null
+  br i1 %.not1618.i393, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i394
 
-225:                                              ; preds = %.lr.ph.i393
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i394, i64 360
-  %.sroa.0.0.i396 = load ptr, ptr %226, align 8, !tbaa !198
-  %.not16.i397 = icmp eq ptr %.sroa.0.0.i396, null
-  br i1 %.not16.i397, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i393
+225:                                              ; preds = %.lr.ph.i394
+  %226 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i395, i64 360
+  %.sroa.0.0.i397 = load ptr, ptr %226, align 8, !tbaa !198
+  %.not16.i398 = icmp eq ptr %.sroa.0.0.i397, null
+  br i1 %.not16.i398, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i394
 
-.lr.ph.i393:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit, %225
-  %.sroa.0.019.i394 = phi ptr [ %.sroa.0.0.i396, %225 ], [ %.sroa.0.017.i391, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit ]
-  %227 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i394)
+.lr.ph.i394:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit, %225
+  %.sroa.0.019.i395 = phi ptr [ %.sroa.0.0.i397, %225 ], [ %.sroa.0.017.i392, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit ]
+  %227 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i395)
   br i1 %227, label %225, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 228:                                              ; preds = %2
@@ -5900,19 +5900,19 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStat
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit: ; preds = %241, %228, %231
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i400 = load ptr, ptr %246, align 8, !tbaa !198
-  %.not1618.i401 = icmp eq ptr %.sroa.0.017.i400, null
-  br i1 %.not1618.i401, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i402
+  %.sroa.0.017.i401 = load ptr, ptr %246, align 8, !tbaa !198
+  %.not1618.i402 = icmp eq ptr %.sroa.0.017.i401, null
+  br i1 %.not1618.i402, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i403
 
-247:                                              ; preds = %.lr.ph.i402
-  %248 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i403, i64 360
-  %.sroa.0.0.i405 = load ptr, ptr %248, align 8, !tbaa !198
-  %.not16.i406 = icmp eq ptr %.sroa.0.0.i405, null
-  br i1 %.not16.i406, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i402
+247:                                              ; preds = %.lr.ph.i403
+  %248 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i404, i64 360
+  %.sroa.0.0.i406 = load ptr, ptr %248, align 8, !tbaa !198
+  %.not16.i407 = icmp eq ptr %.sroa.0.0.i406, null
+  br i1 %.not16.i407, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i403
 
-.lr.ph.i402:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit, %247
-  %.sroa.0.019.i403 = phi ptr [ %.sroa.0.0.i405, %247 ], [ %.sroa.0.017.i400, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit ]
-  %249 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i403)
+.lr.ph.i403:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit, %247
+  %.sroa.0.019.i404 = phi ptr [ %.sroa.0.0.i406, %247 ], [ %.sroa.0.017.i401, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit ]
+  %249 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i404)
   br i1 %249, label %247, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 250:                                              ; preds = %2
@@ -5958,19 +5958,19 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXC
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit: ; preds = %263, %250, %253
   %268 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer24visitClassTemplateRecordEPKNS0_19ClassTemplateRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i409 = load ptr, ptr %269, align 8, !tbaa !198
-  %.not1618.i410 = icmp eq ptr %.sroa.0.017.i409, null
-  br i1 %.not1618.i410, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i411
+  %.sroa.0.017.i410 = load ptr, ptr %269, align 8, !tbaa !198
+  %.not1618.i411 = icmp eq ptr %.sroa.0.017.i410, null
+  br i1 %.not1618.i411, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i412
 
-270:                                              ; preds = %.lr.ph.i411
-  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i412, i64 360
-  %.sroa.0.0.i414 = load ptr, ptr %271, align 8, !tbaa !198
-  %.not16.i415 = icmp eq ptr %.sroa.0.0.i414, null
-  br i1 %.not16.i415, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i411
+270:                                              ; preds = %.lr.ph.i412
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i413, i64 360
+  %.sroa.0.0.i415 = load ptr, ptr %271, align 8, !tbaa !198
+  %.not16.i416 = icmp eq ptr %.sroa.0.0.i415, null
+  br i1 %.not16.i416, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i412
 
-.lr.ph.i411:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit, %270
-  %.sroa.0.019.i412 = phi ptr [ %.sroa.0.0.i414, %270 ], [ %.sroa.0.017.i409, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit ]
-  %272 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i412)
+.lr.ph.i412:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit, %270
+  %.sroa.0.019.i413 = phi ptr [ %.sroa.0.0.i415, %270 ], [ %.sroa.0.017.i410, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit ]
+  %272 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i413)
   br i1 %272, label %270, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 273:                                              ; preds = %2
@@ -6015,19 +6015,19 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClas
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit: ; preds = %286, %273, %276
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i418 = load ptr, ptr %291, align 8, !tbaa !198
-  %.not1618.i419 = icmp eq ptr %.sroa.0.017.i418, null
-  br i1 %.not1618.i419, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i420
+  %.sroa.0.017.i419 = load ptr, ptr %291, align 8, !tbaa !198
+  %.not1618.i420 = icmp eq ptr %.sroa.0.017.i419, null
+  br i1 %.not1618.i420, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i421
 
-292:                                              ; preds = %.lr.ph.i420
-  %293 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i421, i64 360
-  %.sroa.0.0.i423 = load ptr, ptr %293, align 8, !tbaa !198
-  %.not16.i424 = icmp eq ptr %.sroa.0.0.i423, null
-  br i1 %.not16.i424, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i420
+292:                                              ; preds = %.lr.ph.i421
+  %293 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i422, i64 360
+  %.sroa.0.0.i424 = load ptr, ptr %293, align 8, !tbaa !198
+  %.not16.i425 = icmp eq ptr %.sroa.0.0.i424, null
+  br i1 %.not16.i425, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i421
 
-.lr.ph.i420:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit, %292
-  %.sroa.0.019.i421 = phi ptr [ %.sroa.0.0.i423, %292 ], [ %.sroa.0.017.i418, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit ]
-  %294 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i421)
+.lr.ph.i421:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit, %292
+  %.sroa.0.019.i422 = phi ptr [ %.sroa.0.0.i424, %292 ], [ %.sroa.0.017.i419, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit ]
+  %294 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i422)
   br i1 %294, label %292, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 295:                                              ; preds = %2
@@ -6073,19 +6073,19 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClas
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit: ; preds = %308, %295, %298
   %313 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer45visitClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %1)
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i427 = load ptr, ptr %314, align 8, !tbaa !198
-  %.not1618.i428 = icmp eq ptr %.sroa.0.017.i427, null
-  br i1 %.not1618.i428, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i429
+  %.sroa.0.017.i428 = load ptr, ptr %314, align 8, !tbaa !198
+  %.not1618.i429 = icmp eq ptr %.sroa.0.017.i428, null
+  br i1 %.not1618.i429, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i430
 
-315:                                              ; preds = %.lr.ph.i429
-  %316 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i430, i64 360
-  %.sroa.0.0.i432 = load ptr, ptr %316, align 8, !tbaa !198
-  %.not16.i433 = icmp eq ptr %.sroa.0.0.i432, null
-  br i1 %.not16.i433, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i429
+315:                                              ; preds = %.lr.ph.i430
+  %316 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i431, i64 360
+  %.sroa.0.0.i433 = load ptr, ptr %316, align 8, !tbaa !198
+  %.not16.i434 = icmp eq ptr %.sroa.0.0.i433, null
+  br i1 %.not16.i434, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i430
 
-.lr.ph.i429:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit, %315
-  %.sroa.0.019.i430 = phi ptr [ %.sroa.0.0.i432, %315 ], [ %.sroa.0.017.i427, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit ]
-  %317 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i430)
+.lr.ph.i430:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit, %315
+  %.sroa.0.019.i431 = phi ptr [ %.sroa.0.0.i433, %315 ], [ %.sroa.0.017.i428, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit ]
+  %317 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i431)
   br i1 %317, label %315, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 318:                                              ; preds = %2
@@ -6098,24 +6098,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClas
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseConceptRecordEPKNS0_13ConceptRecordE.exit: ; preds = %318
   %323 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i435 = icmp eq ptr %323, null
-  br i1 %.not.i435, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %324
+  %.not.i436 = icmp eq ptr %323, null
+  br i1 %.not.i436, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %324
 
 324:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseConceptRecordEPKNS0_13ConceptRecordE.exit
   %325 = getelementptr inbounds nuw i8, ptr %323, i64 8
-  %.sroa.0.017.i436 = load ptr, ptr %325, align 8, !tbaa !198
-  %.not1618.i437 = icmp eq ptr %.sroa.0.017.i436, null
-  br i1 %.not1618.i437, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i438
+  %.sroa.0.017.i437 = load ptr, ptr %325, align 8, !tbaa !198
+  %.not1618.i438 = icmp eq ptr %.sroa.0.017.i437, null
+  br i1 %.not1618.i438, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i439
 
-326:                                              ; preds = %.lr.ph.i438
-  %327 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i439, i64 360
-  %.sroa.0.0.i441 = load ptr, ptr %327, align 8, !tbaa !198
-  %.not16.i442 = icmp eq ptr %.sroa.0.0.i441, null
-  br i1 %.not16.i442, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i438
+326:                                              ; preds = %.lr.ph.i439
+  %327 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i440, i64 360
+  %.sroa.0.0.i442 = load ptr, ptr %327, align 8, !tbaa !198
+  %.not16.i443 = icmp eq ptr %.sroa.0.0.i442, null
+  br i1 %.not16.i443, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i439
 
-.lr.ph.i438:                                      ; preds = %324, %326
-  %.sroa.0.019.i439 = phi ptr [ %.sroa.0.0.i441, %326 ], [ %.sroa.0.017.i436, %324 ]
-  %328 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i439)
+.lr.ph.i439:                                      ; preds = %324, %326
+  %.sroa.0.019.i440 = phi ptr [ %.sroa.0.0.i442, %326 ], [ %.sroa.0.017.i437, %324 ]
+  %328 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i440)
   br i1 %328, label %326, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 329:                                              ; preds = %2
@@ -6128,19 +6128,19 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseConc
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit: ; preds = %331
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i445 = load ptr, ptr %333, align 8, !tbaa !198
-  %.not1618.i446 = icmp eq ptr %.sroa.0.017.i445, null
-  br i1 %.not1618.i446, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i447
+  %.sroa.0.017.i446 = load ptr, ptr %333, align 8, !tbaa !198
+  %.not1618.i447 = icmp eq ptr %.sroa.0.017.i446, null
+  br i1 %.not1618.i447, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i448
 
-334:                                              ; preds = %.lr.ph.i447
-  %335 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i448, i64 360
-  %.sroa.0.0.i450 = load ptr, ptr %335, align 8, !tbaa !198
-  %.not16.i451 = icmp eq ptr %.sroa.0.0.i450, null
-  br i1 %.not16.i451, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i447
+334:                                              ; preds = %.lr.ph.i448
+  %335 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i449, i64 360
+  %.sroa.0.0.i451 = load ptr, ptr %335, align 8, !tbaa !198
+  %.not16.i452 = icmp eq ptr %.sroa.0.0.i451, null
+  br i1 %.not16.i452, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i448
 
-.lr.ph.i447:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit, %334
-  %.sroa.0.019.i448 = phi ptr [ %.sroa.0.0.i450, %334 ], [ %.sroa.0.017.i445, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit ]
-  %336 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i448)
+.lr.ph.i448:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit, %334
+  %.sroa.0.019.i449 = phi ptr [ %.sroa.0.0.i451, %334 ], [ %.sroa.0.017.i446, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit ]
+  %336 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i449)
   br i1 %336, label %334, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 337:                                              ; preds = %2
@@ -6185,19 +6185,19 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit: ; preds = %350, %337, %340
   %355 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.sroa.0.017.i454 = load ptr, ptr %355, align 8, !tbaa !198
-  %.not1618.i455 = icmp eq ptr %.sroa.0.017.i454, null
-  br i1 %.not1618.i455, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i456
+  %.sroa.0.017.i455 = load ptr, ptr %355, align 8, !tbaa !198
+  %.not1618.i456 = icmp eq ptr %.sroa.0.017.i455, null
+  br i1 %.not1618.i456, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i457
 
-356:                                              ; preds = %.lr.ph.i456
-  %357 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i457, i64 360
-  %.sroa.0.0.i459 = load ptr, ptr %357, align 8, !tbaa !198
-  %.not16.i460 = icmp eq ptr %.sroa.0.0.i459, null
-  br i1 %.not16.i460, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i456
+356:                                              ; preds = %.lr.ph.i457
+  %357 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i458, i64 360
+  %.sroa.0.0.i460 = load ptr, ptr %357, align 8, !tbaa !198
+  %.not16.i461 = icmp eq ptr %.sroa.0.0.i460, null
+  br i1 %.not16.i461, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i457
 
-.lr.ph.i456:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit, %356
-  %.sroa.0.019.i457 = phi ptr [ %.sroa.0.0.i459, %356 ], [ %.sroa.0.017.i454, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit ]
-  %358 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i457)
+.lr.ph.i457:                                      ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit, %356
+  %.sroa.0.019.i458 = phi ptr [ %.sroa.0.0.i460, %356 ], [ %.sroa.0.017.i455, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit ]
+  %358 = call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i458)
   br i1 %358, label %356, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 359:                                              ; preds = %2
@@ -6209,24 +6209,24 @@ _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjC
 
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseMacroDefinitionRecordEPKNS0_21MacroDefinitionRecordE.exit: ; preds = %359
   %363 = tail call noundef ptr @_ZN5clang10extractapi9APIRecord19castToRecordContextEPKS1_(ptr noundef nonnull %1) #18
-  %.not.i462 = icmp eq ptr %363, null
-  br i1 %.not.i462, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %364
+  %.not.i463 = icmp eq ptr %363, null
+  br i1 %.not.i463, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %364
 
 364:                                              ; preds = %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseMacroDefinitionRecordEPKNS0_21MacroDefinitionRecordE.exit
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  %.sroa.0.017.i463 = load ptr, ptr %365, align 8, !tbaa !198
-  %.not1618.i464 = icmp eq ptr %.sroa.0.017.i463, null
-  br i1 %.not1618.i464, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i465
+  %.sroa.0.017.i464 = load ptr, ptr %365, align 8, !tbaa !198
+  %.not1618.i465 = icmp eq ptr %.sroa.0.017.i464, null
+  br i1 %.not1618.i465, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i466
 
-366:                                              ; preds = %.lr.ph.i465
-  %367 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i466, i64 360
-  %.sroa.0.0.i468 = load ptr, ptr %367, align 8, !tbaa !198
-  %.not16.i469 = icmp eq ptr %.sroa.0.0.i468, null
-  br i1 %.not16.i469, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i465
+366:                                              ; preds = %.lr.ph.i466
+  %367 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i467, i64 360
+  %.sroa.0.0.i469 = load ptr, ptr %367, align 8, !tbaa !198
+  %.not16.i470 = icmp eq ptr %.sroa.0.0.i469, null
+  br i1 %.not16.i470, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148, label %.lr.ph.i466
 
-.lr.ph.i465:                                      ; preds = %364, %366
-  %.sroa.0.019.i466 = phi ptr [ %.sroa.0.0.i468, %366 ], [ %.sroa.0.017.i463, %364 ]
-  %368 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i466)
+.lr.ph.i466:                                      ; preds = %364, %366
+  %.sroa.0.019.i467 = phi ptr [ %.sroa.0.0.i469, %366 ], [ %.sroa.0.017.i464, %364 ]
+  %368 = tail call noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerializer17traverseAPIRecordEPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull %.sroa.0.019.i467)
   br i1 %368, label %366, label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
 369:                                              ; preds = %2
@@ -6268,8 +6268,8 @@ _ZN4llvm8dyn_castIN5clang10extractapi13RecordContextEKNS2_13TypedefRecordEEEDcPT
 _ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148: ; preds = %377, %366, %356, %334, %326, %315, %292, %270, %247, %225, %221, %210, %199, %189, %179, %169, %158, %146, %135, %124, %113, %102, %97, %93, %89, %85, %81, %77, %73, %63, %58, %54, %49, %45, %34, %22, %11, %359, %364, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseMacroDefinitionRecordEPKNS0_21MacroDefinitionRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseObjCProtocolRecordEPKNS0_18ObjCProtocolRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit, %318, %324, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseConceptRecordEPKNS0_13ConceptRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE48traverseClassTemplatePartialSpecializationRecordEPKNS0_40ClassTemplatePartialSpecializationRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE41traverseClassTemplateSpecializationRecordEPKNS0_33ClassTemplateSpecializationRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseClassTemplateRecordEPKNS0_19ClassTemplateRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXClassRecordEPKNS0_14CXXClassRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStaticFieldRecordEPKNS0_17StaticFieldRecordE.exit, %213, %219, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseObjCClassMethodRecordEPKNS0_21ObjCClassMethodRecordE.exit, %202, %208, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE32traverseObjCInstanceMethodRecordEPKNS0_24ObjCInstanceMethodRecordE.exit, %192, %197, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstanceVariableRecordEPKNS0_26ObjCInstanceVariableRecordE.exit, %182, %187, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseObjCClassPropertyRecordEPKNS0_23ObjCClassPropertyRecordE.exit, %172, %177, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE34traverseObjCInstancePropertyRecordEPKNS0_26ObjCInstancePropertyRecordE.exit, %161, %167, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE45traverseCXXMethodTemplateSpecializationRecordEPKNS0_37CXXMethodTemplateSpecializationRecordE.exit, %149, %156, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXMethodTemplateRecordEPKNS0_23CXXMethodTemplateRecordE.exit, %138, %144, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE31traverseCXXInstanceMethodRecordEPKNS0_23CXXInstanceMethodRecordE.exit, %127, %133, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE29traverseCXXStaticMethodRecordEPKNS0_21CXXStaticMethodRecordE.exit, %116, %122, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseCXXDestructorRecordEPKNS0_19CXXDestructorRecordE.exit, %105, %111, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseCXXConstructorRecordEPKNS0_20CXXConstructorRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE30traverseCXXFieldTemplateRecordEPKNS0_22CXXFieldTemplateRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE22traverseCXXFieldRecordEPKNS0_14CXXFieldRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE19traverseUnionRecordEPKNS0_11UnionRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE24traverseUnionFieldRecordEPKNS0_16UnionFieldRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE20traverseStructRecordEPKNS0_12StructRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE25traverseStructFieldRecordEPKNS0_17StructFieldRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE18traverseEnumRecordEPKNS0_10EnumRecordE.exit, %66, %71, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE26traverseEnumConstantRecordEPKNS0_18EnumConstantRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE57traverseGlobalVariableTemplatePartialSpecializationRecordEPKNS0_49GlobalVariableTemplatePartialSpecializationRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalVariableTemplateSpecializationRecordEPKNS0_42GlobalVariableTemplateSpecializationRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalVariableTemplateRecordEPKNS0_28GlobalVariableTemplateRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalVariableRecordEPKNS0_20GlobalVariableRecordE.exit, %37, %43, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE50traverseGlobalFunctionTemplateSpecializationRecordEPKNS0_42GlobalFunctionTemplateSpecializationRecordE.exit, %25, %32, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE36traverseGlobalFunctionTemplateRecordEPKNS0_28GlobalFunctionTemplateRecordE.exit, %14, %20, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE28traverseGlobalFunctionRecordEPKNS0_20GlobalFunctionRecordE.exit, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE23traverseNamespaceRecordEPKNS0_15NamespaceRecordE.exit, %375, %369, %_ZN4llvm8dyn_castIN5clang10extractapi13RecordContextEKNS2_13TypedefRecordEEEDcPT0_.exit, %380, %329
   br label %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread
 
-_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread: ; preds = %.lr.ph, %.lr.ph.i465, %.lr.ph.i456, %.lr.ph.i447, %.lr.ph.i438, %.lr.ph.i429, %.lr.ph.i420, %.lr.ph.i411, %.lr.ph.i402, %.lr.ph.i393, %.lr.ph.i384, %.lr.ph.i375, %.lr.ph.i366, %.lr.ph.i357, %.lr.ph.i348, %.lr.ph.i339, %.lr.ph.i330, %.lr.ph.i321, %.lr.ph.i312, %.lr.ph.i303, %.lr.ph.i294, %.lr.ph.i285, %.lr.ph.i276, %.lr.ph.i267, %.lr.ph.i258, %.lr.ph.i249, %.lr.ph.i240, %.lr.ph.i231, %.lr.ph.i222, %.lr.ph.i213, %.lr.ph.i204, %.lr.ph.i195, %.lr.ph.i186, %.lr.ph.i177, %.lr.ph.i168, %.lr.ph.i159, %.lr.ph.i, %331, %329, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148
-  %.0 = phi i1 [ true, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148 ], [ false, %329 ], [ false, %331 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i159 ], [ false, %.lr.ph.i168 ], [ false, %.lr.ph.i177 ], [ false, %.lr.ph.i186 ], [ false, %.lr.ph.i195 ], [ false, %.lr.ph.i204 ], [ false, %.lr.ph.i213 ], [ false, %.lr.ph.i222 ], [ false, %.lr.ph.i231 ], [ false, %.lr.ph.i240 ], [ false, %.lr.ph.i249 ], [ false, %.lr.ph.i258 ], [ false, %.lr.ph.i267 ], [ false, %.lr.ph.i276 ], [ false, %.lr.ph.i285 ], [ false, %.lr.ph.i294 ], [ false, %.lr.ph.i303 ], [ false, %.lr.ph.i312 ], [ false, %.lr.ph.i321 ], [ false, %.lr.ph.i330 ], [ false, %.lr.ph.i339 ], [ false, %.lr.ph.i348 ], [ false, %.lr.ph.i357 ], [ false, %.lr.ph.i366 ], [ false, %.lr.ph.i375 ], [ false, %.lr.ph.i384 ], [ false, %.lr.ph.i393 ], [ false, %.lr.ph.i402 ], [ false, %.lr.ph.i411 ], [ false, %.lr.ph.i420 ], [ false, %.lr.ph.i429 ], [ false, %.lr.ph.i438 ], [ false, %.lr.ph.i447 ], [ false, %.lr.ph.i456 ], [ false, %.lr.ph.i465 ], [ false, %.lr.ph ]
+_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE27traverseObjCInterfaceRecordEPKNS0_19ObjCInterfaceRecordE.exit.thread: ; preds = %.lr.ph, %.lr.ph.i466, %.lr.ph.i457, %.lr.ph.i448, %.lr.ph.i439, %.lr.ph.i430, %.lr.ph.i421, %.lr.ph.i412, %.lr.ph.i403, %.lr.ph.i394, %.lr.ph.i385, %.lr.ph.i376, %.lr.ph.i367, %.lr.ph.i358, %.lr.ph.i349, %.lr.ph.i340, %.lr.ph.i331, %.lr.ph.i322, %.lr.ph.i313, %.lr.ph.i304, %.lr.ph.i295, %.lr.ph.i286, %.lr.ph.i277, %.lr.ph.i268, %.lr.ph.i259, %.lr.ph.i250, %.lr.ph.i241, %.lr.ph.i232, %.lr.ph.i223, %.lr.ph.i214, %.lr.ph.i205, %.lr.ph.i196, %.lr.ph.i187, %.lr.ph.i178, %.lr.ph.i169, %.lr.ph.i160, %.lr.ph.i, %331, %329, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148
+  %.0 = phi i1 [ true, %_ZN5clang10extractapi13APISetVisitorINS0_21SymbolGraphSerializerEE21traverseRecordContextEPKNS0_13RecordContextE.exit.thread148 ], [ false, %329 ], [ false, %331 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i160 ], [ false, %.lr.ph.i169 ], [ false, %.lr.ph.i178 ], [ false, %.lr.ph.i187 ], [ false, %.lr.ph.i196 ], [ false, %.lr.ph.i205 ], [ false, %.lr.ph.i214 ], [ false, %.lr.ph.i223 ], [ false, %.lr.ph.i232 ], [ false, %.lr.ph.i241 ], [ false, %.lr.ph.i250 ], [ false, %.lr.ph.i259 ], [ false, %.lr.ph.i268 ], [ false, %.lr.ph.i277 ], [ false, %.lr.ph.i286 ], [ false, %.lr.ph.i295 ], [ false, %.lr.ph.i304 ], [ false, %.lr.ph.i313 ], [ false, %.lr.ph.i322 ], [ false, %.lr.ph.i331 ], [ false, %.lr.ph.i340 ], [ false, %.lr.ph.i349 ], [ false, %.lr.ph.i358 ], [ false, %.lr.ph.i367 ], [ false, %.lr.ph.i376 ], [ false, %.lr.ph.i385 ], [ false, %.lr.ph.i394 ], [ false, %.lr.ph.i403 ], [ false, %.lr.ph.i412 ], [ false, %.lr.ph.i421 ], [ false, %.lr.ph.i430 ], [ false, %.lr.ph.i439 ], [ false, %.lr.ph.i448 ], [ false, %.lr.ph.i457 ], [ false, %.lr.ph.i466 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -19176,7 +19176,7 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4ll
   %169 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %169
   %170 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep123 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %170
+  %switch.gep191 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %170
   br label %239
 
 ._crit_edge:                                      ; preds = %432
@@ -19439,8 +19439,8 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit:                 ; preds = %247, %_ZNKSt14defau
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.load124 = load ptr, ptr %switch.gep123, align 8
-  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr nonnull %switch.load124, i64 %switch.load)
+  %switch.load192 = load ptr, ptr %switch.gep191, align 8
+  call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr nonnull %switch.load192, i64 %switch.load)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr nonnull @.str.38, i64 19)
   %260 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixEONS0_9ObjectKeyE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %23) #18
@@ -20014,9 +20014,9 @@ _ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE7reserveEm.exit.
   br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIN5clang10extractapi15SymbolReferenceELj8EEC2ISt13move_iteratorISt16reverse_iteratorIPS3_EEvEET_SB_.exit, label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE7reserveEm.exit.i.i.thread, %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE7reserveEm.exit.i.i
-  %.pre-phi.i.i7 = phi i64 [ %.pre10.i.i, %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE7reserveEm.exit.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE7reserveEm.exit.i.i ]
+  %.pre-phi.i.i9 = phi i64 [ %.pre10.i.i, %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE7reserveEm.exit.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIN5clang10extractapi15SymbolReferenceEE7reserveEm.exit.i.i ]
   %17 = load ptr, ptr %0, align 8, !tbaa !90
-  %18 = getelementptr inbounds nuw %"struct.clang::extractapi::SymbolReference", ptr %17, i64 %.pre-phi.i.i7
+  %18 = getelementptr inbounds nuw %"struct.clang::extractapi::SymbolReference", ptr %17, i64 %.pre-phi.i.i9
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
@@ -21297,44 +21297,44 @@ define internal fastcc void @_ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10ext
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   switch i32 %1, label %2668 [
     i32 0, label %switch.lookup
-    i32 2, label %switch.lookup954
-    i32 23, label %switch.lookup960
-    i32 24, label %switch.lookup966
-    i32 25, label %switch.lookup972
-    i32 19, label %switch.lookup978
-    i32 20, label %switch.lookup984
-    i32 21, label %switch.lookup990
-    i32 18, label %switch.lookup996
-    i32 26, label %switch.lookup1002
-    i32 3, label %switch.lookup1008
-    i32 13, label %switch.lookup1014
-    i32 4, label %switch.lookup1020
-    i32 14, label %switch.lookup1026
-    i32 5, label %switch.lookup1032
-    i32 15, label %switch.lookup1038
-    i32 16, label %switch.lookup1044
-    i32 10, label %switch.lookup1050
-    i32 11, label %switch.lookup1050
-    i32 12, label %switch.lookup1050
-    i32 9, label %switch.lookup1050
-    i32 32, label %switch.lookup1056
-    i32 33, label %switch.lookup1062
-    i32 17, label %switch.lookup1068
-    i32 27, label %switch.lookup1074
-    i32 28, label %switch.lookup1080
-    i32 29, label %switch.lookup1086
-    i32 30, label %switch.lookup1092
-    i32 31, label %switch.lookup1098
-    i32 36, label %switch.lookup1104
-    i32 38, label %switch.lookup1110
-    i32 37, label %switch.lookup1116
-    i32 34, label %switch.lookup1122
-    i32 35, label %switch.lookup1128
-    i32 6, label %switch.lookup1134
-    i32 7, label %switch.lookup1140
-    i32 8, label %switch.lookup1146
-    i32 39, label %switch.lookup1152
-    i32 40, label %switch.lookup1158
+    i32 2, label %switch.lookup1419
+    i32 23, label %switch.lookup1425
+    i32 24, label %switch.lookup1431
+    i32 25, label %switch.lookup1437
+    i32 19, label %switch.lookup1443
+    i32 20, label %switch.lookup1449
+    i32 21, label %switch.lookup1455
+    i32 18, label %switch.lookup1461
+    i32 26, label %switch.lookup1467
+    i32 3, label %switch.lookup1473
+    i32 13, label %switch.lookup1479
+    i32 4, label %switch.lookup1485
+    i32 14, label %switch.lookup1491
+    i32 5, label %switch.lookup1497
+    i32 15, label %switch.lookup1503
+    i32 16, label %switch.lookup1509
+    i32 10, label %switch.lookup1515
+    i32 11, label %switch.lookup1515
+    i32 12, label %switch.lookup1515
+    i32 9, label %switch.lookup1515
+    i32 32, label %switch.lookup1521
+    i32 33, label %switch.lookup1527
+    i32 17, label %switch.lookup1533
+    i32 27, label %switch.lookup1539
+    i32 28, label %switch.lookup1545
+    i32 29, label %switch.lookup1551
+    i32 30, label %switch.lookup1557
+    i32 31, label %switch.lookup1563
+    i32 36, label %switch.lookup1569
+    i32 38, label %switch.lookup1575
+    i32 37, label %switch.lookup1581
+    i32 34, label %switch.lookup1587
+    i32 35, label %switch.lookup1593
+    i32 6, label %switch.lookup1599
+    i32 7, label %switch.lookup1605
+    i32 8, label %switch.lookup1611
+    i32 39, label %switch.lookup1617
+    i32 40, label %switch.lookup1623
   ]
 
 switch.lookup:                                    ; preds = %3
@@ -21346,13 +21346,13 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %292
   %switch.load = load i64, ptr %switch.gep, align 8
   %293 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep952 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %293
-  %switch.load953 = load ptr, ptr %switch.gep952, align 8
+  %switch.gep1417 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %293
+  %switch.load1418 = load ptr, ptr %switch.gep1417, align 8
   %294 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store i8 5, ptr %294, align 8, !tbaa !278, !alias.scope !281, !noalias !275
   %295 = getelementptr inbounds nuw i8, ptr %111, i64 33
   store i8 3, ptr %295, align 1, !tbaa !284, !alias.scope !281, !noalias !275
-  store ptr %switch.load953, ptr %111, align 8, !tbaa !34, !alias.scope !281, !noalias !275
+  store ptr %switch.load1418, ptr %111, align 8, !tbaa !34, !alias.scope !281, !noalias !275
   %296 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 %switch.load, ptr %296, align 8, !tbaa !34, !alias.scope !281, !noalias !275
   %297 = getelementptr inbounds nuw i8, ptr %111, i64 16
@@ -21528,24 +21528,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit40:               ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %115)
   br label %2669
 
-switch.lookup954:                                 ; preds = %3
+switch.lookup1419:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
   call void @llvm.lifetime.start.p0(ptr nonnull %107), !noalias !290
   call void @llvm.lifetime.start.p0(ptr nonnull %108), !noalias !290
-  %switch.tableidx955 = add nsw i8 %2, -4
-  %358 = zext nneg i8 %switch.tableidx955 to i64
-  %switch.gep956 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %358
-  %switch.load957 = load i64, ptr %switch.gep956, align 8
-  %359 = zext nneg i8 %switch.tableidx955 to i64
-  %switch.gep958 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %359
-  %switch.load959 = load ptr, ptr %switch.gep958, align 8
+  %switch.tableidx1420 = add nsw i8 %2, -4
+  %358 = zext nneg i8 %switch.tableidx1420 to i64
+  %switch.gep1421 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %358
+  %switch.load1422 = load i64, ptr %switch.gep1421, align 8
+  %359 = zext nneg i8 %switch.tableidx1420 to i64
+  %switch.gep1423 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %359
+  %switch.load1424 = load ptr, ptr %switch.gep1423, align 8
   %360 = getelementptr inbounds nuw i8, ptr %108, i64 32
   store i8 5, ptr %360, align 8, !tbaa !278, !alias.scope !293, !noalias !290
   %361 = getelementptr inbounds nuw i8, ptr %108, i64 33
   store i8 3, ptr %361, align 1, !tbaa !284, !alias.scope !293, !noalias !290
-  store ptr %switch.load959, ptr %108, align 8, !tbaa !34, !alias.scope !293, !noalias !290
+  store ptr %switch.load1424, ptr %108, align 8, !tbaa !34, !alias.scope !293, !noalias !290
   %362 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  store i64 %switch.load957, ptr %362, align 8, !tbaa !34, !alias.scope !293, !noalias !290
+  store i64 %switch.load1422, ptr %362, align 8, !tbaa !34, !alias.scope !293, !noalias !290
   %363 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr @.str.103, ptr %363, align 8, !tbaa !34, !alias.scope !293, !noalias !290
   store ptr %108, ptr %107, align 8, !alias.scope !296, !noalias !290
@@ -21567,7 +21567,7 @@ switch.lookup954:                                 ; preds = %3
   %370 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %367, i64 %369, ptr noundef null) #18
   br i1 %370, label %383, label %371, !prof !19
 
-371:                                              ; preds = %switch.lookup954
+371:                                              ; preds = %switch.lookup1419
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %372 = load ptr, ptr %118, align 8, !tbaa !28
   %373 = load i64, ptr %368, align 8, !tbaa !33
@@ -21595,7 +21595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i46: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %383
 
-383:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i46, %switch.lookup954
+383:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i46, %switch.lookup1419
   %384 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %385 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store ptr %385, ptr %384, align 8, !tbaa !35
@@ -21719,24 +21719,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit62:               ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %2669
 
-switch.lookup960:                                 ; preds = %3
+switch.lookup1425:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   call void @llvm.lifetime.start.p0(ptr nonnull %104), !noalias !301
   call void @llvm.lifetime.start.p0(ptr nonnull %105), !noalias !301
-  %switch.tableidx961 = add nsw i8 %2, -4
-  %424 = zext nneg i8 %switch.tableidx961 to i64
-  %switch.gep962 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %424
-  %switch.load963 = load i64, ptr %switch.gep962, align 8
-  %425 = zext nneg i8 %switch.tableidx961 to i64
-  %switch.gep964 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %425
-  %switch.load965 = load ptr, ptr %switch.gep964, align 8
+  %switch.tableidx1426 = add nsw i8 %2, -4
+  %424 = zext nneg i8 %switch.tableidx1426 to i64
+  %switch.gep1427 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %424
+  %switch.load1428 = load i64, ptr %switch.gep1427, align 8
+  %425 = zext nneg i8 %switch.tableidx1426 to i64
+  %switch.gep1429 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %425
+  %switch.load1430 = load ptr, ptr %switch.gep1429, align 8
   %426 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store i8 5, ptr %426, align 8, !tbaa !278, !alias.scope !304, !noalias !301
   %427 = getelementptr inbounds nuw i8, ptr %105, i64 33
   store i8 3, ptr %427, align 1, !tbaa !284, !alias.scope !304, !noalias !301
-  store ptr %switch.load965, ptr %105, align 8, !tbaa !34, !alias.scope !304, !noalias !301
+  store ptr %switch.load1430, ptr %105, align 8, !tbaa !34, !alias.scope !304, !noalias !301
   %428 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i64 %switch.load963, ptr %428, align 8, !tbaa !34, !alias.scope !304, !noalias !301
+  store i64 %switch.load1428, ptr %428, align 8, !tbaa !34, !alias.scope !304, !noalias !301
   %429 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr @.str.103, ptr %429, align 8, !tbaa !34, !alias.scope !304, !noalias !301
   store ptr %105, ptr %104, align 8, !alias.scope !307, !noalias !301
@@ -21758,7 +21758,7 @@ switch.lookup960:                                 ; preds = %3
   %436 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %433, i64 %435, ptr noundef null) #18
   br i1 %436, label %449, label %437, !prof !19
 
-437:                                              ; preds = %switch.lookup960
+437:                                              ; preds = %switch.lookup1425
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %438 = load ptr, ptr %123, align 8, !tbaa !28
   %439 = load i64, ptr %434, align 8, !tbaa !33
@@ -21786,7 +21786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i68: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %449
 
-449:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i68, %switch.lookup960
+449:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i68, %switch.lookup1425
   %450 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %451 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store ptr %451, ptr %450, align 8, !tbaa !35
@@ -21910,24 +21910,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit84:               ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %2669
 
-switch.lookup966:                                 ; preds = %3
+switch.lookup1431:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %127)
   call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !312
   call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !312
-  %switch.tableidx967 = add nsw i8 %2, -4
-  %490 = zext nneg i8 %switch.tableidx967 to i64
-  %switch.gep968 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %490
-  %switch.load969 = load i64, ptr %switch.gep968, align 8
-  %491 = zext nneg i8 %switch.tableidx967 to i64
-  %switch.gep970 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %491
-  %switch.load971 = load ptr, ptr %switch.gep970, align 8
+  %switch.tableidx1432 = add nsw i8 %2, -4
+  %490 = zext nneg i8 %switch.tableidx1432 to i64
+  %switch.gep1433 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %490
+  %switch.load1434 = load i64, ptr %switch.gep1433, align 8
+  %491 = zext nneg i8 %switch.tableidx1432 to i64
+  %switch.gep1435 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %491
+  %switch.load1436 = load ptr, ptr %switch.gep1435, align 8
   %492 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store i8 5, ptr %492, align 8, !tbaa !278, !alias.scope !315, !noalias !312
   %493 = getelementptr inbounds nuw i8, ptr %102, i64 33
   store i8 3, ptr %493, align 1, !tbaa !284, !alias.scope !315, !noalias !312
-  store ptr %switch.load971, ptr %102, align 8, !tbaa !34, !alias.scope !315, !noalias !312
+  store ptr %switch.load1436, ptr %102, align 8, !tbaa !34, !alias.scope !315, !noalias !312
   %494 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i64 %switch.load969, ptr %494, align 8, !tbaa !34, !alias.scope !315, !noalias !312
+  store i64 %switch.load1434, ptr %494, align 8, !tbaa !34, !alias.scope !315, !noalias !312
   %495 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store ptr @.str.103, ptr %495, align 8, !tbaa !34, !alias.scope !315, !noalias !312
   store ptr %102, ptr %101, align 8, !alias.scope !318, !noalias !312
@@ -21949,7 +21949,7 @@ switch.lookup966:                                 ; preds = %3
   %502 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %499, i64 %501, ptr noundef null) #18
   br i1 %502, label %515, label %503, !prof !19
 
-503:                                              ; preds = %switch.lookup966
+503:                                              ; preds = %switch.lookup1431
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %504 = load ptr, ptr %128, align 8, !tbaa !28
   %505 = load i64, ptr %500, align 8, !tbaa !33
@@ -21977,7 +21977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i90: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %515
 
-515:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i90, %switch.lookup966
+515:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i90, %switch.lookup1431
   %516 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %517 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store ptr %517, ptr %516, align 8, !tbaa !35
@@ -22101,24 +22101,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit106:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
   br label %2669
 
-switch.lookup972:                                 ; preds = %3
+switch.lookup1437:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
   call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !323
   call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !323
-  %switch.tableidx973 = add nsw i8 %2, -4
-  %556 = zext nneg i8 %switch.tableidx973 to i64
-  %switch.gep974 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %556
-  %switch.load975 = load i64, ptr %switch.gep974, align 8
-  %557 = zext nneg i8 %switch.tableidx973 to i64
-  %switch.gep976 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %557
-  %switch.load977 = load ptr, ptr %switch.gep976, align 8
+  %switch.tableidx1438 = add nsw i8 %2, -4
+  %556 = zext nneg i8 %switch.tableidx1438 to i64
+  %switch.gep1439 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %556
+  %switch.load1440 = load i64, ptr %switch.gep1439, align 8
+  %557 = zext nneg i8 %switch.tableidx1438 to i64
+  %switch.gep1441 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %557
+  %switch.load1442 = load ptr, ptr %switch.gep1441, align 8
   %558 = getelementptr inbounds nuw i8, ptr %99, i64 32
   store i8 5, ptr %558, align 8, !tbaa !278, !alias.scope !326, !noalias !323
   %559 = getelementptr inbounds nuw i8, ptr %99, i64 33
   store i8 3, ptr %559, align 1, !tbaa !284, !alias.scope !326, !noalias !323
-  store ptr %switch.load977, ptr %99, align 8, !tbaa !34, !alias.scope !326, !noalias !323
+  store ptr %switch.load1442, ptr %99, align 8, !tbaa !34, !alias.scope !326, !noalias !323
   %560 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i64 %switch.load975, ptr %560, align 8, !tbaa !34, !alias.scope !326, !noalias !323
+  store i64 %switch.load1440, ptr %560, align 8, !tbaa !34, !alias.scope !326, !noalias !323
   %561 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store ptr @.str.103, ptr %561, align 8, !tbaa !34, !alias.scope !326, !noalias !323
   store ptr %99, ptr %98, align 8, !alias.scope !329, !noalias !323
@@ -22140,7 +22140,7 @@ switch.lookup972:                                 ; preds = %3
   %568 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %565, i64 %567, ptr noundef null) #18
   br i1 %568, label %581, label %569, !prof !19
 
-569:                                              ; preds = %switch.lookup972
+569:                                              ; preds = %switch.lookup1437
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   %570 = load ptr, ptr %133, align 8, !tbaa !28
   %571 = load i64, ptr %566, align 8, !tbaa !33
@@ -22168,7 +22168,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i112: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %581
 
-581:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i112, %switch.lookup972
+581:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i112, %switch.lookup1437
   %582 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %583 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store ptr %583, ptr %582, align 8, !tbaa !35
@@ -22292,24 +22292,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit128:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
   br label %2669
 
-switch.lookup978:                                 ; preds = %3
+switch.lookup1443:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
   call void @llvm.lifetime.start.p0(ptr nonnull %95), !noalias !334
   call void @llvm.lifetime.start.p0(ptr nonnull %96), !noalias !334
-  %switch.tableidx979 = add nsw i8 %2, -4
-  %622 = zext nneg i8 %switch.tableidx979 to i64
-  %switch.gep980 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %622
-  %switch.load981 = load i64, ptr %switch.gep980, align 8
-  %623 = zext nneg i8 %switch.tableidx979 to i64
-  %switch.gep982 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %623
-  %switch.load983 = load ptr, ptr %switch.gep982, align 8
+  %switch.tableidx1444 = add nsw i8 %2, -4
+  %622 = zext nneg i8 %switch.tableidx1444 to i64
+  %switch.gep1445 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %622
+  %switch.load1446 = load i64, ptr %switch.gep1445, align 8
+  %623 = zext nneg i8 %switch.tableidx1444 to i64
+  %switch.gep1447 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %623
+  %switch.load1448 = load ptr, ptr %switch.gep1447, align 8
   %624 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store i8 5, ptr %624, align 8, !tbaa !278, !alias.scope !337, !noalias !334
   %625 = getelementptr inbounds nuw i8, ptr %96, i64 33
   store i8 3, ptr %625, align 1, !tbaa !284, !alias.scope !337, !noalias !334
-  store ptr %switch.load983, ptr %96, align 8, !tbaa !34, !alias.scope !337, !noalias !334
+  store ptr %switch.load1448, ptr %96, align 8, !tbaa !34, !alias.scope !337, !noalias !334
   %626 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 %switch.load981, ptr %626, align 8, !tbaa !34, !alias.scope !337, !noalias !334
+  store i64 %switch.load1446, ptr %626, align 8, !tbaa !34, !alias.scope !337, !noalias !334
   %627 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store ptr @.str.103, ptr %627, align 8, !tbaa !34, !alias.scope !337, !noalias !334
   store ptr %96, ptr %95, align 8, !alias.scope !340, !noalias !334
@@ -22331,7 +22331,7 @@ switch.lookup978:                                 ; preds = %3
   %634 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %631, i64 %633, ptr noundef null) #18
   br i1 %634, label %647, label %635, !prof !19
 
-635:                                              ; preds = %switch.lookup978
+635:                                              ; preds = %switch.lookup1443
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %636 = load ptr, ptr %138, align 8, !tbaa !28
   %637 = load i64, ptr %632, align 8, !tbaa !33
@@ -22359,7 +22359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i134: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %647
 
-647:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i134, %switch.lookup978
+647:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i134, %switch.lookup1443
   %648 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %649 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store ptr %649, ptr %648, align 8, !tbaa !35
@@ -22483,24 +22483,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit150:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %2669
 
-switch.lookup984:                                 ; preds = %3
+switch.lookup1449:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
   call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !345
   call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !345
-  %switch.tableidx985 = add nsw i8 %2, -4
-  %688 = zext nneg i8 %switch.tableidx985 to i64
-  %switch.gep986 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %688
-  %switch.load987 = load i64, ptr %switch.gep986, align 8
-  %689 = zext nneg i8 %switch.tableidx985 to i64
-  %switch.gep988 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %689
-  %switch.load989 = load ptr, ptr %switch.gep988, align 8
+  %switch.tableidx1450 = add nsw i8 %2, -4
+  %688 = zext nneg i8 %switch.tableidx1450 to i64
+  %switch.gep1451 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %688
+  %switch.load1452 = load i64, ptr %switch.gep1451, align 8
+  %689 = zext nneg i8 %switch.tableidx1450 to i64
+  %switch.gep1453 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %689
+  %switch.load1454 = load ptr, ptr %switch.gep1453, align 8
   %690 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store i8 5, ptr %690, align 8, !tbaa !278, !alias.scope !348, !noalias !345
   %691 = getelementptr inbounds nuw i8, ptr %93, i64 33
   store i8 3, ptr %691, align 1, !tbaa !284, !alias.scope !348, !noalias !345
-  store ptr %switch.load989, ptr %93, align 8, !tbaa !34, !alias.scope !348, !noalias !345
+  store ptr %switch.load1454, ptr %93, align 8, !tbaa !34, !alias.scope !348, !noalias !345
   %692 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store i64 %switch.load987, ptr %692, align 8, !tbaa !34, !alias.scope !348, !noalias !345
+  store i64 %switch.load1452, ptr %692, align 8, !tbaa !34, !alias.scope !348, !noalias !345
   %693 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store ptr @.str.103, ptr %693, align 8, !tbaa !34, !alias.scope !348, !noalias !345
   store ptr %93, ptr %92, align 8, !alias.scope !351, !noalias !345
@@ -22522,7 +22522,7 @@ switch.lookup984:                                 ; preds = %3
   %700 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %697, i64 %699, ptr noundef null) #18
   br i1 %700, label %713, label %701, !prof !19
 
-701:                                              ; preds = %switch.lookup984
+701:                                              ; preds = %switch.lookup1449
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %702 = load ptr, ptr %143, align 8, !tbaa !28
   %703 = load i64, ptr %698, align 8, !tbaa !33
@@ -22550,7 +22550,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i156: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %713
 
-713:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i156, %switch.lookup984
+713:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i156, %switch.lookup1449
   %714 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 24
   store ptr %715, ptr %714, align 8, !tbaa !35
@@ -22674,24 +22674,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit172:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %145)
   br label %2669
 
-switch.lookup990:                                 ; preds = %3
+switch.lookup1455:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %147)
   call void @llvm.lifetime.start.p0(ptr nonnull %89), !noalias !356
   call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !356
-  %switch.tableidx991 = add nsw i8 %2, -4
-  %754 = zext nneg i8 %switch.tableidx991 to i64
-  %switch.gep992 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %754
-  %switch.load993 = load i64, ptr %switch.gep992, align 8
-  %755 = zext nneg i8 %switch.tableidx991 to i64
-  %switch.gep994 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %755
-  %switch.load995 = load ptr, ptr %switch.gep994, align 8
+  %switch.tableidx1456 = add nsw i8 %2, -4
+  %754 = zext nneg i8 %switch.tableidx1456 to i64
+  %switch.gep1457 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %754
+  %switch.load1458 = load i64, ptr %switch.gep1457, align 8
+  %755 = zext nneg i8 %switch.tableidx1456 to i64
+  %switch.gep1459 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %755
+  %switch.load1460 = load ptr, ptr %switch.gep1459, align 8
   %756 = getelementptr inbounds nuw i8, ptr %90, i64 32
   store i8 5, ptr %756, align 8, !tbaa !278, !alias.scope !359, !noalias !356
   %757 = getelementptr inbounds nuw i8, ptr %90, i64 33
   store i8 3, ptr %757, align 1, !tbaa !284, !alias.scope !359, !noalias !356
-  store ptr %switch.load995, ptr %90, align 8, !tbaa !34, !alias.scope !359, !noalias !356
+  store ptr %switch.load1460, ptr %90, align 8, !tbaa !34, !alias.scope !359, !noalias !356
   %758 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store i64 %switch.load993, ptr %758, align 8, !tbaa !34, !alias.scope !359, !noalias !356
+  store i64 %switch.load1458, ptr %758, align 8, !tbaa !34, !alias.scope !359, !noalias !356
   %759 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr @.str.103, ptr %759, align 8, !tbaa !34, !alias.scope !359, !noalias !356
   store ptr %90, ptr %89, align 8, !alias.scope !362, !noalias !356
@@ -22713,7 +22713,7 @@ switch.lookup990:                                 ; preds = %3
   %766 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %763, i64 %765, ptr noundef null) #18
   br i1 %766, label %779, label %767, !prof !19
 
-767:                                              ; preds = %switch.lookup990
+767:                                              ; preds = %switch.lookup1455
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %768 = load ptr, ptr %148, align 8, !tbaa !28
   %769 = load i64, ptr %764, align 8, !tbaa !33
@@ -22741,7 +22741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i178: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %779
 
-779:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i178, %switch.lookup990
+779:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i178, %switch.lookup1455
   %780 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %781 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store ptr %781, ptr %780, align 8, !tbaa !35
@@ -22865,24 +22865,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit194:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %2669
 
-switch.lookup996:                                 ; preds = %3
+switch.lookup1461:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %152)
   call void @llvm.lifetime.start.p0(ptr nonnull %86), !noalias !367
   call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !367
-  %switch.tableidx997 = add nsw i8 %2, -4
-  %820 = zext nneg i8 %switch.tableidx997 to i64
-  %switch.gep998 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %820
-  %switch.load999 = load i64, ptr %switch.gep998, align 8
-  %821 = zext nneg i8 %switch.tableidx997 to i64
-  %switch.gep1000 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %821
-  %switch.load1001 = load ptr, ptr %switch.gep1000, align 8
+  %switch.tableidx1462 = add nsw i8 %2, -4
+  %820 = zext nneg i8 %switch.tableidx1462 to i64
+  %switch.gep1463 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %820
+  %switch.load1464 = load i64, ptr %switch.gep1463, align 8
+  %821 = zext nneg i8 %switch.tableidx1462 to i64
+  %switch.gep1465 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %821
+  %switch.load1466 = load ptr, ptr %switch.gep1465, align 8
   %822 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store i8 5, ptr %822, align 8, !tbaa !278, !alias.scope !370, !noalias !367
   %823 = getelementptr inbounds nuw i8, ptr %87, i64 33
   store i8 3, ptr %823, align 1, !tbaa !284, !alias.scope !370, !noalias !367
-  store ptr %switch.load1001, ptr %87, align 8, !tbaa !34, !alias.scope !370, !noalias !367
+  store ptr %switch.load1466, ptr %87, align 8, !tbaa !34, !alias.scope !370, !noalias !367
   %824 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store i64 %switch.load999, ptr %824, align 8, !tbaa !34, !alias.scope !370, !noalias !367
+  store i64 %switch.load1464, ptr %824, align 8, !tbaa !34, !alias.scope !370, !noalias !367
   %825 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr @.str.103, ptr %825, align 8, !tbaa !34, !alias.scope !370, !noalias !367
   store ptr %87, ptr %86, align 8, !alias.scope !373, !noalias !367
@@ -22904,7 +22904,7 @@ switch.lookup996:                                 ; preds = %3
   %832 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %829, i64 %831, ptr noundef null) #18
   br i1 %832, label %845, label %833, !prof !19
 
-833:                                              ; preds = %switch.lookup996
+833:                                              ; preds = %switch.lookup1461
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %834 = load ptr, ptr %153, align 8, !tbaa !28
   %835 = load i64, ptr %830, align 8, !tbaa !33
@@ -22932,7 +22932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i200: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %845
 
-845:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i200, %switch.lookup996
+845:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i200, %switch.lookup1461
   %846 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %847 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store ptr %847, ptr %846, align 8, !tbaa !35
@@ -23056,24 +23056,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit216:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %2669
 
-switch.lookup1002:                                ; preds = %3
+switch.lookup1467:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !378
   call void @llvm.lifetime.start.p0(ptr nonnull %84), !noalias !378
-  %switch.tableidx1003 = add nsw i8 %2, -4
-  %886 = zext nneg i8 %switch.tableidx1003 to i64
-  %switch.gep1004 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %886
-  %switch.load1005 = load i64, ptr %switch.gep1004, align 8
-  %887 = zext nneg i8 %switch.tableidx1003 to i64
-  %switch.gep1006 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %887
-  %switch.load1007 = load ptr, ptr %switch.gep1006, align 8
+  %switch.tableidx1468 = add nsw i8 %2, -4
+  %886 = zext nneg i8 %switch.tableidx1468 to i64
+  %switch.gep1469 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %886
+  %switch.load1470 = load i64, ptr %switch.gep1469, align 8
+  %887 = zext nneg i8 %switch.tableidx1468 to i64
+  %switch.gep1471 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %887
+  %switch.load1472 = load ptr, ptr %switch.gep1471, align 8
   %888 = getelementptr inbounds nuw i8, ptr %84, i64 32
   store i8 5, ptr %888, align 8, !tbaa !278, !alias.scope !381, !noalias !378
   %889 = getelementptr inbounds nuw i8, ptr %84, i64 33
   store i8 3, ptr %889, align 1, !tbaa !284, !alias.scope !381, !noalias !378
-  store ptr %switch.load1007, ptr %84, align 8, !tbaa !34, !alias.scope !381, !noalias !378
+  store ptr %switch.load1472, ptr %84, align 8, !tbaa !34, !alias.scope !381, !noalias !378
   %890 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i64 %switch.load1005, ptr %890, align 8, !tbaa !34, !alias.scope !381, !noalias !378
+  store i64 %switch.load1470, ptr %890, align 8, !tbaa !34, !alias.scope !381, !noalias !378
   %891 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr @.str.103, ptr %891, align 8, !tbaa !34, !alias.scope !381, !noalias !378
   store ptr %84, ptr %83, align 8, !alias.scope !384, !noalias !378
@@ -23095,7 +23095,7 @@ switch.lookup1002:                                ; preds = %3
   %898 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %895, i64 %897, ptr noundef null) #18
   br i1 %898, label %911, label %899, !prof !19
 
-899:                                              ; preds = %switch.lookup1002
+899:                                              ; preds = %switch.lookup1467
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %900 = load ptr, ptr %158, align 8, !tbaa !28
   %901 = load i64, ptr %896, align 8, !tbaa !33
@@ -23123,7 +23123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i222: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %911
 
-911:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i222, %switch.lookup1002
+911:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i222, %switch.lookup1467
   %912 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %913 = getelementptr inbounds nuw i8, ptr %157, i64 24
   store ptr %913, ptr %912, align 8, !tbaa !35
@@ -23247,24 +23247,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit238:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %2669
 
-switch.lookup1008:                                ; preds = %3
+switch.lookup1473:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %162)
   call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !389
   call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !389
-  %switch.tableidx1009 = add nsw i8 %2, -4
-  %952 = zext nneg i8 %switch.tableidx1009 to i64
-  %switch.gep1010 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %952
-  %switch.load1011 = load i64, ptr %switch.gep1010, align 8
-  %953 = zext nneg i8 %switch.tableidx1009 to i64
-  %switch.gep1012 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %953
-  %switch.load1013 = load ptr, ptr %switch.gep1012, align 8
+  %switch.tableidx1474 = add nsw i8 %2, -4
+  %952 = zext nneg i8 %switch.tableidx1474 to i64
+  %switch.gep1475 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %952
+  %switch.load1476 = load i64, ptr %switch.gep1475, align 8
+  %953 = zext nneg i8 %switch.tableidx1474 to i64
+  %switch.gep1477 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %953
+  %switch.load1478 = load ptr, ptr %switch.gep1477, align 8
   %954 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store i8 5, ptr %954, align 8, !tbaa !278, !alias.scope !392, !noalias !389
   %955 = getelementptr inbounds nuw i8, ptr %81, i64 33
   store i8 3, ptr %955, align 1, !tbaa !284, !alias.scope !392, !noalias !389
-  store ptr %switch.load1013, ptr %81, align 8, !tbaa !34, !alias.scope !392, !noalias !389
+  store ptr %switch.load1478, ptr %81, align 8, !tbaa !34, !alias.scope !392, !noalias !389
   %956 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store i64 %switch.load1011, ptr %956, align 8, !tbaa !34, !alias.scope !392, !noalias !389
+  store i64 %switch.load1476, ptr %956, align 8, !tbaa !34, !alias.scope !392, !noalias !389
   %957 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr @.str.103, ptr %957, align 8, !tbaa !34, !alias.scope !392, !noalias !389
   store ptr %81, ptr %80, align 8, !alias.scope !395, !noalias !389
@@ -23286,7 +23286,7 @@ switch.lookup1008:                                ; preds = %3
   %964 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %961, i64 %963, ptr noundef null) #18
   br i1 %964, label %977, label %965, !prof !19
 
-965:                                              ; preds = %switch.lookup1008
+965:                                              ; preds = %switch.lookup1473
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %966 = load ptr, ptr %163, align 8, !tbaa !28
   %967 = load i64, ptr %962, align 8, !tbaa !33
@@ -23314,7 +23314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i244: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %977
 
-977:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i244, %switch.lookup1008
+977:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i244, %switch.lookup1473
   %978 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %979 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store ptr %979, ptr %978, align 8, !tbaa !35
@@ -23438,24 +23438,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit260:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %2669
 
-switch.lookup1014:                                ; preds = %3
+switch.lookup1479:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %167)
   call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !400
   call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !400
-  %switch.tableidx1015 = add nsw i8 %2, -4
-  %1018 = zext nneg i8 %switch.tableidx1015 to i64
-  %switch.gep1016 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1018
-  %switch.load1017 = load i64, ptr %switch.gep1016, align 8
-  %1019 = zext nneg i8 %switch.tableidx1015 to i64
-  %switch.gep1018 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1019
-  %switch.load1019 = load ptr, ptr %switch.gep1018, align 8
+  %switch.tableidx1480 = add nsw i8 %2, -4
+  %1018 = zext nneg i8 %switch.tableidx1480 to i64
+  %switch.gep1481 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1018
+  %switch.load1482 = load i64, ptr %switch.gep1481, align 8
+  %1019 = zext nneg i8 %switch.tableidx1480 to i64
+  %switch.gep1483 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1019
+  %switch.load1484 = load ptr, ptr %switch.gep1483, align 8
   %1020 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store i8 5, ptr %1020, align 8, !tbaa !278, !alias.scope !403, !noalias !400
   %1021 = getelementptr inbounds nuw i8, ptr %78, i64 33
   store i8 3, ptr %1021, align 1, !tbaa !284, !alias.scope !403, !noalias !400
-  store ptr %switch.load1019, ptr %78, align 8, !tbaa !34, !alias.scope !403, !noalias !400
+  store ptr %switch.load1484, ptr %78, align 8, !tbaa !34, !alias.scope !403, !noalias !400
   %1022 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i64 %switch.load1017, ptr %1022, align 8, !tbaa !34, !alias.scope !403, !noalias !400
+  store i64 %switch.load1482, ptr %1022, align 8, !tbaa !34, !alias.scope !403, !noalias !400
   %1023 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr @.str.103, ptr %1023, align 8, !tbaa !34, !alias.scope !403, !noalias !400
   store ptr %78, ptr %77, align 8, !alias.scope !406, !noalias !400
@@ -23477,7 +23477,7 @@ switch.lookup1014:                                ; preds = %3
   %1030 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1027, i64 %1029, ptr noundef null) #18
   br i1 %1030, label %1043, label %1031, !prof !19
 
-1031:                                             ; preds = %switch.lookup1014
+1031:                                             ; preds = %switch.lookup1479
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %1032 = load ptr, ptr %168, align 8, !tbaa !28
   %1033 = load i64, ptr %1028, align 8, !tbaa !33
@@ -23505,7 +23505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i266: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %1043
 
-1043:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i266, %switch.lookup1014
+1043:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i266, %switch.lookup1479
   %1044 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %1045 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store ptr %1045, ptr %1044, align 8, !tbaa !35
@@ -23629,24 +23629,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit282:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %170)
   br label %2669
 
-switch.lookup1020:                                ; preds = %3
+switch.lookup1485:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %172)
   call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !411
   call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !411
-  %switch.tableidx1021 = add nsw i8 %2, -4
-  %1084 = zext nneg i8 %switch.tableidx1021 to i64
-  %switch.gep1022 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1084
-  %switch.load1023 = load i64, ptr %switch.gep1022, align 8
-  %1085 = zext nneg i8 %switch.tableidx1021 to i64
-  %switch.gep1024 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1085
-  %switch.load1025 = load ptr, ptr %switch.gep1024, align 8
+  %switch.tableidx1486 = add nsw i8 %2, -4
+  %1084 = zext nneg i8 %switch.tableidx1486 to i64
+  %switch.gep1487 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1084
+  %switch.load1488 = load i64, ptr %switch.gep1487, align 8
+  %1085 = zext nneg i8 %switch.tableidx1486 to i64
+  %switch.gep1489 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1085
+  %switch.load1490 = load ptr, ptr %switch.gep1489, align 8
   %1086 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store i8 5, ptr %1086, align 8, !tbaa !278, !alias.scope !414, !noalias !411
   %1087 = getelementptr inbounds nuw i8, ptr %75, i64 33
   store i8 3, ptr %1087, align 1, !tbaa !284, !alias.scope !414, !noalias !411
-  store ptr %switch.load1025, ptr %75, align 8, !tbaa !34, !alias.scope !414, !noalias !411
+  store ptr %switch.load1490, ptr %75, align 8, !tbaa !34, !alias.scope !414, !noalias !411
   %1088 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i64 %switch.load1023, ptr %1088, align 8, !tbaa !34, !alias.scope !414, !noalias !411
+  store i64 %switch.load1488, ptr %1088, align 8, !tbaa !34, !alias.scope !414, !noalias !411
   %1089 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr @.str.103, ptr %1089, align 8, !tbaa !34, !alias.scope !414, !noalias !411
   store ptr %75, ptr %74, align 8, !alias.scope !417, !noalias !411
@@ -23668,7 +23668,7 @@ switch.lookup1020:                                ; preds = %3
   %1096 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1093, i64 %1095, ptr noundef null) #18
   br i1 %1096, label %1109, label %1097, !prof !19
 
-1097:                                             ; preds = %switch.lookup1020
+1097:                                             ; preds = %switch.lookup1485
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %1098 = load ptr, ptr %173, align 8, !tbaa !28
   %1099 = load i64, ptr %1094, align 8, !tbaa !33
@@ -23696,7 +23696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i288: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %1109
 
-1109:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i288, %switch.lookup1020
+1109:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i288, %switch.lookup1485
   %1110 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %1111 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store ptr %1111, ptr %1110, align 8, !tbaa !35
@@ -23820,24 +23820,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit304:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %2669
 
-switch.lookup1026:                                ; preds = %3
+switch.lookup1491:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %177)
   call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !422
   call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !422
-  %switch.tableidx1027 = add nsw i8 %2, -4
-  %1150 = zext nneg i8 %switch.tableidx1027 to i64
-  %switch.gep1028 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1150
-  %switch.load1029 = load i64, ptr %switch.gep1028, align 8
-  %1151 = zext nneg i8 %switch.tableidx1027 to i64
-  %switch.gep1030 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1151
-  %switch.load1031 = load ptr, ptr %switch.gep1030, align 8
+  %switch.tableidx1492 = add nsw i8 %2, -4
+  %1150 = zext nneg i8 %switch.tableidx1492 to i64
+  %switch.gep1493 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1150
+  %switch.load1494 = load i64, ptr %switch.gep1493, align 8
+  %1151 = zext nneg i8 %switch.tableidx1492 to i64
+  %switch.gep1495 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1151
+  %switch.load1496 = load ptr, ptr %switch.gep1495, align 8
   %1152 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store i8 5, ptr %1152, align 8, !tbaa !278, !alias.scope !425, !noalias !422
   %1153 = getelementptr inbounds nuw i8, ptr %72, i64 33
   store i8 3, ptr %1153, align 1, !tbaa !284, !alias.scope !425, !noalias !422
-  store ptr %switch.load1031, ptr %72, align 8, !tbaa !34, !alias.scope !425, !noalias !422
+  store ptr %switch.load1496, ptr %72, align 8, !tbaa !34, !alias.scope !425, !noalias !422
   %1154 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i64 %switch.load1029, ptr %1154, align 8, !tbaa !34, !alias.scope !425, !noalias !422
+  store i64 %switch.load1494, ptr %1154, align 8, !tbaa !34, !alias.scope !425, !noalias !422
   %1155 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr @.str.103, ptr %1155, align 8, !tbaa !34, !alias.scope !425, !noalias !422
   store ptr %72, ptr %71, align 8, !alias.scope !428, !noalias !422
@@ -23859,7 +23859,7 @@ switch.lookup1026:                                ; preds = %3
   %1162 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1159, i64 %1161, ptr noundef null) #18
   br i1 %1162, label %1175, label %1163, !prof !19
 
-1163:                                             ; preds = %switch.lookup1026
+1163:                                             ; preds = %switch.lookup1491
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %1164 = load ptr, ptr %178, align 8, !tbaa !28
   %1165 = load i64, ptr %1160, align 8, !tbaa !33
@@ -23887,7 +23887,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i310: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %1175
 
-1175:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i310, %switch.lookup1026
+1175:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i310, %switch.lookup1491
   %1176 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %1177 = getelementptr inbounds nuw i8, ptr %177, i64 24
   store ptr %1177, ptr %1176, align 8, !tbaa !35
@@ -24011,24 +24011,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit326:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %2669
 
-switch.lookup1032:                                ; preds = %3
+switch.lookup1497:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %182)
   call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !433
   call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !433
-  %switch.tableidx1033 = add nsw i8 %2, -4
-  %1216 = zext nneg i8 %switch.tableidx1033 to i64
-  %switch.gep1034 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1216
-  %switch.load1035 = load i64, ptr %switch.gep1034, align 8
-  %1217 = zext nneg i8 %switch.tableidx1033 to i64
-  %switch.gep1036 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1217
-  %switch.load1037 = load ptr, ptr %switch.gep1036, align 8
+  %switch.tableidx1498 = add nsw i8 %2, -4
+  %1216 = zext nneg i8 %switch.tableidx1498 to i64
+  %switch.gep1499 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1216
+  %switch.load1500 = load i64, ptr %switch.gep1499, align 8
+  %1217 = zext nneg i8 %switch.tableidx1498 to i64
+  %switch.gep1501 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1217
+  %switch.load1502 = load ptr, ptr %switch.gep1501, align 8
   %1218 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i8 5, ptr %1218, align 8, !tbaa !278, !alias.scope !436, !noalias !433
   %1219 = getelementptr inbounds nuw i8, ptr %69, i64 33
   store i8 3, ptr %1219, align 1, !tbaa !284, !alias.scope !436, !noalias !433
-  store ptr %switch.load1037, ptr %69, align 8, !tbaa !34, !alias.scope !436, !noalias !433
+  store ptr %switch.load1502, ptr %69, align 8, !tbaa !34, !alias.scope !436, !noalias !433
   %1220 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i64 %switch.load1035, ptr %1220, align 8, !tbaa !34, !alias.scope !436, !noalias !433
+  store i64 %switch.load1500, ptr %1220, align 8, !tbaa !34, !alias.scope !436, !noalias !433
   %1221 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr @.str.103, ptr %1221, align 8, !tbaa !34, !alias.scope !436, !noalias !433
   store ptr %69, ptr %68, align 8, !alias.scope !439, !noalias !433
@@ -24050,7 +24050,7 @@ switch.lookup1032:                                ; preds = %3
   %1228 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1225, i64 %1227, ptr noundef null) #18
   br i1 %1228, label %1241, label %1229, !prof !19
 
-1229:                                             ; preds = %switch.lookup1032
+1229:                                             ; preds = %switch.lookup1497
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %1230 = load ptr, ptr %183, align 8, !tbaa !28
   %1231 = load i64, ptr %1226, align 8, !tbaa !33
@@ -24078,7 +24078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i332: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %1241
 
-1241:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i332, %switch.lookup1032
+1241:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i332, %switch.lookup1497
   %1242 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %1243 = getelementptr inbounds nuw i8, ptr %182, i64 24
   store ptr %1243, ptr %1242, align 8, !tbaa !35
@@ -24202,24 +24202,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit348:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %2669
 
-switch.lookup1038:                                ; preds = %3
+switch.lookup1503:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %187)
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !444
   call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !444
-  %switch.tableidx1039 = add nsw i8 %2, -4
-  %1282 = zext nneg i8 %switch.tableidx1039 to i64
-  %switch.gep1040 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1282
-  %switch.load1041 = load i64, ptr %switch.gep1040, align 8
-  %1283 = zext nneg i8 %switch.tableidx1039 to i64
-  %switch.gep1042 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1283
-  %switch.load1043 = load ptr, ptr %switch.gep1042, align 8
+  %switch.tableidx1504 = add nsw i8 %2, -4
+  %1282 = zext nneg i8 %switch.tableidx1504 to i64
+  %switch.gep1505 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1282
+  %switch.load1506 = load i64, ptr %switch.gep1505, align 8
+  %1283 = zext nneg i8 %switch.tableidx1504 to i64
+  %switch.gep1507 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1283
+  %switch.load1508 = load ptr, ptr %switch.gep1507, align 8
   %1284 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store i8 5, ptr %1284, align 8, !tbaa !278, !alias.scope !447, !noalias !444
   %1285 = getelementptr inbounds nuw i8, ptr %66, i64 33
   store i8 3, ptr %1285, align 1, !tbaa !284, !alias.scope !447, !noalias !444
-  store ptr %switch.load1043, ptr %66, align 8, !tbaa !34, !alias.scope !447, !noalias !444
+  store ptr %switch.load1508, ptr %66, align 8, !tbaa !34, !alias.scope !447, !noalias !444
   %1286 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i64 %switch.load1041, ptr %1286, align 8, !tbaa !34, !alias.scope !447, !noalias !444
+  store i64 %switch.load1506, ptr %1286, align 8, !tbaa !34, !alias.scope !447, !noalias !444
   %1287 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr @.str.103, ptr %1287, align 8, !tbaa !34, !alias.scope !447, !noalias !444
   store ptr %66, ptr %65, align 8, !alias.scope !450, !noalias !444
@@ -24241,7 +24241,7 @@ switch.lookup1038:                                ; preds = %3
   %1294 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1291, i64 %1293, ptr noundef null) #18
   br i1 %1294, label %1307, label %1295, !prof !19
 
-1295:                                             ; preds = %switch.lookup1038
+1295:                                             ; preds = %switch.lookup1503
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %1296 = load ptr, ptr %188, align 8, !tbaa !28
   %1297 = load i64, ptr %1292, align 8, !tbaa !33
@@ -24269,7 +24269,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i354: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %1307
 
-1307:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i354, %switch.lookup1038
+1307:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i354, %switch.lookup1503
   %1308 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %1309 = getelementptr inbounds nuw i8, ptr %187, i64 24
   store ptr %1309, ptr %1308, align 8, !tbaa !35
@@ -24393,24 +24393,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit370:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %190)
   br label %2669
 
-switch.lookup1044:                                ; preds = %3
+switch.lookup1509:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %192)
   call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !455
   call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !455
-  %switch.tableidx1045 = add nsw i8 %2, -4
-  %1348 = zext nneg i8 %switch.tableidx1045 to i64
-  %switch.gep1046 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1348
-  %switch.load1047 = load i64, ptr %switch.gep1046, align 8
-  %1349 = zext nneg i8 %switch.tableidx1045 to i64
-  %switch.gep1048 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1349
-  %switch.load1049 = load ptr, ptr %switch.gep1048, align 8
+  %switch.tableidx1510 = add nsw i8 %2, -4
+  %1348 = zext nneg i8 %switch.tableidx1510 to i64
+  %switch.gep1511 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1348
+  %switch.load1512 = load i64, ptr %switch.gep1511, align 8
+  %1349 = zext nneg i8 %switch.tableidx1510 to i64
+  %switch.gep1513 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1349
+  %switch.load1514 = load ptr, ptr %switch.gep1513, align 8
   %1350 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store i8 5, ptr %1350, align 8, !tbaa !278, !alias.scope !458, !noalias !455
   %1351 = getelementptr inbounds nuw i8, ptr %63, i64 33
   store i8 3, ptr %1351, align 1, !tbaa !284, !alias.scope !458, !noalias !455
-  store ptr %switch.load1049, ptr %63, align 8, !tbaa !34, !alias.scope !458, !noalias !455
+  store ptr %switch.load1514, ptr %63, align 8, !tbaa !34, !alias.scope !458, !noalias !455
   %1352 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 %switch.load1047, ptr %1352, align 8, !tbaa !34, !alias.scope !458, !noalias !455
+  store i64 %switch.load1512, ptr %1352, align 8, !tbaa !34, !alias.scope !458, !noalias !455
   %1353 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr @.str.103, ptr %1353, align 8, !tbaa !34, !alias.scope !458, !noalias !455
   store ptr %63, ptr %62, align 8, !alias.scope !461, !noalias !455
@@ -24432,7 +24432,7 @@ switch.lookup1044:                                ; preds = %3
   %1360 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1357, i64 %1359, ptr noundef null) #18
   br i1 %1360, label %1373, label %1361, !prof !19
 
-1361:                                             ; preds = %switch.lookup1044
+1361:                                             ; preds = %switch.lookup1509
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %1362 = load ptr, ptr %193, align 8, !tbaa !28
   %1363 = load i64, ptr %1358, align 8, !tbaa !33
@@ -24460,7 +24460,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i376: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %1373
 
-1373:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i376, %switch.lookup1044
+1373:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i376, %switch.lookup1509
   %1374 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %1375 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store ptr %1375, ptr %1374, align 8, !tbaa !35
@@ -24584,24 +24584,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit392:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %2669
 
-switch.lookup1050:                                ; preds = %3, %3, %3, %3
+switch.lookup1515:                                ; preds = %3, %3, %3, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %197)
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !466
   call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !466
-  %switch.tableidx1051 = add nsw i8 %2, -4
-  %1414 = zext nneg i8 %switch.tableidx1051 to i64
-  %switch.gep1052 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1414
-  %switch.load1053 = load i64, ptr %switch.gep1052, align 8
-  %1415 = zext nneg i8 %switch.tableidx1051 to i64
-  %switch.gep1054 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1415
-  %switch.load1055 = load ptr, ptr %switch.gep1054, align 8
+  %switch.tableidx1516 = add nsw i8 %2, -4
+  %1414 = zext nneg i8 %switch.tableidx1516 to i64
+  %switch.gep1517 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1414
+  %switch.load1518 = load i64, ptr %switch.gep1517, align 8
+  %1415 = zext nneg i8 %switch.tableidx1516 to i64
+  %switch.gep1519 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1415
+  %switch.load1520 = load ptr, ptr %switch.gep1519, align 8
   %1416 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store i8 5, ptr %1416, align 8, !tbaa !278, !alias.scope !469, !noalias !466
   %1417 = getelementptr inbounds nuw i8, ptr %60, i64 33
   store i8 3, ptr %1417, align 1, !tbaa !284, !alias.scope !469, !noalias !466
-  store ptr %switch.load1055, ptr %60, align 8, !tbaa !34, !alias.scope !469, !noalias !466
+  store ptr %switch.load1520, ptr %60, align 8, !tbaa !34, !alias.scope !469, !noalias !466
   %1418 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i64 %switch.load1053, ptr %1418, align 8, !tbaa !34, !alias.scope !469, !noalias !466
+  store i64 %switch.load1518, ptr %1418, align 8, !tbaa !34, !alias.scope !469, !noalias !466
   %1419 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr @.str.103, ptr %1419, align 8, !tbaa !34, !alias.scope !469, !noalias !466
   store ptr %60, ptr %59, align 8, !alias.scope !472, !noalias !466
@@ -24623,7 +24623,7 @@ switch.lookup1050:                                ; preds = %3, %3, %3, %3
   %1426 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1423, i64 %1425, ptr noundef null) #18
   br i1 %1426, label %1439, label %1427, !prof !19
 
-1427:                                             ; preds = %switch.lookup1050
+1427:                                             ; preds = %switch.lookup1515
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %1428 = load ptr, ptr %198, align 8, !tbaa !28
   %1429 = load i64, ptr %1424, align 8, !tbaa !33
@@ -24651,7 +24651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i398: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %1439
 
-1439:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i398, %switch.lookup1050
+1439:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i398, %switch.lookup1515
   %1440 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %1441 = getelementptr inbounds nuw i8, ptr %197, i64 24
   store ptr %1441, ptr %1440, align 8, !tbaa !35
@@ -24775,24 +24775,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit414:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %2669
 
-switch.lookup1056:                                ; preds = %3
+switch.lookup1521:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %202)
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !477
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !477
-  %switch.tableidx1057 = add nsw i8 %2, -4
-  %1480 = zext nneg i8 %switch.tableidx1057 to i64
-  %switch.gep1058 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1480
-  %switch.load1059 = load i64, ptr %switch.gep1058, align 8
-  %1481 = zext nneg i8 %switch.tableidx1057 to i64
-  %switch.gep1060 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1481
-  %switch.load1061 = load ptr, ptr %switch.gep1060, align 8
+  %switch.tableidx1522 = add nsw i8 %2, -4
+  %1480 = zext nneg i8 %switch.tableidx1522 to i64
+  %switch.gep1523 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1480
+  %switch.load1524 = load i64, ptr %switch.gep1523, align 8
+  %1481 = zext nneg i8 %switch.tableidx1522 to i64
+  %switch.gep1525 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1481
+  %switch.load1526 = load ptr, ptr %switch.gep1525, align 8
   %1482 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i8 5, ptr %1482, align 8, !tbaa !278, !alias.scope !480, !noalias !477
   %1483 = getelementptr inbounds nuw i8, ptr %57, i64 33
   store i8 3, ptr %1483, align 1, !tbaa !284, !alias.scope !480, !noalias !477
-  store ptr %switch.load1061, ptr %57, align 8, !tbaa !34, !alias.scope !480, !noalias !477
+  store ptr %switch.load1526, ptr %57, align 8, !tbaa !34, !alias.scope !480, !noalias !477
   %1484 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i64 %switch.load1059, ptr %1484, align 8, !tbaa !34, !alias.scope !480, !noalias !477
+  store i64 %switch.load1524, ptr %1484, align 8, !tbaa !34, !alias.scope !480, !noalias !477
   %1485 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr @.str.103, ptr %1485, align 8, !tbaa !34, !alias.scope !480, !noalias !477
   store ptr %57, ptr %56, align 8, !alias.scope !483, !noalias !477
@@ -24814,7 +24814,7 @@ switch.lookup1056:                                ; preds = %3
   %1492 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1489, i64 %1491, ptr noundef null) #18
   br i1 %1492, label %1505, label %1493, !prof !19
 
-1493:                                             ; preds = %switch.lookup1056
+1493:                                             ; preds = %switch.lookup1521
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %1494 = load ptr, ptr %203, align 8, !tbaa !28
   %1495 = load i64, ptr %1490, align 8, !tbaa !33
@@ -24842,7 +24842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i420: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %1505
 
-1505:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i420, %switch.lookup1056
+1505:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i420, %switch.lookup1521
   %1506 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %1507 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store ptr %1507, ptr %1506, align 8, !tbaa !35
@@ -24966,24 +24966,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit436:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %205)
   br label %2669
 
-switch.lookup1062:                                ; preds = %3
+switch.lookup1527:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %207)
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !488
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !488
-  %switch.tableidx1063 = add nsw i8 %2, -4
-  %1546 = zext nneg i8 %switch.tableidx1063 to i64
-  %switch.gep1064 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1546
-  %switch.load1065 = load i64, ptr %switch.gep1064, align 8
-  %1547 = zext nneg i8 %switch.tableidx1063 to i64
-  %switch.gep1066 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1547
-  %switch.load1067 = load ptr, ptr %switch.gep1066, align 8
+  %switch.tableidx1528 = add nsw i8 %2, -4
+  %1546 = zext nneg i8 %switch.tableidx1528 to i64
+  %switch.gep1529 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1546
+  %switch.load1530 = load i64, ptr %switch.gep1529, align 8
+  %1547 = zext nneg i8 %switch.tableidx1528 to i64
+  %switch.gep1531 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1547
+  %switch.load1532 = load ptr, ptr %switch.gep1531, align 8
   %1548 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store i8 5, ptr %1548, align 8, !tbaa !278, !alias.scope !491, !noalias !488
   %1549 = getelementptr inbounds nuw i8, ptr %54, i64 33
   store i8 3, ptr %1549, align 1, !tbaa !284, !alias.scope !491, !noalias !488
-  store ptr %switch.load1067, ptr %54, align 8, !tbaa !34, !alias.scope !491, !noalias !488
+  store ptr %switch.load1532, ptr %54, align 8, !tbaa !34, !alias.scope !491, !noalias !488
   %1550 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i64 %switch.load1065, ptr %1550, align 8, !tbaa !34, !alias.scope !491, !noalias !488
+  store i64 %switch.load1530, ptr %1550, align 8, !tbaa !34, !alias.scope !491, !noalias !488
   %1551 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr @.str.103, ptr %1551, align 8, !tbaa !34, !alias.scope !491, !noalias !488
   store ptr %54, ptr %53, align 8, !alias.scope !494, !noalias !488
@@ -25005,7 +25005,7 @@ switch.lookup1062:                                ; preds = %3
   %1558 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1555, i64 %1557, ptr noundef null) #18
   br i1 %1558, label %1571, label %1559, !prof !19
 
-1559:                                             ; preds = %switch.lookup1062
+1559:                                             ; preds = %switch.lookup1527
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %1560 = load ptr, ptr %208, align 8, !tbaa !28
   %1561 = load i64, ptr %1556, align 8, !tbaa !33
@@ -25033,7 +25033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i442: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %1571
 
-1571:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i442, %switch.lookup1062
+1571:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i442, %switch.lookup1527
   %1572 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %1573 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store ptr %1573, ptr %1572, align 8, !tbaa !35
@@ -25157,24 +25157,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit458:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %210)
   br label %2669
 
-switch.lookup1068:                                ; preds = %3
+switch.lookup1533:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %212)
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !499
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !499
-  %switch.tableidx1069 = add nsw i8 %2, -4
-  %1612 = zext nneg i8 %switch.tableidx1069 to i64
-  %switch.gep1070 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1612
-  %switch.load1071 = load i64, ptr %switch.gep1070, align 8
-  %1613 = zext nneg i8 %switch.tableidx1069 to i64
-  %switch.gep1072 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1613
-  %switch.load1073 = load ptr, ptr %switch.gep1072, align 8
+  %switch.tableidx1534 = add nsw i8 %2, -4
+  %1612 = zext nneg i8 %switch.tableidx1534 to i64
+  %switch.gep1535 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1612
+  %switch.load1536 = load i64, ptr %switch.gep1535, align 8
+  %1613 = zext nneg i8 %switch.tableidx1534 to i64
+  %switch.gep1537 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1613
+  %switch.load1538 = load ptr, ptr %switch.gep1537, align 8
   %1614 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i8 5, ptr %1614, align 8, !tbaa !278, !alias.scope !502, !noalias !499
   %1615 = getelementptr inbounds nuw i8, ptr %51, i64 33
   store i8 3, ptr %1615, align 1, !tbaa !284, !alias.scope !502, !noalias !499
-  store ptr %switch.load1073, ptr %51, align 8, !tbaa !34, !alias.scope !502, !noalias !499
+  store ptr %switch.load1538, ptr %51, align 8, !tbaa !34, !alias.scope !502, !noalias !499
   %1616 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 %switch.load1071, ptr %1616, align 8, !tbaa !34, !alias.scope !502, !noalias !499
+  store i64 %switch.load1536, ptr %1616, align 8, !tbaa !34, !alias.scope !502, !noalias !499
   %1617 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr @.str.103, ptr %1617, align 8, !tbaa !34, !alias.scope !502, !noalias !499
   store ptr %51, ptr %50, align 8, !alias.scope !505, !noalias !499
@@ -25196,7 +25196,7 @@ switch.lookup1068:                                ; preds = %3
   %1624 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1621, i64 %1623, ptr noundef null) #18
   br i1 %1624, label %1637, label %1625, !prof !19
 
-1625:                                             ; preds = %switch.lookup1068
+1625:                                             ; preds = %switch.lookup1533
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %1626 = load ptr, ptr %213, align 8, !tbaa !28
   %1627 = load i64, ptr %1622, align 8, !tbaa !33
@@ -25224,7 +25224,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i464: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %1637
 
-1637:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i464, %switch.lookup1068
+1637:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i464, %switch.lookup1533
   %1638 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %1639 = getelementptr inbounds nuw i8, ptr %212, i64 24
   store ptr %1639, ptr %1638, align 8, !tbaa !35
@@ -25348,24 +25348,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit480:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %2669
 
-switch.lookup1074:                                ; preds = %3
+switch.lookup1539:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %217)
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !510
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !510
-  %switch.tableidx1075 = add nsw i8 %2, -4
-  %1678 = zext nneg i8 %switch.tableidx1075 to i64
-  %switch.gep1076 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1678
-  %switch.load1077 = load i64, ptr %switch.gep1076, align 8
-  %1679 = zext nneg i8 %switch.tableidx1075 to i64
-  %switch.gep1078 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1679
-  %switch.load1079 = load ptr, ptr %switch.gep1078, align 8
+  %switch.tableidx1540 = add nsw i8 %2, -4
+  %1678 = zext nneg i8 %switch.tableidx1540 to i64
+  %switch.gep1541 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1678
+  %switch.load1542 = load i64, ptr %switch.gep1541, align 8
+  %1679 = zext nneg i8 %switch.tableidx1540 to i64
+  %switch.gep1543 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1679
+  %switch.load1544 = load ptr, ptr %switch.gep1543, align 8
   %1680 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i8 5, ptr %1680, align 8, !tbaa !278, !alias.scope !513, !noalias !510
   %1681 = getelementptr inbounds nuw i8, ptr %48, i64 33
   store i8 3, ptr %1681, align 1, !tbaa !284, !alias.scope !513, !noalias !510
-  store ptr %switch.load1079, ptr %48, align 8, !tbaa !34, !alias.scope !513, !noalias !510
+  store ptr %switch.load1544, ptr %48, align 8, !tbaa !34, !alias.scope !513, !noalias !510
   %1682 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i64 %switch.load1077, ptr %1682, align 8, !tbaa !34, !alias.scope !513, !noalias !510
+  store i64 %switch.load1542, ptr %1682, align 8, !tbaa !34, !alias.scope !513, !noalias !510
   %1683 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr @.str.103, ptr %1683, align 8, !tbaa !34, !alias.scope !513, !noalias !510
   store ptr %48, ptr %47, align 8, !alias.scope !516, !noalias !510
@@ -25387,7 +25387,7 @@ switch.lookup1074:                                ; preds = %3
   %1690 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1687, i64 %1689, ptr noundef null) #18
   br i1 %1690, label %1703, label %1691, !prof !19
 
-1691:                                             ; preds = %switch.lookup1074
+1691:                                             ; preds = %switch.lookup1539
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %1692 = load ptr, ptr %218, align 8, !tbaa !28
   %1693 = load i64, ptr %1688, align 8, !tbaa !33
@@ -25415,7 +25415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i486: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %1703
 
-1703:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i486, %switch.lookup1074
+1703:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i486, %switch.lookup1539
   %1704 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %1705 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store ptr %1705, ptr %1704, align 8, !tbaa !35
@@ -25539,24 +25539,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit502:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %220)
   br label %2669
 
-switch.lookup1080:                                ; preds = %3
+switch.lookup1545:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %222)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !521
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !521
-  %switch.tableidx1081 = add nsw i8 %2, -4
-  %1744 = zext nneg i8 %switch.tableidx1081 to i64
-  %switch.gep1082 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1744
-  %switch.load1083 = load i64, ptr %switch.gep1082, align 8
-  %1745 = zext nneg i8 %switch.tableidx1081 to i64
-  %switch.gep1084 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1745
-  %switch.load1085 = load ptr, ptr %switch.gep1084, align 8
+  %switch.tableidx1546 = add nsw i8 %2, -4
+  %1744 = zext nneg i8 %switch.tableidx1546 to i64
+  %switch.gep1547 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1744
+  %switch.load1548 = load i64, ptr %switch.gep1547, align 8
+  %1745 = zext nneg i8 %switch.tableidx1546 to i64
+  %switch.gep1549 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1745
+  %switch.load1550 = load ptr, ptr %switch.gep1549, align 8
   %1746 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i8 5, ptr %1746, align 8, !tbaa !278, !alias.scope !524, !noalias !521
   %1747 = getelementptr inbounds nuw i8, ptr %45, i64 33
   store i8 3, ptr %1747, align 1, !tbaa !284, !alias.scope !524, !noalias !521
-  store ptr %switch.load1085, ptr %45, align 8, !tbaa !34, !alias.scope !524, !noalias !521
+  store ptr %switch.load1550, ptr %45, align 8, !tbaa !34, !alias.scope !524, !noalias !521
   %1748 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i64 %switch.load1083, ptr %1748, align 8, !tbaa !34, !alias.scope !524, !noalias !521
+  store i64 %switch.load1548, ptr %1748, align 8, !tbaa !34, !alias.scope !524, !noalias !521
   %1749 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr @.str.103, ptr %1749, align 8, !tbaa !34, !alias.scope !524, !noalias !521
   store ptr %45, ptr %44, align 8, !alias.scope !527, !noalias !521
@@ -25578,7 +25578,7 @@ switch.lookup1080:                                ; preds = %3
   %1756 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1753, i64 %1755, ptr noundef null) #18
   br i1 %1756, label %1769, label %1757, !prof !19
 
-1757:                                             ; preds = %switch.lookup1080
+1757:                                             ; preds = %switch.lookup1545
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1758 = load ptr, ptr %223, align 8, !tbaa !28
   %1759 = load i64, ptr %1754, align 8, !tbaa !33
@@ -25606,7 +25606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i508: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %1769
 
-1769:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i508, %switch.lookup1080
+1769:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i508, %switch.lookup1545
   %1770 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %1771 = getelementptr inbounds nuw i8, ptr %222, i64 24
   store ptr %1771, ptr %1770, align 8, !tbaa !35
@@ -25730,24 +25730,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit524:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %225)
   br label %2669
 
-switch.lookup1086:                                ; preds = %3
+switch.lookup1551:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %227)
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !532
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !532
-  %switch.tableidx1087 = add nsw i8 %2, -4
-  %1810 = zext nneg i8 %switch.tableidx1087 to i64
-  %switch.gep1088 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1810
-  %switch.load1089 = load i64, ptr %switch.gep1088, align 8
-  %1811 = zext nneg i8 %switch.tableidx1087 to i64
-  %switch.gep1090 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1811
-  %switch.load1091 = load ptr, ptr %switch.gep1090, align 8
+  %switch.tableidx1552 = add nsw i8 %2, -4
+  %1810 = zext nneg i8 %switch.tableidx1552 to i64
+  %switch.gep1553 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1810
+  %switch.load1554 = load i64, ptr %switch.gep1553, align 8
+  %1811 = zext nneg i8 %switch.tableidx1552 to i64
+  %switch.gep1555 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1811
+  %switch.load1556 = load ptr, ptr %switch.gep1555, align 8
   %1812 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i8 5, ptr %1812, align 8, !tbaa !278, !alias.scope !535, !noalias !532
   %1813 = getelementptr inbounds nuw i8, ptr %42, i64 33
   store i8 3, ptr %1813, align 1, !tbaa !284, !alias.scope !535, !noalias !532
-  store ptr %switch.load1091, ptr %42, align 8, !tbaa !34, !alias.scope !535, !noalias !532
+  store ptr %switch.load1556, ptr %42, align 8, !tbaa !34, !alias.scope !535, !noalias !532
   %1814 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 %switch.load1089, ptr %1814, align 8, !tbaa !34, !alias.scope !535, !noalias !532
+  store i64 %switch.load1554, ptr %1814, align 8, !tbaa !34, !alias.scope !535, !noalias !532
   %1815 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr @.str.103, ptr %1815, align 8, !tbaa !34, !alias.scope !535, !noalias !532
   store ptr %42, ptr %41, align 8, !alias.scope !538, !noalias !532
@@ -25769,7 +25769,7 @@ switch.lookup1086:                                ; preds = %3
   %1822 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1819, i64 %1821, ptr noundef null) #18
   br i1 %1822, label %1835, label %1823, !prof !19
 
-1823:                                             ; preds = %switch.lookup1086
+1823:                                             ; preds = %switch.lookup1551
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %1824 = load ptr, ptr %228, align 8, !tbaa !28
   %1825 = load i64, ptr %1820, align 8, !tbaa !33
@@ -25797,7 +25797,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i530: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %1835
 
-1835:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i530, %switch.lookup1086
+1835:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i530, %switch.lookup1551
   %1836 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %1837 = getelementptr inbounds nuw i8, ptr %227, i64 24
   store ptr %1837, ptr %1836, align 8, !tbaa !35
@@ -25921,24 +25921,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit546:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %2669
 
-switch.lookup1092:                                ; preds = %3
+switch.lookup1557:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %232)
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !543
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !543
-  %switch.tableidx1093 = add nsw i8 %2, -4
-  %1876 = zext nneg i8 %switch.tableidx1093 to i64
-  %switch.gep1094 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1876
-  %switch.load1095 = load i64, ptr %switch.gep1094, align 8
-  %1877 = zext nneg i8 %switch.tableidx1093 to i64
-  %switch.gep1096 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1877
-  %switch.load1097 = load ptr, ptr %switch.gep1096, align 8
+  %switch.tableidx1558 = add nsw i8 %2, -4
+  %1876 = zext nneg i8 %switch.tableidx1558 to i64
+  %switch.gep1559 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1876
+  %switch.load1560 = load i64, ptr %switch.gep1559, align 8
+  %1877 = zext nneg i8 %switch.tableidx1558 to i64
+  %switch.gep1561 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1877
+  %switch.load1562 = load ptr, ptr %switch.gep1561, align 8
   %1878 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i8 5, ptr %1878, align 8, !tbaa !278, !alias.scope !546, !noalias !543
   %1879 = getelementptr inbounds nuw i8, ptr %39, i64 33
   store i8 3, ptr %1879, align 1, !tbaa !284, !alias.scope !546, !noalias !543
-  store ptr %switch.load1097, ptr %39, align 8, !tbaa !34, !alias.scope !546, !noalias !543
+  store ptr %switch.load1562, ptr %39, align 8, !tbaa !34, !alias.scope !546, !noalias !543
   %1880 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i64 %switch.load1095, ptr %1880, align 8, !tbaa !34, !alias.scope !546, !noalias !543
+  store i64 %switch.load1560, ptr %1880, align 8, !tbaa !34, !alias.scope !546, !noalias !543
   %1881 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr @.str.103, ptr %1881, align 8, !tbaa !34, !alias.scope !546, !noalias !543
   store ptr %39, ptr %38, align 8, !alias.scope !549, !noalias !543
@@ -25960,7 +25960,7 @@ switch.lookup1092:                                ; preds = %3
   %1888 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1885, i64 %1887, ptr noundef null) #18
   br i1 %1888, label %1901, label %1889, !prof !19
 
-1889:                                             ; preds = %switch.lookup1092
+1889:                                             ; preds = %switch.lookup1557
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1890 = load ptr, ptr %233, align 8, !tbaa !28
   %1891 = load i64, ptr %1886, align 8, !tbaa !33
@@ -25988,7 +25988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i552: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %1901
 
-1901:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i552, %switch.lookup1092
+1901:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i552, %switch.lookup1557
   %1902 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %1903 = getelementptr inbounds nuw i8, ptr %232, i64 24
   store ptr %1903, ptr %1902, align 8, !tbaa !35
@@ -26112,24 +26112,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit568:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %235)
   br label %2669
 
-switch.lookup1098:                                ; preds = %3
+switch.lookup1563:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %237)
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !554
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !554
-  %switch.tableidx1099 = add nsw i8 %2, -4
-  %1942 = zext nneg i8 %switch.tableidx1099 to i64
-  %switch.gep1100 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1942
-  %switch.load1101 = load i64, ptr %switch.gep1100, align 8
-  %1943 = zext nneg i8 %switch.tableidx1099 to i64
-  %switch.gep1102 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1943
-  %switch.load1103 = load ptr, ptr %switch.gep1102, align 8
+  %switch.tableidx1564 = add nsw i8 %2, -4
+  %1942 = zext nneg i8 %switch.tableidx1564 to i64
+  %switch.gep1565 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %1942
+  %switch.load1566 = load i64, ptr %switch.gep1565, align 8
+  %1943 = zext nneg i8 %switch.tableidx1564 to i64
+  %switch.gep1567 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %1943
+  %switch.load1568 = load ptr, ptr %switch.gep1567, align 8
   %1944 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i8 5, ptr %1944, align 8, !tbaa !278, !alias.scope !557, !noalias !554
   %1945 = getelementptr inbounds nuw i8, ptr %36, i64 33
   store i8 3, ptr %1945, align 1, !tbaa !284, !alias.scope !557, !noalias !554
-  store ptr %switch.load1103, ptr %36, align 8, !tbaa !34, !alias.scope !557, !noalias !554
+  store ptr %switch.load1568, ptr %36, align 8, !tbaa !34, !alias.scope !557, !noalias !554
   %1946 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %switch.load1101, ptr %1946, align 8, !tbaa !34, !alias.scope !557, !noalias !554
+  store i64 %switch.load1566, ptr %1946, align 8, !tbaa !34, !alias.scope !557, !noalias !554
   %1947 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr @.str.103, ptr %1947, align 8, !tbaa !34, !alias.scope !557, !noalias !554
   store ptr %36, ptr %35, align 8, !alias.scope !560, !noalias !554
@@ -26151,7 +26151,7 @@ switch.lookup1098:                                ; preds = %3
   %1954 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1951, i64 %1953, ptr noundef null) #18
   br i1 %1954, label %1967, label %1955, !prof !19
 
-1955:                                             ; preds = %switch.lookup1098
+1955:                                             ; preds = %switch.lookup1563
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %1956 = load ptr, ptr %238, align 8, !tbaa !28
   %1957 = load i64, ptr %1952, align 8, !tbaa !33
@@ -26179,7 +26179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i574: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1967
 
-1967:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i574, %switch.lookup1098
+1967:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i574, %switch.lookup1563
   %1968 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %1969 = getelementptr inbounds nuw i8, ptr %237, i64 24
   store ptr %1969, ptr %1968, align 8, !tbaa !35
@@ -26303,24 +26303,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit590:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %240)
   br label %2669
 
-switch.lookup1104:                                ; preds = %3
+switch.lookup1569:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %242)
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !565
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !565
-  %switch.tableidx1105 = add nsw i8 %2, -4
-  %2008 = zext nneg i8 %switch.tableidx1105 to i64
-  %switch.gep1106 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2008
-  %switch.load1107 = load i64, ptr %switch.gep1106, align 8
-  %2009 = zext nneg i8 %switch.tableidx1105 to i64
-  %switch.gep1108 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2009
-  %switch.load1109 = load ptr, ptr %switch.gep1108, align 8
+  %switch.tableidx1570 = add nsw i8 %2, -4
+  %2008 = zext nneg i8 %switch.tableidx1570 to i64
+  %switch.gep1571 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2008
+  %switch.load1572 = load i64, ptr %switch.gep1571, align 8
+  %2009 = zext nneg i8 %switch.tableidx1570 to i64
+  %switch.gep1573 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2009
+  %switch.load1574 = load ptr, ptr %switch.gep1573, align 8
   %2010 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 5, ptr %2010, align 8, !tbaa !278, !alias.scope !568, !noalias !565
   %2011 = getelementptr inbounds nuw i8, ptr %33, i64 33
   store i8 3, ptr %2011, align 1, !tbaa !284, !alias.scope !568, !noalias !565
-  store ptr %switch.load1109, ptr %33, align 8, !tbaa !34, !alias.scope !568, !noalias !565
+  store ptr %switch.load1574, ptr %33, align 8, !tbaa !34, !alias.scope !568, !noalias !565
   %2012 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i64 %switch.load1107, ptr %2012, align 8, !tbaa !34, !alias.scope !568, !noalias !565
+  store i64 %switch.load1572, ptr %2012, align 8, !tbaa !34, !alias.scope !568, !noalias !565
   %2013 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr @.str.103, ptr %2013, align 8, !tbaa !34, !alias.scope !568, !noalias !565
   store ptr %33, ptr %32, align 8, !alias.scope !571, !noalias !565
@@ -26342,7 +26342,7 @@ switch.lookup1104:                                ; preds = %3
   %2020 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2017, i64 %2019, ptr noundef null) #18
   br i1 %2020, label %2033, label %2021, !prof !19
 
-2021:                                             ; preds = %switch.lookup1104
+2021:                                             ; preds = %switch.lookup1569
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %2022 = load ptr, ptr %243, align 8, !tbaa !28
   %2023 = load i64, ptr %2018, align 8, !tbaa !33
@@ -26370,7 +26370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i596: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %2033
 
-2033:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i596, %switch.lookup1104
+2033:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i596, %switch.lookup1569
   %2034 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %2035 = getelementptr inbounds nuw i8, ptr %242, i64 24
   store ptr %2035, ptr %2034, align 8, !tbaa !35
@@ -26494,24 +26494,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit612:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %2669
 
-switch.lookup1110:                                ; preds = %3
+switch.lookup1575:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %247)
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !576
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !576
-  %switch.tableidx1111 = add nsw i8 %2, -4
-  %2074 = zext nneg i8 %switch.tableidx1111 to i64
-  %switch.gep1112 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2074
-  %switch.load1113 = load i64, ptr %switch.gep1112, align 8
-  %2075 = zext nneg i8 %switch.tableidx1111 to i64
-  %switch.gep1114 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2075
-  %switch.load1115 = load ptr, ptr %switch.gep1114, align 8
+  %switch.tableidx1576 = add nsw i8 %2, -4
+  %2074 = zext nneg i8 %switch.tableidx1576 to i64
+  %switch.gep1577 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2074
+  %switch.load1578 = load i64, ptr %switch.gep1577, align 8
+  %2075 = zext nneg i8 %switch.tableidx1576 to i64
+  %switch.gep1579 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2075
+  %switch.load1580 = load ptr, ptr %switch.gep1579, align 8
   %2076 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i8 5, ptr %2076, align 8, !tbaa !278, !alias.scope !579, !noalias !576
   %2077 = getelementptr inbounds nuw i8, ptr %30, i64 33
   store i8 3, ptr %2077, align 1, !tbaa !284, !alias.scope !579, !noalias !576
-  store ptr %switch.load1115, ptr %30, align 8, !tbaa !34, !alias.scope !579, !noalias !576
+  store ptr %switch.load1580, ptr %30, align 8, !tbaa !34, !alias.scope !579, !noalias !576
   %2078 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 %switch.load1113, ptr %2078, align 8, !tbaa !34, !alias.scope !579, !noalias !576
+  store i64 %switch.load1578, ptr %2078, align 8, !tbaa !34, !alias.scope !579, !noalias !576
   %2079 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr @.str.103, ptr %2079, align 8, !tbaa !34, !alias.scope !579, !noalias !576
   store ptr %30, ptr %29, align 8, !alias.scope !582, !noalias !576
@@ -26533,7 +26533,7 @@ switch.lookup1110:                                ; preds = %3
   %2086 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2083, i64 %2085, ptr noundef null) #18
   br i1 %2086, label %2099, label %2087, !prof !19
 
-2087:                                             ; preds = %switch.lookup1110
+2087:                                             ; preds = %switch.lookup1575
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %2088 = load ptr, ptr %248, align 8, !tbaa !28
   %2089 = load i64, ptr %2084, align 8, !tbaa !33
@@ -26561,7 +26561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i618: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %2099
 
-2099:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i618, %switch.lookup1110
+2099:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i618, %switch.lookup1575
   %2100 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %2101 = getelementptr inbounds nuw i8, ptr %247, i64 24
   store ptr %2101, ptr %2100, align 8, !tbaa !35
@@ -26685,24 +26685,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit634:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %250)
   br label %2669
 
-switch.lookup1116:                                ; preds = %3
+switch.lookup1581:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %252)
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !587
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !587
-  %switch.tableidx1117 = add nsw i8 %2, -4
-  %2140 = zext nneg i8 %switch.tableidx1117 to i64
-  %switch.gep1118 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2140
-  %switch.load1119 = load i64, ptr %switch.gep1118, align 8
-  %2141 = zext nneg i8 %switch.tableidx1117 to i64
-  %switch.gep1120 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2141
-  %switch.load1121 = load ptr, ptr %switch.gep1120, align 8
+  %switch.tableidx1582 = add nsw i8 %2, -4
+  %2140 = zext nneg i8 %switch.tableidx1582 to i64
+  %switch.gep1583 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2140
+  %switch.load1584 = load i64, ptr %switch.gep1583, align 8
+  %2141 = zext nneg i8 %switch.tableidx1582 to i64
+  %switch.gep1585 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2141
+  %switch.load1586 = load ptr, ptr %switch.gep1585, align 8
   %2142 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i8 5, ptr %2142, align 8, !tbaa !278, !alias.scope !590, !noalias !587
   %2143 = getelementptr inbounds nuw i8, ptr %27, i64 33
   store i8 3, ptr %2143, align 1, !tbaa !284, !alias.scope !590, !noalias !587
-  store ptr %switch.load1121, ptr %27, align 8, !tbaa !34, !alias.scope !590, !noalias !587
+  store ptr %switch.load1586, ptr %27, align 8, !tbaa !34, !alias.scope !590, !noalias !587
   %2144 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 %switch.load1119, ptr %2144, align 8, !tbaa !34, !alias.scope !590, !noalias !587
+  store i64 %switch.load1584, ptr %2144, align 8, !tbaa !34, !alias.scope !590, !noalias !587
   %2145 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @.str.103, ptr %2145, align 8, !tbaa !34, !alias.scope !590, !noalias !587
   store ptr %27, ptr %26, align 8, !alias.scope !593, !noalias !587
@@ -26724,7 +26724,7 @@ switch.lookup1116:                                ; preds = %3
   %2152 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2149, i64 %2151, ptr noundef null) #18
   br i1 %2152, label %2165, label %2153, !prof !19
 
-2153:                                             ; preds = %switch.lookup1116
+2153:                                             ; preds = %switch.lookup1581
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %2154 = load ptr, ptr %253, align 8, !tbaa !28
   %2155 = load i64, ptr %2150, align 8, !tbaa !33
@@ -26752,7 +26752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i640: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2165
 
-2165:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i640, %switch.lookup1116
+2165:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i640, %switch.lookup1581
   %2166 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %2167 = getelementptr inbounds nuw i8, ptr %252, i64 24
   store ptr %2167, ptr %2166, align 8, !tbaa !35
@@ -26876,24 +26876,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit656:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %255)
   br label %2669
 
-switch.lookup1122:                                ; preds = %3
+switch.lookup1587:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %257)
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !598
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !598
-  %switch.tableidx1123 = add nsw i8 %2, -4
-  %2206 = zext nneg i8 %switch.tableidx1123 to i64
-  %switch.gep1124 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2206
-  %switch.load1125 = load i64, ptr %switch.gep1124, align 8
-  %2207 = zext nneg i8 %switch.tableidx1123 to i64
-  %switch.gep1126 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2207
-  %switch.load1127 = load ptr, ptr %switch.gep1126, align 8
+  %switch.tableidx1588 = add nsw i8 %2, -4
+  %2206 = zext nneg i8 %switch.tableidx1588 to i64
+  %switch.gep1589 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2206
+  %switch.load1590 = load i64, ptr %switch.gep1589, align 8
+  %2207 = zext nneg i8 %switch.tableidx1588 to i64
+  %switch.gep1591 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2207
+  %switch.load1592 = load ptr, ptr %switch.gep1591, align 8
   %2208 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 5, ptr %2208, align 8, !tbaa !278, !alias.scope !601, !noalias !598
   %2209 = getelementptr inbounds nuw i8, ptr %24, i64 33
   store i8 3, ptr %2209, align 1, !tbaa !284, !alias.scope !601, !noalias !598
-  store ptr %switch.load1127, ptr %24, align 8, !tbaa !34, !alias.scope !601, !noalias !598
+  store ptr %switch.load1592, ptr %24, align 8, !tbaa !34, !alias.scope !601, !noalias !598
   %2210 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %switch.load1125, ptr %2210, align 8, !tbaa !34, !alias.scope !601, !noalias !598
+  store i64 %switch.load1590, ptr %2210, align 8, !tbaa !34, !alias.scope !601, !noalias !598
   %2211 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr @.str.103, ptr %2211, align 8, !tbaa !34, !alias.scope !601, !noalias !598
   store ptr %24, ptr %23, align 8, !alias.scope !604, !noalias !598
@@ -26915,7 +26915,7 @@ switch.lookup1122:                                ; preds = %3
   %2218 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2215, i64 %2217, ptr noundef null) #18
   br i1 %2218, label %2231, label %2219, !prof !19
 
-2219:                                             ; preds = %switch.lookup1122
+2219:                                             ; preds = %switch.lookup1587
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %2220 = load ptr, ptr %258, align 8, !tbaa !28
   %2221 = load i64, ptr %2216, align 8, !tbaa !33
@@ -26943,7 +26943,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i662: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2231
 
-2231:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i662, %switch.lookup1122
+2231:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i662, %switch.lookup1587
   %2232 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %2233 = getelementptr inbounds nuw i8, ptr %257, i64 24
   store ptr %2233, ptr %2232, align 8, !tbaa !35
@@ -27067,24 +27067,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit678:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %260)
   br label %2669
 
-switch.lookup1128:                                ; preds = %3
+switch.lookup1593:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %262)
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !609
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !609
-  %switch.tableidx1129 = add nsw i8 %2, -4
-  %2272 = zext nneg i8 %switch.tableidx1129 to i64
-  %switch.gep1130 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2272
-  %switch.load1131 = load i64, ptr %switch.gep1130, align 8
-  %2273 = zext nneg i8 %switch.tableidx1129 to i64
-  %switch.gep1132 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2273
-  %switch.load1133 = load ptr, ptr %switch.gep1132, align 8
+  %switch.tableidx1594 = add nsw i8 %2, -4
+  %2272 = zext nneg i8 %switch.tableidx1594 to i64
+  %switch.gep1595 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2272
+  %switch.load1596 = load i64, ptr %switch.gep1595, align 8
+  %2273 = zext nneg i8 %switch.tableidx1594 to i64
+  %switch.gep1597 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2273
+  %switch.load1598 = load ptr, ptr %switch.gep1597, align 8
   %2274 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 5, ptr %2274, align 8, !tbaa !278, !alias.scope !612, !noalias !609
   %2275 = getelementptr inbounds nuw i8, ptr %21, i64 33
   store i8 3, ptr %2275, align 1, !tbaa !284, !alias.scope !612, !noalias !609
-  store ptr %switch.load1133, ptr %21, align 8, !tbaa !34, !alias.scope !612, !noalias !609
+  store ptr %switch.load1598, ptr %21, align 8, !tbaa !34, !alias.scope !612, !noalias !609
   %2276 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %switch.load1131, ptr %2276, align 8, !tbaa !34, !alias.scope !612, !noalias !609
+  store i64 %switch.load1596, ptr %2276, align 8, !tbaa !34, !alias.scope !612, !noalias !609
   %2277 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr @.str.103, ptr %2277, align 8, !tbaa !34, !alias.scope !612, !noalias !609
   store ptr %21, ptr %20, align 8, !alias.scope !615, !noalias !609
@@ -27106,7 +27106,7 @@ switch.lookup1128:                                ; preds = %3
   %2284 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2281, i64 %2283, ptr noundef null) #18
   br i1 %2284, label %2297, label %2285, !prof !19
 
-2285:                                             ; preds = %switch.lookup1128
+2285:                                             ; preds = %switch.lookup1593
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %2286 = load ptr, ptr %263, align 8, !tbaa !28
   %2287 = load i64, ptr %2282, align 8, !tbaa !33
@@ -27134,7 +27134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i684: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2297
 
-2297:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i684, %switch.lookup1128
+2297:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i684, %switch.lookup1593
   %2298 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %2299 = getelementptr inbounds nuw i8, ptr %262, i64 24
   store ptr %2299, ptr %2298, align 8, !tbaa !35
@@ -27258,24 +27258,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit700:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %265)
   br label %2669
 
-switch.lookup1134:                                ; preds = %3
+switch.lookup1599:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %267)
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !620
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !620
-  %switch.tableidx1135 = add nsw i8 %2, -4
-  %2338 = zext nneg i8 %switch.tableidx1135 to i64
-  %switch.gep1136 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2338
-  %switch.load1137 = load i64, ptr %switch.gep1136, align 8
-  %2339 = zext nneg i8 %switch.tableidx1135 to i64
-  %switch.gep1138 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2339
-  %switch.load1139 = load ptr, ptr %switch.gep1138, align 8
+  %switch.tableidx1600 = add nsw i8 %2, -4
+  %2338 = zext nneg i8 %switch.tableidx1600 to i64
+  %switch.gep1601 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2338
+  %switch.load1602 = load i64, ptr %switch.gep1601, align 8
+  %2339 = zext nneg i8 %switch.tableidx1600 to i64
+  %switch.gep1603 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2339
+  %switch.load1604 = load ptr, ptr %switch.gep1603, align 8
   %2340 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 5, ptr %2340, align 8, !tbaa !278, !alias.scope !623, !noalias !620
   %2341 = getelementptr inbounds nuw i8, ptr %18, i64 33
   store i8 3, ptr %2341, align 1, !tbaa !284, !alias.scope !623, !noalias !620
-  store ptr %switch.load1139, ptr %18, align 8, !tbaa !34, !alias.scope !623, !noalias !620
+  store ptr %switch.load1604, ptr %18, align 8, !tbaa !34, !alias.scope !623, !noalias !620
   %2342 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 %switch.load1137, ptr %2342, align 8, !tbaa !34, !alias.scope !623, !noalias !620
+  store i64 %switch.load1602, ptr %2342, align 8, !tbaa !34, !alias.scope !623, !noalias !620
   %2343 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr @.str.103, ptr %2343, align 8, !tbaa !34, !alias.scope !623, !noalias !620
   store ptr %18, ptr %17, align 8, !alias.scope !626, !noalias !620
@@ -27297,7 +27297,7 @@ switch.lookup1134:                                ; preds = %3
   %2350 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2347, i64 %2349, ptr noundef null) #18
   br i1 %2350, label %2363, label %2351, !prof !19
 
-2351:                                             ; preds = %switch.lookup1134
+2351:                                             ; preds = %switch.lookup1599
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %2352 = load ptr, ptr %268, align 8, !tbaa !28
   %2353 = load i64, ptr %2348, align 8, !tbaa !33
@@ -27325,7 +27325,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i706: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2363
 
-2363:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i706, %switch.lookup1134
+2363:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i706, %switch.lookup1599
   %2364 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %2365 = getelementptr inbounds nuw i8, ptr %267, i64 24
   store ptr %2365, ptr %2364, align 8, !tbaa !35
@@ -27449,24 +27449,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit722:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %270)
   br label %2669
 
-switch.lookup1140:                                ; preds = %3
+switch.lookup1605:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %272)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !631
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !631
-  %switch.tableidx1141 = add nsw i8 %2, -4
-  %2404 = zext nneg i8 %switch.tableidx1141 to i64
-  %switch.gep1142 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2404
-  %switch.load1143 = load i64, ptr %switch.gep1142, align 8
-  %2405 = zext nneg i8 %switch.tableidx1141 to i64
-  %switch.gep1144 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2405
-  %switch.load1145 = load ptr, ptr %switch.gep1144, align 8
+  %switch.tableidx1606 = add nsw i8 %2, -4
+  %2404 = zext nneg i8 %switch.tableidx1606 to i64
+  %switch.gep1607 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2404
+  %switch.load1608 = load i64, ptr %switch.gep1607, align 8
+  %2405 = zext nneg i8 %switch.tableidx1606 to i64
+  %switch.gep1609 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2405
+  %switch.load1610 = load ptr, ptr %switch.gep1609, align 8
   %2406 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 5, ptr %2406, align 8, !tbaa !278, !alias.scope !634, !noalias !631
   %2407 = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 3, ptr %2407, align 1, !tbaa !284, !alias.scope !634, !noalias !631
-  store ptr %switch.load1145, ptr %15, align 8, !tbaa !34, !alias.scope !634, !noalias !631
+  store ptr %switch.load1610, ptr %15, align 8, !tbaa !34, !alias.scope !634, !noalias !631
   %2408 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %switch.load1143, ptr %2408, align 8, !tbaa !34, !alias.scope !634, !noalias !631
+  store i64 %switch.load1608, ptr %2408, align 8, !tbaa !34, !alias.scope !634, !noalias !631
   %2409 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @.str.103, ptr %2409, align 8, !tbaa !34, !alias.scope !634, !noalias !631
   store ptr %15, ptr %14, align 8, !alias.scope !637, !noalias !631
@@ -27488,7 +27488,7 @@ switch.lookup1140:                                ; preds = %3
   %2416 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2413, i64 %2415, ptr noundef null) #18
   br i1 %2416, label %2429, label %2417, !prof !19
 
-2417:                                             ; preds = %switch.lookup1140
+2417:                                             ; preds = %switch.lookup1605
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %2418 = load ptr, ptr %273, align 8, !tbaa !28
   %2419 = load i64, ptr %2414, align 8, !tbaa !33
@@ -27516,7 +27516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i728: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %2429
 
-2429:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i728, %switch.lookup1140
+2429:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i728, %switch.lookup1605
   %2430 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %2431 = getelementptr inbounds nuw i8, ptr %272, i64 24
   store ptr %2431, ptr %2430, align 8, !tbaa !35
@@ -27640,24 +27640,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit744:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %275)
   br label %2669
 
-switch.lookup1146:                                ; preds = %3
+switch.lookup1611:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %277)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !642
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !642
-  %switch.tableidx1147 = add nsw i8 %2, -4
-  %2470 = zext nneg i8 %switch.tableidx1147 to i64
-  %switch.gep1148 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2470
-  %switch.load1149 = load i64, ptr %switch.gep1148, align 8
-  %2471 = zext nneg i8 %switch.tableidx1147 to i64
-  %switch.gep1150 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2471
-  %switch.load1151 = load ptr, ptr %switch.gep1150, align 8
+  %switch.tableidx1612 = add nsw i8 %2, -4
+  %2470 = zext nneg i8 %switch.tableidx1612 to i64
+  %switch.gep1613 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2470
+  %switch.load1614 = load i64, ptr %switch.gep1613, align 8
+  %2471 = zext nneg i8 %switch.tableidx1612 to i64
+  %switch.gep1615 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2471
+  %switch.load1616 = load ptr, ptr %switch.gep1615, align 8
   %2472 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 5, ptr %2472, align 8, !tbaa !278, !alias.scope !645, !noalias !642
   %2473 = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 3, ptr %2473, align 1, !tbaa !284, !alias.scope !645, !noalias !642
-  store ptr %switch.load1151, ptr %12, align 8, !tbaa !34, !alias.scope !645, !noalias !642
+  store ptr %switch.load1616, ptr %12, align 8, !tbaa !34, !alias.scope !645, !noalias !642
   %2474 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %switch.load1149, ptr %2474, align 8, !tbaa !34, !alias.scope !645, !noalias !642
+  store i64 %switch.load1614, ptr %2474, align 8, !tbaa !34, !alias.scope !645, !noalias !642
   %2475 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @.str.103, ptr %2475, align 8, !tbaa !34, !alias.scope !645, !noalias !642
   store ptr %12, ptr %11, align 8, !alias.scope !648, !noalias !642
@@ -27679,7 +27679,7 @@ switch.lookup1146:                                ; preds = %3
   %2482 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2479, i64 %2481, ptr noundef null) #18
   br i1 %2482, label %2495, label %2483, !prof !19
 
-2483:                                             ; preds = %switch.lookup1146
+2483:                                             ; preds = %switch.lookup1611
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %2484 = load ptr, ptr %278, align 8, !tbaa !28
   %2485 = load i64, ptr %2480, align 8, !tbaa !33
@@ -27707,7 +27707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i750: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %2495
 
-2495:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i750, %switch.lookup1146
+2495:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i750, %switch.lookup1611
   %2496 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %2497 = getelementptr inbounds nuw i8, ptr %277, i64 24
   store ptr %2497, ptr %2496, align 8, !tbaa !35
@@ -27831,24 +27831,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit766:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %280)
   br label %2669
 
-switch.lookup1152:                                ; preds = %3
+switch.lookup1617:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %282)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !653
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !653
-  %switch.tableidx1153 = add nsw i8 %2, -4
-  %2536 = zext nneg i8 %switch.tableidx1153 to i64
-  %switch.gep1154 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2536
-  %switch.load1155 = load i64, ptr %switch.gep1154, align 8
-  %2537 = zext nneg i8 %switch.tableidx1153 to i64
-  %switch.gep1156 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2537
-  %switch.load1157 = load ptr, ptr %switch.gep1156, align 8
+  %switch.tableidx1618 = add nsw i8 %2, -4
+  %2536 = zext nneg i8 %switch.tableidx1618 to i64
+  %switch.gep1619 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2536
+  %switch.load1620 = load i64, ptr %switch.gep1619, align 8
+  %2537 = zext nneg i8 %switch.tableidx1618 to i64
+  %switch.gep1621 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2537
+  %switch.load1622 = load ptr, ptr %switch.gep1621, align 8
   %2538 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 5, ptr %2538, align 8, !tbaa !278, !alias.scope !656, !noalias !653
   %2539 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 3, ptr %2539, align 1, !tbaa !284, !alias.scope !656, !noalias !653
-  store ptr %switch.load1157, ptr %9, align 8, !tbaa !34, !alias.scope !656, !noalias !653
+  store ptr %switch.load1622, ptr %9, align 8, !tbaa !34, !alias.scope !656, !noalias !653
   %2540 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %switch.load1155, ptr %2540, align 8, !tbaa !34, !alias.scope !656, !noalias !653
+  store i64 %switch.load1620, ptr %2540, align 8, !tbaa !34, !alias.scope !656, !noalias !653
   %2541 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @.str.103, ptr %2541, align 8, !tbaa !34, !alias.scope !656, !noalias !653
   store ptr %9, ptr %8, align 8, !alias.scope !659, !noalias !653
@@ -27870,7 +27870,7 @@ switch.lookup1152:                                ; preds = %3
   %2548 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2545, i64 %2547, ptr noundef null) #18
   br i1 %2548, label %2561, label %2549, !prof !19
 
-2549:                                             ; preds = %switch.lookup1152
+2549:                                             ; preds = %switch.lookup1617
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %2550 = load ptr, ptr %283, align 8, !tbaa !28
   %2551 = load i64, ptr %2546, align 8, !tbaa !33
@@ -27898,7 +27898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i772: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %2561
 
-2561:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i772, %switch.lookup1152
+2561:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i772, %switch.lookup1617
   %2562 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %2563 = getelementptr inbounds nuw i8, ptr %282, i64 24
   store ptr %2563, ptr %2562, align 8, !tbaa !35
@@ -28022,24 +28022,24 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit788:              ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(ptr nonnull %285)
   br label %2669
 
-switch.lookup1158:                                ; preds = %3
+switch.lookup1623:                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %287)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !664
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !664
-  %switch.tableidx1159 = add nsw i8 %2, -4
-  %2602 = zext nneg i8 %switch.tableidx1159 to i64
-  %switch.gep1160 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2602
-  %switch.load1161 = load i64, ptr %switch.gep1160, align 8
-  %2603 = zext nneg i8 %switch.tableidx1159 to i64
-  %switch.gep1162 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2603
-  %switch.load1163 = load ptr, ptr %switch.gep1162, align 8
+  %switch.tableidx1624 = add nsw i8 %2, -4
+  %2602 = zext nneg i8 %switch.tableidx1624 to i64
+  %switch.gep1625 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.101, i64 0, i64 %2602
+  %switch.load1626 = load i64, ptr %switch.gep1625, align 8
+  %2603 = zext nneg i8 %switch.tableidx1624 to i64
+  %switch.gep1627 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_119serializeSymbolKindEN5clang10extractapi9APIRecord10RecordKindENS0_8LanguageE.102, i64 0, i64 %2603
+  %switch.load1628 = load ptr, ptr %switch.gep1627, align 8
   %2604 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 5, ptr %2604, align 8, !tbaa !278, !alias.scope !667, !noalias !664
   %2605 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 3, ptr %2605, align 1, !tbaa !284, !alias.scope !667, !noalias !664
-  store ptr %switch.load1163, ptr %6, align 8, !tbaa !34, !alias.scope !667, !noalias !664
+  store ptr %switch.load1628, ptr %6, align 8, !tbaa !34, !alias.scope !667, !noalias !664
   %2606 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %switch.load1161, ptr %2606, align 8, !tbaa !34, !alias.scope !667, !noalias !664
+  store i64 %switch.load1626, ptr %2606, align 8, !tbaa !34, !alias.scope !667, !noalias !664
   %2607 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str.103, ptr %2607, align 8, !tbaa !34, !alias.scope !667, !noalias !664
   store ptr %6, ptr %5, align 8, !alias.scope !670, !noalias !664
@@ -28061,7 +28061,7 @@ switch.lookup1158:                                ; preds = %3
   %2614 = call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %2611, i64 %2613, ptr noundef null) #18
   br i1 %2614, label %2627, label %2615, !prof !19
 
-2615:                                             ; preds = %switch.lookup1158
+2615:                                             ; preds = %switch.lookup1623
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %2616 = load ptr, ptr %288, align 8, !tbaa !28
   %2617 = load i64, ptr %2612, align 8, !tbaa !33
@@ -28089,7 +28089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i794: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %2627
 
-2627:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i794, %switch.lookup1158
+2627:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i794, %switch.lookup1623
   %2628 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %2629 = getelementptr inbounds nuw i8, ptr %287, i64 24
   store ptr %2629, ptr %2628, align 8, !tbaa !35

@@ -1205,9 +1205,9 @@ VP8LFastSLog2.exit:                               ; preds = %9, %13
   br i1 %19, label %._crit_edge.thread, label %23
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.012.lcssa26 = phi i32 [ %.1, %._crit_edge ], [ 0, %2 ]
-  %.013.lcssa25 = phi i64 [ %.114, %._crit_edge ], [ 0, %2 ]
-  %20 = zext nneg i32 %.012.lcssa26 to i64
+  %.012.lcssa27 = phi i32 [ %.1, %._crit_edge ], [ 0, %2 ]
+  %.013.lcssa26 = phi i64 [ %.114, %._crit_edge ], [ 0, %2 ]
+  %20 = zext nneg i32 %.012.lcssa27 to i64
   %21 = getelementptr inbounds nuw [256 x i64], ptr @kSLog2Table, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !12
   br label %VP8LFastSLog2.exit16
@@ -1218,9 +1218,9 @@ VP8LFastSLog2.exit:                               ; preds = %9, %13
   br label %VP8LFastSLog2.exit16
 
 VP8LFastSLog2.exit16:                             ; preds = %._crit_edge.thread, %23
-  %.013.lcssa24 = phi i64 [ %.013.lcssa25, %._crit_edge.thread ], [ %.114, %23 ]
+  %.013.lcssa25 = phi i64 [ %.013.lcssa26, %._crit_edge.thread ], [ %.114, %23 ]
   %26 = phi i64 [ %22, %._crit_edge.thread ], [ %25, %23 ]
-  %27 = sub i64 %26, %.013.lcssa24
+  %27 = sub i64 %26, %.013.lcssa25
   ret i64 %27
 }
 

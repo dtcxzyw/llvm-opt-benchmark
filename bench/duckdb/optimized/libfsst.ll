@@ -2884,8 +2884,8 @@ define linkonce_odr hidden noundef i64 @_Z13_compressImplP7EncodermPmPPhmS2_S1_S
 
 82:                                               ; preds = %79, %75, %69, %66
   %.5.us.us.i = phi ptr [ %81, %79 ], [ %59, %75 ], [ %74, %69 ], [ %59, %66 ]
-  %.sink26.i.us.us.i = phi i64 [ 2, %79 ], [ %78, %75 ], [ 1, %69 ], [ 2, %66 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.0.us.us.i, i64 %.sink26.i.us.us.i
+  %.sink27.i.us.us.i = phi i64 [ 2, %79 ], [ %78, %75 ], [ 1, %69 ], [ 2, %66 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.0.us.us.i, i64 %.sink27.i.us.us.i
   %84 = icmp ult ptr %83, %46
   br i1 %84, label %.lr.ph.i.us.us.i, label %_ZZL12compressBulkR11SymbolTablemPmPPhmS2_S1_S3_bbENKUlbbE_clEbb.exit.us.us.loopexit.i, !llvm.loop !125
 
@@ -2997,8 +2997,8 @@ _ZZL12compressBulkR11SymbolTablemPmPPhmS2_S1_S3_bbENKUlbbE_clEbb.exit.us.us.i: ;
 
 139:                                              ; preds = %135, %128
   %.8.us.us.i = phi ptr [ %121, %135 ], [ %133, %128 ]
-  %.sink26.i46.us.us.i = phi i64 [ %138, %135 ], [ %134, %128 ]
-  %140 = getelementptr inbounds nuw i8, ptr %.1107.us.us.i, i64 %.sink26.i46.us.us.i
+  %.sink27.i46.us.us.i = phi i64 [ %138, %135 ], [ %134, %128 ]
+  %140 = getelementptr inbounds nuw i8, ptr %.1107.us.us.i, i64 %.sink27.i46.us.us.i
   %141 = icmp ult ptr %140, %109
   br i1 %141, label %.lr.ph.i41.us.us.i, label %_ZZL12compressBulkR11SymbolTablemPmPPhmS2_S1_S3_bbENKUlbbE_clEbb.exit.us129.us.loopexit.i, !llvm.loop !125
 
@@ -3111,8 +3111,8 @@ _ZZL12compressBulkR11SymbolTablemPmPPhmS2_S1_S3_bbENKUlbbE_clEbb.exit.us129.us.i
 
 197:                                              ; preds = %191, %188, %184
   %.11.i = phi ptr [ %177, %184 ], [ %196, %191 ], [ %177, %188 ]
-  %.sink26.i55.i = phi i64 [ %187, %184 ], [ 1, %191 ], [ 2, %188 ]
-  %198 = getelementptr inbounds nuw i8, ptr %.2108.i, i64 %.sink26.i55.i
+  %.sink27.i55.i = phi i64 [ %187, %184 ], [ 1, %191 ], [ 2, %188 ]
+  %198 = getelementptr inbounds nuw i8, ptr %.2108.i, i64 %.sink27.i55.i
   %199 = icmp ult ptr %198, %166
   br i1 %199, label %.lr.ph.i48.i, label %_ZZL12compressBulkR11SymbolTablemPmPPhmS2_S1_S3_bbENKUlbbE_clEbb.exit.loopexit.i, !llvm.loop !125
 

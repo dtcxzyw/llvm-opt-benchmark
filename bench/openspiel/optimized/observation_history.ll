@@ -2548,8 +2548,8 @@ define noundef zeroext i1 @_ZNK10open_spiel24ActionObservationHistory10IsPrefixO
   %39 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 48
   %.not.i.i.i.i = icmp ne ptr %39, %15
-  %or.cond28.not = select i1 %38, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond28.not, label %.lr.ph.i.i.i.i, label %_ZSteqISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEbRKSt6vectorIT_T0_ESI_.exit, !llvm.loop !28
+  %or.cond35.not = select i1 %38, i1 %.not.i.i.i.i, i1 false
+  br i1 %or.cond35.not, label %.lr.ph.i.i.i.i, label %_ZSteqISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEbRKSt6vectorIT_T0_ESI_.exit, !llvm.loop !28
 
 _ZSteqISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEbRKSt6vectorIT_T0_ESI_.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i, %37, %33, %31, %11, %8, %5, %2
   %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %8 ], [ false, %11 ], [ false, %31 ], [ true, %33 ], [ true, %37 ], [ %34, %.lr.ph.i.i.i.i.i ], [ %38, %.lr.ph.i.i.i.i ]
@@ -3357,8 +3357,8 @@ define void @_ZN10open_spiel24PublicObservationHistoryC2ERKNS_5StateE(ptr nounde
 23:                                               ; preds = %21, %18, %2
   %24 = phi ptr [ %.pre, %21 ], [ %11, %18 ], [ %11, %2 ]
   store i8 1, ptr %.sroa.040, align 8
-  %.sroa.040.4..sroa_idx46 = getelementptr inbounds nuw i8, ptr %.sroa.040, i64 4
-  store i64 1, ptr %.sroa.040.4..sroa_idx46, align 4
+  %.sroa.040.4..sroa_idx57 = getelementptr inbounds nuw i8, ptr %.sroa.040, i64 4
+  store i64 1, ptr %.sroa.040.4..sroa_idx57, align 4
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)

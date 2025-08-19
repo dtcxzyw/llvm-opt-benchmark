@@ -602,7 +602,7 @@ _ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.
   store i64 1, ptr %_M_bucket_count.i.i.i3, align 8
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i, align 8
   store ptr %_M_single_bucket.i.i.i.i.i, ptr %ref.tmp9, align 8
-  %_M_before_begin.i.i.i.i723 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 16
+  %_M_before_begin.i.i.i.i730 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 16
   br label %_ZNSt10_HashtableIPKhSt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
 
 _ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.exit: ; preds = %if.then
@@ -620,13 +620,13 @@ while.body.i.i.i.i9:                              ; preds = %_ZNSt13unordered_ma
   br i1 %tobool.not.i.i.i.i11, label %_ZNSt10_HashtableIPKhSt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i9, !llvm.loop !13
 
 _ZNSt10_HashtableIPKhSt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i9, %_ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.exit.thread, %_ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.exit
-  %_M_before_begin.i.i.i.i725 = phi ptr [ %_M_before_begin.i.i.i.i723, %_ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.exit.thread ], [ %_M_before_begin.i.i.i.i7, %_ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.exit ], [ %_M_before_begin.i.i.i.i7, %while.body.i.i.i.i9 ]
+  %_M_before_begin.i.i.i.i732 = phi ptr [ %_M_before_begin.i.i.i.i730, %_ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.exit.thread ], [ %_M_before_begin.i.i.i.i7, %_ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEEaSEOSA_.exit ], [ %_M_before_begin.i.i.i.i7, %while.body.i.i.i.i9 ]
   %21 = load ptr, ptr %ref.tmp9, align 8
   %_M_bucket_count.i.i.i12 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 8
   %22 = load i64, ptr %_M_bucket_count.i.i.i12, align 8
   %mul.i.i.i = shl i64 %22, 3
   call void @llvm.memset.p0.i64(ptr align 8 %21, i8 0, i64 %mul.i.i.i, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i725, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i732, i8 0, i64 16, i1 false)
   %23 = load ptr, ptr %ref.tmp9, align 8
   %_M_single_bucket.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 48
   %cmp.i.i.i.i.i14 = icmp eq ptr %23, %_M_single_bucket.i.i.i.i.i13
@@ -790,10 +790,10 @@ if.then.i.i.i.i.i2.thread:                        ; preds = %if.then.i.i.i.i, %i
   %add.i.i.i.i.i.i = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %rangeVisitor, align 8
-  %bcProvider_.i10.i119 = getelementptr inbounds nuw i8, ptr %rangeVisitor, i64 8
-  store ptr %0, ptr %bcProvider_.i10.i119, align 8
-  %_M_refcount.i.i.i11.i120 = getelementptr inbounds nuw i8, ptr %rangeVisitor, i64 16
-  store ptr %1, ptr %_M_refcount.i.i.i11.i120, align 8
+  %bcProvider_.i10.i125 = getelementptr inbounds nuw i8, ptr %rangeVisitor, i64 8
+  store ptr %0, ptr %bcProvider_.i10.i125, align 8
+  %_M_refcount.i.i.i11.i126 = getelementptr inbounds nuw i8, ptr %rangeVisitor, i64 16
+  store ptr %1, ptr %_M_refcount.i.i.i11.i126, align 8
   br label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i2:                               ; preds = %if.then.i.i.i.i
@@ -1011,10 +1011,10 @@ if.then.i.i.i.i.i32.thread:                       ; preds = %if.then.i.i.i.i27, 
   %add.i.i.i.i.i.i31 = add nsw i32 %38, 1
   store i32 %add.i.i.i.i.i.i31, ptr %_M_use_count.i.i.i.i18, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 16), ptr %profileIndexVisitor, align 8
-  %bcProvider_.i10.i33123 = getelementptr inbounds nuw i8, ptr %profileIndexVisitor, i64 8
-  store ptr %32, ptr %bcProvider_.i10.i33123, align 8
-  %_M_refcount.i.i.i11.i34124 = getelementptr inbounds nuw i8, ptr %profileIndexVisitor, i64 16
-  store ptr %33, ptr %_M_refcount.i.i.i11.i34124, align 8
+  %bcProvider_.i10.i33129 = getelementptr inbounds nuw i8, ptr %profileIndexVisitor, i64 8
+  store ptr %32, ptr %bcProvider_.i10.i33129, align 8
+  %_M_refcount.i.i.i11.i34130 = getelementptr inbounds nuw i8, ptr %profileIndexVisitor, i64 16
+  store ptr %33, ptr %_M_refcount.i.i.i11.i34130, align 8
   br label %if.then.i.i.i.i.i.i.i36
 
 if.then.i.i.i.i.i32:                              ; preds = %if.then.i.i.i.i27

@@ -989,25 +989,25 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_curve_name(ptr noundef %0, ptr
   br i1 %.not21, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.not1826 = icmp eq i32 %6, %4
-  br i1 %.not1826, label %.lr.ph._crit_edge, label %.lr.ph28
+  %.not1829 = icmp eq i32 %6, %4
+  br i1 %.not1829, label %.lr.ph._crit_edge, label %.lr.ph31
 
 7:                                                ; preds = %2
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 350) #7
   br label %24
 
-.lr.ph28:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0122227 = phi i32 [ %8, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %8 = add i32 %.0122227, 1
+.lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0122230 = phi i32 [ %8, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %8 = add i32 %.0122230, 1
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !22
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-.lr.ph:                                           ; preds = %.lr.ph28
+.lr.ph:                                           ; preds = %.lr.ph31
   %.not18 = icmp eq i32 %11, %4
-  br i1 %.not18, label %.lr.ph._crit_edge, label %.lr.ph28, !llvm.loop !36
+  br i1 %.not18, label %.lr.ph._crit_edge, label %.lr.ph31, !llvm.loop !36
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ @OPENSSL_built_in_curves, %.lr.ph.preheader ], [ %10, %.lr.ph ]
@@ -1036,7 +1036,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_curve_name(ptr noundef %0, ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
-._crit_edge:                                      ; preds = %.lr.ph28, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph31, %.preheader
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 365) #7
   br label %24
 

@@ -1296,8 +1296,8 @@ define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.not177.i = icmp ne i32 %121, 0
   %.pre.i = shl nuw nsw i32 %77, 2
   %122 = icmp samesign ugt i32 %.pre.i, %.0167.i
-  %or.cond200.i = select i1 %.not177.i, i1 %122, i1 false
-  br i1 %or.cond200.i, label %123, label %dissect_optional.exit.i
+  %or.cond211.i = select i1 %.not177.i, i1 %122, i1 false
+  br i1 %or.cond211.i, label %123, label %dissect_optional.exit.i
 
 123:                                              ; preds = %120
   %124 = add i32 %.0167.i, %.1166.i
@@ -2527,7 +2527,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
 
 67:                                               ; preds = %.lr.ph.split
   %68 = zext i8 %66 to i32
-  tail call fastcc void @dissect_sna_control(ptr noundef %9, i32 noundef %64, i32 noundef %68, ptr noundef nonnull %.090, i32 noundef 1, i32 noundef range(i32 0, 2) %5)
+  tail call fastcc void @dissect_sna_control(ptr noundef %9, i32 noundef %64, i32 noundef %68, ptr noundef nonnull %.090, i32 noundef 1, i32 noundef range(i32 0, 2) 1)
   %69 = add nuw nsw i32 %68, 3
   %70 = and i32 %69, 508
   %71 = icmp samesign ugt i32 %70, %68

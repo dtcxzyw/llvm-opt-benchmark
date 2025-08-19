@@ -1412,8 +1412,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit54: ; preds =
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %47, align 8
-  %48 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %47, align 8
+  %48 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %49 = inttoptr i64 %48 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = load ptr, ptr %12, align 8, !tbaa !116
@@ -1593,8 +1593,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %41, align 8
-  %42 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %41, align 8
+  %42 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %43 = inttoptr i64 %42 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %44 = load ptr, ptr %19, align 8, !tbaa !116

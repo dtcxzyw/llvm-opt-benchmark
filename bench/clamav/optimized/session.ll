@@ -1109,9 +1109,9 @@ print_commands.exit:                              ; preds = %62, %71
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %106 = load i32, ptr %105, align 8, !tbaa !32
   %.not59.i = icmp eq i32 %106, -1
-  br i1 %.not59.i, label %.thread61.i, label %120
+  br i1 %.not59.i, label %.thread63.i, label %120
 
-.thread61.i:                                      ; preds = %104
+.thread63.i:                                      ; preds = %104
   %107 = tail call i32 @conn_reply_error(ptr noundef nonnull %93, ptr noundef nonnull @.str.66)
   %.pre.i = load i32, ptr %105, align 8, !tbaa !32
   store i32 %.pre.i, ptr %103, align 8, !tbaa !32
@@ -1171,9 +1171,9 @@ print_commands.exit:                              ; preds = %62, %71
   %.pre60.i = load ptr, ptr %97, align 8, !tbaa !28
   br label %.thread48.i
 
-.thread48.i:                                      ; preds = %128, %116, %111, %.thread61.i
-  %130 = phi ptr [ %.pre60.i, %128 ], [ %98, %111 ], [ %98, %116 ], [ %98, %.thread61.i ]
-  %.2.ph.i = phi i32 [ -2, %128 ], [ -1, %111 ], [ -2, %116 ], [ 1, %.thread61.i ]
+.thread48.i:                                      ; preds = %128, %116, %111, %.thread63.i
+  %130 = phi ptr [ %.pre60.i, %128 ], [ %98, %111 ], [ %98, %116 ], [ %98, %.thread63.i ]
+  %.2.ph.i = phi i32 [ -2, %128 ], [ -1, %111 ], [ -2, %116 ], [ 1, %.thread63.i ]
   %131 = tail call i32 @cl_engine_free(ptr noundef %130) #14
   tail call void @free(ptr noundef nonnull %93) #14
   br label %dispatch_command.exit

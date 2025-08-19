@@ -663,27 +663,27 @@ define ptr @proj_create_crs_to_crs_from_pj(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph.preheader:                                 ; preds = %14
   %19 = load ptr, ptr %4, align 8, !tbaa !44
-  %.not329559 = icmp eq ptr %19, null
-  br i1 %.not329559, label %.critedge, label %.lr.ph567
+  %.not329593 = icmp eq ptr %19, null
+  br i1 %.not329593, label %.critedge, label %.lr.ph601
 
-.lr.ph567:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph601:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %20 = phi ptr [ %89, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.0290469566 = phi ptr [ %88, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.0283470565 = phi i8 [ %.3286.ph, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %.0277471564 = phi i8 [ %.3280.ph, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  %.0273472563 = phi i8 [ %.3276.ph, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0269473562 = phi i8 [ %.3272.ph, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.0265474561 = phi double [ %.3268.ph, %.lr.ph ], [ -1.000000e+00, %.lr.ph.preheader ]
-  %.0261475560 = phi ptr [ %.3264.ph, %.lr.ph ], [ null, %.lr.ph.preheader ]
+  %.0290469600 = phi ptr [ %88, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %.0283470599 = phi i8 [ %.3286.ph, %.lr.ph ], [ %18, %.lr.ph.preheader ]
+  %.0277471598 = phi i8 [ %.3280.ph, %.lr.ph ], [ %16, %.lr.ph.preheader ]
+  %.0273472597 = phi i8 [ %.3276.ph, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0269473596 = phi i8 [ %.3272.ph, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.0265474595 = phi double [ %.3268.ph, %.lr.ph ], [ -1.000000e+00, %.lr.ph.preheader ]
+  %.0261475594 = phi ptr [ %.3264.ph, %.lr.ph ], [ null, %.lr.ph.preheader ]
   %21 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %20, ptr noundef nonnull @.str.10) #20
   br i1 %21, label %_ZL14getOptionValuePKcS0_.exit, label %_ZL14getOptionValuePKcS0_.exit.thread
 
-_ZL14getOptionValuePKcS0_.exit:                   ; preds = %.lr.ph567
+_ZL14getOptionValuePKcS0_.exit:                   ; preds = %.lr.ph601
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 10
   br label %.lr.ph
 
-_ZL14getOptionValuePKcS0_.exit.thread:            ; preds = %.lr.ph567
-  %23 = load ptr, ptr %.0290469566, align 8, !tbaa !44
+_ZL14getOptionValuePKcS0_.exit.thread:            ; preds = %.lr.ph601
+  %23 = load ptr, ptr %.0290469600, align 8, !tbaa !44
   %24 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef %23, ptr noundef nonnull @.str.11) #20
   br i1 %24, label %_ZL14getOptionValuePKcS0_.exit365, label %_ZL14getOptionValuePKcS0_.exit365.thread
 
@@ -693,7 +693,7 @@ _ZL14getOptionValuePKcS0_.exit365:                ; preds = %_ZL14getOptionValue
   br label %.lr.ph
 
 _ZL14getOptionValuePKcS0_.exit365.thread:         ; preds = %_ZL14getOptionValuePKcS0_.exit.thread
-  %27 = load ptr, ptr %.0290469566, align 8, !tbaa !44
+  %27 = load ptr, ptr %.0290469600, align 8, !tbaa !44
   %28 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef %27, ptr noundef nonnull @.str.12) #20
   br i1 %28, label %_ZL14getOptionValuePKcS0_.exit367, label %_ZL14getOptionValuePKcS0_.exit367.thread
 
@@ -715,7 +715,7 @@ _ZL14getOptionValuePKcS0_.exit367:                ; preds = %_ZL14getOptionValue
   br label %.critedge.thread
 
 _ZL14getOptionValuePKcS0_.exit367.thread:         ; preds = %_ZL14getOptionValuePKcS0_.exit365.thread
-  %38 = load ptr, ptr %.0290469566, align 8, !tbaa !44
+  %38 = load ptr, ptr %.0290469600, align 8, !tbaa !44
   %39 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef %38, ptr noundef nonnull @.str.16) #20
   br i1 %39, label %_ZL14getOptionValuePKcS0_.exit369, label %_ZL14getOptionValuePKcS0_.exit369.thread
 
@@ -737,14 +737,14 @@ _ZL14getOptionValuePKcS0_.exit369:                ; preds = %_ZL14getOptionValue
   br label %.critedge.thread
 
 _ZL14getOptionValuePKcS0_.exit369.thread:         ; preds = %_ZL14getOptionValuePKcS0_.exit367.thread
-  %49 = load ptr, ptr %.0290469566, align 8, !tbaa !44
+  %49 = load ptr, ptr %.0290469600, align 8, !tbaa !44
   %50 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef %49, ptr noundef nonnull @.str.18) #20
   br i1 %50, label %_ZL14getOptionValuePKcS0_.exit371, label %_ZL14getOptionValuePKcS0_.exit371.thread
 
 _ZL14getOptionValuePKcS0_.exit371:                ; preds = %_ZL14getOptionValuePKcS0_.exit369.thread
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 11
   %52 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalEPKcS3_(ptr noundef nonnull %51, ptr noundef nonnull @.str.13) #20
-  %spec.select = select i1 %52, i8 1, i8 %.0273472563
+  %spec.select = select i1 %52, i8 1, i8 %.0273472597
   br label %.lr.ph
 
 _ZL14getOptionValuePKcS0_.exit371.thread:         ; preds = %_ZL14getOptionValuePKcS0_.exit369.thread
@@ -767,7 +767,7 @@ _ZL14getOptionValuePKcS0_.exit371.thread:         ; preds = %_ZL14getOptionValue
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %55
   store i8 0, ptr %58, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %59 = load ptr, ptr %.0290469566, align 8, !tbaa !44
+  %59 = load ptr, ptr %.0290469600, align 8, !tbaa !44
   %60 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #20
   %61 = load i64, ptr %56, align 8, !tbaa !12
   %62 = sub i64 4611686018427387903, %61
@@ -845,16 +845,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %_Z
   br label %339
 
 .lr.ph:                                           ; preds = %_ZL14getOptionValuePKcS0_.exit, %42, %_ZL14getOptionValuePKcS0_.exit369, %31, %_ZL14getOptionValuePKcS0_.exit367, %_ZL14getOptionValuePKcS0_.exit365, %_ZL14getOptionValuePKcS0_.exit371
-  %.3286.ph = phi i8 [ %.0283470565, %_ZL14getOptionValuePKcS0_.exit371 ], [ 0, %42 ], [ 1, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0283470565, %31 ], [ %.0283470565, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0283470565, %_ZL14getOptionValuePKcS0_.exit ], [ %.0283470565, %_ZL14getOptionValuePKcS0_.exit365 ]
-  %.3280.ph = phi i8 [ %.0277471564, %_ZL14getOptionValuePKcS0_.exit371 ], [ 0, %42 ], [ 0, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0277471564, %31 ], [ %.0277471564, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0277471564, %_ZL14getOptionValuePKcS0_.exit ], [ %.0277471564, %_ZL14getOptionValuePKcS0_.exit365 ]
-  %.3276.ph = phi i8 [ %spec.select, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0273472563, %42 ], [ %.0273472563, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0273472563, %31 ], [ %.0273472563, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0273472563, %_ZL14getOptionValuePKcS0_.exit ], [ %.0273472563, %_ZL14getOptionValuePKcS0_.exit365 ]
-  %.3272.ph = phi i8 [ %.0269473562, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0269473562, %42 ], [ %.0269473562, %_ZL14getOptionValuePKcS0_.exit369 ], [ 0, %31 ], [ 1, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0269473562, %_ZL14getOptionValuePKcS0_.exit ], [ %.0269473562, %_ZL14getOptionValuePKcS0_.exit365 ]
-  %.3268.ph = phi double [ %.0265474561, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0265474561, %42 ], [ %.0265474561, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0265474561, %31 ], [ %.0265474561, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0265474561, %_ZL14getOptionValuePKcS0_.exit ], [ %26, %_ZL14getOptionValuePKcS0_.exit365 ]
-  %.3264.ph = phi ptr [ %.0261475560, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0261475560, %42 ], [ %.0261475560, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0261475560, %31 ], [ %.0261475560, %_ZL14getOptionValuePKcS0_.exit367 ], [ %22, %_ZL14getOptionValuePKcS0_.exit ], [ %.0261475560, %_ZL14getOptionValuePKcS0_.exit365 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.0290469566, i64 8
+  %.3286.ph = phi i8 [ %.0283470599, %_ZL14getOptionValuePKcS0_.exit371 ], [ 0, %42 ], [ 1, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0283470599, %31 ], [ %.0283470599, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0283470599, %_ZL14getOptionValuePKcS0_.exit ], [ %.0283470599, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3280.ph = phi i8 [ %.0277471598, %_ZL14getOptionValuePKcS0_.exit371 ], [ 0, %42 ], [ 0, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0277471598, %31 ], [ %.0277471598, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0277471598, %_ZL14getOptionValuePKcS0_.exit ], [ %.0277471598, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3276.ph = phi i8 [ %spec.select, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0273472597, %42 ], [ %.0273472597, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0273472597, %31 ], [ %.0273472597, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0273472597, %_ZL14getOptionValuePKcS0_.exit ], [ %.0273472597, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3272.ph = phi i8 [ %.0269473596, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0269473596, %42 ], [ %.0269473596, %_ZL14getOptionValuePKcS0_.exit369 ], [ 0, %31 ], [ 1, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0269473596, %_ZL14getOptionValuePKcS0_.exit ], [ %.0269473596, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3268.ph = phi double [ %.0265474595, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0265474595, %42 ], [ %.0265474595, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0265474595, %31 ], [ %.0265474595, %_ZL14getOptionValuePKcS0_.exit367 ], [ %.0265474595, %_ZL14getOptionValuePKcS0_.exit ], [ %26, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %.3264.ph = phi ptr [ %.0261475594, %_ZL14getOptionValuePKcS0_.exit371 ], [ %.0261475594, %42 ], [ %.0261475594, %_ZL14getOptionValuePKcS0_.exit369 ], [ %.0261475594, %31 ], [ %.0261475594, %_ZL14getOptionValuePKcS0_.exit367 ], [ %22, %_ZL14getOptionValuePKcS0_.exit ], [ %.0261475594, %_ZL14getOptionValuePKcS0_.exit365 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.0290469600, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !44
   %.not329 = icmp eq ptr %89, null
-  br i1 %.not329, label %.lr.ph..critedge.loopexit_crit_edge, label %.lr.ph567
+  br i1 %.not329, label %.lr.ph..critedge.loopexit_crit_edge, label %.lr.ph601
 
 .lr.ph..critedge.loopexit_crit_edge:              ; preds = %.lr.ph
   %90 = zext nneg i8 %.3272.ph to i32
@@ -990,7 +990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %_Z
   br i1 %148, label %163, label %149
 
 149:                                              ; preds = %144
-  br i1 %145, label %.thread506, label %.thread438
+  br i1 %145, label %.thread540, label %.thread438
 
 150:                                              ; preds = %141
   %151 = tail call i32 @proj_coordoperation_is_instantiable(ptr noundef nonnull %.0260, ptr noundef nonnull %133)
@@ -999,13 +999,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %_Z
   %or.cond15 = select i1 %115, i1 true, i1 %153
   br i1 %or.cond15, label %154, label %166
 
-.thread506:                                       ; preds = %149
-  %.not508 = xor i1 %146, true
-  %or.cond13509 = or i1 %115, %.not508
-  br i1 %or.cond13509, label %154, label %.thread438
+.thread540:                                       ; preds = %149
+  %.not542 = xor i1 %146, true
+  %or.cond13543 = or i1 %115, %.not542
+  br i1 %or.cond13543, label %154, label %.thread438
 
-154:                                              ; preds = %.thread506, %150
-  %.0287430 = phi i32 [ %151, %150 ], [ -1, %.thread506 ]
+154:                                              ; preds = %.thread540, %150
+  %.0287430 = phi i32 [ %151, %150 ], [ -1, %.thread540 ]
   tail call void @proj_list_destroy(ptr noundef nonnull %122)
   store i8 0, ptr %128, align 4, !tbaa !54
   %brmerge.demorgan = and i1 %or.cond, %134
@@ -1051,11 +1051,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %_Z
   tail call void @_Z26pj_warn_about_missing_gridP8PJconsts(ptr noundef nonnull %133)
   br label %.thread438
 
-.thread438:                                       ; preds = %.thread506, %149, %166, %168
-  %169 = phi i32 [ %152, %166 ], [ %152, %168 ], [ %147, %149 ], [ %147, %.thread506 ]
-  %.0287429432442 = phi i32 [ %151, %166 ], [ 0, %168 ], [ -1, %149 ], [ -1, %.thread506 ]
-  %170 = phi i1 [ true, %166 ], [ true, %168 ], [ %146, %149 ], [ true, %.thread506 ]
-  %171 = phi i1 [ true, %166 ], [ true, %168 ], [ false, %149 ], [ true, %.thread506 ]
+.thread438:                                       ; preds = %.thread540, %149, %166, %168
+  %169 = phi i32 [ %152, %166 ], [ %152, %168 ], [ %147, %149 ], [ %147, %.thread540 ]
+  %.0287429432442 = phi i32 [ %151, %166 ], [ 0, %168 ], [ -1, %149 ], [ -1, %.thread540 ]
+  %170 = phi i1 [ true, %166 ], [ true, %168 ], [ %146, %149 ], [ true, %.thread540 ]
+  %171 = phi i1 [ true, %166 ], [ true, %168 ], [ false, %149 ], [ true, %.thread540 ]
   %.fr = freeze i1 %170
   br i1 %or.cond, label %172, label %173
 

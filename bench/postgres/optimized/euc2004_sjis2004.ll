@@ -159,8 +159,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   unreachable
 
 .sink.split.i:                                    ; preds = %60, %52
-  %.sink185.i = phi i32 [ %62, %60 ], [ %57, %52 ]
-  %65 = trunc i32 %.sink185.i to i8
+  %.sink188.i = phi i32 [ %62, %60 ], [ %57, %52 ]
+  %65 = trunc i32 %.sink188.i to i8
   %66 = getelementptr inbounds nuw i8, ptr %.0105140.i, i64 1
   store i8 %65, ptr %.0105140.i, align 1
   br label %67

@@ -111,8 +111,8 @@ bytestream2_init.exit:                            ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !41
-  %.not135 = icmp eq i32 %23, 0
-  br i1 %.not135, label %.loopexit106, label %.lr.ph113
+  %.not146 = icmp eq i32 %23, 0
+  br i1 %.not146, label %.loopexit106, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %bytestream2_init.exit
   %31 = ptrtoint ptr %29 to i64
@@ -298,8 +298,8 @@ bytestream2_get_be24.exit:                        ; preds = %64, %65
   %133 = sext i32 %130 to i64
   %134 = sext i32 %131 to i64
   %invariant.gep = getelementptr i8, ptr %126, i64 %132
-  %invariant.gep142 = getelementptr i8, ptr %126, i64 %133
-  %invariant.gep144 = getelementptr i8, ptr %126, i64 %134
+  %invariant.gep153 = getelementptr i8, ptr %126, i64 %133
+  %invariant.gep155 = getelementptr i8, ptr %126, i64 %134
   br label %135
 
 135:                                              ; preds = %.lr.ph115, %135
@@ -313,12 +313,12 @@ bytestream2_get_be24.exit:                        ; preds = %64, %65
   %140 = load i8, ptr %gep, align 1, !tbaa !34
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 1
   store i8 %140, ptr %141, align 1, !tbaa !34
-  %gep143 = getelementptr i8, ptr %invariant.gep142, i64 %indvars.iv129
-  %142 = load i8, ptr %gep143, align 1, !tbaa !34
+  %gep154 = getelementptr i8, ptr %invariant.gep153, i64 %indvars.iv129
+  %142 = load i8, ptr %gep154, align 1, !tbaa !34
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 2
   store i8 %142, ptr %143, align 1, !tbaa !34
-  %gep145 = getelementptr i8, ptr %invariant.gep144, i64 %indvars.iv129
-  %144 = load i8, ptr %gep145, align 1, !tbaa !34
+  %gep156 = getelementptr i8, ptr %invariant.gep155, i64 %indvars.iv129
+  %144 = load i8, ptr %gep156, align 1, !tbaa !34
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 3
   store i8 %144, ptr %145, align 1, !tbaa !34
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
@@ -950,8 +950,8 @@ bytestream2_get_le16.exit89:                      ; preds = %49
 
 ._crit_edge.thread:                               ; preds = %49
   store ptr %24, ptr %0, align 8, !tbaa !38
-  %.not80153 = icmp ugt ptr %7, %50
-  br i1 %.not80153, label %bytestream2_get_le16.exit91, label %.critedge
+  %.not80160 = icmp ugt ptr %7, %50
+  br i1 %.not80160, label %bytestream2_get_le16.exit91, label %.critedge
 
 60:                                               ; preds = %._crit_edge
   %.not81 = icmp samesign ult i32 %.067.lcssa, 32768
@@ -982,17 +982,17 @@ bytestream2_get_le16.exit89:                      ; preds = %49
   br label %bytestream2_get_le16.exit91
 
 bytestream2_get_le16.exit91:                      ; preds = %._crit_edge.thread, %72, %71, %60
-  %.165.lcssa155162 = phi i32 [ %.165.lcssa, %60 ], [ %.165.lcssa, %71 ], [ %.165.lcssa, %72 ], [ %51, %._crit_edge.thread ]
-  %.161.lcssa156161 = phi ptr [ %.161.lcssa, %60 ], [ %.161.lcssa, %71 ], [ %.161.lcssa, %72 ], [ %50, %._crit_edge.thread ]
+  %.165.lcssa162169 = phi i32 [ %.165.lcssa, %60 ], [ %.165.lcssa, %71 ], [ %.165.lcssa, %72 ], [ %51, %._crit_edge.thread ]
+  %.161.lcssa163168 = phi ptr [ %.161.lcssa, %60 ], [ %.161.lcssa, %71 ], [ %.161.lcssa, %72 ], [ %50, %._crit_edge.thread ]
   %.269 = phi i32 [ %.067.lcssa, %60 ], [ 0, %71 ], [ %75, %72 ], [ 0, %._crit_edge.thread ]
-  %76 = ptrtoint ptr %.161.lcssa156161 to i64
+  %76 = ptrtoint ptr %.161.lcssa163168 to i64
   %77 = sub i64 %21, %76
   %78 = icmp slt i64 %77, %20
   br i1 %78, label %.critedge, label %79
 
 79:                                               ; preds = %bytestream2_get_le16.exit91
-  %80 = getelementptr inbounds i8, ptr %.161.lcssa156161, i64 %20
-  %81 = add nsw i32 %.165.lcssa155162, 1
+  %80 = getelementptr inbounds i8, ptr %.161.lcssa163168, i64 %20
+  %81 = add nsw i32 %.165.lcssa162169, 1
   %.not82125 = icmp eq i32 %.269, 0
   br i1 %.not82125, label %.loopexit110, label %.lr.ph128
 
@@ -1002,7 +1002,7 @@ bytestream2_get_le16.exit91:                      ; preds = %._crit_edge.thread,
 
 83:                                               ; preds = %.lr.ph128, %.loopexit
   %.in139 = phi i32 [ %.269, %.lr.ph128 ], [ %84, %.loopexit ]
-  %.0104126 = phi ptr [ %.161.lcssa156161, %.lr.ph128 ], [ %.1, %.loopexit ]
+  %.0104126 = phi ptr [ %.161.lcssa163168, %.lr.ph128 ], [ %.1, %.loopexit ]
   %84 = add nsw i32 %.in139, -1
   %85 = ptrtoint ptr %.0104126 to i64
   %86 = sub i64 %82, %85

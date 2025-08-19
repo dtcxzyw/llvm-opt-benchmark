@@ -605,17 +605,17 @@ define range(i32 0, 2) i32 @_check_iop_list_equal(ptr noundef readonly captures(
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %5) #18
-  %.not2547 = icmp eq i32 %6, 0
-  br i1 %.not2547, label %.preheader.preheader, label %.thread
+  %.not2548 = icmp eq i32 %6, 0
+  br i1 %.not2548, label %.preheader.preheader, label %.thread
 
 .preheader.preheader:                             ; preds = %.lr.ph.preheader, %.lr.ph
   %7 = phi ptr [ %15, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.0213449 = phi ptr [ %9, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %indvars.iv48 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0213450 = phi ptr [ %9, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %indvars.iv49 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %10
-  %.223 = phi ptr [ %9, %10 ], [ %.0213449, %.preheader.preheader ]
+  %.223 = phi ptr [ %9, %10 ], [ %.0213450, %.preheader.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %.223, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %.not26 = icmp eq ptr %9, null
@@ -629,7 +629,7 @@ define range(i32 0, 2) i32 @_check_iop_list_equal(ptr noundef readonly captures(
   br i1 %.not27, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv48, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv49, 1
   %14 = load ptr, ptr %9, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw %struct.dt_iop_order_entry_t, ptr %1, i64 %indvars.iv.next, i32 1
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3028,13 +3028,13 @@ _ioppr_reset_iop_order.exit:                      ; preds = %.lr.ph.i, %._crit_e
   %34 = load i32, ptr %33, align 16, !tbaa !115
   %.not25.i = icmp ne i32 %34, 0
   %35 = zext i1 %.not25.i to i32
-  %spec.select165 = add nsw i32 %.0106, %35
+  %spec.select172 = add nsw i32 %.0106, %35
   br label %36
 
 36:                                               ; preds = %29, %.lr.ph.i88
   %.1115 = phi i32 [ %.0114, %.lr.ph.i88 ], [ %spec.select, %29 ]
   %.1112 = phi i32 [ %.0111, %.lr.ph.i88 ], [ %30, %29 ]
-  %.1107 = phi i32 [ %.0106, %.lr.ph.i88 ], [ %spec.select165, %29 ]
+  %.1107 = phi i32 [ %.0106, %.lr.ph.i88 ], [ %spec.select172, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !56
   %.not.i89 = icmp eq ptr %38, null
@@ -3092,8 +3092,8 @@ _count_iop_module.exit:                           ; preds = %_count_iop_module.e
 _count_entries_operation.exit:                    ; preds = %.lr.ph.i90
   %or.cond = or i1 %6, %22
   %55 = select i1 %or.cond, i32 %.2108, i32 0
-  %.sink166 = sub nsw i32 %.2113, %55
-  %56 = sub nsw i32 %spec.select.i92, %.sink166
+  %.sink173 = sub nsw i32 %.2113, %55
+  %56 = sub nsw i32 %spec.select.i92, %.sink173
   br label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %_count_entries_operation.exit, %91
@@ -3108,7 +3108,7 @@ _count_entries_operation.exit:                    ; preds = %.lr.ph.i90
 
 60:                                               ; preds = %.lr.ph134
   %61 = add nsw i32 %.068132, 1
-  %.not86.not = icmp slt i32 %.068132, %.sink166
+  %.not86.not = icmp slt i32 %.068132, %.sink173
   br i1 %.not86.not, label %62, label %88
 
 62:                                               ; preds = %60
@@ -3622,13 +3622,13 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %17 = load ptr, ptr %.1116260, align 8, !tbaa !54
   %18 = icmp eq ptr %17, %2
-  br i1 %18, label %._crit_edge310, label %.lr.ph309
+  br i1 %18, label %._crit_edge323, label %.lr.ph322
 
 19:                                               ; preds = %.lr.ph254
   br i1 %.not154261, label %.critedge, label %.lr.ph254
 
 .loopexit:                                        ; preds = %39, %.preheader
-  %.1116.in = getelementptr inbounds nuw i8, ptr %.1116263308, i64 8
+  %.1116.in = getelementptr inbounds nuw i8, ptr %.1116263321, i64 8
   %.1116 = load ptr, ptr %.1116.in, align 8, !tbaa !56
   %.not154 = icmp eq ptr %.1116, null
   br i1 %.not154, label %.thread179, label %20
@@ -3636,11 +3636,11 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
 20:                                               ; preds = %.loopexit
   %21 = load ptr, ptr %.1116, align 8, !tbaa !54
   %22 = icmp eq ptr %21, %2
-  br i1 %22, label %._crit_edge310, label %.lr.ph309
+  br i1 %22, label %._crit_edge323, label %.lr.ph322
 
-.lr.ph309:                                        ; preds = %.lr.ph264, %20
+.lr.ph322:                                        ; preds = %.lr.ph264, %20
   %23 = phi ptr [ %21, %20 ], [ %17, %.lr.ph264 ]
-  %.1116263308 = phi ptr [ %.1116, %20 ], [ %.1116260, %.lr.ph264 ]
+  %.1116263321 = phi ptr [ %.1116, %20 ], [ %.1116260, %.lr.ph264 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load ptr, ptr %24, align 16, !tbaa !120
   %26 = tail call i32 %25() #15
@@ -3648,7 +3648,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
   %.not155 = icmp eq i32 %27, 0
   br i1 %.not155, label %.preheader, label %.thread179
 
-.preheader:                                       ; preds = %.lr.ph309
+.preheader:                                       ; preds = %.lr.ph322
   %.0124255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 32), align 8, !tbaa !117
   %.not156256 = icmp eq ptr %.0124255, null
   br i1 %.not156256, label %.loopexit, label %.lr.ph258
@@ -3680,7 +3680,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
   %.not156 = icmp eq ptr %.0124, null
   br i1 %.not156, label %.loopexit, label %29
 
-._crit_edge310:                                   ; preds = %20, %.lr.ph264
+._crit_edge323:                                   ; preds = %20, %.lr.ph264
   %.0128262.lcssa = phi ptr [ null, %.lr.ph264 ], [ %23, %20 ]
   %.lcssa = phi ptr [ %17, %.lr.ph264 ], [ %21, %20 ]
   %.not160 = icmp eq ptr %2, null
@@ -3688,7 +3688,7 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
   %or.cond = or i1 %41, %.not160
   br i1 %or.cond, label %.thread179, label %42
 
-42:                                               ; preds = %._crit_edge310
+42:                                               ; preds = %._crit_edge323
   %43 = getelementptr inbounds nuw i8, ptr %.0128262.lcssa, i64 480
   %44 = load i32, ptr %43, align 16, !tbaa !94
   %45 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 480
@@ -3829,8 +3829,8 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_before_iop(ptr noundef %0, p
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.47, ptr noundef nonnull %100, ptr noundef nonnull %101, i32 noundef %10, ptr noundef nonnull %102, ptr noundef nonnull %103, i32 noundef %12) #15
   br label %.thread179
 
-.thread179:                                       ; preds = %._crit_edge, %65, %76, %.loopexit, %.lr.ph309, %34, %.preheader228, %.preheader223, %99, %._crit_edge310, %48, %42, %.critedge, %84, %92, %86, %.critedge164, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 0, %.critedge ], [ 0, %48 ], [ 0, %._crit_edge310 ], [ 1, %42 ], [ 0, %.critedge164 ], [ 0, %92 ], [ 0, %84 ], [ 1, %86 ], [ 0, %.preheader223 ], [ 0, %.preheader228 ], [ 0, %34 ], [ 0, %.lr.ph309 ], [ 0, %.loopexit ], [ 0, %76 ], [ 0, %65 ], [ 0, %._crit_edge ]
+.thread179:                                       ; preds = %._crit_edge, %65, %76, %.loopexit, %.lr.ph322, %34, %.preheader228, %.preheader223, %99, %._crit_edge323, %48, %42, %.critedge, %84, %92, %86, %.critedge164, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %99 ], [ 0, %.critedge ], [ 0, %48 ], [ 0, %._crit_edge323 ], [ 1, %42 ], [ 0, %.critedge164 ], [ 0, %92 ], [ 0, %84 ], [ 1, %86 ], [ 0, %.preheader223 ], [ 0, %.preheader228 ], [ 0, %34 ], [ 0, %.lr.ph322 ], [ 0, %.loopexit ], [ 0, %76 ], [ 0, %65 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -3844,24 +3844,24 @@ define range(i32 0, 2) i32 @dt_ioppr_check_can_move_after_iop(ptr noundef %0, pt
 
 .lr.ph.preheader:                                 ; preds = %3
   %5 = load ptr, ptr %4, align 8, !tbaa !54
-  %.not2330 = icmp eq ptr %5, %2
-  br i1 %.not2330, label %._crit_edge, label %.lr.ph32
+  %.not2333 = icmp eq ptr %5, %2
+  br i1 %.not2333, label %._crit_edge, label %.lr.ph35
 
-.lr.ph:                                           ; preds = %.lr.ph32
+.lr.ph:                                           ; preds = %.lr.ph35
   %6 = load ptr, ptr %9, align 8, !tbaa !54
   %.not23 = icmp eq ptr %6, %2
-  br i1 %.not23, label %._crit_edge, label %.lr.ph32
+  br i1 %.not23, label %._crit_edge, label %.lr.ph35
 
-.lr.ph32:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph35:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %7 = phi ptr [ %6, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %.0202631 = phi ptr [ %9, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %8 = getelementptr inbounds nuw i8, ptr %.0202631, i64 16
+  %.0202634 = phi ptr [ %9, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %8 = getelementptr inbounds nuw i8, ptr %.0202634, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !116
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph32, %.lr.ph, %.lr.ph.preheader
-  %.021.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %7, %.lr.ph ], [ %7, %.lr.ph32 ]
+._crit_edge:                                      ; preds = %.lr.ph35, %.lr.ph, %.lr.ph.preheader
+  %.021.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %7, %.lr.ph ], [ %7, %.lr.ph35 ]
   %10 = icmp eq ptr %.021.lcssa, null
   br i1 %10, label %._crit_edge.thread, label %19
 
@@ -4346,9 +4346,9 @@ define range(i32 0, 2) i32 @dt_ioppr_check_iop_order_ext(ptr noundef readonly ca
   br i1 %.not11.i.i, label %_get_fence_modules_list.exit.thread.i, label %.lr.ph.i.i
 
 _get_fence_modules_list.exit.thread.i:            ; preds = %47, %.preheader, %._crit_edge
-  %.5.lcssa145 = phi i32 [ %.6, %._crit_edge ], [ %.0, %.preheader ], [ %.3, %47 ]
+  %.5.lcssa165 = phi i32 [ %.6, %._crit_edge ], [ %.0, %.preheader ], [ %.3, %47 ]
   %52 = tail call ptr @g_list_reverse(ptr noundef null) #15
-  %.fr168.i = freeze ptr %52
+  %.fr179.i = freeze ptr %52
   br label %._crit_edge164.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %60
@@ -4485,9 +4485,9 @@ _get_fence_modules_list.exit.i:                   ; preds = %60
   br i1 %.not.i110, label %.lr.ph163.i.preheader, label %.lr.ph146.split.i
 
 ._crit_edge164.i:                                 ; preds = %.loopexit136.i, %_get_fence_modules_list.exit.thread.i
-  %.5.lcssa144 = phi i32 [ %.5.lcssa145, %_get_fence_modules_list.exit.thread.i ], [ %.6, %.loopexit136.i ]
-  %.fr169.i = phi ptr [ %.fr168.i, %_get_fence_modules_list.exit.thread.i ], [ %.fr.i, %.loopexit136.i ]
-  %.not120.i = icmp eq ptr %.fr169.i, null
+  %.5.lcssa164 = phi i32 [ %.5.lcssa165, %_get_fence_modules_list.exit.thread.i ], [ %.6, %.loopexit136.i ]
+  %.fr180.i = phi ptr [ %.fr179.i, %_get_fence_modules_list.exit.thread.i ], [ %.fr.i, %.loopexit136.i ]
+  %.not120.i = icmp eq ptr %.fr180.i, null
   br i1 %.not120.i, label %_ioppr_check_rules.exit, label %156
 
 .lr.ph163.i:                                      ; preds = %.lr.ph163.i.preheader, %.loopexit136.i
@@ -4599,7 +4599,7 @@ _get_fence_modules_list.exit.i:                   ; preds = %60
   br i1 %.not119.i, label %._crit_edge164.i, label %.lr.ph163.i
 
 156:                                              ; preds = %._crit_edge164.i
-  tail call void @g_list_free(ptr noundef nonnull %.fr169.i) #15
+  tail call void @g_list_free(ptr noundef nonnull %.fr180.i) #15
   br label %_ioppr_check_rules.exit
 
 _ioppr_check_rules.exit:                          ; preds = %._crit_edge164.i, %156
@@ -4658,12 +4658,12 @@ _ioppr_check_rules.exit:                          ; preds = %._crit_edge164.i, %
   br i1 %.not102, label %._crit_edge, label %.lr.ph126
 
 ._crit_edge133:                                   ; preds = %203, %_ioppr_check_rules.exit
-  %.7.lcssa = phi i32 [ %.5.lcssa144, %_ioppr_check_rules.exit ], [ %.8, %203 ]
+  %.7.lcssa = phi i32 [ %.5.lcssa164, %_ioppr_check_rules.exit ], [ %.8, %203 ]
   ret i32 %.7.lcssa
 
 .lr.ph132:                                        ; preds = %_ioppr_check_rules.exit, %203
   %.086131 = phi ptr [ %.086, %203 ], [ %.086128, %_ioppr_check_rules.exit ]
-  %.7130 = phi i32 [ %.8, %203 ], [ %.5.lcssa144, %_ioppr_check_rules.exit ]
+  %.7130 = phi i32 [ %.8, %203 ], [ %.5.lcssa164, %_ioppr_check_rules.exit ]
   %185 = load ptr, ptr %.086131, align 8, !tbaa !54
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 52
   %187 = load i32, ptr %186, align 4, !tbaa !122

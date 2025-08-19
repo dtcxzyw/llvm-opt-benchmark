@@ -5150,7 +5150,7 @@ define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i8, ptr %6, align 4, !range !20, !noundef !7
-  switch i8 %7, label %default.unreachable36 [
+  switch i8 %7, label %default.unreachable40 [
     i8 0, label %8
     i8 1, label %22
     i8 2, label %23
@@ -5162,7 +5162,7 @@ define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !985, !noalias !990
   br label %24
 
-default.unreachable36:                            ; preds = %3
+default.unreachable40:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -5308,13 +5308,13 @@ common.ret:                                       ; preds = %33, %"_ZN4core3ptr5
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..stream..TcpStream$GT$17h8cb06273c7875ed2E.exit"
 
 .sink.split:                                      ; preds = %44, %31
-  %.sink37 = phi ptr [ %.sroa.022.0.copyload, %31 ], [ %46, %44 ]
-  %48 = icmp ne ptr %.sink37, null
+  %.sink41 = phi ptr [ %.sroa.022.0.copyload, %31 ], [ %46, %44 ]
+  %48 = icmp ne ptr %.sink41, null
   tail call void @llvm.assume(i1 %48)
   br label %49
 
 49:                                               ; preds = %.sink.split, %47
-  %.sroa.625.2 = phi ptr [ %46, %47 ], [ %.sink37, %.sink.split ]
+  %.sroa.625.2 = phi ptr [ %46, %47 ], [ %.sink41, %.sink.split ]
   invoke void @"_ZN87_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he95eccc3374ce119E.llvm.14828715386332725032"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %57 unwind label %50
 
@@ -7563,14 +7563,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { { { { ptr, ptr } } }, {} }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17he8fdf3c5ae55a2f6E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %10, label %default.unreachable15 [
+  switch i8 %10, label %default.unreachable16 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %80
     i8 3, label %80
   ]
 
-default.unreachable15:                            ; preds = %61, %1
+default.unreachable16:                            ; preds = %61, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -7714,7 +7714,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h307d7367aa61ee3eE.llvm.14837436092
 
 61:                                               ; preds = %15
   %62 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17hd1517a6cb15b8ab2E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %62, label %default.unreachable15 [
+  switch i8 %62, label %default.unreachable16 [
     i8 3, label %64
     i8 0, label %79
     i8 1, label %77
@@ -7790,14 +7790,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { { { { ptr, ptr } } }, {} }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17he8fdf3c5ae55a2f6E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %10, label %default.unreachable15 [
+  switch i8 %10, label %default.unreachable16 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %82
     i8 3, label %82
   ]
 
-default.unreachable15:                            ; preds = %62, %1
+default.unreachable16:                            ; preds = %62, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -7942,7 +7942,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17hca0c76b597c79538E.llvm.14837436092
 
 62:                                               ; preds = %15
   %63 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17hd1517a6cb15b8ab2E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %63, label %default.unreachable15 [
+  switch i8 %63, label %default.unreachable16 [
     i8 3, label %65
     i8 0, label %81
     i8 1, label %79
@@ -8019,14 +8019,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { { { { ptr, ptr } } }, {} }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17he8fdf3c5ae55a2f6E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %10, label %default.unreachable15 [
+  switch i8 %10, label %default.unreachable16 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %82
     i8 3, label %82
   ]
 
-default.unreachable15:                            ; preds = %62, %1
+default.unreachable16:                            ; preds = %62, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -8171,7 +8171,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h71b2cdbfe9c43396E.llvm.14837436092
 
 62:                                               ; preds = %15
   %63 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17hd1517a6cb15b8ab2E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %63, label %default.unreachable15 [
+  switch i8 %63, label %default.unreachable16 [
     i8 3, label %65
     i8 0, label %81
     i8 1, label %79
@@ -8248,14 +8248,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { { { { ptr, ptr } } }, {} }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17he8fdf3c5ae55a2f6E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %10, label %default.unreachable15 [
+  switch i8 %10, label %default.unreachable16 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %80
     i8 3, label %80
   ]
 
-default.unreachable15:                            ; preds = %61, %1
+default.unreachable16:                            ; preds = %61, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -8399,7 +8399,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h6c0925badfa18708E.llvm.14837436092
 
 61:                                               ; preds = %15
   %62 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17hd1517a6cb15b8ab2E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %62, label %default.unreachable15 [
+  switch i8 %62, label %default.unreachable16 [
     i8 3, label %64
     i8 0, label %79
     i8 1, label %77
@@ -8475,14 +8475,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { { { { ptr, ptr } } }, {} }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17he8fdf3c5ae55a2f6E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %10, label %default.unreachable15 [
+  switch i8 %10, label %default.unreachable16 [
     i8 0, label %11
     i8 1, label %45
     i8 2, label %74
     i8 3, label %74
   ]
 
-default.unreachable15:                            ; preds = %57, %1
+default.unreachable16:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -8645,7 +8645,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17hb89987c691458acaE.llvm.14837436092
 
 57:                                               ; preds = %_ZN3std9panicking3try17h9ae380dd96b8cea4E.exit.i
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17hd1517a6cb15b8ab2E(ptr noundef nonnull align 8 %9), !range !20
-  switch i8 %58, label %default.unreachable15 [
+  switch i8 %58, label %default.unreachable16 [
     i8 3, label %60
     i8 0, label %73
     i8 1, label %71
@@ -9999,14 +9999,14 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h5325d77eddcf4aedE.llvm.14837436092785038340"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !range !20
-  switch i8 %3, label %default.unreachable4 [
+  switch i8 %3, label %default.unreachable5 [
     i8 0, label %4
     i8 1, label %5
     i8 2, label %7
     i8 3, label %8
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable5:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -10093,14 +10093,14 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hc7beecf0b8a28326E.llvm.14837436092785038340"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !range !20
-  switch i8 %3, label %default.unreachable4 [
+  switch i8 %3, label %default.unreachable5 [
     i8 0, label %4
     i8 1, label %5
     i8 2, label %7
     i8 3, label %8
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable5:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -10187,14 +10187,14 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h88081f2c311e479dE.llvm.14837436092785038340"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !range !20
-  switch i8 %3, label %default.unreachable4 [
+  switch i8 %3, label %default.unreachable5 [
     i8 0, label %4
     i8 1, label %5
     i8 2, label %7
     i8 3, label %8
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable5:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -10281,14 +10281,14 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h1823f4dee71dd201E.llvm.14837436092785038340"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !range !20
-  switch i8 %3, label %default.unreachable4 [
+  switch i8 %3, label %default.unreachable5 [
     i8 0, label %4
     i8 1, label %5
     i8 2, label %7
     i8 3, label %8
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable5:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -10375,14 +10375,14 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h78ff24f5caf6cab2E.llvm.14837436092785038340"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !range !20
-  switch i8 %3, label %default.unreachable4 [
+  switch i8 %3, label %default.unreachable5 [
     i8 0, label %4
     i8 1, label %5
     i8 2, label %7
     i8 3, label %8
   ]
 
-default.unreachable4:                             ; preds = %1
+default.unreachable5:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -12675,7 +12675,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke454, %.invoke452
+.loopexit.split-lp:                               ; preds = %.invoke464, %.invoke462
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -12739,7 +12739,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit208
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %.not333 = icmp eq i64 %226, 0
-  br i1 %.not333, label %.invoke452, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit215"
+  br i1 %.not333, label %.invoke462, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit215"
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit208.thread317: ; preds = %213, %220, %210, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit208, %206
   %231 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE monotonic, align 1
@@ -12793,17 +12793,17 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit208
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not334 = icmp eq i64 %255, 0
-  br i1 %.not334, label %.invoke452, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit222"
+  br i1 %.not334, label %.invoke462, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit222"
 
 260:                                              ; preds = %249, %268
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %269
 
-.invoke452:                                       ; preds = %221, %250
+.invoke462:                                       ; preds = %221, %250
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.d07909af76fe9cd4e206baf0847e55b7.8, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d07909af76fe9cd4e206baf0847e55b7.120) #26
-          to label %.cont453 unwind label %.loopexit.split-lp
+          to label %.cont463 unwind label %.loopexit.split-lp
 
-.cont453:                                         ; preds = %.invoke452
+.cont463:                                         ; preds = %.invoke462
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit222": ; preds = %250
@@ -12817,13 +12817,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit208
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %261 = load i8, ptr %59, align 8, !range !20, !noundef !7
   %262 = icmp eq i8 %261, 3
-  br i1 %262, label %.invoke454, label %263
+  br i1 %262, label %.invoke464, label %263
 
-.invoke454:                                       ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit215", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit222"
+.invoke464:                                       ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit215", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit222"
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d07909af76fe9cd4e206baf0847e55b7.124) #26
-          to label %.cont455 unwind label %.loopexit.split-lp
+          to label %.cont465 unwind label %.loopexit.split-lp
 
-.cont455:                                         ; preds = %.invoke454
+.cont465:                                         ; preds = %.invoke464
   unreachable
 
 263:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit222"
@@ -12879,7 +12879,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit208
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %272 = load i8, ptr %59, align 8, !range !20, !noundef !7
   %273 = icmp eq i8 %272, 3
-  br i1 %273, label %.invoke454, label %274
+  br i1 %273, label %.invoke464, label %274
 
 274:                                              ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit215"
   %275 = invoke { ptr, i64 } @"_ZN9actix_tls7connect3uri75_$LT$impl$u20$actix_tls..connect..host..Host$u20$for$u20$http..uri..Uri$GT$8hostname17h6421251e5797f0a1E"(ptr noundef nonnull align 8 %59)
@@ -13443,7 +13443,7 @@ define hidden void @"_ZN9actix_tls7connect3tcp24TcpConnectorFut$LT$R$GT$3new17h3
 53:                                               ; preds = %5
   br i1 %.not, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread257, label %54
 
-default.unreachable289:                           ; preds = %228
+default.unreachable301:                           ; preds = %228
   unreachable
 
 54:                                               ; preds = %53
@@ -13927,7 +13927,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit176
 
 228:                                              ; preds = %212, %183, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit176.thread268, %"_ZN9actix_tls7connect3tcp24TcpConnectorFut$LT$R$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17hdbed6671d14dcfa9E.exit"
   %229 = load i32, ptr %4, align 8, !range !728, !noundef !7
-  switch i32 %229, label %default.unreachable289 [
+  switch i32 %229, label %default.unreachable301 [
     i32 0, label %283
     i32 1, label %265
     i32 2, label %278
@@ -14288,7 +14288,7 @@ define internal void @"_ZN9actix_tls7connect3tcp7connect28_$u7b$$u7b$closure$u7d
   %19 = alloca { i16, [15 x i16] }, align 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %21 = load i8, ptr %20, align 1, !range !236, !noundef !7
-  switch i8 %21, label %default.unreachable134 [
+  switch i8 %21, label %default.unreachable138 [
     i8 0, label %22
     i8 1, label %86
     i8 2, label %87
@@ -14296,7 +14296,7 @@ define internal void @"_ZN9actix_tls7connect3tcp7connect28_$u7b$$u7b$closure$u7d
     i8 4, label %163
   ]
 
-default.unreachable134:                           ; preds = %197, %163, %88, %3
+default.unreachable138:                           ; preds = %197, %163, %88, %3
   unreachable
 
 22:                                               ; preds = %3
@@ -14307,13 +14307,13 @@ default.unreachable134:                           ; preds = %197, %163, %88, %3
   %.sroa.11.sroa.0.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 1
   %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 37
   %24 = icmp eq i8 %.sroa.0.0.copyload, 2
-  br i1 %24, label %.thread135, label %25
+  br i1 %24, label %.thread139, label %25
 
 25:                                               ; preds = %22
   %trunc = trunc i8 %.sroa.0.0.copyload to i1
   br i1 %trunc, label %30, label %29
 
-.thread135:                                       ; preds = %22
+.thread139:                                       ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -14490,9 +14490,9 @@ default.unreachable134:                           ; preds = %197, %163, %88, %3
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit50"
 
 common.ret:                                       ; preds = %296, %158, %84
-  %.sink138 = phi i64 [ 1, %296 ], [ 1, %158 ], [ 0, %84 ]
+  %.sink142 = phi i64 [ 1, %296 ], [ 1, %158 ], [ 0, %84 ]
   %.sink = phi i8 [ 4, %296 ], [ 3, %158 ], [ 1, %84 ]
-  store i64 %.sink138, ptr %0, align 8
+  store i64 %.sink142, ptr %0, align 8
   store i8 %.sink, ptr %20, align 1
   ret void
 
@@ -14522,7 +14522,7 @@ common.ret:                                       ; preds = %296, %158, %84
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  switch i8 %.pre, label %default.unreachable134 [
+  switch i8 %.pre, label %default.unreachable138 [
     i8 0, label %91
     i8 1, label %.invoke
     i8 2, label %135
@@ -14744,17 +14744,17 @@ common.ret:                                       ; preds = %296, %158, %84
   %.pre133 = load i8, ptr %.phi.trans.insert132, align 8, !range !236, !noalias !2825
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  switch i8 %.pre133, label %default.unreachable134 [
+  switch i8 %.pre133, label %default.unreachable138 [
     i8 0, label %166
-    i8 1, label %.invoke136
+    i8 1, label %.invoke140
     i8 2, label %172
     i8 3, label %175
     i8 4, label %197
   ]
 
-166:                                              ; preds = %.thread135, %163
-  %167 = phi ptr [ %28, %.thread135 ], [ %165, %163 ]
-  %168 = phi ptr [ %27, %.thread135 ], [ %164, %163 ]
+166:                                              ; preds = %.thread139, %163
+  %167 = phi ptr [ %28, %.thread139 ], [ %165, %163 ]
+  %168 = phi ptr [ %27, %.thread139 ], [ %164, %163 ]
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 90
   store i8 0, ptr %169, align 2, !noalias !2825
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 89
@@ -14764,15 +14764,15 @@ common.ret:                                       ; preds = %296, %158, %84
   br label %175
 
 172:                                              ; preds = %163
-  br label %.invoke136
+  br label %.invoke140
 
-.invoke136:                                       ; preds = %163, %172
+.invoke140:                                       ; preds = %163, %172
   %173 = phi ptr [ @str.1, %172 ], [ @str.0, %163 ]
   %174 = phi i64 [ 34, %172 ], [ 35, %163 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %173, i64 noundef %174, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d07909af76fe9cd4e206baf0847e55b7.59) #26
-          to label %.cont137 unwind label %290
+          to label %.cont141 unwind label %290
 
-.cont137:                                         ; preds = %.invoke136
+.cont141:                                         ; preds = %.invoke140
   unreachable
 
 175:                                              ; preds = %163, %166
@@ -14849,7 +14849,7 @@ common.ret:                                       ; preds = %296, %158, %84
   %.phi.trans.insert99.i = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.pre.i = load i8, ptr %.phi.trans.insert99.i, align 8, !range !20, !noalias !2837
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2825
-  switch i8 %.pre.i, label %default.unreachable134 [
+  switch i8 %.pre.i, label %default.unreachable138 [
     i8 0, label %198
     i8 1, label %.invoke.i
     i8 2, label %215
@@ -15131,7 +15131,7 @@ common.ret:                                       ; preds = %296, %158, %84
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h2d6f3abbe36fc8a7E"(ptr %.val.i) #24
           to label %255 unwind label %191, !noalias !2835
 
-290:                                              ; preds = %.invoke136
+290:                                              ; preds = %.invoke140
   %291 = landingpad { ptr, i32 }
           cleanup
   br label %.body64

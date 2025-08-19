@@ -168,18 +168,18 @@ define internal noundef i32 @_ZL38hb_unicode_decompose_compatibility_nilP18hb_un
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %0, null
-  br i1 %.not.i.i, label %common.ret42, label %2
+  br i1 %.not.i.i, label %common.ret51, label %2
 
 2:                                                ; preds = %1
   %3 = load atomic i32, ptr %0 monotonic, align 4
   %4 = load atomic i32, ptr %0 monotonic, align 4
   %.not.i8.i = icmp eq i32 %4, 0
-  br i1 %.not.i8.i, label %common.ret42, label %5
+  br i1 %.not.i8.i, label %common.ret51, label %5
 
 5:                                                ; preds = %2
   %6 = atomicrmw add ptr %0, i32 -1 acq_rel, align 4
   %.not7.i = icmp eq i32 %6, 1
-  br i1 %.not7.i, label %7, label %common.ret42
+  br i1 %.not7.i, label %7, label %common.ret51
 
 7:                                                ; preds = %5
   store atomic i32 -57005, ptr %0 monotonic, align 4
@@ -293,7 +293,7 @@ _ZL17hb_object_destroyI18hb_unicode_funcs_tEbPT_.exit: ; preds = %10, %7
   tail call void %57(ptr noundef %60)
   br label %61
 
-common.ret42:                                     ; preds = %1, %5, %2, %61
+common.ret51:                                     ; preds = %1, %5, %2, %61
   ret void
 
 61:                                               ; preds = %58, %55
@@ -301,7 +301,7 @@ common.ret42:                                     ; preds = %1, %5, %2, %61
   %63 = load ptr, ptr %62, align 8
   tail call void @hb_unicode_funcs_destroy(ptr noundef %63)
   tail call void @free(ptr noundef nonnull %0) #14
-  br label %common.ret42
+  br label %common.ret51
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

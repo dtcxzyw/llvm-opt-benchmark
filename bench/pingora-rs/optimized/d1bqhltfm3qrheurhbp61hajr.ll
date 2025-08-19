@@ -309,9 +309,9 @@ define internal fastcc void @"_ZN12pingora_core9protocols11raw_connect7connect28
   %83 = alloca [24 x i8], align 8
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %85 = load i8, ptr %84, align 8, !range !3, !noundef !4
-  %.sink26.i.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink26.i.sroa.gep131 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  switch i8 %85, label %default.unreachable135 [
+  %.sink27.i.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink27.i.sroa.gep131 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  switch i8 %85, label %default.unreachable162 [
     i8 0, label %86
     i8 1, label %184
     i8 2, label %185
@@ -320,7 +320,7 @@ define internal fastcc void @"_ZN12pingora_core9protocols11raw_connect7connect28
     i8 5, label %93
   ]
 
-default.unreachable135:                           ; preds = %241, %227, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbff8cf03b91299c7E.exit.i", %3
+default.unreachable162:                           ; preds = %241, %227, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hbff8cf03b91299c7E.exit.i", %3
   unreachable
 
 86:                                               ; preds = %3
@@ -392,7 +392,7 @@ default.unreachable135:                           ; preds = %241, %227, %"_ZN5al
   store ptr %112, ptr %115, align 8, !alias.scope !16, !noalias !19
   %116 = getelementptr inbounds nuw i8, ptr %91, i64 184
   %117 = load i8, ptr %116, align 8, !range !21, !noalias !7, !noundef !4
-  switch i8 %117, label %default.unreachable135 [
+  switch i8 %117, label %default.unreachable162 [
     i8 0, label %134
     i8 1, label %118
     i8 2, label %119
@@ -732,7 +732,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr101dro
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 488
   %230 = load i8, ptr %229, align 8, !range !26, !noalias !27, !noundef !4
-  switch i8 %230, label %default.unreachable135 [
+  switch i8 %230, label %default.unreachable162 [
     i8 0, label %231
     i8 1, label %239
     i8 2, label %240
@@ -791,7 +791,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr101dro
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !27
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 433
   %244 = load i8, ptr %243, align 1, !range !34, !noalias !35, !noundef !4
-  switch i8 %244, label %default.unreachable135 [
+  switch i8 %244, label %default.unreachable162 [
     i8 0, label %245
     i8 1, label %298
     i8 2, label %299
@@ -2643,8 +2643,8 @@ _ZN13pingora_error5Error7because17h2b7b7e2fd399f06dE.exit.i.i.i: ; preds = %.noe
   %846 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val1.i.i.i8.i = load i64, ptr %846, align 8, !noalias !295
   %847 = icmp eq i64 %.val1.i.i.i8.i, 0
-  %or.cond29.i = select i1 %845, i1 true, i1 %847
-  br i1 %or.cond29.i, label %.body98, label %.body.thread.sink.split.i
+  %or.cond30.i = select i1 %845, i1 true, i1 %847
+  br i1 %or.cond30.i, label %.body98, label %.body.thread.sink.split.i
 
 848:                                              ; preds = %850
   %849 = landingpad { ptr, i32 }
@@ -2659,10 +2659,10 @@ _ZN13pingora_error5Error7because17h2b7b7e2fd399f06dE.exit.i.i.i: ; preds = %.noe
           to label %.body98 unwind label %848, !noalias !314
 
 .body.thread.sink.split.i:                        ; preds = %844, %821
-  %.sink26.i.sroa.phi = phi ptr [ %.sink26.i.sroa.gep, %821 ], [ %.sink26.i.sroa.gep131, %844 ]
+  %.sink27.i.sroa.phi = phi ptr [ %.sink27.i.sroa.gep, %821 ], [ %.sink27.i.sroa.gep131, %844 ]
   %.val1.i.i.i8.sink.i = phi i64 [ %.val1.i.i.i.i, %821 ], [ %.val1.i.i.i8.i, %844 ]
   %eh.lpad-body21.ph.i = phi { ptr, i32 } [ %818, %821 ], [ %841, %844 ]
-  %.val.i.i.i9.i = load ptr, ptr %.sink26.i.sroa.phi, align 8, !noalias !295, !nonnull !4, !noundef !4
+  %.val.i.i.i9.i = load ptr, ptr %.sink27.i.sroa.phi, align 8, !noalias !295, !nonnull !4, !noundef !4
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i.i.i9.i, i64 noundef range(i64 1, 0) %.val1.i.i.i8.sink.i, i64 noundef 1) #21, !noalias !4
   br label %.body98
 
@@ -3104,17 +3104,17 @@ define internal fastcc void @"_ZN12pingora_core9protocols2l43ext11connect_uds28_
   %.sroa.917 = alloca [16 x i8], align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %16 = load i8, ptr %15, align 8, !range !26, !noundef !4
-  switch i8 %16, label %default.unreachable36 [
-    i8 0, label %.thread37
+  switch i8 %16, label %default.unreachable39 [
+    i8 0, label %.thread40
     i8 1, label %24
     i8 2, label %25
     i8 3, label %26
   ]
 
-default.unreachable36:                            ; preds = %26, %3
+default.unreachable39:                            ; preds = %26, %3
   unreachable
 
-.thread37:                                        ; preds = %3
+.thread40:                                        ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3152,7 +3152,7 @@ default.unreachable36:                            ; preds = %26, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.917)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 222
-  switch i8 %.pre, label %default.unreachable36 [
+  switch i8 %.pre, label %default.unreachable39 [
     i8 0, label %30
     i8 1, label %112
     i8 2, label %113
@@ -3163,9 +3163,9 @@ default.unreachable36:                            ; preds = %26, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !347
   br label %114
 
-30:                                               ; preds = %.thread37, %26
-  %31 = phi ptr [ %23, %.thread37 ], [ %28, %26 ]
-  %32 = phi ptr [ %22, %.thread37 ], [ %27, %26 ]
+30:                                               ; preds = %.thread40, %26
+  %31 = phi ptr [ %23, %.thread40 ], [ %28, %26 ]
+  %32 = phi ptr [ %22, %.thread40 ], [ %27, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 221
   store i8 0, ptr %34, align 1, !noalias !347
@@ -3455,13 +3455,13 @@ default.unreachable36:                            ; preds = %26, %3
   br i1 %.not.i, label %155, label %140
 
 .sink.split.i:                                    ; preds = %134, %124
-  %.sink89.i = phi ptr [ %.sroa.060.0.copyload.i, %124 ], [ %136, %134 ]
-  %139 = icmp ne ptr %.sink89.i, null
+  %.sink92.i = phi ptr [ %.sroa.060.0.copyload.i, %124 ], [ %136, %134 ]
+  %139 = icmp ne ptr %.sink92.i, null
   tail call void @llvm.assume(i1 %139)
   br label %140
 
 140:                                              ; preds = %.sink.split.i, %138
-  %.sroa.965.3.i = phi ptr [ %136, %138 ], [ %.sink89.i, %.sink.split.i ]
+  %.sroa.965.3.i = phi ptr [ %136, %138 ], [ %.sink92.i, %.sink.split.i ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$tokio..net..unix..stream..UnixStream$GT$17hf575b467ea0abab8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %116)
           to label %93 unwind label %142, !noalias !379
 
@@ -3647,7 +3647,7 @@ define internal fastcc void @"_ZN12pingora_core9protocols2l43ext12connect_with28
   %14 = alloca [136 x i8], align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %16 = load i8, ptr %15, align 1, !range !3, !noundef !4
-  switch i8 %16, label %default.unreachable60 [
+  switch i8 %16, label %default.unreachable62 [
     i8 0, label %20
     i8 1, label %47
     i8 2, label %48
@@ -3656,7 +3656,7 @@ define internal fastcc void @"_ZN12pingora_core9protocols2l43ext12connect_with28
     i8 5, label %19
   ]
 
-default.unreachable60:                            ; preds = %3
+default.unreachable62:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -4229,7 +4229,7 @@ define internal fastcc void @"_ZN12pingora_core9protocols2l43ext12connect_with28
   %14 = alloca [136 x i8], align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %16 = load i8, ptr %15, align 1, !range !3, !noundef !4
-  switch i8 %16, label %default.unreachable60 [
+  switch i8 %16, label %default.unreachable62 [
     i8 0, label %20
     i8 1, label %47
     i8 2, label %48
@@ -4238,7 +4238,7 @@ define internal fastcc void @"_ZN12pingora_core9protocols2l43ext12connect_with28
     i8 5, label %19
   ]
 
-default.unreachable60:                            ; preds = %3
+default.unreachable62:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -4819,14 +4819,14 @@ define internal fastcc void @"_ZN12pingora_core9protocols2l43ext18inner_connect_
   %21 = alloca [16 x i8], align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 133
   %23 = load i8, ptr %22, align 1, !range !26, !noundef !4
-  switch i8 %23, label %default.unreachable84 [
+  switch i8 %23, label %default.unreachable94 [
     i8 0, label %26
     i8 1, label %177
     i8 2, label %178
     i8 3, label %179
   ]
 
-default.unreachable84:                            ; preds = %3
+default.unreachable94:                            ; preds = %3
   unreachable
 
 24:                                               ; preds = %37, %36
@@ -5447,14 +5447,14 @@ define internal fastcc void @"_ZN12pingora_core9protocols2l43ext18inner_connect_
   %21 = alloca [16 x i8], align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 133
   %23 = load i8, ptr %22, align 1, !range !26, !noundef !4
-  switch i8 %23, label %default.unreachable84 [
+  switch i8 %23, label %default.unreachable94 [
     i8 0, label %26
     i8 1, label %177
     i8 2, label %178
     i8 3, label %179
   ]
 
-default.unreachable84:                            ; preds = %3
+default.unreachable94:                            ; preds = %3
   unreachable
 
 24:                                               ; preds = %37, %36
@@ -8729,14 +8729,14 @@ define internal fastcc void @"_ZN5tokio3net3tcp6socket9TcpSocket7connect28_$u7b$
   %8 = alloca [32 x i8], align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load i8, ptr %9, align 8, !range !26, !noundef !4
-  switch i8 %10, label %default.unreachable44 [
+  switch i8 %10, label %default.unreachable47 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %48
     i8 3, label %49
   ]
 
-default.unreachable44:                            ; preds = %49, %3
+default.unreachable47:                            ; preds = %49, %3
   unreachable
 
 11:                                               ; preds = %3
@@ -8839,7 +8839,7 @@ common.ret:                                       ; preds = %109, %32
   store i8 0, ptr %12, align 1
   %37 = load i32, ptr %13, align 4, !range !371, !noundef !4
   %38 = invoke noundef i32 @"_ZN80_$LT$mio..net..tcp..stream..TcpStream$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17hfbbbed2be4398f61E"(i32 noundef %37)
-          to label %.thread45 unwind label %43
+          to label %.thread48 unwind label %43
 
 39:                                               ; preds = %.body, %43, %35
   %.pn15.pn = phi { ptr, i32 } [ %44, %43 ], [ %.pn11, %35 ], [ %.pn13, %.body ]
@@ -8853,7 +8853,7 @@ common.ret:                                       ; preds = %109, %32
           cleanup
   br label %39
 
-.thread45:                                        ; preds = %36
+.thread48:                                        ; preds = %36
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %38, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 76
@@ -8877,16 +8877,16 @@ common.ret:                                       ; preds = %109, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.931)
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  switch i8 %.pre, label %default.unreachable44 [
+  switch i8 %.pre, label %default.unreachable47 [
     i8 0, label %52
     i8 1, label %70
     i8 2, label %71
     i8 3, label %72
   ]
 
-52:                                               ; preds = %.thread45, %49
-  %53 = phi ptr [ %46, %.thread45 ], [ %51, %49 ]
-  %54 = phi ptr [ %45, %.thread45 ], [ %50, %49 ]
+52:                                               ; preds = %.thread48, %49
+  %53 = phi ptr [ %46, %.thread48 ], [ %51, %49 ]
+  %54 = phi ptr [ %45, %.thread48 ], [ %50, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %56 = load i32, ptr %55, align 8, !range !371, !noalias !598, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !598
@@ -9007,13 +9007,13 @@ common.ret:                                       ; preds = %109, %32
   br i1 %.not.i, label %107, label %98
 
 .sink.split.i:                                    ; preds = %92, %82
-  %.sink36.i = phi ptr [ %.sroa.019.0.copyload.i, %82 ], [ %94, %92 ]
-  %97 = icmp ne ptr %.sink36.i, null
+  %.sink38.i = phi ptr [ %.sroa.019.0.copyload.i, %82 ], [ %94, %92 ]
+  %97 = icmp ne ptr %.sink38.i, null
   call void @llvm.assume(i1 %97)
   br label %98
 
 98:                                               ; preds = %.sink.split.i, %96
-  %.sroa.623.2.i = phi ptr [ %94, %96 ], [ %.sink36.i, %.sink.split.i ]
+  %.sroa.623.2.i = phi ptr [ %94, %96 ], [ %.sink38.i, %.sink.split.i ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..stream..TcpStream$GT$17h827ac67fbc472122E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %74)
           to label %.thread37 unwind label %100, !noalias !609
 
@@ -12016,9 +12016,9 @@ _ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i188.i.i: ; preds = %"
   br i1 %.not119.i.i, label %820, label %825
 
 825:                                              ; preds = %831, %824
-  %.sink330.i.i = phi ptr [ %821, %831 ], [ %819, %824 ]
+  %.sink350.i.i = phi ptr [ %821, %831 ], [ %819, %824 ]
   %826 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %.sink330.i.i, ptr %826, align 8, !noalias !649
+  store ptr %.sink350.i.i, ptr %826, align 8, !noalias !649
   store i64 3, ptr %39, align 8, !noalias !649
   %827 = load ptr, ptr %45, align 8, !noalias !649, !align !5, !noundef !4
   %828 = icmp ne ptr %827, null
@@ -15354,9 +15354,9 @@ _ZN13pingora_error5Error7because17hc3f4e7237fc169beE.exit.i188.i.i: ; preds = %"
   br i1 %.not119.i.i, label %820, label %825
 
 825:                                              ; preds = %831, %824
-  %.sink330.i.i = phi ptr [ %821, %831 ], [ %819, %824 ]
+  %.sink350.i.i = phi ptr [ %821, %831 ], [ %819, %824 ]
   %826 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %.sink330.i.i, ptr %826, align 8, !noalias !943
+  store ptr %.sink350.i.i, ptr %826, align 8, !noalias !943
   store i64 3, ptr %39, align 8, !noalias !943
   %827 = load ptr, ptr %45, align 8, !noalias !943, !align !5, !noundef !4
   %828 = icmp ne ptr %827, null

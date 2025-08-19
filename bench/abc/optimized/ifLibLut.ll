@@ -236,13 +236,13 @@ Vec_PtrFree.exit:                                 ; preds = %62
   br i1 %81, label %Vec_PtrFree.exit147, label %.thread
 
 Vec_PtrFree.exit147:                              ; preds = %._crit_edge171.thread, %._crit_edge171
-  %.0109.lcssa211 = phi i32 [ 0, %._crit_edge171.thread ], [ %79, %._crit_edge171 ]
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %.0110172, i32 noundef %.0109.lcssa211, i32 noundef %.0110172)
+  %.0109.lcssa219 = phi i32 [ 0, %._crit_edge171.thread ], [ %79, %._crit_edge171 ]
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.2, i32 noundef %.0110172, i32 noundef %.0109.lcssa219, i32 noundef %.0110172)
   br label %.sink.split.sink.split.sink.split
 
 82:                                               ; preds = %._crit_edge171
-  %.not223 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not223, label %.thread, label %83
+  %.not232 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not232, label %.thread, label %83
 
 83:                                               ; preds = %82
   store i32 1, ptr %49, align 4, !tbaa !21
@@ -698,8 +698,8 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %7
   br label %99
 
 54:                                               ; preds = %._crit_edge126
-  %.not187 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not187, label %.thread, label %55
+  %.not195 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not195, label %.thread, label %55
 
 55:                                               ; preds = %54
   store i32 1, ptr %17, align 4, !tbaa !21

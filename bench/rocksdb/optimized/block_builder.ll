@@ -265,9 +265,9 @@ _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %3, %13
   br i1 %30, label %36, label %41
 
 36:                                               ; preds = %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit
-  br i1 %cond.fr, label %.thread, label %.thread33
+  br i1 %cond.fr, label %.thread, label %.thread37
 
-.thread33:                                        ; preds = %36
+.thread37:                                        ; preds = %36
   %37 = add i64 %27, %35
   %38 = add i64 %37, 4
   br label %44
@@ -283,9 +283,9 @@ _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %3, %13
   %spec.select = select i1 %cond.fr, i64 %42, i64 %43
   br label %44
 
-44:                                               ; preds = %41, %.thread, %.thread33
-  %.not1531 = phi i1 [ false, %.thread33 ], [ true, %.thread ], [ %cond.fr, %41 ]
-  %45 = phi i64 [ %38, %.thread33 ], [ %40, %.thread ], [ %spec.select, %41 ]
+44:                                               ; preds = %41, %.thread, %.thread37
+  %.not1535 = phi i1 [ false, %.thread37 ], [ true, %.thread ], [ %cond.fr, %41 ]
+  %45 = phi i64 [ %38, %.thread37 ], [ %40, %.thread ], [ %spec.select, %41 ]
   %46 = add i64 %45, 4
   %47 = icmp ugt i64 %23, 127
   br i1 %47, label %.lr.ph.i, label %_ZN7rocksdb12VarintLengthEm.exit
@@ -305,7 +305,7 @@ _ZN7rocksdb12VarintLengthEm.exit.loopexit:        ; preds = %.lr.ph.i
 _ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %_ZN7rocksdb12VarintLengthEm.exit.loopexit, %44
   %.0.lcssa.i = phi i64 [ 1, %44 ], [ %51, %_ZN7rocksdb12VarintLengthEm.exit.loopexit ]
   %52 = add i64 %46, %.0.lcssa.i
-  %brmerge.not = and i1 %.not1531, %30
+  %brmerge.not = and i1 %.not1535, %30
   br i1 %brmerge.not, label %60, label %53
 
 53:                                               ; preds = %_ZN7rocksdb12VarintLengthEm.exit
@@ -1010,13 +1010,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !36
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !36
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

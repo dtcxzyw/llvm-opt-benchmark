@@ -953,14 +953,14 @@ define dso_local i32 @drm_property_replace_global_blob(ptr noundef %0, ptr nound
 
 23:                                               ; preds = %20
   %24 = icmp eq ptr %15, null
-  br i1 %24, label %25, label %.thread11
+  br i1 %24, label %25, label %.thread18
 
 25:                                               ; preds = %23
   %26 = tail call i32 @drm_object_property_set_value(ptr noundef nonnull %4, ptr noundef %5, i64 noundef 0) #9
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %34, label %.thread10
 
-.thread11:                                        ; preds = %23
+.thread18:                                        ; preds = %23
   %28 = load i32, ptr %15, align 8
   %29 = zext i32 %28 to i64
   %30 = tail call i32 @drm_object_property_set_value(ptr noundef nonnull %4, ptr noundef %5, i64 noundef %29) #9
@@ -972,8 +972,8 @@ define dso_local i32 @drm_property_replace_global_blob(ptr noundef %0, ptr nound
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.thread10
 
-34:                                               ; preds = %.thread11, %.thread9, %.thread, %25, %20
-  %35 = phi ptr [ null, %.thread ], [ %15, %25 ], [ %15, %20 ], [ null, %.thread9 ], [ %15, %.thread11 ]
+34:                                               ; preds = %.thread18, %.thread9, %.thread, %25, %20
+  %35 = phi ptr [ null, %.thread ], [ %15, %25 ], [ %15, %20 ], [ null, %.thread9 ], [ %15, %.thread18 ]
   %36 = icmp eq ptr %10, null
   br i1 %36, label %38, label %37
 
@@ -985,7 +985,7 @@ define dso_local i32 @drm_property_replace_global_blob(ptr noundef %0, ptr nound
   store ptr %35, ptr %1, align 8
   br label %.thread10
 
-39:                                               ; preds = %.thread11
+39:                                               ; preds = %.thread18
   tail call void @drm_mode_object_put(ptr noundef nonnull %15) #9
   br label %.thread10
 

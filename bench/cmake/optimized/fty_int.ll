@@ -25,7 +25,7 @@ define internal noalias noundef ptr @Make_Integer_Type(ptr noundef captures(none
   store ptr %8, ptr %6, align 8
   %9 = load i32, ptr %7, align 4, !tbaa !4
   store i32 %9, ptr %2, align 8, !tbaa !8
-  br label %.thread14
+  br label %.thread16
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -37,9 +37,9 @@ define internal noalias noundef ptr @Make_Integer_Type(ptr noundef captures(none
   %16 = load i32, ptr %14, align 4, !tbaa !4
   store i32 %16, ptr %2, align 8, !tbaa !8
   %17 = icmp ult i32 %4, 33
-  br i1 %17, label %23, label %.thread14
+  br i1 %17, label %23, label %.thread16
 
-.thread14:                                        ; preds = %10, %.thread
+.thread16:                                        ; preds = %10, %.thread
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 8
@@ -71,7 +71,7 @@ define internal noalias noundef ptr @Make_Integer_Type(ptr noundef captures(none
   store i32 %37, ptr %0, align 8
   br label %42
 
-38:                                               ; preds = %.thread14, %23
+38:                                               ; preds = %.thread16, %23
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 8

@@ -784,10 +784,10 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %50, %57
   br label %dissect_cbor_negative_integer.exit
 
 .sink.split.i57:                                  ; preds = %110, %97, %90, %83
-  %.sink61.i = phi i32 [ 8, %110 ], [ 4, %97 ], [ 2, %90 ], [ 1, %83 ]
+  %.sink62.i = phi i32 [ 8, %110 ], [ 4, %97 ], [ 2, %90 ], [ 1, %83 ]
   %.1.ph.i = phi i64 [ %106, %110 ], [ %100, %97 ], [ %93, %90 ], [ %86, %83 ]
   %118 = load i32, ptr %3, align 4
-  %119 = add i32 %118, %.sink61.i
+  %119 = add i32 %118, %.sink62.i
   store i32 %119, ptr %3, align 4
   br label %120
 
@@ -835,7 +835,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %50, %57
   br label %145
 
 145:                                              ; preds = %142, %138
-  %.pr143 = phi i64 [ 0, %142 ], [ %141, %138 ]
+  %.pr152 = phi i64 [ 0, %142 ], [ %141, %138 ]
   %146 = load i32, ptr %3, align 4
   %147 = add i32 %146, 1
   store i32 %147, ptr %3, align 4
@@ -865,19 +865,19 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %50, %57
   br label %dissect_cbor_array.exit
 
 .sink.split:                                      ; preds = %145, %148, %149, %150
-  %.sink119 = phi i32 [ 8, %150 ], [ 4, %149 ], [ 2, %148 ], [ 1, %145 ]
+  %.sink128 = phi i32 [ 8, %150 ], [ 4, %149 ], [ 2, %148 ], [ 1, %145 ]
   %155 = load i32, ptr @hf_cbor_item_items, align 4
-  %156 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %131, i32 noundef %155, ptr noundef %0, i32 noundef %147, i32 noundef %.sink119, i32 noundef 0, ptr noundef nonnull %9)
+  %156 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %131, i32 noundef %155, ptr noundef %0, i32 noundef %147, i32 noundef %.sink128, i32 noundef 0, ptr noundef nonnull %9)
   %157 = load i32, ptr %3, align 4
-  %158 = add i32 %157, %.sink119
+  %158 = add i32 %157, %.sink128
   store i32 %158, ptr %3, align 4
   %.pr.pre = load i64, ptr %9, align 8
   br label %159
 
 159:                                              ; preds = %.sink.split, %151
-  %.pr = phi i64 [ %.pr.pre, %.sink.split ], [ %.pr143, %151 ]
+  %.pr = phi i64 [ %.pr.pre, %.sink.split ], [ %.pr152, %151 ]
   %.not84 = icmp eq i64 %.pr, 0
-  br i1 %.not84, label %.thread97, label %.lr.ph82.split
+  br i1 %.not84, label %.thread106, label %.lr.ph82.split
 
 .lr.ph82.split.us.preheader:                      ; preds = %145
   store i64 2147483647, ptr %9, align 8
@@ -892,8 +892,8 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %50, %57
 
 162:                                              ; preds = %164
   %163 = add nuw nsw i64 %.060.i80.us, 1
-  %exitcond139.not = icmp eq i64 %163, 2147483647
-  br i1 %exitcond139.not, label %._crit_edge83, label %.lr.ph82.split.us, !llvm.loop !10
+  %exitcond148.not = icmp eq i64 %163, 2147483647
+  br i1 %exitcond148.not, label %._crit_edge83, label %.lr.ph82.split.us, !llvm.loop !10
 
 164:                                              ; preds = %.lr.ph82.split.us
   %165 = tail call fastcc zeroext i1 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %131, ptr noundef %3)
@@ -936,16 +936,16 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %50, %57
 
 184:                                              ; preds = %166
   %185 = icmp eq i64 %168, 1
-  %spec.select120 = select i1 %185, ptr @.str.145, ptr @.str.146
-  br label %.thread97
+  %spec.select129 = select i1 %185, ptr @.str.145, ptr @.str.146
+  br label %.thread106
 
-.thread97:                                        ; preds = %184, %159
-  %.ph99 = phi i64 [ 0, %159 ], [ %168, %184 ]
-  %186 = phi ptr [ @.str.146, %159 ], [ %spec.select120, %184 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %129, ptr noundef nonnull @.str.152, i64 noundef %.ph99, ptr noundef nonnull %186)
+.thread106:                                       ; preds = %184, %159
+  %.ph108 = phi i64 [ 0, %159 ], [ %168, %184 ]
+  %186 = phi ptr [ @.str.146, %159 ], [ %spec.select129, %184 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %129, ptr noundef nonnull @.str.152, i64 noundef %.ph108, ptr noundef nonnull %186)
   br label %187
 
-187:                                              ; preds = %.thread97, %._crit_edge83
+187:                                              ; preds = %.thread106, %._crit_edge83
   %188 = load i32, ptr %3, align 4
   call void @proto_item_set_end(ptr noundef %129, ptr noundef %0, i32 noundef %188)
   br label %dissect_cbor_array.exit
@@ -984,12 +984,12 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
   br label %208
 
 208:                                              ; preds = %205, %201
-  %.pr101141 = phi i64 [ 0, %205 ], [ %204, %201 ]
+  %.pr110150 = phi i64 [ 0, %205 ], [ %204, %201 ]
   %209 = load i32, ptr %3, align 4
   %210 = add i32 %209, 1
   store i32 %210, ptr %3, align 4
   switch i8 %13, label %214 [
-    i8 24, label %.sink.split121
+    i8 24, label %.sink.split130
     i8 25, label %211
     i8 26, label %212
     i8 27, label %213
@@ -997,13 +997,13 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
   ]
 
 211:                                              ; preds = %208
-  br label %.sink.split121
+  br label %.sink.split130
 
 212:                                              ; preds = %208
-  br label %.sink.split121
+  br label %.sink.split130
 
 213:                                              ; preds = %208
-  br label %.sink.split121
+  br label %.sink.split130
 
 214:                                              ; preds = %208
   %215 = icmp samesign ugt i8 %13, 23
@@ -1013,20 +1013,20 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
   %217 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %194, ptr noundef nonnull @ei_cbor_invalid_minor_type, ptr noundef nonnull @.str.153, i32 noundef %198)
   br label %dissect_cbor_map.exit
 
-.sink.split121:                                   ; preds = %208, %211, %212, %213
-  %.sink124 = phi i32 [ 8, %213 ], [ 4, %212 ], [ 2, %211 ], [ 1, %208 ]
+.sink.split130:                                   ; preds = %208, %211, %212, %213
+  %.sink133 = phi i32 [ 8, %213 ], [ 4, %212 ], [ 2, %211 ], [ 1, %208 ]
   %218 = load i32, ptr @hf_cbor_item_pairs, align 4
-  %219 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %194, i32 noundef %218, ptr noundef %0, i32 noundef %210, i32 noundef %.sink124, i32 noundef 0, ptr noundef nonnull %8)
+  %219 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %194, i32 noundef %218, ptr noundef %0, i32 noundef %210, i32 noundef %.sink133, i32 noundef 0, ptr noundef nonnull %8)
   %220 = load i32, ptr %3, align 4
-  %221 = add i32 %220, %.sink124
+  %221 = add i32 %220, %.sink133
   store i32 %221, ptr %3, align 4
-  %.pr101.pre = load i64, ptr %8, align 8
+  %.pr110.pre = load i64, ptr %8, align 8
   br label %222
 
-222:                                              ; preds = %.sink.split121, %214
-  %.pr101 = phi i64 [ %.pr101.pre, %.sink.split121 ], [ %.pr101141, %214 ]
-  %.not = icmp eq i64 %.pr101, 0
-  br i1 %.not, label %.thread111, label %.lr.ph.split
+222:                                              ; preds = %.sink.split130, %214
+  %.pr110 = phi i64 [ %.pr110.pre, %.sink.split130 ], [ %.pr110150, %214 ]
+  %.not = icmp eq i64 %.pr110, 0
+  br i1 %.not, label %.thread120, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %208
   store i64 2147483647, ptr %8, align 8
@@ -1093,16 +1093,16 @@ dissect_cbor_array.exit:                          ; preds = %164, %.lr.ph82.spli
 
 251:                                              ; preds = %231
   %252 = icmp eq i64 %233, 1
-  %spec.select126 = select i1 %252, ptr @.str.145, ptr @.str.146
-  br label %.thread111
+  %spec.select135 = select i1 %252, ptr @.str.145, ptr @.str.146
+  br label %.thread120
 
-.thread111:                                       ; preds = %251, %222
-  %.ph109113 = phi i64 [ 0, %222 ], [ %233, %251 ]
-  %253 = phi ptr [ @.str.146, %222 ], [ %spec.select126, %251 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %192, ptr noundef nonnull @.str.154, i64 noundef %.ph109113, ptr noundef nonnull %253)
+.thread120:                                       ; preds = %251, %222
+  %.ph118122 = phi i64 [ 0, %222 ], [ %233, %251 ]
+  %253 = phi ptr [ @.str.146, %222 ], [ %spec.select135, %251 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %192, ptr noundef nonnull @.str.154, i64 noundef %.ph118122, ptr noundef nonnull %253)
   br label %254
 
-254:                                              ; preds = %.thread111, %._crit_edge
+254:                                              ; preds = %.thread120, %._crit_edge
   %255 = load i32, ptr %3, align 4
   call void @proto_item_set_end(ptr noundef %192, ptr noundef %0, i32 noundef %255)
   br label %dissect_cbor_map.exit
@@ -1145,9 +1145,9 @@ dissect_cbor_map.exit:                            ; preds = %229, %227, %249, %.
   %277 = load i32, ptr %3, align 4
   %278 = add i32 %277, 1
   store i32 %278, ptr %3, align 4
-  %switch.tableidx151 = add nsw i8 %13, -24
-  %279 = icmp ult i8 %switch.tableidx151, 4
-  br i1 %279, label %switch.lookup150, label %280
+  %switch.tableidx167 = add nsw i8 %13, -24
+  %279 = icmp ult i8 %switch.tableidx167, 4
+  br i1 %279, label %switch.lookup166, label %280
 
 280:                                              ; preds = %276
   %281 = icmp samesign ugt i8 %13, 23
@@ -1157,18 +1157,18 @@ dissect_cbor_map.exit:                            ; preds = %229, %227, %249, %.
   %283 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %261, ptr noundef nonnull @ei_cbor_invalid_minor_type, ptr noundef nonnull @.str.155, i32 noundef %265)
   br label %dissect_cbor_tag.exit
 
-switch.lookup150:                                 ; preds = %276
-  %284 = zext nneg i8 %switch.tableidx151 to i64
-  %switch.gep152 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_cbor_main_type.1, i64 0, i64 %284
-  %switch.load153 = load i32, ptr %switch.gep152, align 4
+switch.lookup166:                                 ; preds = %276
+  %284 = zext nneg i8 %switch.tableidx167 to i64
+  %switch.gep168 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_cbor_main_type.1, i64 0, i64 %284
+  %switch.load169 = load i32, ptr %switch.gep168, align 4
   %285 = load i32, ptr @hf_cbor_type_tag, align 4
-  %286 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %261, i32 noundef %285, ptr noundef %0, i32 noundef %278, i32 noundef %switch.load153, i32 noundef 0, ptr noundef nonnull %7)
+  %286 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %261, i32 noundef %285, ptr noundef %0, i32 noundef %278, i32 noundef %switch.load169, i32 noundef 0, ptr noundef nonnull %7)
   %287 = load i32, ptr %3, align 4
-  %288 = add i32 %287, %switch.load153
+  %288 = add i32 %287, %switch.load169
   store i32 %288, ptr %3, align 4
   br label %289
 
-289:                                              ; preds = %switch.lookup150, %280
+289:                                              ; preds = %switch.lookup166, %280
   %290 = call fastcc zeroext i1 @dissect_cbor_main_type(ptr noundef %0, ptr noundef %1, ptr noundef %261, ptr noundef %3)
   br i1 %290, label %291, label %dissect_cbor_tag.exit
 
@@ -1321,7 +1321,7 @@ decode_half.exit.i:                               ; preds = %351, %342, %335
 
 375:                                              ; preds = %317
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %299, ptr noundef nonnull @.str.161, i32 noundef 31)
-  %.pre.i131 = load i32, ptr %3, align 4
+  %.pre.i140 = load i32, ptr %3, align 4
   br label %380
 
 376:                                              ; preds = %317
@@ -1333,12 +1333,12 @@ decode_half.exit.i:                               ; preds = %351, %342, %335
   br label %dissect_cbor_float_simple_data.exit
 
 380:                                              ; preds = %376, %375, %368, %360, %decode_half.exit.i, %320
-  %381 = phi i32 [ %319, %376 ], [ %.pre.i131, %375 ], [ %374, %368 ], [ %367, %360 ], [ %359, %decode_half.exit.i ], [ %327, %320 ]
+  %381 = phi i32 [ %319, %376 ], [ %.pre.i140, %375 ], [ %374, %368 ], [ %367, %360 ], [ %359, %decode_half.exit.i ], [ %327, %320 ]
   call void @proto_item_set_end(ptr noundef %299, ptr noundef %0, i32 noundef %381)
   br label %dissect_cbor_float_simple_data.exit
 
 dissect_cbor_float_simple_data.exit:              ; preds = %378, %380
-  %.0.i132 = phi i1 [ false, %378 ], [ true, %380 ]
+  %.0.i141 = phi i1 [ false, %378 ], [ true, %380 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_cbor_negative_integer.exit
 
@@ -1346,7 +1346,7 @@ default.unreachable:                              ; preds = %20
   unreachable
 
 dissect_cbor_negative_integer.exit:               ; preds = %120, %116, %dissect_cbor_float_simple_data.exit, %dissect_cbor_tag.exit, %dissect_cbor_map.exit, %dissect_cbor_array.exit, %124, %122, %dissect_cbor_unsigned_integer.exit
-  %.0.in = phi i1 [ %.0.i, %dissect_cbor_unsigned_integer.exit ], [ %123, %122 ], [ %125, %124 ], [ %.0.i59, %dissect_cbor_array.exit ], [ %.0.i61, %dissect_cbor_map.exit ], [ %.0.i63, %dissect_cbor_tag.exit ], [ %.0.i132, %dissect_cbor_float_simple_data.exit ], [ false, %116 ], [ true, %120 ]
+  %.0.in = phi i1 [ %.0.i, %dissect_cbor_unsigned_integer.exit ], [ %123, %122 ], [ %125, %124 ], [ %.0.i59, %dissect_cbor_array.exit ], [ %.0.i61, %dissect_cbor_map.exit ], [ %.0.i63, %dissect_cbor_tag.exit ], [ %.0.i141, %dissect_cbor_float_simple_data.exit ], [ false, %116 ], [ true, %120 ]
   %382 = load i32, ptr @proto_cbor, align 4
   call void @p_set_proto_depth(ptr noundef %1, i32 noundef %382, i32 noundef %15)
   br label %383
@@ -1498,11 +1498,11 @@ define internal fastcc noundef zeroext i1 @dissect_cbor_byte_string(ptr noundef 
   br label %.loopexit
 
 .sink.split:                                      ; preds = %25, %28, %29, %30
-  %.sink110 = phi i32 [ 8, %30 ], [ 4, %29 ], [ 2, %28 ], [ 1, %25 ]
+  %.sink116 = phi i32 [ 8, %30 ], [ 4, %29 ], [ 2, %28 ], [ 1, %25 ]
   %77 = load i32, ptr @hf_cbor_item_length, align 4
-  %78 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %11, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %.sink110, i32 noundef 0, ptr noundef nonnull %6)
+  %78 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %11, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %.sink116, i32 noundef 0, ptr noundef nonnull %6)
   %79 = load i32, ptr %3, align 4
-  %80 = add i32 %79, %.sink110
+  %80 = add i32 %79, %.sink116
   store i32 %80, ptr %3, align 4
   br label %81
 
@@ -1691,11 +1691,11 @@ define internal fastcc noundef zeroext i1 @dissect_cbor_text_string(ptr noundef 
   br label %.loopexit
 
 .sink.split:                                      ; preds = %26, %29, %30, %31
-  %.sink101 = phi i32 [ 8, %31 ], [ 4, %30 ], [ 2, %29 ], [ 1, %26 ]
+  %.sink106 = phi i32 [ 8, %31 ], [ 4, %30 ], [ 2, %29 ], [ 1, %26 ]
   %78 = load i32, ptr @hf_cbor_item_length, align 4
-  %79 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %12, i32 noundef %78, ptr noundef %0, i32 noundef %28, i32 noundef %.sink101, i32 noundef 0, ptr noundef nonnull %7)
+  %79 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %12, i32 noundef %78, ptr noundef %0, i32 noundef %28, i32 noundef %.sink106, i32 noundef 0, ptr noundef nonnull %7)
   %80 = load i32, ptr %3, align 4
-  %81 = add i32 %80, %.sink101
+  %81 = add i32 %80, %.sink106
   store i32 %81, ptr %3, align 4
   br label %82
 

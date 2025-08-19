@@ -79,7 +79,7 @@ define dso_local void @pg_wcssize(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %19 = or i32 %.05676, -8
   %sub = sub i32 %.05676, %19
   %20 = or i32 %.05676, -8
-  %sub89 = sub i32 %.079, %20
+  %sub96 = sub i32 %.079, %20
   br label %.loopexit
 
 21:                                               ; preds = %17
@@ -125,7 +125,7 @@ define dso_local void @pg_wcssize(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %.258 = phi i32 [ 0, %21 ], [ %25, %24 ], [ %30, %29 ], [ %33, %32 ], [ %38, %37 ], [ %41, %40 ], [ %sub, %.preheader.preheader ]
   %.255 = phi i32 [ %spec.select, %21 ], [ %.05377, %24 ], [ %.05377, %29 ], [ %.05377, %32 ], [ %.05377, %37 ], [ %.05377, %40 ], [ %.05377, %.preheader.preheader ]
   %.152 = phi i32 [ %22, %21 ], [ %.05178, %24 ], [ %.05178, %29 ], [ %.05178, %32 ], [ %.05178, %37 ], [ %.05178, %40 ], [ %.05178, %.preheader.preheader ]
-  %.2 = phi i32 [ %23, %21 ], [ %26, %24 ], [ %31, %29 ], [ %34, %32 ], [ %39, %37 ], [ %42, %40 ], [ %sub89, %.preheader.preheader ]
+  %.2 = phi i32 [ %23, %21 ], [ %26, %24 ], [ %31, %29 ], [ %34, %32 ], [ %39, %37 ], [ %42, %40 ], [ %sub96, %.preheader.preheader ]
   %43 = sub i64 %.06074, %12
   %44 = getelementptr inbounds i8, ptr %.05975, i64 %12
   %45 = load i8, ptr %44, align 1

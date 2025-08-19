@@ -624,7 +624,7 @@ define void @_ZN2cv6detail8tracking12TrackerModel11modelUpdateEv(ptr noundef non
   %16 = trunc i64 %15 to i32
   %17 = add nsw i32 %6, -1
   %.not3 = icmp sgt i32 %17, %16
-  br i1 %.not3, label %.thread17, label %18
+  br i1 %.not3, label %.thread21, label %18
 
 18:                                               ; preds = %7
   %19 = sdiv i32 %6, 2
@@ -633,10 +633,10 @@ define void @_ZN2cv6detail8tracking12TrackerModel11modelUpdateEv(ptr noundef non
   %22 = tail call ptr @_ZNSt6vectorIS_ISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EESaIS9_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS9_SB_EESF_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr %11, ptr %21)
   %.pr.pre = load i32, ptr %5, align 8, !tbaa !6
   %.not4 = icmp eq i32 %.pr.pre, -1
-  br i1 %.not4, label %.thread, label %.thread17
+  br i1 %.not4, label %.thread, label %.thread21
 
-.thread17:                                        ; preds = %7, %18
-  %.pr20 = phi i32 [ %.pr.pre, %18 ], [ %6, %7 ]
+.thread21:                                        ; preds = %7, %18
+  %.pr24 = phi i32 [ %.pr.pre, %18 ], [ %6, %7 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load ptr, ptr %24, align 8, !tbaa !47
@@ -646,18 +646,18 @@ define void @_ZN2cv6detail8tracking12TrackerModel11modelUpdateEv(ptr noundef non
   %29 = sub i64 %27, %28
   %30 = lshr exact i64 %29, 4
   %31 = trunc i64 %30 to i32
-  %32 = add nsw i32 %.pr20, -1
+  %32 = add nsw i32 %.pr24, -1
   %.not5 = icmp sgt i32 %32, %31
   br i1 %.not5, label %.thread, label %33
 
-33:                                               ; preds = %.thread17
-  %34 = sdiv i32 %.pr20, 2
+33:                                               ; preds = %.thread21
+  %34 = sdiv i32 %.pr24, 2
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds %"struct.cv::Ptr.21", ptr %26, i64 %35
   %37 = tail call ptr @_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS5_S7_EESB_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %26, ptr %36)
   br label %.thread
 
-.thread:                                          ; preds = %1, %33, %.thread17, %18
+.thread:                                          ; preds = %1, %33, %.thread21, %18
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt6vectorIS_ISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EESaIS9_EE9push_backERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)

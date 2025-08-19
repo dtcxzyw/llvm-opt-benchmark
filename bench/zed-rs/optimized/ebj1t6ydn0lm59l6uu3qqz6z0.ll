@@ -2868,14 +2868,14 @@ define internal noundef zeroext i1 @"_ZN4gpui3app13model_context21ModelContext$L
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1425
   %5 = load i8, ptr %4, align 1, !range !50, !noundef !4
-  switch i8 %5, label %default.unreachable22 [
+  switch i8 %5, label %default.unreachable23 [
     i8 0, label %6
     i8 1, label %16
     i8 2, label %17
     i8 3, label %18
   ]
 
-default.unreachable22:                            ; preds = %18, %2
+default.unreachable23:                            ; preds = %18, %2
   unreachable
 
 6:                                                ; preds = %2
@@ -2911,7 +2911,7 @@ default.unreachable22:                            ; preds = %18, %2
 18:                                               ; preds = %2, %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 705
   %20 = load i8, ptr %19, align 1, !range !50, !noalias !732, !noundef !4
-  switch i8 %20, label %default.unreachable22 [
+  switch i8 %20, label %default.unreachable23 [
     i8 0, label %21
     i8 1, label %33
     i8 2, label %34
@@ -4798,14 +4798,14 @@ define internal { i64, ptr } @"_ZN6client6Client18respond_to_request28_$u7b$$u7b
   %18 = alloca [8 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %20 = load i8, ptr %19, align 8, !range !50, !noundef !4
-  switch i8 %20, label %default.unreachable37 [
+  switch i8 %20, label %default.unreachable54 [
     i8 0, label %29
     i8 1, label %39
     i8 2, label %40
     i8 3, label %41
   ]
 
-default.unreachable37:                            ; preds = %41, %2
+default.unreachable54:                            ; preds = %41, %2
   unreachable
 
 21:                                               ; preds = %288, %.body, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hb6d1876f92e50831E.exit", %27
@@ -4858,7 +4858,7 @@ default.unreachable37:                            ; preds = %41, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %44 = load i8, ptr %43, align 8, !range !50, !noalias !983, !noundef !4
-  switch i8 %44, label %default.unreachable37 [
+  switch i8 %44, label %default.unreachable54 [
     i8 0, label %45
     i8 1, label %123
     i8 2, label %124
@@ -5659,14 +5659,14 @@ define internal { i64, ptr } @"_ZN6client6Client18respond_to_request28_$u7b$$u7b
   %25 = alloca [24 x i8], align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %27 = load i8, ptr %26, align 8, !range !50, !noundef !4
-  switch i8 %27, label %default.unreachable54 [
+  switch i8 %27, label %default.unreachable82 [
     i8 0, label %36
     i8 1, label %46
     i8 2, label %47
     i8 3, label %48
   ]
 
-default.unreachable54:                            ; preds = %48, %2
+default.unreachable82:                            ; preds = %48, %2
   unreachable
 
 28:                                               ; preds = %437, %.body, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17hb6d1876f92e50831E.exit", %34
@@ -5718,7 +5718,7 @@ default.unreachable54:                            ; preds = %48, %2
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %51 = load i8, ptr %50, align 8, !range !166, !noalias !1169, !noundef !4
-  switch i8 %51, label %default.unreachable54 [
+  switch i8 %51, label %default.unreachable82 [
     i8 0, label %52
     i8 1, label %143
     i8 2, label %144
@@ -6496,13 +6496,13 @@ _ZN3std3ffi6os_str5OsStr15to_string_lossy17h96d38b1cf20636d8E.exit.i: ; preds = 
   br label %.body
 
 "_ZN4core3ptr76drop_in_place$LT$gpui..app..entity_map..Model$LT$headless..DevServer$GT$$GT$17h30e330d8e26ab08aE.exit.sink.split.i": ; preds = %335, %401
-  %.sink134.in.i = phi ptr [ %398, %401 ], [ %332, %335 ]
+  %.sink160.in.i = phi ptr [ %398, %401 ], [ %332, %335 ]
   %.sroa.0111.2.ph.i = phi i64 [ %.sroa.0122.0.copyload.i, %401 ], [ -9223372036854775808, %335 ]
   %.sroa.5113.2.ph.i = phi ptr [ %.sroa.4123.0.copyload.i, %401 ], [ %.sroa.5113.0.i, %335 ]
   %.sroa.8116.0.ph.i = phi i64 [ %.sroa.5124.0.copyload.i, %401 ], [ undef, %335 ]
   fence acquire
-  %.sink134.i = load ptr, ptr %.sink134.in.i, align 8, !noalias !1169, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %.sink134.i, i64 noundef 80, i64 noundef 8) #22, !noalias !1173
+  %.sink160.i = load ptr, ptr %.sink160.in.i, align 8, !noalias !1169, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %.sink160.i, i64 noundef 80, i64 noundef 8) #22, !noalias !1173
   br label %411
 
 341:                                              ; preds = %194
@@ -9708,8 +9708,8 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
   br label %9
 
 9:                                                ; preds = %39, %.lr.ph.i
-  %.sroa.0.051.i = phi ptr [ %1, %.lr.ph.i ], [ %.sroa.0.160.i, %39 ]
-  %.sroa.4.050.i = phi i64 [ %2, %.lr.ph.i ], [ %.sroa.4.159.i, %39 ]
+  %.sroa.0.051.i = phi ptr [ %1, %.lr.ph.i ], [ %.sroa.0.161.i, %39 ]
+  %.sroa.4.050.i = phi i64 [ %2, %.lr.ph.i ], [ %.sroa.4.160.i, %39 ]
   %10 = call { i64, ptr } @"_ZN69_$LT$std..sys..pal..unix..stdio..Stderr$u20$as$u20$std..io..Write$GT$5write17h76708309fa42c308E"(ptr noalias noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.051.i, i64 noundef %.sroa.4.050.i)
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
@@ -9740,13 +9740,13 @@ default.unreachable:                              ; preds = %16
 
 19:                                               ; preds = %14
   %20 = icmp ult i64 %.sroa.4.050.i, %13
-  br i1 %20, label %.noexc.i, label %.thread55.i
+  br i1 %20, label %.noexc.i, label %.thread56.i
 
 .noexc.i:                                         ; preds = %19
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef range(i64 1, 0) %13, i64 noundef range(i64 1, 0) %.sroa.4.050.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfa7dd09cf20e37f9fb029ad940a5133.7) #27
   unreachable
 
-.thread55.i:                                      ; preds = %19
+.thread56.i:                                      ; preds = %19
   %21 = sub nuw i64 %.sroa.4.050.i, %13
   %22 = getelementptr inbounds i8, ptr %.sroa.0.051.i, i64 %13
   br label %39
@@ -9788,10 +9788,10 @@ default.unreachable:                              ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1998
   br label %39
 
-39:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h8800c6e852a70085E.exit.i", %.thread55.i
-  %.sroa.0.160.i = phi ptr [ %22, %.thread55.i ], [ %.sroa.0.051.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h8800c6e852a70085E.exit.i" ]
-  %.sroa.4.159.i = phi i64 [ %21, %.thread55.i ], [ %.sroa.4.050.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h8800c6e852a70085E.exit.i" ]
-  %40 = icmp eq i64 %.sroa.4.159.i, 0
+39:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h8800c6e852a70085E.exit.i", %.thread56.i
+  %.sroa.0.161.i = phi ptr [ %22, %.thread56.i ], [ %.sroa.0.051.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h8800c6e852a70085E.exit.i" ]
+  %.sroa.4.160.i = phi i64 [ %21, %.thread56.i ], [ %.sroa.4.050.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h8800c6e852a70085E.exit.i" ]
+  %40 = icmp eq i64 %.sroa.4.160.i, 0
   br i1 %40, label %_ZN3std2io5Write9write_all17hfb17fc8e9bf636b9E.exit.thread12, label %9
 
 _ZN3std2io5Write9write_all17hfb17fc8e9bf636b9E.exit: ; preds = %18, %25

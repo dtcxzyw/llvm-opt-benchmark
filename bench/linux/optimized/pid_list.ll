@@ -261,11 +261,11 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_clear(ptr noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %49, label %5
+  br i1 %4, label %47, label %5
 
 5:                                                ; preds = %3
   %6 = icmp ugt i32 %1, 1073741823
-  br i1 %6, label %49, label %7
+  br i1 %6, label %47, label %7
 
 7:                                                ; preds = %5
   %8 = and i32 %1, 16383
@@ -318,27 +318,23 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
 
 .thread:                                          ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %12) #8
-  br label %49
+  br label %47
 
 39:                                               ; preds = %29
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %12) #8
-  %40 = icmp samesign ugt i64 %17, 255
-  br i1 %40, label %49, label %41
+  %40 = trunc nuw nsw i64 %17 to i32
+  %41 = trunc nuw nsw i64 %24 to i32
+  %42 = shl nuw nsw i32 %40, 22
+  %43 = shl nuw nsw i32 %41, 14
+  %44 = and i32 %43, 4177920
+  %45 = or disjoint i32 %44, %42
+  %46 = or disjoint i32 %45, %31
+  store i32 %46, ptr %2, align 4
+  br label %47
 
-41:                                               ; preds = %39
-  %42 = trunc nuw nsw i64 %17 to i32
-  %43 = trunc nuw nsw i64 %24 to i32
-  %44 = shl nuw nsw i32 %42, 22
-  %45 = shl nuw nsw i32 %43, 14
-  %46 = and i32 %45, 4177920
-  %47 = or disjoint i32 %46, %44
-  %48 = or disjoint i32 %47, %31
-  store i32 %48, ptr %2, align 4
-  br label %49
-
-49:                                               ; preds = %.thread, %41, %39, %5, %3
-  %50 = phi i32 [ 0, %41 ], [ -19, %3 ], [ -22, %5 ], [ -1, %39 ], [ -1, %.thread ]
-  ret i32 %50
+47:                                               ; preds = %.thread, %39, %5, %3
+  %48 = phi i32 [ 0, %39 ], [ -19, %3 ], [ -22, %5 ], [ -1, %.thread ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -95,18 +95,18 @@ define hidden void @_ZN3std3sys3pal4unix2os10join_paths17h6e3303521725643eE(ptr 
   store ptr %20, ptr %10, align 8, !alias.scope !32, !noalias !9
   %.sroa.0.0.copyload1.i = load i64, ptr %19, align 8, !noalias !33
   %21 = icmp eq i64 %.sroa.0.0.copyload1.i, -9223372036854775808
-  br i1 %21, label %._crit_edge.loopexit.split.loop.exit67, label %34
+  br i1 %21, label %._crit_edge.loopexit.split.loop.exit72, label %34
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6435588442613421834.exit.i.i1.i.i.i.i", %31
   invoke void @"_ZN4core3ptr128drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$$GT$17hf359bee3ed9d2cacE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #17
           to label %.body unwind label %83
 
-._crit_edge.loopexit.split.loop.exit67:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99a24ceb78f957ccE.exit.i"
+._crit_edge.loopexit.split.loop.exit72:           ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99a24ceb78f957ccE.exit.i"
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit19", %._crit_edge.loopexit.split.loop.exit67, %2
-  %23 = phi ptr [ %12, %2 ], [ %22, %._crit_edge.loopexit.split.loop.exit67 ], [ %81, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit19" ]
+._crit_edge:                                      ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit19", %._crit_edge.loopexit.split.loop.exit72, %2
+  %23 = phi ptr [ %12, %2 ], [ %22, %._crit_edge.loopexit.split.loop.exit72 ], [ %81, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h61905ea5d45e55f4E.exit19" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !34
   store ptr %5, ptr %4, align 8, !noalias !34
   %24 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h51d02b0e54b7a2d0E.llvm.6435588442613421834(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %5)

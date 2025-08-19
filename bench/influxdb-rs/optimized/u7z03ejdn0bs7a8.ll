@@ -7414,14 +7414,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %4 = alloca { ptr, ptr }, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %6 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17h5c8d66ef8ebe733aE(ptr noundef nonnull align 8 %5), !range !86
-  switch i8 %6, label %default.unreachable12 [
+  switch i8 %6, label %default.unreachable13 [
     i8 0, label %7
     i8 1, label %43
     i8 2, label %52
     i8 3, label %52
   ]
 
-default.unreachable12:                            ; preds = %45, %1
+default.unreachable13:                            ; preds = %45, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -7531,7 +7531,7 @@ default.unreachable12:                            ; preds = %45, %1
 
 45:                                               ; preds = %11
   %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h7f20e5e8fca98c12E(ptr noundef nonnull align 8 %5), !range !86
-  switch i8 %46, label %default.unreachable12 [
+  switch i8 %46, label %default.unreachable13 [
     i8 3, label %48
     i8 0, label %51
     i8 1, label %49
@@ -7569,14 +7569,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %4 = alloca { ptr, ptr }, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %6 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17h5c8d66ef8ebe733aE(ptr noundef nonnull align 8 %5), !range !86
-  switch i8 %6, label %default.unreachable12 [
+  switch i8 %6, label %default.unreachable13 [
     i8 0, label %7
     i8 1, label %43
     i8 2, label %52
     i8 3, label %52
   ]
 
-default.unreachable12:                            ; preds = %45, %1
+default.unreachable13:                            ; preds = %45, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -7686,7 +7686,7 @@ default.unreachable12:                            ; preds = %45, %1
 
 45:                                               ; preds = %11
   %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h7f20e5e8fca98c12E(ptr noundef nonnull align 8 %5), !range !86
-  switch i8 %46, label %default.unreachable12 [
+  switch i8 %46, label %default.unreachable13 [
     i8 3, label %48
     i8 0, label %51
     i8 1, label %49
@@ -7726,14 +7726,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %5 = alloca { ptr, ptr }, align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %7 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17h5c8d66ef8ebe733aE(ptr noundef nonnull align 8 %6), !range !86
-  switch i8 %7, label %default.unreachable12 [
+  switch i8 %7, label %default.unreachable13 [
     i8 0, label %8
     i8 1, label %48
     i8 2, label %57
     i8 3, label %57
   ]
 
-default.unreachable12:                            ; preds = %50, %1
+default.unreachable13:                            ; preds = %50, %1
   unreachable
 
 8:                                                ; preds = %1
@@ -7858,7 +7858,7 @@ common.resume.i:                                  ; preds = %44, %"_ZN63_$LT$all
 50:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   %51 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h7f20e5e8fca98c12E(ptr noundef nonnull align 8 %6), !range !86
-  switch i8 %51, label %default.unreachable12 [
+  switch i8 %51, label %default.unreachable13 [
     i8 3, label %53
     i8 0, label %56
     i8 1, label %54
@@ -7900,14 +7900,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %4 = alloca { ptr, ptr }, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %6 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State21transition_to_running17h5c8d66ef8ebe733aE(ptr noundef nonnull align 8 %5), !range !86
-  switch i8 %6, label %default.unreachable12 [
+  switch i8 %6, label %default.unreachable13 [
     i8 0, label %7
     i8 1, label %43
     i8 2, label %52
     i8 3, label %52
   ]
 
-default.unreachable12:                            ; preds = %45, %1
+default.unreachable13:                            ; preds = %45, %1
   unreachable
 
 7:                                                ; preds = %1
@@ -8043,7 +8043,7 @@ _ZN3std9panicking3try17hca43ffe1d54cff86E.exit.i: ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %46 = call noundef i8 @_ZN5tokio7runtime4task5state5State18transition_to_idle17h7f20e5e8fca98c12E(ptr noundef nonnull align 8 %5), !range !86
-  switch i8 %46, label %default.unreachable12 [
+  switch i8 %46, label %default.unreachable13 [
     i8 3, label %48
     i8 0, label %51
     i8 1, label %49
@@ -11291,7 +11291,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..file..statistics..Statistics$u2
   %.sroa.0116 = alloca { i64, [4 x i64] }, align 8
   %.sroa.0104 = alloca { i64, [4 x i64] }, align 8
   %9 = load i64, ptr %1, align 8, !range !1915, !noundef !5
-  switch i64 %9, label %default.unreachable128 [
+  switch i64 %9, label %default.unreachable133 [
     i64 0, label %10
     i64 1, label %30
     i64 2, label %54
@@ -11302,7 +11302,7 @@ define internal fastcc void @"_ZN76_$LT$parquet..file..statistics..Statistics$u2
     i64 7, label %212
   ]
 
-default.unreachable128:                           ; preds = %2
+default.unreachable133:                           ; preds = %2
   unreachable
 
 10:                                               ; preds = %2

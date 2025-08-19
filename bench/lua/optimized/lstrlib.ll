@@ -1952,7 +1952,7 @@ define internal noundef i32 @str_pack(ptr noundef %0) #0 {
 
 ._crit_edge:                                      ; preds = %36, %28
   %41 = add nsw i32 %.0135, 1
-  switch i32 %20, label %default.unreachable147 [
+  switch i32 %20, label %default.unreachable156 [
     i32 0, label %42
     i32 1, label %87
     i32 2, label %117
@@ -2399,7 +2399,7 @@ packint.exit129:                                  ; preds = %.lr.ph.split.i108, 
   store i8 0, ptr %242, align 1, !tbaa !9
   br label %243
 
-default.unreachable147:                           ; preds = %._crit_edge
+default.unreachable156:                           ; preds = %._crit_edge
   unreachable
 
 243:                                              ; preds = %._crit_edge, %._crit_edge, %238, %224, %packint.exit129, %174, %copywithendian.exit105, %copywithendian.exit99, %copywithendian.exit, %packint.exit92, %packint.exit
@@ -2564,7 +2564,7 @@ posrelatI.exit:                                   ; preds = %1, %15, %19
   %43 = add i64 %.090, %35
   call void @luaL_checkstack(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.73) #12
   %44 = add nsw i32 %.05889, 1
-  switch i32 %33, label %default.unreachable100 [
+  switch i32 %33, label %default.unreachable102 [
     i32 0, label %45
     i32 1, label %45
     i32 2, label %52
@@ -2608,8 +2608,8 @@ posrelatI.exit:                                   ; preds = %1, %15, %19
   br i1 %.not.i, label %copywithendian.exit, label %.preheader
 
 copywithendian.exit:                              ; preds = %.preheader, %52
-  %.in111 = phi ptr [ %53, %52 ], [ %7, %.preheader ]
-  %59 = load float, ptr %.in111, align 1
+  %.in113 = phi ptr [ %53, %52 ], [ %7, %.preheader ]
+  %59 = load float, ptr %.in113, align 1
   %60 = fpext float %59 to double
   call void @lua_pushnumber(ptr noundef %0, double noundef %60) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2635,8 +2635,8 @@ copywithendian.exit:                              ; preds = %.preheader, %52
   br i1 %.not.i68, label %copywithendian.exit69, label %.preheader92
 
 copywithendian.exit69:                            ; preds = %.preheader92, %61
-  %.in110 = phi ptr [ %62, %61 ], [ %8, %.preheader92 ]
-  %68 = load double, ptr %.in110, align 1
+  %.in112 = phi ptr [ %62, %61 ], [ %8, %.preheader92 ]
+  %68 = load double, ptr %.in112, align 1
   call void @lua_pushnumber(ptr noundef %0, double noundef %68) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %139
@@ -2718,8 +2718,8 @@ copywithendian.exit75:                            ; preds = %.preheader93, %69
   br i1 %switch, label %unpackint.exit, label %.lr.ph46.split.us.preheader.i
 
 ._crit_edge.i.thread:                             ; preds = %.lr.ph.split.i
-  %switch102 = icmp samesign ult i32 %82, 9
-  br i1 %switch102, label %unpackint.exit, label %.lr.ph46.split.preheader.i
+  %switch104 = icmp samesign ult i32 %82, 9
+  br i1 %switch104, label %unpackint.exit, label %.lr.ph46.split.preheader.i
 
 .lr.ph46.split.preheader.i:                       ; preds = %._crit_edge.i.thread
   %102 = zext nneg i32 %83 to i64
@@ -2768,11 +2768,11 @@ copywithendian.exit75:                            ; preds = %.preheader93, %69
   br i1 %118, label %.lr.ph46.split.i, label %unpackint.exit
 
 unpackint.exit:                                   ; preds = %116, %111, %._crit_edge.i.thread, %._crit_edge.i
-  %.0.lcssa.i104 = phi i64 [ %100, %._crit_edge.i.thread ], [ %94, %._crit_edge.i ], [ %94, %111 ], [ %100, %116 ]
+  %.0.lcssa.i106 = phi i64 [ %100, %._crit_edge.i.thread ], [ %94, %._crit_edge.i ], [ %94, %111 ], [ %100, %116 ]
   %119 = load i64, ptr %4, align 8, !tbaa !4
   %120 = add i64 %43, %36
   %121 = sub i64 %119, %120
-  %.not62 = icmp ugt i64 %.0.lcssa.i104, %121
+  %.not62 = icmp ugt i64 %.0.lcssa.i106, %121
   br i1 %.not62, label %122, label %unpackint.exit.thread, !prof !54
 
 122:                                              ; preds = %unpackint.exit
@@ -2780,7 +2780,7 @@ unpackint.exit:                                   ; preds = %116, %111, %._crit_
   br label %unpackint.exit.thread
 
 unpackint.exit.thread:                            ; preds = %80, %122, %unpackint.exit
-  %.1.i79 = phi i64 [ %.0.lcssa.i104, %122 ], [ %.0.lcssa.i104, %unpackint.exit ], [ 0, %80 ]
+  %.1.i79 = phi i64 [ %.0.lcssa.i106, %122 ], [ %.0.lcssa.i106, %unpackint.exit ], [ 0, %80 ]
   %124 = getelementptr inbounds nuw i8, ptr %81, i64 %36
   %125 = call ptr @lua_pushlstring(ptr noundef %0, ptr noundef %124, i64 noundef %.1.i79) #12
   %126 = add i64 %.1.i79, %43
@@ -2804,7 +2804,7 @@ unpackint.exit.thread:                            ; preds = %80, %122, %unpackin
   %138 = add i64 %137, %129
   br label %139
 
-default.unreachable100:                           ; preds = %42
+default.unreachable102:                           ; preds = %42
   unreachable
 
 139:                                              ; preds = %42, %42, %42, %135, %unpackint.exit.thread, %77, %copywithendian.exit75, %copywithendian.exit69, %copywithendian.exit, %45
@@ -3770,8 +3770,8 @@ matchbracketclass.exit.i.loopexit:                ; preds = %300, %309, %311, %3
   br i1 %.022.in.i.i.ph, label %singlematch.exit.thread188, label %singlematch.exit.thread
 
 316:                                              ; preds = %280
-  %.not450 = icmp eq i8 %283, %281
-  br i1 %.not450, label %singlematch.exit.thread188, label %singlematch.exit.thread
+  %.not498 = icmp eq i8 %283, %281
+  br i1 %.not498, label %singlematch.exit.thread188, label %singlematch.exit.thread
 
 singlematch.exit:                                 ; preds = %289
   br i1 %292, label %singlematch.exit.thread188, label %singlematch.exit.thread
@@ -4040,8 +4040,8 @@ matchbracketclass.exit.i160.loopexit:             ; preds = %397, %406, %408, %4
   br i1 %.022.in.i.i161.ph, label %singlematch.exit169.thread195, label %start_capture.exit
 
 413:                                              ; preds = %378
-  %.not451 = icmp eq i8 %381, %379
-  br i1 %.not451, label %singlematch.exit169.thread195, label %start_capture.exit
+  %.not499 = icmp eq i8 %381, %379
+  br i1 %.not499, label %singlematch.exit169.thread195, label %start_capture.exit
 
 singlematch.exit169:                              ; preds = %387
   br i1 %389, label %singlematch.exit169.thread195, label %start_capture.exit
@@ -4937,7 +4937,7 @@ define internal fastcc i64 @unpackint(ptr noundef %0, ptr noundef readonly captu
   br i1 %25, label %._crit_edge.thread, label %33
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
-  %.0.lcssa60 = phi i64 [ %.0.lcssa, %._crit_edge ], [ 0, %5 ]
+  %.0.lcssa61 = phi i64 [ %.0.lcssa, %._crit_edge ], [ 0, %5 ]
   %.not40 = icmp eq i32 %4, 0
   br i1 %.not40, label %.loopexit, label %26
 
@@ -4946,7 +4946,7 @@ define internal fastcc i64 @unpackint(ptr noundef %0, ptr noundef readonly captu
   %28 = add nsw i32 %27, -1
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw i64 1, %29
-  %31 = xor i64 %.0.lcssa60, %30
+  %31 = xor i64 %.0.lcssa61, %30
   %32 = sub i64 %31, %30
   br label %.loopexit
 
@@ -5010,7 +5010,7 @@ define internal fastcc i64 @unpackint(ptr noundef %0, ptr noundef readonly captu
   br i1 %57, label %.lr.ph46.split, label %.loopexit
 
 .loopexit:                                        ; preds = %55, %48, %33, %._crit_edge.thread, %26
-  %.1 = phi i64 [ %32, %26 ], [ %.0.lcssa60, %._crit_edge.thread ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %48 ], [ %.0.lcssa, %55 ]
+  %.1 = phi i64 [ %32, %26 ], [ %.0.lcssa61, %._crit_edge.thread ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %48 ], [ %.0.lcssa, %55 ]
   ret i64 %.1
 }
 

@@ -402,14 +402,14 @@ define internal fastcc range(i32 -30, 1) i32 @archive_utility_string_sort_helper
 
 23:                                               ; preds = %17, %11
   %.05982.sink = phi i32 [ %.05982, %11 ], [ %.06579, %17 ]
-  %.sink114 = phi ptr [ %15, %11 ], [ %21, %17 ]
+  %.sink117 = phi ptr [ %15, %11 ], [ %21, %17 ]
   %.166 = phi i32 [ %.06579, %11 ], [ %18, %17 ]
   %.164 = phi ptr [ %15, %11 ], [ %.06380, %17 ]
   %.162 = phi ptr [ %.06181, %11 ], [ %21, %17 ]
   %.160 = phi i32 [ %12, %11 ], [ %.05982, %17 ]
   %24 = load ptr, ptr %7, align 8, !tbaa !24
   %25 = zext i32 %.05982.sink to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %.sink114, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %.sink117, i64 %25
   store ptr %24, ptr %26, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

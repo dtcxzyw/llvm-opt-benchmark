@@ -291,7 +291,7 @@ define range(i32 -98, 1) i32 @wc_DhCheckPubValue(ptr noundef readonly captures(n
   br i1 %29, label %.critedge2.thread, label %40
 
 .critedge2.thread:                                ; preds = %27, %.critedge2
-  %.1.lcssa68 = phi i32 [ %.1.lcssa, %.critedge2 ], [ %21, %27 ]
+  %.1.lcssa72 = phi i32 [ %.1.lcssa, %.critedge2 ], [ %21, %27 ]
   %30 = zext i32 %21 to i64
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !13
@@ -306,8 +306,8 @@ define range(i32 -98, 1) i32 @wc_DhCheckPubValue(ptr noundef readonly captures(n
   br i1 %or.cond, label %.critedge.thread, label %40
 
 40:                                               ; preds = %.critedge2.thread, %.critedge2
-  %.1.lcssa67 = phi i32 [ %.1.lcssa68, %.critedge2.thread ], [ %.1.lcssa, %.critedge2 ]
-  %41 = zext i32 %.1.lcssa67 to i64
+  %.1.lcssa71 = phi i32 [ %.1.lcssa72, %.critedge2.thread ], [ %.1.lcssa, %.critedge2 ]
+  %41 = zext i32 %.1.lcssa71 to i64
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 %41
@@ -552,8 +552,8 @@ define i32 @wc_DhGenerateKeyPair(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 35:                                               ; preds = %32
-  %.not59.i.i.i = icmp eq i32 %33, 160
-  br i1 %.not59.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
+  %.not68.i.i.i = icmp eq i32 %33, 160
+  br i1 %.not68.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
 
 CheckDhLN.exit.i.i.i:                             ; preds = %32
   %36 = add i32 %33, -224

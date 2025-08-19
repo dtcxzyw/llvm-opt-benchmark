@@ -651,17 +651,17 @@ H5I__mark_node.exit:                              ; preds = %115, %102, %.crited
   br label %.loopexit
 
 .lr.ph92:                                         ; preds = %._crit_edge, %209
-  %.sink112 = phi ptr [ %132, %209 ], [ %.pr, %._crit_edge ]
-  %131 = getelementptr inbounds nuw i8, ptr %.sink112, i64 72
+  %.sink120 = phi ptr [ %132, %209 ], [ %.pr, %._crit_edge ]
+  %131 = getelementptr inbounds nuw i8, ptr %.sink120, i64 72
   %132 = load ptr, ptr %131, align 8, !tbaa !36
-  %133 = getelementptr inbounds nuw i8, ptr %.sink112, i64 48
+  %133 = getelementptr inbounds nuw i8, ptr %.sink120, i64 48
   %134 = load i8, ptr %133, align 8, !tbaa !41, !range !7, !noundef !8
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %136, label %209
 
 136:                                              ; preds = %.lr.ph92
-  %137 = getelementptr inbounds nuw i8, ptr %.sink112, i64 56
-  %138 = getelementptr inbounds nuw i8, ptr %.sink112, i64 64
+  %137 = getelementptr inbounds nuw i8, ptr %.sink120, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %.sink120, i64 64
   %139 = load ptr, ptr %138, align 8, !tbaa !48
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %._crit_edge94
@@ -671,7 +671,7 @@ H5I__mark_node.exit:                              ; preds = %115, %102, %.crited
   br label %152
 
 141:                                              ; preds = %136
-  %142 = getelementptr inbounds nuw i8, ptr %.sink112, i64 72
+  %142 = getelementptr inbounds nuw i8, ptr %.sink120, i64 72
   %143 = load ptr, ptr %142, align 8, !tbaa !49
   %144 = icmp eq ptr %143, null
   %.pre95 = load ptr, ptr %35, align 8, !tbaa !15
@@ -706,7 +706,7 @@ H5I__mark_node.exit:                              ; preds = %115, %102, %.crited
   br label %163
 
 163:                                              ; preds = %159, %152
-  %164 = getelementptr inbounds nuw i8, ptr %.sink112, i64 72
+  %164 = getelementptr inbounds nuw i8, ptr %.sink120, i64 72
   %165 = load ptr, ptr %164, align 8, !tbaa !49
   br i1 %140, label %171, label %166
 
@@ -738,7 +738,7 @@ H5I__mark_node.exit:                              ; preds = %115, %102, %.crited
   br label %._crit_edge96
 
 ._crit_edge96:                                    ; preds = %172, %174
-  %179 = getelementptr inbounds nuw i8, ptr %.sink112, i64 108
+  %179 = getelementptr inbounds nuw i8, ptr %.sink120, i64 108
   %180 = load i32, ptr %179, align 4, !tbaa !56
   %181 = getelementptr inbounds nuw i8, ptr %.pre97, i64 8
   %182 = load i32, ptr %181, align 8, !tbaa !57
@@ -756,16 +756,16 @@ H5I__mark_node.exit:                              ; preds = %115, %102, %.crited
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %._crit_edge96
-  %194 = getelementptr inbounds nuw i8, ptr %.sink112, i64 88
+  %194 = getelementptr inbounds nuw i8, ptr %.sink120, i64 88
   %195 = load ptr, ptr %194, align 8, !tbaa !61
   store ptr %195, ptr %187, align 8, !tbaa !60
   br label %196
 
 196:                                              ; preds = %193, %._crit_edge96
-  %197 = getelementptr inbounds nuw i8, ptr %.sink112, i64 80
+  %197 = getelementptr inbounds nuw i8, ptr %.sink120, i64 80
   %198 = load ptr, ptr %197, align 8, !tbaa !62
   %.not63 = icmp eq ptr %198, null
-  %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %.sink112, i64 88
+  %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %.sink120, i64 88
   %.pre100 = load ptr, ptr %.phi.trans.insert99, align 8, !tbaa !61
   br i1 %.not63, label %._crit_edge98, label %199
 
@@ -791,7 +791,7 @@ H5I__mark_node.exit:                              ; preds = %115, %102, %.crited
   br label %207
 
 207:                                              ; preds = %203, %145
-  %208 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5I_id_info_t_reg_free_list, ptr noundef nonnull %.sink112) #8
+  %208 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5I_id_info_t_reg_free_list, ptr noundef nonnull %.sink120) #8
   br label %209
 
 209:                                              ; preds = %.lr.ph92, %207
@@ -982,13 +982,13 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
   %sh.diff = lshr exact i64 %41, 32
   %tr.sh.diff = trunc nuw nsw i64 %sh.diff to i32
   %56 = add nsw i32 %tr.sh.diff, -1640531527
-  %sh.diff439 = lshr i64 %43, 32
-  %tr.sh.diff440 = trunc nuw i64 %sh.diff439 to i32
-  %57 = and i32 %tr.sh.diff440, 16711680
+  %sh.diff457 = lshr i64 %43, 32
+  %tr.sh.diff458 = trunc nuw i64 %sh.diff457 to i32
+  %57 = and i32 %tr.sh.diff458, 16711680
   %58 = add nsw i32 %56, %57
-  %sh.diff441 = lshr i64 %43, 32
-  %tr.sh.diff442 = trunc nuw i64 %sh.diff441 to i32
-  %59 = and i32 %tr.sh.diff442, 65280
+  %sh.diff459 = lshr i64 %43, 32
+  %tr.sh.diff460 = trunc nuw i64 %sh.diff459 to i32
+  %59 = and i32 %tr.sh.diff460, 65280
   %60 = add nsw i32 %58, %59
   %61 = lshr i64 %43, 32
   %62 = trunc nuw i64 %61 to i32
@@ -1054,30 +1054,30 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
 
 117:                                              ; preds = %39
   %118 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  %calloc445 = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
+  %calloc463 = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
-  store ptr %calloc445, ptr %111, align 8, !tbaa !50
-  %.not385 = icmp eq ptr %calloc445, null
+  store ptr %calloc463, ptr %111, align 8, !tbaa !50
+  %.not385 = icmp eq ptr %calloc463, null
   br i1 %.not385, label %290, label %119
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw i8, ptr %calloc445, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %calloc463, i64 24
   store ptr %111, ptr %120, align 8, !tbaa !54
-  %121 = getelementptr inbounds nuw i8, ptr %calloc445, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %calloc463, i64 8
   store i32 32, ptr %121, align 8, !tbaa !57
-  %122 = getelementptr inbounds nuw i8, ptr %calloc445, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %calloc463, i64 12
   store i32 5, ptr %122, align 4, !tbaa !70
-  %123 = getelementptr inbounds nuw i8, ptr %calloc445, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %calloc463, i64 32
   store i64 56, ptr %123, align 8, !tbaa !55
-  %calloc444 = tail call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
-  store ptr %calloc444, ptr %calloc445, align 8, !tbaa !51
-  %124 = getelementptr inbounds nuw i8, ptr %calloc445, i64 56
+  %calloc462 = tail call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
+  store ptr %calloc462, ptr %calloc463, align 8, !tbaa !51
+  %124 = getelementptr inbounds nuw i8, ptr %calloc463, i64 56
   store i32 -1609490463, ptr %124, align 8, !tbaa !71
-  %.not386 = icmp eq ptr %calloc444, null
+  %.not386 = icmp eq ptr %calloc462, null
   br i1 %.not386, label %125, label %.critedge
 
 125:                                              ; preds = %119
-  tail call void @free(ptr noundef nonnull %calloc445) #8
+  tail call void @free(ptr noundef nonnull %calloc463) #8
   br label %290
 
 .critedge:                                        ; preds = %119
@@ -1109,9 +1109,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5I__register(i32 noundef %0, pt
 .critedge405:                                     ; preds = %.critedge, %126
   %138 = phi i64 [ 56, %.critedge ], [ %133, %126 ]
   %139 = phi ptr [ null, %.critedge ], [ %135, %126 ]
-  %140 = phi ptr [ %calloc444, %.critedge ], [ %.pre433, %126 ]
+  %140 = phi ptr [ %calloc462, %.critedge ], [ %.pre433, %126 ]
   %141 = phi i32 [ 32, %.critedge ], [ %.pre, %126 ]
-  %142 = phi ptr [ %calloc445, %.critedge ], [ %128, %126 ]
+  %142 = phi ptr [ %calloc463, %.critedge ], [ %128, %126 ]
   %143 = phi ptr [ %33, %.critedge ], [ %116, %126 ]
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %145 = load i32, ptr %144, align 8, !tbaa !63
@@ -1554,9 +1554,9 @@ define range(i32 -1, 1) i32 @H5I_register_using_existing_id(i32 noundef %0, ptr 
   %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %64 = and i32 %tr.sh.diff, 16711680
   %65 = add i32 %63, %64
-  %sh.diff440 = lshr i64 %3, 32
-  %tr.sh.diff441 = trunc nuw i64 %sh.diff440 to i32
-  %66 = and i32 %tr.sh.diff441, 65280
+  %sh.diff458 = lshr i64 %3, 32
+  %tr.sh.diff459 = trunc nuw i64 %sh.diff458 to i32
+  %66 = and i32 %tr.sh.diff459, 65280
   %67 = add i32 %65, %66
   %68 = lshr i64 %3, 32
   %69 = trunc nuw i64 %68 to i32
@@ -1623,30 +1623,30 @@ define range(i32 -1, 1) i32 @H5I_register_using_existing_id(i32 noundef %0, ptr 
 
 124:                                              ; preds = %54
   %125 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  %calloc444 = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
+  %calloc462 = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, i8 0, i64 16, i1 false)
-  store ptr %calloc444, ptr %118, align 8, !tbaa !50
-  %.not385 = icmp eq ptr %calloc444, null
+  store ptr %calloc462, ptr %118, align 8, !tbaa !50
+  %.not385 = icmp eq ptr %calloc462, null
   br i1 %.not385, label %297, label %126
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw i8, ptr %calloc444, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %calloc462, i64 24
   store ptr %118, ptr %127, align 8, !tbaa !54
-  %128 = getelementptr inbounds nuw i8, ptr %calloc444, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %calloc462, i64 8
   store i32 32, ptr %128, align 8, !tbaa !57
-  %129 = getelementptr inbounds nuw i8, ptr %calloc444, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %calloc462, i64 12
   store i32 5, ptr %129, align 4, !tbaa !70
-  %130 = getelementptr inbounds nuw i8, ptr %calloc444, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %calloc462, i64 32
   store i64 56, ptr %130, align 8, !tbaa !55
-  %calloc443 = tail call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
-  store ptr %calloc443, ptr %calloc444, align 8, !tbaa !51
-  %131 = getelementptr inbounds nuw i8, ptr %calloc444, i64 56
+  %calloc461 = tail call dereferenceable_or_null(512) ptr @calloc(i64 1, i64 512)
+  store ptr %calloc461, ptr %calloc462, align 8, !tbaa !51
+  %131 = getelementptr inbounds nuw i8, ptr %calloc462, i64 56
   store i32 -1609490463, ptr %131, align 8, !tbaa !71
-  %.not386 = icmp eq ptr %calloc443, null
+  %.not386 = icmp eq ptr %calloc461, null
   br i1 %.not386, label %132, label %.critedge
 
 132:                                              ; preds = %126
-  tail call void @free(ptr noundef nonnull %calloc444) #8
+  tail call void @free(ptr noundef nonnull %calloc462) #8
   br label %297
 
 .critedge:                                        ; preds = %126
@@ -1678,9 +1678,9 @@ define range(i32 -1, 1) i32 @H5I_register_using_existing_id(i32 noundef %0, ptr 
 .critedge405:                                     ; preds = %.critedge, %133
   %145 = phi i64 [ 56, %.critedge ], [ %140, %133 ]
   %146 = phi ptr [ null, %.critedge ], [ %142, %133 ]
-  %147 = phi ptr [ %calloc443, %.critedge ], [ %.pre434, %133 ]
+  %147 = phi ptr [ %calloc461, %.critedge ], [ %.pre434, %133 ]
   %148 = phi i32 [ 32, %.critedge ], [ %.pre, %133 ]
-  %149 = phi ptr [ %calloc444, %.critedge ], [ %135, %133 ]
+  %149 = phi ptr [ %calloc462, %.critedge ], [ %135, %133 ]
   %150 = phi ptr [ %48, %.critedge ], [ %123, %133 ]
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %152 = load i32, ptr %151, align 8, !tbaa !63
@@ -2045,9 +2045,9 @@ define ptr @H5I__find_id(i64 noundef %0) local_unnamed_addr #0 {
   %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %45 = and i32 %tr.sh.diff, 16711680
   %46 = add i32 %44, %45
-  %sh.diff276 = lshr i64 %0, 32
-  %tr.sh.diff277 = trunc nuw i64 %sh.diff276 to i32
-  %47 = and i32 %tr.sh.diff277, 65280
+  %sh.diff281 = lshr i64 %0, 32
+  %tr.sh.diff282 = trunc nuw i64 %sh.diff281 to i32
+  %47 = and i32 %tr.sh.diff282, 65280
   %48 = add i32 %46, %47
   %49 = and i32 %15, 255
   %50 = add i32 %48, %49
@@ -2587,13 +2587,13 @@ define internal fastcc ptr @H5I__remove_common(ptr noundef captures(none) %0, i6
   %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %21 = and i32 %tr.sh.diff, -16777216
   %22 = add i32 %21, -1640531527
-  %sh.diff279 = lshr i64 %1, 32
-  %tr.sh.diff280 = trunc nuw i64 %sh.diff279 to i32
-  %23 = and i32 %tr.sh.diff280, 16711680
+  %sh.diff287 = lshr i64 %1, 32
+  %tr.sh.diff288 = trunc nuw i64 %sh.diff287 to i32
+  %23 = and i32 %tr.sh.diff288, 16711680
   %24 = add i32 %22, %23
-  %sh.diff281 = lshr i64 %1, 32
-  %tr.sh.diff282 = trunc nuw i64 %sh.diff281 to i32
-  %25 = and i32 %tr.sh.diff282, 65280
+  %sh.diff289 = lshr i64 %1, 32
+  %tr.sh.diff290 = trunc nuw i64 %sh.diff289 to i32
+  %25 = and i32 %tr.sh.diff290, 65280
   %26 = add i32 %24, %25
   %27 = and i32 %11, 255
   %28 = add i32 %26, %27
@@ -3815,28 +3815,28 @@ H5I__unwrap.exit.i.us57.preheader:                ; preds = %.lr.ph.split
   %70 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !43
   %72 = icmp eq ptr %71, %0
-  br i1 %72, label %H5I__find_id_cb.exit, label %.lr.ph96
+  br i1 %72, label %H5I__find_id_cb.exit, label %.lr.ph97
 
-.lr.ph96:                                         ; preds = %H5I__unwrap.exit.i.us57.preheader, %H5I__unwrap.exit.i.us57
-  %.02545.us5595 = phi ptr [ %74, %H5I__unwrap.exit.i.us57 ], [ %31, %H5I__unwrap.exit.i.us57.preheader ]
-  %.not36.us58 = icmp eq ptr %.02545.us5595, null
+.lr.ph97:                                         ; preds = %H5I__unwrap.exit.i.us57.preheader, %H5I__unwrap.exit.i.us57
+  %.02545.us5596 = phi ptr [ %74, %H5I__unwrap.exit.i.us57 ], [ %31, %H5I__unwrap.exit.i.us57.preheader ]
+  %.not36.us58 = icmp eq ptr %.02545.us5596, null
   br i1 %.not36.us58, label %.loopexit, label %H5I__unwrap.exit.i.us57
 
-H5I__unwrap.exit.i.us57:                          ; preds = %.lr.ph96
-  %73 = getelementptr inbounds nuw i8, ptr %.02545.us5595, i64 72
+H5I__unwrap.exit.i.us57:                          ; preds = %.lr.ph97
+  %73 = getelementptr inbounds nuw i8, ptr %.02545.us5596, i64 72
   %74 = load ptr, ptr %73, align 8, !tbaa !36
-  %75 = getelementptr inbounds nuw i8, ptr %.02545.us5595, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.02545.us5596, i64 16
   %76 = load ptr, ptr %75, align 8, !tbaa !43
   %77 = icmp eq ptr %76, %0
-  br i1 %77, label %H5I__find_id_cb.exit, label %.lr.ph96, !llvm.loop !89
+  br i1 %77, label %H5I__find_id_cb.exit, label %.lr.ph97, !llvm.loop !89
 
 H5I__find_id_cb.exit:                             ; preds = %H5I__unwrap.exit.i.us49, %H5I__unwrap.exit.i.us, %H5I__unwrap.exit.i.us57, %H5I__unwrap.exit.i.us57.preheader
-  %.us-phi = phi ptr [ %29, %H5I__unwrap.exit.i.us57.preheader ], [ %.02545.us5595, %H5I__unwrap.exit.i.us57 ], [ %.02644.us, %H5I__unwrap.exit.i.us ], [ %.02644.us48, %H5I__unwrap.exit.i.us49 ]
+  %.us-phi = phi ptr [ %29, %H5I__unwrap.exit.i.us57.preheader ], [ %.02545.us5596, %H5I__unwrap.exit.i.us57 ], [ %.02644.us, %H5I__unwrap.exit.i.us ], [ %.02644.us48, %H5I__unwrap.exit.i.us49 ]
   %78 = load i64, ptr %.us-phi, align 8, !tbaa !65
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %43, %.lr.ph96, %27, %.lr.ph.split, %H5I__find_id_cb.exit
-  %.sroa.637.1 = phi i64 [ %78, %H5I__find_id_cb.exit ], [ -1, %.lr.ph.split ], [ -1, %27 ], [ -1, %.lr.ph96 ], [ -1, %43 ], [ -1, %59 ]
+.loopexit:                                        ; preds = %59, %43, %.lr.ph97, %27, %.lr.ph.split, %H5I__find_id_cb.exit
+  %.sroa.637.1 = phi i64 [ %78, %H5I__find_id_cb.exit ], [ -1, %.lr.ph.split ], [ -1, %27 ], [ -1, %.lr.ph97 ], [ -1, %43 ], [ -1, %59 ]
   store i64 %.sroa.637.1, ptr %2, align 8, !tbaa !25
   br label %79
 

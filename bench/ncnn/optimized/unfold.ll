@@ -455,8 +455,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %4, %_ZN4ncnn3Mat7re
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 236
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !33
   %76 = icmp sgt i32 %.pre, 0
-  %or.cond61 = select i1 %75, i1 true, i1 %76
-  br i1 %or.cond61, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %77
+  %or.cond70 = select i1 %75, i1 true, i1 %76
+  br i1 %or.cond70, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %77
 
 77:                                               ; preds = %_ZN4ncnn3MataSERKS0_.exit
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -654,9 +654,9 @@ define internal void @_ZNK4ncnn6Unfold7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_o
   %54 = sext i32 %22 to i64
   %55 = sext i32 %31 to i64
   %56 = add nsw i32 %21, 1
-  %factor.op.mul112 = mul i64 %factor.op.mul81, %55
+  %factor.op.mul119 = mul i64 %factor.op.mul81, %55
   %wide.trip.count104 = zext nneg i32 %39 to i64
-  %factor.op.mul111 = mul i64 %42, %53
+  %factor.op.mul118 = mul i64 %42, %53
   %wide.trip.count = zext nneg i32 %46 to i64
   br label %.noexc.us.us
 
@@ -668,8 +668,8 @@ define internal void @_ZNK4ncnn6Unfold7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_o
   %59 = icmp sgt i32 %58, 0
   %60 = load i32, ptr %8, align 4
   %61 = icmp sgt i32 %60, 0
-  %or.cond116 = select i1 %59, i1 %61, i1 false
-  br i1 %or.cond116, label %.preheader51.us.us.us.us.preheader, label %._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us
+  %or.cond123 = select i1 %59, i1 %61, i1 false
+  br i1 %or.cond123, label %.preheader51.us.us.us.us.preheader, label %._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us
 
 ._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us:  ; preds = %._crit_edge.split.us.us.us.us.us, %.noexc.us.us
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, 1
@@ -678,14 +678,14 @@ define internal void @_ZNK4ncnn6Unfold7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_o
   br i1 %exitcond109.not, label %._crit_edge, label %.noexc.us.us, !llvm.loop !65
 
 .preheader51.us.us.us.us.preheader:               ; preds = %.noexc.us.us
-  %.reass113 = mul i64 %indvars.iv106, %factor.op.mul112
-  %62 = getelementptr inbounds nuw i8, ptr %32, i64 %.reass113
+  %.reass120 = mul i64 %indvars.iv106, %factor.op.mul119
+  %62 = getelementptr inbounds nuw i8, ptr %32, i64 %.reass120
   br label %.preheader51.us.us.us.us
 
 .preheader51.us.us.us.us:                         ; preds = %.preheader51.us.us.us.us.preheader, %._crit_edge.split.us.us.us.us.us
   %indvars.iv101 = phi i64 [ 0, %.preheader51.us.us.us.us.preheader ], [ %indvars.iv.next102, %._crit_edge.split.us.us.us.us.us ]
   %.03970.us.us.us.us = phi ptr [ %62, %.preheader51.us.us.us.us.preheader ], [ %.us-phi.us.us.us.us, %._crit_edge.split.us.us.us.us.us ]
-  %.reass = mul i64 %indvars.iv101, %factor.op.mul111
+  %.reass = mul i64 %indvars.iv101, %factor.op.mul118
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 %.reass
   %64 = load i32, ptr %8, align 4
   %65 = icmp sgt i32 %64, 0

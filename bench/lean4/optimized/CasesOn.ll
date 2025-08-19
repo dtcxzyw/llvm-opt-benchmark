@@ -5400,18 +5400,18 @@ _init_l_Lean_setReducibilityStatus___at_Lean_mkCasesOn___spec__5___closed__4.exi
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_setReducibilityStatus___at_Lean_mkCasesOn___spec__5___closed__4.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %62, %_init_l_Lean_setReducibilityStatus___at_Lean_mkCasesOn___spec__5___closed__4.exit ]
-  %65 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !4
+  %.sink26 = phi ptr [ %4, %3 ], [ %62, %_init_l_Lean_setReducibilityStatus___at_Lean_mkCasesOn___spec__5___closed__4.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !4
   store i32 131096, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %66, align 8, !tbaa !10
-  %67 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %67, align 8, !tbaa !10
   br label %68
 
 68:                                               ; preds = %.sink.split, %lean_dec_ref.exit10, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit10 ], [ %.sink26, %.sink.split ]
   ret ptr %.0
 }
 

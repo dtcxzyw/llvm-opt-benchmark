@@ -406,12 +406,12 @@ define hidden void @_ZNK4cvc58internal9BitVector8toStringB5cxx11Ej(ptr dead_on_u
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %.lr.ph.preheader, %.lr.phthread-pre-split
-  %.071921 = phi i32 [ 0, %.lr.ph.preheader ], [ %19, %.lr.phthread-pre-split ]
+  %.071930 = phi i32 [ 0, %.lr.ph.preheader ], [ %19, %.lr.phthread-pre-split ]
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str, i64 noundef 1)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit unwind label %.loopexit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  %19 = add i32 %.071921, 1
+  %19 = add i32 %.071930, 1
   %20 = zext i32 %19 to i64
   %21 = load i32, ptr %1, align 8, !tbaa !11
   %22 = zext i32 %21 to i64

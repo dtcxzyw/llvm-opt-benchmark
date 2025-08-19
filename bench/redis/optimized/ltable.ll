@@ -653,9 +653,9 @@ define internal fastcc void @setnodevector(ptr noundef %0, ptr noundef captures(
 12:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef %0, ptr noundef nonnull @.str.4) #6
   %.not = icmp eq i32 %10, 31
-  br i1 %.not, label %.thread31, label %15
+  br i1 %.not, label %.thread33, label %15
 
-.thread31:                                        ; preds = %12
+.thread33:                                        ; preds = %12
   %13 = tail call ptr @luaM_toobig(ptr noundef %0) #6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %13, ptr %14, align 8, !tbaa !17
@@ -668,8 +668,8 @@ define internal fastcc void @setnodevector(ptr noundef %0, ptr noundef captures(
   %19 = tail call ptr @luaM_realloc_(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef %18) #6
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %19, ptr %20, align 8, !tbaa !17
-  %.not32 = icmp eq i32 %10, 31
-  br i1 %.not32, label %._crit_edge, label %.lr.ph.preheader
+  %.not34 = icmp eq i32 %10, 31
+  br i1 %.not34, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %15
   %wide.trip.count = zext nneg i32 %16 to i64
@@ -694,9 +694,9 @@ define internal fastcc void @setnodevector(ptr noundef %0, ptr noundef captures(
   %26 = sext i32 %16 to i64
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread31, %._crit_edge.loopexit, %15
-  %27 = phi i64 [ %26, %._crit_edge.loopexit ], [ -2147483648, %15 ], [ -2147483648, %.thread31 ]
-  %.pre = phi ptr [ %.pre.pre, %._crit_edge.loopexit ], [ %19, %15 ], [ %13, %.thread31 ]
+._crit_edge:                                      ; preds = %.thread33, %._crit_edge.loopexit, %15
+  %27 = phi i64 [ %26, %._crit_edge.loopexit ], [ -2147483648, %15 ], [ -2147483648, %.thread33 ]
+  %.pre = phi ptr [ %.pre.pre, %._crit_edge.loopexit ], [ %19, %15 ], [ %13, %.thread33 ]
   %28 = trunc i32 %10 to i8
   br label %29
 

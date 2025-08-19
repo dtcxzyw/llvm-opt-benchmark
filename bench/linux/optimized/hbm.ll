@@ -762,9 +762,9 @@ define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0,
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 681
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %31, label %.thread129
+  br i1 %28, label %31, label %.thread164
 
-.thread129:                                       ; preds = %24
+.thread164:                                       ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 3321
   store i8 2, ptr %29, align 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 3320
@@ -811,20 +811,20 @@ define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0,
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %50, ptr noundef nonnull @.str.16) #11
   br label %640
 
-51:                                               ; preds = %39, %.thread129, %31
-  %.pr48123 = phi i8 [ %35, %31 ], [ 2, %.thread129 ], [ %35, %39 ]
-  %.sink113121 = phi i8 [ %34, %31 ], [ 2, %.thread129 ], [ 2, %39 ]
+51:                                               ; preds = %39, %.thread164, %31
+  %.pr48158 = phi i8 [ %35, %31 ], [ 2, %.thread164 ], [ %35, %39 ]
+  %.sink113156 = phi i8 [ %34, %31 ], [ 2, %.thread164 ], [ 2, %39 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 3322
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, -2
-  %55 = icmp samesign ugt i8 %.sink113121, 1
+  %55 = icmp samesign ugt i8 %.sink113156, 1
   %56 = zext i1 %55 to i16
   %57 = or disjoint i16 %54, %56
-  %58 = icmp eq i8 %.sink113121, 1
-  br i1 %58, label %.thread132, label %62
+  %58 = icmp eq i8 %.sink113156, 1
+  br i1 %58, label %.thread167, label %62
 
-.thread132:                                       ; preds = %51
-  %59 = icmp eq i8 %.pr48123, 0
+.thread167:                                       ; preds = %51
+  %59 = icmp eq i8 %.pr48158, 0
   %60 = or i16 %53, 1
   %spec.select = select i1 %59, i16 %57, i16 %60
   %61 = and i16 %spec.select, -127
@@ -834,27 +834,27 @@ define dso_local noundef range(i32 -71, 1) i32 @mei_hbm_dispatch(ptr noundef %0,
   %63 = and i16 %57, -127
   %64 = select i1 %55, i16 126, i16 0
   %65 = or disjoint i16 %63, %64
-  %66 = icmp eq i8 %.sink113121, 2
+  %66 = icmp eq i8 %.sink113156, 2
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %62
-  %68 = icmp eq i8 %.pr48123, 0
+  %68 = icmp eq i8 %.pr48158, 0
   %69 = and i16 %65, -385
   br i1 %68, label %.thread40, label %70
 
 70:                                               ; preds = %67
   %71 = or disjoint i16 %69, 128
-  %.not = icmp eq i8 %.pr48123, 1
+  %.not = icmp eq i8 %.pr48158, 1
   br i1 %.not, label %.thread40, label %76
 
-72:                                               ; preds = %.thread132, %62
-  %73 = phi i16 [ %61, %.thread132 ], [ %65, %62 ]
+72:                                               ; preds = %.thread167, %62
+  %73 = phi i16 [ %61, %.thread167 ], [ %65, %62 ]
   %74 = and i16 %73, -1921
   br label %78
 
 .thread40:                                        ; preds = %67, %70
-  %.ph134 = phi i16 [ %71, %70 ], [ %69, %67 ]
-  %75 = and i16 %.ph134, -1537
+  %.ph169 = phi i16 [ %71, %70 ], [ %69, %67 ]
+  %75 = and i16 %.ph169, -1537
   br label %78
 
 76:                                               ; preds = %70

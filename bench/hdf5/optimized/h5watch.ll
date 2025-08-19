@@ -627,7 +627,7 @@ check_dataset.exit:                               ; preds = %168, %170
 176:                                              ; preds = %174
   %177 = call fastcc i32 @process_cmpd_fields(i64 noundef %100, ptr noundef %120)
   %178 = icmp slt i32 %177, 0
-  br i1 %178, label %.thread84.thread121.sink.split, label %179
+  br i1 %178, label %.thread84.thread144.sink.split, label %179
 
 179:                                              ; preds = %172, %174, %176
   %180 = call i32 @h5tools_getstatus() #20
@@ -637,42 +637,42 @@ check_dataset.exit:                               ; preds = %168, %170
 181:                                              ; preds = %179
   %182 = call fastcc i32 @monitor_dataset(i64 noundef %100, ptr noundef %120)
   %183 = icmp slt i32 %182, 0
-  br i1 %183, label %.thread84.thread121.sink.split, label %.thread84.thread121
+  br i1 %183, label %.thread84.thread144.sink.split, label %.thread84.thread144
 
 .thread84.thread:                                 ; preds = %118, %122, %98, %92
   %.03990.ph = phi i64 [ -1, %92 ], [ -1, %98 ], [ %100, %122 ], [ %100, %118 ]
   call void @free(ptr noundef nonnull %78) #20
   br label %185
 
-.thread84.thread121.sink.split:                   ; preds = %181, %176
+.thread84.thread144.sink.split:                   ; preds = %181, %176
   call void @h5tools_setstatus(i32 noundef 1) #20
-  br label %.thread84.thread121
+  br label %.thread84.thread144
 
-.thread84.thread121:                              ; preds = %.thread84.thread121.sink.split, %181
+.thread84.thread144:                              ; preds = %.thread84.thread144.sink.split, %181
   call void @free(ptr noundef nonnull %78) #20
   br label %184
 
 .thread84.sink.split:                             ; preds = %check_dataset.exit, %.split
-  %.03990.ph129 = phi i64 [ %.us-phi112, %.split ], [ %100, %check_dataset.exit ]
+  %.03990.ph152 = phi i64 [ %.us-phi112, %.split ], [ %100, %check_dataset.exit ]
   %.04088.ph = phi ptr [ %.us-phi, %.split ], [ %120, %check_dataset.exit ]
   call void @h5tools_setstatus(i32 noundef 1) #20
   br label %.thread84
 
 .thread84:                                        ; preds = %.thread84.sink.split, %179
-  %.03990 = phi i64 [ %100, %179 ], [ %.03990.ph129, %.thread84.sink.split ]
+  %.03990 = phi i64 [ %100, %179 ], [ %.03990.ph152, %.thread84.sink.split ]
   %.04088 = phi ptr [ %120, %179 ], [ %.04088.ph, %.thread84.sink.split ]
   call void @free(ptr noundef nonnull %78) #20
   %.not66 = icmp eq ptr %.04088, null
   br i1 %.not66, label %185, label %184
 
-184:                                              ; preds = %.thread84.thread121, %.thread84
-  %.04088126 = phi ptr [ %120, %.thread84.thread121 ], [ %.04088, %.thread84 ]
-  %.03990125 = phi i64 [ %100, %.thread84.thread121 ], [ %.03990, %.thread84 ]
-  call void @free(ptr noundef nonnull %.04088126) #20
+184:                                              ; preds = %.thread84.thread144, %.thread84
+  %.04088149 = phi ptr [ %120, %.thread84.thread144 ], [ %.04088, %.thread84 ]
+  %.03990148 = phi i64 [ %100, %.thread84.thread144 ], [ %.03990, %.thread84 ]
+  call void @free(ptr noundef nonnull %.04088149) #20
   br label %185
 
 185:                                              ; preds = %.thread84.thread, %.thread98, %184, %.thread84
-  %.03991104 = phi i64 [ -1, %.thread98 ], [ %.03990125, %184 ], [ %.03990, %.thread84 ], [ %.03990.ph, %.thread84.thread ]
+  %.03991104 = phi i64 [ -1, %.thread98 ], [ %.03990148, %184 ], [ %.03990, %.thread84 ], [ %.03990.ph, %.thread84.thread ]
   %.093103 = phi i64 [ -1, %.thread98 ], [ %90, %184 ], [ %90, %.thread84 ], [ %90, %.thread84.thread ]
   %186 = load ptr, ptr @g_list_of_fields, align 8, !tbaa !4
   %.not67 = icmp eq ptr %186, null

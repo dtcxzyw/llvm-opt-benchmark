@@ -169,8 +169,8 @@ list_length.exit:                                 ; preds = %21
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @exprType(ptr noundef %30) #7
   %32 = tail call zeroext i1 @type_is_rowtype(i32 noundef %31) #7
-  %.not54 = xor i1 %3, true
-  %brmerge = or i1 %32, %.not54
+  %.not56 = xor i1 %3, true
+  %brmerge = or i1 %32, %.not56
   %.mux = select i1 %32, i32 %31, i32 2249
   br i1 %brmerge, label %list_length.exit.thread, label %33
 
@@ -179,21 +179,21 @@ list_length.exit:                                 ; preds = %21
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %26, %4, %17, %list_length.exit, %21, %7, %33
-  %.sink48 = phi i16 [ 1, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
-  %.sink45 = phi i32 [ %31, %33 ], [ %10, %7 ], [ 2249, %21 ], [ 2249, %list_length.exit ], [ 2249, %17 ], [ %.mux, %26 ], [ 2249, %4 ]
-  %.sink40 = phi i32 [ %34, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
+  %.sink50 = phi i16 [ 1, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
+  %.sink47 = phi i32 [ %31, %33 ], [ %10, %7 ], [ 2249, %21 ], [ 2249, %list_length.exit ], [ 2249, %17 ], [ %.mux, %26 ], [ 2249, %4 ]
+  %.sink42 = phi i32 [ %34, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 56) #7
   store i32 6, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %1, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i16 %.sink48, ptr %37, align 8
+  store i16 %.sink50, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  store i32 %.sink45, ptr %38, align 4
+  store i32 %.sink47, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 -1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  store i32 %.sink40, ptr %40, align 4
+  store i32 %.sink42, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 %2, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 36
@@ -203,7 +203,7 @@ list_length.exit.thread:                          ; preds = %26, %4, %17, %list_
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 44
-  store i16 %.sink48, ptr %45, align 4
+  store i16 %.sink50, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i32 -1, ptr %46, align 8
   ret ptr %35

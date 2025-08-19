@@ -2197,8 +2197,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKSt4pairIPKN4llvm8FunctionES
 
 .lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESM_EEbT_T0_.exit.thread"
   %.036 = phi i64 [ %spec.select35, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESM_EEbT_T0_.exit.thread" ], [ %1, %4 ]
-  %8 = shl i64 %.036, 1
-  %9 = add i64 %8, 2
+  %8 = shl nuw nsw i64 %.036, 1
+  %9 = add nuw nsw i64 %8, 2
   %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
   %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2254,7 +2254,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %31
-  %36 = shl nsw i64 %.0.lcssa, 1
+  %36 = shl nuw nsw i64 %.0.lcssa, 1
   %37 = or disjoint i64 %36, 1
   %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !91
@@ -2268,10 +2268,10 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
   br i1 %42, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKSt4pairIPKN4llvm8FunctionESt6vectorIjSaIjEEElSA_N9__gnu_cxx5__ops14_Iter_comp_valIZNKS1_25PhysicalRegisterUsageInfo5printERNS1_11raw_ostreamEPKNS1_6ModuleEE3$_0EEEvT_T0_SO_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %41, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.thread2.i"
-  %.0136.i = phi i64 [ %.07.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.thread2.i" ], [ %.128, %41 ]
+  %.0136.i = phi i64 [ %.0711.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.thread2.i" ], [ %.128, %41 ]
   %.07.in.i = add nsw i64 %.0136.i, -1
-  %.07.i = sdiv i64 %.07.in.i, 2
-  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.07.i
+  %.0711.i = lshr i64 %.07.in.i, 1
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0711.i
   %.val.i = load ptr, ptr %43, align 8, !tbaa !91
   %.val.val.i = load ptr, ptr %.val.i, align 8, !tbaa !93
   %44 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %.val.val.i) #19
@@ -2303,11 +2303,11 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %.lr.ph.i
   %55 = load ptr, ptr %43, align 8, !tbaa !91
   %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i
   store ptr %55, ptr %56, align 8, !tbaa !91
-  %57 = icmp sgt i64 %.07.i, %1
+  %57 = icmp samesign ugt i64 %.0711.i, %1
   br i1 %57, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKSt4pairIPKN4llvm8FunctionESt6vectorIjSaIjEEElSA_N9__gnu_cxx5__ops14_Iter_comp_valIZNKS1_25PhysicalRegisterUsageInfo5printERNS1_11raw_ostreamEPKNS1_6ModuleEE3$_0EEEvT_T0_SO_T1_RT2_.exit", !llvm.loop !166
 
 "_ZSt11__push_heapIPPKSt4pairIPKN4llvm8FunctionESt6vectorIjSaIjEEElSA_N9__gnu_cxx5__ops14_Iter_comp_valIZNKS1_25PhysicalRegisterUsageInfo5printERNS1_11raw_ostreamEPKNS1_6ModuleEE3$_0EEEvT_T0_SO_T1_RT2_.exit": ; preds = %.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.thread2.i", %41
-  %.013.lcssa.i = phi i64 [ %.128, %41 ], [ %.0136.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.i" ], [ %.07.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.thread2.i" ], [ %.0136.i, %.thread.i.i.i.i.i ]
+  %.013.lcssa.i = phi i64 [ %.128, %41 ], [ %.0136.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.i" ], [ %.0711.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm25PhysicalRegisterUsageInfo5printERNS2_11raw_ostreamEPKNS2_6ModuleEE3$_0EclIPPKSt4pairIPKNS2_8FunctionESt6vectorIjSaIjEEESL_EEbT_RT0_.exit.thread2.i" ], [ %.0136.i, %.thread.i.i.i.i.i ]
   %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %58, align 8, !tbaa !91
   ret void

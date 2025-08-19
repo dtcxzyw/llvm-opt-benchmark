@@ -1041,11 +1041,11 @@ _ZN4core3ops8function6FnOnce9call_once17h258e909a9e485ae7E.exit: ; preds = %22, 
           to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit.thread" unwind label %126
 
 .thread131:                                       ; preds = %121, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit.thread", %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit"
-  %.pn63123134 = phi { ptr, i32 } [ %.pn63123137, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit.thread" ], [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit" ], [ %122, %121 ]
+  %.pn63123134 = phi { ptr, i32 } [ %.pn63123144, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit.thread" ], [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit" ], [ %122, %121 ]
   resume { ptr, i32 } %.pn63123134
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit.thread": ; preds = %145, %.thread92.thread, %148, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit"
-  %.pn63123137 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit" ], [ %.pn63124, %148 ], [ %.pn63124, %.thread92.thread ], [ %.pn63124, %145 ]
+  %.pn63123144 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17hb0ea3b83cfa77031E.exit" ], [ %.pn63124, %148 ], [ %.pn63124, %.thread92.thread ], [ %.pn63124, %145 ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$wasmtime_cache..worker..Worker..start_new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b0de8b4a2926ce5E"(ptr noalias noundef align 8 dereferenceable(200) %2) #26
           to label %.thread131 unwind label %126
 }

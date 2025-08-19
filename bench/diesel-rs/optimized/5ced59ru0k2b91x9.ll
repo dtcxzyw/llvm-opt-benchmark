@@ -1810,10 +1810,10 @@ define hidden void @"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connect
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i": ; preds = %9, %5
-  %.sink2.i = phi i64 [ %7, %5 ], [ %11, %9 ]
+  %.sink3.i = phi i64 [ %7, %5 ], [ %11, %9 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !739, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink2.i, i64 noundef 1) #25, !noalias !739
+  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink3.i, i64 noundef 1) #25, !noalias !739
   br label %"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17hafbe5a55418f1914E.llvm.2909037117879540835.exit"
 
 5:                                                ; preds = %1
@@ -2217,10 +2217,10 @@ define hidden void @"_ZN4core3ptr144drop_in_place$LT$$u5b$$LP$diesel..sqlite..co
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i.i": ; preds = %13, %9
-  %.sink2.i.i = phi i64 [ %11, %9 ], [ %15, %13 ]
+  %.sink3.i.i = phi i64 [ %11, %9 ], [ %15, %13 ]
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !989, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink2.i.i, i64 noundef 1) #25, !noalias !989
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3.i.i, i64 noundef 1) #25, !noalias !989
   br label %"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17haebf7d3d148f438fE.llvm.2909037117879540835.exit"
 
 9:                                                ; preds = %.lr.ph
@@ -2421,10 +2421,10 @@ define hidden void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..Vec$LT$$LP$dies
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i.i.i.i": ; preds = %16, %12
-  %.sink2.i.i.i.i = phi i64 [ %14, %12 ], [ %18, %16 ]
+  %.sink3.i.i.i.i = phi i64 [ %14, %12 ], [ %18, %16 ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !1078, !noalias !1066, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %.sink2.i.i.i.i, i64 noundef 1) #25, !noalias !1079
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %.sink3.i.i.i.i, i64 noundef 1) #25, !noalias !1079
   br label %"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17haebf7d3d148f438fE.llvm.2909037117879540835.exit.i.i"
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -2619,10 +2619,10 @@ define hidden void @"_ZN4core3ptr173drop_in_place$LT$alloc..vec..into_iter..Into
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i.i.i.i": ; preds = %20, %16
-  %.sink2.i.i.i.i = phi i64 [ %18, %16 ], [ %22, %20 ]
+  %.sink3.i.i.i.i = phi i64 [ %18, %16 ], [ %22, %20 ]
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1197, !noalias !1175, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink2.i.i.i.i, i64 noundef 1) #25, !noalias !1198
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink3.i.i.i.i, i64 noundef 1) #25, !noalias !1198
   br label %"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17haebf7d3d148f438fE.llvm.2909037117879540835.exit.i.i"
 
 16:                                               ; preds = %.lr.ph.i.i
@@ -3728,10 +3728,10 @@ define hidden void @"_ZN4core3ptr252drop_in_place$LT$core..iter..adapters..zip..
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i.i.i.i.i": ; preds = %20, %16
-  %.sink2.i.i.i.i.i = phi i64 [ %18, %16 ], [ %22, %20 ]
+  %.sink3.i.i.i.i.i = phi i64 [ %18, %16 ], [ %22, %20 ]
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1845, !noalias !1846, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink2.i.i.i.i.i, i64 noundef 1) #25, !noalias !1847
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink3.i.i.i.i.i, i64 noundef 1) #25, !noalias !1847
   br label %"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17haebf7d3d148f438fE.llvm.2909037117879540835.exit.i.i.i"
 
 16:                                               ; preds = %.lr.ph.i.i.i
@@ -4776,10 +4776,10 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$bitflags..parser..ParseError
   br i1 %6, label %"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseErrorKind$GT$17h9bf2737719316fa8E.llvm.2909037117879540835.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit.sink.split.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit.sink.split.i": ; preds = %9, %3
-  %.sink3.i = phi i64 [ %11, %9 ], [ %5, %3 ]
+  %.sink4.i = phi i64 [ %11, %9 ], [ %5, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !2442, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3.i, i64 noundef 1) #25, !noalias !2442
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4.i, i64 noundef 1) #25, !noalias !2442
   br label %"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseErrorKind$GT$17h9bf2737719316fa8E.llvm.2909037117879540835.exit"
 
 9:                                                ; preds = %1
@@ -5006,10 +5006,10 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$bitflags..parser..ParseError
   br i1 %6, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit.sink.split"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit.sink.split": ; preds = %3, %9
-  %.sink3 = phi i64 [ %11, %9 ], [ %5, %3 ]
+  %.sink4 = phi i64 [ %11, %9 ], [ %5, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink3, i64 noundef 1) #25, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4, i64 noundef 1) #25, !noalias !4
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb50398bb251d6c3eE.exit.sink.split", %9, %3, %1
@@ -7726,9 +7726,9 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$diesel..mysql..connection..s
   br i1 %34, label %"_ZN4core3ptr65drop_in_place$LT$diesel..mysql..connection..bind..OutputBinds$GT$17hebbb1f04276e020bE.exit", label %"_ZN4core3ptr65drop_in_place$LT$diesel..mysql..connection..bind..OutputBinds$GT$17hebbb1f04276e020bE.exit.sink.split"
 
 "_ZN4core3ptr65drop_in_place$LT$diesel..mysql..connection..bind..OutputBinds$GT$17hebbb1f04276e020bE.exit.sink.split": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i7", %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i"
-  %.sink10 = phi i64 [ %19, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i" ], [ %33, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i7" ]
+  %.sink19 = phi i64 [ %19, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i" ], [ %33, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i7" ]
   %.sink = phi ptr [ %8, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i" ], [ %22, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i7" ]
-  %35 = mul nuw i64 %.sink10, 40
+  %35 = mul nuw i64 %.sink19, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef %35, i64 noundef 8) #25, !noalias !4
   br label %"_ZN4core3ptr65drop_in_place$LT$diesel..mysql..connection..bind..OutputBinds$GT$17hebbb1f04276e020bE.exit"
 
@@ -7868,10 +7868,10 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$diesel..sqlite..connection..
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i": ; preds = %9, %5
-  %.sink2.i = phi i64 [ %7, %5 ], [ %11, %9 ]
+  %.sink3.i = phi i64 [ %7, %5 ], [ %11, %9 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !4116, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink2.i, i64 noundef 1) #25, !noalias !4116
+  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink3.i, i64 noundef 1) #25, !noalias !4116
   br label %"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17hafbe5a55418f1914E.llvm.2909037117879540835.exit"
 
 5:                                                ; preds = %1
@@ -8398,10 +8398,10 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$diesel..serialize..Output$LT
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i.i": ; preds = %9, %5
-  %.sink2.i.i = phi i64 [ %7, %5 ], [ %11, %9 ]
+  %.sink3.i.i = phi i64 [ %7, %5 ], [ %11, %9 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !4348, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink2.i.i, i64 noundef 1) #25, !noalias !4348
+  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink3.i.i, i64 noundef 1) #25, !noalias !4348
   br label %"_ZN4core3ptr80drop_in_place$LT$diesel..sqlite..connection..bind_collector..SqliteBindValue$GT$17hc15d7bd52cd735aeE.exit"
 
 5:                                                ; preds = %1
@@ -8484,10 +8484,10 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split": ; preds = %9, %5
-  %.sink2 = phi i64 [ %7, %5 ], [ %11, %9 ]
+  %.sink3 = phi i64 [ %7, %5 ], [ %11, %9 ]
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink2, i64 noundef 1) #25, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %.sink3, i64 noundef 1) #25, !noalias !4
   br label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit"
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit": ; preds = %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split", %9, %5, %1
@@ -10500,10 +10500,10 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i.i.i": ; preds = %16, %12
-  %.sink2.i.i.i = phi i64 [ %14, %12 ], [ %18, %16 ]
+  %.sink3.i.i.i = phi i64 [ %14, %12 ], [ %18, %16 ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !4916, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %.sink2.i.i.i, i64 noundef 1) #25, !noalias !4916
+  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %.sink3.i.i.i, i64 noundef 1) #25, !noalias !4916
   br label %"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17haebf7d3d148f438fE.llvm.2909037117879540835.exit.i"
 
 12:                                               ; preds = %.lr.ph.i
@@ -11569,10 +11569,10 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   ]
 
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.llvm.2909037117879540835.exit.sink.split.i.i.i": ; preds = %20, %16
-  %.sink2.i.i.i = phi i64 [ %18, %16 ], [ %22, %20 ]
+  %.sink3.i.i.i = phi i64 [ %18, %16 ], [ %22, %20 ]
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !5200, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink2.i.i.i, i64 noundef 1) #25, !noalias !5200
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %.sink3.i.i.i, i64 noundef 1) #25, !noalias !5200
   br label %"_ZN4core3ptr134drop_in_place$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$17haebf7d3d148f438fE.llvm.2909037117879540835.exit.i"
 
 16:                                               ; preds = %.lr.ph.i

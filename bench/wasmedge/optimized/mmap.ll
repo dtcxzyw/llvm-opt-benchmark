@@ -36,11 +36,11 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr noundef non
 11:                                               ; preds = %8
   %12 = call i32 @fstat(i32 noundef %7, ptr noundef nonnull %3) #13, !noalias !4
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.thread8, label %thread-pre-split
+  br i1 %13, label %.thread9, label %thread-pre-split
 
-.thread8:                                         ; preds = %11
+.thread9:                                         ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
-  br label %.thread7
+  br label %.thread8
 
 14:                                               ; preds = %.noexc
   %15 = landingpad { ptr, i32 }
@@ -57,7 +57,7 @@ thread-pre-split:                                 ; preds = %11
   store ptr %19, ptr %4, align 8, !noalias !4
   %20 = icmp eq ptr %19, inttoptr (i64 -1 to ptr)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
-  br i1 %20, label %.thread7, label %.thread
+  br i1 %20, label %.thread8, label %.thread
 
 .thread:                                          ; preds = %thread-pre-split
   store ptr %4, ptr %0, align 8
@@ -67,18 +67,18 @@ thread-pre-split:                                 ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
   br label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i
 
-.thread7:                                         ; preds = %thread-pre-split, %.thread8
+.thread8:                                         ; preds = %thread-pre-split, %.thread9
   %22 = invoke i32 @close(i32 noundef %7)
           to label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i unwind label %23
 
-23:                                               ; preds = %.thread7
+23:                                               ; preds = %.thread8
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
   tail call void @__clang_call_terminate(ptr %25) #14
   unreachable
 
-_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i: ; preds = %21, %.thread7
+_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i: ; preds = %21, %.thread8
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #15
   br label %_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit
 

@@ -70,21 +70,21 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   br i1 %44, label %.preheader.preheader, label %._crit_edge159.thread
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %.sroa.0.1..sroa_idx188 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  %.sroa.0.2..sroa_idx191 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  %.sroa.0.3..sroa_idx193 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
-  %.sroa.0.1..sroa_idx186 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  %.sroa.0.2..sroa_idx189 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  %.sroa.0.3..sroa_idx192 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
-  %.sroa.0.1..sroa_idx187 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  %.sroa.0.2..sroa_idx190 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  %.sroa.0.1..sroa_idx198 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  %.sroa.0.2..sroa_idx201 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  %.sroa.0.3..sroa_idx203 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
+  %.sroa.0.1..sroa_idx196 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  %.sroa.0.2..sroa_idx199 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  %.sroa.0.3..sroa_idx202 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
+  %.sroa.0.1..sroa_idx197 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  %.sroa.0.2..sroa_idx200 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %.sroa.8.2 = phi i8 [ -1, %.preheader.preheader ], [ %.sroa.8.1, %._crit_edge ]
   %.sroa.7.2 = phi i8 [ 0, %.preheader.preheader ], [ %.sroa.7.1, %._crit_edge ]
   %.sroa.6.2 = phi i8 [ 0, %.preheader.preheader ], [ %.sroa.6.1, %._crit_edge ]
-  %.sroa.0194.2 = phi i8 [ 0, %.preheader.preheader ], [ %.sroa.0194.1, %._crit_edge ]
+  %.sroa.0204.2 = phi i8 [ 0, %.preheader.preheader ], [ %.sroa.0204.1, %._crit_edge ]
   %45 = phi i32 [ %40, %.preheader.preheader ], [ %48, %._crit_edge ]
   %46 = phi i32 [ %43, %.preheader.preheader ], [ %49, %._crit_edge ]
   %.090158 = phi ptr [ %25, %.preheader.preheader ], [ %52, %._crit_edge ]
@@ -106,7 +106,7 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   %.sroa.8.1 = phi i8 [ %.sroa.8.0.extract.trunc, %._crit_edge.loopexit ], [ %.sroa.8.2, %.preheader ]
   %.sroa.7.1 = phi i8 [ %.sroa.7.0.extract.trunc, %._crit_edge.loopexit ], [ %.sroa.7.2, %.preheader ]
   %.sroa.6.1 = phi i8 [ %.sroa.6.0.extract.trunc, %._crit_edge.loopexit ], [ %.sroa.6.2, %.preheader ]
-  %.sroa.0194.1 = phi i8 [ %.sroa.0194.0.extract.trunc, %._crit_edge.loopexit ], [ %.sroa.0194.2, %.preheader ]
+  %.sroa.0204.1 = phi i8 [ %.sroa.0204.0.extract.trunc, %._crit_edge.loopexit ], [ %.sroa.0204.2, %.preheader ]
   %48 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %45, %.preheader ]
   %49 = phi i32 [ %138, %._crit_edge.loopexit ], [ %46, %.preheader ]
   %.1148.lcssa = phi ptr [ %.2149, %._crit_edge.loopexit ], [ %.0147155, %.preheader ]
@@ -122,7 +122,7 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   %.sroa.8.0 = phi i8 [ %.sroa.8.0.extract.trunc, %137 ], [ %.sroa.8.2, %.preheader ]
   %.sroa.7.0 = phi i8 [ %.sroa.7.0.extract.trunc, %137 ], [ %.sroa.7.2, %.preheader ]
   %.sroa.6.0 = phi i8 [ %.sroa.6.0.extract.trunc, %137 ], [ %.sroa.6.2, %.preheader ]
-  %.sroa.0194.0 = phi i8 [ %.sroa.0194.0.extract.trunc, %137 ], [ %.sroa.0194.2, %.preheader ]
+  %.sroa.0204.0 = phi i8 [ %.sroa.0204.0.extract.trunc, %137 ], [ %.sroa.0204.2, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.preheader ]
   %.1153 = phi i32 [ %.2, %137 ], [ %.091157, %.preheader ]
   %.1148151 = phi ptr [ %.2149, %137 ], [ %.0147155, %.preheader ]
@@ -138,10 +138,10 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   %.sroa.6.0.insert.ext = zext i8 %.sroa.6.0 to i32
   %.sroa.6.0.insert.shift = shl nuw nsw i32 %.sroa.6.0.insert.ext, 8
   %.sroa.6.0.insert.insert = or disjoint i32 %.sroa.7.0.insert.insert, %.sroa.6.0.insert.shift
-  %.sroa.0194.0.insert.ext = zext i8 %.sroa.0194.0 to i32
-  %.sroa.0194.0.insert.insert = or disjoint i32 %.sroa.6.0.insert.insert, %.sroa.0194.0.insert.ext
-  %.not168 = icmp eq i32 %.sroa.0.0..sroa.0.0.lhsv, %.sroa.0194.0.insert.insert
-  br i1 %.not168, label %57, label %64
+  %.sroa.0204.0.insert.ext = zext i8 %.sroa.0204.0 to i32
+  %.sroa.0204.0.insert.insert = or disjoint i32 %.sroa.6.0.insert.insert, %.sroa.0204.0.insert.ext
+  %.not178 = icmp eq i32 %.sroa.0.0..sroa.0.0.lhsv, %.sroa.0204.0.insert.insert
+  br i1 %.not178, label %57, label %64
 
 57:                                               ; preds = %.lr.ph
   %58 = add nsw i32 %.1153, 1
@@ -173,25 +173,25 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   %.sroa.0.0..sroa.0.0. = load i8, ptr %.sroa.0, align 4, !tbaa !32
   %72 = zext i8 %.sroa.0.0..sroa.0.0. to i32
   %73 = mul nuw nsw i32 %72, 3
-  %.sroa.0.1..sroa.0.1.179 = load i8, ptr %.sroa.0.1..sroa_idx188, align 1, !tbaa !32
-  %74 = zext i8 %.sroa.0.1..sroa.0.1.179 to i32
+  %.sroa.0.1..sroa.0.1.189 = load i8, ptr %.sroa.0.1..sroa_idx198, align 1, !tbaa !32
+  %74 = zext i8 %.sroa.0.1..sroa.0.1.189 to i32
   %75 = mul nuw nsw i32 %74, 5
   %76 = add nuw nsw i32 %75, %73
-  %.sroa.0.2..sroa.0.2.183 = load i8, ptr %.sroa.0.2..sroa_idx191, align 2, !tbaa !32
-  %77 = zext i8 %.sroa.0.2..sroa.0.2.183 to i32
+  %.sroa.0.2..sroa.0.2.193 = load i8, ptr %.sroa.0.2..sroa_idx201, align 2, !tbaa !32
+  %77 = zext i8 %.sroa.0.2..sroa.0.2.193 to i32
   %78 = mul nuw nsw i32 %77, 7
   %79 = add nuw nsw i32 %76, %78
-  %.sroa.0.3..sroa.0.3.185 = load i8, ptr %.sroa.0.3..sroa_idx193, align 1, !tbaa !32
-  %80 = zext i8 %.sroa.0.3..sroa.0.3.185 to i32
+  %.sroa.0.3..sroa.0.3.195 = load i8, ptr %.sroa.0.3..sroa_idx203, align 1, !tbaa !32
+  %80 = zext i8 %.sroa.0.3..sroa.0.3.195 to i32
   %81 = mul nuw nsw i32 %80, 11
   %82 = add nuw nsw i32 %79, %81
   %83 = and i32 %82, 63
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw [64 x [4 x i8]], ptr %5, i64 0, i64 %84
-  %lhsv169 = load i32, ptr %85, align 4
-  %.sroa.0.0..sroa.0.0.rhsv170 = load i32, ptr %.sroa.0, align 4
-  %.not171 = icmp eq i32 %lhsv169, %.sroa.0.0..sroa.0.0.rhsv170
-  br i1 %.not171, label %86, label %89
+  %lhsv179 = load i32, ptr %85, align 4
+  %.sroa.0.0..sroa.0.0.rhsv180 = load i32, ptr %.sroa.0, align 4
+  %.not181 = icmp eq i32 %lhsv179, %.sroa.0.0..sroa.0.0.rhsv180
+  br i1 %.not181, label %86, label %89
 
 86:                                               ; preds = %71
   %87 = trunc nuw nsw i32 %83 to i8
@@ -200,16 +200,16 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
   br label %137
 
 89:                                               ; preds = %71
-  %.sroa.0.0..sroa.0.0.174 = load i32, ptr %.sroa.0, align 4
-  store i32 %.sroa.0.0..sroa.0.0.174, ptr %85, align 4
-  %90 = icmp eq i8 %.sroa.0.3..sroa.0.3.185, %.sroa.8.0
+  %.sroa.0.0..sroa.0.0.184 = load i32, ptr %.sroa.0, align 4
+  store i32 %.sroa.0.0..sroa.0.0.184, ptr %85, align 4
+  %90 = icmp eq i8 %.sroa.0.3..sroa.0.3.195, %.sroa.8.0
   br i1 %90, label %91, label %131
 
 91:                                               ; preds = %89
-  %92 = trunc i32 %.sroa.0.0..sroa.0.0.174 to i8
-  %93 = sub i8 %92, %.sroa.0194.0
-  %94 = sub i8 %.sroa.0.1..sroa.0.1.179, %.sroa.6.0
-  %95 = sub i8 %.sroa.0.2..sroa.0.2.183, %.sroa.7.0
+  %92 = trunc i32 %.sroa.0.0..sroa.0.0.184 to i8
+  %93 = sub i8 %92, %.sroa.0204.0
+  %94 = sub i8 %.sroa.0.1..sroa.0.1.189, %.sroa.6.0
+  %95 = sub i8 %.sroa.0.2..sroa.0.2.193, %.sroa.7.0
   %96 = add i8 %93, 2
   %97 = add i8 %94, 2
   %98 = or i8 %96, %97
@@ -256,30 +256,30 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
 126:                                              ; preds = %110
   store i8 -2, ptr %.3150, align 1, !tbaa !32
   %127 = getelementptr inbounds nuw i8, ptr %.3150, i64 1
-  %.sroa.0.0..sroa.0.0.172 = load i8, ptr %.sroa.0, align 4, !tbaa !32
-  store i8 %.sroa.0.0..sroa.0.0.172, ptr %127, align 1, !tbaa !32
+  %.sroa.0.0..sroa.0.0.182 = load i8, ptr %.sroa.0, align 4, !tbaa !32
+  store i8 %.sroa.0.0..sroa.0.0.182, ptr %127, align 1, !tbaa !32
   %128 = getelementptr inbounds nuw i8, ptr %.3150, i64 2
-  %.sroa.0.1..sroa.0.1.177 = load i8, ptr %.sroa.0.1..sroa_idx187, align 1, !tbaa !32
-  store i8 %.sroa.0.1..sroa.0.1.177, ptr %128, align 1, !tbaa !32
+  %.sroa.0.1..sroa.0.1.187 = load i8, ptr %.sroa.0.1..sroa_idx197, align 1, !tbaa !32
+  store i8 %.sroa.0.1..sroa.0.1.187, ptr %128, align 1, !tbaa !32
   %129 = getelementptr inbounds nuw i8, ptr %.3150, i64 3
-  %.sroa.0.2..sroa.0.2.181 = load i8, ptr %.sroa.0.2..sroa_idx190, align 2, !tbaa !32
-  store i8 %.sroa.0.2..sroa.0.2.181, ptr %129, align 1, !tbaa !32
+  %.sroa.0.2..sroa.0.2.191 = load i8, ptr %.sroa.0.2..sroa_idx200, align 2, !tbaa !32
+  store i8 %.sroa.0.2..sroa.0.2.191, ptr %129, align 1, !tbaa !32
   %130 = getelementptr inbounds nuw i8, ptr %.3150, i64 4
   br label %137
 
 131:                                              ; preds = %89
   store i8 -1, ptr %.3150, align 1, !tbaa !32
   %132 = getelementptr inbounds nuw i8, ptr %.3150, i64 1
-  %.sroa.0.0..sroa.0.0.173 = load i8, ptr %.sroa.0, align 4, !tbaa !32
-  store i8 %.sroa.0.0..sroa.0.0.173, ptr %132, align 1, !tbaa !32
+  %.sroa.0.0..sroa.0.0.183 = load i8, ptr %.sroa.0, align 4, !tbaa !32
+  store i8 %.sroa.0.0..sroa.0.0.183, ptr %132, align 1, !tbaa !32
   %133 = getelementptr inbounds nuw i8, ptr %.3150, i64 2
-  %.sroa.0.1..sroa.0.1. = load i8, ptr %.sroa.0.1..sroa_idx186, align 1, !tbaa !32
+  %.sroa.0.1..sroa.0.1. = load i8, ptr %.sroa.0.1..sroa_idx196, align 1, !tbaa !32
   store i8 %.sroa.0.1..sroa.0.1., ptr %133, align 1, !tbaa !32
   %134 = getelementptr inbounds nuw i8, ptr %.3150, i64 3
-  %.sroa.0.2..sroa.0.2. = load i8, ptr %.sroa.0.2..sroa_idx189, align 2, !tbaa !32
+  %.sroa.0.2..sroa.0.2. = load i8, ptr %.sroa.0.2..sroa_idx199, align 2, !tbaa !32
   store i8 %.sroa.0.2..sroa.0.2., ptr %134, align 1, !tbaa !32
   %135 = getelementptr inbounds nuw i8, ptr %.3150, i64 4
-  %.sroa.0.3..sroa.0.3. = load i8, ptr %.sroa.0.3..sroa_idx192, align 1, !tbaa !32
+  %.sroa.0.3..sroa.0.3. = load i8, ptr %.sroa.0.3..sroa_idx202, align 1, !tbaa !32
   store i8 %.sroa.0.3..sroa.0.3., ptr %135, align 1, !tbaa !32
   %136 = getelementptr inbounds nuw i8, ptr %.3150, i64 5
   br label %137
@@ -287,13 +287,13 @@ define internal range(i32 -2147483648, 1) i32 @qoi_encode_frame(ptr noundef %0, 
 137:                                              ; preds = %86, %131, %119, %126, %101, %57, %60
   %.2149 = phi ptr [ %63, %60 ], [ %.1148151, %57 ], [ %88, %86 ], [ %109, %101 ], [ %125, %119 ], [ %130, %126 ], [ %136, %131 ]
   %.2 = phi i32 [ 0, %60 ], [ %58, %57 ], [ %.3, %86 ], [ %.3, %101 ], [ %.3, %119 ], [ %.3, %126 ], [ %.3, %131 ]
-  %.sroa.0.0..sroa.0.0.175 = load i32, ptr %.sroa.0, align 4
-  %.sroa.0194.0.extract.trunc = trunc i32 %.sroa.0.0..sroa.0.0.175 to i8
-  %.sroa.6.0.extract.shift = lshr i32 %.sroa.0.0..sroa.0.0.175, 8
+  %.sroa.0.0..sroa.0.0.185 = load i32, ptr %.sroa.0, align 4
+  %.sroa.0204.0.extract.trunc = trunc i32 %.sroa.0.0..sroa.0.0.185 to i8
+  %.sroa.6.0.extract.shift = lshr i32 %.sroa.0.0..sroa.0.0.185, 8
   %.sroa.6.0.extract.trunc = trunc i32 %.sroa.6.0.extract.shift to i8
-  %.sroa.7.0.extract.shift = lshr i32 %.sroa.0.0..sroa.0.0.175, 16
+  %.sroa.7.0.extract.shift = lshr i32 %.sroa.0.0..sroa.0.0.185, 16
   %.sroa.7.0.extract.trunc = trunc i32 %.sroa.7.0.extract.shift to i8
-  %.sroa.8.0.extract.shift = lshr i32 %.sroa.0.0..sroa.0.0.175, 24
+  %.sroa.8.0.extract.shift = lshr i32 %.sroa.0.0..sroa.0.0.185, 24
   %.sroa.8.0.extract.trunc = trunc nuw i32 %.sroa.8.0.extract.shift to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = load i32, ptr %10, align 8, !tbaa !27

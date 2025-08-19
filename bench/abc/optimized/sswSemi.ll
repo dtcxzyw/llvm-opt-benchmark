@@ -951,7 +951,7 @@ Ssw_SemCheckTargets.exit.thread165:               ; preds = %.critedge6, %Ssw_Se
   br label %Ssw_SemCheckTargets.exit.thread165.thread
 
 Ssw_SemCheckTargets.exit.thread165.thread:        ; preds = %.critedge, %290, %Ssw_SemCheckTargets.exit.thread165
-  %.195213 = phi i32 [ %.195, %290 ], [ %.195, %Ssw_SemCheckTargets.exit.thread165 ], [ %56, %.critedge ]
+  %.195220 = phi i32 [ %.195, %290 ], [ %.195, %Ssw_SemCheckTargets.exit.thread165 ], [ %56, %.critedge ]
   %294 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %295 = load ptr, ptr %294, align 8, !tbaa !94
   call void @Ssw_ClassesCheck(ptr noundef %295) #19
@@ -977,7 +977,7 @@ Abc_Clock.exit162:                                ; preds = %Ssw_SemCheckTargets
   %307 = load i64, ptr %306, align 8, !tbaa !95
   %308 = add nsw i64 %305, %307
   store i64 %308, ptr %306, align 8, !tbaa !95
-  ret i32 %.195213
+  ret i32 %.195220
 }
 
 declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #7

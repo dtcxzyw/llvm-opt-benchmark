@@ -1568,9 +1568,9 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %51
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = %181, %180, %179, %.critedge.i.i
-  %.1.lcssa35.i.i = phi i64 [ -1, %181 ], [ 0, %180 ], [ %171, %179 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
+  %.1.lcssa39.i.i = phi i64 [ -1, %181 ], [ 0, %180 ], [ %171, %179 ], [ %.1.lcssa.i.i, %.critedge.i.i ]
   %182 = phi ptr [ %119, %181 ], [ %119, %180 ], [ %.pre.i.i, %179 ], [ %119, %.critedge.i.i ]
-  %183 = trunc i64 %.1.lcssa35.i.i to i32
+  %183 = trunc i64 %.1.lcssa39.i.i to i32
   %184 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %182, i64 %160, i32 2
   store i32 %183, ptr %184, align 4, !tbaa !158
   %185 = add i32 %183, 1
@@ -1581,7 +1581,7 @@ _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i: ; preds = 
 _ZN3gmx9HashedMapIiE6insertEiRKi.exit:            ; preds = %155, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i
   %186 = phi ptr [ %.pre137, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %112, %155 ]
   %187 = phi ptr [ %182, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %119, %155 ]
-  %.020.i.i = phi i64 [ %.1.lcssa35.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %156, %155 ]
+  %.020.i.i = phi i64 [ %.1.lcssa39.i.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i.i ], [ %156, %155 ]
   %188 = getelementptr inbounds nuw %"struct.gmx::HashedMap<int>::hashEntry", ptr %187, i64 %.020.i.i
   store i32 %114, ptr %188, align 4, !tbaa !156
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
@@ -2067,7 +2067,7 @@ define linkonce_odr void @_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiS
   br i1 %.not37.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = shl i64 %12, 2
+  %22 = shl nuw nsw i64 %12, 2
   %scevgep.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i, ptr %3, align 8, !tbaa !180
   br label %_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE17_M_default_appendEm.exit
@@ -2162,7 +2162,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitia
   br i1 %.not37.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i, ptr %3, align 8, !tbaa !181
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_M_default_appendEm.exit

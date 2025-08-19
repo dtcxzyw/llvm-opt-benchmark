@@ -548,10 +548,10 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterK
 
 _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i: ; preds = %181, %179, %._crit_edge.i.i.i, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i.i
   %.sink.i.i.i = phi i32 [ 1, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i.i ], [ 1, %._crit_edge.i.i.i ], [ 2, %179 ], [ %..i.i.i, %181 ]
-  %.0.lcssa18.i.i.i = phi i32 [ 0, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i.i ], [ %spec.select.i.i.i, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %179 ], [ %spec.select.i.i.i, %181 ]
+  %.0.lcssa19.i.i.i = phi i32 [ 0, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i.i ], [ %spec.select.i.i.i, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %179 ], [ %spec.select.i.i.i, %181 ]
   %183 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   store i32 %.sink.i.i.i, ptr %183, align 4
-  %184 = zext i32 %.0.lcssa18.i.i.i to i64
+  %184 = zext i32 %.0.lcssa19.i.i.i to i64
   store i64 %184, ptr %.pn, align 8
   %185 = getelementptr inbounds nuw i8, ptr %.pn, i64 12
   store i32 %.0207, ptr %185, align 4
@@ -699,10 +699,10 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterK
 
 _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit78.i: ; preds = %226, %224, %._crit_edge.i.i74.i, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i66.i
   %.sink.i.i76.i = phi i32 [ 1, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i66.i ], [ 1, %._crit_edge.i.i74.i ], [ 2, %224 ], [ %..i.i75.i, %226 ]
-  %.0.lcssa18.i.i77.i = phi i32 [ 0, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i66.i ], [ %spec.select.i.i72.i, %._crit_edge.i.i74.i ], [ %spec.select.i.i72.i, %224 ], [ %spec.select.i.i72.i, %226 ]
+  %.0.lcssa19.i.i77.i = phi i32 [ 0, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i66.i ], [ %spec.select.i.i72.i, %._crit_edge.i.i74.i ], [ %spec.select.i.i72.i, %224 ], [ %spec.select.i.i72.i, %226 ]
   %228 = getelementptr inbounds nuw i8, ptr %.pn215, i64 8
   store i32 %.sink.i.i76.i, ptr %228, align 4
-  %229 = zext i32 %.0.lcssa18.i.i77.i to i64
+  %229 = zext i32 %.0.lcssa19.i.i77.i to i64
   store i64 %229, ptr %.pn215, align 8
   %230 = getelementptr inbounds nuw i8, ptr %.pn215, i64 12
   store i32 %.1208, ptr %230, align 4
@@ -716,8 +716,8 @@ _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110Cl
   %.sroa.0175.6 = phi ptr [ %.sroa.0175.4, %.critedge.i ], [ %.sroa.0175.4, %.critedge2.i ], [ %.sroa.0175.5, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit78.i ]
   %.2209 = phi i32 [ %.1208, %.critedge.i ], [ %.1208, %.critedge2.i ], [ %231, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit78.i ]
   %.2 = phi i32 [ %.1, %.critedge.i ], [ %.1, %.critedge2.i ], [ %232, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit78.i ]
-  %.sroa.0117.1.lcssa153.i = phi ptr [ %.sroa.0117.0.lcssa.i, %.critedge.i ], [ %.sroa.0117.1.lcssa.i, %.critedge2.i ], [ %.sroa.0117.1.lcssa.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit78.i ]
-  %.not123143.i = icmp eq ptr %.sroa.0117.1.lcssa153.i, %27
+  %.sroa.0117.1.lcssa173.i = phi ptr [ %.sroa.0117.0.lcssa.i, %.critedge.i ], [ %.sroa.0117.1.lcssa.i, %.critedge2.i ], [ %.sroa.0117.1.lcssa.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit78.i ]
+  %.not123143.i = icmp eq ptr %.sroa.0117.1.lcssa173.i, %27
   br i1 %.not123143.i, label %_ZN3ue2L16fillCounterInfosEPSt6vectorI16mpv_counter_infoSaIS1_EEPjS5_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyES0_INS_8raw_puffESaIS9_EESt4lessIS8_ESaISt4pairIKS8_SB_EEE.exit, label %.lr.ph145.i
 
 .lr.ph145.i:                                      ; preds = %.critedge2.thread.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit113.i
@@ -726,7 +726,7 @@ _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110Cl
   %.sroa.0175.7 = phi ptr [ %.sroa.0175.8, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit113.i ], [ %.sroa.0175.6, %.critedge2.thread.i ]
   %.3210 = phi i32 [ %277, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit113.i ], [ %.2209, %.critedge2.thread.i ]
   %.3 = phi i32 [ %278, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit113.i ], [ %.2, %.critedge2.thread.i ]
-  %.sroa.0117.2144.i = phi ptr [ %256, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit113.i ], [ %.sroa.0117.1.lcssa153.i, %.critedge2.thread.i ]
+  %.sroa.0117.2144.i = phi ptr [ %256, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit113.i ], [ %.sroa.0117.1.lcssa173.i, %.critedge2.thread.i ]
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.0117.2144.i, i64 72
   %234 = load i8, ptr %233, align 8, !range !5, !noundef !6
   %235 = trunc nuw i8 %234 to i1
@@ -858,10 +858,10 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterK
 
 _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit113.i: ; preds = %272, %270, %._crit_edge.i.i109.i, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i101.i
   %.sink.i.i111.i = phi i32 [ 1, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i101.i ], [ 1, %._crit_edge.i.i109.i ], [ 2, %270 ], [ %..i.i110.i, %272 ]
-  %.0.lcssa18.i.i112.i = phi i32 [ 0, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i101.i ], [ %spec.select.i.i107.i, %._crit_edge.i.i109.i ], [ %spec.select.i.i107.i, %270 ], [ %spec.select.i.i107.i, %272 ]
+  %.0.lcssa19.i.i112.i = phi i32 [ 0, %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit25.i101.i ], [ %spec.select.i.i107.i, %._crit_edge.i.i109.i ], [ %spec.select.i.i107.i, %270 ], [ %spec.select.i.i107.i, %272 ]
   %274 = getelementptr inbounds nuw i8, ptr %.pn216, i64 8
   store i32 %.sink.i.i111.i, ptr %274, align 4
-  %275 = zext i32 %.0.lcssa18.i.i112.i to i64
+  %275 = zext i32 %.0.lcssa19.i.i112.i to i64
   store i64 %275, ptr %.pn216, align 8
   %276 = getelementptr inbounds nuw i8, ptr %.pn216, i64 12
   store i32 %.3210, ptr %276, align 4
@@ -961,14 +961,14 @@ _ZN3ue2L8calcSizeERKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffE
 318:                                              ; preds = %._crit_edge
   %319 = call ptr @__cxa_allocate_exception(i64 48) #25
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %319)
-          to label %.invoke316 unwind label %321
+          to label %.invoke376 unwind label %321
 
-.invoke316:                                       ; preds = %358, %340, %318
+.invoke376:                                       ; preds = %358, %340, %318
   %320 = phi ptr [ %319, %318 ], [ %341, %340 ], [ %359, %358 ]
   invoke void @__cxa_throw(ptr nonnull %320, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #23
-          to label %.cont317 unwind label %.body127
+          to label %.cont377 unwind label %.body127
 
-.cont317:                                         ; preds = %.invoke316
+.cont377:                                         ; preds = %.invoke376
   unreachable
 
 321:                                              ; preds = %318
@@ -1050,7 +1050,7 @@ _ZN3ue2L8calcSizeERKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffE
 340:                                              ; preds = %338
   %341 = call ptr @__cxa_allocate_exception(i64 48) #25
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %341)
-          to label %.invoke316 unwind label %342
+          to label %.invoke376 unwind label %342
 
 342:                                              ; preds = %340
   %343 = landingpad { ptr, i32 }
@@ -1084,7 +1084,7 @@ _ZN3ue2L8calcSizeERKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffE
 358:                                              ; preds = %344
   %359 = call ptr @__cxa_allocate_exception(i64 48) #25
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %359)
-          to label %.invoke316 unwind label %360
+          to label %.invoke376 unwind label %360
 
 360:                                              ; preds = %358
   %361 = landingpad { ptr, i32 }
@@ -1112,7 +1112,7 @@ _ZN3ue2L8calcSizeERKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffE
   %.not219272 = icmp eq ptr %.sroa.0175.9, %.sroa.17.7
   br i1 %.not219272, label %._crit_edge276, label %.lr.ph275
 
-.body127:                                         ; preds = %.invoke316
+.body127:                                         ; preds = %.invoke376
   %369 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1347,7 +1347,7 @@ _ZNK3ue29CharReachcoEv.exit61.i:                  ; preds = %451
 462:                                              ; preds = %454
   %463 = call ptr @__cxa_allocate_exception(i64 48) #25
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %463)
-          to label %.invoke318 unwind label %464
+          to label %.invoke378 unwind label %464
 
 common.resume.i:                                  ; preds = %473, %464
   %.sink.i = phi ptr [ %471, %473 ], [ %463, %464 ]
@@ -1373,14 +1373,14 @@ _ZN3ue210verify_u32ImEEjT_.exit.i:                ; preds = %454
 470:                                              ; preds = %_ZN3ue210verify_u32ImEEjT_.exit.i
   %471 = call ptr @__cxa_allocate_exception(i64 48) #25
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %471)
-          to label %.invoke318 unwind label %473
+          to label %.invoke378 unwind label %473
 
-.invoke318:                                       ; preds = %470, %462
+.invoke378:                                       ; preds = %470, %462
   %472 = phi ptr [ %463, %462 ], [ %471, %470 ]
   invoke void @__cxa_throw(ptr nonnull %472, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #23
-          to label %.cont319 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont379 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont319:                                         ; preds = %.invoke318
+.cont379:                                         ; preds = %.invoke378
   unreachable
 
 473:                                              ; preds = %470
@@ -1479,7 +1479,7 @@ _ZN3ue210verify_u32IlEEjT_.exit.i:                ; preds = %_ZN3ue210verify_u32
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke318
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke378
   %lpad.loopexit.split-lp222 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2102,18 +2102,18 @@ define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_110Cluster
   br i1 %.0.i.i35, label %._crit_edge.thread, label %33
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.032.lcssa47 = phi ptr [ %.03340, %._crit_edge ], [ %4, %2 ]
+  %.032.lcssa58 = phi ptr [ %.03340, %._crit_edge ], [ %4, %2 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val9 = load ptr, ptr %29, align 8
-  %30 = icmp eq ptr %.032.lcssa47, %.val9
+  %30 = icmp eq ptr %.032.lcssa58, %.val9
   br i1 %30, label %_ZNKSt4lessIN3ue212_GLOBAL__N_110ClusterKeyEEclERKS2_S5_.exit22, label %31
 
 31:                                               ; preds = %._crit_edge.thread
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.032.lcssa47) #24
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.032.lcssa58) #24
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge
-  %.032.lcssa46 = phi ptr [ %.032.lcssa47, %31 ], [ %.03340, %._crit_edge ]
+  %.032.lcssa57 = phi ptr [ %.032.lcssa58, %31 ], [ %.03340, %._crit_edge ]
   %.sroa.023.0 = phi ptr [ %32, %31 ], [ %.03340, %._crit_edge ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 32
   %35 = load i32, ptr %34, align 8
@@ -2160,7 +2160,7 @@ define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_110Cluster
 
 _ZNKSt4lessIN3ue212_GLOBAL__N_110ClusterKeyEEclERKS2_S5_.exit22: ; preds = %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i14, %38, %46, %40, %33, %._crit_edge.thread
   %.sroa.031.0 = phi ptr [ null, %._crit_edge.thread ], [ null, %33 ], [ null, %40 ], [ %.sroa.023.0, %46 ], [ %.sroa.023.0, %38 ], [ %.sroa.023.0, %54 ], [ null, %.lr.ph.i.i.i.i.i.i.i.i.i.i14 ]
-  %.sroa.4.0 = phi ptr [ %.032.lcssa47, %._crit_edge.thread ], [ %.032.lcssa46, %33 ], [ %.032.lcssa46, %40 ], [ null, %46 ], [ null, %38 ], [ null, %54 ], [ %.032.lcssa46, %.lr.ph.i.i.i.i.i.i.i.i.i.i14 ]
+  %.sroa.4.0 = phi ptr [ %.032.lcssa58, %._crit_edge.thread ], [ %.032.lcssa57, %33 ], [ %.032.lcssa57, %40 ], [ null, %46 ], [ null, %38 ], [ null, %54 ], [ %.032.lcssa57, %.lr.ph.i.i.i.i.i.i.i.i.i.i14 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.031.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

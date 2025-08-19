@@ -1157,7 +1157,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %81 = zext nneg i32 %80 to i64
   %82 = sext i32 %.0164 to i64
   %wide.trip.count322 = zext nneg i32 %.0151 to i64
-  %invariant.gep336 = getelementptr i16, ptr %.0197, i64 %82
+  %invariant.gep346 = getelementptr i16, ptr %.0197, i64 %82
   br i1 %.not213, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.split.us.us
@@ -1169,8 +1169,8 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   br i1 %.not211, label %87, label %83
 
 83:                                               ; preds = %.lr.ph.split.us
-  %gep337 = getelementptr i16, ptr %invariant.gep336, i64 %indvars.iv319
-  %84 = load i16, ptr %gep337, align 2, !tbaa !14
+  %gep347 = getelementptr i16, ptr %invariant.gep346, i64 %indvars.iv319
+  %84 = load i16, ptr %gep347, align 2, !tbaa !14
   %85 = zext i16 %84 to i32
   %86 = shl nuw nsw i32 %85, 2
   br label %93
@@ -1197,7 +1197,7 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
 
 .preheader.us.preheader:                          ; preds = %97
   %99 = sext i32 %.0160.us to i64
-  %invariant.gep334 = getelementptr i16, ptr %.0197, i64 %99
+  %invariant.gep344 = getelementptr i16, ptr %.0197, i64 %99
   br label %.preheader.us
 
 100:                                              ; preds = %97
@@ -1237,8 +1237,8 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   %.8274.us.us = phi i32 [ %.4171281.us, %.preheader.us.preheader ], [ %.9.us.us, %118 ]
   %.6180273.us.us = phi i32 [ %.3177280.us, %.preheader.us.preheader ], [ %119, %118 ]
   %.8192272.us.us = phi i32 [ %.4188279.us, %.preheader.us.preheader ], [ %.9193.us.us, %118 ]
-  %gep335 = getelementptr i16, ptr %invariant.gep334, i64 %indvars.iv315
-  %110 = load i16, ptr %gep335, align 2, !tbaa !14
+  %gep345 = getelementptr i16, ptr %invariant.gep344, i64 %indvars.iv315
+  %110 = load i16, ptr %gep345, align 2, !tbaa !14
   %111 = zext i16 %110 to i32
   %112 = tail call noundef i32 %spec.store.select(ptr noundef %5, i32 noundef %111)
   %.not214.us.us = icmp eq i32 %112, %.8192272.us.us
@@ -1271,8 +1271,8 @@ define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_
   br i1 %.not211, label %124, label %120
 
 120:                                              ; preds = %.lr.ph.split
-  %gep333 = getelementptr i16, ptr %invariant.gep336, i64 %indvars.iv311
-  %121 = load i16, ptr %gep333, align 2, !tbaa !14
+  %gep343 = getelementptr i16, ptr %invariant.gep346, i64 %indvars.iv311
+  %121 = load i16, ptr %gep343, align 2, !tbaa !14
   %122 = zext i16 %121 to i32
   %123 = shl nuw nsw i32 %122, 2
   br label %130

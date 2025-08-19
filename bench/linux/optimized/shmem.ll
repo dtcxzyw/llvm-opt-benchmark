@@ -1202,11 +1202,11 @@ define dso_local range(i32 -2147483648, 1) i32 @shmem_unuse(i32 noundef %0) loca
 thread-pre-split.thread:                          ; preds = %138, %29
   call void @__rcu_read_unlock() #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread16
+  br label %.thread28
 
 .preheader:                                       ; preds = %29, %.preheader.backedge
   %37 = phi i8 [ %.be, %.preheader.backedge ], [ 0, %29 ]
-  %38 = phi ptr [ %.be27, %.preheader.backedge ], [ %35, %29 ]
+  %38 = phi ptr [ %.be39, %.preheader.backedge ], [ %35, %29 ]
   %39 = ptrtoint ptr %38 to i64
   switch i64 %39, label %41 [
     i64 1030, label %62
@@ -1235,9 +1235,9 @@ thread-pre-split.thread:                          ; preds = %138, %29
   %53 = getelementptr [15 x ptr], ptr %17, i64 0, i64 %50
   store ptr %38, ptr %53, align 8
   %54 = icmp eq i8 %52, 15
-  br i1 %54, label %thread-pre-split.thread15, label %55
+  br i1 %54, label %thread-pre-split.thread27, label %55
 
-thread-pre-split.thread15:                        ; preds = %48
+thread-pre-split.thread27:                        ; preds = %48
   store i8 15, ptr %4, align 8
   call void @__rcu_read_unlock() #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1319,7 +1319,7 @@ thread-pre-split.thread15:                        ; preds = %48
 
 .preheader.backedge:                              ; preds = %.loopexit13, %138
   %.be = phi i8 [ %63, %.loopexit13 ], [ 0, %138 ]
-  %.be27 = phi ptr [ %100, %.loopexit13 ], [ %145, %138 ]
+  %.be39 = phi ptr [ %100, %.loopexit13 ], [ %145, %138 ]
   br label %.preheader, !llvm.loop !25
 
 thread-pre-split:                                 ; preds = %.loopexit13
@@ -1327,20 +1327,20 @@ thread-pre-split:                                 ; preds = %.loopexit13
   %102 = icmp eq i8 %63, 0
   call void @__rcu_read_unlock() #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %102, label %.thread16, label %103
+  br i1 %102, label %.thread28, label %103
 
-103:                                              ; preds = %thread-pre-split.thread15, %thread-pre-split
+103:                                              ; preds = %thread-pre-split.thread27, %thread-pre-split
   %104 = load ptr, ptr %32, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 64
   br label %112
 
 .sink.split:                                      ; preds = %112, %.thread12
-  %.ph21 = phi i32 [ %133, %.thread12 ], [ %114, %112 ]
+  %.ph33 = phi i32 [ %133, %.thread12 ], [ %114, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %106
 
 106:                                              ; preds = %.sink.split, %134
-  %107 = phi i32 [ %114, %134 ], [ %.ph21, %.sink.split ]
+  %107 = phi i32 [ %114, %134 ], [ %.ph33, %.sink.split ]
   %108 = add nuw nsw i64 %113, 1
   %109 = load i8, ptr %4, align 8
   %110 = zext i8 %109 to i64
@@ -1388,11 +1388,11 @@ thread-pre-split:                                 ; preds = %.loopexit13
 134:                                              ; preds = %120
   %135 = icmp eq i32 %124, -12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %135, label %.thread16, label %106
+  br i1 %135, label %.thread28, label %106
 
 136:                                              ; preds = %106
   %137 = icmp slt i32 %107, 0
-  br i1 %137, label %.thread16, label %138
+  br i1 %137, label %.thread28, label %138
 
 138:                                              ; preds = %136
   %139 = load i8, ptr %4, align 8
@@ -1413,7 +1413,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
   %146 = icmp eq ptr %145, null
   br i1 %146, label %thread-pre-split.thread, label %.preheader.backedge
 
-.thread16:                                        ; preds = %136, %thread-pre-split, %134, %thread-pre-split.thread
+.thread28:                                        ; preds = %136, %thread-pre-split, %134, %thread-pre-split.thread
   %147 = phi i32 [ 0, %thread-pre-split.thread ], [ -12, %134 ], [ 0, %thread-pre-split ], [ %107, %136 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1424,7 +1424,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
   %151 = icmp eq i64 %150, 0
   br i1 %151, label %152, label %156
 
-152:                                              ; preds = %.thread16
+152:                                              ; preds = %.thread28
   %153 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 8
@@ -1434,7 +1434,7 @@ thread-pre-split:                                 ; preds = %.loopexit13
   store volatile ptr %20, ptr %153, align 8
   br label %156
 
-156:                                              ; preds = %152, %.thread16
+156:                                              ; preds = %152, %.thread28
   %157 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30, ptr elementtype(i32) %30) #18, !srcloc !20
   %158 = icmp ult i8 %157, 2
   call void @llvm.assume(i1 %158)
@@ -3319,19 +3319,19 @@ define internal fastcc i32 @shmem_swapin_folio(ptr noundef %0, i64 noundef %1, p
   %69 = load volatile i64, ptr %62, align 8
   %70 = and i64 %69, 524288
   %71 = icmp eq i64 %70, 0
-  br i1 %71, label %.thread15, label %72
+  br i1 %71, label %.thread26, label %72
 
 72:                                               ; preds = %68
   %73 = load volatile i64, ptr %62, align 8
   %74 = and i64 %73, 4096
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %.thread15, label %76
+  br i1 %75, label %.thread26, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %78, %13
-  br i1 %79, label %80, label %.thread15
+  br i1 %79, label %80, label %.thread26
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3339,7 +3339,7 @@ define internal fastcc i32 @shmem_swapin_folio(ptr noundef %0, i64 noundef %1, p
   %83 = or i64 %12, 1
   %84 = inttoptr i64 %83 to ptr
   %85 = icmp eq ptr %82, %84
-  br i1 %85, label %86, label %.thread15
+  br i1 %85, label %86, label %.thread26
 
 86:                                               ; preds = %80
   %87 = load volatile i64, ptr %62, align 8
@@ -3419,9 +3419,9 @@ define internal fastcc i32 @shmem_swapin_folio(ptr noundef %0, i64 noundef %1, p
 
 124:                                              ; preds = %123, %118, %111
   %125 = icmp eq ptr %.pre10, null
-  br i1 %125, label %133, label %.thread15
+  br i1 %125, label %133, label %.thread26
 
-.thread15:                                        ; preds = %68, %72, %76, %80, %124
+.thread26:                                        ; preds = %68, %72, %76, %80, %124
   %126 = phi i32 [ %116, %124 ], [ -17, %80 ], [ -17, %76 ], [ -17, %72 ], [ -17, %68 ]
   %127 = phi ptr [ %.pre10, %124 ], [ %62, %80 ], [ %62, %76 ], [ %62, %72 ], [ %62, %68 ]
   tail call void @folio_unlock(ptr noundef nonnull %127) #18
@@ -3432,12 +3432,12 @@ define internal fastcc i32 @shmem_swapin_folio(ptr noundef %0, i64 noundef %1, p
   %131 = icmp eq i8 %129, 0
   br i1 %131, label %133, label %132
 
-132:                                              ; preds = %.thread15
+132:                                              ; preds = %.thread26
   tail call void @__folio_put(ptr noundef nonnull %127) #18
   br label %133
 
-133:                                              ; preds = %132, %.thread15, %124
-  %134 = phi i32 [ %126, %132 ], [ %126, %.thread15 ], [ %116, %124 ]
+133:                                              ; preds = %132, %.thread26, %124
+  %134 = phi i32 [ %126, %132 ], [ %126, %.thread26 ], [ %116, %124 ]
   tail call void @__rcu_read_lock() #18
   %135 = load volatile i64, ptr %19, align 8
   %136 = and i64 %135, 3
@@ -6100,9 +6100,9 @@ define internal noundef i32 @shmem_show_options(ptr noundef %0, ptr noundef read
   tail call void @_raw_spin_lock(ptr noundef nonnull %54) #18
   %55 = load ptr, ptr %50, align 8
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.thread7, label %57
+  br i1 %56, label %.thread12, label %57
 
-.thread7:                                         ; preds = %53
+.thread12:                                        ; preds = %53
   tail call void @_raw_spin_unlock(ptr noundef nonnull %54) #18
   br label %.thread
 
@@ -6126,7 +6126,7 @@ define internal noundef i32 @shmem_show_options(ptr noundef %0, ptr noundef read
   call void @__mpol_put(ptr noundef nonnull %55) #18
   br label %.thread
 
-.thread:                                          ; preds = %.thread7, %49, %62
+.thread:                                          ; preds = %.thread12, %49, %62
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 81
   %64 = load i8, ptr %63, align 1, !range !41, !noundef !42
   %65 = icmp eq i8 %64, 0
@@ -7291,7 +7291,7 @@ define internal i64 @shmem_file_splice_read(ptr noundef %0, ptr noundef captures
   %51 = load i64, ptr %24, align 8
   %52 = load i64, ptr %1, align 8
   %53 = icmp slt i64 %52, %51
-  br i1 %53, label %54, label %.loopexit.thread13, !prof !9
+  br i1 %53, label %54, label %.loopexit.thread22, !prof !9
 
 54:                                               ; preds = %.thread
   %55 = sub i64 %51, %52
@@ -7392,9 +7392,9 @@ define internal i64 @shmem_file_splice_read(ptr noundef %0, ptr noundef captures
   %120 = sext i32 %119 to i64
   %.pre = load ptr, ptr %6, align 8
   %121 = icmp eq ptr %.pre, null
-  br i1 %121, label %.loopexit.thread, label %.loopexit.thread13
+  br i1 %121, label %.loopexit.thread, label %.loopexit.thread22
 
-.loopexit.thread13:                               ; preds = %.thread, %.loopexit
+.loopexit.thread22:                               ; preds = %.thread, %.loopexit
   %122 = phi i64 [ %120, %.loopexit ], [ 0, %.thread ]
   %123 = phi ptr [ %.pre, %.loopexit ], [ %44, %.thread ]
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 52
@@ -7404,13 +7404,13 @@ define internal i64 @shmem_file_splice_read(ptr noundef %0, ptr noundef captures
   %127 = icmp eq i8 %125, 0
   br i1 %127, label %.loopexit.thread, label %128
 
-128:                                              ; preds = %.loopexit.thread13
+128:                                              ; preds = %.loopexit.thread22
   tail call void @__folio_put(ptr noundef nonnull %123) #18
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %30, %46, %102, %105, %114, %128, %.loopexit.thread13, %.loopexit
-  %129 = phi i64 [ %31, %128 ], [ %31, %.loopexit.thread13 ], [ %31, %.loopexit ], [ %106, %114 ], [ %106, %105 ], [ %31, %102 ], [ %31, %46 ], [ %31, %30 ]
-  %130 = phi i64 [ %122, %128 ], [ %122, %.loopexit.thread13 ], [ %120, %.loopexit ], [ 0, %114 ], [ 0, %105 ], [ 0, %102 ], [ 0, %46 ], [ 0, %30 ]
+.loopexit.thread:                                 ; preds = %30, %46, %102, %105, %114, %128, %.loopexit.thread22, %.loopexit
+  %129 = phi i64 [ %31, %128 ], [ %31, %.loopexit.thread22 ], [ %31, %.loopexit ], [ %106, %114 ], [ %106, %105 ], [ %31, %102 ], [ %31, %46 ], [ %31, %30 ]
+  %130 = phi i64 [ %122, %128 ], [ %122, %.loopexit.thread22 ], [ %120, %.loopexit ], [ 0, %114 ], [ 0, %105 ], [ 0, %102 ], [ 0, %46 ], [ 0, %30 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %132 = load i32, ptr %131, align 8
   %133 = and i32 %132, 262144

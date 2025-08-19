@@ -661,8 +661,8 @@ thread-pre-split:                                 ; preds = %52
   br label %182
 
 182:                                              ; preds = %173, %179
-  %.sink536 = phi i64 [ %181, %179 ], [ %178, %173 ]
-  %spec.select429 = call i64 @llvm.abs.i64(i64 %.sink536, i1 true)
+  %.sink579 = phi i64 [ %181, %179 ], [ %178, %173 ]
+  %spec.select429 = call i64 @llvm.abs.i64(i64 %.sink579, i1 true)
   %.not425 = icmp eq i64 %spec.select429, 65536
   br i1 %.not425, label %._crit_edge521, label %183
 
@@ -1027,9 +1027,9 @@ cff_index_get_sid_string.exit432.thread:          ; preds = %.outer.backedge, %.
   br label %360
 
 360:                                              ; preds = %cff_index_get_sid_string.exit432.thread, %357
-  %.sink537 = phi ptr [ %359, %cff_index_get_sid_string.exit432.thread ], [ %332, %357 ]
+  %.sink580 = phi ptr [ %359, %cff_index_get_sid_string.exit432.thread ], [ %332, %357 ]
   %361 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %.sink537, ptr %361, align 8, !tbaa !170
+  store ptr %.sink580, ptr %361, align 8, !tbaa !170
   %spec.select = select i1 %.not375.not, i32 2073, i32 2065
   %362 = getelementptr inbounds nuw i8, ptr %64, i64 1664
   %363 = load i8, ptr %362, align 8, !tbaa !171
@@ -1263,10 +1263,10 @@ cff_index_get_sid_string.exit438.thread:          ; preds = %375, %386, %360, %3
   br label %465
 
 465:                                              ; preds = %457, %463, %464
-  %.sink540 = phi i16 [ 1, %463 ], [ 2, %464 ], [ 0, %457 ]
-  %.sink539 = phi i32 [ 1094992453, %463 ], [ 1094992451, %464 ], [ 1094995778, %457 ]
-  store i16 %.sink540, ptr %461, align 2, !tbaa !179
-  store i32 %.sink539, ptr %462, align 8, !tbaa !182
+  %.sink583 = phi i16 [ 1, %463 ], [ 2, %464 ], [ 0, %457 ]
+  %.sink582 = phi i32 [ 1094992453, %463 ], [ 1094992451, %464 ], [ 1094995778, %457 ]
+  store i16 %.sink583, ptr %461, align 2, !tbaa !179
+  store i32 %.sink582, ptr %462, align 8, !tbaa !182
   %466 = call i32 @FT_CMap_New(ptr noundef nonnull @cff_cmap_encoding_class_rec, ptr noundef null, ptr noundef nonnull %11, ptr noundef null) #19
   store i32 %466, ptr %10, align 4, !tbaa !59
   br label %467
@@ -1949,8 +1949,8 @@ cff_charset_cid_to_gindex.exit.i:                 ; preds = %38
   %113 = and i32 %3, 16
   %.not319.i = icmp eq i32 %113, 0
   %spec.select.i = select i1 %.not319.i, i16 %83, i16 %98
-  %spec.select431.i = select i1 %.not319.i, i16 %88, i16 %103
-  %.sink.i = sext i16 %spec.select431.i to i32
+  %spec.select448.i = select i1 %.not319.i, i16 %88, i16 %103
+  %.sink.i = sext i16 %spec.select448.i to i32
   %.sink426.i = sext i16 %spec.select.i to i32
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %.sink426.i, ptr %114, align 8, !tbaa !284
@@ -4044,7 +4044,7 @@ cff_index_get_string.exit:                        ; preds = %38, %43
 46:                                               ; preds = %cff_index_get_string.exit
   %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %.030) #20
   %.not38 = icmp eq i32 %47, 0
-  br i1 %.not38, label %.loopexit.loopexit.split.loop.exit48, label %cff_index_get_string.exit.thread
+  br i1 %.not38, label %.loopexit.loopexit.split.loop.exit51, label %cff_index_get_string.exit.thread
 
 cff_index_get_string.exit.thread:                 ; preds = %34, %46, %cff_index_get_string.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4053,12 +4053,12 @@ cff_index_get_string.exit.thread:                 ; preds = %34, %46, %cff_index
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
   br i1 %50, label %28, label %.loopexit, !llvm.loop !426
 
-.loopexit.loopexit.split.loop.exit48:             ; preds = %46
+.loopexit.loopexit.split.loop.exit51:             ; preds = %46
   %51 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %cff_index_get_string.exit.thread, %.loopexit.loopexit.split.loop.exit48, %.preheader, %20, %18, %15, %10
-  %.1 = phi i32 [ %19, %18 ], [ 0, %15 ], [ 0, %10 ], [ 0, %20 ], [ 0, %.preheader ], [ %51, %.loopexit.loopexit.split.loop.exit48 ], [ 0, %cff_index_get_string.exit.thread ]
+.loopexit:                                        ; preds = %cff_index_get_string.exit.thread, %.loopexit.loopexit.split.loop.exit51, %.preheader, %20, %18, %15, %10
+  %.1 = phi i32 [ %19, %18 ], [ 0, %15 ], [ 0, %10 ], [ 0, %20 ], [ 0, %.preheader ], [ %51, %.loopexit.loopexit.split.loop.exit51 ], [ 0, %cff_index_get_string.exit.thread ]
   ret i32 %.1
 }
 
@@ -4792,8 +4792,8 @@ define internal i32 @cff_blend_build_vector(ptr noundef captures(none) %0, i32 n
   br label %.loopexit
 
 .sink.split:                                      ; preds = %88, %92
-  %.sink143 = phi i64 [ %95, %92 ], [ %91, %88 ]
-  %98 = trunc i64 %.sink143 to i32
+  %.sink150 = phi i64 [ %95, %92 ], [ %91, %88 ]
+  %98 = trunc i64 %.sink150 to i32
   %99 = load ptr, ptr %31, align 8, !tbaa !482
   %100 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv121
   store i32 %98, ptr %100, align 4, !tbaa !59
@@ -4874,11 +4874,11 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = icmp ult ptr %1, %2
-  br i1 %13, label %.lr.ph250, label %.loopexit201
+  br i1 %13, label %.lr.ph258, label %.loopexit201
 
-.lr.ph250:                                        ; preds = %3, %.thread194
-  %.0136248 = phi ptr [ %132, %.thread194 ], [ %1, %3 ]
-  %14 = load i8, ptr %.0136248, align 1, !tbaa !167
+.lr.ph258:                                        ; preds = %3, %.thread194
+  %.0136256 = phi ptr [ %132, %.thread194 ], [ %1, %3 ]
+  %14 = load i8, ptr %.0136256, align 1, !tbaa !167
   %15 = zext i8 %14 to i32
   %16 = icmp ne i8 %14, 31
   %17 = add i8 %14, -27
@@ -4895,13 +4895,13 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   %.not174 = icmp ugt i32 %26, %25
   br i1 %or.cond4, label %27, label %42
 
-27:                                               ; preds = %.lr.ph250
+27:                                               ; preds = %.lr.ph258
   br i1 %.not174, label %28, label %.loopexit201
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %29, ptr %6, align 8, !tbaa !462
-  store ptr %.0136248, ptr %19, align 8, !tbaa !163
+  store ptr %.0136256, ptr %19, align 8, !tbaa !163
   switch i8 %14, label %40 [
     i8 30, label %.preheader
     i8 28, label %36
@@ -4909,7 +4909,7 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   ]
 
 .preheader:                                       ; preds = %28, %30
-  %.0136.pn = phi ptr [ %.2138, %30 ], [ %.0136248, %28 ]
+  %.0136.pn = phi ptr [ %.2138, %30 ], [ %.0136256, %28 ]
   %.2138 = getelementptr inbounds nuw i8, ptr %.0136.pn, i64 1
   %.not175 = icmp ult ptr %.2138, %2
   br i1 %.not175, label %30, label %.loopexit201
@@ -4925,29 +4925,29 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   br i1 %or.cond, label %.thread194, label %.preheader
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds nuw i8, ptr %.0136248, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.0136256, i64 2
   br label %.thread194
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds nuw i8, ptr %.0136248, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.0136256, i64 4
   br label %.thread194
 
 40:                                               ; preds = %28
   %41 = icmp ugt i8 %14, -10
   %spec.select.idx = zext i1 %41 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %.0136248, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.0136256, i64 %spec.select.idx
   br label %.thread194
 
-42:                                               ; preds = %.lr.ph250
+42:                                               ; preds = %.lr.ph258
   br i1 %.not174, label %43, label %.loopexit201
 
 43:                                               ; preds = %42
-  store ptr %.0136248, ptr %19, align 8, !tbaa !163
+  store ptr %.0136256, ptr %19, align 8, !tbaa !163
   %44 = icmp eq i8 %14, 12
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %.0136248, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0136256, i64 1
   %.not167 = icmp ult ptr %46, %2
   br i1 %.not167, label %47, label %.loopexit201
 
@@ -4959,17 +4959,17 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
 
 51:                                               ; preds = %47, %43
   %.0149 = phi i32 [ %50, %47 ], [ %15, %43 ]
-  %.5 = phi ptr [ %46, %47 ], [ %.0136248, %43 ]
+  %.5 = phi ptr [ %46, %47 ], [ %.0136256, %43 ]
   %52 = load i32, ptr %11, align 4, !tbaa !454
   %53 = or i32 %52, %.0149
   %54 = icmp eq i32 %53, 4096
-  br i1 %54, label %._crit_edge, label %.lr.ph246
+  br i1 %54, label %._crit_edge, label %.lr.ph254
 
-55:                                               ; preds = %.lr.ph246
-  %56 = getelementptr inbounds nuw i8, ptr %.0144205245, i64 36
+55:                                               ; preds = %.lr.ph254
+  %56 = getelementptr inbounds nuw i8, ptr %.0144205253, i64 36
   %57 = load i32, ptr %56, align 4, !tbaa !498
   %58 = icmp eq i32 %57, %53
-  br i1 %58, label %._crit_edge, label %.lr.ph246, !llvm.loop !500
+  br i1 %58, label %._crit_edge, label %.lr.ph254, !llvm.loop !500
 
 ._crit_edge:                                      ; preds = %55, %51
   %.lcssa = phi i32 [ 4, %51 ], [ %130, %55 ]
@@ -5143,9 +5143,9 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   %.not172 = icmp eq i32 %128, 0
   br i1 %.not172, label %.loopexit199, label %.loopexit201
 
-.lr.ph246:                                        ; preds = %51, %55
-  %.0144205245 = phi ptr [ %129, %55 ], [ @cff_field_handlers, %51 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.0144205245, i64 32
+.lr.ph254:                                        ; preds = %51, %55
+  %.0144205253 = phi ptr [ %129, %55 ], [ @cff_field_handlers, %51 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.0144205253, i64 32
   %130 = load i32, ptr %129, align 8, !tbaa !508
   %.not168 = icmp eq i32 %130, 0
   br i1 %.not168, label %.thread185, label %55, !llvm.loop !500
@@ -5154,7 +5154,7 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   %.not173 = icmp eq i32 %.lcssa, 9
   br i1 %.not173, label %.thread194, label %.thread185
 
-.thread185:                                       ; preds = %.lr.ph246, %117, %108, %.thread, %83, %81, %79, %77, %.loopexit199
+.thread185:                                       ; preds = %.lr.ph254, %117, %108, %.thread, %83, %81, %79, %77, %.loopexit199
   %131 = load ptr, ptr %4, align 8, !tbaa !460
   store ptr %131, ptr %6, align 8, !tbaa !462
   br label %.thread194
@@ -5163,7 +5163,7 @@ define internal fastcc i32 @cff_parser_run(ptr noundef nonnull initializes((8, 3
   %.3 = phi ptr [ %37, %36 ], [ %39, %38 ], [ %spec.select, %40 ], [ %.5, %.thread185 ], [ %.5, %.loopexit199 ], [ %.2138, %30 ]
   %132 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %133 = icmp ult ptr %132, %2
-  br i1 %133, label %.lr.ph250, label %.loopexit201
+  br i1 %133, label %.lr.ph258, label %.loopexit201
 
 .loopexit201:                                     ; preds = %.thread194, %27, %64, %45, %42, %125, %.preheader, %3
   %.0134 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %128, %125 ], [ 6, %42 ], [ 6, %45 ], [ 6, %64 ], [ 6, %27 ], [ 0, %.thread194 ]
@@ -5545,19 +5545,19 @@ cff_parse_fixed_dynamic.exit:                     ; preds = %23, %98, %104, %cff
   %125 = or i64 %122, -9223372036854775808
   %126 = icmp samesign ult i64 %125, %115
   %127 = sub nsw i64 %115, %122
-  %spec.select101 = select i1 %126, i64 %127, i64 -9223372036854775808
+  %spec.select102 = select i1 %126, i64 %127, i64 -9223372036854775808
   br label %.sink.split
 
 128:                                              ; preds = %116
   %129 = sub nsw i64 9223372036854775807, %122
   %130 = icmp samesign ugt i64 %129, %115
   %131 = add nsw i64 %122, %115
-  %spec.select102 = select i1 %130, i64 %131, i64 9223372036854775807
+  %spec.select103 = select i1 %130, i64 %131, i64 9223372036854775807
   br label %.sink.split
 
 .sink.split:                                      ; preds = %128, %124
-  %.sink100 = phi i64 [ %spec.select101, %124 ], [ %spec.select102, %128 ]
-  %132 = sdiv i64 %.sink100, %121
+  %.sink101 = phi i64 [ %spec.select102, %124 ], [ %spec.select103, %128 ]
+  %132 = sdiv i64 %.sink101, %121
   store i64 %132, ptr %114, align 8, !tbaa !133
   br label %133
 
@@ -6256,44 +6256,44 @@ declare hidden zeroext i8 @FT_Matrix_Check(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i64 noundef range(i64 0, 4) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.preheader307, label %5
+  br i1 %.not, label %.preheader320, label %5
 
 5:                                                ; preds = %4
   store i64 0, ptr %3, align 8, !tbaa !133
-  br label %.preheader307
+  br label %.preheader320
 
-.preheader307:                                    ; preds = %5, %4
+.preheader320:                                    ; preds = %5, %4
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %27, %.preheader307
-  %.0168.ph.ph = phi i32 [ %17, %27 ], [ 4, %.preheader307 ]
-  %.0159.ph.ph = phi i64 [ %31, %27 ], [ 0, %.preheader307 ]
-  %.0152.ph.ph = phi i32 [ %.0152.ph311, %27 ], [ 0, %.preheader307 ]
-  %.0143.ph.ph = phi i64 [ %.0143, %27 ], [ 0, %.preheader307 ]
-  %.0141.ph.ph = phi i64 [ %28, %27 ], [ 0, %.preheader307 ]
-  %.0.ph.ph = phi ptr [ %.1, %27 ], [ %0, %.preheader307 ]
+.outer.outer:                                     ; preds = %27, %.preheader320
+  %.0168.ph.ph = phi i32 [ %17, %27 ], [ 4, %.preheader320 ]
+  %.0159.ph.ph = phi i64 [ %31, %27 ], [ 0, %.preheader320 ]
+  %.0152.ph.ph = phi i32 [ %.0152.ph324, %27 ], [ 0, %.preheader320 ]
+  %.0143.ph.ph = phi i64 [ %.0143, %27 ], [ 0, %.preheader320 ]
+  %.0141.ph.ph = phi i64 [ %28, %27 ], [ 0, %.preheader320 ]
+  %.0.ph.ph = phi ptr [ %.1, %27 ], [ %0, %.preheader320 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %24
   %.0168.ph = phi i32 [ %17, %24 ], [ %.0168.ph.ph, %.outer.outer ]
   %.0159.ph = phi i64 [ 0, %24 ], [ %.0159.ph.ph, %.outer.outer ]
-  %.0152.ph = phi i32 [ %.0152.ph311, %24 ], [ %.0152.ph.ph, %.outer.outer ]
+  %.0152.ph = phi i32 [ %.0152.ph324, %24 ], [ %.0152.ph.ph, %.outer.outer ]
   %.0143.ph = phi i64 [ %.0143, %24 ], [ %.0143.ph.ph, %.outer.outer ]
   %.0.ph = phi ptr [ %.1, %24 ], [ %.0.ph.ph, %.outer.outer ]
   %6 = icmp sgt i64 %.0159.ph, 214748363
-  br label %.outer309
+  br label %.outer322
 
-.outer309:                                        ; preds = %12, %.outer
-  %.0168.ph310 = phi i32 [ %.0168.ph, %.outer ], [ %17, %12 ]
-  %.0152.ph311 = phi i32 [ %.0152.ph, %.outer ], [ 1, %12 ]
-  %.0143.ph312 = phi i64 [ %.0143.ph, %.outer ], [ %.0143, %12 ]
-  %.0.ph314 = phi ptr [ %.0.ph, %.outer ], [ %.1, %12 ]
+.outer322:                                        ; preds = %12, %.outer
+  %.0168.ph323 = phi i32 [ %.0168.ph, %.outer ], [ %17, %12 ]
+  %.0152.ph324 = phi i32 [ %.0152.ph, %.outer ], [ 1, %12 ]
+  %.0143.ph325 = phi i64 [ %.0143.ph, %.outer ], [ %.0143, %12 ]
+  %.0.ph327 = phi ptr [ %.0.ph, %.outer ], [ %.1, %12 ]
   br label %7
 
-7:                                                ; preds = %.outer309, %22
-  %.0168 = phi i32 [ %17, %22 ], [ %.0168.ph310, %.outer309 ]
-  %.0143 = phi i64 [ %23, %22 ], [ %.0143.ph312, %.outer309 ]
-  %.0 = phi ptr [ %.1, %22 ], [ %.0.ph314, %.outer309 ]
+7:                                                ; preds = %.outer322, %22
+  %.0168 = phi i32 [ %17, %22 ], [ %.0168.ph323, %.outer322 ]
+  %.0143 = phi i64 [ %23, %22 ], [ %.0143.ph325, %.outer322 ]
+  %.0 = phi ptr [ %.1, %22 ], [ %.0.ph327, %.outer322 ]
   %.not193 = icmp eq i32 %.0168, 0
   br i1 %.not193, label %12, label %8
 
@@ -6313,7 +6313,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
   %16 = and i32 %15, 15
   %17 = sub nuw nsw i32 4, %.0168
   %18 = icmp eq i32 %16, 14
-  br i1 %18, label %.outer309, label %19
+  br i1 %18, label %.outer322, label %19
 
 19:                                               ; preds = %12
   %20 = icmp samesign ugt i32 %16, 9
@@ -6621,7 +6621,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly captures(address
 
 .loopexit:                                        ; preds = %8, %38, %63, %.thread, %155, %82, %130, %121, %127, %91, %113, %153, %148, %79, %163
   %.0166 = phi i64 [ 0, %163 ], [ %92, %91 ], [ %114, %113 ], [ %125, %121 ], [ %128, %127 ], [ 0, %148 ], [ %154, %153 ], [ 0, %79 ], [ 2147483647, %130 ], [ 2147483647, %82 ], [ %spec.select210, %155 ], [ 0, %.thread ], [ 0, %63 ], [ 0, %38 ], [ 0, %8 ]
-  %.not204 = icmp eq i32 %.0152.ph311, 0
+  %.not204 = icmp eq i32 %.0152.ph324, 0
   %162 = sub nsw i64 0, %.0166
   %spec.select209 = select i1 %.not204, i64 %.0166, i64 %162
   ret i64 %spec.select209
@@ -7623,8 +7623,8 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %109 = load i32, ptr %108, align 4, !tbaa !559
   %.not184 = icmp ult i32 %106, %109
-  %or.cond233 = select i1 %107, i1 true, i1 %.not184
-  br i1 %or.cond233, label %._crit_edge229, label %110
+  %or.cond239 = select i1 %107, i1 true, i1 %.not184
+  br i1 %or.cond239, label %._crit_edge229, label %110
 
 110:                                              ; preds = %105
   store i32 6, ptr %8, align 4, !tbaa !59
@@ -8443,7 +8443,7 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
   %105 = call ptr @ft_mem_alloc(ptr noundef %9, i64 noundef %97, ptr noundef nonnull %6) #19
   %106 = load i32, ptr %6, align 4, !tbaa !59
   %.not90 = icmp eq i32 %106, 0
-  br i1 %.not90, label %.thread114, label %159
+  br i1 %.not90, label %.thread124, label %159
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8453,15 +8453,15 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
   %.not91104 = icmp eq i32 %110, 0
   br i1 %.not91104, label %._crit_edge, label %.lr.ph.split.us
 
-.thread114:                                       ; preds = %104
+.thread124:                                       ; preds = %104
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %112 = load ptr, ptr %111, align 8, !tbaa !192
   store ptr %105, ptr %101, align 8, !tbaa !163
   %113 = load i32, ptr %94, align 4, !tbaa !518
-  %.not91104117 = icmp eq i32 %113, 0
-  br i1 %.not91104117, label %._crit_edge.thread, label %.lr.ph.split
+  %.not91104127 = icmp eq i32 %113, 0
+  br i1 %.not91104127, label %._crit_edge.thread, label %.lr.ph.split
 
-._crit_edge.thread:                               ; preds = %.thread114
+._crit_edge.thread:                               ; preds = %.thread124
   store ptr %101, ptr %1, align 8, !tbaa !573
   br label %156
 
@@ -8493,19 +8493,19 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
   %exitcond.not = icmp eq i64 %.078105.us, %115
   br i1 %exitcond.not, label %._crit_edge, label %116, !llvm.loop !578
 
-.lr.ph.split:                                     ; preds = %.thread114, %152
-  %127 = phi i32 [ %153, %152 ], [ %113, %.thread114 ]
-  %.076107 = phi i64 [ %.1, %152 ], [ 0, %.thread114 ]
-  %.077106 = phi i64 [ %.0125, %152 ], [ 0, %.thread114 ]
-  %.078105 = phi i64 [ %154, %152 ], [ 1, %.thread114 ]
+.lr.ph.split:                                     ; preds = %.thread124, %152
+  %127 = phi i32 [ %153, %152 ], [ %113, %.thread124 ]
+  %.076107 = phi i64 [ %.1, %152 ], [ 0, %.thread124 ]
+  %.077106 = phi i64 [ %.0135, %152 ], [ 0, %.thread124 ]
+  %.078105 = phi i64 [ %154, %152 ], [ 1, %.thread124 ]
   %128 = load ptr, ptr %10, align 8, !tbaa !193
   %129 = getelementptr inbounds nuw i64, ptr %128, i64 %.078105
   %130 = load i64, ptr %129, align 8, !tbaa !133
   %131 = add i64 %130, -1
   %132 = icmp ult i64 %131, %.077106
-  br i1 %132, label %.thread122, label %136
+  br i1 %132, label %.thread132, label %136
 
-.thread122:                                       ; preds = %.lr.ph.split
+.thread132:                                       ; preds = %.lr.ph.split
   %133 = getelementptr inbounds nuw i8, ptr %105, i64 %.077106
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 %.076107
   %135 = getelementptr inbounds nuw ptr, ptr %101, i64 %.078105
@@ -8539,27 +8539,27 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
   %.pre = load i32, ptr %94, align 4, !tbaa !518
   br label %152
 
-152:                                              ; preds = %.thread122, %136, %141
-  %.0125 = phi i64 [ %spec.select, %141 ], [ %spec.select, %136 ], [ %.077106, %.thread122 ]
-  %153 = phi i32 [ %.pre, %141 ], [ %127, %136 ], [ %127, %.thread122 ]
-  %.1 = phi i64 [ %151, %141 ], [ %.076107, %136 ], [ %.076107, %.thread122 ]
+152:                                              ; preds = %.thread132, %136, %141
+  %.0135 = phi i64 [ %spec.select, %141 ], [ %spec.select, %136 ], [ %.077106, %.thread132 ]
+  %153 = phi i32 [ %.pre, %141 ], [ %127, %136 ], [ %127, %.thread132 ]
+  %.1 = phi i64 [ %151, %141 ], [ %.076107, %136 ], [ %.076107, %.thread132 ]
   %154 = add nuw nsw i64 %.078105, 1
   %155 = zext i32 %153 to i64
   %.not91.not = icmp samesign ult i64 %.078105, %155
   br i1 %.not91.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !578
 
 ._crit_edge:                                      ; preds = %152, %123, %107
-  %.180119 = phi ptr [ null, %107 ], [ null, %123 ], [ %105, %152 ]
+  %.180129 = phi ptr [ null, %107 ], [ null, %123 ], [ %105, %152 ]
   store ptr %101, ptr %1, align 8, !tbaa !573
   br i1 %.not89, label %157, label %156
 
 156:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.180119127 = phi ptr [ %105, %._crit_edge.thread ], [ %.180119, %._crit_edge ]
-  store ptr %.180119127, ptr %2, align 8, !tbaa !163
+  %.180129137 = phi ptr [ %105, %._crit_edge.thread ], [ %.180129, %._crit_edge ]
+  store ptr %.180129137, ptr %2, align 8, !tbaa !163
   br label %157
 
 157:                                              ; preds = %156, %._crit_edge
-  %.180119128 = phi ptr [ %.180119127, %156 ], [ %.180119, %._crit_edge ]
+  %.180129138 = phi ptr [ %.180129137, %156 ], [ %.180129, %._crit_edge ]
   %.not92 = icmp eq ptr %3, null
   br i1 %.not92, label %159, label %158
 
@@ -8568,7 +8568,7 @@ cff_index_load_offsets.exit:                      ; preds = %15, %24, %32, %.loo
   br label %159
 
 159:                                              ; preds = %157, %158, %104
-  %.079 = phi ptr [ %105, %104 ], [ %.180119128, %158 ], [ %.180119128, %157 ]
+  %.079 = phi ptr [ %105, %104 ], [ %.180129138, %158 ], [ %.180129138, %157 ]
   %160 = load i32, ptr %6, align 4, !tbaa !59
   %161 = icmp ne i32 %160, 0
   %162 = icmp ne ptr %.079, null
@@ -9386,7 +9386,7 @@ define internal fastcc i32 @cff_charset_load(ptr noundef captures(none) initiali
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %68, align 8, !tbaa !596
   %69 = trunc nuw nsw i64 %4 to i32
-  switch i32 %69, label %default.unreachable [
+  switch i32 %69, label %default.unreachable134 [
     i32 0, label %70
     i32 1, label %79
     i32 2, label %88
@@ -9446,7 +9446,7 @@ define internal fastcc i32 @cff_charset_load(ptr noundef captures(none) initiali
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %92, ptr noundef nonnull align 16 dereferenceable(1) @cff_expertsubset_charset, i64 %96, i1 false)
   br label %.loopexit110
 
-default.unreachable:                              ; preds = %67
+default.unreachable134:                           ; preds = %67
   unreachable
 
 .loopexit110:                                     ; preds = %.loopexit, %36, %._crit_edge, %77, %86, %95
@@ -9911,8 +9911,8 @@ cff_charset_compute_cids.exit:                    ; preds = %115, %._crit_edge33
   %.not128 = icmp eq i16 %148, 0
   %149 = zext i16 %148 to i32
   %.not.i149 = icmp ult i32 %142, %149
-  %or.cond211 = or i1 %.not128, %.not.i149
-  br i1 %or.cond211, label %cff_charset_cid_to_gindex.exit.thread, label %cff_charset_cid_to_gindex.exit
+  %or.cond229 = or i1 %.not128, %.not.i149
+  br i1 %or.cond229, label %cff_charset_cid_to_gindex.exit.thread, label %cff_charset_cid_to_gindex.exit
 
 cff_charset_cid_to_gindex.exit:                   ; preds = %146
   %150 = load ptr, ptr %144, align 8, !tbaa !197

@@ -485,8 +485,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 134:                                              ; preds = %134, %.lr.ph186.split.us.i
   %indvars.iv199.i = phi i64 [ %indvars.iv.next200.i, %134 ], [ 0, %.lr.ph186.split.us.i ]
   %.0139185.us.i = phi float [ %146, %134 ], [ 0.000000e+00, %.lr.ph186.split.us.i ]
-  %.idx208.i = shl nuw nsw i64 %indvars.iv199.i, 3
-  %135 = getelementptr inbounds nuw i8, ptr %.pre205.i, i64 %.idx208.i
+  %.idx217.i = shl nuw nsw i64 %indvars.iv199.i, 3
+  %135 = getelementptr inbounds nuw i8, ptr %.pre205.i, i64 %.idx217.i
   %136 = load float, ptr %135, align 4, !tbaa !68
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %138 = load float, ptr %137, align 4, !tbaa !68

@@ -1361,21 +1361,21 @@ define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_126ExternalTableReaderAdapt
   br label %_ZN7rocksdb12_GLOBAL__N_121ExternalTableIteratorC2EPNS_8IteratorE.exit
 
 _ZN7rocksdb12_GLOBAL__N_121ExternalTableIteratorC2EPNS_8IteratorE.exit: ; preds = %16, %21
-  %.sink21 = phi ptr [ %25, %21 ], [ %17, %16 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121ExternalTableIteratorE, i64 16), ptr %.sink21, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw i8, ptr %.sink21, i64 40
+  %.sink22 = phi ptr [ %25, %21 ], [ %17, %16 ]
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121ExternalTableIteratorE, i64 16), ptr %.sink22, align 8, !tbaa !24
+  %27 = getelementptr inbounds nuw i8, ptr %.sink22, i64 40
   store ptr %14, ptr %27, align 8, !tbaa !162
-  %28 = getelementptr inbounds nuw i8, ptr %.sink21, i64 48
-  %29 = getelementptr inbounds nuw i8, ptr %.sink21, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %.sink22, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.sink22, i64 64
   store ptr %29, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw i8, ptr %.sink21, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.sink22, i64 56
   store i64 0, ptr %30, align 8, !tbaa !16
   store i8 0, ptr %29, align 8, !tbaa !17
-  %31 = getelementptr inbounds nuw i8, ptr %.sink21, i64 80
-  %32 = getelementptr inbounds nuw i8, ptr %.sink21, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %.sink22, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %.sink22, i64 88
   store ptr null, ptr %32, align 8, !tbaa !142
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 6, i1 false)
-  ret ptr %.sink21
+  ret ptr %.sink22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

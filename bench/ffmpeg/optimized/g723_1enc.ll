@@ -3150,10 +3150,11 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   br i1 %exitcond261.not, label %.preheader207, label %.split, !llvm.loop !129
 
 .preheader206:                                    ; preds = %.preheader207, %220
-  %indvars.iv266 = phi i64 [ 0, %.preheader207 ], [ %indvars.iv.next267, %220 ]
+  %exitcond317.not = phi i1 [ false, %.preheader207 ], [ true, %220 ]
+  %indvars.iv266 = phi i64 [ 0, %.preheader207 ], [ 1, %220 ]
   %86 = phi i32 [ undef, %.preheader207 ], [ %spec.select, %220 ]
   %.promoted236244246 = phi i32 [ %.promoted, %.preheader207 ], [ %.promoted236242, %220 ]
-  %indvars316 = trunc i64 %indvars.iv266 to i32
+  %indvars316 = trunc nuw nsw i64 %indvars.iv266 to i32
   br label %88
 
 .preheader205:                                    ; preds = %88
@@ -3427,8 +3428,6 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   br i1 %exitcond315.not, label %220, label %.lr.ph.preheader, !llvm.loop !140
 
 220:                                              ; preds = %.loopexit
-  %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %exitcond317.not = icmp eq i64 %indvars.iv.next267, 2
   br i1 %exitcond317.not, label %221, label %.preheader206, !llvm.loop !141
 
 221:                                              ; preds = %220

@@ -200,9 +200,9 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   br label %.thread
 
 57:                                               ; preds = %46
-  br i1 %.not.i91, label %.thread107, label %58
+  br i1 %.not.i91, label %.thread138, label %58
 
-.thread107:                                       ; preds = %57
+.thread138:                                       ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %ResetUnloggedRelationsInDbspaceDir.exit
 
@@ -793,7 +793,7 @@ parse_filename_for_nontemp_relation.exit:         ; preds = %284
   call void @fsync_fname(ptr noundef nonnull %18, i1 noundef zeroext true) #9
   br label %ResetUnloggedRelationsInDbspaceDir.exit
 
-ResetUnloggedRelationsInDbspaceDir.exit:          ; preds = %.thread107, %.thread.i, %._crit_edge67.i, %._crit_edge75.i
+ResetUnloggedRelationsInDbspaceDir.exit:          ; preds = %.thread138, %.thread.i, %._crit_edge67.i, %._crit_edge75.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge
 

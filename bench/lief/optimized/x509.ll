@@ -1316,12 +1316,12 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr noundef %0, i64 noundef %1, ptr noun
   br label %161
 
 161:                                              ; preds = %141, %146
-  %.sink237 = phi i64 [ %155, %146 ], [ %.4, %141 ]
+  %.sink256 = phi i64 [ %155, %146 ], [ %.4, %141 ]
   %.sink = phi i8 [ %160, %146 ], [ %122, %141 ]
-  %162 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %.sink237
+  %162 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %.sink256
   store i8 %.sink, ptr %162, align 1, !tbaa !8
   %163 = add nuw i64 %.2129192, 1
-  %164 = add nuw nsw i64 %.sink237, 1
+  %164 = add nuw nsw i64 %.sink256, 1
   %165 = load i64, ptr %57, align 8, !tbaa !33
   %166 = icmp ult i64 %163, %165
   br i1 %166, label %116, label %.loopexit, !llvm.loop !37
@@ -1532,18 +1532,18 @@ switch.lookup:                                    ; preds = %21
 md_type_to_string.exit:                           ; preds = %21, %switch.lookup
   %.not46 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.14, %21 ]
   %25 = load i32, ptr %5, align 4, !tbaa !39
-  %switch.tableidx52 = add i32 %25, -3
-  %26 = icmp ult i32 %switch.tableidx52, 9
-  br i1 %26, label %switch.lookup51, label %md_type_to_string.exit50
+  %switch.tableidx57 = add i32 %25, -3
+  %26 = icmp ult i32 %switch.tableidx57, 9
+  br i1 %26, label %switch.lookup56, label %md_type_to_string.exit50
 
-switch.lookup51:                                  ; preds = %md_type_to_string.exit
-  %27 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep53 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.3, i64 0, i64 %27
-  %switch.load54 = load ptr, ptr %switch.gep53, align 8
+switch.lookup56:                                  ; preds = %md_type_to_string.exit
+  %27 = zext nneg i32 %switch.tableidx57 to i64
+  %switch.gep58 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.mbedtls_x509_sig_alg_gets.3, i64 0, i64 %27
+  %switch.load59 = load ptr, ptr %switch.gep58, align 8
   br label %md_type_to_string.exit50
 
-md_type_to_string.exit50:                         ; preds = %md_type_to_string.exit, %switch.lookup51
-  %.not47 = phi ptr [ %switch.load54, %switch.lookup51 ], [ @.str.14, %md_type_to_string.exit ]
+md_type_to_string.exit50:                         ; preds = %md_type_to_string.exit, %switch.lookup56
+  %.not47 = phi ptr [ %switch.load59, %switch.lookup56 ], [ @.str.14, %md_type_to_string.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !41
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %19, ptr noundef nonnull @.str.15, ptr noundef nonnull %.not46, ptr noundef nonnull %.not47, i32 noundef %29) #13

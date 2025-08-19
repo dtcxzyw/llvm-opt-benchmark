@@ -996,14 +996,14 @@ define internal void @_ZN6icu_7712_GLOBAL__N_120PluralRangesDataSink3putEPKcRNS_
 
 30:                                               ; preds = %22
   %31 = icmp sgt i32 %26, 0
-  br i1 %31, label %32, label %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit.thread57
+  br i1 %31, label %32, label %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit.thread59
 
 32:                                               ; preds = %30
   %33 = zext nneg i32 %26 to i64
   %34 = mul nuw nsw i64 %33, 12
   %35 = call noalias ptr @uprv_malloc_77(i64 noundef %34) #15
   %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit.thread57, label %36
+  br i1 %.not.i.i, label %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit.thread59, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 12
@@ -1016,7 +1016,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_120PluralRangesDataSink3putEPKcRNS_
   call void @uprv_free_77(ptr noundef %40)
   br label %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit
 
-_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit.thread57: ; preds = %30, %32
+_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit.thread59: ; preds = %30, %32
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %.loopexit
 
@@ -1230,7 +1230,7 @@ _ZN6icu_7714StandardPlural10fromStringERKNS_13UnicodeStringER10UErrorCode.exit54
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %101, %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit.thread57, %.preheader, %.critedge, %.critedge50, %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit, %5
+.loopexit:                                        ; preds = %101, %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit.thread59, %.preheader, %.critedge, %.critedge50, %_ZN6icu_7720StandardPluralRanges11setCapacityEiR10UErrorCode.exit, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }

@@ -941,12 +941,12 @@ addresses_equal.exit:                             ; preds = %102, %94, %86
   br label %109
 
 109:                                              ; preds = %100, %102, %addresses_equal.exit
-  %.sink20 = phi i64 [ 72, %addresses_equal.exit ], [ 16, %102 ], [ 16, %100 ]
+  %.sink21 = phi i64 [ 72, %addresses_equal.exit ], [ 16, %102 ], [ 16, %100 ]
   %110 = load ptr, ptr @p_t38_conv, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.sink20
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.sink21
   store ptr %111, ptr @p_t38_conv_info, align 8
   %112 = load ptr, ptr @p_t38_packet_conv, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %.sink20
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %.sink21
   store ptr %113, ptr @p_t38_packet_conv_info, align 8
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load i32, ptr %114, align 8
@@ -1442,8 +1442,8 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph14.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %76, %.preheader1.i
-  %.082.lcssa33.i = phi i32 [ 0, %.preheader1.i ], [ %.1.i, %76 ]
-  %.083.lcssa32.i = phi i32 [ 0, %.preheader1.i ], [ %65, %76 ]
+  %.082.lcssa38.i = phi i32 [ 0, %.preheader1.i ], [ %.1.i, %76 ]
+  %.083.lcssa37.i = phi i32 [ 0, %.preheader1.i ], [ %65, %76 ]
   %.085.lcssa.i = phi i32 [ 0, %.preheader1.i ], [ %.186.i, %76 ]
   %77 = zext i32 %.085.lcssa.i to i64
   %78 = tail call noalias ptr @g_malloc(i64 noundef %77) #12
@@ -1572,12 +1572,12 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   store i32 %135, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %138 = load ptr, ptr %137, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %138, i32 noundef 25, ptr noundef nonnull @.str.170, i32 noundef %.083.lcssa32.i, i32 noundef %.082.lcssa33.i)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %138, i32 noundef 25, ptr noundef nonnull @.str.170, i32 noundef %.083.lcssa37.i, i32 noundef %.082.lcssa38.i)
   %139 = load ptr, ptr @p_t38_packet_conv_info, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 20
-  store i32 %.083.lcssa32.i, ptr %140, align 4
+  store i32 %.083.lcssa37.i, ptr %140, align 4
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  store i32 %.082.lcssa33.i, ptr %141, align 8
+  store i32 %.082.lcssa38.i, ptr %141, align 8
   br label %force_reassemble_seq.exit
 
 142:                                              ; preds = %50

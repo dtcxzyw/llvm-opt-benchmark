@@ -911,16 +911,16 @@ ftype_pretty_name.exit:                           ; preds = %switch.lookup, %29
   %36 = phi ptr [ %.pre29, %._crit_edge ], [ %.pre30, %24 ]
   %37 = load i32, ptr %36, align 8
   %38 = icmp ult i32 %37, 48
-  br i1 %38, label %switch.lookup31, label %ftype_pretty_name.exit28
+  br i1 %38, label %switch.lookup36, label %ftype_pretty_name.exit28
 
-switch.lookup31:                                  ; preds = %35
+switch.lookup36:                                  ; preds = %35
   %39 = zext nneg i32 %37 to i64
-  %switch.gep32 = getelementptr inbounds nuw [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %39
-  %switch.load33 = load ptr, ptr %switch.gep32, align 8
+  %switch.gep37 = getelementptr inbounds nuw [48 x ptr], ptr @switch.table.fvalue_from_floating, i64 0, i64 %39
+  %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %ftype_pretty_name.exit28
 
-ftype_pretty_name.exit28:                         ; preds = %switch.lookup31, %35
-  %.0.i27 = phi ptr [ @.str.3, %35 ], [ %switch.load33, %switch.lookup31 ]
+ftype_pretty_name.exit28:                         ; preds = %switch.lookup36, %35
+  %.0.i27 = phi ptr [ @.str.3, %35 ], [ %switch.load38, %switch.lookup36 ]
   %40 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.98, i64 noundef %1, ptr noundef nonnull %.0.i27)
   br label %.sink.split
 

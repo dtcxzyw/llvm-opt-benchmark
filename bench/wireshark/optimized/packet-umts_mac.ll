@@ -1084,21 +1084,21 @@ proto_item_set_generated.exit121:                 ; preds = %115, %118, %121
 proto_item_set_generated.exit124:                 ; preds = %127, %134, %137
   %141 = load i8, ptr %130, align 1
   %.not108 = icmp eq i8 %141, -1
-  br i1 %.not108, label %.sink.split131, label %142
+  br i1 %.not108, label %.sink.split150, label %142
 
 142:                                              ; preds = %proto_item_set_generated.exit124
   %143 = getelementptr inbounds nuw i8, ptr %13, i64 256
   %144 = getelementptr [64 x i8], ptr %143, i64 0, i64 %28
   %145 = load i8, ptr %144, align 1, !range !6, !noundef !7
   %146 = trunc nuw i8 %145 to i1
-  br i1 %146, label %.sink.split131, label %148
+  br i1 %146, label %.sink.split150, label %148
 
-.sink.split131:                                   ; preds = %proto_item_set_generated.exit124, %142
-  %ei_mac_faked_logical_channel_id.sink132 = phi ptr [ @ei_mac_faked_logical_channel_id, %142 ], [ @ei_mac_no_logical_channel, %proto_item_set_generated.exit124 ]
-  %147 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %133, ptr noundef nonnull %ei_mac_faked_logical_channel_id.sink132)
+.sink.split150:                                   ; preds = %proto_item_set_generated.exit124, %142
+  %ei_mac_faked_logical_channel_id.sink151 = phi ptr [ @ei_mac_faked_logical_channel_id, %142 ], [ @ei_mac_no_logical_channel, %proto_item_set_generated.exit124 ]
+  %147 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %133, ptr noundef nonnull %ei_mac_faked_logical_channel_id.sink151)
   br label %148
 
-148:                                              ; preds = %.sink.split131, %142
+148:                                              ; preds = %.sink.split150, %142
   %149 = load i32, ptr @hf_mac_channel, align 4
   %150 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %149, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %.not.i125 = icmp eq ptr %150, null
@@ -2242,21 +2242,21 @@ proto_item_set_generated.exit140:                 ; preds = %proto_item_set_gene
 proto_item_set_generated.exit143:                 ; preds = %119, %126, %129
   %133 = load i8, ptr %122, align 1
   %.not133 = icmp eq i8 %133, -1
-  br i1 %.not133, label %.sink.split159, label %134
+  br i1 %.not133, label %.sink.split178, label %134
 
 134:                                              ; preds = %proto_item_set_generated.exit143
   %135 = getelementptr inbounds nuw i8, ptr %16, i64 256
   %136 = getelementptr [64 x i8], ptr %135, i64 0, i64 %27
   %137 = load i8, ptr %136, align 1, !range !6, !noundef !7
   %138 = trunc nuw i8 %137 to i1
-  br i1 %138, label %.sink.split159, label %140
+  br i1 %138, label %.sink.split178, label %140
 
-.sink.split159:                                   ; preds = %proto_item_set_generated.exit143, %134
-  %ei_mac_faked_logical_channel_id.sink160 = phi ptr [ @ei_mac_faked_logical_channel_id, %134 ], [ @ei_mac_no_logical_channel, %proto_item_set_generated.exit143 ]
-  %139 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %125, ptr noundef nonnull %ei_mac_faked_logical_channel_id.sink160)
+.sink.split178:                                   ; preds = %proto_item_set_generated.exit143, %134
+  %ei_mac_faked_logical_channel_id.sink179 = phi ptr [ @ei_mac_faked_logical_channel_id, %134 ], [ @ei_mac_no_logical_channel, %proto_item_set_generated.exit143 ]
+  %139 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %125, ptr noundef nonnull %ei_mac_faked_logical_channel_id.sink179)
   br label %140
 
-140:                                              ; preds = %.sink.split159, %134
+140:                                              ; preds = %.sink.split178, %134
   %141 = load i32, ptr @hf_mac_channel, align 4
   %142 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %141, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 3)
   %.not.i144 = icmp eq ptr %142, null
@@ -2330,21 +2330,21 @@ proto_item_set_generated.exit149:                 ; preds = %proto_item_set_gene
 proto_item_set_generated.exit152:                 ; preds = %165, %172, %175
   %179 = load i8, ptr %168, align 1
   %.not132 = icmp eq i8 %179, -1
-  br i1 %.not132, label %.sink.split161, label %180
+  br i1 %.not132, label %.sink.split180, label %180
 
 180:                                              ; preds = %proto_item_set_generated.exit152
   %181 = getelementptr inbounds nuw i8, ptr %16, i64 256
   %182 = getelementptr [64 x i8], ptr %181, i64 0, i64 %27
   %183 = load i8, ptr %182, align 1, !range !6, !noundef !7
   %184 = trunc nuw i8 %183 to i1
-  br i1 %184, label %.sink.split161, label %186
+  br i1 %184, label %.sink.split180, label %186
 
-.sink.split161:                                   ; preds = %proto_item_set_generated.exit152, %180
-  %ei_mac_faked_logical_channel_id.sink162 = phi ptr [ @ei_mac_faked_logical_channel_id, %180 ], [ @ei_mac_no_logical_channel, %proto_item_set_generated.exit152 ]
-  %185 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %171, ptr noundef nonnull %ei_mac_faked_logical_channel_id.sink162)
+.sink.split180:                                   ; preds = %proto_item_set_generated.exit152, %180
+  %ei_mac_faked_logical_channel_id.sink181 = phi ptr [ @ei_mac_faked_logical_channel_id, %180 ], [ @ei_mac_no_logical_channel, %proto_item_set_generated.exit152 ]
+  %185 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %171, ptr noundef nonnull %ei_mac_faked_logical_channel_id.sink181)
   br label %186
 
-186:                                              ; preds = %.sink.split161, %180
+186:                                              ; preds = %.sink.split180, %180
   %187 = load i32, ptr @hf_mac_channel, align 4
   %188 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %187, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %.not.i153 = icmp eq ptr %188, null

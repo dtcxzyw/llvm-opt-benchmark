@@ -408,9 +408,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 156:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
   %157 = icmp sgt i64 %155, 0
-  br i1 %157, label %160, label %.thread241
+  br i1 %157, label %160, label %.thread274
 
-.thread241:                                       ; preds = %156
+.thread274:                                       ; preds = %156
   store i64 %146, ptr %149, align 8, !tbaa !4
   store i64 %148, ptr %150, align 8, !tbaa !28
   %.nonneg = sub i64 0, %155
@@ -445,15 +445,15 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %160
   %168 = icmp samesign ugt i64 %155, 3
   br i1 %168, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread241, %.thread, %166
-  %169 = phi i64 [ 0, %.thread ], [ %167, %166 ], [ %159, %.thread241 ], [ %167, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i240 = phi ptr [ null, %.thread ], [ %163, %166 ], [ null, %.thread241 ], [ %163, %.lr.ph.i.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread274, %.thread, %166
+  %169 = phi i64 [ 0, %.thread ], [ %167, %166 ], [ %159, %.thread274 ], [ %167, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i273 = phi ptr [ null, %.thread ], [ %163, %166 ], [ null, %.thread274 ], [ %163, %.lr.ph.i.i.i.i.i.i.i.i ]
   %170 = icmp slt i64 %169, %155
   br i1 %170, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE4evalEv.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %174, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %169, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %171 = getelementptr inbounds i32, ptr %.pre.i.i240, i64 %.05.i.i.i.i.i.i.i.i.i
+  %171 = getelementptr inbounds i32, ptr %.pre.i.i273, i64 %.05.i.i.i.i.i.i.i.i.i
   %172 = getelementptr inbounds i32, ptr %.pre235, i64 %.05.i.i.i.i.i.i.i.i.i
   %173 = load i32, ptr %172, align 4, !tbaa !17
   store i32 %173, ptr %171, align 4, !tbaa !17
@@ -777,21 +777,21 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELi2ELi0ELin1ELi2EEELin1ELi1ELb1EEaSINS0_INS1_Ii
 
 307:                                              ; preds = %304
   %308 = icmp samesign ugt i64 %301, 4611686018427387903
-  br i1 %308, label %.invoke250, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i
+  br i1 %308, label %.invoke283, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %307
   %309 = shl nuw i64 %301, 2
   %310 = call noalias ptr @malloc(i64 noundef %309) #17
   %311 = icmp eq ptr %310, null
-  br i1 %311, label %.invoke250, label %.sink.split.i.i143
+  br i1 %311, label %.invoke283, label %.sink.split.i.i143
 
-.invoke250:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i, %307
+.invoke283:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i, %307
   %312 = call ptr @__cxa_allocate_exception(i64 8) #16
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %312, align 8, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %312, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #18
-          to label %.cont251 unwind label %328
+          to label %.cont284 unwind label %328
 
-.cont251:                                         ; preds = %.invoke250
+.cont284:                                         ; preds = %.invoke283
   unreachable
 
 .sink.split.i.i143:                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i, %304
@@ -849,7 +849,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit14
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %396
 
-328:                                              ; preds = %.invoke250
+328:                                              ; preds = %.invoke283
   %329 = landingpad { ptr, i32 }
           cleanup
   br label %396

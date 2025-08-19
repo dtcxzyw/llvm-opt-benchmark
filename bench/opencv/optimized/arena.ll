@@ -812,7 +812,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_
 36:                                               ; preds = %29
   %37 = and i64 %33, 1
   %.not14 = icmp eq i64 %37, 0
-  br i1 %.not14, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread, label %.thread15
+  br i1 %.not14, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread, label %.thread22
 
 .thread:                                          ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -842,15 +842,15 @@ _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.
   %storemerge = add i64 %.pn, %31
   store i64 %storemerge, ptr %2, align 8, !tbaa !24
   %.not8 = icmp eq ptr %46, null
-  br i1 %.not8, label %.thread15, label %47
+  br i1 %.not8, label %.thread22, label %47
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %46, align 8, !tbaa !58
   %49 = load ptr, ptr %48, align 8
   invoke void %49(ptr noundef nonnull align 8 dereferenceable(9) %46, i64 noundef %storemerge)
-          to label %.thread15 unwind label %.loopexit.split-lp
+          to label %.thread22 unwind label %.loopexit.split-lp
 
-.thread15:                                        ; preds = %36, %47, %45
+.thread22:                                        ; preds = %36, %47, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
@@ -966,11 +966,11 @@ _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit:
 _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load atomic i64, ptr %12 monotonic, align 8
-  %.not6.i36 = icmp eq i64 %13, 0
-  br i1 %.not6.i36, label %"_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_4FreeEPmE3$_0EEvT_.exit", label %.lr.ph.i.thread
+  %.not6.i49 = icmp eq i64 %13, 0
+  br i1 %.not6.i49, label %"_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_4FreeEPmE3$_0EEvT_.exit", label %.lr.ph.i.thread
 
 .lr.ph.i.thread:                                  ; preds = %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread
-  %.0.i.i.i39 = inttoptr i64 %13 to ptr
+  %.0.i.i.i52 = inttoptr i64 %13 to ptr
   br label %.lr.ph.i.split.us.split.us.preheader
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
@@ -979,7 +979,7 @@ _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.
   br i1 %.not.i.i.i, label %.lr.ph.i.split.us.split.us.preheader, label %.lr.ph.i.split.split
 
 .lr.ph.i.split.us.split.us.preheader:             ; preds = %.lr.ph.i, %.lr.ph.i.thread
-  %.07.i.us.us.ph = phi ptr [ %.0.i.i.i39, %.lr.ph.i.thread ], [ %.0.i.i.i, %.lr.ph.i ]
+  %.07.i.us.us.ph = phi ptr [ %.0.i.i.i52, %.lr.ph.i.thread ], [ %.0.i.i.i, %.lr.ph.i ]
   br label %.lr.ph.i.split.us.split.us
 
 .lr.ph.i.split.us.split.us:                       ; preds = %.lr.ph.i.split.us.split.us.preheader, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i.us.us"

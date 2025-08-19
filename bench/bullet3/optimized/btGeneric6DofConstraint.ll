@@ -2339,13 +2339,13 @@ define dso_local void @_ZN23btGeneric6DofConstraint13buildJacobianEv(ptr noundef
   %41 = trunc nuw i8 %40 to i1
   %..v = select i1 %41, i64 1088, i64 1152
   %. = getelementptr inbounds nuw i8, ptr %0, i64 %..v
-  %.50.v = select i1 %41, i64 1104, i64 1168
-  %.50 = getelementptr inbounds nuw i8, ptr %0, i64 %.50.v
-  %.51.v = select i1 %41, i64 1120, i64 1184
-  %.51 = getelementptr inbounds nuw i8, ptr %0, i64 %.51.v
+  %.56.v = select i1 %41, i64 1104, i64 1168
+  %.56 = getelementptr inbounds nuw i8, ptr %0, i64 %.56.v
+  %.57.v = select i1 %41, i64 1120, i64 1184
+  %.57 = getelementptr inbounds nuw i8, ptr %0, i64 %.57.v
   %42 = getelementptr inbounds nuw float, ptr %., i64 %indvars.iv32
-  %43 = getelementptr inbounds nuw float, ptr %.50, i64 %indvars.iv32
-  %44 = getelementptr inbounds nuw float, ptr %.51, i64 %indvars.iv32
+  %43 = getelementptr inbounds nuw float, ptr %.56, i64 %indvars.iv32
+  %44 = getelementptr inbounds nuw float, ptr %.57, i64 %indvars.iv32
   %45 = load float, ptr %42, align 4, !tbaa !10
   %.sroa.0.0.vec.insert.i18 = insertelement <2 x float> poison, float %45, i64 0
   %46 = load float, ptr %43, align 4, !tbaa !10
@@ -2829,9 +2829,9 @@ define dso_local void @_ZN23btGeneric6DofConstraint8getInfo2EPN17btTypedConstrai
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %4, align 8
   store <2 x float> %.sroa.2.0.copyload.i.i, ptr %21, align 8
   %35 = load i32, ptr %22, align 8, !tbaa !46
-  %36 = trunc i64 %indvars.iv.i to i32
-  %37 = mul i32 %36, 3
-  %38 = add i32 %37, 9
+  %36 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %37 = mul nuw nsw i32 %36, 3
+  %38 = add nuw nsw i32 %37, 9
   %39 = ashr i32 %35, %38
   %40 = and i32 %39, 1
   %.not.i = icmp eq i32 %40, 0
@@ -2921,9 +2921,9 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   store <2 x float> %.sroa.0.0.copyload.i.i36, ptr %3, align 8
   store <2 x float> %.sroa.2.0.copyload.i.i38, ptr %71, align 8
   %85 = load i32, ptr %72, align 8, !tbaa !46
-  %86 = trunc i64 %indvars.iv.i30 to i32
-  %87 = mul i32 %86, 3
-  %88 = add i32 %87, 9
+  %86 = trunc nuw nsw i64 %indvars.iv.i30 to i32
+  %87 = mul nuw nsw i32 %86, 3
+  %88 = add nuw nsw i32 %87, 9
   %89 = ashr i32 %85, %88
   %90 = and i32 %89, 1
   %.not.i39 = icmp eq i32 %90, 0
@@ -3392,9 +3392,9 @@ _ZN23btGeneric6DofConstraint21testAngularLimitMotorEi.exit: ; preds = %25, %34, 
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %10, align 8
   store <2 x float> %.sroa.2.0.copyload.i.i, ptr %60, align 8
   %74 = load i32, ptr %61, align 8, !tbaa !46
-  %75 = trunc i64 %indvars.iv.i to i32
-  %76 = mul i32 %75, 3
-  %77 = add i32 %76, 9
+  %75 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %76 = mul nuw nsw i32 %75, 3
+  %77 = add nuw nsw i32 %76, 9
   %78 = ashr i32 %74, %77
   %79 = and i32 %78, 1
   %.not.i = icmp eq i32 %79, 0
@@ -3483,9 +3483,9 @@ _ZN23btGeneric6DofConstraint16setAngularLimitsEPN17btTypedConstraint17btConstrai
   store <2 x float> %.sroa.0.0.copyload.i.i42, ptr %9, align 8
   store <2 x float> %.sroa.2.0.copyload.i.i44, ptr %109, align 8
   %123 = load i32, ptr %110, align 8, !tbaa !46
-  %124 = trunc i64 %indvars.iv.i36 to i32
-  %125 = mul i32 %124, 3
-  %126 = add i32 %125, 9
+  %124 = trunc nuw nsw i64 %indvars.iv.i36 to i32
+  %125 = mul nuw nsw i32 %124, 3
+  %126 = add nuw nsw i32 %125, 9
   %127 = ashr i32 %123, %126
   %128 = and i32 %127, 1
   %.not.i45 = icmp eq i32 %128, 0
@@ -3917,12 +3917,12 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %297 = load float, ptr %296, align 4, !tbaa !28
   %298 = fmul float %295, %297
   %299 = fneg float %298
-  %.sink381 = select i1 %.not189, float %298, float %299
+  %.sink385 = select i1 %.not189, float %298, float %299
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %301 = load float, ptr %300, align 4, !tbaa !34
   %302 = getelementptr inbounds float, ptr %244, i64 %32
   %303 = load float, ptr %302, align 4, !tbaa !10
-  %304 = tail call float @llvm.fmuladd.f32(float %.sink381, float %301, float %303)
+  %304 = tail call float @llvm.fmuladd.f32(float %.sink385, float %301, float %303)
   store float %304, ptr %302, align 4, !tbaa !10
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %306 = load float, ptr %305, align 4, !tbaa !29
@@ -3952,11 +3952,11 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %323 = load ptr, ptr %322, align 8, !tbaa !142
   %324 = getelementptr inbounds float, ptr %323, i64 %32
   %. = select i1 %321, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.409 = select i1 %321, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %.413 = select i1 %321, float 0x47EFFFFFE0000000, float 0.000000e+00
   store float %., ptr %324, align 4, !tbaa !10
   %325 = load ptr, ptr %313, align 8, !tbaa !143
   %326 = getelementptr inbounds float, ptr %325, i64 %32
-  store float %.409, ptr %326, align 4, !tbaa !10
+  store float %.413, ptr %326, align 4, !tbaa !10
   %327 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %328 = load float, ptr %327, align 4, !tbaa !30
   %329 = fcmp ogt float %328, 0.000000e+00
@@ -3966,22 +3966,22 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23btGeneric6DofConstraint21get_
   %331 = load float, ptr %10, align 4, !tbaa !10
   %332 = load float, ptr %34, align 4, !tbaa !10
   %333 = load float, ptr %39, align 4, !tbaa !10
-  %.410 = select i1 %.not189, ptr %4, ptr %6
-  %.411 = select i1 %.not189, ptr %5, ptr %7
-  %334 = load float, ptr %.410, align 4, !tbaa !10
-  %335 = getelementptr inbounds nuw i8, ptr %.410, i64 4
+  %.414 = select i1 %.not189, ptr %4, ptr %6
+  %.415 = select i1 %.not189, ptr %5, ptr %7
+  %334 = load float, ptr %.414, align 4, !tbaa !10
+  %335 = getelementptr inbounds nuw i8, ptr %.414, i64 4
   %336 = load float, ptr %335, align 4, !tbaa !10
   %337 = fmul float %336, %332
   %338 = tail call float @llvm.fmuladd.f32(float %334, float %331, float %337)
-  %339 = getelementptr inbounds nuw i8, ptr %.410, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %.414, i64 8
   %340 = load float, ptr %339, align 4, !tbaa !10
   %341 = tail call noundef float @llvm.fmuladd.f32(float %340, float %333, float %338)
-  %342 = load float, ptr %.411, align 4, !tbaa !10
-  %343 = getelementptr inbounds nuw i8, ptr %.411, i64 4
+  %342 = load float, ptr %.415, align 4, !tbaa !10
+  %343 = getelementptr inbounds nuw i8, ptr %.415, i64 4
   %344 = load float, ptr %343, align 4, !tbaa !10
   %345 = fmul float %332, %344
   %346 = tail call float @llvm.fmuladd.f32(float %342, float %331, float %345)
-  %347 = getelementptr inbounds nuw i8, ptr %.411, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %.415, i64 8
   %348 = load float, ptr %347, align 4, !tbaa !10
   %349 = tail call noundef float @llvm.fmuladd.f32(float %348, float %333, float %346)
   %350 = fsub float %341, %349

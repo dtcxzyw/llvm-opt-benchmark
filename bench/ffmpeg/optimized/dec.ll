@@ -2332,7 +2332,8 @@ define internal void @min_tu_nz_tl_init(ptr noundef writeonly captures(none) ini
 
 54:                                               ; preds = %.preheader, %56
   %indvars.iv88 = phi i64 [ %39, %.preheader ], [ %indvars.iv.next89, %56 ]
-  %indvars.iv86 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next87, %56 ]
+  %exitcond93.not = phi i1 [ false, %.preheader ], [ true, %56 ]
+  %indvars.iv86 = phi i64 [ 1, %.preheader ], [ 2, %56 ]
   %exitcond.not = icmp eq i64 %indvars.iv88, %wide.trip.count
   br i1 %exitcond.not, label %55, label %56
 
@@ -2350,8 +2351,6 @@ define internal void @min_tu_nz_tl_init(ptr noundef writeonly captures(none) ini
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
   %60 = trunc nsw i64 %indvars.iv.next89 to i32
   store i32 %60, ptr %19, align 8, !tbaa !18
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond93.not = icmp eq i64 %indvars.iv.next87, 3
   br i1 %exitcond93.not, label %53, label %54, !llvm.loop !280
 }
 
@@ -2495,8 +2494,8 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   store i32 %81, ptr %56, align 8, !tbaa !18
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 21792
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 21840
-  %factor.op.mul138198 = shl nuw nsw i32 %20, 3
-  %factor.op.mul134.reass.us = mul i32 %factor.op.mul138198, %22
+  %factor.op.mul138199 = shl nuw nsw i32 %20, 3
+  %factor.op.mul134.reass.us = mul i32 %factor.op.mul138199, %22
   %factor.op.mul150 = mul nuw i32 %21, %23
   %84 = zext nneg i32 %factor.op.mul134.reass.us to i64
   br label %.thread126.us
@@ -2511,8 +2510,8 @@ define internal void @pixel_buffer_nz_tl_init(ptr noundef writeonly captures(non
   %87 = shl i32 %factor.op.mul.us.reass, %33
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds nuw [3 x [2 x ptr]], ptr %83, i64 0, i64 %indvars.iv191
-  %sext208 = shl i64 %.promoted136140141.us, 32
-  %90 = ashr exact i64 %sext208, 32
+  %sext209 = shl i64 %.promoted136140141.us, 32
+  %90 = ashr exact i64 %sext209, 32
   br label %92
 
 91:                                               ; preds = %102

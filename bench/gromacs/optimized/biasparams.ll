@@ -313,7 +313,7 @@ _ZNK3gmx9DimParams12fepDimParamsEv.exit.i:        ; preds = %81
 
 _ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKNS_9DimParamsEEENS4_IKNS_8GridAxisEEE.exit: ; preds = %._crit_edge.i
   %92 = load i32, ptr %19, align 4, !tbaa !13
-  %93 = sdiv i32 %.039.lcssa.i, %46
+  %93 = udiv i32 %.039.lcssa.i, %46
   %.sroa.speculated.i52 = tail call i32 @llvm.smax.i32(i32 %93, i32 1)
   %94 = mul nsw i32 %92, %46
   %95 = mul nsw i32 %94, %.sroa.speculated.i52

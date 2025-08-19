@@ -1651,8 +1651,8 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %46 = load i32, ptr %45, align 8, !tbaa !110
   %47 = sub nsw i32 %44, %46
   %48 = sitofp i32 %47 to float
-  %.sink402 = tail call float @llvm.fabs.f32(float %43)
-  %49 = fmul nsz float %.sink402, %48
+  %.sink413 = tail call float @llvm.fabs.f32(float %43)
+  %49 = fmul nsz float %.sink413, %48
   %.0283 = fptosi float %49 to i32
   %50 = fcmp nsz olt float %37, 0.000000e+00
   br i1 %50, label %51, label %67
@@ -1674,8 +1674,8 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %.not302 = icmp slt i32 %59, %.0283
   %60 = add nsw i32 %46, %.0283
   %.not303 = icmp sgt i32 %59, %60
-  %or.cond400 = select i1 %.not302, i1 true, i1 %.not303
-  br i1 %or.cond400, label %67, label %61
+  %or.cond411 = select i1 %.not302, i1 true, i1 %.not303
+  br i1 %or.cond411, label %67, label %61
 
 61:                                               ; preds = %56
   %62 = sub nsw i32 %38, %29
@@ -1707,8 +1707,8 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
   %.not306 = icmp slt i32 %77, %.0283
   %78 = add nsw i32 %46, %.0283
   %.not307 = icmp sgt i32 %77, %78
-  %or.cond401 = select i1 %.not306, i1 true, i1 %.not307
-  br i1 %or.cond401, label %85, label %79
+  %or.cond412 = select i1 %.not306, i1 true, i1 %.not307
+  br i1 %or.cond412, label %85, label %79
 
 79:                                               ; preds = %74
   %80 = sub nsw i32 %44, %46
@@ -3155,11 +3155,11 @@ define internal range(i32 -2147483648, 1) i32 @oscilloscope_config_input(ptr nou
   %78 = load i32, ptr %77, align 8, !tbaa !74
   %79 = icmp slt i32 %78, 9
   %spec.select = select i1 %79, ptr @pick_color8, ptr @pick_color16
-  %spec.select68 = select i1 %79, ptr @draw_trace8, ptr @draw_trace16
+  %spec.select69 = select i1 %79, ptr @draw_trace8, ptr @draw_trace16
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 904
   store ptr %spec.select, ptr %80, align 8, !tbaa !149
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 912
-  store ptr %spec.select68, ptr %81, align 8, !tbaa !166
+  store ptr %spec.select69, ptr %81, align 8, !tbaa !166
   %82 = shl nuw i32 1, %78
   %83 = getelementptr inbounds nuw i8, ptr %13, i64 92
   store i32 %82, ptr %83, align 4, !tbaa !156

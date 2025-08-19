@@ -844,8 +844,8 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly 
   br i1 %.not, label %30, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %19, %14, %9, %4
-  %.sink41 = phi ptr [ %8, %4 ], [ %13, %9 ], [ %18, %14 ], [ %23, %19 ], [ %28, %24 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sink41, i64 8
+  %.sink45 = phi ptr [ %8, %4 ], [ %13, %9 ], [ %18, %14 ], [ %23, %19 ], [ %28, %24 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sink45, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
   br label %30
 
@@ -958,8 +958,8 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   br label %MuxGetFrameInternal.exit.sink.split
 
 MuxGetFrameInternal.exit.sink.split:              ; preds = %13, %32
-  %.sink13 = phi i32 [ %23, %32 ], [ %21, %13 ]
-  %67 = call i32 @ChunkGetIdFromTag(i32 noundef %.sink13) #5
+  %.sink18 = phi i32 [ %23, %32 ], [ %21, %13 ]
+  %67 = call i32 @ChunkGetIdFromTag(i32 noundef %.sink18) #5
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %67, ptr %68, align 4, !tbaa !56
   %69 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
@@ -1042,7 +1042,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %9 ]
   %12 = phi i32 [ %16, %14 ], [ %11, %9 ]
   %13 = icmp eq i32 %1, %12
-  br i1 %13, label %._crit_edge.loopexit.split.loop.exit13.i, label %14
+  br i1 %13, label %._crit_edge.loopexit.split.loop.exit14.i, label %14
 
 14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1051,12 +1051,12 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
   %.not.i = icmp eq i32 %16, 10
   br i1 %.not.i, label %ChunkGetIndexFromId.exit, label %.lr.ph.i, !llvm.loop !60
 
-._crit_edge.loopexit.split.loop.exit13.i:         ; preds = %.lr.ph.i
+._crit_edge.loopexit.split.loop.exit14.i:         ; preds = %.lr.ph.i
   %17 = and i64 %indvars.iv.i, 4294967295
   br label %ChunkGetIndexFromId.exit
 
-ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edge.loopexit.split.loop.exit13.i
-  %.06.i = phi i64 [ 10, %9 ], [ %17, %._crit_edge.loopexit.split.loop.exit13.i ], [ 10, %14 ]
+ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edge.loopexit.split.loop.exit14.i
+  %.06.i = phi i64 [ 10, %9 ], [ %17, %._crit_edge.loopexit.split.loop.exit14.i ], [ 10, %14 ]
   %18 = load ptr, ptr %10, align 8, !tbaa !61
   %19 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %.06.i
   %20 = load i32, ptr %19, align 4, !tbaa !16

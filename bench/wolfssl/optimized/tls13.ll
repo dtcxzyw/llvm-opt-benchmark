@@ -893,9 +893,9 @@ Tls13DeriveKey.exit165:                           ; preds = %216, %207
   br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !58
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %Tls13DeriveKey.exit, %153, %DeriveClientHandshakeSecret.exit, %DeriveServerHandshakeSecret.exit, %DeriveClientTrafficSecret.exit, %DeriveServerTrafficSecret.exit, %DeriveTrafficSecret.exit, %DeriveTrafficSecret.exit147, %DeriveClientHandshakeSecret.exit.thread169, %DeriveServerHandshakeSecret.exit.thread175, %DeriveClientTrafficSecret.exit.thread181, %DeriveServerTrafficSecret.exit.thread187, %DeriveTrafficSecret.exit.thread, %DeriveTrafficSecret.exit147.thread, %Tls13DeriveKey.exit.thread, %31, %28, %58, %55, %86, %83, %112, %109, %.preheader.i
-  %.171206211 = phi i32 [ %.171, %.preheader.i ], [ -173, %109 ], [ -173, %112 ], [ -173, %83 ], [ -173, %86 ], [ -173, %55 ], [ -173, %58 ], [ -173, %28 ], [ -173, %31 ], [ -232, %Tls13DeriveKey.exit.thread ], [ -232, %DeriveTrafficSecret.exit147.thread ], [ -232, %DeriveTrafficSecret.exit.thread ], [ %.024.i.i133.ph, %DeriveServerTrafficSecret.exit.thread187 ], [ %.024.i.i124.ph, %DeriveClientTrafficSecret.exit.thread181 ], [ %.024.i.i115.ph, %DeriveServerHandshakeSecret.exit.thread175 ], [ %.024.i.i.ph, %DeriveClientHandshakeSecret.exit.thread169 ], [ %152, %DeriveTrafficSecret.exit147 ], [ %143, %DeriveTrafficSecret.exit ], [ %133, %DeriveServerTrafficSecret.exit ], [ %107, %DeriveClientTrafficSecret.exit ], [ %80, %DeriveServerHandshakeSecret.exit ], [ %53, %DeriveClientHandshakeSecret.exit ], [ %.272, %153 ], [ %166, %Tls13DeriveKey.exit ], [ %.171, %.lr.ph35.i ]
+  %.171226231 = phi i32 [ %.171, %.preheader.i ], [ -173, %109 ], [ -173, %112 ], [ -173, %83 ], [ -173, %86 ], [ -173, %55 ], [ -173, %58 ], [ -173, %28 ], [ -173, %31 ], [ -232, %Tls13DeriveKey.exit.thread ], [ -232, %DeriveTrafficSecret.exit147.thread ], [ -232, %DeriveTrafficSecret.exit.thread ], [ %.024.i.i133.ph, %DeriveServerTrafficSecret.exit.thread187 ], [ %.024.i.i124.ph, %DeriveClientTrafficSecret.exit.thread181 ], [ %.024.i.i115.ph, %DeriveServerHandshakeSecret.exit.thread175 ], [ %.024.i.i.ph, %DeriveClientHandshakeSecret.exit.thread169 ], [ %152, %DeriveTrafficSecret.exit147 ], [ %143, %DeriveTrafficSecret.exit ], [ %133, %DeriveServerTrafficSecret.exit ], [ %107, %DeriveClientTrafficSecret.exit ], [ %80, %DeriveServerHandshakeSecret.exit ], [ %53, %DeriveClientHandshakeSecret.exit ], [ %.272, %153 ], [ %166, %Tls13DeriveKey.exit ], [ %.171, %.lr.ph35.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  ret i32 %.171206211
+  ret i32 %.171226231
 }
 
 declare i32 @StoreKeys(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -4542,11 +4542,11 @@ define internal fastcc i32 @DoTls13CertificateRequest(ptr noundef %0, ptr nounde
   br i1 %.not43, label %60, label %69
 
 60:                                               ; preds = %42, %47, %49, %52, %54
-  %.sink49 = phi i64 [ 1, %54 ], [ 2, %52 ], [ 2, %49 ], [ 2, %47 ], [ 2, %42 ]
+  %.sink55 = phi i64 [ 1, %54 ], [ 2, %52 ], [ 2, %49 ], [ 2, %47 ], [ 2, %42 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %62 = load i64, ptr %61, align 8
   %63 = and i64 %62, -4
-  %64 = or disjoint i64 %63, %.sink49
+  %64 = or disjoint i64 %63, %.sink55
   store i64 %64, ptr %61, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %66 = load i32, ptr %65, align 8, !tbaa !123
@@ -5570,8 +5570,8 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
-  %.not340 = icmp eq i64 %5, 2
-  br i1 %.not340, label %31, label %6
+  %.not348 = icmp eq i64 %5, 2
+  br i1 %.not348, label %31, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -5783,7 +5783,7 @@ define internal fastcc i32 @SendTls13Certificate(ptr noundef nonnull initializes
   %.042.i = phi i32 [ %124, %120 ], [ 0, %116 ]
   %129 = add i32 %114, %.042.i
   %130 = sub i32 %57, %129
-  br i1 %.not340, label %139, label %131
+  br i1 %.not348, label %139, label %131
 
 131:                                              ; preds = %128
   %.not.i = icmp ugt i32 %130, %.2186276
@@ -5840,7 +5840,7 @@ AddCertExt.exit:                                  ; preds = %120, %131, %132, %1
   br i1 %or.cond8, label %.preheader, label %.thread297
 
 .preheader:                                       ; preds = %.thread
-  br i1 %.not340, label %.preheader.split, label %.preheader.split.us
+  br i1 %.not348, label %.preheader.split, label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader, %208
   %.3262.us = phi i32 [ %.4263285.us, %208 ], [ %.0259327, %.preheader ]
@@ -6097,7 +6097,7 @@ NextCert.exit:                                    ; preds = %217
   br i1 %.not239, label %.thread310, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.0177.lcssa343 = phi i32 [ %.1178, %._crit_edge ], [ 0, %31 ]
+  %.0177.lcssa351 = phi i32 [ %.1178, %._crit_edge ], [ 0, %31 ]
   store i8 0, ptr %2, align 8, !tbaa !93
   store i32 0, ptr %32, align 16, !tbaa !154
   %294 = load i64, ptr %3, align 16
@@ -6111,7 +6111,7 @@ NextCert.exit:                                    ; preds = %217
   br label %.thread310
 
 .thread310:                                       ; preds = %278, %.thread297, %66, %._crit_edge, %297, %._crit_edge.thread, %9, %6
-  %.0 = phi i32 [ -440, %6 ], [ -440, %9 ], [ %.0177.lcssa343, %._crit_edge.thread ], [ %.0177.lcssa343, %297 ], [ -327, %._crit_edge ], [ %72, %66 ], [ -132, %.thread297 ], [ %281, %278 ]
+  %.0 = phi i32 [ -440, %6 ], [ -440, %9 ], [ %.0177.lcssa351, %._crit_edge.thread ], [ %.0177.lcssa351, %297 ], [ -327, %._crit_edge ], [ %72, %66 ], [ -132, %.thread297 ], [ %281, %278 ]
   ret i32 %.0
 }
 
@@ -6182,10 +6182,10 @@ define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initi
   %39 = load i32, ptr %38, align 8, !tbaa !171
   switch i32 %39, label %.thread [
     i32 10, label %43
-    i32 37, label %.thread133
+    i32 37, label %.thread152
   ]
 
-.thread133:                                       ; preds = %37
+.thread152:                                       ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 30
   store i8 3, ptr %40, align 2, !tbaa !172
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1039
@@ -6199,10 +6199,10 @@ define internal fastcc i32 @SendTls13CertificateVerify(ptr noundef nonnull initi
   %46 = load i8, ptr %45, align 1, !tbaa !173
   br label %EncodeSigAlg.exit
 
-EncodeSigAlg.exit:                                ; preds = %43, %.thread133
-  %47 = phi ptr [ %45, %43 ], [ %41, %.thread133 ]
-  %.sink7.i = phi i8 [ 8, %43 ], [ %42, %.thread133 ]
-  %.sink.i = phi i8 [ %46, %43 ], [ 3, %.thread133 ]
+EncodeSigAlg.exit:                                ; preds = %43, %.thread152
+  %47 = phi ptr [ %45, %43 ], [ %41, %.thread152 ]
+  %.sink7.i = phi i8 [ 8, %43 ], [ %42, %.thread152 ]
+  %.sink.i = phi i8 [ %46, %43 ], [ 3, %.thread152 ]
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 30
   %49 = load ptr, ptr %23, align 8, !tbaa !169
   store i8 %.sink7.i, ptr %49, align 1, !tbaa !57

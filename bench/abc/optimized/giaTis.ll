@@ -838,9 +838,9 @@ Vec_IntPush.exit57:                               ; preds = %.Vec_IntGrow.exit10
 
 .sink.split:                                      ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit49, %Vec_IntPush.exit57
   %.sink = phi i32 [ %118, %Vec_IntPush.exit57 ], [ %77, %Vec_IntPush.exit49 ], [ %43, %Vec_IntPush.exit ]
-  %.sink60 = phi ptr [ %117, %Vec_IntPush.exit57 ], [ %76, %Vec_IntPush.exit49 ], [ %42, %Vec_IntPush.exit ]
+  %.sink69 = phi ptr [ %117, %Vec_IntPush.exit57 ], [ %76, %Vec_IntPush.exit49 ], [ %42, %Vec_IntPush.exit ]
   %120 = sext i32 %.sink to i64
-  %121 = getelementptr inbounds i32, ptr %.sink60, i64 %120
+  %121 = getelementptr inbounds i32, ptr %.sink69, i64 %120
   store i32 %1, ptr %121, align 4, !tbaa !38
   br label %122
 

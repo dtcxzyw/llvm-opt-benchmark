@@ -316,7 +316,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre.i = load i32, ptr %0, align 4, !tbaa !6
   %63 = icmp slt i32 %.pre.i, 1
-  br i1 %63, label %85, label %.thread238.i
+  br i1 %63, label %85, label %.thread243.i
 
 64:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit.i
   %65 = landingpad { ptr, i32 }
@@ -435,65 +435,65 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 94:                                               ; preds = %93
   %95 = icmp eq ptr %.sroa.0.2.i, null
-  br i1 %95, label %_ZN6icu_77L22initAstronomerTimeZoneER10UErrorCode.exit, label %.thread238.i
+  br i1 %95, label %_ZN6icu_77L22initAstronomerTimeZoneER10UErrorCode.exit, label %.thread243.i
 
-.thread238.i:                                     ; preds = %94, %.critedge131.i
-  %.sroa.0.1248.i = phi ptr [ %.sroa.0.2.i, %94 ], [ %54, %.critedge131.i ]
-  %.sroa.0163.1247.i = phi ptr [ null, %94 ], [ %45, %.critedge131.i ]
-  %.sroa.0166.1246.i = phi ptr [ null, %94 ], [ %36, %.critedge131.i ]
-  %.sroa.0169.0245.i = phi ptr [ null, %94 ], [ %27, %.critedge131.i ]
-  %96 = load ptr, ptr %.sroa.0.1248.i, align 8, !tbaa !3
+.thread243.i:                                     ; preds = %94, %.critedge131.i
+  %.sroa.0.1253.i = phi ptr [ %.sroa.0.2.i, %94 ], [ %54, %.critedge131.i ]
+  %.sroa.0163.1252.i = phi ptr [ null, %94 ], [ %45, %.critedge131.i ]
+  %.sroa.0166.1251.i = phi ptr [ null, %94 ], [ %36, %.critedge131.i ]
+  %.sroa.0169.0250.i = phi ptr [ null, %94 ], [ %27, %.critedge131.i ]
+  %96 = load ptr, ptr %.sroa.0.1253.i, align 8, !tbaa !3
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0.1248.i) #6
+  call void %98(ptr noundef nonnull align 8 dereferenceable(105) %.sroa.0.1253.i) #6
   br label %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit150.i
 
-_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit150.i: ; preds = %.thread238.i, %62, %59
-  %.sroa.0163.1237.i = phi ptr [ %.sroa.0163.1247.i, %.thread238.i ], [ %45, %59 ], [ %45, %62 ]
-  %.sroa.0166.1236.i = phi ptr [ %.sroa.0166.1246.i, %.thread238.i ], [ %36, %59 ], [ %36, %62 ]
-  %.sroa.0169.0235.i = phi ptr [ %.sroa.0169.0245.i, %.thread238.i ], [ %27, %59 ], [ %27, %62 ]
-  %.sroa.0172.0185187227234.i = phi ptr [ null, %.thread238.i ], [ %17, %59 ], [ %17, %62 ]
-  %99 = icmp eq ptr %.sroa.0163.1237.i, null
+_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit150.i: ; preds = %.thread243.i, %62, %59
+  %.sroa.0163.1242.i = phi ptr [ %.sroa.0163.1252.i, %.thread243.i ], [ %45, %59 ], [ %45, %62 ]
+  %.sroa.0166.1241.i = phi ptr [ %.sroa.0166.1251.i, %.thread243.i ], [ %36, %59 ], [ %36, %62 ]
+  %.sroa.0169.0240.i = phi ptr [ %.sroa.0169.0250.i, %.thread243.i ], [ %27, %59 ], [ %27, %62 ]
+  %.sroa.0172.0185187232239.i = phi ptr [ null, %.thread243.i ], [ %17, %59 ], [ %17, %62 ]
+  %99 = icmp eq ptr %.sroa.0163.1242.i, null
   br i1 %99, label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit.i, label %100
 
 100:                                              ; preds = %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit150.i
-  %101 = load ptr, ptr %.sroa.0163.1237.i, align 8, !tbaa !3
+  %101 = load ptr, ptr %.sroa.0163.1242.i, align 8, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
-  call void %103(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0163.1237.i) #6
+  call void %103(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0163.1242.i) #6
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit.i
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit.i: ; preds = %100, %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit150.i
-  %104 = icmp eq ptr %.sroa.0166.1236.i, null
+  %104 = icmp eq ptr %.sroa.0166.1241.i, null
   br i1 %104, label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit151.i, label %105
 
 105:                                              ; preds = %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit.i
-  %106 = load ptr, ptr %.sroa.0166.1236.i, align 8, !tbaa !3
+  %106 = load ptr, ptr %.sroa.0166.1241.i, align 8, !tbaa !3
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
-  call void %108(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0166.1236.i) #6
+  call void %108(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0166.1241.i) #6
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit151.i
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit151.i: ; preds = %105, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit.i
-  %109 = icmp eq ptr %.sroa.0169.0235.i, null
+  %109 = icmp eq ptr %.sroa.0169.0240.i, null
   br i1 %109, label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit152.i, label %110
 
 110:                                              ; preds = %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit151.i
-  %111 = load ptr, ptr %.sroa.0169.0235.i, align 8, !tbaa !3
+  %111 = load ptr, ptr %.sroa.0169.0240.i, align 8, !tbaa !3
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0169.0235.i) #6
+  call void %113(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0169.0240.i) #6
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit152.i
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit152.i: ; preds = %110, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit151.i
-  %114 = icmp eq ptr %.sroa.0172.0185187227234.i, null
+  %114 = icmp eq ptr %.sroa.0172.0185187232239.i, null
   br i1 %114, label %_ZN6icu_77L22initAstronomerTimeZoneER10UErrorCode.exit, label %115
 
 115:                                              ; preds = %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit152.i
-  %116 = load ptr, ptr %.sroa.0172.0185187227234.i, align 8, !tbaa !3
+  %116 = load ptr, ptr %.sroa.0172.0185187232239.i, align 8, !tbaa !3
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0172.0185187227234.i) #6
+  call void %118(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0172.0185187232239.i) #6
   br label %_ZN6icu_77L22initAstronomerTimeZoneER10UErrorCode.exit
 
 _ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i: ; preds = %81, %78

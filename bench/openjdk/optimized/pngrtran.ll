@@ -637,7 +637,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 .lr.ph469:                                        ; preds = %.preheader450
   %56 = load ptr, ptr %32, align 8
   %wide.trip.count549 = zext nneg i32 %3 to i64
-  %57 = trunc i32 %3 to i8
+  %57 = trunc nuw i32 %3 to i8
   br label %60
 
 .preheader448:                                    ; preds = %._crit_edge.thread
@@ -646,7 +646,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
 .lr.ph472:                                        ; preds = %.preheader448
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %wide.trip.count557 = zext nneg i32 %3 to i64
-  %59 = trunc i32 %3 to i8
+  %59 = trunc nuw i32 %3 to i8
   br label %76
 
 60:                                               ; preds = %.lr.ph469, %71
@@ -3263,39 +3263,39 @@ define hidden void @png_read_transform_info(ptr noalias noundef %0, ptr noalias 
   %64 = load ptr, ptr %63, align 8
   %.not91 = icmp ne ptr %64, null
   %65 = icmp eq i8 %45, 8
-  %or.cond107 = and i1 %.not91, %65
-  br i1 %or.cond107, label %.thread, label %66
+  %or.cond113 = and i1 %.not91, %65
+  br i1 %or.cond113, label %.thread, label %66
 
 66:                                               ; preds = %59, %62, %57
   %67 = and i32 %4, 512
   %.not92 = icmp ne i32 %67, 0
   %68 = icmp eq i8 %45, 8
-  %or.cond108 = and i1 %.not92, %68
-  br i1 %or.cond108, label %.thread106, label %73
+  %or.cond114 = and i1 %.not92, %68
+  br i1 %or.cond114, label %.thread112, label %73
 
 .thread:                                          ; preds = %62
   store i8 3, ptr %60, align 1
   %69 = and i32 %4, 512
-  %.not92105 = icmp eq i32 %69, 0
-  br i1 %.not92105, label %73, label %.thread106
+  %.not92111 = icmp eq i32 %69, 0
+  br i1 %.not92111, label %73, label %.thread112
 
-.thread106:                                       ; preds = %66, %.thread
+.thread112:                                       ; preds = %66, %.thread
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %71 = load i8, ptr %70, align 1
   %.not93 = icmp eq i8 %71, 3
   br i1 %.not93, label %73, label %72
 
-72:                                               ; preds = %.thread106
+72:                                               ; preds = %.thread112
   store i8 16, ptr %39, align 4
   br label %73
 
-73:                                               ; preds = %.thread, %72, %.thread106, %66
-  %74 = phi i8 [ 16, %72 ], [ 8, %.thread106 ], [ %45, %66 ], [ 8, %.thread ]
+73:                                               ; preds = %.thread, %72, %.thread112, %66
+  %74 = phi i8 [ 16, %72 ], [ 8, %.thread112 ], [ %45, %66 ], [ 8, %.thread ]
   %75 = and i32 %4, 4
   %.not94 = icmp ne i32 %75, 0
   %76 = icmp ult i8 %74, 8
-  %or.cond109 = and i1 %.not94, %76
-  br i1 %or.cond109, label %77, label %78
+  %or.cond115 = and i1 %.not94, %76
+  br i1 %or.cond115, label %77, label %78
 
 77:                                               ; preds = %73
   store i8 8, ptr %39, align 4
@@ -3730,12 +3730,12 @@ define hidden void @png_do_read_transformations(ptr noalias noundef %0, ptr noun
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %._crit_edge27.i, %._crit_edge.i
-  %.sink42.i = phi i64 [ %123, %._crit_edge27.i ], [ %120, %._crit_edge.i ]
-  %.sink41.i = phi i8 [ 2, %._crit_edge27.i ], [ 6, %._crit_edge.i ]
+  %.sink48.i = phi i64 [ %123, %._crit_edge27.i ], [ %120, %._crit_edge.i ]
+  %.sink47.i = phi i8 [ 2, %._crit_edge27.i ], [ 6, %._crit_edge.i ]
   %.sink.i = phi i8 [ 3, %._crit_edge27.i ], [ 4, %._crit_edge.i ]
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sink42.i, ptr %145, align 8
-  store i8 %.sink41.i, ptr %18, align 8
+  store i64 %.sink48.i, ptr %145, align 8
+  store i8 %.sink47.i, ptr %18, align 8
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 18
   store i8 %.sink.i, ptr %146, align 2
   br label %png_do_expand_palette.exit
@@ -4440,12 +4440,12 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   br label %552
 
 552:                                              ; preds = %545, %542
-  %.sink986.i = phi i32 [ %551, %545 ], [ %544, %542 ]
-  %.pn993.i = sub nsw i32 6, %.2725888.i
-  %.pn992.i = lshr i32 16191, %.pn993.i
-  %.sink985.i = and i32 %.pn992.i, %538
-  %553 = shl i32 %.sink986.i, %.2725888.i
-  %554 = or i32 %553, %.sink985.i
+  %.sink1032.i = phi i32 [ %551, %545 ], [ %544, %542 ]
+  %.pn1039.i = sub nsw i32 6, %.2725888.i
+  %.pn1038.i = lshr i32 16191, %.pn1039.i
+  %.sink1031.i = and i32 %.pn1038.i, %538
+  %553 = shl i32 %.sink1032.i, %.2725888.i
+  %554 = or i32 %553, %.sink1031.i
   %storemerge787.i = trunc i32 %554 to i8
   store i8 %storemerge787.i, ptr %.2890.i, align 1, !noalias !119
   %555 = icmp eq i32 %.2725888.i, 0
@@ -4541,12 +4541,12 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   br label %602
 
 602:                                              ; preds = %595, %592
-  %.sink988.i = phi i32 [ %601, %595 ], [ %594, %592 ]
-  %.pn991.i = sub nsw i32 4, %.6729880.i
-  %.pn.i = lshr i32 3855, %.pn991.i
-  %.sink987.i = and i32 %.pn.i, %588
-  %603 = shl i32 %.sink988.i, %.6729880.i
-  %604 = or i32 %603, %.sink987.i
+  %.sink1034.i = phi i32 [ %601, %595 ], [ %594, %592 ]
+  %.pn1037.i = sub nsw i32 4, %.6729880.i
+  %.pn.i = lshr i32 3855, %.pn1037.i
+  %.sink1033.i = and i32 %.pn.i, %588
+  %603 = shl i32 %.sink1034.i, %.6729880.i
+  %604 = or i32 %603, %.sink1033.i
   %storemerge783.i = trunc i32 %604 to i8
   store i8 %storemerge783.i, ptr %.6882.i, align 1, !noalias !119
   %605 = icmp eq i32 %.6729880.i, 0
@@ -5211,8 +5211,8 @@ png_do_rgb_to_gray.exit.thread:                   ; preds = %166, %png_do_rgb_to
   br label %.sink.split.i192
 
 .sink.split.i192:                                 ; preds = %973, %971
-  %.sink990.i = phi i16 [ %972, %971 ], [ %986, %973 ]
-  %987 = trunc i16 %.sink990.i to i8
+  %.sink1036.i = phi i16 [ %972, %971 ], [ %986, %973 ]
+  %987 = trunc i16 %.sink1036.i to i8
   store i8 %987, ptr %.19851.i, align 1, !noalias !119
   br label %988
 
@@ -8388,10 +8388,10 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   br label %116
 
 116:                                              ; preds = %112, %115
-  %.sink288 = phi i8 [ -1, %115 ], [ 0, %112 ]
+  %.sink304 = phi i8 [ -1, %115 ], [ 0, %112 ]
   %117 = getelementptr inbounds i8, ptr %.5202259, i64 -1
-  store i8 %.sink288, ptr %.5202259, align 1
-  store i8 %.sink288, ptr %117, align 1
+  store i8 %.sink304, ptr %.5202259, align 1
+  store i8 %.sink304, ptr %117, align 1
   %.6203 = getelementptr inbounds i8, ptr %.5202259, i64 -2
   %118 = load i8, ptr %.7260, align 1
   %119 = getelementptr inbounds i8, ptr %.5202259, i64 -3
@@ -8581,10 +8581,10 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   br label %233
 
 233:                                              ; preds = %229, %232
-  %.sink291 = phi i8 [ -1, %232 ], [ 0, %229 ]
+  %.sink307 = phi i8 [ -1, %232 ], [ 0, %229 ]
   %234 = getelementptr inbounds i8, ptr %.9206237, i64 -1
-  store i8 %.sink291, ptr %.9206237, align 1
-  store i8 %.sink291, ptr %234, align 1
+  store i8 %.sink307, ptr %.9206237, align 1
+  store i8 %.sink307, ptr %234, align 1
   %.10 = getelementptr inbounds i8, ptr %.9206237, i64 -2
   %235 = getelementptr inbounds i8, ptr %.9238, i64 -1
   %236 = load i8, ptr %.9238, align 1
@@ -8639,9 +8639,9 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %259, %263, %130, %134
-  %.sink292 = phi i64 [ %133, %130 ], [ %138, %134 ], [ %262, %259 ], [ %267, %263 ]
+  %.sink308 = phi i64 [ %133, %130 ], [ %138, %134 ], [ %262, %259 ], [ %267, %263 ]
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink292, ptr %268, align 8
+  store i64 %.sink308, ptr %268, align 8
   br label %269
 
 269:                                              ; preds = %.sink.split, %139, %81

@@ -1812,10 +1812,10 @@ define void @Amap_ManMergeNodeCuts(ptr noundef captures(none) %0, ptr noundef ca
   br label %20
 
 20:                                               ; preds = %2, %19
-  %.sink134 = phi i64 [ 136, %19 ], [ 128, %2 ]
+  %.sink137 = phi i64 [ 136, %19 ], [ 128, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !56
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink134
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink137
   %24 = load ptr, ptr %23, align 8, !tbaa !89
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !26

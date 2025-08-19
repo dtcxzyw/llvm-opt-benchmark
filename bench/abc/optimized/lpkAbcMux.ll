@@ -228,7 +228,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   %169 = and i8 %168, 15
   %.rhs.trunc177 = add nsw i8 %169, -1
   %. = select i1 %.not212, i32 %57, i32 %35
-  %.226 = select i1 %.not212, i32 %35, i32 %57
+  %.233 = select i1 %.not212, i32 %35, i32 %57
   %170 = trunc nuw nsw i32 %. to i8
   %.lhs.trunc176 = add nuw nsw i8 %170, 1
   %171 = sdiv i8 %.lhs.trunc176, %.rhs.trunc177
@@ -236,7 +236,7 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   %172 = srem i8 %.lhs.trunc176, %.rhs.trunc177
   %173 = icmp ne i8 %172, 0
   %174 = zext i1 %173 to i32
-  %175 = trunc nuw nsw i32 %.226 to i8
+  %175 = trunc nuw nsw i32 %.233 to i8
   %.lhs.trunc182 = add nsw i8 %175, -1
   %176 = sdiv i8 %.lhs.trunc182, %.rhs.trunc177
   %.sext184 = sext i8 %176 to i32

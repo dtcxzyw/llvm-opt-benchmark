@@ -466,13 +466,13 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_i
 .sink.split:                                      ; preds = %9, %3, %82
   %.str.4.sink = phi ptr [ @.str.1, %82 ], [ @.str.4, %3 ], [ @.str.5, %9 ]
   %.04772.ph = phi i32 [ %.047.ph, %82 ], [ 8, %3 ], [ 8, %9 ]
-  %.ph101 = phi i1 [ %.ph, %82 ], [ true, %3 ], [ true, %9 ]
+  %.ph111 = phi i1 [ %.ph, %82 ], [ true, %3 ], [ true, %9 ]
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.4.sink) #15
   br label %84
 
 84:                                               ; preds = %.sink.split, %.loopexit
   %.04772 = phi i32 [ %.047.ph, %.loopexit ], [ %.04772.ph, %.sink.split ]
-  %85 = phi i1 [ %.ph, %.loopexit ], [ %.ph101, %.sink.split ]
+  %85 = phi i1 [ %.ph, %.loopexit ], [ %.ph111, %.sink.split ]
   %86 = icmp ne ptr %0, null
   %or.cond5 = and i1 %86, %85
   br i1 %or.cond5, label %87, label %90

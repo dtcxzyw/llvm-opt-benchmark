@@ -612,9 +612,9 @@ define dso_local ptr @nfs4_get_state_owner(ptr noundef %0, ptr noundef %1, i32 n
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 560
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread23, label %.preheader43
+  br i1 %79, label %.thread23, label %.preheader64
 
-.preheader43:                                     ; preds = %59, %97
+.preheader64:                                     ; preds = %59, %97
   %80 = phi ptr [ %100, %97 ], [ %78, %59 ]
   %81 = load ptr, ptr %60, align 8
   %82 = getelementptr i8, ptr %80, i64 24
@@ -623,7 +623,7 @@ define dso_local ptr @nfs4_get_state_owner(ptr noundef %0, ptr noundef %1, i32 n
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %97, label %86
 
-86:                                               ; preds = %.preheader43
+86:                                               ; preds = %.preheader64
   %87 = icmp eq i32 %84, 0
   br i1 %87, label %88, label %97
 
@@ -644,12 +644,12 @@ define dso_local ptr @nfs4_get_state_owner(ptr noundef %0, ptr noundef %1, i32 n
   store volatile ptr %90, ptr %94, align 8
   br label %109
 
-97:                                               ; preds = %86, %.preheader43
-  %98 = phi i64 [ 16, %.preheader43 ], [ 8, %86 ]
+97:                                               ; preds = %86, %.preheader64
+  %98 = phi i64 [ 16, %.preheader64 ], [ 8, %86 ]
   %99 = getelementptr inbounds nuw i8, ptr %80, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %102, label %.preheader43, !llvm.loop !20
+  br i1 %101, label %102, label %.preheader64, !llvm.loop !20
 
 102:                                              ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %80, i64 %98
@@ -1304,7 +1304,7 @@ define internal fastcc void @__nfs4_close(ptr noundef %0, i32 noundef %1, i32 no
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @_raw_spin_lock(ptr noundef nonnull %7) #17
   %8 = and i32 %1, 3
-  switch i32 %8, label %default.unreachable4 [
+  switch i32 %8, label %default.unreachable6 [
     i32 1, label %9
     i32 2, label %13
     i32 3, label %17
@@ -1332,7 +1332,7 @@ define internal fastcc void @__nfs4_close(ptr noundef %0, i32 noundef %1, i32 no
   store i32 %20, ptr %18, align 4
   br label %21
 
-default.unreachable4:                             ; preds = %3
+default.unreachable6:                             ; preds = %3
   unreachable
 
 21:                                               ; preds = %3, %17, %13, %9
@@ -2382,16 +2382,16 @@ define internal noundef i32 @nfs4_run_state_manager(ptr noundef %0) #6 align 16 
   br label %nfs4_begin_drain_session.exit
 
 nfs4_begin_drain_session.exit:                    ; preds = %67, %85
-  %.sink125 = phi ptr [ %63, %67 ], [ %81, %85 ]
+  %.sink170 = phi ptr [ %63, %67 ], [ %81, %85 ]
   %.sink = phi ptr [ %68, %67 ], [ %86, %85 ]
-  call void @_raw_spin_unlock(ptr noundef nonnull %.sink125) #17
+  call void @_raw_spin_unlock(ptr noundef nonnull %.sink170) #17
   %87 = call i32 @wait_for_completion_interruptible(ptr noundef nonnull %.sink) #17
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %nfs4_begin_drain_session.exit.thread, label %nfs4_begin_drain_session.exit.thread53
 
 nfs4_begin_drain_session.exit.thread.sink.split:  ; preds = %79, %61
-  %.sink126 = phi ptr [ %63, %61 ], [ %81, %79 ]
-  call void @_raw_spin_unlock(ptr noundef nonnull %.sink126) #17
+  %.sink171 = phi ptr [ %63, %61 ], [ %81, %79 ]
+  call void @_raw_spin_unlock(ptr noundef nonnull %.sink171) #17
   br label %nfs4_begin_drain_session.exit.thread
 
 nfs4_begin_drain_session.exit.thread:             ; preds = %nfs4_begin_drain_session.exit.thread.sink.split, %nfs4_begin_drain_session.exit
@@ -2592,16 +2592,16 @@ nfs4_state_mark_reclaim_nograce.exit.thread:      ; preds = %.preheader7.i, %.lo
   br label %nfs4_begin_drain_session.exit40
 
 nfs4_begin_drain_session.exit40:                  ; preds = %161, %179
-  %.sink128 = phi ptr [ %157, %161 ], [ %175, %179 ]
-  %.sink127 = phi ptr [ %162, %161 ], [ %180, %179 ]
-  call void @_raw_spin_unlock(ptr noundef nonnull %.sink128) #17
-  %181 = call i32 @wait_for_completion_interruptible(ptr noundef nonnull %.sink127) #17
+  %.sink173 = phi ptr [ %157, %161 ], [ %175, %179 ]
+  %.sink172 = phi ptr [ %162, %161 ], [ %180, %179 ]
+  call void @_raw_spin_unlock(ptr noundef nonnull %.sink173) #17
+  %181 = call i32 @wait_for_completion_interruptible(ptr noundef nonnull %.sink172) #17
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %nfs4_begin_drain_session.exit40.thread, label %nfs4_begin_drain_session.exit40.thread56
 
 nfs4_begin_drain_session.exit40.thread.sink.split: ; preds = %173, %155
-  %.sink129 = phi ptr [ %157, %155 ], [ %175, %173 ]
-  call void @_raw_spin_unlock(ptr noundef nonnull %.sink129) #17
+  %.sink174 = phi ptr [ %157, %155 ], [ %175, %173 ]
+  call void @_raw_spin_unlock(ptr noundef nonnull %.sink174) #17
   br label %nfs4_begin_drain_session.exit40.thread
 
 nfs4_begin_drain_session.exit40.thread:           ; preds = %nfs4_begin_drain_session.exit40.thread.sink.split, %nfs4_begin_drain_session.exit40
@@ -3978,8 +3978,8 @@ define dso_local i32 @nfs4_discover_server_trunking(ptr noundef %0, ptr noundef 
     i32 -10017, label %.loopexit
     i32 -10016, label %.loopexit
     i32 -10021, label %.thread.loopexit
-    i32 -127, label %.thread.loopexit82
-    i32 -10027, label %.thread.loopexit82
+    i32 -127, label %.thread.loopexit88
+    i32 -10027, label %.thread.loopexit88
   ]
 
 29:                                               ; preds = %28
@@ -4054,11 +4054,11 @@ define dso_local i32 @nfs4_discover_server_trunking(ptr noundef %0, ptr noundef 
   %.ph = phi i32 [ -2, %34 ], [ -110, %29 ], [ -93, %28 ]
   br label %.thread
 
-.thread.loopexit82:                               ; preds = %28, %28
+.thread.loopexit88:                               ; preds = %28, %28
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit, %44, %58, %39, %28, %28, %28, %.thread.loopexit82, %.thread.loopexit, %2, %63, %55
-  %65 = phi i32 [ -5, %63 ], [ %57, %55 ], [ -2, %2 ], [ %.ph, %.thread.loopexit ], [ -127, %.thread.loopexit82 ], [ %23, %28 ], [ %23, %28 ], [ %23, %28 ], [ -2, %39 ], [ -2, %58 ], [ -13, %44 ], [ -1, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %44, %58, %39, %28, %28, %28, %.thread.loopexit88, %.thread.loopexit, %2, %63, %55
+  %65 = phi i32 [ -5, %63 ], [ %57, %55 ], [ -2, %2 ], [ %.ph, %.thread.loopexit ], [ -127, %.thread.loopexit88 ], [ %23, %28 ], [ %23, %28 ], [ %23, %28 ], [ -2, %39 ], [ -2, %58 ], [ -13, %44 ], [ -1, %.loopexit ]
   tail call void @mutex_unlock(ptr noundef nonnull @nfs_clid_init_mutex) #17
   ret i32 %65
 }
@@ -4501,7 +4501,7 @@ define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_do_reclaim(pt
   %145 = load volatile i64, ptr %80, align 8
   %146 = and i64 %145, 2
   %147 = icmp eq i64 %146, 0
-  br i1 %147, label %148, label %.thread124
+  br i1 %147, label %148, label %.thread161
 
 148:                                              ; preds = %.thread34
   %149 = getelementptr inbounds nuw i8, ptr %77, i64 72
@@ -4577,9 +4577,9 @@ define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_do_reclaim(pt
 .loopexit41:                                      ; preds = %186, %148
   %190 = phi i32 [ %73, %148 ], [ %187, %186 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %149) #17
-  br label %.thread124
+  br label %.thread161
 
-.thread124:                                       ; preds = %.loopexit41, %.thread34
+.thread161:                                       ; preds = %.loopexit41, %.thread34
   %191 = phi i32 [ %190, %.loopexit41 ], [ %73, %.thread34 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %80, i32 -129, ptr nonnull elementtype(i8) %80) #17, !srcloc !7
   br label %237
@@ -4687,9 +4687,9 @@ define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_do_reclaim(pt
   %236 = call i32 @nfs4_state_mark_reclaim_nograce(ptr noundef %235, ptr noundef %77), !range !79
   br label %.loopexit48
 
-237:                                              ; preds = %.thread124, %228, %221, %218, %.loopexit39
-  %238 = phi i32 [ %73, %.loopexit39 ], [ %73, %218 ], [ %73, %221 ], [ %73, %228 ], [ %191, %.thread124 ]
-  %239 = phi i32 [ %75, %.loopexit39 ], [ %216, %218 ], [ %222, %221 ], [ %222, %228 ], [ 0, %.thread124 ]
+237:                                              ; preds = %.thread161, %228, %221, %218, %.loopexit39
+  %238 = phi i32 [ %73, %.loopexit39 ], [ %73, %218 ], [ %73, %221 ], [ %73, %228 ], [ %191, %.thread161 ]
+  %239 = phi i32 [ %75, %.loopexit39 ], [ %216, %218 ], [ %222, %221 ], [ %222, %228 ], [ 0, %.thread161 ]
   call void @nfs4_put_open_state(ptr noundef %77)
   call void @_raw_spin_lock(ptr noundef %66) #17
   %240 = load ptr, ptr %70, align 8

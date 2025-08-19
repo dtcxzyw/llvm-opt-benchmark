@@ -1090,8 +1090,8 @@ define hidden range(i32 1, 257) i32 @_PyInstruction_GetLength(ptr noundef readon
   br i1 %.not.i, label %_Py_GetBaseCodeUnit.exit.sink.split, label %_Py_GetBaseCodeUnit.exit
 
 _Py_GetBaseCodeUnit.exit.sink.split:              ; preds = %46, %13, %9
-  %.sink1 = phi i64 [ %10, %9 ], [ %22, %13 ], [ %47, %46 ]
-  %50 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1
+  %.sink2 = phi i64 [ %10, %9 ], [ %22, %13 ], [ %47, %46 ]
+  %50 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2
   %51 = load i8, ptr %50, align 1, !tbaa !33
   br label %_Py_GetBaseCodeUnit.exit
 
@@ -2192,8 +2192,8 @@ define hidden range(i32 -1, 256) i32 @_Py_call_instrumentation_instruction(ptr n
 34:                                               ; preds = %28, %25
   %.in = phi i8 [ %27, %25 ], [ %33, %28 ]
   %35 = shl i64 %9, 32
-  %sext52 = ashr exact i64 %35, 32
-  %36 = and i64 %sext52, -2
+  %sext60 = ashr exact i64 %35, 32
+  %36 = and i64 %sext60, -2
   %37 = tail call ptr @PyLong_FromLong(i64 noundef %36) #11
   %38 = icmp eq ptr %37, null
   br i1 %38, label %111, label %39
@@ -3134,8 +3134,8 @@ initialize_tools.exit.i:                          ; preds = %initialize_tools.ex
   br i1 %.not.i.i106.i, label %_Py_GetBaseCodeUnit.exit.sink.split.i.i, label %_PyInstruction_GetLength.exit.i
 
 _Py_GetBaseCodeUnit.exit.sink.split.i.i:          ; preds = %216, %186, %182
-  %.sink1.i.i = phi i64 [ %183, %182 ], [ %194, %186 ], [ %217, %216 ]
-  %220 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i.i
+  %.sink2.i.i = phi i64 [ %183, %182 ], [ %194, %186 ], [ %217, %216 ]
+  %220 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2.i.i
   %221 = load i8, ptr %220, align 1, !tbaa !33
   br label %_PyInstruction_GetLength.exit.i
 
@@ -3274,8 +3274,8 @@ _PyInstruction_GetLength.exit.i:                  ; preds = %_Py_GetBaseCodeUnit
   br i1 %.not.i.i114.i, label %_Py_GetBaseCodeUnit.exit.sink.split.i119.i, label %_Py_GetBaseCodeUnit.exit.i.i
 
 _Py_GetBaseCodeUnit.exit.sink.split.i119.i:       ; preds = %294, %264, %260
-  %.sink267.i.i = phi i64 [ %261, %260 ], [ %272, %264 ], [ %295, %294 ]
-  %298 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink267.i.i
+  %.sink297.i.i = phi i64 [ %261, %260 ], [ %272, %264 ], [ %295, %294 ]
+  %298 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink297.i.i
   %299 = load i8, ptr %298, align 1, !tbaa !33
   br label %_Py_GetBaseCodeUnit.exit.i.i
 
@@ -3388,8 +3388,8 @@ set_line_delta.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %comp
   br i1 %.not.i.i.i.i, label %_Py_GetBaseCodeUnit.exit.sink.split.i.i.i, label %_PyInstruction_GetLength.exit.i.i
 
 _Py_GetBaseCodeUnit.exit.sink.split.i.i.i:        ; preds = %361, %331, %327
-  %.sink1.i.i.i = phi i64 [ %328, %327 ], [ %339, %331 ], [ %362, %361 ]
-  %365 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i.i.i
+  %.sink2.i.i.i = phi i64 [ %328, %327 ], [ %339, %331 ], [ %362, %361 ]
+  %365 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2.i.i.i
   %366 = load i8, ptr %365, align 1, !tbaa !33
   br label %_PyInstruction_GetLength.exit.i.i
 
@@ -3780,8 +3780,8 @@ _Py_GetBaseCodeUnit.exit144.i.i:                  ; preds = %533, %529, %495, %4
   br i1 %.not.i.i149.i.i, label %_Py_GetBaseCodeUnit.exit.sink.split.i151.i.i, label %_PyInstruction_GetLength.exit153.i.i
 
 _Py_GetBaseCodeUnit.exit.sink.split.i151.i.i:     ; preds = %576, %546, %542
-  %.sink1.i152.i.i = phi i64 [ %543, %542 ], [ %554, %546 ], [ %577, %576 ]
-  %580 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i152.i.i
+  %.sink2.i152.i.i = phi i64 [ %543, %542 ], [ %554, %546 ], [ %577, %576 ]
+  %580 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2.i152.i.i
   %581 = load i8, ptr %580, align 1, !tbaa !33
   br label %_PyInstruction_GetLength.exit153.i.i
 
@@ -3921,8 +3921,8 @@ get_line_delta.exit.i.i:                          ; preds = %.lr.ph.i154.i.i, %5
   br i1 %.not.i163.i.i, label %_Py_GetBaseCodeUnit.exit170.sink.split.i.i, label %_Py_GetBaseCodeUnit.exit170.i.i
 
 _Py_GetBaseCodeUnit.exit170.sink.split.i.i:       ; preds = %653, %623, %619
-  %.sink268.i.i = phi i64 [ %620, %619 ], [ %631, %623 ], [ %654, %653 ]
-  %657 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink268.i.i
+  %.sink298.i.i = phi i64 [ %620, %619 ], [ %631, %623 ], [ %654, %653 ]
+  %657 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink298.i.i
   %658 = load i8, ptr %657, align 1, !tbaa !33
   br label %_Py_GetBaseCodeUnit.exit170.i.i
 
@@ -4083,8 +4083,8 @@ parse_varint.exit196.i.i:                         ; preds = %.lr.ph.i190.i.i, %p
   br i1 %.not.i202.i.i, label %_Py_GetBaseCodeUnit.exit209.sink.split.i.i, label %_Py_GetBaseCodeUnit.exit209.i.i
 
 _Py_GetBaseCodeUnit.exit209.sink.split.i.i:       ; preds = %736, %706, %702
-  %.sink269.i.i = phi i64 [ %703, %702 ], [ %714, %706 ], [ %737, %736 ]
-  %740 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink269.i.i
+  %.sink299.i.i = phi i64 [ %703, %702 ], [ %714, %706 ], [ %737, %736 ]
+  %740 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink299.i.i
   %741 = load i8, ptr %740, align 1, !tbaa !33
   br label %_Py_GetBaseCodeUnit.exit209.i.i
 
@@ -4830,8 +4830,8 @@ add_tools.exit:                                   ; preds = %_Py_GetBaseCodeUnit
   br i1 %.not.i.i213, label %_Py_GetBaseCodeUnit.exit.sink.split.i, label %_PyInstruction_GetLength.exit
 
 _Py_GetBaseCodeUnit.exit.sink.split.i:            ; preds = %1080, %1050, %1046
-  %.sink1.i = phi i64 [ %1047, %1046 ], [ %1058, %1050 ], [ %1081, %1080 ]
-  %1084 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i
+  %.sink2.i = phi i64 [ %1047, %1046 ], [ %1058, %1050 ], [ %1081, %1080 ]
+  %1084 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2.i
   %1085 = load i8, ptr %1084, align 1, !tbaa !33
   br label %_PyInstruction_GetLength.exit
 
@@ -5009,8 +5009,8 @@ remove_line_tools.exit:                           ; preds = %1148, %1144, %1125,
   br i1 %.not.i.i223, label %_Py_GetBaseCodeUnit.exit.sink.split.i225, label %_PyInstruction_GetLength.exit227
 
 _Py_GetBaseCodeUnit.exit.sink.split.i225:         ; preds = %1189, %1159, %1155
-  %.sink1.i226 = phi i64 [ %1156, %1155 ], [ %1167, %1159 ], [ %1190, %1189 ]
-  %1193 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i226
+  %.sink2.i226 = phi i64 [ %1156, %1155 ], [ %1167, %1159 ], [ %1190, %1189 ]
+  %1193 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2.i226
   %1194 = load i8, ptr %1193, align 1, !tbaa !33
   br label %_PyInstruction_GetLength.exit227
 
@@ -5110,8 +5110,8 @@ _PyInstruction_GetLength.exit227:                 ; preds = %1189, %_Py_GetBaseC
   br i1 %.not.i233, label %_Py_GetBaseCodeUnit.exit240.sink.split, label %_Py_GetBaseCodeUnit.exit240
 
 _Py_GetBaseCodeUnit.exit240.sink.split:           ; preds = %1249, %1219, %1215
-  %.sink386 = phi i64 [ %1216, %1215 ], [ %1227, %1219 ], [ %1250, %1249 ]
-  %1253 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink386
+  %.sink493 = phi i64 [ %1216, %1215 ], [ %1227, %1219 ], [ %1250, %1249 ]
+  %1253 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink493
   %1254 = load i8, ptr %1253, align 1, !tbaa !33
   br label %_Py_GetBaseCodeUnit.exit240
 
@@ -5184,7 +5184,7 @@ _Py_GetBaseCodeUnit.exit240:                      ; preds = %_Py_GetBaseCodeUnit
   br i1 %.not.i.i245, label %_Py_GetBaseCodeUnit.exit.sink.split.i247, label %_PyInstruction_GetLength.exit249, !llvm.loop !177
 
 _Py_GetBaseCodeUnit.exit.sink.split.i247:         ; preds = %1290, %1260, %1256
-  %.sink1.i248 = phi i64 [ %1257, %1256 ], [ %1268, %1260 ], [ %1291, %1290 ]
+  %.sink2.i248 = phi i64 [ %1257, %1256 ], [ %1268, %1260 ], [ %1291, %1290 ]
   br label %_PyInstruction_GetLength.exit249.sink.split, !llvm.loop !177
 
 1294:                                             ; preds = %_Py_GetBaseCodeUnit.exit240
@@ -5320,8 +5320,8 @@ remove_per_instruction_tools.exit:                ; preds = %1298, %1303, %1320,
   br i1 %.not.i.i260, label %_PyInstruction_GetLength.exit249.sink.split, label %_PyInstruction_GetLength.exit249
 
 _PyInstruction_GetLength.exit249.sink.split:      ; preds = %1334, %1338, %1368, %_Py_GetBaseCodeUnit.exit.sink.split.i247
-  %.sink1.i263.sink = phi i64 [ %.sink1.i248, %_Py_GetBaseCodeUnit.exit.sink.split.i247 ], [ %1335, %1334 ], [ %1346, %1338 ], [ %1369, %1368 ]
-  %1372 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i263.sink
+  %.sink2.i263.sink = phi i64 [ %.sink2.i248, %_Py_GetBaseCodeUnit.exit.sink.split.i247 ], [ %1335, %1334 ], [ %1346, %1338 ], [ %1369, %1368 ]
+  %1372 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2.i263.sink
   %1373 = load i8, ptr %1372, align 1, !tbaa !33
   br label %_PyInstruction_GetLength.exit249
 
@@ -5480,8 +5480,8 @@ add_line_tools.exit:                              ; preds = %.add_line_tools.exi
   br i1 %.not.i.i272, label %_Py_GetBaseCodeUnit.exit.sink.split.i274, label %_PyInstruction_GetLength.exit276
 
 _Py_GetBaseCodeUnit.exit.sink.split.i274:         ; preds = %1457, %1427, %1423
-  %.sink1.i275 = phi i64 [ %1424, %1423 ], [ %1435, %1427 ], [ %1458, %1457 ]
-  %1461 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i275
+  %.sink2.i275 = phi i64 [ %1424, %1423 ], [ %1435, %1427 ], [ %1458, %1457 ]
+  %1461 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2.i275
   %1462 = load i8, ptr %1461, align 1, !tbaa !33
   br label %_PyInstruction_GetLength.exit276
 
@@ -5580,8 +5580,8 @@ _PyInstruction_GetLength.exit276:                 ; preds = %1457, %_Py_GetBaseC
   br i1 %.not.i282, label %_Py_GetBaseCodeUnit.exit289.sink.split, label %_Py_GetBaseCodeUnit.exit289
 
 _Py_GetBaseCodeUnit.exit289.sink.split:           ; preds = %1516, %1486, %1482
-  %.sink387 = phi i64 [ %1483, %1482 ], [ %1494, %1486 ], [ %1517, %1516 ]
-  %1520 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink387
+  %.sink494 = phi i64 [ %1483, %1482 ], [ %1494, %1486 ], [ %1517, %1516 ]
+  %1520 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink494
   %1521 = load i8, ptr %1520, align 1, !tbaa !33
   br label %_Py_GetBaseCodeUnit.exit289
 
@@ -5654,7 +5654,7 @@ _Py_GetBaseCodeUnit.exit289:                      ; preds = %_Py_GetBaseCodeUnit
   br i1 %.not.i.i294, label %_Py_GetBaseCodeUnit.exit.sink.split.i296, label %_PyInstruction_GetLength.exit298, !llvm.loop !179
 
 _Py_GetBaseCodeUnit.exit.sink.split.i296:         ; preds = %1557, %1527, %1523
-  %.sink1.i297 = phi i64 [ %1524, %1523 ], [ %1535, %1527 ], [ %1558, %1557 ]
+  %.sink2.i297 = phi i64 [ %1524, %1523 ], [ %1535, %1527 ], [ %1558, %1557 ]
   br label %_PyInstruction_GetLength.exit298.sink.split, !llvm.loop !179
 
 1561:                                             ; preds = %_Py_GetBaseCodeUnit.exit289
@@ -5783,8 +5783,8 @@ add_per_instruction_tools.exit:                   ; preds = %1582, %1590
   br i1 %.not.i.i307, label %_PyInstruction_GetLength.exit298.sink.split, label %_PyInstruction_GetLength.exit298
 
 _PyInstruction_GetLength.exit298.sink.split:      ; preds = %1597, %1601, %1631, %_Py_GetBaseCodeUnit.exit.sink.split.i296
-  %.sink1.i310.sink = phi i64 [ %.sink1.i297, %_Py_GetBaseCodeUnit.exit.sink.split.i296 ], [ %1598, %1597 ], [ %1609, %1601 ], [ %1632, %1631 ]
-  %1635 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i310.sink
+  %.sink2.i310.sink = phi i64 [ %.sink2.i297, %_Py_GetBaseCodeUnit.exit.sink.split.i296 ], [ %1598, %1597 ], [ %1609, %1601 ], [ %1632, %1631 ]
+  %1635 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink2.i310.sink
   %1636 = load i8, ptr %1635, align 1, !tbaa !33
   br label %_PyInstruction_GetLength.exit298
 
@@ -6604,8 +6604,8 @@ define internal fastcc range(i32 -1, 1) i32 @capi_call_instrumentation(ptr nound
 
 .thread:                                          ; preds = %16
   %23 = or disjoint i64 %4, -9223372036854775808
-  %.not495465 = icmp eq i8 %11, 0
-  br i1 %.not495465, label %.critedge, label %.lr.ph.split.us.preheader
+  %.not495473 = icmp eq i8 %11, 0
+  br i1 %.not495473, label %.critedge, label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %20
   %24 = icmp slt i32 %5, 11
@@ -7108,8 +7108,8 @@ define dso_local range(i32 -1, 1) i32 @_PyMonitoring_FireLineEvent(ptr noundef c
   br label %capi_call_instrumentation.exit
 
 20:                                               ; preds = %9
-  %.not495465.i = icmp eq i8 %16, 0
-  br i1 %.not495465.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
+  %.not495473.i = icmp eq i8 %16, 0
+  br i1 %.not495473.i, label %capi_call_instrumentation.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %20, %Py_DECREF.exit.us.i
   %.03855.us.i = phi i8 [ %36, %Py_DECREF.exit.us.i ], [ %16, %20 ]
@@ -8384,9 +8384,9 @@ monitoring_get_events_impl.exit:                  ; preds = %12
   br label %26
 
 monitoring_get_events_impl.exit.thread:           ; preds = %20, %.split
-  %.sink14 = phi i32 [ %3, %.split ], [ -1, %20 ]
+  %.sink15 = phi i32 [ %3, %.split ], [ -1, %20 ]
   %23 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
-  %24 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.27, i32 noundef %.sink14) #11
+  %24 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.27, i32 noundef %.sink15) #11
   %25 = tail call ptr @PyErr_Occurred() #11
   %.not8 = icmp eq ptr %25, null
   br i1 %.not8, label %26, label %28

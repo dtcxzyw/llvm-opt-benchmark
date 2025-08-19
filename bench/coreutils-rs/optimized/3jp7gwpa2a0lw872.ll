@@ -316,8 +316,8 @@ define void @"_ZN79_$LT$uu_nl..NumberingStyle$u20$as$u20$core..convert..TryFrom$
   br i1 %11, label %13, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit30"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit30": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit"
-  %lhsc52 = load i8, ptr %1, align 1
-  %12 = icmp eq i8 %lhsc52, 116
+  %lhsc54 = load i8, ptr %1, align 1
+  %12 = icmp eq i8 %lhsc54, 116
   br i1 %12, label %16, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit34"
 
 13:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit"
@@ -327,8 +327,8 @@ define void @"_ZN79_$LT$uu_nl..NumberingStyle$u20$as$u20$core..convert..TryFrom$
   br label %27
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit34": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit30"
-  %lhsc54 = load i8, ptr %1, align 1
-  %15 = icmp eq i8 %lhsc54, 110
+  %lhsc56 = load i8, ptr %1, align 1
+  %15 = icmp eq i8 %lhsc56, 110
   br i1 %15, label %20, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h1622c2705132528aE.exit.thread44"
 
 16:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24ac577debd1448aE.exit30"
@@ -764,7 +764,7 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
 .lr.ph.i9.us:                                     ; preds = %17, %.sink.split.i.us
   %18 = phi i64 [ %.sink.i.us, %.sink.split.i.us ], [ %.sroa.3225.0.us, %17 ]
   %19 = phi i64 [ %59, %.sink.split.i.us ], [ %16, %17 ]
-  %20 = phi i64 [ %.ph83.i.us, %.sink.split.i.us ], [ %.sroa.20.0.us, %17 ]
+  %20 = phi i64 [ %.ph90.i.us, %.sink.split.i.us ], [ %.sroa.20.0.us, %17 ]
   %21 = getelementptr inbounds i8, ptr %.sroa.0.sroa.12.0.copyload, i64 %19
   %22 = load i8, ptr %21, align 1, !alias.scope !112, !noalias !117, !noundef !13
   %23 = and i8 %22, 63
@@ -836,8 +836,8 @@ define noundef range(i8 0, 4) i8 @_ZN5uu_nl16SectionDelimiter5parse17hf7dd07c185
 
 .sink.split.i.us:                                 ; preds = %57, %54, %43
   %.sink.i.us = phi i64 [ %12, %43 ], [ 0, %54 ], [ 0, %57 ]
-  %.ph83.i.us = phi i64 [ %44, %43 ], [ %56, %54 ], [ %58, %57 ]
-  %59 = add i64 %.ph83.i.us, %11
+  %.ph90.i.us = phi i64 [ %44, %43 ], [ %56, %54 ], [ %58, %57 ]
+  %59 = add i64 %.ph90.i.us, %11
   %.not37.i15.us = icmp ult i64 %59, %.sroa.0.sroa.13.0.copyload
   br i1 %.not37.i15.us, label %.lr.ph.i9.us, label %_ZN4core4iter6traits8iterator8Iterator4fold17h0423f45a19fe98edE.exit
 

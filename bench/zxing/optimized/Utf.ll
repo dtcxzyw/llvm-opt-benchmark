@@ -183,8 +183,8 @@ _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exi
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge.i, %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit
-  %.sink33 = phi i64 [ %28, %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit ], [ %26, %.critedge.i ]
-  %29 = add i64 %.sink33, %5
+  %.sink35 = phi i64 [ %28, %_ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIDuSt11char_traitsIDuEE.exit ], [ %26, %.critedge.i ]
+  %29 = add i64 %.sink35, %5
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %29)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %0
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16

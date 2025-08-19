@@ -1412,12 +1412,12 @@ define hidden void @_ZN4ring3rsa10public_key9PublicKey25from_modulus_and_exponen
   store i64 %2, ptr %30, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i61 = icmp eq i64 %4, 0
-  br i1 %.not.i61, label %select.unfold92, label %31
+  br i1 %.not.i61, label %select.unfold93, label %31
 
 31:                                               ; preds = %29
   %32 = load i8, ptr %3, align 1, !alias.scope !406, !noundef !7
   %33 = icmp eq i8 %32, 0
-  br i1 %33, label %select.unfold92, label %36
+  br i1 %33, label %select.unfold93, label %36
 
 select.unfold:                                    ; preds = %21, %20
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1438,7 +1438,7 @@ select.unfold:                                    ; preds = %21, %20
   %39 = invoke { ptr, i64 } @_ZN4ring2io10der_writer9write_all17h3a1f4346c53abf5fE(i8 noundef 48, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3beb75dc861d66d2d938a1ec4e9d58e9.26)
           to label %42 unwind label %27
 
-select.unfold92:                                  ; preds = %31, %29
+select.unfold93:                                  ; preds = %31, %29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.bb7da592cc2a4db35d4d49e42ec38fbb.27.llvm.11656387384687170936, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1476,7 +1476,7 @@ select.unfold92:                                  ; preds = %31, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
-50:                                               ; preds = %46, %select.unfold92
+50:                                               ; preds = %46, %select.unfold93
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %51
 

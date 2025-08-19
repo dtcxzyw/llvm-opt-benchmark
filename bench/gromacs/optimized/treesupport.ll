@@ -1935,7 +1935,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEcl
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !112
   %.not.i.i.i.i42 = icmp eq ptr %92, null
-  br i1 %.not.i.i.i.i42, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit139, label %93
+  br i1 %.not.i.i.i.i42, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit174, label %93
 
 93:                                               ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.us.i
   %94 = load ptr, ptr %92, align 8, !tbaa !35
@@ -1950,18 +1950,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEcl
 101:                                              ; preds = %93
   %102 = load i8, ptr %99, align 1, !tbaa !31
   %.not.i.i.i43 = icmp eq i8 %102, 42
-  br i1 %.not.i.i.i43, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit141, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit44
+  br i1 %.not.i.i.i43, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit176, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit44
 
 _ZNK3gmx17KeyValueTreeValue8isObjectEv.exit44:    ; preds = %101
   %103 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(27) @_ZTSN3gmx18KeyValueTreeObjectE) #22
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.us.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit137
+  br i1 %104, label %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.us.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit172
 
 _ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.us.i: ; preds = %93, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit44
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 16
   %106 = load ptr, ptr %105, align 8, !tbaa !112
   %.not.i.i.i.i39 = icmp eq ptr %106, null
-  br i1 %.not.i.i.i.i39, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit143, label %107
+  br i1 %.not.i.i.i.i39, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit178, label %107
 
 107:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.us.i
   %108 = load ptr, ptr %106, align 8, !tbaa !35
@@ -1976,18 +1976,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEcl
 115:                                              ; preds = %107
   %116 = load i8, ptr %113, align 1, !tbaa !31
   %.not.i.i.i40 = icmp eq i8 %116, 42
-  br i1 %.not.i.i.i40, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit145, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit41
+  br i1 %.not.i.i.i40, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit180, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit41
 
 _ZNK3gmx17KeyValueTreeValue8isObjectEv.exit41:    ; preds = %115
   %117 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull dereferenceable(27) @_ZTSN3gmx18KeyValueTreeObjectE) #22
   %118 = icmp eq i32 %117, 0
-  br i1 %118, label %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit30.us.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit135
+  br i1 %118, label %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit30.us.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit170
 
 _ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit30.us.i: ; preds = %107, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit41
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !112
   %.not.i.i.i.i36 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i.i36, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit147, label %121
+  br i1 %.not.i.i.i.i36, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit182, label %121
 
 121:                                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit30.us.i
   %122 = load ptr, ptr %120, align 8, !tbaa !35
@@ -2002,7 +2002,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEcl
 129:                                              ; preds = %121
   %130 = load i8, ptr %127, align 1, !tbaa !31
   %.not.i.i.i37 = icmp eq i8 %130, 42
-  br i1 %.not.i.i.i37, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit149, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit38
+  br i1 %.not.i.i.i37, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit184, label %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit38
 
 _ZNK3gmx17KeyValueTreeValue8isObjectEv.exit38:    ; preds = %129
   %131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %127, ptr noundef nonnull dereferenceable(27) @_ZTSN3gmx18KeyValueTreeObjectE) #22
@@ -2120,40 +2120,40 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vect
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 24
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit135: ; preds = %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit41
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit170: ; preds = %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit41
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 16
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit137: ; preds = %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit44
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit172: ; preds = %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit44
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 8
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit139: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.us.i
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit174: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit20.us.i
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 8
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit141: ; preds = %101
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit176: ; preds = %101
   %183 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 8
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit143: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.us.i
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit178: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit25.us.i
   %184 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 16
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit145: ; preds = %115
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit180: ; preds = %115
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 16
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit147: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit30.us.i
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit182: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit30.us.i
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 24
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit149: ; preds = %129
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit184: ; preds = %129
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.061.073.us.i, i64 24
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit: ; preds = %87, %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.us.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit47, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit135, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit137, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit139, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit141, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit143, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit145, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit147, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit149, %175, %._crit_edge._crit_edge.i, %161, %._crit_edge._crit_edge80.i, %147, %137, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit29, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit35, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit32
-  %.sroa.08.0.in.sroa.speculated.i = phi ptr [ %.sroa.061.0.lcssa.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit35 ], [ %.sroa.061.1.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit32 ], [ %.sroa.061.2.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit29 ], [ %.sroa.061.0.lcssa.i, %137 ], [ %.sroa.061.0.lcssa.i, %147 ], [ %.sroa.061.1.i, %._crit_edge._crit_edge80.i ], [ %.sroa.061.1.i, %161 ], [ %.sroa.061.2.i, %._crit_edge._crit_edge.i ], [ %.sroa.061.2.i, %175 ], [ %179, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %180, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit135 ], [ %181, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit137 ], [ %182, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit139 ], [ %183, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit141 ], [ %184, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit143 ], [ %185, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit145 ], [ %186, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit147 ], [ %187, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit149 ], [ %.sroa.061.073.us.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit47 ], [ %.sroa.061.073.us.i, %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.us.i ], [ %.sroa.061.073.us.i, %87 ]
+_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit: ; preds = %87, %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.us.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit47, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit170, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit172, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit174, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit176, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit178, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit180, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit182, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit184, %175, %._crit_edge._crit_edge.i, %161, %._crit_edge._crit_edge80.i, %147, %137, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit29, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit35, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit32
+  %.sroa.08.0.in.sroa.speculated.i = phi ptr [ %.sroa.061.0.lcssa.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit35 ], [ %.sroa.061.1.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit32 ], [ %.sroa.061.2.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit29 ], [ %.sroa.061.0.lcssa.i, %137 ], [ %.sroa.061.0.lcssa.i, %147 ], [ %.sroa.061.1.i, %._crit_edge._crit_edge80.i ], [ %.sroa.061.1.i, %161 ], [ %.sroa.061.2.i, %._crit_edge._crit_edge.i ], [ %.sroa.061.2.i, %175 ], [ %179, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %180, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit170 ], [ %181, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit172 ], [ %182, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit174 ], [ %183, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit176 ], [ %184, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit178 ], [ %185, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit180 ], [ %186, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit182 ], [ %187, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit184 ], [ %.sroa.061.073.us.i, %_ZNK3gmx17KeyValueTreeValue8isObjectEv.exit47 ], [ %.sroa.061.073.us.i, %_ZN9__gnu_cxx5__ops12_Iter_negateISt7_Mem_fnIMN3gmx17KeyValueTreeValueEKFbvEEEclINS_17__normal_iteratorIPKS4_St6vectorIS4_SaIS4_EEEEEEbT_.exit.us.i ], [ %.sroa.061.073.us.i, %87 ]
   %188 = icmp eq ptr %72, %.sroa.08.0.in.sroa.speculated.i
   br i1 %188, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3gmx17KeyValueTreeValueESt6vectorIS3_SaIS3_EEEENS0_5__ops12_Iter_negateISt7_Mem_fnIMS3_KFbvEEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.thread, label %209
 
@@ -3078,18 +3078,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !57
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #27
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #27
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !30
@@ -3123,7 +3123,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5664,18 +5664,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !57
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #27
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #27
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !30
@@ -5709,7 +5709,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

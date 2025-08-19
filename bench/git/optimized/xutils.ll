@@ -226,8 +226,8 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @xdl_
   br i1 %20, label %12, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %12
-  %.not37 = icmp eq ptr %.122, %5
-  br i1 %.not37, label %.thread, label %21
+  %.not38 = icmp eq ptr %.122, %5
+  br i1 %.not38, label %.thread, label %21
 
 21:                                               ; preds = %._crit_edge
   %22 = ptrtoint ptr %5 to i64
@@ -535,9 +535,9 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
 102:                                              ; preds = %96
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next278, %1
-  br i1 %exitcond285.not, label %.critedge10.thread294, label %.lr.ph228, !llvm.loop !41
+  br i1 %exitcond285.not, label %.critedge10.thread312, label %.lr.ph228, !llvm.loop !41
 
-.critedge10.thread294:                            ; preds = %102
+.critedge10.thread312:                            ; preds = %102
   %103 = trunc nuw i64 %1 to i32
   br label %.thread.i
 
@@ -550,9 +550,9 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   %.6227.lcssa = trunc i64 %.lcssa247 to i32
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.critedge10, %.critedge10.thread.loopexit, %.critedge10.thread294
-  %.6175 = phi i32 [ 0, %.critedge10 ], [ %.6227.lcssa, %.critedge10.thread.loopexit ], [ %103, %.critedge10.thread294 ]
-  %104 = phi i64 [ 0, %.critedge10 ], [ %.lcssa247, %.critedge10.thread.loopexit ], [ %1, %.critedge10.thread294 ]
+.thread.i:                                        ; preds = %.critedge10, %.critedge10.thread.loopexit, %.critedge10.thread312
+  %.6175 = phi i32 [ 0, %.critedge10 ], [ %.6227.lcssa, %.critedge10.thread.loopexit ], [ %103, %.critedge10.thread312 ]
+  %104 = phi i64 [ 0, %.critedge10 ], [ %.lcssa247, %.critedge10.thread.loopexit ], [ %1, %.critedge10.thread312 ]
   %105 = getelementptr i8, ptr %0, i64 %1
   %106 = getelementptr i8, ptr %105, i64 -1
   %107 = load i8, ptr %106, align 1, !tbaa !14
@@ -576,8 +576,8 @@ define dso_local range(i32 0, 2) i32 @xdl_recmatch(ptr noundef readonly captures
   br i1 %117, label %.thread.i.thread, label %ends_with_optional_cr.exit
 
 .thread.i.thread:                                 ; preds = %.critedge10, %.thread.i, %114
-  %.6176299 = phi i32 [ %.6175, %.thread.i ], [ %.6175, %114 ], [ 0, %.critedge10 ]
-  %118 = zext nneg i32 %.6176299 to i64
+  %.6176317 = phi i32 [ %.6175, %.thread.i ], [ %.6175, %114 ], [ 0, %.critedge10 ]
+  %118 = zext nneg i32 %.6176317 to i64
   %.not.i151 = icmp eq i64 %3, 0
   br i1 %.not.i151, label %.thread.i154, label %119
 

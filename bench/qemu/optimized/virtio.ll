@@ -3586,13 +3586,13 @@ virtio_queue_packed_empty_rcu.exit.i:             ; preds = %59, %57
   br i1 %109, label %.split.us.preheader.i, label %.split.i
 
 .split.us.preheader.i:                            ; preds = %108, %.thread.i
-  %.081155.i = phi ptr [ %9, %.thread.i ], [ %86, %108 ]
-  %.082154.i = phi i32 [ %107, %.thread.i ], [ %68, %108 ]
-  %.0111153.i = phi i32 [ 0, %.thread.i ], [ %74, %108 ]
+  %.081166.i = phi ptr [ %9, %.thread.i ], [ %86, %108 ]
+  %.082165.i = phi i32 [ %107, %.thread.i ], [ %68, %108 ]
+  %.0111164.i = phi i32 [ 0, %.thread.i ], [ %74, %108 ]
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %virtqueue_packed_read_next_desc.exit.us.i, %.split.us.preheader.i
-  %.1112.us.i = phi i32 [ %133, %virtqueue_packed_read_next_desc.exit.us.i ], [ %.0111153.i, %.split.us.preheader.i ]
+  %.1112.us.i = phi i32 [ %133, %virtqueue_packed_read_next_desc.exit.us.i ], [ %.0111164.i, %.split.us.preheader.i ]
   %.077.us.i = phi i32 [ %130, %virtqueue_packed_read_next_desc.exit.us.i ], [ 0, %.split.us.preheader.i ]
   %110 = load i16, ptr %89, align 2
   %111 = and i16 %110, 2
@@ -3625,16 +3625,16 @@ virtio_queue_packed_empty_rcu.exit.i:             ; preds = %59, %57
 
 129:                                              ; preds = %124, %112
   %130 = add i32 %.077.us.i, 1
-  %131 = icmp ugt i32 %130, %.082154.i
+  %131 = icmp ugt i32 %130, %.082165.i
   br i1 %131, label %.loopexit.sink.split.i, label %132
 
 132:                                              ; preds = %129
   %133 = add i32 %.1112.us.i, 1
-  %134 = icmp eq i32 %133, %.082154.i
+  %134 = icmp eq i32 %133, %.082165.i
   br i1 %134, label %.loopexit, label %virtqueue_packed_read_next_desc.exit.us.i
 
 virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %132
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %14, ptr noundef nonnull %.081155.i, i32 noundef %133, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %14, ptr noundef nonnull %.081166.i, i32 noundef %133, i1 noundef zeroext false)
   br label %.split.us.i, !llvm.loop !28
 
 .split.i:                                         ; preds = %108, %virtqueue_packed_read_next_desc.exit.i
@@ -5487,8 +5487,8 @@ define dso_local void @virtio_reset(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.sink38 = phi i1 [ %10, %9 ], [ %8, %7 ]
-  %12 = select i1 %.sink38, i8 2, i8 1
+  %.sink42 = phi i1 [ %10, %9 ], [ %8, %7 ]
+  %12 = select i1 %.sink42, i8 2, i8 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store i8 %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 368
@@ -6904,13 +6904,13 @@ define dso_local i32 @virtio_save(ptr noundef %0, ptr noundef %1) local_unnamed_
 36:                                               ; preds = %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %.split.loop.exit84, label %32, !llvm.loop !49
+  br i1 %exitcond.not, label %.split.loop.exit89, label %32, !llvm.loop !49
 
 .split.loop.exit:                                 ; preds = %32
   %37 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit84
+  br label %.split.loop.exit89
 
-.split.loop.exit84:                               ; preds = %36, %.split.loop.exit
+.split.loop.exit89:                               ; preds = %36, %.split.loop.exit
   %.062.lcssa = phi i32 [ %37, %.split.loop.exit ], [ 1024, %36 ]
   tail call void @qemu_put_be32(ptr noundef %1, i32 noundef %.062.lcssa) #24
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 312
@@ -6918,8 +6918,8 @@ define dso_local i32 @virtio_save(ptr noundef %0, ptr noundef %1) local_unnamed_
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %41
 
-41:                                               ; preds = %.split.loop.exit84, %64
-  %indvars.iv80 = phi i64 [ 0, %.split.loop.exit84 ], [ %indvars.iv.next81, %64 ]
+41:                                               ; preds = %.split.loop.exit89, %64
+  %indvars.iv80 = phi i64 [ 0, %.split.loop.exit89 ], [ %indvars.iv.next81, %64 ]
   %42 = load ptr, ptr %30, align 8
   %43 = getelementptr inbounds nuw %struct.VirtQueue, ptr %42, i64 %indvars.iv80
   %44 = load i32, ptr %43, align 8
@@ -10555,7 +10555,7 @@ define internal void @virtio_device_unrealize(ptr noundef %0) #0 {
 declare void @device_class_set_props_n(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_device_start_ioeventfd_impl(ptr noundef %0) #0 {
+define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_impl(ptr noundef %0) #0 {
   %2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #24
   %3 = tail call ptr @qdev_get_parent_bus(ptr noundef %2) #24
   %4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #24

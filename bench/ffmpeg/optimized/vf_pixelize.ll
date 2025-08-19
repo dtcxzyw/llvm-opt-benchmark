@@ -401,8 +401,8 @@ declare i32 @av_image_fill_linesizes(ptr noundef, i32 noundef, i32 noundef) loca
 define internal noundef i32 @pixelize_avg8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #3 {
   %7 = icmp sgt i32 %5, 0
   %8 = icmp sgt i32 %4, 0
-  %or.cond57 = and i1 %7, %8
-  br i1 %or.cond57, label %.preheader33.us.preheader, label %._crit_edge44
+  %or.cond60 = and i1 %7, %8
+  br i1 %or.cond60, label %.preheader33.us.preheader, label %._crit_edge44
 
 .preheader33.us.preheader:                        ; preds = %6
   %wide.trip.count = zext nneg i32 %4 to i64

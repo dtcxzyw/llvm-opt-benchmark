@@ -479,9 +479,9 @@ smart_str_alloc.exit.split.us:                    ; preds = %smart_str_alloc.exi
   br i1 %20, label %.thread.us, label %.preheader.us
 
 .preheader.us:                                    ; preds = %smart_str_alloc.exit.split.us
-  %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr i8, ptr @phpdbg_globals, i64 %21
-  %scevgep = getelementptr i8, ptr %22, i64 1640
+  %21 = add nuw i32 %19, 1640
+  %22 = zext i32 %21 to i64
+  %scevgep = getelementptr i8, ptr @phpdbg_globals, i64 %22
   br label %23
 
 23:                                               ; preds = %.preheader.us, %38
@@ -512,9 +512,9 @@ smart_str_alloc.exit.split.us:                    ; preds = %smart_str_alloc.exi
   %30 = getelementptr inbounds nuw i8, ptr %.034.us, i64 1
   %31 = load i8, ptr %30, align 1, !tbaa !76
   %32 = icmp eq i8 %31, 10
-  br i1 %32, label %.split.us, label %.thread96
+  br i1 %32, label %.split.us, label %.thread115
 
-.thread96:                                        ; preds = %29
+.thread115:                                       ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.034.us, i64 1
   br label %38
 
@@ -526,9 +526,9 @@ smart_str_alloc.exit.split.us:                    ; preds = %smart_str_alloc.exi
   %spec.select = select i1 %36, ptr %37, ptr %.032.us
   br label %38
 
-38:                                               ; preds = %34, %.thread96
-  %39 = phi ptr [ %33, %.thread96 ], [ %37, %34 ]
-  %40 = phi ptr [ %.032.us, %.thread96 ], [ %spec.select, %34 ]
+38:                                               ; preds = %34, %.thread115
+  %39 = phi ptr [ %33, %.thread115 ], [ %37, %34 ]
+  %40 = phi ptr [ %.032.us, %.thread115 ], [ %spec.select, %34 ]
   %41 = add nsw i32 %24, -1
   store i32 %41, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2140), align 4, !tbaa !75
   %.not42.us = icmp eq i32 %41, 0
@@ -655,7 +655,7 @@ smart_str_alloc.exit.split:                       ; preds = %smart_str_alloc.exi
   %97 = add i64 %96, %92
   %98 = load i64, ptr %16, align 8, !tbaa !78
   %.not12.i49 = icmp ult i64 %97, %98
-  br i1 %.not12.i49, label %.thread98, label %99, !prof !79
+  br i1 %.not12.i49, label %.thread117, label %99, !prof !79
 
 99:                                               ; preds = %94, %.split.us
   %.0.i50 = phi i64 [ %92, %.split.us ], [ %97, %94 ]
@@ -663,9 +663,9 @@ smart_str_alloc.exit.split:                       ; preds = %smart_str_alloc.exi
   %.pre83 = load ptr, ptr %1, align 8, !tbaa !70
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %.pre83, i64 16
   %.pre85 = load i64, ptr %.phi.trans.insert84, align 8, !tbaa !73
-  br label %.thread98
+  br label %.thread117
 
-.thread98:                                        ; preds = %94, %99
+.thread117:                                       ; preds = %94, %99
   %100 = phi i64 [ %.pre85, %99 ], [ %96, %94 ]
   %101 = phi ptr [ %.pre83, %99 ], [ %93, %94 ]
   %.1.i51 = phi i64 [ %.0.i50, %99 ], [ %97, %94 ]
@@ -739,8 +739,8 @@ smart_str_alloc.exit67:                           ; preds = %110, %115
   %.not.i = icmp eq ptr %.pre94, null
   br i1 %.not.i, label %smart_str_0.exit, label %134
 
-134:                                              ; preds = %.thread98, %133
-  %135 = phi ptr [ %104, %.thread98 ], [ %.pre94, %133 ]
+134:                                              ; preds = %.thread117, %133
+  %135 = phi ptr [ %104, %.thread117 ], [ %.pre94, %133 ]
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %138 = load i64, ptr %137, align 8, !tbaa !73
@@ -900,9 +900,9 @@ phpdbg_clean.exit:                                ; preds = %17, %21
 
 .lr.ph311:                                        ; preds = %51
   %54 = ptrtoint ptr %.0210 to i64
-  br label %.loopexit432
+  br label %.loopexit452
 
-.loopexit432:                                     ; preds = %.preheader279, %.lr.ph311
+.loopexit452:                                     ; preds = %.preheader279, %.lr.ph311
   %indvars.iv = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next, %.preheader279 ]
   %.0198309 = phi ptr [ %40, %.lr.ph311 ], [ %.4202, %.preheader279 ]
   %.1204308 = phi ptr [ %.0203, %.lr.ph311 ], [ %160, %.preheader279 ]
@@ -914,7 +914,7 @@ phpdbg_clean.exit:                                ; preds = %17, %21
   %60 = icmp eq i8 %59, 60
   br i1 %60, label %.preheader278, label %95
 
-.preheader278:                                    ; preds = %.loopexit432
+.preheader278:                                    ; preds = %.loopexit452
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   br label %62
 
@@ -1008,7 +1008,7 @@ phpdbg_clean.exit:                                ; preds = %17, %21
   %94 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %93, ptr noundef nonnull @.str.91, ptr noundef %58) #26
   br label %149
 
-95:                                               ; preds = %.loopexit432
+95:                                               ; preds = %.loopexit452
   %96 = icmp samesign ugt i64 %indvars.iv, 3
   %97 = trunc nuw nsw i64 %indvars.iv to i32
   %98 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %97)
@@ -1187,7 +1187,7 @@ phpdbg_clean.exit:                                ; preds = %17, %21
   %.15 = phi ptr [ %160, %.preheader279 ], [ %.12.lcssa, %152 ]
   %160 = getelementptr inbounds nuw i8, ptr %.15, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !76
-  switch i8 %161, label %.loopexit432 [
+  switch i8 %161, label %.loopexit452 [
     i8 32, label %.preheader279
     i8 0, label %.loopexit281.loopexit
   ]
@@ -4634,18 +4634,18 @@ define hidden void @phpdbg_execute_ex(ptr noundef %0) #0 {
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 600), align 8, !tbaa !228
   %10 = tail call ptr @llvm.frameaddress.p0(i32 0)
   %.not265 = icmp ugt ptr %10, %9
-  br i1 %.not265, label %.preheader272, label %11, !prof !79
+  br i1 %.not265, label %.preheader301, label %11, !prof !79
 
 11:                                               ; preds = %8
   tail call void @zend_call_stack_size_error() #26
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  br label %.preheader272
+  br label %.preheader301
 
-.preheader272:                                    ; preds = %11, %8
+.preheader301:                                    ; preds = %11, %8
   br label %.outer
 
-.outer:                                           ; preds = %.preheader272, %534
-  %.0112.ph = phi ptr [ %0, %.preheader272 ], [ %535, %534 ]
+.outer:                                           ; preds = %.preheader301, %534
+  %.0112.ph = phi ptr [ %0, %.preheader301 ], [ %535, %534 ]
   %12 = getelementptr inbounds nuw i8, ptr %.0112.ph, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %.0112.ph, i64 8
   br label %14

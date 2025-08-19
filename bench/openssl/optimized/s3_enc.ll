@@ -468,10 +468,10 @@ define range(i32 0, 2) i32 @ssl3_finish_mac(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not, label %.sink.split, label %17
 
 .sink.split:                                      ; preds = %15, %9, %7
-  %.sink19 = phi i32 [ 255, %7 ], [ 260, %9 ], [ 266, %15 ]
+  %.sink21 = phi i32 [ 255, %7 ], [ 260, %9 ], [ 266, %15 ]
   %.sink = phi i32 [ 237, %7 ], [ 786691, %9 ], [ 786691, %15 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink19, ptr noundef nonnull @__func__.ssl3_finish_mac) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.ssl3_finish_mac) #8
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #8
   br label %17
 

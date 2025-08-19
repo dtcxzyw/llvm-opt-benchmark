@@ -1178,9 +1178,9 @@ _ZN4core4time8Duration3new17h96fb62293d3c247bE.exit: ; preds = %56
   %62 = icmp ult i32 %.sroa.47.1, 1000000000
   %63 = add nuw i64 %.sroa.4.1, %59
   %spec.select = select i1 %62, i32 %.sroa.47.1, i32 %58
-  %spec.select146 = select i1 %62, i64 %.sroa.4.1, i64 %63
+  %spec.select149 = select i1 %62, i64 %.sroa.4.1, i64 %63
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select146, ptr %64, align 8
+  store i64 %spec.select149, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select, ptr %65, align 8
   store i8 9, ptr %0, align 8
@@ -1404,9 +1404,9 @@ _ZN4core4time8Duration3new17h96fb62293d3c247bE.exit: ; preds = %22
   %30 = icmp ult i32 %24, 1000000000
   %31 = add nuw i64 %15, %27
   %spec.select = select i1 %30, i32 %24, i32 %26
-  %spec.select57 = select i1 %30, i64 %15, i64 %31
+  %spec.select59 = select i1 %30, i64 %15, i64 %31
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select57, ptr %32, align 8
+  store i64 %spec.select59, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select, ptr %33, align 8
   store i8 9, ptr %0, align 8
@@ -1621,9 +1621,9 @@ _ZN4core4time8Duration3new17h96fb62293d3c247bE.exit: ; preds = %49
   %55 = icmp ult i32 %45, 1000000000
   %56 = add nuw i64 %26, %52
   %spec.select = select i1 %55, i32 %45, i32 %51
-  %spec.select69 = select i1 %55, i64 %26, i64 %56
+  %spec.select73 = select i1 %55, i64 %26, i64 %56
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select69, ptr %57, align 8
+  store i64 %spec.select73, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select, ptr %58, align 8
   store i8 9, ptr %0, align 8
@@ -6815,7 +6815,7 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$uv_dist
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  br label %.invoke35
+  br label %.invoke47
 
 26:                                               ; preds = %1
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -6933,7 +6933,7 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$uv_dist
   switch i64 %75, label %.unreachabledefault.i.i [
     i64 0, label %86
     i64 1, label %96
-    i64 2, label %.invoke35
+    i64 2, label %.invoke47
     i64 3, label %107
     i64 4, label %.invoke
     i64 5, label %118
@@ -7012,7 +7012,7 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$uv_dist
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1700
   br label %"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17hf2fcf23f3c247b1eE.exit"
 
-.invoke35:                                        ; preds = %70, %24
+.invoke47:                                        ; preds = %70, %24
   %106 = phi ptr [ %25, %24 ], [ %71, %70 ]
   invoke fastcc void @"_ZN4core3ptr51drop_in_place$LT$uv_git_types..GitUrlParseError$GT$17h11476531970c2a51E"(ptr noalias noundef align 8 dereferenceable(112) %106)
           to label %"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17hf2fcf23f3c247b1eE.exit" unwind label %181
@@ -7165,8 +7165,8 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$uv_dist
           to label %183 unwind label %167
 
 "_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h9c38f2a533b58edfE.exit.i.invoke": ; preds = %26, %1, %1, %1
-  %.sink36 = phi i64 [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 16, %26 ]
-  %166 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink36
+  %.sink48 = phi i64 [ 8, %1 ], [ 8, %1 ], [ 8, %1 ], [ 16, %26 ]
+  %166 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink48
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(8) %166)
           to label %"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17hf2fcf23f3c247b1eE.exit" unwind label %181
 
@@ -7207,12 +7207,12 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$alloc..boxed..Box$LT$uv_dist
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1770
   br label %"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17hf2fcf23f3c247b1eE.exit"
 
-181:                                              ; preds = %.invoke35, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h9c38f2a533b58edfE.exit.i.invoke", %176, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h9c38f2a533b58edfE.exit2.i", %158, %153, %146, %141, %133, %128, %123, %118, %112, %107, %101, %96, %81, %76, %65, %60, %55, %50, %45, %40, %33, %28, %22, %18
+181:                                              ; preds = %.invoke47, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h9c38f2a533b58edfE.exit.i.invoke", %176, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h9c38f2a533b58edfE.exit2.i", %158, %153, %146, %141, %133, %128, %123, %118, %112, %107, %101, %96, %81, %76, %65, %60, %55, %50, %45, %40, %33, %28, %22, %18
   %182 = landingpad { ptr, i32 }
           cleanup
   br label %183
 
-"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17hf2fcf23f3c247b1eE.exit": ; preds = %.invoke35, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h9c38f2a533b58edfE.exit.i.invoke", %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h2a39f260ce8ffd2fE.exit5.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h278cd38f3da8afaaE.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit6.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit5.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit4.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit3.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit2.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h278cd38f3da8afaaE.exit.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit4.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit3.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit.i", %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h2a39f260ce8ffd2fE.exit.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h03038832a0b96419E.exit.i", %1, %1, %1, %1
+"_ZN4core3ptr71drop_in_place$LT$uv_distribution..metadata..lowering..LoweringError$GT$17hf2fcf23f3c247b1eE.exit": ; preds = %.invoke47, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h9c38f2a533b58edfE.exit.i.invoke", %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h2a39f260ce8ffd2fE.exit5.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h278cd38f3da8afaaE.exit.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit6.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit5.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit4.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit3.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit2.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h278cd38f3da8afaaE.exit.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit4.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit3.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6444d6d08a60d9e6E.exit.i", %"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h2a39f260ce8ffd2fE.exit.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h03038832a0b96419E.exit.i", %1, %1, %1, %1
   call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 120, i64 noundef 8) #37
   ret void
 
@@ -11215,7 +11215,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hd198
   %59 = icmp ult i32 %.sroa.47.056.i, 1000000000
   %60 = add nuw i64 %.sroa.4.053.i, %55
   %spec.select = select i1 %59, i32 %.sroa.47.056.i, i32 %54
-  %spec.select175 = select i1 %59, i64 %.sroa.4.053.i, i64 %60
+  %spec.select177 = select i1 %59, i64 %.sroa.4.053.i, i64 %60
   br label %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h048cf7031e3c0482E.exit.thread"
 
 61:                                               ; preds = %52
@@ -11248,7 +11248,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hd198
 
 "_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h048cf7031e3c0482E.exit.thread": ; preds = %58, %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h048cf7031e3c0482E.exit._crit_edge"
   %67 = phi i32 [ %.pre62, %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h048cf7031e3c0482E.exit._crit_edge" ], [ %spec.select, %58 ]
-  %68 = phi i64 [ %.pre, %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h048cf7031e3c0482E.exit._crit_edge" ], [ %spec.select175, %58 ]
+  %68 = phi i64 [ %.pre, %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h048cf7031e3c0482E.exit._crit_edge" ], [ %spec.select177, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8
@@ -11389,7 +11389,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h538d
   %42 = icmp ult i32 %31, 1000000000
   %43 = add nuw i64 %20, %37
   %spec.select = select i1 %42, i32 %31, i32 %36
-  %spec.select6 = select i1 %42, i64 %20, i64 %43
+  %spec.select7 = select i1 %42, i64 %20, i64 %43
   br label %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h76fa2f70960d3a48E.exit.thread"
 
 44:                                               ; preds = %34
@@ -11422,7 +11422,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h538d
 
 "_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h76fa2f70960d3a48E.exit.thread": ; preds = %41, %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h76fa2f70960d3a48E.exit._crit_edge"
   %50 = phi i32 [ %.pre5, %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h76fa2f70960d3a48E.exit._crit_edge" ], [ %spec.select, %41 ]
-  %51 = phi i64 [ %.pre, %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h76fa2f70960d3a48E.exit._crit_edge" ], [ %spec.select6, %41 ]
+  %51 = phi i64 [ %.pre, %"_ZN160_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..time..SystemTime$GT$..deserialize..DurationVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h76fa2f70960d3a48E.exit._crit_edge" ], [ %spec.select7, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8

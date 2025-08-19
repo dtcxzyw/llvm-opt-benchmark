@@ -1070,8 +1070,8 @@ dtls1_hm_fragment_free.exit:                      ; preds = %7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef range(i64 -2147483648, 4294967296) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
-  %calloc27 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  %3 = icmp eq ptr %calloc27, null
+  %calloc30 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
+  %3 = icmp eq ptr %calloc30, null
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
@@ -1084,7 +1084,7 @@ define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef ra
 
 6:                                                ; preds = %5
   %7 = tail call noalias ptr @malloc(i64 noundef %0) #14
-  %8 = getelementptr inbounds nuw i8, ptr %calloc27, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %calloc30, i64 32
   store ptr %7, ptr %8, align 8, !tbaa !6
   %9 = icmp eq ptr %7, null
   br i1 %9, label %10, label %11
@@ -1109,7 +1109,7 @@ define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef ra
   %16 = add nsw i64 %0, 7
   %17 = lshr i64 %16, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %17)
-  %18 = getelementptr inbounds nuw i8, ptr %calloc27, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %calloc30, i64 40
   store ptr %calloc, ptr %18, align 8, !tbaa !15
   %19 = icmp eq ptr %calloc, null
   br i1 %19, label %20, label %.thread
@@ -1120,11 +1120,11 @@ define internal fastcc noalias noundef ptr @dtls1_hm_fragment_new(i64 noundef ra
 
 dtls1_hm_fragment_free.exit:                      ; preds = %20, %14, %10
   tail call void @free(ptr noundef %7) #13
-  tail call void @free(ptr noundef nonnull %calloc27) #13
+  tail call void @free(ptr noundef nonnull %calloc30) #13
   br label %.thread
 
 .thread:                                          ; preds = %15, %5, %11, %dtls1_hm_fragment_free.exit, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %dtls1_hm_fragment_free.exit ], [ %calloc27, %11 ], [ %calloc27, %5 ], [ %calloc27, %15 ]
+  %.0 = phi ptr [ null, %4 ], [ null, %dtls1_hm_fragment_free.exit ], [ %calloc30, %11 ], [ %calloc30, %5 ], [ %calloc30, %15 ]
   ret ptr %.0
 }
 
@@ -1153,8 +1153,8 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_send_change_cipher_spec(ptr n
   %12 = load i16, ptr %11, align 2, !tbaa !106
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 296
   store i16 %12, ptr %13, align 8, !tbaa !107
-  %calloc27.i.i = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  %14 = icmp eq ptr %calloc27.i.i, null
+  %calloc30.i.i = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
+  %14 = icmp eq ptr %calloc30.i.i, null
   br i1 %14, label %dtls1_hm_fragment_new.exit.thread.i, label %dtls1_hm_fragment_new.exit.i
 
 dtls1_hm_fragment_new.exit.thread.i:              ; preds = %8
@@ -1162,11 +1162,11 @@ dtls1_hm_fragment_new.exit.thread.i:              ; preds = %8
   br label %dtls1_buffer_change_cipher_spec.exit
 
 dtls1_hm_fragment_new.exit.i:                     ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %calloc27.i.i, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %calloc30.i.i, i64 20
   store i32 1, ptr %15, align 4, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 274
   %17 = load i16, ptr %16, align 2, !tbaa !95
-  %18 = getelementptr inbounds nuw i8, ptr %calloc27.i.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %calloc30.i.i, i64 24
   store i16 %17, ptr %18, align 8, !tbaa !96
   %19 = shl i16 %12, 1
   %20 = add i16 %19, -1
@@ -1179,18 +1179,18 @@ dtls1_hm_fragment_new.exit.i:                     ; preds = %8
   %24 = trunc i16 %20 to i8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %24, ptr %25, align 1, !tbaa !84
-  %26 = call ptr @pitem_new(ptr noundef nonnull %4, ptr noundef nonnull %calloc27.i.i) #13
+  %26 = call ptr @pitem_new(ptr noundef nonnull %4, ptr noundef nonnull %calloc30.i.i) #13
   %27 = icmp eq ptr %26, null
   br i1 %27, label %dtls1_hm_fragment_free.exit.i, label %32
 
 dtls1_hm_fragment_free.exit.i:                    ; preds = %dtls1_hm_fragment_new.exit.i
-  %28 = getelementptr inbounds nuw i8, ptr %calloc27.i.i, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %calloc30.i.i, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   call void @free(ptr noundef %29) #13
-  %30 = getelementptr inbounds nuw i8, ptr %calloc27.i.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %calloc30.i.i, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   call void @free(ptr noundef %31) #13
-  call void @free(ptr noundef nonnull %calloc27.i.i) #13
+  call void @free(ptr noundef nonnull %calloc30.i.i) #13
   br label %37
 
 32:                                               ; preds = %dtls1_hm_fragment_new.exit.i

@@ -2008,18 +2008,18 @@ cond.false:                                       ; preds = %entry
   br label %if.then
 
 if.then:                                          ; preds = %cond.false, %cond.true
-  %call2.sink13 = phi ptr [ %call2, %cond.false ], [ %call, %cond.true ]
-  store volatile i8 0, ptr %call2.sink13, align 8
-  %mbQuit.i8 = getelementptr inbounds nuw i8, ptr %call2.sink13, i64 1
+  %call2.sink14 = phi ptr [ %call2, %cond.false ], [ %call, %cond.true ]
+  store volatile i8 0, ptr %call2.sink14, align 8
+  %mbQuit.i8 = getelementptr inbounds nuw i8, ptr %call2.sink14, i64 1
   store volatile i8 0, ptr %mbQuit.i8, align 1
-  %mpThread.i9 = getelementptr inbounds nuw i8, ptr %call2.sink13, i64 8
-  %mpRunnable.i.i10 = getelementptr inbounds nuw i8, ptr %call2.sink13, i64 32
+  %mpThread.i9 = getelementptr inbounds nuw i8, ptr %call2.sink14, i64 8
+  %mpRunnable.i.i10 = getelementptr inbounds nuw i8, ptr %call2.sink14, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i10, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mpThread.i9, i8 0, i64 16, i1 false)
-  store volatile i8 0, ptr %call2.sink13, align 8
-  %mbQuit = getelementptr inbounds nuw i8, ptr %call2.sink13, i64 1
+  store volatile i8 0, ptr %call2.sink14, align 8
+  %mbQuit = getelementptr inbounds nuw i8, ptr %call2.sink14, i64 1
   store volatile i8 0, ptr %mbQuit, align 1
-  %mpThreadPool = getelementptr inbounds nuw i8, ptr %call2.sink13, i64 16
+  %mpThreadPool = getelementptr inbounds nuw i8, ptr %call2.sink14, i64 16
   store ptr %this, ptr %mpThreadPool, align 8
   %2 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %tobool4.not = icmp eq ptr %2, null
@@ -2040,9 +2040,9 @@ cond.false9:                                      ; preds = %if.then
 
 cond.end18:                                       ; preds = %cond.false9, %cond.true5
   %cond19 = phi ptr [ %call8, %cond.true5 ], [ %call10, %cond.false9 ]
-  %mpThread = getelementptr inbounds nuw i8, ptr %call2.sink13, i64 8
+  %mpThread = getelementptr inbounds nuw i8, ptr %call2.sink14, i64 8
   store ptr %cond19, ptr %mpThread, align 8
-  ret ptr %call2.sink13
+  ret ptr %call2.sink14
 
 lpad13:                                           ; preds = %cond.false9
   %4 = landingpad { ptr, i32 }

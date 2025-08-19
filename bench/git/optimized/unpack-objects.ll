@@ -282,7 +282,7 @@ skip_prefix.exit20:                               ; preds = %58
 
 77:                                               ; preds = %._crit_edge
   %.not10.i.i = icmp eq i32 %73, 0
-  br i1 %.not10.i.i, label %.preheader184, label %78
+  br i1 %.not10.i.i, label %.preheader228, label %78
 
 78:                                               ; preds = %77
   %79 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -299,14 +299,14 @@ skip_prefix.exit20:                               ; preds = %58
   %89 = zext i32 %88 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @buffer, ptr nonnull align 1 %87, i64 %89, i1 false)
   store i32 0, ptr @offset, align 4, !tbaa !9
-  br label %.preheader184
+  br label %.preheader228
 
-.preheader184:                                    ; preds = %78, %77
-  %.ph185 = phi i32 [ %72, %77 ], [ %88, %78 ]
+.preheader228:                                    ; preds = %78, %77
+  %.ph229 = phi i32 [ %72, %77 ], [ %88, %78 ]
   br label %90
 
-90:                                               ; preds = %.preheader184, %100
-  %91 = phi i32 [ %103, %100 ], [ %.ph185, %.preheader184 ]
+90:                                               ; preds = %.preheader228, %100
+  %91 = phi i32 [ %103, %100 ], [ %.ph229, %.preheader228 ]
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds nuw i8, ptr @buffer, i64 %92
   %94 = sub nsw i64 4096, %92
@@ -495,11 +495,11 @@ _.exit.i:                                         ; preds = %181, %178
 203:                                              ; preds = %197
   %204 = zext i32 %202 to i64
   %205 = getelementptr inbounds nuw i8, ptr @buffer, i64 %204
-  br label %.loopexit78.i.i
+  br label %.loopexit113.i.i
 
 206:                                              ; preds = %197
   %.not10.i.i.i = icmp eq i32 %202, 0
-  br i1 %.not10.i.i.i, label %.preheader164, label %207
+  br i1 %.not10.i.i.i, label %.preheader208, label %207
 
 207:                                              ; preds = %206
   %208 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -516,14 +516,14 @@ _.exit.i:                                         ; preds = %181, %178
   %218 = zext i32 %217 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @buffer, ptr nonnull align 1 %216, i64 %218, i1 false)
   store i32 0, ptr @offset, align 4, !tbaa !9
-  br label %.preheader164
+  br label %.preheader208
 
-.preheader164:                                    ; preds = %207, %206
-  %.ph165 = phi i64 [ 0, %206 ], [ %218, %207 ]
+.preheader208:                                    ; preds = %207, %206
+  %.ph209 = phi i64 [ 0, %206 ], [ %218, %207 ]
   br label %219
 
-219:                                              ; preds = %.preheader164, %228
-  %220 = phi i64 [ 0, %228 ], [ %.ph165, %.preheader164 ]
+219:                                              ; preds = %.preheader208, %228
+  %220 = phi i64 [ 0, %228 ], [ %.ph209, %.preheader208 ]
   %221 = getelementptr inbounds nuw i8, ptr @buffer, i64 %220
   %222 = sub nsw i64 4096, %220
   %223 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %221, i64 noundef %222) #14
@@ -548,18 +548,18 @@ _.exit.i:                                         ; preds = %181, %178
   %231 = add i32 %229, %230
   store i32 %231, ptr @len, align 4, !tbaa !9
   %232 = icmp eq i32 %231, 0
-  br i1 %232, label %219, label %.loopexit78.i.loopexit.i, !llvm.loop !41
+  br i1 %232, label %219, label %.loopexit113.i.loopexit.i, !llvm.loop !41
 
-.loopexit78.i.loopexit.i:                         ; preds = %228
+.loopexit113.i.loopexit.i:                        ; preds = %228
   %.pre.i = load i32, ptr @offset, align 4, !tbaa !9
   %.pre62.i = load i64, ptr @consumed_bytes, align 8, !tbaa !16
-  br label %.loopexit78.i.i
+  br label %.loopexit113.i.i
 
-.loopexit78.i.i:                                  ; preds = %.loopexit78.i.loopexit.i, %203
-  %233 = phi i64 [ %198, %203 ], [ %.pre62.i, %.loopexit78.i.loopexit.i ]
-  %234 = phi i32 [ %202, %203 ], [ %.pre.i, %.loopexit78.i.loopexit.i ]
-  %235 = phi i32 [ %201, %203 ], [ %231, %.loopexit78.i.loopexit.i ]
-  %.0.i.i.i = phi ptr [ %205, %203 ], [ @buffer, %.loopexit78.i.loopexit.i ]
+.loopexit113.i.i:                                 ; preds = %.loopexit113.i.loopexit.i, %203
+  %233 = phi i64 [ %198, %203 ], [ %.pre62.i, %.loopexit113.i.loopexit.i ]
+  %234 = phi i32 [ %202, %203 ], [ %.pre.i, %.loopexit113.i.loopexit.i ]
+  %235 = phi i32 [ %201, %203 ], [ %231, %.loopexit113.i.loopexit.i ]
+  %.0.i.i.i = phi ptr [ %205, %203 ], [ @buffer, %.loopexit113.i.loopexit.i ]
   %236 = load i8, ptr %.0.i.i.i, align 1, !tbaa !13
   %237 = add i32 %235, -1
   store i32 %237, ptr @len, align 4, !tbaa !9
@@ -568,11 +568,11 @@ _.exit.i:                                         ; preds = %181, %178
   %239 = icmp eq i64 %233, 9223372036854775807
   br i1 %239, label %240, label %241
 
-240:                                              ; preds = %.loopexit78.i.i
+240:                                              ; preds = %.loopexit113.i.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.40) #16
   unreachable
 
-241:                                              ; preds = %.loopexit78.i.i
+241:                                              ; preds = %.loopexit113.i.i
   %242 = add nsw i64 %233, 1
   store i64 %242, ptr @consumed_bytes, align 8, !tbaa !16
   %243 = load i64, ptr @max_input_size, align 8, !tbaa !16
@@ -612,7 +612,7 @@ use.exit.i.i:                                     ; preds = %241
 
 258:                                              ; preds = %.lr.ph.i.i
   %.not10.i27.i.i = icmp eq i32 %254, 0
-  br i1 %.not10.i27.i.i, label %.preheader159, label %259
+  br i1 %.not10.i27.i.i, label %.preheader203, label %259
 
 259:                                              ; preds = %258
   %260 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -629,14 +629,14 @@ use.exit.i.i:                                     ; preds = %241
   %270 = zext i32 %269 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @buffer, ptr nonnull align 1 %268, i64 %270, i1 false)
   store i32 0, ptr @offset, align 4, !tbaa !9
-  br label %.preheader159
+  br label %.preheader203
 
-.preheader159:                                    ; preds = %259, %258
-  %.ph160 = phi i64 [ 0, %258 ], [ %270, %259 ]
+.preheader203:                                    ; preds = %259, %258
+  %.ph204 = phi i64 [ 0, %258 ], [ %270, %259 ]
   br label %271
 
-271:                                              ; preds = %.preheader159, %280
-  %272 = phi i64 [ 0, %280 ], [ %.ph160, %.preheader159 ]
+271:                                              ; preds = %.preheader203, %280
+  %272 = phi i64 [ 0, %280 ], [ %.ph204, %.preheader203 ]
   %273 = getelementptr inbounds nuw i8, ptr @buffer, i64 %272
   %274 = sub nsw i64 4096, %272
   %275 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %273, i64 noundef %274) #14
@@ -827,19 +827,19 @@ stream_blob.exit.i.i:                             ; preds = %327, %321
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr nonnull readonly align 1 %344, i64 %349, i1 false)
   %350 = load i64, ptr %348, align 8, !tbaa !60
   %351 = icmp ult i64 %350, 32
-  br i1 %351, label %352, label %.preheader161
+  br i1 %351, label %352, label %.preheader205
 
 352:                                              ; preds = %337
   %353 = getelementptr inbounds nuw i8, ptr %8, i64 %350
   %354 = sub nuw nsw i64 32, %350
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %353, i8 0, i64 %354, i1 false)
-  br label %.preheader161
+  br label %.preheader205
 
-.preheader161:                                    ; preds = %352, %337
+.preheader205:                                    ; preds = %352, %337
   br label %355
 
-355:                                              ; preds = %.preheader161, %357
-  %.0811.i.i.i.i.i = phi i64 [ %358, %357 ], [ 0, %.preheader161 ]
+355:                                              ; preds = %.preheader205, %357
+  %.0811.i.i.i.i.i = phi i64 [ %358, %357 ], [ 0, %.preheader205 ]
   %356 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq ptr %347, %356
   br i1 %.not.i.i.i.i.i, label %.split.loop.exit9.i.i.i.i.i, label %357
@@ -933,11 +933,11 @@ oidclr.exit.i.i.i:                                ; preds = %379, %.split.loop.e
 395:                                              ; preds = %392
   %396 = zext i32 %394 to i64
   %397 = getelementptr inbounds nuw i8, ptr @buffer, i64 %396
-  br label %.loopexit129.i.i.i
+  br label %.loopexit151.i.i.i
 
 398:                                              ; preds = %392
   %.not10.i.i.i.i = icmp eq i32 %394, 0
-  br i1 %.not10.i.i.i.i, label %.preheader162, label %399
+  br i1 %.not10.i.i.i.i, label %.preheader206, label %399
 
 399:                                              ; preds = %398
   %400 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -954,14 +954,14 @@ oidclr.exit.i.i.i:                                ; preds = %379, %.split.loop.e
   %410 = zext i32 %409 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @buffer, ptr nonnull align 1 %408, i64 %410, i1 false)
   store i32 0, ptr @offset, align 4, !tbaa !9
-  br label %.preheader162
+  br label %.preheader206
 
-.preheader162:                                    ; preds = %399, %398
-  %.ph163 = phi i64 [ 0, %398 ], [ %410, %399 ]
+.preheader206:                                    ; preds = %399, %398
+  %.ph207 = phi i64 [ 0, %398 ], [ %410, %399 ]
   br label %411
 
-411:                                              ; preds = %.preheader162, %420
-  %412 = phi i64 [ 0, %420 ], [ %.ph163, %.preheader162 ]
+411:                                              ; preds = %.preheader206, %420
+  %412 = phi i64 [ 0, %420 ], [ %.ph207, %.preheader206 ]
   %413 = getelementptr inbounds nuw i8, ptr @buffer, i64 %412
   %414 = sub nsw i64 4096, %412
   %415 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %413, i64 noundef %414) #14
@@ -986,16 +986,16 @@ oidclr.exit.i.i.i:                                ; preds = %379, %.split.loop.e
   %423 = add i32 %421, %422
   store i32 %423, ptr @len, align 4, !tbaa !9
   %424 = icmp eq i32 %423, 0
-  br i1 %424, label %411, label %.loopexit129.i.loopexit.i.i, !llvm.loop !41
+  br i1 %424, label %411, label %.loopexit151.i.loopexit.i.i, !llvm.loop !41
 
-.loopexit129.i.loopexit.i.i:                      ; preds = %420
+.loopexit151.i.loopexit.i.i:                      ; preds = %420
   %.pre.i.i = load i32, ptr @offset, align 4, !tbaa !9
-  br label %.loopexit129.i.i.i
+  br label %.loopexit151.i.i.i
 
-.loopexit129.i.i.i:                               ; preds = %.loopexit129.i.loopexit.i.i, %395
-  %425 = phi i32 [ %394, %395 ], [ %.pre.i.i, %.loopexit129.i.loopexit.i.i ]
-  %426 = phi i32 [ %393, %395 ], [ %423, %.loopexit129.i.loopexit.i.i ]
-  %.0.i.i.i.i = phi ptr [ %397, %395 ], [ @buffer, %.loopexit129.i.loopexit.i.i ]
+.loopexit151.i.i.i:                               ; preds = %.loopexit151.i.loopexit.i.i, %395
+  %425 = phi i32 [ %394, %395 ], [ %.pre.i.i, %.loopexit151.i.loopexit.i.i ]
+  %426 = phi i32 [ %393, %395 ], [ %423, %.loopexit151.i.loopexit.i.i ]
+  %.0.i.i.i.i = phi ptr [ %397, %395 ], [ @buffer, %.loopexit151.i.loopexit.i.i ]
   %427 = load i8, ptr %.0.i.i.i.i, align 1, !tbaa !13
   %428 = add i32 %426, -1
   store i32 %428, ptr @len, align 4, !tbaa !9
@@ -1005,11 +1005,11 @@ oidclr.exit.i.i.i:                                ; preds = %379, %.split.loop.e
   %431 = icmp eq i64 %430, 9223372036854775807
   br i1 %431, label %432, label %433
 
-432:                                              ; preds = %.loopexit129.i.i.i
+432:                                              ; preds = %.loopexit151.i.i.i
   call void (ptr, ...) @die(ptr noundef nonnull @.str.40) #16
   unreachable
 
-433:                                              ; preds = %.loopexit129.i.i.i
+433:                                              ; preds = %.loopexit151.i.i.i
   %434 = add nsw i64 %430, 1
   store i64 %434, ptr @consumed_bytes, align 8, !tbaa !16
   %435 = load i64, ptr @max_input_size, align 8, !tbaa !16
@@ -1053,7 +1053,7 @@ use.exit.i.i.i:                                   ; preds = %433
 
 449:                                              ; preds = %443
   %.not10.i88.i.i.i = icmp eq i32 %445, 0
-  br i1 %.not10.i88.i.i.i, label %.preheader158, label %450
+  br i1 %.not10.i88.i.i.i, label %.preheader202, label %450
 
 450:                                              ; preds = %449
   %451 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -1070,14 +1070,14 @@ use.exit.i.i.i:                                   ; preds = %433
   %461 = zext i32 %460 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @buffer, ptr nonnull align 1 %459, i64 %461, i1 false)
   store i32 0, ptr @offset, align 4, !tbaa !9
-  br label %.preheader158
+  br label %.preheader202
 
-.preheader158:                                    ; preds = %450, %449
+.preheader202:                                    ; preds = %450, %449
   %.ph = phi i64 [ 0, %449 ], [ %461, %450 ]
   br label %462
 
-462:                                              ; preds = %.preheader158, %471
-  %463 = phi i64 [ 0, %471 ], [ %.ph, %.preheader158 ]
+462:                                              ; preds = %.preheader202, %471
+  %463 = phi i64 [ 0, %471 ], [ %.ph, %.preheader202 ]
   %464 = getelementptr inbounds nuw i8, ptr @buffer, i64 %463
   %465 = sub nsw i64 4096, %463
   %466 = call i64 @xread(i32 noundef 0, ptr noundef nonnull %464, i64 noundef %465) #14
@@ -1143,7 +1143,7 @@ use.exit93.i.i.i:                                 ; preds = %484
   %490 = load ptr, ptr @progress, align 8, !tbaa !42
   call void @display_throughput(ptr noundef %490, i64 noundef %485) #14
   %491 = shl nuw i64 %.056115.i.i.i, 7
-  %492 = add i64 %491, 128
+  %492 = add nuw i64 %491, 128
   %493 = and i8 %478, 127
   %494 = zext nneg i8 %493 to i64
   %495 = or disjoint i64 %492, %494
@@ -1838,7 +1838,7 @@ define internal fastcc ptr @get_data(i64 noundef %0) unnamed_addr #0 {
 
 13:                                               ; preds = %1
   %.not10.i = icmp eq i32 %9, 0
-  br i1 %.not10.i, label %.preheader68, label %14
+  br i1 %.not10.i, label %.preheader77, label %14
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -1855,14 +1855,14 @@ define internal fastcc ptr @get_data(i64 noundef %0) unnamed_addr #0 {
   %25 = zext i32 %24 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @buffer, ptr nonnull align 1 %23, i64 %25, i1 false)
   store i32 0, ptr @offset, align 4, !tbaa !9
-  br label %.preheader68
+  br label %.preheader77
 
-.preheader68:                                     ; preds = %14, %13
-  %.ph69 = phi i64 [ 0, %13 ], [ %25, %14 ]
+.preheader77:                                     ; preds = %14, %13
+  %.ph78 = phi i64 [ 0, %13 ], [ %25, %14 ]
   br label %26
 
-26:                                               ; preds = %.preheader68, %35
-  %27 = phi i64 [ 0, %35 ], [ %.ph69, %.preheader68 ]
+26:                                               ; preds = %.preheader77, %35
+  %27 = phi i64 [ 0, %35 ], [ %.ph78, %.preheader77 ]
   %28 = getelementptr inbounds nuw i8, ptr @buffer, i64 %27
   %29 = sub nsw i64 4096, %27
   %30 = tail call i64 @xread(i32 noundef 0, ptr noundef nonnull %28, i64 noundef %29) #14

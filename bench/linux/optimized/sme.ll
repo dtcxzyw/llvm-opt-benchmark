@@ -3502,7 +3502,7 @@ define dso_local i32 @cfg80211_connect(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %123, label %132, label %125
 
 125:                                              ; preds = %120
-  br i1 %124, label %.thread30, label %126
+  br i1 %124, label %.thread50, label %126
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %.pre24, i64 400
@@ -3512,9 +3512,9 @@ define dso_local i32 @cfg80211_connect(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @kfree(ptr noundef %129) #12
   store ptr null, ptr %.phi.trans.insert, align 8
   %.pre = load i8, ptr %25, align 4
-  br label %.thread30
+  br label %.thread50
 
-.thread30:                                        ; preds = %125, %126
+.thread50:                                        ; preds = %125, %126
   %130 = phi i8 [ %.pre, %126 ], [ %121, %125 ]
   %131 = and i8 %130, -2
   store i8 %131, ptr %25, align 4
@@ -3523,7 +3523,7 @@ define dso_local i32 @cfg80211_connect(ptr noundef %0, ptr noundef %1, ptr nound
 132:                                              ; preds = %120
   br i1 %124, label %133, label %.thread21
 
-133:                                              ; preds = %.thread30, %132
+133:                                              ; preds = %.thread50, %132
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %136 = tail call noalias align 8 dereferenceable_or_null(424) ptr @kmalloc_trace(ptr noundef %135, i32 noundef 3520, i64 noundef 424) #15

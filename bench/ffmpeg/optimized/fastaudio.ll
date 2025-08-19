@@ -443,16 +443,16 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   br i1 %exitcond160.not, label %.preheader, label %.preheader111, !llvm.loop !62
 
 128:                                              ; preds = %.preheader111, %.thread106
-  %.4124186 = phi i32 [ %.3128, %.preheader111 ], [ %.6109, %.thread106 ]
-  %.082126185 = phi i32 [ 0, %.preheader111 ], [ %161, %.thread106 ]
-  %.081127184 = phi i32 [ 0, %.preheader111 ], [ %.1110, %.thread106 ]
-  %129 = add nsw i32 %.4124186, 3
-  %130 = add nsw i32 %.4124186, 2
+  %.4124191 = phi i32 [ %.3128, %.preheader111 ], [ %.6109, %.thread106 ]
+  %.082126190 = phi i32 [ 0, %.preheader111 ], [ %161, %.thread106 ]
+  %.081127189 = phi i32 [ 0, %.preheader111 ], [ %.1110, %.thread106 ]
+  %129 = add nsw i32 %.4124191, 3
+  %130 = add nsw i32 %.4124191, 2
   %131 = sdiv i32 %130, 32
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds i32, ptr %6, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !54
-  %135 = sub i32 29, %.4124186
+  %135 = sub i32 29, %.4124191
   %136 = and i32 %135, 31
   %137 = lshr i32 %134, %136
   %138 = shl i32 %137, 1
@@ -460,25 +460,25 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   %140 = add nsw i32 %139, -7
   %141 = sitofp i32 %140 to float
   %142 = fmul nsz float %108, %141
-  %143 = mul nuw nsw i32 %.082126185, 3
+  %143 = mul nuw nsw i32 %.082126190, 3
   %.reass = add i32 %143, %invariant.op
   %144 = sext i32 %.reass to i64
   %145 = getelementptr inbounds float, ptr %5, i64 %144
   store float %142, ptr %145, align 4, !tbaa !28
-  %.lhs.trunc = trunc nuw nsw i32 %.082126185 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.082126190 to i8
   %146 = urem i8 %.lhs.trunc, 10
   %147 = icmp eq i8 %146, 9
   br i1 %147, label %148, label %.thread106
 
 148:                                              ; preds = %128
-  %149 = shl nsw i32 %.081127184, 2
-  %150 = add nsw i32 %.4124186, 5
-  %151 = add nsw i32 %.4124186, 4
+  %149 = shl nsw i32 %.081127189, 2
+  %150 = add nsw i32 %.4124191, 5
+  %151 = add nsw i32 %.4124191, 4
   %152 = sdiv i32 %151, 32
   %153 = sext i32 %152 to i64
   %154 = getelementptr inbounds i32, ptr %6, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !54
-  %156 = sub i32 27, %.4124186
+  %156 = sub i32 27, %.4124191
   %157 = and i32 %156, 31
   %158 = lshr i32 %155, %157
   %159 = and i32 %158, 3
@@ -486,9 +486,9 @@ bytestream2_get_le32.exit:                        ; preds = %45, %49
   br label %.thread106
 
 .thread106:                                       ; preds = %128, %148
-  %.1110 = phi i32 [ %.081127184, %128 ], [ %160, %148 ]
+  %.1110 = phi i32 [ %.081127189, %128 ], [ %160, %148 ]
   %.6109 = phi i32 [ %129, %128 ], [ %150, %148 ]
-  %161 = add nuw nsw i32 %.082126185, 1
+  %161 = add nuw nsw i32 %.082126190, 1
   %162 = icmp eq i32 %161, 20
   br i1 %162, label %113, label %128
 

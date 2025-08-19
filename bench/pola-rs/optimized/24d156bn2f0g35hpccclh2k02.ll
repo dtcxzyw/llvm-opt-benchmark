@@ -673,7 +673,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbe8d54163f1ae22aE.exit.i.i: ; preds = %
 
 22:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17hbe8d54163f1ae22aE.exit.i.i, %_ZN4core3ops8function6FnOnce9call_once17hbe8d54163f1ae22aE.exit.thread.i.i
   invoke void @"_ZN4core3ptr259drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17hcc87e5acaf24e651E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread38.i unwind label %23, !noalias !136
+          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread40.i unwind label %23, !noalias !136
 
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
@@ -682,7 +682,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbe8d54163f1ae22aE.exit.i.i: ; preds = %
   invoke fastcc void @"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17h3dd3adc17df2a61fE"(ptr noalias noundef align 8 dereferenceable(64) %5) #22
           to label %common.resume.i unwind label %25, !noalias !136
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread38.i: ; preds = %22
+_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread40.i: ; preds = %22
   store ptr null, ptr %7, align 8, !alias.scope !133, !noalias !136
   br label %"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17h3dd3adc17df2a61fE.exit.i"
 
@@ -704,7 +704,7 @@ common.resume.i:                                  ; preds = %63, %59, %23
   store i64 %.pr.i.i, ptr %0, align 8, !alias.scope !128, !noalias !131
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17had965a9583b04532E.exit"
 
-"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17h3dd3adc17df2a61fE.exit.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread38.i, %2
+"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17h3dd3adc17df2a61fE.exit.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread40.i, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !139
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !155
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
@@ -894,7 +894,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbe8d54163f1ae22aE.exit.i.i: ; preds = %
 
 22:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17hbe8d54163f1ae22aE.exit.i.i, %_ZN4core3ops8function6FnOnce9call_once17hbe8d54163f1ae22aE.exit.thread.i.i
   invoke void @"_ZN4core3ptr259drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17hcc87e5acaf24e651E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread38.i unwind label %23, !noalias !221
+          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread40.i unwind label %23, !noalias !221
 
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
@@ -903,7 +903,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbe8d54163f1ae22aE.exit.i.i: ; preds = %
   invoke fastcc void @"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17h3dd3adc17df2a61fE"(ptr noalias noundef align 8 dereferenceable(64) %5) #22
           to label %common.resume.i unwind label %25, !noalias !221
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread38.i: ; preds = %22
+_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread40.i: ; preds = %22
   store ptr null, ptr %7, align 8, !alias.scope !218, !noalias !221
   br label %"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17h3dd3adc17df2a61fE.exit.i"
 
@@ -925,7 +925,7 @@ common.resume.i:                                  ; preds = %63, %59, %23
   store i64 %.pr.i.i, ptr %0, align 8, !alias.scope !213, !noalias !216
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0698ec193cb13df2E.exit"
 
-"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17h3dd3adc17df2a61fE.exit.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread38.i, %2
+"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_parquet..parquet..write..dyn_iter..DynStreamingIterator$LT$polars_parquet..parquet..page..CompressedPage$C$polars_error..PolarsError$GT$$C$polars_error..PolarsError$GT$$GT$$GT$17h3dd3adc17df2a61fE.exit.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17he1aa43c1bb712205E.exit.thread40.i, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !224
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !240
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
@@ -4405,10 +4405,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h0ffee5599c19
   ret void
 
 ._crit_edge.thread:                               ; preds = %27, %._crit_edge
-  %.sroa.0.0.lcssa31 = phi ptr [ %18, %._crit_edge ], [ %29, %27 ]
-  %storemerge.lcssa30 = phi i64 [ %14, %._crit_edge ], [ %21, %27 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.lcssa31, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
-  %24 = add i64 %storemerge.lcssa30, 1
+  %.sroa.0.0.lcssa32 = phi ptr [ %18, %._crit_edge ], [ %29, %27 ]
+  %storemerge.lcssa31 = phi i64 [ %14, %._crit_edge ], [ %21, %27 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.lcssa32, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
+  %24 = add i64 %storemerge.lcssa31, 1
   store i64 %24, ptr %6, align 8
   br label %23
 
@@ -4569,10 +4569,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h18cd7c3575aa
   ret void
 
 ._crit_edge.thread:                               ; preds = %34, %._crit_edge
-  %.sroa.0.0.lcssa32 = phi ptr [ %19, %._crit_edge ], [ %36, %34 ]
-  %storemerge.lcssa31 = phi i64 [ %15, %._crit_edge ], [ %23, %34 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.lcssa32, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %31 = add i64 %storemerge.lcssa31, 1
+  %.sroa.0.0.lcssa33 = phi ptr [ %19, %._crit_edge ], [ %36, %34 ]
+  %storemerge.lcssa32 = phi i64 [ %15, %._crit_edge ], [ %23, %34 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.lcssa33, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %31 = add i64 %storemerge.lcssa32, 1
   store i64 %31, ptr %7, align 8
   br label %30
 
@@ -4942,10 +4942,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8d5b7f2e6340
   ret void
 
 ._crit_edge.thread:                               ; preds = %27, %._crit_edge
-  %.sroa.0.0.lcssa31 = phi ptr [ %18, %._crit_edge ], [ %29, %27 ]
-  %storemerge.lcssa30 = phi i64 [ %14, %._crit_edge ], [ %21, %27 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.lcssa31, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %24 = add i64 %storemerge.lcssa30, 1
+  %.sroa.0.0.lcssa32 = phi ptr [ %18, %._crit_edge ], [ %29, %27 ]
+  %storemerge.lcssa31 = phi i64 [ %14, %._crit_edge ], [ %21, %27 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.lcssa32, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %24 = add i64 %storemerge.lcssa31, 1
   store i64 %24, ptr %6, align 8
   br label %23
 
@@ -15887,7 +15887,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !621, !noundef !12
-  switch i8 %23, label %default.unreachable71 [
+  switch i8 %23, label %default.unreachable76 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -15929,7 +15929,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable71:                            ; preds = %2
+default.unreachable76:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -16704,7 +16704,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !628, !noundef !12
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -16735,7 +16735,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -24264,12 +24264,12 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 23
   %.val.i.i.i = load i8, ptr %24, align 1, !range !614, !alias.scope !3533, !noalias !3534, !noundef !12
   %25 = icmp ne i8 %.val.i.i.i, -38
-  %26 = zext i1 %25 to i64
-  %27 = icmp ult i64 %15, %26
+  %26 = icmp eq i64 %15, 0
+  %27 = and i1 %26, %25
   br i1 %27, label %28, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hbee507ec65fe6e76E.exit.i.i", !prof !14
 
 28:                                               ; preds = %19
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17hf40c0933d43eebf1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 0, i64 noundef %26, i64 noundef 8, i64 noundef 24)
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17hf40c0933d43eebf1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 0, i64 noundef 1, i64 noundef 8, i64 noundef 24)
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfcf9cfb15bcbf75eE.exit_crit_edge.i.i.i" unwind label %29, !noalias !3535
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hfcf9cfb15bcbf75eE.exit_crit_edge.i.i.i": ; preds = %28

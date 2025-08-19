@@ -622,7 +622,7 @@ thread-pre-split:                                 ; preds = %19
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %48 = load i64, ptr %47, align 8
   %.not47 = icmp eq i64 %48, 0
-  br i1 %.not47, label %.thread50, label %49
+  br i1 %.not47, label %.thread56, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -630,15 +630,15 @@ thread-pre-split:                                 ; preds = %19
   %52 = icmp eq i64 %48, %51
   %53 = icmp eq i64 %48, %3
   %or.cond48 = select i1 %52, i1 true, i1 %53
-  br i1 %or.cond48, label %.thread50, label %56
+  br i1 %or.cond48, label %.thread56, label %56
 
-.thread50:                                        ; preds = %46, %49
+.thread56:                                        ; preds = %46, %49
   %54 = phi i64 [ %48, %49 ], [ %3, %46 ]
   %55 = add nsw i64 %54, 1
   store i64 %55, ptr %47, align 8
   br label %56
 
-56:                                               ; preds = %.thread50, %49, %1, %4
+56:                                               ; preds = %.thread56, %49, %1, %4
   ret void
 }
 
@@ -5448,10 +5448,10 @@ define dso_local ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0) loc
   br label %69
 
 69:                                               ; preds = %.thread, %66
-  %.sink92 = phi ptr [ %68, %.thread ], [ %5, %66 ]
+  %.sink96 = phi ptr [ %68, %.thread ], [ %5, %66 ]
   %.349 = phi ptr [ %.14767, %.thread ], [ %11, %66 ]
   %.3 = phi ptr [ %.168, %.thread ], [ %11, %66 ]
-  call void @list_append(ptr noundef %.sink92, ptr noundef nonnull %11) #19
+  call void @list_append(ptr noundef %.sink96, ptr noundef nonnull %11) #19
   %70 = load ptr, ptr %24, align 8
   %.not62 = icmp eq ptr %70, null
   br i1 %.not62, label %71, label %.outer

@@ -592,7 +592,7 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %indvars.iv181 = phi i64 [ 0, %88 ], [ %indvars.iv.next182, %137 ]
   %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %100, i64 0, i64 %indvars.iv181
   %.idx = shl nuw nsw i64 %indvars.iv181, 4
-  %invariant.gep191 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
+  %invariant.gep198 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   br label %138
 
 .preheader153:                                    ; preds = %137
@@ -688,8 +688,8 @@ define internal range(i32 -2147483648, 1) i32 @apv_decode_tile_component(ptr nou
   %139 = load i8, ptr %gep, align 1, !tbaa !40
   %140 = zext i8 %139 to i16
   %141 = mul nuw i16 %140, %97
-  %gep192 = getelementptr inbounds nuw i16, ptr %invariant.gep191, i64 %indvars.iv
-  store i16 %141, ptr %gep192, align 2, !tbaa !93
+  %gep199 = getelementptr inbounds nuw i16, ptr %invariant.gep198, i64 %indvars.iv
+  store i16 %141, ptr %gep199, align 2, !tbaa !93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %137, label %138, !llvm.loop !150

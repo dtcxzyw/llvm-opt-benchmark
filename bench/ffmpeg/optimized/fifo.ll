@@ -296,13 +296,13 @@ av_fifo_can_write.exit.i:                         ; preds = %14, %5
   %40 = load i64, ptr %10, align 8, !tbaa !17
   %41 = load i64, ptr %12, align 8, !tbaa !18
   %.not45.i.i = icmp ugt i64 %40, %41
-  br i1 %.not45.i.i, label %fifo_check_space.exit.thread86, label %42
+  br i1 %.not45.i.i, label %fifo_check_space.exit.thread99, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i32, ptr %43, align 8, !tbaa !14
   %.not46.i.i = icmp eq i32 %44, 0
-  br i1 %.not46.i.i, label %45, label %fifo_check_space.exit.thread86
+  br i1 %.not46.i.i, label %45, label %fifo_check_space.exit.thread99
 
 45:                                               ; preds = %42
   %..i.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %40)
@@ -339,9 +339,9 @@ av_fifo_can_write.exit.i:                         ; preds = %14, %5
 65:                                               ; preds = %62, %61, %53
   %storemerge.i.i = phi i64 [ %60, %53 ], [ %64, %62 ], [ 0, %61 ]
   store i64 %storemerge.i.i, ptr %10, align 8, !tbaa !17
-  br label %fifo_check_space.exit.thread86
+  br label %fifo_check_space.exit.thread99
 
-fifo_check_space.exit.thread86:                   ; preds = %39, %42, %65
+fifo_check_space.exit.thread99:                   ; preds = %39, %42, %65
   %66 = phi i64 [ %storemerge.i.i, %65 ], [ %40, %42 ], [ %40, %39 ]
   %67 = load i64, ptr %8, align 8, !tbaa !12
   %68 = add i64 %67, %30
@@ -352,9 +352,9 @@ fifo_check_space.exit:                            ; preds = %av_fifo_can_write.e
   %.not71 = icmp eq i64 %7, 0
   br i1 %.not71, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %fifo_check_space.exit.thread86, %fifo_check_space.exit
-  %69 = phi i64 [ %66, %fifo_check_space.exit.thread86 ], [ %11, %fifo_check_space.exit ]
-  %70 = phi i64 [ %68, %fifo_check_space.exit.thread86 ], [ %9, %fifo_check_space.exit ]
+.lr.ph:                                           ; preds = %fifo_check_space.exit.thread99, %fifo_check_space.exit
+  %69 = phi i64 [ %66, %fifo_check_space.exit.thread99 ], [ %11, %fifo_check_space.exit ]
+  %70 = phi i64 [ %68, %fifo_check_space.exit.thread99 ], [ %9, %fifo_check_space.exit ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %.lr.ph.split.us.preheader, label %.lr.ph.split

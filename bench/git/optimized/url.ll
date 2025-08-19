@@ -307,20 +307,20 @@ strbuf_addch.exit56.sink.split:                   ; preds = %.thread70, %strbuf_
 
 strbuf_addch.exit56:                              ; preds = %strbuf_avail.exit.i48, %strbuf_avail.exit.i58, %strbuf_addch.exit56.sink.split, %41
   %.pre-phi.i.sink = phi i64 [ %.pre-phi.i, %41 ], [ %.neg.i49, %strbuf_avail.exit.i48 ], [ %.neg.i59, %strbuf_avail.exit.i58 ], [ %.pre7.i65, %strbuf_addch.exit56.sink.split ]
-  %.sink101 = phi i64 [ %42, %41 ], [ %48, %strbuf_avail.exit.i48 ], [ %50, %strbuf_avail.exit.i58 ], [ %.pre.i64, %strbuf_addch.exit56.sink.split ]
-  %.sink98 = phi i8 [ %43, %41 ], [ 32, %strbuf_avail.exit.i48 ], [ %11, %strbuf_avail.exit.i58 ], [ %.sink.ph, %strbuf_addch.exit56.sink.split ]
-  %.sink94 = phi i64 [ 3, %41 ], [ 1, %strbuf_avail.exit.i48 ], [ 1, %strbuf_avail.exit.i58 ], [ 1, %strbuf_addch.exit56.sink.split ]
-  %.sink93 = phi i32 [ -3, %41 ], [ -1, %strbuf_avail.exit.i48 ], [ -1, %strbuf_avail.exit.i58 ], [ -1, %strbuf_addch.exit56.sink.split ]
+  %.sink107 = phi i64 [ %42, %41 ], [ %48, %strbuf_avail.exit.i48 ], [ %50, %strbuf_avail.exit.i58 ], [ %.pre.i64, %strbuf_addch.exit56.sink.split ]
+  %.sink104 = phi i8 [ %43, %41 ], [ 32, %strbuf_avail.exit.i48 ], [ %11, %strbuf_avail.exit.i58 ], [ %.sink.ph, %strbuf_addch.exit56.sink.split ]
+  %.sink100 = phi i64 [ 3, %41 ], [ 1, %strbuf_avail.exit.i48 ], [ 1, %strbuf_avail.exit.i58 ], [ 1, %strbuf_addch.exit56.sink.split ]
+  %.sink99 = phi i32 [ -3, %41 ], [ -1, %strbuf_avail.exit.i48 ], [ -1, %strbuf_avail.exit.i58 ], [ -1, %strbuf_addch.exit56.sink.split ]
   %51 = load ptr, ptr %9, align 8, !tbaa !16
   store i64 %.pre-phi.i.sink, ptr %8, align 8, !tbaa !15
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.sink101
-  store i8 %.sink98, ptr %52, align 1, !tbaa !4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.sink107
+  store i8 %.sink104, ptr %52, align 1, !tbaa !4
   %53 = load ptr, ptr %9, align 8, !tbaa !16
   %54 = load i64, ptr %8, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
   store i8 0, ptr %55, align 1, !tbaa !4
-  %56 = getelementptr inbounds nuw i8, ptr %.03580, i64 %.sink94
-  %57 = add nsw i32 %.083, %.sink93
+  %56 = getelementptr inbounds nuw i8, ptr %.03580, i64 %.sink100
+  %57 = add nsw i32 %.083, %.sink99
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %.thread72, label %10
 

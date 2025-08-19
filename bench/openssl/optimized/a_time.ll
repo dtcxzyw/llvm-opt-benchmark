@@ -322,19 +322,19 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %130 = phi i32 [ %23, %63 ], [ %66, %64 ], [ %23, %74 ], [ %23, %determine_days.exit ], [ %23, %126 ], [ %23, %127 ], [ %23, %128 ], [ %73, %72 ], [ %71, %68 ]
   %131 = phi i32 [ %24, %63 ], [ %24, %64 ], [ %75, %74 ], [ %24, %determine_days.exit ], [ %24, %126 ], [ %24, %127 ], [ %24, %128 ], [ %24, %72 ], [ %24, %68 ]
   %exitcond.not = icmp eq i32 %53, %.0131
-  br i1 %exitcond.not, label %.split.loop.exit208, label %21, !llvm.loop !26
+  br i1 %exitcond.not, label %.split.loop.exit221, label %21, !llvm.loop !26
 
 .split.loop.exit:                                 ; preds = %28, %28, %28
   %132 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit208
+  br label %.split.loop.exit221
 
-.split.loop.exit208:                              ; preds = %129, %.split.loop.exit
+.split.loop.exit221:                              ; preds = %129, %.split.loop.exit
   %133 = phi i32 [ %22, %.split.loop.exit ], [ %51, %129 ]
   %.0126.lcssa = phi i32 [ %132, %.split.loop.exit ], [ %20, %129 ]
   %134 = icmp eq i32 %133, 24
   br i1 %134, label %135, label %153
 
-135:                                              ; preds = %.split.loop.exit208
+135:                                              ; preds = %.split.loop.exit221
   %136 = zext nneg i32 %.0126.lcssa to i64
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !15
@@ -374,8 +374,8 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %or.cond159 = or i1 %151, %152
   br i1 %or.cond159, label %.thread, label %153
 
-153:                                              ; preds = %.critedge, %135, %.split.loop.exit208
-  %.1127 = phi i32 [ %.0126.lcssa, %135 ], [ %.0126.lcssa, %.split.loop.exit208 ], [ %150, %.critedge ]
+153:                                              ; preds = %.critedge, %135, %.split.loop.exit221
+  %.1127 = phi i32 [ %.0126.lcssa, %135 ], [ %.0126.lcssa, %.split.loop.exit221 ], [ %150, %.critedge ]
   %154 = sext i32 %.1127 to i64
   %155 = getelementptr inbounds i8, ptr %10, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !15
@@ -457,7 +457,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %exitcond197.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !29
 
 .split.us.thread:                                 ; preds = %198
-  %.us-phi202 = trunc i64 %indvars.iv.next195 to i32
+  %.us-phi215 = trunc i64 %indvars.iv.next195 to i32
   br label %243
 
 .preheader.split:                                 ; preds = %.preheader, %237
@@ -540,7 +540,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %.not151, label %.thread, label %243
 
 243:                                              ; preds = %.split.us.thread, %238, %.split.us, %158
-  %.3 = phi i32 [ %159, %158 ], [ %.us-phi, %.split.us ], [ %.us-phi, %238 ], [ %.us-phi202, %.split.us.thread ]
+  %.3 = phi i32 [ %159, %158 ], [ %.us-phi, %.split.us ], [ %.us-phi, %238 ], [ %.us-phi215, %.split.us.thread ]
   %244 = icmp eq i32 %.3, %8
   br i1 %244, label %245, label %.thread
 

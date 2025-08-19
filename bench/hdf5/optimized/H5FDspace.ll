@@ -129,11 +129,11 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br i1 %51, label %.thread83, label %55
 
 .thread83:                                        ; preds = %45, %42
-  %H5E_CANTSET_g.sink99 = phi ptr [ @H5E_CANTSET_g, %42 ], [ @H5E_CANTRESTORE_g, %45 ]
-  %.sink96 = phi i32 [ 180, %42 ], [ 185, %45 ]
+  %H5E_CANTSET_g.sink105 = phi ptr [ @H5E_CANTSET_g, %42 ], [ @H5E_CANTRESTORE_g, %45 ]
+  %.sink102 = phi i32 [ 180, %42 ], [ 185, %45 ]
   %52 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %53 = load i64, ptr %H5E_CANTSET_g.sink99, align 8, !tbaa !3
-  %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__alloc_real, i32 noundef %.sink96, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.2) #3
+  %53 = load i64, ptr %H5E_CANTSET_g.sink105, align 8, !tbaa !3
+  %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__alloc_real, i32 noundef %.sink102, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.2) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %112
 
@@ -208,11 +208,11 @@ define i64 @H5FD__alloc_real(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr
   br i1 %92, label %.thread88, label %96
 
 .thread88:                                        ; preds = %83, %80
-  %H5E_CANTSET_g.sink103 = phi ptr [ @H5E_CANTSET_g, %80 ], [ @H5E_CANTRESTORE_g, %83 ]
-  %.sink100 = phi i32 [ 209, %80 ], [ 214, %83 ]
+  %H5E_CANTSET_g.sink109 = phi ptr [ @H5E_CANTSET_g, %80 ], [ @H5E_CANTRESTORE_g, %83 ]
+  %.sink106 = phi i32 [ 209, %80 ], [ 214, %83 ]
   %93 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %94 = load i64, ptr %H5E_CANTSET_g.sink103, align 8, !tbaa !3
-  %95 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__alloc_real, i32 noundef %.sink100, i64 noundef %93, i64 noundef %94, ptr noundef nonnull @.str.2) #3
+  %94 = load i64, ptr %H5E_CANTSET_g.sink109, align 8, !tbaa !3
+  %95 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__alloc_real, i32 noundef %.sink106, i64 noundef %93, i64 noundef %94, ptr noundef nonnull @.str.2) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %112
 
@@ -343,11 +343,11 @@ define internal fastcc i64 @H5FD__extend(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %49, label %.thread41, label %53
 
 .thread41:                                        ; preds = %43, %40
-  %H5E_CANTSET_g.sink52 = phi ptr [ @H5E_CANTSET_g, %40 ], [ @H5E_CANTRESTORE_g, %43 ]
-  %.sink49 = phi i32 [ 116, %40 ], [ 122, %43 ]
+  %H5E_CANTSET_g.sink53 = phi ptr [ @H5E_CANTSET_g, %40 ], [ @H5E_CANTRESTORE_g, %43 ]
+  %.sink50 = phi i32 [ 116, %40 ], [ 122, %43 ]
   %50 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %51 = load i64, ptr %H5E_CANTSET_g.sink52, align 8, !tbaa !3
-  %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__extend, i32 noundef %.sink49, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.2) #3
+  %51 = load i64, ptr %H5E_CANTSET_g.sink53, align 8, !tbaa !3
+  %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__extend, i32 noundef %.sink50, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.2) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
@@ -549,11 +549,11 @@ define range(i32 -1, -2147483648) i32 @H5FD__free_real(ptr noundef %0, i32 nound
   br i1 %73, label %.thread73, label %77
 
 .thread73:                                        ; preds = %67, %64
-  %H5E_CANTSET_g.sink88 = phi ptr [ @H5E_CANTSET_g, %64 ], [ @H5E_CANTRESTORE_g, %67 ]
-  %.sink85 = phi i32 [ 344, %64 ], [ 349, %67 ]
+  %H5E_CANTSET_g.sink93 = phi ptr [ @H5E_CANTSET_g, %64 ], [ @H5E_CANTRESTORE_g, %67 ]
+  %.sink90 = phi i32 [ 344, %64 ], [ 349, %67 ]
   %74 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %75 = load i64, ptr %H5E_CANTSET_g.sink88, align 8, !tbaa !3
-  %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__free_real, i32 noundef %.sink85, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.2) #3
+  %75 = load i64, ptr %H5E_CANTSET_g.sink93, align 8, !tbaa !3
+  %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__free_real, i32 noundef %.sink90, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.2) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %98
 
@@ -578,11 +578,11 @@ define range(i32 -1, -2147483648) i32 @H5FD__free_real(ptr noundef %0, i32 nound
   br i1 %88, label %.thread79, label %92
 
 .thread79:                                        ; preds = %82, %79
-  %H5E_CANTSET_g.sink92 = phi ptr [ @H5E_CANTSET_g, %79 ], [ @H5E_CANTRESTORE_g, %82 ]
-  %.sink89 = phi i32 [ 358, %79 ], [ 363, %82 ]
+  %H5E_CANTSET_g.sink97 = phi ptr [ @H5E_CANTSET_g, %79 ], [ @H5E_CANTRESTORE_g, %82 ]
+  %.sink94 = phi i32 [ 358, %79 ], [ 363, %82 ]
   %89 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
-  %90 = load i64, ptr %H5E_CANTSET_g.sink92, align 8, !tbaa !3
-  %91 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__free_real, i32 noundef %.sink89, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.2) #3
+  %90 = load i64, ptr %H5E_CANTSET_g.sink97, align 8, !tbaa !3
+  %91 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__free_real, i32 noundef %.sink94, i64 noundef %89, i64 noundef %90, ptr noundef nonnull @.str.2) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %98
 

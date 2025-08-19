@@ -2569,24 +2569,24 @@ define hidden noundef zeroext i1 @_ZN7MulNode35AndIL_shift_and_mask_is_always_ze
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 3
-  %or.cond.i101 = select i1 %17, i1 %20, i1 false
+  %or.cond.i110 = select i1 %17, i1 %20, i1 false
   %21 = icmp eq i8 %3, 11
   %22 = icmp eq i32 %19, 4
-  %or.cond6.i102 = select i1 %21, i1 %22, i1 false
-  %23 = select i1 %or.cond.i101, i1 true, i1 %or.cond6.i102
+  %or.cond6.i111 = select i1 %21, i1 %22, i1 false
+  %23 = select i1 %or.cond.i110, i1 true, i1 %or.cond6.i111
   %24 = icmp ne ptr %16, null
-  %.not69103 = and i1 %24, %23
-  br i1 %.not69103, label %.lr.ph107, label %.loopexit
+  %.not69112 = and i1 %24, %23
+  br i1 %.not69112, label %.lr.ph116, label %.loopexit
 
-.lr.ph107:                                        ; preds = %.lr.ph, %tailrecurse
+.lr.ph116:                                        ; preds = %.lr.ph, %tailrecurse
   %25 = phi i1 [ %94, %tailrecurse ], [ %21, %.lr.ph ]
   %26 = phi i1 [ %95, %tailrecurse ], [ %17, %.lr.ph ]
   %27 = phi ptr [ %118, %tailrecurse ], [ %16, %.lr.ph ]
   %28 = phi ptr [ %115, %tailrecurse ], [ %13, %.lr.ph ]
-  %.tr7582106 = phi ptr [ %.tr7683105, %tailrecurse ], [ %1, %.lr.ph ]
-  %.tr7683105 = phi ptr [ %.049, %tailrecurse ], [ %2, %.lr.ph ]
-  %.tr7885104 = phi i1 [ false, %tailrecurse ], [ %4, %.lr.ph ]
-  %29 = getelementptr inbounds nuw i8, ptr %.tr7582106, i64 40
+  %.tr7582115 = phi ptr [ %.tr7683114, %tailrecurse ], [ %1, %.lr.ph ]
+  %.tr7683114 = phi ptr [ %.049, %tailrecurse ], [ %2, %.lr.ph ]
+  %.tr7885113 = phi i1 [ false, %tailrecurse ], [ %4, %.lr.ph ]
+  %29 = getelementptr inbounds nuw i8, ptr %.tr7582115, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
@@ -2602,8 +2602,8 @@ define hidden noundef zeroext i1 @_ZN7MulNode35AndIL_shift_and_mask_is_always_ze
   %.not71 = and i1 %39, %38
   br i1 %.not71, label %40, label %.loopexit
 
-40:                                               ; preds = %.lr.ph107
-  %41 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %.tr7582106, i1 noundef zeroext false) #10
+40:                                               ; preds = %.lr.ph116
+  %41 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %.tr7582115, i1 noundef zeroext false) #10
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.loopexit, label %43
 
@@ -2687,12 +2687,12 @@ define hidden noundef zeroext i1 @_ZN7MulNode35AndIL_shift_and_mask_is_always_ze
   br i1 %.not, label %125, label %99
 
 99:                                               ; preds = %92
-  br i1 %.tr7885104, label %100, label %.loopexit
+  br i1 %.tr7885113, label %100, label %.loopexit
 
 100:                                              ; preds = %99
-  %101 = load ptr, ptr %.tr7683105, align 8
+  %101 = load ptr, ptr %.tr7683114, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call noundef i32 %102(ptr noundef nonnull align 8 dereferenceable(52) %.tr7683105) #10
+  %103 = tail call noundef i32 %102(ptr noundef nonnull align 8 dereferenceable(52) %.tr7683114) #10
   %104 = icmp eq i32 %103, %..i66
   br i1 %104, label %tailrecurse, label %105
 
@@ -2700,9 +2700,9 @@ define hidden noundef zeroext i1 @_ZN7MulNode35AndIL_shift_and_mask_is_always_ze
   br i1 %94, label %106, label %.loopexit
 
 106:                                              ; preds = %105
-  %107 = load ptr, ptr %.tr7683105, align 8
+  %107 = load ptr, ptr %.tr7683114, align 8
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call noundef i32 %108(ptr noundef nonnull align 8 dereferenceable(52) %.tr7683105) #10
+  %109 = tail call noundef i32 %108(ptr noundef nonnull align 8 dereferenceable(52) %.tr7683114) #10
   %110 = icmp eq i32 %109, 135
   br i1 %110, label %tailrecurse, label %.loopexit
 
@@ -2724,7 +2724,7 @@ tailrecurse:                                      ; preds = %106, %100
   %123 = select i1 %or.cond.i, i1 true, i1 %or.cond6.i
   %124 = icmp ne ptr %118, null
   %.not69 = and i1 %124, %123
-  br i1 %.not69, label %.lr.ph107, label %.loopexit
+  br i1 %.not69, label %.lr.ph116, label %.loopexit
 
 125:                                              ; preds = %92
   %126 = getelementptr inbounds nuw i8, ptr %.049, i64 8
@@ -2781,8 +2781,8 @@ tailrecurse:                                      ; preds = %106, %100
 165:                                              ; preds = %159, %149
   br label %.loopexit
 
-.loopexit:                                        ; preds = %99, %105, %106, %78, %70, %64, %43, %40, %tailrecurse, %.lr.ph107, %.lr.ph, %5, %159, %131, %143, %125, %165
-  %.0 = phi i1 [ false, %165 ], [ false, %125 ], [ false, %143 ], [ false, %131 ], [ true, %159 ], [ false, %5 ], [ false, %.lr.ph ], [ false, %.lr.ph107 ], [ false, %tailrecurse ], [ false, %40 ], [ false, %43 ], [ false, %64 ], [ false, %70 ], [ false, %78 ], [ false, %106 ], [ false, %105 ], [ false, %99 ]
+.loopexit:                                        ; preds = %99, %105, %106, %78, %70, %64, %43, %40, %tailrecurse, %.lr.ph116, %.lr.ph, %5, %159, %131, %143, %125, %165
+  %.0 = phi i1 [ false, %165 ], [ false, %125 ], [ false, %143 ], [ false, %131 ], [ true, %159 ], [ false, %5 ], [ false, %.lr.ph ], [ false, %.lr.ph116 ], [ false, %tailrecurse ], [ false, %40 ], [ false, %43 ], [ false, %64 ], [ false, %70 ], [ false, %78 ], [ false, %106 ], [ false, %105 ], [ false, %99 ]
   ret i1 %.0
 }
 
@@ -6722,8 +6722,8 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %132
-  %.sink40 = phi ptr [ %133, %132 ], [ %.val29, %14 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
+  %.sink44 = phi ptr [ %133, %132 ], [ %.val29, %14 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   %135 = load ptr, ptr %134, align 8
   br label %136
 
@@ -7335,8 +7335,8 @@ define hidden noundef ptr @_ZNK12URShiftINode5ValueEP8PhaseGVN(ptr noundef nonnu
   %or.cond = or i1 %33, %34
   %35 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
   %36 = icmp eq ptr %22, %35
-  %or.cond49 = select i1 %or.cond, i1 true, i1 %36
-  br i1 %or.cond49, label %64, label %37
+  %or.cond56 = select i1 %or.cond, i1 true, i1 %36
+  br i1 %or.cond56, label %64, label %37
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -8719,10 +8719,10 @@ _ZN4Node8init_reqEjPS_.exit.i22:                  ; preds = %152, %141, %128
 
 _ZN15RotateRightNodeC2EP4NodeS1_PK4Type.exit.sink.split: ; preds = %101, %171
   %.sink = phi i32 [ %172, %171 ], [ %102, %101 ]
-  %.sink31 = phi ptr [ %173, %171 ], [ %103, %101 ]
+  %.sink48 = phi ptr [ %173, %171 ], [ %103, %101 ]
   %.0.i.i.i19.sink = phi ptr [ %.0.i.i.i19, %171 ], [ %.0.i.i.i, %101 ]
   %175 = zext i32 %.sink to i64
-  %176 = getelementptr inbounds nuw ptr, ptr %.sink31, i64 %175
+  %176 = getelementptr inbounds nuw ptr, ptr %.sink48, i64 %175
   store ptr %.0.i.i.i19.sink, ptr %176, align 8
   br label %_ZN15RotateRightNodeC2EP4NodeS1_PK4Type.exit
 

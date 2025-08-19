@@ -1836,8 +1836,8 @@ define hidden void @_ZN6Assimp11HMPImporter20CreateOutputFaceListEjj(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %40, i8 0, i64 %44, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %46 = load ptr, ptr %45, align 8
-  %.not167 = icmp eq ptr %46, null
-  br i1 %.not167, label %.loopexit130, label %.loopexit130.loopexit
+  %.not175 = icmp eq ptr %46, null
+  br i1 %.not175, label %.loopexit130, label %.loopexit130.loopexit
 
 47:                                               ; preds = %.loopexit131
   %48 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #24

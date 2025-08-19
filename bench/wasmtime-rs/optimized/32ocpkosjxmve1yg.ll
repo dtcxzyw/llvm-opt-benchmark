@@ -623,7 +623,7 @@ define void @_ZN14cranelift_isle4sema7Pattern5visit17hb4578346609c47eaE(ptr alig
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
   %16 = load i64, ptr %0, align 16, !range !30, !noundef !3
-  switch i64 %16, label %default.unreachable36 [
+  switch i64 %16, label %default.unreachable41 [
     i64 0, label %17
     i64 1, label %21
     i64 2, label %28
@@ -633,7 +633,7 @@ define void @_ZN14cranelift_isle4sema7Pattern5visit17hb4578346609c47eaE(ptr alig
     i64 6, label %47
   ]
 
-default.unreachable36:                            ; preds = %5
+default.unreachable41:                            ; preds = %5
   unreachable
 
 17:                                               ; preds = %5
@@ -863,7 +863,7 @@ define i16 @_ZN14cranelift_isle4sema4Expr5visit17h3b0837100245ea2cE(ptr align 16
   %13 = alloca { ptr, ptr, {} }, align 8
   %14 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %15 = load i64, ptr %0, align 16, !range !34, !noundef !3
-  switch i64 %15, label %default.unreachable34 [
+  switch i64 %15, label %default.unreachable38 [
     i64 0, label %16
     i64 1, label %25
     i64 2, label %30
@@ -871,7 +871,7 @@ define i16 @_ZN14cranelift_isle4sema4Expr5visit17h3b0837100245ea2cE(ptr align 16
     i64 4, label %42
   ]
 
-default.unreachable34:                            ; preds = %4
+default.unreachable38:                            ; preds = %4
   unreachable
 
 16:                                               ; preds = %4

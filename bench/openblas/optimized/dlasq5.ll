@@ -654,22 +654,22 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %413
 
 413:                                              ; preds = %.loopexit683, %407, %.loopexit689, %211
-  %.sink843 = phi i32 [ %304, %.loopexit683 ], [ %396, %407 ], [ %112, %.loopexit689 ], [ %200, %211 ]
+  %.sink856 = phi i32 [ %304, %.loopexit683 ], [ %396, %407 ], [ %112, %.loopexit689 ], [ %200, %211 ]
   %.sink = phi double [ %317, %.loopexit683 ], [ %412, %407 ], [ %125, %.loopexit689 ], [ %216, %211 ]
-  %.sink822 = phi double [ %311, %.loopexit683 ], [ %403, %407 ], [ %119, %.loopexit689 ], [ %207, %211 ]
-  %.sink819.in = phi ptr [ %313, %.loopexit683 ], [ %408, %407 ], [ %121, %.loopexit689 ], [ %212, %211 ]
+  %.sink835 = phi double [ %311, %.loopexit683 ], [ %403, %407 ], [ %119, %.loopexit689 ], [ %207, %211 ]
+  %.sink832.in = phi ptr [ %313, %.loopexit683 ], [ %408, %407 ], [ %121, %.loopexit689 ], [ %212, %211 ]
   %.pre-phi794 = phi i32 [ %233, %.loopexit683 ], [ %233, %407 ], [ %45, %.loopexit689 ], [ %45, %211 ]
   %414 = phi i32 [ %220, %.loopexit683 ], [ %220, %407 ], [ %32, %.loopexit689 ], [ %32, %211 ]
   %.6605 = phi double [ %.8607, %.loopexit683 ], [ %.11610, %407 ], [ %.1600, %.loopexit689 ], [ %.4603, %211 ]
-  %415 = sext i32 %.sink843 to i64
+  %415 = sext i32 %.sink856 to i64
   %416 = getelementptr inbounds double, ptr %15, i64 %415
   store double %.sink, ptr %416, align 8, !tbaa !7
-  %.sink819 = load double, ptr %.sink819.in, align 8, !tbaa !7
+  %.sink832 = load double, ptr %.sink832.in, align 8, !tbaa !7
   %417 = load double, ptr %10, align 8, !tbaa !7
-  %418 = fdiv double %417, %.sink822
+  %418 = fdiv double %417, %.sink835
   %419 = load double, ptr %4, align 8, !tbaa !7
   %420 = fneg double %419
-  %421 = tail call double @llvm.fmuladd.f64(double %.sink819, double %418, double %420)
+  %421 = tail call double @llvm.fmuladd.f64(double %.sink832, double %418, double %420)
   store double %421, ptr %9, align 8, !tbaa !7
   %422 = load double, ptr %6, align 8, !tbaa !7
   %.inv674 = fcmp ole double %422, %421

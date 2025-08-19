@@ -1350,7 +1350,7 @@ define internal void @process_clusters(ptr readnone captures(none) %0, ptr nound
   br i1 %exitcond57.not.i, label %.preheader45.i, label %.preheader46.us.i
 
 .preheader45.i:                                   ; preds = %._crit_edge.us.i, %42
-  %load_initial106 = load i32, ptr %3, align 16
+  %load_initial115 = load i32, ptr %3, align 16
   br label %68
 
 .preheader.i:                                     ; preds = %68
@@ -1358,11 +1358,11 @@ define internal void @process_clusters(ptr readnone captures(none) %0, ptr nound
   br label %72
 
 68:                                               ; preds = %68, %.preheader45.i
-  %store_forwarded107 = phi i32 [ %load_initial106, %.preheader45.i ], [ %71, %68 ]
+  %store_forwarded116 = phi i32 [ %load_initial115, %.preheader45.i ], [ %71, %68 ]
   %indvars.iv58.i = phi i64 [ 1, %.preheader45.i ], [ %indvars.iv.next59.i, %68 ]
   %69 = getelementptr i32, ptr %3, i64 %indvars.iv58.i
   %70 = load i32, ptr %69, align 4, !tbaa !90
-  %71 = add nsw i32 %70, %store_forwarded107
+  %71 = add nsw i32 %70, %store_forwarded116
   store i32 %71, ptr %69, align 4, !tbaa !90
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next59.i, 2048
@@ -2395,8 +2395,8 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
 
 .preheader288:                                    ; preds = %184
   %171 = add nsw i32 %3, -1
-  %.not392 = icmp eq i32 %3, 1
-  br i1 %.not392, label %._crit_edge337, label %.preheader
+  %.not402 = icmp eq i32 %3, 1
+  br i1 %.not402, label %._crit_edge337, label %.preheader
 
 .lr.ph332:                                        ; preds = %79, %184
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %184 ], [ 0, %79 ]

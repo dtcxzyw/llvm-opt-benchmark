@@ -906,12 +906,12 @@ _ZNSt10unique_ptrIN3gmx11SetTimeStepESt14default_deleteIS1_EED2Ev.exit147.i: ; p
   br label %.body.i
 
 .sink.split.sink.split.i:                         ; preds = %229, %199, %181
-  %.sink204.i = phi ptr [ %182, %181 ], [ %200, %199 ], [ %230, %229 ]
+  %.sink228.i = phi ptr [ %182, %181 ], [ %200, %199 ], [ %230, %229 ]
   %.sink.ph.i = phi ptr [ %12, %181 ], [ %13, %199 ], [ %15, %229 ]
-  %247 = load ptr, ptr %.sink204.i, align 8, !tbaa !12
+  %247 = load ptr, ptr %.sink228.i, align 8, !tbaa !12
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8
-  call void %249(ptr noundef nonnull align 8 dereferenceable(8) %.sink204.i) #20
+  call void %249(ptr noundef nonnull align 8 dereferenceable(8) %.sink228.i) #20
   br label %.sink.split.i36
 
 .sink.split.i36:                                  ; preds = %.sink.split.sink.split.i, %229, %199, %181
@@ -3150,7 +3150,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !264
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
@@ -3250,13 +3250,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !15
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !15
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

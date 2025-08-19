@@ -715,21 +715,21 @@ find_date_hdr.exit.thread.i:                      ; preds = %trim_headers.exit.i
 
 .lr.ph255.preheader.i:                            ; preds = %.thread219.i, %.thread219.thread.i
   %.1197 = phi ptr [ %229, %.thread219.thread.i ], [ null, %.thread219.i ]
-  %.6292.i = phi ptr [ %228, %.thread219.thread.i ], [ %.4.lcssa.i, %.thread219.i ]
-  %245 = getelementptr inbounds nuw i8, ptr %.6292.i, i64 8
+  %.6309.i = phi ptr [ %228, %.thread219.thread.i ], [ %.4.lcssa.i, %.thread219.i ]
+  %245 = getelementptr inbounds nuw i8, ptr %.6309.i, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !109
   %.not175.i230 = icmp eq ptr %246, null
   br i1 %.not175.i230, label %.lr.ph260.i.preheader, label %.lr.ph255.i
 
 .lr.ph255.i:                                      ; preds = %.lr.ph255.preheader.i, %.._crit_edge256.i_crit_edge
-  %.pre = load ptr, ptr %.6292.i, align 8, !tbaa !101
+  %.pre = load ptr, ptr %.6309.i, align 8, !tbaa !101
   br label %247
 
 247:                                              ; preds = %.lr.ph255.i, %274
   %248 = phi ptr [ %.pre, %.lr.ph255.i ], [ %275, %274 ]
   %249 = phi ptr [ %246, %.lr.ph255.i ], [ %277, %274 ]
   %.0140252.i232 = phi i1 [ false, %.lr.ph255.i ], [ %.1141.i, %274 ]
-  %.1137253.i231 = phi ptr [ %.6292.i, %.lr.ph255.i ], [ %249, %274 ]
+  %.1137253.i231 = phi ptr [ %.6309.i, %.lr.ph255.i ], [ %249, %274 ]
   %250 = load ptr, ptr %249, align 8, !tbaa !101
   %251 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %248, i32 noundef 58) #13
   %252 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %250, i32 noundef 58) #13
@@ -792,7 +792,7 @@ compare_header_names.exit.i:                      ; preds = %265, %261
   br label %.lr.ph260.i
 
 .lr.ph260.i:                                      ; preds = %.lr.ph260.i.preheader, %292
-  %.2138259.i = phi ptr [ %294, %292 ], [ %.6292.i, %.lr.ph260.i.preheader ]
+  %.2138259.i = phi ptr [ %294, %292 ], [ %.6309.i, %.lr.ph260.i.preheader ]
   %278 = load ptr, ptr %.2138259.i, align 8, !tbaa !101
   %279 = call i32 @Curl_dyn_add(ptr noundef nonnull %13, ptr noundef %278) #12
   %.not169.i = icmp eq i32 %279, 0
@@ -814,7 +814,7 @@ compare_header_names.exit.i:                      ; preds = %265, %261
   br label %286
 
 286:                                              ; preds = %285, %282
-  %.not172.i = icmp eq ptr %.2138259.i, %.6292.i
+  %.not172.i = icmp eq ptr %.2138259.i, %.6309.i
   br i1 %.not172.i, label %289, label %287
 
 287:                                              ; preds = %286
@@ -843,7 +843,7 @@ make_headers.exit.thread.sink.split:              ; preds = %195, %171, %172
 
 make_headers.exit.thread:                         ; preds = %192, %.lr.ph260.i, %280, %287, %289, %make_headers.exit.thread.sink.split, %227, %175, %find_date_hdr.exit.thread.i
   %.2.ph = phi ptr [ null, %find_date_hdr.exit.thread.i ], [ null, %175 ], [ null, %227 ], [ null, %make_headers.exit.thread.sink.split ], [ %.1197, %289 ], [ %.1197, %287 ], [ %.1197, %280 ], [ %.1197, %.lr.ph260.i ], [ null, %192 ]
-  %.2.i.ph = phi ptr [ %.4.lcssa.i, %find_date_hdr.exit.thread.i ], [ %.0126.i, %175 ], [ %.4.lcssa.i, %227 ], [ %.2.i.ph.ph, %make_headers.exit.thread.sink.split ], [ %.6292.i, %289 ], [ %.6292.i, %287 ], [ %.6292.i, %280 ], [ %.6292.i, %.lr.ph260.i ], [ %.4243.i, %192 ]
+  %.2.i.ph = phi ptr [ %.4.lcssa.i, %find_date_hdr.exit.thread.i ], [ %.0126.i, %175 ], [ %.4.lcssa.i, %227 ], [ %.2.i.ph.ph, %make_headers.exit.thread.sink.split ], [ %.6309.i, %289 ], [ %.6309.i, %287 ], [ %.6309.i, %280 ], [ %.6309.i, %.lr.ph260.i ], [ %.4243.i, %192 ]
   call void @curl_slist_free_all(ptr noundef %.2.i.ph) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -851,7 +851,7 @@ make_headers.exit.thread:                         ; preds = %192, %.lr.ph260.i, 
 
 .loopexit:                                        ; preds = %292, %.thread219.i
   %.2 = phi ptr [ null, %.thread219.i ], [ %.1197, %292 ]
-  %.2.i = phi ptr [ null, %.thread219.i ], [ %.6292.i, %292 ]
+  %.2.i = phi ptr [ null, %.thread219.i ], [ %.6309.i, %292 ]
   call void @curl_slist_free_all(ptr noundef %.2.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1149,9 +1149,9 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
 31:                                               ; preds = %29, %24
   %.2 = phi i32 [ %25, %24 ], [ %30, %29 ]
   %.not55 = icmp eq i32 %.2, 0
-  br i1 %.not55, label %32, label %.thread76
+  br i1 %.not55, label %32, label %.thread81
 
-.thread76:                                        ; preds = %31
+.thread81:                                        ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -1173,8 +1173,8 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   %40 = select i1 %.not53, i1 %39, i1 false
   br i1 %40, label %20, label %.loopexit, !llvm.loop !127
 
-.loopexit:                                        ; preds = %36, %.thread76, %3, %.loopexit62.thread
-  %.0 = phi i32 [ 3, %.loopexit62.thread ], [ 0, %3 ], [ %.2, %.thread76 ], [ %.1, %36 ]
+.loopexit:                                        ; preds = %36, %.thread81, %3, %.loopexit62.thread
+  %.0 = phi i32 [ 3, %.loopexit62.thread ], [ 0, %3 ], [ %.2, %.thread81 ], [ %.1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

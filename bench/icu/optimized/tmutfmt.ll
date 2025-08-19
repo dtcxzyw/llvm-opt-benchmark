@@ -1665,13 +1665,13 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit138: ; preds = %148
   store i32 0, ptr %15, align 4, !tbaa !13
   %180 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 128) #16
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread333, label %182
+  br i1 %181, label %.thread337, label %182
 
 182:                                              ; preds = %.thread156
   invoke void @_ZN6icu_7714TimeUnitAmountC1ERKNS_11FormattableENS_8TimeUnit15UTimeUnitFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(128) %180, ptr noundef nonnull align 8 dereferenceable(112) %5, i32 noundef %.161, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %_ZN6icu_7712LocalPointerINS_14TimeUnitAmountEEC2EPS1_R10UErrorCode.exit unwind label %185
 
-.thread333:                                       ; preds = %.thread156
+.thread337:                                       ; preds = %.thread156
   store i32 %17, ptr %16, align 8, !tbaa !47
   store i32 0, ptr %19, align 4, !tbaa !50
   br label %_ZN6icu_7712LocalPointerINS_14TimeUnitAmountEED2Ev.exit139
@@ -1710,7 +1710,7 @@ _ZN6icu_7712LocalPointerINS_14TimeUnitAmountEED2Ev.exit: ; preds = %184
   call void %191(ptr noundef nonnull align 8 dereferenceable(128) %180) #16
   br label %_ZN6icu_7712LocalPointerINS_14TimeUnitAmountEED2Ev.exit139
 
-_ZN6icu_7712LocalPointerINS_14TimeUnitAmountEED2Ev.exit139: ; preds = %.thread333, %.thread159, %188
+_ZN6icu_7712LocalPointerINS_14TimeUnitAmountEED2Ev.exit139: ; preds = %.thread337, %.thread159, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %193
 
@@ -2046,9 +2046,9 @@ define void @_ZN6icu_7714TimeUnitFormat16checkConsistencyE20UTimeUnitFormatStyle
   %12 = load i32, ptr %3, align 4
   %13 = icmp sgt i32 %12, 0
   %or.cond.i = select i1 %11, i1 true, i1 %13
-  br i1 %or.cond.i, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit, label %.critedge.thread62
+  br i1 %or.cond.i, label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit, label %.critedge.thread64
 
-.critedge.thread62:                               ; preds = %8
+.critedge.thread64:                               ; preds = %8
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit
 
@@ -2190,7 +2190,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %38
   call void %69(ptr noundef nonnull align 8 dereferenceable(116) %10) #16
   br label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit: ; preds = %.critedge.thread62, %.critedge.thread, %.critedge, %4
+_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit: ; preds = %.critedge.thread64, %.critedge.thread, %.critedge, %4
   ret void
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit55: ; preds = %36, %58, %64, %56, %26
@@ -2742,19 +2742,19 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit236: ; preds = %165
 
 178:                                              ; preds = %175
   %179 = icmp ult i32 %4, 7
-  br i1 %179, label %switch.lookup333, label %.critedge224
+  br i1 %179, label %switch.lookup346, label %.critedge224
 
-switch.lookup333:                                 ; preds = %178
+switch.lookup346:                                 ; preds = %178
   %180 = zext nneg i32 %4 to i64
-  %switch.gep334 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN6icu_7714TimeUnitFormat19searchInLocaleChainE20UTimeUnitFormatStylePKcS3_NS_8TimeUnit15UTimeUnitFieldsERKNS_13UnicodeStringES3_PNS_9HashtableER10UErrorCode.1, i64 0, i64 %180
-  %switch.load335 = load ptr, ptr %switch.gep334, align 8
+  %switch.gep347 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN6icu_7714TimeUnitFormat19searchInLocaleChainE20UTimeUnitFormatStylePKcS3_NS_8TimeUnit15UTimeUnitFieldsERKNS_13UnicodeStringES3_PNS_9HashtableER10UErrorCode.1, i64 0, i64 %180
+  %switch.load348 = load ptr, ptr %switch.gep347, align 8
   %181 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 512) #16
   %.not198 = icmp eq ptr %181, null
   br i1 %.not198, label %.critedge219, label %182
 
-182:                                              ; preds = %switch.lookup333
+182:                                              ; preds = %switch.lookup346
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  store ptr %switch.load335, ptr %23, align 8, !tbaa !71
+  store ptr %switch.load348, ptr %23, align 8, !tbaa !71
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %22, i8 noundef signext 1, ptr noundef nonnull %23, i32 noundef -1)
           to label %183 unwind label %196
 
@@ -2779,7 +2779,7 @@ switch.lookup333:                                 ; preds = %178
   call void %191(ptr noundef nonnull align 8 dereferenceable(512) %181) #16
   br label %.critedge221
 
-.critedge219:                                     ; preds = %switch.lookup333
+.critedge219:                                     ; preds = %switch.lookup346
   %192 = load i32, ptr %8, align 4, !tbaa !13
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %_ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit242, label %194

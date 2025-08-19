@@ -2111,8 +2111,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h94
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %31, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %32 = load i64, ptr %2, align 8, !range !68, !alias.scope !540, !noalias !549
-  %.fr19.i = freeze i64 %32
-  %33 = icmp eq i64 %.fr19.i, -9223372036854775808
+  %.fr20.i = freeze i64 %32
+  %33 = icmp eq i64 %.fr20.i, -9223372036854775808
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load i64, ptr %34, align 8, !alias.scope !540, !noalias !549
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2151,7 +2151,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h94
 
 49:                                               ; preds = %42, %._crit_edge.i.us.i
   %.sroa.6.1.i.us.i = phi i64 [ %.sroa.3.0.i.i.us.i, %42 ], [ %.sroa.6.0.i.us.i, %._crit_edge.i.us.i ]
-  %.sroa.01.1.i.us.i = phi i64 [ %.sroa.0.0.i.i.us.i, %42 ], [ %.sroa.01.0.i.us.i, %._crit_edge.i.us.i ]
+  %.sroa.01.1.i.us.i = phi i64 [ %.sroa.0.0.i.i.us.i, %42 ], [ 1, %._crit_edge.i.us.i ]
   %50 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.us.i, splat (i8 -1)
   %51 = bitcast <16 x i1> %50 to i16
   %.not.i.us.i = icmp eq i16 %51, 0
@@ -2253,7 +2253,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h94
 
 97:                                               ; preds = %90, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %90 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %90 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %90 ], [ 1, %._crit_edge.i.i ]
   %98 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.i, splat (i8 -1)
   %99 = bitcast <16 x i1> %98 to i16
   %.not.i.i = icmp eq i16 %99, 0
@@ -2265,11 +2265,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h94
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab71f486fc6f8141E.exit.split.i"
 
 .split.us.i:                                      ; preds = %97, %49
-  %.us-phi16.i = phi i64 [ %.sroa.6.1.i.us.i, %49 ], [ %.sroa.6.1.i.i, %97 ]
-  %.us-phi17.i = phi i64 [ %.sroa.01.1.i.us.i, %49 ], [ %.sroa.01.1.i.i, %97 ]
-  %cond.i.i = icmp ne i64 %.us-phi17.i, 0
+  %.us-phi17.i = phi i64 [ %.sroa.6.1.i.us.i, %49 ], [ %.sroa.6.1.i.i, %97 ]
+  %.us-phi18.i = phi i64 [ %.sroa.01.1.i.us.i, %49 ], [ %.sroa.01.1.i.i, %97 ]
+  %cond.i.i = icmp ne i64 %.us-phi18.i, 0
   call void @llvm.assume(i1 %cond.i.i)
-  %103 = getelementptr inbounds i8, ptr %.val.i, i64 %.us-phi16.i
+  %103 = getelementptr inbounds i8, ptr %.val.i, i64 %.us-phi17.i
   %104 = load i8, ptr %103, align 1, !noalias !540, !noundef !7
   %105 = icmp sgt i8 %104, -1
   br i1 %105, label %106, label %128
@@ -2325,7 +2325,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h94
 
 128:                                              ; preds = %.split.us.i, %106
   %129 = phi i8 [ %104, %.split.us.i ], [ %.pre, %106 ]
-  %.sroa.3.0.i.ph.i = phi i64 [ %.us-phi16.i, %.split.us.i ], [ %112, %106 ]
+  %.sroa.3.0.i.ph.i = phi i64 [ %.us-phi17.i, %.split.us.i ], [ %112, %106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2461,7 +2461,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 43:                                               ; preds = %36, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %36 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %36 ], [ 1, %._crit_edge.i.i ]
   %44 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %.not.i.i = icmp eq i16 %45, 0
@@ -2660,7 +2660,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hf9
 
 53:                                               ; preds = %46, %._crit_edge.i.i
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %46 ], [ %.sroa.6.0.i.i, %._crit_edge.i.i ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %46 ], [ %.sroa.01.0.i.i, %._crit_edge.i.i ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i.i.i, %46 ], [ 1, %._crit_edge.i.i ]
   %54 = icmp eq <16 x i8> %.sroa.0.0.copyload.i21.i.i, splat (i8 -1)
   %55 = bitcast <16 x i1> %54 to i16
   %.not.i.i = icmp eq i16 %55, 0
@@ -3288,9 +3288,9 @@ define hidden void @_ZN16snippet_provider15SnippetProvider15lookup_snippets17h4f
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 960
   %41 = load i64, ptr %40, align 8, !alias.scope !858, !noalias !861, !noundef !7
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %.thread110, label %43
+  br i1 %42, label %.thread116, label %43
 
-.thread110:                                       ; preds = %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h14823679e9ecda6dE.exit"
+.thread116:                                       ; preds = %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h14823679e9ecda6dE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !855
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !863
@@ -3776,7 +3776,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hba48c5aaea860a9aE.exit: ; preds = %.no
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #36
   unreachable
 
-200:                                              ; preds = %.thread110, %.noexc23
+200:                                              ; preds = %.thread116, %.noexc23
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !863
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)

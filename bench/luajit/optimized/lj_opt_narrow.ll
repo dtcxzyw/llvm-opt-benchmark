@@ -51,7 +51,7 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   %26 = load i16, ptr %11, align 8, !tbaa !32
   %27 = zext i16 %26 to i32
   %28 = call fastcc i32 @narrow_conv_backprop(ptr noundef %2, i32 noundef %27, i32 noundef 0)
-  %29 = icmp slt i32 %28, 2
+  %29 = icmp samesign ult i32 %28, 2
   br i1 %29, label %30, label %.sink.split
 
 30:                                               ; preds = %24
@@ -227,7 +227,7 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef nonnull %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !36
@@ -517,8 +517,8 @@ narrow_bpc_get.exit133.thread:                    ; preds = %147, %135
   %161 = load i16, ptr %160, align 2, !tbaa !32
   %162 = zext i16 %161 to i32
   %163 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef %0, i32 noundef %162, i32 noundef %156)
-  %164 = add nsw i32 %163, %159
-  %165 = icmp slt i32 %164, 2
+  %164 = add nuw nsw i32 %163, %159
+  %165 = icmp samesign ult i32 %164, 2
   br i1 %165, label %166, label %179
 
 166:                                              ; preds = %155
@@ -596,13 +596,13 @@ define hidden i32 @lj_opt_narrow_index(ptr noundef %0, i32 noundef %1) local_unn
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %25
-  %.sink21 = phi i16 [ %28, %25 ], [ 23443, %5 ]
-  %.sink19 = phi i16 [ %29, %25 ], [ %6, %5 ]
+  %.sink22 = phi i16 [ %28, %25 ], [ 23443, %5 ]
+  %.sink20 = phi i16 [ %29, %25 ], [ %6, %5 ]
   %.sink = phi i16 [ %17, %25 ], [ 8814, %5 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i16 %.sink21, ptr %31, align 4, !tbaa !32
-  store i16 %.sink19, ptr %30, align 8, !tbaa !32
+  store i16 %.sink22, ptr %31, align 4, !tbaa !32
+  store i16 %.sink20, ptr %30, align 8, !tbaa !32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %.sink, ptr %32, align 2, !tbaa !32
   %33 = tail call i32 @lj_opt_fold(ptr noundef %0) #6
@@ -722,11 +722,11 @@ define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 n
   %35 = zext i8 %34 to i32
   %36 = shl nuw i32 %35, 24
   %37 = or disjoint i32 %36, %30
-  br label %common.ret66
+  br label %common.ret69
 
-common.ret66:                                     ; preds = %27, %75, %68, %67, %38
-  %common.ret66.op = phi i32 [ %57, %38 ], [ %1, %68 ], [ %80, %75 ], [ %1, %67 ], [ %37, %27 ]
-  ret i32 %common.ret66.op
+common.ret69:                                     ; preds = %27, %75, %68, %67, %38
+  %common.ret69.op = phi i32 [ %57, %38 ], [ %1, %68 ], [ %80, %75 ], [ %1, %67 ], [ %37, %27 ]
+  ret i32 %common.ret69.op
 
 38:                                               ; preds = %25
   %39 = load i16, ptr %10, align 8, !tbaa !32
@@ -764,11 +764,11 @@ common.ret66:                                     ; preds = %27, %75, %68, %67, 
   store i16 %58, ptr %65, align 2, !tbaa !40
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 %3, ptr %66, align 4, !tbaa !41
-  br label %common.ret66
+  br label %common.ret69
 
 67:                                               ; preds = %4
   %.not48 = icmp samesign ult i32 %3, 2048
-  br i1 %.not48, label %common.ret66, label %68
+  br i1 %.not48, label %common.ret69, label %68
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -778,7 +778,7 @@ common.ret66:                                     ; preds = %27, %75, %68, %67, 
   %73 = shl nuw i32 1, %72
   %74 = and i32 %73, 6315993
   %.not49 = icmp eq i32 %74, 0
-  br i1 %.not49, label %75, label %common.ret66
+  br i1 %.not49, label %75, label %common.ret69
 
 75:                                               ; preds = %68
   %76 = trunc nuw nsw i32 %3 to i16
@@ -789,7 +789,7 @@ common.ret66:                                     ; preds = %27, %75, %68, %67, 
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %76, ptr %79, align 2, !tbaa !32
   %80 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #6
-  br label %common.ret66
+  br label %common.ret69
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1006,12 +1006,12 @@ conv_str_tonum.exit38:                            ; preds = %conv_str_tonum.exit
 75:                                               ; preds = %72, %51
   %.032.sink = phi i32 [ %.032, %72 ], [ %.0.i, %51 ]
   %.033.sink = phi i32 [ %.033, %72 ], [ %.0.i36, %51 ]
-  %.sink42 = phi i16 [ %74, %72 ], [ %53, %51 ]
+  %.sink43 = phi i16 [ %74, %72 ], [ %53, %51 ]
   %76 = trunc i32 %.032.sink to i16
   %77 = trunc i32 %.033.sink to i16
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i16 %.sink42, ptr %79, align 4, !tbaa !32
+  store i16 %.sink43, ptr %79, align 4, !tbaa !32
   store i16 %76, ptr %78, align 8, !tbaa !32
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %77, ptr %80, align 2, !tbaa !32

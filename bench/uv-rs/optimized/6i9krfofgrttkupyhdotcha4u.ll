@@ -925,14 +925,14 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
 5:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 0, label %21
     i8 1, label %29
     i8 2, label %30
     i8 3, label %7
   ]
 
-default.unreachable1.i:                           ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 7:                                                ; preds = %5
@@ -3921,8 +3921,8 @@ _ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.llvm.10012000299733122
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %.old = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.val.i30.old = load i8, ptr %.old, align 8, !range !95, !alias.scope !698, !noalias !701, !noundef !8
-  %.old24 = icmp eq i8 %.val.i30.old, 1
-  br i1 %.old24, label %275, label %"_ZN4core6result19Result$LT$T$C$E$GT$7inspect17h7a0ea6708a67e089E.exit"
+  %.old38 = icmp eq i8 %.val.i30.old, 1
+  br i1 %.old38, label %275, label %"_ZN4core6result19Result$LT$T$C$E$GT$7inspect17h7a0ea6708a67e089E.exit"
 
 241:                                              ; preds = %_ZN9uv_pep5086cursor6Cursor5slice17hf381ea8be11b22afE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -4497,7 +4497,7 @@ define hidden void @_ZN9uv_pep5086marker5parse25parse_marker_key_op_value17h6a15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   br i1 %61, label %63, label %64
 
-default.unreachable210:                           ; preds = %328, %314
+default.unreachable221:                           ; preds = %328, %314
   unreachable
 
 63:                                               ; preds = %3
@@ -5432,7 +5432,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.1001
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.726, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.726)
   %315 = load i8, ptr %59, align 8, !range !95, !noundef !8
-  switch i8 %315, label %default.unreachable210 [
+  switch i8 %315, label %default.unreachable221 [
     i8 0, label %317
     i8 1, label %322
     i8 2, label %326
@@ -5480,7 +5480,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.llvm.1001
   %330 = load ptr, ptr %329, align 8, !nonnull !8, !noundef !8
   store ptr %330, ptr %44, align 8
   %331 = load i8, ptr %56, align 8, !range !95, !noundef !8
-  switch i8 %331, label %default.unreachable210 [
+  switch i8 %331, label %default.unreachable221 [
     i8 0, label %417
     i8 1, label %switch.lookup
     i8 2, label %426
@@ -6741,7 +6741,7 @@ switch.lookup:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %32 = icmp samesign ult i8 %3, 7
-  br i1 %32, label %switch.lookup27, label %_ZN9uv_pep5086marker4tree14MarkerOperator18to_pep440_operator17h90b7073ccdc2fc39E.exit
+  br i1 %32, label %switch.lookup29, label %_ZN9uv_pep5086marker4tree14MarkerOperator18to_pep440_operator17h90b7073ccdc2fc39E.exit
 
 33:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -6772,7 +6772,7 @@ switch.lookup:
   invoke void @_ZN5alloc3fmt6format12format_inner17h961f1f7793bd20f0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
           to label %103 unwind label %101
 
-switch.lookup27:                                  ; preds = %31
+switch.lookup29:                                  ; preds = %31
   %switch.cast = zext i8 %switch.load to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift = lshr i56 1415097386271488, %switch.shiftamt
@@ -6813,7 +6813,7 @@ _ZN9uv_pep5086marker4tree14MarkerOperator18to_pep440_operator17h90b7073ccdc2fc39
   invoke void @_ZN5alloc3fmt6format12format_inner17h961f1f7793bd20f0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
           to label %76 unwind label %93
 
-42:                                               ; preds = %switch.lookup27
+42:                                               ; preds = %switch.lookup29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
@@ -6828,7 +6828,7 @@ _ZN9uv_pep5086marker4tree14MarkerOperator18to_pep440_operator17h90b7073ccdc2fc39
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   br label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hcc14f2d4864d1dabE.exit"
 
-44:                                               ; preds = %switch.lookup27
+44:                                               ; preds = %switch.lookup29
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %45 = load ptr, ptr %16, align 8, !nonnull !8, !align !16, !noundef !8
   store ptr %45, ptr %13, align 8

@@ -2145,10 +2145,10 @@ define internal fastcc noalias noundef ptr @aeron_setup_conversation_info(ptr no
   %37 = and i8 %36, 1
   %.not102 = icmp eq i8 %37, 0
   %. = select i1 %.not102, ptr %32, ptr %30
-  %.135 = select i1 %.not102, i8 -1, i8 1
+  %.143 = select i1 %.not102, i8 -1, i8 1
   %38 = getelementptr i8, ptr %., i64 %34
   %39 = load i8, ptr %38, align 1
-  %40 = add i8 %39, %.135
+  %40 = add i8 %39, %.143
   store i8 %40, ptr %38, align 1
   store i32 2, ptr %14, align 8
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -2343,11 +2343,11 @@ copy_address_wmem.exit108:                        ; preds = %copy_address_wmem.e
   %141 = load i8, ptr %140, align 1
   %142 = and i8 %141, 1
   %.not = icmp eq i8 %142, 0
-  %.136 = select i1 %.not, ptr %137, ptr %135
-  %.137 = select i1 %.not, i8 -1, i8 1
-  %143 = getelementptr i8, ptr %.136, i64 %139
+  %.144 = select i1 %.not, ptr %137, ptr %135
+  %.145 = select i1 %.not, i8 -1, i8 1
+  %143 = getelementptr i8, ptr %.144, i64 %139
   %144 = load i8, ptr %143, align 1
-  %145 = add i8 %144, %.137
+  %145 = add i8 %144, %.145
   store i8 %145, ptr %143, align 1
   store i32 3, ptr %119, align 8
   %146 = getelementptr inbounds nuw i8, ptr %119, i64 4
@@ -3514,7 +3514,7 @@ aeron_pos_add_length.exit149.thread211.i:         ; preds = %aeron_frame_nak_rx_
 
 414:                                              ; preds = %410
   %415 = load ptr, ptr %234, align 8
-  br label %.sink.split237.i
+  br label %.sink.split275.i
 
 416:                                              ; preds = %308
   br i1 %.0118.i, label %417, label %434
@@ -3536,10 +3536,10 @@ aeron_pos_add_length.exit149.thread211.i:         ; preds = %aeron_frame_nak_rx_
   br i1 %424, label %.sink.split.i, label %428
 
 .sink.split.i:                                    ; preds = %423, %421, %419
-  %.sink236.i = phi i32 [ 256, %419 ], [ 128, %421 ], [ 128, %423 ]
+  %.sink274.i = phi i32 [ 256, %419 ], [ 128, %421 ], [ 128, %423 ]
   %425 = load ptr, ptr %234, align 8
   %426 = load i32, ptr %425, align 4
-  %427 = or i32 %426, %.sink236.i
+  %427 = or i32 %426, %.sink274.i
   store i32 %427, ptr %425, align 4
   br label %428
 
@@ -3548,19 +3548,19 @@ aeron_pos_add_length.exit149.thread211.i:         ; preds = %aeron_frame_nak_rx_
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 24
   %431 = load i32, ptr %430, align 4
   %.not139.i = icmp eq i32 %.0125.i, %431
-  br i1 %.not139.i, label %434, label %.sink.split237.i
+  br i1 %.not139.i, label %434, label %.sink.split275.i
 
-.sink.split237.i:                                 ; preds = %428, %414
+.sink.split275.i:                                 ; preds = %428, %414
   %.sink.i = phi ptr [ %415, %414 ], [ %429, %428 ]
-  %.sink240.i = phi i32 [ 1024, %414 ], [ 64, %428 ]
+  %.sink278.i = phi i32 [ 1024, %414 ], [ 64, %428 ]
   %.0121.ph.i = phi i32 [ %.1122.i, %414 ], [ 0, %428 ]
   %432 = load i32, ptr %.sink.i, align 4
-  %433 = or i32 %432, %.sink240.i
+  %433 = or i32 %432, %.sink278.i
   store i32 %433, ptr %.sink.i, align 4
   br label %434
 
-434:                                              ; preds = %.sink.split237.i, %428, %416, %410, %aeron_pos_add_length.exit149.thread211.i, %308, %233
-  %.0121.i = phi i32 [ 0, %308 ], [ %.1122.i, %410 ], [ %.1122.i, %aeron_pos_add_length.exit149.thread211.i ], [ 0, %416 ], [ 0, %233 ], [ 0, %428 ], [ %.0121.ph.i, %.sink.split237.i ]
+434:                                              ; preds = %.sink.split275.i, %428, %416, %410, %aeron_pos_add_length.exit149.thread211.i, %308, %233
+  %.0121.i = phi i32 [ 0, %308 ], [ %.1122.i, %410 ], [ %.1122.i, %aeron_pos_add_length.exit149.thread211.i ], [ 0, %416 ], [ 0, %233 ], [ 0, %428 ], [ %.0121.ph.i, %.sink.split275.i ]
   %435 = load i16, ptr %87, align 8
   %switch.i = icmp ult i16 %435, 2
   br i1 %switch.i, label %436, label %526

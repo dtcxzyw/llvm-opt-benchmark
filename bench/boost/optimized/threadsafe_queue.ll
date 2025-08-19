@@ -127,7 +127,7 @@ $_ZTVN5boost10wrapexceptISt12system_errorEE = comdat any
 @.str.9 = private unnamed_addr constant [23 x i8] c"adaptive_mutex::lock()\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost3log11v2_mt_posix3aux21threadsafe_queue_impl6createEPNS3_9node_baseE(ptr noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5boost3log11v2_mt_posix3aux21threadsafe_queue_impl6createEPNS3_9node_baseE(ptr noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::bad_alloc", align 8
   %4 = alloca %"struct.boost::source_location", align 8

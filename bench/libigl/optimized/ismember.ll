@@ -422,8 +422,8 @@ thread-pre-split.i.i.i.i.i.i125:                  ; preds = %.loopexit202
   br label %.body121
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i129, %.loopexit202.thread, %._crit_edge.i.i.i.i.i.i.i128, %.loopexit202
-  %.sroa.0170.0246 = phi ptr [ null, %.loopexit202.thread ], [ %.sroa.0170.1198, %._crit_edge.i.i.i.i.i.i.i128 ], [ %.sroa.0170.1198, %.loopexit202 ], [ %.sroa.0170.1198, %.lr.ph.i.i.i.i.i.i.i.i129 ]
-  call void @free(ptr noundef %.sroa.0170.0246) #13
+  %.sroa.0170.0275 = phi ptr [ null, %.loopexit202.thread ], [ %.sroa.0170.1198, %._crit_edge.i.i.i.i.i.i.i128 ], [ %.sroa.0170.1198, %.loopexit202 ], [ %.sroa.0170.1198, %.lr.ph.i.i.i.i.i.i.i.i129 ]
+  call void @free(ptr noundef %.sroa.0170.0275) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

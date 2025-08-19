@@ -3995,7 +3995,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE6resizeEm(pt
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN2cv5Rect_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv5Rect_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 4
+  %21 = shl nuw nsw i64 %12, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !163
@@ -5672,8 +5672,8 @@ _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5
   %.not46131 = icmp slt i32 %90, %26
   %92 = load i32, ptr %8, align 8
   %93 = icmp slt i32 %92, %91
-  %or.cond166 = select i1 %.not46131, i1 true, i1 %93
-  br i1 %or.cond166, label %.preheader118, label %.preheader116
+  %or.cond201 = select i1 %.not46131, i1 true, i1 %93
+  br i1 %or.cond201, label %.preheader118, label %.preheader116
 
 .preheader118:                                    ; preds = %._crit_edge129, %._crit_edge125
   %94 = phi i32 [ %89, %._crit_edge125 ], [ %153, %._crit_edge129 ]
@@ -5681,8 +5681,8 @@ _ZNSt6vectorIN2cv6detail8tracking15contrib_feature14CvHOGEvaluator7FeatureESaIS5
   %.not47138 = icmp slt i32 %95, %91
   %96 = load i32, ptr %8, align 8
   %97 = icmp slt i32 %96, %26
-  %or.cond168 = select i1 %.not47138, i1 true, i1 %97
-  br i1 %or.cond168, label %._crit_edge140, label %.preheader
+  %or.cond203 = select i1 %.not47138, i1 true, i1 %97
+  br i1 %or.cond203, label %._crit_edge140, label %.preheader
 
 .preheader116:                                    ; preds = %._crit_edge125, %._crit_edge129
   %98 = phi i32 [ %153, %._crit_edge129 ], [ %89, %._crit_edge125 ]
@@ -6871,8 +6871,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc209, %._crit_
   %120 = zext i32 %91 to i64
   %121 = zext i32 %95 to i64
   %invariant.gep = getelementptr inbounds nuw float, ptr %87, i64 %.sroa.0.0.insert.ext.i
-  %invariant.gep286 = getelementptr inbounds nuw float, ptr %87, i64 %120
-  %invariant.gep288 = getelementptr inbounds nuw float, ptr %87, i64 %121
+  %invariant.gep300 = getelementptr inbounds nuw float, ptr %87, i64 %120
+  %invariant.gep302 = getelementptr inbounds nuw float, ptr %87, i64 %121
   br label %122
 
 .loopexit:                                        ; preds = %.lr.ph228, %186
@@ -7006,10 +7006,10 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc209, %._crit_
 
 .lr.ph228:                                        ; preds = %186, %.lr.ph228
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %.lr.ph228 ], [ 0, %186 ]
-  %gep287 = getelementptr inbounds nuw float, ptr %invariant.gep286, i64 %indvars.iv262
-  %187 = load float, ptr %gep287, align 4, !tbaa !87
-  %gep289 = getelementptr inbounds nuw float, ptr %invariant.gep288, i64 %indvars.iv262
-  %188 = load float, ptr %gep289, align 4, !tbaa !87
+  %gep301 = getelementptr inbounds nuw float, ptr %invariant.gep300, i64 %indvars.iv262
+  %187 = load float, ptr %gep301, align 4, !tbaa !87
+  %gep303 = getelementptr inbounds nuw float, ptr %invariant.gep302, i64 %indvars.iv262
+  %188 = load float, ptr %gep303, align 4, !tbaa !87
   %189 = call float @llvm.fmuladd.f32(float %188, float %101, float -5.000000e-01)
   %190 = call float @llvm.floor.f32(float %189)
   %191 = fptosi float %190 to i32
@@ -7086,8 +7086,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc209, %._crit_
   %225 = ashr exact i64 %sext185, 32
   %226 = shl i64 %214, 30
   %227 = ashr i64 %226, 32
-  %sext284 = shl i64 %212, 32
-  %228 = ashr exact i64 %sext284, 32
+  %sext298 = shl i64 %212, 32
+  %228 = ashr exact i64 %sext298, 32
   %wide.trip.count282 = zext nneg i32 %4 to i64
   br label %229
 
@@ -7203,8 +7203,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %267, %._crit_edge24
   %268 = load ptr, ptr %10, align 8, !tbaa !217
   %.not.i.i211 = icmp eq ptr %268, %52
   %269 = icmp eq ptr %268, null
-  %or.cond290 = or i1 %.not.i.i211, %269
-  br i1 %or.cond290, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %270
+  %or.cond304 = or i1 %.not.i.i211, %269
+  br i1 %or.cond304, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit, label %270
 
 270:                                              ; preds = %_ZN2cv10AutoBufferIfLm264EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %268) #30
@@ -7247,8 +7247,8 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %270, %_ZN2cv10AutoB
   %276 = load ptr, ptr %11, align 8, !tbaa !222
   %.not.i.i212 = icmp eq ptr %276, %80
   %277 = icmp eq ptr %276, null
-  %or.cond291 = or i1 %.not.i.i212, %277
-  br i1 %or.cond291, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit213, label %278
+  %or.cond305 = or i1 %.not.i.i212, %277
+  br i1 %or.cond305, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit213, label %278
 
 278:                                              ; preds = %275
   call void @_ZdaPv(ptr noundef nonnull %276) #30
@@ -7264,8 +7264,8 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit213:          ; preds = %278, %275, %176
   %280 = load ptr, ptr %10, align 8, !tbaa !217
   %.not.i.i214 = icmp eq ptr %280, %52
   %281 = icmp eq ptr %280, null
-  %or.cond292 = or i1 %.not.i.i214, %281
-  br i1 %or.cond292, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit215, label %282
+  %or.cond306 = or i1 %.not.i.i214, %281
+  br i1 %or.cond306, label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit215, label %282
 
 282:                                              ; preds = %279
   call void @_ZdaPv(ptr noundef nonnull %280) #30
@@ -10155,13 +10155,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !87
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !87
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

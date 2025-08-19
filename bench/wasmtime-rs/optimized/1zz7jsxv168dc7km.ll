@@ -4453,8 +4453,8 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i.i.
           cleanup
   br label %.thread39.i.i.i.i
 
-.thread44.loopexit.split-lp.i.i.i.i:              ; preds = %select.unfold.i.i.i.i, %.invoke80.i.i.i.i, %185, %.invoke.i.i.i.i, %120, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i", %104, %85
-  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %185 ], [ %.0.i.i.i.i.i.i.i, %120 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ], [ %.0.i.i.i.i.i.i.i, %104 ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.us-phi65.i.i.i.i, %.invoke80.i.i.i.i ]
+.thread44.loopexit.split-lp.i.i.i.i:              ; preds = %select.unfold.i.i.i.i, %.invoke89.i.i.i.i, %185, %.invoke.i.i.i.i, %120, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i", %104, %85
+  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %185 ], [ %.0.i.i.i.i.i.i.i, %120 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ], [ %.0.i.i.i.i.i.i.i, %104 ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.us-phi65.i.i.i.i, %.invoke89.i.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread39.i.i.i.i
@@ -4880,21 +4880,21 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit57.i.
   %.us-phi65.i.i.i.i = phi i8 [ %.0.i.i.i58.us.i.i.i.i, %163 ], [ %.0.i.i.i58.i.i.i.i, %212 ]
   %215 = load ptr, ptr %125, align 8, !noalias !296, !noundef !4
   %.not22.i.i.i.i = icmp eq ptr %215, null
-  br i1 %.not22.i.i.i.i, label %218, label %.invoke80.i.i.i.i
+  br i1 %.not22.i.i.i.i, label %218, label %.invoke89.i.i.i.i
 
-.invoke80.i.i.i.i:                                ; preds = %218, %.split64.us.i.i.i.i
+.invoke89.i.i.i.i:                                ; preds = %218, %.split64.us.i.i.i.i
   %216 = phi ptr [ @anon.f3b90557b61ab883507bc0abd2bbf363.134, %.split64.us.i.i.i.i ], [ @anon.f3b90557b61ab883507bc0abd2bbf363.136, %218 ]
   %217 = phi ptr [ @anon.f3b90557b61ab883507bc0abd2bbf363.135, %.split64.us.i.i.i.i ], [ @anon.f3b90557b61ab883507bc0abd2bbf363.137, %218 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %216, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %217) #30
-          to label %.cont81.i.i.i.i unwind label %.thread44.loopexit.split-lp.i.i.i.i, !noalias !296
+          to label %.cont90.i.i.i.i unwind label %.thread44.loopexit.split-lp.i.i.i.i, !noalias !296
 
-.cont81.i.i.i.i:                                  ; preds = %.invoke80.i.i.i.i
+.cont90.i.i.i.i:                                  ; preds = %.invoke89.i.i.i.i
   unreachable
 
 218:                                              ; preds = %.split64.us.i.i.i.i
   %219 = load ptr, ptr %128, align 8, !noalias !296, !noundef !4
   %.not23.i.i.i.i = icmp eq ptr %219, null
-  br i1 %.not23.i.i.i.i, label %220, label %.invoke80.i.i.i.i
+  br i1 %.not23.i.i.i.i, label %220, label %.invoke89.i.i.i.i
 
 220:                                              ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit.i.i.i.i, %218
   %.sroa.11.5.i.i.i.i = phi i8 [ %.us-phi65.i.i.i.i, %218 ], [ %.sroa.11.4.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit.i.i.i.i ]
@@ -5222,8 +5222,8 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i.i.
           cleanup
   br label %.thread39.i.i.i.i
 
-.thread44.loopexit.split-lp.i.i.i.i:              ; preds = %select.unfold.i.i.i.i, %.invoke80.i.i.i.i, %185, %.invoke.i.i.i.i, %120, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i", %104, %85
-  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %185 ], [ %.0.i.i.i.i.i.i.i, %120 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ], [ %.0.i.i.i.i.i.i.i, %104 ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.us-phi65.i.i.i.i, %.invoke80.i.i.i.i ]
+.thread44.loopexit.split-lp.i.i.i.i:              ; preds = %select.unfold.i.i.i.i, %.invoke89.i.i.i.i, %185, %.invoke.i.i.i.i, %120, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i", %104, %85
+  %.sroa.11.1.ph.ph.i.i.i.i = phi i8 [ %.sroa.11.4.i.i.i.i, %select.unfold.i.i.i.i ], [ %.sroa.11.4.i.i.i.i, %185 ], [ %.0.i.i.i.i.i.i.i, %120 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17hed152060b57967cdE.exit.i.i.i.i" ], [ %.0.i.i.i.i.i.i.i, %104 ], [ %.0.i.i.i.i.i.i.i, %85 ], [ %.0.i.i.i.i.i.i.i, %.invoke.i.i.i.i ], [ %.us-phi65.i.i.i.i, %.invoke89.i.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread39.i.i.i.i
@@ -5649,21 +5649,21 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit57.i.
   %.us-phi65.i.i.i.i = phi i8 [ %.0.i.i.i58.us.i.i.i.i, %163 ], [ %.0.i.i.i58.i.i.i.i, %212 ]
   %215 = load ptr, ptr %125, align 8, !noalias !385, !noundef !4
   %.not22.i.i.i.i = icmp eq ptr %215, null
-  br i1 %.not22.i.i.i.i, label %218, label %.invoke80.i.i.i.i
+  br i1 %.not22.i.i.i.i, label %218, label %.invoke89.i.i.i.i
 
-.invoke80.i.i.i.i:                                ; preds = %218, %.split64.us.i.i.i.i
+.invoke89.i.i.i.i:                                ; preds = %218, %.split64.us.i.i.i.i
   %216 = phi ptr [ @anon.f3b90557b61ab883507bc0abd2bbf363.134, %.split64.us.i.i.i.i ], [ @anon.f3b90557b61ab883507bc0abd2bbf363.136, %218 ]
   %217 = phi ptr [ @anon.f3b90557b61ab883507bc0abd2bbf363.135, %.split64.us.i.i.i.i ], [ @anon.f3b90557b61ab883507bc0abd2bbf363.137, %218 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %216, i64 noundef 45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %217) #30
-          to label %.cont81.i.i.i.i unwind label %.thread44.loopexit.split-lp.i.i.i.i, !noalias !385
+          to label %.cont90.i.i.i.i unwind label %.thread44.loopexit.split-lp.i.i.i.i, !noalias !385
 
-.cont81.i.i.i.i:                                  ; preds = %.invoke80.i.i.i.i
+.cont90.i.i.i.i:                                  ; preds = %.invoke89.i.i.i.i
   unreachable
 
 218:                                              ; preds = %.split64.us.i.i.i.i
   %219 = load ptr, ptr %128, align 8, !noalias !385, !noundef !4
   %.not23.i.i.i.i = icmp eq ptr %219, null
-  br i1 %.not23.i.i.i.i, label %220, label %.invoke80.i.i.i.i
+  br i1 %.not23.i.i.i.i, label %220, label %.invoke89.i.i.i.i
 
 220:                                              ; preds = %_ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit.i.i.i.i, %218
   %.sroa.11.5.i.i.i.i = phi i8 [ %.us-phi65.i.i.i.i, %218 ], [ %.sroa.11.4.i.i.i.i, %_ZN16wasmtime_runtime7threads12parking_spot4Spot6remove17hdf1af999a7d4498fE.exit.i.i.i.i ]

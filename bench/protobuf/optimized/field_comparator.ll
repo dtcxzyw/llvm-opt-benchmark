@@ -1245,8 +1245,8 @@ if.else31:                                        ; preds = %if.end26
 if.end38:                                         ; preds = %if.else31
   %28 = fcmp ueq float %26, 0x7FF0000000000000
   %29 = fcmp ueq float %27, 0x7FF0000000000000
-  %or.cond39 = or i1 %28, %29
-  br i1 %or.cond39, label %return, label %if.end.i15
+  %or.cond43 = or i1 %28, %29
+  br i1 %or.cond43, label %return, label %if.end.i15
 
 if.end.i15:                                       ; preds = %if.end38
   %cmp.i.i16 = fcmp olt float %26, %27

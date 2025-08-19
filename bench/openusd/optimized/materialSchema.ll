@@ -1142,9 +1142,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit26: ; preds = %_ZNK32p
   %198 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i28 = icmp eq i8 %198, 0
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i.i28, label %202, label %.thread52
+  br i1 %.not.i.i.i.i.i28, label %202, label %.thread58
 
-.thread52:                                        ; preds = %196
+.thread58:                                        ; preds = %196
   %200 = load i32, ptr %197, align 4
   %201 = add nsw i32 %200, 1
   store i32 %201, ptr %197, align 4
@@ -1160,7 +1160,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit26: ; preds = %_ZNK32p
   store ptr %195, ptr %199, align 8
   br i1 %204, label %208, label %205
 
-205:                                              ; preds = %.thread52, %202
+205:                                              ; preds = %.thread58, %202
   %206 = load i32, ptr %197, align 4
   %207 = add nsw i32 %206, 1
   store i32 %207, ptr %197, align 4

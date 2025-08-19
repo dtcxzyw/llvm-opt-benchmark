@@ -574,8 +574,8 @@ define internal noundef i32 @colorcontrast_slice8p(ptr noundef readonly captures
   %.0201.us = phi ptr [ %144, %._crit_edge.us ], [ %54, %.preheader.us.preheader ]
   %.0182200.us = phi i32 [ %145, %._crit_edge.us ], [ %12, %.preheader.us.preheader ]
   %invariant.gep = getelementptr i8, ptr %.0201.us, i64 %56
-  %invariant.gep206 = getelementptr i8, ptr %.0201.us, i64 %57
-  %invariant.gep208 = getelementptr i8, ptr %.0201.us, i64 %58
+  %invariant.gep209 = getelementptr i8, ptr %.0201.us, i64 %57
+  %invariant.gep211 = getelementptr i8, ptr %.0201.us, i64 %58
   br label %59
 
 59:                                               ; preds = %.preheader.us, %59
@@ -584,11 +584,11 @@ define internal noundef i32 @colorcontrast_slice8p(ptr noundef readonly captures
   %gep = getelementptr i8, ptr %invariant.gep, i64 %60
   %61 = load i8, ptr %gep, align 1, !tbaa !58
   %62 = uitofp i8 %61 to float
-  %gep207 = getelementptr i8, ptr %invariant.gep206, i64 %60
-  %63 = load i8, ptr %gep207, align 1, !tbaa !58
+  %gep210 = getelementptr i8, ptr %invariant.gep209, i64 %60
+  %63 = load i8, ptr %gep210, align 1, !tbaa !58
   %64 = uitofp i8 %63 to float
-  %gep209 = getelementptr i8, ptr %invariant.gep208, i64 %60
-  %65 = load i8, ptr %gep209, align 1, !tbaa !58
+  %gep212 = getelementptr i8, ptr %invariant.gep211, i64 %60
+  %65 = load i8, ptr %gep212, align 1, !tbaa !58
   %66 = uitofp i8 %65 to float
   %67 = fadd nsz float %64, %66
   %68 = fmul nsz float %67, 5.000000e-01
@@ -675,14 +675,14 @@ define internal noundef i32 @colorcontrast_slice8p(ptr noundef readonly captures
   %139 = sext i1 %isnotneg.i194.us to i8
   %140 = trunc nuw i32 %138 to i8
   %.0.i195.us = select i1 %.not.i193.us, i8 %140, i8 %139
-  store i8 %.0.i195.us, ptr %gep207, align 1, !tbaa !58
+  store i8 %.0.i195.us, ptr %gep210, align 1, !tbaa !58
   %141 = fptosi float %130 to i32
   %.not.i196.us = icmp ult i32 %141, 256
   %isnotneg.i197.us = icmp sgt i32 %141, -1
   %142 = sext i1 %isnotneg.i197.us to i8
   %143 = trunc nuw i32 %141 to i8
   %.0.i198.us = select i1 %.not.i196.us, i8 %143, i8 %142
-  store i8 %.0.i198.us, ptr %gep209, align 1, !tbaa !58
+  store i8 %.0.i198.us, ptr %gep212, align 1, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !67
@@ -771,8 +771,8 @@ define internal noundef i32 @colorcontrast_slice16p(ptr noundef readonly capture
   %.0211.us = phi ptr [ %152, %._crit_edge.us ], [ %59, %.preheader.us.preheader ]
   %.0190210.us = phi i32 [ %153, %._crit_edge.us ], [ %16, %.preheader.us.preheader ]
   %invariant.gep = getelementptr i16, ptr %.0211.us, i64 %61
-  %invariant.gep216 = getelementptr i16, ptr %.0211.us, i64 %62
-  %invariant.gep218 = getelementptr i16, ptr %.0211.us, i64 %63
+  %invariant.gep219 = getelementptr i16, ptr %.0211.us, i64 %62
+  %invariant.gep221 = getelementptr i16, ptr %.0211.us, i64 %63
   br label %64
 
 64:                                               ; preds = %.preheader.us, %64
@@ -781,11 +781,11 @@ define internal noundef i32 @colorcontrast_slice16p(ptr noundef readonly capture
   %gep = getelementptr i16, ptr %invariant.gep, i64 %65
   %66 = load i16, ptr %gep, align 2, !tbaa !62
   %67 = uitofp i16 %66 to float
-  %gep217 = getelementptr i16, ptr %invariant.gep216, i64 %65
-  %68 = load i16, ptr %gep217, align 2, !tbaa !62
+  %gep220 = getelementptr i16, ptr %invariant.gep219, i64 %65
+  %68 = load i16, ptr %gep220, align 2, !tbaa !62
   %69 = uitofp i16 %68 to float
-  %gep219 = getelementptr i16, ptr %invariant.gep218, i64 %65
-  %70 = load i16, ptr %gep219, align 2, !tbaa !62
+  %gep222 = getelementptr i16, ptr %invariant.gep221, i64 %65
+  %70 = load i16, ptr %gep222, align 2, !tbaa !62
   %71 = uitofp i16 %70 to float
   %72 = fadd nsz float %69, %71
   %73 = fmul nsz float %72, 5.000000e-01
@@ -874,7 +874,7 @@ define internal noundef i32 @colorcontrast_slice16p(ptr noundef readonly capture
   %146 = select i1 %isnotneg.inv.i203.us, i32 0, i32 %9
   %.0.i204.us = select i1 %.not.i202.us, i32 %144, i32 %146
   %147 = trunc i32 %.0.i204.us to i16
-  store i16 %147, ptr %gep217, align 2, !tbaa !62
+  store i16 %147, ptr %gep220, align 2, !tbaa !62
   %148 = fptosi float %135 to i32
   %149 = and i32 %notmask, %148
   %.not.i206.us = icmp eq i32 %149, 0
@@ -882,7 +882,7 @@ define internal noundef i32 @colorcontrast_slice16p(ptr noundef readonly capture
   %150 = select i1 %isnotneg.inv.i207.us, i32 0, i32 %9
   %.0.i208.us = select i1 %.not.i206.us, i32 %148, i32 %150
   %151 = trunc i32 %.0.i208.us to i16
-  store i16 %151, ptr %gep219, align 2, !tbaa !62
+  store i16 %151, ptr %gep222, align 2, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %64, !llvm.loop !69

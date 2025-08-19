@@ -539,9 +539,9 @@ _ZN7consoleL9getchar32Ev.exit86.i:                ; preds = %.preheader.i
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit.i.i: ; preds = %._crit_edge.i.i, %.preheader.i.i
-  %.09.lcssa17.i.i = phi i64 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader.i.i ]
-  store i64 %.09.lcssa17.i.i, ptr %88, align 8, !tbaa !45
-  %143 = getelementptr inbounds nuw i8, ptr %.pre.i6, i64 %.09.lcssa17.i.i
+  %.09.lcssa18.i.i = phi i64 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader.i.i ]
+  store i64 %.09.lcssa18.i.i, ptr %88, align 8, !tbaa !45
+  %143 = getelementptr inbounds nuw i8, ptr %.pre.i6, i64 %.09.lcssa18.i.i
   store i8 0, ptr %143, align 1, !tbaa !10
   br label %_ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 

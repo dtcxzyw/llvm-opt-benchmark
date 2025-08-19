@@ -1095,8 +1095,8 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge: ; preds =
   br i1 %14, label %16, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread, !prof !69
 
 _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread: ; preds = %1, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
-  %.lcssa28 = phi i64 [ %.lcssa2, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge ], [ %3, %1 ]
-  %15 = icmp ugt i64 %.lcssa28, %5
+  %.lcssa211 = phi i64 [ %.lcssa2, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge ], [ %3, %1 ]
+  %15 = icmp ugt i64 %.lcssa211, %5
   br i1 %15, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit", !prof !3
 
 16:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
@@ -1104,11 +1104,11 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread: ; 
   unreachable
 
 17:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa28, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !70
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa211, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !70
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit": ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread
-  %18 = sub nuw i64 %.lcssa28, %3
+  %18 = sub nuw i64 %.lcssa211, %3
   %19 = getelementptr inbounds i8, ptr %7, i64 %3
   %20 = insertvalue { ptr, i64 } poison, ptr %19, 0
   %21 = insertvalue { ptr, i64 } %20, i64 %18, 1
@@ -1150,8 +1150,8 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %11
   br i1 %13, label %15, label %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit.thread", !prof !69
 
 "_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit.thread": ; preds = %1, %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit"
-  %.lcssa39 = phi i64 [ %.lcssa3, %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit" ], [ %3, %1 ]
-  %14 = icmp ugt i64 %.lcssa39, %5
+  %.lcssa312 = phi i64 [ %.lcssa3, %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit" ], [ %3, %1 ]
+  %14 = icmp ugt i64 %.lcssa312, %5
   br i1 %14, label %16, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit", !prof !3
 
 15:                                               ; preds = %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit"
@@ -1159,11 +1159,11 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %11
   unreachable
 
 16:                                               ; preds = %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit.thread"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa39, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !79
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa312, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !79
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit": ; preds = %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h403e0f58edd1ec0cE.llvm.4561438521817157030.exit.thread"
-  %17 = sub nuw i64 %.lcssa39, %3
+  %17 = sub nuw i64 %.lcssa312, %3
   %18 = getelementptr inbounds i8, ptr %7, i64 %3
   %19 = insertvalue { ptr, i64 } poison, ptr %18, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %17, 1
@@ -1205,8 +1205,8 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %11
   br i1 %13, label %15, label %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit.thread", !prof !69
 
 "_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit.thread": ; preds = %1, %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit"
-  %.lcssa39 = phi i64 [ %.lcssa3, %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit" ], [ %3, %1 ]
-  %14 = icmp ugt i64 %.lcssa39, %5
+  %.lcssa312 = phi i64 [ %.lcssa3, %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit" ], [ %3, %1 ]
+  %14 = icmp ugt i64 %.lcssa312, %5
   br i1 %14, label %16, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit", !prof !3
 
 15:                                               ; preds = %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit"
@@ -1214,11 +1214,11 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %11
   unreachable
 
 16:                                               ; preds = %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit.thread"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa39, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !88
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa312, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !88
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit": ; preds = %"_ZN9uv_pep4407version6Parser13parse_pattern28_$u7b$$u7b$closure$u7d$$u7d$17hb0a4c334e43f8614E.llvm.4561438521817157030.exit.thread"
-  %17 = sub nuw i64 %.lcssa39, %3
+  %17 = sub nuw i64 %.lcssa312, %3
   %18 = getelementptr inbounds i8, ptr %7, i64 %3
   %19 = insertvalue { ptr, i64 } poison, ptr %18, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %17, 1
@@ -1260,8 +1260,8 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge: ; preds =
   br i1 %18, label %20, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread, !prof !69
 
 _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread: ; preds = %1, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
-  %.lcssa28 = phi i64 [ %.lcssa2, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge ], [ %3, %1 ]
-  %19 = icmp ugt i64 %.lcssa28, %5
+  %.lcssa211 = phi i64 [ %.lcssa2, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge ], [ %3, %1 ]
+  %19 = icmp ugt i64 %.lcssa211, %5
   br i1 %19, label %21, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit", !prof !3
 
 20:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
@@ -1269,11 +1269,11 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread: ; 
   unreachable
 
 21:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa28, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !97
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa211, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !97
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit": ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread
-  %22 = sub nuw i64 %.lcssa28, %3
+  %22 = sub nuw i64 %.lcssa211, %3
   %23 = getelementptr inbounds i8, ptr %7, i64 %3
   %24 = insertvalue { ptr, i64 } poison, ptr %23, 0
   %25 = insertvalue { ptr, i64 } %24, i64 %22, 1

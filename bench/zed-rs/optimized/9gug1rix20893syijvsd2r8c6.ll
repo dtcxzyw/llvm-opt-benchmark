@@ -6145,8 +6145,8 @@ common.resume.i.sink.split.i.i:                   ; preds = %340, %319
   br label %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$17ha9996f6b2e99c301E.exit.sink.split.i.i"
 
 "_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$17ha9996f6b2e99c301E.exit.sink.split.i.i": ; preds = %350, %329
-  %.sink5.i.i = phi ptr [ %330, %329 ], [ %351, %350 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink5.i.i, i64 noundef 80, i64 noundef 8) #29, !noalias !1348
+  %.sink21.i.i = phi ptr [ %330, %329 ], [ %351, %350 ]
+  call void @__rust_dealloc(ptr noundef nonnull %.sink21.i.i, i64 noundef 80, i64 noundef 8) #29, !noalias !1348
   br label %352
 
 352:                                              ; preds = %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$17ha9996f6b2e99c301E.exit.sink.split.i.i", %346, %342, %325, %321
@@ -7262,11 +7262,11 @@ switch.lookup:                                    ; preds = %124
   br label %_ZN16markdown_preview21markdown_preview_view19MarkdownPreviewView28get_block_index_under_cursor17he035baaa1a28f7e2E.exit.i.i.i
 
 137:                                              ; preds = %switch.lookup
-  %switch.gep71 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN4gpui4view17WeakView$LT$V$GT$6update17h8aac61e31d366cb2E.115", i64 0, i64 %131
-  %switch.load72 = load i64, ptr %switch.gep71, align 8
+  %switch.gep77 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN4gpui4view17WeakView$LT$V$GT$6update17h8aac61e31d366cb2E.115", i64 0, i64 %131
+  %switch.load78 = load i64, ptr %switch.gep77, align 8
   %138 = add nuw nsw i64 %.sroa.8.0.i.i.i.i, 1
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i.i.i, i64 136
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i.i.i, i64 %switch.load72
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i.i.i, i64 %switch.load78
   %.pn3.i.i.i.i.i = load i64, ptr %140, align 8, !alias.scope !1796, !noalias !1799, !noundef !4
   %141 = icmp ule i64 %.pn5.i.i.i.i.i, %114
   %142 = icmp uge i64 %.pn3.i.i.i.i.i, %114
@@ -17976,8 +17976,8 @@ _ZN4gpui6window13WindowContext5defer17hf2cd71f5ac31c869E.exit.i: ; preds = %.noe
 
 230:                                              ; preds = %220
   store i64 1, ptr %224, align 8
-  %.sroa.4.0..sroa_idx192 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  store i64 1, ptr %.sroa.4.0..sroa_idx192, align 8
+  %.sroa.4.0..sroa_idx211 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  store i64 1, ptr %.sroa.4.0..sroa_idx211, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %224, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %224, i64 24
@@ -21149,7 +21149,7 @@ define hidden void @"_ZN83_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h524117956d0123b4E.llvm.3795885818253505526"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h524117956d0123b4E.llvm.3795885818253505526"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -21182,7 +21182,7 @@ define hidden noundef align 8 dereferenceable(1576) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h5292396e8bed2c81E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h5292396e8bed2c81E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -21215,7 +21215,7 @@ define hidden noundef align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hdb897071439a937cE.llvm.3795885818253505526"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hdb897071439a937cE.llvm.3795885818253505526"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null

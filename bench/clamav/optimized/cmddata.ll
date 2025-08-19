@@ -774,9 +774,9 @@ _ZN11CommandData9ExclCheckEPKwbbb.exit.thread49:  ; preds = %18, %_ZN11CommandDa
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 58584
   %78 = load i64, ptr %77, align 8
-  %.not15.i71 = icmp ne i64 %78, 0
-  %or.cond79.not = select i1 %75, i1 %.not15.i71, i1 false
-  br i1 %or.cond79.not, label %83, label %_ZN11CommandData9ExclCheckEPKwbbb.exit.thread
+  %.not15.i81 = icmp ne i64 %78, 0
+  %or.cond89.not = select i1 %75, i1 %.not15.i81, i1 false
+  br i1 %or.cond89.not, label %83, label %_ZN11CommandData9ExclCheckEPKwbbb.exit.thread
 
 79:                                               ; preds = %71
   br i1 %75, label %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53, label %80
@@ -789,13 +789,13 @@ _ZN11CommandData9ExclCheckEPKwbbb.exit.thread49:  ; preds = %18, %_ZN11CommandDa
 
 83:                                               ; preds = %76, %80
   %84 = phi i64 [ %82, %80 ], [ %78, %76 ]
-  %.4.i73 = phi i1 [ %.3.i, %80 ], [ true, %76 ]
+  %.4.i83 = phi i1 [ %.3.i, %80 ], [ true, %76 ]
   %85 = load i64, ptr %26, align 8, !tbaa !39
   %86 = icmp uge i64 %85, %84
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 58594
   %88 = load i8, ptr %87, align 2, !tbaa !37, !range !40, !noundef !41
   %89 = trunc nuw i8 %88 to i1
-  %.4.i.not = xor i1 %.4.i73, true
+  %.4.i.not = xor i1 %.4.i83, true
   %brmerge = or i1 %.4.i.not, %89
   %or.cond63 = select i1 %86, i1 %brmerge, i1 false
   br i1 %or.cond63, label %_ZN11CommandData9TimeCheckER7RarTimeS1_S1_.exit.thread53, label %_ZN11CommandData9ExclCheckEPKwbbb.exit.thread
@@ -914,7 +914,7 @@ declare noundef i32 @_Z9wcsicompcPKwS0_(ptr noundef, ptr noundef) local_unnamed_
 define void @_ZN11CommandData16SetStoreTimeModeEPKw(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(100904) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !11
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %.thread27, label %5
+  br i1 %4, label %.thread30, label %5
 
 5:                                                ; preds = %2
   %6 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %3)
@@ -932,11 +932,11 @@ define void @_ZN11CommandData16SetStoreTimeModeEPKw(ptr noundef nonnull writeonl
   %9 = icmp eq i32 %.pre.fr, 45
   %spec.select = select i1 %9, i32 0, i32 2
   %10 = icmp eq i32 %.pre.fr, 49
-  %spec.select29 = select i1 %10, i32 1, i32 %spec.select
-  br label %.thread27
+  %spec.select32 = select i1 %10, i32 1, i32 %spec.select
+  br label %.thread30
 
-.thread27:                                        ; preds = %8, %2
-  %11 = phi i32 [ 2, %2 ], [ %spec.select29, %8 ]
+.thread30:                                        ; preds = %8, %2
+  %11 = phi i32 [ 2, %2 ], [ %spec.select32, %8 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 67024
   store i32 %11, ptr %12, align 8, !tbaa !62
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 67020
@@ -947,9 +947,9 @@ define void @_ZN11CommandData16SetStoreTimeModeEPKw(ptr noundef nonnull writeonl
   %.pre24 = load i32, ptr %15, align 4, !tbaa !11
   br label %16
 
-16:                                               ; preds = %7, %.thread27
-  %17 = phi i32 [ %.pre24, %.thread27 ], [ %.pre.fr, %7 ]
-  %.0 = phi ptr [ %15, %.thread27 ], [ %1, %7 ]
+16:                                               ; preds = %7, %.thread30
+  %17 = phi i32 [ %.pre24, %.thread30 ], [ %.pre.fr, %7 ]
+  %.0 = phi ptr [ %15, %.thread30 ], [ %1, %7 ]
   %.not22 = icmp eq i32 %17, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 

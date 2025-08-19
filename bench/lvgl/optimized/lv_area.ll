@@ -204,12 +204,12 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr noundef writeonly captures(n
 21:                                               ; preds = %16
   %.not.i95 = icmp slt i32 %4, %10
   %.not28.i = icmp slt i32 %13, %20
-  %or.cond107 = or i1 %.not.i95, %.not28.i
+  %or.cond120 = or i1 %.not.i95, %.not28.i
   %.not29.i = icmp sgt i32 %9, %6
-  %or.cond108 = or i1 %or.cond107, %.not29.i
+  %or.cond121 = or i1 %or.cond120, %.not29.i
   %.not30.not.i = icmp sgt i32 %18, %15
-  %or.cond109 = or i1 %or.cond108, %.not30.not.i
-  br i1 %or.cond109, label %22, label %lv_area_is_on.exit
+  %or.cond122 = or i1 %or.cond121, %.not30.not.i
+  br i1 %or.cond122, label %22, label %lv_area_is_on.exit
 
 22:                                               ; preds = %21
   %23 = sub i32 %9, %4
@@ -240,8 +240,8 @@ define signext range(i8 -1, 5) i8 @lv_area_diff(ptr noundef writeonly captures(n
   %31 = add i32 %.neg, %29
   %32 = icmp sgt i32 %31, 0
   %33 = icmp slt i32 %30, %.pre104
-  %or.cond110 = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond110, label %34, label %42
+  %or.cond123 = select i1 %32, i1 %33, i1 false
+  br i1 %or.cond123, label %34, label %42
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %1, align 4, !tbaa !3

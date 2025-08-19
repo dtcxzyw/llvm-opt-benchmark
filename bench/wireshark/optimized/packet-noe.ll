@@ -634,8 +634,8 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %53, label %._crit_edge.thread.i, label %55
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %45
-  %.098.lcssa107.i = phi i64 [ %51, %._crit_edge.i ], [ 0, %45 ]
-  %54 = and i64 %.098.lcssa107.i, 127
+  %.098.lcssa109.i = phi i64 [ %51, %._crit_edge.i ], [ 0, %45 ]
+  %54 = and i64 %.098.lcssa109.i, 127
   br label %decode_utf8.exit.i
 
 55:                                               ; preds = %._crit_edge.i
@@ -1058,12 +1058,12 @@ define internal fastcc void @decode_tlv(ptr noundef %0, ptr noundef %1, i8 nound
   br label %29
 
 29:                                               ; preds = %27, %24
-  %.sink98 = phi i32 [ 1, %27 ], [ 2, %24 ]
+  %.sink101 = phi i32 [ 1, %27 ], [ 2, %24 ]
   %.sink = phi i32 [ -1, %27 ], [ -2, %24 ]
   %.0 = phi i16 [ %28, %27 ], [ %26, %24 ]
   %30 = load i32, ptr @hf_noe_psize, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %30, ptr noundef %1, i32 noundef %.1, i32 noundef %.sink98, i32 noundef 0)
-  %32 = add i32 %.1, %.sink98
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %30, ptr noundef %1, i32 noundef %.1, i32 noundef %.sink101, i32 noundef 0)
+  %32 = add i32 %.1, %.sink101
   %33 = add i32 %.167, %.sink
   %34 = zext i8 %11 to i32
   %35 = or disjoint i32 %9, %34

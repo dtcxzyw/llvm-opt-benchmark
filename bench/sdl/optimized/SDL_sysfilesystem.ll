@@ -579,9 +579,9 @@ define hidden ptr @SDL_SYS_GetUserFolder(i32 noundef %0) local_unnamed_addr #0 {
   store i8 0, ptr %.087.i.i, align 1
   %114 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %48)
   %.not11214.i.i = icmp eq ptr %114, null
-  br i1 %.not11214.i.i, label %.outer._crit_edge.thread29.i.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not11214.i.i, label %.outer._crit_edge.thread35.i.i, label %.lr.ph.i.i, !llvm.loop !6
 
-.outer._crit_edge.thread29.i.i:                   ; preds = %.critedge6.i.i
+.outer._crit_edge.thread35.i.i:                   ; preds = %.critedge6.i.i
   %115 = call i32 @fclose(ptr noundef nonnull %48)
   br label %xdg_user_dir_lookup.exit
 
@@ -619,8 +619,8 @@ xdg_user_dir_lookup.exit.thread24:                ; preds = %123
   %130 = call i64 @SDL_strlcat_REAL(ptr noundef nonnull %128, ptr noundef nonnull @.str.28, i64 noundef %127) #7
   br label %133
 
-xdg_user_dir_lookup.exit:                         ; preds = %.outer._crit_edge.thread29.i.i, %.outer._crit_edge.i.i
-  %.086.i.ph.i = phi ptr [ %.291.i.i, %.outer._crit_edge.thread29.i.i ], [ %.089.ph17.i.i, %.outer._crit_edge.i.i ]
+xdg_user_dir_lookup.exit:                         ; preds = %.outer._crit_edge.thread35.i.i, %.outer._crit_edge.i.i
+  %.086.i.ph.i = phi ptr [ %.291.i.i, %.outer._crit_edge.thread35.i.i ], [ %.089.ph17.i.i, %.outer._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %133
 

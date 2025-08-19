@@ -2737,9 +2737,9 @@ _ZN6hermes2vm7Runtime10makeHandleINS0_11HiddenClassEEENS0_6HandleIT_EERKNS0_9GCP
   br i1 %cmp.i.i.not.i, label %if.end.i45, label %if.end.i45.thread
 
 if.end.i45.thread:                                ; preds = %_ZN6hermes2vm7Runtime10makeHandleINS0_11HiddenClassEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit
-  %conv.i.i.i.i.i.i.i48212 = zext i32 %30 to i64
-  %add.i.i.i.i.i.i.i49213 = add i64 %.pre-phi208, %conv.i.i.i.i.i.i.i48212
-  %31 = or i64 %add.i.i.i.i.i.i.i49213, -281474976710656
+  %conv.i.i.i.i.i.i.i48217 = zext i32 %30 to i64
+  %add.i.i.i.i.i.i.i49218 = add i64 %.pre-phi208, %conv.i.i.i.i.i.i.i48217
+  %31 = or i64 %add.i.i.i.i.i.i.i49218, -281474976710656
   br label %if.then.i.i.i.i.i.i.i
 
 if.end.i45:                                       ; preds = %_ZN6hermes2vm7Runtime10makeHandleINS0_11HiddenClassEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit
@@ -2763,13 +2763,13 @@ if.end.i45:                                       ; preds = %_ZN6hermes2vm7Runti
   br i1 %32, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i45.thread, %if.end.i45
-  %or.i.i.i.i.i.i215 = phi i64 [ %31, %if.end.i45.thread ], [ %or.i.i.i.i.i.i, %if.end.i45 ]
+  %or.i.i.i.i.i.i220 = phi i64 [ %31, %if.end.i45.thread ], [ %or.i.i.i.i.i.i, %if.end.i45 ]
   %34 = phi ptr [ %scope, %if.end.i45.thread ], [ %.pre, %if.end.i45 ]
   %35 = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.end.i45.thread ], [ %.pre202, %if.end.i45 ]
   %next_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 192
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  store i64 %or.i.i.i.i.i.i215, ptr %35, align 8
+  store i64 %or.i.i.i.i.i.i220, ptr %35, align 8
   br label %_ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i45
@@ -2778,7 +2778,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i45
   br label %_ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit.i
 
 _ZN6hermes2vm7Runtime10makeHandleINS0_15DictPropertyMapEEENS0_6HandleIT_EERKNS0_9GCPointerIS5_EE.exit.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %agg.tmp.sroa.0.0.copyload.i.i.i5.i = phi i64 [ %or.i.i.i.i.i.i215, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.i5.pre.i, %if.end.i.i.i.i.i.i.i ]
+  %agg.tmp.sroa.0.0.copyload.i.i.i5.i = phi i64 [ %or.i.i.i.i.i.i220, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.0.0.copyload.i.i.i5.pre.i, %if.end.i.i.i.i.i.i.i ]
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %35, %if.then.i.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %36 = load ptr, ptr %topGCScope_.i, align 8
   %next_.i.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 192

@@ -256,8 +256,8 @@ define dso_local void @intel_gt_flush_buffer_pool(ptr noundef %0) local_unnamed_
 
 7:                                                ; preds = %.backedge, %1
   %8 = phi i64 [ 0, %1 ], [ %.be, %.backedge ]
-  %9 = phi ptr [ null, %1 ], [ %.be5, %.backedge ]
-  %10 = phi i8 [ 0, %1 ], [ %.be6, %.backedge ]
+  %9 = phi ptr [ null, %1 ], [ %.be12, %.backedge ]
+  %10 = phi i8 [ 0, %1 ], [ %.be13, %.backedge ]
   %11 = getelementptr [4 x %struct.list_head], ptr %4, i64 0, i64 %8
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
@@ -335,8 +335,8 @@ define dso_local void @intel_gt_flush_buffer_pool(ptr noundef %0) local_unnamed_
 
 .backedge:                                        ; preds = %46, %63, %pool_free_older_than.exit
   %.be = phi i64 [ %49, %46 ], [ 0, %63 ], [ 0, %pool_free_older_than.exit ]
-  %.be5 = phi ptr [ %48, %46 ], [ null, %63 ], [ null, %pool_free_older_than.exit ]
-  %.be6 = phi i8 [ %47, %46 ], [ 0, %63 ], [ 0, %pool_free_older_than.exit ]
+  %.be12 = phi ptr [ %48, %46 ], [ null, %63 ], [ null, %pool_free_older_than.exit ]
+  %.be13 = phi i8 [ %47, %46 ], [ 0, %63 ], [ 0, %pool_free_older_than.exit ]
   br label %7, !llvm.loop !19
 
 .preheader.i:                                     ; preds = %5, %.thread8.i

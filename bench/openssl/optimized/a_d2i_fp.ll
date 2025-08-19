@@ -142,7 +142,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   br i1 %.not, label %38, label %17
 
 17:                                               ; preds = %15
-  %18 = sub nuw i64 %.0107, %16
+  %18 = sub nuw nsw i64 %.0107, %16
   %19 = add i64 %18, %.099
   %20 = icmp ult i64 %19, %.099
   br i1 %20, label %.thread143.sink.split, label %21
@@ -241,7 +241,7 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
 68:                                               ; preds = %63
   %69 = add i32 %.0105.ph.ph, -1
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.loopexit166, label %.outer.outer.backedge
+  br i1 %70, label %.loopexit179, label %.outer.outer.backedge
 
 71:                                               ; preds = %63
   %72 = sub i64 %.1100, %57
@@ -310,23 +310,23 @@ define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %0, ptr nou
   br i1 %99, label %.thread143.sink.split, label %100
 
 100:                                              ; preds = %.loopexit
-  br i1 %14, label %.loopexit166, label %.outer
+  br i1 %14, label %.loopexit179, label %.outer
 
-.loopexit166:                                     ; preds = %68, %100
+.loopexit179:                                     ; preds = %68, %100
   %.2104 = phi i64 [ %98, %100 ], [ %57, %68 ]
   %101 = icmp ugt i64 %.2104, 2147483647
   br i1 %101, label %.thread143.sink.split, label %102
 
-102:                                              ; preds = %.loopexit166
+102:                                              ; preds = %.loopexit179
   store ptr %7, ptr %1, align 8, !tbaa !3
   %103 = trunc nuw nsw i64 %.2104 to i32
   br label %105
 
-.thread143.sink.split:                            ; preds = %.loopexit, %74, %59, %32, %23, %17, %21, %.lr.ph, %84, %.loopexit166
-  %.sink155 = phi i32 [ 246, %.loopexit166 ], [ 219, %84 ], [ 212, %.lr.ph ], [ 137, %21 ], [ 137, %17 ], [ 142, %23 ], [ 147, %32 ], [ 234, %.loopexit ], [ 199, %74 ], [ 178, %59 ]
-  %.sink = phi i32 [ 155, %.loopexit166 ], [ 142, %84 ], [ 524295, %.lr.ph ], [ 524295, %21 ], [ 524295, %17 ], [ 142, %23 ], [ 155, %32 ], [ 155, %.loopexit ], [ 155, %74 ], [ 123, %59 ]
+.thread143.sink.split:                            ; preds = %.loopexit, %74, %59, %32, %23, %17, %21, %.lr.ph, %84, %.loopexit179
+  %.sink168 = phi i32 [ 246, %.loopexit179 ], [ 219, %84 ], [ 212, %.lr.ph ], [ 137, %21 ], [ 137, %17 ], [ 142, %23 ], [ 147, %32 ], [ 234, %.loopexit ], [ 199, %74 ], [ 178, %59 ]
+  %.sink = phi i32 [ 155, %.loopexit179 ], [ 142, %84 ], [ 524295, %.lr.ph ], [ 524295, %21 ], [ 524295, %17 ], [ 142, %23 ], [ 155, %32 ], [ 155, %.loopexit ], [ 155, %74 ], [ 123, %59 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink155, ptr noundef nonnull @__func__.asn1_d2i_read_bio) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink168, ptr noundef nonnull @__func__.asn1_d2i_read_bio) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #4
   br label %.thread143
 

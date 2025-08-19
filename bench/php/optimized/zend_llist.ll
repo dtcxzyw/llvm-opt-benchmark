@@ -130,8 +130,8 @@ define dso_local void @zend_llist_del_element(ptr noundef captures(none) %0, ptr
   %. = select i1 %.not27, ptr %0, ptr %10
   store ptr %11, ptr %., align 8, !tbaa !17
   %.not28 = icmp eq ptr %11, null
-  %.sink35 = select i1 %.not28, ptr %0, ptr %11
-  %12 = getelementptr inbounds nuw i8, ptr %.sink35, i64 8
+  %.sink38 = select i1 %.not28, ptr %0, ptr %11
+  %12 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
   store ptr %10, ptr %12, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !11

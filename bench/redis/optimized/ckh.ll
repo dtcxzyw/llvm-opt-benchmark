@@ -1123,9 +1123,9 @@ ckh_try_insert.exit.thread140.i:                  ; preds = %ckh_try_bucket_inse
   br i1 %.not.not.i.not.i.i.i, label %ckh_try_insert.exit.i, label %268
 
 ckh_try_insert.exit.thread.i:                     ; preds = %209, %225
-  %.lcssa219.sink237.i = phi ptr [ %229, %225 ], [ %213, %209 ]
-  store ptr %190, ptr %.lcssa219.sink237.i, align 8, !tbaa !65
-  %276 = getelementptr inbounds nuw i8, ptr %.lcssa219.sink237.i, i64 8
+  %.lcssa245.sink263.i = phi ptr [ %229, %225 ], [ %213, %209 ]
+  store ptr %190, ptr %.lcssa245.sink263.i, align 8, !tbaa !65
+  %276 = getelementptr inbounds nuw i8, ptr %.lcssa245.sink263.i, i64 8
   store ptr %193, ptr %276, align 8, !tbaa !68
   %storemerge.in.i = load i64, ptr %20, align 8, !tbaa !11
   %storemerge.i = add i64 %storemerge.in.i, 1

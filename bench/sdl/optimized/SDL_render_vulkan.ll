@@ -745,9 +745,9 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 992
   %49 = icmp eq i32 %48, 416
-  %spec.select131 = select i1 %49, i32 1, i32 2
+  %spec.select153 = select i1 %49, i32 1, i32 2
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 120
-  store i32 %spec.select131, ptr %50, align 8
+  store i32 %spec.select153, ptr %50, align 8
   %51 = load i32, ptr %1, align 8
   switch i32 %51, label %132 [
     i32 842094169, label %52
@@ -846,9 +846,9 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
 85:                                               ; preds = %.thread, %81, %83
   %86 = and i32 %47, 251658240
   %cond1 = icmp eq i32 %86, 16777216
-  %spec.select132 = zext i1 %cond1 to i32
+  %spec.select154 = zext i1 %cond1 to i32
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i32 %spec.select132, ptr %87, align 8
+  store i32 %spec.select154, ptr %87, align 8
   %88 = lshr i32 %47, 20
   %89 = and i32 %88, 15
   switch i32 %89, label %91 [
@@ -863,10 +863,10 @@ SDLPixelFormatToVkTextureFormat.exit:             ; preds = %3, %18, %19, %21, %
   br label %92
 
 92:                                               ; preds = %85, %91, %90
-  %.sink134 = phi i32 [ 1, %91 ], [ 0, %90 ], [ 0, %85 ]
+  %.sink156 = phi i32 [ 1, %91 ], [ 0, %90 ], [ 0, %85 ]
   %.sink = phi i32 [ 1, %91 ], [ 0, %90 ], [ %89, %85 ]
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  store i32 %.sink134, ptr %93, align 4
+  store i32 %.sink156, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 %.sink, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 52
@@ -1284,17 +1284,17 @@ VULKAN_DestroyImage.exit84.i:                     ; preds = %263, %260, %258
   br i1 %274, label %.thread98.sink.split.i, label %.thread98.i
 
 .thread98.sink.split.i:                           ; preds = %273, %VULKAN_DestroyImage.exit84.i
-  %.sink113.i = phi i32 [ %242, %VULKAN_DestroyImage.exit84.i ], [ %272, %273 ]
+  %.sink130.i = phi i32 [ %242, %VULKAN_DestroyImage.exit84.i ], [ %272, %273 ]
   %.str.19.sink.i = phi ptr [ @.str.18, %VULKAN_DestroyImage.exit84.i ], [ @.str.19, %273 ]
-  %275 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink113.i) #7
+  %275 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink130.i) #7
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull %.str.19.sink.i, ptr noundef %275) #7
   call void @llvm.debugtrap()
   br label %.thread98.i
 
 .thread98.i:                                      ; preds = %.thread98.sink.split.i, %273, %VULKAN_DestroyImage.exit84.i
-  %.sink112.i = phi i32 [ %242, %VULKAN_DestroyImage.exit84.i ], [ %272, %273 ], [ %.sink113.i, %.thread98.sink.split.i ]
+  %.sink129.i = phi i32 [ %242, %VULKAN_DestroyImage.exit84.i ], [ %272, %273 ], [ %.sink130.i, %.thread98.sink.split.i ]
   %.str.18.sink.i = phi ptr [ @.str.18, %VULKAN_DestroyImage.exit84.i ], [ @.str.19, %273 ], [ %.str.19.sink.i, %.thread98.sink.split.i ]
-  %276 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink112.i) #7
+  %276 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink129.i) #7
   %277 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull %.str.18.sink.i, ptr noundef %276) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1411,7 +1411,7 @@ VULKAN_DestroyImage.exit88.i:                     ; preds = %318, %315, %312
   br label %VULKAN_AllocateImage.exit
 
 VULKAN_AllocateImage.exit.thread:                 ; preds = %.thread.i, %.thread95.i, %.thread98.i
-  %.4.i103.ph = phi i32 [ %.sink112.i, %.thread98.i ], [ -13, %.thread95.i ], [ %157, %.thread.i ]
+  %.4.i103.ph = phi i32 [ %.sink129.i, %.thread98.i ], [ -13, %.thread95.i ], [ %157, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %326
 
@@ -1512,8 +1512,8 @@ define internal zeroext i1 @VULKAN_UpdateTexture(ptr noundef readonly captures(n
   %27 = load i32, ptr %15, align 4
   switch i32 %27, label %.critedge [
     i32 1000156002, label %VULKAN_VkFormatGetNumPlanes.exit
-    i32 1000156003, label %56
-    i32 1000156013, label %56
+    i32 1000156003, label %55
+    i32 1000156013, label %55
   ]
 
 VULKAN_VkFormatGetNumPlanes.exit:                 ; preds = %26
@@ -1527,7 +1527,8 @@ VULKAN_VkFormatGetNumPlanes.exit:                 ; preds = %26
 
 34:                                               ; preds = %VULKAN_VkFormatGetNumPlanes.exit, %48
   %35 = phi i32 [ %28, %VULKAN_VkFormatGetNumPlanes.exit ], [ %49, %48 ]
-  %.060 = phi i32 [ 1, %VULKAN_VkFormatGetNumPlanes.exit ], [ %55, %48 ]
+  %exitcond = phi i1 [ false, %VULKAN_VkFormatGetNumPlanes.exit ], [ true, %48 ]
+  %.060 = phi i32 [ 1, %VULKAN_VkFormatGetNumPlanes.exit ], [ 2, %48 ]
   %.05259 = phi ptr [ %31, %VULKAN_VkFormatGetNumPlanes.exit ], [ %54, %48 ]
   %36 = load ptr, ptr %13, align 8
   %37 = load i32, ptr %15, align 4
@@ -1550,40 +1551,38 @@ VULKAN_VkFormatGetNumPlanes.exit:                 ; preds = %26
   %52 = mul nsw i32 %51, %33
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %.05259, i64 %53
-  %55 = add nuw nsw i32 %.060, 1
-  %exitcond = icmp eq i32 %55, 3
   br i1 %exitcond, label %.critedge, label %34, !llvm.loop !8
 
-56:                                               ; preds = %26, %26
-  %57 = load i32, ptr %22, align 4
-  %58 = mul nsw i32 %57, %4
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %3, i64 %59
-  %61 = load i32, ptr %1, align 8
-  %62 = icmp eq i32 %61, 808530000
-  %63 = add nsw i32 %4, 3
-  %64 = and i32 %63, -4
-  %65 = add nsw i32 %4, 1
-  %66 = and i32 %65, -2
-  %.053 = select i1 %62, i32 %64, i32 %66
-  %67 = load ptr, ptr %13, align 8
-  %68 = load i32, ptr %2, align 4
-  %69 = sdiv i32 %68, 2
-  %70 = load i32, ptr %18, align 4
-  %71 = sdiv i32 %70, 2
-  %72 = load i32, ptr %20, align 4
-  %73 = add nsw i32 %72, 1
-  %74 = sdiv i32 %73, 2
-  %75 = add nsw i32 %57, 1
-  %76 = sdiv i32 %75, 2
-  %77 = tail call fastcc zeroext i1 @VULKAN_UpdateTextureInternal(ptr noundef %7, ptr noundef %67, i32 noundef %27, i32 noundef 1, i32 noundef %69, i32 noundef %71, i32 noundef %74, i32 noundef %76, ptr noundef %60, i32 noundef %.053, ptr noundef %24)
-  br i1 %77, label %.critedge, label %.loopexit
+55:                                               ; preds = %26, %26
+  %56 = load i32, ptr %22, align 4
+  %57 = mul nsw i32 %56, %4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %3, i64 %58
+  %60 = load i32, ptr %1, align 8
+  %61 = icmp eq i32 %60, 808530000
+  %62 = add nsw i32 %4, 3
+  %63 = and i32 %62, -4
+  %64 = add nsw i32 %4, 1
+  %65 = and i32 %64, -2
+  %.053 = select i1 %61, i32 %63, i32 %65
+  %66 = load ptr, ptr %13, align 8
+  %67 = load i32, ptr %2, align 4
+  %68 = sdiv i32 %67, 2
+  %69 = load i32, ptr %18, align 4
+  %70 = sdiv i32 %69, 2
+  %71 = load i32, ptr %20, align 4
+  %72 = add nsw i32 %71, 1
+  %73 = sdiv i32 %72, 2
+  %74 = add nsw i32 %56, 1
+  %75 = sdiv i32 %74, 2
+  %76 = tail call fastcc zeroext i1 @VULKAN_UpdateTextureInternal(ptr noundef %7, ptr noundef %66, i32 noundef %27, i32 noundef 1, i32 noundef %68, i32 noundef %70, i32 noundef %73, i32 noundef %75, ptr noundef %59, i32 noundef %.053, ptr noundef %24)
+  br i1 %76, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %48, %26, %56
+.critedge:                                        ; preds = %48, %26, %55
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %.critedge, %56, %12, %10
-  %.050 = phi i1 [ %11, %10 ], [ false, %12 ], [ true, %.critedge ], [ false, %56 ], [ false, %34 ]
+.loopexit:                                        ; preds = %34, %.critedge, %55, %12, %10
+  %.050 = phi i1 [ %11, %10 ], [ false, %12 ], [ true, %.critedge ], [ false, %55 ], [ false, %34 ]
   ret i1 %.050
 }
 
@@ -4667,13 +4666,13 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   br i1 %186, label %.sink.split, label %187
 
 .sink.split:                                      ; preds = %185, %179, %173, %167, %161, %155, %149, %143, %137, %131, %125, %119, %113, %107, %101
-  %.str.111.sink234 = phi ptr [ @.str.83, %101 ], [ @.str.85, %107 ], [ @.str.87, %113 ], [ @.str.89, %119 ], [ @.str.91, %125 ], [ @.str.93, %131 ], [ @.str.95, %137 ], [ @.str.97, %143 ], [ @.str.99, %149 ], [ @.str.101, %155 ], [ @.str.103, %161 ], [ @.str.105, %167 ], [ @.str.107, %173 ], [ @.str.109, %179 ], [ @.str.111, %185 ]
-  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink234) #7
+  %.str.111.sink249 = phi ptr [ @.str.83, %101 ], [ @.str.85, %107 ], [ @.str.87, %113 ], [ @.str.89, %119 ], [ @.str.91, %125 ], [ @.str.93, %131 ], [ @.str.95, %137 ], [ @.str.97, %143 ], [ @.str.99, %149 ], [ @.str.101, %155 ], [ @.str.103, %161 ], [ @.str.105, %167 ], [ @.str.107, %173 ], [ @.str.109, %179 ], [ @.str.111, %185 ]
+  call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink249) #7
   call void @llvm.debugtrap()
   br label %187
 
 187:                                              ; preds = %.sink.split, %185, %179, %173, %167, %161, %155, %149, %143, %137, %131, %125, %119, %113, %107, %101
-  %.str.111.sink = phi ptr [ @.str.83, %101 ], [ @.str.85, %107 ], [ @.str.87, %113 ], [ @.str.89, %119 ], [ @.str.91, %125 ], [ @.str.93, %131 ], [ @.str.95, %137 ], [ @.str.97, %143 ], [ @.str.99, %149 ], [ @.str.101, %155 ], [ @.str.103, %161 ], [ @.str.105, %167 ], [ @.str.107, %173 ], [ @.str.109, %179 ], [ @.str.111, %185 ], [ %.str.111.sink234, %.sink.split ]
+  %.str.111.sink = phi ptr [ @.str.83, %101 ], [ @.str.85, %107 ], [ @.str.87, %113 ], [ @.str.89, %119 ], [ @.str.91, %125 ], [ @.str.93, %131 ], [ @.str.95, %137 ], [ @.str.97, %143 ], [ @.str.99, %149 ], [ @.str.101, %155 ], [ @.str.103, %161 ], [ @.str.105, %167 ], [ @.str.107, %173 ], [ @.str.109, %179 ], [ @.str.111, %185 ], [ %.str.111.sink249, %.sink.split ]
   %188 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21, ptr noundef nonnull %.str.111.sink) #7
   call fastcc void @VULKAN_DestroyAll(ptr noundef nonnull %0)
   br label %381
@@ -5005,7 +5004,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 344:                                              ; preds = %338
   call fastcc void @VULKAN_DestroyAll(ptr noundef %0)
   %345 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
-  br i1 %345, label %.sink.split235, label %355
+  br i1 %345, label %.sink.split250, label %355
 
 346:                                              ; preds = %338
   call void @VULKAN_GetPixelShader(i32 noundef %339, ptr noundef nonnull %333, ptr noundef nonnull %334) #7
@@ -5019,7 +5018,7 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
 351:                                              ; preds = %346
   call fastcc void @VULKAN_DestroyAll(ptr noundef %0)
   %352 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #7
-  br i1 %352, label %.sink.split235, label %355
+  br i1 %352, label %.sink.split250, label %355
 
 353:                                              ; preds = %346
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5027,15 +5026,15 @@ VULKAN_LoadGlobalFunctions.exit:                  ; preds = %23, %28, %33, %.sin
   %exitcond224 = icmp eq i64 %indvars.iv.next222, 3
   br i1 %exitcond224, label %358, label %338, !llvm.loop !14
 
-.sink.split235:                                   ; preds = %351, %344
-  %.lcssa232.sink = phi i32 [ %343, %344 ], [ %350, %351 ]
-  %354 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.lcssa232.sink) #7
+.sink.split250:                                   ; preds = %351, %344
+  %.lcssa247.sink = phi i32 [ %343, %344 ], [ %350, %351 ]
+  %354 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.lcssa247.sink) #7
   call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68, ptr noundef %354) #7
   call void @llvm.debugtrap()
   br label %355
 
-355:                                              ; preds = %.sink.split235, %351, %344
-  %.lcssa.sink = phi i32 [ %343, %344 ], [ %350, %351 ], [ %.lcssa232.sink, %.sink.split235 ]
+355:                                              ; preds = %.sink.split250, %351, %344
+  %.lcssa.sink = phi i32 [ %343, %344 ], [ %350, %351 ], [ %.lcssa247.sink, %.sink.split250 ]
   %356 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %.lcssa.sink) #7
   %357 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.68, ptr noundef %356) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5675,9 +5674,9 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
   %258 = load i32, ptr %256, align 4
   %259 = icmp eq i32 %258, 0
   %260 = getelementptr inbounds nuw i8, ptr %20, i64 10368
-  br i1 %259, label %265, label %.thread241
+  br i1 %259, label %265, label %.thread282
 
-.thread241:                                       ; preds = %257
+.thread282:                                       ; preds = %257
   %261 = load i64, ptr %256, align 4
   store i64 %261, ptr %260, align 8
   %262 = getelementptr inbounds nuw i8, ptr %256, i64 4
@@ -5703,9 +5702,9 @@ VULKAN_DestroyBuffer.exit:                        ; preds = %231, %233
   %.not145 = icmp eq i32 %253, 0
   br i1 %.not145, label %.loopexit50, label %.lr.ph97.preheader
 
-.lr.ph97.preheader:                               ; preds = %.thread241, %267
-  %273 = phi ptr [ %264, %.thread241 ], [ %272, %267 ]
-  %274 = phi ptr [ %260, %.thread241 ], [ %268, %267 ]
+.lr.ph97.preheader:                               ; preds = %.thread282, %267
+  %273 = phi ptr [ %264, %.thread282 ], [ %272, %267 ]
+  %274 = phi ptr [ %260, %.thread282 ], [ %268, %267 ]
   %wide.trip.count = zext i32 %253 to i64
   br label %.lr.ph97
 
@@ -8471,14 +8470,14 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %274, %270
 
 310:                                              ; preds = %306, %302
   %.sink15.in = phi ptr [ %309, %306 ], [ %271, %302 ]
-  %.sink28.in = phi ptr [ %277, %306 ], [ %281, %302 ]
+  %.sink35.in = phi ptr [ %277, %306 ], [ %281, %302 ]
   %.sink2.in.i = phi ptr [ %281, %306 ], [ %277, %302 ]
   %.sink15 = load i32, ptr %.sink15.in, align 4
   %311 = sitofp i32 %.sink15 to float
   %312 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float %311, ptr %312, align 4
-  %.sink28 = load i32, ptr %.sink28.in, align 4
-  %313 = sitofp i32 %.sink28 to float
+  %.sink35 = load i32, ptr %.sink35.in, align 4
+  %313 = sitofp i32 %.sink35 to float
   %314 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store float %313, ptr %314, align 4
   %.sink2.i = load i32, ptr %.sink2.in.i, align 4
@@ -12254,20 +12253,20 @@ define internal fastcc noundef i32 @VULKAN_GetSurfaceFormats(ptr noundef %0) unn
   br i1 %30, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %29, %9
-  %.sink29 = phi i32 [ %8, %9 ], [ %28, %29 ]
-  %31 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink29) #7
+  %.sink32 = phi i32 [ %8, %9 ], [ %28, %29 ]
+  %31 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink32) #7
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.264, ptr noundef %31) #7
   tail call void @llvm.debugtrap()
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %29, %9
-  %.sink28 = phi i32 [ %8, %9 ], [ %28, %29 ], [ %.sink29, %.sink.split.sink.split ]
-  %32 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink28) #7
+  %.sink31 = phi i32 [ %8, %9 ], [ %28, %29 ], [ %.sink32, %.sink.split.sink.split ]
+  %32 = tail call ptr @SDL_Vulkan_GetResultString(i32 noundef %.sink31) #7
   %33 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.264, ptr noundef %32) #7
   br label %34
 
 34:                                               ; preds = %.sink.split, %23
-  %.0 = phi i32 [ 0, %23 ], [ %.sink28, %.sink.split ]
+  %.0 = phi i32 [ 0, %23 ], [ %.sink31, %.sink.split ]
   ret i32 %.0
 }
 

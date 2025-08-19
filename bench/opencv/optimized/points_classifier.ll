@@ -3503,14 +3503,14 @@ _ZN2cv3Mat2atIfEERT_i.exit68.i:                   ; preds = %1372, %1368, %.thre
   %1418 = trunc nuw nsw i64 %indvars.iv114.i to i32
   %1419 = sdiv i32 %1418, %1417
   %1420 = mul nsw i32 %1419, %1417
-  %.recomposed1198 = srem i32 %1418, %1417
+  %.recomposed1271 = srem i32 %1418, %1417
   %1421 = load ptr, ptr %329, align 8, !tbaa !87
   %1422 = load ptr, ptr %330, align 8, !tbaa !96
   %1423 = load i64, ptr %1422, align 8, !tbaa !73
   %1424 = sext i32 %1419 to i64
   %1425 = mul i64 %1423, %1424
   %1426 = getelementptr inbounds nuw i8, ptr %1421, i64 %1425
-  %1427 = sext i32 %.recomposed1198 to i64
+  %1427 = sext i32 %.recomposed1271 to i64
   %1428 = getelementptr inbounds double, ptr %1426, i64 %1427
   br label %_ZN2cv3Mat2atIdEERT_i.exit.i
 

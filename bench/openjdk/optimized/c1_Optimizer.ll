@@ -380,8 +380,8 @@ _ZNK8BlockEnd11default_suxEv.exit285:             ; preds = %_ZNK8BlockEnd11defa
 110:                                              ; preds = %95
   %111 = icmp sge i32 %102, %105
   %.not254298 = icmp eq ptr %103, %100
-  %or.cond330 = or i1 %111, %.not254298
-  br i1 %or.cond330, label %.loopexit295, label %.lr.ph
+  %or.cond371 = or i1 %111, %.not254298
+  br i1 %or.cond371, label %.loopexit295, label %.lr.ph
 
 .lr.ph:                                           ; preds = %110, %.lr.ph
   %.1215299 = phi ptr [ %113, %.lr.ph ], [ %99, %110 ]
@@ -1743,12 +1743,12 @@ _ZN10ValueStack5rpushEP11Instruction.exit:        ; preds = %123, %129
   unreachable
 
 142:                                              ; preds = %_ZN10ValueStack5rpushEP11Instruction.exit, %_ZN10ValueStack5apushEP11Instruction.exit, %_ZN10ValueStack5dpushEP11Instruction.exit, %_ZN10ValueStack5fpushEP11Instruction.exit, %_ZN10ValueStack5lpushEP11Instruction.exit, %_ZN10ValueStack5ipushEP11Instruction.exit
-  %.sink33 = phi i32 [ %137, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %120, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %104, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %70, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %54, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %20, %_ZN10ValueStack5ipushEP11Instruction.exit ]
-  %.sink31.in = phi ptr [ %139, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %122, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %89, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %72, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %39, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %22, %_ZN10ValueStack5ipushEP11Instruction.exit ]
+  %.sink47 = phi i32 [ %137, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %120, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %104, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %70, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %54, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %20, %_ZN10ValueStack5ipushEP11Instruction.exit ]
+  %.sink45.in = phi ptr [ %139, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %122, %_ZN10ValueStack5apushEP11Instruction.exit ], [ %89, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %72, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ %39, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %22, %_ZN10ValueStack5ipushEP11Instruction.exit ]
   %.sink = phi ptr [ %2, %_ZN10ValueStack5rpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5apushEP11Instruction.exit ], [ null, %_ZN10ValueStack5dpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5fpushEP11Instruction.exit ], [ null, %_ZN10ValueStack5lpushEP11Instruction.exit ], [ %2, %_ZN10ValueStack5ipushEP11Instruction.exit ]
-  %.sink31 = load ptr, ptr %.sink31.in, align 8
-  %143 = sext i32 %.sink33 to i64
-  %144 = getelementptr inbounds ptr, ptr %.sink31, i64 %143
+  %.sink45 = load ptr, ptr %.sink45.in, align 8
+  %143 = sext i32 %.sink47 to i64
+  %144 = getelementptr inbounds ptr, ptr %.sink45, i64 %143
   store ptr %.sink, ptr %144, align 8
   ret void
 }
@@ -6054,7 +6054,7 @@ _ZN11Instruction20fixup_block_pointersEv.exit:    ; preds = %.lr.ph.i, %46, %32
 _ZNK10BlockBegin13number_of_suxEv.exit.i.preheader: ; preds = %.preheader.i
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph127, label %_ZL21disconnect_from_graphP10BlockBegin.exit
+  br i1 %55, label %.lr.ph144, label %_ZL21disconnect_from_graphP10BlockBegin.exit
 
 56:                                               ; preds = %_ZN8BlockEnd8find_suxEP10BlockBegin.exit.thread.i, %.lr.ph.i105
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i105 ], [ %indvars.iv.next.i, %_ZN8BlockEnd8find_suxEP10BlockBegin.exit.thread.i ]
@@ -6133,19 +6133,19 @@ _ZN8BlockEnd8find_suxEP10BlockBegin.exit.thread.i: ; preds = %_ZN8BlockEnd13remo
   %95 = icmp slt i64 %indvars.iv.next.i, %94
   br i1 %95, label %56, label %.preheader.i, !llvm.loop !37
 
-_ZNK10BlockBegin13number_of_suxEv.exit.i:         ; preds = %.lr.ph127
-  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i126, 1
+_ZNK10BlockBegin13number_of_suxEv.exit.i:         ; preds = %.lr.ph144
+  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i143, 1
   %96 = load i32, ptr %106, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next30.i, %97
-  br i1 %98, label %.lr.ph127, label %_ZL21disconnect_from_graphP10BlockBegin.exit, !llvm.loop !38
+  br i1 %98, label %.lr.ph144, label %_ZL21disconnect_from_graphP10BlockBegin.exit, !llvm.loop !38
 
-.lr.ph127:                                        ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit.i.preheader, %_ZNK10BlockBegin13number_of_suxEv.exit.i
+.lr.ph144:                                        ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit.i.preheader, %_ZNK10BlockBegin13number_of_suxEv.exit.i
   %99 = phi ptr [ %106, %_ZNK10BlockBegin13number_of_suxEv.exit.i ], [ %53, %_ZNK10BlockBegin13number_of_suxEv.exit.i.preheader ]
-  %indvars.iv29.i126 = phi i64 [ %indvars.iv.next30.i, %_ZNK10BlockBegin13number_of_suxEv.exit.i ], [ 0, %_ZNK10BlockBegin13number_of_suxEv.exit.i.preheader ]
+  %indvars.iv29.i143 = phi i64 [ %indvars.iv.next30.i, %_ZNK10BlockBegin13number_of_suxEv.exit.i ], [ 0, %_ZNK10BlockBegin13number_of_suxEv.exit.i.preheader ]
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv29.i126
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv29.i143
   %103 = load ptr, ptr %102, align 8
   tail call void @_ZN10BlockBegin18remove_predecessorEPS_(ptr noundef nonnull align 8 dereferenceable(408) %103, ptr noundef nonnull %21) #15
   %104 = load ptr, ptr %50, align 8
@@ -6154,7 +6154,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit.i:         ; preds = %.lr.ph127
   %.not.i.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i.i, label %._ZL21disconnect_from_graphP10BlockBegin.exit.loopexit_crit_edge, label %_ZNK10BlockBegin13number_of_suxEv.exit.i, !llvm.loop !38
 
-._ZL21disconnect_from_graphP10BlockBegin.exit.loopexit_crit_edge: ; preds = %.lr.ph127
+._ZL21disconnect_from_graphP10BlockBegin.exit.loopexit_crit_edge: ; preds = %.lr.ph144
   br label %_ZL21disconnect_from_graphP10BlockBegin.exit, !llvm.loop !38
 
 _ZL21disconnect_from_graphP10BlockBegin.exit:     ; preds = %_ZNK10BlockBegin13number_of_suxEv.exit.i, %_ZNK10BlockBegin13number_of_suxEv.exit.i.preheader, %._ZL21disconnect_from_graphP10BlockBegin.exit.loopexit_crit_edge, %.preheader.i

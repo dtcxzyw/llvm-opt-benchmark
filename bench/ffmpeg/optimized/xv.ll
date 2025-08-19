@@ -117,7 +117,7 @@ xv_get_tag_from_format.exit:                      ; preds = %27, %.xv_get_tag_fr
   br label %xv_write_trailer.exit
 
 xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_from_format.exit
-  %.lcssa.i148 = phi i32 [ %32, %xv_get_tag_from_format.exit ], [ 808596553, %23 ]
+  %.lcssa.i159 = phi i32 [ %32, %xv_get_tag_from_format.exit ], [ 808596553, %23 ]
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i32 %25, ptr %35, align 8, !tbaa !46
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -303,7 +303,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %indvars.iv = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next, %142 ]
   %139 = getelementptr inbounds nuw %struct.XvImageFormatValues, ptr %136, i64 %indvars.iv
   %140 = load i32, ptr %139, align 4, !tbaa !78
-  %141 = icmp eq i32 %140, %.lcssa.i148
+  %141 = icmp eq i32 %140, %.lcssa.i159
   br i1 %141, label %._crit_edge.loopexit.split.loop.exit, label %142
 
 142:                                              ; preds = %.lr.ph138
@@ -343,7 +343,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %158 = load i32, ptr %132, align 8, !tbaa !77
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %161 = call ptr @XvShmCreateImage(ptr noundef %157, i64 noundef %159, i32 noundef %.lcssa.i148, ptr noundef null, i32 noundef %155, i32 noundef %156, ptr noundef nonnull %160) #5
+  %161 = call ptr @XvShmCreateImage(ptr noundef %157, i64 noundef %159, i32 noundef %.lcssa.i159, ptr noundef null, i32 noundef %155, i32 noundef %156, ptr noundef nonnull %160) #5
   %162 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr %161, ptr %162, align 8, !tbaa !82
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 12

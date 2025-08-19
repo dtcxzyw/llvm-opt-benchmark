@@ -304,9 +304,9 @@ _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit: ; preds = %12
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %45
-  %.sink189 = phi i64 [ 32, %45 ], [ 16, %36 ]
+  %.sink217 = phi i64 [ 32, %45 ], [ 16, %36 ]
   %.sink = phi double [ %51, %45 ], [ %2, %36 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0137.0176, i64 %.sink189
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0137.0176, i64 %.sink217
   %53 = load double, ptr %52, align 8, !tbaa !28
   %54 = fsub double %.sink, %53
   %55 = fcmp uge double %.0177, 0.000000e+00

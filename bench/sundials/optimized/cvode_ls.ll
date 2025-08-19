@@ -383,9 +383,9 @@ switch.early.test:                                ; preds = %56
   br label %143
 
 143:                                              ; preds = %.thread, %142
-  %.sink127 = phi i32 [ 0, %142 ], [ 1, %.thread ]
+  %.sink134 = phi i32 [ 0, %142 ], [ 1, %.thread ]
   %144 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
-  store i32 %.sink127, ptr %144, align 8, !tbaa !68
+  store i32 %.sink134, ptr %144, align 8, !tbaa !68
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store ptr %calloc, ptr %145, align 8, !tbaa !69
   br label %146
@@ -473,9 +473,9 @@ define i32 @cvLsInitialize(ptr noundef %0) #0 {
   br label %37
 
 37:                                               ; preds = %.critedge, %34
-  %.sink60 = phi ptr [ %0, %.critedge ], [ %36, %34 ]
+  %.sink61 = phi ptr [ %0, %.critedge ], [ %36, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %.sink60, ptr %38, align 8, !tbaa !43
+  store ptr %.sink61, ptr %38, align 8, !tbaa !43
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %40 = load ptr, ptr %39, align 8, !tbaa !62
   %41 = icmp eq ptr %40, null

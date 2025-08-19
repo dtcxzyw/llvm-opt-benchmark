@@ -2309,8 +2309,8 @@ define internal fastcc noundef zeroext i1 @pcapng_read_if_descr_block(ptr nounde
   br i1 %.not102, label %83, label %.sink.split
 
 .sink.split:                                      ; preds = %82, %75
-  %.sink111 = phi i32 [ %81, %75 ], [ -1, %82 ]
-  store i32 %.sink111, ptr %78, align 8
+  %.sink113 = phi i32 [ %81, %75 ], [ -1, %82 ]
+  store i32 %.sink113, ptr %78, align 8
   br label %83
 
 83:                                               ; preds = %.sink.split, %82
@@ -2318,18 +2318,18 @@ define internal fastcc noundef zeroext i1 @pcapng_read_if_descr_block(ptr nounde
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, -2
   %87 = load i32, ptr %77, align 8
-  br i1 %86, label %.sink.split112, label %88
+  br i1 %86, label %.sink.split114, label %88
 
 88:                                               ; preds = %83
   %.not103 = icmp eq i32 %85, %87
-  br i1 %.not103, label %89, label %.sink.split112
+  br i1 %.not103, label %89, label %.sink.split114
 
-.sink.split112:                                   ; preds = %88, %83
-  %.sink113 = phi i32 [ %87, %83 ], [ -1, %88 ]
-  store i32 %.sink113, ptr %84, align 4
+.sink.split114:                                   ; preds = %88, %83
+  %.sink115 = phi i32 [ %87, %83 ], [ -1, %88 ]
+  store i32 %.sink115, ptr %84, align 4
   br label %89
 
-89:                                               ; preds = %.sink.split112, %88
+89:                                               ; preds = %.sink.split114, %88
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 1, ptr %90, align 4
   br label %.critedge
@@ -5048,13 +5048,13 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   %120 = load i32, ptr %119, align 8
   %121 = load i32, ptr %93, align 8
   %122 = icmp eq i32 %120, %121
-  br i1 %122, label %._crit_edge.i.split.loop.exit75, label %123
+  br i1 %122, label %._crit_edge.i.split.loop.exit86, label %123
 
 123:                                              ; preds = %118
   %124 = load i32, ptr %35, align 4
   %125 = and i32 %124, 1
   %.not87.i = icmp eq i32 %125, 0
-  br i1 %.not87.i, label %._crit_edge.i.split.loop.exit73, label %126
+  br i1 %.not87.i, label %._crit_edge.i.split.loop.exit84, label %126
 
 126:                                              ; preds = %123, %109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5067,16 +5067,16 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   %131 = icmp samesign ult i64 %indvars.iv.next, %130
   br i1 %131, label %109, label %._crit_edge.i, !llvm.loop !62
 
-._crit_edge.i.split.loop.exit73:                  ; preds = %123
+._crit_edge.i.split.loop.exit84:                  ; preds = %123
   %132 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge.i
 
-._crit_edge.i.split.loop.exit75:                  ; preds = %118
+._crit_edge.i.split.loop.exit86:                  ; preds = %118
   %133 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %126, %._crit_edge.i.split.loop.exit75, %._crit_edge.i.split.loop.exit73
-  %134 = phi i32 [ %132, %._crit_edge.i.split.loop.exit73 ], [ %133, %._crit_edge.i.split.loop.exit75 ], [ %indvars, %126 ]
+._crit_edge.i:                                    ; preds = %126, %._crit_edge.i.split.loop.exit86, %._crit_edge.i.split.loop.exit84
+  %134 = phi i32 [ %132, %._crit_edge.i.split.loop.exit84 ], [ %133, %._crit_edge.i.split.loop.exit86 ], [ %indvars, %126 ]
   %.pre.i = load ptr, ptr %89, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.pre98.i = load i32, ptr %.phi.trans.insert.i, align 8
@@ -6396,12 +6396,12 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 76:                                               ; preds = %.outer148, %.outer148.thread
   %77 = phi ptr [ %26, %.outer148.thread ], [ %73, %.outer148 ]
   %78 = phi i32 [ %70, %.outer148.thread ], [ %71, %.outer148 ]
-  %.2216 = phi i32 [ 8, %.outer148.thread ], [ %.1136.ph169.fr, %.outer148 ]
+  %.2226 = phi i32 [ 8, %.outer148.thread ], [ %.1136.ph169.fr, %.outer148 ]
   %79 = phi i64 [ 1048568, %.outer148.thread ], [ %spec.select, %.outer148 ]
   %80 = icmp ne i64 %79, -1
   call void @llvm.assume(i1 %80)
   %81 = call ptr @__memcpy_chk(ptr noundef %77, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %79) #20, !alias.scope !73
-  %82 = add i32 %.2216, 4
+  %82 = add i32 %.2226, 4
   %83 = zext i32 %82 to i64
   %84 = getelementptr i8, ptr %19, i64 %83
   %85 = sub nsw i64 1048576, %83
@@ -6410,7 +6410,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %88 = icmp ne i64 %87, -1
   call void @llvm.assume(i1 %88)
   %89 = call ptr @__memcpy_chk(ptr noundef %84, ptr noundef nonnull %.0134162, i64 noundef 4, i64 noundef %87) #20, !alias.scope !77
-  %90 = add i32 %.2216, 8
+  %90 = add i32 %.2226, 8
   %91 = zext i32 %90 to i64
   %92 = getelementptr i8, ptr %19, i64 %91
   %93 = zext i16 %37 to i64
@@ -6455,7 +6455,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 
 .lr.ph177.lr.ph:                                  ; preds = %118
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %invariant.op246 = add i32 %spec.select.i, 4
+  %invariant.op256 = add i32 %spec.select.i, 4
   %121 = getelementptr i8, ptr %19, i64 8
   br label %.lr.ph177
 
@@ -6516,8 +6516,8 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   store i32 0, ptr %153, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %154 = add i32 %149, %spec.select.i
-  %.reass247 = add i32 %.ph183, %invariant.op246
-  store i32 %.reass247, ptr %21, align 4
+  %.reass257 = add i32 %.ph183, %invariant.op256
+  store i32 %.reass257, ptr %21, align 4
   %155 = load i64, ptr %8, align 8
   store i64 %155, ptr %19, align 1
   %156 = zext i32 %154 to i64
@@ -6528,7 +6528,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %161 = icmp ne i64 %160, -1
   call void @llvm.assume(i1 %161)
   %162 = call ptr @__memcpy_chk(ptr noundef %157, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %160) #20, !alias.scope !86
-  %163 = zext i32 %.reass247 to i64
+  %163 = zext i32 %.reass257 to i64
   %164 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %163, ptr noundef %2)
   br i1 %164, label %.outer.thread, label %.sink.split
 
@@ -6545,18 +6545,18 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %168 = getelementptr i8, ptr %19, i64 %167
   %169 = sub nsw i64 1048576, %167
   %170 = icmp ugt i32 %.4.ph184.fr, 1048576
-  %spec.select248 = select i1 %170, i64 0, i64 %169
+  %spec.select258 = select i1 %170, i64 0, i64 %169
   br label %171
 
 171:                                              ; preds = %.outer, %.outer.thread
   %172 = phi ptr [ %121, %.outer.thread ], [ %168, %.outer ]
   %173 = phi i32 [ %165, %.outer.thread ], [ %166, %.outer ]
-  %.5220 = phi i32 [ 8, %.outer.thread ], [ %.4.ph184.fr, %.outer ]
-  %174 = phi i64 [ 1048568, %.outer.thread ], [ %spec.select248, %.outer ]
+  %.5230 = phi i32 [ 8, %.outer.thread ], [ %.4.ph184.fr, %.outer ]
+  %174 = phi i64 [ 1048568, %.outer.thread ], [ %spec.select258, %.outer ]
   %175 = icmp ne i64 %174, -1
   call void @llvm.assume(i1 %175)
   %176 = call ptr @__memcpy_chk(ptr noundef %172, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %174) #20, !alias.scope !90
-  %177 = add i32 %.5220, 4
+  %177 = add i32 %.5230, 4
   %178 = zext i32 %177 to i64
   %179 = getelementptr i8, ptr %19, i64 %178
   %180 = sub nsw i64 1048576, %178
@@ -6565,7 +6565,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %183 = icmp ne i64 %182, -1
   call void @llvm.assume(i1 %183)
   %184 = call ptr @__memcpy_chk(ptr noundef %179, ptr noundef nonnull %.0133175, i64 noundef 16, i64 noundef %182) #20, !alias.scope !94
-  %185 = add i32 %.5220, 20
+  %185 = add i32 %.5230, 20
   %186 = zext i32 %185 to i64
   %187 = getelementptr i8, ptr %19, i64 %186
   %188 = zext i16 %132 to i64
@@ -6706,10 +6706,10 @@ define internal noundef zeroext i1 @put_nrb_option(ptr readnone captures(none) %
   %9 = trunc i64 %8 to i32
   %10 = trunc i64 %8 to i32
   %11 = load ptr, ptr %4, align 8
-  %.sroa.10.0.insert.shift83 = shl i32 %10, 16
-  %.sroa.0.0.insert.ext68 = and i32 %1, 65535
-  %.sroa.0.0.insert.insert70 = or disjoint i32 %.sroa.10.0.insert.shift83, %.sroa.0.0.insert.ext68
-  store i32 %.sroa.0.0.insert.insert70, ptr %11, align 1
+  %.sroa.10.0.insert.shift84 = shl i32 %10, 16
+  %.sroa.0.0.insert.ext69 = and i32 %1, 65535
+  %.sroa.0.0.insert.insert71 = or disjoint i32 %.sroa.10.0.insert.shift84, %.sroa.0.0.insert.ext69
+  store i32 %.sroa.0.0.insert.insert71, ptr %11, align 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   store ptr %13, ptr %4, align 8
@@ -6736,10 +6736,10 @@ define internal noundef zeroext i1 @put_nrb_option(ptr readnone captures(none) %
   %26 = trunc i64 %24 to i32
   %27 = load ptr, ptr %4, align 8
   %28 = shl i32 %26, 16
-  %.sroa.10.0.insert.shift78 = add i32 %28, 262144
-  %.sroa.0.0.insert.ext64 = and i32 %1, 65535
-  %.sroa.0.0.insert.insert66 = or disjoint i32 %.sroa.10.0.insert.shift78, %.sroa.0.0.insert.ext64
-  store i32 %.sroa.0.0.insert.insert66, ptr %27, align 1
+  %.sroa.10.0.insert.shift79 = add i32 %28, 262144
+  %.sroa.0.0.insert.ext65 = and i32 %1, 65535
+  %.sroa.0.0.insert.insert67 = or disjoint i32 %.sroa.10.0.insert.shift79, %.sroa.0.0.insert.ext65
+  store i32 %.sroa.0.0.insert.insert67, ptr %27, align 1
   %29 = load ptr, ptr %4, align 8
   %30 = getelementptr i8, ptr %29, i64 4
   store ptr %30, ptr %4, align 8
@@ -6786,9 +6786,9 @@ define internal noundef zeroext i1 @put_nrb_option(ptr readnone captures(none) %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %49, %19, %41
-  %.sink58 = phi i64 [ %43, %41 ], [ %21, %19 ], [ 16, %49 ], [ 4, %44 ]
+  %.sink59 = phi i64 [ %43, %41 ], [ %21, %19 ], [ 16, %49 ], [ 4, %44 ]
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr i8, ptr %53, i64 %.sink58
+  %54 = getelementptr i8, ptr %53, i64 %.sink59
   store ptr %54, ptr %4, align 8
   br label %55
 

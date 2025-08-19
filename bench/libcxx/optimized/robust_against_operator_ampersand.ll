@@ -917,7 +917,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit63: ; preds = %190, 
   br i1 %259, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i64
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i65: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit63.thread, %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit63
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn83 = phi { ptr, i32 } [ %189, %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit63.thread ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit63 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn111 = phi { ptr, i32 } [ %189, %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit63.thread ], [ %.pn.pn.pn.pn.pn.pn.pn, %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit63 ]
   %260 = load i64, ptr %19, align 8, !tbaa !18
   %261 = icmp ult i64 %260, 16
   call void @llvm.assume(i1 %261)
@@ -930,7 +930,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorName0MatcherEFvNS1_8TypeListIJNS_14BinaryOperatorENS_19CXXOperatorCallExprENS_26CXXRewrittenBinaryOperatorENS_11CXXFoldExprENS_13UnaryOperatorEEEEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit66
 
 _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorName0MatcherEFvNS1_8TypeListIJNS_14BinaryOperatorENS_19CXXOperatorCallExprENS_26CXXRewrittenBinaryOperatorENS_11CXXFoldExprENS_13UnaryOperatorEEEEEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit66: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i65
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn82 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i64 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i65 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn110 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i64 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn111, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i65 ]
   %264 = load ptr, ptr %11, align 8, !tbaa !62
   %265 = icmp eq ptr %264, %15
   br i1 %265, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
@@ -954,7 +954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn82
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn110
 }
 
 declare void @_ZN5clang12ast_matchers11MatchFinder10addMatcherERKNS0_8internal7MatcherINS_4StmtEEEPNS1_13MatchCallbackE(ptr noundef nonnull align 8 dereferenceable(368), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
@@ -3594,22 +3594,22 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34: ; preds = %65, %70
 79:                                               ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit34
   %80 = load ptr, ptr %24, align 8, !tbaa !60
   %.not.i.i.i.i35 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i35, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67, label %81
+  br i1 %.not.i.i.i.i35, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread76, label %81
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %83 = atomicrmw sub ptr %82, i32 1 acq_rel, align 4
   %84 = icmp eq i32 %83, 1
-  br i1 %84, label %85, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67
+  br i1 %84, label %85, label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread76
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %80, align 8, !tbaa !13
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(12) %80) #23
-  br label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67
+  br label %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread76
 
-_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67: ; preds = %79, %81, %85
+_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread76: ; preds = %79, %81, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
@@ -3620,12 +3620,12 @@ _ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40: 
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread
-  %.pn.pn.pn.pn65 = phi { ptr, i32 } [ %63, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread ], [ %89, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40 ]
-  %.21964 = phi ptr [ %12, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread ], [ %21, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40 ]
+  %.pn.pn.pn.pn74 = phi { ptr, i32 } [ %63, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread ], [ %89, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40 ]
+  %.21973 = phi ptr [ %12, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread ], [ %21, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42
-  %90 = phi ptr [ %91, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42 ], [ %.21964, %.preheader.preheader ]
+  %90 = phi ptr [ %91, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42 ], [ %.21973, %.preheader.preheader ]
   %91 = getelementptr inbounds i8, ptr %90, i64 -24
   %92 = getelementptr inbounds i8, ptr %90, i64 -8
   %93 = load ptr, ptr %92, align 8, !tbaa !60
@@ -3649,10 +3649,10 @@ _ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42: ; preds = %.prehea
   %102 = icmp eq ptr %91, %2
   br i1 %102, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67
-  %.pn.pn.pn.pn66 = phi { ptr, i32 } [ %64, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread67 ], [ %.pn.pn.pn.pn65, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42 ]
+.loopexit:                                        ; preds = %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread76
+  %.pn.pn.pn.pn75 = phi { ptr, i32 } [ %64, %_ZN5clang12ast_matchers8internal7MatcherINS_19CXXOperatorCallExprEED2Ev.exit40.thread76 ], [ %.pn.pn.pn.pn74, %_ZN5clang12ast_matchers8internal15DynTypedMatcherD2Ev.exit42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn.pn.pn.pn66
+  resume { ptr, i32 } %.pn.pn.pn.pn75
 }
 
 ; Function Attrs: mustprogress uwtable

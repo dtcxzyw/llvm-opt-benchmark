@@ -2850,7 +2850,7 @@ define internal void @planar2x_c(ptr noundef readonly captures(none) %0, ptr nou
   %66 = getelementptr inbounds i8, ptr %.0109116.us, i64 %39
   store i8 %65, ptr %66, align 1, !tbaa !8
   %invariant.gep = getelementptr i8, ptr %.0118.us, i64 %42
-  %invariant.gep153 = getelementptr i8, ptr %.0109116.us, i64 %39
+  %invariant.gep154 = getelementptr i8, ptr %.0109116.us, i64 %39
   br label %67
 
 67:                                               ; preds = %.lr.ph114.us, %67
@@ -2878,8 +2878,8 @@ define internal void @planar2x_c(ptr noundef readonly captures(none) %0, ptr nou
   %86 = add nuw nsw i16 %85, %82
   %87 = lshr i16 %86, 2
   %88 = trunc nuw i16 %87 to i8
-  %gep154 = getelementptr i8, ptr %invariant.gep153, i64 %78
-  %89 = getelementptr i8, ptr %gep154, i64 2
+  %gep155 = getelementptr i8, ptr %invariant.gep154, i64 %78
+  %89 = getelementptr i8, ptr %gep155, i64 2
   store i8 %88, ptr %89, align 1, !tbaa !8
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %90 = getelementptr inbounds nuw i8, ptr %.0118.us, i64 %indvars.iv.next136
@@ -2891,7 +2891,7 @@ define internal void @planar2x_c(ptr noundef readonly captures(none) %0, ptr nou
   %96 = add nuw nsw i16 %95, %92
   %97 = lshr i16 %96, 2
   %98 = trunc nuw i16 %97 to i8
-  %99 = getelementptr i8, ptr %gep154, i64 1
+  %99 = getelementptr i8, ptr %gep155, i64 1
   store i8 %98, ptr %99, align 1, !tbaa !8
   %100 = load i8, ptr %90, align 1, !tbaa !8
   %101 = zext i8 %100 to i16
@@ -3032,11 +3032,11 @@ define internal void @planar2x_c(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %exitcond145.not, label %._crit_edge128, label %.lr.ph127, !llvm.loop !82
 
 ._crit_edge128:                                   ; preds = %.lr.ph127, %._crit_edge121.thread, %._crit_edge121
-  %.0.lcssa149 = phi ptr [ %134, %._crit_edge121.thread ], [ %.0.lcssa, %._crit_edge121 ], [ %.0.lcssa, %.lr.ph127 ]
-  %.0109.lcssa148 = phi ptr [ %169, %._crit_edge121.thread ], [ %.0109.lcssa, %._crit_edge121 ], [ %.0109.lcssa, %.lr.ph127 ]
-  %195 = getelementptr inbounds i8, ptr %.0.lcssa149, i64 %32
+  %.0.lcssa150 = phi ptr [ %134, %._crit_edge121.thread ], [ %.0.lcssa, %._crit_edge121 ], [ %.0.lcssa, %.lr.ph127 ]
+  %.0109.lcssa149 = phi ptr [ %169, %._crit_edge121.thread ], [ %.0109.lcssa, %._crit_edge121 ], [ %.0109.lcssa, %.lr.ph127 ]
+  %195 = getelementptr inbounds i8, ptr %.0.lcssa150, i64 %32
   %196 = load i8, ptr %195, align 1, !tbaa !8
-  %197 = getelementptr inbounds i8, ptr %.0109.lcssa148, i64 %37
+  %197 = getelementptr inbounds i8, ptr %.0109.lcssa149, i64 %37
   store i8 %196, ptr %197, align 1, !tbaa !8
   ret void
 }

@@ -405,18 +405,18 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   br i1 %spec.select, label %._crit_edge._crit_edge, label %120
 
 ._crit_edge._crit_edge:                           ; preds = %.lr.ph, %._crit_edge
-  %spec.store.select14408 = phi i32 [ %spec.store.select14, %._crit_edge ], [ 0, %.lr.ph ]
-  %spec.store.select7406 = phi i32 [ %spec.store.select7, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0154.lcssa404 = phi i32 [ %.0154.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0158.lcssa402 = phi i32 [ %.0158.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0171.lcssa400 = phi i32 [ %.0171.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0175.lcssa398 = phi i32 [ %.0175.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0179.lcssa396 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0183.lcssa394 = phi i32 [ %.0183.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0187.lcssa392 = phi i32 [ %.0187.lcssa, %._crit_edge ], [ -2, %.lr.ph ]
-  %.0191.lcssa390 = phi i32 [ %.0191.lcssa, %._crit_edge ], [ -2, %.lr.ph ]
-  %.0195.lcssa388 = phi i32 [ %.0195.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
-  %.0199.lcssa386 = phi i32 [ %.0199.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %spec.store.select14413 = phi i32 [ %spec.store.select14, %._crit_edge ], [ 0, %.lr.ph ]
+  %spec.store.select7411 = phi i32 [ %spec.store.select7, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0154.lcssa409 = phi i32 [ %.0154.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0158.lcssa407 = phi i32 [ %.0158.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0171.lcssa405 = phi i32 [ %.0171.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0175.lcssa403 = phi i32 [ %.0175.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0179.lcssa401 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0183.lcssa399 = phi i32 [ %.0183.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0187.lcssa397 = phi i32 [ %.0187.lcssa, %._crit_edge ], [ -2, %.lr.ph ]
+  %.0191.lcssa395 = phi i32 [ %.0191.lcssa, %._crit_edge ], [ -2, %.lr.ph ]
+  %.0195.lcssa393 = phi i32 [ %.0195.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
+  %.0199.lcssa391 = phi i32 [ %.0199.lcssa, %._crit_edge ], [ 0, %.lr.ph ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %24, i64 176
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !58
   br label %133
@@ -445,18 +445,18 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   br label %.thread275
 
 133:                                              ; preds = %._crit_edge._crit_edge, %120
-  %spec.store.select14407 = phi i32 [ %spec.store.select14408, %._crit_edge._crit_edge ], [ %spec.store.select14, %120 ]
-  %spec.store.select7405 = phi i32 [ %spec.store.select7406, %._crit_edge._crit_edge ], [ %spec.store.select7, %120 ]
-  %.0154.lcssa403 = phi i32 [ %.0154.lcssa404, %._crit_edge._crit_edge ], [ %.0154.lcssa, %120 ]
-  %.0158.lcssa401 = phi i32 [ %.0158.lcssa402, %._crit_edge._crit_edge ], [ %.0158.lcssa, %120 ]
-  %.0171.lcssa399 = phi i32 [ %.0171.lcssa400, %._crit_edge._crit_edge ], [ %.0171.lcssa, %120 ]
-  %.0175.lcssa397 = phi i32 [ %.0175.lcssa398, %._crit_edge._crit_edge ], [ %.0175.lcssa, %120 ]
-  %.0179.lcssa395 = phi i32 [ %.0179.lcssa396, %._crit_edge._crit_edge ], [ %.0179.lcssa, %120 ]
-  %.0183.lcssa393 = phi i32 [ %.0183.lcssa394, %._crit_edge._crit_edge ], [ %.0183.lcssa, %120 ]
-  %.0187.lcssa391 = phi i32 [ %.0187.lcssa392, %._crit_edge._crit_edge ], [ %.0187.lcssa, %120 ]
-  %.0191.lcssa389 = phi i32 [ %.0191.lcssa390, %._crit_edge._crit_edge ], [ %.0191.lcssa, %120 ]
-  %.0195.lcssa387 = phi i32 [ %.0195.lcssa388, %._crit_edge._crit_edge ], [ %.0195.lcssa, %120 ]
-  %.0199.lcssa385 = phi i32 [ %.0199.lcssa386, %._crit_edge._crit_edge ], [ %.0199.lcssa, %120 ]
+  %spec.store.select14412 = phi i32 [ %spec.store.select14413, %._crit_edge._crit_edge ], [ %spec.store.select14, %120 ]
+  %spec.store.select7410 = phi i32 [ %spec.store.select7411, %._crit_edge._crit_edge ], [ %spec.store.select7, %120 ]
+  %.0154.lcssa408 = phi i32 [ %.0154.lcssa409, %._crit_edge._crit_edge ], [ %.0154.lcssa, %120 ]
+  %.0158.lcssa406 = phi i32 [ %.0158.lcssa407, %._crit_edge._crit_edge ], [ %.0158.lcssa, %120 ]
+  %.0171.lcssa404 = phi i32 [ %.0171.lcssa405, %._crit_edge._crit_edge ], [ %.0171.lcssa, %120 ]
+  %.0175.lcssa402 = phi i32 [ %.0175.lcssa403, %._crit_edge._crit_edge ], [ %.0175.lcssa, %120 ]
+  %.0179.lcssa400 = phi i32 [ %.0179.lcssa401, %._crit_edge._crit_edge ], [ %.0179.lcssa, %120 ]
+  %.0183.lcssa398 = phi i32 [ %.0183.lcssa399, %._crit_edge._crit_edge ], [ %.0183.lcssa, %120 ]
+  %.0187.lcssa396 = phi i32 [ %.0187.lcssa397, %._crit_edge._crit_edge ], [ %.0187.lcssa, %120 ]
+  %.0191.lcssa394 = phi i32 [ %.0191.lcssa395, %._crit_edge._crit_edge ], [ %.0191.lcssa, %120 ]
+  %.0195.lcssa392 = phi i32 [ %.0195.lcssa393, %._crit_edge._crit_edge ], [ %.0195.lcssa, %120 ]
+  %.0199.lcssa390 = phi i32 [ %.0199.lcssa391, %._crit_edge._crit_edge ], [ %.0199.lcssa, %120 ]
   %134 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %122, %120 ]
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr @default_read_chunk, ptr %135, align 8, !tbaa !59
@@ -469,7 +469,7 @@ define i32 @exr_decoding_choose_default_routines(ptr noundef %0, i32 noundef %1,
   br label %138
 
 138:                                              ; preds = %136, %133
-  %139 = tail call ptr @internal_exr_match_decode(ptr noundef nonnull %2, i32 noundef %43, i32 noundef %.0199.lcssa385, i32 noundef %.0195.lcssa387, i32 noundef %.0191.lcssa389, i32 noundef %.0187.lcssa391, i32 noundef %.0183.lcssa393, i32 noundef %.0179.lcssa395, i32 noundef %.0175.lcssa397, i32 noundef %.0171.lcssa399, i32 noundef %.0154.lcssa403, i32 noundef %spec.store.select7405, i32 noundef %spec.store.select14407, i32 noundef %.0158.lcssa401) #5
+  %139 = tail call ptr @internal_exr_match_decode(ptr noundef nonnull %2, i32 noundef %43, i32 noundef %.0199.lcssa390, i32 noundef %.0195.lcssa392, i32 noundef %.0191.lcssa394, i32 noundef %.0187.lcssa396, i32 noundef %.0183.lcssa398, i32 noundef %.0179.lcssa400, i32 noundef %.0175.lcssa402, i32 noundef %.0171.lcssa404, i32 noundef %.0154.lcssa408, i32 noundef %spec.store.select7410, i32 noundef %spec.store.select14412, i32 noundef %.0158.lcssa406) #5
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store ptr %139, ptr %140, align 8, !tbaa !61
   %.not235 = icmp eq ptr %139, null
@@ -1164,11 +1164,11 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   %.not = icmp eq i16 %16, 0
   %.not108161 = icmp sgt i32 %6, 0
   %.not107.not154 = icmp sgt i32 %4, 0
-  %or.cond217 = select i1 %.not108161, i1 %.not107.not154, i1 false
+  %or.cond221 = select i1 %.not108161, i1 %.not107.not154, i1 false
   br i1 %.not, label %.preheader, label %.preheader123
 
 .preheader123:                                    ; preds = %._crit_edge
-  br i1 %or.cond217, label %.lr.ph141.us.preheader, label %.thread114
+  br i1 %or.cond221, label %.lr.ph141.us.preheader, label %.thread114
 
 .lr.ph141.us.preheader:                           ; preds = %.preheader123
   %17 = zext nneg i32 %4 to i64
@@ -1205,7 +1205,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   br i1 %exitcond193.not, label %.thread114, label %.lr.ph141.us, !llvm.loop !84
 
 .preheader:                                       ; preds = %._crit_edge
-  br i1 %or.cond217, label %.lr.ph158.us.preheader, label %.thread119
+  br i1 %or.cond221, label %.lr.ph158.us.preheader, label %.thread119
 
 .lr.ph158.us.preheader:                           ; preds = %.preheader
   %27 = zext nneg i32 %4 to i64

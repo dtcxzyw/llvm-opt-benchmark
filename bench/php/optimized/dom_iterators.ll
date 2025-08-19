@@ -588,21 +588,21 @@ php_dom_is_cache_tag_stale_from_node.exit:        ; preds = %89
   %93 = load i64, ptr %92, align 8, !tbaa !73
   %94 = load i64, ptr %84, align 8, !tbaa !73
   %.not89 = icmp eq i64 %93, %94
-  br i1 %.not89, label %105, label %.thread.thread98
+  br i1 %.not89, label %105, label %.thread.thread108
 
 .thread:                                          ; preds = %86
   %.pre = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !77
   %.not8.i = icmp eq ptr %.pre, null
-  br i1 %.not8.i, label %php_dom_mark_cache_tag_up_to_date_from_node.exit, label %.thread.thread98
+  br i1 %.not8.i, label %php_dom_mark_cache_tag_up_to_date_from_node.exit, label %.thread.thread108
 
-.thread.thread98:                                 ; preds = %php_dom_is_cache_tag_stale_from_node.exit, %.thread
+.thread.thread108:                                ; preds = %php_dom_is_cache_tag_stale_from_node.exit, %.thread
   %95 = phi ptr [ %.pre, %.thread ], [ %91, %php_dom_is_cache_tag_stale_from_node.exit ]
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i64, ptr %96, align 8, !tbaa !80
   store i64 %97, ptr %84, align 8, !tbaa !73
   br label %php_dom_mark_cache_tag_up_to_date_from_node.exit
 
-php_dom_mark_cache_tag_up_to_date_from_node.exit: ; preds = %89, %80, %.thread, %.thread.thread98
+php_dom_mark_cache_tag_up_to_date_from_node.exit: ; preds = %89, %80, %.thread, %.thread.thread108
   store i64 0, ptr %3, align 8, !tbaa !59
   %98 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %99 = load i32, ptr %98, align 8, !tbaa !60

@@ -823,9 +823,9 @@ sw.bb13.i:                                        ; preds = %for.body.i
   %data_14.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.03, i64 8
   %5 = load ptr, ptr %data_14.i, align 8
   %call.i.i = tail call noundef i32 @_ZNK6google8protobuf15UnknownFieldSet22SpaceUsedExcludingSelfEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %conv.i.i5 = zext i32 %call.i.i to i64
+  %conv.i.i6 = zext i32 %call.i.i to i64
   %add.i.i = add i64 %total_size.0.i4, 24
-  %add16.i = add i64 %add.i.i, %conv.i.i5
+  %add16.i = add i64 %add.i.i, %conv.i.i6
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb13.i, %sw.bb.i, %for.body.i
@@ -1561,16 +1561,16 @@ if.then.i:                                        ; preds = %for.end
   br label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit
 
 if.else.i:                                        ; preds = %entry, %for.end
-  %sub.ptr.div.i.lcssa35 = phi i64 [ %sub.ptr.div.i, %for.end ], [ 0, %entry ]
-  %.lcssa34 = phi ptr [ %11, %for.end ], [ %1, %entry ]
-  %.lcssa1333 = phi ptr [ %10, %for.end ], [ %0, %entry ]
-  %left.0.lcssa32 = phi i64 [ %left.1, %for.end ], [ 0, %entry ]
-  %cmp4.i = icmp ult i64 %left.0.lcssa32, %sub.ptr.div.i.lcssa35
+  %sub.ptr.div.i.lcssa40 = phi i64 [ %sub.ptr.div.i, %for.end ], [ 0, %entry ]
+  %.lcssa39 = phi ptr [ %11, %for.end ], [ %1, %entry ]
+  %.lcssa1338 = phi ptr [ %10, %for.end ], [ %0, %entry ]
+  %left.0.lcssa37 = phi i64 [ %left.1, %for.end ], [ 0, %entry ]
+  %cmp4.i = icmp ult i64 %left.0.lcssa37, %sub.ptr.div.i.lcssa40
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i11 = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %.lcssa34, i64 %left.0.lcssa32
-  %tobool.not.i.i = icmp eq ptr %.lcssa1333, %add.ptr.i11
+  %add.ptr.i11 = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %.lcssa39, i64 %left.0.lcssa37
+  %tobool.not.i.i = icmp eq ptr %.lcssa1338, %add.ptr.i11
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE6resizeEm.exit, label %invoke.cont.i.i12
 
 invoke.cont.i.i12:                                ; preds = %if.then5.i
@@ -2919,13 +2919,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN6google8protobuf12UnknownFieldEmS2_ET_S4_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 4
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 4
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -2991,7 +2991,7 @@ if.then.i38:                                      ; preds = %_ZNSt6vectorIN6goog
 
 _ZNSt12_Vector_baseIN6google8protobuf12UnknownFieldESaIS2_EE13_M_deallocateEPS2_m.exit39: ; preds = %_ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i38
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds %"class.google::protobuf::UnknownField", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
   %add.ptr40 = getelementptr inbounds nuw %"class.google::protobuf::UnknownField", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8

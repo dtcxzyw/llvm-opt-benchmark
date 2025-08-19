@@ -1482,18 +1482,18 @@ lpad178:                                          ; preds = %invoke.cont174
 if.end182.sink.split:                             ; preds = %call.i.i.i.i.i.i.i.noexc403, %call.i.i.i.i.i.i.i.noexc
   %call.i.i.i.i.i.i.i404.sink = phi { i64, i8 } [ %call.i.i.i.i.i.i.i371, %call.i.i.i.i.i.i.i.noexc ], [ %call.i.i.i.i.i.i.i404, %call.i.i.i.i.i.i.i.noexc403 ]
   %ref.tmp166.sink = phi ptr [ %ref.tmp149, %call.i.i.i.i.i.i.i.noexc ], [ %ref.tmp166, %call.i.i.i.i.i.i.i.noexc403 ]
-  %second.i390.sink772 = phi ptr [ %second.i, %call.i.i.i.i.i.i.i.noexc ], [ %second.i390, %call.i.i.i.i.i.i.i.noexc403 ]
+  %second.i390.sink778 = phi ptr [ %second.i, %call.i.i.i.i.i.i.i.noexc ], [ %second.i390, %call.i.i.i.i.i.i.i.noexc403 ]
   %ref.tmp167.sink.ph = phi ptr [ %ref.tmp150, %call.i.i.i.i.i.i.i.noexc ], [ %ref.tmp167, %call.i.i.i.i.i.i.i.noexc403 ]
   %161 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i404.sink, 0
   %162 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !126
   %add.ptr.i.i.i.i.i.i.i.i401 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %162, i64 %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i401, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp166.sink, i64 16, i1 false), !noalias !126
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i402 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i401, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i402, ptr noundef nonnull align 8 dereferenceable(32) %second.i390.sink772) #28, !noalias !126
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i402, ptr noundef nonnull align 8 dereferenceable(32) %second.i390.sink778) #28, !noalias !126
   br label %if.end182
 
 if.end182:                                        ; preds = %if.end182.sink.split, %call.i.i.i.i.i.i.i.noexc403, %call.i.i.i.i.i.i.i.noexc
-  %second.i390.sink = phi ptr [ %second.i, %call.i.i.i.i.i.i.i.noexc ], [ %second.i390, %call.i.i.i.i.i.i.i.noexc403 ], [ %second.i390.sink772, %if.end182.sink.split ]
+  %second.i390.sink = phi ptr [ %second.i, %call.i.i.i.i.i.i.i.noexc ], [ %second.i390, %call.i.i.i.i.i.i.i.noexc403 ], [ %second.i390.sink778, %if.end182.sink.split ]
   %ref.tmp167.sink = phi ptr [ %ref.tmp150, %call.i.i.i.i.i.i.i.noexc ], [ %ref.tmp167, %call.i.i.i.i.i.i.i.noexc403 ], [ %ref.tmp167.sink.ph, %if.end182.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i390.sink) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp167.sink) #28
@@ -5953,7 +5953,7 @@ if.then20:                                        ; preds = %if.else18
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %first, i64 %div6.i
   %1 = load i8, ptr %arrayidx1.i, align 1
   %sub.i31 = add nsw i64 %len, -1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %first, i64 %sub.i31
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %first, i64 %sub.i31
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32

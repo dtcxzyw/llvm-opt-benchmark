@@ -951,7 +951,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit277:             ; preds = %335, %339
 368:                                              ; preds = %.thread340
   %369 = add i64 %.0192, 8388608
   %370 = icmp ult i64 %369, 16777216
-  br i1 %370, label %.thread364, label %371
+  br i1 %370, label %.thread376, label %371
 
 371:                                              ; preds = %368
   %372 = load ptr, ptr %2, align 8, !tbaa !27
@@ -973,7 +973,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit277:             ; preds = %335, %339
   %switch = icmp eq i32 %378, 10
   br i1 %switch, label %392, label %433
 
-.thread364:                                       ; preds = %368
+.thread376:                                       ; preds = %368
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 %47, ptr %32, align 4, !tbaa !89
   %379 = select i1 %40, i32 16777216, i32 0
@@ -992,8 +992,8 @@ _ZNK4llvm8MCSymbol7getNameEv.exit277:             ; preds = %335, %339
   %389 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %390 = load i32, ptr %389, align 8, !tbaa !127
   %391 = and i32 %390, -2
-  %switch371 = icmp eq i32 %391, 10
-  br i1 %switch371, label %.thread393, label %433
+  %switch383 = icmp eq i32 %391, 10
+  br i1 %switch383, label %.thread405, label %433
 
 392:                                              ; preds = %375
   %393 = load ptr, ptr %4, align 8, !tbaa !128
@@ -1014,9 +1014,9 @@ _ZNK4llvm8MCSymbol7getNameEv.exit277:             ; preds = %335, %339
 
 398:                                              ; preds = %392
   %.not227 = icmp eq i32 %.1.ph327, 3
-  br i1 %.not227, label %402, label %.thread393
+  br i1 %.not227, label %402, label %.thread405
 
-.thread393:                                       ; preds = %.thread364, %398
+.thread405:                                       ; preds = %.thread376, %398
   %399 = load ptr, ptr %2, align 8, !tbaa !27
   %.sroa.0.0.copyload.i280 = load ptr, ptr %.ph323, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -1085,31 +1085,31 @@ _ZNK4llvm8MCSymbol7getNameEv.exit277:             ; preds = %335, %339
   %432 = or disjoint i64 %431, -9223372036854775808
   br label %433
 
-433:                                              ; preds = %.thread364, %375, %415
-  %.2380 = phi i32 [ 0, %415 ], [ %41, %375 ], [ 0, %.thread364 ]
-  %.4199376 = phi i32 [ %.0195, %415 ], [ %.0195, %375 ], [ %388, %.thread364 ]
-  %.5205374 = phi ptr [ %.0200, %415 ], [ %.0200, %375 ], [ null, %.thread364 ]
-  %.0301373 = phi i32 [ 3, %415 ], [ %.1.ph327, %375 ], [ 2, %.thread364 ]
-  %.2304 = phi i32 [ 11, %415 ], [ %.0302, %375 ], [ 10, %.thread364 ]
-  %.7 = phi i64 [ %432, %415 ], [ %.0192, %375 ], [ 0, %.thread364 ]
+433:                                              ; preds = %.thread376, %375, %415
+  %.2392 = phi i32 [ 0, %415 ], [ %41, %375 ], [ 0, %.thread376 ]
+  %.4199388 = phi i32 [ %.0195, %415 ], [ %.0195, %375 ], [ %388, %.thread376 ]
+  %.5205386 = phi ptr [ %.0200, %415 ], [ %.0200, %375 ], [ null, %.thread376 ]
+  %.0301385 = phi i32 [ 3, %415 ], [ %.1.ph327, %375 ], [ 2, %.thread376 ]
+  %.2304 = phi i32 [ 11, %415 ], [ %.0302, %375 ], [ 10, %.thread376 ]
+  %.7 = phi i64 [ %432, %415 ], [ %.0192, %375 ], [ 0, %.thread376 ]
   store i64 %.7, ptr %6, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i32 %47, ptr %37, align 4, !tbaa !89
-  %434 = shl nuw nsw i32 %.2380, 24
-  %435 = shl nuw nsw i32 %.0301373, 25
+  %434 = shl nuw nsw i32 %.2392, 24
+  %435 = shl nuw nsw i32 %.0301385, 25
   %436 = shl nuw i32 %.2304, 28
-  %437 = or i32 %.4199376, %435
+  %437 = or i32 %.4199388, %435
   %438 = or i32 %437, %434
   %439 = or i32 %438, %436
   %440 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %439, ptr %440, align 4, !tbaa !91
   %441 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %442 = load ptr, ptr %441, align 8, !tbaa !92
-  call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef %.5205374, ptr noundef %442, ptr noundef nonnull align 4 dereferenceable(8) %37)
+  call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef %.5205386, ptr noundef %442, ptr noundef nonnull align 4 dereferenceable(8) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.critedge
 
-.critedge:                                        ; preds = %411, %404, %.thread393, %394, %_ZNK4llvm8MCSymbol7getNameEv.exit263, %_ZNK4llvm8MCSymbol7getNameEv.exit277, %156, %169, %174, %214, %_ZNK4llvm8MCSymbol7getNameEv.exit252, %_ZNK4llvm8MCSymbol7getNameEv.exit245, %433, %371, %125, %_ZN12_GLOBAL__N_123AArch64MachObjectWriter28getAArch64FixupKindMachOInfoERKN4llvm7MCFixupERjPKNS1_15MCSymbolRefExprES5_RKNS1_11MCAssemblerE.exit, %79, %_ZN4llvmplERKNS_5TwineES2_.exit
+.critedge:                                        ; preds = %411, %404, %.thread405, %394, %_ZNK4llvm8MCSymbol7getNameEv.exit263, %_ZNK4llvm8MCSymbol7getNameEv.exit277, %156, %169, %174, %214, %_ZNK4llvm8MCSymbol7getNameEv.exit252, %_ZNK4llvm8MCSymbol7getNameEv.exit245, %433, %371, %125, %_ZN12_GLOBAL__N_123AArch64MachObjectWriter28getAArch64FixupKindMachOInfoERKN4llvm7MCFixupERjPKNS1_15MCSymbolRefExprES5_RKNS1_11MCAssemblerE.exit, %79, %_ZN4llvmplERKNS_5TwineES2_.exit
   ret void
 }
 

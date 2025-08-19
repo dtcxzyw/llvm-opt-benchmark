@@ -1407,9 +1407,9 @@ define linkonce_odr hidden void @_ZNK4lean9local_ctx10mk_bindingILb1EEENS_4exprE
   %24 = getelementptr i8, ptr %23, i64 4
   %.val.i.i = load i32, ptr %24, align 4, !noalias !36
   %25 = icmp ult i32 %.val.i.i, 16777216
-  br i1 %25, label %_ZNK4lean10local_decl9get_valueEv.exit.thread84, label %26
+  br i1 %25, label %_ZNK4lean10local_decl9get_valueEv.exit.thread99, label %26
 
-_ZNK4lean10local_decl9get_valueEv.exit.thread84:  ; preds = %22
+_ZNK4lean10local_decl9get_valueEv.exit.thread99:  ; preds = %22
   store i8 0, ptr %8, align 8, !tbaa !39, !alias.scope !41
   br label %119
 
@@ -1676,7 +1676,7 @@ _ZN4lean10object_refD2Ev.exit61:                  ; preds = %112, %102, %109, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %196
 
-119:                                              ; preds = %_ZNK4lean10local_decl9get_valueEv.exit.thread84, %_ZNK4lean10local_decl9get_valueEv.exit
+119:                                              ; preds = %_ZNK4lean10local_decl9get_valueEv.exit.thread99, %_ZNK4lean10local_decl9get_valueEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %120 = getelementptr inbounds nuw i8, ptr %23, i64 32
   invoke void @_ZN4lean8abstractERKNS_4exprEjPS1_(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %120, i32 noundef %indvars, ptr noundef nonnull %3)
@@ -1947,9 +1947,9 @@ define linkonce_odr hidden void @_ZNK4lean9local_ctx10mk_bindingILb0EEENS_4exprE
   %24 = getelementptr i8, ptr %23, i64 4
   %.val.i.i = load i32, ptr %24, align 4, !noalias !50
   %25 = icmp ult i32 %.val.i.i, 16777216
-  br i1 %25, label %_ZNK4lean10local_decl9get_valueEv.exit.thread84, label %26
+  br i1 %25, label %_ZNK4lean10local_decl9get_valueEv.exit.thread99, label %26
 
-_ZNK4lean10local_decl9get_valueEv.exit.thread84:  ; preds = %22
+_ZNK4lean10local_decl9get_valueEv.exit.thread99:  ; preds = %22
   store i8 0, ptr %8, align 8, !tbaa !39, !alias.scope !53
   br label %119
 
@@ -2216,7 +2216,7 @@ _ZN4lean10object_refD2Ev.exit61:                  ; preds = %112, %102, %109, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %196
 
-119:                                              ; preds = %_ZNK4lean10local_decl9get_valueEv.exit.thread84, %_ZNK4lean10local_decl9get_valueEv.exit
+119:                                              ; preds = %_ZNK4lean10local_decl9get_valueEv.exit.thread99, %_ZNK4lean10local_decl9get_valueEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %120 = getelementptr inbounds nuw i8, ptr %23, i64 32
   invoke void @_ZN4lean8abstractERKNS_4exprEjPS1_(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %120, i32 noundef %indvars, ptr noundef nonnull %3)

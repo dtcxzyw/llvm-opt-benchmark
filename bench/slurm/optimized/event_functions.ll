@@ -75,7 +75,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
   store i64 %13, ptr %14, align 8
   %15 = call ptr @localtime_r(ptr noundef nonnull %14, ptr noundef nonnull %6) #11
   %.not.not = icmp eq ptr %15, null
-  br i1 %.not.not, label %.thread, label %.thread217
+  br i1 %.not.not, label %.thread, label %.thread243
 
 .thread:                                          ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
@@ -86,7 +86,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %434
 
-.thread217:                                       ; preds = %12
+.thread243:                                       ; preds = %12
   store i32 0, ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %19, align 4
@@ -126,8 +126,8 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
 
 42:                                               ; preds = %.lr.ph, %_set_cond.exit
   %storemerge191 = phi i32 [ 0, %.lr.ph ], [ %275, %_set_cond.exit ]
-  %43 = sext i32 %storemerge191 to i64
-  %44 = getelementptr inbounds ptr, ptr %1, i64 %43
+  %43 = zext nneg i32 %storemerge191 to i64
+  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #13
   %47 = trunc i64 %46 to i32
@@ -146,7 +146,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
   br i1 %.not164, label %56, label %58
 
 56:                                               ; preds = %51, %42
-  %57 = add nsw i32 %storemerge191, 1
+  %57 = add nuw nsw i32 %storemerge191, 1
   br label %58
 
 58:                                               ; preds = %56, %51
@@ -175,9 +175,9 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
   %.0175257.ph.i = phi i32 [ %.0175257.i, %250 ], [ 0, %.lr.ph262.i ]
   br label %66
 
-66:                                               ; preds = %.thread276.i, %.outer.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next280.i, %.thread276.i ], [ %indvars.iv.ph.i, %.outer.i ]
-  %.0175257.i = phi i32 [ 1, %.thread276.i ], [ %.0175257.ph.i, %.outer.i ]
+66:                                               ; preds = %.thread291.i, %.outer.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next295.i, %.thread291.i ], [ %indvars.iv.ph.i, %.outer.i ]
+  %.0175257.i = phi i32 [ 1, %.thread291.i ], [ %.0175257.ph.i, %.outer.i ]
   %67 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8
   %69 = call i32 @parse_option_end(ptr noundef %68) #11
@@ -208,7 +208,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_event(i32 noundef %0, ptr n
   %.0177244.i = phi i64 [ %74, %.thread.i ], [ 5, %80 ]
   %83 = call i32 @xstrncasecmp(ptr noundef nonnull %70, ptr noundef nonnull @.str.12, i64 noundef %.0177244.i) #11
   %.not199.i = icmp eq i32 %83, 0
-  br i1 %.not199.i, label %.thread276.i, label %84
+  br i1 %.not199.i, label %.thread291.i, label %84
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
@@ -572,13 +572,13 @@ _addto_state_char_list.exit.i:                    ; preds = %219, %.thread250.i
   %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %._crit_edge263.i, label %.outer.i, !llvm.loop !12
 
-.thread276.i:                                     ; preds = %82
-  %indvars.iv.next280.i = add nsw i64 %indvars.iv.i, 1
-  %lftr.wideiv281.i = trunc i64 %indvars.iv.next280.i to i32
-  %exitcond.not282.i = icmp eq i32 %0, %lftr.wideiv281.i
-  br i1 %exitcond.not282.i, label %._crit_edge263.thread286.i, label %66, !llvm.loop !12
+.thread291.i:                                     ; preds = %82
+  %indvars.iv.next295.i = add nsw i64 %indvars.iv.i, 1
+  %lftr.wideiv296.i = trunc i64 %indvars.iv.next295.i to i32
+  %exitcond.not297.i = icmp eq i32 %0, %lftr.wideiv296.i
+  br i1 %exitcond.not297.i, label %._crit_edge263.thread301.i, label %66, !llvm.loop !12
 
-._crit_edge263.thread286.i:                       ; preds = %.thread276.i
+._crit_edge263.thread301.i:                       ; preds = %.thread291.i
   %251 = icmp eq i32 %.0174259.ph.i, 0
   br i1 %251, label %261, label %_set_cond.exit
 
@@ -594,7 +594,7 @@ _addto_state_char_list.exit.i:                    ; preds = %219, %.thread250.i
 ._crit_edge263.thread.i:                          ; preds = %._crit_edge263.i.._crit_edge263.thread.i_crit_edge, %62
   %254 = phi ptr [ %.pre, %._crit_edge263.i.._crit_edge263.thread.i_crit_edge ], [ %63, %62 ]
   %.1169 = phi i32 [ %0, %._crit_edge263.i.._crit_edge263.thread.i_crit_edge ], [ %.0168, %62 ]
-  %.0174.lcssa275.i = phi i1 [ %253, %._crit_edge263.i.._crit_edge263.thread.i_crit_edge ], [ true, %62 ]
+  %.0174.lcssa290.i = phi i1 [ %253, %._crit_edge263.i.._crit_edge263.thread.i_crit_edge ], [ true, %62 ]
   %255 = call i32 @list_count(ptr noundef %254) #11
   %.not192.i = icmp eq i32 %255, 0
   br i1 %.not192.i, label %256, label %260
@@ -604,15 +604,15 @@ _addto_state_char_list.exit.i:                    ; preds = %219, %.thread250.i
   %258 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 248), align 8
   %259 = call ptr @xstrdup(ptr noundef %258) #11
   call void @list_append(ptr noundef %257, ptr noundef %259) #11
-  br i1 %.0174.lcssa275.i, label %261, label %_set_cond.exit
+  br i1 %.0174.lcssa290.i, label %261, label %_set_cond.exit
 
 260:                                              ; preds = %._crit_edge263.thread.i, %._crit_edge263.i
   %.2170 = phi i32 [ %.1169, %._crit_edge263.thread.i ], [ %0, %._crit_edge263.i ]
-  %.0174.lcssa274.i = phi i1 [ %.0174.lcssa275.i, %._crit_edge263.thread.i ], [ %253, %._crit_edge263.i ]
-  br i1 %.0174.lcssa274.i, label %261, label %_set_cond.exit
+  %.0174.lcssa289.i = phi i1 [ %.0174.lcssa290.i, %._crit_edge263.thread.i ], [ %253, %._crit_edge263.i ]
+  br i1 %.0174.lcssa289.i, label %261, label %_set_cond.exit
 
-261:                                              ; preds = %260, %256, %._crit_edge263.thread286.i
-  %.3 = phi i32 [ %0, %._crit_edge263.thread286.i ], [ %.1169, %256 ], [ %.2170, %260 ]
+261:                                              ; preds = %260, %256, %._crit_edge263.thread301.i
+  %.3 = phi i32 [ %0, %._crit_edge263.thread301.i ], [ %.1169, %256 ], [ %.2170, %260 ]
   %262 = load i64, ptr %32, align 8
   %.not194.i = icmp eq i64 %262, 0
   br i1 %.not194.i, label %263, label %_set_cond.exit
@@ -652,14 +652,14 @@ _addto_state_char_list.exit.i:                    ; preds = %219, %.thread250.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_set_cond.exit
 
-_set_cond.exit:                                   ; preds = %._crit_edge263.thread286.i, %256, %260, %261, %263, %.sink.split.i
-  %.4 = phi i32 [ %.3, %.sink.split.i ], [ %.3, %263 ], [ %.3, %261 ], [ %0, %._crit_edge263.thread286.i ], [ %.1169, %256 ], [ %.2170, %260 ]
-  %275 = add nsw i32 %.4, 1
+_set_cond.exit:                                   ; preds = %._crit_edge263.thread301.i, %256, %260, %261, %263, %.sink.split.i
+  %.4 = phi i32 [ %.3, %.sink.split.i ], [ %.3, %263 ], [ %.3, %261 ], [ %0, %._crit_edge263.thread301.i ], [ %.1169, %256 ], [ %.2170, %260 ]
+  %275 = add nuw nsw i32 %.4, 1
   %276 = icmp slt i32 %275, %0
   br i1 %276, label %42, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %_set_cond.exit, %.thread217, %26
-  %277 = phi ptr [ %25, %.thread217 ], [ %27, %26 ], [ %27, %_set_cond.exit ]
+._crit_edge:                                      ; preds = %_set_cond.exit, %.thread243, %26
+  %277 = phi ptr [ %25, %.thread243 ], [ %27, %26 ], [ %27, %_set_cond.exit ]
   %278 = load i32, ptr @exit_code, align 4
   %.not = icmp eq i32 %278, 0
   br i1 %.not, label %281, label %279
@@ -854,14 +854,14 @@ _set_cond.exit:                                   ; preds = %._crit_edge263.thre
   %367 = load i16, ptr %315, align 8
   %switch.selectcmp = icmp eq i16 %367, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.8, ptr @.str.9
-  %switch.selectcmp238 = icmp eq i16 %367, 1
-  %switch.select239 = select i1 %switch.selectcmp238, ptr @.str.7, ptr %switch.select
-  store ptr %switch.select239, ptr %8, align 8
+  %switch.selectcmp264 = icmp eq i16 %367, 1
+  %switch.select265 = select i1 %switch.selectcmp264, ptr @.str.7, ptr %switch.select
+  store ptr %switch.select265, ptr %8, align 8
   %368 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %369 = load ptr, ptr %368, align 8
   %370 = icmp eq i32 %.0133193, %307
   %371 = zext i1 %370 to i32
-  call void %369(ptr noundef nonnull %322, ptr noundef nonnull %switch.select239, i32 noundef %371) #11
+  call void %369(ptr noundef nonnull %322, ptr noundef nonnull %switch.select265, i32 noundef %371) #11
   br label %429
 
 372:                                              ; preds = %321

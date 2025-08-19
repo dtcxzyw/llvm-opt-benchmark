@@ -306,8 +306,8 @@ define hidden range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef
   br i1 %.not129, label %130, label %.thread
 
 130:                                              ; preds = %123, %124
-  %.str.16.sink181 = phi ptr [ @.str.6, %124 ], [ @.str.16, %123 ]
-  %131 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.16.sink181) #2
+  %.str.16.sink188 = phi ptr [ @.str.6, %124 ], [ @.str.16, %123 ]
+  %131 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull %.str.16.sink188) #2
   %132 = add nuw nsw i32 %.0120162, 1
   %exitcond.not = icmp eq i32 %132, %87
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph163.split, !llvm.loop !41

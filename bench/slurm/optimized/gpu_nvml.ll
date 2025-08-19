@@ -1085,9 +1085,9 @@ _nvml_get_max_mig_device_count.exit.i:            ; preds = %317
   %334 = icmp eq i32 %.041102.i, 0
   br i1 %334, label %.critedge.critedge.i, label %.lr.ph119.outer.i
 
-.lr.ph119.outer.i:                                ; preds = %333, %.thread162.i
-  %.0116.ph.i = phi i32 [ %480, %.thread162.i ], [ 0, %333 ]
-  %.145115.ph.i = phi i1 [ true, %.thread162.i ], [ false, %333 ]
+.lr.ph119.outer.i:                                ; preds = %333, %.thread196.i
+  %.0116.ph.i = phi i32 [ %480, %.thread196.i ], [ 0, %333 ]
+  %.145115.ph.i = phi i1 [ true, %.thread196.i ], [ false, %333 ]
   br label %.lr.ph119.i
 
 ._crit_edge120.i:                                 ; preds = %473
@@ -1481,12 +1481,12 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
 468:                                              ; preds = %467, %464
   %469 = call i32 @slurm_get_log_level() #12
   %470 = icmp sgt i32 %469, 5
-  br i1 %470, label %471, label %.thread162.i
+  br i1 %470, label %471, label %.thread196.i
 
 471:                                              ; preds = %468
   %472 = load ptr, ptr %49, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.87, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_mig, ptr noundef %472) #12
-  br label %.thread162.i
+  br label %.thread196.i
 
 473:                                              ; preds = %409, %_nvml_get_mig_minor_numbers.exit.i.i, %_nvml_get_mig_minor_numbers.exit.thread.i.i, %341, %.lr.ph119.i
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -1503,7 +1503,7 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   %exitcond.not.i = icmp eq i32 %474, %.041102.i
   br i1 %exitcond.not.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !16
 
-.thread162.i:                                     ; preds = %471, %468
+.thread196.i:                                     ; preds = %471, %468
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1525,10 +1525,10 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   call void @slurm_xfree(ptr noundef nonnull %147) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %480 = add nuw i32 %.0116.i, 1
-  %exitcond.not164.i = icmp eq i32 %480, %.041102.i
-  br i1 %exitcond.not164.i, label %._crit_edge120.thread.i, label %.lr.ph119.outer.i, !llvm.loop !16
+  %exitcond.not198.i = icmp eq i32 %480, %.041102.i
+  br i1 %exitcond.not198.i, label %._crit_edge120.thread.i, label %.lr.ph119.outer.i, !llvm.loop !16
 
-._crit_edge120.thread.i:                          ; preds = %.thread162.i
+._crit_edge120.thread.i:                          ; preds = %.thread196.i
   call void @slurm_xfree(ptr noundef nonnull %47) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)

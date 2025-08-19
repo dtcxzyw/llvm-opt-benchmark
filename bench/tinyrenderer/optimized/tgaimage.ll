@@ -265,14 +265,14 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %69, %.noexc40
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load i32, ptr %84, align 8, !tbaa !27
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %103, label %.invoke64
+  br i1 %86, label %103, label %.invoke65
 
 87:                                               ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %88 = landingpad { ptr, i32 }
           cleanup
   br label %127
 
-89:                                               ; preds = %.invoke64, %125, %119, %115, %94, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50, %112, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46, %91, %76
+89:                                               ; preds = %.invoke65, %125, %119, %115, %94, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50, %112, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46, %91, %76
   %90 = landingpad { ptr, i32 }
           cleanup
   br label %127
@@ -282,7 +282,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %69, %.noexc40
           to label %93 unwind label %89
 
 93:                                               ; preds = %91
-  br i1 %92, label %103, label %.invoke64
+  br i1 %92, label %103, label %.invoke65
 
 94:                                               ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
   %95 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.6, i64 noundef 20)
@@ -292,9 +292,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %94
   %96 = load i8, ptr %73, align 1, !tbaa !42
   %97 = zext i8 %96 to i32
   %98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef %97)
-          to label %.invoke64 unwind label %89
+          to label %.invoke65 unwind label %89
 
-.invoke64:                                        ; preds = %79, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46, %93
+.invoke65:                                        ; preds = %79, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46, %93
   %99 = phi ptr [ @_ZSt4cerr, %93 ], [ %98, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 ], [ @_ZSt4cerr, %79 ]
   %100 = phi ptr [ @.str.5, %93 ], [ @.str.2, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 ], [ @.str.5, %79 ]
   %101 = phi i64 [ 40, %93 ], [ 1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 ], [ 40, %79 ]
@@ -352,8 +352,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %119
   %126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %124, ptr noundef nonnull @.str.2, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36 unwind label %89
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %.invoke64, %.invoke, %125
-  %.1 = phi i1 [ true, %125 ], [ false, %.invoke ], [ false, %.invoke64 ]
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %.invoke65, %.invoke, %125
+  %.1 = phi i1 [ true, %125 ], [ false, %.invoke ], [ false, %.invoke65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit34
 
@@ -1025,7 +1025,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %22 = add i64 %.049.us, %12
   %or.cond3.us = or i1 %27, %32
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  br i1 %or.cond3.us, label %.split.us, label %.thread.thread101
+  br i1 %or.cond3.us, label %.split.us, label %.thread.thread102
 
 .preheader.us:                                    ; preds = %.split.us, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.split.us ]
@@ -1052,7 +1052,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 .split:                                           ; preds = %10
   %33 = add nuw i64 %.053, 1
   %34 = icmp ult i64 %33, %7
-  br i1 %34, label %.preheader, label %.thread.thread101
+  br i1 %34, label %.preheader, label %.thread.thread102
 
 .preheader:                                       ; preds = %.split, %39
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %39 ], [ 1, %.split ]
@@ -1068,7 +1068,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 .split69.us:                                      ; preds = %..critedge_crit_edge.us, %.split69.us.loopexit
   %.us-phi70 = phi i8 [ %37, %.split69.us.loopexit ], [ %18, %..critedge_crit_edge.us ]
   %38 = add nsw i8 %.us-phi70, -1
-  br label %.thread.thread101
+  br label %.thread.thread102
 
 39:                                               ; preds = %.preheader
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
@@ -1077,18 +1077,18 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %42 = trunc nuw i64 %indvars.iv.next88 to i8
   %43 = icmp sgt i8 %42, -1
   %44 = and i1 %43, %41
-  br i1 %44, label %.preheader, label %.thread.thread101
+  br i1 %44, label %.preheader, label %.thread.thread102
 
 .thread:                                          ; preds = %.split.us
   %45 = trunc i8 %.044.us.fr to i1
   %spec.select = select i1 %45, i8 -1, i8 127
-  br label %.thread.thread101
+  br label %.thread.thread102
 
-.thread.thread101:                                ; preds = %21, %39, %.thread, %.split, %.split69.us
-  %.14595 = phi i1 [ true, %.split69.us ], [ true, %.split ], [ %45, %.thread ], [ false, %39 ], [ false, %21 ]
-  %.14793 = phi i8 [ %38, %.split69.us ], [ 1, %.split ], [ %18, %.thread ], [ %42, %39 ], [ %18, %21 ]
+.thread.thread102:                                ; preds = %21, %39, %.thread, %.split, %.split69.us
+  %.14596 = phi i1 [ true, %.split69.us ], [ true, %.split ], [ %45, %.thread ], [ false, %39 ], [ false, %21 ]
+  %.14794 = phi i8 [ %38, %.split69.us ], [ 1, %.split ], [ %18, %.thread ], [ %42, %39 ], [ %18, %21 ]
   %46 = phi i8 [ -1, %.split69.us ], [ -1, %.split ], [ %spec.select, %.thread ], [ 127, %39 ], [ 127, %21 ]
-  %47 = add i8 %46, %.14793
+  %47 = add i8 %46, %.14794
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %47)
   %49 = load ptr, ptr %1, align 8, !tbaa !25
   %50 = getelementptr i8, ptr %49, i64 -24
@@ -1099,14 +1099,14 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %73, !llvm.loop !61
 
-56:                                               ; preds = %.thread.thread101
-  %57 = zext i8 %.14793 to i64
+56:                                               ; preds = %.thread.thread102
+  %57 = zext i8 %.14794 to i64
   %58 = add i64 %.053, %57
   %59 = load ptr, ptr %9, align 8, !tbaa !18
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %13
   %61 = load i8, ptr %8, align 8
   %62 = zext i8 %61 to i64
-  %63 = select i1 %.14595, i64 %57, i64 1
+  %63 = select i1 %.14596, i64 %57, i64 1
   %64 = mul nuw nsw i64 %63, %62
   %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %60, i64 noundef %64)
   %66 = load ptr, ptr %1, align 8, !tbaa !25
@@ -1118,7 +1118,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.critedge60, label %73, !llvm.loop !61
 
-73:                                               ; preds = %.critedge60, %.thread.thread101, %56
+73:                                               ; preds = %.critedge60, %.thread.thread102, %56
   ret i1 %.not.not.not.not.not
 }
 

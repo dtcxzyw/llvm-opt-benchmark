@@ -8451,9 +8451,9 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN106_$LT$rayon
   %31 = phi ptr [ %14, %17 ], [ %21, %20 ], [ %14, %11 ]
   %32 = phi i64 [ %18, %17 ], [ %18, %20 ], [ %15, %11 ]
   %.sroa.0.1.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %17 ], [ %15, %20 ], [ %.sroa.0.0.i.i.i.i, %11 ]
-  %.sink17.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
+  %.sink18.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
   %.sink.i.i.i.i.i = phi ptr [ null, %17 ], [ %24, %20 ], [ null, %11 ]
-  store ptr %.sink.i.i.i.i.i, ptr %.sink17.i.sroa.phi.i.i.i.i, align 8, !alias.scope !796, !noalias !801
+  store ptr %.sink.i.i.i.i.i, ptr %.sink18.i.sroa.phi.i.i.i.i, align 8, !alias.scope !796, !noalias !801
   %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i = load i64, ptr %.sroa.5.i.i.i.i, align 8, !noalias !778, !noundef !3
   %.not.i.i.i.i = icmp eq i64 %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h0150a2d265d62fb2E.exit, label %33
@@ -9109,9 +9109,9 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN106_$LT$rayon
   %31 = phi ptr [ %14, %17 ], [ %21, %20 ], [ %14, %11 ]
   %32 = phi i64 [ %18, %17 ], [ %18, %20 ], [ %15, %11 ]
   %.sroa.0.1.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %17 ], [ %15, %20 ], [ %.sroa.0.0.i.i.i.i, %11 ]
-  %.sink17.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
+  %.sink18.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
   %.sink.i.i.i.i.i = phi ptr [ null, %17 ], [ %24, %20 ], [ null, %11 ]
-  store ptr %.sink.i.i.i.i.i, ptr %.sink17.i.sroa.phi.i.i.i.i, align 8, !alias.scope !951, !noalias !956
+  store ptr %.sink.i.i.i.i.i, ptr %.sink18.i.sroa.phi.i.i.i.i, align 8, !alias.scope !951, !noalias !956
   %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i = load i64, ptr %.sroa.5.i.i.i.i, align 8, !noalias !933, !noundef !3
   %.not.i.i.i.i = icmp eq i64 %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hda1e41b6b4c5d17cE.exit, label %33
@@ -10859,9 +10859,9 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN106_$LT$rayon
   %31 = phi ptr [ %14, %17 ], [ %21, %20 ], [ %14, %11 ]
   %32 = phi i64 [ %18, %17 ], [ %18, %20 ], [ %15, %11 ]
   %.sroa.0.1.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %17 ], [ %15, %20 ], [ %.sroa.0.0.i.i.i.i, %11 ]
-  %.sink17.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
+  %.sink18.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
   %.sink.i.i.i.i.i = phi ptr [ null, %17 ], [ %24, %20 ], [ null, %11 ]
-  store ptr %.sink.i.i.i.i.i, ptr %.sink17.i.sroa.phi.i.i.i.i, align 8, !alias.scope !1302, !noalias !1307
+  store ptr %.sink.i.i.i.i.i, ptr %.sink18.i.sroa.phi.i.i.i.i, align 8, !alias.scope !1302, !noalias !1307
   %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i = load i64, ptr %.sroa.5.i.i.i.i, align 8, !noalias !1284, !noundef !3
   %.not.i.i.i.i = icmp eq i64 %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hd114aef93a4acf9dE.exit, label %33
@@ -11165,9 +11165,9 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN106_$LT$rayon
   %31 = phi ptr [ %14, %17 ], [ %21, %20 ], [ %14, %11 ]
   %32 = phi i64 [ %18, %17 ], [ %18, %20 ], [ %15, %11 ]
   %.sroa.0.1.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %17 ], [ %15, %20 ], [ %.sroa.0.0.i.i.i.i, %11 ]
-  %.sink17.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
+  %.sink18.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
   %.sink.i.i.i.i.i = phi ptr [ null, %17 ], [ %24, %20 ], [ null, %11 ]
-  store ptr %.sink.i.i.i.i.i, ptr %.sink17.i.sroa.phi.i.i.i.i, align 8, !alias.scope !1386, !noalias !1391
+  store ptr %.sink.i.i.i.i.i, ptr %.sink18.i.sroa.phi.i.i.i.i, align 8, !alias.scope !1386, !noalias !1391
   %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i = load i64, ptr %.sroa.5.i.i.i.i, align 8, !noalias !1368, !noundef !3
   %.not.i.i.i.i = icmp eq i64 %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hd3d961f82fb15f00E.exit, label %33
@@ -12515,9 +12515,9 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN106_$LT$rayon
   %31 = phi ptr [ %14, %17 ], [ %21, %20 ], [ %14, %11 ]
   %32 = phi i64 [ %18, %17 ], [ %18, %20 ], [ %15, %11 ]
   %.sroa.0.1.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i, %17 ], [ %15, %20 ], [ %.sroa.0.0.i.i.i.i, %11 ]
-  %.sink17.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
+  %.sink18.i.sroa.phi.i.i.i.i = phi ptr [ %.sroa.5.i.i.i.i, %17 ], [ %.sroa.9.i.i.i.i, %20 ], [ %.sroa.5.i.i.i.i, %11 ]
   %.sink.i.i.i.i.i = phi ptr [ null, %17 ], [ %24, %20 ], [ null, %11 ]
-  store ptr %.sink.i.i.i.i.i, ptr %.sink17.i.sroa.phi.i.i.i.i, align 8, !alias.scope !1662, !noalias !1667
+  store ptr %.sink.i.i.i.i.i, ptr %.sink18.i.sroa.phi.i.i.i.i, align 8, !alias.scope !1662, !noalias !1667
   %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i = load i64, ptr %.sroa.5.i.i.i.i, align 8, !noalias !1644, !noundef !3
   %.not.i.i.i.i = icmp eq i64 %.sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.8..i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17hf43172331e8e4712E.exit, label %33
@@ -15737,16 +15737,16 @@ define hidden void @_ZN10polars_ops13chunked_array6gather7chunked33take_opt_chun
   br i1 %128, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.sink.split: ; preds = %123, %96
-  %.sink84 = phi i64 [ %119, %96 ], [ %125, %123 ]
+  %.sink86 = phi i64 [ %119, %96 ], [ %125, %123 ]
   %129 = load i64, ptr %83, align 8, !noundef !3
   %130 = icmp sgt i64 %129, -1
   call void @llvm.assume(i1 %130)
   %131 = load ptr, ptr %84, align 8, !nonnull !3, !noundef !3
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 %129
-  store i64 %.sink84, ptr %132, align 1, !noalias !3
+  store i64 %.sink86, ptr %132, align 1, !noalias !3
   %133 = add nuw i64 %129, 8
   store i64 %133, ptr %83, align 8
-  %134 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink84)
+  %134 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink86)
   %135 = load i64, ptr %85, align 8, !noundef !3
   %136 = add i64 %135, %134
   store i64 %136, ptr %85, align 8
@@ -15971,16 +15971,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br i1 %250, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit36.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit36
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit36.sink.split: ; preds = %242, %215, %209
-  %.sink96 = phi i64 [ %211, %209 ], [ %238, %215 ], [ %247, %242 ]
+  %.sink98 = phi i64 [ %211, %209 ], [ %238, %215 ], [ %247, %242 ]
   %251 = load i64, ptr %68, align 8, !noundef !3
   %252 = icmp sgt i64 %251, -1
   call void @llvm.assume(i1 %252)
   %253 = load ptr, ptr %69, align 8, !nonnull !3, !noundef !3
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 %251
-  store i64 %.sink96, ptr %254, align 1, !noalias !3
+  store i64 %.sink98, ptr %254, align 1, !noalias !3
   %255 = add nuw i64 %251, 8
   store i64 %255, ptr %68, align 8
-  %256 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink96)
+  %256 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink98)
   %257 = load i64, ptr %70, align 8, !noundef !3
   %258 = add i64 %257, %256
   store i64 %258, ptr %70, align 8
@@ -16237,17 +16237,17 @@ _ZN12polars_arrow5array5Array10null_count17h2453654b0ff92450E.exit.thread: ; pre
   br i1 %135, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.sink.split: ; preds = %127, %107
-  %.sink274 = phi i64 [ %123, %107 ], [ %132, %127 ]
+  %.sink292 = phi i64 [ %123, %107 ], [ %132, %127 ]
   %.ph = phi i64 [ %118, %107 ], [ %130, %127 ]
   %136 = load i64, ptr %84, align 8, !noundef !3
   %137 = icmp sgt i64 %136, -1
   tail call void @llvm.assume(i1 %137)
   %138 = load ptr, ptr %85, align 8, !nonnull !3, !noundef !3
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 %136
-  store i64 %.sink274, ptr %139, align 1, !noalias !3
+  store i64 %.sink292, ptr %139, align 1, !noalias !3
   %140 = add nuw i64 %136, 8
   store i64 %140, ptr %84, align 8
-  %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink274)
+  %141 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink292)
   %142 = load i64, ptr %86, align 8, !noundef !3
   %143 = add i64 %142, %141
   store i64 %143, ptr %86, align 8
@@ -16363,17 +16363,17 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread
   br i1 %204, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split: ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread, %164
-  %.sink287 = phi i64 [ %169, %164 ], [ %201, %_ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread ]
-  %.ph280 = phi i64 [ %167, %164 ], [ %196, %_ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread ]
+  %.sink305 = phi i64 [ %169, %164 ], [ %201, %_ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread ]
+  %.ph298 = phi i64 [ %167, %164 ], [ %196, %_ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread ]
   %205 = load i64, ptr %96, align 8, !noundef !3
   %206 = icmp sgt i64 %205, -1
   tail call void @llvm.assume(i1 %206)
   %207 = load ptr, ptr %97, align 8, !nonnull !3, !noundef !3
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 %205
-  store i64 %.sink287, ptr %208, align 1, !noalias !3
+  store i64 %.sink305, ptr %208, align 1, !noalias !3
   %209 = add nuw i64 %205, 8
   store i64 %209, ptr %96, align 8
-  %210 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink287)
+  %210 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink305)
   %211 = load i64, ptr %98, align 8, !noundef !3
   %212 = add i64 %211, %210
   store i64 %212, ptr %98, align 8
@@ -16381,7 +16381,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split, %_ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread, %164
-  %213 = phi i64 [ %196, %_ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread ], [ %167, %164 ], [ %.ph280, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split ]
+  %213 = phi i64 [ %196, %_ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit.thread ], [ %167, %164 ], [ %.ph298, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split ]
   %214 = icmp eq ptr %.sroa.076.1238, %88
   %.sroa.076.1.idx = select i1 %214, i64 0, i64 8
   %.sroa.076.1 = getelementptr inbounds nuw i8, ptr %.sroa.076.1238, i64 %.sroa.076.1.idx
@@ -16967,16 +16967,16 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
           to label %830 unwind label %591
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit112.sink.split: ; preds = %471, %453
-  %.sink299 = phi i64 [ %460, %453 ], [ %481, %471 ]
+  %.sink317 = phi i64 [ %460, %453 ], [ %481, %471 ]
   %487 = load i64, ptr %415, align 8, !noundef !3
   %488 = icmp sgt i64 %487, -1
   call void @llvm.assume(i1 %488)
   %489 = load ptr, ptr %416, align 8, !nonnull !3, !noundef !3
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 %487
-  store i64 %.sink299, ptr %490, align 1, !noalias !3
+  store i64 %.sink317, ptr %490, align 1, !noalias !3
   %491 = add nuw i64 %487, 8
   store i64 %491, ptr %415, align 8
-  %492 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink299)
+  %492 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink317)
   %493 = load i64, ptr %417, align 8, !noundef !3
   %494 = add i64 %493, %492
   store i64 %494, ptr %417, align 8
@@ -17140,16 +17140,16 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit137.thr
   br i1 %581, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit114.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit114
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit114.sink.split: ; preds = %568, %550, %516
-  %.sink311 = phi i64 [ %523, %516 ], [ %557, %550 ], [ %578, %568 ]
+  %.sink329 = phi i64 [ %523, %516 ], [ %557, %550 ], [ %578, %568 ]
   %582 = load i64, ptr %421, align 8, !noundef !3
   %583 = icmp sgt i64 %582, -1
   call void @llvm.assume(i1 %583)
   %584 = load ptr, ptr %422, align 8, !nonnull !3, !noundef !3
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 %582
-  store i64 %.sink311, ptr %585, align 1, !noalias !3
+  store i64 %.sink329, ptr %585, align 1, !noalias !3
   %586 = add nuw i64 %582, 8
   store i64 %586, ptr %421, align 8
-  %587 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink311)
+  %587 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink329)
   %588 = load i64, ptr %423, align 8, !noundef !3
   %589 = add i64 %588, %587
   store i64 %589, ptr %423, align 8
@@ -17359,16 +17359,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br i1 %683, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit117.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit117
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit117.sink.split: ; preds = %670, %658
-  %.sink323 = phi i64 [ %665, %658 ], [ %680, %670 ]
+  %.sink341 = phi i64 [ %665, %658 ], [ %680, %670 ]
   %684 = load i64, ptr %618, align 8, !noundef !3
   %685 = icmp sgt i64 %684, -1
   call void @llvm.assume(i1 %685)
   %686 = load ptr, ptr %619, align 8, !nonnull !3, !noundef !3
   %687 = getelementptr inbounds nuw i8, ptr %686, i64 %684
-  store i64 %.sink323, ptr %687, align 1, !noalias !3
+  store i64 %.sink341, ptr %687, align 1, !noalias !3
   %688 = add nuw i64 %684, 8
   store i64 %688, ptr %618, align 8
-  %689 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink323)
+  %689 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink341)
   %690 = load i64, ptr %620, align 8, !noundef !3
   %691 = add i64 %690, %689
   store i64 %691, ptr %620, align 8
@@ -17669,16 +17669,16 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h9b865beaf8cef2c0E.exit160.thr
   br i1 %819, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit119.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit119
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit119.sink.split: ; preds = %806, %795, %757
-  %.sink335 = phi i64 [ %764, %757 ], [ %802, %795 ], [ %816, %806 ]
+  %.sink353 = phi i64 [ %764, %757 ], [ %802, %795 ], [ %816, %806 ]
   %820 = load i64, ptr %625, align 8, !noundef !3
   %821 = icmp sgt i64 %820, -1
   call void @llvm.assume(i1 %821)
   %822 = load ptr, ptr %626, align 8, !nonnull !3, !noundef !3
   %823 = getelementptr inbounds nuw i8, ptr %822, i64 %820
-  store i64 %.sink335, ptr %823, align 1, !noalias !3
+  store i64 %.sink353, ptr %823, align 1, !noalias !3
   %824 = add nuw i64 %820, 8
   store i64 %824, ptr %625, align 8
-  %825 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink335)
+  %825 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink353)
   %826 = load i64, ptr %627, align 8, !noundef !3
   %827 = add i64 %826, %825
   store i64 %827, ptr %627, align 8
@@ -17956,17 +17956,17 @@ _ZN12polars_arrow5array5Array10null_count17he4ae55bd6611eb5dE.exit.thread: ; pre
   br i1 %142, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit.sink.split: ; preds = %134, %114
-  %.sink291 = phi i64 [ %130, %114 ], [ %139, %134 ]
+  %.sink313 = phi i64 [ %130, %114 ], [ %139, %134 ]
   %.ph = phi i64 [ %125, %114 ], [ %137, %134 ]
   %143 = load i64, ptr %91, align 8, !noundef !3
   %144 = icmp sgt i64 %143, -1
   tail call void @llvm.assume(i1 %144)
   %145 = load ptr, ptr %92, align 8, !nonnull !3, !noundef !3
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 %143
-  store i64 %.sink291, ptr %146, align 1, !noalias !3
+  store i64 %.sink313, ptr %146, align 1, !noalias !3
   %147 = add nuw i64 %143, 8
   store i64 %147, ptr %91, align 8
-  %148 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink291)
+  %148 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink313)
   %149 = load i64, ptr %93, align 8, !noundef !3
   %150 = add i64 %149, %148
   store i64 %150, ptr %93, align 8
@@ -18082,17 +18082,17 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread
   br i1 %211, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split: ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread, %171
-  %.sink304 = phi i64 [ %176, %171 ], [ %208, %_ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread ]
-  %.ph297 = phi i64 [ %174, %171 ], [ %203, %_ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread ]
+  %.sink326 = phi i64 [ %176, %171 ], [ %208, %_ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread ]
+  %.ph319 = phi i64 [ %174, %171 ], [ %203, %_ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread ]
   %212 = load i64, ptr %103, align 8, !noundef !3
   %213 = icmp sgt i64 %212, -1
   tail call void @llvm.assume(i1 %213)
   %214 = load ptr, ptr %104, align 8, !nonnull !3, !noundef !3
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 %212
-  store i64 %.sink304, ptr %215, align 1, !noalias !3
+  store i64 %.sink326, ptr %215, align 1, !noalias !3
   %216 = add nuw i64 %212, 8
   store i64 %216, ptr %103, align 8
-  %217 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink304)
+  %217 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink326)
   %218 = load i64, ptr %105, align 8, !noundef !3
   %219 = add i64 %218, %217
   store i64 %219, ptr %105, align 8
@@ -18100,7 +18100,7 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110: ; preds = %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split, %_ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread, %171
-  %220 = phi i64 [ %203, %_ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread ], [ %174, %171 ], [ %.ph297, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split ]
+  %220 = phi i64 [ %203, %_ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit.thread ], [ %174, %171 ], [ %.ph319, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit110.sink.split ]
   %221 = icmp eq ptr %.sroa.076.1253, %95
   %.sroa.076.1.idx = select i1 %221, i64 0, i64 8
   %.sroa.076.1 = getelementptr inbounds nuw i8, ptr %.sroa.076.1253, i64 %.sroa.076.1.idx
@@ -18686,16 +18686,16 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hacf9389ee4557603E.exit.i.i:
           to label %964 unwind label %598
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit112.sink.split: ; preds = %478, %460
-  %.sink316 = phi i64 [ %467, %460 ], [ %488, %478 ]
+  %.sink338 = phi i64 [ %467, %460 ], [ %488, %478 ]
   %494 = load i64, ptr %422, align 8, !noundef !3
   %495 = icmp sgt i64 %494, -1
   call void @llvm.assume(i1 %495)
   %496 = load ptr, ptr %423, align 8, !nonnull !3, !noundef !3
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 %494
-  store i64 %.sink316, ptr %497, align 1, !noalias !3
+  store i64 %.sink338, ptr %497, align 1, !noalias !3
   %498 = add nuw i64 %494, 8
   store i64 %498, ptr %422, align 8
-  %499 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink316)
+  %499 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink338)
   %500 = load i64, ptr %424, align 8, !noundef !3
   %501 = add i64 %500, %499
   store i64 %501, ptr %424, align 8
@@ -18859,16 +18859,16 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit137.thr
   br i1 %588, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit114.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit114
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit114.sink.split: ; preds = %575, %557, %523
-  %.sink328 = phi i64 [ %530, %523 ], [ %564, %557 ], [ %585, %575 ]
+  %.sink350 = phi i64 [ %530, %523 ], [ %564, %557 ], [ %585, %575 ]
   %589 = load i64, ptr %428, align 8, !noundef !3
   %590 = icmp sgt i64 %589, -1
   call void @llvm.assume(i1 %590)
   %591 = load ptr, ptr %429, align 8, !nonnull !3, !noundef !3
   %592 = getelementptr inbounds nuw i8, ptr %591, i64 %589
-  store i64 %.sink328, ptr %592, align 1, !noalias !3
+  store i64 %.sink350, ptr %592, align 1, !noalias !3
   %593 = add nuw i64 %589, 8
   store i64 %593, ptr %428, align 8
-  %594 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink328)
+  %594 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink350)
   %595 = load i64, ptr %430, align 8, !noundef !3
   %596 = add i64 %595, %594
   store i64 %596, ptr %430, align 8
@@ -19078,16 +19078,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   br i1 %690, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit117.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit117
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit117.sink.split: ; preds = %677, %665
-  %.sink340 = phi i64 [ %672, %665 ], [ %687, %677 ]
+  %.sink362 = phi i64 [ %672, %665 ], [ %687, %677 ]
   %691 = load i64, ptr %625, align 8, !noundef !3
   %692 = icmp sgt i64 %691, -1
   call void @llvm.assume(i1 %692)
   %693 = load ptr, ptr %626, align 8, !nonnull !3, !noundef !3
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 %691
-  store i64 %.sink340, ptr %694, align 1, !noalias !3
+  store i64 %.sink362, ptr %694, align 1, !noalias !3
   %695 = add nuw i64 %691, 8
   store i64 %695, ptr %625, align 8
-  %696 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink340)
+  %696 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink362)
   %697 = load i64, ptr %627, align 8, !noundef !3
   %698 = add i64 %697, %696
   store i64 %698, ptr %627, align 8
@@ -19735,16 +19735,16 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h60f57cb0c7f1ef2aE.exit170.thr
   br i1 %953, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit119.sink.split, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit119
 
 _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit119.sink.split: ; preds = %940, %929, %891
-  %.sink352 = phi i64 [ %898, %891 ], [ %936, %929 ], [ %950, %940 ]
+  %.sink374 = phi i64 [ %898, %891 ], [ %936, %929 ], [ %950, %940 ]
   %954 = load i64, ptr %632, align 8, !noundef !3
   %955 = icmp sgt i64 %954, -1
   call void @llvm.assume(i1 %955)
   %956 = load ptr, ptr %633, align 8, !nonnull !3, !noundef !3
   %957 = getelementptr inbounds nuw i8, ptr %956, i64 %954
-  store i64 %.sink352, ptr %957, align 1, !noalias !3
+  store i64 %.sink374, ptr %957, align 1, !noalias !3
   %958 = add nuw i64 %954, 8
   store i64 %958, ptr %632, align 8
-  %959 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink352)
+  %959 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sink374)
   %960 = load i64, ptr %634, align 8, !noundef !3
   %961 = add i64 %960, %959
   store i64 %961, ptr %634, align 8
@@ -24920,8 +24920,8 @@ define hidden void @_ZN11polars_core5utils19align_chunks_binary17h65bcb993cdcad7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx50, align 8
+  %.sroa.4.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx52, align 8
   br label %33
 
 84:                                               ; preds = %118
@@ -26350,7 +26350,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %17 = alloca [2 x i8], align 2
   store i16 %2, ptr %17, align 2
   %18 = load i8, ptr %1, align 16, !range !3469, !noundef !3
-  switch i8 %18, label %default.unreachable129 [
+  switch i8 %18, label %default.unreachable131 [
     i8 0, label %19
     i8 1, label %21
     i8 2, label %23
@@ -26381,7 +26381,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %109
   ], !prof !3470
 
-default.unreachable129:                           ; preds = %109, %3
+default.unreachable131:                           ; preds = %109, %3
   unreachable
 
 19:                                               ; preds = %3
@@ -26673,7 +26673,7 @@ common.resume:                                    ; preds = %142, %97, %83
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %111 = load i128, ptr %110, align 16, !range !3493, !noundef !3
   %112 = trunc nuw nsw i128 %111 to i64
-  switch i64 %112, label %default.unreachable129 [
+  switch i64 %112, label %default.unreachable131 [
     i64 0, label %137
     i64 1, label %152
     i64 2, label %140
@@ -37498,8 +37498,8 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17h43785b86a4c1e0dcE(
   br label %55
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$5write17h3c423ba33757040aE.exit": ; preds = %17, %27, %55
-  %.sink3 = phi i64 [ %26, %17 ], [ %30, %27 ], [ %61, %55 ]
-  store i64 %.sink3, ptr %4, align 16, !alias.scope !4655, !noalias !4656
+  %.sink4 = phi i64 [ %26, %17 ], [ %30, %27 ], [ %61, %55 ]
+  store i64 %.sink4, ptr %4, align 16, !alias.scope !4655, !noalias !4656
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = load i8, ptr %66, align 8, !alias.scope !4657, !noundef !3
   %68 = icmp ugt i8 %67, 120
@@ -37518,7 +37518,7 @@ define internal fastcc void @_ZN4core4hash6Hasher9write_str17h43785b86a4c1e0dcE(
   %77 = trunc i128 %76 to i64
   %78 = lshr i128 %76, 64
   %79 = trunc nuw i128 %78 to i64
-  %80 = xor i64 %.sink3, %77
+  %80 = xor i64 %.sink4, %77
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load i64, ptr %81, align 8, !alias.scope !4657, !noundef !3
   %83 = xor i64 %82, %79
@@ -40488,7 +40488,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !2101, !noundef !3
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -40530,7 +40530,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -41308,7 +41308,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !3469, !noundef !3
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -41339,7 +41339,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -42578,8 +42578,8 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$8get_full17hc7bd
   br label %50
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h374610d58a368c9fE.exit.i": ; preds = %50, %24, %20
-  %.sink3.i.i.i = phi i64 [ %23, %20 ], [ %25, %24 ], [ %56, %50 ]
-  %61 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %23, %20 ], [ %25, %24 ], [ %56, %50 ]
+  %61 = xor i64 %.sink4.i.i.i, 255
   %62 = zext i64 %61 to i128
   %63 = zext i64 %9 to i128
   %64 = mul nuw i128 %62, %63
@@ -56853,19 +56853,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -56889,7 +56889,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -56999,7 +56999,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u16$GT$$GT$17h12d1c642eca82d56E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -57143,19 +57143,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -57179,7 +57179,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -57289,7 +57289,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i64$GT$$GT$17h6f39128798524e2eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -57433,19 +57433,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -57469,7 +57469,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -57579,7 +57579,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i32$GT$$GT$17hd18c423cc0361232E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -57723,19 +57723,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -57759,7 +57759,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -57869,7 +57869,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$f32$GT$$GT$17h16a23ba6647a5b85E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -58013,19 +58013,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -58049,7 +58049,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -58159,7 +58159,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i16$GT$$GT$17hf5a0c2da7bec1d9aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -58303,19 +58303,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -58339,7 +58339,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -58449,7 +58449,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i128$GT$$GT$17h8dc9d4b4b6758358E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -58593,19 +58593,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -58629,7 +58629,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -58739,7 +58739,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr77drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u8$GT$$GT$17h180a03f79898a629E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -58883,19 +58883,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -58919,7 +58919,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -59029,7 +59029,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr77drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$i8$GT$$GT$17h07840027f303ec0eE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -59173,19 +59173,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -59209,7 +59209,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -59319,7 +59319,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$f64$GT$$GT$17ha40731c770112510E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -59463,19 +59463,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -59499,7 +59499,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -59609,7 +59609,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u64$GT$$GT$17ha915bc80ebee29e9E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32
@@ -59753,19 +59753,19 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.510.0..sroa_idx, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %45, align 8, !noundef !3
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %.thread55, label %51
+  br i1 %47, label %.thread59, label %51
 
 48:                                               ; preds = %51
   %.pre = load i64, ptr %44, align 8
   %49 = zext i32 %41 to i64
   %50 = icmp ugt i64 %.pre, %49
-  br i1 %50, label %52, label %.thread55, !prof !6256
+  br i1 %50, label %52, label %.thread59, !prof !6256
 
 51:                                               ; preds = %43
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap10extend_set17h87baa9eccb5d2f35E(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %46)
           to label %48 unwind label %95
 
-.thread55:                                        ; preds = %43, %48
+.thread59:                                        ; preds = %43, %48
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.dba736d3547f819b57a0c16259531e62.271, i64 noundef 36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dba736d3547f819b57a0c16259531e62.272) #33
           to label %62 unwind label %95
 
@@ -59789,7 +59789,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @_ZN12polars_arrow6bitmap7mutable13MutableBitmap6freeze17hd5278f356d8929feE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %63 unwind label %93
 
-62:                                               ; preds = %68, %.thread55
+62:                                               ; preds = %68, %.thread59
   unreachable
 
 63:                                               ; preds = %52
@@ -59899,7 +59899,7 @@ define internal fastcc void @"_ZN11polars_expr10hot_groups10single_key32SingleKe
   invoke void @"_ZN4core3ptr78drop_in_place$LT$polars_arrow..array..primitive..PrimitiveArray$LT$u32$GT$$GT$17h6719255c08e47759E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %13) #32
           to label %.thread34 unwind label %90
 
-95:                                               ; preds = %.thread55, %51
+95:                                               ; preds = %.thread59, %51
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..mutable..MutableBitmap$GT$17h7edb1ad5e091c13dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #32

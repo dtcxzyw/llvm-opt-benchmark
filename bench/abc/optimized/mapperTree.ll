@@ -101,8 +101,8 @@ define noundef ptr @Map_LibraryReadGateTree(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %41 = phi ptr [ %35, %.lr.ph ], [ %62, %56 ]
   %42 = load i8, ptr %41, align 1, !tbaa !21
-  %.not95.not.not = icmp ne i8 %42, 35
-  br i1 %.not95.not.not, label %43, label %._crit_edge.loopexit
+  %.not101.not.not = icmp ne i8 %42, 35
+  br i1 %.not101.not.not, label %43, label %._crit_edge.loopexit
 
 43:                                               ; preds = %40
   %44 = icmp eq i64 %indvars.iv, %39
@@ -152,7 +152,7 @@ define noundef ptr @Map_LibraryReadGateTree(ptr noundef readonly captures(none) 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %24
   %.046.lcssa = phi i32 [ 0, %24 ], [ %.046.lcssa.ph, %._crit_edge.loopexit ]
   %.lcssa = phi ptr [ null, %24 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
-  %.not.lcssa = phi i1 [ true, %24 ], [ %.not95.not.not, %._crit_edge.loopexit ]
+  %.not.lcssa = phi i1 [ true, %24 ], [ %.not101.not.not, %._crit_edge.loopexit ]
   %63 = load i32, ptr %29, align 4
   %64 = shl i32 %.046.lcssa, 2
   %65 = and i32 %64, 28
@@ -461,8 +461,8 @@ define range(i32 0, 2) i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr nound
 
 Vec_StrGets.exit:                                 ; preds = %16, %23
   %.2 = phi i32 [ %24, %23 ], [ %21, %16 ]
-  %.ptr369 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i.add
-  store i8 0, ptr %.ptr369, align 1, !tbaa !21
+  %.ptr381 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i.add
+  store i8 0, ptr %.ptr381, align 1, !tbaa !21
   br label %28
 
 28:                                               ; preds = %Vec_StrGets.exit, %.critedge
@@ -552,8 +552,8 @@ Vec_StrGets.exit:                                 ; preds = %16, %23
 
 Vec_StrGets.exit137:                              ; preds = %60, %53
   %.3 = phi i32 [ %61, %60 ], [ %58, %53 ]
-  %.ptr329364 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i135.add
-  store i8 0, ptr %.ptr329364, align 1, !tbaa !21
+  %.ptr341376 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i135.add
+  store i8 0, ptr %.ptr341376, align 1, !tbaa !21
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %65) #16
   %67 = load i32, ptr %65, align 8, !tbaa !40
@@ -614,8 +614,8 @@ Vec_StrGets.exit137:                              ; preds = %60, %53
 
 Vec_StrGets.exit145:                              ; preds = %87, %80
   %.4 = phi i32 [ %88, %87 ], [ %85, %80 ]
-  %.ptr330359 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i143.add
-  store i8 0, ptr %.ptr330359, align 1, !tbaa !21
+  %.ptr342371 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i143.add
+  store i8 0, ptr %.ptr342371, align 1, !tbaa !21
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %93 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %92) #16
   %94 = load i32, ptr %92, align 8, !tbaa !41
@@ -676,8 +676,8 @@ Vec_StrGets.exit145:                              ; preds = %87, %80
 
 Vec_StrGets.exit153:                              ; preds = %114, %107
   %.5 = phi i32 [ %115, %114 ], [ %112, %107 ]
-  %.ptr331354 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i151.add
-  store i8 0, ptr %.ptr331354, align 1, !tbaa !21
+  %.ptr343366 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i151.add
+  store i8 0, ptr %.ptr343366, align 1, !tbaa !21
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %120 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %119) #16
   %121 = load i32, ptr %119, align 4, !tbaa !25
@@ -856,8 +856,8 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
 
 Vec_StrGets.exit161:                              ; preds = %186, %193
   %.6 = phi i32 [ %194, %193 ], [ %191, %186 ]
-  %.ptr332341 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i159.add
-  store i8 0, ptr %.ptr332341, align 1, !tbaa !21
+  %.ptr344353 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i159.add
+  store i8 0, ptr %.ptr344353, align 1, !tbaa !21
   br label %198
 
 198:                                              ; preds = %Vec_StrGets.exit161, %.critedge2
@@ -1752,13 +1752,13 @@ define void @Map_CalculatePhase6(ptr noundef readonly captures(none) %0, i32 nou
 
 .sink.split:                                      ; preds = %17, %34
   %.sink = phi i32 [ %13, %34 ], [ %33, %17 ]
-  %.ph39 = phi i32 [ %12, %34 ], [ %25, %17 ]
+  %.ph40 = phi i32 [ %12, %34 ], [ %25, %17 ]
   store i32 %.sink, ptr %9, align 4, !tbaa !24
   br label %35
 
 35:                                               ; preds = %.sink.split, %.lr.ph
   %36 = phi i32 [ %12, %.lr.ph ], [ %.sink, %.sink.split ]
-  %37 = phi i32 [ %13, %.lr.ph ], [ %.ph39, %.sink.split ]
+  %37 = phi i32 [ %13, %.lr.ph ], [ %.ph40, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = shl i32 %.037, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -329,10 +329,10 @@ define internal fastcc void @_ZN4ncnnL9layernormEPfPKfS2_fii(ptr noundef capture
   %foldExtExtBinop = fadd fast <4 x float> %50, %shift
   %51 = shufflevector <4 x float> %.0298.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %52 = fadd fast <4 x float> %51, %.0298.lcssa
-  %shift541 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop542 = fadd fast <4 x float> %foldExtExtBinop, %shift541
-  %foldExtExtBinop544 = fadd fast <4 x float> %foldExtExtBinop542, %52
-  %53 = extractelement <4 x float> %foldExtExtBinop544, i64 0
+  %shift545 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop546 = fadd fast <4 x float> %foldExtExtBinop, %shift545
+  %foldExtExtBinop548 = fadd fast <4 x float> %foldExtExtBinop546, %52
+  %53 = extractelement <4 x float> %foldExtExtBinop548, i64 0
   %54 = fadd fast float %53, %.0191.lcssa
   %55 = sitofp i32 %4 to float
   %56 = fdiv fast float %54, %55

@@ -771,10 +771,10 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   br i1 %475, label %.critedge.thread.i, label %500
 
 .critedge.thread.i:                               ; preds = %.critedge.i, %459
-  %.lcssa8.i = phi i32 [ %.lcssa.i, %.critedge.i ], [ 0, %459 ]
-  %476 = zext nneg i32 %.lcssa8.i to i64
+  %.lcssa12.i = phi i32 [ %.lcssa.i, %.critedge.i ], [ 0, %459 ]
+  %476 = zext nneg i32 %.lcssa12.i to i64
   %477 = getelementptr i8, ptr %465, i64 %476
-  %narrow.i = sub nuw nsw i32 5, %.lcssa8.i
+  %narrow.i = sub nuw nsw i32 5, %.lcssa12.i
   %478 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr noundef align 1 %477, i8 0, i64 %478, i1 false)
   br label %500
@@ -885,10 +885,10 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   br i1 %543, label %.critedge.thread.i52, label %568
 
 .critedge.thread.i52:                             ; preds = %.critedge.i60, %527
-  %.lcssa8.i53 = phi i32 [ %.lcssa.i61, %.critedge.i60 ], [ 0, %527 ]
-  %544 = zext nneg i32 %.lcssa8.i53 to i64
+  %.lcssa12.i53 = phi i32 [ %.lcssa.i61, %.critedge.i60 ], [ 0, %527 ]
+  %544 = zext nneg i32 %.lcssa12.i53 to i64
   %545 = getelementptr i8, ptr %533, i64 %544
-  %narrow.i54 = sub nuw nsw i32 5, %.lcssa8.i53
+  %narrow.i54 = sub nuw nsw i32 5, %.lcssa12.i53
   %546 = zext nneg i32 %narrow.i54 to i64
   call void @llvm.memset.p0.i64(ptr noundef align 1 %545, i8 0, i64 %546, i1 false)
   br label %568
@@ -1454,10 +1454,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(
   br i1 %34, label %.critedge.thread, label %.loopexit
 
 .critedge.thread:                                 ; preds = %18, %.critedge
-  %.lcssa8 = phi i32 [ %.lcssa, %.critedge ], [ 0, %18 ]
-  %35 = zext nneg i32 %.lcssa8 to i64
+  %.lcssa12 = phi i32 [ %.lcssa, %.critedge ], [ 0, %18 ]
+  %35 = zext nneg i32 %.lcssa12 to i64
   %36 = getelementptr i8, ptr %24, i64 %35
-  %narrow = sub nuw nsw i32 5, %.lcssa8
+  %narrow = sub nuw nsw i32 5, %.lcssa12
   %37 = zext nneg i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 %36, i8 0, i64 %37, i1 false)
   br label %.loopexit

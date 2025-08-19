@@ -586,8 +586,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNSt6
   %46 = phi ptr [ %40, %.thread ], [ %42, %41 ]
   %47 = phi ptr [ null, %.thread ], [ %32, %41 ]
   %48 = phi ptr [ null, %.thread ], [ %33, %41 ]
-  %.sroa.07.0.lcssa2733 = phi i64 [ %1, %.thread ], [ %35, %41 ]
-  %.sroa.8.0.lcssa2832 = phi ptr [ %2, %.thread ], [ %36, %41 ]
+  %.sroa.07.0.lcssa3945 = phi i64 [ %1, %.thread ], [ %35, %41 ]
+  %.sroa.8.0.lcssa4044 = phi ptr [ %2, %.thread ], [ %36, %41 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %47 to i64
@@ -611,9 +611,9 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   %60 = shl nuw nsw i64 %59, 4
   %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #19
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %52
-  store i64 %.sroa.07.0.lcssa2733, ptr %62, align 8, !tbaa !24
+  store i64 %.sroa.07.0.lcssa3945, ptr %62, align 8, !tbaa !24
   %.sroa.8.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %.sroa.8.0.lcssa2832, ptr %.sroa.8.0..sroa_idx12, align 8, !tbaa !106
+  store ptr %.sroa.8.0.lcssa4044, ptr %.sroa.8.0..sroa_idx12, align 8, !tbaa !106
   %.not10.i.i.i.i.i = icmp eq ptr %47, %48
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -1467,7 +1467,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE17_M_default_
   br i1 %.not23, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIhSaIhEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIhSaIhEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !26
@@ -2093,8 +2093,8 @@ define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlE
   br label %16
 
 16:                                               ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi i64 [ %.8.val, %.lr.ph.i.i.i.i.i ], [ %92, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i" ]
-  %storemerge4.i.i.i.i.i = phi i64 [ %11, %.lr.ph.i.i.i.i.i ], [ %93, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i" ]
+  %.05.i.i.i.i.i = phi i64 [ %.8.val, %.lr.ph.i.i.i.i.i ], [ %91, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i" ]
+  %storemerge4.i.i.i.i.i = phi i64 [ %11, %.lr.ph.i.i.i.i.i ], [ %92, %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i" ]
   %17 = load ptr, ptr %4, align 8, !tbaa !174
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !40
@@ -2175,13 +2175,13 @@ _ZN4moldL13zlib_compressESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i
   %60 = call i32 @deflate(ptr noundef nonnull %2, i32 noundef 2) #16, !noalias !178
   %61 = load i32, ptr %14, align 8, !tbaa !185, !noalias !178
   %62 = zext i32 %61 to i64
-  %.neg2.i.i.i.i.i = sub nsw i64 0, %62
   %63 = add i64 %51, %62
   %64 = sub i64 %50, %63
   %65 = icmp ugt i64 %64, %52
-  br i1 %65, label %66, label %77
+  br i1 %65, label %66, label %76
 
 66:                                               ; preds = %_ZN4moldL13zlib_compressESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i.i.i.i.i
+  %.neg2.i.i.i.i.i = sub nsw i64 0, %62
   %67 = ptrtoint ptr %.sroa.15.0.i.i.i.i.i.i.i.i.i.i to i64
   %68 = sub i64 %67, %50
   %69 = icmp sgt i64 %52, -1
@@ -2190,55 +2190,54 @@ _ZN4moldL13zlib_compressESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i
   %71 = icmp ule i64 %68, %70
   call void @llvm.assume(i1 %71)
   %.not23.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %68, %.neg2.i.i.i.i.i
-  br i1 %.not23.i.i.i.i.i.i.i.i.i.i.i.i, label %76, label %72
+  br i1 %.not23.i.i.i.i.i.i.i.i.i.i.i.i, label %75, label %72
 
 72:                                               ; preds = %66
   store i8 0, ptr %49, align 1, !tbaa !71
   %73 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %74 = xor i64 %62, -1
-  %75 = getelementptr i8, ptr %49, i64 %.neg2.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %73, i8 0, i64 %74, i1 false)
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
 
-76:                                               ; preds = %66
+75:                                               ; preds = %66
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #18
   unreachable
 
-77:                                               ; preds = %_ZN4moldL13zlib_compressESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i.i.i.i.i
-  %78 = icmp ult i64 %64, %52
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, i64 %64
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %78, ptr %79, ptr %49
+76:                                               ; preds = %_ZN4moldL13zlib_compressESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i.i.i.i.i
+  %77 = icmp ult i64 %64, %52
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, i64 %64
+  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %77, ptr %78, ptr %49
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
 
-_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %77, %72
-  %.sroa.9.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ %75, %72 ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %77 ]
-  %80 = call i32 @deflateEnd(ptr noundef nonnull %2) #16
+_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %76, %72
+  %.sroa.9.0.i.i.i.i.i.i.i.i.i.i = phi ptr [ %49, %72 ], [ %spec.select.i.i.i.i.i.i.i.i.i.i, %76 ]
+  %79 = call i32 @deflateEnd(ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !178
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !178
-  %81 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !29
-  %83 = getelementptr inbounds nuw %"class.std::vector.15", ptr %82, i64 %storemerge4.i.i.i.i.i
-  %84 = load ptr, ptr %83, align 8, !tbaa !30
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !33
-  store ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, ptr %83, align 8, !tbaa !30
-  store ptr %.sroa.9.0.i.i.i.i.i.i.i.i.i.i, ptr %85, align 8, !tbaa !105
-  store ptr %.sroa.15.0.i.i.i.i.i.i.i.i.i.i, ptr %86, align 8, !tbaa !33
-  %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %84, null
-  br i1 %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", label %88
+  %80 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %81 = load ptr, ptr %80, align 8, !tbaa !29
+  %82 = getelementptr inbounds nuw %"class.std::vector.15", ptr %81, i64 %storemerge4.i.i.i.i.i
+  %83 = load ptr, ptr %82, align 8, !tbaa !30
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !33
+  store ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, ptr %82, align 8, !tbaa !30
+  store ptr %.sroa.9.0.i.i.i.i.i.i.i.i.i.i, ptr %84, align 8, !tbaa !105
+  store ptr %.sroa.15.0.i.i.i.i.i.i.i.i.i.i, ptr %85, align 8, !tbaa !33
+  %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
+  br i1 %.not.i.i.i.i.i5.i.i.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", label %87
 
-88:                                               ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
-  %89 = ptrtoint ptr %87 to i64
-  %90 = ptrtoint ptr %84 to i64
-  %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %84, i64 noundef %91) #17
+87:                                               ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
+  %88 = ptrtoint ptr %86 to i64
+  %89 = ptrtoint ptr %83 to i64
+  %90 = sub i64 %88, %89
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %90) #17
   br label %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i"
 
-"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i": ; preds = %88, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
-  %92 = add i64 %.05.i.i.i.i.i, 1
-  %93 = add nsw i64 %storemerge4.i.i.i.i.i, %6
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %92, %.0.val
+"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i": ; preds = %87, %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i
+  %91 = add i64 %.05.i.i.i.i.i, 1
+  %92 = add nsw i64 %storemerge4.i.i.i.i.i, %6
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %91, %.0.val
   br i1 %exitcond.not.i.i.i.i.i, label %"_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit", label %16, !llvm.loop !188
 
 "_ZN3tbb6detail2d06invokeIRKNS0_2d125parallel_for_body_wrapperIZN4mold14ZlibCompressorC1EPhlE3$_0lEEJRNS3_13blocked_rangeIlEEEEENSt13invoke_resultIT_JDpT0_EE4typeEOSG_DpOSH_.exit": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold14ZlibCompressorC1EPhlE3$_0JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSB_DpOSC_.exit.i.i.i.i.i", %1
@@ -3465,7 +3464,7 @@ _ZN4moldL13zstd_compressESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i
 41:                                               ; preds = %34
   store i8 0, ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1, !tbaa !71
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 1
-  %43 = add i64 %35, -1
+  %43 = add nsw i64 %35, -1
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %_ZNSt6vectorIhSaIhEE6resizeEm.exit.i.i.i.i.i.i.i.i.i.i, label %45
 

@@ -117,8 +117,8 @@ define range(i32 -11, 256) i32 @nxsig_timedwait(ptr noundef %0, ptr noundef writ
   store ptr %54, ptr %55, align 8
   %56 = load ptr, ptr @g_waitingforsignal, align 8
   %.not62 = icmp eq ptr %56, null
-  %g_waitingforsignal.72 = select i1 %.not62, ptr @g_waitingforsignal, ptr %54
-  store ptr %6, ptr %g_waitingforsignal.72, align 8
+  %g_waitingforsignal.77 = select i1 %.not62, ptr @g_waitingforsignal, ptr %54
+  store ptr %6, ptr %g_waitingforsignal.77, align 8
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @g_waitingforsignal, i64 8), align 8
   br i1 %52, label %57, label %59
 

@@ -182,8 +182,8 @@ define internal i64 @subfile_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2
   unreachable
 
 .sink.split:                                      ; preds = %16, %21
-  %.sink31 = phi i64 [ 32, %21 ], [ 16, %16 ]
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink31
+  %.sink35 = phi i64 [ 32, %21 ], [ 16, %16 ]
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink35
   %24 = load i64, ptr %23, align 8, !tbaa !24
   br label %25
 

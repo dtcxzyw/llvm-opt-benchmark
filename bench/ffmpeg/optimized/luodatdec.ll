@@ -129,7 +129,7 @@ define internal i32 @dat_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %36, label %._crit_edge.thread, label %45
 
 ._crit_edge.thread:                               ; preds = %34, %._crit_edge
-  %.056.lcssa73 = phi i32 [ %.056.lcssa, %._crit_edge ], [ %25, %34 ]
+  %.056.lcssa78 = phi i32 [ %.056.lcssa, %._crit_edge ], [ %25, %34 ]
   %37 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #4
   %.not61.not = icmp eq ptr %37, null
   br i1 %.not61.not, label %.critedge, label %38
@@ -151,7 +151,7 @@ define internal i32 @dat_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %45
 
 45:                                               ; preds = %38, %._crit_edge
-  %.056.lcssa72 = phi i32 [ %.056.lcssa73, %38 ], [ %.056.lcssa, %._crit_edge ]
+  %.056.lcssa77 = phi i32 [ %.056.lcssa78, %38 ], [ %.056.lcssa, %._crit_edge ]
   %46 = phi i32 [ %.pre, %38 ], [ %25, %._crit_edge ]
   %.not62 = icmp ult i32 %18, %46
   br i1 %.not62, label %48, label %47
@@ -171,7 +171,7 @@ define internal i32 @dat_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %20, ptr %53, align 8, !tbaa !50
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %.056.lcssa72, ptr %54, align 4, !tbaa !51
+  store i32 %.056.lcssa77, ptr %54, align 4, !tbaa !51
   br i1 %16, label %55, label %.critedge
 
 55:                                               ; preds = %51

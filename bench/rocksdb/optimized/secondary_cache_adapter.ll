@@ -1379,14 +1379,14 @@ _ZTWN7rocksdb10perf_levelE.exit52:                ; preds = %101, %102
   br i1 %.not.i53, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %105, %91
-  %.sink66.ph = phi i64 [ 64, %91 ], [ 56, %105 ]
+  %.sink71.ph = phi i64 [ 64, %91 ], [ 56, %105 ]
   call void @_ZTHN7rocksdb12perf_contextE()
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %105, %91
-  %.sink66 = phi i64 [ 64, %91 ], [ 56, %105 ], [ %.sink66.ph, %.sink.split.sink.split ]
+  %.sink71 = phi i64 [ 64, %91 ], [ 56, %105 ], [ %.sink71.ph, %.sink.split.sink.split ]
   %106 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.sink66
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.sink71
   %108 = load i64, ptr %107, align 8, !tbaa !52
   %109 = add i64 %108, 1
   store i64 %109, ptr %107, align 8, !tbaa !52
@@ -3586,9 +3586,9 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit13
 
 _ZN7rocksdb6StatusD2Ev.exit13:                    ; preds = %_ZN7rocksdb9MutexLockD2Ev.exit10.thread, %_ZN7rocksdb9MutexLockD2Ev.exit10, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i12
-  %.pn.pn18 = phi { ptr, i32 } [ %49, %_ZN7rocksdb9MutexLockD2Ev.exit10.thread ], [ %.pn, %_ZN7rocksdb9MutexLockD2Ev.exit10 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i12 ]
+  %.pn.pn21 = phi { ptr, i32 } [ %49, %_ZN7rocksdb9MutexLockD2Ev.exit10.thread ], [ %.pn, %_ZN7rocksdb9MutexLockD2Ev.exit10 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i12 ]
   store ptr null, ptr %6, align 8, !tbaa !97
-  resume { ptr, i32 } %.pn.pn18
+  resume { ptr, i32 } %.pn.pn21
 
 63:                                               ; preds = %3
   store i64 0, ptr %2, align 8, !tbaa !52
@@ -7504,7 +7504,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit22
 
 _ZN7rocksdb6StatusD2Ev.exit22:                    ; preds = %120, %122, %129, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21
-  %.pn935 = phi { ptr, i32 } [ %.pn9, %129 ], [ %.pn9, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21 ], [ %121, %120 ], [ %123, %122 ]
+  %.pn944 = phi { ptr, i32 } [ %.pn9, %129 ], [ %.pn9, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i21 ], [ %121, %120 ], [ %123, %122 ]
   store ptr null, ptr %7, align 8, !tbaa !97
   %131 = load ptr, ptr %5, align 8, !tbaa !217
   %.not.i23 = icmp eq ptr %131, null
@@ -7519,7 +7519,7 @@ _ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandl
 
 _ZNSt10unique_ptrIN7rocksdb23CacheReservationManager22CacheReservationHandleESt14default_deleteIS2_EED2Ev.exit25: ; preds = %_ZN7rocksdb6StatusD2Ev.exit22, %_ZNKSt14default_deleteIN7rocksdb23CacheReservationManager22CacheReservationHandleEEclEPS2_.exit.i24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %.pn935
+  resume { ptr, i32 } %.pn944
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

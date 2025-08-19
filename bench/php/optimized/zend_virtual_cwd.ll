@@ -1376,16 +1376,16 @@ define dso_local i32 @virtual_chdir_file(ptr noundef readonly captures(none) %0,
 
 19:                                               ; preds = %.thread, %15
   %20 = phi i64 [ %14, %.thread ], [ %.056, %15 ]
-  %.167 = phi i64 [ %spec.select, %.thread ], [ %6, %15 ]
+  %.169 = phi i64 [ %spec.select, %.thread ], [ %6, %15 ]
   %21 = alloca i8, i64 %20, align 16
   br label %22
 
 22:                                               ; preds = %17, %19
   %23 = phi i1 [ false, %19 ], [ true, %17 ]
-  %.166 = phi i64 [ %.167, %19 ], [ %6, %17 ]
+  %.168 = phi i64 [ %.169, %19 ], [ %6, %17 ]
   %24 = phi ptr [ %21, %19 ], [ %18, %17 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %0, i64 %.166, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.166
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %0, i64 %.168, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.168
   store i8 0, ptr %25, align 1, !tbaa !11
   %26 = call i32 %1(ptr noundef %24) #22
   br i1 %23, label %27, label %28, !prof !35

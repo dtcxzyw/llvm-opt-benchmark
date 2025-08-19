@@ -1178,8 +1178,7 @@ default.unreachable:                              ; preds = %1
   br label %18
 
 18:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h0b0d3873850071c6E.exit", %15
-  %.sroa.0.0 = phi i8 [ 2, %15 ], [ %.sroa.0.0.i, %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h0b0d3873850071c6E.exit" ]
-  ret i8 %.sroa.0.0
+  ret i8 %.sroa.0.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14939,8 +14938,8 @@ define hidden void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.130333
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx13, align 1, !alias.scope !3792
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !3792
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.13033308200869021913.exit
 
 15:                                               ; preds = %6
@@ -14952,13 +14951,13 @@ define hidden void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.130333
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !3792
+  %.sroa.0.1..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx13, align 1, !alias.scope !3792
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx14, align 2, !alias.scope !3792
+  %.sroa.0.2..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx15, align 2, !alias.scope !3792
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.13033308200869021913.exit
 
 26:                                               ; preds = %6
@@ -16701,9 +16700,6 @@ define hidden void @"_ZN64_$LT$zbus..match_rule..MatchRule$u20$as$u20$core..hash
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !4018
   br i1 %29, label %31, label %32
 
-default.unreachable:                              ; preds = %175, %132, %84, %67
-  unreachable
-
 31:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !4023
   store i8 %28, ptr %25, align 1, !noalias !4023
@@ -16732,18 +16728,18 @@ default.unreachable:                              ; preds = %175, %132, %84, %67
   %38 = load i64, ptr %37, align 8, !range !23, !alias.scope !4031, !noalias !4040, !noundef !5
   br i1 %trunc.i, label %40, label %39
 
-default.unreachable23:                            ; preds = %105, %104, %40, %39
+default.unreachable29:                            ; preds = %175, %132, %105, %104, %84, %67, %40, %39
   unreachable
 
 39:                                               ; preds = %36
-  switch i64 %38, label %default.unreachable23 [
+  switch i64 %38, label %default.unreachable29 [
     i64 0, label %41
     i64 1, label %44
     i64 2, label %47
   ]
 
 40:                                               ; preds = %36
-  switch i64 %38, label %default.unreachable23 [
+  switch i64 %38, label %default.unreachable29 [
     i64 0, label %52
     i64 1, label %55
     i64 2, label %58
@@ -16815,7 +16811,7 @@ default.unreachable23:                            ; preds = %105, %104, %40, %39
   br i1 %65, label %67, label %68
 
 67:                                               ; preds = %"_ZN66_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..hash..Hash$GT$4hash17h80f0196de806a0bdE.exit"
-  switch i64 %64, label %default.unreachable [
+  switch i64 %64, label %default.unreachable29 [
     i64 0, label %73
     i64 1, label %76
     i64 2, label %79
@@ -16860,7 +16856,7 @@ default.unreachable23:                            ; preds = %105, %104, %40, %39
   br label %68
 
 84:                                               ; preds = %68
-  switch i64 %70, label %default.unreachable [
+  switch i64 %70, label %default.unreachable29 [
     i64 0, label %90
     i64 1, label %93
     i64 2, label %96
@@ -16916,14 +16912,14 @@ default.unreachable23:                            ; preds = %105, %104, %40, %39
   br i1 %trunc.i7, label %105, label %104
 
 104:                                              ; preds = %101
-  switch i64 %103, label %default.unreachable23 [
+  switch i64 %103, label %default.unreachable29 [
     i64 0, label %106
     i64 1, label %109
     i64 2, label %112
   ]
 
 105:                                              ; preds = %101
-  switch i64 %103, label %default.unreachable23 [
+  switch i64 %103, label %default.unreachable29 [
     i64 0, label %117
     i64 1, label %120
     i64 2, label %123
@@ -16995,7 +16991,7 @@ default.unreachable23:                            ; preds = %105, %104, %40, %39
   br i1 %130, label %132, label %133
 
 132:                                              ; preds = %"_ZN63_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..hash..Hash$GT$4hash17hbc7e86dfcea45e79E.exit"
-  switch i64 %129, label %default.unreachable [
+  switch i64 %129, label %default.unreachable29 [
     i64 0, label %164
     i64 1, label %167
     i64 2, label %170
@@ -17126,7 +17122,7 @@ _ZN4core4hash4Hash10hash_slice17h94648a2c89516f28E.exit: ; preds = %.lr.ph.i16, 
   br label %133
 
 175:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17h94648a2c89516f28E.exit
-  switch i64 %161, label %default.unreachable [
+  switch i64 %161, label %default.unreachable29 [
     i64 0, label %177
     i64 1, label %180
     i64 2, label %183
@@ -19820,7 +19816,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN81_$LT$async_channel..Receiver$LT$T
 
 .critedge:                                        ; preds = %49, %.loopexit
   %5 = tail call noundef zeroext i1 @"_ZN78_$LT$event_listener..EventListener$u20$as$u20$core..future..future..Future$GT$4poll17h7785585210ae04a7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %5, label %.loopexit30, label %6
+  br i1 %5, label %.loopexit29, label %6
 
 6:                                                ; preds = %.critedge
   %7 = load ptr, ptr %2, align 8, !alias.scope !4749, !noundef !5
@@ -19949,7 +19945,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN81_$LT$async_channel..Receiver$LT$T
 "_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h3d56381a6ee9d716E.exit18": ; preds = %62, %52, %66, %39, %28, %43
   %.sroa.0.1 = phi i8 [ 1, %43 ], [ 1, %28 ], [ 1, %39 ], [ 0, %66 ], [ 0, %52 ], [ 0, %62 ]
   store ptr null, ptr %2, align 8
-  br label %.loopexit30
+  br label %.loopexit29
 
 48:                                               ; preds = %.body21, %.body26, %.body16, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body17, %.body16 ], [ %eh.lpad-body27, %.body26 ], [ %eh.lpad-body22, %.body21 ], [ %eh.lpad-body, %.body ]
@@ -20077,7 +20073,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN81_$LT$async_channel..Receiver$LT$T
   store ptr null, ptr %2, align 8
   br label %48
 
-.loopexit30:                                      ; preds = %.critedge, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h3d56381a6ee9d716E.exit18"
+.loopexit29:                                      ; preds = %.critedge, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h3d56381a6ee9d716E.exit18"
   %.sroa.0.0 = phi i8 [ %.sroa.0.1, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h3d56381a6ee9d716E.exit18" ], [ 2, %.critedge ]
   ret i8 %.sroa.0.0
 }

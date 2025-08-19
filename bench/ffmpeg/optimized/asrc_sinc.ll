@@ -655,12 +655,12 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
   br i1 %.not248.i, label %.critedge.i, label %.lr.ph300.i, !llvm.loop !73
 
 .critedge.loopexit.split.loop.exit.i:             ; preds = %.lr.ph300.i
-  %255 = trunc nsw i64 %indvars.iv334.i to i32
+  %255 = trunc nuw nsw i64 %indvars.iv334.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %254, %.critedge.loopexit.split.loop.exit.i, %.preheader.i, %.preheader255.i
-  %.0225.lcssa347.i = phi i32 [ %.1226.i, %.preheader.i ], [ 0, %.preheader255.i ], [ %.1226.i, %.critedge.loopexit.split.loop.exit.i ], [ %.1226.i, %254 ]
-  %.0231.lcssa346.i = phi double [ %232, %.preheader.i ], [ 0.000000e+00, %.preheader255.i ], [ %232, %.critedge.loopexit.split.loop.exit.i ], [ %232, %254 ]
+  %.0225.lcssa356.i = phi i32 [ %.1226.i, %.preheader.i ], [ 0, %.preheader255.i ], [ %.1226.i, %.critedge.loopexit.split.loop.exit.i ], [ %.1226.i, %254 ]
+  %.0231.lcssa355.i = phi double [ %232, %.preheader.i ], [ 0.000000e+00, %.preheader255.i ], [ %232, %.critedge.loopexit.split.loop.exit.i ], [ %232, %254 ]
   %.2237.lcssa.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader255.i ], [ %255, %.critedge.loopexit.split.loop.exit.i ], [ 0, %254 ]
   %256 = fcmp nsz une float %92, 0.000000e+00
   br i1 %256, label %257, label %thread-pre-split.i
@@ -745,7 +745,7 @@ fir_to_phase.exit:                                ; preds = %282, %thread-pre-sp
   %297 = load float, ptr %221, align 4, !tbaa !56
   %298 = fpext nsz float %297 to double
   %299 = fdiv nsz double %298, 0x400921FB54442D18
-  %300 = zext nneg i32 %.0225.lcssa347.i to i64
+  %300 = zext nneg i32 %.0225.lcssa356.i to i64
   %301 = getelementptr inbounds nuw float, ptr %102, i64 %300
   %302 = load float, ptr %301, align 4, !tbaa !56
   %303 = fpext nsz float %302 to double
@@ -756,7 +756,7 @@ fir_to_phase.exit:                                ; preds = %282, %thread-pre-sp
   %308 = fdiv nsz float %305, %307
   %309 = fsub nsz float 1.000000e+02, %308
   %310 = fpext nsz float %309 to double
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %5, i32 noundef 48, ptr noundef nonnull @.str.7, i32 noundef %.0223.lcssa.i, double noundef %299, i32 noundef %.2237.lcssa.i, double noundef %.0231.lcssa346.i, i32 noundef %.0225.lcssa347.i, double noundef %303, i32 noundef %.2, i32 noundef %296, double noundef %310) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %5, i32 noundef 48, ptr noundef nonnull @.str.7, i32 noundef %.0223.lcssa.i, double noundef %299, i32 noundef %.2237.lcssa.i, double noundef %.0231.lcssa355.i, i32 noundef %.0225.lcssa356.i, double noundef %303, i32 noundef %.2, i32 noundef %296, double noundef %310) #8
   call void @av_free(ptr noundef nonnull %102) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %311

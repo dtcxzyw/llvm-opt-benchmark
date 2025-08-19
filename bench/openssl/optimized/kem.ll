@@ -80,8 +80,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @evp_kem_init(ptr noundef %
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !32
   %27 = icmp eq ptr %25, %.pre
-  %or.cond164 = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond164, label %.critedge, label %28, !prof !33
+  %or.cond178 = select i1 %26, i1 true, i1 %27
+  br i1 %or.cond178, label %.critedge, label %28, !prof !33
 
 28:                                               ; preds = %23
   tail call void @ERR_new() #5

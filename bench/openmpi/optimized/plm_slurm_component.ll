@@ -106,9 +106,9 @@ define internal range(i32 -1, 1) i32 @prte_mca_plm_slurm_component_query(ptr nou
   br label %35
 
 35:                                               ; preds = %2, %18, %15, %34
-  %.sink17 = phi ptr [ @prte_plm_slurm_module, %34 ], [ null, %15 ], [ null, %18 ], [ null, %2 ]
+  %.sink20 = phi ptr [ @prte_plm_slurm_module, %34 ], [ null, %15 ], [ null, %18 ], [ null, %2 ]
   %.0 = phi i32 [ 0, %34 ], [ -1, %15 ], [ -1, %18 ], [ -1, %2 ]
-  store ptr %.sink17, ptr %0, align 8, !tbaa !26
+  store ptr %.sink20, ptr %0, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

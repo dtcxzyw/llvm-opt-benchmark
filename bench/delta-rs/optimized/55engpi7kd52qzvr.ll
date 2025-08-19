@@ -655,14 +655,14 @@ define hidden void @"_ZN12object_store11ObjectStore13delete_stream28_$u7b$$u7b$c
   %5 = alloca { i64, [9 x i64] }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %7 = load i8, ptr %6, align 8, !range !103, !noundef !4
-  switch i8 %7, label %default.unreachable30 [
+  switch i8 %7, label %default.unreachable32 [
     i8 0, label %8
     i8 1, label %27
     i8 2, label %28
     i8 3, label %10
   ]
 
-default.unreachable30:                            ; preds = %3
+default.unreachable32:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -857,14 +857,14 @@ define hidden void @"_ZN12object_store11ObjectStore13delete_stream28_$u7b$$u7b$c
   %6 = alloca { i64, [9 x i64] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %8 = load i8, ptr %7, align 8, !range !103, !noundef !4
-  switch i8 %8, label %default.unreachable32 [
+  switch i8 %8, label %default.unreachable35 [
     i8 0, label %9
     i8 1, label %33
     i8 2, label %34
     i8 3, label %11
   ]
 
-default.unreachable32:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 9:                                                ; preds = %3

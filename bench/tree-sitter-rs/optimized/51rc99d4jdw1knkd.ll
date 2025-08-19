@@ -852,14 +852,14 @@ _ZN4core3str11validations15next_code_point17hbcbfb891ad6146c9E.exit.thread: ; pr
   br i1 %94, label %.backedge.i, label %.backedge.sink.split.i
 
 .backedge.sink.split.i:                           ; preds = %162, %150, %125
-  %.sink92.i = phi i64 [ 0, %125 ], [ %108, %150 ], [ 0, %162 ]
-  %.ph91.i = phi i64 [ %111, %125 ], [ %109, %150 ], [ %163, %162 ]
-  store i64 %.sink92.i, ptr %92, align 8, !alias.scope !240, !noalias !247
+  %.sink102.i = phi i64 [ 0, %125 ], [ %108, %150 ], [ 0, %162 ]
+  %.ph101.i = phi i64 [ %111, %125 ], [ %109, %150 ], [ %163, %162 ]
+  store i64 %.sink102.i, ptr %92, align 8, !alias.scope !240, !noalias !247
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %162, %150, %.backedge.sink.split.i, %125
-  %126 = phi i64 [ %114, %125 ], [ %114, %150 ], [ %114, %162 ], [ %.sink92.i, %.backedge.sink.split.i ]
-  %127 = phi i64 [ %111, %125 ], [ %109, %150 ], [ %163, %162 ], [ %.ph91.i, %.backedge.sink.split.i ]
+  %126 = phi i64 [ %114, %125 ], [ %114, %150 ], [ %114, %162 ], [ %.sink102.i, %.backedge.sink.split.i ]
+  %127 = phi i64 [ %111, %125 ], [ %109, %150 ], [ %163, %162 ], [ %.ph101.i, %.backedge.sink.split.i ]
   %128 = add i64 %127, %100
   %.not39.i = icmp ult i64 %128, %13
   br i1 %.not39.i, label %113, label %.loopexit

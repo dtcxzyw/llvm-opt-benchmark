@@ -392,9 +392,9 @@ dt_confgen_value_exists.exit.thread:              ; preds = %2, %switch.lookup
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = tail call ptr @g_hash_table_lookup(ptr noundef %17, ptr noundef %0) #11
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %dt_confgen_get.exit, label %switch.lookup30
+  br i1 %.not.i, label %dt_confgen_get.exit, label %switch.lookup32
 
-switch.lookup30:                                  ; preds = %14
+switch.lookup32:                                  ; preds = %14
   %19 = shl nuw nsw i32 %1, 3
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
@@ -402,8 +402,8 @@ switch.lookup30:                                  ; preds = %14
   %23 = load ptr, ptr %22, align 8, !tbaa !53
   br label %dt_confgen_get.exit
 
-dt_confgen_get.exit:                              ; preds = %14, %switch.lookup30
-  %.0.i = phi ptr [ @.str.6, %14 ], [ %23, %switch.lookup30 ]
+dt_confgen_get.exit:                              ; preds = %14, %switch.lookup32
+  %.0.i = phi ptr [ @.str.6, %14 ], [ %23, %switch.lookup32 ]
   %24 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i) #11
   %25 = fcmp reassoc nsz arcp contract afn ord double %24, 0.000000e+00
   %26 = fcmp reassoc nsz arcp contract afn ogt double %24, 0.000000e+00
@@ -618,9 +618,9 @@ dt_confgen_value_exists.exit.thread:              ; preds = %2, %switch.lookup
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = tail call ptr @g_hash_table_lookup(ptr noundef %17, ptr noundef %0) #11
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %dt_confgen_get.exit, label %switch.lookup30
+  br i1 %.not.i, label %dt_confgen_get.exit, label %switch.lookup32
 
-switch.lookup30:                                  ; preds = %14
+switch.lookup32:                                  ; preds = %14
   %19 = shl nuw nsw i32 %1, 3
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
@@ -628,8 +628,8 @@ switch.lookup30:                                  ; preds = %14
   %23 = load ptr, ptr %22, align 8, !tbaa !53
   br label %dt_confgen_get.exit
 
-dt_confgen_get.exit:                              ; preds = %14, %switch.lookup30
-  %.0.i = phi ptr [ @.str.6, %14 ], [ %23, %switch.lookup30 ]
+dt_confgen_get.exit:                              ; preds = %14, %switch.lookup32
+  %.0.i = phi ptr [ @.str.6, %14 ], [ %23, %switch.lookup32 ]
   %24 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i) #11
   switch i32 %1, label %35 [
     i32 1, label %25
@@ -842,16 +842,16 @@ dt_confgen_get.exit.thread:                       ; preds = %13, %dt_confgen_get
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %dt_confgen_get.exit.thread
-  %.sink24 = phi ptr [ %20, %dt_confgen_get.exit.thread ], [ %22, %21 ]
+  %.sink27 = phi ptr [ %20, %dt_confgen_get.exit.thread ], [ %22, %21 ]
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4136
   %25 = load ptr, ptr %24, align 8, !tbaa !51
   %26 = tail call noalias ptr @g_strdup(ptr noundef %0) #11
-  %27 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef %26, ptr noundef %.sink24) #11
+  %27 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef %26, ptr noundef %.sink27) #11
   br label %28
 
 28:                                               ; preds = %.sink.split, %8, %1
-  %.014 = phi ptr [ %7, %1 ], [ %12, %8 ], [ %.sink24, %.sink.split ]
+  %.014 = phi ptr [ %7, %1 ], [ %12, %8 ], [ %.sink27, %.sink.split ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 56), align 8, !tbaa !6
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef %29) #11
   ret ptr %.014
@@ -998,9 +998,9 @@ dt_confgen_value_exists.exit.thread:              ; preds = %2, %switch.lookup
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = tail call ptr @g_hash_table_lookup(ptr noundef %17, ptr noundef %0) #11
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %dt_confgen_get.exit, label %switch.lookup22
+  br i1 %.not.i, label %dt_confgen_get.exit, label %switch.lookup24
 
-switch.lookup22:                                  ; preds = %14
+switch.lookup24:                                  ; preds = %14
   %19 = shl nuw nsw i32 %1, 3
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
@@ -1008,8 +1008,8 @@ switch.lookup22:                                  ; preds = %14
   %23 = load ptr, ptr %22, align 8, !tbaa !53
   br label %dt_confgen_get.exit
 
-dt_confgen_get.exit:                              ; preds = %14, %switch.lookup22
-  %.0.i = phi ptr [ @.str.6, %14 ], [ %23, %switch.lookup22 ]
+dt_confgen_get.exit:                              ; preds = %14, %switch.lookup24
+  %.0.i = phi ptr [ @.str.6, %14 ], [ %23, %switch.lookup24 ]
   %24 = tail call reassoc nsz arcp contract afn double @dt_calculator_solve(double noundef 1.000000e+00, ptr noundef %.0.i) #11
   %25 = fcmp reassoc nsz arcp contract afn ord double %24, 0.000000e+00
   %26 = fptrunc reassoc nsz arcp contract afn double %24 to float

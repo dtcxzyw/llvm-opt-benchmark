@@ -1823,14 +1823,14 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted.i = load i64, ptr %57, align 8, !alias.scope !66, !noalias !63
   %.promoted116.i = load ptr, ptr %1, align 8, !alias.scope !66, !noalias !63
-  br label %.outer220
+  br label %.outer242
 
-.outer220:                                        ; preds = %94, %.noexc.i
-  %.ph221 = phi ptr [ %89, %94 ], [ %.promoted116.i, %.noexc.i ]
-  %.ph222 = phi i64 [ %88, %94 ], [ %.promoted.i, %.noexc.i ]
+.outer242:                                        ; preds = %94, %.noexc.i
+  %.ph243 = phi ptr [ %89, %94 ], [ %.promoted116.i, %.noexc.i ]
+  %.ph244 = phi i64 [ %88, %94 ], [ %.promoted.i, %.noexc.i ]
   br label %58
 
-58:                                               ; preds = %.outer220, %146
+58:                                               ; preds = %.outer242, %146
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !74
   %59 = load ptr, ptr %.sroa.433.0..sroa_idx.i, align 8, !alias.scope !72, !noalias !76, !nonnull !3, !noundef !3
   %60 = load i64, ptr %.sroa.534.0..sroa_idx.i, align 8, !alias.scope !72, !noalias !76, !noundef !3
@@ -1913,16 +1913,16 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.ph222, i64 %81)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %.ph244, i64 %81)
   %83 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, 1
   br i1 %83, label %84, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf38b941a6de95bfdE.exit.i.i.i.i.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf38b941a6de95bfdE.exit.i.i.i.i.i.i": ; preds = %79
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull readonly align 1 %.ph221, i64 range(i64 2, 1) %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, i1 false), !alias.scope !101, !noalias !105
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull readonly align 1 %.ph243, i64 range(i64 2, 1) %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, i1 false), !alias.scope !101, !noalias !105
   br label %87
 
 84:                                               ; preds = %79
-  %85 = load i8, ptr %.ph221, align 1, !noalias !107, !noundef !3
+  %85 = load i8, ptr %.ph243, align 1, !noalias !107, !noundef !3
   store i8 %85, ptr %82, align 1, !alias.scope !108, !noalias !105
   br label %87
 
@@ -1934,8 +1934,8 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   unreachable
 
 87:                                               ; preds = %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf38b941a6de95bfdE.exit.i.i.i.i.i.i"
-  %88 = sub nuw i64 %.ph222, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
-  %89 = getelementptr inbounds nuw i8, ptr %.ph221, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
+  %88 = sub nuw i64 %.ph244, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %.ph243, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i
   store ptr %89, ptr %1, align 8, !alias.scope !109, !noalias !110
   store i64 %88, ptr %57, align 8, !alias.scope !109, !noalias !110
   %90 = add i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, %74
@@ -1951,11 +1951,11 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   %95 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, 0
   %96 = zext i1 %95 to i8
   store i8 %96, ptr %54, align 4, !alias.scope !77, !noalias !78
-  br i1 %95, label %.loopexit7.i.i, label %.outer220
+  br i1 %95, label %.loopexit7.i.i, label %.outer242
 
 .loopexit7.i.i:                                   ; preds = %72, %72, %94, %143
-  %.promoted118.i = phi ptr [ %.ph221, %143 ], [ %.ph221, %72 ], [ %.ph221, %72 ], [ %89, %94 ]
-  %.promoted117.i = phi i64 [ %.ph222, %143 ], [ %.ph222, %72 ], [ %.ph222, %72 ], [ %88, %94 ]
+  %.promoted118.i = phi ptr [ %.ph243, %143 ], [ %.ph243, %72 ], [ %.ph243, %72 ], [ %89, %94 ]
+  %.promoted117.i = phi i64 [ %.ph244, %143 ], [ %.ph244, %72 ], [ %.ph244, %72 ], [ %88, %94 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %21, ptr noundef nonnull align 8 dereferenceable(304) %33, i64 304, i1 false), !noalias !74
   %97 = invoke noundef nonnull ptr @_ZN5wasmi6module7builder19ModuleHeaderBuilder6finish17hf376780ff696020bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(304) %21)
@@ -2080,12 +2080,12 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   br label %58
 
 .loopexit.i.i.loopexit:                           ; preds = %58, %98, %100, %106, %108, %110, %112, %114, %116, %118, %120, %124, %126, %137, %144, %145
-  %lpad.loopexit223 = landingpad { ptr, i32 }
+  %lpad.loopexit245 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
 
 .loopexit.i.i.loopexit.split-lp:                  ; preds = %73
-  %lpad.loopexit.split-lp224 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp246 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
 
@@ -2095,7 +2095,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.i.i.loopexit, %.loopexit.i.i.loopexit.split-lp, %.loopexit.split-lp.i.i
-  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit223, %.loopexit.i.i.loopexit ], [ %lpad.loopexit.split-lp224, %.loopexit.i.i.loopexit.split-lp ]
+  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ], [ %lpad.loopexit245, %.loopexit.i.i.loopexit ], [ %lpad.loopexit.split-lp246, %.loopexit.i.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$wasmi..module..builder..ModuleHeaderBuilder$GT$17h95b92fc7cebb2916E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %33) #13
           to label %.body.i unwind label %147, !noalias !66
 
@@ -2161,14 +2161,14 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   %.sroa.726.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.8.0..sroa_idx.i50.i = getelementptr inbounds nuw i8, ptr %16, i64 64
   %.sroa.9.8..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  br label %.outer195
+  br label %.outer217
 
-.outer195:                                        ; preds = %188, %152
+.outer217:                                        ; preds = %188, %152
   %.promoted120.i.ph = phi ptr [ %183, %188 ], [ %.promoted118.i, %152 ]
   %.promoted119.i.ph = phi i64 [ %182, %188 ], [ %.promoted117.i, %152 ]
   br label %153
 
-153:                                              ; preds = %.outer195, %202
+153:                                              ; preds = %.outer217, %202
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !116
   %154 = load ptr, ptr %.sroa.433.0..sroa_idx.i, align 8, !alias.scope !114, !noalias !119, !nonnull !3, !noundef !3
   %155 = load i64, ptr %.sroa.534.0..sroa_idx.i, align 8, !alias.scope !114, !noalias !119, !noundef !3
@@ -2262,7 +2262,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   %189 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i56.i, 0
   %190 = zext i1 %189 to i8
   store i8 %190, ptr %54, align 4, !alias.scope !120, !noalias !121
-  br label %.outer195
+  br label %.outer217
 
 .loopexit.i:                                      ; preds = %199, %203
   %.sink.i.i = phi ptr [ %164, %203 ], [ %198, %199 ]
@@ -2329,12 +2329,12 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   br label %._crit_edge.i
 
 .loopexit.i51.i.loopexit:                         ; preds = %153, %191, %195, %200, %201
-  %lpad.loopexit196 = landingpad { ptr, i32 }
+  %lpad.loopexit218 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i51.i
 
 .loopexit.i51.i.loopexit.split-lp:                ; preds = %167
-  %lpad.loopexit.split-lp197 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp219 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i51.i
 
@@ -2344,7 +2344,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   br label %.loopexit.i51.i
 
 .loopexit.i51.i:                                  ; preds = %.loopexit.i51.i.loopexit, %.loopexit.i51.i.loopexit.split-lp, %.loopexit.split-lp.i58.i
-  %lpad.phi.i53.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i59.i, %.loopexit.split-lp.i58.i ], [ %lpad.loopexit196, %.loopexit.i51.i.loopexit ], [ %lpad.loopexit.split-lp197, %.loopexit.i51.i.loopexit.split-lp ]
+  %lpad.phi.i53.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp.i59.i, %.loopexit.split-lp.i58.i ], [ %lpad.loopexit218, %.loopexit.i51.i.loopexit ], [ %lpad.loopexit.split-lp219, %.loopexit.i51.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$wasmi..module..custom_section..CustomSectionsBuilder$GT$17hdd618205b84607e8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %35) #13
           to label %209 unwind label %207, !noalias !153
 
@@ -2403,7 +2403,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
 
 .outer:                                           ; preds = %251, %213
   %.ph = phi ptr [ %246, %251 ], [ %.promoted120.i.ph, %213 ]
-  %.ph187 = phi i64 [ %245, %251 ], [ %.promoted119.i.ph, %213 ]
+  %.ph209 = phi i64 [ %245, %251 ], [ %.promoted119.i.ph, %213 ]
   br label %215
 
 215:                                              ; preds = %.outer, %272
@@ -2477,7 +2477,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   call void @llvm.experimental.noalias.scope.decl(metadata !177)
   call void @llvm.experimental.noalias.scope.decl(metadata !180)
   call void @llvm.experimental.noalias.scope.decl(metadata !183)
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i78.i = call noundef i64 @llvm.umin.i64(i64 %.ph187, i64 %238)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i78.i = call noundef i64 @llvm.umin.i64(i64 %.ph209, i64 %238)
   %240 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i78.i, 1
   br i1 %240, label %241, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf38b941a6de95bfdE.exit.i.i.i.i.i79.i"
 
@@ -2498,7 +2498,7 @@ define hidden { i64, ptr } @"_ZN5wasmi6module6parser9streaming53_$LT$impl$u20$wa
   unreachable
 
 244:                                              ; preds = %241, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf38b941a6de95bfdE.exit.i.i.i.i.i79.i"
-  %245 = sub nuw i64 %.ph187, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i78.i
+  %245 = sub nuw i64 %.ph209, %.sroa.0.0.sroa.speculated.i.i.i.i.i.i78.i
   %246 = getelementptr inbounds nuw i8, ptr %.ph, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i78.i
   store ptr %246, ptr %1, align 8, !alias.scope !193, !noalias !194
   store i64 %245, ptr %57, align 8, !alias.scope !193, !noalias !194

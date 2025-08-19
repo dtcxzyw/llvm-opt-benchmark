@@ -609,10 +609,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h20b5a72d5ceeb8daE"
   unreachable
 
 ._crit_edge.thread.i:                             ; preds = %39, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h468a465c3960d531E.exit.i"
-  %.sroa.0.0.lcssa26.i = phi ptr [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h468a465c3960d531E.exit.i" ], [ %43, %39 ]
-  %storemerge.lcssa25.i = phi i64 [ %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h468a465c3960d531E.exit.i" ], [ %29, %39 ]
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.lcssa26.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %37 = add i64 %storemerge.lcssa25.i, 1
+  %.sroa.0.0.lcssa27.i = phi ptr [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h468a465c3960d531E.exit.i" ], [ %43, %39 ]
+  %storemerge.lcssa26.i = phi i64 [ %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h468a465c3960d531E.exit.i" ], [ %29, %39 ]
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.lcssa27.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %37 = add i64 %storemerge.lcssa26.i, 1
   store i64 %37, ptr %7, align 8, !alias.scope !61, !noalias !64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %67

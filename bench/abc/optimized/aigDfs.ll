@@ -691,9 +691,9 @@ Vec_PtrPush.exit43:                               ; preds = %.Vec_PtrGrow.exit11
 
 .sink.split:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit36, %Vec_PtrPush.exit43
   %.sink = phi i32 [ %109, %Vec_PtrPush.exit43 ], [ %71, %Vec_PtrPush.exit36 ], [ %37, %Vec_PtrPush.exit ]
-  %.sink46 = phi ptr [ %108, %Vec_PtrPush.exit43 ], [ %70, %Vec_PtrPush.exit36 ], [ %36, %Vec_PtrPush.exit ]
+  %.sink54 = phi ptr [ %108, %Vec_PtrPush.exit43 ], [ %70, %Vec_PtrPush.exit36 ], [ %36, %Vec_PtrPush.exit ]
   %111 = sext i32 %.sink to i64
-  %112 = getelementptr inbounds ptr, ptr %.sink46, i64 %111
+  %112 = getelementptr inbounds ptr, ptr %.sink54, i64 %111
   store ptr %1, ptr %112, align 8, !tbaa !24
   br label %113
 
@@ -1779,9 +1779,9 @@ define void @Aig_ManDfsReverse_rec(ptr noundef readonly captures(none) %0, ptr n
   br label %22
 
 22:                                               ; preds = %19, %13
-  %.sink29 = phi i32 [ %21, %19 ], [ %18, %13 ]
+  %.sink32 = phi i32 [ %21, %19 ], [ %18, %13 ]
   %.val23.sink = load ptr, ptr %9, align 8, !tbaa !60
-  %23 = sext i32 %.sink29 to i64
+  %23 = sext i32 %.sink32 to i64
   %24 = getelementptr inbounds i32, ptr %.val23.sink, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !56
   %.val24 = load ptr, ptr %11, align 8, !tbaa !3

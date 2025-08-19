@@ -739,20 +739,20 @@ _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8:   ; preds = %39, %41
   %46 = mul nuw i128 %45, %29
   %47 = trunc i128 %46 to i64
   %.not5 = icmp ult i64 %26, %47
-  br i1 %.not5, label %.split, label %.split11.us.loopexit21, !llvm.loop !146
+  br i1 %.not5, label %.split, label %.split11.us.loopexit24, !llvm.loop !146
 
 .split11.us.loopexit:                             ; preds = %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8.us
   %extract = lshr i128 %36, 64
   %extract.t = trunc nuw i128 %extract to i64
   br label %.split11.us
 
-.split11.us.loopexit21:                           ; preds = %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8
-  %extract19 = lshr i128 %46, 64
-  %extract.t20 = trunc nuw i128 %extract19 to i64
+.split11.us.loopexit24:                           ; preds = %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8
+  %extract22 = lshr i128 %46, 64
+  %extract.t23 = trunc nuw i128 %extract22 to i64
   br label %.split11.us
 
-.split11.us:                                      ; preds = %.split11.us.loopexit21, %.split11.us.loopexit
-  %.sink.off64 = phi i64 [ %extract.t, %.split11.us.loopexit ], [ %extract.t20, %.split11.us.loopexit21 ]
+.split11.us:                                      ; preds = %.split11.us.loopexit24, %.split11.us.loopexit
+  %.sink.off64 = phi i64 [ %extract.t, %.split11.us.loopexit ], [ %extract.t23, %.split11.us.loopexit24 ]
   %48 = add i64 %.sink.off64, %6
   br label %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit
 
@@ -853,20 +853,20 @@ _ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9:   ; preds = %37, %39
   %44 = mul nuw i128 %43, %27
   %45 = trunc i128 %44 to i64
   %.not5 = icmp ult i64 %24, %45
-  br i1 %.not5, label %.split, label %.split12.us.loopexit22, !llvm.loop !164
+  br i1 %.not5, label %.split, label %.split12.us.loopexit25, !llvm.loop !164
 
 .split12.us.loopexit:                             ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9.us
   %extract = lshr i128 %34, 64
   %extract.t = trunc nuw i128 %extract to i64
   br label %.split12.us
 
-.split12.us.loopexit22:                           ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9
-  %extract20 = lshr i128 %44, 64
-  %extract.t21 = trunc nuw i128 %extract20 to i64
+.split12.us.loopexit25:                           ; preds = %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit9
+  %extract23 = lshr i128 %44, 64
+  %extract.t24 = trunc nuw i128 %extract23 to i64
   br label %.split12.us
 
-.split12.us:                                      ; preds = %.split12.us.loopexit22, %.split12.us.loopexit
-  %.sink.off64 = phi i64 [ %extract.t, %.split12.us.loopexit ], [ %extract.t21, %.split12.us.loopexit22 ]
+.split12.us:                                      ; preds = %.split12.us.loopexit25, %.split12.us.loopexit
+  %.sink.off64 = phi i64 [ %extract.t, %.split12.us.loopexit ], [ %extract.t24, %.split12.us.loopexit25 ]
   %46 = add i64 %.sink.off64, %0
   br label %_ZN4rand3rng3Rng3gen17h322ee71253d110a9E.exit
 
@@ -971,20 +971,20 @@ _ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8:   ; preds = %37, %39
   %44 = mul nuw i128 %43, %27
   %45 = trunc i128 %44 to i64
   %.not5 = icmp ult i64 %24, %45
-  br i1 %.not5, label %.split, label %.split11.us.loopexit21, !llvm.loop !185
+  br i1 %.not5, label %.split, label %.split11.us.loopexit24, !llvm.loop !185
 
 .split11.us.loopexit:                             ; preds = %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8.us
   %extract = lshr i128 %34, 64
   %extract.t = trunc nuw i128 %extract to i64
   br label %.split11.us
 
-.split11.us.loopexit21:                           ; preds = %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8
-  %extract19 = lshr i128 %44, 64
-  %extract.t20 = trunc nuw i128 %extract19 to i64
+.split11.us.loopexit24:                           ; preds = %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit8
+  %extract22 = lshr i128 %44, 64
+  %extract.t23 = trunc nuw i128 %extract22 to i64
   br label %.split11.us
 
-.split11.us:                                      ; preds = %.split11.us.loopexit21, %.split11.us.loopexit
-  %.sink.off64 = phi i64 [ %extract.t, %.split11.us.loopexit ], [ %extract.t20, %.split11.us.loopexit21 ]
+.split11.us:                                      ; preds = %.split11.us.loopexit24, %.split11.us.loopexit
+  %.sink.off64 = phi i64 [ %extract.t, %.split11.us.loopexit ], [ %extract.t23, %.split11.us.loopexit24 ]
   %46 = add i64 %.sink.off64, %0
   br label %_ZN4rand3rng3Rng3gen17h08539a07d67a01b9E.exit
 

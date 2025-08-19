@@ -209,9 +209,9 @@ switch.early.test:                                ; preds = %41
   br label %74
 
 74:                                               ; preds = %68, %68, %68, %68, %68, %73
-  %.sink120 = phi i16 [ 2, %73 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ]
+  %.sink127 = phi i16 [ 2, %73 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  store i16 %.sink120, ptr %75, align 8, !tbaa !72
+  store i16 %.sink127, ptr %75, align 8, !tbaa !72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %77 = load float, ptr %76, align 8, !tbaa !80
   %78 = fcmp reassoc nsz arcp contract afn olt float %77, 0x3FE6666660000000
@@ -2416,11 +2416,11 @@ _Z11sget4_ordersPh.exit:                          ; preds = %1030, %1028, %1008,
   br i1 %.0203, label %_Z11sget4_ordersPh.exit.thread, label %.thread361thread-pre-split
 
 .thread361thread-pre-split:                       ; preds = %.thread354, %1068, %1059, %.thread348, %869
-  %.pr486 = load i16, ptr %159, align 4, !tbaa !150
+  %.pr501 = load i16, ptr %159, align 4, !tbaa !150
   br label %.thread361
 
 .thread361:                                       ; preds = %.thread361thread-pre-split, %871
-  %1069 = phi i16 [ %.pr486, %.thread361thread-pre-split ], [ %875, %871 ]
+  %1069 = phi i16 [ %.pr501, %.thread361thread-pre-split ], [ %875, %871 ]
   %or.cond320 = icmp ult i16 %1069, 4
   br i1 %or.cond320, label %1070, label %_Z11sget4_ordersPh.exit.thread
 
@@ -2510,8 +2510,8 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1059,
   %1119 = getelementptr i8, ptr %1118, i64 16
   store ptr %1115, ptr %1119, align 8, !tbaa !133
   %1120 = load ptr, ptr %11, align 8, !tbaa !94
-  %.idx484 = mul nsw i64 %1117, 24
-  %1121 = getelementptr i8, ptr %67, i64 %.idx484
+  %.idx499 = mul nsw i64 %1117, 24
+  %1121 = getelementptr i8, ptr %67, i64 %.idx499
   %1122 = getelementptr i8, ptr %1121, i64 12
   %1123 = load i32, ptr %1122, align 4, !tbaa !132
   %1124 = zext i32 %1123 to i64

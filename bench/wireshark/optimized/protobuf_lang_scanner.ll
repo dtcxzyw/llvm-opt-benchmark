@@ -215,18 +215,18 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   %104 = sext i16 %103 to i32
   %105 = getelementptr i8, ptr %.11407, i64 1
   %.not1498 = icmp eq i16 %103, 186
-  br i1 %.not1498, label %.backedge.sink.split2662, label %67, !llvm.loop !8
+  br i1 %.not1498, label %.backedge.sink.split2818, label %67, !llvm.loop !8
 
-.backedge.sink.split2662:                         ; preds = %._crit_edge, %.backedge.sink.split2662.backedge
-  %.11414.ph = phi ptr [ %.11414.ph.be, %.backedge.sink.split2662.backedge ], [ %.01413, %._crit_edge ]
+.backedge.sink.split2818:                         ; preds = %._crit_edge, %.backedge.sink.split2818.backedge
+  %.11414.ph = phi ptr [ %.11414.ph.be, %.backedge.sink.split2818.backedge ], [ %.01413, %._crit_edge ]
   %106 = load ptr, ptr %55, align 8
   %107 = load i32, ptr %54, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split2662
-  %.11414 = phi ptr [ %.11414.ph, %.backedge.sink.split2662 ], [ %1800, %.backedge.backedge ]
-  %.21408 = phi ptr [ %106, %.backedge.sink.split2662 ], [ %1802, %.backedge.backedge ]
-  %.3 = phi i32 [ %107, %.backedge.sink.split2662 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split2818
+  %.11414 = phi ptr [ %.11414.ph, %.backedge.sink.split2818 ], [ %1800, %.backedge.backedge ]
+  %.21408 = phi ptr [ %106, %.backedge.sink.split2818 ], [ %1802, %.backedge.backedge ]
+  %.3 = phi i32 [ %107, %.backedge.sink.split2818 ], [ %.3.be, %.backedge.backedge ]
   %108 = sext i32 %.3 to i64
   %109 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %108
   %110 = load i16, ptr %109, align 2
@@ -376,7 +376,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 145:                                              ; preds = %.loopexit1866
   %146 = load i8, ptr %52, align 8
   store i8 %146, ptr %.21408, align 1
-  br label %.backedge.sink.split2662.backedge
+  br label %.backedge.sink.split2818.backedge
 
 147:                                              ; preds = %.loopexit1866
   %148 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
@@ -2508,11 +2508,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
   %1549 = and i64 %.lcssa.i1822, 9223372036854775807
   %.not15021861 = icmp eq i64 %1549, 0
   %.not1502 = or i1 %1548, %.not15021861
-  br i1 %.not1502, label %.backedge.sink.split2662.backedge, label %1550
+  br i1 %.not1502, label %.backedge.sink.split2818.backedge, label %1550
 
-.backedge.sink.split2662.backedge:                ; preds = %yy_try_NUL_trans.exit, %145
+.backedge.sink.split2818.backedge:                ; preds = %yy_try_NUL_trans.exit, %145
   %.11414.ph.be = phi ptr [ %.11414, %145 ], [ %1478, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split2662
+  br label %.backedge.sink.split2818
 
 1550:                                             ; preds = %yy_try_NUL_trans.exit
   %1551 = sext i16 %1547 to i32
@@ -2792,10 +2792,10 @@ fread.inline.exit.i:                              ; preds = %1652, %1673
   br label %1679
 
 1679:                                             ; preds = %.critedge2.i, %1584
-  %.sink191.in.i = phi ptr [ %1678, %.critedge2.i ], [ %1585, %1584 ]
+  %.sink197.in.i = phi ptr [ %1678, %.critedge2.i ], [ %1585, %1584 ]
   %.sink.i = phi i32 [ %1675, %.critedge2.i ], [ 0, %1584 ]
-  %.sink191.i = load ptr, ptr %.sink191.in.i, align 8
-  %1680 = getelementptr inbounds nuw i8, ptr %.sink191.i, i64 28
+  %.sink197.i = load ptr, ptr %.sink197.in.i, align 8
+  %1680 = getelementptr inbounds nuw i8, ptr %.sink197.i, i64 28
   store i32 %.sink.i, ptr %1680, align 4
   %1681 = load i32, ptr %60, align 4
   %1682 = icmp eq i32 %1681, 0
@@ -2898,7 +2898,7 @@ yy_get_next_buffer.exit:                          ; preds = %1693, %1722
   %1747 = getelementptr inbounds nuw i8, ptr %1746, i64 8
   %1748 = load ptr, ptr %1747, align 8
   store ptr %1748, ptr %56, align 8
-  switch i32 %.0133.i, label %default.unreachable2411 [
+  switch i32 %.0133.i, label %default.unreachable2567 [
     i32 1, label %yy_get_previous_state.exit1842
     i32 0, label %1750
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge
@@ -2918,8 +2918,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge: ; preds = 
   %1752 = ptrtoint ptr %1444 to i64
   %1753 = xor i64 %1752, -1
   %1754 = add i64 %1753, %1751
-  %sext2512 = shl i64 %1754, 32
-  %1755 = ashr exact i64 %sext2512, 32
+  %sext2668 = shl i64 %1754, 32
+  %1755 = ashr exact i64 %sext2668, 32
   %1756 = getelementptr i8, ptr %1748, i64 %1755
   store ptr %1756, ptr %51, align 8
   %1757 = load i32, ptr %53, align 4
@@ -3088,7 +3088,7 @@ yy_get_next_buffer.exit.thread1859:               ; preds = %1566, %yy_get_next_
   %exitcond.not.i1856 = icmp eq ptr %1845, %1802
   br i1 %exitcond.not.i1856, label %.backedge.backedge, label %.lr.ph31.i1844, !llvm.loop !11
 
-default.unreachable2411:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable2567:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit1842:                   ; preds = %yy_get_next_buffer.exit, %1566
@@ -3106,9 +3106,9 @@ yy_get_previous_state.exit1842:                   ; preds = %yy_get_next_buffer.
   unreachable
 
 .loopexit1863.sink.split.sink.split:              ; preds = %1423, %1403, %1383, %1363, %1343, %1323, %1303, %1283, %1263, %1243, %1223, %1203, %1183, %1163, %1143, %1123, %1103, %1083, %1063, %1043, %1023, %1003, %983, %963, %943, %923, %903, %883, %863, %843, %823, %803, %783, %763, %743, %723, %703, %683, %663, %643, %623, %603, %583, %563, %543, %523, %503, %483, %463, %443, %423, %403, %383, %363, %343, %323, %303, %283, %263, %243, %223, %203, %183, %163
-  %.sink2511 = phi ptr [ %166, %163 ], [ %186, %183 ], [ %206, %203 ], [ %226, %223 ], [ %246, %243 ], [ %266, %263 ], [ %286, %283 ], [ %306, %303 ], [ %326, %323 ], [ %346, %343 ], [ %366, %363 ], [ %386, %383 ], [ %406, %403 ], [ %426, %423 ], [ %446, %443 ], [ %466, %463 ], [ %486, %483 ], [ %506, %503 ], [ %526, %523 ], [ %546, %543 ], [ %566, %563 ], [ %586, %583 ], [ %606, %603 ], [ %626, %623 ], [ %646, %643 ], [ %666, %663 ], [ %686, %683 ], [ %706, %703 ], [ %726, %723 ], [ %746, %743 ], [ %766, %763 ], [ %786, %783 ], [ %806, %803 ], [ %826, %823 ], [ %846, %843 ], [ %866, %863 ], [ %886, %883 ], [ %906, %903 ], [ %926, %923 ], [ %946, %943 ], [ %966, %963 ], [ %986, %983 ], [ %1006, %1003 ], [ %1026, %1023 ], [ %1046, %1043 ], [ %1066, %1063 ], [ %1086, %1083 ], [ %1106, %1103 ], [ %1126, %1123 ], [ %1146, %1143 ], [ %1166, %1163 ], [ %1186, %1183 ], [ %1206, %1203 ], [ %1226, %1223 ], [ %1246, %1243 ], [ %1266, %1263 ], [ %1286, %1283 ], [ %1306, %1303 ], [ %1326, %1323 ], [ %1346, %1343 ], [ %1366, %1363 ], [ %1386, %1383 ], [ %1406, %1403 ], [ %1426, %1423 ]
+  %.sink2667 = phi ptr [ %166, %163 ], [ %186, %183 ], [ %206, %203 ], [ %226, %223 ], [ %246, %243 ], [ %266, %263 ], [ %286, %283 ], [ %306, %303 ], [ %326, %323 ], [ %346, %343 ], [ %366, %363 ], [ %386, %383 ], [ %406, %403 ], [ %426, %423 ], [ %446, %443 ], [ %466, %463 ], [ %486, %483 ], [ %506, %503 ], [ %526, %523 ], [ %546, %543 ], [ %566, %563 ], [ %586, %583 ], [ %606, %603 ], [ %626, %623 ], [ %646, %643 ], [ %666, %663 ], [ %686, %683 ], [ %706, %703 ], [ %726, %723 ], [ %746, %743 ], [ %766, %763 ], [ %786, %783 ], [ %806, %803 ], [ %826, %823 ], [ %846, %843 ], [ %866, %863 ], [ %886, %883 ], [ %906, %903 ], [ %926, %923 ], [ %946, %943 ], [ %966, %963 ], [ %986, %983 ], [ %1006, %1003 ], [ %1026, %1023 ], [ %1046, %1043 ], [ %1066, %1063 ], [ %1086, %1083 ], [ %1106, %1103 ], [ %1126, %1123 ], [ %1146, %1143 ], [ %1166, %1163 ], [ %1186, %1183 ], [ %1206, %1203 ], [ %1226, %1223 ], [ %1246, %1243 ], [ %1266, %1263 ], [ %1286, %1283 ], [ %1306, %1303 ], [ %1326, %1323 ], [ %1346, %1343 ], [ %1366, %1363 ], [ %1386, %1383 ], [ %1406, %1403 ], [ %1426, %1423 ]
   %.0.ph.ph = phi i32 [ 28, %163 ], [ 29, %183 ], [ 33, %203 ], [ 34, %223 ], [ 31, %243 ], [ 32, %263 ], [ 35, %283 ], [ 36, %303 ], [ 37, %323 ], [ 38, %343 ], [ 39, %363 ], [ 40, %383 ], [ 25, %403 ], [ 41, %423 ], [ 42, %443 ], [ 43, %463 ], [ 44, %483 ], [ 45, %503 ], [ 46, %523 ], [ 47, %543 ], [ 48, %563 ], [ 49, %583 ], [ 50, %603 ], [ 51, %623 ], [ 52, %643 ], [ 53, %663 ], [ 54, %683 ], [ 55, %703 ], [ 56, %723 ], [ 26, %743 ], [ 30, %763 ], [ 57, %783 ], [ 58, %803 ], [ 59, %823 ], [ 60, %843 ], [ 2, %863 ], [ 3, %883 ], [ 4, %903 ], [ 5, %923 ], [ 6, %943 ], [ 7, %963 ], [ 8, %983 ], [ 9, %1003 ], [ 10, %1023 ], [ 11, %1043 ], [ 12, %1063 ], [ 13, %1083 ], [ 14, %1103 ], [ 15, %1123 ], [ 16, %1143 ], [ 17, %1163 ], [ 18, %1183 ], [ 19, %1203 ], [ 20, %1223 ], [ 21, %1243 ], [ 22, %1263 ], [ 23, %1283 ], [ 24, %1303 ], [ 61, %1323 ], [ 62, %1343 ], [ 63, %1363 ], [ 1, %1383 ], [ 27, %1403 ], [ 27, %1423 ]
-  %1852 = getelementptr inbounds nuw i8, ptr %.sink2511, i64 44
+  %1852 = getelementptr inbounds nuw i8, ptr %.sink2667, i64 44
   %1853 = load i32, ptr %1852, align 4
   br label %.loopexit1863.sink.split
 
@@ -3363,7 +3363,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr noundef captures(n
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @protobuf_lang_ensure_buffer_stack(ptr noundef %1)
@@ -3377,14 +3377,14 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr noundef captures(n
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #28
   %19 = load i32, ptr %18, align 4
   br label %protobuf_lang__flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -3395,7 +3395,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr noundef captures(n
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %protobuf_lang__flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3443,10 +3443,10 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr noundef captures(n
   store i8 %55, ptr %56, align 8
   br label %protobuf_lang__flush_buffer.exit.i
 
-protobuf_lang__flush_buffer.exit.i:               ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+protobuf_lang__flush_buffer.exit.i:               ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -3713,7 +3713,7 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr noundef 
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3738,23 +3738,23 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr noundef 
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

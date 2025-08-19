@@ -2754,8 +2754,8 @@ define linkonce_odr hidden noundef ptr @_ZNSt10_HashtableIN8nanobind6objectES1_S
   br i1 %12, label %.loopexit, label %.lr.ph, !llvm.loop !133
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %.01617 = phi ptr [ %13, %.preheader ], [ %4, %.preheader.preheader ]
-  %13 = load ptr, ptr %.01617, align 8, !tbaa !78
+  %.01618 = phi ptr [ %13, %.preheader ], [ %4, %.preheader.preheader ]
+  %13 = load ptr, ptr %.01618, align 8, !tbaa !78
   %.not14 = icmp eq ptr %13, null
   br i1 %.not14, label %..loopexit.loopexit_crit_edge, label %.preheader, !llvm.loop !133
 
@@ -2763,7 +2763,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt10_HashtableIN8nanobind6objectES1_S
   br label %.loopexit, !llvm.loop !133
 
 .loopexit:                                        ; preds = %.preheader, %.preheader.preheader, %..loopexit.loopexit_crit_edge, %2
-  %.012 = phi ptr [ null, %2 ], [ null, %..loopexit.loopexit_crit_edge ], [ %3, %.preheader.preheader ], [ %.01617, %.preheader ]
+  %.012 = phi ptr [ null, %2 ], [ null, %..loopexit.loopexit_crit_edge ], [ %3, %.preheader.preheader ], [ %.01618, %.preheader ]
   ret ptr %.012
 }
 

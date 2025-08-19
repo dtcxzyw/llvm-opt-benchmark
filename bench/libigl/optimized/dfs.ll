@@ -373,14 +373,14 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt14_Function_ba
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit29:                 ; preds = %.thread, %75, %77
-  %.pn70 = phi { ptr, i32 } [ %74, %.thread ], [ %76, %75 ], [ %76, %77 ]
+  %.pn82 = phi { ptr, i32 } [ %74, %.thread ], [ %76, %75 ], [ %76, %77 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre67 = load ptr, ptr %6, align 8, !tbaa !13
   br label %82
 
 82:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit29, %72
   %83 = phi ptr [ %.pre67, %_ZNSt14_Function_baseD2Ev.exit29 ], [ %38, %72 ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn70, %_ZNSt14_Function_baseD2Ev.exit29 ], [ %73, %72 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn82, %_ZNSt14_Function_baseD2Ev.exit29 ], [ %73, %72 ]
   %.not.i.i30 = icmp eq ptr %83, null
   br i1 %.not.i.i30, label %.body, label %84
 

@@ -262,8 +262,8 @@ define internal i32 @pnm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %.pre891 = load ptr, ptr %10, align 8, !tbaa !30
   %.pre892 = load ptr, ptr %14, align 8, !tbaa !34
   %126 = icmp ult ptr %.pre891, %.pre892
-  %or.cond925 = select i1 %125, i1 %126, i1 false
-  br i1 %or.cond925, label %.lr.ph740.preheader, label %.critedge
+  %or.cond974 = select i1 %125, i1 %126, i1 false
+  br i1 %or.cond974, label %.lr.ph740.preheader, label %.critedge
 
 .lr.ph740.preheader:                              ; preds = %122
   %.promoted739870 = ptrtoint ptr %.pre891 to i64
@@ -639,9 +639,9 @@ samplecpy.exit575:                                ; preds = %.lr.ph.i571, %.preh
   store i16 %310, ptr %311, align 2, !tbaa !49
   %indvars.iv.next.i581 = add nuw nsw i64 %indvars.iv.i580, 1
   %exitcond.not.i582 = icmp eq i64 %indvars.iv.next.i581, %wide.trip.count.i578
-  br i1 %exitcond.not.i582, label %.preheader.i584.thread901, label %.lr.ph.i579, !llvm.loop !53
+  br i1 %exitcond.not.i582, label %.preheader.i584.thread950, label %.lr.ph.i579, !llvm.loop !53
 
-.preheader.i584.thread901:                        ; preds = %.lr.ph.i579
+.preheader.i584.thread950:                        ; preds = %.lr.ph.i579
   %312 = getelementptr inbounds nuw i8, ptr %303, i64 %298
   store ptr %312, ptr %10, align 8, !tbaa !30
   br label %.lr.ph.i587.preheader
@@ -658,8 +658,8 @@ samplecpy.exit583:                                ; preds = %302
 .preheader.i584:                                  ; preds = %samplecpy.exit583
   br i1 %297, label %.lr.ph.i587.preheader, label %samplecpy.exit591
 
-.lr.ph.i587.preheader:                            ; preds = %.preheader.i584.thread901, %.preheader.i584
-  %315 = phi ptr [ %312, %.preheader.i584.thread901 ], [ %313, %.preheader.i584 ]
+.lr.ph.i587.preheader:                            ; preds = %.preheader.i584.thread950, %.preheader.i584
+  %315 = phi ptr [ %312, %.preheader.i584.thread950 ], [ %313, %.preheader.i584 ]
   br label %.lr.ph.i587
 
 316:                                              ; preds = %samplecpy.exit583

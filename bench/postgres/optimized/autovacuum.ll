@@ -539,8 +539,8 @@ HandleAutoVacLauncherInterrupts.exit:             ; preds = %142, %144
   %159 = getelementptr inbounds nuw i8, ptr %154, i64 48
   %160 = load ptr, ptr %159, align 8
   %.not.i30 = icmp eq ptr %160, null
-  %.not111316.i = icmp eq ptr %160, %158
-  %.not1113.i = select i1 %.not.i30, i1 true, i1 %.not111316.i
+  %.not111317.i = icmp eq ptr %160, %158
+  %.not1113.i = select i1 %.not.i30, i1 true, i1 %.not111317.i
   br i1 %.not1113.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %150, %169
@@ -692,8 +692,8 @@ dclist_push_head.exit:                            ; preds = %209, %216
 235:                                              ; preds = %233
   %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %.not16.i = icmp eq ptr %236, null
-  %.not172326.i = icmp eq ptr %236, @DatabaseList
-  %.not1723.i = or i1 %.not16.i, %.not172326.i
+  %.not172328.i = icmp eq ptr %236, @DatabaseList
+  %.not1723.i = or i1 %.not16.i, %.not172328.i
   br i1 %.not1723.i, label %select.unfold._crit_edge.i, label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %235, %dlist_move_head.exit.i
@@ -764,8 +764,8 @@ select.unfold._crit_edge.i:                       ; preds = %dlist_move_head.exi
 268:                                              ; preds = %266
   %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %.not16.i37 = icmp eq ptr %269, null
-  %.not172326.i38 = icmp eq ptr %269, @DatabaseList
-  %.not1723.i39 = or i1 %.not16.i37, %.not172326.i38
+  %.not172328.i38 = icmp eq ptr %269, @DatabaseList
+  %.not1723.i39 = or i1 %.not16.i37, %.not172328.i38
   br i1 %.not1723.i39, label %select.unfold._crit_edge.i44, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %268, %dlist_move_head.exit.i42
@@ -978,22 +978,22 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %28 = tail call i64 @GetCurrentTimestamp() #18
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.thread110, label %.lr.ph99
+  br i1 %.not, label %.thread113, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %13
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %31 = load i32, ptr %29, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph119, label %.critedge
+  br i1 %32, label %.lr.ph122, label %.critedge
 
-.lr.ph119:                                        ; preds = %.lr.ph99, %92
-  %.06695118 = phi i1 [ %.167, %92 ], [ false, %.lr.ph99 ]
-  %.06496117 = phi ptr [ %.2, %92 ], [ null, %.lr.ph99 ]
-  %.06297116 = phi i1 [ %.163, %92 ], [ false, %.lr.ph99 ]
-  %.06198115 = phi i1 [ %.1, %92 ], [ false, %.lr.ph99 ]
-  %indvars.iv114 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph99 ]
+.lr.ph122:                                        ; preds = %.lr.ph99, %92
+  %.06695121 = phi i1 [ %.167, %92 ], [ false, %.lr.ph99 ]
+  %.06496120 = phi ptr [ %.2, %92 ], [ null, %.lr.ph99 ]
+  %.06297119 = phi i1 [ %.163, %92 ], [ false, %.lr.ph99 ]
+  %.06198118 = phi i1 [ %.1, %92 ], [ false, %.lr.ph99 ]
+  %indvars.iv117 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph99 ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv114
+  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv117
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
@@ -1006,13 +1006,13 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %.not80 = icmp eq ptr %.06496.lcssa, null
   br i1 %.not80, label %120, label %96
 
-39:                                               ; preds = %.lr.ph119
-  %40 = icmp eq ptr %.06496117, null
+39:                                               ; preds = %.lr.ph122
+  %40 = icmp eq ptr %.06496120, null
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %36, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.06496117, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.06496120, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %42, i32 noundef %44) #18
   br i1 %45, label %46, label %92
@@ -1020,8 +1020,8 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
 46:                                               ; preds = %41, %39
   br label %92
 
-47:                                               ; preds = %.lr.ph119
-  br i1 %.06198115, label %92, label %48
+47:                                               ; preds = %.lr.ph122
+  br i1 %.06198118, label %92, label %48
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 20
@@ -1030,12 +1030,12 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %48
-  %53 = icmp eq ptr %.06496117, null
+  %53 = icmp eq ptr %.06496120, null
   br i1 %53, label %59, label %54
 
 54:                                               ; preds = %52
   %55 = load i32, ptr %49, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %.06496117, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.06496120, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %55, i32 noundef %57) #18
   br i1 %58, label %59, label %92
@@ -1044,7 +1044,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   br label %92
 
 60:                                               ; preds = %48
-  br i1 %.06297116, label %92, label %61
+  br i1 %.06297119, label %92, label %61
 
 61:                                               ; preds = %60
   %62 = load i32, ptr %35, align 8
@@ -1091,14 +1091,14 @@ select.unfold:                                    ; preds = %68
   br i1 %.not83, label %.critedge90, label %68, !llvm.loop !10
 
 .critedge90:                                      ; preds = %select.unfold, %65, %72, %.thread
-  %81 = icmp eq ptr %.06496117, null
+  %81 = icmp eq ptr %.06496120, null
   br i1 %81, label %91, label %82
 
 82:                                               ; preds = %.critedge90
   %83 = load ptr, ptr %64, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 72
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %.06496117, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.06496120, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 72
   %89 = load i64, ptr %88, align 8
@@ -1109,15 +1109,15 @@ select.unfold:                                    ; preds = %68
   br label %92
 
 92:                                               ; preds = %82, %91, %.thread, %61, %60, %54, %59, %47, %41, %46
-  %.167 = phi i1 [ %.06695118, %46 ], [ %.06695118, %41 ], [ %.06695118, %47 ], [ %.06695118, %59 ], [ %.06695118, %54 ], [ %.06695118, %60 ], [ %.06695118, %61 ], [ true, %.thread ], [ false, %91 ], [ false, %82 ]
-  %.2 = phi ptr [ %35, %46 ], [ %.06496117, %41 ], [ %.06496117, %47 ], [ %35, %59 ], [ %.06496117, %54 ], [ %.06496117, %60 ], [ %.06496117, %61 ], [ %.06496117, %.thread ], [ %35, %91 ], [ %.06496117, %82 ]
-  %.163 = phi i1 [ %.06297116, %46 ], [ %.06297116, %41 ], [ %.06297116, %47 ], [ true, %59 ], [ true, %54 ], [ true, %60 ], [ false, %61 ], [ false, %.thread ], [ false, %91 ], [ false, %82 ]
+  %.167 = phi i1 [ %.06695121, %46 ], [ %.06695121, %41 ], [ %.06695121, %47 ], [ %.06695121, %59 ], [ %.06695121, %54 ], [ %.06695121, %60 ], [ %.06695121, %61 ], [ true, %.thread ], [ false, %91 ], [ false, %82 ]
+  %.2 = phi ptr [ %35, %46 ], [ %.06496120, %41 ], [ %.06496120, %47 ], [ %35, %59 ], [ %.06496120, %54 ], [ %.06496120, %60 ], [ %.06496120, %61 ], [ %.06496120, %.thread ], [ %35, %91 ], [ %.06496120, %82 ]
+  %.163 = phi i1 [ %.06297119, %46 ], [ %.06297119, %41 ], [ %.06297119, %47 ], [ true, %59 ], [ true, %54 ], [ true, %60 ], [ false, %61 ], [ false, %.thread ], [ false, %91 ], [ false, %82 ]
   %.1 = phi i1 [ true, %46 ], [ true, %41 ], [ true, %47 ], [ false, %59 ], [ false, %54 ], [ false, %60 ], [ false, %61 ], [ false, %.thread ], [ false, %91 ], [ false, %82 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv114, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv117, 1
   %93 = load i32, ptr %29, align 4
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next, %94
-  br i1 %95, label %.lr.ph119, label %.critedge
+  br i1 %95, label %.lr.ph122, label %.critedge
 
 96:                                               ; preds = %.critedge
   %97 = load ptr, ptr @MainLWLockArray, align 8
@@ -1153,23 +1153,23 @@ select.unfold:                                    ; preds = %68
   tail call void @LWLockRelease(ptr noundef nonnull %118) #18
   tail call void @SendPostmasterSignal(i32 noundef 4) #18
   %119 = load i32, ptr %.06496.lcssa, align 8
-  br label %.thread110
+  br label %.thread113
 
 120:                                              ; preds = %.critedge
-  br i1 %.06695.lcssa, label %121, label %.thread110
+  br i1 %.06695.lcssa, label %121, label %.thread113
 
 121:                                              ; preds = %120
   tail call fastcc void @rebuild_database_list(i32 noundef 0)
-  br label %.thread110
+  br label %.thread113
 
-.thread110:                                       ; preds = %13, %120, %121, %96
+.thread113:                                       ; preds = %13, %120, %121, %96
   %.071 = phi i32 [ %119, %96 ], [ 0, %121 ], [ 0, %120 ], [ 0, %13 ]
   store ptr %16, ptr @CurrentMemoryContext, align 8
   tail call void @MemoryContextDelete(ptr noundef %15) #18
   br label %122
 
-122:                                              ; preds = %0, %.thread110
-  %.0 = phi i32 [ %.071, %.thread110 ], [ 0, %0 ]
+122:                                              ; preds = %0, %.thread113
+  %.0 = phi i32 [ %.071, %.thread113 ], [ 0, %0 ]
   ret i32 %.0
 }
 
@@ -1215,8 +1215,8 @@ define internal fastcc void @rebuild_database_list(i32 noundef %0) unnamed_addr 
   %.159 = phi i32 [ 0, %1 ], [ 1, %17 ], [ 0, %15 ]
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %.not66 = icmp eq ptr %21, null
-  %.not677399 = icmp eq ptr %21, @DatabaseList
-  %.not6773 = or i1 %.not66, %.not677399
+  %.not6773104 = icmp eq ptr %21, @DatabaseList
+  %.not6773 = or i1 %.not66, %.not6773104
   br i1 %.not6773, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %select.unfold
@@ -1983,9 +1983,9 @@ extract_autovac_opts.exit230:                     ; preds = %128
   br i1 %168, label %.critedge, label %._crit_edge260
 
 .critedge:                                        ; preds = %.lr.ph259, %222
-  %indvars.iv298 = phi i64 [ %indvars.iv.next, %222 ], [ 0, %.lr.ph259 ]
+  %indvars.iv319 = phi i64 [ %indvars.iv.next, %222 ], [ 0, %.lr.ph259 ]
   %169 = load ptr, ptr %164, align 8
-  %170 = getelementptr inbounds nuw %union.ListCell, ptr %169, i64 %indvars.iv298
+  %170 = getelementptr inbounds nuw %union.ListCell, ptr %169, i64 %indvars.iv319
   store volatile ptr %170, ptr %8, align 8
   %.0..0..0..0.129 = load volatile ptr, ptr %8, align 8
   %171 = load i32, ptr %.0..0..0..0.129, align 8
@@ -2101,18 +2101,18 @@ extract_autovac_opts.exit230:                     ; preds = %128
 
 222:                                              ; preds = %183, %220, %210, %206, %201, %188
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv298, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv319, 1
   %223 = load i32, ptr %163, align 4
   %224 = sext i32 %223 to i64
   %225 = icmp slt i64 %indvars.iv.next, %224
   br i1 %225, label %.critedge, label %._crit_edge260
 
 .critedge222:                                     ; preds = %.lr.ph278, %536
-  %.0164275301 = phi i1 [ %.1165, %536 ], [ false, %.lr.ph278 ]
-  %.0161276300 = phi i1 [ %.1162, %536 ], [ false, %.lr.ph278 ]
-  %indvars.iv288299 = phi i64 [ %indvars.iv.next289, %536 ], [ 0, %.lr.ph278 ]
+  %.0164275322 = phi i1 [ %.1165, %536 ], [ false, %.lr.ph278 ]
+  %.0161276321 = phi i1 [ %.1162, %536 ], [ false, %.lr.ph278 ]
+  %indvars.iv288320 = phi i64 [ %indvars.iv.next289, %536 ], [ 0, %.lr.ph278 ]
   %226 = load ptr, ptr %178, align 8
-  %227 = getelementptr inbounds nuw %union.ListCell, ptr %226, i64 %indvars.iv288299
+  %227 = getelementptr inbounds nuw %union.ListCell, ptr %226, i64 %indvars.iv288320
   store volatile ptr %227, ptr %8, align 8
   %.0..0..0..0.130 = load volatile ptr, ptr %8, align 8
   %228 = load i32, ptr %.0..0..0..0.130, align 8
@@ -2221,7 +2221,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
 
 ._crit_edge268:                                   ; preds = %.thread, %273
   %.1174 = phi i1 [ false, %.thread ], [ true, %273 ]
-  %.3167 = phi i1 [ %.0164275301, %.thread ], [ true, %273 ]
+  %.3167 = phi i1 [ %.0164275322, %.thread ], [ true, %273 ]
   %279 = load ptr, ptr @MainLWLockArray, align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 2816
   call void @LWLockRelease(ptr noundef nonnull %280) #18
@@ -2234,7 +2234,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   br label %536
 
 284:                                              ; preds = %._crit_edge268.thread, %._crit_edge268
-  %.3167297 = phi i1 [ %.0164275301, %._crit_edge268.thread ], [ %.3167, %._crit_edge268 ]
+  %.3167318 = phi i1 [ %.0164275322, %._crit_edge268.thread ], [ %.3167, %._crit_edge268 ]
   %285 = load ptr, ptr @MyWorkerInfo, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 20
   store i32 %228, ptr %286, align 4
@@ -2505,8 +2505,8 @@ table_recheck_autovac.exit.thread:                ; preds = %284, %table_recheck
   %438 = getelementptr inbounds nuw i8, ptr %434, i64 48
   %439 = load ptr, ptr %438, align 8
   %.not.i232 = icmp eq ptr %439, null
-  %.not111316.i = icmp eq ptr %439, %437
-  %.not1113.i = select i1 %.not.i232, i1 true, i1 %.not111316.i
+  %.not111317.i = icmp eq ptr %439, %437
+  %.not1113.i = select i1 %.not.i232, i1 true, i1 %.not111317.i
   br i1 %.not1113.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %430, %448
@@ -2667,7 +2667,7 @@ autovacuum_do_vac_analyze.exit:                   ; preds = %477, %481
 
 thread-pre-split:                                 ; preds = %466, %514, %autovac_recalculate_workers_for_balance.exit
   %516 = phi ptr [ %463, %autovac_recalculate_workers_for_balance.exit ], [ %463, %466 ], [ %.pr.pre, %514 ]
-  %.2163 = phi i1 [ %.0161276300, %autovac_recalculate_workers_for_balance.exit ], [ %.0161276300, %466 ], [ true, %514 ]
+  %.2163 = phi i1 [ %.0161276321, %autovac_recalculate_workers_for_balance.exit ], [ %.0161276321, %466 ], [ true, %514 ]
   %.not211 = icmp eq ptr %516, null
   br i1 %.not211, label %518, label %517
 
@@ -2712,9 +2712,9 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   br label %536
 
 536:                                              ; preds = %239, %524, %table_recheck_autovac.exit.thread, %281
-  %.1165 = phi i1 [ %.3167, %281 ], [ %.3167297, %table_recheck_autovac.exit.thread ], [ %.3167297, %524 ], [ %.0164275301, %239 ]
-  %.1162 = phi i1 [ %.0161276300, %281 ], [ %.0161276300, %table_recheck_autovac.exit.thread ], [ %.2163, %524 ], [ %.0161276300, %239 ]
-  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288299, 1
+  %.1165 = phi i1 [ %.3167, %281 ], [ %.3167318, %table_recheck_autovac.exit.thread ], [ %.3167318, %524 ], [ %.0164275322, %239 ]
+  %.1162 = phi i1 [ %.0161276321, %281 ], [ %.0161276321, %table_recheck_autovac.exit.thread ], [ %.2163, %524 ], [ %.0161276321, %239 ]
+  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288320, 1
   %537 = load i32, ptr %177, align 4
   %538 = sext i32 %537 to i64
   %539 = icmp slt i64 %indvars.iv.next289, %538

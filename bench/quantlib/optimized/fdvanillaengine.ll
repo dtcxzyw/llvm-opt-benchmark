@@ -4149,10 +4149,10 @@ _ZN8QuantLib5ArrayC2ERKS0_.exit:                  ; preds = %entry
   br i1 %cmp.not.i20, label %invoke.cont, label %cond.true.i
 
 cond.true.i:                                      ; preds = %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread, %_ZN8QuantLib5ArrayC2ERKS0_.exit
-  %.pr90 = phi i64 [ %4, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread ], [ %.pr.pre, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
+  %.pr97 = phi i64 [ %4, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread ], [ %.pr.pre, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
   %6 = phi ptr [ %call.i, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread ], [ null, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
-  %7 = icmp ugt i64 %.pr90, 2305843009213693951
-  %8 = shl nuw i64 %.pr90, 3
+  %7 = icmp ugt i64 %.pr97, 2305843009213693951
+  %8 = shl nuw i64 %.pr97, 3
   %9 = select i1 %7, i64 -1, i64 %8
   %call.i2124 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %9) #27
           to label %invoke.cont unwind label %lpad
@@ -4160,7 +4160,7 @@ cond.true.i:                                      ; preds = %_ZN8QuantLib5ArrayC
 invoke.cont:                                      ; preds = %if.then.i, %_ZN8QuantLib5ArrayC2ERKS0_.exit, %cond.true.i
   %10 = phi i64 [ 0, %_ZN8QuantLib5ArrayC2ERKS0_.exit ], [ %0, %cond.true.i ], [ %0, %if.then.i ]
   %11 = phi ptr [ null, %_ZN8QuantLib5ArrayC2ERKS0_.exit ], [ %6, %cond.true.i ], [ %call.i, %if.then.i ]
-  %12 = phi i64 [ 0, %_ZN8QuantLib5ArrayC2ERKS0_.exit ], [ %.pr90, %cond.true.i ], [ 0, %if.then.i ]
+  %12 = phi i64 [ 0, %_ZN8QuantLib5ArrayC2ERKS0_.exit ], [ %.pr97, %cond.true.i ], [ 0, %if.then.i ]
   %cond.i = phi ptr [ null, %_ZN8QuantLib5ArrayC2ERKS0_.exit ], [ %call.i2124, %cond.true.i ], [ null, %if.then.i ]
   %transformedGrid_77 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i, ptr %transformedGrid_77, align 8, !tbaa !58

@@ -158,8 +158,8 @@ define dso_local void @BZ2_blockSort(ptr noundef captures(none) %0) local_unname
   %94 = add i32 %93, 1
   store i32 %94, ptr %92, align 4, !tbaa !18
   %indvars.iv.next503.i = add nsw i64 %indvars.iv502.i, -1
-  %.not630.i = icmp eq i64 %indvars.iv502.i, 0
-  br i1 %.not630.i, label %.preheader333.i, label %.lr.ph402.i, !llvm.loop !26
+  %.not656.i = icmp eq i64 %indvars.iv502.i, 0
+  br i1 %.not656.i, label %.preheader333.i, label %.lr.ph402.i, !llvm.loop !26
 
 95:                                               ; preds = %95, %.preheader333.i
   %indvars.iv505.i = phi i64 [ 0, %.preheader333.i ], [ %indvars.iv.next506.i, %95 ]
@@ -290,8 +290,8 @@ define dso_local void @BZ2_blockSort(ptr noundef captures(none) %0) local_unname
   %172 = trunc nuw nsw i64 %indvars.iv514.i to i32
   store i32 %172, ptr %171, align 4, !tbaa !18
   %indvars.iv.next515.i = add nsw i64 %indvars.iv514.i, -1
-  %.not631.i = icmp eq i64 %indvars.iv514.i, 0
-  br i1 %.not631.i, label %.preheader331.i, label %.lr.ph412.i, !llvm.loop !30
+  %.not657.i = icmp eq i64 %indvars.iv514.i, 0
+  br i1 %.not657.i, label %.preheader331.i, label %.lr.ph412.i, !llvm.loop !30
 
 173:                                              ; preds = %173, %.preheader331.i
   %indvars.iv516.i = phi i64 [ 0, %.preheader331.i ], [ %indvars.iv.next517.i, %173 ]
@@ -688,7 +688,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
 358:                                              ; preds = %356
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp slt i64 %indvars.iv.i.i, %340
-  br i1 %.not.i.i, label %343, label %.outer245._crit_edge.loopexit.split.loop.exit484.i.i
+  br i1 %.not.i.i, label %343, label %.outer245._crit_edge.loopexit.split.loop.exit496.i.i
 
 .outer245._crit_edge.loopexit337.i.i:             ; preds = %.outer245.i.i
   %359 = trunc nsw i64 %indvars.iv.next398.i.i to i32
@@ -699,15 +699,15 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %361 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %.outer245._crit_edge.i.i
 
-.outer245._crit_edge.loopexit.split.loop.exit484.i.i: ; preds = %358
+.outer245._crit_edge.loopexit.split.loop.exit496.i.i: ; preds = %358
   %smax.le.i.i = tail call i32 @llvm.smax.i32(i32 %.1.ph292.i.i, i32 %.0224.i.i)
   %362 = add i32 %smax.le.i.i, 1
   %363 = trunc nsw i64 %indvars.iv397.i.i to i32
   br label %.outer245._crit_edge.i.i
 
-.outer245._crit_edge.i.i:                         ; preds = %.outer245._crit_edge.loopexit.split.loop.exit484.i.i, %.outer245._crit_edge.loopexit.split.loop.exit.i.i, %.outer245._crit_edge.loopexit337.i.i, %338
-  %.1227.ph.lcssa.i.i = phi i32 [ %.0226.i.i, %338 ], [ %359, %.outer245._crit_edge.loopexit337.i.i ], [ %360, %.outer245._crit_edge.loopexit.split.loop.exit.i.i ], [ %363, %.outer245._crit_edge.loopexit.split.loop.exit484.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.0.i.i, %338 ], [ %355, %.outer245._crit_edge.loopexit337.i.i ], [ %361, %.outer245._crit_edge.loopexit.split.loop.exit.i.i ], [ %362, %.outer245._crit_edge.loopexit.split.loop.exit484.i.i ]
+.outer245._crit_edge.i.i:                         ; preds = %.outer245._crit_edge.loopexit.split.loop.exit496.i.i, %.outer245._crit_edge.loopexit.split.loop.exit.i.i, %.outer245._crit_edge.loopexit337.i.i, %338
+  %.1227.ph.lcssa.i.i = phi i32 [ %.0226.i.i, %338 ], [ %359, %.outer245._crit_edge.loopexit337.i.i ], [ %360, %.outer245._crit_edge.loopexit.split.loop.exit.i.i ], [ %363, %.outer245._crit_edge.loopexit.split.loop.exit496.i.i ]
+  %.1.lcssa.i.i = phi i32 [ %.0.i.i, %338 ], [ %355, %.outer245._crit_edge.loopexit337.i.i ], [ %361, %.outer245._crit_edge.loopexit.split.loop.exit.i.i ], [ %362, %.outer245._crit_edge.loopexit.split.loop.exit496.i.i ]
   %364 = icmp sgt i32 %.1.lcssa.i.i, %.0224.i.i
   br i1 %364, label %.critedge.i.i, label %.lr.ph298.preheader.i.i
 
@@ -966,18 +966,18 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   br label %465
 
 465:                                              ; preds = %464, %460
-  %invariant.gep624.i = getelementptr i32, ptr %15, i64 %461
+  %invariant.gep650.i = getelementptr i32, ptr %15, i64 %461
   br label %466
 
 466:                                              ; preds = %466, %465
   %indvars.iv529.i = phi i64 [ 0, %465 ], [ %indvars.iv.next530.i, %466 ]
   %.idx.i = shl i64 %indvars.iv529.i, 10
-  %gep625.i = getelementptr i8, ptr %invariant.gep624.i, i64 %.idx.i
-  %467 = load i32, ptr %gep625.i, align 4, !tbaa !18
+  %gep651.i = getelementptr i8, ptr %invariant.gep650.i, i64 %.idx.i
+  %467 = load i32, ptr %gep651.i, align 4, !tbaa !18
   %468 = and i32 %467, -2097153
   %469 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv529.i
   store i32 %468, ptr %469, align 4, !tbaa !18
-  %470 = getelementptr i8, ptr %gep625.i, i64 4
+  %470 = getelementptr i8, ptr %gep651.i, i64 4
   %471 = load i32, ptr %470, align 4, !tbaa !18
   %472 = and i32 %471, -2097153
   %473 = add i32 %472, -1
@@ -1109,11 +1109,11 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
 
 541:                                              ; preds = %.preheader, %541
   %indvars.iv536.i = phi i64 [ %indvars.iv.next537.i, %541 ], [ 0, %.preheader ]
-  %.idx553.i = shl i64 %indvars.iv536.i, 10
-  %gep627.i = getelementptr i8, ptr %invariant.gep624.i, i64 %.idx553.i
-  %542 = load i32, ptr %gep627.i, align 4, !tbaa !18
+  %.idx579.i = shl i64 %indvars.iv536.i, 10
+  %gep653.i = getelementptr i8, ptr %invariant.gep650.i, i64 %.idx579.i
+  %542 = load i32, ptr %gep653.i, align 4, !tbaa !18
   %543 = or i32 %542, 2097152
-  store i32 %543, ptr %gep627.i, align 4, !tbaa !18
+  store i32 %543, ptr %gep653.i, align 4, !tbaa !18
   %indvars.iv.next537.i = add nuw nsw i64 %indvars.iv536.i, 1
   %exitcond539.not.i = icmp eq i64 %indvars.iv.next537.i, 256
   br i1 %exitcond539.not.i, label %544, label %541, !llvm.loop !47
@@ -1121,7 +1121,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
 544:                                              ; preds = %541
   store i8 1, ptr %462, align 1, !tbaa !21
   %.not317.i = icmp eq i64 %indvars.iv543.i, 255
-  br i1 %.not317.i, label %.thread554.i, label %545
+  br i1 %.not317.i, label %.thread580.i, label %545
 
 545:                                              ; preds = %544
   %546 = load i32, ptr %invariant.gep.i, align 4, !tbaa !18
@@ -1146,14 +1146,14 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
 .lr.ph438.preheader.i:                            ; preds = %555
   %558 = zext nneg i32 %550 to i64
   %559 = sext i32 %547 to i64
-  %invariant.gep628.i = getelementptr i32, ptr %11, i64 %559
+  %invariant.gep654.i = getelementptr i32, ptr %11, i64 %559
   br label %.lr.ph438.i
 
 .lr.ph438.i:                                      ; preds = %571, %.lr.ph438.preheader.i
   %indvars.iv540.in.i = phi i64 [ %558, %.lr.ph438.preheader.i ], [ %indvars.iv540.i, %571 ]
   %indvars.iv540.i = add nsw i64 %indvars.iv540.in.i, -1
-  %gep629.i = getelementptr i32, ptr %invariant.gep628.i, i64 %indvars.iv540.i
-  %560 = load i32, ptr %gep629.i, align 4, !tbaa !18
+  %gep655.i = getelementptr i32, ptr %invariant.gep654.i, i64 %indvars.iv540.i
+  %560 = load i32, ptr %gep655.i, align 4, !tbaa !18
   %561 = trunc nuw nsw i64 %indvars.iv540.i to i32
   %562 = lshr i32 %561, %.0289.i
   %563 = trunc i32 %562 to i16
@@ -1187,10 +1187,10 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %indvars.iv.next544.i = add nuw nsw i64 %indvars.iv543.i, 1
   br label %.preheader.i
 
-.thread554.i:                                     ; preds = %544
+.thread580.i:                                     ; preds = %544
   br i1 %30, label %mainSort.exit.thread, label %mainSort.exit
 
-mainSort.exit.thread:                             ; preds = %.thread554.i
+mainSort.exit.thread:                             ; preds = %.thread580.i
   %577 = load ptr, ptr @stderr, align 8, !tbaa !19
   %578 = sub nsw i32 %17, %.5298.i
   %579 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %577, ptr noundef nonnull @.str.8, i32 noundef range(i32 10000, -2147483648) %17, i32 noundef %.5298.i, i32 noundef %578) #10
@@ -1200,8 +1200,8 @@ mainSort.exit.thread:                             ; preds = %.thread554.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %582
 
-mainSort.exit:                                    ; preds = %.loopexit.i, %.loopexit.thread.i, %.thread554.i
-  %580 = phi i32 [ %452, %.loopexit.thread.i ], [ %.pre.pre.i195, %.thread554.i ], [ %.pre.pre.i, %.loopexit.i ]
+mainSort.exit:                                    ; preds = %.loopexit.i, %.loopexit.thread.i, %.thread580.i
+  %580 = phi i32 [ %452, %.loopexit.thread.i ], [ %.pre.pre.i195, %.thread580.i ], [ %.pre.pre.i, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1696,7 +1696,7 @@ define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr nou
   %195 = getelementptr inbounds nuw i32, ptr %1, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !18
   %197 = icmp ugt i32 %190, %196
-  br i1 %197, label %198, label %.critedge2.loopexit.split.loop.exit92.i.i
+  br i1 %197, label %198, label %.critedge2.loopexit.split.loop.exit96.i.i
 
 198:                                              ; preds = %.lr.ph70.i.i
   %199 = getelementptr i8, ptr %192, i64 -4
@@ -1706,12 +1706,12 @@ define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr nou
   %exitcond.not.i.i = icmp eq i32 %184, %lftr.wideiv.i.i
   br i1 %exitcond.not.i.i, label %.critedge2.i.i, label %.lr.ph70.i.i, !llvm.loop !68
 
-.critedge2.loopexit.split.loop.exit92.i.i:        ; preds = %.lr.ph70.i.i
+.critedge2.loopexit.split.loop.exit96.i.i:        ; preds = %.lr.ph70.i.i
   %200 = trunc nsw i64 %indvars.iv88.i.i to i32
   br label %.critedge2.i.i
 
-.critedge2.i.i:                                   ; preds = %198, %.critedge2.loopexit.split.loop.exit92.i.i, %.lr.ph78.i.i
-  %.1.lcssa.i.i = phi i32 [ %191, %.lr.ph78.i.i ], [ %200, %.critedge2.loopexit.split.loop.exit92.i.i ], [ %184, %198 ]
+.critedge2.i.i:                                   ; preds = %198, %.critedge2.loopexit.split.loop.exit96.i.i, %.lr.ph78.i.i
+  %.1.lcssa.i.i = phi i32 [ %191, %.lr.ph78.i.i ], [ %200, %.critedge2.loopexit.split.loop.exit96.i.i ], [ %184, %198 ]
   %201 = sext i32 %.1.lcssa.i.i to i64
   %202 = getelementptr i32, ptr %0, i64 %201
   %203 = getelementptr i8, ptr %202, i64 -4
@@ -1803,7 +1803,7 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
 243:                                              ; preds = %241
   %indvars.iv.next310.i = add nsw i64 %indvars.iv309.i, 1
   %.not.i = icmp slt i64 %indvars.iv309.i, %226
-  br i1 %.not.i, label %229, label %.outer190._crit_edge.loopexit.split.loop.exit384.i
+  br i1 %.not.i, label %229, label %.outer190._crit_edge.loopexit.split.loop.exit391.i
 
 .outer190._crit_edge.loopexit265.i:               ; preds = %.outer190.i
   %244 = trunc nsw i64 %indvars.iv.next313.i to i32
@@ -1814,15 +1814,15 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   %246 = trunc nsw i64 %indvars.iv309.i to i32
   br label %.outer190._crit_edge.i
 
-.outer190._crit_edge.loopexit.split.loop.exit384.i: ; preds = %243
+.outer190._crit_edge.loopexit.split.loop.exit391.i: ; preds = %243
   %smax.le.i = tail call i32 @llvm.smax.i32(i32 %.1.ph222.i, i32 %.0169.i)
   %247 = add i32 %smax.le.i, 1
   %248 = trunc nsw i64 %indvars.iv312.i to i32
   br label %.outer190._crit_edge.i
 
-.outer190._crit_edge.i:                           ; preds = %.outer190._crit_edge.loopexit.split.loop.exit384.i, %.outer190._crit_edge.loopexit.split.loop.exit.i, %.outer190._crit_edge.loopexit265.i, %224
-  %.1175.ph.lcssa.i = phi i32 [ %.0174.i, %224 ], [ %244, %.outer190._crit_edge.loopexit265.i ], [ %245, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %248, %.outer190._crit_edge.loopexit.split.loop.exit384.i ]
-  %.1.lcssa.i = phi i32 [ %.0.i, %224 ], [ %240, %.outer190._crit_edge.loopexit265.i ], [ %246, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %247, %.outer190._crit_edge.loopexit.split.loop.exit384.i ]
+.outer190._crit_edge.i:                           ; preds = %.outer190._crit_edge.loopexit.split.loop.exit391.i, %.outer190._crit_edge.loopexit.split.loop.exit.i, %.outer190._crit_edge.loopexit265.i, %224
+  %.1175.ph.lcssa.i = phi i32 [ %.0174.i, %224 ], [ %244, %.outer190._crit_edge.loopexit265.i ], [ %245, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %248, %.outer190._crit_edge.loopexit.split.loop.exit391.i ]
+  %.1.lcssa.i = phi i32 [ %.0.i, %224 ], [ %240, %.outer190._crit_edge.loopexit265.i ], [ %246, %.outer190._crit_edge.loopexit.split.loop.exit.i ], [ %247, %.outer190._crit_edge.loopexit.split.loop.exit391.i ]
   %249 = icmp sgt i32 %.1.lcssa.i, %.0169.i
   br i1 %249, label %.critedge.i, label %.lr.ph228.preheader.i
 
@@ -1983,10 +1983,10 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   br label %320
 
 320:                                              ; preds = %319, %318
-  %.lcssa348.sink.i = phi i32 [ %152, %319 ], [ %311, %318 ]
-  %.sink395.i = phi i32 [ %309, %319 ], [ %154, %318 ]
-  store i32 %.lcssa348.sink.i, ptr %316, align 4, !tbaa !18
-  store i32 %.sink395.i, ptr %317, align 4, !tbaa !18
+  %.lcssa355.sink.i = phi i32 [ %152, %319 ], [ %311, %318 ]
+  %.sink402.i = phi i32 [ %309, %319 ], [ %154, %318 ]
+  store i32 %.lcssa355.sink.i, ptr %316, align 4, !tbaa !18
+  store i32 %.sink402.i, ptr %317, align 4, !tbaa !18
   %.1181.i = add nuw nsw i32 %208, 1
   br label %.outer191.backedge.i
 

@@ -190,11 +190,11 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit93: ; preds
   %95 = sub nsw i32 272, %94
   %smax = tail call i32 @llvm.smax.i32(i32 %95, i32 64)
   %96 = add nsw i32 %smax, -1
-  %.not217 = icmp slt i32 %94, -240
+  %.not234 = icmp slt i32 %94, -240
   %97 = lshr i32 %96, 6
   %98 = add nuw nsw i32 %97, 1
   %wide.trip.count = zext nneg i32 %98 to i64
-  br i1 %.not217, label %.loopexit, label %.split
+  br i1 %.not234, label %.loopexit, label %.split
 
 .split:                                           ; preds = %90
   %99 = lshr i32 %96, 6
@@ -490,11 +490,11 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit: ; preds =
   %64 = sub nsw i32 272, %63
   %smax = tail call i32 @llvm.smax.i32(i32 %64, i32 64)
   %65 = add nsw i32 %smax, -1
-  %.not180 = icmp slt i32 %63, -240
+  %.not187 = icmp slt i32 %63, -240
   %66 = lshr i32 %65, 6
   %67 = add nuw nsw i32 %66, 1
   %wide.trip.count = zext nneg i32 %67 to i64
-  br i1 %.not180, label %.loopexit, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split
+  br i1 %.not187, label %.loopexit, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit.split: ; preds = %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.exit
   %68 = lshr i32 %65, 6

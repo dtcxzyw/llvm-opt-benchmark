@@ -676,8 +676,8 @@ parse_filename.exit:                              ; preds = %144, %143
   br i1 %.not66.i, label %.critedge5.i, label %.lr.ph100.i, !llvm.loop !69
 
 .critedge5.i:                                     ; preds = %.critedge3.i, %.critedge7.i, %.lr.ph100.i, %262
-  %.054.lcssa109.i = phi i32 [ 0, %262 ], [ %.05491.i, %.lr.ph100.i ], [ %.05491.i, %.critedge7.i ], [ %263, %.critedge3.i ]
-  %.057.lcssa108.i = phi ptr [ %254, %262 ], [ %.05789.i, %.lr.ph100.i ], [ %.05789.i, %.critedge7.i ], [ %scevgep.i, %.critedge3.i ]
+  %.054.lcssa114.i = phi i32 [ 0, %262 ], [ %.05491.i, %.lr.ph100.i ], [ %.05491.i, %.critedge7.i ], [ %263, %.critedge3.i ]
+  %.057.lcssa113.i = phi ptr [ %254, %262 ], [ %.05789.i, %.lr.ph100.i ], [ %.05789.i, %.critedge7.i ], [ %scevgep.i, %.critedge3.i ]
   %.156.lcssa.i = phi i64 [ 0, %262 ], [ 0, %.critedge7.i ], [ %.15699.i, %.lr.ph100.i ], [ 0, %.critedge3.i ]
   %272 = call ptr @curl_url() #13
   %.not67.i = icmp eq ptr %272, null
@@ -690,7 +690,7 @@ parse_filename.exit:                              ; preds = %144, %143
   br i1 %.not68.i, label %.thread84.i, label %276
 
 276:                                              ; preds = %273
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %275, ptr nonnull align 1 %.057.lcssa108.i, i64 %.156.lcssa.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %275, ptr nonnull align 1 %.057.lcssa113.i, i64 %.156.lcssa.i, i1 false)
   %277 = getelementptr inbounds nuw i8, ptr %275, i64 %.156.lcssa.i
   store i8 0, ptr %277, align 1, !tbaa !43
   %278 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %253, i32 noundef 1048577, ptr noundef nonnull %5) #13
@@ -742,8 +742,8 @@ parse_filename.exit:                              ; preds = %144, %143
 .thread.i:                                        ; preds = %295, %293, %291, %288
   %297 = load ptr, ptr %7, align 8, !tbaa !18
   %298 = trunc i64 %256 to i32
-  %299 = sub nsw i32 %298, %.054.lcssa109.i
-  %300 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %257, ptr noundef nonnull @.str.13, i32 noundef %.054.lcssa109.i, ptr noundef nonnull %254, ptr noundef %297, i32 noundef %299, ptr noundef nonnull %.057.lcssa108.i) #13
+  %299 = sub nsw i32 %298, %.054.lcssa114.i
+  %300 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %257, ptr noundef nonnull @.str.13, i32 noundef %.054.lcssa114.i, ptr noundef nonnull %254, ptr noundef %297, i32 noundef %299, ptr noundef nonnull %.057.lcssa113.i) #13
   br label %304
 
 .thread84.i:                                      ; preds = %295, %286, %284, %282, %279, %276, %273

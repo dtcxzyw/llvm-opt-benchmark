@@ -2502,8 +2502,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdBasisCurvesSchema7BuilderD2Ev.exit: ; p
 
 510:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdBasisCurvesSchema7BuilderD2Ev.exit
   %511 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.not248 = icmp eq ptr %502, %503
-  br i1 %.not248, label %.thread, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i
+  %.not288 = icmp eq ptr %502, %503
+  br i1 %.not288, label %.thread, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_allocateEm.exit.i
 
 .thread:                                          ; preds = %510
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
@@ -9350,8 +9350,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit659: ; preds = %_ZN32pxrIn
   br label %.body415
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit608.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit659, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit605
-  %.sink687 = phi i64 [ %1561, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit605 ], [ %1750, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit659 ]
-  %1778 = and i64 %.sink687, -8
+  %.sink697 = phi i64 [ %1561, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit605 ], [ %1750, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit659 ]
+  %1778 = and i64 %.sink697, -8
   %1779 = inttoptr i64 %1778 to ptr
   %1780 = atomicrmw sub ptr %1779, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit608

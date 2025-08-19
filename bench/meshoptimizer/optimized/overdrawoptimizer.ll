@@ -760,7 +760,7 @@ _ZN7meshoptL23calculateSortOrderRadixEPjPKfPtm.exit.thread: ; preds = %.preheade
 
 410:                                              ; preds = %.loopexit
   %411 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %412 = add i64 %.0.i, -1
+  %412 = add nsw i64 %.0.i, -1
   %413 = getelementptr inbounds nuw [24 x ptr], ptr %9, i64 0, i64 %412
   %414 = load ptr, ptr %413, align 8, !tbaa !4
   invoke void %411(ptr noundef %414)

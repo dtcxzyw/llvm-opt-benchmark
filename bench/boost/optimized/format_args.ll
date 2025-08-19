@@ -762,7 +762,7 @@ _ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_1
   br i1 %.not83, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread
-  %.02593 = phi i64 [ %.025, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.025.ph, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %.025, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
+  %.025100 = phi i64 [ %.025, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.025.ph, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %.025, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
   %.049.lcssa = phi ptr [ %34, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %32, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %.3, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not3072 = icmp samesign eq i64 %2, 0
@@ -810,7 +810,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
 
 .preheader:                                       ; preds = %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit33, %._crit_edge
   %.1.lcssa = phi ptr [ %.049.lcssa, %._crit_edge ], [ %.4, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit33 ]
-  %.not84 = icmp eq i64 %.02593, 0
+  %.not84 = icmp eq i64 %.025100, 0
   br i1 %.not84, label %._crit_edge81, label %.lr.ph80
 
 .lr.ph76:                                         ; preds = %._crit_edge, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit33
@@ -900,7 +900,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit33: ; preds 
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit35: ; preds = %93, %94
   %.5 = phi ptr [ %105, %94 ], [ %92, %93 ]
   %106 = add nuw i64 %.079, 1
-  %exitcond89.not = icmp eq i64 %106, %.02593
+  %exitcond89.not = icmp eq i64 %106, %.025100
   br i1 %exitcond89.not, label %._crit_edge81, label %.lr.ph80, !llvm.loop !90
 }
 
@@ -1054,8 +1054,8 @@ thread-pre-split:                                 ; preds = %24, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !103
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !96
   %67 = load i8, ptr %26, align 1, !tbaa !93
-  %.not1893 = icmp eq i8 %67, 0
-  br i1 %.not1893, label %88, label %_ZN5boost8variant23getILm1EJmNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEEEEERNS0_19variant_alternativeIXT_ENS3_IJDpT0_EEEE4typeERSC_.exit
+  %.not1894 = icmp eq i8 %67, 0
+  br i1 %.not1894, label %88, label %_ZN5boost8variant23getILm1EJmNS_8optionalINS0_7variantIJNS_4core17basic_string_viewIcEEmEEEEEEEERNS0_19variant_alternativeIXT_ENS3_IJDpT0_EEEE4typeERSC_.exit
 
 68:                                               ; preds = %60
   store ptr %57, ptr %5, align 8, !tbaa !6, !noalias !103
@@ -1639,8 +1639,8 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
 
 .loopexit128:                                     ; preds = %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread
   %76 = phi ptr [ %49, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %46, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %49, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
-  %.056167 = phi i64 [ %.056, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.056.ph, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %.056, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
-  %.058166 = phi i64 [ %.058, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %.058, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
+  %.056177 = phi i64 [ %.056, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.056.ph, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %.056, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
+  %.058176 = phi i64 [ %.058, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %.058, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
   %.0105 = phi ptr [ %48, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %45, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ], [ %.8, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit ]
   br i1 %5, label %77, label %86
 
@@ -1709,7 +1709,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit78: ; preds 
   %.2 = phi i64 [ %1, %86 ], [ %6, %83 ], [ %6, %82 ], [ %1, %99 ], [ %1, %98 ]
   %111 = load i8, ptr %76, align 1, !tbaa !95, !range !54, !noundef !55
   %112 = trunc nuw i8 %111 to i1
-  %113 = icmp ne i64 %.058166, 0
+  %113 = icmp ne i64 %.058176, 0
   %or.cond151 = select i1 %112, i1 %113, i1 false
   br i1 %or.cond151, label %.lr.ph137, label %.loopexit126
 
@@ -1734,7 +1734,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit82: ; preds 
   %.11 = phi ptr [ %119, %117 ], [ %116, %.lr.ph137 ]
   store i8 %.sink162, ptr %.4135, align 1, !tbaa !23
   %120 = add nuw i64 %.051136, 1
-  %exitcond160.not = icmp eq i64 %120, %.058166
+  %exitcond160.not = icmp eq i64 %120, %.058176
   br i1 %exitcond160.not, label %.loopexit126, label %.lr.ph137, !llvm.loop !126
 
 .loopexit126:                                     ; preds = %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit82, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit78
@@ -1794,7 +1794,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit84: ; preds 
   %.5.lcssa = phi ptr [ %.3108, %.loopexit126 ], [ %.12, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit84 ]
   %148 = load i8, ptr %76, align 1, !tbaa !95, !range !54, !noundef !55
   %149 = trunc nuw i8 %148 to i1
-  %150 = icmp eq i64 %.056167, 0
+  %150 = icmp eq i64 %.056177, 0
   %or.cond153.not = select i1 %149, i1 true, i1 %150
   br i1 %or.cond153.not, label %.loopexit, label %.lr.ph148
 
@@ -1838,7 +1838,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit84: ; preds 
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit86: ; preds = %161, %162
   %.13 = phi ptr [ %173, %162 ], [ %160, %161 ]
   %174 = add nuw i64 %.0147, 1
-  %exitcond161.not = icmp eq i64 %174, %.056167
+  %exitcond161.not = icmp eq i64 %174, %.056177
   br i1 %exitcond161.not, label %.loopexit, label %.lr.ph148, !llvm.loop !128
 
 .loopexit:                                        ; preds = %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit86, %._crit_edge
@@ -2017,8 +2017,8 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
 
 .loopexit110:                                     ; preds = %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread, %.loopexit110.loopexit, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread
   %74 = phi ptr [ %47, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %47, %.loopexit110.loopexit ], [ %44, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ]
-  %.048149 = phi i64 [ %.048, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.048, %.loopexit110.loopexit ], [ %.048.ph, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ]
-  %.050148 = phi i64 [ %.050, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.050, %.loopexit110.loopexit ], [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ]
+  %.048158 = phi i64 [ %.048, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.048, %.loopexit110.loopexit ], [ %.048.ph, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ]
+  %.050157 = phi i64 [ %.050, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.050, %.loopexit110.loopexit ], [ 0, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ]
   %75 = phi i8 [ %6, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.pre, %.loopexit110.loopexit ], [ %6, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ]
   %.087 = phi ptr [ %46, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread ], [ %.8, %.loopexit110.loopexit ], [ %43, %_ZN5boost4urls6detail19get_width_from_argsEmNS_4core17basic_string_viewIcEENS1_11format_argsERm.exit.thread.thread ]
   %.not60 = icmp eq i8 %75, 45
@@ -2063,7 +2063,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit65: ; preds 
   %.254 = phi i64 [ %11, %.loopexit110 ], [ %.153, %87 ], [ %.153, %86 ]
   %99 = load i8, ptr %74, align 1, !tbaa !95, !range !54, !noundef !55
   %100 = trunc nuw i8 %99 to i1
-  %101 = icmp ne i64 %.050148, 0
+  %101 = icmp ne i64 %.050157, 0
   %or.cond133 = select i1 %100, i1 %101, i1 false
   br i1 %or.cond133, label %.lr.ph119, label %.loopexit108
 
@@ -2088,7 +2088,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit67: ; preds 
   %.10 = phi ptr [ %107, %105 ], [ %104, %.lr.ph119 ]
   store i8 %.sink144, ptr %.4117, align 1, !tbaa !23
   %108 = add nuw i64 %.044118, 1
-  %exitcond142.not = icmp eq i64 %108, %.050148
+  %exitcond142.not = icmp eq i64 %108, %.050157
   br i1 %exitcond142.not, label %.loopexit108, label %.lr.ph119, !llvm.loop !134
 
 .loopexit108:                                     ; preds = %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit67, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit65
@@ -2148,7 +2148,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit69: ; preds 
   %.5.lcssa = phi ptr [ %.390, %.loopexit108 ], [ %.11, %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit69 ]
   %136 = load i8, ptr %74, align 1, !tbaa !95, !range !54, !noundef !55
   %137 = trunc nuw i8 %136 to i1
-  %138 = icmp eq i64 %.048149, 0
+  %138 = icmp eq i64 %.048158, 0
   %or.cond135.not = select i1 %137, i1 true, i1 %138
   br i1 %or.cond135.not, label %.loopexit, label %.lr.ph130
 
@@ -2192,7 +2192,7 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit69: ; preds 
 _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit71: ; preds = %149, %150
   %.12 = phi ptr [ %161, %150 ], [ %148, %149 ]
   %162 = add nuw i64 %.0129, 1
-  %exitcond143.not = icmp eq i64 %162, %.048149
+  %exitcond143.not = icmp eq i64 %162, %.048158
   br i1 %exitcond143.not, label %.loopexit, label %.lr.ph130, !llvm.loop !136
 
 .loopexit:                                        ; preds = %_ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit71, %._crit_edge
@@ -2362,32 +2362,32 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit54: ; preds = %_
   %56 = load i8, ptr %storemerge102, align 1, !tbaa !23
   %57 = add i8 %56, -48
   %58 = icmp ult i8 %57, 10
-  br i1 %58, label %.lr.ph116, label %.critedge
+  br i1 %58, label %.lr.ph122, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph116
+.lr.ph:                                           ; preds = %.lr.ph122
   %59 = load i8, ptr %storemerge, align 1, !tbaa !23
   %60 = add i8 %59, -48
   %61 = icmp ult i8 %60, 10
-  br i1 %61, label %.lr.ph116, label %.critedge, !llvm.loop !146
+  br i1 %61, label %.lr.ph122, label %.critedge, !llvm.loop !146
 
-.lr.ph116:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph122:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %62 = phi i8 [ %60, %.lr.ph ], [ %57, %.lr.ph.preheader ]
-  %.0104115 = phi i64 [ %65, %.lr.ph ], [ %55, %.lr.ph.preheader ]
-  %storemerge106114 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge102, %.lr.ph.preheader ]
-  %63 = mul i64 %.0104115, 10
+  %.0104121 = phi i64 [ %65, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %storemerge106120 = phi ptr [ %storemerge, %.lr.ph ], [ %storemerge102, %.lr.ph.preheader ]
+  %63 = mul i64 %.0104121, 10
   %64 = zext nneg i8 %62 to i64
   %65 = add i64 %63, %64
-  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge106114, i64 1
+  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge106120, i64 1
   store ptr %storemerge, ptr %2, align 8, !tbaa !6
   %.not = icmp eq ptr %storemerge, %.032
   br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !146
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph116
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph122
   br label %.critedge, !llvm.loop !146
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %48
   %.0.lcssa = phi i64 [ %55, %48 ], [ %65, %..critedge.loopexit_crit_edge ], [ %55, %.lr.ph.preheader ], [ %65, %.lr.ph ]
-  %.pn.lcssa = phi ptr [ %5, %48 ], [ %storemerge106114, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %storemerge106114, %.lr.ph ]
+  %.pn.lcssa = phi ptr [ %5, %48 ], [ %storemerge106120, %..critedge.loopexit_crit_edge ], [ %5, %.lr.ph.preheader ], [ %storemerge106120, %.lr.ph ]
   %storemerge.lcssa = phi ptr [ %storemerge102, %48 ], [ %storemerge, %..critedge.loopexit_crit_edge ], [ %storemerge102, %.lr.ph.preheader ], [ %storemerge, %.lr.ph ]
   %.not40 = icmp eq ptr %storemerge.lcssa, %3
   br i1 %.not40, label %103, label %66

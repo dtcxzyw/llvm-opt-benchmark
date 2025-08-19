@@ -2623,15 +2623,15 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %.outer
 
-.outer:                                           ; preds = %.loopexit816, %.lr.ph751
-  %indvars.iv786.ph = phi i64 [ %indvars.iv.next787, %.loopexit816 ], [ 2, %.lr.ph751 ]
-  %.0483750.ph = phi i32 [ %.3486.ph, %.loopexit816 ], [ 1, %.lr.ph751 ]
-  %.0487749.ph = phi i32 [ %.0487749, %.loopexit816 ], [ 1, %.lr.ph751 ]
-  %.0491748.ph = phi i32 [ %.3494.ph, %.loopexit816 ], [ 0, %.lr.ph751 ]
+.outer:                                           ; preds = %.loopexit831, %.lr.ph751
+  %indvars.iv786.ph = phi i64 [ %indvars.iv.next787, %.loopexit831 ], [ 2, %.lr.ph751 ]
+  %.0483750.ph = phi i32 [ %.3486.ph, %.loopexit831 ], [ 1, %.lr.ph751 ]
+  %.0487749.ph = phi i32 [ %.0487749, %.loopexit831 ], [ 1, %.lr.ph751 ]
+  %.0491748.ph = phi i32 [ %.3494.ph, %.loopexit831 ], [ 0, %.lr.ph751 ]
   br label %91
 
 91:                                               ; preds = %.outer, %.thread
-  %indvars.iv786 = phi i64 [ %indvars.iv.next787805, %.thread ], [ %indvars.iv786.ph, %.outer ]
+  %indvars.iv786 = phi i64 [ %indvars.iv.next787820, %.thread ], [ %indvars.iv786.ph, %.outer ]
   %.0487749 = phi i32 [ 0, %.thread ], [ %.0487749.ph, %.outer ]
   %92 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv786
   %93 = load ptr, ptr %92, align 8, !tbaa !94
@@ -2643,12 +2643,12 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 97:                                               ; preds = %91
   %98 = or i32 %.0491748.ph, 4
-  br label %.loopexit816
+  br label %.loopexit831
 
 99:                                               ; preds = %91
   %100 = tail call i32 @strcasecmp(ptr noundef %95, ptr noundef nonnull @.str.136) #27
   %.not552 = icmp eq i32 %100, 0
-  br i1 %.not552, label %.loopexit816, label %101
+  br i1 %.not552, label %.loopexit831, label %101
 
 101:                                              ; preds = %99
   %102 = tail call i32 @strcasecmp(ptr noundef %95, ptr noundef nonnull @.str.137) #27
@@ -2659,7 +2659,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.138) #26
   br label %.loopexit
 
-.loopexit816:                                     ; preds = %99, %97
+.loopexit831:                                     ; preds = %99, %97
   %.3494.ph = phi i32 [ %98, %97 ], [ %.0491748.ph, %99 ]
   %.3486.ph = phi i32 [ %.0483750.ph, %97 ], [ 0, %99 ]
   %indvars.iv.next787 = add nuw nsw i64 %indvars.iv786, 1
@@ -2667,22 +2667,22 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond789.not, label %._crit_edge752, label %.outer, !llvm.loop !107
 
 .thread:                                          ; preds = %101
-  %indvars.iv.next787805 = add nuw nsw i64 %indvars.iv786, 1
-  %exitcond789.not806 = icmp eq i64 %indvars.iv.next787805, %wide.trip.count
-  br i1 %exitcond789.not806, label %._crit_edge752.thread810, label %91, !llvm.loop !107
+  %indvars.iv.next787820 = add nuw nsw i64 %indvars.iv786, 1
+  %exitcond789.not821 = icmp eq i64 %indvars.iv.next787820, %wide.trip.count
+  br i1 %exitcond789.not821, label %._crit_edge752.thread825, label %91, !llvm.loop !107
 
-._crit_edge752.thread810:                         ; preds = %.thread
+._crit_edge752.thread825:                         ; preds = %.thread
   %103 = icmp eq i32 %.0483750.ph, 0
   br i1 %103, label %114, label %112
 
-._crit_edge752:                                   ; preds = %.loopexit816
+._crit_edge752:                                   ; preds = %.loopexit831
   %104 = icmp eq i32 %.0487749, 0
   %105 = icmp eq i32 %.3486.ph, 0
   br i1 %104, label %111, label %._crit_edge752.thread
 
 ._crit_edge752.thread:                            ; preds = %.preheader, %._crit_edge752
-  %.0483.lcssa800 = phi i1 [ %105, %._crit_edge752 ], [ false, %.preheader ]
-  %.0491.lcssa798 = phi i32 [ %.3494.ph, %._crit_edge752 ], [ 0, %.preheader ]
+  %.0483.lcssa815 = phi i1 [ %105, %._crit_edge752 ], [ false, %.preheader ]
+  %.0491.lcssa813 = phi i32 [ %.3494.ph, %._crit_edge752 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %106 = call ptr @rdbPopulateSaveInfo(ptr noundef nonnull %4) #26
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6776), align 8, !tbaa !108
@@ -2698,21 +2698,21 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %._crit_edge752.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0483.lcssa800, label %114, label %112
+  br i1 %.0483.lcssa815, label %114, label %112
 
 111:                                              ; preds = %._crit_edge752
   br i1 %105, label %114, label %112
 
-112:                                              ; preds = %._crit_edge752.thread810, %.critedge, %111
-  %.0491.lcssa799814 = phi i32 [ %.0491.lcssa798, %.critedge ], [ %.3494.ph, %111 ], [ %.0491748.ph, %._crit_edge752.thread810 ]
+112:                                              ; preds = %._crit_edge752.thread825, %.critedge, %111
+  %.0491.lcssa814829 = phi i32 [ %.0491.lcssa813, %.critedge ], [ %.3494.ph, %111 ], [ %.0491748.ph, %._crit_edge752.thread825 ]
   %113 = call i64 @emptyData(i32 noundef -1, i32 noundef 0, ptr noundef null) #26
   br label %114
 
-114:                                              ; preds = %._crit_edge752.thread810, %.critedge, %112, %111
-  %.0491.lcssa799815 = phi i32 [ %.0491.lcssa798, %.critedge ], [ %.0491.lcssa799814, %112 ], [ %.3494.ph, %111 ], [ %.0491748.ph, %._crit_edge752.thread810 ]
+114:                                              ; preds = %._crit_edge752.thread825, %.critedge, %112, %111
+  %.0491.lcssa814830 = phi i32 [ %.0491.lcssa813, %.critedge ], [ %.0491.lcssa814829, %112 ], [ %.3494.ph, %111 ], [ %.0491748.ph, %._crit_edge752.thread825 ]
   call void @protectClient(ptr noundef nonnull %0) #26
   %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6776), align 8, !tbaa !108
-  %116 = call i32 @rdbLoad(ptr noundef %115, ptr noundef null, i32 noundef %.0491.lcssa799815) #26
+  %116 = call i32 @rdbLoad(ptr noundef %115, ptr noundef null, i32 noundef %.0491.lcssa814830) #26
   call void @unprotectClient(ptr noundef nonnull %0) #26
   %.not558 = icmp eq i32 %116, 0
   br i1 %.not558, label %118, label %117
@@ -4158,8 +4158,8 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 813:                                              ; preds = %791, %799, %809, %804
-  %.sink835 = phi i32 [ %801, %799 ], [ %811, %809 ], [ %806, %804 ], [ 1, %791 ]
-  store i32 %.sink835, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7216), align 8, !tbaa !158
+  %.sink850 = phi i32 [ %801, %799 ], [ %811, %809 ], [ %806, %804 ], [ 1, %791 ]
+  store i32 %.sink850, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7216), align 8, !tbaa !158
   %814 = load ptr, ptr @shared, align 8, !tbaa !95
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %814) #26
   br label %.loopexit
@@ -5118,8 +5118,8 @@ define dso_local void @logStackContent(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %.preheader.split, %12
   %18 = phi i32 [ %10, %.preheader.split ], [ %.pre, %12 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not11 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not11, label %.loopexit, label %.preheader.split, !llvm.loop !185
+  %.not12 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not12, label %.loopexit, label %.preheader.split, !llvm.loop !185
 
 .loopexit:                                        ; preds = %17, %.preheader, %9, %6
   ret void
@@ -5218,8 +5218,8 @@ define dso_local void @logRegisters(ptr noundef readonly captures(none) %0) loca
 61:                                               ; preds = %56, %.preheader.split.i
   %62 = phi i32 [ %54, %.preheader.split.i ], [ %.pre.i, %56 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not11.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not11.i, label %logStackContent.exit, label %.preheader.split.i, !llvm.loop !185
+  %.not12.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not12.i, label %logStackContent.exit, label %.preheader.split.i, !llvm.loop !185
 
 logStackContent.exit:                             ; preds = %61, %.preheader.i, %51, %53
   ret void
@@ -5330,8 +5330,8 @@ get_ready_to_signal_threads_tids.exit.thread21:   ; preds = %21
 
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
   %.03457.i = phi i64 [ %29, %.backedge.i ], [ 0, %.preheader.i ]
-  %.256.i = phi i64 [ %.469.i, %.backedge.i ], [ %.035.i, %.preheader.i ]
-  %.23955.i = phi i32 [ %.44167.i, %.backedge.i ], [ %.037.i, %.preheader.i ]
+  %.256.i = phi i64 [ %.474.i, %.backedge.i ], [ %.035.i, %.preheader.i ]
+  %.23955.i = phi i32 [ %.44172.i, %.backedge.i ], [ %.037.i, %.preheader.i ]
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 %.03457.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i16, ptr %26, align 8, !tbaa !187
@@ -5434,7 +5434,7 @@ sub_0.i:                                          ; preds = %.preheader.i, %.bac
 is_thread_ready_to_signal.exit.thread.i:          ; preds = %62, %.thread35.i.i, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread72.i
+  br label %.thread77.i
 
 63:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5448,9 +5448,9 @@ is_thread_ready_to_signal.exit.thread.i:          ; preds = %62, %.thread35.i.i,
   %69 = getelementptr inbounds nuw i32, ptr %9, i64 %.256.i
   store i32 %67, ptr %69, align 4, !tbaa !16
   %70 = icmp eq i64 %68, 50
-  br i1 %70, label %._crit_edge.thread.i, label %.thread72.i
+  br i1 %70, label %._crit_edge.thread.i, label %.thread77.i
 
-.thread72.i:                                      ; preds = %63, %is_thread_ready_to_signal.exit.thread.i
+.thread77.i:                                      ; preds = %63, %is_thread_ready_to_signal.exit.thread.i
   %.542.ph.i = phi i32 [ %.23955.i, %is_thread_ready_to_signal.exit.thread.i ], [ %spec.select.i, %63 ]
   %.5.ph.i = phi i64 [ %.256.i, %is_thread_ready_to_signal.exit.thread.i ], [ %68, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -5461,15 +5461,15 @@ is_thread_ready_to_signal.exit.thread.i:          ; preds = %62, %.thread35.i.i,
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit.i
 
-.backedge.i:                                      ; preds = %.tail.i, %.thread72.i, %.tail51.i
-  %.469.i = phi i64 [ %.5.ph.i, %.thread72.i ], [ %.256.i, %.tail51.i ], [ %.256.i, %.tail.i ]
-  %.44167.i = phi i32 [ %.542.ph.i, %.thread72.i ], [ %.23955.i, %.tail51.i ], [ %.23955.i, %.tail.i ]
+.backedge.i:                                      ; preds = %.tail.i, %.thread77.i, %.tail51.i
+  %.474.i = phi i64 [ %.5.ph.i, %.thread77.i ], [ %.256.i, %.tail51.i ], [ %.256.i, %.tail.i ]
+  %.44172.i = phi i32 [ %.542.ph.i, %.thread77.i ], [ %.23955.i, %.tail51.i ], [ %.23955.i, %.tail.i ]
   %71 = icmp slt i64 %29, %22
   br i1 %71, label %sub_0.i, label %._crit_edge.i, !llvm.loop !189
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.preheader.i
-  %.340.i = phi i32 [ %.037.i, %.preheader.i ], [ %.44167.i, %.backedge.i ]
-  %.3.i = phi i64 [ %.035.i, %.preheader.i ], [ %.469.i, %.backedge.i ]
+  %.340.i = phi i32 [ %.037.i, %.preheader.i ], [ %.44172.i, %.backedge.i ]
+  %.3.i = phi i64 [ %.035.i, %.preheader.i ], [ %.474.i, %.backedge.i ]
   %72 = icmp eq i64 %.3.i, 50
   br i1 %72, label %.loopexit.i, label %21, !llvm.loop !191
 

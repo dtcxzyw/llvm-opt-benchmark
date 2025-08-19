@@ -1619,8 +1619,8 @@ config_run_code.exit.thread.i.i:                  ; preds = %config_run_code.exi
   br label %pymain_repl.exit.i
 
 Py_DECREF.exit.sink.split.i:                      ; preds = %127, %116
-  %.sink120.i = phi ptr [ %114, %116 ], [ %124, %127 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink120.i) #14
+  %.sink146.i = phi ptr [ %114, %116 ], [ %124, %127 ]
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink146.i) #14
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %Py_DECREF.exit.sink.split.i, %Py_DECREF.exit67.i, %127, %125, %116, %113, %95, %0

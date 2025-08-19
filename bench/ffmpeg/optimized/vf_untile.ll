@@ -100,9 +100,9 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 19:                                               ; preds = %16
   %.not92 = icmp eq i32 %17, 0
   %.pr.pre = load ptr, ptr %14, align 8, !tbaa !31
-  br i1 %.not92, label %28, label %.thread105
+  br i1 %.not92, label %28, label %.thread111
 
-.thread105:                                       ; preds = %19
+.thread111:                                       ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 136
   %21 = load i64, ptr %20, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -118,8 +118,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %.not93 = icmp eq ptr %.pr.pre, null
   br i1 %.not93, label %116, label %.thread
 
-.thread:                                          ; preds = %.thread105, %.critedge, %28
-  %29 = phi ptr [ %.pr.pre, %28 ], [ %15, %.critedge ], [ %.pr.pre, %.thread105 ]
+.thread:                                          ; preds = %.thread111, %.critedge, %28
+  %29 = phi ptr [ %.pr.pre, %28 ], [ %15, %.critedge ], [ %.pr.pre, %.thread111 ]
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !41
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -184,7 +184,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %71
 
 71:                                               ; preds = %.preheader, %91
-  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %91 ]
+  %exitcond.not = phi i1 [ false, %.preheader ], [ true, %91 ]
+  %indvars.iv = phi i64 [ 1, %.preheader ], [ 2, %91 ]
   %72 = getelementptr inbounds nuw [8 x ptr], ptr %.082, i64 0, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %.not98 = icmp eq ptr %73, null
@@ -211,8 +212,6 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   br label %91
 
 91:                                               ; preds = %71, %74
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %71, !llvm.loop !58
 
 .loopexit:                                        ; preds = %91, %39

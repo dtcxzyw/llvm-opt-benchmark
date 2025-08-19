@@ -495,9 +495,9 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   %155 = load ptr, ptr %151, align 8
   %switch.selectcmp = icmp eq i32 %154, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.100, ptr @.str.101
-  %switch.selectcmp105 = icmp eq i32 %154, 0
-  %switch.select106 = select i1 %switch.selectcmp105, ptr @.str.99, ptr %switch.select
-  call void @col_set_str(ptr noundef %155, i32 noundef 25, ptr noundef nonnull %switch.select106)
+  %switch.selectcmp113 = icmp eq i32 %154, 0
+  %switch.select114 = select i1 %switch.selectcmp113, ptr @.str.99, ptr %switch.select
+  call void @col_set_str(ptr noundef %155, i32 noundef 25, ptr noundef nonnull %switch.select114)
   %156 = load i32, ptr @force_client, align 4
   switch i32 %156, label %157 [
     i32 0, label %.thread99
@@ -508,9 +508,9 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread99.sink.split
 
 .thread99.sink.split:                             ; preds = %146, %157
-  %.sink104 = phi i32 [ 1, %157 ], [ 0, %146 ]
+  %.sink112 = phi i32 [ 1, %157 ], [ 0, %146 ]
   %158 = load i32, ptr %153, align 4
-  %159 = icmp eq i32 %158, %.sink104
+  %159 = icmp eq i32 %158, %.sink112
   %spec.select101 = zext i1 %159 to i8
   br label %.thread99
 
@@ -541,10 +541,10 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond.i, label %.sink.split.i, label %173
 
 .sink.split.i:                                    ; preds = %170, %160
-  %.str.108.sink211.i = phi ptr [ @.str.107, %160 ], [ @.str.108, %170 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %163, ptr noundef nonnull %.str.108.sink211.i)
+  %.str.108.sink214.i = phi ptr [ @.str.107, %160 ], [ @.str.108, %170 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %163, ptr noundef nonnull %.str.108.sink214.i)
   %172 = load ptr, ptr %151, align 8
-  call void @col_append_str(ptr noundef %172, i32 noundef 25, ptr noundef nonnull %.str.108.sink211.i)
+  call void @col_append_str(ptr noundef %172, i32 noundef 25, ptr noundef nonnull %.str.108.sink214.i)
   br label %173
 
 173:                                              ; preds = %.sink.split.i, %170
@@ -565,19 +565,19 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
 183:                                              ; preds = %181, %173
   %184 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 6)
   %185 = icmp sgt i32 %184, %179
-  br i1 %185, label %.sink.split212.i, label %186
+  br i1 %185, label %.sink.split215.i, label %186
 
 186:                                              ; preds = %183
   %187 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 6)
   %188 = icmp slt i32 %187, %179
-  br i1 %188, label %.sink.split212.i, label %190
+  br i1 %188, label %.sink.split215.i, label %190
 
-.sink.split212.i:                                 ; preds = %186, %183
+.sink.split215.i:                                 ; preds = %186, %183
   %.str.111.sink.i = phi ptr [ @.str.110, %183 ], [ @.str.111, %186 ]
   %189 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %177, ptr noundef nonnull @ei_bthcrp_control_parameter_length, ptr noundef nonnull %.str.111.sink.i)
   br label %190
 
-190:                                              ; preds = %.sink.split212.i, %186
+190:                                              ; preds = %.sink.split215.i, %186
   br i1 %161, label %194, label %191
 
 191:                                              ; preds = %190

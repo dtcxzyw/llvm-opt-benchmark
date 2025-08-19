@@ -324,8 +324,8 @@ define internal void @start_input_ppm(ptr noundef %0, ptr noundef initializes((9
   %135 = icmp eq i32 %134, -1
   %136 = load i32, ptr %103, align 4, !tbaa !48
   %137 = icmp eq i32 %136, 1
-  %or.cond262 = select i1 %135, i1 %137, i1 false
-  br i1 %or.cond262, label %138, label %thread-pre-split
+  %or.cond267 = select i1 %135, i1 %137, i1 false
+  br i1 %or.cond267, label %138, label %thread-pre-split
 
 138:                                              ; preds = %131
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -450,8 +450,8 @@ thread-pre-split:                                 ; preds = %131
   %192 = icmp eq i32 %187, 2
   %193 = add i32 %187, -6
   %or.cond249 = icmp ult i32 %193, 10
-  %or.cond263 = or i1 %192, %or.cond249
-  br i1 %or.cond263, label %194, label %196
+  %or.cond268 = or i1 %192, %or.cond249
+  br i1 %or.cond268, label %194, label %196
 
 .thread:                                          ; preds = %188
   %.old = add i32 %187, -6
@@ -505,9 +505,9 @@ thread-pre-split:                                 ; preds = %131
   ]
 
 .sink.split:                                      ; preds = %213, %213, %209
-  %.sink258 = phi i32 [ %212, %209 ], [ %206, %213 ], [ %206, %213 ]
+  %.sink263 = phi i32 [ %212, %209 ], [ %206, %213 ], [ %206, %213 ]
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.sink258, ptr %214, align 8, !tbaa !52
+  store i32 %.sink263, ptr %214, align 8, !tbaa !52
   br label %215
 
 215:                                              ; preds = %.sink.split, %213
@@ -516,10 +516,10 @@ thread-pre-split:                                 ; preds = %131
 216:                                              ; preds = %215
   %217 = icmp eq i32 %12, 54
   %218 = mul nuw nsw i64 %34, 3
-  %.sink260 = select i1 %217, i64 %218, i64 %34
+  %.sink265 = select i1 %217, i64 %218, i64 %34
   %219 = icmp ugt i32 %23, 255
   %220 = zext i1 %219 to i64
-  %221 = shl nuw nsw i64 %.sink260, %220
+  %221 = shl nuw nsw i64 %.sink265, %220
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 %221, ptr %222, align 8, !tbaa !53
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -943,8 +943,8 @@ rgb_to_cmyk.exit:                                 ; preds = %rgb_to_cmyk.exit.lr
   %29 = fsub double %27, %27
   %30 = fsub double 1.000000e+00, %27
   %31 = fneg double %29
-  %.neg55 = fdiv double %31, %30
-  %32 = select i1 %28, double -0.000000e+00, double %.neg55
+  %.neg56 = fdiv double %31, %30
+  %32 = select i1 %28, double -0.000000e+00, double %.neg56
   %33 = tail call double @llvm.fmuladd.f64(double %32, double %19, double %19)
   %34 = fadd double %33, 5.000000e-01
   %35 = fptoui double %34 to i8
@@ -2027,8 +2027,8 @@ rgb_to_cmyk.exit:                                 ; preds = %rgb_to_cmyk.exit.lr
   %42 = fsub double %40, %40
   %43 = fsub double 1.000000e+00, %40
   %44 = fneg double %42
-  %.neg62 = fdiv double %44, %43
-  %45 = select i1 %41, double -0.000000e+00, double %.neg62
+  %.neg63 = fdiv double %44, %43
+  %45 = select i1 %41, double -0.000000e+00, double %.neg63
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %32, double %32)
   %47 = fadd double %46, 5.000000e-01
   %48 = fptoui double %47 to i8

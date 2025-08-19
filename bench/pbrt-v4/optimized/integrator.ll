@@ -16761,25 +16761,25 @@ _ZN4pbrt3SOAINS_15SampledSpectrumEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byte
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %20, i64 noundef 4)
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %1, ptr %49, align 8, !tbaa !217
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %40, ptr %50, align 8, !tbaa !218
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %44, ptr %51, align 8, !tbaa !219
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %48, ptr %52, align 8, !tbaa !220
-  %53 = load ptr, ptr %2, align 8, !tbaa !86
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %20, i64 noundef 4)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %56, ptr %57, align 8, !tbaa !775
-  %58 = shl nsw i64 %19, 4
+  %49 = shl nsw i64 %19, 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %1, ptr %50, align 8, !tbaa !217
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %40, ptr %51, align 8, !tbaa !218
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %44, ptr %52, align 8, !tbaa !219
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %48, ptr %53, align 8, !tbaa !220
+  %54 = load ptr, ptr %2, align 8, !tbaa !86
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %20, i64 noundef 4)
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %57, ptr %58, align 8, !tbaa !775
   %59 = load ptr, ptr %2, align 8, !tbaa !86
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %58, i64 noundef 16)
+  %62 = tail call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %49, i64 noundef 16)
   store i32 %1, ptr %18, align 8, !tbaa !200
   store ptr %62, ptr %5, align 8, !tbaa !201
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -16787,7 +16787,7 @@ _ZN4pbrt3SOAINS_15SampledSpectrumEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byte
   %64 = load ptr, ptr %2, align 8, !tbaa !86
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %58, i64 noundef 16)
+  %67 = tail call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %49, i64 noundef 16)
   store i32 %1, ptr %17, align 8, !tbaa !200
   store ptr %67, ptr %6, align 8, !tbaa !201
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -16795,7 +16795,7 @@ _ZN4pbrt3SOAINS_15SampledSpectrumEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byte
   %69 = load ptr, ptr %2, align 8, !tbaa !86
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %58, i64 noundef 16)
+  %72 = tail call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %49, i64 noundef 16)
   store i32 %1, ptr %16, align 8, !tbaa !200
   store ptr %72, ptr %7, align 8, !tbaa !201
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -16803,11 +16803,11 @@ _ZN4pbrt3SOAINS_15SampledSpectrumEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byte
   %74 = load ptr, ptr %2, align 8, !tbaa !86
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %58, i64 noundef 16)
+  %77 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %49, i64 noundef 16)
   %78 = load ptr, ptr %2, align 8, !tbaa !86
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %58, i64 noundef 16)
+  %81 = tail call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %49, i64 noundef 16)
   br label %_ZN4pbrt3SOAINS_18SampledWavelengthsEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit
 
 _ZN4pbrt3SOAINS_18SampledWavelengthsEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit: ; preds = %_ZN4pbrt3SOAINS_15SampledSpectrumEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byteEE.exit22.thread, %15
@@ -27620,8 +27620,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt16RemapPixelCoordsEPNS
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.9.0.extract.shift = lshr i64 %1, 32
   %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
-  %.sroa.0.0.extract.trunc92 = trunc i64 %2 to i32
-  store i32 %.sroa.0.0.extract.trunc92, ptr %.sroa.0, align 8
+  %.sroa.0.0.extract.trunc94 = trunc i64 %2 to i32
+  store i32 %.sroa.0.0.extract.trunc94, ptr %.sroa.0, align 8
   %.sroa.2.0.extract.shift = lshr i64 %2, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   store i32 %.sroa.2.0.extract.trunc, ptr %.sroa.2, align 4
@@ -27747,25 +27747,25 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt16RemapPixelCoordsEPNS
   %58 = icmp slt i32 %57, 0
   %59 = select i1 %58, i32 %.sroa.speculated71, i32 0
   %60 = add nsw i32 %59, %57
-  br label %.sink.split89
+  br label %.sink.split91
 
 61:                                               ; preds = %54
   %62 = add nsw i32 %.sroa.speculated71, -1
   %63 = icmp slt i32 %51, 0
   %..i = tail call i32 @llvm.smin.i32(i32 %51, i32 %62)
   %.0.i = select i1 %63, i32 0, i32 %..i
-  br label %.sink.split89
+  br label %.sink.split91
 
 64:                                               ; preds = %54
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.89, i32 noundef 142, ptr noundef nonnull @.str.92) #35
   unreachable
 
-.sink.split89:                                    ; preds = %61, %56
-  %.sink90 = phi i32 [ %60, %56 ], [ %.0.i, %61 ]
-  store i32 %.sink90, ptr %50, align 4, !tbaa !184
+.sink.split91:                                    ; preds = %61, %56
+  %.sink92 = phi i32 [ %60, %56 ], [ %.0.i, %61 ]
+  store i32 %.sink92, ptr %50, align 4, !tbaa !184
   br label %65
 
-65:                                               ; preds = %.sink.split89, %.preheader
+65:                                               ; preds = %.sink.split91, %.preheader
   br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !1061
 
 .loopexit:                                        ; preds = %65, %54, %46, %48
@@ -30334,8 +30334,8 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt16DiffuseAr
   %foldExtExtBinop = fadd <2 x float> %1, %1
   %33 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %34 = fmul float %33, 5.000000e-01
-  %foldExtExtBinop99 = fadd <2 x float> %1, %1
-  %35 = extractelement <2 x float> %foldExtExtBinop99, i64 1
+  %foldExtExtBinop102 = fadd <2 x float> %1, %1
+  %35 = extractelement <2 x float> %foldExtExtBinop102, i64 1
   %36 = fmul float %35, 5.000000e-01
   %37 = fadd float %2, %2
   %38 = fmul float %37, 5.000000e-01
@@ -30410,8 +30410,8 @@ _ZNK4pbrt16DiffuseAreaLight11AlphaMaskedERKNS_11InteractionE.exit: ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   store float 0.000000e+00, ptr %.sroa.063, align 8, !tbaa !1006
   %.sroa.063.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.063, i64 4
-  %.sroa.063.4..sroa_idx101 = getelementptr inbounds nuw i8, ptr %.sroa.063, i64 4
-  store float 0.000000e+00, ptr %.sroa.063.4..sroa_idx101, align 4, !tbaa !1008
+  %.sroa.063.4..sroa_idx104 = getelementptr inbounds nuw i8, ptr %.sroa.063, i64 4
+  store float 0.000000e+00, ptr %.sroa.063.4..sroa_idx104, align 4, !tbaa !1008
   store float 0.000000e+00, ptr %.sroa.7, align 4, !tbaa !1009
   %.sroa.081.4.vec.extract = extractelement <2 x float> %5, i64 1
   %76 = fsub float 1.000000e+00, %.sroa.081.4.vec.extract

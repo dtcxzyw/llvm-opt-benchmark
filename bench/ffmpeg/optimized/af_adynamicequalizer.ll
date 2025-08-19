@@ -653,7 +653,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   br label %165
 
 ._crit_edge:                                      ; preds = %queue_sample_double.exit
-  store i32 %.2128.i, ptr %145, align 8, !tbaa !93
+  store i32 %.2139.i, ptr %145, align 8, !tbaa !93
   store i32 %.180.i, ptr %146, align 4, !tbaa !94
   store i32 %spec.store.select.sink.i, ptr %147, align 8, !tbaa !95
   br label %151
@@ -679,7 +679,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   %166 = phi i32 [ %.promoted309, %.lr.ph303 ], [ %208, %queue_sample_double.exit ]
   %spec.store.select.sink.i308 = phi i32 [ %.promoted307, %.lr.ph303 ], [ %spec.store.select.sink.i, %queue_sample_double.exit ]
   %.180.i306 = phi i32 [ %.promoted305, %.lr.ph303 ], [ %.180.i, %queue_sample_double.exit ]
-  %.2128.i304 = phi i32 [ %.promoted, %.lr.ph303 ], [ %.2128.i, %queue_sample_double.exit ]
+  %.2139.i304 = phi i32 [ %.promoted, %.lr.ph303 ], [ %.2139.i, %queue_sample_double.exit ]
   %167 = getelementptr inbounds nuw double, ptr %137, i64 %indvars.iv343
   %168 = load double, ptr %167, align 8, !tbaa !74
   %169 = load double, ptr %140, align 8, !tbaa !74
@@ -742,8 +742,8 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   %208 = phi i32 [ %206, %204 ], [ %166, %199 ]
   %spec.store.select.sink.i = phi i32 [ %spec.store.select100.i, %204 ], [ %spec.store.select.i, %199 ]
   store double %190, ptr %192, align 8, !tbaa !74
-  %209 = icmp eq i32 %.2128.i304, %.180.i306
-  %210 = sext i32 %.2128.i304 to i64
+  %209 = icmp eq i32 %.2139.i304, %.180.i306
+  %210 = sext i32 %.2139.i304 to i64
   %211 = getelementptr inbounds double, ptr %142, i64 %210
   %212 = load double, ptr %211, align 8, !tbaa !74
   %213 = fcmp nsz oeq double %212, 0.000000e+00
@@ -756,10 +756,10 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
 
 215:                                              ; preds = %.thread101.i
   store double 0.000000e+00, ptr %211, align 8, !tbaa !74
-  %216 = icmp slt i32 %.2128.i304, 1
-  %spec.select.v.i = select i1 %216, i32 %208, i32 %.2128.i304
+  %216 = icmp slt i32 %.2139.i304, 1
+  %spec.select.v.i = select i1 %216, i32 %208, i32 %.2139.i304
   %spec.select.i = add nsw i32 %spec.select.v.i, -1
-  %.1.i = select i1 %209, i32 %.2128.i304, i32 %spec.select.i
+  %.1.i = select i1 %209, i32 %.2139.i304, i32 %spec.select.i
   %217 = icmp eq i32 %.1.i, %.180.i306
   br i1 %217, label %queue_sample_double.exit, label %..thread105_crit_edge.i
 
@@ -772,7 +772,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
 .thread105.i:                                     ; preds = %..thread105_crit_edge.i, %.thread101.i
   %.pre-phi125.i = phi i64 [ %.phi.trans.insert122.i, %..thread105_crit_edge.i ], [ %210, %.thread101.i ]
   %218 = phi double [ %.pre124.i, %..thread105_crit_edge.i ], [ %212, %.thread101.i ]
-  %.0108.i = phi i32 [ %.1.i, %..thread105_crit_edge.i ], [ %.2128.i304, %.thread101.i ]
+  %.0108.i = phi i32 [ %.1.i, %..thread105_crit_edge.i ], [ %.2139.i304, %.thread101.i ]
   %219 = fcmp nsz ogt double %190, %218
   br i1 %219, label %.preheader.i, label %.lr.ph112.split.us.i
 
@@ -825,7 +825,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   br label %queue_sample_double.exit
 
 queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.ph.i, %207, %215, %.preheader.i, %.critedge.i
-  %.2128.i = phi i32 [ %.0108.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %215 ], [ %.180.i306, %207 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
+  %.2139.i = phi i32 [ %.0108.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %215 ], [ %.180.i306, %207 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
   %.180.i = phi i32 [ %spec.select98.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %215 ], [ %.180.i306, %207 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
   %239 = sext i32 %.180.i to i64
   %240 = getelementptr inbounds double, ptr %142, i64 %239
@@ -887,21 +887,21 @@ queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.p
   %267 = load i32, ptr %266, align 8, !tbaa !88
   switch i32 %267, label %271 [
     i32 3, label %268
-    i32 0, label %.sink.split388
+    i32 0, label %.sink.split406
   ]
 
 268:                                              ; preds = %264
   %269 = getelementptr inbounds nuw i8, ptr %265, i64 120
-  br label %.sink.split388
+  br label %.sink.split406
 
-.sink.split388:                                   ; preds = %264, %268
-  %.sink389.in = phi ptr [ %269, %268 ], [ %59, %264 ]
-  %.sink389 = load double, ptr %.sink389.in, align 8, !tbaa !74
+.sink.split406:                                   ; preds = %264, %268
+  %.sink407.in = phi ptr [ %269, %268 ], [ %59, %264 ]
+  %.sink407 = load double, ptr %.sink407.in, align 8, !tbaa !74
   %270 = getelementptr inbounds nuw i8, ptr %265, i64 112
-  store double %.sink389, ptr %270, align 8, !tbaa !99
+  store double %.sink407, ptr %270, align 8, !tbaa !99
   br label %271
 
-271:                                              ; preds = %.sink.split388, %264
+271:                                              ; preds = %.sink.split406, %264
   store i32 2, ptr %266, align 8, !tbaa !88
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1095,7 +1095,7 @@ queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.p
   store double %398, ptr %308, align 8, !tbaa !74
   %399 = fneg nsz double %383
   %400 = tail call nsz double @llvm.fmuladd.f64(double %399, double %383, double 1.000000e+00)
-  br label %.sink.split391
+  br label %.sink.split409
 
 401:                                              ; preds = %386
   %402 = tail call nsz double @llvm.sqrt.f64(double %383)
@@ -1113,7 +1113,7 @@ queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.p
   %410 = fmul nsz double %37, %409
   store double %410, ptr %308, align 8, !tbaa !74
   %411 = tail call nsz double @llvm.fmuladd.f64(double %383, double %383, double -1.000000e+00)
-  br label %.sink.split391
+  br label %.sink.split409
 
 412:                                              ; preds = %386
   %413 = fdiv nsz double %37, %383
@@ -1129,16 +1129,16 @@ queue_sample_double.exit:                         ; preds = %.lr.ph118.i, %.lr.p
   %419 = tail call nsz double @llvm.fmuladd.f64(double %383, double %383, double -1.000000e+00)
   %420 = fmul nsz double %413, %419
   store double %420, ptr %308, align 8, !tbaa !74
-  br label %.sink.split391
+  br label %.sink.split409
 
-.sink.split391:                                   ; preds = %387, %401, %412
-  %.sink392 = phi double [ 0.000000e+00, %412 ], [ %411, %401 ], [ %400, %387 ]
-  store double %.sink392, ptr %309, align 8, !tbaa !74
+.sink.split409:                                   ; preds = %387, %401, %412
+  %.sink410 = phi double [ 0.000000e+00, %412 ], [ %411, %401 ], [ %400, %387 ]
+  store double %.sink410, ptr %309, align 8, !tbaa !74
   br label %421
 
-421:                                              ; preds = %.sink.split391, %386, %374
-  %.1276.us = phi nsz double [ %.0275320.us, %374 ], [ %383, %386 ], [ %383, %.sink.split391 ]
-  %.1.us = phi i32 [ %.0274321.us, %374 ], [ 1, %386 ], [ 1, %.sink.split391 ]
+421:                                              ; preds = %.sink.split409, %386, %374
+  %.1276.us = phi nsz double [ %.0275320.us, %374 ], [ %383, %386 ], [ %383, %.sink.split409 ]
+  %.1.us = phi i32 [ %.0274321.us, %374 ], [ 1, %386 ], [ 1, %.sink.split409 ]
   %422 = load double, ptr %312, align 8, !tbaa !74
   %423 = load double, ptr %310, align 8, !tbaa !74
   %424 = fsub nsz double %422, %423
@@ -1586,7 +1586,7 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   br label %178
 
 ._crit_edge:                                      ; preds = %queue_sample_float.exit
-  store i32 %.2128.i, ptr %158, align 8, !tbaa !93
+  store i32 %.2139.i, ptr %158, align 8, !tbaa !93
   store i32 %.180.i, ptr %159, align 4, !tbaa !94
   store i32 %spec.store.select.sink.i, ptr %160, align 8, !tbaa !95
   br label %164
@@ -1612,7 +1612,7 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   %179 = phi i32 [ %.promoted309, %.lr.ph303 ], [ %221, %queue_sample_float.exit ]
   %spec.store.select.sink.i308 = phi i32 [ %.promoted307, %.lr.ph303 ], [ %spec.store.select.sink.i, %queue_sample_float.exit ]
   %.180.i306 = phi i32 [ %.promoted305, %.lr.ph303 ], [ %.180.i, %queue_sample_float.exit ]
-  %.2128.i304 = phi i32 [ %.promoted, %.lr.ph303 ], [ %.2128.i, %queue_sample_float.exit ]
+  %.2139.i304 = phi i32 [ %.promoted, %.lr.ph303 ], [ %.2139.i, %queue_sample_float.exit ]
   %180 = getelementptr inbounds nuw float, ptr %150, i64 %indvars.iv343
   %181 = load float, ptr %180, align 4, !tbaa !108
   %182 = load float, ptr %153, align 4, !tbaa !108
@@ -1675,8 +1675,8 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   %221 = phi i32 [ %219, %217 ], [ %179, %212 ]
   %spec.store.select.sink.i = phi i32 [ %spec.store.select100.i, %217 ], [ %spec.store.select.i, %212 ]
   store float %203, ptr %205, align 4, !tbaa !108
-  %222 = icmp eq i32 %.2128.i304, %.180.i306
-  %223 = sext i32 %.2128.i304 to i64
+  %222 = icmp eq i32 %.2139.i304, %.180.i306
+  %223 = sext i32 %.2139.i304 to i64
   %224 = getelementptr inbounds float, ptr %155, i64 %223
   %225 = load float, ptr %224, align 4, !tbaa !108
   %226 = fcmp nsz oeq float %225, 0.000000e+00
@@ -1689,10 +1689,10 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
 
 228:                                              ; preds = %.thread101.i
   store float 0.000000e+00, ptr %224, align 4, !tbaa !108
-  %229 = icmp slt i32 %.2128.i304, 1
-  %spec.select.v.i = select i1 %229, i32 %221, i32 %.2128.i304
+  %229 = icmp slt i32 %.2139.i304, 1
+  %spec.select.v.i = select i1 %229, i32 %221, i32 %.2139.i304
   %spec.select.i = add nsw i32 %spec.select.v.i, -1
-  %.1.i = select i1 %222, i32 %.2128.i304, i32 %spec.select.i
+  %.1.i = select i1 %222, i32 %.2139.i304, i32 %spec.select.i
   %230 = icmp eq i32 %.1.i, %.180.i306
   br i1 %230, label %queue_sample_float.exit, label %..thread105_crit_edge.i
 
@@ -1705,7 +1705,7 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
 .thread105.i:                                     ; preds = %..thread105_crit_edge.i, %.thread101.i
   %.pre-phi125.i = phi i64 [ %.phi.trans.insert122.i, %..thread105_crit_edge.i ], [ %223, %.thread101.i ]
   %231 = phi float [ %.pre124.i, %..thread105_crit_edge.i ], [ %225, %.thread101.i ]
-  %.0108.i = phi i32 [ %.1.i, %..thread105_crit_edge.i ], [ %.2128.i304, %.thread101.i ]
+  %.0108.i = phi i32 [ %.1.i, %..thread105_crit_edge.i ], [ %.2139.i304, %.thread101.i ]
   %232 = fcmp nsz ogt float %203, %231
   br i1 %232, label %.preheader.i, label %.lr.ph112.split.us.i
 
@@ -1758,7 +1758,7 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   br label %queue_sample_float.exit
 
 queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.ph.i, %220, %228, %.preheader.i, %.critedge.i
-  %.2128.i = phi i32 [ %.0108.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %228 ], [ %.180.i306, %220 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
+  %.2139.i = phi i32 [ %.0108.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %228 ], [ %.180.i306, %220 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
   %.180.i = phi i32 [ %spec.select98.i, %.critedge.i ], [ %.180.i306, %.preheader.i ], [ %.180.i306, %228 ], [ %.180.i306, %220 ], [ %.180.i306, %.lr.ph.i ], [ %.0108.i, %.lr.ph118.i ]
   %252 = sext i32 %.180.i to i64
   %253 = getelementptr inbounds float, ptr %155, i64 %252
@@ -1827,20 +1827,20 @@ queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.p
 282:                                              ; preds = %278
   %283 = getelementptr inbounds nuw i8, ptr %279, i64 204
   %284 = load float, ptr %283, align 4, !tbaa !109
-  br label %.sink.split388
+  br label %.sink.split406
 
 285:                                              ; preds = %278
   %286 = load double, ptr %71, align 8, !tbaa !67
   %287 = fptrunc nsz double %286 to float
-  br label %.sink.split388
+  br label %.sink.split406
 
-.sink.split388:                                   ; preds = %282, %285
-  %.sink389 = phi float [ %287, %285 ], [ %284, %282 ]
+.sink.split406:                                   ; preds = %282, %285
+  %.sink407 = phi float [ %287, %285 ], [ %284, %282 ]
   %288 = getelementptr inbounds nuw i8, ptr %279, i64 200
-  store float %.sink389, ptr %288, align 8, !tbaa !115
+  store float %.sink407, ptr %288, align 8, !tbaa !115
   br label %289
 
-289:                                              ; preds = %.sink.split388, %278
+289:                                              ; preds = %.sink.split406, %278
   store i32 2, ptr %280, align 8, !tbaa !88
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2039,7 +2039,7 @@ queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.p
   store float %421, ptr %327, align 4, !tbaa !108
   %422 = fneg nsz float %406
   %423 = tail call nsz float @llvm.fmuladd.f32(float %422, float %406, float 1.000000e+00)
-  br label %.sink.split391
+  br label %.sink.split409
 
 424:                                              ; preds = %409
   %425 = tail call nsz float @llvm.sqrt.f32(float %406)
@@ -2057,7 +2057,7 @@ queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.p
   %433 = fmul nsz float %47, %432
   store float %433, ptr %327, align 4, !tbaa !108
   %434 = tail call nsz float @llvm.fmuladd.f32(float %406, float %406, float -1.000000e+00)
-  br label %.sink.split391
+  br label %.sink.split409
 
 435:                                              ; preds = %409
   %436 = fdiv nsz float %47, %406
@@ -2073,16 +2073,16 @@ queue_sample_float.exit:                          ; preds = %.lr.ph118.i, %.lr.p
   %442 = tail call nsz float @llvm.fmuladd.f32(float %406, float %406, float -1.000000e+00)
   %443 = fmul nsz float %436, %442
   store float %443, ptr %327, align 4, !tbaa !108
-  br label %.sink.split391
+  br label %.sink.split409
 
-.sink.split391:                                   ; preds = %410, %424, %435
-  %.sink392 = phi float [ 0.000000e+00, %435 ], [ %434, %424 ], [ %423, %410 ]
-  store float %.sink392, ptr %328, align 4, !tbaa !108
+.sink.split409:                                   ; preds = %410, %424, %435
+  %.sink410 = phi float [ 0.000000e+00, %435 ], [ %434, %424 ], [ %423, %410 ]
+  store float %.sink410, ptr %328, align 4, !tbaa !108
   br label %444
 
-444:                                              ; preds = %.sink.split391, %409, %397
-  %.1276.us = phi nsz float [ %.0275320.us, %397 ], [ %406, %409 ], [ %406, %.sink.split391 ]
-  %.1.us = phi i32 [ %.0274321.us, %397 ], [ 1, %409 ], [ 1, %.sink.split391 ]
+444:                                              ; preds = %.sink.split409, %409, %397
+  %.1276.us = phi nsz float [ %.0275320.us, %397 ], [ %406, %409 ], [ %406, %.sink.split409 ]
+  %.1.us = phi i32 [ %.0274321.us, %397 ], [ 1, %409 ], [ 1, %.sink.split409 ]
   %445 = load float, ptr %331, align 4, !tbaa !108
   %446 = load float, ptr %329, align 4, !tbaa !108
   %447 = fsub nsz float %445, %446

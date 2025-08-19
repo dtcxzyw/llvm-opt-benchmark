@@ -193,9 +193,9 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
 
 .preheader:                                       ; preds = %63, %._crit_edge258, %65
   %68 = phi i1 [ %67, %65 ], [ false, %._crit_edge258 ], [ false, %63 ]
-  %.0178231308 = phi ptr [ @inflate_table.dbase, %65 ], [ %5, %._crit_edge258 ], [ @inflate_table.lbase, %63 ]
-  %.0177232307 = phi ptr [ @inflate_table.dext, %65 ], [ %5, %._crit_edge258 ], [ @inflate_table.lext, %63 ]
-  %.0233306 = phi i32 [ 0, %65 ], [ 20, %._crit_edge258 ], [ 257, %63 ]
+  %.0178231316 = phi ptr [ @inflate_table.dbase, %65 ], [ %5, %._crit_edge258 ], [ @inflate_table.lbase, %63 ]
+  %.0177232315 = phi ptr [ @inflate_table.dext, %65 ], [ %5, %._crit_edge258 ], [ @inflate_table.lext, %63 ]
+  %.0233314 = phi i32 [ 0, %65 ], [ 20, %._crit_edge258 ], [ 257, %63 ]
   %69 = phi i1 [ false, %65 ], [ false, %._crit_edge258 ], [ true, %63 ]
   %70 = shl nuw i32 1, %spec.select222
   %71 = add i32 %70, -1
@@ -226,20 +226,20 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef re
   %80 = load i16, ptr %79, align 2, !tbaa !3
   %81 = zext i16 %80 to i32
   %82 = add nuw nsw i32 %81, 1
-  %83 = icmp samesign ult i32 %82, %.0233306
+  %83 = icmp samesign ult i32 %82, %.0233314
   br i1 %83, label %93, label %84
 
 84:                                               ; preds = %75
-  %.not215 = icmp samesign ugt i32 %.0233306, %81
+  %.not215 = icmp samesign ugt i32 %.0233314, %81
   br i1 %.not215, label %93, label %85
 
 85:                                               ; preds = %84
-  %86 = sub nuw nsw i32 %81, %.0233306
+  %86 = sub nuw nsw i32 %81, %.0233314
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %.0177232307, i64 %87
+  %88 = getelementptr inbounds nuw i16, ptr %.0177232315, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !3
   %90 = trunc i16 %89 to i8
-  %91 = getelementptr inbounds nuw i16, ptr %.0178231308, i64 %87
+  %91 = getelementptr inbounds nuw i16, ptr %.0178231316, i64 %87
   %92 = load i16, ptr %91, align 2, !tbaa !3
   br label %93
 

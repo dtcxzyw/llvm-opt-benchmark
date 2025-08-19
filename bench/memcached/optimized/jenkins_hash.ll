@@ -65,7 +65,7 @@ define dso_local i32 @jenkins_hash(ptr noundef %0, i64 noundef %1) local_unnamed
   %.0354.lcssa = phi i32 [ %4, %.preheader ], [ %39, %.lr.ph438 ]
   %.0351.lcssa = phi i64 [ %1, %.preheader ], [ %41, %.lr.ph438 ]
   %.0350.lcssa = phi ptr [ %0, %.preheader ], [ %42, %.lr.ph438 ]
-  switch i64 %.0351.lcssa, label %default.unreachable [
+  switch i64 %.0351.lcssa, label %default.unreachable463 [
     i64 12, label %44
     i64 11, label %52
     i64 10, label %61
@@ -174,7 +174,7 @@ define dso_local i32 @jenkins_hash(ptr noundef %0, i64 noundef %1) local_unnamed
   %112 = and i32 %111, 255
   br label %.thread
 
-default.unreachable:                              ; preds = %._crit_edge, %._crit_edge427, %._crit_edge439
+default.unreachable463:                           ; preds = %._crit_edge, %._crit_edge427, %._crit_edge439
   unreachable
 
 .thread:                                          ; preds = %44, %52, %61, %70, %79, %84, %90, %96, %102, %104, %107, %110
@@ -245,7 +245,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   %.4.lcssa = phi i32 [ %4, %.preheader410 ], [ %147, %.lr.ph426 ]
   %.1352.lcssa = phi i64 [ %1, %.preheader410 ], [ %149, %.lr.ph426 ]
   %.0346.lcssa = phi ptr [ %0, %.preheader410 ], [ %150, %.lr.ph426 ]
-  switch i64 %.1352.lcssa, label %default.unreachable [
+  switch i64 %.1352.lcssa, label %default.unreachable463 [
     i64 12, label %152
     i64 11, label %161
     i64 10, label %167
@@ -458,7 +458,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   %.9.lcssa = phi i32 [ %4, %.preheader411 ], [ %301, %.lr.ph ]
   %.2353.lcssa = phi i64 [ %1, %.preheader411 ], [ %303, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %.preheader411 ], [ %304, %.lr.ph ]
-  switch i64 %.2353.lcssa, label %default.unreachable [
+  switch i64 %.2353.lcssa, label %default.unreachable463 [
     i64 12, label %306
     i64 11, label %312
     i64 10, label %318

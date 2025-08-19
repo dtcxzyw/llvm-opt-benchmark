@@ -509,9 +509,9 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %0, ptr noundef cap
 
 15:                                               ; preds = %12
   %.not32 = icmp eq ptr %1, null
-  br i1 %.not32, label %.thread35, label %18
+  br i1 %.not32, label %.thread41, label %18
 
-.thread35:                                        ; preds = %15
+.thread41:                                        ; preds = %15
   %16 = load ptr, ptr %4, align 8, !tbaa !54
   %17 = load i64, ptr %16, align 8, !tbaa !58
   store i64 %17, ptr %2, align 8, !tbaa !45
@@ -527,9 +527,9 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %0, ptr noundef cap
   %22 = load ptr, ptr %4, align 8, !tbaa !54
   %23 = load i64, ptr %22, align 8, !tbaa !58
   %24 = icmp ult i64 %21, %23
-  br i1 %24, label %.thread, label %.thread33
+  br i1 %24, label %.thread, label %.thread39
 
-.thread33:                                        ; preds = %20
+.thread39:                                        ; preds = %20
   %25 = sub nuw i64 %21, %23
   br label %29
 
@@ -538,9 +538,9 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %0, ptr noundef cap
   %28 = load i64, ptr %27, align 8, !tbaa !58
   br label %29
 
-29:                                               ; preds = %26, %.thread33
-  %.sink = phi i64 [ %28, %26 ], [ %25, %.thread33 ]
-  %30 = phi ptr [ %27, %26 ], [ %22, %.thread33 ]
+29:                                               ; preds = %26, %.thread39
+  %.sink = phi i64 [ %28, %26 ], [ %25, %.thread39 ]
+  %30 = phi ptr [ %27, %26 ], [ %22, %.thread39 ]
   store i64 %.sink, ptr %2, align 8, !tbaa !45
   %31 = load ptr, ptr %1, align 8, !tbaa !42
   %.not29 = icmp eq ptr %31, null
@@ -563,8 +563,8 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %0, ptr noundef cap
   store ptr null, ptr %32, align 8, !tbaa !56
   br label %.thread
 
-.thread:                                          ; preds = %.thread35, %20, %34, %40, %12, %10, %7
-  %.0 = phi i32 [ 1, %34 ], [ 1, %40 ], [ 0, %12 ], [ 0, %10 ], [ 0, %7 ], [ 0, %20 ], [ 1, %.thread35 ]
+.thread:                                          ; preds = %.thread41, %20, %34, %40, %12, %10, %7
+  %.0 = phi i32 [ 1, %34 ], [ 1, %40 ], [ 0, %12 ], [ 0, %10 ], [ 0, %7 ], [ 0, %20 ], [ 1, %.thread41 ]
   %41 = call i32 @BIO_free(ptr noundef %9) #8
   br label %42
 

@@ -998,14 +998,14 @@ missing__target.exit.thread:                      ; preds = %54, %50, %49, %miss
   %109 = getelementptr i8, ptr %108, i64 -2
   %110 = load i8, ptr %109, align 1, !tbaa !15
   %.not131 = icmp eq i8 %110, 47
-  br i1 %.not131, label %.critedge4.split.loop.exit211, label %.preheader, !llvm.loop !101
+  br i1 %.not131, label %.critedge4.split.loop.exit225, label %.preheader, !llvm.loop !101
 
-.critedge4.split.loop.exit211:                    ; preds = %107
+.critedge4.split.loop.exit225:                    ; preds = %107
   %111 = trunc nsw i64 %indvars.iv.next197 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.preheader, %.critedge4.split.loop.exit211
-  %.lcssa191 = phi i32 [ %111, %.critedge4.split.loop.exit211 ], [ 0, %.preheader ]
+.critedge4:                                       ; preds = %.preheader, %.critedge4.split.loop.exit225
+  %.lcssa191 = phi i32 [ %111, %.critedge4.split.loop.exit225 ], [ 0, %.preheader ]
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, 3
   %112 = icmp slt i64 %indvars.iv200, %invariant.op
   br i1 %112, label %.lr.ph180, label %._crit_edge.loopexit, !llvm.loop !102

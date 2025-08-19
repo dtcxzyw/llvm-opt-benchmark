@@ -2206,9 +2206,9 @@ _ZN4core4time8Duration3new17h96fb62293d3c247bE.exit: ; preds = %56
   %62 = icmp ult i32 %.sroa.47.1, 1000000000
   %63 = add nuw i64 %.sroa.4.1, %59
   %spec.select = select i1 %62, i32 %.sroa.47.1, i32 %58
-  %spec.select146 = select i1 %62, i64 %.sroa.4.1, i64 %63
+  %spec.select149 = select i1 %62, i64 %.sroa.4.1, i64 %63
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select146, ptr %64, align 8
+  store i64 %spec.select149, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select, ptr %65, align 8
   store i8 9, ptr %0, align 8
@@ -2423,9 +2423,9 @@ _ZN4core4time8Duration3new17h96fb62293d3c247bE.exit: ; preds = %49
   %55 = icmp ult i32 %45, 1000000000
   %56 = add nuw i64 %26, %52
   %spec.select = select i1 %55, i32 %45, i32 %51
-  %spec.select69 = select i1 %55, i64 %26, i64 %56
+  %spec.select73 = select i1 %55, i64 %26, i64 %56
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select69, ptr %57, align 8
+  store i64 %spec.select73, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select, ptr %58, align 8
   store i8 9, ptr %0, align 8
@@ -2649,9 +2649,9 @@ _ZN4core4time8Duration3new17h96fb62293d3c247bE.exit: ; preds = %22
   %30 = icmp ult i32 %24, 1000000000
   %31 = add nuw i64 %15, %27
   %spec.select = select i1 %30, i32 %24, i32 %26
-  %spec.select57 = select i1 %30, i64 %15, i64 %31
+  %spec.select59 = select i1 %30, i64 %15, i64 %31
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select57, ptr %32, align 8
+  store i64 %spec.select59, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select, ptr %33, align 8
   store i8 9, ptr %0, align 8
@@ -4694,14 +4694,14 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_field
   %25 = load i64, ptr %3, align 8, !noundef !10
   %26 = load i64, ptr %18, align 8, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not2183 = icmp eq i64 %25, 0
-  br i1 %.not2183, label %.lr.ph84, label %._crit_edge85, !prof !1376
+  %.not2189 = icmp eq i64 %25, 0
+  br i1 %.not2189, label %.lr.ph90, label %._crit_edge91, !prof !1376
 
 ._crit_edge:                                      ; preds = %9
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %12, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.28.llvm.12734007390182477403) #30
   unreachable
 
-.lr.ph84:                                         ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
+.lr.ph90:                                         ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
   %27 = phi i64 [ %49, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %26, %.lr.ph ]
   %28 = phi i8 [ %47, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %24, %.lr.ph ]
   %29 = load i64, ptr %10, align 8, !noundef !10
@@ -4710,18 +4710,18 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_field
   %trunc = trunc nuw i8 %28 to i1
   br i1 %trunc, label %34, label %31
 
-._crit_edge85:                                    ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
+._crit_edge91:                                    ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
   %.lcssa = phi i64 [ %25, %.lr.ph ], [ %48, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ]
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %.lcssa, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.27.llvm.12734007390182477403) #30
   unreachable
 
-31:                                               ; preds = %.lr.ph84
+31:                                               ; preds = %.lr.ph90
   %32 = load i64, ptr %4, align 8, !noundef !10
   %33 = add i64 %32, 1
   store i64 %33, ptr %4, align 8
   br label %52
 
-34:                                               ; preds = %.lr.ph84
+34:                                               ; preds = %.lr.ph90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1377)
   store i8 1, ptr %19, align 1, !alias.scope !1377
   %35 = load i32, ptr %20, align 8, !alias.scope !1377, !noundef !10
@@ -4759,7 +4759,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_field
   %49 = load i64, ptr %18, align 8, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not21 = icmp eq i64 %48, 0
-  br i1 %.not21, label %.lr.ph84, label %._crit_edge85, !prof !1383
+  br i1 %.not21, label %.lr.ph90, label %._crit_edge91, !prof !1383
 
 50:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h221faa5546b414f2E.llvm.3967706017269359750.exit.i"
   %51 = tail call noundef nonnull align 8 ptr @"_ZN86_$LT$csv..error..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h1fbe64f64ef4cc18E"(ptr noundef nonnull %43)
@@ -4808,39 +4808,39 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_field
   %27 = load i64, ptr %19, align 8, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = icmp ugt i64 %26, %2
-  br i1 %28, label %._crit_edge105, label %.lr.ph104, !prof !1375
+  br i1 %28, label %._crit_edge112, label %.lr.ph111, !prof !1375
 
 ._crit_edge:                                      ; preds = %10
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %13, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.28.llvm.12734007390182477403) #30
   unreachable
 
-.lr.ph104:                                        ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
+.lr.ph111:                                        ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
   %29 = phi i64 [ %54, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %27, %.lr.ph ]
   %30 = phi i64 [ %53, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %26, %.lr.ph ]
   %31 = phi i8 [ %52, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %25, %.lr.ph ]
-  %.sroa.06.049103 = phi ptr [ %33, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %1, %.lr.ph ]
-  %.sroa.4.050102 = phi i64 [ %32, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %2, %.lr.ph ]
-  %32 = sub nuw i64 %.sroa.4.050102, %30
-  %33 = getelementptr inbounds i8, ptr %.sroa.06.049103, i64 %30
+  %.sroa.06.049110 = phi ptr [ %33, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %1, %.lr.ph ]
+  %.sroa.4.050109 = phi i64 [ %32, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %2, %.lr.ph ]
+  %32 = sub nuw i64 %.sroa.4.050109, %30
+  %33 = getelementptr inbounds i8, ptr %.sroa.06.049110, i64 %30
   %34 = load i64, ptr %11, align 8, !noundef !10
   %35 = add i64 %34, %29
   store i64 %35, ptr %11, align 8
   %trunc = trunc nuw i8 %31 to i1
   br i1 %trunc, label %39, label %36
 
-._crit_edge105:                                   ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
+._crit_edge112:                                   ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
   %.sroa.4.050.lcssa = phi i64 [ %2, %.lr.ph ], [ %32, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ]
   %.lcssa = phi i64 [ %26, %.lr.ph ], [ %53, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ]
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %.lcssa, i64 noundef %.sroa.4.050.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.27.llvm.12734007390182477403) #30
   unreachable
 
-36:                                               ; preds = %.lr.ph104
+36:                                               ; preds = %.lr.ph111
   %37 = load i64, ptr %5, align 8, !noundef !10
   %38 = add i64 %37, 1
   store i64 %38, ptr %5, align 8
   br label %58
 
-39:                                               ; preds = %.lr.ph104
+39:                                               ; preds = %.lr.ph111
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1384)
   store i8 1, ptr %20, align 1, !alias.scope !1384
   %40 = load i32, ptr %21, align 8, !alias.scope !1384, !noundef !10
@@ -4878,7 +4878,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_field
   %54 = load i64, ptr %19, align 8, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = icmp ugt i64 %53, %32
-  br i1 %55, label %._crit_edge105, label %.lr.ph104, !prof !1390
+  br i1 %55, label %._crit_edge112, label %.lr.ph111, !prof !1390
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h221faa5546b414f2E.llvm.3967706017269359750.exit.i"
   %57 = tail call noundef nonnull align 8 ptr @"_ZN86_$LT$csv..error..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h1fbe64f64ef4cc18E"(ptr noundef nonnull %48)
@@ -7855,39 +7855,39 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   %28 = load i64, ptr %20, align 8, !noalias !1824, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1824
   %29 = icmp ugt i64 %27, %2
-  br i1 %29, label %._crit_edge85, label %.lr.ph84, !prof !1375
+  br i1 %29, label %._crit_edge92, label %.lr.ph91, !prof !1375
 
 ._crit_edge:                                      ; preds = %11
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %14, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.28.llvm.12734007390182477403) #30
   unreachable
 
-.lr.ph84:                                         ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
+.lr.ph91:                                         ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
   %30 = phi i64 [ %55, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %28, %.lr.ph ]
   %31 = phi i64 [ %54, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %27, %.lr.ph ]
   %32 = phi i8 [ %53, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %26, %.lr.ph ]
-  %.sroa.06.0.i2983 = phi ptr [ %34, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %1, %.lr.ph ]
-  %.sroa.4.0.i3082 = phi i64 [ %33, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %2, %.lr.ph ]
-  %33 = sub nuw i64 %.sroa.4.0.i3082, %31
-  %34 = getelementptr inbounds i8, ptr %.sroa.06.0.i2983, i64 %31
+  %.sroa.06.0.i2990 = phi ptr [ %34, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %1, %.lr.ph ]
+  %.sroa.4.0.i3089 = phi i64 [ %33, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %2, %.lr.ph ]
+  %33 = sub nuw i64 %.sroa.4.0.i3089, %31
+  %34 = getelementptr inbounds i8, ptr %.sroa.06.0.i2990, i64 %31
   %35 = load i64, ptr %12, align 8, !alias.scope !1819, !noalias !1822, !noundef !10
   %36 = add i64 %35, %30
   store i64 %36, ptr %12, align 8, !alias.scope !1819, !noalias !1822
   %trunc.i = trunc nuw i8 %32 to i1
   br i1 %trunc.i, label %40, label %37
 
-._crit_edge85:                                    ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
+._crit_edge92:                                    ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
   %.sroa.4.0.i30.lcssa = phi i64 [ %2, %.lr.ph ], [ %33, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ]
   %.lcssa = phi i64 [ %27, %.lr.ph ], [ %54, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ]
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %.lcssa, i64 noundef %.sroa.4.0.i30.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.27.llvm.12734007390182477403) #30
   unreachable
 
-37:                                               ; preds = %.lr.ph84
+37:                                               ; preds = %.lr.ph91
   %38 = load i64, ptr %6, align 8, !alias.scope !1819, !noalias !1822, !noundef !10
   %39 = add i64 %38, 1
   store i64 %39, ptr %6, align 8, !alias.scope !1819, !noalias !1822
   br label %"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17hbf3c886b64a753b5E.llvm.12734007390182477403.exit"
 
-40:                                               ; preds = %.lr.ph84
+40:                                               ; preds = %.lr.ph91
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1825)
   store i8 1, ptr %21, align 1, !alias.scope !1825
   %41 = load i32, ptr %22, align 8, !alias.scope !1825, !noundef !10
@@ -7925,7 +7925,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   %55 = load i64, ptr %20, align 8, !noalias !1824, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1824
   %56 = icmp ugt i64 %54, %33
-  br i1 %56, label %._crit_edge85, label %.lr.ph84, !prof !1390
+  br i1 %56, label %._crit_edge92, label %.lr.ph91, !prof !1390
 
 57:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h221faa5546b414f2E.llvm.3967706017269359750.exit.i"
   %58 = tail call noundef nonnull align 8 ptr @"_ZN86_$LT$csv..error..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h1fbe64f64ef4cc18E"(ptr noundef nonnull %49)
@@ -8056,39 +8056,39 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   %72 = load i64, ptr %64, align 8, !noalias !1839, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1839
   %73 = icmp ugt i64 %71, %47
-  br i1 %73, label %._crit_edge93, label %.lr.ph92, !prof !1375
+  br i1 %73, label %._crit_edge102, label %.lr.ph101, !prof !1375
 
 ._crit_edge:                                      ; preds = %55
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %58, i64 noundef %59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.28.llvm.12734007390182477403) #30
   unreachable
 
-.lr.ph92:                                         ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
+.lr.ph101:                                        ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
   %74 = phi i64 [ %99, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %72, %.lr.ph ]
   %75 = phi i64 [ %98, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %71, %.lr.ph ]
   %76 = phi i8 [ %97, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %70, %.lr.ph ]
-  %.sroa.06.0.i3191 = phi ptr [ %78, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %48, %.lr.ph ]
-  %.sroa.4.0.i3290 = phi i64 [ %77, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %47, %.lr.ph ]
-  %77 = sub nuw i64 %.sroa.4.0.i3290, %75
-  %78 = getelementptr inbounds i8, ptr %.sroa.06.0.i3191, i64 %75
+  %.sroa.06.0.i31100 = phi ptr [ %78, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %48, %.lr.ph ]
+  %.sroa.4.0.i3299 = phi i64 [ %77, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %47, %.lr.ph ]
+  %77 = sub nuw nsw i64 %.sroa.4.0.i3299, %75
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i31100, i64 %75
   %79 = load i64, ptr %56, align 8, !alias.scope !1834, !noalias !1837, !noundef !10
   %80 = add i64 %79, %74
   store i64 %80, ptr %56, align 8, !alias.scope !1834, !noalias !1837
   %trunc.i = trunc nuw i8 %76 to i1
   br i1 %trunc.i, label %84, label %81
 
-._crit_edge93:                                    ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
+._crit_edge102:                                   ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
   %.sroa.4.0.i32.lcssa = phi i64 [ %47, %.lr.ph ], [ %77, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ]
   %.lcssa = phi i64 [ %71, %.lr.ph ], [ %98, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ]
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %.lcssa, i64 noundef %.sroa.4.0.i32.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.27.llvm.12734007390182477403) #30
   unreachable
 
-81:                                               ; preds = %.lr.ph92
+81:                                               ; preds = %.lr.ph101
   %82 = load i64, ptr %50, align 8, !alias.scope !1834, !noalias !1837, !noundef !10
   %83 = add i64 %82, 1
   store i64 %83, ptr %50, align 8, !alias.scope !1834, !noalias !1837
   br label %"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17hbf3c886b64a753b5E.llvm.12734007390182477403.exit"
 
-84:                                               ; preds = %.lr.ph92
+84:                                               ; preds = %.lr.ph101
   call void @llvm.experimental.noalias.scope.decl(metadata !1840)
   store i8 1, ptr %65, align 1, !alias.scope !1840
   %85 = load i32, ptr %66, align 8, !alias.scope !1840, !noundef !10
@@ -8126,7 +8126,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   %99 = load i64, ptr %64, align 8, !noalias !1839, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1839
   %100 = icmp ugt i64 %98, %77
-  br i1 %100, label %._crit_edge93, label %.lr.ph92, !prof !1390
+  br i1 %100, label %._crit_edge102, label %.lr.ph101, !prof !1390
 
 101:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h221faa5546b414f2E.llvm.3967706017269359750.exit.i"
   %102 = call noundef nonnull align 8 ptr @"_ZN86_$LT$csv..error..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h1fbe64f64ef4cc18E"(ptr noundef nonnull %93)
@@ -8177,14 +8177,14 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   %25 = load i64, ptr %2, align 8, !noalias !1851, !noundef !10
   %26 = load i64, ptr %18, align 8, !noalias !1851, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1851
-  %.not21.i62 = icmp eq i64 %25, 0
-  br i1 %.not21.i62, label %.lr.ph63, label %._crit_edge64, !prof !1376
+  %.not21.i68 = icmp eq i64 %25, 0
+  br i1 %.not21.i68, label %.lr.ph69, label %._crit_edge70, !prof !1376
 
 ._crit_edge:                                      ; preds = %9
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %12, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.28.llvm.12734007390182477403) #30
   unreachable
 
-.lr.ph63:                                         ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
+.lr.ph69:                                         ; preds = %.lr.ph, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit"
   %27 = phi i64 [ %49, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %26, %.lr.ph ]
   %28 = phi i8 [ %47, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ], [ %24, %.lr.ph ]
   %29 = load i64, ptr %10, align 8, !alias.scope !1846, !noalias !1849, !noundef !10
@@ -8193,18 +8193,18 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   %trunc.i = trunc nuw i8 %28 to i1
   br i1 %trunc.i, label %34, label %31
 
-._crit_edge64:                                    ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
+._crit_edge70:                                    ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit", %.lr.ph
   %.lcssa = phi i64 [ %25, %.lr.ph ], [ %48, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17h6da7c60c8f4290a3E.exit" ]
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17hff7a9cb2afd02ea3E(i64 noundef %.lcssa, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.27.llvm.12734007390182477403) #30
   unreachable
 
-31:                                               ; preds = %.lr.ph63
+31:                                               ; preds = %.lr.ph69
   %32 = load i64, ptr %4, align 8, !alias.scope !1846, !noalias !1849, !noundef !10
   %33 = add i64 %32, 1
   store i64 %33, ptr %4, align 8, !alias.scope !1846, !noalias !1849
   br label %"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17h35807741cd0168a0E.llvm.12734007390182477403.exit"
 
-34:                                               ; preds = %.lr.ph63
+34:                                               ; preds = %.lr.ph69
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1852)
   store i8 1, ptr %19, align 1, !alias.scope !1852
   %35 = load i32, ptr %20, align 8, !alias.scope !1852, !noundef !10
@@ -8242,7 +8242,7 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$csv..serializer..SeRec
   %49 = load i64, ptr %18, align 8, !noalias !1851, !noundef !10
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1851
   %.not21.i = icmp eq i64 %48, 0
-  br i1 %.not21.i, label %.lr.ph63, label %._crit_edge64, !prof !1383
+  br i1 %.not21.i, label %.lr.ph69, label %._crit_edge70, !prof !1383
 
 50:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h221faa5546b414f2E.llvm.3967706017269359750.exit.i"
   %51 = tail call noundef nonnull align 8 ptr @"_ZN86_$LT$csv..error..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h1fbe64f64ef4cc18E"(ptr noundef nonnull %43)
@@ -10314,9 +10314,9 @@ _ZN3std4sync6poison4once4Once9call_once17he71d2151e761c74eE.exit: ; preds = %.no
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf2d42b7e370de8e1E.exit99": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5cebe214880e4913E.exit.i96", %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$uv_installer..installer..Reporter$GT$$GT$$GT$17h1d616845464ab7b3E.exit90"
   invoke void @"_ZN4core3ptr45drop_in_place$LT$uv_install_wheel..Layout$GT$17h65bc061509b1778bE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %2)
-          to label %193 unwind label %.thread130
+          to label %193 unwind label %.thread137
 
-.thread130:                                       ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf2d42b7e370de8e1E.exit99"
+.thread137:                                       ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf2d42b7e370de8e1E.exit99"
   %192 = landingpad { ptr, i32 }
           cleanup
   br label %200
@@ -10343,11 +10343,11 @@ _ZN3std4sync6poison4once4Once9call_once17he71d2151e761c74eE.exit: ; preds = %.no
           to label %.body unwind label %194
 
 199:                                              ; preds = %200, %152
-  %.pn.pn.pn.pn.pn.pn128 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn129, %200 ], [ %.pn.pn.pn.pn.pn, %152 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn128
+  %.pn.pn.pn.pn.pn.pn135 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn136, %200 ], [ %.pn.pn.pn.pn.pn, %152 ]
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn135
 
-200:                                              ; preds = %.thread130, %152
-  %.pn.pn.pn.pn.pn.pn129 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %152 ], [ %192, %.thread130 ]
+200:                                              ; preds = %.thread137, %152
+  %.pn.pn.pn.pn.pn.pn136 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %152 ], [ %192, %.thread137 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..cached..CachedDist$GT$$GT$17h70ded05b0fa48b52E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #28
           to label %199 unwind label %194
 }

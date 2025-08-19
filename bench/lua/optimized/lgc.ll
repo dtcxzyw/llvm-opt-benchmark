@@ -1498,7 +1498,7 @@ sweepgen.exit.i:                                  ; preds = %122, %markold.exit6
 .lr.ph.i73.i:                                     ; preds = %sweepgen.exit.i
   %.val54.i = load i8, ptr %93, align 2, !tbaa !30
   %127 = and i8 %.val54.i, 24
-  %invariant.op31 = or disjoint i8 %127, 1
+  %invariant.op68 = or disjoint i8 %127, 1
   br label %128
 
 128:                                              ; preds = %154, %.lr.ph.i73.i
@@ -1525,7 +1525,7 @@ sweepgen.exit.i:                                  ; preds = %122, %markold.exit6
 
 139:                                              ; preds = %136
   %140 = and i8 %131, -64
-  %.reass.i83.reass.i.reass = or disjoint i8 %140, %invariant.op31
+  %.reass.i83.reass.i.reass = or disjoint i8 %140, %invariant.op68
   store i8 %.reass.i83.reass.i.reass, ptr %130, align 1, !tbaa !27
   br label %154
 
@@ -1579,7 +1579,7 @@ sweepgen.exit84.i:                                ; preds = %sweepgen.exit84.loo
 .lr.ph.i86.i:                                     ; preds = %sweepgen.exit84.i
   %.val55.i = load i8, ptr %93, align 2, !tbaa !30
   %163 = and i8 %.val55.i, 24
-  %invariant.op32 = or disjoint i8 %163, 1
+  %invariant.op69 = or disjoint i8 %163, 1
   br label %164
 
 164:                                              ; preds = %187, %.lr.ph.i86.i
@@ -1606,7 +1606,7 @@ sweepgen.exit84.i:                                ; preds = %sweepgen.exit84.loo
 
 175:                                              ; preds = %172
   %176 = and i8 %167, -64
-  %.reass.i96.reass.i.reass = or disjoint i8 %176, %invariant.op32
+  %.reass.i96.reass.i.reass = or disjoint i8 %176, %invariant.op69
   store i8 %.reass.i96.reass.i.reass, ptr %166, align 1, !tbaa !27
   br label %187
 
@@ -1644,7 +1644,7 @@ sweepgen.exit97.i:                                ; preds = %187, %sweepgen.exit
 .lr.ph.i99.i:                                     ; preds = %sweepgen.exit97.i
   %.val56.i = load i8, ptr %93, align 2, !tbaa !30
   %192 = and i8 %.val56.i, 24
-  %invariant.op33 = or disjoint i8 %192, 1
+  %invariant.op70 = or disjoint i8 %192, 1
   br label %193
 
 193:                                              ; preds = %216, %.lr.ph.i99.i
@@ -1671,7 +1671,7 @@ sweepgen.exit97.i:                                ; preds = %187, %sweepgen.exit
 
 204:                                              ; preds = %201
   %205 = and i8 %196, -64
-  %.reass.i109.reass.i.reass = or disjoint i8 %205, %invariant.op33
+  %.reass.i109.reass.i.reass = or disjoint i8 %205, %invariant.op70
   store i8 %.reass.i109.reass.i.reass, ptr %195, align 1, !tbaa !27
   br label %216
 
@@ -1716,7 +1716,7 @@ sweepgen.exit110.i:                               ; preds = %sweepgen.exit110.lo
 .lr.ph.i112.i:                                    ; preds = %sweepgen.exit110.i
   %.val57.i = load i8, ptr %93, align 2, !tbaa !30
   %222 = and i8 %.val57.i, 24
-  %invariant.op34 = or disjoint i8 %222, 1
+  %invariant.op71 = or disjoint i8 %222, 1
   br label %223
 
 223:                                              ; preds = %246, %.lr.ph.i112.i
@@ -1743,7 +1743,7 @@ sweepgen.exit110.i:                               ; preds = %sweepgen.exit110.lo
 
 234:                                              ; preds = %231
   %235 = and i8 %226, -64
-  %.reass.i122.reass.i.reass = or disjoint i8 %235, %invariant.op34
+  %.reass.i122.reass.i.reass = or disjoint i8 %235, %invariant.op71
   store i8 %.reass.i122.reass.i.reass, ptr %225, align 1, !tbaa !27
   br label %246
 
@@ -3392,31 +3392,31 @@ getgclist.exit:                                   ; preds = %1
   br i1 %.not30.i, label %47, label %.thread.i
 
 .thread.i:                                        ; preds = %39, %35
-  %.ph44.i = phi ptr [ %42, %39 ], [ null, %35 ]
-  %.pr43.i = phi ptr [ %.pr.pre.i, %39 ], [ %12, %35 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.pr43.i, i64 9
+  %.ph51.i = phi ptr [ %42, %39 ], [ null, %35 ]
+  %.pr50.i = phi ptr [ %.pr.pre.i, %39 ], [ %12, %35 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.pr50.i, i64 9
   %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = and i8 %44, 24
   %.not31.i = icmp eq i8 %45, 0
   br i1 %.not31.i, label %47, label %46
 
 46:                                               ; preds = %.thread.i
-  tail call fastcc void @reallymarkobject(ptr noundef nonnull %0, ptr noundef nonnull %.pr43.i)
+  tail call fastcc void @reallymarkobject(ptr noundef nonnull %0, ptr noundef nonnull %.pr50.i)
   br label %47
 
 47:                                               ; preds = %46, %.thread.i, %39
-  %.ph45.i = phi ptr [ %.ph44.i, %.thread.i ], [ %.ph44.i, %46 ], [ %42, %39 ]
-  %.not32.i = icmp eq ptr %.ph45.i, null
+  %.ph52.i = phi ptr [ %.ph51.i, %.thread.i ], [ %.ph51.i, %46 ], [ %42, %39 ]
+  %.not32.i = icmp eq ptr %.ph52.i, null
   br i1 %.not32.i, label %.thread37.i, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds nuw i8, ptr %.ph45.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.ph52.i, i64 8
   %50 = load i8, ptr %49, align 8, !tbaa !36
   %51 = icmp eq i8 %50, 68
   br i1 %51, label %52, label %.thread37.i
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr %.ph45.i, align 8, !tbaa !33
+  %53 = load ptr, ptr %.ph52.i, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 107) #9
   %56 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 118) #9

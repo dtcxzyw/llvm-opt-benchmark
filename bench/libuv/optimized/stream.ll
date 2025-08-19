@@ -265,8 +265,8 @@ uv__stream_connect.exit:                          ; preds = %23, %41, %uv__strea
 
 93:                                               ; preds = %90
   %94 = add nsw i32 %.055.i, -1
-  %.not90.i = icmp eq i32 %.055.i, 0
-  br i1 %.not90.i, label %uv__read.exit, label %95
+  %.not104.i = icmp eq i32 %.055.i, 0
+  br i1 %.not104.i, label %uv__read.exit, label %95
 
 95:                                               ; preds = %93
   %96 = call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #12
@@ -1609,8 +1609,8 @@ uv__write_req_finish.exit:                        ; preds = %48, %63
   %69 = getelementptr inbounds nuw i8, ptr %50, i64 136
   tail call void @uv__io_feed(ptr noundef %68, ptr noundef nonnull %69) #12
   %70 = add nsw i32 %.0.ph, -1
-  %.not52 = icmp eq i32 %.0.ph, 0
-  br i1 %.not52, label %.loopexit, label %.outer
+  %.not56 = icmp eq i32 %.0.ph, 0
+  br i1 %.not56, label %.loopexit, label %.outer
 
 71:                                               ; preds = %7
   %.not27 = icmp eq i32 %19, -11

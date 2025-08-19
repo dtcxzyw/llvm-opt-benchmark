@@ -246,9 +246,9 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
   br i1 %20, label %24, label %26
 
 24:                                               ; preds = %17
-  br i1 %23, label %.thread4, label %.thread
+  br i1 %23, label %.thread5, label %.thread
 
-.thread4:                                         ; preds = %24
+.thread5:                                         ; preds = %24
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @noop_qdisc_ops, i64 56), align 8
   store ptr %25, ptr %18, align 8
   br label %27
@@ -256,7 +256,7 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
 26:                                               ; preds = %17
   br i1 %23, label %27, label %30
 
-27:                                               ; preds = %.thread4, %26
+27:                                               ; preds = %.thread5, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @noop_qdisc_ops, i64 48), align 8
   store ptr %29, ptr %28, align 8
@@ -3486,8 +3486,8 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   %32 = and i32 %31, 129
   %33 = icmp ne i32 %32, 0
   %34 = icmp sgt i32 %24, 0
-  %or.cond40.i = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond40.i, label %._crit_edge21.i, label %35
+  %or.cond55.i = select i1 %33, i1 true, i1 %34
+  br i1 %or.cond55.i, label %._crit_edge21.i, label %35
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -3716,8 +3716,8 @@ define internal i32 @tc_dump_tclass(ptr noundef %0, ptr noundef %1) #0 align 16 
   %166 = and i32 %165, 129
   %167 = icmp ne i32 %166, 0
   %168 = icmp slt i32 %162, %24
-  %or.cond41.i = select i1 %167, i1 true, i1 %168
-  br i1 %or.cond41.i, label %._crit_edge35.i, label %169
+  %or.cond56.i = select i1 %167, i1 true, i1 %168
+  br i1 %or.cond56.i, label %._crit_edge35.i, label %169
 
 169:                                              ; preds = %.preheader.i
   %170 = getelementptr inbounds nuw i8, ptr %163, i64 24
@@ -4746,9 +4746,9 @@ define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, 
   br label %201
 
 .loopexit:                                        ; preds = %154, %113
-  br i1 %52, label %.thread33, label %201
+  br i1 %52, label %.thread53, label %201
 
-.thread33:                                        ; preds = %.loopexit
+.thread53:                                        ; preds = %.loopexit
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %160 = load ptr, ptr %159, align 8
   br label %164
@@ -4759,9 +4759,9 @@ define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, 
   store ptr %163, ptr %10, align 8
   br label %196
 
-164:                                              ; preds = %.thread33, %.thread23
-  %165 = phi ptr [ %125, %.thread23 ], [ %160, %.thread33 ]
-  %166 = phi ptr [ %124, %.thread23 ], [ %159, %.thread33 ]
+164:                                              ; preds = %.thread53, %.thread23
+  %165 = phi ptr [ %125, %.thread23 ], [ %160, %.thread53 ]
+  %166 = phi ptr [ %124, %.thread23 ], [ %159, %.thread53 ]
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 96
@@ -5062,7 +5062,7 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
   %22 = getelementptr i8, ptr %15, i64 24
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %.thread20, label %24
+  br i1 %.not, label %.thread28, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5089,15 +5089,15 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
   %37 = icmp ne i32 %23, %36
   %38 = icmp eq ptr %32, null
   %or.cond = or i1 %37, %38
-  br i1 %or.cond, label %56, label %.thread20
+  br i1 %or.cond, label %56, label %.thread28
 
-.thread20:                                        ; preds = %31, %20
+.thread28:                                        ; preds = %31, %20
   %39 = phi ptr [ null, %20 ], [ %32, %31 ]
   %40 = load ptr, ptr @qdisc_stab_list, align 8
   %41 = icmp eq ptr %40, @qdisc_stab_list
   br i1 %41, label %.loopexit, label %42
 
-42:                                               ; preds = %.thread20
+42:                                               ; preds = %.thread28
   %43 = shl nuw nsw i32 %23, 1
   %44 = zext nneg i32 %43 to i64
   br i1 %.not, label %.split, label %.split.us
@@ -5150,7 +5150,7 @@ define internal fastcc ptr @qdisc_get_stab(ptr noundef nonnull %0, ptr noundef %
   %69 = icmp eq ptr %68, @qdisc_stab_list
   br i1 %69, label %.loopexit, label %.split, !llvm.loop !67
 
-.loopexit:                                        ; preds = %53, %67, %.thread20
+.loopexit:                                        ; preds = %53, %67, %.thread28
   %70 = getelementptr i8, ptr %15, i64 5
   %71 = load i8, ptr %70, align 1
   %72 = icmp ugt i8 %71, 30

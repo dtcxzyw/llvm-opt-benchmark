@@ -61,7 +61,7 @@ define ptr @l_Vector_ofFnM_go___rarg___lambda__1(ptr noundef %0, ptr noundef %1,
   br label %lean_nat_add.exit
 
 17:                                               ; preds = %9
-  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %11) #4
+  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %6
@@ -403,7 +403,7 @@ define ptr @l_Vector_ofFnM_go___rarg___lambda__1___boxed(ptr noundef %0, ptr nou
   br label %l_Vector_ofFnM_go___rarg___lambda__1.exit
 
 17:                                               ; preds = %9
-  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %11) #4
+  %18 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %l_Vector_ofFnM_go___rarg___lambda__1.exit
 
 .critedge.i.i:                                    ; preds = %6
@@ -907,18 +907,18 @@ _init_l___auto____x40_Init_Data_Vector_OfFn___hyg_3003____closed__27.exit: ; pre
   unreachable
 
 .sink.split:                                      ; preds = %_init_l___auto____x40_Init_Data_Vector_OfFn___hyg_3003____closed__27.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %164, %_init_l___auto____x40_Init_Data_Vector_OfFn___hyg_3003____closed__27.exit ]
-  %167 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !6
+  %.sink49 = phi ptr [ %4, %3 ], [ %164, %_init_l___auto____x40_Init_Data_Vector_OfFn___hyg_3003____closed__27.exit ]
+  %167 = getelementptr inbounds nuw i8, ptr %.sink49, i64 4
+  store i32 1, ptr %.sink49, align 4, !tbaa !6
   store i32 131096, ptr %167, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %.sink49, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %168, align 8, !tbaa !11
-  %169 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %.sink49, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %169, align 8, !tbaa !11
   br label %170
 
 170:                                              ; preds = %.sink.split, %lean_dec_ref.exit20, %lean_dec_ref.exit18, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit18 ], [ %38, %lean_dec_ref.exit20 ], [ %.sink49, %.sink.split ]
   ret ptr %.0
 }
 

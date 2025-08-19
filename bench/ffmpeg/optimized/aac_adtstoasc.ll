@@ -80,7 +80,7 @@ define internal range(i32 -2147483648, 1) i32 @aac_adtstoasc_filter(ptr noundef 
 
 16:                                               ; preds = %11
   %17 = icmp sgt i32 %.pre, 1
-  br i1 %17, label %18, label %.thread63
+  br i1 %17, label %18, label %.thread67
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -93,7 +93,7 @@ define internal range(i32 -2147483648, 1) i32 @aac_adtstoasc_filter(ptr noundef 
 ._crit_edge:                                      ; preds = %11, %18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = icmp slt i32 %.pre, 7
-  br i1 %24, label %.thread63, label %25
+  br i1 %24, label %.thread67, label %25
 
 25:                                               ; preds = %._crit_edge
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -126,7 +126,7 @@ define internal range(i32 -2147483648, 1) i32 @aac_adtstoasc_filter(ptr noundef 
   %41 = add i32 %40, %.neg
   store i32 %41, ptr %23, align 8, !tbaa !22
   %42 = icmp slt i32 %41, 1
-  br i1 %42, label %.thread63, label %43
+  br i1 %42, label %.thread67, label %43
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %26, align 8, !tbaa !25
@@ -257,12 +257,12 @@ define internal range(i32 -2147483648, 1) i32 @aac_adtstoasc_filter(ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %102
 
-.thread63:                                        ; preds = %16, %39, %._crit_edge
+.thread67:                                        ; preds = %16, %39, %._crit_edge
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #7
   br label %101
 
-101:                                              ; preds = %.thread59, %.thread63, %38, %30
-  %.041 = phi i32 [ -1094995529, %.thread63 ], [ -1094995529, %30 ], [ -1163346256, %38 ], [ %.3.ph, %.thread59 ]
+101:                                              ; preds = %.thread59, %.thread67, %38, %30
+  %.041 = phi i32 [ -1094995529, %.thread67 ], [ -1094995529, %30 ], [ -1163346256, %38 ], [ %.3.ph, %.thread59 ]
   call void @av_packet_unref(ptr noundef nonnull %1) #7
   br label %102
 
@@ -1099,9 +1099,9 @@ put_bits.exit98:                                  ; preds = %449, %457, %438
   br label %put_bits.exit102
 
 put_bits.exit102:                                 ; preds = %485, %493, %474
-  %.sink173 = phi i32 [ -3, %474 ], [ 29, %493 ], [ 29, %485 ]
+  %.sink188 = phi i32 [ -3, %474 ], [ 29, %493 ], [ 29, %485 ]
   %.026.i.i100 = phi i32 [ %476, %474 ], [ %470, %493 ], [ %470, %485 ]
-  %494 = add nsw i32 %458, %.sink173
+  %494 = add nsw i32 %458, %.sink188
   store i32 %.026.i.i100, ptr %0, align 8, !tbaa !43
   store i32 %494, ptr %8, align 4, !tbaa !42
   br label %495
@@ -1171,9 +1171,9 @@ put_bits.exit102:                                 ; preds = %485, %493, %474
   br label %put_bits.exit106
 
 put_bits.exit106:                                 ; preds = %530, %538, %520
-  %.sink174 = phi i32 [ -16, %520 ], [ 16, %538 ], [ 16, %530 ]
+  %.sink189 = phi i32 [ -16, %520 ], [ 16, %538 ], [ 16, %530 ]
   %.026.i.i104 = phi i32 [ %522, %520 ], [ %516, %538 ], [ %516, %530 ]
-  %539 = add nsw i32 %504, %.sink174
+  %539 = add nsw i32 %504, %.sink189
   store i32 %.026.i.i104, ptr %0, align 8, !tbaa !43
   store i32 %539, ptr %8, align 4, !tbaa !42
   %540 = add nsw i32 %.0123, -16
@@ -1357,9 +1357,9 @@ align_get_bits.exit:                              ; preds = %align_put_bits.exit
   br label %put_bits.exit114
 
 put_bits.exit114:                                 ; preds = %634, %642, %623
-  %.sink175 = phi i32 [ -8, %623 ], [ 24, %642 ], [ 24, %634 ]
+  %.sink190 = phi i32 [ -8, %623 ], [ 24, %642 ], [ 24, %634 ]
   %.026.i.i112 = phi i32 [ %625, %623 ], [ %619, %642 ], [ %619, %634 ]
-  %643 = add nsw i32 %.0.i.i.i, %.sink175
+  %643 = add nsw i32 %.0.i.i.i, %.sink190
   store i32 %.026.i.i112, ptr %0, align 8, !tbaa !43
   store i32 %643, ptr %8, align 4, !tbaa !42
   %.not127 = icmp ult i32 %618, 16777216
@@ -1421,9 +1421,9 @@ put_bits.exit114:                                 ; preds = %634, %642, %623
   br label %put_bits.exit118
 
 put_bits.exit118:                                 ; preds = %672, %680, %662
-  %.sink176 = phi i32 [ -8, %662 ], [ 24, %680 ], [ 24, %672 ]
+  %.sink191 = phi i32 [ -8, %662 ], [ 24, %680 ], [ 24, %672 ]
   %.026.i.i116 = phi i32 [ %664, %662 ], [ %658, %680 ], [ %658, %672 ]
-  %681 = add nsw i32 %646, %.sink176
+  %681 = add nsw i32 %646, %.sink191
   store i32 %.026.i.i116, ptr %0, align 8, !tbaa !43
   store i32 %681, ptr %8, align 4, !tbaa !42
   %682 = add nsw i32 %.050124, -1

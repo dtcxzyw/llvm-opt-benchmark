@@ -1720,7 +1720,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   %.260.lcssa = phi i64 [ %.058100, %.preheader81 ], [ %.26083, %.lr.ph ], [ %31, %29 ]
   %.257.lcssa = phi i64 [ 0, %.preheader81 ], [ %.25784, %.lr.ph ], [ %30, %29 ]
   %.not69 = icmp eq i64 %.257.lcssa, %21
-  br i1 %.not69, label %44, label %.thread.loopexit.loopexit126
+  br i1 %.not69, label %44, label %.thread.loopexit.loopexit142
 
 35:                                               ; preds = %.lr.ph92, %39
   %.591 = phi i64 [ 0, %.lr.ph92 ], [ %40, %39 ]
@@ -1736,7 +1736,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
 
 ._crit_edge93:                                    ; preds = %35
   %41 = icmp eq i64 %.591, %21
-  br i1 %41, label %.thread.loopexit.loopexit126, label %42
+  br i1 %41, label %.thread.loopexit.loopexit142, label %42
 
 42:                                               ; preds = %._crit_edge93
   %43 = add i64 %.058100, 1
@@ -1830,9 +1830,9 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   %86 = icmp ugt i32 %85, 7
   %87 = icmp ult i64 %.462, %2
   %88 = select i1 %86, i1 %87, i1 false
-  br i1 %88, label %16, label %.thread.loopexit.loopexit126
+  br i1 %88, label %16, label %.thread.loopexit.loopexit142
 
-.thread.loopexit.loopexit126:                     ; preds = %74, %._crit_edge, %._crit_edge93
+.thread.loopexit.loopexit142:                     ; preds = %74, %._crit_edge, %._crit_edge93
   %.052.lcssa.ph.ph = phi ptr [ %84, %74 ], [ %.052101, %._crit_edge ], [ %.052101, %._crit_edge93 ]
   %.0.lcssa.ph.ph = phi ptr [ %.0, %74 ], [ %.0102, %._crit_edge ], [ %.0102, %._crit_edge93 ]
   %.159.ph.ph = phi i64 [ %.462, %74 ], [ %.260.lcssa, %._crit_edge ], [ %.058100, %._crit_edge93 ]
@@ -1840,11 +1840,11 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   %89 = trunc nuw nsw i64 %.156.ph.ph to i32
   br label %.thread
 
-.thread:                                          ; preds = %39, %.thread.loopexit.loopexit126, %7
-  %.052.lcssa = phi ptr [ %0, %7 ], [ %.052.lcssa.ph.ph, %.thread.loopexit.loopexit126 ], [ %.052101, %39 ]
-  %.0.lcssa = phi ptr [ %.099, %7 ], [ %.0.lcssa.ph.ph, %.thread.loopexit.loopexit126 ], [ %.0102, %39 ]
-  %.159 = phi i64 [ 0, %7 ], [ %.159.ph.ph, %.thread.loopexit.loopexit126 ], [ %.058100, %39 ]
-  %.156 = phi i32 [ 0, %7 ], [ %89, %.thread.loopexit.loopexit126 ], [ %20, %39 ]
+.thread:                                          ; preds = %39, %.thread.loopexit.loopexit142, %7
+  %.052.lcssa = phi ptr [ %0, %7 ], [ %.052.lcssa.ph.ph, %.thread.loopexit.loopexit142 ], [ %.052101, %39 ]
+  %.0.lcssa = phi ptr [ %.099, %7 ], [ %.0.lcssa.ph.ph, %.thread.loopexit.loopexit142 ], [ %.0102, %39 ]
+  %.159 = phi i64 [ 0, %7 ], [ %.159.ph.ph, %.thread.loopexit.loopexit142 ], [ %.058100, %39 ]
+  %.156 = phi i32 [ 0, %7 ], [ %89, %.thread.loopexit.loopexit142 ], [ %20, %39 ]
   %.not72 = icmp eq ptr %3, null
   br i1 %.not72, label %91, label %90
 
@@ -2078,8 +2078,8 @@ raxStackPop.exit175.lr.ph:                        ; preds = %.preheader
   store i64 %91, ptr %9, align 8, !tbaa !24
   %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !22
-  %.not115275 = icmp eq ptr %93, null
-  br i1 %.not115275, label %raxStackPop.exit175.thread, label %.lr.ph276
+  %.not115292 = icmp eq ptr %93, null
+  br i1 %.not115292, label %raxStackPop.exit175.thread, label %.lr.ph293
 
 94:                                               ; preds = %104
   %95 = icmp eq i64 %100, 0
@@ -2091,9 +2091,9 @@ raxStackPop.exit175:                              ; preds = %94
   %97 = getelementptr inbounds nuw ptr, ptr %90, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !22
   %.not115 = icmp eq ptr %98, null
-  br i1 %.not115, label %raxStackPop.exit175.thread, label %.lr.ph276
+  br i1 %.not115, label %raxStackPop.exit175.thread, label %.lr.ph293
 
-.lr.ph276:                                        ; preds = %raxStackPop.exit175.lr.ph, %raxStackPop.exit175
+.lr.ph293:                                        ; preds = %raxStackPop.exit175.lr.ph, %raxStackPop.exit175
   %99 = phi ptr [ %98, %raxStackPop.exit175 ], [ %93, %raxStackPop.exit175.lr.ph ]
   %100 = phi i64 [ %96, %raxStackPop.exit175 ], [ %91, %raxStackPop.exit175.lr.ph ]
   %101 = phi ptr [ %99, %raxStackPop.exit175 ], [ %.promoted216, %raxStackPop.exit175.lr.ph ]
@@ -2102,7 +2102,7 @@ raxStackPop.exit175:                              ; preds = %94
   %.not116 = icmp eq i32 %103, 0
   br i1 %.not116, label %104, label %raxStackPop.exit175.thread
 
-104:                                              ; preds = %.lr.ph276
+104:                                              ; preds = %.lr.ph293
   %105 = and i32 %102, 4
   %.not117 = icmp ne i32 %105, 0
   %.mask119 = and i32 %102, -8
@@ -2110,10 +2110,10 @@ raxStackPop.exit175:                              ; preds = %94
   %or.cond158 = or i1 %.not117, %.not118
   br i1 %or.cond158, label %94, label %raxStackPop.exit175.thread
 
-raxStackPop.exit175.thread:                       ; preds = %94, %104, %raxStackPop.exit175, %.lr.ph276, %raxStackPop.exit175.lr.ph, %.preheader
-  %.lcssa = phi ptr [ %.promoted216, %.preheader ], [ %.promoted216, %raxStackPop.exit175.lr.ph ], [ %101, %.lr.ph276 ], [ %99, %raxStackPop.exit175 ], [ %101, %104 ], [ %99, %94 ]
-  %.not115190 = phi i1 [ true, %.preheader ], [ true, %raxStackPop.exit175.lr.ph ], [ false, %.lr.ph276 ], [ true, %raxStackPop.exit175 ], [ false, %104 ], [ true, %94 ]
-  %.0.i174189 = phi ptr [ null, %.preheader ], [ null, %raxStackPop.exit175.lr.ph ], [ %99, %.lr.ph276 ], [ null, %raxStackPop.exit175 ], [ %99, %104 ], [ null, %94 ]
+raxStackPop.exit175.thread:                       ; preds = %94, %104, %raxStackPop.exit175, %.lr.ph293, %raxStackPop.exit175.lr.ph, %.preheader
+  %.lcssa = phi ptr [ %.promoted216, %.preheader ], [ %.promoted216, %raxStackPop.exit175.lr.ph ], [ %101, %.lr.ph293 ], [ %99, %raxStackPop.exit175 ], [ %101, %104 ], [ %99, %94 ]
+  %.not115190 = phi i1 [ true, %.preheader ], [ true, %raxStackPop.exit175.lr.ph ], [ false, %.lr.ph293 ], [ true, %raxStackPop.exit175 ], [ false, %104 ], [ true, %94 ]
+  %.0.i174189 = phi ptr [ null, %.preheader ], [ null, %raxStackPop.exit175.lr.ph ], [ %99, %.lr.ph293 ], [ null, %raxStackPop.exit175 ], [ %99, %104 ], [ null, %94 ]
   store ptr %.lcssa, ptr %5, align 8
   %106 = load i32, ptr %.lcssa, align 4
   %.not120231 = icmp ult i32 %106, 8
@@ -2183,29 +2183,29 @@ raxStackPop.exit175.thread:                       ; preds = %94, %104, %raxStack
 141:                                              ; preds = %136
   %142 = add nuw nsw i32 %.090232, 1
   %.not120 = icmp ult i32 %132, 8
-  br i1 %.not120, label %.thread192.thread256, label %.lr.ph234
+  br i1 %.not120, label %.thread192.thread273, label %.lr.ph234
 
 .thread192:                                       ; preds = %134, %.lr.ph234, %136
   %143 = icmp samesign ugt i32 %.090232, 1
-  br i1 %143, label %.thread192.thread256, label %.critedge
+  br i1 %143, label %.thread192.thread273, label %.critedge
 
-.thread192.thread256:                             ; preds = %141, %.thread192
-  %.086.lcssa.ph259 = phi i64 [ %.086233, %.thread192 ], [ %139, %141 ]
-  %144 = sub nsw i64 4, %.086.lcssa.ph259
+.thread192.thread273:                             ; preds = %141, %.thread192
+  %.086.lcssa.ph276 = phi i64 [ %.086233, %.thread192 ], [ %139, %141 ]
+  %144 = sub nsw i64 4, %.086.lcssa.ph276
   %145 = and i64 %144, 7
-  %146 = add nuw nsw i64 %.086.lcssa.ph259, 12
+  %146 = add nuw nsw i64 %.086.lcssa.ph276, 12
   %147 = add nuw nsw i64 %146, %145
   %148 = call noalias ptr @zmalloc(i64 noundef %147) #25
   %.not153 = icmp eq ptr %148, null
   br i1 %.not153, label %149, label %151
 
-149:                                              ; preds = %.thread192.thread256
+149:                                              ; preds = %.thread192.thread273
   %150 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i176 = icmp eq ptr %150, %8
   br i1 %.not.i176, label %raxStackFree.exit, label %raxStackFree.exit.sink.split
 
-151:                                              ; preds = %.thread192.thread256
-  %152 = trunc nuw nsw i64 %.086.lcssa.ph259 to i32
+151:                                              ; preds = %.thread192.thread273
+  %152 = trunc nuw nsw i64 %.086.lcssa.ph276 to i32
   %153 = shl nuw i32 %152, 3
   %154 = or disjoint i32 %153, 4
   store i32 %154, ptr %148, align 4
@@ -2217,15 +2217,15 @@ raxStackPop.exit175.thread:                       ; preds = %94, %104, %raxStack
   %158 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %159 = ptrtoint ptr %.lcssa to i64
   %.pre250 = load i32, ptr %.lcssa, align 4
-  %.not132290 = icmp ult i32 %.pre250, 8
-  br i1 %.not132290, label %.thread198, label %.lr.ph293
+  %.not132307 = icmp ult i32 %.pre250, 8
+  br i1 %.not132307, label %.thread198, label %.lr.ph310
 
-.lr.ph293:                                        ; preds = %151, %192
-  %.389291 = phi i64 [ %194, %192 ], [ 0, %151 ]
+.lr.ph310:                                        ; preds = %151, %192
+  %.389308 = phi i64 [ %194, %192 ], [ 0, %151 ]
   %160 = phi ptr [ %.cast202, %192 ], [ %.lcssa, %151 ]
   %161 = phi i32 [ %190, %192 ], [ %.pre250, %151 ]
   %162 = lshr i32 %161, 3
-  %163 = getelementptr inbounds nuw i8, ptr %158, i64 %.389291
+  %163 = getelementptr inbounds nuw i8, ptr %158, i64 %.389308
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %165 = zext nneg i32 %162 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %163, ptr nonnull align 4 %164, i64 %165, i1 false)
@@ -2270,19 +2270,19 @@ raxStackPop.exit175.thread:                       ; preds = %94, %104, %raxStack
   %.not141 = icmp eq i32 %191, 0
   br i1 %.not141, label %192, label %.thread198
 
-192:                                              ; preds = %.lr.ph293
+192:                                              ; preds = %.lr.ph310
   %193 = and i32 %190, 4
   %.not142 = icmp eq i32 %193, 0
   %.mask144 = and i32 %190, -8
   %.not143 = icmp ne i32 %.mask144, 8
-  %or.cond162.not300 = and i1 %.not142, %.not143
-  %194 = add i64 %.389291, %168
+  %or.cond162.not317 = and i1 %.not142, %.not143
+  %194 = add i64 %.389308, %168
   %.not132 = icmp ult i32 %190, 8
-  %or.cond299 = or i1 %or.cond162.not300, %.not132
-  br i1 %or.cond299, label %.thread198, label %.lr.ph293
+  %or.cond316 = or i1 %or.cond162.not317, %.not132
+  br i1 %or.cond316, label %.thread198, label %.lr.ph310
 
-.thread198:                                       ; preds = %.lr.ph293, %192, %151
-  %195 = phi i64 [ %159, %151 ], [ %187, %192 ], [ %187, %.lr.ph293 ]
+.thread198:                                       ; preds = %.lr.ph310, %192, %151
+  %195 = phi i64 [ %159, %151 ], [ %187, %192 ], [ %187, %.lr.ph310 ]
   %196 = load i32, ptr %148, align 4
   %197 = lshr i32 %196, 3
   %198 = zext nneg i32 %197 to i64
@@ -2346,9 +2346,9 @@ raxStackPop.exit175.thread:                       ; preds = %94, %104, %raxStack
   br i1 %.not.i182, label %raxStackFree.exit, label %raxStackFree.exit.sink.split
 
 raxStackFree.exit.sink.split:                     ; preds = %.critedge, %149, %21
-  %.sink267 = phi ptr [ %22, %21 ], [ %150, %149 ], [ %230, %.critedge ]
+  %.sink284 = phi ptr [ %22, %21 ], [ %150, %149 ], [ %230, %.critedge ]
   %.0.ph = phi i32 [ 0, %21 ], [ 1, %149 ], [ 1, %.critedge ]
-  call void @zfree(ptr noundef %.sink267) #26
+  call void @zfree(ptr noundef %.sink284) #26
   br label %raxStackFree.exit
 
 raxStackFree.exit:                                ; preds = %raxStackFree.exit.sink.split, %149, %.critedge, %21
@@ -3055,7 +3055,7 @@ define dso_local range(i32 0, 2) i32 @raxIteratorNextStep(ptr noundef %0, i32 no
 
 25:                                               ; preds = %.backedge, %9
   %26 = phi i32 [ %.pre, %9 ], [ %.be, %.backedge ]
-  %27 = phi ptr [ %16, %9 ], [ %.be226, %.backedge ]
+  %27 = phi ptr [ %16, %9 ], [ %.be242, %.backedge ]
   %.088 = phi i1 [ %24, %9 ], [ true, %.backedge ]
   %spec.select = icmp ugt i32 %26, 3
   %or.cond = and i1 %.088, %spec.select
@@ -3502,7 +3502,7 @@ raxIteratorAddChars.exit131:                      ; preds = %191, %194
 
 .backedge:                                        ; preds = %240, %101
   %.be = phi i32 [ %242, %240 ], [ %103, %101 ]
-  %.be226 = phi ptr [ %241, %240 ], [ %102, %101 ]
+  %.be242 = phi ptr [ %241, %240 ], [ %102, %101 ]
   br label %25
 
 244:                                              ; preds = %240
@@ -3662,9 +3662,9 @@ raxIteratorAddChars.exit40:                       ; preds = %38, %.thread.i38
   br label %raxIteratorAddChars.exit.thread
 
 raxIteratorAddChars.exit.thread:                  ; preds = %33, %raxIteratorAddChars.exit40
-  %.sink65 = phi i64 [ %19, %33 ], [ 1, %raxIteratorAddChars.exit40 ]
+  %.sink75 = phi i64 [ %19, %33 ], [ 1, %raxIteratorAddChars.exit40 ]
   %58 = load i64, ptr %6, align 8, !tbaa !37
-  %59 = add i64 %58, %.sink65
+  %59 = add i64 %58, %.sink75
   store i64 %59, ptr %6, align 8, !tbaa !37
   %60 = load ptr, ptr %2, align 8, !tbaa !43
   %61 = load i32, ptr %60, align 4
@@ -4119,7 +4119,7 @@ tailrecurse:                                      ; preds = %.thread, %4
     i8 60, label %.loopexit.sink.split
     i8 61, label %.loopexit
     i8 94, label %.thread
-    i8 36, label %.thread244
+    i8 36, label %.thread246
   ]
 
 16:                                               ; preds = %15
@@ -4128,7 +4128,7 @@ tailrecurse:                                      ; preds = %.thread, %4
   br label %214
 
 .loopexit.sink.split:                             ; preds = %15, %tailrecurse
-  %.ph281 = xor i1 %14, true
+  %.ph283 = xor i1 %14, true
   %18 = getelementptr inbounds nuw i8, ptr %.tr172, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !15
   %20 = icmp ne i8 %19, 61
@@ -4136,7 +4136,7 @@ tailrecurse:                                      ; preds = %.thread, %4
 
 .loopexit:                                        ; preds = %15, %.loopexit.sink.split
   %21 = phi i1 [ %14, %.loopexit.sink.split ], [ false, %15 ]
-  %22 = phi i1 [ %.ph281, %.loopexit.sink.split ], [ false, %15 ]
+  %22 = phi i1 [ %.ph283, %.loopexit.sink.split ], [ false, %15 ]
   %.not114 = phi i1 [ %20, %.loopexit.sink.split ], [ false, %15 ]
   %23 = load ptr, ptr %9, align 8, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -4144,7 +4144,7 @@ tailrecurse:                                      ; preds = %.thread, %4
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %.loopexit175, label %59
 
-.thread244:                                       ; preds = %15
+.thread246:                                       ; preds = %15
   %27 = load ptr, ptr %9, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !9
@@ -4158,12 +4158,12 @@ tailrecurse:                                      ; preds = %.thread, %4
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %.loopexit175, label %tailrecurse
 
-.loopexit175:                                     ; preds = %.thread, %.thread244, %.loopexit
+.loopexit175:                                     ; preds = %.thread, %.thread246, %.loopexit
   %35 = or i32 %10, 3
   store i32 %35, ptr %0, align 8, !tbaa !32
   br label %214
 
-36:                                               ; preds = %.thread244
+36:                                               ; preds = %.thread246
   %37 = load ptr, ptr %27, align 8, !tbaa !11
   store ptr %37, ptr %8, align 8, !tbaa !43
   %38 = tail call i32 @raxSeekGreatest(ptr noundef nonnull %0)
@@ -4606,17 +4606,17 @@ define dso_local range(i32 0, 2) i32 @raxRandomWalk(ptr noundef %0, i64 noundef 
   br label %.critedge
 
 .critedge:                                        ; preds = %24, %148
-  %.147121 = phi i64 [ %.046, %24 ], [ %spec.select65, %148 ]
-  %.050120 = phi ptr [ %26, %24 ], [ %.151, %148 ]
-  %.pre119 = phi i32 [ %.pre.pre, %24 ], [ %149, %148 ]
-  %35 = and i32 %.pre119, 4
+  %.147132 = phi i64 [ %.046, %24 ], [ %spec.select65, %148 ]
+  %.050131 = phi ptr [ %26, %24 ], [ %.151, %148 ]
+  %.pre130 = phi i32 [ %.pre.pre, %24 ], [ %149, %148 ]
+  %35 = and i32 %.pre130, 4
   %.not58 = icmp eq i32 %35, 0
-  %36 = lshr i32 %.pre119, 3
+  %36 = lshr i32 %.pre130, 3
   %spec.select = select i1 %.not58, i32 %36, i32 1
   %37 = tail call i32 @rand() #26
   %38 = load ptr, ptr %3, align 8, !tbaa !36
   %39 = load ptr, ptr %38, align 8, !tbaa !11
-  %40 = icmp ne ptr %.050120, %39
+  %40 = icmp ne ptr %.050131, %39
   %41 = zext i1 %40 to i32
   %42 = add nuw nsw i32 %spec.select, %41
   %43 = srem i32 %37, %42
@@ -4644,10 +4644,10 @@ raxStackPop.exit:                                 ; preds = %.critedge
   br label %148
 
 57:                                               ; preds = %.critedge
-  %58 = load i32, ptr %.050120, align 4
+  %58 = load i32, ptr %.050131, align 4
   %59 = and i32 %58, 4
   %.not59 = icmp eq i32 %59, 0
-  %60 = getelementptr inbounds nuw i8, ptr %.050120, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.050131, i64 4
   br i1 %.not59, label %84, label %61
 
 61:                                               ; preds = %57
@@ -4754,14 +4754,14 @@ raxIteratorAddChars.exit74:                       ; preds = %84, %.thread.i72
   br label %raxIteratorAddChars.exit.thread.sink.split
 
 raxIteratorAddChars.exit.thread.sink.split:       ; preds = %raxIteratorAddChars.exit74, %78
-  %.sink113 = phi i64 [ %63, %78 ], [ 1, %raxIteratorAddChars.exit74 ]
+  %.sink124 = phi i64 [ %63, %78 ], [ 1, %raxIteratorAddChars.exit74 ]
   %105 = load i64, ptr %28, align 8, !tbaa !37
-  %106 = add i64 %105, %.sink113
+  %106 = add i64 %105, %.sink124
   store i64 %106, ptr %28, align 8, !tbaa !37
   br label %raxIteratorAddChars.exit.thread
 
 raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars.exit.thread.sink.split, %61
-  %107 = load i32, ptr %.050120, align 4
+  %107 = load i32, ptr %.050131, align 4
   %108 = load i64, ptr %32, align 8, !tbaa !24
   %109 = load i64, ptr %33, align 8, !tbaa !26
   %110 = icmp eq i64 %108, %109
@@ -4822,10 +4822,10 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   %134 = phi i64 [ %.pre33.i, %129 ], [ %108, %raxIteratorAddChars.exit.thread ]
   %135 = phi ptr [ %130, %129 ], [ %.pre32.i, %raxIteratorAddChars.exit.thread ]
   %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %134
-  store ptr %.050120, ptr %136, align 8, !tbaa !22
+  store ptr %.050131, ptr %136, align 8, !tbaa !22
   %137 = add i64 %134, 1
   store i64 %137, ptr %32, align 8, !tbaa !24
-  %138 = getelementptr inbounds nuw i8, ptr %.050120, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.050131, i64 4
   %139 = lshr i32 %107, 3
   %140 = zext nneg i32 %139 to i64
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 %140
@@ -4845,7 +4845,7 @@ raxIteratorAddChars.exit.thread:                  ; preds = %raxIteratorAddChars
   %150 = and i32 %149, 1
   %sext = sub nsw i32 0, %150
   %151 = sext i32 %sext to i64
-  %spec.select65 = add i64 %.147121, %151
+  %spec.select65 = add i64 %.147132, %151
   %.not = icmp ne i64 %spec.select65, 0
   %152 = and i32 %149, 1
   %.not57 = icmp eq i32 %152, 0

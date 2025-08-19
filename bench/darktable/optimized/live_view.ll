@@ -1245,9 +1245,9 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   %257 = fptrunc reassoc nsz arcp contract afn double %256 to float
   %258 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %254, float %257)
   %. = select i1 %251, i32 %37, i32 %35
-  %.204 = select i1 %251, i32 %35, i32 %37
+  %.205 = select i1 %251, i32 %35, i32 %37
   %259 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %258, float 1.000000e+01)
-  %260 = sitofp i32 %.204 to float
+  %260 = sitofp i32 %.205 to float
   %261 = fmul reassoc nsz arcp contract afn float %259, %260
   %262 = fpext reassoc nsz arcp contract afn float %261 to double
   %263 = sitofp i32 %. to float

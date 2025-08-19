@@ -178,8 +178,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %qua, i8 0, i64 24, i1 false)
   %0 = add i32 %faceCount, -4
   %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
-  %ref.tmp382.sink4346.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp376, i64 8
-  %ref.tmp382.sink4346.sroa.gep4347 = getelementptr inbounds nuw i8, ptr %ref.tmp382, i64 8
+  %ref.tmp382.sink4678.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp376, i64 8
+  %ref.tmp382.sink4678.sroa.gep4679 = getelementptr inbounds nuw i8, ptr %ref.tmp382, i64 8
   switch i32 %1, label %if.else346 [
     i32 0, label %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
     i32 1, label %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i261
@@ -7002,11 +7002,11 @@ lpad384:                                          ; preds = %if.else381
   br label %ehcleanup
 
 nrvo.skipdtor:                                    ; preds = %if.else381, %if.then375
-  %ref.tmp382.sink4346.sroa.phi = phi ptr [ %ref.tmp382.sink4346.sroa.gep, %if.then375 ], [ %ref.tmp382.sink4346.sroa.gep4347, %if.else381 ]
-  %ref.tmp382.sink4346 = phi ptr [ %ref.tmp376, %if.then375 ], [ %ref.tmp382, %if.else381 ]
-  %476 = load ptr, ptr %ref.tmp382.sink4346, align 8
-  %477 = load ptr, ptr %ref.tmp382.sink4346.sroa.phi, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp382.sink4346, i8 0, i64 16, i1 false)
+  %ref.tmp382.sink4678.sroa.phi = phi ptr [ %ref.tmp382.sink4678.sroa.gep, %if.then375 ], [ %ref.tmp382.sink4678.sroa.gep4679, %if.else381 ]
+  %ref.tmp382.sink4678 = phi ptr [ %ref.tmp376, %if.then375 ], [ %ref.tmp382, %if.else381 ]
+  %476 = load ptr, ptr %ref.tmp382.sink4678, align 8
+  %477 = load ptr, ptr %ref.tmp382.sink4678.sroa.phi, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp382.sink4678, i8 0, i64 16, i1 false)
   store ptr %476, ptr %agg.result, align 8
   %_M_refcount3.i.i.i3807 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %477, ptr %_M_refcount3.i.i.i3807, align 8
@@ -7382,8 +7382,8 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %qua, i8 0, i64 24, i1 false)
   %0 = add i32 %faceCount, -4
   %1 = call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 31)
-  %ref.tmp382.sink4346.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp376, i64 8
-  %ref.tmp382.sink4346.sroa.gep4347 = getelementptr inbounds nuw i8, ptr %ref.tmp382, i64 8
+  %ref.tmp382.sink4678.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp376, i64 8
+  %ref.tmp382.sink4678.sroa.gep4679 = getelementptr inbounds nuw i8, ptr %ref.tmp382, i64 8
   switch i32 %1, label %if.else346 [
     i32 0, label %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
     i32 1, label %_ZNKSt6vectorIN7openvdb5v11_04math4Vec3IfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i261
@@ -14206,11 +14206,11 @@ lpad384:                                          ; preds = %if.else381
   br label %ehcleanup
 
 nrvo.skipdtor:                                    ; preds = %if.else381, %if.then375
-  %ref.tmp382.sink4346.sroa.phi = phi ptr [ %ref.tmp382.sink4346.sroa.gep, %if.then375 ], [ %ref.tmp382.sink4346.sroa.gep4347, %if.else381 ]
-  %ref.tmp382.sink4346 = phi ptr [ %ref.tmp376, %if.then375 ], [ %ref.tmp382, %if.else381 ]
-  %476 = load ptr, ptr %ref.tmp382.sink4346, align 8
-  %477 = load ptr, ptr %ref.tmp382.sink4346.sroa.phi, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp382.sink4346, i8 0, i64 16, i1 false)
+  %ref.tmp382.sink4678.sroa.phi = phi ptr [ %ref.tmp382.sink4678.sroa.gep, %if.then375 ], [ %ref.tmp382.sink4678.sroa.gep4679, %if.else381 ]
+  %ref.tmp382.sink4678 = phi ptr [ %ref.tmp376, %if.then375 ], [ %ref.tmp382, %if.else381 ]
+  %476 = load ptr, ptr %ref.tmp382.sink4678, align 8
+  %477 = load ptr, ptr %ref.tmp382.sink4678.sroa.phi, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp382.sink4678, i8 0, i64 16, i1 false)
   store ptr %476, ptr %agg.result, align 8
   %_M_refcount3.i.i.i3807 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %477, ptr %_M_refcount3.i.i.i3807, align 8

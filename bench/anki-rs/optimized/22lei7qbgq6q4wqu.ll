@@ -284,7 +284,7 @@ define void @_ZN7anki_io5error11FileIoError7message17h2c731cfd0ac27719E(ptr noal
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %17 = load i64, ptr %1, align 8, !range !66, !noundef !4
-  switch i64 %17, label %default.unreachable94 [
+  switch i64 %17, label %default.unreachable96 [
     i64 0, label %18
     i64 1, label %23
     i64 2, label %28
@@ -298,7 +298,7 @@ define void @_ZN7anki_io5error11FileIoError7message17h2c731cfd0ac27719E(ptr noal
     i64 10, label %_ZN5alloc3fmt6format17hce246aee5769fae0E.exit
   ]
 
-default.unreachable94:                            ; preds = %2
+default.unreachable96:                            ; preds = %2
   unreachable
 
 18:                                               ; preds = %2

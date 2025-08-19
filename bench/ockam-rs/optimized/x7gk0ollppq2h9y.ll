@@ -511,10 +511,10 @@ define hidden void @"_ZN7tinyvec7tinyvec16TinyVec$LT$A$GT$13shrink_to_fit17hdbec
   %39 = trunc i64 %.018.i to i16
   store i16 %39, ptr %7, align 2
   store ptr %.sroa.0.0.copyload, ptr %6, align 8, !noalias !66
-  %.sroa.4.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx15, align 8, !noalias !66
-  %.sroa.5.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %storemerge.i, ptr %.sroa.5.0..sroa_idx17, align 8, !noalias !66
+  %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx20, align 8, !noalias !66
+  %.sroa.5.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %storemerge.i, ptr %.sroa.5.0..sroa_idx22, align 8, !noalias !66
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %29, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !66
   call void @llvm.experimental.noalias.scope.decl(metadata !67)

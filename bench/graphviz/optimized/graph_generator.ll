@@ -1144,7 +1144,7 @@ define dso_local void @makeTriMesh(i32 noundef %0, ptr noundef readonly captures
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7, %.preheader
-  %.032.lcssa45 = phi i32 [ 2, %.preheader ], [ %13, %7 ]
+  %.032.lcssa46 = phi i32 [ 2, %.preheader ], [ %13, %7 ]
   %umax = tail call i32 @llvm.umax.i32(i32 %0, i32 2)
   br label %.lr.ph
 
@@ -1176,7 +1176,7 @@ define dso_local void @makeTriMesh(i32 noundef %0, ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.040 = phi i32 [ %17, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.239 = phi i32 [ %16, %.lr.ph ], [ %.032.lcssa45, %.lr.ph.preheader ]
+  %.239 = phi i32 [ %16, %.lr.ph ], [ %.032.lcssa46, %.lr.ph.preheader ]
   %16 = add i32 %.239, 1
   tail call void %1(i32 noundef %.239, i32 noundef %16) #15
   %17 = add nuw i32 %.040, 1
@@ -1559,7 +1559,7 @@ makePath.exit:                                    ; preds = %.lr.ph.i60, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @makeTreeGen(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @makeTreeGen(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef range(i64 4, 57) 56) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit

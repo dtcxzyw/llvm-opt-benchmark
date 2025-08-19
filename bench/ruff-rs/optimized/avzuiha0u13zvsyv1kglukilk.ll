@@ -4600,8 +4600,8 @@ _ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit: ; pr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !alias.scope !298, !noalias !300
   %.sroa.8.7..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.8, i64 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.8.7..sroa_idx, i8 0, i64 5, i1 false), !alias.scope !301, !noalias !302
-  %.sroa.0.32..sroa_idx96 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.32..sroa_idx96, i8 0, i64 16, i1 false), !alias.scope !301, !noalias !302
+  %.sroa.0.32..sroa_idx97 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.32..sroa_idx97, i8 0, i64 16, i1 false), !alias.scope !301, !noalias !302
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !290
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.0, i64 48, i1 false), !alias.scope !303
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -8081,13 +8081,13 @@ define noundef range(i8 0, 3) i8 @_ZN7ruff_db5files4File11source_type17h6b4c0e0c
   %.val1.i = load ptr, ptr %14, align 8, !noalias !556
   %15 = tail call fastcc noundef nonnull align 16 dereferenceable(64) ptr @"_ZN5salsa5input23IngredientImpl$LT$C$GT$5field17h53df73549eed08b2E"(i32 %.val.i, ptr noundef nonnull align 1 %11, ptr %.val1.i, i32 noundef range(i32 1, 0) %0, i64 noundef 0), !noalias !556
   %16 = load i64, ptr %15, align 16, !range !176, !noundef !9
-  switch i64 %16, label %default.unreachable7 [
+  switch i64 %16, label %default.unreachable8 [
     i64 0, label %17
     i64 1, label %24
     i64 2, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc27f4550e7da1091E.exit"
   ]
 
-default.unreachable7:                             ; preds = %3
+default.unreachable8:                             ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -8111,9 +8111,9 @@ default.unreachable7:                             ; preds = %3
   br i1 %.not.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc27f4550e7da1091E.exit", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc27f4550e7da1091E.exit.sink.split"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hc27f4550e7da1091E.exit.sink.split": ; preds = %24, %17
-  %.sink9 = phi { ptr, i64 } [ %22, %17 ], [ %29, %24 ]
+  %.sink10 = phi { ptr, i64 } [ %22, %17 ], [ %29, %24 ]
   %.sink = phi ptr [ %23, %17 ], [ %30, %24 ]
-  %31 = extractvalue { ptr, i64 } %.sink9, 1
+  %31 = extractvalue { ptr, i64 } %.sink10, 1
   %32 = tail call noundef range(i8 0, 3) i8 @_ZN15ruff_python_ast12PySourceType14from_extension17h1cfc3a6a847e21a8E(ptr noalias noundef nonnull readonly align 1 %.sink, i64 noundef %31)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc27f4550e7da1091E.exit"
 

@@ -663,14 +663,14 @@ cond.exit.i:                                      ; preds = %48, %43
   %50 = load i32, ptr %36, align 4, !tbaa !117
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %51 = load i32, ptr %30, align 8, !tbaa !91
-  %.not.i.i.i292 = icmp eq i32 %51, 274
-  br i1 %.not.i.i.i292, label %checknext.exit.i293, label %52
+  %.not.i.i.i307 = icmp eq i32 %51, 274
+  br i1 %.not.i.i.i307, label %checknext.exit.i308, label %52
 
 52:                                               ; preds = %cond.exit.i
   call fastcc void @error_expected(ptr noundef nonnull %0, i32 noundef range(i32 40, 292) 274) #11
   unreachable
 
-checknext.exit.i293:                              ; preds = %cond.exit.i
+checknext.exit.i308:                              ; preds = %cond.exit.i
   call void @luaX_next(ptr noundef nonnull %0) #12
   %53 = load ptr, ptr %34, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -692,25 +692,25 @@ checknext.exit.i293:                              ; preds = %cond.exit.i
   %64 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !69
   %.not.i11.i = icmp eq ptr %65, null
-  br i1 %.not.i11.i, label %enterblock.exit.i294, label %66
+  br i1 %.not.i11.i, label %enterblock.exit.i309, label %66
 
-66:                                               ; preds = %checknext.exit.i293
+66:                                               ; preds = %checknext.exit.i308
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 19
   %68 = load i8, ptr %67, align 1, !tbaa !79
   %69 = icmp ne i8 %68, 0
   %70 = zext i1 %69 to i8
-  br label %enterblock.exit.i294
+  br label %enterblock.exit.i309
 
-enterblock.exit.i294:                             ; preds = %66, %checknext.exit.i293
-  %71 = phi i8 [ 0, %checknext.exit.i293 ], [ %70, %66 ]
+enterblock.exit.i309:                             ; preds = %66, %checknext.exit.i308
+  %71 = phi i8 [ 0, %checknext.exit.i308 ], [ %70, %66 ]
   store i8 %71, ptr %42, align 1, !tbaa !79
   store ptr %65, ptr %2, align 8, !tbaa !80
   store ptr %2, ptr %64, align 8, !tbaa !69
   br label %72
 
-72:                                               ; preds = %74, %enterblock.exit.i294
-  %.val.i.i295 = load i32, ptr %30, align 8, !tbaa !91
-  switch i32 %.val.i.i295, label %74 [
+72:                                               ; preds = %74, %enterblock.exit.i309
+  %.val.i.i310 = load i32, ptr %30, align 8, !tbaa !91
+  switch i32 %.val.i.i310, label %74 [
     i32 259, label %statlist.exit.i
     i32 260, label %statlist.exit.i
     i32 261, label %statlist.exit.i
@@ -4123,7 +4123,7 @@ define internal fastcc void @funcargs(ptr noundef nonnull %0, ptr noundef nonnul
   switch i32 %9, label %37 [
     i32 40, label %10
     i32 123, label %36
-    i32 292, label %.thread38
+    i32 292, label %.thread41
   ]
 
 10:                                               ; preds = %2
@@ -4199,14 +4199,14 @@ check_match.exit:                                 ; preds = %.thread, %24
   unreachable
 
 38:                                               ; preds = %36, %check_match.exit
-  %.pr35 = load i32, ptr %3, align 8, !tbaa !115
+  %.pr38 = load i32, ptr %3, align 8, !tbaa !115
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !45
-  %41 = and i32 %.pr35, -2
+  %41 = and i32 %.pr38, -2
   %or.cond5 = icmp eq i32 %41, 18
   br i1 %or.cond5, label %60, label %49
 
-.thread38:                                        ; preds = %2
+.thread41:                                        ; preds = %2
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !45
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4222,12 +4222,12 @@ check_match.exit:                                 ; preds = %.thread, %24
   br label %50
 
 49:                                               ; preds = %38
-  %.not = icmp eq i32 %.pr35, 0
+  %.not = icmp eq i32 %.pr38, 0
   br i1 %.not, label %53, label %50
 
-50:                                               ; preds = %.thread38, %49
-  %51 = phi ptr [ %47, %.thread38 ], [ %39, %49 ]
-  %52 = phi i32 [ %48, %.thread38 ], [ %40, %49 ]
+50:                                               ; preds = %.thread41, %49
+  %51 = phi ptr [ %47, %.thread41 ], [ %39, %49 ]
+  %52 = phi i32 [ %48, %.thread41 ], [ %40, %49 ]
   call void @luaK_exp2nextreg(ptr noundef %5, ptr noundef nonnull %3) #12
   br label %53
 

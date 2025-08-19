@@ -5078,9 +5078,9 @@ _ssa_result_def_info.exit.i:                      ; preds = %456
   br i1 %460, label %get_ssa_var_info.exit101.sink.split.i, label %get_ssa_var_info.exit101.i
 
 get_ssa_var_info.exit101.sink.split.i:            ; preds = %_ssa_result_def_info.exit.i, %_ssa_op1_def_info.exit.i
-  %.sink128.i = phi i32 [ %450, %_ssa_op1_def_info.exit.i ], [ %459, %_ssa_result_def_info.exit.i ]
+  %.sink138.i = phi i32 [ %450, %_ssa_op1_def_info.exit.i ], [ %459, %_ssa_result_def_info.exit.i ]
   %.sink.i = phi ptr [ %448, %_ssa_op1_def_info.exit.i ], [ %457, %_ssa_result_def_info.exit.i ]
-  %461 = zext nneg i32 %.sink128.i to i64
+  %461 = zext nneg i32 %.sink138.i to i64
   %462 = getelementptr inbounds nuw %struct._zend_ssa_var_info, ptr %.sink.i, i64 %461
   %463 = load i32, ptr %462, align 8, !tbaa !187
   %464 = and i32 %463, 552599551
@@ -5191,8 +5191,8 @@ get_ssa_var_info.exit101.i:                       ; preds = %get_ssa_var_info.ex
   br i1 %519, label %.thread114.sink.split.i, label %.thread114.i
 
 .thread114.sink.split.i:                          ; preds = %514, %504
-  %.sink129.i = phi i8 [ 18, %504 ], [ 34, %514 ]
-  store i8 %.sink129.i, ptr %492, align 1, !tbaa !85
+  %.sink139.i = phi i8 [ 18, %504 ], [ 34, %514 ]
+  store i8 %.sink139.i, ptr %492, align 1, !tbaa !85
   br label %.thread114.i
 
 .thread114.i:                                     ; preds = %.thread114.sink.split.i, %514, %510, %504, %500, %497, %491, %490

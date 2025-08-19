@@ -328,9 +328,9 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
     i32 0, label %148
     i32 1, label %yypop_buffer_state.exit.thread.loopexit
     i32 2, label %yypop_buffer_state.exit.thread.loopexit965
-    i32 3, label %yypop_buffer_state.exit.thread.loopexit1196
-    i32 4, label %yypop_buffer_state.exit.thread.loopexit1292
-    i32 5, label %yypop_buffer_state.exit.thread.loopexit1447
+    i32 3, label %yypop_buffer_state.exit.thread.loopexit1232
+    i32 4, label %yypop_buffer_state.exit.thread.loopexit1328
+    i32 5, label %yypop_buffer_state.exit.thread.loopexit1483
     i32 6, label %yypop_buffer_state.exit.thread
     i32 7, label %152
     i32 8, label %153
@@ -631,13 +631,13 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   switch i32 %240, label %.thread489 [
     i32 0, label %241
     i32 22, label %.thread489.sink.split
-    i32 23, label %.thread489.sink.split.loopexit1452
+    i32 23, label %.thread489.sink.split.loopexit1488
   ]
 
 241:                                              ; preds = %.thread483
   %242 = call i32 @_yr_compiler_push_file(ptr noundef nonnull %2, ptr noundef nonnull %.0396488) #29
   %243 = call ptr @yy_create_buffer(ptr noundef nonnull %.0396488, i32 noundef 16384, ptr noundef nonnull %1)
-  call void @yypush_buffer_state(ptr noundef %243, ptr noundef nonnull %1)
+  call void @yypush_buffer_state(ptr noundef nonnull %243, ptr noundef nonnull %1)
   br label %.critedge
 
 244:                                              ; preds = %236
@@ -652,11 +652,11 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge441.backedge
 
-.thread489.sink.split.loopexit1452:               ; preds = %.thread483
+.thread489.sink.split.loopexit1488:               ; preds = %.thread483
   br label %.thread489.sink.split
 
-.thread489.sink.split:                            ; preds = %215, %.thread483, %.thread489.sink.split.loopexit1452
-  %.str.3.sink = phi ptr [ @.str.2, %.thread483 ], [ @.str.5, %215 ], [ @.str.3, %.thread489.sink.split.loopexit1452 ]
+.thread489.sink.split:                            ; preds = %215, %.thread483, %.thread489.sink.split.loopexit1488
+  %.str.3.sink = phi ptr [ @.str.2, %.thread483 ], [ @.str.5, %215 ], [ @.str.3, %.thread489.sink.split.loopexit1488 ]
   call void @yara_yyerror(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.str.3.sink)
   br label %.thread489
 
@@ -1347,8 +1347,8 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
   %629 = trunc i64 %628 to i32
   %630 = load ptr, ptr %56, align 8, !tbaa !30
   %631 = shl i64 %628, 32
-  %sext1290 = add i64 %631, -4294967296
-  %632 = ashr exact i64 %sext1290, 32
+  %sext1326 = add i64 %631, -4294967296
+  %632 = ashr exact i64 %sext1326, 32
   %633 = getelementptr inbounds i8, ptr %630, i64 %632
   store ptr %633, ptr %51, align 8, !tbaa !29
   %634 = load i32, ptr %53, align 4, !tbaa !17
@@ -1672,11 +1672,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
 .critedge.i:                                      ; preds = %777, %.critedge.split.loop.exit.i
   %.0128.lcssa.i = phi i32 [ %787, %.critedge.split.loop.exit.i ], [ %770, %777 ]
   switch i32 %776, label %.loopexit.i [
-    i32 10, label %.loopexit.thread196.i
+    i32 10, label %.loopexit.thread205.i
     i32 -1, label %803
   ]
 
-.loopexit.thread196.i:                            ; preds = %.critedge.i
+.loopexit.thread205.i:                            ; preds = %.critedge.i
   %788 = load ptr, ptr %58, align 8, !tbaa !21
   %789 = load i64, ptr %59, align 8, !tbaa !22
   %790 = getelementptr inbounds nuw ptr, ptr %788, i64 %789
@@ -1733,9 +1733,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
   %822 = load ptr, ptr %61, align 8, !tbaa !18
   %823 = call i32 @ferror(ptr noundef %822) #29
   %.not140.i = icmp eq i32 %823, 0
-  br i1 %.not140.i, label %.loopexit.thread194.i, label %828
+  br i1 %.not140.i, label %.loopexit.thread203.i, label %828
 
-.loopexit.thread194.i:                            ; preds = %.lr.ph177.i
+.loopexit.thread203.i:                            ; preds = %.lr.ph177.i
   %824 = load ptr, ptr %58, align 8, !tbaa !21
   %825 = load i64, ptr %59, align 8, !tbaa !22
   %826 = getelementptr inbounds nuw ptr, ptr %824, i64 %825
@@ -1795,14 +1795,14 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
   %857 = icmp eq i32 %.0128.lcssa.i, 0
   br i1 %857, label %859, label %875
 
-.sink.split.i:                                    ; preds = %.loopexit.thread194.i, %.thread160.i
-  %.sink207.i = phi ptr [ %827, %.loopexit.thread194.i ], [ %733, %.thread160.i ]
-  %858 = getelementptr inbounds nuw i8, ptr %.sink207.i, i64 28
+.sink.split.i:                                    ; preds = %.loopexit.thread203.i, %.thread160.i
+  %.sink216.i = phi ptr [ %827, %.loopexit.thread203.i ], [ %733, %.thread160.i ]
+  %858 = getelementptr inbounds nuw i8, ptr %.sink216.i, i64 28
   store i32 0, ptr %858, align 4, !tbaa !25
   br label %859
 
 859:                                              ; preds = %.sink.split.i, %.loopexit.i
-  %860 = phi ptr [ %855, %.loopexit.i ], [ %.sink207.i, %.sink.split.i ]
+  %860 = phi ptr [ %855, %.loopexit.i ], [ %.sink216.i, %.sink.split.i ]
   %861 = icmp eq i32 %726, 0
   br i1 %861, label %yyrestart.exit.i, label %873
 
@@ -1831,10 +1831,10 @@ yyrestart.exit.i:                                 ; preds = %859
   store i32 2, ptr %874, align 8, !tbaa !62
   br label %875
 
-875:                                              ; preds = %873, %yyrestart.exit.i, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread196.i
-  %876 = phi ptr [ %866, %yyrestart.exit.i ], [ %860, %873 ], [ %855, %.loopexit.i ], [ %850, %.loopexit.thread.i ], [ %801, %.loopexit.thread196.i ]
-  %877 = phi i32 [ %868, %yyrestart.exit.i ], [ 0, %873 ], [ %.0128.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %795, %.loopexit.thread196.i ]
-  %.0135.i = phi i32 [ 1, %yyrestart.exit.i ], [ 2, %873 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread196.i ]
+875:                                              ; preds = %873, %yyrestart.exit.i, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread205.i
+  %876 = phi ptr [ %866, %yyrestart.exit.i ], [ %860, %873 ], [ %855, %.loopexit.i ], [ %850, %.loopexit.thread.i ], [ %801, %.loopexit.thread205.i ]
+  %877 = phi i32 [ %868, %yyrestart.exit.i ], [ 0, %873 ], [ %.0128.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %795, %.loopexit.thread205.i ]
+  %.0135.i = phi i32 [ 1, %yyrestart.exit.i ], [ 2, %873 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread205.i ]
   %878 = add nsw i32 %877, %726
   %879 = getelementptr inbounds nuw i8, ptr %876, i64 24
   %880 = load i32, ptr %879, align 8, !tbaa !65
@@ -1905,7 +1905,7 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge189.i, %
   %919 = getelementptr inbounds nuw i8, ptr %918, i64 8
   %920 = load ptr, ptr %919, align 8, !tbaa !57
   store ptr %920, ptr %56, align 8, !tbaa !30
-  switch i32 %.0135.i, label %default.unreachable1176 [
+  switch i32 %.0135.i, label %default.unreachable1212 [
     i32 1, label %yy_get_previous_state.exit467
     i32 0, label %921
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread497_crit_edge
@@ -1922,8 +1922,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread497_crit_edge: ; preds = %
   %924 = sub i64 %922, %923
   %925 = trunc i64 %924 to i32
   %926 = shl i64 %924, 32
-  %sext1291 = add i64 %926, -4294967296
-  %927 = ashr exact i64 %sext1291, 32
+  %sext1327 = add i64 %926, -4294967296
+  %927 = ashr exact i64 %sext1327, 32
   %928 = getelementptr inbounds i8, ptr %920, i64 %927
   store ptr %928, ptr %51, align 8, !tbaa !29
   %929 = load i32, ptr %53, align 4, !tbaa !17
@@ -2094,7 +2094,7 @@ yy_get_next_buffer.exit.thread497:                ; preds = %720, %yy_get_next_b
   %exitcond.not.i481 = icmp eq ptr %1017, %974
   br i1 %exitcond.not.i481, label %.preheader504.outer.backedge, label %.lr.ph31.i469
 
-default.unreachable1176:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1212:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit467:                    ; preds = %yy_get_next_buffer.exit, %720
@@ -2117,17 +2117,17 @@ yypop_buffer_state.exit.thread.loopexit:          ; preds = %.loopexit503
 yypop_buffer_state.exit.thread.loopexit965:       ; preds = %.loopexit503
   br label %yypop_buffer_state.exit.thread
 
-yypop_buffer_state.exit.thread.loopexit1196:      ; preds = %.loopexit503
+yypop_buffer_state.exit.thread.loopexit1232:      ; preds = %.loopexit503
   br label %yypop_buffer_state.exit.thread
 
-yypop_buffer_state.exit.thread.loopexit1292:      ; preds = %.loopexit503
+yypop_buffer_state.exit.thread.loopexit1328:      ; preds = %.loopexit503
   br label %yypop_buffer_state.exit.thread
 
-yypop_buffer_state.exit.thread.loopexit1447:      ; preds = %.loopexit503
+yypop_buffer_state.exit.thread.loopexit1483:      ; preds = %.loopexit503
   br label %yypop_buffer_state.exit.thread
 
-yypop_buffer_state.exit.thread:                   ; preds = %267, %255, %yy_delete_buffer.exit.i, %253, %.loopexit503, %yypop_buffer_state.exit.thread.loopexit1447, %yypop_buffer_state.exit.thread.loopexit1292, %yypop_buffer_state.exit.thread.loopexit1196, %yypop_buffer_state.exit.thread.loopexit965, %yypop_buffer_state.exit.thread.loopexit, %.thread495, %.thread494, %443, %.thread, %591, %328, %334, %332, %314, %283, %275, %.thread489, %596, %578, %567, %528, %514, %498, %465, %417, %403, %389, %375, %350, %338, %321, %308, %307, %299, %298, %290, %282, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152
-  %.2 = phi i32 [ 306, %152 ], [ 307, %153 ], [ 259, %154 ], [ 260, %155 ], [ 258, %156 ], [ 261, %157 ], [ 262, %158 ], [ 273, %159 ], [ 274, %160 ], [ 276, %161 ], [ 275, %162 ], [ 263, %163 ], [ 295, %164 ], [ 296, %165 ], [ 308, %166 ], [ 298, %167 ], [ 297, %168 ], [ 277, %169 ], [ 282, %170 ], [ 283, %171 ], [ 285, %172 ], [ 284, %173 ], [ 280, %174 ], [ 281, %175 ], [ 279, %176 ], [ 278, %177 ], [ 289, %178 ], [ 290, %179 ], [ 291, %180 ], [ 286, %181 ], [ 287, %182 ], [ 288, %183 ], [ 292, %184 ], [ 293, %185 ], [ 294, %186 ], [ 0, %.thread489 ], [ 0, %282 ], [ 0, %290 ], [ 0, %298 ], [ 266, %299 ], [ 0, %307 ], [ 267, %308 ], [ 0, %321 ], [ 269, %338 ], [ 270, %350 ], [ 0, %375 ], [ 0, %389 ], [ 0, %403 ], [ 0, %417 ], [ 0, %443 ], [ 0, %465 ], [ 272, %498 ], [ 0, %514 ], [ 0, %528 ], [ 0, %567 ], [ 271, %578 ], [ 0, %596 ], [ 268, %275 ], [ 265, %283 ], [ 264, %314 ], [ 269, %332 ], [ 269, %334 ], [ 269, %328 ], [ %594, %591 ], [ 0, %.thread ], [ 0, %.thread494 ], [ 0, %.thread495 ], [ 299, %yypop_buffer_state.exit.thread.loopexit ], [ 301, %yypop_buffer_state.exit.thread.loopexit965 ], [ 300, %yypop_buffer_state.exit.thread.loopexit1196 ], [ 302, %yypop_buffer_state.exit.thread.loopexit1292 ], [ 303, %yypop_buffer_state.exit.thread.loopexit1447 ], [ 304, %.loopexit503 ], [ 0, %253 ], [ 0, %yy_delete_buffer.exit.i ], [ 0, %255 ], [ 0, %267 ]
+yypop_buffer_state.exit.thread:                   ; preds = %267, %255, %yy_delete_buffer.exit.i, %253, %.loopexit503, %yypop_buffer_state.exit.thread.loopexit1483, %yypop_buffer_state.exit.thread.loopexit1328, %yypop_buffer_state.exit.thread.loopexit1232, %yypop_buffer_state.exit.thread.loopexit965, %yypop_buffer_state.exit.thread.loopexit, %.thread495, %.thread494, %443, %.thread, %591, %328, %334, %332, %314, %283, %275, %.thread489, %596, %578, %567, %528, %514, %498, %465, %417, %403, %389, %375, %350, %338, %321, %308, %307, %299, %298, %290, %282, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152
+  %.2 = phi i32 [ 306, %152 ], [ 307, %153 ], [ 259, %154 ], [ 260, %155 ], [ 258, %156 ], [ 261, %157 ], [ 262, %158 ], [ 273, %159 ], [ 274, %160 ], [ 276, %161 ], [ 275, %162 ], [ 263, %163 ], [ 295, %164 ], [ 296, %165 ], [ 308, %166 ], [ 298, %167 ], [ 297, %168 ], [ 277, %169 ], [ 282, %170 ], [ 283, %171 ], [ 285, %172 ], [ 284, %173 ], [ 280, %174 ], [ 281, %175 ], [ 279, %176 ], [ 278, %177 ], [ 289, %178 ], [ 290, %179 ], [ 291, %180 ], [ 286, %181 ], [ 287, %182 ], [ 288, %183 ], [ 292, %184 ], [ 293, %185 ], [ 294, %186 ], [ 0, %.thread489 ], [ 0, %282 ], [ 0, %290 ], [ 0, %298 ], [ 266, %299 ], [ 0, %307 ], [ 267, %308 ], [ 0, %321 ], [ 269, %338 ], [ 270, %350 ], [ 0, %375 ], [ 0, %389 ], [ 0, %403 ], [ 0, %417 ], [ 0, %443 ], [ 0, %465 ], [ 272, %498 ], [ 0, %514 ], [ 0, %528 ], [ 0, %567 ], [ 271, %578 ], [ 0, %596 ], [ 268, %275 ], [ 265, %283 ], [ 264, %314 ], [ 269, %332 ], [ 269, %334 ], [ 269, %328 ], [ %594, %591 ], [ 0, %.thread ], [ 0, %.thread494 ], [ 0, %.thread495 ], [ 299, %yypop_buffer_state.exit.thread.loopexit ], [ 301, %yypop_buffer_state.exit.thread.loopexit965 ], [ 300, %yypop_buffer_state.exit.thread.loopexit1232 ], [ 302, %yypop_buffer_state.exit.thread.loopexit1328 ], [ 303, %yypop_buffer_state.exit.thread.loopexit1483 ], [ 304, %.loopexit503 ], [ 0, %253 ], [ 0, %yy_delete_buffer.exit.i ], [ 0, %255 ], [ 0, %267 ]
   ret i32 %.2
 }
 
@@ -2201,7 +2201,7 @@ define internal fastcc void @yyensure_buffer_stack(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define nonnull ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #33
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %10
@@ -2558,7 +2558,7 @@ define void @yyrestart(ptr noundef %0, ptr noundef captures(none) %1) local_unna
 
 17:                                               ; preds = %.thread, %5
   %18 = phi ptr [ %12, %.thread ], [ %9, %5 ]
-  tail call fastcc void @yy_init_buffer(ptr noundef %18, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @yy_init_buffer(ptr noundef nonnull %18, ptr noundef %0, ptr noundef nonnull %1)
   %19 = load ptr, ptr %3, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !22
@@ -2609,9 +2609,9 @@ define internal fastcc void @yy_init_buffer(ptr noundef captures(address) %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %yy_flush_buffer.exit.thread20, label %19
+  br i1 %.not15.i, label %yy_flush_buffer.exit.thread24, label %19
 
-yy_flush_buffer.exit.thread20:                    ; preds = %6
+yy_flush_buffer.exit.thread24:                    ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !64
@@ -2668,7 +2668,7 @@ yy_flush_buffer.exit:                             ; preds = %3
   %45 = icmp eq ptr %0, %44
   br i1 %45, label %48, label %.critedge
 
-.critedge:                                        ; preds = %yy_flush_buffer.exit.thread20, %yy_flush_buffer.exit, %39
+.critedge:                                        ; preds = %yy_flush_buffer.exit.thread24, %yy_flush_buffer.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %46, align 4, !tbaa !40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2993,7 +2993,7 @@ yy_switch_to_buffer.exit:                         ; preds = %52, %.thread.i, %3,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @yy_scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define nonnull ptr @yy_scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @yy_scan_bytes(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %1)
@@ -3001,7 +3001,7 @@ define noundef ptr @yy_scan_string(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define nonnull ptr @yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #33

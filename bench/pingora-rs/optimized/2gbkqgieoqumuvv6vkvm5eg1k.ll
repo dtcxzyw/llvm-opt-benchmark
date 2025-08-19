@@ -306,15 +306,15 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_
   %52 = zext nneg i16 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.040.i, i64 88
   store i16 %50, ptr %53, align 8, !noalias !57
-  br label %.outer27
+  br label %.outer30
 
-.outer27:                                         ; preds = %72, %46
+.outer30:                                         ; preds = %72, %46
   %.sroa.03.0.i.ph = phi i64 [ %73, %72 ], [ 0, %46 ]
   %.sroa.07.0.i.ph = phi i64 [ %74, %72 ], [ %52, %46 ]
   br label %54
 
-54:                                               ; preds = %.outer27, %54
-  %.sroa.07.0.i = phi i64 [ 0, %54 ], [ %.sroa.07.0.i.ph, %.outer27 ]
+54:                                               ; preds = %.outer30, %54
+  %.sroa.07.0.i = phi i64 [ 0, %54 ], [ %.sroa.07.0.i.ph, %.outer30 ]
   %55 = icmp ult i64 %.sroa.07.0.i, %44
   br i1 %55, label %56, label %54
 
@@ -350,7 +350,7 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_
 72:                                               ; preds = %59
   %73 = add nuw nsw i64 %.sroa.03.0.i.ph, 1
   %74 = add nuw i64 %.sroa.07.0.i, 1
-  br label %.outer27
+  br label %.outer30
 
 75:                                               ; preds = %59
   %76 = trunc i64 %.sroa.7.039.i to i16
@@ -593,15 +593,15 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_
   %52 = zext nneg i16 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.040.i, i64 96
   store i16 %50, ptr %53, align 8, !noalias !75
-  br label %.outer27
+  br label %.outer30
 
-.outer27:                                         ; preds = %72, %46
+.outer30:                                         ; preds = %72, %46
   %.sroa.03.0.i.ph = phi i64 [ %73, %72 ], [ 0, %46 ]
   %.sroa.07.0.i.ph = phi i64 [ %74, %72 ], [ %52, %46 ]
   br label %54
 
-54:                                               ; preds = %.outer27, %54
-  %.sroa.07.0.i = phi i64 [ 0, %54 ], [ %.sroa.07.0.i.ph, %.outer27 ]
+54:                                               ; preds = %.outer30, %54
+  %.sroa.07.0.i = phi i64 [ 0, %54 ], [ %.sroa.07.0.i.ph, %.outer30 ]
   %55 = icmp ult i64 %.sroa.07.0.i, %44
   br i1 %55, label %56, label %54
 
@@ -637,7 +637,7 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_
 72:                                               ; preds = %59
   %73 = add nuw nsw i64 %.sroa.03.0.i.ph, 1
   %74 = add nuw i64 %.sroa.07.0.i, 1
-  br label %.outer27
+  br label %.outer30
 
 75:                                               ; preds = %59
   %76 = trunc i64 %.sroa.7.039.i to i16
@@ -942,10 +942,10 @@ common.resume:                                    ; preds = %75, %77, %32
   %63 = zext i16 %62 to i64
   br label %64
 
-64:                                               ; preds = %.backedge69, %61
-  %.sroa.01.0.i = phi i64 [ %63, %61 ], [ %.sroa.01.0.i.be, %.backedge69 ]
+64:                                               ; preds = %.backedge73, %61
+  %.sroa.01.0.i = phi i64 [ %63, %61 ], [ %.sroa.01.0.i.be, %.backedge73 ]
   %65 = icmp ult i64 %.sroa.01.0.i, %38
-  br i1 %65, label %66, label %.backedge69
+  br i1 %65, label %66, label %.backedge73
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw { i16, i16 }, ptr %37, i64 %.sroa.01.0.i
@@ -955,9 +955,9 @@ common.resume:                                    ; preds = %75, %77, %32
 
 69:                                               ; preds = %66
   %70 = add nuw i64 %.sroa.01.0.i, 1
-  br label %.backedge69
+  br label %.backedge73
 
-.backedge69:                                      ; preds = %69, %64
+.backedge73:                                      ; preds = %69, %64
   %.sroa.01.0.i.be = phi i64 [ %70, %69 ], [ 0, %64 ]
   br label %64
 
@@ -1202,10 +1202,10 @@ common.resume:                                    ; preds = %75, %77, %32
   %63 = zext i16 %62 to i64
   br label %64
 
-64:                                               ; preds = %.backedge69, %61
-  %.sroa.01.0.i = phi i64 [ %63, %61 ], [ %.sroa.01.0.i.be, %.backedge69 ]
+64:                                               ; preds = %.backedge73, %61
+  %.sroa.01.0.i = phi i64 [ %63, %61 ], [ %.sroa.01.0.i.be, %.backedge73 ]
   %65 = icmp ult i64 %.sroa.01.0.i, %38
-  br i1 %65, label %66, label %.backedge69
+  br i1 %65, label %66, label %.backedge73
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw { i16, i16 }, ptr %37, i64 %.sroa.01.0.i
@@ -1215,9 +1215,9 @@ common.resume:                                    ; preds = %75, %77, %32
 
 69:                                               ; preds = %66
   %70 = add nuw i64 %.sroa.01.0.i, 1
-  br label %.backedge69
+  br label %.backedge73
 
-.backedge69:                                      ; preds = %69, %64
+.backedge73:                                      ; preds = %69, %64
   %.sroa.01.0.i.be = phi i64 [ %70, %69 ], [ 0, %64 ]
   br label %64
 

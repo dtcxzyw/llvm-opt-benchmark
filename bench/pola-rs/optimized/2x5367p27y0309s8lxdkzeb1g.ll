@@ -904,7 +904,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !32, !noundef !23
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -946,7 +946,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -3349,12 +3349,12 @@ define hidden void @_ZN10polars_row6encode25convert_columns_amortized17h7d559d95
   unreachable
 
 134:                                              ; preds = %.thread, %83
-  %.pn.pn43 = phi { ptr, i32 } [ %.pn, %83 ], [ %82, %.thread ]
+  %.pn.pn46 = phi { ptr, i32 } [ %.pn, %83 ], [ %82, %.thread ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he31c2637f108f7acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #19
           to label %135 unwind label %132
 
 135:                                              ; preds = %134, %57
-  %.pn.pn.pn.ph = phi { ptr, i32 } [ %58, %57 ], [ %.pn.pn43, %134 ]
+  %.pn.pn.pn.ph = phi { ptr, i32 } [ %58, %57 ], [ %.pn.pn46, %134 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h58e2fba2c4011d55E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #19
           to label %47 unwind label %132
 

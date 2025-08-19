@@ -229,10 +229,10 @@ define hidden ptr @core_lookup(ptr noundef readonly captures(none) %0, i64 nound
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.03651 = phi i32 [ %..036, %.lr.ph ], [ %8, %2 ]
   %.03850 = phi i32 [ %.038., %.lr.ph ], [ 0, %2 ]
-  %12 = add nsw i32 %.03651, %.03850
-  %13 = sdiv i32 %12, 2
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %12 = add nuw nsw i32 %.03651, %.03850
+  %13 = lshr i32 %12, 1
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
@@ -244,7 +244,7 @@ define hidden ptr @core_lookup(ptr noundef readonly captures(none) %0, i64 nound
   br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %21 = sext i32 %.038. to i64
+  %21 = zext nneg i32 %.038. to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit
@@ -259,7 +259,7 @@ define hidden ptr @core_lookup(ptr noundef readonly captures(none) %0, i64 nound
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds ptr, ptr %11, i64 %.038.lcssa
+  %29 = getelementptr inbounds nuw ptr, ptr %11, i64 %.038.lcssa
   %30 = load ptr, ptr %29, align 8
   %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.pre60 = load i64, ptr %.phi.trans.insert59, align 8

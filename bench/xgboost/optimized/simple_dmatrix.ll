@@ -14859,32 +14859,32 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i48, label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit52.thread188, label %.thread
 
 .thread:                                          ; preds = %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit, %74
-  %.sroa.0148.0.copyload224 = phi i32 [ %.sroa.0148.0.copyload.pre, %74 ], [ %.sroa.0129.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
-  %.sroa.3150.0.copyload223 = phi double [ %.sroa.3150.0.copyload.pre, %74 ], [ %.sroa.3130.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
-  %.sroa.0158.0.copyload222 = phi i32 [ %.sroa.0158.0.copyload.pre, %74 ], [ %27, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
-  %.sroa.5162.0.copyload221 = phi double [ %.sroa.5162.0.copyload.pre, %74 ], [ %.sroa.5142.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
+  %.sroa.0148.0.copyload239 = phi i32 [ %.sroa.0148.0.copyload.pre, %74 ], [ %.sroa.0129.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
+  %.sroa.3150.0.copyload238 = phi double [ %.sroa.3150.0.copyload.pre, %74 ], [ %.sroa.3130.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
+  %.sroa.0158.0.copyload237 = phi i32 [ %.sroa.0158.0.copyload.pre, %74 ], [ %27, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
+  %.sroa.5162.0.copyload236 = phi double [ %.sroa.5162.0.copyload.pre, %74 ], [ %.sroa.5142.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
   %.sroa.3160.0.copyload = load i8, ptr %.sroa.3140.0..sroa_idx, align 8, !tbaa !361
   %75 = trunc nuw i8 %.sroa.3160.0.copyload to i1
   br i1 %75, label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit52.thread, label %76, !prof !365
 
 76:                                               ; preds = %.thread
-  %77 = fcmp uno double %.sroa.3150.0.copyload223, 0.000000e+00
-  %78 = fcmp uno double %.sroa.5162.0.copyload221, 0.000000e+00
+  %77 = fcmp uno double %.sroa.3150.0.copyload238, 0.000000e+00
+  %78 = fcmp uno double %.sroa.5162.0.copyload236, 0.000000e+00
   %79 = xor i1 %77, %78
   br i1 %79, label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit52, label %80
 
 80:                                               ; preds = %76
-  %or.cond.i.i49 = fcmp uno double %.sroa.3150.0.copyload223, %.sroa.5162.0.copyload221
+  %or.cond.i.i49 = fcmp uno double %.sroa.3150.0.copyload238, %.sroa.5162.0.copyload236
   br i1 %or.cond.i.i49, label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit52, label %81
 
 81:                                               ; preds = %80
-  %82 = fcmp une double %.sroa.3150.0.copyload223, %.sroa.5162.0.copyload221
+  %82 = fcmp une double %.sroa.3150.0.copyload238, %.sroa.5162.0.copyload236
   %83 = zext i1 %82 to i32
   br label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit52
 
 _ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit52: ; preds = %76, %80, %81
   %84 = phi i32 [ 1, %76 ], [ 0, %80 ], [ %83, %81 ]
-  %85 = icmp ne i32 %.sroa.0148.0.copyload224, %.sroa.0158.0.copyload222
+  %85 = icmp ne i32 %.sroa.0148.0.copyload239, %.sroa.0158.0.copyload237
   %86 = zext i1 %85 to i32
   %87 = or i32 %84, %86
   %.not204 = icmp eq i32 %87, 0
@@ -16224,32 +16224,32 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not.i64, label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit68.thread234, label %.thread
 
 .thread:                                          ; preds = %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit, %75
-  %.sroa.0188.0.copyload276 = phi i32 [ %.sroa.0188.0.copyload.pre, %75 ], [ %.sroa.0169.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
-  %.sroa.3190.0.copyload275 = phi double [ %.sroa.3190.0.copyload.pre, %75 ], [ %.sroa.3170.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
-  %.sroa.0198.0.copyload274 = phi i32 [ %.sroa.0198.0.copyload.pre, %75 ], [ %28, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
-  %.sroa.5202.0.copyload273 = phi double [ %.sroa.5202.0.copyload.pre, %75 ], [ %.sroa.5182.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
+  %.sroa.0188.0.copyload293 = phi i32 [ %.sroa.0188.0.copyload.pre, %75 ], [ %.sroa.0169.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
+  %.sroa.3190.0.copyload292 = phi double [ %.sroa.3190.0.copyload.pre, %75 ], [ %.sroa.3170.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
+  %.sroa.0198.0.copyload291 = phi i32 [ %.sroa.0198.0.copyload.pre, %75 ], [ %28, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
+  %.sroa.5202.0.copyload290 = phi double [ %.sroa.5202.0.copyload.pre, %75 ], [ %.sroa.5182.0.copyload, %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit ]
   %.sroa.3200.0.copyload = load i8, ptr %.sroa.3180.0..sroa_idx, align 8, !tbaa !361
   %76 = trunc nuw i8 %.sroa.3200.0.copyload to i1
   br i1 %76, label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit68.thread, label %77, !prof !365
 
 77:                                               ; preds = %.thread
-  %78 = fcmp uno double %.sroa.3190.0.copyload275, 0.000000e+00
-  %79 = fcmp uno double %.sroa.5202.0.copyload273, 0.000000e+00
+  %78 = fcmp uno double %.sroa.3190.0.copyload292, 0.000000e+00
+  %79 = fcmp uno double %.sroa.5202.0.copyload290, 0.000000e+00
   %80 = xor i1 %78, %79
   br i1 %80, label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit68, label %81
 
 81:                                               ; preds = %77
-  %or.cond.i.i65 = fcmp uno double %.sroa.3190.0.copyload275, %.sroa.5202.0.copyload273
+  %or.cond.i.i65 = fcmp uno double %.sroa.3190.0.copyload292, %.sroa.5202.0.copyload290
   br i1 %or.cond.i.i65, label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit68, label %82
 
 82:                                               ; preds = %81
-  %83 = fcmp une double %.sroa.3190.0.copyload275, %.sroa.5202.0.copyload273
+  %83 = fcmp une double %.sroa.3190.0.copyload292, %.sroa.5202.0.copyload290
   %84 = zext i1 %83 to i32
   br label %_ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit68
 
 _ZN7xgboost4data6detail10RegenGHistENS_10BatchParamES2_.exit68: ; preds = %77, %81, %82
   %85 = phi i32 [ 1, %77 ], [ 0, %81 ], [ %84, %82 ]
-  %86 = icmp ne i32 %.sroa.0188.0.copyload276, %.sroa.0198.0.copyload274
+  %86 = icmp ne i32 %.sroa.0188.0.copyload293, %.sroa.0198.0.copyload291
   %87 = zext i1 %86 to i32
   %88 = or i32 %85, %87
   %.not255 = icmp eq i32 %88, 0
@@ -20046,7 +20046,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(84) ptr @_ZN7xgboost
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = icmp eq ptr %6, %7
-  br i1 %8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20058,14 +20058,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %18, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %2
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %2
   %15 = load ptr, ptr %3, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-18:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %19 = phi ptr [ %15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+18:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %19 = phi ptr [ %15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !43
   %22 = icmp ult i64 %21, 16
@@ -20107,7 +20107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %33, ptr %7, align 8, !tbaa !41
   br label %40
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %34 = load i64, ptr %7, align 8, !tbaa !41
   store ptr %15, ptr %5, align 8, !tbaa !39
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20468,11 +20468,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
 
 139:                                              ; preds = %137
   %140 = icmp samesign ult i32 %134, 10000
-  %spec.select188 = select i1 %140, i32 4, i32 5
+  %spec.select253 = select i1 %140, i32 4, i32 5
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i35
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i35:  ; preds = %139, %137, %.lr.ph.i.i32, %130
-  %.0.i.i36 = phi i32 [ 1, %130 ], [ 2, %.lr.ph.i.i32 ], [ 3, %137 ], [ %spec.select188, %139 ]
+  %.0.i.i36 = phi i32 [ 1, %130 ], [ 2, %.lr.ph.i.i32 ], [ 3, %137 ], [ %spec.select253, %139 ]
   %.lobit.i37 = lshr i32 %133, 31
   %141 = add nuw nsw i32 %.0.i.i36, %.lobit.i37
   %142 = zext nneg i32 %141 to i64
@@ -20729,11 +20729,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 
 253:                                              ; preds = %251
   %254 = icmp samesign ult i32 %248, 10000
-  %spec.select189 = select i1 %254, i32 4, i32 5
+  %spec.select254 = select i1 %254, i32 4, i32 5
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i71
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i71:  ; preds = %253, %251, %.lr.ph.i.i68, %244
-  %.0.i.i72 = phi i32 [ 1, %244 ], [ 2, %.lr.ph.i.i68 ], [ 3, %251 ], [ %spec.select189, %253 ]
+  %.0.i.i72 = phi i32 [ 1, %244 ], [ 2, %.lr.ph.i.i68 ], [ 3, %251 ], [ %spec.select254, %253 ]
   %.lobit.i73 = lshr i32 %247, 31
   %255 = add nuw nsw i32 %.0.i.i72, %.lobit.i73
   %256 = zext nneg i32 %255 to i64
@@ -20990,11 +20990,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %_Z
 
 367:                                              ; preds = %365
   %368 = icmp samesign ult i32 %362, 10000
-  %spec.select190 = select i1 %368, i32 4, i32 5
+  %spec.select255 = select i1 %368, i32 4, i32 5
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i107
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i107: ; preds = %367, %365, %.lr.ph.i.i104, %358
-  %.0.i.i108 = phi i32 [ 1, %358 ], [ 2, %.lr.ph.i.i104 ], [ 3, %365 ], [ %spec.select190, %367 ]
+  %.0.i.i108 = phi i32 [ 1, %358 ], [ 2, %.lr.ph.i.i104 ], [ 3, %365 ], [ %spec.select255, %367 ]
   %.lobit.i109 = lshr i32 %361, 31
   %369 = add nuw nsw i32 %.0.i.i108, %.lobit.i109
   %370 = zext nneg i32 %369 to i64
@@ -25833,13 +25833,13 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !108
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !108
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -25934,7 +25934,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appe
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN7xgboost5EntryEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 

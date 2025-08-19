@@ -1445,7 +1445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   br label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %.thread, %78, %76
-  %.not.i.i2331 = phi i1 [ false, %.thread ], [ true, %78 ], [ false, %76 ]
+  %.not.i.i2341 = phi i1 [ false, %.thread ], [ true, %78 ], [ false, %76 ]
   %81 = phi i64 [ 1, %.thread ], [ %.pre29, %78 ], [ %.pre29, %76 ]
   invoke void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202407226StatusE(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %6, ptr noundef nonnull %18)
           to label %82 unwind label %96
@@ -1474,7 +1474,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit25:         ; preds = %82, %85
           to label %90 unwind label %63
 
 90:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit25
-  br i1 %.not.i.i2331, label %91, label %_ZN4absl12lts_202407226StatusD2Ev.exit27
+  br i1 %.not.i.i2341, label %91, label %_ZN4absl12lts_202407226StatusD2Ev.exit27
 
 91:                                               ; preds = %90
   %92 = inttoptr i64 %81 to ptr

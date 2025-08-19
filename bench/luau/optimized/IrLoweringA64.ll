@@ -1856,9 +1856,9 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   br label %.sink.split
 
 .sink.split:                                      ; preds = %917, %934, %933
-  %.sink3679 = phi i64 [ 68735902209, %933 ], [ 137455378945, %934 ], [ 103095640577, %917 ]
+  %.sink3697 = phi i64 [ 68735902209, %933 ], [ 137455378945, %934 ], [ 103095640577, %917 ]
   %935 = load ptr, ptr %0, align 8, !tbaa !63
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %935, i8 26, i64 %.sink3679)
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %935, i8 26, i64 %.sink3697)
   br label %936
 
 936:                                              ; preds = %.sink.split, %917
@@ -2082,7 +2082,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 .thread3645:                                      ; preds = %1057
   %1075 = and i32 %.sroa.01368.0.copyload, 15
   switch i32 %1075, label %.thread3639 [
-    i32 2, label %.thread3671
+    i32 2, label %.thread3689
     i32 4, label %1109
   ]
 
@@ -2099,7 +2099,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %1082 = icmp eq i8 %1081, 0
   br i1 %1082, label %1088, label %1090
 
-.thread3671:                                      ; preds = %.thread3645
+.thread3689:                                      ; preds = %.thread3645
   %1083 = lshr i32 %.sroa.01368.0.copyload, 4
   %1084 = zext nneg i32 %1083 to i64
   %1085 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %1063, i64 %1084, i32 1
@@ -2107,7 +2107,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %1087 = icmp eq i8 %1086, 0
   br i1 %1087, label %1088, label %.thread3639
 
-1088:                                             ; preds = %.thread3671, %1076
+1088:                                             ; preds = %.thread3689, %1076
   %1089 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1054)
   br label %.thread3639
 
@@ -2118,8 +2118,8 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 .thread:                                          ; preds = %1070
   %1092 = icmp eq i32 %1055, 4
   %1093 = icmp eq i32 %1073, 4
-  %or.cond3680 = and i1 %1092, %1093
-  br i1 %or.cond3680, label %1105, label %.thread3639
+  %or.cond3698 = and i1 %1092, %1093
+  br i1 %or.cond3698, label %1105, label %.thread3639
 
 1094:                                             ; preds = %1090
   %1095 = load ptr, ptr %0, align 8, !tbaa !63
@@ -2160,8 +2160,8 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %1110, i8 %1111, i16 noundef zeroext %1120)
   br label %.thread3639
 
-.thread3639:                                      ; preds = %.thread3645, %1090, %.thread, %.thread3671, %1088, %1105, %1109, %1094, %1068
-  %.sroa.03541.0 = phi i8 [ %1069, %1068 ], [ %1089, %1088 ], [ 0, %1094 ], [ 0, %1105 ], [ 0, %1109 ], [ 0, %.thread3671 ], [ 0, %.thread ], [ 0, %1090 ], [ 0, %.thread3645 ]
+.thread3639:                                      ; preds = %.thread3645, %1090, %.thread, %.thread3689, %1088, %1105, %1109, %1094, %1068
+  %.sroa.03541.0 = phi i8 [ %1069, %1068 ], [ %1089, %1088 ], [ 0, %1094 ], [ 0, %1105 ], [ 0, %1109 ], [ 0, %.thread3689 ], [ 0, %.thread ], [ 0, %1090 ], [ 0, %.thread3645 ]
   %1121 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.01354.0.copyload = load i32, ptr %1121, align 4, !tbaa !43
   %1122 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2624,10 +2624,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 1413:                                             ; preds = %1400, %1411
   %.sink = phi ptr [ %1412, %1411 ], [ %1410, %1400 ]
-  %.sink3681 = phi i8 [ %1406, %1411 ], [ %1404, %1400 ]
+  %.sink3699 = phi i8 [ %1406, %1411 ], [ %1404, %1400 ]
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %.sink, i8 10, i8 %1402)
   %1414 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1414, i8 17, i8 %.sink3681)
+  call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1414, i8 17, i8 %.sink3699)
   %1415 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1415, i8 2, i8 -102)
   %1416 = load ptr, ptr %0, align 8, !tbaa !63
@@ -3356,9 +3356,9 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %1863 = load i32, ptr %1862, align 8, !tbaa !43
   %switch.tableidx = add i32 %1863, -8
   %1864 = icmp ult i32 %switch.tableidx, 8
-  br i1 %1864, label %switch.lookup3687, label %1866
+  br i1 %1864, label %switch.lookup3705, label %1866
 
-switch.lookup3687:                                ; preds = %1854
+switch.lookup3705:                                ; preds = %1854
   %switch.idx.cast = zext nneg i32 %switch.tableidx to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 35
   %switch.offset = add nuw nsw i64 %switch.idx.mult, 171815117313
@@ -3366,7 +3366,7 @@ switch.lookup3687:                                ; preds = %1854
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1865, i8 34, i64 %switch.offset)
   br label %1866
 
-1866:                                             ; preds = %1854, %switch.lookup3687
+1866:                                             ; preds = %1854, %switch.lookup3705
   %1867 = load ptr, ptr %0, align 8, !tbaa !63
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %1867, i8 34)
   %1868 = load ptr, ptr %0, align 8, !tbaa !63
@@ -3686,15 +3686,15 @@ switch.lookup3687:                                ; preds = %1854
   %2050 = load i32, ptr %2049, align 4
   %2051 = and i32 %2050, 15
   %2052 = icmp eq i32 %2051, 1
-  br i1 %2052, label %.thread3675, label %2055
+  br i1 %2052, label %.thread3693, label %2055
 
-.thread3675:                                      ; preds = %2035
+.thread3693:                                      ; preds = %2035
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i32 0, ptr %46, align 4, !tbaa !68
   %2053 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 -1, ptr %2053, align 4, !tbaa !70
   %2054 = load ptr, ptr %0, align 8, !tbaa !63
-  %.sroa.0858.0.copyload3677 = load i32, ptr %2046, align 4, !tbaa !43
+  %.sroa.0858.0.copyload3695 = load i32, ptr %2046, align 4, !tbaa !43
   br label %2079
 
 2055:                                             ; preds = %2035
@@ -3733,11 +3733,11 @@ switch.lookup3687:                                ; preds = %1854
   %2078 = zext i8 %2077 to i32
   br label %2079
 
-2079:                                             ; preds = %.thread3675, %2065, %2069
-  %.sroa.0858.0.copyload3678 = phi i32 [ %.sroa.0858.0.copyload, %2069 ], [ %.sroa.0858.0.copyload, %2065 ], [ %.sroa.0858.0.copyload3677, %.thread3675 ]
-  %2080 = phi ptr [ %2068, %2069 ], [ %2068, %2065 ], [ %2054, %.thread3675 ]
-  %2081 = phi i32 [ %2078, %2069 ], [ -1, %2065 ], [ -1, %.thread3675 ]
-  call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2080, i8 %2037, i8 %2038, i32 %.sroa.0858.0.copyload3678, i32 noundef %2081, ptr noundef nonnull align 4 dereferenceable(8) %46)
+2079:                                             ; preds = %.thread3693, %2065, %2069
+  %.sroa.0858.0.copyload3696 = phi i32 [ %.sroa.0858.0.copyload, %2069 ], [ %.sroa.0858.0.copyload, %2065 ], [ %.sroa.0858.0.copyload3695, %.thread3693 ]
+  %2080 = phi ptr [ %2068, %2069 ], [ %2068, %2065 ], [ %2054, %.thread3693 ]
+  %2081 = phi i32 [ %2078, %2069 ], [ -1, %2065 ], [ -1, %.thread3693 ]
+  call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2080, i8 %2037, i8 %2038, i32 %.sroa.0858.0.copyload3696, i32 noundef %2081, ptr noundef nonnull align 4 dereferenceable(8) %46)
   %2082 = load ptr, ptr %0, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i8 %2037, ptr %47, align 1, !tbaa !43
@@ -5863,9 +5863,9 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3348 = load i32, ptr %3347, align 4
   %3349 = and i32 %3348, 15
   %3350 = icmp eq i32 %3349, 2
-  %or.cond3686 = select i1 %3346, i1 %3350, i1 false
+  %or.cond3704 = select i1 %3346, i1 %3350, i1 false
   %3351 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br i1 %or.cond3686, label %3352, label %._crit_edge3658
+  br i1 %or.cond3704, label %3352, label %._crit_edge3658
 
 3352:                                             ; preds = %3342
   call void @llvm.lifetime.start.p0(ptr nonnull %81)

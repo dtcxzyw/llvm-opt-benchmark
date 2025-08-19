@@ -428,9 +428,9 @@ define range(i32 0, 2) i32 @ossl_quic_port_update_poll_descriptors(ptr noundef c
 13:                                               ; preds = %9
   %14 = call i32 @BIO_get_rpoll_descriptor(ptr noundef nonnull %11, ptr noundef nonnull %4) #11
   %.not9.i = icmp eq i32 %14, 0
-  br i1 %.not9.i, label %validate_poll_descriptor.exit.thread29.i, label %.thread22.i
+  br i1 %.not9.i, label %validate_poll_descriptor.exit.thread30.i, label %.thread22.i
 
-validate_poll_descriptor.exit.thread29.i:         ; preds = %13
+validate_poll_descriptor.exit.thread30.i:         ; preds = %13
   store i32 0, ptr %4, align 8, !tbaa !60
   br label %port_update_poll_desc.exit
 
@@ -443,7 +443,7 @@ validate_poll_descriptor.exit.thread29.i:         ; preds = %13
   %or.cond.i25.i = select i1 %16, i1 %17, i1 false
   br i1 %or.cond.i25.i, label %20, label %port_update_poll_desc.exit
 
-port_update_poll_desc.exit:                       ; preds = %validate_poll_descriptor.exit.thread29.i, %.thread22.i, %9
+port_update_poll_desc.exit:                       ; preds = %validate_poll_descriptor.exit.thread30.i, %.thread22.i, %9
   %18 = load ptr, ptr %0, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @ossl_quic_reactor_set_poll_r(ptr noundef nonnull %19, ptr noundef nonnull %4) #11
@@ -468,9 +468,9 @@ port_update_poll_desc.exit:                       ; preds = %validate_poll_descr
 26:                                               ; preds = %21
   %27 = call i32 @BIO_get_wpoll_descriptor(ptr noundef nonnull %24, ptr noundef nonnull %3) #11
   %.not10.i = icmp eq i32 %27, 0
-  br i1 %.not10.i, label %validate_poll_descriptor.exit.thread31.i, label %.thread.i
+  br i1 %.not10.i, label %validate_poll_descriptor.exit.thread32.i, label %.thread.i
 
-validate_poll_descriptor.exit.thread31.i:         ; preds = %26
+validate_poll_descriptor.exit.thread32.i:         ; preds = %26
   store i32 0, ptr %3, align 8, !tbaa !60
   br label %port_update_poll_desc.exit15
 
@@ -483,7 +483,7 @@ validate_poll_descriptor.exit.thread31.i:         ; preds = %26
   %or.cond.i18.i = select i1 %29, i1 %30, i1 false
   br i1 %or.cond.i18.i, label %33, label %port_update_poll_desc.exit15
 
-port_update_poll_desc.exit15:                     ; preds = %validate_poll_descriptor.exit.thread31.i, %.thread.i, %21
+port_update_poll_desc.exit15:                     ; preds = %validate_poll_descriptor.exit.thread32.i, %.thread.i, %21
   %31 = load ptr, ptr %0, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   call void @ossl_quic_reactor_set_poll_w(ptr noundef nonnull %32, ptr noundef nonnull %3) #11
@@ -559,9 +559,9 @@ define range(i32 0, 2) i32 @ossl_quic_port_set_net_rbio(ptr noundef captures(non
 9:                                                ; preds = %7
   %10 = call i32 @BIO_get_rpoll_descriptor(ptr noundef nonnull %1, ptr noundef nonnull %3) #11
   %.not9.i = icmp eq i32 %10, 0
-  br i1 %.not9.i, label %validate_poll_descriptor.exit.thread29.i, label %.thread22.i
+  br i1 %.not9.i, label %validate_poll_descriptor.exit.thread30.i, label %.thread22.i
 
-validate_poll_descriptor.exit.thread29.i:         ; preds = %9
+validate_poll_descriptor.exit.thread30.i:         ; preds = %9
   store i32 0, ptr %3, align 8, !tbaa !60
   br label %14
 
@@ -581,7 +581,7 @@ port_update_poll_desc.exit.thread:                ; preds = %.thread22.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
 
-14:                                               ; preds = %.thread22.i, %validate_poll_descriptor.exit.thread29.i
+14:                                               ; preds = %.thread22.i, %validate_poll_descriptor.exit.thread30.i
   %15 = load ptr, ptr %0, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   call void @ossl_quic_reactor_set_poll_r(ptr noundef nonnull %16, ptr noundef nonnull %3) #11
@@ -656,9 +656,9 @@ define range(i32 0, 2) i32 @ossl_quic_port_set_net_wbio(ptr noundef captures(non
 9:                                                ; preds = %7
   %10 = call i32 @BIO_get_wpoll_descriptor(ptr noundef nonnull %1, ptr noundef nonnull %3) #11
   %.not10.i = icmp eq i32 %10, 0
-  br i1 %.not10.i, label %validate_poll_descriptor.exit.thread31.i, label %.thread.i
+  br i1 %.not10.i, label %validate_poll_descriptor.exit.thread32.i, label %.thread.i
 
-validate_poll_descriptor.exit.thread31.i:         ; preds = %9
+validate_poll_descriptor.exit.thread32.i:         ; preds = %9
   store i32 0, ptr %3, align 8, !tbaa !60
   br label %14
 
@@ -678,7 +678,7 @@ port_update_poll_desc.exit.thread:                ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
 
-14:                                               ; preds = %7, %.thread.i, %validate_poll_descriptor.exit.thread31.i
+14:                                               ; preds = %7, %.thread.i, %validate_poll_descriptor.exit.thread32.i
   %15 = load ptr, ptr %0, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   call void @ossl_quic_reactor_set_poll_w(ptr noundef nonnull %16, ptr noundef nonnull %3) #11
@@ -2093,8 +2093,8 @@ parse_validation_token.exit:                      ; preds = %118
   %.not36 = icmp ne i32 %128, 0
   %129 = load i64, ptr %9, align 8
   %.not37 = icmp eq i64 %129, %108
-  %or.cond65 = select i1 %.not36, i1 %.not37, i1 false
-  br i1 %or.cond65, label %130, label %decrypt_validation_token.exit.thread
+  %or.cond84 = select i1 %.not36, i1 %.not37, i1 false
+  br i1 %or.cond84, label %130, label %decrypt_validation_token.exit.thread
 
 130:                                              ; preds = %127
   %131 = call noalias ptr @CRYPTO_malloc(i64 noundef %108, ptr noundef nonnull @.str, i32 noundef 1320) #11

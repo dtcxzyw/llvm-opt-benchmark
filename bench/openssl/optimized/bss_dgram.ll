@@ -1359,8 +1359,8 @@ translate_msg.exit:                               ; preds = %74, %77, %78
   br label %._crit_edge
 
 pack_local.exit.sink.split:                       ; preds = %112, %115, %90, %100
-  %.sink74 = phi i64 [ 32, %100 ], [ 32, %90 ], [ 40, %115 ], [ 40, %112 ]
-  store i64 %.sink74, ptr %87, align 8, !tbaa !49
+  %.sink83 = phi i64 [ 32, %100 ], [ 32, %90 ], [ 40, %115 ], [ 40, %112 ]
+  store i64 %.sink83, ptr %87, align 8, !tbaa !49
   br label %pack_local.exit
 
 pack_local.exit:                                  ; preds = %pack_local.exit.sink.split, %translate_msg.exit
@@ -1405,9 +1405,9 @@ pack_local.exit:                                  ; preds = %pack_local.exit.sin
   br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader, %6, %124, %.loopexit, %.split59.us
-  %.sink75 = phi i64 [ 0, %124 ], [ 0, %.loopexit ], [ 0, %.split59.us ], [ 0, %6 ], [ %123, %.preheader ], [ %123, %.lr.ph ]
+  %.sink84 = phi i64 [ 0, %124 ], [ 0, %.loopexit ], [ 0, %.split59.us ], [ 0, %6 ], [ %123, %.preheader ], [ %123, %.lr.ph ]
   %.0 = phi i32 [ 0, %124 ], [ 0, %.loopexit ], [ 0, %.split59.us ], [ 1, %6 ], [ 1, %.preheader ], [ 1, %.lr.ph ]
-  store i64 %.sink75, ptr %5, align 8, !tbaa !23
+  store i64 %.sink84, ptr %5, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

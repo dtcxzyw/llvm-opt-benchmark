@@ -2348,8 +2348,8 @@ _ZN3der6reader6Reader6decode17hd51f47996d597c4eE.exit.i: ; preds = %46
   store i8 %.sroa.535.i.sroa.16.0.copyload, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, align 8, !noalias !762
   %.sroa.77.i.sroa.15.28..sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.77.i.sroa.15.28..sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.77.i.sroa.15, i64 7, i1 false), !noalias !762
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.8..sroa_idx262 = getelementptr inbounds nuw i8, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, i64 8
-  store i32 %.sroa.837.i.sroa.0.0.copyload, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.8..sroa_idx262, align 8, !noalias !762
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.8..sroa_idx264 = getelementptr inbounds nuw i8, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, i64 8
+  store i32 %.sroa.837.i.sroa.0.0.copyload, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.8..sroa_idx264, align 8, !noalias !762
   br label %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread"
 
 "_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread": ; preds = %52, %51
@@ -2691,7 +2691,7 @@ define hidden void @_ZN3der6reader6Reader9read_byte17hd2486fbbb0406d08E(ptr noal
   %8 = icmp eq i32 %7, 2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4, !noalias !872
-  br i1 %8, label %11, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread30"
+  br i1 %8, label %11, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread31"
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !872
@@ -2700,7 +2700,7 @@ define hidden void @_ZN3der6reader6Reader9read_byte17hd2486fbbb0406d08E(ptr noal
   %13 = icmp eq i32 %12, 2
   br i1 %13, label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit", label %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread"
 
-"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread30": ; preds = %2
+"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread31": ; preds = %2
   %.sroa.515.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.318.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.318.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.515.0..sroa_idx.i, i64 48, i1 false), !noalias !875
@@ -2731,8 +2731,8 @@ define hidden void @_ZN3der6reader6Reader9read_byte17hd2486fbbb0406d08E(ptr noal
   store i32 2, ptr %0, align 8
   br label %21
 
-.sink.split:                                      ; preds = %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread", %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread30"
-  %.ph = phi i32 [ %7, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread30" ], [ %12, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread" ]
+.sink.split:                                      ; preds = %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread", %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread31"
+  %.ph = phi i32 [ %7, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread31" ], [ %12, %"_ZN82_$LT$der..reader..nested..NestedReader$LT$R$GT$$u20$as$u20$der..reader..Reader$GT$9read_into17hfde3d1ef23ccf2f6E.llvm.11161914831801431366.exit.thread" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !872
   br label %19
 
@@ -2861,10 +2861,10 @@ define hidden void @"_ZN3der6reader6nested21NestedReader$LT$R$GT$16advance_posit
   br label %40
 
 40:                                               ; preds = %39, %34
-  %.sink71 = phi i32 [ %30, %39 ], [ %23, %34 ]
+  %.sink75 = phi i32 [ %30, %39 ], [ %23, %34 ]
   %.sink = phi i32 [ %33, %39 ], [ %26, %34 ]
   %.sroa.352.sink = phi ptr [ %.sroa.352, %39 ], [ %.sroa.343, %34 ]
-  store i32 %.sink71, ptr %0, align 8
+  store i32 %.sink75, ptr %0, align 8
   %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %.sroa.251.0..sroa_idx, align 4
   %.sroa.352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2972,10 +2972,10 @@ define hidden void @"_ZN3der6reader6nested21NestedReader$LT$R$GT$16advance_posit
   br label %40
 
 40:                                               ; preds = %39, %34
-  %.sink69 = phi i32 [ %30, %39 ], [ %23, %34 ]
+  %.sink73 = phi i32 [ %30, %39 ], [ %23, %34 ]
   %.sink = phi i32 [ %33, %39 ], [ %26, %34 ]
   %.sroa.352.sink = phi ptr [ %.sroa.352, %39 ], [ %.sroa.343, %34 ]
-  store i32 %.sink69, ptr %0, align 8
+  store i32 %.sink73, ptr %0, align 8
   %.sroa.251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %.sroa.251.0..sroa_idx, align 4
   %.sroa.352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3061,10 +3061,10 @@ define hidden void @"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h672f52f8
   br label %30
 
 30:                                               ; preds = %29, %24
-  %.sink49 = phi i32 [ %20, %29 ], [ %13, %24 ]
+  %.sink51 = phi i32 [ %20, %29 ], [ %13, %24 ]
   %.sink = phi i32 [ %23, %29 ], [ %16, %24 ]
   %.sroa.336.sink = phi ptr [ %.sroa.336, %29 ], [ %.sroa.327, %24 ]
-  store i32 %.sink49, ptr %0, align 8
+  store i32 %.sink51, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %.sroa.235.0..sroa_idx, align 4
   %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

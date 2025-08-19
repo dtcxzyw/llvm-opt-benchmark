@@ -958,11 +958,11 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
 .lr.ph.i.preheader:                               ; preds = %.thread, %14
   %17 = phi ptr [ %13, %.thread ], [ %16, %14 ]
   %18 = phi ptr [ %12, %.thread ], [ %15, %14 ]
-  %.0.i.i9 = phi ptr [ %11, %.thread ], [ %0, %14 ]
+  %.0.i.i11 = phi ptr [ %11, %.thread ], [ %0, %14 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i
-  %.016.i = phi ptr [ %31, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i9, %.lr.ph.i.preheader ]
+  %.016.i = phi ptr [ %31, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i11, %.lr.ph.i.preheader ]
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.016.i)
           to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i unwind label %19
 
@@ -975,7 +975,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %23, %19
   %.1.i = phi ptr [ %.016.i, %19 ], [ %24, %23 ]
-  %.not13.i = icmp eq ptr %.1.i, %.0.i.i9
+  %.not13.i = icmp eq ptr %.1.i, %.0.i.i11
   br i1 %.not13.i, label %28, label %23
 
 23:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i
@@ -1767,7 +1767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %11
   %124 = load ptr, ptr %123, align 8, !tbaa !53
   %125 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 40
   %126 = icmp eq ptr %124, %125
-  br i1 %126, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+  br i1 %126, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
   %127 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 32
@@ -1777,11 +1777,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   %130 = icmp eq ptr %119, %109
   br i1 %130, label %132, label %.thread.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
   %131 = icmp eq ptr %119, %109
   br i1 %131, label %132, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i
 
-132:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
+132:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
   %133 = icmp ult i64 %120, 16
   call void @llvm.assume(i1 %133)
   %.not22.i.i = icmp eq ptr %8, %.1.i.i
@@ -1819,7 +1819,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i: ;
   store i64 %142, ptr %125, align 8, !tbaa !56
   br label %147
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
   %143 = load i64, ptr %125, align 8, !tbaa !56
   store ptr %119, ptr %123, align 8, !tbaa !53
   %144 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 32
@@ -5453,11 +5453,11 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
 .lr.ph.i.preheader:                               ; preds = %.thread, %14
   %17 = phi ptr [ %13, %.thread ], [ %16, %14 ]
   %18 = phi ptr [ %12, %.thread ], [ %15, %14 ]
-  %.0.i.i9 = phi ptr [ %11, %.thread ], [ %0, %14 ]
+  %.0.i.i11 = phi ptr [ %11, %.thread ], [ %0, %14 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i
-  %.016.i = phi ptr [ %31, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i9, %.lr.ph.i.preheader ]
+  %.016.i = phi ptr [ %31, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i11, %.lr.ph.i.preheader ]
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE2EEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.016.i)
           to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE9constructIS3_JEEEvRS4_PT_DpOT0_.exit.i unwind label %19
 
@@ -5470,7 +5470,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %23, %19
   %.1.i = phi ptr [ %.016.i, %19 ], [ %24, %23 ]
-  %.not13.i = icmp eq ptr %.1.i, %.0.i.i9
+  %.not13.i = icmp eq ptr %.1.i, %.0.i.i11
   br i1 %.not13.i, label %28, label %23
 
 23:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE2EEEEE7destroyIS3_EEvRS4_PT_.exit.i
@@ -8981,11 +8981,11 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
 .lr.ph.i.preheader:                               ; preds = %.thread, %15
   %18 = phi ptr [ %14, %.thread ], [ %17, %15 ]
   %19 = phi ptr [ %13, %.thread ], [ %16, %15 ]
-  %.0.i.i10 = phi ptr [ %12, %.thread ], [ %0, %15 ]
+  %.0.i.i12 = phi ptr [ %12, %.thread ], [ %0, %15 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i
-  %.017.i = phi ptr [ %32, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i10, %.lr.ph.i.preheader ]
+  %.017.i = phi ptr [ %32, %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ], [ %.0.i.i12, %.lr.ph.i.preheader ]
   invoke void @_ZN7testing13ThrowingValueILNS_8TypeSpecE0EEC2ERKS2_(ptr noundef nonnull align 4 dereferenceable(4) %.017.i, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i unwind label %20
 
@@ -8998,7 +8998,7 @@ define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValu
 
 _ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i: ; preds = %24, %20
   %.1.i = phi ptr [ %.017.i, %20 ], [ %25, %24 ]
-  %.not14.i = icmp eq ptr %.1.i, %.0.i.i10
+  %.not14.i = icmp eq ptr %.1.i, %.0.i.i12
   br i1 %.not14.i, label %29, label %24
 
 24:                                               ; preds = %_ZNSt16allocator_traitsISaIN7testing13ThrowingValueILNS0_8TypeSpecE0EEEEE7destroyIS3_EEvRS4_PT_.exit.i

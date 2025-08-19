@@ -246,7 +246,7 @@ define noalias noundef ptr @spline_cubic_set(i32 noundef %0, ptr noundef readonl
   %56 = getelementptr i8, ptr %55, i64 -16
   store float 0.000000e+00, ptr %56, align 4, !tbaa !6
   %57 = mul nsw i32 %5, 3
-  %58 = sext i32 %57 to i64
+  %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw float, ptr %16, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store float 1.000000e+00, ptr %60, align 4, !tbaa !6

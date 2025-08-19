@@ -175,16 +175,16 @@ bytestream2_get_byte.exit:                        ; preds = %4
   br label %59
 
 59:                                               ; preds = %55, %47
-  %.sink167 = phi ptr [ %46, %55 ], [ %51, %47 ]
+  %.sink176 = phi ptr [ %46, %55 ], [ %51, %47 ]
   %.sink = phi i32 [ 2, %55 ], [ 1, %47 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink167, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %.sink176, i64 120
   store i32 %.sink, ptr %60, align 8, !tbaa !55
   %61 = and i32 %19, 64
   %.not142 = icmp eq i32 %61, 0
   br i1 %.not142, label %.loopexit159, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %.sink167, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sink176, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !41
   %65 = load ptr, ptr %16, align 8, !tbaa !46
   %66 = load ptr, ptr %10, align 8, !tbaa !56
@@ -800,8 +800,8 @@ set_src_position.exit:                            ; preds = %136, %137
   %168 = sub i64 %132, %167
   %169 = trunc i64 %168 to i32
   %170 = icmp slt i32 %169, 4
-  %or.cond303 = select i1 %or.cond, i1 true, i1 %170
-  br i1 %or.cond303, label %.critedge, label %171
+  %or.cond316 = select i1 %or.cond, i1 true, i1 %170
+  br i1 %or.cond316, label %.critedge, label %171
 
 171:                                              ; preds = %set_src_position.exit
   %172 = sext i32 %152 to i64
@@ -873,7 +873,7 @@ bytestream2_get_le16.exit173:                     ; preds = %191
 209:                                              ; preds = %bytestream2_get_le16.exit173.thread, %bytestream2_get_le16.exit173
   %210 = phi i64 [ %199, %bytestream2_get_le16.exit173.thread ], [ %205, %bytestream2_get_le16.exit173 ]
   %211 = phi ptr [ %193, %bytestream2_get_le16.exit173.thread ], [ %204, %bytestream2_get_le16.exit173 ]
-  %.0.i172284 = phi i32 [ 0, %bytestream2_get_le16.exit173.thread ], [ %202, %bytestream2_get_le16.exit173 ]
+  %.0.i172297 = phi i32 [ 0, %bytestream2_get_le16.exit173.thread ], [ %202, %bytestream2_get_le16.exit173 ]
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %213 = load ptr, ptr %212, align 8, !tbaa !45
   %214 = ptrtoint ptr %213 to i64
@@ -881,7 +881,7 @@ bytestream2_get_le16.exit173:                     ; preds = %191
   %sext = shl i64 %215, 32
   %216 = ashr exact i64 %sext, 32
   %217 = getelementptr inbounds i8, ptr %1, i64 %216
-  %218 = zext nneg i32 %.0.i172284 to i64
+  %218 = zext nneg i32 %.0.i172297 to i64
   %219 = getelementptr inbounds nuw i8, ptr %211, i64 %218
   store ptr %219, ptr %4, align 8, !tbaa !56
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -922,7 +922,7 @@ bytestream2_get_le16.exit173:                     ; preds = %191
   %.1139236 = phi i8 [ %.3141.lcssa, %._crit_edge ], [ %.0138250, %.preheader ]
   %.1235 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %.0187249, %.preheader ]
   %.1190234 = phi ptr [ %.2191.lcssa, %._crit_edge ], [ %.0189248, %.preheader ]
-  %234 = icmp ugt i32 %.1130238, %.0.i172284
+  %234 = icmp ugt i32 %.1130238, %.0.i172297
   br i1 %234, label %.critedge, label %235
 
 235:                                              ; preds = %.lr.ph240

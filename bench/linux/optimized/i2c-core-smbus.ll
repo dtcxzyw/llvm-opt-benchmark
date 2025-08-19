@@ -2285,7 +2285,7 @@ define dso_local range(i32 -2147483648, 256) i32 @i2c_smbus_read_i2c_block_data_
 .loopexit7:                                       ; preds = %65, %50, %41
   %72 = phi i8 [ 0, %41 ], [ 0, %50 ], [ %68, %65 ]
   %73 = icmp ult i8 %72, %8
-  br i1 %73, label %74, label %.loopexit19
+  br i1 %73, label %74, label %.loopexit25
 
 74:                                               ; preds = %.loopexit7
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -2313,15 +2313,15 @@ define dso_local range(i32 -2147483648, 256) i32 @i2c_smbus_read_i2c_block_data_
   store i8 %87, ptr %89, align 1
   %90 = add nuw nsw i64 %79, 1
   %exitcond.not = icmp eq i64 %90, %77
-  br i1 %exitcond.not, label %.loopexit19, label %78, !llvm.loop !56
+  br i1 %exitcond.not, label %.loopexit25, label %78, !llvm.loop !56
 
-.loopexit19:                                      ; preds = %88, %.loopexit7
+.loopexit25:                                      ; preds = %88, %.loopexit7
   %91 = phi i8 [ %72, %.loopexit7 ], [ %8, %88 ]
   %92 = zext i8 %91 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %55, %78, %.loopexit19, %32, %30
-  %93 = phi i32 [ %31, %30 ], [ %92, %.loopexit19 ], [ -95, %32 ], [ %85, %78 ], [ %62, %55 ]
+.loopexit:                                        ; preds = %55, %78, %.loopexit25, %32, %30
+  %93 = phi i32 [ %31, %30 ], [ %92, %.loopexit25 ], [ -95, %32 ], [ %85, %78 ], [ %62, %55 ]
   ret i32 %93
 }
 

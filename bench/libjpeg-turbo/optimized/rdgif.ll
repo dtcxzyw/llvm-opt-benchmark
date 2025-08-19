@@ -297,13 +297,13 @@ DoExtension.exit:                                 ; preds = %ReadByte.exit.i.i.i
   br label %.backedge
 
 .sink.split:                                      ; preds = %.backedge, %ReadByte.exit.thread
-  %.sink198 = phi ptr [ %110, %ReadByte.exit.thread ], [ %0, %.backedge ]
-  %.sink195 = phi i32 [ 43, %ReadByte.exit.thread ], [ 1018, %.backedge ]
-  %143 = load ptr, ptr %.sink198, align 8, !tbaa !25
+  %.sink205 = phi ptr [ %110, %ReadByte.exit.thread ], [ %0, %.backedge ]
+  %.sink202 = phi i32 [ 43, %ReadByte.exit.thread ], [ 1018, %.backedge ]
+  %143 = load ptr, ptr %.sink205, align 8, !tbaa !25
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  store i32 %.sink195, ptr %144, align 8, !tbaa !26
+  store i32 %.sink202, ptr %144, align 8, !tbaa !26
   %145 = load ptr, ptr %143, align 8, !tbaa !31
-  tail call void %145(ptr noundef nonnull %.sink198) #4
+  tail call void %145(ptr noundef nonnull %.sink205) #4
   br label %146
 
 146:                                              ; preds = %.sink.split, %.backedge
@@ -810,7 +810,7 @@ define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr noundef c
   br i1 %.not, label %47, label %._crit_edge45.thread
 
 ._crit_edge45.thread:                             ; preds = %._crit_edge, %._crit_edge45
-  %.lcssa53 = phi i32 [ %.lcssa, %._crit_edge45 ], [ %41, %._crit_edge ]
+  %.lcssa58 = phi i32 [ %.lcssa, %._crit_edge45 ], [ %41, %._crit_edge ]
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %45 = load i32, ptr %44, align 8, !tbaa !94
   %46 = add nsw i32 %45, 1
@@ -818,21 +818,21 @@ define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr noundef c
   br label %47
 
 47:                                               ; preds = %._crit_edge45.thread, %._crit_edge45
-  %.lcssa54 = phi i32 [ %.lcssa53, %._crit_edge45.thread ], [ %.lcssa, %._crit_edge45 ]
+  %.lcssa59 = phi i32 [ %.lcssa58, %._crit_edge45.thread ], [ %.lcssa, %._crit_edge45 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @get_interlaced_row, ptr %48, align 8, !tbaa !78
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 440
   store i32 0, ptr %49, align 8, !tbaa !95
-  %50 = add i32 %.lcssa54, 7
+  %50 = add i32 %.lcssa59, 7
   %51 = lshr i32 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 444
   store i32 %51, ptr %52, align 4, !tbaa !96
-  %53 = add i32 %.lcssa54, 3
+  %53 = add i32 %.lcssa59, 3
   %54 = lshr i32 %53, 3
   %55 = add nuw nsw i32 %51, %54
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 448
   store i32 %55, ptr %56, align 8, !tbaa !97
-  %57 = add i32 %.lcssa54, 1
+  %57 = add i32 %.lcssa59, 1
   %58 = lshr i32 %57, 2
   %59 = add nuw nsw i32 %55, %58
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 452

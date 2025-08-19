@@ -664,9 +664,9 @@ _ZL14allocateMemoryjP10UErrorCode.exit.thread.i.i.i: ; preds = %162
 _ZL14allocateMemoryjP10UErrorCode.exit.i.i.i:     ; preds = %162
   %.pre.i.i.i = load i32, ptr %1, align 4, !tbaa !3
   %169 = icmp slt i32 %.pre.i.i.i, 1
-  br i1 %169, label %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread94.i.i, label %_ZL17initializePatternP13UStringSearchP10UErrorCode.exit
+  br i1 %169, label %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread100.i.i, label %_ZL17initializePatternP13UStringSearchP10UErrorCode.exit
 
-_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread94.i.i: ; preds = %_ZL14allocateMemoryjP10UErrorCode.exit.i.i.i
+_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread100.i.i: ; preds = %_ZL14allocateMemoryjP10UErrorCode.exit.i.i.i
   %170 = zext i32 %.05184.i.i to i64
   %171 = shl nuw nsw i64 %170, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %167, ptr align 4 %.085.i.i, i64 %171, i1 false)
@@ -682,10 +682,10 @@ _ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i: ; preds = %_ZL5getCEPK13US
   store i32 %.0.i79.i.i, ptr %174, align 4, !tbaa !70
   br i1 %173, label %175, label %_ZL17initializePatternP13UStringSearchP10UErrorCode.exit
 
-175:                                              ; preds = %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread94.i.i
-  %.020.i100.i.i = phi ptr [ %167, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread94.i.i ], [ %.085.i.i, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i ]
-  %.299.i.i = phi i32 [ %164, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread94.i.i ], [ %.07183.i.i, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i ]
-  %.not65.i.i = icmp eq ptr %.085.i.i, %.020.i100.i.i
+175:                                              ; preds = %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread100.i.i
+  %.020.i106.i.i = phi ptr [ %167, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread100.i.i ], [ %.085.i.i, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i ]
+  %.2105.i.i = phi i32 [ %164, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread100.i.i ], [ %.07183.i.i, %_ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i ]
+  %.not65.i.i = icmp eq ptr %.085.i.i, %.020.i106.i.i
   %.not66.i.i = icmp eq ptr %.085.i.i, %115
   %or.cond67.i.i = select i1 %.not65.i.i, i1 true, i1 %.not66.i.i
   br i1 %or.cond67.i.i, label %_ZL5getCEPK13UStringSearchj.exit.thread.i.i, label %176
@@ -695,9 +695,9 @@ _ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i: ; preds = %_ZL5getCEPK13US
   br label %_ZL5getCEPK13UStringSearchj.exit.thread.i.i
 
 _ZL5getCEPK13UStringSearchj.exit.thread.i.i:      ; preds = %176, %175, %_ZL5getCEPK13UStringSearchj.exit.i.i, %151
-  %.1.i39.i = phi i32 [ %.07183.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %.299.i.i, %175 ], [ %.299.i.i, %176 ], [ %.07183.i.i, %151 ]
+  %.1.i39.i = phi i32 [ %.07183.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %.2105.i.i, %175 ], [ %.2105.i.i, %176 ], [ %.07183.i.i, %151 ]
   %.354.i.i = phi i32 [ %.05184.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %160, %175 ], [ %160, %176 ], [ %.05184.i.i, %151 ]
-  %.3.i.i = phi ptr [ %.085.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %.020.i100.i.i, %175 ], [ %.020.i100.i.i, %176 ], [ %.085.i.i, %151 ]
+  %.3.i.i = phi ptr [ %.085.i.i, %_ZL5getCEPK13UStringSearchj.exit.i.i ], [ %.020.i106.i.i, %175 ], [ %.020.i106.i.i, %176 ], [ %.085.i.i, %151 ]
   %177 = tail call i32 @ucol_next_77(ptr noundef %.048.i.i, ptr noundef nonnull %1)
   %.not61.i.i = icmp eq i32 %177, -1
   br i1 %.not61.i.i, label %.critedge.i.i, label %140, !llvm.loop !71
@@ -1573,8 +1573,8 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %30, %36, %39
   br label %109
 
 109:                                              ; preds = %102, %107
-  %.sink87 = phi i32 [ %108, %107 ], [ %104, %102 ]
-  tail call void @ucol_setOffset_77(ptr noundef %106, i32 noundef %.sink87, ptr noundef nonnull %1)
+  %.sink94 = phi i32 [ %108, %107 ], [ %104, %102 ]
+  tail call void @ucol_setOffset_77(ptr noundef %106, i32 noundef %.sink94, ptr noundef nonnull %1)
   %110 = load i32, ptr %103, align 8, !tbaa !42
   br label %.thread
 
@@ -3056,9 +3056,9 @@ define signext range(i8 0, 2) i8 @usearch_search_77(ptr noundef %0, i32 noundef 
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %68 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %62, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %10)
-          to label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread493 unwind label %.loopexit.split-lp400
+          to label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529 unwind label %.loopexit.split-lp400
 
-_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread493: ; preds = %59
+_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529: ; preds = %59
   %69 = load ptr, ptr %43, align 8, !tbaa !85
   %70 = getelementptr inbounds nuw %struct.CEI, ptr %69, i64 %64
   store i64 %68, ptr %70, align 8, !tbaa !86
@@ -3072,9 +3072,9 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit:    ; preds = %47
   %74 = icmp eq ptr %71, null
   br i1 %74, label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread, label %.preheader398
 
-.preheader398:                                    ; preds = %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread493, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit
-  %.0.i495 = phi ptr [ %70, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread493 ], [ %73, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit ]
-  %75 = phi ptr [ %69, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread493 ], [ %71, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit ]
+.preheader398:                                    ; preds = %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit
+  %.0.i531 = phi ptr [ %70, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529 ], [ %73, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit ]
+  %75 = phi ptr [ %69, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread529 ], [ %71, %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit ]
   %76 = load i32, ptr %44, align 8, !tbaa !75
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.lr.ph, label %.critedge
@@ -3303,7 +3303,7 @@ _ZL12compareCE64slls.exit.thread320:              ; preds = %137, %126, %115, %_
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit252: ; preds = %.noexc251, %167
   %185 = phi ptr [ %157, %167 ], [ %183, %.noexc251 ]
   %.0.i249 = phi ptr [ %169, %167 ], [ %184, %.noexc251 ]
-  %186 = getelementptr inbounds nuw i8, ptr %.0.i495, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %.0.i531, i64 8
   %187 = load i32, ptr %186, align 8, !tbaa !91
   %188 = getelementptr inbounds nuw i8, ptr %.0.i249, i64 8
   %189 = load i32, ptr %188, align 8, !tbaa !91
@@ -3570,8 +3570,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i: ; preds = %302
   br i1 %314, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i, label %.thread369
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i: ; preds = %.noexc279, %302, %298
-  %.0.i8.i = phi ptr [ %311, %.noexc279 ], [ %304, %302 ], [ %301, %298 ]
-  %315 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i8.i, i32 noundef %187)
+  %.0.i11.i = phi ptr [ %311, %.noexc279 ], [ %304, %302 ], [ %301, %298 ]
+  %315 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i11.i, i32 noundef %187)
           to label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit.thread unwind label %.loopexit.split-lp
 
 _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit.thread: ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i
@@ -3583,7 +3583,7 @@ _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit.thread: ; preds = %_ZL16
   br i1 %316, label %317, label %.thread369
 
 317:                                              ; preds = %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit.thread
-  %318 = getelementptr inbounds nuw i8, ptr %.0.i495, i64 12
+  %318 = getelementptr inbounds nuw i8, ptr %.0.i531, i64 12
   %319 = load i32, ptr %318, align 4, !tbaa !92
   %320 = icmp eq i32 %187, %319
   %spec.select222 = select i1 %320, i8 0, i8 %spec.select394
@@ -3735,8 +3735,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i289: ; preds = %389
   br i1 %401, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i286, label %.thread369
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i286: ; preds = %.noexc292, %389, %385
-  %.0.i8.i287 = phi ptr [ %398, %.noexc292 ], [ %391, %389 ], [ %388, %385 ]
-  %402 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i8.i287, i32 noundef %189)
+  %.0.i11.i287 = phi ptr [ %398, %.noexc292 ], [ %391, %389 ], [ %388, %385 ]
+  %402 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i11.i287, i32 noundef %189)
           to label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294 unwind label %375
 
 _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit294: ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i286
@@ -3784,8 +3784,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i299: ; preds = %409
   br i1 %421, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i297, label %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i297: ; preds = %.noexc302, %409, %405
-  %.0.i10.i = phi ptr [ %418, %.noexc302 ], [ %411, %409 ], [ %408, %405 ]
-  %422 = invoke i32 @ubrk_following_77(ptr noundef %.0.i10.i, i32 noundef %189)
+  %.0.i13.i = phi ptr [ %418, %.noexc302 ], [ %411, %409 ], [ %408, %405 ]
+  %422 = invoke i32 @ubrk_following_77(ptr noundef %.0.i13.i, i32 noundef %189)
           to label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i297._ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit_crit_edge unwind label %425
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i297._ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit_crit_edge: ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i297
@@ -3854,8 +3854,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i309: ; preds = %434
   br i1 %446, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i306, label %.thread369
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i306: ; preds = %.noexc312, %434, %429
-  %.0.i8.i307 = phi ptr [ %443, %.noexc312 ], [ %436, %434 ], [ %433, %429 ]
-  %447 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i8.i307, i32 noundef %.3170.ph)
+  %.0.i11.i307 = phi ptr [ %443, %.noexc312 ], [ %436, %434 ], [ %433, %429 ]
+  %447 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i11.i307, i32 noundef %.3170.ph)
           to label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit314.thread unwind label %375
 
 _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit314.thread: ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i306
@@ -3991,9 +3991,9 @@ define internal fastcc void @_ZL25initializePatternPCETableP13UStringSearchP10UE
   br label %27
 
 27:                                               ; preds = %.backedge, %25
-  %.065 = phi i32 [ 256, %25 ], [ %.186, %.backedge ]
+  %.065 = phi i32 [ 256, %25 ], [ %.190, %.backedge ]
   %.048 = phi i32 [ 0, %25 ], [ %36, %.backedge ]
-  %.0 = phi ptr [ %5, %25 ], [ %.020.i87, %.backedge ]
+  %.0 = phi ptr [ %5, %25 ], [ %.020.i91, %.backedge ]
   %28 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %1)
           to label %29 unwind label %51
 
@@ -4034,9 +4034,9 @@ _ZL14allocateMemoryjP10UErrorCode.exit.thread.i:  ; preds = %.noexc
 _ZL14allocateMemoryjP10UErrorCode.exit.i:         ; preds = %.noexc
   %.pre.i = load i32, ptr %1, align 4, !tbaa !3
   %45 = icmp slt i32 %.pre.i, 1
-  br i1 %45, label %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread81, label %.critedge64
+  br i1 %45, label %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread85, label %.critedge64
 
-_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread81: ; preds = %_ZL14allocateMemoryjP10UErrorCode.exit.i
+_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread85: ; preds = %_ZL14allocateMemoryjP10UErrorCode.exit.i
   %46 = zext i32 %.048 to i64
   %47 = shl nuw nsw i64 %46, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr align 8 %.0, i64 %47, i1 false)
@@ -4062,10 +4062,10 @@ _ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit: ; preds = %35
           cleanup
   br label %61
 
-55:                                               ; preds = %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread81, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit
-  %.020.i87 = phi ptr [ %43, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread81 ], [ %.0, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit ]
-  %.186 = phi i32 [ %40, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread81 ], [ %.065, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit ]
-  %.not59 = icmp eq ptr %.0, %.020.i87
+55:                                               ; preds = %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread85, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit
+  %.020.i91 = phi ptr [ %43, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread85 ], [ %.0, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit ]
+  %.190 = phi i32 [ %40, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread85 ], [ %.065, %_ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit ]
+  %.not59 = icmp eq ptr %.0, %.020.i91
   %.not60 = icmp eq ptr %.0, %5
   %or.cond62 = select i1 %.not59, i1 true, i1 %.not60
   br i1 %or.cond62, label %.backedge, label %56
@@ -4571,8 +4571,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit: ; preds = %.noexc
   br label %473
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread: ; preds = %45, %42, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit
-  %.0.i447 = phi ptr [ %56, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit ], [ %47, %45 ], [ %44, %42 ]
-  %62 = invoke i32 @ubrk_following_77(ptr noundef %.0.i447, i32 noundef %1)
+  %.0.i481 = phi ptr [ %56, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit ], [ %47, %45 ], [ %44, %42 ]
+  %62 = invoke i32 @ubrk_following_77(ptr noundef %.0.i481, i32 noundef %1)
           to label %63 unwind label %.loopexit.split-lp
 
 63:                                               ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread
@@ -5022,8 +5022,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i: ; preds = %269
   br i1 %281, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i, label %.thread370.loopexit
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i: ; preds = %.noexc282, %269, %265
-  %.0.i8.i = phi ptr [ %278, %.noexc282 ], [ %271, %269 ], [ %268, %265 ]
-  %282 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i8.i, i32 noundef %262)
+  %.0.i11.i = phi ptr [ %278, %.noexc282 ], [ %271, %269 ], [ %268, %265 ]
+  %282 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i11.i, i32 noundef %262)
           to label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit unwind label %284
 
 _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit: ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i
@@ -5262,8 +5262,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i298: ; preds = %392
   br i1 %404, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i296, label %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i296: ; preds = %.noexc301, %392, %388
-  %.0.i10.i = phi ptr [ %401, %.noexc301 ], [ %394, %392 ], [ %391, %388 ]
-  %405 = invoke i32 @ubrk_following_77(ptr noundef %.0.i10.i, i32 noundef %291)
+  %.0.i13.i = phi ptr [ %401, %.noexc301 ], [ %394, %392 ], [ %391, %388 ]
+  %405 = invoke i32 @ubrk_following_77(ptr noundef %.0.i13.i, i32 noundef %291)
           to label %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit unwind label %409
 
 _ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit: ; preds = %.noexc301, %385, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i296
@@ -5328,8 +5328,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i308: ; preds = %420
   br i1 %432, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i305, label %.thread370.loopexit
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i305: ; preds = %.noexc311, %420, %416
-  %.0.i8.i306 = phi ptr [ %429, %.noexc311 ], [ %422, %420 ], [ %419, %416 ]
-  %433 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i8.i306, i32 noundef %.4182)
+  %.0.i11.i306 = phi ptr [ %429, %.noexc311 ], [ %422, %420 ], [ %419, %416 ]
+  %433 = invoke signext i8 @ubrk_isBoundary_77(ptr noundef %.0.i11.i306, i32 noundef %.4182)
           to label %_ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit313.thread unwind label %381
 
 _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit313.thread: ; preds = %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i305
@@ -5375,8 +5375,8 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.i319: ; preds = %439
   br i1 %451, label %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i316, label %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit324
 
 _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i316: ; preds = %.noexc322, %439, %435
-  %.0.i10.i317 = phi ptr [ %448, %.noexc322 ], [ %441, %439 ], [ %438, %435 ]
-  %452 = invoke i32 @ubrk_following_77(ptr noundef %.0.i10.i317, i32 noundef %291)
+  %.0.i13.i317 = phi ptr [ %448, %.noexc322 ], [ %441, %439 ], [ %438, %435 ]
+  %452 = invoke i32 @ubrk_following_77(ptr noundef %.0.i13.i317, i32 noundef %291)
           to label %_ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit324 unwind label %456
 
 _ZL17nextBoundaryAfterP13UStringSearchiR10UErrorCode.exit324: ; preds = %.noexc322, %_ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread.i316

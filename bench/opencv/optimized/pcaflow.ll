@@ -553,7 +553,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !57
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !30
@@ -1317,12 +1317,12 @@ _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %211, %206, %197
 220:                                              ; preds = %217
   %221 = sdiv i32 %193, %179
   %222 = mul nsw i32 %221, %179
-  %.recomposed182 = srem i32 %193, %179
+  %.recomposed197 = srem i32 %193, %179
   %223 = load i64, ptr %183, align 8, !tbaa !85
   %224 = sext i32 %221 to i64
   %225 = mul i64 %223, %224
   %226 = getelementptr inbounds nuw i8, ptr %181, i64 %225
-  %227 = sext i32 %.recomposed182 to i64
+  %227 = sext i32 %.recomposed197 to i64
   %228 = getelementptr inbounds float, ptr %226, i64 %227
   br label %_ZN2cv3Mat2atIfEERT_i.exit104.us
 
@@ -1426,11 +1426,11 @@ _ZN2cv3Mat2atIfEERT_i.exit.us131:                 ; preds = %.lr.ph129.split.spl
   store float %269, ptr %273, align 4, !tbaa !57
   %274 = sdiv i32 %271, %179
   %275 = mul nsw i32 %274, %179
-  %.recomposed183 = srem i32 %271, %179
+  %.recomposed198 = srem i32 %271, %179
   %276 = sext i32 %274 to i64
   %277 = mul i64 %252, %276
   %278 = getelementptr inbounds nuw i8, ptr %181, i64 %277
-  %279 = sext i32 %.recomposed183 to i64
+  %279 = sext i32 %.recomposed198 to i64
   %280 = getelementptr inbounds float, ptr %278, i64 %279
   store float %270, ptr %280, align 4, !tbaa !57
   %281 = add nuw i64 %.054127.us132, 1
@@ -1775,12 +1775,12 @@ _ZNK2cv11_InputArray6getMatEi.exit113:            ; preds = %328, %325
   %431 = load i32, ptr %346, align 4, !tbaa !94
   %432 = sdiv i32 %365, %431
   %433 = mul nsw i32 %432, %431
-  %.recomposed184 = srem i32 %365, %431
+  %.recomposed199 = srem i32 %365, %431
   %434 = load i64, ptr %350, align 8, !tbaa !85
   %435 = sext i32 %432 to i64
   %436 = mul i64 %434, %435
   %437 = getelementptr inbounds nuw i8, ptr %348, i64 %436
-  %438 = sext i32 %.recomposed184 to i64
+  %438 = sext i32 %.recomposed199 to i64
   %439 = getelementptr inbounds float, ptr %437, i64 %438
   br label %_ZN2cv3Mat2atIfEERT_i.exit118
 
@@ -1816,12 +1816,12 @@ _ZN2cv3Mat2atIfEERT_i.exit118:                    ; preds = %421, %426, %430
   %455 = load i32, ptr %354, align 4, !tbaa !94
   %456 = sdiv i32 %365, %455
   %457 = mul nsw i32 %456, %455
-  %.recomposed185 = srem i32 %365, %455
+  %.recomposed200 = srem i32 %365, %455
   %458 = load i64, ptr %358, align 8, !tbaa !85
   %459 = sext i32 %456 to i64
   %460 = mul i64 %458, %459
   %461 = getelementptr inbounds nuw i8, ptr %356, i64 %460
-  %462 = sext i32 %.recomposed185 to i64
+  %462 = sext i32 %.recomposed200 to i64
   %463 = getelementptr inbounds float, ptr %461, i64 %462
   br label %_ZN2cv3Mat2atIfEERT_i.exit121
 
@@ -2418,12 +2418,12 @@ _ZN2cv3Mat2atIfEERT_i.exit.us:                    ; preds = %266, %261, %252
 275:                                              ; preds = %272
   %276 = sdiv i32 %248, %234
   %277 = mul nsw i32 %276, %234
-  %.recomposed220 = srem i32 %248, %234
+  %.recomposed237 = srem i32 %248, %234
   %278 = load i64, ptr %238, align 8, !tbaa !85
   %279 = sext i32 %276 to i64
   %280 = mul i64 %278, %279
   %281 = getelementptr inbounds nuw i8, ptr %236, i64 %280
-  %282 = sext i32 %.recomposed220 to i64
+  %282 = sext i32 %.recomposed237 to i64
   %283 = getelementptr inbounds float, ptr %281, i64 %282
   br label %_ZN2cv3Mat2atIfEERT_i.exit128.us
 
@@ -2527,11 +2527,11 @@ _ZN2cv3Mat2atIfEERT_i.exit.us169:                 ; preds = %.lr.ph167.split.spl
   store float %324, ptr %328, align 4, !tbaa !57
   %329 = sdiv i32 %326, %234
   %330 = mul nsw i32 %329, %234
-  %.recomposed221 = srem i32 %326, %234
+  %.recomposed238 = srem i32 %326, %234
   %331 = sext i32 %329 to i64
   %332 = mul i64 %307, %331
   %333 = getelementptr inbounds nuw i8, ptr %236, i64 %332
-  %334 = sext i32 %.recomposed221 to i64
+  %334 = sext i32 %.recomposed238 to i64
   %335 = getelementptr inbounds float, ptr %333, i64 %334
   store float %325, ptr %335, align 4, !tbaa !57
   %336 = add nuw i64 %.069165.us170, 1
@@ -2876,12 +2876,12 @@ _ZNK2cv11_InputArray6getMatEi.exit137:            ; preds = %383, %380
   %486 = load i32, ptr %401, align 4, !tbaa !94
   %487 = sdiv i32 %420, %486
   %488 = mul nsw i32 %487, %486
-  %.recomposed222 = srem i32 %420, %486
+  %.recomposed239 = srem i32 %420, %486
   %489 = load i64, ptr %405, align 8, !tbaa !85
   %490 = sext i32 %487 to i64
   %491 = mul i64 %489, %490
   %492 = getelementptr inbounds nuw i8, ptr %403, i64 %491
-  %493 = sext i32 %.recomposed222 to i64
+  %493 = sext i32 %.recomposed239 to i64
   %494 = getelementptr inbounds float, ptr %492, i64 %493
   br label %_ZN2cv3Mat2atIfEERT_i.exit142
 
@@ -2917,12 +2917,12 @@ _ZN2cv3Mat2atIfEERT_i.exit142:                    ; preds = %476, %481, %485
   %510 = load i32, ptr %409, align 4, !tbaa !94
   %511 = sdiv i32 %420, %510
   %512 = mul nsw i32 %511, %510
-  %.recomposed223 = srem i32 %420, %510
+  %.recomposed240 = srem i32 %420, %510
   %513 = load i64, ptr %413, align 8, !tbaa !85
   %514 = sext i32 %511 to i64
   %515 = mul i64 %513, %514
   %516 = getelementptr inbounds nuw i8, ptr %411, i64 %515
-  %517 = sext i32 %.recomposed223 to i64
+  %517 = sext i32 %.recomposed240 to i64
   %518 = getelementptr inbounds float, ptr %516, i64 %517
   br label %_ZN2cv3Mat2atIfEERT_i.exit145
 
@@ -4135,12 +4135,12 @@ _ZNK2cv3Mat2atIfEERKT_i.exit67.us.us.us.us.i.us.us: ; preds = %362, %352
   %375 = trunc nuw i64 %373 to i32
   %376 = sdiv i32 %375, %324
   %377 = mul nsw i32 %376, %324
-  %.recomposed221 = srem i32 %375, %324
+  %.recomposed229 = srem i32 %375, %324
   %378 = load i64, ptr %326, align 8, !tbaa !85
   %379 = sext i32 %376 to i64
   %380 = mul i64 %378, %379
   %381 = getelementptr inbounds nuw i8, ptr %325, i64 %380
-  %382 = sext i32 %.recomposed221 to i64
+  %382 = sext i32 %.recomposed229 to i64
   %383 = getelementptr inbounds float, ptr %381, i64 %382
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.us.i.us
 
@@ -4168,12 +4168,12 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.us.i.us:    ; preds = %384, %374
   %395 = trunc nuw i64 %373 to i32
   %396 = sdiv i32 %395, %329
   %397 = mul nsw i32 %396, %329
-  %.recomposed222 = srem i32 %395, %329
+  %.recomposed230 = srem i32 %395, %329
   %398 = load i64, ptr %331, align 8, !tbaa !85
   %399 = sext i32 %396 to i64
   %400 = mul i64 %398, %399
   %401 = getelementptr inbounds nuw i8, ptr %330, i64 %400
-  %402 = sext i32 %.recomposed222 to i64
+  %402 = sext i32 %.recomposed230 to i64
   %403 = getelementptr inbounds float, ptr %401, i64 %402
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit67.us.us.us.us.i.us
 
@@ -4251,12 +4251,12 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.us107.i:    ; preds = %.preheader74.us.us.
   %436 = trunc nuw i64 %434 to i32
   %437 = sdiv i32 %436, %415
   %438 = mul nsw i32 %437, %415
-  %.recomposed223 = srem i32 %436, %415
+  %.recomposed231 = srem i32 %436, %415
   %439 = load i64, ptr %417, align 8, !tbaa !85
   %440 = sext i32 %437 to i64
   %441 = mul i64 %439, %440
   %442 = getelementptr inbounds nuw i8, ptr %416, i64 %441
-  %443 = sext i32 %.recomposed223 to i64
+  %443 = sext i32 %.recomposed231 to i64
   %444 = getelementptr inbounds float, ptr %442, i64 %443
   br label %_ZNK2cv3Mat2atIfEERKT_i.exit.us.us.us.i
 
@@ -4363,11 +4363,11 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.us78.us.us.i:        ; preds = %.lr.ph.split.split.
   %492 = trunc nuw i64 %487 to i32
   %493 = sdiv i32 %492, %459
   %494 = mul nsw i32 %493, %459
-  %.recomposed224 = srem i32 %492, %459
+  %.recomposed232 = srem i32 %492, %459
   %495 = sext i32 %493 to i64
   %496 = mul i64 %476, %495
   %497 = getelementptr inbounds nuw i8, ptr %460, i64 %496
-  %498 = sext i32 %.recomposed224 to i64
+  %498 = sext i32 %.recomposed232 to i64
   %499 = getelementptr inbounds float, ptr %497, i64 %498
   %500 = load float, ptr %499, align 4, !tbaa !57
   %501 = fmul float %293, %500

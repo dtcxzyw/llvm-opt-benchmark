@@ -2445,12 +2445,12 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev13ViewTransformELN9__gnu_cxx12_Lock_p
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %279 = load ptr, ptr %278, align 8, !tbaa !33, !noalias !75
   %280 = icmp eq ptr %279, null
-  br i1 %280, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread462, label %281
+  br i1 %280, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread570, label %281
 
 281:                                              ; preds = %274
   %282 = call ptr @__dynamic_cast(ptr nonnull %279, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev15MatrixTransformE, i64 0) #24, !noalias !75
   %.not.not.i.i = icmp eq ptr %282, null
-  br i1 %.not.not.i.i, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread462, label %283
+  br i1 %.not.not.i.i, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread570, label %283
 
 283:                                              ; preds = %281
   store ptr %282, ptr %25, align 8, !tbaa !76, !alias.scope !75
@@ -2473,7 +2473,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev13ViewTransformELN9__gnu_cxx12_Lock_p
   store i32 %292, ptr %288, align 4, !tbaa !32, !noalias !75
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread
 
-_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread462: ; preds = %274, %281
+_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread570: ; preds = %274, %281
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !alias.scope !75
   br label %319
 
@@ -2536,8 +2536,8 @@ _ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEES
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1535
 
-319:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread462, %298, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit
-  %.181 = phi i1 [ %308, %298 ], [ %277, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit ], [ %277, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread462 ]
+319:                                              ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread570, %298, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit
+  %.181 = phi i1 [ %308, %298 ], [ %277, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit ], [ %277, %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread570 ]
   %320 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %321 = load ptr, ptr %320, align 8, !tbaa !17
   %.not.i.i169 = icmp eq ptr %321, null

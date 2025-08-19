@@ -784,7 +784,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
 
 .lr.ph411.i:                                      ; preds = %.preheader377.i
   %40 = add nsw i32 %16, -1
-  %.neg552558.i = lshr i32 %40, 1
+  %.neg560566.i = lshr i32 %40, 1
   %41 = uitofp nneg i32 %40 to double
   %42 = fmul nsz double %41, 4.000000e-01
   %43 = fmul nsz double %42, 5.000000e-01
@@ -1191,7 +1191,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
 266:                                              ; preds = %266, %.lr.ph411.i
   %indvars.iv481.i = phi i64 [ 0, %.lr.ph411.i ], [ %indvars.iv.next482.i, %266 ]
   %267 = trunc nuw nsw i64 %indvars.iv481.i to i32
-  %268 = sub i32 %267, %.neg552558.i
+  %268 = sub i32 %267, %.neg560566.i
   %269 = sitofp i32 %268 to double
   %270 = fdiv nsz double %269, %43
   %271 = fmul nsz double %270, %270
@@ -1396,9 +1396,9 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   br label %397
 
 397:                                              ; preds = %390, %387, %379, %371, %363
-  %.sink553.i = phi float [ %375, %371 ], [ %396, %390 ], [ %386, %379 ], [ %367, %363 ], [ 0.000000e+00, %387 ]
+  %.sink561.i = phi float [ %375, %371 ], [ %396, %390 ], [ %386, %379 ], [ %367, %363 ], [ 0.000000e+00, %387 ]
   %398 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv463.i
-  store float %.sink553.i, ptr %398, align 4, !tbaa !78
+  store float %.sink561.i, ptr %398, align 4, !tbaa !78
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1
   %exitcond467.not.i = icmp eq i64 %indvars.iv.next464.i, %wide.trip.count466.i
   br i1 %exitcond467.not.i, label %generate_window_func.exit, label %355, !llvm.loop !100
@@ -1434,9 +1434,9 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   br label %418
 
 418:                                              ; preds = %414, %411, %407
-  %.sink555.i = phi float [ %417, %414 ], [ %410, %407 ], [ 0.000000e+00, %411 ]
+  %.sink563.i = phi float [ %417, %414 ], [ %410, %407 ], [ 0.000000e+00, %411 ]
   %419 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv458.i
-  store float %.sink555.i, ptr %419, align 4, !tbaa !78
+  store float %.sink563.i, ptr %419, align 4, !tbaa !78
   %indvars.iv.next459.i = add nuw nsw i64 %indvars.iv458.i, 1
   %exitcond462.not.i = icmp eq i64 %indvars.iv.next459.i, %wide.trip.count461.i
   br i1 %exitcond462.not.i, label %generate_window_func.exit, label %399, !llvm.loop !101
@@ -1498,18 +1498,18 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   unreachable
 
 generate_window_func.exit:                        ; preds = %441, %420, %418, %397, %353, %._crit_edge401.i, %291, %266, %263, %235, %227, %214, %197, %180, %135, %125, %112, %103, %93, %84, %.lr.ph450.i, %.preheader382.i, %.preheader381.i, %.preheader380.i, %.preheader379.i, %.preheader378.i, %.preheader377.i, %.preheader376.i, %.preheader375.i, %.preheader374.i, %.preheader373.i, %.preheader372.i, %.preheader371.i, %.preheader370.i, %.preheader369.i, %.preheader368.i, %.preheader367.i, %.preheader366.i, %.preheader365.i, %.preheader.i, %293, %434
-  %.sink557.i = phi float [ 0.000000e+00, %.preheader.i ], [ 5.000000e-01, %.preheader365.i ], [ 5.000000e-01, %.preheader366.i ], [ 5.000000e-01, %.preheader367.i ], [ 0x3FE526E980000000, %.preheader368.i ], [ 0x3FD2C08320000000, %.preheader369.i ], [ 0x3FEAE978E0000000, %.preheader370.i ], [ 0x3FE526E980000000, %.preheader371.i ], [ 0x3FE526E980000000, %.preheader372.i ], [ 5.000000e-01, %.preheader373.i ], [ 7.500000e-01, %.preheader374.i ], [ 0x3FE5374BC0000000, %.preheader375.i ], [ 7.500000e-01, %.preheader376.i ], [ 7.500000e-01, %.preheader377.i ], [ 0x3FD51EB860000000, %.preheader378.i ], [ 5.000000e-01, %293 ], [ 7.500000e-01, %.preheader379.i ], [ 7.500000e-01, %.preheader380.i ], [ 7.500000e-01, %.preheader381.i ], [ 7.500000e-01, %.preheader382.i ], [ 7.500000e-01, %434 ], [ 0.000000e+00, %.lr.ph450.i ], [ 5.000000e-01, %84 ], [ 5.000000e-01, %93 ], [ 5.000000e-01, %103 ], [ 0x3FE526E980000000, %112 ], [ 0x3FD2C08320000000, %125 ], [ 0x3FEAE978E0000000, %135 ], [ 0x3FE526E980000000, %180 ], [ 0x3FE526E980000000, %197 ], [ 5.000000e-01, %214 ], [ 7.500000e-01, %227 ], [ 0x3FE5374BC0000000, %235 ], [ 7.500000e-01, %263 ], [ 7.500000e-01, %266 ], [ 0x3FD51EB860000000, %291 ], [ 5.000000e-01, %._crit_edge401.i ], [ 7.500000e-01, %353 ], [ 7.500000e-01, %397 ], [ 7.500000e-01, %418 ], [ 7.500000e-01, %420 ], [ 7.500000e-01, %441 ]
+  %.sink565.i = phi float [ 0.000000e+00, %.preheader.i ], [ 5.000000e-01, %.preheader365.i ], [ 5.000000e-01, %.preheader366.i ], [ 5.000000e-01, %.preheader367.i ], [ 0x3FE526E980000000, %.preheader368.i ], [ 0x3FD2C08320000000, %.preheader369.i ], [ 0x3FEAE978E0000000, %.preheader370.i ], [ 0x3FE526E980000000, %.preheader371.i ], [ 0x3FE526E980000000, %.preheader372.i ], [ 5.000000e-01, %.preheader373.i ], [ 7.500000e-01, %.preheader374.i ], [ 0x3FE5374BC0000000, %.preheader375.i ], [ 7.500000e-01, %.preheader376.i ], [ 7.500000e-01, %.preheader377.i ], [ 0x3FD51EB860000000, %.preheader378.i ], [ 5.000000e-01, %293 ], [ 7.500000e-01, %.preheader379.i ], [ 7.500000e-01, %.preheader380.i ], [ 7.500000e-01, %.preheader381.i ], [ 7.500000e-01, %.preheader382.i ], [ 7.500000e-01, %434 ], [ 0.000000e+00, %.lr.ph450.i ], [ 5.000000e-01, %84 ], [ 5.000000e-01, %93 ], [ 5.000000e-01, %103 ], [ 0x3FE526E980000000, %112 ], [ 0x3FD2C08320000000, %125 ], [ 0x3FEAE978E0000000, %135 ], [ 0x3FE526E980000000, %180 ], [ 0x3FE526E980000000, %197 ], [ 5.000000e-01, %214 ], [ 7.500000e-01, %227 ], [ 0x3FE5374BC0000000, %235 ], [ 7.500000e-01, %263 ], [ 7.500000e-01, %266 ], [ 0x3FD51EB860000000, %291 ], [ 5.000000e-01, %._crit_edge401.i ], [ 7.500000e-01, %353 ], [ 7.500000e-01, %397 ], [ 7.500000e-01, %418 ], [ 7.500000e-01, %420 ], [ 7.500000e-01, %441 ]
   %454 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %455 = load float, ptr %454, align 4, !tbaa !104
   %456 = fcmp nsz oeq float %455, 1.000000e+00
   br i1 %456, label %457, label %458
 
 457:                                              ; preds = %generate_window_func.exit
-  store float %.sink557.i, ptr %454, align 4, !tbaa !104
+  store float %.sink565.i, ptr %454, align 4, !tbaa !104
   br label %458
 
 458:                                              ; preds = %457, %generate_window_func.exit
-  %459 = phi float [ %.sink557.i, %457 ], [ %455, %generate_window_func.exit ]
+  %459 = phi float [ %.sink565.i, %457 ], [ %455, %generate_window_func.exit ]
   %460 = load i32, ptr %11, align 4, !tbaa !80
   %461 = sitofp i32 %460 to float
   %462 = fsub nsz float 1.000000e+00, %459
@@ -1877,8 +1877,8 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
 ._crit_edge281.thread:                            ; preds = %._crit_edge
   %102 = load i32, ptr %34, align 8, !tbaa !59
   %103 = and i32 %102, 3
-  %.not323 = icmp eq i32 %103, 0
-  br i1 %.not323, label %.thread324, label %spectral_mean.exit
+  %.not327 = icmp eq i32 %103, 0
+  br i1 %.not327, label %.thread328, label %spectral_mean.exit
 
 .lr.ph280:                                        ; preds = %.lr.ph280.preheader, %.lr.ph280
   %indvars.iv314 = phi i64 [ 0, %.lr.ph280.preheader ], [ %indvars.iv.next315, %.lr.ph280 ]
@@ -1919,7 +1919,7 @@ spectral_mean.exit:                               ; preds = %.lr.ph.i, %._crit_e
   %117 = phi i32 [ %113, %spectral_mean.exit ], [ %100, %._crit_edge281 ]
   %118 = and i32 %117, 2
   %.not155 = icmp eq i32 %118, 0
-  br i1 %.not155, label %.thread324, label %119
+  br i1 %.not155, label %.thread328, label %119
 
 119:                                              ; preds = %116
   %120 = load float, ptr %44, align 4, !tbaa !60
@@ -1947,15 +1947,15 @@ spectral_variance.exit:                           ; preds = %.lr.ph.i169, %119
   %127 = fdiv nsz float %.08.lcssa.i, %126
   %128 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store float %127, ptr %128, align 4, !tbaa !62
-  br label %.thread324
+  br label %.thread328
 
-.thread324:                                       ; preds = %._crit_edge281.thread, %spectral_variance.exit, %116
+.thread328:                                       ; preds = %._crit_edge281.thread, %spectral_variance.exit, %116
   %129 = phi i32 [ %117, %spectral_variance.exit ], [ %117, %116 ], [ %102, %._crit_edge281.thread ]
   %130 = and i32 %129, 60
   %.not156 = icmp eq i32 %130, 0
   br i1 %.not156, label %147, label %131
 
-131:                                              ; preds = %.thread324
+131:                                              ; preds = %.thread328
   %132 = load i32, ptr %35, align 4, !tbaa !123
   %133 = sdiv i32 %132, 2
   %134 = sitofp i32 %133 to float
@@ -1992,7 +1992,7 @@ spectral_centroid.exit:                           ; preds = %.lr.ph.i175, %131
   store float %.018.i, ptr %146, align 4, !tbaa !63
   br label %147
 
-147:                                              ; preds = %spectral_centroid.exit, %.thread324
+147:                                              ; preds = %spectral_centroid.exit, %.thread328
   %148 = and i32 %129, 56
   %.not157 = icmp eq i32 %148, 0
   br i1 %.not157, label %171, label %149

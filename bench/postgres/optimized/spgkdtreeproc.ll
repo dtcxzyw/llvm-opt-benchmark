@@ -531,7 +531,8 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   br label %167
 
 167:                                              ; preds = %162, %200
-  %indvars.iv148 = phi i64 [ 1, %162 ], [ %indvars.iv.next149, %200 ]
+  %exitcond151.not = phi i1 [ false, %162 ], [ true, %200 ]
+  %indvars.iv148 = phi i64 [ 1, %162 ], [ 2, %200 ]
   %168 = trunc nuw nsw i64 %indvars.iv148 to i32
   %169 = shl nuw nsw i32 1, %168
   %170 = and i32 %169, %.0105.lcssa
@@ -580,8 +581,6 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   br label %200
 
 200:                                              ; preds = %167, %197
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond151.not = icmp eq i64 %indvars.iv.next149, 3
   br i1 %exitcond151.not, label %201, label %167, !llvm.loop !10
 
 201:                                              ; preds = %200

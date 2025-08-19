@@ -396,8 +396,8 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %224 = load i32, ptr %145, align 8, !tbaa !34
   %225 = icmp sge i32 %224, %223
   %.not.i.i = icmp ult i16 %173, %177
-  %or.cond139.i = select i1 %225, i1 %.not.i.i, i1 false
-  br i1 %or.cond139.i, label %226, label %.loopexit
+  %or.cond157.i = select i1 %225, i1 %.not.i.i, i1 false
+  br i1 %or.cond157.i, label %226, label %.loopexit
 
 226:                                              ; preds = %222
   %.not46.i.i = icmp uge i16 %168, %169
@@ -882,8 +882,8 @@ cinepak_predecode_check.exit:                     ; preds = %93, %94
   %469 = load i8, ptr %466, align 1, !tbaa !45
   %470 = sext i8 %469 to i32
   %471 = shl nsw i32 %470, 1
-  %.neg.us144.i.i = sdiv i8 %467, -2
-  %.neg.us.sext.i.i = sext i8 %.neg.us144.i.i to i32
+  %.neg.us148.i.i = sdiv i8 %467, -2
+  %.neg.us.sext.i.i = sext i8 %.neg.us148.i.i to i32
   %472 = sub nsw i32 %.neg.us.sext.i.i, %470
   %473 = shl nsw i32 %468, 1
   br label %476

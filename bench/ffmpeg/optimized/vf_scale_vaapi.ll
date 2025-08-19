@@ -141,9 +141,9 @@ define internal range(i32 -22, 1) i32 @scale_vaapi_init(ptr noundef %0) #0 {
   br label %45
 
 .thread62:                                        ; preds = %.thread, %24
-  %.sink66 = phi i32 [ %25, %24 ], [ 2, %.thread ]
+  %.sink75 = phi i32 [ %25, %24 ], [ 2, %.thread ]
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 236
-  store i32 %.sink66, ptr %28, align 4, !tbaa !32
+  store i32 %.sink75, ptr %28, align 4, !tbaa !32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %30 = load ptr, ptr %29, align 8, !tbaa !33
   %.not60 = icmp eq ptr %30, null
@@ -159,9 +159,9 @@ define internal range(i32 -22, 1) i32 @scale_vaapi_init(ptr noundef %0) #0 {
   br label %45
 
 .thread63:                                        ; preds = %.thread62, %31
-  %.sink68 = phi i32 [ %32, %31 ], [ 2, %.thread62 ]
+  %.sink77 = phi i32 [ %32, %31 ], [ 2, %.thread62 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 240
-  store i32 %.sink68, ptr %35, align 8, !tbaa !34
+  store i32 %.sink77, ptr %35, align 8, !tbaa !34
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %37 = load ptr, ptr %36, align 8, !tbaa !35
   %.not61 = icmp eq ptr %37, null

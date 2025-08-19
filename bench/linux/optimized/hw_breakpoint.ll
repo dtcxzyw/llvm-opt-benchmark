@@ -519,13 +519,13 @@ define dso_local range(i32 -95, 1) i32 @hw_breakpoint_arch_parse(ptr noundef rea
   %83 = load i64, ptr %6, align 8
   switch i64 %83, label %85 [
     i64 1, label %98
-    i64 2, label %.thread7
+    i64 2, label %.thread10
     i64 4, label %102
     i64 8, label %104
     i64 0, label %.thread5
   ]
 
-.thread7:                                         ; preds = %80
+.thread10:                                        ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 68, ptr %84, align 8
   br label %106
@@ -569,8 +569,8 @@ define dso_local range(i32 -95, 1) i32 @hw_breakpoint_arch_parse(ptr noundef rea
   store i8 72, ptr %105, align 8
   br label %106
 
-106:                                              ; preds = %.thread7, %104, %102, %98
-  %107 = phi i64 [ 7, %104 ], [ 3, %102 ], [ %101, %98 ], [ 1, %.thread7 ]
+106:                                              ; preds = %.thread10, %104, %102, %98
+  %107 = phi i64 [ 7, %104 ], [ 3, %102 ], [ %101, %98 ], [ 1, %.thread10 ]
   %108 = load i64, ptr %2, align 8
   %109 = and i64 %108, %107
   %110 = icmp eq i64 %109, 0

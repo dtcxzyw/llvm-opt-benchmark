@@ -2155,25 +2155,25 @@ _ZN7rocksdb8SkipListIPKcRKNS_11MemTableRep13KeyComparatorEEC2ES6_PNS_9AllocatorE
   br label %70
 
 70:                                               ; preds = %63, %65
-  %.sink50 = phi ptr [ %64, %63 ], [ %69, %65 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep8IteratorE, i64 16), ptr %.sink50, align 8, !tbaa !50
-  %71 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
+  %.sink54 = phi ptr [ %64, %63 ], [ %69, %65 ]
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep8IteratorE, i64 16), ptr %.sink54, align 8, !tbaa !50
+  %71 = getelementptr inbounds nuw i8, ptr %.sink54, i64 8
   store ptr %12, ptr %71, align 8, !tbaa !120
-  %72 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.sink54, i64 16
   store ptr %12, ptr %72, align 8, !tbaa !133
-  %73 = getelementptr inbounds nuw i8, ptr %.sink50, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.sink54, i64 24
   store ptr null, ptr %73, align 8, !tbaa !134
-  %74 = getelementptr inbounds nuw i8, ptr %.sink50, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.sink54, i64 32
   store i8 1, ptr %74, align 8, !tbaa !135
-  %75 = getelementptr inbounds nuw i8, ptr %.sink50, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %.sink54, i64 40
   store ptr %3, ptr %75, align 8, !tbaa !136
-  %76 = getelementptr inbounds nuw i8, ptr %.sink50, i64 48
-  %77 = getelementptr inbounds nuw i8, ptr %.sink50, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %.sink54, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %.sink54, i64 64
   store ptr %77, ptr %76, align 8, !tbaa !65
-  %78 = getelementptr inbounds nuw i8, ptr %.sink50, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %.sink54, i64 56
   store i64 0, ptr %78, align 8, !tbaa !16
   store i8 0, ptr %77, align 8, !tbaa !17
-  ret ptr %.sink50
+  ret ptr %.sink54
 
 79:                                               ; preds = %47, %45
   %.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %48, %47 ]
@@ -2197,21 +2197,21 @@ define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_115HashSkipListRep24GetDyna
   br label %11
 
 11:                                               ; preds = %4, %6
-  %.sink18 = phi ptr [ %5, %4 ], [ %10, %6 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %.sink18, i64 40
+  %.sink19 = phi ptr [ %5, %4 ], [ %10, %6 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sink19, i64 40
   store ptr null, ptr %13, align 8, !tbaa !136
-  %14 = getelementptr inbounds nuw i8, ptr %.sink18, i64 48
-  %15 = getelementptr inbounds nuw i8, ptr %.sink18, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.sink19, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %.sink19, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %12, i8 0, i64 25, i1 false)
   store ptr %15, ptr %14, align 8, !tbaa !65
-  %16 = getelementptr inbounds nuw i8, ptr %.sink18, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %.sink19, i64 56
   store i64 0, ptr %16, align 8, !tbaa !16
   store i8 0, ptr %15, align 8, !tbaa !17
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep15DynamicIteratorE, i64 16), ptr %.sink18, align 8, !tbaa !50
-  %17 = getelementptr inbounds nuw i8, ptr %.sink18, i64 80
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashSkipListRep15DynamicIteratorE, i64 16), ptr %.sink19, align 8, !tbaa !50
+  %17 = getelementptr inbounds nuw i8, ptr %.sink19, i64 80
   store ptr %0, ptr %17, align 8, !tbaa !137
-  ret ptr %.sink18
+  ret ptr %.sink19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

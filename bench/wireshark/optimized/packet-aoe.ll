@@ -545,9 +545,9 @@ proto_item_set_generated.exit121.i.i:             ; preds = %186, %183, %177
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %proto_item_set_generated.exit121.i.i, %166
-  %.sink144.i.i = phi i8 [ %191, %proto_item_set_generated.exit121.i.i ], [ %170, %166 ]
+  %.sink157.i.i = phi i8 [ %191, %proto_item_set_generated.exit121.i.i ], [ %170, %166 ]
   %.sink.i.i = phi ptr [ %190, %proto_item_set_generated.exit121.i.i ], [ %169, %166 ]
-  %192 = zext i8 %.sink144.i.i to i32
+  %192 = zext i8 %.sink157.i.i to i32
   %193 = call ptr @val_to_str(i32 noundef %192, ptr noundef nonnull @ata_cmd_vals, ptr noundef nonnull @.str.143)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.sink.i.i, i32 noundef 25, ptr noundef nonnull @.str.142, ptr noundef %193)
   br label %dissect_ata_pdu.exit.i

@@ -782,12 +782,12 @@ switch.lookup:                                    ; preds = %.noexc23
   %106 = zext nneg i8 %105 to i64
   %switch.gep = getelementptr inbounds nuw [81 x ptr], ptr @switch.table._ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6E, i64 0, i64 %106
   %107 = zext nneg i8 %105 to i64
-  %switch.gep38 = getelementptr inbounds nuw [81 x i64], ptr @switch.table._ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6E.17, i64 0, i64 %107
+  %switch.gep43 = getelementptr inbounds nuw [81 x i64], ptr @switch.table._ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6E.17, i64 0, i64 %107
   br label %_ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i
 
 _ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i: ; preds = %switch.lookup, %103
   %.sroa.024.0.i.i.in = phi ptr [ %102, %103 ], [ %switch.gep, %switch.lookup ]
-  %.sroa.425.0.i.i.in = phi ptr [ %104, %103 ], [ %switch.gep38, %switch.lookup ]
+  %.sroa.425.0.i.i.in = phi ptr [ %104, %103 ], [ %switch.gep43, %switch.lookup ]
   %.sroa.425.0.i.i = load i64, ptr %.sroa.425.0.i.i.in, align 8
   %.sroa.024.0.i.i = load ptr, ptr %.sroa.024.0.i.i.in, align 8
   %.not30.i.i = icmp eq ptr %99, null
@@ -1040,9 +1040,9 @@ define void @_ZN20pingora_header_serde11HeaderSerde11deserialize17hbf751826684d1
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !67
   store i16 28, ptr %22, align 8, !noalias !67
   %51 = invoke fastcc noundef nonnull align 8 ptr @_ZN13pingora_error5Error7because17h12944a50590547aeE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef %50)
-          to label %.thread21 unwind label %54
+          to label %.thread26 unwind label %54
 
-.thread21:                                        ; preds = %48
+.thread26:                                        ; preds = %48
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !67
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !67
   br label %57
@@ -1069,10 +1069,10 @@ define void @_ZN20pingora_header_serde11HeaderSerde11deserialize17hbf751826684d1
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !67
   br label %59
 
-57:                                               ; preds = %.thread21, %.thread
-  %.sroa.5.1.i19.in = phi ptr [ %47, %.thread ], [ %51, %.thread21 ]
+57:                                               ; preds = %.thread26, %.thread
+  %.sroa.5.1.i24.in = phi ptr [ %47, %.thread ], [ %51, %.thread26 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.5.1.i19.in, ptr %58, align 8
+  store ptr %.sroa.5.1.i24.in, ptr %58, align 8
   store i64 3, ptr %0, align 8
   br label %186
 

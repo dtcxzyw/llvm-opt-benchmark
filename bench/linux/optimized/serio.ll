@@ -1206,23 +1206,23 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   %35 = phi ptr [ %55, %.loopexit24 ], [ %5, %32 ]
   %36 = tail call fastcc i32 @serio_reconnect_port(ptr noundef %35)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.preheader43
+  br i1 %37, label %38, label %.preheader66
 
-.preheader43:                                     ; preds = %38, %.preheader25
+.preheader66:                                     ; preds = %38, %.preheader25
   br label %44
 
 38:                                               ; preds = %.preheader25
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 280
   %40 = load volatile ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %39
-  br i1 %41, label %.preheader43, label %42
+  br i1 %41, label %.preheader66, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr i8, ptr %40, i64 -264
   br label %.loopexit24
 
-44:                                               ; preds = %.preheader43, %47
-  %45 = phi ptr [ %49, %47 ], [ %35, %.preheader43 ]
+44:                                               ; preds = %.preheader66, %47
+  %45 = phi ptr [ %49, %47 ], [ %35, %.preheader66 ]
   %46 = icmp eq ptr %45, %5
   br i1 %46, label %.loopexit24, label %47
 
@@ -1256,7 +1256,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %63, label %.loopexit29, label %.preheader28
 
 .preheader28:                                     ; preds = %60, %.preheader28.backedge
-  %64 = phi ptr [ %.be46, %.preheader28.backedge ], [ %5, %60 ]
+  %64 = phi ptr [ %.be69, %.preheader28.backedge ], [ %5, %60 ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 280
   %66 = load volatile ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, %65
@@ -1282,7 +1282,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %78, label %.loopexit29, label %.preheader28.backedge
 
 .preheader28.backedge:                            ; preds = %75, %.preheader28
-  %.be46 = phi ptr [ %68, %.preheader28 ], [ %76, %75 ]
+  %.be69 = phi ptr [ %68, %.preheader28 ], [ %76, %75 ]
   br label %.preheader28, !llvm.loop !10
 
 .loopexit29:                                      ; preds = %75, %60
@@ -1357,7 +1357,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %113, label %.loopexit34, label %.preheader33
 
 .preheader33:                                     ; preds = %110, %.preheader33.backedge
-  %114 = phi ptr [ %.be47, %.preheader33.backedge ], [ %5, %110 ]
+  %114 = phi ptr [ %.be70, %.preheader33.backedge ], [ %5, %110 ]
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 280
   %116 = load volatile ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, %115
@@ -1383,7 +1383,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %128, label %.loopexit34, label %.preheader33.backedge
 
 .preheader33.backedge:                            ; preds = %125, %.preheader33
-  %.be47 = phi ptr [ %118, %.preheader33 ], [ %126, %125 ]
+  %.be70 = phi ptr [ %118, %.preheader33 ], [ %126, %125 ]
   br label %.preheader33, !llvm.loop !10
 
 .loopexit34:                                      ; preds = %125, %110
@@ -1947,7 +1947,7 @@ define internal void @serio_handle_event(ptr readnone captures(none) %0) #0 alig
   br i1 %53, label %.loopexit16, label %.preheader15
 
 .preheader15:                                     ; preds = %48, %.preheader15.backedge
-  %54 = phi ptr [ %.be35, %.preheader15.backedge ], [ %50, %48 ]
+  %54 = phi ptr [ %.be57, %.preheader15.backedge ], [ %50, %48 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 280
   %56 = load volatile ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %55
@@ -1973,7 +1973,7 @@ define internal void @serio_handle_event(ptr readnone captures(none) %0) #0 alig
   br i1 %68, label %.loopexit16, label %.preheader15.backedge
 
 .preheader15.backedge:                            ; preds = %65, %.preheader15
-  %.be35 = phi ptr [ %58, %.preheader15 ], [ %66, %65 ]
+  %.be57 = phi ptr [ %58, %.preheader15 ], [ %66, %65 ]
   br label %.preheader15, !llvm.loop !10
 
 .loopexit16:                                      ; preds = %65, %48

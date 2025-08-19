@@ -95,12 +95,12 @@ define range(i32 -1, 1) i32 @H5IMmake_image_24bit(i64 noundef %0, ptr noundef %1
   br i1 %15, label %16, label %41
 
 16:                                               ; preds = %13, %10
-  %.sink25 = phi i64 [ %3, %10 ], [ 3, %13 ]
-  %.sink23 = phi i64 [ %2, %10 ], [ %3, %13 ]
+  %.sink27 = phi i64 [ %3, %10 ], [ 3, %13 ]
+  %.sink25 = phi i64 [ %2, %10 ], [ %3, %13 ]
   %.sink = phi i64 [ 3, %10 ], [ %2, %13 ]
-  store i64 %.sink25, ptr %7, align 16, !tbaa !3
+  store i64 %.sink27, ptr %7, align 16, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sink23, ptr %17, align 8, !tbaa !3
+  store i64 %.sink25, ptr %17, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sink, ptr %18, align 16, !tbaa !3
   %19 = load i8, ptr @H5_libinit_g, align 1, !tbaa !7, !range !9, !noundef !10

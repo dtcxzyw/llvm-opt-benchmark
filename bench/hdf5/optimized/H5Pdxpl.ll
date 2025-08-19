@@ -2813,7 +2813,7 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   br i1 %.181112, label %140, label %147
 
 140:                                              ; preds = %132, %121, %136
-  %.084.ph188 = phi i1 [ false, %121 ], [ %.185, %136 ], [ %.185, %132 ]
+  %.084.ph196 = phi i1 [ false, %121 ], [ %.185, %136 ], [ %.185, %132 ]
   %141 = call i32 @H5P_poke(ptr noundef nonnull %78, ptr noundef nonnull @.str.45, ptr noundef nonnull %8) #10
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %143, label %147
@@ -2822,11 +2822,11 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
   %144 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %145 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !10
   %146 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_dataset_io_hyperslab_selection, i32 noundef 2334, i64 noundef %144, i64 noundef %145, ptr noundef nonnull @.str.52) #10
-  br i1 %.084.ph188, label %148, label %.thread170
+  br i1 %.084.ph196, label %148, label %.thread170
 
 147:                                              ; preds = %132, %140, %136
-  %.084.ph187 = phi i1 [ %.084.ph188, %140 ], [ %.185, %136 ], [ %.185, %132 ]
-  br i1 %.084.ph187, label %148, label %.thread170
+  %.084.ph195 = phi i1 [ %.084.ph196, %140 ], [ %.185, %136 ], [ %.185, %132 ]
+  br i1 %.084.ph195, label %148, label %.thread170
 
 148:                                              ; preds = %143, %147
   %149 = load ptr, ptr %8, align 8, !tbaa !31
@@ -4548,9 +4548,9 @@ define internal range(i32 -1, 1) i32 @H5P__dxfr_dset_io_hyp_sel_copy(ptr readnon
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %8 = trunc nuw i8 %7 to i1
   %not. = xor i1 %6, true
-  %.not21 = select i1 %not., i1 %8, i1 false
+  %.not23 = select i1 %not., i1 %8, i1 false
   %.not = icmp eq ptr %4, null
-  %or.cond = select i1 %.not21, i1 true, i1 %.not
+  %or.cond = select i1 %.not23, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %9, !prof !47
 
 9:                                                ; preds = %3

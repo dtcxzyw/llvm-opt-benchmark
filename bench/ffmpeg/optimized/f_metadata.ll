@@ -197,14 +197,14 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 47:                                               ; preds = %.thread
   %.not53 = icmp eq ptr %45, null
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  br i1 %.not53, label %.thread66, label %.thread64
+  br i1 %.not53, label %.thread70, label %.thread68
 
-.thread66:                                        ; preds = %47
+.thread70:                                        ; preds = %47
   store ptr @print_log, ptr %48, align 8, !tbaa !30
   store ptr null, ptr %46, align 8, !tbaa !31
   br label %71
 
-.thread64:                                        ; preds = %47
+.thread68:                                        ; preds = %47
   store ptr @print_file, ptr %48, align 8, !tbaa !30
   store ptr null, ptr %46, align 8, !tbaa !31
   br label %sub_0
@@ -216,7 +216,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   %.not54 = icmp eq ptr %45, null
   br i1 %.not54, label %71, label %sub_0
 
-sub_0:                                            ; preds = %.thread64, %49
+sub_0:                                            ; preds = %.thread68, %49
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %52 = load i8, ptr %45, align 1
   %53 = zext i8 %52 to i32
@@ -258,8 +258,8 @@ sub_1:                                            ; preds = %sub_0
   store i32 32768, ptr %70, align 4, !tbaa !33
   br label %71
 
-71:                                               ; preds = %.thread66, %49, %68, %65, %62, %40, %35, %14, %9
-  %.043 = phi i32 [ %38, %40 ], [ %60, %62 ], [ -22, %35 ], [ -22, %14 ], [ -22, %9 ], [ 0, %65 ], [ 0, %68 ], [ 0, %49 ], [ 0, %.thread66 ]
+71:                                               ; preds = %.thread70, %49, %68, %65, %62, %40, %35, %14, %9
+  %.043 = phi i32 [ %38, %40 ], [ %60, %62 ], [ -22, %35 ], [ -22, %14 ], [ -22, %9 ], [ 0, %65 ], [ 0, %68 ], [ 0, %49 ], [ 0, %.thread70 ]
   ret i32 %.043
 }
 

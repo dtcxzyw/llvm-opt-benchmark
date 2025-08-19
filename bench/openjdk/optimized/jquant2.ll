@@ -183,26 +183,26 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i32, ptr %7, align 8
   %.not.not = icmp eq i32 %8, 0
-  br i1 %.not.not, label %9, label %.thread44
+  br i1 %.not.not, label %9, label %.thread45
 
 9:                                                ; preds = %2
   %.not40 = icmp eq i32 %1, 0
   br i1 %.not40, label %13, label %10
 
-.thread44:                                        ; preds = %2
+.thread45:                                        ; preds = %2
   store i32 2, ptr %7, align 8
-  %.not4045 = icmp eq i32 %1, 0
-  br i1 %.not4045, label %13, label %10
+  %.not4046 = icmp eq i32 %1, 0
+  br i1 %.not4046, label %13, label %10
 
-10:                                               ; preds = %.thread44, %9
+10:                                               ; preds = %.thread45, %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @prescan_quantize, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @finish_pass1, ptr %12, align 8
-  br label %.sink.split53
+  br label %.sink.split54
 
-13:                                               ; preds = %9, %.thread44
-  %pass2_no_dither.sink = phi ptr [ @pass2_fs_dither, %.thread44 ], [ @pass2_no_dither, %9 ]
+13:                                               ; preds = %9, %.thread45
+  %pass2_no_dither.sink = phi ptr [ @pass2_fs_dither, %.thread45 ], [ @pass2_no_dither, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %pass2_no_dither.sink, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -217,11 +217,11 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %20, label %.sink.split, label %27
 
 .sink.split:                                      ; preds = %19, %13
-  %.sink50 = phi i32 [ 56, %13 ], [ 57, %19 ]
+  %.sink51 = phi i32 [ 56, %13 ], [ 57, %19 ]
   %.sink = phi i32 [ 1, %13 ], [ 256, %19 ]
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i32 %.sink50, ptr %22, align 8
+  store i32 %.sink51, ptr %22, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 44
   store i32 %.sink, ptr %24, align 4
@@ -261,7 +261,7 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %.sink.split53
+  br i1 %49, label %50, label %.sink.split54
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %3, align 8
@@ -312,16 +312,16 @@ define internal void @start_pass_2_quant(ptr noundef %0, i32 noundef %1) #0 {
   store i32 -32, ptr %72, align 4
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, 256
-  br i1 %exitcond55.not.i, label %.sink.split53, label %.lr.ph41.i, !llvm.loop !10
+  br i1 %exitcond55.not.i, label %.sink.split54, label %.lr.ph41.i, !llvm.loop !10
 
-.sink.split53:                                    ; preds = %.lr.ph41.i, %45, %10
-  %.sink56 = phi i64 [ 56, %10 ], [ 72, %45 ], [ 72, %.lr.ph41.i ]
-  %.sink54 = phi i32 [ 1, %10 ], [ 0, %45 ], [ 0, %.lr.ph41.i ]
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink56
-  store i32 %.sink54, ptr %73, align 8
+.sink.split54:                                    ; preds = %.lr.ph41.i, %45, %10
+  %.sink57 = phi i64 [ 56, %10 ], [ 72, %45 ], [ 72, %.lr.ph41.i ]
+  %.sink55 = phi i32 [ 1, %10 ], [ 0, %45 ], [ 0, %.lr.ph41.i ]
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink57
+  store i32 %.sink55, ptr %73, align 8
   br label %74
 
-74:                                               ; preds = %.sink.split53, %27
+74:                                               ; preds = %.sink.split54, %27
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %76 = load i32, ptr %75, align 8
   %.not41 = icmp eq i32 %76, 0
@@ -599,8 +599,8 @@ median_cut.exit.i:                                ; preds = %82, %find_biggest_c
   br i1 %86, label %.lr.ph.i, label %select_colors.exit
 
 .lr.ph.i:                                         ; preds = %median_cut.exit.i, %1
-  %.0.lcssa.i57.i = phi i32 [ %.0.lcssa.i.i, %median_cut.exit.i ], [ 1, %1 ]
-  %wide.trip.count.i = zext nneg i32 %.0.lcssa.i57.i to i64
+  %.0.lcssa.i62.i = phi i32 [ %.0.lcssa.i.i, %median_cut.exit.i ], [ 1, %1 ]
+  %wide.trip.count.i = zext nneg i32 %.0.lcssa.i62.i to i64
   br label %87
 
 87:                                               ; preds = %compute_color.exit.i, %.lr.ph.i
@@ -759,15 +759,15 @@ compute_color.exit.i:                             ; preds = %._crit_edge87.split
   br i1 %exitcond.not.i, label %select_colors.exit, label %87, !llvm.loop !20
 
 select_colors.exit:                               ; preds = %compute_color.exit.i, %median_cut.exit.i
-  %.0.lcssa.i56.i = phi i32 [ %.0.lcssa.i.i, %median_cut.exit.i ], [ %.0.lcssa.i57.i, %compute_color.exit.i ]
+  %.0.lcssa.i61.i = phi i32 [ %.0.lcssa.i.i, %median_cut.exit.i ], [ %.0.lcssa.i62.i, %compute_color.exit.i ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %.0.lcssa.i56.i, ptr %159, align 4
+  store i32 %.0.lcssa.i61.i, ptr %159, align 4
   %160 = load ptr, ptr %0, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 40
   store i32 96, ptr %161, align 8
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 44
-  store i32 %.0.lcssa.i56.i, ptr %163, align 4
+  store i32 %.0.lcssa.i61.i, ptr %163, align 4
   %164 = load ptr, ptr %0, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8
@@ -1178,8 +1178,8 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %.not21942 = icmp sgt i32 %6, %8
   %29 = sext i32 %10 to i64
   %.not22036 = icmp sgt i32 %10, %12
-  %or.cond229 = select i1 %.not21942, i1 true, i1 %.not22036
-  br i1 %or.cond229, label %.loopexit14, label %.preheader12.preheader
+  %or.cond255 = select i1 %.not21942, i1 true, i1 %.not22036
+  br i1 %or.cond255, label %.loopexit14, label %.preheader12.preheader
 
 .preheader12.preheader:                           ; preds = %.preheader13
   %30 = sext i32 %6 to i64
@@ -1238,8 +1238,8 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %.not22359 = icmp sgt i32 %.0192, %.0191
   %44 = sext i32 %10 to i64
   %.not22453 = icmp sgt i32 %10, %12
-  %or.cond230 = select i1 %.not22359, i1 true, i1 %.not22453
-  br i1 %or.cond230, label %.loopexit11, label %.preheader9.preheader
+  %or.cond256 = select i1 %.not22359, i1 true, i1 %.not22453
+  br i1 %or.cond256, label %.loopexit11, label %.preheader9.preheader
 
 .preheader9.preheader:                            ; preds = %.preheader10
   %45 = sext i32 %.0192 to i64
@@ -1300,8 +1300,8 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %.not22774 = icmp sgt i32 %.0192, %.0191
   %61 = sext i32 %10 to i64
   %.not22868 = icmp sgt i32 %10, %12
-  %or.cond231 = select i1 %.not22774, i1 true, i1 %.not22868
-  br i1 %or.cond231, label %.loopexit8, label %.preheader6.preheader
+  %or.cond257 = select i1 %.not22774, i1 true, i1 %.not22868
+  br i1 %or.cond257, label %.loopexit8, label %.preheader6.preheader
 
 .preheader6.preheader:                            ; preds = %.preheader7
   %62 = sext i32 %.0192 to i64
@@ -1360,8 +1360,8 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %.not23189 = icmp sgt i32 %.0192, %.0191
   %78 = sext i32 %.0190 to i64
   %.not23283 = icmp sgt i32 %.0190, %.0189
-  %or.cond232 = select i1 %.not23189, i1 true, i1 %.not23283
-  br i1 %or.cond232, label %.loopexit5, label %.preheader3.preheader
+  %or.cond258 = select i1 %.not23189, i1 true, i1 %.not23283
+  br i1 %or.cond258, label %.loopexit5, label %.preheader3.preheader
 
 .preheader3.preheader:                            ; preds = %.preheader4
   %79 = sext i32 %.0192 to i64
@@ -1422,8 +1422,8 @@ define internal fastcc void @update_box(ptr readonly captures(none) %.624.val.48
   %.not235104 = icmp sgt i32 %.0192, %.0191
   %95 = sext i32 %.0190 to i64
   %.not23698 = icmp sgt i32 %.0190, %.0189
-  %or.cond233 = select i1 %.not235104, i1 true, i1 %.not23698
-  br i1 %or.cond233, label %.loopexit, label %.preheader1.preheader
+  %or.cond259 = select i1 %.not235104, i1 true, i1 %.not23698
+  br i1 %or.cond259, label %.loopexit, label %.preheader1.preheader
 
 .preheader1.preheader:                            ; preds = %.preheader2
   %96 = sext i32 %.0192 to i64
@@ -1658,13 +1658,13 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
 
 77:                                               ; preds = %70
   %.not163.i = icmp samesign ult i32 %29, %63
-  %.188.i = select i1 %.not163.i, i32 %18, i32 %27
+  %.208.i = select i1 %.not163.i, i32 %18, i32 %27
   br label %78
 
 78:                                               ; preds = %77, %72, %65
-  %.sink184.i = phi i32 [ %18, %72 ], [ %27, %65 ], [ %.188.i, %77 ]
+  %.sink204.i = phi i32 [ %18, %72 ], [ %27, %65 ], [ %.208.i, %77 ]
   %.1135.i = phi i32 [ %76, %72 ], [ %69, %65 ], [ %.0134.i, %77 ]
-  %79 = sub nsw i32 %63, %.sink184.i
+  %79 = sub nsw i32 %63, %.sink204.i
   %80 = mul nsw i32 %79, 3
   %81 = mul nsw i32 %80, %80
   %.1.i = add nuw nsw i32 %81, %60
@@ -1692,13 +1692,13 @@ define internal fastcc void @fill_inverse_cmap(ptr noundef readonly captures(non
 
 96:                                               ; preds = %90
   %.not164.i = icmp samesign ult i32 %32, %84
-  %.189.i = select i1 %.not164.i, i32 %21, i32 %30
+  %.209.i = select i1 %.not164.i, i32 %21, i32 %30
   br label %97
 
 97:                                               ; preds = %96, %92, %86
-  %.sink187.i = phi i32 [ %21, %92 ], [ %30, %86 ], [ %.189.i, %96 ]
+  %.sink207.i = phi i32 [ %21, %92 ], [ %30, %86 ], [ %.209.i, %96 ]
   %.2136.i = phi i32 [ %95, %92 ], [ %89, %86 ], [ %.1135.i, %96 ]
-  %98 = sub nsw i32 %84, %.sink187.i
+  %98 = sub nsw i32 %84, %.sink207.i
   %99 = mul nsw i32 %98, %98
   %.2.i = add nuw nsw i32 %.1.i, %99
   %100 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv.i

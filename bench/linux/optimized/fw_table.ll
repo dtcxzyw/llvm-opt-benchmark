@@ -23,7 +23,7 @@ define dso_local i32 @acpi_parse_entries_array(ptr noundef %0, i64 noundef %1, p
   %13 = zext i32 %12 to i64
   %14 = add i64 %13, %8
   %15 = add i64 %1, %8
-  switch i32 %7, label %default.unreachable20 [
+  switch i32 %7, label %default.unreachable25 [
     i32 0, label %18
     i32 1, label %16
     i32 2, label %17
@@ -37,7 +37,7 @@ define dso_local i32 @acpi_parse_entries_array(ptr noundef %0, i64 noundef %1, p
 17:                                               ; preds = %6, %6, %6
   br label %18
 
-default.unreachable20:                            ; preds = %6
+default.unreachable25:                            ; preds = %6
   unreachable
 
 18:                                               ; preds = %17, %16, %6

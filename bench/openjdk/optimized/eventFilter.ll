@@ -961,8 +961,8 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilter_predictFiltering(ptr nounde
 
 41:                                               ; preds = %36
   %42 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %2) #7
-  %.fr67 = freeze i32 %42
-  %43 = icmp eq i32 %.fr67, 0
+  %.fr74 = freeze i32 %42
+  %43 = icmp eq i32 %.fr74, 0
   br i1 %43, label %54, label %patternStringMatch.exit42.thread
 
 44:                                               ; preds = %36, %32
@@ -981,8 +981,8 @@ patternStringMatch.exit:                          ; preds = %44
   %.021.i = getelementptr inbounds nuw i8, ptr %2, i64 %.021.idx.i
   %51 = sext i32 %45 to i64
   %52 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i, ptr noundef nonnull readonly %.021.i, i64 noundef %51) #7
-  %.fr68 = freeze i32 %52
-  %53 = icmp eq i32 %.fr68, 0
+  %.fr75 = freeze i32 %52
+  %53 = icmp eq i32 %.fr75, 0
   br i1 %53, label %54, label %patternStringMatch.exit42.thread
 
 54:                                               ; preds = %41, %patternStringMatch.exit
@@ -1033,8 +1033,8 @@ patternStringMatch.exit42:                        ; preds = %71
   %.021.i41 = getelementptr inbounds nuw i8, ptr %2, i64 %.021.idx.i40
   %78 = sext i32 %72 to i64
   %79 = tail call i32 @strncmp(ptr noundef nonnull readonly %.022.i39, ptr noundef nonnull readonly %.021.i41, i64 noundef %78) #7
-  %.fr66 = freeze i32 %79
-  %80 = icmp eq i32 %.fr66, 0
+  %.fr73 = freeze i32 %79
+  %80 = icmp eq i32 %.fr73, 0
   br i1 %80, label %81, label %patternStringMatch.exit42.thread
 
 81:                                               ; preds = %68, %patternStringMatch.exit42
@@ -1047,8 +1047,8 @@ patternStringMatch.exit42.thread:                 ; preds = %54, %patternStringM
   %82 = add nuw nsw i32 %.047, 1
   %83 = getelementptr inbounds nuw i8, ptr %.02044, i64 32
   %84 = icmp sge i32 %82, %5
-  %.not49 = select i1 %84, i1 true, i1 %.119.shrunk
-  br i1 %.not49, label %._crit_edge, label %9, !llvm.loop !10
+  %.not56 = select i1 %84, i1 true, i1 %.119.shrunk
+  br i1 %.not56, label %._crit_edge, label %9, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9, %patternStringMatch.exit42.thread, %3
   %.021.lcssa = phi i8 [ 0, %3 ], [ %.02143, %9 ], [ %.122, %patternStringMatch.exit42.thread ]
@@ -1625,15 +1625,15 @@ findFilter.exit.i.i:                              ; preds = %.lr.ph.i.i.i
 
 findFilter.exit.thread.sink.split.sink.split.i.i: ; preds = %16
   %.str.16..str.17.i.i = select i1 %18, ptr @.str.16, ptr @.str.17
-  %.27.i.i = select i1 %18, i32 1167, i32 1169
-  tail call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef %.27.i.i) #6
+  %.29.i.i = select i1 %18, i32 1167, i32 1169
+  tail call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef %.29.i.i) #6
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.16..str.17.i.i) #6
   %.pre.i.i = load ptr, ptr @gdata, align 8
   br label %findFilter.exit.thread.sink.split.i.i
 
 findFilter.exit.thread.sink.split.i.i:            ; preds = %findFilter.exit.thread.sink.split.sink.split.i.i, %16
-  %.sink26.i.i = phi ptr [ %.pre.i.i, %findFilter.exit.thread.sink.split.sink.split.i.i ], [ %19, %16 ]
-  %23 = load ptr, ptr %.sink26.i.i, align 8
+  %.sink28.i.i = phi ptr [ %.pre.i.i, %findFilter.exit.thread.sink.split.sink.split.i.i ], [ %19, %16 ]
+  %23 = load ptr, ptr %.sink28.i.i, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %..i.i
   %26 = load ptr, ptr %25, align 8
@@ -1829,15 +1829,15 @@ findFilter.exit.i.i:                              ; preds = %.lr.ph.i.i.i
 
 findFilter.exit.thread.sink.split.sink.split.i.i: ; preds = %16
   %.str.21..str.22.i.i = select i1 %18, ptr @.str.21, ptr @.str.22
-  %.27.i.i = select i1 %18, i32 1198, i32 1200
-  tail call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef %.27.i.i) #6
+  %.29.i.i = select i1 %18, i32 1198, i32 1200
+  tail call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef %.29.i.i) #6
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.2, ptr noundef nonnull %.str.21..str.22.i.i) #6
   %.pre.i.i = load ptr, ptr @gdata, align 8
   br label %findFilter.exit.thread.sink.split.i.i
 
 findFilter.exit.thread.sink.split.i.i:            ; preds = %findFilter.exit.thread.sink.split.sink.split.i.i, %16
-  %.sink26.i.i = phi ptr [ %.pre.i.i, %findFilter.exit.thread.sink.split.sink.split.i.i ], [ %19, %16 ]
-  %23 = load ptr, ptr %.sink26.i.i, align 8
+  %.sink28.i.i = phi ptr [ %.pre.i.i, %findFilter.exit.thread.sink.split.sink.split.i.i ], [ %19, %16 ]
+  %23 = load ptr, ptr %.sink28.i.i, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %..i.i
   %26 = load ptr, ptr %25, align 8
@@ -2092,9 +2092,9 @@ disableEvents.exit:                               ; preds = %1, %1, %1, %1, %1, 
   br label %clearFilters.exit
 
 clearFilters.exit:                                ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.031.lcssa40.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
+  %.031.lcssa41.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %.1.i, %._crit_edge.i ]
   %.not = icmp eq i32 %.0.i, 0
-  %131 = select i1 %.not, i32 %.031.lcssa40.i, i32 %.0.i
+  %131 = select i1 %.not, i32 %.031.lcssa41.i, i32 %.0.i
   ret i32 %131
 }
 

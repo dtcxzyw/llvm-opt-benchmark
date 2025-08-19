@@ -81,8 +81,8 @@ _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit: ; preds = %1
   br i1 %7, label %.loopexit, label %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit.thread
 
 _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit.thread: ; preds = %1, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit
-  %.04.i41 = phi i32 [ %6, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit ], [ %2, %1 ]
-  %8 = lshr i32 %.04.i41, 1
+  %.04.i45 = phi i32 [ %6, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit ], [ %2, %1 ]
+  %8 = lshr i32 %.04.i45, 1
   %.lobit = and i32 %8, 1
   %9 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
   %10 = icmp eq i64 %9, 0
@@ -109,7 +109,7 @@ _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit.thread: ; preds = %1, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit18
   %.0.ph35 = phi i32 [ %34, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit18 ], [ 0, %.lr.ph.preheader ]
   %.05.ph34 = phi i32 [ %.0.i15, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit18 ], [ 0, %.lr.ph.preheader ]
-  %.024.ph33 = phi i32 [ %.04.i17, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit18 ], [ %.04.i41, %.lr.ph.preheader ]
+  %.024.ph33 = phi i32 [ %.04.i17, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit18 ], [ %.04.i45, %.lr.ph.preheader ]
   %invariant.op = or i32 %.05.ph34, 1
   br label %19
 

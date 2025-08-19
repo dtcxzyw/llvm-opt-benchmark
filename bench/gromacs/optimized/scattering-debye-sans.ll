@@ -301,7 +301,7 @@ _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev.exit: ; preds = %_ZSt8_De
   br i1 %.not.i.i.i14, label %_ZNSt6vectorIdSaIdEED2Ev.exit15, label %.thread
 
 .thread:                                          ; preds = %.loopexit.split-lp, %.loopexit, %63
-  %.pn31 = phi { ptr, i32 } [ %64, %63 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.pn45 = phi { ptr, i32 } [ %64, %63 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   %65 = phi ptr [ %.pre, %63 ], [ %16, %.loopexit.split-lp ], [ %16, %.loopexit ]
   %66 = load ptr, ptr %19, align 8, !tbaa !12
   %67 = ptrtoint ptr %66 to i64
@@ -311,7 +311,7 @@ _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev.exit: ; preds = %_ZSt8_De
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit15
 
 _ZNSt6vectorIdSaIdEED2Ev.exit15:                  ; preds = %.thread, %63, %27
-  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %64, %63 ], [ %.pn31, %.thread ]
+  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %64, %63 ], [ %.pn45, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   br label %70

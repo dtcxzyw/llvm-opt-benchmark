@@ -1137,7 +1137,7 @@ define void @_ZN8ScanTree9ScanErrorERb(ptr noundef nonnull align 8 dereferenceab
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 33208
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread8, label %10
+  br i1 %.not, label %.thread13, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8228
@@ -1151,20 +1151,20 @@ define void @_ZN8ScanTree9ScanErrorERb(ptr noundef nonnull align 8 dereferenceab
 14:                                               ; preds = %10
   %.pre = load i8, ptr %1, align 1, !tbaa !45, !range !37
   %15 = trunc nuw i8 %.pre to i1
-  br i1 %15, label %.thread8, label %.thread
+  br i1 %15, label %.thread13, label %.thread
 
-.thread8:                                         ; preds = %7, %14
+.thread13:                                        ; preds = %7, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24984
   %17 = load ptr, ptr %16, align 8, !tbaa !59
   %.not6 = icmp eq ptr %17, null
   br i1 %.not6, label %20, label %18
 
-18:                                               ; preds = %.thread8
+18:                                               ; preds = %.thread13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8228
   tail call void @_ZN10StringList9AddStringEPKw(ptr noundef nonnull align 8 dereferenceable(184) %17, ptr noundef nonnull %19)
   br label %20
 
-20:                                               ; preds = %18, %.thread8
+20:                                               ; preds = %18, %.thread13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24992
   %22 = load ptr, ptr %21, align 8, !tbaa !60
   %.not7 = icmp eq ptr %22, null

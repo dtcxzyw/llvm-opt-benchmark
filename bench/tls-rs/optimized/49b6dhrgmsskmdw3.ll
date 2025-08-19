@@ -184,7 +184,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17h4d174e63e3785
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7f894fb6f70d57beE.exit": ; preds = %22
-  %26 = getelementptr inbounds [0 x { i32, i8 }], ptr %0, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw [0 x { i32, i8 }], ptr %0, i64 0, i64 %20
   %27 = getelementptr inbounds [0 x { i32, i8 }], ptr %0, i64 0, i64 %spec.select
   %28 = load i64, ptr %26, align 4, !alias.scope !21, !noalias !25
   %29 = load i64, ptr %27, align 4, !alias.scope !21, !noalias !25
@@ -239,7 +239,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hcc529cc966168
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h61e69fa10aa7c9aeE.exit": ; preds = %22
-  %26 = getelementptr inbounds [0 x { i32, i32 }], ptr %0, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %0, i64 0, i64 %20
   %27 = getelementptr inbounds [0 x { i32, i32 }], ptr %0, i64 0, i64 %spec.select
   %28 = load i64, ptr %26, align 4, !alias.scope !27, !noalias !30
   %29 = load i64, ptr %27, align 4, !alias.scope !27, !noalias !30
@@ -294,7 +294,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hcd9874dc65379
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8c994ee69b6c86fdE.exit": ; preds = %22
-  %26 = getelementptr inbounds [0 x { i32, i16 }], ptr %0, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw [0 x { i32, i16 }], ptr %0, i64 0, i64 %20
   %27 = getelementptr inbounds [0 x { i32, i16 }], ptr %0, i64 0, i64 %spec.select
   %28 = load i64, ptr %26, align 4, !alias.scope !32, !noalias !35
   %29 = load i64, ptr %27, align 4, !alias.scope !32, !noalias !35
@@ -350,7 +350,7 @@ define internal fastcc void @_ZN4core5slice4sort14break_patterns17hfbe89c588d17c
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h92060cb66c94a5aaE.exit": ; preds = %23
-  %27 = getelementptr inbounds [0 x { i32, i64 }], ptr %0, i64 0, i64 %21
+  %27 = getelementptr inbounds nuw [0 x { i32, i64 }], ptr %0, i64 0, i64 %21
   %28 = getelementptr inbounds [0 x { i32, i64 }], ptr %0, i64 0, i64 %spec.select
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !noalias !40
@@ -413,7 +413,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br label %.lr.ph20
 
 .split:                                           ; preds = %2, %_ZN4core5slice4sort26insertion_sort_shift_right17h2e9550d73885f77eE.exit
-  %.02213 = phi i64 [ %.123.lcssa33, %_ZN4core5slice4sort26insertion_sort_shift_right17h2e9550d73885f77eE.exit ], [ 1, %2 ]
+  %.02213 = phi i64 [ %.123.lcssa, %_ZN4core5slice4sort26insertion_sort_shift_right17h2e9550d73885f77eE.exit ], [ 1, %2 ]
   %.sroa.0.012 = phi i64 [ %23, %_ZN4core5slice4sort26insertion_sort_shift_right17h2e9550d73885f77eE.exit ], [ 0, %2 ]
   %23 = add nuw nsw i64 %.sroa.0.012, 1
   %24 = icmp ult i64 %.02213, %1
@@ -553,7 +553,6 @@ _ZN4core5slice4sort11insert_tail17hf8ec5566d0653cf5E.exit.i: ; preds = %.thread.
   br i1 %.0.in.i.i26.i7.i, label %.lr.ph.i, label %.thread.i.i31
 
 .thread.i.i31:                                    ; preds = %.lr.ph.i, %.lr.ph.i.i33, %.lr.ph.i.preheader.i, %70
-  %.123.lcssa34 = phi i64 [ 2, %70 ], [ %.123.lcssa, %.lr.ph.i.preheader.i ], [ %.123.lcssa, %.lr.ph.i.i33 ], [ %.123.lcssa, %.lr.ph.i ]
   %.sroa.5.0.lcssa.i.i32 = phi ptr [ %4, %70 ], [ %4, %.lr.ph.i.preheader.i ], [ %80, %.lr.ph.i.i33 ], [ %80, %.lr.ph.i ]
   %.sroa.6.0.insert.ext4.i.i = zext i8 %.val21.i.i to i64
   %.sroa.6.0.insert.shift5.i.i = shl nuw nsw i64 %.sroa.6.0.insert.ext4.i.i, 32
@@ -584,7 +583,6 @@ _ZN4core5slice4sort11insert_tail17hf8ec5566d0653cf5E.exit.i: ; preds = %.thread.
   br i1 %exitcond.not.i.i, label %.thread.i.i31, label %.lr.ph.i.i33
 
 _ZN4core5slice4sort26insertion_sort_shift_right17h2e9550d73885f77eE.exit: ; preds = %.thread.i.i31, %_ZN4core5slice4sort11insert_tail17hf8ec5566d0653cf5E.exit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7f894fb6f70d57beE.exit"
-  %.123.lcssa33 = phi i64 [ %.123.lcssa34, %.thread.i.i31 ], [ %.123.lcssa, %_ZN4core5slice4sort11insert_tail17hf8ec5566d0653cf5E.exit.i ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h7f894fb6f70d57beE.exit" ]
   %exitcond29.not = icmp eq i64 %23, 5
   br i1 %exitcond29.not, label %.thread, label %.split
 }
@@ -641,7 +639,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br label %.lr.ph20
 
 .split:                                           ; preds = %2, %_ZN4core5slice4sort26insertion_sort_shift_right17h5c31b68d7066142bE.exit
-  %.02213 = phi i64 [ %.123.lcssa33, %_ZN4core5slice4sort26insertion_sort_shift_right17h5c31b68d7066142bE.exit ], [ 1, %2 ]
+  %.02213 = phi i64 [ %.123.lcssa, %_ZN4core5slice4sort26insertion_sort_shift_right17h5c31b68d7066142bE.exit ], [ 1, %2 ]
   %.sroa.0.012 = phi i64 [ %23, %_ZN4core5slice4sort26insertion_sort_shift_right17h5c31b68d7066142bE.exit ], [ 0, %2 ]
   %23 = add nuw nsw i64 %.sroa.0.012, 1
   %24 = icmp ult i64 %.02213, %1
@@ -781,7 +779,6 @@ _ZN4core5slice4sort11insert_tail17h73e9b05c147a3c8cE.exit.i: ; preds = %.thread.
   br i1 %.0.in.i.i26.i7.i, label %.lr.ph.i, label %.thread.i.i31
 
 .thread.i.i31:                                    ; preds = %.lr.ph.i, %.lr.ph.i.i33, %.lr.ph.i.preheader.i, %70
-  %.123.lcssa34 = phi i64 [ 2, %70 ], [ %.123.lcssa, %.lr.ph.i.preheader.i ], [ %.123.lcssa, %.lr.ph.i.i33 ], [ %.123.lcssa, %.lr.ph.i ]
   %.sroa.5.0.lcssa.i.i32 = phi ptr [ %4, %70 ], [ %4, %.lr.ph.i.preheader.i ], [ %80, %.lr.ph.i.i33 ], [ %80, %.lr.ph.i ]
   %.sroa.6.0.insert.ext4.i.i = zext i16 %.val21.i.i to i64
   %.sroa.6.0.insert.shift5.i.i = shl nuw nsw i64 %.sroa.6.0.insert.ext4.i.i, 32
@@ -812,7 +809,6 @@ _ZN4core5slice4sort11insert_tail17h73e9b05c147a3c8cE.exit.i: ; preds = %.thread.
   br i1 %exitcond.not.i.i, label %.thread.i.i31, label %.lr.ph.i.i33
 
 _ZN4core5slice4sort26insertion_sort_shift_right17h5c31b68d7066142bE.exit: ; preds = %.thread.i.i31, %_ZN4core5slice4sort11insert_tail17h73e9b05c147a3c8cE.exit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8c994ee69b6c86fdE.exit"
-  %.123.lcssa33 = phi i64 [ %.123.lcssa34, %.thread.i.i31 ], [ %.123.lcssa, %_ZN4core5slice4sort11insert_tail17h73e9b05c147a3c8cE.exit.i ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h8c994ee69b6c86fdE.exit" ]
   %exitcond29.not = icmp eq i64 %23, 5
   br i1 %exitcond29.not, label %.thread, label %.split
 }
@@ -870,7 +866,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br label %.lr.ph20
 
 .split:                                           ; preds = %2, %_ZN4core5slice4sort26insertion_sort_shift_right17hc795e22e887fcbd6E.exit
-  %.02213 = phi i64 [ %.123.lcssa33, %_ZN4core5slice4sort26insertion_sort_shift_right17hc795e22e887fcbd6E.exit ], [ 1, %2 ]
+  %.02213 = phi i64 [ %.123.lcssa, %_ZN4core5slice4sort26insertion_sort_shift_right17hc795e22e887fcbd6E.exit ], [ 1, %2 ]
   %.sroa.0.012 = phi i64 [ %24, %_ZN4core5slice4sort26insertion_sort_shift_right17hc795e22e887fcbd6E.exit ], [ 0, %2 ]
   %24 = add nuw nsw i64 %.sroa.0.012, 1
   %25 = icmp ult i64 %.02213, %1
@@ -1009,7 +1005,6 @@ _ZN4core5slice4sort11insert_tail17h6366f1292d47c278E.exit.i: ; preds = %.thread.
   br i1 %.0.in.i.i26.i7.i, label %.lr.ph.i, label %.thread.i.i31
 
 .thread.i.i31:                                    ; preds = %.lr.ph.i, %.lr.ph.i.i33, %.lr.ph.i.preheader.i, %65
-  %.123.lcssa34 = phi i64 [ 2, %65 ], [ %.123.lcssa, %.lr.ph.i.preheader.i ], [ %.123.lcssa, %.lr.ph.i.i33 ], [ %.123.lcssa, %.lr.ph.i ]
   %.sroa.5.0.lcssa.i.i32 = phi ptr [ %5, %65 ], [ %5, %.lr.ph.i.preheader.i ], [ %74, %.lr.ph.i.i33 ], [ %74, %.lr.ph.i ]
   store i32 %.val20.i.i, ptr %.sroa.5.0.lcssa.i.i32, align 8, !alias.scope !82
   %.sroa.63.0..sroa.5.0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.5.0.lcssa.i.i32, i64 8
@@ -1037,7 +1032,6 @@ _ZN4core5slice4sort11insert_tail17h6366f1292d47c278E.exit.i: ; preds = %.thread.
   br i1 %exitcond.not.i.i, label %.thread.i.i31, label %.lr.ph.i.i33
 
 _ZN4core5slice4sort26insertion_sort_shift_right17hc795e22e887fcbd6E.exit: ; preds = %.thread.i.i31, %_ZN4core5slice4sort11insert_tail17h6366f1292d47c278E.exit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h92060cb66c94a5aaE.exit"
-  %.123.lcssa33 = phi i64 [ %.123.lcssa34, %.thread.i.i31 ], [ %.123.lcssa, %_ZN4core5slice4sort11insert_tail17h6366f1292d47c278E.exit.i ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h92060cb66c94a5aaE.exit" ]
   %exitcond29.not = icmp eq i64 %24, 5
   br i1 %exitcond29.not, label %.thread, label %.split
 }
@@ -1094,7 +1088,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   br label %.lr.ph20
 
 .split:                                           ; preds = %2, %_ZN4core5slice4sort26insertion_sort_shift_right17h9f39ba1626f28c2dE.exit
-  %.02213 = phi i64 [ %.123.lcssa33, %_ZN4core5slice4sort26insertion_sort_shift_right17h9f39ba1626f28c2dE.exit ], [ 1, %2 ]
+  %.02213 = phi i64 [ %.123.lcssa, %_ZN4core5slice4sort26insertion_sort_shift_right17h9f39ba1626f28c2dE.exit ], [ 1, %2 ]
   %.sroa.0.012 = phi i64 [ %23, %_ZN4core5slice4sort26insertion_sort_shift_right17h9f39ba1626f28c2dE.exit ], [ 0, %2 ]
   %23 = add nuw nsw i64 %.sroa.0.012, 1
   %24 = icmp ult i64 %.02213, %1
@@ -1233,7 +1227,6 @@ _ZN4core5slice4sort11insert_tail17h84dc9f78b220b947E.exit.i: ; preds = %.thread.
   br i1 %.0.in.i.i26.i7.i, label %.lr.ph.i, label %.thread.i.i31
 
 .thread.i.i31:                                    ; preds = %.lr.ph.i, %.lr.ph.i.i33, %.lr.ph.i.preheader.i, %70
-  %.123.lcssa34 = phi i64 [ 2, %70 ], [ %.123.lcssa, %.lr.ph.i.preheader.i ], [ %.123.lcssa, %.lr.ph.i.i33 ], [ %.123.lcssa, %.lr.ph.i ]
   %.sroa.5.0.lcssa.i.i32 = phi ptr [ %4, %70 ], [ %4, %.lr.ph.i.preheader.i ], [ %80, %.lr.ph.i.i33 ], [ %80, %.lr.ph.i ]
   %.sroa.6.0.insert.ext4.i.i = zext i32 %.val21.i.i to i64
   %.sroa.6.0.insert.shift5.i.i = shl nuw i64 %.sroa.6.0.insert.ext4.i.i, 32
@@ -1264,7 +1257,6 @@ _ZN4core5slice4sort11insert_tail17h84dc9f78b220b947E.exit.i: ; preds = %.thread.
   br i1 %exitcond.not.i.i, label %.thread.i.i31, label %.lr.ph.i.i33
 
 _ZN4core5slice4sort26insertion_sort_shift_right17h9f39ba1626f28c2dE.exit: ; preds = %.thread.i.i31, %_ZN4core5slice4sort11insert_tail17h84dc9f78b220b947E.exit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h61e69fa10aa7c9aeE.exit"
-  %.123.lcssa33 = phi i64 [ %.123.lcssa34, %.thread.i.i31 ], [ %.123.lcssa, %_ZN4core5slice4sort11insert_tail17h84dc9f78b220b947E.exit.i ], [ 1, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h61e69fa10aa7c9aeE.exit" ]
   %exitcond29.not = icmp eq i64 %23, 5
   br i1 %exitcond29.not, label %.thread, label %.split
 }

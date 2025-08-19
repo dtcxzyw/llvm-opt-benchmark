@@ -197,8 +197,8 @@ define noundef i64 @_ZN4base5debug23TraceStackFramePointersEPPKvmm(ptr noundef w
   %.0.i = select i1 %6, i64 %8, i64 0
   %.not13.i = icmp eq i64 %.0.i, 0
   %9 = add i64 %.0.i, -16
-  %.not44 = icmp eq i64 %1, 0
-  br i1 %.not44, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.lr.ph
+  %.not49 = icmp eq i64 %1, 0
+  br i1 %.not49, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = tail call ptr @llvm.frameaddress.p0(i32 0)
@@ -206,34 +206,34 @@ define noundef i64 @_ZN4base5debug23TraceStackFramePointersEPPKvmm(ptr noundef w
   br label %12
 
 12:                                               ; preds = %.lr.ph, %.backedge
-  %.01739 = phi i64 [ 0, %.lr.ph ], [ %.2, %.backedge ]
-  %.01838 = phi i64 [ %2, %.lr.ph ], [ %.119, %.backedge ]
-  %.02037 = phi i64 [ %11, %.lr.ph ], [ %.020.be, %.backedge ]
-  %.not = icmp eq i64 %.01838, 0
+  %.01744 = phi i64 [ 0, %.lr.ph ], [ %.2, %.backedge ]
+  %.01843 = phi i64 [ %2, %.lr.ph ], [ %.119, %.backedge ]
+  %.02042 = phi i64 [ %11, %.lr.ph ], [ %.020.be, %.backedge ]
+  %.not = icmp eq i64 %.01843, 0
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = add i64 %.01838, -1
-  %.pre = inttoptr i64 %.02037 to ptr
+  %14 = add i64 %.01843, -1
+  %.pre = inttoptr i64 %.02042 to ptr
   br label %22
 
 15:                                               ; preds = %12
-  %16 = inttoptr i64 %.02037 to ptr
+  %16 = inttoptr i64 %.02042 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !8
   %19 = inttoptr i64 %18 to ptr
-  %20 = add nuw i64 %.01739, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01739
+  %20 = add nuw i64 %.01744, 1
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01744
   store ptr %19, ptr %21, align 8, !tbaa !33
   br label %22
 
 22:                                               ; preds = %15, %13
   %.pre-phi = phi ptr [ %16, %15 ], [ %.pre, %13 ]
   %.119 = phi i64 [ 0, %15 ], [ %14, %13 ]
-  %.2 = phi i64 [ %20, %15 ], [ %.01739, %13 ]
+  %.2 = phi i64 [ %20, %15 ], [ %.01744, %13 ]
   %23 = load i64, ptr %.pre-phi, align 8, !tbaa !8
-  %.not.i = icmp ugt i64 %23, %.02037
-  %24 = sub nuw i64 %23, %.02037
+  %.not.i = icmp ugt i64 %23, %.02042
+  %24 = sub nuw i64 %23, %.02042
   %25 = icmp ult i64 %24, 100001
   %or.cond.not17.i = select i1 %.not.i, i1 %25, i1 false
   %26 = and i64 %23, 7
@@ -259,10 +259,10 @@ define noundef i64 @_ZN4base5debug23TraceStackFramePointersEPPKvmm(ptr noundef w
   br i1 %.not13.i, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.thread
 
 .thread:                                          ; preds = %28, %30, %35
-  %36 = add i64 %.02037, 8200
+  %36 = add i64 %.02042, 8200
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %36)
   %37 = add i64 %.sroa.speculated.i, -8
-  %.01649.i = add i64 %.02037, 8
+  %.01649.i = add i64 %.02042, 8
   %.not1950.i = icmp ugt i64 %.01649.i, %37
   br i1 %.not1950.i, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, label %.lr.ph.i
 

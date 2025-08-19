@@ -181,7 +181,7 @@ define hidden range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %0, ptr noundef 
   br i1 %or.cond127, label %32, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr167, label %switch.early.test._crit_edge.split.loop.exit198 [
+  switch i8 %.fr167, label %switch.early.test._crit_edge.split.loop.exit205 [
     i8 102, label %32
     i8 101, label %32
     i8 100, label %32
@@ -201,12 +201,12 @@ switch.early.test:                                ; preds = %.lr.ph
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre-phi190
   br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !19
 
-switch.early.test._crit_edge.split.loop.exit198:  ; preds = %switch.early.test
+switch.early.test._crit_edge.split.loop.exit205:  ; preds = %switch.early.test
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   br label %switch.early.test._crit_edge
 
-switch.early.test._crit_edge:                     ; preds = %32, %switch.early.test._crit_edge.split.loop.exit198
-  %.2119.ph = phi i32 [ %33, %switch.early.test._crit_edge.split.loop.exit198 ], [ %.1118134, %32 ]
+switch.early.test._crit_edge:                     ; preds = %32, %switch.early.test._crit_edge.split.loop.exit205
+  %.2119.ph = phi i32 [ %33, %switch.early.test._crit_edge.split.loop.exit205 ], [ %.1118134, %32 ]
   %34 = sext i32 %.2119.ph to i64
   %35 = getelementptr inbounds i8, ptr %2, i64 %34
   store i8 0, ptr %35, align 1, !tbaa !16
@@ -233,7 +233,7 @@ switch.early.test._crit_edge:                     ; preds = %32, %switch.early.t
 45:                                               ; preds = %41, %38, %37
   %.3 = phi i32 [ %.2119.ph, %38 ], [ %.2119.ph, %37 ], [ %spec.select, %41 ]
   %.0106 = phi ptr [ %2, %38 ], [ %2, %37 ], [ %spec.select166, %41 ]
-  %46 = add i32 %.3, %.neg
+  %46 = add nsw i32 %.3, %.neg
   %47 = and i32 %46, 1
   %.not125 = icmp eq i32 %47, 0
   br i1 %.not125, label %49, label %48
@@ -287,13 +287,13 @@ switch.early.test._crit_edge:                     ; preds = %32, %switch.early.t
 .preheader.preheader:                             ; preds = %69
   %71 = sext i32 %.0105152 to i64
   %wide.trip.count186 = zext nneg i32 %50 to i64
-  %invariant.gep200 = getelementptr i8, ptr %.1109, i64 %71
+  %invariant.gep207 = getelementptr i8, ptr %.1109, i64 %71
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %89
   %indvars.iv181 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next182, %89 ]
   %indvars.iv179 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next180, %89 ]
-  %gep201 = getelementptr i8, ptr %invariant.gep200, i64 %indvars.iv181
+  %gep208 = getelementptr i8, ptr %invariant.gep207, i64 %indvars.iv181
   %invariant.gep = getelementptr inbounds nuw i8, ptr %.0106, i64 %indvars.iv179
   br label %72
 
@@ -330,10 +330,10 @@ switch.early.test._crit_edge:                     ; preds = %32, %switch.early.t
 
 85:                                               ; preds = %72, %78, %82
   %.0113 = phi i8 [ %79, %78 ], [ %83, %82 ], [ %75, %72 ]
-  %86 = load i8, ptr %gep201, align 1, !tbaa !16
+  %86 = load i8, ptr %gep208, align 1, !tbaa !16
   %87 = shl i8 %86, 4
   %88 = or i8 %87, %.0113
-  store i8 %88, ptr %gep201, align 1, !tbaa !16
+  store i8 %88, ptr %gep208, align 1, !tbaa !16
   br i1 %73, label %72, label %89, !llvm.loop !20
 
 89:                                               ; preds = %85

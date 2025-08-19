@@ -1373,8 +1373,8 @@ ecjpake_write_len_point.exit44.thread:            ; preds = %18, %26
   %35 = icmp ult ptr %14, %34
   %notsub71 = add i64 %notsub, %33
   %36 = icmp sgt i64 %notsub71, -6
-  %or.cond73 = or i1 %35, %36
-  br i1 %or.cond73, label %ecjpake_write_len_point.exit47.thread, label %37
+  %or.cond83 = or i1 %35, %36
+  br i1 %or.cond83, label %ecjpake_write_len_point.exit47.thread, label %37
 
 37:                                               ; preds = %29
   %38 = ptrtoint ptr %14 to i64

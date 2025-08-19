@@ -813,7 +813,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %53 = add i32 %.046.i, %.0252356
   %54 = icmp ule i32 %53, %43
   %or.cond.i = or i1 %6, %54
-  br i1 %or.cond.i, label %55, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i, label %55, label %CEscape.exit239.thread.thread397
 
 55:                                               ; preds = %51
   br i1 %52, label %56, label %61
@@ -918,7 +918,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %106 = add i32 %.046.i160, %.7.ph
   %107 = icmp ule i32 %106, %96
   %or.cond.i164 = or i1 %6, %107
-  br i1 %or.cond.i164, label %108, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i164, label %108, label %CEscape.exit239.thread.thread397
 
 108:                                              ; preds = %104
   br i1 %105, label %109, label %114
@@ -1019,7 +1019,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %155 = add i32 %.046.i168, %.8258.ph
   %156 = icmp ule i32 %155, %145
   %or.cond.i172 = or i1 %6, %156
-  br i1 %or.cond.i172, label %157, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i172, label %157, label %CEscape.exit239.thread.thread397
 
 157:                                              ; preds = %153
   br i1 %154, label %158, label %163
@@ -1120,7 +1120,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %204 = add i32 %.046.i176, %.9.ph
   %205 = icmp ule i32 %204, %194
   %or.cond.i180 = or i1 %6, %205
-  br i1 %or.cond.i180, label %206, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i180, label %206, label %CEscape.exit239.thread.thread397
 
 206:                                              ; preds = %202
   br i1 %203, label %207, label %212
@@ -1209,13 +1209,13 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %252 = add i32 %.10.ph, 1
   %253 = icmp ule i32 %252, %250
   %or.cond.i188 = or i1 %6, %253
-  br i1 %or.cond.i188, label %256, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i188, label %256, label %CEscape.exit239.thread.thread397
 
 .thread:                                          ; preds = %249
   %254 = add i32 %.10.ph, 3
   %255 = icmp ule i32 %254, %250
   %or.cond.i188277 = or i1 %6, %255
-  br i1 %or.cond.i188277, label %257, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i188277, label %257, label %CEscape.exit239.thread.thread397
 
 256:                                              ; preds = %251
   br i1 %6, label %CEscape.exit, label %CEscape.exit.sink.split
@@ -1235,10 +1235,10 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   br label %CEscape.exit.sink.split
 
 CEscape.exit.sink.split:                          ; preds = %256, %258
-  %.sink407 = phi i32 [ %262, %258 ], [ %.10.ph, %256 ]
+  %.sink415 = phi i32 [ %262, %258 ], [ %.10.ph, %256 ]
   %.sink = phi i8 [ 65, %258 ], [ 10, %256 ]
   %.2254.ph = phi i32 [ %254, %258 ], [ %252, %256 ]
-  %265 = zext i32 %.sink407 to i64
+  %265 = zext i32 %.sink415 to i64
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 %265
   store i8 %.sink, ptr %266, align 1, !tbaa !7
   br label %CEscape.exit
@@ -1281,8 +1281,8 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %286 = zext nneg i8 %281 to i64
   %287 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %286
   %288 = load i8, ptr %287, align 1, !tbaa !7
-  %.not408 = icmp eq i32 %4, 1
-  br i1 %.not408, label %289, label %293
+  %.not416 = icmp eq i32 %4, 1
+  br i1 %.not416, label %289, label %293
 
 289:                                              ; preds = %279
   switch i8 %288, label %293 [
@@ -1309,7 +1309,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %295 = add i32 %.046.i192, %.0252.lcssa
   %296 = icmp ule i32 %295, %285
   %or.cond.i196 = or i1 %6, %296
-  br i1 %or.cond.i196, label %297, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i196, label %297, label %CEscape.exit239.thread.thread397
 
 297:                                              ; preds = %293
   br i1 %294, label %298, label %303
@@ -1388,7 +1388,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %340 = zext nneg i8 %338 to i64
   %341 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %340
   %342 = load i8, ptr %341, align 1, !tbaa !7
-  br i1 %.not408, label %343, label %347
+  br i1 %.not416, label %343, label %347
 
 343:                                              ; preds = %333
   switch i8 %342, label %347 [
@@ -1415,7 +1415,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %349 = add i32 %.046.i200, %.12.ph
   %350 = icmp ule i32 %349, %339
   %or.cond.i204 = or i1 %6, %350
-  br i1 %or.cond.i204, label %351, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i204, label %351, label %CEscape.exit239.thread.thread397
 
 351:                                              ; preds = %347
   br i1 %348, label %352, label %357
@@ -1491,7 +1491,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
 389:                                              ; preds = %387
   %390 = getelementptr inbounds nuw [64 x i8], ptr @base64Encode, i64 0, i64 %284
   %391 = load i8, ptr %390, align 4, !tbaa !7
-  br i1 %.not408, label %392, label %396
+  br i1 %.not416, label %392, label %396
 
 392:                                              ; preds = %389
   switch i8 %391, label %396 [
@@ -1518,7 +1518,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %398 = add i32 %.046.i208, %.4255.ph
   %399 = icmp ule i32 %398, %388
   %or.cond.i212 = or i1 %6, %399
-  br i1 %or.cond.i212, label %400, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i212, label %400, label %CEscape.exit239.thread.thread397
 
 400:                                              ; preds = %396
   br i1 %397, label %401, label %406
@@ -1587,22 +1587,22 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   br label %456
 
 436:                                              ; preds = %387
-  br i1 %.not408, label %.thread311, label %437
+  br i1 %.not416, label %.thread311, label %437
 
 437:                                              ; preds = %436
   %438 = add i32 %.4255.ph, 1
   %439 = icmp ule i32 %438, %388
   %or.cond.i220 = or i1 %6, %439
-  br i1 %or.cond.i220, label %442, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i220, label %442, label %CEscape.exit239.thread.thread397
 
 .thread311:                                       ; preds = %436
   %440 = add i32 %.4255.ph, 3
   %441 = icmp ule i32 %440, %388
   %or.cond.i220314 = or i1 %6, %441
-  br i1 %or.cond.i220314, label %446, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i220314, label %446, label %CEscape.exit239.thread.thread397
 
 442:                                              ; preds = %437
-  br i1 %6, label %.thread371, label %443
+  br i1 %6, label %.thread379, label %443
 
 443:                                              ; preds = %442
   %444 = zext i32 %.4255.ph to i64
@@ -1611,7 +1611,7 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   br label %.thread329
 
 446:                                              ; preds = %.thread311
-  br i1 %6, label %.thread373, label %447
+  br i1 %6, label %.thread381, label %447
 
 447:                                              ; preds = %446
   %448 = add i32 %.4255.ph, 1
@@ -1629,10 +1629,10 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
 
 456:                                              ; preds = %429, %428, %421, %413, %407, %403, %401
   %.5256.ph = phi i32 [ %402, %401 ], [ %410, %428 ], [ %433, %429 ], [ %425, %421 ], [ %417, %413 ], [ %408, %407 ], [ %402, %403 ]
-  %spec.select350 = select i1 %.not408, i32 3, i32 1
+  %spec.select350 = select i1 %.not416, i32 3, i32 1
   br label %.thread329
 
-.thread371:                                       ; preds = %442
+.thread379:                                       ; preds = %442
   %457 = add i32 %.4255.ph, 2
   br label %CEscape.exit199
 
@@ -1643,10 +1643,10 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   %459 = add i32 %.046.i224, %.5256.ph326
   %460 = icmp ule i32 %459, %458
   %or.cond.i228 = or i1 %6, %460
-  br i1 %or.cond.i228, label %461, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i228, label %461, label %CEscape.exit239.thread.thread397
 
 461:                                              ; preds = %.thread329
-  br i1 %.not408, label %467, label %462
+  br i1 %.not416, label %467, label %462
 
 462:                                              ; preds = %461
   %463 = add i32 %.5256.ph326, 1
@@ -1659,11 +1659,11 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   br label %CEscape.exit199
 
 467:                                              ; preds = %461
-  br i1 %6, label %.thread373, label %469
+  br i1 %6, label %.thread381, label %469
 
-.thread373:                                       ; preds = %446, %467
-  %.5256.ph326368370375 = phi i32 [ %.5256.ph326, %467 ], [ %440, %446 ]
-  %468 = add i32 %.5256.ph326368370375, 3
+.thread381:                                       ; preds = %446, %467
+  %.5256.ph326376378383 = phi i32 [ %.5256.ph326, %467 ], [ %440, %446 ]
+  %468 = add i32 %.5256.ph326376378383, 3
   br label %CEscape.exit199
 
 469:                                              ; preds = %467
@@ -1681,8 +1681,8 @@ CEscape.exit:                                     ; preds = %CEscape.exit.sink.s
   store i8 68, ptr %478, align 1, !tbaa !7
   br label %CEscape.exit199
 
-CEscape.exit199:                                  ; preds = %.thread371, %469, %.thread373, %464, %462, %._crit_edge
-  %.3 = phi i32 [ %.0252.lcssa, %._crit_edge ], [ %463, %464 ], [ %468, %.thread373 ], [ %476, %469 ], [ %463, %462 ], [ %457, %.thread371 ]
+CEscape.exit199:                                  ; preds = %.thread379, %469, %.thread381, %464, %462, %._crit_edge
+  %.3 = phi i32 [ %.0252.lcssa, %._crit_edge ], [ %463, %464 ], [ %468, %.thread381 ], [ %476, %469 ], [ %463, %462 ], [ %457, %.thread379 ]
   %.not352 = icmp eq i32 %4, 2
   br i1 %.not352, label %CEscape.exit239, label %479
 
@@ -1695,19 +1695,19 @@ CEscape.exit199:                                  ; preds = %.thread371, %469, %
   %483 = add i32 %.3, 1
   %484 = icmp ule i32 %483, %480
   %or.cond.i236 = or i1 %6, %484
-  br i1 %or.cond.i236, label %487, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i236, label %487, label %CEscape.exit239.thread.thread397
 
 .thread336:                                       ; preds = %479
   %485 = add i32 %.3, 3
   %486 = icmp ule i32 %485, %480
   %or.cond.i236339 = or i1 %6, %486
-  br i1 %or.cond.i236339, label %488, label %CEscape.exit239.thread.thread389
+  br i1 %or.cond.i236339, label %488, label %CEscape.exit239.thread.thread397
 
 487:                                              ; preds = %482
-  br i1 %6, label %CEscape.exit239.thread392, label %CEscape.exit239.thread386
+  br i1 %6, label %CEscape.exit239.thread400, label %CEscape.exit239.thread394
 
 488:                                              ; preds = %.thread336
-  br i1 %6, label %.thread399, label %489
+  br i1 %6, label %.thread407, label %489
 
 489:                                              ; preds = %488
   %490 = add i32 %.3, 1
@@ -1721,56 +1721,56 @@ CEscape.exit199:                                  ; preds = %.thread371, %469, %
   %496 = zext i32 %493 to i64
   %497 = getelementptr inbounds nuw i8, ptr %2, i64 %496
   store i8 65, ptr %497, align 1, !tbaa !7
-  br label %CEscape.exit239.thread.thread389
+  br label %CEscape.exit239.thread.thread397
 
 CEscape.exit239:                                  ; preds = %CEscape.exit199
-  %.not411 = icmp eq i32 %.3, %16
-  br i1 %.not411, label %CEscape.exit239.thread, label %509
+  %.not419 = icmp eq i32 %.3, %16
+  br i1 %.not419, label %CEscape.exit239.thread, label %509
 
-CEscape.exit239.thread392:                        ; preds = %487
-  %.not410 = icmp eq i32 %483, %16
-  br i1 %.not410, label %.thread399, label %509
+CEscape.exit239.thread400:                        ; preds = %487
+  %.not418 = icmp eq i32 %483, %16
+  br i1 %.not418, label %.thread407, label %509
 
-CEscape.exit239.thread386:                        ; preds = %487
+CEscape.exit239.thread394:                        ; preds = %487
   %498 = zext i32 %.3 to i64
   %499 = getelementptr inbounds nuw i8, ptr %2, i64 %498
   store i8 10, ptr %499, align 1, !tbaa !7
-  %.not409 = icmp eq i32 %483, %16
-  br i1 %.not409, label %CEscape.exit239.thread.thread389, label %509
+  %.not417 = icmp eq i32 %483, %16
+  br i1 %.not417, label %CEscape.exit239.thread.thread397, label %509
 
 CEscape.exit239.thread:                           ; preds = %CEscape.exit239
-  br i1 %6, label %.thread399, label %CEscape.exit239.thread.thread389
+  br i1 %6, label %.thread407, label %CEscape.exit239.thread.thread397
 
-CEscape.exit239.thread.thread389:                 ; preds = %251, %.thread, %202, %153, %104, %51, %.thread336, %489, %482, %293, %347, %396, %437, %.thread311, %.thread329, %CEscape.exit239.thread386, %CEscape.exit239.thread
-  %.6257348381 = phi i32 [ %.3, %CEscape.exit239.thread ], [ %483, %CEscape.exit239.thread386 ], [ %.0252.lcssa, %293 ], [ %.12.ph, %347 ], [ %.4255.ph, %396 ], [ %.4255.ph, %437 ], [ %.4255.ph, %.thread311 ], [ %.5256.ph326, %.thread329 ], [ %.3, %482 ], [ %.3, %.thread336 ], [ %485, %489 ], [ %.0252356, %51 ], [ %.7.ph, %104 ], [ %.8258.ph, %153 ], [ %.9.ph, %202 ], [ %.10.ph, %.thread ], [ %.10.ph, %251 ]
-  %.8349379 = phi i32 [ 0, %CEscape.exit239.thread ], [ 0, %CEscape.exit239.thread386 ], [ -132, %293 ], [ -132, %347 ], [ -132, %396 ], [ -132, %437 ], [ -132, %.thread311 ], [ -132, %.thread329 ], [ -132, %482 ], [ -132, %.thread336 ], [ 0, %489 ], [ -132, %51 ], [ -132, %104 ], [ -132, %153 ], [ -132, %202 ], [ -132, %.thread ], [ -132, %251 ]
-  %500 = phi i1 [ true, %CEscape.exit239.thread ], [ true, %CEscape.exit239.thread386 ], [ false, %293 ], [ false, %347 ], [ false, %396 ], [ false, %437 ], [ false, %.thread311 ], [ false, %.thread329 ], [ false, %482 ], [ false, %.thread336 ], [ true, %489 ], [ false, %51 ], [ false, %104 ], [ false, %153 ], [ false, %202 ], [ false, %.thread ], [ false, %251 ]
+CEscape.exit239.thread.thread397:                 ; preds = %251, %.thread, %202, %153, %104, %51, %.thread336, %489, %482, %293, %347, %396, %437, %.thread311, %.thread329, %CEscape.exit239.thread394, %CEscape.exit239.thread
+  %.6257348389 = phi i32 [ %.3, %CEscape.exit239.thread ], [ %483, %CEscape.exit239.thread394 ], [ %.0252.lcssa, %293 ], [ %.12.ph, %347 ], [ %.4255.ph, %396 ], [ %.4255.ph, %437 ], [ %.4255.ph, %.thread311 ], [ %.5256.ph326, %.thread329 ], [ %.3, %482 ], [ %.3, %.thread336 ], [ %485, %489 ], [ %.0252356, %51 ], [ %.7.ph, %104 ], [ %.8258.ph, %153 ], [ %.9.ph, %202 ], [ %.10.ph, %.thread ], [ %.10.ph, %251 ]
+  %.8349387 = phi i32 [ 0, %CEscape.exit239.thread ], [ 0, %CEscape.exit239.thread394 ], [ -132, %293 ], [ -132, %347 ], [ -132, %396 ], [ -132, %437 ], [ -132, %.thread311 ], [ -132, %.thread329 ], [ -132, %482 ], [ -132, %.thread336 ], [ 0, %489 ], [ -132, %51 ], [ -132, %104 ], [ -132, %153 ], [ -132, %202 ], [ -132, %.thread ], [ -132, %251 ]
+  %500 = phi i1 [ true, %CEscape.exit239.thread ], [ true, %CEscape.exit239.thread394 ], [ false, %293 ], [ false, %347 ], [ false, %396 ], [ false, %437 ], [ false, %.thread311 ], [ false, %.thread329 ], [ false, %482 ], [ false, %.thread336 ], [ true, %489 ], [ false, %51 ], [ false, %104 ], [ false, %153 ], [ false, %202 ], [ false, %.thread ], [ false, %251 ]
   %501 = load i32, ptr %3, align 4, !tbaa !3
-  %502 = icmp ugt i32 %501, %.6257348381
+  %502 = icmp ugt i32 %501, %.6257348389
   br i1 %502, label %503, label %506
 
-503:                                              ; preds = %CEscape.exit239.thread.thread389
-  %504 = zext i32 %.6257348381 to i64
+503:                                              ; preds = %CEscape.exit239.thread.thread397
+  %504 = zext i32 %.6257348389 to i64
   %505 = getelementptr inbounds nuw i8, ptr %2, i64 %504
   store i8 0, ptr %505, align 1, !tbaa !7
-  store i32 %.6257348381, ptr %3, align 4, !tbaa !3
+  store i32 %.6257348389, ptr %3, align 4, !tbaa !3
   br i1 %500, label %507, label %509
 
-.thread399:                                       ; preds = %CEscape.exit239.thread, %488, %CEscape.exit239.thread392
-  %.6257348382.ph = phi i32 [ %.3, %CEscape.exit239.thread ], [ %485, %488 ], [ %483, %CEscape.exit239.thread392 ]
-  store i32 %.6257348382.ph, ptr %3, align 4, !tbaa !3
+.thread407:                                       ; preds = %CEscape.exit239.thread, %488, %CEscape.exit239.thread400
+  %.6257348390.ph = phi i32 [ %.3, %CEscape.exit239.thread ], [ %485, %488 ], [ %483, %CEscape.exit239.thread400 ]
+  store i32 %.6257348390.ph, ptr %3, align 4, !tbaa !3
   br label %507
 
-506:                                              ; preds = %CEscape.exit239.thread.thread389
-  store i32 %.6257348381, ptr %3, align 4, !tbaa !3
+506:                                              ; preds = %CEscape.exit239.thread.thread397
+  store i32 %.6257348389, ptr %3, align 4, !tbaa !3
   br i1 %500, label %507, label %509
 
-507:                                              ; preds = %503, %.thread399, %506
-  %508 = phi i32 [ -202, %.thread399 ], [ 0, %506 ], [ 0, %503 ]
+507:                                              ; preds = %503, %.thread407, %506
+  %508 = phi i32 [ -202, %.thread407 ], [ 0, %506 ], [ 0, %503 ]
   br label %509
 
-509:                                              ; preds = %507, %506, %503, %CEscape.exit239.thread392, %CEscape.exit239.thread386, %CEscape.exit239, %15, %17
-  %.0 = phi i32 [ -173, %17 ], [ -173, %15 ], [ -154, %CEscape.exit239 ], [ -154, %CEscape.exit239.thread386 ], [ -154, %CEscape.exit239.thread392 ], [ %508, %507 ], [ %.8349379, %506 ], [ %.8349379, %503 ]
+509:                                              ; preds = %507, %506, %503, %CEscape.exit239.thread400, %CEscape.exit239.thread394, %CEscape.exit239, %15, %17
+  %.0 = phi i32 [ -173, %17 ], [ -173, %15 ], [ -154, %CEscape.exit239 ], [ -154, %CEscape.exit239.thread394 ], [ -154, %CEscape.exit239.thread400 ], [ %508, %507 ], [ %.8349387, %506 ], [ %.8349387, %503 ]
   ret i32 %.0
 }
 

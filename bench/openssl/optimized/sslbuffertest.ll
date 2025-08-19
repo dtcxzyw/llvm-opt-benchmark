@@ -337,7 +337,7 @@ checkbuffers.exit90.us:                           ; preds = %107, %100
 .thread105.us:                                    ; preds = %checkbuffers.exit90.us, %93, %71, %49
   %115 = load ptr, ptr %3, align 8, !tbaa !4
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 %27
-  %117 = sub i32 10, %.050138.us
+  %117 = sub nsw i32 10, %.050138.us
   %118 = call i32 @SSL_write(ptr noundef %115, ptr noundef nonnull %116, i32 noundef %117) #5
   %119 = icmp sgt i32 %118, 0
   br i1 %119, label %124, label %120
@@ -366,7 +366,7 @@ checkbuffers.exit90.us:                           ; preds = %107, %100
   %131 = phi i1 [ false, %143 ], [ true, %.preheader128 ]
   %132 = load ptr, ptr %3, align 8, !tbaa !4
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 %130
-  %134 = sub i32 10, %.050138
+  %134 = sub nsw i32 10, %.050138
   %135 = call i32 @SSL_write(ptr noundef %132, ptr noundef nonnull %133, i32 noundef %134) #5
   %136 = icmp sgt i32 %135, 0
   br i1 %136, label %137, label %139
@@ -549,7 +549,7 @@ checkbuffers.exit102:                             ; preds = %221, %228
 .thread112:                                       ; preds = %.preheader, %170, %192, %checkbuffers.exit102, %214
   %236 = load ptr, ptr %2, align 8, !tbaa !4
   %237 = getelementptr inbounds nuw i8, ptr %5, i64 %148
-  %238 = sub i32 10, %.252140
+  %238 = sub nsw i32 10, %.252140
   %239 = call i32 @SSL_read(ptr noundef %236, ptr noundef nonnull %237, i32 noundef %238) #5
   %240 = icmp sgt i32 %239, 0
   br i1 %240, label %241, label %243

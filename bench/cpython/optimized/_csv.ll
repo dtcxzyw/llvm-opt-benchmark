@@ -905,7 +905,7 @@ _set_bool.exit:                                   ; preds = %_set_bool.exitthrea
   br label %Py_DECREF.exit149
 
 Py_DECREF.exit149:                                ; preds = %338, %_set_bool.exit, %344, %347
-  %.071235 = phi ptr [ %.071, %_set_bool.exit ], [ %.071, %344 ], [ %.071, %347 ], [ %72, %338 ]
+  %.071291 = phi ptr [ %.071, %_set_bool.exit ], [ %.071, %344 ], [ %.071, %347 ], [ %72, %338 ]
   %348 = load ptr, ptr %5, align 8, !tbaa !3
   %.not138 = icmp eq ptr %348, null
   br i1 %.not138, label %Py_DECREF.exit151, label %349
@@ -1095,7 +1095,7 @@ Py_DECREF.exit165:                                ; preds = %403, %400, %398, %P
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %21, %15, %410, %407, %405, %81, %78, %76, %67, %get_dialect_from_registry.exit, %74, %Py_DECREF.exit165, %3
-  %.0 = phi ptr [ null, %3 ], [ %68, %67 ], [ null, %get_dialect_from_registry.exit ], [ null, %74 ], [ %.071235, %Py_DECREF.exit165 ], [ null, %76 ], [ null, %78 ], [ null, %81 ], [ %.071235, %405 ], [ %.071235, %407 ], [ %.071235, %410 ], [ null, %15 ], [ null, %21 ]
+  %.0 = phi ptr [ null, %3 ], [ %68, %67 ], [ null, %get_dialect_from_registry.exit ], [ null, %74 ], [ %.071291, %Py_DECREF.exit165 ], [ null, %76 ], [ null, %78 ], [ null, %81 ], [ %.071291, %405 ], [ %.071291, %407 ], [ %.071291, %410 ], [ null, %15 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

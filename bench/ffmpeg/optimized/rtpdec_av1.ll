@@ -195,9 +195,9 @@ define internal i32 @av1_handle_packet(ptr noundef %0, ptr noundef captures(none
   %61 = load i32, ptr %4, align 4, !tbaa !45
   %62 = icmp ne i32 %60, %61
   %or.cond5 = or i1 %45, %62
-  br i1 %or.cond5, label %.thread506, label %.thread342
+  br i1 %or.cond5, label %.thread525, label %.thread342
 
-.thread506:                                       ; preds = %59
+.thread525:                                       ; preds = %59
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.16, i32 noundef %61, i32 noundef %29) #8
   store i32 1, ptr %57, align 4, !tbaa !43
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -228,7 +228,7 @@ define internal i32 @av1_handle_packet(ptr noundef %0, ptr noundef captures(none
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.17) #8
   br label %.thread432
 
-73:                                               ; preds = %.thread506, %64
+73:                                               ; preds = %.thread525, %64
   %74 = load i32, ptr %4, align 4, !tbaa !45
   store i32 %74, ptr %1, align 4, !tbaa !44
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -451,7 +451,7 @@ calc_leb_size.exit:                               ; preds = %144
 171:                                              ; preds = %162, %160
   %.4259 = phi i32 [ %168, %162 ], [ %.0255481, %160 ]
   store i32 0, ptr %88, align 4, !tbaa !43
-  br i1 %.not303.not, label %177, label %.thread511
+  br i1 %.not303.not, label %177, label %.thread530
 
 .thread389:                                       ; preds = %148
   %172 = tail call i32 @av_grow_packet(ptr noundef %3, i32 noundef %.0243) #8
@@ -461,10 +461,10 @@ calc_leb_size.exit:                               ; preds = %144
 .thread389.thread:                                ; preds = %.thread358
   %174 = tail call i32 @av_grow_packet(ptr noundef %3, i32 noundef %.0335353365) #8
   %175 = icmp slt i32 %174, 0
-  br i1 %175, label %.thread432, label %.thread511
+  br i1 %175, label %.thread432, label %.thread530
 
 176:                                              ; preds = %.thread389
-  br i1 %.not303.not, label %._crit_edge504, label %.thread511
+  br i1 %.not303.not, label %._crit_edge504, label %.thread530
 
 ._crit_edge504:                                   ; preds = %176
   %.pre505 = zext nneg i8 %126 to i32
@@ -540,9 +540,9 @@ write_leb.exit:                                   ; preds = %.lr.ph.i, %197
   store i8 %209, ptr %.08.lcssa.i, align 1, !tbaa !33
   store i32 %.lcssa.i, ptr %92, align 4, !tbaa !54
   %210 = add i32 %.lcssa.i, %.7262
-  br label %.thread511
+  br label %.thread530
 
-.thread511:                                       ; preds = %.thread389.thread, %171, %write_leb.exit, %176
+.thread530:                                       ; preds = %.thread389.thread, %171, %write_leb.exit, %176
   %.3230421 = phi i32 [ %.3230420, %write_leb.exit ], [ %172, %176 ], [ %.2229, %171 ], [ %174, %.thread389.thread ]
   %.2239385400416 = phi i32 [ %.0237483, %write_leb.exit ], [ %.0237483, %176 ], [ 1, %171 ], [ %.0237483, %.thread389.thread ]
   %.not309407411.not = phi i1 [ true, %write_leb.exit ], [ false, %176 ], [ false, %171 ], [ false, %.thread389.thread ]
@@ -564,7 +564,7 @@ write_leb.exit:                                   ; preds = %.lr.ph.i, %197
   %or.cond.not = select i1 %.not312, i1 %or.cond14.not488, i1 false
   br i1 %or.cond.not, label %220, label %255
 
-220:                                              ; preds = %.thread511
+220:                                              ; preds = %.thread530
   %221 = add i32 %218, %.0335353365
   %222 = load i32, ptr %90, align 4, !tbaa !52
   %223 = sub i32 %221, %222
@@ -633,7 +633,7 @@ calc_leb_size.exit323:                            ; preds = %226
   store i8 %254, ptr %.08.lcssa.i327, align 1, !tbaa !33
   br label %.sink.split
 
-255:                                              ; preds = %.thread511
+255:                                              ; preds = %.thread530
   %or.cond16 = select i1 %94, i1 true, i1 %219
   br i1 %or.cond16, label %259, label %256
 
@@ -675,7 +675,7 @@ calc_leb_size.exit323:                            ; preds = %226
   br i1 %.not296, label %._crit_edge, label %95
 
 ._crit_edge:                                      ; preds = %.thread366, %.thread366.thread
-  %.1228520 = phi i32 [ %.6233, %.thread366.thread ], [ %.1228, %.thread366 ]
+  %.1228539 = phi i32 [ %.6233, %.thread366.thread ], [ %.1228, %.thread366 ]
   %261 = and i32 %8, 2
   %.not297 = icmp eq i32 %261, 0
   br i1 %.not297, label %264, label %262
@@ -687,7 +687,7 @@ calc_leb_size.exit323:                            ; preds = %226
   br label %264
 
 264:                                              ; preds = %._crit_edge, %262
-  %.7234 = phi i32 [ %.1228520, %262 ], [ -1, %._crit_edge ]
+  %.7234 = phi i32 [ %.1228539, %262 ], [ -1, %._crit_edge ]
   %.not298 = icmp eq i32 %25, 0
   br i1 %.not298, label %265, label %268
 

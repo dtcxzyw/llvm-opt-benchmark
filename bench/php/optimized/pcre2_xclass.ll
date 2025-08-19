@@ -879,15 +879,15 @@ switch.early.test:                                ; preds = %181
 
 544:                                              ; preds = %531
   %545 = add i32 %.6354, -2
-  br label %.outer469
+  br label %.outer487
 
-.outer469:                                        ; preds = %553, %544
+.outer487:                                        ; preds = %553, %544
   %.7355.ph = phi i32 [ %554, %553 ], [ %545, %544 ]
   %.3345.ph = phi i32 [ %.3345, %553 ], [ 0, %544 ]
   br label %546
 
-546:                                              ; preds = %.outer469, %555
-  %.3345 = phi i32 [ %556, %555 ], [ %.3345.ph, %.outer469 ]
+546:                                              ; preds = %.outer487, %555
+  %.3345 = phi i32 [ %556, %555 ], [ %.3345.ph, %.outer487 ]
   %547 = add i32 %.3345, %.7355.ph
   %548 = lshr i32 %547, 1
   %549 = zext nneg i32 %548 to i64
@@ -898,7 +898,7 @@ switch.early.test:                                ; preds = %181
 
 553:                                              ; preds = %546
   %554 = add nsw i32 %548, -1
-  br label %.outer469
+  br label %.outer487
 
 555:                                              ; preds = %546
   %556 = add nuw i32 %548, 1

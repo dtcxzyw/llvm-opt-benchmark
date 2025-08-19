@@ -243,16 +243,16 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %22, label %._crit_edge.thread, label %301
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %206, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %208, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %209, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %207, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %138, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %205, %._crit_edge ], [ %44, %23 ]
-  %212 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %206, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %208, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %209, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %207, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %138, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %205, %._crit_edge ], [ %44, %23 ]
+  %212 = load i8, ptr %.0195.lcssa271, align 1
   %213 = zext i8 %212 to i32
   %214 = add nsw i32 %213, -128
-  %215 = load i8, ptr %.0196.lcssa268, align 1
+  %215 = load i8, ptr %.0196.lcssa270, align 1
   %216 = zext i8 %215 to i32
   %217 = add nsw i32 %216, -128
   %218 = load i16, ptr %15, align 4
@@ -268,7 +268,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %228 = load i16, ptr %18, align 2
   %229 = zext i16 %228 to i32
   %230 = mul nsw i32 %214, %229
-  %231 = load i8, ptr %.0194.lcssa270, align 1
+  %231 = load i8, ptr %.0194.lcssa272, align 1
   %232 = zext i8 %231 to i32
   %233 = load i8, ptr %12, align 4
   %234 = zext i8 %233 to i32
@@ -305,8 +305,8 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %265 = lshr i8 %264, 3
   %266 = zext nneg i8 %265 to i16
   %267 = or disjoint i16 %258, %266
-  store i16 %267, ptr %.0198.lcssa266, align 2
-  %268 = load i8, ptr %.0197.lcssa267, align 1
+  store i16 %267, ptr %.0198.lcssa268, align 2
+  %268 = load i8, ptr %.0197.lcssa269, align 1
   %269 = zext i8 %268 to i32
   %270 = sub nsw i32 %269, %234
   %271 = mul nsw i32 %270, %237
@@ -339,7 +339,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %298 = lshr i8 %297, 3
   %299 = zext nneg i8 %298 to i16
   %300 = or disjoint i16 %291, %299
-  store i16 %300, ptr %.0199.lcssa265, align 2
+  store i16 %300, ptr %.0199.lcssa267, align 2
   br label %301
 
 301:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -489,14 +489,14 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %421, label %._crit_edge236.thread, label %483
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %415, %._crit_edge236 ], [ %307, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %416, %._crit_edge236 ], [ %311, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %414, %._crit_edge236 ], [ %315, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %417, %._crit_edge236 ], [ %312, %._crit_edge226.thread ]
-  %422 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %415, %._crit_edge236 ], [ %307, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %416, %._crit_edge236 ], [ %311, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %414, %._crit_edge236 ], [ %315, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %417, %._crit_edge236 ], [ %312, %._crit_edge226.thread ]
+  %422 = load i8, ptr %.0201.lcssa281, align 1
   %423 = zext i8 %422 to i32
   %424 = add nsw i32 %423, -128
-  %425 = load i8, ptr %.0203.lcssa277, align 1
+  %425 = load i8, ptr %.0203.lcssa279, align 1
   %426 = zext i8 %425 to i32
   %427 = add nsw i32 %426, -128
   %428 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -515,7 +515,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %441 = load i16, ptr %440, align 2
   %442 = zext i16 %441 to i32
   %443 = mul nsw i32 %424, %442
-  %444 = load i8, ptr %.0200.lcssa280, align 1
+  %444 = load i8, ptr %.0200.lcssa282, align 1
   %445 = zext i8 %444 to i32
   %446 = load i8, ptr %12, align 4
   %447 = zext i8 %446 to i32
@@ -554,7 +554,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %480 = lshr i8 %479, 3
   %481 = zext nneg i8 %480 to i16
   %482 = or disjoint i16 %473, %481
-  store i16 %482, ptr %.0202.lcssa278, align 2
+  store i16 %482, ptr %.0202.lcssa280, align 2
   br label %483
 
 483:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -770,16 +770,16 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %22, label %._crit_edge.thread, label %253
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0212.lcssa288 = phi ptr [ %174, %._crit_edge ], [ %27, %23 ]
-  %.0213.lcssa287 = phi ptr [ %176, %._crit_edge ], [ %32, %23 ]
-  %.0214.lcssa286 = phi ptr [ %177, %._crit_edge ], [ %33, %23 ]
-  %.0215.lcssa285 = phi ptr [ %175, %._crit_edge ], [ %38, %23 ]
-  %.0216.lcssa284 = phi ptr [ %122, %._crit_edge ], [ %41, %23 ]
-  %.0217.lcssa283 = phi ptr [ %173, %._crit_edge ], [ %44, %23 ]
-  %180 = load i8, ptr %.0213.lcssa287, align 1
+  %.0212.lcssa290 = phi ptr [ %174, %._crit_edge ], [ %27, %23 ]
+  %.0213.lcssa289 = phi ptr [ %176, %._crit_edge ], [ %32, %23 ]
+  %.0214.lcssa288 = phi ptr [ %177, %._crit_edge ], [ %33, %23 ]
+  %.0215.lcssa287 = phi ptr [ %175, %._crit_edge ], [ %38, %23 ]
+  %.0216.lcssa286 = phi ptr [ %122, %._crit_edge ], [ %41, %23 ]
+  %.0217.lcssa285 = phi ptr [ %173, %._crit_edge ], [ %44, %23 ]
+  %180 = load i8, ptr %.0213.lcssa289, align 1
   %181 = zext i8 %180 to i32
   %182 = add nsw i32 %181, -128
-  %183 = load i8, ptr %.0214.lcssa286, align 1
+  %183 = load i8, ptr %.0214.lcssa288, align 1
   %184 = zext i8 %183 to i32
   %185 = add nsw i32 %184, -128
   %186 = load i16, ptr %15, align 4
@@ -795,7 +795,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %196 = load i16, ptr %18, align 2
   %197 = zext i16 %196 to i32
   %198 = mul nsw i32 %182, %197
-  %199 = load i8, ptr %.0212.lcssa288, align 1
+  %199 = load i8, ptr %.0212.lcssa290, align 1
   %200 = zext i8 %199 to i32
   %201 = load i8, ptr %12, align 4
   %202 = zext i8 %201 to i32
@@ -810,14 +810,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %211
   %213 = load i8, ptr %212, align 1
-  store i8 %213, ptr %.0216.lcssa284, align 1
+  store i8 %213, ptr %.0216.lcssa286, align 1
   %214 = add nsw i32 %207, %195
   %215 = lshr i32 %214, 6
   %216 = and i32 %215, 511
   %217 = zext nneg i32 %216 to i64
   %218 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %217
   %219 = load i8, ptr %218, align 1
-  %220 = getelementptr inbounds nuw i8, ptr %.0216.lcssa284, i64 1
+  %220 = getelementptr inbounds nuw i8, ptr %.0216.lcssa286, i64 1
   store i8 %219, ptr %220, align 1
   %221 = add nsw i32 %207, %198
   %222 = lshr i32 %221, 6
@@ -825,9 +825,9 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %224
   %226 = load i8, ptr %225, align 1
-  %227 = getelementptr inbounds nuw i8, ptr %.0216.lcssa284, i64 2
+  %227 = getelementptr inbounds nuw i8, ptr %.0216.lcssa286, i64 2
   store i8 %226, ptr %227, align 1
-  %228 = load i8, ptr %.0215.lcssa285, align 1
+  %228 = load i8, ptr %.0215.lcssa287, align 1
   %229 = zext i8 %228 to i32
   %230 = sub nsw i32 %229, %202
   %231 = mul nsw i32 %230, %205
@@ -838,14 +838,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %236 = zext nneg i32 %235 to i64
   %237 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %236
   %238 = load i8, ptr %237, align 1
-  store i8 %238, ptr %.0217.lcssa283, align 1
+  store i8 %238, ptr %.0217.lcssa285, align 1
   %239 = add nsw i32 %232, %195
   %240 = lshr i32 %239, 6
   %241 = and i32 %240, 511
   %242 = zext nneg i32 %241 to i64
   %243 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %242
   %244 = load i8, ptr %243, align 1
-  %245 = getelementptr inbounds nuw i8, ptr %.0217.lcssa283, i64 1
+  %245 = getelementptr inbounds nuw i8, ptr %.0217.lcssa285, i64 1
   store i8 %244, ptr %245, align 1
   %246 = add nsw i32 %232, %198
   %247 = lshr i32 %246, 6
@@ -853,7 +853,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %249 = zext nneg i32 %248 to i64
   %250 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %249
   %251 = load i8, ptr %250, align 1
-  %252 = getelementptr inbounds nuw i8, ptr %.0217.lcssa283, i64 2
+  %252 = getelementptr inbounds nuw i8, ptr %.0217.lcssa285, i64 2
   store i8 %251, ptr %252, align 1
   br label %253
 
@@ -992,14 +992,14 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %357, label %._crit_edge254.thread, label %411
 
 ._crit_edge254.thread:                            ; preds = %._crit_edge244.thread, %._crit_edge254
-  %.0218.lcssa298 = phi ptr [ %351, %._crit_edge254 ], [ %259, %._crit_edge244.thread ]
-  %.0219.lcssa297 = phi ptr [ %352, %._crit_edge254 ], [ %263, %._crit_edge244.thread ]
-  %.0220.lcssa296 = phi ptr [ %350, %._crit_edge254 ], [ %267, %._crit_edge244.thread ]
-  %.0221.lcssa295 = phi ptr [ %353, %._crit_edge254 ], [ %264, %._crit_edge244.thread ]
-  %358 = load i8, ptr %.0219.lcssa297, align 1
+  %.0218.lcssa300 = phi ptr [ %351, %._crit_edge254 ], [ %259, %._crit_edge244.thread ]
+  %.0219.lcssa299 = phi ptr [ %352, %._crit_edge254 ], [ %263, %._crit_edge244.thread ]
+  %.0220.lcssa298 = phi ptr [ %350, %._crit_edge254 ], [ %267, %._crit_edge244.thread ]
+  %.0221.lcssa297 = phi ptr [ %353, %._crit_edge254 ], [ %264, %._crit_edge244.thread ]
+  %358 = load i8, ptr %.0219.lcssa299, align 1
   %359 = zext i8 %358 to i32
   %360 = add nsw i32 %359, -128
-  %361 = load i8, ptr %.0221.lcssa295, align 1
+  %361 = load i8, ptr %.0221.lcssa297, align 1
   %362 = zext i8 %361 to i32
   %363 = add nsw i32 %362, -128
   %364 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1018,7 +1018,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %377 = load i16, ptr %376, align 2
   %378 = zext i16 %377 to i32
   %379 = mul nsw i32 %360, %378
-  %380 = load i8, ptr %.0218.lcssa298, align 1
+  %380 = load i8, ptr %.0218.lcssa300, align 1
   %381 = zext i8 %380 to i32
   %382 = load i8, ptr %12, align 4
   %383 = zext i8 %382 to i32
@@ -1034,7 +1034,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %393 = zext nneg i32 %392 to i64
   %394 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %393
   %395 = load i8, ptr %394, align 1
-  store i8 %395, ptr %.0220.lcssa296, align 1
+  store i8 %395, ptr %.0220.lcssa298, align 1
   %396 = add nsw i32 %389, %371
   %397 = add nsw i32 %396, %375
   %398 = lshr i32 %397, 6
@@ -1042,7 +1042,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %400 = zext nneg i32 %399 to i64
   %401 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %400
   %402 = load i8, ptr %401, align 1
-  %403 = getelementptr inbounds nuw i8, ptr %.0220.lcssa296, i64 1
+  %403 = getelementptr inbounds nuw i8, ptr %.0220.lcssa298, i64 1
   store i8 %402, ptr %403, align 1
   %404 = add nsw i32 %389, %379
   %405 = lshr i32 %404, 6
@@ -1050,7 +1050,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %407 = zext nneg i32 %406 to i64
   %408 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %407
   %409 = load i8, ptr %408, align 1
-  %410 = getelementptr inbounds nuw i8, ptr %.0220.lcssa296, i64 2
+  %410 = getelementptr inbounds nuw i8, ptr %.0220.lcssa298, i64 2
   store i8 %409, ptr %410, align 1
   br label %411
 
@@ -1287,16 +1287,16 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %22, label %._crit_edge.thread, label %295
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %202, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %204, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %205, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %203, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %136, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %201, %._crit_edge ], [ %44, %23 ]
-  %208 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %202, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %204, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %205, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %203, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %136, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %201, %._crit_edge ], [ %44, %23 ]
+  %208 = load i8, ptr %.0195.lcssa271, align 1
   %209 = zext i8 %208 to i32
   %210 = add nsw i32 %209, -128
-  %211 = load i8, ptr %.0196.lcssa268, align 1
+  %211 = load i8, ptr %.0196.lcssa270, align 1
   %212 = zext i8 %211 to i32
   %213 = add nsw i32 %212, -128
   %214 = load i16, ptr %15, align 4
@@ -1312,7 +1312,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %224 = load i16, ptr %18, align 2
   %225 = zext i16 %224 to i32
   %226 = mul nsw i32 %210, %225
-  %227 = load i8, ptr %.0194.lcssa270, align 1
+  %227 = load i8, ptr %.0194.lcssa272, align 1
   %228 = zext i8 %227 to i32
   %229 = load i8, ptr %12, align 4
   %230 = zext i8 %229 to i32
@@ -1348,8 +1348,8 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %260 = or disjoint i32 %243, %251
   %261 = or disjoint i32 %260, %259
   %262 = or disjoint i32 %261, 255
-  store i32 %262, ptr %.0198.lcssa266, align 4
-  %263 = load i8, ptr %.0197.lcssa267, align 1
+  store i32 %262, ptr %.0198.lcssa268, align 4
+  %263 = load i8, ptr %.0197.lcssa269, align 1
   %264 = zext i8 %263 to i32
   %265 = sub nsw i32 %264, %230
   %266 = mul nsw i32 %265, %233
@@ -1381,7 +1381,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %292 = or disjoint i32 %275, %283
   %293 = or disjoint i32 %292, %291
   %294 = or disjoint i32 %293, 255
-  store i32 %294, ptr %.0199.lcssa265, align 4
+  store i32 %294, ptr %.0199.lcssa267, align 4
   br label %295
 
 295:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -1529,14 +1529,14 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %413, label %._crit_edge236.thread, label %474
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %407, %._crit_edge236 ], [ %301, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %408, %._crit_edge236 ], [ %305, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %406, %._crit_edge236 ], [ %309, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %409, %._crit_edge236 ], [ %306, %._crit_edge226.thread ]
-  %414 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %407, %._crit_edge236 ], [ %301, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %408, %._crit_edge236 ], [ %305, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %406, %._crit_edge236 ], [ %309, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %409, %._crit_edge236 ], [ %306, %._crit_edge226.thread ]
+  %414 = load i8, ptr %.0201.lcssa281, align 1
   %415 = zext i8 %414 to i32
   %416 = add nsw i32 %415, -128
-  %417 = load i8, ptr %.0203.lcssa277, align 1
+  %417 = load i8, ptr %.0203.lcssa279, align 1
   %418 = zext i8 %417 to i32
   %419 = add nsw i32 %418, -128
   %420 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1555,7 +1555,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %433 = load i16, ptr %432, align 2
   %434 = zext i16 %433 to i32
   %435 = mul nsw i32 %416, %434
-  %436 = load i8, ptr %.0200.lcssa280, align 1
+  %436 = load i8, ptr %.0200.lcssa282, align 1
   %437 = zext i8 %436 to i32
   %438 = load i8, ptr %12, align 4
   %439 = zext i8 %438 to i32
@@ -1593,7 +1593,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %471 = or disjoint i32 %453, %462
   %472 = or disjoint i32 %471, %470
   %473 = or disjoint i32 %472, 255
-  store i32 %473, ptr %.0202.lcssa278, align 4
+  store i32 %473, ptr %.0202.lcssa280, align 4
   br label %474
 
 474:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -1829,16 +1829,16 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %22, label %._crit_edge.thread, label %295
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %202, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %204, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %205, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %203, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %136, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %201, %._crit_edge ], [ %44, %23 ]
-  %208 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %202, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %204, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %205, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %203, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %136, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %201, %._crit_edge ], [ %44, %23 ]
+  %208 = load i8, ptr %.0195.lcssa271, align 1
   %209 = zext i8 %208 to i32
   %210 = add nsw i32 %209, -128
-  %211 = load i8, ptr %.0196.lcssa268, align 1
+  %211 = load i8, ptr %.0196.lcssa270, align 1
   %212 = zext i8 %211 to i32
   %213 = add nsw i32 %212, -128
   %214 = load i16, ptr %15, align 4
@@ -1854,7 +1854,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %224 = load i16, ptr %18, align 2
   %225 = zext i16 %224 to i32
   %226 = mul nsw i32 %210, %225
-  %227 = load i8, ptr %.0194.lcssa270, align 1
+  %227 = load i8, ptr %.0194.lcssa272, align 1
   %228 = zext i8 %227 to i32
   %229 = load i8, ptr %12, align 4
   %230 = zext i8 %229 to i32
@@ -1890,8 +1890,8 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %260 = or disjoint i32 %243, %251
   %261 = or disjoint i32 %260, %259
   %262 = or disjoint i32 %261, 255
-  store i32 %262, ptr %.0198.lcssa266, align 4
-  %263 = load i8, ptr %.0197.lcssa267, align 1
+  store i32 %262, ptr %.0198.lcssa268, align 4
+  %263 = load i8, ptr %.0197.lcssa269, align 1
   %264 = zext i8 %263 to i32
   %265 = sub nsw i32 %264, %230
   %266 = mul nsw i32 %265, %233
@@ -1923,7 +1923,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %292 = or disjoint i32 %275, %283
   %293 = or disjoint i32 %292, %291
   %294 = or disjoint i32 %293, 255
-  store i32 %294, ptr %.0199.lcssa265, align 4
+  store i32 %294, ptr %.0199.lcssa267, align 4
   br label %295
 
 295:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -2071,14 +2071,14 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %413, label %._crit_edge236.thread, label %474
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %407, %._crit_edge236 ], [ %301, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %408, %._crit_edge236 ], [ %305, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %406, %._crit_edge236 ], [ %309, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %409, %._crit_edge236 ], [ %306, %._crit_edge226.thread ]
-  %414 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %407, %._crit_edge236 ], [ %301, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %408, %._crit_edge236 ], [ %305, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %406, %._crit_edge236 ], [ %309, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %409, %._crit_edge236 ], [ %306, %._crit_edge226.thread ]
+  %414 = load i8, ptr %.0201.lcssa281, align 1
   %415 = zext i8 %414 to i32
   %416 = add nsw i32 %415, -128
-  %417 = load i8, ptr %.0203.lcssa277, align 1
+  %417 = load i8, ptr %.0203.lcssa279, align 1
   %418 = zext i8 %417 to i32
   %419 = add nsw i32 %418, -128
   %420 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -2097,7 +2097,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %433 = load i16, ptr %432, align 2
   %434 = zext i16 %433 to i32
   %435 = mul nsw i32 %416, %434
-  %436 = load i8, ptr %.0200.lcssa280, align 1
+  %436 = load i8, ptr %.0200.lcssa282, align 1
   %437 = zext i8 %436 to i32
   %438 = load i8, ptr %12, align 4
   %439 = zext i8 %438 to i32
@@ -2135,7 +2135,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %471 = or disjoint i32 %453, %462
   %472 = or disjoint i32 %471, %470
   %473 = or disjoint i32 %472, 255
-  store i32 %473, ptr %.0202.lcssa278, align 4
+  store i32 %473, ptr %.0202.lcssa280, align 4
   br label %474
 
 474:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -2367,16 +2367,16 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %22, label %._crit_edge.thread, label %289
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %198, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %200, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %201, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %199, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %134, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %197, %._crit_edge ], [ %44, %23 ]
-  %204 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %198, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %200, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %201, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %199, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %134, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %197, %._crit_edge ], [ %44, %23 ]
+  %204 = load i8, ptr %.0195.lcssa271, align 1
   %205 = zext i8 %204 to i32
   %206 = add nsw i32 %205, -128
-  %207 = load i8, ptr %.0196.lcssa268, align 1
+  %207 = load i8, ptr %.0196.lcssa270, align 1
   %208 = zext i8 %207 to i32
   %209 = add nsw i32 %208, -128
   %210 = load i16, ptr %15, align 4
@@ -2392,7 +2392,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %220 = load i16, ptr %18, align 2
   %221 = zext i16 %220 to i32
   %222 = mul nsw i32 %206, %221
-  %223 = load i8, ptr %.0194.lcssa270, align 1
+  %223 = load i8, ptr %.0194.lcssa272, align 1
   %224 = zext i8 %223 to i32
   %225 = load i8, ptr %12, align 4
   %226 = zext i8 %225 to i32
@@ -2427,8 +2427,8 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %255 = or disjoint i32 %239, %247
   %256 = or disjoint i32 %255, %254
   %257 = or disjoint i32 %256, -16777216
-  store i32 %257, ptr %.0198.lcssa266, align 4
-  %258 = load i8, ptr %.0197.lcssa267, align 1
+  store i32 %257, ptr %.0198.lcssa268, align 4
+  %258 = load i8, ptr %.0197.lcssa269, align 1
   %259 = zext i8 %258 to i32
   %260 = sub nsw i32 %259, %226
   %261 = mul nsw i32 %260, %229
@@ -2459,7 +2459,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %286 = or disjoint i32 %270, %278
   %287 = or disjoint i32 %286, %285
   %288 = or disjoint i32 %287, -16777216
-  store i32 %288, ptr %.0199.lcssa265, align 4
+  store i32 %288, ptr %.0199.lcssa267, align 4
   br label %289
 
 289:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -2605,14 +2605,14 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %405, label %._crit_edge236.thread, label %465
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %399, %._crit_edge236 ], [ %295, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %400, %._crit_edge236 ], [ %299, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %398, %._crit_edge236 ], [ %303, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %401, %._crit_edge236 ], [ %300, %._crit_edge226.thread ]
-  %406 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %399, %._crit_edge236 ], [ %295, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %400, %._crit_edge236 ], [ %299, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %398, %._crit_edge236 ], [ %303, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %401, %._crit_edge236 ], [ %300, %._crit_edge226.thread ]
+  %406 = load i8, ptr %.0201.lcssa281, align 1
   %407 = zext i8 %406 to i32
   %408 = add nsw i32 %407, -128
-  %409 = load i8, ptr %.0203.lcssa277, align 1
+  %409 = load i8, ptr %.0203.lcssa279, align 1
   %410 = zext i8 %409 to i32
   %411 = add nsw i32 %410, -128
   %412 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -2631,7 +2631,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %425 = load i16, ptr %424, align 2
   %426 = zext i16 %425 to i32
   %427 = mul nsw i32 %408, %426
-  %428 = load i8, ptr %.0200.lcssa280, align 1
+  %428 = load i8, ptr %.0200.lcssa282, align 1
   %429 = zext i8 %428 to i32
   %430 = load i8, ptr %12, align 4
   %431 = zext i8 %430 to i32
@@ -2668,7 +2668,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %462 = or disjoint i32 %445, %454
   %463 = or disjoint i32 %462, %461
   %464 = or disjoint i32 %463, -16777216
-  store i32 %464, ptr %.0202.lcssa278, align 4
+  store i32 %464, ptr %.0202.lcssa280, align 4
   br label %465
 
 465:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -2900,16 +2900,16 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %22, label %._crit_edge.thread, label %289
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %198, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %200, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %201, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %199, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %134, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %197, %._crit_edge ], [ %44, %23 ]
-  %204 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %198, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %200, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %201, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %199, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %134, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %197, %._crit_edge ], [ %44, %23 ]
+  %204 = load i8, ptr %.0195.lcssa271, align 1
   %205 = zext i8 %204 to i32
   %206 = add nsw i32 %205, -128
-  %207 = load i8, ptr %.0196.lcssa268, align 1
+  %207 = load i8, ptr %.0196.lcssa270, align 1
   %208 = zext i8 %207 to i32
   %209 = add nsw i32 %208, -128
   %210 = load i16, ptr %15, align 4
@@ -2925,7 +2925,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %220 = load i16, ptr %18, align 2
   %221 = zext i16 %220 to i32
   %222 = mul nsw i32 %206, %221
-  %223 = load i8, ptr %.0194.lcssa270, align 1
+  %223 = load i8, ptr %.0194.lcssa272, align 1
   %224 = zext i8 %223 to i32
   %225 = load i8, ptr %12, align 4
   %226 = zext i8 %225 to i32
@@ -2960,8 +2960,8 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %255 = or disjoint i32 %239, %247
   %256 = or disjoint i32 %255, %254
   %257 = or disjoint i32 %256, -16777216
-  store i32 %257, ptr %.0198.lcssa266, align 4
-  %258 = load i8, ptr %.0197.lcssa267, align 1
+  store i32 %257, ptr %.0198.lcssa268, align 4
+  %258 = load i8, ptr %.0197.lcssa269, align 1
   %259 = zext i8 %258 to i32
   %260 = sub nsw i32 %259, %226
   %261 = mul nsw i32 %260, %229
@@ -2992,7 +2992,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %286 = or disjoint i32 %270, %278
   %287 = or disjoint i32 %286, %285
   %288 = or disjoint i32 %287, -16777216
-  store i32 %288, ptr %.0199.lcssa265, align 4
+  store i32 %288, ptr %.0199.lcssa267, align 4
   br label %289
 
 289:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -3138,14 +3138,14 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %405, label %._crit_edge236.thread, label %465
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %399, %._crit_edge236 ], [ %295, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %400, %._crit_edge236 ], [ %299, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %398, %._crit_edge236 ], [ %303, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %401, %._crit_edge236 ], [ %300, %._crit_edge226.thread ]
-  %406 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %399, %._crit_edge236 ], [ %295, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %400, %._crit_edge236 ], [ %299, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %398, %._crit_edge236 ], [ %303, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %401, %._crit_edge236 ], [ %300, %._crit_edge226.thread ]
+  %406 = load i8, ptr %.0201.lcssa281, align 1
   %407 = zext i8 %406 to i32
   %408 = add nsw i32 %407, -128
-  %409 = load i8, ptr %.0203.lcssa277, align 1
+  %409 = load i8, ptr %.0203.lcssa279, align 1
   %410 = zext i8 %409 to i32
   %411 = add nsw i32 %410, -128
   %412 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -3164,7 +3164,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %425 = load i16, ptr %424, align 2
   %426 = zext i16 %425 to i32
   %427 = mul nsw i32 %408, %426
-  %428 = load i8, ptr %.0200.lcssa280, align 1
+  %428 = load i8, ptr %.0200.lcssa282, align 1
   %429 = zext i8 %428 to i32
   %430 = load i8, ptr %12, align 4
   %431 = zext i8 %430 to i32
@@ -3201,7 +3201,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %462 = or disjoint i32 %445, %454
   %463 = or disjoint i32 %462, %461
   %464 = or disjoint i32 %463, -16777216
-  store i32 %464, ptr %.0202.lcssa278, align 4
+  store i32 %464, ptr %.0202.lcssa280, align 4
   br label %465
 
 465:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -3357,14 +3357,14 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %20, label %._crit_edge.thread, label %187
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge
-  %.079.lcssa112 = phi ptr [ %126, %._crit_edge ], [ %25, %21 ]
-  %.080.lcssa111 = phi ptr [ %127, %._crit_edge ], [ %28, %21 ]
-  %.081.lcssa110 = phi ptr [ %128, %._crit_edge ], [ %29, %21 ]
-  %.082.lcssa109 = phi ptr [ %125, %._crit_edge ], [ %32, %21 ]
-  %131 = load i8, ptr %.080.lcssa111, align 1
+  %.079.lcssa113 = phi ptr [ %126, %._crit_edge ], [ %25, %21 ]
+  %.080.lcssa112 = phi ptr [ %127, %._crit_edge ], [ %28, %21 ]
+  %.081.lcssa111 = phi ptr [ %128, %._crit_edge ], [ %29, %21 ]
+  %.082.lcssa110 = phi ptr [ %125, %._crit_edge ], [ %32, %21 ]
+  %131 = load i8, ptr %.080.lcssa112, align 1
   %132 = zext i8 %131 to i32
   %133 = add nsw i32 %132, -128
-  %134 = load i8, ptr %.081.lcssa110, align 1
+  %134 = load i8, ptr %.081.lcssa111, align 1
   %135 = zext i8 %134 to i32
   %136 = add nsw i32 %135, -128
   %137 = load i16, ptr %14, align 4
@@ -3379,7 +3379,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %146 = load i16, ptr %17, align 2
   %147 = zext i16 %146 to i32
   %148 = mul nsw i32 %133, %147
-  %149 = load i8, ptr %.079.lcssa112, align 1
+  %149 = load i8, ptr %.079.lcssa113, align 1
   %150 = zext i8 %149 to i32
   %151 = load i8, ptr %12, align 4
   %152 = zext i8 %151 to i32
@@ -3417,7 +3417,7 @@ define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %184 = lshr i8 %183, 3
   %185 = zext nneg i8 %184 to i16
   %186 = or disjoint i16 %177, %185
-  store i16 %186, ptr %.082.lcssa109, align 2
+  store i16 %186, ptr %.082.lcssa110, align 2
   br label %187
 
 187:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -3827,14 +3827,14 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %20, label %._crit_edge.thread, label %184
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge
-  %.079.lcssa112 = phi ptr [ %124, %._crit_edge ], [ %25, %21 ]
-  %.080.lcssa111 = phi ptr [ %125, %._crit_edge ], [ %28, %21 ]
-  %.081.lcssa110 = phi ptr [ %126, %._crit_edge ], [ %29, %21 ]
-  %.082.lcssa109 = phi ptr [ %123, %._crit_edge ], [ %32, %21 ]
-  %129 = load i8, ptr %.080.lcssa111, align 1
+  %.079.lcssa113 = phi ptr [ %124, %._crit_edge ], [ %25, %21 ]
+  %.080.lcssa112 = phi ptr [ %125, %._crit_edge ], [ %28, %21 ]
+  %.081.lcssa111 = phi ptr [ %126, %._crit_edge ], [ %29, %21 ]
+  %.082.lcssa110 = phi ptr [ %123, %._crit_edge ], [ %32, %21 ]
+  %129 = load i8, ptr %.080.lcssa112, align 1
   %130 = zext i8 %129 to i32
   %131 = add nsw i32 %130, -128
-  %132 = load i8, ptr %.081.lcssa110, align 1
+  %132 = load i8, ptr %.081.lcssa111, align 1
   %133 = zext i8 %132 to i32
   %134 = add nsw i32 %133, -128
   %135 = load i16, ptr %14, align 4
@@ -3849,7 +3849,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %144 = load i16, ptr %17, align 2
   %145 = zext i16 %144 to i32
   %146 = mul nsw i32 %131, %145
-  %147 = load i8, ptr %.079.lcssa112, align 1
+  %147 = load i8, ptr %.079.lcssa113, align 1
   %148 = zext i8 %147 to i32
   %149 = load i8, ptr %12, align 4
   %150 = zext i8 %149 to i32
@@ -3886,7 +3886,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %181 = or disjoint i32 %163, %172
   %182 = or disjoint i32 %181, %180
   %183 = or disjoint i32 %182, 255
-  store i32 %183, ptr %.082.lcssa109, align 4
+  store i32 %183, ptr %.082.lcssa110, align 4
   br label %184
 
 184:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -4045,14 +4045,14 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %20, label %._crit_edge.thread, label %184
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge
-  %.079.lcssa112 = phi ptr [ %124, %._crit_edge ], [ %25, %21 ]
-  %.080.lcssa111 = phi ptr [ %125, %._crit_edge ], [ %28, %21 ]
-  %.081.lcssa110 = phi ptr [ %126, %._crit_edge ], [ %29, %21 ]
-  %.082.lcssa109 = phi ptr [ %123, %._crit_edge ], [ %32, %21 ]
-  %129 = load i8, ptr %.080.lcssa111, align 1
+  %.079.lcssa113 = phi ptr [ %124, %._crit_edge ], [ %25, %21 ]
+  %.080.lcssa112 = phi ptr [ %125, %._crit_edge ], [ %28, %21 ]
+  %.081.lcssa111 = phi ptr [ %126, %._crit_edge ], [ %29, %21 ]
+  %.082.lcssa110 = phi ptr [ %123, %._crit_edge ], [ %32, %21 ]
+  %129 = load i8, ptr %.080.lcssa112, align 1
   %130 = zext i8 %129 to i32
   %131 = add nsw i32 %130, -128
-  %132 = load i8, ptr %.081.lcssa110, align 1
+  %132 = load i8, ptr %.081.lcssa111, align 1
   %133 = zext i8 %132 to i32
   %134 = add nsw i32 %133, -128
   %135 = load i16, ptr %14, align 4
@@ -4067,7 +4067,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %144 = load i16, ptr %17, align 2
   %145 = zext i16 %144 to i32
   %146 = mul nsw i32 %131, %145
-  %147 = load i8, ptr %.079.lcssa112, align 1
+  %147 = load i8, ptr %.079.lcssa113, align 1
   %148 = zext i8 %147 to i32
   %149 = load i8, ptr %12, align 4
   %150 = zext i8 %149 to i32
@@ -4104,7 +4104,7 @@ define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
   %181 = or disjoint i32 %163, %172
   %182 = or disjoint i32 %181, %180
   %183 = or disjoint i32 %182, 255
-  store i32 %183, ptr %.082.lcssa109, align 4
+  store i32 %183, ptr %.082.lcssa110, align 4
   br label %184
 
 184:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -4883,16 +4883,16 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %22, label %._crit_edge.thread, label %301
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %206, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %208, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %209, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %207, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %138, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %205, %._crit_edge ], [ %44, %23 ]
-  %212 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %206, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %208, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %209, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %207, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %138, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %205, %._crit_edge ], [ %44, %23 ]
+  %212 = load i8, ptr %.0195.lcssa271, align 1
   %213 = zext i8 %212 to i32
   %214 = add nsw i32 %213, -128
-  %215 = load i8, ptr %.0196.lcssa268, align 1
+  %215 = load i8, ptr %.0196.lcssa270, align 1
   %216 = zext i8 %215 to i32
   %217 = add nsw i32 %216, -128
   %218 = load i16, ptr %15, align 4
@@ -4908,7 +4908,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %228 = load i16, ptr %18, align 2
   %229 = zext i16 %228 to i32
   %230 = mul nsw i32 %214, %229
-  %231 = load i8, ptr %.0194.lcssa270, align 1
+  %231 = load i8, ptr %.0194.lcssa272, align 1
   %232 = zext i8 %231 to i32
   %233 = load i8, ptr %12, align 4
   %234 = zext i8 %233 to i32
@@ -4945,8 +4945,8 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %265 = lshr i8 %264, 3
   %266 = zext nneg i8 %265 to i16
   %267 = or disjoint i16 %258, %266
-  store i16 %267, ptr %.0198.lcssa266, align 2
-  %268 = load i8, ptr %.0197.lcssa267, align 1
+  store i16 %267, ptr %.0198.lcssa268, align 2
+  %268 = load i8, ptr %.0197.lcssa269, align 1
   %269 = zext i8 %268 to i32
   %270 = sub nsw i32 %269, %234
   %271 = mul nsw i32 %270, %237
@@ -4979,7 +4979,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %298 = lshr i8 %297, 3
   %299 = zext nneg i8 %298 to i16
   %300 = or disjoint i16 %291, %299
-  store i16 %300, ptr %.0199.lcssa265, align 2
+  store i16 %300, ptr %.0199.lcssa267, align 2
   br label %301
 
 301:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -5129,14 +5129,14 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   br i1 %421, label %._crit_edge236.thread, label %483
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %415, %._crit_edge236 ], [ %307, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %416, %._crit_edge236 ], [ %311, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %414, %._crit_edge236 ], [ %315, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %417, %._crit_edge236 ], [ %312, %._crit_edge226.thread ]
-  %422 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %415, %._crit_edge236 ], [ %307, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %416, %._crit_edge236 ], [ %311, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %414, %._crit_edge236 ], [ %315, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %417, %._crit_edge236 ], [ %312, %._crit_edge226.thread ]
+  %422 = load i8, ptr %.0201.lcssa281, align 1
   %423 = zext i8 %422 to i32
   %424 = add nsw i32 %423, -128
-  %425 = load i8, ptr %.0203.lcssa277, align 1
+  %425 = load i8, ptr %.0203.lcssa279, align 1
   %426 = zext i8 %425 to i32
   %427 = add nsw i32 %426, -128
   %428 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -5155,7 +5155,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %441 = load i16, ptr %440, align 2
   %442 = zext i16 %441 to i32
   %443 = mul nsw i32 %424, %442
-  %444 = load i8, ptr %.0200.lcssa280, align 1
+  %444 = load i8, ptr %.0200.lcssa282, align 1
   %445 = zext i8 %444 to i32
   %446 = load i8, ptr %12, align 4
   %447 = zext i8 %446 to i32
@@ -5194,7 +5194,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
   %480 = lshr i8 %479, 3
   %481 = zext nneg i8 %480 to i16
   %482 = or disjoint i16 %473, %481
-  store i16 %482, ptr %.0202.lcssa278, align 2
+  store i16 %482, ptr %.0202.lcssa280, align 2
   br label %483
 
 483:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -5410,16 +5410,16 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %22, label %._crit_edge.thread, label %253
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0212.lcssa288 = phi ptr [ %174, %._crit_edge ], [ %27, %23 ]
-  %.0213.lcssa287 = phi ptr [ %176, %._crit_edge ], [ %32, %23 ]
-  %.0214.lcssa286 = phi ptr [ %177, %._crit_edge ], [ %33, %23 ]
-  %.0215.lcssa285 = phi ptr [ %175, %._crit_edge ], [ %38, %23 ]
-  %.0216.lcssa284 = phi ptr [ %122, %._crit_edge ], [ %41, %23 ]
-  %.0217.lcssa283 = phi ptr [ %173, %._crit_edge ], [ %44, %23 ]
-  %180 = load i8, ptr %.0213.lcssa287, align 1
+  %.0212.lcssa290 = phi ptr [ %174, %._crit_edge ], [ %27, %23 ]
+  %.0213.lcssa289 = phi ptr [ %176, %._crit_edge ], [ %32, %23 ]
+  %.0214.lcssa288 = phi ptr [ %177, %._crit_edge ], [ %33, %23 ]
+  %.0215.lcssa287 = phi ptr [ %175, %._crit_edge ], [ %38, %23 ]
+  %.0216.lcssa286 = phi ptr [ %122, %._crit_edge ], [ %41, %23 ]
+  %.0217.lcssa285 = phi ptr [ %173, %._crit_edge ], [ %44, %23 ]
+  %180 = load i8, ptr %.0213.lcssa289, align 1
   %181 = zext i8 %180 to i32
   %182 = add nsw i32 %181, -128
-  %183 = load i8, ptr %.0214.lcssa286, align 1
+  %183 = load i8, ptr %.0214.lcssa288, align 1
   %184 = zext i8 %183 to i32
   %185 = add nsw i32 %184, -128
   %186 = load i16, ptr %15, align 4
@@ -5435,7 +5435,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %196 = load i16, ptr %18, align 2
   %197 = zext i16 %196 to i32
   %198 = mul nsw i32 %182, %197
-  %199 = load i8, ptr %.0212.lcssa288, align 1
+  %199 = load i8, ptr %.0212.lcssa290, align 1
   %200 = zext i8 %199 to i32
   %201 = load i8, ptr %12, align 4
   %202 = zext i8 %201 to i32
@@ -5450,14 +5450,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %211
   %213 = load i8, ptr %212, align 1
-  store i8 %213, ptr %.0216.lcssa284, align 1
+  store i8 %213, ptr %.0216.lcssa286, align 1
   %214 = add nsw i32 %207, %195
   %215 = lshr i32 %214, 6
   %216 = and i32 %215, 511
   %217 = zext nneg i32 %216 to i64
   %218 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %217
   %219 = load i8, ptr %218, align 1
-  %220 = getelementptr inbounds nuw i8, ptr %.0216.lcssa284, i64 1
+  %220 = getelementptr inbounds nuw i8, ptr %.0216.lcssa286, i64 1
   store i8 %219, ptr %220, align 1
   %221 = add nsw i32 %207, %198
   %222 = lshr i32 %221, 6
@@ -5465,9 +5465,9 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %224
   %226 = load i8, ptr %225, align 1
-  %227 = getelementptr inbounds nuw i8, ptr %.0216.lcssa284, i64 2
+  %227 = getelementptr inbounds nuw i8, ptr %.0216.lcssa286, i64 2
   store i8 %226, ptr %227, align 1
-  %228 = load i8, ptr %.0215.lcssa285, align 1
+  %228 = load i8, ptr %.0215.lcssa287, align 1
   %229 = zext i8 %228 to i32
   %230 = sub nsw i32 %229, %202
   %231 = mul nsw i32 %230, %205
@@ -5478,14 +5478,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %236 = zext nneg i32 %235 to i64
   %237 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %236
   %238 = load i8, ptr %237, align 1
-  store i8 %238, ptr %.0217.lcssa283, align 1
+  store i8 %238, ptr %.0217.lcssa285, align 1
   %239 = add nsw i32 %232, %195
   %240 = lshr i32 %239, 6
   %241 = and i32 %240, 511
   %242 = zext nneg i32 %241 to i64
   %243 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %242
   %244 = load i8, ptr %243, align 1
-  %245 = getelementptr inbounds nuw i8, ptr %.0217.lcssa283, i64 1
+  %245 = getelementptr inbounds nuw i8, ptr %.0217.lcssa285, i64 1
   store i8 %244, ptr %245, align 1
   %246 = add nsw i32 %232, %198
   %247 = lshr i32 %246, 6
@@ -5493,7 +5493,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %249 = zext nneg i32 %248 to i64
   %250 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %249
   %251 = load i8, ptr %250, align 1
-  %252 = getelementptr inbounds nuw i8, ptr %.0217.lcssa283, i64 2
+  %252 = getelementptr inbounds nuw i8, ptr %.0217.lcssa285, i64 2
   store i8 %251, ptr %252, align 1
   br label %253
 
@@ -5632,14 +5632,14 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   br i1 %357, label %._crit_edge254.thread, label %411
 
 ._crit_edge254.thread:                            ; preds = %._crit_edge244.thread, %._crit_edge254
-  %.0218.lcssa298 = phi ptr [ %351, %._crit_edge254 ], [ %259, %._crit_edge244.thread ]
-  %.0219.lcssa297 = phi ptr [ %352, %._crit_edge254 ], [ %263, %._crit_edge244.thread ]
-  %.0220.lcssa296 = phi ptr [ %350, %._crit_edge254 ], [ %267, %._crit_edge244.thread ]
-  %.0221.lcssa295 = phi ptr [ %353, %._crit_edge254 ], [ %264, %._crit_edge244.thread ]
-  %358 = load i8, ptr %.0219.lcssa297, align 1
+  %.0218.lcssa300 = phi ptr [ %351, %._crit_edge254 ], [ %259, %._crit_edge244.thread ]
+  %.0219.lcssa299 = phi ptr [ %352, %._crit_edge254 ], [ %263, %._crit_edge244.thread ]
+  %.0220.lcssa298 = phi ptr [ %350, %._crit_edge254 ], [ %267, %._crit_edge244.thread ]
+  %.0221.lcssa297 = phi ptr [ %353, %._crit_edge254 ], [ %264, %._crit_edge244.thread ]
+  %358 = load i8, ptr %.0219.lcssa299, align 1
   %359 = zext i8 %358 to i32
   %360 = add nsw i32 %359, -128
-  %361 = load i8, ptr %.0221.lcssa295, align 1
+  %361 = load i8, ptr %.0221.lcssa297, align 1
   %362 = zext i8 %361 to i32
   %363 = add nsw i32 %362, -128
   %364 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -5658,7 +5658,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %377 = load i16, ptr %376, align 2
   %378 = zext i16 %377 to i32
   %379 = mul nsw i32 %360, %378
-  %380 = load i8, ptr %.0218.lcssa298, align 1
+  %380 = load i8, ptr %.0218.lcssa300, align 1
   %381 = zext i8 %380 to i32
   %382 = load i8, ptr %12, align 4
   %383 = zext i8 %382 to i32
@@ -5674,7 +5674,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %393 = zext nneg i32 %392 to i64
   %394 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %393
   %395 = load i8, ptr %394, align 1
-  store i8 %395, ptr %.0220.lcssa296, align 1
+  store i8 %395, ptr %.0220.lcssa298, align 1
   %396 = add nsw i32 %389, %371
   %397 = add nsw i32 %396, %375
   %398 = lshr i32 %397, 6
@@ -5682,7 +5682,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %400 = zext nneg i32 %399 to i64
   %401 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %400
   %402 = load i8, ptr %401, align 1
-  %403 = getelementptr inbounds nuw i8, ptr %.0220.lcssa296, i64 1
+  %403 = getelementptr inbounds nuw i8, ptr %.0220.lcssa298, i64 1
   store i8 %402, ptr %403, align 1
   %404 = add nsw i32 %389, %379
   %405 = lshr i32 %404, 6
@@ -5690,7 +5690,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
   %407 = zext nneg i32 %406 to i64
   %408 = getelementptr inbounds nuw [512 x i8], ptr @clampU8.lut, i64 0, i64 %407
   %409 = load i8, ptr %408, align 1
-  %410 = getelementptr inbounds nuw i8, ptr %.0220.lcssa296, i64 2
+  %410 = getelementptr inbounds nuw i8, ptr %.0220.lcssa298, i64 2
   store i8 %409, ptr %410, align 1
   br label %411
 
@@ -5927,16 +5927,16 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %22, label %._crit_edge.thread, label %295
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %202, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %204, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %205, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %203, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %136, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %201, %._crit_edge ], [ %44, %23 ]
-  %208 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %202, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %204, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %205, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %203, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %136, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %201, %._crit_edge ], [ %44, %23 ]
+  %208 = load i8, ptr %.0195.lcssa271, align 1
   %209 = zext i8 %208 to i32
   %210 = add nsw i32 %209, -128
-  %211 = load i8, ptr %.0196.lcssa268, align 1
+  %211 = load i8, ptr %.0196.lcssa270, align 1
   %212 = zext i8 %211 to i32
   %213 = add nsw i32 %212, -128
   %214 = load i16, ptr %15, align 4
@@ -5952,7 +5952,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %224 = load i16, ptr %18, align 2
   %225 = zext i16 %224 to i32
   %226 = mul nsw i32 %210, %225
-  %227 = load i8, ptr %.0194.lcssa270, align 1
+  %227 = load i8, ptr %.0194.lcssa272, align 1
   %228 = zext i8 %227 to i32
   %229 = load i8, ptr %12, align 4
   %230 = zext i8 %229 to i32
@@ -5988,8 +5988,8 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %260 = or disjoint i32 %243, %251
   %261 = or disjoint i32 %260, %259
   %262 = or disjoint i32 %261, 255
-  store i32 %262, ptr %.0198.lcssa266, align 4
-  %263 = load i8, ptr %.0197.lcssa267, align 1
+  store i32 %262, ptr %.0198.lcssa268, align 4
+  %263 = load i8, ptr %.0197.lcssa269, align 1
   %264 = zext i8 %263 to i32
   %265 = sub nsw i32 %264, %230
   %266 = mul nsw i32 %265, %233
@@ -6021,7 +6021,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %292 = or disjoint i32 %275, %283
   %293 = or disjoint i32 %292, %291
   %294 = or disjoint i32 %293, 255
-  store i32 %294, ptr %.0199.lcssa265, align 4
+  store i32 %294, ptr %.0199.lcssa267, align 4
   br label %295
 
 295:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -6169,14 +6169,14 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %413, label %._crit_edge236.thread, label %474
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %407, %._crit_edge236 ], [ %301, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %408, %._crit_edge236 ], [ %305, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %406, %._crit_edge236 ], [ %309, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %409, %._crit_edge236 ], [ %306, %._crit_edge226.thread ]
-  %414 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %407, %._crit_edge236 ], [ %301, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %408, %._crit_edge236 ], [ %305, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %406, %._crit_edge236 ], [ %309, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %409, %._crit_edge236 ], [ %306, %._crit_edge226.thread ]
+  %414 = load i8, ptr %.0201.lcssa281, align 1
   %415 = zext i8 %414 to i32
   %416 = add nsw i32 %415, -128
-  %417 = load i8, ptr %.0203.lcssa277, align 1
+  %417 = load i8, ptr %.0203.lcssa279, align 1
   %418 = zext i8 %417 to i32
   %419 = add nsw i32 %418, -128
   %420 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -6195,7 +6195,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %433 = load i16, ptr %432, align 2
   %434 = zext i16 %433 to i32
   %435 = mul nsw i32 %416, %434
-  %436 = load i8, ptr %.0200.lcssa280, align 1
+  %436 = load i8, ptr %.0200.lcssa282, align 1
   %437 = zext i8 %436 to i32
   %438 = load i8, ptr %12, align 4
   %439 = zext i8 %438 to i32
@@ -6233,7 +6233,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %471 = or disjoint i32 %453, %462
   %472 = or disjoint i32 %471, %470
   %473 = or disjoint i32 %472, 255
-  store i32 %473, ptr %.0202.lcssa278, align 4
+  store i32 %473, ptr %.0202.lcssa280, align 4
   br label %474
 
 474:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -6469,16 +6469,16 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %22, label %._crit_edge.thread, label %295
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %202, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %204, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %205, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %203, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %136, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %201, %._crit_edge ], [ %44, %23 ]
-  %208 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %202, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %204, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %205, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %203, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %136, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %201, %._crit_edge ], [ %44, %23 ]
+  %208 = load i8, ptr %.0195.lcssa271, align 1
   %209 = zext i8 %208 to i32
   %210 = add nsw i32 %209, -128
-  %211 = load i8, ptr %.0196.lcssa268, align 1
+  %211 = load i8, ptr %.0196.lcssa270, align 1
   %212 = zext i8 %211 to i32
   %213 = add nsw i32 %212, -128
   %214 = load i16, ptr %15, align 4
@@ -6494,7 +6494,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %224 = load i16, ptr %18, align 2
   %225 = zext i16 %224 to i32
   %226 = mul nsw i32 %210, %225
-  %227 = load i8, ptr %.0194.lcssa270, align 1
+  %227 = load i8, ptr %.0194.lcssa272, align 1
   %228 = zext i8 %227 to i32
   %229 = load i8, ptr %12, align 4
   %230 = zext i8 %229 to i32
@@ -6530,8 +6530,8 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %260 = or disjoint i32 %243, %251
   %261 = or disjoint i32 %260, %259
   %262 = or disjoint i32 %261, 255
-  store i32 %262, ptr %.0198.lcssa266, align 4
-  %263 = load i8, ptr %.0197.lcssa267, align 1
+  store i32 %262, ptr %.0198.lcssa268, align 4
+  %263 = load i8, ptr %.0197.lcssa269, align 1
   %264 = zext i8 %263 to i32
   %265 = sub nsw i32 %264, %230
   %266 = mul nsw i32 %265, %233
@@ -6563,7 +6563,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %292 = or disjoint i32 %275, %283
   %293 = or disjoint i32 %292, %291
   %294 = or disjoint i32 %293, 255
-  store i32 %294, ptr %.0199.lcssa265, align 4
+  store i32 %294, ptr %.0199.lcssa267, align 4
   br label %295
 
 295:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -6711,14 +6711,14 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %413, label %._crit_edge236.thread, label %474
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %407, %._crit_edge236 ], [ %301, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %408, %._crit_edge236 ], [ %305, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %406, %._crit_edge236 ], [ %309, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %409, %._crit_edge236 ], [ %306, %._crit_edge226.thread ]
-  %414 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %407, %._crit_edge236 ], [ %301, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %408, %._crit_edge236 ], [ %305, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %406, %._crit_edge236 ], [ %309, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %409, %._crit_edge236 ], [ %306, %._crit_edge226.thread ]
+  %414 = load i8, ptr %.0201.lcssa281, align 1
   %415 = zext i8 %414 to i32
   %416 = add nsw i32 %415, -128
-  %417 = load i8, ptr %.0203.lcssa277, align 1
+  %417 = load i8, ptr %.0203.lcssa279, align 1
   %418 = zext i8 %417 to i32
   %419 = add nsw i32 %418, -128
   %420 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -6737,7 +6737,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %433 = load i16, ptr %432, align 2
   %434 = zext i16 %433 to i32
   %435 = mul nsw i32 %416, %434
-  %436 = load i8, ptr %.0200.lcssa280, align 1
+  %436 = load i8, ptr %.0200.lcssa282, align 1
   %437 = zext i8 %436 to i32
   %438 = load i8, ptr %12, align 4
   %439 = zext i8 %438 to i32
@@ -6775,7 +6775,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %471 = or disjoint i32 %453, %462
   %472 = or disjoint i32 %471, %470
   %473 = or disjoint i32 %472, 255
-  store i32 %473, ptr %.0202.lcssa278, align 4
+  store i32 %473, ptr %.0202.lcssa280, align 4
   br label %474
 
 474:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -7007,16 +7007,16 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %22, label %._crit_edge.thread, label %289
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %198, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %200, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %201, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %199, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %134, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %197, %._crit_edge ], [ %44, %23 ]
-  %204 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %198, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %200, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %201, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %199, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %134, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %197, %._crit_edge ], [ %44, %23 ]
+  %204 = load i8, ptr %.0195.lcssa271, align 1
   %205 = zext i8 %204 to i32
   %206 = add nsw i32 %205, -128
-  %207 = load i8, ptr %.0196.lcssa268, align 1
+  %207 = load i8, ptr %.0196.lcssa270, align 1
   %208 = zext i8 %207 to i32
   %209 = add nsw i32 %208, -128
   %210 = load i16, ptr %15, align 4
@@ -7032,7 +7032,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %220 = load i16, ptr %18, align 2
   %221 = zext i16 %220 to i32
   %222 = mul nsw i32 %206, %221
-  %223 = load i8, ptr %.0194.lcssa270, align 1
+  %223 = load i8, ptr %.0194.lcssa272, align 1
   %224 = zext i8 %223 to i32
   %225 = load i8, ptr %12, align 4
   %226 = zext i8 %225 to i32
@@ -7067,8 +7067,8 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %255 = or disjoint i32 %239, %247
   %256 = or disjoint i32 %255, %254
   %257 = or disjoint i32 %256, -16777216
-  store i32 %257, ptr %.0198.lcssa266, align 4
-  %258 = load i8, ptr %.0197.lcssa267, align 1
+  store i32 %257, ptr %.0198.lcssa268, align 4
+  %258 = load i8, ptr %.0197.lcssa269, align 1
   %259 = zext i8 %258 to i32
   %260 = sub nsw i32 %259, %226
   %261 = mul nsw i32 %260, %229
@@ -7099,7 +7099,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %286 = or disjoint i32 %270, %278
   %287 = or disjoint i32 %286, %285
   %288 = or disjoint i32 %287, -16777216
-  store i32 %288, ptr %.0199.lcssa265, align 4
+  store i32 %288, ptr %.0199.lcssa267, align 4
   br label %289
 
 289:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -7245,14 +7245,14 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %405, label %._crit_edge236.thread, label %465
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %399, %._crit_edge236 ], [ %295, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %400, %._crit_edge236 ], [ %299, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %398, %._crit_edge236 ], [ %303, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %401, %._crit_edge236 ], [ %300, %._crit_edge226.thread ]
-  %406 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %399, %._crit_edge236 ], [ %295, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %400, %._crit_edge236 ], [ %299, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %398, %._crit_edge236 ], [ %303, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %401, %._crit_edge236 ], [ %300, %._crit_edge226.thread ]
+  %406 = load i8, ptr %.0201.lcssa281, align 1
   %407 = zext i8 %406 to i32
   %408 = add nsw i32 %407, -128
-  %409 = load i8, ptr %.0203.lcssa277, align 1
+  %409 = load i8, ptr %.0203.lcssa279, align 1
   %410 = zext i8 %409 to i32
   %411 = add nsw i32 %410, -128
   %412 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -7271,7 +7271,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %425 = load i16, ptr %424, align 2
   %426 = zext i16 %425 to i32
   %427 = mul nsw i32 %408, %426
-  %428 = load i8, ptr %.0200.lcssa280, align 1
+  %428 = load i8, ptr %.0200.lcssa282, align 1
   %429 = zext i8 %428 to i32
   %430 = load i8, ptr %12, align 4
   %431 = zext i8 %430 to i32
@@ -7308,7 +7308,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %462 = or disjoint i32 %445, %454
   %463 = or disjoint i32 %462, %461
   %464 = or disjoint i32 %463, -16777216
-  store i32 %464, ptr %.0202.lcssa278, align 4
+  store i32 %464, ptr %.0202.lcssa280, align 4
   br label %465
 
 465:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -7540,16 +7540,16 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %22, label %._crit_edge.thread, label %289
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.0194.lcssa270 = phi ptr [ %198, %._crit_edge ], [ %27, %23 ]
-  %.0195.lcssa269 = phi ptr [ %200, %._crit_edge ], [ %32, %23 ]
-  %.0196.lcssa268 = phi ptr [ %201, %._crit_edge ], [ %33, %23 ]
-  %.0197.lcssa267 = phi ptr [ %199, %._crit_edge ], [ %38, %23 ]
-  %.0198.lcssa266 = phi ptr [ %134, %._crit_edge ], [ %41, %23 ]
-  %.0199.lcssa265 = phi ptr [ %197, %._crit_edge ], [ %44, %23 ]
-  %204 = load i8, ptr %.0195.lcssa269, align 1
+  %.0194.lcssa272 = phi ptr [ %198, %._crit_edge ], [ %27, %23 ]
+  %.0195.lcssa271 = phi ptr [ %200, %._crit_edge ], [ %32, %23 ]
+  %.0196.lcssa270 = phi ptr [ %201, %._crit_edge ], [ %33, %23 ]
+  %.0197.lcssa269 = phi ptr [ %199, %._crit_edge ], [ %38, %23 ]
+  %.0198.lcssa268 = phi ptr [ %134, %._crit_edge ], [ %41, %23 ]
+  %.0199.lcssa267 = phi ptr [ %197, %._crit_edge ], [ %44, %23 ]
+  %204 = load i8, ptr %.0195.lcssa271, align 1
   %205 = zext i8 %204 to i32
   %206 = add nsw i32 %205, -128
-  %207 = load i8, ptr %.0196.lcssa268, align 1
+  %207 = load i8, ptr %.0196.lcssa270, align 1
   %208 = zext i8 %207 to i32
   %209 = add nsw i32 %208, -128
   %210 = load i16, ptr %15, align 4
@@ -7565,7 +7565,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %220 = load i16, ptr %18, align 2
   %221 = zext i16 %220 to i32
   %222 = mul nsw i32 %206, %221
-  %223 = load i8, ptr %.0194.lcssa270, align 1
+  %223 = load i8, ptr %.0194.lcssa272, align 1
   %224 = zext i8 %223 to i32
   %225 = load i8, ptr %12, align 4
   %226 = zext i8 %225 to i32
@@ -7600,8 +7600,8 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %255 = or disjoint i32 %239, %247
   %256 = or disjoint i32 %255, %254
   %257 = or disjoint i32 %256, -16777216
-  store i32 %257, ptr %.0198.lcssa266, align 4
-  %258 = load i8, ptr %.0197.lcssa267, align 1
+  store i32 %257, ptr %.0198.lcssa268, align 4
+  %258 = load i8, ptr %.0197.lcssa269, align 1
   %259 = zext i8 %258 to i32
   %260 = sub nsw i32 %259, %226
   %261 = mul nsw i32 %260, %229
@@ -7632,7 +7632,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %286 = or disjoint i32 %270, %278
   %287 = or disjoint i32 %286, %285
   %288 = or disjoint i32 %287, -16777216
-  store i32 %288, ptr %.0199.lcssa265, align 4
+  store i32 %288, ptr %.0199.lcssa267, align 4
   br label %289
 
 289:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -7778,14 +7778,14 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   br i1 %405, label %._crit_edge236.thread, label %465
 
 ._crit_edge236.thread:                            ; preds = %._crit_edge226.thread, %._crit_edge236
-  %.0200.lcssa280 = phi ptr [ %399, %._crit_edge236 ], [ %295, %._crit_edge226.thread ]
-  %.0201.lcssa279 = phi ptr [ %400, %._crit_edge236 ], [ %299, %._crit_edge226.thread ]
-  %.0202.lcssa278 = phi ptr [ %398, %._crit_edge236 ], [ %303, %._crit_edge226.thread ]
-  %.0203.lcssa277 = phi ptr [ %401, %._crit_edge236 ], [ %300, %._crit_edge226.thread ]
-  %406 = load i8, ptr %.0201.lcssa279, align 1
+  %.0200.lcssa282 = phi ptr [ %399, %._crit_edge236 ], [ %295, %._crit_edge226.thread ]
+  %.0201.lcssa281 = phi ptr [ %400, %._crit_edge236 ], [ %299, %._crit_edge226.thread ]
+  %.0202.lcssa280 = phi ptr [ %398, %._crit_edge236 ], [ %303, %._crit_edge226.thread ]
+  %.0203.lcssa279 = phi ptr [ %401, %._crit_edge236 ], [ %300, %._crit_edge226.thread ]
+  %406 = load i8, ptr %.0201.lcssa281, align 1
   %407 = zext i8 %406 to i32
   %408 = add nsw i32 %407, -128
-  %409 = load i8, ptr %.0203.lcssa277, align 1
+  %409 = load i8, ptr %.0203.lcssa279, align 1
   %410 = zext i8 %409 to i32
   %411 = add nsw i32 %410, -128
   %412 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -7804,7 +7804,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %425 = load i16, ptr %424, align 2
   %426 = zext i16 %425 to i32
   %427 = mul nsw i32 %408, %426
-  %428 = load i8, ptr %.0200.lcssa280, align 1
+  %428 = load i8, ptr %.0200.lcssa282, align 1
   %429 = zext i8 %428 to i32
   %430 = load i8, ptr %12, align 4
   %431 = zext i8 %430 to i32
@@ -7841,7 +7841,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
   %462 = or disjoint i32 %445, %454
   %463 = or disjoint i32 %462, %461
   %464 = or disjoint i32 %463, -16777216
-  store i32 %464, ptr %.0202.lcssa278, align 4
+  store i32 %464, ptr %.0202.lcssa280, align 4
   br label %465
 
 465:                                              ; preds = %._crit_edge236, %._crit_edge236.thread, %._crit_edge226
@@ -8042,17 +8042,17 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %24, label %._crit_edge.thread, label %242
 
 ._crit_edge.thread:                               ; preds = %25, %._crit_edge
-  %.0194.lcssa348 = phi ptr [ %167, %._crit_edge ], [ %29, %25 ]
-  %.0195.lcssa347 = phi ptr [ %169, %._crit_edge ], [ %34, %25 ]
-  %.0196.lcssa346 = phi ptr [ %170, %._crit_edge ], [ %35, %25 ]
-  %.0197.lcssa345 = phi ptr [ %168, %._crit_edge ], [ %40, %25 ]
-  %.0198.lcssa344 = phi ptr [ %119, %._crit_edge ], [ %43, %25 ]
-  %.0199.lcssa343 = phi ptr [ %166, %._crit_edge ], [ %46, %25 ]
-  %173 = load i16, ptr %.0195.lcssa347, align 2
+  %.0194.lcssa350 = phi ptr [ %167, %._crit_edge ], [ %29, %25 ]
+  %.0195.lcssa349 = phi ptr [ %169, %._crit_edge ], [ %34, %25 ]
+  %.0196.lcssa348 = phi ptr [ %170, %._crit_edge ], [ %35, %25 ]
+  %.0197.lcssa347 = phi ptr [ %168, %._crit_edge ], [ %40, %25 ]
+  %.0198.lcssa346 = phi ptr [ %119, %._crit_edge ], [ %43, %25 ]
+  %.0199.lcssa345 = phi ptr [ %166, %._crit_edge ], [ %46, %25 ]
+  %173 = load i16, ptr %.0195.lcssa349, align 2
   %174 = lshr i16 %173, 6
   %175 = zext nneg i16 %174 to i32
   %176 = add nsw i32 %175, -512
-  %177 = load i16, ptr %.0196.lcssa346, align 2
+  %177 = load i16, ptr %.0196.lcssa348, align 2
   %178 = lshr i16 %177, 6
   %179 = zext nneg i16 %178 to i32
   %180 = add nsw i32 %179, -512
@@ -8069,7 +8069,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %191 = load i16, ptr %20, align 2
   %192 = sext i16 %191 to i32
   %193 = mul nsw i32 %176, %192
-  %194 = load i16, ptr %.0194.lcssa348, align 2
+  %194 = load i16, ptr %.0194.lcssa350, align 2
   %195 = zext i16 %194 to i32
   %196 = load i8, ptr %12, align 4
   %197 = zext i8 %196 to i32
@@ -8095,8 +8095,8 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %217 = tail call i32 @llvm.umin.i32(i32 %216, i32 1023)
   %218 = or disjoint i32 %213, %217
   %219 = or disjoint i32 %218, -1073741824
-  store i32 %219, ptr %.0198.lcssa344, align 4
-  %220 = load i16, ptr %.0197.lcssa345, align 2
+  store i32 %219, ptr %.0198.lcssa346, align 4
+  %220 = load i16, ptr %.0197.lcssa347, align 2
   %221 = zext i16 %220 to i32
   %222 = sub nsw i32 %221, %197
   %223 = ashr i32 %222, 6
@@ -8118,7 +8118,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %239 = tail call i32 @llvm.umin.i32(i32 %238, i32 1023)
   %240 = or disjoint i32 %235, %239
   %241 = or disjoint i32 %240, -1073741824
-  store i32 %241, ptr %.0199.lcssa343, align 4
+  store i32 %241, ptr %.0199.lcssa345, align 4
   br label %242
 
 242:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -8248,15 +8248,15 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %342, label %._crit_edge314.thread, label %395
 
 ._crit_edge314.thread:                            ; preds = %._crit_edge304.thread, %._crit_edge314
-  %.0200.lcssa358 = phi ptr [ %336, %._crit_edge314 ], [ %248, %._crit_edge304.thread ]
-  %.0201.lcssa357 = phi ptr [ %337, %._crit_edge314 ], [ %252, %._crit_edge304.thread ]
-  %.0202.lcssa356 = phi ptr [ %335, %._crit_edge314 ], [ %256, %._crit_edge304.thread ]
-  %.0203.lcssa355 = phi ptr [ %338, %._crit_edge314 ], [ %253, %._crit_edge304.thread ]
-  %343 = load i16, ptr %.0201.lcssa357, align 2
+  %.0200.lcssa360 = phi ptr [ %336, %._crit_edge314 ], [ %248, %._crit_edge304.thread ]
+  %.0201.lcssa359 = phi ptr [ %337, %._crit_edge314 ], [ %252, %._crit_edge304.thread ]
+  %.0202.lcssa358 = phi ptr [ %335, %._crit_edge314 ], [ %256, %._crit_edge304.thread ]
+  %.0203.lcssa357 = phi ptr [ %338, %._crit_edge314 ], [ %253, %._crit_edge304.thread ]
+  %343 = load i16, ptr %.0201.lcssa359, align 2
   %344 = lshr i16 %343, 6
   %345 = zext nneg i16 %344 to i32
   %346 = add nsw i32 %345, -512
-  %347 = load i16, ptr %.0203.lcssa355, align 2
+  %347 = load i16, ptr %.0203.lcssa357, align 2
   %348 = lshr i16 %347, 6
   %349 = zext nneg i16 %348 to i32
   %350 = add nsw i32 %349, -512
@@ -8277,7 +8277,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %365 = load i16, ptr %364, align 2
   %366 = sext i16 %365 to i32
   %367 = mul nsw i32 %346, %366
-  %368 = load i16, ptr %.0200.lcssa358, align 2
+  %368 = load i16, ptr %.0200.lcssa360, align 2
   %369 = zext i16 %368 to i32
   %370 = load i8, ptr %12, align 4
   %371 = zext i8 %370 to i32
@@ -8304,7 +8304,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %392 = tail call i32 @llvm.umin.i32(i32 %391, i32 1023)
   %393 = or disjoint i32 %388, %392
   %394 = or disjoint i32 %393, -1073741824
-  store i32 %394, ptr %.0202.lcssa356, align 4
+  store i32 %394, ptr %.0202.lcssa358, align 4
   br label %395
 
 395:                                              ; preds = %._crit_edge314, %._crit_edge314.thread, %._crit_edge304

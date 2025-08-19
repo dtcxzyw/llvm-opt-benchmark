@@ -2042,7 +2042,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4lean4exprEjE
   %.val.i.i.i.i.i.i.i.i = load i32, ptr %10, align 4
   %.mask.i.i.i.i.i = and i32 %.val.i.i.i.i.i.i.i.i, -16777216
   %11 = icmp eq i32 %.mask.i.i.i.i.i, 67108864
-  br i1 %11, label %12, label %.thread22.i.i.i
+  br i1 %11, label %12, label %.thread23.i.i.i
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2072,12 +2072,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4lean4exprEjE
   %22 = icmp eq i32 %.mask.i.i.i.i, 16777216
   br i1 %22, label %24, label %.thread.i.i.i
 
-.thread22.i.i.i:                                  ; preds = %8
+.thread23.i.i.i:                                  ; preds = %8
   %23 = icmp eq i32 %.mask.i.i.i.i.i, 16777216
   br i1 %23, label %24, label %"_ZSt10__invoke_rIbRZN4lean12is_used_nameERKNS0_4exprERKNS0_4nameEE3$_0JS3_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueESA_E4typeEOT0_DpOT1_.exit"
 
-24:                                               ; preds = %.thread22.i.i.i, %21
-  %25 = phi ptr [ %9, %.thread22.i.i.i ], [ %.pre.i.i.i, %21 ]
+24:                                               ; preds = %.thread23.i.i.i, %21
+  %25 = phi ptr [ %9, %.thread23.i.i.i ], [ %.pre.i.i.i, %21 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !68
@@ -2150,8 +2150,8 @@ _ZN4lean10object_refD2Ev.exit.i.i.i:              ; preds = %43, %42, %40, %.thr
   %53 = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ]
   resume { ptr, i32 } %53
 
-"_ZSt10__invoke_rIbRZN4lean12is_used_nameERKNS0_4exprERKNS0_4nameEE3$_0JS3_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueESA_E4typeEOT0_DpOT1_.exit": ; preds = %3, %.thread22.i.i.i, %_ZN4lean10object_refD2Ev.exit.i.i.i, %.critedge.i.i.i, %47
-  %.0.i.i.i = phi i1 [ false, %47 ], [ false, %3 ], [ true, %.critedge.i.i.i ], [ true, %_ZN4lean10object_refD2Ev.exit.i.i.i ], [ true, %.thread22.i.i.i ]
+"_ZSt10__invoke_rIbRZN4lean12is_used_nameERKNS0_4exprERKNS0_4nameEE3$_0JS3_jEENSt9enable_ifIXntsr7is_voidIT_EE5valueESA_E4typeEOT0_DpOT1_.exit": ; preds = %3, %.thread23.i.i.i, %_ZN4lean10object_refD2Ev.exit.i.i.i, %.critedge.i.i.i, %47
+  %.0.i.i.i = phi i1 [ false, %47 ], [ false, %3 ], [ true, %.critedge.i.i.i ], [ true, %_ZN4lean10object_refD2Ev.exit.i.i.i ], [ true, %.thread23.i.i.i ]
   ret i1 %.0.i.i.i
 }
 
@@ -3600,9 +3600,9 @@ _ZN4lean13print_expr_fn8is_arrowERKNS_4exprE.exit.thread: ; preds = %24, %_ZN4le
 31:                                               ; preds = %_ZN4lean13print_expr_fn8is_arrowERKNS_4exprE.exit.thread
   %32 = icmp eq i32 %30, 1
   %33 = load ptr, ptr %0, align 8, !tbaa !74
-  br i1 %32, label %.invoke27, label %36
+  br i1 %32, label %.invoke34, label %36
 
-34:                                               ; preds = %.invoke27, %.invoke, %76, %65, %44, %46, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13, %_ZN4lean13print_expr_fn8is_arrowERKNS_4exprE.exit.thread
+34:                                               ; preds = %.invoke34, %.invoke, %76, %65, %44, %46, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13, %_ZN4lean13print_expr_fn8is_arrowERKNS_4exprE.exit.thread
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN4lean4exprES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
@@ -3611,23 +3611,23 @@ _ZN4lean13print_expr_fn8is_arrowERKNS_4exprE.exit.thread: ; preds = %24, %_ZN4le
 
 36:                                               ; preds = %31
   switch i32 %30, label %38 [
-    i32 3, label %.invoke27
+    i32 3, label %.invoke34
     i32 2, label %37
   ]
 
 37:                                               ; preds = %36
-  br label %.invoke27
+  br label %.invoke34
 
 38:                                               ; preds = %36
-  br label %.invoke27
+  br label %.invoke34
 
-.invoke27:                                        ; preds = %31, %36, %37, %38
+.invoke34:                                        ; preds = %31, %36, %37, %38
   %39 = phi ptr [ @.str.15, %38 ], [ @.str.26, %37 ], [ @.str.25, %36 ], [ @.str.24, %31 ]
   %40 = phi i64 [ 1, %38 ], [ 2, %37 ], [ 1, %36 ], [ 1, %31 ]
   %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %39, i64 noundef %40)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13 unwind label %34
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %.invoke27
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13: ; preds = %.invoke34
   %42 = load ptr, ptr %0, align 8, !tbaa !74
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4leanlsERSoRKNS_4exprE(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %44 unwind label %34

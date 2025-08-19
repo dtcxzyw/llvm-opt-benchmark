@@ -75,7 +75,7 @@ lean_alloc_ctor.exit38:                           ; preds = %lean_alloc_ctor.exi
   store ptr %13, ptr %22, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !4
-  br label %common.ret47
+  br label %common.ret50
 
 24:                                               ; preds = %lean_obj_tag.exit
   %.val = load i32, ptr %1, align 4, !tbaa !8
@@ -86,9 +86,9 @@ lean_alloc_ctor.exit38:                           ; preds = %lean_alloc_ctor.exi
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   br i1 %25, label %30, label %36
 
-common.ret47:                                     ; preds = %lean_alloc_ctor.exit44, %lean_alloc_ctor.exit38, %30
-  %common.ret47.op = phi ptr [ %1, %30 ], [ %18, %lean_alloc_ctor.exit38 ], [ %62, %lean_alloc_ctor.exit44 ]
-  ret ptr %common.ret47.op
+common.ret50:                                     ; preds = %lean_alloc_ctor.exit44, %lean_alloc_ctor.exit38, %30
+  %common.ret50.op = phi ptr [ %1, %30 ], [ %18, %lean_alloc_ctor.exit38 ], [ %62, %lean_alloc_ctor.exit44 ]
+  ret ptr %common.ret50.op
 
 30:                                               ; preds = %24
   %31 = tail call ptr @l_Lean_PrefixTreeNode_insert_insertEmpty___rarg(ptr noundef %0, ptr noundef %29)
@@ -99,7 +99,7 @@ common.ret47:                                     ; preds = %lean_alloc_ctor.exi
   store i32 %35, ptr %33, align 4
   store ptr %32, ptr %28, align 8, !tbaa !4
   store ptr inttoptr (i64 1 to ptr), ptr %26, align 8, !tbaa !4
-  br label %common.ret47
+  br label %common.ret50
 
 36:                                               ; preds = %24
   %37 = ptrtoint ptr %29 to i64
@@ -190,7 +190,7 @@ lean_alloc_ctor.exit44:                           ; preds = %lean_dec.exit
   store ptr inttoptr (i64 1 to ptr), ptr %66, align 8, !tbaa !4
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %61, ptr %67, align 8, !tbaa !4
-  br label %common.ret47
+  br label %common.ret50
 }
 
 declare ptr @l_Lean_RBNode_singleton___rarg(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -314,7 +314,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit126
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %1, ptr %41, align 8, !tbaa !4
   store ptr %37, ptr %26, align 8, !tbaa !4
-  br label %common.ret225
+  br label %common.ret244
 
 42:                                               ; preds = %lean_dec.exit127
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -399,7 +399,7 @@ lean_alloc_ctor.exit147:                          ; preds = %lean_alloc_ctor.exi
   store ptr %62, ptr %71, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %44, ptr %72, align 8, !tbaa !4
-  br label %common.ret225
+  br label %common.ret244
 
 73:                                               ; preds = %lean_obj_tag.exit
   %.val = load i32, ptr %2, align 4, !tbaa !8
@@ -577,7 +577,7 @@ lean_obj_tag.exit166:                             ; preds = %130, %133
   %138 = tail call ptr @l_Lean_PrefixTreeNode_insert_insertEmpty___rarg(ptr noundef %1, ptr noundef %89)
   %139 = tail call ptr @l_Lean_RBNode_insert___rarg(ptr noundef %0, ptr noundef %77, ptr noundef %79, ptr noundef %138) #4
   store ptr %139, ptr %76, align 8, !tbaa !4
-  br label %common.ret225
+  br label %common.ret244
 
 140:                                              ; preds = %lean_obj_tag.exit166
   %141 = getelementptr inbounds nuw i8, ptr %127, i64 8
@@ -647,15 +647,15 @@ lean_dec.exit123:                                 ; preds = %157, %156, %154, %l
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_inc.exit113
 
-common.ret225:                                    ; preds = %137, %lean_alloc_ctor.exit205, %lean_alloc_ctor.exit198, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit147, %lean_inc.exit113
-  %common.ret225.op = phi ptr [ %2, %lean_inc.exit113 ], [ %2, %lean_alloc_ctor.exit ], [ %67, %lean_alloc_ctor.exit147 ], [ %2, %137 ], [ %256, %lean_alloc_ctor.exit198 ], [ %288, %lean_alloc_ctor.exit205 ]
-  ret ptr %common.ret225.op
+common.ret244:                                    ; preds = %137, %lean_alloc_ctor.exit205, %lean_alloc_ctor.exit198, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit147, %lean_inc.exit113
+  %common.ret244.op = phi ptr [ %2, %lean_inc.exit113 ], [ %2, %lean_alloc_ctor.exit ], [ %67, %lean_alloc_ctor.exit147 ], [ %2, %137 ], [ %256, %lean_alloc_ctor.exit198 ], [ %288, %lean_alloc_ctor.exit205 ]
+  ret ptr %common.ret244.op
 
 lean_inc.exit113:                                 ; preds = %163, %162, %160, %lean_dec.exit123
   %164 = tail call ptr @l_Lean_PrefixTreeNode_insert_loop___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %142, ptr noundef %89)
   %165 = tail call ptr @l_Lean_RBNode_insert___rarg(ptr noundef %0, ptr noundef %77, ptr noundef %79, ptr noundef %164) #4
   store ptr %165, ptr %76, align 8, !tbaa !4
-  br label %common.ret225
+  br label %common.ret244
 
 166:                                              ; preds = %73
   %167 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -915,7 +915,7 @@ lean_alloc_ctor.exit198:                          ; preds = %253
   store ptr %168, ptr %260, align 8, !tbaa !4
   %261 = getelementptr inbounds nuw i8, ptr %256, i64 16
   store ptr %255, ptr %261, align 8, !tbaa !4
-  br label %common.ret225
+  br label %common.ret244
 
 262:                                              ; preds = %lean_obj_tag.exit197
   %263 = getelementptr inbounds nuw i8, ptr %243, i64 8
@@ -1005,7 +1005,7 @@ lean_alloc_ctor.exit205:                          ; preds = %lean_inc.exit
   store ptr %168, ptr %292, align 8, !tbaa !4
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 16
   store ptr %287, ptr %293, align 8, !tbaa !4
-  br label %common.ret225
+  br label %common.ret244
 }
 
 declare ptr @l_Lean_RBNode_find___rarg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -5303,18 +5303,18 @@ _init_l_Lean_instInhabitedPrefixTreeNode___closed__1.exit: ; preds = %lean_dec_r
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_instInhabitedPrefixTreeNode___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %25, %_init_l_Lean_instInhabitedPrefixTreeNode___closed__1.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink13 = phi ptr [ %4, %3 ], [ %25, %_init_l_Lean_instInhabitedPrefixTreeNode___closed__1.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !8
   store i32 131096, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %29, align 8, !tbaa !4
-  %30 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %30, align 8, !tbaa !4
   br label %31
 
 31:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink13, %.sink.split ]
   ret ptr %.0
 }
 

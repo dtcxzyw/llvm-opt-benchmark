@@ -1009,9 +1009,9 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   br i1 %42, label %.preheader, label %_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit, !llvm.loop !64
 
 _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7dec_refERKP4expr.exit: ; preds = %113, %41, %36, %33
-  %.sink21 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %113 ]
+  %.sink34 = phi i64 [ 16, %33 ], [ 16, %36 ], [ 16, %41 ], [ 24, %113 ]
   %114 = load ptr, ptr %21, align 8, !tbaa !46
-  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %114, i64 noundef %.sink21, ptr noundef nonnull %29)
+  tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %114, i64 noundef %.sink34, ptr noundef nonnull %29)
   %115 = load ptr, ptr %5, align 8, !tbaa !53
   %116 = icmp eq ptr %115, null
   br i1 %116, label %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit, !llvm.loop !65
@@ -1708,9 +1708,9 @@ _ZN18dependency_managerIN11ast_manager22expr_dependency_configEE7inc_refEPNS2_10
   br label %54
 
 _ZN11ast_manager7mk_joinEPN18dependency_managerINS_22expr_dependency_configEE10dependencyES4_.exit: ; preds = %34
-  br i1 %.not.i, label %.thread37, label %54
+  br i1 %.not.i, label %.thread44, label %54
 
-.thread37:                                        ; preds = %_ZN11ast_manager7mk_joinEPN18dependency_managerINS_22expr_dependency_configEE10dependencyES4_.exit
+.thread44:                                        ; preds = %_ZN11ast_manager7mk_joinEPN18dependency_managerINS_22expr_dependency_configEE10dependencyES4_.exit
   store ptr null, ptr %0, align 8, !tbaa !14
   br label %_ZN3refI20dependency_converterEC2EPS0_.exit
 
@@ -1744,26 +1744,26 @@ _ZN11ast_manager7mk_joinEPN18dependency_managerINS_22expr_dependency_configEE10d
           to label %71 unwind label %88
 
 71:                                               ; preds = %60, %54, %69
-  %.pr36 = load ptr, ptr %5, align 8, !tbaa !14
+  %.pr43 = load ptr, ptr %5, align 8, !tbaa !14
   store ptr %.0.i.i27, ptr %0, align 8, !tbaa !14
-  %.not.i.i22 = icmp eq ptr %.pr36, null
+  %.not.i.i22 = icmp eq ptr %.pr43, null
   br i1 %.not.i.i22, label %_ZN3refI20dependency_converterEC2EPS0_.exit, label %72
 
 72:                                               ; preds = %71
   %73 = load ptr, ptr %15, align 8, !tbaa !18
-  %74 = load i32, ptr %.pr36, align 4
+  %74 = load i32, ptr %.pr43, align 4
   %75 = add i32 %74, 1073741823
   %76 = and i32 %75, 1073741823
   %77 = and i32 %74, -1073741824
   %78 = or disjoint i32 %76, %77
-  store i32 %78, ptr %.pr36, align 4
+  store i32 %78, ptr %.pr43, align 4
   %79 = and i32 %74, 1073741823
   %80 = icmp eq i32 %79, 1
   br i1 %80, label %81, label %_ZN3refI20dependency_converterEC2EPS0_.exit
 
 81:                                               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 648
-  invoke void @_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE3delEPNS2_10dependencyE(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull %.pr36)
+  invoke void @_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE3delEPNS2_10dependencyE(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull %.pr43)
           to label %_ZN3refI20dependency_converterEC2EPS0_.exit unwind label %83
 
 83:                                               ; preds = %81
@@ -1794,8 +1794,8 @@ _ZN11ast_manager7mk_joinEPN18dependency_managerINS_22expr_dependency_configEE10d
   call void @_ZN7obj_refIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   resume { ptr, i32 } %.pn
 
-_ZN3refI20dependency_converterEC2EPS0_.exit:      ; preds = %.thread37, %81, %72, %71
-  %.0.i.i283540 = phi ptr [ null, %.thread37 ], [ %.0.i.i27, %81 ], [ %.0.i.i27, %72 ], [ %.0.i.i27, %71 ]
+_ZN3refI20dependency_converterEC2EPS0_.exit:      ; preds = %.thread44, %81, %72, %71
+  %.0.i.i284247 = phi ptr [ null, %.thread44 ], [ %.0.i.i27, %81 ], [ %.0.i.i27, %72 ], [ %.0.i.i27, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pr = load ptr, ptr %4, align 8, !tbaa !10
   %.not.i.i23 = icmp eq ptr %.pr, null
@@ -1824,7 +1824,7 @@ _ZN3refI20dependency_converterEC2EPS0_.exit:      ; preds = %.thread37, %81, %72
   unreachable
 
 _ZN3refI20dependency_converterED2Ev.exit:         ; preds = %23, %_ZN3refI20dependency_converterEC2EPS0_.exit, %91, %96
-  %102 = phi ptr [ %17, %23 ], [ %.0.i.i283540, %_ZN3refI20dependency_converterEC2EPS0_.exit ], [ %.0.i.i283540, %91 ], [ %.0.i.i283540, %96 ]
+  %102 = phi ptr [ %17, %23 ], [ %.0.i.i284247, %_ZN3refI20dependency_converterEC2EPS0_.exit ], [ %.0.i.i284247, %91 ], [ %.0.i.i284247, %96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %103 = load ptr, ptr %3, align 8, !tbaa !90
   %.not.i.i24 = icmp eq ptr %103, null

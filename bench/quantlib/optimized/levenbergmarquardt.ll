@@ -2433,8 +2433,8 @@ entry:
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %entry
   store ptr null, ptr %xt, align 8, !tbaa !35
-  %n_.i41 = getelementptr inbounds nuw i8, ptr %xt, i64 8
-  store i64 %conv, ptr %n_.i41, align 8, !tbaa !34
+  %n_.i46 = getelementptr inbounds nuw i8, ptr %xt, i64 8
+  store i64 %conv, ptr %n_.i46, align 8, !tbaa !34
   br label %invoke.cont3
 
 if.then.i.i.i.i.i:                                ; preds = %entry
@@ -2578,8 +2578,8 @@ entry:
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %entry
   store ptr null, ptr %xt, align 8, !tbaa !35
-  %n_.i103 = getelementptr inbounds nuw i8, ptr %xt, i64 8
-  store i64 %conv, ptr %n_.i103, align 8, !tbaa !34
+  %n_.i111 = getelementptr inbounds nuw i8, ptr %xt, i64 8
+  store i64 %conv, ptr %n_.i111, align 8, !tbaa !34
   br label %invoke.cont2
 
 if.then.i.i.i.i.i:                                ; preds = %entry

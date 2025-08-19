@@ -342,11 +342,11 @@ clib_resolve_lds.exit.thread38.i:                 ; preds = %clib_check_lds.exit
 
 .loopexit.i:                                      ; preds = %.preheader.i22.i.i, %.preheader.i22.i.i, %.preheader.i22.i.i, %.preheader.i.i.i, %.preheader.i.i.i, %.preheader.i.i.i
   %.0.i23.lcssa.sink.i.i = phi ptr [ %.0.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i ], [ %.0.i.i.i, %.preheader.i.i.i ], [ %.0.i23.i.i, %.preheader.i22.i.i ], [ %.0.i23.i.i, %.preheader.i22.i.i ], [ %.0.i23.i.i, %.preheader.i22.i.i ]
-  %.lcssa45.sink48.i.i = phi ptr [ %54, %.preheader.i.i.i ], [ %54, %.preheader.i.i.i ], [ %54, %.preheader.i.i.i ], [ %65, %.preheader.i22.i.i ], [ %65, %.preheader.i22.i.i ], [ %65, %.preheader.i22.i.i ]
+  %.lcssa50.sink53.i.i = phi ptr [ %54, %.preheader.i.i.i ], [ %54, %.preheader.i.i.i ], [ %54, %.preheader.i.i.i ], [ %65, %.preheader.i22.i.i ], [ %65, %.preheader.i22.i.i ], [ %65, %.preheader.i22.i.i ]
   %72 = ptrtoint ptr %.0.i23.lcssa.sink.i.i to i64
-  %73 = ptrtoint ptr %.lcssa45.sink48.i.i to i64
+  %73 = ptrtoint ptr %.lcssa50.sink53.i.i to i64
   %74 = sub i64 %72, %73
-  %75 = call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %.lcssa45.sink48.i.i, i64 noundef %74) #9
+  %75 = call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %.lcssa50.sink53.i.i, i64 noundef %74) #9
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = call i32 @fclose(ptr noundef nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -507,7 +507,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %179, %173, %181
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 0)
-          to label %183 unwind label %.thread143
+          to label %183 unwind label %.thread174
 
 183:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %184 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -988,7 +988,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit122: ; preds =
           cleanup
   br label %.loopexit
 
-.thread143:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
+.thread174:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %382 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -1033,13 +1033,13 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit122: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %391, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread143, %395
-  %.pn33.pn.pn146 = phi { ptr, i32 } [ %382, %.thread143 ], [ %.pn33.pn, %395 ]
+.preheader.preheader:                             ; preds = %.thread174, %395
+  %.pn33.pn.pn177 = phi { ptr, i32 } [ %382, %.thread174 ], [ %.pn33.pn, %395 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %.thread, %395
-  %.pn33.pn.pn.pn141 = phi { ptr, i32 } [ %381, %.thread ], [ %.pn33.pn, %395 ], [ %.pn33.pn.pn146, %.preheader.preheader ]
+  %.pn33.pn.pn.pn141 = phi { ptr, i32 } [ %381, %.thread ], [ %.pn33.pn, %395 ], [ %.pn33.pn.pn177, %.preheader.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %400

@@ -516,7 +516,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr noundef readonly captures(none) %0, ptr
 
 .thread:                                          ; preds = %4
   %7 = getelementptr i8, ptr %1, i64 52
-  %.val97 = load float, ptr %7, align 4, !tbaa !50
+  %.val101 = load float, ptr %7, align 4, !tbaa !50
   br label %.preheader
 
 8:                                                ; preds = %4
@@ -528,7 +528,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr noundef readonly captures(none) %0, ptr
   br i1 %12, label %.preheader, label %32
 
 .preheader:                                       ; preds = %.thread, %8
-  %.val98 = phi float [ %.val97, %.thread ], [ %.val, %8 ]
+  %.val102 = phi float [ %.val101, %.thread ], [ %.val, %8 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %14 = load i32, ptr %13, align 4, !tbaa !57
   %15 = icmp sgt i32 %14, 0
@@ -537,7 +537,7 @@ define i32 @Nwk_ManDelayTraceTCEdges(ptr noundef readonly captures(none) %0, ptr
 .lr.ph78:                                         ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load ptr, ptr %16, align 8, !tbaa !58
-  %18 = fpext float %.val98 to double
+  %18 = fpext float %.val102 to double
   %19 = fpext float %2 to double
   %wide.trip.count95 = zext nneg i32 %14 to i64
   br label %20

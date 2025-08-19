@@ -289,8 +289,8 @@ define dso_local range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr noundef rea
 
 ._crit_edge:                                      ; preds = %65
   %70 = srem i32 %15, %spec.select96
-  %.not142 = icmp eq i32 %70, 0
-  br i1 %.not142, label %._crit_edge118, label %.lr.ph117
+  %.not150 = icmp eq i32 %70, 0
+  br i1 %.not150, label %._crit_edge118, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %._crit_edge, %.lr.ph117
   %71 = phi i8 [ %75, %.lr.ph117 ], [ %58, %._crit_edge ]

@@ -2292,8 +2292,8 @@ can_elide_return_type_check.exit.thread1166:      ; preds = %663, %648, %can_eli
   %927 = load i32, ptr %926, align 8, !tbaa !53
   %928 = icmp eq i32 %925, %927
   %929 = icmp eq i8 %873, 1
-  %or.cond1226 = and i1 %928, %929
-  br i1 %or.cond1226, label %930, label %.thread1172
+  %or.cond1280 = and i1 %928, %929
+  br i1 %or.cond1280, label %930, label %.thread1172
 
 930:                                              ; preds = %923
   %931 = load ptr, ptr %50, align 8, !tbaa !63
@@ -2825,8 +2825,8 @@ thread-pre-split:                                 ; preds = %975, %982, %987, %1
   %1256 = load i32, ptr %1255, align 8, !tbaa !53
   %1257 = icmp eq i32 %1254, %1256
   %1258 = icmp eq i8 %1202, 1
-  %or.cond1227 = and i1 %1257, %1258
-  br i1 %or.cond1227, label %1259, label %.thread1179
+  %or.cond1281 = and i1 %1257, %1258
+  br i1 %or.cond1281, label %1259, label %.thread1179
 
 1259:                                             ; preds = %1252
   %1260 = load ptr, ptr %50, align 8, !tbaa !63
@@ -3315,7 +3315,7 @@ compress_block.exit:                              ; preds = %23, %compress_block
   %56 = getelementptr inbounds %struct._zend_basic_block, ptr %50, i64 %indvars.iv540, i32 1
   %57 = load i32, ptr %56, align 8, !tbaa !105
   %.not370 = icmp sgt i32 %57, -1
-  br i1 %.not370, label %58, label %.critedge2.loopexit.split.loop.exit565
+  br i1 %.not370, label %58, label %.critedge2.loopexit.split.loop.exit599
 
 58:                                               ; preds = %.lr.ph516
   %59 = and i32 %57, 2048
@@ -3325,13 +3325,13 @@ compress_block.exit:                              ; preds = %23, %compress_block
   %exitcond542.not = icmp eq i64 %indvars.iv.next541, %55
   br i1 %exitcond542.not, label %.critedge2.loopexit, label %.lr.ph516
 
-.critedge2.loopexit.split.loop.exit565:           ; preds = %.lr.ph516
+.critedge2.loopexit.split.loop.exit599:           ; preds = %.lr.ph516
   %60 = trunc nsw i64 %indvars.iv540 to i32
   br label %.critedge2.loopexit
 
-.critedge2.loopexit:                              ; preds = %58, %.critedge2.loopexit.split.loop.exit565
-  %.0364.lcssa.ph = phi i8 [ %.0364514, %.critedge2.loopexit.split.loop.exit565 ], [ %spec.select, %58 ]
-  %.0363.lcssa.ph = phi i32 [ %60, %.critedge2.loopexit.split.loop.exit565 ], [ %49, %58 ]
+.critedge2.loopexit:                              ; preds = %58, %.critedge2.loopexit.split.loop.exit599
+  %.0364.lcssa.ph = phi i8 [ %.0364514, %.critedge2.loopexit.split.loop.exit599 ], [ %spec.select, %58 ]
+  %.0363.lcssa.ph = phi i32 [ %60, %.critedge2.loopexit.split.loop.exit599 ], [ %49, %58 ]
   %61 = trunc nuw i8 %.0364.lcssa.ph to i1
   br label %.critedge2
 
@@ -4572,7 +4572,7 @@ compress_block.exit469:                           ; preds = %705, %take_successo
   br i1 %.not378, label %710, label %.critedge15.loopexit.split.loop.exit
 
 .critedge15.loopexit.split.loop.exit:             ; preds = %712
-  %715 = trunc nsw i64 %indvars.iv.next550 to i32
+  %715 = trunc nuw nsw i64 %indvars.iv.next550 to i32
   br label %.critedge15
 
 .critedge15:                                      ; preds = %699, %710, %.critedge15.loopexit.split.loop.exit, %513, %522, %526, %448, %457, %461, %.critedge2, %64, %compress_block.exit469, %578, %410, %406, %367, %363, %324, %320, %244, %_ssa_op1_info.exit397.thread, %_ssa_op1_info.exit393.thread, %240, %_ssa_op1_info.exit.thread, %_ssa_op1_info.exit389.thread, %132, %take_successor_0.exit, %331, %344, %374, %387

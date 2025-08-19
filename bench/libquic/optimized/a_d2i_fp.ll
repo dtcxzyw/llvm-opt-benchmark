@@ -43,19 +43,19 @@ define hidden ptr @ASN1_d2i_fp(ptr noundef readnone captures(none) %0, ptr nound
   br i1 %.not.i, label %ASN1_d2i_bio.exit, label %20
 
 20:                                               ; preds = %19, %.thread.i
-  %.09.i = phi ptr [ %18, %.thread.i ], [ null, %19 ]
+  %.010.i = phi ptr [ %18, %.thread.i ], [ null, %19 ]
   call void @BUF_MEM_free(ptr noundef nonnull %.pre.i) #4
   br label %ASN1_d2i_bio.exit
 
 ASN1_d2i_bio.exit:                                ; preds = %19, %20
-  %.010.i = phi ptr [ %.09.i, %20 ], [ null, %19 ]
+  %.011.i = phi ptr [ %.010.i, %20 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %21 = call i32 @BIO_free(ptr noundef nonnull %8) #4
   br label %22
 
 22:                                               ; preds = %ASN1_d2i_bio.exit, %10
-  %.0 = phi ptr [ null, %10 ], [ %.010.i, %ASN1_d2i_bio.exit ]
+  %.0 = phi ptr [ null, %10 ], [ %.011.i, %ASN1_d2i_bio.exit ]
   ret ptr %.0
 }
 
@@ -92,15 +92,15 @@ define hidden ptr @ASN1_d2i_bio(ptr noundef readnone captures(none) %0, ptr noun
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %.thread, %13
-  %.09 = phi ptr [ %12, %.thread ], [ null, %13 ]
+  %.010 = phi ptr [ %12, %.thread ], [ null, %13 ]
   call void @BUF_MEM_free(ptr noundef nonnull %.pre) #4
   br label %15
 
 15:                                               ; preds = %14, %13
-  %.010 = phi ptr [ %.09, %14 ], [ null, %13 ]
+  %.011 = phi ptr [ %.010, %14 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.010
+  ret ptr %.011
 }
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
@@ -243,7 +243,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
 
 64:                                               ; preds = %59
   %65 = icmp slt i32 %.0101.ph, 2
-  br i1 %65, label %.loopexit152, label %66
+  br i1 %65, label %.loopexit164, label %66
 
 66:                                               ; preds = %64
   %67 = add nsw i32 %.0101.ph, -1
@@ -332,18 +332,18 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   br label %.thread138
 
 101:                                              ; preds = %.loopexit
-  br i1 %14, label %.loopexit152, label %15
+  br i1 %14, label %.loopexit164, label %15
 
-.loopexit152:                                     ; preds = %64, %101
+.loopexit164:                                     ; preds = %64, %101
   %.2100 = phi i64 [ %98, %101 ], [ %55, %64 ]
   %102 = icmp ugt i64 %.2100, 2147483647
   br i1 %102, label %103, label %104
 
-103:                                              ; preds = %.loopexit152
+103:                                              ; preds = %.loopexit164
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 177, ptr noundef nonnull @.str, i32 noundef 272) #4
   br label %.thread138
 
-104:                                              ; preds = %.loopexit152
+104:                                              ; preds = %.loopexit164
   store ptr %4, ptr %1, align 8, !tbaa !6
   %105 = trunc nuw nsw i64 %.2100 to i32
   br label %106
@@ -385,15 +385,15 @@ define hidden ptr @ASN1_item_d2i_bio(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %.thread, %12
-  %.09 = phi ptr [ %11, %.thread ], [ null, %12 ]
+  %.010 = phi ptr [ %11, %.thread ], [ null, %12 ]
   call void @BUF_MEM_free(ptr noundef nonnull %.pre) #4
   br label %14
 
 14:                                               ; preds = %13, %12
-  %.010 = phi ptr [ %.09, %13 ], [ null, %12 ]
+  %.011 = phi ptr [ %.010, %13 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %.010
+  ret ptr %.011
 }
 
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -434,19 +434,19 @@ define hidden ptr @ASN1_item_d2i_fp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %ASN1_item_d2i_bio.exit, label %19
 
 19:                                               ; preds = %18, %.thread.i
-  %.09.i = phi ptr [ %17, %.thread.i ], [ null, %18 ]
+  %.010.i = phi ptr [ %17, %.thread.i ], [ null, %18 ]
   call void @BUF_MEM_free(ptr noundef nonnull %.pre.i) #4
   br label %ASN1_item_d2i_bio.exit
 
 ASN1_item_d2i_bio.exit:                           ; preds = %18, %19
-  %.010.i = phi ptr [ %.09.i, %19 ], [ null, %18 ]
+  %.011.i = phi ptr [ %.010.i, %19 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = call i32 @BIO_free(ptr noundef nonnull %7) #4
   br label %21
 
 21:                                               ; preds = %ASN1_item_d2i_bio.exit, %9
-  %.0 = phi ptr [ null, %9 ], [ %.010.i, %ASN1_item_d2i_bio.exit ]
+  %.0 = phi ptr [ null, %9 ], [ %.011.i, %ASN1_item_d2i_bio.exit ]
   ret ptr %.0
 }
 

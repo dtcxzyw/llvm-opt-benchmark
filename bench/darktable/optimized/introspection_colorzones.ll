@@ -3561,9 +3561,9 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %132 = fadd reassoc nsz arcp contract afn float %131, -1.000000e+00
   %133 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %126, i64 28
-  %.754.sroa.sel.v = select i1 %124, ptr %130, ptr %127
-  %.754.sroa.sel = getelementptr inbounds nuw i8, ptr %.754.sroa.sel.v, i64 4
-  %135 = load float, ptr %.754.sroa.sel, align 4, !tbaa !17
+  %.766.sroa.sel.v = select i1 %124, ptr %130, ptr %127
+  %.766.sroa.sel = getelementptr inbounds nuw i8, ptr %.766.sroa.sel.v, i64 4
+  %135 = load float, ptr %.766.sroa.sel, align 4, !tbaa !17
   store float %132, ptr %133, align 8, !tbaa !168
   store float %135, ptr %134, align 4, !tbaa !170
   %136 = icmp sgt i32 %52, 0
@@ -3686,8 +3686,8 @@ dt_draw_curve_calc_values.exit:                   ; preds = %178
   br i1 %.not522, label %.preheader593, label %201
 
 .preheader593:                                    ; preds = %193
-  %.not758 = icmp eq i32 %190, 0
-  br i1 %.not758, label %.loopexit594, label %.lr.ph603
+  %.not770 = icmp eq i32 %190, 0
+  br i1 %.not770, label %.loopexit594, label %.lr.ph603
 
 .lr.ph603:                                        ; preds = %.preheader593
   %199 = getelementptr inbounds nuw [3 x [20 x %struct.dt_iop_colorzones_node_t]], ptr %43, i64 0, i64 %indvars.iv655
@@ -4699,8 +4699,8 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %773 = add i32 %772, %771
   %774 = srem i32 %773, 3
   %775 = icmp eq i32 %.0506618, 2
-  %.755 = select i1 %775, double 1.000000e+00, double 3.000000e-01
-  call void @cairo_set_source_rgba(ptr noundef %289, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef %.755) #29
+  %.767 = select i1 %775, double 1.000000e+00, double 3.000000e-01
+  call void @cairo_set_source_rgba(ptr noundef %289, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef %.767) #29
   %776 = sext i32 %774 to i64
   %777 = getelementptr inbounds [3 x [256 x float]], ptr %755, i64 0, i64 %776
   %778 = load float, ptr %777, align 4, !tbaa !14
@@ -4828,9 +4828,9 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %860 = fadd reassoc nsz arcp contract afn float %859, -1.000000e+00
   %861 = getelementptr inbounds nuw i8, ptr %853, i64 24
   %862 = getelementptr inbounds nuw i8, ptr %853, i64 28
-  %.756.sroa.sel.v = select i1 %851, ptr %858, ptr %855
-  %.756.sroa.sel = getelementptr inbounds nuw i8, ptr %.756.sroa.sel.v, i64 4
-  %863 = load float, ptr %.756.sroa.sel, align 4, !tbaa !17
+  %.768.sroa.sel.v = select i1 %851, ptr %858, ptr %855
+  %.768.sroa.sel = getelementptr inbounds nuw i8, ptr %.768.sroa.sel.v, i64 4
+  %863 = load float, ptr %.768.sroa.sel, align 4, !tbaa !17
   store float %860, ptr %861, align 8, !tbaa !168
   store float %863, ptr %862, align 4, !tbaa !170
   %864 = icmp sgt i32 %.lcssa, 0
@@ -4878,17 +4878,17 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   br label %887
 
 887:                                              ; preds = %880, %876
-  %.sink740.in.in = phi ptr [ %883, %880 ], [ %878, %876 ]
-  %.sink737.in = phi ptr [ %886, %880 ], [ %879, %876 ]
-  %.sink737 = load float, ptr %.sink737.in, align 4, !tbaa !17
-  %.sink740.in = load float, ptr %.sink740.in.in, align 4, !tbaa !15
-  %.sink740 = fadd reassoc nsz arcp contract afn float %.sink740.in, 1.000000e+00
+  %.sink752.in.in = phi ptr [ %883, %880 ], [ %878, %876 ]
+  %.sink749.in = phi ptr [ %886, %880 ], [ %879, %876 ]
+  %.sink749 = load float, ptr %.sink749.in, align 4, !tbaa !17
+  %.sink752.in = load float, ptr %.sink752.in.in, align 4, !tbaa !15
+  %.sink752 = fadd reassoc nsz arcp contract afn float %.sink752.in, 1.000000e+00
   %888 = getelementptr inbounds nuw i8, ptr %853, i64 24
   %889 = sext i32 %868 to i64
   %890 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %888, i64 0, i64 %889
-  store float %.sink740, ptr %890, align 8, !tbaa !168
+  store float %.sink752, ptr %890, align 8, !tbaa !168
   %891 = getelementptr inbounds nuw i8, ptr %890, i64 4
-  store float %.sink737, ptr %891, align 4, !tbaa !170
+  store float %.sink749, ptr %891, align 4, !tbaa !170
   %892 = getelementptr inbounds nuw i8, ptr %32, i64 3252
   %893 = getelementptr inbounds nuw i8, ptr %853, i64 184
   store i32 256, ptr %893, align 8, !tbaa !194
@@ -5008,9 +5008,9 @@ dt_draw_curve_calc_values.exit551:                ; preds = %921, %912, %898
   %957 = fadd reassoc nsz arcp contract afn float %956, -1.000000e+00
   %958 = getelementptr inbounds nuw i8, ptr %950, i64 24
   %959 = getelementptr inbounds nuw i8, ptr %950, i64 28
-  %.757.sroa.sel.v = select i1 %948, ptr %955, ptr %952
-  %.757.sroa.sel = getelementptr inbounds nuw i8, ptr %.757.sroa.sel.v, i64 4
-  %960 = load float, ptr %.757.sroa.sel, align 4, !tbaa !17
+  %.769.sroa.sel.v = select i1 %948, ptr %955, ptr %952
+  %.769.sroa.sel = getelementptr inbounds nuw i8, ptr %.769.sroa.sel.v, i64 4
+  %960 = load float, ptr %.769.sroa.sel, align 4, !tbaa !17
   store float %957, ptr %958, align 8, !tbaa !168
   store float %960, ptr %959, align 4, !tbaa !170
   %961 = icmp sgt i32 %.lcssa, 0
@@ -5058,17 +5058,17 @@ dt_draw_curve_calc_values.exit551:                ; preds = %921, %912, %898
   br label %984
 
 984:                                              ; preds = %977, %973
-  %.sink750.in.in = phi ptr [ %980, %977 ], [ %975, %973 ]
-  %.sink747.in = phi ptr [ %983, %977 ], [ %976, %973 ]
-  %.sink747 = load float, ptr %.sink747.in, align 4, !tbaa !17
-  %.sink750.in = load float, ptr %.sink750.in.in, align 4, !tbaa !15
-  %.sink750 = fadd reassoc nsz arcp contract afn float %.sink750.in, 1.000000e+00
+  %.sink762.in.in = phi ptr [ %980, %977 ], [ %975, %973 ]
+  %.sink759.in = phi ptr [ %983, %977 ], [ %976, %973 ]
+  %.sink759 = load float, ptr %.sink759.in, align 4, !tbaa !17
+  %.sink762.in = load float, ptr %.sink762.in.in, align 4, !tbaa !15
+  %.sink762 = fadd reassoc nsz arcp contract afn float %.sink762.in, 1.000000e+00
   %985 = getelementptr inbounds nuw i8, ptr %950, i64 24
   %986 = sext i32 %965 to i64
   %987 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %985, i64 0, i64 %986
-  store float %.sink750, ptr %987, align 8, !tbaa !168
+  store float %.sink762, ptr %987, align 8, !tbaa !168
   %988 = getelementptr inbounds nuw i8, ptr %987, i64 4
-  store float %.sink747, ptr %988, align 4, !tbaa !170
+  store float %.sink759, ptr %988, align 4, !tbaa !170
   %989 = getelementptr inbounds nuw i8, ptr %32, i64 4276
   %990 = getelementptr inbounds nuw i8, ptr %950, i64 184
   store i32 256, ptr %990, align 8, !tbaa !194
@@ -5241,8 +5241,8 @@ dt_draw_curve_calc_values.exit565:                ; preds = %1018, %1009, %995
   %1097 = fpext reassoc nsz arcp contract afn float %1096 to double
   call void @cairo_line_to(ptr noundef %289, double noundef %1094, double noundef %1097) #29
   %indvars.iv.next708 = add nsw i64 %indvars.iv707, -1
-  %.not719 = icmp eq i64 %indvars.iv707, 0
-  br i1 %.not719, label %1058, label %1081
+  %.not731 = icmp eq i64 %indvars.iv707, 0
+  br i1 %.not731, label %1058, label %1081
 
 1098:                                             ; preds = %831, %._crit_edge622
   %1099 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
@@ -6002,9 +6002,9 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %166 = getelementptr inbounds nuw i8, ptr %6, i64 148
   %167 = load i32, ptr %166, align 4, !tbaa !186
   %168 = icmp sgt i32 %167, -1
-  br i1 %168, label %.thread262, label %.thread
+  br i1 %168, label %.thread278, label %.thread
 
-.thread262:                                       ; preds = %165
+.thread278:                                       ; preds = %165
   %169 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 %167, ptr %169, align 4, !tbaa !179
   %170 = getelementptr inbounds nuw i8, ptr %6, i64 140
@@ -6017,9 +6017,9 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %173 = icmp sgt i32 %.pre, -1
   br i1 %173, label %174, label %245
 
-174:                                              ; preds = %.thread262, %171
-  %175 = phi ptr [ %170, %.thread262 ], [ %172, %171 ]
-  %176 = phi i32 [ %167, %.thread262 ], [ %.pre, %171 ]
+174:                                              ; preds = %.thread278, %171
+  %175 = phi ptr [ %170, %.thread278 ], [ %172, %171 ]
+  %176 = phi i32 [ %167, %.thread278 ], [ %.pre, %171 ]
   %177 = zext nneg i32 %176 to i64
   %178 = getelementptr inbounds nuw %struct.dt_iop_colorzones_node_t, ptr %108, i64 %177
   %179 = load float, ptr %178, align 4, !tbaa !15
@@ -7005,8 +7005,8 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   %13 = and i32 %12, -2
   %14 = lshr i32 %10, 2
   %.lobit = and i32 %14, 1
-  %.sink280 = or disjoint i32 %13, %.lobit
-  store i32 %.sink280, ptr %11, align 4, !tbaa !273
+  %.sink284 = or disjoint i32 %13, %.lobit
+  store i32 %.sink284, ptr %11, align 4, !tbaa !273
   %.not218 = icmp eq ptr %8, null
   br i1 %.not218, label %20, label %15
 
@@ -7211,8 +7211,8 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   %147 = fmul reassoc nsz arcp contract afn float %146, 0x3F847AE140000000
   %148 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %149 = getelementptr inbounds nuw i8, ptr %139, i64 28
-  %.289 = select i1 %137, ptr %143, ptr %140
-  %150 = getelementptr inbounds nuw i8, ptr %.289, i64 4
+  %.293 = select i1 %137, ptr %143, ptr %140
+  %150 = getelementptr inbounds nuw i8, ptr %.293, i64 4
   %151 = load float, ptr %150, align 4, !tbaa !17
   %152 = fadd reassoc nsz arcp contract afn float %151, -5.000000e-01
   %153 = fmul reassoc nsz arcp contract afn float %147, %152

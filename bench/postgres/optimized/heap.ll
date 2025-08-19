@@ -928,12 +928,12 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
   br label %201
 
 201:                                              ; preds = %196, %176
-  %.sink171 = phi i8 [ 1, %196 ], [ %195, %176 ]
+  %.sink172 = phi i8 [ 1, %196 ], [ %195, %176 ]
   %202 = load ptr, ptr %25, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 22
-  store i8 %.sink171, ptr %205, align 1
+  store i8 %.sink172, ptr %205, align 1
   %206 = load ptr, ptr %25, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %208 = load ptr, ptr %207, align 8
@@ -2420,13 +2420,13 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
 .preheader254.preheader:                          ; preds = %.preheader255
   %35 = load i32, ptr %28, align 4
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph553, label %.split406.us
+  br i1 %36, label %.lr.ph563, label %.split406.us
 
 .lr.ph:                                           ; preds = %.preheader256.preheader, %.preheader256
-  %.1357547 = phi ptr [ %.2, %.preheader256 ], [ null, %.preheader256.preheader ]
-  %indvars.iv546 = phi i64 [ %indvars.iv.next, %.preheader256 ], [ 0, %.preheader256.preheader ]
+  %.1357557 = phi ptr [ %.2, %.preheader256 ], [ null, %.preheader256.preheader ]
+  %indvars.iv556 = phi i64 [ %indvars.iv.next, %.preheader256 ], [ 0, %.preheader256.preheader ]
   %37 = load ptr, ptr %24, align 8
-  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv546
+  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv556
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %11, align 8
   %41 = load i16, ptr %39, align 8
@@ -2511,12 +2511,12 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   store i16 %25, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 38
   store i8 0, ptr %92, align 2
-  %93 = tail call ptr @lappend(ptr noundef %.1357547, ptr noundef nonnull %82) #11
+  %93 = tail call ptr @lappend(ptr noundef %.1357557, ptr noundef nonnull %82) #11
   br label %.preheader256
 
 .preheader256:                                    ; preds = %.lr.ph, %66, %78
-  %.2 = phi ptr [ %93, %78 ], [ %.1357547, %66 ], [ %.1357547, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv546, 1
+  %.2 = phi ptr [ %93, %78 ], [ %.1357557, %66 ], [ %.1357557, %.lr.ph ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv556, 1
   %94 = load i32, ptr %23, align 4
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
@@ -2528,14 +2528,14 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   call fastcc void @SetRelationNumChecks(ptr noundef nonnull %0, i32 noundef %.us-phi407)
   ret ptr %.us-phi408
 
-.lr.ph553:                                        ; preds = %.preheader254.preheader, %.preheader254
-  %.1211387552 = phi ptr [ %.2212, %.preheader254 ], [ null, %.preheader254.preheader ]
-  %.1205388551 = phi ptr [ %.4208, %.preheader254 ], [ null, %.preheader254.preheader ]
-  %.1199389550 = phi i32 [ %.3201, %.preheader254 ], [ %.0197, %.preheader254.preheader ]
-  %.4390549 = phi ptr [ %.6, %.preheader254 ], [ %.us-phi, %.preheader254.preheader ]
-  %indvars.iv457548 = phi i64 [ %indvars.iv.next458, %.preheader254 ], [ 0, %.preheader254.preheader ]
+.lr.ph563:                                        ; preds = %.preheader254.preheader, %.preheader254
+  %.1211387562 = phi ptr [ %.2212, %.preheader254 ], [ null, %.preheader254.preheader ]
+  %.1205388561 = phi ptr [ %.4208, %.preheader254 ], [ null, %.preheader254.preheader ]
+  %.1199389560 = phi i32 [ %.3201, %.preheader254 ], [ %.0197, %.preheader254.preheader ]
+  %.4390559 = phi ptr [ %.6, %.preheader254 ], [ %.us-phi, %.preheader254.preheader ]
+  %indvars.iv457558 = phi i64 [ %indvars.iv.next458, %.preheader254 ], [ 0, %.preheader254.preheader ]
   %97 = load ptr, ptr %29, align 8
-  %98 = getelementptr inbounds nuw %union.ListCell, ptr %97, i64 %indvars.iv457548
+  %98 = getelementptr inbounds nuw %union.ListCell, ptr %97, i64 %indvars.iv457558
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
@@ -2544,7 +2544,7 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
     i32 1, label %365
   ]
 
-102:                                              ; preds = %.lr.ph553
+102:                                              ; preds = %.lr.ph563
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %104 = load ptr, ptr %103, align 8
   %.not235 = icmp eq ptr %104, null
@@ -2588,12 +2588,12 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
   br i1 %.not236, label %319, label %.preheader253
 
 .preheader253:                                    ; preds = %cookConstraint.exit
-  %.not239 = icmp eq ptr %.1205388551, null
-  %122 = getelementptr inbounds nuw i8, ptr %.1205388551, i64 16
+  %.not239 = icmp eq ptr %.1205388561, null
+  %122 = getelementptr inbounds nuw i8, ptr %.1205388561, i64 16
   br i1 %.not239, label %.split369.us, label %.preheader253.split
 
 .preheader253.split:                              ; preds = %.preheader253
-  %123 = getelementptr inbounds nuw i8, ptr %.1205388551, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %.1205388561, i64 4
   %124 = load i32, ptr %123, align 4
   %.fr409 = freeze i32 %124
   %125 = icmp sgt i32 %.fr409, 0
@@ -2618,7 +2618,7 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
   br label %127
 
 .split369.us:                                     ; preds = %126, %.preheader253.split, %.preheader253
-  %133 = call ptr @lappend(ptr noundef %.1205388551, ptr noundef nonnull %121) #11
+  %133 = call ptr @lappend(ptr noundef %.1205388561, ptr noundef nonnull %121) #11
   %134 = getelementptr inbounds nuw i8, ptr %99, i64 18
   %135 = load i8, ptr %134, align 2, !range !10, !noundef !11
   %136 = trunc nuw i8 %135 to i1
@@ -2992,8 +2992,8 @@ list_length.exit.thread:                          ; preds = %319, %list_length.e
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
   %334 = getelementptr inbounds nuw i8, ptr %332, i64 68
   %335 = load i32, ptr %334, align 4
-  %336 = call ptr @ChooseConstraintName(ptr noundef nonnull %333, ptr noundef %.0203, ptr noundef nonnull @.str.28, i32 noundef %335, ptr noundef %.1205388551) #11
-  %337 = call ptr @lappend(ptr noundef %.1205388551, ptr noundef %336) #11
+  %336 = call ptr @ChooseConstraintName(ptr noundef nonnull %333, ptr noundef %.0203, ptr noundef nonnull @.str.28, i32 noundef %335, ptr noundef %.1205388561) #11
+  %337 = call ptr @lappend(ptr noundef %.1205388561, ptr noundef %336) #11
   br label %338
 
 .critedge252:                                     ; preds = %.split369.us
@@ -3015,7 +3015,7 @@ list_length.exit.thread:                          ; preds = %319, %list_length.e
   %346 = load i8, ptr %345, align 1, !range !10, !noundef !11
   %347 = trunc nuw i8 %346 to i1
   %348 = call fastcc i32 @StoreRelCheck(ptr noundef nonnull %0, ptr noundef %.0216, ptr noundef %.0217, i1 noundef zeroext %341, i1 noundef zeroext %344, i1 noundef zeroext %4, i16 noundef signext %25, i1 noundef zeroext %347, i1 noundef zeroext %5)
-  %349 = add i32 %.1199389550, 1
+  %349 = add i32 %.1199389560, 1
   %350 = call ptr @palloc(i64 noundef 40) #11
   store i32 5, ptr %350, align 8
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 4
@@ -3040,10 +3040,10 @@ list_length.exit.thread:                          ; preds = %319, %list_length.e
   %362 = load i8, ptr %345, align 1, !range !10, !noundef !11
   %363 = getelementptr inbounds nuw i8, ptr %350, i64 38
   store i8 %362, ptr %363, align 2
-  %364 = call ptr @lappend(ptr noundef %.4390549, ptr noundef nonnull %350) #11
+  %364 = call ptr @lappend(ptr noundef %.4390559, ptr noundef nonnull %350) #11
   br label %.preheader254
 
-365:                                              ; preds = %.lr.ph553
+365:                                              ; preds = %.lr.ph563
   %366 = load i32, ptr %30, align 8
   %367 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %368 = load ptr, ptr %367, align 8
@@ -3149,12 +3149,12 @@ list_length.exit.thread:                          ; preds = %319, %list_length.e
   %433 = load ptr, ptr %432, align 8
   %434 = getelementptr inbounds nuw i8, ptr %427, i64 68
   %435 = load i32, ptr %434, align 4
-  %436 = call ptr @ChooseConstraintName(ptr noundef nonnull %428, ptr noundef %433, ptr noundef nonnull @.str.33, i32 noundef %435, ptr noundef %.1211387552) #11
+  %436 = call ptr @ChooseConstraintName(ptr noundef nonnull %428, ptr noundef %433, ptr noundef nonnull @.str.33, i32 noundef %435, ptr noundef %.1211387562) #11
   br label %437
 
 437:                                              ; preds = %426, %424
   %.0 = phi ptr [ %425, %424 ], [ %436, %426 ]
-  %438 = call ptr @lappend(ptr noundef %.1211387552, ptr noundef %.0) #11
+  %438 = call ptr @lappend(ptr noundef %.1211387562, ptr noundef %.0) #11
   %439 = getelementptr inbounds nuw i8, ptr %99, i64 20
   %440 = load i8, ptr %439, align 4, !range !10, !noundef !11
   %441 = trunc nuw i8 %440 to i1
@@ -3191,19 +3191,19 @@ list_length.exit.thread:                          ; preds = %319, %list_length.e
   %457 = load i8, ptr %407, align 1, !range !10, !noundef !11
   %458 = getelementptr inbounds nuw i8, ptr %446, i64 38
   store i8 %457, ptr %458, align 2
-  %459 = call ptr @lappend(ptr noundef %.4390549, ptr noundef nonnull %446) #11
+  %459 = call ptr @lappend(ptr noundef %.4390559, ptr noundef nonnull %446) #11
   br label %.preheader254
 
-.preheader254:                                    ; preds = %MergeWithExistingConstraint.exit, %437, %405, %338, %.lr.ph553
-  %.2212 = phi ptr [ %.1211387552, %.lr.ph553 ], [ %.1211387552, %MergeWithExistingConstraint.exit ], [ %.1211387552, %338 ], [ %438, %437 ], [ %.1211387552, %405 ]
-  %.4208 = phi ptr [ %.1205388551, %.lr.ph553 ], [ %133, %MergeWithExistingConstraint.exit ], [ %.3207, %338 ], [ %.1205388551, %437 ], [ %.1205388551, %405 ]
-  %.3201 = phi i32 [ %.1199389550, %.lr.ph553 ], [ %.1199389550, %MergeWithExistingConstraint.exit ], [ %349, %338 ], [ %.1199389550, %437 ], [ %.1199389550, %405 ]
-  %.6 = phi ptr [ %.4390549, %.lr.ph553 ], [ %.4390549, %MergeWithExistingConstraint.exit ], [ %364, %338 ], [ %459, %437 ], [ %.4390549, %405 ]
-  %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457548, 1
+.preheader254:                                    ; preds = %MergeWithExistingConstraint.exit, %437, %405, %338, %.lr.ph563
+  %.2212 = phi ptr [ %.1211387562, %.lr.ph563 ], [ %.1211387562, %MergeWithExistingConstraint.exit ], [ %.1211387562, %338 ], [ %438, %437 ], [ %.1211387562, %405 ]
+  %.4208 = phi ptr [ %.1205388561, %.lr.ph563 ], [ %133, %MergeWithExistingConstraint.exit ], [ %.3207, %338 ], [ %.1205388561, %437 ], [ %.1205388561, %405 ]
+  %.3201 = phi i32 [ %.1199389560, %.lr.ph563 ], [ %.1199389560, %MergeWithExistingConstraint.exit ], [ %349, %338 ], [ %.1199389560, %437 ], [ %.1199389560, %405 ]
+  %.6 = phi ptr [ %.4390559, %.lr.ph563 ], [ %.4390559, %MergeWithExistingConstraint.exit ], [ %364, %338 ], [ %459, %437 ], [ %.4390559, %405 ]
+  %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457558, 1
   %460 = load i32, ptr %28, align 4
   %461 = sext i32 %460 to i64
   %462 = icmp slt i64 %indvars.iv.next458, %461
-  br i1 %462, label %.lr.ph553, label %.split406.us, !llvm.loop !24
+  br i1 %462, label %.lr.ph563, label %.split406.us, !llvm.loop !24
 }
 
 declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #2
@@ -3552,16 +3552,16 @@ list_length.exit:                                 ; preds = %list_length.exit.lr
   %59 = getelementptr inbounds nuw i8, ptr %17, i64 21
   %60 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %61 = trunc nuw i64 %indvars.iv.next312 to i32
-  br label %.outer356
+  br label %.outer362
 
-.outer356:                                        ; preds = %117, %58
+.outer362:                                        ; preds = %117, %58
   %.0153.ph = phi i32 [ %118, %117 ], [ %61, %58 ]
   %.1.ph = phi ptr [ %.1, %117 ], [ %.0258, %58 ]
   %62 = sext i32 %.0153.ph to i64
   br label %63
 
-63:                                               ; preds = %.outer356, %115
-  %.1 = phi ptr [ %116, %115 ], [ %.1.ph, %.outer356 ]
+63:                                               ; preds = %.outer362, %115
+  %.1 = phi ptr [ %116, %115 ], [ %.1.ph, %.outer362 ]
   %.not.i182 = icmp eq ptr %.1, null
   br i1 %.not.i182, label %list_length.exit183, label %64
 
@@ -3660,7 +3660,7 @@ list_length.exit183:                              ; preds = %63, %64
 
 117:                                              ; preds = %69
   %118 = add nsw i32 %.0153.ph, 1
-  br label %.outer356, !llvm.loop !27
+  br label %.outer362, !llvm.loop !27
 
 .preheader194:                                    ; preds = %.critedge
   %.not166 = icmp eq ptr %.0131256, null
@@ -4412,7 +4412,7 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
   br i1 %.not60, label %64, label %47
 
 .critedge.thread:                                 ; preds = %._crit_edge, %.lr.ph74, %._crit_edge.thread
-  %.1.lcssa98.ph = phi ptr [ %.0, %._crit_edge.thread ], [ %.2, %.lr.ph74 ], [ %.2, %._crit_edge ]
+  %.1.lcssa103.ph = phi ptr [ %.0, %._crit_edge.thread ], [ %.2, %.lr.ph74 ], [ %.2, %._crit_edge ]
   %.349.lcssa.ph = phi ptr [ null, %._crit_edge.thread ], [ null, %._crit_edge ], [ %.147, %.lr.ph74 ]
   call void @list_free(ptr noundef %.349.lcssa.ph) #11
   br label %.loopexit
@@ -4460,14 +4460,14 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
   br i1 %67, label %.lr.ph91, label %.critedge
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.thread
-  %.143.lcssa104 = phi ptr [ %.042, %.critedge.thread ], [ %.244, %.critedge ]
-  %.1.lcssa98103 = phi ptr [ %.1.lcssa98.ph, %.critedge.thread ], [ %.2, %.critedge ]
+  %.143.lcssa109 = phi ptr [ %.042, %.critedge.thread ], [ %.244, %.critedge ]
+  %.1.lcssa103108 = phi ptr [ %.1.lcssa103.ph, %.critedge.thread ], [ %.2, %.critedge ]
   call void @table_close(ptr noundef %4, i32 noundef 1) #11
-  call void @list_free(ptr noundef %.143.lcssa104) #11
-  call void @list_sort(ptr noundef %.1.lcssa98103, ptr noundef nonnull @list_oid_cmp) #11
-  call void @list_deduplicate_oid(ptr noundef %.1.lcssa98103) #11
+  call void @list_free(ptr noundef %.143.lcssa109) #11
+  call void @list_sort(ptr noundef %.1.lcssa103108, ptr noundef nonnull @list_oid_cmp) #11
+  call void @list_deduplicate_oid(ptr noundef %.1.lcssa103108) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %.1.lcssa98103
+  ret ptr %.1.lcssa103108
 }
 
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2

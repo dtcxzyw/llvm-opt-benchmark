@@ -1337,7 +1337,7 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i228.us
 197:                                              ; preds = %.lr.ph.i.i.us
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i.us, label %.thread.loopexit540, label %.lr.ph.i.i.us, !llvm.loop !36
+  br i1 %exitcond.not.i.i.us, label %.thread.loopexit557, label %.lr.ph.i.i.us, !llvm.loop !36
 
 .split.us:                                        ; preds = %193
   %198 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
@@ -1354,14 +1354,14 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i228.us
   %202 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
   br label %.thread
 
-.thread.loopexit540:                              ; preds = %197
+.thread.loopexit557:                              ; preds = %197
   %203 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit540, %.thread.loopexit, %.lr.ph462.split
-  %204 = phi ptr [ %7, %.lr.ph462.split ], [ %202, %.thread.loopexit ], [ %203, %.thread.loopexit540 ]
-  %205 = phi ptr [ %201, %.lr.ph462.split ], [ %167, %.thread.loopexit ], [ %167, %.thread.loopexit540 ]
-  %.4338.ph.ph = phi i32 [ 1, %.lr.ph462.split ], [ 0, %.thread.loopexit ], [ 1, %.thread.loopexit540 ]
+.thread:                                          ; preds = %.thread.loopexit557, %.thread.loopexit, %.lr.ph462.split
+  %204 = phi ptr [ %7, %.lr.ph462.split ], [ %202, %.thread.loopexit ], [ %203, %.thread.loopexit557 ]
+  %205 = phi ptr [ %201, %.lr.ph462.split ], [ %167, %.thread.loopexit ], [ %167, %.thread.loopexit557 ]
+  %.4338.ph.ph = phi i32 [ 1, %.lr.ph462.split ], [ 0, %.thread.loopexit ], [ 1, %.thread.loopexit557 ]
   %206 = sext i32 %.1142484 to i64
   %207 = getelementptr inbounds [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 160
@@ -1956,8 +1956,8 @@ dsc_and_test.exit.thread369:                      ; preds = %.lr.ph.i104.i, %cub
   %.3.ph = phi ptr [ %200, %.split.us ], [ %220, %cubeCofactor.exit333 ], [ %220, %.lr.ph.i104.i ]
   %.5.ph = add nsw i32 %.1142484, 1
   %442 = add nsw i32 %.1150477, -1
-  %443 = sext i32 %442 to i64
-  %444 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %443
+  %443 = zext nneg i32 %442 to i64
+  %444 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %443
   %445 = load ptr, ptr %444, align 8, !tbaa !41
   store ptr %445, ptr %441, align 8, !tbaa !41
   %446 = add nsw i32 %.0147480, 1
@@ -1969,13 +1969,13 @@ dsc_and_test.exit.thread369:                      ; preds = %.lr.ph.i104.i, %cub
 
 448:                                              ; preds = %dsc_and_test.exit.thread369, %._crit_edge463.split.us
   %.0147480.sink = phi i32 [ %.0147480, %dsc_and_test.exit.thread369 ], [ %.1150477, %._crit_edge463.split.us ]
-  %.sink561 = phi ptr [ %6, %dsc_and_test.exit.thread369 ], [ %7, %._crit_edge463.split.us ]
+  %.sink578 = phi ptr [ %6, %dsc_and_test.exit.thread369 ], [ %7, %._crit_edge463.split.us ]
   %.3.ph.sink = phi ptr [ %.3.ph, %dsc_and_test.exit.thread369 ], [ %161, %._crit_edge463.split.us ]
   %.3144401 = phi i32 [ %.5.ph, %dsc_and_test.exit.thread369 ], [ %.1142484, %._crit_edge463.split.us ]
   %.3152 = phi i32 [ %442, %dsc_and_test.exit.thread369 ], [ %447, %._crit_edge463.split.us ]
   %.1148 = phi i32 [ %446, %dsc_and_test.exit.thread369 ], [ %.0147480, %._crit_edge463.split.us ]
   %449 = sext i32 %.0147480.sink to i64
-  %450 = getelementptr inbounds [16 x ptr], ptr %.sink561, i64 0, i64 %449
+  %450 = getelementptr inbounds [16 x ptr], ptr %.sink578, i64 0, i64 %449
   store ptr %.3.ph.sink, ptr %450, align 8, !tbaa !41
   %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
   %exitcond528.not = icmp eq i64 %indvars.iv.next525, %wide.trip.count527
@@ -2276,7 +2276,7 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !3
   %29 = icmp eq i8 %28, 123
-  br i1 %29, label %30, label %.thread82
+  br i1 %29, label %30, label %.thread85
 
 30:                                               ; preds = %19
   store ptr %27, ptr %1, align 8, !tbaa !55
@@ -2294,8 +2294,8 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   switch i8 %32, label %.loopexit [
     i8 40, label %36
     i8 91, label %36
-    i8 60, label %.thread82
-    i8 123, label %.thread82
+    i8 60, label %.thread85
+    i8 123, label %.thread85
   ]
 
 36:                                               ; preds = %35, %35
@@ -2329,7 +2329,7 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %52 = sub nsw i32 %.053.lcssa, %38
   br label %.loopexit
 
-.thread82:                                        ; preds = %19, %35, %35
+.thread85:                                        ; preds = %19, %35, %35
   %53 = phi ptr [ %33, %35 ], [ %33, %35 ], [ %.lcssa63, %19 ]
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %0 to i64
@@ -2343,8 +2343,8 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %61 = icmp ult ptr %storemerge68, %60
   br i1 %61, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.thread82, %.lr.ph
-  %.05269 = phi i32 [ %63, %.lr.ph ], [ 3, %.thread82 ]
+.lr.ph:                                           ; preds = %.thread85, %.lr.ph
+  %.05269 = phi i32 [ %63, %.lr.ph ], [ 3, %.thread85 ]
   %62 = tail call i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %63 = add nsw i32 %62, %.05269
   %64 = load ptr, ptr %1, align 8, !tbaa !55
@@ -2353,8 +2353,8 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %65 = icmp ult ptr %storemerge, %60
   br i1 %65, label %.lr.ph, label %.loopexit, !llvm.loop !59
 
-.loopexit:                                        ; preds = %.lr.ph, %.thread82, %35, %31, %._crit_edge
-  %.0 = phi i32 [ %52, %._crit_edge ], [ 0, %31 ], [ 0, %35 ], [ 3, %.thread82 ], [ %63, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.thread85, %35, %31, %._crit_edge
+  %.0 = phi i32 [ %52, %._crit_edge ], [ 0, %31 ], [ 0, %35 ], [ 3, %.thread85 ], [ %63, %.lr.ph ]
   ret i32 %.0
 }
 

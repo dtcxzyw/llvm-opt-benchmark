@@ -280,8 +280,8 @@ define dso_local noalias noundef ptr @onigenc_strdup(ptr noundef readonly captur
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %14
-  %sext20 = shl i64 %6, 32
-  %17 = ashr exact i64 %sext20, 32
+  %sext21 = shl i64 %6, 32
+  %17 = ashr exact i64 %sext21, 32
   %wide.trip.count = zext nneg i32 %9 to i64
   %invariant.gep = getelementptr i8, ptr %12, i64 %17
   br label %.lr.ph
@@ -933,11 +933,11 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %47, %65, %74, %97, %105
-  %.sink142 = phi i64 [ 8, %105 ], [ 8, %97 ], [ 72, %74 ], [ 8, %65 ], [ 8, %47 ]
-  %.lcssa137.sink = phi i32 [ %95, %105 ], [ %100, %97 ], [ 115, %74 ], [ %69, %65 ], [ %51, %47 ]
+  %.sink147 = phi i64 [ 8, %105 ], [ 8, %97 ], [ 72, %74 ], [ 8, %65 ], [ 8, %47 ]
+  %.lcssa142.sink = phi i32 [ %95, %105 ], [ %100, %97 ], [ 115, %74 ], [ %69, %65 ], [ %51, %47 ]
   %.097.ph = phi i32 [ 1, %105 ], [ 1, %97 ], [ 4, %74 ], [ 1, %65 ], [ 1, %47 ]
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink142
-  store i32 %.lcssa137.sink, ptr %107, align 4, !tbaa !4
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink147
+  store i32 %.lcssa142.sink, ptr %107, align 4, !tbaa !4
   br label %.thread
 
 .thread:                                          ; preds = %92, %46, %.thread.sink.split, %89

@@ -556,8 +556,8 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_16ObjCPropertyDeclEE10_che
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 1073
-  %or.cond5 = icmp eq i64 %17, 32
-  br i1 %or.cond5, label %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i, label %_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
+  %or.cond8 = icmp eq i64 %17, 32
+  br i1 %or.cond8, label %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i, label %_ZNK12_GLOBAL__N_119ObjCPropertyChecker12checkASTDeclEPKN5clang16ObjCPropertyDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
 _ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i: ; preds = %4
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56

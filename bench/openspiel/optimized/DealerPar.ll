@@ -437,12 +437,12 @@ _Z15reduce_contractRiiS_.exit:                    ; preds = %105, %111
 define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(80) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4, ptr noundef captures(none) %5) local_unnamed_addr #4 {
   %7 = alloca [2 x %struct.data_type], align 16
   %8 = alloca %struct.list_type, align 4
-  %indvars.iv156.sroa.gep173 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %indvars.iv156.sroa.gep176 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br label %.preheader
 
 .preheader:                                       ; preds = %6, %41
   %9 = phi i1 [ true, %6 ], [ false, %41 ]
-  %indvars.iv156.sroa.phi = phi ptr [ %7, %6 ], [ %indvars.iv156.sroa.gep173, %41 ]
+  %indvars.iv156.sroa.phi = phi ptr [ %7, %6 ], [ %indvars.iv156.sroa.gep176, %41 ]
   %indvars.iv156 = phi i64 [ 0, %6 ], [ 1, %41 ]
   %10 = getelementptr inbounds nuw [5 x %struct.list_type], ptr %5, i64 %indvars.iv156
   %invariant.gep = getelementptr i32, ptr %0, i64 %indvars.iv156
@@ -1209,11 +1209,11 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %70, %78, %82
-  %.sink98 = phi ptr [ %16, %82 ], [ %15, %78 ], [ %14, %70 ], [ %11, %34 ]
-  %.sink96 = phi ptr [ %85, %82 ], [ %81, %78 ], [ %73, %70 ], [ %40, %34 ]
-  %88 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink98) #18
-  %89 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sink96, ptr noundef nonnull dereferenceable(1) %88) #18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink98) #18
+  %.sink102 = phi ptr [ %16, %82 ], [ %15, %78 ], [ %14, %70 ], [ %11, %34 ]
+  %.sink100 = phi ptr [ %85, %82 ], [ %81, %78 ], [ %73, %70 ], [ %40, %34 ]
+  %88 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink102) #18
+  %89 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.sink100, ptr noundef nonnull dereferenceable(1) %88) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink102) #18
   %90 = load i32, ptr %9, align 4
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %9, align 4

@@ -305,8 +305,8 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
   %57 = icmp ugt i64 %6, 3
   %58 = and i32 %15, 248
   %59 = icmp eq i32 %58, 240
-  %or.cond66 = and i1 %57, %59
-  br i1 %or.cond66, label %60, label %.thread55
+  %or.cond72 = and i1 %57, %59
+  br i1 %or.cond72, label %60, label %.thread55
 
 60:                                               ; preds = %56
   %61 = shl nsw i32 %15, 18
@@ -1099,13 +1099,13 @@ define void @_ZN13sentencepiece4util13StrSplitAsCSVB5cxx11ESt17basic_string_view
   %55 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !12
   %57 = icmp eq i8 %56, 44
-  br i1 %57, label %.loopexit.loopexit.split.loop.exit141, label %58
+  br i1 %57, label %.loopexit.loopexit.split.loop.exit161, label %58
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %60 = load i8, ptr %59, align 1, !tbaa !12
   %61 = icmp eq i8 %60, 44
-  br i1 %61, label %.loopexit.loopexit.split.loop.exit139, label %62
+  br i1 %61, label %.loopexit.loopexit.split.loop.exit159, label %62
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
@@ -1184,19 +1184,19 @@ define void @_ZN13sentencepiece4util13StrSplitAsCSVB5cxx11ESt17basic_string_view
   %93 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i52, i64 1
   %94 = load i8, ptr %93, align 1, !tbaa !12
   %95 = icmp eq i8 %94, 44
-  br i1 %95, label %.loopexit.loopexit126.split.loop.exit131, label %96
+  br i1 %95, label %.loopexit.loopexit146.split.loop.exit151, label %96
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i52, i64 2
   %98 = load i8, ptr %97, align 1, !tbaa !12
   %99 = icmp eq i8 %98, 44
-  br i1 %99, label %.loopexit.loopexit126.split.loop.exit128, label %100
+  br i1 %99, label %.loopexit.loopexit146.split.loop.exit148, label %100
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i52, i64 3
   %102 = load i8, ptr %101, align 1, !tbaa !12
   %103 = icmp eq i8 %102, 44
-  br i1 %103, label %.loopexit.loopexit126.split.loop.exit, label %104
+  br i1 %103, label %.loopexit.loopexit146.split.loop.exit, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i52, i64 4
@@ -1250,30 +1250,30 @@ define void @_ZN13sentencepiece4util13StrSplitAsCSVB5cxx11ESt17basic_string_view
   %121 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit139:            ; preds = %58
+.loopexit.loopexit.split.loop.exit159:            ; preds = %58
   %122 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit141:            ; preds = %54
+.loopexit.loopexit.split.loop.exit161:            ; preds = %54
   %123 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %.loopexit
 
-.loopexit.loopexit126.split.loop.exit:            ; preds = %100
+.loopexit.loopexit146.split.loop.exit:            ; preds = %100
   %124 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i52, i64 3
   br label %.loopexit
 
-.loopexit.loopexit126.split.loop.exit128:         ; preds = %96
+.loopexit.loopexit146.split.loop.exit148:         ; preds = %96
   %125 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i52, i64 2
   br label %.loopexit
 
-.loopexit.loopexit126.split.loop.exit131:         ; preds = %92
+.loopexit.loopexit146.split.loop.exit151:         ; preds = %92
   %126 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i52, i64 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %89, %51, %.loopexit.loopexit126.split.loop.exit, %.loopexit.loopexit126.split.loop.exit128, %.loopexit.loopexit126.split.loop.exit131, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit139, %.loopexit.loopexit.split.loop.exit141, %82, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %71, %120, %._crit_edge._crit_edge52.i.i.i42, %._crit_edge._crit_edge.i.i.i46, %109
-  %.4 = phi ptr [ %25, %82 ], [ %.029.lcssa.i.i.i, %71 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %25, %120 ], [ %.029.lcssa.i.i.i41, %109 ], [ %.1.i.i.i48, %._crit_edge._crit_edge.i.i.i46 ], [ %.2.i.i.i44, %._crit_edge._crit_edge52.i.i.i42 ], [ %121, %.loopexit.loopexit.split.loop.exit ], [ %122, %.loopexit.loopexit.split.loop.exit139 ], [ %123, %.loopexit.loopexit.split.loop.exit141 ], [ %124, %.loopexit.loopexit126.split.loop.exit ], [ %125, %.loopexit.loopexit126.split.loop.exit128 ], [ %126, %.loopexit.loopexit126.split.loop.exit131 ], [ %.02946.i.i.i, %51 ], [ %.02946.i.i.i52, %89 ]
-  %.025 = phi ptr [ %35, %82 ], [ %35, %71 ], [ %35, %._crit_edge._crit_edge.i.i.i ], [ %35, %._crit_edge._crit_edge52.i.i.i ], [ %.028110, %120 ], [ %.028110, %109 ], [ %.028110, %._crit_edge._crit_edge.i.i.i46 ], [ %.028110, %._crit_edge._crit_edge52.i.i.i42 ], [ %35, %.loopexit.loopexit.split.loop.exit ], [ %35, %.loopexit.loopexit.split.loop.exit139 ], [ %35, %.loopexit.loopexit.split.loop.exit141 ], [ %.028110, %.loopexit.loopexit126.split.loop.exit ], [ %.028110, %.loopexit.loopexit126.split.loop.exit128 ], [ %.028110, %.loopexit.loopexit126.split.loop.exit131 ], [ %35, %51 ], [ %.028110, %89 ]
-  %.1 = phi ptr [ %.0.lcssa, %82 ], [ %.0.lcssa, %71 ], [ %.0.lcssa, %._crit_edge._crit_edge.i.i.i ], [ %.0.lcssa, %._crit_edge._crit_edge52.i.i.i ], [ %25, %120 ], [ %.029.lcssa.i.i.i41, %109 ], [ %.1.i.i.i48, %._crit_edge._crit_edge.i.i.i46 ], [ %.2.i.i.i44, %._crit_edge._crit_edge52.i.i.i42 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit139 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit141 ], [ %124, %.loopexit.loopexit126.split.loop.exit ], [ %125, %.loopexit.loopexit126.split.loop.exit128 ], [ %126, %.loopexit.loopexit126.split.loop.exit131 ], [ %.0.lcssa, %51 ], [ %.02946.i.i.i52, %89 ]
+.loopexit:                                        ; preds = %89, %51, %.loopexit.loopexit146.split.loop.exit, %.loopexit.loopexit146.split.loop.exit148, %.loopexit.loopexit146.split.loop.exit151, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit159, %.loopexit.loopexit.split.loop.exit161, %82, %._crit_edge._crit_edge52.i.i.i, %._crit_edge._crit_edge.i.i.i, %71, %120, %._crit_edge._crit_edge52.i.i.i42, %._crit_edge._crit_edge.i.i.i46, %109
+  %.4 = phi ptr [ %25, %82 ], [ %.029.lcssa.i.i.i, %71 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %25, %120 ], [ %.029.lcssa.i.i.i41, %109 ], [ %.1.i.i.i48, %._crit_edge._crit_edge.i.i.i46 ], [ %.2.i.i.i44, %._crit_edge._crit_edge52.i.i.i42 ], [ %121, %.loopexit.loopexit.split.loop.exit ], [ %122, %.loopexit.loopexit.split.loop.exit159 ], [ %123, %.loopexit.loopexit.split.loop.exit161 ], [ %124, %.loopexit.loopexit146.split.loop.exit ], [ %125, %.loopexit.loopexit146.split.loop.exit148 ], [ %126, %.loopexit.loopexit146.split.loop.exit151 ], [ %.02946.i.i.i, %51 ], [ %.02946.i.i.i52, %89 ]
+  %.025 = phi ptr [ %35, %82 ], [ %35, %71 ], [ %35, %._crit_edge._crit_edge.i.i.i ], [ %35, %._crit_edge._crit_edge52.i.i.i ], [ %.028110, %120 ], [ %.028110, %109 ], [ %.028110, %._crit_edge._crit_edge.i.i.i46 ], [ %.028110, %._crit_edge._crit_edge52.i.i.i42 ], [ %35, %.loopexit.loopexit.split.loop.exit ], [ %35, %.loopexit.loopexit.split.loop.exit159 ], [ %35, %.loopexit.loopexit.split.loop.exit161 ], [ %.028110, %.loopexit.loopexit146.split.loop.exit ], [ %.028110, %.loopexit.loopexit146.split.loop.exit148 ], [ %.028110, %.loopexit.loopexit146.split.loop.exit151 ], [ %35, %51 ], [ %.028110, %89 ]
+  %.1 = phi ptr [ %.0.lcssa, %82 ], [ %.0.lcssa, %71 ], [ %.0.lcssa, %._crit_edge._crit_edge.i.i.i ], [ %.0.lcssa, %._crit_edge._crit_edge52.i.i.i ], [ %25, %120 ], [ %.029.lcssa.i.i.i41, %109 ], [ %.1.i.i.i48, %._crit_edge._crit_edge.i.i.i46 ], [ %.2.i.i.i44, %._crit_edge._crit_edge52.i.i.i42 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit159 ], [ %.0.lcssa, %.loopexit.loopexit.split.loop.exit161 ], [ %124, %.loopexit.loopexit146.split.loop.exit ], [ %125, %.loopexit.loopexit146.split.loop.exit148 ], [ %126, %.loopexit.loopexit146.split.loop.exit151 ], [ %.0.lcssa, %51 ], [ %.02946.i.i.i52, %89 ]
   store i8 0, ptr %.1, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %27, ptr %7, align 8, !tbaa !3

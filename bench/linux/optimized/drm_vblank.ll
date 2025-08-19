@@ -1180,92 +1180,88 @@ define dso_local noundef zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp
   %112 = trunc i64 %111 to i32
   %113 = load i32, ptr %1, align 4
   %114 = icmp slt i32 %113, %112
-  br i1 %114, label %115, label %118
+  br i1 %114, label %115, label %.loopexit
 
 115:                                              ; preds = %108
   %116 = add nuw nsw i32 %99, 1
   %117 = icmp eq i32 %116, 3
   br i1 %117, label %.thread12, label %.preheader, !llvm.loop !60
 
-118:                                              ; preds = %108
-  %119 = icmp eq i32 %99, 3
-  br i1 %119, label %.thread12, label %128
+.thread12:                                        ; preds = %115
+  %118 = icmp eq ptr %10, null
+  br i1 %118, label %122, label %119
 
-.thread12:                                        ; preds = %115, %118
-  %120 = icmp eq ptr %10, null
-  br i1 %120, label %124, label %121
+119:                                              ; preds = %.thread12
+  %120 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %121 = load ptr, ptr %120, align 8
+  br label %122
 
-121:                                              ; preds = %.thread12
-  %122 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %123 = load ptr, ptr %122, align 8
-  br label %124
-
-124:                                              ; preds = %121, %.thread12
-  %125 = phi ptr [ %123, %121 ], [ null, %.thread12 ]
-  %126 = sdiv i32 %112, 1000
-  %127 = sdiv i32 %113, 1000
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %125, i32 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %12, i32 noundef %126, i32 noundef %127, i32 noundef 3) #12
+122:                                              ; preds = %119, %.thread12
+  %123 = phi ptr [ %121, %119 ], [ null, %.thread12 ]
+  %124 = sdiv i32 %112, 1000
+  %125 = sdiv i32 %113, 1000
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %123, i32 noundef 0, ptr noundef nonnull @.str.14, i32 noundef %12, i32 noundef %124, i32 noundef %125, i32 noundef 3) #12
   %.pre = load i64, ptr %7, align 8
-  br label %128
+  br label %.loopexit
 
-128:                                              ; preds = %124, %118
-  %129 = phi i64 [ %.pre, %124 ], [ %109, %118 ]
-  %130 = phi i32 [ 3, %124 ], [ %99, %118 ]
+.loopexit:                                        ; preds = %108, %122
+  %126 = phi i64 [ %.pre, %122 ], [ %109, %108 ]
+  %127 = phi i32 [ 3, %122 ], [ %99, %108 ]
   store i32 %112, ptr %1, align 4
-  %131 = load i32, ptr %8, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %57, i64 42
-  %133 = load i16, ptr %132, align 2
-  %134 = zext i16 %133 to i32
-  %135 = mul i32 %131, %134
-  %136 = load i32, ptr %9, align 4
-  %137 = add i32 %135, %136
+  %128 = load i32, ptr %8, align 4
+  %129 = getelementptr inbounds nuw i8, ptr %57, i64 42
+  %130 = load i16, ptr %129, align 2
+  %131 = zext i16 %130 to i32
+  %132 = mul i32 %128, %131
+  %133 = load i32, ptr %9, align 4
+  %134 = add i32 %132, %133
+  %135 = sext i32 %134 to i64
+  %136 = mul nsw i64 %135, 1000000
+  %137 = load i32, ptr %58, align 4
   %138 = sext i32 %137 to i64
-  %139 = mul nsw i64 %138, 1000000
-  %140 = load i32, ptr %58, align 4
-  %141 = sext i32 %140 to i64
-  %142 = sdiv i64 %139, %141
-  %143 = shl i64 %142, 32
-  %144 = ashr exact i64 %143, 32
-  %145 = sub i64 %129, %144
-  store i64 %145, ptr %2, align 8
-  %146 = load i64, ptr @__drm_debug, align 8
-  %147 = and i64 %146, 32
-  %148 = icmp eq i64 %147, 0
-  br i1 %148, label %.thread11, label %149
+  %139 = sdiv i64 %136, %138
+  %140 = shl i64 %139, 32
+  %141 = ashr exact i64 %140, 32
+  %142 = sub i64 %126, %141
+  store i64 %142, ptr %2, align 8
+  %143 = load i64, ptr @__drm_debug, align 8
+  %144 = and i64 %143, 32
+  %145 = icmp eq i64 %144, 0
+  br i1 %145, label %.thread11, label %146
 
-149:                                              ; preds = %128
-  %150 = call { i64, i64 } @ns_to_timespec64(i64 noundef %129) #12
-  %151 = extractvalue { i64, i64 } %150, 0
-  %152 = extractvalue { i64, i64 } %150, 1
-  %153 = load i64, ptr %2, align 8
-  %154 = call { i64, i64 } @ns_to_timespec64(i64 noundef %153) #12
-  %155 = extractvalue { i64, i64 } %154, 0
-  %156 = extractvalue { i64, i64 } %154, 1
-  %157 = icmp eq ptr %10, null
-  br i1 %157, label %161, label %158
+146:                                              ; preds = %.loopexit
+  %147 = call { i64, i64 } @ns_to_timespec64(i64 noundef %126) #12
+  %148 = extractvalue { i64, i64 } %147, 0
+  %149 = extractvalue { i64, i64 } %147, 1
+  %150 = load i64, ptr %2, align 8
+  %151 = call { i64, i64 } @ns_to_timespec64(i64 noundef %150) #12
+  %152 = extractvalue { i64, i64 } %151, 0
+  %153 = extractvalue { i64, i64 } %151, 1
+  %154 = icmp eq ptr %10, null
+  br i1 %154, label %158, label %155
 
-158:                                              ; preds = %149
-  %159 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %160 = load ptr, ptr %159, align 8
-  br label %161
+155:                                              ; preds = %146
+  %156 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %157 = load ptr, ptr %156, align 8
+  br label %158
 
-161:                                              ; preds = %158, %149
-  %162 = phi ptr [ %160, %158 ], [ null, %149 ]
-  %163 = load i32, ptr %9, align 4
-  %164 = load i32, ptr %8, align 4
-  %165 = sdiv i64 %152, 1000
-  %166 = sdiv i64 %156, 1000
-  %167 = sdiv i32 %112, 1000
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %162, i32 noundef 5, ptr noundef nonnull @.str.15, i32 noundef %12, i32 noundef %163, i32 noundef %164, i64 noundef %151, i64 noundef %165, i64 noundef %155, i64 noundef %166, i32 noundef %167, i32 noundef %130) #12
+158:                                              ; preds = %155, %146
+  %159 = phi ptr [ %157, %155 ], [ null, %146 ]
+  %160 = load i32, ptr %9, align 4
+  %161 = load i32, ptr %8, align 4
+  %162 = sdiv i64 %149, 1000
+  %163 = sdiv i64 %153, 1000
+  %164 = sdiv i32 %112, 1000
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %159, i32 noundef 5, ptr noundef nonnull @.str.15, i32 noundef %12, i32 noundef %160, i32 noundef %161, i64 noundef %148, i64 noundef %162, i64 noundef %152, i64 noundef %163, i32 noundef %164, i32 noundef %127) #12
   br label %.thread11
 
-.thread11:                                        ; preds = %75, %161, %128, %106, %97, %83, %33, %24
-  %168 = phi i1 [ false, %24 ], [ true, %161 ], [ false, %106 ], [ false, %33 ], [ false, %83 ], [ false, %97 ], [ true, %128 ], [ false, %75 ]
+.thread11:                                        ; preds = %75, %158, %.loopexit, %106, %97, %83, %33, %24
+  %165 = phi i1 [ false, %24 ], [ true, %158 ], [ false, %106 ], [ false, %33 ], [ false, %83 ], [ false, %97 ], [ true, %.loopexit ], [ false, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %168
+  ret i1 %165
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

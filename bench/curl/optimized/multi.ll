@@ -3088,7 +3088,7 @@ state_do.exit:                                    ; preds = %320, %324, %328, %m
 394:                                              ; preds = %._crit_edge
   %395 = load ptr, ptr %62, align 8, !tbaa !109
   %.not.i199 = icmp eq ptr %395, null
-  br i1 %.not.i199, label %.thread293, label %396
+  br i1 %.not.i199, label %.thread342, label %396
 
 396:                                              ; preds = %394
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 960
@@ -3096,9 +3096,9 @@ state_do.exit:                                    ; preds = %320, %324, %328, %m
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 56
   %400 = load ptr, ptr %399, align 8, !tbaa !195
   %.not9.i200 = icmp eq ptr %400, null
-  br i1 %.not9.i200, label %.thread293, label %protocol_doing.exit
+  br i1 %.not9.i200, label %.thread342, label %protocol_doing.exit
 
-.thread293:                                       ; preds = %396, %394
+.thread342:                                       ; preds = %396, %394
   store i8 1, ptr %21, align 1, !tbaa !176
   store i32 0, ptr %22, align 4, !tbaa !28
   br label %404
@@ -3115,7 +3115,7 @@ protocol_doing.exit:                              ; preds = %396
   %403 = trunc nuw i8 %.pre286 to i1
   br i1 %403, label %404, label %mstate.exit184thread-pre-split
 
-404:                                              ; preds = %.thread293, %402
+404:                                              ; preds = %.thread342, %402
   %405 = load ptr, ptr %62, align 8, !tbaa !109
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 952
   %407 = load i64, ptr %406, align 8
@@ -3153,9 +3153,9 @@ protocol_doing.exit:                              ; preds = %396
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 32
   %426 = load ptr, ptr %425, align 8, !tbaa !196
   %.not.i204 = icmp eq ptr %426, null
-  br i1 %.not.i204, label %.thread294, label %multi_do_more.exit
+  br i1 %.not.i204, label %.thread343, label %multi_do_more.exit
 
-.thread294:                                       ; preds = %421
+.thread343:                                       ; preds = %421
   store i32 0, ptr %22, align 4, !tbaa !28
   br label %mstate.exit184thread-pre-split
 
@@ -3453,9 +3453,9 @@ mstate.exit.i228:                                 ; preds = %542, %537
   %spec.select.i = select i1 %.not96.i, i32 %558, i32 %552
   %.080.i = select i1 %.not95.i, i32 %552, i32 %spec.select.i
   %.079.i = select i1 %.not95.i, i1 %560, i1 false
-  br i1 %.079.i, label %.thread123.i, label %563
+  br i1 %.079.i, label %.thread132.i, label %563
 
-.thread123.i:                                     ; preds = %557
+.thread132.i:                                     ; preds = %557
   %561 = load i32, ptr %71, align 1
   %562 = or i32 %561, 2
   store i32 %562, ptr %71, align 1
@@ -3492,8 +3492,8 @@ mstate.exit.i228:                                 ; preds = %542, %537
   %578 = icmp eq i32 %577, 0
   br i1 %578, label %617, label %579
 
-579:                                              ; preds = %576, %.thread123.i
-  %.1114126.i = phi i1 [ true, %.thread123.i ], [ false, %576 ]
+579:                                              ; preds = %576, %.thread132.i
+  %.1114135.i = phi i1 [ true, %.thread132.i ], [ false, %576 ]
   %580 = call zeroext i1 @Curl_cwriter_is_paused(ptr noundef nonnull %2) #19
   br i1 %580, label %617, label %581
 
@@ -3503,11 +3503,11 @@ mstate.exit.i228:                                 ; preds = %542, %537
   %584 = load ptr, ptr %583, align 8, !tbaa !124
   %585 = load ptr, ptr %72, align 8, !tbaa !122
   %586 = icmp ne ptr %585, null
-  %or.cond7.i = or i1 %.1114126.i, %586
+  %or.cond7.i = or i1 %.1114135.i, %586
   br i1 %or.cond7.i, label %587, label %603
 
 587:                                              ; preds = %581
-  br i1 %.1114126.i, label %592, label %588
+  br i1 %.1114135.i, label %592, label %588
 
 588:                                              ; preds = %587
   %589 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
@@ -3705,8 +3705,8 @@ state_performing.exit:                            ; preds = %543, %547, %mstate.
   call void @init_completed(ptr noundef nonnull %2) #19
   br label %mstate.exit184thread-pre-split
 
-mstate.exit184thread-pre-split:                   ; preds = %.thread294, %state_connect.exit, %state_resolving.exit, %244, %state_do.exit, %state_ratelimiting.exit, %state_performing.exit, %111, %225, %243, %.thread264, %299, %300, %402, %419, %428, %441, %416, %438, %667
-  %.2137.ph = phi i32 [ -1, %667 ], [ -1, %438 ], [ -1, %416 ], [ %.078.i, %state_performing.exit ], [ %.035.i213, %state_ratelimiting.exit ], [ 0, %428 ], [ 0, %441 ], [ 0, %402 ], [ 0, %419 ], [ %.064.i, %state_do.exit ], [ 0, %299 ], [ 0, %300 ], [ 0, %.thread264 ], [ 0, %243 ], [ 0, %244 ], [ 0, %225 ], [ %.035.i, %state_resolving.exit ], [ %.0.i, %state_connect.exit ], [ 0, %111 ], [ 0, %.thread294 ]
+mstate.exit184thread-pre-split:                   ; preds = %.thread343, %state_connect.exit, %state_resolving.exit, %244, %state_do.exit, %state_ratelimiting.exit, %state_performing.exit, %111, %225, %243, %.thread264, %299, %300, %402, %419, %428, %441, %416, %438, %667
+  %.2137.ph = phi i32 [ -1, %667 ], [ -1, %438 ], [ -1, %416 ], [ %.078.i, %state_performing.exit ], [ %.035.i213, %state_ratelimiting.exit ], [ 0, %428 ], [ 0, %441 ], [ 0, %402 ], [ 0, %419 ], [ %.064.i, %state_do.exit ], [ 0, %299 ], [ 0, %300 ], [ 0, %.thread264 ], [ 0, %243 ], [ 0, %244 ], [ 0, %225 ], [ %.035.i, %state_resolving.exit ], [ %.0.i, %state_connect.exit ], [ 0, %111 ], [ 0, %.thread343 ]
   %.pr = load i32, ptr %61, align 8, !tbaa !98
   br label %mstate.exit184
 
@@ -3847,7 +3847,7 @@ thread-pre-split:                                 ; preds = %Curl_detach_connect
   %721 = icmp ugt i32 %720, 14
   %722 = select i1 %721, i32 16, i32 15
   %723 = icmp eq i32 %720, %722
-  br i1 %723, label %mstate.exit234.thread299, label %724
+  br i1 %723, label %mstate.exit234.thread348, label %724
 
 724:                                              ; preds = %718
   store i32 %722, ptr %61, align 8, !tbaa !98
@@ -3914,18 +3914,18 @@ mstate.exit234:                                   ; preds = %mstate.exit234threa
   %755 = icmp eq i32 %754, 16
   br i1 %755, label %mstate.exit234.thread, label %774
 
-mstate.exit234.thread299:                         ; preds = %718
+mstate.exit234.thread348:                         ; preds = %718
   %756 = icmp eq i32 %720, 16
-  br i1 %756, label %mstate.exit234.thread, label %.thread302
+  br i1 %756, label %mstate.exit234.thread, label %.thread351
 
-.thread302:                                       ; preds = %mstate.exit234.thread299
+.thread351:                                       ; preds = %mstate.exit234.thread348
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %.thread302, %776, %774
+.critedge.backedge:                               ; preds = %.thread351, %776, %774
   br label %.critedge, !llvm.loop !203
 
-mstate.exit234.thread:                            ; preds = %mstate.exit234.thread299, %642, %mstate.exit234
+mstate.exit234.thread:                            ; preds = %mstate.exit234.thread348, %642, %mstate.exit234
   %757 = getelementptr inbounds nuw i8, ptr %2, i64 2592
   %758 = load ptr, ptr %757, align 8, !tbaa !204
   %.not176 = icmp eq ptr %758, null
@@ -5163,8 +5163,8 @@ singlesocket.exit:                                ; preds = %.lr.ph64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %29 = call ptr @Curl_node_next(ptr noundef nonnull %.04462) #19
-  %.not68 = icmp eq ptr %29, null
-  br i1 %.not68, label %.loopexit, label %.lr.ph64, !llvm.loop !228
+  %.not76 = icmp eq ptr %29, null
+  br i1 %.not76, label %.loopexit, label %.lr.ph64, !llvm.loop !228
 
 .loopexit:                                        ; preds = %singlesocket.exit, %singlesocket.exit.thread, %20, %18
   %.042 = phi i32 [ 1, %18 ], [ %19, %20 ], [ %27, %singlesocket.exit.thread ], [ 0, %singlesocket.exit ]

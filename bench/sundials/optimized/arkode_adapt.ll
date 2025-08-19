@@ -234,9 +234,9 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr noundef captures(none
   %76 = call double @llvm.fabs.f64(double %75)
   %77 = call double @llvm.fabs.f64(double %61)
   %78 = fcmp olt double %76, %77
-  %.sink88 = select i1 %78, i64 136, i64 144
+  %.sink93 = select i1 %78, i64 136, i64 144
   %.84 = select i1 %78, double %76, double %77
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink88
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink93
   %80 = load i64, ptr %79, align 8, !tbaa !40
   %81 = add nsw i64 %80, 1
   store i64 %81, ptr %79, align 8, !tbaa !40

@@ -751,9 +751,9 @@ common.resume:                                    ; preds = %901, %506
   br label %common.resume
 
 508:                                              ; preds = %503, %502, %502
-  %.sink18.i = phi i64 [ 8, %503 ], [ 80, %502 ], [ 80, %502 ]
+  %.sink20.i = phi i64 [ 8, %503 ], [ 80, %502 ], [ 80, %502 ]
   %.sink.i = phi i64 [ 32, %503 ], [ 104, %502 ], [ 104, %502 ]
-  %509 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink18.i
+  %509 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink20.i
   %510 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink.i
   %.0210.i = load ptr, ptr %509, align 8, !tbaa !169
   %.0211.i = load ptr, ptr %510, align 8, !tbaa !169
@@ -1360,9 +1360,9 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br label %common.resume
 
 903:                                              ; preds = %898, %897, %897
-  %.sink18.i73 = phi i64 [ 8, %898 ], [ 80, %897 ], [ 80, %897 ]
+  %.sink20.i73 = phi i64 [ 8, %898 ], [ 80, %897 ], [ 80, %897 ]
   %.sink.i74 = phi i64 [ 32, %898 ], [ 104, %897 ], [ 104, %897 ]
-  %904 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink18.i73
+  %904 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink20.i73
   %905 = getelementptr inbounds nuw i8, ptr %18, i64 %.sink.i74
   %.0205.i75 = load ptr, ptr %904, align 8, !tbaa !169
   %.0206.i = load ptr, ptr %905, align 8, !tbaa !169
@@ -2419,8 +2419,8 @@ cdce.end:                                         ; preds = %21, %cdce.call
   %53 = fcmp une float %52, 0.000000e+00
   %.pre = load float, ptr %indvars.iv225.sroa.phi45, align 4, !tbaa !155
   %54 = fcmp une float %.pre, 0.000000e+00
-  %or.cond235 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond235, label %._crit_edge, label %55
+  %or.cond240 = select i1 %53, i1 true, i1 %54
+  br i1 %or.cond240, label %._crit_edge, label %55
 
 55:                                               ; preds = %50
   %56 = load float, ptr %indvars.iv225.sroa.phi39, align 4, !tbaa !155
@@ -2608,12 +2608,14 @@ cdce.end:                                         ; preds = %21, %cdce.call
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %0, float noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %2, float noundef %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, ptr noundef nonnull readonly captures(none) %13, ptr noundef nonnull readonly captures(none) %14, ptr noundef nonnull readonly captures(none) %15, ptr noundef nonnull writeonly captures(none) %16, ptr noundef nonnull writeonly captures(none) %17, ptr noundef captures(none) %18) unnamed_addr #9 {
-  %.sroa.097 = alloca float, align 4
-  %.sroa.498 = alloca float, align 4
-  %.sroa.093 = alloca float, align 4
-  %.sroa.794 = alloca float, align 4
-  %.sroa.082 = alloca float, align 4
+  %.sroa.0103 = alloca float, align 4
+  %.sroa.4104 = alloca float, align 4
+  %.sroa.099 = alloca float, align 4
+  %.sroa.7100 = alloca float, align 4
+  %.sroa.088 = alloca float, align 4
   %.sroa.7 = alloca float, align 4
+  %.sroa.076 = alloca float, align 4
+  %.sroa.477 = alloca float, align 4
   %.sroa.070 = alloca float, align 4
   %.sroa.471 = alloca float, align 4
   %.sroa.064 = alloca float, align 4
@@ -2624,16 +2626,16 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %.sroa.453 = alloca float, align 4
   %.sroa.046 = alloca float, align 4
   %.sroa.447 = alloca float, align 4
-  %.sroa.040 = alloca float, align 4
-  %.sroa.441 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
   %.sroa.4 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.097)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.498)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.093)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.794)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.082)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.099)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.088)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.076)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.477)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.070)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.471)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.064)
@@ -2644,15 +2646,13 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.453)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.046)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.447)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.040)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.441)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
-  store float %6, ptr %.sroa.097, align 4, !tbaa !155
-  store float %9, ptr %.sroa.498, align 4, !tbaa !155
-  store float %7, ptr %.sroa.093, align 4, !tbaa !155
-  store float %10, ptr %.sroa.794, align 4, !tbaa !155
-  store float %8, ptr %.sroa.082, align 4, !tbaa !155
+  store float %6, ptr %.sroa.0103, align 4, !tbaa !155
+  store float %9, ptr %.sroa.4104, align 4, !tbaa !155
+  store float %7, ptr %.sroa.099, align 4, !tbaa !155
+  store float %10, ptr %.sroa.7100, align 4, !tbaa !155
+  store float %8, ptr %.sroa.088, align 4, !tbaa !155
   store float %11, ptr %.sroa.7, align 4, !tbaa !155
   %20 = tail call noundef float @sqrtf(float noundef %0) #19, !tbaa !154
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2662,14 +2662,14 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
 23:                                               ; preds = %19, %33
   %24 = phi i1 [ true, %19 ], [ false, %33 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %19 ], [ %.sroa.4, %33 ]
-  %indvars.iv.sroa.phi72 = phi ptr [ %.sroa.082, %19 ], [ %.sroa.7, %33 ]
-  %indvars.iv.sroa.phi83 = phi ptr [ %.sroa.093, %19 ], [ %.sroa.794, %33 ]
-  %25 = load float, ptr %indvars.iv.sroa.phi83, align 4, !tbaa !155
+  %indvars.iv.sroa.phi78 = phi ptr [ %.sroa.088, %19 ], [ %.sroa.7, %33 ]
+  %indvars.iv.sroa.phi89 = phi ptr [ %.sroa.099, %19 ], [ %.sroa.7100, %33 ]
+  %25 = load float, ptr %indvars.iv.sroa.phi89, align 4, !tbaa !155
   %26 = fcmp ogt float %25, 0.000000e+00
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %23
-  %28 = load float, ptr %indvars.iv.sroa.phi72, align 4, !tbaa !155
+  %28 = load float, ptr %indvars.iv.sroa.phi78, align 4, !tbaa !155
   %29 = fcmp ogt float %28, 0.000000e+00
   br i1 %29, label %30, label %33
 
@@ -2679,8 +2679,8 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   br label %33
 
 33:                                               ; preds = %23, %27, %30
-  %.sink25 = phi float [ %32, %30 ], [ %22, %27 ], [ %22, %23 ]
-  store float %.sink25, ptr %indvars.iv.sroa.phi, align 4, !tbaa !155
+  %.sink31 = phi float [ %32, %30 ], [ %22, %27 ], [ %22, %23 ]
+  store float %.sink31, ptr %indvars.iv.sroa.phi, align 4, !tbaa !155
   br i1 %24, label %23, label %34, !llvm.loop !219
 
 34:                                               ; preds = %33
@@ -2727,33 +2727,33 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
 70:                                               ; preds = %34, %234
   %71 = phi i1 [ true, %34 ], [ false, %234 ]
   %indvars.iv14.sroa.phi = phi ptr [ %.sroa.0, %34 ], [ %.sroa.4, %234 ]
-  %indvars.iv14.sroa.phi37 = phi ptr [ %.sroa.040, %34 ], [ %.sroa.441, %234 ]
-  %indvars.iv14.sroa.phi42 = phi ptr [ %.sroa.046, %34 ], [ %.sroa.447, %234 ]
+  %indvars.iv14.sroa.phi43 = phi ptr [ %.sroa.046, %34 ], [ %.sroa.447, %234 ]
   %indvars.iv14.sroa.phi48 = phi ptr [ %.sroa.052, %34 ], [ %.sroa.453, %234 ]
   %indvars.iv14.sroa.phi54 = phi ptr [ %.sroa.058, %34 ], [ %.sroa.459, %234 ]
   %indvars.iv14.sroa.phi60 = phi ptr [ %.sroa.064, %34 ], [ %.sroa.465, %234 ]
   %indvars.iv14.sroa.phi66 = phi ptr [ %.sroa.070, %34 ], [ %.sroa.471, %234 ]
-  %indvars.iv14.sroa.phi79 = phi ptr [ %.sroa.082, %34 ], [ %.sroa.7, %234 ]
-  %indvars.iv14.sroa.phi90 = phi ptr [ %.sroa.093, %34 ], [ %.sroa.794, %234 ]
-  %indvars.iv14.sroa.phi95 = phi ptr [ %.sroa.097, %34 ], [ %.sroa.498, %234 ]
+  %indvars.iv14.sroa.phi72 = phi ptr [ %.sroa.076, %34 ], [ %.sroa.477, %234 ]
+  %indvars.iv14.sroa.phi85 = phi ptr [ %.sroa.088, %34 ], [ %.sroa.7, %234 ]
+  %indvars.iv14.sroa.phi96 = phi ptr [ %.sroa.099, %34 ], [ %.sroa.7100, %234 ]
+  %indvars.iv14.sroa.phi101 = phi ptr [ %.sroa.0103, %34 ], [ %.sroa.4104, %234 ]
   %indvars.iv14 = phi i64 [ 0, %34 ], [ 1, %234 ]
-  store float 0.000000e+00, ptr %indvars.iv14.sroa.phi60, align 4, !tbaa !155
   store float 0.000000e+00, ptr %indvars.iv14.sroa.phi66, align 4, !tbaa !155
+  store float 0.000000e+00, ptr %indvars.iv14.sroa.phi72, align 4, !tbaa !155
+  store float 0.000000e+00, ptr %indvars.iv14.sroa.phi60, align 4, !tbaa !155
   store float 0.000000e+00, ptr %indvars.iv14.sroa.phi54, align 4, !tbaa !155
   store float 0.000000e+00, ptr %indvars.iv14.sroa.phi48, align 4, !tbaa !155
-  store float 0.000000e+00, ptr %indvars.iv14.sroa.phi42, align 4, !tbaa !155
-  store float 0.000000e+00, ptr %indvars.iv14.sroa.phi37, align 4, !tbaa !155
-  %72 = load float, ptr %indvars.iv14.sroa.phi95, align 4, !tbaa !155
+  store float 0.000000e+00, ptr %indvars.iv14.sroa.phi43, align 4, !tbaa !155
+  %72 = load float, ptr %indvars.iv14.sroa.phi101, align 4, !tbaa !155
   %73 = fcmp une float %72, 0.000000e+00
   br i1 %73, label %80, label %74
 
 74:                                               ; preds = %70
-  %75 = load float, ptr %indvars.iv14.sroa.phi90, align 4, !tbaa !155
+  %75 = load float, ptr %indvars.iv14.sroa.phi96, align 4, !tbaa !155
   %76 = fcmp une float %75, 0.000000e+00
   br i1 %76, label %80, label %77
 
 77:                                               ; preds = %74
-  %78 = load float, ptr %indvars.iv14.sroa.phi79, align 4, !tbaa !155
+  %78 = load float, ptr %indvars.iv14.sroa.phi85, align 4, !tbaa !155
   %79 = fcmp une float %78, 0.000000e+00
   br i1 %79, label %80, label %234
 
@@ -2809,7 +2809,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %118 = tail call float @llvm.fmuladd.f32(float %101, float -2.000000e+00, float %103)
   %119 = fadd float %99, %118
   %120 = tail call float @llvm.fmuladd.f32(float %117, float %119, float 0.000000e+00)
-  store float %120, ptr %indvars.iv14.sroa.phi42, align 4, !tbaa !155
+  store float %120, ptr %indvars.iv14.sroa.phi48, align 4, !tbaa !155
   br label %139
 
 121:                                              ; preds = %94
@@ -2835,8 +2835,8 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
 139:                                              ; preds = %121, %97
   %.sink20 = phi float [ %106, %97 ], [ %138, %121 ]
   %.sink = phi float [ %108, %97 ], [ %133, %121 ]
-  store float %.sink20, ptr %indvars.iv14.sroa.phi60, align 4, !tbaa !155
-  store float %.sink, ptr %indvars.iv14.sroa.phi54, align 4, !tbaa !155
+  store float %.sink20, ptr %indvars.iv14.sroa.phi66, align 4, !tbaa !155
+  store float %.sink, ptr %indvars.iv14.sroa.phi60, align 4, !tbaa !155
   %140 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv14
   %141 = load float, ptr %140, align 4, !tbaa !155
   %142 = fcmp olt float %141, 1.000000e+00
@@ -2858,9 +2858,9 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   br i1 %152, label %153, label %202
 
 153:                                              ; preds = %151
-  %154 = load float, ptr %indvars.iv14.sroa.phi90, align 4, !tbaa !155
+  %154 = load float, ptr %indvars.iv14.sroa.phi96, align 4, !tbaa !155
   %155 = fdiv float %154, 6.000000e+00
-  %156 = load float, ptr %indvars.iv14.sroa.phi79, align 4, !tbaa !155
+  %156 = load float, ptr %indvars.iv14.sroa.phi85, align 4, !tbaa !155
   %157 = fdiv float %156, 1.200000e+01
   %158 = fdiv float 1.000000e+00, %.0294
   %159 = fmul float %158, %158
@@ -2888,11 +2888,11 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %181 = tail call float @llvm.fmuladd.f32(float %170, float 9.100000e+01, float %180)
   %182 = fsub float %179, %177
   %183 = fmul float %43, %182
-  store float %183, ptr %indvars.iv14.sroa.phi66, align 4, !tbaa !155
+  store float %183, ptr %indvars.iv14.sroa.phi72, align 4, !tbaa !155
   %184 = fneg float %179
   %185 = tail call float @llvm.fmuladd.f32(float %177, float 5.000000e-01, float %184)
   %186 = fadd float %181, %185
-  store float %186, ptr %indvars.iv14.sroa.phi48, align 4, !tbaa !155
+  store float %186, ptr %indvars.iv14.sroa.phi54, align 4, !tbaa !155
   %187 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv14
   %188 = load float, ptr %187, align 4, !tbaa !155
   %189 = fmul float %188, 2.800000e+01
@@ -2908,7 +2908,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %199 = tail call float @llvm.fmuladd.f32(float %170, float 6.500000e+00, float %198)
   %200 = fadd float %199, %197
   %201 = tail call float @llvm.fmuladd.f32(float %192, float %200, float 0.000000e+00)
-  store float %201, ptr %indvars.iv14.sroa.phi37, align 4, !tbaa !155
+  store float %201, ptr %indvars.iv14.sroa.phi43, align 4, !tbaa !155
   br label %234
 
 202:                                              ; preds = %151
@@ -2923,7 +2923,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %211 = tail call float @llvm.fmuladd.f32(float %48, float %210, float %203)
   %212 = fadd float %206, %210
   %213 = tail call float @llvm.fmuladd.f32(float %208, float 2.000000e+00, float %212)
-  %214 = load float, ptr %indvars.iv14.sroa.phi90, align 4, !tbaa !155
+  %214 = load float, ptr %indvars.iv14.sroa.phi96, align 4, !tbaa !155
   %215 = fmul float %214, %211
   %216 = fneg float %214
   %217 = fmul float %213, %216
@@ -2938,13 +2938,13 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %226 = tail call float @llvm.fmuladd.f32(float %48, float %225, float %218)
   %227 = fadd float %221, %225
   %228 = tail call float @llvm.fmuladd.f32(float %223, float 2.000000e+00, float %227)
-  %229 = load float, ptr %indvars.iv14.sroa.phi79, align 4, !tbaa !155
+  %229 = load float, ptr %indvars.iv14.sroa.phi85, align 4, !tbaa !155
   %230 = tail call float @llvm.fmuladd.f32(float %229, float %226, float %215)
-  store float %230, ptr %indvars.iv14.sroa.phi48, align 4, !tbaa !155
+  store float %230, ptr %indvars.iv14.sroa.phi54, align 4, !tbaa !155
   %231 = fneg float %229
   %232 = tail call float @llvm.fmuladd.f32(float %231, float %228, float %217)
   %233 = fmul float %69, %232
-  store float %233, ptr %indvars.iv14.sroa.phi66, align 4, !tbaa !155
+  store float %233, ptr %indvars.iv14.sroa.phi72, align 4, !tbaa !155
   br label %234
 
 234:                                              ; preds = %77, %202, %153
@@ -2952,12 +2952,12 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
 
 .preheader:                                       ; preds = %234, %.preheader
   %235 = phi i1 [ false, %.preheader ], [ true, %234 ]
-  %indvars.iv17.sroa.phi = phi ptr [ %.sroa.441, %.preheader ], [ %.sroa.040, %234 ]
-  %indvars.iv17.sroa.phi44 = phi ptr [ %.sroa.447, %.preheader ], [ %.sroa.046, %234 ]
+  %indvars.iv17.sroa.phi = phi ptr [ %.sroa.447, %.preheader ], [ %.sroa.046, %234 ]
   %indvars.iv17.sroa.phi50 = phi ptr [ %.sroa.453, %.preheader ], [ %.sroa.052, %234 ]
   %indvars.iv17.sroa.phi56 = phi ptr [ %.sroa.459, %.preheader ], [ %.sroa.058, %234 ]
   %indvars.iv17.sroa.phi62 = phi ptr [ %.sroa.465, %.preheader ], [ %.sroa.064, %234 ]
   %indvars.iv17.sroa.phi68 = phi ptr [ %.sroa.471, %.preheader ], [ %.sroa.070, %234 ]
+  %indvars.iv17.sroa.phi74 = phi ptr [ %.sroa.477, %.preheader ], [ %.sroa.076, %234 ]
   %indvars.iv17 = phi i64 [ 1, %.preheader ], [ 0, %234 ]
   %.08 = phi float [ %248, %.preheader ], [ 0.000000e+00, %234 ]
   %.02877 = phi float [ %255, %.preheader ], [ 0.000000e+00, %234 ]
@@ -2966,18 +2966,18 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %.02904 = phi float [ %243, %.preheader ], [ 0.000000e+00, %234 ]
   %236 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv17
   %237 = load float, ptr %236, align 4, !tbaa !155
-  %238 = load float, ptr %indvars.iv17.sroa.phi56, align 4, !tbaa !155
+  %238 = load float, ptr %indvars.iv17.sroa.phi62, align 4, !tbaa !155
   %239 = tail call float @llvm.fmuladd.f32(float %237, float %238, float %.02895)
   %240 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv17
   %241 = load float, ptr %240, align 4, !tbaa !155
-  %242 = load float, ptr %indvars.iv17.sroa.phi50, align 4, !tbaa !155
+  %242 = load float, ptr %indvars.iv17.sroa.phi56, align 4, !tbaa !155
   %243 = tail call float @llvm.fmuladd.f32(float %241, float %242, float %.02904)
-  %244 = load float, ptr %indvars.iv17.sroa.phi62, align 4, !tbaa !155
-  %245 = load float, ptr %indvars.iv17.sroa.phi68, align 4, !tbaa !155
+  %244 = load float, ptr %indvars.iv17.sroa.phi68, align 4, !tbaa !155
+  %245 = load float, ptr %indvars.iv17.sroa.phi74, align 4, !tbaa !155
   %246 = fmul float %241, %245
   %247 = tail call float @llvm.fmuladd.f32(float %237, float %244, float %246)
   %248 = tail call float @llvm.fmuladd.f32(float %247, float %35, float %.08)
-  %249 = load float, ptr %indvars.iv17.sroa.phi44, align 4, !tbaa !155
+  %249 = load float, ptr %indvars.iv17.sroa.phi50, align 4, !tbaa !155
   %250 = fadd float %.02877, %249
   %251 = load float, ptr %indvars.iv17.sroa.phi, align 4, !tbaa !155
   %252 = fadd float %.02886, %251
@@ -3000,8 +3000,6 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   store float %243, ptr %17, align 4, !tbaa !155
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.040)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.441)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.046)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.447)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.052)
@@ -3012,12 +3010,14 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.465)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.070)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.471)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.082)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.076)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.477)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.088)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.093)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.794)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.097)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.498)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.099)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4104)
   ret float %248
 }
 

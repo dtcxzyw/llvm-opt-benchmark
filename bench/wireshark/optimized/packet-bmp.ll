@@ -1185,18 +1185,18 @@ dissect_bmp_stat_report.exit.i:                   ; preds = %255, %139
   %340 = call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %338, ptr noundef %0, i32 noundef %332, i32 noundef %339, i32 noundef 0)
   %341 = load i32, ptr %14, align 4
   %342 = icmp ult i32 %341, 5
-  br i1 %342, label %switch.lookup63, label %347
+  br i1 %342, label %switch.lookup65, label %347
 
-switch.lookup63:                                  ; preds = %.lr.ph.i105.i
+switch.lookup65:                                  ; preds = %.lr.ph.i105.i
   %343 = zext nneg i32 %341 to i64
-  %switch.gep64 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bmp_pdu.3, i64 0, i64 %343
-  %switch.load65 = load ptr, ptr %switch.gep64, align 8
-  %344 = load i32, ptr %switch.load65, align 4
+  %switch.gep66 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bmp_pdu.3, i64 0, i64 %343
+  %switch.load67 = load ptr, ptr %switch.gep66, align 8
+  %344 = load i32, ptr %switch.load67, align 4
   %345 = load i32, ptr %15, align 4
   %346 = call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %344, ptr noundef %0, i32 noundef %332, i32 noundef %345, i32 noundef 0)
   br label %347
 
-347:                                              ; preds = %.lr.ph.i105.i, %switch.lookup63
+347:                                              ; preds = %.lr.ph.i105.i, %switch.lookup65
   %.pn.i.i = load i32, ptr %15, align 4
   %.2.i.i = add i32 %.pn.i.i, %332
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

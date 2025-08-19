@@ -43,22 +43,22 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .outer:                                           ; preds = %14, %2
   %.ph = phi ptr [ %17, %14 ], [ %7, %2 ]
-  %.ph53 = phi i8 [ %.ph56, %14 ], [ 0, %2 ]
-  %.ph54 = phi i8 [ %12, %14 ], [ 0, %2 ]
-  br label %.outer55
+  %.ph56 = phi i8 [ %.ph59, %14 ], [ 0, %2 ]
+  %.ph57 = phi i8 [ %12, %14 ], [ 0, %2 ]
+  br label %.outer58
 
-.outer55:                                         ; preds = %11, %.outer
-  %.ph56 = phi i8 [ %.ph53, %.outer ], [ 1, %11 ]
-  %.ph57 = phi i8 [ %.ph54, %.outer ], [ %12, %11 ]
+.outer58:                                         ; preds = %11, %.outer
+  %.ph59 = phi i8 [ %.ph56, %.outer ], [ 1, %11 ]
+  %.ph60 = phi i8 [ %.ph57, %.outer ], [ %12, %11 ]
   br label %11
 
-11:                                               ; preds = %.outer55, %25
-  %12 = phi i8 [ 1, %25 ], [ %.ph57, %.outer55 ]
+11:                                               ; preds = %.outer58, %25
+  %12 = phi i8 [ 1, %25 ], [ %.ph60, %.outer58 ]
   %13 = tail call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str) #8
   switch i32 %13, label %37 [
     i32 -1, label %40
     i32 111, label %14
-    i32 118, label %.outer55
+    i32 118, label %.outer58
     i32 114, label %25
     i32 63, label %26
   ], !llvm.loop !16
@@ -112,7 +112,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 40:                                               ; preds = %11
   store i8 %12, ptr %5, align 1
-  store i8 %.ph56, ptr %4, align 8
+  store i8 %.ph59, ptr %4, align 8
   store ptr %.ph, ptr %6, align 8
   %41 = load i32, ptr @optind, align 4, !tbaa !14
   %.not14.i = icmp eq i32 %0, %41

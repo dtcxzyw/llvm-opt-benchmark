@@ -2848,8 +2848,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %.in83.idx = zext i32 %narrow to i64
   %.in83 = getelementptr inbounds nuw float, ptr %2, i64 %.in83.idx
   %28 = load float, ptr %.in83, align 4
-  %.fr169 = freeze float %28
-  %29 = fdiv float %.fr169, %20
+  %.fr170 = freeze float %28
+  %29 = fdiv float %.fr170, %20
   br label %30
 
 30:                                               ; preds = %.sink.split, %IsInkSpace.exit
@@ -3108,8 +3108,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %.in83.idx = zext i32 %narrow to i64
   %.in83 = getelementptr inbounds nuw double, ptr %2, i64 %.in83.idx
   %28 = load double, ptr %.in83, align 8
-  %.fr169 = freeze double %28
-  %29 = fdiv double %.fr169, %20
+  %.fr170 = freeze double %28
+  %29 = fdiv double %.fr170, %20
   br label %30
 
 30:                                               ; preds = %.sink.split, %IsInkSpace.exit
@@ -3981,7 +3981,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = zext nneg i32 %spec.select to i64
   %wide.trip.count131 = zext nneg i32 %8 to i64
-  %invariant.gep151 = getelementptr inbounds nuw double, ptr %2, i64 %25
+  %invariant.gep152 = getelementptr inbounds nuw double, ptr %2, i64 %25
   br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -3993,8 +3993,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %27 = load i16, ptr %26, align 2
   %28 = uitofp i16 %27 to double
   %29 = fdiv double %28, %19
-  %gep152 = getelementptr inbounds nuw double, ptr %invariant.gep151, i64 %indvars.iv128
-  store double %29, ptr %gep152, align 8
+  %gep153 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv128
+  store double %29, ptr %gep153, align 8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !25
@@ -4006,8 +4006,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %32 = uitofp i16 %31 to double
   %33 = fdiv double %32, %19
   %34 = fsub double %19, %33
-  %gep150 = getelementptr inbounds nuw double, ptr %invariant.gep151, i64 %indvars.iv123
-  store double %34, ptr %gep150, align 8
+  %gep151 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv123
+  store double %34, ptr %gep151, align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
   br i1 %exitcond127.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !25
@@ -4025,8 +4025,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %40 = load i16, ptr %39, align 2
   %41 = uitofp i16 %40 to double
   %42 = fdiv double %41, %19
-  %gep148 = getelementptr inbounds nuw double, ptr %invariant.gep151, i64 %indvars.iv118
-  store double %42, ptr %gep148, align 8
+  %gep149 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv118
+  store double %42, ptr %gep149, align 8
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !25
@@ -4042,7 +4042,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %49 = uitofp i16 %48 to double
   %50 = fdiv double %49, %19
   %51 = fsub double %19, %50
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep151, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv113
   store double %51, ptr %gep, align 8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131
@@ -4207,7 +4207,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = zext nneg i32 %spec.select to i64
   %wide.trip.count131 = zext nneg i32 %8 to i64
-  %invariant.gep151 = getelementptr inbounds nuw float, ptr %2, i64 %25
+  %invariant.gep152 = getelementptr inbounds nuw float, ptr %2, i64 %25
   br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -4220,8 +4220,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %28 = uitofp i16 %27 to double
   %29 = fdiv double %28, %19
   %30 = fptrunc double %29 to float
-  %gep152 = getelementptr inbounds nuw float, ptr %invariant.gep151, i64 %indvars.iv128
-  store float %30, ptr %gep152, align 4
+  %gep153 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv128
+  store float %30, ptr %gep153, align 4
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !26
@@ -4234,8 +4234,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %34 = fdiv double %33, %19
   %35 = fsub double %19, %34
   %36 = fptrunc double %35 to float
-  %gep150 = getelementptr inbounds nuw float, ptr %invariant.gep151, i64 %indvars.iv123
-  store float %36, ptr %gep150, align 4
+  %gep151 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv123
+  store float %36, ptr %gep151, align 4
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
   br i1 %exitcond127.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !26
@@ -4254,8 +4254,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %43 = uitofp i16 %42 to double
   %44 = fdiv double %43, %19
   %45 = fptrunc double %44 to float
-  %gep148 = getelementptr inbounds nuw float, ptr %invariant.gep151, i64 %indvars.iv118
-  store float %45, ptr %gep148, align 4
+  %gep149 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv118
+  store float %45, ptr %gep149, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !26
@@ -4272,7 +4272,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %53 = fdiv double %52, %19
   %54 = fsub double %19, %53
   %55 = fptrunc double %54 to float
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep151, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv113
   store float %55, ptr %gep, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131
@@ -6788,7 +6788,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = zext nneg i32 %spec.select to i64
   %wide.trip.count131 = zext nneg i32 %8 to i64
-  %invariant.gep151 = getelementptr inbounds nuw float, ptr %2, i64 %25
+  %invariant.gep152 = getelementptr inbounds nuw float, ptr %2, i64 %25
   br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -6801,8 +6801,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %28 = fpext float %27 to double
   %29 = fmul double %19, %28
   %30 = fptrunc double %29 to float
-  %gep152 = getelementptr inbounds nuw float, ptr %invariant.gep151, i64 %indvars.iv128
-  store float %30, ptr %gep152, align 4
+  %gep153 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv128
+  store float %30, ptr %gep153, align 4
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !31
@@ -6815,8 +6815,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %34 = fmul double %19, %33
   %35 = fsub double %19, %34
   %36 = fptrunc double %35 to float
-  %gep150 = getelementptr inbounds nuw float, ptr %invariant.gep151, i64 %indvars.iv123
-  store float %36, ptr %gep150, align 4
+  %gep151 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv123
+  store float %36, ptr %gep151, align 4
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
   br i1 %exitcond127.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !31
@@ -6835,8 +6835,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %43 = fpext float %42 to double
   %44 = fmul double %19, %43
   %45 = fptrunc double %44 to float
-  %gep148 = getelementptr inbounds nuw float, ptr %invariant.gep151, i64 %indvars.iv118
-  store float %45, ptr %gep148, align 4
+  %gep149 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv118
+  store float %45, ptr %gep149, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !31
@@ -6853,7 +6853,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %53 = fmul double %19, %52
   %54 = fsub double %19, %53
   %55 = fptrunc double %54 to float
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep151, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv113
   store float %55, ptr %gep, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131
@@ -7023,7 +7023,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = zext nneg i32 %spec.select to i64
   %wide.trip.count131 = zext nneg i32 %8 to i64
-  %invariant.gep151 = getelementptr inbounds nuw double, ptr %2, i64 %25
+  %invariant.gep152 = getelementptr inbounds nuw double, ptr %2, i64 %25
   br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -7035,8 +7035,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
   %29 = fmul double %19, %28
-  %gep152 = getelementptr inbounds nuw double, ptr %invariant.gep151, i64 %indvars.iv128
-  store double %29, ptr %gep152, align 8
+  %gep153 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv128
+  store double %29, ptr %gep153, align 8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !32
@@ -7048,8 +7048,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %32 = fpext float %31 to double
   %33 = fmul double %19, %32
   %34 = fsub double %19, %33
-  %gep150 = getelementptr inbounds nuw double, ptr %invariant.gep151, i64 %indvars.iv123
-  store double %34, ptr %gep150, align 8
+  %gep151 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv123
+  store double %34, ptr %gep151, align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
   br i1 %exitcond127.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !32
@@ -7067,8 +7067,8 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %40 = load float, ptr %39, align 4
   %41 = fpext float %40 to double
   %42 = fmul double %19, %41
-  %gep148 = getelementptr inbounds nuw double, ptr %invariant.gep151, i64 %indvars.iv118
-  store double %42, ptr %gep148, align 8
+  %gep149 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv118
+  store double %42, ptr %gep149, align 8
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph.split.us.split.split.us, !llvm.loop !32
@@ -7084,7 +7084,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %49 = fpext float %48 to double
   %50 = fmul double %19, %49
   %51 = fsub double %19, %50
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep151, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv113
   store double %51, ptr %gep, align 8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131

@@ -14242,10 +14242,10 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   store i32 0, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 4, !noalias !882
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4.i.i, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !874
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload.i.i = load i32, ptr %.sroa.4.i.i, align 4, !noalias !882
-  %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
-  %.sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx15, align 4, !noalias !882
-  %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
-  %.sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx16, align 4, !noalias !882
+  %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 4
+  %.sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx20, align 4, !noalias !882
+  %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i, i64 8
+  %.sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i = load i32, ptr %.sroa.4.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx21, align 4, !noalias !882
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i.i
 
@@ -40708,7 +40708,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !2490, !noundef !6
-  switch i8 %23, label %default.unreachable70 [
+  switch i8 %23, label %default.unreachable75 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -40750,7 +40750,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %248
   ]
 
-default.unreachable70:                            ; preds = %2
+default.unreachable75:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -47143,7 +47143,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -47155,7 +47155,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -49175,7 +49175,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -49187,7 +49187,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -51207,7 +51207,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -51219,7 +51219,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -53239,7 +53239,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -53251,7 +53251,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -55271,7 +55271,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -55283,7 +55283,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -57303,7 +57303,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -57315,7 +57315,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -59335,7 +59335,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -59347,7 +59347,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -61367,7 +61367,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -61379,7 +61379,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -63399,7 +63399,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
   br label %116
 
 119:                                              ; preds = %112
-  switch i8 %115, label %default.unreachable464 [
+  switch i8 %115, label %default.unreachable488 [
     i8 0, label %120
     i8 1, label %121
     i8 2, label %122
@@ -63411,7 +63411,7 @@ define hidden void @_ZN14polars_compute4cast13dictionary_to19dictionary_cast_dyn
     i8 8, label %128
   ]
 
-default.unreachable464:                           ; preds = %119
+default.unreachable488:                           ; preds = %119
   unreachable
 
 120:                                              ; preds = %119
@@ -67576,8 +67576,8 @@ common.resume:                                    ; preds = %.thread226, %.crite
 
 159:                                              ; preds = %.lr.ph, %378
   %.sroa.0172.0265 = phi i64 [ 1, %.lr.ph ], [ %spec.select, %378 ]
-  %.pn278 = phi i32 [ %56, %.lr.ph ], [ %.pn, %378 ]
-  %.sroa.0170.0264 = add i32 %.pn278, %55
+  %.pn302 = phi i32 [ %56, %.lr.ph ], [ %.pn, %378 ]
+  %.sroa.0170.0264 = add i32 %.pn302, %55
   %160 = icmp uge i64 %.sroa.0172.0265, %54
   %not. = xor i1 %160, true
   %161 = zext i1 %not. to i64
@@ -68352,8 +68352,8 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h544e5a
   %.sroa.10.24..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.4.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
   %.sroa.4.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
-  %.sroa.4.i.4.i.4.i.4..sroa_idx532 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
-  %.sroa.4.i.8.i.8.i.8..sroa_idx533 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
+  %.sroa.4.i.4.i.4.i.4..sroa_idx546 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
+  %.sroa.4.i.8.i.8.i.8..sroa_idx547 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha8a91c0611ff98e3E.exit100"
@@ -68738,11 +68738,11 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h544e5a
           to label %269 unwind label %.thread162.loopexit.loopexit.split
 
 269:                                              ; preds = %268, %255, %314, %301
-  %.sink405 = phi i64 [ %311, %301 ], [ %311, %314 ], [ %265, %255 ], [ %265, %268 ]
+  %.sink419 = phi i64 [ %311, %301 ], [ %311, %314 ], [ %265, %255 ], [ %265, %268 ]
   %270 = load ptr, ptr %35, align 8, !noalias !6, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %270, i64 %.sink405
+  %271 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %270, i64 %.sink419
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %271, i8 0, i64 16, i1 false)
-  %storemerge = add i64 %.sink405, 1
+  %storemerge = add i64 %.sink419, 1
   store i64 %storemerge, ptr %36, align 8, !noalias !6
   %272 = icmp ult i64 %156, %106
   %273 = add nuw i64 %156, 1
@@ -68911,9 +68911,9 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h544e5a
   %334 = load ptr, ptr %320, align 8, !alias.scope !7202, !noalias !7205, !nonnull !6, !noundef !6
   %335 = load i64, ptr %334, align 8, !range !7, !noalias !7207, !noundef !6
   %336 = icmp eq i64 %335, 3
-  br i1 %336, label %.thread340, label %341
+  br i1 %336, label %.thread354, label %341
 
-.thread340:                                       ; preds = %333
+.thread354:                                       ; preds = %333
   %337 = getelementptr i8, ptr %319, i64 -16
   %338 = load ptr, ptr %337, align 8, !alias.scope !7202, !noalias !7205, !noundef !6
   %339 = getelementptr i8, ptr %338, i64 %328
@@ -68955,8 +68955,8 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h544e5a
   invoke void @"_ZN12polars_arrow7storage22SharedStorage$LT$T$GT$9drop_slow17h416ae618384fceacE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %320)
           to label %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit" unwind label %392
 
-"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit": ; preds = %.thread340, %350, %341, %354
-  %355 = phi ptr [ %338, %.thread340 ], [ %345, %350 ], [ %345, %341 ], [ %345, %354 ]
+"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit": ; preds = %.thread354, %350, %341, %354
+  %355 = phi ptr [ %338, %.thread354 ], [ %345, %350 ], [ %345, %341 ], [ %345, %354 ]
   store ptr %334, ptr %320, align 8
   %.sroa.5.0..sroa_idx332 = getelementptr i8, ptr %319, i64 -16
   store ptr %355, ptr %.sroa.5.0..sroa_idx332, align 8
@@ -69033,8 +69033,8 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h544e5a
   store i32 0, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx, align 4, !noalias !7241
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4.i, ptr nonnull readonly align 1 %377, i64 %.us-phi261, i1 false), !noalias !7239
   %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.3.4.copyload = load i32, ptr %.sroa.4.i, align 4, !noalias !7236
-  %.sroa.4.i.4..sroa.4.i.4..sroa.4.i.4..sroa.5129.4.copyload = load i32, ptr %.sroa.4.i.4.i.4.i.4..sroa_idx532, align 4, !noalias !7236
-  %.sroa.4.i.8..sroa.4.i.8..sroa.4.i.8..sroa.6130.4.copyload = load i32, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx533, align 4, !noalias !7236
+  %.sroa.4.i.4..sroa.4.i.4..sroa.4.i.4..sroa.5129.4.copyload = load i32, ptr %.sroa.4.i.4.i.4.i.4..sroa_idx546, align 4, !noalias !7236
+  %.sroa.4.i.8..sroa.4.i.8..sroa.4.i.8..sroa.6130.4.copyload = load i32, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx547, align 4, !noalias !7236
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit
 
@@ -69337,8 +69337,8 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h78f757
   %.sroa.10.24..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.4.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
   %.sroa.4.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
-  %.sroa.4.i.4.i.4.i.4..sroa_idx510 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
-  %.sroa.4.i.8.i.8.i.8..sroa_idx511 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
+  %.sroa.4.i.4.i.4.i.4..sroa_idx524 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 4
+  %.sroa.4.i.8.i.8.i.8..sroa_idx525 = getelementptr inbounds nuw i8, ptr %.sroa.4.i, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha8a91c0611ff98e3E.exit100"
@@ -69721,11 +69721,11 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h78f757
           to label %267 unwind label %.thread162.loopexit.loopexit.split
 
 267:                                              ; preds = %266, %253, %310, %297
-  %.sink391 = phi i64 [ %307, %297 ], [ %307, %310 ], [ %263, %253 ], [ %263, %266 ]
+  %.sink405 = phi i64 [ %307, %297 ], [ %307, %310 ], [ %263, %253 ], [ %263, %266 ]
   %268 = load ptr, ptr %35, align 8, !noalias !6, !nonnull !6, !noundef !6
-  %269 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %268, i64 %.sink391
+  %269 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %268, i64 %.sink405
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %269, i8 0, i64 16, i1 false)
-  %storemerge = add i64 %.sink391, 1
+  %storemerge = add i64 %.sink405, 1
   store i64 %storemerge, ptr %36, align 8, !noalias !6
   %270 = icmp ult i64 %154, %106
   %271 = add nuw i64 %154, 1
@@ -69890,9 +69890,9 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h78f757
   %330 = load ptr, ptr %316, align 8, !alias.scope !7344, !noalias !7347, !nonnull !6, !noundef !6
   %331 = load i64, ptr %330, align 8, !range !7, !noalias !7349, !noundef !6
   %332 = icmp eq i64 %331, 3
-  br i1 %332, label %.thread330, label %337
+  br i1 %332, label %.thread344, label %337
 
-.thread330:                                       ; preds = %329
+.thread344:                                       ; preds = %329
   %333 = getelementptr i8, ptr %315, i64 -16
   %334 = load ptr, ptr %333, align 8, !alias.scope !7344, !noalias !7347, !noundef !6
   %335 = getelementptr i8, ptr %334, i64 %324
@@ -69934,8 +69934,8 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h78f757
   invoke void @"_ZN12polars_arrow7storage22SharedStorage$LT$T$GT$9drop_slow17h416ae618384fceacE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %316)
           to label %"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit" unwind label %388
 
-"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit": ; preds = %.thread330, %346, %337, %350
-  %351 = phi ptr [ %334, %.thread330 ], [ %341, %346 ], [ %341, %337 ], [ %341, %350 ]
+"_ZN4core3ptr70drop_in_place$LT$polars_arrow..buffer..immutable..Buffer$LT$u8$GT$$GT$17h5642064c51898ac0E.exit": ; preds = %.thread344, %346, %337, %350
+  %351 = phi ptr [ %334, %.thread344 ], [ %341, %346 ], [ %341, %337 ], [ %341, %350 ]
   store ptr %330, ptr %316, align 8
   %.sroa.5.0..sroa_idx322 = getelementptr i8, ptr %315, i64 -16
   store ptr %351, ptr %.sroa.5.0..sroa_idx322, align 8
@@ -70012,8 +70012,8 @@ define hidden void @_ZN14polars_compute4cast25cast_list_uint8_to_binary17h78f757
   store i32 0, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx, align 4, !noalias !7383
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4.i, ptr nonnull readonly align 1 %373, i64 %.us-phi255, i1 false), !noalias !7381
   %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.3.4.copyload = load i32, ptr %.sroa.4.i, align 4, !noalias !7378
-  %.sroa.4.i.4..sroa.4.i.4..sroa.4.i.4..sroa.5129.4.copyload = load i32, ptr %.sroa.4.i.4.i.4.i.4..sroa_idx510, align 4, !noalias !7378
-  %.sroa.4.i.8..sroa.4.i.8..sroa.4.i.8..sroa.6130.4.copyload = load i32, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx511, align 4, !noalias !7378
+  %.sroa.4.i.4..sroa.4.i.4..sroa.4.i.4..sroa.5129.4.copyload = load i32, ptr %.sroa.4.i.4.i.4.i.4..sroa_idx524, align 4, !noalias !7378
+  %.sroa.4.i.8..sroa.4.i.8..sroa.4.i.8..sroa.6130.4.copyload = load i32, ptr %.sroa.4.i.8.i.8.i.8..sroa_idx525, align 4, !noalias !7378
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit
 
@@ -70136,15 +70136,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h081ca606489e6
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -70194,11 +70194,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h081ca606489e6
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h63d8d9a8cb20e53bE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17hd8fe1ec7e0ad9b48E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17hd13530d9a3eefcb7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -70224,7 +70224,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h081ca606489e6
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -70234,7 +70234,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h081ca606489e6
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -70509,15 +70509,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h19008b1689e09
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -70567,11 +70567,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h19008b1689e09
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h8ab97a9635eaa62cE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h2aeacc8a93354324E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h1582e8ca2e8b0ff8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -70597,7 +70597,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h19008b1689e09
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -70607,7 +70607,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h19008b1689e09
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -70882,15 +70882,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h3627e768470be
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -70940,11 +70940,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h3627e768470be
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h82f84fb5fa90e605E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17hd80f0ffa1c1ec12dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h294bf37e1473f185E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -70970,7 +70970,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h3627e768470be
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -70980,7 +70980,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h3627e768470be
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -71255,15 +71255,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h735163511bf53
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -71313,11 +71313,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h735163511bf53
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17hf327440890ca7a27E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h6e47e93ed5d4627cE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17hac5c4c4b7ecde8e2E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -71343,7 +71343,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h735163511bf53
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -71353,7 +71353,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h735163511bf53
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -71628,15 +71628,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h7fb083a06a9b6
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -71686,11 +71686,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h7fb083a06a9b6
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h7e9e3a1b534acb50E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h5432d4c0f1f7309eE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h21a1bfc16d85c7f4E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -71716,7 +71716,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h7fb083a06a9b6
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -71726,7 +71726,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17h7fb083a06a9b6
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -72001,15 +72001,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17ha0cc34145fa8e
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -72059,11 +72059,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17ha0cc34145fa8e
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h91ed747030d001deE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h43209477ec6b34ceE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17hf348cffbf7fb3075E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -72089,7 +72089,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17ha0cc34145fa8e
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -72099,7 +72099,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17ha0cc34145fa8e
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -72374,15 +72374,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17hcc5f015feb03e
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -72432,11 +72432,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17hcc5f015feb03e
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h97821b6c462154e4E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17he44bcaa1c31feee7E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17hcdb6076c70878fe4E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -72462,7 +72462,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17hcc5f015feb03e
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -72472,7 +72472,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17hcc5f015feb03e
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -72747,15 +72747,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17hd0ebcabddcb9b
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -72805,11 +72805,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17hd0ebcabddcb9b
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h6a6c468ae571c6e8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h34a1048847f371cdE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h8d381a1254fa2af9E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -72835,7 +72835,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17hd0ebcabddcb9b
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -72845,7 +72845,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17hd0ebcabddcb9b
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -73120,15 +73120,15 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17he9635550804c6
   switch i8 %24, label %25 [
     i8 2, label %26
     i8 3, label %27
-    i8 4, label %.invoke52
-    i8 5, label %.invoke51
+    i8 4, label %.invoke58
+    i8 5, label %.invoke57
     i8 7, label %28
     i8 8, label %29
     i8 9, label %30
     i8 10, label %31
-    i8 14, label %.invoke51
-    i8 15, label %.invoke52
-    i8 18, label %.invoke51
+    i8 14, label %.invoke57
+    i8 15, label %.invoke58
+    i8 18, label %.invoke57
     i8 23, label %32
     i8 25, label %33
     i8 35, label %34
@@ -73178,11 +73178,11 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17he9635550804c6
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h4beaba862350be72E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke52:                                        ; preds = %23, %23
+.invoke58:                                        ; preds = %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17h6d4ce96728ccab48E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
-.invoke51:                                        ; preds = %23, %23, %23
+.invoke57:                                        ; preds = %23, %23, %23
   invoke void @_ZN14polars_compute4cast12primitive_to27primitive_to_dictionary_dyn17hc4ade25c2c1393f5E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %21)
           to label %44 unwind label %42
 
@@ -73208,7 +73208,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17he9635550804c6
   %41 = invoke { ptr, ptr } %40(ptr noundef nonnull align 1 %19)
           to label %92 unwind label %42
 
-42:                                               ; preds = %.invoke52, %.invoke51, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
+42:                                               ; preds = %.invoke58, %.invoke57, %.invoke, %92, %66, %25, %119, %103, %76, %38, %34, %33, %32, %31, %30, %29, %28, %27, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -73218,7 +73218,7 @@ define hidden void @_ZN14polars_compute4cast18cast_to_dictionary17he9635550804c6
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %19, ptr nonnull %21) #27
           to label %common.resume unwind label %142
 
-44:                                               ; preds = %.invoke52, %.invoke51, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
+44:                                               ; preds = %.invoke58, %.invoke57, %33, %32, %31, %30, %29, %28, %27, %26, %118, %91
   %45 = load ptr, ptr %21, align 8, !invariant.load !6
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %47, label %46
@@ -74547,8 +74547,8 @@ define hidden void @_ZN14polars_compute18horizontal_flatten41horizontal_flatten_
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i.i.i.i.i.i, i64 4
   %.sroa.4.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i.i.i.i.i.i, i64 8
-  %.sroa.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx71 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i.i.i.i.i.i, i64 4
-  %.sroa.4.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx72 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i.i.i.i.i.i, i64 8
+  %.sroa.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx83 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i.i.i.i.i.i, i64 4
+  %.sroa.4.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx84 = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i.i.i.i.i.i, i64 8
   br label %65
 
 65:                                               ; preds = %"_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$4push17h67523444575b54a6E.exit.i.i.i.i", %.lr.ph.i.i.i.i
@@ -74905,8 +74905,8 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
   store i32 0, ptr %.sroa.4.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 4, !noalias !7578
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.4.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %133, i64 %134, i1 false), !noalias !7608
   %.sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.3.4.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i.i.i.i, align 4, !noalias !7578
-  %.sroa.4.i.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.4..sroa.4.i.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx71, align 4, !noalias !7578
-  %.sroa.4.i.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.8..sroa.4.i.i.i.i.i.8..sroa.4.i.i.i.i.8..sroa.4.i.i.i.i.8..sroa.4.i.i.i.8..sroa.4.i.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx72, align 4, !noalias !7578
+  %.sroa.4.i.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.i.4..sroa.4.i.i.i.i.i.4..sroa.4.i.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.6.4.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx83, align 4, !noalias !7578
+  %.sroa.4.i.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.i.8..sroa.4.i.i.i.i.i.8..sroa.4.i.i.i.i.i.8..sroa.4.i.i.i.i.8..sroa.4.i.i.i.i.8..sroa.4.i.i.i.8..sroa.4.i.i.i.8..sroa.4.i.i.8..sroa.4.i.i.8..sroa.4.i.8..sroa.4.i.8..sroa.4.8..sroa.4.8..sroa.7.4.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.i.8.i.i.i.i.8.i.i.i.i.8.i.i.i.8.i.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx84, align 4, !noalias !7578
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i.i.i.i.i)
   br label %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i.i.i.i.i.i.i
 

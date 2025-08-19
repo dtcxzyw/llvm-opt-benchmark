@@ -868,36 +868,36 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
   %60 = phi i64 [ %81, %94 ], [ 0, %22 ]
   %61 = phi i64 [ %95, %94 ], [ 0, %22 ]
   %62 = icmp eq i64 %60, 0
-  br i1 %62, label %63, label %.thread21
+  br i1 %62, label %63, label %.thread37
 
 63:                                               ; preds = %.split
   %64 = icmp ult i64 %59, %9
-  br i1 %64, label %.preheader11, label %.loopexit24
+  br i1 %64, label %.preheader11, label %.loopexit40
 
 .preheader11:                                     ; preds = %63, %68
   %65 = phi i64 [ %69, %68 ], [ %59, %63 ]
   %66 = tail call fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %65, i64 noundef %20, ptr noundef %3), !range !18
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.loopexit24, label %68
+  br i1 %67, label %.loopexit40, label %68
 
 68:                                               ; preds = %.preheader11
   %69 = add i64 %65, %20
   %70 = icmp ult i64 %69, %9
-  br i1 %70, label %.preheader11, label %.loopexit24, !llvm.loop !19
+  br i1 %70, label %.preheader11, label %.loopexit40, !llvm.loop !19
 
-.loopexit24:                                      ; preds = %.preheader11, %68, %63
+.loopexit40:                                      ; preds = %.preheader11, %68, %63
   %71 = phi i64 [ %59, %63 ], [ %65, %.preheader11 ], [ %69, %68 ]
   %72 = icmp ne i64 %59, %1
   %73 = icmp ne i64 %71, %9
-  %.not30 = or i1 %72, %73
-  br i1 %.not30, label %.loopexit, label %.thread21
+  %.not46 = or i1 %72, %73
+  br i1 %.not46, label %.loopexit, label %.thread37
 
-.thread21:                                        ; preds = %.split, %.loopexit24
+.thread37:                                        ; preds = %.split, %.loopexit40
   %74 = icmp ult i64 %59, %9
   br i1 %74, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.thread21, %78
-  %75 = phi i64 [ %79, %78 ], [ %59, %.thread21 ]
+.preheader:                                       ; preds = %.thread37, %78
+  %75 = phi i64 [ %79, %78 ], [ %59, %.thread37 ]
   %76 = tail call fastcc i32 @do_validate_mem(ptr noundef %0, i64 noundef %75, i64 noundef %20, ptr noundef nonnull %4), !range !18
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.loopexit, label %78
@@ -907,9 +907,9 @@ define internal fastcc i32 @do_mem_probe(ptr noundef %0, i64 noundef %1, i64 nou
   %80 = icmp ult i64 %79, %9
   br i1 %80, label %.preheader, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %78, %.preheader, %.thread21, %.loopexit24
-  %81 = phi i64 [ 0, %.loopexit24 ], [ 1, %.thread21 ], [ 1, %.preheader ], [ 1, %78 ]
-  %82 = phi i64 [ %71, %.loopexit24 ], [ %59, %.thread21 ], [ %79, %78 ], [ %75, %.preheader ]
+.loopexit:                                        ; preds = %78, %.preheader, %.thread37, %.loopexit40
+  %81 = phi i64 [ 0, %.loopexit40 ], [ 1, %.thread37 ], [ 1, %.preheader ], [ 1, %78 ]
+  %82 = phi i64 [ %71, %.loopexit40 ], [ %59, %.thread37 ], [ %79, %78 ], [ %75, %.preheader ]
   %83 = icmp eq i64 %59, %82
   br i1 %83, label %94, label %84
 
@@ -1167,7 +1167,7 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
 
 44:                                               ; preds = %43
   %45 = icmp eq ptr %3, null
-  br i1 %45, label %.thread31, label %46
+  br i1 %45, label %.thread43, label %46
 
 46:                                               ; preds = %44
   %47 = call i32 %3(ptr noundef %0, ptr noundef nonnull %26, ptr noundef nonnull %5) #11, !callees !26
@@ -1180,7 +1180,7 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   call void @kfree(ptr noundef nonnull %26) #11
   br i1 %50, label %55, label %104
 
-.thread31:                                        ; preds = %44
+.thread43:                                        ; preds = %44
   %53 = tail call i32 @release_resource(ptr noundef nonnull %28) #11
   tail call void @kfree(ptr noundef nonnull %28) #11
   %54 = tail call i32 @release_resource(ptr noundef nonnull %26) #11
@@ -1278,8 +1278,8 @@ define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i6
   %103 = call fastcc i32 @sub_interval(ptr noundef %8, i64 noundef %1, i64 noundef %2), !range !20
   br label %104
 
-104:                                              ; preds = %55, %.thread19.thread, %.thread31, %102, %63, %61, %.thread19, %46
-  %105 = phi i32 [ -22, %46 ], [ 0, %102 ], [ 0, %63 ], [ -22, %.thread19 ], [ -22, %61 ], [ 0, %.thread31 ], [ -22, %.thread19.thread ], [ %., %55 ]
+104:                                              ; preds = %55, %.thread19.thread, %.thread43, %102, %63, %61, %.thread19, %46
+  %105 = phi i32 [ -22, %46 ], [ 0, %102 ], [ 0, %63 ], [ -22, %.thread19 ], [ -22, %61 ], [ 0, %.thread43 ], [ -22, %.thread19.thread ], [ %., %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %105

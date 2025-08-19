@@ -9307,15 +9307,15 @@ default.unreachable:                              ; preds = %.lr.ph57
   br i1 %.not, label %56, label %55
 
 33:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.cast67 = phi i64 [ 0, %.loopexit.thread ], [ %.cast, %.loopexit ]
+  %.cast68 = phi i64 [ 0, %.loopexit.thread ], [ %.cast, %.loopexit ]
   %34 = phi ptr [ %9, %.loopexit.thread ], [ %26, %.loopexit ]
-  %.sroa.4.0.i.ph66 = phi ptr [ null, %.loopexit.thread ], [ %.lcssa, %.loopexit ]
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %.cast67
+  %.sroa.4.0.i.ph67 = phi ptr [ null, %.loopexit.thread ], [ %.lcssa, %.loopexit ]
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %.cast68
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h35c5789c19d67278E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %5, ptr noundef nonnull %35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.76)
           to label %.thread unwind label %29
 
 .thread:                                          ; preds = %40, %38, %45, %24, %33
-  %.sroa.3.0 = phi ptr [ %.sroa.4.0.i.ph66, %33 ], [ %21, %24 ], [ %21, %45 ], [ %21, %38 ], [ %21, %40 ]
+  %.sroa.3.0 = phi ptr [ %.sroa.4.0.i.ph67, %33 ], [ %21, %24 ], [ %21, %45 ], [ %21, %38 ], [ %21, %40 ]
   %.sroa.0.0 = phi i64 [ 0, %33 ], [ 1, %24 ], [ 1, %45 ], [ 1, %38 ], [ 1, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -9504,13 +9504,13 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h0322af4f38212215E(
   store i64 %.sroa.014.4, ptr %30, align 8
   %.promoted = load i64, ptr %31, align 8, !alias.scope !629, !noalias !632
   %72 = icmp eq i64 %.promoted, 0
-  br i1 %72, label %.thread149, label %.lr.ph
+  br i1 %72, label %.thread154, label %.lr.ph
 
-.thread149:                                       ; preds = %66
+.thread154:                                       ; preds = %66
   %73 = icmp sgt i64 %68, -1
   call void @llvm.assume(i1 %73)
   store i64 %68, ptr %8, align 8
-  br label %.loopexit150
+  br label %.loopexit155
 
 .lr.ph:                                           ; preds = %66
   %.val27.i = load ptr, ptr %0, align 8, !nonnull !13, !align !603
@@ -9633,10 +9633,10 @@ default.unreachable:                              ; preds = %95
 
 117:                                              ; preds = %.thread
   %118 = icmp eq i64 %.pre141, 0
-  br i1 %118, label %.loopexit150, label %122
+  br i1 %118, label %.loopexit155, label %122
 
-.loopexit150:                                     ; preds = %117, %.thread149
-  %119 = phi i64 [ %68, %.thread149 ], [ %102, %117 ]
+.loopexit155:                                     ; preds = %117, %.thread154
+  %119 = phi i64 [ %68, %.thread154 ], [ %102, %117 ]
   %120 = icmp sgt i64 %119, -1
   call void @llvm.assume(i1 %120)
   %121 = sub nsw i64 %119, %9
@@ -9652,9 +9652,9 @@ default.unreachable:                              ; preds = %95
   %125 = ptrtoint ptr %.sroa.017.0.i85.ph to i64
   br label %126
 
-126:                                              ; preds = %.loopexit116, %.loopexit150
-  %.sroa.8.2 = phi i64 [ %121, %.loopexit150 ], [ %125, %.loopexit116 ]
-  %.sroa.0.2 = phi i64 [ 0, %.loopexit150 ], [ 1, %.loopexit116 ]
+126:                                              ; preds = %.loopexit116, %.loopexit155
+  %.sroa.8.2 = phi i64 [ %121, %.loopexit155 ], [ %125, %.loopexit116 ]
+  %.sroa.0.2 = phi i64 [ 0, %.loopexit155 ], [ 1, %.loopexit116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
@@ -9776,14 +9776,14 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h6f9a5252a19b5bb2E(ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !647
   %.pr.i.i = load i64, ptr %8, align 8, !noalias !647
   %33 = icmp eq i64 %.pr.i.i, 0
-  br i1 %33, label %.thread76, label %18
+  br i1 %33, label %.thread79, label %18
 
 34:                                               ; preds = %30
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.70) #28
   unreachable
 
-.loopexit.sink.split:                             ; preds = %41, %39, %45, %38, %.thread76
-  %.sroa.04.0.ph = phi ptr [ null, %.thread76 ], [ %31, %38 ], [ %31, %45 ], [ %31, %39 ], [ %31, %41 ]
+.loopexit.sink.split:                             ; preds = %41, %39, %45, %38, %.thread79
+  %.sroa.04.0.ph = phi ptr [ null, %.thread79 ], [ %31, %38 ], [ %31, %45 ], [ %31, %39 ], [ %31, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
@@ -9815,7 +9815,7 @@ default.unreachable:                              ; preds = %35
   %switch = icmp eq i64 %.mask, 150323855360
   br i1 %switch, label %51, label %.loopexit.sink.split
 
-.thread76:                                        ; preds = %32
+.thread79:                                        ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !647
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !647
   br label %.loopexit.sink.split
@@ -12115,7 +12115,7 @@ define internal fastcc noundef ptr @_ZN6flate22gz14GzHeaderParser5parse17hbd7906
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %31 = phi i8 [ %.pre, %2 ], [ %.be, %.backedge.backedge ]
-  switch i8 %31, label %default.unreachable276 [
+  switch i8 %31, label %default.unreachable295 [
     i8 0, label %32
     i8 1, label %35
     i8 2, label %41
@@ -12125,7 +12125,7 @@ define internal fastcc noundef ptr @_ZN6flate22gz14GzHeaderParser5parse17hbd7906
     i8 6, label %.loopexit206
   ]
 
-default.unreachable276:                           ; preds = %.backedge
+default.unreachable295:                           ; preds = %.backedge
   unreachable
 
 32:                                               ; preds = %.backedge
@@ -13158,7 +13158,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   %60 = icmp ult i64 %59, 4
   %61 = xor i64 %58, -9223372036854775808
   %62 = select i1 %60, i64 %61, i64 0
-  switch i64 %62, label %.invoke226 [
+  switch i64 %62, label %.invoke229 [
     i64 0, label %63
     i64 3, label %64
   ]
@@ -13167,7 +13167,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   invoke void @"_ZN4core3ptr47drop_in_place$LT$flate2..gz..GzHeaderParser$GT$17hd8988e89b1750912E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit177" unwind label %65
 
-.invoke226:                                       ; preds = %57
+.invoke229:                                       ; preds = %57
   invoke void @"_ZN4core3ptr41drop_in_place$LT$flate2..gz..GzHeader$GT$17hd10d2631428654dfE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %14)
           to label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit177" unwind label %65
 
@@ -13175,7 +13175,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h8f0587d436b7e06dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
           to label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit177" unwind label %65
 
-65:                                               ; preds = %.invoke226, %64, %63
+65:                                               ; preds = %.invoke229, %64, %63
   %66 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775806, ptr %0, align 8
@@ -13183,7 +13183,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h570a5e4338702519E.exit"
 
-"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit177": ; preds = %.invoke226, %63, %64
+"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit177": ; preds = %.invoke229, %63, %64
   store i64 -9223372036854775806, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.516, i64 80, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -13259,21 +13259,21 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   %92 = select i1 %90, i64 %91, i64 0
   switch i64 %92, label %93 [
     i64 0, label %96
-    i64 1, label %.invoke227
-    i64 2, label %.invoke227
+    i64 1, label %.invoke230
+    i64 2, label %.invoke230
     i64 3, label %97
   ]
 
 93:                                               ; preds = %87
   %94 = load i64, ptr %14, align 8, !range !682, !alias.scope !860, !noundef !13
   %95 = icmp eq i64 %94, -9223372036854775807
-  br i1 %95, label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit189", label %.invoke227
+  br i1 %95, label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit189", label %.invoke230
 
 96:                                               ; preds = %87
   invoke void @"_ZN4core3ptr47drop_in_place$LT$flate2..gz..GzHeaderParser$GT$17hd8988e89b1750912E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit189" unwind label %106
 
-.invoke227:                                       ; preds = %87, %87, %93
+.invoke230:                                       ; preds = %87, %87, %93
   invoke void @"_ZN4core3ptr41drop_in_place$LT$flate2..gz..GzHeader$GT$17hd10d2631428654dfE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %14)
           to label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit189" unwind label %106
 
@@ -13294,7 +13294,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   %101 = icmp ult i64 %100, 4
   %102 = xor i64 %99, -9223372036854775808
   %103 = select i1 %101, i64 %102, i64 0
-  switch i64 %103, label %.invoke228 [
+  switch i64 %103, label %.invoke231 [
     i64 0, label %104
     i64 3, label %105
   ]
@@ -13303,7 +13303,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   invoke void @"_ZN4core3ptr47drop_in_place$LT$flate2..gz..GzHeaderParser$GT$17hd8988e89b1750912E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
           to label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit195" unwind label %108
 
-.invoke228:                                       ; preds = %98
+.invoke231:                                       ; preds = %98
   invoke void @"_ZN4core3ptr41drop_in_place$LT$flate2..gz..GzHeader$GT$17hd10d2631428654dfE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %14)
           to label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit195" unwind label %108
 
@@ -13311,7 +13311,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h8f0587d436b7e06dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
           to label %"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit195" unwind label %108
 
-106:                                              ; preds = %.invoke227, %97, %96
+106:                                              ; preds = %.invoke230, %97, %96
   %107 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775808, ptr %0, align 8
@@ -13323,7 +13323,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6150.0..sroa_idx, i8 0, i64 12, i1 false)
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h570a5e4338702519E.exit"
 
-"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit189": ; preds = %.invoke227, %93, %96, %97
+"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit189": ; preds = %.invoke230, %93, %96, %97
   store i64 -9223372036854775808, ptr %0, align 8
   store i64 -9223372036854775808, ptr %.sroa.052.sroa.0.sroa.0.sroa.6.0..sroa_idx143, align 8
   store i64 -9223372036854775808, ptr %.sroa.052.sroa.0.sroa.0.sroa.8.0..sroa_idx146, align 8
@@ -13333,14 +13333,14 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.6150.0..sroa_idx, i8 0, i64 12, i1 false)
   br label %.backedge.backedge
 
-108:                                              ; preds = %.invoke228, %105, %104
+108:                                              ; preds = %.invoke231, %105, %104
   %109 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.545, i64 80, i1 false)
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h570a5e4338702519E.exit"
 
-"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit195": ; preds = %.invoke228, %104, %105
+"_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17h11366481493dc25bE.exit195": ; preds = %.invoke231, %104, %105
   store i64 -9223372036854775804, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.545, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.545)
@@ -13467,7 +13467,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !456, !noundef !13
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -13509,7 +13509,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -16645,9 +16645,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %108, 2
   %115 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %116 = icmp eq i64 %108, 0
-  br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256", label %.lr.ph233
+  br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262", label %.lr.ph233
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5168)
   br label %._crit_edge240
 
@@ -16714,8 +16714,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %147 = icmp eq ptr %130, %115
   br i1 %147, label %._crit_edge240, label %129
 
-._crit_edge240:                                   ; preds = %129, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256"
-  %.sroa.077.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256" ], [ %146, %129 ]
+._crit_edge240:                                   ; preds = %129, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262"
+  %.sroa.077.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262" ], [ %146, %129 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.077.0.lcssa, i64 noundef %108)
   %148 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.077.0.lcssa)
   %149 = icmp eq i64 %148, %108
@@ -17224,9 +17224,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %108, 2
   %115 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %116 = icmp eq i64 %108, 0
-  br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256", label %.lr.ph233
+  br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262", label %.lr.ph233
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5168)
   br label %._crit_edge240
 
@@ -17293,8 +17293,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %147 = icmp eq ptr %130, %115
   br i1 %147, label %._crit_edge240, label %129
 
-._crit_edge240:                                   ; preds = %129, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256"
-  %.sroa.077.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256" ], [ %146, %129 ]
+._crit_edge240:                                   ; preds = %129, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262"
+  %.sroa.077.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262" ], [ %146, %129 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.077.0.lcssa, i64 noundef %108)
   %148 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.077.0.lcssa)
   %149 = icmp eq i64 %148, %108
@@ -17798,9 +17798,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %105, 2
   %112 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %113 = icmp eq i64 %105, 0
-  br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270", label %.lr.ph247
+  br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276", label %.lr.ph247
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5182)
   br label %._crit_edge254
 
@@ -17867,8 +17867,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %144 = icmp eq ptr %127, %112
   br i1 %144, label %._crit_edge254, label %126
 
-._crit_edge254:                                   ; preds = %126, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270"
-  %.sroa.083.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270" ], [ %143, %126 ]
+._crit_edge254:                                   ; preds = %126, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276"
+  %.sroa.083.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276" ], [ %143, %126 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.083.0.lcssa, i64 noundef %105)
   %145 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.083.0.lcssa)
   %146 = icmp eq i64 %145, %105
@@ -18381,9 +18381,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %108, 2
   %115 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %116 = icmp eq i64 %108, 0
-  br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256", label %.lr.ph233
+  br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262", label %.lr.ph233
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5168)
   br label %._crit_edge240
 
@@ -18450,8 +18450,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %147 = icmp eq ptr %130, %115
   br i1 %147, label %._crit_edge240, label %129
 
-._crit_edge240:                                   ; preds = %129, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256"
-  %.sroa.077.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256" ], [ %146, %129 ]
+._crit_edge240:                                   ; preds = %129, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262"
+  %.sroa.077.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262" ], [ %146, %129 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.077.0.lcssa, i64 noundef %108)
   %148 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.077.0.lcssa)
   %149 = icmp eq i64 %148, %108
@@ -18953,9 +18953,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %103, 2
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
   %111 = icmp eq i64 %103, 0
-  br i1 %111, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread269", label %.lr.ph246
+  br i1 %111, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread275", label %.lr.ph246
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread269": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread275": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5181)
   br label %._crit_edge253
 
@@ -19022,8 +19022,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %142 = icmp eq ptr %125, %110
   br i1 %142, label %._crit_edge253, label %124
 
-._crit_edge253:                                   ; preds = %124, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread269"
-  %.sroa.083.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread269" ], [ %141, %124 ]
+._crit_edge253:                                   ; preds = %124, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread275"
+  %.sroa.083.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread275" ], [ %141, %124 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %5, i64 noundef %.sroa.083.0.lcssa, i64 noundef %103)
   %143 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.083.0.lcssa)
   %144 = icmp eq i64 %143, %103
@@ -19517,9 +19517,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %105, 2
   %112 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %113 = icmp eq i64 %105, 0
-  br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270", label %.lr.ph247
+  br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276", label %.lr.ph247
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5182)
   br label %._crit_edge254
 
@@ -19586,8 +19586,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %144 = icmp eq ptr %127, %112
   br i1 %144, label %._crit_edge254, label %126
 
-._crit_edge254:                                   ; preds = %126, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270"
-  %.sroa.083.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270" ], [ %143, %126 ]
+._crit_edge254:                                   ; preds = %126, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276"
+  %.sroa.083.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276" ], [ %143, %126 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.083.0.lcssa, i64 noundef %105)
   %145 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.083.0.lcssa)
   %146 = icmp eq i64 %145, %105
@@ -20099,9 +20099,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %107, 2
   %114 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %115 = icmp eq i64 %107, 0
-  br i1 %115, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread266", label %.lr.ph243
+  br i1 %115, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread272", label %.lr.ph243
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread266": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread272": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5178)
   br label %._crit_edge250
 
@@ -20168,8 +20168,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %146 = icmp eq ptr %129, %114
   br i1 %146, label %._crit_edge250, label %128
 
-._crit_edge250:                                   ; preds = %128, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread266"
-  %.sroa.081.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread266" ], [ %145, %128 ]
+._crit_edge250:                                   ; preds = %128, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread272"
+  %.sroa.081.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit163.thread272" ], [ %145, %128 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.081.0.lcssa, i64 noundef %107)
   %147 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.081.0.lcssa)
   %148 = icmp eq i64 %147, %107
@@ -20677,9 +20677,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %105, 2
   %112 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
   %113 = icmp eq i64 %105, 0
-  br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270", label %.lr.ph247
+  br i1 %113, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276", label %.lr.ph247
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5182)
   br label %._crit_edge254
 
@@ -20746,8 +20746,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %144 = icmp eq ptr %127, %112
   br i1 %144, label %._crit_edge254, label %126
 
-._crit_edge254:                                   ; preds = %126, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270"
-  %.sroa.083.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread270" ], [ %143, %126 ]
+._crit_edge254:                                   ; preds = %126, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276"
+  %.sroa.083.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit167.thread276" ], [ %143, %126 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.083.0.lcssa, i64 noundef %105)
   %145 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.083.0.lcssa)
   %146 = icmp eq i64 %145, %105
@@ -21260,9 +21260,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit.thread: ;
   %.idx = shl nuw nsw i64 %108, 2
   %115 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %116 = icmp eq i64 %108, 0
-  br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256", label %.lr.ph233
+  br i1 %116, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262", label %.lr.ph233
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5168)
   br label %._crit_edge240
 
@@ -21329,8 +21329,8 @@ _ZN14polars_parquet5arrow4read11deserialize18dictionary_encoded19verify_dict_ind
   %147 = icmp eq ptr %130, %115
   br i1 %147, label %._crit_edge240, label %129
 
-._crit_edge240:                                   ; preds = %129, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256"
-  %.sroa.077.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread256" ], [ %146, %129 ]
+._crit_edge240:                                   ; preds = %129, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262"
+  %.sroa.077.0.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he39bcf162fd1b298E.exit154.thread262" ], [ %146, %129 ]
   call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder28push_word_with_len_unchecked17h666ba0fe73278f7bE(ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.sroa.077.0.lcssa, i64 noundef %108)
   %148 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.077.0.lcssa)
   %149 = icmp eq i64 %148, %108
@@ -28843,7 +28843,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !1629
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread563
+          to label %.noexc unwind label %.thread598
 
 .noexc:                                           ; preds = %167
   %168 = load i64, ptr %44, align 8, !range !422, !noalias !1629, !noundef !13
@@ -28856,7 +28856,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 173:                                              ; preds = %.noexc
   %174 = load i64, ptr %172, align 8, !noalias !1629
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %171, i64 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread563
+          to label %.noexc200 unwind label %.thread598
 
 .noexc200:                                        ; preds = %173
   unreachable
@@ -28869,19 +28869,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8, !invariant.load !13, !nonnull !13
   %182 = invoke noundef align 8 dereferenceable(32) ptr %181(ptr noundef nonnull align 1 %177)
-          to label %183 unwind label %.thread563
+          to label %183 unwind label %.thread598
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread563:                                       ; preds = %.invoke, %1442, %1432, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
-  %lpad.thr_comm561 = landingpad { ptr, i32 }
+.thread598:                                       ; preds = %.invoke, %1442, %1432, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
+  %lpad.thr_comm596 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 183:                                              ; preds = %175
   %184 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %182)
-          to label %185 unwind label %.thread563
+          to label %185 unwind label %.thread598
 
 185:                                              ; preds = %183
   %186 = load i8, ptr %184, align 8, !range !456, !noundef !13
@@ -28931,7 +28931,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !1653
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
-          to label %1426 unwind label %.thread563
+          to label %1426 unwind label %.thread598
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -28939,7 +28939,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !invariant.load !13, !nonnull !13
   %193 = invoke { ptr, ptr } %192(ptr noundef nonnull align 1 %189)
-          to label %277 unwind label %.thread563
+          to label %277 unwind label %.thread598
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -28947,7 +28947,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !invariant.load !13, !nonnull !13
   %199 = invoke { ptr, ptr } %198(ptr noundef nonnull align 1 %195)
-          to label %325 unwind label %.thread563
+          to label %325 unwind label %.thread598
 
 200:                                              ; preds = %185, %185, %185
   %201 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -28955,7 +28955,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8, !invariant.load !13, !nonnull !13
   %205 = invoke { ptr, ptr } %204(ptr noundef nonnull align 1 %201)
-          to label %626 unwind label %.thread563
+          to label %626 unwind label %.thread598
 
 206:                                              ; preds = %185, %185, %185, %185, %185
   %207 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -28963,7 +28963,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !invariant.load !13, !nonnull !13
   %211 = invoke { ptr, ptr } %210(ptr noundef nonnull align 1 %207)
-          to label %701 unwind label %.thread563
+          to label %701 unwind label %.thread598
 
 212:                                              ; preds = %185
   %213 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -28971,7 +28971,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !invariant.load !13, !nonnull !13
   %217 = invoke { ptr, ptr } %216(ptr noundef nonnull align 1 %213)
-          to label %368 unwind label %.thread563
+          to label %368 unwind label %.thread598
 
 218:                                              ; preds = %185
   %219 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -28979,7 +28979,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !invariant.load !13, !nonnull !13
   %223 = invoke { ptr, ptr } %222(ptr noundef nonnull align 1 %219)
-          to label %411 unwind label %.thread563
+          to label %411 unwind label %.thread598
 
 224:                                              ; preds = %185
   %225 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -28987,7 +28987,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !invariant.load !13, !nonnull !13
   %229 = invoke { ptr, ptr } %228(ptr noundef nonnull align 1 %225)
-          to label %454 unwind label %.thread563
+          to label %454 unwind label %.thread598
 
 230:                                              ; preds = %185
   %231 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -28995,7 +28995,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8, !invariant.load !13, !nonnull !13
   %235 = invoke { ptr, ptr } %234(ptr noundef nonnull align 1 %231)
-          to label %497 unwind label %.thread563
+          to label %497 unwind label %.thread598
 
 236:                                              ; preds = %185
   %237 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -29003,7 +29003,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %240 = load ptr, ptr %239, align 8, !invariant.load !13, !nonnull !13
   %241 = invoke { ptr, ptr } %240(ptr noundef nonnull align 1 %237)
-          to label %540 unwind label %.thread563
+          to label %540 unwind label %.thread598
 
 242:                                              ; preds = %185
   %243 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -29011,7 +29011,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8, !invariant.load !13, !nonnull !13
   %247 = invoke { ptr, ptr } %246(ptr noundef nonnull align 1 %243)
-          to label %583 unwind label %.thread563
+          to label %583 unwind label %.thread598
 
 248:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -29033,14 +29033,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8, !invariant.load !13, !nonnull !13
   %261 = invoke { ptr, ptr } %260(ptr noundef nonnull align 1 %257)
-          to label %823 unwind label %.thread563
+          to label %823 unwind label %.thread598
 
 262:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %263 = load ptr, ptr %176, align 8, !nonnull !13, !noundef !13
   %264 = load ptr, ptr %178, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %94, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %264, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %857 unwind label %.thread563
+          to label %857 unwind label %.thread598
 
 265:                                              ; preds = %185
   %266 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -29048,7 +29048,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8, !invariant.load !13, !nonnull !13
   %270 = invoke { ptr, ptr } %269(ptr noundef nonnull align 1 %266)
-          to label %931 unwind label %.thread563
+          to label %931 unwind label %.thread598
 
 271:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -29057,7 +29057,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8, !invariant.load !13, !nonnull !13
   %276 = invoke { ptr, ptr } %275(ptr noundef nonnull align 1 %272)
-          to label %964 unwind label %.thread563
+          to label %964 unwind label %.thread598
 
 277:                                              ; preds = %188
   %278 = extractvalue { ptr, ptr } %193, 0
@@ -29065,7 +29065,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %280 = getelementptr i8, ptr %279, i64 24
   %.val192 = load ptr, ptr %280, align 8
   %281 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %278)
-          to label %282 unwind label %.thread563
+          to label %282 unwind label %.thread598
 
 282:                                              ; preds = %277
   %283 = extractvalue { i64, i64 } %281, 0
@@ -29078,12 +29078,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %288 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %291 unwind label %.thread563
+          to label %291 unwind label %.thread598
 
 .invoke:                                          ; preds = %969, %936, %828, %706, %631, %588, %545, %502, %459, %416, %373, %330, %282
   %289 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %282 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %330 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %373 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %416 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %459 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %502 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %545 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %588 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %631 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %706 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %828 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %936 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %969 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %289) #28
-          to label %.cont unwind label %.thread563
+          to label %.cont unwind label %.thread598
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -29099,7 +29099,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %293 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store i64 0, ptr %293, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %164, ptr noundef nonnull align 8 %278, i1 noundef zeroext %288, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %163)
-          to label %294 unwind label %.thread563
+          to label %294 unwind label %.thread598
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
@@ -29213,7 +29213,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %328 = getelementptr i8, ptr %327, i64 24
   %.val191 = load ptr, ptr %328, align 8
   %329 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %326)
-          to label %330 unwind label %.thread563
+          to label %330 unwind label %.thread598
 
 330:                                              ; preds = %325
   %331 = extractvalue { i64, i64 } %329, 0
@@ -29226,7 +29226,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 335:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %336 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %337 unwind label %.thread563
+          to label %337 unwind label %.thread598
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -29236,7 +29236,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %339 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i64 0, ptr %339, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %157, ptr noundef nonnull align 8 %326, i1 noundef zeroext %336, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156)
-          to label %340 unwind label %.thread563
+          to label %340 unwind label %.thread598
 
 340:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
@@ -29335,7 +29335,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %371 = getelementptr i8, ptr %370, i64 24
   %.val = load ptr, ptr %371, align 8
   %372 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %369)
-          to label %373 unwind label %.thread563
+          to label %373 unwind label %.thread598
 
 373:                                              ; preds = %368
   %374 = extractvalue { i64, i64 } %372, 0
@@ -29348,7 +29348,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 378:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %379 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %380 unwind label %.thread563
+          to label %380 unwind label %.thread598
 
 380:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -29358,7 +29358,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %382 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %382, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %136, ptr noundef nonnull align 8 %369, i1 noundef zeroext %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
-          to label %383 unwind label %.thread563
+          to label %383 unwind label %.thread598
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -29457,7 +29457,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %414 = getelementptr i8, ptr %413, i64 24
   %.val189 = load ptr, ptr %414, align 8
   %415 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %412)
-          to label %416 unwind label %.thread563
+          to label %416 unwind label %.thread598
 
 416:                                              ; preds = %411
   %417 = extractvalue { i64, i64 } %415, 0
@@ -29470,7 +29470,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %422 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %423 unwind label %.thread563
+          to label %423 unwind label %.thread598
 
 423:                                              ; preds = %421
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -29480,7 +29480,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %425 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 0, ptr %425, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129, ptr noundef nonnull align 8 %412, i1 noundef zeroext %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %128)
-          to label %426 unwind label %.thread563
+          to label %426 unwind label %.thread598
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -29579,7 +29579,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %457 = getelementptr i8, ptr %456, i64 24
   %.val190 = load ptr, ptr %457, align 8
   %458 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %455)
-          to label %459 unwind label %.thread563
+          to label %459 unwind label %.thread598
 
 459:                                              ; preds = %454
   %460 = extractvalue { i64, i64 } %458, 0
@@ -29592,7 +29592,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 464:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %465 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %466 unwind label %.thread563
+          to label %466 unwind label %.thread598
 
 466:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -29602,7 +29602,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %468 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %468, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %122, ptr noundef nonnull align 8 %455, i1 noundef zeroext %465, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %121)
-          to label %469 unwind label %.thread563
+          to label %469 unwind label %.thread598
 
 469:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
@@ -29701,7 +29701,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %500 = getelementptr i8, ptr %499, i64 24
   %.val187 = load ptr, ptr %500, align 8
   %501 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %498)
-          to label %502 unwind label %.thread563
+          to label %502 unwind label %.thread598
 
 502:                                              ; preds = %497
   %503 = extractvalue { i64, i64 } %501, 0
@@ -29714,7 +29714,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 507:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %508 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %509 unwind label %.thread563
+          to label %509 unwind label %.thread598
 
 509:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -29724,7 +29724,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %511 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %511, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115, ptr noundef nonnull align 8 %498, i1 noundef zeroext %508, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %114)
-          to label %512 unwind label %.thread563
+          to label %512 unwind label %.thread598
 
 512:                                              ; preds = %509
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
@@ -29823,7 +29823,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %543 = getelementptr i8, ptr %542, i64 24
   %.val193 = load ptr, ptr %543, align 8
   %544 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %541)
-          to label %545 unwind label %.thread563
+          to label %545 unwind label %.thread598
 
 545:                                              ; preds = %540
   %546 = extractvalue { i64, i64 } %544, 0
@@ -29836,7 +29836,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 550:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %551 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %552 unwind label %.thread563
+          to label %552 unwind label %.thread598
 
 552:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -29846,7 +29846,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %554 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %554, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noundef nonnull align 8 %541, i1 noundef zeroext %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %107)
-          to label %555 unwind label %.thread563
+          to label %555 unwind label %.thread598
 
 555:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -29945,7 +29945,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %586 = getelementptr i8, ptr %585, i64 24
   %.val194 = load ptr, ptr %586, align 8
   %587 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %584)
-          to label %588 unwind label %.thread563
+          to label %588 unwind label %.thread598
 
 588:                                              ; preds = %583
   %589 = extractvalue { i64, i64 } %587, 0
@@ -29958,7 +29958,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 593:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %594 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %595 unwind label %.thread563
+          to label %595 unwind label %.thread598
 
 595:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -29968,7 +29968,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %597 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %597, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noundef nonnull align 8 %584, i1 noundef zeroext %594, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100)
-          to label %598 unwind label %.thread563
+          to label %598 unwind label %.thread598
 
 598:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -30067,7 +30067,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %629 = getelementptr i8, ptr %628, i64 24
   %.val186 = load ptr, ptr %629, align 8
   %630 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %627)
-          to label %631 unwind label %.thread563
+          to label %631 unwind label %.thread598
 
 631:                                              ; preds = %626
   %632 = extractvalue { i64, i64 } %630, 0
@@ -30080,7 +30080,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 636:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %637 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %638 unwind label %.thread563
+          to label %638 unwind label %.thread598
 
 638:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -30090,7 +30090,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %640 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 0, ptr %640, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noundef nonnull align 8 %627, i1 noundef zeroext %637, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %149)
-          to label %641 unwind label %.thread563
+          to label %641 unwind label %.thread598
 
 641:                                              ; preds = %638
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
@@ -30279,7 +30279,7 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit: ; preds = %6
   %704 = getelementptr i8, ptr %703, i64 24
   %.val188 = load ptr, ptr %704, align 8
   %705 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %702)
-          to label %706 unwind label %.thread563
+          to label %706 unwind label %.thread598
 
 706:                                              ; preds = %701
   %707 = extractvalue { i64, i64 } %705, 0
@@ -30292,7 +30292,7 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit: ; preds = %6
 711:                                              ; preds = %706
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %712 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %713 unwind label %.thread563
+          to label %713 unwind label %.thread598
 
 713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -30302,7 +30302,7 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit: ; preds = %6
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i64 0, ptr %715, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noundef nonnull align 8 %702, i1 noundef zeroext %712, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %142)
-          to label %716 unwind label %.thread563
+          to label %716 unwind label %.thread598
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
@@ -30619,7 +30619,7 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit265: ; preds =
   %826 = getelementptr i8, ptr %825, i64 24
   %.val197 = load ptr, ptr %826, align 8
   %827 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %824)
-          to label %828 unwind label %.thread563
+          to label %828 unwind label %.thread598
 
 828:                                              ; preds = %823
   %829 = extractvalue { i64, i64 } %827, 0
@@ -30889,7 +30889,7 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit265: ; preds =
   %934 = getelementptr i8, ptr %933, i64 24
   %.val198 = load ptr, ptr %934, align 8
   %935 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %932)
-          to label %936 unwind label %.thread563
+          to label %936 unwind label %.thread598
 
 936:                                              ; preds = %931
   %937 = extractvalue { i64, i64 } %935, 0
@@ -30978,7 +30978,7 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit265: ; preds =
   %967 = getelementptr i8, ptr %966, i64 24
   %.val199 = load ptr, ptr %967, align 8
   %968 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %965)
-          to label %969 unwind label %.thread563
+          to label %969 unwind label %.thread598
 
 969:                                              ; preds = %964
   %970 = extractvalue { i64, i64 } %968, 0
@@ -30990,7 +30990,7 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit265: ; preds =
 
 974:                                              ; preds = %969
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %83, ptr noundef nonnull align 8 %965)
-          to label %975 unwind label %.thread563
+          to label %975 unwind label %.thread598
 
 975:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -31058,7 +31058,7 @@ _ZN12polars_arrow5array5Array10null_count17hd53e035b1ae1b3b3E.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %83)
-          to label %996 unwind label %.thread563
+          to label %996 unwind label %.thread598
 
 996:                                              ; preds = %995
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
@@ -32449,7 +32449,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h9f3d205e868e3325E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64)
-          to label %1433 unwind label %.thread563
+          to label %1433 unwind label %.thread598
 
 1433:                                             ; preds = %1432
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32509,7 +32509,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h9f3d205e868e3325E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %52)
-          to label %1443 unwind label %.thread563
+          to label %1443 unwind label %.thread598
 
 1443:                                             ; preds = %1442
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32526,8 +32526,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h9f3d205e868e3325E.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1416, %1415 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread563, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1427, %1430, %1437, %1440, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1428, %1427 ], [ %1431, %1430 ], [ %1438, %1437 ], [ %1441, %1440 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm561, %.thread563 ]
+.thread:                                          ; preds = %.thread598, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1427, %1430, %1437, %1440, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1428, %1427 ], [ %1431, %1430 ], [ %1438, %1437 ], [ %1441, %1440 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm596, %.thread598 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %315
 }
@@ -32713,7 +32713,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !1891
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread565
+          to label %.noexc unwind label %.thread600
 
 .noexc:                                           ; preds = %167
   %168 = load i64, ptr %44, align 8, !range !422, !noalias !1891, !noundef !13
@@ -32726,7 +32726,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 173:                                              ; preds = %.noexc
   %174 = load i64, ptr %172, align 8, !noalias !1891
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %171, i64 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread565
+          to label %.noexc200 unwind label %.thread600
 
 .noexc200:                                        ; preds = %173
   unreachable
@@ -32739,19 +32739,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8, !invariant.load !13, !nonnull !13
   %182 = invoke noundef align 8 dereferenceable(32) ptr %181(ptr noundef nonnull align 1 %177)
-          to label %183 unwind label %.thread565
+          to label %183 unwind label %.thread600
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread565:                                       ; preds = %.invoke, %1442, %1432, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
-  %lpad.thr_comm563 = landingpad { ptr, i32 }
+.thread600:                                       ; preds = %.invoke, %1442, %1432, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
+  %lpad.thr_comm598 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 183:                                              ; preds = %175
   %184 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %182)
-          to label %185 unwind label %.thread565
+          to label %185 unwind label %.thread600
 
 185:                                              ; preds = %183
   %186 = load i8, ptr %184, align 8, !range !456, !noundef !13
@@ -32801,7 +32801,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !1915
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
-          to label %1426 unwind label %.thread565
+          to label %1426 unwind label %.thread600
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32809,7 +32809,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !invariant.load !13, !nonnull !13
   %193 = invoke { ptr, ptr } %192(ptr noundef nonnull align 1 %189)
-          to label %277 unwind label %.thread565
+          to label %277 unwind label %.thread600
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32817,7 +32817,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !invariant.load !13, !nonnull !13
   %199 = invoke { ptr, ptr } %198(ptr noundef nonnull align 1 %195)
-          to label %325 unwind label %.thread565
+          to label %325 unwind label %.thread600
 
 200:                                              ; preds = %185, %185, %185
   %201 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32825,7 +32825,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8, !invariant.load !13, !nonnull !13
   %205 = invoke { ptr, ptr } %204(ptr noundef nonnull align 1 %201)
-          to label %626 unwind label %.thread565
+          to label %626 unwind label %.thread600
 
 206:                                              ; preds = %185, %185, %185, %185, %185
   %207 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32833,7 +32833,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !invariant.load !13, !nonnull !13
   %211 = invoke { ptr, ptr } %210(ptr noundef nonnull align 1 %207)
-          to label %701 unwind label %.thread565
+          to label %701 unwind label %.thread600
 
 212:                                              ; preds = %185
   %213 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32841,7 +32841,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !invariant.load !13, !nonnull !13
   %217 = invoke { ptr, ptr } %216(ptr noundef nonnull align 1 %213)
-          to label %368 unwind label %.thread565
+          to label %368 unwind label %.thread600
 
 218:                                              ; preds = %185
   %219 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32849,7 +32849,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !invariant.load !13, !nonnull !13
   %223 = invoke { ptr, ptr } %222(ptr noundef nonnull align 1 %219)
-          to label %411 unwind label %.thread565
+          to label %411 unwind label %.thread600
 
 224:                                              ; preds = %185
   %225 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32857,7 +32857,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !invariant.load !13, !nonnull !13
   %229 = invoke { ptr, ptr } %228(ptr noundef nonnull align 1 %225)
-          to label %454 unwind label %.thread565
+          to label %454 unwind label %.thread600
 
 230:                                              ; preds = %185
   %231 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32865,7 +32865,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8, !invariant.load !13, !nonnull !13
   %235 = invoke { ptr, ptr } %234(ptr noundef nonnull align 1 %231)
-          to label %497 unwind label %.thread565
+          to label %497 unwind label %.thread600
 
 236:                                              ; preds = %185
   %237 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32873,7 +32873,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %240 = load ptr, ptr %239, align 8, !invariant.load !13, !nonnull !13
   %241 = invoke { ptr, ptr } %240(ptr noundef nonnull align 1 %237)
-          to label %540 unwind label %.thread565
+          to label %540 unwind label %.thread600
 
 242:                                              ; preds = %185
   %243 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32881,7 +32881,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8, !invariant.load !13, !nonnull !13
   %247 = invoke { ptr, ptr } %246(ptr noundef nonnull align 1 %243)
-          to label %583 unwind label %.thread565
+          to label %583 unwind label %.thread600
 
 248:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -32903,14 +32903,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8, !invariant.load !13, !nonnull !13
   %261 = invoke { ptr, ptr } %260(ptr noundef nonnull align 1 %257)
-          to label %823 unwind label %.thread565
+          to label %823 unwind label %.thread600
 
 262:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %263 = load ptr, ptr %176, align 8, !nonnull !13, !noundef !13
   %264 = load ptr, ptr %178, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %94, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %264, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %857 unwind label %.thread565
+          to label %857 unwind label %.thread600
 
 265:                                              ; preds = %185
   %266 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -32918,7 +32918,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8, !invariant.load !13, !nonnull !13
   %270 = invoke { ptr, ptr } %269(ptr noundef nonnull align 1 %266)
-          to label %931 unwind label %.thread565
+          to label %931 unwind label %.thread600
 
 271:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -32927,7 +32927,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8, !invariant.load !13, !nonnull !13
   %276 = invoke { ptr, ptr } %275(ptr noundef nonnull align 1 %272)
-          to label %964 unwind label %.thread565
+          to label %964 unwind label %.thread600
 
 277:                                              ; preds = %188
   %278 = extractvalue { ptr, ptr } %193, 0
@@ -32935,7 +32935,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %280 = getelementptr i8, ptr %279, i64 24
   %.val192 = load ptr, ptr %280, align 8
   %281 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %278)
-          to label %282 unwind label %.thread565
+          to label %282 unwind label %.thread600
 
 282:                                              ; preds = %277
   %283 = extractvalue { i64, i64 } %281, 0
@@ -32948,12 +32948,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %288 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %291 unwind label %.thread565
+          to label %291 unwind label %.thread600
 
 .invoke:                                          ; preds = %969, %936, %828, %706, %631, %588, %545, %502, %459, %416, %373, %330, %282
   %289 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %282 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %330 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %373 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %416 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %459 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %502 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %545 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %588 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %631 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %706 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %828 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %936 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %969 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %289) #28
-          to label %.cont unwind label %.thread565
+          to label %.cont unwind label %.thread600
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -32969,7 +32969,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %293 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store i64 0, ptr %293, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %164, ptr noundef nonnull align 8 %278, i1 noundef zeroext %288, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %163)
-          to label %294 unwind label %.thread565
+          to label %294 unwind label %.thread600
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
@@ -33083,7 +33083,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %328 = getelementptr i8, ptr %327, i64 24
   %.val191 = load ptr, ptr %328, align 8
   %329 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %326)
-          to label %330 unwind label %.thread565
+          to label %330 unwind label %.thread600
 
 330:                                              ; preds = %325
   %331 = extractvalue { i64, i64 } %329, 0
@@ -33096,7 +33096,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 335:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %336 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %337 unwind label %.thread565
+          to label %337 unwind label %.thread600
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -33106,7 +33106,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %339 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i64 0, ptr %339, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %157, ptr noundef nonnull align 8 %326, i1 noundef zeroext %336, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156)
-          to label %340 unwind label %.thread565
+          to label %340 unwind label %.thread600
 
 340:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
@@ -33205,7 +33205,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %371 = getelementptr i8, ptr %370, i64 24
   %.val = load ptr, ptr %371, align 8
   %372 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %369)
-          to label %373 unwind label %.thread565
+          to label %373 unwind label %.thread600
 
 373:                                              ; preds = %368
   %374 = extractvalue { i64, i64 } %372, 0
@@ -33218,7 +33218,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 378:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %379 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %380 unwind label %.thread565
+          to label %380 unwind label %.thread600
 
 380:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -33228,7 +33228,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %382 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %382, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %136, ptr noundef nonnull align 8 %369, i1 noundef zeroext %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
-          to label %383 unwind label %.thread565
+          to label %383 unwind label %.thread600
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -33327,7 +33327,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %414 = getelementptr i8, ptr %413, i64 24
   %.val189 = load ptr, ptr %414, align 8
   %415 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %412)
-          to label %416 unwind label %.thread565
+          to label %416 unwind label %.thread600
 
 416:                                              ; preds = %411
   %417 = extractvalue { i64, i64 } %415, 0
@@ -33340,7 +33340,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %422 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %423 unwind label %.thread565
+          to label %423 unwind label %.thread600
 
 423:                                              ; preds = %421
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -33350,7 +33350,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %425 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 0, ptr %425, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129, ptr noundef nonnull align 8 %412, i1 noundef zeroext %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %128)
-          to label %426 unwind label %.thread565
+          to label %426 unwind label %.thread600
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -33449,7 +33449,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %457 = getelementptr i8, ptr %456, i64 24
   %.val190 = load ptr, ptr %457, align 8
   %458 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %455)
-          to label %459 unwind label %.thread565
+          to label %459 unwind label %.thread600
 
 459:                                              ; preds = %454
   %460 = extractvalue { i64, i64 } %458, 0
@@ -33462,7 +33462,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 464:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %465 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %466 unwind label %.thread565
+          to label %466 unwind label %.thread600
 
 466:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -33472,7 +33472,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %468 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %468, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %122, ptr noundef nonnull align 8 %455, i1 noundef zeroext %465, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %121)
-          to label %469 unwind label %.thread565
+          to label %469 unwind label %.thread600
 
 469:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
@@ -33571,7 +33571,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %500 = getelementptr i8, ptr %499, i64 24
   %.val187 = load ptr, ptr %500, align 8
   %501 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %498)
-          to label %502 unwind label %.thread565
+          to label %502 unwind label %.thread600
 
 502:                                              ; preds = %497
   %503 = extractvalue { i64, i64 } %501, 0
@@ -33584,7 +33584,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 507:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %508 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %509 unwind label %.thread565
+          to label %509 unwind label %.thread600
 
 509:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -33594,7 +33594,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %511 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %511, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115, ptr noundef nonnull align 8 %498, i1 noundef zeroext %508, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %114)
-          to label %512 unwind label %.thread565
+          to label %512 unwind label %.thread600
 
 512:                                              ; preds = %509
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
@@ -33693,7 +33693,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %543 = getelementptr i8, ptr %542, i64 24
   %.val193 = load ptr, ptr %543, align 8
   %544 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %541)
-          to label %545 unwind label %.thread565
+          to label %545 unwind label %.thread600
 
 545:                                              ; preds = %540
   %546 = extractvalue { i64, i64 } %544, 0
@@ -33706,7 +33706,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 550:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %551 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %552 unwind label %.thread565
+          to label %552 unwind label %.thread600
 
 552:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -33716,7 +33716,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %554 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %554, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noundef nonnull align 8 %541, i1 noundef zeroext %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %107)
-          to label %555 unwind label %.thread565
+          to label %555 unwind label %.thread600
 
 555:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -33815,7 +33815,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %586 = getelementptr i8, ptr %585, i64 24
   %.val194 = load ptr, ptr %586, align 8
   %587 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %584)
-          to label %588 unwind label %.thread565
+          to label %588 unwind label %.thread600
 
 588:                                              ; preds = %583
   %589 = extractvalue { i64, i64 } %587, 0
@@ -33828,7 +33828,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 593:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %594 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %595 unwind label %.thread565
+          to label %595 unwind label %.thread600
 
 595:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -33838,7 +33838,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %597 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %597, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noundef nonnull align 8 %584, i1 noundef zeroext %594, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100)
-          to label %598 unwind label %.thread565
+          to label %598 unwind label %.thread600
 
 598:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -33937,7 +33937,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %629 = getelementptr i8, ptr %628, i64 24
   %.val186 = load ptr, ptr %629, align 8
   %630 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %627)
-          to label %631 unwind label %.thread565
+          to label %631 unwind label %.thread600
 
 631:                                              ; preds = %626
   %632 = extractvalue { i64, i64 } %630, 0
@@ -33950,7 +33950,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 636:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %637 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %638 unwind label %.thread565
+          to label %638 unwind label %.thread600
 
 638:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -33960,7 +33960,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %640 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 0, ptr %640, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noundef nonnull align 8 %627, i1 noundef zeroext %637, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %149)
-          to label %641 unwind label %.thread565
+          to label %641 unwind label %.thread600
 
 641:                                              ; preds = %638
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
@@ -34149,7 +34149,7 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit: ; preds = %6
   %704 = getelementptr i8, ptr %703, i64 24
   %.val188 = load ptr, ptr %704, align 8
   %705 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %702)
-          to label %706 unwind label %.thread565
+          to label %706 unwind label %.thread600
 
 706:                                              ; preds = %701
   %707 = extractvalue { i64, i64 } %705, 0
@@ -34162,7 +34162,7 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit: ; preds = %6
 711:                                              ; preds = %706
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %712 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %713 unwind label %.thread565
+          to label %713 unwind label %.thread600
 
 713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -34172,7 +34172,7 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit: ; preds = %6
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i64 0, ptr %715, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noundef nonnull align 8 %702, i1 noundef zeroext %712, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %142)
-          to label %716 unwind label %.thread565
+          to label %716 unwind label %.thread600
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
@@ -34489,7 +34489,7 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit265: ; preds =
   %826 = getelementptr i8, ptr %825, i64 24
   %.val197 = load ptr, ptr %826, align 8
   %827 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %824)
-          to label %828 unwind label %.thread565
+          to label %828 unwind label %.thread600
 
 828:                                              ; preds = %823
   %829 = extractvalue { i64, i64 } %827, 0
@@ -34759,7 +34759,7 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit265: ; preds =
   %934 = getelementptr i8, ptr %933, i64 24
   %.val198 = load ptr, ptr %934, align 8
   %935 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %932)
-          to label %936 unwind label %.thread565
+          to label %936 unwind label %.thread600
 
 936:                                              ; preds = %931
   %937 = extractvalue { i64, i64 } %935, 0
@@ -34848,7 +34848,7 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit265: ; preds =
   %967 = getelementptr i8, ptr %966, i64 24
   %.val199 = load ptr, ptr %967, align 8
   %968 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %965)
-          to label %969 unwind label %.thread565
+          to label %969 unwind label %.thread600
 
 969:                                              ; preds = %964
   %970 = extractvalue { i64, i64 } %968, 0
@@ -34860,7 +34860,7 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit265: ; preds =
 
 974:                                              ; preds = %969
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %83, ptr noundef nonnull align 8 %965)
-          to label %975 unwind label %.thread565
+          to label %975 unwind label %.thread600
 
 975:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -34928,7 +34928,7 @@ _ZN12polars_arrow5array5Array10null_count17h0da43b16b9a996ecE.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %83)
-          to label %996 unwind label %.thread565
+          to label %996 unwind label %.thread600
 
 996:                                              ; preds = %995
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
@@ -36317,7 +36317,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hc9fb6371d3d376aeE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64)
-          to label %1433 unwind label %.thread565
+          to label %1433 unwind label %.thread600
 
 1433:                                             ; preds = %1432
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36377,7 +36377,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hc9fb6371d3d376aeE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %52)
-          to label %1443 unwind label %.thread565
+          to label %1443 unwind label %.thread600
 
 1443:                                             ; preds = %1442
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -36394,8 +36394,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hc9fb6371d3d376aeE.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1416, %1415 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread565, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1427, %1430, %1437, %1440, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1428, %1427 ], [ %1431, %1430 ], [ %1438, %1437 ], [ %1441, %1440 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm563, %.thread565 ]
+.thread:                                          ; preds = %.thread600, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1427, %1430, %1437, %1440, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1428, %1427 ], [ %1431, %1430 ], [ %1438, %1437 ], [ %1441, %1440 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm598, %.thread600 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %315
 }
@@ -36581,7 +36581,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2149
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread565
+          to label %.noexc unwind label %.thread600
 
 .noexc:                                           ; preds = %167
   %168 = load i64, ptr %44, align 8, !range !422, !noalias !2149, !noundef !13
@@ -36594,7 +36594,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 173:                                              ; preds = %.noexc
   %174 = load i64, ptr %172, align 8, !noalias !2149
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %171, i64 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread565
+          to label %.noexc200 unwind label %.thread600
 
 .noexc200:                                        ; preds = %173
   unreachable
@@ -36607,19 +36607,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8, !invariant.load !13, !nonnull !13
   %182 = invoke noundef align 8 dereferenceable(32) ptr %181(ptr noundef nonnull align 1 %177)
-          to label %183 unwind label %.thread565
+          to label %183 unwind label %.thread600
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread565:                                       ; preds = %.invoke, %1442, %1432, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
-  %lpad.thr_comm563 = landingpad { ptr, i32 }
+.thread600:                                       ; preds = %.invoke, %1442, %1432, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
+  %lpad.thr_comm598 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 183:                                              ; preds = %175
   %184 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %182)
-          to label %185 unwind label %.thread565
+          to label %185 unwind label %.thread600
 
 185:                                              ; preds = %183
   %186 = load i8, ptr %184, align 8, !range !456, !noundef !13
@@ -36669,7 +36669,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !2173
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
-          to label %1426 unwind label %.thread565
+          to label %1426 unwind label %.thread600
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36677,7 +36677,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !invariant.load !13, !nonnull !13
   %193 = invoke { ptr, ptr } %192(ptr noundef nonnull align 1 %189)
-          to label %277 unwind label %.thread565
+          to label %277 unwind label %.thread600
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36685,7 +36685,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !invariant.load !13, !nonnull !13
   %199 = invoke { ptr, ptr } %198(ptr noundef nonnull align 1 %195)
-          to label %325 unwind label %.thread565
+          to label %325 unwind label %.thread600
 
 200:                                              ; preds = %185, %185, %185
   %201 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36693,7 +36693,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8, !invariant.load !13, !nonnull !13
   %205 = invoke { ptr, ptr } %204(ptr noundef nonnull align 1 %201)
-          to label %626 unwind label %.thread565
+          to label %626 unwind label %.thread600
 
 206:                                              ; preds = %185, %185, %185, %185, %185
   %207 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36701,7 +36701,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !invariant.load !13, !nonnull !13
   %211 = invoke { ptr, ptr } %210(ptr noundef nonnull align 1 %207)
-          to label %701 unwind label %.thread565
+          to label %701 unwind label %.thread600
 
 212:                                              ; preds = %185
   %213 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36709,7 +36709,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !invariant.load !13, !nonnull !13
   %217 = invoke { ptr, ptr } %216(ptr noundef nonnull align 1 %213)
-          to label %368 unwind label %.thread565
+          to label %368 unwind label %.thread600
 
 218:                                              ; preds = %185
   %219 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36717,7 +36717,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !invariant.load !13, !nonnull !13
   %223 = invoke { ptr, ptr } %222(ptr noundef nonnull align 1 %219)
-          to label %411 unwind label %.thread565
+          to label %411 unwind label %.thread600
 
 224:                                              ; preds = %185
   %225 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36725,7 +36725,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !invariant.load !13, !nonnull !13
   %229 = invoke { ptr, ptr } %228(ptr noundef nonnull align 1 %225)
-          to label %454 unwind label %.thread565
+          to label %454 unwind label %.thread600
 
 230:                                              ; preds = %185
   %231 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36733,7 +36733,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8, !invariant.load !13, !nonnull !13
   %235 = invoke { ptr, ptr } %234(ptr noundef nonnull align 1 %231)
-          to label %497 unwind label %.thread565
+          to label %497 unwind label %.thread600
 
 236:                                              ; preds = %185
   %237 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36741,7 +36741,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %240 = load ptr, ptr %239, align 8, !invariant.load !13, !nonnull !13
   %241 = invoke { ptr, ptr } %240(ptr noundef nonnull align 1 %237)
-          to label %540 unwind label %.thread565
+          to label %540 unwind label %.thread600
 
 242:                                              ; preds = %185
   %243 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36749,7 +36749,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8, !invariant.load !13, !nonnull !13
   %247 = invoke { ptr, ptr } %246(ptr noundef nonnull align 1 %243)
-          to label %583 unwind label %.thread565
+          to label %583 unwind label %.thread600
 
 248:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -36771,14 +36771,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8, !invariant.load !13, !nonnull !13
   %261 = invoke { ptr, ptr } %260(ptr noundef nonnull align 1 %257)
-          to label %823 unwind label %.thread565
+          to label %823 unwind label %.thread600
 
 262:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %263 = load ptr, ptr %176, align 8, !nonnull !13, !noundef !13
   %264 = load ptr, ptr %178, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %94, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %264, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %857 unwind label %.thread565
+          to label %857 unwind label %.thread600
 
 265:                                              ; preds = %185
   %266 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -36786,7 +36786,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8, !invariant.load !13, !nonnull !13
   %270 = invoke { ptr, ptr } %269(ptr noundef nonnull align 1 %266)
-          to label %931 unwind label %.thread565
+          to label %931 unwind label %.thread600
 
 271:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -36795,7 +36795,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8, !invariant.load !13, !nonnull !13
   %276 = invoke { ptr, ptr } %275(ptr noundef nonnull align 1 %272)
-          to label %964 unwind label %.thread565
+          to label %964 unwind label %.thread600
 
 277:                                              ; preds = %188
   %278 = extractvalue { ptr, ptr } %193, 0
@@ -36803,7 +36803,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %280 = getelementptr i8, ptr %279, i64 24
   %.val192 = load ptr, ptr %280, align 8
   %281 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %278)
-          to label %282 unwind label %.thread565
+          to label %282 unwind label %.thread600
 
 282:                                              ; preds = %277
   %283 = extractvalue { i64, i64 } %281, 0
@@ -36816,12 +36816,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %288 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %291 unwind label %.thread565
+          to label %291 unwind label %.thread600
 
 .invoke:                                          ; preds = %969, %936, %828, %706, %631, %588, %545, %502, %459, %416, %373, %330, %282
   %289 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %282 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %330 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %373 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %416 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %459 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %502 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %545 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %588 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %631 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %706 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %828 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %936 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %969 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %289) #28
-          to label %.cont unwind label %.thread565
+          to label %.cont unwind label %.thread600
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -36837,7 +36837,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %293 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store i64 0, ptr %293, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %164, ptr noundef nonnull align 8 %278, i1 noundef zeroext %288, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %163)
-          to label %294 unwind label %.thread565
+          to label %294 unwind label %.thread600
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
@@ -36951,7 +36951,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %328 = getelementptr i8, ptr %327, i64 24
   %.val191 = load ptr, ptr %328, align 8
   %329 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %326)
-          to label %330 unwind label %.thread565
+          to label %330 unwind label %.thread600
 
 330:                                              ; preds = %325
   %331 = extractvalue { i64, i64 } %329, 0
@@ -36964,7 +36964,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 335:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %336 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %337 unwind label %.thread565
+          to label %337 unwind label %.thread600
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -36974,7 +36974,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %339 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i64 0, ptr %339, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %157, ptr noundef nonnull align 8 %326, i1 noundef zeroext %336, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156)
-          to label %340 unwind label %.thread565
+          to label %340 unwind label %.thread600
 
 340:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
@@ -37073,7 +37073,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %371 = getelementptr i8, ptr %370, i64 24
   %.val = load ptr, ptr %371, align 8
   %372 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %369)
-          to label %373 unwind label %.thread565
+          to label %373 unwind label %.thread600
 
 373:                                              ; preds = %368
   %374 = extractvalue { i64, i64 } %372, 0
@@ -37086,7 +37086,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 378:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %379 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %380 unwind label %.thread565
+          to label %380 unwind label %.thread600
 
 380:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -37096,7 +37096,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %382 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %382, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %136, ptr noundef nonnull align 8 %369, i1 noundef zeroext %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
-          to label %383 unwind label %.thread565
+          to label %383 unwind label %.thread600
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -37195,7 +37195,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %414 = getelementptr i8, ptr %413, i64 24
   %.val189 = load ptr, ptr %414, align 8
   %415 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %412)
-          to label %416 unwind label %.thread565
+          to label %416 unwind label %.thread600
 
 416:                                              ; preds = %411
   %417 = extractvalue { i64, i64 } %415, 0
@@ -37208,7 +37208,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %422 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %423 unwind label %.thread565
+          to label %423 unwind label %.thread600
 
 423:                                              ; preds = %421
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -37218,7 +37218,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %425 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 0, ptr %425, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129, ptr noundef nonnull align 8 %412, i1 noundef zeroext %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %128)
-          to label %426 unwind label %.thread565
+          to label %426 unwind label %.thread600
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -37317,7 +37317,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %457 = getelementptr i8, ptr %456, i64 24
   %.val190 = load ptr, ptr %457, align 8
   %458 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %455)
-          to label %459 unwind label %.thread565
+          to label %459 unwind label %.thread600
 
 459:                                              ; preds = %454
   %460 = extractvalue { i64, i64 } %458, 0
@@ -37330,7 +37330,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 464:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %465 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %466 unwind label %.thread565
+          to label %466 unwind label %.thread600
 
 466:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -37340,7 +37340,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %468 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %468, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %122, ptr noundef nonnull align 8 %455, i1 noundef zeroext %465, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %121)
-          to label %469 unwind label %.thread565
+          to label %469 unwind label %.thread600
 
 469:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
@@ -37439,7 +37439,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %500 = getelementptr i8, ptr %499, i64 24
   %.val187 = load ptr, ptr %500, align 8
   %501 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %498)
-          to label %502 unwind label %.thread565
+          to label %502 unwind label %.thread600
 
 502:                                              ; preds = %497
   %503 = extractvalue { i64, i64 } %501, 0
@@ -37452,7 +37452,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 507:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %508 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %509 unwind label %.thread565
+          to label %509 unwind label %.thread600
 
 509:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -37462,7 +37462,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %511 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %511, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115, ptr noundef nonnull align 8 %498, i1 noundef zeroext %508, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %114)
-          to label %512 unwind label %.thread565
+          to label %512 unwind label %.thread600
 
 512:                                              ; preds = %509
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
@@ -37561,7 +37561,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %543 = getelementptr i8, ptr %542, i64 24
   %.val193 = load ptr, ptr %543, align 8
   %544 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %541)
-          to label %545 unwind label %.thread565
+          to label %545 unwind label %.thread600
 
 545:                                              ; preds = %540
   %546 = extractvalue { i64, i64 } %544, 0
@@ -37574,7 +37574,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 550:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %551 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %552 unwind label %.thread565
+          to label %552 unwind label %.thread600
 
 552:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -37584,7 +37584,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %554 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %554, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noundef nonnull align 8 %541, i1 noundef zeroext %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %107)
-          to label %555 unwind label %.thread565
+          to label %555 unwind label %.thread600
 
 555:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -37683,7 +37683,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %586 = getelementptr i8, ptr %585, i64 24
   %.val194 = load ptr, ptr %586, align 8
   %587 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %584)
-          to label %588 unwind label %.thread565
+          to label %588 unwind label %.thread600
 
 588:                                              ; preds = %583
   %589 = extractvalue { i64, i64 } %587, 0
@@ -37696,7 +37696,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 593:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %594 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %595 unwind label %.thread565
+          to label %595 unwind label %.thread600
 
 595:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -37706,7 +37706,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %597 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %597, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noundef nonnull align 8 %584, i1 noundef zeroext %594, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100)
-          to label %598 unwind label %.thread565
+          to label %598 unwind label %.thread600
 
 598:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -37805,7 +37805,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %629 = getelementptr i8, ptr %628, i64 24
   %.val186 = load ptr, ptr %629, align 8
   %630 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %627)
-          to label %631 unwind label %.thread565
+          to label %631 unwind label %.thread600
 
 631:                                              ; preds = %626
   %632 = extractvalue { i64, i64 } %630, 0
@@ -37818,7 +37818,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 636:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %637 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %638 unwind label %.thread565
+          to label %638 unwind label %.thread600
 
 638:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -37828,7 +37828,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %640 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 0, ptr %640, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noundef nonnull align 8 %627, i1 noundef zeroext %637, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %149)
-          to label %641 unwind label %.thread565
+          to label %641 unwind label %.thread600
 
 641:                                              ; preds = %638
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
@@ -38017,7 +38017,7 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit: ; preds = %6
   %704 = getelementptr i8, ptr %703, i64 24
   %.val188 = load ptr, ptr %704, align 8
   %705 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %702)
-          to label %706 unwind label %.thread565
+          to label %706 unwind label %.thread600
 
 706:                                              ; preds = %701
   %707 = extractvalue { i64, i64 } %705, 0
@@ -38030,7 +38030,7 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit: ; preds = %6
 711:                                              ; preds = %706
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %712 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %713 unwind label %.thread565
+          to label %713 unwind label %.thread600
 
 713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -38040,7 +38040,7 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit: ; preds = %6
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i64 0, ptr %715, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noundef nonnull align 8 %702, i1 noundef zeroext %712, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %142)
-          to label %716 unwind label %.thread565
+          to label %716 unwind label %.thread600
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
@@ -38357,7 +38357,7 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit265: ; preds =
   %826 = getelementptr i8, ptr %825, i64 24
   %.val197 = load ptr, ptr %826, align 8
   %827 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %824)
-          to label %828 unwind label %.thread565
+          to label %828 unwind label %.thread600
 
 828:                                              ; preds = %823
   %829 = extractvalue { i64, i64 } %827, 0
@@ -38627,7 +38627,7 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit265: ; preds =
   %934 = getelementptr i8, ptr %933, i64 24
   %.val198 = load ptr, ptr %934, align 8
   %935 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %932)
-          to label %936 unwind label %.thread565
+          to label %936 unwind label %.thread600
 
 936:                                              ; preds = %931
   %937 = extractvalue { i64, i64 } %935, 0
@@ -38716,7 +38716,7 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit265: ; preds =
   %967 = getelementptr i8, ptr %966, i64 24
   %.val199 = load ptr, ptr %967, align 8
   %968 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %965)
-          to label %969 unwind label %.thread565
+          to label %969 unwind label %.thread600
 
 969:                                              ; preds = %964
   %970 = extractvalue { i64, i64 } %968, 0
@@ -38728,7 +38728,7 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit265: ; preds =
 
 974:                                              ; preds = %969
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %83, ptr noundef nonnull align 8 %965)
-          to label %975 unwind label %.thread565
+          to label %975 unwind label %.thread600
 
 975:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -38796,7 +38796,7 @@ _ZN12polars_arrow5array5Array10null_count17h79f330fc29125d60E.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %83)
-          to label %996 unwind label %.thread565
+          to label %996 unwind label %.thread600
 
 996:                                              ; preds = %995
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
@@ -40184,7 +40184,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h73c97067016bfb1fE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64)
-          to label %1433 unwind label %.thread565
+          to label %1433 unwind label %.thread600
 
 1433:                                             ; preds = %1432
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40244,7 +40244,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h73c97067016bfb1fE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %52)
-          to label %1443 unwind label %.thread565
+          to label %1443 unwind label %.thread600
 
 1443:                                             ; preds = %1442
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40261,8 +40261,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h73c97067016bfb1fE.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1416, %1415 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread565, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1427, %1430, %1437, %1440, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1428, %1427 ], [ %1431, %1430 ], [ %1438, %1437 ], [ %1441, %1440 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm563, %.thread565 ]
+.thread:                                          ; preds = %.thread600, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1427, %1430, %1437, %1440, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1428, %1427 ], [ %1431, %1430 ], [ %1438, %1437 ], [ %1441, %1440 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm598, %.thread600 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %315
 }
@@ -40448,7 +40448,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2407
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread563
+          to label %.noexc unwind label %.thread598
 
 .noexc:                                           ; preds = %167
   %168 = load i64, ptr %44, align 8, !range !422, !noalias !2407, !noundef !13
@@ -40461,7 +40461,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 173:                                              ; preds = %.noexc
   %174 = load i64, ptr %172, align 8, !noalias !2407
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %171, i64 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread563
+          to label %.noexc200 unwind label %.thread598
 
 .noexc200:                                        ; preds = %173
   unreachable
@@ -40474,19 +40474,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8, !invariant.load !13, !nonnull !13
   %182 = invoke noundef align 8 dereferenceable(32) ptr %181(ptr noundef nonnull align 1 %177)
-          to label %183 unwind label %.thread563
+          to label %183 unwind label %.thread598
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread563:                                       ; preds = %.invoke, %1444, %1434, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
-  %lpad.thr_comm561 = landingpad { ptr, i32 }
+.thread598:                                       ; preds = %.invoke, %1444, %1434, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
+  %lpad.thr_comm596 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 183:                                              ; preds = %175
   %184 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %182)
-          to label %185 unwind label %.thread563
+          to label %185 unwind label %.thread598
 
 185:                                              ; preds = %183
   %186 = load i8, ptr %184, align 8, !range !456, !noundef !13
@@ -40536,7 +40536,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !2431
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
-          to label %1428 unwind label %.thread563
+          to label %1428 unwind label %.thread598
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40544,7 +40544,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !invariant.load !13, !nonnull !13
   %193 = invoke { ptr, ptr } %192(ptr noundef nonnull align 1 %189)
-          to label %277 unwind label %.thread563
+          to label %277 unwind label %.thread598
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40552,7 +40552,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !invariant.load !13, !nonnull !13
   %199 = invoke { ptr, ptr } %198(ptr noundef nonnull align 1 %195)
-          to label %325 unwind label %.thread563
+          to label %325 unwind label %.thread598
 
 200:                                              ; preds = %185, %185, %185
   %201 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40560,7 +40560,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8, !invariant.load !13, !nonnull !13
   %205 = invoke { ptr, ptr } %204(ptr noundef nonnull align 1 %201)
-          to label %626 unwind label %.thread563
+          to label %626 unwind label %.thread598
 
 206:                                              ; preds = %185, %185, %185, %185, %185
   %207 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40568,7 +40568,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !invariant.load !13, !nonnull !13
   %211 = invoke { ptr, ptr } %210(ptr noundef nonnull align 1 %207)
-          to label %701 unwind label %.thread563
+          to label %701 unwind label %.thread598
 
 212:                                              ; preds = %185
   %213 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40576,7 +40576,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !invariant.load !13, !nonnull !13
   %217 = invoke { ptr, ptr } %216(ptr noundef nonnull align 1 %213)
-          to label %368 unwind label %.thread563
+          to label %368 unwind label %.thread598
 
 218:                                              ; preds = %185
   %219 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40584,7 +40584,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !invariant.load !13, !nonnull !13
   %223 = invoke { ptr, ptr } %222(ptr noundef nonnull align 1 %219)
-          to label %411 unwind label %.thread563
+          to label %411 unwind label %.thread598
 
 224:                                              ; preds = %185
   %225 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40592,7 +40592,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !invariant.load !13, !nonnull !13
   %229 = invoke { ptr, ptr } %228(ptr noundef nonnull align 1 %225)
-          to label %454 unwind label %.thread563
+          to label %454 unwind label %.thread598
 
 230:                                              ; preds = %185
   %231 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40600,7 +40600,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8, !invariant.load !13, !nonnull !13
   %235 = invoke { ptr, ptr } %234(ptr noundef nonnull align 1 %231)
-          to label %497 unwind label %.thread563
+          to label %497 unwind label %.thread598
 
 236:                                              ; preds = %185
   %237 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40608,7 +40608,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %240 = load ptr, ptr %239, align 8, !invariant.load !13, !nonnull !13
   %241 = invoke { ptr, ptr } %240(ptr noundef nonnull align 1 %237)
-          to label %540 unwind label %.thread563
+          to label %540 unwind label %.thread598
 
 242:                                              ; preds = %185
   %243 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40616,7 +40616,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8, !invariant.load !13, !nonnull !13
   %247 = invoke { ptr, ptr } %246(ptr noundef nonnull align 1 %243)
-          to label %583 unwind label %.thread563
+          to label %583 unwind label %.thread598
 
 248:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -40638,14 +40638,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8, !invariant.load !13, !nonnull !13
   %261 = invoke { ptr, ptr } %260(ptr noundef nonnull align 1 %257)
-          to label %823 unwind label %.thread563
+          to label %823 unwind label %.thread598
 
 262:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %263 = load ptr, ptr %176, align 8, !nonnull !13, !noundef !13
   %264 = load ptr, ptr %178, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %94, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %264, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %857 unwind label %.thread563
+          to label %857 unwind label %.thread598
 
 265:                                              ; preds = %185
   %266 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -40653,7 +40653,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8, !invariant.load !13, !nonnull !13
   %270 = invoke { ptr, ptr } %269(ptr noundef nonnull align 1 %266)
-          to label %931 unwind label %.thread563
+          to label %931 unwind label %.thread598
 
 271:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -40662,7 +40662,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8, !invariant.load !13, !nonnull !13
   %276 = invoke { ptr, ptr } %275(ptr noundef nonnull align 1 %272)
-          to label %964 unwind label %.thread563
+          to label %964 unwind label %.thread598
 
 277:                                              ; preds = %188
   %278 = extractvalue { ptr, ptr } %193, 0
@@ -40670,7 +40670,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %280 = getelementptr i8, ptr %279, i64 24
   %.val192 = load ptr, ptr %280, align 8
   %281 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %278)
-          to label %282 unwind label %.thread563
+          to label %282 unwind label %.thread598
 
 282:                                              ; preds = %277
   %283 = extractvalue { i64, i64 } %281, 0
@@ -40683,12 +40683,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %288 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %291 unwind label %.thread563
+          to label %291 unwind label %.thread598
 
 .invoke:                                          ; preds = %969, %936, %828, %706, %631, %588, %545, %502, %459, %416, %373, %330, %282
   %289 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %282 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %330 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %373 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %416 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %459 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %502 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %545 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %588 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %631 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %706 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %828 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %936 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %969 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %289) #28
-          to label %.cont unwind label %.thread563
+          to label %.cont unwind label %.thread598
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -40704,7 +40704,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %293 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store i64 0, ptr %293, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %164, ptr noundef nonnull align 8 %278, i1 noundef zeroext %288, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %163)
-          to label %294 unwind label %.thread563
+          to label %294 unwind label %.thread598
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
@@ -40818,7 +40818,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %328 = getelementptr i8, ptr %327, i64 24
   %.val191 = load ptr, ptr %328, align 8
   %329 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %326)
-          to label %330 unwind label %.thread563
+          to label %330 unwind label %.thread598
 
 330:                                              ; preds = %325
   %331 = extractvalue { i64, i64 } %329, 0
@@ -40831,7 +40831,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 335:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %336 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %337 unwind label %.thread563
+          to label %337 unwind label %.thread598
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -40841,7 +40841,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %339 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i64 0, ptr %339, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %157, ptr noundef nonnull align 8 %326, i1 noundef zeroext %336, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156)
-          to label %340 unwind label %.thread563
+          to label %340 unwind label %.thread598
 
 340:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
@@ -40940,7 +40940,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %371 = getelementptr i8, ptr %370, i64 24
   %.val = load ptr, ptr %371, align 8
   %372 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %369)
-          to label %373 unwind label %.thread563
+          to label %373 unwind label %.thread598
 
 373:                                              ; preds = %368
   %374 = extractvalue { i64, i64 } %372, 0
@@ -40953,7 +40953,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 378:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %379 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %380 unwind label %.thread563
+          to label %380 unwind label %.thread598
 
 380:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -40963,7 +40963,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %382 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %382, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %136, ptr noundef nonnull align 8 %369, i1 noundef zeroext %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
-          to label %383 unwind label %.thread563
+          to label %383 unwind label %.thread598
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -41062,7 +41062,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %414 = getelementptr i8, ptr %413, i64 24
   %.val189 = load ptr, ptr %414, align 8
   %415 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %412)
-          to label %416 unwind label %.thread563
+          to label %416 unwind label %.thread598
 
 416:                                              ; preds = %411
   %417 = extractvalue { i64, i64 } %415, 0
@@ -41075,7 +41075,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %422 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %423 unwind label %.thread563
+          to label %423 unwind label %.thread598
 
 423:                                              ; preds = %421
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -41085,7 +41085,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %425 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 0, ptr %425, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129, ptr noundef nonnull align 8 %412, i1 noundef zeroext %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %128)
-          to label %426 unwind label %.thread563
+          to label %426 unwind label %.thread598
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -41184,7 +41184,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %457 = getelementptr i8, ptr %456, i64 24
   %.val190 = load ptr, ptr %457, align 8
   %458 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %455)
-          to label %459 unwind label %.thread563
+          to label %459 unwind label %.thread598
 
 459:                                              ; preds = %454
   %460 = extractvalue { i64, i64 } %458, 0
@@ -41197,7 +41197,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 464:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %465 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %466 unwind label %.thread563
+          to label %466 unwind label %.thread598
 
 466:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -41207,7 +41207,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %468 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %468, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %122, ptr noundef nonnull align 8 %455, i1 noundef zeroext %465, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %121)
-          to label %469 unwind label %.thread563
+          to label %469 unwind label %.thread598
 
 469:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
@@ -41306,7 +41306,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %500 = getelementptr i8, ptr %499, i64 24
   %.val187 = load ptr, ptr %500, align 8
   %501 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %498)
-          to label %502 unwind label %.thread563
+          to label %502 unwind label %.thread598
 
 502:                                              ; preds = %497
   %503 = extractvalue { i64, i64 } %501, 0
@@ -41319,7 +41319,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 507:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %508 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %509 unwind label %.thread563
+          to label %509 unwind label %.thread598
 
 509:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -41329,7 +41329,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %511 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %511, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115, ptr noundef nonnull align 8 %498, i1 noundef zeroext %508, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %114)
-          to label %512 unwind label %.thread563
+          to label %512 unwind label %.thread598
 
 512:                                              ; preds = %509
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
@@ -41428,7 +41428,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %543 = getelementptr i8, ptr %542, i64 24
   %.val193 = load ptr, ptr %543, align 8
   %544 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %541)
-          to label %545 unwind label %.thread563
+          to label %545 unwind label %.thread598
 
 545:                                              ; preds = %540
   %546 = extractvalue { i64, i64 } %544, 0
@@ -41441,7 +41441,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 550:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %551 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %552 unwind label %.thread563
+          to label %552 unwind label %.thread598
 
 552:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -41451,7 +41451,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %554 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %554, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noundef nonnull align 8 %541, i1 noundef zeroext %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %107)
-          to label %555 unwind label %.thread563
+          to label %555 unwind label %.thread598
 
 555:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -41550,7 +41550,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %586 = getelementptr i8, ptr %585, i64 24
   %.val194 = load ptr, ptr %586, align 8
   %587 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %584)
-          to label %588 unwind label %.thread563
+          to label %588 unwind label %.thread598
 
 588:                                              ; preds = %583
   %589 = extractvalue { i64, i64 } %587, 0
@@ -41563,7 +41563,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 593:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %594 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %595 unwind label %.thread563
+          to label %595 unwind label %.thread598
 
 595:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -41573,7 +41573,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %597 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %597, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noundef nonnull align 8 %584, i1 noundef zeroext %594, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100)
-          to label %598 unwind label %.thread563
+          to label %598 unwind label %.thread598
 
 598:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -41672,7 +41672,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %629 = getelementptr i8, ptr %628, i64 24
   %.val186 = load ptr, ptr %629, align 8
   %630 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %627)
-          to label %631 unwind label %.thread563
+          to label %631 unwind label %.thread598
 
 631:                                              ; preds = %626
   %632 = extractvalue { i64, i64 } %630, 0
@@ -41685,7 +41685,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 636:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %637 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %638 unwind label %.thread563
+          to label %638 unwind label %.thread598
 
 638:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -41695,7 +41695,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %640 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 0, ptr %640, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noundef nonnull align 8 %627, i1 noundef zeroext %637, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %149)
-          to label %641 unwind label %.thread563
+          to label %641 unwind label %.thread598
 
 641:                                              ; preds = %638
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
@@ -41884,7 +41884,7 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit: ; preds = %6
   %704 = getelementptr i8, ptr %703, i64 24
   %.val188 = load ptr, ptr %704, align 8
   %705 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %702)
-          to label %706 unwind label %.thread563
+          to label %706 unwind label %.thread598
 
 706:                                              ; preds = %701
   %707 = extractvalue { i64, i64 } %705, 0
@@ -41897,7 +41897,7 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit: ; preds = %6
 711:                                              ; preds = %706
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %712 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %713 unwind label %.thread563
+          to label %713 unwind label %.thread598
 
 713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -41907,7 +41907,7 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit: ; preds = %6
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i64 0, ptr %715, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noundef nonnull align 8 %702, i1 noundef zeroext %712, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %142)
-          to label %716 unwind label %.thread563
+          to label %716 unwind label %.thread598
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
@@ -42224,7 +42224,7 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit265: ; preds =
   %826 = getelementptr i8, ptr %825, i64 24
   %.val197 = load ptr, ptr %826, align 8
   %827 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %824)
-          to label %828 unwind label %.thread563
+          to label %828 unwind label %.thread598
 
 828:                                              ; preds = %823
   %829 = extractvalue { i64, i64 } %827, 0
@@ -42494,7 +42494,7 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit265: ; preds =
   %934 = getelementptr i8, ptr %933, i64 24
   %.val198 = load ptr, ptr %934, align 8
   %935 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %932)
-          to label %936 unwind label %.thread563
+          to label %936 unwind label %.thread598
 
 936:                                              ; preds = %931
   %937 = extractvalue { i64, i64 } %935, 0
@@ -42583,7 +42583,7 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit265: ; preds =
   %967 = getelementptr i8, ptr %966, i64 24
   %.val199 = load ptr, ptr %967, align 8
   %968 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %965)
-          to label %969 unwind label %.thread563
+          to label %969 unwind label %.thread598
 
 969:                                              ; preds = %964
   %970 = extractvalue { i64, i64 } %968, 0
@@ -42595,7 +42595,7 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit265: ; preds =
 
 974:                                              ; preds = %969
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %83, ptr noundef nonnull align 8 %965)
-          to label %975 unwind label %.thread563
+          to label %975 unwind label %.thread598
 
 975:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -42663,7 +42663,7 @@ _ZN12polars_arrow5array5Array10null_count17hafe6c826cae7e91bE.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %83)
-          to label %996 unwind label %.thread563
+          to label %996 unwind label %.thread598
 
 996:                                              ; preds = %995
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
@@ -44056,7 +44056,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hb5ea29076f60e426E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64)
-          to label %1435 unwind label %.thread563
+          to label %1435 unwind label %.thread598
 
 1435:                                             ; preds = %1434
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -44116,7 +44116,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hb5ea29076f60e426E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %52)
-          to label %1445 unwind label %.thread563
+          to label %1445 unwind label %.thread598
 
 1445:                                             ; preds = %1444
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -44133,8 +44133,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hb5ea29076f60e426E.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1418, %1417 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread563, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1429, %1432, %1439, %1442, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1430, %1429 ], [ %1433, %1432 ], [ %1440, %1439 ], [ %1443, %1442 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm561, %.thread563 ]
+.thread:                                          ; preds = %.thread598, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1429, %1432, %1439, %1442, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1430, %1429 ], [ %1433, %1432 ], [ %1440, %1439 ], [ %1443, %1442 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm596, %.thread598 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %315
 }
@@ -44320,7 +44320,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2665
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread565
+          to label %.noexc unwind label %.thread600
 
 .noexc:                                           ; preds = %167
   %168 = load i64, ptr %44, align 8, !range !422, !noalias !2665, !noundef !13
@@ -44333,7 +44333,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 173:                                              ; preds = %.noexc
   %174 = load i64, ptr %172, align 8, !noalias !2665
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %171, i64 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread565
+          to label %.noexc200 unwind label %.thread600
 
 .noexc200:                                        ; preds = %173
   unreachable
@@ -44346,19 +44346,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8, !invariant.load !13, !nonnull !13
   %182 = invoke noundef align 8 dereferenceable(32) ptr %181(ptr noundef nonnull align 1 %177)
-          to label %183 unwind label %.thread565
+          to label %183 unwind label %.thread600
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread565:                                       ; preds = %.invoke, %1440, %1430, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
-  %lpad.thr_comm563 = landingpad { ptr, i32 }
+.thread600:                                       ; preds = %.invoke, %1440, %1430, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
+  %lpad.thr_comm598 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 183:                                              ; preds = %175
   %184 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %182)
-          to label %185 unwind label %.thread565
+          to label %185 unwind label %.thread600
 
 185:                                              ; preds = %183
   %186 = load i8, ptr %184, align 8, !range !456, !noundef !13
@@ -44408,7 +44408,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !2689
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
-          to label %1424 unwind label %.thread565
+          to label %1424 unwind label %.thread600
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44416,7 +44416,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !invariant.load !13, !nonnull !13
   %193 = invoke { ptr, ptr } %192(ptr noundef nonnull align 1 %189)
-          to label %277 unwind label %.thread565
+          to label %277 unwind label %.thread600
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44424,7 +44424,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !invariant.load !13, !nonnull !13
   %199 = invoke { ptr, ptr } %198(ptr noundef nonnull align 1 %195)
-          to label %325 unwind label %.thread565
+          to label %325 unwind label %.thread600
 
 200:                                              ; preds = %185, %185, %185
   %201 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44432,7 +44432,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8, !invariant.load !13, !nonnull !13
   %205 = invoke { ptr, ptr } %204(ptr noundef nonnull align 1 %201)
-          to label %626 unwind label %.thread565
+          to label %626 unwind label %.thread600
 
 206:                                              ; preds = %185, %185, %185, %185, %185
   %207 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44440,7 +44440,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !invariant.load !13, !nonnull !13
   %211 = invoke { ptr, ptr } %210(ptr noundef nonnull align 1 %207)
-          to label %701 unwind label %.thread565
+          to label %701 unwind label %.thread600
 
 212:                                              ; preds = %185
   %213 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44448,7 +44448,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !invariant.load !13, !nonnull !13
   %217 = invoke { ptr, ptr } %216(ptr noundef nonnull align 1 %213)
-          to label %368 unwind label %.thread565
+          to label %368 unwind label %.thread600
 
 218:                                              ; preds = %185
   %219 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44456,7 +44456,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !invariant.load !13, !nonnull !13
   %223 = invoke { ptr, ptr } %222(ptr noundef nonnull align 1 %219)
-          to label %411 unwind label %.thread565
+          to label %411 unwind label %.thread600
 
 224:                                              ; preds = %185
   %225 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44464,7 +44464,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !invariant.load !13, !nonnull !13
   %229 = invoke { ptr, ptr } %228(ptr noundef nonnull align 1 %225)
-          to label %454 unwind label %.thread565
+          to label %454 unwind label %.thread600
 
 230:                                              ; preds = %185
   %231 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44472,7 +44472,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8, !invariant.load !13, !nonnull !13
   %235 = invoke { ptr, ptr } %234(ptr noundef nonnull align 1 %231)
-          to label %497 unwind label %.thread565
+          to label %497 unwind label %.thread600
 
 236:                                              ; preds = %185
   %237 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44480,7 +44480,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %240 = load ptr, ptr %239, align 8, !invariant.load !13, !nonnull !13
   %241 = invoke { ptr, ptr } %240(ptr noundef nonnull align 1 %237)
-          to label %540 unwind label %.thread565
+          to label %540 unwind label %.thread600
 
 242:                                              ; preds = %185
   %243 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44488,7 +44488,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8, !invariant.load !13, !nonnull !13
   %247 = invoke { ptr, ptr } %246(ptr noundef nonnull align 1 %243)
-          to label %583 unwind label %.thread565
+          to label %583 unwind label %.thread600
 
 248:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -44510,14 +44510,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8, !invariant.load !13, !nonnull !13
   %261 = invoke { ptr, ptr } %260(ptr noundef nonnull align 1 %257)
-          to label %823 unwind label %.thread565
+          to label %823 unwind label %.thread600
 
 262:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %263 = load ptr, ptr %176, align 8, !nonnull !13, !noundef !13
   %264 = load ptr, ptr %178, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %94, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %264, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %857 unwind label %.thread565
+          to label %857 unwind label %.thread600
 
 265:                                              ; preds = %185
   %266 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -44525,7 +44525,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8, !invariant.load !13, !nonnull !13
   %270 = invoke { ptr, ptr } %269(ptr noundef nonnull align 1 %266)
-          to label %931 unwind label %.thread565
+          to label %931 unwind label %.thread600
 
 271:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -44534,7 +44534,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8, !invariant.load !13, !nonnull !13
   %276 = invoke { ptr, ptr } %275(ptr noundef nonnull align 1 %272)
-          to label %964 unwind label %.thread565
+          to label %964 unwind label %.thread600
 
 277:                                              ; preds = %188
   %278 = extractvalue { ptr, ptr } %193, 0
@@ -44542,7 +44542,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %280 = getelementptr i8, ptr %279, i64 24
   %.val192 = load ptr, ptr %280, align 8
   %281 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %278)
-          to label %282 unwind label %.thread565
+          to label %282 unwind label %.thread600
 
 282:                                              ; preds = %277
   %283 = extractvalue { i64, i64 } %281, 0
@@ -44555,12 +44555,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %288 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %291 unwind label %.thread565
+          to label %291 unwind label %.thread600
 
 .invoke:                                          ; preds = %969, %936, %828, %706, %631, %588, %545, %502, %459, %416, %373, %330, %282
   %289 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %282 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %330 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %373 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %416 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %459 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %502 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %545 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %588 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %631 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %706 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %828 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %936 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %969 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %289) #28
-          to label %.cont unwind label %.thread565
+          to label %.cont unwind label %.thread600
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -44576,7 +44576,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %293 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store i64 0, ptr %293, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %164, ptr noundef nonnull align 8 %278, i1 noundef zeroext %288, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %163)
-          to label %294 unwind label %.thread565
+          to label %294 unwind label %.thread600
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
@@ -44690,7 +44690,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %328 = getelementptr i8, ptr %327, i64 24
   %.val191 = load ptr, ptr %328, align 8
   %329 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %326)
-          to label %330 unwind label %.thread565
+          to label %330 unwind label %.thread600
 
 330:                                              ; preds = %325
   %331 = extractvalue { i64, i64 } %329, 0
@@ -44703,7 +44703,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 335:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %336 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %337 unwind label %.thread565
+          to label %337 unwind label %.thread600
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -44713,7 +44713,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %339 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i64 0, ptr %339, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %157, ptr noundef nonnull align 8 %326, i1 noundef zeroext %336, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156)
-          to label %340 unwind label %.thread565
+          to label %340 unwind label %.thread600
 
 340:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
@@ -44812,7 +44812,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %371 = getelementptr i8, ptr %370, i64 24
   %.val = load ptr, ptr %371, align 8
   %372 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %369)
-          to label %373 unwind label %.thread565
+          to label %373 unwind label %.thread600
 
 373:                                              ; preds = %368
   %374 = extractvalue { i64, i64 } %372, 0
@@ -44825,7 +44825,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 378:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %379 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %380 unwind label %.thread565
+          to label %380 unwind label %.thread600
 
 380:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -44835,7 +44835,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %382 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %382, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %136, ptr noundef nonnull align 8 %369, i1 noundef zeroext %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
-          to label %383 unwind label %.thread565
+          to label %383 unwind label %.thread600
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -44934,7 +44934,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %414 = getelementptr i8, ptr %413, i64 24
   %.val189 = load ptr, ptr %414, align 8
   %415 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %412)
-          to label %416 unwind label %.thread565
+          to label %416 unwind label %.thread600
 
 416:                                              ; preds = %411
   %417 = extractvalue { i64, i64 } %415, 0
@@ -44947,7 +44947,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %422 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %423 unwind label %.thread565
+          to label %423 unwind label %.thread600
 
 423:                                              ; preds = %421
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -44957,7 +44957,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %425 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 0, ptr %425, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129, ptr noundef nonnull align 8 %412, i1 noundef zeroext %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %128)
-          to label %426 unwind label %.thread565
+          to label %426 unwind label %.thread600
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -45056,7 +45056,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %457 = getelementptr i8, ptr %456, i64 24
   %.val190 = load ptr, ptr %457, align 8
   %458 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %455)
-          to label %459 unwind label %.thread565
+          to label %459 unwind label %.thread600
 
 459:                                              ; preds = %454
   %460 = extractvalue { i64, i64 } %458, 0
@@ -45069,7 +45069,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 464:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %465 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %466 unwind label %.thread565
+          to label %466 unwind label %.thread600
 
 466:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -45079,7 +45079,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %468 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %468, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %122, ptr noundef nonnull align 8 %455, i1 noundef zeroext %465, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %121)
-          to label %469 unwind label %.thread565
+          to label %469 unwind label %.thread600
 
 469:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
@@ -45178,7 +45178,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %500 = getelementptr i8, ptr %499, i64 24
   %.val187 = load ptr, ptr %500, align 8
   %501 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %498)
-          to label %502 unwind label %.thread565
+          to label %502 unwind label %.thread600
 
 502:                                              ; preds = %497
   %503 = extractvalue { i64, i64 } %501, 0
@@ -45191,7 +45191,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 507:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %508 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %509 unwind label %.thread565
+          to label %509 unwind label %.thread600
 
 509:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -45201,7 +45201,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %511 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %511, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115, ptr noundef nonnull align 8 %498, i1 noundef zeroext %508, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %114)
-          to label %512 unwind label %.thread565
+          to label %512 unwind label %.thread600
 
 512:                                              ; preds = %509
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
@@ -45300,7 +45300,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %543 = getelementptr i8, ptr %542, i64 24
   %.val193 = load ptr, ptr %543, align 8
   %544 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %541)
-          to label %545 unwind label %.thread565
+          to label %545 unwind label %.thread600
 
 545:                                              ; preds = %540
   %546 = extractvalue { i64, i64 } %544, 0
@@ -45313,7 +45313,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 550:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %551 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %552 unwind label %.thread565
+          to label %552 unwind label %.thread600
 
 552:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -45323,7 +45323,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %554 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %554, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noundef nonnull align 8 %541, i1 noundef zeroext %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %107)
-          to label %555 unwind label %.thread565
+          to label %555 unwind label %.thread600
 
 555:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -45422,7 +45422,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %586 = getelementptr i8, ptr %585, i64 24
   %.val194 = load ptr, ptr %586, align 8
   %587 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %584)
-          to label %588 unwind label %.thread565
+          to label %588 unwind label %.thread600
 
 588:                                              ; preds = %583
   %589 = extractvalue { i64, i64 } %587, 0
@@ -45435,7 +45435,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 593:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %594 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %595 unwind label %.thread565
+          to label %595 unwind label %.thread600
 
 595:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -45445,7 +45445,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %597 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %597, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noundef nonnull align 8 %584, i1 noundef zeroext %594, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100)
-          to label %598 unwind label %.thread565
+          to label %598 unwind label %.thread600
 
 598:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -45544,7 +45544,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %629 = getelementptr i8, ptr %628, i64 24
   %.val186 = load ptr, ptr %629, align 8
   %630 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %627)
-          to label %631 unwind label %.thread565
+          to label %631 unwind label %.thread600
 
 631:                                              ; preds = %626
   %632 = extractvalue { i64, i64 } %630, 0
@@ -45557,7 +45557,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 636:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %637 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %638 unwind label %.thread565
+          to label %638 unwind label %.thread600
 
 638:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -45567,7 +45567,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %640 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 0, ptr %640, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noundef nonnull align 8 %627, i1 noundef zeroext %637, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %149)
-          to label %641 unwind label %.thread565
+          to label %641 unwind label %.thread600
 
 641:                                              ; preds = %638
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
@@ -45756,7 +45756,7 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit: ; preds = %6
   %704 = getelementptr i8, ptr %703, i64 24
   %.val188 = load ptr, ptr %704, align 8
   %705 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %702)
-          to label %706 unwind label %.thread565
+          to label %706 unwind label %.thread600
 
 706:                                              ; preds = %701
   %707 = extractvalue { i64, i64 } %705, 0
@@ -45769,7 +45769,7 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit: ; preds = %6
 711:                                              ; preds = %706
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %712 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %713 unwind label %.thread565
+          to label %713 unwind label %.thread600
 
 713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -45779,7 +45779,7 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit: ; preds = %6
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i64 0, ptr %715, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noundef nonnull align 8 %702, i1 noundef zeroext %712, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %142)
-          to label %716 unwind label %.thread565
+          to label %716 unwind label %.thread600
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
@@ -46096,7 +46096,7 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit265: ; preds =
   %826 = getelementptr i8, ptr %825, i64 24
   %.val197 = load ptr, ptr %826, align 8
   %827 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %824)
-          to label %828 unwind label %.thread565
+          to label %828 unwind label %.thread600
 
 828:                                              ; preds = %823
   %829 = extractvalue { i64, i64 } %827, 0
@@ -46366,7 +46366,7 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit265: ; preds =
   %934 = getelementptr i8, ptr %933, i64 24
   %.val198 = load ptr, ptr %934, align 8
   %935 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %932)
-          to label %936 unwind label %.thread565
+          to label %936 unwind label %.thread600
 
 936:                                              ; preds = %931
   %937 = extractvalue { i64, i64 } %935, 0
@@ -46455,7 +46455,7 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit265: ; preds =
   %967 = getelementptr i8, ptr %966, i64 24
   %.val199 = load ptr, ptr %967, align 8
   %968 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %965)
-          to label %969 unwind label %.thread565
+          to label %969 unwind label %.thread600
 
 969:                                              ; preds = %964
   %970 = extractvalue { i64, i64 } %968, 0
@@ -46467,7 +46467,7 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit265: ; preds =
 
 974:                                              ; preds = %969
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %83, ptr noundef nonnull align 8 %965)
-          to label %975 unwind label %.thread565
+          to label %975 unwind label %.thread600
 
 975:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -46535,7 +46535,7 @@ _ZN12polars_arrow5array5Array10null_count17hfc5c2f3f935e1a96E.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %83)
-          to label %996 unwind label %.thread565
+          to label %996 unwind label %.thread600
 
 996:                                              ; preds = %995
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
@@ -47922,7 +47922,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h49627059644e91deE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64)
-          to label %1431 unwind label %.thread565
+          to label %1431 unwind label %.thread600
 
 1431:                                             ; preds = %1430
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -47982,7 +47982,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h49627059644e91deE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %52)
-          to label %1441 unwind label %.thread565
+          to label %1441 unwind label %.thread600
 
 1441:                                             ; preds = %1440
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -47999,8 +47999,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h49627059644e91deE.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1414, %1413 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread565, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1425, %1428, %1435, %1438, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1426, %1425 ], [ %1429, %1428 ], [ %1436, %1435 ], [ %1439, %1438 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm563, %.thread565 ]
+.thread:                                          ; preds = %.thread600, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1425, %1428, %1435, %1438, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1426, %1425 ], [ %1429, %1428 ], [ %1436, %1435 ], [ %1439, %1438 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm598, %.thread600 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %315
 }
@@ -48186,7 +48186,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !2923
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread563
+          to label %.noexc unwind label %.thread598
 
 .noexc:                                           ; preds = %167
   %168 = load i64, ptr %44, align 8, !range !422, !noalias !2923, !noundef !13
@@ -48199,7 +48199,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 173:                                              ; preds = %.noexc
   %174 = load i64, ptr %172, align 8, !noalias !2923
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %171, i64 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread563
+          to label %.noexc200 unwind label %.thread598
 
 .noexc200:                                        ; preds = %173
   unreachable
@@ -48212,19 +48212,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8, !invariant.load !13, !nonnull !13
   %182 = invoke noundef align 8 dereferenceable(32) ptr %181(ptr noundef nonnull align 1 %177)
-          to label %183 unwind label %.thread563
+          to label %183 unwind label %.thread598
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread563:                                       ; preds = %.invoke, %1444, %1434, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
-  %lpad.thr_comm561 = landingpad { ptr, i32 }
+.thread598:                                       ; preds = %.invoke, %1444, %1434, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
+  %lpad.thr_comm596 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 183:                                              ; preds = %175
   %184 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %182)
-          to label %185 unwind label %.thread563
+          to label %185 unwind label %.thread598
 
 185:                                              ; preds = %183
   %186 = load i8, ptr %184, align 8, !range !456, !noundef !13
@@ -48274,7 +48274,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !2947
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
-          to label %1428 unwind label %.thread563
+          to label %1428 unwind label %.thread598
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48282,7 +48282,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !invariant.load !13, !nonnull !13
   %193 = invoke { ptr, ptr } %192(ptr noundef nonnull align 1 %189)
-          to label %277 unwind label %.thread563
+          to label %277 unwind label %.thread598
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48290,7 +48290,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !invariant.load !13, !nonnull !13
   %199 = invoke { ptr, ptr } %198(ptr noundef nonnull align 1 %195)
-          to label %325 unwind label %.thread563
+          to label %325 unwind label %.thread598
 
 200:                                              ; preds = %185, %185, %185
   %201 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48298,7 +48298,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8, !invariant.load !13, !nonnull !13
   %205 = invoke { ptr, ptr } %204(ptr noundef nonnull align 1 %201)
-          to label %626 unwind label %.thread563
+          to label %626 unwind label %.thread598
 
 206:                                              ; preds = %185, %185, %185, %185, %185
   %207 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48306,7 +48306,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !invariant.load !13, !nonnull !13
   %211 = invoke { ptr, ptr } %210(ptr noundef nonnull align 1 %207)
-          to label %701 unwind label %.thread563
+          to label %701 unwind label %.thread598
 
 212:                                              ; preds = %185
   %213 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48314,7 +48314,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !invariant.load !13, !nonnull !13
   %217 = invoke { ptr, ptr } %216(ptr noundef nonnull align 1 %213)
-          to label %368 unwind label %.thread563
+          to label %368 unwind label %.thread598
 
 218:                                              ; preds = %185
   %219 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48322,7 +48322,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !invariant.load !13, !nonnull !13
   %223 = invoke { ptr, ptr } %222(ptr noundef nonnull align 1 %219)
-          to label %411 unwind label %.thread563
+          to label %411 unwind label %.thread598
 
 224:                                              ; preds = %185
   %225 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48330,7 +48330,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !invariant.load !13, !nonnull !13
   %229 = invoke { ptr, ptr } %228(ptr noundef nonnull align 1 %225)
-          to label %454 unwind label %.thread563
+          to label %454 unwind label %.thread598
 
 230:                                              ; preds = %185
   %231 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48338,7 +48338,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8, !invariant.load !13, !nonnull !13
   %235 = invoke { ptr, ptr } %234(ptr noundef nonnull align 1 %231)
-          to label %497 unwind label %.thread563
+          to label %497 unwind label %.thread598
 
 236:                                              ; preds = %185
   %237 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48346,7 +48346,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %240 = load ptr, ptr %239, align 8, !invariant.load !13, !nonnull !13
   %241 = invoke { ptr, ptr } %240(ptr noundef nonnull align 1 %237)
-          to label %540 unwind label %.thread563
+          to label %540 unwind label %.thread598
 
 242:                                              ; preds = %185
   %243 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48354,7 +48354,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8, !invariant.load !13, !nonnull !13
   %247 = invoke { ptr, ptr } %246(ptr noundef nonnull align 1 %243)
-          to label %583 unwind label %.thread563
+          to label %583 unwind label %.thread598
 
 248:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -48376,14 +48376,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8, !invariant.load !13, !nonnull !13
   %261 = invoke { ptr, ptr } %260(ptr noundef nonnull align 1 %257)
-          to label %823 unwind label %.thread563
+          to label %823 unwind label %.thread598
 
 262:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %263 = load ptr, ptr %176, align 8, !nonnull !13, !noundef !13
   %264 = load ptr, ptr %178, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %94, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %264, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %857 unwind label %.thread563
+          to label %857 unwind label %.thread598
 
 265:                                              ; preds = %185
   %266 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -48391,7 +48391,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8, !invariant.load !13, !nonnull !13
   %270 = invoke { ptr, ptr } %269(ptr noundef nonnull align 1 %266)
-          to label %931 unwind label %.thread563
+          to label %931 unwind label %.thread598
 
 271:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -48400,7 +48400,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8, !invariant.load !13, !nonnull !13
   %276 = invoke { ptr, ptr } %275(ptr noundef nonnull align 1 %272)
-          to label %964 unwind label %.thread563
+          to label %964 unwind label %.thread598
 
 277:                                              ; preds = %188
   %278 = extractvalue { ptr, ptr } %193, 0
@@ -48408,7 +48408,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %280 = getelementptr i8, ptr %279, i64 24
   %.val192 = load ptr, ptr %280, align 8
   %281 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %278)
-          to label %282 unwind label %.thread563
+          to label %282 unwind label %.thread598
 
 282:                                              ; preds = %277
   %283 = extractvalue { i64, i64 } %281, 0
@@ -48421,12 +48421,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %288 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %291 unwind label %.thread563
+          to label %291 unwind label %.thread598
 
 .invoke:                                          ; preds = %969, %936, %828, %706, %631, %588, %545, %502, %459, %416, %373, %330, %282
   %289 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %282 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %330 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %373 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %416 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %459 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %502 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %545 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %588 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %631 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %706 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %828 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %936 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %969 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %289) #28
-          to label %.cont unwind label %.thread563
+          to label %.cont unwind label %.thread598
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -48442,7 +48442,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %293 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store i64 0, ptr %293, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %164, ptr noundef nonnull align 8 %278, i1 noundef zeroext %288, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %163)
-          to label %294 unwind label %.thread563
+          to label %294 unwind label %.thread598
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
@@ -48556,7 +48556,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %328 = getelementptr i8, ptr %327, i64 24
   %.val191 = load ptr, ptr %328, align 8
   %329 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %326)
-          to label %330 unwind label %.thread563
+          to label %330 unwind label %.thread598
 
 330:                                              ; preds = %325
   %331 = extractvalue { i64, i64 } %329, 0
@@ -48569,7 +48569,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 335:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %336 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %337 unwind label %.thread563
+          to label %337 unwind label %.thread598
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -48579,7 +48579,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %339 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i64 0, ptr %339, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %157, ptr noundef nonnull align 8 %326, i1 noundef zeroext %336, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156)
-          to label %340 unwind label %.thread563
+          to label %340 unwind label %.thread598
 
 340:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
@@ -48678,7 +48678,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %371 = getelementptr i8, ptr %370, i64 24
   %.val = load ptr, ptr %371, align 8
   %372 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %369)
-          to label %373 unwind label %.thread563
+          to label %373 unwind label %.thread598
 
 373:                                              ; preds = %368
   %374 = extractvalue { i64, i64 } %372, 0
@@ -48691,7 +48691,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 378:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %379 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %380 unwind label %.thread563
+          to label %380 unwind label %.thread598
 
 380:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -48701,7 +48701,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %382 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %382, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %136, ptr noundef nonnull align 8 %369, i1 noundef zeroext %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
-          to label %383 unwind label %.thread563
+          to label %383 unwind label %.thread598
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -48800,7 +48800,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %414 = getelementptr i8, ptr %413, i64 24
   %.val189 = load ptr, ptr %414, align 8
   %415 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %412)
-          to label %416 unwind label %.thread563
+          to label %416 unwind label %.thread598
 
 416:                                              ; preds = %411
   %417 = extractvalue { i64, i64 } %415, 0
@@ -48813,7 +48813,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %422 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %423 unwind label %.thread563
+          to label %423 unwind label %.thread598
 
 423:                                              ; preds = %421
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -48823,7 +48823,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %425 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 0, ptr %425, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129, ptr noundef nonnull align 8 %412, i1 noundef zeroext %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %128)
-          to label %426 unwind label %.thread563
+          to label %426 unwind label %.thread598
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -48922,7 +48922,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %457 = getelementptr i8, ptr %456, i64 24
   %.val190 = load ptr, ptr %457, align 8
   %458 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %455)
-          to label %459 unwind label %.thread563
+          to label %459 unwind label %.thread598
 
 459:                                              ; preds = %454
   %460 = extractvalue { i64, i64 } %458, 0
@@ -48935,7 +48935,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 464:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %465 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %466 unwind label %.thread563
+          to label %466 unwind label %.thread598
 
 466:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -48945,7 +48945,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %468 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %468, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %122, ptr noundef nonnull align 8 %455, i1 noundef zeroext %465, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %121)
-          to label %469 unwind label %.thread563
+          to label %469 unwind label %.thread598
 
 469:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
@@ -49044,7 +49044,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %500 = getelementptr i8, ptr %499, i64 24
   %.val187 = load ptr, ptr %500, align 8
   %501 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %498)
-          to label %502 unwind label %.thread563
+          to label %502 unwind label %.thread598
 
 502:                                              ; preds = %497
   %503 = extractvalue { i64, i64 } %501, 0
@@ -49057,7 +49057,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 507:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %508 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %509 unwind label %.thread563
+          to label %509 unwind label %.thread598
 
 509:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -49067,7 +49067,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %511 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %511, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115, ptr noundef nonnull align 8 %498, i1 noundef zeroext %508, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %114)
-          to label %512 unwind label %.thread563
+          to label %512 unwind label %.thread598
 
 512:                                              ; preds = %509
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
@@ -49166,7 +49166,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %543 = getelementptr i8, ptr %542, i64 24
   %.val193 = load ptr, ptr %543, align 8
   %544 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %541)
-          to label %545 unwind label %.thread563
+          to label %545 unwind label %.thread598
 
 545:                                              ; preds = %540
   %546 = extractvalue { i64, i64 } %544, 0
@@ -49179,7 +49179,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 550:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %551 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %552 unwind label %.thread563
+          to label %552 unwind label %.thread598
 
 552:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -49189,7 +49189,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %554 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %554, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noundef nonnull align 8 %541, i1 noundef zeroext %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %107)
-          to label %555 unwind label %.thread563
+          to label %555 unwind label %.thread598
 
 555:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -49288,7 +49288,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %586 = getelementptr i8, ptr %585, i64 24
   %.val194 = load ptr, ptr %586, align 8
   %587 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %584)
-          to label %588 unwind label %.thread563
+          to label %588 unwind label %.thread598
 
 588:                                              ; preds = %583
   %589 = extractvalue { i64, i64 } %587, 0
@@ -49301,7 +49301,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 593:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %594 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %595 unwind label %.thread563
+          to label %595 unwind label %.thread598
 
 595:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -49311,7 +49311,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %597 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %597, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noundef nonnull align 8 %584, i1 noundef zeroext %594, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100)
-          to label %598 unwind label %.thread563
+          to label %598 unwind label %.thread598
 
 598:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -49410,7 +49410,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %629 = getelementptr i8, ptr %628, i64 24
   %.val186 = load ptr, ptr %629, align 8
   %630 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %627)
-          to label %631 unwind label %.thread563
+          to label %631 unwind label %.thread598
 
 631:                                              ; preds = %626
   %632 = extractvalue { i64, i64 } %630, 0
@@ -49423,7 +49423,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 636:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %637 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %638 unwind label %.thread563
+          to label %638 unwind label %.thread598
 
 638:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -49433,7 +49433,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %640 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 0, ptr %640, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noundef nonnull align 8 %627, i1 noundef zeroext %637, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %149)
-          to label %641 unwind label %.thread563
+          to label %641 unwind label %.thread598
 
 641:                                              ; preds = %638
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
@@ -49622,7 +49622,7 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit: ; preds = %6
   %704 = getelementptr i8, ptr %703, i64 24
   %.val188 = load ptr, ptr %704, align 8
   %705 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %702)
-          to label %706 unwind label %.thread563
+          to label %706 unwind label %.thread598
 
 706:                                              ; preds = %701
   %707 = extractvalue { i64, i64 } %705, 0
@@ -49635,7 +49635,7 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit: ; preds = %6
 711:                                              ; preds = %706
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %712 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %713 unwind label %.thread563
+          to label %713 unwind label %.thread598
 
 713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -49645,7 +49645,7 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit: ; preds = %6
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i64 0, ptr %715, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noundef nonnull align 8 %702, i1 noundef zeroext %712, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %142)
-          to label %716 unwind label %.thread563
+          to label %716 unwind label %.thread598
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
@@ -49962,7 +49962,7 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit265: ; preds =
   %826 = getelementptr i8, ptr %825, i64 24
   %.val197 = load ptr, ptr %826, align 8
   %827 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %824)
-          to label %828 unwind label %.thread563
+          to label %828 unwind label %.thread598
 
 828:                                              ; preds = %823
   %829 = extractvalue { i64, i64 } %827, 0
@@ -50232,7 +50232,7 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit265: ; preds =
   %934 = getelementptr i8, ptr %933, i64 24
   %.val198 = load ptr, ptr %934, align 8
   %935 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %932)
-          to label %936 unwind label %.thread563
+          to label %936 unwind label %.thread598
 
 936:                                              ; preds = %931
   %937 = extractvalue { i64, i64 } %935, 0
@@ -50321,7 +50321,7 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit265: ; preds =
   %967 = getelementptr i8, ptr %966, i64 24
   %.val199 = load ptr, ptr %967, align 8
   %968 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %965)
-          to label %969 unwind label %.thread563
+          to label %969 unwind label %.thread598
 
 969:                                              ; preds = %964
   %970 = extractvalue { i64, i64 } %968, 0
@@ -50333,7 +50333,7 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit265: ; preds =
 
 974:                                              ; preds = %969
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %83, ptr noundef nonnull align 8 %965)
-          to label %975 unwind label %.thread563
+          to label %975 unwind label %.thread598
 
 975:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -50401,7 +50401,7 @@ _ZN12polars_arrow5array5Array10null_count17hea473820d8c05644E.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %83)
-          to label %996 unwind label %.thread563
+          to label %996 unwind label %.thread598
 
 996:                                              ; preds = %995
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
@@ -51793,7 +51793,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hdff0c379eb67c34aE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64)
-          to label %1435 unwind label %.thread563
+          to label %1435 unwind label %.thread598
 
 1435:                                             ; preds = %1434
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -51853,7 +51853,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hdff0c379eb67c34aE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %52)
-          to label %1445 unwind label %.thread563
+          to label %1445 unwind label %.thread598
 
 1445:                                             ; preds = %1444
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -51870,8 +51870,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hdff0c379eb67c34aE.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1418, %1417 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread563, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1429, %1432, %1439, %1442, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1430, %1429 ], [ %1433, %1432 ], [ %1440, %1439 ], [ %1443, %1442 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm561, %.thread563 ]
+.thread:                                          ; preds = %.thread598, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1429, %1432, %1439, %1442, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1430, %1429 ], [ %1433, %1432 ], [ %1440, %1439 ], [ %1443, %1442 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm596, %.thread598 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %315
 }
@@ -52057,7 +52057,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !3181
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread563
+          to label %.noexc unwind label %.thread598
 
 .noexc:                                           ; preds = %167
   %168 = load i64, ptr %44, align 8, !range !422, !noalias !3181, !noundef !13
@@ -52070,7 +52070,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 173:                                              ; preds = %.noexc
   %174 = load i64, ptr %172, align 8, !noalias !3181
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %171, i64 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread563
+          to label %.noexc200 unwind label %.thread598
 
 .noexc200:                                        ; preds = %173
   unreachable
@@ -52083,19 +52083,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8, !invariant.load !13, !nonnull !13
   %182 = invoke noundef align 8 dereferenceable(32) ptr %181(ptr noundef nonnull align 1 %177)
-          to label %183 unwind label %.thread563
+          to label %183 unwind label %.thread598
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread563:                                       ; preds = %.invoke, %1444, %1434, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
-  %lpad.thr_comm561 = landingpad { ptr, i32 }
+.thread598:                                       ; preds = %.invoke, %1444, %1434, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
+  %lpad.thr_comm596 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 183:                                              ; preds = %175
   %184 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %182)
-          to label %185 unwind label %.thread563
+          to label %185 unwind label %.thread598
 
 185:                                              ; preds = %183
   %186 = load i8, ptr %184, align 8, !range !456, !noundef !13
@@ -52145,7 +52145,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !3205
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
-          to label %1428 unwind label %.thread563
+          to label %1428 unwind label %.thread598
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52153,7 +52153,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !invariant.load !13, !nonnull !13
   %193 = invoke { ptr, ptr } %192(ptr noundef nonnull align 1 %189)
-          to label %277 unwind label %.thread563
+          to label %277 unwind label %.thread598
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52161,7 +52161,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !invariant.load !13, !nonnull !13
   %199 = invoke { ptr, ptr } %198(ptr noundef nonnull align 1 %195)
-          to label %325 unwind label %.thread563
+          to label %325 unwind label %.thread598
 
 200:                                              ; preds = %185, %185, %185
   %201 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52169,7 +52169,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8, !invariant.load !13, !nonnull !13
   %205 = invoke { ptr, ptr } %204(ptr noundef nonnull align 1 %201)
-          to label %626 unwind label %.thread563
+          to label %626 unwind label %.thread598
 
 206:                                              ; preds = %185, %185, %185, %185, %185
   %207 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52177,7 +52177,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !invariant.load !13, !nonnull !13
   %211 = invoke { ptr, ptr } %210(ptr noundef nonnull align 1 %207)
-          to label %701 unwind label %.thread563
+          to label %701 unwind label %.thread598
 
 212:                                              ; preds = %185
   %213 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52185,7 +52185,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !invariant.load !13, !nonnull !13
   %217 = invoke { ptr, ptr } %216(ptr noundef nonnull align 1 %213)
-          to label %368 unwind label %.thread563
+          to label %368 unwind label %.thread598
 
 218:                                              ; preds = %185
   %219 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52193,7 +52193,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !invariant.load !13, !nonnull !13
   %223 = invoke { ptr, ptr } %222(ptr noundef nonnull align 1 %219)
-          to label %411 unwind label %.thread563
+          to label %411 unwind label %.thread598
 
 224:                                              ; preds = %185
   %225 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52201,7 +52201,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !invariant.load !13, !nonnull !13
   %229 = invoke { ptr, ptr } %228(ptr noundef nonnull align 1 %225)
-          to label %454 unwind label %.thread563
+          to label %454 unwind label %.thread598
 
 230:                                              ; preds = %185
   %231 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52209,7 +52209,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8, !invariant.load !13, !nonnull !13
   %235 = invoke { ptr, ptr } %234(ptr noundef nonnull align 1 %231)
-          to label %497 unwind label %.thread563
+          to label %497 unwind label %.thread598
 
 236:                                              ; preds = %185
   %237 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52217,7 +52217,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %240 = load ptr, ptr %239, align 8, !invariant.load !13, !nonnull !13
   %241 = invoke { ptr, ptr } %240(ptr noundef nonnull align 1 %237)
-          to label %540 unwind label %.thread563
+          to label %540 unwind label %.thread598
 
 242:                                              ; preds = %185
   %243 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52225,7 +52225,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8, !invariant.load !13, !nonnull !13
   %247 = invoke { ptr, ptr } %246(ptr noundef nonnull align 1 %243)
-          to label %583 unwind label %.thread563
+          to label %583 unwind label %.thread598
 
 248:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -52247,14 +52247,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8, !invariant.load !13, !nonnull !13
   %261 = invoke { ptr, ptr } %260(ptr noundef nonnull align 1 %257)
-          to label %823 unwind label %.thread563
+          to label %823 unwind label %.thread598
 
 262:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %263 = load ptr, ptr %176, align 8, !nonnull !13, !noundef !13
   %264 = load ptr, ptr %178, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %94, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %264, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %857 unwind label %.thread563
+          to label %857 unwind label %.thread598
 
 265:                                              ; preds = %185
   %266 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -52262,7 +52262,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8, !invariant.load !13, !nonnull !13
   %270 = invoke { ptr, ptr } %269(ptr noundef nonnull align 1 %266)
-          to label %931 unwind label %.thread563
+          to label %931 unwind label %.thread598
 
 271:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -52271,7 +52271,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8, !invariant.load !13, !nonnull !13
   %276 = invoke { ptr, ptr } %275(ptr noundef nonnull align 1 %272)
-          to label %964 unwind label %.thread563
+          to label %964 unwind label %.thread598
 
 277:                                              ; preds = %188
   %278 = extractvalue { ptr, ptr } %193, 0
@@ -52279,7 +52279,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %280 = getelementptr i8, ptr %279, i64 24
   %.val192 = load ptr, ptr %280, align 8
   %281 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %278)
-          to label %282 unwind label %.thread563
+          to label %282 unwind label %.thread598
 
 282:                                              ; preds = %277
   %283 = extractvalue { i64, i64 } %281, 0
@@ -52292,12 +52292,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %288 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %291 unwind label %.thread563
+          to label %291 unwind label %.thread598
 
 .invoke:                                          ; preds = %969, %936, %828, %706, %631, %588, %545, %502, %459, %416, %373, %330, %282
   %289 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %282 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %330 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %373 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %416 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %459 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %502 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %545 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %588 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %631 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %706 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %828 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %936 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %969 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %289) #28
-          to label %.cont unwind label %.thread563
+          to label %.cont unwind label %.thread598
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -52313,7 +52313,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %293 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store i64 0, ptr %293, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %164, ptr noundef nonnull align 8 %278, i1 noundef zeroext %288, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %163)
-          to label %294 unwind label %.thread563
+          to label %294 unwind label %.thread598
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
@@ -52427,7 +52427,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %328 = getelementptr i8, ptr %327, i64 24
   %.val191 = load ptr, ptr %328, align 8
   %329 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %326)
-          to label %330 unwind label %.thread563
+          to label %330 unwind label %.thread598
 
 330:                                              ; preds = %325
   %331 = extractvalue { i64, i64 } %329, 0
@@ -52440,7 +52440,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 335:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %336 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %337 unwind label %.thread563
+          to label %337 unwind label %.thread598
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -52450,7 +52450,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %339 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i64 0, ptr %339, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %157, ptr noundef nonnull align 8 %326, i1 noundef zeroext %336, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156)
-          to label %340 unwind label %.thread563
+          to label %340 unwind label %.thread598
 
 340:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
@@ -52549,7 +52549,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %371 = getelementptr i8, ptr %370, i64 24
   %.val = load ptr, ptr %371, align 8
   %372 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %369)
-          to label %373 unwind label %.thread563
+          to label %373 unwind label %.thread598
 
 373:                                              ; preds = %368
   %374 = extractvalue { i64, i64 } %372, 0
@@ -52562,7 +52562,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 378:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %379 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %380 unwind label %.thread563
+          to label %380 unwind label %.thread598
 
 380:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -52572,7 +52572,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %382 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %382, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %136, ptr noundef nonnull align 8 %369, i1 noundef zeroext %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
-          to label %383 unwind label %.thread563
+          to label %383 unwind label %.thread598
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -52671,7 +52671,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %414 = getelementptr i8, ptr %413, i64 24
   %.val189 = load ptr, ptr %414, align 8
   %415 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %412)
-          to label %416 unwind label %.thread563
+          to label %416 unwind label %.thread598
 
 416:                                              ; preds = %411
   %417 = extractvalue { i64, i64 } %415, 0
@@ -52684,7 +52684,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %422 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %423 unwind label %.thread563
+          to label %423 unwind label %.thread598
 
 423:                                              ; preds = %421
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -52694,7 +52694,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %425 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 0, ptr %425, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129, ptr noundef nonnull align 8 %412, i1 noundef zeroext %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %128)
-          to label %426 unwind label %.thread563
+          to label %426 unwind label %.thread598
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -52793,7 +52793,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %457 = getelementptr i8, ptr %456, i64 24
   %.val190 = load ptr, ptr %457, align 8
   %458 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %455)
-          to label %459 unwind label %.thread563
+          to label %459 unwind label %.thread598
 
 459:                                              ; preds = %454
   %460 = extractvalue { i64, i64 } %458, 0
@@ -52806,7 +52806,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 464:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %465 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %466 unwind label %.thread563
+          to label %466 unwind label %.thread598
 
 466:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -52816,7 +52816,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %468 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %468, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %122, ptr noundef nonnull align 8 %455, i1 noundef zeroext %465, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %121)
-          to label %469 unwind label %.thread563
+          to label %469 unwind label %.thread598
 
 469:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
@@ -52915,7 +52915,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %500 = getelementptr i8, ptr %499, i64 24
   %.val187 = load ptr, ptr %500, align 8
   %501 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %498)
-          to label %502 unwind label %.thread563
+          to label %502 unwind label %.thread598
 
 502:                                              ; preds = %497
   %503 = extractvalue { i64, i64 } %501, 0
@@ -52928,7 +52928,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 507:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %508 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %509 unwind label %.thread563
+          to label %509 unwind label %.thread598
 
 509:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -52938,7 +52938,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %511 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %511, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115, ptr noundef nonnull align 8 %498, i1 noundef zeroext %508, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %114)
-          to label %512 unwind label %.thread563
+          to label %512 unwind label %.thread598
 
 512:                                              ; preds = %509
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
@@ -53037,7 +53037,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %543 = getelementptr i8, ptr %542, i64 24
   %.val193 = load ptr, ptr %543, align 8
   %544 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %541)
-          to label %545 unwind label %.thread563
+          to label %545 unwind label %.thread598
 
 545:                                              ; preds = %540
   %546 = extractvalue { i64, i64 } %544, 0
@@ -53050,7 +53050,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 550:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %551 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %552 unwind label %.thread563
+          to label %552 unwind label %.thread598
 
 552:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -53060,7 +53060,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %554 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %554, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noundef nonnull align 8 %541, i1 noundef zeroext %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %107)
-          to label %555 unwind label %.thread563
+          to label %555 unwind label %.thread598
 
 555:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -53159,7 +53159,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %586 = getelementptr i8, ptr %585, i64 24
   %.val194 = load ptr, ptr %586, align 8
   %587 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %584)
-          to label %588 unwind label %.thread563
+          to label %588 unwind label %.thread598
 
 588:                                              ; preds = %583
   %589 = extractvalue { i64, i64 } %587, 0
@@ -53172,7 +53172,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 593:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %594 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %595 unwind label %.thread563
+          to label %595 unwind label %.thread598
 
 595:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -53182,7 +53182,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %597 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %597, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noundef nonnull align 8 %584, i1 noundef zeroext %594, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100)
-          to label %598 unwind label %.thread563
+          to label %598 unwind label %.thread598
 
 598:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -53281,7 +53281,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %629 = getelementptr i8, ptr %628, i64 24
   %.val186 = load ptr, ptr %629, align 8
   %630 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %627)
-          to label %631 unwind label %.thread563
+          to label %631 unwind label %.thread598
 
 631:                                              ; preds = %626
   %632 = extractvalue { i64, i64 } %630, 0
@@ -53294,7 +53294,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 636:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %637 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %638 unwind label %.thread563
+          to label %638 unwind label %.thread598
 
 638:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -53304,7 +53304,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %640 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 0, ptr %640, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noundef nonnull align 8 %627, i1 noundef zeroext %637, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %149)
-          to label %641 unwind label %.thread563
+          to label %641 unwind label %.thread598
 
 641:                                              ; preds = %638
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
@@ -53493,7 +53493,7 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit: ; preds = %6
   %704 = getelementptr i8, ptr %703, i64 24
   %.val188 = load ptr, ptr %704, align 8
   %705 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %702)
-          to label %706 unwind label %.thread563
+          to label %706 unwind label %.thread598
 
 706:                                              ; preds = %701
   %707 = extractvalue { i64, i64 } %705, 0
@@ -53506,7 +53506,7 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit: ; preds = %6
 711:                                              ; preds = %706
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %712 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %713 unwind label %.thread563
+          to label %713 unwind label %.thread598
 
 713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -53516,7 +53516,7 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit: ; preds = %6
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i64 0, ptr %715, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noundef nonnull align 8 %702, i1 noundef zeroext %712, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %142)
-          to label %716 unwind label %.thread563
+          to label %716 unwind label %.thread598
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
@@ -53833,7 +53833,7 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit265: ; preds =
   %826 = getelementptr i8, ptr %825, i64 24
   %.val197 = load ptr, ptr %826, align 8
   %827 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %824)
-          to label %828 unwind label %.thread563
+          to label %828 unwind label %.thread598
 
 828:                                              ; preds = %823
   %829 = extractvalue { i64, i64 } %827, 0
@@ -54103,7 +54103,7 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit265: ; preds =
   %934 = getelementptr i8, ptr %933, i64 24
   %.val198 = load ptr, ptr %934, align 8
   %935 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %932)
-          to label %936 unwind label %.thread563
+          to label %936 unwind label %.thread598
 
 936:                                              ; preds = %931
   %937 = extractvalue { i64, i64 } %935, 0
@@ -54192,7 +54192,7 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit265: ; preds =
   %967 = getelementptr i8, ptr %966, i64 24
   %.val199 = load ptr, ptr %967, align 8
   %968 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %965)
-          to label %969 unwind label %.thread563
+          to label %969 unwind label %.thread598
 
 969:                                              ; preds = %964
   %970 = extractvalue { i64, i64 } %968, 0
@@ -54204,7 +54204,7 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit265: ; preds =
 
 974:                                              ; preds = %969
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %83, ptr noundef nonnull align 8 %965)
-          to label %975 unwind label %.thread563
+          to label %975 unwind label %.thread598
 
 975:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -54272,7 +54272,7 @@ _ZN12polars_arrow5array5Array10null_count17hd17694cc7be7d897E.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %83)
-          to label %996 unwind label %.thread563
+          to label %996 unwind label %.thread598
 
 996:                                              ; preds = %995
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
@@ -55665,7 +55665,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hf7cf5bce32960409E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64)
-          to label %1435 unwind label %.thread563
+          to label %1435 unwind label %.thread598
 
 1435:                                             ; preds = %1434
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55725,7 +55725,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hf7cf5bce32960409E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %52)
-          to label %1445 unwind label %.thread563
+          to label %1445 unwind label %.thread598
 
 1445:                                             ; preds = %1444
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55742,8 +55742,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hf7cf5bce32960409E.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1418, %1417 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread563, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1429, %1432, %1439, %1442, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1430, %1429 ], [ %1433, %1432 ], [ %1440, %1439 ], [ %1443, %1442 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm561, %.thread563 ]
+.thread:                                          ; preds = %.thread598, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1429, %1432, %1439, %1442, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1430, %1429 ], [ %1433, %1432 ], [ %1440, %1439 ], [ %1443, %1442 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm596, %.thread598 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %315
 }
@@ -55932,7 +55932,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !3439
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %46, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread565
+          to label %.noexc unwind label %.thread603
 
 .noexc:                                           ; preds = %169
   %170 = load i64, ptr %46, align 8, !range !422, !noalias !3439, !noundef !13
@@ -55945,7 +55945,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 175:                                              ; preds = %.noexc
   %176 = load i64, ptr %174, align 8, !noalias !3439
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %173, i64 %176, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread565
+          to label %.noexc200 unwind label %.thread603
 
 .noexc200:                                        ; preds = %175
   unreachable
@@ -55958,19 +55958,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 64
   %183 = load ptr, ptr %182, align 8, !invariant.load !13, !nonnull !13
   %184 = invoke noundef align 8 dereferenceable(32) ptr %183(ptr noundef nonnull align 1 %179)
-          to label %185 unwind label %.thread565
+          to label %185 unwind label %.thread603
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread565:                                       ; preds = %.invoke, %1491, %1481, %293, %289, %190, %339, %337, %196, %382, %380, %214, %425, %423, %220, %468, %466, %226, %511, %509, %232, %554, %552, %238, %597, %595, %244, %640, %638, %202, %715, %713, %208, %258, %264, %267, %997, %976, %273, %185, %177, %169, %175, %189, %279, %327, %370, %413, %456, %499, %542, %585, %628, %703, %825, %933, %966
-  %lpad.thr_comm563 = landingpad { ptr, i32 }
+.thread603:                                       ; preds = %.invoke, %1491, %1481, %293, %289, %190, %339, %337, %196, %382, %380, %214, %425, %423, %220, %468, %466, %226, %511, %509, %232, %554, %552, %238, %597, %595, %244, %640, %638, %202, %715, %713, %208, %258, %264, %267, %997, %976, %273, %185, %177, %169, %175, %189, %279, %327, %370, %413, %456, %499, %542, %585, %628, %703, %825, %933, %966
+  %lpad.thr_comm601 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 185:                                              ; preds = %177
   %186 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %184)
-          to label %187 unwind label %.thread565
+          to label %187 unwind label %.thread603
 
 187:                                              ; preds = %185
   %188 = load i8, ptr %186, align 8, !range !456, !noundef !13
@@ -56020,7 +56020,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !3463
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %62, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %45)
-          to label %1475 unwind label %.thread565
+          to label %1475 unwind label %.thread603
 
 190:                                              ; preds = %187
   %191 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56028,7 +56028,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %194 = load ptr, ptr %193, align 8, !invariant.load !13, !nonnull !13
   %195 = invoke { ptr, ptr } %194(ptr noundef nonnull align 1 %191)
-          to label %279 unwind label %.thread565
+          to label %279 unwind label %.thread603
 
 196:                                              ; preds = %187
   %197 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56036,7 +56036,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %200 = load ptr, ptr %199, align 8, !invariant.load !13, !nonnull !13
   %201 = invoke { ptr, ptr } %200(ptr noundef nonnull align 1 %197)
-          to label %327 unwind label %.thread565
+          to label %327 unwind label %.thread603
 
 202:                                              ; preds = %187, %187, %187
   %203 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56044,7 +56044,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %206 = load ptr, ptr %205, align 8, !invariant.load !13, !nonnull !13
   %207 = invoke { ptr, ptr } %206(ptr noundef nonnull align 1 %203)
-          to label %628 unwind label %.thread565
+          to label %628 unwind label %.thread603
 
 208:                                              ; preds = %187, %187, %187, %187, %187
   %209 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56052,7 +56052,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 32
   %212 = load ptr, ptr %211, align 8, !invariant.load !13, !nonnull !13
   %213 = invoke { ptr, ptr } %212(ptr noundef nonnull align 1 %209)
-          to label %703 unwind label %.thread565
+          to label %703 unwind label %.thread603
 
 214:                                              ; preds = %187
   %215 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56060,7 +56060,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %218 = load ptr, ptr %217, align 8, !invariant.load !13, !nonnull !13
   %219 = invoke { ptr, ptr } %218(ptr noundef nonnull align 1 %215)
-          to label %370 unwind label %.thread565
+          to label %370 unwind label %.thread603
 
 220:                                              ; preds = %187
   %221 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56068,7 +56068,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 32
   %224 = load ptr, ptr %223, align 8, !invariant.load !13, !nonnull !13
   %225 = invoke { ptr, ptr } %224(ptr noundef nonnull align 1 %221)
-          to label %413 unwind label %.thread565
+          to label %413 unwind label %.thread603
 
 226:                                              ; preds = %187
   %227 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56076,7 +56076,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 32
   %230 = load ptr, ptr %229, align 8, !invariant.load !13, !nonnull !13
   %231 = invoke { ptr, ptr } %230(ptr noundef nonnull align 1 %227)
-          to label %456 unwind label %.thread565
+          to label %456 unwind label %.thread603
 
 232:                                              ; preds = %187
   %233 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56084,7 +56084,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 32
   %236 = load ptr, ptr %235, align 8, !invariant.load !13, !nonnull !13
   %237 = invoke { ptr, ptr } %236(ptr noundef nonnull align 1 %233)
-          to label %499 unwind label %.thread565
+          to label %499 unwind label %.thread603
 
 238:                                              ; preds = %187
   %239 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56092,7 +56092,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 32
   %242 = load ptr, ptr %241, align 8, !invariant.load !13, !nonnull !13
   %243 = invoke { ptr, ptr } %242(ptr noundef nonnull align 1 %239)
-          to label %542 unwind label %.thread565
+          to label %542 unwind label %.thread603
 
 244:                                              ; preds = %187
   %245 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56100,7 +56100,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 32
   %248 = load ptr, ptr %247, align 8, !invariant.load !13, !nonnull !13
   %249 = invoke { ptr, ptr } %248(ptr noundef nonnull align 1 %245)
-          to label %585 unwind label %.thread565
+          to label %585 unwind label %.thread603
 
 250:                                              ; preds = %187
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
@@ -56122,14 +56122,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 32
   %262 = load ptr, ptr %261, align 8, !invariant.load !13, !nonnull !13
   %263 = invoke { ptr, ptr } %262(ptr noundef nonnull align 1 %259)
-          to label %825 unwind label %.thread565
+          to label %825 unwind label %.thread603
 
 264:                                              ; preds = %187
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %265 = load ptr, ptr %178, align 8, !nonnull !13, !noundef !13
   %266 = load ptr, ptr %180, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %96, ptr noundef nonnull align 1 %265, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %266, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %859 unwind label %.thread565
+          to label %859 unwind label %.thread603
 
 267:                                              ; preds = %187
   %268 = load ptr, ptr %178, align 8, !nonnull !13, !align !405, !noundef !13
@@ -56137,7 +56137,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load ptr, ptr %270, align 8, !invariant.load !13, !nonnull !13
   %272 = invoke { ptr, ptr } %271(ptr noundef nonnull align 1 %268)
-          to label %933 unwind label %.thread565
+          to label %933 unwind label %.thread603
 
 273:                                              ; preds = %187
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
@@ -56146,7 +56146,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 32
   %277 = load ptr, ptr %276, align 8, !invariant.load !13, !nonnull !13
   %278 = invoke { ptr, ptr } %277(ptr noundef nonnull align 1 %274)
-          to label %966 unwind label %.thread565
+          to label %966 unwind label %.thread603
 
 279:                                              ; preds = %190
   %280 = extractvalue { ptr, ptr } %195, 0
@@ -56154,7 +56154,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %282 = getelementptr i8, ptr %281, i64 24
   %.val192 = load ptr, ptr %282, align 8
   %283 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %280)
-          to label %284 unwind label %.thread565
+          to label %284 unwind label %.thread603
 
 284:                                              ; preds = %279
   %285 = extractvalue { i64, i64 } %283, 0
@@ -56167,12 +56167,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 289:                                              ; preds = %284
   call void @llvm.lifetime.start.p0(ptr nonnull %166)
   %290 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %293 unwind label %.thread565
+          to label %293 unwind label %.thread603
 
 .invoke:                                          ; preds = %971, %938, %830, %708, %633, %590, %547, %504, %461, %418, %375, %332, %284
   %291 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %284 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %332 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %375 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %418 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %461 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %504 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %547 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %590 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %633 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %708 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %830 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %938 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %971 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %291) #28
-          to label %.cont unwind label %.thread565
+          to label %.cont unwind label %.thread603
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -56188,7 +56188,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %295 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store i64 0, ptr %295, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %166, ptr noundef nonnull align 8 %280, i1 noundef zeroext %290, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %165)
-          to label %296 unwind label %.thread565
+          to label %296 unwind label %.thread603
 
 296:                                              ; preds = %293
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
@@ -56302,7 +56302,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %330 = getelementptr i8, ptr %329, i64 24
   %.val191 = load ptr, ptr %330, align 8
   %331 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %328)
-          to label %332 unwind label %.thread565
+          to label %332 unwind label %.thread603
 
 332:                                              ; preds = %327
   %333 = extractvalue { i64, i64 } %331, 0
@@ -56315,7 +56315,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 337:                                              ; preds = %332
   call void @llvm.lifetime.start.p0(ptr nonnull %159)
   %338 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %339 unwind label %.thread565
+          to label %339 unwind label %.thread603
 
 339:                                              ; preds = %337
   call void @llvm.lifetime.start.p0(ptr nonnull %158)
@@ -56325,7 +56325,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %341 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store i64 0, ptr %341, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %159, ptr noundef nonnull align 8 %328, i1 noundef zeroext %338, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %158)
-          to label %342 unwind label %.thread565
+          to label %342 unwind label %.thread603
 
 342:                                              ; preds = %339
   call void @llvm.lifetime.end.p0(ptr nonnull %158)
@@ -56424,7 +56424,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %373 = getelementptr i8, ptr %372, i64 24
   %.val = load ptr, ptr %373, align 8
   %374 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %371)
-          to label %375 unwind label %.thread565
+          to label %375 unwind label %.thread603
 
 375:                                              ; preds = %370
   %376 = extractvalue { i64, i64 } %374, 0
@@ -56437,7 +56437,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 380:                                              ; preds = %375
   call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %381 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %382 unwind label %.thread565
+          to label %382 unwind label %.thread603
 
 382:                                              ; preds = %380
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
@@ -56447,7 +56447,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %384 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store i64 0, ptr %384, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %138, ptr noundef nonnull align 8 %371, i1 noundef zeroext %381, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %137)
-          to label %385 unwind label %.thread565
+          to label %385 unwind label %.thread603
 
 385:                                              ; preds = %382
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
@@ -56546,7 +56546,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %416 = getelementptr i8, ptr %415, i64 24
   %.val189 = load ptr, ptr %416, align 8
   %417 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %414)
-          to label %418 unwind label %.thread565
+          to label %418 unwind label %.thread603
 
 418:                                              ; preds = %413
   %419 = extractvalue { i64, i64 } %417, 0
@@ -56559,7 +56559,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 423:                                              ; preds = %418
   call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %424 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %425 unwind label %.thread565
+          to label %425 unwind label %.thread603
 
 425:                                              ; preds = %423
   call void @llvm.lifetime.start.p0(ptr nonnull %130)
@@ -56569,7 +56569,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %427 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store i64 0, ptr %427, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %131, ptr noundef nonnull align 8 %414, i1 noundef zeroext %424, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %130)
-          to label %428 unwind label %.thread565
+          to label %428 unwind label %.thread603
 
 428:                                              ; preds = %425
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
@@ -56668,7 +56668,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %459 = getelementptr i8, ptr %458, i64 24
   %.val190 = load ptr, ptr %459, align 8
   %460 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %457)
-          to label %461 unwind label %.thread565
+          to label %461 unwind label %.thread603
 
 461:                                              ; preds = %456
   %462 = extractvalue { i64, i64 } %460, 0
@@ -56681,7 +56681,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 466:                                              ; preds = %461
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
   %467 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %468 unwind label %.thread565
+          to label %468 unwind label %.thread603
 
 468:                                              ; preds = %466
   call void @llvm.lifetime.start.p0(ptr nonnull %123)
@@ -56691,7 +56691,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %470 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i64 0, ptr %470, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %124, ptr noundef nonnull align 8 %457, i1 noundef zeroext %467, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %123)
-          to label %471 unwind label %.thread565
+          to label %471 unwind label %.thread603
 
 471:                                              ; preds = %468
   call void @llvm.lifetime.end.p0(ptr nonnull %123)
@@ -56790,7 +56790,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %502 = getelementptr i8, ptr %501, i64 24
   %.val187 = load ptr, ptr %502, align 8
   %503 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %500)
-          to label %504 unwind label %.thread565
+          to label %504 unwind label %.thread603
 
 504:                                              ; preds = %499
   %505 = extractvalue { i64, i64 } %503, 0
@@ -56803,7 +56803,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 509:                                              ; preds = %504
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
   %510 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %511 unwind label %.thread565
+          to label %511 unwind label %.thread603
 
 511:                                              ; preds = %509
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
@@ -56813,7 +56813,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %513 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i64 0, ptr %513, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %117, ptr noundef nonnull align 8 %500, i1 noundef zeroext %510, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %116)
-          to label %514 unwind label %.thread565
+          to label %514 unwind label %.thread603
 
 514:                                              ; preds = %511
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
@@ -56912,7 +56912,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %545 = getelementptr i8, ptr %544, i64 24
   %.val193 = load ptr, ptr %545, align 8
   %546 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %543)
-          to label %547 unwind label %.thread565
+          to label %547 unwind label %.thread603
 
 547:                                              ; preds = %542
   %548 = extractvalue { i64, i64 } %546, 0
@@ -56925,7 +56925,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 552:                                              ; preds = %547
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
   %553 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %554 unwind label %.thread565
+          to label %554 unwind label %.thread603
 
 554:                                              ; preds = %552
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
@@ -56935,7 +56935,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %556 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 0, ptr %556, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %110, ptr noundef nonnull align 8 %543, i1 noundef zeroext %553, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %109)
-          to label %557 unwind label %.thread565
+          to label %557 unwind label %.thread603
 
 557:                                              ; preds = %554
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
@@ -57034,7 +57034,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %588 = getelementptr i8, ptr %587, i64 24
   %.val194 = load ptr, ptr %588, align 8
   %589 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %586)
-          to label %590 unwind label %.thread565
+          to label %590 unwind label %.thread603
 
 590:                                              ; preds = %585
   %591 = extractvalue { i64, i64 } %589, 0
@@ -57047,7 +57047,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 595:                                              ; preds = %590
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %596 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %597 unwind label %.thread565
+          to label %597 unwind label %.thread603
 
 597:                                              ; preds = %595
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
@@ -57057,7 +57057,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %599 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store i64 0, ptr %599, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %103, ptr noundef nonnull align 8 %586, i1 noundef zeroext %596, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %102)
-          to label %600 unwind label %.thread565
+          to label %600 unwind label %.thread603
 
 600:                                              ; preds = %597
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
@@ -57156,7 +57156,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %631 = getelementptr i8, ptr %630, i64 24
   %.val186 = load ptr, ptr %631, align 8
   %632 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %629)
-          to label %633 unwind label %.thread565
+          to label %633 unwind label %.thread603
 
 633:                                              ; preds = %628
   %634 = extractvalue { i64, i64 } %632, 0
@@ -57169,7 +57169,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 638:                                              ; preds = %633
   call void @llvm.lifetime.start.p0(ptr nonnull %152)
   %639 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %640 unwind label %.thread565
+          to label %640 unwind label %.thread603
 
 640:                                              ; preds = %638
   call void @llvm.lifetime.start.p0(ptr nonnull %151)
@@ -57179,7 +57179,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %642 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store i64 0, ptr %642, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %152, ptr noundef nonnull align 8 %629, i1 noundef zeroext %639, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %151)
-          to label %643 unwind label %.thread565
+          to label %643 unwind label %.thread603
 
 643:                                              ; preds = %640
   call void @llvm.lifetime.end.p0(ptr nonnull %151)
@@ -57368,7 +57368,7 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit: ; preds = %6
   %706 = getelementptr i8, ptr %705, i64 24
   %.val188 = load ptr, ptr %706, align 8
   %707 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %704)
-          to label %708 unwind label %.thread565
+          to label %708 unwind label %.thread603
 
 708:                                              ; preds = %703
   %709 = extractvalue { i64, i64 } %707, 0
@@ -57381,7 +57381,7 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit: ; preds = %6
 713:                                              ; preds = %708
   call void @llvm.lifetime.start.p0(ptr nonnull %145)
   %714 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %715 unwind label %.thread565
+          to label %715 unwind label %.thread603
 
 715:                                              ; preds = %713
   call void @llvm.lifetime.start.p0(ptr nonnull %144)
@@ -57391,7 +57391,7 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit: ; preds = %6
   %717 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store i64 0, ptr %717, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %145, ptr noundef nonnull align 8 %704, i1 noundef zeroext %714, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %144)
-          to label %718 unwind label %.thread565
+          to label %718 unwind label %.thread603
 
 718:                                              ; preds = %715
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
@@ -57708,7 +57708,7 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit265: ; preds =
   %828 = getelementptr i8, ptr %827, i64 24
   %.val197 = load ptr, ptr %828, align 8
   %829 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %826)
-          to label %830 unwind label %.thread565
+          to label %830 unwind label %.thread603
 
 830:                                              ; preds = %825
   %831 = extractvalue { i64, i64 } %829, 0
@@ -57978,7 +57978,7 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit265: ; preds =
   %936 = getelementptr i8, ptr %935, i64 24
   %.val198 = load ptr, ptr %936, align 8
   %937 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %934)
-          to label %938 unwind label %.thread565
+          to label %938 unwind label %.thread603
 
 938:                                              ; preds = %933
   %939 = extractvalue { i64, i64 } %937, 0
@@ -58067,7 +58067,7 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit265: ; preds =
   %969 = getelementptr i8, ptr %968, i64 24
   %.val199 = load ptr, ptr %969, align 8
   %970 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %967)
-          to label %971 unwind label %.thread565
+          to label %971 unwind label %.thread603
 
 971:                                              ; preds = %966
   %972 = extractvalue { i64, i64 } %970, 0
@@ -58079,7 +58079,7 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit265: ; preds =
 
 976:                                              ; preds = %971
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %85, ptr noundef nonnull align 8 %967)
-          to label %977 unwind label %.thread565
+          to label %977 unwind label %.thread603
 
 977:                                              ; preds = %976
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
@@ -58147,7 +58147,7 @@ _ZN12polars_arrow5array5Array10null_count17h3ccbd98fa294eb09E.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %85)
-          to label %998 unwind label %.thread565
+          to label %998 unwind label %.thread603
 
 998:                                              ; preds = %997
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
@@ -59683,7 +59683,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hf3a0edda820aa76cE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %67, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %66)
-          to label %1482 unwind label %.thread565
+          to label %1482 unwind label %.thread603
 
 1482:                                             ; preds = %1481
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -59743,7 +59743,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hf3a0edda820aa76cE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %55, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %54)
-          to label %1492 unwind label %.thread565
+          to label %1492 unwind label %.thread603
 
 1492:                                             ; preds = %1491
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -59760,8 +59760,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17hf3a0edda820aa76cE.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1465, %1464 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread565, %921, %930, %862, %962, %958, %855, %851, %821, %817, %775, %771, %700, %696, %625, %621, %582, %578, %539, %535, %496, %492, %453, %449, %410, %406, %367, %363, %323, %319, %.noexc291, %964, %.noexc279, %857, %824, %777, %702, %627, %584, %541, %498, %455, %412, %369, %326, %1476, %1479, %1486, %1489, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %965, %964 ], [ %.pn124.pn, %.noexc279 ], [ %858, %857 ], [ %.pn131.ph, %824 ], [ %.pn152.ph, %777 ], [ %.pn155.ph, %702 ], [ %.pn134.ph, %627 ], [ %.pn137.ph, %584 ], [ %.pn140.ph, %541 ], [ %.pn143.ph, %498 ], [ %.pn146.ph, %455 ], [ %.pn149.ph, %412 ], [ %.pn158.ph, %369 ], [ %.pn161.ph, %326 ], [ %1477, %1476 ], [ %1480, %1479 ], [ %1487, %1486 ], [ %1490, %1489 ], [ %320, %319 ], [ %320, %323 ], [ %364, %363 ], [ %364, %367 ], [ %407, %406 ], [ %407, %410 ], [ %450, %449 ], [ %450, %453 ], [ %493, %492 ], [ %493, %496 ], [ %536, %535 ], [ %536, %539 ], [ %579, %578 ], [ %579, %582 ], [ %622, %621 ], [ %622, %625 ], [ %697, %696 ], [ %697, %700 ], [ %772, %771 ], [ %772, %775 ], [ %818, %817 ], [ %818, %821 ], [ %852, %851 ], [ %852, %855 ], [ %959, %958 ], [ %959, %962 ], [ %922, %921 ], [ %922, %930 ], [ %863, %862 ], [ %lpad.thr_comm563, %.thread565 ]
+.thread:                                          ; preds = %.thread603, %921, %930, %862, %962, %958, %855, %851, %821, %817, %775, %771, %700, %696, %625, %621, %582, %578, %539, %535, %496, %492, %453, %449, %410, %406, %367, %363, %323, %319, %.noexc291, %964, %.noexc279, %857, %824, %777, %702, %627, %584, %541, %498, %455, %412, %369, %326, %1476, %1479, %1486, %1489, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %965, %964 ], [ %.pn124.pn, %.noexc279 ], [ %858, %857 ], [ %.pn131.ph, %824 ], [ %.pn152.ph, %777 ], [ %.pn155.ph, %702 ], [ %.pn134.ph, %627 ], [ %.pn137.ph, %584 ], [ %.pn140.ph, %541 ], [ %.pn143.ph, %498 ], [ %.pn146.ph, %455 ], [ %.pn149.ph, %412 ], [ %.pn158.ph, %369 ], [ %.pn161.ph, %326 ], [ %1477, %1476 ], [ %1480, %1479 ], [ %1487, %1486 ], [ %1490, %1489 ], [ %320, %319 ], [ %320, %323 ], [ %364, %363 ], [ %364, %367 ], [ %407, %406 ], [ %407, %410 ], [ %450, %449 ], [ %450, %453 ], [ %493, %492 ], [ %493, %496 ], [ %536, %535 ], [ %536, %539 ], [ %579, %578 ], [ %579, %582 ], [ %622, %621 ], [ %622, %625 ], [ %697, %696 ], [ %697, %700 ], [ %772, %771 ], [ %772, %775 ], [ %818, %817 ], [ %818, %821 ], [ %852, %851 ], [ %852, %855 ], [ %959, %958 ], [ %959, %962 ], [ %922, %921 ], [ %922, %930 ], [ %863, %862 ], [ %lpad.thr_comm601, %.thread603 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %317
 }
@@ -59947,7 +59947,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !3725
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h477fac93c709dd10E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, i64 noundef 50, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread565
+          to label %.noexc unwind label %.thread600
 
 .noexc:                                           ; preds = %167
   %168 = load i64, ptr %44, align 8, !range !422, !noalias !3725, !noundef !13
@@ -59960,7 +59960,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 173:                                              ; preds = %.noexc
   %174 = load i64, ptr %172, align 8, !noalias !3725
   invoke void @_ZN5alloc7raw_vec12handle_error17hd116ab85b3f6d03eE(i64 noundef %171, i64 %174, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.be7d3a2d4fed085daee655cfb32c472e.184) #28
-          to label %.noexc200 unwind label %.thread565
+          to label %.noexc200 unwind label %.thread600
 
 .noexc200:                                        ; preds = %173
   unreachable
@@ -59973,19 +59973,19 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8, !invariant.load !13, !nonnull !13
   %182 = invoke noundef align 8 dereferenceable(32) ptr %181(ptr noundef nonnull align 1 %177)
-          to label %183 unwind label %.thread565
+          to label %183 unwind label %.thread600
 
 .body:                                            ; preds = %.thread499
   br i1 %.sroa.062.0.lpad-body471504, label %.thread, label %.body.thread511
 
-.thread565:                                       ; preds = %.invoke, %1442, %1432, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
-  %lpad.thr_comm563 = landingpad { ptr, i32 }
+.thread600:                                       ; preds = %.invoke, %1442, %1432, %291, %287, %188, %337, %335, %194, %380, %378, %212, %423, %421, %218, %466, %464, %224, %509, %507, %230, %552, %550, %236, %595, %593, %242, %638, %636, %200, %713, %711, %206, %256, %262, %265, %995, %974, %271, %183, %175, %167, %173, %187, %277, %325, %368, %411, %454, %497, %540, %583, %626, %701, %823, %931, %964
+  %lpad.thr_comm598 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 183:                                              ; preds = %175
   %184 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %182)
-          to label %185 unwind label %.thread565
+          to label %185 unwind label %.thread600
 
 185:                                              ; preds = %183
   %186 = load i8, ptr %184, align 8, !range !456, !noundef !13
@@ -60035,7 +60035,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %.sroa.7328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr null, ptr %.sroa.7328.0..sroa_idx, align 8, !noalias !3749
   invoke void @_ZN5alloc3fmt6format12format_inner17h1e07221face03266E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
-          to label %1426 unwind label %.thread565
+          to label %1426 unwind label %.thread600
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60043,7 +60043,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !invariant.load !13, !nonnull !13
   %193 = invoke { ptr, ptr } %192(ptr noundef nonnull align 1 %189)
-          to label %277 unwind label %.thread565
+          to label %277 unwind label %.thread600
 
 194:                                              ; preds = %185
   %195 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60051,7 +60051,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !invariant.load !13, !nonnull !13
   %199 = invoke { ptr, ptr } %198(ptr noundef nonnull align 1 %195)
-          to label %325 unwind label %.thread565
+          to label %325 unwind label %.thread600
 
 200:                                              ; preds = %185, %185, %185
   %201 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60059,7 +60059,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load ptr, ptr %203, align 8, !invariant.load !13, !nonnull !13
   %205 = invoke { ptr, ptr } %204(ptr noundef nonnull align 1 %201)
-          to label %626 unwind label %.thread565
+          to label %626 unwind label %.thread600
 
 206:                                              ; preds = %185, %185, %185, %185, %185
   %207 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60067,7 +60067,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !invariant.load !13, !nonnull !13
   %211 = invoke { ptr, ptr } %210(ptr noundef nonnull align 1 %207)
-          to label %701 unwind label %.thread565
+          to label %701 unwind label %.thread600
 
 212:                                              ; preds = %185
   %213 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60075,7 +60075,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !invariant.load !13, !nonnull !13
   %217 = invoke { ptr, ptr } %216(ptr noundef nonnull align 1 %213)
-          to label %368 unwind label %.thread565
+          to label %368 unwind label %.thread600
 
 218:                                              ; preds = %185
   %219 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60083,7 +60083,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !invariant.load !13, !nonnull !13
   %223 = invoke { ptr, ptr } %222(ptr noundef nonnull align 1 %219)
-          to label %411 unwind label %.thread565
+          to label %411 unwind label %.thread600
 
 224:                                              ; preds = %185
   %225 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60091,7 +60091,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !invariant.load !13, !nonnull !13
   %229 = invoke { ptr, ptr } %228(ptr noundef nonnull align 1 %225)
-          to label %454 unwind label %.thread565
+          to label %454 unwind label %.thread600
 
 230:                                              ; preds = %185
   %231 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60099,7 +60099,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %234 = load ptr, ptr %233, align 8, !invariant.load !13, !nonnull !13
   %235 = invoke { ptr, ptr } %234(ptr noundef nonnull align 1 %231)
-          to label %497 unwind label %.thread565
+          to label %497 unwind label %.thread600
 
 236:                                              ; preds = %185
   %237 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60107,7 +60107,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %240 = load ptr, ptr %239, align 8, !invariant.load !13, !nonnull !13
   %241 = invoke { ptr, ptr } %240(ptr noundef nonnull align 1 %237)
-          to label %540 unwind label %.thread565
+          to label %540 unwind label %.thread600
 
 242:                                              ; preds = %185
   %243 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60115,7 +60115,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8, !invariant.load !13, !nonnull !13
   %247 = invoke { ptr, ptr } %246(ptr noundef nonnull align 1 %243)
-          to label %583 unwind label %.thread565
+          to label %583 unwind label %.thread600
 
 248:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
@@ -60137,14 +60137,14 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   %260 = load ptr, ptr %259, align 8, !invariant.load !13, !nonnull !13
   %261 = invoke { ptr, ptr } %260(ptr noundef nonnull align 1 %257)
-          to label %823 unwind label %.thread565
+          to label %823 unwind label %.thread600
 
 262:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %263 = load ptr, ptr %176, align 8, !nonnull !13, !noundef !13
   %264 = load ptr, ptr %178, align 8, !nonnull !13, !align !603, !noundef !13
   invoke void @_ZN14polars_compute4cast4cast17hd3776a74c2c1fabcE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %94, ptr noundef nonnull align 1 %263, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %264, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.be7d3a2d4fed085daee655cfb32c472e.242, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %857 unwind label %.thread565
+          to label %857 unwind label %.thread600
 
 265:                                              ; preds = %185
   %266 = load ptr, ptr %176, align 8, !nonnull !13, !align !405, !noundef !13
@@ -60152,7 +60152,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8, !invariant.load !13, !nonnull !13
   %270 = invoke { ptr, ptr } %269(ptr noundef nonnull align 1 %266)
-          to label %931 unwind label %.thread565
+          to label %931 unwind label %.thread600
 
 271:                                              ; preds = %185
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -60161,7 +60161,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8, !invariant.load !13, !nonnull !13
   %276 = invoke { ptr, ptr } %275(ptr noundef nonnull align 1 %272)
-          to label %964 unwind label %.thread565
+          to label %964 unwind label %.thread600
 
 277:                                              ; preds = %188
   %278 = extractvalue { ptr, ptr } %193, 0
@@ -60169,7 +60169,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %280 = getelementptr i8, ptr %279, i64 24
   %.val192 = load ptr, ptr %280, align 8
   %281 = invoke { i64, i64 } %.val192(ptr noundef nonnull align 1 %278)
-          to label %282 unwind label %.thread565
+          to label %282 unwind label %.thread600
 
 282:                                              ; preds = %277
   %283 = extractvalue { i64, i64 } %281, 0
@@ -60182,12 +60182,12 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 287:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %288 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %291 unwind label %.thread565
+          to label %291 unwind label %.thread600
 
 .invoke:                                          ; preds = %969, %936, %828, %706, %631, %588, %545, %502, %459, %416, %373, %330, %282
   %289 = phi ptr [ @anon.be7d3a2d4fed085daee655cfb32c472e.228, %282 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.229, %330 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.230, %373 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.231, %416 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.232, %459 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.233, %502 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.234, %545 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.235, %588 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.236, %631 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.237, %706 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.241, %828 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.245, %936 ], [ @anon.be7d3a2d4fed085daee655cfb32c472e.246, %969 ]
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %289) #28
-          to label %.cont unwind label %.thread565
+          to label %.cont unwind label %.thread600
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -60203,7 +60203,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %293 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store i64 0, ptr %293, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h5166b1b5c53039c2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %164, ptr noundef nonnull align 8 %278, i1 noundef zeroext %288, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %163)
-          to label %294 unwind label %.thread565
+          to label %294 unwind label %.thread600
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %163)
@@ -60317,7 +60317,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %328 = getelementptr i8, ptr %327, i64 24
   %.val191 = load ptr, ptr %328, align 8
   %329 = invoke { i64, i64 } %.val191(ptr noundef nonnull align 1 %326)
-          to label %330 unwind label %.thread565
+          to label %330 unwind label %.thread600
 
 330:                                              ; preds = %325
   %331 = extractvalue { i64, i64 } %329, 0
@@ -60330,7 +60330,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 335:                                              ; preds = %330
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   %336 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %337 unwind label %.thread565
+          to label %337 unwind label %.thread600
 
 337:                                              ; preds = %335
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
@@ -60340,7 +60340,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %339 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i64 0, ptr %339, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hf3021f8df883e045E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %157, ptr noundef nonnull align 8 %326, i1 noundef zeroext %336, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %156)
-          to label %340 unwind label %.thread565
+          to label %340 unwind label %.thread600
 
 340:                                              ; preds = %337
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
@@ -60439,7 +60439,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %371 = getelementptr i8, ptr %370, i64 24
   %.val = load ptr, ptr %371, align 8
   %372 = invoke { i64, i64 } %.val(ptr noundef nonnull align 1 %369)
-          to label %373 unwind label %.thread565
+          to label %373 unwind label %.thread600
 
 373:                                              ; preds = %368
   %374 = extractvalue { i64, i64 } %372, 0
@@ -60452,7 +60452,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 378:                                              ; preds = %373
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %379 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %380 unwind label %.thread565
+          to label %380 unwind label %.thread600
 
 380:                                              ; preds = %378
   call void @llvm.lifetime.start.p0(ptr nonnull %135)
@@ -60462,7 +60462,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %382 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %382, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h213ebc1c54081d05E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %136, ptr noundef nonnull align 8 %369, i1 noundef zeroext %379, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %135)
-          to label %383 unwind label %.thread565
+          to label %383 unwind label %.thread600
 
 383:                                              ; preds = %380
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -60561,7 +60561,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %414 = getelementptr i8, ptr %413, i64 24
   %.val189 = load ptr, ptr %414, align 8
   %415 = invoke { i64, i64 } %.val189(ptr noundef nonnull align 1 %412)
-          to label %416 unwind label %.thread565
+          to label %416 unwind label %.thread600
 
 416:                                              ; preds = %411
   %417 = extractvalue { i64, i64 } %415, 0
@@ -60574,7 +60574,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %422 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %423 unwind label %.thread565
+          to label %423 unwind label %.thread600
 
 423:                                              ; preds = %421
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
@@ -60584,7 +60584,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %425 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i64 0, ptr %425, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h9af65f5d25fee41cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %129, ptr noundef nonnull align 8 %412, i1 noundef zeroext %422, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %128)
-          to label %426 unwind label %.thread565
+          to label %426 unwind label %.thread600
 
 426:                                              ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -60683,7 +60683,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %457 = getelementptr i8, ptr %456, i64 24
   %.val190 = load ptr, ptr %457, align 8
   %458 = invoke { i64, i64 } %.val190(ptr noundef nonnull align 1 %455)
-          to label %459 unwind label %.thread565
+          to label %459 unwind label %.thread600
 
 459:                                              ; preds = %454
   %460 = extractvalue { i64, i64 } %458, 0
@@ -60696,7 +60696,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 464:                                              ; preds = %459
   call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %465 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %466 unwind label %.thread565
+          to label %466 unwind label %.thread600
 
 466:                                              ; preds = %464
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -60706,7 +60706,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %468 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i64 0, ptr %468, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h0a0604adf45e729dE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %122, ptr noundef nonnull align 8 %455, i1 noundef zeroext %465, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %121)
-          to label %469 unwind label %.thread565
+          to label %469 unwind label %.thread600
 
 469:                                              ; preds = %466
   call void @llvm.lifetime.end.p0(ptr nonnull %121)
@@ -60805,7 +60805,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %500 = getelementptr i8, ptr %499, i64 24
   %.val187 = load ptr, ptr %500, align 8
   %501 = invoke { i64, i64 } %.val187(ptr noundef nonnull align 1 %498)
-          to label %502 unwind label %.thread565
+          to label %502 unwind label %.thread600
 
 502:                                              ; preds = %497
   %503 = extractvalue { i64, i64 } %501, 0
@@ -60818,7 +60818,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 507:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %508 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %509 unwind label %.thread565
+          to label %509 unwind label %.thread600
 
 509:                                              ; preds = %507
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
@@ -60828,7 +60828,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %511 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 0, ptr %511, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h27f72bb939b6a8cfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %115, ptr noundef nonnull align 8 %498, i1 noundef zeroext %508, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %114)
-          to label %512 unwind label %.thread565
+          to label %512 unwind label %.thread600
 
 512:                                              ; preds = %509
   call void @llvm.lifetime.end.p0(ptr nonnull %114)
@@ -60927,7 +60927,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %543 = getelementptr i8, ptr %542, i64 24
   %.val193 = load ptr, ptr %543, align 8
   %544 = invoke { i64, i64 } %.val193(ptr noundef nonnull align 1 %541)
-          to label %545 unwind label %.thread565
+          to label %545 unwind label %.thread600
 
 545:                                              ; preds = %540
   %546 = extractvalue { i64, i64 } %544, 0
@@ -60940,7 +60940,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 550:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %551 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %552 unwind label %.thread565
+          to label %552 unwind label %.thread600
 
 552:                                              ; preds = %550
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
@@ -60950,7 +60950,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %554 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 0, ptr %554, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h6ede232182d7d4b5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %108, ptr noundef nonnull align 8 %541, i1 noundef zeroext %551, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %107)
-          to label %555 unwind label %.thread565
+          to label %555 unwind label %.thread600
 
 555:                                              ; preds = %552
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -61049,7 +61049,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %586 = getelementptr i8, ptr %585, i64 24
   %.val194 = load ptr, ptr %586, align 8
   %587 = invoke { i64, i64 } %.val194(ptr noundef nonnull align 1 %584)
-          to label %588 unwind label %.thread565
+          to label %588 unwind label %.thread600
 
 588:                                              ; preds = %583
   %589 = extractvalue { i64, i64 } %587, 0
@@ -61062,7 +61062,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 593:                                              ; preds = %588
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %594 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %595 unwind label %.thread565
+          to label %595 unwind label %.thread600
 
 595:                                              ; preds = %593
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
@@ -61072,7 +61072,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %597 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 0, ptr %597, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h03358e91c4772e29E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %101, ptr noundef nonnull align 8 %584, i1 noundef zeroext %594, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %100)
-          to label %598 unwind label %.thread565
+          to label %598 unwind label %.thread600
 
 598:                                              ; preds = %595
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -61171,7 +61171,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %629 = getelementptr i8, ptr %628, i64 24
   %.val186 = load ptr, ptr %629, align 8
   %630 = invoke { i64, i64 } %.val186(ptr noundef nonnull align 1 %627)
-          to label %631 unwind label %.thread565
+          to label %631 unwind label %.thread600
 
 631:                                              ; preds = %626
   %632 = extractvalue { i64, i64 } %630, 0
@@ -61184,7 +61184,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
 636:                                              ; preds = %631
   call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %637 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %638 unwind label %.thread565
+          to label %638 unwind label %.thread600
 
 638:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -61194,7 +61194,7 @@ define hidden void @_ZN14polars_parquet5arrow5write10dictionary14array_to_pages1
   %640 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i64 0, ptr %640, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17h8755746c1786cbcfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noundef nonnull align 8 %627, i1 noundef zeroext %637, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %149)
-          to label %641 unwind label %.thread565
+          to label %641 unwind label %.thread600
 
 641:                                              ; preds = %638
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
@@ -61383,7 +61383,7 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit: ; preds = %6
   %704 = getelementptr i8, ptr %703, i64 24
   %.val188 = load ptr, ptr %704, align 8
   %705 = invoke { i64, i64 } %.val188(ptr noundef nonnull align 1 %702)
-          to label %706 unwind label %.thread565
+          to label %706 unwind label %.thread600
 
 706:                                              ; preds = %701
   %707 = extractvalue { i64, i64 } %705, 0
@@ -61396,7 +61396,7 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit: ; preds = %6
 711:                                              ; preds = %706
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %712 = invoke noundef zeroext i1 @_ZN14polars_parquet5arrow5write17EncodeNullability3new17hd3586d30a01467d9E(i1 noundef zeroext false)
-          to label %713 unwind label %.thread565
+          to label %713 unwind label %.thread600
 
 713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
@@ -61406,7 +61406,7 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit: ; preds = %6
   %715 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i64 0, ptr %715, align 8
   invoke void @_ZN14polars_parquet5arrow5write9primitive5basic12encode_plain17hba6e011fb0102dd3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %143, ptr noundef nonnull align 8 %702, i1 noundef zeroext %712, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %142)
-          to label %716 unwind label %.thread565
+          to label %716 unwind label %.thread600
 
 716:                                              ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
@@ -61723,7 +61723,7 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit265: ; preds =
   %826 = getelementptr i8, ptr %825, i64 24
   %.val197 = load ptr, ptr %826, align 8
   %827 = invoke { i64, i64 } %.val197(ptr noundef nonnull align 1 %824)
-          to label %828 unwind label %.thread565
+          to label %828 unwind label %.thread600
 
 828:                                              ; preds = %823
   %829 = extractvalue { i64, i64 } %827, 0
@@ -61993,7 +61993,7 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit265: ; preds =
   %934 = getelementptr i8, ptr %933, i64 24
   %.val198 = load ptr, ptr %934, align 8
   %935 = invoke { i64, i64 } %.val198(ptr noundef nonnull align 1 %932)
-          to label %936 unwind label %.thread565
+          to label %936 unwind label %.thread600
 
 936:                                              ; preds = %931
   %937 = extractvalue { i64, i64 } %935, 0
@@ -62082,7 +62082,7 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit265: ; preds =
   %967 = getelementptr i8, ptr %966, i64 24
   %.val199 = load ptr, ptr %967, align 8
   %968 = invoke { i64, i64 } %.val199(ptr noundef nonnull align 1 %965)
-          to label %969 unwind label %.thread565
+          to label %969 unwind label %.thread600
 
 969:                                              ; preds = %964
   %970 = extractvalue { i64, i64 } %968, 0
@@ -62094,7 +62094,7 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit265: ; preds =
 
 974:                                              ; preds = %969
   invoke void @"_ZN12polars_arrow5array7binview33BinaryViewArrayGeneric$LT$str$GT$10to_binview17hcf98670b71cd17aaE"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %83, ptr noundef nonnull align 8 %965)
-          to label %975 unwind label %.thread565
+          to label %975 unwind label %.thread600
 
 975:                                              ; preds = %974
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -62162,7 +62162,7 @@ _ZN12polars_arrow5array5Array10null_count17hc8e24ce11d8ac45eE.exit265: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   invoke void @"_ZN4core3ptr93drop_in_place$LT$polars_arrow..array..binview..BinaryViewArrayGeneric$LT$$u5b$u8$u5d$$GT$$GT$17hdee3e2c692a069c5E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %83)
-          to label %996 unwind label %.thread565
+          to label %996 unwind label %.thread600
 
 996:                                              ; preds = %995
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
@@ -63551,7 +63551,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h904cea1946e9d508E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %64)
-          to label %1433 unwind label %.thread565
+          to label %1433 unwind label %.thread600
 
 1433:                                             ; preds = %1432
   %.sroa.4316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -63611,7 +63611,7 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h904cea1946e9d508E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7204b54325327e35E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %52)
-          to label %1443 unwind label %.thread565
+          to label %1443 unwind label %.thread600
 
 1443:                                             ; preds = %1442
   %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -63628,8 +63628,8 @@ _ZN14polars_parquet5arrow5write10dictionary14serialize_keys17h904cea1946e9d508E.
   %.pn164393 = phi { ptr, i32 } [ %.pn164394, %.thread ], [ %eh.lpad-body181473503, %.body ], [ %1416, %1415 ]
   resume { ptr, i32 } %.pn164393
 
-.thread:                                          ; preds = %.thread565, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1427, %1430, %1437, %1440, %.body
-  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1428, %1427 ], [ %1431, %1430 ], [ %1438, %1437 ], [ %1441, %1440 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm563, %.thread565 ]
+.thread:                                          ; preds = %.thread600, %919, %928, %860, %960, %956, %853, %849, %819, %815, %773, %769, %698, %694, %623, %619, %580, %576, %537, %533, %494, %490, %451, %447, %408, %404, %365, %361, %321, %317, %.noexc291, %962, %.noexc279, %855, %822, %775, %700, %625, %582, %539, %496, %453, %410, %367, %324, %1427, %1430, %1437, %1440, %.body
+  %.pn164394 = phi { ptr, i32 } [ %eh.lpad-body181473503, %.body ], [ %.pn466, %.noexc291 ], [ %963, %962 ], [ %.pn124.pn, %.noexc279 ], [ %856, %855 ], [ %.pn131.ph, %822 ], [ %.pn152.ph, %775 ], [ %.pn155.ph, %700 ], [ %.pn134.ph, %625 ], [ %.pn137.ph, %582 ], [ %.pn140.ph, %539 ], [ %.pn143.ph, %496 ], [ %.pn146.ph, %453 ], [ %.pn149.ph, %410 ], [ %.pn158.ph, %367 ], [ %.pn161.ph, %324 ], [ %1428, %1427 ], [ %1431, %1430 ], [ %1438, %1437 ], [ %1441, %1440 ], [ %318, %317 ], [ %318, %321 ], [ %362, %361 ], [ %362, %365 ], [ %405, %404 ], [ %405, %408 ], [ %448, %447 ], [ %448, %451 ], [ %491, %490 ], [ %491, %494 ], [ %534, %533 ], [ %534, %537 ], [ %577, %576 ], [ %577, %580 ], [ %620, %619 ], [ %620, %623 ], [ %695, %694 ], [ %695, %698 ], [ %770, %769 ], [ %770, %773 ], [ %816, %815 ], [ %816, %819 ], [ %850, %849 ], [ %850, %853 ], [ %957, %956 ], [ %957, %960 ], [ %920, %919 ], [ %920, %928 ], [ %861, %860 ], [ %lpad.thr_comm598, %.thread600 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$polars_parquet..parquet..schema..types..parquet_type..PrimitiveType$GT$17h76861f4f243277e5E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #26
           to label %.body.thread511 unwind label %315
 }
@@ -63759,13 +63759,13 @@ define void @_ZN14polars_parquet7parquet4read4page6stream15get_page_header17hae3
 21:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  switch i8 %18, label %default.unreachable415 [
+  switch i8 %18, label %default.unreachable421 [
     i8 0, label %22
     i8 1, label %24
     i8 2, label %63
   ]
 
-default.unreachable415:                           ; preds = %21
+default.unreachable421:                           ; preds = %21
   unreachable
 
 22:                                               ; preds = %21
@@ -64347,8 +64347,8 @@ define void @_ZN14polars_parquet7parquet5write4page25assemble_data_page_header17
   br label %35
 
 "_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeader$GT$$GT$17hfe041b68c11171abE.exit": ; preds = %55, %67, %69
-  %.sroa.080.0107 = phi i64 [ %.sroa.080.0.copyload, %67 ], [ %.sroa.080.0.copyload, %69 ], [ 2, %55 ]
-  store i64 %.sroa.080.0107, ptr %13, align 8
+  %.sroa.080.0109 = phi i64 [ %.sroa.080.0.copyload, %67 ], [ %.sroa.080.0.copyload, %69 ], [ 2, %55 ]
+  store i64 %.sroa.080.0109, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.410.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.019.sroa.5, i64 128, i1 false)
   %.sroa.520.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store i32 %58, ptr %.sroa.520.0..sroa_idx21, align 8
@@ -64406,8 +64406,8 @@ define void @_ZN14polars_parquet7parquet5write4page25assemble_data_page_header17
   br label %35
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeaderV2$GT$$GT$17h6cce533d640ee1f9E.exit": ; preds = %40, %74, %76
-  %.sroa.075.0110 = phi i64 [ %.sroa.075.0.copyload, %74 ], [ %.sroa.075.0.copyload, %76 ], [ 2, %40 ]
-  store i64 %.sroa.075.0110, ptr %33, align 8
+  %.sroa.075.0112 = phi i64 [ %.sroa.075.0.copyload, %74 ], [ %.sroa.075.0.copyload, %76 ], [ 2, %40 ]
+  store i64 %.sroa.075.0112, ptr %33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.415.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.039.sroa.5, i64 128, i1 false)
   %.sroa.540.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %13, i64 288
   store i32 %42, ptr %.sroa.540.0..sroa_idx41, align 8

@@ -332,8 +332,8 @@ push.exit.i:                                      ; preds = %139, %145, %126
   %.sroa.20.5 = phi i64 [ %.sroa.20.2, %94 ], [ %.sroa.20.2, %97 ], [ %.sroa.20.4, %159 ]
   %.sroa.29.6 = phi i64 [ %.sroa.29.3, %94 ], [ %.sroa.29.3, %97 ], [ %.sroa.29.5, %159 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not54.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not54.i, label %.backedge.i, label %94, !llvm.loop !61
+  %.not62.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not62.i, label %.backedge.i, label %94, !llvm.loop !61
 
 search_component.exit:                            ; preds = %pop.exit.i, %.backedge.i, %push.exit
   %.sroa.0.9 = phi ptr [ %.sroa.0.10, %push.exit ], [ %.sroa.0.7, %.backedge.i ], [ %.sroa.0.2, %pop.exit.i ]

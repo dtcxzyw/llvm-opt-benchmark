@@ -43,15 +43,15 @@ define internal i32 @gsm_parse(ptr noundef captures(none) %0, ptr noundef readon
   unreachable
 
 .sink.split:                                      ; preds = %12, %15
-  %.sink37 = phi i32 [ %spec.select, %15 ], [ 33, %12 ]
+  %.sink40 = phi i32 [ %spec.select, %15 ], [ 33, %12 ]
   %.sink = phi i32 [ 320, %15 ], [ 160, %12 ]
-  store i32 %.sink37, ptr %10, align 8, !tbaa !15
+  store i32 %.sink40, ptr %10, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 %.sink, ptr %19, align 4, !tbaa !36
   br label %20
 
 20:                                               ; preds = %.sink.split, %6
-  %21 = phi i32 [ %11, %6 ], [ %.sink37, %.sink.split ]
+  %21 = phi i32 [ %11, %6 ], [ %.sink40, %.sink.split ]
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %23 = load i32, ptr %22, align 8, !tbaa !37
   %.not32 = icmp eq i32 %23, 0

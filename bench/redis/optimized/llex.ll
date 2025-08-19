@@ -331,7 +331,7 @@ define hidden void @luaX_next(ptr noundef initializes((8, 12)) %0) local_unnamed
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @llex(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 96, 95) i32 @llex(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [80 x i8], align 16
   %4 = alloca [80 x i8], align 16
   %5 = alloca [80 x i8], align 16

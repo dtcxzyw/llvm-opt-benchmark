@@ -3883,8 +3883,8 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %834 = load i32, ptr %833, align 4
   %835 = and i32 %834, 15
   %836 = icmp eq i32 %835, 2
-  %or.cond687 = select i1 %832, i1 %836, i1 false
-  br i1 %or.cond687, label %837, label %._crit_edge674
+  %or.cond695 = select i1 %832, i1 %836, i1 false
+  br i1 %or.cond695, label %837, label %._crit_edge674
 
 837:                                              ; preds = %828
   %838 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3931,8 +3931,8 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %868 = load i32, ptr %867, align 4
   %869 = and i32 %868, 15
   %870 = icmp eq i32 %869, 2
-  %or.cond689 = select i1 %866, i1 %870, i1 false
-  br i1 %or.cond689, label %871, label %._crit_edge671
+  %or.cond697 = select i1 %866, i1 %870, i1 false
+  br i1 %or.cond697, label %871, label %._crit_edge671
 
 871:                                              ; preds = %862
   %872 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3979,8 +3979,8 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %902 = load i32, ptr %901, align 4
   %903 = and i32 %902, 15
   %904 = icmp eq i32 %903, 2
-  %or.cond691 = select i1 %900, i1 %904, i1 false
-  br i1 %or.cond691, label %905, label %._crit_edge668
+  %or.cond699 = select i1 %900, i1 %904, i1 false
+  br i1 %or.cond699, label %905, label %._crit_edge668
 
 905:                                              ; preds = %896
   %906 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4027,8 +4027,8 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %936 = load i32, ptr %935, align 4
   %937 = and i32 %936, 15
   %938 = icmp eq i32 %937, 2
-  %or.cond693 = select i1 %934, i1 %938, i1 false
-  br i1 %or.cond693, label %939, label %._crit_edge665
+  %or.cond701 = select i1 %934, i1 %938, i1 false
+  br i1 %or.cond701, label %939, label %._crit_edge665
 
 939:                                              ; preds = %930
   %940 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4074,8 +4074,8 @@ define dso_local void @_ZN4Luau7CodeGen13foldConstantsERNS0_9IrBuilderERNS0_10Ir
   %969 = load i32, ptr %968, align 4
   %970 = and i32 %969, 15
   %971 = icmp eq i32 %970, 2
-  %or.cond695 = select i1 %967, i1 %971, i1 false
-  br i1 %or.cond695, label %972, label %._crit_edge
+  %or.cond703 = select i1 %967, i1 %971, i1 false
+  br i1 %or.cond703, label %972, label %._crit_edge
 
 972:                                              ; preds = %963
   %973 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4364,8 +4364,8 @@ define dso_local void @_ZN4Luau7CodeGen19getSortedBlockOrderERNS0_10IrFunctionE(
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not42 = icmp eq ptr %4, %5
-  br i1 %.not42, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not57 = icmp eq ptr %4, %5
+  br i1 %.not57, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4918,11 +4918,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %138, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", %131, %123, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", %114, %106, %98, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", %91, %83, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", %74, %66
-  %.sink43.i.i = phi i32 [ %34, %138 ], [ %33, %98 ], [ %34, %74 ], [ %34, %66 ], [ %34, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %60, %91 ], [ %60, %83 ], [ %60, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %33, %114 ], [ %33, %106 ], [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %100, %131 ], [ %100, %123 ], [ %100, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
-  %.sink42.i.i = phi ptr [ %31, %138 ], [ %10, %98 ], [ %31, %74 ], [ %31, %66 ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %32, %91 ], [ %32, %83 ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %10, %114 ], [ %10, %106 ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %32, %131 ], [ %32, %123 ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
+  %.sink52.i.i = phi i32 [ %34, %138 ], [ %33, %98 ], [ %34, %74 ], [ %34, %66 ], [ %34, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %60, %91 ], [ %60, %83 ], [ %60, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %33, %114 ], [ %33, %106 ], [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %100, %131 ], [ %100, %123 ], [ %100, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
+  %.sink51.i.i = phi ptr [ %31, %138 ], [ %10, %98 ], [ %31, %74 ], [ %31, %66 ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %32, %91 ], [ %32, %83 ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %10, %114 ], [ %10, %106 ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %32, %131 ], [ %32, %123 ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
   %139 = load i32, ptr %0, align 4, !tbaa !38
-  store i32 %.sink43.i.i, ptr %0, align 4, !tbaa !38
-  store i32 %139, ptr %.sink42.i.i, align 4, !tbaa !38
+  store i32 %.sink52.i.i, ptr %0, align 4, !tbaa !38
+  store i32 %139, ptr %.sink51.i.i, align 4, !tbaa !38
   br label %140
 
 140:                                              ; preds = %210, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"

@@ -195,11 +195,11 @@ define hidden range(i32 -2147483648, 2) i32 @ssl3_connect(ptr noundef %0) local_
   %70 = load i8, ptr %69, align 8
   %71 = and i8 %70, 1
   %.not220 = icmp eq i8 %71, 0
-  %.258 = select i1 %.not220, i32 4354, i32 4592
+  %.282 = select i1 %.not220, i32 4354, i32 4592
   br label %72
 
 72:                                               ; preds = %59, %67
-  %.sink = phi i32 [ %.258, %67 ], [ 4416, %59 ]
+  %.sink = phi i32 [ %.282, %67 ], [ 4416, %59 ]
   store i32 %.sink, ptr %11, align 4, !tbaa !42
   store i32 0, ptr %15, align 8, !tbaa !44
   br label %224
@@ -2281,7 +2281,7 @@ define hidden i32 @ssl3_send_client_certificate(ptr noundef %0) local_unnamed_ad
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !145
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.thread83, label %11
+  br i1 %.not, label %.thread88, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -2306,15 +2306,15 @@ define hidden i32 @ssl3_send_client_certificate(ptr noundef %0) local_unnamed_ad
 22:                                               ; preds = %18
   %.pr = load ptr, ptr %7, align 8, !tbaa !106
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %.thread67, label %.thread83
+  br i1 %.not.i, label %.thread67, label %.thread88
 
-.thread83:                                        ; preds = %6, %22
+.thread88:                                        ; preds = %6, %22
   %23 = phi ptr [ %.pr, %22 ], [ %8, %6 ]
   %24 = load ptr, ptr %23, align 8, !tbaa !147
   %.not3.i = icmp eq ptr %24, null
   br i1 %.not3.i, label %.thread67, label %ssl3_has_client_certificate.exit
 
-ssl3_has_client_certificate.exit:                 ; preds = %.thread83
+ssl3_has_client_certificate.exit:                 ; preds = %.thread88
   %25 = tail call i32 @ssl_has_private_key(ptr noundef nonnull %0) #11
   %.not80 = icmp eq i32 %25, 0
   br i1 %.not80, label %.thread67, label %.thread68
@@ -2323,7 +2323,7 @@ ssl3_has_client_certificate.exit:                 ; preds = %.thread83
   store i32 4466, ptr %4, align 4, !tbaa !42
   br label %.thread78
 
-.thread67:                                        ; preds = %ssl3_has_client_certificate.exit, %.thread83, %22
+.thread67:                                        ; preds = %ssl3_has_client_certificate.exit, %.thread88, %22
   store i32 4465, ptr %4, align 4, !tbaa !42
   br label %26
 
@@ -3323,7 +3323,7 @@ define hidden i32 @ssl3_send_channel_id(ptr noundef %0) local_unnamed_addr #0 {
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 232
   %25 = load ptr, ptr %24, align 8, !tbaa !158
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.thread66, label %26
+  br i1 %.not, label %.thread73, label %26
 
 26:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -3350,9 +3350,9 @@ define hidden i32 @ssl3_send_channel_id(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pr.pre = load ptr, ptr %18, align 8, !tbaa !157
   %33 = icmp eq ptr %.pr.pre, null
-  br i1 %33, label %.thread66, label %.thread64
+  br i1 %33, label %.thread73, label %.thread64
 
-.thread66:                                        ; preds = %21, %31
+.thread73:                                        ; preds = %21, %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 5, ptr %34, align 8, !tbaa !80
   br label %99
@@ -3480,8 +3480,8 @@ define hidden i32 @ssl3_send_channel_id(ptr noundef %0) local_unnamed_addr #0 {
   call void @ECDSA_SIG_free(ptr noundef %.0) #11
   br label %99
 
-99:                                               ; preds = %30, %38, %98, %.thread66, %11
-  %.040 = phi i32 [ %16, %11 ], [ -1, %.thread66 ], [ -1, %30 ], [ -1, %38 ], [ %.042, %98 ]
+99:                                               ; preds = %30, %38, %98, %.thread73, %11
+  %.040 = phi i32 [ %16, %11 ], [ -1, %.thread73 ], [ -1, %30 ], [ -1, %38 ], [ %.042, %98 ]
   ret i32 %.040
 }
 

@@ -2595,14 +2595,14 @@ common.resume:                                    ; preds = %.body, %.body.i12, 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr69drop_in_place$LT$deltalake_core..kernel..models..schema..DataType$GT$17h7dd222d14abdfe28E.llvm.14011817705576975213"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !12, !noundef !4
-  switch i8 %2, label %default.unreachable6 [
+  switch i8 %2, label %default.unreachable10 [
     i8 0, label %8
     i8 1, label %9
     i8 2, label %19
     i8 3, label %3
   ]
 
-default.unreachable6:                             ; preds = %1
+default.unreachable10:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1

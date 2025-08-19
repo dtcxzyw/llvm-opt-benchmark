@@ -282,12 +282,12 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %49
   br i1 %56, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i, !prof !23
 
 .lr.ph.preheader.i.i.i:                           ; preds = %53, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i
-  %spec.select.i11.i.i.i = phi i64 [ %55, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ 20, %53 ]
+  %spec.select.i12.i.i.i = phi i64 [ %55, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ 20, %53 ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %.0.i5.i.i.i = phi i64 [ %58, %.lr.ph.i.i.i ], [ %48, %.lr.ph.preheader.i.i.i ]
-  %.014.i4.i.i.i = phi i64 [ %57, %.lr.ph.i.i.i ], [ %spec.select.i11.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.014.i4.i.i.i = phi i64 [ %57, %.lr.ph.i.i.i ], [ %spec.select.i12.i.i.i, %.lr.ph.preheader.i.i.i ]
   %57 = add i64 %.014.i4.i.i.i, -2
   %58 = udiv i64 %.0.i5.i.i.i, 100
   %59 = urem i64 %.0.i5.i.i.i, 100
@@ -299,7 +299,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %49
   br i1 %63, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !prof !26, !llvm.loop !27
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i
-  %spec.select.i10.i.i.i = phi i64 [ %55, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %spec.select.i11.i.i.i, %.lr.ph.i.i.i ]
+  %spec.select.i11.i.i.i = phi i64 [ %55, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %spec.select.i12.i.i.i, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %55, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %57, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %48, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %58, %.lr.ph.i.i.i ]
   %64 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i
@@ -318,7 +318,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %49
   br label %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit
 
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %68, %67
-  invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(ptr noundef nonnull %4, i64 noundef %spec.select.i10.i.i.i)
+  invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(ptr noundef nonnull %4, i64 noundef %spec.select.i11.i.i.i)
           to label %.backedge unwind label %.loopexit38
 
 .backedge:                                        ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit, %32, %18
@@ -362,12 +362,12 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36: ; preds = %79
   br i1 %86, label %.lr.ph.preheader.i.i.i27, label %._crit_edge.i.i.i32, !prof !23
 
 .lr.ph.preheader.i.i.i27:                         ; preds = %83, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36
-  %spec.select.i11.i.i.i28 = phi i64 [ %85, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36 ], [ 20, %83 ]
+  %spec.select.i12.i.i.i28 = phi i64 [ %85, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36 ], [ 20, %83 ]
   br label %.lr.ph.i.i.i29
 
 .lr.ph.i.i.i29:                                   ; preds = %.lr.ph.i.i.i29, %.lr.ph.preheader.i.i.i27
   %.0.i5.i.i.i30 = phi i64 [ %88, %.lr.ph.i.i.i29 ], [ %78, %.lr.ph.preheader.i.i.i27 ]
-  %.014.i4.i.i.i31 = phi i64 [ %87, %.lr.ph.i.i.i29 ], [ %spec.select.i11.i.i.i28, %.lr.ph.preheader.i.i.i27 ]
+  %.014.i4.i.i.i31 = phi i64 [ %87, %.lr.ph.i.i.i29 ], [ %spec.select.i12.i.i.i28, %.lr.ph.preheader.i.i.i27 ]
   %87 = add i64 %.014.i4.i.i.i31, -2
   %88 = udiv i64 %.0.i5.i.i.i30, 100
   %89 = urem i64 %.0.i5.i.i.i30, 100
@@ -379,7 +379,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36: ; preds = %79
   br i1 %93, label %.lr.ph.i.i.i29, label %._crit_edge.i.i.i32, !prof !26, !llvm.loop !27
 
 ._crit_edge.i.i.i32:                              ; preds = %.lr.ph.i.i.i29, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36
-  %spec.select.i10.i.i.i33 = phi i64 [ %85, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36 ], [ %spec.select.i11.i.i.i28, %.lr.ph.i.i.i29 ]
+  %spec.select.i11.i.i.i33 = phi i64 [ %85, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36 ], [ %spec.select.i12.i.i.i28, %.lr.ph.i.i.i29 ]
   %.014.i.lcssa.i.i.i34 = phi i64 [ %85, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36 ], [ %87, %.lr.ph.i.i.i29 ]
   %.0.i.lcssa.i.i.i35 = phi i64 [ %78, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36 ], [ %88, %.lr.ph.i.i.i29 ]
   %94 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i35
@@ -398,7 +398,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i36: ; preds = %79
   br label %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit37
 
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit37: ; preds = %98, %97
-  invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(ptr noundef nonnull %4, i64 noundef %spec.select.i10.i.i.i33)
+  invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(ptr noundef nonnull %4, i64 noundef %spec.select.i11.i.i.i33)
           to label %101 unwind label %.loopexit.split-lp
 
 101:                                              ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit37
@@ -585,12 +585,12 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i: ; preds = %3
   br i1 %10, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i, !prof !23
 
 .lr.ph.preheader.i.i:                             ; preds = %7, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i
-  %spec.select.i11.i.i = phi i64 [ %9, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i ], [ 20, %7 ]
+  %spec.select.i12.i.i = phi i64 [ %9, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i ], [ 20, %7 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.0.i5.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ %1, %.lr.ph.preheader.i.i ]
-  %.014.i4.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %spec.select.i11.i.i, %.lr.ph.preheader.i.i ]
+  %.014.i4.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %spec.select.i12.i.i, %.lr.ph.preheader.i.i ]
   %11 = add i64 %.014.i4.i.i, -2
   %12 = udiv i64 %.0.i5.i.i, 100
   %13 = urem i64 %.0.i5.i.i, 100
@@ -602,7 +602,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i: ; preds = %3
   br i1 %17, label %.lr.ph.i.i, label %._crit_edge.i.i, !prof !26, !llvm.loop !27
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i
-  %spec.select.i10.i.i = phi i64 [ %9, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i ], [ %spec.select.i11.i.i, %.lr.ph.i.i ]
+  %spec.select.i11.i.i = phi i64 [ %9, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i ], [ %spec.select.i12.i.i, %.lr.ph.i.i ]
   %.014.i.lcssa.i.i = phi i64 [ %9, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i ], [ %11, %.lr.ph.i.i ]
   %.0.i.lcssa.i.i = phi i64 [ %1, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i ], [ %12, %.lr.ph.i.i ]
   %18 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i
@@ -621,7 +621,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i: ; preds = %3
   br label %_ZN5folly14to_ascii_lowerILm10ELm20EEEmRAT0__cm.exit
 
 _ZN5folly14to_ascii_lowerILm10ELm20EEEmRAT0__cm.exit: ; preds = %21, %22
-  ret i64 %spec.select.i10.i.i
+  ret i64 %spec.select.i11.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -655,13 +655,13 @@ define internal fastcc noundef ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail
   %15 = getelementptr inbounds nuw i8, ptr %.02956.i.i, i64 32
   %.val33.i.i = load i32, ptr %15, align 8
   %16 = icmp eq i32 %.val33.i.i, %2
-  br i1 %16, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit16", label %17
+  br i1 %16, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit17", label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.02956.i.i, i64 48
   %.val35.i.i = load i32, ptr %18, align 8
   %19 = icmp eq i32 %.val35.i.i, %2
-  br i1 %19, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit18", label %20
+  br i1 %19, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit19", label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.02956.i.i, i64 64
@@ -716,16 +716,16 @@ define internal fastcc noundef ptr @"_ZSt7find_ifIPKSt4pairIiPKcEZN5folly6detail
   %36 = getelementptr inbounds nuw i8, ptr %.02956.i.i, i64 16
   br label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit"
 
-"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit16": ; preds = %14
+"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit17": ; preds = %14
   %37 = getelementptr inbounds nuw i8, ptr %.02956.i.i, i64 32
   br label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit"
 
-"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit18": ; preds = %17
+"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit19": ; preds = %17
   %38 = getelementptr inbounds nuw i8, ptr %.02956.i.i, i64 48
   br label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit"
 
-"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit": ; preds = %.lr.ph.i.i, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit", %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit16", %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit18", %25, %29, %33, %35
-  %.028.i.i = phi ptr [ %1, %35 ], [ %.029.lcssa.i.i, %25 ], [ %.1.i.i, %29 ], [ %.2.i.i, %33 ], [ %36, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit16" ], [ %38, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit18" ], [ %.02956.i.i, %.lr.ph.i.i ]
+"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit": ; preds = %.lr.ph.i.i, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit", %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit17", %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit19", %25, %29, %33, %35
+  %.028.i.i = phi ptr [ %1, %35 ], [ %.029.lcssa.i.i, %25 ], [ %.1.i.i, %29 ], [ %.2.i.i, %33 ], [ %36, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit17" ], [ %38, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit19" ], [ %.02956.i.i, %.lr.ph.i.i ]
   ret ptr %.028.i.i
 }
 

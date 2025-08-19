@@ -2103,7 +2103,7 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge72
   %375 = getelementptr inbounds i8, ptr %.0286.i89, i64 %364
   %376 = add nsw i32 %.0291.i88, 1
   %.not.i = icmp slt i32 %376, %146
-  br i1 %.not.i, label %377, label %.thread117
+  br i1 %.not.i, label %377, label %.thread127
 
 377:                                              ; preds = %370
   %378 = load ptr, ptr %366, align 8, !tbaa !83
@@ -2132,14 +2132,14 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge72
   %392 = icmp slt i32 %.0289.i, %.306.i
   br i1 %392, label %.lr.ph85.split, label %._crit_edge86
 
-.thread117:                                       ; preds = %370
+.thread127:                                       ; preds = %370
   br i1 %369, label %.lr.ph85.split.us, label %._crit_edge86
 
-.lr.ph85.split.us:                                ; preds = %.thread117, %403
-  %.1281.i83.us = phi ptr [ %419, %403 ], [ %373, %.thread117 ]
-  %.1284.i82.us = phi ptr [ %420, %403 ], [ %372, %.thread117 ]
-  %.1288.i80.us = phi ptr [ %421, %403 ], [ %374, %.thread117 ]
-  %.1290.i79.us = phi i32 [ %393, %403 ], [ %356, %.thread117 ]
+.lr.ph85.split.us:                                ; preds = %.thread127, %403
+  %.1281.i83.us = phi ptr [ %419, %403 ], [ %373, %.thread127 ]
+  %.1284.i82.us = phi ptr [ %420, %403 ], [ %372, %.thread127 ]
+  %.1288.i80.us = phi ptr [ %421, %403 ], [ %374, %.thread127 ]
+  %.1290.i79.us = phi i32 [ %393, %403 ], [ %356, %.thread127 ]
   %393 = add nuw nsw i32 %.1290.i79.us, 1
   %394 = icmp slt i32 %393, %144
   %395 = load i8, ptr %.1288.i80.us, align 1, !tbaa !84
@@ -2233,7 +2233,7 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge72
   %exitcond98.not = icmp eq i32 %422, %.306.i
   br i1 %exitcond98.not, label %._crit_edge86, label %.lr.ph85.split, !llvm.loop !85
 
-._crit_edge86:                                    ; preds = %403, %446, %.thread117, %391
+._crit_edge86:                                    ; preds = %403, %446, %.thread127, %391
   %462 = load i32, ptr %327, align 4, !tbaa !81
   %463 = sext i32 %462 to i64
   %464 = getelementptr inbounds i8, ptr %.0285.i90, i64 %463
@@ -4820,8 +4820,8 @@ define internal noundef i32 @blend_slice_yuva422p10(ptr noundef readonly capture
   br i1 %133, label %.lr.ph.us, label %.lr.ph64, !llvm.loop !93
 
 .lr.ph64:                                         ; preds = %._crit_edge.us, %.lr.ph53
-  %.in93 = add nsw i32 %15, 1
-  %134 = ashr i32 %.in93, 1
+  %.in104 = add nsw i32 %15, 1
+  %134 = ashr i32 %.in104, 1
   %.in = add nsw i32 %19, 1
   %135 = ashr i32 %.in, 1
   %136 = ashr i32 %11, 1
@@ -5344,8 +5344,8 @@ define internal noundef i32 @blend_slice_yuv422p10(ptr noundef readonly captures
   br i1 %109, label %.lr.ph.us, label %.lr.ph54, !llvm.loop !93
 
 .lr.ph54:                                         ; preds = %._crit_edge.us, %.lr.ph45
-  %.in78 = add nsw i32 %15, 1
-  %110 = ashr i32 %.in78, 1
+  %.in85 = add nsw i32 %15, 1
+  %110 = ashr i32 %.in85, 1
   %.in = add nsw i32 %19, 1
   %111 = ashr i32 %.in, 1
   %112 = ashr i32 %11, 1
@@ -10238,7 +10238,7 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge77
   %380 = getelementptr inbounds i8, ptr %.0286.i94, i64 %369
   %381 = add nsw i32 %.0291.i93, 1
   %.not.i = icmp slt i32 %381, %147
-  br i1 %.not.i, label %382, label %.thread122
+  br i1 %.not.i, label %382, label %.thread132
 
 382:                                              ; preds = %375
   %383 = load ptr, ptr %371, align 8, !tbaa !83
@@ -10267,14 +10267,14 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge77
   %397 = icmp slt i32 %.0289.i, %.306.i
   br i1 %397, label %.lr.ph90.split, label %._crit_edge91
 
-.thread122:                                       ; preds = %375
+.thread132:                                       ; preds = %375
   br i1 %374, label %.lr.ph90.split.us, label %._crit_edge91
 
-.lr.ph90.split.us:                                ; preds = %.thread122, %408
-  %.1281.i88.us = phi ptr [ %426, %408 ], [ %378, %.thread122 ]
-  %.1284.i87.us = phi ptr [ %427, %408 ], [ %377, %.thread122 ]
-  %.1288.i85.us = phi ptr [ %428, %408 ], [ %379, %.thread122 ]
-  %.1290.i84.us = phi i32 [ %398, %408 ], [ %361, %.thread122 ]
+.lr.ph90.split.us:                                ; preds = %.thread132, %408
+  %.1281.i88.us = phi ptr [ %426, %408 ], [ %378, %.thread132 ]
+  %.1284.i87.us = phi ptr [ %427, %408 ], [ %377, %.thread132 ]
+  %.1288.i85.us = phi ptr [ %428, %408 ], [ %379, %.thread132 ]
+  %.1290.i84.us = phi i32 [ %398, %408 ], [ %361, %.thread132 ]
   %398 = add nuw nsw i32 %.1290.i84.us, 1
   %399 = icmp slt i32 %398, %145
   %400 = load i8, ptr %.1288.i85.us, align 1, !tbaa !84
@@ -10372,7 +10372,7 @@ blend_plane_8_8bits.exit30:                       ; preds = %._crit_edge77
   %exitcond103.not = icmp eq i32 %429, %.306.i
   br i1 %exitcond103.not, label %._crit_edge91, label %.lr.ph90.split, !llvm.loop !85
 
-._crit_edge91:                                    ; preds = %408, %453, %.thread122, %396
+._crit_edge91:                                    ; preds = %408, %453, %.thread132, %396
   %471 = load i32, ptr %332, align 4, !tbaa !81
   %472 = sext i32 %471 to i64
   %473 = getelementptr inbounds i8, ptr %.0285.i95, i64 %472
@@ -14333,14 +14333,14 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %. = call i32 @llvm.smin.i32(i32 %121, i32 %117)
   %128 = icmp sgt i32 %122, %.
   %129 = sub nsw i32 %117, %115
-  br i1 %128, label %130, label %.thread132
+  br i1 %128, label %130, label %.thread140
 
 130:                                              ; preds = %124
   %spec.select = call i32 @llvm.smin.i32(i32 %., i32 %129)
   %131 = icmp slt i32 %spec.select, 1
   br i1 %131, label %134, label %133
 
-.thread132:                                       ; preds = %124
+.thread140:                                       ; preds = %124
   %132 = icmp eq i32 %122, 0
   br i1 %132, label %134, label %.thread119
 
@@ -14348,12 +14348,12 @@ define internal i32 @do_blend(ptr noundef %0) #0 {
   %spec.select126 = call i32 @llvm.smin.i32(i32 %., i32 %129)
   br label %134
 
-.thread119:                                       ; preds = %.thread132
+.thread119:                                       ; preds = %.thread140
   %spec.select127 = call i32 @llvm.smin.i32(i32 %122, i32 %129)
   br label %134
 
-134:                                              ; preds = %.thread132, %.thread119, %133, %130
-  %135 = phi i32 [ 1, %130 ], [ %spec.select126, %133 ], [ %spec.select127, %.thread119 ], [ 1, %.thread132 ]
+134:                                              ; preds = %.thread140, %.thread119, %133, %130
+  %135 = phi i32 [ 1, %130 ], [ %spec.select126, %133 ], [ %spec.select127, %.thread119 ], [ 1, %.thread140 ]
   %136 = call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %6) #12
   %137 = icmp sgt i32 %135, %136
   br i1 %137, label %143, label %138

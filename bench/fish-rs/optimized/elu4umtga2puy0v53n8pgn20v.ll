@@ -572,8 +572,8 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal26round_to_fractional_digits
   %34 = add i32 %33, 1
   store i32 %34, ptr %7, align 8, !alias.scope !49
   %35 = add nuw nsw i32 %.sroa.0.038, 1
-  %.not52 = icmp eq i32 %.sroa.0.038, -1
-  br i1 %.not52, label %._crit_edge, label %.lr.ph
+  %.not60 = icmp eq i32 %.sroa.0.038, -1
+  br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 "_ZN95_$LT$fish_printf..fmt_fp..decimal..Decimal$u20$as$u20$core..ops..index..IndexMut$LT$i32$GT$$GT$9index_mut17h4d68d035a1c91692E.exit": ; preds = %"_ZN92_$LT$fish_printf..fmt_fp..decimal..Decimal$u20$as$u20$core..ops..index..Index$LT$i32$GT$$GT$5index17h430158387176c209E.exit"
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16

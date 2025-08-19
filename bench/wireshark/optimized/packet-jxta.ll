@@ -848,10 +848,10 @@ addresses_equal.exit:                             ; preds = %155, %147, %get_pee
   br label %230
 
 get_peer_conversation.exit.thread.sink.split:     ; preds = %168, %206
-  %.sink177 = phi i32 [ %217, %206 ], [ %179, %168 ]
+  %.sink187 = phi i32 [ %217, %206 ], [ %179, %168 ]
   %.sink = phi ptr [ %219, %206 ], [ %181, %168 ]
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 236
-  store i32 %.sink177, ptr %222, align 4
+  store i32 %.sink187, ptr %222, align 4
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %.sink, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -1894,7 +1894,7 @@ define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nou
   br label %100
 
 .loopexit.thread:                                 ; preds = %19, %61, %.loopexit
-  %.1.ph190 = phi i32 [ %.1.ph, %61 ], [ %.1.ph, %.loopexit ], [ %13, %19 ]
+  %.1.ph201 = phi i32 [ %.1.ph, %61 ], [ %.1.ph, %.loopexit ], [ %13, %19 ]
   %.not131 = icmp eq ptr %2, null
   br i1 %.not131, label %100, label %68
 
@@ -1940,7 +1940,7 @@ define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nou
   %97 = add i32 %.0118, 1
   tail call void @proto_item_set_end(ptr noundef %77, ptr noundef %0, i32 noundef %97)
   tail call void @proto_item_set_end(ptr noundef %70, ptr noundef %0, i32 noundef %97)
-  %98 = icmp eq i32 %.1.ph190, %97
+  %98 = icmp eq i32 %.1.ph201, %97
   br i1 %98, label %100, label %99
 
 99:                                               ; preds = %96
@@ -1948,7 +1948,7 @@ define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nou
   unreachable
 
 100:                                              ; preds = %.loopexit.thread, %96, %64
-  %.0 = phi i32 [ %67, %64 ], [ %.1.ph190, %96 ], [ %.1.ph190, %.loopexit.thread ]
+  %.0 = phi i32 [ %67, %64 ], [ %.1.ph201, %96 ], [ %.1.ph201, %.loopexit.thread ]
   ret i32 %.0
 }
 

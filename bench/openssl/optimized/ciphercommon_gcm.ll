@@ -285,8 +285,8 @@ define range(i32 0, 2) i32 @ossl_gcm_get_ctx_params(ptr noundef %0, ptr noundef 
   %.pre.i = load i64, ptr %7, align 8, !tbaa !16
   %85 = freeze i64 %.pre.i
   %86 = add i64 %75, -1
-  %or.cond.not22.i = icmp ult i64 %86, %85
-  %.0.i = select i1 %or.cond.not22.i, i64 %75, i64 %85
+  %or.cond.not23.i = icmp ult i64 %86, %85
+  %.0.i = select i1 %or.cond.not23.i, i64 %75, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 %85
   %88 = sub i64 0, %.0.i
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
@@ -328,10 +328,10 @@ getivgen.exit:                                    ; preds = %93
   br i1 %.not, label %getivgen.exit.thread, label %13, !llvm.loop !35
 
 getivgen.exit.thread.sink.split:                  ; preds = %64, %54, %58, %61, %51, %48, %41, %35, %28, %22, %19, %16
-  %.sink91 = phi i32 [ 159, %16 ], [ 166, %19 ], [ 177, %22 ], [ 187, %28 ], [ 192, %35 ], [ 201, %41 ], [ 206, %48 ], [ 213, %51 ], [ 224, %61 ], [ 224, %58 ], [ 224, %54 ], [ 228, %64 ]
+  %.sink95 = phi i32 [ 159, %16 ], [ 166, %19 ], [ 177, %22 ], [ 187, %28 ], [ 192, %35 ], [ 201, %41 ], [ 206, %48 ], [ 213, %51 ], [ 224, %61 ], [ 224, %58 ], [ 224, %54 ], [ 228, %64 ]
   %.sink = phi i32 [ 104, %16 ], [ 104, %19 ], [ 104, %22 ], [ 109, %28 ], [ 104, %35 ], [ 109, %41 ], [ 104, %48 ], [ 104, %51 ], [ 110, %61 ], [ 110, %58 ], [ 110, %54 ], [ 104, %64 ]
   tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink91, ptr noundef nonnull @__func__.ossl_gcm_get_ctx_params) #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink95, ptr noundef nonnull @__func__.ossl_gcm_get_ctx_params) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %getivgen.exit.thread
 
@@ -610,10 +610,10 @@ setivinv.exit:                                    ; preds = %115
   br i1 %.not37, label %ossl_param_is_empty.exit.thread, label %19, !llvm.loop !38
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %96, %86, %88, %74, %42, %33, %31, %24, %27, %22, %69
-  %.sink56 = phi i32 [ 301, %69 ], [ 267, %22 ], [ 271, %27 ], [ 271, %24 ], [ 279, %31 ], [ 283, %33 ], [ 296, %42 ], [ 309, %74 ], [ 313, %88 ], [ 313, %86 ], [ 313, %96 ]
+  %.sink63 = phi i32 [ 301, %69 ], [ 267, %22 ], [ 271, %27 ], [ 271, %24 ], [ 279, %31 ], [ 283, %33 ], [ 296, %42 ], [ 309, %74 ], [ 313, %88 ], [ 313, %86 ], [ 313, %96 ]
   %.sink = phi i32 [ 108, %69 ], [ 103, %22 ], [ 110, %27 ], [ 110, %24 ], [ 103, %31 ], [ 109, %33 ], [ 103, %42 ], [ 103, %74 ], [ 103, %88 ], [ 103, %86 ], [ 103, %96 ]
   call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink56, ptr noundef nonnull @__func__.ossl_gcm_set_ctx_params) #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink63, ptr noundef nonnull @__func__.ossl_gcm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #5
   br label %ossl_param_is_empty.exit.thread
 

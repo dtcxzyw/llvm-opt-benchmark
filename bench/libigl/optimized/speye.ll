@@ -2345,8 +2345,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %69 = getelementptr double, ptr %64, i64 %68
   store double %66, ptr %69, align 8, !tbaa !30
   %70 = add nsw i64 %.075111, -1
-  %.not131 = icmp eq i64 %.075111, 0
-  br i1 %.not131, label %._crit_edge114, label %53, !llvm.loop !91
+  %.not140 = icmp eq i64 %.075111, 0
+  br i1 %.not140, label %._crit_edge114, label %53, !llvm.loop !91
 
 ._crit_edge120:                                   ; preds = %._crit_edge114
   %71 = add nsw i64 %23, -1
@@ -2476,8 +2476,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %141 = getelementptr double, ptr %138, i64 %129
   store double %140, ptr %141, align 8, !tbaa !30
   %142 = add nsw i64 %.097, -1
-  %.not130 = icmp eq i64 %.097, 0
-  br i1 %.not130, label %.loopexit, label %.lr.ph99, !llvm.loop !93
+  %.not139 = icmp eq i64 %.097, 0
+  br i1 %.not139, label %.loopexit, label %.lr.ph99, !llvm.loop !93
 
 .loopexit:                                        ; preds = %.lr.ph99, %123, %117
   %143 = icmp samesign ugt i64 %.071101.in, 1
@@ -2699,8 +2699,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %73 = getelementptr double, ptr %68, i64 %72
   store double %70, ptr %73, align 8, !tbaa !30
   %74 = add nsw i64 %.075111, -1
-  %.not132 = icmp eq i64 %.075111, 0
-  br i1 %.not132, label %._crit_edge114, label %57, !llvm.loop !101
+  %.not141 = icmp eq i64 %.075111, 0
+  br i1 %.not141, label %._crit_edge114, label %57, !llvm.loop !101
 
 ._crit_edge120:                                   ; preds = %._crit_edge114
   %75 = add nsw i64 %23, -1
@@ -2838,8 +2838,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixIdLi0EiE19reserveInne
   %153 = getelementptr double, ptr %150, i64 %141
   store double %152, ptr %153, align 8, !tbaa !30
   %154 = add nsw i64 %.097, -1
-  %.not131 = icmp eq i64 %.097, 0
-  br i1 %.not131, label %.loopexit, label %.lr.ph99, !llvm.loop !103
+  %.not140 = icmp eq i64 %.097, 0
+  br i1 %.not140, label %.loopexit, label %.lr.ph99, !llvm.loop !103
 
 .loopexit:                                        ; preds = %.lr.ph99, %135, %129
   %155 = icmp samesign ugt i64 %.071101.in, 1
@@ -3786,8 +3786,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiE1
 
 ._crit_edge120._crit_edge:                        ; preds = %._crit_edge109, %._crit_edge120
   %38 = phi i64 [ %.pre124, %._crit_edge120 ], [ %22, %._crit_edge109 ]
-  %.pre125131 = phi ptr [ %49, %._crit_edge120 ], [ %.pre125.pre, %._crit_edge109 ]
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre125131, i64 %38
+  %.pre125141 = phi ptr [ %49, %._crit_edge120 ], [ %.pre125.pre, %._crit_edge109 ]
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre125141, i64 %38
   %.pre126 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !25
   br label %89
 
@@ -3851,8 +3851,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiE1
   %75 = getelementptr %"class.std::complex", ptr %71, i64 %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !60
   %76 = add nsw i64 %.075111, -1
-  %.not134 = icmp eq i64 %.075111, 0
-  br i1 %.not134, label %._crit_edge114.loopexit, label %56, !llvm.loop !111
+  %.not144 = icmp eq i64 %.075111, 0
+  br i1 %.not144, label %._crit_edge114.loopexit, label %56, !llvm.loop !111
 
 77:                                               ; preds = %._crit_edge120
   %78 = add nsw i64 %.pre124, -1
@@ -3985,8 +3985,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiE1
   %152 = getelementptr %"class.std::complex", ptr %150, i64 %137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull align 8 dereferenceable(16) %151, i64 16, i1 false), !tbaa.struct !60
   %153 = add nsw i64 %.097, -1
-  %.not133 = icmp eq i64 %.097, 0
-  br i1 %.not133, label %.loopexit, label %.lr.ph99, !llvm.loop !113
+  %.not143 = icmp eq i64 %.097, 0
+  br i1 %.not143, label %.loopexit, label %.lr.ph99, !llvm.loop !113
 
 .loopexit:                                        ; preds = %.lr.ph99, %130, %123
   %154 = icmp samesign ugt i64 %.071101.in, 1
@@ -4169,8 +4169,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiE1
 
 ._crit_edge120._crit_edge:                        ; preds = %._crit_edge109, %._crit_edge120
   %42 = phi i64 [ %.pre124, %._crit_edge120 ], [ %22, %._crit_edge109 ]
-  %.pre125131 = phi ptr [ %53, %._crit_edge120 ], [ %.pre125.pre, %._crit_edge109 ]
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre125131, i64 %42
+  %.pre125141 = phi ptr [ %53, %._crit_edge120 ], [ %.pre125.pre, %._crit_edge109 ]
+  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre125141, i64 %42
   %.pre126 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !25
   br label %97
 
@@ -4234,8 +4234,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiE1
   %79 = getelementptr %"class.std::complex", ptr %75, i64 %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !60
   %80 = add nsw i64 %.075111, -1
-  %.not135 = icmp eq i64 %.075111, 0
-  br i1 %.not135, label %._crit_edge114.loopexit, label %60, !llvm.loop !121
+  %.not145 = icmp eq i64 %.075111, 0
+  br i1 %.not145, label %._crit_edge114.loopexit, label %60, !llvm.loop !121
 
 81:                                               ; preds = %._crit_edge120
   %82 = add nsw i64 %.pre124, -1
@@ -4376,8 +4376,8 @@ define linkonce_odr dso_local void @_ZN5Eigen12SparseMatrixISt7complexIdELi0EiE1
   %164 = getelementptr %"class.std::complex", ptr %162, i64 %149
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %163, i64 16, i1 false), !tbaa.struct !60
   %165 = add nsw i64 %.097, -1
-  %.not134 = icmp eq i64 %.097, 0
-  br i1 %.not134, label %.loopexit, label %.lr.ph99, !llvm.loop !123
+  %.not144 = icmp eq i64 %.097, 0
+  br i1 %.not144, label %.loopexit, label %.lr.ph99, !llvm.loop !123
 
 .loopexit:                                        ; preds = %.lr.ph99, %142, %135
   %166 = icmp samesign ugt i64 %.071101.in, 1

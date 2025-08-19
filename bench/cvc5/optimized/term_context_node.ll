@@ -1016,11 +1016,11 @@ _ZN4cvc58internal7IntegerD2Ev.exit35:             ; preds = %122
   br i1 %145, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit29, !prof !10
 
 .invoke:                                          ; preds = %144, %101
-  %.sink45 = phi i64 [ %96, %101 ], [ %139, %144 ]
-  %.sink44 = phi ptr [ %95, %101 ], [ %138, %144 ]
-  %146 = or i64 %.sink45, 1152920405095219200
-  store i64 %146, ptr %.sink44, align 8, !noalias !46
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink44)
+  %.sink51 = phi i64 [ %96, %101 ], [ %139, %144 ]
+  %.sink50 = phi ptr [ %95, %101 ], [ %138, %144 ]
+  %146 = or i64 %.sink51, 1152920405095219200
+  store i64 %146, ptr %.sink50, align 8, !noalias !46
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink50)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit29 unwind label %103
 
 147:                                              ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE8getConstINS0_8RationalEEERKT_v.exit32, %118
@@ -1047,15 +1047,15 @@ _ZN4cvc58internal7IntegerD2Ev.exit40:             ; preds = %149, %147
   br label %172
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit29.sink.split: ; preds = %.noexc37, %.critedge28.thread
-  %.sink51 = phi i32 [ %99, %.critedge28.thread ], [ %142, %.noexc37 ]
+  %.sink57 = phi i32 [ %99, %.critedge28.thread ], [ %142, %.noexc37 ]
   %.sink = phi i64 [ %96, %.critedge28.thread ], [ %139, %.noexc37 ]
-  %.sink46 = phi ptr [ %95, %.critedge28.thread ], [ %138, %.noexc37 ]
-  %154 = add nuw nsw i32 %.sink51, 1
+  %.sink52 = phi ptr [ %95, %.critedge28.thread ], [ %138, %.noexc37 ]
+  %154 = add nuw nsw i32 %.sink57, 1
   %155 = zext nneg i32 %154 to i64
   %156 = shl nuw nsw i64 %155, 40
   %157 = and i64 %.sink, -1152920405095219201
   %158 = or i64 %156, %157
-  store i64 %158, ptr %.sink46, align 8, !noalias !46
+  store i64 %158, ptr %.sink52, align 8, !noalias !46
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit29
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit29: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit29.sink.split, %.invoke, %144, %101

@@ -1157,7 +1157,7 @@ _ZN2cv13RHO_HEST_REFC12updateBoundsEv.exit:       ; preds = %101, %114, %116
   %.027.i = phi i32 [ %128, %.lr.ph.i5 ], [ %149, %144 ]
   %.02026.i = phi i32 [ %128, %.lr.ph.i5 ], [ %.1.i, %144 ]
   %.02224.i = phi i32 [ %127, %.lr.ph.i5 ], [ %.123.i, %144 ]
-  %indvars32.i = trunc i64 %indvars.iv.i6 to i32
+  %indvars32.i = trunc nuw i64 %indvars.iv.i6 to i32
   %137 = mul i32 %.02224.i, %.027.i
   %138 = mul i32 %.02026.i, %indvars32.i
   %139 = icmp ugt i32 %137, %138
@@ -2755,8 +2755,8 @@ define linkonce_odr hidden noundef i32 @_ZN2cv13RHO_HEST_REFC18isSampleDegenerat
   %83 = trunc nuw i64 %82 to i32
   %84 = bitcast i32 %83 to float
   %85 = fcmp oeq float %47, %50
-  %or.cond154 = select i1 %48, i1 true, i1 %85
-  br i1 %or.cond154, label %161, label %86
+  %or.cond162 = select i1 %48, i1 true, i1 %85
+  br i1 %or.cond162, label %161, label %86
 
 86:                                               ; preds = %1
   %87 = fcmp oeq float %50, %52
@@ -2767,10 +2767,10 @@ define linkonce_odr hidden noundef i32 @_ZN2cv13RHO_HEST_REFC18isSampleDegenerat
   %90 = fcmp oeq float %45, %52
   %or.cond150 = or i1 %90, %or.cond149
   %91 = fcmp oeq float %55, %58
-  %or.cond155 = select i1 %or.cond150, i1 true, i1 %91
+  %or.cond163 = select i1 %or.cond150, i1 true, i1 %91
   %92 = fcmp oeq float %58, %61
-  %or.cond156 = select i1 %or.cond155, i1 true, i1 %92
-  br i1 %or.cond156, label %161, label %93
+  %or.cond164 = select i1 %or.cond163, i1 true, i1 %92
+  br i1 %or.cond164, label %161, label %93
 
 93:                                               ; preds = %86
   %94 = fcmp oeq float %61, %64
@@ -3200,12 +3200,12 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC10updateSPRTEv(ptr noundef
 
 .sink.split:                                      ; preds = %33, %72
   %.lcssa.sink = phi double [ %74, %72 ], [ %35, %33 ]
-  %.sink15 = phi double [ %63, %72 ], [ %24, %33 ]
+  %.sink16 = phi double [ %63, %72 ], [ %24, %33 ]
   %.sink = phi double [ %65, %72 ], [ %26, %33 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store double %.lcssa.sink, ptr %79, align 8, !tbaa !92
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store double %.sink15, ptr %80, align 8, !tbaa !93
+  store double %.sink16, ptr %80, align 8, !tbaa !93
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store double %.sink, ptr %81, align 8, !tbaa !94
   br label %82
@@ -4203,13 +4203,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !54
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !54
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

@@ -583,8 +583,8 @@ _ZNK12_GLOBAL__N_110ARCABIInfo20classifyArgumentTypeEN5clang8QualTypeEh.exit.thr
 96:                                               ; preds = %._crit_edge.i, %68
   %97 = phi i8 [ %.pre61, %._crit_edge.i ], [ %77, %68 ]
   %98 = phi ptr [ %.pre, %._crit_edge.i ], [ %75, %68 ]
-  %.not63 = icmp eq i8 %97, 46
-  br i1 %.not63, label %99, label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i
+  %.not68 = icmp eq i8 %97, 46
+  br i1 %.not68, label %99, label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i
 
 99:                                               ; preds = %96
   %100 = call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %98) #13, !noalias !54

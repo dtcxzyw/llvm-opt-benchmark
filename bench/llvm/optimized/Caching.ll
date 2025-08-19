@@ -729,11 +729,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit30.i.i.i:          ; preds = %_ZN4llvm5ErrorD2Ev.
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %116 = load i8, ptr %111, align 8, !tbaa !41, !noalias !79
   switch i8 %116, label %_ZN4llvmplERKNS_5TwineES2_.exit45.i.i.i [
-    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit45.thread180.i.i.i
+    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit45.thread222.i.i.i
     i8 1, label %124
   ]
 
-_ZN4llvmplERKNS_5TwineES2_.exit45.thread180.i.i.i: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit30.i.i.i
+_ZN4llvmplERKNS_5TwineES2_.exit45.thread222.i.i.i: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit30.i.i.i
   %117 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 0, ptr %117, align 8, !tbaa !41, !alias.scope !80, !noalias !40
   %118 = getelementptr inbounds nuw i8, ptr %22, i64 33
@@ -768,14 +768,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit45.i.i.i:          ; preds = %_ZN4llvmplERKNS_5Tw
   store i8 4, ptr %.sroa.5154.0..sroa_idx.i.i.i, align 8, !tbaa !87, !noalias !40
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 33
   store i8 1, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1, !tbaa !87, !noalias !40
-  %.sroa.56.0..sroa_idx.i.i48182.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sroa.56.0.copyload.i.i49183.i.i.i = load i64, ptr %.sroa.56.0..sroa_idx.i.i48182.i.i.i, align 8, !noalias !88
+  %.sroa.56.0..sroa_idx.i.i48224.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sroa.56.0.copyload.i.i49225.i.i.i = load i64, ptr %.sroa.56.0..sroa_idx.i.i48224.i.i.i, align 8, !noalias !88
   br label %125
 
 125:                                              ; preds = %124, %_ZN4llvmplERKNS_5TwineES2_.exit45.i.i.i
   %126 = phi ptr [ %25, %124 ], [ %22, %_ZN4llvmplERKNS_5TwineES2_.exit45.i.i.i ]
   %127 = phi i8 [ 4, %124 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit45.i.i.i ]
-  %128 = phi i64 [ %.sroa.56.0.copyload.i.i49183.i.i.i, %124 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit45.i.i.i ]
+  %128 = phi i64 [ %.sroa.56.0.copyload.i.i49225.i.i.i, %124 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit45.i.i.i ]
   store ptr %126, ptr %21, align 8, !alias.scope !89, !noalias !40
   %.sroa.23.0..sroa_idx.i.i.i59.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %128, ptr %.sroa.23.0..sroa_idx.i.i.i59.i.i.i, align 8, !tbaa !17, !alias.scope !89, !noalias !40
@@ -783,11 +783,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit45.i.i.i:          ; preds = %_ZN4llvmplERKNS_5Tw
   store ptr @.str.4, ptr %129, align 8, !alias.scope !89, !noalias !40
   br label %_ZN4llvmplERKNS_5TwineES2_.exit61.i.i.i
 
-_ZN4llvmplERKNS_5TwineES2_.exit61.i.i.i:          ; preds = %125, %_ZN4llvmplERKNS_5TwineES2_.exit45.thread180.i.i.i
-  %.sink204.i.i.i = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit45.thread180.i.i.i ], [ %127, %125 ]
-  %.sink.i.i.i = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit45.thread180.i.i.i ], [ 3, %125 ]
+_ZN4llvmplERKNS_5TwineES2_.exit61.i.i.i:          ; preds = %125, %_ZN4llvmplERKNS_5TwineES2_.exit45.thread222.i.i.i
+  %.sink246.i.i.i = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit45.thread222.i.i.i ], [ %127, %125 ]
+  %.sink.i.i.i = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit45.thread222.i.i.i ], [ 3, %125 ]
   %130 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i8 %.sink204.i.i.i, ptr %130, align 8, !tbaa !41, !alias.scope !89, !noalias !40
+  store i8 %.sink246.i.i.i, ptr %130, align 8, !tbaa !41, !alias.scope !89, !noalias !40
   %131 = getelementptr inbounds nuw i8, ptr %21, i64 33
   store i8 %.sink.i.i.i, ptr %131, align 1, !tbaa !44, !alias.scope !89, !noalias !40
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !90
@@ -1258,8 +1258,8 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.thre
 _ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.thread.i.i.i: ; preds = %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i, %272
   %274 = phi ptr [ %.pre8.i.i, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i ], [ %263, %272 ]
   %275 = phi i64 [ %.pre174.i.i.i, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i ], [ %266, %272 ]
-  %.pre175.pre177202.i.i.i = phi ptr [ %.pre175.pre177.pre.i.i.i, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i ], [ %.pre176.i.i.i, %272 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %274, ptr align 1 %.pre175.pre177202.i.i.i, i64 %275, i1 false), !noalias !40
+  %.pre175.pre177244.i.i.i = phi ptr [ %.pre175.pre177.pre.i.i.i, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.i._ZSt4moveIPcS0_ET0_T_S2_S1_.exit35.i.thread.i_crit_edge.i.i ], [ %.pre176.i.i.i, %272 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %274, ptr align 1 %.pre175.pre177244.i.i.i, i64 %275, i1 false), !noalias !40
   %.pre175.pre.i.i.i = load ptr, ptr %199, align 8, !tbaa !3, !noalias !40
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_moveIPcS3_EEvT_S4_T0_.exit.i.i.i.i
 
@@ -3043,11 +3043,11 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit: ; pre
   br label %_ZN4llvm5ErrorD2Ev.exit2.sink.split
 
 _ZN4llvm5ErrorD2Ev.exit2.sink.split:              ; preds = %83, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit, %108
-  %.sink18 = phi ptr [ %110, %108 ], [ %76, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit ], [ %76, %83 ]
-  %111 = load ptr, ptr %.sink18, align 8, !tbaa !50
+  %.sink35 = phi ptr [ %110, %108 ], [ %76, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i14.i.loopexit ], [ %76, %83 ]
+  %111 = load ptr, ptr %.sink35, align 8, !tbaa !50
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  call void %113(ptr noundef nonnull align 8 dereferenceable(8) %.sink18) #15
+  call void %113(ptr noundef nonnull align 8 dereferenceable(8) %.sink35) #15
   br label %_ZN4llvm5ErrorD2Ev.exit2
 
 _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %_ZN4llvm5ErrorD2Ev.exit2.sink.split, %108

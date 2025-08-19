@@ -103,68 +103,68 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 28:                                               ; preds = %switch.lookup
   %29 = load i8, ptr %26, align 1, !tbaa !18
-  %switch.tableidx76 = add i8 %29, -48
-  %30 = icmp ult i8 %switch.tableidx76, 55
-  br i1 %30, label %switch.hole_check77, label %53
+  %switch.tableidx80 = add i8 %29, -48
+  %30 = icmp ult i8 %switch.tableidx80, 55
+  br i1 %30, label %switch.hole_check81, label %53
 
-switch.hole_check77:                              ; preds = %28
-  %switch.maskindex79 = zext nneg i8 %switch.tableidx76 to i64
-  %switch.shifted80 = lshr i64 35465847073801215, %switch.maskindex79
-  %switch.lobit81 = trunc i64 %switch.shifted80 to i1
-  br i1 %switch.lobit81, label %switch.lookup78, label %53
+switch.hole_check81:                              ; preds = %28
+  %switch.maskindex83 = zext nneg i8 %switch.tableidx80 to i64
+  %switch.shifted84 = lshr i64 35465847073801215, %switch.maskindex83
+  %switch.lobit85 = trunc i64 %switch.shifted84 to i1
+  br i1 %switch.lobit85, label %switch.lookup82, label %53
 
-switch.lookup78:                                  ; preds = %switch.hole_check77
-  %31 = zext nneg i8 %switch.tableidx76 to i64
-  %switch.gep82 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %31
-  %switch.load83 = load i16, ptr %switch.gep82, align 2
+switch.lookup82:                                  ; preds = %switch.hole_check81
+  %31 = zext nneg i8 %switch.tableidx80 to i64
+  %switch.gep86 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %31
+  %switch.load87 = load i16, ptr %switch.gep86, align 2
   %32 = shl nuw nsw i16 %switch.load, 4
-  %33 = or disjoint i16 %switch.load83, %32
+  %33 = or disjoint i16 %switch.load87, %32
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %34, ptr %2, align 8, !tbaa !3
   %35 = icmp eq ptr %34, %3
   br i1 %35, label %53, label %36
 
-36:                                               ; preds = %switch.lookup78
+36:                                               ; preds = %switch.lookup82
   %37 = load i8, ptr %34, align 1, !tbaa !18
-  %switch.tableidx85 = add i8 %37, -48
-  %38 = icmp ult i8 %switch.tableidx85, 55
-  br i1 %38, label %switch.hole_check86, label %53
+  %switch.tableidx89 = add i8 %37, -48
+  %38 = icmp ult i8 %switch.tableidx89, 55
+  br i1 %38, label %switch.hole_check90, label %53
 
-switch.hole_check86:                              ; preds = %36
-  %switch.maskindex88 = zext nneg i8 %switch.tableidx85 to i64
-  %switch.shifted89 = lshr i64 35465847073801215, %switch.maskindex88
-  %switch.lobit90 = trunc i64 %switch.shifted89 to i1
-  br i1 %switch.lobit90, label %switch.lookup87, label %53
+switch.hole_check90:                              ; preds = %36
+  %switch.maskindex92 = zext nneg i8 %switch.tableidx89 to i64
+  %switch.shifted93 = lshr i64 35465847073801215, %switch.maskindex92
+  %switch.lobit94 = trunc i64 %switch.shifted93 to i1
+  br i1 %switch.lobit94, label %switch.lookup91, label %53
 
-switch.lookup87:                                  ; preds = %switch.hole_check86
-  %39 = zext nneg i8 %switch.tableidx85 to i64
-  %switch.gep91 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %39
-  %switch.load92 = load i16, ptr %switch.gep91, align 2
+switch.lookup91:                                  ; preds = %switch.hole_check90
+  %39 = zext nneg i8 %switch.tableidx89 to i64
+  %switch.gep95 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %39
+  %switch.load96 = load i16, ptr %switch.gep95, align 2
   %40 = shl nuw nsw i16 %33, 4
-  %41 = or disjoint i16 %switch.load92, %40
+  %41 = or disjoint i16 %switch.load96, %40
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store ptr %42, ptr %2, align 8, !tbaa !3
   %43 = icmp eq ptr %42, %3
   br i1 %43, label %53, label %44
 
-44:                                               ; preds = %switch.lookup87
+44:                                               ; preds = %switch.lookup91
   %45 = load i8, ptr %42, align 1, !tbaa !18
-  %switch.tableidx94 = add i8 %45, -48
-  %46 = icmp ult i8 %switch.tableidx94, 55
-  br i1 %46, label %switch.hole_check95, label %53
+  %switch.tableidx98 = add i8 %45, -48
+  %46 = icmp ult i8 %switch.tableidx98, 55
+  br i1 %46, label %switch.hole_check99, label %53
 
-switch.hole_check95:                              ; preds = %44
-  %switch.maskindex97 = zext nneg i8 %switch.tableidx94 to i64
-  %switch.shifted98 = lshr i64 35465847073801215, %switch.maskindex97
-  %switch.lobit99 = trunc i64 %switch.shifted98 to i1
-  br i1 %switch.lobit99, label %switch.lookup96, label %53
+switch.hole_check99:                              ; preds = %44
+  %switch.maskindex101 = zext nneg i8 %switch.tableidx98 to i64
+  %switch.shifted102 = lshr i64 35465847073801215, %switch.maskindex101
+  %switch.lobit103 = trunc i64 %switch.shifted102 to i1
+  br i1 %switch.lobit103, label %switch.lookup100, label %53
 
-switch.lookup96:                                  ; preds = %switch.hole_check95
-  %47 = zext nneg i8 %switch.tableidx94 to i64
-  %switch.gep100 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %47
-  %switch.load101 = load i16, ptr %switch.gep100, align 2
+switch.lookup100:                                 ; preds = %switch.hole_check99
+  %47 = zext nneg i8 %switch.tableidx98 to i64
+  %switch.gep104 = getelementptr inbounds nuw [55 x i16], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 0, i64 %47
+  %switch.load105 = load i16, ptr %switch.gep104, align 2
   %48 = shl nuw i16 %41, 4
-  %49 = or disjoint i16 %switch.load101, %48
+  %49 = or disjoint i16 %switch.load105, %48
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store ptr %50, ptr %2, align 8, !tbaa !3
   br label %53
@@ -179,8 +179,8 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit45:    ; preds = %_ZN5boost6system10e
   store i64 %52, ptr %.sroa.653.0..sroa_idx, align 8, !tbaa !19
   br label %54
 
-53:                                               ; preds = %switch.hole_check95, %44, %switch.hole_check86, %36, %switch.hole_check77, %28, %switch.lookup96, %switch.lookup, %switch.lookup78, %switch.lookup87
-  %.029.ph = phi i16 [ %41, %44 ], [ %33, %36 ], [ %switch.load, %28 ], [ %41, %switch.lookup87 ], [ %33, %switch.lookup78 ], [ %switch.load, %switch.lookup ], [ %49, %switch.lookup96 ], [ %switch.load, %switch.hole_check77 ], [ %33, %switch.hole_check86 ], [ %41, %switch.hole_check95 ]
+53:                                               ; preds = %switch.hole_check99, %44, %switch.hole_check90, %36, %switch.hole_check81, %28, %switch.lookup100, %switch.lookup, %switch.lookup82, %switch.lookup91
+  %.029.ph = phi i16 [ %41, %44 ], [ %33, %36 ], [ %switch.load, %28 ], [ %41, %switch.lookup91 ], [ %33, %switch.lookup82 ], [ %switch.load, %switch.lookup ], [ %49, %switch.lookup100 ], [ %switch.load, %switch.hole_check81 ], [ %33, %switch.hole_check90 ], [ %41, %switch.hole_check99 ]
   %.sroa.0.0.insert.insert = tail call i16 @llvm.bswap.i16(i16 %.029.ph)
   store i16 %.sroa.0.0.insert.insert, ptr %0, align 8
   br label %54

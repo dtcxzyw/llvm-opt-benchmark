@@ -854,8 +854,8 @@ define internal fastcc ptr @do_open_execat(i32 noundef %0, ptr noundef %1, i32 n
 13:                                               ; preds = %12
   %14 = icmp ugt i32 %2, 4095
   %15 = and i32 %2, 256
-  %.not2 = icmp eq i32 %15, 0
-  %16 = select i1 %.not2, i32 16385, i32 16384
+  %.not4 = icmp eq i32 %15, 0
+  %16 = select i1 %.not4, i32 16385, i32 16384
   %simplifycfg.merge = select i1 %14, i32 %16, i32 0
   store i32 %simplifycfg.merge, ptr %9, align 4
   br label %17
@@ -3841,7 +3841,7 @@ define internal fastcc i32 @count(i8 range(i8 0, 2) %0, ptr %1) unnamed_addr #0 
   %13 = phi { ptr, i64, i64 } [ %35, %31 ], [ %7, %.split.us ]
   %14 = extractvalue { ptr, i64, i64 } %13, 1
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %.thread6.loopexit.split.loop.exit42, label %16
+  br i1 %15, label %.thread6.loopexit.split.loop.exit43, label %16
 
 16:                                               ; preds = %.lr.ph14
   %17 = icmp ugt i64 %14, -4096
@@ -3895,7 +3895,7 @@ define internal fastcc i32 @count(i8 range(i8 0, 2) %0, ptr %1) unnamed_addr #0 
   %47 = phi { ptr, i32, i64 } [ %67, %63 ], [ %41, %.split ]
   %48 = extractvalue { ptr, i32, i64 } %47, 1
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.thread6.loopexit30.split.loop.exit, label %50
+  br i1 %49, label %.thread6.loopexit31.split.loop.exit, label %50
 
 50:                                               ; preds = %.lr.ph
   %51 = icmp eq i64 %indvars.iv, 2147483647
@@ -3930,16 +3930,16 @@ define internal fastcc i32 @count(i8 range(i8 0, 2) %0, ptr %1) unnamed_addr #0 
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %.lr.ph, label %.thread6
 
-.thread6.loopexit.split.loop.exit42:              ; preds = %.lr.ph14
+.thread6.loopexit.split.loop.exit43:              ; preds = %.lr.ph14
   %73 = trunc nuw nsw i64 %indvars.iv27 to i32
   br label %.thread6
 
-.thread6.loopexit30.split.loop.exit:              ; preds = %.lr.ph
+.thread6.loopexit31.split.loop.exit:              ; preds = %.lr.ph
   %74 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread6
 
-.thread6:                                         ; preds = %50, %58, %63, %26, %18, %16, %31, %.thread6.loopexit30.split.loop.exit, %.thread6.loopexit.split.loop.exit42, %.split.us, %.split, %2
-  %75 = phi i32 [ 0, %2 ], [ -14, %.split.us ], [ -14, %.split ], [ %73, %.thread6.loopexit.split.loop.exit42 ], [ %74, %.thread6.loopexit30.split.loop.exit ], [ -514, %26 ], [ -7, %18 ], [ -14, %16 ], [ -14, %31 ], [ -7, %50 ], [ -514, %58 ], [ -14, %63 ]
+.thread6:                                         ; preds = %50, %58, %63, %26, %18, %16, %31, %.thread6.loopexit31.split.loop.exit, %.thread6.loopexit.split.loop.exit43, %.split.us, %.split, %2
+  %75 = phi i32 [ 0, %2 ], [ -14, %.split.us ], [ -14, %.split ], [ %73, %.thread6.loopexit.split.loop.exit43 ], [ %74, %.thread6.loopexit31.split.loop.exit ], [ -514, %26 ], [ -7, %18 ], [ -14, %16 ], [ -14, %31 ], [ -7, %50 ], [ -514, %58 ], [ -14, %63 ]
   ret i32 %75
 }
 
@@ -3949,7 +3949,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = icmp sgt i32 %0, 0
-  br i1 %8, label %.lr.ph.preheader, label %.thread23.thread71
+  br i1 %8, label %.lr.ph.preheader, label %.thread23.thread77
 
 .lr.ph.preheader:                                 ; preds = %4
   %9 = zext nneg i32 %0 to i64
@@ -4155,7 +4155,7 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %141 = phi ptr [ %55, %68 ], [ %55, %89 ], [ %55, %.loopexit ], [ %13, %38 ], [ %13, %43 ], [ %13, %47 ], [ %13, %18 ], [ %13, %28 ]
   %142 = phi i32 [ -7, %89 ], [ -514, %68 ], [ 0, %.loopexit ], [ -14, %38 ], [ -7, %43 ], [ -7, %47 ], [ -14, %18 ], [ -14, %28 ]
   %143 = icmp eq ptr %141, null
-  br i1 %143, label %.thread23.thread71, label %.thread23.thread
+  br i1 %143, label %.thread23.thread77, label %.thread23.thread
 
 .thread23.thread:                                 ; preds = %133, %.thread23
   %144 = phi i32 [ %142, %.thread23 ], [ -14, %133 ]
@@ -4206,13 +4206,13 @@ define internal fastcc range(i32 -514, 1) i32 @copy_strings(i32 noundef %0, i8 r
   %174 = icmp ult i8 %173, 2
   tail call void @llvm.assume(i1 %174)
   %175 = icmp eq i8 %173, 0
-  br i1 %175, label %.thread23.thread71, label %176
+  br i1 %175, label %.thread23.thread77, label %176
 
 176:                                              ; preds = %170
   tail call void @__folio_put(ptr noundef %171) #15
-  br label %.thread23.thread71
+  br label %.thread23.thread77
 
-.thread23.thread71:                               ; preds = %4, %176, %170, %.thread23
+.thread23.thread77:                               ; preds = %4, %176, %170, %.thread23
   %177 = phi i32 [ %144, %176 ], [ %144, %170 ], [ %142, %.thread23 ], [ 0, %4 ]
   ret i32 %177
 }

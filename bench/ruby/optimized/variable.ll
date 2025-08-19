@@ -227,8 +227,8 @@ RSTRING_END.exit.i:                               ; preds = %27, %23
 
 .preheader.i:                                     ; preds = %30, %48
   %.027.i = phi ptr [ %.229.lcssa.i, %48 ], [ %.sroa.5.0.i.i, %30 ]
-  %.not45.i = icmp ult ptr %.027.i, %28
-  br i1 %.not45.i, label %32, label %is_constant_path.exit
+  %.not48.i = icmp ult ptr %.027.i, %28
+  br i1 %.not48.i, label %32, label %is_constant_path.exit
 
 32:                                               ; preds = %.preheader.i
   %33 = getelementptr i8, ptr %.027.i, i64 2
@@ -2668,8 +2668,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %16 = icmp ne i64 %13, 5
   %17 = and i64 %12, 49152
   %.not.i = icmp eq i64 %17, 0
-  %or.cond8.i = or i1 %16, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %18, !prof !102
+  %or.cond9.i = or i1 %16, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %18, !prof !102
 
 18:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #27
@@ -3525,8 +3525,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %13 = icmp ne i64 %10, 5
   %14 = and i64 %9, 49152
   %.not.i = icmp eq i64 %14, 0
-  %or.cond8.i = or i1 %13, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %15, !prof !102
+  %or.cond9.i = or i1 %13, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %15, !prof !102
 
 15:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #27
@@ -3571,8 +3571,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %13 = icmp ne i64 %10, 5
   %14 = and i64 %9, 49152
   %.not.i = icmp eq i64 %14, 0
-  %or.cond8.i = or i1 %13, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %15, !prof !102
+  %or.cond9.i = or i1 %13, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %15, !prof !102
 
 15:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #27
@@ -3891,8 +3891,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %10, 49152
   %.not.i = icmp eq i64 %15, 0
-  %or.cond8.i = or i1 %14, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %16, !prof !102
+  %or.cond9.i = or i1 %14, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %16, !prof !102
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #27
@@ -4304,8 +4304,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %21 = icmp ne i64 %18, 5
   %22 = and i64 %17, 49152
   %.not.i12 = icmp eq i64 %22, 0
-  %or.cond8.i = or i1 %21, %.not.i12
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %23, !prof !102
+  %or.cond9.i = or i1 %21, %.not.i12
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %23, !prof !102
 
 23:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   call void @rb_str_modify(i64 noundef %0) #27
@@ -5789,8 +5789,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %10, 49152
   %.not.i = icmp eq i64 %15, 0
-  %or.cond8.i = or i1 %14, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %16, !prof !102
+  %or.cond9.i = or i1 %14, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %16, !prof !102
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #27
@@ -6683,8 +6683,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %39 = icmp ne i64 %36, 5
   %40 = and i64 %35, 49152
   %.not.i.i = icmp eq i64 %40, 0
-  %or.cond8.i.i = or i1 %39, %.not.i.i
-  br i1 %or.cond8.i.i, label %check_before_mod_set.exit, label %41, !prof !102
+  %or.cond9.i.i = or i1 %39, %.not.i.i
+  br i1 %or.cond9.i.i, label %check_before_mod_set.exit, label %41, !prof !102
 
 41:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #27
@@ -7420,8 +7420,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i70:             ; preds = %RB_FL_ABLE.exit.i.i
   %78 = icmp ne i64 %75, 5
   %79 = and i64 %74, 49152
   %.not.i.i = icmp eq i64 %79, 0
-  %or.cond8.i.i = or i1 %78, %.not.i.i
-  br i1 %or.cond8.i.i, label %check_before_mod_set.exit, label %80, !prof !102
+  %or.cond9.i.i = or i1 %78, %.not.i.i
+  br i1 %or.cond9.i.i, label %check_before_mod_set.exit, label %80, !prof !102
 
 80:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i70
   tail call void @rb_str_modify(i64 noundef %.4) #27
@@ -7592,8 +7592,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %15 = icmp ne i64 %12, 5
   %16 = and i64 %11, 49152
   %.not.i = icmp eq i64 %16, 0
-  %or.cond8.i = or i1 %15, %.not.i
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %17, !prof !102
+  %or.cond9.i = or i1 %15, %.not.i
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %17, !prof !102
 
 17:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   tail call void @rb_str_modify(i64 noundef %0) #27
@@ -8353,8 +8353,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %21 = icmp ne i64 %18, 5
   %22 = and i64 %17, 49152
   %.not.i19 = icmp eq i64 %22, 0
-  %or.cond8.i = or i1 %21, %.not.i19
-  br i1 %or.cond8.i, label %rb_check_frozen_inline.exit, label %23, !prof !102
+  %or.cond9.i = or i1 %21, %.not.i19
+  br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %23, !prof !102
 
 23:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   call void @rb_str_modify(i64 noundef %0) #27
@@ -8435,8 +8435,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i:               ; preds = %RB_FL_ABLE.exit.i.i
   %14 = icmp ne i64 %11, 5
   %15 = and i64 %10, 49152
   %.not.i.i = icmp eq i64 %15, 0
-  %or.cond8.i.i = or i1 %14, %.not.i.i
-  br i1 %or.cond8.i.i, label %rb_ivar_set.exit, label %16, !prof !102
+  %or.cond9.i.i = or i1 %14, %.not.i.i
+  br i1 %or.cond9.i.i, label %rb_ivar_set.exit, label %16, !prof !102
 
 16:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
   tail call void @rb_str_modify(i64 noundef %0) #27
@@ -9129,8 +9129,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i.i:             ; preds = %RB_FL_ABLE.exit.i.i
   %24 = icmp ne i64 %21, 5
   %25 = and i64 %20, 49152
   %.not.i.i.i = icmp eq i64 %25, 0
-  %or.cond8.i.i.i = or i1 %24, %.not.i.i.i
-  br i1 %or.cond8.i.i.i, label %check_before_mod_set.exit.i, label %26, !prof !102
+  %or.cond9.i.i.i = or i1 %24, %.not.i.i.i
+  br i1 %or.cond9.i.i.i, label %check_before_mod_set.exit.i, label %26, !prof !102
 
 26:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i.i
   call void @rb_str_modify(i64 noundef %14) #27
@@ -9564,8 +9564,8 @@ rb_vm_lock_leave.exit.i:                          ; preds = %29, %rb_vm_lock_ent
   %.pre = load i32, ptr %31, align 8, !tbaa !187
   %33 = and i32 %.pre, 255
   %34 = icmp eq i32 %33, 1
-  %or.cond96 = select i1 %.not44, i1 %34, i1 false
-  br i1 %or.cond96, label %35, label %39
+  %or.cond100 = select i1 %.not44, i1 %34, i1 false
+  br i1 %or.cond100, label %35, label %39
 
 35:                                               ; preds = %32
   %36 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)

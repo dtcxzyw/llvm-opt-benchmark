@@ -1347,8 +1347,8 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit: ; preds = %1, %_ZNSt6vec
   %39 = load double, ptr %38, align 8, !tbaa !146
   %40 = fcmp ult double %39, 0.000000e+00
   %41 = fneg double %39
-  %.sink2 = select i1 %40, double %41, double %39
-  %42 = call noundef double @acos(double noundef %.sink2) #22, !tbaa !147
+  %.sink4 = select i1 %40, double %41, double %39
+  %42 = call noundef double @acos(double noundef %.sink4) #22, !tbaa !147
   %.sink = fmul double %42, 0x405CA5DC1A63C1F8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store double %.sink, ptr %43, align 8, !tbaa !148
@@ -5889,7 +5889,7 @@ define linkonce_odr void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE17_M_defa
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN12colvarmodule7rvectorEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN12colvarmodule7rvectorEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !108

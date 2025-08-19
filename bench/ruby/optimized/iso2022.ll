@@ -511,11 +511,11 @@ switch.lookup:                                    ; preds = %53
   %switch.shiftamt = shl nuw nsw i32 %.0.i87, 3
   %switch.downshift = lshr i32 673457192, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %switch.shiftamt118 = shl nuw nsw i32 %.0.i87, 3
-  %switch.downshift119 = lshr i32 1229078594, %switch.shiftamt118
-  %switch.masked120 = trunc i32 %switch.downshift119 to i8
+  %switch.shiftamt122 = shl nuw nsw i32 %.0.i87, 3
+  %switch.downshift123 = lshr i32 1229078594, %switch.shiftamt122
+  %switch.masked124 = trunc i32 %switch.downshift123 to i8
   store i8 %switch.masked, ptr %56, align 1, !tbaa !6
-  store i8 %switch.masked120, ptr %57, align 1, !tbaa !6
+  store i8 %switch.masked124, ptr %57, align 1, !tbaa !6
   %.1.i.i = getelementptr inbounds nuw i8, ptr %.076, i64 3
   %58 = trunc nuw nsw i32 %.0.i87 to i8
   store i8 %58, ptr %0, align 1, !tbaa !6
@@ -653,16 +653,16 @@ iso2022jp_put_state.exit107:                      ; preds = %102, %104
   br label %.thread
 
 fun_so_cp5022x_encoder.exit:                      ; preds = %62, %iso2022jp_put_state.exit.i, %fun_so_cp5022x_encoder.exit99
-  %.sink115 = phi ptr [ %80, %fun_so_cp5022x_encoder.exit99 ], [ %66, %62 ], [ %61, %iso2022jp_put_state.exit.i ]
-  %115 = ptrtoint ptr %.sink115 to i64
+  %.sink119 = phi ptr [ %80, %fun_so_cp5022x_encoder.exit99 ], [ %66, %62 ], [ %61, %iso2022jp_put_state.exit.i ]
+  %115 = ptrtoint ptr %.sink119 to i64
   %116 = ptrtoint ptr %.076 to i64
   %117 = sub i64 %115, %116
   %118 = getelementptr inbounds i8, ptr %.076, i64 %117
   br label %.thread
 
 .thread:                                          ; preds = %40, %32, %fun_so_cp5022x_encoder.exit, %111, %iso2022jp_put_state.exit107, %iso2022jp_put_state.exit103
-  %.sink117 = phi ptr [ %43, %40 ], [ %35, %32 ], [ %118, %fun_so_cp5022x_encoder.exit ], [ %.076, %111 ], [ %109, %iso2022jp_put_state.exit107 ], [ %99, %iso2022jp_put_state.exit103 ]
-  %119 = ptrtoint ptr %.sink117 to i64
+  %.sink121 = phi ptr [ %43, %40 ], [ %35, %32 ], [ %118, %fun_so_cp5022x_encoder.exit ], [ %.076, %111 ], [ %109, %iso2022jp_put_state.exit107 ], [ %99, %iso2022jp_put_state.exit103 ]
+  %119 = ptrtoint ptr %.sink121 to i64
   %120 = ptrtoint ptr %3 to i64
   %121 = sub i64 %119, %120
   ret i64 %121
@@ -721,13 +721,13 @@ iso2022jp_put_state.exit:                         ; preds = %8, %15
   br i1 %.not.i23, label %iso2022jp_put_state.exit26, label %.thread
 
 .thread:                                          ; preds = %5, %23
-  %.02029 = phi ptr [ %.020, %23 ], [ %1, %5 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.02029, i64 1
-  store i8 27, ptr %.02029, align 1, !tbaa !6
-  %26 = getelementptr inbounds nuw i8, ptr %.02029, i64 2
+  %.02030 = phi ptr [ %.020, %23 ], [ %1, %5 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.02030, i64 1
+  store i8 27, ptr %.02030, align 1, !tbaa !6
+  %26 = getelementptr inbounds nuw i8, ptr %.02030, i64 2
   store i8 40, ptr %25, align 1, !tbaa !6
   store i8 66, ptr %26, align 1, !tbaa !6
-  %.1.i24 = getelementptr inbounds nuw i8, ptr %.02029, i64 3
+  %.1.i24 = getelementptr inbounds nuw i8, ptr %.02030, i64 3
   store i8 0, ptr %0, align 1, !tbaa !6
   br label %iso2022jp_put_state.exit26
 

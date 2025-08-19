@@ -907,9 +907,9 @@ define void @_ZN7rocksdb10Compaction15GetBoundaryKeysEPNS_18VersionStorageInfoER
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %49 = load i64, ptr %48, align 8, !tbaa !28
-  %storemerge61.in = getelementptr inbounds nuw i8, ptr %35, i64 72
-  %storemerge61 = load ptr, ptr %storemerge61.in, align 8, !tbaa !25
-  store ptr %storemerge61, ptr %7, align 8
+  %storemerge66.in = getelementptr inbounds nuw i8, ptr %35, i64 72
+  %storemerge66 = load ptr, ptr %storemerge66.in, align 8, !tbaa !25
+  store ptr %storemerge66, ptr %7, align 8
   %storemerge = add i64 %49, -8
   store i64 %storemerge, ptr %20, align 8
   %50 = load ptr, ptr %17, align 8, !tbaa !19
@@ -4394,8 +4394,8 @@ _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %36
 
 79:                                               ; preds = %62
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.not111 = icmp eq i64 %76, 0
-  br i1 %.not111, label %._crit_edge104, label %_ZNSt12_Vector_baseISt6vectorIPN7rocksdb12FileMetaDataESaIS3_EESaIS5_EE11_M_allocateEm.exit.i
+  %.not141 = icmp eq i64 %76, 0
+  br i1 %.not141, label %._crit_edge104, label %_ZNSt12_Vector_baseISt6vectorIPN7rocksdb12FileMetaDataESaIS3_EESaIS5_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt6vectorIPN7rocksdb12FileMetaDataESaIS3_EESaIS5_EE11_M_allocateEm.exit.i: ; preds = %79
   %81 = mul nuw nsw i64 %76, 24
@@ -5042,25 +5042,25 @@ _ZNSt16allocator_traitsISaIPN7rocksdb12FileMetaDataEEE8allocateERS3_m.exit.i.i.i
   br i1 %54, label %._crit_edge.thread.i.i, label %59
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %.noexc34
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %14, %.noexc34 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %14, %.noexc34 ]
   %55 = load ptr, ptr %16, align 8, !tbaa !491
-  %56 = icmp eq ptr %.019.lcssa28.i.i, %55
+  %56 = icmp eq ptr %.019.lcssa29.i.i, %55
   br i1 %56, label %select.unfold.i, label %57
 
 57:                                               ; preds = %._crit_edge.thread.i.i
-  %58 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #40
+  %58 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #40
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %58, i64 32
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !30
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i
   %60 = phi i64 [ %.pre.i, %57 ], [ %53, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %57 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %57 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %61 = icmp ult i64 %60, %49
   br i1 %61, label %select.unfold.i, label %70
 
 select.unfold.i:                                  ; preds = %59, %._crit_edge.thread.i.i
-  %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa29.i.i, %59 ]
+  %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa28.i.i, %59 ]
   %62 = icmp eq ptr %.sroa.4.0.i.ph.i, %14
   br i1 %62, label %.thread24.i, label %63
 
@@ -5107,7 +5107,7 @@ select.unfold.i:                                  ; preds = %59, %._crit_edge.th
 78:                                               ; preds = %_ZNSt3setImSt4lessImESaImEE4findERKm.exit
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.049.087, i64 8
   %.not72 = icmp eq ptr %79, %76
-  br i1 %.not72, label %.loopexit108, label %.lr.ph.i.i.i.preheader
+  br i1 %.not72, label %.loopexit126, label %.lr.ph.i.i.i.preheader
 
 80:                                               ; preds = %_ZNSt16allocator_traitsISaIPN7rocksdb12FileMetaDataEEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i
   %81 = landingpad { ptr, i32 }
@@ -5150,15 +5150,15 @@ _ZNSt3setImSt4lessImESaImEE4findERKm.exit:        ; preds = %_ZNSt8_Rb_treeImmSt
   %92 = load i32, ptr %6, align 8, !tbaa !499
   %93 = add nsw i32 %92, -1
   store i32 2, ptr %9, align 16, !tbaa !527
-  br label %.loopexit108
+  br label %.loopexit126
 
-.loopexit108:                                     ; preds = %78, %.thread.split
+.loopexit126:                                     ; preds = %78, %.thread.split
   %.2.ph = phi i32 [ %93, %.thread.split ], [ -1, %78 ]
   call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %34) #35
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit33
 
-_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit33: ; preds = %._crit_edge, %.loopexit108
-  %.2107 = phi i32 [ %.2.ph, %.loopexit108 ], [ -1, %._crit_edge ]
+_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit33: ; preds = %._crit_edge, %.loopexit126
+  %.2125 = phi i32 [ %.2.ph, %.loopexit126 ], [ -1, %._crit_edge ]
   %94 = load ptr, ptr %15, align 8, !tbaa !490
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %94)
           to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit unwind label %95
@@ -5181,7 +5181,7 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %_ZNSt6vectorIPN7roc
   resume { ptr, i32 } %.pn27
 
 99:                                               ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit, %5
-  %.0 = phi i32 [ %.2107, %_ZNSt3setImSt4lessImESaImEED2Ev.exit ], [ %8, %5 ]
+  %.0 = phi i32 [ %.2125, %_ZNSt3setImSt4lessImESaImEED2Ev.exit ], [ %8, %5 ]
   %100 = load ptr, ptr %0, align 16, !tbaa !481
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 4424
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 4848
@@ -6826,20 +6826,20 @@ _ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i: ; preds = %_ZNKSt4le
   br label %.lr.ph.i.i, !llvm.loop !632
 
 ._crit_edge.thread.i.i:                           ; preds = %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.i, %.lr.ph
-  %.020.lcssa31.i.i = phi ptr [ %8, %.lr.ph ], [ %.02126.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.i ]
+  %.020.lcssa34.i.i = phi ptr [ %8, %.lr.ph ], [ %.02126.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.i ]
   %47 = load ptr, ptr %9, align 8, !tbaa !491
-  %48 = icmp eq ptr %.020.lcssa31.i.i, %47
+  %48 = icmp eq ptr %.020.lcssa34.i.i, %47
   br i1 %48, label %58, label %49
 
 49:                                               ; preds = %._crit_edge.thread.i.i
-  %50 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa31.i.i) #40
+  %50 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa34.i.i) #40
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %50, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !629
   br label %._crit_edge.i.thread.i
 
 ._crit_edge.i.thread.i:                           ; preds = %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i, %49
   %51 = phi i32 [ %.pre.i, %49 ], [ %38, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i ]
-  %.020.lcssa30.i.i = phi ptr [ %.020.lcssa31.i.i, %49 ], [ %.02126.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i ]
+  %.020.lcssa33.i.i = phi ptr [ %.020.lcssa34.i.i, %49 ], [ %.02126.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i ]
   %.sroa.06.0.i.i = phi ptr [ %50, %49 ], [ %.02126.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit.thread.i.thread.i ]
   %52 = icmp slt i32 %51, %28
   br i1 %52, label %58, label %53
@@ -6855,7 +6855,7 @@ _ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit5.i.i:    ; preds = %53
   br i1 %57, label %58, label %73
 
 58:                                               ; preds = %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit5.i.i, %._crit_edge.i.thread.i, %._crit_edge.thread.i.i
-  %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa30.i.i, %._crit_edge.i.thread.i ], [ %.020.lcssa30.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit5.i.i ], [ %.020.lcssa31.i.i, %._crit_edge.thread.i.i ]
+  %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa33.i.i, %._crit_edge.i.thread.i ], [ %.020.lcssa33.i.i, %_ZNKSt4lessISt4pairIimEEclERKS1_S4_.exit5.i.i ], [ %.020.lcssa34.i.i, %._crit_edge.thread.i.i ]
   %59 = icmp eq ptr %.sroa.4.0.i.ph.i, %8
   br i1 %59, label %.thread28.i, label %60
 
@@ -7495,7 +7495,7 @@ _ZNKSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE2atEm.exit.i: ; preds = %54, %126
   %61 = phi ptr [ %.pre64.pre.i, %126 ], [ %60, %54 ]
   %.02852.i = phi i32 [ %127, %126 ], [ 0, %54 ]
   %.03051.i = phi i64 [ %128, %126 ], [ 0, %54 ]
-  %62 = add i32 %.255, %.02852.i
+  %62 = add nuw i32 %.255, %.02852.i
   %63 = sub i32 %2, %62
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %.03051.i
@@ -7613,7 +7613,7 @@ _ZNKSt6vectorIbSaIbEE2atEm.exit.i:                ; preds = %_ZNKSt6vectorIPN7ro
   %.028.lcssa.ph.i = phi i32 [ %.02852.i, %124 ], [ %127, %126 ]
   %134 = icmp ne ptr %.pre.pre.i, %.pre64.pre.i
   %135 = sext i1 %134 to i32
-  %136 = add i32 %.028.lcssa.ph.i, %135
+  %136 = add nsw i32 %.028.lcssa.ph.i, %135
   br label %_ZN7rocksdb12_GLOBAL__N_112InputSummaryERKSt6vectorIPNS_12FileMetaDataESaIS3_EERKS1_IbSaIbEEPci.exit
 
 _ZN7rocksdb12_GLOBAL__N_112InputSummaryERKSt6vectorIPNS_12FileMetaDataESaIS3_EERKS1_IbSaIbEEPci.exit: ; preds = %._crit_edge.loopexit.i, %54
@@ -8554,7 +8554,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread: 
 }
 
 ; Function Attrs: uwtable
-define noundef i64 @_ZNK7rocksdb10Compaction30MinInputFileOldestAncesterTimeEPKNS_11InternalKeyES3_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4916) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, 0) i64 @_ZNK7rocksdb10Compaction30MinInputFileOldestAncesterTimeEPKNS_11InternalKeyES3_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(4916) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.306", align 8
   %5 = alloca %"class.std::shared_ptr.306", align 8
   %6 = alloca %"class.rocksdb::Slice", align 8
@@ -13582,7 +13582,7 @@ define linkonce_odr void @_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE17_M_d
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN7rocksdb15LevelFilesBriefEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN7rocksdb15LevelFilesBriefEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !538
@@ -13665,7 +13665,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IPN7rocksdb12FileMetaDataESaIS2_EESaIS4
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIPN7rocksdb12FileMetaDataESaIS3_EEmS5_ET_S7_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIPN7rocksdb12FileMetaDataESaIS3_EEmS5_ET_S7_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !542

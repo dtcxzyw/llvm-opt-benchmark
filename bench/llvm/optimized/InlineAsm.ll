@@ -839,8 +839,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   ]
 
 .preheader216.split.us.split.us:                  ; preds = %.preheader216
-  %.pr296 = load i8, ptr %.193, align 1, !tbaa !20
-  %switch.tableidx = add i8 %.pr296, -35
+  %.pr356 = load i8, ptr %.193, align 1, !tbaa !20
+  %switch.tableidx = add i8 %.pr356, -35
   %88 = icmp ult i8 %switch.tableidx, 8
   %switch.shifted = lshr i8 -115, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
@@ -963,13 +963,13 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %142 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %143 = load i8, ptr %142, align 1, !tbaa !20
   %144 = icmp eq i8 %143, 125
-  br i1 %144, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit306, label %145
+  br i1 %144, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit366, label %145
 
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %147 = load i8, ptr %146, align 1, !tbaa !20
   %148 = icmp eq i8 %147, 125
-  br i1 %148, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit308, label %149
+  br i1 %148, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit368, label %149
 
 149:                                              ; preds = %145
   %150 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
@@ -1020,16 +1020,16 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %137
   %165 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit306: ; preds = %141
+_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit366: ; preds = %141
   %166 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit308: ; preds = %145
+_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit368: ; preds = %145
   %167 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %134, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit306, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit308, %154, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %154 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %165, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %166, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit306 ], [ %167, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit308 ], [ %.02946.i.i.i, %134 ]
+_ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %134, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit366, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit368, %154, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %154 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %165, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %166, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit366 ], [ %167, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit368 ], [ %.02946.i.i.i, %134 ]
   %.not130 = icmp eq ptr %.028.i.i.i, %13
   br i1 %.not130, label %.critedge137, label %168
 
@@ -1919,13 +1919,13 @@ define dso_local void @_ZN4llvm9InlineAsm16ParseConstraintsENS_9StringRefE(ptr d
   %27 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %29 = icmp eq i8 %28, 44
-  br i1 %29, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit47, label %30
+  br i1 %29, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit53, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   %32 = load i8, ptr %31, align 1, !tbaa !20
   %33 = icmp eq i8 %32, 44
-  br i1 %33, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit49, label %34
+  br i1 %33, label %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit55, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
@@ -1979,16 +1979,16 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit: ; preds = %22
   %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit47: ; preds = %26
+_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit53: ; preds = %26
   %52 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit49: ; preds = %30
+_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit55: ; preds = %30
   %53 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %_ZSt4findIPKccET_S2_S2_RKT0_.exit
 
-_ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit47, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit49, %39, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %50
-  %.028.i.i.i = phi ptr [ %5, %50 ], [ %.029.lcssa.i.i.i, %39 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %51, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit47 ], [ %53, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit49 ], [ %.02946.i.i.i, %19 ]
+_ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %19, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit53, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit55, %39, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %50
+  %.028.i.i.i = phi ptr [ %5, %50 ], [ %.029.lcssa.i.i.i, %39 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %51, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %52, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit53 ], [ %53, %_ZSt4findIPKccET_S2_S2_RKT0_.exit.loopexit.split.loop.exit55 ], [ %.02946.i.i.i, %19 ]
   %54 = icmp eq ptr %.028.i.i.i, %.01642
   br i1 %54, label %59, label %55
 
@@ -2404,7 +2404,7 @@ define dso_local void @_ZN4llvm9InlineAsm6verifyEPNS_12FunctionTypeENS_9StringRe
   ]
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.035.lcssa101 = phi i32 [ %.338.ph, %._crit_edge ], [ 0, %.preheader ]
+  %.035.lcssa107 = phi i32 [ %.338.ph, %._crit_edge ], [ 0, %.preheader ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !136
   %42 = load ptr, ptr %41, align 8, !tbaa !137
@@ -2455,11 +2455,11 @@ define dso_local void @_ZN4llvm9InlineAsm6verifyEPNS_12FunctionTypeENS_9StringRe
   br label %.thread77
 
 68:                                               ; preds = %65, %48, %._crit_edge.thread
-  %.035.lcssa100 = phi i32 [ %.338.ph, %65 ], [ %.338.ph, %48 ], [ %.035.lcssa101, %._crit_edge.thread ]
+  %.035.lcssa106 = phi i32 [ %.338.ph, %65 ], [ %.338.ph, %48 ], [ %.035.lcssa107, %._crit_edge.thread ]
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %70 = load i32, ptr %69, align 4, !tbaa !138
   %71 = add i32 %70, -1
-  %.not53 = icmp eq i32 %71, %.035.lcssa100
+  %.not53 = icmp eq i32 %71, %.035.lcssa106
   br i1 %.not53, label %_ZN4llvm5ErrorD2Ev.exit, label %72
 
 72:                                               ; preds = %68
@@ -4405,13 +4405,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %10, %56
-  %.sink26 = phi ptr [ %47, %56 ], [ %15, %10 ], [ %29, %23 ]
+  %.sink27 = phi ptr [ %47, %56 ], [ %15, %10 ], [ %29, %23 ]
   %.sink = phi i8 [ 1, %56 ], [ 0, %10 ], [ 0, %23 ]
   %58 = load ptr, ptr %1, align 8, !tbaa !53
   %59 = load i32, ptr %7, align 8, !tbaa !56
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %58, i64 %60
-  store ptr %.sink26, ptr %0, align 8
+  store ptr %.sink27, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %61, ptr %.sroa.4.0..sroa_idx, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16

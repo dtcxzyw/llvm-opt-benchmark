@@ -540,7 +540,7 @@ define internal i32 @g4x_hdmi_compute_config(ptr noundef %0, ptr noundef %1, ptr
   %54 = getelementptr %struct.__drm_crtcs_state, ptr %50, i64 %53, i32 3
   %55 = load ptr, ptr %54, align 8
   %56 = tail call zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr noundef %37, ptr noundef %55, ptr noundef %35) #6
-  br i1 %56, label %.split.loop.exit4, label %..thread_crit_edge
+  br i1 %56, label %.split.loop.exit8, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %49
   %.pre = load i32, ptr %20, align 8
@@ -553,13 +553,13 @@ define internal i32 @g4x_hdmi_compute_config(ptr noundef %0, ptr noundef %1, ptr
   %60 = icmp slt i64 %58, %59
   br i1 %60, label %26, label %.split.loop.exit, !llvm.loop !15
 
-.split.loop.exit4:                                ; preds = %49
+.split.loop.exit8:                                ; preds = %49
   %61 = icmp eq ptr %47, %6
   %62 = zext i1 %61 to i8
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %.thread, %.split.loop.exit4, %19
-  %63 = phi i8 [ 0, %19 ], [ %62, %.split.loop.exit4 ], [ 0, %.thread ]
+.split.loop.exit:                                 ; preds = %.thread, %.split.loop.exit8, %19
+  %63 = phi i8 [ 0, %19 ], [ %62, %.split.loop.exit8 ], [ 0, %.thread ]
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 876
   store i8 %63, ptr %64, align 4
   br label %69

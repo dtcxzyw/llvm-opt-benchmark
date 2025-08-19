@@ -556,11 +556,11 @@ define hidden ptr @SSL_get_client_CA_list(ptr noundef readonly captures(none) %0
   br i1 %.not9, label %.sink.split, label %15
 
 .sink.split:                                      ; preds = %8, %4
-  %.sink12 = phi i64 [ 80, %4 ], [ 232, %8 ]
-  %.sink11 = phi i64 [ 472, %4 ], [ 272, %8 ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink12
+  %.sink13 = phi i64 [ 80, %4 ], [ 232, %8 ]
+  %.sink12 = phi i64 [ 472, %4 ], [ 272, %8 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
   %12 = load ptr, ptr %11, align 8, !tbaa !78
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink12
   %14 = load ptr, ptr %13, align 8, !tbaa !74
   br label %15
 

@@ -677,10 +677,10 @@ switch.lookup:                                    ; preds = %17
   %21 = shl nuw nsw i32 %1, 3
   %switch.idx.mult = zext nneg i32 %21 to i64
   %22 = shl nuw nsw i32 %1, 2
-  %switch.idx.mult67 = zext nneg i32 %22 to i64
+  %switch.idx.mult72 = zext nneg i32 %22 to i64
   %23 = getelementptr i8, ptr %0, i64 %switch.idx.mult
   %24 = getelementptr i8, ptr %23, i64 -40
-  %25 = getelementptr i8, ptr %0, i64 %switch.idx.mult67
+  %25 = getelementptr i8, ptr %0, i64 %switch.idx.mult72
   %26 = getelementptr i8, ptr %25, i64 -56
   br label %27
 
@@ -2241,9 +2241,9 @@ define void @evdns_cancel_request(ptr noundef captures(address) %0, ptr noundef 
   br i1 %.not32, label %61, label %.sink.split
 
 .sink.split:                                      ; preds = %57, %20
-  %.sink34 = phi ptr [ %21, %20 ], [ %58, %57 ]
+  %.sink40 = phi ptr [ %21, %20 ], [ %58, %57 ]
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %60 = tail call i32 %59(i32 noundef 0, ptr noundef nonnull %.sink34) #21
+  %60 = tail call i32 %59(i32 noundef 0, ptr noundef nonnull %.sink40) #21
   br label %61
 
 61:                                               ; preds = %.sink.split, %57, %20, %2
@@ -2930,9 +2930,9 @@ define ptr @evdns_base_new(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   store ptr null, ptr %42, align 8
   %43 = and i32 %1, -98322
   %.not59 = icmp eq i32 %43, 0
-  br i1 %.not59, label %44, label %.thread76
+  br i1 %.not59, label %44, label %.thread79
 
-.thread76:                                        ; preds = %18
+.thread79:                                        ; preds = %18
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 2, ptr noundef nonnull @.str.13)
   br label %51
 
@@ -2956,9 +2956,9 @@ define ptr @evdns_base_new(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   %spec.select = select i1 %.not62, i32 15, i32 31
   br label %51
 
-51:                                               ; preds = %50, %.thread76
-  %.053707479 = phi i32 [ 1, %.thread76 ], [ %1, %50 ]
-  %52 = phi i32 [ 15, %.thread76 ], [ %spec.select, %50 ]
+51:                                               ; preds = %50, %.thread79
+  %.053707482 = phi i32 [ 1, %.thread79 ], [ %1, %50 ]
+  %52 = phi i32 [ 15, %.thread79 ], [ %spec.select, %50 ]
   %53 = tail call ptr @evutil_resolvconf_filename_() #21
   %54 = tail call i32 @evdns_base_resolv_conf_parse(ptr noundef nonnull %7, i32 noundef %52, ptr noundef %53)
   switch i32 %54, label %55 [
@@ -2971,7 +2971,7 @@ define ptr @evdns_base_new(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   br label %63
 
 56:                                               ; preds = %51, %51, %48
-  %.0537075 = phi i32 [ %.053707479, %51 ], [ %.053707479, %51 ], [ %1, %48 ]
+  %.0537075 = phi i32 [ %.053707482, %51 ], [ %.053707482, %51 ], [ %1, %48 ]
   %57 = and i32 %.0537075, 16
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 356
   store i32 %57, ptr %58, align 4
@@ -4632,8 +4632,8 @@ define ptr @evdns_base_resolve_reverse_ipv6(ptr noundef %0, ptr noundef readonly
   %22 = getelementptr inbounds nuw i8, ptr %.03341, i64 4
   store i8 46, ptr %21, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not44 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not44, label %23, label %7, !llvm.loop !25
+  %.not50 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not50, label %23, label %7, !llvm.loop !25
 
 23:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %22, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
@@ -5196,8 +5196,8 @@ define internal fastcc range(i32 -1, 1) i32 @evdns_base_set_option_impl(ptr noun
   br i1 %19, label %str_matches_option.exit, label %str_matches_option.exit236.thread
 
 str_matches_option.exit:                          ; preds = %4, %18
-  %.sink18.i = phi i64 [ %16, %4 ], [ 6, %18 ]
-  %20 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.77, i64 noundef %.sink18.i) #23
+  %.sink20.i = phi i64 [ %16, %4 ], [ 6, %18 ]
+  %20 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.77, i64 noundef %.sink20.i) #23
   %.not.i.not = icmp eq i32 %20, 0
   br i1 %.not.i.not, label %21, label %str_matches_option.exit.thread
 
@@ -5259,8 +5259,8 @@ str_matches_option.exit.thread:                   ; preds = %str_matches_option.
   br i1 %42, label %str_matches_option.exit236, label %str_matches_option.exit236.thread
 
 str_matches_option.exit236:                       ; preds = %str_matches_option.exit.thread, %41
-  %.sink18.i234 = phi i64 [ %16, %str_matches_option.exit.thread ], [ 8, %41 ]
-  %43 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.79, i64 noundef %.sink18.i234) #23
+  %.sink20.i234 = phi i64 [ %16, %str_matches_option.exit.thread ], [ 8, %41 ]
+  %43 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.79, i64 noundef %.sink20.i234) #23
   %.not.i235.not = icmp eq i32 %43, 0
   br i1 %.not.i235.not, label %44, label %str_matches_option.exit236.thread
 
@@ -5315,8 +5315,8 @@ str_matches_option.exit236.thread:                ; preds = %18, %41, %str_match
   br i1 %64, label %str_matches_option.exit245, label %str_matches_option.exit245.thread
 
 str_matches_option.exit245:                       ; preds = %str_matches_option.exit236.thread, %63
-  %.sink18.i243 = phi i64 [ %16, %str_matches_option.exit236.thread ], [ 23, %63 ]
-  %65 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.81, i64 noundef %.sink18.i243) #23
+  %.sink20.i243 = phi i64 [ %16, %str_matches_option.exit236.thread ], [ 23, %63 ]
+  %65 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.81, i64 noundef %.sink20.i243) #23
   %.not.i244.not = icmp eq i32 %65, 0
   br i1 %.not.i244.not, label %66, label %str_matches_option.exit245.thread
 
@@ -5370,8 +5370,8 @@ str_matches_option.exit245.thread:                ; preds = %63, %str_matches_op
   br i1 %85, label %str_matches_option.exit257, label %str_matches_option.exit257.thread
 
 str_matches_option.exit257:                       ; preds = %str_matches_option.exit245.thread, %84
-  %.sink18.i255 = phi i64 [ %16, %str_matches_option.exit245.thread ], [ 13, %84 ]
-  %86 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.83, i64 noundef %.sink18.i255) #23
+  %.sink20.i255 = phi i64 [ %16, %str_matches_option.exit245.thread ], [ 13, %84 ]
+  %86 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.83, i64 noundef %.sink20.i255) #23
   %.not.i256.not = icmp eq i32 %86, 0
   br i1 %.not.i256.not, label %87, label %str_matches_option.exit257.thread
 
@@ -9923,7 +9923,7 @@ declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #3
 declare i64 @bufferevent_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64 @dnsname_to_labels(ptr noundef captures(none) %0, i64 noundef range(i64 12, -9223372036854775808) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #2 {
+define internal fastcc range(i64 -9223372036854775806, -9223372036854775808) i64 @dnsname_to_labels(ptr noundef captures(none) %0, i64 noundef range(i64 12, -9223372036854775808) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %8 = icmp ugt i64 %4, 255
   br i1 %8, label %.thread, label %.preheader
@@ -10112,8 +10112,8 @@ dnslabel_table_get_pos.exit.thread:               ; preds = %27, %.preheader.spl
   br i1 %.not85, label %.thread, label %98
 
 98:                                               ; preds = %94, %90
-  %99 = add nsw i64 %50, 1
-  %100 = getelementptr inbounds i8, ptr %0, i64 %50
+  %99 = add nuw nsw i64 %50, 1
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 %50
   store i8 0, ptr %100, align 1
   br label %.thread
 
@@ -10767,7 +10767,7 @@ request_find_from_trans_id.exit:                  ; preds = %.preheader.i
   br label %49
 
 46:                                               ; preds = %118
-  %47 = icmp eq i32 %.sink486, 0
+  %47 = icmp eq i32 %.sink521, 0
   %spec.select258 = select i1 %47, i32 1, i32 %.0201379
   %48 = add nuw nsw i32 %.0206378, 1
   %exitcond.not = icmp eq i32 %48, %43
@@ -10967,7 +10967,7 @@ select.unfold.i281:                               ; preds = %108, %91
   br label %118
 
 118:                                              ; preds = %116, %114
-  %.sink486 = phi i32 [ %117, %116 ], [ %115, %114 ]
+  %.sink521 = phi i32 [ %117, %116 ], [ %115, %114 ]
   %119 = add nsw i32 %.159..155.i, 4
   %120 = icmp sgt i32 %119, %2
   br i1 %120, label %name_parse.exit.thread.loopexit358, label %46
@@ -11108,9 +11108,9 @@ select.unfold.i281:                               ; preds = %108, %91
   store ptr %135, ptr %132, align 8
   %192 = call fastcc i32 @name_parse(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4, ptr noundef %126, i32 noundef %124)
   %193 = icmp slt i32 %192, 0
-  br i1 %193, label %.thread344, label %.loopexit354.thread448
+  br i1 %193, label %.thread344, label %.loopexit354.thread483
 
-.loopexit354.thread448:                           ; preds = %191
+.loopexit354.thread483:                           ; preds = %191
   %194 = call i32 @llvm.umin.i32(i32 %.0203382, i32 %157)
   store i8 1, ptr %130, align 4
   br label %.loopexit
@@ -11225,13 +11225,13 @@ select.unfold.i281:                               ; preds = %108, %91
   br i1 %242, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %122, %.loopexit354
-  %.1204447 = phi i32 [ %.2325, %.loopexit354 ], [ -1, %122 ]
+  %.1204482 = phi i32 [ %.2325, %.loopexit354 ], [ -1, %122 ]
   %243 = zext i16 %rev.i264 to i32
   %.not406 = icmp eq i16 %.0.copyload122, 0
   br i1 %.not406, label %.loopexit, label %.lr.ph403
 
 .lr.ph403:                                        ; preds = %.preheader, %302
-  %.7402 = phi i32 [ %.8, %302 ], [ %.1204447, %.preheader ]
+  %.7402 = phi i32 [ %.8, %302 ], [ %.1204482, %.preheader ]
   %.2208401 = phi i32 [ %303, %302 ], [ 0, %.preheader ]
   store i8 0, ptr %5, align 16
   %244 = call fastcc i32 @name_parse(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4, ptr noundef nonnull %5, i32 noundef 256)
@@ -11347,8 +11347,8 @@ select.unfold.i281:                               ; preds = %108, %91
   %exitcond443.not = icmp eq i32 %303, %243
   br i1 %exitcond443.not, label %.loopexit, label %.lr.ph403, !llvm.loop !50
 
-.loopexit:                                        ; preds = %302, %.loopexit354.thread448, %.preheader, %.loopexit354
-  %.6 = phi i32 [ %.2325, %.loopexit354 ], [ %.1204447, %.preheader ], [ %194, %.loopexit354.thread448 ], [ %.8, %302 ]
+.loopexit:                                        ; preds = %302, %.loopexit354.thread483, %.preheader, %.loopexit354
+  %.6 = phi i32 [ %.2325, %.loopexit354 ], [ %.1204482, %.preheader ], [ %194, %.loopexit354.thread483 ], [ %.8, %302 ]
   %304 = icmp eq i32 %.6, -1
   %spec.store.select = select i1 %304, i32 0, i32 %.6
   call fastcc void @reply_handle(ptr noundef %.013.i, i16 noundef zeroext %rev.i261, i32 noundef %spec.store.select, ptr noundef nonnull %7)
@@ -13626,8 +13626,8 @@ define internal fastcc range(i32 0, 2) i32 @str_matches_option(ptr noundef reado
   br i1 %9, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %8, %2
-  %.sink18 = phi i64 [ %4, %2 ], [ %3, %8 ]
-  %10 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.sink18) #23
+  %.sink20 = phi i64 [ %4, %2 ], [ %3, %8 ]
+  %10 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.sink20) #23
   %.not = icmp eq i32 %10, 0
   %11 = zext i1 %.not to i32
   br label %12

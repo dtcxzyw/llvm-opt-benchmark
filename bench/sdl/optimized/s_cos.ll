@@ -32,7 +32,7 @@ define hidden double @SDL_uclibc_cos(double noundef %0) local_unnamed_addr #0 {
   %15 = load double, ptr %2, align 16
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load double, ptr %16, align 8
-  switch i32 %14, label %default.unreachable11 [
+  switch i32 %14, label %default.unreachable12 [
     i32 0, label %18
     i32 1, label %20
     i32 2, label %23
@@ -53,7 +53,7 @@ define hidden double @SDL_uclibc_cos(double noundef %0) local_unnamed_addr #0 {
   %25 = fneg double %24
   br label %28
 
-default.unreachable11:                            ; preds = %12
+default.unreachable12:                            ; preds = %12
   unreachable
 
 26:                                               ; preds = %12

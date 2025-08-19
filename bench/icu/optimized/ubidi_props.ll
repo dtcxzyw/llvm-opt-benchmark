@@ -279,8 +279,8 @@ define i32 @ubidi_getMirror_77(i32 noundef %0) local_unnamed_addr #2 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %14, %7
-  %.sink20 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink20 to i64
+  %.sink22 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink22 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !20
   %27 = zext i16 %26 to i32
@@ -626,8 +626,8 @@ define i32 @ubidi_getPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %14, %7
-  %.sink24 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink24 to i64
+  %.sink27 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink27 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !20
   %27 = zext i16 %26 to i32
@@ -835,8 +835,8 @@ define i32 @u_charMirror_77(i32 noundef %0) local_unnamed_addr #2 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %7, %3
-  %.sink20.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink20.i to i64
+  %.sink22.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink22.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !20
   %27 = zext i16 %26 to i32
@@ -924,8 +924,8 @@ define i32 @u_getBidiPairedBracket_77(i32 noundef %0) local_unnamed_addr #2 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %7, %3
-  %.sink24.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink24.i to i64
+  %.sink27.i = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink27.i to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL21ubidi_props_trieIndex, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !20
   %27 = zext i16 %26 to i32

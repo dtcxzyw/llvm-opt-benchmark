@@ -1698,14 +1698,14 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
 
 104:                                              ; preds = %99, %101, %90
   %.sink.in = phi ptr [ %100, %99 ], [ %103, %101 ], [ %92, %90 ]
-  %.sink69.in.in = phi ptr [ %98, %99 ], [ %102, %101 ], [ %93, %90 ]
-  %.sink68 = phi i64 [ %97, %99 ], [ %97, %101 ], [ %91, %90 ]
-  %.sink69.in = load i8, ptr %.sink69.in.in, align 1, !tbaa !24
-  %.sink69 = zext i8 %.sink69.in to i32
+  %.sink74.in.in = phi ptr [ %98, %99 ], [ %102, %101 ], [ %93, %90 ]
+  %.sink73 = phi i64 [ %97, %99 ], [ %97, %101 ], [ %91, %90 ]
+  %.sink74.in = load i8, ptr %.sink74.in.in, align 1, !tbaa !24
+  %.sink74 = zext i8 %.sink74.in to i32
   %.sink = load i8, ptr %.sink.in, align 1, !tbaa !24
   %105 = zext i8 %.sink to i32
-  %106 = sub nsw i32 %.sink69, %105
-  %107 = getelementptr inbounds i32, ptr %8, i64 %.sink68
+  %106 = sub nsw i32 %.sink74, %105
+  %107 = getelementptr inbounds i32, ptr %8, i64 %.sink73
   store i32 %106, ptr %107, align 4, !tbaa !25
   %108 = load i32, ptr %18, align 4, !tbaa !53
   %109 = add nsw i32 %108, -1
@@ -1743,20 +1743,20 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   br label %137
 
 137:                                              ; preds = %111, %123
-  %.sink73 = phi i64 [ %112, %111 ], [ %136, %123 ]
-  %.sink71 = phi i32 [ %122, %111 ], [ %135, %123 ]
-  %138 = getelementptr inbounds i32, ptr %12, i64 %.sink73
-  store i32 %.sink71, ptr %138, align 4, !tbaa !25
-  %139 = getelementptr inbounds i32, ptr %8, i64 %.sink73
+  %.sink78 = phi i64 [ %112, %111 ], [ %136, %123 ]
+  %.sink76 = phi i32 [ %122, %111 ], [ %135, %123 ]
+  %138 = getelementptr inbounds i32, ptr %12, i64 %.sink78
+  store i32 %.sink76, ptr %138, align 4, !tbaa !25
+  %139 = getelementptr inbounds i32, ptr %8, i64 %.sink78
   %140 = load i32, ptr %139, align 4, !tbaa !25
   %141 = mul nsw i32 %140, %140
-  %142 = mul nsw i32 %.sink71, %.sink71
+  %142 = mul nsw i32 %.sink76, %.sink76
   %143 = add nuw nsw i32 %142, %141
   %144 = uitofp nneg i32 %143 to double
   %sqrt = tail call double @llvm.sqrt.f64(double %144)
   %145 = fadd double %sqrt, 5.000000e-01
   %146 = fptosi double %145 to i32
-  %147 = getelementptr inbounds i32, ptr %16, i64 %.sink73
+  %147 = getelementptr inbounds i32, ptr %16, i64 %.sink78
   store i32 %146, ptr %147, align 4, !tbaa !25
   %148 = add nuw nsw i32 %.05658, 1
   %149 = load i32, ptr %17, align 8, !tbaa !55
@@ -1787,8 +1787,8 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %20 = icmp sgt i32 %19, 0
   %21 = load i32, ptr %17, align 8
   %22 = icmp sgt i32 %21, 0
-  %or.cond220 = select i1 %20, i1 %22, i1 false
-  br i1 %or.cond220, label %.preheader, label %._crit_edge206
+  %or.cond230 = select i1 %20, i1 %22, i1 false
+  br i1 %or.cond230, label %.preheader, label %._crit_edge206
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %23 = phi i32 [ %30, %._crit_edge ], [ %21, %1 ]
@@ -2079,11 +2079,11 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   br label %248
 
 248:                                              ; preds = %181, %158, %227, %204, %89, %66, %135, %112
-  %.sink215 = phi i32 [ %201, %181 ], [ %180, %158 ], [ %247, %227 ], [ %226, %204 ], [ %109, %89 ], [ %88, %66 ], [ %155, %135 ], [ %134, %112 ]
+  %.sink225 = phi i32 [ %201, %181 ], [ %180, %158 ], [ %247, %227 ], [ %226, %204 ], [ %109, %89 ], [ %88, %66 ], [ %155, %135 ], [ %134, %112 ]
   %.sink.in = phi i32 [ %200, %181 ], [ %179, %158 ], [ %246, %227 ], [ %225, %204 ], [ %108, %89 ], [ %87, %66 ], [ %154, %135 ], [ %133, %112 ]
   %.0185 = phi double [ %193, %181 ], [ %171, %158 ], [ %239, %227 ], [ %217, %204 ], [ %101, %89 ], [ %79, %66 ], [ %147, %135 ], [ %125, %112 ]
   %.sink = sitofp i32 %.sink.in to double
-  %249 = sitofp i32 %.sink215 to double
+  %249 = sitofp i32 %.sink225 to double
   %250 = fmul double %61, %249
   %251 = tail call double @llvm.fmuladd.f64(double %.sink, double %57, double %250)
   %252 = fcmp ogt double %.0185, 0.000000e+00
@@ -2098,10 +2098,10 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   br label %256
 
 256:                                              ; preds = %248, %46, %254, %44
-  %.sink218 = phi i64 [ %47, %254 ], [ %45, %44 ], [ %47, %46 ], [ %47, %248 ]
-  %.sink216 = phi i8 [ %255, %254 ], [ 0, %44 ], [ 0, %46 ], [ 0, %248 ]
-  %257 = getelementptr inbounds i8, ptr %16, i64 %.sink218
-  store i8 %.sink216, ptr %257, align 1, !tbaa !24
+  %.sink228 = phi i64 [ %47, %254 ], [ %45, %44 ], [ %47, %46 ], [ %47, %248 ]
+  %.sink226 = phi i8 [ %255, %254 ], [ 0, %44 ], [ 0, %46 ], [ 0, %248 ]
+  %257 = getelementptr inbounds i8, ptr %16, i64 %.sink228
+  store i8 %.sink226, ptr %257, align 1, !tbaa !24
   %258 = add nuw nsw i32 %.0186202, 1
   %259 = load i32, ptr %17, align 8, !tbaa !55
   %260 = icmp slt i32 %258, %259

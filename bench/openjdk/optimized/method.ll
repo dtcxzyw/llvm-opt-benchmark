@@ -5932,10 +5932,8 @@ _ZNK6Method20is_always_compilableEv.exit.i:       ; preds = %10, %_ZNK6Method21n
   br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
 25:                                               ; preds = %18
-  switch i32 %1, label %_ZNK6Method17is_not_compilableEi.exit.thread7 [
-    i32 4, label %26
-    i32 -1, label %.thread10
-  ]
+  %cond = icmp eq i32 %1, 4
+  br i1 %cond, label %26, label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5948,7 +5946,7 @@ _ZNK6Method20is_always_compilableEv.exit.i:       ; preds = %10, %_ZNK6Method21n
   %31 = icmp eq i32 %1, -1
   br i1 %31, label %.thread10, label %.thread
 
-.thread10:                                        ; preds = %25, %14, %30
+.thread10:                                        ; preds = %14, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 512
@@ -5963,7 +5961,7 @@ _ZNK6Method20is_always_compilableEv.exit.i:       ; preds = %10, %_ZNK6Method21n
 .thread:                                          ; preds = %30
   %.pre19 = add i32 %1, -1
   %38 = icmp ult i32 %.pre19, 3
-  br i1 %38, label %.thread..thread.thread_crit_edge, label %.thread.thread21
+  br i1 %38, label %.thread..thread.thread_crit_edge, label %40
 
 .thread..thread.thread_crit_edge:                 ; preds = %.thread
   %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5972,23 +5970,23 @@ _ZNK6Method20is_always_compilableEv.exit.i:       ; preds = %10, %_ZNK6Method21n
   %39 = icmp ne i32 %.pre18, 0
   br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-.thread.thread21:                                 ; preds = %.thread
-  %40 = icmp eq i32 %1, 4
-  br i1 %40, label %..thread12_crit_edge, label %_ZNK6Method17is_not_compilableEi.exit.thread7
+40:                                               ; preds = %.thread
+  %41 = icmp eq i32 %1, 4
+  br i1 %41, label %..thread12_crit_edge, label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-..thread12_crit_edge:                             ; preds = %.thread.thread21
+..thread12_crit_edge:                             ; preds = %40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.thread12
 
 .thread12:                                        ; preds = %..thread12_crit_edge, %26
-  %41 = phi i32 [ %.pre, %..thread12_crit_edge ], [ %28, %26 ]
-  %42 = and i32 %41, 1024
-  %43 = icmp ne i32 %42, 0
+  %42 = phi i32 [ %.pre, %..thread12_crit_edge ], [ %28, %26 ]
+  %43 = and i32 %42, 1024
+  %44 = icmp ne i32 %43, 0
   br label %_ZNK6Method17is_not_compilableEi.exit.thread7
 
-_ZNK6Method17is_not_compilableEi.exit.thread7:    ; preds = %21, %25, %.thread..thread.thread_crit_edge, %14, %_ZNK6Method21number_of_breakpointsEv.exit.i, %26, %.thread.thread21, %.thread10, %35, %.thread12
-  %.0 = phi i1 [ %43, %.thread12 ], [ false, %.thread10 ], [ %37, %35 ], [ false, %.thread.thread21 ], [ true, %26 ], [ true, %_ZNK6Method21number_of_breakpointsEv.exit.i ], [ true, %14 ], [ %39, %.thread..thread.thread_crit_edge ], [ %.not14, %21 ], [ false, %25 ]
+_ZNK6Method17is_not_compilableEi.exit.thread7:    ; preds = %21, %25, %.thread..thread.thread_crit_edge, %14, %_ZNK6Method21number_of_breakpointsEv.exit.i, %26, %40, %.thread10, %35, %.thread12
+  %.0 = phi i1 [ %44, %.thread12 ], [ false, %.thread10 ], [ %37, %35 ], [ false, %40 ], [ true, %26 ], [ true, %_ZNK6Method21number_of_breakpointsEv.exit.i ], [ true, %14 ], [ %39, %.thread..thread.thread_crit_edge ], [ false, %25 ], [ %.not14, %21 ]
   ret i1 %.0
 }
 
@@ -9197,35 +9195,35 @@ define linkonce_odr hidden noundef ptr @_ZN14JNIMethodBlock10add_methodEP6Method
   %6 = getelementptr inbounds nuw i8, ptr %.03346, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %5, %7
-  br i1 %8, label %.lr.ph51._crit_edge, label %.lr.ph84
+  br i1 %8, label %.lr.ph51._crit_edge, label %.lr.ph86
 
 .lr.ph51._crit_edge:                              ; preds = %.lr.ph51, %.lr.ph51.preheader
   %.03348.lcssa = phi ptr [ %.03346, %.lr.ph51.preheader ], [ %.033, %.lr.ph51 ]
-  %.lcssa77 = phi ptr [ %4, %.lr.ph51.preheader ], [ %45, %.lr.ph51 ]
+  %.lcssa79 = phi ptr [ %4, %.lr.ph51.preheader ], [ %45, %.lr.ph51 ]
   %.lcssa = phi i32 [ %5, %.lr.ph51.preheader ], [ %46, %.lr.ph51 ]
   %9 = load ptr, ptr %.03348.lcssa, align 8
   %10 = sext i32 %.lcssa to i64
   %11 = getelementptr inbounds ptr, ptr %9, i64 %10
   store ptr %1, ptr %11, align 8
-  %12 = load i32, ptr %.lcssa77, align 4
+  %12 = load i32, ptr %.lcssa79, align 4
   %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %.lcssa77, align 4
+  store i32 %13, ptr %.lcssa79, align 4
   br label %51
 
-.lr.ph84:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
+.lr.ph86:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
   %14 = phi i32 [ %48, %.lr.ph51 ], [ %7, %.lr.ph51.preheader ]
   %15 = phi i32 [ %46, %.lr.ph51 ], [ %5, %.lr.ph51.preheader ]
   %16 = phi ptr [ %45, %.lr.ph51 ], [ %4, %.lr.ph51.preheader ]
-  %.0334882 = phi ptr [ %.033, %.lr.ph51 ], [ %.03346, %.lr.ph51.preheader ]
+  %.0334884 = phi ptr [ %.033, %.lr.ph51 ], [ %.03346, %.lr.ph51.preheader ]
   %17 = icmp eq i32 %15, %14
   br i1 %17, label %.preheader, label %28
 
-.preheader:                                       ; preds = %.lr.ph84
+.preheader:                                       ; preds = %.lr.ph86
   %18 = icmp sgt i32 %15, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %19 = load ptr, ptr %.0334882, align 8
+  %19 = load ptr, ptr %.0334884, align 8
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %21
 
@@ -9251,8 +9249,8 @@ define linkonce_odr hidden noundef ptr @_ZN14JNIMethodBlock10add_methodEP6Method
   store i32 %27, ptr %16, align 4
   br label %28
 
-28:                                               ; preds = %.lr.ph84, %._crit_edge
-  %29 = getelementptr inbounds nuw i8, ptr %.0334882, i64 16
+28:                                               ; preds = %.lr.ph86, %._crit_edge
+  %29 = getelementptr inbounds nuw i8, ptr %.0334884, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %.lr.ph51
@@ -9294,7 +9292,7 @@ _ZN18JNIMethodBlockNodeC2Ei.exit:                 ; preds = %.lr.ph.i, %32
   %47 = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = icmp slt i32 %46, %48
-  br i1 %49, label %.lr.ph51._crit_edge, label %.lr.ph84
+  br i1 %49, label %.lr.ph51._crit_edge, label %.lr.ph86
 
 ._crit_edge52:                                    ; preds = %2
   %50 = load ptr, ptr @g_assert_poison, align 8
@@ -9303,11 +9301,11 @@ _ZN18JNIMethodBlockNodeC2Ei.exit:                 ; preds = %.lr.ph.i, %32
   unreachable
 
 51:                                               ; preds = %25, %.lr.ph51._crit_edge
-  %.0334880 = phi ptr [ %.0334882, %25 ], [ %.03348.lcssa, %.lr.ph51._crit_edge ]
-  %indvars.iv.lcssa73.sink = phi i64 [ %indvars.iv, %25 ], [ %10, %.lr.ph51._crit_edge ]
-  store ptr %.0334880, ptr %3, align 8
-  %52 = load ptr, ptr %.0334880, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv.lcssa73.sink
+  %.0334882 = phi ptr [ %.0334884, %25 ], [ %.03348.lcssa, %.lr.ph51._crit_edge ]
+  %indvars.iv.lcssa75.sink = phi i64 [ %indvars.iv, %25 ], [ %10, %.lr.ph51._crit_edge ]
+  store ptr %.0334882, ptr %3, align 8
+  %52 = load ptr, ptr %.0334882, align 8
+  %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv.lcssa75.sink
   ret ptr %53
 }
 

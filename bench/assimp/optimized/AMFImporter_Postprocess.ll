@@ -636,9 +636,9 @@ define hidden noundef i64 @_ZN6Assimp11AMFImporter40PostprocessHelper_GetTexture
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !18
   store i64 %17, ptr %7, align 8, !noalias !18
   %38 = icmp ugt i64 %17, 15
-  br i1 %38, label %._crit_edge.i.i.i.thread404, label %._crit_edge.i.i.i
+  br i1 %38, label %._crit_edge.i.i.i.thread467, label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i.thread404:                      ; preds = %35
+._crit_edge.i.i.i.thread467:                      ; preds = %35
   %39 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
   store ptr %39, ptr %13, align 8, !alias.scope !18
   %40 = load i64, ptr %7, align 8, !noalias !18
@@ -654,8 +654,8 @@ define hidden noundef i64 @_ZN6Assimp11AMFImporter40PostprocessHelper_GetTexture
   store i8 %42, ptr %36, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
 
-43:                                               ; preds = %._crit_edge.i.i.i.thread404, %._crit_edge.i.i.i
-  %44 = phi ptr [ %39, %._crit_edge.i.i.i.thread404 ], [ %36, %._crit_edge.i.i.i ]
+43:                                               ; preds = %._crit_edge.i.i.i.thread467, %._crit_edge.i.i.i
+  %44 = phi ptr [ %39, %._crit_edge.i.i.i.thread467 ], [ %36, %._crit_edge.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %37, i64 %17, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
 
@@ -3129,10 +3129,10 @@ _ZNSt7__cxx1110_List_baseIN6Assimp11AMFImporter12SComplexFaceESaIS3_EED2Ev.exit:
   store i32 4, ptr %107, align 8
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.0533.01303, i64 32
   %116 = load i64, ptr %115, align 8
-  %.fr2311 = freeze i64 %116
-  %117 = trunc i64 %.fr2311 to i32
+  %.fr2389 = freeze i64 %116
+  %117 = trunc i64 %.fr2389 to i32
   store i32 %117, ptr %110, align 8
-  %118 = and i64 %.fr2311, 4294967295
+  %118 = and i64 %.fr2389, 4294967295
   %119 = shl nuw nsw i64 %118, 4
   %120 = or disjoint i64 %119, 8
   %121 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %120) #32
@@ -3160,7 +3160,7 @@ _ZNSt7__cxx1110_List_baseIN6Assimp11AMFImporter12SComplexFaceESaIS3_EED2Ev.exit:
 .loopexit606:                                     ; preds = %127, %122
   %132 = getelementptr inbounds nuw i8, ptr %107, i64 208
   store ptr %123, ptr %132, align 8
-  %133 = mul i64 %.fr2311, 6
+  %133 = mul i64 %.fr2389, 6
   %134 = and i64 %133, 8589934590
   %.not576 = icmp eq i64 %134, 0
   br i1 %.not576, label %_ZNSt6vectorI9aiColor4tIfESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i
@@ -3190,8 +3190,8 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_bas
   %143 = load ptr, ptr %142, align 8
   %144 = load i32, ptr %143, align 4
   %145 = zext i32 %144 to i64
-  %.not183149.i = icmp eq ptr %141, %106
-  br i1 %.not183149.i, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit", label %.lr.ph34.split.us.i
+  %.not183156.i = icmp eq ptr %141, %106
+  br i1 %.not183156.i, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit", label %.lr.ph34.split.us.i
 
 .lr.ph34.split.us.i:                              ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EE7reserveEm.exit, %.loopexit.us.i
   %.sroa.01.033.us.i = phi ptr [ %.sroa.01.0.us.i, %.loopexit.us.i ], [ %141, %_ZNSt6vectorI9aiColor4tIfESaIS1_EE7reserveEm.exit ]
@@ -3445,7 +3445,7 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorI
   %207 = getelementptr inbounds nuw i32, ptr %203, i64 %.04122.i
   %208 = load i32, ptr %207, align 4
   %209 = zext i32 %208 to i64
-  %210 = icmp ult i64 %.05551202, %209
+  %210 = icmp samesign ult i64 %.05551202, %209
   br i1 %210, label %.lr.ph34.split.i, label %204
 
 .loopexit.i194:                                   ; preds = %216, %.lr.ph34.split.i
@@ -3476,7 +3476,7 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorI
   %219 = zext i32 %218 to i64
   %.not39.i = icmp ugt i64 %.527.i, %219
   %.5.mux.i = call i64 @llvm.umin.i64(i64 %.527.i, i64 %219)
-  %220 = icmp ult i64 %.05551202, %219
+  %220 = icmp samesign ult i64 %.05551202, %219
   %spec.select.i = select i1 %220, i64 %219, i64 %.527.i
   %.6.i = select i1 %.not39.i, i64 %spec.select.i, i64 %.5.mux.i
   %221 = add nuw nsw i64 %.028.i, 1
@@ -3648,15 +3648,15 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backEOS1_.exit246: ; preds = %_ZNSt6vect
   %.sroa.0438.20 = phi ptr [ %269, %_ZNSt6vectorI9aiColor4tIfESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i243 ], [ %.sroa.0438.71199, %256 ]
   %.0.lcssa.i.i.i.i.i.i241.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i241, %_ZNSt6vectorI9aiColor4tIfESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i243 ], [ %.sroa.18.31205, %256 ]
   %.sroa.37.20 = phi ptr [ %274, %_ZNSt6vectorI9aiColor4tIfESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i243 ], [ %.sroa.37.71201, %256 ]
-  %275 = add i64 %.05551202, 1
+  %275 = add nuw nsw i64 %.05551202, 1
   %.not149 = icmp eq i64 %.5.lcssa.i, %275
   %.sroa.05.023.i.pre1805 = load ptr, ptr %106, align 8
   %.not6.i248 = icmp eq ptr %.sroa.05.023.i.pre1805, %106
-  %or.cond2308 = select i1 %.not149, i1 true, i1 %.not6.i248
-  br i1 %or.cond2308, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_2clERNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEmm.exit258", label %.lr.ph8.i249
+  %or.cond2386 = select i1 %.not149, i1 true, i1 %.not6.i248
+  br i1 %or.cond2386, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_2clERNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEmm.exit258", label %.lr.ph8.i249
 
 .lr.ph8.i249:                                     ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backEOS1_.exit246
-  %276 = trunc i64 %275 to i32
+  %276 = trunc nuw i64 %275 to i32
   br label %277
 
 .loopexit.i254:                                   ; preds = %289, %277
@@ -6996,13 +6996,13 @@ thread-pre-split195:                              ; preds = %107, %35, %160, %19
   br label %_ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142thread-pre-split
 
 _ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142thread-pre-split: ; preds = %385, %thread-pre-split195, %23, %87, %47, %33
-  %.pn116.pn289.ph = phi { ptr, i32 } [ %24, %23 ], [ %lpad.phi217, %87 ], [ %48, %47 ], [ %34, %33 ], [ %.pn116.pn, %385 ], [ %.pn116.pn, %thread-pre-split195 ]
-  %.pr290 = load ptr, ptr %4, align 8
+  %.pn116.pn333.ph = phi { ptr, i32 } [ %24, %23 ], [ %lpad.phi217, %87 ], [ %48, %47 ], [ %34, %33 ], [ %.pn116.pn, %385 ], [ %.pn116.pn, %thread-pre-split195 ]
+  %.pr334 = load ptr, ptr %4, align 8
   br label %_ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142
 
 _ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142:  ; preds = %_ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142thread-pre-split, %21
-  %391 = phi ptr [ %.pr290, %_ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142thread-pre-split ], [ null, %21 ]
-  %.pn116.pn289 = phi { ptr, i32 } [ %.pn116.pn289.ph, %_ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142thread-pre-split ], [ %22, %21 ]
+  %391 = phi ptr [ %.pr334, %_ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142thread-pre-split ], [ null, %21 ]
+  %.pn116.pn333 = phi { ptr, i32 } [ %.pn116.pn333.ph, %_ZNSt6vectorIP11AMFMetadataSaIS1_EED2Ev.exit142thread-pre-split ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i.i143 = icmp eq ptr %391, null
   br i1 %.not.i.i.i143, label %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit144, label %392
@@ -7033,7 +7033,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit144:        ; preds = %_ZNSt6vectorIP11AMF
 
 _ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit146:        ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit144, %399
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %.pn116.pn289
+  resume { ptr, i32 } %.pn116.pn333
 
 405:                                              ; preds = %32
   unreachable
@@ -7513,13 +7513,13 @@ define linkonce_odr hidden void @_ZNSt6vectorIP8AMFColorSaIS1_EE17_M_default_app
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPP8AMFColormS1_ET_S3_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPP8AMFColormS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPP8AMFColormS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false)
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

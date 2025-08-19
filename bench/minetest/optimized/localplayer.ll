@@ -4453,14 +4453,14 @@ invoke.cont266:                                   ; preds = %if.end236
   br label %invoke.cont292
 
 invoke.cont292:                                   ; preds = %invoke.cont266, %invoke.cont256
-  %agg.tmp263.sroa.0.0.copyload.sink33 = phi <2 x float> [ %agg.tmp263.sroa.0.0.copyload, %invoke.cont266 ], [ %96, %invoke.cont256 ]
-  %agg.tmp263.sroa.2.0.copyload.sink31 = phi float [ %agg.tmp263.sroa.2.0.copyload, %invoke.cont266 ], [ %95, %invoke.cont256 ]
-  %97 = fcmp nsz ogt <2 x float> %agg.tmp263.sroa.0.0.copyload.sink33, zeroinitializer
+  %agg.tmp263.sroa.0.0.copyload.sink58 = phi <2 x float> [ %agg.tmp263.sroa.0.0.copyload, %invoke.cont266 ], [ %96, %invoke.cont256 ]
+  %agg.tmp263.sroa.2.0.copyload.sink56 = phi float [ %agg.tmp263.sroa.2.0.copyload, %invoke.cont266 ], [ %95, %invoke.cont256 ]
+  %97 = fcmp nsz ogt <2 x float> %agg.tmp263.sroa.0.0.copyload.sink58, zeroinitializer
   %98 = select <2 x i1> %97, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
-  %cmp17.i1297 = fcmp nsz ogt float %agg.tmp263.sroa.2.0.copyload.sink31, 0.000000e+00
+  %cmp17.i1297 = fcmp nsz ogt float %agg.tmp263.sroa.2.0.copyload.sink56, 0.000000e+00
   %cond24.i1298 = select nsz i1 %cmp17.i1297, float 5.000000e+00, float -5.000000e+00
-  %99 = fadd nsz <2 x float> %agg.tmp263.sroa.0.0.copyload.sink33, %98
-  %add25.i1305 = fadd nsz float %agg.tmp263.sroa.2.0.copyload.sink31, %cond24.i1298
+  %99 = fadd nsz <2 x float> %agg.tmp263.sroa.0.0.copyload.sink58, %98
+  %add25.i1305 = fadd nsz float %agg.tmp263.sroa.2.0.copyload.sink56, %cond24.i1298
   %100 = extractelement <2 x float> %99, i64 0
   %conv.i1304.sink.in = fdiv nsz float %100, 1.000000e+01
   %conv.i1304.sink = fptosi float %conv.i1304.sink.in to i16

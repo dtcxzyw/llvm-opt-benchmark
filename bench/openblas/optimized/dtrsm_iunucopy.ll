@@ -474,8 +474,8 @@ define noundef i32 @dtrsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %.not362, label %.thread389, label %212
 
 212:                                              ; preds = %211
-  %.not493 = icmp sgt i64 %.4329468, %.3323
-  br i1 %.not493, label %.thread390, label %213
+  %.not504 = icmp sgt i64 %.4329468, %.3323
+  br i1 %.not504, label %.thread390, label %213
 
 213:                                              ; preds = %212
   %214 = getelementptr inbounds nuw double, ptr %.8466, i64 %.4329468

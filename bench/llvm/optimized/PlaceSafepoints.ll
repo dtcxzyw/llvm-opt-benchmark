@@ -2546,9 +2546,9 @@ _ZN4llvm15ScalarEvolution16getUnsignedRangeEPKNS_4SCEVE.exit.i.i: ; preds = %62,
   br label %_ZN4llvm5APIntD2Ev.exit.i.i
 
 _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %74, %70, %.critedge.i.i
-  %.pn54.i.i = phi i32 [ %69, %.critedge.i.i ], [ %71, %70 ], [ %71, %74 ]
-  %.pn.i.i = sub i32 %64, %.pn54.i.i
-  %.not48.i.i = icmp ugt i32 %.pn.i.i, %63
+  %.pn61.i.i = phi i32 [ %69, %.critedge.i.i ], [ %71, %70 ], [ %71, %74 ]
+  %.pn.i.i = sub i32 %64, %.pn61.i.i
+  %.not55.i.i = icmp ugt i32 %.pn.i.i, %63
   %75 = load i32, ptr %25, align 8, !tbaa !291
   %76 = icmp ugt i32 %75, 64
   br i1 %76, label %77, label %_ZN4llvm5APIntD2Ev.exit.i.i.i
@@ -2579,7 +2579,7 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i:                    ; preds = %80, %77, %_ZN4llvm5
 .critedge28.i.i:                                  ; preds = %86, %83, %_ZN4llvm5APIntD2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not48.i.i, label %.critedge28.thread.i.i, label %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EE9push_backERKS2_.exit.i
+  br i1 %.not55.i.i, label %.critedge28.thread.i.i, label %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EE9push_backERKS2_.exit.i
 
 .critedge28.thread.i.i:                           ; preds = %.critedge28.i.i, %44
   %87 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE13isLoopExitingEPKS1_(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %41)
@@ -2653,9 +2653,9 @@ _ZN4llvm15ScalarEvolution16getUnsignedRangeEPKNS_4SCEVE.exit34.i.i: ; preds = %1
   br label %_ZN4llvm5APIntD2Ev.exit38.i.i
 
 _ZN4llvm5APIntD2Ev.exit38.i.i:                    ; preds = %117, %113, %.critedge30.i.i
-  %.pn56.i.i = phi i32 [ %112, %.critedge30.i.i ], [ %114, %113 ], [ %114, %117 ]
-  %.pn55.i.i = sub i32 %107, %.pn56.i.i
-  %.not4552.i.i = icmp ugt i32 %.pn55.i.i, %106
+  %.pn63.i.i = phi i32 [ %112, %.critedge30.i.i ], [ %114, %113 ], [ %114, %117 ]
+  %.pn62.i.i = sub i32 %107, %.pn63.i.i
+  %.not4559.i.i = icmp ugt i32 %.pn62.i.i, %106
   %118 = load i32, ptr %29, align 8, !tbaa !291
   %119 = icmp ugt i32 %118, 64
   br i1 %119, label %120, label %_ZN4llvm5APIntD2Ev.exit.i39.i.i
@@ -2686,7 +2686,7 @@ _ZN4llvm5APIntD2Ev.exit.i39.i.i:                  ; preds = %123, %120, %_ZN4llv
 .critedge32.i.i:                                  ; preds = %129, %126, %_ZN4llvm5APIntD2Ev.exit.i39.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not4552.i.i, label %_ZL23mustBeFiniteCountedLoopPN4llvm4LoopEPNS_15ScalarEvolutionEPNS_10BasicBlockE.exit.i, label %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EE9push_backERKS2_.exit.i
+  br i1 %.not4559.i.i, label %_ZL23mustBeFiniteCountedLoopPN4llvm4LoopEPNS_15ScalarEvolutionEPNS_10BasicBlockE.exit.i, label %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EE9push_backERKS2_.exit.i
 
 _ZL23mustBeFiniteCountedLoopPN4llvm4LoopEPNS_15ScalarEvolutionEPNS_10BasicBlockE.exit.i: ; preds = %.critedge32.i.i, %88, %.critedge28.thread.i.i
   %130 = load i8, ptr %31, align 8, !tbaa !138, !range !50, !noundef !51
@@ -3562,13 +3562,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyEN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3895,13 +3895,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_6detail13DenseSetEmptyEN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16

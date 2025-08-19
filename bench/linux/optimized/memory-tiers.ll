@@ -624,9 +624,9 @@ define internal noundef i32 @memory_tier_init() #4 section ".init.text" align 16
   %32 = getelementptr [64 x %struct.node_memory_type_map], ptr @node_memory_types, i64 0, i64 %24
   %33 = load ptr, ptr %32, align 16
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread17.i, label %35
+  br i1 %34, label %.thread27.i, label %35
 
-.thread17.i:                                      ; preds = %30
+.thread27.i:                                      ; preds = %30
   store ptr %31, ptr %32, align 16
   br label %37
 
@@ -634,7 +634,7 @@ define internal noundef i32 @memory_tier_init() #4 section ".init.text" align 16
   %36 = icmp eq ptr %33, %31
   br i1 %36, label %37, label %52
 
-37:                                               ; preds = %35, %.thread17.i
+37:                                               ; preds = %35, %.thread27.i
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = add i32 %39, 1

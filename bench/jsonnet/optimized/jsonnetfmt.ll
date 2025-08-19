@@ -357,7 +357,7 @@ define noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_u
           catch ptr null
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %355, %339, %.invoke.i, %.invoke385.i, %.invoke386.i, %.invoke387.i
+.loopexit.split-lp.loopexit.i:                    ; preds = %355, %339, %.invoke.i, %.invoke435.i, %.invoke436.i, %.invoke437.i
   %lpad.loopexit262.i = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr @_ZTISt9exception
@@ -886,7 +886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i: ; preds = %
 240:                                              ; preds = %239
   %241 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.51) #22
   %242 = icmp eq i32 %241, 0
-  br i1 %242, label %.invoke388.i, label %253
+  br i1 %242, label %.invoke438.i, label %253
 
 243:                                              ; preds = %239
   %244 = landingpad { ptr, i32 }
@@ -895,7 +895,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i: ; preds = %
           catch ptr null
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158.i
 
-245:                                              ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit160.i, %260, %.invoke388.i
+245:                                              ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit160.i, %260, %.invoke438.i
   %246 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr @_ZTISt9exception
@@ -919,14 +919,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 253:                                              ; preds = %240
   %254 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.52) #22
   %255 = icmp eq i32 %254, 0
-  br i1 %255, label %.invoke388.i, label %256
+  br i1 %255, label %.invoke438.i, label %256
 
 256:                                              ; preds = %253
   %257 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.53) #22
   %258 = icmp eq i32 %257, 0
-  br i1 %258, label %.invoke388.i, label %260
+  br i1 %258, label %.invoke438.i, label %260
 
-.invoke388.i:                                     ; preds = %256, %253, %240
+.invoke438.i:                                     ; preds = %256, %253, %240
   %259 = phi i32 [ 115, %253 ], [ 108, %256 ], [ 104, %240 ]
   invoke void @jsonnet_fmt_comment(ptr noundef %20, i32 noundef %259)
           to label %_ZNSolsEPFRSoS_E.exit163.i unwind label %245
@@ -945,8 +945,8 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %265 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %264)
           to label %_ZNSolsEPFRSoS_E.exit163.i unwind label %245
 
-_ZNSolsEPFRSoS_E.exit163.i:                       ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i, %.invoke388.i
-  %cond1.i = phi i1 [ false, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i ], [ true, %.invoke388.i ]
+_ZNSolsEPFRSoS_E.exit163.i:                       ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i, %.invoke438.i
+  %cond1.i = phi i1 [ false, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i ], [ true, %.invoke438.i ]
   %266 = load ptr, ptr %12, align 8, !tbaa !54
   %267 = icmp eq ptr %266, %34
   br i1 %267, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i165.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i164.i
@@ -985,7 +985,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158.i: ; preds = %
 276:                                              ; preds = %275
   %277 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.56) #22
   %278 = icmp eq i32 %277, 0
-  br i1 %278, label %.invoke389.i, label %289
+  br i1 %278, label %.invoke439.i, label %289
 
 279:                                              ; preds = %275
   %280 = landingpad { ptr, i32 }
@@ -994,7 +994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158.i: ; preds = %
           catch ptr null
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169.i
 
-281:                                              ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit173.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit171.i, %296, %.invoke389.i
+281:                                              ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit173.i, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit171.i, %296, %.invoke439.i
   %282 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr @_ZTISt9exception
@@ -1018,14 +1018,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 289:                                              ; preds = %276
   %290 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.52) #22
   %291 = icmp eq i32 %290, 0
-  br i1 %291, label %.invoke389.i, label %292
+  br i1 %291, label %.invoke439.i, label %292
 
 292:                                              ; preds = %289
   %293 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.53) #22
   %294 = icmp eq i32 %293, 0
-  br i1 %294, label %.invoke389.i, label %296
+  br i1 %294, label %.invoke439.i, label %296
 
-.invoke389.i:                                     ; preds = %292, %289, %276
+.invoke439.i:                                     ; preds = %292, %289, %276
   %295 = phi i32 [ 115, %289 ], [ 108, %292 ], [ 100, %276 ]
   invoke void @jsonnet_fmt_string(ptr noundef %20, i32 noundef %295)
           to label %_ZNSolsEPFRSoS_E.exit175.i unwind label %281
@@ -1044,8 +1044,8 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %301 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %300)
           to label %_ZNSolsEPFRSoS_E.exit175.i unwind label %281
 
-_ZNSolsEPFRSoS_E.exit175.i:                       ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit173.i, %.invoke389.i
-  %cond.i = phi i1 [ false, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit173.i ], [ true, %.invoke389.i ]
+_ZNSolsEPFRSoS_E.exit175.i:                       ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit173.i, %.invoke439.i
+  %cond.i = phi i1 [ false, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit173.i ], [ true, %.invoke439.i ]
   %302 = load ptr, ptr %13, align 8, !tbaa !54
   %303 = icmp eq ptr %302, %32
   br i1 %303, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i177.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i176.i
@@ -1074,14 +1074,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169.i: ; preds = %
 308:                                              ; preds = %272
   %309 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.58) #22
   %310 = icmp eq i32 %309, 0
-  br i1 %310, label %.invoke387.i, label %311
+  br i1 %310, label %.invoke437.i, label %311
 
 311:                                              ; preds = %308
   %312 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.59) #22
   %313 = icmp eq i32 %312, 0
-  br i1 %313, label %.invoke387.i, label %315
+  br i1 %313, label %.invoke437.i, label %315
 
-.invoke387.i:                                     ; preds = %311, %308
+.invoke437.i:                                     ; preds = %311, %308
   %314 = phi i32 [ 1, %308 ], [ 0, %311 ]
   invoke void @jsonnet_fmt_pad_arrays(ptr noundef %20, i32 noundef %314)
           to label %_ZNSolsEPFRSoS_E.exit138.thread.i unwind label %.loopexit.split-lp.loopexit.i
@@ -1089,14 +1089,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169.i: ; preds = %
 315:                                              ; preds = %311
   %316 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.60) #22
   %317 = icmp eq i32 %316, 0
-  br i1 %317, label %.invoke386.i, label %318
+  br i1 %317, label %.invoke436.i, label %318
 
 318:                                              ; preds = %315
   %319 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.61) #22
   %320 = icmp eq i32 %319, 0
-  br i1 %320, label %.invoke386.i, label %322
+  br i1 %320, label %.invoke436.i, label %322
 
-.invoke386.i:                                     ; preds = %318, %315
+.invoke436.i:                                     ; preds = %318, %315
   %321 = phi i32 [ 1, %315 ], [ 0, %318 ]
   invoke void @jsonnet_fmt_pad_objects(ptr noundef %20, i32 noundef %321)
           to label %_ZNSolsEPFRSoS_E.exit138.thread.i unwind label %.loopexit.split-lp.loopexit.i
@@ -1104,14 +1104,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169.i: ; preds = %
 322:                                              ; preds = %318
   %323 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.62) #22
   %324 = icmp eq i32 %323, 0
-  br i1 %324, label %.invoke385.i, label %325
+  br i1 %324, label %.invoke435.i, label %325
 
 325:                                              ; preds = %322
   %326 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.63) #22
   %327 = icmp eq i32 %326, 0
-  br i1 %327, label %.invoke385.i, label %329
+  br i1 %327, label %.invoke435.i, label %329
 
-.invoke385.i:                                     ; preds = %325, %322
+.invoke435.i:                                     ; preds = %325, %322
   %328 = phi i32 [ 1, %322 ], [ 0, %325 ]
   invoke void @jsonnet_fmt_pretty_field_names(ptr noundef %20, i32 noundef %328)
           to label %_ZNSolsEPFRSoS_E.exit138.thread.i unwind label %.loopexit.split-lp.loopexit.i
@@ -1175,7 +1175,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %359)
           to label %_ZNSolsEPFRSoS_E.exit138.thread.i unwind label %.loopexit.split-lp.loopexit.i
 
-_ZNSolsEPFRSoS_E.exit138.thread.i:                ; preds = %355, %339, %.invoke.i, %.invoke385.i, %.invoke386.i, %.invoke387.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166.i, %234, %203, %171, %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i, %64
+_ZNSolsEPFRSoS_E.exit138.thread.i:                ; preds = %355, %339, %.invoke.i, %.invoke435.i, %.invoke436.i, %.invoke437.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166.i, %234, %203, %171, %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129.i, %64
   %360 = load i32, ptr %8, align 4, !tbaa !51
   %361 = add i32 %360, 1
   store i32 %361, ptr %8, align 4, !tbaa !51
@@ -1722,8 +1722,8 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsISt11char_tr
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.invoke unwind label %.loopexit.split-lp
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.invoke.sink.split: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i173
-  %.sink299 = phi ptr [ %582, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i173 ], [ %559, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i ]
-  %567 = getelementptr inbounds nuw i8, ptr %.sink299, i64 67
+  %.sink378 = phi ptr [ %582, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i173 ], [ %559, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i ]
+  %567 = getelementptr inbounds nuw i8, ptr %.sink378, i64 67
   %568 = load i8, ptr %567, align 1, !tbaa !36
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.invoke
 
@@ -1793,9 +1793,9 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i173: ; preds = %_ZStlsISt11char
           to label %589 unwind label %590
 
 589:                                              ; preds = %586
-  br i1 %588, label %592, label %.invoke297
+  br i1 %588, label %592, label %.invoke376
 
-590:                                              ; preds = %.invoke297, %607, %599, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124, %592, %586
+590:                                              ; preds = %.invoke376, %607, %599, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124, %592, %586
   %591 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr @_ZTISt9exception
@@ -1835,9 +1835,9 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i173: ; preds = %_ZStlsISt11char
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124: ; preds = %599, %607
   %610 = invoke ptr @jsonnet_realloc(ptr noundef %20, ptr noundef %595, i64 noundef 0)
-          to label %.invoke297 unwind label %590
+          to label %.invoke376 unwind label %590
 
-.invoke297:                                       ; preds = %589, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124
+.invoke376:                                       ; preds = %589, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124
   invoke void @jsonnet_destroy(ptr noundef %20)
           to label %.thread unwind label %590
 
@@ -1903,9 +1903,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124: ; preds = %599,
   %634 = invoke ptr @jsonnet_realloc(ptr noundef %20, ptr noundef %595, i64 noundef 0)
           to label %.thread unwind label %629
 
-.thread:                                          ; preds = %.invoke297, %627, %633, %617, %628, %619
-  %635 = phi i1 [ false, %619 ], [ false, %628 ], [ true, %617 ], [ true, %633 ], [ true, %627 ], [ false, %.invoke297 ]
-  %.4 = phi i32 [ 2, %619 ], [ 1, %628 ], [ %.1240, %617 ], [ %.1240, %633 ], [ %.1240, %627 ], [ 1, %.invoke297 ]
+.thread:                                          ; preds = %.invoke376, %627, %633, %617, %628, %619
+  %635 = phi i1 [ false, %619 ], [ false, %628 ], [ true, %617 ], [ true, %633 ], [ true, %627 ], [ false, %.invoke376 ]
+  %.4 = phi i32 [ 2, %619 ], [ 1, %628 ], [ %.1240, %617 ], [ %.1240, %633 ], [ %.1240, %627 ], [ 1, %.invoke376 ]
   %636 = load ptr, ptr %18, align 8, !tbaa !54
   %637 = icmp eq ptr %636, %539
   br i1 %637, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1962,9 +1962,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %_Z
           to label %657 unwind label %658
 
 657:                                              ; preds = %650
-  br i1 %656, label %660, label %.invoke298
+  br i1 %656, label %660, label %.invoke377
 
-658:                                              ; preds = %.invoke298, %676, %668, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131, %660, %650
+658:                                              ; preds = %.invoke377, %676, %668, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131, %660, %650
   %659 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr @_ZTISt9exception
@@ -2005,9 +2005,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %_Z
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %668, %676
   %679 = invoke ptr @jsonnet_realloc(ptr noundef %20, ptr noundef %664, i64 noundef 0)
-          to label %.invoke298 unwind label %658
+          to label %.invoke377 unwind label %658
 
-.invoke298:                                       ; preds = %657, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131
+.invoke377:                                       ; preds = %657, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131
   invoke void @jsonnet_destroy(ptr noundef %20)
           to label %688 unwind label %658
 
@@ -2033,8 +2033,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %668,
           catch ptr null
   br label %695
 
-688:                                              ; preds = %.invoke298, %685, %684
-  %cond = phi i1 [ false, %685 ], [ true, %684 ], [ false, %.invoke298 ]
+688:                                              ; preds = %.invoke377, %685, %684
+  %cond = phi i1 [ false, %685 ], [ true, %684 ], [ false, %.invoke377 ]
   %689 = load ptr, ptr %19, align 8, !tbaa !54
   %690 = icmp eq ptr %689, %651
   br i1 %690, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i133, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i132

@@ -432,7 +432,7 @@ lpad15.loopexit:                                  ; preds = %while.cond161
   br label %ehcleanup
 
 lpad15.loopexit.split-lp.loopexit.loopexit:       ; preds = %if.end59, %if.then94, %if.then112, %if.then133, %if.then140
-  %lpad.loopexit56 = landingpad { ptr, i32 }
+  %lpad.loopexit60 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -795,7 +795,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br label %cleanup238
 
 ehcleanup:                                        ; preds = %lpad15.loopexit.split-lp.loopexit.loopexit, %lpad15.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad15.loopexit, %lpad15.loopexit.split-lp.loopexit.split-lp, %lpad.i, %lpad.i37, %lpad233
-  %.pn = phi { ptr, i32 } [ %38, %lpad233 ], [ %27, %lpad.i ], [ %29, %lpad.i37 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp44, %lpad15.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit56, %lpad15.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %38, %lpad233 ], [ %27, %lpad.i ], [ %29, %lpad.i37 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp44, %lpad15.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit60, %lpad15.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_data) #23
   br label %ehcleanup239
 

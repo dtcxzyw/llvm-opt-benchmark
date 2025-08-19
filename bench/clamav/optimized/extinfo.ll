@@ -803,8 +803,8 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
   br label %37
 
 36:                                               ; preds = %30, %.thread
-  %cond.fr30 = phi i32 [ %34, %30 ], [ 0, %.thread ]
-  %spec.select = add nsw i32 %cond.fr30, %.01928
+  %cond.fr32 = phi i32 [ %34, %30 ], [ 0, %.thread ]
+  %spec.select = add nsw i32 %cond.fr32, %.01928
   br label %37
 
 37:                                               ; preds = %36, %.thread25, %.critedge, %8, %5, %.lr.ph

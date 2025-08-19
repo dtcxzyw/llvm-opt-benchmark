@@ -808,8 +808,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   resume { ptr, i32 } %eh.lpad-body
 
 .lr.ph:                                           ; preds = %3, %43
-  %.sroa.2.053 = phi i64 [ %18, %43 ], [ %2, %3 ]
-  %18 = add i64 %.sroa.2.053, -1
+  %.sroa.2.054 = phi i64 [ %18, %43 ], [ %2, %3 ]
+  %18 = add i64 %.sroa.2.054, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !156
   store i8 0, ptr %6, align 1, !noalias !156
   %19 = invoke noundef align 8 ptr @"_ZN66_$LT$serde_bare..de..SliceRead$u20$as$u20$serde_bare..de..Read$GT$10read_exact17h23b56db506007f58E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 1)
@@ -1080,8 +1080,8 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   resume { ptr, i32 } %eh.lpad-body
 
 .lr.ph:                                           ; preds = %3, %33
-  %.sroa.2.020 = phi i64 [ %15, %33 ], [ %2, %3 ]
-  %15 = add i64 %.sroa.2.020, -1
+  %.sroa.2.021 = phi i64 [ %15, %33 ], [ %2, %3 ]
+  %15 = add i64 %.sroa.2.021, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !221
   invoke void @"_ZN211_$LT$ockam_core..routing..message..local_info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..local_info..LocalInfo$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hfea268f61d050e57E.llvm.15328536302644105373"(ptr noalias noundef nonnull sret({ ptr, [5 x i64] }) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %.noexc unwind label %19
@@ -2294,8 +2294,8 @@ common.resume:                                    ; preds = %35, %.body
   resume { ptr, i32 } %common.resume.op
 
 .lr.ph:                                           ; preds = %3, %57
-  %.sroa.2.053 = phi i64 [ %19, %57 ], [ %2, %3 ]
-  %19 = add i64 %.sroa.2.053, -1
+  %.sroa.2.057 = phi i64 [ %19, %57 ], [ %2, %3 ]
+  %19 = add i64 %.sroa.2.057, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !678
   store i8 0, ptr %7, align 1, !noalias !678
   %20 = invoke noundef align 8 ptr @"_ZN66_$LT$serde_bare..de..SliceRead$u20$as$u20$serde_bare..de..Read$GT$10read_exact17h23b56db506007f58E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %7, i64 noundef 1)
@@ -3310,9 +3310,9 @@ define hidden void @"_ZN243_$LT$$LT$ockam_core..error..inner.._..$LT$impl$u20$se
   br label %46
 
 36:                                               ; preds = %32, %30
-  %.sink106 = phi ptr [ %25, %30 ], [ %33, %32 ]
+  %.sink110 = phi ptr [ %25, %30 ], [ %33, %32 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink106, ptr %37, align 8
+  store ptr %.sink110, ptr %37, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !957
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h686f7f317c3a782bE"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -3814,14 +3814,14 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$ockam_transport_uds..router.
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i64, ptr %0, align 8, !range !1065, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %6, label %default.unreachable6 [
+  switch i64 %6, label %default.unreachable13 [
     i64 0, label %17
     i64 1, label %18
     i64 2, label %27
     i64 3, label %8
   ]
 
-default.unreachable6:                             ; preds = %1
+default.unreachable13:                            ; preds = %1
   unreachable
 
 8:                                                ; preds = %1
@@ -3945,14 +3945,14 @@ default.unreachable6:                             ; preds = %1
 define hidden void @"_ZN4core3ptr76drop_in_place$LT$ockam_transport_uds..router..message..UdsRouterResponse$GT$17hdb225d3ec7c3bf80E.llvm.15328536302644105373"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1065, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %2, label %default.unreachable5 [
+  switch i64 %2, label %default.unreachable7 [
     i64 0, label %12
     i64 1, label %20
     i64 2, label %21
     i64 3, label %4
   ]
 
-default.unreachable5:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -6521,7 +6521,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   %.sroa.10.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %34 = icmp eq i64 %18, 0
-  br i1 %34, label %.loopexit46.i, label %.lr.ph
+  br i1 %34, label %.loopexit53.i, label %.lr.ph
 
 35:                                               ; preds = %.body.i
   resume { ptr, i32 } %eh.lpad-body.i
@@ -6624,7 +6624,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx2.i.i.i, i64 16, i1 false), !noalias !1556
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1582
   %.not.i = icmp eq ptr %.sroa.9.8.copyload12.i, null
-  br i1 %.not.i, label %.loopexit46.i, label %74
+  br i1 %.not.i, label %.loopexit53.i, label %74
 
 61:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8d947af7da954b39E.exit.i.i.i", %39
   %.sroa.9.1.i = phi ptr [ %38, %39 ], [ %45, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8d947af7da954b39E.exit.i.i.i" ]
@@ -6703,9 +6703,9 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %85 = icmp eq i64 %42, 0
-  br i1 %85, label %.loopexit46.i, label %.lr.ph
+  br i1 %85, label %.loopexit53.i, label %.lr.ph
 
-.loopexit46.i:                                    ; preds = %60, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hae68c8aae9c38803E.exit.i", %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17he78768643dcb53d6E.exit.i"
+.loopexit53.i:                                    ; preds = %60, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hae68c8aae9c38803E.exit.i", %"_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17he78768643dcb53d6E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false), !noalias !1598
   br label %"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h1892519c4fe31c1aE.exit"
@@ -6716,7 +6716,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #30, !noalias !1553
   unreachable
 
-"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h1892519c4fe31c1aE.exit": ; preds = %61, %66, %73, %.loopexit46.i
+"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h1892519c4fe31c1aE.exit": ; preds = %61, %66, %73, %.loopexit53.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1556
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -7674,14 +7674,14 @@ define hidden noundef align 8 ptr @"_ZN19ockam_transport_uds6router7message1_106
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = load i64, ptr %0, align 8, !range !1065, !noundef !4
-  switch i64 %9, label %default.unreachable112 [
+  switch i64 %9, label %default.unreachable114 [
     i64 0, label %10
     i64 1, label %12
     i64 2, label %14
     i64 3, label %16
   ]
 
-default.unreachable112:                           ; preds = %2
+default.unreachable114:                           ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -8136,14 +8136,14 @@ define hidden noundef align 8 ptr @"_ZN19ockam_transport_uds6router7message1_107
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = load i64, ptr %0, align 8, !range !1065, !noundef !4
-  switch i64 %15, label %default.unreachable6 [
+  switch i64 %15, label %default.unreachable18 [
     i64 0, label %16
     i64 1, label %30
     i64 2, label %49
     i64 3, label %63
   ]
 
-default.unreachable6:                             ; preds = %2
+default.unreachable18:                            ; preds = %2
   unreachable
 
 16:                                               ; preds = %2
@@ -8480,7 +8480,7 @@ define internal void @"_ZN90_$LT$ockam_transport_uds..transport..UdsTransport$u2
   %.sroa.11 = alloca [36 x i64], align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %12 = load i8, ptr %11, align 8, !range !998, !noundef !4
-  switch i8 %12, label %default.unreachable53 [
+  switch i8 %12, label %default.unreachable56 [
     i8 0, label %14
     i8 1, label %31
     i8 2, label %32
@@ -8493,7 +8493,7 @@ define internal void @"_ZN90_$LT$ockam_transport_uds..transport..UdsTransport$u2
   %.pre = load i64, ptr %.val.pre, align 8, !range !999, !noalias !2183
   br label %33
 
-default.unreachable53:                            ; preds = %3
+default.unreachable56:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %101, %13

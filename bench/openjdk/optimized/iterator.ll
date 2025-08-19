@@ -871,8 +871,8 @@ _ZN16InstanceRefKlass12try_discoverI9narrowOop17OopIterateClosureEEbP7oopDesc13R
   unreachable
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryI9narrowOop17OopIterateClosure14AlwaysContainsEEvP7oopDesc13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %41, %53, %_ZN16InstanceRefKlass12try_discoverI9narrowOop17OopIterateClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i
-  %.sink17 = phi i64 [ %40, %_ZN16InstanceRefKlass12try_discoverI9narrowOop17OopIterateClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i ], [ %57, %53 ], [ %52, %41 ]
-  %60 = inttoptr i64 %.sink17 to ptr
+  %.sink18 = phi i64 [ %40, %_ZN16InstanceRefKlass12try_discoverI9narrowOop17OopIterateClosureEEbP7oopDesc13ReferenceTypePT0_.exit.thread.i ], [ %57, %53 ], [ %52, %41 ]
+  %60 = inttoptr i64 %.sink18 to ptr
   %61 = load ptr, ptr %2, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
@@ -1772,14 +1772,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #7, !srcloc !17
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #7, !srcloc !17
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -2326,14 +2326,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #7, !srcloc !17
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #7, !srcloc !17
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -2445,8 +2445,8 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDesc17OopIterateClosureEEbS2_13Referenc
   unreachable
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc17OopIterateClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %40, %51, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc17OopIterateClosureEEbS2_13ReferenceTypePT0_.exit.thread.i
-  %.sink16 = phi i64 [ %39, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc17OopIterateClosureEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %55, %51 ], [ %50, %40 ]
-  %58 = inttoptr i64 %.sink16 to ptr
+  %.sink17 = phi i64 [ %39, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc17OopIterateClosureEEbS2_13ReferenceTypePT0_.exit.thread.i ], [ %55, %51 ], [ %50, %40 ]
+  %58 = inttoptr i64 %.sink17 to ptr
   %59 = load ptr, ptr %2, align 8
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %58) #7
@@ -2579,10 +2579,10 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %62
-  %.sink50 = phi i64 [ 32, %62 ], [ 40, %58 ]
+  %.sink52 = phi i64 [ 32, %62 ], [ 40, %58 ]
   %.sink = phi ptr [ %49, %62 ], [ %52, %58 ]
   %63 = load ptr, ptr %2, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.sink50
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.sink52
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.sink) #7
   br label %66
@@ -2718,10 +2718,10 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   br label %.sink.split
 
 .sink.split:                                      ; preds = %57, %61
-  %.sink50 = phi i64 [ 32, %61 ], [ 40, %57 ]
+  %.sink52 = phi i64 [ 32, %61 ], [ 40, %57 ]
   %.sink = phi ptr [ %48, %61 ], [ %51, %57 ]
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink50
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.sink52
   %64 = load ptr, ptr %63, align 8
   tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.sink) #7
   br label %65
@@ -3217,7 +3217,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %49, !llvm.loop !34
 
 49:                                               ; preds = %46
-  %50 = shl i64 %44, 6
+  %50 = shl nuw i64 %44, 6
   br label %51
 
 51:                                               ; preds = %49, %42
@@ -3452,7 +3452,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %49, !llvm.loop !34
 
 49:                                               ; preds = %46
-  %50 = shl i64 %44, 6
+  %50 = shl nuw i64 %44, 6
   br label %51
 
 51:                                               ; preds = %49, %42

@@ -3400,7 +3400,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %293 = add i32 %292, -1
   store i32 %293, ptr %291, align 4, !tbaa !174
   %294 = icmp eq i32 %293, 0
-  br i1 %294, label %.sink.split.i.i552, label %.sink.split2256
+  br i1 %294, label %.sink.split.i.i552, label %.sink.split2323
 
 295:                                              ; preds = %282
   %296 = load ptr, ptr %281, align 8, !tbaa !169
@@ -3409,7 +3409,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 24
   store ptr %299, ptr %297, align 8, !tbaa !143
   store i32 2, ptr %284, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 300:                                              ; preds = %282
   %301 = load ptr, ptr %281, align 8, !tbaa !169
@@ -3426,7 +3426,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 309:                                              ; preds = %300
   store i32 1, ptr %284, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i552:                               ; preds = %300, %286
   %.sink.i.i553 = phi ptr [ %288, %286 ], [ %302, %300 ]
@@ -3494,7 +3494,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %344 = add i32 %343, -1
   store i32 %344, ptr %342, align 4, !tbaa !174
   %345 = icmp eq i32 %344, 0
-  br i1 %345, label %.sink.split.i.i561, label %.sink.split2256
+  br i1 %345, label %.sink.split.i.i561, label %.sink.split2323
 
 346:                                              ; preds = %333
   %347 = load ptr, ptr %332, align 8, !tbaa !169
@@ -3503,7 +3503,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 24
   store ptr %350, ptr %348, align 8, !tbaa !143
   store i32 2, ptr %335, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 351:                                              ; preds = %333
   %352 = load ptr, ptr %332, align 8, !tbaa !169
@@ -3520,7 +3520,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 360:                                              ; preds = %351
   store i32 1, ptr %335, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i561:                               ; preds = %351, %337
   %.sink.i.i562 = phi ptr [ %339, %337 ], [ %353, %351 ]
@@ -3588,7 +3588,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %395 = add i32 %394, -1
   store i32 %395, ptr %393, align 4, !tbaa !174
   %396 = icmp eq i32 %395, 0
-  br i1 %396, label %.sink.split.i.i570, label %.sink.split2256
+  br i1 %396, label %.sink.split.i.i570, label %.sink.split2323
 
 397:                                              ; preds = %384
   %398 = load ptr, ptr %383, align 8, !tbaa !169
@@ -3597,7 +3597,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 24
   store ptr %401, ptr %399, align 8, !tbaa !143
   store i32 2, ptr %386, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 402:                                              ; preds = %384
   %403 = load ptr, ptr %383, align 8, !tbaa !169
@@ -3614,7 +3614,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 411:                                              ; preds = %402
   store i32 1, ptr %386, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i570:                               ; preds = %402, %388
   %.sink.i.i571 = phi ptr [ %390, %388 ], [ %404, %402 ]
@@ -3683,7 +3683,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %446 = add i32 %445, -1
   store i32 %446, ptr %444, align 4, !tbaa !174
   %447 = icmp eq i32 %446, 0
-  br i1 %447, label %.sink.split.i.i579, label %.sink.split2256
+  br i1 %447, label %.sink.split.i.i579, label %.sink.split2323
 
 448:                                              ; preds = %435
   %449 = load ptr, ptr %434, align 8, !tbaa !169
@@ -3692,7 +3692,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 24
   store ptr %452, ptr %450, align 8, !tbaa !143
   store i32 2, ptr %437, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 453:                                              ; preds = %435
   %454 = load ptr, ptr %434, align 8, !tbaa !169
@@ -3709,7 +3709,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 462:                                              ; preds = %453
   store i32 1, ptr %437, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i579:                               ; preds = %453, %439
   %.sink.i.i580 = phi ptr [ %441, %439 ], [ %455, %453 ]
@@ -3778,7 +3778,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %498 = add i32 %497, -1
   store i32 %498, ptr %496, align 4, !tbaa !174
   %499 = icmp eq i32 %498, 0
-  br i1 %499, label %.sink.split.i.i588, label %.sink.split2256
+  br i1 %499, label %.sink.split.i.i588, label %.sink.split2323
 
 500:                                              ; preds = %487
   %501 = load ptr, ptr %486, align 8, !tbaa !169
@@ -3787,7 +3787,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 24
   store ptr %504, ptr %502, align 8, !tbaa !143
   store i32 2, ptr %489, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 505:                                              ; preds = %487
   %506 = load ptr, ptr %486, align 8, !tbaa !169
@@ -3804,7 +3804,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 514:                                              ; preds = %505
   store i32 1, ptr %489, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i588:                               ; preds = %505, %491
   %.sink.i.i589 = phi ptr [ %493, %491 ], [ %507, %505 ]
@@ -3872,7 +3872,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %549 = add i32 %548, -1
   store i32 %549, ptr %547, align 4, !tbaa !174
   %550 = icmp eq i32 %549, 0
-  br i1 %550, label %.sink.split.i.i597, label %.sink.split2256
+  br i1 %550, label %.sink.split.i.i597, label %.sink.split2323
 
 551:                                              ; preds = %538
   %552 = load ptr, ptr %537, align 8, !tbaa !169
@@ -3881,7 +3881,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 24
   store ptr %555, ptr %553, align 8, !tbaa !143
   store i32 2, ptr %540, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 556:                                              ; preds = %538
   %557 = load ptr, ptr %537, align 8, !tbaa !169
@@ -3898,7 +3898,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 565:                                              ; preds = %556
   store i32 1, ptr %540, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i597:                               ; preds = %556, %542
   %.sink.i.i598 = phi ptr [ %544, %542 ], [ %558, %556 ]
@@ -3968,7 +3968,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %601 = add i32 %600, -1
   store i32 %601, ptr %599, align 4, !tbaa !174
   %602 = icmp eq i32 %601, 0
-  br i1 %602, label %.sink.split.i.i607, label %.sink.split2256
+  br i1 %602, label %.sink.split.i.i607, label %.sink.split2323
 
 603:                                              ; preds = %590
   %604 = load ptr, ptr %589, align 8, !tbaa !169
@@ -3977,7 +3977,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 24
   store ptr %607, ptr %605, align 8, !tbaa !143
   store i32 2, ptr %592, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 608:                                              ; preds = %590
   %609 = load ptr, ptr %589, align 8, !tbaa !169
@@ -3994,7 +3994,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 617:                                              ; preds = %608
   store i32 1, ptr %592, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i607:                               ; preds = %608, %594
   %.sink.i.i608 = phi ptr [ %596, %594 ], [ %610, %608 ]
@@ -4065,7 +4065,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %653 = add i32 %652, -1
   store i32 %653, ptr %651, align 4, !tbaa !174
   %654 = icmp eq i32 %653, 0
-  br i1 %654, label %.sink.split.i.i618, label %.sink.split2256
+  br i1 %654, label %.sink.split.i.i618, label %.sink.split2323
 
 655:                                              ; preds = %642
   %656 = load ptr, ptr %641, align 8, !tbaa !169
@@ -4074,7 +4074,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 24
   store ptr %659, ptr %657, align 8, !tbaa !143
   store i32 2, ptr %644, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 660:                                              ; preds = %642
   %661 = load ptr, ptr %641, align 8, !tbaa !169
@@ -4091,7 +4091,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 669:                                              ; preds = %660
   store i32 1, ptr %644, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i618:                               ; preds = %660, %646
   %.sink.i.i619 = phi ptr [ %648, %646 ], [ %662, %660 ]
@@ -4162,7 +4162,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %706 = add i32 %705, -1
   store i32 %706, ptr %704, align 4, !tbaa !174
   %707 = icmp eq i32 %706, 0
-  br i1 %707, label %.sink.split.i.i628, label %.sink.split2256
+  br i1 %707, label %.sink.split.i.i628, label %.sink.split2323
 
 708:                                              ; preds = %695
   %709 = load ptr, ptr %694, align 8, !tbaa !169
@@ -4171,7 +4171,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 24
   store ptr %712, ptr %710, align 8, !tbaa !143
   store i32 2, ptr %697, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 713:                                              ; preds = %695
   %714 = load ptr, ptr %694, align 8, !tbaa !169
@@ -4188,7 +4188,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 722:                                              ; preds = %713
   store i32 1, ptr %697, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i628:                               ; preds = %713, %699
   %.sink.i.i629 = phi ptr [ %701, %699 ], [ %715, %713 ]
@@ -4258,7 +4258,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %758 = add i32 %757, -1
   store i32 %758, ptr %756, align 4, !tbaa !174
   %759 = icmp eq i32 %758, 0
-  br i1 %759, label %.sink.split.i.i638, label %.sink.split2256
+  br i1 %759, label %.sink.split.i.i638, label %.sink.split2323
 
 760:                                              ; preds = %747
   %761 = load ptr, ptr %746, align 8, !tbaa !169
@@ -4267,7 +4267,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 24
   store ptr %764, ptr %762, align 8, !tbaa !143
   store i32 2, ptr %749, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 765:                                              ; preds = %747
   %766 = load ptr, ptr %746, align 8, !tbaa !169
@@ -4284,7 +4284,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 774:                                              ; preds = %765
   store i32 1, ptr %749, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i638:                               ; preds = %765, %751
   %.sink.i.i639 = phi ptr [ %753, %751 ], [ %767, %765 ]
@@ -4356,7 +4356,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %809 = add i32 %808, -1
   store i32 %809, ptr %807, align 4, !tbaa !174
   %810 = icmp eq i32 %809, 0
-  br i1 %810, label %.sink.split.i.i647, label %.sink.split2256
+  br i1 %810, label %.sink.split.i.i647, label %.sink.split2323
 
 811:                                              ; preds = %798
   %812 = load ptr, ptr %797, align 8, !tbaa !169
@@ -4365,7 +4365,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %815 = getelementptr inbounds nuw i8, ptr %814, i64 24
   store ptr %815, ptr %813, align 8, !tbaa !143
   store i32 2, ptr %800, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 816:                                              ; preds = %798
   %817 = load ptr, ptr %797, align 8, !tbaa !169
@@ -4382,7 +4382,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 825:                                              ; preds = %816
   store i32 1, ptr %800, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i647:                               ; preds = %816, %802
   %.sink.i.i648 = phi ptr [ %804, %802 ], [ %818, %816 ]
@@ -4454,7 +4454,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %860 = add i32 %859, -1
   store i32 %860, ptr %858, align 4, !tbaa !174
   %861 = icmp eq i32 %860, 0
-  br i1 %861, label %.sink.split.i.i656, label %.sink.split2256
+  br i1 %861, label %.sink.split.i.i656, label %.sink.split2323
 
 862:                                              ; preds = %849
   %863 = load ptr, ptr %848, align 8, !tbaa !169
@@ -4463,7 +4463,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 24
   store ptr %866, ptr %864, align 8, !tbaa !143
   store i32 2, ptr %851, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 867:                                              ; preds = %849
   %868 = load ptr, ptr %848, align 8, !tbaa !169
@@ -4480,7 +4480,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 876:                                              ; preds = %867
   store i32 1, ptr %851, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i656:                               ; preds = %867, %853
   %.sink.i.i657 = phi ptr [ %855, %853 ], [ %869, %867 ]
@@ -4552,7 +4552,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %911 = add i32 %910, -1
   store i32 %911, ptr %909, align 4, !tbaa !174
   %912 = icmp eq i32 %911, 0
-  br i1 %912, label %.sink.split.i.i665, label %.sink.split2256
+  br i1 %912, label %.sink.split.i.i665, label %.sink.split2323
 
 913:                                              ; preds = %900
   %914 = load ptr, ptr %899, align 8, !tbaa !169
@@ -4561,7 +4561,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 24
   store ptr %917, ptr %915, align 8, !tbaa !143
   store i32 2, ptr %902, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 918:                                              ; preds = %900
   %919 = load ptr, ptr %899, align 8, !tbaa !169
@@ -4578,7 +4578,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 927:                                              ; preds = %918
   store i32 1, ptr %902, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i665:                               ; preds = %918, %904
   %.sink.i.i666 = phi ptr [ %906, %904 ], [ %920, %918 ]
@@ -4650,7 +4650,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %962 = add i32 %961, -1
   store i32 %962, ptr %960, align 4, !tbaa !174
   %963 = icmp eq i32 %962, 0
-  br i1 %963, label %.sink.split.i.i674, label %.sink.split2256
+  br i1 %963, label %.sink.split.i.i674, label %.sink.split2323
 
 964:                                              ; preds = %951
   %965 = load ptr, ptr %950, align 8, !tbaa !169
@@ -4659,7 +4659,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 24
   store ptr %968, ptr %966, align 8, !tbaa !143
   store i32 2, ptr %953, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 969:                                              ; preds = %951
   %970 = load ptr, ptr %950, align 8, !tbaa !169
@@ -4676,7 +4676,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 978:                                              ; preds = %969
   store i32 1, ptr %953, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i674:                               ; preds = %969, %955
   %.sink.i.i675 = phi ptr [ %957, %955 ], [ %971, %969 ]
@@ -4748,7 +4748,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1013 = add i32 %1012, -1
   store i32 %1013, ptr %1011, align 4, !tbaa !174
   %1014 = icmp eq i32 %1013, 0
-  br i1 %1014, label %.sink.split.i.i683, label %.sink.split2256
+  br i1 %1014, label %.sink.split.i.i683, label %.sink.split2323
 
 1015:                                             ; preds = %1002
   %1016 = load ptr, ptr %1001, align 8, !tbaa !169
@@ -4757,7 +4757,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 24
   store ptr %1019, ptr %1017, align 8, !tbaa !143
   store i32 2, ptr %1004, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1020:                                             ; preds = %1002
   %1021 = load ptr, ptr %1001, align 8, !tbaa !169
@@ -4774,7 +4774,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1029:                                             ; preds = %1020
   store i32 1, ptr %1004, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i683:                               ; preds = %1020, %1006
   %.sink.i.i684 = phi ptr [ %1008, %1006 ], [ %1022, %1020 ]
@@ -4802,7 +4802,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1040 = zext i8 %1039 to i64
   store i64 %1040, ptr %24, align 8, !tbaa !151
   %1041 = icmp eq i8 %1039, 0
-  br i1 %1041, label %1042, label %.sink.split2256
+  br i1 %1041, label %1042, label %.sink.split2323
 
 1042:                                             ; preds = %1038
   %1043 = load ptr, ptr %23, align 8, !tbaa !167
@@ -4853,7 +4853,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1068 = add i32 %1067, -1
   store i32 %1068, ptr %1066, align 4, !tbaa !174
   %1069 = icmp eq i32 %1068, 0
-  br i1 %1069, label %.sink.split.i.i692, label %.sink.split2256
+  br i1 %1069, label %.sink.split.i.i692, label %.sink.split2323
 
 1070:                                             ; preds = %1057
   %1071 = load ptr, ptr %1056, align 8, !tbaa !169
@@ -4862,7 +4862,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1074 = getelementptr inbounds nuw i8, ptr %1073, i64 24
   store ptr %1074, ptr %1072, align 8, !tbaa !143
   store i32 2, ptr %1059, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1075:                                             ; preds = %1057
   %1076 = load ptr, ptr %1056, align 8, !tbaa !169
@@ -4879,7 +4879,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1084:                                             ; preds = %1075
   store i32 1, ptr %1059, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i692:                               ; preds = %1075, %1061
   %.sink.i.i693 = phi ptr [ %1063, %1061 ], [ %1077, %1075 ]
@@ -4907,7 +4907,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1095 = zext i8 %1094 to i64
   store i64 %1095, ptr %24, align 8, !tbaa !151
   %1096 = icmp eq i8 %1094, 0
-  br i1 %1096, label %1097, label %.sink.split2256
+  br i1 %1096, label %1097, label %.sink.split2323
 
 1097:                                             ; preds = %1093
   %1098 = load ptr, ptr %23, align 8, !tbaa !167
@@ -4958,7 +4958,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1123 = add i32 %1122, -1
   store i32 %1123, ptr %1121, align 4, !tbaa !174
   %1124 = icmp eq i32 %1123, 0
-  br i1 %1124, label %.sink.split.i.i701, label %.sink.split2256
+  br i1 %1124, label %.sink.split.i.i701, label %.sink.split2323
 
 1125:                                             ; preds = %1112
   %1126 = load ptr, ptr %1111, align 8, !tbaa !169
@@ -4967,7 +4967,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1129 = getelementptr inbounds nuw i8, ptr %1128, i64 24
   store ptr %1129, ptr %1127, align 8, !tbaa !143
   store i32 2, ptr %1114, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1130:                                             ; preds = %1112
   %1131 = load ptr, ptr %1111, align 8, !tbaa !169
@@ -4984,7 +4984,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1139:                                             ; preds = %1130
   store i32 1, ptr %1114, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i701:                               ; preds = %1130, %1116
   %.sink.i.i702 = phi ptr [ %1118, %1116 ], [ %1132, %1130 ]
@@ -5012,7 +5012,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1150 = zext i8 %1149 to i64
   %1151 = add nuw nsw i64 %1150, 1
   store i64 %1151, ptr %24, align 8, !tbaa !151
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1152:                                             ; preds = %262
   %1153 = load i16, ptr %252, align 1
@@ -5020,7 +5020,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1154 = zext i16 %rev.i.i705 to i64
   store i64 %1154, ptr %24, align 8, !tbaa !151
   %1155 = icmp eq i16 %1153, 0
-  br i1 %1155, label %1156, label %.sink.split2256
+  br i1 %1155, label %1156, label %.sink.split2323
 
 1156:                                             ; preds = %1152
   %1157 = load ptr, ptr %23, align 8, !tbaa !167
@@ -5072,7 +5072,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1183 = add i32 %1182, -1
   store i32 %1183, ptr %1181, align 4, !tbaa !174
   %1184 = icmp eq i32 %1183, 0
-  br i1 %1184, label %.sink.split.i.i711, label %.sink.split2256
+  br i1 %1184, label %.sink.split.i.i711, label %.sink.split2323
 
 1185:                                             ; preds = %1172
   %1186 = load ptr, ptr %1171, align 8, !tbaa !169
@@ -5081,7 +5081,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1189 = getelementptr inbounds nuw i8, ptr %1188, i64 24
   store ptr %1189, ptr %1187, align 8, !tbaa !143
   store i32 2, ptr %1174, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1190:                                             ; preds = %1172
   %1191 = load ptr, ptr %1171, align 8, !tbaa !169
@@ -5098,7 +5098,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1199:                                             ; preds = %1190
   store i32 1, ptr %1174, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i711:                               ; preds = %1190, %1176
   %.sink.i.i712 = phi ptr [ %1178, %1176 ], [ %1192, %1190 ]
@@ -5127,7 +5127,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1210 = zext i16 %rev.i.i715 to i64
   store i64 %1210, ptr %24, align 8, !tbaa !151
   %1211 = icmp eq i16 %1209, 0
-  br i1 %1211, label %1212, label %.sink.split2256
+  br i1 %1211, label %1212, label %.sink.split2323
 
 1212:                                             ; preds = %1208
   %1213 = load ptr, ptr %23, align 8, !tbaa !167
@@ -5179,7 +5179,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1239 = add i32 %1238, -1
   store i32 %1239, ptr %1237, align 4, !tbaa !174
   %1240 = icmp eq i32 %1239, 0
-  br i1 %1240, label %.sink.split.i.i721, label %.sink.split2256
+  br i1 %1240, label %.sink.split.i.i721, label %.sink.split2323
 
 1241:                                             ; preds = %1228
   %1242 = load ptr, ptr %1227, align 8, !tbaa !169
@@ -5188,7 +5188,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 24
   store ptr %1245, ptr %1243, align 8, !tbaa !143
   store i32 2, ptr %1230, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1246:                                             ; preds = %1228
   %1247 = load ptr, ptr %1227, align 8, !tbaa !169
@@ -5205,7 +5205,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1255:                                             ; preds = %1246
   store i32 1, ptr %1230, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i721:                               ; preds = %1246, %1232
   %.sink.i.i722 = phi ptr [ %1234, %1232 ], [ %1248, %1246 ]
@@ -5234,7 +5234,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1266 = zext i16 %rev.i.i725 to i64
   %1267 = add nuw nsw i64 %1266, 1
   store i64 %1267, ptr %24, align 8, !tbaa !151
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1268:                                             ; preds = %262
   %1269 = load i32, ptr %252, align 1
@@ -5242,7 +5242,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1271 = zext i32 %1270 to i64
   store i64 %1271, ptr %24, align 8, !tbaa !151
   %1272 = icmp eq i32 %1269, 0
-  br i1 %1272, label %1273, label %.sink.split2256
+  br i1 %1272, label %1273, label %.sink.split2323
 
 1273:                                             ; preds = %1268
   %1274 = load ptr, ptr %23, align 8, !tbaa !167
@@ -5293,7 +5293,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1299 = add i32 %1298, -1
   store i32 %1299, ptr %1297, align 4, !tbaa !174
   %1300 = icmp eq i32 %1299, 0
-  br i1 %1300, label %.sink.split.i.i731, label %.sink.split2256
+  br i1 %1300, label %.sink.split.i.i731, label %.sink.split2323
 
 1301:                                             ; preds = %1288
   %1302 = load ptr, ptr %1287, align 8, !tbaa !169
@@ -5302,7 +5302,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 24
   store ptr %1305, ptr %1303, align 8, !tbaa !143
   store i32 2, ptr %1290, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1306:                                             ; preds = %1288
   %1307 = load ptr, ptr %1287, align 8, !tbaa !169
@@ -5319,7 +5319,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1315:                                             ; preds = %1306
   store i32 1, ptr %1290, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i731:                               ; preds = %1306, %1292
   %.sink.i.i732 = phi ptr [ %1294, %1292 ], [ %1308, %1306 ]
@@ -5348,7 +5348,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1327 = zext i32 %1326 to i64
   store i64 %1327, ptr %24, align 8, !tbaa !151
   %1328 = icmp eq i32 %1325, 0
-  br i1 %1328, label %1329, label %.sink.split2256
+  br i1 %1328, label %1329, label %.sink.split2323
 
 1329:                                             ; preds = %1324
   %1330 = load ptr, ptr %23, align 8, !tbaa !167
@@ -5399,7 +5399,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1355 = add i32 %1354, -1
   store i32 %1355, ptr %1353, align 4, !tbaa !174
   %1356 = icmp eq i32 %1355, 0
-  br i1 %1356, label %.sink.split.i.i740, label %.sink.split2256
+  br i1 %1356, label %.sink.split.i.i740, label %.sink.split2323
 
 1357:                                             ; preds = %1344
   %1358 = load ptr, ptr %1343, align 8, !tbaa !169
@@ -5408,7 +5408,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1361 = getelementptr inbounds nuw i8, ptr %1360, i64 24
   store ptr %1361, ptr %1359, align 8, !tbaa !143
   store i32 2, ptr %1346, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1362:                                             ; preds = %1344
   %1363 = load ptr, ptr %1343, align 8, !tbaa !169
@@ -5425,7 +5425,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1371:                                             ; preds = %1362
   store i32 1, ptr %1346, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i740:                               ; preds = %1362, %1348
   %.sink.i.i741 = phi ptr [ %1350, %1348 ], [ %1364, %1362 ]
@@ -5454,7 +5454,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1383 = zext i32 %1382 to i64
   %1384 = add nuw nsw i64 %1383, 1
   store i64 %1384, ptr %24, align 8, !tbaa !151
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1385:                                             ; preds = %262
   %1386 = load ptr, ptr %23, align 8, !tbaa !167
@@ -5506,7 +5506,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1412 = add i32 %1411, -1
   store i32 %1412, ptr %1410, align 4, !tbaa !174
   %1413 = icmp eq i32 %1412, 0
-  br i1 %1413, label %.sink.split.i.i749, label %.sink.split2256
+  br i1 %1413, label %.sink.split.i.i749, label %.sink.split2323
 
 1414:                                             ; preds = %1401
   %1415 = load ptr, ptr %1400, align 8, !tbaa !169
@@ -5515,7 +5515,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1418 = getelementptr inbounds nuw i8, ptr %1417, i64 24
   store ptr %1418, ptr %1416, align 8, !tbaa !143
   store i32 2, ptr %1403, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1419:                                             ; preds = %1401
   %1420 = load ptr, ptr %1400, align 8, !tbaa !169
@@ -5532,7 +5532,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1428:                                             ; preds = %1419
   store i32 1, ptr %1403, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i749:                               ; preds = %1419, %1405
   %.sink.i.i750 = phi ptr [ %1407, %1405 ], [ %1421, %1419 ]
@@ -5605,7 +5605,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1464 = add i32 %1463, -1
   store i32 %1464, ptr %1462, align 4, !tbaa !174
   %1465 = icmp eq i32 %1464, 0
-  br i1 %1465, label %.sink.split.i.i758, label %.sink.split2256
+  br i1 %1465, label %.sink.split.i.i758, label %.sink.split2323
 
 1466:                                             ; preds = %1453
   %1467 = load ptr, ptr %1452, align 8, !tbaa !169
@@ -5614,7 +5614,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1470 = getelementptr inbounds nuw i8, ptr %1469, i64 24
   store ptr %1470, ptr %1468, align 8, !tbaa !143
   store i32 2, ptr %1455, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1471:                                             ; preds = %1453
   %1472 = load ptr, ptr %1452, align 8, !tbaa !169
@@ -5631,7 +5631,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1480:                                             ; preds = %1471
   store i32 1, ptr %1455, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i758:                               ; preds = %1471, %1457
   %.sink.i.i759 = phi ptr [ %1459, %1457 ], [ %1473, %1471 ]
@@ -5704,7 +5704,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1516 = add i32 %1515, -1
   store i32 %1516, ptr %1514, align 4, !tbaa !174
   %1517 = icmp eq i32 %1516, 0
-  br i1 %1517, label %.sink.split.i.i767, label %.sink.split2256
+  br i1 %1517, label %.sink.split.i.i767, label %.sink.split2323
 
 1518:                                             ; preds = %1505
   %1519 = load ptr, ptr %1504, align 8, !tbaa !169
@@ -5713,7 +5713,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 24
   store ptr %1522, ptr %1520, align 8, !tbaa !143
   store i32 2, ptr %1507, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 1523:                                             ; preds = %1505
   %1524 = load ptr, ptr %1504, align 8, !tbaa !169
@@ -5730,7 +5730,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 1532:                                             ; preds = %1523
   store i32 1, ptr %1507, align 4, !tbaa !171
-  br label %.sink.split2256
+  br label %.sink.split2323
 
 .sink.split.i.i767:                               ; preds = %1523, %1509
   %.sink.i.i768 = phi ptr [ %1511, %1509 ], [ %1525, %1523 ]
@@ -5810,15 +5810,15 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
   call void @_ZN7msgpack2v26detail21create_object_visitor11parse_errorEmm(ptr noundef nonnull align 8 dereferenceable(121) %1555, i64 noundef %1557, i64 noundef %1556)
   br label %.thread
 
-.sink.split2256:                                  ; preds = %1509, %1457, %1405, %1348, %1292, %1232, %1176, %1116, %1061, %1006, %955, %904, %853, %802, %751, %699, %646, %594, %542, %491, %439, %388, %337, %286, %1532, %1518, %1480, %1466, %1428, %1414, %1371, %1357, %1324, %1315, %1301, %1268, %1255, %1241, %1208, %1199, %1185, %1152, %1139, %1125, %1093, %1084, %1070, %1038, %1029, %1015, %978, %964, %927, %913, %876, %862, %825, %811, %774, %760, %722, %708, %669, %655, %617, %603, %565, %551, %514, %500, %462, %448, %411, %397, %360, %346, %309, %295, %1148, %1264, %1380
+.sink.split2323:                                  ; preds = %1509, %1457, %1405, %1348, %1292, %1232, %1176, %1116, %1061, %1006, %955, %904, %853, %802, %751, %699, %646, %594, %542, %491, %439, %388, %337, %286, %1532, %1518, %1480, %1466, %1428, %1414, %1371, %1357, %1324, %1315, %1301, %1268, %1255, %1241, %1208, %1199, %1185, %1152, %1139, %1125, %1093, %1084, %1070, %1038, %1029, %1015, %978, %964, %927, %913, %876, %862, %825, %811, %774, %760, %722, %708, %669, %655, %617, %603, %565, %551, %514, %500, %462, %448, %411, %397, %360, %346, %309, %295, %1148, %1264, %1380
   %.sink = phi i32 [ 34, %1380 ], [ 34, %1264 ], [ 34, %1148 ], [ 0, %295 ], [ 0, %309 ], [ 0, %346 ], [ 0, %360 ], [ 0, %397 ], [ 0, %411 ], [ 0, %448 ], [ 0, %462 ], [ 0, %500 ], [ 0, %514 ], [ 0, %551 ], [ 0, %565 ], [ 0, %603 ], [ 0, %617 ], [ 0, %655 ], [ 0, %669 ], [ 0, %708 ], [ 0, %722 ], [ 0, %760 ], [ 0, %774 ], [ 0, %811 ], [ 0, %825 ], [ 0, %862 ], [ 0, %876 ], [ 0, %913 ], [ 0, %927 ], [ 0, %964 ], [ 0, %978 ], [ 0, %1015 ], [ 0, %1029 ], [ 32, %1038 ], [ 0, %1070 ], [ 0, %1084 ], [ 33, %1093 ], [ 0, %1125 ], [ 0, %1139 ], [ 32, %1152 ], [ 0, %1185 ], [ 0, %1199 ], [ 33, %1208 ], [ 0, %1241 ], [ 0, %1255 ], [ 32, %1268 ], [ 0, %1301 ], [ 0, %1315 ], [ 33, %1324 ], [ 0, %1357 ], [ 0, %1371 ], [ 0, %1414 ], [ 0, %1428 ], [ 0, %1466 ], [ 0, %1480 ], [ 0, %1518 ], [ 0, %1532 ], [ 0, %286 ], [ 0, %337 ], [ 0, %388 ], [ 0, %439 ], [ 0, %491 ], [ 0, %542 ], [ 0, %594 ], [ 0, %646 ], [ 0, %699 ], [ 0, %751 ], [ 0, %802 ], [ 0, %853 ], [ 0, %904 ], [ 0, %955 ], [ 0, %1006 ], [ 0, %1061 ], [ 0, %1116 ], [ 0, %1176 ], [ 0, %1232 ], [ 0, %1292 ], [ 0, %1348 ], [ 0, %1405 ], [ 0, %1457 ], [ 0, %1509 ]
   %.23413.ph = phi i1 [ true, %1380 ], [ true, %1264 ], [ true, %1148 ], [ false, %295 ], [ false, %309 ], [ false, %346 ], [ false, %360 ], [ false, %397 ], [ false, %411 ], [ false, %448 ], [ false, %462 ], [ false, %500 ], [ false, %514 ], [ false, %551 ], [ false, %565 ], [ false, %603 ], [ false, %617 ], [ false, %655 ], [ false, %669 ], [ false, %708 ], [ false, %722 ], [ false, %760 ], [ false, %774 ], [ false, %811 ], [ false, %825 ], [ false, %862 ], [ false, %876 ], [ false, %913 ], [ false, %927 ], [ false, %964 ], [ false, %978 ], [ false, %1015 ], [ false, %1029 ], [ true, %1038 ], [ false, %1070 ], [ false, %1084 ], [ true, %1093 ], [ false, %1125 ], [ false, %1139 ], [ true, %1152 ], [ false, %1185 ], [ false, %1199 ], [ true, %1208 ], [ false, %1241 ], [ false, %1255 ], [ true, %1268 ], [ false, %1301 ], [ false, %1315 ], [ true, %1324 ], [ false, %1357 ], [ false, %1371 ], [ false, %1414 ], [ false, %1428 ], [ false, %1466 ], [ false, %1480 ], [ false, %1518 ], [ false, %1532 ], [ false, %286 ], [ false, %337 ], [ false, %388 ], [ false, %439 ], [ false, %491 ], [ false, %542 ], [ false, %594 ], [ false, %646 ], [ false, %699 ], [ false, %751 ], [ false, %802 ], [ false, %853 ], [ false, %904 ], [ false, %955 ], [ false, %1006 ], [ false, %1061 ], [ false, %1116 ], [ false, %1176 ], [ false, %1232 ], [ false, %1292 ], [ false, %1348 ], [ false, %1405 ], [ false, %1457 ], [ false, %1509 ]
   store i32 %.sink, ptr %22, align 8, !tbaa !159
   br label %1558
 
-1558:                                             ; preds = %.sink.split2256, %244, %1547, %1545, %1543, %1541
-  %.23413 = phi i1 [ false, %1541 ], [ false, %1543 ], [ false, %1545 ], [ false, %1547 ], [ false, %244 ], [ %.23413.ph, %.sink.split2256 ]
-  %.1340 = phi ptr [ %252, %1541 ], [ %252, %1543 ], [ %252, %1545 ], [ %252, %1547 ], [ %.0339, %244 ], [ %252, %.sink.split2256 ]
+1558:                                             ; preds = %.sink.split2323, %244, %1547, %1545, %1543, %1541
+  %.23413 = phi i1 [ false, %1541 ], [ false, %1543 ], [ false, %1545 ], [ false, %1547 ], [ false, %244 ], [ %.23413.ph, %.sink.split2323 ]
+  %.1340 = phi ptr [ %252, %1541 ], [ %252, %1543 ], [ %252, %1545 ], [ %252, %1547 ], [ %.0339, %244 ], [ %252, %.sink.split2323 ]
   %1559 = load ptr, ptr %19, align 8, !tbaa !166
   %.not493 = icmp eq ptr %1559, %20
   br i1 %.not493, label %1560, label %28, !llvm.loop !177
@@ -6017,7 +6017,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 40:                                               ; preds = %38
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %41 = shl nuw i64 %.0.i.i, 1
+  %41 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %38, label %42
 
 42:                                               ; preds = %40, %38
@@ -6601,7 +6601,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 41:                                               ; preds = %39
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %42 = shl nuw i64 %.0.i.i, 1
+  %42 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %39, label %43
 
 43:                                               ; preds = %41, %39
@@ -6724,7 +6724,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 40:                                               ; preds = %38
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %41 = shl nuw i64 %.0.i.i, 1
+  %41 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %38, label %42
 
 42:                                               ; preds = %40, %38
@@ -7755,7 +7755,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 54:                                               ; preds = %52
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %55 = shl nuw i64 %.0.i.i, 1
+  %55 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %52, label %56
 
 56:                                               ; preds = %54, %52
@@ -7987,7 +7987,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 54:                                               ; preds = %52
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %55 = shl nuw i64 %.0.i.i, 1
+  %55 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %52, label %56
 
 56:                                               ; preds = %54, %52

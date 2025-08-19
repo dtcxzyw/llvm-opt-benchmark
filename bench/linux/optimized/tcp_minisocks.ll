@@ -255,12 +255,12 @@ define dso_local noundef range(i32 0, 4) i32 @tcp_timewait_state_process(ptr nou
   br i1 %133, label %136, label %135
 
 135:                                              ; preds = %130
-  br i1 %134, label %156, label %.thread15
+  br i1 %134, label %156, label %.thread20
 
 136:                                              ; preds = %130
-  br i1 %134, label %143, label %.thread15
+  br i1 %134, label %143, label %.thread20
 
-.thread15:                                        ; preds = %135, %136
+.thread20:                                        ; preds = %135, %136
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 1172
@@ -268,7 +268,7 @@ define dso_local noundef range(i32 0, 4) i32 @tcp_timewait_state_process(ptr nou
   %141 = icmp eq i8 %140, 0
   br i1 %141, label %142, label %144
 
-142:                                              ; preds = %.thread15, %88
+142:                                              ; preds = %.thread20, %88
   call void @inet_twsk_deschedule_put(ptr noundef %0) #8
   br label %200
 
@@ -276,7 +276,7 @@ define dso_local noundef range(i32 0, 4) i32 @tcp_timewait_state_process(ptr nou
   call void @__inet_twsk_schedule(ptr noundef %0, i32 noundef 60000, i1 noundef zeroext true) #8
   br label %144
 
-144:                                              ; preds = %143, %.thread15
+144:                                              ; preds = %143, %.thread20
   %145 = load i24, ptr %5, align 4
   %146 = and i24 %145, 1
   %147 = icmp eq i24 %146, 0
@@ -683,7 +683,7 @@ define dso_local void @tcp_twsk_purge(ptr noundef readonly captures(address) %0,
   br label %18
 
 18:                                               ; preds = %.sink.split, %15, %13
-  %19 = phi i8 [ %6, %13 ], [ 0, %15 ], [ %.ph, %.sink.split ]
+  %19 = phi i8 [ 1, %13 ], [ 0, %15 ], [ %.ph, %.sink.split ]
   %20 = load ptr, ptr %5, align 8
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !17

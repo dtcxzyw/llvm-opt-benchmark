@@ -147,14 +147,14 @@ Vec_IntAlloc.exit:                                ; preds = %5, %10
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %45, %47, %37, %39
-  %.sink336 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
+  %.sink347 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ]
   %.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ]
-  store ptr %.sink336, ptr %15, align 8, !tbaa !21
+  store ptr %.sink347, ptr %15, align 8, !tbaa !21
   store i32 %.sink, ptr %7, align 8, !tbaa !20
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %20
-  %.pre.i321 = phi ptr [ %21, %20 ], [ %.sink336, %Vec_IntPush.exit.sink.split ]
+  %.pre.i321 = phi ptr [ %21, %20 ], [ %.sink347, %Vec_IntPush.exit.sink.split ]
   %49 = add nsw i32 %31, 1
   store i32 %49, ptr %9, align 4, !tbaa !16
   %50 = sext i32 %31 to i64
@@ -178,8 +178,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 56:                                               ; preds = %.critedge.thread, %.critedge
   %57 = phi ptr [ %54, %.critedge.thread ], [ %55, %.critedge ]
-  %.val194333 = phi ptr [ %.pre.i321, %.critedge.thread ], [ %14, %.critedge ]
-  tail call void @free(ptr noundef nonnull %.val194333) #20
+  %.val194344 = phi ptr [ %.pre.i321, %.critedge.thread ], [ %14, %.critedge ]
+  tail call void @free(ptr noundef nonnull %.val194344) #20
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %56
@@ -1111,10 +1111,10 @@ define i32 @Gia_TransferMappedClasses(ptr noundef readonly captures(none) %0, pt
 
 23:                                               ; preds = %16
   %. = tail call i32 @llvm.smax.i32(i32 %18, i32 %21)
-  %.39 = tail call i32 @llvm.smin.i32(i32 %18, i32 %21)
+  %.43 = tail call i32 @llvm.smin.i32(i32 %18, i32 %21)
   %24 = sext i32 %. to i64
   %25 = getelementptr inbounds i32, ptr %2, i64 %24
-  store i32 %.39, ptr %25, align 4, !tbaa !22
+  store i32 %.43, ptr %25, align 4, !tbaa !22
   %26 = add nsw i32 %.032, 1
   %.pre = load i32, ptr %7, align 8, !tbaa !62
   br label %27
@@ -1401,10 +1401,10 @@ Abc_Clock.exit:                                   ; preds = %.critedge, %13
 
 83:                                               ; preds = %76
   %..i = call i32 @llvm.smax.i32(i32 %78, i32 %81)
-  %.39.i = call i32 @llvm.smin.i32(i32 %78, i32 %81)
+  %.43.i = call i32 @llvm.smin.i32(i32 %78, i32 %81)
   %84 = sext i32 %..i to i64
   %85 = getelementptr inbounds i32, ptr %20, i64 %84
-  store i32 %.39.i, ptr %85, align 4, !tbaa !22
+  store i32 %.43.i, ptr %85, align 4, !tbaa !22
   %86 = add nsw i32 %.032.i, 1
   br label %87
 

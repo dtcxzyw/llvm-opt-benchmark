@@ -1319,8 +1319,8 @@ if.end.i:                                         ; preds = %_ZN6google8protobuf
   %sub.ptr.sub.i83 = sub i64 %sub.ptr.lhs.cast.i81, %sub.ptr.rhs.cast.i82.pre-phi
   %cmp.i84 = icmp slt i64 %sub.ptr.sub.i83, 385
   %cmp3.i87 = icmp ugt ptr %33, %32
-  %or.cond77 = select i1 %cmp.i84, i1 %cmp3.i87, i1 false
-  br i1 %or.cond77, label %if.then4.i88, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
+  %or.cond82 = select i1 %cmp.i84, i1 %cmp3.i87, i1 false
+  br i1 %or.cond82, label %if.then4.i88, label %_ZN6google8protobuf8internal11SerialArena22MaybePrefetchBackwardsEPKc.exit
 
 if.then4.i88:                                     ; preds = %if.end.i
   %cmp.i48 = icmp ult ptr %33, %add.ptr.i
@@ -1714,7 +1714,7 @@ while.body:                                       ; preds = %do.body, %_ZN6googl
   %it.015 = phi ptr [ %add.ptr, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit ], [ %4, %do.body ]
   %elem.i.0.copyload = load i64, ptr %it.015, align 1
   %and.i = and i64 %elem.i.0.copyload, 3
-  switch i64 %and.i, label %default.unreachable16 [
+  switch i64 %and.i, label %default.unreachable17 [
     i64 1, label %sw.bb.i
     i64 2, label %sw.bb1.i
     i64 0, label %sw.default.i
@@ -1746,7 +1746,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   tail call void @__clang_call_terminate(ptr %10) #29
   unreachable
 
-default.unreachable16:                            ; preds = %while.body
+default.unreachable17:                            ; preds = %while.body
   unreachable
 
 sw.default.i:                                     ; preds = %while.body, %while.body
@@ -2019,15 +2019,15 @@ invoke.cont.sink.split.sink.split:                ; preds = %while.end.i, %if.th
   br label %invoke.cont.sink.split
 
 invoke.cont.sink.split:                           ; preds = %invoke.cont.sink.split.sink.split, %if.then16.i.i, %if.end18.i.i
-  %mem.sroa.0.0.i.sink5 = phi ptr [ %call.i7.i.i2, %if.then16.i.i ], [ %call20.i.i3, %if.end18.i.i ], [ %mem, %invoke.cont.sink.split.sink.split ]
+  %mem.sroa.0.0.i.sink6 = phi ptr [ %call.i7.i.i2, %if.then16.i.i ], [ %call20.i.i3, %if.end18.i.i ], [ %mem, %invoke.cont.sink.split.sink.split ]
   %mem.sroa.3.0.i.sink = phi i64 [ %.sroa.speculated.i.i, %if.then16.i.i ], [ %.sroa.speculated.i.i, %if.end18.i.i ], [ %size, %invoke.cont.sink.split.sink.split ]
-  %size3.i.i = getelementptr inbounds nuw i8, ptr %mem.sroa.0.0.i.sink5, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.sroa.0.0.i.sink5, i8 0, i64 16, i1 false)
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %mem.sroa.0.0.i.sink6, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.sroa.0.0.i.sink6, i8 0, i64 16, i1 false)
   store i64 %mem.sroa.3.0.i.sink, ptr %size3.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.sink.split, %if.then.i
-  %retval.0.i = phi ptr [ @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, %if.then.i ], [ %mem.sroa.0.0.i.sink5, %invoke.cont.sink.split ]
+  %retval.0.i = phi ptr [ @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, %if.then.i ], [ %mem.sroa.0.0.i.sink6, %invoke.cont.sink.split ]
   %first_arena_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %head_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %first_arena_, i8 0, i64 48, i1 false)

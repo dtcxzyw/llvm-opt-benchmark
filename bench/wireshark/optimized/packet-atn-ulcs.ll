@@ -2171,7 +2171,7 @@ define internal i32 @dissect_atn_ulcs_AE_qualifier_form2(ptr noundef %0, i32 nou
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 380
   %14 = load i16, ptr %13, align 4
   %.not18 = icmp eq i16 %14, 0
-  br i1 %.not18, label %15, label %.thread53
+  br i1 %.not18, label %15, label %.thread58
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 240
@@ -2313,14 +2313,14 @@ find_atn_conversation.exit39:                     ; preds = %.lr.ph.i12.i27, %ad
 82:                                               ; preds = %find_atn_conversation.exit39, %.thread, %.loopexit
   %.1 = phi ptr [ %46, %.loopexit ], [ %81, %find_atn_conversation.exit39 ], [ %.042, %.thread ]
   %.not21 = icmp eq ptr %.1, null
-  br i1 %.not21, label %.thread53, label %83
+  br i1 %.not21, label %.thread58, label %83
 
 83:                                               ; preds = %82
   %84 = load i32, ptr %6, align 4
   store i32 %84, ptr %.1, align 4
-  br label %.thread53
+  br label %.thread58
 
-.thread53:                                        ; preds = %12, %83, %82
+.thread58:                                        ; preds = %12, %83, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %9
 }

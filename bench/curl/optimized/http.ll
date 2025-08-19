@@ -379,8 +379,8 @@ define hidden i32 @Curl_http(ptr noundef %0, ptr noundef writeonly captures(none
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 1392
   %.pre.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 8, !tbaa !91
   %82 = icmp eq i32 %.pre.i.pre, 443
-  %or.cond273 = select i1 %.not69.i, i1 %82, i1 false
-  br i1 %or.cond273, label %85, label %._crit_edge
+  %or.cond297 = select i1 %.not69.i, i1 %82, i1 false
+  br i1 %or.cond297, label %85, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %74
   %83 = and i32 %80, 1073741825
@@ -1017,7 +1017,7 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i32 %11, ptr %9, align 8, !tbaa !120
   switch i32 %2, label %.thread [
     i32 3, label %12
-    i32 2, label %.thread275
+    i32 2, label %.thread293
   ]
 
 12:                                               ; preds = %8
@@ -1027,8 +1027,8 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 3248
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !122
   %.not185 = icmp slt i64 %.pre, %14
-  %or.cond294 = select i1 %.not184, i1 true, i1 %.not185
-  br i1 %or.cond294, label %._crit_edge, label %.thread
+  %or.cond311 = select i1 %.not184, i1 true, i1 %.not185
+  br i1 %or.cond311, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 3248
@@ -1113,10 +1113,10 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %268
 
-.thread275:                                       ; preds = %8
+.thread293:                                       ; preds = %8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4560
   %53 = load ptr, ptr %52, align 8, !tbaa !124
-  br label %.thread282
+  br label %.thread299
 
 .thread:                                          ; preds = %12, %8, %.critedge236, %3, %._crit_edge
   %.0144244 = phi i32 [ 3, %.critedge236 ], [ 1, %3 ], [ 3, %._crit_edge ], [ %2, %8 ], [ 1, %12 ]
@@ -1137,25 +1137,25 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.0145 = phi i1 [ false, %.thread ], [ false, %.thread ], [ %.not196, %56 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4560
   %60 = load ptr, ptr %59, align 8, !tbaa !124
-  switch i32 %.0144244, label %.thread282 [
+  switch i32 %.0144244, label %.thread299 [
     i32 1, label %62
     i32 3, label %61
   ]
 
 61:                                               ; preds = %58
-  br label %.thread282
+  br label %.thread299
 
 62:                                               ; preds = %58
   %63 = call i32 @curl_url_set(ptr noundef %60, i32 noundef 0, ptr noundef %1, i32 noundef 8) #11
   %.not198 = icmp eq i32 %63, 0
   br i1 %.not198, label %80, label %77
 
-.thread282:                                       ; preds = %58, %61, %.thread275
-  %.0153243252280 = phi i1 [ %.0153242, %61 ], [ false, %.thread275 ], [ %.0153242, %58 ]
-  %.0145254279 = phi i1 [ %.0145, %61 ], [ false, %.thread275 ], [ %.0145, %58 ]
-  %64 = phi ptr [ %59, %61 ], [ %52, %.thread275 ], [ %59, %58 ]
-  %65 = phi ptr [ %60, %61 ], [ %53, %.thread275 ], [ %60, %58 ]
-  %66 = phi i32 [ 2176, %61 ], [ 2048, %.thread275 ], [ 2048, %58 ]
+.thread299:                                       ; preds = %58, %61, %.thread293
+  %.0153243252298 = phi i1 [ %.0153242, %61 ], [ false, %.thread293 ], [ %.0153242, %58 ]
+  %.0145254297 = phi i1 [ %.0145, %61 ], [ false, %.thread293 ], [ %.0145, %58 ]
+  %64 = phi ptr [ %59, %61 ], [ %52, %.thread293 ], [ %59, %58 ]
+  %65 = phi ptr [ %60, %61 ], [ %53, %.thread293 ], [ %60, %58 ]
+  %66 = phi i32 [ 2176, %61 ], [ 2048, %.thread293 ], [ 2048, %58 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %68 = load i64, ptr %67, align 2
   %69 = lshr i64 %68, 40
@@ -1163,10 +1163,10 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
   %71 = and i32 %70, 16
   %72 = or disjoint i32 %71, %66
   %73 = call i32 @curl_url_set(ptr noundef %65, i32 noundef 0, ptr noundef %1, i32 noundef %72) #11
-  %.not198286 = icmp eq i32 %73, 0
-  br i1 %.not198286, label %80, label %74
+  %.not198303 = icmp eq i32 %73, 0
+  br i1 %.not198303, label %80, label %74
 
-74:                                               ; preds = %.thread282
+74:                                               ; preds = %.thread299
   %75 = call ptr @curl_url_strerror(i32 noundef %73) #11
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %75) #11
   %76 = call i32 @Curl_uc_to_curlcode(i32 noundef %73) #11
@@ -1179,12 +1179,12 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.not214 = icmp eq ptr %79, null
   br i1 %.not214, label %268, label %.thread269
 
-80:                                               ; preds = %.thread282, %62
-  %.0144245251291 = phi i1 [ true, %.thread282 ], [ false, %62 ]
-  %.0153243253290 = phi i1 [ %.0153243252280, %.thread282 ], [ %.0153242, %62 ]
-  %.0145255287 = phi i1 [ %.0145254279, %.thread282 ], [ %.0145, %62 ]
-  %81 = phi ptr [ %64, %.thread282 ], [ %59, %62 ]
-  %82 = phi i1 [ false, %.thread282 ], [ true, %62 ]
+80:                                               ; preds = %.thread299, %62
+  %.0144245251308 = phi i1 [ true, %.thread299 ], [ false, %62 ]
+  %.0153243253307 = phi i1 [ %.0153243252298, %.thread299 ], [ %.0153242, %62 ]
+  %.0145255304 = phi i1 [ %.0145254297, %.thread299 ], [ %.0145, %62 ]
+  %81 = phi ptr [ %64, %.thread299 ], [ %59, %62 ]
+  %82 = phi i1 [ false, %.thread299 ], [ true, %62 ]
   %83 = load ptr, ptr %81, align 8, !tbaa !124
   %84 = call i32 @curl_url_get(ptr noundef %83, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0) #11
   %.not199 = icmp eq i32 %84, 0
@@ -1199,7 +1199,7 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
   %89 = load i64, ptr %88, align 2
   %90 = and i64 %89, 67108864
   %91 = icmp eq i64 %90, 0
-  %or.cond5 = and i1 %.0144245251291, %91
+  %or.cond5 = and i1 %.0144245251308, %91
   br i1 %or.cond5, label %92, label %167
 
 92:                                               ; preds = %87
@@ -1364,7 +1364,7 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.pre274 = load ptr, ptr %4, align 8, !tbaa !76
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 5128
   store ptr %.pre274, ptr %168, align 8, !tbaa !135
-  br i1 %.0153243253290, label %170, label %268
+  br i1 %.0153243253307, label %170, label %268
 
 .thread269:                                       ; preds = %77
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 5128
@@ -1380,7 +1380,7 @@ define hidden i32 @Curl_http_follow(ptr noundef %0, ptr noundef %1, i32 noundef 
 173:                                              ; preds = %167
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   %175 = load i32, ptr %174, align 4
-  br i1 %.0145255287, label %176, label %._crit_edge270
+  br i1 %.0145255304, label %176, label %._crit_edge270
 
 176:                                              ; preds = %173
   %177 = and i32 %175, -65
@@ -1792,7 +1792,7 @@ define hidden range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_unn
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   store i64 4, ptr %36, align 8, !tbaa !148
-  br label %.thread120
+  br label %.thread124
 
 37:                                               ; preds = %28
   %38 = and i64 %33, %spec.select
@@ -1802,7 +1802,7 @@ define hidden range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_unn
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   store i64 64, ptr %40, align 8, !tbaa !148
-  br label %.thread120
+  br label %.thread124
 
 41:                                               ; preds = %37
   %42 = and i64 %33, 2
@@ -1812,7 +1812,7 @@ define hidden range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_unn
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   store i64 2, ptr %44, align 8, !tbaa !148
-  br label %.thread120
+  br label %.thread124
 
 45:                                               ; preds = %41
   %46 = and i64 %33, 8
@@ -1827,26 +1827,26 @@ define hidden range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_unn
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 3392
   store i64 1, ptr %50, align 8, !tbaa !148
-  br label %.thread120
+  br label %.thread124
 
 51:                                               ; preds = %47
   %52 = and i64 %33, 128
   %.not21.i = icmp eq i64 %52, 0
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 3392
-  br i1 %.not21.i, label %.thread118, label %54
+  br i1 %.not21.i, label %.thread122, label %54
 
 54:                                               ; preds = %51
   store i64 128, ptr %53, align 8, !tbaa !148
-  br label %.thread120
+  br label %.thread124
 
-.thread118:                                       ; preds = %51
+.thread122:                                       ; preds = %51
   store i64 1073741824, ptr %53, align 8, !tbaa !148
   store i64 0, ptr %30, align 8, !tbaa !146
   %55 = or disjoint i32 %11, 128
   store i32 %55, ptr %10, align 4
   br label %77
 
-.thread120:                                       ; preds = %35, %39, %43, %49, %54
+.thread124:                                       ; preds = %35, %39, %43, %49, %54
   %.ph = phi i64 [ 128, %54 ], [ 1, %49 ], [ 2, %43 ], [ 64, %39 ], [ 4, %35 ]
   store i64 0, ptr %30, align 8, !tbaa !146
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 5104
@@ -1893,8 +1893,8 @@ define hidden range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_unn
   store i8 2, ptr %76, align 8, !tbaa !3
   br label %77
 
-77:                                               ; preds = %.thread120, %.thread118, %18, %57, %75, %23
-  %.065.shrunk = phi i1 [ true, %75 ], [ true, %57 ], [ false, %23 ], [ false, %18 ], [ false, %.thread118 ], [ true, %.thread120 ]
+77:                                               ; preds = %.thread124, %.thread122, %18, %57, %75, %23
+  %.065.shrunk = phi i1 [ true, %75 ], [ true, %57 ], [ false, %23 ], [ false, %18 ], [ false, %.thread122 ], [ true, %.thread124 ]
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 952
   %79 = load i64, ptr %78, align 8
   %80 = and i64 %79, 4
@@ -3127,8 +3127,8 @@ define hidden noundef zeroext i1 @Curl_compareheader(ptr noundef %0, ptr noundef
   %23 = add i64 %.02840, -1
   %24 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   %.not37 = icmp ult i64 %23, %4
-  %or.cond45 = select i1 %.not38.not, i1 true, i1 %.not37
-  br i1 %or.cond45, label %.loopexit, label %.lr.ph, !llvm.loop !164
+  %or.cond50 = select i1 %.not38.not, i1 true, i1 %.not37
+  br i1 %or.cond50, label %.loopexit, label %.lr.ph, !llvm.loop !164
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %5
   %.029 = phi i1 [ false, %5 ], [ false, %18 ], [ %.not38.not, %.lr.ph ]
@@ -3450,9 +3450,9 @@ switch.lookup:                                    ; preds = %13
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Curl_add_timecondition, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep26 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.Curl_add_timecondition.5, i64 0, i64 %17
-  %switch.load27 = load i64, ptr %switch.gep26, align 8
-  %18 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull %switch.load, i64 noundef %switch.load27) #11
+  %switch.gep27 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.Curl_add_timecondition.5, i64 0, i64 %17
+  %switch.load28 = load i64, ptr %switch.gep27, align 8
+  %18 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull %switch.load, i64 noundef %switch.load28) #11
   %.not24 = icmp eq ptr %18, null
   br i1 %.not24, label %19, label %43
 
@@ -6956,9 +6956,9 @@ checkprotoprefix.exit123.thread.i:                ; preds = %checkprotoprefix.ex
   br label %.critedge.i
 
 .thread149.thread.i:                              ; preds = %92, %88, %checkprotoprefix.exit123.thread144.i
-  %.str.172.sink209.i = phi ptr [ @.str.171, %88 ], [ @.str.171, %checkprotoprefix.exit123.thread144.i ], [ @.str.172, %92 ]
+  %.str.172.sink214.i = phi ptr [ @.str.171, %88 ], [ @.str.171, %checkprotoprefix.exit123.thread144.i ], [ @.str.172, %92 ]
   %.1.ph169.i = phi i32 [ 8, %88 ], [ 8, %checkprotoprefix.exit123.thread144.i ], [ 1, %92 ]
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull %.str.172.sink209.i) #11
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull %.str.172.sink214.i) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %http_parse_headers.exit
 

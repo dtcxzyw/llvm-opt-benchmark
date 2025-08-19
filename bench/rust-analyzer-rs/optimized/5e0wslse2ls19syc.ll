@@ -1127,7 +1127,7 @@ _ZN17crossbeam_channel7channel9unbounded17h154918b71c0c2ad8E.exit: ; preds = %.n
   %.sroa.843.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.5.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.5.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %58
 
 .body:                                            ; preds = %130, %.thread65, %129, %116, %106, %71, %61
@@ -1181,7 +1181,7 @@ _ZN17crossbeam_channel7channel9unbounded17h154918b71c0c2ad8E.exit: ; preds = %.n
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !81
   store i64 1, ptr %7, align 8, !noalias !84
   store i64 8388608, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !84
-  store i64 -9223372036854775808, ptr %.sroa.5.0..sroa_idx96, align 8, !noalias !84
+  store i64 -9223372036854775808, ptr %.sroa.5.0..sroa_idx101, align 8, !noalias !84
   invoke void @_ZN10jod_thread7Builder4name17h91b99aae6445b58aE(ptr noalias noundef nonnull sret({ { { i64, [1 x i64] }, { i64, [2 x i64] } } }) align 8 captures(none) dereferenceable(40) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11)
           to label %67 unwind label %61
 

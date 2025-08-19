@@ -1328,7 +1328,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   %97 = load double, ptr %96, align 8, !tbaa !64
   %98 = fsub double %93, %97
   %99 = tail call double @llvm.fabs.f64(double %98)
-  br i1 %21, label %.thread282, label %100
+  br i1 %21, label %.thread285, label %100
 
 100:                                              ; preds = %90
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -1346,15 +1346,15 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   %.not166 = icmp eq i32 %.2181.ph199, 0
   br i1 %.not166, label %.loopexit, label %.preheader208
 
-.thread282:                                       ; preds = %90
+.thread285:                                       ; preds = %90
   %111 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !58
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i32, ptr %113, align 8, !tbaa !79
   %115 = sext i32 %114 to i64
   %spec.select = tail call i64 @llvm.smax.i64(i64 %.1183.ph198, i64 %115)
-  %.not166285 = icmp eq i32 %.2181.ph199, 0
-  br i1 %.not166285, label %.loopexit, label %.preheader204
+  %.not166288 = icmp eq i32 %.2181.ph199, 0
+  br i1 %.not166288, label %.loopexit, label %.preheader204
 
 .preheader208:                                    ; preds = %100
   %.not167215 = icmp slt i32 %104, 0
@@ -1414,7 +1414,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   %exitcond240.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count239
   br i1 %exitcond240.not, label %134, label %141
 
-.preheader204:                                    ; preds = %.thread282
+.preheader204:                                    ; preds = %.thread285
   %.not169218 = icmp slt i32 %114, 0
   br i1 %.not169218, label %.loopexit.thread, label %.lr.ph220
 
@@ -1489,8 +1489,8 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   br i1 %exitcond.not, label %.loopexit205, label %.lr.ph.split
 
 .loopexit205:                                     ; preds = %.lr.ph.split, %140, %169
-  %.0153286293 = phi i32 [ %114, %169 ], [ %104, %140 ], [ %104, %.lr.ph.split ]
-  %.not170223 = icmp slt i32 %.0153286293, 1
+  %.0153289296 = phi i32 [ %114, %169 ], [ %104, %140 ], [ %104, %.lr.ph.split ]
+  %.not170223 = icmp slt i32 %.0153289296, 1
   br i1 %.not170223, label %.loopexit.thread, label %.preheader202.lr.ph
 
 .preheader202.lr.ph:                              ; preds = %.loopexit205
@@ -1498,8 +1498,8 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   %180 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %181 = icmp sgt i32 %.fr228, 0
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 296
-  %183 = zext nneg i32 %.0153286293 to i64
-  %184 = add nuw i32 %.0153286293, 1
+  %183 = zext nneg i32 %.0153289296 to i64
+  %184 = add nuw i32 %.0153289296, 1
   %wide.trip.count270 = zext i32 %184 to i64
   br i1 %181, label %.preheader202.us, label %.preheader202
 
@@ -1569,23 +1569,23 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
   br i1 %exitcond263.not, label %.loopexit, label %.preheader202
 
 .loopexit.thread:                                 ; preds = %.loopexit205, %.preheader208, %.preheader204
-  %.0153287.ph = phi i32 [ %.0153286293, %.loopexit205 ], [ %114, %.preheader204 ], [ %104, %.preheader208 ]
+  %.0153290.ph = phi i32 [ %.0153289296, %.loopexit205 ], [ %114, %.preheader204 ], [ %104, %.preheader208 ]
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 2640
   %218 = load ptr, ptr %217, align 8, !tbaa !66
   store double 1.000000e+00, ptr %218, align 8, !tbaa !67
   br label %._crit_edge
 
-.loopexit:                                        ; preds = %.split, %.split.us.us, %.thread282, %100
-  %.0153287 = phi i32 [ %114, %.thread282 ], [ %104, %100 ], [ %.0153286293, %.split.us.us ], [ %.0153286293, %.split ]
+.loopexit:                                        ; preds = %.split, %.split.us.us, %.thread285, %100
+  %.0153290 = phi i32 [ %114, %.thread285 ], [ %104, %100 ], [ %.0153289296, %.split.us.us ], [ %.0153289296, %.split ]
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 2640
   %220 = load ptr, ptr %219, align 8, !tbaa !66
   store double 1.000000e+00, ptr %220, align 8, !tbaa !67
-  %221 = icmp sgt i32 %.0153287, 0
+  %221 = icmp sgt i32 %.0153290, 0
   br i1 %221, label %.lr.ph226, label %._crit_edge
 
 .lr.ph226:                                        ; preds = %.loopexit
   %222 = getelementptr inbounds nuw i8, ptr %6, i64 400
-  %wide.trip.count275 = zext nneg i32 %.0153287 to i64
+  %wide.trip.count275 = zext nneg i32 %.0153290 to i64
   br label %223
 
 223:                                              ; preds = %.lr.ph226, %223
@@ -1605,8 +1605,8 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr noundef readonly c
 ._crit_edge:                                      ; preds = %223, %.loopexit.thread, %.loopexit
   %231 = phi ptr [ %218, %.loopexit.thread ], [ %220, %.loopexit ], [ %220, %223 ]
   %232 = phi ptr [ %217, %.loopexit.thread ], [ %219, %.loopexit ], [ %219, %223 ]
-  %.0153287298 = phi i32 [ %.0153287.ph, %.loopexit.thread ], [ %.0153287, %.loopexit ], [ %.0153287, %223 ]
-  %233 = add nsw i32 %.0153287298, 1
+  %.0153290301 = phi i32 [ %.0153290.ph, %.loopexit.thread ], [ %.0153290, %.loopexit ], [ %.0153290, %223 ]
+  %233 = add nsw i32 %.0153290301, 1
   %234 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %235 = tail call i32 @N_VLinearCombination(i32 noundef %233, ptr noundef nonnull %231, ptr noundef nonnull %234, ptr noundef %2) #9
   %.not171 = icmp eq i32 %235, 0
@@ -1877,21 +1877,21 @@ define internal fastcc void @CVAckpntDelete(ptr noundef captures(none) %0) unnam
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %58 = sext i32 %55 to i64
   %59 = getelementptr inbounds [13 x ptr], ptr %57, i64 0, i64 %58
-  br label %.sink.split95
+  br label %.sink.split99
 
 60:                                               ; preds = %44
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  br label %.sink.split95
+  br label %.sink.split99
 
-.sink.split95:                                    ; preds = %56, %60
-  %.sink96.in = phi ptr [ %61, %60 ], [ %59, %56 ]
-  %.sink96 = load ptr, ptr %.sink96.in, align 8, !tbaa !69
+.sink.split99:                                    ; preds = %56, %60
+  %.sink100.in = phi ptr [ %61, %60 ], [ %59, %56 ]
+  %.sink100 = load ptr, ptr %.sink100.in, align 8, !tbaa !69
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %63 = load i32, ptr %62, align 4, !tbaa !88
-  tail call void @N_VDestroyVectorArray(ptr noundef %.sink96, i32 noundef %63) #9
+  tail call void @N_VDestroyVectorArray(ptr noundef %.sink100, i32 noundef %63) #9
   br label %64
 
-64:                                               ; preds = %.sink.split95, %._crit_edge80, %41
+64:                                               ; preds = %.sink.split99, %._crit_edge80, %41
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 344
   %66 = load i32, ptr %65, align 8, !tbaa !89
   %.not65 = icmp eq i32 %66, 0
@@ -1933,21 +1933,21 @@ define internal fastcc void @CVAckpntDelete(ptr noundef captures(none) %0) unnam
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %81 = sext i32 %78 to i64
   %82 = getelementptr inbounds [13 x ptr], ptr %80, i64 0, i64 %81
-  br label %.sink.split99
+  br label %.sink.split103
 
 83:                                               ; preds = %67
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 352
-  br label %.sink.split99
+  br label %.sink.split103
 
-.sink.split99:                                    ; preds = %79, %83
-  %.sink100.in = phi ptr [ %84, %83 ], [ %82, %79 ]
-  %.sink100 = load ptr, ptr %.sink100.in, align 8, !tbaa !69
+.sink.split103:                                   ; preds = %79, %83
+  %.sink104.in = phi ptr [ %84, %83 ], [ %82, %79 ]
+  %.sink104 = load ptr, ptr %.sink104.in, align 8, !tbaa !69
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %86 = load i32, ptr %85, align 4, !tbaa !88
-  tail call void @N_VDestroyVectorArray(ptr noundef %.sink100, i32 noundef %86) #9
+  tail call void @N_VDestroyVectorArray(ptr noundef %.sink104, i32 noundef %86) #9
   br label %87
 
-87:                                               ; preds = %.sink.split99, %._crit_edge84, %64
+87:                                               ; preds = %.sink.split103, %._crit_edge84, %64
   tail call void @free(ptr noundef nonnull %2) #9
   br label %88
 
@@ -4879,13 +4879,13 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   %191 = fsub double %.0132, %188
   %192 = fmul double %191, %76
   %193 = fcmp olt double %192, 0.000000e+00
-  br i1 %193, label %.thread315, label %194
+  br i1 %193, label %.thread337, label %194
 
 194:                                              ; preds = %190, %.lr.ph214
   %195 = fsub double %187, %188
   %196 = fmul double %195, %76
   %197 = fcmp olt double %196, 0.000000e+00
-  br i1 %197, label %.thread315, label %198
+  br i1 %197, label %.thread337, label %198
 
 198:                                              ; preds = %194
   store ptr %.2137212, ptr %149, align 8, !tbaa !41
@@ -4900,13 +4900,13 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   %206 = icmp slt i32 %203, 0
   br i1 %206, label %.thread164, label %208
 
-.thread315:                                       ; preds = %190, %194
+.thread337:                                       ; preds = %190, %194
   %207 = getelementptr inbounds nuw i8, ptr %.2137212, i64 104
   store double %187, ptr %207, align 8, !tbaa !151
   br label %208
 
-208:                                              ; preds = %198, %.thread315
-  %.5 = phi i32 [ %203, %198 ], [ 0, %.thread315 ]
+208:                                              ; preds = %198, %.thread337
+  %.5 = phi i32 [ %203, %198 ], [ 0, %.thread337 ]
   %209 = getelementptr inbounds nuw i8, ptr %.2137212, i64 120
   %210 = load ptr, ptr %209, align 8, !tbaa !90
   %.not155 = icmp eq ptr %210, null

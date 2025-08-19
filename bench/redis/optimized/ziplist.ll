@@ -113,8 +113,8 @@ define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonl
   store i8 -128, ptr %4, align 1, !tbaa !9
   %20 = lshr i32 %2, 24
   %21 = trunc nuw i32 %20 to i8
-  %.1..1..1..1..sroa_idx33 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %21, ptr %.1..1..1..1..sroa_idx33, align 1, !tbaa !9
+  %.1..1..1..1..sroa_idx35 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %21, ptr %.1..1..1..1..sroa_idx35, align 1, !tbaa !9
   %22 = lshr i32 %2, 16
   %23 = trunc i32 %22 to i8
   %.2..2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -1018,7 +1018,7 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
 
 .sink.split:                                      ; preds = %67, %37, %46, %33, %69, %71, %72, %70
   %.sink = phi i32 [ 3, %70 ], [ 8, %72 ], [ 4, %71 ], [ 2, %69 ], [ %36, %33 ], [ %64, %46 ], [ %45, %37 ], [ 1, %67 ]
-  %.ph228.ph = phi i32 [ 1, %70 ], [ 1, %72 ], [ 1, %71 ], [ 1, %69 ], [ 1, %33 ], [ 5, %46 ], [ 2, %37 ], [ 1, %67 ]
+  %.ph233.ph = phi i32 [ 1, %70 ], [ 1, %72 ], [ 1, %71 ], [ 1, %69 ], [ 1, %33 ], [ 5, %46 ], [ 2, %37 ], [ 1, %67 ]
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %.sink, ptr %80, align 4, !tbaa !21
   %81 = zext i32 %.sink to i64
@@ -1026,8 +1026,8 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
 
 82:                                               ; preds = %.sink.split, %73
   %.ph = phi i64 [ 0, %73 ], [ %81, %.sink.split ]
-  %.ph228 = phi i32 [ 1, %73 ], [ %.ph228.ph, %.sink.split ]
-  %83 = add nuw nsw i32 %.ph228, %.
+  %.ph233 = phi i32 [ 1, %73 ], [ %.ph233.ph, %.sink.split ]
+  %83 = add nuw nsw i32 %.ph233, %.
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %83, ptr %84, align 8, !tbaa !22
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1149,7 +1149,7 @@ zipEncodingLenSize.exit:                          ; preds = %118
 140:                                              ; preds = %137
   %141 = lshr i8 %112, 6
   %142 = xor i8 %141, 2
-  switch i8 %142, label %.unreachabledefault230 [
+  switch i8 %142, label %.unreachabledefault235 [
     i8 2, label %143
     i8 3, label %150
     i8 0, label %162
@@ -1209,7 +1209,7 @@ zipEncodingLenSize.exit:                          ; preds = %118
   store i32 %182, ptr %183, align 4, !tbaa !21
   br label %201
 
-.unreachabledefault230:                           ; preds = %140
+.unreachabledefault235:                           ; preds = %140
   unreachable
 
 184:                                              ; preds = %140
@@ -1401,11 +1401,11 @@ zipRawEntryLengthSafe.exit:                       ; preds = %29
   unreachable
 
 ._crit_edge.thread:                               ; preds = %zipEntry.exit, %._crit_edge
-  %.lcssa110 = phi i1 [ %39, %._crit_edge ], [ %24, %zipEntry.exit ]
-  %.lcssa86109 = phi i8 [ %38, %._crit_edge ], [ %8, %zipEntry.exit ]
-  %.059.lcssa108 = phi ptr [ %36, %._crit_edge ], [ %1, %zipEntry.exit ]
-  %.060.lcssa107 = phi i16 [ %indvars, %._crit_edge ], [ 0, %zipEntry.exit ]
-  %43 = ptrtoint ptr %.059.lcssa108 to i64
+  %.lcssa119 = phi i1 [ %39, %._crit_edge ], [ %24, %zipEntry.exit ]
+  %.lcssa86118 = phi i8 [ %38, %._crit_edge ], [ %8, %zipEntry.exit ]
+  %.059.lcssa117 = phi ptr [ %36, %._crit_edge ], [ %1, %zipEntry.exit ]
+  %.060.lcssa116 = phi i16 [ %indvars, %._crit_edge ], [ 0, %zipEntry.exit ]
+  %43 = ptrtoint ptr %.059.lcssa117 to i64
   %44 = ptrtoint ptr %1 to i64
   %45 = sub i64 %43, %44
   %46 = trunc i64 %45 to i32
@@ -1413,17 +1413,17 @@ zipRawEntryLengthSafe.exit:                       ; preds = %29
   br i1 %.not66, label %114, label %47
 
 47:                                               ; preds = %._crit_edge.thread
-  br i1 %.lcssa110, label %48, label %83
+  br i1 %.lcssa119, label %48, label %83
 
 48:                                               ; preds = %47
-  %.not79 = icmp eq i8 %.lcssa86109, -2
+  %.not79 = icmp eq i8 %.lcssa86118, -2
   %..i72 = select i1 %.not79, i32 -5, i32 -1
   %49 = icmp ult i32 %.sink.i, 254
   %50 = select i1 %49, i32 1, i32 5
   %51 = add nsw i32 %..i72, %50
   %narrow = sub nsw i32 0, %51
   %52 = sext i32 %narrow to i64
-  %53 = getelementptr inbounds i8, ptr %.059.lcssa108, i64 %52
+  %53 = getelementptr inbounds i8, ptr %.059.lcssa117, i64 %52
   %54 = icmp uge ptr %53, %1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %56 = getelementptr inbounds i8, ptr %55, i64 -1
@@ -1521,7 +1521,7 @@ ziplistResize.exit:                               ; preds = %89
   br i1 %.not69, label %106, label %104
 
 104:                                              ; preds = %ziplistResize.exit
-  %105 = sub i16 %103, %.060.lcssa107
+  %105 = sub i16 %103, %.060.lcssa116
   store i16 %105, ptr %102, align 2, !tbaa !12
   br label %106
 
@@ -1876,8 +1876,8 @@ zipStorePrevEntryLength.exit119:                  ; preds = %131, %136, %zipStor
   %150 = or disjoint i8 %149, 64
   store i8 %150, ptr %5, align 1, !tbaa !9
   %151 = trunc i32 %3 to i8
-  %.1..1..1..1..1..1..sroa_idx182 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %151, ptr %.1..1..1..1..1..1..sroa_idx182, align 1, !tbaa !9
+  %.1..1..1..1..1..1..sroa_idx191 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %151, ptr %.1..1..1..1..1..1..sroa_idx191, align 1, !tbaa !9
   br label %160
 
 152:                                              ; preds = %145
@@ -2039,8 +2039,8 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %39
-  %.83 = phi ptr [ %1, %41 ], [ %0, %39 ]
-  %.82 = phi ptr [ %0, %41 ], [ %1, %39 ]
+  %.88 = phi ptr [ %1, %41 ], [ %0, %39 ]
+  %.87 = phi ptr [ %0, %41 ], [ %1, %39 ]
   %44 = trunc nuw i64 %24 to i32
   store i32 %44, ptr %35, align 4, !tbaa !5
   %45 = trunc nuw i64 %26 to i16
@@ -2052,10 +2052,10 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   store i32 %48, ptr %49, align 4, !tbaa !5
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 %32
   %51 = tail call ptr @__ziplistCascadeUpdate(ptr noundef nonnull %35, ptr noundef nonnull %50)
-  %52 = load ptr, ptr %.82, align 8, !tbaa !32
+  %52 = load ptr, ptr %.87, align 8, !tbaa !32
   tail call void @zfree(ptr noundef %52) #17
-  store ptr null, ptr %.82, align 8, !tbaa !32
-  store ptr %51, ptr %.83, align 8, !tbaa !32
+  store ptr null, ptr %.87, align 8, !tbaa !32
+  store ptr %51, ptr %.88, align 8, !tbaa !32
   br label %53
 
 53:                                               ; preds = %.sink.split, %2, %4, %8
@@ -2219,7 +2219,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %50
 .critedge.loopexit:                               ; preds = %43, %.lr.ph, %26
   %.052.idx.lcssa = phi i64 [ %12, %26 ], [ %.052.idx76, %.lr.ph ], [ %.052.add, %43 ]
   %.156.ph = phi i32 [ %9, %26 ], [ -1, %.lr.ph ], [ %28, %43 ]
-  %.052.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.052.idx.lcssa
+  %.052.ptr.le = getelementptr inbounds nuw i8, ptr %0, i64 %.052.idx.lcssa
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %zipRawEntryLengthSafe.exit, %.critedge.loopexit, %8
@@ -2876,8 +2876,8 @@ zipStoreEntryEncoding.exit:                       ; preds = %72, %65, %.thread51
   %87 = or disjoint i8 %86, 64
   store i8 %87, ptr %5, align 1, !tbaa !9
   %88 = trunc i32 %3 to i8
-  %.1..1..1..1..1..1..sroa_idx82 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %88, ptr %.1..1..1..1..1..1..sroa_idx82, align 1, !tbaa !9
+  %.1..1..1..1..1..1..sroa_idx86 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %88, ptr %.1..1..1..1..1..1..sroa_idx86, align 1, !tbaa !9
   br label %97
 
 89:                                               ; preds = %82
@@ -3415,13 +3415,13 @@ zipRawEntryLengthSafe.exit:                       ; preds = %14
   br i1 %24, label %._crit_edge.thread, label %26
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
-  %.1.lcssa21 = phi i32 [ %22, %._crit_edge ], [ 0, %7 ]
-  %25 = trunc nuw i32 %.1.lcssa21 to i16
+  %.1.lcssa22 = phi i32 [ %22, %._crit_edge ], [ 0, %7 ]
+  %25 = trunc nuw i32 %.1.lcssa22 to i16
   store i16 %25, ptr %3, align 2, !tbaa !12
   br label %26
 
 26:                                               ; preds = %._crit_edge, %._crit_edge.thread, %5
-  %.0 = phi i32 [ %6, %5 ], [ %.1.lcssa21, %._crit_edge.thread ], [ %22, %._crit_edge ]
+  %.0 = phi i32 [ %6, %5 ], [ %.1.lcssa22, %._crit_edge.thread ], [ %22, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -3720,8 +3720,8 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   br i1 %.not51, label %56, label %60
 
 ._crit_edge.thread:                               ; preds = %21
-  %.not5184 = icmp eq i64 %1, 11
-  br i1 %.not5184, label %.thread, label %60
+  %.not5185 = icmp eq i64 %1, 11
+  br i1 %.not5185, label %.thread, label %60
 
 56:                                               ; preds = %._crit_edge
   %57 = load i32, ptr %16, align 4, !tbaa !5
@@ -3731,9 +3731,9 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   br i1 %.not53, label %.thread, label %60
 
 .thread:                                          ; preds = %._crit_edge.thread, %56
-  %.041.lcssa8590 = phi i32 [ %.041.lcssa, %56 ], [ 0, %._crit_edge.thread ]
+  %.041.lcssa8691 = phi i32 [ %.041.lcssa, %56 ], [ 0, %._crit_edge.thread ]
   %.not54 = icmp eq i16 %23, -1
-  %.not55 = icmp eq i32 %.041.lcssa8590, %24
+  %.not55 = icmp eq i32 %.041.lcssa8691, %24
   %or.cond = select i1 %.not54, i1 true, i1 %.not55
   %spec.select = zext i1 %or.cond to i32
   br label %60
@@ -3881,13 +3881,13 @@ zipRawEntryLengthSafe.exit.i:                     ; preds = %26
   br i1 %36, label %._crit_edge.thread.i, label %.preheader47
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %19
-  %.1.lcssa21.i = phi i32 [ %34, %._crit_edge.i ], [ 0, %19 ]
-  %37 = trunc nuw i32 %.1.lcssa21.i to i16
+  %.1.lcssa22.i = phi i32 [ %34, %._crit_edge.i ], [ 0, %19 ]
+  %37 = trunc nuw i32 %.1.lcssa22.i to i16
   store i16 %37, ptr %15, align 2, !tbaa !12
   br label %ziplistLen.exit
 
 ziplistLen.exit:                                  ; preds = %17, %._crit_edge.thread.i
-  %.0.i = phi i32 [ %18, %17 ], [ %.1.lcssa21.i, %._crit_edge.thread.i ]
+  %.0.i = phi i32 [ %18, %17 ], [ %.1.lcssa22.i, %._crit_edge.thread.i ]
   %.not = icmp samesign ult i32 %.0.i, 2
   br i1 %.not, label %39, label %.preheader47, !prof !42
 
@@ -4018,7 +4018,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
   %88 = getelementptr inbounds nuw %struct.rand_pick, ptr %14, i64 %indvars.iv65
   %89 = load i32, ptr %88, align 4, !tbaa !43
   %90 = icmp eq i32 %.04054, %89
-  br i1 %90, label %91, label %.critedge.loopexit.split.loop.exit77
+  br i1 %90, label %91, label %.critedge.loopexit.split.loop.exit80
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -4040,12 +4040,12 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %12
   br i1 %exitcond68.not, label %.critedge, label %87, !llvm.loop !51
 
-.critedge.loopexit.split.loop.exit77:             ; preds = %87
+.critedge.loopexit.split.loop.exit80:             ; preds = %87
   %101 = trunc nuw i64 %indvars.iv65 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %91, %.critedge.loopexit.split.loop.exit77, %.preheader
-  %.1.lcssa = phi i32 [ %.03956, %.preheader ], [ %101, %.critedge.loopexit.split.loop.exit77 ], [ %1, %91 ]
+.critedge:                                        ; preds = %91, %.critedge.loopexit.split.loop.exit80, %.preheader
+  %.1.lcssa = phi i32 [ %.03956, %.preheader ], [ %101, %.critedge.loopexit.split.loop.exit80 ], [ %1, %91 ]
   %102 = add i32 %.04054, 2
   %103 = call ptr @ziplistNext(ptr noundef nonnull %0, ptr noundef %77)
   %104 = call i32 @ziplistGet(ptr noundef %103, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
@@ -4131,13 +4131,13 @@ zipRawEntryLengthSafe.exit.i:                     ; preds = %20
   br i1 %30, label %._crit_edge.thread.i, label %ziplistLen.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %13
-  %.1.lcssa21.i = phi i32 [ %28, %._crit_edge.i ], [ 0, %13 ]
-  %31 = trunc nuw i32 %.1.lcssa21.i to i16
+  %.1.lcssa22.i = phi i32 [ %28, %._crit_edge.i ], [ 0, %13 ]
+  %31 = trunc nuw i32 %.1.lcssa22.i to i16
   store i16 %31, ptr %9, align 2, !tbaa !12
   br label %ziplistLen.exit
 
 ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i, %._crit_edge.thread.i
-  %.0.i = phi i32 [ %12, %11 ], [ %.1.lcssa21.i, %._crit_edge.thread.i ], [ %28, %._crit_edge.i ]
+  %.0.i = phi i32 [ %12, %11 ], [ %.1.lcssa22.i, %._crit_edge.thread.i ], [ %28, %._crit_edge.i ]
   %32 = lshr i32 %.0.i, 1
   %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %32)
   %33 = tail call ptr @ziplistIndex(ptr noundef nonnull %0, i32 noundef 0)

@@ -270,11 +270,11 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   br i1 %90, label %91, label %.preheader200.preheader
 
 .preheader200.preheader:                          ; preds = %37, %.thread183
-  %.0130223 = phi i8 [ %.0130, %.thread183 ], [ 0, %37 ]
-  %.0143222 = phi i32 [ %.0143, %.thread183 ], [ 0, %37 ]
-  %.0145221 = phi i64 [ %.0145, %.thread183 ], [ 0, %37 ]
-  %.1141186220 = phi ptr [ %46, %.thread183 ], [ %.0140, %37 ]
-  %.0139187219 = phi ptr [ %45, %.thread183 ], [ null, %37 ]
+  %.0130238 = phi i8 [ %.0130, %.thread183 ], [ 0, %37 ]
+  %.0143237 = phi i32 [ %.0143, %.thread183 ], [ 0, %37 ]
+  %.0145236 = phi i64 [ %.0145, %.thread183 ], [ 0, %37 ]
+  %.1141186235 = phi ptr [ %46, %.thread183 ], [ %.0140, %37 ]
+  %.0139187234 = phi ptr [ %45, %.thread183 ], [ null, %37 ]
   br label %.preheader200
 
 91:                                               ; preds = %.thread183
@@ -286,7 +286,7 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   br label %143
 
 .preheader200:                                    ; preds = %.preheader200.preheader, %.preheader200
-  %.1141.pn = phi ptr [ %.0138, %.preheader200 ], [ %.1141186220, %.preheader200.preheader ]
+  %.1141.pn = phi ptr [ %.0138, %.preheader200 ], [ %.1141186235, %.preheader200.preheader ]
   %.0138 = getelementptr i8, ptr %.1141.pn, i64 1
   %93 = load i8, ptr %.0138, align 1
   %94 = icmp eq i8 %93, 32
@@ -394,19 +394,19 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   ]
 
 128:                                              ; preds = %127, %127, %127, %127
-  switch i8 %.0130223, label %136 [
+  switch i8 %.0130238, label %136 [
     i8 0, label %129
     i8 58, label %130
   ]
 
 129:                                              ; preds = %128
-  call void @dissector_change_uint(ptr noundef %.0134, i32 noundef %.0143222, ptr noundef nonnull %118)
+  call void @dissector_change_uint(ptr noundef %.0134, i32 noundef %.0143237, ptr noundef nonnull %118)
   br label %.loopexit
 
 130:                                              ; preds = %128
-  %131 = zext i32 %.0143222 to i64
-  %132 = add nuw nsw i64 %.0145221, %131
-  %.not211 = icmp eq i64 %.0145221, 0
+  %131 = zext i32 %.0143237 to i64
+  %132 = add nuw nsw i64 %.0145236, %131
+  %.not211 = icmp eq i64 %.0145236, 0
   br i1 %.not211, label %.loopexit, label %.lr.ph206
 
 .lr.ph206:                                        ; preds = %130, %.lr.ph206
@@ -418,8 +418,8 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   br i1 %135, label %.lr.ph206, label %.loopexit, !llvm.loop !12
 
 136:                                              ; preds = %128
-  %137 = zext i32 %.0143222 to i64
-  %.not176207 = icmp samesign ult i64 %.0145221, %137
+  %137 = zext i32 %.0143237 to i64
+  %.not176207 = icmp samesign ult i64 %.0145236, %137
   br i1 %.not176207, label %.loopexit, label %.lr.ph210
 
 .lr.ph210:                                        ; preds = %136, %.lr.ph210
@@ -427,11 +427,11 @@ define hidden noundef zeroext i1 @decode_as_command_option(ptr noundef %0) local
   %138 = trunc nuw i64 %.1133208 to i32
   call void @dissector_change_uint(ptr noundef %.0134, i32 noundef %138, ptr noundef nonnull %118)
   %139 = add nuw i64 %.1133208, 1
-  %exitcond.not = icmp eq i64 %.1133208, %.0145221
+  %exitcond.not = icmp eq i64 %.1133208, %.0145236
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph210, !llvm.loop !13
 
 140:                                              ; preds = %127, %127, %127, %127, %127
-  call void @dissector_change_string(ptr noundef %.0134, ptr noundef %.0139187219, ptr noundef nonnull %118)
+  call void @dissector_change_string(ptr noundef %.0134, ptr noundef %.0139187234, ptr noundef nonnull %118)
   br label %.loopexit
 
 141:                                              ; preds = %127

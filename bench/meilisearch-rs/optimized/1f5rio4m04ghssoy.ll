@@ -438,13 +438,13 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h81
 
 .sink.split:                                      ; preds = %29, %73, %61
   %.sink = phi i64 [ %16, %61 ], [ %5, %73 ], [ %5, %29 ]
-  %.ph97 = phi i64 [ %62, %61 ], [ %74, %73 ], [ %19, %29 ]
+  %.ph103 = phi i64 [ %62, %61 ], [ %74, %73 ], [ %19, %29 ]
   store i64 %.sink, ptr %14, align 8
   br label %32
 
 32:                                               ; preds = %.sink.split, %73, %61, %29
   %33 = phi i64 [ %18, %73 ], [ %18, %61 ], [ %18, %29 ], [ %.sink, %.sink.split ]
-  %34 = phi i64 [ %74, %73 ], [ %62, %61 ], [ %19, %29 ], [ %.ph97, %.sink.split ]
+  %34 = phi i64 [ %74, %73 ], [ %62, %61 ], [ %19, %29 ], [ %.ph103, %.sink.split ]
   %35 = sub i64 %34, %5
   %.not30 = icmp ult i64 %35, %3
   br i1 %.not30, label %17, label %._crit_edge
@@ -1317,7 +1317,7 @@ _ZN3std3env3var17hd22e9185b7941dceE.exit:         ; preds = %"_ZN4core3ptr127dro
   call void @llvm.experimental.noalias.scope.decl(metadata !205)
   %247 = load i64, ptr %22, align 8, !range !4, !alias.scope !208, !noalias !194, !noundef !5
   %248 = icmp eq i64 %247, -9223372036854775808
-  br i1 %248, label %.thread192, label %249
+  br i1 %248, label %.thread201, label %249
 
 249:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !209
@@ -1340,7 +1340,7 @@ _ZN3std3env3var17hd22e9185b7941dceE.exit:         ; preds = %"_ZN4core3ptr127dro
 
 "_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h233d1c398f2014e9E.exit.i.i": ; preds = %253, %.noexc86
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !209
-  br label %.thread192
+  br label %.thread201
 
 258:                                              ; preds = %243
   %259 = landingpad { ptr, i32 }
@@ -1366,15 +1366,15 @@ _ZN3std3env3var17hd22e9185b7941dceE.exit:         ; preds = %"_ZN4core3ptr127dro
   %262 = icmp eq i32 %bcmp.i.i, 0
   br i1 %262, label %select.unfold, label %269
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i": ; preds = %.thread192, %260
-  %263 = phi ptr [ %266, %.thread192 ], [ %261, %260 ]
-  %264 = phi ptr [ %246, %.thread192 ], [ %.pre, %260 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6e2a6ca6f88ebf6E.exit11.i": ; preds = %.thread201, %260
+  %263 = phi ptr [ %266, %.thread201 ], [ %261, %260 ]
+  %264 = phi ptr [ %246, %.thread201 ], [ %.pre, %260 ]
   %bcmp.i10.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(5) %264, ptr noundef nonnull dereferenceable(5) @anon.0d18f9b890c379d9c30b9e9e5116147c.25, i64 5), !alias.scope !224
   %bcmp.i10.fr.i = freeze i32 %bcmp.i10.i
   %265 = icmp eq i32 %bcmp.i10.fr.i, 0
   br i1 %265, label %select.unfold, label %269
 
-.thread192:                                       ; preds = %245, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h233d1c398f2014e9E.exit.i.i"
+.thread201:                                       ; preds = %245, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h233d1c398f2014e9E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %266 = getelementptr inbounds nuw i8, ptr %27, i64 16

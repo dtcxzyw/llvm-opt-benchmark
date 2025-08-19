@@ -5516,7 +5516,7 @@ thread-pre-split.i.i.i:                           ; preds = %24, %23
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i.i.i, label %thread-pre-split.thread.i.i.i
 
 thread-pre-split.thread.i.i.i:                    ; preds = %thread-pre-split.i.i.i, %37, %34
-  %.112.i.i.i = phi i1 [ false, %thread-pre-split.i.i.i ], [ false, %34 ], [ %.not21.i.i.i, %37 ]
+  %.120.i.i.i = phi i1 [ false, %thread-pre-split.i.i.i ], [ false, %34 ], [ %.not21.i.i.i, %37 ]
   invoke void @BN_free(ptr noundef nonnull %22)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i.i.i unwind label %50
 
@@ -5528,7 +5528,7 @@ thread-pre-split.thread.i.i.i:                    ; preds = %thread-pre-split.i.
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i.i.i: ; preds = %thread-pre-split.thread.i.i.i, %thread-pre-split.i.i.i
-  %.113.i.i.i = phi i1 [ false, %thread-pre-split.i.i.i ], [ %.112.i.i.i, %thread-pre-split.thread.i.i.i ]
+  %.121.i.i.i = phi i1 [ false, %thread-pre-split.i.i.i ], [ %.120.i.i.i, %thread-pre-split.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i22.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i22.i.i.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit23.i.i.i, label %53
@@ -5603,7 +5603,7 @@ _ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev
   br label %73
 
 69:                                               ; preds = %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit.i.i.i, %10
-  %.0.ph.i.i.i = phi i1 [ false, %10 ], [ %.113.i.i.i, %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit.i.i.i ]
+  %.0.ph.i.i.i = phi i1 [ false, %10 ], [ %.121.i.i.i, %_ZNSt10unique_ptrI11ec_point_st14OpenSSLDeleterIS0_XadL_Z13EC_POINT_freeEEEED2Ev.exit.i.i.i ]
   invoke void @EC_KEY_free(ptr noundef nonnull %7)
           to label %"_ZSt10__invoke_rIbRZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_E3$_0JEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESD_EEE5valueESD_E4typeEOSI_DpOSJ_.exit" unwind label %70
 

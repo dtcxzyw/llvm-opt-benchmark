@@ -292,9 +292,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 28:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
   %29 = icmp sgt i64 %27, 0
-  br i1 %29, label %32, label %.thread113
+  br i1 %29, label %32, label %.thread118
 
-.thread113:                                       ; preds = %28
+.thread118:                                       ; preds = %28
   store i64 %15, ptr %20, align 8, !tbaa !32
   store i64 %19, ptr %21, align 8, !tbaa !34
   %.nonneg = sub i64 0, %27
@@ -329,18 +329,18 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %32
   store i64 %15, ptr %20, align 8, !tbaa !32
   store i64 %19, ptr %21, align 8, !tbaa !34
   %40 = and i64 %27, 2305843009213693950
-  %.not115 = icmp eq i64 %27, 1
-  br i1 %.not115, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  %.not120 = icmp eq i64 %27, 1
+  br i1 %.not120, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread113, %.thread, %39
-  %41 = phi i64 [ 0, %.thread ], [ %40, %39 ], [ %31, %.thread113 ], [ %40, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i112 = phi ptr [ null, %.thread ], [ %36, %39 ], [ null, %.thread113 ], [ %36, %.lr.ph.i.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread118, %.thread, %39
+  %41 = phi i64 [ 0, %.thread ], [ %40, %39 ], [ %31, %.thread118 ], [ %40, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i117 = phi ptr [ null, %.thread ], [ %36, %39 ], [ null, %.thread118 ], [ %36, %.lr.ph.i.i.i.i.i.i.i.i ]
   %42 = icmp slt i64 %41, %27
   br i1 %42, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEE4evalEv.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %41, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %43 = getelementptr inbounds double, ptr %.pre.i.i112, i64 %.05.i.i.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds double, ptr %.pre.i.i117, i64 %.05.i.i.i.i.i.i.i.i.i
   %44 = getelementptr inbounds double, ptr %17, i64 %.05.i.i.i.i.i.i.i.i.i
   %45 = load double, ptr %44, align 8, !tbaa !18
   store double %45, ptr %43, align 8, !tbaa !18
@@ -718,9 +718,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 26:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
   %27 = icmp sgt i64 %25, 0
-  br i1 %27, label %30, label %.thread135
+  br i1 %27, label %30, label %.thread140
 
-.thread135:                                       ; preds = %26
+.thread140:                                       ; preds = %26
   store i64 %13, ptr %18, align 8, !tbaa !29
   store i64 %17, ptr %19, align 8, !tbaa !20
   %.nonneg = sub i64 0, %25
@@ -755,18 +755,18 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %30
   store i64 %13, ptr %18, align 8, !tbaa !29
   store i64 %17, ptr %19, align 8, !tbaa !20
   %38 = and i64 %25, 2305843009213693950
-  %.not137 = icmp eq i64 %25, 1
-  br i1 %.not137, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  %.not142 = icmp eq i64 %25, 1
+  br i1 %.not142, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread135, %.thread, %37
-  %39 = phi i64 [ 0, %.thread ], [ %38, %37 ], [ %29, %.thread135 ], [ %38, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i134 = phi ptr [ null, %.thread ], [ %34, %37 ], [ null, %.thread135 ], [ %34, %.lr.ph.i.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread140, %.thread, %37
+  %39 = phi i64 [ 0, %.thread ], [ %38, %37 ], [ %29, %.thread140 ], [ %38, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i139 = phi ptr [ null, %.thread ], [ %34, %37 ], [ null, %.thread140 ], [ %34, %.lr.ph.i.i.i.i.i.i.i.i ]
   %40 = icmp slt i64 %39, %25
   br i1 %40, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEEEE4evalEv.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %39, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %41 = getelementptr inbounds double, ptr %.pre.i.i134, i64 %.05.i.i.i.i.i.i.i.i.i
+  %41 = getelementptr inbounds double, ptr %.pre.i.i139, i64 %.05.i.i.i.i.i.i.i.i.i
   %42 = getelementptr inbounds double, ptr %15, i64 %.05.i.i.i.i.i.i.i.i.i
   %43 = load double, ptr %42, align 8, !tbaa !18
   store double %43, ptr %41, align 8, !tbaa !18
@@ -1012,8 +1012,8 @@ common.resume:                                    ; preds = %_ZNK5Eigen9DenseBas
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %219 = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> zeroinitializer
   %220 = fmul <2 x double> %188, %219
-  %.sroa.0.sroa.0.8.vec.extract142 = extractelement <2 x double> %216, i64 1
-  %221 = bitcast double %.sroa.0.sroa.0.8.vec.extract142 to <1 x double>
+  %.sroa.0.sroa.0.8.vec.extract147 = extractelement <2 x double> %216, i64 1
+  %221 = bitcast double %.sroa.0.sroa.0.8.vec.extract147 to <1 x double>
   %222 = shufflevector <1 x double> %221, <1 x double> poison, <2 x i32> zeroinitializer
   %223 = fmul <2 x double> %190, %222
   %224 = fadd <2 x double> %220, %223
@@ -1970,9 +1970,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exi
 
 27:                                               ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
   %28 = icmp sgt i64 %26, 0
-  br i1 %28, label %31, label %.thread121
+  br i1 %28, label %31, label %.thread126
 
-.thread121:                                       ; preds = %27
+.thread126:                                       ; preds = %27
   store i64 %14, ptr %19, align 8, !tbaa !32
   store i64 %18, ptr %20, align 8, !tbaa !34
   %.nonneg = sub i64 0, %26
@@ -2007,18 +2007,18 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %31
   store i64 %14, ptr %19, align 8, !tbaa !32
   store i64 %18, ptr %20, align 8, !tbaa !34
   %39 = and i64 %26, 2305843009213693950
-  %.not123 = icmp eq i64 %26, 1
-  br i1 %.not123, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  %.not128 = icmp eq i64 %26, 1
+  br i1 %.not128, label %._crit_edge.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread121, %.thread, %38
-  %40 = phi i64 [ 0, %.thread ], [ %39, %38 ], [ %30, %.thread121 ], [ %39, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.pre.i.i120 = phi ptr [ null, %.thread ], [ %35, %38 ], [ null, %.thread121 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %.thread126, %.thread, %38
+  %40 = phi i64 [ 0, %.thread ], [ %39, %38 ], [ %30, %.thread126 ], [ %39, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.pre.i.i125 = phi ptr [ null, %.thread ], [ %35, %38 ], [ null, %.thread126 ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i ]
   %41 = icmp slt i64 %40, %26
   br i1 %41, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEE4evalEv.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %45, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %40, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %42 = getelementptr inbounds double, ptr %.pre.i.i120, i64 %.05.i.i.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds double, ptr %.pre.i.i125, i64 %.05.i.i.i.i.i.i.i.i.i
   %43 = getelementptr inbounds double, ptr %16, i64 %.05.i.i.i.i.i.i.i.i.i
   %44 = load double, ptr %43, align 8, !tbaa !18
   store double %44, ptr %42, align 8, !tbaa !18

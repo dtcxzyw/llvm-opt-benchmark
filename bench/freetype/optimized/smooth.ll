@@ -404,8 +404,8 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   br i1 %.not94, label %thread-pre-split.thread, label %.thread
 
 thread-pre-split.thread:                          ; preds = %33, %31, %thread-pre-split
-  %.0108 = phi i64 [ %.2, %thread-pre-split ], [ 0, %31 ], [ 0, %33 ]
-  %.080107 = phi i64 [ %.181, %thread-pre-split ], [ 0, %31 ], [ 0, %33 ]
+  %.0112 = phi i64 [ %.2, %thread-pre-split ], [ 0, %31 ], [ 0, %33 ]
+  %.080111 = phi i64 [ %.181, %thread-pre-split ], [ 0, %31 ], [ 0, %33 ]
   store i32 1651078259, ptr %11, align 8, !tbaa !75
   br label %102
 
@@ -438,8 +438,8 @@ thread-pre-split.thread:                          ; preds = %33, %31, %thread-pr
   br label %102
 
 102:                                              ; preds = %.thread, %95, %thread-pre-split.thread
-  %.0101 = phi i64 [ %.0102, %.thread ], [ %.0102, %95 ], [ %.0108, %thread-pre-split.thread ]
-  %.08099 = phi i64 [ %.080100, %.thread ], [ %.080100, %95 ], [ %.080107, %thread-pre-split.thread ]
+  %.0101 = phi i64 [ %.0102, %.thread ], [ %.0102, %95 ], [ %.0112, %thread-pre-split.thread ]
+  %.08099 = phi i64 [ %.080100, %.thread ], [ %.080100, %95 ], [ %.080111, %thread-pre-split.thread ]
   %103 = icmp ne i64 %.08099, 0
   %104 = icmp ne i64 %.0101, 0
   %or.cond11 = select i1 %103, i1 true, i1 %104
@@ -599,7 +599,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %44 = add i32 %.079113, %28
   %45 = sext i32 %44 to i64
   %46 = call i64 @llvm.smin.i64(i64 %43, i64 %45)
-  %47 = trunc i64 %46 to i32
+  %47 = trunc nsw i64 %46 to i32
   store i32 %47, ptr %29, align 4, !tbaa !103
   %48 = sub nsw i32 %47, %.079113
   store i32 %48, ptr %30, align 8, !tbaa !104

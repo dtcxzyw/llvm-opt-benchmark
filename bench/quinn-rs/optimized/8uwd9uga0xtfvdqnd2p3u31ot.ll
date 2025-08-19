@@ -646,9 +646,9 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   br label %.thread183
 
 163:                                              ; preds = %.thread183, %132
-  %.sink190 = phi i8 [ %148, %.thread183 ], [ 2, %132 ]
+  %.sink196 = phi i8 [ %148, %.thread183 ], [ 2, %132 ]
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %.sink190, ptr %.sroa.778.0..sroa_idx, align 1
+  store i8 %.sink196, ptr %.sroa.778.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret void
 }

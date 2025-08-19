@@ -829,7 +829,7 @@ _ZNK5folly7dynamic5itemsEv.exit:                  ; preds = %107
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
   tail call fastcc void @_ZN5folly4bserL10bserEncodeERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE(ptr noundef nonnull align 8 dereferenceable(40) %121, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(80) %2)
   %122 = getelementptr inbounds i8, ptr %.sroa.058.0105, i64 -16
-  %.neg.i.i.i.i.i = mul i64 %.sroa.8.0106, -8
+  %.neg.i.i.i.i.i = mul nsw i64 %.sroa.8.0106, -8
   %123 = getelementptr inbounds i8, ptr %122, i64 %.neg.i.i.i.i.i
   %.not19.i6.i.i.i = icmp eq i64 %.sroa.8.0106, 0
   br i1 %.not19.i6.i.i.i, label %.critedge.i.i.i.i.preheader, label %thread-pre-split.i.i.i
@@ -844,7 +844,7 @@ _ZNK5folly7dynamic5itemsEv.exit:                  ; preds = %107
 thread-pre-split.i.i.i:                           ; preds = %.lr.ph107, %124
   %125 = phi i64 [ %127, %124 ], [ %.sroa.8.0106, %.lr.ph107 ]
   %126 = phi ptr [ %128, %124 ], [ %.sroa.058.0105, %.lr.ph107 ]
-  %127 = add i64 %125, -1
+  %127 = add nsw i64 %125, -1
   %128 = getelementptr inbounds i8, ptr %126, i64 -8
   %129 = getelementptr inbounds nuw [14 x i8], ptr %123, i64 0, i64 %127
   %130 = load i8, ptr %129, align 1, !tbaa !59
@@ -976,15 +976,15 @@ _ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5v
   store ptr %192, ptr %1, align 8, !tbaa !76
   %193 = load ptr, ptr %185, align 8, !tbaa !75
   %194 = icmp eq ptr %193, %192
-  br i1 %194, label %195, label %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i150, !prof !77
+  br i1 %194, label %195, label %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i185, !prof !77
 
 195:                                              ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit55
   tail call void @_ZN5folly2io13QueueAppender18ensureSlowNoinlineEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 1)
-  %.pre.i.i151 = load ptr, ptr %1, align 8, !tbaa !76
-  br label %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i150
+  %.pre.i.i186 = load ptr, ptr %1, align 8, !tbaa !76
+  br label %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i185
 
-_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i150: ; preds = %195, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit55
-  %196 = phi ptr [ %.pre.i.i151, %195 ], [ %192, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit55 ]
+_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i185: ; preds = %195, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit55
+  %196 = phi ptr [ %.pre.i.i186, %195 ], [ %192, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit55 ]
   store i8 0, ptr %196, align 1
   %197 = load ptr, ptr %1, align 8, !tbaa !76
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 1
@@ -995,12 +995,12 @@ _ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5v
   %.not.i.not.i.i.i.i = icmp eq i32 %200, 1
   br i1 %.not.i.not.i.i.i.i, label %_ZNK5folly7dynamic3endEv.exit.i, label %201
 
-201:                                              ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i150
+201:                                              ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i185
   %202 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoISt6vectorIS0_SaIS0_EEE4nameE, align 8, !tbaa !80
   tail call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %202, i32 noundef %200) #7
   unreachable
 
-_ZNK5folly7dynamic3endEv.exit.i:                  ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i150
+_ZNK5folly7dynamic3endEv.exit.i:                  ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i185
   %203 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
   %204 = load ptr, ptr %203, align 8, !tbaa !105
   %205 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 32
@@ -1120,15 +1120,15 @@ _ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5v
   %245 = load ptr, ptr %244, align 8, !tbaa !75
   %246 = load ptr, ptr %1, align 8, !tbaa !76
   %247 = icmp eq ptr %245, %246
-  br i1 %247, label %248, label %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i152, !prof !77
+  br i1 %247, label %248, label %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i187, !prof !77
 
 248:                                              ; preds = %.loopexit83
   tail call void @_ZN5folly2io13QueueAppender18ensureSlowNoinlineEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef 1)
-  %.pre.i.i159 = load ptr, ptr %1, align 8, !tbaa !76
-  br label %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i152
+  %.pre.i.i194 = load ptr, ptr %1, align 8, !tbaa !76
+  br label %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i187
 
-_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i152: ; preds = %248, %.loopexit83
-  %249 = phi ptr [ %.pre.i.i159, %248 ], [ %246, %.loopexit83 ]
+_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i187: ; preds = %248, %.loopexit83
+  %249 = phi ptr [ %.pre.i.i194, %248 ], [ %246, %.loopexit83 ]
   store i8 0, ptr %249, align 1
   %250 = load ptr, ptr %1, align 8, !tbaa !76
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
@@ -1136,28 +1136,28 @@ _ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5v
   %252 = tail call noundef i64 @_ZNK5folly7dynamic4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   tail call fastcc void @_ZN5folly4bserL13bserEncodeIntElRNS_2io13QueueAppenderE(i64 noundef %252, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %253 = load i32, ptr %0, align 8, !tbaa !72
-  %.not.i.not.i.i.i.i153 = icmp eq i32 %253, 1
-  br i1 %.not.i.not.i.i.i.i153, label %_ZNK5folly7dynamic3endEv.exit.i154, label %254
+  %.not.i.not.i.i.i.i188 = icmp eq i32 %253, 1
+  br i1 %.not.i.not.i.i.i.i188, label %_ZNK5folly7dynamic3endEv.exit.i189, label %254
 
-254:                                              ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i152
+254:                                              ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i187
   %255 = load ptr, ptr @_ZN5folly7dynamic8TypeInfoISt6vectorIS0_SaIS0_EEE4nameE, align 8, !tbaa !80
   tail call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %255, i32 noundef %253) #7
   unreachable
 
-_ZNK5folly7dynamic3endEv.exit.i154:               ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i152
+_ZNK5folly7dynamic3endEv.exit.i189:               ; preds = %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i187
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %257 = load ptr, ptr %256, align 8, !tbaa !105
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %259 = load ptr, ptr %258, align 8, !tbaa !105
-  %.not13.i155 = icmp eq ptr %257, %259
-  br i1 %.not13.i155, label %_ZN5folly4bserL16bserEncodeObjectERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE.exit, label %.lr.ph.i156
+  %.not13.i190 = icmp eq ptr %257, %259
+  br i1 %.not13.i190, label %_ZN5folly4bserL16bserEncodeObjectERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE.exit, label %.lr.ph.i191
 
-.lr.ph.i156:                                      ; preds = %_ZNK5folly7dynamic3endEv.exit.i154, %.lr.ph.i156
-  %.sroa.010.014.i157 = phi ptr [ %260, %.lr.ph.i156 ], [ %257, %_ZNK5folly7dynamic3endEv.exit.i154 ]
-  tail call fastcc void @_ZN5folly4bserL10bserEncodeERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.010.014.i157, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull readonly align 8 dereferenceable(80) %2)
-  %260 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i157, i64 40
-  %.not.i158 = icmp eq ptr %260, %259
-  br i1 %.not.i158, label %_ZN5folly4bserL16bserEncodeObjectERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE.exit, label %.lr.ph.i156
+.lr.ph.i191:                                      ; preds = %_ZNK5folly7dynamic3endEv.exit.i189, %.lr.ph.i191
+  %.sroa.010.014.i192 = phi ptr [ %260, %.lr.ph.i191 ], [ %257, %_ZNK5folly7dynamic3endEv.exit.i189 ]
+  tail call fastcc void @_ZN5folly4bserL10bserEncodeERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.010.014.i192, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull readonly align 8 dereferenceable(80) %2)
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i192, i64 40
+  %.not.i193 = icmp eq ptr %260, %259
+  br i1 %.not.i193, label %_ZN5folly4bserL16bserEncodeObjectERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE.exit, label %.lr.ph.i191
 
 _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit:      ; preds = %3
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1229,7 +1229,7 @@ _ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5v
   %.not14.i.i.i = icmp eq i64 %295, 0
   br i1 %.not14.i.i.i, label %_ZN5folly4bserL16bserEncodeObjectERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE.exit, label %285, !llvm.loop !112
 
-_ZN5folly4bserL16bserEncodeObjectERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE.exit: ; preds = %285, %._crit_edge, %.lr.ph.i156, %.critedge.i.i.i.i, %_ZNK5folly7dynamic3endEv.exit.i154, %_ZNK5folly7dynamic3endEv.exit51, %_ZNK5folly7dynamic5itemsEv.exit, %282, %_ZNSt6vectorISt4pairIN5folly7dynamicES2_ESaIS3_EED2Ev.exit, %_ZNKR5folly7dynamic6getIntEv.exit, %_ZN5folly2io13QueueAppender5writeIdEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit19, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit, %3
+_ZN5folly4bserL16bserEncodeObjectERKNS_7dynamicERNS_2io13QueueAppenderERKNS0_18serialization_optsE.exit: ; preds = %285, %._crit_edge, %.lr.ph.i191, %.critedge.i.i.i.i, %_ZNK5folly7dynamic3endEv.exit.i189, %_ZNK5folly7dynamic3endEv.exit51, %_ZNK5folly7dynamic5itemsEv.exit, %282, %_ZNSt6vectorISt4pairIN5folly7dynamicES2_ESaIS3_EED2Ev.exit, %_ZNKR5folly7dynamic6getIntEv.exit, %_ZN5folly2io13QueueAppender5writeIdEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit19, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit, %3
   ret void
 }
 
@@ -1579,9 +1579,9 @@ _ZN5folly2io13QueueAppender5writeIlEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5v
   br label %71
 
 71:                                               ; preds = %_ZN5folly2io13QueueAppender5writeIlEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit, %_ZN5folly2io13QueueAppender5writeIiEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit, %_ZN5folly2io13QueueAppender5writeIsEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit21
-  %.sink34 = phi i64 [ 8, %_ZN5folly2io13QueueAppender5writeIlEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit ], [ 4, %_ZN5folly2io13QueueAppender5writeIiEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit ], [ 2, %_ZN5folly2io13QueueAppender5writeIsEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit ], [ 1, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit21 ]
+  %.sink38 = phi i64 [ 8, %_ZN5folly2io13QueueAppender5writeIlEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit ], [ 4, %_ZN5folly2io13QueueAppender5writeIiEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit ], [ 2, %_ZN5folly2io13QueueAppender5writeIsEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit ], [ 1, %_ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit21 ]
   %72 = load ptr, ptr %1, align 8, !tbaa !76
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.sink34
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %.sink38
   store ptr %73, ptr %1, align 8, !tbaa !76
   ret void
 }
@@ -2909,12 +2909,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %22, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !132
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %19, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i10.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %19 ]
+  %spec.select.i.i11.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %19 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %.0.i4.i.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i.i ], [ %14, %.lr.ph.preheader.i.i.i.i ]
-  %.014.i3.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %.014.i3.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %23 = add i64 %.014.i3.i.i.i.i, -2
   %24 = udiv i64 %.0.i4.i.i.i.i, 100
   %25 = urem i64 %.0.i4.i.i.i.i, 100
@@ -2926,7 +2926,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !133, !llvm.loop !134
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i9.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %spec.select.i.i10.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %21, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %14, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
   %30 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
@@ -2947,7 +2947,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %34, %33
   %37 = load i64, ptr %8, align 8, !tbaa !58
   %38 = sub i64 4611686018427387903, %37
-  %39 = icmp ult i64 %38, %spec.select.i.i9.i.i.i.i
+  %39 = icmp ult i64 %38, %spec.select.i.i10.i.i.i.i
   br i1 %39, label %40, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
 40:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
@@ -2955,7 +2955,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %34, %33
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
-  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %5, i64 noundef %spec.select.i.i9.i.i.i.i)
+  %41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %5, i64 noundef %spec.select.i.i10.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(35) %2) #25
   %43 = load i64, ptr %8, align 8, !tbaa !58

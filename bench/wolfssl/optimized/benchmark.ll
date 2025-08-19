@@ -638,7 +638,7 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %109 = load i32, ptr @bench_cipher_algs, align 4, !tbaa !4
   %110 = and i32 %109, 1
   %.not132.i = icmp eq i32 %110, 0
-  br i1 %.not132.i, label %.thread75.i, label %111
+  br i1 %.not132.i, label %.thread90.i, label %111
 
 111:                                              ; preds = %.thread7.i, %108
   %112 = load ptr, ptr %103, align 8, !tbaa !8
@@ -651,19 +651,19 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %117 = load ptr, ptr %104, align 8, !tbaa !8
   tail call fastcc void @bench_aescbc_internal(ptr noundef %116, i32 noundef 32, ptr noundef %117, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12)
   %.b114.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b114.pre.i, label %..thread75.i_crit_edge, label %120
+  br i1 %.b114.pre.i, label %..thread90.i_crit_edge, label %120
 
-..thread75.i_crit_edge:                           ; preds = %111
+..thread90.i_crit_edge:                           ; preds = %111
   %.pre = load i32, ptr @bench_cipher_algs, align 4, !tbaa !4
-  br label %.thread75.i
+  br label %.thread90.i
 
-.thread75.i:                                      ; preds = %..thread75.i_crit_edge, %.thread7.i
-  %118 = phi i32 [ %.pre, %..thread75.i_crit_edge ], [ %109, %.thread7.i ]
+.thread90.i:                                      ; preds = %..thread90.i_crit_edge, %.thread7.i
+  %118 = phi i32 [ %.pre, %..thread90.i_crit_edge ], [ %109, %.thread7.i ]
   %119 = and i32 %118, 2
   %.not133.i = icmp eq i32 %119, 0
   br i1 %.not133.i, label %.thread9.i, label %120
 
-120:                                              ; preds = %.thread75.i, %111
+120:                                              ; preds = %.thread90.i, %111
   %121 = load i32, ptr @aesAuthAddSz, align 4, !tbaa !4
   %122 = load i32, ptr @aes_aad_options, align 4, !tbaa !4
   %.not1.i.i = icmp eq i32 %122, 0
@@ -741,54 +741,54 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre.i = load i32, ptr @bench_cipher_algs, align 4, !tbaa !4
   br label %.thread9.i
 
-.thread9.i:                                       ; preds = %.loopexit..thread9_crit_edge.i, %.thread75.i
-  %159 = phi i32 [ %.pre.i, %.loopexit..thread9_crit_edge.i ], [ %118, %.thread75.i ]
+.thread9.i:                                       ; preds = %.loopexit..thread9_crit_edge.i, %.thread90.i
+  %159 = phi i32 [ %.pre.i, %.loopexit..thread9_crit_edge.i ], [ %118, %.thread90.i ]
   %160 = and i32 %159, 4096
   %.not134.i = icmp eq i32 %160, 0
-  br i1 %.not134.i, label %.thread77.i, label %161
+  br i1 %.not134.i, label %.thread92.i, label %161
 
 161:                                              ; preds = %.thread9.i, %.loopexit.i
   tail call void @bench_chacha()
   %.b112.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b112.pre.i, label %..thread77.i_crit_edge, label %164
+  br i1 %.b112.pre.i, label %..thread92.i_crit_edge, label %164
 
-..thread77.i_crit_edge:                           ; preds = %161
+..thread92.i_crit_edge:                           ; preds = %161
   %.pre7 = load i32, ptr @bench_cipher_algs, align 4, !tbaa !4
-  br label %.thread77.i
+  br label %.thread92.i
 
-.thread77.i:                                      ; preds = %..thread77.i_crit_edge, %.thread9.i
-  %162 = phi i32 [ %.pre7, %..thread77.i_crit_edge ], [ %159, %.thread9.i ]
+.thread92.i:                                      ; preds = %..thread92.i_crit_edge, %.thread9.i
+  %162 = phi i32 [ %.pre7, %..thread92.i_crit_edge ], [ %159, %.thread9.i ]
   %163 = and i32 %162, 8192
   %.not135.i = icmp eq i32 %163, 0
   br i1 %.not135.i, label %.thread11.i, label %164
 
-164:                                              ; preds = %.thread77.i, %161
+164:                                              ; preds = %.thread92.i, %161
   tail call void @bench_chacha20_poly1305_aead()
   %.b111.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b111.pr.i, label %.thread11.i, label %167
 
-.thread11.i:                                      ; preds = %164, %.thread77.i
+.thread11.i:                                      ; preds = %164, %.thread92.i
   %165 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   %166 = and i32 %165, 1
   %.not136.i = icmp eq i32 %166, 0
-  br i1 %.not136.i, label %.thread79.i, label %167
+  br i1 %.not136.i, label %.thread94.i, label %167
 
 167:                                              ; preds = %.thread11.i, %164
   tail call void @bench_md5(i32 poison)
   %.b110.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b110.pre.i, label %..thread79.i_crit_edge, label %170
+  br i1 %.b110.pre.i, label %..thread94.i_crit_edge, label %170
 
-..thread79.i_crit_edge:                           ; preds = %167
+..thread94.i_crit_edge:                           ; preds = %167
   %.pre8 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread79.i
+  br label %.thread94.i
 
-.thread79.i:                                      ; preds = %..thread79.i_crit_edge, %.thread11.i
-  %168 = phi i32 [ %.pre8, %..thread79.i_crit_edge ], [ %165, %.thread11.i ]
+.thread94.i:                                      ; preds = %..thread94.i_crit_edge, %.thread11.i
+  %168 = phi i32 [ %.pre8, %..thread94.i_crit_edge ], [ %165, %.thread11.i ]
   %169 = and i32 %168, 2
   %.not137.i = icmp eq i32 %169, 0
   br i1 %.not137.i, label %.thread13.i, label %170
 
-170:                                              ; preds = %.thread79.i, %167
+170:                                              ; preds = %.thread94.i, %167
   tail call void @bench_poly1305()
   %.b109.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b109.pr.i, label %..thread13_crit_edge.i, label %173
@@ -797,28 +797,28 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre42.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread13.i
 
-.thread13.i:                                      ; preds = %..thread13_crit_edge.i, %.thread79.i
-  %171 = phi i32 [ %.pre42.i, %..thread13_crit_edge.i ], [ %168, %.thread79.i ]
+.thread13.i:                                      ; preds = %..thread13_crit_edge.i, %.thread94.i
+  %171 = phi i32 [ %.pre42.i, %..thread13_crit_edge.i ], [ %168, %.thread94.i ]
   %172 = and i32 %171, 4
   %.not138.i = icmp eq i32 %172, 0
-  br i1 %.not138.i, label %.thread81.i, label %173
+  br i1 %.not138.i, label %.thread96.i, label %173
 
 173:                                              ; preds = %.thread13.i, %170
   tail call void @bench_sha(i32 poison)
   %.b108.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b108.pre.i, label %..thread81.i_crit_edge, label %176
+  br i1 %.b108.pre.i, label %..thread96.i_crit_edge, label %176
 
-..thread81.i_crit_edge:                           ; preds = %173
+..thread96.i_crit_edge:                           ; preds = %173
   %.pre9 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread81.i
+  br label %.thread96.i
 
-.thread81.i:                                      ; preds = %..thread81.i_crit_edge, %.thread13.i
-  %174 = phi i32 [ %.pre9, %..thread81.i_crit_edge ], [ %171, %.thread13.i ]
+.thread96.i:                                      ; preds = %..thread96.i_crit_edge, %.thread13.i
+  %174 = phi i32 [ %.pre9, %..thread96.i_crit_edge ], [ %171, %.thread13.i ]
   %175 = and i32 %174, 16
   %.not139.i = icmp eq i32 %175, 0
   br i1 %.not139.i, label %.thread15.i, label %176
 
-176:                                              ; preds = %.thread81.i, %173
+176:                                              ; preds = %.thread96.i, %173
   tail call void @bench_sha224(i32 poison)
   %.b107.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b107.pr.i, label %..thread15_crit_edge.i, label %179
@@ -827,28 +827,28 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre45.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread15.i
 
-.thread15.i:                                      ; preds = %..thread15_crit_edge.i, %.thread81.i
-  %177 = phi i32 [ %.pre45.i, %..thread15_crit_edge.i ], [ %174, %.thread81.i ]
+.thread15.i:                                      ; preds = %..thread15_crit_edge.i, %.thread96.i
+  %177 = phi i32 [ %.pre45.i, %..thread15_crit_edge.i ], [ %174, %.thread96.i ]
   %178 = and i32 %177, 32
   %.not140.i = icmp eq i32 %178, 0
-  br i1 %.not140.i, label %.thread83.i, label %179
+  br i1 %.not140.i, label %.thread98.i, label %179
 
 179:                                              ; preds = %.thread15.i, %176
   tail call void @bench_sha256(i32 poison)
   %.b106.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b106.pre.i, label %..thread83.i_crit_edge, label %182
+  br i1 %.b106.pre.i, label %..thread98.i_crit_edge, label %182
 
-..thread83.i_crit_edge:                           ; preds = %179
+..thread98.i_crit_edge:                           ; preds = %179
   %.pre10 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread83.i
+  br label %.thread98.i
 
-.thread83.i:                                      ; preds = %..thread83.i_crit_edge, %.thread15.i
-  %180 = phi i32 [ %.pre10, %..thread83.i_crit_edge ], [ %177, %.thread15.i ]
+.thread98.i:                                      ; preds = %..thread98.i_crit_edge, %.thread15.i
+  %180 = phi i32 [ %.pre10, %..thread98.i_crit_edge ], [ %177, %.thread15.i ]
   %181 = and i32 %180, 64
   %.not141.i = icmp eq i32 %181, 0
   br i1 %.not141.i, label %.thread17.i, label %182
 
-182:                                              ; preds = %.thread83.i, %179
+182:                                              ; preds = %.thread98.i, %179
   tail call void @bench_sha384(i32 poison)
   %.b105.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b105.pr.i, label %..thread17_crit_edge.i, label %185
@@ -857,24 +857,24 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre48.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread17.i
 
-.thread17.i:                                      ; preds = %..thread17_crit_edge.i, %.thread83.i
-  %183 = phi i32 [ %.pre48.i, %..thread17_crit_edge.i ], [ %180, %.thread83.i ]
+.thread17.i:                                      ; preds = %..thread17_crit_edge.i, %.thread98.i
+  %183 = phi i32 [ %.pre48.i, %..thread17_crit_edge.i ], [ %180, %.thread98.i ]
   %184 = and i32 %183, 128
   %.not142.i = icmp eq i32 %184, 0
-  br i1 %.not142.i, label %.thread88.i, label %185
+  br i1 %.not142.i, label %.thread103.i, label %185
 
 185:                                              ; preds = %.thread17.i, %182
   tail call void @bench_sha512(i32 poison)
   %.b104.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b104.pre.i, label %.thread85.i, label %187
+  br i1 %.b104.pre.i, label %.thread100.i, label %187
 
-.thread85.i:                                      ; preds = %185
+.thread100.i:                                     ; preds = %185
   %.pre11 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   %.pre18 = and i32 %.pre11, 128
   %186 = icmp eq i32 %.pre18, 0
-  br i1 %186, label %.thread88.i, label %187
+  br i1 %186, label %.thread103.i, label %187
 
-187:                                              ; preds = %.thread85.i, %185
+187:                                              ; preds = %.thread100.i, %185
   tail call void @bench_sha512_224(i32 poison)
   %.b103.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b103.pr.i, label %.thread19.i, label %189
@@ -883,24 +883,24 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre51.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   %.pre74.i = and i32 %.pre51.i, 128
   %188 = icmp eq i32 %.pre74.i, 0
-  br i1 %188, label %.thread88.i, label %189
+  br i1 %188, label %.thread103.i, label %189
 
 189:                                              ; preds = %.thread19.i, %187
   tail call void @bench_sha512_256(i32 poison)
   %.b102.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b102.pre.i, label %..thread88.i_crit_edge, label %192
+  br i1 %.b102.pre.i, label %..thread103.i_crit_edge, label %192
 
-..thread88.i_crit_edge:                           ; preds = %189
+..thread103.i_crit_edge:                          ; preds = %189
   %.pre12 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread88.i
+  br label %.thread103.i
 
-.thread88.i:                                      ; preds = %.thread17.i, %..thread88.i_crit_edge, %.thread19.i, %.thread85.i
-  %190 = phi i32 [ %.pre12, %..thread88.i_crit_edge ], [ %.pre51.i, %.thread19.i ], [ %.pre11, %.thread85.i ], [ %183, %.thread17.i ]
+.thread103.i:                                     ; preds = %.thread17.i, %..thread103.i_crit_edge, %.thread19.i, %.thread100.i
+  %190 = phi i32 [ %.pre12, %..thread103.i_crit_edge ], [ %.pre51.i, %.thread19.i ], [ %.pre11, %.thread100.i ], [ %183, %.thread17.i ]
   %191 = and i32 %190, 256
   %.not145.i = icmp eq i32 %191, 0
   br i1 %.not145.i, label %.thread21.i, label %192
 
-192:                                              ; preds = %.thread88.i, %189
+192:                                              ; preds = %.thread103.i, %189
   tail call void @bench_sha3_224(i32 poison)
   %.b101.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b101.pr.i, label %..thread21_crit_edge.i, label %195
@@ -909,28 +909,28 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre54.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread21.i
 
-.thread21.i:                                      ; preds = %..thread21_crit_edge.i, %.thread88.i
-  %193 = phi i32 [ %.pre54.i, %..thread21_crit_edge.i ], [ %190, %.thread88.i ]
+.thread21.i:                                      ; preds = %..thread21_crit_edge.i, %.thread103.i
+  %193 = phi i32 [ %.pre54.i, %..thread21_crit_edge.i ], [ %190, %.thread103.i ]
   %194 = and i32 %193, 512
   %.not146.i = icmp eq i32 %194, 0
-  br i1 %.not146.i, label %.thread90.i, label %195
+  br i1 %.not146.i, label %.thread105.i, label %195
 
 195:                                              ; preds = %.thread21.i, %192
   tail call void @bench_sha3_256(i32 poison)
   %.b100.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b100.pre.i, label %..thread90.i_crit_edge, label %198
+  br i1 %.b100.pre.i, label %..thread105.i_crit_edge, label %198
 
-..thread90.i_crit_edge:                           ; preds = %195
+..thread105.i_crit_edge:                          ; preds = %195
   %.pre13 = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
-  br label %.thread90.i
+  br label %.thread105.i
 
-.thread90.i:                                      ; preds = %..thread90.i_crit_edge, %.thread21.i
-  %196 = phi i32 [ %.pre13, %..thread90.i_crit_edge ], [ %193, %.thread21.i ]
+.thread105.i:                                     ; preds = %..thread105.i_crit_edge, %.thread21.i
+  %196 = phi i32 [ %.pre13, %..thread105.i_crit_edge ], [ %193, %.thread21.i ]
   %197 = and i32 %196, 1024
   %.not147.i = icmp eq i32 %197, 0
   br i1 %.not147.i, label %.thread23.i, label %198
 
-198:                                              ; preds = %.thread90.i, %195
+198:                                              ; preds = %.thread105.i, %195
   tail call void @bench_sha3_384(i32 poison)
   %.b99.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b99.pr.i, label %..thread23_crit_edge.i, label %201
@@ -939,24 +939,24 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre57.i = load i32, ptr @bench_digest_algs, align 4, !tbaa !4
   br label %.thread23.i
 
-.thread23.i:                                      ; preds = %..thread23_crit_edge.i, %.thread90.i
-  %199 = phi i32 [ %.pre57.i, %..thread23_crit_edge.i ], [ %196, %.thread90.i ]
+.thread23.i:                                      ; preds = %..thread23_crit_edge.i, %.thread105.i
+  %199 = phi i32 [ %.pre57.i, %..thread23_crit_edge.i ], [ %196, %.thread105.i ]
   %200 = and i32 %199, 2048
   %.not148.i = icmp eq i32 %200, 0
-  br i1 %.not148.i, label %.thread92.i, label %201
+  br i1 %.not148.i, label %.thread107.i, label %201
 
 201:                                              ; preds = %.thread23.i, %198
   tail call void @bench_sha3_512(i32 poison)
   %.b98.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b98.pre.i, label %.thread92.i, label %204
+  br i1 %.b98.pre.i, label %.thread107.i, label %204
 
-.thread92.i:                                      ; preds = %201, %.thread23.i
+.thread107.i:                                     ; preds = %201, %.thread23.i
   %202 = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
   %203 = and i32 %202, 2
   %.not149.i = icmp eq i32 %203, 0
   br i1 %.not149.i, label %.thread25.i, label %204
 
-204:                                              ; preds = %.thread92.i, %201
+204:                                              ; preds = %.thread107.i, %201
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 11, i64 16, i1 false)
   call fastcc void @bench_hmac(i32 noundef 3, ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.64)
@@ -968,11 +968,11 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre60.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
   br label %.thread25.i
 
-.thread25.i:                                      ; preds = %..thread25_crit_edge.i, %.thread92.i
-  %205 = phi i32 [ %.pre60.i, %..thread25_crit_edge.i ], [ %202, %.thread92.i ]
+.thread25.i:                                      ; preds = %..thread25_crit_edge.i, %.thread107.i
+  %205 = phi i32 [ %.pre60.i, %..thread25_crit_edge.i ], [ %202, %.thread107.i ]
   %206 = and i32 %205, 4
   %.not150.i = icmp eq i32 %206, 0
-  br i1 %.not150.i, label %.thread94.i, label %207
+  br i1 %.not150.i, label %.thread109.i, label %207
 
 207:                                              ; preds = %.thread25.i, %204
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -980,19 +980,19 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   call fastcc void @bench_hmac(i32 noundef 4, ptr noundef %6, i32 noundef 20, ptr noundef nonnull @.str.65)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.b96.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b96.pre.i, label %..thread94.i_crit_edge, label %210
+  br i1 %.b96.pre.i, label %..thread109.i_crit_edge, label %210
 
-..thread94.i_crit_edge:                           ; preds = %207
+..thread109.i_crit_edge:                          ; preds = %207
   %.pre14 = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
-  br label %.thread94.i
+  br label %.thread109.i
 
-.thread94.i:                                      ; preds = %..thread94.i_crit_edge, %.thread25.i
-  %208 = phi i32 [ %.pre14, %..thread94.i_crit_edge ], [ %205, %.thread25.i ]
+.thread109.i:                                     ; preds = %..thread109.i_crit_edge, %.thread25.i
+  %208 = phi i32 [ %.pre14, %..thread109.i_crit_edge ], [ %205, %.thread25.i ]
   %209 = and i32 %208, 16
   %.not151.i = icmp eq i32 %209, 0
   br i1 %.not151.i, label %.thread27.i, label %210
 
-210:                                              ; preds = %.thread94.i, %207
+210:                                              ; preds = %.thread109.i, %207
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %5, i8 11, i64 28, i1 false)
   call fastcc void @bench_hmac(i32 noundef 5, ptr noundef %5, i32 noundef 28, ptr noundef nonnull @.str.66)
@@ -1004,11 +1004,11 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre63.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
   br label %.thread27.i
 
-.thread27.i:                                      ; preds = %..thread27_crit_edge.i, %.thread94.i
-  %211 = phi i32 [ %.pre63.i, %..thread27_crit_edge.i ], [ %208, %.thread94.i ]
+.thread27.i:                                      ; preds = %..thread27_crit_edge.i, %.thread109.i
+  %211 = phi i32 [ %.pre63.i, %..thread27_crit_edge.i ], [ %208, %.thread109.i ]
   %212 = and i32 %211, 32
   %.not152.i = icmp eq i32 %212, 0
-  br i1 %.not152.i, label %.thread96.i, label %213
+  br i1 %.not152.i, label %.thread111.i, label %213
 
 213:                                              ; preds = %.thread27.i, %210
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1016,19 +1016,19 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   call fastcc void @bench_hmac(i32 noundef 6, ptr noundef %4, i32 noundef 32, ptr noundef nonnull @.str.67)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.b94.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b94.pre.i, label %..thread96.i_crit_edge, label %216
+  br i1 %.b94.pre.i, label %..thread111.i_crit_edge, label %216
 
-..thread96.i_crit_edge:                           ; preds = %213
+..thread111.i_crit_edge:                          ; preds = %213
   %.pre15 = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
-  br label %.thread96.i
+  br label %.thread111.i
 
-.thread96.i:                                      ; preds = %..thread96.i_crit_edge, %.thread27.i
-  %214 = phi i32 [ %.pre15, %..thread96.i_crit_edge ], [ %211, %.thread27.i ]
+.thread111.i:                                     ; preds = %..thread111.i_crit_edge, %.thread27.i
+  %214 = phi i32 [ %.pre15, %..thread111.i_crit_edge ], [ %211, %.thread27.i ]
   %215 = and i32 %214, 64
   %.not153.i = icmp eq i32 %215, 0
   br i1 %.not153.i, label %.thread29.i, label %216
 
-216:                                              ; preds = %.thread96.i, %213
+216:                                              ; preds = %.thread111.i, %213
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 11, i64 48, i1 false)
   call fastcc void @bench_hmac(i32 noundef 7, ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.68)
@@ -1040,11 +1040,11 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   %.pre66.i = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
   br label %.thread29.i
 
-.thread29.i:                                      ; preds = %..thread29_crit_edge.i, %.thread96.i
-  %217 = phi i32 [ %.pre66.i, %..thread29_crit_edge.i ], [ %214, %.thread96.i ]
+.thread29.i:                                      ; preds = %..thread29_crit_edge.i, %.thread111.i
+  %217 = phi i32 [ %.pre66.i, %..thread29_crit_edge.i ], [ %214, %.thread111.i ]
   %218 = and i32 %217, 128
   %.not154.i = icmp eq i32 %218, 0
-  br i1 %.not154.i, label %.thread98.i, label %219
+  br i1 %.not154.i, label %.thread113.i, label %219
 
 219:                                              ; preds = %.thread29.i, %216
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1052,52 +1052,52 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   call fastcc void @bench_hmac(i32 noundef 8, ptr noundef %2, i32 noundef 64, ptr noundef nonnull @.str.69)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.b92.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b92.pre.i, label %..thread98.i_crit_edge, label %222
+  br i1 %.b92.pre.i, label %..thread113.i_crit_edge, label %222
 
-..thread98.i_crit_edge:                           ; preds = %219
+..thread113.i_crit_edge:                          ; preds = %219
   %.pre16 = load i32, ptr @bench_mac_algs, align 4, !tbaa !4
-  br label %.thread98.i
+  br label %.thread113.i
 
-.thread98.i:                                      ; preds = %..thread98.i_crit_edge, %.thread29.i
-  %220 = phi i32 [ %.pre16, %..thread98.i_crit_edge ], [ %217, %.thread29.i ]
+.thread113.i:                                     ; preds = %..thread113.i_crit_edge, %.thread29.i
+  %220 = phi i32 [ %.pre16, %..thread113.i_crit_edge ], [ %217, %.thread29.i ]
   %221 = and i32 %220, 256
   %.not155.i = icmp eq i32 %221, 0
   br i1 %.not155.i, label %.thread31.i, label %222
 
-222:                                              ; preds = %.thread98.i, %219
+222:                                              ; preds = %.thread113.i, %219
   call void @bench_pbkdf2()
   %.b91.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b91.pr.i, label %.thread31.i, label %225
 
-.thread31.i:                                      ; preds = %222, %.thread98.i
+.thread31.i:                                      ; preds = %222, %.thread113.i
   %223 = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
   %224 = and i32 %223, 2
   %.not156.i = icmp eq i32 %224, 0
-  br i1 %.not156.i, label %.thread100.i, label %225
+  br i1 %.not156.i, label %.thread115.i, label %225
 
 225:                                              ; preds = %.thread31.i, %222
   call void @bench_rsa(i32 poison)
   %.b90.pre.i = load i1, ptr @bench_all, align 4
-  br i1 %.b90.pre.i, label %..thread100.i_crit_edge, label %228
+  br i1 %.b90.pre.i, label %..thread115.i_crit_edge, label %228
 
-..thread100.i_crit_edge:                          ; preds = %225
+..thread115.i_crit_edge:                          ; preds = %225
   %.pre17 = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
-  br label %.thread100.i
+  br label %.thread115.i
 
-.thread100.i:                                     ; preds = %..thread100.i_crit_edge, %.thread31.i
-  %226 = phi i32 [ %.pre17, %..thread100.i_crit_edge ], [ %223, %.thread31.i ]
+.thread115.i:                                     ; preds = %..thread115.i_crit_edge, %.thread31.i
+  %226 = phi i32 [ %.pre17, %..thread115.i_crit_edge ], [ %223, %.thread31.i ]
   %227 = and i32 %226, 16
   %.not157.i = icmp eq i32 %227, 0
   br i1 %.not157.i, label %.thread33.i, label %228
 
-228:                                              ; preds = %.thread100.i, %225
+228:                                              ; preds = %.thread115.i, %225
   call void @bench_dh(i32 poison)
   %.b89.pr.i = load i1, ptr @bench_all, align 4
   %.pre72.i = load i32, ptr @bench_asym_algs, align 4, !tbaa !4
   br i1 %.b89.pr.i, label %.thread33.i, label %231
 
-.thread33.i:                                      ; preds = %228, %.thread100.i
-  %229 = phi i32 [ %226, %.thread100.i ], [ %.pre72.i, %228 ]
+.thread33.i:                                      ; preds = %228, %.thread115.i
+  %229 = phi i32 [ %226, %.thread115.i ], [ %.pre72.i, %228 ]
   %230 = and i32 %229, 61440
   %or.cond177.i = icmp eq i32 %230, 0
   br i1 %or.cond177.i, label %.thread.i, label %231
@@ -1490,9 +1490,9 @@ current_time.exit:                                ; preds = %5
   br i1 %47, label %.sink.split.i, label %get_blocktype.exit
 
 .sink.split.i:                                    ; preds = %46, %44
-  %.sink6.i = phi double [ 0x3EB0000000000000, %44 ], [ 0x3F50000000000000, %46 ]
+  %.sink7.i = phi double [ 0x3EB0000000000000, %44 ], [ 0x3F50000000000000, %46 ]
   %.0.ph.i = phi ptr [ @.str.123, %44 ], [ @.str.124, %46 ]
-  %48 = fmul double %39, %.sink6.i
+  %48 = fmul double %39, %.sink7.i
   br label %get_blocktype.exit
 
 49:                                               ; preds = %43
@@ -1504,9 +1504,9 @@ current_time.exit:                                ; preds = %5
   br i1 %52, label %.sink.split.i31, label %get_blocktype.exit
 
 .sink.split.i31:                                  ; preds = %51, %49
-  %.sink6.i32 = phi double [ 1.000000e+06, %49 ], [ 1.000000e+03, %51 ]
+  %.sink7.i32 = phi double [ 1.000000e+06, %49 ], [ 1.000000e+03, %51 ]
   %.0.ph.i33 = phi ptr [ @.str.126, %49 ], [ @.str.127, %51 ]
-  %53 = fdiv double %39, %.sink6.i32
+  %53 = fdiv double %39, %.sink7.i32
   br label %get_blocktype.exit
 
 get_blocktype.exit:                               ; preds = %.sink.split.i31, %51, %.sink.split.i, %46
@@ -6107,8 +6107,8 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   br i1 %.not51, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %1, %20
-  %.037151 = phi i32 [ 0, %20 ], [ 268, %1 ]
-  %.040150 = phi ptr [ null, %20 ], [ @dh_key_der_2048, %1 ]
+  %.037158 = phi i32 [ 0, %20 ], [ 268, %1 ]
+  %.040157 = phi ptr [ null, %20 ], [ @dh_key_der_2048, %1 ]
   %26 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %5, ptr noundef null, i32 noundef -2) #17
   %.not50.us = icmp eq i32 %26, 0
   br i1 %.not50.us, label %27, label %bench_async_handle.exit56.thread
@@ -6119,7 +6119,7 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %27
   store i32 0, ptr %6, align 4, !tbaa !4
-  %29 = call i32 @wc_DhKeyDecode(ptr noundef %.040150, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.037151) #17
+  %29 = call i32 @wc_DhKeyDecode(ptr noundef %.040157, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.037158) #17
   br label %30
 
 30:                                               ; preds = %27, %28
@@ -7229,13 +7229,13 @@ sub_1:                                            ; preds = %sub_0
   br label %107
 
 106:                                              ; preds = %107
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv310, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv311, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond, label %.lr.ph.preheader, label %107, !llvm.loop !161
 
 107:                                              ; preds = %.preheader, %106
-  %indvars.iv310 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
-  %108 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv310
+  %indvars.iv311 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
+  %108 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv311
   %109 = load ptr, ptr %108, align 16, !tbaa !162
   %110 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %109) #20
   %.not180.not = icmp eq i32 %110, 0
@@ -7254,13 +7254,13 @@ sub_1:                                            ; preds = %sub_0
   br label %114
 
 .lr.ph:                                           ; preds = %114
-  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233311, 1
+  %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233312, 1
   %exitcond236 = icmp eq i64 %indvars.iv.next234, 14
   br i1 %exitcond236, label %.lr.ph201.preheader, label %114, !llvm.loop !165
 
 114:                                              ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv233311 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next234, %.lr.ph ]
-  %115 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv233311
+  %indvars.iv233312 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next234, %.lr.ph ]
+  %115 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv233312
   %116 = load ptr, ptr %115, align 16, !tbaa !162
   %117 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %116) #20
   %.not181.not = icmp eq i32 %117, 0
@@ -7279,13 +7279,13 @@ sub_1:                                            ; preds = %sub_0
   br label %121
 
 .lr.ph201:                                        ; preds = %121
-  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237312, 1
+  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237313, 1
   %exitcond240 = icmp eq i64 %indvars.iv.next238, 9
   br i1 %exitcond240, label %.lr.ph208.preheader, label %121, !llvm.loop !166
 
 121:                                              ; preds = %.lr.ph201.preheader, %.lr.ph201
-  %indvars.iv237312 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next238, %.lr.ph201 ]
-  %122 = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv237312
+  %indvars.iv237313 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next238, %.lr.ph201 ]
+  %122 = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv237313
   %123 = load ptr, ptr %122, align 16, !tbaa !162
   %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %123) #20
   %.not182.not = icmp eq i32 %124, 0
@@ -7302,7 +7302,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph208.preheader:                              ; preds = %.lr.ph201
   %128 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(5) @.str.249) #20
   %.not183.not = icmp eq i32 %128, 0
-  br i1 %.not183.not, label %.critedge9, label %.lr.ph215.preheader
+  br i1 %.not183.not, label %.critedge9, label %.lr.ph215.preheader, !llvm.loop !167
 
 .critedge9:                                       ; preds = %.lr.ph208.preheader
   store i32 -1, ptr @bench_kdf_algs, align 4, !tbaa !4
@@ -7316,7 +7316,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph215:                                        ; preds = %129
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245314, 1
   %exitcond248 = icmp eq i64 %indvars.iv.next246, 6
-  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !167
+  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !168
 
 129:                                              ; preds = %.lr.ph215.preheader, %.lr.ph215
   %indvars.iv245314 = phi i64 [ 0, %.lr.ph215.preheader ], [ %indvars.iv.next246, %.lr.ph215 ]
@@ -7341,7 +7341,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph221:                                        ; preds = %136
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249315, 1
   %exitcond252 = icmp eq i64 %indvars.iv.next250, 2
-  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !168
+  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !169
 
 136:                                              ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv249315 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next250, %.lr.ph221 ]
@@ -7385,7 +7385,7 @@ sub_1:                                            ; preds = %sub_0
   %152 = add nsw i32 %.1105, -1
   %153 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   %154 = icmp sgt i32 %.1105, 2
-  br i1 %154, label %sub_0, label %._crit_edge, !llvm.loop !169
+  br i1 %154, label %sub_0, label %._crit_edge, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %100, %93, %84, %47, %25, %.critedge163, %2
   %155 = tail call i32 @benchmark_test(ptr poison)
@@ -7467,7 +7467,7 @@ define internal fastcc void @Usage() unnamed_addr #12 {
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %47)
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #20
   %54 = trunc i64 %53 to i32
-  %55 = add i32 %.6, 1
+  %55 = add nsw i32 %.6, 1
   %56 = add i32 %55, %54
   %57 = icmp sgt i32 %56, 80
   br i1 %57, label %58, label %print_alg.exit
@@ -7482,7 +7482,7 @@ print_alg.exit:                                   ; preds = %51, %58
   %59 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv.next
   %60 = load ptr, ptr %59, align 16, !tbaa !162
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.preheader89, label %46, !llvm.loop !170
+  br i1 %exitcond, label %.preheader89, label %46, !llvm.loop !171
 
 .preheader89:                                     ; preds = %print_alg.exit, %print_alg.exit60
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %print_alg.exit60 ], [ 0, %print_alg.exit ]
@@ -7500,7 +7500,7 @@ print_alg.exit:                                   ; preds = %51, %58
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %61)
   %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #20
   %68 = trunc i64 %67 to i32
-  %69 = add i32 %.8, 1
+  %69 = add nsw i32 %.8, 1
   %70 = add i32 %69, %68
   %71 = icmp sgt i32 %70, 80
   br i1 %71, label %72, label %print_alg.exit60
@@ -7515,7 +7515,7 @@ print_alg.exit60:                                 ; preds = %65, %72
   %73 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv.next110
   %74 = load ptr, ptr %73, align 16, !tbaa !162
   %exitcond112 = icmp eq i64 %indvars.iv.next110, 14
-  br i1 %exitcond112, label %.preheader88, label %.preheader89, !llvm.loop !171
+  br i1 %exitcond112, label %.preheader88, label %.preheader89, !llvm.loop !172
 
 .preheader88:                                     ; preds = %print_alg.exit60, %.preheader88.backedge
   %indvars.iv113 = phi i64 [ %indvars.iv113.be, %.preheader88.backedge ], [ 0, %print_alg.exit60 ]
@@ -7533,7 +7533,7 @@ print_alg.exit60:                                 ; preds = %65, %72
   %80 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %75)
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #20
   %82 = trunc i64 %81 to i32
-  %83 = add i32 %.10, 1
+  %83 = add nsw i32 %.10, 1
   %84 = add i32 %83, %82
   %85 = icmp sgt i32 %84, 80
   br i1 %85, label %print_alg.exit62.thread, label %print_alg.exit62
@@ -7544,17 +7544,17 @@ print_alg.exit62:                                 ; preds = %79
   br i1 %exitcond116, label %.preheader87.preheader, label %.preheader88.backedge
 
 .preheader88.backedge:                            ; preds = %print_alg.exit62, %print_alg.exit62.thread
-  %indvars.iv113.be = phi i64 [ %indvars.iv.next114, %print_alg.exit62 ], [ %indvars.iv.next114129, %print_alg.exit62.thread ]
+  %indvars.iv113.be = phi i64 [ %indvars.iv.next114, %print_alg.exit62 ], [ %indvars.iv.next114134, %print_alg.exit62.thread ]
   %.28294.be = phi i32 [ %84, %print_alg.exit62 ], [ 0, %print_alg.exit62.thread ]
   %.be.in = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv113.be
   %.be = load ptr, ptr %.be.in, align 16, !tbaa !162
-  br label %.preheader88, !llvm.loop !172
+  br label %.preheader88, !llvm.loop !173
 
 print_alg.exit62.thread:                          ; preds = %79
   %putchar.i61 = tail call i32 @putchar(i32 10)
-  %indvars.iv.next114129 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond116130 = icmp eq i64 %indvars.iv.next114129, 9
-  br i1 %exitcond116130, label %.thread, label %.preheader88.backedge
+  %indvars.iv.next114134 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond116135 = icmp eq i64 %indvars.iv.next114134, 9
+  br i1 %exitcond116135, label %.thread, label %.preheader88.backedge
 
 .preheader87.preheader:                           ; preds = %print_alg.exit62
   %86 = icmp eq i32 %84, 0
@@ -7595,7 +7595,7 @@ print_alg.exit62.thread:                          ; preds = %79
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %94)
   %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #20
   %101 = trunc i64 %100 to i32
-  %102 = add i32 %.14, 1
+  %102 = add nsw i32 %.14, 1
   %103 = add i32 %102, %101
   %104 = icmp sgt i32 %103, 80
   br i1 %104, label %105, label %print_alg.exit66
@@ -7610,10 +7610,11 @@ print_alg.exit66:                                 ; preds = %98, %105
   %106 = getelementptr inbounds nuw [7 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv.next121
   %107 = load ptr, ptr %106, align 16, !tbaa !162
   %exitcond123 = icmp eq i64 %indvars.iv.next121, 6
-  br i1 %exitcond123, label %.preheader, label %.preheader86, !llvm.loop !173
+  br i1 %exitcond123, label %.preheader, label %.preheader86, !llvm.loop !174
 
 .preheader:                                       ; preds = %print_alg.exit66, %print_alg.exit68
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %print_alg.exit68 ], [ 0, %print_alg.exit66 ]
+  %exitcond127 = phi i1 [ true, %print_alg.exit68 ], [ false, %print_alg.exit66 ]
+  %indvars.iv124 = phi i64 [ 2, %print_alg.exit68 ], [ 1, %print_alg.exit66 ]
   %108 = phi ptr [ %121, %print_alg.exit68 ], [ @.str.258, %print_alg.exit66 ]
   %.585100 = phi i32 [ %.17, %print_alg.exit68 ], [ %.15, %print_alg.exit66 ]
   %109 = icmp eq i32 %.585100, 0
@@ -7628,7 +7629,7 @@ print_alg.exit66:                                 ; preds = %98, %105
   %113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef nonnull %108)
   %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #20
   %115 = trunc i64 %114 to i32
-  %116 = add i32 %.16, 1
+  %116 = add nsw i32 %.16, 1
   %117 = add i32 %116, %115
   %118 = icmp sgt i32 %117, 80
   br i1 %118, label %119, label %print_alg.exit68
@@ -7639,11 +7640,9 @@ print_alg.exit66:                                 ; preds = %98, %105
 
 print_alg.exit68:                                 ; preds = %112, %119
   %.17 = phi i32 [ 0, %119 ], [ %117, %112 ]
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %120 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv.next125
+  %120 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv124
   %121 = load ptr, ptr %120, align 16, !tbaa !162
-  %exitcond127 = icmp eq i64 %indvars.iv.next125, 2
-  br i1 %exitcond127, label %122, label %.preheader, !llvm.loop !174
+  br i1 %exitcond127, label %122, label %.preheader, !llvm.loop !175
 
 122:                                              ; preds = %print_alg.exit68
   %putchar = tail call i32 @putchar(i32 10)
@@ -7943,3 +7942,4 @@ attributes #20 = { nounwind willreturn memory(read) }
 !172 = distinct !{!172, !12}
 !173 = distinct !{!173, !12}
 !174 = distinct !{!174, !12}
+!175 = distinct !{!175, !12}

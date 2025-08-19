@@ -227,23 +227,23 @@ define internal i64 @bzip2_filter_read(ptr noundef readonly captures(none) %0, p
   switch i64 %51, label %.loopexit.loopexit [
     i64 0, label %55
     i64 -2, label %.loopexit
-    i64 -3, label %.loopexit57
-    i64 -9, label %.loopexit58
+    i64 -3, label %.loopexit59
+    i64 -9, label %.loopexit60
   ]
 
-.loopexit57:                                      ; preds = %50
+.loopexit59:                                      ; preds = %50
   br label %.loopexit
 
-.loopexit58:                                      ; preds = %50
+.loopexit60:                                      ; preds = %50
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %50
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %.loopexit.loopexit, %.loopexit58, %.loopexit57
-  %52 = phi ptr [ @.str.10, %.loopexit57 ], [ @.str.10, %.loopexit58 ], [ @.str.9, %.loopexit.loopexit ], [ @.str.10, %50 ]
-  %.049 = phi ptr [ @.str.6, %.loopexit57 ], [ @.str.7, %.loopexit58 ], [ null, %.loopexit.loopexit ], [ @.str.5, %50 ]
-  %.0 = phi i32 [ 12, %.loopexit57 ], [ -1, %.loopexit58 ], [ -1, %.loopexit.loopexit ], [ -1, %50 ]
+.loopexit:                                        ; preds = %50, %.loopexit.loopexit, %.loopexit60, %.loopexit59
+  %52 = phi ptr [ @.str.10, %.loopexit59 ], [ @.str.10, %.loopexit60 ], [ @.str.9, %.loopexit.loopexit ], [ @.str.10, %50 ]
+  %.049 = phi ptr [ @.str.6, %.loopexit59 ], [ @.str.7, %.loopexit60 ], [ null, %.loopexit.loopexit ], [ @.str.5, %50 ]
+  %.0 = phi i32 [ 12, %.loopexit59 ], [ -1, %.loopexit60 ], [ -1, %.loopexit.loopexit ], [ -1, %50 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8, !tbaa !18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %54, i32 noundef %.0, ptr noundef nonnull @.str.8, ptr noundef nonnull %52, ptr noundef %.049) #7

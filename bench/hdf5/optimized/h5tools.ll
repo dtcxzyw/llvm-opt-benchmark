@@ -2981,12 +2981,12 @@ define i32 @h5tools_detect_vlen_str(i64 noundef %0) local_unnamed_addr #0 {
   %25 = tail call i32 @h5tools_detect_vlen_str(i64 noundef %24)
   %26 = icmp eq i32 %25, 1
   %27 = icmp slt i32 %25, 0
-  %or.cond7.not.not58 = or i1 %26, %27
+  %or.cond7.not.not62 = or i1 %26, %27
   %28 = tail call i32 @H5Tclose(i64 noundef %24) #16
   %29 = add nuw i32 %.03952, 1
   %exitcond.not = icmp eq i32 %29, %22
-  %or.cond55 = select i1 %or.cond7.not.not58, i1 true, i1 %exitcond.not
-  br i1 %or.cond55, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  %or.cond59 = select i1 %or.cond7.not.not62, i1 true, i1 %exitcond.not
+  br i1 %or.cond59, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1, %19, %13, %17, %11, %21
   %.040 = phi i32 [ %2, %1 ], [ %2, %19 ], [ %12, %11 ], [ %14, %17 ], [ %14, %13 ], [ -1, %21 ], [ %2, %.preheader ], [ %25, %.lr.ph ]
@@ -3105,8 +3105,8 @@ define void @h5tools_simple_prefix(ptr noundef captures(address_is_null) %0, ptr
   br label %51
 
 51:                                               ; preds = %46, %42, %.thread
-  %.sink78 = phi ptr [ %50, %.thread ], [ %44, %42 ], [ %48, %46 ]
-  %52 = call ptr @h5tools_str_fmt(ptr noundef nonnull %6, i64 noundef 0, ptr noundef %.sink78) #16
+  %.sink84 = phi ptr [ %50, %.thread ], [ %44, %42 ], [ %48, %46 ]
+  %52 = call ptr @h5tools_str_fmt(ptr noundef nonnull %6, i64 noundef 0, ptr noundef %.sink84) #16
   %53 = call i32 @fputs(ptr noundef %52, ptr noundef nonnull %0)
   %54 = call i64 @h5tools_str_len(ptr noundef nonnull %6) #16
   %.not76 = icmp eq i32 %.0, 0
@@ -3272,8 +3272,8 @@ define void @h5tools_region_simple_prefix(ptr noundef captures(address_is_null) 
   br label %52
 
 52:                                               ; preds = %47, %43, %.thread
-  %.sink79 = phi ptr [ %51, %.thread ], [ %45, %43 ], [ %49, %47 ]
-  %53 = call ptr @h5tools_str_fmt(ptr noundef nonnull %7, i64 noundef 0, ptr noundef %.sink79) #16
+  %.sink85 = phi ptr [ %51, %.thread ], [ %45, %43 ], [ %49, %47 ]
+  %53 = call ptr @h5tools_str_fmt(ptr noundef nonnull %7, i64 noundef 0, ptr noundef %.sink85) #16
   %54 = call i32 @fputs(ptr noundef %53, ptr noundef nonnull %0)
   %55 = call i64 @h5tools_str_len(ptr noundef nonnull %7) #16
   %.not77 = icmp eq i32 %.0, 0
@@ -4299,8 +4299,8 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr noundef captures(none) %0, i6
 .preheader:                                       ; preds = %129
   %.not361 = icmp eq i64 %4, 0
   %.not362 = icmp eq i32 %130, 0
-  %or.cond390 = or i1 %.not361, %.not362
-  br i1 %or.cond390, label %.thread, label %.lr.ph338.us
+  %or.cond443 = or i1 %.not361, %.not362
+  br i1 %or.cond443, label %.thread, label %.lr.ph338.us
 
 .lr.ph338.us:                                     ; preds = %.preheader, %._crit_edge339.us
   %.3340.us = phi i64 [ %143, %._crit_edge339.us ], [ 0, %.preheader ]

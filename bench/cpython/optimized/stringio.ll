@@ -2704,8 +2704,8 @@ Py_DECREF.exit.thread:                            ; preds = %7, %Py_DECREF.exit
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %55, %54
-  %.sink28.i = phi i64 [ 32, %55 ], [ 24, %54 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink28.i
+  %.sink30.i = phi i64 [ 32, %55 ], [ 24, %54 ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink30.i
   %57 = load i64, ptr %56, align 8, !tbaa !64
   br label %58
 

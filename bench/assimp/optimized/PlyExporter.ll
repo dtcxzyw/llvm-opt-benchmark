@@ -281,7 +281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.thread: ; preds = %60
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split90
+  br label %.sink.split107
 
 68:                                               ; preds = %64, %63
   %.0 = phi i1 [ false, %64 ], [ true, %63 ]
@@ -323,14 +323,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.thread87: ; pre
   %85 = load i64, ptr %83, align 8
   %86 = add i64 %85, 1
   call void @_ZdlPvm(ptr noundef %82, i64 noundef %86) #19
-  br label %.sink.split90
+  br label %.sink.split107
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.thread
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = icmp ult i64 %88, 16
   call void @llvm.assume(i1 %89)
-  br label %.sink.split90
+  br label %.sink.split107
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -351,15 +351,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.0, label %95, label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit51
 
-.sink.split90:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.thread87
+.sink.split107:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.thread87
   %.pn24.pn61.ph = phi { ptr, i32 } [ %81, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.thread87 ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40.thread ], [ %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %95
 
-95:                                               ; preds = %.sink.split90, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41
-  %.pn24.pn61 = phi { ptr, i32 } [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40 ], [ %.pn24.pn61.ph, %.sink.split90 ]
+95:                                               ; preds = %.sink.split107, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41
+  %.pn24.pn61 = phi { ptr, i32 } [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40 ], [ %.pn24.pn61.ph, %.sink.split107 ]
   call void @__cxa_free_exception(ptr %61) #17
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit51
 
@@ -2237,8 +2237,8 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %36, %_ZNK6aiMesh16H
   %40 = icmp ne i32 %39, 0
   %41 = select i1 %.not.i49, i1 %40, i1 false
   %42 = getelementptr inbounds nuw %class.aiVector3t, ptr %38, i64 %indvars.iv74
-  %.sink77 = select i1 %41, ptr %42, ptr %5
-  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink77, i64 noundef 8)
+  %.sink80 = select i1 %41, ptr %42, ptr %5
+  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink80, i64 noundef 8)
   %44 = shl i32 %.04656, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = and i32 %44, %2
@@ -2320,18 +2320,18 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit:     ; preds = %79
   %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %84, i64 noundef 12)
   %86 = load ptr, ptr %25, align 8
   %87 = getelementptr inbounds nuw %class.aiVector3t, ptr %86, i64 %indvars.iv74
-  br label %.sink.split78
+  br label %.sink.split81
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %79, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit
   %88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, i64 noundef 12)
-  br label %.sink.split78
+  br label %.sink.split81
 
-.sink.split78:                                    ; preds = %83, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread
-  %.sink79 = phi ptr [ %4, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %87, %83 ]
-  %89 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.sink79, i64 noundef 12)
+.sink.split81:                                    ; preds = %83, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread
+  %.sink82 = phi ptr [ %4, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread ], [ %87, %83 ]
+  %89 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.sink82, i64 noundef 12)
   br label %90
 
-90:                                               ; preds = %.sink.split78, %._crit_edge
+90:                                               ; preds = %.sink.split81, %._crit_edge
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %91 = load i32, ptr %11, align 4
   %92 = zext i32 %91 to i64

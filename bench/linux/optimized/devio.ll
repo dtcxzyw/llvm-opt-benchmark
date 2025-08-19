@@ -1208,7 +1208,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @usbdev_ioctl(ptr noundef
   %352 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %351, ptr %352, align 4
   %353 = icmp eq ptr %150, null
-  br i1 %353, label %.thread40, label %354
+  br i1 %353, label %.thread67, label %354
 
 354:                                              ; preds = %341
   %355 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1245,9 +1245,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @usbdev_ioctl(ptr noundef
   %375 = phi i8 [ %364, %370 ], [ %358, %357 ]
   store i8 %375, ptr %355, align 4
   %376 = icmp ult i8 %375, 7
-  br i1 %376, label %.thread40, label %382
+  br i1 %376, label %.thread67, label %382
 
-.thread40:                                        ; preds = %341, %374
+.thread67:                                        ; preds = %341, %374
   %377 = phi i8 [ %375, %374 ], [ 0, %341 ]
   %378 = zext nneg i8 %377 to i64
   %379 = getelementptr inbounds nuw i8, ptr %5, i64 17
@@ -1256,7 +1256,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @usbdev_ioctl(ptr noundef
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %379, ptr align 1 %381, i64 %378, i1 false)
   br label %382
 
-382:                                              ; preds = %.thread40, %374
+382:                                              ; preds = %.thread67, %374
   %383 = tail call i32 @llvm.umin.i32(i32 %339, i32 24)
   %384 = zext nneg i32 %383 to i64
   %385 = call i64 @_copy_to_user(ptr noundef %6, ptr noundef nonnull %5, i64 noundef %384) #17
@@ -4650,7 +4650,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %42 = load i8, ptr %41, align 4
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %.thread21.thread.thread41, label %44
+  br i1 %43, label %.thread21.thread.thread56, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 152
@@ -4706,21 +4706,21 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
 .loopexit30:                                      ; preds = %.loopexit29, %48
   %78 = add nuw nsw i64 %49, 1
   %79 = icmp eq i64 %78, %46
-  br i1 %79, label %.thread21.thread.thread41, label %48, !llvm.loop !40
+  br i1 %79, label %.thread21.thread.thread56, label %48, !llvm.loop !40
 
 80:                                               ; preds = %71
   %81 = getelementptr inbounds nuw i8, ptr %60, i64 2
   %82 = load i8, ptr %81, align 2
   br label %132
 
-.thread21.thread.thread41:                        ; preds = %.loopexit30, %40
+.thread21.thread.thread56:                        ; preds = %.loopexit30, %40
   %83 = xor i32 %28, 128
   %84 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %85 = load i8, ptr %84, align 4
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %.thread21.thread27, label %87
 
-87:                                               ; preds = %.thread21.thread.thread41
+87:                                               ; preds = %.thread21.thread.thread56
   %88 = getelementptr inbounds nuw i8, ptr %38, i64 152
   %89 = zext i8 %85 to i64
   br label %90
@@ -4857,8 +4857,8 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
   %173 = tail call fastcc i32 @claimintf(ptr noundef %0, i32 noundef %172)
   br label %.thread21.thread27
 
-.thread21.thread27:                               ; preds = %.loopexit28, %36, %33, %.thread21.thread.thread41, %171, %157, %155, %151, %137, %135, %132, %30, %27, %23, %9, %4
-  %174 = phi i32 [ -113, %4 ], [ 0, %9 ], [ 0, %23 ], [ 0, %30 ], [ 0, %27 ], [ -113, %132 ], [ -22, %135 ], [ 0, %137 ], [ -113, %151 ], [ -22, %155 ], [ 0, %157 ], [ %173, %171 ], [ -2, %.thread21.thread.thread41 ], [ -22, %33 ], [ -3, %36 ], [ -2, %.loopexit28 ]
+.thread21.thread27:                               ; preds = %.loopexit28, %36, %33, %.thread21.thread.thread56, %171, %157, %155, %151, %137, %135, %132, %30, %27, %23, %9, %4
+  %174 = phi i32 [ -113, %4 ], [ 0, %9 ], [ 0, %23 ], [ 0, %30 ], [ 0, %27 ], [ -113, %132 ], [ -22, %135 ], [ 0, %137 ], [ -113, %151 ], [ -22, %155 ], [ 0, %157 ], [ %173, %171 ], [ -2, %.thread21.thread.thread56 ], [ -22, %33 ], [ -3, %36 ], [ -2, %.loopexit28 ]
   ret i32 %174
 }
 
@@ -5734,7 +5734,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr noundef captur
   %184 = getelementptr inbounds nuw i8, ptr %115, i64 3
   %185 = load i8, ptr %184, align 1
   %186 = and i8 %185, 3
-  switch i8 %186, label %default.unreachable56 [
+  switch i8 %186, label %default.unreachable91 [
     i8 0, label %.thread
     i8 1, label %.thread
     i8 3, label %187
@@ -5745,7 +5745,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr noundef captur
   store i8 1, ptr %1, align 8
   br label %214
 
-default.unreachable56:                            ; preds = %182
+default.unreachable91:                            ; preds = %182
   unreachable
 
 188:                                              ; preds = %182

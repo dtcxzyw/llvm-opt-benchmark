@@ -600,7 +600,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %254, label %255, label %.preheader731
 
 .preheader731:                                    ; preds = %.loopexit733
-  br i1 %137, label %.lr.ph782.preheader, label %.thread856
+  br i1 %137, label %.lr.ph782.preheader, label %.thread881
 
 .lr.ph782.preheader:                              ; preds = %.preheader731
   %wide.trip.count825 = zext nneg i32 %3 to i64
@@ -628,9 +628,9 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %263 = getelementptr inbounds nuw ptr, ptr %253, i64 %indvars.iv822
   store ptr %262, ptr %263, align 8, !tbaa !49
   %264 = icmp eq ptr %262, null
-  br i1 %264, label %.loopexit.thread851, label %267
+  br i1 %264, label %.loopexit.thread876, label %267
 
-.loopexit.thread851:                              ; preds = %258
+.loopexit.thread876:                              ; preds = %258
   %265 = trunc nuw nsw i64 %indvars.iv822 to i32
   %266 = load i32, ptr %259, align 4, !tbaa !48
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22, i32 noundef %266) #8
@@ -689,13 +689,13 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26) #8
   br i1 %296, label %303, label %.preheader730
 
-.preheader730:                                    ; preds = %.loopexit.thread851, %.loopexit
-  %.3573742855 = phi i32 [ %265, %.loopexit.thread851 ], [ %3, %.loopexit ]
-  %.not805 = icmp eq i32 %.3573742855, 0
+.preheader730:                                    ; preds = %.loopexit.thread876, %.loopexit
+  %.3573742880 = phi i32 [ %265, %.loopexit.thread876 ], [ %3, %.loopexit ]
+  %.not805 = icmp eq i32 %.3573742880, 0
   br i1 %.not805, label %._crit_edge788, label %.lr.ph787.preheader
 
 .lr.ph787.preheader:                              ; preds = %.preheader730
-  %wide.trip.count830 = zext i32 %.3573742855 to i64
+  %wide.trip.count830 = zext i32 %.3573742880 to i64
   br label %.lr.ph787
 
 .lr.ph787:                                        ; preds = %.lr.ph787.preheader, %301
@@ -727,12 +727,12 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %.not665 = icmp eq i32 %305, 0
   br i1 %.not665, label %393, label %.lr.ph790.preheader
 
-.thread856:                                       ; preds = %.preheader731
+.thread881:                                       ; preds = %.preheader731
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26) #8
   %306 = getelementptr inbounds nuw i8, ptr %122, i64 12270
   %307 = load i32, ptr %306, align 1, !tbaa !10
-  %.not665858 = icmp eq i32 %307, 0
-  br i1 %.not665858, label %393, label %._crit_edge791
+  %.not665883 = icmp eq i32 %307, 0
+  br i1 %.not665883, label %393, label %._crit_edge791
 
 .lr.ph790.preheader:                              ; preds = %303
   %wide.trip.count835 = zext nneg i32 %3 to i64
@@ -788,10 +788,10 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %331 = trunc nuw nsw i64 %indvars.iv832 to i32
   br label %._crit_edge791
 
-._crit_edge791:                                   ; preds = %._crit_edge791.loopexit, %.thread856
-  %.0577744850859861 = phi i32 [ 0, %.thread856 ], [ %.1578, %._crit_edge791.loopexit ]
-  %332 = phi i32 [ %307, %.thread856 ], [ %305, %._crit_edge791.loopexit ]
-  %.4574.lcssa = phi i32 [ 0, %.thread856 ], [ %331, %._crit_edge791.loopexit ]
+._crit_edge791:                                   ; preds = %._crit_edge791.loopexit, %.thread881
+  %.0577744875884886 = phi i32 [ 0, %.thread881 ], [ %.1578, %._crit_edge791.loopexit ]
+  %332 = phi i32 [ %307, %.thread881 ], [ %305, %._crit_edge791.loopexit ]
+  %.4574.lcssa = phi i32 [ 0, %.thread881 ], [ %331, %._crit_edge791.loopexit ]
   %.not671 = icmp eq i32 %.4574.lcssa, %3
   br i1 %.not671, label %._crit_edge791.thread, label %333
 
@@ -859,7 +859,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   tail call void @free(ptr noundef nonnull %347) #8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28) #8
   %382 = load i32, ptr %374, align 4, !tbaa !3
-  %383 = add i32 %382, %.0577744850859861
+  %383 = add i32 %382, %.0577744875884886
   br label %393
 
 384:                                              ; preds = %348
@@ -868,24 +868,24 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   %386 = or i32 %334, %234
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29) #8
   %387 = load i32, ptr %342, align 4, !tbaa !48
-  %388 = add i32 %387, %.0577744850859861
+  %388 = add i32 %387, %.0577744875884886
   br label %393
 
 389:                                              ; preds = %337
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30) #8
   %390 = getelementptr inbounds nuw i8, ptr %339, i64 12
   %391 = load i32, ptr %390, align 4, !tbaa !3
-  %392 = add i32 %391, %.0577744850859861
+  %392 = add i32 %391, %.0577744875884886
   br label %393
 
 ._crit_edge791.thread:                            ; preds = %330, %333, %._crit_edge791
-  %.0577744850859861865 = phi i32 [ %.0577744850859861, %333 ], [ %.0577744850859861, %._crit_edge791 ], [ %.1578, %330 ]
+  %.0577744875884886890 = phi i32 [ %.0577744875884886, %333 ], [ %.0577744875884886, %._crit_edge791 ], [ %.1578, %330 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #8
   br label %393
 
-393:                                              ; preds = %.thread856, %._crit_edge791.thread, %381, %384, %389, %303
-  %.2579 = phi i32 [ %383, %381 ], [ %388, %384 ], [ %392, %389 ], [ %.0577744850859861865, %._crit_edge791.thread ], [ %.1578, %303 ], [ 0, %.thread856 ]
-  %.1555 = phi i32 [ %234, %381 ], [ %386, %384 ], [ %234, %389 ], [ %234, %._crit_edge791.thread ], [ %234, %303 ], [ %234, %.thread856 ]
+393:                                              ; preds = %.thread881, %._crit_edge791.thread, %381, %384, %389, %303
+  %.2579 = phi i32 [ %383, %381 ], [ %388, %384 ], [ %392, %389 ], [ %.0577744875884886890, %._crit_edge791.thread ], [ %.1578, %303 ], [ 0, %.thread881 ]
+  %.1555 = phi i32 [ %234, %381 ], [ %386, %384 ], [ %234, %389 ], [ %234, %._crit_edge791.thread ], [ %234, %303 ], [ %234, %.thread881 ]
   %394 = sext i32 %.2579 to i64
   %395 = tail call ptr @cli_max_malloc(i64 noundef %394) #8
   %.not674 = icmp eq ptr %395, null
@@ -984,8 +984,8 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %.1555) #8
   %434 = and i32 %.1555, 1
   %.not677 = icmp ne i32 %434, 0
-  %or.cond870.not = select i1 %137, i1 %.not677, i1 false
-  br i1 %or.cond870.not, label %.lr.ph802.split.preheader, label %._crit_edge803
+  %or.cond895.not = select i1 %137, i1 %.not677, i1 false
+  br i1 %or.cond895.not, label %.lr.ph802.split.preheader, label %._crit_edge803
 
 .lr.ph802.split.preheader:                        ; preds = %433
   %wide.trip.count845 = zext nneg i32 %3 to i64

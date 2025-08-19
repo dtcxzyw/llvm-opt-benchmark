@@ -737,7 +737,7 @@ thread-pre-split:                                 ; preds = %4, %7
 9:                                                ; preds = %thread-pre-split
   %10 = tail call i32 @ferror(ptr noundef nonnull %6) #13
   %.not77 = icmp eq i32 %10, 0
-  br i1 %.not77, label %.thread112, label %11
+  br i1 %.not77, label %.thread120, label %11
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @stderr, align 8, !tbaa !34
@@ -747,20 +747,20 @@ thread-pre-split:                                 ; preds = %4, %7
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.11, ptr noundef %15) #16
   %.pr97.pre = load ptr, ptr %2, align 8, !tbaa !33
   %.not78 = icmp eq ptr %.pr97.pre, null
-  br i1 %.not78, label %.thread98, label %.thread112
+  br i1 %.not78, label %.thread98, label %.thread120
 
-.thread112:                                       ; preds = %9, %11
-  %.pr97115 = phi ptr [ %.pr97.pre, %11 ], [ %6, %9 ]
+.thread120:                                       ; preds = %9, %11
+  %.pr97123 = phi ptr [ %.pr97.pre, %11 ], [ %6, %9 ]
   %17 = load ptr, ptr @stdin, align 8, !tbaa !34
-  %18 = icmp eq ptr %.pr97115, %17
+  %18 = icmp eq ptr %.pr97123, %17
   br i1 %18, label %19, label %20
 
-19:                                               ; preds = %.thread112
+19:                                               ; preds = %.thread120
   tail call void @clearerr(ptr noundef %17) #13
   br label %22
 
-20:                                               ; preds = %.thread112
-  %21 = tail call i32 @fclose(ptr noundef nonnull %.pr97115)
+20:                                               ; preds = %.thread120
+  %21 = tail call i32 @fclose(ptr noundef nonnull %.pr97123)
   br label %22
 
 22:                                               ; preds = %20, %19

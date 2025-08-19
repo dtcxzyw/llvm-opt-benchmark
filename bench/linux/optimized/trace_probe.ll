@@ -745,7 +745,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %32 = getelementptr i8, ptr %2, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %.thread13, label %.preheader10
+  br i1 %34, label %.thread22, label %.preheader10
 
 .preheader10:                                     ; preds = %31, %47
   %35 = phi i8 [ %49, %47 ], [ %33, %31 ]
@@ -771,7 +771,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %48 = getelementptr i8, ptr %36, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.thread13, label %.preheader10, !llvm.loop !9
+  br i1 %50, label %.thread22, label %.preheader10, !llvm.loop !9
 
 .loopexit11:                                      ; preds = %46, %30
   tail call void @__trace_probe_log_err(i32 noundef %3, i32 noundef 16)
@@ -783,7 +783,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %62, label %63
 
-.thread13:                                        ; preds = %47, %31
+.thread22:                                        ; preds = %47, %31
   store ptr %2, ptr %1, align 8
   %55 = getelementptr i8, ptr %11, i64 1
   store ptr %55, ptr %0, align 8
@@ -794,7 +794,7 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %63
 
-61:                                               ; preds = %.thread13
+61:                                               ; preds = %.thread22
   store ptr null, ptr %0, align 8
   br label %.loopexit9
 
@@ -802,10 +802,10 @@ define dso_local noundef range(i32 -22, 1) i32 @traceprobe_parse_event_name(ptr 
   tail call void @__trace_probe_log_err(i32 noundef %3, i32 noundef 17)
   br label %.loopexit9
 
-63:                                               ; preds = %.thread13, %51
-  %64 = phi i32 [ %59, %.thread13 ], [ %53, %51 ]
-  %65 = phi ptr [ %55, %.thread13 ], [ %5, %51 ]
-  %66 = phi i32 [ %57, %.thread13 ], [ %3, %51 ]
+63:                                               ; preds = %.thread22, %51
+  %64 = phi i32 [ %59, %.thread22 ], [ %53, %51 ]
+  %65 = phi ptr [ %55, %.thread22 ], [ %5, %51 ]
+  %66 = phi i32 [ %57, %.thread22 ], [ %3, %51 ]
   %67 = icmp sgt i32 %64, 64
   br i1 %67, label %68, label %69
 
@@ -1335,7 +1335,7 @@ sub_0:                                            ; preds = %175
   store ptr %289, ptr %5, align 8
   %290 = load i32, ptr %289, align 8
   %291 = icmp eq i32 %290, 0
-  br i1 %291, label %.thread34, label %292
+  br i1 %291, label %.thread58, label %292
 
 292:                                              ; preds = %.thread
   %293 = load i32, ptr %90, align 4
@@ -1347,32 +1347,32 @@ sub_0:                                            ; preds = %175
   %296 = icmp eq i32 %295, 0
   %297 = icmp eq i32 %265, 11
   %or.cond = select i1 %296, i1 true, i1 %297
-  br i1 %or.cond, label %300, label %.thread36
+  br i1 %or.cond, label %300, label %.thread60
 
-.thread34:                                        ; preds = %.thread
+.thread58:                                        ; preds = %.thread
   %298 = tail call i32 @strcmp(ptr noundef %261, ptr noundef nonnull dereferenceable(8) @.str.107) #16
   %299 = icmp eq i32 %298, 0
   br i1 %299, label %300, label %302
 
-300:                                              ; preds = %.thread34, %294
-  %301 = phi ptr [ %289, %.thread34 ], [ %264, %294 ]
+300:                                              ; preds = %.thread58, %294
+  %301 = phi ptr [ %289, %.thread58 ], [ %264, %294 ]
   store i32 16, ptr %301, align 8
   br label %305
 
-302:                                              ; preds = %.thread34
-  br i1 %263, label %303, label %.thread36
+302:                                              ; preds = %.thread58
+  br i1 %263, label %303, label %.thread60
 
 303:                                              ; preds = %302
   store i32 17, ptr %289, align 8
   br label %305
 
-.thread36:                                        ; preds = %294, %302
+.thread60:                                        ; preds = %294, %302
   %304 = phi ptr [ %289, %302 ], [ %264, %294 ]
   store i32 15, ptr %304, align 8
   br label %305
 
-305:                                              ; preds = %.thread36, %303, %300
-  %306 = phi ptr [ %304, %.thread36 ], [ %289, %303 ], [ %301, %300 ]
+305:                                              ; preds = %.thread60, %303, %300
+  %306 = phi ptr [ %304, %.thread60 ], [ %289, %303 ], [ %301, %300 ]
   %307 = load ptr, ptr %202, align 8
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load i64, ptr %308, align 8

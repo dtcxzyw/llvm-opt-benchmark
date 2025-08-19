@@ -86,11 +86,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %41 = load i64, ptr %40, align 8, !tbaa !24
   %42 = icmp sgt i64 %39, 0
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx100 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
+  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx103 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 24
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
-  %.sroa.0.i.i28.16.i.i28.16.i.i28.16.i.16.i.16..sroa_idx101 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i28, i64 16
+  %.sroa.0.i.i28.16.i.i28.16.i.i28.16.i.16.i.16..sroa_idx104 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i28, i64 16
   %.sroa.0.i.i28.24.i.i28.24.i.i28.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i28, i64 24
   %.sroa.0.i.i28.8.i.i28.8.i.i28.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i28, i64 8
   %.sroa.0.i.i28.16.i.i28.16.i.i28.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i28, i64 16
@@ -152,7 +152,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   store <2 x double> %.sroa.067.8.vec.insert, ptr %.sroa.0.i.i, align 16, !tbaa !30, !noalias !39
-  store double %60, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx100, align 16, !tbaa !31, !noalias !39
+  store double %60, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx103, align 16, !tbaa !31, !noalias !39
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !31, !noalias !39
   %70 = shufflevector <2 x double> %.sroa.067.0.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %71 = fmul <2 x double> %.sroa.070.0.copyload, %70
@@ -173,11 +173,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %81 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %82 = extractelement <2 x double> %.sroa.572.0.copyload, i64 0
   %83 = fmul double %82, %56
-  %foldExtExtBinop89 = fmul <2 x double> %.sroa.976.0.copyload, %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i
-  %84 = extractelement <2 x double> %foldExtExtBinop89, i64 0
+  %foldExtExtBinop92 = fmul <2 x double> %.sroa.976.0.copyload, %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i
+  %84 = extractelement <2 x double> %foldExtExtBinop92, i64 0
   %85 = fadd double %83, %84
-  %foldExtExtBinop91 = fmul <2 x double> %.sroa.13.0.copyload, %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i
-  %86 = extractelement <2 x double> %foldExtExtBinop91, i64 0
+  %foldExtExtBinop94 = fmul <2 x double> %.sroa.13.0.copyload, %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i
+  %86 = extractelement <2 x double> %foldExtExtBinop94, i64 0
   %87 = fadd double %85, %86
   %.sroa.4.16.vec.extract.i.i = fadd double %81, %87
   store double %.sroa.4.16.vec.extract.i.i, ptr %36, align 16, !tbaa !31, !alias.scope !39
@@ -203,7 +203,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i28)
   store <2 x double> %.sroa.057.8.vec.insert, ptr %.sroa.0.i.i28, align 16, !tbaa !30, !noalias !48
-  store double %69, ptr %.sroa.0.i.i28.16.i.i28.16.i.i28.16.i.16.i.16..sroa_idx101, align 16, !tbaa !31, !noalias !48
+  store double %69, ptr %.sroa.0.i.i28.16.i.i28.16.i.i28.16.i.16.i.16..sroa_idx104, align 16, !tbaa !31, !noalias !48
   store double 1.000000e+00, ptr %.sroa.0.i.i28.24.i.i28.24.i.i28.24.i.24.i.24..sroa_idx, align 8, !tbaa !31, !noalias !48
   %94 = shufflevector <2 x double> %.sroa.057.0.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %95 = fmul <2 x double> %.sroa.070.0.copyload, %94
@@ -219,15 +219,15 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3
   %103 = fmul <2 x double> %.sroa.15.0.copyload, %102
   %104 = fadd <2 x double> %103, %101
   store <2 x double> %104, ptr %7, align 16, !tbaa !30, !alias.scope !48
-  %shift93 = shufflevector <2 x double> %.sroa.0.i.i28.16..sroa.0.i.i28.16..sroa.0.i.i28.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i33, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop94 = fmul <2 x double> %.sroa.17.0.copyload, %shift93
-  %105 = extractelement <2 x double> %foldExtExtBinop94, i64 0
+  %shift96 = shufflevector <2 x double> %.sroa.0.i.i28.16..sroa.0.i.i28.16..sroa.0.i.i28.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i33, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop97 = fmul <2 x double> %.sroa.17.0.copyload, %shift96
+  %105 = extractelement <2 x double> %foldExtExtBinop97, i64 0
   %106 = fmul double %82, %65
-  %foldExtExtBinop96 = fmul <2 x double> %.sroa.976.0.copyload, %.sroa.0.i.i28.8..sroa.0.i.i28.8..sroa.0.i.i28.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i32
-  %107 = extractelement <2 x double> %foldExtExtBinop96, i64 0
+  %foldExtExtBinop99 = fmul <2 x double> %.sroa.976.0.copyload, %.sroa.0.i.i28.8..sroa.0.i.i28.8..sroa.0.i.i28.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i32
+  %107 = extractelement <2 x double> %foldExtExtBinop99, i64 0
   %108 = fadd double %106, %107
-  %foldExtExtBinop98 = fmul <2 x double> %.sroa.13.0.copyload, %.sroa.0.i.i28.16..sroa.0.i.i28.16..sroa.0.i.i28.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i33
-  %109 = extractelement <2 x double> %foldExtExtBinop98, i64 0
+  %foldExtExtBinop101 = fmul <2 x double> %.sroa.13.0.copyload, %.sroa.0.i.i28.16..sroa.0.i.i28.16..sroa.0.i.i28.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i33
+  %109 = extractelement <2 x double> %foldExtExtBinop101, i64 0
   %110 = fadd double %108, %109
   %.sroa.4.16.vec.extract.i.i34 = fadd double %105, %110
   store double %.sroa.4.16.vec.extract.i.i34, ptr %43, align 16, !tbaa !31, !alias.scope !48
@@ -332,11 +332,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = icmp sgt i64 %53, 0
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx157 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
+  %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx161 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 24
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 16
-  %.sroa.0.i.i53.16.i.i53.16.i.i53.16.i.16.i.16..sroa_idx158 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i53, i64 16
+  %.sroa.0.i.i53.16.i.i53.16.i.i53.16.i.16.i.16..sroa_idx162 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i53, i64 16
   %.sroa.0.i.i53.24.i.i53.24.i.i53.24.i.24.i.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i53, i64 24
   %.sroa.0.i.i53.8.i.i53.8.i.i53.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i53, i64 8
   %.sroa.0.i.i53.16.i.i53.16.i.i53.16.i.16.i.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i53, i64 16
@@ -423,7 +423,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   store <2 x double> %.sroa.092.8.vec.insert, ptr %.sroa.0.i.i, align 16, !tbaa !30, !noalias !70
-  store double %90, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx157, align 16, !tbaa !31, !noalias !70
+  store double %90, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx161, align 16, !tbaa !31, !noalias !70
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !31, !noalias !70
   %100 = shufflevector <2 x double> %.sroa.092.0.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %101 = fmul <2 x double> %74, %100
@@ -444,11 +444,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %111 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %112 = extractelement <2 x double> %75, i64 0
   %113 = fmul double %112, %86
-  %foldExtExtBinop146 = fmul <2 x double> %77, %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i
-  %114 = extractelement <2 x double> %foldExtExtBinop146, i64 0
+  %foldExtExtBinop150 = fmul <2 x double> %77, %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i
+  %114 = extractelement <2 x double> %foldExtExtBinop150, i64 0
   %115 = fadd double %113, %114
-  %foldExtExtBinop148 = fmul <2 x double> %79, %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i
-  %116 = extractelement <2 x double> %foldExtExtBinop148, i64 0
+  %foldExtExtBinop152 = fmul <2 x double> %79, %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i
+  %116 = extractelement <2 x double> %foldExtExtBinop152, i64 0
   %117 = fadd double %115, %116
   %.sroa.4.16.vec.extract.i.i = fadd double %111, %117
   store double %.sroa.4.16.vec.extract.i.i, ptr %50, align 16, !tbaa !31, !alias.scope !70
@@ -474,7 +474,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i53)
   store <2 x double> %.sroa.082.8.vec.insert, ptr %.sroa.0.i.i53, align 16, !tbaa !30, !noalias !77
-  store double %99, ptr %.sroa.0.i.i53.16.i.i53.16.i.i53.16.i.16.i.16..sroa_idx158, align 16, !tbaa !31, !noalias !77
+  store double %99, ptr %.sroa.0.i.i53.16.i.i53.16.i.i53.16.i.16.i.16..sroa_idx162, align 16, !tbaa !31, !noalias !77
   store double 1.000000e+00, ptr %.sroa.0.i.i53.24.i.i53.24.i.i53.24.i.24.i.24..sroa_idx, align 8, !tbaa !31, !noalias !77
   %124 = shufflevector <2 x double> %.sroa.082.0.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %125 = fmul <2 x double> %74, %124
@@ -490,15 +490,15 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS1_IdLi3
   %133 = fmul <2 x double> %80, %132
   %134 = fadd <2 x double> %133, %131
   store <2 x double> %134, ptr %8, align 16, !tbaa !30, !alias.scope !77
-  %shift150 = shufflevector <2 x double> %.sroa.0.i.i53.16..sroa.0.i.i53.16..sroa.0.i.i53.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop151 = fmul <2 x double> %81, %shift150
-  %135 = extractelement <2 x double> %foldExtExtBinop151, i64 0
+  %shift154 = shufflevector <2 x double> %.sroa.0.i.i53.16..sroa.0.i.i53.16..sroa.0.i.i53.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop155 = fmul <2 x double> %81, %shift154
+  %135 = extractelement <2 x double> %foldExtExtBinop155, i64 0
   %136 = fmul double %112, %95
-  %foldExtExtBinop153 = fmul <2 x double> %77, %.sroa.0.i.i53.8..sroa.0.i.i53.8..sroa.0.i.i53.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i57
-  %137 = extractelement <2 x double> %foldExtExtBinop153, i64 0
+  %foldExtExtBinop157 = fmul <2 x double> %77, %.sroa.0.i.i53.8..sroa.0.i.i53.8..sroa.0.i.i53.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i57
+  %137 = extractelement <2 x double> %foldExtExtBinop157, i64 0
   %138 = fadd double %136, %137
-  %foldExtExtBinop155 = fmul <2 x double> %79, %.sroa.0.i.i53.16..sroa.0.i.i53.16..sroa.0.i.i53.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i58
-  %139 = extractelement <2 x double> %foldExtExtBinop155, i64 0
+  %foldExtExtBinop159 = fmul <2 x double> %79, %.sroa.0.i.i53.16..sroa.0.i.i53.16..sroa.0.i.i53.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i58
+  %139 = extractelement <2 x double> %foldExtExtBinop159, i64 0
   %140 = fadd double %138, %139
   %.sroa.4.16.vec.extract.i.i59 = fadd double %135, %140
   store double %.sroa.4.16.vec.extract.i.i59, ptr %57, align 16, !tbaa !31, !alias.scope !77

@@ -3251,15 +3251,15 @@ _ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetIbEESt14default_deleteIS3_EED2
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetIbEESt14default_deleteIS3_EED2Ev.exit25, label %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIbEEEclEPS3_.exit.i24
 
 _ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIbEEEclEPS3_.exit.i24: ; preds = %.thread, %73
-  %.pn33 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
+  %.pn34 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
   %75 = phi ptr [ %14, %.thread ], [ %.pre, %73 ]
   call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef 24) #25
   br label %_ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetIbEESt14default_deleteIS3_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetIbEESt14default_deleteIS3_EED2Ev.exit25: ; preds = %73, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIbEEEclEPS3_.exit.i24
-  %.pn34 = phi { ptr, i32 } [ %74, %73 ], [ %.pn33, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIbEEEclEPS3_.exit.i24 ]
+  %.pn35 = phi { ptr, i32 } [ %74, %73 ], [ %.pn34, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIbEEEclEPS3_.exit.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn34
+  resume { ptr, i32 } %.pn35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3532,15 +3532,15 @@ _ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEESt14default_de
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEESt14default_deleteIS4_EED2Ev.exit25, label %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEEEclEPS4_.exit.i24
 
 _ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEEEclEPS4_.exit.i24: ; preds = %.thread, %73
-  %.pn33 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
+  %.pn34 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
   %75 = phi ptr [ %14, %.thread ], [ %.pre, %73 ]
   call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef 24) #25
   br label %_ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEESt14default_deleteIS4_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEESt14default_deleteIS4_EED2Ev.exit25: ; preds = %73, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEEEclEPS4_.exit.i24
-  %.pn34 = phi { ptr, i32 } [ %74, %73 ], [ %.pn33, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEEEclEPS4_.exit.i24 ]
+  %.pn35 = phi { ptr, i32 } [ %74, %73 ], [ %.pn34, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetI11VOptionBoolEEEclEPS4_.exit.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn34
+  resume { ptr, i32 } %.pn35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3813,15 +3813,15 @@ _ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetIiEESt14default_deleteIS3_EED2
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetIiEESt14default_deleteIS3_EED2Ev.exit25, label %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIiEEEclEPS3_.exit.i24
 
 _ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIiEEEclEPS3_.exit.i24: ; preds = %.thread, %73
-  %.pn33 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
+  %.pn34 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
   %75 = phi ptr [ %14, %.thread ], [ %.pre, %73 ]
   call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef 24) #25
   br label %_ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetIiEESt14default_deleteIS3_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetIiEESt14default_deleteIS3_EED2Ev.exit25: ; preds = %73, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIiEEEclEPS3_.exit.i24
-  %.pn34 = phi { ptr, i32 } [ %74, %73 ], [ %.pn33, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIiEEEclEPS3_.exit.i24 ]
+  %.pn35 = phi { ptr, i32 } [ %74, %73 ], [ %.pn34, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetIiEEEclEPS3_.exit.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn34
+  resume { ptr, i32 } %.pn35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4094,15 +4094,15 @@ _ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14default_deleteIS9_EED2Ev.exit25, label %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPS9_.exit.i24
 
 _ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPS9_.exit.i24: ; preds = %.thread, %73
-  %.pn33 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
+  %.pn34 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
   %75 = phi ptr [ %14, %.thread ], [ %.pre, %73 ]
   call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef 24) #25
   br label %_ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14default_deleteIS9_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14default_deleteIS9_EED2Ev.exit25: ; preds = %73, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPS9_.exit.i24
-  %.pn34 = phi { ptr, i32 } [ %74, %73 ], [ %.pn33, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPS9_.exit.i24 ]
+  %.pn35 = phi { ptr, i32 } [ %74, %73 ], [ %.pn34, %_ZNKSt14default_deleteIN14V3OptionParser4Impl9ActionSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclEPS9_.exit.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn34
+  resume { ptr, i32 } %.pn35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4375,15 +4375,15 @@ _ZNSt10unique_ptrIN14V3OptionParser4Impl12ActionFOnOffIbEESt14default_deleteIS3_
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN14V3OptionParser4Impl12ActionFOnOffIbEESt14default_deleteIS3_EED2Ev.exit25, label %_ZNKSt14default_deleteIN14V3OptionParser4Impl12ActionFOnOffIbEEEclEPS3_.exit.i24
 
 _ZNKSt14default_deleteIN14V3OptionParser4Impl12ActionFOnOffIbEEEclEPS3_.exit.i24: ; preds = %.thread, %73
-  %.pn33 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
+  %.pn34 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
   %75 = phi ptr [ %14, %.thread ], [ %.pre, %73 ]
   call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef 24) #25
   br label %_ZNSt10unique_ptrIN14V3OptionParser4Impl12ActionFOnOffIbEESt14default_deleteIS3_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN14V3OptionParser4Impl12ActionFOnOffIbEESt14default_deleteIS3_EED2Ev.exit25: ; preds = %73, %_ZNKSt14default_deleteIN14V3OptionParser4Impl12ActionFOnOffIbEEEclEPS3_.exit.i24
-  %.pn34 = phi { ptr, i32 } [ %74, %73 ], [ %.pn33, %_ZNKSt14default_deleteIN14V3OptionParser4Impl12ActionFOnOffIbEEEclEPS3_.exit.i24 ]
+  %.pn35 = phi { ptr, i32 } [ %74, %73 ], [ %.pn34, %_ZNKSt14default_deleteIN14V3OptionParser4Impl12ActionFOnOffIbEEEclEPS3_.exit.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn34
+  resume { ptr, i32 } %.pn35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4656,15 +4656,15 @@ _ZNSt10unique_ptrIN14V3OptionParser4Impl11ActionOnOffIbEESt14default_deleteIS3_E
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN14V3OptionParser4Impl11ActionOnOffIbEESt14default_deleteIS3_EED2Ev.exit25, label %_ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffIbEEEclEPS3_.exit.i24
 
 _ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffIbEEEclEPS3_.exit.i24: ; preds = %.thread, %73
-  %.pn33 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
+  %.pn34 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
   %75 = phi ptr [ %14, %.thread ], [ %.pre, %73 ]
   call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef 24) #25
   br label %_ZNSt10unique_ptrIN14V3OptionParser4Impl11ActionOnOffIbEESt14default_deleteIS3_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN14V3OptionParser4Impl11ActionOnOffIbEESt14default_deleteIS3_EED2Ev.exit25: ; preds = %73, %_ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffIbEEEclEPS3_.exit.i24
-  %.pn34 = phi { ptr, i32 } [ %74, %73 ], [ %.pn33, %_ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffIbEEEclEPS3_.exit.i24 ]
+  %.pn35 = phi { ptr, i32 } [ %74, %73 ], [ %.pn34, %_ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffIbEEEclEPS3_.exit.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn34
+  resume { ptr, i32 } %.pn35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4937,15 +4937,15 @@ _ZNSt10unique_ptrIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEESt14default
   br i1 %.not.i23, label %_ZNSt10unique_ptrIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEESt14default_deleteIS4_EED2Ev.exit25, label %_ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEEEclEPS4_.exit.i24
 
 _ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEEEclEPS4_.exit.i24: ; preds = %.thread, %73
-  %.pn33 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
+  %.pn34 = phi { ptr, i32 } [ %30, %.thread ], [ %74, %73 ]
   %75 = phi ptr [ %14, %.thread ], [ %.pre, %73 ]
   call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef 24) #25
   br label %_ZNSt10unique_ptrIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEESt14default_deleteIS4_EED2Ev.exit25
 
 _ZNSt10unique_ptrIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEESt14default_deleteIS4_EED2Ev.exit25: ; preds = %73, %_ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEEEclEPS4_.exit.i24
-  %.pn34 = phi { ptr, i32 } [ %74, %73 ], [ %.pn33, %_ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEEEclEPS4_.exit.i24 ]
+  %.pn35 = phi { ptr, i32 } [ %74, %73 ], [ %.pn34, %_ZNKSt14default_deleteIN14V3OptionParser4Impl11ActionOnOffI11VOptionBoolEEEclEPS4_.exit.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn34
+  resume { ptr, i32 } %.pn35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8859,18 +8859,18 @@ _ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !28
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #26
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #26
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !17
@@ -8904,7 +8904,7 @@ _ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERS6_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

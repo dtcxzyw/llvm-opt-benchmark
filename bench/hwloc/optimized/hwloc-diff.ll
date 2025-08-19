@@ -93,25 +93,25 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   %20 = load ptr, ptr %11, align 8, !tbaa !9
   %21 = load i8, ptr %20, align 1, !tbaa !13
   %22 = icmp eq i8 %21, 45
-  br i1 %22, label %.lr.ph185, label %.critedge
+  br i1 %22, label %.lr.ph188, label %.critedge
 
 .lr.ph:                                           ; preds = %33
-  %23 = getelementptr inbounds nuw i8, ptr %.081123184, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.081123187, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   %25 = load i8, ptr %24, align 1, !tbaa !13
   %26 = icmp eq i8 %25, 45
-  br i1 %26, label %.lr.ph185, label %.lr.ph..critedge_crit_edge, !llvm.loop !14
+  br i1 %26, label %.lr.ph188, label %.lr.ph..critedge_crit_edge, !llvm.loop !14
 
-.lr.ph185:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph188:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %27 = phi ptr [ %24, %.lr.ph ], [ %20, %.lr.ph.preheader ]
-  %.081123184 = phi ptr [ %23, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %.080.in124183 = phi i32 [ %34, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.081123187 = phi ptr [ %23, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %.080.in124186 = phi i32 [ %34, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.8) #11
   %.not99 = icmp eq i32 %28, 0
   br i1 %.not99, label %29, label %35
 
-29:                                               ; preds = %.lr.ph185
-  %30 = icmp slt i32 %.080.in124183, 3
+29:                                               ; preds = %.lr.ph188
+  %30 = icmp slt i32 %.080.in124186, 3
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
@@ -121,11 +121,11 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   unreachable
 
 33:                                               ; preds = %29
-  %34 = add nsw i32 %.080.in124183, -2
+  %34 = add nsw i32 %.080.in124186, -2
   %.not89 = icmp eq i32 %34, 1
   br i1 %.not89, label %.critedge.thread, label %.lr.ph, !llvm.loop !14
 
-35:                                               ; preds = %.lr.ph185
+35:                                               ; preds = %.lr.ph188
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.9) #11
   %.not100 = icmp eq i32 %36, 0
   br i1 %.not100, label %37, label %sub_1
@@ -167,7 +167,7 @@ sub_1:                                            ; preds = %35
   unreachable
 
 .lr.ph..critedge_crit_edge:                       ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %.081123184, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.081123187, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !9
   br label %.critedge
 
@@ -175,7 +175,7 @@ sub_1:                                            ; preds = %35
   %.076125.lcssa = phi ptr [ %52, %.lr.ph..critedge_crit_edge ], [ null, %.lr.ph.preheader ]
   %.080.in124.lcssa = phi i32 [ %34, %.lr.ph..critedge_crit_edge ], [ %0, %.lr.ph.preheader ]
   %.081123.lcssa = phi ptr [ %23, %.lr.ph..critedge_crit_edge ], [ %11, %.lr.ph.preheader ]
-  %.lcssa170 = phi ptr [ %24, %.lr.ph..critedge_crit_edge ], [ %20, %.lr.ph.preheader ]
+  %.lcssa173 = phi ptr [ %24, %.lr.ph..critedge_crit_edge ], [ %20, %.lr.ph.preheader ]
   %53 = icmp slt i32 %.080.in124.lcssa, 3
   br i1 %53, label %.critedge.thread, label %55
 
@@ -205,13 +205,13 @@ sub_1:                                            ; preds = %35
   %65 = load ptr, ptr %3, align 8, !tbaa !16
   %66 = call i32 @hwloc_topology_set_flags(ptr noundef %65, i64 noundef 9) #12
   %67 = load ptr, ptr %3, align 8, !tbaa !16
-  %68 = call i32 @hwloc_topology_set_xml(ptr noundef %67, ptr noundef nonnull %.lcssa170) #12
+  %68 = call i32 @hwloc_topology_set_xml(ptr noundef %67, ptr noundef nonnull %.lcssa173) #12
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %61
   %71 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.16, ptr noundef nonnull %.lcssa170) #13
+  %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.16, ptr noundef nonnull %.lcssa173) #13
   br label %154
 
 73:                                               ; preds = %61
@@ -222,7 +222,7 @@ sub_1:                                            ; preds = %35
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.17, ptr noundef nonnull %.lcssa170) #13
+  %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.17, ptr noundef nonnull %.lcssa173) #13
   br label %154
 
 80:                                               ; preds = %73
@@ -255,10 +255,10 @@ sub_1:                                            ; preds = %35
   br i1 %.not91, label %98, label %101
 
 98:                                               ; preds = %97
-  %99 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.lcssa170, i32 noundef 47) #11
+  %99 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.lcssa173, i32 noundef 47) #11
   %.not92 = icmp eq ptr %99, null
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
-  %spec.select105 = select i1 %.not92, ptr %.lcssa170, ptr %100
+  %spec.select105 = select i1 %.not92, ptr %.lcssa173, ptr %100
   br label %101
 
 101:                                              ; preds = %98, %97
@@ -272,9 +272,9 @@ sub_1:                                            ; preds = %35
 .preheader:                                       ; preds = %101
   %.083126 = load ptr, ptr %5, align 8, !tbaa !13
   %.not93127 = icmp eq ptr %.083126, null
-  br i1 %.not93127, label %.thread153, label %.lr.ph131
+  br i1 %.not93127, label %.thread156, label %.lr.ph131
 
-.thread153:                                       ; preds = %.preheader
+.thread156:                                       ; preds = %.preheader
   %106 = load ptr, ptr @stderr, align 8, !tbaa !11
   %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.21, ptr noundef %.078) #13
   br label %127
@@ -325,7 +325,7 @@ sub_1:                                            ; preds = %35
   %.not96 = icmp eq i32 %spec.select, 0
   br i1 %.not96, label %127, label %141
 
-127:                                              ; preds = %.thread153, %.thread, %124
+127:                                              ; preds = %.thread156, %.thread, %124
   %.not97 = icmp eq ptr %.079, null
   %128 = load ptr, ptr %5, align 8, !tbaa !4
   br i1 %.not97, label %131, label %129
@@ -378,10 +378,10 @@ sub_1:                                            ; preds = %35
   unreachable
 
 151:                                              ; preds = %108, %95, %89
-  %.sink169 = phi ptr [ %112, %108 ], [ %57, %95 ], [ %57, %89 ]
+  %.sink172 = phi ptr [ %112, %108 ], [ %57, %95 ], [ %57, %89 ]
   %.str.20.sink = phi ptr [ @.str.20, %108 ], [ @.str.19, %95 ], [ @.str.18, %89 ]
   %.sink = phi ptr [ %109, %108 ], [ %96, %95 ], [ %90, %89 ]
-  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull %.str.20.sink, ptr noundef %.sink169) #13
+  %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull %.str.20.sink, ptr noundef %.sink172) #13
   %153 = load ptr, ptr %4, align 8, !tbaa !16
   call void @hwloc_topology_destroy(ptr noundef %153) #12
   br label %154

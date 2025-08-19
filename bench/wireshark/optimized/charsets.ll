@@ -509,9 +509,9 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr noundef readonly captures(none
   br label %73
 
 73:                                               ; preds = %.lr.ph.split, %63, %67, %72
-  %.sink92 = phi i32 [ %71, %67 ], [ %58, %72 ], [ 65533, %63 ], [ 65533, %.lr.ph.split ]
+  %.sink94 = phi i32 [ %71, %67 ], [ %58, %72 ], [ 65533, %63 ], [ 65533, %.lr.ph.split ]
   %.3 = phi i32 [ %61, %67 ], [ %.173, %72 ], [ %61, %63 ], [ %.173, %.lr.ph.split ]
-  tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink92)
+  tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %.sink94)
   %74 = add i32 %.3, 2
   %75 = add i32 %.3, 3
   %76 = icmp slt i32 %75, %2
@@ -899,14 +899,14 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef reado
   br label %56
 
 56:                                               ; preds = %48, %42
-  %.sink74 = phi i64 [ 4, %48 ], [ 3, %42 ]
+  %.sink79 = phi i64 [ 4, %48 ], [ 3, %42 ]
   %.sink.neg = phi i32 [ 4, %48 ], [ 3, %42 ]
   %.059 = phi i32 [ %55, %48 ], [ %45, %42 ]
-  %57 = getelementptr i8, ptr %1, i64 %.sink74
+  %57 = getelementptr i8, ptr %1, i64 %.sink79
   %.not73 = icmp eq i8 %33, 0
   %.not = icmp eq i32 %2, %.sink.neg
-  %or.cond76 = or i1 %.not73, %.not
-  br i1 %or.cond76, label %get_ucs_2_string.exit, label %.lr.ph.split
+  %or.cond81 = or i1 %.not73, %.not
+  br i1 %or.cond81, label %get_ucs_2_string.exit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %56, %67
   %.05572 = phi i1 [ %.156.ph, %67 ], [ false, %56 ]
@@ -934,8 +934,8 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef reado
   br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !16
 
 get_ucs_2_string.exit:                            ; preds = %67, %56, %32, %46, %40, %27, %._crit_edge.i, %30, %5
-  %.sink75 = phi ptr [ %31, %30 ], [ %6, %5 ], [ %14, %._crit_edge.i ], [ %14, %27 ], [ %39, %40 ], [ %39, %46 ], [ %39, %32 ], [ %39, %56 ], [ %39, %67 ]
-  %69 = tail call ptr @wmem_strbuf_finalize(ptr noundef %.sink75)
+  %.sink80 = phi ptr [ %31, %30 ], [ %6, %5 ], [ %14, %._crit_edge.i ], [ %14, %27 ], [ %39, %40 ], [ %39, %46 ], [ %39, %32 ], [ %39, %56 ], [ %39, %67 ]
+  %69 = tail call ptr @wmem_strbuf_finalize(ptr noundef %.sink80)
   ret ptr %69
 }
 
@@ -1273,8 +1273,8 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %52
 
 52:                                               ; preds = %42, %47, %29
-  %.sink61 = phi i16 [ %51, %47 ], [ %31, %29 ], [ %46, %42 ]
-  %53 = zext i16 %.sink61 to i32
+  %.sink66 = phi i16 [ %51, %47 ], [ %31, %29 ], [ %46, %42 ]
+  %53 = zext i16 %.sink66 to i32
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %53)
   %54 = add nsw i32 %.050, 1
   br label %57

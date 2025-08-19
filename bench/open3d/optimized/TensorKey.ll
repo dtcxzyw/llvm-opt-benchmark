@@ -2018,12 +2018,12 @@ define noundef i64 @_ZNK6open3d4core9TensorKey8GetIndexEv(ptr noundef nonnull re
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %3 = load ptr, ptr %0, align 8, !tbaa !4, !noalias !94
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, label %5
+  br i1 %4, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN6open3d4core9TensorKey4ImplE, ptr nonnull @_ZTIN6open3d4core9TensorKey9IndexImplE, i64 0) #22, !noalias !94
   %.not.not.i = icmp eq ptr %6, null
-  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, label %7
+  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, label %7
 
 7:                                                ; preds = %5
   store ptr %6, ptr %2, align 8, !tbaa !30, !alias.scope !94
@@ -2046,7 +2046,7 @@ define noundef i64 @_ZNK6open3d4core9TensorKey8GetIndexEv(ptr noundef nonnull re
   store i32 %16, ptr %12, align 4, !tbaa !14, !noalias !94
   br label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4: ; preds = %1, %5
+_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8: ; preds = %1, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !alias.scope !94
   br label %46
 
@@ -2120,7 +2120,7 @@ _ZNSt12__shared_ptrIN6open3d4core9TensorKey9IndexImplELN9__gnu_cxx12_Lock_policy
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %45
 
-46:                                               ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit
+46:                                               ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9IndexImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit
   invoke void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.11, i32 noundef 151, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey8GetIndexEv, ptr noundef nonnull @.str.12) #24
           to label %47 unwind label %44
 
@@ -2226,12 +2226,12 @@ define noundef i64 @_ZNK6open3d4core9TensorKey8GetStartEv(ptr noundef nonnull re
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %3 = load ptr, ptr %0, align 8, !tbaa !4, !noalias !97
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, label %5
+  br i1 %4, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN6open3d4core9TensorKey4ImplE, ptr nonnull @_ZTIN6open3d4core9TensorKey9SliceImplE, i64 0) #22, !noalias !97
   %.not.not.i = icmp eq ptr %6, null
-  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, label %7
+  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, label %7
 
 7:                                                ; preds = %5
   store ptr %6, ptr %2, align 8, !tbaa !59, !alias.scope !97
@@ -2254,7 +2254,7 @@ define noundef i64 @_ZNK6open3d4core9TensorKey8GetStartEv(ptr noundef nonnull re
   store i32 %16, ptr %12, align 4, !tbaa !14, !noalias !97
   br label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4: ; preds = %1, %5
+_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8: ; preds = %1, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !alias.scope !97
   br label %.invoke
 
@@ -2271,10 +2271,10 @@ _ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shar
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %25, label %.invoke
 
-.invoke:                                          ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4
-  %22 = phi i32 [ 159, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ 159, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ 64, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
-  %23 = phi ptr [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey8GetStartEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey8GetStartEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey9SliceImpl8GetStartEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
-  %24 = phi ptr [ @.str.13, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ @.str.13, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @.str.14, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+.invoke:                                          ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8
+  %22 = phi i32 [ 159, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ 159, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ 64, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+  %23 = phi ptr [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey8GetStartEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey8GetStartEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey9SliceImpl8GetStartEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+  %24 = phi ptr [ @.str.13, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ @.str.13, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @.str.14, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
   invoke void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.11, i32 noundef %22, ptr noundef nonnull %23, ptr noundef nonnull %24) #24
           to label %.cont unwind label %51
 
@@ -2352,12 +2352,12 @@ define noundef i64 @_ZNK6open3d4core9TensorKey7GetStopEv(ptr noundef nonnull rea
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %3 = load ptr, ptr %0, align 8, !tbaa !4, !noalias !100
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, label %5
+  br i1 %4, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN6open3d4core9TensorKey4ImplE, ptr nonnull @_ZTIN6open3d4core9TensorKey9SliceImplE, i64 0) #22, !noalias !100
   %.not.not.i = icmp eq ptr %6, null
-  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, label %7
+  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, label %7
 
 7:                                                ; preds = %5
   store ptr %6, ptr %2, align 8, !tbaa !59, !alias.scope !100
@@ -2380,7 +2380,7 @@ define noundef i64 @_ZNK6open3d4core9TensorKey7GetStopEv(ptr noundef nonnull rea
   store i32 %16, ptr %12, align 4, !tbaa !14, !noalias !100
   br label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4: ; preds = %1, %5
+_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8: ; preds = %1, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !alias.scope !100
   br label %.invoke
 
@@ -2397,10 +2397,10 @@ _ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shar
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %25, label %.invoke
 
-.invoke:                                          ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4
-  %22 = phi i32 [ 166, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ 166, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ 71, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
-  %23 = phi ptr [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey7GetStopEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey7GetStopEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey9SliceImpl7GetStopEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
-  %24 = phi ptr [ @.str.15, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ @.str.15, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @.str.16, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+.invoke:                                          ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8
+  %22 = phi i32 [ 166, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ 166, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ 71, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+  %23 = phi ptr [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey7GetStopEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey7GetStopEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey9SliceImpl7GetStopEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+  %24 = phi ptr [ @.str.15, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ @.str.15, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @.str.16, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
   invoke void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.11, i32 noundef %22, ptr noundef nonnull %23, ptr noundef nonnull %24) #24
           to label %.cont unwind label %51
 
@@ -2478,12 +2478,12 @@ define noundef i64 @_ZNK6open3d4core9TensorKey7GetStepEv(ptr noundef nonnull rea
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %3 = load ptr, ptr %0, align 8, !tbaa !4, !noalias !103
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, label %5
+  br i1 %4, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN6open3d4core9TensorKey4ImplE, ptr nonnull @_ZTIN6open3d4core9TensorKey9SliceImplE, i64 0) #22, !noalias !103
   %.not.not.i = icmp eq ptr %6, null
-  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4, label %7
+  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8, label %7
 
 7:                                                ; preds = %5
   store ptr %6, ptr %2, align 8, !tbaa !59, !alias.scope !103
@@ -2506,7 +2506,7 @@ define noundef i64 @_ZNK6open3d4core9TensorKey7GetStepEv(ptr noundef nonnull rea
   store i32 %16, ptr %12, align 4, !tbaa !14, !noalias !103
   br label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4: ; preds = %1, %5
+_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8: ; preds = %1, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !alias.scope !103
   br label %.invoke
 
@@ -2523,10 +2523,10 @@ _ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shar
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %25, label %.invoke
 
-.invoke:                                          ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4
-  %22 = phi i32 [ 173, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ 173, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ 78, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
-  %23 = phi ptr [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey7GetStepEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey7GetStepEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey9SliceImpl7GetStepEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
-  %24 = phi ptr [ @.str.17, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread4 ], [ @.str.17, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @.str.18, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+.invoke:                                          ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8
+  %22 = phi i32 [ 173, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ 173, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ 78, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+  %23 = phi ptr [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey7GetStepEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey7GetStepEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey9SliceImpl7GetStepEv, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
+  %24 = phi ptr [ @.str.17, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread8 ], [ @.str.17, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit ], [ @.str.18, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread ]
   invoke void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.11, i32 noundef %22, ptr noundef nonnull %23, ptr noundef nonnull %24) #24
           to label %.cont unwind label %51
 
@@ -2606,12 +2606,12 @@ define void @_ZNK6open3d4core9TensorKey18InstantiateDimSizeEl(ptr dead_on_unwind
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %7 = load ptr, ptr %1, align 8, !tbaa !4, !noalias !106
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread18, label %9
+  br i1 %8, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread24, label %9
 
 9:                                                ; preds = %3
   %10 = tail call ptr @__dynamic_cast(ptr nonnull %7, ptr nonnull @_ZTIN6open3d4core9TensorKey4ImplE, ptr nonnull @_ZTIN6open3d4core9TensorKey9SliceImplE, i64 0) #22, !noalias !106
   %.not.not.i = icmp eq ptr %10, null
-  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread18, label %11
+  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread24, label %11
 
 11:                                               ; preds = %9
   store ptr %10, ptr %4, align 8, !tbaa !59, !alias.scope !106
@@ -2634,7 +2634,7 @@ define void @_ZNK6open3d4core9TensorKey18InstantiateDimSizeEl(ptr dead_on_unwind
   store i32 %20, ptr %16, align 4, !tbaa !14, !noalias !106
   br label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread18: ; preds = %3, %9
+_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread24: ; preds = %3, %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !106
   br label %127
 
@@ -2872,7 +2872,7 @@ _ZNSt12__shared_ptrIN6open3d4core9TensorKey9SliceImplELN9__gnu_cxx12_Lock_policy
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %131
 
-127:                                              ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread18, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit
+127:                                              ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread24, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey9SliceImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit
   invoke void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.11, i32 noundef 181, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey18InstantiateDimSizeEl, ptr noundef nonnull @.str.19) #24
           to label %128 unwind label %129
 
@@ -2898,12 +2898,12 @@ define void @_ZNK6open3d4core9TensorKey14GetIndexTensorEv(ptr dead_on_unwind noa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %4 = load ptr, ptr %1, align 8, !tbaa !4, !noalias !115
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread5, label %6
+  br i1 %5, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread11, label %6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN6open3d4core9TensorKey4ImplE, ptr nonnull @_ZTIN6open3d4core9TensorKey15IndexTensorImplE, i64 0) #22, !noalias !115
   %.not.not.i = icmp eq ptr %7, null
-  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread5, label %8
+  br i1 %.not.not.i, label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread11, label %8
 
 8:                                                ; preds = %6
   store ptr %7, ptr %3, align 8, !tbaa !78, !alias.scope !115
@@ -2926,7 +2926,7 @@ define void @_ZNK6open3d4core9TensorKey14GetIndexTensorEv(ptr dead_on_unwind noa
   store i32 %17, ptr %13, align 4, !tbaa !14, !noalias !115
   br label %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread
 
-_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread5: ; preds = %2, %6
+_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread11: ; preds = %2, %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !115
   br label %72
 
@@ -3059,7 +3059,7 @@ _ZNSt12__shared_ptrIN6open3d4core9TensorKey15IndexTensorImplELN9__gnu_cxx12_Lock
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %eh.lpad-body
 
-72:                                               ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread5, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit
+72:                                               ; preds = %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit.thread11, %_ZSt20dynamic_pointer_castIN6open3d4core9TensorKey15IndexTensorImplENS2_4ImplEESt10shared_ptrIT_ERKS5_IT0_E.exit
   invoke void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str.11, i32 noundef 191, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core9TensorKey14GetIndexTensorEv, ptr noundef nonnull @.str.20) #24
           to label %73 unwind label %70
 

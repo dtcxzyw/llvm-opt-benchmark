@@ -40,8 +40,8 @@ define dso_local void @scatterwalk_copychunks(ptr noundef captures(none) %0, ptr
   %19 = trunc nuw nsw i64 %18 to i32
   %20 = add i32 %.pre6, %19
   store i32 %20, ptr %5, align 8
-  %.not.us9 = icmp ugt i64 %2, %17
-  br i1 %.not.us9, label %.lr.ph, label %.critedge
+  %.not.us12 = icmp ugt i64 %2, %17
+  br i1 %.not.us12, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.split.us.preheader, %.split.us
   %21 = phi i32 [ %50, %.split.us ], [ %20, %.split.us.preheader ]
@@ -87,7 +87,7 @@ define dso_local void @scatterwalk_copychunks(ptr noundef captures(none) %0, ptr
 
 .split:                                           ; preds = %4, %.split.backedge
   %51 = phi i32 [ %.be, %.split.backedge ], [ %.pre6, %4 ]
-  %52 = phi ptr [ %.be11, %.split.backedge ], [ %.pre5, %4 ]
+  %52 = phi ptr [ %.be14, %.split.backedge ], [ %.pre5, %4 ]
   %53 = phi i64 [ %86, %.split.backedge ], [ %2, %4 ]
   %54 = phi ptr [ %85, %.split.backedge ], [ %0, %4 ]
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -147,7 +147,7 @@ define dso_local void @scatterwalk_copychunks(ptr noundef captures(none) %0, ptr
 
 .split.backedge:                                  ; preds = %94, %84
   %.be = phi i32 [ %97, %94 ], [ %83, %84 ]
-  %.be11 = phi ptr [ %95, %94 ], [ %87, %84 ]
+  %.be14 = phi ptr [ %95, %94 ], [ %87, %84 ]
   br label %.split
 
 .critedge:                                        ; preds = %.split, %.split.us, %.split.us.preheader
@@ -282,10 +282,10 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   br i1 %.not.us, label %.lr.ph, label %.critedge
 
 .split.split.us:                                  ; preds = %.split.split.us.outer, %107
-  %82 = phi i32 [ %112, %107 ], [ %.ph58, %.split.split.us.outer ]
-  %83 = phi i32 [ %109, %107 ], [ %.ph58, %.split.split.us.outer ]
-  %84 = phi i64 [ %111, %107 ], [ %.ph60, %.split.split.us.outer ]
-  %85 = phi ptr [ %110, %107 ], [ %.ph61, %.split.split.us.outer ]
+  %82 = phi i32 [ %112, %107 ], [ %.ph69, %.split.split.us.outer ]
+  %83 = phi i32 [ %109, %107 ], [ %.ph69, %.split.split.us.outer ]
+  %84 = phi i64 [ %111, %107 ], [ %.ph71, %.split.split.us.outer ]
+  %85 = phi ptr [ %110, %107 ], [ %.ph72, %.split.split.us.outer ]
   %86 = load i32, ptr %120, align 4
   %87 = sub i32 %82, %83
   %88 = add i32 %87, %86
@@ -294,7 +294,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   %91 = call i32 @llvm.umin.i32(i32 %90, i32 %88)
   %92 = zext nneg i32 %91 to i64
   %93 = call i64 @llvm.umin.i64(i64 %84, i64 %92)
-  %94 = load i64, ptr %.ph59, align 8
+  %94 = load i64, ptr %.ph70, align 8
   %95 = and i64 %94, 288230376151711740
   %96 = load i64, ptr @vmemmap_base, align 8
   %97 = lshr i32 %83, 6
@@ -324,25 +324,25 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   br i1 %115, label %.split.split.us, label %116
 
 116:                                              ; preds = %107
-  %117 = call ptr @sg_next(ptr noundef %.ph59) #7
+  %117 = call ptr @sg_next(ptr noundef %.ph70) #7
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i32, ptr %118, align 8
   br label %.split.split.us.outer
 
 .split.split.us.outer:                            ; preds = %.loopexit, %116
-  %.ph58 = phi i32 [ %119, %116 ], [ %48, %.loopexit ]
-  %.ph59 = phi ptr [ %117, %116 ], [ %46, %.loopexit ]
-  %.ph60 = phi i64 [ %111, %116 ], [ %49, %.loopexit ]
-  %.ph61 = phi ptr [ %110, %116 ], [ %0, %.loopexit ]
-  %120 = getelementptr inbounds nuw i8, ptr %.ph59, i64 12
-  %121 = getelementptr inbounds nuw i8, ptr %.ph59, i64 8
+  %.ph69 = phi i32 [ %119, %116 ], [ %48, %.loopexit ]
+  %.ph70 = phi ptr [ %117, %116 ], [ %46, %.loopexit ]
+  %.ph71 = phi i64 [ %111, %116 ], [ %49, %.loopexit ]
+  %.ph72 = phi ptr [ %110, %116 ], [ %0, %.loopexit ]
+  %120 = getelementptr inbounds nuw i8, ptr %.ph70, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %.ph70, i64 8
   br label %.split.split.us
 
 .split.split:                                     ; preds = %.split.split.outer, %147
-  %122 = phi i32 [ %152, %147 ], [ %.ph50, %.split.split.outer ]
-  %123 = phi i32 [ %149, %147 ], [ %.ph50, %.split.split.outer ]
-  %124 = phi i64 [ %151, %147 ], [ %.ph52, %.split.split.outer ]
-  %125 = phi ptr [ %150, %147 ], [ %.ph53, %.split.split.outer ]
+  %122 = phi i32 [ %152, %147 ], [ %.ph61, %.split.split.outer ]
+  %123 = phi i32 [ %149, %147 ], [ %.ph61, %.split.split.outer ]
+  %124 = phi i64 [ %151, %147 ], [ %.ph63, %.split.split.outer ]
+  %125 = phi ptr [ %150, %147 ], [ %.ph64, %.split.split.outer ]
   %126 = load i32, ptr %160, align 4
   %127 = sub i32 %122, %123
   %128 = add i32 %127, %126
@@ -351,7 +351,7 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   %131 = call i32 @llvm.umin.i32(i32 %130, i32 %128)
   %132 = zext nneg i32 %131 to i64
   %133 = call i64 @llvm.umin.i64(i64 %124, i64 %132)
-  %134 = load i64, ptr %.ph51, align 8
+  %134 = load i64, ptr %.ph62, align 8
   %135 = and i64 %134, 288230376151711740
   %136 = load i64, ptr @vmemmap_base, align 8
   %137 = lshr i32 %123, 6
@@ -381,18 +381,18 @@ define dso_local void @scatterwalk_map_and_copy(ptr noundef captures(none) %0, p
   br i1 %155, label %.split.split, label %156
 
 156:                                              ; preds = %147
-  %157 = call ptr @sg_next(ptr noundef %.ph51) #7
+  %157 = call ptr @sg_next(ptr noundef %.ph62) #7
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load i32, ptr %158, align 8
   br label %.split.split.outer
 
 .split.split.outer:                               ; preds = %.loopexit, %156
-  %.ph50 = phi i32 [ %159, %156 ], [ %48, %.loopexit ]
-  %.ph51 = phi ptr [ %157, %156 ], [ %46, %.loopexit ]
-  %.ph52 = phi i64 [ %151, %156 ], [ %49, %.loopexit ]
-  %.ph53 = phi ptr [ %150, %156 ], [ %0, %.loopexit ]
-  %160 = getelementptr inbounds nuw i8, ptr %.ph51, i64 12
-  %161 = getelementptr inbounds nuw i8, ptr %.ph51, i64 8
+  %.ph61 = phi i32 [ %159, %156 ], [ %48, %.loopexit ]
+  %.ph62 = phi ptr [ %157, %156 ], [ %46, %.loopexit ]
+  %.ph63 = phi i64 [ %151, %156 ], [ %49, %.loopexit ]
+  %.ph64 = phi ptr [ %150, %156 ], [ %0, %.loopexit ]
+  %160 = getelementptr inbounds nuw i8, ptr %.ph62, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %.ph62, i64 8
   br label %.split.split
 
 .critedge:                                        ; preds = %.split.split.us, %.lr.ph._crit_edge, %.split.split, %.split.us, %5

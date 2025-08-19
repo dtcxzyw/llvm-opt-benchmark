@@ -229,9 +229,9 @@ define void @_ZN6icu_779InputText10MungeInputEa(ptr noundef nonnull align 8 capt
   br i1 %35, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %.thread.thread, %.thread
-  %spec.store.select85 = phi i32 [ %32, %.thread.thread ], [ %34, %.thread ]
+  %spec.store.select87 = phi i32 [ %32, %.thread.thread ], [ %34, %.thread ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %wide.trip.count = zext nneg i32 %spec.store.select85 to i64
+  %wide.trip.count = zext nneg i32 %spec.store.select87 to i64
   br label %37
 
 37:                                               ; preds = %.lr.ph60, %37
@@ -247,7 +247,7 @@ define void @_ZN6icu_779InputText10MungeInputEa(ptr noundef nonnull align 8 capt
   br i1 %exitcond.not, label %._crit_edge61, label %37, !llvm.loop !22
 
 ._crit_edge61:                                    ; preds = %37, %.preheader51, %.thread
-  %.138.lcssa = phi i32 [ 0, %.thread ], [ 0, %.preheader51 ], [ %spec.store.select85, %37 ]
+  %.138.lcssa = phi i32 [ 0, %.thread ], [ 0, %.preheader51 ], [ %spec.store.select87, %37 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.138.lcssa, ptr %43, align 8, !tbaa !15
   br label %44

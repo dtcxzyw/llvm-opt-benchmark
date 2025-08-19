@@ -1283,8 +1283,8 @@ _ZN14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6inser
   %322 = icmp eq i32 %321, 0
   %323 = load i32, ptr %39, align 8
   %.not384 = icmp eq i32 %323, 0
-  %or.cond442 = select i1 %322, i1 true, i1 %.not384
-  br i1 %or.cond442, label %._crit_edge380.thread, label %.lr.ph379
+  %or.cond503 = select i1 %322, i1 true, i1 %.not384
+  br i1 %or.cond503, label %._crit_edge380.thread, label %.lr.ph379
 
 .lr.ph373:                                        ; preds = %._crit_edge369, %_ZN14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5eraseERKPS1_.exit
   %.057371 = phi ptr [ %377, %_ZN14core_hashtableI14obj_hash_entryI3varE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5eraseERKPS1_.exit ], [ %.pre, %._crit_edge369 ]

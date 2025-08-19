@@ -2417,13 +2417,13 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   unreachable
 
 65:                                               ; preds = %57, %25
-  %.sink47 = phi ptr [ %60, %57 ], [ %28, %25 ]
-  %.sink46 = phi i64 [ %59, %57 ], [ %27, %25 ]
+  %.sink48 = phi ptr [ %60, %57 ], [ %28, %25 ]
+  %.sink47 = phi i64 [ %59, %57 ], [ %27, %25 ]
   %.sink = phi i64 [ %62, %57 ], [ %30, %25 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %.sink47, ptr %66, align 8
+  store ptr %.sink48, ptr %66, align 8
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %.sink46, ptr %.sroa.213.0..sroa_idx, align 8
+  store i64 %.sink47, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %.sink, ptr %.sroa.314.0..sroa_idx, align 8
   ret void
@@ -2584,13 +2584,13 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   unreachable
 
 65:                                               ; preds = %57, %25
-  %.sink47 = phi ptr [ %60, %57 ], [ %28, %25 ]
-  %.sink46 = phi i64 [ %59, %57 ], [ %27, %25 ]
+  %.sink48 = phi ptr [ %60, %57 ], [ %28, %25 ]
+  %.sink47 = phi i64 [ %59, %57 ], [ %27, %25 ]
   %.sink = phi i64 [ %62, %57 ], [ %30, %25 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %.sink47, ptr %66, align 8
+  store ptr %.sink48, ptr %66, align 8
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %.sink46, ptr %.sroa.213.0..sroa_idx, align 8
+  store i64 %.sink47, ptr %.sroa.213.0..sroa_idx, align 8
   %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %.sink, ptr %.sroa.314.0..sroa_idx, align 8
   ret void
@@ -3289,9 +3289,9 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 38:                                               ; preds = %34
   %..sroa.sel.v = select i1 %35, i64 72, i64 88
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %..sroa.sel.v
-  %.35.sroa.sel.v = select i1 %35, i64 80, i64 96
-  %.35.sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %.35.sroa.sel.v
-  %39 = load i64, ptr %.35.sroa.sel, align 8, !noundef !3
+  %.37.sroa.sel.v = select i1 %35, i64 80, i64 96
+  %.37.sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %.37.sroa.sel.v
+  %39 = load i64, ptr %.37.sroa.sel, align 8, !noundef !3
   %40 = load ptr, ptr %..sroa.sel, align 8, !nonnull !3, !noundef !3
   store ptr %40, ptr %9, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3407,9 +3407,9 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 38:                                               ; preds = %34
   %..sroa.sel.v = select i1 %35, i64 72, i64 88
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %..sroa.sel.v
-  %.35.sroa.sel.v = select i1 %35, i64 80, i64 96
-  %.35.sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %.35.sroa.sel.v
-  %39 = load i64, ptr %.35.sroa.sel, align 8, !noundef !3
+  %.37.sroa.sel.v = select i1 %35, i64 80, i64 96
+  %.37.sroa.sel = getelementptr inbounds nuw i8, ptr %10, i64 %.37.sroa.sel.v
+  %39 = load i64, ptr %.37.sroa.sel, align 8, !noundef !3
   %40 = load ptr, ptr %..sroa.sel, align 8, !nonnull !3, !noundef !3
   store ptr %40, ptr %9, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8

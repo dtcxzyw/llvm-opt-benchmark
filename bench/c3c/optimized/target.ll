@@ -1299,100 +1299,100 @@ slice_strcmp.exit151:                             ; preds = %slice_strcmp.exit15
   br i1 %291, label %os_from_llvm_string.exit, label %slice_strcmp.exit151.thread
 
 slice_strcmp.exit151.thread:                      ; preds = %._crit_edge.i, %vendor_from_llvm_string.exit, %slice_strcmp.exit87.i, %slice_strcmp.exit93.i, %slice_strcmp.exit157, %slice_strcmp.exit160, %slice_strcmp.exit163, %slice_strcmp.exit151
-  %.sroa.38.0104.i275 = phi i64 [ 6, %slice_strcmp.exit151 ], [ 8, %slice_strcmp.exit163 ], [ 5, %slice_strcmp.exit160 ], [ 3, %slice_strcmp.exit157 ], [ 0, %vendor_from_llvm_string.exit ], [ 9, %slice_strcmp.exit87.i ], [ 7, %slice_strcmp.exit93.i ], [ %.sroa.38.0.i, %._crit_edge.i ]
-  %292 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.158)
+  %.sroa.38.0105.i290 = phi i64 [ 6, %slice_strcmp.exit151 ], [ 8, %slice_strcmp.exit163 ], [ 5, %slice_strcmp.exit160 ], [ 3, %slice_strcmp.exit157 ], [ 0, %vendor_from_llvm_string.exit ], [ 9, %slice_strcmp.exit87.i ], [ 7, %slice_strcmp.exit93.i ], [ %.sroa.38.0.i, %._crit_edge.i ]
+  %292 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.158)
   br i1 %292, label %os_from_llvm_string.exit, label %293
 
 293:                                              ; preds = %slice_strcmp.exit151.thread
-  %294 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.159)
+  %294 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.159)
   br i1 %294, label %os_from_llvm_string.exit, label %295
 
 295:                                              ; preds = %293
-  %296 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.160)
+  %296 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.160)
   br i1 %296, label %os_from_llvm_string.exit, label %297
 
 297:                                              ; preds = %295
-  %298 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.161)
+  %298 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.161)
   br i1 %298, label %os_from_llvm_string.exit, label %299
 
 299:                                              ; preds = %297
-  %300 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.162)
+  %300 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.162)
   br i1 %300, label %os_from_llvm_string.exit, label %301
 
 301:                                              ; preds = %299
-  %302 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.163)
+  %302 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.163)
   br i1 %302, label %os_from_llvm_string.exit, label %303
 
 303:                                              ; preds = %301
-  %304 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.164)
+  %304 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.164)
   br i1 %304, label %os_from_llvm_string.exit, label %305
 
 305:                                              ; preds = %303
-  %306 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.165)
+  %306 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.165)
   br i1 %306, label %os_from_llvm_string.exit, label %307
 
 307:                                              ; preds = %305
-  %308 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.166)
+  %308 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.166)
   br i1 %308, label %os_from_llvm_string.exit, label %309
 
 309:                                              ; preds = %307
-  %310 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.167)
+  %310 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.167)
   br i1 %310, label %os_from_llvm_string.exit, label %311
 
 311:                                              ; preds = %309
-  %312 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.168)
+  %312 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.168)
   br i1 %312, label %os_from_llvm_string.exit, label %313
 
 313:                                              ; preds = %311
-  %314 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.169)
+  %314 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.169)
   br i1 %314, label %os_from_llvm_string.exit, label %315
 
 315:                                              ; preds = %313
-  %316 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.170)
+  %316 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.170)
   br i1 %316, label %os_from_llvm_string.exit, label %317
 
 317:                                              ; preds = %315
-  %318 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.171)
+  %318 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.171)
   br i1 %318, label %os_from_llvm_string.exit, label %319
 
 319:                                              ; preds = %317
-  %320 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.172)
+  %320 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.172)
   br i1 %320, label %os_from_llvm_string.exit, label %321
 
 321:                                              ; preds = %319
-  %322 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.173)
+  %322 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.173)
   br i1 %322, label %os_from_llvm_string.exit, label %323
 
 323:                                              ; preds = %321
-  %324 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.174)
+  %324 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.174)
   br i1 %324, label %os_from_llvm_string.exit, label %325
 
 325:                                              ; preds = %323
-  %326 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.175)
+  %326 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.175)
   br i1 %326, label %os_from_llvm_string.exit, label %327
 
 327:                                              ; preds = %325
-  %328 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.176)
+  %328 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.176)
   br i1 %328, label %os_from_llvm_string.exit, label %329
 
 329:                                              ; preds = %327
-  %330 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.177)
+  %330 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.177)
   br i1 %330, label %os_from_llvm_string.exit, label %331
 
 331:                                              ; preds = %329
-  %332 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.178)
+  %332 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.178)
   br i1 %332, label %os_from_llvm_string.exit, label %333
 
 333:                                              ; preds = %331
-  %334 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.179)
+  %334 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.179)
   br i1 %334, label %os_from_llvm_string.exit, label %335
 
 335:                                              ; preds = %333
-  %336 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.180)
+  %336 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.180)
   br i1 %336, label %os_from_llvm_string.exit, label %337
 
 337:                                              ; preds = %335
-  %338 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0104.i275, ptr noundef nonnull @.str.181)
+  %338 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %261, i64 %.sroa.38.0105.i290, ptr noundef nonnull @.str.181)
   %..i68 = zext i1 %338 to i32
   br label %os_from_llvm_string.exit
 
@@ -1501,40 +1501,40 @@ slice_strcmp.exit169:                             ; preds = %slice_strcmp.exit60
   br i1 %373, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit169.thread:                      ; preds = %._crit_edge.i73, %sub_1256, %sub_0255, %os_from_llvm_string.exit, %slice_strcmp.exit57.i, %slice_strcmp.exit54.i, %slice_strcmp.exit.i75.tail, %slice_strcmp.exit178, %slice_strcmp.exit181, %slice_strcmp.exit172, %slice_strcmp.exit169
-  %.sroa.23.074.i285 = phi i64 [ 5, %slice_strcmp.exit172 ], [ 7, %slice_strcmp.exit169 ], [ 4, %slice_strcmp.exit181 ], [ 6, %slice_strcmp.exit178 ], [ 0, %os_from_llvm_string.exit ], [ 9, %slice_strcmp.exit57.i ], [ 8, %slice_strcmp.exit54.i ], [ 3, %slice_strcmp.exit.i75.tail ], [ 3, %sub_0255 ], [ 3, %sub_1256 ], [ %.sroa.23.0.i, %._crit_edge.i73 ]
-  %374 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.194)
+  %.sroa.23.075.i300 = phi i64 [ 5, %slice_strcmp.exit172 ], [ 7, %slice_strcmp.exit169 ], [ 4, %slice_strcmp.exit181 ], [ 6, %slice_strcmp.exit178 ], [ 0, %os_from_llvm_string.exit ], [ 9, %slice_strcmp.exit57.i ], [ 8, %slice_strcmp.exit54.i ], [ 3, %slice_strcmp.exit.i75.tail ], [ 3, %sub_0255 ], [ 3, %sub_1256 ], [ %.sroa.23.0.i, %._crit_edge.i73 ]
+  %374 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.194)
   br i1 %374, label %environment_type_from_llvm_string.exit, label %375
 
 375:                                              ; preds = %slice_strcmp.exit169.thread
-  %376 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.195)
+  %376 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.195)
   br i1 %376, label %environment_type_from_llvm_string.exit, label %377
 
 377:                                              ; preds = %375
-  %378 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.196)
+  %378 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.196)
   br i1 %378, label %environment_type_from_llvm_string.exit, label %379
 
 379:                                              ; preds = %377
-  %380 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.197)
+  %380 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.197)
   br i1 %380, label %environment_type_from_llvm_string.exit, label %381
 
 381:                                              ; preds = %379
-  %382 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.198)
+  %382 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.198)
   br i1 %382, label %environment_type_from_llvm_string.exit, label %383
 
 383:                                              ; preds = %381
-  %384 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.199)
+  %384 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.199)
   br i1 %384, label %environment_type_from_llvm_string.exit, label %385
 
 385:                                              ; preds = %383
-  %386 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.200)
+  %386 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.200)
   br i1 %386, label %environment_type_from_llvm_string.exit, label %387
 
 387:                                              ; preds = %385
-  %388 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.201)
+  %388 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.201)
   br i1 %388, label %environment_type_from_llvm_string.exit, label %389
 
 389:                                              ; preds = %387
-  %390 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.074.i285, ptr noundef nonnull @.str.202)
+  %390 = call fastcc zeroext i1 @slice_strcmp(ptr readonly %339, i64 %.sroa.23.075.i300, ptr noundef nonnull @.str.202)
   %..i74 = select i1 %390, i32 21, i32 0
   br label %environment_type_from_llvm_string.exit
 
@@ -1877,10 +1877,10 @@ os_target_supports_float128.exit.split:           ; preds = %os_target_supports_
   %434 = select i1 %433, i1 %switch.masked, i1 false
   %or.cond.i = or i1 %431, %434
   %435 = icmp ult i32 %403, 29
-  %switch.cast298 = trunc i32 %403 to i29
-  %switch.downshift300 = lshr i29 -134215552, %switch.cast298
-  %switch.masked301 = trunc i29 %switch.downshift300 to i1
-  %436 = select i1 %435, i1 %switch.masked301, i1 false
+  %switch.cast313 = trunc i32 %403 to i29
+  %switch.downshift315 = lshr i29 -134215552, %switch.cast313
+  %switch.masked316 = trunc i29 %switch.downshift315 to i1
+  %436 = select i1 %435, i1 %switch.masked316, i1 false
   %or.cond5.i = or i1 %431, %436
   br label %437
 
@@ -2464,16 +2464,16 @@ target_setup_arm_abi.exit:                        ; preds = %497, %504, %526, %5
   %565 = ashr i16 %564, 12
   %switch.tableidx = add nsw i16 %565, 1
   %566 = icmp ult i16 %switch.tableidx, 4
-  br i1 %566, label %switch.lookup302, label %568
+  br i1 %566, label %switch.lookup317, label %568
 
-switch.lookup302:                                 ; preds = %559
+switch.lookup317:                                 ; preds = %559
   %567 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep303 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.target_setup.4, i64 0, i64 %567
-  %switch.load304 = load i32, ptr %switch.gep303, align 4
-  store i32 %switch.load304, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 244), align 4
+  %switch.gep318 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.target_setup.4, i64 0, i64 %567
+  %switch.load319 = load i32, ptr %switch.gep318, align 4
+  store i32 %switch.load319, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 244), align 4
   br label %568
 
-568:                                              ; preds = %559, %switch.lookup302
+568:                                              ; preds = %559, %switch.lookup317
   store i32 9, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 56), align 8
   %.pre268 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 36), align 4
   br label %target_setup_x86_abi.exit
@@ -2816,11 +2816,11 @@ default.unreachable.i:                            ; preds = %669
 
 x64features_contains.exit15.i.i:                  ; preds = %686, %683
   %.0.i20.in.i.i = phi i64 [ %689, %686 ], [ %685, %683 ]
-  %.sink8.i11.i.i = phi i64 [ %690, %686 ], [ %indvars.iv.i.i, %683 ]
+  %.sink9.i11.i.i = phi i64 [ %690, %686 ], [ %indvars.iv.i.i, %683 ]
   %.sink.in.i12.i.i = phi ptr [ %677, %686 ], [ %5, %683 ]
   %.0.i20.not.i.i = icmp eq i64 %.0.i20.in.i.i, 0
   %.sink.i13.i.i = load i64, ptr %.sink.in.i12.i.i, align 8
-  %691 = and i64 %.sink8.i11.i.i, 4294967295
+  %691 = and i64 %.sink9.i11.i.i, 4294967295
   %692 = shl nuw i64 1, %691
   %693 = and i64 %.sink.i13.i.i, %692
   %.0.i14.not.i.i = icmp eq i64 %693, 0
@@ -2902,11 +2902,11 @@ x86features_as_diff_to_scratch.exit.i:            ; preds = %699
 
 .sink.split.i:                                    ; preds = %717, %715, %713
   %.sink.i109 = phi i32 [ 64, %713 ], [ 32, %715 ], [ 16, %717 ]
-  %.sink26.i = phi i32 [ 512, %713 ], [ 256, %715 ], [ 128, %717 ]
+  %.sink28.i = phi i32 [ 512, %713 ], [ 256, %715 ], [ 128, %717 ]
   store i32 %.sink.i109, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 268), align 4
   %719 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
   %720 = and i32 %719, -65536
-  %721 = or disjoint i32 %720, %.sink26.i
+  %721 = or disjoint i32 %720, %.sink28.i
   store i32 %721, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 264), align 8
   br label %target_setup_x64_abi.exit
 
@@ -3092,9 +3092,9 @@ arch_os_reloc_default.exit.thread239:             ; preds = %743
   br label %arch_os_reloc_default.exit
 
 751:                                              ; preds = %749
-  %switch.tableidx306 = add i32 %728, -12
-  %752 = icmp ult i32 %switch.tableidx306, 4
-  br i1 %752, label %switch.lookup305, label %arch_os_reloc_default.exit.thread
+  %switch.tableidx321 = add i32 %728, -12
+  %752 = icmp ult i32 %switch.tableidx321, 4
+  br i1 %752, label %switch.lookup320, label %arch_os_reloc_default.exit.thread
 
 753:                                              ; preds = %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749, %749
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1642) #16
@@ -3104,14 +3104,14 @@ arch_os_reloc_default.exit.thread239:             ; preds = %743
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.arch_os_reloc_default, ptr noundef nonnull @.str.18, i32 noundef 1644) #16
   unreachable
 
-switch.lookup305:                                 ; preds = %751
-  %755 = zext nneg i32 %switch.tableidx306 to i64
-  %switch.gep307 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.target_setup.5, i64 0, i64 %755
-  %switch.load308 = load i32, ptr %switch.gep307, align 4
+switch.lookup320:                                 ; preds = %751
+  %755 = zext nneg i32 %switch.tableidx321 to i64
+  %switch.gep322 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.target_setup.5, i64 0, i64 %755
+  %switch.load323 = load i32, ptr %switch.gep322, align 4
   br label %arch_os_reloc_default.exit.thread
 
-arch_os_reloc_default.exit.thread:                ; preds = %751, %switch.lookup305, %743
-  %.0.i117.ph = phi i32 [ 0, %743 ], [ %switch.load308, %switch.lookup305 ], [ 0, %751 ]
+arch_os_reloc_default.exit.thread:                ; preds = %751, %switch.lookup320, %743
+  %.0.i117.ph = phi i32 [ 0, %743 ], [ %switch.load323, %switch.lookup320 ], [ 0, %751 ]
   store i32 %.0.i117.ph, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 228), align 4
   br label %arch_os_pic_default_forced.exit
 

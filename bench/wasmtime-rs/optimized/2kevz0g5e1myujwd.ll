@@ -4553,8 +4553,8 @@ select.unfold.i.i.i:                              ; preds = %.lr.ph258.i.i.i, %1
   unreachable
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2bc2e21d470b22abE.exit.sink.split.i.i.i": ; preds = %289, %263, %262, %118
-  %.lcssa301.sink.i.i.i = phi ptr [ %257, %262 ], [ %121, %118 ], [ %292, %289 ], [ %265, %263 ]
-  %213 = ptrtoint ptr %.lcssa301.sink.i.i.i to i64
+  %.lcssa326.sink.i.i.i = phi ptr [ %257, %262 ], [ %121, %118 ], [ %292, %289 ], [ %265, %263 ]
+  %213 = ptrtoint ptr %.lcssa326.sink.i.i.i to i64
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2bc2e21d470b22abE.exit.i.i.i"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2bc2e21d470b22abE.exit.i.i.i": ; preds = %293, %287, %263, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h2bc2e21d470b22abE.exit.sink.split.i.i.i", %122, %113
@@ -17757,9 +17757,9 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.88822
   br label %372
 
 370:                                              ; preds = %.thread, %362
-  %.sroa.6.155 = phi ptr [ %.sroa.6.0, %.thread ], [ %.sroa.6.1, %362 ]
+  %.sroa.6.173 = phi ptr [ %.sroa.6.0, %.thread ], [ %.sroa.6.1, %362 ]
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.6.155, ptr %371, align 8
+  store ptr %.sroa.6.173, ptr %371, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %372
 

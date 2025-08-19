@@ -249,7 +249,7 @@ define i32 @ff_voc_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %.thread140
 
 .thread140:                                       ; preds = %._crit_edge.thread, %112, %114, %122, %104
-  %.0113.lcssa156160 = phi i32 [ %.1114, %112 ], [ %.1114, %114 ], [ %.1114, %122 ], [ %.1114, %104 ], [ %3, %._crit_edge.thread ]
+  %.0113.lcssa159163 = phi i32 [ %.1114, %112 ], [ %.1114, %114 ], [ %.1114, %122 ], [ %.1114, %104 ], [ %3, %._crit_edge.thread ]
   %123 = phi ptr [ %97, %112 ], [ %97, %114 ], [ %97, %122 ], [ %97, %104 ], [ %18, %._crit_edge.thread ]
   %124 = load i32, ptr %123, align 8, !tbaa !37
   %125 = sext i32 %124 to i64
@@ -263,8 +263,8 @@ define i32 @ff_voc_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %133 = mul nsw i64 %129, %132
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 %133, ptr %134, align 8, !tbaa !46
-  %135 = icmp slt i32 %.0113.lcssa156160, 1
-  %spec.store.select1 = select i1 %135, i32 2048, i32 %.0113.lcssa156160
+  %135 = icmp slt i32 %.0113.lcssa159163, 1
+  %spec.store.select1 = select i1 %135, i32 2048, i32 %.0113.lcssa159163
   %136 = load i64, ptr %6, align 8, !tbaa !34
   %137 = sext i32 %spec.store.select1 to i64
   %138 = tail call i64 @llvm.smin.i64(i64 %136, i64 %137)

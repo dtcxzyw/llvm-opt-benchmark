@@ -1962,28 +1962,28 @@ _ZN7rocksdb12_GLOBAL__N_120SkipListBucketHeaderC2ERKNS_11MemTableRep13KeyCompara
 
 .lr.ph:                                           ; preds = %189
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.051118 = inttoptr i64 %190 to ptr
-  %195 = load atomic i64, ptr %.051118 acquire, align 8
-  %.val119 = load ptr, ptr %194, align 8, !tbaa !101
-  %196 = getelementptr inbounds nuw i8, ptr %.051118, i64 8
-  %197 = load ptr, ptr %.val119, align 8, !tbaa !50
+  %.051128 = inttoptr i64 %190 to ptr
+  %195 = load atomic i64, ptr %.051128 acquire, align 8
+  %.val129 = load ptr, ptr %194, align 8, !tbaa !101
+  %196 = getelementptr inbounds nuw i8, ptr %.051128, i64 8
+  %197 = load ptr, ptr %.val129, align 8, !tbaa !50
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8
-  %200 = call noundef i32 %199(ptr noundef nonnull align 8 dereferenceable(8) %.val119, ptr noundef nonnull %196, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %200 = call noundef i32 %199(ptr noundef nonnull align 8 dereferenceable(8) %.val129, ptr noundef nonnull %196, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %201 = icmp slt i32 %200, 0
-  br i1 %201, label %.lr.ph121, label %._crit_edge
+  br i1 %201, label %.lr.ph131, label %._crit_edge
 
-.lr.ph121:                                        ; preds = %.lr.ph, %204
+.lr.ph131:                                        ; preds = %.lr.ph, %204
   %202 = phi i64 [ %205, %204 ], [ %195, %.lr.ph ]
-  %.051120 = phi ptr [ %.051, %204 ], [ %.051118, %.lr.ph ]
+  %.051130 = phi ptr [ %.051, %204 ], [ %.051128, %.lr.ph ]
   %203 = icmp eq i64 %202, 0
-  br i1 %203, label %._crit_edge.thread107, label %204
+  br i1 %203, label %._crit_edge.thread117, label %204
 
-._crit_edge.thread107:                            ; preds = %.lr.ph121
+._crit_edge.thread117:                            ; preds = %.lr.ph131
   store atomic i64 0, ptr %1 monotonic, align 8
   br label %212
 
-204:                                              ; preds = %.lr.ph121
+204:                                              ; preds = %.lr.ph131
   %.051 = inttoptr i64 %202 to ptr
   %205 = load atomic i64, ptr %.051 acquire, align 8
   %.val = load ptr, ptr %194, align 8, !tbaa !101
@@ -1993,19 +1993,19 @@ _ZN7rocksdb12_GLOBAL__N_120SkipListBucketHeaderC2ERKNS_11MemTableRep13KeyCompara
   %209 = load ptr, ptr %208, align 8
   %210 = call noundef i32 %209(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull %206, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %211 = icmp slt i32 %210, 0
-  br i1 %211, label %.lr.ph121, label %._crit_edge
+  br i1 %211, label %.lr.ph131, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %204, %.lr.ph
-  %.05095.lcssa = phi ptr [ null, %.lr.ph ], [ %.051120, %204 ]
+  %.05095.lcssa = phi ptr [ null, %.lr.ph ], [ %.051130, %204 ]
   %.051.in94.lcssa = phi i64 [ %190, %.lr.ph ], [ %202, %204 ]
   store atomic i64 %.051.in94.lcssa, ptr %1 monotonic, align 8
   %.not = icmp eq ptr %.05095.lcssa, null
   br i1 %.not, label %214, label %212
 
-212:                                              ; preds = %._crit_edge.thread107, %._crit_edge
-  %.050.lcssa111 = phi ptr [ %.051120, %._crit_edge.thread107 ], [ %.05095.lcssa, %._crit_edge ]
+212:                                              ; preds = %._crit_edge.thread117, %._crit_edge
+  %.050.lcssa121 = phi ptr [ %.051130, %._crit_edge.thread117 ], [ %.05095.lcssa, %._crit_edge ]
   %213 = ptrtoint ptr %1 to i64
-  store atomic i64 %213, ptr %.050.lcssa111 release, align 8
+  store atomic i64 %213, ptr %.050.lcssa121 release, align 8
   br label %216
 
 214:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -2856,24 +2856,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   br label %154
 
 146:                                              ; preds = %139, %135
-  %.sink106 = phi ptr [ %136, %135 ], [ %143, %139 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIteratorE, i64 16), ptr %.sink106, align 8, !tbaa !50
-  %147 = getelementptr inbounds nuw i8, ptr %.sink106, i64 8
+  %.sink115 = phi ptr [ %136, %135 ], [ %143, %139 ]
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIteratorE, i64 16), ptr %.sink115, align 8, !tbaa !50
+  %147 = getelementptr inbounds nuw i8, ptr %.sink115, i64 8
   store ptr %15, ptr %147, align 8, !tbaa !132
-  %148 = getelementptr inbounds nuw i8, ptr %.sink106, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %.sink115, i64 16
   store ptr null, ptr %148, align 8, !tbaa !135
-  %149 = getelementptr inbounds nuw i8, ptr %.sink106, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %.sink115, i64 24
   store ptr %15, ptr %149, align 8, !tbaa !136
-  %150 = getelementptr inbounds nuw i8, ptr %.sink106, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %.sink115, i64 32
   store ptr %6, ptr %150, align 8, !tbaa !137
-  %151 = getelementptr inbounds nuw i8, ptr %.sink106, i64 40
-  %152 = getelementptr inbounds nuw i8, ptr %.sink106, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %.sink115, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %.sink115, i64 56
   store ptr %152, ptr %151, align 8, !tbaa !68
-  %153 = getelementptr inbounds nuw i8, ptr %.sink106, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %.sink115, i64 48
   store i64 0, ptr %153, align 8, !tbaa !16
   store i8 0, ptr %152, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.sink106
+  ret ptr %.sink115
 
 154:                                              ; preds = %82, %100, %93, %144, %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56
   %.pn46.pn = phi { ptr, i32 } [ %138, %137 ], [ %145, %144 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ], [ %101, %100 ], [ %94, %93 ], [ %83, %82 ]
@@ -2902,17 +2902,17 @@ define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep24GetDyna
   br label %11
 
 11:                                               ; preds = %6, %4
-  %.sink11 = phi ptr [ %10, %6 ], [ %5, %4 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
+  %.sink12 = phi ptr [ %10, %6 ], [ %5, %4 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr %0, ptr %12, align 8, !tbaa !138
-  %13 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorE, i64 16), ptr %.sink11, align 8, !tbaa !50
-  %14 = getelementptr inbounds nuw i8, ptr %.sink11, i64 32
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorE, i64 16), ptr %.sink12, align 8, !tbaa !50
+  %14 = getelementptr inbounds nuw i8, ptr %.sink12, i64 32
   store ptr %0, ptr %14, align 8, !tbaa !143
-  %15 = getelementptr inbounds nuw i8, ptr %.sink11, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.sink12, i64 40
   store ptr null, ptr %15, align 8, !tbaa !144
-  ret ptr %.sink11
+  ret ptr %.sink12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

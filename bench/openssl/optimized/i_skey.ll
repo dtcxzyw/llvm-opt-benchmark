@@ -202,8 +202,8 @@ define void @IDEA_set_decrypt_key(ptr noundef readonly captures(none) %0, ptr no
   %15 = sub nsw i64 %.034.i, %14
   %16 = sdiv i64 %15, %.02331.i
   %17 = mul nsw i64 %16, %.12033.i
-  %.fr37.i = freeze i64 %17
-  %18 = sub i64 %.02132.i, %.fr37.i
+  %.fr38.i = freeze i64 %17
+  %18 = sub i64 %.02132.i, %.fr38.i
   %19 = urem i64 %.02331.i, %14
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.thread.i, label %.lr.ph.i, !llvm.loop !10
@@ -255,8 +255,8 @@ inverse.exit:                                     ; preds = %7, %.thread.i, %4
   %43 = sub nsw i64 %.034.i32, %42
   %44 = sdiv i64 %43, %.02331.i35
   %45 = mul nsw i64 %44, %.12033.i33
-  %.fr37.i36 = freeze i64 %45
-  %46 = sub i64 %.02132.i34, %.fr37.i36
+  %.fr38.i36 = freeze i64 %45
+  %46 = sub i64 %.02132.i34, %.fr38.i36
   %47 = urem i64 %.02331.i35, %42
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %.thread.i37, label %.lr.ph.i31, !llvm.loop !10

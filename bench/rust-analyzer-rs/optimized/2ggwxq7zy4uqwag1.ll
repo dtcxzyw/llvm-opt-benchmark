@@ -119,7 +119,7 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %8
 
@@ -130,7 +130,7 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
 
 8:                                                ; preds = %.lr.ph, %"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash$GT$4hash17hb3a73666996a02d8E.llvm.14405210946879359481.exit"
   %.sroa.0.0.copyload = load i8, ptr %4, align 8
-  %.sroa.411.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8
+  %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %9 = add nsw i8 %.sroa.0.0.copyload, -6
@@ -153,7 +153,7 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
   br label %"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash$GT$4hash17hb3a73666996a02d8E.llvm.14405210946879359481.exit"
 
 19:                                               ; preds = %8
-  %20 = icmp ne ptr %.sroa.411.0.copyload, null
+  %20 = icmp ne ptr %.sroa.412.0.copyload, null
   call void @llvm.assume(i1 %20)
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
@@ -163,12 +163,12 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %19
   %.0.lcssa.i.i.i = phi i64 [ %17, %19 ], [ %25, %.lr.ph.i.i.i ]
   %.sroa.11.0.lcssa.i.i.i = phi i64 [ %.sroa.5.0.copyload, %19 ], [ %26, %.lr.ph.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sroa.411.0.copyload, %19 ], [ %27, %.lr.ph.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i = phi ptr [ %.sroa.412.0.copyload, %19 ], [ %27, %.lr.ph.i.i.i ]
   %22 = icmp samesign ugt i64 %.sroa.11.0.lcssa.i.i.i, 3
   br i1 %22, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1618df65bf282d35E.exit.i.i.i", label %35
 
 .lr.ph.i.i.i:                                     ; preds = %19, %.lr.ph.i.i.i
-  %.sroa.0.079.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %.sroa.411.0.copyload, %19 ]
+  %.sroa.0.079.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i ], [ %.sroa.412.0.copyload, %19 ]
   %.sroa.11.078.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i ], [ %.sroa.5.0.copyload, %19 ]
   %.077.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %17, %19 ]
   %.val.i.i.i.i.i = load i64, ptr %.sroa.0.079.i.i.i, align 1, !alias.scope !46, !noalias !53
@@ -248,7 +248,7 @@ define hidden void @"_ZN54_$LT$std..path..Prefix$u20$as$u20$core..hash..Hash$GT$
   %7 = xor i64 %6, %4
   %8 = mul i64 %7, 5871781006564002453
   store i64 %8, ptr %1, align 8, !alias.scope !69
-  switch i8 %3, label %default.unreachable145 [
+  switch i8 %3, label %default.unreachable161 [
     i8 0, label %9
     i8 1, label %46
     i8 2, label %119
@@ -257,7 +257,7 @@ define hidden void @"_ZN54_$LT$std..path..Prefix$u20$as$u20$core..hash..Hash$GT$
     i8 5, label %236
   ]
 
-default.unreachable145:                           ; preds = %2
+default.unreachable161:                           ; preds = %2
   unreachable
 
 9:                                                ; preds = %2

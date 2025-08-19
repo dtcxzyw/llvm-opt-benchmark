@@ -646,14 +646,14 @@ Vec_IntAlloc.exit:                                ; preds = %1, %7
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %33, %35, %25, %27
-  %.sink11 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
+  %.sink12 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
   %.sink = phi i32 [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
-  store ptr %.sink11, ptr %12, align 8, !tbaa !37
+  store ptr %.sink12, ptr %12, align 8, !tbaa !37
   store i32 %.sink, ptr %4, align 8, !tbaa !36
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %15
-  %.pre.i10 = phi ptr [ %16, %15 ], [ %.sink11, %Vec_IntPush.exit.sink.split ]
+  %.pre.i10 = phi ptr [ %16, %15 ], [ %.sink12, %Vec_IntPush.exit.sink.split ]
   %37 = add nsw i32 %19, 1
   store i32 %37, ptr %6, align 4, !tbaa !33
   %38 = sext i32 %19 to i64
@@ -5473,22 +5473,22 @@ Vec_PtrFree.exit.i:                               ; preds = %124, %121
 
 .critedge.i.thread:                               ; preds = %125, %.critedge.thread
   %126 = phi ptr [ %.pre, %.critedge.thread ], [ %.val8.i65, %125 ]
-  %.val9195 = phi i32 [ 0, %.critedge.thread ], [ %112, %125 ]
+  %.val101105 = phi i32 [ 0, %.critedge.thread ], [ %112, %125 ]
   tail call void @free(ptr noundef nonnull %126) #25
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.thread, %.critedge.i.thread
-  %.val9196 = phi i32 [ 0, %.critedge.thread ], [ %.val9195, %.critedge.i.thread ]
+  %.val101106 = phi i32 [ 0, %.critedge.thread ], [ %.val101105, %.critedge.i.thread ]
   tail call void @free(ptr noundef nonnull %5) #25
   %127 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #25
   %128 = tail call i32 @Cmd_CommandExecute(ptr noundef %127, ptr noundef nonnull @.str.15) #25
   %129 = tail call ptr @Abc_NtkPartStitchChoices(ptr noundef %4, ptr noundef nonnull %13)
-  %130 = icmp sgt i32 %.val9196, 0
+  %130 = icmp sgt i32 %.val101106, 0
   %.pre89 = load ptr, ptr %21, align 8, !tbaa !15
   br i1 %130, label %.lr.ph77, label %.critedge4
 
 .lr.ph77:                                         ; preds = %Vec_VecFree.exit
-  %wide.trip.count86 = zext nneg i32 %.val9196 to i64
+  %wide.trip.count86 = zext nneg i32 %.val101106 to i64
   br label %131
 
 131:                                              ; preds = %.lr.ph77, %131
@@ -5710,21 +5710,21 @@ Vec_PtrFree.exit.i:                               ; preds = %73, %70
 
 .critedge.i.thread:                               ; preds = %74, %.critedge.i
   %75 = phi ptr [ %.pre, %.critedge.i ], [ %.val8.i, %74 ]
-  %.val5660 = phi i32 [ 0, %.critedge.i ], [ %60, %74 ]
+  %.val6266 = phi i32 [ 0, %.critedge.i ], [ %60, %74 ]
   call void @free(ptr noundef nonnull %75) #25
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i, %.critedge.i.thread
-  %.val5661 = phi i32 [ 0, %.critedge.i ], [ %.val5660, %.critedge.i.thread ]
+  %.val6267 = phi i32 [ 0, %.critedge.i ], [ %.val6266, %.critedge.i.thread ]
   call void @free(ptr noundef nonnull %11) #25
   %76 = call ptr (...) @Abc_FrameGetGlobalFrame() #25
   %77 = call i32 @Cmd_CommandExecute(ptr noundef %76, ptr noundef nonnull @.str.15) #25
-  %78 = icmp sgt i32 %.val5661, 0
+  %78 = icmp sgt i32 %.val6267, 0
   %.pre54 = load ptr, ptr %27, align 8, !tbaa !15
   br i1 %78, label %.lr.ph45, label %.critedge2
 
 .lr.ph45:                                         ; preds = %Vec_VecFree.exit
-  %wide.trip.count51 = zext nneg i32 %.val5661 to i64
+  %wide.trip.count51 = zext nneg i32 %.val6267 to i64
   br label %79
 
 79:                                               ; preds = %.lr.ph45, %79

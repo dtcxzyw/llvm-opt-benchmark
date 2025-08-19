@@ -210,15 +210,15 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile5writeEPKvm(ptr noundef non
   br i1 %.not20, label %29, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.015.lcssa31 = phi ptr [ %20, %._crit_edge ], [ %1, %4 ]
-  %.016.lcssa30 = phi i64 [ %21, %._crit_edge ], [ %2, %4 ]
+  %.015.lcssa33 = phi ptr [ %20, %._crit_edge ], [ %1, %4 ]
+  %.016.lcssa32 = phi i64 [ %21, %._crit_edge ], [ %2, %4 ]
   %23 = phi i64 [ 0, %._crit_edge ], [ %8, %4 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %.015.lcssa31, i64 %.016.lcssa30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %.015.lcssa33, i64 %.016.lcssa32, i1 false)
   %27 = load i64, ptr %7, align 8
-  %28 = add i64 %27, %.016.lcssa30
+  %28 = add i64 %27, %.016.lcssa32
   store i64 %28, ptr %7, align 8
   br label %29
 
@@ -281,15 +281,15 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr noundef nonnu
   br i1 %.not23, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %23, %._crit_edge
-  %.017.lcssa38 = phi ptr [ %1, %._crit_edge ], [ %24, %23 ]
-  %.018.lcssa37 = phi i64 [ %2, %._crit_edge ], [ %22, %23 ]
+  %.017.lcssa41 = phi ptr [ %1, %._crit_edge ], [ %24, %23 ]
+  %.018.lcssa40 = phi i64 [ %2, %._crit_edge ], [ %22, %23 ]
   %25 = phi i64 [ %8, %._crit_edge ], [ 0, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017.lcssa38, ptr align 1 %28, i64 %.018.lcssa37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017.lcssa41, ptr align 1 %28, i64 %.018.lcssa40, i1 false)
   %29 = load i64, ptr %7, align 8
-  %30 = add i64 %29, %.018.lcssa37
+  %30 = add i64 %29, %.018.lcssa40
   store i64 %30, ptr %7, align 8
   br label %.loopexit
 

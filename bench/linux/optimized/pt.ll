@@ -1654,7 +1654,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
   %20 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %21 = and i64 %20, 32
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.preheader1, label %23
+  br i1 %22, label %.preheader2, label %23
 
 23:                                               ; preds = %19
   %24 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1157) #19, !srcloc !14
@@ -1672,18 +1672,18 @@ define internal fastcc noundef range(i32 -12, 1) i32 @pt_pmu_hw_init() unnamed_a
 30:                                               ; preds = %26, %23
   %31 = and i64 %25, 16384
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.preheader1, label %33
+  br i1 %32, label %.preheader2, label %33
 
 33:                                               ; preds = %30
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @pt_pmu, i64 336), align 8
-  br label %.preheader1
+  br label %.preheader2
 
-.preheader1:                                      ; preds = %33, %30, %19
+.preheader2:                                      ; preds = %33, %30, %19
   br label %34
 
-34:                                               ; preds = %.preheader1, %34
-  %35 = phi i1 [ false, %34 ], [ true, %.preheader1 ]
-  %36 = phi i64 [ 1, %34 ], [ 0, %.preheader1 ]
+34:                                               ; preds = %.preheader2, %34
+  %35 = phi i1 [ false, %34 ], [ true, %.preheader2 ]
+  %36 = phi i64 [ 1, %34 ], [ 0, %.preheader2 ]
   %37 = trunc nuw nsw i64 %36 to i32
   %38 = shl nuw nsw i64 %36, 2
   %39 = getelementptr %struct.pt_pmu, ptr @pt_pmu, i64 0, i32 1, i64 %38

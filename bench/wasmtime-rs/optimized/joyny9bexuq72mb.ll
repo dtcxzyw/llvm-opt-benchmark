@@ -34425,7 +34425,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0850004883fddc00E.exit.thre
           cleanup
   br label %.body.i
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %279, %.invoke127.i, %.invoke.i, %207
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %279, %.invoke139.i, %.invoke.i, %207
   %lpad.loopexit.split-lp.i24 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -34544,15 +34544,15 @@ _ZN14wasmtime_types9TypeTrace30canonicalize_for_runtime_usage17h43ab1400641c6981
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 296
   %231 = load i64, ptr %230, align 8, !alias.scope !14166, !noalias !14169, !noundef !16
   %232 = icmp ult i64 %210, %231
-  br i1 %232, label %235, label %.invoke127.i, !prof !13119
+  br i1 %232, label %235, label %.invoke139.i, !prof !13119
 
-.invoke127.i:                                     ; preds = %271, %229
+.invoke139.i:                                     ; preds = %271, %229
   %233 = phi i64 [ %231, %229 ], [ %272, %271 ]
   %234 = phi ptr [ @anon.08b2c2ba86c6ef4134de2747b1432f05.408, %229 ], [ @anon.99edeac83e7bf69e7d9a0be5913f3128.336.llvm.15361297093319246575, %271 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %210, i64 noundef %233, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %234) #40
-          to label %.cont128.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
+          to label %.cont140.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-.cont128.i:                                       ; preds = %.invoke127.i
+.cont140.i:                                       ; preds = %.invoke139.i
   unreachable
 
 235:                                              ; preds = %229
@@ -34686,7 +34686,7 @@ _ZN14wasmtime_types9TypeTrace30canonicalize_for_runtime_usage17h43ab1400641c6981
 271:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$wasmtime..runtime..types..TableType$GT$17h35337c4c84c3359cE.exit10.i.i.i"
   %272 = load i64, ptr %230, align 8, !alias.scope !14226, !noalias !14229, !noundef !16
   %273 = icmp ult i64 %210, %272
-  br i1 %273, label %"_ZN140_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..Index$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$5index17hec8e4bd2b79b0559E.llvm.15361297093319246575.exit.i.i", label %.invoke127.i, !prof !13119
+  br i1 %273, label %"_ZN140_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..Index$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$5index17hec8e4bd2b79b0559E.llvm.15361297093319246575.exit.i.i", label %.invoke139.i, !prof !13119
 
 "_ZN140_$LT$wasmtime..runtime..store..data..StoreData$u20$as$u20$core..ops..index..Index$LT$wasmtime..runtime..store..data..Stored$LT$T$GT$$GT$$GT$5index17hec8e4bd2b79b0559E.llvm.15361297093319246575.exit.i.i": ; preds = %271
   %274 = load ptr, ptr %236, align 8, !alias.scope !14226, !noalias !14229, !nonnull !16, !noundef !16
@@ -34895,7 +34895,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime5store11StoreOpaque17trace_vmc
           to label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..types..GlobalType$GT$17h05e7357358a15127E.exit.i" unwind label %69, !noalias !14258
 
 20:                                               ; preds = %3
-  switch i64 %13, label %default.unreachable.i.i [
+  switch i64 %13, label %default.unreachable [
     i64 0, label %22
     i64 4, label %22
     i64 2, label %"_ZN4core3ptr57drop_in_place$LT$wasmtime..runtime..types..GlobalType$GT$17h05e7357358a15127E.exit8.sink.split.i"
@@ -34905,7 +34905,7 @@ define internal fastcc void @"_ZN8wasmtime7runtime5store11StoreOpaque17trace_vmc
     i64 6, label %_ZN8wasmtime7runtime9externals6global6Global10trace_root17hb1f7144fad3372d9E.exit
   ]
 
-default.unreachable.i.i:                          ; preds = %20
+default.unreachable:                              ; preds = %20
   unreachable
 
 thread-pre-split.i:                               ; preds = %_ZN16wasmtime_runtime2gc10gc_runtime11GcRootsList8add_root17hdcae7c09706e0b96E.exit.i, %43
@@ -35994,7 +35994,7 @@ define hidden void @_ZN8wasmtime7runtime5store11StoreOpaque10wasm_fault17h3a807c
   br label %32
 
 ._crit_edge:                                      ; preds = %34
-  br i1 %.not16, label %._crit_edge.thread, label %._crit_edge.thread40
+  br i1 %.not16, label %._crit_edge.thread, label %._crit_edge.thread41
 
 21:                                               ; preds = %.outer, %34
   %.sroa.0.01825 = phi ptr [ %22, %34 ], [ %.sroa.0.01825.ph, %.outer ]
@@ -36006,14 +36006,14 @@ define hidden void @_ZN8wasmtime7runtime5store11StoreOpaque10wasm_fault17h3a807c
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %34, label %33
 
-._crit_edge.thread40:                             ; preds = %.thread, %._crit_edge
-  %.sroa.7.sroa.0.13745 = phi i64 [ %.sroa.7.sroa.0.026.ph, %._crit_edge ], [ %37, %.thread ]
-  %.sroa.7.sroa.4.13844 = phi i64 [ %.sroa.7.sroa.4.027.ph, %._crit_edge ], [ %36, %.thread ]
+._crit_edge.thread41:                             ; preds = %.thread, %._crit_edge
+  %.sroa.7.sroa.0.13846 = phi i64 [ %.sroa.7.sroa.0.026.ph, %._crit_edge ], [ %37, %.thread ]
+  %.sroa.7.sroa.4.13945 = phi i64 [ %.sroa.7.sroa.4.027.ph, %._crit_edge ], [ %36, %.thread ]
   store i64 1, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.sroa.0.13745, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.7.sroa.0.13846, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.7.sroa.4.13844, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.7.sroa.4.13945, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   br label %32
 
 ._crit_edge.thread:                               ; preds = %11, %._crit_edge
@@ -36041,7 +36041,7 @@ define hidden void @_ZN8wasmtime7runtime5store11StoreOpaque10wasm_fault17h3a807c
   call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #40
   unreachable
 
-32:                                               ; preds = %._crit_edge.thread40, %20
+32:                                               ; preds = %._crit_edge.thread41, %20
   ret void
 
 33:                                               ; preds = %21
@@ -36057,7 +36057,7 @@ define hidden void @_ZN8wasmtime7runtime5store11StoreOpaque10wasm_fault17h3a807c
   %37 = load i64, ptr %19, align 8, !noundef !16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = icmp eq ptr %22, %16
-  br i1 %38, label %._crit_edge.thread40, label %.outer
+  br i1 %38, label %._crit_edge.thread41, label %.outer
 
 39:                                               ; preds = %33
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.08b2c2ba86c6ef4134de2747b1432f05.564, i64 noundef 33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.08b2c2ba86c6ef4134de2747b1432f05.565) #40

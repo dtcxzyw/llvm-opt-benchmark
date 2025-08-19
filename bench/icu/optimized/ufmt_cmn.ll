@@ -334,7 +334,7 @@ _Z15ufmt_isdigit_77Dsi.exit:                      ; preds = %.lr.ph
   %.neg18.i.i = select i1 %21, i32 %.neg.i.i, i32 0
   %23 = add nsw i32 %20, %.neg18.i.i
   %24 = icmp ugt i32 %23, 15
-  br i1 %24, label %.critedge2.loopexit.split.loop.exit66, label %25
+  br i1 %24, label %.critedge2.loopexit.split.loop.exit68, label %25
 
 25:                                               ; preds = %_Z15ufmt_isdigit_77Dsi.exit
   %indvars.iv.next58 = add nuw i64 %indvars.iv57, 1
@@ -345,12 +345,12 @@ _Z15ufmt_isdigit_77Dsi.exit:                      ; preds = %.lr.ph
   %26 = trunc nuw nsw i64 %indvars.iv57 to i32
   br label %.critedge2
 
-.critedge2.loopexit.split.loop.exit66:            ; preds = %_Z15ufmt_isdigit_77Dsi.exit
+.critedge2.loopexit.split.loop.exit68:            ; preds = %_Z15ufmt_isdigit_77Dsi.exit
   %27 = trunc nuw nsw i64 %indvars.iv57 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %25, %.critedge2.loopexit.split.loop.exit, %.critedge2.loopexit.split.loop.exit66, %.preheader
-  %.132.lcssa = phi i32 [ %indvars56.le, %.preheader ], [ %26, %.critedge2.loopexit.split.loop.exit ], [ %27, %.critedge2.loopexit.split.loop.exit66 ], [ %11, %25 ]
+.critedge2:                                       ; preds = %25, %.critedge2.loopexit.split.loop.exit, %.critedge2.loopexit.split.loop.exit68, %.preheader
+  %.132.lcssa = phi i32 [ %indvars56.le, %.preheader ], [ %26, %.critedge2.loopexit.split.loop.exit ], [ %27, %.critedge2.loopexit.split.loop.exit68 ], [ %11, %25 ]
   %28 = sub nsw i32 %.132.lcssa, %indvars56.le
   %29 = icmp sgt i32 %28, 16
   %30 = add nsw i32 %.132.lcssa, -16

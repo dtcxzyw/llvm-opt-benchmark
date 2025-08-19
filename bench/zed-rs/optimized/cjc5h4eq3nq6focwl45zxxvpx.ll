@@ -5501,7 +5501,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$$u5b$gpui..subscrip
   br label %2
 
 2:                                                ; preds = %1, %"_ZN4core3ptr53drop_in_place$LT$gpui..subscription..Subscription$GT$17h1140f60000c93446E.exit"
-  %.sroa.0.012 = phi i64 [ 0, %1 ], [ %4, %"_ZN4core3ptr53drop_in_place$LT$gpui..subscription..Subscription$GT$17h1140f60000c93446E.exit" ]
+  %.sroa.0.012 = phi i64 [ 0, %1 ], [ 1, %"_ZN4core3ptr53drop_in_place$LT$gpui..subscription..Subscription$GT$17h1140f60000c93446E.exit" ]
   %3 = getelementptr inbounds nuw [2 x { { ptr, [1 x i64] } }], ptr %0, i64 0, i64 %.sroa.0.012
   %4 = add nuw nsw i64 %.sroa.0.012, 1
   invoke void @"_ZN74_$LT$gpui..subscription..Subscription$u20$as$u20$core..ops..drop..Drop$GT$4drop17h97a0713dc4b14940E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
@@ -5987,7 +5987,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   br i1 %25, label %26, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h15fc43240887db87E.exit.thread.i.i"
 
 26:                                               ; preds = %24
-  switch i8 %8, label %default.unreachable63.i.i.i.i.i.i [
+  switch i8 %8, label %default.unreachable [
     i8 0, label %27
     i8 1, label %32
     i8 2, label %36
@@ -5996,7 +5996,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
     i8 5, label %47
   ]
 
-default.unreachable63.i.i.i.i.i.i:                ; preds = %26
+default.unreachable:                              ; preds = %26
   unreachable
 
 27:                                               ; preds = %26
@@ -15695,7 +15695,7 @@ define internal fastcc { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19t
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3890894db4aebd0eE.exit": ; preds = %14, %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !3078, !noalias !3081, !nonnull !16, !noundef !16
-  %22 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %21, i64 %8
+  %22 = getelementptr inbounds nuw { { [1 x i64] }, i32, [1 x i32] }, ptr %21, i64 %8
   store i64 1, ptr %22, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -15885,7 +15885,7 @@ define hidden void @"_ZN83_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2ab696809a80c277E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2ab696809a80c277E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !16
   %4 = icmp eq ptr %3, null
@@ -15918,7 +15918,7 @@ define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(184) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h541a159d813b58b5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(184) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h541a159d813b58b5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !16
   %4 = icmp eq ptr %3, null
@@ -15951,7 +15951,7 @@ define hidden noundef align 8 dereferenceable(184) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(144) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc9b0fe0730c07de0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(144) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc9b0fe0730c07de0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !16
   %4 = icmp eq ptr %3, null
@@ -15984,7 +15984,7 @@ define hidden noundef align 8 dereferenceable(144) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hdcf8dad225e85eb0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hdcf8dad225e85eb0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !16
   %4 = icmp eq ptr %3, null
@@ -16783,13 +16783,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8, !range !1229, !noundef !16
-  switch i8 %6, label %default.unreachable2 [
+  switch i8 %6, label %default.unreachable3 [
     i8 0, label %7
     i8 1, label %30
     i8 2, label %31
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -16913,13 +16913,13 @@ define hidden void @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$17h23fd38
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8, !range !1229, !noundef !16
-  switch i8 %8, label %default.unreachable1 [
+  switch i8 %8, label %default.unreachable2 [
     i8 0, label %9
     i8 1, label %34
     i8 2, label %35
   ]
 
-default.unreachable1:                             ; preds = %3
+default.unreachable2:                             ; preds = %3
   unreachable
 
 9:                                                ; preds = %3
@@ -17013,13 +17013,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8, !range !1229, !noundef !16
-  switch i8 %7, label %default.unreachable2 [
+  switch i8 %7, label %default.unreachable3 [
     i8 0, label %8
     i8 1, label %33
     i8 2, label %34
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -17311,13 +17311,13 @@ define hidden void @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$17h803eea
   %7 = alloca [24 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i8, ptr %8, align 8, !range !1229, !noundef !16
-  switch i8 %9, label %default.unreachable1 [
+  switch i8 %9, label %default.unreachable2 [
     i8 0, label %10
     i8 1, label %32
     i8 2, label %33
   ]
 
-default.unreachable1:                             ; preds = %3
+default.unreachable2:                             ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -17486,13 +17486,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8, !range !1229, !noundef !16
-  switch i8 %7, label %default.unreachable2 [
+  switch i8 %7, label %default.unreachable3 [
     i8 0, label %8
     i8 1, label %33
     i8 2, label %34
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -17580,13 +17580,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8, !range !1229, !noundef !16
-  switch i8 %7, label %default.unreachable2 [
+  switch i8 %7, label %default.unreachable3 [
     i8 0, label %8
     i8 1, label %33
     i8 2, label %34
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -17674,13 +17674,13 @@ define hidden void @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$17h9a01eb
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8, !range !1229, !noundef !16
-  switch i8 %8, label %default.unreachable1 [
+  switch i8 %8, label %default.unreachable2 [
     i8 0, label %9
     i8 1, label %34
     i8 2, label %35
   ]
 
-default.unreachable1:                             ; preds = %3
+default.unreachable2:                             ; preds = %3
   unreachable
 
 9:                                                ; preds = %3
@@ -17773,13 +17773,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8, !range !1229, !noundef !16
-  switch i8 %6, label %default.unreachable2 [
+  switch i8 %6, label %default.unreachable3 [
     i8 0, label %7
     i8 1, label %31
     i8 2, label %32
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -17862,13 +17862,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8, !range !1229, !noundef !16
-  switch i8 %7, label %default.unreachable2 [
+  switch i8 %7, label %default.unreachable3 [
     i8 0, label %8
     i8 1, label %33
     i8 2, label %34
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -18076,13 +18076,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8, !range !1229, !noundef !16
-  switch i8 %6, label %default.unreachable2 [
+  switch i8 %6, label %default.unreachable3 [
     i8 0, label %7
     i8 1, label %30
     i8 2, label %31
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -18207,13 +18207,13 @@ define hidden void @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$17hddf0e5
   %7 = alloca [40 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i8, ptr %8, align 8, !range !1229, !noundef !16
-  switch i8 %9, label %default.unreachable1 [
+  switch i8 %9, label %default.unreachable2 [
     i8 0, label %10
     i8 1, label %33
     i8 2, label %34
   ]
 
-default.unreachable1:                             ; preds = %3
+default.unreachable2:                             ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -26629,14 +26629,14 @@ define internal { i64, ptr } @"_ZN7copilot7Copilot17accept_completion28_$u7b$$u7
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load i8, ptr %6, align 8, !range !203, !noundef !16
-  switch i8 %7, label %default.unreachable20 [
+  switch i8 %7, label %default.unreachable22 [
     i8 0, label %9
     i8 1, label %11
     i8 2, label %12
     i8 3, label %8
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable22:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -26935,14 +26935,14 @@ define hidden { i64, ptr } @"_ZN7copilot7Copilot19discard_completions28_$u7b$$u7
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load i8, ptr %6, align 8, !range !203, !noundef !16
-  switch i8 %7, label %default.unreachable20 [
+  switch i8 %7, label %default.unreachable22 [
     i8 0, label %9
     i8 1, label %11
     i8 2, label %12
     i8 3, label %8
   ]
 
-default.unreachable20:                            ; preds = %2
+default.unreachable22:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -28081,7 +28081,7 @@ define internal void @"_ZN7copilot7Copilot19request_completions28_$u7b$$u7b$clos
   %17 = alloca [368 x i8], align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 141
   %19 = load i8, ptr %18, align 1, !range !952, !noundef !16
-  switch i8 %19, label %default.unreachable90 [
+  switch i8 %19, label %default.unreachable97 [
     i8 0, label %22
     i8 1, label %27
     i8 2, label %28
@@ -28089,7 +28089,7 @@ define internal void @"_ZN7copilot7Copilot19request_completions28_$u7b$$u7b$clos
     i8 4, label %21
   ]
 
-default.unreachable90:                            ; preds = %3
+default.unreachable97:                            ; preds = %3
   unreachable
 
 20:                                               ; preds = %3
@@ -28659,7 +28659,7 @@ define internal void @"_ZN7copilot7Copilot19request_completions28_$u7b$$u7b$clos
   %17 = alloca [368 x i8], align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 141
   %19 = load i8, ptr %18, align 1, !range !952, !noundef !16
-  switch i8 %19, label %default.unreachable90 [
+  switch i8 %19, label %default.unreachable97 [
     i8 0, label %22
     i8 1, label %27
     i8 2, label %28
@@ -28667,7 +28667,7 @@ define internal void @"_ZN7copilot7Copilot19request_completions28_$u7b$$u7b$clos
     i8 4, label %21
   ]
 
-default.unreachable90:                            ; preds = %3
+default.unreachable97:                            ; preds = %3
   unreachable
 
 20:                                               ; preds = %3
@@ -29407,12 +29407,12 @@ define void @_ZN7copilot7Copilot21update_sign_in_status17heb075719d54e4479E(ptr 
   %switch = icmp eq i64 %25, 0
   br i1 %switch, label %28, label %.thread
 
-default.unreachable180:                           ; preds = %28
+default.unreachable183:                           ; preds = %28
   unreachable
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %1, align 8, !range !84, !noundef !16
-  switch i64 %29, label %default.unreachable180 [
+  switch i64 %29, label %default.unreachable183 [
     i64 0, label %32
     i64 1, label %36
     i64 2, label %36

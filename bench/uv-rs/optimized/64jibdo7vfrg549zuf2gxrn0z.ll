@@ -1758,8 +1758,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h0791f778
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   store i64 1, ptr %6, align 8, !alias.scope !177, !noalias !174
-  %.sroa.03.0.copyload432 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !179
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !179
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -1780,11 +1780,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h0791f778
   br i1 %13, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 3, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit" ]
-  %14 = sub nuw i64 %.lcssa29, %.lcssa26
-  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa26
-  %16 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 3, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit" ]
+  %14 = sub nuw i64 %.lcssa34, %.lcssa31
+  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa31
+  %16 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %16, label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$3_usize$GT$$GT$17h836ff808ffddc6c9E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -1834,10 +1834,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h0791f778
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph" ]
   %36 = phi ptr [ %12, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit" ], [ %.sroa.5.0..sroa_idx, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d28202ca442123dE.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1889,8 +1889,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h2afda4ce
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   store i64 1, ptr %6, align 8, !alias.scope !208, !noalias !205
-  %.sroa.03.0.copyload432 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !210
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !210
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -1911,11 +1911,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h2afda4ce
   br i1 %13, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 15, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit" ]
-  %14 = sub nuw i64 %.lcssa29, %.lcssa26
-  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa26
-  %16 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 15, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit" ]
+  %14 = sub nuw i64 %.lcssa34, %.lcssa31
+  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa31
+  %16 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %16, label %"_ZN4core3ptr93drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$15_usize$GT$$GT$17h65add7489d050febE.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -1965,10 +1965,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h2afda4ce
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph" ]
   %36 = phi ptr [ %12, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit" ], [ %.sroa.5.0..sroa_idx, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf052ea1c2063bdc4E.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2020,8 +2020,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h319c363f
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !239, !noalias !236
-  %.sroa.03.0.copyload432 = load i64, ptr %6, align 8, !alias.scope !241
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %6, align 8, !alias.scope !241
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -2042,11 +2042,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h319c363f
   br i1 %13, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 20, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit" ]
-  %14 = sub nuw i64 %.lcssa29, %.lcssa26
-  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.lcssa26
-  %16 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 20, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit" ]
+  %14 = sub nuw i64 %.lcssa34, %.lcssa31
+  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.lcssa31
+  %16 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %16, label %"_ZN4core3ptr93drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$20_usize$GT$$GT$17ha14197ae2095cad3E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -2096,10 +2096,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h319c363f
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph" ]
   %36 = phi ptr [ %12, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit" ], [ %6, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb1bc667a621c5226E.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2151,8 +2151,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h4ac41663
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !270, !noalias !267
-  %.sroa.03.0.copyload432 = load i64, ptr %6, align 8, !alias.scope !272
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %6, align 8, !alias.scope !272
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -2173,11 +2173,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h4ac41663
   br i1 %13, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit" ]
-  %14 = sub nuw i64 %.lcssa29, %.lcssa26
-  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.lcssa26
-  %16 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit" ]
+  %14 = sub nuw i64 %.lcssa34, %.lcssa31
+  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.lcssa31
+  %16 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %16, label %"_ZN4core3ptr93drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$10_usize$GT$$GT$17h87640b661cff2210E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -2227,10 +2227,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h4ac41663
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph" ]
   %36 = phi ptr [ %12, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit" ], [ %6, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedbca9f4e8e62130E.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2282,8 +2282,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h531a8c4e
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   store i64 1, ptr %6, align 8, !alias.scope !301, !noalias !298
-  %.sroa.03.0.copyload432 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !303
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !303
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -2304,11 +2304,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h531a8c4e
   br i1 %13, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 5, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit" ]
-  %14 = sub nuw i64 %.lcssa29, %.lcssa26
-  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa26
-  %16 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 5, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit" ]
+  %14 = sub nuw i64 %.lcssa34, %.lcssa31
+  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa31
+  %16 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %16, label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$5_usize$GT$$GT$17h5e9f3a6501a2206bE.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -2358,10 +2358,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h531a8c4e
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph" ]
   %36 = phi ptr [ %12, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit" ], [ %.sroa.5.0..sroa_idx, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h905f0abe1d481137E.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2413,8 +2413,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h5ee596be
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   store i64 1, ptr %6, align 8, !alias.scope !332, !noalias !329
-  %.sroa.03.0.copyload432 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !334
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !334
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -2435,11 +2435,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h5ee596be
   br i1 %13, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit" ]
-  %14 = sub nuw i64 %.lcssa29, %.lcssa26
-  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa26
-  %16 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 23, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit" ]
+  %14 = sub nuw i64 %.lcssa34, %.lcssa31
+  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa31
+  %16 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %16, label %"_ZN4core3ptr93drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$23_usize$GT$$GT$17hb18bfe72af2075c9E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -2489,10 +2489,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h5ee596be
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph" ]
   %36 = phi ptr [ %12, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit" ], [ %.sroa.5.0..sroa_idx, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca43911cd1856208E.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2545,8 +2545,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h8052feb2
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !360)
   store i64 1, ptr %6, align 8, !alias.scope !363, !noalias !360
-  %.sroa.03.0.copyload426 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !365
-  %7 = icmp eq i64 %.sroa.03.0.copyload426, 2
+  %.sroa.03.0.copyload431 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !365
+  %7 = icmp eq i64 %.sroa.03.0.copyload431, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -2565,10 +2565,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h8052feb2
   br i1 %11, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.lr.ph"
-  %.lcssa23 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.lr.ph" ], [ %35, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit" ]
-  %12 = add i64 %.lcssa23, -1
+  %.lcssa28 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.lr.ph" ], [ %35, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit" ]
+  %12 = add i64 %.lcssa28, -1
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %14 = icmp eq i64 %.lcssa23, 1
+  %14 = icmp eq i64 %.lcssa28, 1
   br i1 %14, label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$1_usize$GT$$GT$17he84ade64705c69f9E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -2618,8 +2618,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h8052feb2
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit"
-  %.sroa.03.0.copyload427 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit" ], [ %.sroa.03.0.copyload426, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.lr.ph" ]
-  store i64 %.sroa.03.0.copyload427, ptr %5, align 8
+  %.sroa.03.0.copyload432 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit" ], [ %.sroa.03.0.copyload431, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0eafc5288664d952E.exit.lr.ph" ]
+  store i64 %.sroa.03.0.copyload432, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2671,8 +2671,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h81e20933
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !391)
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !394, !noalias !391
-  %.sroa.03.0.copyload432 = load i64, ptr %6, align 8, !alias.scope !396
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %6, align 8, !alias.scope !396
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -2691,11 +2691,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h81e20933
   br i1 %12, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph" ], [ %37, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit" ]
-  %13 = sub nuw i64 %.lcssa29, %.lcssa26
-  %14 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.lcssa26
-  %15 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph" ], [ %37, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit" ]
+  %13 = sub nuw i64 %.lcssa34, %.lcssa31
+  %14 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.lcssa31
+  %15 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %15, label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$8_usize$GT$$GT$17hc0b07ac3b1b3eac6E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -2745,10 +2745,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h81e20933
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph" ]
   %35 = phi ptr [ %11, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit" ], [ %6, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h330be52817f5fbcaE.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2800,8 +2800,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h89e28983
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !425, !noalias !422
-  %.sroa.03.0.copyload432 = load i64, ptr %6, align 8, !alias.scope !427
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %6, align 8, !alias.scope !427
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -2820,11 +2820,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h89e28983
   br i1 %12, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 2, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph" ], [ %37, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit" ]
-  %13 = sub nuw i64 %.lcssa29, %.lcssa26
-  %14 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.lcssa26
-  %15 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 2, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph" ], [ %37, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit" ]
+  %13 = sub nuw i64 %.lcssa34, %.lcssa31
+  %14 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.lcssa31
+  %15 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %15, label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$2_usize$GT$$GT$17ha8fb692f71f510afE.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -2874,10 +2874,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h89e28983
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph" ]
   %35 = phi ptr [ %11, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit" ], [ %6, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3d4a4c3e7f17192fE.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2929,8 +2929,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17ha7f55dcd
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !456, !noalias !453
-  %.sroa.03.0.copyload432 = load i64, ptr %6, align 8, !alias.scope !458
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %6, align 8, !alias.scope !458
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -2951,11 +2951,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17ha7f55dcd
   br i1 %13, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 6, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit" ]
-  %14 = sub nuw i64 %.lcssa29, %.lcssa26
-  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.lcssa26
-  %16 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 6, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit" ]
+  %14 = sub nuw i64 %.lcssa34, %.lcssa31
+  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %.lcssa31
+  %16 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %16, label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$6_usize$GT$$GT$17h8caad0e677b6f18bE.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -3005,10 +3005,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17ha7f55dcd
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph" ]
   %36 = phi ptr [ %12, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit" ], [ %6, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd34ca4b3ad001566E.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3067,8 +3067,8 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17hf44c7526
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !484)
   store i64 1, ptr %6, align 8, !alias.scope !487, !noalias !484
-  %.sroa.03.0.copyload432 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !489
-  %7 = icmp eq i64 %.sroa.03.0.copyload432, 2
+  %.sroa.03.0.copyload437 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !489
+  %7 = icmp eq i64 %.sroa.03.0.copyload437, 2
   br i1 %7, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.thread", label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
@@ -3089,11 +3089,11 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17hf44c7526
   br i1 %13, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.thread", label %.lr.ph
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.thread": ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph"
-  %.lcssa29 = phi i64 [ 9, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit" ]
-  %.lcssa26 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit" ]
-  %14 = sub nuw i64 %.lcssa29, %.lcssa26
-  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa26
-  %16 = icmp eq i64 %.lcssa29, %.lcssa26
+  %.lcssa34 = phi i64 [ 9, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph" ], [ %38, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit" ]
+  %.lcssa31 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph" ], [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit" ]
+  %14 = sub nuw i64 %.lcssa34, %.lcssa31
+  %15 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %.lcssa31
+  %16 = icmp eq i64 %.lcssa34, %.lcssa31
   br i1 %16, label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$clap_builder..util..id..Id$C$9_usize$GT$$GT$17h8573c41993d6f4e1E.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.thread", %"_ZN4core3ptr47drop_in_place$LT$clap_builder..util..id..Id$GT$17ha192f2b5a8c75230E.exit.i.i.i"
@@ -3143,10 +3143,10 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17hf44c7526
   unreachable
 
 .lr.ph:                                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit"
-  %.sroa.03.0.copyload433 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit" ], [ %.sroa.03.0.copyload432, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph" ]
+  %.sroa.03.0.copyload438 = phi i64 [ %.sroa.03.0.copyload4, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit" ], [ %.sroa.03.0.copyload437, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph" ]
   %36 = phi ptr [ %12, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit" ], [ %.sroa.5.0..sroa_idx, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cd5bcb3fba723efE.exit.lr.ph" ]
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %.sroa.03.0.copyload433, ptr %5, align 8
+  store i64 %.sroa.03.0.copyload438, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx5, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

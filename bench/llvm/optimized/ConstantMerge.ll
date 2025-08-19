@@ -756,8 +756,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8ConstantEPNS_14GlobalVariableENS_12Dens
   %.not14.not.i.not.i.not.i.not = icmp ne i32 %329, 0
   %330 = getelementptr inbounds nuw i8, ptr %.01316.i.i.i, i64 16
   %.not.not.i.i.i = icmp eq ptr %330, %328
-  %or.cond34 = select i1 %.not14.not.i.not.i.not.i.not, i1 true, i1 %.not.not.i.i.i
-  br i1 %or.cond34, label %.critedge.i.i.i, label %.lr.ph.i.i103.i
+  %or.cond75 = select i1 %.not14.not.i.not.i.not.i.not, i1 true, i1 %.not.not.i.i.i
+  br i1 %or.cond75, label %.critedge.i.i.i, label %.lr.ph.i.i103.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i103.i, %324
   %.not.lcssa.i.i.i = phi i1 [ false, %324 ], [ %.not14.not.i.not.i.not.i.not, %.lr.ph.i.i103.i ]

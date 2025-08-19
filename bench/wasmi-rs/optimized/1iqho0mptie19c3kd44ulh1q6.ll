@@ -1488,14 +1488,14 @@ define hidden void @"_ZN5wasmi6linker15Linker$LT$T$GT$14process_import17h171d1fc
 
 84:                                               ; preds = %.thread
   %85 = load i8, ptr %83, align 8, !range !31, !noundef !3
-  switch i8 %85, label %default.unreachable388 [
+  switch i8 %85, label %default.unreachable395 [
     i8 0, label %86
     i8 1, label %88
     i8 2, label %90
     i8 3, label %92
   ]
 
-default.unreachable388:                           ; preds = %84
+default.unreachable395:                           ; preds = %84
   unreachable
 
 86:                                               ; preds = %84
@@ -1504,7 +1504,7 @@ default.unreachable388:                           ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %87 = load i8, ptr %.sroa.710.0316, align 8, !range !113, !noundef !3
   %.not236.not = icmp eq i8 %87, 2
-  br i1 %.not236.not, label %113, label %.thread389
+  br i1 %.not236.not, label %113, label %.thread396
 
 88:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.763)
@@ -1512,7 +1512,7 @@ default.unreachable388:                           ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %89 = load i8, ptr %.sroa.710.0316, align 8, !range !113, !noundef !3
   %.not232.not = icmp eq i8 %89, 2
-  br i1 %.not232.not, label %131, label %.thread390
+  br i1 %.not232.not, label %131, label %.thread397
 
 90:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6102)
@@ -1520,7 +1520,7 @@ default.unreachable388:                           ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %91 = load i8, ptr %.sroa.710.0316, align 8, !range !113, !noundef !3
   %.not227.not = icmp eq i8 %91, 2
-  br i1 %.not227.not, label %147, label %.thread391
+  br i1 %.not227.not, label %147, label %.thread398
 
 92:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.730)
@@ -1578,7 +1578,7 @@ default.unreachable388:                           ; preds = %84
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.710.0316, i64 4
   %.sroa.0209.0.copyload = load i32, ptr %114, align 4
   %.not238 = icmp eq i32 %.sroa.0209.0.copyload, 4
-  br i1 %.not238, label %.thread389, label %115
+  br i1 %.not238, label %.thread396, label %115
 
 115:                                              ; preds = %113
   %.sroa.4210.0..sroa.0156.0.157.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.710.0316, i64 8
@@ -1589,7 +1589,7 @@ default.unreachable388:                           ; preds = %84
   invoke void @_ZN5wasmi8instance7exports6Extern11into_global17hfede73816e49cef4E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %21, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %14)
           to label %116 unwind label %26
 
-.thread389:                                       ; preds = %113, %86
+.thread396:                                       ; preds = %113, %86
   store i32 0, ptr %21, align 4
   br label %122
 
@@ -1606,7 +1606,7 @@ default.unreachable388:                           ; preds = %84
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %126
 
-122:                                              ; preds = %.thread389, %116
+122:                                              ; preds = %.thread396, %116
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke fastcc void @"_ZN5wasmi6linker15Linker$LT$T$GT$14process_import28_$u7b$$u7b$closure$u7d$$u7d$17h054da417e7bd2c33E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %13, ptr nonnull %3, ptr nonnull %.sroa.710.0316, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %123 unwind label %26
@@ -1671,7 +1671,7 @@ default.unreachable388:                           ; preds = %84
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.710.0316, i64 4
   %.sroa.0185.0.copyload = load i32, ptr %132, align 4
   %.not234 = icmp eq i32 %.sroa.0185.0.copyload, 4
-  br i1 %.not234, label %.thread390, label %133
+  br i1 %.not234, label %.thread397, label %133
 
 133:                                              ; preds = %131
   %.sroa.4186.0..sroa.078.0.79.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.710.0316, i64 8
@@ -1682,7 +1682,7 @@ default.unreachable388:                           ; preds = %84
   invoke void @_ZN5wasmi8instance7exports6Extern10into_table17hd35f6dbaa42430eaE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %18)
           to label %134 unwind label %26
 
-.thread390:                                       ; preds = %131, %88
+.thread397:                                       ; preds = %131, %88
   store i32 0, ptr %23, align 4
   br label %140
 
@@ -1699,7 +1699,7 @@ default.unreachable388:                           ; preds = %84
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %144
 
-140:                                              ; preds = %.thread390, %134
+140:                                              ; preds = %.thread397, %134
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke fastcc void @"_ZN5wasmi6linker15Linker$LT$T$GT$14process_import28_$u7b$$u7b$closure$u7d$$u7d$17h054da417e7bd2c33E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %17, ptr nonnull %3, ptr nonnull %.sroa.710.0316, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %141 unwind label %26
@@ -1752,7 +1752,7 @@ default.unreachable388:                           ; preds = %84
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.710.0316, i64 4
   %.sroa.0197.0.copyload = load i32, ptr %148, align 4
   %.not229 = icmp eq i32 %.sroa.0197.0.copyload, 4
-  br i1 %.not229, label %.thread391, label %149
+  br i1 %.not229, label %.thread398, label %149
 
 149:                                              ; preds = %147
   %.sroa.4198.0..sroa.0117.0.118.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.710.0316, i64 8
@@ -1763,7 +1763,7 @@ default.unreachable388:                           ; preds = %84
   invoke void @_ZN5wasmi8instance7exports6Extern11into_memory17h21de27eaac023691E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %22, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %16)
           to label %150 unwind label %26
 
-.thread391:                                       ; preds = %147, %90
+.thread398:                                       ; preds = %147, %90
   store i32 0, ptr %22, align 4
   br label %156
 
@@ -1780,7 +1780,7 @@ default.unreachable388:                           ; preds = %84
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %160
 
-156:                                              ; preds = %.thread391, %150
+156:                                              ; preds = %.thread398, %150
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke fastcc void @"_ZN5wasmi6linker15Linker$LT$T$GT$14process_import28_$u7b$$u7b$closure$u7d$$u7d$17h054da417e7bd2c33E"(ptr noalias noundef align 8 captures(none) dereferenceable(112) %15, ptr nonnull %3, ptr nonnull %.sroa.710.0316, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %157 unwind label %26
@@ -1879,8 +1879,8 @@ default.unreachable388:                           ; preds = %84
   br label %127
 
 169:                                              ; preds = %172, %170, %161, %145, %129, %127
-  %.sink393 = phi i32 [ 1, %172 ], [ 1, %170 ], [ 1, %161 ], [ 1, %145 ], [ 1, %129 ], [ 0, %127 ]
-  store i32 %.sink393, ptr %0, align 8
+  %.sink400 = phi i32 [ 1, %172 ], [ 1, %170 ], [ 1, %161 ], [ 1, %145 ], [ 1, %129 ], [ 0, %127 ]
+  store i32 %.sink400, ptr %0, align 8
   call void @"_ZN4core3ptr46drop_in_place$LT$wasmi..module..ImportType$GT$17h8ea2097f5c13b117E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
   ret void
 

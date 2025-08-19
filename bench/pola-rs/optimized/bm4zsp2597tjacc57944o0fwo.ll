@@ -31212,11 +31212,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hdea473114142f39cE.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hdea473114142f39cE.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hdea473114142f39cE.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hdea473114142f39cE.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -31226,7 +31226,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h09ef5331303cc2ceE(ptr noalias noundef nonnull readonly align 2 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h09ef5331303cc2ceE(ptr noalias noundef nonnull readonly align 2 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31299,11 +31299,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h807410e30fe09740E.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h807410e30fe09740E.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h807410e30fe09740E.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h807410e30fe09740E.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -31313,7 +31313,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h119b3a7bfc18f7ecE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h119b3a7bfc18f7ecE(ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31386,11 +31386,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17ha79261584c04a77eE.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17ha79261584c04a77eE.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17ha79261584c04a77eE.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17ha79261584c04a77eE.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -31400,7 +31400,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h1a1d664dc5e2ca14E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h1a1d664dc5e2ca14E(ptr noalias noundef nonnull readonly align 8 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31473,11 +31473,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h830173406cb160bfE.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h830173406cb160bfE.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h830173406cb160bfE.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h830173406cb160bfE.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -31487,7 +31487,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h1dd1c74589908543E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h1dd1c74589908543E(ptr noalias noundef nonnull readonly align 4 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31560,11 +31560,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h48d46a58d23a72c2E.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h48d46a58d23a72c2E.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h48d46a58d23a72c2E.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h48d46a58d23a72c2E.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -31574,7 +31574,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h327b9ac122f083d2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h327b9ac122f083d2E(ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31646,11 +31646,11 @@ define internal fastcc noundef float @_ZN14polars_compute9float_sum12pairwise_su
   %30 = fadd float %27, %29
   %31 = fadd float %25, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h64622fa5f412547aE.exit"
-  %common.ret6.op = phi float [ %31, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h64622fa5f412547aE.exit" ], [ %39, %32 ]
-  ret float %common.ret6.op
+common.ret8:                                      ; preds = %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h64622fa5f412547aE.exit"
+  %common.ret8.op = phi float [ %31, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h64622fa5f412547aE.exit" ], [ %39, %32 ]
+  ret float %common.ret8.op
 
 32:                                               ; preds = %2
   %33 = lshr i64 %1, 1
@@ -31660,7 +31660,7 @@ common.ret6:                                      ; preds = %32, %"_ZN89_$LT$$u5
   %37 = tail call fastcc noundef float @_ZN14polars_compute9float_sum12pairwise_sum17h4f678d875bc74730E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %34)
   %38 = tail call fastcc noundef float @_ZN14polars_compute9float_sum12pairwise_sum17h4f678d875bc74730E(ptr noalias noundef nonnull readonly align 4 %36, i64 noundef %35)
   %39 = fadd float %37, %38
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31733,11 +31733,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h01580817e1568b7fE.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h01580817e1568b7fE.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h01580817e1568b7fE.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h01580817e1568b7fE.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -31747,7 +31747,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h8f7333d5bb022644E(ptr noalias noundef nonnull readonly align 16 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h8f7333d5bb022644E(ptr noalias noundef nonnull readonly align 16 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31820,11 +31820,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h2cbca75ae5e1559eE.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h2cbca75ae5e1559eE.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h2cbca75ae5e1559eE.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h2cbca75ae5e1559eE.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -31834,7 +31834,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h955819c84f207733E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17h955819c84f207733E(ptr noalias noundef nonnull readonly align 4 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31907,11 +31907,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hd24e713d7ab21c36E.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hd24e713d7ab21c36E.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hd24e713d7ab21c36E.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hd24e713d7ab21c36E.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -31921,7 +31921,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17ha26c506949eb87ccE(ptr noalias noundef nonnull readonly align 2 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17ha26c506949eb87ccE(ptr noalias noundef nonnull readonly align 2 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -31993,11 +31993,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %30 = fadd double %27, %29
   %31 = fadd double %25, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h0c4b84c83542b3e7E.exit"
-  %common.ret6.op = phi double [ %31, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h0c4b84c83542b3e7E.exit" ], [ %39, %32 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h0c4b84c83542b3e7E.exit"
+  %common.ret8.op = phi double [ %31, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h0c4b84c83542b3e7E.exit" ], [ %39, %32 ]
+  ret double %common.ret8.op
 
 32:                                               ; preds = %2
   %33 = lshr i64 %1, 1
@@ -32007,7 +32007,7 @@ common.ret6:                                      ; preds = %32, %"_ZN89_$LT$$u5
   %37 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17ha7094defde0ce809E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %34)
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17ha7094defde0ce809E(ptr noalias noundef nonnull readonly align 8 %36, i64 noundef %35)
   %39 = fadd double %37, %38
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -32080,11 +32080,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hc01d3aa7efc47d82E.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hc01d3aa7efc47d82E.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hc01d3aa7efc47d82E.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17hc01d3aa7efc47d82E.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -32094,7 +32094,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17hd20f96bb48856fc9E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17hd20f96bb48856fc9E(ptr noalias noundef nonnull readonly align 8 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nofree nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -32167,11 +32167,11 @@ define internal fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_s
   %31 = fadd double %28, %30
   %32 = fadd double %26, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %common.ret6
+  br label %common.ret8
 
-common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h6b1aa96eec74671eE.exit"
-  %common.ret6.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h6b1aa96eec74671eE.exit" ], [ %40, %33 ]
-  ret double %common.ret6.op
+common.ret8:                                      ; preds = %33, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h6b1aa96eec74671eE.exit"
+  %common.ret8.op = phi double [ %32, %"_ZN89_$LT$$u5b$T$u3b$$u20$128$u5d$$u20$as$u20$polars_compute..float_sum..SumBlock$LT$F$GT$$GT$20sum_block_vectorized17h6b1aa96eec74671eE.exit" ], [ %40, %33 ]
+  ret double %common.ret8.op
 
 33:                                               ; preds = %2
   %34 = lshr i64 %1, 1
@@ -32181,7 +32181,7 @@ common.ret6:                                      ; preds = %33, %"_ZN89_$LT$$u5
   %38 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17he2a0ab329a3456c1E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %35)
   %39 = tail call fastcc noundef double @_ZN14polars_compute9float_sum12pairwise_sum17he2a0ab329a3456c1E(ptr noalias noundef nonnull readonly align 4 %37, i64 noundef %36)
   %40 = fadd double %38, %39
-  br label %common.ret6
+  br label %common.ret8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -35484,7 +35484,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
           to label %20 unwind label %.thread
 
 18:                                               ; preds = %111
-  br i1 %.sroa.08.126, label %112, label %.thread62
+  br i1 %.sroa.08.126, label %112, label %.thread65
 
 .thread:                                          ; preds = %2
   %19 = landingpad { ptr, i32 }
@@ -35497,7 +35497,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
           to label %23 unwind label %.thread22
 
 21:                                               ; preds = %.thread30
-  br i1 %.sroa.07.134, label %111, label %.thread62
+  br i1 %.sroa.07.134, label %111, label %.thread65
 
 .thread22:                                        ; preds = %20
   %22 = landingpad { ptr, i32 }
@@ -35554,7 +35554,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
           to label %55 unwind label %53
 
 52:                                               ; preds = %64
-  br i1 %.sroa.06.1.ph, label %.thread30, label %.thread62
+  br i1 %.sroa.06.1.ph, label %.thread30, label %.thread65
 
 53:                                               ; preds = %._crit_edge
   %54 = landingpad { ptr, i32 }
@@ -35719,14 +35719,14 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17h2ff134c4fa8bd9a0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10) #32
           to label %18 unwind label %62
 
-.thread62:                                        ; preds = %52, %21, %112, %18
+.thread65:                                        ; preds = %52, %21, %112, %18
   %.pn12.pn.pn20 = phi { ptr, i32 } [ %.pn12.pn.pn21, %112 ], [ %.pn12.pn27, %18 ], [ %.pn1235, %21 ], [ %.pn.ph, %52 ]
   resume { ptr, i32 } %.pn12.pn.pn20
 
 112:                                              ; preds = %.thread, %18
   %.pn12.pn.pn21 = phi { ptr, i32 } [ %19, %.thread ], [ %.pn12.pn27, %18 ]
   invoke void @"_ZN4core3ptr330drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..option..Option$LT$bool$GT$$C$u64$RP$$GT$$C$$LT$polars_expr..reduce..first_last..BoolFirstLastReducer$LT$polars_expr..reduce..first_last..Last$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$..finish..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h78ef3aa4ef0fc0edE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #32
-          to label %.thread62 unwind label %62
+          to label %.thread65 unwind label %62
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -35755,7 +35755,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
           to label %20 unwind label %.thread
 
 18:                                               ; preds = %111
-  br i1 %.sroa.08.126, label %112, label %.thread62
+  br i1 %.sroa.08.126, label %112, label %.thread65
 
 .thread:                                          ; preds = %2
   %19 = landingpad { ptr, i32 }
@@ -35768,7 +35768,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
           to label %23 unwind label %.thread22
 
 21:                                               ; preds = %.thread30
-  br i1 %.sroa.07.134, label %111, label %.thread62
+  br i1 %.sroa.07.134, label %111, label %.thread65
 
 .thread22:                                        ; preds = %20
   %22 = landingpad { ptr, i32 }
@@ -35825,7 +35825,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
           to label %55 unwind label %53
 
 52:                                               ; preds = %64
-  br i1 %.sroa.06.1.ph, label %.thread30, label %.thread62
+  br i1 %.sroa.06.1.ph, label %.thread30, label %.thread65
 
 53:                                               ; preds = %._crit_edge
   %54 = landingpad { ptr, i32 }
@@ -35990,14 +35990,14 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17h2ff134c4fa8bd9a0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10) #32
           to label %18 unwind label %62
 
-.thread62:                                        ; preds = %52, %21, %112, %18
+.thread65:                                        ; preds = %52, %21, %112, %18
   %.pn12.pn.pn20 = phi { ptr, i32 } [ %.pn12.pn.pn21, %112 ], [ %.pn12.pn27, %18 ], [ %.pn1235, %21 ], [ %.pn.ph, %52 ]
   resume { ptr, i32 } %.pn12.pn.pn20
 
 112:                                              ; preds = %.thread, %18
   %.pn12.pn.pn21 = phi { ptr, i32 } [ %19, %.thread ], [ %.pn12.pn27, %18 ]
   invoke void @"_ZN4core3ptr331drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$core..option..Option$LT$bool$GT$$C$u64$RP$$GT$$C$$LT$polars_expr..reduce..first_last..BoolFirstLastReducer$LT$polars_expr..reduce..first_last..First$GT$$u20$as$u20$polars_expr..reduce..Reducer$GT$..finish..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd65a510bcfb7d2bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #32
-          to label %.thread62 unwind label %62
+          to label %.thread65 unwind label %62
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36047,7 +36047,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
   br label %31
 
 29:                                               ; preds = %118
-  br i1 %119, label %120, label %.thread66
+  br i1 %119, label %120, label %.thread68
 
 .thread:                                          ; preds = %2
   %30 = landingpad { ptr, i32 }
@@ -36150,7 +36150,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
   unreachable
 
 73:                                               ; preds = %74
-  br i1 %.sroa.06.1.ph, label %118, label %.thread66
+  br i1 %.sroa.06.1.ph, label %118, label %.thread68
 
 74:                                               ; preds = %69, %65
   %.sroa.06.1.ph = phi i1 [ true, %65 ], [ false, %69 ]
@@ -36259,9 +36259,9 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 120:                                              ; preds = %.thread, %29
   %.pn12.pn31 = phi { ptr, i32 } [ %30, %.thread ], [ %.pn1250, %29 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17h2ff134c4fa8bd9a0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #32
-          to label %.thread66 unwind label %71
+          to label %.thread68 unwind label %71
 
-.thread66:                                        ; preds = %73, %29, %120
+.thread68:                                        ; preds = %73, %29, %120
   %.pn12.pn30 = phi { ptr, i32 } [ %.pn1250, %29 ], [ %.pn12.pn31, %120 ], [ %.pn.ph, %73 ]
   resume { ptr, i32 } %.pn12.pn30
 }
@@ -36313,7 +36313,7 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
   br label %31
 
 29:                                               ; preds = %136
-  br i1 %137, label %138, label %.thread66
+  br i1 %137, label %138, label %.thread69
 
 .thread:                                          ; preds = %2
   %30 = landingpad { ptr, i32 }
@@ -36445,7 +36445,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h0259b897e09461a5E.exit.thread
   unreachable
 
 91:                                               ; preds = %92
-  br i1 %.sroa.06.1.ph, label %136, label %.thread66
+  br i1 %.sroa.06.1.ph, label %136, label %.thread69
 
 92:                                               ; preds = %87, %83
   %.sroa.06.1.ph = phi i1 [ true, %83 ], [ false, %87 ]
@@ -36554,9 +36554,9 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 138:                                              ; preds = %.thread, %29
   %.pn12.pn31 = phi { ptr, i32 } [ %30, %.thread ], [ %.pn1250, %29 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17h2ff134c4fa8bd9a0E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9) #32
-          to label %.thread66 unwind label %89
+          to label %.thread69 unwind label %89
 
-.thread66:                                        ; preds = %91, %29, %138
+.thread69:                                        ; preds = %91, %29, %138
   %.pn12.pn30 = phi { ptr, i32 } [ %.pn1250, %29 ], [ %.pn12.pn31, %138 ], [ %.pn.ph, %91 ]
   resume { ptr, i32 } %.pn12.pn30
 }
@@ -61266,8 +61266,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable5drift4sort17hf4b2deda7f7
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.sroa.speculated.i, %16 ], [ %15, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not3.i69 = icmp ugt i64 %.sroa.0.0, 2
-  %.not3.i74 = icmp ugt i64 %.sroa.0.0, 2
+  %.not3.i76 = icmp ugt i64 %.sroa.0.0, 2
+  %.not3.i81 = icmp ugt i64 %.sroa.0.0, 2
   br label %20
 
 20:                                               ; preds = %112, %19
@@ -61283,7 +61283,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable5drift4sort17hf4b2deda7f7
   %.not.i30 = icmp ult i64 %22, %.sroa.0.0
   br i1 %.not.i30, label %24, label %25
 
-24:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread72, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6fddcdc5b61fedb4E.exit"
+24:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6fddcdc5b61fedb4E.exit"
   br i1 %4, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit34", label %47
 
 25:                                               ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6fddcdc5b61fedb4E.exit"
@@ -61301,7 +61301,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable5drift4sort17hf4b2deda7f7
   br i1 %.not64, label %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, label %.lr.ph
 
 .preheader:                                       ; preds = %27
-  br i1 %.not64, label %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread72, label %.lr.ph51
+  br i1 %.not64, label %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79, label %.lr.ph51
 
 .lr.ph:                                           ; preds = %.preheader45, %36
   %.sroa.01.1.i.i47 = phi i64 [ %37, %36 ], [ 2, %.preheader45 ]
@@ -61338,11 +61338,11 @@ _ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i: ; pred
   %.not3.i = icmp ult i64 %.sroa.0.0.i.i, %.sroa.0.0
   br i1 %.not3.i, label %24, label %46
 
-_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread72: ; preds = %.preheader
-  br i1 %.not3.i74, label %24, label %.lr.ph.preheader.i.i
+_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79: ; preds = %.preheader
+  br i1 %.not3.i81, label %24, label %.lr.ph.preheader.i.i
 
 _ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread: ; preds = %.preheader45
-  br i1 %.not3.i69, label %24, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit"
+  br i1 %.not3.i76, label %24, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit"
 
 46:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i
   br i1 %30, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit"
@@ -61360,7 +61360,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread:
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8c8a1b4f1df4ec46E.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread, %25, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33", %46
-  %.sroa.0.0.i.i4144 = phi i64 [ %.sroa.0.0.i.i, %46 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ %22, %25 ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread ], [ %.sroa.0.0.i.i707780, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i ]
+  %.sroa.0.0.i.i4144 = phi i64 [ %.sroa.0.0.i.i, %46 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ %22, %25 ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread ], [ %.sroa.0.0.i.i778487, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i ]
   %51 = shl i64 %.sroa.0.0.i.i4144, 1
   %52 = or disjoint i64 %51, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h8c8a1b4f1df4ec46E.exit
@@ -61370,10 +61370,10 @@ _ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread:
   %.not16.i.i = icmp ult i64 %.sroa.0.0.i.i, 2
   br i1 %.not16.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc9f7375c7a93c0afE.exit", label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread72, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33"
-  %54 = phi i64 [ %53, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ 1, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread72 ]
-  %.sroa.0.0.i.i707780 = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread72 ]
-  %55 = getelementptr inbounds nuw { { { ptr, i64, i32, i16, i8, i8 } } }, ptr %23, i64 %.sroa.0.0.i.i707780
+.lr.ph.preheader.i.i:                             ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33"
+  %54 = phi i64 [ %53, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ 1, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79 ]
+  %.sroa.0.0.i.i778487 = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h05245028cfa7b373E.exit33" ], [ 2, %_ZN4core5slice4sort6shared17find_existing_run17h50f6631fe7450760E.exit.i.thread79 ]
+  %55 = getelementptr inbounds nuw { { { ptr, i64, i32, i16, i8, i8 } } }, ptr %23, i64 %.sroa.0.0.i.i778487
   br label %56
 
 56:                                               ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h97f137ef2e20a8d9E.exit.i.i, %.lr.ph.preheader.i.i
@@ -64013,7 +64013,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !1048, !noundef !6
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -64055,7 +64055,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -68831,8 +68831,8 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hbc4df544ff9c65
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %15 = call noundef i8 @"_ZN91_$LT$polars_expr..state..execution_state..StateFlags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcb2fed2c1146a65eE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %14)
   store i8 %15, ptr %3, align 1
-  %.not711 = icmp eq i8 %15, 0
-  br i1 %.not711, label %16, label %.thread
+  %.not712 = icmp eq i8 %15, 0
+  br i1 %.not712, label %16, label %.thread
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -782,11 +782,11 @@ emit_table_size.exit.thread:                      ; preds = %count_encoded_lengt
 
 .lr.ph.i11.preheader.i:                           ; preds = %count_encoded_length.exit.i
   store i8 63, ptr %8, align 16, !tbaa !11
-  %.02428.i22.i = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.02428.i25.i = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %.lr.ph.i11.i
 
 .lr.ph.i11.i:                                     ; preds = %.lr.ph.i11.i, %.lr.ph.i11.preheader.i
-  %.02430.i.i = phi ptr [ %.024.i.i, %.lr.ph.i11.i ], [ %.02428.i22.i, %.lr.ph.i11.preheader.i ]
+  %.02430.i.i = phi ptr [ %.024.i.i, %.lr.ph.i11.i ], [ %.02428.i25.i, %.lr.ph.i11.preheader.i ]
   %.02529.i.i = phi i64 [ %35, %.lr.ph.i11.i ], [ %23, %.lr.ph.i11.preheader.i ]
   %33 = trunc i64 %.02529.i.i to i8
   %34 = or i8 %33, -128
@@ -801,7 +801,7 @@ emit_table_size.exit.thread:                      ; preds = %count_encoded_lengt
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %32
-  %.011.i131623.i = phi i64 [ 2, %32 ], [ %37, %._crit_edge.i.i.loopexit ]
+  %.011.i131626.i = phi i64 [ 2, %32 ], [ %37, %._crit_edge.i.i.loopexit ]
   %.025.lcssa.i.i = phi i64 [ %23, %32 ], [ %35, %._crit_edge.i.i.loopexit ]
   %.024.lcssa.i.i = phi ptr [ %.02428.i.i, %32 ], [ %.024.i.i, %._crit_edge.i.i.loopexit ]
   %38 = trunc nuw nsw i64 %.025.lcssa.i.i to i8
@@ -809,7 +809,7 @@ emit_table_size.exit.thread:                      ; preds = %count_encoded_lengt
   br label %emit_table_size.exit
 
 emit_table_size.exit:                             ; preds = %29, %._crit_edge.i.i
-  %.011.i1315.i = phi i64 [ 1, %29 ], [ %.011.i131623.i, %._crit_edge.i.i ]
+  %.011.i1315.i = phi i64 [ 1, %29 ], [ %.011.i131626.i, %._crit_edge.i.i ]
   %39 = call i32 @nghttp2_bufs_add(ptr noundef %1, ptr noundef nonnull %8, i64 noundef %.011.i1315.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not33 = icmp eq i32 %39, 0
@@ -859,11 +859,11 @@ emit_table_size.exit56.thread:                    ; preds = %count_encoded_lengt
 
 .lr.ph.i11.preheader.i50:                         ; preds = %count_encoded_length.exit.i49
   store i8 63, ptr %7, align 16, !tbaa !11
-  %.02428.i22.i51 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %.02428.i25.i51 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %.lr.ph.i11.i52
 
 .lr.ph.i11.i52:                                   ; preds = %.lr.ph.i11.i52, %.lr.ph.i11.preheader.i50
-  %.02430.i.i53 = phi ptr [ %.024.i.i55, %.lr.ph.i11.i52 ], [ %.02428.i22.i51, %.lr.ph.i11.preheader.i50 ]
+  %.02430.i.i53 = phi ptr [ %.024.i.i55, %.lr.ph.i11.i52 ], [ %.02428.i25.i51, %.lr.ph.i11.preheader.i50 ]
   %.02529.i.i54 = phi i64 [ %56, %.lr.ph.i11.i52 ], [ %44, %.lr.ph.i11.preheader.i50 ]
   %54 = trunc i64 %.02529.i.i54 to i8
   %55 = or i8 %54, -128
@@ -878,7 +878,7 @@ emit_table_size.exit56.thread:                    ; preds = %count_encoded_lengt
   br label %._crit_edge.i.i39
 
 ._crit_edge.i.i39:                                ; preds = %._crit_edge.i.i39.loopexit, %53
-  %.011.i131623.i40 = phi i64 [ 2, %53 ], [ %58, %._crit_edge.i.i39.loopexit ]
+  %.011.i131626.i40 = phi i64 [ 2, %53 ], [ %58, %._crit_edge.i.i39.loopexit ]
   %.025.lcssa.i.i41 = phi i64 [ %44, %53 ], [ %56, %._crit_edge.i.i39.loopexit ]
   %.024.lcssa.i.i42 = phi ptr [ %.02428.i.i38, %53 ], [ %.024.i.i55, %._crit_edge.i.i39.loopexit ]
   %59 = trunc nuw nsw i64 %.025.lcssa.i.i41 to i8
@@ -886,7 +886,7 @@ emit_table_size.exit56.thread:                    ; preds = %count_encoded_lengt
   br label %emit_table_size.exit56
 
 emit_table_size.exit56:                           ; preds = %50, %._crit_edge.i.i39
-  %.011.i1315.i44 = phi i64 [ 1, %50 ], [ %.011.i131623.i40, %._crit_edge.i.i39 ]
+  %.011.i1315.i44 = phi i64 [ 1, %50 ], [ %.011.i131626.i40, %._crit_edge.i.i39 ]
   %60 = call i32 @nghttp2_bufs_add(ptr noundef %1, ptr noundef nonnull %7, i64 noundef %.011.i1315.i44) #12
   %.fr = freeze i32 %60
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1062,7 +1062,7 @@ value_eq.exit.us.us.i.i.i:                        ; preds = %129
   %137 = load ptr, ptr %117, align 8, !tbaa !90
   %bcmp.i.i28.us.us.i.i.i = call i32 @bcmp(ptr readonly %136, ptr readonly %137, i64 %132)
   %.not32.us.us.i.i.i = icmp eq i32 %bcmp.i.i28.us.us.i.i.i, 0
-  br i1 %.not32.us.us.i.i.i, label %search_hd_table.exit.thread136.i, label %name_eq.exit.thread.us.us.i.i.i
+  br i1 %.not32.us.us.i.i.i, label %search_hd_table.exit.thread149.i, label %name_eq.exit.thread.us.us.i.i.i
 
 name_eq.exit.thread.us.us.i.i.i:                  ; preds = %value_eq.exit.us.us.i.i.i, %129, %name_eq.exit.us.us.i.i.i, %123, %120, %.lr.ph.split.us.split.us.i.i.i
   %.2.us.us.i.i.i = phi ptr [ %.036.us.us.i.i.i, %.lr.ph.split.us.split.us.i.i.i ], [ %.036.us.us.i.i.i, %120 ], [ %spec.select.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.036.us.us.i.i.i, %name_eq.exit.us.us.i.i.i ], [ %.036.us.us.i.i.i, %123 ], [ %spec.select.i.i.i, %129 ]
@@ -1132,7 +1132,7 @@ value_eq.exit.us48.i.i.i:                         ; preds = %153
   %161 = load ptr, ptr %117, align 8, !tbaa !90
   %bcmp.i.i28.us49.i.i.i = call i32 @bcmp(ptr readonly %160, ptr readonly %161, i64 %156)
   %.not32.us50.i.i.i = icmp eq i32 %bcmp.i.i28.us49.i.i.i, 0
-  br i1 %.not32.us50.i.i.i, label %search_hd_table.exit.thread136.i, label %name_eq.exit.thread.us51.i.i.i
+  br i1 %.not32.us50.i.i.i, label %search_hd_table.exit.thread149.i, label %name_eq.exit.thread.us51.i.i.i
 
 name_eq.exit.thread.us51.i.i.i:                   ; preds = %value_eq.exit.us48.i.i.i, %153, %.lr.ph.split.split.us.i.i.i
   %.2.us52.i.i.i = phi ptr [ %.036.us43.i.i.i, %.lr.ph.split.split.us.i.i.i ], [ %spec.select65.i.i.i, %value_eq.exit.us48.i.i.i ], [ %spec.select65.i.i.i, %153 ]
@@ -1200,7 +1200,7 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
   %188 = icmp eq ptr %.1.i.i.i, null
   br i1 %188, label %search_hd_table.exit.thread.thread104.i, label %search_hd_table.exit.i
 
-search_hd_table.exit.thread136.i:                 ; preds = %value_eq.exit.us48.i.i.i, %value_eq.exit.us.us.i.i.i
+search_hd_table.exit.thread149.i:                 ; preds = %value_eq.exit.us48.i.i.i, %value_eq.exit.us.us.i.i.i
   %.1.i3134.i.ph.i = phi ptr [ %.01937.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.01937.us42.i.i.i, %value_eq.exit.us48.i.i.i ]
   %189 = load i32, ptr %65, align 8, !tbaa !43
   %190 = getelementptr inbounds nuw i8, ptr %.1.i3134.i.ph.i, i64 72
@@ -1221,8 +1221,8 @@ search_hd_table.exit.i:                           ; preds = %187
   %202 = zext i32 %201 to i64
   br label %search_hd_table.exit.thread.i
 
-search_hd_table.exit.thread93.i:                  ; preds = %181, %search_hd_table.exit.thread136.i
-  %.sroa.024.0.i99.i = phi i64 [ %195, %search_hd_table.exit.thread136.i ], [ %indvars.iv.i.i.i, %181 ]
+search_hd_table.exit.thread93.i:                  ; preds = %181, %search_hd_table.exit.thread149.i
+  %.sroa.024.0.i99.i = phi i64 [ %195, %search_hd_table.exit.thread149.i ], [ %indvars.iv.i.i.i, %181 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %203 = icmp slt i64 %.sroa.024.0.i99.i, 126
   br i1 %203, label %211, label %204
@@ -1245,8 +1245,8 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   br i1 %210, label %emit_indexed_block.exit.i, label %.lr.ph.i11.preheader.i.i
 
 211:                                              ; preds = %search_hd_table.exit.thread93.i
-  %212 = trunc nsw i64 %.sroa.024.0.i99.i to i8
-  %213 = add nsw i8 %212, 1
+  %212 = trunc nuw nsw i64 %.sroa.024.0.i99.i to i8
+  %213 = add nuw nsw i8 %212, 1
   %214 = or i8 %213, -128
   store i8 %214, ptr %5, align 16, !tbaa !11
   br label %encode_length.exit.i.i
@@ -1275,7 +1275,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.loopexit.i, %215
-  %.011.i131623.i.i = phi i64 [ 2, %215 ], [ %220, %._crit_edge.i.i.loopexit.i ]
+  %.011.i131626.i.i = phi i64 [ 2, %215 ], [ %220, %._crit_edge.i.i.loopexit.i ]
   %.025.lcssa.i.i.i = phi i64 [ %205, %215 ], [ %218, %._crit_edge.i.i.loopexit.i ]
   %.024.lcssa.i.i.i = phi ptr [ %.02428.i.i.i, %215 ], [ %.024.i.i.i, %._crit_edge.i.i.loopexit.i ]
   %221 = trunc nuw nsw i64 %.025.lcssa.i.i.i to i8
@@ -1283,7 +1283,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   br label %encode_length.exit.i.i
 
 encode_length.exit.i.i:                           ; preds = %._crit_edge.i.i.i, %211
-  %.011.i1315.i.i = phi i64 [ 1, %211 ], [ %.011.i131623.i.i, %._crit_edge.i.i.i ]
+  %.011.i1315.i.i = phi i64 [ 1, %211 ], [ %.011.i131626.i.i, %._crit_edge.i.i.i ]
   %222 = call i32 @nghttp2_bufs_add(ptr noundef %1, ptr noundef nonnull %5, i64 noundef %.011.i1315.i.i) #12
   br label %emit_indexed_block.exit.i
 
@@ -1974,11 +1974,11 @@ define hidden i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr noundef writeonl
     i32 2, label %45
     i32 3, label %63
     i32 4, label %134
-    i32 5, label %.thread511
+    i32 5, label %.thread551
     i32 6, label %213
     i32 7, label %271
     i32 8, label %295
-    i32 9, label %.thread523
+    i32 9, label %.thread563
     i32 10, label %315
     i32 11, label %373
     i32 12, label %403
@@ -2026,9 +2026,9 @@ define hidden i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr noundef writeonl
 
 55:                                               ; preds = %53, %53, %53, %54
   %spec.select.idx = phi i64 [ 0, %54 ], [ 1, %53 ], [ 1, %53 ], [ 1, %53 ]
-  %storemerge510 = phi i32 [ 3, %54 ], [ 2, %53 ], [ 2, %53 ], [ 2, %53 ]
+  %storemerge550 = phi i32 [ 3, %54 ], [ 2, %53 ], [ 2, %53 ], [ 2, %53 ]
   %storemerge = phi i32 [ 4, %54 ], [ 5, %53 ], [ 5, %53 ], [ 5, %53 ]
-  store i32 %storemerge510, ptr %29, align 8, !tbaa !56
+  store i32 %storemerge550, ptr %29, align 8, !tbaa !56
   store i32 %storemerge, ptr %17, align 4, !tbaa !57
   %56 = load i8, ptr %.0210452, align 1, !tbaa !11
   %57 = lshr i8 %56, 6
@@ -2390,7 +2390,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %193
   store i32 9, ptr %17, align 4, !tbaa !57
   br label %438
 
-.thread511:                                       ; preds = %40
+.thread551:                                       ; preds = %40
   %.0210.val = load i8, ptr %.0210452, align 1, !tbaa !11
   %.lobit.i = lshr i8 %.0210.val, 7
   store i8 %.lobit.i, ptr %18, align 8, !tbaa !58
@@ -2407,8 +2407,8 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %193
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %216, label %224
 
-216:                                              ; preds = %.thread511, %213
-  %217 = phi i64 [ 0, %.thread511 ], [ %.pre505, %213 ]
+216:                                              ; preds = %.thread551, %213
+  %217 = phi i64 [ 0, %.thread551 ], [ %.pre505, %213 ]
   %218 = load i8, ptr %.0210452, align 1, !tbaa !11
   %219 = and i8 %218, 127
   %220 = zext nneg i8 %219 to i64
@@ -2497,10 +2497,10 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
 
 252:                                              ; preds = %hd_inflate_read_len.exit301.thread, %hd_inflate_read_len.exit301
   %253 = phi i64 [ %.01421.i298.ph, %hd_inflate_read_len.exit301.thread ], [ %250, %hd_inflate_read_len.exit301 ]
-  %.7515522 = phi i32 [ %.7.ph, %hd_inflate_read_len.exit301.thread ], [ %.6, %hd_inflate_read_len.exit301 ]
-  %.049.i22.i297516521 = phi i64 [ 1, %hd_inflate_read_len.exit301.thread ], [ %247, %hd_inflate_read_len.exit301 ]
-  %254 = getelementptr inbounds nuw i8, ptr %.0210452, i64 %.049.i22.i297516521
-  %.not250 = icmp eq i32 %.7515522, 0
+  %.7555562 = phi i32 [ %.7.ph, %hd_inflate_read_len.exit301.thread ], [ %.6, %hd_inflate_read_len.exit301 ]
+  %.049.i22.i297556561 = phi i64 [ 1, %hd_inflate_read_len.exit301.thread ], [ %247, %hd_inflate_read_len.exit301 ]
+  %254 = getelementptr inbounds nuw i8, ptr %.0210452, i64 %.049.i22.i297556561
+  %.not250 = icmp eq i32 %.7555562, 0
   br i1 %.not250, label %.loopexit, label %255
 
 255:                                              ; preds = %252
@@ -2609,7 +2609,7 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
   store i32 9, ptr %17, align 4, !tbaa !57
   br label %438
 
-.thread523:                                       ; preds = %40
+.thread563:                                       ; preds = %40
   %.0210.val259 = load i8, ptr %.0210452, align 1, !tbaa !11
   %.lobit.i302 = lshr i8 %.0210.val259, 7
   store i8 %.lobit.i302, ptr %18, align 8, !tbaa !58
@@ -2626,8 +2626,8 @@ hd_inflate_read_len.exit301:                      ; preds = %decode_length.exit.
   %317 = icmp eq i32 %316, 0
   br i1 %317, label %318, label %326
 
-318:                                              ; preds = %.thread523, %315
-  %319 = phi i64 [ 0, %.thread523 ], [ %.pre502, %315 ]
+318:                                              ; preds = %.thread563, %315
+  %319 = phi i64 [ 0, %.thread563 ], [ %.pre502, %315 ]
   %320 = load i8, ptr %.0210452, align 1, !tbaa !11
   %321 = and i8 %320, 127
   %322 = zext nneg i8 %321 to i64
@@ -2699,8 +2699,8 @@ decode_length.exit.i314:                          ; preds = %346, %._crit_edge.i
   %349 = sub i64 %.pre-phi.i.sink.i317.pre-phi, %348
   %350 = icmp eq i64 %349, -1
   %351 = icmp ugt i32 %.014.i316, 65536
-  %or.cond582 = select i1 %350, i1 true, i1 %351
-  br i1 %or.cond582, label %hd_inflate_read_len.exit.thread, label %hd_inflate_read_len.exit323
+  %or.cond622 = select i1 %350, i1 true, i1 %351
+  br i1 %or.cond622, label %hd_inflate_read_len.exit.thread, label %hd_inflate_read_len.exit323
 
 hd_inflate_read_len.exit323.thread:               ; preds = %318, %323
   %.10.ph = phi i32 [ 1, %318 ], [ 0, %323 ]
@@ -2716,10 +2716,10 @@ hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.
 
 354:                                              ; preds = %hd_inflate_read_len.exit323.thread, %hd_inflate_read_len.exit323
   %355 = phi i64 [ %.01421.i320.ph, %hd_inflate_read_len.exit323.thread ], [ %352, %hd_inflate_read_len.exit323 ]
-  %.10527534 = phi i32 [ %.10.ph, %hd_inflate_read_len.exit323.thread ], [ %.9, %hd_inflate_read_len.exit323 ]
-  %.049.i22.i319528533 = phi i64 [ 1, %hd_inflate_read_len.exit323.thread ], [ %349, %hd_inflate_read_len.exit323 ]
-  %356 = getelementptr inbounds nuw i8, ptr %.0210452, i64 %.049.i22.i319528533
-  %.not245 = icmp eq i32 %.10527534, 0
+  %.10567574 = phi i32 [ %.10.ph, %hd_inflate_read_len.exit323.thread ], [ %.9, %hd_inflate_read_len.exit323 ]
+  %.049.i22.i319568573 = phi i64 [ 1, %hd_inflate_read_len.exit323.thread ], [ %349, %hd_inflate_read_len.exit323 ]
+  %356 = getelementptr inbounds nuw i8, ptr %.0210452, i64 %.049.i22.i319568573
+  %.not245 = icmp eq i32 %.10567574, 0
   br i1 %.not245, label %.loopexit, label %357
 
 357:                                              ; preds = %354
@@ -2741,8 +2741,8 @@ hd_inflate_read_len.exit323:                      ; preds = %decode_length.exit.
   br label %365
 
 365:                                              ; preds = %363, %359
-  %.sink583 = phi i64 [ %364, %363 ], [ %362, %359 ]
-  %366 = tail call i32 @nghttp2_rcbuf_new(ptr noundef nonnull %22, i64 noundef %.sink583, ptr noundef %9) #12
+  %.sink623 = phi i64 [ %364, %363 ], [ %362, %359 ]
+  %366 = tail call i32 @nghttp2_rcbuf_new(ptr noundef nonnull %22, i64 noundef %.sink623, ptr noundef %9) #12
   %.not247 = icmp eq i32 %366, 0
   br i1 %.not247, label %367, label %hd_inflate_read_len.exit.thread.loopexit363.split.loop.exit
 
@@ -3399,11 +3399,11 @@ count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
 
 .lr.ph.i11.preheader.i:                           ; preds = %count_encoded_length.exit.i
   store i8 63, ptr %3, align 16, !tbaa !11
-  %.02428.i22.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %.02428.i25.i = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %.lr.ph.i11.i
 
 .lr.ph.i11.i:                                     ; preds = %.lr.ph.i11.i, %.lr.ph.i11.preheader.i
-  %.02430.i.i = phi ptr [ %.024.i.i, %.lr.ph.i11.i ], [ %.02428.i22.i, %.lr.ph.i11.preheader.i ]
+  %.02430.i.i = phi ptr [ %.024.i.i, %.lr.ph.i11.i ], [ %.02428.i25.i, %.lr.ph.i11.preheader.i ]
   %.02529.i.i = phi i64 [ %18, %.lr.ph.i11.i ], [ %6, %.lr.ph.i11.preheader.i ]
   %16 = trunc i64 %.02529.i.i to i8
   %17 = or i8 %16, -128
@@ -3418,7 +3418,7 @@ count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %15
-  %.011.i131623.i = phi i64 [ 2, %15 ], [ %20, %._crit_edge.i.i.loopexit ]
+  %.011.i131626.i = phi i64 [ 2, %15 ], [ %20, %._crit_edge.i.i.loopexit ]
   %.025.lcssa.i.i = phi i64 [ %6, %15 ], [ %18, %._crit_edge.i.i.loopexit ]
   %.024.lcssa.i.i = phi ptr [ %.02428.i.i, %15 ], [ %.024.i.i, %._crit_edge.i.i.loopexit ]
   %21 = trunc nuw nsw i64 %.025.lcssa.i.i to i8
@@ -3426,7 +3426,7 @@ count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
   br label %encode_length.exit.i
 
 encode_length.exit.i:                             ; preds = %._crit_edge.i.i, %12
-  %.011.i1315.i = phi i64 [ 1, %12 ], [ %.011.i131623.i, %._crit_edge.i.i ]
+  %.011.i1315.i = phi i64 [ 1, %12 ], [ %.011.i131626.i, %._crit_edge.i.i ]
   %22 = call i32 @nghttp2_bufs_add(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %.011.i1315.i) #12
   br label %emit_table_size.exit
 
@@ -4528,11 +4528,11 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %20 = add nuw nsw i64 %.016.i, 2
   %21 = select i1 %.not, i8 -1, i8 127
   store i8 %21, ptr %4, align 16, !tbaa !11
-  %.02428.i45 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %.02428.i48 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %.lr.ph.i33
 
 .lr.ph.i33:                                       ; preds = %.lr.ph.i33.preheader, %.lr.ph.i33
-  %.02430.i = phi ptr [ %.024.i, %.lr.ph.i33 ], [ %.02428.i45, %.lr.ph.i33.preheader ]
+  %.02430.i = phi ptr [ %.024.i, %.lr.ph.i33 ], [ %.02428.i48, %.lr.ph.i33.preheader ]
   %.02529.i = phi i64 [ %24, %.lr.ph.i33 ], [ %8, %.lr.ph.i33.preheader ]
   %22 = trunc i64 %.02529.i to i8
   %23 = or i8 %22, -128
@@ -4543,7 +4543,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   br i1 %25, label %.lr.ph.i33, label %._crit_edge.i, !llvm.loop !80
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i33, %18
-  %.011.i353846 = phi i64 [ 2, %18 ], [ %20, %.lr.ph.i33 ]
+  %.011.i353849 = phi i64 [ 2, %18 ], [ %20, %.lr.ph.i33 ]
   %.025.lcssa.i = phi i64 [ %8, %18 ], [ %24, %.lr.ph.i33 ]
   %.024.lcssa.i = phi ptr [ %.02428.i, %18 ], [ %.024.i, %.lr.ph.i33 ]
   %26 = trunc nuw nsw i64 %.025.lcssa.i to i8
@@ -4551,7 +4551,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   br label %encode_length.exit
 
 encode_length.exit:                               ; preds = %14, %._crit_edge.i
-  %.011.i3537 = phi i64 [ 1, %14 ], [ %.011.i353846, %._crit_edge.i ]
+  %.011.i3537 = phi i64 [ 1, %14 ], [ %.011.i353849, %._crit_edge.i ]
   %27 = call i32 @nghttp2_bufs_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.011.i3537) #12
   %.not32 = icmp eq i32 %27, 0
   br i1 %.not32, label %28, label %33

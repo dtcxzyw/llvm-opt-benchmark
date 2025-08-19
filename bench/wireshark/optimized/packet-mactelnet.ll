@@ -128,19 +128,19 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %or.cond.not, label %.thread, label %.preheader170
 
 .preheader170:                                    ; preds = %7, %21
-  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %7 ]
+  %indvars.iv = phi i64 [ 1, %21 ], [ 0, %7 ]
   %12 = phi ptr [ %22, %21 ], [ @clienttypenames, %7 ]
   %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 14)
   %14 = zext i16 %13 to i32
   %15 = load i32, ptr %12, align 16
   %16 = icmp eq i32 %15, %14
-  br i1 %16, label %.split.loop.exit177, label %17
+  br i1 %16, label %.split.loop.exit179, label %17
 
 17:                                               ; preds = %.preheader170
   %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 16)
   %19 = zext i16 %18 to i32
   %20 = icmp eq i32 %15, %19
-  br i1 %20, label %.split.loop.exit180, label %21
+  br i1 %20, label %.split.loop.exit182, label %21
 
 21:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -148,17 +148,17 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   %exitcond = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond, label %.split.loop.exit, label %.preheader170, !llvm.loop !6
 
-.split.loop.exit177:                              ; preds = %.preheader170
+.split.loop.exit179:                              ; preds = %.preheader170
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit180:                              ; preds = %17
+.split.loop.exit182:                              ; preds = %17
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %21, %.split.loop.exit180, %.split.loop.exit177
-  %.0149 = phi i32 [ %23, %.split.loop.exit177 ], [ -1, %.split.loop.exit180 ], [ -1, %21 ]
-  %.0147 = phi i32 [ -1, %.split.loop.exit177 ], [ %24, %.split.loop.exit180 ], [ -1, %21 ]
+.split.loop.exit:                                 ; preds = %21, %.split.loop.exit182, %.split.loop.exit179
+  %.0149 = phi i32 [ %23, %.split.loop.exit179 ], [ -1, %.split.loop.exit182 ], [ -1, %21 ]
+  %.0147 = phi i32 [ -1, %.split.loop.exit179 ], [ %24, %.split.loop.exit182 ], [ -1, %21 ]
   %25 = and i32 %.0147, %.0149
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %124, label %.thread

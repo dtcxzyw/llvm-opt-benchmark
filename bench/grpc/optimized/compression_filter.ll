@@ -4895,9 +4895,9 @@ _ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit: ; pr
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %42 = load i8, ptr %41, align 8, !tbaa !172, !range !51, !noundef !64
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.thread15, label %45
+  br i1 %43, label %.thread21, label %45
 
-.thread15:                                        ; preds = %38
+.thread21:                                        ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %44, align 8, !tbaa !270
   br label %84
@@ -5012,8 +5012,8 @@ _ZN9grpc_core7MessageD2Ev.exit.i.i.i12:           ; preds = %80
   call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef 240) #33
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core7MessageENS4_5Arena13PooledDeleterEEED2Ev.exit
 
-84:                                               ; preds = %.thread15, %72
-  %85 = phi i64 [ %.pre, %.thread15 ], [ %.pre14, %72 ]
+84:                                               ; preds = %.thread21, %72
+  %85 = phi i64 [ %.pre, %.thread21 ], [ %.pre14, %72 ]
   %86 = and i64 %85, 1
   %.not.i.i1.i = icmp eq i64 %86, 0
   br i1 %.not.i.i1.i, label %87, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core7MessageENS4_5Arena13PooledDeleterEEED2Ev.exit
@@ -6142,9 +6142,9 @@ _ZNSt10unique_ptrIN9grpc_core7MessageENS0_5Arena13PooledDeleterEED2Ev.exit: ; pr
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load i8, ptr %45, align 8, !tbaa !172, !range !51, !noundef !64
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %.thread15, label %49
+  br i1 %47, label %.thread21, label %49
 
-.thread15:                                        ; preds = %42
+.thread21:                                        ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %48, align 8, !tbaa !270
   br label %88
@@ -6259,8 +6259,8 @@ _ZN9grpc_core7MessageD2Ev.exit.i.i.i12:           ; preds = %84
   call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef 240) #33
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core7MessageENS4_5Arena13PooledDeleterEEED2Ev.exit
 
-88:                                               ; preds = %.thread15, %76
-  %89 = phi i64 [ %.pre, %.thread15 ], [ %.pre14, %76 ]
+88:                                               ; preds = %.thread21, %76
+  %89 = phi i64 [ %.pre, %.thread21 ], [ %.pre14, %76 ]
   %90 = and i64 %89, 1
   %.not.i.i1.i = icmp eq i64 %90, 0
   br i1 %.not.i.i1.i, label %91, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core7MessageENS4_5Arena13PooledDeleterEEED2Ev.exit

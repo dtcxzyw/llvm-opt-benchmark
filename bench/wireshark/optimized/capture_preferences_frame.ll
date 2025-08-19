@@ -1382,13 +1382,13 @@ _ZNK7QString6toUIntEPbi.exit:                     ; preds = %17
   br label %27
 
 27:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit, %23
-  %.sink5 = phi i32 [ 2, %23 ], [ 4, %_ZNK7QString6toUIntEPbi.exit ]
+  %.sink7 = phi i32 [ 2, %23 ], [ 4, %_ZNK7QString6toUIntEPbi.exit ]
   %.0 = phi i32 [ %26, %23 ], [ %22, %_ZNK7QString6toUIntEPbi.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load ptr, ptr %30, align 8
-  call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef align 8 dereferenceable_or_null(185) %31, i32 noundef %.sink5)
+  call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef align 8 dereferenceable_or_null(185) %31, i32 noundef %.sink7)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 @prefs_set_uint_value(ptr noundef %33, i32 noundef %.0, i32 noundef 1)

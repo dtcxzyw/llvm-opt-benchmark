@@ -320,9 +320,9 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %10, %81, %67
-  %.0103114 = phi double [ %68, %81 ], [ %68, %67 ], [ -1.000000e+00, %10 ]
+  %.0103117 = phi double [ %68, %81 ], [ %68, %67 ], [ -1.000000e+00, %10 ]
   %.0102 = phi double [ %82, %81 ], [ -1.000000e+00, %67 ], [ -1.000000e+00, %10 ]
-  %83 = fsub double %.0102, %.0103114
+  %83 = fsub double %.0102, %.0103117
   %84 = fcmp ogt double %83, 0.000000e+00
   br i1 %84, label %85, label %96
 

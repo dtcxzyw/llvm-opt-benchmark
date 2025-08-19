@@ -456,8 +456,8 @@ define internal fastcc void @_ZL12drawMeshTileP11duDebugDrawRK9dtNavMeshPK14dtNa
 264:                                              ; preds = %.lr.ph198, %264
   %indvars.iv208 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next209, %264 ]
   %265 = load ptr, ptr %263, align 8
-  %.idx218 = mul nuw nsw i64 %indvars.iv208, 12
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 %.idx218
+  %.idx223 = mul nuw nsw i64 %indvars.iv208, 12
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 %.idx223
   %267 = load float, ptr %266, align 4
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 4
   %269 = load float, ptr %268, align 4
@@ -638,11 +638,11 @@ define void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr nou
   br i1 %53, label %._crit_edge74, label %.lr.ph73.split
 
 .lr.ph73.splitthread-pre-split:                   ; preds = %84
-  %.pr87 = load ptr, ptr %5, align 8
+  %.pr94 = load ptr, ptr %5, align 8
   br label %.lr.ph73.split
 
 .lr.ph73.split:                                   ; preds = %.lr.ph73, %.lr.ph73.splitthread-pre-split
-  %54 = phi ptr [ %.pr87, %.lr.ph73.splitthread-pre-split ], [ %52, %.lr.ph73 ]
+  %54 = phi ptr [ %.pr94, %.lr.ph73.splitthread-pre-split ], [ %52, %.lr.ph73 ]
   %.04571 = phi i16 [ %.045, %.lr.ph73.splitthread-pre-split ], [ %.04569, %.lr.ph73 ]
   %55 = zext i16 %.04571 to i64
   %56 = getelementptr inbounds nuw %struct.dtNode, ptr %54, i64 %55
@@ -2319,8 +2319,8 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %indvars.iv264.sroa.phi.sroa.speculated.in = phi i16 [ %126, %127 ], [ %113, %123 ]
   %indvars.iv264.sroa.phi.sroa.speculated = zext i16 %indvars.iv264.sroa.phi.sroa.speculated.in to i64
   %129 = load ptr, ptr %101, align 8
-  %.idx302 = mul nuw nsw i64 %indvars.iv264.sroa.phi.sroa.speculated, 6
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx302
+  %.idx310 = mul nuw nsw i64 %indvars.iv264.sroa.phi.sroa.speculated, 6
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx310
   %131 = load float, ptr %2, align 4
   %132 = load i16, ptr %130, align 2
   %133 = uitofp i16 %132 to float
@@ -2387,7 +2387,7 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   %174 = getelementptr inbounds i16, ptr %170, i64 %173
   %175 = and i32 %171, 1
   %176 = add nuw nsw i32 %175, 1
-  %invariant.gep292 = getelementptr i16, ptr %174, i64 %168
+  %invariant.gep300 = getelementptr i16, ptr %174, i64 %168
   br label %177
 
 177:                                              ; preds = %.lr.ph.us246, %.loopexit.us
@@ -2398,8 +2398,8 @@ define void @_Z28duDebugDrawTileCachePolyMeshP11duDebugDrawRK19dtTileCachePolyMe
   br i1 %180, label %._crit_edge.us247, label %181
 
 181:                                              ; preds = %177
-  %gep293 = getelementptr i16, ptr %invariant.gep292, i64 %indvars.iv278
-  %182 = load i16, ptr %gep293, align 2
+  %gep301 = getelementptr i16, ptr %invariant.gep300, i64 %indvars.iv278
+  %182 = load i16, ptr %gep301, align 2
   %183 = icmp sgt i16 %182, -1
   %.pre289 = add nuw nsw i64 %indvars.iv278, 1
   br i1 %183, label %.loopexit.us, label %184

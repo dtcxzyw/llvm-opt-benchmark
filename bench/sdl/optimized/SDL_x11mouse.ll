@@ -686,9 +686,9 @@ define internal zeroext i1 @X11_CaptureMouse(ptr noundef readonly captures(addre
   br i1 %12, label %16, label %18
 
 16:                                               ; preds = %7
-  br i1 %15, label %.thread30, label %.thread
+  br i1 %15, label %.thread31, label %.thread
 
-.thread30:                                        ; preds = %16
+.thread31:                                        ; preds = %16
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 118
   br label %20
 
@@ -701,8 +701,8 @@ define internal zeroext i1 @X11_CaptureMouse(ptr noundef readonly captures(addre
   %.pre29 = load i64, ptr %.phi.trans.insert28, align 8
   br label %24
 
-20:                                               ; preds = %.thread30, %18
-  %21 = phi ptr [ %17, %.thread30 ], [ %19, %18 ]
+20:                                               ; preds = %.thread31, %18
+  %21 = phi ptr [ %17, %.thread31 ], [ %19, %18 ]
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load i64, ptr %22, align 8
   br label %24
@@ -774,9 +774,9 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @X11_Xinput2IsInitialized() #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 1656
-  br i1 %18, label %19, label %.thread46
+  br i1 %18, label %19, label %.thread49
 
-.thread46:                                        ; preds = %2
+.thread49:                                        ; preds = %2
   store i8 1, ptr %.phi.trans.insert, align 8
   br label %21
 
@@ -785,7 +785,7 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %20 = trunc nuw i8 %.pre to i1
   br i1 %20, label %21, label %60
 
-21:                                               ; preds = %.thread46, %19
+21:                                               ; preds = %.thread49, %19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 1656
   %23 = tail call ptr @SDL_GetDisplays_REAL(ptr noundef null) #5
   %.not = icmp eq ptr %23, null

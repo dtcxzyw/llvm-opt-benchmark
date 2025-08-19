@@ -712,7 +712,7 @@ obj_is_focusable.exit:                            ; preds = %22
 
 25:                                               ; preds = %obj_is_focusable.exit
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  switch i32 %2, label %default.unreachable101 [
+  switch i32 %2, label %default.unreachable110 [
     i32 0, label %27
     i32 1, label %43
     i32 2, label %59
@@ -843,7 +843,7 @@ obj_is_focusable.exit:                            ; preds = %22
   %122 = sub i32 %17, %121
   br label %123
 
-default.unreachable101:                           ; preds = %25
+default.unreachable110:                           ; preds = %25
   unreachable
 
 123:                                              ; preds = %72, %59, %53, %37, %115, %108, %103, %93

@@ -95,11 +95,11 @@ define hidden void @_ZN3rmp6decode14read_array_len17h8040ae77c6f866c1E(ptr dead_
   store ptr %8, ptr %1, align 8, !alias.scope !15, !noalias !16
   store i64 %9, ptr %3, align 8, !alias.scope !15, !noalias !16
   %11 = icmp sgt i8 %10, -1
-  br i1 %11, label %26, label %12
+  br i1 %11, label %25, label %12
 
 12:                                               ; preds = %6
   %13 = icmp samesign ugt i8 %10, -33
-  br i1 %13, label %26, label %14
+  br i1 %13, label %25, label %14
 
 14:                                               ; preds = %12
   %15 = icmp samesign ult i8 %10, -112
@@ -107,66 +107,66 @@ define hidden void @_ZN3rmp6decode14read_array_len17h8040ae77c6f866c1E(ptr dead_
 
 16:                                               ; preds = %14
   %17 = icmp samesign ult i8 %10, -96
-  br i1 %17, label %27, label %20
+  br i1 %17, label %26, label %20
 
 18:                                               ; preds = %14
   %19 = and i8 %10, 15
-  br label %26
+  br label %25
 
 20:                                               ; preds = %16
   %21 = icmp samesign ult i8 %10, -64
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %20
-  switch i8 %10, label %25 [
-    i8 -64, label %26
-    i8 -63, label %26
-    i8 -62, label %26
-    i8 -61, label %26
-    i8 -60, label %26
-    i8 -59, label %26
-    i8 -58, label %26
-    i8 -57, label %26
-    i8 -56, label %26
-    i8 -55, label %26
-    i8 -54, label %26
-    i8 -53, label %26
-    i8 -52, label %26
-    i8 -51, label %26
-    i8 -50, label %26
-    i8 -49, label %26
-    i8 -48, label %26
-    i8 -47, label %26
-    i8 -46, label %26
-    i8 -45, label %26
-    i8 -44, label %26
-    i8 -43, label %26
-    i8 -42, label %26
-    i8 -41, label %26
-    i8 -40, label %26
-    i8 -39, label %26
-    i8 -38, label %26
-    i8 -37, label %26
-    i8 -36, label %31
-    i8 -35, label %33
-    i8 -34, label %26
-    i8 -33, label %26
+  switch i8 %10, label %default.unreachable [
+    i8 -64, label %25
+    i8 -63, label %25
+    i8 -62, label %25
+    i8 -61, label %25
+    i8 -60, label %25
+    i8 -59, label %25
+    i8 -58, label %25
+    i8 -57, label %25
+    i8 -56, label %25
+    i8 -55, label %25
+    i8 -54, label %25
+    i8 -53, label %25
+    i8 -52, label %25
+    i8 -51, label %25
+    i8 -50, label %25
+    i8 -49, label %25
+    i8 -48, label %25
+    i8 -47, label %25
+    i8 -46, label %25
+    i8 -45, label %25
+    i8 -44, label %25
+    i8 -43, label %25
+    i8 -42, label %25
+    i8 -41, label %25
+    i8 -40, label %25
+    i8 -39, label %25
+    i8 -38, label %25
+    i8 -37, label %25
+    i8 -36, label %30
+    i8 -35, label %32
+    i8 -34, label %25
+    i8 -33, label %25
   ]
 
 23:                                               ; preds = %20
   %24 = and i8 %10, 31
-  br label %26
+  br label %25
 
-25:                                               ; preds = %22
+default.unreachable:                              ; preds = %22
   unreachable
 
 _ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit: ; preds = %2
   store i8 0, ptr %0, align 8
   %.sroa.476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.360eaabec42e6bb2431517e5aa02476d.51, ptr %.sroa.476.0..sroa_idx, align 8
-  br label %52
+  br label %51
 
-26:                                               ; preds = %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %12, %6, %23, %18
+25:                                               ; preds = %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %12, %6, %23, %18
   %.sroa.7.0.ph.ph = phi i8 [ %19, %18 ], [ %24, %23 ], [ %10, %6 ], [ %10, %12 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ], [ undef, %22 ]
   %.sroa.5.0.ph.ph = phi i8 [ -128, %18 ], [ -96, %23 ], [ 0, %6 ], [ -32, %12 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ], [ %10, %22 ]
   store i8 2, ptr %0, align 8
@@ -174,74 +174,74 @@ _ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit: ; preds = %2
   store i8 %.sroa.5.0.ph.ph, ptr %.sroa.431.0..sroa_idx, align 1
   %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %.sroa.7.0.ph.ph, ptr %.sroa.532.0..sroa_idx, align 2
-  br label %52
+  br label %51
 
-27:                                               ; preds = %16
-  %28 = and i8 %10, 15
-  %29 = zext nneg i8 %28 to i32
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %30, align 4
+26:                                               ; preds = %16
+  %27 = and i8 %10, 15
+  %28 = zext nneg i8 %27 to i32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %28, ptr %29, align 4
   store i8 3, ptr %0, align 8
-  br label %52
+  br label %51
 
-31:                                               ; preds = %22
+30:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %32 = icmp ult i64 %4, 3
-  br i1 %32, label %35, label %37
+  %31 = icmp ult i64 %4, 3
+  br i1 %31, label %34, label %36
 
-33:                                               ; preds = %22
+32:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %34 = icmp ult i64 %4, 5
-  br i1 %34, label %44, label %46
+  %33 = icmp ult i64 %4, 5
+  br i1 %33, label %43, label %45
 
-35:                                               ; preds = %31
-  %36 = getelementptr i8, ptr %7, i64 %4
-  store ptr %36, ptr %1, align 8, !alias.scope !42, !noalias !43
+34:                                               ; preds = %30
+  %35 = getelementptr i8, ptr %7, i64 %4
+  store ptr %35, ptr %1, align 8, !alias.scope !42, !noalias !43
   store i64 0, ptr %3, align 8, !alias.scope !42, !noalias !43
   store i8 1, ptr %0, align 8
   %.sroa.446.sroa.2.0..sroa.446.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.360eaabec42e6bb2431517e5aa02476d.51, ptr %.sroa.446.sroa.2.0..sroa.446.0..sroa_idx.sroa_idx, align 8
-  br label %52
+  br label %51
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %39 = add i64 %4, -3
-  %40 = load i16, ptr %8, align 1, !alias.scope !47, !noalias !51
-  %41 = tail call i16 @llvm.bswap.i16(i16 %40)
-  store ptr %38, ptr %1, align 8, !alias.scope !42, !noalias !43
-  store i64 %39, ptr %3, align 8, !alias.scope !42, !noalias !43
-  %42 = zext i16 %41 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %42, ptr %43, align 4
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %38 = add i64 %4, -3
+  %39 = load i16, ptr %8, align 1, !alias.scope !47, !noalias !51
+  %40 = tail call i16 @llvm.bswap.i16(i16 %39)
+  store ptr %37, ptr %1, align 8, !alias.scope !42, !noalias !43
+  store i64 %38, ptr %3, align 8, !alias.scope !42, !noalias !43
+  %41 = zext i16 %40 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %41, ptr %42, align 4
   store i8 3, ptr %0, align 8
-  br label %52
+  br label %51
 
-44:                                               ; preds = %33
-  %45 = getelementptr i8, ptr %7, i64 %4
-  store ptr %45, ptr %1, align 8, !alias.scope !53, !noalias !54
+43:                                               ; preds = %32
+  %44 = getelementptr i8, ptr %7, i64 %4
+  store ptr %44, ptr %1, align 8, !alias.scope !53, !noalias !54
   store i64 0, ptr %3, align 8, !alias.scope !53, !noalias !54
   store i8 1, ptr %0, align 8
   %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 ptrtoint (ptr @anon.360eaabec42e6bb2431517e5aa02476d.51 to i64), ptr %.sroa.458.0..sroa_idx, align 8
-  br label %52
+  br label %51
 
-46:                                               ; preds = %33
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  %48 = add i64 %4, -5
-  %49 = load i32, ptr %8, align 1, !alias.scope !58, !noalias !62
-  %50 = tail call i32 @llvm.bswap.i32(i32 %49)
-  store ptr %47, ptr %1, align 8, !alias.scope !53, !noalias !54
-  store i64 %48, ptr %3, align 8, !alias.scope !53, !noalias !54
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %50, ptr %51, align 4
+45:                                               ; preds = %32
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 5
+  %47 = add i64 %4, -5
+  %48 = load i32, ptr %8, align 1, !alias.scope !58, !noalias !62
+  %49 = tail call i32 @llvm.bswap.i32(i32 %48)
+  store ptr %46, ptr %1, align 8, !alias.scope !53, !noalias !54
+  store i64 %47, ptr %3, align 8, !alias.scope !53, !noalias !54
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %49, ptr %50, align 4
   store i8 3, ptr %0, align 8
-  br label %52
+  br label %51
 
-52:                                               ; preds = %_ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit, %35, %44, %26, %27, %37, %46
+51:                                               ; preds = %_ZN3rmp6decode11read_marker17h8b6e48375ee9758eE.exit, %34, %43, %25, %26, %36, %45
   ret void
 }
 
@@ -1582,14 +1582,14 @@ define internal void @"_ZN90_$LT$pingora_cache..memory..MemHitHandler$u20$as$u20
   %6 = alloca [32 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %8 = load i8, ptr %7, align 8, !range !226, !noundef !21
-  switch i8 %8, label %default.unreachable38 [
+  switch i8 %8, label %default.unreachable47 [
     i8 0, label %10
     i8 1, label %41
     i8 2, label %42
     i8 3, label %43
   ]
 
-default.unreachable38:                            ; preds = %57, %43, %3
+default.unreachable47:                            ; preds = %57, %43, %3
   unreachable
 
 common.ret:                                       ; preds = %162, %9
@@ -1702,7 +1702,7 @@ _ZN13pingora_cache6memory11CompleteHit3get17hc462e898645c45acE.exit: ; preds = %
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !226, !noalias !276
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  switch i8 %.pre, label %default.unreachable38 [
+  switch i8 %.pre, label %default.unreachable47 [
     i8 0, label %45
     i8 1, label %55
     i8 2, label %56
@@ -1743,7 +1743,7 @@ _ZN13pingora_cache6memory11CompleteHit3get17hc462e898645c45acE.exit: ; preds = %
 57:                                               ; preds = %43
   %.phi.trans.insert63.i = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.pre64.i = load i8, ptr %.phi.trans.insert63.i, align 8, !range !226, !noalias !281
-  switch i8 %.pre64.i, label %default.unreachable38 [
+  switch i8 %.pre64.i, label %default.unreachable47 [
     i8 0, label %._crit_edge35
     i8 1, label %64
     i8 2, label %65
@@ -2760,13 +2760,13 @@ define internal void @"_ZN92_$LT$pingora_cache..memory..MemMissHandler$u20$as$u2
   %14 = alloca [56 x i8], align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i8, ptr %15, align 8, !range !222, !noundef !21
-  switch i8 %16, label %default.unreachable186 [
+  switch i8 %16, label %default.unreachable194 [
     i8 0, label %17
     i8 1, label %264
     i8 2, label %265
   ]
 
-default.unreachable186:                           ; preds = %3
+default.unreachable194:                           ; preds = %3
   unreachable
 
 .body.thread:                                     ; preds = %253, %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit116"
@@ -3518,15 +3518,15 @@ define internal void @"_ZN83_$LT$pingora_cache..memory..MemCache$u20$as$u20$ping
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i8, ptr %9, align 8, !range !222, !noundef !21
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink.sroa.gep147 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink.sroa.gep148 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  switch i8 %10, label %default.unreachable134 [
+  %.sink.sroa.gep153 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink.sroa.gep154 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  switch i8 %10, label %default.unreachable140 [
     i8 0, label %11
     i8 1, label %193
     i8 2, label %194
   ]
 
-default.unreachable134:                           ; preds = %3
+default.unreachable140:                           ; preds = %3
   unreachable
 
 "_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit": ; preds = %180, %176, %"_ZN4core3ptr250drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$std..collections..hash..map..HashMap$LT$u64$C$pingora_cache..memory..TempObject$GT$$GT$$GT$$GT$17hd9b68eb47dc3343dE.exit90"
@@ -3901,7 +3901,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br label %select.unfold108
 
 select.unfold108:                                 ; preds = %._crit_edge.i.i.i73, %85, %154
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %154 ], [ %.sink.sroa.gep147, %85 ], [ %.sink.sroa.gep148, %._crit_edge.i.i.i73 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %154 ], [ %.sink.sroa.gep153, %85 ], [ %.sink.sroa.gep154, %._crit_edge.i.i.i73 ]
   %anon.360eaabec42e6bb2431517e5aa02476d.117.sink = phi ptr [ @anon.360eaabec42e6bb2431517e5aa02476d.117, %154 ], [ null, %85 ], [ null, %._crit_edge.i.i.i73 ]
   store ptr %anon.360eaabec42e6bb2431517e5aa02476d.117.sink, ptr %.sink.sroa.phi, align 8
   store i64 0, ptr %8, align 8
@@ -4055,13 +4055,13 @@ define internal void @"_ZN83_$LT$pingora_cache..memory..MemCache$u20$as$u20$ping
   %8 = alloca [32 x i8], align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8, !range !222, !noundef !21
-  switch i8 %10, label %default.unreachable66 [
+  switch i8 %10, label %default.unreachable71 [
     i8 0, label %11
     i8 1, label %140
     i8 2, label %141
   ]
 
-default.unreachable66:                            ; preds = %3
+default.unreachable71:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -4477,13 +4477,13 @@ define internal void @"_ZN83_$LT$pingora_cache..memory..MemCache$u20$as$u20$ping
   %27 = alloca [24 x i8], align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i8, ptr %28, align 8, !range !222, !noundef !21
-  switch i8 %29, label %default.unreachable122 [
+  switch i8 %29, label %default.unreachable126 [
     i8 0, label %32
     i8 1, label %199
     i8 2, label %200
   ]
 
-default.unreachable122:                           ; preds = %3
+default.unreachable126:                           ; preds = %3
   unreachable
 
 30:                                               ; preds = %197, %178
@@ -5377,13 +5377,13 @@ define internal void @"_ZN83_$LT$pingora_cache..memory..MemCache$u20$as$u20$ping
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8, !range !222, !noundef !21
-  switch i8 %8, label %default.unreachable64 [
+  switch i8 %8, label %default.unreachable66 [
     i8 0, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bool$C$alloc..boxed..Box$LT$pingora_error..Error$GT$$GT$$GT$$GT$17h1d406abeb77dd391E.exit"
     i8 1, label %104
     i8 2, label %105
   ]
 
-default.unreachable64:                            ; preds = %3
+default.unreachable66:                            ; preds = %3
   unreachable
 
 "_ZN4core3ptr202drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$pingora_cache..memory..CacheObject$GT$$GT$$GT$17h09aac44bf26be754E.exit": ; preds = %92, %90, %84, %82

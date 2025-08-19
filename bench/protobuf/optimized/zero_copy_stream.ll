@@ -137,7 +137,7 @@ _ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread: ; preds = %if.then.
   store i8 1, ptr %cord_buffer, align 8, !alias.scope !10
   %data.i.i.i.i = getelementptr inbounds nuw i8, ptr %cord_buffer, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %data.i.i.i.i, i8 0, i64 15, i1 false), !alias.scope !10
-  %conv2115 = zext nneg i32 %count to i64
+  %conv2122 = zext nneg i32 %count to i64
   br label %cond.true.i.i
 
 if.end.i:                                         ; preds = %_ZNK4absl12lts_202308024Cord5emptyEv.exit.i
@@ -155,7 +155,7 @@ _ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit: ; preds = %if.then.i.i, %i
   br i1 %cmp.i.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit
-  %conv2118 = phi i64 [ %conv2115, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread ], [ %conv2, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit ]
+  %conv2125 = phi i64 [ %conv2122, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread ], [ %conv2, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit ]
   %11 = phi i8 [ 1, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread ], [ %8, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit ]
   %12 = ashr i8 %11, 1
   %conv2.i.i.i.i = sext i8 %12 to i64
@@ -185,10 +185,10 @@ cond.false.i.i:                                   ; preds = %_ZN4absl12lts_20230
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %cond.false.i.i, %cond.true.i.i
-  %conv2117 = phi i64 [ %conv2118, %cond.true.i.i ], [ %conv2, %cond.false.i.i ]
+  %conv2124 = phi i64 [ %conv2125, %cond.true.i.i ], [ %conv2, %cond.false.i.i ]
   %add.ptr.i.pn.i.i = phi ptr [ %add.ptr.i.i.i, %cond.true.i.i ], [ %add.ptr.i2.i.i, %cond.false.i.i ]
   %sub.i.pn.i.i = phi i64 [ %sub.i.i.i, %cond.true.i.i ], [ %sub.i3.i.i, %cond.false.i.i ]
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %conv2117, i64 %sub.i.pn.i.i)
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %conv2124, i64 %sub.i.pn.i.i)
   store ptr %cord.addr, ptr %AppendFullBuffer, align 8
   %17 = getelementptr inbounds nuw i8, ptr %AppendFullBuffer, i64 8
   store ptr %cord_buffer, ptr %17, align 8

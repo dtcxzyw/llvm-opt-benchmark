@@ -249,14 +249,14 @@ define internal fastcc range(i32 0, 4) i32 @__hvc_poll(ptr noundef %0, i1 nounde
 
 .thread:                                          ; preds = %23
   store i32 0, ptr %8, align 8
-  br label %.thread13.thread41
+  br label %.thread13.thread54
 
 24:                                               ; preds = %11
   %25 = load i32, ptr %8, align 8
   %26 = sub i32 %25, %21
   store i32 %26, ptr %8, align 8
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.thread13.thread, label %.thread13.thread41
+  br i1 %27, label %.thread13.thread, label %.thread13.thread54
 
 .thread13.thread:                                 ; preds = %24
   %28 = and i64 %20, 2147483647
@@ -265,7 +265,7 @@ define internal fastcc range(i32 0, 4) i32 @__hvc_poll(ptr noundef %0, i1 nounde
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %29, i64 %30, i1 false)
   br label %34
 
-.thread13.thread41:                               ; preds = %24, %.thread
+.thread13.thread54:                               ; preds = %24, %.thread
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 1, ptr %31, align 8
   br label %.thread15
@@ -278,12 +278,12 @@ define internal fastcc range(i32 0, 4) i32 @__hvc_poll(ptr noundef %0, i1 nounde
   br i1 %33, label %34, label %.thread15
 
 34:                                               ; preds = %.thread13.thread, %.thread13
-  %.ph40 = phi i32 [ 0, %.thread13.thread ], [ 10, %.thread13 ]
-  store i32 %.ph40, ptr @timeout, align 4
+  %.ph53 = phi i32 [ 0, %.thread13.thread ], [ 10, %.thread13 ]
+  store i32 %.ph53, ptr @timeout, align 4
   br label %.thread15
 
-.thread15:                                        ; preds = %.thread13.thread41, %2, %34, %.thread13
-  %35 = phi i32 [ 2, %34 ], [ 0, %.thread13 ], [ 0, %2 ], [ 0, %.thread13.thread41 ]
+.thread15:                                        ; preds = %.thread13.thread54, %2, %34, %.thread13
+  %35 = phi i32 [ 2, %34 ], [ 0, %.thread13 ], [ 0, %2 ], [ 0, %.thread13.thread54 ]
   br i1 %1, label %36, label %39
 
 36:                                               ; preds = %.thread15
@@ -1412,7 +1412,7 @@ define internal i64 @hvc_write(ptr noundef readonly captures(none) %0, ptr nound
   %42 = phi i64 [ %38, %27 ], [ %21, %.lr.ph ]
   %43 = phi ptr [ %34, %27 ], [ %20, %.lr.ph ]
   %44 = icmp sgt i32 %40, 0
-  br i1 %44, label %45, label %.thread9
+  br i1 %44, label %45, label %.thread17
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %16, align 8
@@ -1437,7 +1437,7 @@ define internal i64 @hvc_write(ptr noundef readonly captures(none) %0, ptr nound
 
 55:                                               ; preds = %54, %54
   store i32 1, ptr %18, align 8
-  br label %.thread9
+  br label %.thread17
 
 56:                                               ; preds = %45
   %57 = load i32, ptr %14, align 8
@@ -1457,7 +1457,7 @@ define internal i64 @hvc_write(ptr noundef readonly captures(none) %0, ptr nound
   store i32 1, ptr %18, align 8
   br label %65
 
-.thread9:                                         ; preds = %39, %55
+.thread17:                                        ; preds = %39, %55
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %12, i64 noundef %23) #12
   br label %.loopexit
 
@@ -1488,8 +1488,8 @@ define internal i64 @hvc_write(ptr noundef readonly captures(none) %0, ptr nound
   %78 = tail call i32 @__SCT__cond_resched() #12
   br label %.lr.ph
 
-.loopexit:                                        ; preds = %65, %11, %.thread9
-  %79 = phi i64 [ %42, %.thread9 ], [ 0, %11 ], [ %42, %65 ]
+.loopexit:                                        ; preds = %65, %11, %.thread17
+  %79 = phi i64 [ %42, %.thread17 ], [ 0, %11 ], [ %42, %65 ]
   %80 = load i32, ptr %14, align 8
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %85, label %82

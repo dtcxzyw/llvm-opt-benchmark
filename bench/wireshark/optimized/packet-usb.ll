@@ -2913,15 +2913,15 @@ define hidden void @dissect_usb_common(ptr noundef %0, ptr noundef %1, ptr nound
   %120 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc0(ptr noundef %119, i64 noundef 12) #11
   %121 = zext i16 %.0262 to i32
   %..i = select i1 %115, i32 -1, i32 %121
-  %.64.i = select i1 %115, i32 -1, i32 %spec.store.select
-  %.65.i = select i1 %115, i32 %121, i32 -1
-  %.66.i = select i1 %115, i32 %spec.store.select, i32 -1
+  %.71.i = select i1 %115, i32 -1, i32 %spec.store.select
+  %.72.i = select i1 %115, i32 %121, i32 -1
+  %.73.i = select i1 %115, i32 %spec.store.select, i32 -1
   store i32 %..i, ptr %118, align 4
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  store i32 %.64.i, ptr %122, align 4
-  store i32 %.65.i, ptr %120, align 4
+  store i32 %.71.i, ptr %122, align 4
+  store i32 %.72.i, ptr %120, align 4
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  store i32 %.66.i, ptr %123, align 4
+  store i32 %.73.i, ptr %123, align 4
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i16 %.0261, ptr %124, align 4
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
@@ -2962,9 +2962,9 @@ define hidden void @dissect_usb_common(ptr noundef %0, ptr noundef %1, ptr nound
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 8, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  store i32 %.64.i, ptr %144, align 4
+  store i32 %.71.i, ptr %144, align 4
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  store i32 %.66.i, ptr %145, align 8
+  store i32 %.73.i, ptr %145, align 8
   %not..i = xor i1 %115, true
   %146 = zext i1 %not..i to i32
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 348
@@ -3635,9 +3635,9 @@ proto_item_set_generated.exit51.i:                ; preds = %510, %507, %504
   br i1 %.not5.i53.i, label %usb_get_trans_info.exit, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %518, %472
-  %.sink63.i = phi ptr [ %474, %472 ], [ %520, %518 ]
+  %.sink74.i = phi ptr [ %474, %472 ], [ %520, %518 ]
   %.1.ph.i = phi ptr [ %.0.i290, %472 ], [ %.260.i, %518 ]
-  %521 = getelementptr inbounds nuw i8, ptr %.sink63.i, i64 28
+  %521 = getelementptr inbounds nuw i8, ptr %.sink74.i, i64 28
   %522 = load i32, ptr %521, align 4
   %523 = or i32 %522, 2
   store i32 %523, ptr %521, align 4
@@ -6440,18 +6440,18 @@ switch.lookup:                                    ; preds = %6
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_usb_setup_set_feature_request, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %11 to i64
-  %switch.gep45 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_usb_setup_set_feature_request.13, i64 0, i64 %14
-  %switch.load46 = load ptr, ptr %switch.gep45, align 8
+  %switch.gep46 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_usb_setup_set_feature_request.13, i64 0, i64 %14
+  %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %15
 
 15:                                               ; preds = %5, %6, %switch.lookup
   %hf_usb_device_wFeatureSelector.sink = phi ptr [ %switch.load, %switch.lookup ], [ @hf_usb_value, %6 ], [ @hf_usb_value, %5 ]
-  %hf_usb_index.sink = phi ptr [ %switch.load46, %switch.lookup ], [ @hf_usb_index, %6 ], [ @hf_usb_index, %5 ]
+  %hf_usb_index.sink = phi ptr [ %switch.load47, %switch.lookup ], [ @hf_usb_index, %6 ], [ @hf_usb_index, %5 ]
   %16 = load i32, ptr %hf_usb_device_wFeatureSelector.sink, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648)
-  %.sink44 = add i32 %3, 2
+  %.sink45 = add i32 %3, 2
   %18 = load i32, ptr %hf_usb_index.sink, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %2, i32 noundef %.sink44, i32 noundef 2, i32 noundef -2147483648)
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %2, i32 noundef %.sink45, i32 noundef 2, i32 noundef -2147483648)
   %20 = add i32 %3, 4
   %21 = load i32, ptr @hf_usb_length, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %2, i32 noundef %20, i32 noundef 2, i32 noundef -2147483648)
@@ -6478,18 +6478,18 @@ switch.lookup:                                    ; preds = %6
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_usb_setup_set_feature_request, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %11 to i64
-  %switch.gep45 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_usb_setup_set_feature_request.13, i64 0, i64 %14
-  %switch.load46 = load ptr, ptr %switch.gep45, align 8
+  %switch.gep46 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_usb_setup_set_feature_request.13, i64 0, i64 %14
+  %switch.load47 = load ptr, ptr %switch.gep46, align 8
   br label %15
 
 15:                                               ; preds = %5, %6, %switch.lookup
   %hf_usb_device_wFeatureSelector.sink = phi ptr [ %switch.load, %switch.lookup ], [ @hf_usb_value, %6 ], [ @hf_usb_value, %5 ]
-  %hf_usb_index.sink = phi ptr [ %switch.load46, %switch.lookup ], [ @hf_usb_index, %6 ], [ @hf_usb_index, %5 ]
+  %hf_usb_index.sink = phi ptr [ %switch.load47, %switch.lookup ], [ @hf_usb_index, %6 ], [ @hf_usb_index, %5 ]
   %16 = load i32, ptr %hf_usb_device_wFeatureSelector.sink, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648)
-  %.sink44 = add i32 %3, 2
+  %.sink45 = add i32 %3, 2
   %18 = load i32, ptr %hf_usb_index.sink, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %2, i32 noundef %.sink44, i32 noundef 2, i32 noundef -2147483648)
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %2, i32 noundef %.sink45, i32 noundef 2, i32 noundef -2147483648)
   %20 = add i32 %3, 4
   %21 = load i32, ptr @hf_usb_length, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %2, i32 noundef %20, i32 noundef 2, i32 noundef -2147483648)
@@ -6976,10 +6976,10 @@ dissect_max_packet_size0.exit.i:                  ; preds = %84, %sanitize_usb_m
   br label %dissect_usb_device_descriptor.exit
 
 dissect_usb_device_descriptor.exit:               ; preds = %dissect_max_packet_size0.exit.i, %164
-  %.sink108.i = phi i32 [ 18, %164 ], [ 8, %dissect_max_packet_size0.exit.i ]
+  %.sink110.i = phi i32 [ 18, %164 ], [ 8, %dissect_max_packet_size0.exit.i ]
   %.0.i = phi i32 [ %179, %164 ], [ %88, %dissect_max_packet_size0.exit.i ]
   %180 = load ptr, ptr %24, align 8
-  call void @proto_item_set_len(ptr noundef %180, i32 noundef %.sink108.i)
+  call void @proto_item_set_len(ptr noundef %180, i32 noundef %.sink110.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %746

@@ -304,8 +304,8 @@ avi_start_new_riff.exit:                          ; preds = %37, %._crit_edge.th
   br label %123
 
 123:                                              ; preds = %122, %117
-  %.sink462 = phi i32 [ 0, %122 ], [ %121, %117 ]
-  tail call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %.sink462) #10
+  %.sink476 = phi i32 [ 0, %122 ], [ %121, %117 ]
+  tail call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %.sink476) #10
   tail call void @ffio_fill(ptr noundef nonnull %10, i32 noundef 0, i64 noundef 16) #10
   br i1 %.not397, label %._crit_edge395, label %.lr.ph394
 
@@ -353,8 +353,8 @@ avi_start_new_riff.exit:                          ; preds = %37, %._crit_edge.th
   br label %144
 
 144:                                              ; preds = %127, %138, %143, %142
-  %.sink463 = phi i32 [ 1937006948, %143 ], [ 1935963489, %142 ], [ 1935960438, %138 ], [ 1935960438, %127 ]
-  call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %.sink463) #10
+  %.sink477 = phi i32 [ 1937006948, %143 ], [ 1935963489, %142 ], [ 1935960438, %138 ], [ 1935960438, %127 ]
+  call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %.sink477) #10
   %.pr = load i32, ptr %132, align 8, !tbaa !59
   %145 = icmp eq i32 %.pr, 0
   br i1 %145, label %149, label %.thread
@@ -371,8 +371,8 @@ avi_start_new_riff.exit:                          ; preds = %37, %._crit_edge.th
   br label %152
 
 152:                                              ; preds = %.thread, %149
-  %.sink464 = phi i32 [ %151, %149 ], [ 1, %.thread ]
-  call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %.sink464) #10
+  %.sink478 = phi i32 [ %151, %149 ], [ 1, %.thread ]
+  call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %.sink478) #10
   %153 = call i64 @avio_seek(ptr noundef nonnull %10, i64 noundef 0, i32 noundef 1) #10
   %154 = getelementptr inbounds nuw i8, ptr %134, i64 80
   store i64 %153, ptr %154, align 8, !tbaa !73
@@ -400,8 +400,8 @@ avi_start_new_riff.exit:                          ; preds = %37, %._crit_edge.th
   %161 = sext i32 %.pre429 to i64
   %162 = mul nsw i64 %161, 1000
   %163 = icmp slt i64 %162, %160
-  %or.cond468 = select i1 %.not325, i1 %163, i1 false
-  br i1 %or.cond468, label %164, label %165
+  %or.cond482 = select i1 %.not325, i1 %163, i1 false
+  br i1 %or.cond482, label %164, label %165
 
 164:                                              ; preds = %157
   store i32 600, ptr %2, align 4, !tbaa !74
@@ -437,14 +437,14 @@ avi_start_new_riff.exit:                          ; preds = %37, %._crit_edge.th
   %176 = load i32, ptr %111, align 8, !tbaa !66
   %177 = shl i32 %176, 30
   %178 = and i32 %177, 1073741824
-  %.471 = xor i32 %178, 1073741824
-  call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %.471) #10
+  %.485 = xor i32 %178, 1073741824
+  call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %.485) #10
   %179 = load i32, ptr %132, align 8, !tbaa !59
   %switch.selectcmp = icmp eq i32 %179, 1
   %switch.select = select i1 %switch.selectcmp, i32 12288, i32 0
-  %switch.selectcmp472 = icmp eq i32 %179, 0
-  %switch.select473 = select i1 %switch.selectcmp472, i32 1048576, i32 %switch.select
-  call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %switch.select473) #10
+  %switch.selectcmp486 = icmp eq i32 %179, 0
+  %switch.select487 = select i1 %switch.selectcmp486, i32 1048576, i32 %switch.select
+  call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %switch.select487) #10
   call void @avio_wl32(ptr noundef nonnull %10, i32 noundef -1) #10
   %180 = load i32, ptr %3, align 4, !tbaa !74
   call void @avio_wl32(ptr noundef nonnull %10, i32 noundef %180) #10
@@ -455,8 +455,8 @@ avi_start_new_riff.exit:                          ; preds = %37, %._crit_edge.th
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %132, i64 76
   %.pre435 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !70
   %184 = icmp sgt i32 %.pre435, 65535
-  %or.cond497 = select i1 %183, i1 true, i1 %184
-  br i1 %or.cond497, label %split, label %185
+  %or.cond511 = select i1 %183, i1 true, i1 %184
+  br i1 %or.cond511, label %split, label %185
 
 split:                                            ; preds = %172
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %182, i32 noundef %.pre435) #10
@@ -1863,9 +1863,9 @@ define internal fastcc range(i32 -12, 1) i32 @avi_add_ientry(ptr noundef readonl
   br label %.sink.split
 
 .sink.split:                                      ; preds = %29, %48
-  %.sink54 = phi i32 [ %67, %48 ], [ 0, %29 ]
+  %.sink55 = phi i32 [ %67, %48 ], [ 0, %29 ]
   %.0.ph = phi i32 [ 0, %48 ], [ -12, %29 ]
-  store i32 %.sink54, ptr %17, align 8, !tbaa !115
+  store i32 %.sink55, ptr %17, align 8, !tbaa !115
   br label %68
 
 68:                                               ; preds = %.sink.split, %30

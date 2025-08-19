@@ -692,7 +692,7 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exi
   br i1 %.not.i49, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %42, %163
-  %.02159 = phi i1 [ %164, %163 ], [ false, %42 ]
+  %.02169 = phi i1 [ %164, %163 ], [ false, %42 ]
   %165 = phi ptr [ %.pre56, %163 ], [ %31, %42 ]
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i32, ptr %166, align 8, !tbaa !9
@@ -708,12 +708,12 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exi
   %173 = load ptr, ptr %172, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(12) %165) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.02159, label %216, label %217
+  br i1 %.02169, label %216, label %217
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %163, %.thread
-  %.02160 = phi i1 [ %164, %163 ], [ %.02159, %.thread ]
+  %.02170 = phi i1 [ %164, %163 ], [ %.02169, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.02160, label %216, label %217
+  br i1 %.02170, label %216, label %217
 
 174:                                              ; preds = %158, %156
   %.pn37 = phi { ptr, i32 } [ %159, %158 ], [ %157, %156 ]

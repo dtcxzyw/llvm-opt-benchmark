@@ -395,7 +395,7 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$polar
 16:                                               ; preds = %12
   %17 = atomicrmw sub ptr %14, i64 1 release, align 8, !noalias !57
   %18 = icmp eq i64 %17, 1
-  br i1 %18, label %.invoke11, label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit"
+  br i1 %18, label %.invoke12, label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit"
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -407,9 +407,9 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$polar
 23:                                               ; preds = %19
   %24 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !65
   %25 = icmp eq i64 %24, 1
-  br i1 %25, label %.invoke11, label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit"
+  br i1 %25, label %.invoke12, label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit"
 
-.invoke11:                                        ; preds = %23, %16
+.invoke12:                                        ; preds = %23, %16
   %26 = phi ptr [ %13, %16 ], [ %20, %23 ]
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h03d41d54fa949362E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
@@ -420,11 +420,11 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$polar
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$polars_core..datatypes..field..Field$GT$$GT$17h3071e2bdacc51df1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
           to label %"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit" unwind label %29
 
-"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit": ; preds = %.invoke11, %.invoke, %1, %4, %8, %16, %12, %23, %19, %27
+"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17h14f360565a6e873aE.exit": ; preds = %.invoke12, %.invoke, %1, %4, %8, %16, %12, %23, %19, %27
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 16) #15
   ret void
 
-29:                                               ; preds = %.invoke11, %.invoke, %27, %8
+29:                                               ; preds = %.invoke12, %.invoke, %27, %8
   %30 = landingpad { ptr, i32 }
           cleanup
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 16) #15

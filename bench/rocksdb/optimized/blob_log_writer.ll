@@ -1065,9 +1065,9 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %91 = load i8, ptr %90, align 1, !tbaa !36, !range !92, !noundef !93
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %94, label %.thread37
+  br i1 %92, label %94, label %.thread59
 
-.thread37:                                        ; preds = %85
+.thread59:                                        ; preds = %85
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 1, ptr %93, align 4, !tbaa !37
   br label %124
@@ -1151,7 +1151,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   store i32 1, ptr %123, align 4, !tbaa !37
   br i1 %122, label %124, label %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit
 
-124:                                              ; preds = %.thread37, %121
+124:                                              ; preds = %.thread59, %121
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !32
   %.not.i24 = icmp eq ptr %126, null
@@ -1343,7 +1343,7 @@ define void @_ZN7rocksdb13BlobLogWriter12AppendFooterERKNS_12WriteOptionsERNS_13
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %28, align 8, !tbaa !106
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext 5, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, i8 noundef zeroext 0)
-          to label %_ZN7rocksdb6Status7IOErrorERKNS_5SliceES3_.exit unwind label %.thread88
+          to label %_ZN7rocksdb6Status7IOErrorERKNS_5SliceES3_.exit unwind label %.thread111
 
 _ZN7rocksdb6Status7IOErrorERKNS_5SliceES3_.exit:  ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1360,7 +1360,7 @@ _ZN7rocksdb6Status7IOErrorERKNS_5SliceES3_.exit:  ; preds = %26
           cleanup
   br label %233
 
-.thread88:                                        ; preds = %26
+.thread111:                                       ; preds = %26
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1885,8 +1885,8 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @_ZdaPv(ptr noundef nonnull %.sroa.4177.0) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit65
 
-_ZN7rocksdb6StatusD2Ev.exit65:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64, %233, %.thread88, %29
-  %.pn23.pn = phi { ptr, i32 } [ %30, %29 ], [ %33, %.thread88 ], [ %.pn23, %233 ], [ %.pn23, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64 ]
+_ZN7rocksdb6StatusD2Ev.exit65:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64, %233, %.thread111, %29
+  %.pn23.pn = phi { ptr, i32 } [ %30, %29 ], [ %33, %.thread111 ], [ %.pn23, %233 ], [ %.pn23, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64 ]
   %234 = load ptr, ptr %8, align 8, !tbaa !11
   %235 = icmp eq ptr %234, %19
   br i1 %235, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i66

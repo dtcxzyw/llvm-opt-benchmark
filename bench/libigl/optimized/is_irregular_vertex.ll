@@ -641,9 +641,9 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
 
 .preheader.lr.ph:                                 ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit
   %87 = icmp sgt i64 %.pre, 0
-  br i1 %87, label %.preheader.lr.ph.split.us, label %.thread328
+  br i1 %87, label %.preheader.lr.ph.split.us, label %.thread352
 
-.thread328:                                       ; preds = %.preheader.lr.ph
+.thread352:                                       ; preds = %.preheader.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %88 = shl nuw nsw i64 %85, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
@@ -735,10 +735,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %129 = shl nsw i64 %85, 1
   br i1 %86, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i, label %.sink.split.i
 
-_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %.thread328, %128
-  %130 = phi i64 [ %88, %.thread328 ], [ %129, %128 ]
-  %131 = phi ptr [ %89, %.thread328 ], [ %126, %128 ]
-  %132 = phi ptr [ %90, %.thread328 ], [ %127, %128 ]
+_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %.thread352, %128
+  %130 = phi i64 [ %88, %.thread352 ], [ %129, %128 ]
+  %131 = phi ptr [ %89, %.thread352 ], [ %126, %128 ]
+  %132 = phi ptr [ %90, %.thread352 ], [ %127, %128 ]
   %133 = mul i64 %85, 24
   %134 = call noalias ptr @malloc(i64 noundef %133) #17
   %135 = icmp eq ptr %134, null

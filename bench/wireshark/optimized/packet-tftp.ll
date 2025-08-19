@@ -1013,7 +1013,7 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
 
 231:                                              ; preds = %226
   %.not312 = icmp eq ptr %230, null
-  br i1 %.not312, label %232, label %.thread354
+  br i1 %.not312, label %232, label %.thread367
 
 232:                                              ; preds = %231
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1037,9 +1037,9 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
 ._crit_edge351:                                   ; preds = %226, %232, %237
   %245 = phi ptr [ %236, %232 ], [ %244, %237 ], [ %230, %226 ]
   %246 = icmp eq ptr %245, null
-  br i1 %246, label %.thread330, label %.thread354
+  br i1 %246, label %.thread330, label %.thread367
 
-.thread354:                                       ; preds = %231, %._crit_edge351
+.thread367:                                       ; preds = %231, %._crit_edge351
   %247 = phi ptr [ %245, %._crit_edge351 ], [ %230, %231 ]
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %249 = load i32, ptr %5, align 4
@@ -1048,7 +1048,7 @@ proto_item_set_generated.exit320:                 ; preds = %123, %127, %130
   %.not313 = icmp eq i32 %249, %251
   br i1 %.not313, label %252, label %.thread330
 
-252:                                              ; preds = %.thread354
+252:                                              ; preds = %.thread367
   %253 = add i32 %249, -1
   %254 = load i16, ptr %0, align 8
   %255 = zext i16 %254 to i32
@@ -1286,7 +1286,7 @@ error_is_likely_tsize_probe.exit.thread337:       ; preds = %365, %368, %372, %3
   %392 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %391, ptr noundef %1, i32 noundef 2, i32 noundef -1, i32 noundef 0)
   br label %.thread330
 
-.thread330:                                       ; preds = %220, %328, %332, %338, %342, %proto_item_set_generated.exit324, %317, %208, %211, %216, %263, %252, %._crit_edge351, %.thread354, %390, %389, %error_is_likely_tsize_probe.exit.thread337, %95, %74, %53
+.thread330:                                       ; preds = %220, %328, %332, %338, %342, %proto_item_set_generated.exit324, %317, %208, %211, %216, %263, %252, %._crit_edge351, %.thread367, %390, %389, %error_is_likely_tsize_probe.exit.thread337, %95, %74, %53
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 %14, ptr %393, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1361,8 +1361,8 @@ define internal fastcc noundef zeroext i1 @is_valid_request_body(ptr noundef %0,
   %31 = icmp eq i32 %30, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  %or.cond58 = select i1 %31, i1 true, i1 %exitcond.not
-  br i1 %or.cond58, label %.critedge, label %27, !llvm.loop !10
+  %or.cond59 = select i1 %31, i1 true, i1 %exitcond.not
+  br i1 %or.cond59, label %.critedge, label %27, !llvm.loop !10
 
 .critedge:                                        ; preds = %9, %27, %2, %._crit_edge
   %.3 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ %31, %27 ], [ false, %9 ]

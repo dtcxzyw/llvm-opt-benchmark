@@ -69,17 +69,17 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   br label %.outer
 
 .outer:                                           ; preds = %399, %12
-  %.ph120 = phi i32 [ %400, %399 ], [ %.pre, %12 ]
+  %.ph144 = phi i32 [ %400, %399 ], [ %.pre, %12 ]
   br label %44
 
 44:                                               ; preds = %.outer, %44
-  switch i32 %.ph120, label %44 [
+  switch i32 %.ph144, label %44 [
     i32 0, label %45
-    i32 1, label %.loopexit121
+    i32 1, label %.loopexit145
     i32 2, label %._crit_edge
-    i32 3, label %.loopexit122
+    i32 3, label %.loopexit146
     i32 4, label %._crit_edge73
-    i32 5, label %.loopexit123
+    i32 5, label %.loopexit147
     i32 6, label %349
     i32 7, label %.loopexit44
     i32 8, label %.loopexit45
@@ -145,15 +145,15 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %78 = zext nneg i8 %75 to i32
   store i32 %78, ptr %25, align 4
   %79 = icmp samesign ugt i8 %75, 1
-  br i1 %79, label %.thread, label %.loopexit121
+  br i1 %79, label %.thread, label %.loopexit145
 
-.loopexit121:                                     ; preds = %44, %77
+.loopexit145:                                     ; preds = %44, %77
   %80 = load i64, ptr %13, align 8
   %81 = load i64, ptr %18, align 8
   %82 = icmp eq i64 %80, %81
   br i1 %82, label %.thread, label %83
 
-83:                                               ; preds = %.loopexit121
+83:                                               ; preds = %.loopexit145
   %84 = load ptr, ptr %1, align 8
   %85 = getelementptr i8, ptr %84, i64 %80
   %86 = load i8, ptr %85, align 1
@@ -283,18 +283,18 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
 161:                                              ; preds = %157
   %162 = load i32, ptr %28, align 4
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %.preheader115
+  br i1 %163, label %164, label %.preheader139
 
 164:                                              ; preds = %161
   store i64 0, ptr %29, align 8
-  br label %.preheader115
+  br label %.preheader139
 
-.preheader115:                                    ; preds = %164, %161
+.preheader139:                                    ; preds = %164, %161
   br label %165
 
-165:                                              ; preds = %.preheader115, %185
-  %166 = phi i32 [ %186, %185 ], [ %162, %.preheader115 ]
-  %167 = phi i64 [ %172, %185 ], [ %158, %.preheader115 ]
+165:                                              ; preds = %.preheader139, %185
+  %166 = phi i32 [ %186, %185 ], [ %162, %.preheader139 ]
+  %167 = phi i64 [ %172, %185 ], [ %158, %.preheader139 ]
   %168 = icmp ult i64 %167, %114
   br i1 %168, label %169, label %.thread
 
@@ -425,9 +425,9 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   store i64 0, ptr %19, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   store i32 3, ptr %0, align 8
-  br label %.loopexit122
+  br label %.loopexit146
 
-.loopexit122:                                     ; preds = %44, %244
+.loopexit146:                                     ; preds = %44, %244
   %245 = load i64, ptr %13, align 8
   store i64 %245, ptr %17, align 8
   %246 = load i64, ptr %15, align 8
@@ -436,13 +436,13 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %248 = icmp eq i8 %247, 0
   br i1 %248, label %253, label %249
 
-249:                                              ; preds = %.loopexit122
+249:                                              ; preds = %.loopexit146
   %250 = load ptr, ptr %33, align 8
   %251 = load ptr, ptr %34, align 8
   %252 = tail call i32 @xz_dec_bcj_run(ptr noundef %250, ptr noundef %251, ptr noundef %1) #14
   br label %256
 
-253:                                              ; preds = %.loopexit122
+253:                                              ; preds = %.loopexit146
   %254 = load ptr, ptr %34, align 8
   %255 = tail call i32 @xz_dec_lzma2_run(ptr noundef %254, ptr noundef %1) #14
   br label %256
@@ -557,14 +557,14 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
 
 .loopexit:                                        ; preds = %324, %311
   store i32 5, ptr %0, align 8
-  br label %.loopexit123
+  br label %.loopexit147
 
-.loopexit123:                                     ; preds = %44, %.loopexit
+.loopexit147:                                     ; preds = %44, %.loopexit
   %329 = load i32, ptr %25, align 4
   %330 = icmp eq i32 %329, 1
   br i1 %330, label %.preheader, label %399
 
-.preheader:                                       ; preds = %.loopexit123, %344
+.preheader:                                       ; preds = %.loopexit147, %344
   %331 = load i64, ptr %13, align 8
   %332 = load i64, ptr %18, align 8
   %333 = icmp eq i64 %331, %332
@@ -689,13 +689,13 @@ define dso_local i32 @xz_dec_run(ptr noundef initializes((16, 24)) %0, ptr nound
   %398 = tail call fastcc i32 @dec_stream_footer(ptr noundef %0), !range !16
   br label %.thread
 
-399:                                              ; preds = %348, %.loopexit123, %88
-  %400 = phi i32 [ 6, %88 ], [ 1, %348 ], [ 1, %.loopexit123 ]
+399:                                              ; preds = %348, %.loopexit147, %88
+  %400 = phi i32 [ 6, %88 ], [ 1, %348 ], [ 1, %.loopexit147 ]
   store i32 %400, ptr %0, align 8
   br label %.outer, !llvm.loop !5
 
-.thread:                                          ; preds = %291, %287, %285, %256, %270, %180, %149, %226, %224, %219, %214, %209, %203, %196, %193, %120, %113, %77, %74, %71, %66, %63, %95, %.loopexit121, %45, %154, %134, %185, %165, %239, %318, %.preheader38, %334, %.preheader, %366, %397, %.loopexit46, %.loopexit45, %372, %365, %349
-  %401 = phi i32 [ %398, %397 ], [ 0, %365 ], [ %350, %349 ], [ 7, %372 ], [ %377, %.loopexit45 ], [ 0, %.loopexit46 ], [ 7, %366 ], [ 0, %.preheader ], [ 7, %334 ], [ 7, %318 ], [ 0, %.preheader38 ], [ 6, %239 ], [ 7, %165 ], [ 7, %185 ], [ 7, %134 ], [ 7, %154 ], [ 7, %270 ], [ 7, %256 ], [ %257, %285 ], [ 7, %287 ], [ 7, %291 ], [ 7, %113 ], [ 6, %120 ], [ 6, %193 ], [ %201, %196 ], [ 6, %203 ], [ 7, %209 ], [ 6, %214 ], [ 6, %219 ], [ 7, %224 ], [ %231, %226 ], [ 7, %149 ], [ 7, %180 ], [ 6, %77 ], [ 5, %63 ], [ 7, %66 ], [ 6, %71 ], [ 6, %74 ], [ 0, %95 ], [ 0, %.loopexit121 ], [ 0, %45 ]
+.thread:                                          ; preds = %291, %287, %285, %256, %270, %180, %149, %226, %224, %219, %214, %209, %203, %196, %193, %120, %113, %77, %74, %71, %66, %63, %95, %.loopexit145, %45, %154, %134, %185, %165, %239, %318, %.preheader38, %334, %.preheader, %366, %397, %.loopexit46, %.loopexit45, %372, %365, %349
+  %401 = phi i32 [ %398, %397 ], [ 0, %365 ], [ %350, %349 ], [ 7, %372 ], [ %377, %.loopexit45 ], [ 0, %.loopexit46 ], [ 7, %366 ], [ 0, %.preheader ], [ 7, %334 ], [ 7, %318 ], [ 0, %.preheader38 ], [ 6, %239 ], [ 7, %165 ], [ 7, %185 ], [ 7, %134 ], [ 7, %154 ], [ 7, %270 ], [ 7, %256 ], [ %257, %285 ], [ 7, %287 ], [ 7, %291 ], [ 7, %113 ], [ 6, %120 ], [ 6, %193 ], [ %201, %196 ], [ 6, %203 ], [ 7, %209 ], [ 6, %214 ], [ 6, %219 ], [ 7, %224 ], [ %231, %226 ], [ 7, %149 ], [ 7, %180 ], [ 6, %77 ], [ 5, %63 ], [ 7, %66 ], [ 6, %71 ], [ 6, %74 ], [ 0, %95 ], [ 0, %.loopexit145 ], [ 0, %45 ]
   %402 = load i32, ptr %3, align 8
   %403 = icmp eq i32 %402, 0
   %404 = icmp eq i32 %401, 0

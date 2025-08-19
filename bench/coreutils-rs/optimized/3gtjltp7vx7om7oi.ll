@@ -143,8 +143,8 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
   %65 = load ptr, ptr %64, align 8, !nonnull !10
   br label %67
 
-.thread66:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41", %.thread73, %119, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread81"
-  %.026.lcssa = phi i8 [ %.02679, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread81" ], [ %.02679, %119 ], [ %123, %.thread73 ], [ %.02679, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41" ]
+.thread66:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41", %.thread73, %119, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread95"
+  %.026.lcssa = phi i8 [ %.02679, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread95" ], [ %.02679, %119 ], [ %123, %.thread73 ], [ %.02679, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41" ]
   %66 = zext i8 %.026.lcssa to i32
   br label %.thread
 
@@ -159,9 +159,9 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %70 = icmp eq ptr %68, %65
-  br i1 %70, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread81", label %71
+  br i1 %70, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread95", label %71
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread81": ; preds = %67
+"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread95": ; preds = %67
   store i32 1114112, ptr %3, align 8, !alias.scope !33, !noalias !36
   br label %.thread66
 
@@ -208,8 +208,8 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i37", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i39", %85
   %.ph = phi ptr [ %72, %85 ], [ %88, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i39" ], [ %78, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i37" ]
-  %.ph80 = phi i32 [ %86, %85 ], [ %95, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i39" ], [ %83, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i37" ]
-  store i32 %.ph80, ptr %3, align 8, !alias.scope !33, !noalias !36
+  %.ph94 = phi i32 [ %86, %85 ], [ %95, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i39" ], [ %83, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i37" ]
+  store i32 %.ph94, ptr %3, align 8, !alias.scope !33, !noalias !36
   br label %109
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i39"
@@ -232,7 +232,7 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
   br i1 %108, label %.thread66, label %109
 
 109:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread", %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41"
-  %110 = phi i32 [ %.ph80, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread" ], [ %106, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41" ]
+  %110 = phi i32 [ %.ph94, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread" ], [ %106, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41" ]
   %111 = phi ptr [ %.ph, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41.thread" ], [ %98, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit41" ]
   %112 = add nsw i32 %110, -48
   br i1 %55, label %113, label %119
@@ -258,7 +258,7 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
 
 .thread73:                                        ; preds = %113, %119
   %.in = phi i32 [ %.0.i42, %119 ], [ %112, %113 ]
-  %121 = trunc i32 %.in to i8
+  %121 = trunc nuw i32 %.in to i8
   %122 = mul i8 %.02679, %1
   %123 = add i8 %122, %121
   store i32 1114113, ptr %3, align 8

@@ -899,7 +899,7 @@ define noalias noundef ptr @wasm_func_call(ptr noalias noundef align 8 dereferen
           to label %_ZN4core4iter6traits8iterator8Iterator3zip17h3d458eb9092f77fdE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.lr.ph, %72, %58, %28, %86, %56, %51
-  %lpad.loopexit.split-lp44 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 

@@ -1538,9 +1538,9 @@ define internal fastcc void @json_next_token(ptr noundef nonnull captures(none) 
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
   %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx125 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
-  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx126 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
-  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx127 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx130 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx131 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 1
+  %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx132 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 2
   %.sroa.0.i.i.3.i.i.3.i.i.3.i.3.i.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 3
   br label %.backedge.i
 
@@ -1724,7 +1724,7 @@ decode_hex4.exit39.i.i:                           ; preds = %96
   %126 = trunc i32 %74 to i8
   %127 = and i8 %126, 63
   %128 = or disjoint i8 %127, -128
-  store i8 %128, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx125, align 1, !tbaa !25
+  store i8 %128, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx130, align 1, !tbaa !25
   br label %json_append_unicode_escape.exit.i
 
 129:                                              ; preds = %120
@@ -1762,12 +1762,12 @@ decode_hex4.exit39.i.i:                           ; preds = %96
   %149 = trunc i32 %148 to i8
   %150 = and i8 %149, 63
   %151 = or disjoint i8 %150, -128
-  store i8 %151, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx126, align 1, !tbaa !25
+  store i8 %151, ptr %.sroa.0.i.i.1.i.i.1.i.i.1.i.1.i.1..sroa_idx131, align 1, !tbaa !25
   %152 = lshr i32 %.02355626672.i.i, 6
   %153 = trunc i32 %152 to i8
   %154 = and i8 %153, 63
   %155 = or disjoint i8 %154, -128
-  store i8 %155, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx127, align 2, !tbaa !25
+  store i8 %155, ptr %.sroa.0.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx132, align 2, !tbaa !25
   %156 = trunc i32 %.02355626672.i.i to i8
   %157 = and i8 %156, 63
   %158 = or disjoint i8 %157, -128

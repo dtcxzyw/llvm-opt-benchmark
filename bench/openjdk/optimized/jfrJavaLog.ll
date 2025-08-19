@@ -251,17 +251,17 @@ define internal void @_ZL17log_config_changev() #0 {
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL26log_config_change_internalbP10JavaThread(i1 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
-  br i1 %0, label %3, label %.preheader278
+  br i1 %0, label %3, label %.preheader293
 
 3:                                                ; preds = %2
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 8), align 8
-  br label %.preheader278
+  br label %.preheader293
 
-.preheader278:                                    ; preds = %3, %2
+.preheader293:                                    ; preds = %3, %2
   br label %4
 
-4:                                                ; preds = %.preheader278, %7
-  %.08.i = phi i64 [ %8, %7 ], [ 0, %.preheader278 ]
+4:                                                ; preds = %.preheader293, %7
+  %.08.i = phi i64 [ %8, %7 ], [ 0, %.preheader293 ]
   %5 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i
   %6 = load volatile ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -279,17 +279,17 @@ define internal fastcc void @_ZL26log_config_change_internalbP10JavaThread(i1 no
 _ZL13highest_levelRK9LogTagSet.exit:              ; preds = %7, %.split.loop.exit6.i
   %.05.i = phi i32 [ %9, %.split.loop.exit6.i ], [ 0, %7 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i, i32 noundef 0, ptr noundef %1)
-  br i1 %0, label %10, label %.preheader276
+  br i1 %0, label %10, label %.preheader291
 
 10:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 24), align 8
-  br label %.preheader276
+  br label %.preheader291
 
-.preheader276:                                    ; preds = %10, %_ZL13highest_levelRK9LogTagSet.exit
+.preheader291:                                    ; preds = %10, %_ZL13highest_levelRK9LogTagSet.exit
   br label %11
 
-11:                                               ; preds = %.preheader276, %14
-  %.08.i95 = phi i64 [ %15, %14 ], [ 0, %.preheader276 ]
+11:                                               ; preds = %.preheader291, %14
+  %.08.i95 = phi i64 [ %15, %14 ], [ 0, %.preheader291 ]
   %12 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i95
   %13 = load volatile ptr, ptr %12, align 8
   %.not.i96 = icmp eq ptr %13, null
@@ -307,17 +307,17 @@ _ZL13highest_levelRK9LogTagSet.exit:              ; preds = %7, %.split.loop.exi
 _ZL13highest_levelRK9LogTagSet.exit100:           ; preds = %14, %.split.loop.exit6.i97
   %.05.i98 = phi i32 [ %16, %.split.loop.exit6.i97 ], [ 0, %14 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i98, i32 noundef 1, ptr noundef %1)
-  br i1 %0, label %17, label %.preheader274
+  br i1 %0, label %17, label %.preheader289
 
 17:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit100
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 40), align 8
-  br label %.preheader274
+  br label %.preheader289
 
-.preheader274:                                    ; preds = %17, %_ZL13highest_levelRK9LogTagSet.exit100
+.preheader289:                                    ; preds = %17, %_ZL13highest_levelRK9LogTagSet.exit100
   br label %18
 
-18:                                               ; preds = %.preheader274, %21
-  %.08.i101 = phi i64 [ %22, %21 ], [ 0, %.preheader274 ]
+18:                                               ; preds = %.preheader289, %21
+  %.08.i101 = phi i64 [ %22, %21 ], [ 0, %.preheader289 ]
   %19 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i101
   %20 = load volatile ptr, ptr %19, align 8
   %.not.i102 = icmp eq ptr %20, null
@@ -335,17 +335,17 @@ _ZL13highest_levelRK9LogTagSet.exit100:           ; preds = %14, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit106:           ; preds = %21, %.split.loop.exit6.i103
   %.05.i104 = phi i32 [ %23, %.split.loop.exit6.i103 ], [ 0, %21 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i104, i32 noundef 2, ptr noundef %1)
-  br i1 %0, label %24, label %.preheader272
+  br i1 %0, label %24, label %.preheader287
 
 24:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit106
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_136ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 56), align 8
-  br label %.preheader272
+  br label %.preheader287
 
-.preheader272:                                    ; preds = %24, %_ZL13highest_levelRK9LogTagSet.exit106
+.preheader287:                                    ; preds = %24, %_ZL13highest_levelRK9LogTagSet.exit106
   br label %25
 
-25:                                               ; preds = %.preheader272, %28
-  %.08.i107 = phi i64 [ %29, %28 ], [ 0, %.preheader272 ]
+25:                                               ; preds = %.preheader287, %28
+  %.08.i107 = phi i64 [ %29, %28 ], [ 0, %.preheader287 ]
   %26 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_136ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i107
   %27 = load volatile ptr, ptr %26, align 8
   %.not.i108 = icmp eq ptr %27, null
@@ -363,17 +363,17 @@ _ZL13highest_levelRK9LogTagSet.exit106:           ; preds = %21, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit112:           ; preds = %28, %.split.loop.exit6.i109
   %.05.i110 = phi i32 [ %30, %.split.loop.exit6.i109 ], [ 0, %28 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i110, i32 noundef 3, ptr noundef %1)
-  br i1 %0, label %31, label %.preheader270
+  br i1 %0, label %31, label %.preheader285
 
 31:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit112
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_12ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 72), align 8
-  br label %.preheader270
+  br label %.preheader285
 
-.preheader270:                                    ; preds = %31, %_ZL13highest_levelRK9LogTagSet.exit112
+.preheader285:                                    ; preds = %31, %_ZL13highest_levelRK9LogTagSet.exit112
   br label %32
 
-32:                                               ; preds = %.preheader270, %35
-  %.08.i113 = phi i64 [ %36, %35 ], [ 0, %.preheader270 ]
+32:                                               ; preds = %.preheader285, %35
+  %.08.i113 = phi i64 [ %36, %35 ], [ 0, %.preheader285 ]
   %33 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_12ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i113
   %34 = load volatile ptr, ptr %33, align 8
   %.not.i114 = icmp eq ptr %34, null
@@ -391,17 +391,17 @@ _ZL13highest_levelRK9LogTagSet.exit112:           ; preds = %28, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit118:           ; preds = %35, %.split.loop.exit6.i115
   %.05.i116 = phi i32 [ %37, %.split.loop.exit6.i115 ], [ 0, %35 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i116, i32 noundef 4, ptr noundef %1)
-  br i1 %0, label %38, label %.preheader268
+  br i1 %0, label %38, label %.preheader283
 
 38:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit118
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_109ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 88), align 8
-  br label %.preheader268
+  br label %.preheader283
 
-.preheader268:                                    ; preds = %38, %_ZL13highest_levelRK9LogTagSet.exit118
+.preheader283:                                    ; preds = %38, %_ZL13highest_levelRK9LogTagSet.exit118
   br label %39
 
-39:                                               ; preds = %.preheader268, %42
-  %.08.i119 = phi i64 [ %43, %42 ], [ 0, %.preheader268 ]
+39:                                               ; preds = %.preheader283, %42
+  %.08.i119 = phi i64 [ %43, %42 ], [ 0, %.preheader283 ]
   %40 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_109ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i119
   %41 = load volatile ptr, ptr %40, align 8
   %.not.i120 = icmp eq ptr %41, null
@@ -419,17 +419,17 @@ _ZL13highest_levelRK9LogTagSet.exit118:           ; preds = %35, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit124:           ; preds = %42, %.split.loop.exit6.i121
   %.05.i122 = phi i32 [ %44, %.split.loop.exit6.i121 ], [ 0, %42 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i122, i32 noundef 5, ptr noundef %1)
-  br i1 %0, label %45, label %.preheader266
+  br i1 %0, label %45, label %.preheader281
 
 45:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit124
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_83ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 104), align 8
-  br label %.preheader266
+  br label %.preheader281
 
-.preheader266:                                    ; preds = %45, %_ZL13highest_levelRK9LogTagSet.exit124
+.preheader281:                                    ; preds = %45, %_ZL13highest_levelRK9LogTagSet.exit124
   br label %46
 
-46:                                               ; preds = %.preheader266, %49
-  %.08.i125 = phi i64 [ %50, %49 ], [ 0, %.preheader266 ]
+46:                                               ; preds = %.preheader281, %49
+  %.08.i125 = phi i64 [ %50, %49 ], [ 0, %.preheader281 ]
   %47 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_83ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i125
   %48 = load volatile ptr, ptr %47, align 8
   %.not.i126 = icmp eq ptr %48, null
@@ -447,17 +447,17 @@ _ZL13highest_levelRK9LogTagSet.exit124:           ; preds = %42, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit130:           ; preds = %49, %.split.loop.exit6.i127
   %.05.i128 = phi i32 [ %51, %.split.loop.exit6.i127 ], [ 0, %49 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i128, i32 noundef 6, ptr noundef %1)
-  br i1 %0, label %52, label %.preheader264
+  br i1 %0, label %52, label %.preheader279
 
 52:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit130
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_147ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 120), align 8
-  br label %.preheader264
+  br label %.preheader279
 
-.preheader264:                                    ; preds = %52, %_ZL13highest_levelRK9LogTagSet.exit130
+.preheader279:                                    ; preds = %52, %_ZL13highest_levelRK9LogTagSet.exit130
   br label %53
 
-53:                                               ; preds = %.preheader264, %56
-  %.08.i131 = phi i64 [ %57, %56 ], [ 0, %.preheader264 ]
+53:                                               ; preds = %.preheader279, %56
+  %.08.i131 = phi i64 [ %57, %56 ], [ 0, %.preheader279 ]
   %54 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_147ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i131
   %55 = load volatile ptr, ptr %54, align 8
   %.not.i132 = icmp eq ptr %55, null
@@ -475,17 +475,17 @@ _ZL13highest_levelRK9LogTagSet.exit130:           ; preds = %49, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit136:           ; preds = %56, %.split.loop.exit6.i133
   %.05.i134 = phi i32 [ %58, %.split.loop.exit6.i133 ], [ 0, %56 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i134, i32 noundef 7, ptr noundef %1)
-  br i1 %0, label %59, label %.preheader262
+  br i1 %0, label %59, label %.preheader277
 
 59:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit136
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 136), align 8
-  br label %.preheader262
+  br label %.preheader277
 
-.preheader262:                                    ; preds = %59, %_ZL13highest_levelRK9LogTagSet.exit136
+.preheader277:                                    ; preds = %59, %_ZL13highest_levelRK9LogTagSet.exit136
   br label %60
 
-60:                                               ; preds = %.preheader262, %63
-  %.08.i137 = phi i64 [ %64, %63 ], [ 0, %.preheader262 ]
+60:                                               ; preds = %.preheader277, %63
+  %.08.i137 = phi i64 [ %64, %63 ], [ 0, %.preheader277 ]
   %61 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i137
   %62 = load volatile ptr, ptr %61, align 8
   %.not.i138 = icmp eq ptr %62, null
@@ -503,17 +503,17 @@ _ZL13highest_levelRK9LogTagSet.exit136:           ; preds = %56, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit142:           ; preds = %63, %.split.loop.exit6.i139
   %.05.i140 = phi i32 [ %65, %.split.loop.exit6.i139 ], [ 0, %63 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i140, i32 noundef 8, ptr noundef %1)
-  br i1 %0, label %66, label %.preheader260
+  br i1 %0, label %66, label %.preheader275
 
 66:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit142
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_113ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 152), align 8
-  br label %.preheader260
+  br label %.preheader275
 
-.preheader260:                                    ; preds = %66, %_ZL13highest_levelRK9LogTagSet.exit142
+.preheader275:                                    ; preds = %66, %_ZL13highest_levelRK9LogTagSet.exit142
   br label %67
 
-67:                                               ; preds = %.preheader260, %70
-  %.08.i143 = phi i64 [ %71, %70 ], [ 0, %.preheader260 ]
+67:                                               ; preds = %.preheader275, %70
+  %.08.i143 = phi i64 [ %71, %70 ], [ 0, %.preheader275 ]
   %68 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_113ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i143
   %69 = load volatile ptr, ptr %68, align 8
   %.not.i144 = icmp eq ptr %69, null
@@ -531,17 +531,17 @@ _ZL13highest_levelRK9LogTagSet.exit142:           ; preds = %63, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit148:           ; preds = %70, %.split.loop.exit6.i145
   %.05.i146 = phi i32 [ %72, %.split.loop.exit6.i145 ], [ 0, %70 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i146, i32 noundef 9, ptr noundef %1)
-  br i1 %0, label %73, label %.preheader258
+  br i1 %0, label %73, label %.preheader273
 
 73:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit148
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_113ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 168), align 8
-  br label %.preheader258
+  br label %.preheader273
 
-.preheader258:                                    ; preds = %73, %_ZL13highest_levelRK9LogTagSet.exit148
+.preheader273:                                    ; preds = %73, %_ZL13highest_levelRK9LogTagSet.exit148
   br label %74
 
-74:                                               ; preds = %.preheader258, %77
-  %.08.i149 = phi i64 [ %78, %77 ], [ 0, %.preheader258 ]
+74:                                               ; preds = %.preheader273, %77
+  %.08.i149 = phi i64 [ %78, %77 ], [ 0, %.preheader273 ]
   %75 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_113ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i149
   %76 = load volatile ptr, ptr %75, align 8
   %.not.i150 = icmp eq ptr %76, null
@@ -559,17 +559,17 @@ _ZL13highest_levelRK9LogTagSet.exit148:           ; preds = %70, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit154:           ; preds = %77, %.split.loop.exit6.i151
   %.05.i152 = phi i32 [ %79, %.split.loop.exit6.i151 ], [ 0, %77 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i152, i32 noundef 10, ptr noundef %1)
-  br i1 %0, label %80, label %.preheader256
+  br i1 %0, label %80, label %.preheader271
 
 80:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit154
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_83ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 184), align 8
-  br label %.preheader256
+  br label %.preheader271
 
-.preheader256:                                    ; preds = %80, %_ZL13highest_levelRK9LogTagSet.exit154
+.preheader271:                                    ; preds = %80, %_ZL13highest_levelRK9LogTagSet.exit154
   br label %81
 
-81:                                               ; preds = %.preheader256, %84
-  %.08.i155 = phi i64 [ %85, %84 ], [ 0, %.preheader256 ]
+81:                                               ; preds = %.preheader271, %84
+  %.08.i155 = phi i64 [ %85, %84 ], [ 0, %.preheader271 ]
   %82 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_83ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i155
   %83 = load volatile ptr, ptr %82, align 8
   %.not.i156 = icmp eq ptr %83, null
@@ -587,17 +587,17 @@ _ZL13highest_levelRK9LogTagSet.exit154:           ; preds = %77, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit160:           ; preds = %84, %.split.loop.exit6.i157
   %.05.i158 = phi i32 [ %86, %.split.loop.exit6.i157 ], [ 0, %84 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i158, i32 noundef 11, ptr noundef %1)
-  br i1 %0, label %87, label %.preheader254
+  br i1 %0, label %87, label %.preheader269
 
 87:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit160
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 200), align 8
-  br label %.preheader254
+  br label %.preheader269
 
-.preheader254:                                    ; preds = %87, %_ZL13highest_levelRK9LogTagSet.exit160
+.preheader269:                                    ; preds = %87, %_ZL13highest_levelRK9LogTagSet.exit160
   br label %88
 
-88:                                               ; preds = %.preheader254, %91
-  %.08.i161 = phi i64 [ %92, %91 ], [ 0, %.preheader254 ]
+88:                                               ; preds = %.preheader269, %91
+  %.08.i161 = phi i64 [ %92, %91 ], [ 0, %.preheader269 ]
   %89 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i161
   %90 = load volatile ptr, ptr %89, align 8
   %.not.i162 = icmp eq ptr %90, null
@@ -615,17 +615,17 @@ _ZL13highest_levelRK9LogTagSet.exit160:           ; preds = %84, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit166:           ; preds = %91, %.split.loop.exit6.i163
   %.05.i164 = phi i32 [ %93, %.split.loop.exit6.i163 ], [ 0, %91 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i164, i32 noundef 12, ptr noundef %1)
-  br i1 %0, label %94, label %.preheader252
+  br i1 %0, label %94, label %.preheader267
 
 94:                                               ; preds = %_ZL13highest_levelRK9LogTagSet.exit166
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_136ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 216), align 8
-  br label %.preheader252
+  br label %.preheader267
 
-.preheader252:                                    ; preds = %94, %_ZL13highest_levelRK9LogTagSet.exit166
+.preheader267:                                    ; preds = %94, %_ZL13highest_levelRK9LogTagSet.exit166
   br label %95
 
-95:                                               ; preds = %.preheader252, %98
-  %.08.i167 = phi i64 [ %99, %98 ], [ 0, %.preheader252 ]
+95:                                               ; preds = %.preheader267, %98
+  %.08.i167 = phi i64 [ %99, %98 ], [ 0, %.preheader267 ]
   %96 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_136ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i167
   %97 = load volatile ptr, ptr %96, align 8
   %.not.i168 = icmp eq ptr %97, null
@@ -643,17 +643,17 @@ _ZL13highest_levelRK9LogTagSet.exit166:           ; preds = %91, %.split.loop.ex
 _ZL13highest_levelRK9LogTagSet.exit172:           ; preds = %98, %.split.loop.exit6.i169
   %.05.i170 = phi i32 [ %100, %.split.loop.exit6.i169 ], [ 0, %98 ]
   tail call fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTypeP10JavaThread(i32 noundef %.05.i170, i32 noundef 13, ptr noundef %1)
-  br i1 %0, label %101, label %.preheader250
+  br i1 %0, label %101, label %.preheader265
 
 101:                                              ; preds = %_ZL13highest_levelRK9LogTagSet.exit172
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_32ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr getelementptr inbounds nuw (i8, ptr @_ZL12log_tag_sets, i64 232), align 8
-  br label %.preheader250
+  br label %.preheader265
 
-.preheader250:                                    ; preds = %101, %_ZL13highest_levelRK9LogTagSet.exit172
+.preheader265:                                    ; preds = %101, %_ZL13highest_levelRK9LogTagSet.exit172
   br label %102
 
-102:                                              ; preds = %.preheader250, %105
-  %.08.i173 = phi i64 [ %106, %105 ], [ 0, %.preheader250 ]
+102:                                              ; preds = %.preheader265, %105
+  %.08.i173 = phi i64 [ %106, %105 ], [ 0, %.preheader265 ]
   %103 = getelementptr inbounds nuw [6 x ptr], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_32ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 0, i64 %.08.i173
   %104 = load volatile ptr, ptr %103, align 8
   %.not.i174 = icmp eq ptr %104, null

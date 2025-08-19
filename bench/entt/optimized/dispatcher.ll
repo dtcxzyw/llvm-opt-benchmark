@@ -1290,9 +1290,9 @@ _ZN4entt16basic_dispatcherISaIvEE7enqueueI13non_aggregateJiEEEvDpOT0_.exit: ; pr
   %320 = load ptr, ptr %319, align 8, !tbaa !80
   %321 = load ptr, ptr %318, align 8, !tbaa !83
   %322 = icmp eq ptr %320, %321
-  br i1 %322, label %._crit_edge.thread10.i.i, label %.lr.ph.split.i.i
+  br i1 %322, label %._crit_edge.thread17.i.i, label %.lr.ph.split.i.i
 
-._crit_edge.thread10.i.i:                         ; preds = %.lr.ph.i.i
+._crit_edge.thread17.i.i:                         ; preds = %.lr.ph.i.i
   %323 = getelementptr inbounds i8, ptr %314, i64 %317
   br label %326
 
@@ -1303,11 +1303,11 @@ _ZN4entt16basic_dispatcherISaIvEE7enqueueI13non_aggregateJiEEEvDpOT0_.exit: ; pr
   %.pre.i = load ptr, ptr %312, align 8, !tbaa !93
   br label %326
 
-326:                                              ; preds = %._crit_edge.i.i, %._crit_edge.thread10.i.i
-  %327 = phi ptr [ %313, %._crit_edge.thread10.i.i ], [ %.pre.i, %._crit_edge.i.i ]
-  %328 = phi i64 [ %315, %._crit_edge.thread10.i.i ], [ %325, %._crit_edge.i.i ]
-  %329 = phi ptr [ %323, %._crit_edge.thread10.i.i ], [ %324, %._crit_edge.i.i ]
-  %330 = phi ptr [ %314, %._crit_edge.thread10.i.i ], [ %.pre.i.i247, %._crit_edge.i.i ]
+326:                                              ; preds = %._crit_edge.i.i, %._crit_edge.thread17.i.i
+  %327 = phi ptr [ %313, %._crit_edge.thread17.i.i ], [ %.pre.i, %._crit_edge.i.i ]
+  %328 = phi i64 [ %315, %._crit_edge.thread17.i.i ], [ %325, %._crit_edge.i.i ]
+  %329 = phi ptr [ %323, %._crit_edge.thread17.i.i ], [ %324, %._crit_edge.i.i ]
+  %330 = phi ptr [ %314, %._crit_edge.thread17.i.i ], [ %.pre.i.i247, %._crit_edge.i.i ]
   %.not11.i.i.i.i = icmp eq ptr %329, %327
   br i1 %.not11.i.i.i.i, label %._crit_edge.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP13non_aggregateSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i.i.i
 
@@ -2472,9 +2472,9 @@ _ZN4entt16basic_dispatcherISaIvEE7enqueueIN4test11other_emptyEEEvOT_.exit: ; pre
   %722 = load ptr, ptr %721, align 8, !tbaa !115
   %723 = load ptr, ptr %720, align 8, !tbaa !118
   %724 = icmp eq ptr %722, %723
-  br i1 %724, label %._crit_edge.thread10.i.i393, label %.lr.ph.split.i.i376
+  br i1 %724, label %._crit_edge.thread17.i.i393, label %.lr.ph.split.i.i376
 
-._crit_edge.thread10.i.i393:                      ; preds = %.lr.ph.i.i375
+._crit_edge.thread17.i.i393:                      ; preds = %.lr.ph.i.i375
   %725 = getelementptr inbounds i8, ptr %716, i64 %719
   br label %728
 
@@ -2485,11 +2485,11 @@ _ZN4entt16basic_dispatcherISaIvEE7enqueueIN4test11other_emptyEEEvOT_.exit: ; pre
   %.pre.i386 = load ptr, ptr %714, align 8, !tbaa !119
   br label %728
 
-728:                                              ; preds = %._crit_edge.i.i384, %._crit_edge.thread10.i.i393
-  %729 = phi ptr [ %715, %._crit_edge.thread10.i.i393 ], [ %.pre.i386, %._crit_edge.i.i384 ]
-  %730 = phi i64 [ %717, %._crit_edge.thread10.i.i393 ], [ %727, %._crit_edge.i.i384 ]
-  %731 = phi ptr [ %725, %._crit_edge.thread10.i.i393 ], [ %726, %._crit_edge.i.i384 ]
-  %732 = phi ptr [ %716, %._crit_edge.thread10.i.i393 ], [ %.pre.i.i385, %._crit_edge.i.i384 ]
+728:                                              ; preds = %._crit_edge.i.i384, %._crit_edge.thread17.i.i393
+  %729 = phi ptr [ %715, %._crit_edge.thread17.i.i393 ], [ %.pre.i386, %._crit_edge.i.i384 ]
+  %730 = phi i64 [ %717, %._crit_edge.thread17.i.i393 ], [ %727, %._crit_edge.i.i384 ]
+  %731 = phi ptr [ %725, %._crit_edge.thread17.i.i393 ], [ %726, %._crit_edge.i.i384 ]
+  %732 = phi ptr [ %716, %._crit_edge.thread17.i.i393 ], [ %.pre.i.i385, %._crit_edge.i.i384 ]
   %.not11.i.i.i.i387 = icmp eq ptr %731, %729
   br i1 %.not11.i.i.i.i387, label %._crit_edge.i.i.i.i390, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4test11other_emptyESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i
 
@@ -3394,9 +3394,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %1045 = load ptr, ptr %1044, align 8, !tbaa !96
   %1046 = load ptr, ptr %1043, align 8, !tbaa !99
   %1047 = icmp eq ptr %1045, %1046
-  br i1 %1047, label %._crit_edge.thread10.i.i522, label %.lr.ph.split.i.i505
+  br i1 %1047, label %._crit_edge.thread17.i.i522, label %.lr.ph.split.i.i505
 
-._crit_edge.thread10.i.i522:                      ; preds = %.lr.ph.i.i504
+._crit_edge.thread17.i.i522:                      ; preds = %.lr.ph.i.i504
   %1048 = getelementptr inbounds i8, ptr %1039, i64 %1042
   br label %1051
 
@@ -3407,11 +3407,11 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.pre.i515 = load ptr, ptr %1037, align 8, !tbaa !130
   br label %1051
 
-1051:                                             ; preds = %._crit_edge.i.i513, %._crit_edge.thread10.i.i522
-  %1052 = phi ptr [ %1038, %._crit_edge.thread10.i.i522 ], [ %.pre.i515, %._crit_edge.i.i513 ]
-  %1053 = phi i64 [ %1040, %._crit_edge.thread10.i.i522 ], [ %1050, %._crit_edge.i.i513 ]
-  %1054 = phi ptr [ %1048, %._crit_edge.thread10.i.i522 ], [ %1049, %._crit_edge.i.i513 ]
-  %1055 = phi ptr [ %1039, %._crit_edge.thread10.i.i522 ], [ %.pre.i.i514, %._crit_edge.i.i513 ]
+1051:                                             ; preds = %._crit_edge.i.i513, %._crit_edge.thread17.i.i522
+  %1052 = phi ptr [ %1038, %._crit_edge.thread17.i.i522 ], [ %.pre.i515, %._crit_edge.i.i513 ]
+  %1053 = phi i64 [ %1040, %._crit_edge.thread17.i.i522 ], [ %1050, %._crit_edge.i.i513 ]
+  %1054 = phi ptr [ %1048, %._crit_edge.thread17.i.i522 ], [ %1049, %._crit_edge.i.i513 ]
+  %1055 = phi ptr [ %1039, %._crit_edge.thread17.i.i522 ], [ %.pre.i.i514, %._crit_edge.i.i513 ]
   %.not11.i.i.i.i516 = icmp eq ptr %1054, %1052
   br i1 %.not11.i.i.i.i516, label %._crit_edge.i.i.i.i519, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4test5emptyESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i
 
@@ -9424,9 +9424,9 @@ _ZN4entt16basic_dispatcherISaIvEE12enqueue_hintIN4test5emptyEEEvjOT_.exit: ; pre
   %308 = load ptr, ptr %307, align 8, !tbaa !96
   %309 = load ptr, ptr %306, align 8, !tbaa !99
   %310 = icmp eq ptr %308, %309
-  br i1 %310, label %._crit_edge.thread10.i.i, label %.lr.ph.split.i.i
+  br i1 %310, label %._crit_edge.thread17.i.i, label %.lr.ph.split.i.i
 
-._crit_edge.thread10.i.i:                         ; preds = %.lr.ph.i.i
+._crit_edge.thread17.i.i:                         ; preds = %.lr.ph.i.i
   %311 = getelementptr inbounds i8, ptr %302, i64 %305
   br label %314
 
@@ -9437,11 +9437,11 @@ _ZN4entt16basic_dispatcherISaIvEE12enqueue_hintIN4test5emptyEEEvjOT_.exit: ; pre
   %.pre.i = load ptr, ptr %300, align 8, !tbaa !130
   br label %314
 
-314:                                              ; preds = %._crit_edge.i.i, %._crit_edge.thread10.i.i
-  %315 = phi ptr [ %301, %._crit_edge.thread10.i.i ], [ %.pre.i, %._crit_edge.i.i ]
-  %316 = phi i64 [ %303, %._crit_edge.thread10.i.i ], [ %313, %._crit_edge.i.i ]
-  %317 = phi ptr [ %311, %._crit_edge.thread10.i.i ], [ %312, %._crit_edge.i.i ]
-  %318 = phi ptr [ %302, %._crit_edge.thread10.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
+314:                                              ; preds = %._crit_edge.i.i, %._crit_edge.thread17.i.i
+  %315 = phi ptr [ %301, %._crit_edge.thread17.i.i ], [ %.pre.i, %._crit_edge.i.i ]
+  %316 = phi i64 [ %303, %._crit_edge.thread17.i.i ], [ %313, %._crit_edge.i.i ]
+  %317 = phi ptr [ %311, %._crit_edge.thread17.i.i ], [ %312, %._crit_edge.i.i ]
+  %318 = phi ptr [ %302, %._crit_edge.thread17.i.i ], [ %.pre.i.i, %._crit_edge.i.i ]
   %.not11.i.i.i.i = icmp eq ptr %317, %315
   br i1 %.not11.i.i.i.i, label %._crit_edge.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4test5emptyESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i
 
@@ -9734,9 +9734,9 @@ _ZN4entt16basic_dispatcherISaIvEE5clearIN4test5emptyEEEvj.exit: ; preds = %406, 
   %417 = load ptr, ptr %416, align 8, !tbaa !96
   %418 = load ptr, ptr %415, align 8, !tbaa !99
   %419 = icmp eq ptr %417, %418
-  br i1 %419, label %._crit_edge.thread10.i.i207, label %.lr.ph.split.i.i188
+  br i1 %419, label %._crit_edge.thread17.i.i207, label %.lr.ph.split.i.i188
 
-._crit_edge.thread10.i.i207:                      ; preds = %.lr.ph.i.i187
+._crit_edge.thread17.i.i207:                      ; preds = %.lr.ph.i.i187
   %420 = getelementptr inbounds i8, ptr %411, i64 %414
   br label %423
 
@@ -9747,11 +9747,11 @@ _ZN4entt16basic_dispatcherISaIvEE5clearIN4test5emptyEEEvj.exit: ; preds = %406, 
   %.pre.i199 = load ptr, ptr %409, align 8, !tbaa !130
   br label %423
 
-423:                                              ; preds = %._crit_edge.i.i197, %._crit_edge.thread10.i.i207
-  %424 = phi ptr [ %410, %._crit_edge.thread10.i.i207 ], [ %.pre.i199, %._crit_edge.i.i197 ]
-  %425 = phi i64 [ %412, %._crit_edge.thread10.i.i207 ], [ %422, %._crit_edge.i.i197 ]
-  %426 = phi ptr [ %420, %._crit_edge.thread10.i.i207 ], [ %421, %._crit_edge.i.i197 ]
-  %427 = phi ptr [ %411, %._crit_edge.thread10.i.i207 ], [ %.pre.i.i198, %._crit_edge.i.i197 ]
+423:                                              ; preds = %._crit_edge.i.i197, %._crit_edge.thread17.i.i207
+  %424 = phi ptr [ %410, %._crit_edge.thread17.i.i207 ], [ %.pre.i199, %._crit_edge.i.i197 ]
+  %425 = phi i64 [ %412, %._crit_edge.thread17.i.i207 ], [ %422, %._crit_edge.i.i197 ]
+  %426 = phi ptr [ %420, %._crit_edge.thread17.i.i207 ], [ %421, %._crit_edge.i.i197 ]
+  %427 = phi ptr [ %411, %._crit_edge.thread17.i.i207 ], [ %.pre.i.i198, %._crit_edge.i.i197 ]
   %.not11.i.i.i.i200 = icmp eq ptr %426, %424
   br i1 %.not11.i.i.i.i200, label %._crit_edge.i.i.i.i204, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4test5emptyESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i201
 
@@ -10101,9 +10101,9 @@ _ZN4entt16basic_dispatcherISaIvEE5clearIN4test5emptyEEEvj.exit264: ; preds = %53
   %547 = load ptr, ptr %546, align 8, !tbaa !96
   %548 = load ptr, ptr %545, align 8, !tbaa !99
   %549 = icmp eq ptr %547, %548
-  br i1 %549, label %._crit_edge.thread10.i.i295, label %.lr.ph.split.i.i276
+  br i1 %549, label %._crit_edge.thread17.i.i295, label %.lr.ph.split.i.i276
 
-._crit_edge.thread10.i.i295:                      ; preds = %.lr.ph.i.i275
+._crit_edge.thread17.i.i295:                      ; preds = %.lr.ph.i.i275
   %550 = getelementptr inbounds i8, ptr %541, i64 %544
   br label %553
 
@@ -10114,11 +10114,11 @@ _ZN4entt16basic_dispatcherISaIvEE5clearIN4test5emptyEEEvj.exit264: ; preds = %53
   %.pre.i287 = load ptr, ptr %539, align 8, !tbaa !130
   br label %553
 
-553:                                              ; preds = %._crit_edge.i.i285, %._crit_edge.thread10.i.i295
-  %554 = phi ptr [ %540, %._crit_edge.thread10.i.i295 ], [ %.pre.i287, %._crit_edge.i.i285 ]
-  %555 = phi i64 [ %542, %._crit_edge.thread10.i.i295 ], [ %552, %._crit_edge.i.i285 ]
-  %556 = phi ptr [ %550, %._crit_edge.thread10.i.i295 ], [ %551, %._crit_edge.i.i285 ]
-  %557 = phi ptr [ %541, %._crit_edge.thread10.i.i295 ], [ %.pre.i.i286, %._crit_edge.i.i285 ]
+553:                                              ; preds = %._crit_edge.i.i285, %._crit_edge.thread17.i.i295
+  %554 = phi ptr [ %540, %._crit_edge.thread17.i.i295 ], [ %.pre.i287, %._crit_edge.i.i285 ]
+  %555 = phi i64 [ %542, %._crit_edge.thread17.i.i295 ], [ %552, %._crit_edge.i.i285 ]
+  %556 = phi ptr [ %550, %._crit_edge.thread17.i.i295 ], [ %551, %._crit_edge.i.i285 ]
+  %557 = phi ptr [ %541, %._crit_edge.thread17.i.i295 ], [ %.pre.i.i286, %._crit_edge.i.i285 ]
   %.not11.i.i.i.i288 = icmp eq ptr %556, %554
   br i1 %.not11.i.i.i.i288, label %._crit_edge.i.i.i.i292, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4test5emptyESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i289
 
@@ -11471,13 +11471,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE17_M_default_appendEm(pt
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !46
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !46
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -11714,9 +11714,9 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerIN4test5em
   %11 = load ptr, ptr %10, align 8, !tbaa !96
   %12 = load ptr, ptr %9, align 8, !tbaa !99
   %13 = icmp eq ptr %11, %12
-  br i1 %13, label %._crit_edge.thread10, label %.lr.ph.split
+  br i1 %13, label %._crit_edge.thread17, label %.lr.ph.split
 
-._crit_edge.thread10:                             ; preds = %.lr.ph
+._crit_edge.thread17:                             ; preds = %.lr.ph
   %14 = getelementptr inbounds i8, ptr %5, i64 %8
   br label %17
 
@@ -11726,10 +11726,10 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerIN4test5em
   %16 = ptrtoint ptr %15 to i64
   br label %17
 
-17:                                               ; preds = %._crit_edge, %._crit_edge.thread10
-  %18 = phi i64 [ %6, %._crit_edge.thread10 ], [ %16, %._crit_edge ]
-  %19 = phi ptr [ %14, %._crit_edge.thread10 ], [ %15, %._crit_edge ]
-  %20 = phi ptr [ %5, %._crit_edge.thread10 ], [ %.pre, %._crit_edge ]
+17:                                               ; preds = %._crit_edge, %._crit_edge.thread17
+  %18 = phi i64 [ %6, %._crit_edge.thread17 ], [ %16, %._crit_edge ]
+  %19 = phi ptr [ %14, %._crit_edge.thread17 ], [ %15, %._crit_edge ]
+  %20 = phi ptr [ %5, %._crit_edge.thread17 ], [ %.pre, %._crit_edge ]
   %21 = load ptr, ptr %3, align 8, !tbaa !130
   %.not11.i.i = icmp eq ptr %19, %21
   br i1 %.not11.i.i, label %._crit_edge.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4test5emptyESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i
@@ -12813,9 +12813,9 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerI13non_agg
   %11 = load ptr, ptr %10, align 8, !tbaa !80
   %12 = load ptr, ptr %9, align 8, !tbaa !83
   %13 = icmp eq ptr %11, %12
-  br i1 %13, label %._crit_edge.thread10, label %.lr.ph.split
+  br i1 %13, label %._crit_edge.thread17, label %.lr.ph.split
 
-._crit_edge.thread10:                             ; preds = %.lr.ph
+._crit_edge.thread17:                             ; preds = %.lr.ph
   %14 = getelementptr inbounds i8, ptr %5, i64 %8
   br label %17
 
@@ -12825,10 +12825,10 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerI13non_agg
   %16 = ptrtoint ptr %15 to i64
   br label %17
 
-17:                                               ; preds = %._crit_edge, %._crit_edge.thread10
-  %18 = phi i64 [ %6, %._crit_edge.thread10 ], [ %16, %._crit_edge ]
-  %19 = phi ptr [ %14, %._crit_edge.thread10 ], [ %15, %._crit_edge ]
-  %20 = phi ptr [ %5, %._crit_edge.thread10 ], [ %.pre, %._crit_edge ]
+17:                                               ; preds = %._crit_edge, %._crit_edge.thread17
+  %18 = phi i64 [ %6, %._crit_edge.thread17 ], [ %16, %._crit_edge ]
+  %19 = phi ptr [ %14, %._crit_edge.thread17 ], [ %15, %._crit_edge ]
+  %20 = phi ptr [ %5, %._crit_edge.thread17 ], [ %.pre, %._crit_edge ]
   %21 = load ptr, ptr %3, align 8, !tbaa !93
   %.not11.i.i = icmp eq ptr %19, %21
   br i1 %.not11.i.i, label %._crit_edge.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP13non_aggregateSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i.i
@@ -13502,9 +13502,9 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerIN4test11o
   %11 = load ptr, ptr %10, align 8, !tbaa !115
   %12 = load ptr, ptr %9, align 8, !tbaa !118
   %13 = icmp eq ptr %11, %12
-  br i1 %13, label %._crit_edge.thread10, label %.lr.ph.split
+  br i1 %13, label %._crit_edge.thread17, label %.lr.ph.split
 
-._crit_edge.thread10:                             ; preds = %.lr.ph
+._crit_edge.thread17:                             ; preds = %.lr.ph
   %14 = getelementptr inbounds i8, ptr %5, i64 %8
   br label %17
 
@@ -13514,10 +13514,10 @@ define linkonce_odr hidden void @_ZN4entt8internal18dispatcher_handlerIN4test11o
   %16 = ptrtoint ptr %15 to i64
   br label %17
 
-17:                                               ; preds = %._crit_edge, %._crit_edge.thread10
-  %18 = phi i64 [ %6, %._crit_edge.thread10 ], [ %16, %._crit_edge ]
-  %19 = phi ptr [ %14, %._crit_edge.thread10 ], [ %15, %._crit_edge ]
-  %20 = phi ptr [ %5, %._crit_edge.thread10 ], [ %.pre, %._crit_edge ]
+17:                                               ; preds = %._crit_edge, %._crit_edge.thread17
+  %18 = phi i64 [ %6, %._crit_edge.thread17 ], [ %16, %._crit_edge ]
+  %19 = phi ptr [ %14, %._crit_edge.thread17 ], [ %15, %._crit_edge ]
+  %20 = phi ptr [ %5, %._crit_edge.thread17 ], [ %.pre, %._crit_edge ]
   %21 = load ptr, ptr %3, align 8, !tbaa !119
   %.not11.i.i = icmp eq ptr %19, %21
   br i1 %.not11.i.i, label %._crit_edge.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4test11other_emptyESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i

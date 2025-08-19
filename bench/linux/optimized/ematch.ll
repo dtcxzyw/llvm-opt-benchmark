@@ -759,8 +759,8 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
 
 6:                                                ; preds = %.backedge, %3
   %7 = phi i32 [ 0, %3 ], [ %.be, %.backedge ]
-  %8 = phi i32 [ 0, %3 ], [ %.be54, %.backedge ]
-  %9 = phi i32 [ 0, %3 ], [ %.be55, %.backedge ]
+  %8 = phi i32 [ 0, %3 ], [ %.be60, %.backedge ]
+  %9 = phi i32 [ 0, %3 ], [ %.be61, %.backedge ]
   %10 = load i16, ptr %1, align 8
   %11 = zext i16 %10 to i32
   %12 = icmp slt i32 %8, %11
@@ -890,8 +890,8 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
 
 .backedge:                                        ; preds = %93, %29
   %.be = phi i32 [ %30, %29 ], [ %94, %93 ]
-  %.be54 = phi i32 [ %35, %29 ], [ %95, %93 ]
-  %.be55 = phi i32 [ %26, %29 ], [ %82, %93 ]
+  %.be60 = phi i32 [ %35, %29 ], [ %95, %93 ]
+  %.be61 = phi i32 [ %26, %29 ], [ %82, %93 ]
   br label %6
 
 96:                                               ; preds = %90, %87, %69

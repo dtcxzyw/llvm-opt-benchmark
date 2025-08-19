@@ -840,7 +840,7 @@ _find_child_switches.exit:                        ; preds = %.loopexit.i, %227
   br i1 %337, label %.preheader185, label %._crit_edge268
 
 .preheader184:                                    ; preds = %._crit_edge268, %219, %.preheader190, %.preheader189, %.preheader187
-  %.0124.lcssa343345348 = phi i1 [ %spec.select, %.preheader187 ], [ %spec.select, %.preheader189 ], [ %spec.select, %.preheader190 ], [ false, %219 ], [ %spec.select, %._crit_edge268 ]
+  %.0124.lcssa387389392 = phi i1 [ %spec.select, %.preheader187 ], [ %spec.select, %.preheader189 ], [ %spec.select, %.preheader190 ], [ false, %219 ], [ %spec.select, %._crit_edge268 ]
   %338 = phi i32 [ %294, %.preheader187 ], [ %291, %.preheader189 ], [ %275, %.preheader190 ], [ %221, %219 ], [ %380, %._crit_edge268 ]
   %339 = load i32, ptr @switch_levels, align 4
   %.not153273 = icmp sgt i32 %339, 0
@@ -1127,7 +1127,7 @@ _find_desc_switches.exit:                         ; preds = %_merge_switches_arr
   br i1 %.not153.not, label %.preheader, label %._crit_edge275, !llvm.loop !35
 
 ._crit_edge275:                                   ; preds = %._crit_edge272, %.preheader184
-  br i1 %.0124.lcssa343345348, label %474, label %471
+  br i1 %.0124.lcssa387389392, label %474, label %471
 
 471:                                              ; preds = %._crit_edge275
   %472 = call zeroext i1 @running_in_daemon() #7

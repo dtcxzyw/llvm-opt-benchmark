@@ -179,9 +179,9 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %44 = load ptr, ptr %39, align 8
   %switch.selectcmp = icmp eq i32 %43, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.42, ptr @.str.43
-  %switch.selectcmp247 = icmp eq i32 %43, 0
-  %switch.select248 = select i1 %switch.selectcmp247, ptr @.str.41, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %44, i32 noundef 25, ptr noundef nonnull %switch.select248)
+  %switch.selectcmp254 = icmp eq i32 %43, 0
+  %switch.select255 = select i1 %switch.selectcmp254, ptr @.str.41, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %44, i32 noundef 25, ptr noundef nonnull %switch.select255)
   %45 = load i32, ptr @hf_btavctp_transaction, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %47 = load i32, ptr @hf_btavctp_packet_type, align 4
@@ -563,36 +563,36 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br label %379
 
 272:                                              ; preds = %215
-  br i1 %.not213, label %.thread243, label %273
+  br i1 %.not213, label %.thread250, label %273
 
 273:                                              ; preds = %272
   %274 = load i32, ptr %218, align 8
   %275 = load i32, ptr %5, align 4
   %276 = icmp eq i32 %274, %275
-  br i1 %276, label %277, label %.thread243
+  br i1 %276, label %277, label %.thread250
 
 277:                                              ; preds = %273
   %278 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %279 = load i32, ptr %278, align 4
   %280 = load i32, ptr %6, align 4
   %281 = icmp eq i32 %279, %280
-  br i1 %281, label %282, label %.thread243
+  br i1 %281, label %282, label %.thread250
 
 282:                                              ; preds = %277
   %283 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %284 = load i32, ptr %283, align 8
   %285 = load i32, ptr %7, align 4
   %286 = icmp eq i32 %284, %285
-  br i1 %286, label %287, label %.thread243
+  br i1 %286, label %287, label %.thread250
 
 287:                                              ; preds = %282
   %288 = getelementptr inbounds nuw i8, ptr %218, i64 12
   %289 = load i32, ptr %288, align 4
   %290 = load i32, ptr %8, align 4
   %291 = icmp eq i32 %289, %290
-  br i1 %291, label %292, label %.thread243
+  br i1 %291, label %292, label %.thread250
 
-.thread243:                                       ; preds = %287, %282, %277, %273, %272
+.thread250:                                       ; preds = %287, %282, %277, %273, %272
   store ptr null, ptr @fragments, align 8
   br label %328
 
@@ -603,7 +603,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %296 = load i16, ptr %295, align 1
   %297 = and i16 %296, 8
   %298 = icmp eq i16 %297, 0
-  br i1 %298, label %299, label %.thread245
+  br i1 %298, label %299, label %.thread252
 
 299:                                              ; preds = %292
   %300 = call ptr @wmem_file_scope()
@@ -653,9 +653,9 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   call void @wmem_tree_insert32_array(ptr noundef %322, ptr noundef nonnull %11, ptr noundef %314)
   %.pr = load ptr, ptr @fragments, align 8
   %.not208 = icmp eq ptr %.pr, null
-  br i1 %.not208, label %328, label %.thread245
+  br i1 %.not208, label %328, label %.thread252
 
-.thread245:                                       ; preds = %292, %299
+.thread252:                                       ; preds = %292, %299
   %323 = phi ptr [ %.pr, %299 ], [ %218, %292 ]
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %325 = load i32, ptr %324, align 8
@@ -664,12 +664,12 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %.not209 = icmp eq i32 %325, %327
   br i1 %.not209, label %331, label %328
 
-328:                                              ; preds = %.thread243, %.thread245, %299
+328:                                              ; preds = %.thread250, %.thread252, %299
   %329 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %48, ptr noundef nonnull @ei_btavctp_unexpected_frame)
   %330 = call i32 @call_data_dissector(ptr noundef %126, ptr noundef %1, ptr noundef %2)
   br label %378
 
-331:                                              ; preds = %.thread245
+331:                                              ; preds = %.thread252
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not210233 = icmp eq i32 %325, 0
   br i1 %.not210233, label %._crit_edge, label %.lr.ph

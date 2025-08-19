@@ -1095,9 +1095,9 @@ select.unfold.i:                                  ; preds = %90
   %.sink.i = phi i8 [ %109, %.thread.i ], [ %111, %110 ]
   %.2.ph.sink.i = phi i32 [ %.2.ph.i, %.thread.i ], [ %.2.i, %110 ]
   %113 = phi i32 [ 1, %.thread.i ], [ 2, %110 ]
-  %.zext34.i = zext nneg i8 %.sink.i to i32
-  %.neg35.i = mul nsw i32 %.zext34.i, -5
-  %114 = add nsw i32 %.neg35.i, %.2.ph.sink.i
+  %.zext39.i = zext nneg i8 %.sink.i to i32
+  %.neg40.i = mul nsw i32 %.zext39.i, -5
+  %114 = add nsw i32 %.neg40.i, %.2.ph.sink.i
   %115 = shl nsw i32 %114, 1
   %116 = add nsw i32 %115, %113
   %117 = sitofp i32 %116 to double
@@ -1287,7 +1287,7 @@ _ZL10safeArcSind.exit.i.i:                        ; preds = %219, %215, %211, %1
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
 
 _ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i: ; preds = %238, %_ZL10safeArcSind.exit.i.i
-  %.sink105.i.i = phi double [ %251, %238 ], [ %221, %_ZL10safeArcSind.exit.i.i ]
+  %.sink108.i.i = phi double [ %251, %238 ], [ %221, %_ZL10safeArcSind.exit.i.i ]
   %.sink.i.i = phi double [ %256, %238 ], [ %232, %_ZL10safeArcSind.exit.i.i ]
   %257 = fcmp olt double %.sink.i.i, 0xC00921FB5444850E
   br i1 %257, label %258, label %260
@@ -1309,7 +1309,7 @@ default.unreachable:                              ; preds = %83
 
 _ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %262, %260, %258, %73, %67
   %.sroa.09.1 = phi double [ %.sink.i.i, %260 ], [ %263, %262 ], [ %259, %258 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
-  %.sroa.4.1 = phi double [ %.sink105.i.i, %260 ], [ %.sink105.i.i, %262 ], [ %.sink105.i.i, %258 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
+  %.sroa.4.1 = phi double [ %.sink108.i.i, %260 ], [ %.sink108.i.i, %262 ], [ %.sink108.i.i, %258 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.09.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
   ret { double, double } %.fca.1.insert
@@ -1411,8 +1411,8 @@ _ZL9isea_ptddiPN12_GLOBAL__N_17isea_ptE.exit:
 
 _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i.i:        ; preds = %48, %43
   %.sink.i.i.i = phi i64 [ %49, %48 ], [ %47, %43 ]
-  %reass.add48.i.i = shl i64 %40, 1
-  %50 = add i64 %.sink.i.i.i, %reass.add48.i.i
+  %reass.add56.i.i = shl i64 %40, 1
+  %50 = add i64 %.sink.i.i.i, %reass.add56.i.i
   %reass.add.i.i = shl i64 %.sink.i.i.i, 1
   %51 = add i64 %reass.add.i.i, %40
   %52 = icmp slt i32 %24, 6
@@ -1559,8 +1559,8 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %118, %113
 123:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
   %124 = icmp eq i64 %110, 0
   %125 = icmp eq i64 %.038.i, %121
-  %or.cond47.i = select i1 %124, i1 %125, i1 false
-  br i1 %or.cond47.i, label %144, label %._crit_edge.i
+  %or.cond64.i = select i1 %124, i1 %125, i1 false
+  br i1 %or.cond64.i, label %144, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %123
   br i1 %125, label %126, label %129
@@ -1576,7 +1576,7 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %118, %113
   %130 = icmp eq i64 %110, %.038.i
   %131 = add nsw i32 %24, 5
   %spec.select.i = select i1 %130, i64 0, i64 %110
-  %spec.select48.i = select i1 %130, i32 %131, i32 %24
+  %spec.select65.i = select i1 %130, i32 %131, i32 %24
   br label %144
 
 132:                                              ; preds = %_ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i
@@ -1604,12 +1604,12 @@ _ZL7hex_isoPN12_GLOBAL__N_13hexE.exit.i:          ; preds = %118, %113
   br label %144
 
 144:                                              ; preds = %140, %136, %132, %129, %126, %123
-  %.neg49.i = phi i64 [ %.neg.i, %126 ], [ %139, %136 ], [ 0, %123 ], [ %121, %129 ], [ 0, %132 ], [ %spec.select, %140 ]
+  %.neg66.i = phi i64 [ %.neg.i, %126 ], [ %139, %136 ], [ 0, %123 ], [ %121, %129 ], [ 0, %132 ], [ %spec.select, %140 ]
   %145 = phi i64 [ 0, %126 ], [ %139, %136 ], [ 0, %123 ], [ %spec.select.i, %129 ], [ 0, %132 ], [ %110, %140 ]
-  %.039.i = phi i32 [ %spec.store.select.i, %126 ], [ %spec.store.select1.i, %136 ], [ 0, %123 ], [ %spec.select48.i, %129 ], [ 11, %132 ], [ %spec.select5, %140 ]
+  %.039.i = phi i32 [ %spec.store.select.i, %126 ], [ %spec.store.select1.i, %136 ], [ 0, %123 ], [ %spec.select65.i, %129 ], [ 11, %132 ], [ %spec.select5, %140 ]
   %146 = sitofp i64 %145 to double
   store double %146, ptr %3, align 8, !tbaa !88
-  %147 = sitofp i64 %.neg49.i to double
+  %147 = sitofp i64 %.neg66.i to double
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %147, ptr %148, align 8, !tbaa !90
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40

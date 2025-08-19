@@ -122,8 +122,8 @@ define range(i32 0, 2) i32 @custom_ext_parse(ptr noundef %0, i32 noundef %1, i32
 .thread:                                          ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %20 = load i64, ptr %19, align 8, !tbaa !3
-  %.not27.i45 = icmp eq i64 %20, 0
-  br i1 %.not27.i45, label %custom_ext_find.exit.thread, label %.lr.ph.split.us.i.preheader
+  %.not27.i49 = icmp eq i64 %20, 0
+  br i1 %.not27.i49, label %custom_ext_find.exit.thread, label %.lr.ph.split.us.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %13
   %21 = load ptr, ptr %11, align 8, !tbaa !9
@@ -574,9 +574,9 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
   %14 = load ptr, ptr %0, align 8, !tbaa !9
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.outer, %.thread38
-  %.02635 = phi i64 [ %37, %.thread38 ], [ %.02635.ph, %.lr.ph.outer ]
-  %.134 = phi i32 [ 1, %.thread38 ], [ %.134.ph, %.lr.ph.outer ]
+.lr.ph:                                           ; preds = %.lr.ph.outer, %.thread45
+  %.02635 = phi i64 [ %37, %.thread45 ], [ %.02635.ph, %.lr.ph.outer ]
+  %.134 = phi i32 [ 1, %.thread45 ], [ %.134.ph, %.lr.ph.outer ]
   %15 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %13, i64 %.02635
   %16 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %14, i64 %.02635
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -586,7 +586,7 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
 
 19:                                               ; preds = %.lr.ph
   %.not31 = icmp eq i32 %.134, 0
-  br i1 %.not31, label %20, label %.thread38
+  br i1 %.not31, label %20, label %.thread45
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -614,29 +614,29 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
   %34 = icmp ult i64 %33, %32
   br i1 %34, label %.lr.ph.outer, label %._crit_edge, !llvm.loop !93
 
-.thread38:                                        ; preds = %19
+.thread45:                                        ; preds = %19
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %35, align 8, !tbaa !88
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr null, ptr %36, align 8, !tbaa !85
   %37 = add nuw i64 %.02635, 1
   %38 = icmp ult i64 %37, %.ph
-  br i1 %38, label %.lr.ph, label %._crit_edge.thread41, !llvm.loop !93
+  br i1 %38, label %.lr.ph, label %._crit_edge.thread48, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.loopexit
   %39 = icmp eq i32 %.2, 0
-  br i1 %39, label %.thread, label %._crit_edge.thread41
+  br i1 %39, label %.thread, label %._crit_edge.thread48
 
-._crit_edge.thread41:                             ; preds = %.thread38, %._crit_edge
+._crit_edge.thread48:                             ; preds = %.thread45, %._crit_edge
   %40 = load ptr, ptr %0, align 8, !tbaa !9
   %41 = load i64, ptr %12, align 8, !tbaa !3
   %.not13.i = icmp eq i64 %41, 0
   br i1 %.not13.i, label %custom_exts_free.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge.thread41, %50
-  %42 = phi i64 [ %51, %50 ], [ %41, %._crit_edge.thread41 ]
-  %.012.i = phi ptr [ %53, %50 ], [ %40, %._crit_edge.thread41 ]
-  %.01011.i = phi i64 [ %52, %50 ], [ 0, %._crit_edge.thread41 ]
+.lr.ph.i:                                         ; preds = %._crit_edge.thread48, %50
+  %42 = phi i64 [ %51, %50 ], [ %41, %._crit_edge.thread48 ]
+  %.012.i = phi ptr [ %53, %50 ], [ %40, %._crit_edge.thread48 ]
+  %.01011.i = phi i64 [ %52, %50 ], [ 0, %._crit_edge.thread48 ]
   %43 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !87
   %.not.i = icmp eq ptr %44, @custom_ext_add_old_cb_wrap
@@ -663,8 +663,8 @@ define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr 
   %.pre14.i = load ptr, ptr %0, align 8, !tbaa !9
   br label %custom_exts_free.exit
 
-custom_exts_free.exit:                            ; preds = %._crit_edge.thread41, %._crit_edge.loopexit.i
-  %55 = phi ptr [ %.pre14.i, %._crit_edge.loopexit.i ], [ %40, %._crit_edge.thread41 ]
+custom_exts_free.exit:                            ; preds = %._crit_edge.thread48, %._crit_edge.loopexit.i
+  %55 = phi ptr [ %.pre14.i, %._crit_edge.loopexit.i ], [ %40, %._crit_edge.thread48 ]
   tail call void @CRYPTO_free(ptr noundef %55, ptr noundef nonnull @.str, i32 noundef 345) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.thread
@@ -978,9 +978,9 @@ define range(i32 0, 2) i32 @SSL_CTX_add_client_custom_ext(ptr noundef %0, i32 no
   br i1 %.not.i, label %.sink.split.i, label %add_old_custom_ext.exit
 
 .sink.split.i:                                    ; preds = %12, %7
-  %.sink27.i = phi i32 [ 440, %7 ], [ 460, %12 ]
+  %.sink29.i = phi i32 [ 440, %7 ], [ 460, %12 ]
   %.sink.i = phi i32 [ 441, %7 ], [ 461, %12 ]
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef %.sink27.i) #9
+  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef %.sink29.i) #9
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef %.sink.i) #9
   br label %add_old_custom_ext.exit
 
@@ -1012,9 +1012,9 @@ define range(i32 0, 2) i32 @SSL_CTX_add_server_custom_ext(ptr noundef %0, i32 no
   br i1 %.not.i, label %.sink.split.i, label %add_old_custom_ext.exit
 
 .sink.split.i:                                    ; preds = %12, %7
-  %.sink27.i = phi i32 [ 440, %7 ], [ 460, %12 ]
+  %.sink29.i = phi i32 [ 440, %7 ], [ 460, %12 ]
   %.sink.i = phi i32 [ 441, %7 ], [ 461, %12 ]
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef %.sink27.i) #9
+  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef %.sink29.i) #9
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef %.sink.i) #9
   br label %add_old_custom_ext.exit
 

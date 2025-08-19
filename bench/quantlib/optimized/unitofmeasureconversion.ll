@@ -783,8 +783,8 @@ if.end.i:                                         ; preds = %invoke.cont16
   br i1 %cmp.i17.i, label %if.then15.i, label %if.end32.thread.i
 
 if.end.thread.i:                                  ; preds = %invoke.cont16
-  %cmp.i1739.i = icmp eq ptr %24, %19
-  br i1 %cmp.i1739.i, label %if.then15.i, label %if.end32.i
+  %cmp.i1744.i = icmp eq ptr %24, %19
+  br i1 %cmp.i1744.i, label %if.then15.i, label %if.end32.i
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %cmp3.i20.i = icmp ult i64 %25, 16
@@ -1712,8 +1712,8 @@ invoke.cont:                                      ; preds = %.noexc, %_ZN8QuantL
   br i1 %cmp.not.i.i.i42, label %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit.thread, label %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit
 
 _ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit.thread:  ; preds = %invoke.cont
-  %amount_.i474 = getelementptr inbounds nuw i8, ptr %quantity, i64 32
-  %19 = load double, ptr %amount_.i474, align 8, !tbaa !57
+  %amount_.i549 = getelementptr inbounds nuw i8, ptr %quantity, i64 32
+  %19 = load double, ptr %amount_.i549, align 8, !tbaa !57
   br label %_ZN8QuantLib13UnitOfMeasureD2Ev.exit
 
 _ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit:         ; preds = %invoke.cont
@@ -1862,8 +1862,8 @@ invoke.cont28:                                    ; preds = %.noexc103, %_ZN8Qua
   br i1 %cmp.not.i.i.i107, label %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110.thread, label %_ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110
 
 _ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110.thread: ; preds = %invoke.cont28
-  %amount_.i111476 = getelementptr inbounds nuw i8, ptr %quantity, i64 32
-  %45 = load double, ptr %amount_.i111476, align 8, !tbaa !57
+  %amount_.i111551 = getelementptr inbounds nuw i8, ptr %quantity, i64 32
+  %45 = load double, ptr %amount_.i111551, align 8, !tbaa !57
   br label %_ZN8QuantLib13UnitOfMeasureD2Ev.exit138
 
 _ZN8QuantLib13UnitOfMeasureC2ERKS0_.exit110:      ; preds = %invoke.cont28

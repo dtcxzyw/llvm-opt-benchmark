@@ -2050,8 +2050,8 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit: ; preds =
   %47 = lshr i32 %.022, %46
   %48 = add i32 %47, %.021
   %49 = sub i32 0, %48
-  %.not39 = icmp slt i16 %0, 0
-  %.0.i = select i1 %.not39, i32 %49, i32 %48
+  %.not45 = icmp slt i16 %0, 0
+  %.0.i = select i1 %.not45, i32 %49, i32 %48
   br label %25
 }
 
@@ -2159,8 +2159,8 @@ _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.exit: ; preds = %
   %50 = lshr i32 %.025, %49
   %51 = add nuw i32 %50, %.024
   %52 = sub i32 0, %51
-  %.not41 = icmp slt i8 %0, 0
-  %.0.i = select i1 %.not41, i32 %52, i32 %51
+  %.not46 = icmp slt i8 %0, 0
+  %.0.i = select i1 %.not46, i32 %52, i32 %51
   br label %25
 }
 

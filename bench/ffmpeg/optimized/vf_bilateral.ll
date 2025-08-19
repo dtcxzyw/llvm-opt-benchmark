@@ -814,9 +814,9 @@ define internal noundef i32 @bilateralv_planes(ptr noundef readonly captures(non
 
 .lr.ph12.i:                                       ; preds = %45
   %80 = icmp sgt i32 %76, 0
-  br i1 %80, label %.lr.ph.us.preheader.i, label %._crit_edge20.thread64.i
+  br i1 %80, label %.lr.ph.us.preheader.i, label %._crit_edge20.thread66.i
 
-._crit_edge20.thread64.i:                         ; preds = %.lr.ph12.i
+._crit_edge20.thread66.i:                         ; preds = %.lr.ph12.i
   %81 = add nsw i32 %38, -1
   %82 = mul nsw i32 %81, %36
   %83 = sext i32 %82 to i64
@@ -1024,9 +1024,9 @@ define internal noundef i32 @bilateralv_planes(ptr noundef readonly captures(non
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count50.i
   br i1 %exitcond58.not.i, label %._crit_edge20.thread.i, label %.lr.ph19.i, !llvm.loop !79
 
-._crit_edge40.sink.split.i:                       ; preds = %._crit_edge13.i, %._crit_edge20.thread64.i
-  %.sink67.i = phi i64 [ %83, %._crit_edge20.thread64.i ], [ %129, %._crit_edge13.i ]
-  %196 = getelementptr inbounds float, ptr %55, i64 %.sink67.i
+._crit_edge40.sink.split.i:                       ; preds = %._crit_edge13.i, %._crit_edge20.thread66.i
+  %.sink69.i = phi i64 [ %83, %._crit_edge20.thread66.i ], [ %129, %._crit_edge13.i ]
+  %196 = getelementptr inbounds float, ptr %55, i64 %.sink69.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %67, ptr align 4 %196, i64 %78, i1 false)
   br label %bilateralv_byte.exit
 
@@ -1072,9 +1072,9 @@ define internal noundef i32 @bilateralv_planes(ptr noundef readonly captures(non
 
 .lr.ph12.i58:                                     ; preds = %197
   %233 = icmp sgt i32 %229, 0
-  br i1 %233, label %.lr.ph.us.preheader.i60, label %._crit_edge20.thread64.i59
+  br i1 %233, label %.lr.ph.us.preheader.i60, label %._crit_edge20.thread66.i59
 
-._crit_edge20.thread64.i59:                       ; preds = %.lr.ph12.i58
+._crit_edge20.thread66.i59:                       ; preds = %.lr.ph12.i58
   %234 = add nsw i32 %38, -1
   %235 = mul nsw i32 %234, %36
   %236 = sext i32 %235 to i64
@@ -1282,9 +1282,9 @@ define internal noundef i32 @bilateralv_planes(ptr noundef readonly captures(non
   %exitcond58.not.i37 = icmp eq i64 %indvars.iv.next53.i36, %wide.trip.count50.i25
   br i1 %exitcond58.not.i37, label %._crit_edge20.thread.i38, label %.lr.ph19.i34, !llvm.loop !85
 
-._crit_edge40.sink.split.i22:                     ; preds = %._crit_edge13.i21, %._crit_edge20.thread64.i59
-  %.sink67.i23 = phi i64 [ %236, %._crit_edge20.thread64.i59 ], [ %282, %._crit_edge13.i21 ]
-  %349 = getelementptr inbounds float, ptr %208, i64 %.sink67.i23
+._crit_edge40.sink.split.i22:                     ; preds = %._crit_edge13.i21, %._crit_edge20.thread66.i59
+  %.sink69.i23 = phi i64 [ %236, %._crit_edge20.thread66.i59 ], [ %282, %._crit_edge13.i21 ]
+  %349 = getelementptr inbounds float, ptr %208, i64 %.sink69.i23
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %220, ptr align 4 %349, i64 %231, i1 false)
   br label %bilateralv_byte.exit
 

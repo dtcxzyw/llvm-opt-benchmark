@@ -411,9 +411,9 @@ select.unfold2.i.i.i:                             ; preds = %._crit_edge.thread.
   br label %.thread.thread.i.i.i
 
 .thread.thread.i.i.i:                             ; preds = %160, %._crit_edge.i.i.i.i.i.i12.i.i, %.thread.i.i.i, %108, %87
-  %.sroa.12.2.i930.i.i.i = phi ptr [ %.sroa.12.2.i9.i.i.i, %.thread.i.i.i ], [ %.sroa.12.2.i9.i.i.i, %._crit_edge.i.i.i.i.i.i12.i.i ], [ %.sroa.12.2.i9.i.i.i, %160 ], [ %98, %108 ], [ %.08.lcssa.i.i.i7.i.i, %87 ]
+  %.sroa.12.2.i932.i.i.i = phi ptr [ %.sroa.12.2.i9.i.i.i, %.thread.i.i.i ], [ %.sroa.12.2.i9.i.i.i, %._crit_edge.i.i.i.i.i.i12.i.i ], [ %.sroa.12.2.i9.i.i.i, %160 ], [ %98, %108 ], [ %.08.lcssa.i.i.i7.i.i, %87 ]
   %162 = phi i1 [ true, %.thread.i.i.i ], [ %159, %._crit_edge.i.i.i.i.i.i12.i.i ], [ %161, %160 ], [ true, %108 ], [ true, %87 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %162, ptr noundef nonnull %41, ptr noundef nonnull %.sroa.12.2.i930.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16)) #13
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %162, ptr noundef nonnull %41, ptr noundef nonnull %.sroa.12.2.i932.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 16)) #13
   %163 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 48), align 8, !tbaa !32
   %164 = add i64 %163, 1
   store i64 %164, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly6detail12_GLOBAL__N_134StaticSingletonManagerWithRttiImpl8instanceEvE8instance, i64 48), align 8, !tbaa !32

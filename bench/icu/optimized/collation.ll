@@ -138,10 +138,10 @@ define noundef i32 @_ZN6icu_779Collation28decThreeBytePrimaryByOneStepEjai(i32 n
   %.not = icmp eq i8 %1, 0
   %16 = add i32 %0, -16777216
   %. = select i1 %.not, i32 3, i32 5
-  %.27 = select i1 %.not, i32 255, i32 254
+  %.28 = select i1 %.not, i32 255, i32 254
   %17 = icmp samesign ult i32 %14, %.
   %spec.select22 = select i1 %17, i32 %16, i32 %0
-  %spec.select23 = select i1 %17, i32 %.27, i32 %15
+  %spec.select23 = select i1 %17, i32 %.28, i32 %15
   %18 = and i32 %spec.select22, -16777216
   %19 = shl nuw nsw i32 %spec.select23, 16
   %20 = shl i32 %6, 8

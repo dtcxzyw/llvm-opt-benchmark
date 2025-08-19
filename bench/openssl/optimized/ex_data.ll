@@ -333,7 +333,7 @@ define range(i32 0, 2) i32 @ossl_crypto_new_ex_data_ex(ptr noundef %0, i32 nound
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %23, %25
-  %.14769 = phi ptr [ %28, %25 ], [ %5, %23 ]
+  %.14775 = phi ptr [ %28, %25 ], [ %5, %23 ]
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %.lr.ph
 
@@ -342,14 +342,14 @@ define range(i32 0, 2) i32 @ossl_crypto_new_ex_data_ex(ptr noundef %0, i32 nound
   %29 = load ptr, ptr %18, align 8, !tbaa !8
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %30) #9
-  %32 = getelementptr inbounds nuw ptr, ptr %.14769, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw ptr, ptr %.14775, i64 %indvars.iv
   store ptr %31, ptr %32, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %15
-  %.046 = phi ptr [ null, %25 ], [ null, %15 ], [ %.14769, %.lr.ph ]
+  %.046 = phi ptr [ null, %25 ], [ null, %15 ], [ %.14775, %.lr.ph ]
   %33 = load ptr, ptr %6, align 8, !tbaa !3
   %34 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %33) #9
   %35 = icmp eq ptr %.046, null
@@ -514,7 +514,7 @@ define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %0, ptr noundef initi
   br i1 %.not, label %.thread77, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %29, %31
-  %.194 = phi ptr [ %34, %31 ], [ %5, %29 ]
+  %.1101 = phi ptr [ %34, %31 ], [ %5, %29 ]
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %.lr.ph
 
@@ -528,7 +528,7 @@ define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %0, ptr noundef initi
   %37 = load ptr, ptr %23, align 8, !tbaa !8
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = tail call ptr @OPENSSL_sk_value(ptr noundef %37, i32 noundef %38) #9
-  %40 = getelementptr inbounds nuw ptr, ptr %.194, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %.1101, i64 %indvars.iv
   store ptr %39, ptr %40, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -538,7 +538,7 @@ define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %0, ptr noundef initi
   %41 = load ptr, ptr %11, align 8, !tbaa !3
   %42 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %41) #9
   %43 = icmp eq i32 %spec.select, 0
-  %spec.select99 = zext i1 %43 to i32
+  %spec.select107 = zext i1 %43 to i32
   br label %get_and_lock.exit.thread
 
 44:                                               ; preds = %.lr.ph
@@ -591,7 +591,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %44, %51, %53
 CRYPTO_get_ex_data.exit73:                        ; preds = %.lr.ph83, %59, %62
   %.0.i72 = phi ptr [ %65, %62 ], [ null, %59 ], [ null, %.lr.ph83 ]
   store ptr %.0.i72, ptr %4, align 8, !tbaa !32
-  %66 = getelementptr inbounds nuw ptr, ptr %.194, i64 %indvars.iv87
+  %66 = getelementptr inbounds nuw ptr, ptr %.1101, i64 %indvars.iv87
   %67 = load ptr, ptr %66, align 8, !tbaa !27
   %.not66 = icmp eq ptr %67, null
   br i1 %.not66, label %77, label %68
@@ -625,15 +625,15 @@ CRYPTO_get_ex_data.exit73:                        ; preds = %.lr.ph83, %59, %62
 
 .loopexit:                                        ; preds = %71, %77, %CRYPTO_get_ex_data.exit
   %.054 = phi i32 [ 0, %CRYPTO_get_ex_data.exit ], [ 0, %71 ], [ 1, %77 ]
-  %.not69 = icmp eq ptr %.194, %5
+  %.not69 = icmp eq ptr %.1101, %5
   br i1 %.not69, label %get_and_lock.exit.thread, label %81
 
 81:                                               ; preds = %.loopexit
-  call void @CRYPTO_free(ptr noundef nonnull %.194, ptr noundef nonnull @.str, i32 noundef 337) #9
+  call void @CRYPTO_free(ptr noundef nonnull %.1101, ptr noundef nonnull @.str, i32 noundef 337) #9
   br label %get_and_lock.exit.thread
 
 get_and_lock.exit.thread:                         ; preds = %.loopexit80, %18, %15, %14, %.thread77, %.loopexit, %81, %10, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %10 ], [ %.054, %81 ], [ %.054, %.loopexit ], [ 0, %.thread77 ], [ 0, %14 ], [ 0, %15 ], [ 0, %18 ], [ %spec.select99, %.loopexit80 ]
+  %.0 = phi i32 [ 1, %3 ], [ 0, %10 ], [ %.054, %81 ], [ %.054, %.loopexit ], [ 0, %.thread77 ], [ 0, %14 ], [ 0, %15 ], [ 0, %18 ], [ %spec.select107, %.loopexit80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -679,10 +679,10 @@ define range(i32 0, 2) i32 @CRYPTO_set_ex_data(ptr noundef captures(none) %0, i3
   br i1 %.not13, label %19, label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph, %._crit_edge, %7
-  %.sink17 = phi i32 [ 475, %7 ], [ 488, %._crit_edge ], [ 482, %.lr.ph ]
+  %.sink21 = phi i32 [ 475, %7 ], [ 488, %._crit_edge ], [ 482, %.lr.ph ]
   %.sink = phi i32 [ 524303, %7 ], [ 524550, %._crit_edge ], [ 524303, %.lr.ph ]
   tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink17, ptr noundef nonnull @__func__.CRYPTO_set_ex_data) #9
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.CRYPTO_set_ex_data) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef %.sink, ptr noundef null) #9
   br label %19
 
@@ -741,7 +741,7 @@ define void @CRYPTO_free_ex_data(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %.not, label %.thread61, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %22, %24
-  %.14779 = phi ptr [ %27, %24 ], [ %4, %22 ]
+  %.14785 = phi ptr [ %27, %24 ], [ %4, %22 ]
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %.lr.ph
 
@@ -750,7 +750,7 @@ define void @CRYPTO_free_ex_data(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   %28 = load ptr, ptr %18, align 8, !tbaa !8
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %29) #9
-  %31 = getelementptr inbounds nuw %struct.ex_callback_entry, ptr %.14779, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %struct.ex_callback_entry, ptr %.14785, i64 %indvars.iv
   store ptr %30, ptr %31, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %29, ptr %32, align 8, !tbaa !37
@@ -767,14 +767,14 @@ define void @CRYPTO_free_ex_data(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   %35 = load ptr, ptr %6, align 8, !tbaa !3
   %36 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %35) #9
   %37 = zext nneg i32 %20 to i64
-  call void @qsort(ptr noundef nonnull %.14779, i64 noundef %37, i64 noundef 16, ptr noundef nonnull @ex_callback_compare) #9
+  call void @qsort(ptr noundef nonnull %.14785, i64 noundef %37, i64 noundef 16, ptr noundef nonnull @ex_callback_compare) #9
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count75 = zext nneg i32 %20 to i64
   br label %39
 
 39:                                               ; preds = %.lr.ph68, %60
   %indvars.iv71 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next72, %60 ]
-  %40 = getelementptr inbounds nuw %struct.ex_callback_entry, ptr %.14779, i64 %indvars.iv71
+  %40 = getelementptr inbounds nuw %struct.ex_callback_entry, ptr %.14785, i64 %indvars.iv71
   %41 = load ptr, ptr %40, align 8, !tbaa !35
   %.not54 = icmp eq ptr %41, null
   br i1 %.not54, label %60, label %42
@@ -818,11 +818,11 @@ CRYPTO_get_ex_data.exit:                          ; preds = %45, %50, %52
   br i1 %exitcond76.not, label %._crit_edge69, label %39, !llvm.loop !39
 
 ._crit_edge69:                                    ; preds = %60
-  %.not53 = icmp eq ptr %.14779, %4
+  %.not53 = icmp eq ptr %.14785, %4
   br i1 %.not53, label %get_and_lock.exit.thread, label %61
 
 61:                                               ; preds = %.thread61, %._crit_edge69
-  %.0466064 = phi ptr [ null, %.thread61 ], [ %.14779, %._crit_edge69 ]
+  %.0466064 = phi ptr [ null, %.thread61 ], [ %.14785, %._crit_edge69 ]
   call void @CRYPTO_free(ptr noundef %.0466064, ptr noundef nonnull @.str, i32 noundef 412) #9
   br label %get_and_lock.exit.thread
 

@@ -279,12 +279,12 @@ define internal void @wg_key_uat_key_type_set_cb(ptr noundef writeonly captures(
 
 .lr.ph.preheader:                                 ; preds = %5
   %10 = tail call i32 @g_str_equal(ptr noundef nonnull %9, ptr noundef %7)
-  %.not1320 = icmp eq i32 %10, 0
-  br i1 %.not1320, label %.lr.ph22, label %.lr.ph._crit_edge
+  %.not1321 = icmp eq i32 %10, 0
+  br i1 %.not1321, label %.lr.ph23, label %.lr.ph._crit_edge
 
-.lr.ph22:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01621 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %11 = add i32 %.01621, 1
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %11 = add i32 %.01622, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -292,10 +292,10 @@ define internal void @wg_key_uat_key_type_set_cb(ptr noundef writeonly captures(
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-.lr.ph:                                           ; preds = %.lr.ph22
+.lr.ph:                                           ; preds = %.lr.ph23
   %16 = tail call i32 @g_str_equal(ptr noundef nonnull %15, ptr noundef %7)
   %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !6
+  br i1 %.not13, label %.lr.ph23, label %.lr.ph._crit_edge, !llvm.loop !6
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %13, %.lr.ph ]
@@ -303,7 +303,7 @@ define internal void @wg_key_uat_key_type_set_cb(ptr noundef writeonly captures(
   store i32 %17, ptr %0, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph22, %5, %.lr.ph._crit_edge
+._crit_edge:                                      ; preds = %.lr.ph23, %5, %.lr.ph._crit_edge
   tail call void @g_free(ptr noundef %7)
   ret void
 }
@@ -319,11 +319,11 @@ define internal void @wg_key_uat_key_type_tostr_cb(ptr noundef readonly captures
   %8 = load i32, ptr %0, align 8
   %9 = load i32, ptr %3, align 8
   %10 = icmp eq i32 %9, %8
-  br i1 %10, label %._crit_edge21, label %.lr.ph20
+  br i1 %10, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph20:                                         ; preds = %.lr.ph, %16
-  %.01519 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
-  %11 = add i32 %.01519, 1
+.lr.ph21:                                         ; preds = %.lr.ph, %16
+  %.01520 = phi i32 [ %11, %16 ], [ 0, %.lr.ph ]
+  %11 = add i32 %.01520, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -331,12 +331,12 @@ define internal void @wg_key_uat_key_type_tostr_cb(ptr noundef readonly captures
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !8
 
-16:                                               ; preds = %.lr.ph20
+16:                                               ; preds = %.lr.ph21
   %17 = load i32, ptr %13, align 8
   %18 = icmp eq i32 %17, %8
-  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %18, label %._crit_edge22, label %.lr.ph21, !llvm.loop !8
 
-._crit_edge21:                                    ; preds = %16, %.lr.ph
+._crit_edge22:                                    ; preds = %16, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %15, %16 ]
   %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.lcssa)
   store ptr %19, ptr %1, align 8
@@ -344,13 +344,13 @@ define internal void @wg_key_uat_key_type_tostr_cb(ptr noundef readonly captures
   %21 = trunc i64 %20 to i32
   br label %23
 
-._crit_edge:                                      ; preds = %.lr.ph20, %5
+._crit_edge:                                      ; preds = %.lr.ph21, %5
   %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.100)
   store ptr %22, ptr %1, align 8
   br label %23
 
-23:                                               ; preds = %._crit_edge, %._crit_edge21
-  %storemerge = phi i32 [ 6, %._crit_edge ], [ %21, %._crit_edge21 ]
+23:                                               ; preds = %._crit_edge, %._crit_edge22
+  %storemerge = phi i32 [ 6, %._crit_edge ], [ %21, %._crit_edge22 ]
   store i32 %storemerge, ptr %2, align 4
   ret void
 }
@@ -2155,8 +2155,8 @@ define internal void @wg_key_uat_apply() #0 {
   %1 = alloca i64, align 8
   %2 = alloca [45 x i8], align 16
   %3 = alloca %struct.wg_qqword, align 1
-  %.b11 = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b11, label %4, label %.loopexit
+  %.b12 = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b12, label %4, label %.loopexit
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @wg_static_keys, align 8
@@ -2441,8 +2441,8 @@ decode_base64_key.exit.thread:                    ; preds = %61, %63
   br i1 %.not82, label %71, label %88
 
 71:                                               ; preds = %70
-  %.b107 = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b107, label %72, label %wg_add_ephemeral_privkey.exit
+  %.b116 = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b116, label %72, label %wg_add_ephemeral_privkey.exit
 
 72:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2690,10 +2690,10 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #8
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @wg_keylog_read() unnamed_addr #0 {
   %1 = alloca [512 x i8], align 16
-  %.b17 = load i1, ptr @wg_decryption_supported, align 1
+  %.b21 = load i1, ptr @wg_decryption_supported, align 1
   %2 = load ptr, ptr @pref_keylog_file, align 8
   %3 = icmp ne ptr %2, null
-  %or.cond = select i1 %.b17, i1 %3, i1 false
+  %or.cond = select i1 %.b21, i1 %3, i1 false
   br i1 %or.cond, label %4, label %33
 
 4:                                                ; preds = %0
@@ -2882,8 +2882,8 @@ define internal fastcc void @wg_dissect_pubkey(ptr noundef %0, ptr noundef %1, i
   %10 = load i32, ptr @hf_wg_static, align 4
   %11 = select i1 %3, i32 %9, i32 %10
   %12 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %2, i32 noundef 32, ptr noundef %8)
-  %.b16 = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b16, label %13, label %54
+  %.b21 = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b21, label %13, label %54
 
 13:                                               ; preds = %4
   %14 = load i32, ptr @ett_key_info, align 4

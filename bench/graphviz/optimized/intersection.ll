@@ -5,19 +5,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read, errnomem: write) uwtable
 define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
-  %.sroa.0256 = alloca double, align 16
-  %.sroa.5257 = alloca double, align 8
-  %.sroa.0252 = alloca double, align 16
+  %.sroa.0264 = alloca double, align 16
+  %.sroa.5265 = alloca double, align 8
+  %.sroa.0260 = alloca double, align 16
   %.sroa.5 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0256)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5257)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0252)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5265)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0260)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   br label %5
 
 5:                                                ; preds = %4, %5
   %6 = phi i1 [ true, %4 ], [ false, %5 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0256, %4 ], [ %.sroa.5257, %5 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0264, %4 ], [ %.sroa.5265, %5 ]
   %indvars.iv = phi i64 [ 0, %4 ], [ 1, %5 ]
   %.091129 = phi double [ 0.000000e+00, %4 ], [ %12, %5 ]
   %7 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
@@ -35,7 +35,7 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
 
 15:                                               ; preds = %13, %15
   %16 = phi i1 [ true, %13 ], [ false, %15 ]
-  %indvars.iv163.sroa.phi = phi ptr [ %.sroa.0252, %13 ], [ %.sroa.5, %15 ]
+  %indvars.iv163.sroa.phi = phi ptr [ %.sroa.0260, %13 ], [ %.sroa.5, %15 ]
   %indvars.iv163 = phi i64 [ 0, %13 ], [ 1, %15 ]
   %.092131 = phi double [ 0.000000e+00, %13 ], [ %22, %15 ]
   %17 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv163
@@ -49,9 +49,9 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
 
 23:                                               ; preds = %15
   %24 = tail call double @sqrt(double noundef %22) #4, !tbaa !9
-  %.sroa.0256.0..sroa.0256.0..val = load double, ptr %.sroa.0256, align 16, !tbaa !3
-  %.sroa.5257.0..sroa.5257.8..val94 = load double, ptr %.sroa.5257, align 8, !tbaa !3
-  %.sroa.0252.0..sroa.0252.0..val95 = load double, ptr %.sroa.0252, align 16, !tbaa !3
+  %.sroa.0264.0..sroa.0264.0..val = load double, ptr %.sroa.0264, align 16, !tbaa !3
+  %.sroa.5265.0..sroa.5265.8..val94 = load double, ptr %.sroa.5265, align 8, !tbaa !3
+  %.sroa.0260.0..sroa.0260.0..val95 = load double, ptr %.sroa.0260, align 16, !tbaa !3
   %.sroa.5.0..sroa.5.8..val96 = load double, ptr %.sroa.5, align 8, !tbaa !3
   br label %25
 
@@ -73,9 +73,9 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
   br i1 %26, label %25, label %37, !llvm.loop !12
 
 37:                                               ; preds = %25
-  %38 = fneg double %.sroa.0252.0..sroa.0252.0..val95
-  %39 = fmul double %.sroa.5257.0..sroa.5257.8..val94, %38
-  %40 = tail call double @llvm.fmuladd.f64(double %.sroa.0256.0..sroa.0256.0..val, double %.sroa.5.0..sroa.5.8..val96, double %39)
+  %38 = fneg double %.sroa.0260.0..sroa.0260.0..val95
+  %39 = fmul double %.sroa.5265.0..sroa.5265.8..val94, %38
+  %40 = tail call double @llvm.fmuladd.f64(double %.sroa.0264.0..sroa.0264.0..val, double %.sroa.5.0..sroa.5.8..val96, double %39)
   %41 = fcmp ugt double %36, 0x3C9CD2B297D889BC
   br i1 %41, label %50, label %.preheader63.i.i
 
@@ -496,9 +496,9 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
   %283 = fmul double %282, %38
   %284 = tail call double @llvm.fmuladd.f64(double %277, double %.sroa.5.0..sroa.5.8..val96, double %283)
   %285 = fdiv double %284, %40
-  %286 = fneg double %.sroa.0256.0..sroa.0256.0..val
+  %286 = fneg double %.sroa.0264.0..sroa.0264.0..val
   %287 = fmul double %282, %286
-  %288 = tail call double @llvm.fmuladd.f64(double %277, double %.sroa.5257.0..sroa.5257.8..val94, double %287)
+  %288 = tail call double @llvm.fmuladd.f64(double %277, double %.sroa.5265.0..sroa.5265.8..val94, double %287)
   %289 = fdiv double %288, %40
   %290 = fcmp oge double %285, 0.000000e+00
   %291 = fcmp ole double %285, 1.000000e+00
@@ -517,10 +517,10 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
 
 .preheader:                                       ; preds = %295, %.preheader
   %298 = phi i1 [ false, %.preheader ], [ true, %295 ]
-  %indvars.iv169.sroa.phi = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.0252, %295 ]
-  %indvars.iv169.sroa.phi254 = phi ptr [ %.sroa.5257, %.preheader ], [ %.sroa.0256, %295 ]
+  %indvars.iv169.sroa.phi = phi ptr [ %.sroa.5, %.preheader ], [ %.sroa.0260, %295 ]
+  %indvars.iv169.sroa.phi262 = phi ptr [ %.sroa.5265, %.preheader ], [ %.sroa.0264, %295 ]
   %.0135 = phi double [ %301, %.preheader ], [ 0.000000e+00, %295 ]
-  %299 = load double, ptr %indvars.iv169.sroa.phi254, align 8, !tbaa !3
+  %299 = load double, ptr %indvars.iv169.sroa.phi262, align 8, !tbaa !3
   %300 = load double, ptr %indvars.iv169.sroa.phi, align 8, !tbaa !3
   %301 = tail call double @llvm.fmuladd.f64(double %299, double %300, double %.0135)
   br i1 %298, label %.preheader, label %302, !llvm.loop !15
@@ -592,10 +592,10 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
 
 345:                                              ; preds = %.preheader105, %322, %333, %343, %295, %307, %337, %274
   %.088 = phi double [ %., %274 ], [ %323, %322 ], [ %334, %333 ], [ %344, %343 ], [ 0.000000e+00, %295 ], [ %303, %307 ], [ %303, %337 ], [ -2.000000e+00, %.preheader105 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0260)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0256)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0264)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5265)
   ret double %.088
 }
 

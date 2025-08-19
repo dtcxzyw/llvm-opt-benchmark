@@ -1185,9 +1185,9 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i: ; preds = %21, %_ZN3CFF
   br label %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
 
 _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i, %29
-  %.sink1.i.i = phi i64 [ 12, %29 ], [ 4492, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
+  %.sink2.i.i = phi i64 [ 12, %29 ], [ 4492, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
   %.0.i.sink.i.i = phi i32 [ %32, %29 ], [ %.0.i.i.i, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink1.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink2.i.i
   store i32 %.0.i.sink.i.i, ptr %33, align 4, !tbaa !148
   store i8 1, ptr %22, align 1, !tbaa !124
   store i32 0, ptr %8, align 4, !tbaa !146
@@ -1627,7 +1627,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %189
   br label %_ZN3CFF12path_procs_tI25cff2_path_procs_extents_tNS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_extents_param_tE7rmovetoERS4_RS5_.exit
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.i, %189
-  %.0.i.i16.i = phi ptr [ %196, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.i ], [ @_hb_CrapPool, %189 ]
+  %.0.i.i17.i = phi ptr [ %196, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.i ], [ @_hb_CrapPool, %189 ]
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 1, ptr %202, align 8, !tbaa !147
   %203 = load i64, ptr @_hb_NullPool, align 16
@@ -1637,10 +1637,10 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i: ; preds = 
 
 _ZN3CFF12path_procs_tI25cff2_path_procs_extents_tNS_20cff2_cs_interp_env_tINS_8number_tEEE20cff2_extents_param_tE7rmovetoERS4_RS5_.exit: ; preds = %197, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i
   %205 = phi i32 [ %201, %197 ], [ 0, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
-  %.0.i.i15.i = phi ptr [ %196, %197 ], [ %.0.i.i16.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
+  %.0.i.i16.i = phi ptr [ %196, %197 ], [ %.0.i.i17.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
   %206 = phi double [ %.pre.i147, %197 ], [ %204, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
   %207 = fadd double %.sroa.0.0.copyload.i, %206
-  %208 = load double, ptr %.0.i.i15.i, align 8, !tbaa !61
+  %208 = load double, ptr %.0.i.i16.i, align 8, !tbaa !61
   %209 = fadd double %.sroa.6.0.copyload.i, %208
   store i8 0, ptr %2, align 8, !tbaa !57
   store double %207, ptr %190, align 8, !tbaa !151
@@ -2063,8 +2063,8 @@ _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8numb
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 
 ._crit_edge:                                      ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us, %.preheader.thread, %.preheader
-  %.0.i5356 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ %18, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
-  %66 = mul i32 %.0.i5356, %4
+  %.0.i6063 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ %18, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
+  %66 = mul i32 %.0.i6063, %4
   %.not.i = icmp ult i32 %16, %66
   br i1 %.not.i, label %69, label %67, !prof !30
 
@@ -6272,10 +6272,10 @@ _ZNK2OT13VarRegionAxis8evaluateEi.exit.i:         ; preds = %67
   %70 = sub nsw i32 %48, %56
   %71 = sub nsw i32 %60, %43
   %72 = sub nsw i32 %60, %48
-  %.sink59.i = select i1 %68, i32 %70, i32 %72
+  %.sink68.i = select i1 %68, i32 %70, i32 %72
   %.sink.in.i = select i1 %68, i32 %69, i32 %71
   %.sink.i = sitofp i32 %.sink.in.i to float
-  %73 = sitofp i32 %.sink59.i to float
+  %73 = sitofp i32 %.sink68.i to float
   %74 = fdiv float %.sink.i, %73
   %75 = fcmp une float %74, 0.000000e+00
   br i1 %75, label %_ZNK2OT13VarRegionAxis8evaluateEi.exit.thread.i, label %_ZNK2OT13VarRegionList8evaluateEjPKijPf.exit
@@ -6369,9 +6369,9 @@ _ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i: ; preds = %21, %_ZN3CFF
   br label %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit
 
 _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE15process_vsindexERNS_20cff2_cs_interp_env_tIS3_EERS2_.exit: ; preds = %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i, %29
-  %.sink1.i.i = phi i64 [ 12, %29 ], [ 4492, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
+  %.sink2.i.i = phi i64 [ 12, %29 ], [ 4492, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
   %.0.i.sink.i.i = phi i32 [ %32, %29 ], [ %.0.i.i.i, %_ZN3CFF11arg_stack_tINS_8number_tEE8pop_uintEv.exit.i.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink1.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink2.i.i
   store i32 %.0.i.sink.i.i, ptr %33, align 4, !tbaa !148
   store i8 1, ptr %22, align 1, !tbaa !124
   store i32 0, ptr %8, align 4, !tbaa !146
@@ -6814,7 +6814,7 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.i: ; preds = %193
   br label %_ZN3CFF12path_procs_tI22cff2_path_procs_path_tNS_20cff2_cs_interp_env_tINS_8number_tEEE17cff2_path_param_tE7rmovetoERS4_RS5_.exit
 
 _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i: ; preds = %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.i, %193
-  %.0.i.i13.i = phi ptr [ %200, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.i ], [ @_hb_CrapPool, %193 ]
+  %.0.i.i14.i = phi ptr [ %200, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.i ], [ @_hb_CrapPool, %193 ]
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 1, ptr %205, align 8, !tbaa !147
   %206 = load i64, ptr @_hb_NullPool, align 16
@@ -6823,14 +6823,14 @@ _ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i: ; preds = 
   br label %_ZN3CFF12path_procs_tI22cff2_path_procs_path_tNS_20cff2_cs_interp_env_tINS_8number_tEEE17cff2_path_param_tE7rmovetoERS4_RS5_.exit
 
 _ZN3CFF12path_procs_tI22cff2_path_procs_path_tNS_20cff2_cs_interp_env_tINS_8number_tEEE17cff2_path_param_tE7rmovetoERS4_RS5_.exit: ; preds = %201, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i
-  %.0.i.i12.i = phi ptr [ %200, %201 ], [ %.0.i.i13.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
+  %.0.i.i13.i = phi ptr [ %200, %201 ], [ %.0.i.i14.i, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
   %208 = phi double [ %.pre.i147, %201 ], [ %207, %_ZN3CFF20cff2_cs_interp_env_tINS_8number_tEE7pop_argEv.exit.thread.i ]
   %209 = load double, ptr %7, align 8, !tbaa !61
   %210 = fadd double %208, %209
   store double %210, ptr %7, align 8, !tbaa !61
   %211 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %212 = load double, ptr %211, align 8, !tbaa !61
-  %213 = load double, ptr %.0.i.i12.i, align 8, !tbaa !61
+  %213 = load double, ptr %.0.i.i13.i, align 8, !tbaa !61
   %214 = fadd double %212, %213
   store double %214, ptr %211, align 8, !tbaa !61
   call void @_ZN17cff2_path_param_t7move_toERKN3CFF7point_tE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -7333,8 +7333,8 @@ _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE2
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 
 ._crit_edge:                                      ; preds = %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us, %.preheader.thread, %.preheader
-  %.0.i5356 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ %18, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
-  %66 = mul i32 %.0.i5356, %4
+  %.0.i6063 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit.us.us ], [ %18, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit.us ], [ %18, %_ZN3CFF11cff_stack_tINS_8number_tELi513EEixEj.exit ]
+  %66 = mul i32 %.0.i6063, %4
   %.not.i = icmp ult i32 %16, %66
   br i1 %.not.i, label %69, label %67, !prof !30
 

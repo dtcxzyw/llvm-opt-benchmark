@@ -1192,7 +1192,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit183.i: ; preds = %_Z
   br label %536
 
 .thread.i:                                        ; preds = %262, %169
-  %or.cond403.i = phi i1 [ %or.cond.i, %262 ], [ true, %169 ]
+  %or.cond490.i = phi i1 [ %or.cond.i, %262 ], [ true, %169 ]
   %279 = load i64, ptr %31, align 16, !noalias !7, !noundef !3
   %280 = load i64, ptr %146, align 16, !noalias !7, !noundef !3
   %281 = icmp ult i64 %279, %280
@@ -1216,7 +1216,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit184.i: ; preds = %.t
   store i64 %287, ptr %290, align 16, !noalias !7
   %291 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %288, ptr %291, align 8, !noalias !7
-  br i1 %or.cond403.i, label %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i, label %292
+  br i1 %or.cond490.i, label %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i, label %292
 
 292:                                              ; preds = %_ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit184.i
   %293 = add i64 %288, 1
@@ -1296,7 +1296,7 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i: ; pr
 
 .sink.split.i:                                    ; preds = %346, %345, %343, %343
   %.ph.i = phi i1 [ true, %346 ], [ true, %345 ], [ false, %343 ], [ false, %343 ]
-  %.ph475.i = phi i1 [ false, %346 ], [ false, %345 ], [ true, %343 ], [ true, %343 ]
+  %.ph562.i = phi i1 [ false, %346 ], [ false, %345 ], [ true, %343 ], [ true, %343 ]
   %.0133.ph.i = phi i32 [ 2, %346 ], [ 8, %345 ], [ 16, %343 ], [ 16, %343 ]
   tail call fastcc void @_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E(ptr nonnull align 16 %1), !noalias !7
   tail call fastcc void @_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E(ptr nonnull align 16 %1), !noalias !7
@@ -1306,7 +1306,7 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i: ; pr
 334:                                              ; preds = %343, %339, %.sink.split.i, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i
   %.pre.i = phi i64 [ %328, %343 ], [ %328, %339 ], [ %328, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.pre.i.pre, %.sink.split.i ]
   %335 = phi i1 [ true, %343 ], [ true, %339 ], [ true, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.ph.i, %.sink.split.i ]
-  %336 = phi i1 [ false, %343 ], [ false, %339 ], [ false, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.ph475.i, %.sink.split.i ]
+  %336 = phi i1 [ false, %343 ], [ false, %339 ], [ false, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.ph562.i, %.sink.split.i ]
   %.0133.i = phi i32 [ 10, %343 ], [ 10, %339 ], [ 10, %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i ], [ %.0133.ph.i, %.sink.split.i ]
   store i64 0, ptr %17, align 8, !noalias !7
   %337 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1500,7 +1500,7 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit191.i: ; pr
   %extract.t137 = trunc i128 %420 to i64
   %extract139 = lshr i128 %420, 64
   %extract.t140 = trunc nuw i128 %extract139 to i64
-  br i1 %or.cond403.i, label %.critedge174.i, label %423
+  br i1 %or.cond490.i, label %.critedge174.i, label %423
 
 421:                                              ; preds = %415
   %422 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1508,9 +1508,9 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit191.i: ; pr
   %.sroa.2104.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.2104.0.copyload.i = load i128, ptr %.sroa.2104.0..sroa_idx.i, align 16, !noalias !7
   %.sroa.3105.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %extract.t356 = trunc i128 %.sroa.2104.0.copyload.i to i64
-  %extract358 = lshr i128 %.sroa.2104.0.copyload.i, 64
-  %extract.t359 = trunc nuw i128 %extract358 to i64
+  %extract.t443 = trunc i128 %.sroa.2104.0.copyload.i to i64
+  %extract445 = lshr i128 %.sroa.2104.0.copyload.i, 64
+  %extract.t446 = trunc nuw i128 %extract445 to i64
   br label %427
 
 423:                                              ; preds = %418
@@ -1545,12 +1545,12 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit191.i: ; pr
   %.sroa.766.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %extract.t = trunc i128 %.sroa.563.8.copyload.i to i64
   %extract = lshr i128 %.sroa.563.8.copyload.i, 64
-  %extract.t357 = trunc nuw i128 %extract to i64
+  %extract.t444 = trunc nuw i128 %extract to i64
   br label %427
 
 427:                                              ; preds = %426, %421
-  %.sroa.563.8.copyload.i.sink355.off0 = phi i64 [ %extract.t, %426 ], [ %extract.t356, %421 ]
-  %.sroa.563.8.copyload.i.sink355.off64 = phi i64 [ %extract.t357, %426 ], [ %extract.t359, %421 ]
+  %.sroa.563.8.copyload.i.sink442.off0 = phi i64 [ %extract.t, %426 ], [ %extract.t443, %421 ]
+  %.sroa.563.8.copyload.i.sink442.off64 = phi i64 [ %extract.t444, %426 ], [ %extract.t446, %421 ]
   %.sroa.361.8.copyload.sink.i = phi i64 [ %.sroa.361.8.copyload.i, %426 ], [ %.sroa.0103.0.copyload.i, %421 ]
   %.sroa.766.8..sroa_idx.sink.i = phi ptr [ %.sroa.766.8..sroa_idx.i, %426 ], [ %.sroa.3105.0..sroa_idx.i, %421 ]
   %.sroa.23.32.copyload = load i64, ptr %.sroa.766.8..sroa_idx.sink.i, align 8
@@ -1814,8 +1814,8 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit193.i: ; pr
           to label %539 unwind label %537
 
 536:                                              ; preds = %427, %.thread206.i
-  %.sroa.12.sroa.9.0 = phi i64 [ %.sroa.563.8.copyload.i.sink355.off64, %427 ], [ %.sroa.12.sroa.9.0.extract.trunc, %.thread206.i ]
-  %.sroa.12.sroa.0.0 = phi i64 [ %.sroa.563.8.copyload.i.sink355.off0, %427 ], [ %.sroa.12.sroa.0.0.extract.trunc, %.thread206.i ]
+  %.sroa.12.sroa.9.0 = phi i64 [ %.sroa.563.8.copyload.i.sink442.off64, %427 ], [ %.sroa.12.sroa.9.0.extract.trunc, %.thread206.i ]
+  %.sroa.12.sroa.0.0 = phi i64 [ %.sroa.563.8.copyload.i.sink442.off0, %427 ], [ %.sroa.12.sroa.0.0.extract.trunc, %.thread206.i ]
   %.sroa.39.sroa.6.0 = phi i64 [ %.sroa.39.32.copyload35, %427 ], [ %.sroa.39.8.copyload2532, %.thread206.i ]
   %.sroa.39.sroa.0.0 = phi i64 [ %.sroa.39.32.copyload34, %427 ], [ %.sroa.39.8.copyload2531, %.thread206.i ]
   %.sroa.38.0 = phi i64 [ %.sroa.38.32.copyload, %427 ], [ %.sroa.38.8.copyload23, %.thread206.i ]

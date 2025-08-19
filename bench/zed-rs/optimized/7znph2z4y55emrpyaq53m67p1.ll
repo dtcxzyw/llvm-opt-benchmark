@@ -616,7 +616,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %93, ptr %86 monotonic, align 8, !noalias !13
   store ptr null, ptr %88, align 8, !noalias !13
   %94 = icmp eq ptr %87, null
-  br i1 %94, label %.thread1.i, label %95
+  br i1 %94, label %.thread3.i, label %95
 
 95:                                               ; preds = %80
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 104
@@ -624,15 +624,15 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %97 = icmp eq ptr %89, null
   br i1 %97, label %100, label %.thread.i
 
-.thread1.i:                                       ; preds = %80
+.thread3.i:                                       ; preds = %80
   %98 = icmp eq ptr %89, null
-  br i1 %98, label %.thread2.i, label %.thread.i
+  br i1 %98, label %.thread4.i, label %.thread.i
 
-.thread2.i:                                       ; preds = %.thread1.i
+.thread4.i:                                       ; preds = %.thread3.i
   store ptr null, ptr %10, align 8, !alias.scope !13
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h80b60df8d4fd868cE.exit"
 
-.thread.i:                                        ; preds = %.thread1.i, %95
+.thread.i:                                        ; preds = %.thread3.i, %95
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 96
   store atomic ptr %87, ptr %99 monotonic, align 8, !noalias !13
   br label %101
@@ -647,7 +647,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %85, ptr %103, align 8, !noalias !13
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h80b60df8d4fd868cE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h80b60df8d4fd868cE.exit": ; preds = %.thread2.i, %101
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h80b60df8d4fd868cE.exit": ; preds = %.thread4.i, %101
   %104 = getelementptr inbounds i8, ptr %.sroa.09.0.i, i64 -16
   store ptr %104, ptr %8, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 128
@@ -2136,7 +2136,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store atomic ptr %15, ptr %8 monotonic, align 8
   store ptr null, ptr %10, align 8
   %16 = icmp eq ptr %9, null
-  br i1 %16, label %.thread1, label %17
+  br i1 %16, label %.thread3, label %17
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -2144,15 +2144,15 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   %19 = icmp eq ptr %11, null
   br i1 %19, label %22, label %.thread
 
-.thread1:                                         ; preds = %2
+.thread3:                                         ; preds = %2
   %20 = icmp eq ptr %11, null
-  br i1 %20, label %.thread2, label %.thread
+  br i1 %20, label %.thread4, label %.thread
 
-.thread2:                                         ; preds = %.thread1
+.thread4:                                         ; preds = %.thread3
   store ptr %9, ptr %3, align 8
   br label %26
 
-.thread:                                          ; preds = %17, %.thread1
+.thread:                                          ; preds = %17, %.thread3
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store atomic ptr %9, ptr %21 monotonic, align 8
   br label %23
@@ -2167,7 +2167,7 @@ define hidden noundef nonnull ptr @"_ZN12futures_util6stream17futures_unordered2
   store i64 %7, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %.thread2, %23
+26:                                               ; preds = %.thread4, %23
   %27 = getelementptr inbounds i8, ptr %1, i64 -16
   ret ptr %27
 }
@@ -2205,7 +2205,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   %8 = alloca [24 x i8], align 8
   %9 = icmp eq i64 %3, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink.sroa.gep58 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
@@ -2256,10 +2256,10 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   ret void
 
 common.resume.sink.split:                         ; preds = %98, %31
-  %.sink57 = phi i64 [ %33, %31 ], [ %100, %98 ]
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %31 ], [ %.sink.sroa.gep58, %98 ]
+  %.sink62 = phi i64 [ %33, %31 ], [ %100, %98 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %31 ], [ %.sink.sroa.gep63, %98 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %32, %31 ], [ %99, %98 ]
-  %27 = shl nuw i64 %.sink57, 3
+  %27 = shl nuw i64 %.sink62, 3
   %28 = load ptr, ptr %.sink.sroa.phi, align 8, !noalias !4, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %27, i64 noundef 8) #30, !noalias !4
   br label %common.resume
@@ -3967,8 +3967,8 @@ common.resume:                                    ; preds = %12
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hac2355177dd10df2E.llvm.531992751332406584.exit": ; preds = %0
   store i64 -9223372036854775807, ptr %3, align 8
-  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 184
-  store ptr null, ptr %.sroa.424.0..sroa_idx, align 8
+  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 184
+  store ptr null, ptr %.sroa.425.0..sroa_idx, align 8
   %5 = ptrtoint ptr %3 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 1, ptr %1, align 8
@@ -28547,12 +28547,12 @@ tailrecurse.us:                                   ; preds = %4, %_ZN6ignore9giti
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us": ; preds = %tailrecurse.us
   %bcmp.i.us = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %7, ptr noundef nonnull dereferenceable(4) @anon.8845fdbbb421455d67a2af2322404b97.280.llvm.531992751332406584, i64 4), !alias.scope !5897
   %10 = icmp eq i32 %bcmp.i.us, 0
-  br i1 %10, label %.split12.us.loopexit36, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us"
+  br i1 %10, label %.split12.us.loopexit38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us", %tailrecurse.us
   %11 = load i64, ptr %.tr.us, align 8, !range !54, !noundef !4
   switch i64 %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us.unreachabledefault" [
-    i64 0, label %.split12.us.loopexit36
+    i64 0, label %.split12.us.loopexit38
     i64 1, label %12
     i64 2, label %.split12.us
   ]
@@ -28587,7 +28587,7 @@ _ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us: ; preds = %"
   %32 = extractvalue { i64, ptr } %31, 0
   switch i64 %32, label %.split16.us [
     i64 0, label %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.thread.us
-    i64 1, label %.split12.us.loopexit36
+    i64 1, label %.split12.us.loopexit38
     i64 2, label %.split12.us
   ]
 
@@ -28607,7 +28607,7 @@ tailrecurse:                                      ; preds = %4, %_ZN6ignore9giti
   %.tr = phi ptr [ %60, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.thread ], [ %0, %4 ]
   %36 = load i64, ptr %.tr, align 8, !range !54, !noundef !4
   switch i64 %36, label %default.unreachable [
-    i64 0, label %.split12.us.loopexit38
+    i64 0, label %.split12.us.loopexit40
     i64 1, label %37
     i64 2, label %.split12.us
   ]
@@ -28649,20 +28649,20 @@ _ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit: ; preds = %"_ZN
   %57 = extractvalue { i64, ptr } %56, 0
   switch i64 %57, label %.split16.us [
     i64 0, label %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.thread
-    i64 1, label %.split12.us.loopexit38
+    i64 1, label %.split12.us.loopexit40
     i64 2, label %.split12.us
   ]
 
-.split12.us.loopexit36:                           ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us", %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us"
-  %.sroa.0.0.ph37 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us" ], [ true, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us ]
+.split12.us.loopexit38:                           ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us", %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us"
+  %.sroa.0.0.ph39 = phi i1 [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us" ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us" ], [ true, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us ]
   br label %.split12.us
 
-.split12.us.loopexit38:                           ; preds = %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit, %tailrecurse
-  %.sroa.0.0.ph39 = phi i1 [ false, %tailrecurse ], [ true, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit ]
+.split12.us.loopexit40:                           ; preds = %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit, %tailrecurse
+  %.sroa.0.0.ph41 = phi i1 [ false, %tailrecurse ], [ true, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit ]
   br label %.split12.us
 
-.split12.us:                                      ; preds = %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit, %tailrecurse, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us", %.split12.us.loopexit38, %.split12.us.loopexit36
-  %.sroa.0.0 = phi i1 [ %.sroa.0.0.ph37, %.split12.us.loopexit36 ], [ %.sroa.0.0.ph39, %.split12.us.loopexit38 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us" ], [ false, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us ], [ true, %tailrecurse ], [ false, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit ]
+.split12.us:                                      ; preds = %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit, %tailrecurse, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us", %.split12.us.loopexit40, %.split12.us.loopexit38
+  %.sroa.0.0 = phi i1 [ %.sroa.0.0.ph39, %.split12.us.loopexit38 ], [ %.sroa.0.0.ph41, %.split12.us.loopexit40 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us" ], [ false, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us ], [ true, %tailrecurse ], [ false, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit ]
   ret i1 %.sroa.0.0
 
 _ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.thread: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdf8c896575fd2f28E.llvm.531992751332406584.exit", %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit
@@ -28689,7 +28689,7 @@ define internal noundef zeroext i1 @"_ZN8worktree8Worktree6remote28_$u7b$$u7b$cl
   %15 = alloca [176 x i8], align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %17 = load i8, ptr %16, align 1, !range !1131, !noundef !4
-  switch i8 %17, label %default.unreachable84 [
+  switch i8 %17, label %default.unreachable88 [
     i8 0, label %41
     i8 1, label %18
     i8 2, label %19
@@ -28702,7 +28702,7 @@ define internal noundef zeroext i1 @"_ZN8worktree8Worktree6remote28_$u7b$$u7b$cl
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !5919, !noalias !5922
   br label %45
 
-default.unreachable84:                            ; preds = %2
+default.unreachable88:                            ; preds = %2
   unreachable
 
 18:                                               ; preds = %2
@@ -28719,7 +28719,7 @@ default.unreachable84:                            ; preds = %2
   %21 = trunc nuw i8 %.pre83 to i1
   br i1 %21, label %22, label %41
 
-22:                                               ; preds = %.thread85, %20
+22:                                               ; preds = %.thread89, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i8 0, ptr %23, align 8
@@ -29167,13 +29167,13 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit: ; preds = %159
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %187 = cmpxchg ptr %58, i8 1, i8 0 release monotonic, align 1
   %188 = extractvalue { i8, i1 } %187, 1
-  br i1 %188, label %.thread85, label %189
+  br i1 %188, label %.thread89, label %189
 
 189:                                              ; preds = %182
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %58, i1 noundef zeroext false)
-          to label %.thread85 unwind label %63
+          to label %.thread89 unwind label %63
 
-.thread85:                                        ; preds = %189, %182
+.thread89:                                        ; preds = %189, %182
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %190, ptr %191, align 8
@@ -30150,7 +30150,7 @@ define internal { i64, ptr } @"_ZN8worktree13LocalWorktree10write_file28_$u7b$$u
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %6 = load i8, ptr %5, align 1, !range !1339, !noundef !4
-  switch i8 %6, label %default.unreachable20 [
+  switch i8 %6, label %default.unreachable26 [
     i8 0, label %7
     i8 1, label %33
     i8 2, label %34
@@ -30164,7 +30164,7 @@ define internal { i64, ptr } @"_ZN8worktree13LocalWorktree10write_file28_$u7b$$u
   %.pre19 = load ptr, ptr %.phi.trans.insert18, align 8, !alias.scope !6223, !noalias !6228
   br label %35
 
-default.unreachable20:                            ; preds = %2
+default.unreachable26:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -31493,7 +31493,7 @@ define hidden void @_ZN8worktree22BackgroundScannerState12populate_dir17hff0dd84
   %61 = icmp eq ptr %47, null
   br i1 %61, label %324, label %62
 
-default.unreachable138:                           ; preds = %"_ZN4core3ptr38drop_in_place$LT$worktree..PathKey$GT$17hafac67ab36fd4968E.exit46"
+default.unreachable148:                           ; preds = %"_ZN4core3ptr38drop_in_place$LT$worktree..PathKey$GT$17hafac67ab36fd4968E.exit46"
   unreachable
 
 62:                                               ; preds = %60
@@ -31538,7 +31538,7 @@ default.unreachable138:                           ; preds = %"_ZN4core3ptr38drop
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %75 = getelementptr inbounds nuw i8, ptr %31, i64 85
   %76 = load i8, ptr %75, align 1, !range !1339, !noundef !4
-  switch i8 %76, label %default.unreachable138 [
+  switch i8 %76, label %default.unreachable148 [
     i8 0, label %77
     i8 1, label %77
     i8 2, label %78
@@ -32310,7 +32310,7 @@ _ZN3std4path4Path4join17h0a9f8b918b442e00E.exit:  ; preds = %145
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$ignore..gitignore..Gitignore$GT$$GT$17h25291efeba6d65c0E.llvm.531992751332406584.exit"
 
 common.resume:                                    ; preds = %274, %364, %353, %357
-  %common.resume.op = phi { ptr, i32 } [ %354, %357 ], [ %354, %353 ], [ %.pn38139, %364 ], [ %.pn36, %274 ]
+  %common.resume.op = phi { ptr, i32 } [ %354, %357 ], [ %354, %353 ], [ %.pn38149, %364 ], [ %.pn36, %274 ]
   resume { ptr, i32 } %common.resume.op
 
 363:                                              ; preds = %.body
@@ -32318,7 +32318,7 @@ common.resume:                                    ; preds = %274, %364, %353, %3
           to label %274 unwind label %179
 
 364:                                              ; preds = %.thread, %274
-  %.pn38139 = phi { ptr, i32 } [ %.pn36, %274 ], [ %316, %.thread ]
+  %.pn38149 = phi { ptr, i32 } [ %.pn36, %274 ], [ %316, %.thread ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$worktree..Entry$GT$$GT$17heaf7a4bc06ae9622E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #41
           to label %common.resume unwind label %179
 }

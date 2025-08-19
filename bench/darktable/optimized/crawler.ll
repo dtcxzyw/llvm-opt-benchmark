@@ -1749,9 +1749,9 @@ _still_thumbing.exit32.thread.i:                  ; preds = %_still_thumbing.exi
   br label %_update_all_thumbs.exit
 
 _update_all_thumbs.exit:                          ; preds = %.critedge.thread.i, %.critedge.i, %242, %270
-  %.016.lcssa61.i = phi i32 [ 0, %.critedge.thread.i ], [ %.016.lcssa.i, %242 ], [ %.016.lcssa.i, %270 ], [ 0, %.critedge.i ]
+  %.016.lcssa67.i = phi i32 [ 0, %.critedge.thread.i ], [ %.016.lcssa.i, %242 ], [ %.016.lcssa.i, %270 ], [ 0, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %272 = add nsw i32 %.016.lcssa61.i, %.02860
+  %272 = add nsw i32 %.016.lcssa67.i, %.02860
   br label %_lighttable_silent.exit.thread
 
 _lighttable_silent.exit.thread:                   ; preds = %94, %96, %98, %101, %_update_all_thumbs.exit, %114, %_lighttable_silent.exit
@@ -1759,9 +1759,9 @@ _lighttable_silent.exit.thread:                   ; preds = %94, %96, %98, %101,
   %273 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3412), align 4, !tbaa !88
   %274 = add i32 %273, -8
   %275 = icmp ult i32 %274, -7
-  br i1 %275, label %.thread69, label %276
+  br i1 %275, label %.thread79, label %276
 
-.thread69:                                        ; preds = %_lighttable_silent.exit.thread
+.thread79:                                        ; preds = %_lighttable_silent.exit.thread
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3404), align 4, !tbaa !90
   br label %._crit_edge
 
@@ -1770,8 +1770,8 @@ _lighttable_silent.exit.thread:                   ; preds = %94, %96, %98, %101,
   %277 = icmp eq i32 %.pre, 0
   br i1 %277, label %._crit_edge, label %.preheader
 
-._crit_edge:                                      ; preds = %.critedge, %276, %.thread69, %.critedge47
-  %.028.lcssa = phi i32 [ 0, %.critedge47 ], [ %.1, %.thread69 ], [ %.1, %276 ], [ %.02860, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge, %276, %.thread79, %.critedge47
+  %.028.lcssa = phi i32 [ 0, %.critedge47 ], [ %.1, %.thread79 ], [ %.1, %276 ], [ %.02860, %.critedge ]
   %278 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %279 = and i32 %278, 1
   %.not39 = icmp eq i32 %279, 0

@@ -449,7 +449,7 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   %.not50 = icmp slt i64 %44, %37
   %..039 = select i1 %.not50, i64 %42, i64 %.03954
   %.037. = select i1 %.not50, i64 %.03755, i64 %42
-  %45 = add i64 %..039, 1
+  %45 = add nuw i64 %..039, 1
   %46 = icmp ugt i64 %.037., %45
   br i1 %46, label %.lr.ph56, label %._crit_edge, !llvm.loop !58
 

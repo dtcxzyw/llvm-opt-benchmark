@@ -690,9 +690,9 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
   %.06.i = phi i32 [ %.2.i107, %.loopexit.i ], [ 0, %199 ]
   %.0635.i = phi i32 [ %.265.i, %.loopexit.i ], [ 0, %199 ]
   %201 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef %.06.i)
-  %202 = add nsw i32 %.06.i, 1
+  %202 = add nuw nsw i32 %.06.i, 1
   %203 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef %202)
-  %204 = add nsw i32 %.06.i, 2
+  %204 = add nuw nsw i32 %.06.i, 2
   %205 = zext i8 %203 to i32
   %206 = load i32, ptr @ett_a21_record_content, align 4
   %207 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %37, ptr noundef %43, i32 noundef %204, i32 noundef %205, i32 noundef %206, ptr noundef null, ptr noundef nonnull @.str.161, i32 noundef 1)
@@ -710,7 +710,7 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
   %217 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %216, ptr noundef %43, i32 noundef %204, i32 noundef 1, i32 noundef 0)
   %218 = load i32, ptr @hf_a21_mob_sub_info_re_con_curr_band_sub, align 4
   %219 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %218, ptr noundef %43, i32 noundef %204, i32 noundef 1, i32 noundef 0)
-  %220 = add nsw i32 %.06.i, 3
+  %220 = add nuw nsw i32 %.06.i, 3
   %221 = icmp slt i32 %220, %213
   br i1 %221, label %.lr.ph.i108, label %.loopexit.i
 
@@ -752,7 +752,7 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
 244:                                              ; preds = %.lr.ph7.i
   %245 = load i32, ptr @hf_a21_mob_sub_info_record_content, align 4
   %246 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %245, ptr noundef %43, i32 noundef %204, i32 noundef %205, i32 noundef 0)
-  %247 = add nsw i32 %204, %205
+  %247 = add nuw nsw i32 %204, %205
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %238, %244, %215

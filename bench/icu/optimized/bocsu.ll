@@ -196,19 +196,19 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   %.not135.i = icmp ne i32 %109, 0
   %111 = trunc nuw i32 %109 to i8
   %112 = sub i8 0, %111
-  %.neg139.i = zext i1 %.not135.i to i32
-  %.182.neg.i = add nuw nsw i32 %110, %.neg139.i
+  %.neg140.i = zext i1 %.not135.i to i32
+  %.182.neg.i = add nuw nsw i32 %110, %.neg140.i
   %.1.i = select i1 %.not135.i, i8 %112, i8 3
   br i1 %108, label %113, label %122
 
 113:                                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
   store i8 %.1.i, ptr %114, align 1, !tbaa !11
-  %.neg140.i = trunc nuw nsw i32 %.182.neg.i to i16
-  %115 = urem i16 %.neg140.i, 253
+  %.neg141.i = trunc nuw nsw i32 %.182.neg.i to i16
+  %115 = urem i16 %.neg141.i, 253
   %.zext117.i = trunc nuw i16 %115 to i8
   %.neg115.i = sub i8 0, %.zext117.i
-  %116 = udiv i16 %.neg140.i, 253
+  %116 = udiv i16 %.neg141.i, 253
   %.neg119.i = sub nsw i16 0, %116
   %.not136.i = icmp eq i16 %115, 0
   %117 = xor i16 %116, -1

@@ -1510,7 +1510,7 @@ define linkonce_odr void @_ZNSt6vectorI14gmx_sd_const_tSaIS0_EE6resizeEm(ptr nou
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIP14gmx_sd_const_tmS0_ET_S2_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIP14gmx_sd_const_tmS0_ET_S2_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false), !tbaa !280
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !292
@@ -1610,7 +1610,7 @@ define linkonce_odr void @_ZNSt6vectorI14gmx_sd_sigma_tSaIS0_EE6resizeEm(ptr nou
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIP14gmx_sd_sigma_tmS0_ET_S2_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIP14gmx_sd_sigma_tmS0_ET_S2_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 2
+  %21 = shl nuw nsw i64 %12, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !282
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !299
@@ -1714,13 +1714,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !170
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !170
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -2535,7 +2535,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_N
   br i1 %.not28, label %21, label %19
 
 19:                                               ; preds = %3
-  %20 = mul i64 %1, 12
+  %20 = mul nuw nsw i64 %1, 12
   %scevgep.i = getelementptr i8, ptr %5, i64 %20
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !272
   br label %38
@@ -3002,13 +3002,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !259
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !259
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -3190,8 +3190,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   %indvars.iv174 = phi i64 [ 0, %.preheader124 ], [ %indvars.iv.next175, %54 ]
   %.3132 = phi i64 [ %indvars.iv.next158, %.preheader124 ], [ %indvars.iv.next169, %54 ]
   %51 = getelementptr inbounds nuw [3 x [3 x float]], ptr %42, i64 0, i64 %indvars.iv174
-  %sext222 = shl i64 %.3132, 32
-  %52 = ashr exact i64 %sext222, 32
+  %sext225 = shl i64 %.3132, 32
+  %52 = ashr exact i64 %sext225, 32
   br label %55
 
 53:                                               ; preds = %54
@@ -3250,8 +3250,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   br label %.preheader119
 
 ._crit_edge146.loopexit:                          ; preds = %94
-  %sext225 = shl i64 %indvars.iv.next197, 32
-  %77 = ashr exact i64 %sext225, 32
+  %sext228 = shl i64 %indvars.iv.next197, 32
+  %77 = ashr exact i64 %sext228, 32
   br label %._crit_edge146
 
 ._crit_edge146:                                   ; preds = %._crit_edge146.loopexit, %68
@@ -3277,8 +3277,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge
   %indvars.iv190 = phi i64 [ 0, %.preheader121 ], [ %indvars.iv.next191, %86 ]
   %.6138 = phi i64 [ %.5144, %.preheader121 ], [ %indvars.iv.next185, %86 ]
   %84 = getelementptr inbounds nuw [3 x [3 x float]], ptr %76, i64 0, i64 %indvars.iv190
-  %sext223 = shl i64 %.6138, 32
-  %85 = ashr exact i64 %sext223, 32
+  %sext226 = shl i64 %.6138, 32
+  %85 = ashr exact i64 %sext226, 32
   br label %87
 
 86:                                               ; preds = %87
@@ -3303,8 +3303,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge
   %indvars.iv202 = phi i64 [ 0, %.preheader120 ], [ %indvars.iv.next203, %95 ]
   %.8142 = phi i64 [ %indvars.iv.next185, %.preheader120 ], [ %indvars.iv.next197, %95 ]
   %92 = getelementptr inbounds nuw [3 x [3 x float]], ptr %83, i64 0, i64 %indvars.iv202
-  %sext224 = shl i64 %.8142, 32
-  %93 = ashr exact i64 %sext224, 32
+  %sext227 = shl i64 %.8142, 32
+  %93 = ashr exact i64 %sext227, 32
   br label %96
 
 94:                                               ; preds = %95
@@ -4002,7 +4002,7 @@ define internal void @_ZN3gmx6Update4Impl21update_sd_second_halfERK10t_inputrecl
   br i1 %210, label %212, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %199
-  %211 = add i32 %.sroa.9.06.i, -14
+  %211 = add nsw i32 %.sroa.9.06.i, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i
 
 212:                                              ; preds = %199
@@ -7149,7 +7149,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   br i1 %1191, label %1193, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %1171
-  %1192 = add i32 %.sroa.9.06.i.i, -14
+  %1192 = add nsw i32 %.sroa.9.06.i.i, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i.i
 
 1193:                                             ; preds = %1171
@@ -7542,7 +7542,7 @@ _ZL17doSDUpdateGeneralIL8SDUpdate2EEvRK12gmx_stochd_tiifN3gmx8ArrayRefIA3_KiEENS
   br i1 %1467, label %1469, label %._crit_edge.i.i.i.us
 
 ._crit_edge.i.i.i.us:                             ; preds = %1463
-  %1468 = add i32 %.sroa.13.010.i.us, -14
+  %1468 = add nsw i32 %.sroa.13.010.i.us, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit.i.us
 
 1469:                                             ; preds = %1463
@@ -7747,7 +7747,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.ex
   br i1 %1601, label %1603, label %._crit_edge.i.i67.i
 
 ._crit_edge.i.i67.i:                              ; preds = %1589
-  %1602 = add i32 %.sroa.13.010.i, -14
+  %1602 = add nsw i32 %.sroa.13.010.i, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit77.i
 
 1603:                                             ; preds = %1589
@@ -8221,9 +8221,9 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.ex
   br label %1893
 
 1893:                                             ; preds = %1887, %.split.i175
-  %.sink79.i = phi float [ %1892, %1887 ], [ %1886, %.split.i175 ]
+  %.sink81.i = phi float [ %1892, %1887 ], [ %1886, %.split.i175 ]
   %1894 = getelementptr inbounds nuw [3 x float], ptr %1879, i64 0, i64 %indvars.iv.i176
-  store float %.sink79.i, ptr %1894, align 4, !tbaa !170
+  store float %.sink81.i, ptr %1894, align 4, !tbaa !170
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i176, 1
   %exitcond.not.i178 = icmp eq i64 %indvars.iv.next.i177, 3
   br i1 %exitcond.not.i178, label %.split42.us.i, label %.split.i175, !llvm.loop !803

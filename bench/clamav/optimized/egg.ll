@@ -535,10 +535,10 @@ getMagicHeaderName.exit.i.i:                      ; preds = %83, %82, %81, %80, 
   br label %105
 
 105:                                              ; preds = %102, %97
-  %.sink82.i.i = phi i64 [ 2, %102 ], [ 4, %97 ]
+  %.sink88.i.i = phi i64 [ 2, %102 ], [ 4, %97 ]
   %.056.i.i = phi i32 [ %104, %102 ], [ %98, %97 ]
   %106 = load i64, ptr %17, align 8, !tbaa !26
-  %107 = add i64 %106, %.sink82.i.i
+  %107 = add i64 %106, %.sink88.i.i
   store i64 %107, ptr %17, align 8, !tbaa !26
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.117, i32 noundef %.056.i.i) #11
   %108 = load i32, ptr %69, align 1, !tbaa !28
@@ -751,8 +751,8 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 104
   %181 = load ptr, ptr %180, align 8, !tbaa !15
   %182 = tail call ptr %181(ptr noundef %178, i64 noundef %179, i64 noundef 4, i32 noundef 0) #11
-  %.not159723 = icmp eq ptr %182, null
-  br i1 %.not159723, label %._crit_edge, label %.lr.ph
+  %.not159783 = icmp eq ptr %182, null
+  br i1 %.not159783, label %._crit_edge, label %.lr.ph
 
 183:                                              ; preds = %24, %52, %21
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.20) #11
@@ -835,9 +835,9 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
     i32 1095190341, label %.thread68.i.loopexit
     i32 619028576, label %217
     i32 45419539, label %.thread68.i.loopexit365
-    i32 147932943, label %.thread68.i.loopexit480
-    i32 747017483, label %.thread68.i.loopexit602
-    i32 518595301, label %.thread68.i.loopexit724
+    i32 147932943, label %.thread68.i.loopexit540
+    i32 747017483, label %.thread68.i.loopexit662
+    i32 518595301, label %.thread68.i.loopexit784
     i32 122041095, label %.thread68.i
     i32 176525740, label %214
     i32 80098930, label %215
@@ -865,17 +865,17 @@ egg_parse_archive_headers.exit:                   ; preds = %egg_parse_archive_e
 .thread68.i.loopexit365:                          ; preds = %212
   br label %.thread68.i
 
-.thread68.i.loopexit480:                          ; preds = %212
+.thread68.i.loopexit540:                          ; preds = %212
   br label %.thread68.i
 
-.thread68.i.loopexit602:                          ; preds = %212
+.thread68.i.loopexit662:                          ; preds = %212
   br label %.thread68.i
 
-.thread68.i.loopexit724:                          ; preds = %212
+.thread68.i.loopexit784:                          ; preds = %212
   br label %.thread68.i
 
-.thread68.i:                                      ; preds = %212, %.thread68.i.loopexit724, %.thread68.i.loopexit602, %.thread68.i.loopexit480, %.thread68.i.loopexit365, %.thread68.i.loopexit, %218, %217, %216, %215, %214
-  %.0.i.i178 = phi ptr [ @.str.17, %218 ], [ @.str.13, %214 ], [ @.str.14, %215 ], [ @.str.15, %216 ], [ @.str.16, %217 ], [ @.str.6, %.thread68.i.loopexit ], [ @.str.8, %.thread68.i.loopexit365 ], [ @.str.9, %.thread68.i.loopexit480 ], [ @.str.10, %.thread68.i.loopexit602 ], [ @.str.11, %.thread68.i.loopexit724 ], [ @.str.12, %212 ]
+.thread68.i:                                      ; preds = %212, %.thread68.i.loopexit784, %.thread68.i.loopexit662, %.thread68.i.loopexit540, %.thread68.i.loopexit365, %.thread68.i.loopexit, %218, %217, %216, %215, %214
+  %.0.i.i178 = phi ptr [ @.str.17, %218 ], [ @.str.13, %214 ], [ @.str.14, %215 ], [ @.str.15, %216 ], [ @.str.16, %217 ], [ @.str.6, %.thread68.i.loopexit ], [ @.str.8, %.thread68.i.loopexit365 ], [ @.str.9, %.thread68.i.loopexit540 ], [ @.str.10, %.thread68.i.loopexit662 ], [ @.str.11, %.thread68.i.loopexit784 ], [ @.str.12, %212 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.145, i32 noundef %213, ptr noundef nonnull %.0.i.i178) #11
   br label %466
 
@@ -1058,10 +1058,10 @@ getMagicHeaderName.exit.i.i181:                   ; preds = %276, %275, %274, %2
   br label %298
 
 298:                                              ; preds = %295, %290
-  %.sink209.i.i = phi i64 [ 2, %295 ], [ 4, %290 ]
+  %.sink222.i.i = phi i64 [ 2, %295 ], [ 4, %290 ]
   %.0130.i.i = phi i32 [ %297, %295 ], [ %291, %290 ]
   %299 = load i64, ptr %17, align 8, !tbaa !26
-  %300 = add i64 %299, %.sink209.i.i
+  %300 = add i64 %299, %.sink222.i.i
   store i64 %300, ptr %17, align 8, !tbaa !26
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.158, i32 noundef %.0130.i.i) #11
   %301 = load i32, ptr %262, align 1, !tbaa !28
@@ -1808,10 +1808,10 @@ getMagicHeaderName.exit:                          ; preds = %579, %581, %582, %5
   br label %613
 
 613:                                              ; preds = %610, %605
-  %.sink601 = phi i64 [ 2, %610 ], [ 4, %605 ]
+  %.sink661 = phi i64 [ 2, %610 ], [ 4, %605 ]
   %.0123 = phi i32 [ %612, %610 ], [ %606, %605 ]
   %614 = load i64, ptr %17, align 8, !tbaa !26
-  %615 = add i64 %614, %.sink601
+  %615 = add i64 %614, %.sink661
   store i64 %615, ptr %17, align 8, !tbaa !26
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %.0123) #11
   %616 = load ptr, ptr %13, align 8, !tbaa !11
@@ -2038,7 +2038,7 @@ define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr nounde
 
 7:                                                ; preds = %4
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.224) #11
-  br label %.thread29
+  br label %.thread30
 
 8:                                                ; preds = %4
   store ptr null, ptr %3, align 8, !tbaa !46
@@ -2047,7 +2047,7 @@ define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr nounde
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 4
   %.not22 = icmp eq i32 %12, 0
-  br i1 %.not22, label %13, label %.thread29
+  br i1 %.not22, label %13, label %.thread30
 
 13:                                               ; preds = %8
   %14 = and i32 %11, 8
@@ -2071,26 +2071,26 @@ define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr nounde
 
 20:                                               ; preds = %17
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.226) #11
-  br label %.thread29
+  br label %.thread30
 
 .thread:                                          ; preds = %..thread_crit_edge, %17
   %21 = phi ptr [ %.pre, %..thread_crit_edge ], [ %18, %17 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.227, ptr noundef %21) #11
   %22 = load ptr, ptr %5, align 8, !tbaa !46
   store ptr %22, ptr %3, align 8, !tbaa !46
-  br label %.thread29
+  br label %.thread30
 
 23:                                               ; preds = %15
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.225) #11
   %.pr.pre = load ptr, ptr %5, align 8, !tbaa !46
   %.not25 = icmp eq ptr %.pr.pre, null
-  br i1 %.not25, label %.thread29, label %24
+  br i1 %.not25, label %.thread30, label %24
 
 24:                                               ; preds = %23
   call void @free(ptr noundef nonnull %.pr.pre) #11
-  br label %.thread29
+  br label %.thread30
 
-.thread29:                                        ; preds = %20, %8, %.thread, %23, %24, %7
+.thread30:                                        ; preds = %20, %8, %.thread, %23, %24, %7
   %.018 = phi i32 [ 3, %7 ], [ 7, %24 ], [ 7, %23 ], [ 0, %.thread ], [ 20, %20 ], [ 7, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2598,17 +2598,16 @@ define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noun
 .thread76:                                        ; preds = %33
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.53) #11
   %67 = call i32 @inflateEnd(ptr noundef nonnull %5) #11
-  %.not68 = icmp eq ptr %.152103, null
-  br i1 %.not68, label %.thread76.thread, label %68
+  br label %68
 
-68:                                               ; preds = %.thread76.thread96, %.thread76.thread86, %.thread76
+68:                                               ; preds = %.thread76, %.thread76.thread96, %.thread76.thread86
   %.0538091 = phi i32 [ 20, %.thread76.thread86 ], [ 20, %.thread76 ], [ 27, %.thread76.thread96 ]
   %.0518190 = phi ptr [ %12, %.thread76.thread86 ], [ %.152103, %.thread76 ], [ %12, %.thread76.thread96 ]
   call void @free(ptr noundef nonnull %.0518190) #11
   br label %.thread76.thread
 
-.thread76.thread:                                 ; preds = %10, %13, %.thread76.thread92, %.thread76, %68
-  %.0538085 = phi i32 [ 20, %.thread76 ], [ %.0538091, %68 ], [ 0, %.thread76.thread92 ], [ 3, %10 ], [ 20, %13 ]
+.thread76.thread:                                 ; preds = %10, %13, %.thread76.thread92, %68
+  %.0538085 = phi i32 [ %.0538091, %68 ], [ 0, %.thread76.thread92 ], [ 3, %10 ], [ 20, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0538085
 }
@@ -2698,7 +2697,7 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
   %36 = zext i32 %35 to i64
   %37 = call ptr @cli_safer_realloc(ptr noundef %.14885, i64 noundef %36) #11
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %64, label %39
+  br i1 %38, label %63, label %39
 
 39:                                               ; preds = %34
   %40 = zext i32 %.04487 to i64
@@ -2767,27 +2766,21 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
 .thread69:                                        ; preds = %10, %61, %13
   %.049.ph = phi i32 [ 20, %13 ], [ 0, %61 ], [ 3, %10 ]
   %62 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %5) #11
-  br label %67
+  br label %65
 
-.thread76:                                        ; preds = %21, %31
-  %.049.ph75 = phi i32 [ 27, %31 ], [ 20, %21 ]
-  %63 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %5) #11
-  br label %66
-
-64:                                               ; preds = %34
+63:                                               ; preds = %34
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.63) #11
-  %65 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %5) #11
-  %.not61 = icmp eq ptr %.14885, null
-  br i1 %.not61, label %67, label %66
+  br label %.thread76
 
-66:                                               ; preds = %.thread76, %64
-  %.04781 = phi ptr [ %12, %.thread76 ], [ %.14885, %64 ]
-  %.04980 = phi i32 [ %.049.ph75, %.thread76 ], [ 20, %64 ]
+.thread76:                                        ; preds = %31, %21, %63
+  %.04781 = phi ptr [ %.14885, %63 ], [ %12, %21 ], [ %12, %31 ]
+  %.04980 = phi i32 [ 20, %63 ], [ 20, %21 ], [ 27, %31 ]
+  %64 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %5) #11
   call void @free(ptr noundef nonnull %.04781) #11
-  br label %67
+  br label %65
 
-67:                                               ; preds = %.thread69, %64, %66
-  %.04973 = phi i32 [ %.049.ph, %.thread69 ], [ 20, %64 ], [ %.04980, %66 ]
+65:                                               ; preds = %.thread69, %.thread76
+  %.04973 = phi i32 [ %.049.ph, %.thread69 ], [ %.04980, %.thread76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.04973
 }
@@ -2947,17 +2940,16 @@ define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef
 .thread73:                                        ; preds = %31
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.72) #11
   call void @cli_LzmaShutdown(ptr noundef nonnull %5) #11
-  %.not65 = icmp eq ptr %.151100, null
-  br i1 %.not65, label %.thread73.thread, label %59
+  br label %59
 
-59:                                               ; preds = %.thread73.thread93, %.thread73.thread83, %.thread73
+59:                                               ; preds = %.thread73, %.thread73.thread93, %.thread73.thread83
   %.0527788 = phi i32 [ 20, %.thread73.thread83 ], [ 20, %.thread73 ], [ 27, %.thread73.thread93 ]
   %.0507887 = phi ptr [ %12, %.thread73.thread83 ], [ %.151100, %.thread73 ], [ %12, %.thread73.thread93 ]
   call void @free(ptr noundef nonnull %.0507887) #11
   br label %.thread73.thread
 
-.thread73.thread:                                 ; preds = %10, %13, %.thread73.thread89, %.thread73, %59
-  %.0527782 = phi i32 [ 20, %.thread73 ], [ %.0527788, %59 ], [ 0, %.thread73.thread89 ], [ 3, %10 ], [ 20, %13 ]
+.thread73.thread:                                 ; preds = %10, %13, %.thread73.thread89, %59
+  %.0527782 = phi i32 [ %.0527788, %59 ], [ 0, %.thread73.thread89 ], [ 3, %10 ], [ 20, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0527782
 }

@@ -154,8 +154,8 @@ define i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noundef captu
   br i1 %.not.i.i.i, label %.preheader233.i, label %multipleOfPowerOf5.exit.i
 
 multipleOfPowerOf5.exit.i:                        ; preds = %.preheader233.i
-  %.not278.i = icmp ult i32 %.09.i.i.i, %45
-  br i1 %.not278.i, label %.thread.i, label %.preheader.i
+  %.not286.i = icmp ult i32 %.09.i.i.i, %45
+  br i1 %.not286.i, label %.thread.i, label %.preheader.i
 
 .preheader234.i:                                  ; preds = %82, %.preheader234.i
   %.09.i.i172.i = phi i32 [ %94, %.preheader234.i ], [ 0, %82 ]
@@ -221,9 +221,9 @@ multipleOfPowerOf5.exit176.i:                     ; preds = %.preheader234.i
   %138 = lshr i128 %137, %120
   %139 = trunc i128 %138 to i64
   %140 = icmp ult i32 %102, 2
-  br i1 %140, label %.thread261.i, label %142
+  br i1 %140, label %.thread269.i, label %142
 
-.thread261.i:                                     ; preds = %97
+.thread269.i:                                     ; preds = %97
   %141 = add i64 %122, -1
   br label %.preheader.i
 
@@ -240,20 +240,20 @@ multipleOfPowerOf5.exit176.i:                     ; preds = %.preheader234.i
   %149 = icmp eq i64 %148, 0
   br i1 %149, label %.preheader.i, label %.thread.i
 
-.preheader.i:                                     ; preds = %144, %.thread261.i, %multipleOfPowerOf5.exit.i
-  %.0115270.i = phi i64 [ %139, %.thread261.i ], [ %139, %144 ], [ %80, %multipleOfPowerOf5.exit.i ]
-  %.0116269.i = phi i32 [ %106, %.thread261.i ], [ %106, %144 ], [ %45, %multipleOfPowerOf5.exit.i ]
-  %.0186268.i = phi i64 [ %132, %.thread261.i ], [ %132, %144 ], [ %73, %multipleOfPowerOf5.exit.i ]
-  %.0189267.i = phi i64 [ %141, %.thread261.i ], [ %122, %144 ], [ %63, %multipleOfPowerOf5.exit.i ]
-  %150 = udiv i64 %.0189267.i, 10
-  %151 = udiv i64 %.0186268.i, 10
+.preheader.i:                                     ; preds = %144, %.thread269.i, %multipleOfPowerOf5.exit.i
+  %.0115278.i = phi i64 [ %139, %.thread269.i ], [ %139, %144 ], [ %80, %multipleOfPowerOf5.exit.i ]
+  %.0116277.i = phi i32 [ %106, %.thread269.i ], [ %106, %144 ], [ %45, %multipleOfPowerOf5.exit.i ]
+  %.0186276.i = phi i64 [ %132, %.thread269.i ], [ %132, %144 ], [ %73, %multipleOfPowerOf5.exit.i ]
+  %.0189275.i = phi i64 [ %141, %.thread269.i ], [ %122, %144 ], [ %63, %multipleOfPowerOf5.exit.i ]
+  %150 = udiv i64 %.0189275.i, 10
+  %151 = udiv i64 %.0186276.i, 10
   %.not164242.i = icmp samesign ugt i64 %150, %151
   br i1 %.not164242.i, label %.lr.ph247.i, label %._crit_edge248.i
 
 .lr.ph247.i:                                      ; preds = %.preheader.i, %.lr.ph247.i
   %152 = phi i64 [ %161, %.lr.ph247.i ], [ %151, %.preheader.i ]
   %153 = phi i64 [ %160, %.lr.ph247.i ], [ %150, %.preheader.i ]
-  %.1246.i = phi i64 [ %154, %.lr.ph247.i ], [ %.0115270.i, %.preheader.i ]
+  %.1246.i = phi i64 [ %154, %.lr.ph247.i ], [ %.0115278.i, %.preheader.i ]
   %.4123245.i = phi i1 [ %157, %.lr.ph247.i ], [ true, %.preheader.i ]
   %.0128244.i = phi i32 [ %159, %.lr.ph247.i ], [ 0, %.preheader.i ]
   %.0137243.i = phi i8 [ %158, %.lr.ph247.i ], [ 0, %.preheader.i ]
@@ -274,11 +274,11 @@ multipleOfPowerOf5.exit176.i:                     ; preds = %.preheader234.i
   br label %._crit_edge248.i
 
 ._crit_edge248.i:                                 ; preds = %._crit_edge248.loopexit.i, %.preheader.i
-  %.1187.lcssa.i = phi i64 [ %.0186268.i, %.preheader.i ], [ %152, %._crit_edge248.loopexit.i ]
+  %.1187.lcssa.i = phi i64 [ %.0186276.i, %.preheader.i ], [ %152, %._crit_edge248.loopexit.i ]
   %.0137.lcssa.i = phi i8 [ 0, %.preheader.i ], [ %158, %._crit_edge248.loopexit.i ]
   %.0128.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %159, %._crit_edge248.loopexit.i ]
   %.4123.lcssa.i = phi i1 [ false, %.preheader.i ], [ %162, %._crit_edge248.loopexit.i ]
-  %.1.lcssa.i = phi i64 [ %.0115270.i, %.preheader.i ], [ %154, %._crit_edge248.loopexit.i ]
+  %.1.lcssa.i = phi i64 [ %.0115278.i, %.preheader.i ], [ %154, %._crit_edge248.loopexit.i ]
   %163 = icmp ne i8 %.0137.lcssa.i, 5
   %or.cond4.i = select i1 %.4123.lcssa.i, i1 true, i1 %163
   %164 = and i64 %.1.lcssa.i, 1
@@ -353,7 +353,7 @@ multipleOfPowerOf5.exit176.i:                     ; preds = %.preheader234.i
   br label %198
 
 198:                                              ; preds = %194, %._crit_edge248.i
-  %.0116202.i = phi i32 [ %.0116269.i, %._crit_edge248.i ], [ %.0116203.i, %194 ]
+  %.0116202.i = phi i32 [ %.0116277.i, %._crit_edge248.i ], [ %.0116203.i, %194 ]
   %.0143.i = phi i64 [ %171, %._crit_edge248.i ], [ %197, %194 ]
   %.5133.i = phi i32 [ %.0128.lcssa.i, %._crit_edge248.i ], [ %.7135.lcssa.i, %194 ]
   %199 = add i32 %.5133.i, %.0116202.i
@@ -877,17 +877,17 @@ to_chars_df.exit.i:                               ; preds = %379, %375
   %503 = getelementptr inbounds i8, ptr %1, i64 %502
   %504 = sub i32 1, %231
   %spec.select = select i1 %501, i8 45, i8 43
-  %spec.select74 = select i1 %501, i32 %504, i32 %232
+  %spec.select89 = select i1 %501, i32 %504, i32 %232
   store i8 %spec.select, ptr %503, align 1
   %.2.i = add i32 %.1.i25, 2
-  %505 = icmp sgt i32 %spec.select74, 99
+  %505 = icmp sgt i32 %spec.select89, 99
   br i1 %505, label %506, label %521
 
 506:                                              ; preds = %497
-  %507 = urem i32 %spec.select74, 10
+  %507 = urem i32 %spec.select89, 10
   %508 = sext i32 %.2.i to i64
   %509 = getelementptr inbounds i8, ptr %1, i64 %508
-  %510 = udiv i32 %spec.select74, 10
+  %510 = udiv i32 %spec.select89, 10
   %511 = shl nuw nsw i32 %510, 1
   %512 = zext nneg i32 %511 to i64
   %513 = getelementptr inbounds nuw i8, ptr @DIGIT_TABLE, i64 %512
@@ -905,7 +905,7 @@ to_chars_df.exit.i:                               ; preds = %379, %375
 521:                                              ; preds = %497
   %522 = sext i32 %.2.i to i64
   %523 = getelementptr inbounds i8, ptr %1, i64 %522
-  %524 = shl i32 %spec.select74, 1
+  %524 = shl i32 %spec.select89, 1
   %525 = sext i32 %524 to i64
   %526 = getelementptr inbounds i8, ptr @DIGIT_TABLE, i64 %525
   %527 = load i16, ptr %526, align 2

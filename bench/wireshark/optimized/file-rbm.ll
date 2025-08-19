@@ -163,45 +163,41 @@ define hidden void @get_rbm_integer(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 32:                                               ; preds = %28
   %.not = icmp eq i8 %5, -6
-  br i1 %.not, label %50, label %33
+  br i1 %.not, label %48, label %.lr.ph
 
-33:                                               ; preds = %32
+.lr.ph:                                           ; preds = %32
   store i32 -1, ptr %2, align 4
-  %34 = sub nsw i32 0, %6
-  %35 = icmp slt i8 %5, 0
-  br i1 %35, label %.lr.ph, label %._crit_edge
+  %33 = sub nsw i32 0, %6
+  %34 = add i32 %1, 1
+  br label %35
 
-.lr.ph:                                           ; preds = %33
-  %36 = add i32 %1, 1
-  br label %37
+35:                                               ; preds = %.lr.ph, %35
+  %.04952 = phi i32 [ 0, %.lr.ph ], [ %46, %35 ]
+  %36 = add i32 %34, %.04952
+  %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %36)
+  %38 = shl i32 %.04952, 3
+  %39 = shl i32 255, %38
+  %40 = xor i32 %39, -1
+  %41 = zext i8 %37 to i32
+  %42 = shl i32 %41, %38
+  %43 = load i32, ptr %2, align 4
+  %44 = and i32 %43, %40
+  %45 = or i32 %44, %42
+  store i32 %45, ptr %2, align 4
+  %46 = add nuw nsw i32 %.04952, 1
+  %exitcond.not = icmp eq i32 %46, %33
+  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !8
 
-37:                                               ; preds = %.lr.ph, %37
-  %.04952 = phi i32 [ 0, %.lr.ph ], [ %48, %37 ]
-  %38 = add i32 %36, %.04952
-  %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %38)
-  %40 = shl i32 %.04952, 3
-  %41 = shl i32 255, %40
-  %42 = xor i32 %41, -1
-  %43 = zext i8 %39 to i32
-  %44 = shl i32 %43, %40
-  %45 = load i32, ptr %2, align 4
-  %46 = and i32 %45, %42
-  %47 = or i32 %46, %44
-  store i32 %47, ptr %2, align 4
-  %48 = add nuw nsw i32 %.04952, 1
-  %exitcond.not = icmp eq i32 %48, %34
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !8
-
-._crit_edge:                                      ; preds = %37, %33
-  %49 = sub nsw i32 1, %6
+._crit_edge:                                      ; preds = %35
+  %47 = sub nsw i32 1, %6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %11, %26, %30, %._crit_edge
-  %.sink = phi i32 [ %49, %._crit_edge ], [ 1, %30 ], [ %27, %26 ], [ 1, %11 ], [ 1, %8 ]
+  %.sink = phi i32 [ %47, %._crit_edge ], [ 1, %30 ], [ %27, %26 ], [ 1, %11 ], [ 1, %8 ]
   store i32 %.sink, ptr %3, align 4
-  br label %50
+  br label %48
 
-50:                                               ; preds = %.sink.split, %32
+48:                                               ; preds = %.sink.split, %32
   ret void
 }
 

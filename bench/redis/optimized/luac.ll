@@ -396,7 +396,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %52, ptr %53, align 8, !tbaa !43
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 88
   store i32 %3, ptr %54, align 8, !tbaa !44
-  %.pre5556.i = load ptr, ptr %50, align 8, !tbaa !41
+  %.pre5557.i = load ptr, ptr %50, align 8, !tbaa !41
   br label %._crit_edge.i
 
 55:                                               ; preds = %40
@@ -451,9 +451,9 @@ sub_1:                                            ; preds = %sub_0
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %55, %.thread.i
-  %.pre5557.i = phi ptr [ %.pre55.i, %55 ], [ %.pre55.i, %._crit_edge.loopexit.i ], [ %.pre5556.i, %.thread.i ]
+  %.pre5558.i = phi ptr [ %.pre55.i, %55 ], [ %.pre55.i, %._crit_edge.loopexit.i ], [ %.pre5557.i, %.thread.i ]
   %.046.lcssa.i = phi i64 [ 0, %55 ], [ %79, %._crit_edge.loopexit.i ], [ 0, %.thread.i ]
-  %80 = getelementptr inbounds nuw i32, ptr %.pre5557.i, i64 %.046.lcssa.i
+  %80 = getelementptr inbounds nuw i32, ptr %.pre5558.i, i64 %.046.lcssa.i
   store i32 8388638, ptr %80, align 4, !tbaa !10
   br label %combine.exit
 

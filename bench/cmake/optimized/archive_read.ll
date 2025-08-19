@@ -2289,12 +2289,12 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !120
   %23 = icmp slt i64 %22, 0
-  br i1 %23, label %._crit_edge, label %.lr.ph307.preheader
+  br i1 %23, label %._crit_edge, label %.lr.ph338.preheader
 
-.lr.ph307.preheader:                              ; preds = %.lr.ph
+.lr.ph338.preheader:                              ; preds = %.lr.ph
   %24 = load i32, ptr %20, align 8, !tbaa !121
   %25 = zext i32 %24 to i64
-  br label %.lr.ph307
+  br label %.lr.ph338
 
 26:                                               ; preds = %13
   %27 = load i64, ptr %0, align 8, !tbaa !76
@@ -2314,19 +2314,19 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !120
   %37 = icmp slt i64 %36, 0
-  br i1 %37, label %._crit_edge225, label %.lr.ph321
+  br i1 %37, label %._crit_edge225, label %.lr.ph352
 
-.lr.ph321:                                        ; preds = %.lr.ph224, %46
+.lr.ph352:                                        ; preds = %.lr.ph224, %46
   %38 = phi i64 [ %49, %46 ], [ %36, %.lr.ph224 ]
   %39 = phi i64 [ %40, %46 ], [ %32, %.lr.ph224 ]
-  %indvars.iv255320 = phi i64 [ %indvars.iv.next256, %46 ], [ 0, %.lr.ph224 ]
+  %indvars.iv255351 = phi i64 [ %indvars.iv.next256, %46 ], [ 0, %.lr.ph224 ]
   %40 = add nuw nsw i64 %38, %39
   %41 = add nsw i64 %40, -1
   %42 = icmp sgt i64 %41, %.0128
   br i1 %42, label %._crit_edge225.loopexit.loopexit, label %43
 
-43:                                               ; preds = %.lr.ph321
-  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255320, 1
+43:                                               ; preds = %.lr.ph352
+  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255351, 1
   %44 = load i32, ptr %34, align 8, !tbaa !121
   %45 = zext i32 %44 to i64
   %.not158 = icmp samesign ult i64 %indvars.iv.next256, %45
@@ -2338,10 +2338,10 @@ define dso_local i64 @__archive_read_filter_seek(ptr noundef captures(none) %0, 
   %48 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %31, i64 %indvars.iv.next256, i32 1
   %49 = load i64, ptr %48, align 8, !tbaa !120
   %50 = icmp slt i64 %49, 0
-  br i1 %50, label %._crit_edge225.loopexit.loopexit, label %.lr.ph321
+  br i1 %50, label %._crit_edge225.loopexit.loopexit, label %.lr.ph352
 
-._crit_edge225.loopexit.loopexit:                 ; preds = %46, %.lr.ph321, %43
-  %indvars.iv255.lcssa.ph = phi i64 [ %indvars.iv255320, %43 ], [ %indvars.iv255320, %.lr.ph321 ], [ %indvars.iv.next256, %46 ]
+._crit_edge225.loopexit.loopexit:                 ; preds = %46, %.lr.ph352, %43
+  %indvars.iv255.lcssa.ph = phi i64 [ %indvars.iv255351, %43 ], [ %indvars.iv255351, %.lr.ph352 ], [ %indvars.iv.next256, %46 ]
   %51 = trunc nuw i64 %indvars.iv255.lcssa.ph to i32
   br label %._crit_edge225
 
@@ -2472,25 +2472,25 @@ client_seek_proxy.exit:                           ; preds = %client_switch_proxy
   %111 = icmp slt i64 %110, 0
   br i1 %111, label %.loopexit, label %199
 
-.lr.ph307:                                        ; preds = %.lr.ph307.preheader, %114
-  %112 = phi i64 [ %118, %114 ], [ %22, %.lr.ph307.preheader ]
-  %113 = phi i64 [ %115, %114 ], [ %18, %.lr.ph307.preheader ]
-  %indvars.iv306 = phi i64 [ %indvars.iv.next, %114 ], [ 0, %.lr.ph307.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv306, 1
+.lr.ph338:                                        ; preds = %.lr.ph338.preheader, %114
+  %112 = phi i64 [ %118, %114 ], [ %22, %.lr.ph338.preheader ]
+  %113 = phi i64 [ %115, %114 ], [ %18, %.lr.ph338.preheader ]
+  %indvars.iv337 = phi i64 [ %indvars.iv.next, %114 ], [ 0, %.lr.ph338.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv337, 1
   %.not153 = icmp samesign ult i64 %indvars.iv.next, %25
   br i1 %.not153, label %114, label %._crit_edge.loopexit.loopexit
 
-114:                                              ; preds = %.lr.ph307
+114:                                              ; preds = %.lr.ph338
   %115 = add nuw nsw i64 %112, %113
   %116 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %17, i64 %indvars.iv.next
   store i64 %115, ptr %116, align 8, !tbaa !52
   %117 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %17, i64 %indvars.iv.next, i32 1
   %118 = load i64, ptr %117, align 8, !tbaa !120
   %119 = icmp slt i64 %118, 0
-  br i1 %119, label %._crit_edge.loopexit.loopexit, label %.lr.ph307
+  br i1 %119, label %._crit_edge.loopexit.loopexit, label %.lr.ph338
 
-._crit_edge.loopexit.loopexit:                    ; preds = %114, %.lr.ph307
-  %indvars.iv.lcssa.ph = phi i64 [ %indvars.iv306, %.lr.ph307 ], [ %indvars.iv.next, %114 ]
+._crit_edge.loopexit.loopexit:                    ; preds = %114, %.lr.ph338
+  %indvars.iv.lcssa.ph = phi i64 [ %indvars.iv337, %.lr.ph338 ], [ %indvars.iv.next, %114 ]
   %120 = trunc nuw i64 %indvars.iv.lcssa.ph to i32
   br label %._crit_edge
 
@@ -2609,7 +2609,7 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
   %172 = load i64, ptr %171, align 8, !tbaa !120
   %173 = add nsw i64 %172, %1
   %174 = icmp eq i32 %.4, 0
-  br i1 %174, label %._crit_edge212, label %.lr.ph311
+  br i1 %174, label %._crit_edge212, label %.lr.ph342
 
 175:                                              ; preds = %161
   %176 = zext i32 %168 to i64
@@ -2618,17 +2618,17 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
   %.pre = load ptr, ptr %14, align 8, !tbaa !41
   br label %123
 
-.lr.ph211:                                        ; preds = %.lr.ph311
+.lr.ph211:                                        ; preds = %.lr.ph342
   %178 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %162, i64 %184, i32 1
   %179 = load i64, ptr %178, align 8, !tbaa !120
   %180 = add nsw i64 %179, %182
   %181 = icmp eq i32 %183, 0
-  br i1 %181, label %._crit_edge212, label %.lr.ph311
+  br i1 %181, label %._crit_edge212, label %.lr.ph342
 
-.lr.ph311:                                        ; preds = %.lr.ph211.preheader, %.lr.ph211
+.lr.ph342:                                        ; preds = %.lr.ph211.preheader, %.lr.ph211
   %182 = phi i64 [ %180, %.lr.ph211 ], [ %173, %.lr.ph211.preheader ]
-  %.5210310 = phi i32 [ %183, %.lr.ph211 ], [ %.4, %.lr.ph211.preheader ]
-  %183 = add i32 %.5210310, -1
+  %.5210341 = phi i32 [ %183, %.lr.ph211 ], [ %.4, %.lr.ph211.preheader ]
+  %183 = add i32 %.5210341, -1
   %184 = zext i32 %183 to i64
   %185 = getelementptr inbounds nuw %struct.archive_read_data_node, ptr %162, i64 %184
   %186 = load i64, ptr %185, align 8, !tbaa !52
@@ -2639,11 +2639,11 @@ client_seek_proxy.exit171:                        ; preds = %client_switch_proxy
   %.not156 = icmp slt i64 %190, %186
   br i1 %.not156, label %.lr.ph211, label %._crit_edge212
 
-._crit_edge212:                                   ; preds = %.lr.ph211, %.lr.ph311, %.lr.ph211.preheader, %.preheader
-  %.1126.lcssa = phi i64 [ %167, %.preheader ], [ %167, %.lr.ph211.preheader ], [ %189, %.lr.ph311 ], [ %189, %.lr.ph211 ]
-  %.5.lcssa = phi i32 [ %.4, %.preheader ], [ 0, %.lr.ph211.preheader ], [ %183, %.lr.ph311 ], [ 0, %.lr.ph211 ]
-  %.lcssa190 = phi i64 [ %166, %.preheader ], [ %166, %.lr.ph211.preheader ], [ %186, %.lr.ph311 ], [ %186, %.lr.ph211 ]
-  %.2130 = phi i64 [ %1, %.preheader ], [ %173, %.lr.ph211.preheader ], [ %182, %.lr.ph311 ], [ %180, %.lr.ph211 ]
+._crit_edge212:                                   ; preds = %.lr.ph211, %.lr.ph342, %.lr.ph211.preheader, %.preheader
+  %.1126.lcssa = phi i64 [ %167, %.preheader ], [ %167, %.lr.ph211.preheader ], [ %189, %.lr.ph342 ], [ %189, %.lr.ph211 ]
+  %.5.lcssa = phi i32 [ %.4, %.preheader ], [ 0, %.lr.ph211.preheader ], [ %183, %.lr.ph342 ], [ 0, %.lr.ph211 ]
+  %.lcssa190 = phi i64 [ %166, %.preheader ], [ %166, %.lr.ph211.preheader ], [ %186, %.lr.ph342 ], [ %186, %.lr.ph211 ]
+  %.2130 = phi i64 [ %1, %.preheader ], [ %173, %.lr.ph211.preheader ], [ %182, %.lr.ph342 ], [ %180, %.lr.ph211 ]
   %191 = tail call fastcc i32 @client_switch_proxy(ptr noundef %0, i32 noundef %.5.lcssa)
   %.not157 = icmp eq i32 %191, 0
   br i1 %.not157, label %194, label %192

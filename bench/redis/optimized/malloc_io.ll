@@ -285,36 +285,36 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
 .preheader558.outer:                              ; preds = %.preheader558, %18
   %.pn599.ph = phi ptr [ %.promoted, %18 ], [ %storemerge, %.preheader558 ]
   %.0395.ph = phi i1 [ false, %18 ], [ true, %.preheader558 ]
-  %.0392.ph = phi i1 [ false, %18 ], [ %.0392.ph843, %.preheader558 ]
-  %.0388.ph = phi i8 [ 0, %18 ], [ %.0388.ph848, %.preheader558 ]
+  %.0392.ph = phi i1 [ false, %18 ], [ %.0392.ph901, %.preheader558 ]
+  %.0388.ph = phi i8 [ 0, %18 ], [ %.0388.ph906, %.preheader558 ]
   %.0386.ph = phi i8 [ 0, %18 ], [ %.0386, %.preheader558 ]
-  br label %.preheader558.outer841
+  br label %.preheader558.outer899
 
-.preheader558.outer841:                           ; preds = %.preheader558, %.preheader558.outer
-  %.pn599.ph842 = phi ptr [ %.pn599.ph, %.preheader558.outer ], [ %storemerge, %.preheader558 ]
-  %.0392.ph843 = phi i1 [ %.0392.ph, %.preheader558.outer ], [ true, %.preheader558 ]
-  %.0388.ph844 = phi i8 [ %.0388.ph, %.preheader558.outer ], [ %.0388.ph848, %.preheader558 ]
-  %.0386.ph845 = phi i8 [ %.0386.ph, %.preheader558.outer ], [ %.0386, %.preheader558 ]
-  br label %.preheader558.outer846
+.preheader558.outer899:                           ; preds = %.preheader558, %.preheader558.outer
+  %.pn599.ph900 = phi ptr [ %.pn599.ph, %.preheader558.outer ], [ %storemerge, %.preheader558 ]
+  %.0392.ph901 = phi i1 [ %.0392.ph, %.preheader558.outer ], [ true, %.preheader558 ]
+  %.0388.ph902 = phi i8 [ %.0388.ph, %.preheader558.outer ], [ %.0388.ph906, %.preheader558 ]
+  %.0386.ph903 = phi i8 [ %.0386.ph, %.preheader558.outer ], [ %.0386, %.preheader558 ]
+  br label %.preheader558.outer904
 
-.preheader558.outer846:                           ; preds = %.preheader558, %.preheader558.outer841
-  %.pn599.ph847 = phi ptr [ %.pn599.ph842, %.preheader558.outer841 ], [ %storemerge, %.preheader558 ]
-  %.0388.ph848 = phi i8 [ %.0388.ph844, %.preheader558.outer841 ], [ 1, %.preheader558 ]
-  %.0386.ph849 = phi i8 [ %.0386.ph845, %.preheader558.outer841 ], [ %.0386, %.preheader558 ]
+.preheader558.outer904:                           ; preds = %.preheader558, %.preheader558.outer899
+  %.pn599.ph905 = phi ptr [ %.pn599.ph900, %.preheader558.outer899 ], [ %storemerge, %.preheader558 ]
+  %.0388.ph906 = phi i8 [ %.0388.ph902, %.preheader558.outer899 ], [ 1, %.preheader558 ]
+  %.0386.ph907 = phi i8 [ %.0386.ph903, %.preheader558.outer899 ], [ %.0386, %.preheader558 ]
   br label %.preheader558
 
-.preheader558:                                    ; preds = %.preheader558.outer846, %.preheader558
-  %.pn599 = phi ptr [ %storemerge, %.preheader558 ], [ %.pn599.ph847, %.preheader558.outer846 ]
-  %.0386 = phi i8 [ 1, %.preheader558 ], [ %.0386.ph849, %.preheader558.outer846 ]
+.preheader558:                                    ; preds = %.preheader558.outer904, %.preheader558
+  %.pn599 = phi ptr [ %storemerge, %.preheader558 ], [ %.pn599.ph905, %.preheader558.outer904 ]
+  %.0386 = phi i8 [ 1, %.preheader558 ], [ %.0386.ph907, %.preheader558.outer904 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn599, i64 1
   %20 = load i8, ptr %storemerge, align 1, !tbaa !8
   switch i8 %20, label %.loopexit559 [
     i8 35, label %.preheader558
-    i8 45, label %.preheader558.outer846
-    i8 32, label %.preheader558.outer841
+    i8 45, label %.preheader558.outer904
+    i8 32, label %.preheader558.outer899
     i8 43, label %.preheader558.outer
     i8 42, label %21
-    i8 48, label %.loopexit560.loopexit840
+    i8 48, label %.loopexit560.loopexit898
     i8 49, label %.loopexit560
     i8 50, label %.loopexit560
     i8 51, label %.loopexit560
@@ -352,14 +352,14 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   store ptr %35, ptr %5, align 8, !tbaa !11
   %36 = icmp slt i32 %34, 0
   %spec.select = call i32 @llvm.abs.i32(i32 %34, i1 true)
-  %spec.select482 = select i1 %36, i8 1, i8 %.0388.ph848
+  %spec.select482 = select i1 %36, i8 1, i8 %.0388.ph906
   br label %40
 
-.loopexit560.loopexit840:                         ; preds = %.preheader558
+.loopexit560.loopexit898:                         ; preds = %.preheader558
   br label %.loopexit560
 
-.loopexit560:                                     ; preds = %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.loopexit560.loopexit840
-  %.0406 = phi i8 [ %20, %.loopexit560.loopexit840 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ]
+.loopexit560:                                     ; preds = %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.preheader558, %.loopexit560.loopexit898
+  %.0406 = phi i8 [ %20, %.loopexit560.loopexit898 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ], [ 32, %.preheader558 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !11
   %37 = tail call ptr @__errno_location() #15
   store i32 0, ptr %37, align 4, !tbaa !9
@@ -376,7 +376,7 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   %41 = phi ptr [ %.pre, %.loopexit560 ], [ %35, %32 ], [ %storemerge, %.loopexit559 ]
   %.1407 = phi i8 [ %.0406, %.loopexit560 ], [ 32, %32 ], [ 32, %.loopexit559 ]
   %.0400 = phi i32 [ %39, %.loopexit560 ], [ %spec.select, %32 ], [ -1, %.loopexit559 ]
-  %.2390 = phi i8 [ %.0388.ph848, %.loopexit560 ], [ %spec.select482, %32 ], [ %.0388.ph848, %.loopexit559 ]
+  %.2390 = phi i8 [ %.0388.ph906, %.loopexit560 ], [ %spec.select482, %32 ], [ %.0388.ph906, %.loopexit559 ]
   %42 = load i8, ptr %41, align 1, !tbaa !8
   %43 = icmp eq i8 %42, 46
   br i1 %43, label %44, label %66
@@ -443,12 +443,12 @@ thread-pre-split:                                 ; preds = %62, %58
   %67 = phi i8 [ %.pr, %thread-pre-split ], [ %46, %44 ], [ %42, %40 ]
   %68 = phi ptr [ %.ph, %thread-pre-split ], [ %45, %44 ], [ %41, %40 ]
   %.0398 = phi i32 [ %.0398.ph, %thread-pre-split ], [ -1, %44 ], [ -1, %40 ]
-  switch i8 %67, label %thread-pre-split720 [
+  switch i8 %67, label %thread-pre-split778 [
     i8 108, label %69
-    i8 113, label %thread-pre-split720.sink.split
-    i8 106, label %thread-pre-split720.sink.split
-    i8 116, label %thread-pre-split720.sink.split
-    i8 122, label %thread-pre-split720.sink.split
+    i8 113, label %thread-pre-split778.sink.split
+    i8 106, label %thread-pre-split778.sink.split
+    i8 116, label %thread-pre-split778.sink.split
+    i8 122, label %thread-pre-split778.sink.split
   ]
 
 69:                                               ; preds = %66
@@ -456,25 +456,25 @@ thread-pre-split:                                 ; preds = %62, %58
   store ptr %70, ptr %5, align 8, !tbaa !11
   %71 = load i8, ptr %70, align 1, !tbaa !8
   %72 = icmp eq i8 %71, 108
-  br i1 %72, label %thread-pre-split720.sink.split, label %74
+  br i1 %72, label %thread-pre-split778.sink.split, label %74
 
-thread-pre-split720.sink.split:                   ; preds = %66, %66, %66, %66, %69
-  %.sink771 = phi i64 [ 2, %69 ], [ 1, %66 ], [ 1, %66 ], [ 1, %66 ], [ 1, %66 ]
+thread-pre-split778.sink.split:                   ; preds = %66, %66, %66, %66, %69
+  %.sink829 = phi i64 [ 2, %69 ], [ 1, %66 ], [ 1, %66 ], [ 1, %66 ], [ 1, %66 ]
   %.0401.ph.ph = phi i8 [ 113, %69 ], [ %67, %66 ], [ %67, %66 ], [ %67, %66 ], [ %67, %66 ]
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 %.sink771
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 %.sink829
   store ptr %73, ptr %5, align 8, !tbaa !11
-  br label %thread-pre-split720
+  br label %thread-pre-split778
 
-thread-pre-split720:                              ; preds = %thread-pre-split720.sink.split, %66
-  %.ph721 = phi ptr [ %68, %66 ], [ %73, %thread-pre-split720.sink.split ]
-  %.0401.ph = phi i8 [ 63, %66 ], [ %.0401.ph.ph, %thread-pre-split720.sink.split ]
-  %.pr722 = load i8, ptr %.ph721, align 1, !tbaa !8
+thread-pre-split778:                              ; preds = %thread-pre-split778.sink.split, %66
+  %.ph779 = phi ptr [ %68, %66 ], [ %73, %thread-pre-split778.sink.split ]
+  %.0401.ph = phi i8 [ 63, %66 ], [ %.0401.ph.ph, %thread-pre-split778.sink.split ]
+  %.pr780 = load i8, ptr %.ph779, align 1, !tbaa !8
   br label %74
 
-74:                                               ; preds = %thread-pre-split720, %69
-  %75 = phi i8 [ %.pr722, %thread-pre-split720 ], [ %71, %69 ]
-  %76 = phi ptr [ %.ph721, %thread-pre-split720 ], [ %70, %69 ]
-  %.0401 = phi i8 [ %.0401.ph, %thread-pre-split720 ], [ 108, %69 ]
+74:                                               ; preds = %thread-pre-split778, %69
+  %75 = phi i8 [ %.pr780, %thread-pre-split778 ], [ %71, %69 ]
+  %76 = phi ptr [ %.ph779, %thread-pre-split778 ], [ %70, %69 ]
+  %.0401 = phi i8 [ %.0401.ph, %thread-pre-split778 ], [ 108, %69 ]
   switch i8 %75, label %696 [
     i8 37, label %77
     i8 100, label %84
@@ -702,7 +702,7 @@ thread-pre-split720:                              ; preds = %thread-pre-split720
 
 u2s.exit.i:                                       ; preds = %.preheader.i.i
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 %178
-  %182 = select i1 %.0392.ph843, i8 32, i8 45
+  %182 = select i1 %.0392.ph901, i8 32, i8 45
   %183 = select i1 %.0395.ph, i8 43, i8 %182
   %184 = icmp slt i64 %.0409, 0
   %185 = sub i32 65, %.030.i.i
@@ -984,14 +984,14 @@ o2s.exit:                                         ; preds = %u2s.exit.i483, %297
   %.7641 = phi i64 [ %.8, %309 ], [ %.0384, %302 ]
   %.0413640 = phi i64 [ %310, %309 ], [ 0, %302 ]
   %307 = icmp ult i64 %.7641, %1
-  br i1 %307, label %.sink.split773, label %309
+  br i1 %307, label %.sink.split831, label %309
 
-.sink.split773:                                   ; preds = %.lr.ph642
+.sink.split831:                                   ; preds = %.lr.ph642
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 %.7641
   store i8 %.1407, ptr %308, align 1, !tbaa !8
   br label %309
 
-309:                                              ; preds = %.lr.ph642, %.sink.split773
+309:                                              ; preds = %.lr.ph642, %.sink.split831
   %.8 = add i64 %.7641, 1
   %310 = add nuw i64 %.0413640, 1
   %311 = icmp ult i64 %310, %304
@@ -1213,14 +1213,14 @@ u2s.exit:                                         ; preds = %.preheader.i
   %.12632 = phi i64 [ %.13, %415 ], [ %.0384, %408 ]
   %.0408631 = phi i64 [ %416, %415 ], [ 0, %408 ]
   %413 = icmp ult i64 %.12632, %1
-  br i1 %413, label %.sink.split776, label %415
+  br i1 %413, label %.sink.split834, label %415
 
-.sink.split776:                                   ; preds = %.lr.ph633
+.sink.split834:                                   ; preds = %.lr.ph633
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 %.12632
   store i8 %.1407, ptr %414, align 1, !tbaa !8
   br label %415
 
-415:                                              ; preds = %.lr.ph633, %.sink.split776
+415:                                              ; preds = %.lr.ph633, %.sink.split834
   %.13 = add i64 %.12632, 1
   %416 = add nuw i64 %.0408631, 1
   %417 = icmp ult i64 %416, %410
@@ -1458,14 +1458,14 @@ x2s.exit:                                         ; preds = %u2s.exit.i485, %516
   %.17623 = phi i64 [ %.18, %529 ], [ %.0384, %522 ]
   %.0403622 = phi i64 [ %530, %529 ], [ 0, %522 ]
   %527 = icmp ult i64 %.17623, %1
-  br i1 %527, label %.sink.split779, label %529
+  br i1 %527, label %.sink.split837, label %529
 
-.sink.split779:                                   ; preds = %.lr.ph624
+.sink.split837:                                   ; preds = %.lr.ph624
   %528 = getelementptr inbounds nuw i8, ptr %0, i64 %.17623
   store i8 %.1407, ptr %528, align 1, !tbaa !8
   br label %529
 
-529:                                              ; preds = %.lr.ph624, %.sink.split779
+529:                                              ; preds = %.lr.ph624, %.sink.split837
   %.18 = add i64 %.17623, 1
   %530 = add nuw i64 %.0403622, 1
   %531 = icmp ult i64 %530, %524
@@ -1556,14 +1556,14 @@ x2s.exit:                                         ; preds = %u2s.exit.i485, %516
   %.22619 = phi i64 [ %.23, %575 ], [ %.0384, %561 ]
   %.0399618 = phi i64 [ %576, %575 ], [ 0, %561 ]
   %573 = icmp ult i64 %.22619, %1
-  br i1 %573, label %.sink.split782, label %575
+  br i1 %573, label %.sink.split840, label %575
 
-.sink.split782:                                   ; preds = %.preheader548
+.sink.split840:                                   ; preds = %.preheader548
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 %.22619
   store i8 %.1407, ptr %574, align 1, !tbaa !8
   br label %575
 
-575:                                              ; preds = %.preheader548, %.sink.split782
+575:                                              ; preds = %.preheader548, %.sink.split840
   %.23 = add i64 %.22619, 1
   %576 = add nuw i64 %.0399618, 1
   %exitcond713.not = icmp eq i64 %576, %570
@@ -1662,14 +1662,14 @@ x2s.exit:                                         ; preds = %u2s.exit.i485, %516
   %.27611 = phi i64 [ %.28, %619 ], [ %.0384, %612 ]
   %.0394610 = phi i64 [ %620, %619 ], [ 0, %612 ]
   %617 = icmp ult i64 %.27611, %1
-  br i1 %617, label %.sink.split785, label %619
+  br i1 %617, label %.sink.split843, label %619
 
-.sink.split785:                                   ; preds = %.lr.ph612
+.sink.split843:                                   ; preds = %.lr.ph612
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 %.27611
   store i8 %.1407, ptr %618, align 1, !tbaa !8
   br label %619
 
-619:                                              ; preds = %.lr.ph612, %.sink.split785
+619:                                              ; preds = %.lr.ph612, %.sink.split843
   %.28 = add i64 %.27611, 1
   %620 = add nuw i64 %.0394610, 1
   %621 = icmp ult i64 %620, %614
@@ -1787,14 +1787,14 @@ x2s.exit493:                                      ; preds = %654
   %.32605 = phi i64 [ %.33, %675 ], [ %.0384, %668 ]
   %.0385604 = phi i64 [ %676, %675 ], [ 0, %668 ]
   %673 = icmp ult i64 %.32605, %1
-  br i1 %673, label %.sink.split788, label %675
+  br i1 %673, label %.sink.split846, label %675
 
-.sink.split788:                                   ; preds = %.lr.ph
+.sink.split846:                                   ; preds = %.lr.ph
   %674 = getelementptr inbounds nuw i8, ptr %0, i64 %.32605
   store i8 %.1407, ptr %674, align 1, !tbaa !8
   br label %675
 
-675:                                              ; preds = %.lr.ph, %.sink.split788
+675:                                              ; preds = %.lr.ph, %.sink.split846
   %.33 = add i64 %.32605, 1
   %676 = add nuw i64 %.0385604, 1
   %677 = icmp ult i64 %676, %670

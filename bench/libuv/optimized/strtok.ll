@@ -14,8 +14,8 @@ define hidden noundef ptr @uv__strtok(ptr noundef %0, ptr noundef readonly captu
   br i1 %7, label %21, label %.preheader24
 
 .preheader24:                                     ; preds = %3, %5
-  %.034 = phi ptr [ %6, %5 ], [ %0, %3 ]
-  %8 = load i8, ptr %.034, align 1
+  %.039 = phi ptr [ %6, %5 ], [ %0, %3 ]
+  %8 = load i8, ptr %.039, align 1
   %.not28 = icmp eq i8 %8, 0
   br i1 %.not28, label %._crit_edge30, label %.preheader.lr.ph
 
@@ -26,7 +26,7 @@ define hidden noundef ptr @uv__strtok(ptr noundef %0, ptr noundef readonly captu
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %10 = phi i8 [ %20, %._crit_edge ], [ %8, %.preheader.lr.ph ]
-  %.129 = phi ptr [ %19, %._crit_edge ], [ %.034, %.preheader.lr.ph ]
+  %.129 = phi ptr [ %19, %._crit_edge ], [ %.039, %.preheader.lr.ph ]
   br label %14
 
 11:                                               ; preds = %14
@@ -58,8 +58,8 @@ define hidden noundef ptr @uv__strtok(ptr noundef %0, ptr noundef readonly captu
   br label %21
 
 21:                                               ; preds = %5, %._crit_edge30, %17
-  %.035 = phi ptr [ null, %5 ], [ %.034, %._crit_edge30 ], [ %.034, %17 ]
-  ret ptr %.035
+  %.040 = phi ptr [ null, %5 ], [ %.039, %._crit_edge30 ], [ %.039, %17 ]
+  ret ptr %.040
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

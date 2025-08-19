@@ -946,9 +946,9 @@ define hidden void @radius_abinary(ptr noundef readonly captures(none) %0, ptr n
 
 88:                                               ; preds = %85, %49
   %..i = select i1 %32, i32 16, i32 4
-  %.146.i = select i1 %32, i32 3, i32 2
+  %.147.i = select i1 %32, i32 3, i32 2
   %89 = tail call ptr @tvb_get_ptr(ptr noundef %14, i32 noundef 4, i32 noundef %..i)
-  store i32 %.146.i, ptr %8, align 8
+  store i32 %.147.i, ptr %8, align 8
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %..i, ptr %90, align 4
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1791,13 +1791,13 @@ proto_item_set_generated.exit488:                 ; preds = %304, %301, %297, %2
   %310 = call ptr @proto_tree_add_item(ptr noundef %290, i32 noundef %309, ptr noundef %2, i32 noundef %70, i32 noundef 1, i32 noundef 0)
   %311 = add nsw i8 %30, 11
   %or.cond19 = icmp ult i8 %311, 2
-  br i1 %or.cond19, label %.thread504, label %.thread561
+  br i1 %or.cond19, label %.thread504, label %.thread584
 
 .thread504:                                       ; preds = %308
   %312 = load i32, ptr @hf_radius_avp_extended_more, align 4
   %313 = add i32 %.0540, 3
   %314 = call ptr @proto_tree_add_item(ptr noundef %290, i32 noundef %312, ptr noundef %2, i32 noundef %313, i32 noundef 1, i32 noundef 0)
-  br label %.thread561
+  br label %.thread584
 
 315:                                              ; preds = %proto_item_set_generated.exit488
   %316 = icmp eq i8 %30, 79
@@ -1889,14 +1889,14 @@ proto_item_set_generated.exit488:                 ; preds = %304, %301, %297, %2
   %363 = load i8, ptr @validate_authenticator, align 1, !range !6
   %364 = trunc nuw i8 %363 to i1
   %or.cond23 = select i1 %362, i1 %364, i1 false
-  br i1 %or.cond23, label %365, label %.thread561
+  br i1 %or.cond23, label %365, label %.thread584
 
 365:                                              ; preds = %361
   %366 = load ptr, ptr @shared_secret, align 8
   %367 = load i8, ptr %366, align 1
   %368 = icmp ne i8 %367, 0
   %or.cond25 = and i1 %21, %368
-  br i1 %or.cond25, label %369, label %.thread561
+  br i1 %or.cond25, label %369, label %.thread584
 
 369:                                              ; preds = %365
   %370 = call fastcc i32 @valid_authenticator(ptr noundef %1, ptr noundef %2, ptr noundef %22, i1 noundef zeroext true, i32 noundef %.2)
@@ -1956,14 +1956,14 @@ proto_item_set_generated.exit491:                 ; preds = %375, %383, %386
   br label %proto_item_set_generated.exit494
 
 proto_item_set_generated.exit494:                 ; preds = %proto_item_set_generated.exit491, %394, %397
-  br i1 %391, label %401, label %.thread561
+  br i1 %391, label %401, label %.thread584
 
 401:                                              ; preds = %proto_item_set_generated.exit494
   %402 = load ptr, ptr %23, align 8
   call void @col_append_str(ptr noundef %402, i32 noundef 25, ptr noundef nonnull @.str.54)
-  br label %.thread561
+  br label %.thread584
 
-.thread561:                                       ; preds = %308, %.thread504, %proto_item_set_generated.exit494, %401, %365, %361
+.thread584:                                       ; preds = %308, %.thread504, %proto_item_set_generated.exit494, %401, %365, %361
   %403 = load ptr, ptr %13, align 8
   call fastcc void @add_avp_to_tree(ptr noundef %290, ptr noundef %403, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %spec.store.select, i32 noundef %.0449, i32 noundef %.2, ptr noundef %5)
   %404 = add i32 %.2, %.0449
@@ -1976,13 +1976,13 @@ proto_item_set_generated.exit494:                 ; preds = %proto_item_set_gene
 ..loopexit_crit_edge:                             ; preds = %283
   br label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %322, %360, %348, %116, %..loopexit_crit_edge, %.thread498, %84, %.thread561
-  %.1435 = phi ptr [ %.0434534, %.thread561 ], [ %.0434534, %84 ], [ %.0434534, %.thread498 ], [ %.0434534, %..loopexit_crit_edge ], [ %.0434534, %116 ], [ %353, %348 ], [ null, %360 ], [ %.0434534, %322 ]
-  %.1431 = phi i32 [ %.0430535, %.thread561 ], [ %.0430535, %84 ], [ %.0430535, %.thread498 ], [ %.0430535, %..loopexit_crit_edge ], [ %.0430535, %116 ], [ %338, %348 ], [ %338, %360 ], [ %.0430535, %322 ]
-  %.1427 = phi i32 [ %.0426536, %.thread561 ], [ %.0426536, %84 ], [ %.0426536, %.thread498 ], [ %.0426536, %..loopexit_crit_edge ], [ %.0426536, %116 ], [ %327, %348 ], [ %327, %360 ], [ %.0426536, %322 ]
-  %.1425 = phi i32 [ %.0424537, %.thread561 ], [ %.0424537, %84 ], [ %.0424537, %.thread498 ], [ %.0424537, %..loopexit_crit_edge ], [ %.0424537, %116 ], [ %318, %348 ], [ %318, %360 ], [ %318, %322 ]
-  %.1420 = phi i1 [ %.0419538, %.thread561 ], [ %.0419538, %84 ], [ %.0419538, %.thread498 ], [ %.0419538, %..loopexit_crit_edge ], [ %.0419538, %116 ], [ true, %348 ], [ %.4423, %360 ], [ %.0419538, %322 ]
-  %.1 = phi i32 [ %404, %.thread561 ], [ %82, %84 ], [ %.9, %.thread498 ], [ %284, %..loopexit_crit_edge ], [ %90, %116 ], [ %339, %348 ], [ %339, %360 ], [ %.pre, %322 ]
+.loopexit:                                        ; preds = %322, %360, %348, %116, %..loopexit_crit_edge, %.thread498, %84, %.thread584
+  %.1435 = phi ptr [ %.0434534, %.thread584 ], [ %.0434534, %84 ], [ %.0434534, %.thread498 ], [ %.0434534, %..loopexit_crit_edge ], [ %.0434534, %116 ], [ %353, %348 ], [ null, %360 ], [ %.0434534, %322 ]
+  %.1431 = phi i32 [ %.0430535, %.thread584 ], [ %.0430535, %84 ], [ %.0430535, %.thread498 ], [ %.0430535, %..loopexit_crit_edge ], [ %.0430535, %116 ], [ %338, %348 ], [ %338, %360 ], [ %.0430535, %322 ]
+  %.1427 = phi i32 [ %.0426536, %.thread584 ], [ %.0426536, %84 ], [ %.0426536, %.thread498 ], [ %.0426536, %..loopexit_crit_edge ], [ %.0426536, %116 ], [ %327, %348 ], [ %327, %360 ], [ %.0426536, %322 ]
+  %.1425 = phi i32 [ %.0424537, %.thread584 ], [ %.0424537, %84 ], [ %.0424537, %.thread498 ], [ %.0424537, %..loopexit_crit_edge ], [ %.0424537, %116 ], [ %318, %348 ], [ %318, %360 ], [ %318, %322 ]
+  %.1420 = phi i1 [ %.0419538, %.thread584 ], [ %.0419538, %84 ], [ %.0419538, %.thread498 ], [ %.0419538, %..loopexit_crit_edge ], [ %.0419538, %116 ], [ true, %348 ], [ %.4423, %360 ], [ %.0419538, %322 ]
+  %.1 = phi i32 [ %404, %.thread584 ], [ %82, %84 ], [ %.9, %.thread498 ], [ %284, %..loopexit_crit_edge ], [ %90, %116 ], [ %339, %348 ], [ %339, %360 ], [ %.pre, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %.loopexit517, label %25
@@ -3919,8 +3919,8 @@ define internal range(i32 0, 2) i32 @radius_call_equal(ptr noundef readonly capt
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %23, %.thread92.thread
-  %cond191 = icmp eq i32 %16, 22
-  br i1 %cond191, label %61, label %.thread124
+  %cond193 = icmp eq i32 %16, 22
+  br i1 %cond193, label %61, label %.thread124
 
 37:                                               ; preds = %23, %.thread92.thread
   %38 = icmp eq i32 %16, 21
@@ -3939,8 +3939,8 @@ define internal range(i32 0, 2) i32 @radius_call_equal(ptr noundef readonly capt
   br i1 %42, label %43, label %.thread100.thread
 
 43:                                               ; preds = %26, %20, %.thread100
-  %cond190 = icmp eq i32 %15, 24
-  br i1 %cond190, label %61, label %.thread124
+  %cond192 = icmp eq i32 %15, 24
+  br i1 %cond192, label %61, label %.thread124
 
 .thread100.thread:                                ; preds = %26, %20, %33, %.thread100
   %44 = icmp eq i32 %15, 26
@@ -3987,34 +3987,34 @@ define internal range(i32 0, 2) i32 @radius_call_equal(ptr noundef readonly capt
   %56 = and i32 %16, -2
   %switch80 = icmp eq i32 %56, 44
   %or.cond133 = and i1 %55, %switch80
-  br i1 %or.cond133, label %61, label %.thread159
+  br i1 %or.cond133, label %61, label %.thread161
 
-.thread159:                                       ; preds = %.thread108.thread.thread.thread
+.thread161:                                       ; preds = %.thread108.thread.thread.thread
   %57 = icmp eq i32 %16, 43
   %58 = and i32 %15, -2
   %switch82 = icmp eq i32 %58, 44
   %or.cond134 = and i1 %57, %switch82
-  br i1 %or.cond134, label %61, label %.thread159.thread181
+  br i1 %or.cond134, label %61, label %.thread161.thread183
 
-.thread159.thread181:                             ; preds = %.thread159
+.thread161.thread183:                             ; preds = %.thread161
   %59 = icmp eq i32 %15, 129
   %.off83 = add i32 %16, -130
   %switch84 = icmp ult i32 %.off83, 3
   %or.cond135 = and i1 %59, %switch84
-  br i1 %or.cond135, label %61, label %.thread159.thread181.thread
+  br i1 %or.cond135, label %61, label %.thread161.thread183.thread
 
-.thread159.thread181.thread:                      ; preds = %.thread159.thread181
+.thread161.thread183.thread:                      ; preds = %.thread161.thread183
   %60 = icmp eq i32 %16, 129
   %.off85 = add i32 %15, -130
   %switch86 = icmp ult i32 %.off85, 3
   %or.cond136 = and i1 %60, %switch86
   br i1 %or.cond136, label %61, label %.thread124
 
-.thread124:                                       ; preds = %20, %36, %43, %45, %.thread159.thread181.thread, %8, %2
+.thread124:                                       ; preds = %20, %36, %43, %45, %.thread161.thread183.thread, %8, %2
   br label %61
 
-61:                                               ; preds = %26, %20, %20, %20, %23, %23, %23, %36, %43, %45, %.thread159.thread181.thread, %.thread159.thread181, %.thread159, %.thread108.thread.thread.thread, %.thread108.thread.thread, %.thread108.thread, %.thread108, %.thread104, %46, %.thread96, %37, %.thread88, %27, %33, %14, %.thread124
-  %.0 = phi i32 [ 0, %.thread124 ], [ 1, %14 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %23 ], [ 1, %23 ], [ 1, %23 ], [ 1, %26 ], [ 1, %33 ], [ 1, %36 ], [ 1, %43 ], [ 1, %45 ], [ 1, %27 ], [ 1, %.thread88 ], [ 1, %37 ], [ 1, %.thread96 ], [ 1, %46 ], [ 1, %.thread104 ], [ 1, %.thread108 ], [ 1, %.thread108.thread ], [ 1, %.thread108.thread.thread ], [ 1, %.thread108.thread.thread.thread ], [ 1, %.thread159 ], [ 1, %.thread159.thread181 ], [ 1, %.thread159.thread181.thread ]
+61:                                               ; preds = %26, %20, %20, %20, %23, %23, %23, %36, %43, %45, %.thread161.thread183.thread, %.thread161.thread183, %.thread161, %.thread108.thread.thread.thread, %.thread108.thread.thread, %.thread108.thread, %.thread108, %.thread104, %46, %.thread96, %37, %.thread88, %27, %33, %14, %.thread124
+  %.0 = phi i32 [ 0, %.thread124 ], [ 1, %14 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %23 ], [ 1, %23 ], [ 1, %23 ], [ 1, %26 ], [ 1, %33 ], [ 1, %36 ], [ 1, %43 ], [ 1, %45 ], [ 1, %27 ], [ 1, %.thread88 ], [ 1, %37 ], [ 1, %.thread96 ], [ 1, %46 ], [ 1, %.thread104 ], [ 1, %.thread108 ], [ 1, %.thread108.thread ], [ 1, %.thread108.thread.thread ], [ 1, %.thread108.thread.thread.thread ], [ 1, %.thread161 ], [ 1, %.thread161.thread183 ], [ 1, %.thread161.thread183.thread ]
   ret i32 %.0
 }
 

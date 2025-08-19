@@ -168,16 +168,16 @@ define void @_ZN7uv_dirs25user_executable_directory17h459760ebf96e2355E(ptr dead
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %40 = load i64, ptr %39, align 8, !range !3, !noalias !43, !noundef !4
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %.thread17, label %42
+  br i1 %41, label %.thread25, label %42
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %19, align 8, !noalias !43, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %45 = load i64, ptr %44, align 8, !noalias !43, !noundef !4
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.1768482962201767896"(ptr noalias noundef nonnull readonly align 1 %32, ptr noundef nonnull %43, i64 noundef %40, i64 noundef %45), !noalias !38
-  br label %.thread17
+  br label %.thread25
 
-.thread17:                                        ; preds = %38, %42
+.thread25:                                        ; preds = %38, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !43
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !38
   br label %50
@@ -201,7 +201,7 @@ common.resume:                                    ; preds = %.body.i8, %.body.i3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   br i1 %49, label %50, label %73
 
-50:                                               ; preds = %.thread17, %.thread, %48
+50:                                               ; preds = %.thread25, %.thread, %48
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !66
   invoke void @_ZN3std3env7_var_os17hdbaf84f7fd796c40E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 1 @anon.1d0c1a7954248565289a4e4b21260bfb.20, i64 noundef 12)

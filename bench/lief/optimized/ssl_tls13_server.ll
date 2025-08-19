@@ -1367,7 +1367,7 @@ define internal fastcc i32 @ssl_tls13_write_server_certificate(ptr noundef %0) u
   br i1 %11, label %13, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7, %1
-  %.03258.i = phi ptr [ %10, %7 ], [ %6, %1 ]
+  %.03267.i = phi ptr [ %10, %7 ], [ %6, %1 ]
   %12 = load i16, ptr %4, align 2, !tbaa !84
   %.not3652.i = icmp eq i16 %12, 0
   br i1 %.not3652.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1403,8 +1403,8 @@ mbedtls_ssl_get_sig_algs.exit.i.i:                ; preds = %20, %16, %.lr.ph.i
   br i1 %26, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %mbedtls_ssl_get_sig_algs.exit.i.i, %20
-  %.0.i14.i.i = phi ptr [ %25, %mbedtls_ssl_get_sig_algs.exit.i.i ], [ %22, %20 ]
-  %27 = load i16, ptr %.0.i14.i.i, align 2, !tbaa !84
+  %.0.i17.i.i = phi ptr [ %25, %mbedtls_ssl_get_sig_algs.exit.i.i ], [ %22, %20 ]
+  %27 = load i16, ptr %.0.i17.i.i, align 2, !tbaa !84
   %.not9.i.i = icmp eq i16 %27, 0
   br i1 %.not9.i.i, label %mbedtls_ssl_sig_alg_is_offered.exit.thread.i, label %.lr.ph.i.i
 
@@ -1416,7 +1416,7 @@ mbedtls_ssl_get_sig_algs.exit.i.i:                ; preds = %20, %16, %.lr.ph.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %28
   %31 = phi i16 [ %30, %28 ], [ %27, %.preheader.i.i ]
-  %.010.i.i = phi ptr [ %29, %28 ], [ %.0.i14.i.i, %.preheader.i.i ]
+  %.010.i.i = phi ptr [ %29, %28 ], [ %.0.i17.i.i, %.preheader.i.i ]
   %32 = icmp eq i16 %31, %14
   br i1 %32, label %mbedtls_ssl_sig_alg_is_offered.exit.i, label %28
 
@@ -1434,7 +1434,7 @@ mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i.preheader: ; preds
   br label %mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i
 
 mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i: ; preds = %mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i.preheader, %49
-  %.03350.i = phi ptr [ %51, %49 ], [ %.03258.i, %mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i.preheader ]
+  %.03350.i = phi ptr [ %51, %49 ], [ %.03267.i, %mbedtls_ssl_tls13_sig_alg_for_cert_verify_is_supported.exit.i.preheader ]
   %33 = load ptr, ptr %.03350.i, align 8, !tbaa !89
   tail call void @mbedtls_debug_print_crt(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1148, ptr noundef nonnull @.str.119, ptr noundef %33) #9
   %34 = load ptr, ptr %.03350.i, align 8, !tbaa !89
@@ -2253,8 +2253,8 @@ mbedtls_ssl_get_groups.exit.i:                    ; preds = %33, %27
   br i1 %39, label %mbedtls_ssl_named_group_is_offered.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %mbedtls_ssl_get_groups.exit.i, %33
-  %.0.i14.i = phi ptr [ %38, %mbedtls_ssl_get_groups.exit.i ], [ %35, %33 ]
-  %40 = load i16, ptr %.0.i14.i, align 2, !tbaa !84
+  %.0.i17.i = phi ptr [ %38, %mbedtls_ssl_get_groups.exit.i ], [ %35, %33 ]
+  %40 = load i16, ptr %.0.i17.i, align 2, !tbaa !84
   %.not9.i = icmp eq i16 %40, 0
   br i1 %.not9.i, label %mbedtls_ssl_named_group_is_offered.exit.thread, label %.lr.ph.i
 
@@ -2266,7 +2266,7 @@ mbedtls_ssl_get_groups.exit.i:                    ; preds = %33, %27
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %41
   %44 = phi i16 [ %43, %41 ], [ %40, %.preheader.i ]
-  %.010.i = phi ptr [ %42, %41 ], [ %.0.i14.i, %.preheader.i ]
+  %.010.i = phi ptr [ %42, %41 ], [ %.0.i17.i, %.preheader.i ]
   %45 = icmp eq i16 %44, %28
   br i1 %45, label %mbedtls_ssl_named_group_is_offered.exit, label %41
 
@@ -2421,8 +2421,8 @@ mbedtls_ssl_get_groups.exit.i:                    ; preds = %45, %42
   br i1 %51, label %mbedtls_ssl_named_group_is_offered.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %mbedtls_ssl_get_groups.exit.i, %45
-  %.0.i14.i = phi ptr [ %50, %mbedtls_ssl_get_groups.exit.i ], [ %47, %45 ]
-  %52 = load i16, ptr %.0.i14.i, align 2, !tbaa !84
+  %.0.i17.i = phi ptr [ %50, %mbedtls_ssl_get_groups.exit.i ], [ %47, %45 ]
+  %52 = load i16, ptr %.0.i17.i, align 2, !tbaa !84
   %.not9.i = icmp eq i16 %52, 0
   br i1 %.not9.i, label %mbedtls_ssl_named_group_is_offered.exit.thread, label %.lr.ph.i
 
@@ -2434,7 +2434,7 @@ mbedtls_ssl_get_groups.exit.i:                    ; preds = %45, %42
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %53
   %56 = phi i16 [ %55, %53 ], [ %52, %.preheader.i ]
-  %.010.i = phi ptr [ %54, %53 ], [ %.0.i14.i, %.preheader.i ]
+  %.010.i = phi ptr [ %54, %53 ], [ %.0.i17.i, %.preheader.i ]
   %57 = icmp eq i16 %56, %31
   br i1 %57, label %mbedtls_ssl_named_group_is_offered.exit, label %53
 
@@ -3258,27 +3258,27 @@ switch.lookup:                                    ; preds = %12
   br i1 %11, label %38, label %32
 
 32:                                               ; preds = %30
-  %switch.tableidx69 = add nsw i32 %4, -33554436
-  %33 = icmp ult i32 %switch.tableidx69, 15
-  %switch.maskindex71 = trunc i32 %switch.tableidx69 to i16
-  %switch.shifted72 = lshr i16 29683, %switch.maskindex71
-  %switch.lobit73 = trunc i16 %switch.shifted72 to i1
-  %or.cond76 = select i1 %33, i1 %switch.lobit73, i1 false
-  br i1 %or.cond76, label %switch.lookup70, label %34
+  %switch.tableidx73 = add nsw i32 %4, -33554436
+  %33 = icmp ult i32 %switch.tableidx73, 15
+  %switch.maskindex75 = trunc i32 %switch.tableidx73 to i16
+  %switch.shifted76 = lshr i16 29683, %switch.maskindex75
+  %switch.lobit77 = trunc i16 %switch.shifted76 to i1
+  %or.cond80 = select i1 %33, i1 %switch.lobit77, i1 false
+  br i1 %or.cond80, label %switch.lookup74, label %34
 
 34:                                               ; preds = %32
   %35 = icmp eq i32 %4, 33554451
   %36 = select i1 %35, i64 64, i64 0
   br label %38
 
-switch.lookup70:                                  ; preds = %32
-  %37 = zext nneg i32 %switch.tableidx69 to i64
-  %switch.gep74 = getelementptr inbounds nuw [15 x i64], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 0, i64 %37
-  %switch.load75 = load i64, ptr %switch.gep74, align 8
+switch.lookup74:                                  ; preds = %32
+  %37 = zext nneg i32 %switch.tableidx73 to i64
+  %switch.gep78 = getelementptr inbounds nuw [15 x i64], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 0, i64 %37
+  %switch.load79 = load i64, ptr %switch.gep78, align 8
   br label %38
 
-38:                                               ; preds = %switch.lookup70, %34, %30
-  %39 = phi i64 [ 16, %30 ], [ %36, %34 ], [ %switch.load75, %switch.lookup70 ]
+38:                                               ; preds = %switch.lookup74, %34, %30
+  %39 = phi i64 [ 16, %30 ], [ %36, %34 ], [ %switch.load79, %switch.lookup74 ]
   %40 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %39) #9
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %43, label %42

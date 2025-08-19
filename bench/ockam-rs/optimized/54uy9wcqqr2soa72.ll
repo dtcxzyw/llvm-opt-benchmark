@@ -1163,9 +1163,9 @@ default.unreachable:                              ; preds = %924, %523, %221, %2
 
 398:                                              ; preds = %397
   %399 = trunc nuw i8 %.sroa.3.0.copyload100.i.i.i to i1
-  br i1 %399, label %.thread264.i.i, label %400
+  br i1 %399, label %.thread279.i.i, label %400
 
-.thread264.i.i:                                   ; preds = %398
+.thread279.i.i:                                   ; preds = %398
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   store i8 0, ptr %109, align 8, !noalias !69
   %.sroa.0196.0.copyload.i.i = load ptr, ptr %108, align 8, !noalias !69
@@ -1583,8 +1583,8 @@ default.unreachable:                              ; preds = %924, %523, %221, %2
   %.pre260.i.i = load i8, ptr %.phi.trans.insert.i.i, align 8, !range !71, !noalias !196
   switch i8 %.pre260.i.i, label %default.unreachable [
     i8 0, label %._crit_edge.i
-    i8 1, label %.invoke267.i.i.loopexit
-    i8 2, label %.invoke267.i.i
+    i8 1, label %.invoke282.i.i.loopexit
+    i8 2, label %.invoke282.i.i
     i8 3, label %._crit_edge.i126.i.i
   ]
 
@@ -1601,16 +1601,16 @@ default.unreachable:                              ; preds = %924, %523, %221, %2
   store ptr %525, ptr %.phi.trans.insert.i127.i.i, align 8, !noalias !196
   br label %528
 
-.invoke267.i.i.loopexit:                          ; preds = %523
-  br label %.invoke267.i.i
+.invoke282.i.i.loopexit:                          ; preds = %523
+  br label %.invoke282.i.i
 
-.invoke267.i.i:                                   ; preds = %523, %.invoke267.i.i.loopexit
-  %526 = phi ptr [ @str.0, %.invoke267.i.i.loopexit ], [ @str.1, %523 ]
-  %527 = phi i64 [ 35, %.invoke267.i.i.loopexit ], [ 34, %523 ]
+.invoke282.i.i:                                   ; preds = %523, %.invoke282.i.i.loopexit
+  %526 = phi ptr [ @str.0, %.invoke282.i.i.loopexit ], [ @str.1, %523 ]
+  %527 = phi i64 [ 35, %.invoke282.i.i.loopexit ], [ 34, %523 ]
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %526, i64 noundef %527, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e6e253f7d043c3c4f85be9ccfab7d8f.63) #21
-          to label %.cont268.i.i unwind label %544, !noalias !134
+          to label %.cont283.i.i unwind label %544, !noalias !134
 
-.cont268.i.i:                                     ; preds = %.invoke267.i.i
+.cont283.i.i:                                     ; preds = %.invoke282.i.i
   unreachable
 
 528:                                              ; preds = %524, %._crit_edge.i126.i.i
@@ -1677,7 +1677,7 @@ default.unreachable:                              ; preds = %924, %523, %221, %2
   store i8 2, ptr %.phi.trans.insert.i.i, align 8, !noalias !196
   br label %.body137.i.i
 
-544:                                              ; preds = %.invoke267.i.i
+544:                                              ; preds = %.invoke282.i.i
   %545 = landingpad { ptr, i32 }
           cleanup
   br label %.body137.i.i
@@ -2116,10 +2116,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
           cleanup
   br label %.body.i
 
-"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.thread.i.i": ; preds = %547, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i", %670, %667, %.thread264.i.i
-  %.sroa.0191.1.i.sroa.phi.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.gep221.sroa_idx, %670 ], [ %.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.gep221.sroa_idx, %667 ], [ %.sroa.0.i, %.thread264.i.i ], [ %.sroa.0.i, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ %.sroa.0.i, %547 ]
-  %.sroa.0191.1.i.i = phi i64 [ 1, %670 ], [ 1, %667 ], [ 0, %.thread264.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ 0, %547 ]
-  %.sroa.4192.1.i.i = phi ptr [ %.sroa.4.i.sroa.4.0.copyload.i.i, %670 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i, %667 ], [ %.sroa.0196.0.copyload.i.i, %.thread264.i.i ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ null, %547 ]
+"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.thread.i.i": ; preds = %547, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i", %670, %667, %.thread279.i.i
+  %.sroa.0191.1.i.sroa.phi.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.gep221.sroa_idx, %670 ], [ %.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.gep221.sroa_idx, %667 ], [ %.sroa.0.i, %.thread279.i.i ], [ %.sroa.0.i, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ %.sroa.0.i, %547 ]
+  %.sroa.0191.1.i.i = phi i64 [ 1, %670 ], [ 1, %667 ], [ 0, %.thread279.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ 0, %547 ]
+  %.sroa.4192.1.i.i = phi ptr [ %.sroa.4.i.sroa.4.0.copyload.i.i, %670 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i, %667 ], [ %.sroa.0196.0.copyload.i.i, %.thread279.i.i ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ null, %547 ]
   store i8 0, ptr %109, align 8, !noalias !69
   store i64 %.sroa.0191.1.i.i, ptr %95, align 8, !alias.scope !66, !noalias !276
   store ptr %.sroa.4192.1.i.i, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !66, !noalias !276

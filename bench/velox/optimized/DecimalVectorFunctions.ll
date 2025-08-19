@@ -1774,17 +1774,17 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit
-  %call5.i.i.i5.i.i.i.i210.sink328 = phi ptr [ %call5.i.i.i5.i.i.i.i210, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i171, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i132, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i93, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i54, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i39, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit ]
+  %call5.i.i.i5.i.i.i.i210.sink331 = phi ptr [ %call5.i.i.i5.i.i.i.i210, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i171, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i132, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i93, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i54, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i39, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8AdditionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8AdditionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8AdditionEEEED2Ev.exit ]
-  %_M_impl.i.i.i.i.i.i207 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210.sink328, i64 16
+  %_M_impl.i.i.i.i.i.i207 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210.sink331, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i207, align 8, !noalias !24
-  %aRescale_.i.i.i.i.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210.sink328, i64 24
+  %aRescale_.i.i.i.i.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210.sink331, i64 24
   store i8 %conv3.i33, ptr %aRescale_.i.i.i.i.i.i.i.i208, align 8, !noalias !24
-  %bRescale_.i.i.i.i.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210.sink328, i64 25
+  %bRescale_.i.i.i.i.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i210.sink331, i64 25
   store i8 %conv3.i38, ptr %bRescale_.i.i.i.i.i.i.i.i209, align 1, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i207, ptr %agg.result, align 8
   %_M_refcount.i.i211 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i5.i.i.i.i210.sink328, ptr %_M_refcount.i.i211, align 8
+  store ptr %call5.i.i.i5.i.i.i.i210.sink331, ptr %_M_refcount.i.i211, align 8
   %25 = load ptr, ptr %_M_refcount.i.i18, align 8
   %cmp.not.i.i.i244 = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i244, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %if.then.i.i.i245
@@ -2396,17 +2396,17 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit
-  %call5.i.i.i5.i.i.i.i206.sink324 = phi ptr [ %call5.i.i.i5.i.i.i.i206, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i167, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i128, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i89, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i50, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit ]
+  %call5.i.i.i5.i.i.i.i206.sink327 = phi ptr [ %call5.i.i.i5.i.i.i.i206, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i167, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i128, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i89, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i50, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_11SubtractionEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_11SubtractionEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_11SubtractionEEEED2Ev.exit ]
-  %_M_impl.i.i.i.i.i.i203 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206.sink324, i64 16
+  %_M_impl.i.i.i.i.i.i203 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206.sink327, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i203, align 8, !noalias !24
-  %aRescale_.i.i.i.i.i.i.i.i204 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206.sink324, i64 24
+  %aRescale_.i.i.i.i.i.i.i.i204 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206.sink327, i64 24
   store i8 %conv3.i, ptr %aRescale_.i.i.i.i.i.i.i.i204, align 8, !noalias !24
-  %bRescale_.i.i.i.i.i.i.i.i205 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206.sink324, i64 25
+  %bRescale_.i.i.i.i.i.i.i.i205 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i206.sink327, i64 25
   store i8 %conv3.i34, ptr %bRescale_.i.i.i.i.i.i.i.i205, align 1, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i203, ptr %agg.result, align 8
   %_M_refcount.i.i207 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i5.i.i.i.i206.sink324, ptr %_M_refcount.i.i207, align 8
+  store ptr %call5.i.i.i5.i.i.i.i206.sink327, ptr %_M_refcount.i.i207, align 8
   %25 = load ptr, ptr %_M_refcount.i.i18, align 8
   %cmp.not.i.i.i240 = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i240, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %if.then.i.i.i241
@@ -3802,17 +3802,17 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit
-  %call5.i.i.i5.i.i.i.i201.sink319 = phi ptr [ %call5.i.i.i5.i.i.i.i201, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i162, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i123, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i84, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i45, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i30, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit ]
+  %call5.i.i.i5.i.i.i.i201.sink322 = phi ptr [ %call5.i.i.i5.i.i.i.i201, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i162, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i123, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i84, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i45, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i30, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_8MultiplyEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_8MultiplyEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_8MultiplyEEEED2Ev.exit ]
-  %_M_impl.i.i.i.i.i.i198 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201.sink319, i64 16
+  %_M_impl.i.i.i.i.i.i198 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201.sink322, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i198, align 8, !noalias !24
-  %aRescale_.i.i.i.i.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201.sink319, i64 24
+  %aRescale_.i.i.i.i.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201.sink322, i64 24
   store i8 0, ptr %aRescale_.i.i.i.i.i.i.i.i199, align 8, !noalias !24
-  %bRescale_.i.i.i.i.i.i.i.i200 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201.sink319, i64 25
+  %bRescale_.i.i.i.i.i.i.i.i200 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i201.sink322, i64 25
   store i8 0, ptr %bRescale_.i.i.i.i.i.i.i.i200, align 1, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i198, ptr %agg.result, align 8
   %_M_refcount.i.i202 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i5.i.i.i.i201.sink319, ptr %_M_refcount.i.i202, align 8
+  store ptr %call5.i.i.i5.i.i.i.i201.sink322, ptr %_M_refcount.i.i202, align 8
   %20 = load ptr, ptr %_M_refcount.i.i18, align 8
   %cmp.not.i.i.i235 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i235, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %if.then.i.i.i236
@@ -5222,17 +5222,17 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionI
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit
-  %call5.i.i.i5.i.i.i.i205.sink323 = phi ptr [ %call5.i.i.i5.i.i.i.i205, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i166, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i127, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i88, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i49, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit ]
+  %call5.i.i.i5.i.i.i.i205.sink326 = phi ptr [ %call5.i.i.i5.i.i.i.i205, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i166, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i127, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i88, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i49, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS3_6DivideEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS2_6DivideEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS3_6DivideEEEED2Ev.exit ]
-  %_M_impl.i.i.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205.sink323, i64 16
+  %_M_impl.i.i.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205.sink326, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i202, align 8, !noalias !24
-  %aRescale_.i.i.i.i.i.i.i.i203 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205.sink323, i64 24
+  %aRescale_.i.i.i.i.i.i.i.i203 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205.sink326, i64 24
   store i8 %add.i31, ptr %aRescale_.i.i.i.i.i.i.i.i203, align 8, !noalias !24
-  %bRescale_.i.i.i.i.i.i.i.i204 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205.sink323, i64 25
+  %bRescale_.i.i.i.i.i.i.i.i204 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i205.sink326, i64 25
   store i8 %add.i33, ptr %bRescale_.i.i.i.i.i.i.i.i204, align 1, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i202, ptr %agg.result, align 8
   %_M_refcount.i.i206 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i5.i.i.i.i205.sink323, ptr %_M_refcount.i.i206, align 8
+  store ptr %call5.i.i.i5.i.i.i.i205.sink326, ptr %_M_refcount.i.i206, align 8
   %22 = load ptr, ptr %_M_refcount.i.i18, align 8
   %cmp.not.i.i.i239 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i239, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %if.then.i.i.i240
@@ -6821,20 +6821,20 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit
-  %call5.i.i.i5.i.i.i.i76.sink188 = phi ptr [ %call5.i.i.i5.i.i.i.i76, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i18, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
+  %call5.i.i.i5.i.i.i.i76.sink189 = phi ptr [ %call5.i.i.i5.i.i.i.i76, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i35, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i18, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_5RoundEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_5RoundEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_5RoundEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert147.sink = or disjoint i64 %extraParams.sroa.0.0174, %extraParams.sroa.4.0176
-  %_M_impl.i.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink188, i64 16
+  %_M_impl.i.i.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink189, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i71, align 8, !noalias !24
-  %aPrecision_.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink188, i64 24
+  %aPrecision_.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink189, i64 24
   store i8 %conv181, ptr %aPrecision_.i.i.i.i.i.i.i.i73, align 8, !noalias !24
-  %aRescale_.i.i.i.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink188, i64 25
+  %aRescale_.i.i.i.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink189, i64 25
   store i8 %conv23183, ptr %aRescale_.i.i.i.i.i.i.i.i74, align 1, !noalias !24
-  %param_.i.i.i.i.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink188, i64 28
+  %param_.i.i.i.i.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i76.sink189, i64 28
   store i64 %extraParams.sroa.0.0.insert.insert147.sink, ptr %param_.i.i.i.i.i.i.i.i75, align 4, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i71, ptr %agg.result, align 8
   %_M_refcount.i.i77 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i5.i.i.i.i76.sink188, ptr %_M_refcount.i.i77, align 8
+  store ptr %call5.i.i.i5.i.i.i.i76.sink189, ptr %_M_refcount.i.i77, align 8
   %23 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i110 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i110, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %if.then.i.i.i111
@@ -7583,20 +7583,20 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit
-  %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
+  %call5.i.i.i5.i.i.i.i75.sink172 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_3AbsEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_3AbsEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_3AbsEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.4.0, %extraParams.sroa.0.0
-  %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 16
+  %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink172, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i70, align 8, !noalias !24
-  %aPrecision_.i.i.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 24
+  %aPrecision_.i.i.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink172, i64 24
   store i8 %conv, ptr %aPrecision_.i.i.i.i.i.i.i.i72, align 8, !noalias !24
-  %aRescale_.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 25
+  %aRescale_.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink172, i64 25
   store i8 %conv22, ptr %aRescale_.i.i.i.i.i.i.i.i73, align 1, !noalias !24
-  %param_.i.i.i.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 28
+  %param_.i.i.i.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink172, i64 28
   store i64 %extraParams.sroa.0.0.insert.insert146.sink, ptr %param_.i.i.i.i.i.i.i.i74, align 4, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i70, ptr %agg.result, align 8
   %_M_refcount.i.i76 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i5.i.i.i.i75.sink171, ptr %_M_refcount.i.i76, align 8
+  store ptr %call5.i.i.i5.i.i.i.i75.sink172, ptr %_M_refcount.i.i76, align 8
   %20 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i109 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i109, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %if.then.i.i.i110
@@ -7962,20 +7962,20 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunction
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit
-  %call5.i.i.i5.i.i.i.i75.sink171 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
+  %call5.i.i.i5.i.i.i.i75.sink172 = phi ptr [ %call5.i.i.i5.i.i.i.i75, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i34, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i17, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS3_6NegateEEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS2_6NegateEEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS3_6NegateEEEED2Ev.exit ]
   %extraParams.sroa.0.0.insert.insert146.sink = or disjoint i64 %extraParams.sroa.4.0, %extraParams.sroa.0.0
-  %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 16
+  %_M_impl.i.i.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink172, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i70, align 8, !noalias !24
-  %aPrecision_.i.i.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 24
+  %aPrecision_.i.i.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink172, i64 24
   store i8 %conv, ptr %aPrecision_.i.i.i.i.i.i.i.i72, align 8, !noalias !24
-  %aRescale_.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 25
+  %aRescale_.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink172, i64 25
   store i8 %conv22, ptr %aRescale_.i.i.i.i.i.i.i.i73, align 1, !noalias !24
-  %param_.i.i.i.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink171, i64 28
+  %param_.i.i.i.i.i.i.i.i74 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i75.sink172, i64 28
   store i64 %extraParams.sroa.0.0.insert.insert146.sink, ptr %param_.i.i.i.i.i.i.i.i74, align 4, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i70, ptr %agg.result, align 8
   %_M_refcount.i.i76 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i5.i.i.i.i75.sink171, ptr %_M_refcount.i.i76, align 8
+  store ptr %call5.i.i.i5.i.i.i.i75.sink172, ptr %_M_refcount.i.i76, align 8
   %20 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i109 = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i109, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %if.then.i.i.i110
@@ -8976,13 +8976,13 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFuncti
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit
-  %call5.i.i.i5.i.i.i.i37.sink167 = phi ptr [ %call5.i.i.i5.i.i.i.i37, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i24, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit ]
+  %call5.i.i.i5.i.i.i.i37.sink176 = phi ptr [ %call5.i.i.i5.i.i.i.i37, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit ], [ %call5.i.i.i5.i.i.i.i24, %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit ]
   %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionInEEED2Ev.exit ], [ getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEE, i64 16), %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_122DecimalBetweenFunctionIlEEED2Ev.exit ]
-  %_M_impl.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i37.sink167, i64 16
+  %_M_impl.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i37.sink176, i64 16
   store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i36, align 8, !noalias !24
   store ptr %_M_impl.i.i.i.i.i.i36, ptr %agg.result, align 8
   %_M_refcount.i.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i5.i.i.i.i37.sink167, ptr %_M_refcount.i.i38, align 8
+  store ptr %call5.i.i.i5.i.i.i.i37.sink176, ptr %_M_refcount.i.i38, align 8
   %39 = load ptr, ptr %_M_refcount.i.i14, align 8
   %cmp.not.i.i.i71 = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i71, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit, label %if.then.i.i.i72
@@ -76873,9 +76873,9 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS2_6Divide
   %152 = shl i128 %151, 64
   %conv11.i.i.i50.i.i.i.i.i.i101 = ashr exact i128 %152, 64
   %conv11.i.i.i50.i.i.i.i.i.i101.frozen = freeze i128 %conv11.i.i.i50.i.i.i.i.i.i101
-  %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i.frozen1015 = freeze i128 %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i
-  %div.i.i.i51.i.i.i.i.i.i102 = sdiv i128 %conv11.i.i.i50.i.i.i.i.i.i101.frozen, %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i.frozen1015
-  %153 = mul i128 %div.i.i.i51.i.i.i.i.i.i102, %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i.frozen1015
+  %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i.frozen1038 = freeze i128 %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i
+  %div.i.i.i51.i.i.i.i.i.i102 = sdiv i128 %conv11.i.i.i50.i.i.i.i.i.i101.frozen, %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i.frozen1038
+  %153 = mul i128 %div.i.i.i51.i.i.i.i.i.i102, %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i.frozen1038
   %rem.i.i.i52.i.i.i.i.i.i103.decomposed = sub i128 %conv11.i.i.i50.i.i.i.i.i.i101.frozen, %153
   %mul13.i.i.i53.i.i.i.i.i.i104 = shl nsw i128 %rem.i.i.i52.i.i.i.i.i.i103.decomposed, 1
   %cmp14.not.i.i.i54.i.i.i.i.i.i105 = icmp sge i128 %mul13.i.i.i53.i.i.i.i.i.i104, %unsignedDivisor.0.i.i.i.i99.i.i.i.i.i
@@ -79640,10 +79640,10 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_6Divide
   %152 = extractvalue { i64, i1 } %149, 0
   %conv9.i.i.i50.i.i.i.i.i.i231 = sext i64 %152 to i128
   %conv9.i.i.i50.i.i.i.i.i.i231.frozen = freeze i128 %conv9.i.i.i50.i.i.i.i.i.i231
-  %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193.frozen863 = freeze i128 %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193
-  %div.i.i.i51.i.i.i.i.i.i232 = sdiv i128 %conv9.i.i.i50.i.i.i.i.i.i231.frozen, %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193.frozen863
+  %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193.frozen885 = freeze i128 %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193
+  %div.i.i.i51.i.i.i.i.i.i232 = sdiv i128 %conv9.i.i.i50.i.i.i.i.i.i231.frozen, %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193.frozen885
   %conv10.i.i.i52.i.i.i.i.i.i233 = trunc nsw i128 %div.i.i.i51.i.i.i.i.i.i232 to i64
-  %153 = mul i128 %div.i.i.i51.i.i.i.i.i.i232, %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193.frozen863
+  %153 = mul i128 %div.i.i.i51.i.i.i.i.i.i232, %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193.frozen885
   %rem.i.i.i53.i.i.i.i.i.i234.decomposed = sub i128 %conv9.i.i.i50.i.i.i.i.i.i231.frozen, %153
   %mul14.i.i.i54.i.i.i.i.i.i235 = shl nsw i128 %rem.i.i.i53.i.i.i.i.i.i234.decomposed, 1
   %cmp15.not.i.i.i55.i.i.i.i.i.i236 = icmp sge i128 %mul14.i.i.i54.i.i.i.i.i.i235, %unsignedDivisor.0.i.i.i.i100.i.i.i.i.i193
@@ -81452,11 +81452,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i.i90.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %arrayidx3.val.i.i77.i.i.i.i, i1 true)
   %51 = extractvalue { i128, i1 } %49, 0
   %conv.i.i.i.i91.i.i.i.i = zext nneg i64 %unsignedDivisor.0.i.i.i.i90.i.i.i.i to i128
-  %.frozen1042 = freeze i128 %51
+  %.frozen1070 = freeze i128 %51
   %conv.i.i.i.i91.i.i.i.i.frozen = freeze i128 %conv.i.i.i.i91.i.i.i.i
-  %div.i.i.i.i92.i.i.i.i = sdiv i128 %.frozen1042, %conv.i.i.i.i91.i.i.i.i.frozen
+  %div.i.i.i.i92.i.i.i.i = sdiv i128 %.frozen1070, %conv.i.i.i.i91.i.i.i.i.frozen
   %52 = mul i128 %div.i.i.i.i92.i.i.i.i, %conv.i.i.i.i91.i.i.i.i.frozen
-  %rem.i.i.i.i93.i.i.i.i.decomposed = sub i128 %.frozen1042, %52
+  %rem.i.i.i.i93.i.i.i.i.decomposed = sub i128 %.frozen1070, %52
   %conv10.i.i.i.i94.i.i.i.i = trunc nsw i128 %rem.i.i.i.i93.i.i.i.i.decomposed to i64
   %mul11.i.i.i.i95.i.i.i.i = shl nsw i64 %conv10.i.i.i.i94.i.i.i.i, 1
   %cmp12.not.i.i.i.i96.i.i.i.i = icmp sge i64 %mul11.i.i.i.i95.i.i.i.i, %unsignedDivisor.0.i.i.i.i90.i.i.i.i
@@ -81543,11 +81543,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i.i42.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %arrayidx3.val.i.i29.i.i.i.i, i1 true)
   %61 = extractvalue { i128, i1 } %59, 0
   %conv.i.i.i.i43.i.i.i.i = zext nneg i64 %unsignedDivisor.0.i.i.i.i42.i.i.i.i to i128
-  %.frozen1043 = freeze i128 %61
+  %.frozen1071 = freeze i128 %61
   %conv.i.i.i.i43.i.i.i.i.frozen = freeze i128 %conv.i.i.i.i43.i.i.i.i
-  %div.i.i.i.i44.i.i.i.i = sdiv i128 %.frozen1043, %conv.i.i.i.i43.i.i.i.i.frozen
+  %div.i.i.i.i44.i.i.i.i = sdiv i128 %.frozen1071, %conv.i.i.i.i43.i.i.i.i.frozen
   %62 = mul i128 %div.i.i.i.i44.i.i.i.i, %conv.i.i.i.i43.i.i.i.i.frozen
-  %rem.i.i.i.i45.i.i.i.i.decomposed = sub i128 %.frozen1043, %62
+  %rem.i.i.i.i45.i.i.i.i.decomposed = sub i128 %.frozen1071, %62
   %conv10.i.i.i.i46.i.i.i.i = trunc nsw i128 %rem.i.i.i.i45.i.i.i.i.decomposed to i64
   %mul11.i.i.i.i47.i.i.i.i = shl nsw i64 %conv10.i.i.i.i46.i.i.i.i, 1
   %cmp12.not.i.i.i.i48.i.i.i.i = icmp sge i64 %mul11.i.i.i.i47.i.i.i.i, %unsignedDivisor.0.i.i.i.i42.i.i.i.i
@@ -81647,11 +81647,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %arrayidx2.val.i.i.i.i.i.i.i, i1 true)
   %70 = extractvalue { i128, i1 } %68, 0
   %conv.i.i.i.i.i.i.i.i.i = zext nneg i64 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i to i128
-  %.frozen1044 = freeze i128 %70
+  %.frozen1072 = freeze i128 %70
   %conv.i.i.i.i.i.i.i.i.i.frozen = freeze i128 %conv.i.i.i.i.i.i.i.i.i
-  %div.i.i.i.i.i.i.i.i.i = sdiv i128 %.frozen1044, %conv.i.i.i.i.i.i.i.i.i.frozen
+  %div.i.i.i.i.i.i.i.i.i = sdiv i128 %.frozen1072, %conv.i.i.i.i.i.i.i.i.i.frozen
   %71 = mul i128 %div.i.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.i.frozen
-  %rem.i.i.i.i.i.i.i.i.i.decomposed = sub i128 %.frozen1044, %71
+  %rem.i.i.i.i.i.i.i.i.i.decomposed = sub i128 %.frozen1072, %71
   %conv10.i.i.i.i.i.i.i.i.i = trunc nsw i128 %rem.i.i.i.i.i.i.i.i.i.decomposed to i64
   %mul11.i.i.i.i.i.i.i.i.i = shl nsw i64 %conv10.i.i.i.i.i.i.i.i.i, 1
   %cmp12.not.i.i.i.i.i.i.i.i.i = icmp sge i64 %mul11.i.i.i.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i
@@ -81703,11 +81703,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %arrayidx3.val.i.i.i.i.i.i.i, i1 true)
   %79 = extractvalue { i128, i1 } %77, 0
   %conv.i.i.i50.i.i.i.i.i.i = zext nneg i64 %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i to i128
-  %.frozen1045 = freeze i128 %79
+  %.frozen1073 = freeze i128 %79
   %conv.i.i.i50.i.i.i.i.i.i.frozen = freeze i128 %conv.i.i.i50.i.i.i.i.i.i
-  %div.i.i.i51.i.i.i.i.i.i = sdiv i128 %.frozen1045, %conv.i.i.i50.i.i.i.i.i.i.frozen
+  %div.i.i.i51.i.i.i.i.i.i = sdiv i128 %.frozen1073, %conv.i.i.i50.i.i.i.i.i.i.frozen
   %80 = mul i128 %div.i.i.i51.i.i.i.i.i.i, %conv.i.i.i50.i.i.i.i.i.i.frozen
-  %rem.i.i.i52.i.i.i.i.i.i.decomposed = sub i128 %.frozen1045, %80
+  %rem.i.i.i52.i.i.i.i.i.i.decomposed = sub i128 %.frozen1073, %80
   %conv10.i.i.i53.i.i.i.i.i.i = trunc nsw i128 %rem.i.i.i52.i.i.i.i.i.i.decomposed to i64
   %mul11.i.i.i54.i.i.i.i.i.i = shl nsw i64 %conv10.i.i.i53.i.i.i.i.i.i, 1
   %cmp12.not.i.i.i55.i.i.i.i.i.i = icmp sge i64 %mul11.i.i.i54.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i
@@ -81795,11 +81795,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i.i.i.i.i.i = tail call i64 @llvm.abs.i64(i64 %arrayidx3.val.i.i.i.i.i.i, i1 true)
   %89 = extractvalue { i128, i1 } %87, 0
   %conv.i.i.i.i.i.i.i.i = zext nneg i64 %unsignedDivisor.0.i.i.i.i.i.i.i.i to i128
-  %.frozen1046 = freeze i128 %89
+  %.frozen1074 = freeze i128 %89
   %conv.i.i.i.i.i.i.i.i.frozen = freeze i128 %conv.i.i.i.i.i.i.i.i
-  %div.i.i.i.i.i.i.i.i = sdiv i128 %.frozen1046, %conv.i.i.i.i.i.i.i.i.frozen
+  %div.i.i.i.i.i.i.i.i = sdiv i128 %.frozen1074, %conv.i.i.i.i.i.i.i.i.frozen
   %90 = mul i128 %div.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i.i.frozen
-  %rem.i.i.i.i.i.i.i.i.decomposed = sub i128 %.frozen1046, %90
+  %rem.i.i.i.i.i.i.i.i.decomposed = sub i128 %.frozen1074, %90
   %conv10.i.i.i.i.i.i.i.i = trunc nsw i128 %rem.i.i.i.i.i.i.i.i.decomposed to i64
   %mul11.i.i.i.i.i.i.i.i = shl nsw i64 %conv10.i.i.i.i.i.i.i.i, 1
   %cmp12.not.i.i.i.i.i.i.i.i = icmp sge i64 %mul11.i.i.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i.i.i.i.i.i
@@ -81969,11 +81969,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i.i331 = sub nsw i32 0, %resultSign.0.i.i.i.i.i330
   %resultSign.1.i.i.i.i.i332 = select i1 %cmp4.i.i.i.i.i328, i32 %mul6.i.i.i.i.i331, i32 %resultSign.0.i.i.i.i.i330
   %118 = extractvalue { i128, i1 } %116, 0
-  %.frozen1047 = freeze i128 %118
+  %.frozen1075 = freeze i128 %118
   %conv.i.i.i.i.i334.frozen = freeze i128 %conv.i.i.i.i.i334
-  %div.i.i.i.i.i335 = sdiv i128 %.frozen1047, %conv.i.i.i.i.i334.frozen
+  %div.i.i.i.i.i335 = sdiv i128 %.frozen1075, %conv.i.i.i.i.i334.frozen
   %119 = mul i128 %div.i.i.i.i.i335, %conv.i.i.i.i.i334.frozen
-  %rem.i.i.i.i.i336.decomposed = sub i128 %.frozen1047, %119
+  %rem.i.i.i.i.i336.decomposed = sub i128 %.frozen1075, %119
   %conv10.i.i.i.i.i337 = trunc nsw i128 %rem.i.i.i.i.i336.decomposed to i64
   %mul11.i.i.i.i.i338 = shl nsw i64 %conv10.i.i.i.i.i337, 1
   %cmp12.not.i.i.i.i.i339 = icmp sge i64 %mul11.i.i.i.i.i338, %unsignedDivisor.0.i.i.i.i.i333
@@ -82068,11 +82068,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i88.i.i.i.i291 = sub nsw i32 0, %resultSign.0.i.i.i.i87.i.i.i.i290
   %resultSign.1.i.i.i.i89.i.i.i.i292 = select i1 %cmp4.i.i.i.i85.i.i.i.i288, i32 %mul6.i.i.i.i88.i.i.i.i291, i32 %resultSign.0.i.i.i.i87.i.i.i.i290
   %133 = extractvalue { i128, i1 } %131, 0
-  %.frozen1048 = freeze i128 %133
+  %.frozen1076 = freeze i128 %133
   %conv.i.i.i.i91.i.i.i.i294.frozen = freeze i128 %conv.i.i.i.i91.i.i.i.i294
-  %div.i.i.i.i92.i.i.i.i295 = sdiv i128 %.frozen1048, %conv.i.i.i.i91.i.i.i.i294.frozen
+  %div.i.i.i.i92.i.i.i.i295 = sdiv i128 %.frozen1076, %conv.i.i.i.i91.i.i.i.i294.frozen
   %134 = mul i128 %div.i.i.i.i92.i.i.i.i295, %conv.i.i.i.i91.i.i.i.i294.frozen
-  %rem.i.i.i.i93.i.i.i.i296.decomposed = sub i128 %.frozen1048, %134
+  %rem.i.i.i.i93.i.i.i.i296.decomposed = sub i128 %.frozen1076, %134
   %conv10.i.i.i.i94.i.i.i.i297 = trunc nsw i128 %rem.i.i.i.i93.i.i.i.i296.decomposed to i64
   %mul11.i.i.i.i95.i.i.i.i298 = shl nsw i64 %conv10.i.i.i.i94.i.i.i.i297, 1
   %cmp12.not.i.i.i.i96.i.i.i.i299 = icmp sge i64 %mul11.i.i.i.i95.i.i.i.i298, %unsignedDivisor.0.i.i.i.i90.i.i.i.i293
@@ -82156,11 +82156,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i40.i.i.i.i91 = sub nsw i32 0, %resultSign.0.i.i.i.i39.i.i.i.i90
   %resultSign.1.i.i.i.i41.i.i.i.i92 = select i1 %cmp4.i.i.i.i37.i.i.i.i88, i32 %mul6.i.i.i.i40.i.i.i.i91, i32 %resultSign.0.i.i.i.i39.i.i.i.i90
   %143 = extractvalue { i128, i1 } %141, 0
-  %.frozen1049 = freeze i128 %143
+  %.frozen1077 = freeze i128 %143
   %conv.i.i.i.i43.i.i.i.i94.frozen = freeze i128 %conv.i.i.i.i43.i.i.i.i94
-  %div.i.i.i.i44.i.i.i.i95 = sdiv i128 %.frozen1049, %conv.i.i.i.i43.i.i.i.i94.frozen
+  %div.i.i.i.i44.i.i.i.i95 = sdiv i128 %.frozen1077, %conv.i.i.i.i43.i.i.i.i94.frozen
   %144 = mul i128 %div.i.i.i.i44.i.i.i.i95, %conv.i.i.i.i43.i.i.i.i94.frozen
-  %rem.i.i.i.i45.i.i.i.i96.decomposed = sub i128 %.frozen1049, %144
+  %rem.i.i.i.i45.i.i.i.i96.decomposed = sub i128 %.frozen1077, %144
   %conv10.i.i.i.i46.i.i.i.i97 = trunc nsw i128 %rem.i.i.i.i45.i.i.i.i96.decomposed to i64
   %mul11.i.i.i.i47.i.i.i.i98 = shl nsw i64 %conv10.i.i.i.i46.i.i.i.i97, 1
   %cmp12.not.i.i.i.i48.i.i.i.i99 = icmp sge i64 %mul11.i.i.i.i47.i.i.i.i98, %unsignedDivisor.0.i.i.i.i42.i.i.i.i93
@@ -82260,11 +82260,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i.i.i.i.i.i194 = sub nsw i32 0, %resultSign.0.i.i.i.i.i.i.i.i.i193
   %resultSign.1.i.i.i.i.i.i.i.i.i195 = select i1 %cmp4.i.i.i.i.i.i.i.i.i191, i32 %mul6.i.i.i.i.i.i.i.i.i194, i32 %resultSign.0.i.i.i.i.i.i.i.i.i193
   %152 = extractvalue { i128, i1 } %150, 0
-  %.frozen1050 = freeze i128 %152
+  %.frozen1078 = freeze i128 %152
   %conv.i.i.i.i.i.i.i.i.i197.frozen = freeze i128 %conv.i.i.i.i.i.i.i.i.i197
-  %div.i.i.i.i.i.i.i.i.i198 = sdiv i128 %.frozen1050, %conv.i.i.i.i.i.i.i.i.i197.frozen
+  %div.i.i.i.i.i.i.i.i.i198 = sdiv i128 %.frozen1078, %conv.i.i.i.i.i.i.i.i.i197.frozen
   %153 = mul i128 %div.i.i.i.i.i.i.i.i.i198, %conv.i.i.i.i.i.i.i.i.i197.frozen
-  %rem.i.i.i.i.i.i.i.i.i199.decomposed = sub i128 %.frozen1050, %153
+  %rem.i.i.i.i.i.i.i.i.i199.decomposed = sub i128 %.frozen1078, %153
   %conv10.i.i.i.i.i.i.i.i.i200 = trunc nsw i128 %rem.i.i.i.i.i.i.i.i.i199.decomposed to i64
   %mul11.i.i.i.i.i.i.i.i.i201 = shl nsw i64 %conv10.i.i.i.i.i.i.i.i.i200, 1
   %cmp12.not.i.i.i.i.i.i.i.i.i202 = icmp sge i64 %mul11.i.i.i.i.i.i.i.i.i201, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i196
@@ -82313,11 +82313,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i47.i.i.i.i.i.i233 = sub nsw i32 0, %resultSign.0.i.i.i46.i.i.i.i.i.i232
   %resultSign.1.i.i.i48.i.i.i.i.i.i234 = select i1 %cmp4.i.i.i.i.i.i.i.i.i191, i32 %mul6.i.i.i47.i.i.i.i.i.i233, i32 %resultSign.0.i.i.i46.i.i.i.i.i.i232
   %161 = extractvalue { i128, i1 } %159, 0
-  %.frozen1051 = freeze i128 %161
-  %conv.i.i.i.i.i.i.i.i.i197.frozen1052 = freeze i128 %conv.i.i.i.i.i.i.i.i.i197
-  %div.i.i.i51.i.i.i.i.i.i237 = sdiv i128 %.frozen1051, %conv.i.i.i.i.i.i.i.i.i197.frozen1052
-  %162 = mul i128 %div.i.i.i51.i.i.i.i.i.i237, %conv.i.i.i.i.i.i.i.i.i197.frozen1052
-  %rem.i.i.i52.i.i.i.i.i.i238.decomposed = sub i128 %.frozen1051, %162
+  %.frozen1079 = freeze i128 %161
+  %conv.i.i.i.i.i.i.i.i.i197.frozen1080 = freeze i128 %conv.i.i.i.i.i.i.i.i.i197
+  %div.i.i.i51.i.i.i.i.i.i237 = sdiv i128 %.frozen1079, %conv.i.i.i.i.i.i.i.i.i197.frozen1080
+  %162 = mul i128 %div.i.i.i51.i.i.i.i.i.i237, %conv.i.i.i.i.i.i.i.i.i197.frozen1080
+  %rem.i.i.i52.i.i.i.i.i.i238.decomposed = sub i128 %.frozen1079, %162
   %conv10.i.i.i53.i.i.i.i.i.i239 = trunc nsw i128 %rem.i.i.i52.i.i.i.i.i.i238.decomposed to i64
   %mul11.i.i.i54.i.i.i.i.i.i240 = shl nsw i64 %conv10.i.i.i53.i.i.i.i.i.i239, 1
   %cmp12.not.i.i.i55.i.i.i.i.i.i241 = icmp sge i64 %mul11.i.i.i54.i.i.i.i.i.i240, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i196
@@ -82402,11 +82402,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i.i.i.i.i152 = sub nsw i32 0, %resultSign.0.i.i.i.i.i.i.i.i151
   %resultSign.1.i.i.i.i.i.i.i.i153 = select i1 %cmp4.i.i.i.i.i.i.i.i149, i32 %mul6.i.i.i.i.i.i.i.i152, i32 %resultSign.0.i.i.i.i.i.i.i.i151
   %171 = extractvalue { i128, i1 } %169, 0
-  %.frozen1053 = freeze i128 %171
+  %.frozen1081 = freeze i128 %171
   %conv.i.i.i.i.i.i.i.i155.frozen = freeze i128 %conv.i.i.i.i.i.i.i.i155
-  %div.i.i.i.i.i.i.i.i156 = sdiv i128 %.frozen1053, %conv.i.i.i.i.i.i.i.i155.frozen
+  %div.i.i.i.i.i.i.i.i156 = sdiv i128 %.frozen1081, %conv.i.i.i.i.i.i.i.i155.frozen
   %172 = mul i128 %div.i.i.i.i.i.i.i.i156, %conv.i.i.i.i.i.i.i.i155.frozen
-  %rem.i.i.i.i.i.i.i.i157.decomposed = sub i128 %.frozen1053, %172
+  %rem.i.i.i.i.i.i.i.i157.decomposed = sub i128 %.frozen1081, %172
   %conv10.i.i.i.i.i.i.i.i158 = trunc nsw i128 %rem.i.i.i.i.i.i.i.i157.decomposed to i64
   %mul11.i.i.i.i.i.i.i.i159 = shl nsw i64 %conv10.i.i.i.i.i.i.i.i158, 1
   %cmp12.not.i.i.i.i.i.i.i.i160 = icmp sge i64 %mul11.i.i.i.i.i.i.i.i159, %unsignedDivisor.0.i.i.i.i.i.i.i.i154
@@ -82585,11 +82585,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i.i.i521 = call i64 @llvm.abs.i64(i64 %arrayidx5.val.i.i.i, i1 true)
   %206 = extractvalue { i128, i1 } %204, 0
   %conv.i.i.i.i.i522 = zext nneg i64 %unsignedDivisor.0.i.i.i.i.i521 to i128
-  %.frozen1054 = freeze i128 %206
+  %.frozen1082 = freeze i128 %206
   %conv.i.i.i.i.i522.frozen = freeze i128 %conv.i.i.i.i.i522
-  %div.i.i.i.i.i523 = sdiv i128 %.frozen1054, %conv.i.i.i.i.i522.frozen
+  %div.i.i.i.i.i523 = sdiv i128 %.frozen1082, %conv.i.i.i.i.i522.frozen
   %207 = mul i128 %div.i.i.i.i.i523, %conv.i.i.i.i.i522.frozen
-  %rem.i.i.i.i.i524.decomposed = sub i128 %.frozen1054, %207
+  %rem.i.i.i.i.i524.decomposed = sub i128 %.frozen1082, %207
   %conv10.i.i.i.i.i525 = trunc nsw i128 %rem.i.i.i.i.i524.decomposed to i64
   %mul11.i.i.i.i.i526 = shl nsw i64 %conv10.i.i.i.i.i525, 1
   %cmp12.not.i.i.i.i.i527 = icmp sge i64 %mul11.i.i.i.i.i526, %unsignedDivisor.0.i.i.i.i.i521
@@ -82747,11 +82747,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i460 = call i64 @llvm.abs.i64(i64 %arrayidx3.val.i.i.i.i.i.i.i447, i1 true)
   %227 = extractvalue { i128, i1 } %225, 0
   %conv.i.i.i.i.i.i.i.i.i461 = zext nneg i64 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i460 to i128
-  %.frozen1055 = freeze i128 %227
+  %.frozen1083 = freeze i128 %227
   %conv.i.i.i.i.i.i.i.i.i461.frozen = freeze i128 %conv.i.i.i.i.i.i.i.i.i461
-  %div.i.i.i.i.i.i.i.i.i462 = sdiv i128 %.frozen1055, %conv.i.i.i.i.i.i.i.i.i461.frozen
+  %div.i.i.i.i.i.i.i.i.i462 = sdiv i128 %.frozen1083, %conv.i.i.i.i.i.i.i.i.i461.frozen
   %228 = mul i128 %div.i.i.i.i.i.i.i.i.i462, %conv.i.i.i.i.i.i.i.i.i461.frozen
-  %rem.i.i.i.i.i.i.i.i.i463.decomposed = sub i128 %.frozen1055, %228
+  %rem.i.i.i.i.i.i.i.i.i463.decomposed = sub i128 %.frozen1083, %228
   %conv10.i.i.i.i.i.i.i.i.i464 = trunc nsw i128 %rem.i.i.i.i.i.i.i.i.i463.decomposed to i64
   %mul11.i.i.i.i.i.i.i.i.i465 = shl nsw i64 %conv10.i.i.i.i.i.i.i.i.i464, 1
   %cmp12.not.i.i.i.i.i.i.i.i.i466 = icmp sge i64 %mul11.i.i.i.i.i.i.i.i.i465, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i460
@@ -82817,11 +82817,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i = call i64 @llvm.abs.i64(i64 %arrayidx5.val.i.i.i.i.i.i.i, i1 true)
   %243 = extractvalue { i128, i1 } %241, 0
   %conv.i.i.i51.i.i.i.i.i.i = zext nneg i64 %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i to i128
-  %.frozen1056 = freeze i128 %243
+  %.frozen1084 = freeze i128 %243
   %conv.i.i.i51.i.i.i.i.i.i.frozen = freeze i128 %conv.i.i.i51.i.i.i.i.i.i
-  %div.i.i.i52.i.i.i.i.i.i = sdiv i128 %.frozen1056, %conv.i.i.i51.i.i.i.i.i.i.frozen
+  %div.i.i.i52.i.i.i.i.i.i = sdiv i128 %.frozen1084, %conv.i.i.i51.i.i.i.i.i.i.frozen
   %244 = mul i128 %div.i.i.i52.i.i.i.i.i.i, %conv.i.i.i51.i.i.i.i.i.i.frozen
-  %rem.i.i.i53.i.i.i.i.i.i.decomposed = sub i128 %.frozen1056, %244
+  %rem.i.i.i53.i.i.i.i.i.i.decomposed = sub i128 %.frozen1084, %244
   %conv10.i.i.i54.i.i.i.i.i.i = trunc nsw i128 %rem.i.i.i53.i.i.i.i.i.i.decomposed to i64
   %mul11.i.i.i55.i.i.i.i.i.i = shl nsw i64 %conv10.i.i.i54.i.i.i.i.i.i, 1
   %cmp12.not.i.i.i56.i.i.i.i.i.i = icmp sge i64 %mul11.i.i.i55.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i
@@ -83068,11 +83068,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i884 = call i64 @llvm.abs.i64(i64 %279, i1 true)
   %284 = extractvalue { i128, i1 } %282, 0
   %conv.i.i.i885 = zext nneg i64 %unsignedDivisor.0.i.i.i884 to i128
-  %.frozen1057 = freeze i128 %284
+  %.frozen1085 = freeze i128 %284
   %conv.i.i.i885.frozen = freeze i128 %conv.i.i.i885
-  %div.i.i.i886 = sdiv i128 %.frozen1057, %conv.i.i.i885.frozen
+  %div.i.i.i886 = sdiv i128 %.frozen1085, %conv.i.i.i885.frozen
   %285 = mul i128 %div.i.i.i886, %conv.i.i.i885.frozen
-  %rem.i.i.i887.decomposed = sub i128 %.frozen1057, %285
+  %rem.i.i.i887.decomposed = sub i128 %.frozen1085, %285
   %conv10.i.i.i888 = trunc nsw i128 %rem.i.i.i887.decomposed to i64
   %mul11.i.i.i889 = shl nsw i64 %conv10.i.i.i888, 1
   %cmp12.not.i.i.i890 = icmp sge i64 %mul11.i.i.i889, %unsignedDivisor.0.i.i.i884
@@ -83237,11 +83237,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i823 = call i64 @llvm.abs.i64(i64 %310, i1 true)
   %315 = extractvalue { i128, i1 } %313, 0
   %conv.i.i.i824 = zext nneg i64 %unsignedDivisor.0.i.i.i823 to i128
-  %.frozen1058 = freeze i128 %315
+  %.frozen1086 = freeze i128 %315
   %conv.i.i.i824.frozen = freeze i128 %conv.i.i.i824
-  %div.i.i.i825 = sdiv i128 %.frozen1058, %conv.i.i.i824.frozen
+  %div.i.i.i825 = sdiv i128 %.frozen1086, %conv.i.i.i824.frozen
   %316 = mul i128 %div.i.i.i825, %conv.i.i.i824.frozen
-  %rem.i.i.i826.decomposed = sub i128 %.frozen1058, %316
+  %rem.i.i.i826.decomposed = sub i128 %.frozen1086, %316
   %conv10.i.i.i827 = trunc nsw i128 %rem.i.i.i826.decomposed to i64
   %mul11.i.i.i828 = shl nsw i64 %conv10.i.i.i827, 1
   %cmp12.not.i.i.i829 = icmp sge i64 %mul11.i.i.i828, %unsignedDivisor.0.i.i.i823
@@ -83388,11 +83388,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i762 = call i64 @llvm.abs.i64(i64 %334, i1 true)
   %339 = extractvalue { i128, i1 } %337, 0
   %conv.i.i.i763 = zext nneg i64 %unsignedDivisor.0.i.i.i762 to i128
-  %.frozen1059 = freeze i128 %339
+  %.frozen1087 = freeze i128 %339
   %conv.i.i.i763.frozen = freeze i128 %conv.i.i.i763
-  %div.i.i.i764 = sdiv i128 %.frozen1059, %conv.i.i.i763.frozen
+  %div.i.i.i764 = sdiv i128 %.frozen1087, %conv.i.i.i763.frozen
   %340 = mul i128 %div.i.i.i764, %conv.i.i.i763.frozen
-  %rem.i.i.i765.decomposed = sub i128 %.frozen1059, %340
+  %rem.i.i.i765.decomposed = sub i128 %.frozen1087, %340
   %conv10.i.i.i766 = trunc nsw i128 %rem.i.i.i765.decomposed to i64
   %mul11.i.i.i767 = shl nsw i64 %conv10.i.i.i766, 1
   %cmp12.not.i.i.i768 = icmp sge i64 %mul11.i.i.i767, %unsignedDivisor.0.i.i.i762
@@ -83557,11 +83557,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i623 = call i64 @llvm.abs.i64(i64 %359, i1 true)
   %364 = extractvalue { i128, i1 } %362, 0
   %conv.i.i.i.i.i.i.i.i.i624 = zext nneg i64 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i623 to i128
-  %.frozen1060 = freeze i128 %364
+  %.frozen1088 = freeze i128 %364
   %conv.i.i.i.i.i.i.i.i.i624.frozen = freeze i128 %conv.i.i.i.i.i.i.i.i.i624
-  %div.i.i.i.i.i.i.i.i.i625 = sdiv i128 %.frozen1060, %conv.i.i.i.i.i.i.i.i.i624.frozen
+  %div.i.i.i.i.i.i.i.i.i625 = sdiv i128 %.frozen1088, %conv.i.i.i.i.i.i.i.i.i624.frozen
   %365 = mul i128 %div.i.i.i.i.i.i.i.i.i625, %conv.i.i.i.i.i.i.i.i.i624.frozen
-  %rem.i.i.i.i.i.i.i.i.i626.decomposed = sub i128 %.frozen1060, %365
+  %rem.i.i.i.i.i.i.i.i.i626.decomposed = sub i128 %.frozen1088, %365
   %conv10.i.i.i.i.i.i.i.i.i627 = trunc nsw i128 %rem.i.i.i.i.i.i.i.i.i626.decomposed to i64
   %mul11.i.i.i.i.i.i.i.i.i628 = shl nsw i64 %conv10.i.i.i.i.i.i.i.i.i627, 1
   %cmp12.not.i.i.i.i.i.i.i.i.i629 = icmp sge i64 %mul11.i.i.i.i.i.i.i.i.i628, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i623
@@ -83666,11 +83666,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i.i.i.i.i.i653 = call i64 @llvm.abs.i64(i64 %381, i1 true)
   %386 = extractvalue { i128, i1 } %384, 0
   %conv.i.i.i82.i.i.i.i.i = zext nneg i64 %unsignedDivisor.0.i.i.i.i.i.i.i.i653 to i128
-  %.frozen1061 = freeze i128 %386
+  %.frozen1089 = freeze i128 %386
   %conv.i.i.i82.i.i.i.i.i.frozen = freeze i128 %conv.i.i.i82.i.i.i.i.i
-  %div.i.i.i.i.i.i.i.i654 = sdiv i128 %.frozen1061, %conv.i.i.i82.i.i.i.i.i.frozen
+  %div.i.i.i.i.i.i.i.i654 = sdiv i128 %.frozen1089, %conv.i.i.i82.i.i.i.i.i.frozen
   %387 = mul i128 %div.i.i.i.i.i.i.i.i654, %conv.i.i.i82.i.i.i.i.i.frozen
-  %rem.i.i.i.i.i.i.i.i655.decomposed = sub i128 %.frozen1061, %387
+  %rem.i.i.i.i.i.i.i.i655.decomposed = sub i128 %.frozen1089, %387
   %conv10.i.i.i.i.i.i.i.i656 = trunc nsw i128 %rem.i.i.i.i.i.i.i.i655.decomposed to i64
   %mul11.i.i.i.i.i.i.i.i657 = shl nsw i64 %conv10.i.i.i.i.i.i.i.i656, 1
   %cmp12.not.i.i.i.i.i.i.i.i658 = icmp sge i64 %mul11.i.i.i.i.i.i.i.i657, %unsignedDivisor.0.i.i.i.i.i.i.i.i653
@@ -83818,11 +83818,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnlEET_RS3_RKT0_RKT1_bhh.exit
   %unsignedDivisor.0.i.i.i = call i64 @llvm.abs.i64(i64 %405, i1 true)
   %410 = extractvalue { i128, i1 } %408, 0
   %conv.i.i.i = zext nneg i64 %unsignedDivisor.0.i.i.i to i128
-  %.frozen1062 = freeze i128 %410
+  %.frozen1090 = freeze i128 %410
   %conv.i.i.i.frozen = freeze i128 %conv.i.i.i
-  %div.i.i.i = sdiv i128 %.frozen1062, %conv.i.i.i.frozen
+  %div.i.i.i = sdiv i128 %.frozen1090, %conv.i.i.i.frozen
   %411 = mul i128 %div.i.i.i, %conv.i.i.i.frozen
-  %rem.i.i.i.decomposed = sub i128 %.frozen1062, %411
+  %rem.i.i.i.decomposed = sub i128 %.frozen1090, %411
   %conv10.i.i.i = trunc nsw i128 %rem.i.i.i.decomposed to i64
   %mul11.i.i.i = shl nsw i64 %conv10.i.i.i, 1
   %cmp12.not.i.i.i = icmp sge i64 %mul11.i.i.i, %unsignedDivisor.0.i.i.i
@@ -84325,11 +84325,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i.i87.i.i.i.i = select i1 %cmp4.i.i.i.i83.i.i.i.i, i32 %mul6.i.i.i.i86.i.i.i.i, i32 %resultSign.0.i.i.i.i85.i.i.i.i
   %unsignedDivisor.0.i.i.i.i88.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %arrayidx3.val.i.i75.i.i.i.i, i1 true)
   %51 = extractvalue { i128, i1 } %49, 0
-  %.frozen1020 = freeze i128 %51
+  %.frozen1042 = freeze i128 %51
   %unsignedDivisor.0.i.i.i.i88.i.i.i.i.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i88.i.i.i.i
-  %div.i.i.i.i89.i.i.i.i = sdiv i128 %.frozen1020, %unsignedDivisor.0.i.i.i.i88.i.i.i.i.frozen
+  %div.i.i.i.i89.i.i.i.i = sdiv i128 %.frozen1042, %unsignedDivisor.0.i.i.i.i88.i.i.i.i.frozen
   %52 = mul i128 %div.i.i.i.i89.i.i.i.i, %unsignedDivisor.0.i.i.i.i88.i.i.i.i.frozen
-  %rem.i.i.i.i90.i.i.i.i.decomposed = sub i128 %.frozen1020, %52
+  %rem.i.i.i.i90.i.i.i.i.decomposed = sub i128 %.frozen1042, %52
   %mul9.i.i.i.i91.i.i.i.i = shl nsw i128 %rem.i.i.i.i90.i.i.i.i.decomposed, 1
   %cmp10.not.i.i.i.i92.i.i.i.i = icmp sge i128 %mul9.i.i.i.i91.i.i.i.i, %unsignedDivisor.0.i.i.i.i88.i.i.i.i
   %inc.i.i.i.i93.i.i.i.i = zext i1 %cmp10.not.i.i.i.i92.i.i.i.i to i128
@@ -84414,11 +84414,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i.i41.i.i.i.i = select i1 %cmp4.i.i.i.i37.i.i.i.i, i32 %mul6.i.i.i.i40.i.i.i.i, i32 %resultSign.0.i.i.i.i39.i.i.i.i
   %unsignedDivisor.0.i.i.i.i42.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %arrayidx3.val.i.i29.i.i.i.i, i1 true)
   %61 = extractvalue { i128, i1 } %59, 0
-  %.frozen1021 = freeze i128 %61
+  %.frozen1043 = freeze i128 %61
   %unsignedDivisor.0.i.i.i.i42.i.i.i.i.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i42.i.i.i.i
-  %div.i.i.i.i43.i.i.i.i = sdiv i128 %.frozen1021, %unsignedDivisor.0.i.i.i.i42.i.i.i.i.frozen
+  %div.i.i.i.i43.i.i.i.i = sdiv i128 %.frozen1043, %unsignedDivisor.0.i.i.i.i42.i.i.i.i.frozen
   %62 = mul i128 %div.i.i.i.i43.i.i.i.i, %unsignedDivisor.0.i.i.i.i42.i.i.i.i.frozen
-  %rem.i.i.i.i44.i.i.i.i.decomposed = sub i128 %.frozen1021, %62
+  %rem.i.i.i.i44.i.i.i.i.decomposed = sub i128 %.frozen1043, %62
   %mul9.i.i.i.i45.i.i.i.i = shl nsw i128 %rem.i.i.i.i44.i.i.i.i.decomposed, 1
   %cmp10.not.i.i.i.i46.i.i.i.i = icmp sge i128 %mul9.i.i.i.i45.i.i.i.i, %unsignedDivisor.0.i.i.i.i42.i.i.i.i
   %inc.i.i.i.i47.i.i.i.i = zext i1 %cmp10.not.i.i.i.i46.i.i.i.i to i128
@@ -84516,11 +84516,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i.i.i, i32 %mul6.i.i.i.i.i.i.i.i.i, i32 %resultSign.0.i.i.i.i.i.i.i.i.i
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %arrayidx2.val.i.i.i.i.i.i.i, i1 true)
   %70 = extractvalue { i128, i1 } %68, 0
-  %.frozen1022 = freeze i128 %70
+  %.frozen1044 = freeze i128 %70
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i
-  %div.i.i.i.i.i.i.i.i.i = sdiv i128 %.frozen1022, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i.frozen
+  %div.i.i.i.i.i.i.i.i.i = sdiv i128 %.frozen1044, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i.frozen
   %71 = mul i128 %div.i.i.i.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i.frozen
-  %rem.i.i.i.i.i.i.i.i.i.decomposed = sub i128 %.frozen1022, %71
+  %rem.i.i.i.i.i.i.i.i.i.decomposed = sub i128 %.frozen1044, %71
   %mul9.i.i.i.i.i.i.i.i.i = shl nsw i128 %rem.i.i.i.i.i.i.i.i.i.decomposed, 1
   %cmp10.not.i.i.i.i.i.i.i.i.i = icmp sge i128 %mul9.i.i.i.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i.i.i.i.i = zext i1 %cmp10.not.i.i.i.i.i.i.i.i.i to i128
@@ -84570,11 +84570,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i48.i.i.i.i.i.i = select i1 %cmp4.i.i.i44.i.i.i.i.i.i, i32 %mul6.i.i.i.i.i.i.i.i.i, i32 %resultSign.0.i.i.i.i.i.i.i.i.i
   %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %arrayidx3.val.i.i.i.i.i.i.i, i1 true)
   %79 = extractvalue { i128, i1 } %77, 0
-  %.frozen1023 = freeze i128 %79
+  %.frozen1045 = freeze i128 %79
   %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i.frozen = freeze i128 %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i
-  %div.i.i.i50.i.i.i.i.i.i = sdiv i128 %.frozen1023, %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i.frozen
+  %div.i.i.i50.i.i.i.i.i.i = sdiv i128 %.frozen1045, %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i.frozen
   %80 = mul i128 %div.i.i.i50.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i.frozen
-  %rem.i.i.i51.i.i.i.i.i.i.decomposed = sub i128 %.frozen1023, %80
+  %rem.i.i.i51.i.i.i.i.i.i.decomposed = sub i128 %.frozen1045, %80
   %mul9.i.i.i52.i.i.i.i.i.i = shl nsw i128 %rem.i.i.i51.i.i.i.i.i.i.decomposed, 1
   %cmp10.not.i.i.i53.i.i.i.i.i.i = icmp sge i128 %mul9.i.i.i52.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i49.i.i.i.i.i.i
   %inc.i.i.i54.i.i.i.i.i.i = zext i1 %cmp10.not.i.i.i53.i.i.i.i.i.i to i128
@@ -84660,11 +84660,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i.i.i.i.i.i = select i1 %cmp4.i.i.i.i.i.i.i.i, i32 %mul6.i.i.i.i.i.i.i.i, i32 %resultSign.0.i.i.i.i.i.i.i.i
   %unsignedDivisor.0.i.i.i.i.i.i.i.i = tail call i128 @llvm.abs.i128(i128 %arrayidx3.val.i.i.i.i.i.i, i1 true)
   %89 = extractvalue { i128, i1 } %87, 0
-  %.frozen1024 = freeze i128 %89
+  %.frozen1046 = freeze i128 %89
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i
-  %div.i.i.i.i.i.i.i.i = sdiv i128 %.frozen1024, %unsignedDivisor.0.i.i.i.i.i.i.i.i.frozen
+  %div.i.i.i.i.i.i.i.i = sdiv i128 %.frozen1046, %unsignedDivisor.0.i.i.i.i.i.i.i.i.frozen
   %90 = mul i128 %div.i.i.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i.i.i.i.i.i.frozen
-  %rem.i.i.i.i.i.i.i.i.decomposed = sub i128 %.frozen1024, %90
+  %rem.i.i.i.i.i.i.i.i.decomposed = sub i128 %.frozen1046, %90
   %mul9.i.i.i.i.i.i.i.i = shl nsw i128 %rem.i.i.i.i.i.i.i.i.decomposed, 1
   %cmp10.not.i.i.i.i.i.i.i.i = icmp sge i128 %mul9.i.i.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i.i.i.i.i.i
   %inc.i.i.i.i.i.i.i.i = zext i1 %cmp10.not.i.i.i.i.i.i.i.i to i128
@@ -84838,11 +84838,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i.i321 = sub nsw i32 0, %resultSign.0.i.i.i.i.i320
   %resultSign.1.i.i.i.i.i322 = select i1 %cmp4.i.i.i.i.i318, i32 %mul6.i.i.i.i.i321, i32 %resultSign.0.i.i.i.i.i320
   %120 = extractvalue { i128, i1 } %118, 0
-  %.frozen1025 = freeze i128 %120
+  %.frozen1047 = freeze i128 %120
   %unsignedDivisor.0.i.i.i.i.i323.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i323
-  %div.i.i.i.i.i324 = sdiv i128 %.frozen1025, %unsignedDivisor.0.i.i.i.i.i323.frozen
+  %div.i.i.i.i.i324 = sdiv i128 %.frozen1047, %unsignedDivisor.0.i.i.i.i.i323.frozen
   %121 = mul i128 %div.i.i.i.i.i324, %unsignedDivisor.0.i.i.i.i.i323.frozen
-  %rem.i.i.i.i.i325.decomposed = sub i128 %.frozen1025, %121
+  %rem.i.i.i.i.i325.decomposed = sub i128 %.frozen1047, %121
   %mul9.i.i.i.i.i326 = shl nsw i128 %rem.i.i.i.i.i325.decomposed, 1
   %cmp10.not.i.i.i.i.i327 = icmp sge i128 %mul9.i.i.i.i.i326, %unsignedDivisor.0.i.i.i.i.i323
   %inc.i.i.i.i.i328 = zext i1 %cmp10.not.i.i.i.i.i327 to i128
@@ -84935,11 +84935,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i86.i.i.i.i283 = sub nsw i32 0, %resultSign.0.i.i.i.i85.i.i.i.i282
   %resultSign.1.i.i.i.i87.i.i.i.i284 = select i1 %cmp4.i.i.i.i83.i.i.i.i280, i32 %mul6.i.i.i.i86.i.i.i.i283, i32 %resultSign.0.i.i.i.i85.i.i.i.i282
   %135 = extractvalue { i128, i1 } %133, 0
-  %.frozen1026 = freeze i128 %135
+  %.frozen1048 = freeze i128 %135
   %unsignedDivisor.0.i.i.i.i88.i.i.i.i285.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i88.i.i.i.i285
-  %div.i.i.i.i89.i.i.i.i286 = sdiv i128 %.frozen1026, %unsignedDivisor.0.i.i.i.i88.i.i.i.i285.frozen
+  %div.i.i.i.i89.i.i.i.i286 = sdiv i128 %.frozen1048, %unsignedDivisor.0.i.i.i.i88.i.i.i.i285.frozen
   %136 = mul i128 %div.i.i.i.i89.i.i.i.i286, %unsignedDivisor.0.i.i.i.i88.i.i.i.i285.frozen
-  %rem.i.i.i.i90.i.i.i.i287.decomposed = sub i128 %.frozen1026, %136
+  %rem.i.i.i.i90.i.i.i.i287.decomposed = sub i128 %.frozen1048, %136
   %mul9.i.i.i.i91.i.i.i.i288 = shl nsw i128 %rem.i.i.i.i90.i.i.i.i287.decomposed, 1
   %cmp10.not.i.i.i.i92.i.i.i.i289 = icmp sge i128 %mul9.i.i.i.i91.i.i.i.i288, %unsignedDivisor.0.i.i.i.i88.i.i.i.i285
   %inc.i.i.i.i93.i.i.i.i290 = zext i1 %cmp10.not.i.i.i.i92.i.i.i.i289 to i128
@@ -85021,11 +85021,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i40.i.i.i.i91 = sub nsw i32 0, %resultSign.0.i.i.i.i39.i.i.i.i90
   %resultSign.1.i.i.i.i41.i.i.i.i92 = select i1 %cmp4.i.i.i.i37.i.i.i.i88, i32 %mul6.i.i.i.i40.i.i.i.i91, i32 %resultSign.0.i.i.i.i39.i.i.i.i90
   %145 = extractvalue { i128, i1 } %143, 0
-  %.frozen1027 = freeze i128 %145
+  %.frozen1049 = freeze i128 %145
   %unsignedDivisor.0.i.i.i.i42.i.i.i.i93.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i42.i.i.i.i93
-  %div.i.i.i.i43.i.i.i.i94 = sdiv i128 %.frozen1027, %unsignedDivisor.0.i.i.i.i42.i.i.i.i93.frozen
+  %div.i.i.i.i43.i.i.i.i94 = sdiv i128 %.frozen1049, %unsignedDivisor.0.i.i.i.i42.i.i.i.i93.frozen
   %146 = mul i128 %div.i.i.i.i43.i.i.i.i94, %unsignedDivisor.0.i.i.i.i42.i.i.i.i93.frozen
-  %rem.i.i.i.i44.i.i.i.i95.decomposed = sub i128 %.frozen1027, %146
+  %rem.i.i.i.i44.i.i.i.i95.decomposed = sub i128 %.frozen1049, %146
   %mul9.i.i.i.i45.i.i.i.i96 = shl nsw i128 %rem.i.i.i.i44.i.i.i.i95.decomposed, 1
   %cmp10.not.i.i.i.i46.i.i.i.i97 = icmp sge i128 %mul9.i.i.i.i45.i.i.i.i96, %unsignedDivisor.0.i.i.i.i42.i.i.i.i93
   %inc.i.i.i.i47.i.i.i.i98 = zext i1 %cmp10.not.i.i.i.i46.i.i.i.i97 to i128
@@ -85123,11 +85123,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i.i.i.i.i.i190 = sub nsw i32 0, %resultSign.0.i.i.i.i.i.i.i.i.i189
   %resultSign.1.i.i.i.i.i.i.i.i.i191 = select i1 %cmp4.i.i.i.i.i.i.i.i.i187, i32 %mul6.i.i.i.i.i.i.i.i.i190, i32 %resultSign.0.i.i.i.i.i.i.i.i.i189
   %154 = extractvalue { i128, i1 } %152, 0
-  %.frozen1028 = freeze i128 %154
+  %.frozen1050 = freeze i128 %154
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192
-  %div.i.i.i.i.i.i.i.i.i193 = sdiv i128 %.frozen1028, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen
+  %div.i.i.i.i.i.i.i.i.i193 = sdiv i128 %.frozen1050, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen
   %155 = mul i128 %div.i.i.i.i.i.i.i.i.i193, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen
-  %rem.i.i.i.i.i.i.i.i.i194.decomposed = sub i128 %.frozen1028, %155
+  %rem.i.i.i.i.i.i.i.i.i194.decomposed = sub i128 %.frozen1050, %155
   %mul9.i.i.i.i.i.i.i.i.i195 = shl nsw i128 %rem.i.i.i.i.i.i.i.i.i194.decomposed, 1
   %cmp10.not.i.i.i.i.i.i.i.i.i196 = icmp sge i128 %mul9.i.i.i.i.i.i.i.i.i195, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192
   %inc.i.i.i.i.i.i.i.i.i197 = zext i1 %cmp10.not.i.i.i.i.i.i.i.i.i196 to i128
@@ -85175,11 +85175,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i47.i.i.i.i.i.i227 = sub nsw i32 0, %resultSign.0.i.i.i46.i.i.i.i.i.i226
   %resultSign.1.i.i.i48.i.i.i.i.i.i228 = select i1 %cmp4.i.i.i.i.i.i.i.i.i187, i32 %mul6.i.i.i47.i.i.i.i.i.i227, i32 %resultSign.0.i.i.i46.i.i.i.i.i.i226
   %163 = extractvalue { i128, i1 } %161, 0
-  %.frozen1029 = freeze i128 %163
-  %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen1030 = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192
-  %div.i.i.i50.i.i.i.i.i.i230 = sdiv i128 %.frozen1029, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen1030
-  %164 = mul i128 %div.i.i.i50.i.i.i.i.i.i230, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen1030
-  %rem.i.i.i51.i.i.i.i.i.i231.decomposed = sub i128 %.frozen1029, %164
+  %.frozen1051 = freeze i128 %163
+  %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen1052 = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192
+  %div.i.i.i50.i.i.i.i.i.i230 = sdiv i128 %.frozen1051, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen1052
+  %164 = mul i128 %div.i.i.i50.i.i.i.i.i.i230, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192.frozen1052
+  %rem.i.i.i51.i.i.i.i.i.i231.decomposed = sub i128 %.frozen1051, %164
   %mul9.i.i.i52.i.i.i.i.i.i232 = shl nsw i128 %rem.i.i.i51.i.i.i.i.i.i231.decomposed, 1
   %cmp10.not.i.i.i53.i.i.i.i.i.i233 = icmp sge i128 %mul9.i.i.i52.i.i.i.i.i.i232, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i192
   %inc.i.i.i54.i.i.i.i.i.i234 = zext i1 %cmp10.not.i.i.i53.i.i.i.i.i.i233 to i128
@@ -85262,11 +85262,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %mul6.i.i.i.i.i.i.i.i150 = sub nsw i32 0, %resultSign.0.i.i.i.i.i.i.i.i149
   %resultSign.1.i.i.i.i.i.i.i.i151 = select i1 %cmp4.i.i.i.i.i.i.i.i147, i32 %mul6.i.i.i.i.i.i.i.i150, i32 %resultSign.0.i.i.i.i.i.i.i.i149
   %173 = extractvalue { i128, i1 } %171, 0
-  %.frozen1031 = freeze i128 %173
+  %.frozen1053 = freeze i128 %173
   %unsignedDivisor.0.i.i.i.i.i.i.i.i152.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i152
-  %div.i.i.i.i.i.i.i.i153 = sdiv i128 %.frozen1031, %unsignedDivisor.0.i.i.i.i.i.i.i.i152.frozen
+  %div.i.i.i.i.i.i.i.i153 = sdiv i128 %.frozen1053, %unsignedDivisor.0.i.i.i.i.i.i.i.i152.frozen
   %174 = mul i128 %div.i.i.i.i.i.i.i.i153, %unsignedDivisor.0.i.i.i.i.i.i.i.i152.frozen
-  %rem.i.i.i.i.i.i.i.i154.decomposed = sub i128 %.frozen1031, %174
+  %rem.i.i.i.i.i.i.i.i154.decomposed = sub i128 %.frozen1053, %174
   %mul9.i.i.i.i.i.i.i.i155 = shl nsw i128 %rem.i.i.i.i.i.i.i.i154.decomposed, 1
   %cmp10.not.i.i.i.i.i.i.i.i156 = icmp sge i128 %mul9.i.i.i.i.i.i.i.i155, %unsignedDivisor.0.i.i.i.i.i.i.i.i152
   %inc.i.i.i.i.i.i.i.i157 = zext i1 %cmp10.not.i.i.i.i.i.i.i.i156 to i128
@@ -85443,11 +85443,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i.i.i506 = select i1 %cmp4.i.i.i.i.i502, i32 %mul6.i.i.i.i.i505, i32 %resultSign.0.i.i.i.i.i504
   %unsignedDivisor.0.i.i.i.i.i507 = call i128 @llvm.abs.i128(i128 %arrayidx5.val.i.i.i, i1 true)
   %208 = extractvalue { i128, i1 } %206, 0
-  %.frozen1032 = freeze i128 %208
+  %.frozen1054 = freeze i128 %208
   %unsignedDivisor.0.i.i.i.i.i507.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i507
-  %div.i.i.i.i.i508 = sdiv i128 %.frozen1032, %unsignedDivisor.0.i.i.i.i.i507.frozen
+  %div.i.i.i.i.i508 = sdiv i128 %.frozen1054, %unsignedDivisor.0.i.i.i.i.i507.frozen
   %209 = mul i128 %div.i.i.i.i.i508, %unsignedDivisor.0.i.i.i.i.i507.frozen
-  %rem.i.i.i.i.i509.decomposed = sub i128 %.frozen1032, %209
+  %rem.i.i.i.i.i509.decomposed = sub i128 %.frozen1054, %209
   %mul9.i.i.i.i.i510 = shl nsw i128 %rem.i.i.i.i.i509.decomposed, 1
   %cmp10.not.i.i.i.i.i511 = icmp sge i128 %mul9.i.i.i.i.i510, %unsignedDivisor.0.i.i.i.i.i507
   %inc.i.i.i.i.i512 = zext i1 %cmp10.not.i.i.i.i.i511 to i128
@@ -85603,11 +85603,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i.i.i.i.i.i.i447 = select i1 %cmp4.i.i.i.i.i.i.i.i.i443, i32 %mul6.i.i.i.i.i.i.i.i.i446, i32 %resultSign.0.i.i.i.i.i.i.i.i.i445
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i448 = call i128 @llvm.abs.i128(i128 %arrayidx3.val.i.i.i.i.i.i.i435, i1 true)
   %229 = extractvalue { i128, i1 } %227, 0
-  %.frozen1033 = freeze i128 %229
+  %.frozen1055 = freeze i128 %229
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i448.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i448
-  %div.i.i.i.i.i.i.i.i.i449 = sdiv i128 %.frozen1033, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i448.frozen
+  %div.i.i.i.i.i.i.i.i.i449 = sdiv i128 %.frozen1055, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i448.frozen
   %230 = mul i128 %div.i.i.i.i.i.i.i.i.i449, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i448.frozen
-  %rem.i.i.i.i.i.i.i.i.i450.decomposed = sub i128 %.frozen1033, %230
+  %rem.i.i.i.i.i.i.i.i.i450.decomposed = sub i128 %.frozen1055, %230
   %mul9.i.i.i.i.i.i.i.i.i451 = shl nsw i128 %rem.i.i.i.i.i.i.i.i.i450.decomposed, 1
   %cmp10.not.i.i.i.i.i.i.i.i.i452 = icmp sge i128 %mul9.i.i.i.i.i.i.i.i.i451, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i448
   %inc.i.i.i.i.i.i.i.i.i453 = zext i1 %cmp10.not.i.i.i.i.i.i.i.i.i452 to i128
@@ -85671,11 +85671,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i49.i.i.i.i.i.i = select i1 %cmp4.i.i.i45.i.i.i.i.i.i, i32 %mul6.i.i.i48.i.i.i.i.i.i, i32 %resultSign.0.i.i.i47.i.i.i.i.i.i
   %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i = call i128 @llvm.abs.i128(i128 %arrayidx5.val.i.i.i.i.i.i.i, i1 true)
   %245 = extractvalue { i128, i1 } %243, 0
-  %.frozen1034 = freeze i128 %245
+  %.frozen1056 = freeze i128 %245
   %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i.frozen = freeze i128 %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i
-  %div.i.i.i51.i.i.i.i.i.i = sdiv i128 %.frozen1034, %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i.frozen
+  %div.i.i.i51.i.i.i.i.i.i = sdiv i128 %.frozen1056, %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i.frozen
   %246 = mul i128 %div.i.i.i51.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i.frozen
-  %rem.i.i.i52.i.i.i.i.i.i.decomposed = sub i128 %.frozen1034, %246
+  %rem.i.i.i52.i.i.i.i.i.i.decomposed = sub i128 %.frozen1056, %246
   %mul9.i.i.i53.i.i.i.i.i.i = shl nsw i128 %rem.i.i.i52.i.i.i.i.i.i.decomposed, 1
   %cmp10.not.i.i.i54.i.i.i.i.i.i = icmp sge i128 %mul9.i.i.i53.i.i.i.i.i.i, %unsignedDivisor.0.i.i.i50.i.i.i.i.i.i
   %inc.i.i.i55.i.i.i.i.i.i = zext i1 %cmp10.not.i.i.i54.i.i.i.i.i.i to i128
@@ -85921,11 +85921,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i863 = select i1 %cmp4.i.i.i859, i32 %mul6.i.i.i862, i32 %resultSign.0.i.i.i861
   %unsignedDivisor.0.i.i.i864 = call i128 @llvm.abs.i128(i128 %value.i.0.copyload.i17.i851, i1 true)
   %285 = extractvalue { i128, i1 } %283, 0
-  %.frozen1035 = freeze i128 %285
+  %.frozen1057 = freeze i128 %285
   %unsignedDivisor.0.i.i.i864.frozen = freeze i128 %unsignedDivisor.0.i.i.i864
-  %div.i.i.i865 = sdiv i128 %.frozen1035, %unsignedDivisor.0.i.i.i864.frozen
+  %div.i.i.i865 = sdiv i128 %.frozen1057, %unsignedDivisor.0.i.i.i864.frozen
   %286 = mul i128 %div.i.i.i865, %unsignedDivisor.0.i.i.i864.frozen
-  %rem.i.i.i866.decomposed = sub i128 %.frozen1035, %286
+  %rem.i.i.i866.decomposed = sub i128 %.frozen1057, %286
   %mul9.i.i.i867 = shl nsw i128 %rem.i.i.i866.decomposed, 1
   %cmp10.not.i.i.i868 = icmp sge i128 %mul9.i.i.i867, %unsignedDivisor.0.i.i.i864
   %inc.i.i.i869 = zext i1 %cmp10.not.i.i.i868 to i128
@@ -86089,11 +86089,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i802 = select i1 %cmp4.i.i.i798, i32 %mul6.i.i.i801, i32 %resultSign.0.i.i.i800
   %unsignedDivisor.0.i.i.i803 = call i128 @llvm.abs.i128(i128 %value.i.0.copyload.i17.i790, i1 true)
   %315 = extractvalue { i128, i1 } %313, 0
-  %.frozen1036 = freeze i128 %315
+  %.frozen1058 = freeze i128 %315
   %unsignedDivisor.0.i.i.i803.frozen = freeze i128 %unsignedDivisor.0.i.i.i803
-  %div.i.i.i804 = sdiv i128 %.frozen1036, %unsignedDivisor.0.i.i.i803.frozen
+  %div.i.i.i804 = sdiv i128 %.frozen1058, %unsignedDivisor.0.i.i.i803.frozen
   %316 = mul i128 %div.i.i.i804, %unsignedDivisor.0.i.i.i803.frozen
-  %rem.i.i.i805.decomposed = sub i128 %.frozen1036, %316
+  %rem.i.i.i805.decomposed = sub i128 %.frozen1058, %316
   %mul9.i.i.i806 = shl nsw i128 %rem.i.i.i805.decomposed, 1
   %cmp10.not.i.i.i807 = icmp sge i128 %mul9.i.i.i806, %unsignedDivisor.0.i.i.i803
   %inc.i.i.i808 = zext i1 %cmp10.not.i.i.i807 to i128
@@ -86239,11 +86239,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i741 = select i1 %cmp4.i.i.i737, i32 %mul6.i.i.i740, i32 %resultSign.0.i.i.i739
   %unsignedDivisor.0.i.i.i742 = call i128 @llvm.abs.i128(i128 %value.i.0.copyload.i17.i729, i1 true)
   %338 = extractvalue { i128, i1 } %336, 0
-  %.frozen1037 = freeze i128 %338
+  %.frozen1059 = freeze i128 %338
   %unsignedDivisor.0.i.i.i742.frozen = freeze i128 %unsignedDivisor.0.i.i.i742
-  %div.i.i.i743 = sdiv i128 %.frozen1037, %unsignedDivisor.0.i.i.i742.frozen
+  %div.i.i.i743 = sdiv i128 %.frozen1059, %unsignedDivisor.0.i.i.i742.frozen
   %339 = mul i128 %div.i.i.i743, %unsignedDivisor.0.i.i.i742.frozen
-  %rem.i.i.i744.decomposed = sub i128 %.frozen1037, %339
+  %rem.i.i.i744.decomposed = sub i128 %.frozen1059, %339
   %mul9.i.i.i745 = shl nsw i128 %rem.i.i.i744.decomposed, 1
   %cmp10.not.i.i.i746 = icmp sge i128 %mul9.i.i.i745, %unsignedDivisor.0.i.i.i742
   %inc.i.i.i747 = zext i1 %cmp10.not.i.i.i746 to i128
@@ -86407,11 +86407,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i.i.i.i.i.i.i604 = select i1 %cmp4.i.i.i.i.i.i.i.i.i600, i32 %mul6.i.i.i.i.i.i.i.i.i603, i32 %resultSign.0.i.i.i.i.i.i.i.i.i602
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i605 = call i128 @llvm.abs.i128(i128 %value.i.0.copyload.i17.i.i.i.i.i.i.i, i1 true)
   %362 = extractvalue { i128, i1 } %360, 0
-  %.frozen1038 = freeze i128 %362
+  %.frozen1060 = freeze i128 %362
   %unsignedDivisor.0.i.i.i.i.i.i.i.i.i605.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i.i605
-  %div.i.i.i.i.i.i.i.i.i606 = sdiv i128 %.frozen1038, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i605.frozen
+  %div.i.i.i.i.i.i.i.i.i606 = sdiv i128 %.frozen1060, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i605.frozen
   %363 = mul i128 %div.i.i.i.i.i.i.i.i.i606, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i605.frozen
-  %rem.i.i.i.i.i.i.i.i.i607.decomposed = sub i128 %.frozen1038, %363
+  %rem.i.i.i.i.i.i.i.i.i607.decomposed = sub i128 %.frozen1060, %363
   %mul9.i.i.i.i.i.i.i.i.i608 = shl nsw i128 %rem.i.i.i.i.i.i.i.i.i607.decomposed, 1
   %cmp10.not.i.i.i.i.i.i.i.i.i609 = icmp sge i128 %mul9.i.i.i.i.i.i.i.i.i608, %unsignedDivisor.0.i.i.i.i.i.i.i.i.i605
   %inc.i.i.i.i.i.i.i.i.i610 = zext i1 %cmp10.not.i.i.i.i.i.i.i.i.i609 to i128
@@ -86515,11 +86515,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i.i.i.i.i.i632 = select i1 %cmp4.i.i.i.i.i.i.i.i628, i32 %mul6.i.i.i.i.i.i.i.i631, i32 %resultSign.0.i.i.i.i.i.i.i.i630
   %unsignedDivisor.0.i.i.i.i.i.i.i.i633 = call i128 @llvm.abs.i128(i128 %value.i.0.copyload.i17.i.i.i.i.i.i, i1 true)
   %383 = extractvalue { i128, i1 } %381, 0
-  %.frozen1039 = freeze i128 %383
+  %.frozen1061 = freeze i128 %383
   %unsignedDivisor.0.i.i.i.i.i.i.i.i633.frozen = freeze i128 %unsignedDivisor.0.i.i.i.i.i.i.i.i633
-  %div.i.i.i.i.i.i.i.i634 = sdiv i128 %.frozen1039, %unsignedDivisor.0.i.i.i.i.i.i.i.i633.frozen
+  %div.i.i.i.i.i.i.i.i634 = sdiv i128 %.frozen1061, %unsignedDivisor.0.i.i.i.i.i.i.i.i633.frozen
   %384 = mul i128 %div.i.i.i.i.i.i.i.i634, %unsignedDivisor.0.i.i.i.i.i.i.i.i633.frozen
-  %rem.i.i.i.i.i.i.i.i635.decomposed = sub i128 %.frozen1039, %384
+  %rem.i.i.i.i.i.i.i.i635.decomposed = sub i128 %.frozen1061, %384
   %mul9.i.i.i.i.i.i.i.i636 = shl nsw i128 %rem.i.i.i.i.i.i.i.i635.decomposed, 1
   %cmp10.not.i.i.i.i.i.i.i.i637 = icmp sge i128 %mul9.i.i.i.i.i.i.i.i636, %unsignedDivisor.0.i.i.i.i.i.i.i.i633
   %inc.i.i.i.i.i.i.i.i638 = zext i1 %cmp10.not.i.i.i.i.i.i.i.i637 to i128
@@ -86666,11 +86666,11 @@ _ZN8facebook5velox11DecimalUtil17divideWithRoundUpInnnEET_RS3_RKT0_RKT1_bhh.exit
   %resultSign.1.i.i.i = select i1 %cmp4.i.i.i, i32 %mul6.i.i.i, i32 %resultSign.0.i.i.i
   %unsignedDivisor.0.i.i.i = call i128 @llvm.abs.i128(i128 %value.i.0.copyload.i17.i, i1 true)
   %406 = extractvalue { i128, i1 } %404, 0
-  %.frozen1040 = freeze i128 %406
+  %.frozen1062 = freeze i128 %406
   %unsignedDivisor.0.i.i.i.frozen = freeze i128 %unsignedDivisor.0.i.i.i
-  %div.i.i.i = sdiv i128 %.frozen1040, %unsignedDivisor.0.i.i.i.frozen
+  %div.i.i.i = sdiv i128 %.frozen1062, %unsignedDivisor.0.i.i.i.frozen
   %407 = mul i128 %div.i.i.i, %unsignedDivisor.0.i.i.i.frozen
-  %rem.i.i.i.decomposed = sub i128 %.frozen1040, %407
+  %rem.i.i.i.decomposed = sub i128 %.frozen1062, %407
   %mul9.i.i.i = shl nsw i128 %rem.i.i.i.decomposed, 1
   %cmp10.not.i.i.i = icmp sge i128 %mul9.i.i.i, %unsignedDivisor.0.i.i.i
   %inc.i.i.i = zext i1 %cmp10.not.i.i.i to i128

@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [12 x i8] c"nb_jobs > 0\00", align 1
 
 ; Function Attrs: cold nounwind optsize uwtable
-define i32 @avpriv_slicethread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @avpriv_slicethread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %4, -1
   br i1 %6, label %8, label %7
 

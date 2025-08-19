@@ -191,9 +191,9 @@ bytestream2_get_byte.exit:                        ; preds = %48, %52
 99:                                               ; preds = %97, %79
   %100 = phi i32 [ %.pre171, %97 ], [ %90, %79 ]
   %101 = phi ptr [ %.pre, %97 ], [ %84, %79 ]
-  %or.cond.i.i173 = icmp ult i32 %100, 268435392
+  %or.cond.i.i180 = icmp ult i32 %100, 268435392
   %102 = icmp ne ptr %101, null
-  %or.cond3.i.i = and i1 %102, %or.cond.i.i173
+  %or.cond3.i.i = and i1 %102, %or.cond.i.i180
   br i1 %or.cond3.i.i, label %103, label %122
 
 103:                                              ; preds = %99

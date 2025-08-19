@@ -23,7 +23,7 @@ define hidden i32 @X509v3_get_ext_count(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @X509v3_get_ext_by_NID(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -2, 2147483647) i32 @X509v3_get_ext_by_NID(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %X509v3_get_ext_by_OBJ.exit, label %6
@@ -54,7 +54,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @X509v3_get_ext_by_NID(ptr
   br i1 %18, label %.loopexit.loopexit.split.loop.exit.i, label %12, !llvm.loop !14
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %14
-  %19 = trunc nsw i64 %indvars.iv.next.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %X509v3_get_ext_by_OBJ.exit
 
 X509v3_get_ext_by_OBJ.exit:                       ; preds = %12, %.loopexit.loopexit.split.loop.exit.i, %6, %3
@@ -65,7 +65,7 @@ X509v3_get_ext_by_OBJ.exit:                       ; preds = %12, %.loopexit.loop
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, 2147483647) i32 @X509v3_get_ext_by_OBJ(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2147483647) i32 @X509v3_get_ext_by_OBJ(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -91,7 +91,7 @@ define hidden range(i32 -2147483647, 2147483647) i32 @X509v3_get_ext_by_OBJ(ptr 
   br i1 %15, label %.loopexit.loopexit.split.loop.exit, label %9, !llvm.loop !14
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %11
-  %16 = trunc nsw i64 %indvars.iv.next to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %.loopexit.loopexit.split.loop.exit, %3
@@ -104,7 +104,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, 2147483647) i32 @X509v3_get_ext_by_critical(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2147483647) i32 @X509v3_get_ext_by_critical(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -132,7 +132,7 @@ define hidden range(i32 -2147483647, 2147483647) i32 @X509v3_get_ext_by_critical
   br i1 %or.cond19, label %10, label %.loopexit.loopexit.split.loop.exit, !llvm.loop !17
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %12
-  %17 = trunc nsw i64 %indvars.iv.next to i32
+  %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.loopexit.loopexit.split.loop.exit, %3

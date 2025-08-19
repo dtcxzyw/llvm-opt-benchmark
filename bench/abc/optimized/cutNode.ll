@@ -771,8 +771,8 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
 .preheader141:                                    ; preds = %._crit_edge163, %.preheader144
   %.not126171 = icmp eq ptr %.0.lcssa, null
   %.not127167 = icmp eq ptr %.0108.lcssa, null
-  %or.cond197 = or i1 %.not126171, %.not127167
-  br i1 %or.cond197, label %._crit_edge174, label %.preheader139.lr.ph.split
+  %or.cond210 = or i1 %.not126171, %.not127167
+  br i1 %or.cond210, label %._crit_edge174, label %.preheader139.lr.ph.split
 
 .preheader139.lr.ph.split:                        ; preds = %.preheader141
   %96 = icmp sgt i32 %.fr178, 0
@@ -1278,10 +1278,10 @@ Cut_ListStart.exit:                               ; preds = %16
   br i1 %.not171, label %.loopexit204, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %135
-  %.sink316 = phi ptr [ %47, %135 ], [ %32, %45 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sink316, i64 16
+  %.sink331 = phi ptr [ %47, %135 ], [ %32, %45 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sink331, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !37
-  %48 = load i32, ptr %.sink316, align 8
+  %48 = load i32, ptr %.sink331, align 8
   %49 = lshr i32 %48, 28
   %50 = icmp eq i32 %49, %8
   br i1 %50, label %51, label %84
@@ -1353,7 +1353,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %81, ptr %53, align 4, !tbaa !46
   %82 = sext i32 %80 to i64
   %83 = getelementptr inbounds ptr, ptr %79, i64 %82
-  store ptr %.sink316, ptr %83, align 8, !tbaa !50
+  store ptr %.sink331, ptr %83, align 8, !tbaa !50
   br label %.loopexit204
 
 84:                                               ; preds = %.lr.ph
@@ -1364,12 +1364,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not173, label %90, label %88
 
 88:                                               ; preds = %84
-  %89 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %.sink316)
+  %89 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %.sink331)
   %.not174 = icmp eq i32 %89, 0
   br i1 %.not174, label %._crit_edge, label %135
 
 ._crit_edge:                                      ; preds = %88
-  %.pre = load i32, ptr %.sink316, align 8
+  %.pre = load i32, ptr %.sink331, align 8
   %.pre292 = lshr i32 %.pre, 28
   br label %90
 
@@ -1382,15 +1382,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %95 = and i32 %94, 8388608
   %96 = and i32 %91, -8388609
   %97 = or disjoint i32 %95, %96
-  store i32 %97, ptr %.sink316, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.sink316, i64 16
+  store i32 %97, ptr %.sink331, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %.sink331, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !37
   store ptr null, ptr %98, align 8, !tbaa !37
   %100 = zext nneg i32 %.pre-phi to i64
   %101 = getelementptr inbounds nuw [13 x ptr], ptr %15, i64 0, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !23
-  store ptr %.sink316, ptr %102, align 8, !tbaa !22
-  %103 = load i32, ptr %.sink316, align 8
+  store ptr %.sink331, ptr %102, align 8, !tbaa !22
+  %103 = load i32, ptr %.sink331, align 8
   %104 = lshr i32 %103, 28
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw [13 x ptr], ptr %15, i64 0, i64 %105
@@ -1416,10 +1416,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %115, label %.lr.ph250, label %.critedge2.preheader
 
 .lr.ph246:                                        ; preds = %113, %.lr.ph246
-  %.sink317 = phi ptr [ %117, %.lr.ph246 ], [ %99, %113 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.sink317, i64 16
+  %.sink332 = phi ptr [ %117, %.lr.ph246 ], [ %99, %113 ]
+  %116 = getelementptr inbounds nuw i8, ptr %.sink332, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !37
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink317) #11
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink332) #11
   %.not180 = icmp eq ptr %117, null
   br i1 %.not180, label %.preheader, label %.lr.ph246, !llvm.loop !87
 
@@ -1453,10 +1453,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not177, label %.critedge2, label %.lr.ph255
 
 .lr.ph255:                                        ; preds = %.lr.ph259, %.lr.ph255
-  %.sink318 = phi ptr [ %130, %.lr.ph255 ], [ %128, %.lr.ph259 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.sink318, i64 16
+  %.sink333 = phi ptr [ %130, %.lr.ph255 ], [ %128, %.lr.ph259 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.sink333, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !37
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink318) #11
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink333) #11
   %.not179 = icmp eq ptr %130, null
   br i1 %.not179, label %.critedge2.loopexit, label %.lr.ph255, !llvm.loop !89
 
@@ -1497,8 +1497,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not, label %.critedge, label %.lr.ph224
 
 .lr.ph224:                                        ; preds = %.lr.ph227, %190
-  %.sink319 = phi ptr [ %143, %190 ], [ %141, %.lr.ph227 ]
-  %142 = getelementptr inbounds nuw i8, ptr %.sink319, i64 16
+  %.sink334 = phi ptr [ %143, %190 ], [ %141, %.lr.ph227 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sink334, i64 16
   %143 = load ptr, ptr %142, align 8, !tbaa !37
   %144 = load ptr, ptr %0, align 8, !tbaa !16
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
@@ -1507,28 +1507,28 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not162, label %149, label %147
 
 147:                                              ; preds = %.lr.ph224
-  %148 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %.sink319)
+  %148 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %.sink334)
   %.not163 = icmp eq i32 %148, 0
   br i1 %.not163, label %149, label %190
 
 149:                                              ; preds = %147, %.lr.ph224
   %150 = load i32, ptr %.1148, align 8
-  %151 = load i32, ptr %.sink319, align 8
+  %151 = load i32, ptr %.sink334, align 8
   %152 = xor i32 %151, %150
   %153 = shl i32 %152, 1
   %154 = and i32 %153, 8388608
   %155 = and i32 %151, -8388609
   %156 = or disjoint i32 %154, %155
-  store i32 %156, ptr %.sink319, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %.sink319, i64 16
+  store i32 %156, ptr %.sink334, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %.sink334, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !37
   store ptr null, ptr %157, align 8, !tbaa !37
   %159 = lshr i32 %151, 28
   %160 = zext nneg i32 %159 to i64
   %161 = getelementptr inbounds nuw [13 x ptr], ptr %15, i64 0, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !23
-  store ptr %.sink319, ptr %162, align 8, !tbaa !22
-  %163 = load i32, ptr %.sink319, align 8
+  store ptr %.sink334, ptr %162, align 8, !tbaa !22
+  %163 = load i32, ptr %.sink334, align 8
   %164 = lshr i32 %163, 28
   %165 = zext nneg i32 %164 to i64
   %166 = getelementptr inbounds nuw [13 x ptr], ptr %15, i64 0, i64 %165
@@ -1556,10 +1556,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %177, label %.lr.ph241, label %.critedge4
 
 .lr.ph232:                                        ; preds = %173, %.lr.ph232
-  %.sink320 = phi ptr [ %179, %.lr.ph232 ], [ %158, %173 ]
-  %178 = getelementptr inbounds nuw i8, ptr %.sink320, i64 16
+  %.sink335 = phi ptr [ %179, %.lr.ph232 ], [ %158, %173 ]
+  %178 = getelementptr inbounds nuw i8, ptr %.sink335, i64 16
   %179 = load ptr, ptr %178, align 8, !tbaa !37
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink320) #11
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink335) #11
   %.not169 = icmp eq ptr %179, null
   br i1 %.not169, label %.preheader201, label %.lr.ph232, !llvm.loop !93
 
@@ -1587,10 +1587,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not166, label %.loopexit, label %.lr.ph237
 
 .lr.ph237:                                        ; preds = %.lr.ph241, %.lr.ph237
-  %.sink321 = phi ptr [ %189, %.lr.ph237 ], [ %187, %.lr.ph241 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.sink321, i64 16
+  %.sink336 = phi ptr [ %189, %.lr.ph237 ], [ %187, %.lr.ph241 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.sink336, i64 16
   %189 = load ptr, ptr %188, align 8, !tbaa !37
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink321) #11
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink336) #11
   %.not168 = icmp eq ptr %189, null
   br i1 %.not168, label %.loopexit.loopexit, label %.lr.ph237, !llvm.loop !95
 
@@ -2067,14 +2067,14 @@ Cut_ListStart.exit:                               ; preds = %18
   br i1 %.not224, label %.loopexit264, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %53, %68
-  %.sink372.ph = phi ptr [ %.0, %53 ], [ %56, %68 ]
+  %.sink393.ph = phi ptr [ %.0, %53 ], [ %56, %68 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %171
-  %.sink372 = phi ptr [ %70, %171 ], [ %.sink372.ph, %.lr.ph.preheader ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sink372, i64 16
+  %.sink393 = phi ptr [ %70, %171 ], [ %.sink393.ph, %.lr.ph.preheader ]
+  %69 = getelementptr inbounds nuw i8, ptr %.sink393, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !37
-  %71 = load i32, ptr %.sink372, align 8
+  %71 = load i32, ptr %.sink393, align 8
   %72 = lshr i32 %71, 28
   %73 = icmp eq i32 %72, %10
   br i1 %73, label %74, label %107
@@ -2146,7 +2146,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %104, ptr %76, align 4, !tbaa !46
   %105 = sext i32 %103 to i64
   %106 = getelementptr inbounds ptr, ptr %102, i64 %105
-  store ptr %.sink372, ptr %106, align 8, !tbaa !50
+  store ptr %.sink393, ptr %106, align 8, !tbaa !50
   br label %.loopexit264
 
 107:                                              ; preds = %.lr.ph
@@ -2157,7 +2157,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not226, label %125, label %111
 
 111:                                              ; preds = %107
-  %112 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.sink372)
+  %112 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.sink393)
   %.not227 = icmp eq i32 %112, 0
   br i1 %.not227, label %113, label %171
 
@@ -2174,7 +2174,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not229, label %121, label %119
 
 119:                                              ; preds = %117
-  %120 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %118, ptr noundef %.sink372)
+  %120 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %118, ptr noundef %.sink393)
   %.not230 = icmp eq i32 %120, 0
   br i1 %.not230, label %121, label %171
 
@@ -2184,28 +2184,28 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not231, label %125, label %123
 
 123:                                              ; preds = %121
-  %124 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %122, ptr noundef %.sink372)
+  %124 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %122, ptr noundef %.sink393)
   %.not232 = icmp eq i32 %124, 0
   br i1 %.not232, label %125, label %171
 
 125:                                              ; preds = %113, %123, %121, %107
   %126 = load i32, ptr %.0189, align 8
-  %127 = load i32, ptr %.sink372, align 8
+  %127 = load i32, ptr %.sink393, align 8
   %128 = xor i32 %127, %126
   %129 = shl i32 %128, 1
   %130 = and i32 %129, 8388608
   %131 = and i32 %127, -8388609
   %132 = or disjoint i32 %130, %131
-  store i32 %132, ptr %.sink372, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %.sink372, i64 16
+  store i32 %132, ptr %.sink393, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %.sink393, i64 16
   %134 = load ptr, ptr %133, align 8, !tbaa !37
   store ptr null, ptr %133, align 8, !tbaa !37
   %135 = lshr i32 %127, 28
   %136 = zext nneg i32 %135 to i64
   %137 = getelementptr inbounds nuw [13 x ptr], ptr %17, i64 0, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !23
-  store ptr %.sink372, ptr %138, align 8, !tbaa !22
-  %139 = load i32, ptr %.sink372, align 8
+  store ptr %.sink393, ptr %138, align 8, !tbaa !22
+  %139 = load i32, ptr %.sink393, align 8
   %140 = lshr i32 %139, 28
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds nuw [13 x ptr], ptr %17, i64 0, i64 %141
@@ -2231,10 +2231,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %151, label %.lr.ph308, label %.critedge3.preheader
 
 .lr.ph304:                                        ; preds = %149, %.lr.ph304
-  %.sink373 = phi ptr [ %153, %.lr.ph304 ], [ %134, %149 ]
-  %152 = getelementptr inbounds nuw i8, ptr %.sink373, i64 16
+  %.sink394 = phi ptr [ %153, %.lr.ph304 ], [ %134, %149 ]
+  %152 = getelementptr inbounds nuw i8, ptr %.sink394, i64 16
   %153 = load ptr, ptr %152, align 8, !tbaa !37
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink373) #11
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink394) #11
   %.not238 = icmp eq ptr %153, null
   br i1 %.not238, label %.preheader, label %.lr.ph304, !llvm.loop !105
 
@@ -2268,10 +2268,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not235, label %.critedge3, label %.lr.ph313
 
 .lr.ph313:                                        ; preds = %.lr.ph317, %.lr.ph313
-  %.sink374 = phi ptr [ %166, %.lr.ph313 ], [ %164, %.lr.ph317 ]
-  %165 = getelementptr inbounds nuw i8, ptr %.sink374, i64 16
+  %.sink395 = phi ptr [ %166, %.lr.ph313 ], [ %164, %.lr.ph317 ]
+  %165 = getelementptr inbounds nuw i8, ptr %.sink395, i64 16
   %166 = load ptr, ptr %165, align 8, !tbaa !37
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink374) #11
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink395) #11
   %.not237 = icmp eq ptr %166, null
   br i1 %.not237, label %.critedge3.loopexit, label %.lr.ph313, !llvm.loop !107
 
@@ -2312,8 +2312,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not, label %.critedge, label %.lr.ph282
 
 .lr.ph282:                                        ; preds = %.lr.ph285, %238
-  %.sink375 = phi ptr [ %179, %238 ], [ %177, %.lr.ph285 ]
-  %178 = getelementptr inbounds nuw i8, ptr %.sink375, i64 16
+  %.sink396 = phi ptr [ %179, %238 ], [ %177, %.lr.ph285 ]
+  %178 = getelementptr inbounds nuw i8, ptr %.sink396, i64 16
   %179 = load ptr, ptr %178, align 8, !tbaa !37
   %180 = load ptr, ptr %0, align 8, !tbaa !16
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
@@ -2322,7 +2322,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not209, label %197, label %183
 
 183:                                              ; preds = %.lr.ph282
-  %184 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.sink375)
+  %184 = call fastcc i32 @Cut_CutFilterOne(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.sink396)
   %.not210 = icmp eq i32 %184, 0
   br i1 %.not210, label %185, label %238
 
@@ -2339,7 +2339,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not212, label %193, label %191
 
 191:                                              ; preds = %189
-  %192 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %190, ptr noundef %.sink375)
+  %192 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %190, ptr noundef %.sink396)
   %.not213 = icmp eq i32 %192, 0
   br i1 %.not213, label %193, label %238
 
@@ -2349,28 +2349,28 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not214, label %197, label %195
 
 195:                                              ; preds = %193
-  %196 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %194, ptr noundef %.sink375)
+  %196 = call fastcc i32 @Cut_CutFilterOld(ptr noundef nonnull %0, ptr noundef %194, ptr noundef %.sink396)
   %.not215 = icmp eq i32 %196, 0
   br i1 %.not215, label %197, label %238
 
 197:                                              ; preds = %185, %195, %193, %.lr.ph282
   %198 = load i32, ptr %.0189, align 8
-  %199 = load i32, ptr %.sink375, align 8
+  %199 = load i32, ptr %.sink396, align 8
   %200 = xor i32 %199, %198
   %201 = shl i32 %200, 1
   %202 = and i32 %201, 8388608
   %203 = and i32 %199, -8388609
   %204 = or disjoint i32 %202, %203
-  store i32 %204, ptr %.sink375, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %.sink375, i64 16
+  store i32 %204, ptr %.sink396, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %.sink396, i64 16
   %206 = load ptr, ptr %205, align 8, !tbaa !37
   store ptr null, ptr %205, align 8, !tbaa !37
   %207 = lshr i32 %199, 28
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw [13 x ptr], ptr %17, i64 0, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !23
-  store ptr %.sink375, ptr %210, align 8, !tbaa !22
-  %211 = load i32, ptr %.sink375, align 8
+  store ptr %.sink396, ptr %210, align 8, !tbaa !22
+  %211 = load i32, ptr %.sink396, align 8
   %212 = lshr i32 %211, 28
   %213 = zext nneg i32 %212 to i64
   %214 = getelementptr inbounds nuw [13 x ptr], ptr %17, i64 0, i64 %213
@@ -2398,10 +2398,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %225, label %.lr.ph299, label %.critedge5
 
 .lr.ph290:                                        ; preds = %221, %.lr.ph290
-  %.sink376 = phi ptr [ %227, %.lr.ph290 ], [ %206, %221 ]
-  %226 = getelementptr inbounds nuw i8, ptr %.sink376, i64 16
+  %.sink397 = phi ptr [ %227, %.lr.ph290 ], [ %206, %221 ]
+  %226 = getelementptr inbounds nuw i8, ptr %.sink397, i64 16
   %227 = load ptr, ptr %226, align 8, !tbaa !37
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink376) #11
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink397) #11
   %.not221 = icmp eq ptr %227, null
   br i1 %.not221, label %.preheader261, label %.lr.ph290, !llvm.loop !111
 
@@ -2429,10 +2429,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not218, label %.loopexit, label %.lr.ph295
 
 .lr.ph295:                                        ; preds = %.lr.ph299, %.lr.ph295
-  %.sink377 = phi ptr [ %237, %.lr.ph295 ], [ %235, %.lr.ph299 ]
-  %236 = getelementptr inbounds nuw i8, ptr %.sink377, i64 16
+  %.sink398 = phi ptr [ %237, %.lr.ph295 ], [ %235, %.lr.ph299 ]
+  %236 = getelementptr inbounds nuw i8, ptr %.sink398, i64 16
   %237 = load ptr, ptr %236, align 8, !tbaa !37
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink377) #11
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink398) #11
   %.not220 = icmp eq ptr %237, null
   br i1 %.not220, label %.loopexit.loopexit, label %.lr.ph295, !llvm.loop !113
 

@@ -35,13 +35,13 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %18 = inttoptr i64 %17 to ptr
   %19 = load i32, ptr %18, align 8, !tbaa !25
   %20 = icmp eq i32 %19, 2147483647
-  br i1 %20, label %21, label %.thread78
+  br i1 %20, label %21, label %.thread84
 
 21:                                               ; preds = %15
   %22 = icmp sgt i32 %10, 0
   br i1 %22, label %.lr.ph.split.us, label %.._crit_edge_crit_edge
 
-.thread78:                                        ; preds = %15
+.thread84:                                        ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = zext i32 %19 to i64
@@ -50,9 +50,9 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %28 = icmp sgt i32 %10, 0
   br i1 %28, label %.lr.ph.split, label %.._crit_edge_crit_edge
 
-.._crit_edge_crit_edge:                           ; preds = %.thread78, %21
-  %.081 = phi i32 [ %27, %.thread78 ], [ 1, %21 ]
-  %.pre74 = sub nsw i32 %10, %.081
+.._crit_edge_crit_edge:                           ; preds = %.thread84, %21
+  %.087 = phi i32 [ %27, %.thread84 ], [ 1, %21 ]
+  %.pre74 = sub nsw i32 %10, %.087
   %.pre76 = sext i32 %.pre74 to i64
   br label %._crit_edge
 
@@ -77,7 +77,7 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge, label %.critedge.us, !llvm.loop !29
 
-.lr.ph.split:                                     ; preds = %.thread78
+.lr.ph.split:                                     ; preds = %.thread84
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %40 = sub nsw i32 %10, %27
   %41 = sext i32 %40 to i64
@@ -144,8 +144,8 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %68, label %.sink.split, label %73
 
 .sink.split:                                      ; preds = %.thread, %2
-  %.sink93 = phi i64 [ 616, %2 ], [ 608, %.thread ]
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink93
+  %.sink99 = phi i64 [ 616, %2 ], [ 608, %.thread ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink99
   %70 = load ptr, ptr %69, align 8, !tbaa !33
   %71 = tail call i64 @fwrite(ptr nonnull @.str, i64 46, i64 1, ptr %70)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 624

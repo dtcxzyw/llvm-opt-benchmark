@@ -274,9 +274,9 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
 56:                                               ; preds = %52
   %57 = add i64 %53, 9223372036854775801
   %58 = icmp ult i64 %57, -3
-  %switch8385 = icmp eq i64 %53, -9223372036854775803
-  %switch83 = or i1 %58, %switch8385
-  br i1 %switch83, label %59, label %60
+  %switch8587 = icmp eq i64 %53, -9223372036854775803
+  %switch85 = or i1 %58, %switch8587
+  br i1 %switch85, label %59, label %60
 
 59:                                               ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)

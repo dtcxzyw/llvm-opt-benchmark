@@ -1062,8 +1062,8 @@ define internal noundef zeroext i1 @df_func_max(ptr noundef readonly captures(no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph30.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
-  %.not36.i = icmp eq ptr %.3.i, null
-  br i1 %.not36.i, label %df_func_compare.exit, label %22
+  %.not38.i = icmp eq ptr %.3.i, null
+  br i1 %.not38.i, label %df_func_compare.exit, label %22
 
 22:                                               ; preds = %._crit_edge.i
   %23 = tail call ptr @fvalue_dup(ptr noundef nonnull %.3.i)
@@ -1171,8 +1171,8 @@ define internal noundef zeroext i1 @df_func_min(ptr noundef readonly captures(no
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph30.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
-  %.not36.i = icmp eq ptr %.3.i, null
-  br i1 %.not36.i, label %df_func_compare.exit, label %22
+  %.not38.i = icmp eq ptr %.3.i, null
+  br i1 %.not38.i, label %df_func_compare.exit, label %22
 
 22:                                               ; preds = %._crit_edge.i
   %23 = tail call ptr @fvalue_dup(ptr noundef nonnull %.3.i)

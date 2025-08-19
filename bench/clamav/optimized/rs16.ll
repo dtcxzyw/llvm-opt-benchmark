@@ -356,8 +356,8 @@ _ZN9RSCoder1617MakeDecoderMatrixEv.exit:          ; preds = %92, %52
   store ptr %101, ptr %44, align 8, !tbaa !19
   %.not.i34 = icmp eq i32 %97, 0
   %.not13.i = icmp eq i32 %51, 0
-  %or.cond65 = select i1 %.not.i34, i1 true, i1 %.not13.i
-  br i1 %or.cond65, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %.preheader.i35.preheader
+  %or.cond77 = select i1 %.not.i34, i1 true, i1 %.not13.i
+  br i1 %or.cond77, label %_ZN9RSCoder1617MakeEncoderMatrixEv.exit, label %.preheader.i35.preheader
 
 .preheader.i35.preheader:                         ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8

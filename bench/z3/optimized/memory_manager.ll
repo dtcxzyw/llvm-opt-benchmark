@@ -428,7 +428,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %0) local_unnamed_addr #3 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN6memory8allocateEm(i64 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @g_memory_thread_alloc_size)
   %3 = load i64, ptr %2, align 8, !tbaa !12
   %4 = add i64 %3, %0

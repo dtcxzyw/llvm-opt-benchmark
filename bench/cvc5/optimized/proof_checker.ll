@@ -1246,22 +1246,22 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit294: ; preds = %_ZN4cvc58internal1
   br i1 %exitcond.not, label %.critedge215, label %.lr.ph, !llvm.loop !63
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit256.sink.split: ; preds = %475, %331
-  %.sink576 = phi i32 [ %336, %331 ], [ %480, %475 ]
+  %.sink683 = phi i32 [ %336, %331 ], [ %480, %475 ]
   %.sink = phi i64 [ %333, %331 ], [ %477, %475 ]
-  %.sink571 = phi ptr [ %332, %331 ], [ %476, %475 ]
+  %.sink678 = phi ptr [ %332, %331 ], [ %476, %475 ]
   %.ph = phi ptr [ %309, %331 ], [ %463, %475 ]
-  %.ph570 = phi ptr [ %312, %331 ], [ %434, %475 ]
-  %568 = add nuw nsw i32 %.sink576, 1
+  %.ph677 = phi ptr [ %312, %331 ], [ %434, %475 ]
+  %568 = add nuw nsw i32 %.sink683, 1
   %569 = zext nneg i32 %568 to i64
   %570 = shl nuw nsw i64 %569, 40
   %571 = and i64 %.sink, -1152920405095219201
   %572 = or i64 %570, %571
-  store i64 %572, ptr %.sink571, align 8, !noalias !65
+  store i64 %572, ptr %.sink678, align 8, !noalias !65
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit256
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit256: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit256.sink.split, %482, %484, %338, %340
   %573 = phi ptr [ %463, %482 ], [ %463, %484 ], [ %309, %338 ], [ %309, %340 ], [ %.ph, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit256.sink.split ]
-  %574 = phi ptr [ %434, %482 ], [ %434, %484 ], [ %312, %338 ], [ %312, %340 ], [ %.ph570, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit256.sink.split ]
+  %574 = phi ptr [ %434, %482 ], [ %434, %484 ], [ %312, %338 ], [ %312, %340 ], [ %.ph677, %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit256.sink.split ]
   %575 = load i64, ptr %574, align 8
   %576 = and i64 %575, 1152920405095219200
   %.not.i.i295 = icmp eq i64 %576, 1152920405095219200

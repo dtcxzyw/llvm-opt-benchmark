@@ -3517,7 +3517,7 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %14, ptr noundef nonnull @.str.632)
-  switch i8 %0, label %.thread101 [
+  switch i8 %0, label %.thread106 [
     i8 0, label %.lr.ph.split.us
     i8 1, label %16
   ]
@@ -3527,10 +3527,10 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %.not85 = icmp eq i16 %2, 1
   br i1 %.not85, label %._crit_edge.thread, label %.lr.ph.split.split.us
 
-.thread101:                                       ; preds = %12
+.thread106:                                       ; preds = %12
   %18 = lshr i16 %2, 2
-  %.not85104 = icmp ult i16 %2, 4
-  br i1 %.not85104, label %._crit_edge.thread, label %.lr.ph.split.split
+  %.not85109 = icmp ult i16 %2, 4
+  br i1 %.not85109, label %._crit_edge.thread, label %.lr.ph.split.split
 
 .lr.ph.split.us:                                  ; preds = %12, %31
   %.169.us = phi i32 [ %24, %31 ], [ %1, %12 ]
@@ -3606,11 +3606,11 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %exitcond90.not = icmp eq i16 %46, %17
   br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !24
 
-.lr.ph.split.split:                               ; preds = %.thread101, %58
-  %.169 = phi i32 [ %51, %58 ], [ %1, %.thread101 ]
-  %.05668 = phi i32 [ %.157, %58 ], [ %1, %.thread101 ]
-  %.05867 = phi i16 [ %.159, %58 ], [ 0, %.thread101 ]
-  %.06066 = phi i16 [ %59, %58 ], [ 0, %.thread101 ]
+.lr.ph.split.split:                               ; preds = %.thread106, %58
+  %.169 = phi i32 [ %51, %58 ], [ %1, %.thread106 ]
+  %.05668 = phi i32 [ %.157, %58 ], [ %1, %.thread106 ]
+  %.05867 = phi i16 [ %.159, %58 ], [ 0, %.thread106 ]
+  %.06066 = phi i16 [ %59, %58 ], [ 0, %.thread106 ]
   %47 = tail call i64 @wmem_strbuf_get_len(ptr noundef %15)
   %.not64 = icmp eq i64 %47, 0
   br i1 %.not64, label %49, label %48
@@ -3655,7 +3655,7 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %64 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %5, i32 noundef %61, ptr noundef %3, i32 noundef %1, i32 noundef %62, ptr noundef null, ptr noundef nonnull @.str.621, ptr noundef %63)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.thread101, %16, %._crit_edge, %60, %8
+._crit_edge.thread:                               ; preds = %.thread106, %16, %._crit_edge, %60, %8
   ret void
 }
 

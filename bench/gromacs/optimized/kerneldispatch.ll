@@ -285,13 +285,13 @@ define noundef range(i32 0, 7) i32 @_ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTy
 .thread62:                                        ; preds = %32
   %39 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split78
+  br label %.sink.split82
 
 .thread67:                                        ; preds = %35
   %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #17
-  br label %.sink.split78
+  br label %.sink.split82
 
 41:                                               ; preds = %36, %38
   %.015 = phi i1 [ false, %38 ], [ true, %36 ]
@@ -304,13 +304,13 @@ define noundef range(i32 0, 7) i32 @_ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTy
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.015, label %43, label %44
 
-.sink.split78:                                    ; preds = %.thread62, %.thread67
+.sink.split82:                                    ; preds = %.thread62, %.thread67
   %.pn38.pn66.ph = phi { ptr, i32 } [ %40, %.thread67 ], [ %39, %.thread62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %43
 
-43:                                               ; preds = %.sink.split78, %41
-  %.pn38.pn66 = phi { ptr, i32 } [ %42, %41 ], [ %.pn38.pn66.ph, %.sink.split78 ]
+43:                                               ; preds = %.sink.split82, %41
+  %.pn38.pn66 = phi { ptr, i32 } [ %42, %41 ], [ %.pn38.pn66.ph, %.sink.split82 ]
   call void @__cxa_free_exception(ptr %34) #17
   br label %44
 
@@ -383,13 +383,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .thread70:                                        ; preds = %58
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split79
+  br label %.sink.split83
 
 .thread75:                                        ; preds = %61
   %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #17
-  br label %.sink.split79
+  br label %.sink.split83
 
 67:                                               ; preds = %62, %64
   %.0 = phi i1 [ false, %64 ], [ true, %62 ]
@@ -402,13 +402,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0, label %69, label %70
 
-.sink.split79:                                    ; preds = %.thread70, %.thread75
+.sink.split83:                                    ; preds = %.thread70, %.thread75
   %.pn.pn74.ph = phi { ptr, i32 } [ %66, %.thread75 ], [ %65, %.thread70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %69
 
-69:                                               ; preds = %.sink.split79, %67
-  %.pn.pn74 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn74.ph, %.sink.split79 ]
+69:                                               ; preds = %.sink.split83, %67
+  %.pn.pn74 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn74.ph, %.sink.split83 ]
   call void @__cxa_free_exception(ptr %60) #17
   br label %70
 
@@ -1198,7 +1198,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 
 53:                                               ; preds = %47
   %54 = load i32, ptr %7, align 4, !tbaa !48
-  switch i32 %54, label %.invoke108 [
+  switch i32 %54, label %.invoke111 [
     i32 1, label %55
     i32 3, label %65
     i32 2, label %72
@@ -1249,12 +1249,12 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %85 = getelementptr inbounds [7 x ptr], ptr %82, i64 0, i64 %84
   br label %.invoke
 
-.invoke108:                                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92, %107, %53
+.invoke111:                                       ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92, %107, %53
   %86 = phi i32 [ 280, %53 ], [ 315, %107 ], [ 358, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92 ]
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycleENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef %86) #22
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke108
+.cont:                                            ; preds = %.invoke111
   unreachable
 
 87:                                               ; preds = %47
@@ -1291,7 +1291,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 
 107:                                              ; preds = %104, %99
   %108 = load i32, ptr %7, align 4, !tbaa !48
-  switch i32 %108, label %.invoke108 [
+  switch i32 %108, label %.invoke111 [
     i32 1, label %109
     i32 3, label %119
     i32 2, label %126
@@ -1305,11 +1305,11 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %113 = load i32, ptr %9, align 4, !tbaa !11
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds [7 x ptr], ptr %112, i64 0, i64 %114
-  br label %.invoke106
+  br label %.invoke109
 
-.invoke106:                                       ; preds = %133, %126, %119, %109
-  %.in110 = phi ptr [ %115, %109 ], [ %125, %119 ], [ %132, %126 ], [ %139, %133 ]
-  %116 = load ptr, ptr %.in110, align 8, !tbaa !195
+.invoke109:                                       ; preds = %133, %126, %119, %109
+  %.in113 = phi ptr [ %115, %109 ], [ %125, %119 ], [ %132, %126 ], [ %139, %133 ]
+  %116 = load ptr, ptr %.in113, align 8, !tbaa !195
   %117 = load ptr, ptr %3, align 8, !tbaa !52
   %118 = load ptr, ptr %11, align 8, !tbaa !161
   invoke void %116(ptr noundef nonnull %50, ptr noundef %117, ptr noundef nonnull %10, ptr noundef %118, ptr noundef nonnull %39)
@@ -1322,7 +1322,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %123 = load i32, ptr %9, align 4, !tbaa !11
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds [6 x ptr], ptr %122, i64 0, i64 %124
-  br label %.invoke106
+  br label %.invoke109
 
 126:                                              ; preds = %107
   %127 = load i32, ptr %8, align 4, !tbaa !11
@@ -1331,7 +1331,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %130 = load i32, ptr %9, align 4, !tbaa !11
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds [6 x ptr], ptr %129, i64 0, i64 %131
-  br label %.invoke106
+  br label %.invoke109
 
 133:                                              ; preds = %107
   %134 = load i32, ptr %8, align 4, !tbaa !11
@@ -1340,9 +1340,9 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %137 = load i32, ptr %9, align 4, !tbaa !11
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds [7 x ptr], ptr %136, i64 0, i64 %138
-  br label %.invoke106
+  br label %.invoke109
 
-140:                                              ; preds = %.invoke106
+140:                                              ; preds = %.invoke109
   %141 = load i8, ptr %12, align 1, !tbaa !156, !range !164, !noundef !165
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %232
@@ -1409,7 +1409,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92: ; preds = %.lr.ph.i.i.i.i89.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit, %161
   %180 = load i32, ptr %7, align 4, !tbaa !48
-  switch i32 %180, label %.invoke108 [
+  switch i32 %180, label %.invoke111 [
     i32 1, label %181
     i32 3, label %191
     i32 2, label %198
@@ -1423,11 +1423,11 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
   %185 = load i32, ptr %9, align 4, !tbaa !11
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds [7 x ptr], ptr %184, i64 0, i64 %186
-  br label %.invoke107
+  br label %.invoke110
 
-.invoke107:                                       ; preds = %205, %198, %191, %181
-  %.in109 = phi ptr [ %187, %181 ], [ %197, %191 ], [ %204, %198 ], [ %211, %205 ]
-  %188 = load ptr, ptr %.in109, align 8, !tbaa !195
+.invoke110:                                       ; preds = %205, %198, %191, %181
+  %.in112 = phi ptr [ %187, %181 ], [ %197, %191 ], [ %204, %198 ], [ %211, %205 ]
+  %188 = load ptr, ptr %.in112, align 8, !tbaa !195
   %189 = load ptr, ptr %3, align 8, !tbaa !52
   %190 = load ptr, ptr %11, align 8, !tbaa !161
   invoke void %188(ptr noundef nonnull %50, ptr noundef %189, ptr noundef nonnull %10, ptr noundef %190, ptr noundef nonnull %39)
@@ -1440,7 +1440,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
   %195 = load i32, ptr %9, align 4, !tbaa !11
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds [6 x ptr], ptr %194, i64 0, i64 %196
-  br label %.invoke107
+  br label %.invoke110
 
 198:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
   %199 = load i32, ptr %8, align 4, !tbaa !11
@@ -1449,7 +1449,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
   %202 = load i32, ptr %9, align 4, !tbaa !11
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds [6 x ptr], ptr %201, i64 0, i64 %203
-  br label %.invoke107
+  br label %.invoke110
 
 205:                                              ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
   %206 = load i32, ptr %8, align 4, !tbaa !11
@@ -1458,9 +1458,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
   %209 = load i32, ptr %9, align 4, !tbaa !11
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds [7 x ptr], ptr %208, i64 0, i64 %210
-  br label %.invoke107
+  br label %.invoke110
 
-212:                                              ; preds = %.invoke107
+212:                                              ; preds = %.invoke110
   %213 = load i8, ptr %12, align 1, !tbaa !156, !range !164, !noundef !165
   %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %215, label %232
@@ -1502,12 +1502,12 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
 235:                                              ; preds = %._crit_edge, %14
   ret void
 
-.loopexit:                                        ; preds = %.invoke107, %.invoke106, %.invoke, %42, %44, %143, %161, %215
+.loopexit:                                        ; preds = %.invoke110, %.invoke109, %.invoke, %42, %44, %143, %161, %215
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %236
 
-.loopexit.split-lp:                               ; preds = %.invoke108
+.loopexit.split-lp:                               ; preds = %.invoke111
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
   br label %236

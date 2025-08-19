@@ -1028,7 +1028,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %7
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %SDL_GetTextMimeTypes.exit.thread, %SDL_GetTextMimeTypes.exit
-  %.0.i24 = phi ptr [ @SDL_GetTextMimeTypes.text_mime_types, %SDL_GetTextMimeTypes.exit.thread ], [ %10, %SDL_GetTextMimeTypes.exit ]
+  %.0.i28 = phi ptr [ @SDL_GetTextMimeTypes.text_mime_types, %SDL_GetTextMimeTypes.exit.thread ], [ %10, %SDL_GetTextMimeTypes.exit ]
   br label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
@@ -1039,7 +1039,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %.01318 = phi i64 [ %13, %12 ], [ 0, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.0.i24, i64 %.01318
+  %16 = getelementptr inbounds nuw ptr, ptr %.0.i28, i64 %.01318
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @SDL_GetClipboardData_REAL(ptr noundef %17, ptr noundef nonnull %2)
   %.not16 = icmp eq ptr %18, null
@@ -1085,7 +1085,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %5
   br i1 %9, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %SDL_GetTextMimeTypes.exit.thread, %SDL_GetTextMimeTypes.exit
-  %.0.i14 = phi ptr [ @SDL_GetTextMimeTypes.text_mime_types, %SDL_GetTextMimeTypes.exit.thread ], [ %8, %SDL_GetTextMimeTypes.exit ]
+  %.0.i17 = phi ptr [ @SDL_GetTextMimeTypes.text_mime_types, %SDL_GetTextMimeTypes.exit.thread ], [ %8, %SDL_GetTextMimeTypes.exit ]
   br label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
@@ -1096,7 +1096,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %.068 = phi i64 [ %11, %10 ], [ 0, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.0.i14, i64 %.068
+  %14 = getelementptr inbounds nuw ptr, ptr %.0.i17, i64 %.068
   %15 = load ptr, ptr %14, align 8
   %16 = call zeroext i1 @SDL_HasClipboardData_REAL(ptr noundef %15)
   br i1 %16, label %.loopexit, label %10

@@ -3550,18 +3550,18 @@ get_tx_pdu_length.exit.i:                         ; preds = %switch.lookup, %94
   %.not.i = icmp eq i32 %136, 0
   %137 = zext i1 %.not.i to i64
   %138 = tail call ptr @proto_tree_add_boolean(ptr noundef %119, i32 noundef %133, ptr noundef %0, i32 noundef %111, i32 noundef 4, i64 noundef %137)
-  %switch.tableidx70 = add nsw i32 %129, -1
-  %139 = icmp ult i32 %switch.tableidx70, 15
-  br i1 %139, label %switch.lookup69, label %get_rx_pdu_length.exit.i
+  %switch.tableidx71 = add nsw i32 %129, -1
+  %139 = icmp ult i32 %switch.tableidx71, 15
+  br i1 %139, label %switch.lookup70, label %get_rx_pdu_length.exit.i
 
-switch.lookup69:                                  ; preds = %123
-  %140 = zext nneg i32 %switch.tableidx70 to i64
-  %switch.gep71 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.dissect_tetra.15, i64 0, i64 %140
-  %switch.load72 = load i32, ptr %switch.gep71, align 4
+switch.lookup70:                                  ; preds = %123
+  %140 = zext nneg i32 %switch.tableidx71 to i64
+  %switch.gep72 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.dissect_tetra.15, i64 0, i64 %140
+  %switch.load73 = load i32, ptr %switch.gep72, align 4
   br label %get_rx_pdu_length.exit.i
 
-get_rx_pdu_length.exit.i:                         ; preds = %123, %switch.lookup69
-  %.0.i.i62 = phi i32 [ %switch.load72, %switch.lookup69 ], [ 0, %123 ]
+get_rx_pdu_length.exit.i:                         ; preds = %123, %switch.lookup70
+  %.0.i.i62 = phi i32 [ %switch.load73, %switch.lookup70 ], [ 0, %123 ]
   %141 = and i32 %.0.i.i62, 7
   %.not56.not.i = icmp ne i32 %141, 0
   %142 = add nuw nsw i32 %.0.i.i62, 7

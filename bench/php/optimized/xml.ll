@@ -2050,18 +2050,18 @@ zend_string_alloc.exit:                           ; preds = %37, %30
 .lr.ph:                                           ; preds = %zend_string_alloc.exit
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %61 = load ptr, ptr %2, align 8, !tbaa !83
-  %.not105161 = icmp eq ptr %61, null
-  br i1 %.not105161, label %.critedge, label %.lr.ph163
+  %.not105168 = icmp eq ptr %61, null
+  br i1 %.not105168, label %.critedge, label %.lr.ph170
 
-.lr.ph163:                                        ; preds = %.lr.ph, %zend_string_release_ex.exit
+.lr.ph170:                                        ; preds = %.lr.ph, %zend_string_release_ex.exit
   %62 = phi ptr [ %111, %zend_string_release_ex.exit ], [ %61, %.lr.ph ]
-  %.0152162 = phi ptr [ %101, %zend_string_release_ex.exit ], [ %2, %.lr.ph ]
+  %.0152169 = phi ptr [ %101, %zend_string_release_ex.exit ], [ %2, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %63 = load i8, ptr %62, align 1, !tbaa !28
   %.not4.i.i130 = icmp eq i8 %63, 0
   br i1 %.not4.i.i130, label %xml_xmlcharlen.exit.i135, label %.lr.ph.preheader.i.i131
 
-.lr.ph.preheader.i.i131:                          ; preds = %.lr.ph163
+.lr.ph.preheader.i.i131:                          ; preds = %.lr.ph170
   %scevgep.i.i132 = getelementptr i8, ptr %62, i64 1
   %strlen.i.i133 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i.i132)
   %64 = shl i64 %strlen.i.i133, 32
@@ -2069,8 +2069,8 @@ zend_string_alloc.exit:                           ; preds = %37, %30
   %65 = ashr exact i64 %sext.i134, 32
   br label %xml_xmlcharlen.exit.i135
 
-xml_xmlcharlen.exit.i135:                         ; preds = %.lr.ph.preheader.i.i131, %.lr.ph163
-  %.0.lcssa.i.i136 = phi i64 [ 0, %.lr.ph163 ], [ %65, %.lr.ph.preheader.i.i131 ]
+xml_xmlcharlen.exit.i135:                         ; preds = %.lr.ph.preheader.i.i131, %.lr.ph170
+  %.0.lcssa.i.i136 = phi i64 [ 0, %.lr.ph170 ], [ %65, %.lr.ph.preheader.i.i131 ]
   %66 = load ptr, ptr %18, align 8, !tbaa !105
   %67 = call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %62, i64 noundef %.0.lcssa.i.i136, ptr noundef %66)
   %68 = load i8, ptr %21, align 4, !tbaa !106, !range !107, !noundef !54
@@ -2085,7 +2085,7 @@ xml_xmlcharlen.exit.i135:                         ; preds = %.lr.ph.preheader.i.
   br label %xml_decode_tag.exit137
 
 xml_decode_tag.exit137:                           ; preds = %xml_xmlcharlen.exit.i135, %70
-  %74 = getelementptr inbounds nuw i8, ptr %.0152162, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0152169, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !83
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #19
   %77 = load ptr, ptr %18, align 8, !tbaa !105
@@ -2136,7 +2136,7 @@ _zend_handle_numeric_str.exit127.thread:          ; preds = %92, %91, %xml_decod
 
 zend_symtable_update.exit:                        ; preds = %97, %_zend_handle_numeric_str.exit127.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %101 = getelementptr inbounds nuw i8, ptr %.0152162, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.0152169, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !28
   %104 = and i32 %103, 64
@@ -2160,7 +2160,7 @@ zend_string_release_ex.exit:                      ; preds = %zend_symtable_updat
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %111 = load ptr, ptr %101, align 8, !tbaa !83
   %.not105 = icmp eq ptr %111, null
-  br i1 %.not105, label %.critedge, label %.lr.ph163
+  br i1 %.not105, label %.critedge, label %.lr.ph170
 
 .critedge:                                        ; preds = %zend_string_release_ex.exit, %.lr.ph, %zend_string_alloc.exit
   %112 = load ptr, ptr %28, align 8, !tbaa !111
@@ -2259,18 +2259,18 @@ zend_call_known_fcc.exit:                         ; preds = %124, %116, %.crited
 .lr.ph157:                                        ; preds = %141
   %165 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %166 = load ptr, ptr %2, align 8, !tbaa !83
-  %.not107164 = icmp eq ptr %166, null
-  br i1 %.not107164, label %.critedge3.thread, label %.lr.ph167
+  %.not107171 = icmp eq ptr %166, null
+  br i1 %.not107171, label %.critedge3.thread, label %.lr.ph174
 
-.lr.ph167:                                        ; preds = %.lr.ph157, %zend_string_release_ex.exit117
+.lr.ph174:                                        ; preds = %.lr.ph157, %zend_string_release_ex.exit117
   %167 = phi ptr [ %215, %zend_string_release_ex.exit117 ], [ %166, %.lr.ph157 ]
-  %.1156165 = phi ptr [ %205, %zend_string_release_ex.exit117 ], [ %2, %.lr.ph157 ]
+  %.1156172 = phi ptr [ %205, %zend_string_release_ex.exit117 ], [ %2, %.lr.ph157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %168 = load i8, ptr %167, align 1, !tbaa !28
   %.not4.i.i138 = icmp eq i8 %168, 0
   br i1 %.not4.i.i138, label %xml_xmlcharlen.exit.i143, label %.lr.ph.preheader.i.i139
 
-.lr.ph.preheader.i.i139:                          ; preds = %.lr.ph167
+.lr.ph.preheader.i.i139:                          ; preds = %.lr.ph174
   %scevgep.i.i140 = getelementptr i8, ptr %167, i64 1
   %strlen.i.i141 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i.i140)
   %169 = shl i64 %strlen.i.i141, 32
@@ -2278,8 +2278,8 @@ zend_call_known_fcc.exit:                         ; preds = %124, %116, %.crited
   %170 = ashr exact i64 %sext.i142, 32
   br label %xml_xmlcharlen.exit.i143
 
-xml_xmlcharlen.exit.i143:                         ; preds = %.lr.ph.preheader.i.i139, %.lr.ph167
-  %.0.lcssa.i.i144 = phi i64 [ 0, %.lr.ph167 ], [ %170, %.lr.ph.preheader.i.i139 ]
+xml_xmlcharlen.exit.i143:                         ; preds = %.lr.ph.preheader.i.i139, %.lr.ph174
+  %.0.lcssa.i.i144 = phi i64 [ 0, %.lr.ph174 ], [ %170, %.lr.ph.preheader.i.i139 ]
   %171 = load ptr, ptr %18, align 8, !tbaa !105
   %172 = call fastcc ptr @xml_utf8_decode(ptr noundef nonnull %167, i64 noundef %.0.lcssa.i.i144, ptr noundef %171)
   %173 = load i8, ptr %21, align 4, !tbaa !106, !range !107, !noundef !54
@@ -2294,7 +2294,7 @@ xml_xmlcharlen.exit.i143:                         ; preds = %.lr.ph.preheader.i.
   br label %xml_decode_tag.exit145
 
 xml_decode_tag.exit145:                           ; preds = %xml_xmlcharlen.exit.i143, %175
-  %179 = getelementptr inbounds nuw i8, ptr %.1156165, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.1156172, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !83
   %181 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %180) #19
   %182 = load ptr, ptr %18, align 8, !tbaa !105
@@ -2344,7 +2344,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %196, %195, %xml_dec
 
 zend_symtable_update.exit115:                     ; preds = %201, %_zend_handle_numeric_str.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %205 = getelementptr inbounds nuw i8, ptr %.1156165, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %.1156172, i64 16
   %206 = getelementptr inbounds nuw i8, ptr %172, i64 4
   %207 = load i32, ptr %206, align 4, !tbaa !28
   %208 = and i32 %207, 64
@@ -2368,7 +2368,7 @@ zend_string_release_ex.exit117:                   ; preds = %zend_symtable_updat
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %215 = load ptr, ptr %205, align 8, !tbaa !83
   %.not107 = icmp eq ptr %215, null
-  br i1 %.not107, label %.critedge3, label %.lr.ph167
+  br i1 %.not107, label %.critedge3, label %.lr.ph174
 
 .critedge3:                                       ; preds = %zend_string_release_ex.exit117
   %216 = load ptr, ptr %8, align 8, !tbaa !28

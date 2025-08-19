@@ -241,12 +241,12 @@ sub_1.i:                                          ; preds = %11
   %16 = load i8, ptr %15, align 1
   %.fr.i = freeze i8 %16
   %17 = icmp ne i8 %.fr.i, 120
-  %spec.select69.i = select i1 %17, i64 0, i64 3
+  %spec.select74.i = select i1 %17, i64 0, i64 3
   br label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_1.i, %11
   %spec.select61.i = phi i1 [ true, %11 ], [ true, %sub_1.i ], [ %17, %.tail.i ]
-  %18 = phi i64 [ 0, %11 ], [ 0, %sub_1.i ], [ %spec.select69.i, %.tail.i ]
+  %18 = phi i64 [ 0, %11 ], [ 0, %sub_1.i ], [ %spec.select74.i, %.tail.i ]
   %spec.select.i = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %19 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull %spec.select.i) #7
   %.not.i = icmp eq ptr %5, null

@@ -988,7 +988,7 @@ _ZNSt10unique_ptrIN4llvm2gi25CodeGenInstructionPatternESt14default_deleteIS2_EED
   %172 = icmp ne i8 %171, 5
   %.not1418.i108 = icmp eq ptr %169, null
   %.not14.i109 = or i1 %.not1418.i108, %172
-  br i1 %.not14.i109, label %.thread202, label %173
+  br i1 %.not14.i109, label %.thread218, label %173
 
 173:                                              ; preds = %.thread
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 24
@@ -1036,9 +1036,9 @@ _ZN4llvm28getDagWithOperatorOfSubClassERKNS_4InitENS_9StringRefE.exit111: ; pred
 192:                                              ; preds = %173
   %.pr169.pre = load i8, ptr %6, align 8, !tbaa !106
   %193 = icmp eq i8 %.pr169.pre, 4
-  br i1 %193, label %.thread202, label %.thread175
+  br i1 %193, label %.thread218, label %.thread175
 
-.thread202:                                       ; preds = %.thread, %192
+.thread218:                                       ; preds = %.thread, %192
   %194 = load ptr, ptr %10, align 8, !tbaa !118
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load i8, ptr %195, align 8, !tbaa !106
@@ -1047,13 +1047,13 @@ _ZN4llvm28getDagWithOperatorOfSubClassERKNS_4InitENS_9StringRefE.exit111: ; pred
   %.not14.i121 = or i1 %.not1418.i120, %197
   br i1 %.not14.i121, label %.thread175, label %198
 
-198:                                              ; preds = %.thread202
+198:                                              ; preds = %.thread218
   %199 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %200 = load ptr, ptr %199, align 8, !tbaa !119
   %201 = tail call noundef zeroext i1 @_ZNK4llvm6Record12isSubClassOfENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %200, ptr nonnull @.str.51, i64 13)
   br i1 %201, label %202, label %.thread175
 
-.thread175:                                       ; preds = %192, %167, %.critedge.i, %198, %.thread202
+.thread175:                                       ; preds = %192, %167, %.critedge.i, %198, %.thread218
   store ptr null, ptr %0, align 8, !tbaa !116
   br label %_ZNSt10unique_ptrIN4llvm2gi18InstructionPatternESt14default_deleteIS2_EED2Ev.exit
 

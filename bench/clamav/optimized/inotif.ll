@@ -1513,10 +1513,10 @@ onas_ddd_grow_wdlt.exit:                          ; preds = %.onas_ddd_grow_wdlt
   br label %.thread
 
 50:                                               ; preds = %42, %onas_ddd_grow_wdlt.exit
-  %.sink77 = phi i32 [ 2, %onas_ddd_grow_wdlt.exit ], [ 1, %42 ]
+  %.sink82 = phi i32 [ 2, %onas_ddd_grow_wdlt.exit ], [ 1, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %14, i64 52
   %52 = load i32, ptr %51, align 4, !tbaa !51
-  %53 = or i32 %52, %.sink77
+  %53 = or i32 %52, %.sink82
   store i32 %53, ptr %51, align 4, !tbaa !51
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !52

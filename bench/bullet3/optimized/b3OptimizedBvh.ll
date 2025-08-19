@@ -799,8 +799,8 @@ define dso_local void @_ZN14b3OptimizedBvh14updateBvhNodesEP23b3StridingMeshInte
   %.sroa.425.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %92, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.us, ptr %.sroa.425.0..sroa_idx.us, align 8, !tbaa !44
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, -1
-  %.not161 = icmp eq i64 %indvars.iv154, 0
-  br i1 %.not161, label %_Z8b3SetMinIfEvRT_RKS0_.exit.i, label %68, !llvm.loop !71
+  %.not165 = icmp eq i64 %indvars.iv154, 0
+  br i1 %.not165, label %_Z8b3SetMinIfEvRT_RKS0_.exit.i, label %68, !llvm.loop !71
 
 .split:                                           ; preds = %54
   %93 = fpext float %65 to double
@@ -959,8 +959,8 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %181, %80
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %196, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i106, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !44
   %indvars.iv.next152 = add nsw i64 %indvars.iv151, -1
-  %.not160 = icmp eq i64 %indvars.iv151, 0
-  br i1 %.not160, label %_Z8b3SetMinIfEvRT_RKS0_.exit.i, label %169, !llvm.loop !71
+  %.not164 = icmp eq i64 %indvars.iv151, 0
+  br i1 %.not164, label %_Z8b3SetMinIfEvRT_RKS0_.exit.i, label %169, !llvm.loop !71
 
 197:                                              ; preds = %35
   %198 = getelementptr %struct.b3QuantizedBvhNode, ptr %36, i64 %indvars.iv157

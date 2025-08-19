@@ -165,9 +165,9 @@ define range(i32 -806, 805) i32 @SUNLinSolSetup_PCG(ptr noundef readonly capture
   br label %13
 
 13:                                               ; preds = %2, %6, %10
-  %.sink15 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
+  %.sink17 = phi ptr [ %.pre, %10 ], [ %.pre, %6 ], [ %3, %2 ]
   %.sink = phi i32 [ %12, %10 ], [ 0, %6 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sink17, i64 24
   store i32 %.sink, ptr %14, align 8, !tbaa !27
   ret i32 %.sink
 }
@@ -290,25 +290,25 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %29, align 4, !tbaa !45
   %64 = tail call i32 %23(ptr noundef %19, ptr noundef %11, ptr noundef %15) #11
-  %.not165201 = icmp eq i32 %64, 0
-  br i1 %.not165201, label %.lr.ph204, label %._crit_edge205
+  %.not165213 = icmp eq i32 %64, 0
+  br i1 %.not165213, label %.lr.ph216, label %._crit_edge217
 
-._crit_edge205:                                   ; preds = %95, %.lr.ph
+._crit_edge217:                                   ; preds = %95, %.lr.ph
   %.lcssa = phi i32 [ %64, %.lr.ph ], [ %101, %95 ]
   store i32 0, ptr %28, align 4, !tbaa !45
   %65 = icmp slt i32 %.lcssa, 0
   %66 = select i1 %65, i32 -805, i32 803
   br label %104
 
-.lr.ph204:                                        ; preds = %.lr.ph, %95
-  %.0147173203 = phi i32 [ %98, %95 ], [ 0, %.lr.ph ]
-  %.0145174202 = phi double [ %96, %95 ], [ %59, %.lr.ph ]
+.lr.ph216:                                        ; preds = %.lr.ph, %95
+  %.0147173215 = phi i32 [ %98, %95 ], [ 0, %.lr.ph ]
+  %.0145174214 = phi double [ %96, %95 ], [ %59, %.lr.ph ]
   %67 = tail call double @N_VDotProd(ptr noundef %15, ptr noundef %11) #11
-  %68 = fdiv double %.0145174202, %67
-  %69 = icmp eq i32 %.0147173203, 0
+  %68 = fdiv double %.0145174214, %67
+  %69 = icmp eq i32 %.0147173215, 0
   br i1 %69, label %70, label %73
 
-70:                                               ; preds = %.lr.ph204
+70:                                               ; preds = %.lr.ph216
   %71 = load i32, ptr %28, align 4, !tbaa !45
   %.not166 = icmp eq i32 %71, 0
   br i1 %.not166, label %73, label %72
@@ -317,7 +317,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   tail call void @N_VScale(double noundef %68, ptr noundef %11, ptr noundef %2) #11
   br label %74
 
-73:                                               ; preds = %70, %.lr.ph204
+73:                                               ; preds = %70, %.lr.ph216
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef %68, ptr noundef %11, ptr noundef %2) #11
   br label %74
 
@@ -350,7 +350,7 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
   br i1 %85, label %86, label %.critedge
 
 86:                                               ; preds = %83
-  %87 = icmp eq i32 %.0147173203, %61
+  %87 = icmp eq i32 %.0147173215, %61
   br i1 %87, label %._crit_edge, label %88
 
 88:                                               ; preds = %86
@@ -373,15 +373,15 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
 
 95:                                               ; preds = %89, %94
   %96 = tail call double @N_VDotProd(ptr noundef %9, ptr noundef %13) #11
-  %97 = fdiv double %96, %.0145174202
+  %97 = fdiv double %96, %.0145174214
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %13, double noundef %97, ptr noundef %11, ptr noundef %11) #11
-  %98 = add nuw nsw i32 %.0147173203, 1
+  %98 = add nuw nsw i32 %.0147173215, 1
   %99 = load i32, ptr %29, align 4, !tbaa !45
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %29, align 4, !tbaa !45
   %101 = tail call i32 %23(ptr noundef %19, ptr noundef %11, ptr noundef %15) #11
   %.not165 = icmp eq i32 %101, 0
-  br i1 %.not165, label %.lr.ph204, label %._crit_edge205
+  br i1 %.not165, label %.lr.ph216, label %._crit_edge217
 
 ._crit_edge:                                      ; preds = %86
   store i32 0, ptr %28, align 4, !tbaa !45
@@ -395,8 +395,8 @@ define range(i32 -808, 806) i32 @SUNLinSolSolve_PCG(ptr noundef readonly capture
 103:                                              ; preds = %._crit_edge.thread, %._crit_edge
   br label %104
 
-104:                                              ; preds = %._crit_edge, %.critedge, %103, %91, %._crit_edge205, %54, %50, %35
-  %.sink = phi i32 [ 0, %.critedge ], [ 802, %103 ], [ %93, %91 ], [ %66, %._crit_edge205 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 801, %._crit_edge ]
+104:                                              ; preds = %._crit_edge, %.critedge, %103, %91, %._crit_edge217, %54, %50, %35
+  %.sink = phi i32 [ 0, %.critedge ], [ 802, %103 ], [ %93, %91 ], [ %66, %._crit_edge217 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 801, %._crit_edge ]
   %105 = load ptr, ptr %0, align 8, !tbaa !26
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store i32 %.sink, ptr %106, align 8, !tbaa !27

@@ -1543,8 +1543,8 @@ zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %509
   br i1 %.not16.i, label %zend_bitset_empty.exit, label %513
 
 513:                                              ; preds = %509
-  %514 = trunc i64 %510 to i32
-  %515 = shl i32 %514, 6
+  %514 = trunc nuw nsw i64 %510 to i32
+  %515 = shl nuw i32 %514, 6
   %516 = add i32 %515, -1
   br label %517
 

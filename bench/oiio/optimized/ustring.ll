@@ -253,9 +253,9 @@ common.resume:                                    ; preds = %_ZN11OpenImageIO6v3
 _ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit: ; preds = %1, %9, %12
   %15 = load ptr, ptr %0, align 8, !tbaa !23
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.thread203, label %17
+  br i1 %.not, label %.thread223, label %17
 
-.thread203:                                       ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit
+.thread223:                                       ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit
   store ptr @.str, ptr %0, align 8, !tbaa !26
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !27
@@ -277,11 +277,11 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit: ; preds = %1, %9, %
   %.pre200 = load i64, ptr %18, align 8, !tbaa !20
   br label %_ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit
 
-_ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %.thread203, %17, %19
-  %21 = phi ptr [ %18, %19 ], [ %18, %17 ], [ %16, %.thread203 ]
-  %22 = phi i64 [ %.pre200, %19 ], [ 0, %17 ], [ 0, %.thread203 ]
-  %23 = phi ptr [ %.pre199, %19 ], [ %15, %17 ], [ @.str, %.thread203 ]
-  %24 = phi i64 [ %20, %19 ], [ 0, %17 ], [ 0, %.thread203 ]
+_ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %.thread223, %17, %19
+  %21 = phi ptr [ %18, %19 ], [ %18, %17 ], [ %16, %.thread223 ]
+  %22 = phi i64 [ %.pre200, %19 ], [ 0, %17 ], [ 0, %.thread223 ]
+  %23 = phi ptr [ %.pre199, %19 ], [ %15, %17 ], [ @.str, %.thread223 ]
+  %24 = phi i64 [ %20, %19 ], [ 0, %17 ], [ 0, %.thread223 ]
   store i64 %24, ptr %5, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -321,13 +321,13 @@ _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_trai
   %40 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !19
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit242, label %43
+  br i1 %42, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit262, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   %45 = load i8, ptr %44, align 1, !tbaa !19
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit240, label %47
+  br i1 %46, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit260, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
@@ -380,16 +380,16 @@ _ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9tr
   %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   br label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i
 
-_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit240: ; preds = %43
+_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit260: ; preds = %43
   %70 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   br label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i
 
-_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit242: ; preds = %39
+_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit262: ; preds = %39
   %71 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   br label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i
 
-_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit240, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit242, %66, %61, %56
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %56 ], [ %.1.i.i.i.i, %61 ], [ %.2.i.i.i.i, %66 ], [ %69, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit ], [ %70, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit240 ], [ %71, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit242 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit260, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit262, %66, %61, %56
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %56 ], [ %.1.i.i.i.i, %61 ], [ %.2.i.i.i.i, %66 ], [ %69, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit ], [ %70, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit260 ], [ %71, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit262 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i ]
   %72 = icmp eq ptr %.028.i.i.i.i, %32
   br i1 %72, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
 

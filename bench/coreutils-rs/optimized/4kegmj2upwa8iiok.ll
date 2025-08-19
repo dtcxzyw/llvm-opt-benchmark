@@ -325,7 +325,7 @@ _ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.i: ; preds = %19
 
 24:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.i, %_ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.thread.i
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3c18d49338c5695cE.llvm.12123109310310187846"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hdac4e40d8f60a78fE.exit.thread48 unwind label %25, !noalias !64
+          to label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hdac4e40d8f60a78fE.exit.thread50 unwind label %25, !noalias !64
 
 25:                                               ; preds = %24
   %26 = landingpad { ptr, i32 }
@@ -334,7 +334,7 @@ _ZN4core3ops8function6FnOnce9call_once17h68b199e59bba1b40E.exit.i: ; preds = %19
   invoke fastcc void @"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E"(ptr noalias noundef align 8 dereferenceable(64) %9) #11
           to label %common.resume unwind label %27, !noalias !64
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17hdac4e40d8f60a78fE.exit.thread48: ; preds = %24
+_ZN4core4iter8adapters7flatten17and_then_or_clear17hdac4e40d8f60a78fE.exit.thread50: ; preds = %24
   store ptr null, ptr %1, align 8, !alias.scope !61, !noalias !64
   br label %"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E.exit"
 
@@ -356,7 +356,7 @@ common.resume:                                    ; preds = %68, %.body.i.i, %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %30, i64 56, i1 false)
   br label %54
 
-"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E.exit": ; preds = %2, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hdac4e40d8f60a78fE.exit.thread48
+"_ZN4core3ptr64drop_in_place$LT$core..option..Option$LT$uu_pr..FileLine$GT$$GT$17h69647556b133fe67E.exit": ; preds = %2, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hdac4e40d8f60a78fE.exit.thread50
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !66
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
@@ -1097,9 +1097,9 @@ define hidden void @_ZN9itertools11kmerge_impl9kmerge_by17hc0d6ac46f6c4e8cbE(ptr
 .lr.ph.i:                                         ; preds = %_ZN9itertools11kmerge_impl9sift_down17hee2b94fda18d1b35E.exit.i, %.lr.ph.preheader.i
   %.sroa.4.024.i = phi i64 [ %20, %_ZN9itertools11kmerge_impl9sift_down17hee2b94fda18d1b35E.exit.i ], [ %19, %.lr.ph.preheader.i ]
   %20 = add nsw i64 %.sroa.4.024.i, -1
-  %.031.in69.i.i = shl i64 %20, 1
+  %.031.in69.i.i = shl nuw i64 %20, 1
   %.03170.i.i = or disjoint i64 %.031.in69.i.i, 1
-  %21 = add i64 %.031.in69.i.i, 2
+  %21 = add nuw i64 %.031.in69.i.i, 2
   %22 = icmp ult i64 %21, %18
   br i1 %22, label %.lr.ph.i.i, label %._crit_edge.i.i
 

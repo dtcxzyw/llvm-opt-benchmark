@@ -2199,11 +2199,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_enable_link_state(pt
   %47 = and i64 %35, 32
   %48 = icmp eq i64 %47, 0
   %49 = or i32 %spec.select6, 75497472
-  %spec.select8 = select i1 %48, i32 %spec.select6, i32 %49
+  %spec.select12 = select i1 %48, i32 %spec.select6, i32 %49
   %50 = and i64 %35, 64
   %51 = icmp eq i64 %50, 0
-  %52 = or i32 %spec.select8, 142606336
-  %53 = select i1 %51, i32 %spec.select8, i32 %52
+  %52 = or i32 %spec.select12, 142606336
+  %53 = select i1 %51, i32 %spec.select12, i32 %52
   store i32 %53, ptr %32, align 8
   %54 = load i32, ptr @aspm_policy, align 4
   switch i32 %54, label %60 [
@@ -2579,16 +2579,16 @@ define internal fastcc void @pcie_aspm_check_latency(ptr noundef readonly captur
   %68 = and i32 %67, 16384
   %69 = icmp ne i32 %68, 0
   %70 = icmp ugt i32 %49, %18
-  %.not4.not = select i1 %69, i1 %70, i1 false
+  %.not6.not = select i1 %69, i1 %70, i1 false
   %71 = and i32 %67, -16385
-  %72 = select i1 %.not4.not, i32 %71, i32 %67
+  %72 = select i1 %.not6.not, i32 %71, i32 %67
   %73 = and i32 %72, 32768
   %74 = icmp ne i32 %73, 0
   %75 = icmp ugt i32 %60, %18
-  %.not6.not = select i1 %74, i1 %75, i1 false
+  %.not8.not = select i1 %74, i1 %75, i1 false
   %76 = and i32 %72, -32769
-  %77 = select i1 %.not6.not, i32 %76, i32 %72
-  %78 = or i1 %.not4.not, %.not6.not
+  %77 = select i1 %.not8.not, i32 %76, i32 %72
+  %78 = or i1 %.not6.not, %.not8.not
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %40
@@ -2745,16 +2745,16 @@ thread-pre-split:                                 ; preds = %59
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %49
   %.pre7 = select i1 %48, i16 0, i16 256
-  br i1 %51, label %.loopexit, label %.preheader8
+  br i1 %51, label %.loopexit, label %.preheader13
 
-.preheader8:                                      ; preds = %44, %.preheader8
-  %52 = phi ptr [ %54, %.preheader8 ], [ %50, %44 ]
+.preheader13:                                     ; preds = %44, %.preheader13
+  %52 = phi ptr [ %54, %.preheader13 ], [ %50, %44 ]
   %53 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %52, i32 noundef 16, i16 noundef zeroext 256, i16 noundef zeroext %.pre7) #14
   %54 = load ptr, ptr %52, align 8
   %55 = icmp eq ptr %54, %49
-  br i1 %55, label %.loopexit.loopexit, label %.preheader8, !llvm.loop !20
+  br i1 %55, label %.loopexit.loopexit, label %.preheader13, !llvm.loop !20
 
-.loopexit.loopexit:                               ; preds = %.preheader8
+.loopexit.loopexit:                               ; preds = %.preheader13
   %.pre = load i16, ptr %35, align 4
   br label %.loopexit
 

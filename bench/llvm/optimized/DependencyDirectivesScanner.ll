@@ -1002,12 +1002,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i79.i.i.i:    ; preds = %378
   %bcmp.i.i.i80.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(7) @.str.3, i64 7)
   %380 = icmp eq i32 %bcmp.i.i.i80.i.i.i, 0
-  br i1 %380, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread84.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i157.i.i.i
+  br i1 %380, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread104.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i157.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i85.i.i.i:    ; preds = %378
   %bcmp.i.i.i86.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(16) @.str.4, i64 16)
   %381 = icmp eq i32 %bcmp.i.i.i86.i.i.i, 0
-  br i1 %381, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread84.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i
+  br i1 %381, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread104.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i93.i.i.i:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   %bcmp.i.i.i94.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.5, i64 6)
@@ -1027,12 +1027,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i109.i.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i:   ; preds = %378
   %bcmp.i.i.i118.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(12) @.str.8, i64 12)
   %385 = icmp eq i32 %bcmp.i.i.i118.i.i.i, 0
-  br i1 %385, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread84.i.i
+  br i1 %385, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread104.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i:   ; preds = %378
   %bcmp.i.i.i126.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(2) @.str.9, i64 2)
   %386 = icmp eq i32 %bcmp.i.i.i126.i.i.i, 0
-  br i1 %386, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread84.i.i
+  br i1 %386, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread104.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i133.i.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i101.i.i.i
   %bcmp.i.i.i134.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(5) @.str.10, i64 5)
@@ -1064,8 +1064,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i173.i.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
   %392 = icmp eq i32 %bcmp.i.i.i174.i.i.i, 0
   br i1 %392, label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.thread.i.i.i
 
-_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread84.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i85.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i79.i.i.i
-  %.sroa.32.10624.i68.ph.i.i = phi i16 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i79.i.i.i ], [ 258, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i85.i.i.i ]
+_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread104.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i85.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i79.i.i.i
+  %.sroa.32.10638.i88.ph.i.i = phi i16 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i ], [ 257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i79.i.i.i ], [ 258, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i85.i.i.i ]
   br label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i181.i.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i133.i.i.i
@@ -1074,8 +1074,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i181.i.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
   %spec.select.i.i.i = select i1 %393, i16 276, i16 0
   br label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i
 
-_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i181.i.i.i, %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread84.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i173.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i165.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i157.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i149.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i141.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i133.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i109.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i101.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93.i.i.i
-  %.sroa.32.13.i.i.i = phi i16 [ 275, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i173.i.i.i ], [ 274, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i165.i.i.i ], [ 273, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i157.i.i.i ], [ 272, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i149.i.i.i ], [ 271, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i141.i.i.i ], [ 270, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i133.i.i.i ], [ 269, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i ], [ 268, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i109.i.i.i ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i101.i.i.i ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93.i.i.i ], [ %spec.select.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i181.i.i.i ], [ %.sroa.32.10624.i68.ph.i.i, %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread84.i.i ]
+_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit184.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i181.i.i.i, %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread104.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i173.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i165.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i157.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i149.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i141.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i133.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i109.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i101.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93.i.i.i
+  %.sroa.32.13.i.i.i = phi i16 [ 275, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i173.i.i.i ], [ 274, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i165.i.i.i ], [ 273, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i157.i.i.i ], [ 272, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i149.i.i.i ], [ 271, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i141.i.i.i ], [ 270, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i133.i.i.i ], [ 269, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i125.i.i.i ], [ 268, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i117.i.i.i ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i109.i.i.i ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i101.i.i.i ], [ 259, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i93.i.i.i ], [ %spec.select.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i181.i.i.i ], [ %.sroa.32.10638.i88.ph.i.i, %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit176.i.thread104.i.i ]
   %394 = and i16 %.sroa.32.13.i.i.i, 256
   %.not604.i.i.i = icmp eq i16 %394, 0
   %.sroa.32.16.extract.trunc.i.i.i = trunc i16 %.sroa.32.13.i.i.i to i8
@@ -1137,8 +1137,8 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i.i.i: ; preds = %_ZN4
   %411 = load i16, ptr %410, align 2, !tbaa !132
   %412 = and i16 %411, 2
   %.not12.i19.i.i.i.i = icmp eq i16 %412, 0
-  %or.cond16.i20.i.i.i.i = select i1 %408, i1 true, i1 %.not12.i19.i.i.i.i
-  br i1 %or.cond16.i20.i.i.i.i, label %_ZL5isEOLPKcS0_.exit27.i.i.i.i, label %413
+  %or.cond18.i20.i.i.i.i = select i1 %408, i1 true, i1 %.not12.i19.i.i.i.i
+  br i1 %or.cond18.i20.i.i.i.i, label %_ZL5isEOLPKcS0_.exit27.i.i.i.i, label %413
 
 413:                                              ; preds = %405
   %414 = getelementptr inbounds nuw i8, ptr %402, i64 2
@@ -1212,18 +1212,18 @@ _ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i: ; preds = %424
 _ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i.i.i: ; preds = %._ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i_crit_edge.i.i, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i
   %.pre-phi.i.i = phi i64 [ %.phi.trans.insert.i.i, %._ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i_crit_edge.i.i ], [ %425, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i ]
   %437 = phi i8 [ %.pre.i.i, %._ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i_crit_edge.i.i ], [ %428, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i ]
-  %.val8.pr53.i.i.i = phi i32 [ %.val8.pr.pre.i.i.i, %._ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i_crit_edge.i.i ], [ %.val6.i.i.i, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i ]
-  %.val752.i.i.i = phi ptr [ %.val7.pre.i.i.i, %._ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i_crit_edge.i.i ], [ %.val.i11.i.i, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i ]
+  %.val8.pr55.i.i.i = phi i32 [ %.val8.pr.pre.i.i.i, %._ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i_crit_edge.i.i ], [ %.val6.i.i.i, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i ]
+  %.val754.i.i.i = phi ptr [ %.val7.pre.i.i.i, %._ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i_crit_edge.i.i ], [ %.val.i11.i.i, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i ]
   %438 = and i8 %437, -2
   %switch.i.i.i = icmp eq i8 %438, 14
   br i1 %switch.i.i.i, label %439, label %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit14.thread.i.i.i
 
 439:                                              ; preds = %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit12.i.i.i
-  %440 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectiveWithTokens", ptr %.val752.i.i.i, i64 %.pre-phi.i.i
+  %440 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectiveWithTokens", ptr %.val754.i.i.i, i64 %.pre-phi.i.i
   %441 = getelementptr inbounds i8, ptr %440, i64 -8
   %442 = load ptr, ptr %47, align 8, !tbaa !130
   %.sroa.0.0.copyload.i.i17.i.i.i = load i64, ptr %441, align 4
-  %443 = add i32 %.val8.pr53.i.i.i, -1
+  %443 = add i32 %.val8.pr55.i.i.i, -1
   store i32 %443, ptr %57, align 8, !tbaa !88
   %.sroa.3.0.extract.shift.i18.i.i.i = lshr i64 %.sroa.0.0.copyload.i.i17.i.i.i, 32
   %444 = getelementptr inbounds nuw i8, ptr %442, i64 8
@@ -2812,8 +2812,8 @@ _ZL14skipOverSpacesRPKcS0_.exit:                  ; preds = %.lr.ph.i, %11, %4
   %33 = load i16, ptr %32, align 2, !tbaa !132
   %34 = and i16 %33, 2
   %.not12.i.i = icmp eq i16 %34, 0
-  %or.cond16.i.i = select i1 %30, i1 true, i1 %.not12.i.i
-  br i1 %or.cond16.i.i, label %._crit_edge.i.i, label %35
+  %or.cond18.i.i = select i1 %30, i1 true, i1 %.not12.i.i
+  br i1 %or.cond18.i.i, label %._crit_edge.i.i, label %35
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %.sink.i36, i64 2
@@ -2888,8 +2888,8 @@ _ZL5isEOLPKcS0_.exit.i:                           ; preds = %._crit_edge.i.i, %3
   %64 = load i16, ptr %63, align 2, !tbaa !132
   %65 = and i16 %64, 2
   %.not12.i19.i.i = icmp eq i16 %65, 0
-  %or.cond16.i20.i.i = select i1 %61, i1 true, i1 %.not12.i19.i.i
-  br i1 %or.cond16.i20.i.i, label %_ZL5isEOLPKcS0_.exit27.i.i, label %66
+  %or.cond18.i20.i.i = select i1 %61, i1 true, i1 %.not12.i19.i.i
+  br i1 %or.cond18.i20.i.i, label %_ZL5isEOLPKcS0_.exit27.i.i, label %66
 
 66:                                               ; preds = %58
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 2
@@ -3297,8 +3297,8 @@ _ZL14skipOverSpacesRPKcS0_.exit.i:                ; preds = %132, %.lr.ph.i.i
   %141 = load i16, ptr %140, align 2, !tbaa !132
   %142 = and i16 %141, 2
   %.not12.i.i62 = icmp eq i16 %142, 0
-  %or.cond16.i.i63 = select i1 %138, i1 true, i1 %.not12.i.i62
-  br i1 %or.cond16.i.i63, label %_ZL5isEOLPKcS0_.exit.i66, label %143
+  %or.cond18.i.i63 = select i1 %138, i1 true, i1 %.not12.i.i62
+  br i1 %or.cond18.i.i63, label %_ZL5isEOLPKcS0_.exit.i66, label %143
 
 143:                                              ; preds = %135
   %144 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
@@ -3398,8 +3398,8 @@ _ZL5isEOLPKcS0_.exit.thread.i:                    ; preds = %_ZL5isEOLPKcS0_.exi
   %179 = load i16, ptr %178, align 2, !tbaa !132
   %180 = and i16 %179, 2
   %.not12.i19.i.i = icmp eq i16 %180, 0
-  %or.cond16.i20.i.i = select i1 %176, i1 true, i1 %.not12.i19.i.i
-  br i1 %or.cond16.i20.i.i, label %_ZL5isEOLPKcS0_.exit27.i.i, label %181
+  %or.cond18.i20.i.i = select i1 %176, i1 true, i1 %.not12.i19.i.i
+  br i1 %or.cond18.i20.i.i, label %_ZL5isEOLPKcS0_.exit27.i.i, label %181
 
 181:                                              ; preds = %173
   %182 = getelementptr inbounds nuw i8, ptr %170, i64 2

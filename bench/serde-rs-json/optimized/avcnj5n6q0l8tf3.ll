@@ -89,13 +89,13 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h90ea
   br i1 %12, label %"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit.preheader", label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he785904be89a5c65E.exit.sink.split"
 
 "_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit.preheader": ; preds = %8, %10
-  %.ph47 = xor i1 %9, true
+  %.ph51 = xor i1 %9, true
   %.val.i.i = load ptr, ptr %0, align 8, !nonnull !4
   br label %"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit"
 
 "_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit": ; preds = %"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit.preheader", %_ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i.thread
   %13 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i.thread ], [ %9, %"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit.preheader" ]
-  %14 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i.thread ], [ %.ph47, %"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit.preheader" ]
+  %14 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i.thread ], [ %.ph51, %"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit.preheader" ]
   %.sroa.0.0 = phi ptr [ %17, %_ZN10serde_json3ser9Formatter17begin_array_value17h9f83a6765b4a56eeE.exit.i.thread ], [ %.val, %"_ZN5serde3ser10Serializer11collect_seq28_$u7b$$u7b$closure$u7d$$u7d$17h8d9c29048a2b1953E.exit.preheader" ]
   %15 = icmp eq ptr %.sroa.0.0, %5
   br i1 %15, label %22, label %16
@@ -1254,7 +1254,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$ser
   %6 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, align 8
   %7 = alloca { ptr, i8 }, align 8
   %8 = load i8, ptr %0, align 8, !range !524, !noundef !4
-  switch i8 %8, label %default.unreachable48 [
+  switch i8 %8, label %default.unreachable66 [
     i8 0, label %9
     i8 1, label %14
     i8 2, label %23
@@ -1263,7 +1263,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$ser
     i8 5, label %164
   ]
 
-default.unreachable48:                            ; preds = %23, %2
+default.unreachable66:                            ; preds = %23, %2
   unreachable
 
 9:                                                ; preds = %2
@@ -1306,7 +1306,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h3cf53aafdd323af7E.exit.i: ; preds = 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
   %25 = load i64, ptr %24, align 8, !range !543, !alias.scope !540, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i64 %25, label %default.unreachable48 [
+  switch i64 %25, label %default.unreachable66 [
     i64 0, label %27
     i64 1, label %77
     i64 2, label %132
@@ -1507,8 +1507,8 @@ _ZN10serde_json3ser9Formatter9write_i6417h0c3664d217a454d2E.exit.i.i: ; preds = 
 132:                                              ; preds = %23
   %133 = load double, ptr %26, align 8, !alias.scope !540, !noundef !4
   %134 = tail call double @llvm.fabs.f64(double %133)
-  %or.cond3.i.i = fcmp ueq double %134, 0x7FF0000000000000
-  br i1 %or.cond3.i.i, label %select.unfold.i.i, label %135
+  %or.cond6.i.i = fcmp ueq double %134, 0x7FF0000000000000
+  br i1 %or.cond6.i.i, label %select.unfold.i.i, label %135
 
 135:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !540
@@ -1638,8 +1638,8 @@ _ZN10serde_json3ser18format_escaped_str17hda01937d878482f2E.exit.thread.i: ; pre
   br i1 %183, label %._crit_edge, label %.lr.ph
 
 184:                                              ; preds = %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h1fe3b75ebc7f4fa2E.exit.i", %164
-  %.sink18.i = phi ptr [ %171, %164 ], [ %175, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h1fe3b75ebc7f4fa2E.exit.i" ]
-  %185 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.sink18.i), !noalias !617
+  %.sink19.i = phi ptr [ %171, %164 ], [ %175, %"_ZN79_$LT$serde_json..ser..PrettyFormatter$u20$as$u20$serde_json..ser..Formatter$GT$10end_object17h1fe3b75ebc7f4fa2E.exit.i" ]
+  %185 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.sink19.i), !noalias !617
   br label %230
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5serde3ser12SerializeMap15serialize_entry17h410e038fe18d3eacE.exit
@@ -1763,7 +1763,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$ser
   %5 = alloca { [40 x i8] }, align 1
   %6 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, align 8
   %7 = load i8, ptr %0, align 8, !range !524, !noundef !4
-  switch i8 %7, label %default.unreachable65 [
+  switch i8 %7, label %default.unreachable83 [
     i8 0, label %8
     i8 1, label %13
     i8 2, label %22
@@ -1772,7 +1772,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$impl$u20$ser
     i8 5, label %163
   ]
 
-default.unreachable65:                            ; preds = %22, %2
+default.unreachable83:                            ; preds = %22, %2
   unreachable
 
 8:                                                ; preds = %2
@@ -1815,7 +1815,7 @@ _ZN10serde_json3ser9Formatter10write_bool17h7ec1e3dc0b6bf878E.exit.i: ; preds = 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !675)
   %24 = load i64, ptr %23, align 8, !range !543, !alias.scope !675, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i64 %24, label %default.unreachable65 [
+  switch i64 %24, label %default.unreachable83 [
     i64 0, label %26
     i64 1, label %76
     i64 2, label %131
@@ -2016,8 +2016,8 @@ _ZN10serde_json3ser9Formatter9write_i6417h9b366e3739ad435dE.exit.i.i: ; preds = 
 131:                                              ; preds = %22
   %132 = load double, ptr %25, align 8, !alias.scope !675, !noundef !4
   %133 = tail call double @llvm.fabs.f64(double %132)
-  %or.cond3.i.i = fcmp ueq double %133, 0x7FF0000000000000
-  br i1 %or.cond3.i.i, label %select.unfold.i.i, label %134
+  %or.cond6.i.i = fcmp ueq double %133, 0x7FF0000000000000
+  br i1 %or.cond6.i.i, label %select.unfold.i.i, label %134
 
 134:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !675
@@ -2134,8 +2134,8 @@ _ZN10serde_json3ser18format_escaped_str17hc54fac0069c29f8cE.exit.thread.i: ; pre
   br label %_ZN5serde3ser12SerializeMap15serialize_entry17h5980ccf8922e7ac7E.exit
 
 180:                                              ; preds = %170, %163
-  %.sink15.i = phi ptr [ %166, %163 ], [ %171, %170 ]
-  %181 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.sink15.i), !noalias !742
+  %.sink16.i = phi ptr [ %166, %163 ], [ %171, %170 ]
+  %181 = tail call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17h93731ae02f11e68eE(ptr noundef nonnull %.sink16.i), !noalias !742
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17h8c0cc274870a1333E.exit"
 
 _ZN5serde3ser12SerializeMap15serialize_entry17h5980ccf8922e7ac7E.exit: ; preds = %210, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h155e9fd32c552b4bE.exit"

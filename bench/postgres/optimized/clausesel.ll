@@ -66,17 +66,17 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph185, label %.critedge
+  br i1 %31, label %.lr.ph196, label %.critedge
 
-.lr.ph185:                                        ; preds = %.lr.ph, %addRangeClause.exit
+.lr.ph196:                                        ; preds = %.lr.ph, %addRangeClause.exit
   %32 = phi ptr [ %192, %addRangeClause.exit ], [ null, %.lr.ph ]
-  %.088159184 = phi i32 [ %36, %addRangeClause.exit ], [ -1, %.lr.ph ]
-  %.183160183 = phi double [ %.284, %addRangeClause.exit ], [ %.082, %.lr.ph ]
-  %indvars.iv182 = phi i64 [ %indvars.iv.next, %addRangeClause.exit ], [ 0, %.lr.ph ]
+  %.088159195 = phi i32 [ %36, %addRangeClause.exit ], [ -1, %.lr.ph ]
+  %.183160194 = phi double [ %.284, %addRangeClause.exit ], [ %.082, %.lr.ph ]
+  %indvars.iv193 = phi i64 [ %indvars.iv.next, %addRangeClause.exit ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv182
+  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv193
   %35 = load ptr, ptr %34, align 8
-  %36 = add nsw i32 %.088159184, 1
+  %36 = add nsw i32 %.088159195, 1
   %37 = load ptr, ptr %7, align 8
   %38 = call zeroext i1 @bms_is_member(i32 noundef %36, ptr noundef %37) #4
   br i1 %38, label %addRangeClause.exit, label %39
@@ -87,7 +87,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   %.not99164 = icmp eq ptr %.0..0..0..pr.pre, null
   br i1 %.not99164, label %.loopexit, label %.lr.ph167
 
-39:                                               ; preds = %.lr.ph185
+39:                                               ; preds = %.lr.ph196
   %40 = call double @clause_selectivity_ext(ptr noundef %0, ptr noundef %35, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5)
   %41 = load i32, ptr %35, align 4
   %42 = icmp eq i32 %41, 317
@@ -100,7 +100,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
-  %48 = fmul double %.183160183, %40
+  %48 = fmul double %.183160194, %40
   br label %addRangeClause.exit
 
 49:                                               ; preds = %43
@@ -419,21 +419,21 @@ get_rightop.exit.i112:                            ; preds = %144, %145, %152, %l
   br label %addRangeClause.exit
 
 addRangeClause.exit.thread152:                    ; preds = %.thread140
-  %190 = fmul double %.183160183, %40
+  %190 = fmul double %.183160194, %40
   br label %addRangeClause.exit
 
 is_opclause.exit.thread:                          ; preds = %79, %61, %72, %88, %54, %49, %list_length.exit107, %is_opclause.exit
-  %191 = fmul double %.183160183, %40
+  %191 = fmul double %.183160194, %40
   br label %addRangeClause.exit
 
-addRangeClause.exit:                              ; preds = %121, %132, %168, %179, %137, %125, %119, %136, %130, %184, %172, %166, %183, %177, %addRangeClause.exit.thread152, %.lr.ph185, %is_opclause.exit.thread, %47
-  %192 = phi ptr [ %32, %47 ], [ %32, %is_opclause.exit.thread ], [ %32, %.lr.ph185 ], [ %32, %addRangeClause.exit.thread152 ], [ %32, %119 ], [ %32, %125 ], [ %32, %130 ], [ %32, %136 ], [ %138, %137 ], [ %32, %166 ], [ %32, %172 ], [ %32, %177 ], [ %32, %183 ], [ %185, %184 ], [ %32, %179 ], [ %32, %168 ], [ %32, %132 ], [ %32, %121 ]
-  %.284 = phi double [ %48, %47 ], [ %191, %is_opclause.exit.thread ], [ %.183160183, %.lr.ph185 ], [ %190, %addRangeClause.exit.thread152 ], [ %.183160183, %119 ], [ %.183160183, %125 ], [ %.183160183, %130 ], [ %.183160183, %136 ], [ %.183160183, %137 ], [ %.183160183, %166 ], [ %.183160183, %172 ], [ %.183160183, %177 ], [ %.183160183, %183 ], [ %.183160183, %184 ], [ %.183160183, %179 ], [ %.183160183, %168 ], [ %.183160183, %132 ], [ %.183160183, %121 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv182, 1
+addRangeClause.exit:                              ; preds = %121, %132, %168, %179, %137, %125, %119, %136, %130, %184, %172, %166, %183, %177, %addRangeClause.exit.thread152, %.lr.ph196, %is_opclause.exit.thread, %47
+  %192 = phi ptr [ %32, %47 ], [ %32, %is_opclause.exit.thread ], [ %32, %.lr.ph196 ], [ %32, %addRangeClause.exit.thread152 ], [ %32, %119 ], [ %32, %125 ], [ %32, %130 ], [ %32, %136 ], [ %138, %137 ], [ %32, %166 ], [ %32, %172 ], [ %32, %177 ], [ %32, %183 ], [ %185, %184 ], [ %32, %179 ], [ %32, %168 ], [ %32, %132 ], [ %32, %121 ]
+  %.284 = phi double [ %48, %47 ], [ %191, %is_opclause.exit.thread ], [ %.183160194, %.lr.ph196 ], [ %190, %addRangeClause.exit.thread152 ], [ %.183160194, %119 ], [ %.183160194, %125 ], [ %.183160194, %130 ], [ %.183160194, %136 ], [ %.183160194, %137 ], [ %.183160194, %166 ], [ %.183160194, %172 ], [ %.183160194, %177 ], [ %.183160194, %183 ], [ %.183160194, %184 ], [ %.183160194, %179 ], [ %.183160194, %168 ], [ %.183160194, %132 ], [ %.183160194, %121 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv193, 1
   %193 = load i32, ptr %28, align 4
   %194 = sext i32 %193 to i64
   %195 = icmp slt i64 %indvars.iv.next, %194
-  br i1 %195, label %.lr.ph185, label %.critedge
+  br i1 %195, label %.lr.ph196, label %.critedge
 
 .lr.ph167:                                        ; preds = %.critedge, %227
   %.6166 = phi double [ %.7, %227 ], [ %.183160.lcssa, %.critedge ]

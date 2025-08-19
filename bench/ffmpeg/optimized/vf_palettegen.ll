@@ -545,7 +545,7 @@ load_color_refs.exit:                             ; preds = %._crit_edge.i
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 524380
   %40 = load i32, ptr %39, align 4, !tbaa !77
   %41 = icmp sgt i32 %40, 1
-  br i1 %41, label %.lr.ph129, label %.critedge
+  br i1 %41, label %.lr.ph145, label %.critedge
 
 42:                                               ; preds = %get_next_box_id_to_split.exit
   %43 = zext nneg i32 %.118.i to i64
@@ -553,25 +553,25 @@ load_color_refs.exit:                             ; preds = %._crit_edge.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 44
   %46 = load i32, ptr %45, align 4, !tbaa !77
   %47 = icmp sgt i32 %46, 1
-  br i1 %47, label %.lr.ph129, label %.critedge.loopexit
+  br i1 %47, label %.lr.ph145, label %.critedge.loopexit
 
-.lr.ph129:                                        ; preds = %30, %42
+.lr.ph145:                                        ; preds = %30, %42
   %48 = phi i32 [ %46, %42 ], [ %40, %30 ]
   %49 = phi ptr [ %45, %42 ], [ %39, %30 ]
-  %.071106127 = phi ptr [ %44, %42 ], [ %32, %30 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.071106127, i64 48
+  %.071106143 = phi ptr [ %44, %42 ], [ %32, %30 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.071106143, i64 48
   %51 = load i32, ptr %50, align 8, !tbaa !79
-  %52 = getelementptr inbounds nuw i8, ptr %.071106127, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.071106143, i64 16
   %53 = load i32, ptr %52, align 8, !tbaa !81
   %.not82 = icmp eq i32 %51, %53
   br i1 %.not82, label %65, label %54
 
-54:                                               ; preds = %.lr.ph129
+54:                                               ; preds = %.lr.ph145
   %55 = sext i32 %53 to i64
   %56 = getelementptr inbounds [6 x ptr], ptr @cmp_funcs, i64 0, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !82
   %58 = load ptr, ptr %24, align 8, !tbaa !71
-  %59 = getelementptr inbounds nuw i8, ptr %.071106127, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.071106143, i64 40
   %60 = load i32, ptr %59, align 8, !tbaa !83
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds ptr, ptr %58, i64 %61
@@ -582,14 +582,14 @@ load_color_refs.exit:                             ; preds = %._crit_edge.i
   %.pre = load i32, ptr %49, align 4, !tbaa !77
   br label %65
 
-65:                                               ; preds = %54, %.lr.ph129
-  %66 = phi i32 [ %64, %54 ], [ %51, %.lr.ph129 ]
-  %67 = phi i32 [ %.pre, %54 ], [ %48, %.lr.ph129 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.071106127, i64 24
+65:                                               ; preds = %54, %.lr.ph145
+  %66 = phi i32 [ %64, %54 ], [ %51, %.lr.ph145 ]
+  %67 = phi i32 [ %.pre, %54 ], [ %48, %.lr.ph145 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.071106143, i64 24
   %69 = load i64, ptr %68, align 8, !tbaa !84
   %70 = add nsw i64 %69, 1
   %71 = ashr i64 %70, 1
-  %72 = getelementptr inbounds nuw i8, ptr %.071106127, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.071106143, i64 40
   %73 = load i32, ptr %72, align 8, !tbaa !83
   %74 = add i32 %73, -2
   %75 = add i32 %74, %67
@@ -613,19 +613,19 @@ load_color_refs.exit:                             ; preds = %._crit_edge.i
   %85 = load i64, ptr %84, align 8, !tbaa !58
   %86 = add nsw i64 %85, %.072101
   %87 = icmp sgt i64 %86, %71
-  br i1 %87, label %._crit_edge.loopexit.split.loop.exit122, label %88
+  br i1 %87, label %._crit_edge.loopexit.split.loop.exit138, label %88
 
 88:                                               ; preds = %81
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %81, !llvm.loop !85
 
-._crit_edge.loopexit.split.loop.exit122:          ; preds = %81
+._crit_edge.loopexit.split.loop.exit138:          ; preds = %81
   %89 = trunc nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %88, %._crit_edge.loopexit.split.loop.exit122, %65
-  %.073.lcssa = phi i32 [ %73, %65 ], [ %89, %._crit_edge.loopexit.split.loop.exit122 ], [ %80, %88 ]
+._crit_edge:                                      ; preds = %88, %._crit_edge.loopexit.split.loop.exit138, %65
+  %.073.lcssa = phi i32 [ %73, %65 ], [ %89, %._crit_edge.loopexit.split.loop.exit138 ], [ %80, %88 ]
   %90 = load i32, ptr %36, align 8, !tbaa !80
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %36, align 8, !tbaa !80
@@ -664,7 +664,7 @@ load_color_refs.exit:                             ; preds = %._crit_edge.i
   unreachable
 
 split_box.exit:                                   ; preds = %105
-  tail call fastcc void @compute_box_stats(ptr noundef nonnull %4, ptr noundef nonnull %.071106127)
+  tail call fastcc void @compute_box_stats(ptr noundef nonnull %4, ptr noundef nonnull %.071106143)
   tail call fastcc void @compute_box_stats(ptr noundef nonnull %4, ptr noundef nonnull %93)
   %109 = load i32, ptr %36, align 8, !tbaa !80
   %110 = load i32, ptr %37, align 8, !tbaa !20
@@ -993,13 +993,13 @@ define internal fastcc void @compute_box_stats(ptr noundef readonly captures(non
   br label %sort3id.exit
 
 sort3id.exit:                                     ; preds = %2, %50, %51, %52, %53
-  %.sroa.0.0.lcssa119 = phi i64 [ %76, %50 ], [ %76, %51 ], [ %76, %52 ], [ %76, %53 ], [ 0, %2 ]
-  %.sroa.10.0.lcssa117 = phi i64 [ %79, %50 ], [ %79, %51 ], [ %79, %52 ], [ %79, %53 ], [ 0, %2 ]
+  %.sroa.0.0.lcssa118 = phi i64 [ %76, %50 ], [ %76, %51 ], [ %76, %52 ], [ %76, %53 ], [ 0, %2 ]
+  %.sroa.10.0.lcssa116 = phi i64 [ %79, %50 ], [ %79, %51 ], [ %79, %52 ], [ %79, %53 ], [ 0, %2 ]
   %.sroa.17.0.lcssa114 = phi i64 [ %82, %50 ], [ %82, %51 ], [ %82, %52 ], [ %82, %53 ], [ 0, %2 ]
   %.0.i = phi i32 [ 0, %50 ], [ %..i, %51 ], [ 3, %52 ], [ %.20.i, %53 ], [ 0, %2 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %.0.i, ptr %54, align 8, !tbaa !81
-  %55 = tail call i64 @llvm.smax.i64(i64 %.sroa.0.0.lcssa119, i64 %.sroa.10.0.lcssa117)
+  %55 = tail call i64 @llvm.smax.i64(i64 %.sroa.0.0.lcssa118, i64 %.sroa.10.0.lcssa116)
   %..sroa.17.0 = tail call i64 @llvm.smax.i64(i64 %55, i64 %.sroa.17.0.lcssa114)
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %..sroa.17.0, ptr %56, align 8, !tbaa !86

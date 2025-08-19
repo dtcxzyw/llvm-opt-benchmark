@@ -447,7 +447,7 @@ lean_dec.exit:                                    ; preds = %41, %40, %38, %lean
 declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -866,7 +866,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_PremiseSelection_random___spec__
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_PremiseSelection_random(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_PremiseSelection_random(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = load ptr, ptr @l_Lean_PremiseSelection_random___closed__1, align 8, !tbaa !4
   %10 = tail call ptr @lean_st_ref_set(ptr noundef %9, ptr noundef %0, ptr noundef %7) #4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1414,7 +1414,7 @@ declare ptr @lean_st_ref_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @l_Lean_Environment_const2ModIdx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = tail call ptr @l_Lean_Loop_forIn_loop___at_Lean_PremiseSelection_random___spec__2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr poison, ptr poison, ptr poison, ptr poison, ptr noundef %8)
   %11 = ptrtoint ptr %7 to i64
   %12 = and i64 %11, 1
@@ -1688,7 +1688,7 @@ lean_dec.exit:                                    ; preds = %48, %47, %45, %l_Ar
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lean_PremiseSelection_random___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define nonnull ptr @l_Lean_PremiseSelection_random___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = tail call ptr @l_Lean_PremiseSelection_random(ptr noundef %0, ptr poison, ptr noundef %2, ptr poison, ptr poison, ptr poison, ptr noundef %6, ptr noundef %7)
   %10 = ptrtoint ptr %6 to i64
   %11 = and i64 %10, 1

@@ -880,9 +880,9 @@ define internal noundef i32 @dissect_btavrcp(ptr noundef %0, ptr noundef %1, ptr
   %57 = load ptr, ptr %53, align 8
   %switch.selectcmp = icmp eq i32 %56, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.511, ptr @.str.512
-  %switch.selectcmp262 = icmp eq i32 %56, 0
-  %switch.select263 = select i1 %switch.selectcmp262, ptr @.str.510, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull %switch.select263)
+  %switch.selectcmp300 = icmp eq i32 %56, 0
+  %switch.select301 = select i1 %switch.selectcmp300, ptr @.str.510, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull %switch.select301)
   %58 = icmp eq i32 %44, 27
   br i1 %58, label %59, label %724
 
@@ -2415,10 +2415,10 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
 
 .sink.split.i:                                    ; preds = %1096, %.lr.ph928.i
   %hf_btavrcp_company_id.sink.i = phi ptr [ @hf_btavrcp_event_id, %1096 ], [ @hf_btavrcp_company_id, %.lr.ph928.i ]
-  %.sink982.i = phi i32 [ 1, %1096 ], [ 3, %.lr.ph928.i ]
+  %.sink999.i = phi i32 [ 1, %1096 ], [ 3, %.lr.ph928.i ]
   %1097 = load i32, ptr %hf_btavrcp_company_id.sink.i, align 4
-  %1098 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1097, ptr noundef %.1.i184, i32 noundef %.3926.i, i32 noundef %.sink982.i, i32 noundef 0)
-  %1099 = add i32 %.sink982.i, %.3926.i
+  %1098 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1097, ptr noundef %.1.i184, i32 noundef %.3926.i, i32 noundef %.sink999.i, i32 noundef 0)
+  %1099 = add i32 %.sink999.i, %.3926.i
   br label %1100
 
 1100:                                             ; preds = %.sink.split.i, %.lr.ph928.i
@@ -3616,11 +3616,11 @@ dissect_unit.exit:                                ; preds = %792, %785, %771, %7
   br label %1788
 
 1788:                                             ; preds = %1782, %1774
-  %.sink261 = phi i32 [ %1787, %1782 ], [ %1781, %1774 ]
-  %.sink260.in = phi i32 [ %reass.sub225, %1782 ], [ %1775, %1774 ]
-  %.sink260 = udiv i32 %.sink260.in, 1000000
-  %1789 = udiv i32 %.sink261, 1000
-  %1790 = add nuw nsw i32 %1789, %.sink260
+  %.sink299 = phi i32 [ %1787, %1782 ], [ %1781, %1774 ]
+  %.sink298.in = phi i32 [ %reass.sub225, %1782 ], [ %1775, %1774 ]
+  %.sink298 = udiv i32 %.sink298.in, 1000000
+  %1789 = udiv i32 %.sink299, 1000
+  %1790 = add nuw nsw i32 %1789, %.sink298
   %1791 = getelementptr inbounds nuw i8, ptr %1730, i64 24
   %1792 = load i32, ptr %1791, align 8
   %1793 = icmp eq i32 %1792, 0

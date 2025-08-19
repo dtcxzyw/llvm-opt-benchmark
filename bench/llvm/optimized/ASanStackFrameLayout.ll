@@ -831,7 +831,7 @@ define linkonce_odr void @_ZSt21__inplace_stable_sortIPN4llvm28ASanStackVariable
   %.017.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not18.i = icmp eq ptr %.017.i, %1
   %or.cond = select i1 %11, i1 true, i1 %.not18.i
-  br i1 %or.cond, label %common.ret22, label %.lr.ph.i
+  br i1 %or.cond, label %common.ret24, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %21
   %.020.i = phi ptr [ %.0.i, %21 ], [ %.017.i, %10 ]
@@ -875,9 +875,9 @@ _ZSt25__unguarded_linear_insertIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cx
 21:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS1_S7_EEEEvT_T0_.exit.i, %13
   %.0.i = getelementptr inbounds nuw i8, ptr %.020.i, i64 56
   %.not.i = icmp eq ptr %.0.i, %1
-  br i1 %.not.i, label %common.ret22, label %.lr.ph.i, !llvm.loop !66
+  br i1 %.not.i, label %common.ret24, label %.lr.ph.i, !llvm.loop !66
 
-common.ret22:                                     ; preds = %10, %21, %22
+common.ret24:                                     ; preds = %10, %21, %22
   ret void
 
 22:                                               ; preds = %3
@@ -890,7 +890,7 @@ common.ret22:                                     ; preds = %10, %21, %22
   %27 = sub i64 %6, %26
   %28 = sdiv exact i64 %27, 56
   tail call void @_ZSt22__merge_without_bufferIPN4llvm28ASanStackVariableDescriptionElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_T0_SC_T1_(ptr noundef %0, ptr noundef %25, ptr noundef %1, i64 noundef %24, i64 noundef %28, ptr %2)
-  br label %common.ret22
+  br label %common.ret24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

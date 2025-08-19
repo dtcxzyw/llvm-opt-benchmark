@@ -726,8 +726,8 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit: ; p
 53:                                               ; preds = %_ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit
   %54 = getelementptr i8, ptr %27, i64 -16
   %55 = load ptr, ptr %54, align 8
-  %sext106 = shl i64 %.04492, 32
-  %56 = ashr exact i64 %sext106, 29
+  %sext107 = shl i64 %.04492, 32
+  %56 = ashr exact i64 %sext107, 29
   %57 = getelementptr inbounds i8, ptr %55, i64 %56
   br label %58
 
@@ -812,9 +812,9 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %wide.trip.count = zext i32 %indvars.iv99 to i64
   br label %93
 
-93:                                               ; preds = %85, %.split.loop.exit108
-  %.14390 = phi i32 [ %.04293, %85 ], [ %129, %.split.loop.exit108 ]
-  %.sroa.0.089 = phi i64 [ %91, %85 ], [ %.sroa.0.1.lcssa, %.split.loop.exit108 ]
+93:                                               ; preds = %85, %.split.loop.exit109
+  %.14390 = phi i32 [ %.04293, %85 ], [ %129, %.split.loop.exit109 ]
+  %.sroa.0.089 = phi i64 [ %91, %85 ], [ %.sroa.0.1.lcssa, %.split.loop.exit109 ]
   store i64 0, ptr %92, align 8
   %94 = load i8, ptr @_ZN9Stockfish8PopCnt16E, align 16
   %95 = icmp ult i8 %94, 2
@@ -906,18 +906,18 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
 154:                                              ; preds = %143, %148
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loop.exit108, label %130, !llvm.loop !24
+  br i1 %exitcond.not, label %.split.loop.exit109, label %130, !llvm.loop !24
 
 .split.loop.exit:                                 ; preds = %148
   %155 = trunc nuw nsw i64 %indvars.iv97 to i32
-  br label %.split.loop.exit108
+  br label %.split.loop.exit109
 
-.split.loop.exit108:                              ; preds = %154, %.split.loop.exit
+.split.loop.exit109:                              ; preds = %154, %.split.loop.exit
   %.1.lcssa = phi i32 [ %155, %.split.loop.exit ], [ %indvars.iv99, %154 ]
   %.not51 = icmp samesign ugt i32 %.1.lcssa, %86
   br i1 %.not51, label %156, label %93, !llvm.loop !25
 
-156:                                              ; preds = %.split.loop.exit108
+156:                                              ; preds = %.split.loop.exit109
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 64
   br i1 %exitcond105.not, label %157, label %8, !llvm.loop !26

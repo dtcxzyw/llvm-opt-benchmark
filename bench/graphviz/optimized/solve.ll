@@ -80,7 +80,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 
 .preheader184.preheader:                          ; preds = %gv_calloc.exit176.preheader, %._crit_edge
   %31 = phi i64 [ %30, %._crit_edge ], [ -1, %gv_calloc.exit176.preheader ]
-  %.not219233236 = phi i1 [ %.not219, %._crit_edge ], [ true, %gv_calloc.exit176.preheader ]
+  %.not219239242 = phi i1 [ %.not219, %._crit_edge ], [ true, %gv_calloc.exit176.preheader ]
   br label %.preheader184
 
 .preheader184:                                    ; preds = %.preheader184.preheader, %._crit_edge204
@@ -182,9 +182,9 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   br i1 %exitcond229.not, label %._crit_edge206, label %.preheader184, !llvm.loop !15
 
 ._crit_edge206:                                   ; preds = %._crit_edge204, %._crit_edge
-  %.not220239 = phi i1 [ true, %._crit_edge ], [ false, %._crit_edge204 ]
+  %.not220245 = phi i1 [ true, %._crit_edge ], [ false, %._crit_edge204 ]
   %74 = phi i64 [ 0, %._crit_edge ], [ %31, %._crit_edge204 ]
-  %.not219233237 = phi i1 [ %.not219, %._crit_edge ], [ %.not219233236, %._crit_edge204 ]
+  %.not219239243 = phi i1 [ %.not219, %._crit_edge ], [ %.not219239242, %._crit_edge204 ]
   %75 = getelementptr double, ptr %0, i64 %5
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = load double, ptr %76, align 8, !tbaa !8
@@ -198,7 +198,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   %83 = fdiv double %82, %77
   %84 = getelementptr inbounds nuw double, ptr %1, i64 %74
   store double %83, ptr %84, align 8, !tbaa !8
-  br i1 %.not220239, label %.lr.ph215.preheader, label %.lr.ph213
+  br i1 %.not220245, label %.lr.ph215.preheader, label %.lr.ph213
 
 .lr.ph213:                                        ; preds = %80
   %85 = add nuw nsw i64 %3, 1
@@ -255,7 +255,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   br i1 %exitcond230.not, label %._crit_edge210, label %103, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph215.preheader, %.preheader182
-  br i1 %.not219233237, label %.thread178, label %.lr.ph217.preheader
+  br i1 %.not219239243, label %.thread178, label %.lr.ph217.preheader
 
 .lr.ph217.preheader:                              ; preds = %.preheader
   %112 = shl nuw i64 %5, 3

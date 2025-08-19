@@ -3293,9 +3293,9 @@ slot_getattr.exit52:                              ; preds = %86, %slot_getsomeat
   %125 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %126 = trunc nuw i8 %125 to i1
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %124, i64 8
-  br i1 %126, label %127, label %.thread21.i.i
+  br i1 %126, label %127, label %.thread23.i.i
 
-.thread21.i.i:                                    ; preds = %122
+.thread23.i.i:                                    ; preds = %122
   store i8 0, ptr %.phi.trans.insert.i.i, align 8
   br label %129
 
@@ -3304,7 +3304,7 @@ slot_getattr.exit52:                              ; preds = %86, %slot_getsomeat
   %128 = trunc nuw i8 %.pre.i.i to i1
   br i1 %128, label %ri_HashCompareOp.exit.i, label %129
 
-129:                                              ; preds = %127, %.thread21.i.i
+129:                                              ; preds = %127, %.thread23.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -4367,10 +4367,10 @@ define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr noundef read
   br i1 %14, label %.sink.split, label %25
 
 .sink.split:                                      ; preds = %19, %15
-  %.sink97 = phi ptr [ %2, %15 ], [ %1, %19 ]
+  %.sink98 = phi ptr [ %2, %15 ], [ %1, %19 ]
   %.069.ph = phi i32 [ %18, %15 ], [ %22, %19 ]
   %.068.ph = phi ptr [ %16, %15 ], [ %20, %19 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sink97, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %.sink98, i64 64
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -4473,8 +4473,8 @@ slot_getattr.exit:                                ; preds = %46, %slot_getsomeat
 
 73:                                               ; preds = %slot_getattr.exit, %65
   %.067 = phi ptr [ %72, %65 ], [ @.str.83, %slot_getattr.exit ]
-  %.not95 = icmp eq i64 %indvars.iv92, 0
-  br i1 %.not95, label %75, label %74
+  %.not96 = icmp eq i64 %indvars.iv92, 0
+  br i1 %.not96, label %75, label %74
 
 74:                                               ; preds = %73
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.25) #11

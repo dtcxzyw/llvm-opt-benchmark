@@ -747,10 +747,10 @@ hash_match.exit.thread83.us.us.us.preheader.i.i:  ; preds = %.lr.ph.us.us.i.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.322, ptr noundef nonnull %4) #17
   %188 = load ptr, ptr %3, align 8, !tbaa !50
   %189 = load i8, ptr %188, align 1, !tbaa !94
-  switch i8 %189, label %.thread129.i.loopexit.i [
+  switch i8 %189, label %.thread139.i.loopexit.i [
     i8 87, label %190
-    i8 49, label %.thread129.i.loopexit.i.loopexit124
-    i8 50, label %.thread129.i.loopexit.i.loopexit
+    i8 49, label %.thread139.i.loopexit.i.loopexit158
+    i8 50, label %.thread139.i.loopexit.i.loopexit
   ]
 
 190:                                              ; preds = %187
@@ -787,14 +787,14 @@ hash_match.exit.thread83.us.us.us.preheader.i.i:  ; preds = %.lr.ph.us.us.i.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, ptr noundef %193) #17
   br label %.thread160.i
 
-.thread129.i.loopexit.i.loopexit:                 ; preds = %187
-  br label %.thread129.i.loopexit.i
+.thread139.i.loopexit.i.loopexit:                 ; preds = %187
+  br label %.thread139.i.loopexit.i
 
-.thread129.i.loopexit.i.loopexit124:              ; preds = %187
-  br label %.thread129.i.loopexit.i
+.thread139.i.loopexit.i.loopexit158:              ; preds = %187
+  br label %.thread139.i.loopexit.i
 
-.thread129.i.loopexit.i:                          ; preds = %187, %.thread129.i.loopexit.i.loopexit124, %.thread129.i.loopexit.i.loopexit
-  %.sink.i.i = phi i32 [ 109, %.thread129.i.loopexit.i.loopexit ], [ 108, %.thread129.i.loopexit.i.loopexit124 ], [ 107, %187 ]
+.thread139.i.loopexit.i:                          ; preds = %187, %.thread139.i.loopexit.i.loopexit158, %.thread139.i.loopexit.i.loopexit
+  %.sink.i.i = phi i32 [ 109, %.thread139.i.loopexit.i.loopexit ], [ 108, %.thread139.i.loopexit.i.loopexit158 ], [ 107, %187 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1041,10 +1041,10 @@ isSSL.exit.thread.i:                              ; preds = %isSSL.exit98.i, %is
   %spec.select.i = select i1 %.not.i99.i, i32 %..i.i, i32 101
   br label %.thread129.i
 
-.thread129.i:                                     ; preds = %282, %isSSL.exit98.i, %273, %265, %.thread129.i.loopexit.i
-  %.0144.i = phi ptr [ %229, %265 ], [ %229, %isSSL.exit98.i ], [ %229, %273 ], [ null, %.thread129.i.loopexit.i ], [ %229, %282 ]
-  %.057143.i = phi ptr [ %225, %265 ], [ %225, %isSSL.exit98.i ], [ %225, %273 ], [ null, %.thread129.i.loopexit.i ], [ %225, %282 ]
-  %.0119142.i = phi i32 [ 104, %265 ], [ 105, %isSSL.exit98.i ], [ 105, %273 ], [ %.sink.i.i, %.thread129.i.loopexit.i ], [ %spec.select.i, %282 ]
+.thread129.i:                                     ; preds = %282, %isSSL.exit98.i, %273, %265, %.thread139.i.loopexit.i
+  %.0144.i = phi ptr [ %229, %265 ], [ %229, %isSSL.exit98.i ], [ %229, %273 ], [ null, %.thread139.i.loopexit.i ], [ %229, %282 ]
+  %.057143.i = phi ptr [ %225, %265 ], [ %225, %isSSL.exit98.i ], [ %225, %273 ], [ null, %.thread139.i.loopexit.i ], [ %225, %282 ]
+  %.0119142.i = phi i32 [ 104, %265 ], [ 105, %isSSL.exit98.i ], [ 105, %273 ], [ %.sink.i.i, %.thread139.i.loopexit.i ], [ %spec.select.i, %282 ]
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef %0, ptr noundef nonnull @.str.31) #17
   %285 = load ptr, ptr %33, align 8, !tbaa !69
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %285) #17
@@ -2024,8 +2024,8 @@ hex2int.exit51:                                   ; preds = %48, %._crit_edge.i5
   br i1 %70, label %._crit_edge.thread, label %28
 
 ._crit_edge.thread:                               ; preds = %28, %._crit_edge
-  %.136.lcssa61 = phi ptr [ %.237, %._crit_edge ], [ %.035, %28 ]
-  store ptr %.136.lcssa61, ptr %1, align 8, !tbaa !50
+  %.136.lcssa64 = phi ptr [ %.237, %._crit_edge ], [ %.035, %28 ]
+  store ptr %.136.lcssa64, ptr %1, align 8, !tbaa !50
   br label %71
 
 71:                                               ; preds = %2, %._crit_edge.thread
@@ -3628,14 +3628,14 @@ define internal fastcc void @get_host(ptr noundef %0, i32 noundef range(i32 0, 2
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %.not99 = icmp eq i32 %1, 0
-  br i1 %.not99, label %.preheader, label %83
+  %.not106 = icmp eq i32 %1, 0
+  br i1 %.not106, label %.preheader, label %83
 
 .preheader:                                       ; preds = %.critedge, %21, %15, %12, %23
-  %.16298 = phi ptr [ %24, %23 ], [ %0, %12 ], [ %spec.select, %15 ], [ %0, %.critedge ], [ %22, %21 ]
-  %25 = tail call i64 @strcspn(ptr noundef nonnull %.16298, ptr noundef nonnull @.str.16) #16
-  %26 = getelementptr inbounds nuw i8, ptr %.16298, i64 %25
-  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.16298, i32 noundef 64) #16
+  %.162105 = phi ptr [ %24, %23 ], [ %0, %12 ], [ %spec.select, %15 ], [ %0, %.critedge ], [ %22, %21 ]
+  %25 = tail call i64 @strcspn(ptr noundef nonnull %.162105, ptr noundef nonnull @.str.16) #16
+  %26 = getelementptr inbounds nuw i8, ptr %.162105, i64 %25
+  %27 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.162105, i32 noundef 64) #16
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %.lr.ph.preheader
 
@@ -3743,7 +3743,7 @@ in_tld_set.exit:                                  ; preds = %72
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %.critedge82, %.lr.ph.preheader, %.preheader, %83
-  %.588 = phi ptr [ %24, %83 ], [ %.16298, %.preheader ], [ %.16298, %.lr.ph.preheader ], [ %78, %.critedge82 ], [ %78, %.lr.ph ]
+  %.588 = phi ptr [ %24, %83 ], [ %.162105, %.preheader ], [ %.162105, %.lr.ph.preheader ], [ %78, %.critedge82 ], [ %78, %.lr.ph ]
   %.2 = phi ptr [ %87, %83 ], [ %26, %.preheader ], [ %26, %.lr.ph.preheader ], [ %80, %.critedge82 ], [ %80, %.lr.ph ]
   store ptr %.588, ptr %3, align 8, !tbaa !50
   store ptr %.2, ptr %4, align 8, !tbaa !50

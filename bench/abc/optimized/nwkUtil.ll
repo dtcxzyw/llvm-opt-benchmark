@@ -1145,10 +1145,10 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
 
 Abc_Base10Log.exit152:                            ; preds = %.lr.ph.i147, %1, %Abc_Base10Log.exit
   %35 = phi i32 [ %30, %Abc_Base10Log.exit ], [ 10, %1 ], [ %30, %.lr.ph.i147 ]
-  %.0109.lcssa241253 = phi i32 [ %.1110, %Abc_Base10Log.exit ], [ 0, %1 ], [ %.1110, %.lr.ph.i147 ]
-  %.0107.lcssa242252 = phi i32 [ %.1108, %Abc_Base10Log.exit ], [ 0, %1 ], [ %.1108, %.lr.ph.i147 ]
-  %.0105.lcssa243251 = phi double [ %23, %Abc_Base10Log.exit ], [ 0.000000e+00, %1 ], [ %23, %.lr.ph.i147 ]
-  %.0103.lcssa244250 = phi double [ %24, %Abc_Base10Log.exit ], [ 0.000000e+00, %1 ], [ %24, %.lr.ph.i147 ]
+  %.0109.lcssa249261 = phi i32 [ %.1110, %Abc_Base10Log.exit ], [ 0, %1 ], [ %.1110, %.lr.ph.i147 ]
+  %.0107.lcssa250260 = phi i32 [ %.1108, %Abc_Base10Log.exit ], [ 0, %1 ], [ %.1108, %.lr.ph.i147 ]
+  %.0105.lcssa251259 = phi double [ %23, %Abc_Base10Log.exit ], [ 0.000000e+00, %1 ], [ %23, %.lr.ph.i147 ]
+  %.0103.lcssa252258 = phi double [ %24, %Abc_Base10Log.exit ], [ 0.000000e+00, %1 ], [ %24, %.lr.ph.i147 ]
   %.09.i151 = phi i32 [ %.1108, %Abc_Base10Log.exit ], [ 0, %1 ], [ %34, %.lr.ph.i147 ]
   %36 = mul i32 %.09.i151, 10
   %37 = add i32 %36, 10
@@ -1541,9 +1541,9 @@ Vec_IntFree.exit163:                              ; preds = %Vec_IntFree.exit, %
   %243 = getelementptr i8, ptr %0, i64 52
   %.val144 = load i32, ptr %243, align 4, !tbaa !57
   %244 = sitofp i32 %.val144 to double
-  %245 = fdiv double %.0105.lcssa243251, %244
-  %246 = fdiv double %.0103.lcssa244250, %244
-  %247 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %.0109.lcssa241253, double noundef %245, i32 noundef %.0107.lcssa242252, double noundef %246)
+  %245 = fdiv double %.0105.lcssa251259, %244
+  %246 = fdiv double %.0103.lcssa252258, %244
+  %247 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %.0109.lcssa249261, double noundef %245, i32 noundef %.0107.lcssa250260, double noundef %246)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -1752,7 +1752,7 @@ define i32 @Nwk_ManMinimumBaseInt(ptr noundef readonly captures(none) %0, i32 no
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %29, %.critedge
-  %.0.lcssa26 = phi i32 [ %.1, %29 ], [ %.1, %.critedge ], [ 0, %2 ]
+  %.0.lcssa27 = phi i32 [ %.1, %29 ], [ %.1, %.critedge ], [ 0, %2 ]
   %31 = load ptr, ptr %6, align 8, !tbaa !55
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %32
@@ -1763,7 +1763,7 @@ define i32 @Nwk_ManMinimumBaseInt(ptr noundef readonly captures(none) %0, i32 no
 
 Vec_IntFree.exit:                                 ; preds = %.critedge.thread, %32
   tail call void @free(ptr noundef nonnull %3) #17
-  ret i32 %.0.lcssa26
+  ret i32 %.0.lcssa27
 }
 
 ; Function Attrs: nounwind uwtable

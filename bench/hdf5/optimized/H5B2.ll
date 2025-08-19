@@ -150,7 +150,7 @@ define ptr @H5B2_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %30 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
   %31 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !11
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_create, i32 noundef 150, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.3) #7
-  br label %.thread33.thread42
+  br label %.thread33.thread45
 
 33:                                               ; preds = %26
   store ptr %27, ptr %20, align 8, !tbaa !13
@@ -190,25 +190,25 @@ define ptr @H5B2_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %53 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
   %54 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !11
   %55 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_create, i32 noundef 171, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.6) #7
-  br label %.thread33.thread42
+  br label %.thread33.thread45
 
 .thread33:                                        ; preds = %49
   %56 = icmp eq ptr %.1, null
-  br i1 %56, label %.thread33.thread42, label %.thread33.thread
+  br i1 %56, label %.thread33.thread45, label %.thread33.thread
 
-.thread33.thread42:                               ; preds = %29, %52, %.thread33
+.thread33.thread45:                               ; preds = %29, %52, %.thread33
   %57 = tail call i32 @H5B2_close(ptr noundef nonnull %20)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %.thread33.thread
 
-59:                                               ; preds = %.thread33.thread42
+59:                                               ; preds = %.thread33.thread45
   %60 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !11
   %61 = load i64, ptr @H5E_CANTCLOSEOBJ_g, align 8, !tbaa !11
   %62 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2_create, i32 noundef 174, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.7) #7
   br label %.thread33.thread
 
-.thread33.thread:                                 ; preds = %15, %22, %.thread33, %59, %.thread33.thread42, %9
-  %.0 = phi ptr [ null, %59 ], [ null, %.thread33.thread42 ], [ %.1, %.thread33 ], [ null, %9 ], [ null, %22 ], [ null, %15 ]
+.thread33.thread:                                 ; preds = %15, %22, %.thread33, %59, %.thread33.thread45, %9
+  %.0 = phi ptr [ null, %59 ], [ null, %.thread33.thread45 ], [ %.1, %.thread33 ], [ null, %9 ], [ null, %22 ], [ null, %15 ]
   ret ptr %.0
 }
 
@@ -1330,7 +1330,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   br i1 %.not115170, label %._crit_edge, label %.lr.ph174
 
 .lr.ph174:                                        ; preds = %36, %139
-  %.199173 = phi i64 [ %.3147209, %139 ], [ %.098, %36 ]
+  %.199173 = phi i64 [ %.3147216, %139 ], [ %.098, %36 ]
   %.0104172 = phi i16 [ %140, %139 ], [ %38, %36 ]
   %.2108171 = phi ptr [ %.7, %139 ], [ %spec.select, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1468,16 +1468,16 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   br i1 %.pre-phi, label %.loopexit.thread, label %139
 
 .loopexit.thread:                                 ; preds = %115, %.loopexit
-  %.5211 = phi ptr [ %.5, %.loopexit ], [ null, %115 ]
-  %.097144210 = phi i64 [ %.097144, %.loopexit ], [ %61, %115 ]
-  %.3147208 = phi i64 [ %.3147, %.loopexit ], [ %116, %115 ]
+  %.5218 = phi ptr [ %.5, %.loopexit ], [ null, %115 ]
+  %.097144217 = phi i64 [ %.097144, %.loopexit ], [ %61, %115 ]
+  %.3147215 = phi i64 [ %.3147, %.loopexit ], [ %116, %115 ]
   %117 = getelementptr inbounds nuw i8, ptr %44, i64 264
   %118 = load ptr, ptr %117, align 8, !tbaa !55
-  %119 = and i64 %.097144210, 4294967295
+  %119 = and i64 %.097144217, 4294967295
   %120 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %118, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i64, ptr %121, align 8, !tbaa !60
-  %123 = icmp ugt i64 %122, %.3147208
+  %123 = icmp ugt i64 %122, %.3147215
   br i1 %123, label %124, label %139
 
 124:                                              ; preds = %.loopexit.thread
@@ -1500,19 +1500,19 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
 136:                                              ; preds = %124
   %137 = load i8, ptr %39, align 8, !tbaa !49, !range !7, !noundef !8
   %138 = trunc nuw i8 %137 to i1
-  %spec.select124 = select i1 %138, ptr %44, ptr %.5211
+  %spec.select124 = select i1 %138, ptr %44, ptr %.5218
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !41
   br label %139
 
 .thread127:                                       ; preds = %46, %54, %77, %132, %104, %107, %111, %110
-  %.3109.ph = phi ptr [ null, %110 ], [ null, %111 ], [ null, %107 ], [ null, %104 ], [ %.5211, %132 ], [ null, %77 ], [ %.2108171, %54 ], [ %.2108171, %46 ]
+  %.3109.ph = phi ptr [ null, %110 ], [ null, %111 ], [ null, %107 ], [ null, %104 ], [ %.5218, %132 ], [ null, %77 ], [ %.2108171, %54 ], [ %.2108171, %46 ]
   %.3103.ph = phi i32 [ 0, %110 ], [ -1, %111 ], [ -1, %107 ], [ -1, %104 ], [ -1, %132 ], [ -1, %77 ], [ -1, %54 ], [ -1, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %182
 
 139:                                              ; preds = %.loopexit, %.loopexit.thread, %136
-  %.3147209 = phi i64 [ %.3147208, %136 ], [ %.3147208, %.loopexit.thread ], [ %.3147, %.loopexit ]
-  %.7 = phi ptr [ %spec.select124, %136 ], [ %.5211, %.loopexit.thread ], [ %.5, %.loopexit ]
+  %.3147216 = phi i64 [ %.3147215, %136 ], [ %.3147215, %.loopexit.thread ], [ %.3147, %.loopexit ]
+  %.7 = phi ptr [ %spec.select124, %136 ], [ %.5218, %.loopexit.thread ], [ %.5, %.loopexit ]
   %140 = add i16 %.0104172, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not115 = icmp eq i16 %140, 0
@@ -1520,7 +1520,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
 
 ._crit_edge:                                      ; preds = %139, %36
   %.2108.lcssa = phi ptr [ %spec.select, %36 ], [ %.7, %139 ]
-  %.199.lcssa = phi i64 [ %.098, %36 ], [ %.3147209, %139 ]
+  %.199.lcssa = phi i64 [ %.098, %36 ], [ %.3147216, %139 ]
   %141 = call ptr @H5B2__protect_leaf(ptr noundef %19, ptr noundef %.2108.lcssa, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 128) #7
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %147

@@ -318,10 +318,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  %12 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
-  %cmp.not20.i.i = icmp eq ptr %12, null
-  br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
+  %incdec.ptr.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %6, i64 -8
+  %12 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %12, null
+  br i1 %cmp.not21.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i
   %13 = phi ptr [ %12, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %11, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i ]
@@ -400,10 +400,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i34: ; preds = %if.end.i.i.i24
   br i1 %cmp.not.i3.i38, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i33, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i30
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i27: ; preds = %if.end.i.i.i24
-  %incdec.ptr.i.i.i.i19.i.i28 = getelementptr inbounds i8, ptr %21, i64 -8
-  %27 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i28, align 8
-  %cmp.not20.i.i29 = icmp eq ptr %27, null
-  br i1 %cmp.not20.i.i29, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i33, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i30
+  %incdec.ptr.i.i.i.i20.i.i28 = getelementptr inbounds i8, ptr %21, i64 -8
+  %27 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i28, align 8
+  %cmp.not21.i.i29 = icmp eq ptr %27, null
+  br i1 %cmp.not21.i.i29, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i33, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i30
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i30: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i27, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i34
   %28 = phi ptr [ %27, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i27 ], [ %26, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i34 ]

@@ -610,9 +610,9 @@ H5HF__huge_bt2_create.exit:                       ; preds = %63
   br label %.thread142.sink.split
 
 .thread142.sink.split:                            ; preds = %233, %.thread142.sink.split.sink.split
-  %.sink176 = phi i64 [ 1, %.thread142.sink.split.sink.split ], [ 8, %233 ]
+  %.sink182 = phi i64 [ 1, %.thread142.sink.split.sink.split ], [ 8, %233 ]
   %245 = load ptr, ptr %6, align 8, !tbaa !40
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink176
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink182
   store ptr %246, ptr %6, align 8, !tbaa !40
   br label %.thread142
 
@@ -700,20 +700,20 @@ H5HF__huge_bt2_create.exit:                       ; preds = %63
   br label %.thread147.sink.split.sink.split
 
 .thread147.sink.split.sink.split:                 ; preds = %286, %264
-  %.sink187 = phi i64 [ 24, %264 ], [ 8, %286 ]
+  %.sink193 = phi i64 [ 24, %264 ], [ 8, %286 ]
   %290 = load ptr, ptr %6, align 8, !tbaa !40
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 1
   store ptr %291, ptr %6, align 8, !tbaa !40
   %292 = load i64, ptr %8, align 8, !tbaa !52
-  %293 = lshr i64 %292, %.sink187
+  %293 = lshr i64 %292, %.sink193
   %294 = trunc i64 %293 to i8
   store i8 %294, ptr %291, align 1, !tbaa !59
   br label %.thread147.sink.split
 
 .thread147.sink.split:                            ; preds = %281, %.thread147.sink.split.sink.split
-  %.sink178 = phi i64 [ 1, %.thread147.sink.split.sink.split ], [ 8, %281 ]
+  %.sink184 = phi i64 [ 1, %.thread147.sink.split.sink.split ], [ 8, %281 ]
   %295 = load ptr, ptr %6, align 8, !tbaa !40
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 %.sink178
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 %.sink184
   store ptr %296, ptr %6, align 8, !tbaa !40
   br label %.thread147
 
@@ -1834,9 +1834,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %78 = load i32, ptr %77, align 4, !tbaa !10
   %.not80 = icmp eq i32 %78, 0
-  br i1 %.not80, label %187, label %.thread120
+  br i1 %.not80, label %187, label %.thread125
 
-.thread120:                                       ; preds = %76
+.thread125:                                       ; preds = %76
   %79 = load ptr, ptr %6, align 8, !tbaa !40
   %80 = load i8, ptr %79, align 1, !tbaa !59
   %81 = zext i8 %80 to i32
@@ -2051,10 +2051,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   %or.cond = and i1 %2, %188
   br i1 %or.cond, label %198, label %190
 
-190:                                              ; preds = %.thread120, %187
-  %191 = phi ptr [ %98, %.thread120 ], [ %189, %187 ]
-  %.2124 = phi i64 [ %.1, %.thread120 ], [ %.2, %187 ]
-  %192 = call noalias ptr @malloc(i64 noundef %.2124) #7
+190:                                              ; preds = %.thread125, %187
+  %191 = phi ptr [ %98, %.thread125 ], [ %189, %187 ]
+  %.2129 = phi i64 [ %.1, %.thread125 ], [ %.2, %187 ]
+  %192 = call noalias ptr @malloc(i64 noundef %.2129) #7
   store ptr %192, ptr %7, align 8, !tbaa !53
   %193 = icmp eq ptr %192, null
   br i1 %193, label %194, label %199
@@ -2071,12 +2071,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
 
 199:                                              ; preds = %190, %198
   %200 = phi ptr [ %191, %190 ], [ %189, %198 ]
-  %.2123 = phi i64 [ %.2124, %190 ], [ %.2, %198 ]
+  %.2128 = phi i64 [ %.2129, %190 ], [ %.2, %198 ]
   %201 = phi ptr [ %192, %190 ], [ %4, %198 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %203 = load ptr, ptr %202, align 8, !tbaa !51
   %204 = load i64, ptr %8, align 8, !tbaa !52
-  %205 = call i32 @H5F_block_read(ptr noundef %203, i32 noundef 3, i64 noundef %204, i64 noundef %.2123, ptr noundef %201) #6
+  %205 = call i32 @H5F_block_read(ptr noundef %203, i32 noundef 3, i64 noundef %204, i64 noundef %.2128, ptr noundef %201) #6
   %206 = icmp slt i32 %205, 0
   br i1 %206, label %207, label %211
 
@@ -2094,8 +2094,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
 213:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store i64 %.2123, ptr %16, align 8, !tbaa !52
-  store i64 %.2123, ptr %15, align 8, !tbaa !52
+  store i64 %.2128, ptr %16, align 8, !tbaa !52
+  store i64 %.2128, ptr %15, align 8, !tbaa !52
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %215 = call i32 @H5Z_pipeline(ptr noundef nonnull %214, i32 noundef 256, ptr noundef nonnull %9, i32 noundef 2, ptr null, ptr null, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %7) #6
   %216 = icmp slt i32 %215, 0
@@ -2116,7 +2116,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__huge_op_real(ptr noundef %0, 
   br label %237
 
 222:                                              ; preds = %.thread101, %211
-  %.7 = phi i64 [ %.2123, %211 ], [ %217, %.thread101 ]
+  %.7 = phi i64 [ %.2128, %211 ], [ %217, %.thread101 ]
   br i1 %2, label %223, label %227
 
 223:                                              ; preds = %222
@@ -2392,7 +2392,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_remove(ptr noundef %0, ptr noundef %1) l
   %122 = or disjoint i64 %121, %117
   store i64 %122, ptr %107, align 8, !tbaa !65
   %123 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  br label %.sink.split97
+  br label %.sink.split98
 
 124:                                              ; preds = %99
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2418,7 +2418,7 @@ define range(i32 -1, 1) i32 @H5HF__huge_remove(ptr noundef %0, ptr noundef %1) l
 
 137:                                              ; preds = %128
   %138 = getelementptr inbounds nuw i8, ptr %130, i64 7
-  br label %.sink.split97
+  br label %.sink.split98
 
 139:                                              ; preds = %99
   %140 = load ptr, ptr %3, align 8, !tbaa !40
@@ -2434,14 +2434,14 @@ define range(i32 -1, 1) i32 @H5HF__huge_remove(ptr noundef %0, ptr noundef %1) l
   %148 = or disjoint i64 %147, %142
   store i64 %148, ptr %143, align 8, !tbaa !65
   %149 = getelementptr inbounds nuw i8, ptr %140, i64 2
-  br label %.sink.split97
+  br label %.sink.split98
 
-.sink.split97:                                    ; preds = %103, %137, %139
-  %.sink98 = phi ptr [ %149, %139 ], [ %138, %137 ], [ %123, %103 ]
-  store ptr %.sink98, ptr %3, align 8, !tbaa !40
+.sink.split98:                                    ; preds = %103, %137, %139
+  %.sink99 = phi ptr [ %149, %139 ], [ %138, %137 ], [ %123, %103 ]
+  store ptr %.sink99, ptr %3, align 8, !tbaa !40
   br label %150
 
-150:                                              ; preds = %.sink.split97, %99
+150:                                              ; preds = %.sink.split98, %99
   %151 = load ptr, ptr %16, align 8, !tbaa !39
   %152 = call i32 @H5B2_remove(ptr noundef %151, ptr noundef nonnull %6, ptr noundef nonnull @H5HF__huge_bt2_dir_remove, ptr noundef nonnull %4) #6
   %153 = icmp slt i32 %152, 0

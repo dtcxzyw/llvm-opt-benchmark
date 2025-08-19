@@ -7948,7 +7948,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE6
 
 23:                                               ; preds = %17
   %24 = icmp ult i16 %13, 128
-  br i1 %24, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread122, label %25
+  br i1 %24, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127, label %25
 
 25:                                               ; preds = %23
   %26 = zext i16 %13 to i32
@@ -7974,7 +7974,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %.thread68, %25,
   %38 = icmp slt i64 %37, %.0.i
   br i1 %38, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit, label %50
 
-_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread122: ; preds = %23
+_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127: ; preds = %23
   %39 = ptrtoint ptr %.038107 to i64
   %40 = sub i64 %10, %39
   %41 = icmp slt i64 %40, 1
@@ -7991,7 +7991,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %14
   %46 = getelementptr inbounds nuw i8, ptr %.038107, i64 2
   br label %65
 
-47:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread122
+47:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127
   %48 = trunc nuw i16 %13 to i8
   %49 = getelementptr inbounds nuw i8, ptr %.038107, i64 1
   store i8 %48, ptr %.038107, align 1, !tbaa !22
@@ -8072,11 +8072,11 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %14
   %.not102.not = select i1 %98, i1 %99, i1 false
   br i1 %.not102.not, label %.lr.ph, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit, !llvm.loop !148
 
-_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %96, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread122, %8
-  %.045.lcssa = phi i16 [ %9, %8 ], [ 0, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread122 ], [ %.045106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.045106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.449.ph, %96 ]
-  %.038.lcssa = phi ptr [ %5, %8 ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread122 ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.240.ph, %96 ]
-  %.0.lcssa = phi ptr [ %2, %8 ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread122 ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %97, %96 ]
-  %.not102.not.lcssa = phi i1 [ false, %8 ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread122 ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ false, %96 ]
+_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %96, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127, %8
+  %.045.lcssa = phi i16 [ %9, %8 ], [ 0, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127 ], [ %.045106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.045106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.449.ph, %96 ]
+  %.038.lcssa = phi ptr [ %5, %8 ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127 ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.240.ph, %96 ]
+  %.0.lcssa = phi ptr [ %2, %8 ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127 ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %97, %96 ]
+  %.not102.not.lcssa = phi i1 [ false, %8 ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127 ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ false, %96 ]
   store ptr %.0.lcssa, ptr %4, align 8, !tbaa !55
   store ptr %.038.lcssa, ptr %7, align 8, !tbaa !55
   %100 = icmp ne ptr %.0.lcssa, %3
@@ -8585,24 +8585,24 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDiLi4EE9
 .lr.ph.preheader:                                 ; preds = %5
   %10 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %11 = icmp eq i32 %10, -2
-  br i1 %11, label %.loopexit, label %.lr.ph21
+  br i1 %11, label %.loopexit, label %.lr.ph25
 
-.lr.ph21:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.081620 = phi i64 [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %12 = add i64 %.081620, -1
+.lr.ph25:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.081624 = phi i64 [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %12 = add i64 %.081624, -1
   %13 = icmp ne i64 %12, 0
   %14 = load ptr, ptr %6, align 8
   %15 = icmp ult ptr %14, %3
   %16 = select i1 %13, i1 %15, i1 false
   br i1 %16, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph21
+.lr.ph:                                           ; preds = %.lr.ph25
   %17 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %18 = icmp eq i32 %17, -2
-  br i1 %18, label %.loopexit, label %.lr.ph21
+  br i1 %18, label %.loopexit, label %.lr.ph25
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph21, %.lr.ph.preheader, %5
-  %19 = phi ptr [ %2, %5 ], [ %2, %.lr.ph.preheader ], [ %14, %.lr.ph21 ], [ %14, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %.lr.ph.preheader, %5
+  %19 = phi ptr [ %2, %5 ], [ %2, %.lr.ph.preheader ], [ %14, %.lr.ph25 ], [ %14, %.lr.ph ]
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %2 to i64
   %22 = sub i64 %20, %21
@@ -9126,24 +9126,24 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE9d
 .lr.ph.preheader:                                 ; preds = %5
   %10 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %11 = icmp eq i32 %10, -2
-  br i1 %11, label %.loopexit, label %.lr.ph21
+  br i1 %11, label %.loopexit, label %.lr.ph25
 
-.lr.ph21:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.081620 = phi i64 [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %12 = add i64 %.081620, -1
+.lr.ph25:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.081624 = phi i64 [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %12 = add i64 %.081624, -1
   %13 = icmp ne i64 %12, 0
   %14 = load ptr, ptr %6, align 8
   %15 = icmp ult ptr %14, %3
   %16 = select i1 %13, i1 %15, i1 false
   br i1 %16, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph21
+.lr.ph:                                           ; preds = %.lr.ph25
   %17 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %18 = icmp eq i32 %17, -2
-  br i1 %18, label %.loopexit, label %.lr.ph21
+  br i1 %18, label %.loopexit, label %.lr.ph25
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph21, %.lr.ph.preheader, %5
-  %19 = phi ptr [ %2, %5 ], [ %2, %.lr.ph.preheader ], [ %14, %.lr.ph21 ], [ %14, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %.lr.ph.preheader, %5
+  %19 = phi ptr [ %2, %5 ], [ %2, %.lr.ph.preheader ], [ %14, %.lr.ph25 ], [ %14, %.lr.ph ]
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %2 to i64
   %22 = sub i64 %20, %21

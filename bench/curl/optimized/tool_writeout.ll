@@ -525,30 +525,30 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
 .preheader110:                                    ; preds = %13
   %17 = load i64, ptr %10, align 8, !tbaa !48
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %._crit_edge147, label %.lr.ph146
+  br i1 %18, label %._crit_edge157, label %.lr.ph156
 
-.lr.ph146:                                        ; preds = %.preheader110, %21
-  %.062112145 = phi ptr [ %19, %21 ], [ @http_version, %.preheader110 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.062112145, i64 16
+.lr.ph156:                                        ; preds = %.preheader110, %21
+  %.062112155 = phi ptr [ %19, %21 ], [ @http_version, %.preheader110 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.062112155, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !49
   %.not90.not = icmp eq ptr %20, null
   br i1 %.not90.not, label %.loopexit, label %21, !llvm.loop !51
 
-21:                                               ; preds = %.lr.ph146
-  %22 = getelementptr inbounds nuw i8, ptr %.062112145, i64 24
+21:                                               ; preds = %.lr.ph156
+  %22 = getelementptr inbounds nuw i8, ptr %.062112155, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !52
   %24 = sext i32 %23 to i64
   %25 = icmp eq i64 %17, %24
-  br i1 %25, label %._crit_edge147, label %.lr.ph146, !llvm.loop !51
+  br i1 %25, label %._crit_edge157, label %.lr.ph156, !llvm.loop !51
 
-._crit_edge147:                                   ; preds = %21, %.preheader110
+._crit_edge157:                                   ; preds = %21, %.preheader110
   %.lcssa = phi ptr [ @.str.84, %.preheader110 ], [ %20, %21 ]
   store ptr %.lcssa, ptr %8, align 8, !tbaa !46
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph146, %._crit_edge147, %13
-  %26 = phi ptr [ null, %13 ], [ %.lcssa, %._crit_edge147 ], [ null, %.lr.ph146 ]
-  %.0 = phi i1 [ false, %13 ], [ true, %._crit_edge147 ], [ false, %.lr.ph146 ]
+.loopexit:                                        ; preds = %.lr.ph156, %._crit_edge157, %13
+  %26 = phi ptr [ null, %13 ], [ %.lcssa, %._crit_edge157 ], [ null, %.lr.ph156 ]
+  %.0 = phi i1 [ false, %13 ], [ true, %._crit_edge157 ], [ false, %.lr.ph156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %108
 
@@ -761,7 +761,7 @@ define internal noundef i32 @writeString(ptr noundef %0, ptr noundef readonly ca
   %100 = load ptr, ptr %99, align 8, !tbaa !32
   %101 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %100, i32 noundef 1048577, ptr noundef nonnull %7) #7
   %.not20.i = icmp eq i32 %101, 0
-  br i1 %.not20.i, label %switch.lookup, label %urlpart.exit.thread133
+  br i1 %.not20.i, label %switch.lookup, label %urlpart.exit.thread143
 
 switch.lookup:                                    ; preds = %98, %.thread.i
   %switch.tableidx = add nsw i32 %36, -19
@@ -771,7 +771,7 @@ switch.lookup:                                    ; preds = %98, %.thread.i
   %103 = load ptr, ptr %7, align 8, !tbaa !46
   %104 = call i32 @curl_url_set(ptr noundef nonnull %94, i32 noundef 0, ptr noundef %103, i32 noundef 520) #7
   %.not23.i = icmp eq i32 %104, 0
-  br i1 %.not23.i, label %105, label %urlpart.exit.thread133
+  br i1 %.not23.i, label %105, label %urlpart.exit.thread143
 
 105:                                              ; preds = %switch.lookup
   %106 = call i32 @curl_url_get(ptr noundef nonnull %94, i32 noundef %switch.load, ptr noundef nonnull %6, i32 noundef 1) #7
@@ -779,16 +779,16 @@ switch.lookup:                                    ; preds = %98, %.thread.i
   %.pre.i = load ptr, ptr %6, align 8
   %107 = icmp ne ptr %.pre.i, null
   %or.cond.i = select i1 %.not25.i, i1 %107, i1 false
-  br i1 %or.cond.i, label %urlpart.exit.thread136, label %urlpart.exit
+  br i1 %or.cond.i, label %urlpart.exit.thread146, label %urlpart.exit
 
-urlpart.exit.thread136:                           ; preds = %105
+urlpart.exit.thread146:                           ; preds = %105
   store ptr %.pre.i, ptr %8, align 8, !tbaa !46
   call void @curl_url_cleanup(ptr noundef nonnull %94) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %108
 
-urlpart.exit.thread133:                           ; preds = %switch.lookup, %98
+urlpart.exit.thread143:                           ; preds = %switch.lookup, %98
   call void @curl_url_cleanup(ptr noundef nonnull %94) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -800,10 +800,10 @@ urlpart.exit:                                     ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread104
 
-108:                                              ; preds = %._crit_edge, %._crit_edge.thread, %urlpart.exit.thread136, %27, %.loopexit, %89, %85, %80
-  %109 = phi ptr [ %26, %.loopexit ], [ %81, %80 ], [ %84, %85 ], [ %88, %89 ], [ %32, %27 ], [ %.pre.i, %urlpart.exit.thread136 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.055 = phi ptr [ null, %.loopexit ], [ null, %80 ], [ null, %85 ], [ null, %89 ], [ null, %27 ], [ %.pre.i, %urlpart.exit.thread136 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %80 ], [ true, %85 ], [ true, %89 ], [ %or.cond, %27 ], [ true, %urlpart.exit.thread136 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
+108:                                              ; preds = %._crit_edge, %._crit_edge.thread, %urlpart.exit.thread146, %27, %.loopexit, %89, %85, %80
+  %109 = phi ptr [ %26, %.loopexit ], [ %81, %80 ], [ %84, %85 ], [ %88, %89 ], [ %32, %27 ], [ %.pre.i, %urlpart.exit.thread146 ], [ %spec.store.select, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.055 = phi ptr [ null, %.loopexit ], [ null, %80 ], [ null, %85 ], [ null, %89 ], [ null, %27 ], [ %.pre.i, %urlpart.exit.thread146 ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
+  %.3 = phi i1 [ %.0, %.loopexit ], [ true, %80 ], [ true, %85 ], [ true, %89 ], [ %or.cond, %27 ], [ true, %urlpart.exit.thread146 ], [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
   %110 = icmp ne ptr %109, null
   %or.cond3 = select i1 %.3, i1 %110, i1 false
   br i1 %or.cond3, label %111, label %.thread104
@@ -822,8 +822,8 @@ urlpart.exit:                                     ; preds = %105
   %117 = call i32 @fputs(ptr noundef nonnull %109, ptr noundef %0)
   br label %121
 
-.thread104:                                       ; preds = %urlpart.exit, %93, %urlpart.exit.thread133, %90, %86, %82, %72, %71, %34, %108
-  %.055109 = phi ptr [ %.055, %108 ], [ null, %34 ], [ null, %71 ], [ null, %72 ], [ null, %82 ], [ null, %86 ], [ null, %90 ], [ null, %urlpart.exit.thread133 ], [ null, %93 ], [ null, %urlpart.exit ]
+.thread104:                                       ; preds = %urlpart.exit, %93, %urlpart.exit.thread143, %90, %86, %82, %72, %71, %34, %108
+  %.055109 = phi ptr [ %.055, %108 ], [ null, %34 ], [ null, %71 ], [ null, %72 ], [ null, %82 ], [ null, %86 ], [ null, %90 ], [ null, %urlpart.exit.thread143 ], [ null, %93 ], [ null, %urlpart.exit ]
   br i1 %4, label %118, label %121
 
 118:                                              ; preds = %.thread104

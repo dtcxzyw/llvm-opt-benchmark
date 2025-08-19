@@ -1221,8 +1221,8 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
           to label %197 unwind label %189
 
 197:                                              ; preds = %196, %207
-  %.sink84 = phi ptr [ %36, %207 ], [ %37, %196 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %.sink84, i64 32, i1 false)
+  %.sink85 = phi ptr [ %36, %207 ], [ %37, %196 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %.sink85, i64 32, i1 false)
   %.not48 = icmp eq ptr %2, null
   br i1 %.not48, label %209, label %208
 
@@ -1384,8 +1384,8 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
           to label %240 unwind label %215
 
 240:                                              ; preds = %239, %251
-  %.sink85 = phi ptr [ %31, %251 ], [ %34, %239 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %.sink85, i64 32, i1 false)
+  %.sink86 = phi ptr [ %31, %251 ], [ %34, %239 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %.sink86, i64 32, i1 false)
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 240
   br i1 %3, label %253, label %252
 
@@ -1549,8 +1549,8 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
           to label %283 unwind label %259
 
 283:                                              ; preds = %282, %311
-  %.sink86 = phi ptr [ %29, %311 ], [ %26, %282 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %.sink86, i64 32, i1 false)
+  %.sink87 = phi ptr [ %29, %311 ], [ %26, %282 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %.sink87, i64 32, i1 false)
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %23)
           to label %315 unwind label %313
 

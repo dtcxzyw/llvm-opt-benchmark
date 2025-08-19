@@ -454,8 +454,8 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   br i1 %.not36, label %.backedge, label %.loopexit.sink.split
 
 .backedge:                                        ; preds = %46, %48
-  %.sink40 = phi i64 [ 1, %48 ], [ 3, %46 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.03039, i64 %.sink40
+  %.sink42 = phi i64 [ 1, %48 ], [ 3, %46 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.03039, i64 %.sink42
   %.not34 = icmp eq ptr %47, %37
   br i1 %.not34, label %.loopexit, label %39
 

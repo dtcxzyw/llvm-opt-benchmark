@@ -490,9 +490,9 @@ define dso_local range(i32 0, 3) i32 @ohci_hub_status_data(ptr noundef %0, ptr n
 199:                                              ; preds = %192, %191
   %200 = or i32 %120, %63
   %201 = icmp eq i32 %200, 0
-  br i1 %201, label %.thread18, label %204
+  br i1 %201, label %.thread20, label %204
 
-.thread18:                                        ; preds = %199
+.thread20:                                        ; preds = %199
   %202 = load ptr, ptr %43, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 64, ptr nonnull elementtype(i32) %203) #14, !srcloc !9
@@ -510,7 +510,7 @@ default.unreachable:                              ; preds = %.loopexit9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i32 4, ptr nonnull elementtype(i8) %5) #14, !srcloc !14
   br label %206
 
-.thread5:                                         ; preds = %.thread18, %192, %204
+.thread5:                                         ; preds = %.thread20, %192, %204
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i32 -5, ptr nonnull elementtype(i8) %5) #14, !srcloc !15
   br label %206
 
@@ -4672,7 +4672,7 @@ define internal range(i64 -4294963199, 4097) i64 @fill_registers_buffer(ptr noun
   %64 = select i1 %63, ptr @.str.10, ptr @.str.12
   %65 = lshr i32 %54, 6
   %66 = and i32 %65, 3
-  switch i32 %66, label %default.unreachable19 [
+  switch i32 %66, label %default.unreachable29 [
     i32 0, label %70
     i32 1, label %67
     i32 2, label %68
@@ -4688,7 +4688,7 @@ define internal range(i64 -4294963199, 4097) i64 @fill_registers_buffer(ptr noun
 69:                                               ; preds = %47
   br label %70
 
-default.unreachable19:                            ; preds = %47
+default.unreachable29:                            ; preds = %47
   unreachable
 
 70:                                               ; preds = %69, %68, %67, %47
@@ -5506,9 +5506,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr noundef ca
   %155 = getelementptr inbounds nuw i8, ptr %162, i64 84
   %156 = load i16, ptr %155, align 4
   %157 = icmp ugt i16 %140, %156
-  br i1 %157, label %.thread27, label %.preheader, !llvm.loop !65
+  br i1 %157, label %.thread38, label %.preheader, !llvm.loop !65
 
-.thread27:                                        ; preds = %154
+.thread38:                                        ; preds = %154
   %158 = getelementptr inbounds nuw i8, ptr %160, i64 32
   %159 = getelementptr inbounds nuw i8, ptr %160, i64 12
   br label %.sink.split
@@ -5538,16 +5538,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr noundef ca
   store ptr %172, ptr %4, align 16
   br i1 %171, label %175, label %179
 
-.sink.split:                                      ; preds = %150, %.thread27
-  %.lcssa32.sink = phi ptr [ %162, %.thread27 ], [ %146, %150 ]
-  %.ph = phi ptr [ %158, %.thread27 ], [ %143, %150 ]
-  %.ph41 = phi ptr [ %159, %.thread27 ], [ %145, %150 ]
-  store ptr %.lcssa32.sink, ptr %4, align 16
+.sink.split:                                      ; preds = %150, %.thread38
+  %.lcssa43.sink = phi ptr [ %162, %.thread38 ], [ %146, %150 ]
+  %.ph = phi ptr [ %158, %.thread38 ], [ %143, %150 ]
+  %.ph52 = phi ptr [ %159, %.thread38 ], [ %145, %150 ]
+  store ptr %.lcssa43.sink, ptr %4, align 16
   br label %175
 
 175:                                              ; preds = %.sink.split, %170
   %176 = phi ptr [ %174, %170 ], [ %.ph, %.sink.split ]
-  %177 = phi ptr [ %173, %170 ], [ %.ph41, %.sink.split ]
+  %177 = phi ptr [ %173, %170 ], [ %.ph52, %.sink.split ]
   %178 = load i32, ptr %177, align 4
   store i32 %178, ptr %5, align 4
   br label %179

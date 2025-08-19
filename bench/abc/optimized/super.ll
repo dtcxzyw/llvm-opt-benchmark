@@ -343,17 +343,17 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
 
 .outer:                                           ; preds = %8, %3
   %.024.ph = phi i32 [ %14, %8 ], [ 4, %3 ]
-  %.022.ph = phi i32 [ %.022.ph45, %8 ], [ 3, %3 ]
+  %.022.ph = phi i32 [ %.022.ph49, %8 ], [ 3, %3 ]
   %.021.ph = phi i32 [ %.021, %8 ], [ 0, %3 ]
-  br label %.outer44
+  br label %.outer48
 
-.outer44:                                         ; preds = %.outer, %17
-  %.022.ph45 = phi i32 [ %.022.ph, %.outer ], [ %23, %17 ]
-  %.021.ph46 = phi i32 [ %.021.ph, %.outer ], [ %.021, %17 ]
+.outer48:                                         ; preds = %.outer, %17
+  %.022.ph49 = phi i32 [ %.022.ph, %.outer ], [ %23, %17 ]
+  %.021.ph50 = phi i32 [ %.021.ph, %.outer ], [ %.021, %17 ]
   br label %6
 
-6:                                                ; preds = %.outer44, %26
-  %.021 = phi i32 [ %27, %26 ], [ %.021.ph46, %.outer44 ]
+6:                                                ; preds = %.outer48, %26
+  %.021 = phi i32 [ %27, %26 ], [ %.021.ph50, %.outer48 ]
   %7 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.3) #6
   switch i32 %7, label %.loopexit [
     i32 -1, label %28
@@ -384,19 +384,19 @@ define internal range(i32 0, 2) i32 @Super_CommandSupergatesAnd(ptr noundef %0, 
   %24 = add nsw i32 %18, 1
   store i32 %24, ptr @globalUtilOptind, align 4, !tbaa !3
   %25 = icmp slt i32 %23, 0
-  br i1 %25, label %.loopexit, label %.outer44, !llvm.loop !12
+  br i1 %25, label %.loopexit, label %.outer48, !llvm.loop !12
 
 26:                                               ; preds = %6
   %27 = xor i32 %.021, 1
   br label %6, !llvm.loop !12
 
 28:                                               ; preds = %6
-  tail call void @Super2_Precompute(i32 noundef %.024.ph, i32 noundef %.022.ph45, i32 noundef %.021) #6
+  tail call void @Super2_Precompute(i32 noundef %.024.ph, i32 noundef %.022.ph49, i32 noundef %.021) #6
   br label %35
 
 .loopexit:                                        ; preds = %8, %6, %17
   %.125 = phi i32 [ %.024.ph, %17 ], [ %.024.ph, %6 ], [ %14, %8 ]
-  %.123 = phi i32 [ %.022.ph45, %6 ], [ %23, %17 ], [ %.022.ph45, %8 ]
+  %.123 = phi i32 [ %.022.ph49, %6 ], [ %23, %17 ], [ %.022.ph49, %8 ]
   %29 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 30, i64 1, ptr %5)
   %30 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 64, i64 1, ptr %5)
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6, i32 noundef %.125) #6

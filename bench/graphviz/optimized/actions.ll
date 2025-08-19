@@ -2787,7 +2787,7 @@ define ptr @copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %45
 
 8:                                                ; preds = %2
-  switch i32 %4, label %default.unreachable36 [
+  switch i32 %4, label %default.unreachable37 [
     i32 1, label %9
     i32 0, label %12
     i32 3, label %20
@@ -2838,7 +2838,7 @@ define ptr @copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %41 = tail call ptr @openEdge(ptr noundef %0, ptr noundef %26, ptr noundef %35, ptr noundef %40) #24
   br label %42
 
-default.unreachable36:                            ; preds = %8
+default.unreachable37:                            ; preds = %8
   unreachable
 
 42:                                               ; preds = %14, %16, %20, %9
@@ -3075,7 +3075,7 @@ define ptr @cloneO(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %47
 
 8:                                                ; preds = %2
-  switch i32 %4, label %default.unreachable50 [
+  switch i32 %4, label %default.unreachable53 [
     i32 1, label %9
     i32 0, label %14
     i32 3, label %25
@@ -3144,7 +3144,7 @@ define ptr @cloneO(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %46 = tail call i32 @copyAttr(ptr noundef nonnull %1, ptr noundef nonnull %44)
   br label %47
 
-default.unreachable50:                            ; preds = %8
+default.unreachable53:                            ; preds = %8
   unreachable
 
 47:                                               ; preds = %12, %9, %23, %22, %45, %25, %7
@@ -3866,7 +3866,7 @@ agxblen.exit.i.i:                                 ; preds = %agxbputc.exit27
 
 agxbsizeof.exit.i.i:                              ; preds = %59, %agxblen.exit.i.i
   %65 = phi ptr [ %60, %59 ], [ %57, %agxblen.exit.i.i ]
-  %.val.i38 = phi i8 [ -1, %59 ], [ %.val.i, %agxblen.exit.i.i ]
+  %.val.i42 = phi i8 [ -1, %59 ], [ %.val.i, %agxblen.exit.i.i ]
   %.0.i20.i.i = phi i64 [ %62, %59 ], [ %58, %agxblen.exit.i.i ]
   %.0.i14.i.i = phi i64 [ %64, %59 ], [ 31, %agxblen.exit.i.i ]
   %.not.i5.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
@@ -3878,7 +3878,7 @@ agxbsizeof.exit.i.i:                              ; preds = %59, %agxblen.exit.i
   br label %67
 
 67:                                               ; preds = %66, %agxbsizeof.exit.i.i
-  %.val.i6.pr.i = phi i8 [ %.val.i15.pre.i.i, %66 ], [ %.val.i38, %agxbsizeof.exit.i.i ]
+  %.val.i6.pr.i = phi i8 [ %.val.i15.pre.i.i, %66 ], [ %.val.i42, %agxbsizeof.exit.i.i ]
   %.not.i16.i.i = icmp eq i8 %.val.i6.pr.i, -1
   br i1 %.not.i16.i.i, label %agxbputc.exit.i.thread, label %agxbputc.exit.i
 
@@ -4351,8 +4351,8 @@ agxbputc.exit.i:                                  ; preds = %122, %117
 
 agxblen.exit.i.i.i:                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %128 = phi ptr [ %105, %._crit_edge.thread.i ], [ %106, %._crit_edge.i ]
-  %.val.i163.i = phi i8 [ 0, %._crit_edge.thread.i ], [ %.val.i156.i, %._crit_edge.i ]
-  %129 = zext i8 %.val.i163.i to i64
+  %.val.i170.i = phi i8 [ 0, %._crit_edge.thread.i ], [ %.val.i156.i, %._crit_edge.i ]
+  %129 = zext i8 %.val.i170.i to i64
   br label %agxbsizeof.exit.i.i.i
 
 130:                                              ; preds = %._crit_edge.i
@@ -4362,7 +4362,7 @@ agxblen.exit.i.i.i:                               ; preds = %._crit_edge.i, %._c
 
 agxbsizeof.exit.i.i.i:                            ; preds = %130, %agxblen.exit.i.i.i
   %133 = phi ptr [ %106, %130 ], [ %128, %agxblen.exit.i.i.i ]
-  %.val.i162.i = phi i8 [ -1, %130 ], [ %.val.i163.i, %agxblen.exit.i.i.i ]
+  %.val.i169.i = phi i8 [ -1, %130 ], [ %.val.i170.i, %agxblen.exit.i.i.i ]
   %.0.i20.i.i.i = phi i64 [ %131, %130 ], [ %129, %agxblen.exit.i.i.i ]
   %.0.i14.i.i.i = phi i64 [ %132, %130 ], [ 31, %agxblen.exit.i.i.i ]
   %.not.i5.i.i = icmp ult i64 %.0.i20.i.i.i, %.0.i14.i.i.i
@@ -4374,7 +4374,7 @@ agxbsizeof.exit.i.i.i:                            ; preds = %130, %agxblen.exit.
   br label %135
 
 135:                                              ; preds = %134, %agxbsizeof.exit.i.i.i
-  %.val.i6.pr.i.i = phi i8 [ %.val.i15.pre.i.i.i, %134 ], [ %.val.i162.i, %agxbsizeof.exit.i.i.i ]
+  %.val.i6.pr.i.i = phi i8 [ %.val.i15.pre.i.i.i, %134 ], [ %.val.i169.i, %agxbsizeof.exit.i.i.i ]
   %.not.i16.i.i.i = icmp eq i8 %.val.i6.pr.i.i, -1
   br i1 %.not.i16.i.i.i, label %agxbputc.exit.i.thread.i, label %agxbputc.exit.i.i
 

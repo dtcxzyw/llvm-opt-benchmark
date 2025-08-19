@@ -309,7 +309,7 @@ thread-pre-split:                                 ; preds = %18, %27
   br label %87
 
 87:                                               ; preds = %77, %74
-  %.ph.ph66 = phi i64 [ %.055, %74 ], [ %84, %77 ]
+  %.ph.ph68 = phi i64 [ %.055, %74 ], [ %84, %77 ]
   %88 = phi i32 [ %76, %74 ], [ %86, %77 ]
   %89 = zext nneg i32 %88 to i64
   br label %94
@@ -321,7 +321,7 @@ thread-pre-split:                                 ; preds = %18, %27
   br label %94
 
 94:                                               ; preds = %68, %87, %71, %90, %66
-  %95 = phi i64 [ %64, %66 ], [ %64, %90 ], [ %.ph.ph66, %87 ], [ %.055, %71 ], [ %.055, %68 ]
+  %95 = phi i64 [ %64, %66 ], [ %64, %90 ], [ %.ph.ph68, %87 ], [ %.055, %71 ], [ %.055, %68 ]
   %.pn = phi i64 [ %67, %66 ], [ %93, %90 ], [ %89, %87 ], [ %73, %71 ], [ 10, %68 ]
   %96 = add i64 %.pn, %95
   br label %97
@@ -871,8 +871,8 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %61 = and i16 %.val154.val, 2
   %.not184 = icmp ne i16 %61, 0
   %.not148190 = icmp sgt i32 %7, -1
-  %or.cond221 = and i1 %.not184, %.not148190
-  br i1 %or.cond221, label %.lr.ph192, label %.thread165
+  %or.cond232 = and i1 %.not184, %.not148190
+  br i1 %or.cond232, label %.lr.ph192, label %.thread165
 
 62:                                               ; preds = %.lr.ph192
   %63 = add i32 %.0130191, 1
@@ -1427,17 +1427,17 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %32 = getelementptr inbounds nuw %struct.AttrMissing, ptr %27, i64 %31
   %33 = load i8, ptr %32, align 8, !range !4, !noundef !5
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %._crit_edge.loopexit, label %.lr.ph229
+  br i1 %34, label %._crit_edge.loopexit, label %.lr.ph238
 
-.lr.ph:                                           ; preds = %.lr.ph229
+.lr.ph:                                           ; preds = %.lr.ph238
   %35 = getelementptr inbounds nuw %struct.AttrMissing, ptr %27, i64 %indvars.iv.next
   %36 = load i8, ptr %35, align 8, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %._crit_edge.loopexit, label %.lr.ph229, !llvm.loop !13
+  br i1 %37, label %._crit_edge.loopexit, label %.lr.ph238, !llvm.loop !13
 
-.lr.ph229:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv228 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv228, 1
+.lr.ph238:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv237 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv237, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread172, label %.lr.ph, !llvm.loop !13
 
@@ -1572,9 +1572,9 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %.0145.lcssa = phi i64 [ %21, %._crit_edge ], [ %.1146, %105 ]
   br i1 %.1150.lcssa, label %.thread172, label %110
 
-.thread172:                                       ; preds = %.lr.ph229, %4, %25, %._crit_edge193
-  %.0179 = phi ptr [ %27, %._crit_edge193 ], [ null, %25 ], [ null, %4 ], [ %27, %.lr.ph229 ]
-  %.2177 = phi i64 [ %.0145.lcssa, %._crit_edge193 ], [ %21, %25 ], [ %21, %4 ], [ %21, %.lr.ph229 ]
+.thread172:                                       ; preds = %.lr.ph238, %4, %25, %._crit_edge193
+  %.0179 = phi ptr [ %27, %._crit_edge193 ], [ null, %25 ], [ null, %4 ], [ %27, %.lr.ph238 ]
+  %.2177 = phi i64 [ %.0145.lcssa, %._crit_edge193 ], [ %21, %25 ], [ %21, %4 ], [ %21, %.lr.ph238 ]
   %106 = add i32 %15, 7
   %107 = sdiv i32 %106, 8
   %108 = sext i32 %107 to i64
@@ -1763,7 +1763,7 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
 .lr.ph198.split.preheader:                        ; preds = %.lr.ph198
   %210 = and i16 %12, 2047
   %211 = zext nneg i16 %210 to i64
-  %wide.trip.count209 = zext i32 %15 to i64
+  %wide.trip.count209 = zext nneg i32 %15 to i64
   br label %.lr.ph198.split
 
 .lr.ph198.split.us:                               ; preds = %.lr.ph198
@@ -1937,11 +1937,11 @@ define dso_local noundef ptr @heap_form_tuple(ptr noundef readonly captures(none
   br i1 %14, label %15, label %11
 
 15:                                               ; preds = %.lr.ph
-  %16 = add nuw i32 %4, 7
-  %17 = sdiv i32 %16, 8
-  %narrow = add nsw i32 %17, 30
-  %18 = and i32 %narrow, -8
-  %19 = sext i32 %18 to i64
+  %16 = add nuw nsw i32 %4, 7
+  %17 = lshr i32 %16, 3
+  %narrow = add nuw nsw i32 %17, 30
+  %18 = and i32 %narrow, 536870904
+  %19 = zext nneg i32 %18 to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %.preheader, %15
@@ -1986,10 +1986,10 @@ define dso_local noundef ptr @heap_form_tuple(ptr noundef readonly captures(none
   %45 = trunc i32 %4 to i16
   %46 = or i16 %44, %45
   store i16 %46, ptr %42, align 2
-  %47 = trunc i64 %.045 to i8
+  %47 = trunc nuw i64 %.045 to i8
   %48 = getelementptr inbounds nuw i8, ptr %24, i64 46
   store i8 %47, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %25, i64 %.045
+  %49 = getelementptr inbounds nuw i8, ptr %25, i64 %.045
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %51 = getelementptr inbounds nuw i8, ptr %24, i64 47
   %spec.select = select i1 %20, ptr %51, ptr null
@@ -2096,7 +2096,7 @@ define dso_local void @heap_deform_tuple(ptr noundef readonly captures(none) %0,
 
 .lr.ph106.preheader:                              ; preds = %.preheader
   %23 = zext nneg i32 %.085.lcssa to i64
-  %wide.trip.count111 = zext i32 %9 to i64
+  %wide.trip.count111 = zext nneg i32 %9 to i64
   br label %.lr.ph106
 
 24:                                               ; preds = %.lr.ph, %158
@@ -2462,11 +2462,11 @@ define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captu
   br i1 %14, label %15, label %11
 
 15:                                               ; preds = %.lr.ph
-  %16 = add nuw i32 %4, 7
-  %17 = sdiv i32 %16, 8
-  %narrow = add nsw i32 %17, 22
-  %18 = and i32 %narrow, -8
-  %19 = sext i32 %18 to i64
+  %16 = add nuw nsw i32 %4, 7
+  %17 = lshr i32 %16, 3
+  %narrow = add nuw nsw i32 %17, 22
+  %18 = and i32 %narrow, 536870904
+  %19 = zext nneg i32 %18 to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %.preheader, %15
@@ -2483,11 +2483,11 @@ define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captu
   %28 = trunc i32 %4 to i16
   %29 = or i16 %27, %28
   store i16 %29, ptr %25, align 2
-  %30 = trunc i64 %.034 to i8
-  %31 = add i8 %30, 8
+  %30 = trunc nuw i64 %.034 to i8
+  %31 = add nuw i8 %30, 8
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 14
   store i8 %31, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %23, i64 %.034
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 %.034
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 15
   %spec.select = select i1 %20, ptr %35, ptr null

@@ -1345,8 +1345,8 @@ define hidden void @SDL_SendMouseMotion(i64 noundef %0, ptr noundef %1, i32 noun
   %15 = icmp eq i32 %2, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count18.i
-  %or.cond29 = select i1 %15, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond29, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.i, !llvm.loop !11
+  %or.cond30 = select i1 %15, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond30, label %SDL_GetMouseButtonState.exit, label %.lr.ph.split.i, !llvm.loop !11
 
 SDL_GetMouseButtonState.exit:                     ; preds = %.lr.ph.split.i, %.lr.ph.split.us.split.us.i, %8
   %16 = icmp ult i32 %2, -2
@@ -1649,7 +1649,7 @@ define internal fastcc void @SDL_PrivateSendMouseMotion(i64 noundef %0, ptr noun
   call fastcc void @ConstrainMousePosition(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %91 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 184), align 8, !range !3, !noundef !4
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %.thread194
+  br i1 %92, label %93, label %.thread203
 
 93:                                               ; preds = %90
   %94 = load float, ptr %7, align 4
@@ -1668,15 +1668,15 @@ define internal fastcc void @SDL_PrivateSendMouseMotion(i64 noundef %0, ptr noun
   %or.cond9 = select i1 %101, i1 %102, i1 false
   %103 = fcmp oeq float %.0133, 0.000000e+00
   %or.cond11 = select i1 %or.cond9, i1 %103, i1 false
-  br i1 %or.cond11, label %191, label %.thread194
+  br i1 %or.cond11, label %191, label %.thread203
 
-.thread194:                                       ; preds = %90, %100
-  %.0132200 = phi float [ %.0132, %100 ], [ 0.000000e+00, %90 ]
-  %.0133199 = phi float [ %.0133, %100 ], [ 0.000000e+00, %90 ]
+.thread203:                                       ; preds = %90, %100
+  %.0132209 = phi float [ %.0132, %100 ], [ 0.000000e+00, %90 ]
+  %.0133208 = phi float [ %.0133, %100 ], [ 0.000000e+00, %90 ]
   %104 = phi i1 [ %101, %100 ], [ false, %90 ]
   br i1 %35, label %112, label %105
 
-105:                                              ; preds = %.thread194
+105:                                              ; preds = %.thread203
   %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 248), align 8
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %.lr.ph.i, label %SDL_GetMouseButtonState.exit.thread
@@ -1703,9 +1703,9 @@ SDL_GetMouseButtonState.exit:                     ; preds = %.lr.ph.split.us.spl
 SDL_GetMouseButtonState.exit.thread:              ; preds = %105, %SDL_GetMouseButtonState.exit
   br label %112
 
-112:                                              ; preds = %SDL_GetMouseButtonState.exit.thread, %SDL_GetMouseButtonState.exit, %.thread194
-  %.1134 = phi float [ %.0133199, %SDL_GetMouseButtonState.exit ], [ 0.000000e+00, %SDL_GetMouseButtonState.exit.thread ], [ %.0133199, %.thread194 ]
-  %.1 = phi float [ %.0132200, %SDL_GetMouseButtonState.exit ], [ 0.000000e+00, %SDL_GetMouseButtonState.exit.thread ], [ %.0132200, %.thread194 ]
+112:                                              ; preds = %SDL_GetMouseButtonState.exit.thread, %SDL_GetMouseButtonState.exit, %.thread203
+  %.1134 = phi float [ %.0133208, %SDL_GetMouseButtonState.exit ], [ 0.000000e+00, %SDL_GetMouseButtonState.exit.thread ], [ %.0133208, %.thread203 ]
+  %.1 = phi float [ %.0132209, %SDL_GetMouseButtonState.exit ], [ 0.000000e+00, %SDL_GetMouseButtonState.exit.thread ], [ %.0132209, %.thread203 ]
   %113 = load float, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 144), align 8
   %114 = fadd float %.1, %113
   store float %114, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 144), align 8
@@ -2038,9 +2038,9 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
   br i1 %4, label %74, label %.thread127
 
 .thread.thread:                                   ; preds = %51
-  br i1 %4, label %.thread144, label %.thread127
+  br i1 %4, label %.thread154, label %.thread127
 
-.thread144:                                       ; preds = %.thread.thread
+.thread154:                                       ; preds = %.thread.thread
   %68 = or i32 %46, 1
   br label %83
 
@@ -2066,9 +2066,9 @@ define internal fastcc void @SDL_PrivateSendMouseButton(i64 noundef %0, ptr noun
   %82 = tail call fastcc zeroext i1 @SDL_UpdateMouseFocus(ptr noundef %1, float noundef %80, float noundef %81, i1 noundef zeroext true)
   br label %83
 
-83:                                               ; preds = %.thread144, %.thread127, %79, %74
-  %.0101132 = phi i32 [ 1026, %.thread127 ], [ 1025, %79 ], [ 1025, %74 ], [ 1025, %.thread144 ]
-  %.0102131 = phi i32 [ %73, %.thread127 ], [ %78, %79 ], [ %78, %74 ], [ %68, %.thread144 ]
+83:                                               ; preds = %.thread154, %.thread127, %79, %74
+  %.0101132 = phi i32 [ 1026, %.thread127 ], [ 1025, %79 ], [ 1025, %74 ], [ 1025, %.thread154 ]
+  %.0102131 = phi i32 [ %73, %.thread127 ], [ %78, %79 ], [ %78, %74 ], [ %68, %.thread154 ]
   %84 = load i32, ptr %45, align 4
   %85 = icmp eq i32 %.0102131, %84
   br i1 %85, label %GetMouseInputSource.exit, label %86
@@ -2142,7 +2142,7 @@ GetMouseClickState.exit:                          ; preds = %88, %._crit_edge.i1
   %113 = zext i32 %112 to i64
   %114 = add i64 %111, %113
   %.not112 = icmp ult i64 %110, %114
-  br i1 %.not112, label %115, label %.thread146
+  br i1 %.not112, label %115, label %.thread156
 
 115:                                              ; preds = %109
   %116 = load double, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 168), align 8
@@ -2153,7 +2153,7 @@ GetMouseClickState.exit:                          ; preds = %88, %._crit_edge.i1
   %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 224), align 8
   %122 = sitofp i32 %121 to double
   %123 = fcmp ogt double %120, %122
-  br i1 %123, label %.thread146, label %124
+  br i1 %123, label %.thread156, label %124
 
 124:                                              ; preds = %115
   %125 = load double, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 176), align 8
@@ -2164,9 +2164,9 @@ GetMouseClickState.exit:                          ; preds = %88, %._crit_edge.i1
   %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @SDL_mouse, i64 224), align 8
   %131 = sitofp i32 %130 to double
   %132 = fcmp ogt double %129, %131
-  br i1 %132, label %.thread146, label %138
+  br i1 %132, label %.thread156, label %138
 
-.thread146:                                       ; preds = %109, %115, %124
+.thread156:                                       ; preds = %109, %115, %124
   %133 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i8 0, ptr %133, align 8
   store i64 %110, ptr %107, align 8
@@ -2191,8 +2191,8 @@ GetMouseClickState.exit:                          ; preds = %88, %._crit_edge.i1
   %.not113 = icmp eq i8 %.pre, -1
   br i1 %.not113, label %147, label %143
 
-143:                                              ; preds = %.thread146, %138
-  %144 = phi i8 [ 0, %.thread146 ], [ %.pre, %138 ]
+143:                                              ; preds = %.thread156, %138
+  %144 = phi i8 [ 0, %.thread156 ], [ %.pre, %138 ]
   %145 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %146 = add nuw i8 %144, 1
   store i8 %146, ptr %145, align 8

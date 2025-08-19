@@ -198,7 +198,7 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EE17_S_check_init_lenEmRK
 
 23:                                               ; preds = %._crit_edge
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #14
-          to label %.noexc unwind label %.thread321
+          to label %.noexc unwind label %.thread338
 
 .noexc:                                           ; preds = %23
   unreachable
@@ -217,7 +217,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %26 = shl nuw nsw i64 %21, 3
   %27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #15
-          to label %.noexc129 unwind label %.thread321
+          to label %.noexc129 unwind label %.thread338
 
 .noexc129:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %27, ptr %6, align 8, !tbaa !22
@@ -286,7 +286,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
   %64 = add nsw i32 %smin, 1
   br label %134
 
-.thread321:                                       ; preds = %23, %.lr.ph.preheader.i.i.i.i.i
+.thread338:                                       ; preds = %23, %.lr.ph.preheader.i.i.i.i.i
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -605,8 +605,8 @@ _ZN5zxing12ErrorHandlerD2Ev.exit144:              ; preds = %_ZNKSt7__cxx1112bas
 .preheader186.us:                                 ; preds = %.preheader186.us.preheader, %._crit_edge222.us
   %indvars.iv280 = phi i64 [ 0, %.preheader186.us.preheader ], [ %indvars.iv.next281, %._crit_edge222.us ]
   %.072224.us = phi i64 [ 0, %.preheader186.us.preheader ], [ %indvars.iv.next274, %._crit_edge222.us ]
-  %sext305 = shl i64 %.072224.us, 32
-  %183 = ashr exact i64 %sext305, 32
+  %sext322 = shl i64 %.072224.us, 32
+  %183 = ashr exact i64 %sext322, 32
   br label %184
 
 184:                                              ; preds = %.preheader186.us, %184
@@ -837,7 +837,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thr
 290:                                              ; preds = %.thread, %_ZN5zxing12ErrorHandlerD2Ev.exit149
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not4.i.i.i.i = icmp eq ptr %39, %41
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread317, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread334, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %290, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %301, %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i.i ], [ %39, %290 ]
@@ -864,13 +864,13 @@ _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thr
 _ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i.i: ; preds = %297, %292, %.lr.ph.i.i.i.i
   %301 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i154 = icmp eq ptr %301, %41
-  br i1 %.not.i.i.i.i154, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread317, label %.lr.ph.i.i.i.i, !llvm.loop !54
+  br i1 %.not.i.i.i.i154, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread334, label %.lr.ph.i.i.i.i, !llvm.loop !54
 
-_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread317: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i.i, %290
+_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread334: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode9DataBlockEEEEvPT_.exit.i.i.i.i, %290
   call void @_ZdlPv(ptr noundef nonnull %39) #16
   br label %_ZNSt6vectorIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread317
+_ZNSt6vectorIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode9DataBlockEEES4_EvT_S6_RSaIT0_E.exit.i.thread334
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i.i156 = icmp eq ptr %38, null
   br i1 %.not.i.i.i156, label %_ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit, label %302
@@ -889,9 +889,9 @@ _ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5zx
   %.not.i.i.i157 = icmp eq ptr %38, null
   br i1 %.not.i.i.i157, label %_ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit158, label %304
 
-304:                                              ; preds = %.thread321, %.thread180, %303
-  %305 = phi ptr [ %19, %.thread180 ], [ %38, %303 ], [ %19, %.thread321 ]
-  %.pn126183 = phi { ptr, i32 } [ %35, %.thread180 ], [ %.pn117.pn.pn.pn.pn.pn.pn, %303 ], [ %65, %.thread321 ]
+304:                                              ; preds = %.thread338, %.thread180, %303
+  %305 = phi ptr [ %19, %.thread180 ], [ %38, %303 ], [ %19, %.thread338 ]
+  %.pn126183 = phi { ptr, i32 } [ %35, %.thread180 ], [ %.pn117.pn.pn.pn.pn.pn.pn, %303 ], [ %65, %.thread338 ]
   call void @_ZdlPv(ptr noundef nonnull %305) #16
   br label %_ZNSt6vectorIPN5zxing6qrcode3ECBESaIS3_EED2Ev.exit158
 

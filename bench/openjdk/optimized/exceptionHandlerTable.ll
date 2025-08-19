@@ -463,9 +463,9 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
   br i1 %13, label %.lr.ph.split, label %._crit_edge
 
 .lr.ph.split.us:                                  ; preds = %8, %.lr.ph.split.us
-  %.in25 = phi i32 [ %14, %.lr.ph.split.us ], [ %4, %8 ]
+  %.in26 = phi i32 [ %14, %.lr.ph.split.us ], [ %4, %8 ]
   %.021.us = phi ptr [ %15, %.lr.ph.split.us ], [ %1, %8 ]
-  %14 = add nsw i32 %.in25, -1
+  %14 = add nsw i32 %.in26, -1
   %15 = getelementptr inbounds nuw i8, ptr %.021.us, i64 12
   %16 = load ptr, ptr @tty, align 8
   %17 = load i32, ptr %15, align 4
@@ -474,8 +474,8 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
   %20 = getelementptr inbounds nuw i8, ptr %.021.us, i64 16
   %21 = load i32, ptr %20, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull @.str.11, i32 noundef %17, i32 noundef %19, i32 noundef %21) #9
-  %.not26 = icmp eq i32 %14, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  %.not27 = icmp eq i32 %14, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.thread, %.lr.ph.split
   %.in = phi i32 [ %22, %.lr.ph.split ], [ %4, %.thread ]
@@ -492,8 +492,8 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
   %31 = getelementptr inbounds i8, ptr %2, i64 %30
   %32 = ptrtoint ptr %31 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull @.str.10, i32 noundef %25, i32 noundef %27, i32 noundef %29, i64 noundef %32) #9
-  %.not24 = icmp eq i32 %22, 0
-  br i1 %.not24, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  %.not25 = icmp eq i32 %22, 0
+  br i1 %.not25, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %8
   ret void
@@ -565,9 +565,9 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit: ; preds = %7
   br i1 %19, label %.lr.ph.split.us.i, label %_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit
 
 .lr.ph.split.us.i:                                ; preds = %_ZNK21ExceptionHandlerTable12subtable_forEi.exit, %.lr.ph.split.us.i
-  %.in25.i = phi i32 [ %20, %.lr.ph.split.us.i ], [ %13, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ]
+  %.in26.i = phi i32 [ %20, %.lr.ph.split.us.i ], [ %13, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ]
   %.021.us.i = phi ptr [ %21, %.lr.ph.split.us.i ], [ %9, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ]
-  %20 = add nsw i32 %.in25.i, -1
+  %20 = add nsw i32 %.in26.i, -1
   %21 = getelementptr inbounds nuw i8, ptr %.021.us.i, i64 12
   %22 = load ptr, ptr @tty, align 8
   %23 = load i32, ptr %21, align 4
@@ -576,8 +576,8 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit: ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %.021.us.i, i64 16
   %27 = load i32, ptr %26, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull @.str.11, i32 noundef %23, i32 noundef %25, i32 noundef %27) #9
-  %.not26.i = icmp eq i32 %20, 0
-  br i1 %.not26.i, label %_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit, label %.lr.ph.split.us.i, !llvm.loop !10
+  %.not27.i = icmp eq i32 %20, 0
+  br i1 %.not27.i, label %_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 _ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit: ; preds = %14, %.lr.ph.split.us.i, %2, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit
   ret void

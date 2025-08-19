@@ -2604,9 +2604,9 @@ define range(i32 0, 2) i32 @ossl_ed25519_verify(ptr noundef %0, i64 noundef %1, 
 38:                                               ; preds = %.preheader64
   %39 = icmp ugt i8 %34, %36
   %40 = add nsw i32 %.04865, -1
-  %.not66 = icmp eq i32 %.04865, 0
-  %or.cond67 = or i1 %39, %.not66
-  br i1 %or.cond67, label %.thread, label %.preheader64, !llvm.loop !23
+  %.not71 = icmp eq i32 %.04865, 0
+  %or.cond72 = or i1 %39, %.not71
+  br i1 %or.cond72, label %.thread, label %.preheader64, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader64, %28
   %41 = call fastcc i32 @ge_frombytes_vartime(ptr noundef %12, ptr noundef %3)
@@ -3303,8 +3303,8 @@ ge_p3_to_cached.exit110:                          ; preds = %229
 
 249:                                              ; preds = %246
   %250 = add nsw i32 %.0129, -1
-  %.not135 = icmp eq i32 %.0129, 0
-  br i1 %.not135, label %._crit_edge, label %242, !llvm.loop !28
+  %.not143 = icmp eq i32 %.0129, 0
+  br i1 %.not143, label %._crit_edge, label %242, !llvm.loop !28
 
 251:                                              ; preds = %242, %246
   %252 = icmp sgt i32 %.0129, -1

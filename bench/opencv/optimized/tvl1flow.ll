@@ -5416,12 +5416,12 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
 .lr.ph.us:                                        ; preds = %.lr.ph100.split.us, %71
   %78 = phi ptr [ %74, %71 ], [ null, %.lr.ph100.split.us ]
   %79 = phi ptr [ %77, %71 ], [ null, %.lr.ph100.split.us ]
-  %.pn119 = mul i64 %38, %indvars.iv106
-  %80 = getelementptr inbounds nuw i8, ptr %35, i64 %.pn119
-  %.pn118 = mul i64 %43, %indvars.iv106
-  %81 = getelementptr inbounds nuw i8, ptr %40, i64 %.pn118
-  %.pn117 = mul i64 %48, %indvars.iv106
-  %82 = getelementptr inbounds nuw i8, ptr %45, i64 %.pn117
+  %.pn123 = mul i64 %38, %indvars.iv106
+  %80 = getelementptr inbounds nuw i8, ptr %35, i64 %.pn123
+  %.pn122 = mul i64 %43, %indvars.iv106
+  %81 = getelementptr inbounds nuw i8, ptr %40, i64 %.pn122
+  %.pn121 = mul i64 %48, %indvars.iv106
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 %.pn121
   %.pn = mul i64 %53, %indvars.iv106
   %83 = getelementptr inbounds nuw i8, ptr %50, i64 %.pn
   br label %84
@@ -5532,23 +5532,23 @@ define hidden void @_ZNK2cv7optflow13EstimateVBodyclERKNS_5RangeE(ptr noundef no
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.critedge.us, %.thread.us
-  %.sink116 = phi ptr [ %83, %.thread.us ], [ %82, %.critedge.us ]
+  %.sink120 = phi ptr [ %83, %.thread.us ], [ %82, %.critedge.us ]
   %.sink = phi float [ %147, %.thread.us ], [ %139, %.critedge.us ]
-  %.sink114.ph = phi ptr [ %78, %.thread.us ], [ %70, %.critedge.us ]
+  %.sink118.ph = phi ptr [ %78, %.thread.us ], [ %70, %.critedge.us ]
   %.08696.us.sink.ph = phi float [ %.086.ph.us, %.thread.us ], [ %.087.ph.us, %.critedge.us ]
-  %.sink112.ph = phi ptr [ %79, %.thread.us ], [ %83, %.critedge.us ]
-  %148 = getelementptr inbounds nuw float, ptr %.sink116, i64 %indvars.iv
+  %.sink116.ph = phi ptr [ %79, %.thread.us ], [ %83, %.critedge.us ]
+  %148 = getelementptr inbounds nuw float, ptr %.sink120, i64 %indvars.iv
   store float %.sink, ptr %148, align 4, !tbaa !101
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %123
-  %.sink114 = phi ptr [ %78, %123 ], [ %.sink114.ph, %.sink.split.sink.split ]
+  %.sink118 = phi ptr [ %78, %123 ], [ %.sink118.ph, %.sink.split.sink.split ]
   %.08696.us.sink = phi float [ %.086.us, %123 ], [ %.08696.us.sink.ph, %.sink.split.sink.split ]
-  %.sink112 = phi ptr [ %79, %123 ], [ %.sink112.ph, %.sink.split.sink.split ]
-  %149 = getelementptr inbounds nuw float, ptr %.sink114, i64 %indvars.iv
+  %.sink116 = phi ptr [ %79, %123 ], [ %.sink116.ph, %.sink.split.sink.split ]
+  %149 = getelementptr inbounds nuw float, ptr %.sink118, i64 %indvars.iv
   %150 = load float, ptr %149, align 4, !tbaa !101
   %151 = fadd float %.08696.us.sink, %150
-  %152 = getelementptr inbounds nuw float, ptr %.sink112, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw float, ptr %.sink116, i64 %indvars.iv
   store float %151, ptr %152, align 4, !tbaa !101
   br label %153
 

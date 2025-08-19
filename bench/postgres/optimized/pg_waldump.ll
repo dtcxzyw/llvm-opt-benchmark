@@ -223,7 +223,7 @@ sub_1:                                            ; preds = %sub_0
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %33, label %.thread222
+  br i1 %32, label %33, label %.thread248
 
 33:                                               ; preds = %.tail, %22
   tail call fastcc void @usage()
@@ -240,12 +240,12 @@ sub_1:                                            ; preds = %sub_0
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %45, label %.tail165.thread
 
-.thread222:                                       ; preds = %.tail
+.thread248:                                       ; preds = %.tail
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(10) @.str.21) #17
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %45, label %sub_1167
 
-sub_1167:                                         ; preds = %.tail.thread, %.thread222
+sub_1167:                                         ; preds = %.tail.thread, %.thread248
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %41 = load i8, ptr %40, align 1
   %.not200 = icmp eq i8 %41, 86
@@ -257,7 +257,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %45, label %.tail165.thread
 
-45:                                               ; preds = %.tail.thread.thread, %.thread222, %.tail165, %.tail.thread
+45:                                               ; preds = %.tail.thread.thread, %.thread248, %.tail165, %.tail.thread
   %46 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.23)
   tail call void @exit(i32 noundef 0) #18
   unreachable
@@ -313,8 +313,8 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.24) #16
   br label %.loopexit
 
-74:                                               ; preds = %.backedge258, %.preheader170
-  %.098 = phi ptr [ null, %.preheader170 ], [ %.098.be, %.backedge258 ]
+74:                                               ; preds = %.backedge284, %.preheader170
+  %.098 = phi ptr [ null, %.preheader170 ], [ %.098.be, %.backedge284 ]
   %75 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, ptr noundef nonnull @main.long_options, ptr noundef nonnull %9) #16
   switch i32 %75, label %.loopexit [
     i32 -1, label %213
@@ -338,7 +338,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 
 76:                                               ; preds = %74
   store i8 1, ptr %50, align 1
-  br label %.backedge258
+  br label %.backedge284
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr @optarg, align 8
@@ -357,7 +357,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 84:                                               ; preds = %77
   store i8 1, ptr %59, align 4
   store i8 1, ptr %57, align 4
-  br label %.backedge258
+  br label %.backedge284
 
 85:                                               ; preds = %74
   %86 = load ptr, ptr @optarg, align 8
@@ -378,11 +378,11 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %95 = zext i32 %94 to i64
   %96 = or disjoint i64 %93, %95
   store i64 %96, ptr %48, align 8
-  br label %.backedge258
+  br label %.backedge284
 
 97:                                               ; preds = %74
   store i8 1, ptr %53, align 4
-  br label %.backedge258
+  br label %.backedge284
 
 98:                                               ; preds = %74
   %99 = load ptr, ptr @optarg, align 8
@@ -398,13 +398,13 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 
 104:                                              ; preds = %98
   store i8 1, ptr %57, align 4
-  br label %.backedge258
+  br label %.backedge284
 
 105:                                              ; preds = %74
   %106 = load ptr, ptr @optarg, align 8
   %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %106, ptr noundef nonnull @.str.31, ptr noundef nonnull %51) #16
   %.not144 = icmp eq i32 %107, 1
-  br i1 %.not144, label %.backedge258, label %108
+  br i1 %.not144, label %.backedge284, label %108
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr @optarg, align 8
@@ -414,11 +414,11 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 110:                                              ; preds = %74
   %111 = load ptr, ptr @optarg, align 8
   %112 = call ptr @pg_strdup(ptr noundef %111) #16
-  br label %.backedge258
+  br label %.backedge284
 
 113:                                              ; preds = %74
   store i8 1, ptr %6, align 8
-  br label %.backedge258
+  br label %.backedge284
 
 114:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -482,7 +482,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 
 .thread152:                                       ; preds = %141, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.backedge258
+  br label %.backedge284
 
 .thread:                                          ; preds = %141, %123, %138
   %.str.37.sink = phi ptr [ @.str.37, %138 ], [ @.str.36, %123 ], [ @.str.37, %141 ]
@@ -512,7 +512,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 156:                                              ; preds = %146
   store i8 1, ptr %58, align 1
   store i8 1, ptr %57, align 4
-  br label %.backedge258
+  br label %.backedge284
 
 157:                                              ; preds = %74
   %158 = load ptr, ptr @optarg, align 8
@@ -533,7 +533,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %167 = zext i32 %166 to i64
   %168 = or disjoint i64 %165, %167
   store i64 %168, ptr %47, align 8
-  br label %.backedge258
+  br label %.backedge284
 
 169:                                              ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -592,15 +592,15 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %193 = trunc nuw i64 %172 to i32
   store i32 %193, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.backedge258
+  br label %.backedge284
 
-.backedge258:                                     ; preds = %192, %.thread152, %201, %207, %206, %105, %210, %200, %194, %162, %156, %113, %110, %104, %97, %90, %84, %76
+.backedge284:                                     ; preds = %192, %.thread152, %201, %207, %206, %105, %210, %200, %194, %162, %156, %113, %110, %104, %97, %90, %84, %76
   %.098.be = phi ptr [ %.098, %76 ], [ %.098, %84 ], [ %.098, %90 ], [ %.098, %97 ], [ %.098, %104 ], [ %.098, %105 ], [ %112, %110 ], [ %.098, %113 ], [ %.098, %156 ], [ %.098, %162 ], [ %.098, %192 ], [ %.098, %194 ], [ %.098, %200 ], [ %.098, %206 ], [ %.098, %207 ], [ %.098, %201 ], [ %.098, %210 ], [ %.098, %.thread152 ]
   br label %74, !llvm.loop !7
 
 194:                                              ; preds = %74
   store i8 1, ptr %61, align 4
-  br label %.backedge258
+  br label %.backedge284
 
 195:                                              ; preds = %74
   %196 = load ptr, ptr @optarg, align 8
@@ -615,14 +615,14 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 
 200:                                              ; preds = %195
   store i8 1, ptr %56, align 4
-  br label %.backedge258
+  br label %.backedge284
 
 201:                                              ; preds = %74
   store i8 1, ptr %63, align 1
   store i8 0, ptr %64, align 2
   %202 = load ptr, ptr @optarg, align 8
   %.not137 = icmp eq ptr %202, null
-  br i1 %.not137, label %.backedge258, label %203
+  br i1 %.not137, label %.backedge284, label %203
 
 203:                                              ; preds = %201
   %204 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(7) @.str.44) #17
@@ -631,12 +631,12 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
 
 206:                                              ; preds = %203
   store i8 1, ptr %64, align 2
-  br label %.backedge258
+  br label %.backedge284
 
 207:                                              ; preds = %203
   %208 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(5) @.str.11) #17
   %.not138 = icmp eq i32 %208, 0
-  br i1 %.not138, label %.backedge258, label %209
+  br i1 %.not138, label %.backedge284, label %209
 
 209:                                              ; preds = %207
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull %202) #16
@@ -646,7 +646,7 @@ sub_1167:                                         ; preds = %.tail.thread, %.thr
   %211 = load ptr, ptr @optarg, align 8
   %212 = call ptr @pg_strdup(ptr noundef %211) #16
   store ptr %212, ptr %62, align 8
-  br label %.backedge258
+  br label %.backedge284
 
 213:                                              ; preds = %74
   %214 = load i8, ptr %59, align 4, !range !8, !noundef !9

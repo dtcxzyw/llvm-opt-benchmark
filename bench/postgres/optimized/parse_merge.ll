@@ -91,8 +91,8 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef rea
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 39, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond274 = select i1 %39, i1 %switch.lobit, i1 false
-  br i1 %or.cond274, label %switch.lookup, label %.split
+  %or.cond292 = select i1 %39, i1 %switch.lobit, i1 false
+  br i1 %or.cond292, label %switch.lookup, label %.split
 
 .critedge166:                                     ; preds = %72, %.lr.ph, %24
   %.0141.lcssa = phi i64 [ 0, %24 ], [ 0, %.lr.ph ], [ %57, %72 ]
@@ -260,13 +260,13 @@ list_length.exit:                                 ; preds = %87, %93
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %142 = load i32, ptr %136, align 4
   %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %.lr.ph273, label %.critedge168
+  br i1 %143, label %.lr.ph291, label %.critedge168
 
-.lr.ph273:                                        ; preds = %.lr.ph202, %318
-  %.0143201272 = phi ptr [ %319, %318 ], [ null, %.lr.ph202 ]
-  %indvars.iv226271 = phi i64 [ %indvars.iv.next227, %318 ], [ 0, %.lr.ph202 ]
+.lr.ph291:                                        ; preds = %.lr.ph202, %318
+  %.0143201290 = phi ptr [ %319, %318 ], [ null, %.lr.ph202 ]
+  %indvars.iv226289 = phi i64 [ %indvars.iv.next227, %318 ], [ 0, %.lr.ph202 ]
   %144 = load ptr, ptr %137, align 8
-  %145 = getelementptr inbounds nuw %union.ListCell, ptr %144, i64 %indvars.iv226271
+  %145 = getelementptr inbounds nuw %union.ListCell, ptr %144, i64 %indvars.iv226289
   %146 = load ptr, ptr %145, align 8
   %147 = call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 54, ptr %147, align 4
@@ -295,7 +295,7 @@ list_length.exit:                                 ; preds = %87, %93
     i32 1, label %185
   ]
 
-164:                                              ; preds = %.lr.ph273
+164:                                              ; preds = %.lr.ph291
   br i1 %.not.i51.i, label %setNamespaceForMergeWhen.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %164
@@ -363,7 +363,7 @@ setNamespaceVisibilityForRTE.exit.i:              ; preds = %170, %.split.i.i
   %.not15.i24.i = icmp eq ptr %184, %162
   br i1 %.not15.i24.i, label %setNamespaceVisibilityForRTE.exit28.sink.split.i, label %180
 
-185:                                              ; preds = %.lr.ph273
+185:                                              ; preds = %.lr.ph291
   br i1 %.not.i51.i, label %setNamespaceForMergeWhen.exit, label %.lr.ph.i30.i
 
 .lr.ph.i30.i:                                     ; preds = %185
@@ -431,7 +431,7 @@ setNamespaceVisibilityForRTE.exit39.i:            ; preds = %191, %.split.i38.i
   %.not15.i46.i = icmp eq ptr %205, %162
   br i1 %.not15.i46.i, label %setNamespaceVisibilityForRTE.exit28.sink.split.i, label %201
 
-206:                                              ; preds = %.lr.ph273
+206:                                              ; preds = %.lr.ph291
   br i1 %.not.i51.i, label %setNamespaceForMergeWhen.exit, label %.lr.ph.i52.i
 
 .lr.ph.i52.i:                                     ; preds = %206
@@ -500,12 +500,12 @@ setNamespaceVisibilityForRTE.exit61.i:            ; preds = %212, %.split.i60.i
   br i1 %.not15.i68.i, label %setNamespaceVisibilityForRTE.exit28.sink.split.i, label %222
 
 setNamespaceVisibilityForRTE.exit28.sink.split.i: ; preds = %.critedge17.i44.i, %.critedge17.i22.i, %.critedge17.i66.i
-  %.lcssa.sink60.i = phi ptr [ %224, %.critedge17.i66.i ], [ %182, %.critedge17.i22.i ], [ %203, %.critedge17.i44.i ]
-  %.sink58.i = phi i8 [ 1, %.critedge17.i66.i ], [ 1, %.critedge17.i22.i ], [ 0, %.critedge17.i44.i ]
-  %227 = getelementptr inbounds nuw i8, ptr %.lcssa.sink60.i, i64 40
-  store i8 %.sink58.i, ptr %227, align 8
-  %228 = getelementptr inbounds nuw i8, ptr %.lcssa.sink60.i, i64 41
-  store i8 %.sink58.i, ptr %228, align 1
+  %.lcssa.sink68.i = phi ptr [ %224, %.critedge17.i66.i ], [ %182, %.critedge17.i22.i ], [ %203, %.critedge17.i44.i ]
+  %.sink66.i = phi i8 [ 1, %.critedge17.i66.i ], [ 1, %.critedge17.i22.i ], [ 0, %.critedge17.i44.i ]
+  %227 = getelementptr inbounds nuw i8, ptr %.lcssa.sink68.i, i64 40
+  store i8 %.sink66.i, ptr %227, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %.lcssa.sink68.i, i64 41
+  store i8 %.sink66.i, ptr %228, align 1
   br label %setNamespaceForMergeWhen.exit
 
 setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.lr.ph.i52.i, %.lr.ph.i30.i, %.lr.ph.i.i, %164, %setNamespaceVisibilityForRTE.exit.i, %.lr.ph.i19.i, %185, %setNamespaceVisibilityForRTE.exit39.i, %.lr.ph.i41.i, %206, %setNamespaceVisibilityForRTE.exit61.i, %.lr.ph.i63.i, %setNamespaceVisibilityForRTE.exit28.sink.split.i
@@ -670,12 +670,12 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
   unreachable
 
 318:                                              ; preds = %313, %308, %.critedge, %setNamespaceForMergeWhen.exit
-  %319 = call ptr @lappend(ptr noundef %.0143201272, ptr noundef nonnull %147) #6
-  %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226271, 1
+  %319 = call ptr @lappend(ptr noundef %.0143201290, ptr noundef nonnull %147) #6
+  %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226289, 1
   %320 = load i32, ptr %136, align 4
   %321 = sext i32 %320 to i64
   %322 = icmp slt i64 %indvars.iv.next227, %321
-  br i1 %322, label %.lr.ph273, label %.critedge168
+  br i1 %322, label %.lr.ph291, label %.critedge168
 }
 
 ; Function Attrs: cold

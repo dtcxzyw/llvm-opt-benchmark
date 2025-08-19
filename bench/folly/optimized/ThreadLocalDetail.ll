@@ -1357,8 +1357,8 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
   br i1 %76, label %99, label %.critedge.i.i.i.i.i.i.sink.split, !prof !127
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %73, %82
-  %.sink97 = phi { i32, i1 } [ %89, %82 ], [ %75, %73 ]
-  %77 = extractvalue { i32, i1 } %.sink97, 0
+  %.sink108 = phi { i32, i1 } [ %89, %82 ], [ %75, %73 ]
+  %77 = extractvalue { i32, i1 } %.sink108, 0
   store i32 %77, ptr %11, align 4
   br label %.critedge.i.i.i.i.i.i
 
@@ -2634,7 +2634,7 @@ define void @_ZN5folly18threadlocal_detail14StaticMetaBase27cleanupThreadEntries
 
 .loopexit55:                                      ; preds = %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit
   %.pr = load ptr, ptr %0, align 8, !tbaa !183
-  br i1 %.3.lcssa89, label %.preheader.split, label %.split.us, !llvm.loop !184
+  br i1 %.3.lcssa99, label %.preheader.split, label %.split.us, !llvm.loop !184
 
 .split.us.thread:                                 ; preds = %.preheader.split, %.preheader
   store ptr null, ptr %0, align 8, !tbaa !183
@@ -2651,7 +2651,7 @@ define void @_ZN5folly18threadlocal_detail14StaticMetaBase27cleanupThreadEntries
   br i1 %.not3675, label %.split.us.thread, label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %.preheader.split, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit
-  %.177 = phi i1 [ %.3.lcssa89, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit ], [ false, %.preheader.split ]
+  %.177 = phi i1 [ %.3.lcssa99, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit ], [ false, %.preheader.split ]
   %.03276 = phi ptr [ %43, %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit ], [ %15, %.preheader.split ]
   %16 = getelementptr inbounds nuw i8, ptr %.03276, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !104
@@ -2716,7 +2716,7 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
   br i1 %.231, label %78, label %.loopexit.thread, !llvm.loop !186
 
 .loopexit.thread:                                 ; preds = %78, %.loopexit
-  %.3.lcssa89 = phi i1 [ %.4, %.loopexit ], [ %.274, %78 ]
+  %.3.lcssa99 = phi i1 [ %.4, %.loopexit ], [ %.274, %78 ]
   %40 = load i32, ptr %18, align 8, !tbaa !101
   %41 = call i32 @pthread_setspecific(i32 noundef %40, ptr noundef null) #23
   %42 = getelementptr inbounds nuw i8, ptr %.03276, i64 24
@@ -5251,8 +5251,8 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   unreachable
 
 _ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit: ; preds = %.critedge, %.preheader49, %55
-  %.364 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
-  ret ptr %.364
+  %.367 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
+  ret ptr %.367
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

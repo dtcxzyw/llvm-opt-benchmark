@@ -113,7 +113,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.06186.us = phi i32 [ %66, %._crit_edge.us ], [ 0, %.lr.ph87 ]
   %.185.us = phi ptr [ %.2.us, %._crit_edge.us ], [ %.06396, %.lr.ph87 ]
   %.16584.us = phi ptr [ %.3.us, %._crit_edge.us ], [ %.06495, %.lr.ph87 ]
-  %.16883.us = phi ptr [ %.370.us106, %._crit_edge.us ], [ %.06794, %.lr.ph87 ]
+  %.16883.us = phi ptr [ %.370.us113, %._crit_edge.us ], [ %.06794, %.lr.ph87 ]
   br label %54
 
 54:                                               ; preds = %.lr.ph.us, %57
@@ -139,7 +139,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
 
 ._crit_edge.us:                                   ; preds = %57, %.thread
   %62 = phi ptr [ %56, %.thread ], [ %60, %57 ]
-  %.370.us106 = phi ptr [ %55, %.thread ], [ %59, %57 ]
+  %.370.us113 = phi ptr [ %55, %.thread ], [ %59, %57 ]
   %63 = and i32 %.06186.us, 1
   %.not75.us = icmp ne i32 %63, 0
   %64 = icmp eq i32 %.06186.us, %52
@@ -167,7 +167,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %exitcond.not, label %._crit_edge88, label %.lr.ph87.split, !llvm.loop !20
 
 ._crit_edge88:                                    ; preds = %.lr.ph87.split, %._crit_edge.us, %.preheader
-  %.168.lcssa = phi ptr [ %.06794, %.preheader ], [ %.370.us106, %._crit_edge.us ], [ %.06794, %.lr.ph87.split ]
+  %.168.lcssa = phi ptr [ %.06794, %.preheader ], [ %.370.us113, %._crit_edge.us ], [ %.06794, %.lr.ph87.split ]
   %.165.lcssa = phi ptr [ %.06495, %.preheader ], [ %.3.us, %._crit_edge.us ], [ %.3, %.lr.ph87.split ]
   %.1.lcssa = phi ptr [ %.06396, %.preheader ], [ %.2.us, %._crit_edge.us ], [ %.2, %.lr.ph87.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -379,7 +379,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %70, label %.lr.ph.us, label %.lr.ph110.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph110, %._crit_edge.us
-  %.174109.us = phi ptr [ %.3.us131, %._crit_edge.us ], [ %.073120, %.lr.ph110 ]
+  %.174109.us = phi ptr [ %.3.us141, %._crit_edge.us ], [ %.073120, %.lr.ph110 ]
   %.176108.us = phi ptr [ %.378.us, %._crit_edge.us ], [ %.075119, %.lr.ph110 ]
   %.081107.us = phi i32 [ %85, %._crit_edge.us ], [ 0, %.lr.ph110 ]
   %.184106.us = phi ptr [ %.285.us, %._crit_edge.us ], [ %.083117, %.lr.ph110 ]
@@ -392,9 +392,9 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   store ptr %.277103.us, ptr %.2104.us, align 8, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %.2104.us, i64 24
   %.not95.us = icmp eq i32 %.080102.us, 1
-  br i1 %.not95.us, label %.thread129, label %76
+  br i1 %.not95.us, label %.thread139, label %76
 
-.thread129:                                       ; preds = %73
+.thread139:                                       ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %.277103.us, i64 24
   br label %._crit_edge.us
 
@@ -406,9 +406,9 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %80 = icmp sgt i32 %.080102.us, 2
   br i1 %80, label %73, label %._crit_edge.us, !llvm.loop !27
 
-._crit_edge.us:                                   ; preds = %76, %.thread129
-  %81 = phi ptr [ %75, %.thread129 ], [ %79, %76 ]
-  %.3.us131 = phi ptr [ %74, %.thread129 ], [ %78, %76 ]
+._crit_edge.us:                                   ; preds = %76, %.thread139
+  %81 = phi ptr [ %75, %.thread139 ], [ %79, %76 ]
+  %.3.us141 = phi ptr [ %74, %.thread139 ], [ %78, %76 ]
   %82 = and i32 %.081107.us, 1
   %.not94.us = icmp ne i32 %82, 0
   %83 = icmp eq i32 %.081107.us, %71
@@ -438,7 +438,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
 ._crit_edge111:                                   ; preds = %.lr.ph110.split, %._crit_edge.us, %.preheader
   %.184.lcssa = phi ptr [ %.083117, %.preheader ], [ %.285.us, %._crit_edge.us ], [ %.285, %.lr.ph110.split ]
   %.176.lcssa = phi ptr [ %.075119, %.preheader ], [ %.378.us, %._crit_edge.us ], [ %.378, %.lr.ph110.split ]
-  %.174.lcssa = phi ptr [ %.073120, %.preheader ], [ %.3.us131, %._crit_edge.us ], [ %.073120, %.lr.ph110.split ]
+  %.174.lcssa = phi ptr [ %.073120, %.preheader ], [ %.3.us141, %._crit_edge.us ], [ %.073120, %.lr.ph110.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next, %31
   br i1 %exitcond127.not, label %._crit_edge, label %.preheader, !llvm.loop !29

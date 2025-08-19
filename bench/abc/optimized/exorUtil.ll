@@ -109,8 +109,8 @@ define i32 @CountLiteralsCheck() local_unnamed_addr #0 {
   br label %._crit_edge29.thread
 
 ._crit_edge29.thread:                             ; preds = %0, %18, %._crit_edge29
-  %.016.lcssa35 = phi i32 [ %.1.lcssa, %18 ], [ %.1.lcssa, %._crit_edge29 ], [ 0, %0 ]
-  ret i32 %.016.lcssa35
+  %.016.lcssa37 = phi i32 [ %.1.lcssa, %18 ], [ %.1.lcssa, %._crit_edge29 ], [ 0, %0 ]
+  ret i32 %.016.lcssa37
 }
 
 declare i32 @GetVar(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -298,8 +298,8 @@ define range(i32 0, 2) i32 @WriteResultIntoFile(ptr noundef readonly captures(no
   br label %CountLiteralsCheck.exit
 
 CountLiteralsCheck.exit:                          ; preds = %8, %._crit_edge29.i, %29
-  %.016.lcssa35.i = phi i32 [ %.1.lcssa.i, %29 ], [ %16, %._crit_edge29.i ], [ 0, %8 ]
-  store i32 %.016.lcssa35.i, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 36), align 4, !tbaa !30
+  %.016.lcssa37.i = phi i32 [ %.1.lcssa.i, %29 ], [ %16, %._crit_edge29.i ], [ 0, %8 ]
+  store i32 %.016.lcssa37.i, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 36), align 4, !tbaa !30
   %31 = call ptr (...) @IterCubeSetStart() #6
   %.not7.i = icmp eq ptr %31, null
   br i1 %.not7.i, label %CountQCost.exit, label %.lr.ph.i21

@@ -1223,11 +1223,11 @@ common.resume:                                    ; preds = %.body.i.i.i.i.i33, 
   br label %common.resume
 
 _ZSt11make_sharedIN19OpenColorIO_v2_5dev11RangeOpDataEJRKdS3_RdS4_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_.exit: ; preds = %.noexc.i.i.i.i32, %.noexc.i.i.i.i27, %.noexc.i.i.i.i
-  %.sink50 = phi ptr [ %24, %.noexc.i.i.i.i ], [ %74, %.noexc.i.i.i.i27 ], [ %114, %.noexc.i.i.i.i32 ]
-  %.sink49 = phi ptr [ %27, %.noexc.i.i.i.i ], [ %77, %.noexc.i.i.i.i27 ], [ %117, %.noexc.i.i.i.i32 ]
+  %.sink54 = phi ptr [ %24, %.noexc.i.i.i.i ], [ %74, %.noexc.i.i.i.i27 ], [ %114, %.noexc.i.i.i.i32 ]
+  %.sink53 = phi ptr [ %27, %.noexc.i.i.i.i ], [ %77, %.noexc.i.i.i.i27 ], [ %117, %.noexc.i.i.i.i32 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink50, ptr %127, align 8, !tbaa !53
-  store ptr %.sink49, ptr %0, align 8, !tbaa !54
+  store ptr %.sink54, ptr %127, align 8, !tbaa !53
+  store ptr %.sink53, ptr %0, align 8, !tbaa !54
   ret void
 }
 

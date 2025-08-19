@@ -153,8 +153,8 @@ _ZL13getFlagOffsetPKci.exit.i.us:                 ; preds = %48, %49, %43
 69:                                               ; preds = %.thread.i.us, %65
   %.03343.i.us = phi i32 [ %.03344.i.us, %.thread.i.us ], [ %.2.i.i.us, %65 ]
   %70 = icmp sgt i32 %.03343.i.us, 0
-  %or.cond69.i.reass.us = and i1 %70, %18
-  br i1 %or.cond69.i.reass.us, label %.lr.ph53.i.us, label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us
+  %or.cond72.i.reass.us = and i1 %70, %18
+  br i1 %or.cond72.i.reass.us, label %.lr.ph53.i.us, label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us
 
 .lr.ph53.i.us:                                    ; preds = %69
   %71 = add nsw i32 %.03343.i.us, -1
@@ -167,19 +167,19 @@ _ZL13getFlagOffsetPKci.exit.i.us:                 ; preds = %48, %49, %43
   %75 = load ptr, ptr %74, align 8, !tbaa !14
   %76 = tail call i32 @strncmp(ptr noundef nonnull readonly %.253.us, ptr noundef %75, i64 noundef %72) #6
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.loopexit.loopexit.split.loop.exit67.i.us, label %78
+  br i1 %77, label %.loopexit.loopexit.split.loop.exit70.i.us, label %78
 
 78:                                               ; preds = %73
   %indvars.iv.next60.i.us = add nuw nsw i64 %indvars.iv59.i.us, 1
   %exitcond63.not.i.us = icmp eq i64 %indvars.iv.next60.i.us, %wide.trip.count62.i
   br i1 %exitcond63.not.i.us, label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us, label %73, !llvm.loop !17
 
-.loopexit.loopexit.split.loop.exit67.i.us:        ; preds = %73
+.loopexit.loopexit.split.loop.exit70.i.us:        ; preds = %73
   %79 = trunc nuw nsw i64 %indvars.iv59.i.us to i32
   br label %_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us
 
-_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loopexit.split.loop.exit67.i.us, %69
-  %.034.i.us.ph = phi i32 [ %79, %.loopexit.loopexit.split.loop.exit67.i.us ], [ -1, %69 ], [ -1, %78 ]
+_ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loopexit.split.loop.exit70.i.us, %69
+  %.034.i.us.ph = phi i32 [ %79, %.loopexit.loopexit.split.loop.exit70.i.us ], [ -1, %69 ], [ -1, %78 ]
   %.pr = load i32, ptr %5, align 4, !tbaa !8
   %.pr.fr = freeze i32 %.pr
   %80 = icmp slt i32 %.pr.fr, 1
@@ -229,11 +229,11 @@ _ZL11extractFlagPciS_iPPKciP10UErrorCode.exit.us: ; preds = %78, %.loopexit.loop
   br label %.critedge
 
 .critedge.sink.split:                             ; preds = %19, %_ZL13getFlagOffsetPKci.exit.i.us, %60, %9, %6
-  %.sink148 = phi i32 [ 4, %6 ], [ 7, %9 ], [ 15, %60 ], [ 15, %_ZL13getFlagOffsetPKci.exit.i.us ], [ 7, %19 ]
+  %.sink158 = phi i32 [ 4, %6 ], [ 7, %9 ], [ 15, %60 ], [ 15, %_ZL13getFlagOffsetPKci.exit.i.us ], [ 7, %19 ]
   %.057.ph = phi ptr [ null, %6 ], [ %14, %9 ], [ %14, %60 ], [ %14, %_ZL13getFlagOffsetPKci.exit.i.us ], [ %14, %19 ]
   %.051.ph = phi ptr [ null, %6 ], [ %12, %9 ], [ %.253.us, %60 ], [ %.253.us, %_ZL13getFlagOffsetPKci.exit.i.us ], [ null, %19 ]
   %.048.ph = phi i32 [ 0, %6 ], [ 0, %9 ], [ %31, %60 ], [ %31, %_ZL13getFlagOffsetPKci.exit.i.us ], [ 0, %19 ]
-  store i32 %.sink148, ptr %5, align 4, !tbaa !8
+  store i32 %.sink158, ptr %5, align 4, !tbaa !8
   br label %.critedge
 
 .critedge:                                        ; preds = %39, %.outer.us, %.lr.ph.us, %.backedge.us, %.split99.us, %.critedge.sink.split, %.preheader

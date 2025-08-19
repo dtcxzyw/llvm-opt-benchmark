@@ -799,13 +799,13 @@ generate_scaling_8.exit83.i:                      ; preds = %.loopexit.i72.i, %2
   %427 = zext nneg i32 %365 to i64
   %wide.trip.count357.i.i = zext nneg i32 %368 to i64
   %428 = zext nneg i32 %410 to i64
-  %invariant.gep359.i.i = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %428
+  %invariant.gep362.i.i = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %428
   %429 = zext nneg i32 %415 to i64
-  %invariant.gep361.i.i = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %429
+  %invariant.gep364.i.i = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %429
   %430 = zext nneg i32 %420 to i64
-  %invariant.gep363.i.i = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %430
+  %invariant.gep366.i.i = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %430
   %431 = zext nneg i32 %425 to i64
-  %invariant.gep365.i.i = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %431
+  %invariant.gep368.i.i = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %431
   br label %.preheader226.i.i
 
 .preheader228.i.i:                                ; preds = %._crit_edge.i92.i, %.preheader228.lr.ph.i.i
@@ -956,15 +956,15 @@ generate_scaling_8.exit83.i:                      ; preds = %.loopexit.i72.i, %2
 
 .lr.ph274.i.i:                                    ; preds = %.preheader.i.i
   %515 = add nuw nsw i64 %indvars.iv348.i.i, 3
-  %gep360.i.i = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep359.i.i, i64 %515
-  %516 = getelementptr inbounds nuw i8, ptr %gep360.i.i, i64 492
+  %gep363.i.i = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep362.i.i, i64 %515
+  %516 = getelementptr inbounds nuw i8, ptr %gep363.i.i, i64 492
   %517 = add nuw nsw i64 %indvars.iv348.i.i, 35
-  %gep362.i.i = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep361.i.i, i64 %517
-  %518 = getelementptr inbounds nuw i8, ptr %gep362.i.i, i64 492
-  %gep364.i.i = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep363.i.i, i64 %517
-  %519 = getelementptr inbounds nuw i8, ptr %gep364.i.i, i64 492
-  %gep366.i.i = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep365.i.i, i64 %515
-  %520 = getelementptr inbounds nuw i8, ptr %gep366.i.i, i64 492
+  %gep365.i.i = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep364.i.i, i64 %517
+  %518 = getelementptr inbounds nuw i8, ptr %gep365.i.i, i64 492
+  %gep367.i.i = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep366.i.i, i64 %517
+  %519 = getelementptr inbounds nuw i8, ptr %gep367.i.i, i64 492
+  %gep369.i.i = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep368.i.i, i64 %515
+  %520 = getelementptr inbounds nuw i8, ptr %gep369.i.i, i64 492
   %521 = getelementptr inbounds nuw [2 x [2 x i32]], ptr @fgy_32x32xn_c_16.w, i64 0, i64 %indvars.iv348.i.i
   %522 = load i32, ptr %521, align 8, !tbaa !29
   %523 = getelementptr inbounds nuw i8, ptr %521, i64 4
@@ -1711,13 +1711,13 @@ generate_grain_y_c_16.exit:                       ; preds = %.split.i, %.split.u
   %261 = zext nneg i32 %209 to i64
   %262 = zext nneg i32 %206 to i64
   %263 = zext nneg i32 %245 to i64
-  %invariant.gep375.i = getelementptr inbounds nuw [82 x i16], ptr %7, i64 %263
+  %invariant.gep379.i = getelementptr inbounds nuw [82 x i16], ptr %7, i64 %263
   %264 = zext nneg i32 %250 to i64
-  %invariant.gep377.i = getelementptr inbounds nuw [82 x i16], ptr %7, i64 %264
+  %invariant.gep381.i = getelementptr inbounds nuw [82 x i16], ptr %7, i64 %264
   %265 = zext nneg i32 %255 to i64
-  %invariant.gep379.i = getelementptr inbounds nuw [82 x i16], ptr %7, i64 %265
+  %invariant.gep383.i = getelementptr inbounds nuw [82 x i16], ptr %7, i64 %265
   %266 = zext nneg i32 %260 to i64
-  %invariant.gep381.i = getelementptr inbounds nuw [82 x i16], ptr %7, i64 %266
+  %invariant.gep385.i = getelementptr inbounds nuw [82 x i16], ptr %7, i64 %266
   br label %.preheader242.i
 
 .preheader244.i:                                  ; preds = %._crit_edge.i, %.preheader244.lr.ph.i
@@ -1872,15 +1872,15 @@ generate_grain_y_c_16.exit:                       ; preds = %.split.i, %.split.u
 
 .lr.ph290.i:                                      ; preds = %.preheader.i
   %353 = add nuw nsw i64 %indvars.iv364.i, 3
-  %gep376.i = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep375.i, i64 %353
-  %354 = getelementptr inbounds nuw i8, ptr %gep376.i, i64 984
+  %gep380.i = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep379.i, i64 %353
+  %354 = getelementptr inbounds nuw i8, ptr %gep380.i, i64 984
   %355 = add nuw nsw i64 %indvars.iv364.i, 35
-  %gep378.i = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep377.i, i64 %355
-  %356 = getelementptr inbounds nuw i8, ptr %gep378.i, i64 984
-  %gep380.i = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep379.i, i64 %355
-  %357 = getelementptr inbounds nuw i8, ptr %gep380.i, i64 984
-  %gep382.i = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep381.i, i64 %353
-  %358 = getelementptr inbounds nuw i8, ptr %gep382.i, i64 984
+  %gep382.i = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep381.i, i64 %355
+  %356 = getelementptr inbounds nuw i8, ptr %gep382.i, i64 984
+  %gep384.i = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep383.i, i64 %355
+  %357 = getelementptr inbounds nuw i8, ptr %gep384.i, i64 984
+  %gep386.i = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep385.i, i64 %353
+  %358 = getelementptr inbounds nuw i8, ptr %gep386.i, i64 984
   %359 = getelementptr inbounds nuw [2 x [2 x i32]], ptr @fgy_32x32xn_c_16.w, i64 0, i64 %indvars.iv364.i
   %360 = load i32, ptr %359, align 8, !tbaa !29
   %361 = getelementptr inbounds nuw i8, ptr %359, i64 4
@@ -2704,14 +2704,14 @@ switch.early.test334:                             ; preds = %249
   %407 = and i32 %.sroa.63.9579, 7
   %408 = shl i32 %406, %407
   %409 = lshr i32 %408, %397
-  %410 = add i32 %409, %.0286580
-  %411 = icmp sgt i32 %410, 255
+  %410 = add nuw nsw i32 %409, %.0286580
+  %411 = icmp samesign ugt i32 %410, 255
   br i1 %411, label %.thread, label %412
 
 412:                                              ; preds = %401
   %413 = add i32 %385, %.sroa.63.9579
   %414 = call i32 @llvm.umin.i32(i32 %12, i32 %413)
-  %415 = trunc i32 %410 to i8
+  %415 = trunc nuw i32 %410 to i8
   %416 = getelementptr inbounds nuw [14 x [2 x i8]], ptr %398, i64 0, i64 %indvars.iv639
   store i8 %415, ptr %416, align 2, !tbaa !27
   %417 = lshr i32 %414, 3
@@ -2773,13 +2773,13 @@ switch.early.test334:                             ; preds = %249
 
 454:                                              ; preds = %.preheader, %.loopexit558
   %455 = phi i1 [ true, %.preheader ], [ false, %.loopexit558 ]
-  %indvars.iv653.sroa.phi700 = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.6, %.loopexit558 ]
+  %indvars.iv653.sroa.phi714 = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.6, %.loopexit558 ]
   %indvars.iv653 = phi i64 [ 0, %.preheader ], [ 1, %.loopexit558 ]
   %.sroa.63.12601 = phi i32 [ %spec.select.i350, %.preheader ], [ %.sroa.63.17, %.loopexit558 ]
   br i1 %.not309, label %.thread540, label %456
 
 .thread540:                                       ; preds = %454
-  store i32 0, ptr %indvars.iv653.sroa.phi700, align 4, !tbaa !29
+  store i32 0, ptr %indvars.iv653.sroa.phi714, align 4, !tbaa !29
   br label %562
 
 456:                                              ; preds = %454
@@ -2795,7 +2795,7 @@ switch.early.test334:                             ; preds = %249
   %465 = shl nuw nsw i32 %463, %464
   %466 = lshr i32 %465, 7
   %467 = and i32 %466, 1
-  store i32 %467, ptr %indvars.iv653.sroa.phi700, align 4, !tbaa !29
+  store i32 %467, ptr %indvars.iv653.sroa.phi714, align 4, !tbaa !29
   %.not316 = icmp eq i32 %467, 0
   br i1 %.not316, label %562, label %468
 
@@ -2985,8 +2985,8 @@ switch.early.test334:                             ; preds = %249
   %605 = lshr i32 %604, 24
   %606 = add nuw i32 %596, 8
   %607 = call i32 @llvm.umin.i32(i32 %12, i32 %606)
-  %.not671 = icmp ult i32 %569, 268435456
-  br i1 %.not671, label %.loopexit558, label %.lr.ph599
+  %.not685 = icmp ult i32 %569, 268435456
+  br i1 %.not685, label %.loopexit558, label %.lr.ph599
 
 .lr.ph599:                                        ; preds = %573
   %608 = xor i32 %583, 31
@@ -3007,14 +3007,14 @@ switch.early.test334:                             ; preds = %249
   %618 = and i32 %.sroa.63.16595, 7
   %619 = shl i32 %617, %618
   %620 = lshr i32 %619, %608
-  %621 = add i32 %620, %.0273597
-  %622 = icmp sgt i32 %621, 255
+  %621 = add nuw nsw i32 %620, %.0273597
+  %622 = icmp samesign ugt i32 %621, 255
   br i1 %622, label %.thread, label %623
 
 623:                                              ; preds = %612
   %624 = add i32 %586, %.sroa.63.16595
   %625 = call i32 @llvm.umin.i32(i32 %12, i32 %624)
-  %626 = trunc i32 %621 to i8
+  %626 = trunc nuw i32 %621 to i8
   %627 = getelementptr inbounds nuw [10 x [2 x i8]], ptr %609, i64 0, i64 %indvars.iv650
   store i8 %626, ptr %627, align 2, !tbaa !27
   %628 = lshr i32 %625, 3
@@ -3833,8 +3833,8 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
   %99 = sext i32 %73 to i64
   %100 = zext nneg i32 %88 to i64
   %101 = zext nneg i32 %96 to i64
-  %invariant.gep490 = getelementptr [82 x i8], ptr %6, i64 %100
-  %invariant.gep492 = getelementptr [82 x i8], ptr %6, i64 %101
+  %invariant.gep497 = getelementptr [82 x i8], ptr %6, i64 %100
+  %invariant.gep499 = getelementptr [82 x i8], ptr %6, i64 %101
   %wide.trip.count453 = zext nneg i32 %76 to i64
   br label %.preheader383
 
@@ -3907,12 +3907,12 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
   %153 = zext nneg i32 %139 to i64
   %wide.trip.count474 = zext nneg i32 %73 to i64
   %154 = zext nneg i32 %124 to i64
-  %invariant.gep494 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %154
-  %invariant.gep496 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %151
-  %invariant.gep498 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %152
-  %invariant.gep500 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %153
-  %invariant.gep502 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %149
-  %invariant.gep504 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %150
+  %invariant.gep501 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %154
+  %invariant.gep503 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %151
+  %invariant.gep505 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %152
+  %invariant.gep507 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %153
+  %invariant.gep509 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %149
+  %invariant.gep511 = getelementptr inbounds nuw [82 x i8], ptr %6, i64 %150
   %wide.trip.count466 = zext nneg i32 %76 to i64
   br label %.preheader381
 
@@ -3939,8 +3939,8 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
 
 .lr.ph399:                                        ; preds = %.preheader382
   %163 = add nsw i64 %indvars.iv455, 3
-  %gep491 = getelementptr [82 x i8], ptr %invariant.gep490, i64 %163
-  %gep493 = getelementptr [82 x i8], ptr %invariant.gep492, i64 %163
+  %gep498 = getelementptr [82 x i8], ptr %invariant.gep497, i64 %163
+  %gep500 = getelementptr [82 x i8], ptr %invariant.gep499, i64 %163
   %164 = trunc nsw i64 %indvars.iv455 to i32
   %165 = shl i32 %164, %14
   %166 = sext i32 %165 to i64
@@ -4038,12 +4038,12 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
   %223 = trunc nuw nsw i64 %indvars.iv450 to i32
   %.reass401 = add i32 %invariant.op, %223
   %224 = sext i32 %.reass401 to i64
-  %225 = getelementptr inbounds [82 x i8], ptr %gep491, i64 0, i64 %224
+  %225 = getelementptr inbounds [82 x i8], ptr %gep498, i64 0, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !27
   %227 = sext i8 %226 to i32
   %.reass403 = add i32 %invariant.op402, %223
   %228 = sext i32 %.reass403 to i64
-  %229 = getelementptr inbounds [82 x i8], ptr %gep493, i64 0, i64 %228
+  %229 = getelementptr inbounds [82 x i8], ptr %gep500, i64 0, i64 %228
   %230 = load i8, ptr %229, align 1, !tbaa !27
   %231 = sext i8 %230 to i32
   %232 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %48, i64 0, i64 %indvars.iv450
@@ -4131,9 +4131,9 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
   br i1 %117, label %.lr.ph414, label %.preheader
 
 .lr.ph414:                                        ; preds = %.preheader381
-  %gep495 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep494, i64 %indvars.iv468
-  %287 = getelementptr inbounds nuw i8, ptr %gep495, i64 246
-  %gep497 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep496, i64 %indvars.iv468
+  %gep502 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep501, i64 %indvars.iv468
+  %287 = getelementptr inbounds nuw i8, ptr %gep502, i64 246
+  %gep504 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep503, i64 %indvars.iv468
   %288 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %52, i64 0, i64 %indvars.iv468
   %289 = load i32, ptr %288, align 8, !tbaa !29
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 4
@@ -4159,11 +4159,11 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
 
 .lr.ph422:                                        ; preds = %.preheader
   %301 = add nuw nsw i64 %indvars.iv468, %54
-  %gep499 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep498, i64 %301
-  %gep501 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep500, i64 %301
+  %gep506 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep505, i64 %301
+  %gep508 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep507, i64 %301
   %302 = add nuw nsw i64 %indvars.iv468, 3
-  %gep503 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep502, i64 %302
-  %gep505 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep504, i64 %302
+  %gep510 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep509, i64 %302
+  %gep512 = getelementptr inbounds nuw [82 x i8], ptr %invariant.gep511, i64 %302
   %303 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %52, i64 0, i64 %indvars.iv468
   %304 = load i32, ptr %303, align 8, !tbaa !29
   %305 = getelementptr inbounds nuw i8, ptr %303, i64 4
@@ -4189,7 +4189,7 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
   %320 = sext i8 %319 to i32
   %321 = add i32 %128, %315
   %322 = sext i32 %321 to i64
-  %323 = getelementptr inbounds [82 x i8], ptr %gep497, i64 0, i64 %322
+  %323 = getelementptr inbounds [82 x i8], ptr %gep504, i64 0, i64 %322
   %324 = load i8, ptr %323, align 1, !tbaa !27
   %325 = sext i8 %324 to i32
   %326 = mul nsw i32 %289, %325
@@ -4280,19 +4280,19 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
   %381 = add i32 %380, 3
   %382 = add i32 %128, %381
   %383 = sext i32 %382 to i64
-  %384 = getelementptr inbounds [82 x i8], ptr %gep499, i64 0, i64 %383
+  %384 = getelementptr inbounds [82 x i8], ptr %gep506, i64 0, i64 %383
   %385 = load i8, ptr %384, align 1, !tbaa !27
   %386 = sext i8 %385 to i32
   %387 = trunc i64 %indvars.iv463 to i32
   %388 = add i32 %46, %387
   %389 = add i32 %136, %388
   %390 = sext i32 %389 to i64
-  %391 = getelementptr inbounds [82 x i8], ptr %gep501, i64 0, i64 %390
+  %391 = getelementptr inbounds [82 x i8], ptr %gep508, i64 0, i64 %390
   %392 = load i8, ptr %391, align 1, !tbaa !27
   %393 = sext i8 %392 to i32
   %394 = add i32 %121, %381
   %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds [82 x i8], ptr %gep503, i64 0, i64 %395
+  %396 = getelementptr inbounds [82 x i8], ptr %gep510, i64 0, i64 %395
   %397 = load i8, ptr %396, align 1, !tbaa !27
   %398 = sext i8 %397 to i32
   %399 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %48, i64 0, i64 %indvars.iv463
@@ -4308,7 +4308,7 @@ define internal fastcc void @fguv_32x32xn_c_8(ptr noundef writeonly captures(non
   %.0.i364 = tail call i32 @llvm.smin.i32(i32 %408, i32 127)
   %409 = add i32 %143, %388
   %410 = sext i32 %409 to i64
-  %411 = getelementptr inbounds [82 x i8], ptr %gep505, i64 0, i64 %410
+  %411 = getelementptr inbounds [82 x i8], ptr %gep512, i64 0, i64 %410
   %412 = load i8, ptr %411, align 1, !tbaa !27
   %413 = sext i8 %412 to i32
   %414 = mul nsw i32 %400, %413
@@ -4703,7 +4703,7 @@ define internal fastcc void @generate_scaling_16(ptr noundef readonly captures(n
   %umax = tail call i32 @llvm.umax.i32(i32 %36, i32 2)
   %38 = zext nneg i32 %36 to i64
   %wide.trip.count127 = zext nneg i32 %7 to i64
-  %invariant.gep132 = getelementptr inbounds nuw i8, ptr %2, i64 %38
+  %invariant.gep134 = getelementptr inbounds nuw i8, ptr %2, i64 %38
   %wide.trip.count119 = zext nneg i32 %umax to i64
   br label %.lr.ph111.split.us
 
@@ -4734,8 +4734,8 @@ define internal fastcc void @generate_scaling_16(ptr noundef readonly captures(n
 .lr.ph104.us.us:                                  ; preds = %.lr.ph104.us.us.preheader, %._crit_edge105.us.us
   %indvars.iv121 = phi i64 [ 0, %.lr.ph104.us.us.preheader ], [ %indvars.iv.next122, %._crit_edge105.us.us ]
   %51 = add nuw nsw i64 %indvars.iv121, %49
-  %gep133 = getelementptr inbounds nuw i8, ptr %invariant.gep132, i64 %51
-  %52 = load i8, ptr %gep133, align 1, !tbaa !27
+  %gep135 = getelementptr inbounds nuw i8, ptr %invariant.gep134, i64 %51
+  %52 = load i8, ptr %gep135, align 1, !tbaa !27
   %53 = zext i8 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 %51
   %55 = load i8, ptr %54, align 1, !tbaa !27
@@ -4968,8 +4968,8 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %110 = sext i32 %. to i64
   %111 = zext nneg i32 %100 to i64
   %112 = zext nneg i32 %108 to i64
-  %invariant.gep519 = getelementptr [82 x i16], ptr %6, i64 %111
-  %invariant.gep521 = getelementptr [82 x i16], ptr %6, i64 %112
+  %invariant.gep525 = getelementptr [82 x i16], ptr %6, i64 %111
+  %invariant.gep527 = getelementptr [82 x i16], ptr %6, i64 %112
   %wide.trip.count482 = zext nneg i32 %89 to i64
   br label %.preheader412
 
@@ -5040,12 +5040,12 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %162 = zext nneg i32 %141 to i64
   %163 = zext nneg i32 %149 to i64
   %164 = zext nneg i32 %134 to i64
-  %invariant.gep523 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %164
-  %invariant.gep525 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %161
-  %invariant.gep527 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %162
-  %invariant.gep529 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %163
-  %invariant.gep531 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %159
-  %invariant.gep533 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %160
+  %invariant.gep529 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %164
+  %invariant.gep531 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %161
+  %invariant.gep533 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %162
+  %invariant.gep535 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %163
+  %invariant.gep537 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %159
+  %invariant.gep539 = getelementptr inbounds nuw [82 x i16], ptr %6, i64 %160
   %wide.trip.count495 = zext nneg i32 %89 to i64
   br label %.preheader410
 
@@ -5077,8 +5077,8 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
 
 .lr.ph428:                                        ; preds = %.preheader411
   %177 = add nsw i64 %indvars.iv484, 3
-  %gep520 = getelementptr [82 x i16], ptr %invariant.gep519, i64 %177
-  %gep522 = getelementptr [82 x i16], ptr %invariant.gep521, i64 %177
+  %gep526 = getelementptr [82 x i16], ptr %invariant.gep525, i64 %177
+  %gep528 = getelementptr [82 x i16], ptr %invariant.gep527, i64 %177
   %178 = trunc nsw i64 %indvars.iv484 to i32
   %179 = shl i32 %178, %14
   %180 = sext i32 %179 to i64
@@ -5178,12 +5178,12 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %237 = trunc nuw nsw i64 %indvars.iv479 to i32
   %.reass430 = add i32 %invariant.op, %237
   %238 = sext i32 %.reass430 to i64
-  %239 = getelementptr inbounds [82 x i16], ptr %gep520, i64 0, i64 %238
+  %239 = getelementptr inbounds [82 x i16], ptr %gep526, i64 0, i64 %238
   %240 = load i16, ptr %239, align 2, !tbaa !44
   %241 = sext i16 %240 to i32
   %.reass432 = add i32 %invariant.op431, %237
   %242 = sext i32 %.reass432 to i64
-  %243 = getelementptr inbounds [82 x i16], ptr %gep522, i64 0, i64 %242
+  %243 = getelementptr inbounds [82 x i16], ptr %gep528, i64 0, i64 %242
   %244 = load i16, ptr %243, align 2, !tbaa !44
   %245 = sext i16 %244 to i32
   %246 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %62, i64 0, i64 %indvars.iv479
@@ -5269,9 +5269,9 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   br i1 %127, label %.lr.ph443, label %.preheader
 
 .lr.ph443:                                        ; preds = %.preheader410
-  %gep524 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep523, i64 %indvars.iv497
-  %297 = getelementptr inbounds nuw i8, ptr %gep524, i64 492
-  %gep526 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep525, i64 %indvars.iv497
+  %gep530 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep529, i64 %indvars.iv497
+  %297 = getelementptr inbounds nuw i8, ptr %gep530, i64 492
+  %gep532 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep531, i64 %indvars.iv497
   %298 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %67, i64 0, i64 %indvars.iv497
   %299 = load i32, ptr %298, align 8, !tbaa !29
   %300 = getelementptr inbounds nuw i8, ptr %298, i64 4
@@ -5302,11 +5302,11 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
 
 .lr.ph451:                                        ; preds = %.preheader
   %315 = add nuw nsw i64 %indvars.iv497, %70
-  %gep528 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep527, i64 %315
-  %gep530 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep529, i64 %315
+  %gep534 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep533, i64 %315
+  %gep536 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep535, i64 %315
   %316 = add nuw nsw i64 %indvars.iv497, 3
-  %gep532 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep531, i64 %316
-  %gep534 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep533, i64 %316
+  %gep538 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep537, i64 %316
+  %gep540 = getelementptr inbounds nuw [82 x i16], ptr %invariant.gep539, i64 %316
   %317 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %67, i64 0, i64 %indvars.iv497
   %318 = load i32, ptr %317, align 8, !tbaa !29
   %319 = getelementptr inbounds nuw i8, ptr %317, i64 4
@@ -5337,7 +5337,7 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %338 = sext i16 %337 to i32
   %339 = add i32 %138, %333
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds [82 x i16], ptr %gep526, i64 0, i64 %340
+  %341 = getelementptr inbounds [82 x i16], ptr %gep532, i64 0, i64 %340
   %342 = load i16, ptr %341, align 2, !tbaa !44
   %343 = sext i16 %342 to i32
   %344 = mul nsw i32 %299, %343
@@ -5426,19 +5426,19 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %395 = add i32 %394, 3
   %396 = add i32 %138, %395
   %397 = sext i32 %396 to i64
-  %398 = getelementptr inbounds [82 x i16], ptr %gep528, i64 0, i64 %397
+  %398 = getelementptr inbounds [82 x i16], ptr %gep534, i64 0, i64 %397
   %399 = load i16, ptr %398, align 2, !tbaa !44
   %400 = sext i16 %399 to i32
   %401 = trunc i64 %indvars.iv492 to i32
   %402 = add i32 %60, %401
   %403 = add i32 %146, %402
   %404 = sext i32 %403 to i64
-  %405 = getelementptr inbounds [82 x i16], ptr %gep530, i64 0, i64 %404
+  %405 = getelementptr inbounds [82 x i16], ptr %gep536, i64 0, i64 %404
   %406 = load i16, ptr %405, align 2, !tbaa !44
   %407 = sext i16 %406 to i32
   %408 = add i32 %131, %395
   %409 = sext i32 %408 to i64
-  %410 = getelementptr inbounds [82 x i16], ptr %gep532, i64 0, i64 %409
+  %410 = getelementptr inbounds [82 x i16], ptr %gep538, i64 0, i64 %409
   %411 = load i16, ptr %410, align 2, !tbaa !44
   %412 = sext i16 %411 to i32
   %413 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %62, i64 0, i64 %indvars.iv492
@@ -5455,7 +5455,7 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %.0.i393 = select i1 %422, i32 %26, i32 %..i392
   %423 = add i32 %153, %402
   %424 = sext i32 %423 to i64
-  %425 = getelementptr inbounds [82 x i16], ptr %gep534, i64 0, i64 %424
+  %425 = getelementptr inbounds [82 x i16], ptr %gep540, i64 0, i64 %424
   %426 = load i16, ptr %425, align 2, !tbaa !44
   %427 = sext i16 %426 to i32
   %428 = mul nsw i32 %414, %427

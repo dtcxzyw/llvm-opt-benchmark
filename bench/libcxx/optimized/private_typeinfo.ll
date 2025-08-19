@@ -1549,8 +1549,8 @@ define hidden void @_ZNK10__cxxabiv117__class_type_info29process_static_type_abo
   %32 = load i32, ptr %31, align 8, !tbaa !22
   %33 = icmp eq i32 %32, 1
   %34 = icmp eq i32 %30, 1
-  %or.cond22 = and i1 %33, %34
-  br i1 %or.cond22, label %.sink.split, label %40
+  %or.cond23 = and i1 %33, %34
+  br i1 %or.cond23, label %.sink.split, label %40
 
 35:                                               ; preds = %22
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -2405,8 +2405,8 @@ _ZL8is_equalPKSt9type_infoS1_b.exit.thread:       ; preds = %15, %9, %_ZL8is_equ
   %49 = load i32, ptr %48, align 8, !tbaa !22
   %50 = icmp eq i32 %49, 1
   %51 = icmp eq i32 %47, 1
-  %or.cond22.i = and i1 %51, %50
-  br i1 %or.cond22.i, label %.sink.split.i, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit
+  %or.cond23.i = and i1 %51, %50
+  br i1 %or.cond23.i, label %.sink.split.i, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -2628,8 +2628,8 @@ _ZL8is_equalPKSt9type_infoS1_b.exit.thread:       ; preds = %15, %9, %_ZL8is_equ
   %49 = load i32, ptr %48, align 8, !tbaa !22
   %50 = icmp eq i32 %49, 1
   %51 = icmp eq i32 %47, 1
-  %or.cond22.i = and i1 %51, %50
-  br i1 %or.cond22.i, label %.sink.split.i, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit
+  %or.cond23.i = and i1 %51, %50
+  br i1 %or.cond23.i, label %.sink.split.i, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -2732,8 +2732,8 @@ _ZL8is_equalPKSt9type_infoS1_b.exit.thread:       ; preds = %15, %9, %_ZL8is_equ
   %49 = load i32, ptr %48, align 8, !tbaa !22
   %50 = icmp eq i32 %49, 1
   %51 = icmp eq i32 %47, 1
-  %or.cond22.i = and i1 %51, %50
-  br i1 %or.cond22.i, label %.sink.split.i, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit
+  %or.cond23.i = and i1 %51, %50
+  br i1 %or.cond23.i, label %.sink.split.i, label %_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i.exit
 
 52:                                               ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 60

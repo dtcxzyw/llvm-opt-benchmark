@@ -40,12 +40,12 @@ define internal fastcc noalias ptr @dfilter_macro_apply_recurse(ptr noundef %0, 
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
-  br i1 %.not214, label %common.ret549, label %6
+  br i1 %.not214, label %common.ret573, label %6
 
 6:                                                ; preds = %5
   %7 = tail call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   store ptr %7, ptr %2, align 8
-  br label %common.ret549
+  br label %common.ret573
 
 8:                                                ; preds = %3
   br i1 %.not214, label %10, label %9
@@ -723,20 +723,20 @@ g_string_append_c_inline.exit215:                 ; preds = %17, %61, %55
   %320 = load ptr, ptr %11, align 8
   br i1 %.0173, label %321, label %325
 
-common.ret549:                                    ; preds = %5, %6, %346, %325, %321
-  %common.ret549.op = phi ptr [ %323, %321 ], [ %326, %325 ], [ null, %346 ], [ null, %6 ], [ null, %5 ]
-  ret ptr %common.ret549.op
+common.ret573:                                    ; preds = %5, %6, %346, %325, %321
+  %common.ret573.op = phi ptr [ %323, %321 ], [ %326, %325 ], [ null, %346 ], [ null, %6 ], [ null, %5 ]
+  ret ptr %common.ret573.op
 
 321:                                              ; preds = %.thread238
   %322 = add nuw nsw i32 %1, 1
   %323 = tail call fastcc ptr @dfilter_macro_apply_recurse(ptr noundef %320, i32 noundef %322, ptr noundef %2)
   %324 = tail call ptr @g_string_free(ptr noundef %11, i32 noundef 1)
-  br label %common.ret549
+  br label %common.ret573
 
 325:                                              ; preds = %.thread238
   %326 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %320)
   %327 = tail call ptr @g_string_free(ptr noundef %11, i32 noundef 1)
-  br label %common.ret549
+  br label %common.ret573
 
 .loopexit.sink.split:                             ; preds = %273, %249, %227, %222, %157, %156
   %.str.6.sink = phi ptr [ @.str.6, %156 ], [ @.str.7, %157 ], [ @.str.6, %222 ], [ @.str.8, %227 ], [ @.str.6, %249 ], [ @.str.8, %273 ]
@@ -797,7 +797,7 @@ common.ret549:                                    ; preds = %5, %6, %346, %325, 
 
 346:                                              ; preds = %341, %344, %340
   %347 = tail call ptr @g_string_free(ptr noundef %11, i32 noundef 1)
-  br label %common.ret549
+  br label %common.ret573
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

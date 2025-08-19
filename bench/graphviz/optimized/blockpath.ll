@@ -586,7 +586,7 @@ gv_calloc.exit131.i.i:                            ; preds = %gv_calloc.exit.i.i,
 
 .lr.ph145.i.i:                                    ; preds = %gv_calloc.exit131.i.i, %296
   %.098144.i.i = phi ptr [ %297, %296 ], [ %243, %gv_calloc.exit131.i.i ]
-  %.0100143.i.i = phi i32 [ %.1101.lcssa175.i.i, %296 ], [ 0, %gv_calloc.exit131.i.i ]
+  %.0100143.i.i = phi i32 [ %.1101.lcssa187.i.i, %296 ], [ 0, %gv_calloc.exit131.i.i ]
   %.0104142.i.i = phi i32 [ %.1105.i.i, %296 ], [ 0, %gv_calloc.exit131.i.i ]
   %.0106141.i.i = phi i32 [ %.1107.i.i, %296 ], [ 0, %gv_calloc.exit131.i.i ]
   %244 = load i32, ptr %.098144.i.i, align 8
@@ -684,7 +684,7 @@ gv_calloc.exit131.i.i:                            ; preds = %gv_calloc.exit.i.i,
   br label %296
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i53.i, %256
-  %.1101.lcssa176.i.i = phi i32 [ %.2102.i.i, %._crit_edge.i53.i ], [ %.0100143.i.i, %256 ]
+  %.1101.lcssa188.i.i = phi i32 [ %.2102.i.i, %._crit_edge.i53.i ], [ %.0100143.i.i, %256 ]
   %293 = sext i32 %.0104142.i.i to i64
   %294 = getelementptr inbounds ptr, ptr %242, i64 %293
   store ptr %.0103.i.i, ptr %294, align 8, !tbaa !63
@@ -692,7 +692,7 @@ gv_calloc.exit131.i.i:                            ; preds = %gv_calloc.exit.i.i,
   br label %296
 
 296:                                              ; preds = %._crit_edge.thread.i.i, %289
-  %.1101.lcssa175.i.i = phi i32 [ %.2102.i.i, %289 ], [ %.1101.lcssa176.i.i, %._crit_edge.thread.i.i ]
+  %.1101.lcssa187.i.i = phi i32 [ %.2102.i.i, %289 ], [ %.1101.lcssa188.i.i, %._crit_edge.thread.i.i ]
   %.1107.i.i = phi i32 [ %292, %289 ], [ %.0106141.i.i, %._crit_edge.thread.i.i ]
   %.1105.i.i = phi i32 [ %.0104142.i.i, %289 ], [ %295, %._crit_edge.thread.i.i ]
   %297 = call ptr @agnxtedge(ptr noundef %89, ptr noundef nonnull %.098144.i.i, ptr noundef nonnull %192) #22
@@ -700,7 +700,7 @@ gv_calloc.exit131.i.i:                            ; preds = %gv_calloc.exit.i.i,
   br i1 %.not.i54.i, label %._crit_edge146.loopexit.i.i, label %.lr.ph145.i.i, !llvm.loop !71
 
 ._crit_edge146.loopexit.i.i:                      ; preds = %296
-  %298 = xor i32 %.1101.lcssa175.i.i, -1
+  %298 = xor i32 %.1101.lcssa187.i.i, -1
   br label %._crit_edge146.i.i
 
 ._crit_edge146.i.i:                               ; preds = %._crit_edge146.loopexit.i.i, %gv_calloc.exit131.i.i
@@ -1239,9 +1239,9 @@ nodelist_append.exit.i:                           ; preds = %479
   br label %measure_distance.exit.i
 
 tailrecurse.i.i:                                  ; preds = %529, %519, %.lr.ph.i.i61
-  %.sink66.i.i = phi ptr [ %514, %.lr.ph.i.i61 ], [ %.pre57.i.i, %529 ], [ %514, %519 ]
+  %.sink70.i.i = phi ptr [ %514, %.lr.ph.i.i61 ], [ %.pre57.i.i, %529 ], [ %514, %519 ]
   %.0.i.i = phi ptr [ %.tr4550.i.i, %.lr.ph.i.i61 ], [ %.2.i.i, %529 ], [ %.tr4550.i.i, %519 ]
-  %546 = getelementptr inbounds nuw i8, ptr %.sink66.i.i, i64 40
+  %546 = getelementptr inbounds nuw i8, ptr %.sink70.i.i, i64 40
   store ptr %.04289.i, ptr %546, align 8, !tbaa !46, !noalias !81
   %547 = load ptr, ptr %511, align 8, !tbaa !24, !noalias !81
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 152
@@ -1298,7 +1298,7 @@ measure_distance.exit.i:                          ; preds = %tailrecurse.i.i, %5
   %.not50102.i = icmp eq ptr %.2101.i, %spec.select.i
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not50102.i, label %.thread152.i, label %.lr.ph105.i
+  br i1 %.not50102.i, label %.thread169.i, label %.lr.ph105.i
 
 .lr.ph105.i:                                      ; preds = %._crit_edge99.i
   %.phi.trans.insert.i.i56.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1393,9 +1393,9 @@ nodelist_append.exit62.i:                         ; preds = %602, %577
 623:                                              ; preds = %._crit_edge106.i
   %624 = shl nuw nsw i64 %609, 1
   %mul.ov.i.i68.i = icmp ugt i64 %609, 1152921504606846975
-  br i1 %mul.ov.i.i68.i, label %648, label %.thread152.i
+  br i1 %mul.ov.i.i68.i, label %648, label %.thread169.i
 
-.thread152.i:                                     ; preds = %623, %._crit_edge99.i
+.thread169.i:                                     ; preds = %623, %._crit_edge99.i
   %625 = phi i64 [ %608, %623 ], [ 0, %._crit_edge99.i ]
   %626 = phi i64 [ %624, %623 ], [ 1, %._crit_edge99.i ]
   %627 = phi ptr [ %.pre46.i.i58143.i, %623 ], [ null, %._crit_edge99.i ]
@@ -1404,7 +1404,7 @@ nodelist_append.exit62.i:                         ; preds = %602, %577
   %630 = icmp eq ptr %629, null
   br i1 %630, label %648, label %631
 
-631:                                              ; preds = %.thread152.i
+631:                                              ; preds = %.thread169.i
   %632 = load i64, ptr %576, align 8, !tbaa !85, !alias.scope !81
   %633 = getelementptr inbounds nuw ptr, ptr %629, i64 %632
   %634 = sub i64 %626, %632
@@ -1432,8 +1432,8 @@ nodelist_append.exit62.i:                         ; preds = %602, %577
   store i64 %626, ptr %576, align 8, !tbaa !85, !alias.scope !81
   br label %nodelist_append.exit70.i
 
-648:                                              ; preds = %.thread152.i, %623
-  %.2.i.ph.i69.i = phi i32 [ 34, %623 ], [ 12, %.thread152.i ]
+648:                                              ; preds = %.thread169.i, %623
+  %.2.i.ph.i69.i = phi i32 [ 34, %623 ], [ 12, %.thread169.i ]
   %649 = load ptr, ptr @stderr, align 8, !tbaa !61, !noalias !81
   %650 = call ptr @strerror(i32 noundef %.2.i.ph.i69.i) #22, !noalias !81
   %651 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %649, ptr noundef nonnull @.str.6, ptr noundef %650) #24, !noalias !81
@@ -2192,8 +2192,8 @@ reduce.exit.i:                                    ; preds = %._crit_edge.i.i86, 
   %or.cond.i88 = or i1 %1020, %1021
   %1022 = add nuw nsw i32 %.015.i, 1
   %exitcond.not.i89 = icmp eq i32 %1022, 10
-  %or.cond28.i = select i1 %or.cond.i88, i1 true, i1 %exitcond.not.i89
-  br i1 %or.cond28.i, label %reduce_edge_crossings.exit, label %933, !llvm.loop !114
+  %or.cond43.i = select i1 %or.cond.i88, i1 true, i1 %exitcond.not.i89
+  br i1 %or.cond43.i, label %reduce_edge_crossings.exit, label %933, !llvm.loop !114
 
 reduce_edge_crossings.exit:                       ; preds = %reduce.exit.i, %place_residual_nodes.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)

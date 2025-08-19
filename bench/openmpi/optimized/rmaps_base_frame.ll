@@ -370,8 +370,8 @@ switch.lookup:                                    ; preds = %26
   br label %32
 
 32:                                               ; preds = %26, %switch.lookup
-  %.sink68 = phi i16 [ %switch.load, %switch.lookup ], [ 9, %26 ]
-  %33 = or disjoint i16 %29, %.sink68
+  %.sink74 = phi i16 [ %switch.load, %switch.lookup ], [ 9, %26 ]
+  %33 = or disjoint i16 %29, %.sink74
   store i16 %33, ptr %27, align 8, !tbaa !65
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !51
   %or.cond3 = icmp ult i32 %34, 64

@@ -269,7 +269,7 @@ define dso_local void @_ZN4mold7Counter5printEv() local_unnamed_addr #4 align 2 
   %.010.i.i.in.in.i.i.i = phi i64 [ %.010.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %9, %5 ]
   %.010.i.i.in.i.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i.i, 1
   %.010.i.i.i.i.i = lshr i64 %.010.i.i.in.i.i.i, 1
-  %11 = shl i64 %.010.i.i.i.i.i, 3
+  %11 = shl nuw nsw i64 %.010.i.i.i.i.i, 3
   %12 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %11, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i
@@ -915,13 +915,13 @@ define internal fastcc void @_ZN4moldL9print_recERNS_11TimerRecordEl(ptr noundef
 
 27:                                               ; preds = %2
   %28 = icmp slt i64 %1, 0
-  br i1 %28, label %29, label %.thread6.i.i
+  br i1 %28, label %29, label %.thread7.i.i
 
 29:                                               ; preds = %27
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #24
   unreachable
 
-.thread6.i.i:                                     ; preds = %27
+.thread7.i.i:                                     ; preds = %27
   %30 = or disjoint i64 %24, 1
   %31 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #25
   store ptr %31, ptr %7, align 8, !tbaa !73
@@ -932,8 +932,8 @@ define internal fastcc void @_ZN4moldL9print_recERNS_11TimerRecordEl(ptr noundef
   %cond = icmp eq i64 %1, 0
   br i1 %cond, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, label %33
 
-33:                                               ; preds = %32, %.thread6.i.i
-  %34 = phi ptr [ %31, %.thread6.i.i ], [ %25, %32 ]
+33:                                               ; preds = %32, %.thread7.i.i
+  %34 = phi ptr [ %31, %.thread7.i.i ], [ %25, %32 ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %34, i8 32, i64 %24, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
 
@@ -1506,35 +1506,35 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
 
 _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4moldL9print_recERNS2_11TimerRecordElE3$_0EclIN3tbb6detail2d115vector_iteratorINSA_17concurrent_vectorIPS3_NSA_23cache_aligned_allocatorISD_EEEESD_EESH_EEbT_T0_.exit"
   %87 = getelementptr i8, ptr %50, i64 112
-  %.sroa.6.0.i51 = add i64 %.sroa.9.046, -1
-  %88 = or i64 %.sroa.6.0.i51, 1
+  %.sroa.6.0.i53 = add i64 %.sroa.9.046, -1
+  %88 = or i64 %.sroa.6.0.i53, 1
   %89 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %88, i1 true)
   %90 = xor i64 %89, 63
   %91 = load atomic i64, ptr %17 acquire, align 8
-  %.0.i.i.i.i.i.i.i52 = inttoptr i64 %91 to ptr
-  %92 = getelementptr inbounds nuw %"struct.std::atomic.15", ptr %.0.i.i.i.i.i.i.i52, i64 %90
+  %.0.i.i.i.i.i.i.i54 = inttoptr i64 %91 to ptr
+  %92 = getelementptr inbounds nuw %"struct.std::atomic.15", ptr %.0.i.i.i.i.i.i.i54, i64 %90
   %93 = load atomic i64, ptr %92 acquire, align 8
-  %.0.i.i5.i.i.i.i.i53 = inttoptr i64 %93 to ptr
-  %94 = getelementptr inbounds nuw ptr, ptr %.0.i.i5.i.i.i.i.i53, i64 %.sroa.6.0.i51
+  %.0.i.i5.i.i.i.i.i55 = inttoptr i64 %93 to ptr
+  %94 = getelementptr inbounds nuw ptr, ptr %.0.i.i5.i.i.i.i.i55, i64 %.sroa.6.0.i53
   %95 = load ptr, ptr %94, align 8, !tbaa !97
-  %.val.i.i54 = load i64, ptr %87, align 8, !tbaa !91
+  %.val.i.i56 = load i64, ptr %87, align 8, !tbaa !91
   %96 = getelementptr i8, ptr %95, i64 112
-  %.val2.i.i55 = load i64, ptr %96, align 8, !tbaa !91
-  %97 = icmp slt i64 %.val.i.i54, %.val2.i.i55
+  %.val2.i.i57 = load i64, ptr %96, align 8, !tbaa !91
+  %97 = icmp slt i64 %.val.i.i56, %.val2.i.i57
   br i1 %97, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i, label %"_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_T0_.exit"
 
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i: ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i
   %98 = phi i64 [ %112, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i ], [ %90, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i ]
-  %.sroa.6.0.i57 = phi i64 [ %.sroa.6.0.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i ], [ %.sroa.6.0.i51, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i ]
-  %.sroa.7.056 = phi i64 [ %.sroa.6.0.i57, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i ], [ %.sroa.9.046, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i ]
+  %.sroa.6.0.i59 = phi i64 [ %.sroa.6.0.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i ], [ %.sroa.6.0.i53, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i ]
+  %.sroa.7.058 = phi i64 [ %.sroa.6.0.i59, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i ], [ %.sroa.9.046, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i ]
   %99 = load atomic i64, ptr %17 acquire, align 8
   %.0.i.i.i.i.i2.i = inttoptr i64 %99 to ptr
   %100 = getelementptr inbounds nuw %"struct.std::atomic.15", ptr %.0.i.i.i.i.i2.i, i64 %98
   %101 = load atomic i64, ptr %100 acquire, align 8
   %.0.i.i5.i.i.i3.i = inttoptr i64 %101 to ptr
-  %102 = getelementptr inbounds nuw ptr, ptr %.0.i.i5.i.i.i3.i, i64 %.sroa.6.0.i57
+  %102 = getelementptr inbounds nuw ptr, ptr %.0.i.i5.i.i.i3.i, i64 %.sroa.6.0.i59
   %.pre33.i = load ptr, ptr %102, align 8, !tbaa !97
-  %103 = or i64 %.sroa.7.056, 1
+  %103 = or i64 %.sroa.7.058, 1
   %104 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %103, i1 true)
   %105 = xor i64 %104, 63
   %106 = load atomic i64, ptr %17 acquire, align 8
@@ -1542,9 +1542,9 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   %107 = getelementptr inbounds nuw %"struct.std::atomic.15", ptr %.0.i.i.i.i.i6.i, i64 %105
   %108 = load atomic i64, ptr %107 acquire, align 8
   %.0.i.i5.i.i.i7.i = inttoptr i64 %108 to ptr
-  %109 = getelementptr inbounds nuw ptr, ptr %.0.i.i5.i.i.i7.i, i64 %.sroa.7.056
+  %109 = getelementptr inbounds nuw ptr, ptr %.0.i.i5.i.i.i7.i, i64 %.sroa.7.058
   store ptr %.pre33.i, ptr %109, align 8, !tbaa !97
-  %.sroa.6.0.i = add i64 %.sroa.6.0.i57, -1
+  %.sroa.6.0.i = add i64 %.sroa.6.0.i59, -1
   %110 = or i64 %.sroa.6.0.i, 1
   %111 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %110, i1 true)
   %112 = xor i64 %111, 63
@@ -1562,7 +1562,7 @@ _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecord
   br i1 %119, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i, label %"_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_T0_.exit"
 
 "_ZSt25__unguarded_linear_insertIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EEN9__gnu_cxx5__ops14_Val_comp_iterIZNS5_L9print_recERS6_lE3$_0EEEvT_T0_.exit": ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i
-  %.sroa.7.0.lcssa = phi i64 [ %.sroa.9.046, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i ], [ %.sroa.6.0.i57, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i ]
+  %.sroa.7.0.lcssa = phi i64 [ %.sroa.9.046, %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit.i ], [ %.sroa.6.0.i59, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit8.i ]
   %120 = or i64 %.sroa.7.0.lcssa, 1
   %121 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %120, i1 true)
   %122 = xor i64 %121, 63
@@ -3441,10 +3441,10 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordE
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4moldL9print_recERNS2_11TimerRecordElE3$_0EclIPPS3_N3tbb6detail2d115vector_iteratorINSC_17concurrent_vectorIS8_NSC_23cache_aligned_allocatorIS8_EEEES8_EEEEbT_T0_.exit.i.thread": ; preds = %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EmmEv.exit43.i
   %224 = load ptr, ptr %.ph, align 8, !tbaa !97
   %225 = getelementptr i8, ptr %.0.val.i, i64 112
-  %.val.i.i71326 = load i64, ptr %225, align 8, !tbaa !91
+  %.val.i.i71343 = load i64, ptr %225, align 8, !tbaa !91
   %226 = getelementptr i8, ptr %224, i64 112
-  %.val2.i.i72327 = load i64, ptr %226, align 8, !tbaa !91
-  %227 = icmp slt i64 %.val.i.i71326, %.val2.i.i72327
+  %.val2.i.i72344 = load i64, ptr %226, align 8, !tbaa !91
+  %227 = icmp slt i64 %.val.i.i71343, %.val2.i.i72344
   br i1 %227, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit.i74, label %279
 
 228:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4moldL9print_recERNS2_11TimerRecordElE3$_0EclIPPS3_N3tbb6detail2d115vector_iteratorINSC_17concurrent_vectorIS8_NSC_23cache_aligned_allocatorIS8_EEEES8_EEEEbT_T0_.exit.i"
@@ -7050,9 +7050,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEE
   br label %29, !llvm.loop !453
 
 _ZSt13move_backwardIPPN4mold7CounterEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread, %36
-  %.sink38.i = phi ptr [ %37, %36 ], [ %25, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread ]
+  %.sink45.i = phi ptr [ %37, %36 ], [ %25, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread ]
   %.lcssa.sink.i = phi ptr [ %32, %36 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread ]
-  %43 = ptrtoint ptr %.sink38.i to i64
+  %43 = ptrtoint ptr %.sink45.i to i64
   %44 = ptrtoint ptr %5 to i64
   %45 = sub i64 %43, %44
   %46 = ashr exact i64 %45, 3
@@ -7581,7 +7581,7 @@ _ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_alloca
   br i1 %48, label %.lr.ph.preheader, label %_ZN3tbb6detail2d015spin_wait_whileIPPN4mold11TimerRecordEZNS1_18spin_wait_while_eqIS6_S6_EET_RKSt6atomicIS8_ET0_St12memory_orderEUlS6_E_EES8_SC_SD_SE_.exit
 
 .lr.ph.preheader:                                 ; preds = %46, %44, %_ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS5_Emm.exit
-  %.0105 = phi ptr [ %1, %_ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS5_Emm.exit ], [ %.0.i.i.i.i.i, %46 ], [ %38, %44 ]
+  %.0111 = phi ptr [ %1, %_ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EENS1_17concurrent_vectorIS5_S7_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS5_Emm.exit ], [ %.0.i.i.i.i.i, %46 ], [ %38, %44 ]
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
@@ -7590,7 +7590,7 @@ _ZN3tbb6detail2d113segment_tableIPN4mold11TimerRecordENS1_23cache_aligned_alloca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01197 = phi i64 [ %50, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %49 = getelementptr inbounds nuw %"struct.std::atomic.15", ptr %.0105, i64 %.01197
+  %49 = getelementptr inbounds nuw %"struct.std::atomic.15", ptr %.0111, i64 %.01197
   store atomic i64 %27, ptr %49 release, align 8
   %50 = add nuw i64 %.01197, 1
   %exitcond.not = icmp eq i64 %50, %6

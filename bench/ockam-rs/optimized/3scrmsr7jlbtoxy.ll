@@ -2856,7 +2856,7 @@ define internal void @"_ZN101_$LT$mitm_node..tcp_interceptor..transport..TcpMitm
   %.sroa.12 = alloca [28 x i64], align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %17 = load i8, ptr %16, align 8, !range !266, !noundef !26
-  switch i8 %17, label %default.unreachable80 [
+  switch i8 %17, label %default.unreachable84 [
     i8 0, label %20
     i8 1, label %49
     i8 2, label %50
@@ -2870,7 +2870,7 @@ define internal void @"_ZN101_$LT$mitm_node..tcp_interceptor..transport..TcpMitm
   %.val46.pre = load ptr, ptr %.phi.trans.insert78, align 8
   br label %51
 
-default.unreachable80:                            ; preds = %87, %3
+default.unreachable84:                            ; preds = %87, %3
   unreachable
 
 common.ret:                                       ; preds = %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h604040e88602a098E.exit.thread", %18
@@ -2992,7 +2992,7 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   switch i64 %55, label %56 [
     i64 0, label %57
     i64 1, label %69
-    i64 2, label %.invoke81
+    i64 2, label %.invoke85
   ]
 
 56:                                               ; preds = %51
@@ -3094,10 +3094,10 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   tail call void @llvm.assume(i1 %88)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   %89 = load i64, ptr %.val46, align 8, !range !297, !noalias !382, !noundef !26
-  switch i64 %89, label %default.unreachable80 [
+  switch i64 %89, label %default.unreachable84 [
     i64 0, label %90
     i64 1, label %._crit_edge.i.i
-    i64 2, label %.invoke81
+    i64 2, label %.invoke85
   ]
 
 ._crit_edge.i.i:                                  ; preds = %87
@@ -3121,11 +3121,11 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   %98 = icmp eq i64 %.fca.0.extract.i.i.i, 2
   br i1 %98, label %"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h604040e88602a098E.exit.thread", label %101
 
-.invoke81:                                        ; preds = %87, %51
+.invoke85:                                        ; preds = %87, %51
   invoke void @_ZN3std9panicking11begin_panic17he3f65631a225ff00E(ptr noalias noundef nonnull readonly align 1 @anon.beb74d57c5836fb6736109f23c162de1.0.llvm.10658646520225780758, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.beb74d57c5836fb6736109f23c162de1.2.llvm.10658646520225780758) #29
-          to label %.cont82 unwind label %182
+          to label %.cont86 unwind label %182
 
-.cont82:                                          ; preds = %.invoke81
+.cont86:                                          ; preds = %.invoke85
   unreachable
 
 99:                                               ; preds = %101
@@ -3423,7 +3423,7 @@ common.ret:                                       ; preds = %"_ZN95_$LT$futures_
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #31, !noalias !462
   unreachable
 
-182:                                              ; preds = %.invoke81, %.invoke, %128, %"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$ockam_node..context..context..Context$C$ockam_core..error..Error$GT$$GT$17h1f8efacd6b4d35d0E.exit.i.i", %90, %57
+182:                                              ; preds = %.invoke85, %.invoke, %128, %"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$ockam_node..context..context..Context$C$ockam_core..error..Error$GT$$GT$17h1f8efacd6b4d35d0E.exit.i.i", %90, %57
   %183 = landingpad { ptr, i32 }
           cleanup
   br label %.body54

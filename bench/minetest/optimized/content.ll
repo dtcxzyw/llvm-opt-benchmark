@@ -4113,12 +4113,12 @@ land.lhs.true2.i.i.i.i.preheader:                 ; preds = %if.then.i.i39.peel,
   br i1 %cmp.i.i.i.i6.i.i, label %land.lhs.true2.i.i.i.i, label %land.lhs.true2.i.i.i.i.preheader.split.us
 
 land.lhs.true2.i.i.i.i.preheader.split.us:        ; preds = %land.lhs.true2.i.i.i.i.preheader
-  %_M_in_cur.i.i.i.i.i.i.us73 = getelementptr inbounds nuw i8, ptr %__beg.sroa.0.2.peel, i64 16
-  %16 = load ptr, ptr %_M_in_cur.i.i.i.i.i.i.us73, align 8, !tbaa !107
-  %_M_in_end.i.i.i.i.i.i.us74 = getelementptr inbounds nuw i8, ptr %__beg.sroa.0.2.peel, i64 24
-  %17 = load ptr, ptr %_M_in_end.i.i.i.i.i.i.us74, align 8, !tbaa !109
-  %cmp.i.i.i.i.i.us75 = icmp ult ptr %16, %17
-  br i1 %cmp.i.i.i.i.i.us75, label %while.cond5.preheader, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us, !prof !111
+  %_M_in_cur.i.i.i.i.i.i.us88 = getelementptr inbounds nuw i8, ptr %__beg.sroa.0.2.peel, i64 16
+  %16 = load ptr, ptr %_M_in_cur.i.i.i.i.i.i.us88, align 8, !tbaa !107
+  %_M_in_end.i.i.i.i.i.i.us89 = getelementptr inbounds nuw i8, ptr %__beg.sroa.0.2.peel, i64 24
+  %17 = load ptr, ptr %_M_in_end.i.i.i.i.i.i.us89, align 8, !tbaa !109
+  %cmp.i.i.i.i.i.us90 = icmp ult ptr %16, %17
+  br i1 %cmp.i.i.i.i.i.us90, label %while.cond5.preheader, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us, !prof !111
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; preds = %land.lhs.true2.i.i.i.i.preheader.split.us
   %vtable.i.i.i.i.i.us = load ptr, ptr %__beg.sroa.0.2.peel, align 8, !tbaa !21
@@ -4441,15 +4441,15 @@ land.lhs.true2.i.i.i.i65.sink.split:              ; preds = %land.lhs.true2.i.i.
   br label %land.lhs.true2.i.i.i.i65.preheader
 
 land.lhs.true2.i.i.i.i65.preheader:               ; preds = %land.lhs.true2.i.i.i.i65.sink.split, %if.else.i.i105.peel
-  %__beg.sroa.0.3.ph79 = phi ptr [ %__beg.sroa.0.5.peel, %if.else.i.i105.peel ], [ %__beg.sroa.0.3.ph, %land.lhs.true2.i.i.i.i65.sink.split ]
-  %__end.sroa.0.2.ph80 = phi ptr [ %__end.sroa.0.3139.peel, %if.else.i.i105.peel ], [ %__end.sroa.0.2.ph, %land.lhs.true2.i.i.i.i65.sink.split ]
-  %__len.1.in.ph81 = phi i64 [ %__len.0.lcssa, %if.else.i.i105.peel ], [ %__len.1.in.ph, %land.lhs.true2.i.i.i.i65.sink.split ]
+  %__beg.sroa.0.3.ph94 = phi ptr [ %__beg.sroa.0.5.peel, %if.else.i.i105.peel ], [ %__beg.sroa.0.3.ph, %land.lhs.true2.i.i.i.i65.sink.split ]
+  %__end.sroa.0.2.ph95 = phi ptr [ %__end.sroa.0.3139.peel, %if.else.i.i105.peel ], [ %__end.sroa.0.2.ph, %land.lhs.true2.i.i.i.i65.sink.split ]
+  %__len.1.in.ph96 = phi i64 [ %__len.0.lcssa, %if.else.i.i105.peel ], [ %__len.1.in.ph, %land.lhs.true2.i.i.i.i65.sink.split ]
   br label %land.lhs.true2.i.i.i.i65
 
 land.lhs.true2.i.i.i.i65:                         ; preds = %land.lhs.true2.i.i.i.i65.preheader, %if.else.i.i105
-  %__beg.sroa.0.3 = phi ptr [ %__beg.sroa.0.5, %if.else.i.i105 ], [ %__beg.sroa.0.3.ph79, %land.lhs.true2.i.i.i.i65.preheader ]
-  %__end.sroa.0.2 = phi ptr [ %__end.sroa.0.3139, %if.else.i.i105 ], [ %__end.sroa.0.2.ph80, %land.lhs.true2.i.i.i.i65.preheader ]
-  %__len.1.in = phi i64 [ %__len.1, %if.else.i.i105 ], [ %__len.1.in.ph81, %land.lhs.true2.i.i.i.i65.preheader ]
+  %__beg.sroa.0.3 = phi ptr [ %__beg.sroa.0.5, %if.else.i.i105 ], [ %__beg.sroa.0.3.ph94, %land.lhs.true2.i.i.i.i65.preheader ]
+  %__end.sroa.0.2 = phi ptr [ %__end.sroa.0.3139, %if.else.i.i105 ], [ %__end.sroa.0.2.ph95, %land.lhs.true2.i.i.i.i65.preheader ]
+  %__len.1.in = phi i64 [ %__len.1, %if.else.i.i105 ], [ %__len.1.in.ph96, %land.lhs.true2.i.i.i.i65.preheader ]
   %__len.1 = add i64 %__len.1.in, 1
   %_M_in_cur.i.i.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %__beg.sroa.0.3, i64 16
   %58 = load ptr, ptr %_M_in_cur.i.i.i.i.i.i66, align 8, !tbaa !107

@@ -581,7 +581,7 @@ define dso_local i32 @snd_hda_get_conn_index(ptr noundef %0, i16 noundef zeroext
 .thread6:                                         ; preds = %26, %34, %38
   %48 = call i32 @snd_hda_get_conn_index(ptr noundef %0, i16 noundef zeroext %29, i16 noundef zeroext %2, i32 noundef %22)
   %49 = icmp slt i32 %48, 0
-  br i1 %49, label %.thread7, label %.thread5.loopexit.split.loop.exit14
+  br i1 %49, label %.thread7, label %.thread5.loopexit.split.loop.exit19
 
 .thread7:                                         ; preds = %.thread6, %38
   %50 = add nuw nsw i64 %27, 1
@@ -592,12 +592,12 @@ define dso_local i32 @snd_hda_get_conn_index(ptr noundef %0, i16 noundef zeroext
   %52 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread5
 
-.thread5.loopexit.split.loop.exit14:              ; preds = %.thread6
+.thread5.loopexit.split.loop.exit19:              ; preds = %.thread6
   %53 = trunc i64 %27 to i32
   br label %.thread5
 
-.thread5:                                         ; preds = %.thread7, %.thread5.loopexit.split.loop.exit14, %.thread5.loopexit10, %4, %17
-  %54 = phi i32 [ -1, %17 ], [ -1, %4 ], [ %52, %.thread5.loopexit10 ], [ %53, %.thread5.loopexit.split.loop.exit14 ], [ -1, %.thread7 ]
+.thread5:                                         ; preds = %.thread7, %.thread5.loopexit.split.loop.exit19, %.thread5.loopexit10, %4, %17
+  %54 = phi i32 [ -1, %17 ], [ -1, %4 ], [ %52, %.thread5.loopexit10 ], [ %53, %.thread5.loopexit.split.loop.exit19 ], [ -1, %.thread7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %54
 }
@@ -2383,18 +2383,18 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef rang
 41:                                               ; preds = %.split10.us
   %42 = load ptr, ptr %32, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread23, label %44
+  br i1 %43, label %.thread42, label %44
 
 44:                                               ; preds = %41
   %45 = tail call i32 %42(ptr noundef %0, i16 noundef zeroext %10, i32 noundef 3) #24
   %46 = icmp eq i32 %45, 3
-  br i1 %46, label %.thread23, label %48
+  br i1 %46, label %.thread42, label %48
 
-.thread23:                                        ; preds = %41, %44
+.thread42:                                        ; preds = %41, %44
   %47 = tail call i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %10, i32 noundef 1, i32 noundef 1797, i32 noundef 3) #24
   br label %48
 
-48:                                               ; preds = %.thread23, %44
+48:                                               ; preds = %.thread42, %44
   %49 = load i16, ptr %33, align 4
   %50 = load i16, ptr %34, align 2
   %51 = icmp ult i16 %49, %50
@@ -3333,7 +3333,7 @@ define dso_local i32 @snd_hda_codec_amp_stereo(ptr noundef %0, i16 noundef zeroe
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %invariant.op = or disjoint i32 %11, %13
-  %invariant.op2 = or i32 %invariant.op, %3
+  %invariant.op3 = or i32 %invariant.op, %3
   br label %18
 
 18:                                               ; preds = %38, %6
@@ -3367,7 +3367,7 @@ define dso_local i32 @snd_hda_codec_amp_stereo(ptr noundef %0, i16 noundef zeroe
 38:                                               ; preds = %36, %28
   %39 = phi i16 [ %1, %28 ], [ %37, %36 ]
   %40 = select i1 %19, i32 8192, i32 0
-  %.reass3 = or i32 %40, %invariant.op2
+  %.reass4 = or i32 %40, %invariant.op3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !9
   %41 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %39, i32 noundef %14, ptr noundef nonnull %7) #24
@@ -3378,7 +3378,7 @@ define dso_local i32 @snd_hda_codec_amp_stereo(ptr noundef %0, i16 noundef zeroe
   %45 = icmp eq i32 %44, 1073741824
   %46 = select i1 %43, i1 %45, i1 false
   %47 = select i1 %46, i32 720912, i32 720896
-  %48 = or i32 %.reass3, %47
+  %48 = or i32 %.reass4, %47
   %49 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %48, i32 noundef %8, i32 noundef %5) #24
   %50 = or i32 %49, %20
   br i1 %19, label %18, label %51, !llvm.loop !36
@@ -3474,7 +3474,7 @@ define dso_local i32 @snd_hda_codec_amp_init_stereo(ptr noundef %0, i16 noundef 
   %17 = shl i32 %9, 20
   %18 = select i1 %11, i32 32768, i32 0
   %invariant.op = or disjoint i32 %17, %18
-  %invariant.op2 = or i32 %invariant.op, %3
+  %invariant.op3 = or i32 %invariant.op, %3
   br label %19
 
 19:                                               ; preds = %54, %6
@@ -3518,13 +3518,13 @@ define dso_local i32 @snd_hda_codec_amp_init_stereo(ptr noundef %0, i16 noundef 
   br i1 %45, label %54, label %46
 
 46:                                               ; preds = %40
-  %.reass3 = or i32 %20, %invariant.op2
+  %.reass4 = or i32 %20, %invariant.op3
   %47 = icmp sgt i32 %42, -1
   %48 = and i32 %43, -1073741824
   %49 = icmp eq i32 %48, 1073741824
   %50 = select i1 %47, i1 %49, i1 false
   %51 = select i1 %50, i32 720912, i32 720896
-  %52 = or i32 %.reass3, %51
+  %52 = or i32 %.reass4, %51
   %53 = call i32 @snd_hdac_regmap_update_raw_once(ptr noundef %0, i32 noundef %52, i32 noundef %8, i32 noundef %5) #24
   br label %54
 
@@ -4699,14 +4699,14 @@ define internal range(i32 0, -2147483648) i32 @init_follower_0dB(ptr noundef %0,
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 8
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %.thread8
+  br i1 %44, label %45, label %.thread14
 
 45:                                               ; preds = %36, %31, %19
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 768
   %47 = load i16, ptr %46, align 8
-  br label %.thread8
+  br label %.thread14
 
-.thread8:                                         ; preds = %45, %36
+.thread14:                                        ; preds = %45, %36
   %48 = phi i16 [ %24, %36 ], [ %47, %45 ]
   %49 = and i64 %23, 536870912
   %50 = icmp eq i64 %49, 0
@@ -4759,8 +4759,8 @@ define internal range(i32 0, -2147483648) i32 @init_follower_0dB(ptr noundef %0,
   %83 = icmp eq i32 %.pre, 1
   br i1 %83, label %84, label %.thread
 
-84:                                               ; preds = %.thread8, %82
-  %85 = phi ptr [ %5, %.thread8 ], [ %80, %82 ]
+84:                                               ; preds = %.thread14, %82
+  %85 = phi ptr [ %5, %.thread14 ], [ %80, %82 ]
   %86 = getelementptr i8, ptr %85, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, -65537
@@ -5854,8 +5854,8 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_create_spdif_in_ctls(ptr
   %62 = lshr i32 %61, 30
   %63 = trunc nuw nsw i32 %62 to i16
   %64 = and i16 %63, 1
-  %spec.select9 = call i32 @llvm.smin.i32(i32 %61, i32 0)
-  %spec.select = trunc i32 %spec.select9 to i16
+  %spec.select15 = call i32 @llvm.smin.i32(i32 %61, i32 0)
+  %spec.select = trunc i32 %spec.select15 to i16
   %65 = icmp ult i32 %61, 1073741824
   br i1 %65, label %67, label %66
 
@@ -6989,7 +6989,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_pcms(ptr nou
 declare dso_local i32 @snd_hda_attach_pcm_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_add_new_ctls(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_add_new_ctls(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.snd_ctl_elem_id, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8

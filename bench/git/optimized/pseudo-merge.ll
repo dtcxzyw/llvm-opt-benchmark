@@ -744,7 +744,7 @@ gitexp.exit.us.i.i:                               ; preds = %.lr.ph.split.us.i.i
   %153 = fdiv double 1.000000e+00, %152
   %154 = fadd double %.01023.us.i.i, %153
   %exitcond39.not.i.i = icmp eq i32 %151, %147
-  br i1 %exitcond39.not.i.i, label %._crit_edge.i.thread166.i, label %gitexp.exit.us.i.i, !llvm.loop !84
+  br i1 %exitcond39.not.i.i, label %._crit_edge.i.thread183.i, label %gitexp.exit.us.i.i, !llvm.loop !84
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   br i1 %148, label %.lr.ph.i.preheader.us.i.i, label %.lr.ph.i.preheader.i.i
@@ -799,7 +799,7 @@ gitexp.exit.loopexit.i.i:                         ; preds = %.lr.ph.i.i.i
   %169 = fdiv double 1.000000e+00, %.1.i.i.i
   %170 = fadd double %.01023.i.i, %169
   %exitcond.not.i.i = icmp eq i32 %163, %147
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.thread166.i, label %.lr.ph.i.preheader.i.i, !llvm.loop !84
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.thread183.i, label %.lr.ph.i.preheader.i.i, !llvm.loop !84
 
 ._crit_edge.i.thread.i:                           ; preds = %gitexp.exit.loopexit.us.i.i, %gitexp.exit.us.us.i.i
   %.010.lcssa.i.ph.i = phi double [ %150, %gitexp.exit.us.us.i.i ], [ %162, %gitexp.exit.loopexit.us.i.i ]
@@ -808,8 +808,8 @@ gitexp.exit.loopexit.i.i:                         ; preds = %.lr.ph.i.i.i
   %173 = uitofp i32 %172 to double
   br label %181
 
-._crit_edge.i.thread166.i:                        ; preds = %gitexp.exit.loopexit.i.i, %gitexp.exit.us.i.i
-  %.010.lcssa.i.ph165.i = phi double [ %154, %gitexp.exit.us.i.i ], [ %170, %gitexp.exit.loopexit.i.i ]
+._crit_edge.i.thread183.i:                        ; preds = %gitexp.exit.loopexit.i.i, %gitexp.exit.us.i.i
+  %.010.lcssa.i.ph182.i = phi double [ %154, %gitexp.exit.us.i.i ], [ %170, %gitexp.exit.loopexit.i.i ]
   %174 = load i64, ptr %43, align 8, !tbaa !64
   %175 = add i32 %.1.i, 1
   %176 = uitofp i32 %175 to double
@@ -824,12 +824,12 @@ gitexp.exit.loopexit.i.i:                         ; preds = %.lr.ph.i.i.i
 180:                                              ; preds = %._crit_edge.i.i
   br label %181
 
-181:                                              ; preds = %180, %._crit_edge.i.i, %._crit_edge.i.thread166.i, %._crit_edge.i.thread.i
-  %182 = phi double [ %179, %._crit_edge.i.i ], [ %176, %._crit_edge.i.thread166.i ], [ %173, %._crit_edge.i.thread.i ], [ %179, %180 ]
-  %183 = phi i32 [ %178, %._crit_edge.i.i ], [ %175, %._crit_edge.i.thread166.i ], [ %172, %._crit_edge.i.thread.i ], [ %178, %180 ]
-  %184 = phi i64 [ %177, %._crit_edge.i.i ], [ %174, %._crit_edge.i.thread166.i ], [ %171, %._crit_edge.i.thread.i ], [ %177, %180 ]
-  %.010.lcssa.i162.i = phi double [ 0.000000e+00, %._crit_edge.i.i ], [ %.010.lcssa.i.ph165.i, %._crit_edge.i.thread166.i ], [ %.010.lcssa.i.ph.i, %._crit_edge.i.thread.i ], [ 0.000000e+00, %180 ]
-  %185 = phi double [ %179, %._crit_edge.i.i ], [ %176, %._crit_edge.i.thread166.i ], [ 1.000000e+00, %._crit_edge.i.thread.i ], [ 1.000000e+00, %180 ]
+181:                                              ; preds = %180, %._crit_edge.i.i, %._crit_edge.i.thread183.i, %._crit_edge.i.thread.i
+  %182 = phi double [ %179, %._crit_edge.i.i ], [ %176, %._crit_edge.i.thread183.i ], [ %173, %._crit_edge.i.thread.i ], [ %179, %180 ]
+  %183 = phi i32 [ %178, %._crit_edge.i.i ], [ %175, %._crit_edge.i.thread183.i ], [ %172, %._crit_edge.i.thread.i ], [ %178, %180 ]
+  %184 = phi i64 [ %177, %._crit_edge.i.i ], [ %174, %._crit_edge.i.thread183.i ], [ %171, %._crit_edge.i.thread.i ], [ %177, %180 ]
+  %.010.lcssa.i179.i = phi double [ 0.000000e+00, %._crit_edge.i.i ], [ %.010.lcssa.i.ph182.i, %._crit_edge.i.thread183.i ], [ %.010.lcssa.i.ph.i, %._crit_edge.i.thread.i ], [ 0.000000e+00, %180 ]
+  %185 = phi double [ %179, %._crit_edge.i.i ], [ %176, %._crit_edge.i.thread183.i ], [ 1.000000e+00, %._crit_edge.i.thread.i ], [ 1.000000e+00, %180 ]
   %.not1013.i13.i.i = icmp ult i32 %.fr31.i.i, 2
   br i1 %.not1013.i13.i.i, label %pseudo_merge_group_size.exit.i, label %.lr.ph.i14.i.i
 
@@ -849,7 +849,7 @@ gitexp.exit.loopexit.i.i:                         ; preds = %.lr.ph.i.i.i
 pseudo_merge_group_size.exit.i:                   ; preds = %.lr.ph.i14.i.i, %181
   %.1.lcssa.i21.i.i = phi double [ %185, %181 ], [ %.1.i19.i.i, %.lr.ph.i14.i.i ]
   %190 = uitofp i64 %184 to double
-  %191 = fdiv double %190, %.010.lcssa.i162.i
+  %191 = fdiv double %190, %.010.lcssa.i179.i
   %192 = fdiv double %191, %.1.lcssa.i21.i.i
   %193 = fadd double %192, 5.000000e-01
   %194 = fptoui double %193 to i32
@@ -1898,7 +1898,7 @@ define dso_local i32 @cascade_pseudo_merges(ptr noundef readonly captures(none) 
 
 .split:                                           ; preds = %3, %._crit_edge
   %12 = phi i64 [ %72, %._crit_edge ], [ 1, %3 ]
-  %.014 = phi i32 [ %spec.select35, %._crit_edge ], [ 0, %3 ]
+  %.014 = phi i32 [ %spec.select38, %._crit_edge ], [ 0, %3 ]
   %.not31 = icmp eq i64 %12, 0
   br i1 %.not31, label %.split29.us, label %.lr.ph
 
@@ -1906,7 +1906,7 @@ define dso_local i32 @cascade_pseudo_merges(ptr noundef readonly captures(none) 
   %13 = phi i64 [ %71, %68 ], [ 0, %.split ]
   %.026 = phi i32 [ %70, %68 ], [ 0, %.split ]
   %.01325 = phi i32 [ %69, %68 ], [ 0, %.split ]
-  %.11524 = phi i32 [ %spec.select35, %68 ], [ %.014, %.split ]
+  %.11524 = phi i32 [ %spec.select38, %68 ], [ %.014, %.split ]
   %14 = load ptr, ptr %0, align 8, !tbaa !105
   %15 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -2036,7 +2036,7 @@ apply_pseudo_merge.exit:                          ; preds = %pseudo_merge_bitmap
   br label %68
 
 68:                                               ; preds = %31, %use_pseudo_merge.exit, %apply_pseudo_merge.exit
-  %spec.select35 = phi i32 [ %spec.select, %apply_pseudo_merge.exit ], [ %.11524, %use_pseudo_merge.exit ], [ %.11524, %31 ]
+  %spec.select38 = phi i32 [ %spec.select, %apply_pseudo_merge.exit ], [ %.11524, %use_pseudo_merge.exit ], [ %.11524, %31 ]
   %69 = phi i32 [ 1, %apply_pseudo_merge.exit ], [ %.01325, %use_pseudo_merge.exit ], [ %.01325, %31 ]
   %70 = add i32 %.026, 1
   %71 = zext i32 %70 to i64
@@ -2049,7 +2049,7 @@ apply_pseudo_merge.exit:                          ; preds = %pseudo_merge_bitmap
   br i1 %74, label %.split29.us, label %.split, !llvm.loop !123
 
 .split29.us:                                      ; preds = %.split, %._crit_edge, %3
-  %.us-phi = phi i32 [ 0, %3 ], [ %.014, %.split ], [ %spec.select35, %._crit_edge ]
+  %.us-phi = phi i32 [ 0, %3 ], [ %.014, %.split ], [ %spec.select38, %._crit_edge ]
   ret i32 %.us-phi
 }
 

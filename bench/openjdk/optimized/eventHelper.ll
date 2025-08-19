@@ -1631,9 +1631,9 @@ define hidden void @eventHelper_recordFrameEvent(i32 noundef %0, i8 noundef sign
   %33 = icmp eq i8 %32, 0
   %34 = icmp eq i32 %27, 0
   %or.cond = select i1 %33, i1 true, i1 %34
-  br i1 %or.cond, label %.thread36, label %36
+  br i1 %or.cond, label %.thread37, label %36
 
-.thread36:                                        ; preds = %30
+.thread37:                                        ; preds = %30
   %35 = load i8, ptr %25, align 8
   br label %38
 
@@ -1644,10 +1644,10 @@ define hidden void @eventHelper_recordFrameEvent(i32 noundef %0, i8 noundef sign
   %.not.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i, label %isReferenceTag.exit, label %38
 
-38:                                               ; preds = %.thread36, %36
-  %39 = phi i8 [ %35, %.thread36 ], [ %37, %36 ]
-  %.pr39 = phi ptr [ %28, %.thread36 ], [ %.pr.pre, %36 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.pr39, i64 17
+38:                                               ; preds = %.thread37, %36
+  %39 = phi i8 [ %35, %.thread37 ], [ %37, %36 ]
+  %.pr40 = phi ptr [ %28, %.thread37 ], [ %.pr.pre, %36 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.pr40, i64 17
   %41 = load i8, ptr %40, align 1
   %.fr.i = freeze i8 %41
   %42 = icmp eq i8 %.fr.i, 0

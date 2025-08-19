@@ -232,8 +232,8 @@ define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) lo
   br i1 %45, label %.lr.ph48, label %.critedge4, !llvm.loop !35
 
 .critedge4:                                       ; preds = %.lr.ph48, %.critedge, %.critedge2
-  %.0.lcssa60 = phi i32 [ %.1, %.critedge2 ], [ 0, %.critedge ], [ %.1, %.lr.ph48 ]
-  ret i32 %.0.lcssa60
+  %.0.lcssa61 = phi i32 [ %.1, %.critedge2 ], [ 0, %.critedge ], [ %.1, %.lr.ph48 ]
+  ret i32 %.0.lcssa61
 }
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

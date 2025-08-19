@@ -424,9 +424,9 @@ Abc_UtilStrsav.exit105:                           ; preds = %Abc_UtilStrsav.exit
   br label %.critedge78
 
 .critedge78:                                      ; preds = %.critedge, %46
-  %.sink137 = phi i64 [ 108, %46 ], [ 136, %.critedge ]
+  %.sink145 = phi i64 [ 108, %46 ], [ 136, %.critedge ]
   %.sink = phi i32 [ %48, %46 ], [ 0, %.critedge ]
-  %49 = getelementptr i8, ptr %0, i64 %.sink137
+  %49 = getelementptr i8, ptr %0, i64 %.sink145
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 %.sink, ptr %50, align 8, !tbaa !37
   %.in = load i32, ptr %49, align 4, !tbaa !45

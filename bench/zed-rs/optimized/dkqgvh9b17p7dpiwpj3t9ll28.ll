@@ -1726,9 +1726,9 @@ _ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit.thread62.i: ; preds = %
           to label %_ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit.i unwind label %.loopexit.split-lp51
 
 common.resume.sink.split.i:                       ; preds = %.loopexit36, %.loopexit.split-lp, %.loopexit37, %.loopexit.split-lp38, %.loopexit45, %.loopexit.split-lp46, %.loopexit50, %.loopexit.split-lp51
-  %.sink96.i = phi i64 [ 16, %.loopexit.split-lp51 ], [ 16, %.loopexit50 ], [ 40, %.loopexit.split-lp46 ], [ 40, %.loopexit45 ], [ 64, %.loopexit.split-lp38 ], [ 64, %.loopexit37 ], [ 112, %.loopexit.split-lp ], [ 112, %.loopexit36 ]
+  %.sink105.i = phi i64 [ 16, %.loopexit.split-lp51 ], [ 16, %.loopexit50 ], [ 40, %.loopexit.split-lp46 ], [ 40, %.loopexit45 ], [ 64, %.loopexit.split-lp38 ], [ 64, %.loopexit37 ], [ 112, %.loopexit.split-lp ], [ 112, %.loopexit36 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp53, %.loopexit.split-lp51 ], [ %lpad.loopexit52, %.loopexit50 ], [ %lpad.loopexit.split-lp48, %.loopexit.split-lp46 ], [ %lpad.loopexit47, %.loopexit45 ], [ %lpad.loopexit.split-lp40, %.loopexit.split-lp38 ], [ %lpad.loopexit39, %.loopexit37 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit36 ]
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink96.i
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink105.i
   store i64 0, ptr %104, align 8, !alias.scope !293, !noalias !312
   br label %common.resume.i
 
@@ -2664,9 +2664,9 @@ _ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit.thread64.i: ; preds = %
           to label %_ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit.i unwind label %.loopexit.split-lp56
 
 common.resume.sink.split.i:                       ; preds = %.loopexit35, %.loopexit.split-lp, %.loopexit38, %.loopexit.split-lp39, %.loopexit44, %.loopexit.split-lp45, %.loopexit50, %.loopexit.split-lp51, %.loopexit55, %.loopexit.split-lp56
-  %.sink100.i = phi i64 [ 16, %.loopexit.split-lp56 ], [ 16, %.loopexit55 ], [ 40, %.loopexit.split-lp51 ], [ 40, %.loopexit50 ], [ 88, %.loopexit.split-lp45 ], [ 88, %.loopexit44 ], [ 112, %.loopexit.split-lp39 ], [ 112, %.loopexit38 ], [ 136, %.loopexit.split-lp ], [ 136, %.loopexit35 ]
+  %.sink110.i = phi i64 [ 16, %.loopexit.split-lp56 ], [ 16, %.loopexit55 ], [ 40, %.loopexit.split-lp51 ], [ 40, %.loopexit50 ], [ 88, %.loopexit.split-lp45 ], [ 88, %.loopexit44 ], [ 112, %.loopexit.split-lp39 ], [ 112, %.loopexit38 ], [ 136, %.loopexit.split-lp ], [ 136, %.loopexit35 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %lpad.loopexit.split-lp58, %.loopexit.split-lp56 ], [ %lpad.loopexit57, %.loopexit55 ], [ %lpad.loopexit.split-lp53, %.loopexit.split-lp51 ], [ %lpad.loopexit52, %.loopexit50 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ], [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp41, %.loopexit.split-lp39 ], [ %lpad.loopexit40, %.loopexit38 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit35 ]
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink100.i
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink110.i
   store i64 0, ptr %109, align 8, !alias.scope !482, !noalias !501
   br label %common.resume.i
 
@@ -4842,9 +4842,9 @@ _ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit.thread11: ; preds = %22
           to label %_ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit unwind label %27
 
 common.resume.sink.split:                         ; preds = %27, %44
-  %.sink17 = phi i64 [ 40, %44 ], [ 16, %27 ]
+  %.sink18 = phi i64 [ 40, %44 ], [ 16, %27 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %45, %44 ], [ %28, %27 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
   store i64 0, ptr %26, align 8, !noalias !4
   br label %common.resume
 
@@ -5774,9 +5774,9 @@ _ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit.thread19: ; preds = %25
           to label %_ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit unwind label %30
 
 common.resume.sink.split:                         ; preds = %30, %47, %64
-  %.sink29 = phi i64 [ 64, %64 ], [ 40, %47 ], [ 16, %30 ]
+  %.sink32 = phi i64 [ 64, %64 ], [ 40, %47 ], [ 16, %30 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %65, %64 ], [ %48, %47 ], [ %31, %30 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink29
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink32
   store i64 0, ptr %29, align 8, !noalias !4
   br label %common.resume
 
@@ -6213,9 +6213,9 @@ _ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit.thread82: ; preds = %70
           to label %_ZN5prost8encoding6string5merge17h32ba192bc1cca75cE.exit unwind label %75
 
 common.resume.sink.split:                         ; preds = %75, %107, %218, %235
-  %.sink124 = phi i64 [ 112, %235 ], [ 88, %218 ], [ 40, %107 ], [ 16, %75 ]
+  %.sink136 = phi i64 [ 112, %235 ], [ 88, %218 ], [ 40, %107 ], [ 16, %75 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %236, %235 ], [ %219, %218 ], [ %108, %107 ], [ %76, %75 ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink124
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink136
   store i64 0, ptr %74, align 8, !noalias !4
   br label %common.resume
 
@@ -8084,14 +8084,14 @@ _ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h48d086f955be8b81E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h48d086f955be8b81E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.sink16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %240, %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %207, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %187, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %241 = or i64 %.sink16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %.sink23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %240, %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %207, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %187, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %241 = or i64 %.sink23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %242 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %241, i1 true)
   %243 = xor i64 %242, 63
   %244 = mul nuw nsw i64 %243, 9
   %245 = add nuw nsw i64 %244, 73
   %246 = lshr i64 %245, 6
-  %247 = add i64 %.sink16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %247 = add i64 %.sink23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %248 = add i64 %247, %246
   br label %_ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E.exit.i.i.i.i.i.i.i.i.i.i.i
 
@@ -8440,14 +8440,14 @@ _ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i19.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17hdcbf7784dc4ed283E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17hdcbf7784dc4ed283E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i19.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i31.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i51.i.i.i.i.i.i.i.i.i.i.i
-  %.sink16.i.i.i.i.i21.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %442, %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i19.i.i.i.i.i.i.i.i.i.i.i ], [ %409, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i31.i.i.i.i.i.i.i.i.i.i.i ], [ %389, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i51.i.i.i.i.i.i.i.i.i.i.i ]
-  %443 = or i64 %.sink16.i.i.i.i.i21.i.i.i.i.i.i.i.i.i.i.i, 1
+  %.sink23.i.i.i.i.i21.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %442, %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i19.i.i.i.i.i.i.i.i.i.i.i ], [ %409, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i31.i.i.i.i.i.i.i.i.i.i.i ], [ %389, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i51.i.i.i.i.i.i.i.i.i.i.i ]
+  %443 = or i64 %.sink23.i.i.i.i.i21.i.i.i.i.i.i.i.i.i.i.i, 1
   %444 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %443, i1 true)
   %445 = xor i64 %444, 63
   %446 = mul nuw nsw i64 %445, 9
   %447 = add nuw nsw i64 %446, 73
   %448 = lshr i64 %447, 6
-  %449 = add i64 %.sink16.i.i.i.i.i21.i.i.i.i.i.i.i.i.i.i.i, 1
+  %449 = add i64 %.sink23.i.i.i.i.i21.i.i.i.i.i.i.i.i.i.i.i, 1
   %450 = add i64 %449, %448
   br label %_ZN5prost8encoding7message11encoded_len17h3b6bf12ec79c336aE.exit.i.i.i.i.i.i.i.i.i.i.i
 
@@ -8460,14 +8460,14 @@ _ZN5prost8encoding7message11encoded_len17h3b6bf12ec79c336aE.exit.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i.i.i.i.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5prost8encoding7message11encoded_len17h3b6bf12ec79c336aE.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E.exit.i.i.i.i.i.i.i.i.i.i.i
-  %.sink57.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %454, %_ZN5prost8encoding7message11encoded_len17h3b6bf12ec79c336aE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %281, %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %250, %_ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %455 = or i64 %.sink57.i.i.i.i.i.i.i.i.i.i.i, 1
+  %.sink82.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %454, %_ZN5prost8encoding7message11encoded_len17h3b6bf12ec79c336aE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %281, %_ZN5prost8encoding7message11encoded_len17hf3113b9292f353efE.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %250, %_ZN5prost8encoding7message11encoded_len17hd1e8a4d11363f1b2E.exit.i.i.i.i.i.i.i.i.i.i.i ]
+  %455 = or i64 %.sink82.i.i.i.i.i.i.i.i.i.i.i, 1
   %456 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %455, i1 true)
   %457 = xor i64 %456, 63
   %458 = mul nuw nsw i64 %457, 9
   %459 = add nuw nsw i64 %458, 73
   %460 = lshr i64 %459, 6
-  %461 = add i64 %.sink57.i.i.i.i.i.i.i.i.i.i.i, 1
+  %461 = add i64 %.sink82.i.i.i.i.i.i.i.i.i.i.i, 1
   %462 = add i64 %461, %460
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit.i.i.i.i.i.i.i.i"
 
@@ -8929,14 +8929,14 @@ _ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h3d55f29f205628e6E.exit.i.i.i.i.i.i.i.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h3d55f29f205628e6E.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i.i.i.i.i.i.i
-  %.sink16.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %744, %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %711, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %691, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %745 = or i64 %.sink16.i.i.i.i.i.i.i.i.i.i.i, 1
+  %.sink23.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %744, %_ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %711, %_ZN5prost8encoding7message11encoded_len17hfba669b3d1f57c83E.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %691, %_ZN5prost8encoding7message11encoded_len17hea700194d9d46123E.exit.i.i.i.i.i.i.i.i.i.i.i ]
+  %745 = or i64 %.sink23.i.i.i.i.i.i.i.i.i.i.i, 1
   %746 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %745, i1 true)
   %747 = xor i64 %746, 63
   %748 = mul nuw nsw i64 %747, 9
   %749 = add nuw nsw i64 %748, 73
   %750 = lshr i64 %749, 6
-  %751 = add i64 %.sink16.i.i.i.i.i.i.i.i.i.i.i, 1
+  %751 = add i64 %.sink23.i.i.i.i.i.i.i.i.i.i.i, 1
   %752 = add i64 %751, %750
   br label %"_ZN78_$LT$live_kit_server..proto..RoomEgress$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h042340d9c13139fdE.exit.i.i.i.i.i"
 

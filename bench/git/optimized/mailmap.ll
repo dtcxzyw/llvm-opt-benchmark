@@ -484,8 +484,8 @@ define dso_local range(i32 0, 2) i32 @map_user(ptr noundef %0, ptr noundef captu
 
 17:                                               ; preds = %14, %10
   %.026.i = phi i32 [ %11, %10 ], [ %8, %14 ]
-  %.not48.i = icmp eq i32 %.026.i, 0
-  br i1 %.not48.i, label %.thread, label %.lr.ph.i
+  %.not50.i = icmp eq i32 %.026.i, 0
+  br i1 %.not50.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -567,8 +567,8 @@ lookup_prefix.exit.thread50:                      ; preds = %30, %lookup_prefix.
 
 59:                                               ; preds = %56, %48
   %.026.i38 = phi i32 [ %49, %48 ], [ %46, %56 ]
-  %.not48.i39 = icmp eq i32 %.026.i38, 0
-  br i1 %.not48.i39, label %.loopexit, label %.lr.ph.i40
+  %.not50.i39 = icmp eq i32 %.026.i38, 0
+  br i1 %.not50.i39, label %.loopexit, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %59
   %60 = load i64, ptr %40, align 8, !tbaa !37
@@ -626,28 +626,28 @@ lookup_prefix.exit.thread50:                      ; preds = %30, %lookup_prefix.
   br i1 %78, label %82, label %83
 
 82:                                               ; preds = %.thread56
-  br i1 %81, label %.thread, label %.thread64
+  br i1 %81, label %.thread, label %.thread72
 
 83:                                               ; preds = %.thread56
-  br i1 %81, label %.thread66, label %.thread64
+  br i1 %81, label %.thread74, label %.thread72
 
-.thread64:                                        ; preds = %82, %83
+.thread72:                                        ; preds = %82, %83
   store ptr %80, ptr %1, align 8, !tbaa !31
   %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #14
   store i64 %84, ptr %2, align 8, !tbaa !36
   %.pre63 = load ptr, ptr %76, align 8, !tbaa !24
   %.not36 = icmp eq ptr %.pre63, null
-  br i1 %.not36, label %.thread, label %.thread66
+  br i1 %.not36, label %.thread, label %.thread74
 
-.thread66:                                        ; preds = %83, %.thread64
-  %85 = phi ptr [ %.pre63, %.thread64 ], [ %77, %83 ]
+.thread74:                                        ; preds = %83, %.thread72
+  %85 = phi ptr [ %.pre63, %.thread72 ], [ %77, %83 ]
   store ptr %85, ptr %3, align 8, !tbaa !31
   %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #14
   store i64 %86, ptr %4, align 8, !tbaa !36
   br label %.thread
 
-.thread:                                          ; preds = %23, %22, %33, %17, %14, %lookup_prefix.exit, %.loopexit, %82, %.thread66, %.thread64
-  %.1 = phi i32 [ 0, %82 ], [ 1, %.thread66 ], [ 1, %.thread64 ], [ 0, %.loopexit ], [ 0, %lookup_prefix.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %33 ], [ 0, %22 ], [ 0, %23 ]
+.thread:                                          ; preds = %23, %22, %33, %17, %14, %lookup_prefix.exit, %.loopexit, %82, %.thread74, %.thread72
+  %.1 = phi i32 [ 0, %82 ], [ 1, %.thread74 ], [ 1, %.thread72 ], [ 0, %.loopexit ], [ 0, %lookup_prefix.exit ], [ 0, %14 ], [ 0, %17 ], [ 0, %33 ], [ 0, %22 ], [ 0, %23 ]
   ret i32 %.1
 }
 

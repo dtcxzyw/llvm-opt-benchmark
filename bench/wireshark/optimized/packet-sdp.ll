@@ -1605,8 +1605,8 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
   br i1 %18, label %.lr.ph, label %.lr.ph87
 
 .lr.ph:                                           ; preds = %.lr.ph79
-  %.idx112 = mul i64 %indvars.iv94, 176
-  %19 = getelementptr i8, ptr %11, i64 %.idx112
+  %.idx118 = mul i64 %indvars.iv94, 176
+  %19 = getelementptr i8, ptr %11, i64 %.idx118
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 10
   %21 = load i16, ptr %20, align 2
   br label %22
@@ -1636,7 +1636,7 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i8 1, ptr %35, align 8
-  %.not72 = icmp eq i64 %.idx, %.idx112
+  %.not72 = icmp eq i64 %.idx, %.idx118
   br i1 %.not72, label %.loopexit, label %36
 
 36:                                               ; preds = %34
@@ -2652,14 +2652,14 @@ clean_unused_media_descriptions.exit:             ; preds = %217, %207, %._crit_
   br i1 %.not189, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %226, %228
-  %.0158264 = phi ptr [ %231, %228 ], [ %227, %226 ]
-  %232 = call i32 @wmem_array_get_count(ptr noundef nonnull %.0158264)
+  %.0158284 = phi ptr [ %231, %228 ], [ %227, %226 ]
+  %232 = call i32 @wmem_array_get_count(ptr noundef nonnull %.0158284)
   %.not247 = icmp eq i32 %232, 0
   br i1 %.not247, label %.loopexit, label %.lr.ph245
 
 .lr.ph245:                                        ; preds = %.preheader, %proto_item_set_hidden.exit
   %.0157244 = phi i32 [ %273, %proto_item_set_hidden.exit ], [ 0, %.preheader ]
-  %233 = call ptr @wmem_array_index(ptr noundef nonnull %.0158264, i32 noundef %.0157244)
+  %233 = call ptr @wmem_array_index(ptr noundef nonnull %.0158284, i32 noundef %.0157244)
   %234 = load i32, ptr %233, align 8
   %.not190 = icmp eq i32 %234, 0
   br i1 %.not190, label %proto_item_set_hidden.exit, label %235
@@ -2735,8 +2735,8 @@ proto_item_set_generated.exit208:                 ; preds = %258, %261
   br i1 %.not5.i210, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %268, %252
-  %.sink272 = phi ptr [ %253, %252 ], [ %269, %268 ]
-  %270 = getelementptr inbounds nuw i8, ptr %.sink272, i64 28
+  %.sink292 = phi ptr [ %253, %252 ], [ %269, %268 ]
+  %270 = getelementptr inbounds nuw i8, ptr %.sink292, i64 28
   %271 = load i32, ptr %270, align 4
   %272 = or i32 %271, 1
   store i32 %272, ptr %270, align 4
@@ -2744,7 +2744,7 @@ proto_item_set_hidden.exit.sink.split:            ; preds = %268, %252
 
 proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidden.exit.sink.split, %proto_item_set_generated.exit208, %254, %proto_item_set_generated.exit, %238, %268, %252, %235, %.lr.ph245
   %273 = add nuw i32 %.0157244, 1
-  %274 = call i32 @wmem_array_get_count(ptr noundef nonnull %.0158264)
+  %274 = call i32 @wmem_array_get_count(ptr noundef nonnull %.0158284)
   %275 = icmp ult i32 %273, %274
   br i1 %275, label %.lr.ph245, label %.loopexit, !llvm.loop !23
 
@@ -2839,7 +2839,7 @@ define internal fastcc void @dissect_sdp_timezone(ptr noundef %0, ptr noundef %1
 .preheader.i:                                     ; preds = %5
   %7 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.033, i32 noundef -1, i8 noundef zeroext 32)
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %.loopexit94, label %.lr.ph.i
+  br i1 %8, label %.loopexit100, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %12
   %9 = phi i32 [ %16, %12 ], [ %7, %.preheader.i ]
@@ -2854,9 +2854,9 @@ define internal fastcc void @dissect_sdp_timezone(ptr noundef %0, ptr noundef %1
   %15 = add nuw i32 %9, 1
   %16 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %15, i32 noundef -1, i8 noundef zeroext 32)
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %.loopexit94, label %.lr.ph.i
+  br i1 %17, label %.loopexit100, label %.lr.ph.i
 
-.loopexit94:                                      ; preds = %12, %.preheader.i
+.loopexit100:                                     ; preds = %12, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.033, %.preheader.i ], [ %15, %12 ]
   %18 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.lcssa.i)
   %19 = icmp ne i32 %18, 0
@@ -2866,7 +2866,7 @@ define internal fastcc void @dissect_sdp_timezone(ptr noundef %0, ptr noundef %1
 .thread:                                          ; preds = %5
   br i1 %.0, label %.loopexit, label %.loopexit.sink.split
 
-find_next_optional_token_in_line.exit:            ; preds = %.loopexit94
+find_next_optional_token_in_line.exit:            ; preds = %.loopexit100
   %20 = icmp eq i32 %18, 0
   br i1 %20, label %.loopexit, label %find_next_optional_token_in_line.exit.thread37
 
@@ -2881,12 +2881,12 @@ find_next_optional_token_in_line.exit.thread37:   ; preds = %find_next_optional_
   %22 = load i32, ptr @hf_timezone_time, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %22, ptr noundef %0, i32 noundef %.042.i41, i32 noundef %.02940.i43, i32 noundef 2)
   %24 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.02841.i42)
-  br i1 %24, label %.preheader.i22, label %.thread84
+  br i1 %24, label %.preheader.i22, label %.thread90
 
 .preheader.i22:                                   ; preds = %find_next_optional_token_in_line.exit.thread37
   %25 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.02841.i42, i32 noundef -1, i8 noundef zeroext 32)
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %.loopexit93, label %.lr.ph.i23
+  br i1 %26, label %.loopexit99, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %.preheader.i22, %30
   %27 = phi i32 [ %34, %30 ], [ %25, %.preheader.i22 ]
@@ -2901,19 +2901,19 @@ find_next_optional_token_in_line.exit.thread37:   ; preds = %find_next_optional_
   %33 = add nuw i32 %27, 1
   %34 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %33, i32 noundef -1, i8 noundef zeroext 32)
   %35 = icmp eq i32 %34, -1
-  br i1 %35, label %.loopexit93, label %.lr.ph.i23
+  br i1 %35, label %.loopexit99, label %.lr.ph.i23
 
-.loopexit93:                                      ; preds = %30, %.preheader.i22
+.loopexit99:                                      ; preds = %30, %.preheader.i22
   %.1.lcssa.i26 = phi i32 [ %.02841.i42, %.preheader.i22 ], [ %33, %30 ]
   %36 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.lcssa.i26)
   %37 = icmp ne i32 %36, 0
   %or.cond.not.i18 = select i1 %.0, i1 true, i1 %37
   br i1 %or.cond.not.i18, label %find_next_optional_token_in_line.exit27, label %.loopexit.sink.split
 
-.thread84:                                        ; preds = %find_next_optional_token_in_line.exit.thread37
+.thread90:                                        ; preds = %find_next_optional_token_in_line.exit.thread37
   br i1 %.0, label %.loopexit, label %.loopexit.sink.split
 
-find_next_optional_token_in_line.exit27:          ; preds = %.loopexit93
+find_next_optional_token_in_line.exit27:          ; preds = %.loopexit99
   %38 = icmp eq i32 %36, 0
   br i1 %38, label %.loopexit, label %find_next_optional_token_in_line.exit27.thread47
 
@@ -2927,11 +2927,11 @@ find_next_optional_token_in_line.exit27.thread47: ; preds = %.lr.ph.i23, %find_n
   %.not = icmp eq i32 %.02841.i2052, -1
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !24
 
-.loopexit.sink.split:                             ; preds = %.loopexit93, %.loopexit94, %.thread84, %.thread
+.loopexit.sink.split:                             ; preds = %.loopexit99, %.loopexit100, %.thread90, %.thread
   %42 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef null, ptr noundef nonnull @ei_sdp_invalid_line_fields, ptr noundef %0, i32 noundef 0, i32 noundef -1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %find_next_optional_token_in_line.exit27, %find_next_optional_token_in_line.exit, %find_next_optional_token_in_line.exit27.thread47, %.loopexit.sink.split, %.thread84, %.thread
+.loopexit:                                        ; preds = %find_next_optional_token_in_line.exit27, %find_next_optional_token_in_line.exit, %find_next_optional_token_in_line.exit27.thread47, %.loopexit.sink.split, %.thread90, %.thread
   ret void
 }
 
@@ -3572,7 +3572,7 @@ parse_sdp_media_protocol.exit:                    ; preds = %176, %181
 .preheader.i:                                     ; preds = %189
   %192 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %190, i32 noundef -1, i8 noundef zeroext 32)
   %193 = icmp eq i32 %192, -1
-  br i1 %193, label %.loopexit300, label %.lr.ph.i
+  br i1 %193, label %.loopexit330, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %197
   %194 = phi i32 [ %201, %197 ], [ %192, %.preheader.i ]
@@ -3587,9 +3587,9 @@ parse_sdp_media_protocol.exit:                    ; preds = %176, %181
   %200 = add nuw i32 %194, 1
   %201 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %200, i32 noundef -1, i8 noundef zeroext 32)
   %202 = icmp eq i32 %201, -1
-  br i1 %202, label %.loopexit300, label %.lr.ph.i
+  br i1 %202, label %.loopexit330, label %.lr.ph.i
 
-.loopexit300:                                     ; preds = %197, %.preheader.i
+.loopexit330:                                     ; preds = %197, %.preheader.i
   %.1.lcssa.i = phi i32 [ %190, %.preheader.i ], [ %200, %197 ]
   %203 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.lcssa.i)
   %204 = icmp ne i32 %203, 0
@@ -3599,11 +3599,11 @@ parse_sdp_media_protocol.exit:                    ; preds = %176, %181
 .thread:                                          ; preds = %189
   br i1 %.0, label %.loopexit, label %find_next_optional_token_in_line.exit.thread
 
-find_next_optional_token_in_line.exit.thread:     ; preds = %.loopexit300, %.thread
+find_next_optional_token_in_line.exit.thread:     ; preds = %.loopexit330, %.thread
   %205 = call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef null, ptr noundef nonnull @ei_sdp_invalid_line_fields, ptr noundef %0, i32 noundef 0, i32 noundef -1)
   br label %.loopexit
 
-find_next_optional_token_in_line.exit:            ; preds = %.loopexit300
+find_next_optional_token_in_line.exit:            ; preds = %.loopexit330
   %206 = icmp eq i32 %203, 0
   br i1 %206, label %.loopexit, label %find_next_optional_token_in_line.exit.thread210
 
@@ -5138,8 +5138,8 @@ proto_item_set_generated.exit:                    ; preds = %42, %60, %71, %70, 
   br i1 %.not5.i196, label %.critedge188, label %.critedge188.sink.split
 
 .critedge188.sink.split:                          ; preds = %96, %85
-  %.sink209 = phi ptr [ %87, %85 ], [ %98, %96 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sink209, i64 28
+  %.sink226 = phi ptr [ %87, %85 ], [ %98, %96 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.sink226, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = or i32 %100, 2
   store i32 %101, ptr %99, align 4

@@ -432,8 +432,8 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen15parse_multiline17h077a9f
   store i64 %82, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %83, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %77, ptr %.sroa.3.0..sroa_idx99, align 8
+  %.sroa.3.0..sroa_idx100 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 %77, ptr %.sroa.3.0..sroa_idx100, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0f602e3422191b1E"(ptr nonnull align 8 %13, ptr nonnull align 8 %12)
           to label %.thread92 unwind label %.thread83
 

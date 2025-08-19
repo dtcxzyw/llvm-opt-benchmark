@@ -46,11 +46,11 @@ define noalias ptr @av_malloc(i64 noundef %0) local_unnamed_addr #1 {
   %13 = call i32 @posix_memalign(ptr noundef nonnull %2, i64 noundef 16, i64 noundef 1) #21
   %.not.i = icmp eq i32 %13, 0
   %.pre = load ptr, ptr %2, align 8
-  %spec.select12 = select i1 %.not.i, ptr %.pre, ptr null
+  %spec.select13 = select i1 %.not.i, ptr %.pre, ptr null
   br label %av_malloc.exit
 
 av_malloc.exit:                                   ; preds = %12, %9
-  %.0.i = phi ptr [ null, %9 ], [ %spec.select12, %12 ]
+  %.0.i = phi ptr [ null, %9 ], [ %spec.select13, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
@@ -204,11 +204,11 @@ define ptr @av_malloc_array(i64 noundef %0, i64 noundef %1) local_unnamed_addr #
   %18 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 16, i64 noundef 1) #21
   %.not.i.i = icmp eq i32 %18, 0
   %.pre.i = load ptr, ptr %3, align 8
-  %spec.select12.i = select i1 %.not.i.i, ptr %.pre.i, ptr null
+  %spec.select13.i = select i1 %.not.i.i, ptr %.pre.i, ptr null
   br label %av_malloc.exit.i
 
 av_malloc.exit.i:                                 ; preds = %17, %14
-  %.0.i.i = phi ptr [ null, %14 ], [ %spec.select12.i, %17 ]
+  %.0.i.i = phi ptr [ null, %14 ], [ %spec.select13.i, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %av_malloc.exit
 
@@ -313,11 +313,11 @@ define noalias ptr @av_mallocz(i64 noundef %0) local_unnamed_addr #1 {
   %13 = call i32 @posix_memalign(ptr noundef nonnull %2, i64 noundef 16, i64 noundef 1) #21
   %.not.i.i = icmp eq i32 %13, 0
   %.pre.i = load ptr, ptr %2, align 8
-  %spec.select12.i = select i1 %.not.i.i, ptr %.pre.i, ptr null
+  %spec.select13.i = select i1 %.not.i.i, ptr %.pre.i, ptr null
   br label %av_malloc.exit.i
 
 av_malloc.exit.i:                                 ; preds = %12, %9
-  %.0.i.i = phi ptr [ null, %9 ], [ %spec.select12.i, %12 ]
+  %.0.i.i = phi ptr [ null, %9 ], [ %spec.select13.i, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %av_malloc.exit
 
@@ -380,11 +380,11 @@ define noalias ptr @av_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr
   %18 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 16, i64 noundef 1) #21
   %.not.i.i.i = icmp eq i32 %18, 0
   %.pre.i.i = load ptr, ptr %3, align 8
-  %spec.select12.i.i = select i1 %.not.i.i.i, ptr %.pre.i.i, ptr null
+  %spec.select13.i.i = select i1 %.not.i.i.i, ptr %.pre.i.i, ptr null
   br label %av_malloc.exit.i.i
 
 av_malloc.exit.i.i:                               ; preds = %17, %14
-  %.0.i.i.i = phi ptr [ null, %14 ], [ %spec.select12.i.i, %17 ]
+  %.0.i.i.i = phi ptr [ null, %14 ], [ %spec.select13.i.i, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %av_malloc.exit.i
 
@@ -509,11 +509,11 @@ define ptr @av_memdup(ptr noundef readonly captures(address_is_null) %0, i64 nou
   %15 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 16, i64 noundef 1) #21
   %.not.i.i = icmp eq i32 %15, 0
   %.pre.i = load ptr, ptr %3, align 8
-  %spec.select12.i = select i1 %.not.i.i, ptr %.pre.i, ptr null
+  %spec.select13.i = select i1 %.not.i.i, ptr %.pre.i, ptr null
   br label %av_malloc.exit.i
 
 av_malloc.exit.i:                                 ; preds = %14, %11
-  %.0.i.i = phi ptr [ null, %11 ], [ %spec.select12.i, %14 ]
+  %.0.i.i = phi ptr [ null, %11 ], [ %spec.select13.i, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %av_malloc.exit
 

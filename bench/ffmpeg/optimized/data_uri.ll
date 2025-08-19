@@ -40,9 +40,9 @@ define internal range(i32 -2147483648, 1) i32 @data_open(ptr noundef %0, ptr nou
   %13 = ptrtoint ptr %9 to i64
   br label %.outer
 
-.outer:                                           ; preds = %.thread72, %.lr.ph
-  %14 = phi i1 [ false, %.thread72 ], [ true, %.lr.ph ]
-  %.05468.ph = phi ptr [ %35, %.thread72 ], [ %8, %.lr.ph ]
+.outer:                                           ; preds = %.thread77, %.lr.ph
+  %14 = phi i1 [ false, %.thread77 ], [ true, %.lr.ph ]
+  %.05468.ph = phi ptr [ %35, %.thread77 ], [ %8, %.lr.ph ]
   br label %16
 
 15:                                               ; preds = %3
@@ -75,7 +75,7 @@ define internal range(i32 -2147483648, 1) i32 @data_open(ptr noundef %0, ptr nou
 29:                                               ; preds = %16
   %30 = call i32 @av_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.5, i64 noundef %24) #6
   %.not62 = icmp eq i32 %30, 0
-  br i1 %.not62, label %.thread72, label %31
+  br i1 %.not62, label %.thread77, label %31
 
 31:                                               ; preds = %29, %25
   %.str.6.sink = phi ptr [ @.str.4, %25 ], [ @.str.6, %29 ]
@@ -85,12 +85,12 @@ define internal range(i32 -2147483648, 1) i32 @data_open(ptr noundef %0, ptr nou
   %34 = icmp ult ptr %33, %9
   br i1 %34, label %16, label %._crit_edge, !llvm.loop !16
 
-.thread72:                                        ; preds = %29
+.thread77:                                        ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %36 = icmp ult ptr %35, %9
-  br i1 %36, label %.outer, label %._crit_edge.thread75, !llvm.loop !16
+  br i1 %36, label %.outer, label %._crit_edge.thread80, !llvm.loop !16
 
-._crit_edge.thread75:                             ; preds = %.thread72
+._crit_edge.thread80:                             ; preds = %.thread77
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #7
   br label %41
@@ -100,9 +100,9 @@ define internal range(i32 -2147483648, 1) i32 @data_open(ptr noundef %0, ptr nou
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #7
   br i1 %14, label %59, label %41
 
-41:                                               ; preds = %._crit_edge.thread75, %._crit_edge
-  %42 = phi i64 [ %38, %._crit_edge.thread75 ], [ %40, %._crit_edge ]
-  %43 = phi ptr [ %37, %._crit_edge.thread75 ], [ %39, %._crit_edge ]
+41:                                               ; preds = %._crit_edge.thread80, %._crit_edge
+  %42 = phi i64 [ %38, %._crit_edge.thread80 ], [ %40, %._crit_edge ]
+  %43 = phi ptr [ %37, %._crit_edge.thread80 ], [ %39, %._crit_edge ]
   %44 = lshr i64 %42, 2
   %45 = mul nuw i64 %44, 3
   %46 = add nuw i64 %45, 1

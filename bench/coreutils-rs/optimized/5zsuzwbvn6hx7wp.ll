@@ -1124,14 +1124,14 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8e31cb12d94ea
   ret void
 
 48:                                               ; preds = %.body.thread, %._crit_edge.i.i3
-  %eh.lpad-body26 = phi { ptr, i32 } [ %53, %._crit_edge.i.i3 ], [ %eh.lpad-body27, %.body.thread ]
+  %eh.lpad-body28 = phi { ptr, i32 } [ %53, %._crit_edge.i.i3 ], [ %eh.lpad-body29, %.body.thread ]
   %49 = phi i64 [ 0, %._crit_edge.i.i3 ], [ %54, %.body.thread ]
-  %.pre.i.i224 = phi ptr [ %.pre.i.i2.pre, %._crit_edge.i.i3 ], [ %.pre.i.i225, %.body.thread ]
+  %.pre.i.i226 = phi ptr [ %.pre.i.i2.pre, %._crit_edge.i.i3 ], [ %.pre.i.i227, %.body.thread ]
   %50 = phi i64 [ %.pre1.i.i5, %._crit_edge.i.i3 ], [ %61, %.body.thread ]
   %51 = sub i64 %50, %49
-  %52 = getelementptr inbounds nuw i8, ptr %.pre.i.i224, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.pre.i.i226, i64 16
   store i64 %51, ptr %52, align 8, !noalias !288
-  resume { ptr, i32 } %eh.lpad-body26
+  resume { ptr, i32 } %eh.lpad-body28
 
 .body:                                            ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha98993b3bd68ba91E.llvm.4097280427338753871.exit", %"_ZN4core3ptr75drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uu_pr..FileLine$GT$$GT$17h615fe50d8670143aE.exit.i"
   %53 = landingpad { ptr, i32 }
@@ -1148,10 +1148,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8e31cb12d94ea
   br label %48
 
 .body.thread:                                     ; preds = %29, %.body
-  %eh.lpad-body27 = phi { ptr, i32 } [ %53, %.body ], [ %30, %29 ]
+  %eh.lpad-body29 = phi { ptr, i32 } [ %53, %.body ], [ %30, %29 ]
   %54 = phi i64 [ %.pre, %.body ], [ 1, %29 ]
-  %.pre.i.i225 = phi ptr [ %.pre.i.i2.pre, %.body ], [ %0, %29 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.pre.i.i225, i64 8
+  %.pre.i.i227 = phi ptr [ %.pre.i.i2.pre, %.body ], [ %0, %29 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.pre.i.i227, i64 8
   %56 = load ptr, ptr %55, align 8, !noalias !288, !nonnull !9, !noundef !9
   %57 = load i64, ptr %8, align 8, !alias.scope !288, !noundef !9
   %58 = getelementptr inbounds { ptr, ptr, i64, ptr, {}, { {} } }, ptr %56, i64 %57

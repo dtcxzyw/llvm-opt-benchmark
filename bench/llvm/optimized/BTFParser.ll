@@ -271,7 +271,7 @@ define dso_local void @_ZN4llvm9BTFParser8parseBTFERNS0_12ParseContextENS_6objec
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %27 = load i8, ptr %26, align 8, !noalias !6
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %.thread95, label %29
+  br i1 %28, label %.thread108, label %29
 
 29:                                               ; preds = %5
   %30 = load ptr, ptr %12, align 8, !tbaa !12, !noalias !6
@@ -285,7 +285,7 @@ define dso_local void @_ZN4llvm9BTFParser8parseBTFERNS0_12ParseContextENS_6objec
   %36 = icmp ult i32 %switch.tableidx, 10
   br i1 %36, label %switch.lookup, label %40
 
-.thread95:                                        ; preds = %5
+.thread108:                                       ; preds = %5
   %37 = load i64, ptr %12, align 8, !tbaa !30, !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !6
   %38 = inttoptr i64 %37 to ptr
@@ -684,7 +684,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %186
   call void %189(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #23
   br label %_ZN4llvm8ExpectedINS_13DataExtractorEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_13DataExtractorEED2Ev.exit:  ; preds = %186, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %.thread95, %184
+_ZN4llvm8ExpectedINS_13DataExtractorEED2Ev.exit:  ; preds = %186, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %.thread108, %184
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
@@ -1505,7 +1505,7 @@ define dso_local void @_ZN4llvm9BTFParser11parseBTFExtERNS0_12ParseContextENS_6o
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = load i8, ptr %25, align 8, !noalias !152
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %.thread81, label %28
+  br i1 %27, label %.thread95, label %28
 
 28:                                               ; preds = %5
   %29 = load ptr, ptr %12, align 8, !tbaa !12, !noalias !152
@@ -1519,7 +1519,7 @@ define dso_local void @_ZN4llvm9BTFParser11parseBTFExtERNS0_12ParseContextENS_6o
   %35 = icmp ult i32 %switch.tableidx, 10
   br i1 %35, label %switch.lookup, label %39
 
-.thread81:                                        ; preds = %5
+.thread95:                                        ; preds = %5
   %36 = load i64, ptr %12, align 8, !tbaa !30, !noalias !155
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !152
   %37 = inttoptr i64 %36 to ptr
@@ -1908,7 +1908,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %183
   call void %186(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #23
   br label %_ZN4llvm8ExpectedINS_13DataExtractorEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_13DataExtractorEED2Ev.exit:  ; preds = %183, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %.thread81, %181
+_ZN4llvm8ExpectedINS_13DataExtractorEED2Ev.exit:  ; preds = %183, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %.thread95, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
@@ -3058,7 +3058,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us: ; pre
   br i1 %.not.i.i.i.us15, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us16, !prof !325
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us: ; preds = %39
-  %bcmp.i.i.i.us = tail call i32 @bcmp(ptr %.fr, ptr %.sroa.03.0.copyload.i.us11, i64 %.fr84)
+  %bcmp.i.i.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %.sroa.03.0.copyload.i.us11, i64 %.fr84)
   %40 = icmp eq i32 %bcmp.i.i.i.us, 0
   br i1 %40, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6object10SectionRefENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E6doFindIS2_EEPS9_RKT_.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us16, !prof !323
 
@@ -3094,7 +3094,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us16: ; p
   br i1 %.not.i.i.i.us28, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us29, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us31, !prof !325
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us29: ; preds = %47
-  %bcmp.i.i.i.us30 = tail call i32 @bcmp(ptr %.fr, ptr %.sroa.03.0.copyload.i.us24, i64 %.fr84)
+  %bcmp.i.i.i.us30 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %.sroa.03.0.copyload.i.us24, i64 %.fr84)
   %48 = icmp eq i32 %bcmp.i.i.i.us30, 0
   br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6object10SectionRefENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEES2_S4_S6_S9_E6doFindIS2_EEPS9_RKT_.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us31, !prof !323
 
@@ -5638,8 +5638,8 @@ _ZNK4llvm9BTFParser8findTypeEj.exit174.thread:    ; preds = %_ZN4llvm11raw_ostre
 
 508:                                              ; preds = %_ZL19skipModsAndTypedefsRKN4llvm9BTFParserEPKNS_3BTF10CommonTypeE.exit165
   %509 = and i32 %.07.val.i161, 520093696
-  %.not341 = icmp eq i32 %509, 50331648
-  br i1 %.not341, label %510, label %546
+  %.not344 = icmp eq i32 %509, 50331648
+  br i1 %.not344, label %510, label %546
 
 510:                                              ; preds = %508
   %511 = load ptr, ptr %187, align 8, !tbaa !106
@@ -7691,7 +7691,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm3BTF11BPFLineIn
   %.016.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not17.i = icmp eq ptr %.016.i, %1
   %or.cond = select i1 %10, i1 true, i1 %.not17.i
-  br i1 %or.cond, label %common.ret25, label %.lr.ph.i
+  br i1 %or.cond, label %common.ret27, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %22
   %.019.i = phi ptr [ %.0.i, %22 ], [ %.016.i, %9 ]
@@ -7743,9 +7743,9 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm3BTF11BPFLineIn
 22:                                               ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm3BTF11BPFLineInfoEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_T0_.exit.i", %12
   %.0.i = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %.not.i = icmp eq ptr %.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !560
+  br i1 %.not.i, label %common.ret27, label %.lr.ph.i, !llvm.loop !560
 
-common.ret25:                                     ; preds = %9, %22, %23
+common.ret27:                                     ; preds = %9, %22, %23
   ret void
 
 23:                                               ; preds = %2
@@ -7757,7 +7757,7 @@ common.ret25:                                     ; preds = %9, %22, %23
   %27 = sub i64 %4, %26
   %28 = ashr exact i64 %27, 4
   tail call fastcc void @"_ZSt22__merge_without_bufferIPN4llvm3BTF11BPFLineInfoElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser13parseLineInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_SE_T0_SF_T1_"(ptr noundef %0, ptr noundef %25, ptr noundef %1, i64 noundef %24, i64 noundef %28)
-  br label %common.ret25
+  br label %common.ret27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8386,9 +8386,9 @@ _ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread: ; preds = %31
   br label %38, !llvm.loop !570
 
 _ZSt13move_backwardIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread, %43
-  %.sink42.i = phi ptr [ %44, %43 ], [ %34, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread ]
+  %.sink49.i = phi ptr [ %44, %43 ], [ %34, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread ]
   %.lcssa.sink.i = phi ptr [ %40, %43 ], [ %2, %_ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit74.thread ]
-  %49 = ptrtoint ptr %.sink42.i to i64
+  %49 = ptrtoint ptr %.sink49.i to i64
   %50 = ptrtoint ptr %5 to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 4
@@ -9119,7 +9119,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm3BTF13BPFFieldR
   %.016.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not17.i = icmp eq ptr %.016.i, %1
   %or.cond = select i1 %10, i1 true, i1 %.not17.i
-  br i1 %or.cond, label %common.ret25, label %.lr.ph.i
+  br i1 %or.cond, label %common.ret27, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %22
   %.019.i = phi ptr [ %.0.i, %22 ], [ %.016.i, %9 ]
@@ -9171,9 +9171,9 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm3BTF13BPFFieldR
 22:                                               ; preds = %"_ZSt25__unguarded_linear_insertIPN4llvm3BTF13BPFFieldRelocEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_T0_.exit.i", %12
   %.0.i = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %.not.i = icmp eq ptr %.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !576
+  br i1 %.not.i, label %common.ret27, label %.lr.ph.i, !llvm.loop !576
 
-common.ret25:                                     ; preds = %9, %22, %23
+common.ret27:                                     ; preds = %9, %22, %23
   ret void
 
 23:                                               ; preds = %2
@@ -9185,7 +9185,7 @@ common.ret25:                                     ; preds = %9, %22, %23
   %27 = sub i64 %4, %26
   %28 = ashr exact i64 %27, 4
   tail call fastcc void @"_ZSt22__merge_without_bufferIPN4llvm3BTF13BPFFieldRelocElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9BTFParser14parseRelocInfoERNS7_12ParseContextERNS0_13DataExtractorEmmE3$_0EEEvT_SE_SE_T0_SF_T1_"(ptr noundef %0, ptr noundef %25, ptr noundef %1, i64 noundef %24, i64 noundef %28)
-  br label %common.ret25
+  br label %common.ret27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9811,9 +9811,9 @@ _ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread: ; preds = %3
   br label %38, !llvm.loop !586
 
 _ZSt13move_backwardIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit.sink.split.i: ; preds = %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread, %43
-  %.sink42.i = phi ptr [ %44, %43 ], [ %34, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread ]
+  %.sink49.i = phi ptr [ %44, %43 ], [ %34, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread ]
   %.lcssa.sink.i = phi ptr [ %40, %43 ], [ %2, %_ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit74.thread ]
-  %49 = ptrtoint ptr %.sink42.i to i64
+  %49 = ptrtoint ptr %.sink49.i to i64
   %50 = ptrtoint ptr %5 to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 4

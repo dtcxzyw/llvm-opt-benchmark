@@ -103,7 +103,7 @@ list_length.exit.i:                               ; preds = %.critedge.i
 .lr.ph.i:                                         ; preds = %list_length.exit.i.preheader, %list_length.exit.i
   %39 = phi i32 [ %37, %list_length.exit.i ], [ %34, %list_length.exit.i.preheader ]
   %40 = phi ptr [ %36, %list_length.exit.i ], [ %33, %list_length.exit.i.preheader ]
-  %.0120.i69209 = phi i1 [ true, %list_length.exit.i ], [ false, %list_length.exit.i.preheader ]
+  %.0120.i69220 = phi i1 [ true, %list_length.exit.i ], [ false, %list_length.exit.i.preheader ]
   %41 = phi ptr [ %162, %list_length.exit.i ], [ %32, %list_length.exit.i.preheader ]
   %42 = zext nneg i32 %39 to i64
   %43 = shl nuw nsw i64 %42, 2
@@ -280,7 +280,7 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
   call void @systable_endscan(ptr noundef %65) #6
   call void @table_close(ptr noundef %64, i32 noundef 1) #6
   %131 = icmp ne ptr %.3126.i, null
-  %or.cond.i = or i1 %.0120.i69209, %131
+  %or.cond.i = or i1 %.0120.i69220, %131
   br i1 %or.cond.i, label %132, label %.critedge.i
 
 132:                                              ; preds = %130
@@ -360,8 +360,8 @@ list_length.exit.thread._crit_edge.i.thread:      ; preds = %.lr.ph.i, %151
 list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_length.exit.i, %list_length.exit.i.preheader, %.thread, %list_length.exit.thread._crit_edge.i.thread
   %164 = phi i1 [ true, %list_length.exit.thread._crit_edge.i.thread ], [ false, %.thread ], [ false, %list_length.exit.i.preheader ], [ false, %list_length.exit.i ], [ false, %.critedge.i ]
   %165 = phi i32 [ %39, %list_length.exit.thread._crit_edge.i.thread ], [ 0, %.thread ], [ %34, %list_length.exit.i.preheader ], [ 0, %.critedge.i ], [ %37, %list_length.exit.i ]
-  %.1116269278.i = phi ptr [ %45, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %45, %list_length.exit.i ], [ %45, %.critedge.i ]
-  %.1114271277.i = phi ptr [ %44, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %44, %list_length.exit.i ], [ %44, %.critedge.i ]
+  %.1116281290.i = phi ptr [ %45, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %45, %list_length.exit.i ], [ %45, %.critedge.i ]
+  %.1114283289.i = phi ptr [ %44, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %44, %list_length.exit.i ], [ %44, %.critedge.i ]
   %.0.i = phi ptr [ %163, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ null, %list_length.exit.i ], [ null, %.critedge.i ]
   %166 = load ptr, ptr @CurTransactionContext, align 8
   %167 = call ptr @AllocSetContextCreateInternal(ptr noundef %166, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #6
@@ -405,13 +405,13 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
   %189 = load ptr, ptr %5, align 8
   %190 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv262.i
   %191 = load i32, ptr %190, align 4
-  %192 = getelementptr inbounds nuw i32, ptr %.1114271277.i, i64 %indvars.iv262.i
+  %192 = getelementptr inbounds nuw i32, ptr %.1114283289.i, i64 %indvars.iv262.i
   %193 = load i32, ptr %192, align 4
   %194 = load ptr, ptr %185, align 8
   %195 = sext i32 %191 to i64
   %196 = getelementptr inbounds i32, ptr %194, i64 %195
   store i32 %193, ptr %196, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %.1116269278.i, i64 %indvars.iv262.i
+  %197 = getelementptr inbounds nuw i8, ptr %.1116281290.i, i64 %indvars.iv262.i
   %198 = load i8, ptr %197, align 1, !range !4, !noundef !5
   %199 = load ptr, ptr %187, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 %195

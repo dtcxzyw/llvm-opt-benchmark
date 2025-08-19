@@ -2015,9 +2015,9 @@ _ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
   br label %162
 
 162:                                              ; preds = %155, %149
-  %.sink120 = phi ptr [ %161, %155 ], [ %154, %149 ]
+  %.sink127 = phi ptr [ %161, %155 ], [ %154, %149 ]
   %.sink = phi i64 [ %156, %155 ], [ %.sroa.980.0.copyload, %149 ]
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink120, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink127, i64 8
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.056.0107, i64 16
@@ -2225,7 +2225,7 @@ _ZNSt12_Vector_baseISt5dequeIN3ue212graph_detail17vertex_descriptorINS1_9ue2_gra
           to label %_ZSt10_ConstructISt5dequeIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESaIS9_EEJEEvPT_DpOT0_.exit.i.i.i.i unwind label %14
 
 _ZSt10_ConstructISt5dequeIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESaIS9_EEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %12 = add i64 %.01013.i.i.i.i, -1
+  %12 = add nsw i64 %.01013.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 80
   %.not.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !44
@@ -4384,9 +4384,9 @@ _ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
   br label %162
 
 162:                                              ; preds = %155, %149
-  %.sink123 = phi ptr [ %161, %155 ], [ %154, %149 ]
+  %.sink130 = phi ptr [ %161, %155 ], [ %154, %149 ]
   %.sink = phi i64 [ %156, %155 ], [ %.sroa.983.0.copyload, %149 ]
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink123, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink130, i64 8
   store i64 %.sink, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.055.0110, i64 16

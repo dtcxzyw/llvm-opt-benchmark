@@ -1585,7 +1585,7 @@ thread-pre-split86.i:                             ; preds = %157
 .thread.i:                                        ; preds = %thread-pre-split86.i, %155, %135
   %162 = phi i64 [ %.pr87.i, %thread-pre-split86.i ], [ %.pr85.i, %155 ], [ %136, %135 ]
   %163 = icmp eq i64 %162, 8
-  br i1 %163, label %164, label %.thread104.i
+  br i1 %163, label %164, label %.thread109.i
 
 164:                                              ; preds = %.thread.i
   %165 = getelementptr inbounds nuw i8, ptr %.161.i, i64 24
@@ -1602,12 +1602,12 @@ thread-pre-split86.i:                             ; preds = %157
 170:                                              ; preds = %164
   %.pre103.i = load i64, ptr %101, align 8, !tbaa !12
   %171 = icmp eq i64 %.pre103.i, 8
-  br i1 %171, label %172, label %.thread104.i
+  br i1 %171, label %172, label %.thread109.i
 
 172:                                              ; preds = %170
   %173 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %165, i64 noundef 8, ptr noundef nonnull @.str.28, i64 noundef 8) #10
   %.not77.i = icmp eq i32 %173, 0
-  br i1 %.not77.i, label %174, label %.thread104.i
+  br i1 %.not77.i, label %174, label %.thread109.i
 
 174:                                              ; preds = %172
   %175 = load i8, ptr %94, align 8, !tbaa !8
@@ -1632,7 +1632,7 @@ thread-pre-split86.i:                             ; preds = %157
   %186 = call ptr @zval_get_string_func(ptr noundef nonnull %.05898.i) #10
   br label %zval_get_string.exit79.i
 
-.thread104.i:                                     ; preds = %172, %170, %.thread.i
+.thread109.i:                                     ; preds = %172, %170, %.thread.i
   %187 = call ptr @get_active_function_name() #10
   %188 = getelementptr inbounds nuw i8, ptr %.161.i, i64 24
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.29, ptr noundef %187, ptr noundef nonnull %188) #10
@@ -1664,8 +1664,8 @@ php_head_parse_cookie_options_array.exit:         ; preds = %zval_get_string.exi
   store i32 %spec.select, ptr %202, align 8, !tbaa !8
   br i1 %.not129192, label %zend_string_release.exit, label %php_head_parse_cookie_options_array.exit.thread
 
-php_head_parse_cookie_options_array.exit.thread:  ; preds = %98, %.thread104.i, %php_head_parse_cookie_options_array.exit
-  %.1159 = phi ptr [ %.0158, %php_head_parse_cookie_options_array.exit ], [ %.2160, %.thread104.i ], [ %.2160, %98 ]
+php_head_parse_cookie_options_array.exit.thread:  ; preds = %98, %.thread109.i, %php_head_parse_cookie_options_array.exit
+  %.1159 = phi ptr [ %.0158, %php_head_parse_cookie_options_array.exit ], [ %.2160, %.thread109.i ], [ %.2160, %98 ]
   %203 = load ptr, ptr %7, align 8, !tbaa !36
   %.not131 = icmp eq ptr %203, null
   br i1 %.not131, label %zend_string_release.exit142, label %204

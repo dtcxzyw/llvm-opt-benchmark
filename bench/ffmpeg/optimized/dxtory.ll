@@ -576,8 +576,8 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 .preheader174.i:                                  ; preds = %.lr.ph.i77, %.preheader175.i
   %.1.lcssa.i = phi ptr [ %.0151186.i, %.preheader175.i ], [ %321, %.lr.ph.i77 ]
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 %247
-  %invariant.gep298.i = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 %248
-  %invariant.gep300.i = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 %249
+  %invariant.gep303.i = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 %248
+  %invariant.gep305.i = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 %249
   br label %323
 
 323:                                              ; preds = %323, %.preheader174.i
@@ -591,12 +591,12 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %328 = load i8, ptr %gep.i, align 1, !tbaa !16
   %329 = getelementptr inbounds i8, ptr %.0158183.i, i64 %326
   store i8 %328, ptr %329, align 1, !tbaa !16
-  %gep299.i = getelementptr inbounds nuw i8, ptr %invariant.gep298.i, i64 %indvars.iv246.i
-  %330 = load i8, ptr %gep299.i, align 1, !tbaa !16
+  %gep304.i = getelementptr inbounds nuw i8, ptr %invariant.gep303.i, i64 %indvars.iv246.i
+  %330 = load i8, ptr %gep304.i, align 1, !tbaa !16
   %331 = getelementptr inbounds i8, ptr %.0162179.i, i64 %326
   store i8 %330, ptr %331, align 1, !tbaa !16
-  %gep301.i = getelementptr inbounds nuw i8, ptr %invariant.gep300.i, i64 %indvars.iv246.i
-  %332 = load i8, ptr %gep301.i, align 1, !tbaa !16
+  %gep306.i = getelementptr inbounds nuw i8, ptr %invariant.gep305.i, i64 %indvars.iv246.i
+  %332 = load i8, ptr %gep306.i, align 1, !tbaa !16
   %333 = getelementptr inbounds i8, ptr %.0161180.i, i64 %326
   store i8 %332, ptr %333, align 1, !tbaa !16
   %indvars.iv.next247.i = add nuw nsw i64 %indvars.iv246.i, 1
@@ -1523,9 +1523,9 @@ get_unary.exit.thread.i.us:                       ; preds = %40, %get_unary.exit
   br label %decode_sym.exit.us
 
 decode_sym.exit.us:                               ; preds = %48, %get_unary.exit.thread.i.us
-  %.sink21.i.us = phi i64 [ %45, %get_unary.exit.thread.i.us ], [ 7, %48 ]
+  %.sink23.i.us = phi i64 [ %45, %get_unary.exit.thread.i.us ], [ 7, %48 ]
   %.0.i.us = phi i8 [ %47, %get_unary.exit.thread.i.us ], [ %57, %48 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %4, i64 %.sink21.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %4, i64 %.sink23.i.us, i1 false)
   store i8 %.0.i.us, ptr %4, align 1, !tbaa !16
   %58 = mul nuw nsw i64 %indvars.iv, 3
   %59 = getelementptr inbounds nuw i8, ptr %.062.us, i64 %58
@@ -1585,9 +1585,9 @@ get_unary.exit.thread.i36.us:                     ; preds = %73, %get_unary.exit
   br label %decode_sym.exit41.us
 
 decode_sym.exit41.us:                             ; preds = %81, %get_unary.exit.thread.i36.us
-  %.sink21.i37.us = phi i64 [ %78, %get_unary.exit.thread.i36.us ], [ 7, %81 ]
+  %.sink23.i37.us = phi i64 [ %78, %get_unary.exit.thread.i36.us ], [ 7, %81 ]
   %.0.i38.us = phi i8 [ %80, %get_unary.exit.thread.i36.us ], [ %90, %81 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %17, i64 %.sink21.i37.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %17, i64 %.sink23.i37.us, i1 false)
   store i8 %.0.i38.us, ptr %17, align 1, !tbaa !16
   %91 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store i8 %.0.i38.us, ptr %91, align 1, !tbaa !16
@@ -1646,9 +1646,9 @@ get_unary.exit.thread.i48.us:                     ; preds = %105, %get_unary.exi
   br label %decode_sym.exit53.us
 
 decode_sym.exit53.us:                             ; preds = %113, %get_unary.exit.thread.i48.us
-  %.sink21.i49.us = phi i64 [ %110, %get_unary.exit.thread.i48.us ], [ 7, %113 ]
+  %.sink23.i49.us = phi i64 [ %110, %get_unary.exit.thread.i48.us ], [ 7, %113 ]
   %.0.i50.us = phi i8 [ %112, %get_unary.exit.thread.i48.us ], [ %122, %113 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %.sink21.i49.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %.sink23.i49.us, i1 false)
   store i8 %.0.i50.us, ptr %19, align 1, !tbaa !16
   %123 = getelementptr inbounds nuw i8, ptr %59, i64 2
   store i8 %.0.i50.us, ptr %123, align 1, !tbaa !16
@@ -1774,7 +1774,7 @@ define internal i32 @dx2_decode_slice_420(ptr noundef captures(none) %0, ptr nou
 
 .lr.ph.preheader:                                 ; preds = %.preheader299
   %invariant.gep = getelementptr i8, ptr %.0112335, i64 %57
-  %invariant.gep421 = getelementptr i8, ptr %.0112335, i64 %57
+  %invariant.gep454 = getelementptr i8, ptr %.0112335, i64 %57
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %decode_sym.exit178
@@ -1834,9 +1834,9 @@ get_unary.exit.thread.i:                          ; preds = %74, %get_unary.exit
   br label %decode_sym.exit
 
 decode_sym.exit:                                  ; preds = %77, %get_unary.exit.thread.i
-  %.sink21.i = phi i64 [ %89, %get_unary.exit.thread.i ], [ 7, %77 ]
+  %.sink23.i = phi i64 [ %89, %get_unary.exit.thread.i ], [ 7, %77 ]
   %.0.i = phi i8 [ %91, %get_unary.exit.thread.i ], [ %86, %77 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink21.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink23.i, i1 false)
   store i8 %.0.i, ptr %4, align 1, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %.0112335, i64 %indvars.iv
   store i8 %.0.i, ptr %92, align 1, !tbaa !16
@@ -1895,9 +1895,9 @@ get_unary.exit.thread.i125:                       ; preds = %106, %get_unary.exi
   br label %decode_sym.exit130
 
 decode_sym.exit130:                               ; preds = %109, %get_unary.exit.thread.i125
-  %.sink21.i126 = phi i64 [ %121, %get_unary.exit.thread.i125 ], [ 7, %109 ]
+  %.sink23.i126 = phi i64 [ %121, %get_unary.exit.thread.i125 ], [ 7, %109 ]
   %.0.i127 = phi i8 [ %123, %get_unary.exit.thread.i125 ], [ %118, %109 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink21.i126, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink23.i126, i1 false)
   store i8 %.0.i127, ptr %4, align 1, !tbaa !16
   %124 = or disjoint i64 %indvars.iv, 1
   %125 = getelementptr inbounds nuw i8, ptr %.0112335, i64 %124
@@ -1957,9 +1957,9 @@ get_unary.exit.thread.i137:                       ; preds = %139, %get_unary.exi
   br label %decode_sym.exit142
 
 decode_sym.exit142:                               ; preds = %142, %get_unary.exit.thread.i137
-  %.sink21.i138 = phi i64 [ %154, %get_unary.exit.thread.i137 ], [ 7, %142 ]
+  %.sink23.i138 = phi i64 [ %154, %get_unary.exit.thread.i137 ], [ 7, %142 ]
   %.0.i139 = phi i8 [ %156, %get_unary.exit.thread.i137 ], [ %151, %142 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink21.i138, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink23.i138, i1 false)
   store i8 %.0.i139, ptr %4, align 1, !tbaa !16
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 %.0.i139, ptr %gep, align 1, !tbaa !16
@@ -2018,12 +2018,12 @@ get_unary.exit.thread.i149:                       ; preds = %170, %get_unary.exi
   br label %decode_sym.exit154
 
 decode_sym.exit154:                               ; preds = %173, %get_unary.exit.thread.i149
-  %.sink21.i150 = phi i64 [ %185, %get_unary.exit.thread.i149 ], [ 7, %173 ]
+  %.sink23.i150 = phi i64 [ %185, %get_unary.exit.thread.i149 ], [ 7, %173 ]
   %.0.i151 = phi i8 [ %187, %get_unary.exit.thread.i149 ], [ %182, %173 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink21.i150, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink23.i150, i1 false)
   store i8 %.0.i151, ptr %4, align 1, !tbaa !16
-  %gep422 = getelementptr i8, ptr %invariant.gep421, i64 %124
-  store i8 %.0.i151, ptr %gep422, align 1, !tbaa !16
+  %gep455 = getelementptr i8, ptr %invariant.gep454, i64 %124
+  store i8 %.0.i151, ptr %gep455, align 1, !tbaa !16
   %188 = load ptr, ptr %0, align 8, !tbaa !56
   %189 = load i32, ptr %46, align 8, !tbaa !59
   %.promoted.i.i155 = load i32, ptr %37, align 8, !tbaa !61
@@ -2079,9 +2079,9 @@ get_unary.exit.thread.i161:                       ; preds = %201, %get_unary.exi
   br label %decode_sym.exit166
 
 decode_sym.exit166:                               ; preds = %204, %get_unary.exit.thread.i161
-  %.sink21.i162 = phi i64 [ %216, %get_unary.exit.thread.i161 ], [ 7, %204 ]
+  %.sink23.i162 = phi i64 [ %216, %get_unary.exit.thread.i161 ], [ 7, %204 ]
   %.0.i163 = phi i8 [ %218, %get_unary.exit.thread.i161 ], [ %213, %204 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %48, i64 %.sink21.i162, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %48, i64 %.sink23.i162, i1 false)
   store i8 %.0.i163, ptr %48, align 1, !tbaa !16
   %219 = xor i8 %.0.i163, -128
   %220 = lshr exact i64 %indvars.iv, 1
@@ -2142,9 +2142,9 @@ get_unary.exit.thread.i173:                       ; preds = %235, %get_unary.exi
   br label %decode_sym.exit178
 
 decode_sym.exit178:                               ; preds = %238, %get_unary.exit.thread.i173
-  %.sink21.i174 = phi i64 [ %250, %get_unary.exit.thread.i173 ], [ 7, %238 ]
+  %.sink23.i174 = phi i64 [ %250, %get_unary.exit.thread.i173 ], [ 7, %238 ]
   %.0.i175 = phi i8 [ %252, %get_unary.exit.thread.i173 ], [ %247, %238 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %50, i64 %.sink21.i174, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %50, i64 %.sink23.i174, i1 false)
   store i8 %.0.i175, ptr %50, align 1, !tbaa !16
   %253 = xor i8 %.0.i175, -128
   %254 = getelementptr inbounds nuw i8, ptr %.0114333, i64 %220
@@ -2217,9 +2217,9 @@ get_unary.exit.thread.i185:                       ; preds = %271, %get_unary.exi
   br label %decode_sym.exit190
 
 decode_sym.exit190:                               ; preds = %274, %get_unary.exit.thread.i185
-  %.sink21.i186 = phi i64 [ %286, %get_unary.exit.thread.i185 ], [ 7, %274 ]
+  %.sink23.i186 = phi i64 [ %286, %get_unary.exit.thread.i185 ], [ 7, %274 ]
   %.0.i187 = phi i8 [ %288, %get_unary.exit.thread.i185 ], [ %283, %274 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink21.i186, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %4, i64 %.sink23.i186, i1 false)
   store i8 %.0.i187, ptr %4, align 1, !tbaa !16
   %289 = zext nneg i32 %.0.lcssa to i64
   %290 = getelementptr inbounds nuw i8, ptr %.0112335, i64 %289
@@ -2279,9 +2279,9 @@ get_unary.exit.thread.i197:                       ; preds = %304, %get_unary.exi
   br label %decode_sym.exit202
 
 decode_sym.exit202:                               ; preds = %307, %get_unary.exit.thread.i197
-  %.sink21.i198 = phi i64 [ %319, %get_unary.exit.thread.i197 ], [ 7, %307 ]
+  %.sink23.i198 = phi i64 [ %319, %get_unary.exit.thread.i197 ], [ 7, %307 ]
   %.0.i199 = phi i8 [ %321, %get_unary.exit.thread.i197 ], [ %316, %307 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %4, i64 %.sink21.i198, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %4, i64 %.sink23.i198, i1 false)
   store i8 %.0.i199, ptr %4, align 1, !tbaa !16
   %322 = add nsw i32 %.0.lcssa, %9
   %323 = sext i32 %322 to i64
@@ -2342,9 +2342,9 @@ get_unary.exit.thread.i209:                       ; preds = %338, %get_unary.exi
   br label %decode_sym.exit214
 
 decode_sym.exit214:                               ; preds = %341, %get_unary.exit.thread.i209
-  %.sink21.i210 = phi i64 [ %353, %get_unary.exit.thread.i209 ], [ 7, %341 ]
+  %.sink23.i210 = phi i64 [ %353, %get_unary.exit.thread.i209 ], [ 7, %341 ]
   %.0.i211 = phi i8 [ %355, %get_unary.exit.thread.i209 ], [ %350, %341 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %48, i64 %.sink21.i210, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %48, i64 %.sink23.i210, i1 false)
   store i8 %.0.i211, ptr %48, align 1, !tbaa !16
   %356 = xor i8 %.0.i211, -128
   %357 = getelementptr inbounds i8, ptr %.0113334, i64 %52
@@ -2404,9 +2404,9 @@ get_unary.exit.thread.i221:                       ; preds = %371, %get_unary.exi
   br label %decode_sym.exit226
 
 decode_sym.exit226:                               ; preds = %374, %get_unary.exit.thread.i221
-  %.sink21.i222 = phi i64 [ %386, %get_unary.exit.thread.i221 ], [ 7, %374 ]
+  %.sink23.i222 = phi i64 [ %386, %get_unary.exit.thread.i221 ], [ 7, %374 ]
   %.0.i223 = phi i8 [ %388, %get_unary.exit.thread.i221 ], [ %383, %374 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %50, i64 %.sink21.i222, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 1 %50, i64 %.sink23.i222, i1 false)
   store i8 %.0.i223, ptr %50, align 1, !tbaa !16
   %389 = xor i8 %.0.i223, -128
   %390 = getelementptr inbounds i8, ptr %.0114333, i64 %52
@@ -2500,9 +2500,9 @@ get_unary.exit.thread.i233:                       ; preds = %419, %get_unary.exi
   br label %decode_sym.exit238
 
 decode_sym.exit238:                               ; preds = %422, %get_unary.exit.thread.i233
-  %.sink21.i234 = phi i64 [ %434, %get_unary.exit.thread.i233 ], [ 7, %422 ]
+  %.sink23.i234 = phi i64 [ %434, %get_unary.exit.thread.i233 ], [ 7, %422 ]
   %.0.i235 = phi i8 [ %436, %get_unary.exit.thread.i233 ], [ %431, %422 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %399, ptr align 1 %4, i64 %.sink21.i234, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %399, ptr align 1 %4, i64 %.sink23.i234, i1 false)
   store i8 %.0.i235, ptr %4, align 1, !tbaa !16
   %437 = getelementptr inbounds nuw i8, ptr %.0112.lcssa, i64 %indvars.iv386
   store i8 %.0.i235, ptr %437, align 1, !tbaa !16
@@ -2561,9 +2561,9 @@ get_unary.exit.thread.i245:                       ; preds = %451, %get_unary.exi
   br label %decode_sym.exit250
 
 decode_sym.exit250:                               ; preds = %454, %get_unary.exit.thread.i245
-  %.sink21.i246 = phi i64 [ %466, %get_unary.exit.thread.i245 ], [ 7, %454 ]
+  %.sink23.i246 = phi i64 [ %466, %get_unary.exit.thread.i245 ], [ 7, %454 ]
   %.0.i247 = phi i8 [ %468, %get_unary.exit.thread.i245 ], [ %463, %454 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %401, ptr nonnull align 1 %400, i64 %.sink21.i246, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %401, ptr nonnull align 1 %400, i64 %.sink23.i246, i1 false)
   store i8 %.0.i247, ptr %400, align 1, !tbaa !16
   %469 = xor i8 %.0.i247, -128
   %470 = lshr exact i64 %indvars.iv386, 1
@@ -2624,9 +2624,9 @@ get_unary.exit.thread.i257:                       ; preds = %485, %get_unary.exi
   br label %decode_sym.exit262
 
 decode_sym.exit262:                               ; preds = %488, %get_unary.exit.thread.i257
-  %.sink21.i258 = phi i64 [ %500, %get_unary.exit.thread.i257 ], [ 7, %488 ]
+  %.sink23.i258 = phi i64 [ %500, %get_unary.exit.thread.i257 ], [ 7, %488 ]
   %.0.i259 = phi i8 [ %502, %get_unary.exit.thread.i257 ], [ %497, %488 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %403, ptr nonnull align 1 %402, i64 %.sink21.i258, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %403, ptr nonnull align 1 %402, i64 %.sink23.i258, i1 false)
   store i8 %.0.i259, ptr %402, align 1, !tbaa !16
   %503 = xor i8 %.0.i259, -128
   %504 = getelementptr inbounds nuw i8, ptr %.0114.lcssa, i64 %470
@@ -2701,10 +2701,10 @@ get_unary.exit.thread.i269:                       ; preds = %522, %get_unary.exi
   br label %decode_sym.exit274
 
 decode_sym.exit274:                               ; preds = %525, %get_unary.exit.thread.i269
-  %.sink21.i270 = phi i64 [ %537, %get_unary.exit.thread.i269 ], [ 7, %525 ]
+  %.sink23.i270 = phi i64 [ %537, %get_unary.exit.thread.i269 ], [ 7, %525 ]
   %.0.i271 = phi i8 [ %539, %get_unary.exit.thread.i269 ], [ %534, %525 ]
   %540 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %540, ptr align 1 %4, i64 %.sink21.i270, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %540, ptr align 1 %4, i64 %.sink23.i270, i1 false)
   store i8 %.0.i271, ptr %4, align 1, !tbaa !16
   %541 = getelementptr inbounds nuw i8, ptr %.0112.lcssa, i64 %.1.lcssa
   store i8 %.0.i271, ptr %541, align 1, !tbaa !16
@@ -2764,10 +2764,10 @@ get_unary.exit.thread.i281:                       ; preds = %556, %get_unary.exi
   br label %decode_sym.exit286
 
 decode_sym.exit286:                               ; preds = %559, %get_unary.exit.thread.i281
-  %.sink21.i282 = phi i64 [ %571, %get_unary.exit.thread.i281 ], [ 7, %559 ]
+  %.sink23.i282 = phi i64 [ %571, %get_unary.exit.thread.i281 ], [ 7, %559 ]
   %.0.i283 = phi i8 [ %573, %get_unary.exit.thread.i281 ], [ %568, %559 ]
   %574 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %574, ptr nonnull align 1 %542, i64 %.sink21.i282, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %574, ptr nonnull align 1 %542, i64 %.sink23.i282, i1 false)
   store i8 %.0.i283, ptr %542, align 1, !tbaa !16
   %575 = xor i8 %.0.i283, -128
   %576 = sext i32 %36 to i64
@@ -2829,10 +2829,10 @@ get_unary.exit.thread.i293:                       ; preds = %592, %get_unary.exi
   br label %decode_sym.exit298
 
 decode_sym.exit298:                               ; preds = %595, %get_unary.exit.thread.i293
-  %.sink21.i294 = phi i64 [ %607, %get_unary.exit.thread.i293 ], [ 7, %595 ]
+  %.sink23.i294 = phi i64 [ %607, %get_unary.exit.thread.i293 ], [ 7, %595 ]
   %.0.i295 = phi i8 [ %609, %get_unary.exit.thread.i293 ], [ %604, %595 ]
   %610 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %610, ptr nonnull align 1 %578, i64 %.sink21.i294, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %610, ptr nonnull align 1 %578, i64 %.sink23.i294, i1 false)
   store i8 %.0.i295, ptr %578, align 1, !tbaa !16
   %611 = xor i8 %.0.i295, -128
   %612 = getelementptr inbounds i8, ptr %.0114.lcssa, i64 %576
@@ -2989,9 +2989,9 @@ get_unary.exit.thread.i:                          ; preds = %80, %get_unary.exit
   br label %decode_sym.exit
 
 decode_sym.exit:                                  ; preds = %83, %get_unary.exit.thread.i
-  %.sink21.i = phi i64 [ %95, %get_unary.exit.thread.i ], [ 7, %83 ]
+  %.sink23.i = phi i64 [ %95, %get_unary.exit.thread.i ], [ 7, %83 ]
   %.0.i = phi i8 [ %97, %get_unary.exit.thread.i ], [ %92, %83 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %4, i64 %.sink21.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %4, i64 %.sink23.i, i1 false)
   store i8 %.0.i, ptr %4, align 1, !tbaa !16
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %99 = add i32 %65, %98
@@ -3063,9 +3063,9 @@ get_unary.exit.thread.i152:                       ; preds = %118, %get_unary.exi
   br label %decode_sym.exit157
 
 decode_sym.exit157:                               ; preds = %121, %get_unary.exit.thread.i152
-  %.sink21.i153 = phi i64 [ %133, %get_unary.exit.thread.i152 ], [ 7, %121 ]
+  %.sink23.i153 = phi i64 [ %133, %get_unary.exit.thread.i152 ], [ 7, %121 ]
   %.0.i154 = phi i8 [ %135, %get_unary.exit.thread.i152 ], [ %130, %121 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %51, i64 %.sink21.i153, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %51, i64 %.sink23.i153, i1 false)
   store i8 %.0.i154, ptr %51, align 1, !tbaa !16
   %136 = xor i8 %.0.i154, -128
   %137 = lshr exact i64 %indvars.iv364, 2
@@ -3126,9 +3126,9 @@ get_unary.exit.thread.i164:                       ; preds = %152, %get_unary.exi
   br label %decode_sym.exit169
 
 decode_sym.exit169:                               ; preds = %155, %get_unary.exit.thread.i164
-  %.sink21.i165 = phi i64 [ %167, %get_unary.exit.thread.i164 ], [ 7, %155 ]
+  %.sink23.i165 = phi i64 [ %167, %get_unary.exit.thread.i164 ], [ 7, %155 ]
   %.0.i166 = phi i8 [ %169, %get_unary.exit.thread.i164 ], [ %164, %155 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %53, i64 %.sink21.i165, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %53, i64 %.sink23.i165, i1 false)
   store i8 %.0.i166, ptr %53, align 1, !tbaa !16
   %170 = xor i8 %.0.i166, -128
   %171 = getelementptr inbounds nuw i8, ptr %.0136317, i64 %137
@@ -3208,9 +3208,9 @@ get_unary.exit.thread.i176:                       ; preds = %190, %get_unary.exi
   br label %decode_sym.exit181
 
 decode_sym.exit181:                               ; preds = %193, %get_unary.exit.thread.i176
-  %.sink21.i177 = phi i64 [ %205, %get_unary.exit.thread.i176 ], [ 7, %193 ]
+  %.sink23.i177 = phi i64 [ %205, %get_unary.exit.thread.i176 ], [ 7, %193 ]
   %.0.i178 = phi i8 [ %207, %get_unary.exit.thread.i176 ], [ %202, %193 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %4, i64 %.sink21.i177, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %4, i64 %.sink23.i177, i1 false)
   store i8 %.0.i178, ptr %4, align 1, !tbaa !16
   %208 = trunc nuw nsw i64 %indvars.iv367 to i32
   %209 = add i32 %175, %208
@@ -3282,9 +3282,9 @@ get_unary.exit.thread.i188:                       ; preds = %228, %get_unary.exi
   br label %decode_sym.exit193
 
 decode_sym.exit193:                               ; preds = %231, %get_unary.exit.thread.i188
-  %.sink21.i189 = phi i64 [ %243, %get_unary.exit.thread.i188 ], [ 7, %231 ]
+  %.sink23.i189 = phi i64 [ %243, %get_unary.exit.thread.i188 ], [ 7, %231 ]
   %.0.i190 = phi i8 [ %245, %get_unary.exit.thread.i188 ], [ %240, %231 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %51, i64 %.sink21.i189, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %51, i64 %.sink23.i189, i1 false)
   store i8 %.0.i190, ptr %51, align 1, !tbaa !16
   %246 = xor i8 %.0.i190, -128
   %247 = getelementptr inbounds i8, ptr %.0137316, i64 %55
@@ -3344,9 +3344,9 @@ get_unary.exit.thread.i200:                       ; preds = %261, %get_unary.exi
   br label %decode_sym.exit205
 
 decode_sym.exit205:                               ; preds = %264, %get_unary.exit.thread.i200
-  %.sink21.i201 = phi i64 [ %276, %get_unary.exit.thread.i200 ], [ 7, %264 ]
+  %.sink23.i201 = phi i64 [ %276, %get_unary.exit.thread.i200 ], [ 7, %264 ]
   %.0.i202 = phi i8 [ %278, %get_unary.exit.thread.i200 ], [ %273, %264 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %53, i64 %.sink21.i201, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %53, i64 %.sink23.i201, i1 false)
   store i8 %.0.i202, ptr %53, align 1, !tbaa !16
   %279 = xor i8 %.0.i202, -128
   %280 = getelementptr inbounds i8, ptr %.0136317, i64 %55
@@ -3454,9 +3454,9 @@ get_unary.exit.thread.i212:                       ; preds = %314, %get_unary.exi
   br label %decode_sym.exit217
 
 decode_sym.exit217:                               ; preds = %317, %get_unary.exit.thread.i212
-  %.sink21.i213 = phi i64 [ %329, %get_unary.exit.thread.i212 ], [ 7, %317 ]
+  %.sink23.i213 = phi i64 [ %329, %get_unary.exit.thread.i212 ], [ 7, %317 ]
   %.0.i214 = phi i8 [ %331, %get_unary.exit.thread.i212 ], [ %326, %317 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %291, ptr align 1 %4, i64 %.sink21.i213, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %291, ptr align 1 %4, i64 %.sink23.i213, i1 false)
   store i8 %.0.i214, ptr %4, align 1, !tbaa !16
   %332 = trunc nuw nsw i64 %indvars.iv372 to i32
   %333 = add i32 %299, %332
@@ -3528,9 +3528,9 @@ get_unary.exit.thread.i224:                       ; preds = %352, %get_unary.exi
   br label %decode_sym.exit229
 
 decode_sym.exit229:                               ; preds = %355, %get_unary.exit.thread.i224
-  %.sink21.i225 = phi i64 [ %367, %get_unary.exit.thread.i224 ], [ 7, %355 ]
+  %.sink23.i225 = phi i64 [ %367, %get_unary.exit.thread.i224 ], [ 7, %355 ]
   %.0.i226 = phi i8 [ %369, %get_unary.exit.thread.i224 ], [ %364, %355 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %293, ptr nonnull align 1 %292, i64 %.sink21.i225, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %293, ptr nonnull align 1 %292, i64 %.sink23.i225, i1 false)
   store i8 %.0.i226, ptr %292, align 1, !tbaa !16
   %370 = xor i8 %.0.i226, -128
   %371 = lshr exact i64 %indvars.iv377, 2
@@ -3591,9 +3591,9 @@ get_unary.exit.thread.i236:                       ; preds = %386, %get_unary.exi
   br label %decode_sym.exit241
 
 decode_sym.exit241:                               ; preds = %389, %get_unary.exit.thread.i236
-  %.sink21.i237 = phi i64 [ %401, %get_unary.exit.thread.i236 ], [ 7, %389 ]
+  %.sink23.i237 = phi i64 [ %401, %get_unary.exit.thread.i236 ], [ 7, %389 ]
   %.0.i238 = phi i8 [ %403, %get_unary.exit.thread.i236 ], [ %398, %389 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %295, ptr nonnull align 1 %294, i64 %.sink21.i237, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %295, ptr nonnull align 1 %294, i64 %.sink23.i237, i1 false)
   store i8 %.0.i238, ptr %294, align 1, !tbaa !16
   %404 = xor i8 %.0.i238, -128
   %405 = getelementptr inbounds nuw i8, ptr %.0136.lcssa, i64 %371
@@ -3680,9 +3680,9 @@ get_unary.exit.thread.i248:                       ; preds = %426, %get_unary.exi
   br label %decode_sym.exit253
 
 decode_sym.exit253:                               ; preds = %429, %get_unary.exit.thread.i248
-  %.sink21.i249 = phi i64 [ %441, %get_unary.exit.thread.i248 ], [ 7, %429 ]
+  %.sink23.i249 = phi i64 [ %441, %get_unary.exit.thread.i248 ], [ 7, %429 ]
   %.0.i250 = phi i8 [ %443, %get_unary.exit.thread.i248 ], [ %438, %429 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %409, ptr align 1 %4, i64 %.sink21.i249, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %409, ptr align 1 %4, i64 %.sink23.i249, i1 false)
   store i8 %.0.i250, ptr %4, align 1, !tbaa !16
   %444 = trunc nuw nsw i64 %indvars.iv380 to i32
   %445 = add i32 %411, %444
@@ -3755,10 +3755,10 @@ get_unary.exit.thread.i260:                       ; preds = %465, %get_unary.exi
   br label %decode_sym.exit265
 
 decode_sym.exit265:                               ; preds = %468, %get_unary.exit.thread.i260
-  %.sink21.i261 = phi i64 [ %480, %get_unary.exit.thread.i260 ], [ 7, %468 ]
+  %.sink23.i261 = phi i64 [ %480, %get_unary.exit.thread.i260 ], [ 7, %468 ]
   %.0.i262 = phi i8 [ %482, %get_unary.exit.thread.i260 ], [ %477, %468 ]
   %483 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %483, ptr nonnull align 1 %451, i64 %.sink21.i261, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %483, ptr nonnull align 1 %451, i64 %.sink23.i261, i1 false)
   store i8 %.0.i262, ptr %451, align 1, !tbaa !16
   %484 = xor i8 %.0.i262, -128
   %485 = sext i32 %36 to i64
@@ -3820,10 +3820,10 @@ get_unary.exit.thread.i272:                       ; preds = %501, %get_unary.exi
   br label %decode_sym.exit277
 
 decode_sym.exit277:                               ; preds = %504, %get_unary.exit.thread.i272
-  %.sink21.i273 = phi i64 [ %516, %get_unary.exit.thread.i272 ], [ 7, %504 ]
+  %.sink23.i273 = phi i64 [ %516, %get_unary.exit.thread.i272 ], [ 7, %504 ]
   %.0.i274 = phi i8 [ %518, %get_unary.exit.thread.i272 ], [ %513, %504 ]
   %519 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %519, ptr nonnull align 1 %487, i64 %.sink21.i273, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %519, ptr nonnull align 1 %487, i64 %.sink23.i273, i1 false)
   store i8 %.0.i274, ptr %487, align 1, !tbaa !16
   %520 = xor i8 %.0.i274, -128
   %521 = getelementptr inbounds i8, ptr %.0136.lcssa, i64 %485
@@ -3951,9 +3951,9 @@ get_unary.exit.thread.i.us:                       ; preds = %56, %get_unary.exit
   br label %decode_sym.exit.us
 
 decode_sym.exit.us:                               ; preds = %64, %get_unary.exit.thread.i.us
-  %.sink21.i.us = phi i64 [ %61, %get_unary.exit.thread.i.us ], [ 7, %64 ]
+  %.sink23.i.us = phi i64 [ %61, %get_unary.exit.thread.i.us ], [ 7, %64 ]
   %.0.i.us = phi i8 [ %63, %get_unary.exit.thread.i.us ], [ %73, %64 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %4, i64 %.sink21.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %4, i64 %.sink23.i.us, i1 false)
   store i8 %.0.i.us, ptr %4, align 1, !tbaa !16
   %74 = getelementptr inbounds nuw i8, ptr %.04076.us, i64 %indvars.iv
   store i8 %.0.i.us, ptr %74, align 1, !tbaa !16
@@ -4012,9 +4012,9 @@ get_unary.exit.thread.i50.us:                     ; preds = %88, %get_unary.exit
   br label %decode_sym.exit55.us
 
 decode_sym.exit55.us:                             ; preds = %96, %get_unary.exit.thread.i50.us
-  %.sink21.i51.us = phi i64 [ %93, %get_unary.exit.thread.i50.us ], [ 7, %96 ]
+  %.sink23.i51.us = phi i64 [ %93, %get_unary.exit.thread.i50.us ], [ 7, %96 ]
   %.0.i52.us = phi i8 [ %95, %get_unary.exit.thread.i50.us ], [ %105, %96 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %21, i64 %.sink21.i51.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %21, i64 %.sink23.i51.us, i1 false)
   store i8 %.0.i52.us, ptr %21, align 1, !tbaa !16
   %106 = xor i8 %.0.i52.us, -128
   %107 = getelementptr inbounds nuw i8, ptr %.03977.us, i64 %indvars.iv
@@ -4074,9 +4074,9 @@ get_unary.exit.thread.i62.us:                     ; preds = %121, %get_unary.exi
   br label %decode_sym.exit67.us
 
 decode_sym.exit67.us:                             ; preds = %129, %get_unary.exit.thread.i62.us
-  %.sink21.i63.us = phi i64 [ %126, %get_unary.exit.thread.i62.us ], [ 7, %129 ]
+  %.sink23.i63.us = phi i64 [ %126, %get_unary.exit.thread.i62.us ], [ 7, %129 ]
   %.0.i64.us = phi i8 [ %128, %get_unary.exit.thread.i62.us ], [ %138, %129 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %23, i64 %.sink21.i63.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %23, i64 %.sink23.i63.us, i1 false)
   store i8 %.0.i64.us, ptr %23, align 1, !tbaa !16
   %139 = xor i8 %.0.i64.us, -128
   %140 = getelementptr inbounds nuw i8, ptr %.078.us, i64 %indvars.iv
@@ -4205,9 +4205,9 @@ get_unary.exit.i.thread.us:                       ; preds = %40, %get_unary.exit
   br label %decode_sym_565.exit.us
 
 decode_sym_565.exit.us:                           ; preds = %48, %get_unary.exit.i.thread.us
-  %.sink15.i.us = phi i64 [ %45, %get_unary.exit.i.thread.us ], [ 5, %48 ]
+  %.sink18.i.us = phi i64 [ %45, %get_unary.exit.i.thread.us ], [ 5, %48 ]
   %.0.i6.us = phi i8 [ %47, %get_unary.exit.i.thread.us ], [ %58, %48 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %4, i64 %.sink15.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %4, i64 %.sink18.i.us, i1 false)
   store i8 %.0.i6.us, ptr %4, align 1, !tbaa !16
   %59 = load ptr, ptr %0, align 8, !tbaa !56
   %60 = load i32, ptr %15, align 8, !tbaa !59
@@ -4265,9 +4265,9 @@ get_unary.exit.i13.thread.us:                     ; preds = %72, %get_unary.exit
   br label %decode_sym_565.exit18.us
 
 decode_sym_565.exit18.us:                         ; preds = %80, %get_unary.exit.i13.thread.us
-  %.sink15.i16.us = phi i64 [ %77, %get_unary.exit.i13.thread.us ], [ 5, %80 ]
+  %.sink18.i16.us = phi i64 [ %77, %get_unary.exit.i13.thread.us ], [ 5, %80 ]
   %.0.i17.us = phi i8 [ %79, %get_unary.exit.i13.thread.us ], [ %90, %80 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %17, i64 %.sink15.i16.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %17, i64 %.sink18.i16.us, i1 false)
   store i8 %.0.i17.us, ptr %17, align 1, !tbaa !16
   %91 = load ptr, ptr %0, align 8, !tbaa !56
   %92 = load i32, ptr %15, align 8, !tbaa !59
@@ -4325,9 +4325,9 @@ get_unary.exit.i25.thread.us:                     ; preds = %104, %get_unary.exi
   br label %decode_sym_565.exit30.us
 
 decode_sym_565.exit30.us:                         ; preds = %112, %get_unary.exit.i25.thread.us
-  %.sink15.i28.us = phi i64 [ %109, %get_unary.exit.i25.thread.us ], [ 5, %112 ]
+  %.sink18.i28.us = phi i64 [ %109, %get_unary.exit.i25.thread.us ], [ 5, %112 ]
   %.0.i29.us = phi i8 [ %111, %get_unary.exit.i25.thread.us ], [ %122, %112 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %.sink15.i28.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %.sink18.i28.us, i1 false)
   store i8 %.0.i29.us, ptr %19, align 1, !tbaa !16
   %123 = shl i8 %.0.i29.us, 3
   %124 = lshr i8 %.0.i29.us, 2
@@ -4477,9 +4477,9 @@ get_unary.exit.i.thread.us:                       ; preds = %40, %get_unary.exit
   br label %decode_sym_565.exit.us
 
 decode_sym_565.exit.us:                           ; preds = %48, %get_unary.exit.i.thread.us
-  %.sink15.i.us = phi i64 [ %45, %get_unary.exit.i.thread.us ], [ 5, %48 ]
+  %.sink18.i.us = phi i64 [ %45, %get_unary.exit.i.thread.us ], [ 5, %48 ]
   %.0.i6.us = phi i8 [ %47, %get_unary.exit.i.thread.us ], [ %58, %48 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %4, i64 %.sink15.i.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %4, i64 %.sink18.i.us, i1 false)
   store i8 %.0.i6.us, ptr %4, align 1, !tbaa !16
   %59 = load ptr, ptr %0, align 8, !tbaa !56
   %60 = load i32, ptr %15, align 8, !tbaa !59
@@ -4537,9 +4537,9 @@ get_unary.exit.i13.thread.us:                     ; preds = %72, %get_unary.exit
   br label %decode_sym_565.exit18.us
 
 decode_sym_565.exit18.us:                         ; preds = %80, %get_unary.exit.i13.thread.us
-  %.sink15.i16.us = phi i64 [ %77, %get_unary.exit.i13.thread.us ], [ 5, %80 ]
+  %.sink18.i16.us = phi i64 [ %77, %get_unary.exit.i13.thread.us ], [ 5, %80 ]
   %.0.i17.us = phi i8 [ %79, %get_unary.exit.i13.thread.us ], [ %90, %80 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %17, i64 %.sink15.i16.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %17, i64 %.sink18.i16.us, i1 false)
   store i8 %.0.i17.us, ptr %17, align 1, !tbaa !16
   %91 = load ptr, ptr %0, align 8, !tbaa !56
   %92 = load i32, ptr %15, align 8, !tbaa !59
@@ -4597,9 +4597,9 @@ get_unary.exit.i25.thread.us:                     ; preds = %104, %get_unary.exi
   br label %decode_sym_565.exit30.us
 
 decode_sym_565.exit30.us:                         ; preds = %112, %get_unary.exit.i25.thread.us
-  %.sink15.i28.us = phi i64 [ %109, %get_unary.exit.i25.thread.us ], [ 5, %112 ]
+  %.sink18.i28.us = phi i64 [ %109, %get_unary.exit.i25.thread.us ], [ 5, %112 ]
   %.0.i29.us = phi i8 [ %111, %get_unary.exit.i25.thread.us ], [ %122, %112 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %.sink15.i28.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %19, i64 %.sink18.i28.us, i1 false)
   store i8 %.0.i29.us, ptr %19, align 1, !tbaa !16
   %123 = shl i8 %.0.i29.us, 3
   %124 = lshr i8 %.0.i29.us, 2

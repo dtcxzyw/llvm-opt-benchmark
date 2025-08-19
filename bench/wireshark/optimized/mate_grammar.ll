@@ -1869,13 +1869,13 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   %920 = load i8, ptr %919, align 1
   %921 = sext i8 %920 to i32
   %922 = shl nsw i32 %921, 4
-  br i1 %or.cond.i, label %.thread.i, label %.thread56.i
+  br i1 %or.cond.i, label %.thread.i, label %.thread59.i
 
 .thread.i:                                        ; preds = %911
   %923 = add nsw i32 %922, -768
   br label %926
 
-.thread56.i:                                      ; preds = %911
+.thread59.i:                                      ; preds = %911
   %924 = add nsw i32 %922, -1479
   br label %929
 
@@ -1886,17 +1886,17 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   br i1 %or.cond47.i, label %926, label %929
 
 926:                                              ; preds = %925, %.thread.i
-  %.04355.i = phi i32 [ %923, %.thread.i ], [ 0, %925 ]
-  %.pre-phi54.i = phi i8 [ %918, %.thread.i ], [ %.pre50.i, %925 ]
-  %927 = zext nneg i8 %.pre-phi54.i to i32
-  %928 = add nsw i32 %.04355.i, %927
+  %.04358.i = phi i32 [ %923, %.thread.i ], [ 0, %925 ]
+  %.pre-phi57.i = phi i8 [ %918, %.thread.i ], [ %.pre50.i, %925 ]
+  %927 = zext nneg i8 %.pre-phi57.i to i32
+  %928 = add nsw i32 %.04358.i, %927
   br label %934
 
-929:                                              ; preds = %925, %.thread56.i
-  %.04360.i = phi i32 [ %924, %.thread56.i ], [ -87, %925 ]
-  %930 = phi i8 [ %917, %.thread56.i ], [ %.pre.i53, %925 ]
+929:                                              ; preds = %925, %.thread59.i
+  %.04363.i = phi i32 [ %924, %.thread59.i ], [ -87, %925 ]
+  %930 = phi i8 [ %917, %.thread59.i ], [ %.pre.i53, %925 ]
   %931 = sext i8 %930 to i32
-  %932 = add nsw i32 %.04360.i, %931
+  %932 = add nsw i32 %.04363.i, %931
   br label %934
 
 933:                                              ; preds = %.lr.ph.i50

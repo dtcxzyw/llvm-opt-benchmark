@@ -420,7 +420,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr noundef readonly ca
   %.0 = phi ptr [ %22, %41 ], [ null, %18 ]
   %48 = load i64, ptr %5, align 8, !tbaa !44
   %.not57 = icmp eq i64 %48, 0
-  br i1 %.not57, label %.thread74, label %49
+  br i1 %.not57, label %.thread83, label %49
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %7, align 8, !tbaa !45
@@ -455,7 +455,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr noundef readonly ca
 
 64:                                               ; preds = %62, %60
   %.not59 = icmp eq i32 %.042, 0
-  br i1 %.not59, label %.thread74, label %65
+  br i1 %.not59, label %.thread83, label %65
 
 65:                                               ; preds = %64
   %66 = load ptr, ptr %9, align 8, !tbaa !45
@@ -474,13 +474,13 @@ define hidden void @zim_DOMImplementation_createDocument(ptr noundef readonly ca
   call void @llvm.assume(i1 %71)
   br label %117
 
-.thread74:                                        ; preds = %47, %64
-  %.0437278 = phi ptr [ %.043, %64 ], [ null, %47 ]
+.thread83:                                        ; preds = %47, %64
+  %.0438187 = phi ptr [ %.043, %64 ], [ null, %47 ]
   %72 = call ptr @xmlNewDoc(ptr noundef null) #6
   %.not60 = icmp eq ptr %72, null
   br i1 %.not60, label %73, label %80
 
-73:                                               ; preds = %.thread74
+73:                                               ; preds = %.thread83
   %74 = load ptr, ptr %9, align 8, !tbaa !45
   %.not61 = icmp eq ptr %74, null
   br i1 %.not61, label %77, label %75
@@ -497,7 +497,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr noundef readonly ca
   call void @llvm.assume(i1 %79)
   br label %117
 
-80:                                               ; preds = %.thread74
+80:                                               ; preds = %.thread83
   %.not62 = icmp eq ptr %.044, null
   br i1 %.not62, label %87, label %81
 
@@ -520,7 +520,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr noundef readonly ca
   br i1 %.not63, label %107, label %89
 
 89:                                               ; preds = %87
-  %90 = call ptr @xmlNewDocNode(ptr noundef nonnull %72, ptr noundef %.0437278, ptr noundef nonnull %88, ptr noundef null) #6
+  %90 = call ptr @xmlNewDocNode(ptr noundef nonnull %72, ptr noundef %.0438187, ptr noundef nonnull %88, ptr noundef null) #6
   %.not64 = icmp eq ptr %90, null
   br i1 %.not64, label %91, label %102
 
@@ -551,7 +551,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr noundef readonly ca
 
 102:                                              ; preds = %89
   %103 = getelementptr inbounds nuw i8, ptr %90, i64 96
-  store ptr %.0437278, ptr %103, align 8, !tbaa !84
+  store ptr %.0438187, ptr %103, align 8, !tbaa !84
   %104 = call ptr @xmlDocSetRootElement(ptr noundef nonnull %72, ptr noundef nonnull %90) #6
   %105 = load ptr, ptr @xmlFree, align 8, !tbaa !48
   %106 = load ptr, ptr %9, align 8, !tbaa !45

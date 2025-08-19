@@ -159,7 +159,7 @@ define internal i32 @query_engine_info(ptr noundef %0, ptr noundef readonly capt
   %15 = getelementptr i8, ptr %13, i64 -112
   %16 = icmp eq ptr %15, null
   %17 = or i1 %14, %16
-  br i1 %17, label %.thread11, label %.preheader
+  br i1 %17, label %.thread15, label %.preheader
 
 .preheader:                                       ; preds = %11, %.preheader
   %18 = phi i32 [ %20, %.preheader ], [ 0, %11 ]
@@ -180,15 +180,15 @@ define internal i32 @query_engine_info(ptr noundef %0, ptr noundef readonly capt
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %44, label %35
 
-.thread11:                                        ; preds = %11
+.thread15:                                        ; preds = %11
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.thread, label %35
 
-35:                                               ; preds = %.thread11, %26
-  %36 = phi i32 [ %33, %.thread11 ], [ %30, %26 ]
-  %37 = phi i32 [ 16, %.thread11 ], [ %28, %26 ]
+35:                                               ; preds = %.thread15, %26
+  %36 = phi i32 [ %33, %.thread15 ], [ %30, %26 ]
+  %37 = phi i32 [ 16, %.thread15 ], [ %28, %26 ]
   %38 = icmp ult i32 %36, %37
   br i1 %38, label %.thread, label %39
 
@@ -279,8 +279,8 @@ define internal i32 @query_engine_info(ptr noundef %0, ptr noundef readonly capt
   %93 = select i1 %92, i32 %53, i32 -14
   br label %.thread
 
-.thread:                                          ; preds = %65, %.thread11, %39, %35, %.loopexit, %.thread5, %44, %2
-  %94 = phi i32 [ -22, %2 ], [ %28, %44 ], [ -22, %.thread5 ], [ %93, %.loopexit ], [ -14, %39 ], [ -22, %35 ], [ 16, %.thread11 ], [ -14, %65 ]
+.thread:                                          ; preds = %65, %.thread15, %39, %35, %.loopexit, %.thread5, %44, %2
+  %94 = phi i32 [ -22, %2 ], [ %28, %44 ], [ -22, %.thread5 ], [ %93, %.loopexit ], [ -14, %39 ], [ -22, %35 ], [ 16, %.thread15 ], [ -14, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %94

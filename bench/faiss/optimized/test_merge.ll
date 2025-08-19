@@ -5412,9 +5412,9 @@ define linkonce_odr dso_local void @_ZN5faiss13ThreadedIndexINS_5IndexEE8addInde
   %16 = icmp eq i32 %14, 0
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !171
-  br i1 %16, label %.thread57, label %19
+  br i1 %16, label %.thread71, label %19
 
-.thread57:                                        ; preds = %15
+.thread71:                                        ; preds = %15
   store i32 %18, ptr %13, align 8, !tbaa !171
   br label %.loopexit
 
@@ -5627,7 +5627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %123
 
-.loopexit:                                        ; preds = %79, %.thread57, %19
+.loopexit:                                        ; preds = %79, %.thread71, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 64

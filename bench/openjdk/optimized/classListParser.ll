@@ -1312,8 +1312,8 @@ define hidden void @_ZN15ClassListParser30read_class_name_and_attributesEv(ptr n
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
-  %22 = phi i8 [ %19, %.preheader.lr.ph ], [ %.be23, %.preheader.backedge ]
-  %23 = phi ptr [ %18, %.preheader.lr.ph ], [ %.be24, %.preheader.backedge ]
+  %22 = phi i8 [ %19, %.preheader.lr.ph ], [ %.be31, %.preheader.backedge ]
+  %23 = phi ptr [ %18, %.preheader.lr.ph ], [ %.be32, %.preheader.backedge ]
   switch i8 %22, label %_ZN15ClassListParser16skip_whitespacesEv.exit [
     i8 32, label %.critedge.i
     i8 9, label %.critedge.i
@@ -1326,8 +1326,8 @@ define hidden void @_ZN15ClassListParser30read_class_name_and_attributesEv(ptr n
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %.critedge.i, %.backedge
-  %.be23 = phi i8 [ %.pr, %.critedge.i ], [ %49, %.backedge ]
-  %.be24 = phi ptr [ %24, %.critedge.i ], [ %48, %.backedge ]
+  %.be31 = phi i8 [ %.pr, %.critedge.i ], [ %49, %.backedge ]
+  %.be32 = phi ptr [ %24, %.critedge.i ], [ %48, %.backedge ]
   br label %.preheader, !llvm.loop !16
 
 _ZN15ClassListParser16skip_whitespacesEv.exit:    ; preds = %.preheader
@@ -1390,8 +1390,8 @@ _ZN15ClassListParser10skip_tokenEPKc.exit:        ; preds = %50
   store ptr %54, ptr %14, align 8
   br label %55
 
-55:                                               ; preds = %.backedge22, %_ZN15ClassListParser10skip_tokenEPKc.exit
-  %56 = phi ptr [ %54, %_ZN15ClassListParser10skip_tokenEPKc.exit ], [ %.be, %.backedge22 ]
+55:                                               ; preds = %.backedge30, %_ZN15ClassListParser10skip_tokenEPKc.exit
+  %56 = phi ptr [ %54, %_ZN15ClassListParser10skip_tokenEPKc.exit ], [ %.be, %.backedge30 ]
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %_ZN15ClassListParser16skip_whitespacesEv.exit.i [
     i8 32, label %.critedge.i.i
@@ -1401,9 +1401,9 @@ _ZN15ClassListParser10skip_tokenEPKc.exit:        ; preds = %50
 .critedge.i.i:                                    ; preds = %55, %55
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %58, ptr %14, align 8
-  br label %.backedge22
+  br label %.backedge30
 
-.backedge22:                                      ; preds = %.critedge.i.i, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit
+.backedge30:                                      ; preds = %.critedge.i.i, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit
   %.be = phi ptr [ %58, %.critedge.i.i ], [ %.promoted.i.i.pre, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit ]
   br label %55, !llvm.loop !18
 
@@ -1498,7 +1498,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %105 = getelementptr inbounds i32, ptr %103, i64 %104
   store i32 %101, ptr %105, align 4
   %.promoted.i.i.pre = load ptr, ptr %14, align 8
-  br label %.backedge22
+  br label %.backedge30
 
 106:                                              ; preds = %50
   %107 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #20
@@ -3764,11 +3764,11 @@ _ZN11CDSIndyInfo8add_itemEPKc.exit61:             ; preds = %237, %243
   unreachable
 
 _ZN11CDSIndyInfo8add_itemEPKc.exit53.sink.split:  ; preds = %277, %144
-  %.sink89 = phi i32 [ %146, %144 ], [ %279, %277 ]
-  %.sink78 = phi ptr [ %145, %144 ], [ %278, %277 ]
+  %.sink108 = phi i32 [ %146, %144 ], [ %279, %277 ]
+  %.sink97 = phi ptr [ %145, %144 ], [ %278, %277 ]
   %.sink.ph = phi ptr [ %135, %144 ], [ %268, %277 ]
-  %285 = add nsw i32 %.sink89, 1
-  %286 = icmp sgt i32 %.sink89, -1
+  %285 = add nsw i32 %.sink108, 1
+  %286 = icmp sgt i32 %.sink108, -1
   %287 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %285)
   %288 = icmp samesign ult i32 %287, 2
   %or.cond.i.i.i.i.i62 = select i1 %286, i1 %288, i1 false
@@ -3776,19 +3776,19 @@ _ZN11CDSIndyInfo8add_itemEPKc.exit53.sink.split:  ; preds = %277, %144
   %290 = sub nuw nsw i32 32, %289
   %291 = shl nuw i32 1, %290
   %.0.i.i.i.i.i63 = select i1 %or.cond.i.i.i.i.i62, i32 %285, i32 %291
-  call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink78, i32 noundef %.0.i.i.i.i.i63)
-  %.pre.i.i64 = load i32, ptr %.sink78, align 8
+  call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink97, i32 noundef %.0.i.i.i.i.i63)
+  %.pre.i.i64 = load i32, ptr %.sink97, align 8
   br label %_ZN11CDSIndyInfo8add_itemEPKc.exit53
 
 _ZN11CDSIndyInfo8add_itemEPKc.exit53:             ; preds = %_ZN11CDSIndyInfo8add_itemEPKc.exit53.sink.split, %277, %144
-  %.sink76 = phi i32 [ %146, %144 ], [ %279, %277 ], [ %.pre.i.i64, %_ZN11CDSIndyInfo8add_itemEPKc.exit53.sink.split ]
-  %.sink75 = phi ptr [ %145, %144 ], [ %278, %277 ], [ %.sink78, %_ZN11CDSIndyInfo8add_itemEPKc.exit53.sink.split ]
+  %.sink95 = phi i32 [ %146, %144 ], [ %279, %277 ], [ %.pre.i.i64, %_ZN11CDSIndyInfo8add_itemEPKc.exit53.sink.split ]
+  %.sink94 = phi ptr [ %145, %144 ], [ %278, %277 ], [ %.sink97, %_ZN11CDSIndyInfo8add_itemEPKc.exit53.sink.split ]
   %.sink = phi ptr [ %135, %144 ], [ %268, %277 ], [ %.sink.ph, %_ZN11CDSIndyInfo8add_itemEPKc.exit53.sink.split ]
-  %292 = add nsw i32 %.sink76, 1
-  store i32 %292, ptr %.sink75, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %.sink75, i64 8
+  %292 = add nsw i32 %.sink95, 1
+  store i32 %292, ptr %.sink94, align 8
+  %293 = getelementptr inbounds nuw i8, ptr %.sink94, i64 8
   %294 = load ptr, ptr %293, align 8
-  %295 = sext i32 %.sink76 to i64
+  %295 = sext i32 %.sink95 to i64
   %296 = getelementptr inbounds ptr, ptr %294, i64 %295
   store ptr %.sink, ptr %296, align 8
   %297 = add nuw nsw i32 %.067, 1
@@ -3898,11 +3898,11 @@ define linkonce_odr hidden void @_ZN11CDSIndyInfo12add_ref_kindEi(ptr noundef no
   unreachable
 
 _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split: ; preds = %51, %45, %39, %33, %27, %21, %15, %9, %3
-  %.sink59 = phi i32 [ %5, %3 ], [ %11, %9 ], [ %17, %15 ], [ %23, %21 ], [ %29, %27 ], [ %35, %33 ], [ %41, %39 ], [ %47, %45 ], [ %53, %51 ]
-  %.sink48 = phi ptr [ %4, %3 ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ], [ %28, %27 ], [ %34, %33 ], [ %40, %39 ], [ %46, %45 ], [ %52, %51 ]
+  %.sink75 = phi i32 [ %5, %3 ], [ %11, %9 ], [ %17, %15 ], [ %23, %21 ], [ %29, %27 ], [ %35, %33 ], [ %41, %39 ], [ %47, %45 ], [ %53, %51 ]
+  %.sink64 = phi ptr [ %4, %3 ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ], [ %28, %27 ], [ %34, %33 ], [ %40, %39 ], [ %46, %45 ], [ %52, %51 ]
   %.str.86.sink.ph = phi ptr [ @.str.78, %3 ], [ @.str.79, %9 ], [ @.str.80, %15 ], [ @.str.81, %21 ], [ @.str.82, %27 ], [ @.str.83, %33 ], [ @.str.84, %39 ], [ @.str.85, %45 ], [ @.str.86, %51 ]
-  %59 = add nsw i32 %.sink59, 1
-  %60 = icmp sgt i32 %.sink59, -1
+  %59 = add nsw i32 %.sink75, 1
+  %60 = icmp sgt i32 %.sink75, -1
   %61 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %59)
   %62 = icmp samesign ult i32 %61, 2
   %or.cond.i.i.i.i29 = select i1 %60, i1 %62, i1 false
@@ -3910,19 +3910,19 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.
   %64 = sub nuw nsw i32 32, %63
   %65 = shl nuw i32 1, %64
   %.0.i.i.i.i30 = select i1 %or.cond.i.i.i.i29, i32 %59, i32 %65
-  tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink48, i32 noundef %.0.i.i.i.i30)
-  %.pre.i31 = load i32, ptr %.sink48, align 8
+  tail call void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink64, i32 noundef %.0.i.i.i.i30)
+  %.pre.i31 = load i32, ptr %.sink64, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split, %51, %45, %39, %33, %27, %21, %15, %9, %3
-  %.sink47 = phi i32 [ %5, %3 ], [ %11, %9 ], [ %17, %15 ], [ %23, %21 ], [ %29, %27 ], [ %35, %33 ], [ %41, %39 ], [ %47, %45 ], [ %53, %51 ], [ %.pre.i31, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
-  %.sink46 = phi ptr [ %4, %3 ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ], [ %28, %27 ], [ %34, %33 ], [ %40, %39 ], [ %46, %45 ], [ %52, %51 ], [ %.sink48, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
+  %.sink63 = phi i32 [ %5, %3 ], [ %11, %9 ], [ %17, %15 ], [ %23, %21 ], [ %29, %27 ], [ %35, %33 ], [ %41, %39 ], [ %47, %45 ], [ %53, %51 ], [ %.pre.i31, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
+  %.sink62 = phi ptr [ %4, %3 ], [ %10, %9 ], [ %16, %15 ], [ %22, %21 ], [ %28, %27 ], [ %34, %33 ], [ %40, %39 ], [ %46, %45 ], [ %52, %51 ], [ %.sink64, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
   %.str.86.sink = phi ptr [ @.str.78, %3 ], [ @.str.79, %9 ], [ @.str.80, %15 ], [ @.str.81, %21 ], [ @.str.82, %27 ], [ @.str.83, %33 ], [ @.str.84, %39 ], [ @.str.85, %45 ], [ @.str.86, %51 ], [ %.str.86.sink.ph, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit.sink.split ]
-  %66 = add nsw i32 %.sink47, 1
-  store i32 %66, ptr %.sink46, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %.sink46, i64 8
+  %66 = add nsw i32 %.sink63, 1
+  store i32 %66, ptr %.sink62, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %.sink62, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = sext i32 %.sink47 to i64
+  %69 = sext i32 %.sink63 to i64
   %70 = getelementptr inbounds ptr, ptr %68, i64 %69
   store ptr %.str.86.sink, ptr %70, align 8
   ret void
@@ -5181,7 +5181,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableAr
   br i1 %.not, label %_ZN13GrowableArrayIPKcE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -5193,8 +5193,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableAr
   br label %_ZN13GrowableArrayIPKcE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIPKcE10deallocateEPS1_.exit:    ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIPKcE10deallocateEPS1_.exit
@@ -5262,7 +5262,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   br i1 %.not, label %_ZN13GrowableArrayIiE10deallocateEPi.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -5274,8 +5274,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   br label %_ZN13GrowableArrayIiE10deallocateEPi.exit
 
 _ZN13GrowableArrayIiE10deallocateEPi.exit:        ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIiE10deallocateEPi.exit

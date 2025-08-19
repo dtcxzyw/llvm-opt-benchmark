@@ -1408,8 +1408,8 @@ safe_realloc_.exit:                               ; preds = %17
 .preheader6.i:                                    ; preds = %419
   %.not139.i = icmp eq i32 %3, 0
   %.not140.i = icmp eq i32 %2, 0
-  %or.cond316.i = or i1 %.not140.i, %.not139.i
-  br i1 %or.cond316.i, label %format_input_.exit, label %.preheader5.us.i
+  %or.cond320.i = or i1 %.not140.i, %.not139.i
+  br i1 %or.cond320.i, label %format_input_.exit, label %.preheader5.us.i
 
 .preheader5.us.i:                                 ; preds = %.preheader6.i, %._crit_edge.us105.i
   %indvars.iv268.i = phi i64 [ %indvars.iv.next269.i, %._crit_edge.us105.i ], [ 0, %.preheader6.i ]
@@ -1446,8 +1446,8 @@ safe_realloc_.exit:                               ; preds = %17
 .preheader3.i:                                    ; preds = %419
   %.not141.i = icmp eq i32 %3, 0
   %.not142.i = icmp eq i32 %2, 0
-  %or.cond317.i = or i1 %.not142.i, %.not141.i
-  br i1 %or.cond317.i, label %format_input_.exit, label %.preheader2.us.i
+  %or.cond321.i = or i1 %.not142.i, %.not141.i
+  br i1 %or.cond321.i, label %format_input_.exit, label %.preheader2.us.i
 
 .preheader2.us.i:                                 ; preds = %.preheader3.i, %._crit_edge.us112.i
   %indvars.iv278.i = phi i64 [ %indvars.iv.next279.i, %._crit_edge.us112.i ], [ 0, %.preheader3.i ]
@@ -1476,8 +1476,8 @@ safe_realloc_.exit:                               ; preds = %17
 .preheader1.i:                                    ; preds = %419
   %.not143.i = icmp eq i32 %3, 0
   %.not144.i = icmp eq i32 %2, 0
-  %or.cond318.i = or i1 %.not144.i, %.not143.i
-  br i1 %or.cond318.i, label %format_input_.exit, label %.preheader.us.i
+  %or.cond322.i = or i1 %.not144.i, %.not143.i
+  br i1 %or.cond322.i, label %format_input_.exit, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader1.i, %._crit_edge.us119.i
   %indvars.iv288.i = phi i64 [ %indvars.iv.next289.i, %._crit_edge.us119.i ], [ 0, %.preheader1.i ]

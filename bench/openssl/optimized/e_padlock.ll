@@ -1203,8 +1203,8 @@ define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr no
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %47 = tail call fastcc i32 @padlock_aes_set_encrypt_key(ptr noundef %1, i32 noundef %6, ptr noundef nonnull %46)
   %48 = icmp slt i32 %47, 0
-  %or.cond36 = select i1 %or.cond5, i1 true, i1 %48
-  br i1 %or.cond36, label %padlock_aes_set_decrypt_key.exit, label %49
+  %or.cond39 = select i1 %or.cond5, i1 true, i1 %48
+  br i1 %or.cond39, label %padlock_aes_set_decrypt_key.exit, label %49
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 272

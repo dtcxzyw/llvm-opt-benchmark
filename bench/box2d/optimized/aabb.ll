@@ -57,11 +57,11 @@ define hidden void @b2AABB_RayCast(ptr dead_on_unwind noalias writable writeonly
 
 14:                                               ; preds = %5
   %15 = fdiv float 1.000000e+00, %6
-  %foldExtExtBinop86 = fsub <2 x float> %1, %3
-  %16 = extractelement <2 x float> %foldExtExtBinop86, i64 0
+  %foldExtExtBinop87 = fsub <2 x float> %1, %3
+  %16 = extractelement <2 x float> %foldExtExtBinop87, i64 0
   %17 = fmul float %16, %15
-  %foldExtExtBinop88 = fsub <2 x float> %2, %3
-  %18 = extractelement <2 x float> %foldExtExtBinop88, i64 0
+  %foldExtExtBinop89 = fsub <2 x float> %2, %3
+  %18 = extractelement <2 x float> %foldExtExtBinop89, i64 0
   %19 = fmul float %18, %15
   %20 = fcmp ogt float %17, %19
   %.068 = select i1 %20, float %19, float %17
@@ -92,11 +92,11 @@ define hidden void @b2AABB_RayCast(ptr dead_on_unwind noalias writable writeonly
 
 30:                                               ; preds = %25
   %31 = fdiv float 1.000000e+00, %7
-  %foldExtExtBinop90 = fsub <2 x float> %1, %3
-  %32 = extractelement <2 x float> %foldExtExtBinop90, i64 1
+  %foldExtExtBinop91 = fsub <2 x float> %1, %3
+  %32 = extractelement <2 x float> %foldExtExtBinop91, i64 1
   %33 = fmul float %32, %31
-  %foldExtExtBinop92 = fsub <2 x float> %2, %3
-  %34 = extractelement <2 x float> %foldExtExtBinop92, i64 1
+  %foldExtExtBinop93 = fsub <2 x float> %2, %3
+  %34 = extractelement <2 x float> %foldExtExtBinop93, i64 1
   %35 = fmul float %34, %31
   %36 = fcmp ogt float %33, %35
   %.065 = select i1 %36, float %35, float %33

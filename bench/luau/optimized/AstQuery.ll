@@ -4005,7 +4005,7 @@ _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.preheader: ; preds = %179
   br label %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit336
 
 _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit336: ; preds = %467, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.preheader
-  %.pn663 = phi ptr [ %177, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.preheader ], [ %466, %467 ]
+  %.pn771 = phi ptr [ %177, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit.preheader ], [ %466, %467 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %326 = load ptr, ptr %323, align 8, !tbaa !149
   store ptr %324, ptr %20, align 8, !tbaa !143
@@ -4059,9 +4059,9 @@ _ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit336: ; preds = %467, %_ZN4Luau3
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 %339
   store i8 0, ptr %341, align 1, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %342 = getelementptr inbounds nuw i8, ptr %.pn663, i64 56
+  %342 = getelementptr inbounds nuw i8, ptr %.pn771, i64 56
   %343 = load ptr, ptr %342, align 8, !tbaa !152
-  %344 = getelementptr inbounds nuw i8, ptr %.pn663, i64 48
+  %344 = getelementptr inbounds nuw i8, ptr %.pn771, i64 48
   %.not10.i.i.i281 = icmp eq ptr %343, null
   %.pre641 = load ptr, ptr %20, align 8, !tbaa !144
   br i1 %.not10.i.i.i281, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit311, label %.lr.ph.i.i.i282
@@ -4376,13 +4376,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit274
 
 .critedge224:                                     ; preds = %373, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314
-  %461 = getelementptr inbounds nuw i8, ptr %.pn663, i64 96
+  %461 = getelementptr inbounds nuw i8, ptr %.pn771, i64 96
   %462 = load i8, ptr %461, align 8, !tbaa !162, !range !22, !noundef !23
   %463 = trunc nuw i8 %462 to i1
   br i1 %463, label %464, label %.critedge226
 
 464:                                              ; preds = %.critedge224
-  %465 = getelementptr inbounds nuw i8, ptr %.pn663, i64 88
+  %465 = getelementptr inbounds nuw i8, ptr %.pn771, i64 88
   %466 = load ptr, ptr %465, align 8, !tbaa !110
   %.not.i.i335 = icmp eq ptr %466, null
   br i1 %.not.i.i335, label %.critedge226, label %467
@@ -8285,8 +8285,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %14, %9
-  %.sink4.i.i = phi ptr [ %15, %14 ], [ %10, %9 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink4.i.i, i64 16, i1 false)
+  %.sink5.i.i = phi ptr [ %15, %14 ], [ %10, %9 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink5.i.i, i64 16, i1 false)
   br label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i:      ; preds = %.sink.split.i.i, %11
@@ -8385,8 +8385,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %27, %23
-  %.sink4.i.i.i = phi ptr [ %28, %27 ], [ %24, %23 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink4.i.i.i, i64 16, i1 false)
+  %.sink5.i.i.i = phi ptr [ %28, %27 ], [ %24, %23 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink5.i.i.i, i64 16, i1 false)
   br label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i:    ; preds = %.sink.split.i.i.i, %25
@@ -8480,8 +8480,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %23, %19
-  %.sink4.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink4.i.i.i, i64 16, i1 false)
+  %.sink5.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink5.i.i.i, i64 16, i1 false)
   br label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i:    ; preds = %.sink.split.i.i.i, %21
@@ -8558,8 +8558,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %16, %11
-  %.sink4.i.i.i = phi ptr [ %17, %16 ], [ %12, %11 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink4.i.i.i, i64 16, i1 false)
+  %.sink5.i.i.i = phi ptr [ %17, %16 ], [ %12, %11 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink5.i.i.i, i64 16, i1 false)
   br label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i:    ; preds = %.sink.split.i.i.i, %13
@@ -8654,8 +8654,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %23, %19
-  %.sink4.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink4.i.i.i, i64 16, i1 false)
+  %.sink5.i.i.i = phi ptr [ %24, %23 ], [ %20, %19 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink5.i.i.i, i64 16, i1 false)
   br label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i:    ; preds = %.sink.split.i.i.i, %21
@@ -8731,8 +8731,8 @@ define internal noundef zeroext i1 @_ZN4Luau12_GLOBAL__N_115FindExprOrLocal5visi
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %16, %11
-  %.sink4.i.i.i = phi ptr [ %17, %16 ], [ %12, %11 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink4.i.i.i, i64 16, i1 false)
+  %.sink5.i.i.i = phi ptr [ %17, %16 ], [ %12, %11 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(16) %.sink5.i.i.i, i64 16, i1 false)
   br label %_ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i
 
 _ZN4Luau11ExprOrLocal11getLocationEv.exit.i.i:    ; preds = %.sink.split.i.i.i, %13

@@ -53,8 +53,8 @@ define void @_ZN11duckdb_zstd25ZSTD_ldm_adjustParametersEPNS_11ldmParams_tEPKNS_
 
 22:                                               ; preds = %21, %16
   %.not = icmp eq i32 %6, 0
-  %spec.select27 = select i1 %.not, i32 3, i32 %6
-  %. = tail call i32 @llvm.umin.i32(i32 %spec.select27, i32 %17)
+  %spec.select28 = select i1 %.not, i32 3, i32 %6
+  %. = tail call i32 @llvm.umin.i32(i32 %spec.select28, i32 %17)
   store i32 %., ptr %5, align 4, !tbaa !12
   ret void
 }

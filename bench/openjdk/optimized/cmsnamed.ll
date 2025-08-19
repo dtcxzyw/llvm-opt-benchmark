@@ -233,9 +233,9 @@ GrowMLUpool.exit:                                 ; preds = %45
   br i1 %53, label %GrowMLUtable.exit.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %GrowMLUpool.exit, %._crit_edge
-  %.lcssa51 = phi i32 [ %37, %._crit_edge ], [ %50, %GrowMLUpool.exit ]
+  %.lcssa58 = phi i32 [ %37, %._crit_edge ], [ %50, %GrowMLUpool.exit ]
   %54 = phi ptr [ %.pre, %._crit_edge ], [ %48, %GrowMLUpool.exit ]
-  %55 = zext i32 %.lcssa51 to i64
+  %55 = zext i32 %.lcssa58 to i64
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = zext i32 %1 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 4 %2, i64 %57, i1 false)
@@ -247,7 +247,7 @@ GrowMLUpool.exit:                                 ; preds = %45
   %62 = load i32, ptr %6, align 4
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %61, i64 %63, i32 2
-  store i32 %.lcssa51, ptr %64, align 4
+  store i32 %.lcssa58, ptr %64, align 4
   %65 = load ptr, ptr %60, align 8
   %66 = load i32, ptr %6, align 4
   %67 = zext i32 %66 to i64
@@ -307,7 +307,7 @@ strTo16.exit:                                     ; preds = %4, %7
 strTo16.exit24:                                   ; preds = %strTo16.exit, %16
   %.0.i23 = phi i16 [ %23, %16 ], [ 0, %strTo16.exit ]
   %24 = icmp eq ptr %0, null
-  br i1 %24, label %92, label %25
+  br i1 %24, label %91, label %25
 
 25:                                               ; preds = %strTo16.exit24
   %26 = load i8, ptr %3, align 1
@@ -317,7 +317,7 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
 28:                                               ; preds = %25
   store i32 0, ptr %5, align 4
   %29 = call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef 4, ptr noundef %5, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
-  br label %92
+  br label %91
 
 .lr.ph.i:                                         ; preds = %25, %49
   %30 = phi i8 [ %51, %49 ], [ %26, %25 ]
@@ -374,18 +374,18 @@ decodeUTF8.exit:                                  ; preds = %49
   %55 = load ptr, ptr %0, align 8
   %56 = tail call ptr @_cmsCalloc(ptr noundef %55, i32 noundef %spec.select, i32 noundef 4) #14
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %92, label %58
+  br i1 %57, label %91, label %58
 
 58:                                               ; preds = %decodeUTF8.exit
   %59 = load i8, ptr %3, align 1
   %.not29.i25 = icmp eq i8 %59, 0
   br i1 %.not29.i25, label %decodeUTF8.exit41, label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %58, %87
-  %60 = phi i8 [ %88, %87 ], [ %59, %58 ]
-  %.033.i27 = phi ptr [ %.1.i34, %87 ], [ %56, %58 ]
-  %.02231.i29 = phi i32 [ %.123.i31, %87 ], [ 0, %58 ]
-  %.02430.i30 = phi ptr [ %80, %87 ], [ %3, %58 ]
+.lr.ph.i26:                                       ; preds = %58, %86
+  %60 = phi i8 [ %87, %86 ], [ %59, %58 ]
+  %.033.i27 = phi ptr [ %.1.i34, %86 ], [ %56, %58 ]
+  %.02231.i29 = phi i32 [ %.123.i31, %86 ], [ 0, %58 ]
+  %.02430.i30 = phi ptr [ %80, %86 ], [ %3, %58 ]
   %61 = zext i8 %60 to i32
   %62 = icmp sgt i8 %60, -1
   br i1 %62, label %79, label %63
@@ -427,33 +427,29 @@ decodeUTF8.exit:                                  ; preds = %49
   %82 = icmp sgt i8 %81, -65
   %83 = icmp ult i32 %.123.i31, 1114112
   %or.cond.i32 = select i1 %82, i1 %83, i1 false
-  br i1 %or.cond.i32, label %84, label %87
+  br i1 %or.cond.i32, label %84, label %86
 
 84:                                               ; preds = %79
-  %.not28.i37 = icmp eq ptr %.033.i27, null
-  br i1 %.not28.i37, label %87, label %85
-
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %.033.i27, i64 4
   store i32 %.123.i31, ptr %.033.i27, align 4
   %.pre.pre.i38 = load i8, ptr %80, align 1
-  br label %87
+  %85 = getelementptr inbounds nuw i8, ptr %.033.i27, i64 4
+  br label %86
 
-87:                                               ; preds = %84, %85, %79
-  %88 = phi i8 [ %81, %79 ], [ %.pre.pre.i38, %85 ], [ %81, %84 ]
-  %.1.i34 = phi ptr [ %.033.i27, %79 ], [ %86, %85 ], [ null, %84 ]
-  %.not.i35 = icmp eq i8 %88, 0
+86:                                               ; preds = %84, %79
+  %87 = phi i8 [ %.pre.pre.i38, %84 ], [ %81, %79 ]
+  %.1.i34 = phi ptr [ %85, %84 ], [ %.033.i27, %79 ]
+  %.not.i35 = icmp eq i8 %87, 0
   br i1 %.not.i35, label %decodeUTF8.exit41, label %.lr.ph.i26, !llvm.loop !10
 
-decodeUTF8.exit41:                                ; preds = %87, %58
-  %89 = shl i32 %spec.select, 2
-  %90 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %89, ptr noundef %56, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
-  %91 = load ptr, ptr %0, align 8
-  tail call void @_cmsFree(ptr noundef %91, ptr noundef nonnull %56) #14
-  br label %92
+decodeUTF8.exit41:                                ; preds = %86, %58
+  %88 = shl i32 %spec.select, 2
+  %89 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %88, ptr noundef %56, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
+  %90 = load ptr, ptr %0, align 8
+  tail call void @_cmsFree(ptr noundef %90, ptr noundef nonnull %56) #14
+  br label %91
 
-92:                                               ; preds = %decodeUTF8.exit, %strTo16.exit24, %decodeUTF8.exit41, %28
-  %.0 = phi i32 [ %29, %28 ], [ %90, %decodeUTF8.exit41 ], [ 0, %strTo16.exit24 ], [ 0, %decodeUTF8.exit ]
+91:                                               ; preds = %decodeUTF8.exit, %strTo16.exit24, %decodeUTF8.exit41, %28
+  %.0 = phi i32 [ %29, %28 ], [ %89, %decodeUTF8.exit41 ], [ 0, %strTo16.exit24 ], [ 0, %decodeUTF8.exit ]
   ret i32 %.0
 }
 
@@ -752,8 +748,8 @@ strTo16.exit35:                                   ; preds = %strTo16.exit, %16
 
 ._crit_edge.i:                                    ; preds = %46
   %47 = icmp eq i32 %.2.fr.i, -1
-  %spec.select74.i = select i1 %47, i32 0, i32 %.2.fr.i
-  %48 = sext i32 %spec.select74.i to i64
+  %spec.select80.i = select i1 %47, i32 0, i32 %.2.fr.i
+  %48 = sext i32 %spec.select80.i to i64
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
@@ -770,13 +766,13 @@ strTo16.exit35:                                   ; preds = %strTo16.exit, %16
   br i1 %56, label %_cmsMLUgetWide.exit.thread, label %_cmsMLUgetWide.exit
 
 _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.i, %41
-  %.sink47 = phi i32 [ %45, %41 ], [ %52, %._crit_edge.thread.i ]
+  %.sink54 = phi i32 [ %45, %41 ], [ %52, %._crit_edge.thread.i ]
   %.036 = phi i32 [ %43, %41 ], [ %.pre68.i, %._crit_edge.thread.i ]
-  %.sink45.in = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sink45 = load ptr, ptr %.sink45.in, align 8
-  %57 = zext i32 %.sink47 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %.sink45, i64 %57
-  %59 = icmp eq ptr %.sink45, null
+  %.sink52.in = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sink52 = load ptr, ptr %.sink52.in, align 8
+  %57 = zext i32 %.sink54 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %.sink52, i64 %57
+  %59 = icmp eq ptr %.sink52, null
   br i1 %59, label %_cmsMLUgetWide.exit.thread, label %60
 
 60:                                               ; preds = %_cmsMLUgetWide.exit
@@ -809,9 +805,9 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %70, 255
   %72 = trunc i32 %70 to i8
-  %spec.select48 = select i1 %71, i8 %72, i8 63
+  %spec.select55 = select i1 %71, i8 %72, i8 63
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
-  store i8 %spec.select48, ptr %73, align 1
+  store i8 %spec.select55, ptr %73, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -914,8 +910,8 @@ strTo16.exit27:                                   ; preds = %strTo16.exit, %16
 
 ._crit_edge.i:                                    ; preds = %46
   %47 = icmp eq i32 %.2.fr.i, -1
-  %spec.select74.i = select i1 %47, i32 0, i32 %.2.fr.i
-  %48 = sext i32 %spec.select74.i to i64
+  %spec.select80.i = select i1 %47, i32 0, i32 %.2.fr.i
+  %48 = sext i32 %spec.select80.i to i64
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
@@ -932,11 +928,11 @@ strTo16.exit27:                                   ; preds = %strTo16.exit, %16
   br i1 %56, label %_cmsMLUgetWide.exit.thread, label %_cmsMLUgetWide.exit
 
 _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.i, %41
-  %.sink36 = phi i32 [ %45, %41 ], [ %52, %._crit_edge.thread.i ]
+  %.sink42 = phi i32 [ %45, %41 ], [ %52, %._crit_edge.thread.i ]
   %.029 = phi i32 [ %43, %41 ], [ %.pre68.i, %._crit_edge.thread.i ]
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sink = load ptr, ptr %.sink.in, align 8
-  %57 = zext i32 %.sink36 to i64
+  %57 = zext i32 %.sink42 to i64
   %58 = getelementptr inbounds nuw i8, ptr %.sink, i64 %57
   %59 = icmp eq ptr %.sink, null
   br i1 %59, label %_cmsMLUgetWide.exit.thread, label %60
@@ -1214,8 +1210,8 @@ strTo16.exit19:                                   ; preds = %strTo16.exit, %16
 
 ._crit_edge.i:                                    ; preds = %46
   %47 = icmp eq i32 %.2.fr.i, -1
-  %spec.select74.i = select i1 %47, i32 0, i32 %.2.fr.i
-  %48 = sext i32 %spec.select74.i to i64
+  %spec.select80.i = select i1 %47, i32 0, i32 %.2.fr.i
+  %48 = sext i32 %spec.select80.i to i64
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
@@ -1232,11 +1228,11 @@ strTo16.exit19:                                   ; preds = %strTo16.exit, %16
   br i1 %56, label %_cmsMLUgetWide.exit.thread, label %_cmsMLUgetWide.exit
 
 _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.i, %41
-  %.sink30 = phi i32 [ %45, %41 ], [ %52, %._crit_edge.thread.i ]
+  %.sink36 = phi i32 [ %45, %41 ], [ %52, %._crit_edge.thread.i ]
   %.1 = phi i32 [ %43, %41 ], [ %.pre68.i, %._crit_edge.thread.i ]
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sink = load ptr, ptr %.sink.in, align 8
-  %57 = zext i32 %.sink30 to i64
+  %57 = zext i32 %.sink36 to i64
   %58 = getelementptr inbounds nuw i8, ptr %.sink, i64 %57
   %59 = icmp eq ptr %.sink, null
   br i1 %59, label %_cmsMLUgetWide.exit.thread, label %60
@@ -1353,8 +1349,8 @@ strTo16.exit11:                                   ; preds = %strTo16.exit, %16
 
 ._crit_edge.i:                                    ; preds = %41
   %42 = icmp eq i32 %.2.fr.i, -1
-  %spec.select74.i = select i1 %42, i32 0, i32 %.2.fr.i
-  %43 = sext i32 %spec.select74.i to i64
+  %spec.select80.i = select i1 %42, i32 0, i32 %.2.fr.i
+  %43 = sext i32 %spec.select80.i to i64
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
@@ -1934,19 +1930,19 @@ cmsNamedColorCount.exit:                          ; preds = %2
   %7 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %6, i64 %indvars.iv
   %8 = tail call i32 @cmsstrcasecmp(ptr noundef %1, ptr noundef %7) #14
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.loopexit.loopexit.split.loop.exit15, label %10
+  br i1 %9, label %.loopexit.loopexit.split.loop.exit17, label %10
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
-.loopexit.loopexit.split.loop.exit15:             ; preds = %.lr.ph
+.loopexit.loopexit.split.loop.exit17:             ; preds = %.lr.ph
   %11 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %10, %.loopexit.loopexit.split.loop.exit15, %cmsNamedColorCount.exit, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %cmsNamedColorCount.exit ], [ %11, %.loopexit.loopexit.split.loop.exit15 ], [ -1, %10 ]
+.loopexit:                                        ; preds = %10, %.loopexit.loopexit.split.loop.exit17, %cmsNamedColorCount.exit, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %cmsNamedColorCount.exit ], [ %11, %.loopexit.loopexit.split.loop.exit17 ], [ -1, %10 ]
   ret i32 %.0
 }
 

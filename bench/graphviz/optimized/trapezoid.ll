@@ -1065,9 +1065,9 @@ is_left_of.exit.thread628:                        ; preds = %348, %340, %322, %3
   %389 = getelementptr inbounds nuw i8, ptr %380, i64 60
   %390 = getelementptr inbounds %struct.trap_t, ptr %273, i64 %379, i32 10
   %. = select i1 %388, i32 %386, i32 %382
-  %.660 = select i1 %388, i32 1, i32 2
+  %.673 = select i1 %388, i32 1, i32 2
   store i32 %., ptr %389, align 4, !tbaa !61
-  store i32 %.660, ptr %390, align 8, !tbaa !62
+  store i32 %.673, ptr %390, align 8, !tbaa !62
   br label %391
 
 391:                                              ; preds = %.sink.split, %384, %376
@@ -1252,19 +1252,19 @@ is_left_of.exit604.thread637:                     ; preds = %472, %464, %446, %4
   %509 = getelementptr inbounds nuw i8, ptr %504, i64 44
   %510 = load i32, ptr %509, align 4, !tbaa !36
   %511 = icmp sgt i32 %510, 0
-  br i1 %511, label %.sink.split657, label %515
+  br i1 %511, label %.sink.split670, label %515
 
-.sink.split657:                                   ; preds = %508
+.sink.split670:                                   ; preds = %508
   %512 = icmp eq i32 %506, %.0561646
   %513 = getelementptr inbounds nuw i8, ptr %504, i64 60
   %514 = getelementptr inbounds %struct.trap_t, ptr %397, i64 %503, i32 10
-  %.661 = select i1 %512, i32 %510, i32 %506
-  %.662 = select i1 %512, i32 1, i32 2
-  store i32 %.661, ptr %513, align 4, !tbaa !61
-  store i32 %.662, ptr %514, align 8, !tbaa !62
+  %.674 = select i1 %512, i32 %510, i32 %506
+  %.675 = select i1 %512, i32 1, i32 2
+  store i32 %.674, ptr %513, align 4, !tbaa !61
+  store i32 %.675, ptr %514, align 8, !tbaa !62
   br label %515
 
-515:                                              ; preds = %.sink.split657, %508, %500
+515:                                              ; preds = %.sink.split670, %508, %500
   %516 = getelementptr inbounds %struct.trap_t, ptr %397, i64 %503, i32 4
   store i32 %.0561646, ptr %516, align 8, !tbaa !33
   %517 = getelementptr inbounds %struct.trap_t, ptr %397, i64 %503, i32 5
@@ -1972,8 +1972,8 @@ define internal fastcc void @update_trapezoid(double %.16.val, double %.24.val, 
   br label %44
 
 44:                                               ; preds = %33, %23
-  %.sink8 = phi i64 [ %43, %33 ], [ %32, %23 ]
-  %45 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %.sink8, i32 6
+  %.sink12 = phi i64 [ %43, %33 ], [ %32, %23 ]
+  %45 = getelementptr inbounds %struct.trap_t, ptr %.8.val, i64 %.sink12, i32 6
   store i32 %2, ptr %45, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw %struct.trap_t, ptr %.8.val, i64 %4, i32 9
   store i32 0, ptr %46, align 4, !tbaa !61

@@ -255,7 +255,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %24 = sext i32 %23 to i64
   %25 = lshr i64 %24, 2
   %.not = icmp ugt i64 %25, %21
-  br i1 %.not, label %.thread366, label %26
+  br i1 %.not, label %.thread395, label %26
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 192
@@ -306,14 +306,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store ptr %55, ptr %49, align 8, !tbaa !32
   %.pr.pre = load i32, ptr %15, align 8, !tbaa !31
   %57 = icmp eq i32 %.pr.pre, 4
-  br i1 %57, label %.thread366, label %thread-pre-split310
+  br i1 %57, label %.thread395, label %thread-pre-split310
 
-.thread366:                                       ; preds = %18, %56
+.thread395:                                       ; preds = %18, %56
   %58 = load i32, ptr %19, align 8, !tbaa !52
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %thread-pre-split310, label %106
 
-thread-pre-split310:                              ; preds = %56, %.thread366
+thread-pre-split310:                              ; preds = %56, %.thread395
   %.pr311 = load ptr, ptr %13, align 8, !tbaa !51
   br label %.thread
 
@@ -412,9 +412,9 @@ clear_image.exit:                                 ; preds = %clear_image.exit.lo
   %105 = tail call i32 @av_frame_copy_props(ptr noundef %.1236, ptr noundef %104) #8
   br label %106
 
-106:                                              ; preds = %clear_image.exit, %.thread366
-  %107 = phi ptr [ %104, %clear_image.exit ], [ %1, %.thread366 ]
-  %.0235 = phi ptr [ %.1236, %clear_image.exit ], [ %14, %.thread366 ]
+106:                                              ; preds = %clear_image.exit, %.thread395
+  %107 = phi ptr [ %104, %clear_image.exit ], [ %1, %.thread395 ]
+  %.0235 = phi ptr [ %.1236, %clear_image.exit ], [ %14, %.thread395 ]
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 312
   %109 = load ptr, ptr %108, align 8, !tbaa !65
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -753,8 +753,8 @@ split:                                            ; preds = %276, %282
   %301 = load i32, ptr %15, align 8, !tbaa !31
   %302 = icmp sgt i32 %301, 0
   %303 = icmp sgt i32 %234, 0
-  %or.cond382 = select i1 %302, i1 %303, i1 false
-  br i1 %or.cond382, label %.lr.ph344, label %.loopexit319
+  %or.cond411 = select i1 %302, i1 %303, i1 false
+  br i1 %or.cond411, label %.lr.ph344, label %.loopexit319
 
 .lr.ph344:                                        ; preds = %300
   %304 = shl nsw i32 %235, 2

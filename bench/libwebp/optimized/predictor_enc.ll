@@ -81,8 +81,8 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
 .preheader108:                                    ; preds = %.thread
   %35 = icmp sgt i32 %.fr131, 0
   %36 = icmp sgt i32 %.fr, 0
-  %or.cond169 = and i1 %35, %36
-  br i1 %or.cond169, label %.preheader108.split.us.split.us.preheader, label %.split.us
+  %or.cond174 = and i1 %35, %36
+  br i1 %or.cond174, label %.preheader108.split.us.split.us.preheader, label %.split.us
 
 .preheader108.split.us.split.us.preheader:        ; preds = %.preheader108
   %37 = zext nneg i32 %.fr to i64
@@ -92,8 +92,8 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   br i1 %39, label %.preheader107.lr.ph.us.us, label %.split.us
 
 .preheader107.lr.ph.us.us:                        ; preds = %.preheader108.split.us.split.us.preheader, %._crit_edge119.split.us.us.us
-  %.3.us.us174 = phi i32 [ %54, %._crit_edge119.split.us.us.us ], [ %.090112, %.preheader108.split.us.split.us.preheader ]
-  %40 = sub nsw i32 %.3.us.us174, %3
+  %.3.us.us179 = phi i32 [ %54, %._crit_edge119.split.us.us.us ], [ %.090112, %.preheader108.split.us.split.us.preheader ]
+  %40 = sub nsw i32 %.3.us.us179, %3
   %41 = shl nuw i32 1, %40
   %42 = sext i32 %41 to i64
   br label %.preheader107.us.us.us
@@ -101,20 +101,20 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
 .preheader107.us.us.us:                           ; preds = %._crit_edge.us.us.us, %.preheader107.lr.ph.us.us
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %._crit_edge.us.us.us ], [ 0, %.preheader107.lr.ph.us.us ]
   %43 = mul nuw nsw i64 %indvars.iv144, %37
-  %invariant.gep165 = getelementptr i32, ptr %0, i64 %43
+  %invariant.gep170 = getelementptr i32, ptr %0, i64 %43
   %invariant.gep = getelementptr i32, ptr %0, i64 %43
   br label %.preheader106.us.us.us
 
 44:                                               ; preds = %.preheader106.us.us.us, %45
   %indvars.iv140 = phi i64 [ %indvars.iv138, %.preheader106.us.us.us ], [ %indvars.iv.next141, %45 ]
   %indvars.iv.next141 = add nsw i64 %indvars.iv140, 1
-  %.not156.not = icmp slt i64 %indvars.iv.next141, %52
-  br i1 %.not156.not, label %45, label %48
+  %.not161.not = icmp slt i64 %indvars.iv.next141, %52
+  br i1 %.not161.not, label %45, label %48
 
 45:                                               ; preds = %44
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv.next141
   %46 = load i32, ptr %gep, align 4, !tbaa !3
-  %47 = load i32, ptr %gep166, align 4, !tbaa !3
+  %47 = load i32, ptr %gep171, align 4, !tbaa !3
   %.not104.us.us.us = icmp eq i32 %46, %47
   br i1 %.not104.us.us.us, label %44, label %._crit_edge119.split.us.us.us, !llvm.loop !9
 
@@ -127,7 +127,7 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, %42
   %50 = trunc nsw i64 %indvars.iv.next139 to i32
   %51 = tail call noundef i32 @llvm.smin.i32(i32 %50, i32 %.fr)
-  %gep166 = getelementptr i32, ptr %invariant.gep165, i64 %indvars.iv138
+  %gep171 = getelementptr i32, ptr %invariant.gep170, i64 %indvars.iv138
   %52 = sext i32 %51 to i64
   br label %44
 
@@ -137,12 +137,12 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   br i1 %53, label %.preheader107.us.us.us, label %.split.us, !llvm.loop !11
 
 ._crit_edge119.split.us.us.us:                    ; preds = %45
-  %54 = add nsw i32 %.3.us.us174, -1
+  %54 = add nsw i32 %.3.us.us179, -1
   %55 = icmp sgt i32 %54, %3
   br i1 %55, label %.preheader107.lr.ph.us.us, label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge119.split.us.us.us, %._crit_edge.us.us.us, %.preheader108.split.us.split.us.preheader, %.preheader108
-  %.us-phi125 = phi i32 [ %.090112, %.preheader108 ], [ %smin, %.preheader108.split.us.split.us.preheader ], [ %.3.us.us174, %._crit_edge.us.us.us ], [ %smin, %._crit_edge119.split.us.us.us ]
+  %.us-phi125 = phi i32 [ %.090112, %.preheader108 ], [ %smin, %.preheader108.split.us.split.us.preheader ], [ %.3.us.us179, %._crit_edge.us.us.us ], [ %smin, %._crit_edge119.split.us.us.us ]
   %56 = icmp eq i32 %.us-phi125, %3
   br i1 %56, label %.thread.thread, label %57
 
@@ -170,7 +170,7 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   %68 = trunc i64 %indvars.iv151 to i32
   %69 = mul i32 %61, %68
   %70 = zext i32 %69 to i64
-  %invariant.gep167 = getelementptr inbounds nuw i32, ptr %0, i64 %70
+  %invariant.gep172 = getelementptr inbounds nuw i32, ptr %0, i64 %70
   br label %71
 
 71:                                               ; preds = %.preheader.us, %71
@@ -181,8 +181,8 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i32, ptr %0, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %gep168 = getelementptr inbounds nuw i32, ptr %invariant.gep167, i64 %indvars.iv147
-  store i32 %77, ptr %gep168, align 4, !tbaa !3
+  %gep173 = getelementptr inbounds nuw i32, ptr %invariant.gep172, i64 %indvars.iv147
+  store i32 %77, ptr %gep173, align 4, !tbaa !3
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count
   br i1 %exitcond150.not, label %._crit_edge.us, label %71, !llvm.loop !12
@@ -1261,7 +1261,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %.sroa.0.0191.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.0.2.us, %122 ]
   %.sroa.6.0190.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.6.2.us, %122 ]
   %.sroa.8.0189.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8.2.us, %122 ]
-  %.sroa.0126.0188.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sink219.off0, %122 ]
+  %.sroa.0126.0188.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sink227.off0, %122 ]
   %.sroa.8133.sroa.0.0187.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8133.sroa.0.0.extract.trunc.us, %122 ]
   %.sroa.8133.sroa.8.0186.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8133.sroa.8.0.extract.trunc.us, %122 ]
   %27 = trunc nuw nsw i64 %indvars.iv206 to i32
@@ -1282,7 +1282,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %.sroa.0.1177.us = phi i8 [ %.sroa.0.0191.us, %.preheader.us ], [ %.sroa.0.2.us, %._crit_edge171.us ]
   %.sroa.6.1176.us = phi i8 [ %.sroa.6.0190.us, %.preheader.us ], [ %.sroa.6.2.us, %._crit_edge171.us ]
   %.sroa.8.1175.us = phi i8 [ %.sroa.8.0189.us, %.preheader.us ], [ %.sroa.8.2.us, %._crit_edge171.us ]
-  %.sroa.0126.1174.us = phi i8 [ %.sroa.0126.0188.us, %.preheader.us ], [ %.sink219.off0, %._crit_edge171.us ]
+  %.sroa.0126.1174.us = phi i8 [ %.sroa.0126.0188.us, %.preheader.us ], [ %.sink227.off0, %._crit_edge171.us ]
   %.sroa.8133.sroa.0.1173.us = phi i8 [ %.sroa.8133.sroa.0.0187.us, %.preheader.us ], [ %.sroa.8133.sroa.0.0.extract.trunc.us, %._crit_edge171.us ]
   %.sroa.8133.sroa.8.1172.us = phi i8 [ %.sroa.8133.sroa.8.0186.us, %.preheader.us ], [ %.sroa.8133.sroa.8.0.extract.trunc.us, %._crit_edge171.us ]
   %38 = trunc nuw nsw i64 %indvars.iv203 to i32
@@ -1319,9 +1319,9 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %.sroa.0.0.insert.ext115.us = and i24 %53, 255
   %.sroa.0.0.insert.insert117.us = or disjoint i24 %.sroa.6.0.insert.insert121.us, %.sroa.0.0.insert.ext115.us
   %54 = call fastcc i24 @GetBestColorTransformForTile(i32 noundef %38, i32 noundef %27, i32 noundef %2, i24 %.sroa.0126.0.insert.insert132.us, i24 %.sroa.0.0.insert.insert117.us, i32 noundef %3, i32 noundef %0, i32 noundef %1, ptr noundef %12, ptr noundef %13, ptr noundef %4)
-  %extract.t221 = trunc i24 %54 to i8
-  %extract224 = lshr i24 %54, 8
-  %extract.t225 = trunc nuw i24 %extract224 to i16
+  %extract.t229 = trunc i24 %54 to i8
+  %extract232 = lshr i24 %54, 8
+  %extract.t233 = trunc nuw i24 %extract232 to i16
   br label %56
 
 .split.us:                                        ; preds = %37
@@ -1341,30 +1341,30 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %.sroa.0.0.insert.ext.us = zext i8 %.sroa.0.1177.us to i24
   %.sroa.0.0.insert.insert.us = or disjoint i24 %.sroa.6.0.insert.insert.us, %.sroa.0.0.insert.ext.us
   %55 = call fastcc i24 @GetBestColorTransformForTile(i32 noundef %38, i32 noundef 0, i32 noundef %2, i24 %.sroa.0126.0.insert.insert129.us, i24 %.sroa.0.0.insert.insert.us, i32 noundef %3, i32 noundef %0, i32 noundef %1, ptr noundef %12, ptr noundef %13, ptr noundef %4)
-  %extract.t220 = trunc i24 %55 to i8
-  %extract222 = lshr i24 %55, 8
-  %extract.t223 = trunc nuw i24 %extract222 to i16
+  %extract.t228 = trunc i24 %55 to i8
+  %extract230 = lshr i24 %55, 8
+  %extract.t231 = trunc nuw i24 %extract230 to i16
   br label %56
 
 56:                                               ; preds = %.split.us, %.split107.us
-  %.sink219.off0 = phi i8 [ %extract.t220, %.split.us ], [ %extract.t221, %.split107.us ]
-  %.sink219.off8 = phi i16 [ %extract.t223, %.split.us ], [ %extract.t225, %.split107.us ]
+  %.sink227.off0 = phi i8 [ %extract.t228, %.split.us ], [ %extract.t229, %.split107.us ]
+  %.sink227.off8 = phi i16 [ %extract.t231, %.split.us ], [ %extract.t233, %.split107.us ]
   %.sroa.8.2.us = phi i8 [ %.sroa.8.1175.us, %.split.us ], [ %50, %.split107.us ]
   %.sroa.6.2.us = phi i8 [ %.sroa.6.1176.us, %.split.us ], [ %48, %.split107.us ]
   %.sroa.0.2.us = phi i8 [ %.sroa.0.1177.us, %.split.us ], [ %46, %.split107.us ]
-  %.sroa.8133.sroa.0.0.extract.trunc.us = trunc i16 %.sink219.off8 to i8
-  %.sroa.8133.sroa.8.0.extract.shift.us = lshr i16 %.sink219.off8, 8
+  %.sroa.8133.sroa.0.0.extract.trunc.us = trunc i16 %.sink227.off8 to i8
+  %.sroa.8133.sroa.8.0.extract.shift.us = lshr i16 %.sink227.off8, 8
   %.sroa.8133.sroa.8.0.extract.trunc.us = trunc nuw i16 %.sroa.8133.sroa.8.0.extract.shift.us to i8
-  %57 = zext i16 %.sink219.off8 to i32
+  %57 = zext i16 %.sink227.off8 to i32
   %58 = shl nuw nsw i32 %57, 8
-  %59 = zext i8 %.sink219.off0 to i32
+  %59 = zext i8 %.sink227.off0 to i32
   %60 = or disjoint i32 %58, %59
   %61 = or disjoint i32 %60, -16777216
   %62 = getelementptr inbounds nuw i32, ptr %5, i64 %42
   store i32 %61, ptr %62, align 4, !tbaa !3
-  %.sroa.8133.0.insert.ext.us = zext i16 %.sink219.off8 to i24
+  %.sroa.8133.0.insert.ext.us = zext i16 %.sink227.off8 to i24
   %.sroa.8133.0.insert.shift.us = shl nuw i24 %.sroa.8133.0.insert.ext.us, 8
-  %.sroa.0126.0.insert.ext.us = zext i8 %.sink219.off0 to i24
+  %.sroa.0126.0.insert.ext.us = zext i8 %.sink227.off0 to i24
   %.sroa.0126.0.insert.insert.us = or disjoint i24 %.sroa.8133.0.insert.shift.us, %.sroa.0126.0.insert.ext.us
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i24 %.sroa.0126.0.insert.insert.us, ptr %11, align 4
@@ -2467,9 +2467,9 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split.split.preheader, %292
   %indvars.iv = phi i64 [ %76, %.lr.ph.split.split.split.preheader ], [ %indvars.iv.next, %292 ]
   %133 = icmp eq i64 %indvars.iv, 0
-  br i1 %133, label %.thread117, label %135
+  br i1 %133, label %.thread122, label %135
 
-.thread117:                                       ; preds = %.lr.ph.split.split.split
+.thread122:                                       ; preds = %.lr.ph.split.split.split
   %134 = load i32, ptr %2, align 4, !tbaa !3
   br label %262
 
@@ -2500,7 +2500,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   %155 = and i32 %151, -16711936
   %156 = and i32 %154, 16711935
   %157 = or disjoint i32 %155, %156
-  br label %.thread122
+  br label %.thread127
 
 .preheader.i:                                     ; preds = %141, %.preheader.i
   %.037.i = phi i32 [ %158, %.preheader.i ], [ %9, %141 ]
@@ -2547,12 +2547,12 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 181:                                              ; preds = %165
   %182 = icmp sgt i32 %170, %167
   %or.cond34.i.i = and i1 %178, %182
-  %spec.select68.i = select i1 %or.cond34.i.i, i32 %179, i32 %170
+  %spec.select74.i = select i1 %or.cond34.i.i, i32 %179, i32 %170
   br label %NearLosslessComponent.exit.i
 
 NearLosslessComponent.exit.i:                     ; preds = %181, %180, %164
   %.pre-phi.i = phi i32 [ %.pre.i, %164 ], [ %168, %180 ], [ %168, %181 ]
-  %.039.i = phi i32 [ %.narrow.i.i, %164 ], [ %spec.select.i, %180 ], [ %spec.select68.i, %181 ]
+  %.039.i = phi i32 [ %.narrow.i.i, %164 ], [ %spec.select.i, %180 ], [ %spec.select74.i, %181 ]
   %183 = lshr i32 %143, 8
   %184 = trunc i32 %183 to i8
   %185 = lshr i32 %139, 8
@@ -2578,17 +2578,17 @@ NearLosslessComponent.exit.i:                     ; preds = %181, %180, %164
 203:                                              ; preds = %NearLosslessComponent.exit.i
   %.not33.i47.i = icmp samesign ugt i32 %192, %191
   %or.cond.i48.i = select i1 %201, i1 true, i1 %.not33.i47.i
-  %spec.select69.i = select i1 %or.cond.i48.i, i32 %192, i32 %202
+  %spec.select75.i = select i1 %or.cond.i48.i, i32 %192, i32 %202
   br label %NearLosslessComponent.exit49.i
 
 204:                                              ; preds = %NearLosslessComponent.exit.i
   %205 = icmp sgt i32 %193, %191
   %or.cond34.i44.i = and i1 %201, %205
-  %spec.select70.i = select i1 %or.cond34.i44.i, i32 %202, i32 %193
+  %spec.select76.i = select i1 %or.cond34.i44.i, i32 %202, i32 %193
   br label %NearLosslessComponent.exit49.i
 
 NearLosslessComponent.exit49.i:                   ; preds = %204, %203
-  %.0.in.i45.i = phi i32 [ %spec.select69.i, %203 ], [ %spec.select70.i, %204 ]
+  %.0.in.i45.i = phi i32 [ %spec.select75.i, %203 ], [ %spec.select76.i, %204 ]
   %.0.i46.i = trunc i32 %.0.in.i45.i to i8
   %.narrow.i = add i8 %.0.i46.i, %186
   %.narrow.i50.i = sub i8 %.narrow.i, %184
@@ -2622,17 +2622,17 @@ NearLosslessComponent.exit49.i:                   ; preds = %204, %203
 229:                                              ; preds = %NearLosslessComponent.exit49.i
   %.not33.i55.i = icmp samesign ugt i32 %217, %216
   %or.cond.i56.i = select i1 %227, i1 true, i1 %.not33.i55.i
-  %spec.select71.i = select i1 %or.cond.i56.i, i32 %217, i32 %228
+  %spec.select77.i = select i1 %or.cond.i56.i, i32 %217, i32 %228
   br label %NearLosslessComponent.exit57.i
 
 230:                                              ; preds = %NearLosslessComponent.exit49.i
   %231 = icmp sgt i32 %218, %216
   %or.cond34.i52.i = and i1 %227, %231
-  %spec.select72.i = select i1 %or.cond34.i52.i, i32 %228, i32 %218
+  %spec.select78.i = select i1 %or.cond34.i52.i, i32 %228, i32 %218
   br label %NearLosslessComponent.exit57.i
 
 NearLosslessComponent.exit57.i:                   ; preds = %230, %229
-  %.0.in.i53.i = phi i32 [ %spec.select71.i, %229 ], [ %spec.select72.i, %230 ]
+  %.0.in.i53.i = phi i32 [ %spec.select77.i, %229 ], [ %spec.select78.i, %230 ]
   %232 = trunc i32 %143 to i8
   %.narrow.i58.i = sub i8 %232, %.040.i
   %233 = zext i8 %.narrow.i58.i to i32
@@ -2657,17 +2657,17 @@ NearLosslessComponent.exit57.i:                   ; preds = %230, %229
 250:                                              ; preds = %NearLosslessComponent.exit57.i
   %.not33.i62.i = icmp samesign ugt i32 %238, %237
   %or.cond.i63.i = select i1 %248, i1 true, i1 %.not33.i62.i
-  %spec.select73.i = select i1 %or.cond.i63.i, i32 %238, i32 %249
+  %spec.select79.i = select i1 %or.cond.i63.i, i32 %238, i32 %249
   br label %NearLosslessComponent.exit64.i
 
 251:                                              ; preds = %NearLosslessComponent.exit57.i
   %252 = icmp sgt i32 %239, %237
   %or.cond34.i59.i = and i1 %248, %252
-  %spec.select74.i = select i1 %or.cond34.i59.i, i32 %249, i32 %239
+  %spec.select80.i = select i1 %or.cond34.i59.i, i32 %249, i32 %239
   br label %NearLosslessComponent.exit64.i
 
 NearLosslessComponent.exit64.i:                   ; preds = %251, %250
-  %.0.in.i60.i = phi i32 [ %spec.select73.i, %250 ], [ %spec.select74.i, %251 ]
+  %.0.in.i60.i = phi i32 [ %spec.select79.i, %250 ], [ %spec.select80.i, %251 ]
   %253 = shl i32 %.039.i, 24
   %254 = shl i32 %.0.in.i53.i, 16
   %255 = and i32 %254, 16711680
@@ -2679,17 +2679,17 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
   %261 = or disjoint i32 %260, %259
   %.pre = and i32 %139, -16711936
   %.pre115 = and i32 %139, 16711935
-  br label %.thread122
+  br label %.thread127
 
-262:                                              ; preds = %135, %.thread117
-  %.069120 = phi i32 [ %134, %.thread117 ], [ %139, %135 ]
+262:                                              ; preds = %135, %.thread122
+  %.069125 = phi i32 [ %134, %.thread122 ], [ %139, %135 ]
   %263 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %264 = load i32, ptr %263, align 4, !tbaa !3
   %265 = or i32 %264, 16711680
-  %266 = and i32 %.069120, -16711936
+  %266 = and i32 %.069125, -16711936
   %267 = sub i32 %265, %266
   %268 = or i32 %264, 65280
-  %269 = and i32 %.069120, 16711935
+  %269 = and i32 %.069125, 16711935
   %270 = sub i32 %268, %269
   %271 = and i32 %267, -16711936
   %272 = and i32 %270, 16711935
@@ -2697,7 +2697,7 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
   %274 = icmp ult i32 %264, 16777216
   br i1 %274, label %286, label %292
 
-.thread122:                                       ; preds = %NearLosslessComponent.exit64.i, %148
+.thread127:                                       ; preds = %NearLosslessComponent.exit64.i, %148
   %.pre-phi116 = phi i32 [ %153, %148 ], [ %.pre115, %NearLosslessComponent.exit64.i ]
   %.pre-phi = phi i32 [ %150, %148 ], [ %.pre, %NearLosslessComponent.exit64.i ]
   %.0.i75 = phi i32 [ %157, %148 ], [ %261, %NearLosslessComponent.exit64.i ]
@@ -2710,9 +2710,9 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
   %281 = or disjoint i32 %279, %280
   store i32 %281, ptr %142, align 4, !tbaa !3
   %282 = icmp ult i32 %276, 16777216
-  br i1 %282, label %.thread127, label %292
+  br i1 %282, label %.thread132, label %292
 
-.thread127:                                       ; preds = %.thread122
+.thread132:                                       ; preds = %.thread127
   %283 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %284 = and i32 %.0.i75, -16777216
   %285 = and i32 %139, 16777215
@@ -2722,7 +2722,7 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
 286:                                              ; preds = %262
   %287 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %288 = and i32 %267, -16777216
-  %289 = and i32 %.069120, 16777215
+  %289 = and i32 %.069125, 16777215
   store i32 %289, ptr %287, align 4, !tbaa !3
   br i1 %133, label %290, label %292
 
@@ -2731,8 +2731,8 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
   store i32 %291, ptr %49, align 4, !tbaa !3
   br label %292
 
-292:                                              ; preds = %.thread127, %.thread122, %286, %290, %262
-  %.1 = phi i32 [ %288, %290 ], [ %288, %286 ], [ %273, %262 ], [ %.0.i75, %.thread122 ], [ %284, %.thread127 ]
+292:                                              ; preds = %.thread132, %.thread127, %286, %290, %262
+  %.1 = phi i32 [ %288, %290 ], [ %288, %286 ], [ %273, %262 ], [ %.0.i75, %.thread127 ], [ %284, %.thread132 ]
   %293 = sub nsw i64 %indvars.iv, %76
   %294 = getelementptr inbounds i32, ptr %12, i64 %293
   store i32 %.1, ptr %294, align 4, !tbaa !3

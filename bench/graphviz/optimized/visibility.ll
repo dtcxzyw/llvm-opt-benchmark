@@ -1250,13 +1250,13 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %. = tail call i32 @llvm.umin.i32(i32 %2, i32 %5)
-  %.125 = tail call i32 @llvm.umax.i32(i32 %2, i32 %5)
+  %.128 = tail call i32 @llvm.umax.i32(i32 %2, i32 %5)
   %21 = zext nneg i32 %. to i64
   %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !22
-  %26 = zext nneg i32 %.125 to i64
+  %26 = zext nneg i32 %.128 to i64
   %27 = getelementptr inbounds nuw i32, ptr %20, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -1274,10 +1274,10 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   br i1 %exitcond.not, label %.preheader76, label %.lr.ph, !llvm.loop !34
 
 .preheader76.sink.split:                          ; preds = %17, %16
-  %.sink123 = phi i32 [ %5, %16 ], [ %2, %17 ]
+  %.sink126 = phi i32 [ %5, %16 ], [ %2, %17 ]
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !29
-  %35 = zext nneg i32 %.sink123 to i64
+  %35 = zext nneg i32 %.sink126 to i64
   %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -1285,14 +1285,14 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   br label %.preheader76
 
 .preheader76:                                     ; preds = %32, %.preheader76.sink.split, %18
-  %.0104 = phi i32 [ %30, %18 ], [ %39, %.preheader76.sink.split ], [ %30, %32 ]
-  %.068103 = phi i32 [ %28, %18 ], [ %37, %.preheader76.sink.split ], [ %28, %32 ]
-  %.069102 = phi i32 [ %25, %18 ], [ 0, %.preheader76.sink.split ], [ %25, %32 ]
-  %40 = icmp slt i32 %.069102, %.068103
+  %.0107 = phi i32 [ %30, %18 ], [ %39, %.preheader76.sink.split ], [ %30, %32 ]
+  %.068106 = phi i32 [ %28, %18 ], [ %37, %.preheader76.sink.split ], [ %28, %32 ]
+  %.069105 = phi i32 [ %25, %18 ], [ 0, %.preheader76.sink.split ], [ %25, %32 ]
+  %40 = icmp slt i32 %.069105, %.068106
   br i1 %40, label %.lr.ph81.preheader, label %.preheader
 
 .lr.ph81.preheader:                               ; preds = %.preheader76
-  %41 = sext i32 %.069102 to i64
+  %41 = sext i32 %.069105 to i64
   br label %.lr.ph81
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
@@ -1314,16 +1314,16 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
 54:                                               ; preds = %.lr.ph81
   %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next90 to i32
-  %exitcond92.not = icmp eq i32 %.068103, %lftr.wideiv
+  %exitcond92.not = icmp eq i32 %.068106, %lftr.wideiv
   br i1 %exitcond92.not, label %.preheader, label %.lr.ph81, !llvm.loop !35
 
 .preheader:                                       ; preds = %54, %16, %.preheader76
-  %.0104108 = phi i32 [ %.0104, %.preheader76 ], [ 0, %16 ], [ %.0104, %54 ]
-  %55 = icmp slt i32 %.0104108, %9
+  %.0107111 = phi i32 [ %.0107, %.preheader76 ], [ 0, %16 ], [ %.0107, %54 ]
+  %55 = icmp slt i32 %.0107111, %9
   br i1 %55, label %.lr.ph83.preheader, label %.loopexit
 
 .lr.ph83.preheader:                               ; preds = %.preheader
-  %56 = sext i32 %.0104108 to i64
+  %56 = sext i32 %.0107111 to i64
   br label %.lr.ph83
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %54

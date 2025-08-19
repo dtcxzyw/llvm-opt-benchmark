@@ -102,13 +102,13 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i: ; preds = %16,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %20, %"_ZN4core3str21_$LT$impl$u20$str$GT$8split_at17h2788149a116427aeE.exit"
-  %.sink15 = phi i64 [ %26, %"_ZN4core3str21_$LT$impl$u20$str$GT$8split_at17h2788149a116427aeE.exit" ], [ %5, %20 ], [ %5, %27 ]
+  %.sink18 = phi i64 [ %26, %"_ZN4core3str21_$LT$impl$u20$str$GT$8split_at17h2788149a116427aeE.exit" ], [ %5, %20 ], [ %5, %27 ]
   %anon.45cf3e0b4193fc9bdbf3d68d52c581f5.4.sink = phi ptr [ %31, %"_ZN4core3str21_$LT$impl$u20$str$GT$8split_at17h2788149a116427aeE.exit" ], [ @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.4, %20 ], [ @anon.45cf3e0b4193fc9bdbf3d68d52c581f5.4, %27 ]
   %.sink = phi i64 [ %32, %"_ZN4core3str21_$LT$impl$u20$str$GT$8split_at17h2788149a116427aeE.exit" ], [ 0, %20 ], [ 0, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %33, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink15, ptr %.sroa.46.0..sroa_idx, align 8
+  store i64 %.sink18, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %anon.45cf3e0b4193fc9bdbf3d68d52c581f5.4.sink, ptr %.sroa.57.0..sroa_idx, align 8
   %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32

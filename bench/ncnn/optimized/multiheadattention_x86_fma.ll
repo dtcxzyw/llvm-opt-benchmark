@@ -1052,9 +1052,9 @@ _ZN4ncnn3MataSERKS0_.exit99:                      ; preds = %.noexc98, %_ZN4ncnn
 262:                                              ; preds = %256
   %263 = load i8, ptr %3, align 8, !tbaa !56, !range !57, !noundef !58
   %264 = trunc nuw i8 %263 to i1
-  br i1 %264, label %265, label %.preheader306
+  br i1 %264, label %265, label %.preheader437
 
-.preheader306:                                    ; preds = %_ZN4ncnn3Mat7releaseEv.exit220, %262
+.preheader437:                                    ; preds = %_ZN4ncnn3Mat7releaseEv.exit220, %262
   br label %318
 
 265:                                              ; preds = %262
@@ -1134,7 +1134,7 @@ _ZN4ncnn3Mat7releaseEv.exit220:                   ; preds = %298, %297, %293, %2
   store i64 0, ptr %300, align 8, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %144, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %299, i8 0, i64 20, i1 false)
-  br label %.preheader306
+  br label %.preheader437
 
 301:                                              ; preds = %47, %34, %33, %30
   %302 = landingpad { ptr, i32 }
@@ -1189,8 +1189,8 @@ _ZN4ncnn3Mat7releaseEv.exit220:                   ; preds = %298, %297, %293, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %583
 
-318:                                              ; preds = %.preheader306, %_ZN4ncnn3MatD2Ev.exit
-  %319 = phi ptr [ %320, %_ZN4ncnn3MatD2Ev.exit ], [ %91, %.preheader306 ]
+318:                                              ; preds = %.preheader437, %_ZN4ncnn3MatD2Ev.exit
+  %319 = phi ptr [ %320, %_ZN4ncnn3MatD2Ev.exit ], [ %91, %.preheader437 ]
   %320 = getelementptr inbounds i8, ptr %319, i64 -72
   %321 = getelementptr inbounds i8, ptr %319, i64 -64
   %322 = load ptr, ptr %321, align 8, !tbaa !7
@@ -1630,9 +1630,9 @@ _ZN4ncnn3MataSERKS0_.exit108:                     ; preds = %.noexc107, %_ZN4ncn
 544:                                              ; preds = %538
   %545 = load i8, ptr %3, align 8, !tbaa !56, !range !57, !noundef !58
   %546 = trunc nuw i8 %545 to i1
-  br i1 %546, label %547, label %.preheader305
+  br i1 %546, label %547, label %.preheader436
 
-.preheader305:                                    ; preds = %_ZN4ncnn3Mat7releaseEv.exit228, %544
+.preheader436:                                    ; preds = %_ZN4ncnn3Mat7releaseEv.exit228, %544
   br label %619
 
 547:                                              ; preds = %544
@@ -1712,7 +1712,7 @@ _ZN4ncnn3Mat7releaseEv.exit228:                   ; preds = %580, %579, %575, %5
   store i64 0, ptr %582, align 8, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %426, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %581, i8 0, i64 20, i1 false)
-  br label %.preheader305
+  br label %.preheader436
 
 583:                                              ; preds = %317, %311
   %.pn41 = phi { ptr, i32 } [ %312, %311 ], [ %.pn39, %317 ]
@@ -1805,8 +1805,8 @@ _ZN4ncnn3MatD2Ev.exit85:                          ; preds = %589, %584, %596, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %884
 
-619:                                              ; preds = %.preheader305, %_ZN4ncnn3MatD2Ev.exit86
-  %620 = phi ptr [ %621, %_ZN4ncnn3MatD2Ev.exit86 ], [ %373, %.preheader305 ]
+619:                                              ; preds = %.preheader436, %_ZN4ncnn3MatD2Ev.exit86
+  %620 = phi ptr [ %621, %_ZN4ncnn3MatD2Ev.exit86 ], [ %373, %.preheader436 ]
   %621 = getelementptr inbounds i8, ptr %620, i64 -72
   %622 = getelementptr inbounds i8, ptr %620, i64 -64
   %623 = load ptr, ptr %622, align 8, !tbaa !7
@@ -6303,13 +6303,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !21
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !21
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

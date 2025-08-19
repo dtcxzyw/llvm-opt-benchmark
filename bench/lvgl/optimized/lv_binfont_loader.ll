@@ -511,10 +511,10 @@ define void @lv_binfont_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %16
-  %.sink39.in = phi ptr [ %18, %16 ], [ %13, %14 ]
+  %.sink43.in = phi ptr [ %18, %16 ], [ %13, %14 ]
   %.sink = phi i64 [ 16, %16 ], [ 8, %14 ]
-  %.sink39 = load ptr, ptr %.sink39.in, align 8, !tbaa !57
-  tail call void @lv_free(ptr noundef %.sink39) #3
+  %.sink43 = load ptr, ptr %.sink43.in, align 8, !tbaa !57
+  tail call void @lv_free(ptr noundef %.sink43) #3
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   tail call void @lv_free(ptr noundef %20) #3
@@ -785,7 +785,7 @@ declare zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef, ptr noundef, i32 
 declare ptr @lv_font_get_bitmap_fmt_txt(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_glyph(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @load_glyph(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca [4 x i8], align 1
   %9 = alloca %struct.bit_iterator_t, align 8
@@ -1454,7 +1454,7 @@ read_bits.exit205:                                ; preds = %160
   %305 = phi i8 [ %.pre24.i247, %._crit_edge23.i246 ], [ %297, %294 ]
   %.lobit.i240 = lshr i8 %305, 7
   %306 = zext nneg i8 %.lobit.i240 to i32
-  %307 = shl nuw i32 %306, %296
+  %307 = shl nuw nsw i32 %306, %296
   %308 = or i32 %307, %.01622.i239
   %.not.i241 = icmp eq i32 %296, 0
   br i1 %.not.i241, label %313, label %294, !llvm.loop !76
@@ -1472,7 +1472,7 @@ read_bits.exit248:                                ; preds = %301
   %315 = sext i32 %314 to i64
   %316 = getelementptr i8, ptr %208, i64 %315
   %317 = getelementptr i8, ptr %316, i64 -1
-  %318 = shl i32 %308, %263
+  %318 = shl nuw nsw i32 %308, %263
   %319 = trunc i32 %318 to i8
   store i8 %319, ptr %317, align 1, !tbaa !62
   br label %320

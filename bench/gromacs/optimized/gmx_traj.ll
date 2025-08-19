@@ -5668,15 +5668,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162: ; preds = %_Z
   br label %151
 
 151:                                              ; preds = %.thread, %._crit_edge185.thread, %146, %._crit_edge185, %148
-  %.0131.lcssa231 = phi i32 [ %.1132, %148 ], [ %.1132, %._crit_edge185 ], [ %.1132, %146 ], [ 0, %._crit_edge185.thread ], [ 0, %.thread ]
-  %.0138.lcssa229 = phi float [ %.1139, %148 ], [ %.1139, %._crit_edge185 ], [ %.1139, %146 ], [ 0.000000e+00, %._crit_edge185.thread ], [ 0.000000e+00, %.thread ]
+  %.0131.lcssa249 = phi i32 [ %.1132, %148 ], [ %.1132, %._crit_edge185 ], [ %.1132, %146 ], [ 0, %._crit_edge185.thread ], [ 0, %.thread ]
+  %.0138.lcssa247 = phi float [ %.1139, %148 ], [ %.1139, %._crit_edge185 ], [ %.1139, %146 ], [ 0.000000e+00, %._crit_edge185.thread ], [ 0.000000e+00, %.thread ]
   %.0133 = phi float [ %150, %148 ], [ %13, %._crit_edge185 ], [ 1.000000e+00, %146 ], [ %13, %._crit_edge185.thread ], [ 1.000000e+00, %.thread ]
-  %152 = call noundef float @sqrtf(float noundef %.0138.lcssa229) #22, !tbaa !4
+  %152 = call noundef float @sqrtf(float noundef %.0138.lcssa247) #22, !tbaa !4
   %153 = fpext float %152 to double
-  %154 = add nsw i32 %.0131.lcssa231, 1
+  %154 = add nsw i32 %.0131.lcssa249, 1
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !107
-  %157 = sext i32 %.0131.lcssa231 to i64
+  %157 = sext i32 %.0131.lcssa249 to i64
   %158 = getelementptr inbounds ptr, ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8, !tbaa !108
   %160 = load ptr, ptr %159, align 8, !tbaa !32
@@ -6175,7 +6175,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !184
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit

@@ -302,7 +302,7 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTest(ptr noundef %0, ptr nound
   %26 = fmul double %11, %25
   %27 = fdiv double %26, %3
   %28 = fcmp ugt double %27, 1.000000e+00
-  br i1 %28, label %41, label %.thread32
+  br i1 %28, label %41, label %.thread33
 
 .thread:                                          ; preds = %13
   %29 = fcmp ogt double %17, 1.000000e+00
@@ -314,14 +314,14 @@ define internal range(i32 -21, 903) i32 @cvNlsConvTest(ptr noundef %0, ptr nound
 
 34:                                               ; preds = %.thread
   %35 = icmp eq i32 %14, 0
-  br i1 %35, label %37, label %.thread32
+  br i1 %35, label %37, label %.thread33
 
-.thread32:                                        ; preds = %18, %34
+.thread33:                                        ; preds = %18, %34
   %36 = call double @N_VWrmsNorm(ptr noundef %1, ptr noundef %4) #3
   br label %37
 
-37:                                               ; preds = %34, %.thread32
-  %38 = phi double [ %36, %.thread32 ], [ %11, %34 ]
+37:                                               ; preds = %34, %.thread33
+  %38 = phi double [ %36, %.thread33 ], [ %11, %34 ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 688
   store double %38, ptr %39, align 8, !tbaa !40
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 696

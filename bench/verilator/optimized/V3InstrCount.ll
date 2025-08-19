@@ -1548,11 +1548,11 @@ _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit56: ; preds = %._ZN14
   br i1 %.not26, label %101, label %.sink.split
 
 .sink.split:                                      ; preds = %95, %92
-  %.sink60 = phi ptr [ %94, %92 ], [ %97, %95 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sink60, i64 120
+  %.sink74 = phi ptr [ %94, %92 ], [ %97, %95 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sink74, i64 120
   store i64 0, ptr %98, align 8, !tbaa !34
   %99 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !35
-  %100 = getelementptr inbounds nuw i8, ptr %.sink60, i64 116
+  %100 = getelementptr inbounds nuw i8, ptr %.sink74, i64 116
   store i32 %99, ptr %100, align 4, !tbaa !36
   br label %101
 
@@ -1867,11 +1867,11 @@ _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit59: ; preds = %._ZN14
   br i1 %.not28, label %104, label %.sink.split
 
 .sink.split:                                      ; preds = %98, %95
-  %.sink65 = phi ptr [ %97, %95 ], [ %100, %98 ]
-  %101 = getelementptr inbounds nuw i8, ptr %.sink65, i64 120
+  %.sink77 = phi ptr [ %97, %95 ], [ %100, %98 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.sink77, i64 120
   store i64 0, ptr %101, align 8, !tbaa !34
   %102 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !35
-  %103 = getelementptr inbounds nuw i8, ptr %.sink65, i64 116
+  %103 = getelementptr inbounds nuw i8, ptr %.sink77, i64 116
   store i32 %102, ptr %103, align 4, !tbaa !36
   br label %104
 

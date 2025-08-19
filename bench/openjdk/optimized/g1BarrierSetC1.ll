@@ -1704,10 +1704,10 @@ _ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit:    ; preds = %21, %24, %41, %.sin
   br i1 %.not17.i.i16, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
 
 _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split: ; preds = %78, %78, %103, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit, %74
-  %.sink24 = phi i64 [ 192, %74 ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 24, %103 ], [ 24, %78 ], [ 24, %78 ]
+  %.sink27 = phi i64 [ 192, %74 ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 192, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 24, %103 ], [ 24, %78 ], [ 24, %78 ]
   %.sink = phi i64 [ 12, %74 ], [ 12, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 12, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ 8, %103 ], [ 8, %78 ], [ 8, %78 ]
   %.sink.i.i13.sink = phi ptr [ %75, %74 ], [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %51, %_ZN16LIR_OpVisitState8do_inputER7LIR_Opr.exit ], [ %104, %103 ], [ %80, %78 ], [ %80, %78 ]
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink24
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink27
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %109 = load i32, ptr %108, align 4
   %110 = add nsw i32 %109, 1

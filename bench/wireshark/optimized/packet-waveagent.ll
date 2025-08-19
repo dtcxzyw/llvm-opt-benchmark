@@ -698,9 +698,9 @@ define internal zeroext i1 @dissect_waveagent_heur(ptr noundef %0, ptr noundef r
   %107 = icmp eq i16 %106, 2
   %108 = add i32 %.0.i, 260
   %..i.i = select i1 %107, i32 4, i32 16
-  %hf_waveagent_ifipv4.val520.i.i = load i32, ptr @hf_waveagent_ifipv4, align 4
-  %hf_waveagent_ifipv6.val521.i.i = load i32, ptr @hf_waveagent_ifipv6, align 4
-  %109 = select i1 %107, i32 %hf_waveagent_ifipv4.val520.i.i, i32 %hf_waveagent_ifipv6.val521.i.i
+  %hf_waveagent_ifipv4.val526.i.i = load i32, ptr @hf_waveagent_ifipv4, align 4
+  %hf_waveagent_ifipv6.val527.i.i = load i32, ptr @hf_waveagent_ifipv6, align 4
+  %109 = select i1 %107, i32 %hf_waveagent_ifipv4.val526.i.i, i32 %hf_waveagent_ifipv6.val527.i.i
   %110 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %109, ptr noundef %0, i32 noundef %108, i32 noundef %..i.i, i32 noundef 0)
   %111 = load i32, ptr @hf_waveagent_ifdhcpserver, align 4
   %112 = add i32 %.0.i, 284
@@ -766,11 +766,11 @@ define internal zeroext i1 @dissect_waveagent_heur(ptr noundef %0, ptr noundef r
   %157 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %155)
   %158 = icmp eq i16 %157, 2
   %159 = add i32 %132, 124
-  %.519.i.i = select i1 %158, i32 4, i32 16
+  %.525.i.i = select i1 %158, i32 4, i32 16
   %hf_waveagent_ifipv4.val.i.i = load i32, ptr @hf_waveagent_ifipv4, align 4
   %hf_waveagent_ifipv6.val.i.i = load i32, ptr @hf_waveagent_ifipv6, align 4
   %160 = select i1 %158, i32 %hf_waveagent_ifipv4.val.i.i, i32 %hf_waveagent_ifipv6.val.i.i
-  %161 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef %.519.i.i, i32 noundef 0)
+  %161 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef %.525.i.i, i32 noundef 0)
   br label %162
 
 162:                                              ; preds = %.sink.split.i.i, %129

@@ -740,7 +740,7 @@ BufferGetPage.exit.i:                             ; preds = %329, %323
   call void @LockBuffer(i32 noundef %318, i32 noundef 2) #10
   %.val35.i.i = load i16, ptr %357, align 4
   %361 = icmp ult i16 %.val35.i.i, 25
-  br i1 %361, label %362, label %lazy_scan_new_or_empty.exit.thread169.i
+  br i1 %361, label %362, label %lazy_scan_new_or_empty.exit.thread178.i
 
 362:                                              ; preds = %360, %359
   %363 = getelementptr i8, ptr %.0.i.i.i, i64 10
@@ -834,9 +834,9 @@ BufferGetPage.exit.i:                             ; preds = %329, %323
   br label %lazy_scan_new_or_empty.exit.thread.i.backedge
 
 lazy_scan_new_or_empty.exit.i:                    ; preds = %356
-  br i1 %346, label %.thread.i244, label %lazy_scan_new_or_empty.exit.thread169.i
+  br i1 %346, label %.thread.i244, label %lazy_scan_new_or_empty.exit.thread178.i
 
-lazy_scan_new_or_empty.exit.thread169.i:          ; preds = %lazy_scan_new_or_empty.exit.i, %360
+lazy_scan_new_or_empty.exit.thread178.i:          ; preds = %lazy_scan_new_or_empty.exit.i, %360
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %413 = load i32, ptr %148, align 8
   store i32 %413, ptr %17, align 4
@@ -854,7 +854,7 @@ lazy_scan_new_or_empty.exit.thread169.i:          ; preds = %lazy_scan_new_or_em
   %.not114.i.i = select i1 %415, i1 true, i1 %.not114127.i.i
   br i1 %.not114.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %lazy_scan_new_or_empty.exit.thread169.i
+.lr.ph.i.i:                                       ; preds = %lazy_scan_new_or_empty.exit.thread178.i
   %420 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %421 = lshr i32 %335, 16
   %422 = trunc nuw i32 %421 to i16
@@ -975,22 +975,22 @@ default.unreachable:                              ; preds = %424
   %468 = icmp eq i32 %467, 0
   br i1 %468, label %471, label %474
 
-._crit_edge.thread.i.i:                           ; preds = %lazy_scan_new_or_empty.exit.thread169.i
+._crit_edge.thread.i.i:                           ; preds = %lazy_scan_new_or_empty.exit.thread178.i
   store i16 0, ptr %283, align 4
   %469 = load i32, ptr %78, align 8
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %471, label %.thread.i.i
 
 471:                                              ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i
-  %.062.lcssa146.i.i = phi i1 [ false, %._crit_edge.thread.i.i ], [ %.163.ph.i.i, %._crit_edge.i.i ]
-  %.065.lcssa143.i.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.166.ph.i.i, %._crit_edge.i.i ]
-  %.068.lcssa142.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %466, %._crit_edge.i.i ]
-  %.071.lcssa139.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %465, %._crit_edge.i.i ]
-  %.074.lcssa134.i.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.175.ph.i.i, %._crit_edge.i.i ]
-  %472 = icmp sgt i32 %.074.lcssa134.i.i, 0
-  %473 = call i32 @llvm.smax.i32(i32 %.074.lcssa134.i.i, i32 0)
-  %spec.select.i.i = add i32 %473, %.065.lcssa143.i.i
-  %spec.select79.i.i = select i1 %472, i1 true, i1 %.062.lcssa146.i.i
+  %.062.lcssa147.i.i = phi i1 [ false, %._crit_edge.thread.i.i ], [ %.163.ph.i.i, %._crit_edge.i.i ]
+  %.065.lcssa144.i.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.166.ph.i.i, %._crit_edge.i.i ]
+  %.068.lcssa143.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %466, %._crit_edge.i.i ]
+  %.071.lcssa140.i.i = phi i64 [ 0, %._crit_edge.thread.i.i ], [ %465, %._crit_edge.i.i ]
+  %.074.lcssa135.i.i = phi i32 [ 0, %._crit_edge.thread.i.i ], [ %.175.ph.i.i, %._crit_edge.i.i ]
+  %472 = icmp sgt i32 %.074.lcssa135.i.i, 0
+  %473 = call i32 @llvm.smax.i32(i32 %.074.lcssa135.i.i, i32 0)
+  %spec.select.i.i = add i32 %473, %.065.lcssa144.i.i
+  %spec.select79.i.i = select i1 %472, i1 true, i1 %.062.lcssa147.i.i
   br label %.thread.i.i
 
 474:                                              ; preds = %._crit_edge.i.i
@@ -1028,16 +1028,16 @@ default.unreachable:                              ; preds = %424
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %476, %474, %471, %._crit_edge.thread.i.i
-  %.068.lcssa140.i.i = phi i64 [ %466, %476 ], [ %466, %474 ], [ %.068.lcssa142.i.i, %471 ], [ 0, %._crit_edge.thread.i.i ]
-  %.071.lcssa137.i.i = phi i64 [ %465, %476 ], [ %465, %474 ], [ %.071.lcssa139.i.i, %471 ], [ 0, %._crit_edge.thread.i.i ]
-  %.074.lcssa136.i.i = phi i1 [ true, %476 ], [ false, %474 ], [ %472, %471 ], [ false, %._crit_edge.thread.i.i ]
+  %.068.lcssa141.i.i = phi i64 [ %466, %476 ], [ %466, %474 ], [ %.068.lcssa143.i.i, %471 ], [ 0, %._crit_edge.thread.i.i ]
+  %.071.lcssa138.i.i = phi i64 [ %465, %476 ], [ %465, %474 ], [ %.071.lcssa140.i.i, %471 ], [ 0, %._crit_edge.thread.i.i ]
+  %.074.lcssa137.i.i = phi i1 [ true, %476 ], [ false, %474 ], [ %472, %471 ], [ false, %._crit_edge.thread.i.i ]
   %.3.i.i = phi i32 [ %.166.ph.i.i, %476 ], [ %.166.ph.i.i, %474 ], [ %spec.select.i.i, %471 ], [ 0, %._crit_edge.thread.i.i ]
   %.264.i.i = phi i1 [ %.163.ph.i.i, %476 ], [ %.163.ph.i.i, %474 ], [ %spec.select79.i.i, %471 ], [ false, %._crit_edge.thread.i.i ]
   %492 = load i64, ptr %132, align 8
-  %493 = add i64 %492, %.071.lcssa137.i.i
+  %493 = add i64 %492, %.071.lcssa138.i.i
   store i64 %493, ptr %132, align 8
   %494 = load i64, ptr %133, align 8
-  %495 = add i64 %494, %.068.lcssa140.i.i
+  %495 = add i64 %494, %.068.lcssa141.i.i
   store i64 %495, ptr %133, align 8
   %496 = sext i32 %.3.i.i to i64
   %497 = load i64, ptr %134, align 8
@@ -1387,7 +1387,7 @@ lazy_scan_prune.exit.i:                           ; preds = %654, %649, %634, %6
 
 .critedge.i:                                      ; preds = %672, %667, %662, %658, %lazy_scan_prune.exit.i, %507
   %.0119.shrunk150.i = phi i1 [ true, %lazy_scan_prune.exit.i ], [ true, %667 ], [ true, %662 ], [ true, %658 ], [ true, %672 ], [ false, %507 ]
-  %.3.i = phi i1 [ %565, %lazy_scan_prune.exit.i ], [ %565, %667 ], [ %565, %662 ], [ %565, %658 ], [ %565, %672 ], [ %.074.lcssa136.i.i, %507 ]
+  %.3.i = phi i1 [ %565, %lazy_scan_prune.exit.i ], [ %565, %667 ], [ %565, %662 ], [ %565, %658 ], [ %565, %672 ], [ %.074.lcssa137.i.i, %507 ]
   %675 = load i32, ptr %78, align 8
   %676 = icmp eq i32 %675, 0
   br i1 %676, label %680, label %677
@@ -1989,7 +1989,7 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
   %959 = add i64 %958, %957
   call void @pgstat_report_vacuum(i32 noundef %948, i1 noundef zeroext %952, i64 noundef %956, i64 noundef %959, i64 noundef %55) #10
   call void @pgstat_progress_end_command() #10
-  br i1 %54, label %960, label %.thread296
+  br i1 %54, label %960, label %.thread333
 
 960:                                              ; preds = %941
   %961 = call i64 @GetCurrentTimestamp() #10
@@ -2003,7 +2003,7 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
 
 966:                                              ; preds = %962
   %967 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %55, i64 noundef %961, i32 noundef %964) #10
-  br i1 %967, label %968, label %.thread297
+  br i1 %967, label %968, label %.thread334
 
 968:                                              ; preds = %966, %962, %960
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -2280,15 +2280,15 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
   %1136 = icmp sgt i32 %1135, 0
   br i1 %1136, label %.lr.ph269.split.us.preheader, label %._crit_edge270
 
-.thread297:                                       ; preds = %966
+.thread334:                                       ; preds = %966
   %1137 = load i32, ptr %78, align 8
   %1138 = icmp sgt i32 %1137, 0
   br i1 %1138, label %.lr.ph269.split.us.preheader, label %._crit_edge270
 
-.lr.ph269.split.us.preheader:                     ; preds = %1133, %.thread297
+.lr.ph269.split.us.preheader:                     ; preds = %1133, %.thread334
   br label %.lr.ph269.split.us
 
-.thread296:                                       ; preds = %941
+.thread333:                                       ; preds = %941
   %1139 = load i32, ptr %78, align 8
   %1140 = icmp sgt i32 %1139, 0
   br i1 %1140, label %.lr.ph269.split, label %._crit_edge270
@@ -2315,7 +2315,7 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
   %1150 = icmp slt i64 %indvars.iv.next288, %1149
   br i1 %1150, label %.lr.ph269.split.us, label %._crit_edge270, !llvm.loop !17
 
-._crit_edge270:                                   ; preds = %1156, %1145, %.thread297, %.thread296, %1133
+._crit_edge270:                                   ; preds = %1156, %1145, %.thread334, %.thread333, %1133
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -2325,9 +2325,9 @@ lazy_truncate_heap.exit:                          ; preds = %928, %797, %800, %u
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret void
 
-.lr.ph269.split:                                  ; preds = %.thread296, %1156
-  %1151 = phi i32 [ %1157, %1156 ], [ %1139, %.thread296 ]
-  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %1156 ], [ 0, %.thread296 ]
+.lr.ph269.split:                                  ; preds = %.thread333, %1156
+  %1151 = phi i32 [ %1157, %1156 ], [ %1139, %.thread333 ]
+  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %1156 ], [ 0, %.thread333 ]
   %1152 = load ptr, ptr %127, align 8
   %1153 = getelementptr inbounds nuw ptr, ptr %1152, i64 %indvars.iv284
   %1154 = load ptr, ptr %1153, align 8
@@ -2753,8 +2753,8 @@ find_next_unskippable_block.exit:                 ; preds = %44, %47, %37, %39
   br label %67
 
 61:                                               ; preds = %.thread, %56
-  %.03342 = phi i32 [ %.028.i, %.thread ], [ %.033, %56 ]
-  store i32 %.03342, ptr %5, align 8
+  %.03347 = phi i32 [ %.028.i, %.thread ], [ %.033, %56 ]
+  store i32 %.03347, ptr %5, align 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %63 = load i8, ptr %62, align 8, !range !4, !noundef !5
   %spec.select = shl nuw nsw i8 %63, 1
@@ -3266,8 +3266,8 @@ HeapTupleHeaderGetXmin.exit.i.i.i:                ; preds = %244, %241
   %.1.i.i = phi i32 [ %spec.select55.i.i, %248 ], [ %.0.i.i, %217 ], [ %.0.i.i, %217 ], [ %spec.select55.i.i, %252 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %259 = add i16 %.055.i.i.i, 1
-  %.not60.i.i.i = icmp ugt i16 %259, %212
-  br i1 %.not60.i.i.i, label %.loopexit.i.i, label %217, !llvm.loop !21
+  %.not64.i.i.i = icmp ugt i16 %259, %212
+  br i1 %.not64.i.i.i, label %.loopexit.i.i, label %217, !llvm.loop !21
 
 heap_page_is_all_visible.exit.i.i:                ; preds = %HeapTupleHeaderGetXmin.exit.i.i.i, %237, %227, %227, %227, %227, %224
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3280,15 +3280,15 @@ heap_page_is_all_visible.exit.i.i:                ; preds = %HeapTupleHeaderGetX
   br label %261
 
 261:                                              ; preds = %.loopexit.i.i, %.loopexit.thread.i.i
-  %.3.ph67.i.i = phi i32 [ 0, %.loopexit.thread.i.i ], [ %.1.i.i, %.loopexit.i.i ]
-  %.249.ph65.i.i = phi i1 [ true, %.loopexit.thread.i.i ], [ %260, %.loopexit.i.i ]
+  %.3.ph72.i.i = phi i32 [ 0, %.loopexit.thread.i.i ], [ %.1.i.i, %.loopexit.i.i ]
+  %.249.ph70.i.i = phi i1 [ true, %.loopexit.thread.i.i ], [ %260, %.loopexit.i.i ]
   %262 = phi i8 [ 3, %.loopexit.thread.i.i ], [ %spec.select.i.i, %.loopexit.i.i ]
   %263 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 10
   %264 = load i16, ptr %263, align 2
   %265 = or i16 %264, 4
   store i16 %265, ptr %263, align 2
   %266 = load ptr, ptr %0, align 8
-  %267 = call zeroext i8 @visibilitymap_set(ptr noundef %266, i32 noundef %140, i32 noundef %139, i64 noundef 0, i32 noundef %144, i32 noundef %.3.ph67.i.i, i8 noundef zeroext %262) #10
+  %267 = call zeroext i8 @visibilitymap_set(ptr noundef %266, i32 noundef %140, i32 noundef %139, i64 noundef 0, i32 noundef %144, i32 noundef %.3.ph72.i.i, i8 noundef zeroext %262) #10
   %268 = zext i8 %267 to i32
   %269 = and i32 %268, 1
   %270 = icmp eq i32 %269, 0
@@ -3298,7 +3298,7 @@ heap_page_is_all_visible.exit.i.i:                ; preds = %HeapTupleHeaderGetX
   %272 = load i32, ptr %136, align 4
   %273 = add i32 %272, 1
   store i32 %273, ptr %136, align 4
-  br i1 %.249.ph65.i.i, label %274, label %lazy_vacuum_heap_page.exit.i
+  br i1 %.249.ph70.i.i, label %274, label %lazy_vacuum_heap_page.exit.i
 
 274:                                              ; preds = %271
   %275 = load i32, ptr %137, align 8
@@ -3309,7 +3309,7 @@ heap_page_is_all_visible.exit.i.i:                ; preds = %HeapTupleHeaderGetX
 277:                                              ; preds = %261
   %278 = and i32 %268, 2
   %279 = icmp eq i32 %278, 0
-  %or.cond.i.i = and i1 %.249.ph65.i.i, %279
+  %or.cond.i.i = and i1 %.249.ph70.i.i, %279
   br i1 %or.cond.i.i, label %280, label %lazy_vacuum_heap_page.exit.i
 
 280:                                              ; preds = %277
@@ -3336,8 +3336,8 @@ lazy_vacuum_heap_page.exit.i:                     ; preds = %280, %277, %274, %2
 289:                                              ; preds = %lazy_vacuum_heap_page.exit.i
   %290 = load ptr, ptr @BufferBlocks, align 8
   %291 = add nsw i32 %139, -1
-  %292 = sext i32 %291 to i64
-  %293 = shl nsw i64 %292, 13
+  %292 = zext nneg i32 %291 to i64
+  %293 = shl nuw nsw i64 %292, 13
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 %293
   br label %295
 

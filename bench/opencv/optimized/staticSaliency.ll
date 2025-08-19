@@ -282,8 +282,8 @@ _ZN2cv4Mat_IfEC2ENS_5Size_IiEE.exit:              ; preds = %87
   %.02277.us = phi i64 [ %indvars.iv.next98, %._crit_edge.us80 ], [ 0, %.preheader.lr.ph.split.us ]
   %112 = mul i64 %111, %indvars.iv104
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 %112
-  %sext109 = shl i64 %.02277.us, 32
-  %114 = ashr exact i64 %sext109, 32
+  %sext113 = shl i64 %.02277.us, 32
+  %114 = ashr exact i64 %sext113, 32
   br label %115
 
 115:                                              ; preds = %.preheader.us, %115

@@ -5832,9 +5832,9 @@ _ZN11quinn_proto8endpoint8Endpoint14cids_exhausted17hc771a0d18a2ee089E.exit.thre
   br label %1443
 
 .critedge:                                        ; preds = %1291, %1305, %1274, %.thread486, %1312, %1356, %1370, %1339, %.thread498, %1377, %1378, %1380, %1419, %1433, %1402, %.thread510, %1441, %491, %500, %484, %495
-  %.sink638 = phi i32 [ 1000000003, %495 ], [ 1000000003, %484 ], [ 1000000003, %500 ], [ 1000000003, %491 ], [ 1000000003, %1291 ], [ 1000000003, %1305 ], [ 1000000003, %1274 ], [ 1000000003, %.thread486 ], [ 1000000003, %1312 ], [ 1000000003, %1356 ], [ 1000000003, %1370 ], [ 1000000003, %1339 ], [ 1000000003, %.thread498 ], [ 1000000003, %1377 ], [ 1000000002, %1380 ], [ 1000000003, %1378 ], [ 1000000003, %1419 ], [ 1000000003, %1433 ], [ 1000000003, %1402 ], [ 1000000003, %.thread510 ], [ 1000000003, %1441 ]
+  %.sink681 = phi i32 [ 1000000003, %495 ], [ 1000000003, %484 ], [ 1000000003, %500 ], [ 1000000003, %491 ], [ 1000000003, %1291 ], [ 1000000003, %1305 ], [ 1000000003, %1274 ], [ 1000000003, %.thread486 ], [ 1000000003, %1312 ], [ 1000000003, %1356 ], [ 1000000003, %1370 ], [ 1000000003, %1339 ], [ 1000000003, %.thread498 ], [ 1000000003, %1377 ], [ 1000000002, %1380 ], [ 1000000003, %1378 ], [ 1000000003, %1419 ], [ 1000000003, %1433 ], [ 1000000003, %1402 ], [ 1000000003, %.thread510 ], [ 1000000003, %1441 ]
   %1442 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink638, ptr %1442, align 8
+  store i32 %.sink681, ptr %1442, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
   call void @"_ZN4core3ptr65drop_in_place$LT$quinn_proto..shared..DatagramConnectionEvent$GT$17hea68ecd53071a0bfE"(ptr noalias noundef nonnull align 8 dereferenceable(208) %204)
   br label %1443
@@ -10949,9 +10949,9 @@ _ZN11quinn_proto8endpoint15ConnectionIndex14remove_initial17h6a81b2c56d9edad3E.e
   %87 = load i32, ptr %86, align 4, !alias.scope !591, !noundef !3
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 256
   invoke void @_ZN11rand_chacha4guts11refill_wide17hef15c7c52b9581fbE(ptr noalias noundef nonnull align 16 dereferenceable(48) %88, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(320) %1)
-          to label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread55" unwind label %.thread46
+          to label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread58" unwind label %.thread46
 
-"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread55": ; preds = %85
+"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread58": ; preds = %85
   store i64 1, ptr %81, align 16, !alias.scope !594
   %89 = zext i32 %87 to i64
   %90 = load i32, ptr %1, align 16, !alias.scope !591, !noundef !3
@@ -10982,9 +10982,9 @@ _ZN11quinn_proto8endpoint15ConnectionIndex14remove_initial17h6a81b2c56d9edad3E.e
   %.not.i23 = icmp eq i64 %97, 63
   br i1 %.not.i23, label %107, label %116
 
-102:                                              ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread55", %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread", %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit"
-  %.sroa.0.0.i52 = phi i64 [ %96, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread" ], [ %99, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit" ], [ %93, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread55" ]
-  %103 = phi i64 [ 2, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread" ], [ %97, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit" ], [ 1, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread55" ]
+102:                                              ; preds = %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread58", %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread", %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit"
+  %.sroa.0.0.i52 = phi i64 [ %96, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread" ], [ %99, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit" ], [ %93, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread58" ]
+  %103 = phi i64 [ 2, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread" ], [ %97, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit" ], [ 1, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread58" ]
   %104 = add nuw nsw i64 %103, 2
   store i64 %104, ptr %81, align 16, !alias.scope !606
   %105 = getelementptr inbounds nuw i32, ptr %1, i64 %103

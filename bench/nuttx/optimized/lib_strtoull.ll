@@ -117,11 +117,11 @@ define i64 @strtoull(ptr noundef %0, ptr noundef writeonly captures(address_is_n
   %55 = getelementptr inbounds i8, ptr %.pre, i64 -1
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, %.1
-  %spec.select42 = select i1 %57, ptr %55, ptr %.pre
+  %spec.select43 = select i1 %57, ptr %55, ptr %.pre
   br label %.thread34
 
 .thread34:                                        ; preds = %54, %.thread, %53
-  %58 = phi ptr [ %.pre, %53 ], [ null, %.thread ], [ %spec.select42, %54 ]
+  %58 = phi ptr [ %.pre, %53 ], [ null, %.thread ], [ %spec.select43, %54 ]
   %.0193138 = phi i64 [ %.019, %53 ], [ 0, %.thread ], [ %.019, %54 ]
   store ptr %58, ptr %1, align 8
   br label %59

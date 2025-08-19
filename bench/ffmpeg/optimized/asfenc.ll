@@ -325,8 +325,8 @@ put_payload_header.exit.i:                        ; preds = %97, %86
   %108 = getelementptr inbounds i8, ptr %.0.ph79.i, i64 %107
   %.not68.i = icmp eq i8 %105, 0
   %109 = icmp slt i32 %104, 30
-  %or.cond73 = select i1 %.not68.i, i1 true, i1 %109
-  br i1 %or.cond73, label %.outer.sink.split.i, label %110
+  %or.cond83 = select i1 %.not68.i, i1 true, i1 %109
+  br i1 %or.cond83, label %.outer.sink.split.i, label %110
 
 110:                                              ; preds = %103
   %111 = load i32, ptr %62, align 8, !tbaa !37
@@ -1756,9 +1756,9 @@ asf_write_markers.exit:                           ; preds = %420, %371
   %506 = load i32, ptr %502, align 8, !tbaa !52
   %switch.selectcmp = icmp eq i32 %506, 0
   %switch.select = select i1 %switch.selectcmp, i32 1, i32 -1
-  %switch.selectcmp599 = icmp eq i32 %506, 1
-  %switch.select600 = select i1 %switch.selectcmp599, i32 2, i32 %switch.select
-  call void @avio_wl16(ptr noundef %15, i32 noundef %switch.select600) #8
+  %switch.selectcmp623 = icmp eq i32 %506, 1
+  %switch.select624 = select i1 %switch.selectcmp623, i32 2, i32 %switch.select
+  call void @avio_wl16(ptr noundef %15, i32 noundef %switch.select624) #8
   %507 = load i32, ptr %503, align 4, !tbaa !124
   %508 = icmp eq i32 %507, 86024
   br i1 %508, label %.thread478, label %509

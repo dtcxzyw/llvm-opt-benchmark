@@ -4875,7 +4875,8 @@ define void @Super_WriteLibraryTreeStr_rec(ptr noundef captures(none) %0, ptr no
   br label %26
 
 26:                                               ; preds = %Vec_StrPush.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Vec_StrPush.exit.i ]
+  %exitcond.not.i = phi i1 [ false, %.lr.ph.i ], [ true, %Vec_StrPush.exit.i ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %Vec_StrPush.exit.i ]
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i
   %28 = load i8, ptr %27, align 1, !tbaa !103
   %29 = load i32, ptr %25, align 4, !tbaa !10
@@ -4939,8 +4940,6 @@ Vec_StrPush.exit.i:                               ; preds = %49, %Vec_StrGrow.ex
   %54 = sext i32 %52 to i64
   %55 = getelementptr inbounds i8, ptr %51, i64 %54
   store i8 %28, ptr %55, align 1, !tbaa !103
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.not.i, label %Vec_StrPrintStr.exit, label %26, !llvm.loop !105
 
 Vec_StrPrintStr.exit:                             ; preds = %Vec_StrPush.exit.i, %._crit_edge
@@ -5541,8 +5540,8 @@ Vec_StrPush.exit41:                               ; preds = %.Vec_StrGrow.exit10
 .lr.ph.preheader:                                 ; preds = %Vec_StrPush.exit41
   %68 = load ptr, ptr %64, align 8, !tbaa !34
   %69 = load ptr, ptr %68, align 8, !tbaa !42
-  %.not65 = icmp eq ptr %69, null
-  br i1 %.not65, label %.critedge, label %.lr.ph67
+  %.not78 = icmp eq ptr %69, null
+  br i1 %.not78, label %.critedge, label %.lr.ph80
 
 .critedge.thread:                                 ; preds = %Vec_StrPush.exit41
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5550,27 +5549,27 @@ Vec_StrPush.exit41:                               ; preds = %.Vec_StrGrow.exit10
   store i32 %71, ptr %3, align 4, !tbaa !33
   br label %.critedge2
 
-.lr.ph:                                           ; preds = %.lr.ph67
+.lr.ph:                                           ; preds = %.lr.ph80
   %72 = load ptr, ptr %64, align 8, !tbaa !34
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.next
   %74 = load ptr, ptr %73, align 8, !tbaa !42
   %.not = icmp eq ptr %74, null
-  br i1 %.not, label %.critedge, label %.lr.ph67, !llvm.loop !115
+  br i1 %.not, label %.critedge, label %.lr.ph80, !llvm.loop !115
 
-.lr.ph67:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph80:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %75 = phi ptr [ %74, %.lr.ph ], [ %69, %.lr.ph.preheader ]
-  %indvars.iv66 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv79 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = or i32 %77, 2
   store i32 %78, ptr %76, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv66, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv79, 1
   %79 = load i32, ptr %65, align 8, !tbaa !38
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next, %80
   br i1 %81, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !115
 
-..critedge_crit_edge:                             ; preds = %.lr.ph67
+..critedge_crit_edge:                             ; preds = %.lr.ph80
   br label %.critedge, !llvm.loop !115
 
 .critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader

@@ -26216,9 +26216,9 @@ addresses_equal.exit:                             ; preds = %41, %33, %27, %48
   br i1 %77, label %addresses_equal.exit21.sink.split, label %addresses_equal.exit21
 
 addresses_equal.exit21.sink.split:                ; preds = %72, %48
-  %.sink25 = phi i64 [ 28, %48 ], [ 60, %72 ]
+  %.sink28 = phi i64 [ 28, %48 ], [ 60, %72 ]
   %78 = load i32, ptr %6, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink25
+  %79 = getelementptr inbounds nuw i8, ptr %22, i64 %.sink28
   store i32 %78, ptr %79, align 4
   br label %addresses_equal.exit21
 
@@ -26644,8 +26644,8 @@ addresses_equal.exit:                             ; preds = %28, %20, %16, %35
   br i1 %60, label %addresses_equal.exit16.sink.split, label %addresses_equal.exit16
 
 addresses_equal.exit16.sink.split:                ; preds = %57, %35
-  %.sink19 = phi i64 [ 28, %35 ], [ 60, %57 ]
-  %61 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink19
+  %.sink23 = phi i64 [ 28, %35 ], [ 60, %57 ]
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink23
   %62 = load i32, ptr %61, align 4
   br label %addresses_equal.exit16
 

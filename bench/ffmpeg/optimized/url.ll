@@ -361,10 +361,10 @@ find_delim.exit91:                                ; preds = %.lr.ph.i87, %.lr.ph
   br label %find_delim.exit99
 
 find_delim.exit99:                                ; preds = %80, %.lr.ph.i95, %.lr.ph.i95, %73, %70, %75, %82
-  %.sink137 = phi i64 [ 24, %82 ], [ 40, %75 ], [ 40, %70 ], [ 40, %73 ], [ 40, %.lr.ph.i95 ], [ 40, %.lr.ph.i95 ], [ 40, %80 ]
+  %.sink149 = phi i64 [ 24, %82 ], [ 40, %75 ], [ 40, %70 ], [ 40, %73 ], [ 40, %.lr.ph.i95 ], [ 40, %.lr.ph.i95 ], [ 40, %80 ]
   %spec.select.sink = phi ptr [ %spec.select, %82 ], [ %spec.select67, %75 ], [ %71, %70 ], [ %71, %73 ], [ %scevgep.i94, %80 ], [ %.06.i96, %.lr.ph.i95 ], [ %.06.i96, %.lr.ph.i95 ]
   %.3 = phi ptr [ %spec.select, %82 ], [ %.0.lcssa.i68117, %75 ], [ %.0.lcssa.i68117, %70 ], [ %.0.lcssa.i68117, %73 ], [ %.0.lcssa.i68117, %.lr.ph.i95 ], [ %.0.lcssa.i68117, %.lr.ph.i95 ], [ %.0.lcssa.i68117, %80 ]
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink137
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink149
   store ptr %spec.select.sink, ptr %85, align 8, !tbaa !25
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.3, ptr %86, align 8, !tbaa !26
@@ -710,8 +710,8 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   %145 = ptrtoint ptr %68 to i64
   %146 = sub i64 %144, %145
   %147 = add nuw nsw i64 %94, %100
-  %gepdiff215 = sub nsw i64 %11, %147
-  %148 = icmp ugt i64 %146, %gepdiff215
+  %gepdiff235 = sub nsw i64 %11, %147
+  %148 = icmp ugt i64 %146, %gepdiff235
   br i1 %148, label %.thread205.thread, label %.thread191
 
 .thread191:                                       ; preds = %143
@@ -764,17 +764,17 @@ is_fq_dos_path.exit159.thread168:                 ; preds = %43, %43, %is_fq_dos
   %172 = phi ptr [ %spec.select, %170 ], [ @.str.15, %132 ], [ @.str.15, %139 ]
   %.087208.fr = freeze i32 %.087208
   %173 = icmp eq i32 %.087208.fr, -12
-  %spec.select221 = select i1 %173, ptr @.str.19, ptr %172
+  %spec.select241 = select i1 %173, ptr @.str.19, ptr %172
   br label %.thread205.thread
 
 .thread205.thread:                                ; preds = %.thread205, %128, %54, %97, %143, %150, %158
-  %.087208219 = phi i32 [ -12, %158 ], [ -12, %150 ], [ -12, %143 ], [ -12, %97 ], [ -12, %54 ], [ -12, %128 ], [ %.087208.fr, %.thread205 ]
-  %174 = phi ptr [ @.str.19, %158 ], [ @.str.19, %150 ], [ @.str.19, %143 ], [ @.str.19, %97 ], [ @.str.19, %54 ], [ @.str.19, %128 ], [ %spec.select221, %.thread205 ]
+  %.087208239 = phi i32 [ -12, %158 ], [ -12, %150 ], [ -12, %143 ], [ -12, %97 ], [ -12, %54 ], [ -12, %128 ], [ %.087208.fr, %.thread205 ]
+  %174 = phi ptr [ @.str.19, %158 ], [ @.str.19, %150 ], [ @.str.19, %143 ], [ @.str.19, %97 ], [ @.str.19, %54 ], [ @.str.19, %128 ], [ %spec.select241, %.thread205 ]
   %175 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %10, ptr noundef nonnull @.str.18, ptr noundef nonnull %174) #12
   br label %176
 
 176:                                              ; preds = %5, %.thread205.thread, %168
-  %.0 = phi i32 [ %.087208219, %.thread205.thread ], [ 0, %168 ], [ -12, %5 ]
+  %.0 = phi i32 [ %.087208239, %.thread205.thread ], [ 0, %168 ], [ -12, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

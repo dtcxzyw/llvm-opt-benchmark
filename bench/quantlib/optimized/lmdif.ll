@@ -742,7 +742,7 @@ for.cond99.preheader:                             ; preds = %for.end92
   %div.i236 = fdiv double 1.304000e+19, %conv.i235
   %cmp55.i237 = icmp sgt i64 %28, 1
   %invariant.gep = getelementptr double, ptr %a, i64 %indvars.iv360
-  %invariant.gep423 = getelementptr double, ptr %a, i64 %41
+  %invariant.gep430 = getelementptr double, ptr %a, i64 %41
   br label %for.body108.preheader
 
 for.body108.preheader:                            ; preds = %for.inc184, %for.cond99.preheader
@@ -820,7 +820,7 @@ if.then145:                                       ; preds = %land.lhs.true
   br i1 %cmp167, label %for.inc184, label %if.then168
 
 if.then168:                                       ; preds = %if.then145
-  %gep424 = getelementptr double, ptr %invariant.gep423, i64 %45
+  %gep431 = getelementptr double, ptr %invariant.gep430, i64 %45
   br i1 %cmp55.i237, label %for.body.i246, label %if.else45.i238
 
 for.body.i246:                                    ; preds = %if.then168, %for.inc.i262
@@ -830,7 +830,7 @@ for.body.i246:                                    ; preds = %if.then168, %for.in
   %s3.059.i250 = phi double [ %s3.1.i265, %for.inc.i262 ], [ 0.000000e+00, %if.then168 ]
   %s2.058.i251 = phi double [ %s2.1.i264, %for.inc.i262 ], [ 0.000000e+00, %if.then168 ]
   %s1.057.i252 = phi double [ %s1.1.i263, %for.inc.i262 ], [ 0.000000e+00, %if.then168 ]
-  %arrayidx.i253 = getelementptr inbounds nuw double, ptr %gep424, i64 %indvars.iv.i247
+  %arrayidx.i253 = getelementptr inbounds nuw double, ptr %gep431, i64 %indvars.iv.i247
   %59 = load double, ptr %arrayidx.i253, align 8, !tbaa !3
   %60 = tail call double @llvm.fabs.f64(double %59)
   %cmp1.i254 = fcmp ogt double %60, 3.834000e-20
@@ -1388,8 +1388,8 @@ for.end73:                                        ; preds = %entry
   br label %if.else45.i
 
 for.body.preheader.i:                             ; preds = %for.body63
-  %conv.i690 = uitofp nneg i32 %n to double
-  %div.i691 = fdiv double 1.304000e+19, %conv.i690
+  %conv.i698 = uitofp nneg i32 %n to double
+  %div.i699 = fdiv double 1.304000e+19, %conv.i698
   %wide.trip.count.i = zext nneg i32 %n to i64
   br label %for.body.i
 
@@ -1404,7 +1404,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %22 = load double, ptr %arrayidx.i, align 8, !tbaa !3
   %23 = tail call double @llvm.fabs.f64(double %22)
   %cmp1.i = fcmp ogt double %23, 3.834000e-20
-  %cmp2.i = fcmp olt double %23, %div.i691
+  %cmp2.i = fcmp olt double %23, %div.i699
   %or.cond.i = and i1 %cmp1.i, %cmp2.i
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
@@ -1498,8 +1498,8 @@ if.end43.i:                                       ; preds = %if.else39.i, %if.th
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit
 
 if.else45.i:                                      ; preds = %for.end73, %if.end30.i
-  %div.i697 = phi double [ %div.i691, %if.end30.i ], [ %div.i, %for.end73 ]
-  %nsing.0.lcssa684686688693 = phi i32 [ %nsing.1, %if.end30.i ], [ %n, %for.end73 ]
+  %div.i705 = phi double [ %div.i699, %if.end30.i ], [ %div.i, %for.end73 ]
+  %nsing.0.lcssa692694696701 = phi i32 [ %nsing.1, %if.end30.i ], [ %n, %for.end73 ]
   %s3.0.lcssa7481.i = phi double [ %s3.1.i, %if.end30.i ], [ 0.000000e+00, %for.end73 ]
   %x3max.0.lcssa7580.i = phi double [ %x3max.1.i, %if.end30.i ], [ 0.000000e+00, %for.end73 ]
   %call46.i = tail call double @sqrt(double noundef %s3.0.lcssa7481.i) #11, !tbaa !9
@@ -1507,8 +1507,8 @@ if.else45.i:                                      ; preds = %for.end73, %if.end3
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit
 
 _ZN8QuantLib7MINPACK5enormEiPd.exit:              ; preds = %if.then26.i, %if.end43.i, %if.else45.i
-  %div.i696 = phi double [ %div.i691, %if.then26.i ], [ %div.i691, %if.end43.i ], [ %div.i697, %if.else45.i ]
-  %nsing.0.lcssa684686688692 = phi i32 [ %nsing.1, %if.then26.i ], [ %nsing.1, %if.end43.i ], [ %nsing.0.lcssa684686688693, %if.else45.i ]
+  %div.i704 = phi double [ %div.i699, %if.then26.i ], [ %div.i699, %if.end43.i ], [ %div.i705, %if.else45.i ]
+  %nsing.0.lcssa692694696700 = phi i32 [ %nsing.1, %if.then26.i ], [ %nsing.1, %if.end43.i ], [ %nsing.0.lcssa692694696701, %if.else45.i ]
   %retval.0.i = phi double [ %mul29.i, %if.then26.i ], [ %call44.i, %if.end43.i ], [ %mul47.i, %if.else45.i ]
   %sub74 = fsub double %retval.0.i, %delta
   %mul75 = fmul double %delta, 1.000000e-01
@@ -1516,7 +1516,7 @@ _ZN8QuantLib7MINPACK5enormEiPd.exit:              ; preds = %if.then26.i, %if.en
   br i1 %cmp76, label %if.end78, label %if.then283
 
 if.end78:                                         ; preds = %_ZN8QuantLib7MINPACK5enormEiPd.exit
-  %cmp79.not = icmp slt i32 %nsing.0.lcssa684686688692, %n
+  %cmp79.not = icmp slt i32 %nsing.0.lcssa692694696700, %n
   br i1 %cmp79.not, label %if.end134, label %for.cond81.preheader
 
 for.cond81.preheader:                             ; preds = %if.end78
@@ -1601,7 +1601,7 @@ for.body.i244:                                    ; preds = %for.inc.i260, %for.
   %41 = load double, ptr %arrayidx.i251, align 8, !tbaa !3
   %42 = tail call double @llvm.fabs.f64(double %41)
   %cmp1.i252 = fcmp ogt double %42, 3.834000e-20
-  %cmp2.i253 = fcmp olt double %42, %div.i696
+  %cmp2.i253 = fcmp olt double %42, %div.i704
   %or.cond.i254 = and i1 %cmp1.i252, %cmp2.i253
   br i1 %or.cond.i254, label %if.then.i302, label %if.end.i255
 
@@ -1767,7 +1767,7 @@ for.body.i315:                                    ; preds = %for.inc.i331, %for.
   %56 = load double, ptr %arrayidx.i322, align 8, !tbaa !3
   %57 = tail call double @llvm.fabs.f64(double %56)
   %cmp1.i323 = fcmp ogt double %57, 3.834000e-20
-  %cmp2.i324 = fcmp olt double %57, %div.i696
+  %cmp2.i324 = fcmp olt double %57, %div.i704
   %or.cond.i325 = and i1 %cmp1.i323, %cmp2.i324
   br i1 %or.cond.i325, label %if.then.i373, label %if.end.i326
 
@@ -1962,7 +1962,7 @@ for.body.i392:                                    ; preds = %for.body194, %for.i
   %74 = load double, ptr %arrayidx.i399, align 8, !tbaa !3
   %75 = tail call double @llvm.fabs.f64(double %74)
   %cmp1.i400 = fcmp ogt double %75, 3.834000e-20
-  %cmp2.i401 = fcmp olt double %75, %div.i696
+  %cmp2.i401 = fcmp olt double %75, %div.i704
   %or.cond.i402 = and i1 %cmp1.i400, %cmp2.i401
   br i1 %or.cond.i402, label %if.then.i450, label %if.end.i403
 
@@ -2155,7 +2155,7 @@ for.body.i463:                                    ; preds = %if.end263, %for.inc
   %93 = load double, ptr %arrayidx.i470, align 8, !tbaa !3
   %94 = tail call double @llvm.fabs.f64(double %93)
   %cmp1.i471 = fcmp ogt double %94, 3.834000e-20
-  %cmp2.i472 = fcmp olt double %94, %div.i696
+  %cmp2.i472 = fcmp olt double %94, %div.i704
   %or.cond.i473 = and i1 %cmp1.i471, %cmp2.i472
   br i1 %or.cond.i473, label %if.then.i521, label %if.end.i474
 
@@ -2512,7 +2512,7 @@ _ZN8QuantLib7MINPACK5enormEiPd.exit:              ; preds = %if.then26.i, %if.en
   %_M_manager.i.i316 = getelementptr inbounds nuw i8, ptr %jacFcn, i64 16
   %_M_invoker.i326 = getelementptr inbounds nuw i8, ptr %jacFcn, i64 24
   %cmp30 = icmp sgt i32 %nprint, 0
-  %conv.i340 = sitofp i32 %n to double
+  %conv.i340 = uitofp nneg i32 %n to double
   %div.i341 = fdiv double 1.304000e+19, %conv.i340
   %wide.trip.count.i350 = zext nneg i32 %n to i64
   %cmp81758 = icmp sgt i32 %m, 0
@@ -2803,8 +2803,8 @@ for.body99:                                       ; preds = %for.body92, %for.bo
   br i1 %exitcond844.not, label %for.body111.preheader, label %for.body99, !llvm.loop !55
 
 for.body111.preheader:                            ; preds = %for.body99
-  %fneg932 = fneg double %39
-  %div933 = fdiv double %fneg932, %36
+  %fneg949 = fneg double %39
+  %div950 = fdiv double %fneg949, %36
   br label %for.body111
 
 for.body111:                                      ; preds = %for.body111.preheader, %for.body111
@@ -2814,7 +2814,7 @@ for.body111:                                      ; preds = %for.body111.prehead
   %40 = load double, ptr %arrayidx113, align 8, !tbaa !3
   %arrayidx116 = getelementptr inbounds nuw double, ptr %wa4, i64 %indvars.iv845
   %41 = load double, ptr %arrayidx116, align 8, !tbaa !3
-  %42 = call double @llvm.fmuladd.f64(double %40, double %div933, double %41)
+  %42 = call double @llvm.fmuladd.f64(double %40, double %div950, double %41)
   store double %42, ptr %arrayidx116, align 8, !tbaa !3
   %indvars.iv.next850 = add nuw nsw i64 %indvars.iv849, 1
   %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
@@ -2893,7 +2893,7 @@ if.end171:                                        ; preds = %if.end168
   br i1 %cmp172.not, label %if.end174, label %L300
 
 if.end174:                                        ; preds = %if.end171
-  br i1 %cmp14, label %L200.preheader, label %for.body179
+  br i1 %cmp14, label %for.body193.preheader.preheader, label %for.body179
 
 for.body179:                                      ; preds = %if.end174, %for.body179
   %indvars.iv885 = phi i64 [ %indvars.iv.next886, %for.body179 ], [ 0, %if.end174 ]
@@ -2906,21 +2906,21 @@ for.body179:                                      ; preds = %if.end174, %for.bod
   store double %b.a.i412, ptr %arrayidx181, align 8, !tbaa !3
   %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
   %exitcond889.not = icmp eq i64 %indvars.iv.next886, %wide.trip.count.i350
-  br i1 %exitcond889.not, label %L200.preheader, label %for.body179, !llvm.loop !60
+  br i1 %exitcond889.not, label %for.body193.preheader.preheader, label %for.body179, !llvm.loop !60
 
-L200.preheader:                                   ; preds = %for.body179, %if.end174
-  br label %L200
+for.body193.preheader.preheader:                  ; preds = %for.body179, %if.end174
+  br label %for.body193.preheader
 
-L200:                                             ; preds = %L200.preheader, %if.end377
-  %delta.2 = phi double [ %delta.4, %if.end377 ], [ %delta.1, %L200.preheader ]
-  %fnorm.1 = phi double [ %fnorm.2, %if.end377 ], [ %fnorm.0, %L200.preheader ]
-  %iter.1 = phi i32 [ %iter.2, %if.end377 ], [ %iter.0, %L200.preheader ]
-  %xnorm.2 = phi double [ %xnorm.3, %if.end377 ], [ %xnorm.1, %L200.preheader ]
+for.body193.preheader:                            ; preds = %for.body193.preheader.preheader, %if.end377
+  %delta.2 = phi double [ %delta.4, %if.end377 ], [ %delta.1, %for.body193.preheader.preheader ]
+  %fnorm.1 = phi double [ %fnorm.2, %if.end377 ], [ %fnorm.0, %for.body193.preheader.preheader ]
+  %iter.1 = phi i32 [ %iter.2, %if.end377 ], [ %iter.0, %for.body193.preheader.preheader ]
+  %xnorm.2 = phi double [ %xnorm.3, %if.end377 ], [ %xnorm.1, %for.body193.preheader.preheader ]
   call void @_ZN8QuantLib7MINPACK5lmparEiPdiPiPKdS1_dS1_S1_S1_S1_S1_(i32 noundef %n, ptr noundef %fjac, i32 noundef %ldfjac, ptr noundef %ipvt, ptr noundef %diag, ptr noundef %qtf, double noundef %delta.2, ptr noundef nonnull %par, ptr noundef %wa1, ptr noundef %wa2, ptr noundef %wa3, ptr noundef %wa4)
   br label %for.body193
 
-for.body193:                                      ; preds = %L200, %for.body193
-  %indvars.iv890 = phi i64 [ 0, %L200 ], [ %indvars.iv.next891, %for.body193 ]
+for.body193:                                      ; preds = %for.body193.preheader, %for.body193
+  %indvars.iv890 = phi i64 [ 0, %for.body193.preheader ], [ %indvars.iv.next891, %for.body193 ]
   %arrayidx195 = getelementptr inbounds nuw double, ptr %wa1, i64 %indvars.iv890
   %53 = load double, ptr %arrayidx195, align 8, !tbaa !3
   %fneg196 = fneg double %53
@@ -3165,7 +3165,7 @@ if.then26.i548:                                   ; preds = %for.end.i532
   %add.i551 = fadd double %s1.1.i525, %div28.i550
   %call.i552 = call double @sqrt(double noundef %add.i551) #11, !tbaa !9
   %mul29.i553 = fmul double %x1max.1.i528, %call.i552
-  br label %_ZN8QuantLib7MINPACK5enormEiPd.exit567
+  br label %for.body235.preheader
 
 if.end30.i534:                                    ; preds = %for.end.i532
   %cmp31.i535 = fcmp une double %s2.1.i526, 0.000000e+00
@@ -3191,14 +3191,14 @@ if.else39.i545:                                   ; preds = %if.then32.i536
 if.end43.i542:                                    ; preds = %if.else39.i545, %if.then34.i538
   %temp.0.i543 = phi double [ %mul38.i541, %if.then34.i538 ], [ %mul42.i547, %if.else39.i545 ]
   %call44.i544 = call double @sqrt(double noundef %temp.0.i543) #11, !tbaa !9
-  br label %_ZN8QuantLib7MINPACK5enormEiPd.exit567
+  br label %for.body235.preheader
 
 if.else45.i500:                                   ; preds = %if.end30.i534
   %call46.i503 = call double @sqrt(double noundef %s3.1.i527) #11, !tbaa !9
   %mul47.i504 = fmul double %x3max.1.i529, %call46.i503
-  br label %_ZN8QuantLib7MINPACK5enormEiPd.exit567
+  br label %for.body235.preheader
 
-_ZN8QuantLib7MINPACK5enormEiPd.exit567:           ; preds = %if.then26.i548, %if.end43.i542, %if.else45.i500
+for.body235.preheader:                            ; preds = %if.else45.i500, %if.end43.i542, %if.then26.i548
   %retval.0.i505 = phi double [ %mul29.i553, %if.then26.i548 ], [ %call44.i544, %if.end43.i542 ], [ %mul47.i504, %if.else45.i500 ]
   %mul227 = fmul double %retval.0.i505, 1.000000e-01
   %cmp228 = fcmp olt double %mul227, %fnorm.1
@@ -3208,10 +3208,10 @@ _ZN8QuantLib7MINPACK5enormEiPd.exit567:           ; preds = %if.then26.i548, %if
   %actred.0 = select i1 %cmp228, double %79, double -1.000000e+00
   br label %for.body235
 
-for.body235:                                      ; preds = %_ZN8QuantLib7MINPACK5enormEiPd.exit567, %for.end253
-  %indvars.iv910 = phi i64 [ 0, %_ZN8QuantLib7MINPACK5enormEiPd.exit567 ], [ %indvars.iv.next911, %for.end253 ]
-  %indvars.iv908 = phi i64 [ 1, %_ZN8QuantLib7MINPACK5enormEiPd.exit567 ], [ %indvars.iv.next909, %for.end253 ]
-  %indvars.iv897 = phi i64 [ 0, %_ZN8QuantLib7MINPACK5enormEiPd.exit567 ], [ %indvars.iv.next898, %for.end253 ]
+for.body235:                                      ; preds = %for.body235.preheader, %for.end253
+  %indvars.iv910 = phi i64 [ 0, %for.body235.preheader ], [ %indvars.iv.next911, %for.end253 ]
+  %indvars.iv908 = phi i64 [ 1, %for.body235.preheader ], [ %indvars.iv.next909, %for.end253 ]
+  %indvars.iv897 = phi i64 [ 0, %for.body235.preheader ], [ %indvars.iv.next898, %for.end253 ]
   %arrayidx237 = getelementptr inbounds nuw double, ptr %wa3, i64 %indvars.iv910
   store double 0.000000e+00, ptr %arrayidx237, align 8, !tbaa !3
   %arrayidx239 = getelementptr inbounds nuw i32, ptr %ipvt, i64 %indvars.iv910
@@ -3576,8 +3576,8 @@ if.end332:                                        ; preds = %_ZN8QuantLib7MINPAC
 112:                                              ; preds = %if.end332, %111
   %.pr724 = load i32, ptr %info, align 4, !tbaa !9
   %cmp351 = icmp ne i32 %.pr724, 2
-  %or.cond979.not = select i1 %or.cond309, i1 true, i1 %cmp351
-  br i1 %or.cond979.not, label %if.end353, label %L300.sink.split
+  %or.cond996.not = select i1 %or.cond309, i1 true, i1 %cmp351
+  br i1 %or.cond996.not, label %if.end353, label %L300.sink.split
 
 if.end353:                                        ; preds = %112
   %cmp354.not = icmp eq i32 %.pr724, 0
@@ -3610,15 +3610,15 @@ if.end359:                                        ; preds = %if.then358, %if.end
 .thread:                                          ; preds = %if.end359
   %simplifycfg.merge730 = select i1 %cmp369, i32 6, i32 7
   store i32 %simplifycfg.merge730, ptr %info, align 4, !tbaa !9
-  %cmp372936 = fcmp ugt double %gnorm.0, %114
-  br i1 %cmp372936, label %L300, label %L300.sink.split
+  %cmp372953 = fcmp ugt double %gnorm.0, %114
+  br i1 %cmp372953, label %L300, label %L300.sink.split
 
 if.end374:                                        ; preds = %115
   br i1 %cmp357.not, label %if.end377, label %L300
 
 if.end377:                                        ; preds = %if.end374
   %cmp378 = fcmp olt double %ratio.0, 1.000000e-04
-  br i1 %cmp378, label %L200, label %L30
+  br i1 %cmp378, label %for.body193.preheader, label %L30
 
 L300.sink.split:                                  ; preds = %if.end168, %115, %112, %.thread
   %.sink = phi i32 [ 8, %.thread ], [ 3, %112 ], [ 8, %115 ], [ 4, %if.end168 ]

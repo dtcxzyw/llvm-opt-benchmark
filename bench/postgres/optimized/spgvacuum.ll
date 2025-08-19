@@ -852,8 +852,8 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %32 = trunc i32 %31 to i16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(818) %12, i8 0, i64 818, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(409) %13, i8 0, i64 409, i1 false)
-  %.not131219 = icmp eq i16 %32, 0
-  %.not131 = select i1 %28, i1 true, i1 %.not131219
+  %.not131227 = icmp eq i16 %32, 0
+  %.not131 = select i1 %28, i1 true, i1 %.not131227
   br i1 %.not131, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
@@ -1049,7 +1049,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %127 = phi i16 [ %164, %163 ], [ %.promoted136165168, %120 ]
   %128 = zext nneg i16 %.0106143 to i64
   %129 = add nsw i64 %128, -1
-  %130 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %106, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %106, i64 0, i64 %129
   %.val123 = load i32, ptr %130, align 4
   %131 = and i32 %.val123, 32767
   %132 = zext nneg i32 %131 to i64
@@ -1134,9 +1134,9 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   br i1 %168, label %169, label %.thread
 
 169:                                              ; preds = %._crit_edge146.thread, %._crit_edge146
-  %.promoted153205 = phi i16 [ %.promoted154170, %._crit_edge146.thread ], [ %.promoted151, %._crit_edge146 ]
-  %.promoted135158203 = phi i16 [ %.promoted135159169, %._crit_edge146.thread ], [ %.promoted135156, %._crit_edge146 ]
-  %.promoted136164201 = phi i16 [ %.promoted136165168, %._crit_edge146.thread ], [ %.promoted136162, %._crit_edge146 ]
+  %.promoted153213 = phi i16 [ %.promoted154170, %._crit_edge146.thread ], [ %.promoted151, %._crit_edge146 ]
+  %.promoted135158211 = phi i16 [ %.promoted135159169, %._crit_edge146.thread ], [ %.promoted135156, %._crit_edge146 ]
+  %.promoted136164209 = phi i16 [ %.promoted136165168, %._crit_edge146.thread ], [ %.promoted136162, %._crit_edge146 ]
   %170 = zext i16 %108 to i64
   %171 = getelementptr inbounds nuw [408 x i16], ptr %6, i64 0, i64 %170
   store i16 %.1100171, ptr %171, align 2
@@ -1160,9 +1160,9 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 .thread:                                          ; preds = %._crit_edge146.thread, %169, %175, %173, %117, %107
   %180 = phi i16 [ %172, %169 ], [ %108, %175 ], [ %108, %173 ], [ %108, %117 ], [ %108, %107 ], [ %108, %._crit_edge146.thread ]
-  %.promoted136161 = phi i16 [ %.promoted136164201, %169 ], [ %.promoted136162, %175 ], [ %.promoted136162, %173 ], [ %.promoted136165168, %117 ], [ %.promoted136165168, %107 ], [ %.promoted136165168, %._crit_edge146.thread ]
-  %.promoted135155 = phi i16 [ %.promoted135158203, %169 ], [ %.promoted135156, %175 ], [ %.promoted135156, %173 ], [ %.promoted135159169, %117 ], [ %.promoted135159169, %107 ], [ %.promoted135159169, %._crit_edge146.thread ]
-  %.promoted150 = phi i16 [ %.promoted153205, %169 ], [ %179, %175 ], [ %.promoted151, %173 ], [ %.promoted154170, %117 ], [ %.promoted154170, %107 ], [ %.promoted154170, %._crit_edge146.thread ]
+  %.promoted136161 = phi i16 [ %.promoted136164209, %169 ], [ %.promoted136162, %175 ], [ %.promoted136162, %173 ], [ %.promoted136165168, %117 ], [ %.promoted136165168, %107 ], [ %.promoted136165168, %._crit_edge146.thread ]
+  %.promoted135155 = phi i16 [ %.promoted135158211, %169 ], [ %.promoted135156, %175 ], [ %.promoted135156, %173 ], [ %.promoted135159169, %117 ], [ %.promoted135159169, %107 ], [ %.promoted135159169, %._crit_edge146.thread ]
+  %.promoted150 = phi i16 [ %.promoted153213, %169 ], [ %179, %175 ], [ %.promoted151, %173 ], [ %.promoted154170, %117 ], [ %.promoted154170, %107 ], [ %.promoted154170, %._crit_edge146.thread ]
   %181 = add i16 %.1100171, 1
   %.not113 = icmp ugt i16 %181, %32
   br i1 %.not113, label %._crit_edge174.loopexit, label %107, !llvm.loop !17

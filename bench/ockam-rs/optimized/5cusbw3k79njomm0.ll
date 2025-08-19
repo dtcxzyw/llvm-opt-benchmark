@@ -5545,7 +5545,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit440
   %.not = icmp eq ptr %269, null
   br i1 %.not, label %371, label %272
 
-270:                                              ; preds = %.invoke759, %362, %.noexc481, %.noexc480, %.critedge9.i478, %337, %277, %326, %308, %301, %298, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit463.thread
+270:                                              ; preds = %.invoke778, %362, %.noexc481, %.noexc480, %.critedge9.i478, %337, %277, %326, %308, %301, %298, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit463.thread
   %271 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr89drop_in_place$LT$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$GT$17h7c6f181baa936150E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %62) #15
@@ -5597,7 +5597,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit463
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %.not749 = icmp eq i64 %287, 0
-  br i1 %.not749, label %.invoke759, label %337
+  br i1 %.not749, label %.invoke778, label %337
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit463.thread716: ; preds = %275, %282, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit463, %272
   %293 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1
@@ -5657,7 +5657,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit463
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %.not750 = icmp eq i64 %319, 0
-  br i1 %.not750, label %.invoke759, label %326
+  br i1 %.not750, label %.invoke778, label %326
 
 325:                                              ; preds = %314, %334
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
@@ -5718,11 +5718,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit463
           cleanup
   br label %.thread
 
-.invoke759:                                       ; preds = %283, %315
+.invoke778:                                       ; preds = %283, %315
   invoke void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.c2f733fa73b4447e3d449345afeaf2ec.52, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c2f733fa73b4447e3d449345afeaf2ec.65) #17
-          to label %.cont760 unwind label %270
+          to label %.cont779 unwind label %270
 
-.cont760:                                         ; preds = %.invoke759
+.cont779:                                         ; preds = %.invoke778
   unreachable
 
 337:                                              ; preds = %283
@@ -5826,7 +5826,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit463
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %335
 
-364:                                              ; preds = %.invoke761, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit486.thread, %397, %400, %407, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit500", %376, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit493", %.critedge9.i501, %.noexc503, %.noexc504, %455
+364:                                              ; preds = %.invoke780, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit486.thread, %397, %400, %407, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit500", %376, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit493", %.critedge9.i501, %.noexc503, %.noexc504, %455
   %365 = landingpad { ptr, i32 }
           cleanup
   %366 = load ptr, ptr %63, align 8, !noundef !4
@@ -5892,7 +5892,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit486
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %.not751 = icmp eq i64 %386, 0
-  br i1 %.not751, label %.invoke761, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit493"
+  br i1 %.not751, label %.invoke780, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit493"
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit486.thread729: ; preds = %374, %381, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit486, %371
   %392 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1
@@ -5952,17 +5952,17 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit486
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %.not752 = icmp eq i64 %418, 0
-  br i1 %.not752, label %.invoke761, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit500"
+  br i1 %.not752, label %.invoke780, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit500"
 
 424:                                              ; preds = %413, %431
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %367
 
-.invoke761:                                       ; preds = %382, %414
+.invoke780:                                       ; preds = %382, %414
   invoke void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.c2f733fa73b4447e3d449345afeaf2ec.52, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c2f733fa73b4447e3d449345afeaf2ec.68) #17
-          to label %.cont762 unwind label %364
+          to label %.cont781 unwind label %364
 
-.cont762:                                         ; preds = %.invoke761
+.cont781:                                         ; preds = %.invoke780
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit500": ; preds = %414
@@ -6117,7 +6117,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit486
   %.not358 = icmp eq ptr %460, null
   br i1 %.not358, label %573, label %463
 
-461:                                              ; preds = %.invoke763, %552, %.noexc527, %.noexc526, %.critedge9.i524, %527, %468, %517, %499, %492, %489, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit509.thread
+461:                                              ; preds = %.invoke782, %552, %.noexc527, %.noexc526, %.critedge9.i524, %527, %468, %517, %499, %492, %489, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit509.thread
   %462 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr89drop_in_place$LT$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$GT$17h7c6f181baa936150E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %38) #15
@@ -6169,7 +6169,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit509
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %.not755 = icmp eq i64 %478, 0
-  br i1 %.not755, label %.invoke763, label %527
+  br i1 %.not755, label %.invoke782, label %527
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit509.thread735: ; preds = %466, %473, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit509, %463
   %484 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1
@@ -6229,7 +6229,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit509
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %.not756 = icmp eq i64 %510, 0
-  br i1 %.not756, label %.invoke763, label %517
+  br i1 %.not756, label %.invoke782, label %517
 
 516:                                              ; preds = %505, %525
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -6285,11 +6285,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit509
   invoke void @"_ZN4core3ptr89drop_in_place$LT$ockam_core..flow_control..flow_controls..producer_info..ProducerInfo$GT$17h7c6f181baa936150E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %38)
           to label %557 unwind label %555
 
-.invoke763:                                       ; preds = %474, %506
+.invoke782:                                       ; preds = %474, %506
   invoke void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.c2f733fa73b4447e3d449345afeaf2ec.52, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c2f733fa73b4447e3d449345afeaf2ec.71) #17
-          to label %.cont764 unwind label %461
+          to label %.cont783 unwind label %461
 
-.cont764:                                         ; preds = %.invoke763
+.cont783:                                         ; preds = %.invoke782
   unreachable
 
 527:                                              ; preds = %474
@@ -6399,8 +6399,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit509
   invoke void @"_ZN4core3ptr96drop_in_place$LT$ockam_core..flow_control..flow_controls..flow_controls_debug..IdsCollection$GT$17h7727901c7eda8af8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %86) #15
           to label %.body unwind label %369
 
-555:                                              ; preds = %.invoke765, %657, %.noexc551, %.noexc550, %.critedge9.i548, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit540", %578, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit547", %609, %602, %599, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533.thread, %526
-  %.1 = phi i8 [ 0, %526 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit547" ], [ 1, %609 ], [ 1, %602 ], [ 1, %599 ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533.thread ], [ 1, %578 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit540" ], [ 1, %.critedge9.i548 ], [ 1, %.noexc550 ], [ 1, %.noexc551 ], [ 1, %657 ], [ 1, %.invoke765 ]
+555:                                              ; preds = %.invoke784, %657, %.noexc551, %.noexc550, %.critedge9.i548, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit540", %578, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit547", %609, %602, %599, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533.thread, %526
+  %.1 = phi i8 [ 0, %526 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit547" ], [ 1, %609 ], [ 1, %602 ], [ 1, %599 ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533.thread ], [ 1, %578 ], [ 1, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit540" ], [ 1, %.critedge9.i548 ], [ 1, %.noexc550 ], [ 1, %.noexc551 ], [ 1, %657 ], [ 1, %.invoke784 ]
   %556 = landingpad { ptr, i32 }
           cleanup
   br label %554
@@ -6496,7 +6496,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.not757 = icmp eq i64 %588, 0
-  br i1 %.not757, label %.invoke765, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit540"
+  br i1 %.not757, label %.invoke784, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit540"
 
 _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533.thread741: ; preds = %576, %583, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533, %573
   %594 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1
@@ -6556,7 +6556,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not758 = icmp eq i64 %620, 0
-  br i1 %.not758, label %.invoke765, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit547"
+  br i1 %.not758, label %.invoke784, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit547"
 
 626:                                              ; preds = %615, %633
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -6603,11 +6603,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit533
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %626
 
-.invoke765:                                       ; preds = %584, %616
+.invoke784:                                       ; preds = %584, %616
   invoke void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.c2f733fa73b4447e3d449345afeaf2ec.52, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c2f733fa73b4447e3d449345afeaf2ec.74) #17
-          to label %.cont766 unwind label %555
+          to label %.cont785 unwind label %555
 
-.cont766:                                         ; preds = %.invoke765
+.cont785:                                         ; preds = %.invoke784
   unreachable
 
 "_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h625c63fa3b16703bE.exit540": ; preds = %584

@@ -1951,8 +1951,8 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
   br i1 %.not67, label %109, label %108
 
 108:                                              ; preds = %105
-  %or.cond137.not = icmp ult i64 %107, 4
-  br i1 %or.cond137.not, label %114, label %111
+  %or.cond141.not = icmp ult i64 %107, 4
+  br i1 %or.cond141.not, label %114, label %111
 
 109:                                              ; preds = %105
   %110 = icmp sgt i64 %107, 3

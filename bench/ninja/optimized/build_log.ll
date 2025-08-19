@@ -746,8 +746,8 @@ _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__n
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit86
 
 .critedge72._crit_edge:                           ; preds = %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE5eraseERKS1_.exit, %104, %.critedge72.preheader
-  %.sroa.0112.0.lcssa172 = phi ptr [ %.sroa.0112.1.ph, %.critedge72.preheader ], [ null, %104 ], [ %.sroa.0112.1.ph, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE5eraseERKS1_.exit ]
-  %.sroa.14.0.lcssa171 = phi ptr [ %.sroa.14.1.ph, %.critedge72.preheader ], [ null, %104 ], [ %.sroa.14.1.ph, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE5eraseERKS1_.exit ]
+  %.sroa.0112.0.lcssa188 = phi ptr [ %.sroa.0112.1.ph, %.critedge72.preheader ], [ null, %104 ], [ %.sroa.0112.1.ph, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE5eraseERKS1_.exit ]
+  %.sroa.14.0.lcssa187 = phi ptr [ %.sroa.14.1.ph, %.critedge72.preheader ], [ null, %104 ], [ %.sroa.14.1.ph, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE5eraseERKS1_.exit ]
   %164 = call i32 @fclose(ptr noundef nonnull %65)
   %165 = load ptr, ptr %1, align 8, !tbaa !10
   %166 = invoke noundef i32 @_Z19platformAwareUnlinkPKc(ptr noundef %165)
@@ -874,8 +874,8 @@ _ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit86 unwind label %219
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit86: ; preds = %.invoke, %162, %221
-  %.sroa.14.0144 = phi ptr [ %.sroa.14.0150, %162 ], [ %.sroa.14.0.lcssa171, %221 ], [ %.sroa.14.0.lcssa171, %.invoke ]
-  %.sroa.0112.0134 = phi ptr [ %.sroa.0112.0152, %162 ], [ %.sroa.0112.0.lcssa172, %221 ], [ %.sroa.0112.0.lcssa172, %.invoke ]
+  %.sroa.14.0144 = phi ptr [ %.sroa.14.0150, %162 ], [ %.sroa.14.0.lcssa187, %221 ], [ %.sroa.14.0.lcssa187, %.invoke ]
+  %.sroa.0112.0134 = phi ptr [ %.sroa.0112.0152, %162 ], [ %.sroa.0112.0.lcssa188, %221 ], [ %.sroa.0112.0.lcssa188, %.invoke ]
   %.4 = phi i1 [ false, %162 ], [ true, %221 ], [ false, %.invoke ]
   %.not.i.i.i89 = icmp eq ptr %.sroa.0112.0134, null
   br i1 %.not.i.i.i89, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %233
@@ -888,8 +888,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit86: ; preds = %.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
 237:                                              ; preds = %.loopexit, %.loopexit.split-lp, %219
-  %.sroa.14.0145 = phi ptr [ %.sroa.14.0.lcssa171, %219 ], [ %.sroa.14.0150.lcssa, %.loopexit ], [ %.sroa.14.0150162, %.loopexit.split-lp ]
-  %.sroa.0112.0135 = phi ptr [ %.sroa.0112.0.lcssa172, %219 ], [ %.sroa.0112.0152, %.loopexit ], [ %.sroa.0112.0152, %.loopexit.split-lp ]
+  %.sroa.14.0145 = phi ptr [ %.sroa.14.0.lcssa187, %219 ], [ %.sroa.14.0150.lcssa, %.loopexit ], [ %.sroa.14.0150162, %.loopexit.split-lp ]
+  %.sroa.0112.0135 = phi ptr [ %.sroa.0112.0.lcssa188, %219 ], [ %.sroa.0112.0152, %.loopexit ], [ %.sroa.0112.0152, %.loopexit.split-lp ]
   %.pn62 = phi { ptr, i32 } [ %220, %219 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i90 = icmp eq ptr %.sroa.0112.0135, null
   br i1 %.not.i.i.i90, label %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit91, label %238
@@ -2828,50 +2828,50 @@ define linkonce_odr dso_local noundef i64 @_Z18rapidhash_internalPKvmmPKm(ptr no
   br i1 %121, label %._crit_edge.thread, label %155, !prof !97
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.0.lcssa165 = phi i64 [ %117, %._crit_edge ], [ %16, %.preheader ]
-  %.089.lcssa164 = phi i64 [ %107, %._crit_edge ], [ %16, %.preheader ]
-  %.192.lcssa163 = phi i64 [ %119, %._crit_edge ], [ %1, %.preheader ]
-  %.295.lcssa162 = phi i64 [ %97, %._crit_edge ], [ %16, %.preheader ]
-  %.197.lcssa161 = phi ptr [ %118, %._crit_edge ], [ %0, %.preheader ]
-  %.0.copyload.i116 = load i64, ptr %.197.lcssa161, align 1
+  %.0.lcssa167 = phi i64 [ %117, %._crit_edge ], [ %16, %.preheader ]
+  %.089.lcssa166 = phi i64 [ %107, %._crit_edge ], [ %16, %.preheader ]
+  %.192.lcssa165 = phi i64 [ %119, %._crit_edge ], [ %1, %.preheader ]
+  %.295.lcssa164 = phi i64 [ %97, %._crit_edge ], [ %16, %.preheader ]
+  %.197.lcssa163 = phi ptr [ %118, %._crit_edge ], [ %0, %.preheader ]
+  %.0.copyload.i116 = load i64, ptr %.197.lcssa163, align 1
   %122 = xor i64 %.0.copyload.i116, %5
-  %123 = getelementptr inbounds nuw i8, ptr %.197.lcssa161, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.197.lcssa163, i64 8
   %.0.copyload.i117 = load i64, ptr %123, align 1
-  %124 = xor i64 %.0.copyload.i117, %.295.lcssa162
+  %124 = xor i64 %.0.copyload.i117, %.295.lcssa164
   %125 = zext i64 %122 to i128
   %126 = zext i64 %124 to i128
   %127 = mul nuw i128 %126, %125
   %128 = lshr i128 %127, 64
   %129 = xor i128 %128, %127
   %130 = trunc i128 %129 to i64
-  %131 = getelementptr inbounds nuw i8, ptr %.197.lcssa161, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %.197.lcssa163, i64 16
   %.0.copyload.i118 = load i64, ptr %131, align 1
   %132 = xor i64 %.0.copyload.i118, %8
-  %133 = getelementptr inbounds nuw i8, ptr %.197.lcssa161, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %.197.lcssa163, i64 24
   %.0.copyload.i119 = load i64, ptr %133, align 1
-  %134 = xor i64 %.0.copyload.i119, %.089.lcssa164
+  %134 = xor i64 %.0.copyload.i119, %.089.lcssa166
   %135 = zext i64 %132 to i128
   %136 = zext i64 %134 to i128
   %137 = mul nuw i128 %136, %135
   %138 = lshr i128 %137, 64
   %139 = xor i128 %138, %137
   %140 = trunc i128 %139 to i64
-  %141 = getelementptr inbounds nuw i8, ptr %.197.lcssa161, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %.197.lcssa163, i64 32
   %.0.copyload.i120 = load i64, ptr %141, align 1
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %143 = load i64, ptr %142, align 8, !tbaa !15
   %144 = xor i64 %143, %.0.copyload.i120
-  %145 = getelementptr inbounds nuw i8, ptr %.197.lcssa161, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %.197.lcssa163, i64 40
   %.0.copyload.i121 = load i64, ptr %145, align 1
-  %146 = xor i64 %.0.copyload.i121, %.0.lcssa165
+  %146 = xor i64 %.0.copyload.i121, %.0.lcssa167
   %147 = zext i64 %144 to i128
   %148 = zext i64 %146 to i128
   %149 = mul nuw i128 %148, %147
   %150 = lshr i128 %149, 64
   %151 = xor i128 %150, %149
   %152 = trunc i128 %151 to i64
-  %153 = getelementptr inbounds nuw i8, ptr %.197.lcssa161, i64 48
-  %154 = add nsw i64 %.192.lcssa163, -48
+  %153 = getelementptr inbounds nuw i8, ptr %.197.lcssa163, i64 48
+  %154 = add nsw i64 %.192.lcssa165, -48
   br label %155
 
 155:                                              ; preds = %._crit_edge, %._crit_edge.thread

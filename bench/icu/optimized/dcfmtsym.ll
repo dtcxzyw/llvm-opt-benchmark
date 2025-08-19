@@ -2159,18 +2159,18 @@ define void @_ZN6icu_7720DecimalFormatSymbolsD2Ev(ptr noundef nonnull align 8 de
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %8 = load ptr, ptr %7, align 8, !tbaa !60
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.preheader12, label %10
+  br i1 %9, label %.preheader13, label %10
 
 10:                                               ; preds = %6
   tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %8) #18
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %8) #18
-  br label %.preheader12
+  br label %.preheader13
 
-.preheader12:                                     ; preds = %10, %6
+.preheader13:                                     ; preds = %10, %6
   br label %11
 
-11:                                               ; preds = %.preheader12, %11
-  %.idx = phi i64 [ %.add, %11 ], [ 2568, %.preheader12 ]
+11:                                               ; preds = %.preheader13, %11
+  %.idx = phi i64 [ %.add, %11 ], [ 2568, %.preheader13 ]
   %.add = add nsw i64 %.idx, -64
   %.ptr2 = getelementptr inbounds i8, ptr %0, i64 %.add
   tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2) #18
@@ -2463,8 +2463,8 @@ define noundef zeroext i1 @_ZNK6icu_7720DecimalFormatSymbolseqERKS0_(ptr noundef
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %29 = load i16, ptr %28, align 8, !tbaa !17
   %30 = and i16 %29, 1
-  %.not65 = icmp eq i16 %30, 0
-  br i1 %.not65, label %.thread, label %16
+  %.not69 = icmp eq i16 %30, 0
+  br i1 %.not69, label %.thread, label %16
 
 31:                                               ; preds = %21
   %32 = icmp slt i16 %25, 0
@@ -2495,8 +2495,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %31
   %51 = load ptr, ptr %50, align 8
   %52 = select i1 %.not.i.i.i.i, ptr %51, ptr %49
   %53 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef %52, i32 noundef %37)
-  %.not66 = icmp eq i8 %53, 0
-  br i1 %.not66, label %.thread, label %16
+  %.not70 = icmp eq i8 %53, 0
+  br i1 %.not70, label %.thread, label %16
 
 54:                                               ; preds = %94, %_ZNK6icu_7713UnicodeStringneERKS0_.exit42
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -2517,8 +2517,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %31
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %63 = load i16, ptr %62, align 8, !tbaa !17
   %64 = and i16 %63, 1
-  %.not67 = icmp eq i16 %64, 0
-  br i1 %.not67, label %.thread, label %88
+  %.not71 = icmp eq i16 %64, 0
+  br i1 %.not71, label %.thread, label %88
 
 65:                                               ; preds = %55
   %66 = icmp slt i16 %59, 0
@@ -2549,8 +2549,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit36:        ; preds = %65
   %85 = load ptr, ptr %84, align 8
   %86 = select i1 %.not.i.i.i.i35, ptr %85, ptr %83
   %87 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef %86, i32 noundef %71)
-  %.not68 = icmp eq i8 %87, 0
-  br i1 %.not68, label %.thread, label %88
+  %.not72 = icmp eq i8 %87, 0
+  br i1 %.not72, label %.thread, label %88
 
 88:                                               ; preds = %61, %_ZNK6icu_7713UnicodeStringneERKS0_.exit36
   %89 = getelementptr inbounds nuw [3 x %"class.icu_77::UnicodeString"], ptr %19, i64 0, i64 %indvars.iv60
@@ -2565,8 +2565,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit36:        ; preds = %65
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %96 = load i16, ptr %95, align 8, !tbaa !17
   %97 = and i16 %96, 1
-  %.not69 = icmp eq i16 %97, 0
-  br i1 %.not69, label %.thread, label %54
+  %.not73 = icmp eq i16 %97, 0
+  br i1 %.not73, label %.thread, label %54
 
 98:                                               ; preds = %88
   %99 = icmp slt i16 %92, 0
@@ -2597,8 +2597,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit42:        ; preds = %98
   %118 = load ptr, ptr %117, align 8
   %119 = select i1 %.not.i.i.i.i41, ptr %118, ptr %116
   %120 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef %119, i32 noundef %104)
-  %.not70 = icmp eq i8 %120, 0
-  br i1 %.not70, label %.thread, label %54
+  %.not74 = icmp eq i8 %120, 0
+  br i1 %.not74, label %.thread, label %54
 
 121:                                              ; preds = %54
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1936

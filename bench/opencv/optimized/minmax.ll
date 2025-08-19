@@ -1108,7 +1108,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
 104:                                              ; preds = %98, %92
   %105 = load i32, ptr %8, align 8, !tbaa !30
   %106 = and i32 %105, 7
-  switch i32 %106, label %default.unreachable98 [
+  switch i32 %106, label %default.unreachable100 [
     i32 0, label %107
     i32 1, label %112
     i32 2, label %117
@@ -1120,7 +1120,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
   ]
 
 107:                                              ; preds = %104
-  switch i32 %2, label %default.unreachable98 [
+  switch i32 %2, label %default.unreachable100 [
     i32 0, label %108
     i32 1, label %109
     i32 2, label %110
@@ -1144,7 +1144,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %153
 
 112:                                              ; preds = %104
-  switch i32 %2, label %default.unreachable98 [
+  switch i32 %2, label %default.unreachable100 [
     i32 0, label %113
     i32 1, label %114
     i32 2, label %115
@@ -1168,7 +1168,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %153
 
 117:                                              ; preds = %104
-  switch i32 %2, label %default.unreachable98 [
+  switch i32 %2, label %default.unreachable100 [
     i32 0, label %118
     i32 1, label %119
     i32 2, label %120
@@ -1192,7 +1192,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %153
 
 122:                                              ; preds = %104
-  switch i32 %2, label %default.unreachable98 [
+  switch i32 %2, label %default.unreachable100 [
     i32 0, label %123
     i32 1, label %124
     i32 2, label %125
@@ -1216,7 +1216,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %153
 
 127:                                              ; preds = %104
-  switch i32 %2, label %default.unreachable98 [
+  switch i32 %2, label %default.unreachable100 [
     i32 0, label %128
     i32 1, label %129
     i32 2, label %130
@@ -1240,7 +1240,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %153
 
 132:                                              ; preds = %104
-  switch i32 %2, label %default.unreachable98 [
+  switch i32 %2, label %default.unreachable100 [
     i32 0, label %133
     i32 1, label %134
     i32 2, label %135
@@ -1264,7 +1264,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %153
 
 137:                                              ; preds = %104
-  switch i32 %2, label %default.unreachable98 [
+  switch i32 %2, label %default.unreachable100 [
     i32 0, label %138
     i32 1, label %139
     i32 2, label %140
@@ -1287,7 +1287,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc42, %_ZSt6fil
   invoke void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef %25)
           to label %_ZN2cv6detailL13depthDispatchI16reduceMinMaxImplJRNS_3MatES4_R10ReduceModeRiEEEviDpOT0_.exit unwind label %153
 
-default.unreachable98:                            ; preds = %137, %132, %127, %122, %117, %112, %107, %104
+default.unreachable100:                           ; preds = %137, %132, %127, %122, %117, %112, %107, %104
   unreachable
 
 142:                                              ; preds = %104
@@ -2034,8 +2034,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt4
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -2110,8 +2110,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -2186,8 +2186,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt7
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -2262,8 +2262,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -2340,8 +2340,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt4
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -2416,8 +2416,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -2492,8 +2492,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt7
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -2568,8 +2568,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -2644,8 +2644,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt4
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -2720,8 +2720,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -2796,8 +2796,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt7
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -2872,8 +2872,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -2948,8 +2948,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt4
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3024,8 +3024,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -3100,8 +3100,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt7
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3176,8 +3176,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -3252,8 +3252,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt4
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3328,8 +3328,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -3404,8 +3404,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt7
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3480,8 +3480,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
   %.not47 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not54, i1 true, i1 %.not47
   %.not55 = icmp eq i64 %18, 0
-  %or.cond59 = or i1 %or.cond, %.not55
-  br i1 %or.cond59, label %._crit_edge, label %.lr.ph50.us
+  %or.cond63 = or i1 %or.cond, %.not55
+  br i1 %or.cond63, label %._crit_edge, label %.lr.ph50.us
 
 .lr.ph50.us:                                      ; preds = %3, %._crit_edge51.split.us.us
   %.052.us53 = phi i64 [ %40, %._crit_edge51.split.us.us ], [ 0, %3 ]
@@ -3556,8 +3556,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt4
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3632,8 +3632,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3708,8 +3708,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt7
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3784,8 +3784,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3860,8 +3860,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt4
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -3936,8 +3936,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -4012,8 +4012,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt7
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]
@@ -4088,8 +4088,8 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
   %.not46 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not53, i1 true, i1 %.not46
   %.not54 = icmp eq i64 %18, 0
-  %or.cond58 = or i1 %or.cond, %.not54
-  br i1 %or.cond58, label %._crit_edge, label %.lr.ph49.us
+  %or.cond62 = or i1 %or.cond, %.not54
+  br i1 %or.cond62, label %._crit_edge, label %.lr.ph49.us
 
 .lr.ph49.us:                                      ; preds = %3, %._crit_edge50.split.us.us
   %.051.us52 = phi i64 [ %41, %._crit_edge50.split.us.us ], [ 0, %3 ]

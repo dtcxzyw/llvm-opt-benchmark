@@ -1789,7 +1789,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %conv.i56.i.i.i = sext i8 %3 to i32
   %call.i57.i.i.i = tail call noundef i32 @isspace(i32 noundef %conv.i56.i.i.i) #31
   %tobool.i58.not.i.i.i = icmp eq i32 %call.i57.i.i.i, 0
-  br i1 %tobool.i58.not.i.i.i, label %if.end3.i.i.i, label %if.end.loopexit.split.loop.exit19
+  br i1 %tobool.i58.not.i.i.i, label %if.end3.i.i.i, label %if.end.loopexit.split.loop.exit20
 
 if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
   %incdec.ptr4.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.091.i.i.i, i64 2
@@ -1797,7 +1797,7 @@ if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
   %conv.i59.i.i.i = sext i8 %4 to i32
   %call.i60.i.i.i = tail call noundef i32 @isspace(i32 noundef %conv.i59.i.i.i) #31
   %tobool.i61.not.i.i.i = icmp eq i32 %call.i60.i.i.i, 0
-  br i1 %tobool.i61.not.i.i.i, label %if.end7.i.i.i, label %if.end.loopexit.split.loop.exit17
+  br i1 %tobool.i61.not.i.i.i, label %if.end7.i.i.i, label %if.end.loopexit.split.loop.exit18
 
 if.end7.i.i.i:                                    ; preds = %if.end3.i.i.i
   %incdec.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.091.i.i.i, i64 3
@@ -1860,17 +1860,17 @@ if.end.loopexit.split.loop.exit:                  ; preds = %if.end7.i.i.i
   %incdec.ptr8.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.091.i.i.i, i64 3
   br label %if.end
 
-if.end.loopexit.split.loop.exit17:                ; preds = %if.end3.i.i.i
+if.end.loopexit.split.loop.exit18:                ; preds = %if.end3.i.i.i
   %incdec.ptr4.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.091.i.i.i, i64 2
   br label %if.end
 
-if.end.loopexit.split.loop.exit19:                ; preds = %if.end.i.i.i
+if.end.loopexit.split.loop.exit20:                ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.091.i.i.i, i64 1
   br label %if.end
 
-if.end:                                           ; preds = %for.body.i.i.i, %if.end.loopexit.split.loop.exit, %if.end.loopexit.split.loop.exit17, %if.end.loopexit.split.loop.exit19, %sw.bb25.i.i.i, %sw.bb20.i.i.i, %sw.bb.i.i.i
-  %add.ptr.i72 = phi ptr [ %add.ptr.i73, %sw.bb.i.i.i ], [ %add.ptr.i73, %sw.bb20.i.i.i ], [ %add.ptr.i73, %sw.bb25.i.i.i ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit19 ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit17 ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit ], [ %add.ptr.i, %for.body.i.i.i ]
-  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr.i.i.i.le, %if.end.loopexit.split.loop.exit19 ], [ %incdec.ptr4.i.i.i.le, %if.end.loopexit.split.loop.exit17 ], [ %incdec.ptr8.i.i.i.le, %if.end.loopexit.split.loop.exit ], [ %__first.addr.091.i.i.i, %for.body.i.i.i ]
+if.end:                                           ; preds = %for.body.i.i.i, %if.end.loopexit.split.loop.exit, %if.end.loopexit.split.loop.exit18, %if.end.loopexit.split.loop.exit20, %sw.bb25.i.i.i, %sw.bb20.i.i.i, %sw.bb.i.i.i
+  %add.ptr.i72 = phi ptr [ %add.ptr.i73, %sw.bb.i.i.i ], [ %add.ptr.i73, %sw.bb20.i.i.i ], [ %add.ptr.i73, %sw.bb25.i.i.i ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit20 ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit18 ], [ %add.ptr.i, %if.end.loopexit.split.loop.exit ], [ %add.ptr.i, %for.body.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb20.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb25.i.i.i ], [ %incdec.ptr.i.i.i.le, %if.end.loopexit.split.loop.exit20 ], [ %incdec.ptr4.i.i.i.le, %if.end.loopexit.split.loop.exit18 ], [ %incdec.ptr8.i.i.i.le, %if.end.loopexit.split.loop.exit ], [ %__first.addr.091.i.i.i, %for.body.i.i.i ]
   %cmp5 = icmp eq ptr %retval.0.i.i.i, %add.ptr.i72
   br i1 %cmp5, label %cleanup, label %if.then8
 
@@ -9371,8 +9371,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %tobool.not.i.i, label %for.cond.i.i, label %tailrecurse.loopexit, !llvm.loop !32
 
 return:                                           ; preds = %if.end, %_ZNK8Settings11existsLocalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %for.cond.i.i
-  %cmp.i.i.not.not.not.not.not.not.not.not37 = phi i1 [ false, %for.cond.i.i ], [ %cmp.i.i.not.not.not.not.not.not.not.not.not, %_ZNK8Settings11existsLocalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %cmp.i.i.not.not.not.not.not.not.not.not.not, %if.end ]
-  ret i1 %cmp.i.i.not.not.not.not.not.not.not.not37
+  %cmp.i.i.not.not.not.not.not.not.not.not38 = phi i1 [ false, %for.cond.i.i ], [ %cmp.i.i.not.not.not.not.not.not.not.not.not, %_ZNK8Settings11existsLocalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %cmp.i.i.not.not.not.not.not.not.not.not.not, %if.end ]
+  ret i1 %cmp.i.i.not.not.not.not.not.not.not.not38
 }
 
 ; Function Attrs: mustprogress uwtable

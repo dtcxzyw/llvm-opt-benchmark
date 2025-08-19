@@ -272,7 +272,7 @@ define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 .preheader70.lr.ph.split.us:                      ; preds = %.preheader70.lr.ph
   %35 = icmp eq i32 %33, 0
-  %spec.select133 = select i1 %35, i32 0, i32 %1
+  %spec.select142 = select i1 %35, i32 0, i32 %1
   br label %.loopexit
 
 .preheader70:                                     ; preds = %.preheader70.lr.ph, %119
@@ -571,7 +571,7 @@ Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeB
   br i1 %exitcond116.not, label %.loopexit, label %.preheaderthread-pre-split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.critedge, %119, %.critedge2, %179, %.preheader70.lr.ph.split.us, %.preheader.lr.ph.split.us, %20, %.preheader69
-  %.150 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select133, %.preheader70.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %1, %179 ], [ %.04984, %.critedge ], [ %1, %119 ]
+  %.150 = phi i32 [ 0, %.preheader69 ], [ 0, %20 ], [ %spec.select, %.preheader.lr.ph.split.us ], [ %spec.select142, %.preheader70.lr.ph.split.us ], [ %.293, %.critedge2 ], [ %1, %179 ], [ %.04984, %.critedge ], [ %1, %119 ]
   store i32 0, ptr %5, align 8, !tbaa !33
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #3
   %181 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #3

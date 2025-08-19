@@ -86,7 +86,7 @@ define internal range(i32 -2147483648, 1) i32 @ftr_init(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 536870912) i32 @ftr_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 -2147483648, 268435456) i32 @ftr_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca %struct.GetBitContext, align 8
   %6 = alloca %struct.AACADTSHeaderInfo, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32

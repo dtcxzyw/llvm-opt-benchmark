@@ -1667,13 +1667,13 @@ define noundef zeroext i1 @"_ZN63_$LT$uv_build_frontend..Printer$u20$as$u20$core
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %2, ptr %19, align 8
   %20 = load i8, ptr %0, align 1, !range !372, !noundef !3
-  switch i8 %20, label %default.unreachable64 [
+  switch i8 %20, label %default.unreachable65 [
     i8 0, label %21
     i8 1, label %91
     i8 2, label %.thread61
   ]
 
-default.unreachable64:                            ; preds = %69, %3
+default.unreachable65:                            ; preds = %69, %3
   unreachable
 
 21:                                               ; preds = %3
@@ -1814,7 +1814,7 @@ common.resume:                                    ; preds = %86, %36, %52
 69:                                               ; preds = %"_ZN70_$LT$anstream..auto..AutoStream$LT$S$GT$$u20$as$u20$std..io..Write$GT$9write_fmt17he4b207478af0a53aE.exit"
   %70 = ptrtoint ptr %.sroa.0.0.i to i64
   %71 = and i64 %70, 3
-  switch i64 %71, label %default.unreachable64 [
+  switch i64 %71, label %default.unreachable65 [
     i64 2, label %73
     i64 3, label %72
     i64 0, label %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit

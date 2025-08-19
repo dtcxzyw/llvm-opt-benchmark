@@ -275,7 +275,7 @@ switch.lookup:                                    ; preds = %14, %9, %6
   %switch.shifted = lshr i16 8189, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %27 = zext nneg i32 %1 to i64
-  %switch.gep53 = getelementptr inbounds nuw [13 x i64], ptr @switch.table._do_call_stack.7, i64 0, i64 %27
+  %switch.gep59 = getelementptr inbounds nuw [13 x i64], ptr @switch.table._do_call_stack.7, i64 0, i64 %27
   br label %28
 
 28:                                               ; preds = %.lr.ph, %50
@@ -284,20 +284,20 @@ switch.lookup:                                    ; preds = %14, %9, %6
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @xbasename(ptr noundef %31) #19
   store ptr %29, ptr %26, align 8
-  br i1 %switch.lobit, label %switch.lookup52, label %spank_plugin_get_fn.exit.thread
+  br i1 %switch.lobit, label %switch.lookup58, label %spank_plugin_get_fn.exit.thread
 
 spank_plugin_get_fn.exit.thread:                  ; preds = %28
   %33 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.72, i32 noundef range(i32 0, 13) %1) #19
   br label %50
 
-switch.lookup52:                                  ; preds = %28
-  %switch.load54 = load i64, ptr %switch.gep53, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %switch.load54
+switch.lookup58:                                  ; preds = %28
+  %switch.load60 = load i64, ptr %switch.gep59, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %switch.load60
   %.0.i36 = load ptr, ptr %34, align 8
   %.not34 = icmp eq ptr %.0.i36, null
   br i1 %.not34, label %50, label %35, !llvm.loop !8
 
-35:                                               ; preds = %switch.lookup52
+35:                                               ; preds = %switch.lookup58
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -325,7 +325,7 @@ switch.lookup52:                                  ; preds = %28
   %49 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef %32, ptr noundef nonnull %switch.load, i32 noundef %40) #19
   br label %.loopexit
 
-50:                                               ; preds = %spank_plugin_get_fn.exit.thread, %44, %45, %switch.lookup52
+50:                                               ; preds = %spank_plugin_get_fn.exit.thread, %44, %45, %switch.lookup58
   %51 = call ptr @list_next(ptr noundef %24) #19
   %.not33 = icmp eq ptr %51, null
   br i1 %.not33, label %.loopexit, label %28
@@ -2146,9 +2146,9 @@ define dso_local range(i32 0, 3010) i32 @spank_get_item(ptr noundef readonly cap
 
 10:                                               ; preds = %9
   %or.cond3.i = icmp ugt i32 %1, 2
-  br i1 %or.cond3.i, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread306
+  br i1 %or.cond3.i, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread362
 
-_check_spank_item_validity.exit.thread306:        ; preds = %10
+_check_spank_item_validity.exit.thread362:        ; preds = %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %32
 
@@ -2168,9 +2168,9 @@ _valid_in_local_context.exit.i:                   ; preds = %12, %12, %12, %12, 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread305
+  br i1 %15, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread361
 
-_check_spank_item_validity.exit.thread305:        ; preds = %_valid_in_local_context.exit.i
+_check_spank_item_validity.exit.thread361:        ; preds = %_valid_in_local_context.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %25
 
@@ -2182,9 +2182,9 @@ _check_spank_item_validity.exit.thread305:        ; preds = %_valid_in_local_con
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not18.i = icmp eq ptr %20, null
-  br i1 %.not18.i, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread304
+  br i1 %.not18.i, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread360
 
-_check_spank_item_validity.exit.thread304:        ; preds = %18
+_check_spank_item_validity.exit.thread360:        ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %36
 
@@ -2200,8 +2200,8 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
     i32 5, label %32
   ]
 
-25:                                               ; preds = %_check_spank_item_validity.exit.thread305, %_check_spank_item_validity.exit
-  %26 = phi ptr [ %16, %_check_spank_item_validity.exit.thread305 ], [ %24, %_check_spank_item_validity.exit ]
+25:                                               ; preds = %_check_spank_item_validity.exit.thread361, %_check_spank_item_validity.exit
+  %26 = phi ptr [ %16, %_check_spank_item_validity.exit.thread361 ], [ %24, %_check_spank_item_validity.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   br label %36
@@ -2211,17 +2211,17 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   %31 = load ptr, ptr %30, align 8
   br label %36
 
-32:                                               ; preds = %_check_spank_item_validity.exit.thread306, %_check_spank_item_validity.exit
-  %33 = phi ptr [ %11, %_check_spank_item_validity.exit.thread306 ], [ %24, %_check_spank_item_validity.exit ]
+32:                                               ; preds = %_check_spank_item_validity.exit.thread362, %_check_spank_item_validity.exit
+  %33 = phi ptr [ %11, %_check_spank_item_validity.exit.thread362 ], [ %24, %_check_spank_item_validity.exit ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   br label %36
 
-36:                                               ; preds = %_check_spank_item_validity.exit.thread304, %_check_spank_item_validity.exit, %29, %32, %25
-  %37 = phi ptr [ %26, %25 ], [ %24, %29 ], [ %33, %32 ], [ %24, %_check_spank_item_validity.exit ], [ %21, %_check_spank_item_validity.exit.thread304 ]
-  %.0181 = phi ptr [ null, %25 ], [ %31, %29 ], [ null, %32 ], [ null, %_check_spank_item_validity.exit ], [ null, %_check_spank_item_validity.exit.thread304 ]
-  %.0180 = phi ptr [ %28, %25 ], [ null, %29 ], [ null, %32 ], [ null, %_check_spank_item_validity.exit ], [ null, %_check_spank_item_validity.exit.thread304 ]
-  %.0179 = phi ptr [ null, %25 ], [ null, %29 ], [ %35, %32 ], [ null, %_check_spank_item_validity.exit ], [ null, %_check_spank_item_validity.exit.thread304 ]
+36:                                               ; preds = %_check_spank_item_validity.exit.thread360, %_check_spank_item_validity.exit, %29, %32, %25
+  %37 = phi ptr [ %26, %25 ], [ %24, %29 ], [ %33, %32 ], [ %24, %_check_spank_item_validity.exit ], [ %21, %_check_spank_item_validity.exit.thread360 ]
+  %.0181 = phi ptr [ null, %25 ], [ %31, %29 ], [ null, %32 ], [ null, %_check_spank_item_validity.exit ], [ null, %_check_spank_item_validity.exit.thread360 ]
+  %.0180 = phi ptr [ %28, %25 ], [ null, %29 ], [ null, %32 ], [ null, %_check_spank_item_validity.exit ], [ null, %_check_spank_item_validity.exit.thread360 ]
+  %.0179 = phi ptr [ null, %25 ], [ null, %29 ], [ %35, %32 ], [ null, %_check_spank_item_validity.exit ], [ null, %_check_spank_item_validity.exit.thread360 ]
   call void @llvm.va_start.p0(ptr nonnull %3)
   switch i32 %1, label %job_task_info_by_pid.exit.thread [
     i32 0, label %38
@@ -2874,9 +2874,9 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 372:                                              ; preds = %36
   %373 = load i32, ptr %3, align 16
   %374 = icmp ult i32 %373, 41
-  br i1 %374, label %379, label %.thread307
+  br i1 %374, label %379, label %.thread363
 
-.thread307:                                       ; preds = %372
+.thread363:                                       ; preds = %372
   %375 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr i8, ptr %376, i64 8
@@ -2904,8 +2904,8 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   store i32 %392, ptr %3, align 16
   br label %398
 
-393:                                              ; preds = %.thread307, %379
-  %394 = phi ptr [ %378, %.thread307 ], [ %385, %379 ]
+393:                                              ; preds = %.thread363, %379
+  %394 = phi ptr [ %378, %.thread363 ], [ %385, %379 ]
   %395 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %396 = load ptr, ptr %395, align 8
   %397 = getelementptr i8, ptr %396, i64 8
@@ -3142,9 +3142,9 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 527:                                              ; preds = %36
   %528 = load i32, ptr %3, align 16
   %529 = icmp ult i32 %528, 41
-  br i1 %529, label %534, label %.thread308
+  br i1 %529, label %534, label %.thread364
 
-.thread308:                                       ; preds = %527
+.thread364:                                       ; preds = %527
   %530 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %531 = load ptr, ptr %530, align 8
   %532 = getelementptr i8, ptr %531, i64 8
@@ -3172,8 +3172,8 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   store i32 %547, ptr %3, align 16
   br label %553
 
-548:                                              ; preds = %.thread308, %534
-  %549 = phi i32 [ %533, %.thread308 ], [ %540, %534 ]
+548:                                              ; preds = %.thread364, %534
+  %549 = phi i32 [ %533, %.thread364 ], [ %540, %534 ]
   %550 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %551 = load ptr, ptr %550, align 8
   %552 = getelementptr i8, ptr %551, i64 8
@@ -3232,9 +3232,9 @@ job_task_info_by_pid.exit:                        ; preds = %564
 572:                                              ; preds = %36
   %573 = load i32, ptr %3, align 16
   %574 = icmp ult i32 %573, 41
-  br i1 %574, label %579, label %.thread309
+  br i1 %574, label %579, label %.thread365
 
-.thread309:                                       ; preds = %572
+.thread365:                                       ; preds = %572
   %575 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %576 = load ptr, ptr %575, align 8
   %577 = getelementptr i8, ptr %576, i64 8
@@ -3262,8 +3262,8 @@ job_task_info_by_pid.exit:                        ; preds = %564
   store i32 %592, ptr %3, align 16
   br label %598
 
-593:                                              ; preds = %.thread309, %579
-  %594 = phi i32 [ %578, %.thread309 ], [ %585, %579 ]
+593:                                              ; preds = %.thread365, %579
+  %594 = phi i32 [ %578, %.thread365 ], [ %585, %579 ]
   %595 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %596 = load ptr, ptr %595, align 8
   %597 = getelementptr i8, ptr %596, i64 8
@@ -3322,9 +3322,9 @@ job_task_info_by_pid.exit281:                     ; preds = %609
 617:                                              ; preds = %36
   %618 = load i32, ptr %3, align 16
   %619 = icmp ult i32 %618, 41
-  br i1 %619, label %624, label %.thread310
+  br i1 %619, label %624, label %.thread366
 
-.thread310:                                       ; preds = %617
+.thread366:                                       ; preds = %617
   %620 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %621 = load ptr, ptr %620, align 8
   %622 = getelementptr i8, ptr %621, i64 8
@@ -3352,8 +3352,8 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   store i32 %637, ptr %3, align 16
   br label %643
 
-638:                                              ; preds = %.thread310, %624
-  %639 = phi i32 [ %623, %.thread310 ], [ %630, %624 ]
+638:                                              ; preds = %.thread366, %624
+  %639 = phi i32 [ %623, %.thread366 ], [ %630, %624 ]
   %640 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %641 = load ptr, ptr %640, align 8
   %642 = getelementptr i8, ptr %641, i64 8
@@ -3396,9 +3396,9 @@ job_task_info_by_pid.exit281:                     ; preds = %609
 660:                                              ; preds = %36
   %661 = load i32, ptr %3, align 16
   %662 = icmp ult i32 %661, 41
-  br i1 %662, label %667, label %.thread311
+  br i1 %662, label %667, label %.thread367
 
-.thread311:                                       ; preds = %660
+.thread367:                                       ; preds = %660
   %663 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %664 = load ptr, ptr %663, align 8
   %665 = getelementptr i8, ptr %664, i64 8
@@ -3426,8 +3426,8 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   store i32 %680, ptr %3, align 16
   br label %686
 
-681:                                              ; preds = %.thread311, %667
-  %682 = phi i32 [ %666, %.thread311 ], [ %673, %667 ]
+681:                                              ; preds = %.thread367, %667
+  %682 = phi i32 [ %666, %.thread367 ], [ %673, %667 ]
   %683 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %684 = load ptr, ptr %683, align 8
   %685 = getelementptr i8, ptr %684, i64 8
@@ -4236,14 +4236,14 @@ define dso_local range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef rea
   %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %.not50 = icmp eq ptr %27, null
-  br i1 %.not50, label %.critedge.loopexit.split.loop.exit73, label %33
+  br i1 %.not50, label %.critedge.loopexit.split.loop.exit78, label %33
 
-.critedge.loopexit.split.loop.exit73:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit78:             ; preds = %.lr.ph
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %33, %.critedge.loopexit.split.loop.exit73, %18
-  %.039.lcssa = phi i32 [ 0, %18 ], [ %28, %.critedge.loopexit.split.loop.exit73 ], [ %1, %33 ]
+.critedge:                                        ; preds = %33, %.critedge.loopexit.split.loop.exit78, %18
+  %.039.lcssa = phi i32 [ 0, %18 ], [ %28, %.critedge.loopexit.split.loop.exit78 ], [ %1, %33 ]
   %29 = load ptr, ptr %9, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 152
   %31 = load i32, ptr %30, align 8
@@ -5376,13 +5376,13 @@ _spank_plugin_destroy.exit:                       ; preds = %240, %._crit_edge.i
 
 .lr.ph80.preheader:                               ; preds = %254
   %258 = load ptr, ptr %257, align 8
-  %.not45.i93 = icmp eq ptr %258, null
-  br i1 %.not45.i93, label %_spank_stack_process_line.exit.thread, label %.lr.ph80
+  %.not45.i110 = icmp eq ptr %258, null
+  br i1 %.not45.i110, label %_spank_stack_process_line.exit.thread, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
-  %.0.i7994 = phi ptr [ %260, %.lr.ph80 ], [ %257, %.lr.ph80.preheader ]
-  %259 = call fastcc i32 @_spank_option_register(ptr noundef nonnull %158, ptr noundef %.0.i7994)
-  %260 = getelementptr inbounds nuw i8, ptr %.0.i7994, i64 40
+  %.0.i79111 = phi ptr [ %260, %.lr.ph80 ], [ %257, %.lr.ph80.preheader ]
+  %259 = call fastcc i32 @_spank_option_register(ptr noundef nonnull %158, ptr noundef %.0.i79111)
+  %260 = getelementptr inbounds nuw i8, ptr %.0.i79111, i64 40
   %261 = load ptr, ptr %260, align 8
   %.not45.i = icmp eq ptr %261, null
   br i1 %.not45.i, label %_spank_stack_process_line.exit.thread, label %.lr.ph80, !llvm.loop !39

@@ -67,8 +67,8 @@ define hidden noundef i32 @WebPRescalerInit(ptr noundef writeonly captures(none)
   %46 = sext i32 %37 to i64
   %47 = mul nsw i64 %46, %45
   %48 = udiv i64 %44, %47
-  %spec.select85 = tail call i64 @llvm.umin.i64(i64 %48, i64 4294967296)
-  %spec.select = trunc i64 %spec.select85 to i32
+  %spec.select87 = tail call i64 @llvm.umin.i64(i64 %48, i64 4294967296)
+  %spec.select = trunc i64 %spec.select87 to i32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %spec.select, ptr %49, align 4, !tbaa !27
   br label %51
@@ -78,8 +78,8 @@ define hidden noundef i32 @WebPRescalerInit(ptr noundef writeonly captures(none)
   br label %51
 
 51:                                               ; preds = %50, %42
-  %.sink84 = phi i32 [ %25, %50 ], [ %39, %42 ]
-  %52 = sext i32 %.sink84 to i64
+  %.sink86 = phi i32 [ %25, %50 ], [ %39, %42 ]
+  %52 = sext i32 %.sink86 to i64
   %53 = udiv i64 4294967296, %52
   %54 = trunc i64 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16

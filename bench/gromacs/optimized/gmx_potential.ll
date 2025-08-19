@@ -1164,8 +1164,8 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   br i1 %or.cond76.not.i, label %.loopexit6.i, label %.preheader4.lr.ph.i
 
 ._crit_edge32.i.thread:                           ; preds = %.preheader7.lr.ph.i
-  %.not.i146 = xor i1 %199, true
-  %or.cond76.not.i147 = or i1 %193, %.not.i146
+  %.not.i212 = xor i1 %199, true
+  %or.cond76.not.i213 = or i1 %193, %.not.i212
   br label %.loopexit6.i
 
 .preheader4.lr.ph.i:                              ; preds = %._crit_edge32.i
@@ -1222,7 +1222,7 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   br i1 %exitcond153.not.i.us, label %.loopexit6.i, label %.preheader4.i.us, !llvm.loop !91
 
 .loopexit6.i:                                     ; preds = %._crit_edge46.i.loopexit.us, %._crit_edge32.i.thread, %._crit_edge32.i
-  %or.cond76.not.i149 = phi i1 [ true, %._crit_edge32.i ], [ %or.cond76.not.i147, %._crit_edge32.i.thread ], [ false, %._crit_edge46.i.loopexit.us ]
+  %or.cond76.not.i215 = phi i1 [ true, %._crit_edge32.i ], [ %or.cond76.not.i213, %._crit_edge32.i.thread ], [ false, %._crit_edge46.i.loopexit.us ]
   br label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %.lr.ph50.i, %.loopexit6.i
@@ -1238,7 +1238,7 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   br i1 %exitcond158.not.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !92
 
 ._crit_edge51.i:                                  ; preds = %.lr.ph50.i
-  br i1 %or.cond76.not.i149, label %.lr.ph67.i.preheader, label %.preheader2.lr.ph.i
+  br i1 %or.cond76.not.i215, label %.lr.ph67.i.preheader, label %.preheader2.lr.ph.i
 
 .lr.ph67.i.preheader:                             ; preds = %._crit_edge63.i.loopexit.us, %.preheader2.lr.ph.i, %._crit_edge51.i
   br label %.lr.ph67.i

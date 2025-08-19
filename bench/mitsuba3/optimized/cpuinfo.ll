@@ -562,7 +562,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %462 = icmp ne i32 %461, 24
   %463 = or i1 %196, %462
   %464 = or i64 %455, 131072
-  %spec.select10 = select i1 %463, i64 %455, i64 %464
+  %spec.select13 = select i1 %463, i64 %455, i64 %464
   %465 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #6, !srcloc !16
   %466 = extractvalue { i32, i32, i32, i32 } %465, 0
   %467 = shl i32 %466, 2
@@ -581,13 +581,13 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %477 = shl i32 %476, 25
   %478 = and i32 %477, 536870912
   %479 = zext nneg i32 %478 to i64
-  %480 = or i64 %spec.select10, %479
+  %480 = or i64 %spec.select13, %479
   store i64 %480, ptr %7, align 8, !tbaa !21
   br label %481
 
 481:                                              ; preds = %474, %457, %453, %181, %30
   %482 = phi i64 [ 0, %30 ], [ %454, %474 ], [ %454, %457 ], [ %454, %453 ], [ %182, %181 ]
-  %483 = phi i64 [ 16, %30 ], [ %480, %474 ], [ %spec.select10, %457 ], [ %455, %453 ], [ %149, %181 ]
+  %483 = phi i64 [ 16, %30 ], [ %480, %474 ], [ %spec.select13, %457 ], [ %455, %453 ], [ %149, %181 ]
   %484 = getelementptr inbounds nuw i8, ptr %1, i64 52
   br label %485
 

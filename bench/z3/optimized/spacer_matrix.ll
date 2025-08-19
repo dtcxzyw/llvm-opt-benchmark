@@ -409,8 +409,8 @@ _ZN6vectorI8rationalLb1EjE16destroy_elementsEv.exit.loopexit.i: ; preds = %_ZSt8
 
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i:        ; preds = %3, %14
   %16 = load i32, ptr %0, align 8, !tbaa !3
-  %.not17 = icmp eq i32 %16, 0
-  br i1 %.not17, label %_ZN6vectorI8rationalLb1EjE7reserveEj.exit, label %17
+  %.not22 = icmp eq i32 %16, 0
+  br i1 %.not22, label %_ZN6vectorI8rationalLb1EjE7reserveEj.exit, label %17
 
 17:                                               ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i
   tail call void @_ZN6vectorI8rationalLb1EjE6resizeEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %16)
@@ -979,11 +979,11 @@ _ZNK8rational6is_oneEv.exit.preheader:            ; preds = %_ZN8rationalC2ERKS_
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit87.preheader: ; preds = %_ZNK8rational6is_oneEv.exit.preheader
   %231 = getelementptr inbounds i8, ptr %229, i64 -4
   %232 = load i32, ptr %231, align 4, !tbaa !13
-  %.not165 = icmp eq i32 %232, 0
-  br i1 %.not165, label %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.preheader, label %.lr.ph
+  %.not181 = icmp eq i32 %232, 0
+  br i1 %.not181, label %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit89.preheader, label %.lr.ph
 
 _ZNK6vectorI8rationalLb1EjE4sizeEv.exit87:        ; preds = %_ZN8rationalD2Ev.exit
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145163, 1
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145179, 1
   %233 = getelementptr inbounds i8, ptr %303, i64 -4
   %234 = load i32, ptr %233, align 4, !tbaa !13
   %235 = zext i32 %234 to i64
@@ -1007,9 +1007,9 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit87:        ; preds = %_ZN8rationalD2Ev.ex
 
 .lr.ph:                                           ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87.preheader, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87
   %243 = phi ptr [ %303, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87 ], [ %229, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87.preheader ]
-  %indvars.iv145163 = phi i64 [ %indvars.iv.next146, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87 ], [ 0, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87.preheader ]
+  %indvars.iv145179 = phi i64 [ %indvars.iv.next146, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87 ], [ 0, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit87.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %244 = getelementptr inbounds nuw %class.rational, ptr %243, i64 %indvars.iv145163
+  %244 = getelementptr inbounds nuw %class.rational, ptr %243, i64 %indvars.iv145179
   invoke void @_ZdvRK8rationalS1_(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %245 unwind label %305
 
@@ -1017,7 +1017,7 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit87:        ; preds = %_ZN8rationalD2Ev.ex
   %246 = load ptr, ptr %9, align 8, !tbaa !12
   %247 = getelementptr inbounds nuw %class.vector.0, ptr %246, i64 %50
   %248 = load ptr, ptr %247, align 8, !tbaa !16
-  %249 = getelementptr inbounds nuw %class.rational, ptr %248, i64 %indvars.iv145163
+  %249 = getelementptr inbounds nuw %class.rational, ptr %248, i64 %indvars.iv145179
   %250 = load i32, ptr %249, align 4, !tbaa !13
   %251 = load i32, ptr %5, align 8, !tbaa !13
   store i32 %251, ptr %249, align 4, !tbaa !13

@@ -1969,7 +1969,7 @@ define dso_local range(i32 -30, 2) i32 @archive_match_path_unmatched_inclusions_
 .thread41.i:                                      ; preds = %28, %24
   %32 = load ptr, ptr %3, align 8, !tbaa !96
   %33 = icmp eq ptr %32, null
-  %spec.select49.i = select i1 %33, ptr @.str.34, ptr %32
+  %spec.select50.i = select i1 %33, ptr @.str.34, ptr %32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load ptr, ptr %.032.i, align 8, !tbaa !35
   store ptr %34, ptr %11, align 8, !tbaa !94
@@ -1992,7 +1992,7 @@ define dso_local range(i32 -30, 2) i32 @archive_match_path_unmatched_inclusions_
   br label %match_list_unmatched_inclusions_next.exit
 
 match_list_unmatched_inclusions_next.exit:        ; preds = %9, %14, %36, %.thread41.i, %38, %39
-  %.0 = phi ptr [ null, %14 ], [ null, %39 ], [ null, %36 ], [ %spec.select49.i, %38 ], [ %spec.select49.i, %.thread41.i ], [ null, %9 ]
+  %.0 = phi ptr [ null, %14 ], [ null, %39 ], [ null, %36 ], [ %spec.select50.i, %38 ], [ %spec.select50.i, %.thread41.i ], [ null, %9 ]
   %.033.i = phi i32 [ 1, %14 ], [ 1, %39 ], [ -30, %36 ], [ 0, %38 ], [ 0, %.thread41.i ], [ 1, %9 ]
   store ptr %.0, ptr %1, align 8, !tbaa !96
   br label %40

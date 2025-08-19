@@ -4734,14 +4734,14 @@ define void @_ZN13pingora_cache9HttpCache18release_write_lock17h64045cf15d0c0a17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !align !15, !noundef !3
   %.not = icmp eq ptr %8, null
-  %.sink26.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink26.sroa.gep27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink26.sroa.gep29 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink26.sroa.gep30 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink26.sroa.gep32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink26.sroa.gep33 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink26.sroa.gep35 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink26.sroa.gep36 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink28.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink28.sroa.gep29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink28.sroa.gep31 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink28.sroa.gep32 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink28.sroa.gep34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink28.sroa.gep35 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink28.sroa.gep37 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink28.sroa.gep38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %2
@@ -4772,7 +4772,7 @@ define void @_ZN13pingora_cache9HttpCache18release_write_lock17h64045cf15d0c0a17
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %12, ptr %18, align 8
   %19 = load i64, ptr %1, align 8, !range !401, !noundef !3
-  switch i64 %19, label %default.unreachable20 [
+  switch i64 %19, label %default.unreachable22 [
     i64 0, label %20
     i64 1, label %25
     i64 2, label %25
@@ -4786,7 +4786,7 @@ define void @_ZN13pingora_cache9HttpCache18release_write_lock17h64045cf15d0c0a17
     i64 10, label %25
   ], !prof !412
 
-default.unreachable20:                            ; preds = %16
+default.unreachable22:                            ; preds = %16
   unreachable
 
 20:                                               ; preds = %16
@@ -4795,17 +4795,17 @@ default.unreachable20:                            ; preds = %16
   br label %.invoke
 
 .invoke:                                          ; preds = %23, %20
-  %.sink26.sroa.phi = phi ptr [ %.sink26.sroa.gep, %23 ], [ %.sink26.sroa.gep27, %20 ]
-  %.sink26.sroa.phi28 = phi ptr [ %.sink26.sroa.gep29, %23 ], [ %.sink26.sroa.gep30, %20 ]
-  %.sink26.sroa.phi31 = phi ptr [ %.sink26.sroa.gep32, %23 ], [ %.sink26.sroa.gep33, %20 ]
-  %.sink26.sroa.phi34 = phi ptr [ %.sink26.sroa.gep35, %23 ], [ %.sink26.sroa.gep36, %20 ]
-  %.sink26 = phi ptr [ %3, %23 ], [ %4, %20 ]
+  %.sink28.sroa.phi = phi ptr [ %.sink28.sroa.gep, %23 ], [ %.sink28.sroa.gep29, %20 ]
+  %.sink28.sroa.phi30 = phi ptr [ %.sink28.sroa.gep31, %23 ], [ %.sink28.sroa.gep32, %20 ]
+  %.sink28.sroa.phi33 = phi ptr [ %.sink28.sroa.gep34, %23 ], [ %.sink28.sroa.gep35, %20 ]
+  %.sink28.sroa.phi36 = phi ptr [ %.sink28.sroa.gep37, %23 ], [ %.sink28.sroa.gep38, %20 ]
+  %.sink28 = phi ptr [ %3, %23 ], [ %4, %20 ]
   %21 = phi ptr [ @anon.b7f70d23add93711b34b30bf71ab012b.127, %23 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.124, %20 ]
-  store i64 1, ptr %.sink26.sroa.phi, align 8
-  store ptr null, ptr %.sink26.sroa.phi28, align 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sink26.sroa.phi31, align 8
-  store i64 0, ptr %.sink26.sroa.phi34, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink26, ptr noalias noundef readonly align 8 dereferenceable(24) %21) #25
+  store i64 1, ptr %.sink28.sroa.phi, align 8
+  store ptr null, ptr %.sink28.sroa.phi30, align 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sink28.sroa.phi33, align 8
+  store i64 0, ptr %.sink28.sroa.phi36, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink28, ptr noalias noundef readonly align 8 dereferenceable(24) %21) #25
           to label %.cont unwind label %42
 
 .cont:                                            ; preds = %.invoke
@@ -4831,7 +4831,7 @@ default.unreachable20:                            ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 912
   %29 = load ptr, ptr %28, align 8
   %.not11 = icmp eq ptr %27, null
-  br i1 %.not11, label %.invoke21, label %30, !prof !4
+  br i1 %.not11, label %.invoke23, label %30, !prof !4
 
 30:                                               ; preds = %25
   %31 = icmp ne ptr %29, null
@@ -4839,7 +4839,7 @@ default.unreachable20:                            ; preds = %16
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %33 = load i64, ptr %32, align 8, !range !132, !noundef !3
   %.not12 = icmp eq i64 %33, -9223372036854775808
-  br i1 %.not12, label %.invoke21, label %34, !prof !4
+  br i1 %.not12, label %.invoke23, label %34, !prof !4
 
 34:                                               ; preds = %30
   %35 = trunc nuw i8 %12 to i1
@@ -4848,12 +4848,12 @@ default.unreachable20:                            ; preds = %16
   invoke void %37(ptr noundef nonnull align 1 %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %32, ptr noundef nonnull %17, i1 noundef zeroext %35, i8 noundef %.sroa.04.0)
           to label %39 unwind label %24
 
-.invoke21:                                        ; preds = %30, %25
+.invoke23:                                        ; preds = %30, %25
   %38 = phi ptr [ @anon.b7f70d23add93711b34b30bf71ab012b.128, %25 ], [ @anon.b7f70d23add93711b34b30bf71ab012b.129, %30 ]
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) %38) #25
-          to label %.cont22 unwind label %42
+          to label %.cont24 unwind label %42
 
-.cont22:                                          ; preds = %.invoke21
+.cont24:                                          ; preds = %.invoke23
   unreachable
 
 39:                                               ; preds = %34
@@ -4867,7 +4867,7 @@ default.unreachable20:                            ; preds = %16
   %cond = icmp eq i8 %41, 2
   br i1 %cond, label %46, label %45
 
-42:                                               ; preds = %.invoke21, %.invoke
+42:                                               ; preds = %.invoke23, %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$pingora_cache..lock..WritePermit$GT$17h25fb1d363d08ea93E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #26
@@ -5494,7 +5494,7 @@ define void @_ZN13pingora_cache9HttpCache11cache_found17h74850c0f8e4daaadE(ptr n
 
 19:                                               ; preds = %5, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  switch i8 %4, label %default.unreachable65 [
+  switch i8 %4, label %default.unreachable76 [
     i8 0, label %22
     i8 1, label %22
     i8 2, label %20
@@ -5502,7 +5502,7 @@ define void @_ZN13pingora_cache9HttpCache11cache_found17h74850c0f8e4daaadE(ptr n
     i8 4, label %21
   ]
 
-default.unreachable65:                            ; preds = %19
+default.unreachable76:                            ; preds = %19
   unreachable
 
 20:                                               ; preds = %19, %19
@@ -7163,8 +7163,8 @@ define void @_ZN13pingora_cache9HttpCache15take_write_lock17h7171c6c86de04807E(p
   ret void
 
 37:                                               ; preds = %25, %38
-  %.pn17 = phi { ptr, i32 } [ %39, %38 ], [ %26, %25 ]
-  resume { ptr, i32 } %.pn17
+  %.pn18 = phi { ptr, i32 } [ %39, %38 ], [ %26, %25 ]
+  resume { ptr, i32 } %.pn18
 
 38:                                               ; preds = %15
   %39 = landingpad { ptr, i32 }

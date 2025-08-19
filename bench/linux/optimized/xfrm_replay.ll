@@ -511,16 +511,16 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   br i1 %94, label %97, label %96, !prof !5
 
 96:                                               ; preds = %91
-  br i1 %95, label %.thread28, label %.thread, !prof !5
+  br i1 %95, label %.thread54, label %.thread, !prof !5
 
 97:                                               ; preds = %91
-  br i1 %95, label %.thread, label %.thread28, !prof !6
+  br i1 %95, label %.thread, label %.thread54, !prof !6
 
 .thread:                                          ; preds = %96, %97
   %98 = getelementptr inbounds nuw i8, ptr %78, i64 16
   br label %104
 
-.thread28:                                        ; preds = %97, %96
+.thread54:                                        ; preds = %97, %96
   %.sink = phi i32 [ 1, %96 ], [ -1, %97 ]
   %99 = add i32 %.pre, %.sink
   %100 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -537,9 +537,9 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %107 = icmp ugt i32 %83, %85
   br i1 %107, label %113, label %148
 
-108:                                              ; preds = %.thread28, %101
-  %109 = phi ptr [ %100, %.thread28 ], [ %102, %101 ]
-  %110 = phi i32 [ %99, %.thread28 ], [ 0, %101 ]
+108:                                              ; preds = %.thread54, %101
+  %109 = phi ptr [ %100, %.thread54 ], [ %102, %101 ]
+  %110 = phi i32 [ %99, %.thread54 ], [ 0, %101 ]
   %111 = sub i32 %110, %.pre
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %148

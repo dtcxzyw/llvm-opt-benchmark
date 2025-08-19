@@ -312,9 +312,9 @@ define range(i32 12552, 12689) i32 @ff_mpeg4_set_direct_mv(ptr noundef %0, i32 n
 
 ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %82, %84, %94, %96
   %.idx.sink.i = phi i64 [ %.idx71.i, %84 ], [ %.idx71.i, %82 ], [ %.idx.i, %96 ], [ %.idx.i, %94 ]
-  %.sink76.i = phi i32 [ %87, %84 ], [ %83, %82 ], [ %98, %96 ], [ %95, %94 ]
+  %.sink77.i = phi i32 [ %87, %84 ], [ %83, %82 ], [ %98, %96 ], [ %95, %94 ]
   %99 = getelementptr i8, ptr %28, i64 %.idx.sink.i
-  store i32 %.sink76.i, ptr %99, align 4, !tbaa !40
+  store i32 %.sink77.i, ptr %99, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %35, !llvm.loop !48
@@ -363,19 +363,19 @@ ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %82, %84, %94, %96
   store i32 %126, ptr %125, align 4, !tbaa !40
   %127 = add nsw i32 %.1.neg126, %123
   %128 = sub nsw i32 %126, %123
-  %.sink134 = select i1 %.not112, i32 %127, i32 %128
+  %.sink138 = select i1 %.not112, i32 %127, i32 %128
   %129 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %110, i64 0, i64 %indvars.iv129
   %130 = load ptr, ptr %129, align 8, !tbaa !39
   %131 = getelementptr inbounds [2 x i16], ptr %130, i64 %14
   %132 = load i16, ptr %131, align 2, !tbaa !43
   %133 = sext i16 %132 to i32
-  %.sink134.tr = trunc i32 %.sink134 to i16
-  %.narrow = add i16 %118, %.sink134.tr
+  %.sink138.tr = trunc i32 %.sink138 to i16
+  %.narrow = add i16 %118, %.sink138.tr
   %134 = zext i16 %.narrow to i32
   %135 = mul nsw i32 %134, %133
-  %.sink134.tr137 = trunc i32 %.sink134 to i16
-  %.narrow138 = add i16 %117, %.sink134.tr137
-  %136 = zext i16 %.narrow138 to i32
+  %.sink138.tr141 = trunc i32 %.sink138 to i16
+  %.narrow142 = add i16 %117, %.sink138.tr141
+  %136 = zext i16 %.narrow142 to i32
   %137 = sdiv i32 %135, %136
   %138 = add nsw i32 %137, %1
   %139 = getelementptr inbounds nuw [4 x [2 x i32]], ptr %111, i64 0, i64 %indvars.iv129
@@ -543,9 +543,9 @@ ff_mpeg4_set_one_direct_mv.exit:                  ; preds = %82, %84, %94, %96
 
 ff_mpeg4_set_one_direct_mv.exit122:               ; preds = %226, %228, %240, %242
   %246 = phi i32 [ %224, %228 ], [ %224, %226 ], [ %238, %242 ], [ %238, %240 ]
-  %.sink76.i119 = phi i32 [ %232, %228 ], [ %227, %226 ], [ %245, %242 ], [ %241, %240 ]
+  %.sink77.i119 = phi i32 [ %232, %228 ], [ %227, %226 ], [ %245, %242 ], [ %241, %240 ]
   %247 = getelementptr i8, ptr %0, i64 3012
-  store i32 %.sink76.i119, ptr %247, align 4, !tbaa !40
+  store i32 %.sink77.i119, ptr %247, align 4, !tbaa !40
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 3000
   store i32 %211, ptr %248, align 8, !tbaa !40
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 2992
@@ -565,11 +565,11 @@ ff_mpeg4_set_one_direct_mv.exit122:               ; preds = %226, %228, %240, %2
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 3016
   store i32 %.sink.i116, ptr %256, align 8, !tbaa !40
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 3036
-  store i32 %.sink76.i119, ptr %257, align 4, !tbaa !40
+  store i32 %.sink77.i119, ptr %257, align 4, !tbaa !40
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 3028
-  store i32 %.sink76.i119, ptr %258, align 4, !tbaa !40
+  store i32 %.sink77.i119, ptr %258, align 4, !tbaa !40
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 3020
-  store i32 %.sink76.i119, ptr %259, align 4, !tbaa !40
+  store i32 %.sink77.i119, ptr %259, align 4, !tbaa !40
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %261 = load ptr, ptr %260, align 8, !tbaa !55
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 512
@@ -586,9 +586,9 @@ ff_mpeg4_set_one_direct_mv.exit122:               ; preds = %226, %228, %240, %2
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %265, %ff_mpeg4_set_one_direct_mv.exit122
-  %.sink135 = phi i32 [ 0, %ff_mpeg4_set_one_direct_mv.exit122 ], [ %spec.select, %265 ]
+  %.sink139 = phi i32 [ 0, %ff_mpeg4_set_one_direct_mv.exit122 ], [ %spec.select, %265 ]
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 2972
-  store i32 %.sink135, ptr %268, align 4, !tbaa !47
+  store i32 %.sink139, ptr %268, align 4, !tbaa !47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ff_mpeg4_set_one_direct_mv.exit, %162, %.loopexit.sink.split

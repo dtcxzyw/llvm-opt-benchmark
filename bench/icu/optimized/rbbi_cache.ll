@@ -79,8 +79,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator15Di
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !15
   %17 = icmp slt i32 %13, %16
-  %or.cond27 = select i1 %14, i1 %17, i1 false
-  br i1 %or.cond27, label %_ZNK6icu_779UVector3210elementAtiEi.exit, label %._crit_edge25
+  %or.cond33 = select i1 %14, i1 %17, i1 false
+  br i1 %or.cond33, label %_ZNK6icu_779UVector3210elementAtiEi.exit, label %._crit_edge25
 
 _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1484,8 +1484,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7722RuleBasedBreakIterator10Br
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %26 = load i32, ptr %25, align 8, !tbaa !15
   %27 = icmp slt i32 %23, %26
-  %or.cond27.i = select i1 %24, i1 %27, i1 false
-  br i1 %or.cond27.i, label %_ZNK6icu_779UVector3210elementAtiEi.exit.i, label %._crit_edge25.i
+  %or.cond33.i = select i1 %24, i1 %27, i1 false
+  br i1 %or.cond33.i, label %_ZNK6icu_779UVector3210elementAtiEi.exit.i, label %._crit_edge25.i
 
 _ZNK6icu_779UVector3210elementAtiEi.exit.i:       ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -1602,8 +1602,8 @@ _ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit: ; pre
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %80 = load i32, ptr %79, align 8, !tbaa !15
   %81 = icmp slt i32 %77, %80
-  %or.cond27.i15 = select i1 %78, i1 %81, i1 false
-  br i1 %or.cond27.i15, label %_ZNK6icu_779UVector3210elementAtiEi.exit.i25, label %._crit_edge25.i16
+  %or.cond33.i15 = select i1 %78, i1 %81, i1 false
+  br i1 %or.cond33.i15, label %_ZNK6icu_779UVector3210elementAtiEi.exit.i25, label %._crit_edge25.i16
 
 _ZNK6icu_779UVector3210elementAtiEi.exit.i25:     ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -1758,20 +1758,20 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePosit
   br i1 %exitcond.not, label %.loopexit, label %125, !llvm.loop !88
 
 .loopexit.sink.split:                             ; preds = %106, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29, %51, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit
-  %.sink71 = phi i32 [ %47, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %47, %51 ], [ %102, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %102, %106 ]
-  %.242.sink68 = phi i32 [ %.141, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.141, %51 ], [ %.242, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.242, %106 ]
+  %.sink83 = phi i32 [ %47, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %47, %51 ], [ %102, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %102, %106 ]
+  %.242.sink80 = phi i32 [ %.141, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.141, %51 ], [ %.242, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.242, %106 ]
   %.2.sink = phi i32 [ %.1, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ], [ %.1, %51 ], [ %.2, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit29 ], [ %.2, %106 ]
-  %149 = zext nneg i32 %.sink71 to i64
+  %149 = zext nneg i32 %.sink83 to i64
   %150 = getelementptr inbounds nuw [128 x i32], ptr %2, i64 0, i64 %149
-  store i32 %.242.sink68, ptr %150, align 4, !tbaa !17
+  store i32 %.242.sink80, ptr %150, align 4, !tbaa !17
   %151 = trunc i32 %.2.sink to i16
   %152 = getelementptr inbounds nuw [128 x i16], ptr %8, i64 0, i64 %149
   store i16 %151, ptr %152, align 2, !tbaa !71
-  store i32 %.sink71, ptr %3, align 4, !tbaa !74
+  store i32 %.sink83, ptr %3, align 4, !tbaa !74
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.sink71, ptr %153, align 4, !tbaa !76
+  store i32 %.sink83, ptr %153, align 4, !tbaa !76
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.242.sink68, ptr %154, align 8, !tbaa !75
+  store i32 %.242.sink80, ptr %154, align 8, !tbaa !75
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE.exit32, %129, %125, %.loopexit.sink.split, %54
@@ -1914,8 +1914,8 @@ _ZNK6icu_779UVector3210elementAtiEi.exit24.i:     ; preds = %62, %61
   unreachable
 
 .loopexit:                                        ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit24.i, %_ZNK6icu_779UVector3210elementAtiEi.exit22.i
-  %.sink253 = phi i32 [ %50, %_ZNK6icu_779UVector3210elementAtiEi.exit22.i ], [ %66, %_ZNK6icu_779UVector3210elementAtiEi.exit24.i ]
-  %69 = icmp eq i32 %.sink253, %19
+  %.sink284 = phi i32 [ %50, %_ZNK6icu_779UVector3210elementAtiEi.exit22.i ], [ %66, %_ZNK6icu_779UVector3210elementAtiEi.exit24.i ]
+  %69 = icmp eq i32 %.sink284, %19
   %.in20.v.i = select i1 %69, i64 52, i64 56
   %.4.ph.in = getelementptr inbounds nuw i8, ptr %17, i64 %.in20.v.i
   %.4.ph = load i32, ptr %.4.ph.in, align 4, !tbaa !17
@@ -1935,7 +1935,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit24.i:     ; preds = %62, %61
 _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit: ; preds = %.loopexit, %75
   %78 = zext nneg i32 %71 to i64
   %79 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %78
-  store i32 %.sink253, ptr %79, align 4, !tbaa !17
+  store i32 %.sink284, ptr %79, align 4, !tbaa !17
   %80 = trunc i32 %.4.ph to i16
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %82 = getelementptr inbounds nuw [128 x i16], ptr %81, i64 0, i64 %78
@@ -1944,7 +1944,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePosit
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %71, ptr %83, align 4, !tbaa !76
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sink253, ptr %84, align 8, !tbaa !75
+  store i32 %.sink284, ptr %84, align 8, !tbaa !75
   br label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit118.thread
 
 _ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_.exit: ; preds = %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_.exit.preheader, %.thread
@@ -2117,8 +2117,8 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit66: ; preds = %_ZN6icu_779UV
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %170 = load i32, ptr %169, align 8, !tbaa !15
   %171 = icmp slt i32 %167, %170
-  %or.cond27.i = select i1 %168, i1 %171, i1 false
-  br i1 %or.cond27.i, label %_ZNK6icu_779UVector3210elementAtiEi.exit.i72, label %._crit_edge25.i
+  %or.cond33.i = select i1 %168, i1 %171, i1 false
+  br i1 %or.cond33.i, label %_ZNK6icu_779UVector3210elementAtiEi.exit.i72, label %._crit_edge25.i
 
 _ZNK6icu_779UVector3210elementAtiEi.exit.i72:     ; preds = %.lr.ph
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 32
@@ -2252,9 +2252,9 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit89: ; preds = %_ZN6icu_779UV
   %220 = icmp slt i32 %.7, %219
   %or.cond.i = select i1 %.not.i67, i1 true, i1 %220
   %221 = getelementptr inbounds nuw i8, ptr %215, i64 40
-  br i1 %or.cond.i, label %._crit_edge.thread216, label %.lr.ph, !llvm.loop !90
+  br i1 %or.cond.i, label %._crit_edge.thread247, label %.lr.ph, !llvm.loop !90
 
-._crit_edge.thread216:                            ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit89
+._crit_edge.thread247:                            ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit89
   store i32 -1, ptr %221, align 8, !tbaa !13
   br label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit105
 
@@ -2323,9 +2323,9 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100: ; preds = 
   store i32 %245, ptr %114, align 8, !tbaa !15
   br label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit105
 
-_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit105: ; preds = %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit, %._crit_edge.thread216, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101, %._crit_edge, %.critedge
-  %.3138 = phi i32 [ %.5140, %.critedge ], [ %.4139187, %._crit_edge ], [ %.5140, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101 ], [ %.5140, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100 ], [ %.7, %._crit_edge.thread216 ], [ %.7, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ]
-  %.1 = phi i32 [ %.3, %.critedge ], [ %.2134188, %._crit_edge ], [ %.3, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101 ], [ %.3, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100 ], [ %.5, %._crit_edge.thread216 ], [ %.5, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ]
+_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit105: ; preds = %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit, %._crit_edge.thread247, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101, %._crit_edge, %.critedge
+  %.3138 = phi i32 [ %.5140, %.critedge ], [ %.4139187, %._crit_edge ], [ %.5140, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101 ], [ %.5140, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100 ], [ %.7, %._crit_edge.thread247 ], [ %.7, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ]
+  %.1 = phi i32 [ %.3, %.critedge ], [ %.2134188, %._crit_edge ], [ %.3, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.i101 ], [ %.3, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i100 ], [ %.5, %._crit_edge.thread247 ], [ %.5, %_ZN6icu_7722RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_.exit ]
   %246 = icmp slt i32 %.3138, %11
   br i1 %246, label %141, label %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit105.thread, !llvm.loop !91
 
@@ -2346,8 +2346,8 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %248
   %253 = getelementptr inbounds nuw i32, ptr %251, i64 %252
   %254 = load i32, ptr %253, align 4, !tbaa !17
   %255 = trunc i32 %254 to i16
-  %.not254 = icmp eq i32 %250, 0
-  br i1 %.not254, label %_ZN6icu_779UVector324popiEv.exit108, label %256
+  %.not285 = icmp eq i32 %250, 0
+  br i1 %.not285, label %_ZN6icu_779UVector324popiEv.exit108, label %256
 
 256:                                              ; preds = %_ZN6icu_779UVector324popiEv.exit
   %257 = add nsw i32 %247, -2
@@ -2359,7 +2359,7 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %248
   br label %_ZN6icu_779UVector324popiEv.exit108
 
 _ZN6icu_779UVector324popiEv.exit108:              ; preds = %248, %_ZN6icu_779UVector324popiEv.exit, %256
-  %.0.i106222 = phi i16 [ %255, %256 ], [ %255, %_ZN6icu_779UVector324popiEv.exit ], [ 0, %248 ]
+  %.0.i106253 = phi i16 [ %255, %256 ], [ %255, %_ZN6icu_779UVector324popiEv.exit ], [ 0, %248 ]
   %.promoted210 = phi i32 [ %257, %256 ], [ 0, %_ZN6icu_779UVector324popiEv.exit ], [ %247, %248 ]
   %.0.i107 = phi i32 [ %261, %256 ], [ 0, %_ZN6icu_779UVector324popiEv.exit ], [ 0, %248 ]
   %262 = load i32, ptr %7, align 8, !tbaa !73
@@ -2382,7 +2382,7 @@ _ZN6icu_779UVector324popiEv.exit108:              ; preds = %248, %_ZN6icu_779UV
   store i32 %.0.i107, ptr %273, align 4, !tbaa !17
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %275 = getelementptr inbounds nuw [128 x i16], ptr %274, i64 0, i64 %272
-  store i16 %.0.i106222, ptr %275, align 2, !tbaa !71
+  store i16 %.0.i106253, ptr %275, align 2, !tbaa !71
   store i32 %264, ptr %7, align 8, !tbaa !73
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %264, ptr %276, align 4, !tbaa !76
@@ -2415,8 +2415,8 @@ _ZN6icu_779UVector324popiEv.exit113:              ; preds = %283
   %290 = getelementptr inbounds nuw i32, ptr %279, i64 %289
   %291 = load i32, ptr %290, align 4, !tbaa !17
   %292 = trunc i32 %291 to i16
-  %.not255 = icmp eq i32 %288, 0
-  br i1 %.not255, label %_ZN6icu_779UVector324popiEv.exit115, label %293
+  %.not286 = icmp eq i32 %288, 0
+  br i1 %.not286, label %_ZN6icu_779UVector324popiEv.exit115, label %293
 
 293:                                              ; preds = %_ZN6icu_779UVector324popiEv.exit113
   %294 = add nsw i32 %285, -2
@@ -2427,7 +2427,7 @@ _ZN6icu_779UVector324popiEv.exit113:              ; preds = %283
   br label %_ZN6icu_779UVector324popiEv.exit115
 
 _ZN6icu_779UVector324popiEv.exit115:              ; preds = %283, %_ZN6icu_779UVector324popiEv.exit113, %293
-  %.0.i112228 = phi i16 [ %292, %293 ], [ %292, %_ZN6icu_779UVector324popiEv.exit113 ], [ 0, %283 ]
+  %.0.i112259 = phi i16 [ %292, %293 ], [ %292, %_ZN6icu_779UVector324popiEv.exit113 ], [ 0, %283 ]
   %298 = phi i32 [ %294, %293 ], [ 0, %_ZN6icu_779UVector324popiEv.exit113 ], [ %285, %283 ]
   %.0.i114 = phi i32 [ %297, %293 ], [ 0, %_ZN6icu_779UVector324popiEv.exit113 ], [ 0, %283 ]
   %299 = add i32 %286, 127
@@ -2451,7 +2451,7 @@ _ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePosit
   %309 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %308
   store i32 %.0.i114, ptr %309, align 4, !tbaa !17
   %310 = getelementptr inbounds nuw [128 x i16], ptr %282, i64 0, i64 %308
-  store i16 %.0.i112228, ptr %310, align 2, !tbaa !71
+  store i16 %.0.i112259, ptr %310, align 2, !tbaa !71
   store i32 %300, ptr %7, align 8, !tbaa !73
   %.not167 = icmp eq i32 %298, 0
   br i1 %.not167, label %_ZN6icu_7722RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit118.thread, label %283, !llvm.loop !92

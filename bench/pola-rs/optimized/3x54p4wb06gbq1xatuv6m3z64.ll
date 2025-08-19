@@ -13525,43 +13525,43 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i.i.i: ; pred
   br i1 %122, label %127, label %123, !prof !783
 
 123:                                              ; preds = %"_ZN11polars_core13chunked_array3ops8downcast67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$22index_to_chunked_index17hed6c1d48111b0c58E.exit.i.i.i.i"
-  %.sink10.i.sroa.gep1.i.le.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink10.i.sroa.gep4.i.le.i = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink10.i.sroa.gep7.i.le.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink10.i.sroa.gep10.i.le.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink16.i.sroa.gep11.i.le.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink16.i.sroa.gep14.i.le.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink16.i.sroa.gep17.i.le.i = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink12.i.sroa.gep1.i.le.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink12.i.sroa.gep4.i.le.i = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink12.i.sroa.gep7.i.le.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink12.i.sroa.gep10.i.le.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink18.i.sroa.gep11.i.le.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink18.i.sroa.gep14.i.le.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink18.i.sroa.gep17.i.le.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3088
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3088
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3088
   br label %.invoke.i.i.i
 
 .invoke.i.i.i:                                    ; preds = %133, %123
-  %.sink18.i.i.i = phi ptr [ %4, %133 ], [ %7, %123 ]
-  %.sink16.i.sroa.phi.i.i = phi ptr [ %.sink16.i.sroa.gep.i.le.i, %133 ], [ %.sink16.i.sroa.gep11.i.le.i, %123 ]
-  %.sink16.i.sroa.phi12.i.i = phi ptr [ %.sink16.i.sroa.gep13.i.le.i, %133 ], [ %.sink16.i.sroa.gep14.i.le.i, %123 ]
-  %.sink16.i.sroa.phi15.i.i = phi ptr [ %.sink16.i.sroa.gep16.i.le.i, %133 ], [ %.sink16.i.sroa.gep17.i.le.i, %123 ]
-  %.sink16.i.i.i = phi ptr [ %5, %133 ], [ %8, %123 ]
-  %.sink10.i.sroa.phi.i.i = phi ptr [ %.sink10.i.sroa.gep.i.le.i, %133 ], [ %.sink10.i.sroa.gep1.i.le.i, %123 ]
-  %.sink10.i.sroa.phi2.i.i = phi ptr [ %.sink10.i.sroa.gep3.i.le.i, %133 ], [ %.sink10.i.sroa.gep4.i.le.i, %123 ]
-  %.sink10.i.sroa.phi5.i.i = phi ptr [ %.sink10.i.sroa.gep6.i.le.i, %133 ], [ %.sink10.i.sroa.gep7.i.le.i, %123 ]
-  %.sink10.i.sroa.phi8.i.i = phi ptr [ %.sink10.i.sroa.gep9.i.le.i, %133 ], [ %.sink10.i.sroa.gep10.i.le.i, %123 ]
-  %.sink10.i.i.i = phi ptr [ %6, %133 ], [ %9, %123 ]
+  %.sink20.i.i.i = phi ptr [ %4, %133 ], [ %7, %123 ]
+  %.sink18.i.sroa.phi.i.i = phi ptr [ %.sink18.i.sroa.gep.i.le.i, %133 ], [ %.sink18.i.sroa.gep11.i.le.i, %123 ]
+  %.sink18.i.sroa.phi12.i.i = phi ptr [ %.sink18.i.sroa.gep13.i.le.i, %133 ], [ %.sink18.i.sroa.gep14.i.le.i, %123 ]
+  %.sink18.i.sroa.phi15.i.i = phi ptr [ %.sink18.i.sroa.gep16.i.le.i, %133 ], [ %.sink18.i.sroa.gep17.i.le.i, %123 ]
+  %.sink18.i.i.i = phi ptr [ %5, %133 ], [ %8, %123 ]
+  %.sink12.i.sroa.phi.i.i = phi ptr [ %.sink12.i.sroa.gep.i.le.i, %133 ], [ %.sink12.i.sroa.gep1.i.le.i, %123 ]
+  %.sink12.i.sroa.phi2.i.i = phi ptr [ %.sink12.i.sroa.gep3.i.le.i, %133 ], [ %.sink12.i.sroa.gep4.i.le.i, %123 ]
+  %.sink12.i.sroa.phi5.i.i = phi ptr [ %.sink12.i.sroa.gep6.i.le.i, %133 ], [ %.sink12.i.sroa.gep7.i.le.i, %123 ]
+  %.sink12.i.sroa.phi8.i.i = phi ptr [ %.sink12.i.sroa.gep9.i.le.i, %133 ], [ %.sink12.i.sroa.gep10.i.le.i, %123 ]
+  %.sink12.i.i.i = phi ptr [ %6, %133 ], [ %9, %123 ]
   %124 = phi ptr [ @anon.c92926370a49a0e8d3e8ec94742c8252.39, %133 ], [ @anon.c92926370a49a0e8d3e8ec94742c8252.38, %123 ]
   %125 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %126 = load i64, ptr %125, align 8, !noalias !3088, !noundef !30
-  store i64 %126, ptr %.sink18.i.i.i, align 8, !noalias !3088
-  store ptr %10, ptr %.sink16.i.i.i, align 8, !noalias !3088
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h9dbc3189e25ad9aeE", ptr %.sink16.i.sroa.phi.i.i, align 8, !noalias !3088
-  store ptr %.sink18.i.i.i, ptr %.sink16.i.sroa.phi12.i.i, align 8, !noalias !3088
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h9dbc3189e25ad9aeE", ptr %.sink16.i.sroa.phi15.i.i, align 8, !noalias !3088
-  store ptr @anon.c92926370a49a0e8d3e8ec94742c8252.35, ptr %.sink10.i.i.i, align 8, !noalias !3088
-  store i64 2, ptr %.sink10.i.sroa.phi.i.i, align 8, !noalias !3088
-  store ptr null, ptr %.sink10.i.sroa.phi2.i.i, align 8, !noalias !3088
-  store ptr %.sink16.i.i.i, ptr %.sink10.i.sroa.phi5.i.i, align 8, !noalias !3088
-  store i64 2, ptr %.sink10.i.sroa.phi8.i.i, align 8, !noalias !3088
-  invoke void @_ZN4core9panicking9panic_fmt17hba2a7e099ecca125E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink10.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124) #28
+  store i64 %126, ptr %.sink20.i.i.i, align 8, !noalias !3088
+  store ptr %10, ptr %.sink18.i.i.i, align 8, !noalias !3088
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h9dbc3189e25ad9aeE", ptr %.sink18.i.sroa.phi.i.i, align 8, !noalias !3088
+  store ptr %.sink20.i.i.i, ptr %.sink18.i.sroa.phi12.i.i, align 8, !noalias !3088
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h9dbc3189e25ad9aeE", ptr %.sink18.i.sroa.phi15.i.i, align 8, !noalias !3088
+  store ptr @anon.c92926370a49a0e8d3e8ec94742c8252.35, ptr %.sink12.i.i.i, align 8, !noalias !3088
+  store i64 2, ptr %.sink12.i.sroa.phi.i.i, align 8, !noalias !3088
+  store ptr null, ptr %.sink12.i.sroa.phi2.i.i, align 8, !noalias !3088
+  store ptr %.sink18.i.i.i, ptr %.sink12.i.sroa.phi5.i.i, align 8, !noalias !3088
+  store i64 2, ptr %.sink12.i.sroa.phi8.i.i, align 8, !noalias !3088
+  invoke void @_ZN4core9panicking9panic_fmt17hba2a7e099ecca125E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink12.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124) #28
           to label %.cont.i.i.i unwind label %.loopexit.split-lp.i.i.loopexit.split-lp.i, !noalias !3088
 
 .cont.i.i.i:                                      ; preds = %.invoke.i.i.i
@@ -13577,13 +13577,13 @@ _ZN11polars_core5frame6column6Column4name17hdc5fcfc979b10711E.exit.i.i.i: ; pred
   br i1 %.not.i23.i.i.i, label %133, label %134, !prof !51
 
 133:                                              ; preds = %127
-  %.sink10.i.sroa.gep.i.le.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink10.i.sroa.gep3.i.le.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink10.i.sroa.gep6.i.le.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink10.i.sroa.gep9.i.le.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink16.i.sroa.gep.i.le.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink16.i.sroa.gep13.i.le.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink16.i.sroa.gep16.i.le.i = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink12.i.sroa.gep.i.le.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink12.i.sroa.gep3.i.le.i = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink12.i.sroa.gep6.i.le.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink12.i.sroa.gep9.i.le.i = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink18.i.sroa.gep.i.le.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink18.i.sroa.gep13.i.le.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink18.i.sroa.gep16.i.le.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3088
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3088
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3088
@@ -16518,13 +16518,13 @@ common.resume.i.i.i:                              ; preds = %133, %.body.i.i.i.i
   br label %"_ZN9polars_io3csv4read6reader18prepare_csv_schema28_$u7b$$u7b$closure$u7d$$u7d$17h3338b7529d681e44E.exit.i.thread.i.i.i"
 
 "_ZN9polars_io3csv4read6reader18prepare_csv_schema28_$u7b$$u7b$closure$u7d$$u7d$17h3338b7529d681e44E.exit.i.thread.i.i.i": ; preds = %123, %120, %116
-  %.sink22.i.i = phi ptr [ %37, %123 ], [ %.sroa.892.sroa.0.i.i.i.i.i, %120 ], [ %.sroa.892.sroa.0.i.i.i.i.i, %116 ]
+  %.sink23.i.i = phi ptr [ %37, %123 ], [ %.sroa.892.sroa.0.i.i.i.i.i, %120 ], [ %.sroa.892.sroa.0.i.i.i.i.i, %116 ]
   %.sink.i.i = phi ptr [ %38, %123 ], [ %.sroa.892.sroa.12.i.i.i.i.i, %120 ], [ %.sroa.892.sroa.12.i.i.i.i.i, %116 ]
   %.sink.i.i.i = phi ptr [ %39, %123 ], [ %.sroa.892.sroa.16.i.i.i.i.i, %120 ], [ %.sroa.892.sroa.16.i.i.i.i.i, %116 ]
   %.sroa.06.0.i.ph.i.i.i = phi i8 [ %57, %123 ], [ 24, %120 ], [ %.sroa.065.0.copyload.i.i.i.i.i, %116 ]
   %.sroa.15.0.i.ph.i.i.i = phi i64 [ %.sroa.584.0.copyload.i.i.i.i.i, %123 ], [ %.sroa.467.sroa.4.0.copyload.i.i.i.i.i, %120 ], [ %.sroa.4.sroa.4.0.copyload.i.i.i.i.i, %116 ]
   %.sroa.35.0.i.ph.i.i.i = phi i64 [ %.sroa.8.0.copyload.i.i.i.i.i, %123 ], [ %.sroa.568.0.copyload.i.i.i.i.i, %120 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %116 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sink22.i.i, i64 7, i1 false), !noalias !3747
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sink23.i.i, i64 7, i1 false), !noalias !3747
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.22.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(24) %.sink.i.i, i64 24, i1 false), !noalias !3747
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.29.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(32) %.sink.i.i.i, i64 32, i1 false), !noalias !3747
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.892.sroa.0.i.i.i.i.i), !noalias !3743
@@ -35945,7 +35945,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !5987, !noundef !30
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -35987,7 +35987,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -36832,7 +36832,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !3766, !noundef !30
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -36863,7 +36863,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2

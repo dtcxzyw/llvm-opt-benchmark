@@ -1096,8 +1096,8 @@ define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr n
 
 19:                                               ; preds = %13, %17
   %.0 = phi ptr [ %18, %17 ], [ @.str.13, %13 ]
-  %.not29 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not29, label %21, label %20
+  %.not31 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not31, label %21, label %20
 
 20:                                               ; preds = %19
   tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.14) #11

@@ -474,9 +474,9 @@ define hidden void @"_ZN10serde_json4read15IoRead$LT$R$GT$15parse_str_bytes17h48
   %.sroa.0.1..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
   %.sroa.0.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
   %.sroa.0.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
-  %.sroa.0.1..sroa_idx211 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  %.sroa.0.2..sroa_idx213 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  %.sroa.0.1..sroa_idx212 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  %.sroa.0.1..sroa_idx234 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  %.sroa.0.2..sroa_idx236 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  %.sroa.0.1..sroa_idx235 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
   br label %32
 
 32:                                               ; preds = %.lr.ph, %.backedge
@@ -877,7 +877,7 @@ tailrecurse._crit_edge.i:                         ; preds = %68, %tailrecurse.i
   %199 = trunc i16 %177 to i8
   %200 = and i8 %199, 63
   %201 = or disjoint i8 %200, -128
-  store i8 %201, ptr %.sroa.0.1..sroa_idx212, align 1, !alias.scope !214, !noalias !162
+  store i8 %201, ptr %.sroa.0.1..sroa_idx235, align 1, !alias.scope !214, !noalias !162
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 202:                                              ; preds = %191
@@ -889,11 +889,11 @@ tailrecurse._crit_edge.i:                         ; preds = %68, %tailrecurse.i
   %207 = trunc i16 %206 to i8
   %208 = and i8 %207, 63
   %209 = or disjoint i8 %208, -128
-  store i8 %209, ptr %.sroa.0.1..sroa_idx211, align 1, !alias.scope !214, !noalias !162
+  store i8 %209, ptr %.sroa.0.1..sroa_idx234, align 1, !alias.scope !214, !noalias !162
   %210 = trunc i16 %177 to i8
   %211 = and i8 %210, 63
   %212 = or disjoint i8 %211, -128
-  store i8 %212, ptr %.sroa.0.2..sroa_idx213, align 2, !alias.scope !214, !noalias !162
+  store i8 %212, ptr %.sroa.0.2..sroa_idx236, align 2, !alias.scope !214, !noalias !162
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 213:                                              ; preds = %286

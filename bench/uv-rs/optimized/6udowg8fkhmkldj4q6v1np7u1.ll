@@ -2624,8 +2624,8 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   %18 = trunc i32 %17 to i8
   %19 = and i8 %18, 63
   %20 = or disjoint i8 %19, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %20, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !397, !noalias !394
+  %.sroa.0.i.1.i.1.i.1..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %20, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx9, align 1, !alias.scope !397, !noalias !394
   %21 = lshr i32 %2, 6
   %22 = trunc i32 %21 to i8
   %23 = and i8 %22, 63
@@ -2653,8 +2653,8 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   %36 = trunc i32 %2 to i8
   %37 = and i8 %36, 63
   %38 = or disjoint i8 %37, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %38, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx10, align 2, !alias.scope !397, !noalias !394
+  %.sroa.0.i.2.i.2.i.2..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %38, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx11, align 2, !alias.scope !397, !noalias !394
   br label %_ZN5serde2de7Visitor10visit_char17hf14c17ac36f4d195E.exit
 
 39:                                               ; preds = %9
@@ -2665,8 +2665,8 @@ define hidden void @"_ZN87_$LT$erased_serde..de..erase..Visitor$LT$T$GT$$u20$as$
   %43 = trunc i32 %2 to i8
   %44 = and i8 %43, 63
   %45 = or disjoint i8 %44, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %45, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx9, align 1, !alias.scope !397, !noalias !394
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %45, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !397, !noalias !394
   br label %_ZN5serde2de7Visitor10visit_char17hf14c17ac36f4d195E.exit
 
 46:                                               ; preds = %7

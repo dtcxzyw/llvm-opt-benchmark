@@ -299,9 +299,9 @@ BufferGetPage.exit.i51:                           ; preds = %110, %104
   br i1 %.not172.i, label %.thread219.i, label %.outer.split.i
 
 .outer.split.i:                                   ; preds = %.outer.i, %219
-  %.0148.i = phi i8 [ %.4152312.i, %219 ], [ %.0148.ph.i, %.outer.i ]
+  %.0148.i = phi i8 [ %.4152318.i, %219 ], [ %.0148.ph.i, %.outer.i ]
   %.0142.i = phi i1 [ true, %219 ], [ false, %.outer.i ]
-  %.0137.i = phi i1 [ %spec.select313.i, %219 ], [ %.0137.ph.i, %.outer.i ]
+  %.0137.i = phi i1 [ %spec.select319.i, %219 ], [ %.0137.ph.i, %.outer.i ]
   %.0131.i = phi i32 [ %225, %219 ], [ 0, %.outer.i ]
   %.0121.i = phi ptr [ %.2123195.i, %219 ], [ %.0121.ph.i, %.outer.i ]
   %.0117.i = phi ptr [ %.2119.i, %219 ], [ %.0117.ph.i, %.outer.i ]
@@ -519,8 +519,8 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %160, %153, %BTreeTu
   br i1 %.3145.i, label %219, label %.thread219.i
 
 219:                                              ; preds = %216, %.thread.i54
-  %spec.select313.i = phi i1 [ %.3140.i, %.thread.i54 ], [ %spec.select.i, %216 ]
-  %.4152312.i = phi i8 [ %.0148.i, %.thread.i54 ], [ %.4152.i, %216 ]
+  %spec.select319.i = phi i1 [ %.3140.i, %.thread.i54 ], [ %spec.select.i, %216 ]
+  %.4152318.i = phi i8 [ %.0148.i, %.thread.i54 ], [ %.4152.i, %216 ]
   %220 = getelementptr i8, ptr %.2119.i, i64 4
   %.1118.val.i = load i16, ptr %220, align 2
   %221 = and i16 %.1118.val.i, 4095
@@ -533,8 +533,8 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %160, %153, %BTreeTu
 .thread219.i:                                     ; preds = %219, %216, %136, %.outer.i
   %.us-phi.i = phi ptr [ %.0117.ph.i, %.outer.i ], [ %.0117.i, %136 ], [ %.2119.i, %216 ], [ %.2119.i, %219 ]
   %.us-phi279.i = phi ptr [ %.0121.ph.i, %.outer.i ], [ %132, %136 ], [ %.2123195.i, %216 ], [ %.2123195.i, %219 ]
-  %.us-phi280.i = phi i1 [ %.0137.ph.i, %.outer.i ], [ %.0137.i, %136 ], [ %spec.select.i, %216 ], [ %spec.select313.i, %219 ]
-  %.us-phi281.i = phi i8 [ %.0148.ph.i, %.outer.i ], [ %.0148.i, %136 ], [ %.4152.i, %216 ], [ %.4152312.i, %219 ]
+  %.us-phi280.i = phi i1 [ %.0137.ph.i, %.outer.i ], [ %.0137.i, %136 ], [ %spec.select.i, %216 ], [ %spec.select319.i, %219 ]
+  %.us-phi281.i = phi i8 [ %.0148.ph.i, %.outer.i ], [ %.0148.i, %136 ], [ %.4152.i, %216 ], [ %.4152318.i, %219 ]
   %226 = icmp ult i16 %.0124.ph.i, %.0165.ph.i.ph
   br i1 %226, label %227, label %229
 
@@ -1716,8 +1716,8 @@ BufferGetPage.exit314.i:                          ; preds = %367, %361
   %408 = trunc nuw i8 %407 to i1
   %409 = load i16, ptr %401, align 4
   %410 = icmp eq i16 %409, 0
-  %.not338.i = xor i1 %410, true
-  %brmerge.i = select i1 %408, i1 true, i1 %.not338.i
+  %.not353.i = xor i1 %410, true
+  %brmerge.i = select i1 %408, i1 true, i1 %.not353.i
   br i1 %brmerge.i, label %.sink.split.i, label %412
 
 .sink.split.i:                                    ; preds = %406
@@ -2066,13 +2066,13 @@ BufferGetPage.exit162:                            ; preds = %522, %528
   br label %584
 
 584:                                              ; preds = %581, %.thread, %582
-  %.0147.sink185 = phi ptr [ %.0147, %582 ], [ %.0, %.thread ], [ %.0, %581 ]
+  %.0147.sink207 = phi ptr [ %.0147, %582 ], [ %.0, %.thread ], [ %.0, %581 ]
   %.0140167 = phi i8 [ 80, %582 ], [ %.0140.ph, %.thread ], [ %.mux, %581 ]
-  %585 = getelementptr i8, ptr %.0147.sink185, i64 6
+  %585 = getelementptr i8, ptr %.0147.sink207, i64 6
   %.0147.val = load i16, ptr %585, align 2
   %586 = and i16 %.0147.val, 8191
   %587 = zext nneg i16 %586 to i32
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %.0147.sink185, i32 noundef %587) #9
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %.0147.sink207, i32 noundef %587) #9
   %588 = call i64 @XLogInsert(i8 noundef zeroext 11, i8 noundef zeroext %.0140167) #9
   br i1 %.not178, label %594, label %589
 
@@ -2844,7 +2844,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
 67:                                               ; preds = %66
   %68 = zext i16 %.163 to i64
   %69 = add nsw i64 %68, -1
-  %70 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %50, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %50, i64 0, i64 %69
   %.val78 = load i32, ptr %70, align 4
   %71 = and i32 %.val78, 32767
   %72 = zext nneg i32 %71 to i64
@@ -2865,9 +2865,9 @@ BufferGetPage.exit:                               ; preds = %12, %18
   br i1 %80, label %.thread, label %.outer
 
 .thread.sink.split:                               ; preds = %51, %67
-  %.163.lcssa107.sink = phi i16 [ %.163, %67 ], [ %.06299, %51 ]
+  %.163.lcssa109.sink = phi i16 [ %.163, %67 ], [ %.06299, %51 ]
   store i32 %.060.ph, ptr %2, align 8
-  store i16 %.163.lcssa107.sink, ptr %6, align 4
+  store i16 %.163.lcssa109.sink, ptr %6, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %.thread.sink.split

@@ -103,11 +103,11 @@ _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i: ; 
   br i1 %28, label %_ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
 _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i: ; preds = %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i, %20
-  %.sink40.i = phi ptr [ %10, %20 ], [ %0, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ]
-  %29 = load ptr, ptr %.sink40.i, align 8, !tbaa !3
+  %.sink43.i = phi ptr [ %10, %20 ], [ %0, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ]
+  %29 = load ptr, ptr %.sink43.i, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(72) %.sink40.i) #7
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(72) %.sink43.i) #7
   br label %_ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
 
 _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit.i: ; preds = %16, %14
@@ -183,11 +183,11 @@ _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19: ; pr
   br i1 %27, label %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit, label %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split
 
 _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split: ; preds = %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19, %18
-  %.sink40 = phi ptr [ %7, %18 ], [ %0, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19 ]
-  %28 = load ptr, ptr %.sink40, align 8, !tbaa !3
+  %.sink43 = phi ptr [ %7, %18 ], [ %0, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19 ]
+  %28 = load ptr, ptr %.sink43, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(72) %.sink40) #7
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(72) %.sink43) #7
   br label %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split, %18, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19
@@ -277,11 +277,11 @@ _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i: ; 
   br i1 %29, label %_ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
 _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i: ; preds = %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i, %21
-  %.sink40.i = phi ptr [ %11, %21 ], [ %3, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ]
-  %30 = load ptr, ptr %.sink40.i, align 8, !tbaa !3
+  %.sink43.i = phi ptr [ %11, %21 ], [ %3, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ]
+  %30 = load ptr, ptr %.sink43.i, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(72) %.sink40.i) #7
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(72) %.sink43.i) #7
   br label %_ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
 
 _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit.i: ; preds = %17, %15
@@ -390,11 +390,11 @@ _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i: ; 
   br i1 %36, label %_ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
 _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i: ; preds = %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i, %28
-  %.sink40.i = phi ptr [ %18, %28 ], [ %0, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ]
-  %37 = load ptr, ptr %.sink40.i, align 8, !tbaa !3
+  %.sink43.i = phi ptr [ %18, %28 ], [ %0, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ]
+  %37 = load ptr, ptr %.sink43.i, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(72) %.sink40.i) #7
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(72) %.sink43.i) #7
   br label %_ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
 
 _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit.i: ; preds = %24, %22
@@ -508,11 +508,11 @@ _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i: ; 
   br i1 %37, label %_ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit, label %_ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i
 
 _ZN6icu_7712LocalPointerINS_13DecimalFormatEED2Ev.exit.sink.split.i: ; preds = %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i, %29
-  %.sink40.i = phi ptr [ %19, %29 ], [ %5, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ]
-  %38 = load ptr, ptr %.sink40.i, align 8, !tbaa !3
+  %.sink43.i = phi ptr [ %19, %29 ], [ %5, %_ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit19.i ]
+  %38 = load ptr, ptr %.sink43.i, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(72) %.sink40.i) #7
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(72) %.sink43.i) #7
   br label %_ZN6icu_7725ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode.exit
 
 _ZN6icu_7712LocalPointerINS_25ScientificNumberFormatter5StyleEED2Ev.exit.i: ; preds = %25, %23
@@ -598,7 +598,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %_ZN6icu_7713Unicode
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.loopexit:             ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit
-  %lpad.loopexit98 = landingpad { ptr, i32 }
+  %lpad.loopexit101 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -772,7 +772,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit63:  ; preds = %_ZN6icu_7713Unicode
   br label %89
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %48
-  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit98, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %49, %48 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit101, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn

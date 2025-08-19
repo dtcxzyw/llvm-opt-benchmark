@@ -54,7 +54,7 @@ define void @remove_edge(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noalias noundef ptr @mkItem(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
+define internal noalias nonnull ptr @mkItem(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit

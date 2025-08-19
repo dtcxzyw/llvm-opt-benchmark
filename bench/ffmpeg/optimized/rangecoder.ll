@@ -87,8 +87,8 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
 
 15:                                               ; preds = %7
   %16 = trunc i32 %spec.select to i8
-  %17 = zext nneg i32 %.04863 to i64
-  %18 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %17
+  %17 = sext i32 %.04863 to i64
+  %18 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %17
   store i8 %16, ptr %18, align 1, !tbaa !17
   br label %19
 

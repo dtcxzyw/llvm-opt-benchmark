@@ -2152,8 +2152,8 @@ define internal i32 @rtm_new_nexthop(ptr noundef readonly captures(none) %0, ptr
   br i1 %333, label %334, label %.thread101
 
 334:                                              ; preds = %332, %.lr.ph180
-  %.sink228 = phi i64 [ 16, %.lr.ph180 ], [ 8, %332 ]
-  %335 = getelementptr inbounds nuw i8, ptr %328, i64 %.sink228
+  %.sink316 = phi i64 [ 16, %.lr.ph180 ], [ 8, %332 ]
+  %335 = getelementptr inbounds nuw i8, ptr %328, i64 %.sink316
   %336 = load volatile ptr, ptr %335, align 8
   %337 = icmp eq ptr %336, null
   br i1 %337, label %.thread101, label %.lr.ph180
@@ -3149,7 +3149,7 @@ fib6_check_nh_list.exit91:                        ; preds = %.thread114, %817
   call void @kfree(ptr noundef %884) #13
   %885 = and i32 %883, -32769
   %886 = icmp sgt i32 %885, 1
-  br i1 %886, label %.thread211, label %.thread116
+  br i1 %886, label %.thread299, label %.thread116
 
 .thread116:                                       ; preds = %882, %873
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3161,7 +3161,7 @@ fib6_check_nh_list.exit91:                        ; preds = %.thread114, %817
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fib6_check_nh_list.exit.thread
 
-.thread211:                                       ; preds = %882
+.thread299:                                       ; preds = %882
   %889 = sub nsw i32 1, %885
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fib6_check_nh_list.exit.thread
@@ -3275,22 +3275,22 @@ fib6_check_nh_list.exit91:                        ; preds = %.thread114, %817
   call fastcc void @nexthop_put(ptr noundef %666)
   br label %fib6_check_nh_list.exit.thread
 
-fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread211, %.thread118, %865, %866, %842, %843, %830, %831, %.sink.split.i87, %801, %.critedge.i89, %821, %.sink.split.i, %721, %.critedge.i, %743, %939, %936, %778, %777
-  %940 = phi i32 [ -22, %778 ], [ -22, %777 ], [ 0, %939 ], [ %937, %936 ], [ -22, %743 ], [ -22, %.critedge.i ], [ -22, %721 ], [ -22, %.sink.split.i ], [ -22, %821 ], [ -22, %.critedge.i89 ], [ -22, %801 ], [ -22, %.sink.split.i87 ], [ %878, %.thread118 ], [ -22, %865 ], [ -22, %866 ], [ -22, %842 ], [ -22, %843 ], [ -22, %830 ], [ -22, %831 ], [ %889, %.thread211 ], [ %788, %785 ], [ %709, %706 ]
+fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread299, %.thread118, %865, %866, %842, %843, %830, %831, %.sink.split.i87, %801, %.critedge.i89, %821, %.sink.split.i, %721, %.critedge.i, %743, %939, %936, %778, %777
+  %940 = phi i32 [ -22, %778 ], [ -22, %777 ], [ 0, %939 ], [ %937, %936 ], [ -22, %743 ], [ -22, %.critedge.i ], [ -22, %721 ], [ -22, %.sink.split.i ], [ -22, %821 ], [ -22, %.critedge.i89 ], [ -22, %801 ], [ -22, %.sink.split.i87 ], [ %878, %.thread118 ], [ -22, %865 ], [ -22, %866 ], [ -22, %842 ], [ -22, %843 ], [ -22, %830 ], [ -22, %831 ], [ %889, %.thread299 ], [ %788, %785 ], [ %709, %706 ]
   %941 = icmp eq i32 %940, 0
   %942 = zext i1 %941 to i32
   %943 = select i1 %941, ptr %693, ptr %666
   br label %.thread127
 
 944:                                              ; preds = %697, %.lr.ph185
-  %.sink230 = phi i64 [ 16, %.lr.ph185 ], [ 8, %697 ]
-  %945 = getelementptr inbounds nuw i8, ptr %693, i64 %.sink230
+  %.sink318 = phi i64 [ 16, %.lr.ph185 ], [ 8, %697 ]
+  %945 = getelementptr inbounds nuw i8, ptr %693, i64 %.sink318
   %946 = load ptr, ptr %945, align 8
   %947 = icmp eq ptr %946, null
   br i1 %947, label %._crit_edge186.loopexit, label %.lr.ph185
 
 ._crit_edge186.loopexit:                          ; preds = %944
-  %948 = getelementptr inbounds nuw i8, ptr %693, i64 %.sink230
+  %948 = getelementptr inbounds nuw i8, ptr %693, i64 %.sink318
   %949 = ptrtoint ptr %693 to i64
   br label %._crit_edge186
 
@@ -3577,12 +3577,12 @@ fib6_check_nh_list.exit.thread:                   ; preds = %706, %785, %.thread
 
 .thread133.sink.split:                            ; preds = %966, %952
   %insert_nexthop.__msg.37.sink = phi ptr [ @insert_nexthop.__msg, %952 ], [ @insert_nexthop.__msg.37, %966 ]
-  %.ph231 = phi i32 [ -2, %952 ], [ -22, %966 ]
+  %.ph319 = phi i32 [ -2, %952 ], [ -22, %966 ]
   store ptr %insert_nexthop.__msg.37.sink, ptr %2, align 8
   br label %.thread133
 
 .thread133:                                       ; preds = %.thread133.sink.split, %699, %966, %952, %.thread127
-  %1110 = phi i32 [ %1037, %.thread127 ], [ -22, %966 ], [ -2, %952 ], [ -17, %699 ], [ %.ph231, %.thread133.sink.split ]
+  %1110 = phi i32 [ %1037, %.thread127 ], [ -22, %966 ], [ -2, %952 ], [ -17, %699 ], [ %.ph319, %.thread133.sink.split ]
   call fastcc void @__remove_nexthop(ptr noundef %13, ptr noundef %666)
   %1111 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %669, i32 -1, ptr nonnull elementtype(i32) %669) #13, !srcloc !11
   %1112 = icmp eq i32 %1111, 1
@@ -3887,12 +3887,12 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
   br i1 %70, label %.thread21, label %71
 
 71:                                               ; preds = %66
-  %.not51 = icmp eq i32 %.sroa.3.1.fr, 0
+  %.not74 = icmp eq i32 %.sroa.3.1.fr, 0
   %72 = icmp eq i32 %.sroa.5.1.fr, 0
   br i1 %72, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %71
-  br i1 %.not51, label %.split.us.split, label %.split.us.split.us
+  br i1 %.not74, label %.split.us.split, label %.split.us.split.us
 
 .split.us.split.us:                               ; preds = %.split.us, %.thread17.us.us
   %73 = phi ptr [ %106, %.thread17.us.us ], [ %69, %.split.us ]
@@ -3968,8 +3968,8 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
   %113 = load ptr, ptr %9, align 8
   %114 = getelementptr i8, ptr %113, i64 16
   %115 = load i8, ptr %114, align 4
-  %.not53 = icmp eq i8 %115, 0
-  br i1 %.not53, label %126, label %116
+  %.not76 = icmp eq i8 %115, 0
+  br i1 %.not76, label %126, label %116
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds nuw i8, ptr %108, i64 102
@@ -4018,8 +4018,8 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
 144:                                              ; preds = %139
   %145 = getelementptr i8, ptr %140, i64 16
   %146 = load i8, ptr %145, align 4
-  %.not52 = icmp eq i8 %146, 0
-  br i1 %.not52, label %._crit_edge45, label %.thread17.us
+  %.not75 = icmp eq i8 %146, 0
+  br i1 %.not75, label %._crit_edge45, label %.thread17.us
 
 ._crit_edge45:                                    ; preds = %144
   %147 = load ptr, ptr %1, align 8
@@ -4078,7 +4078,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
   %180 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %181 = load ptr, ptr %180, align 8
   %.old = icmp eq ptr %181, null
-  br i1 %.not51, label %186, label %182
+  br i1 %.not74, label %186, label %182
 
 182:                                              ; preds = %179
   br i1 %.old, label %.thread17, label %183
@@ -4778,7 +4778,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %17, %.thread, %80, 
   br label %.thread38
 
 .thread38:                                        ; preds = %.thread34, %165, %189, %.loopexit
-  %194 = phi i32 [ %187, %.loopexit ], [ %193, %189 ], [ 0, %165 ], [ 0, %.thread34 ]
+  %194 = phi i32 [ 0, %.loopexit ], [ %193, %189 ], [ 0, %165 ], [ 0, %.thread34 ]
   %195 = getelementptr inbounds nuw i8, ptr %11, i64 600
   %196 = load i32, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -7327,8 +7327,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   br i1 %98, label %.split28.us, label %.split.us, !llvm.loop !125
 
 99:                                               ; preds = %.lr.ph.us, %71
-  %.sink58 = phi i64 [ 8, %71 ], [ 16, %.lr.ph.us ]
-  %100 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink58
+  %.sink76 = phi i64 [ 8, %71 ], [ 16, %.lr.ph.us ]
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink76
   %101 = load volatile ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %._crit_edge, label %.lr.ph.us
@@ -7373,8 +7373,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %121, %.lr.ph
-  %.sink59 = phi i64 [ 16, %.lr.ph ], [ 8, %121 ]
-  %124 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink59
+  %.sink77 = phi i64 [ 16, %.lr.ph ], [ 8, %121 ]
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink77
   %125 = load volatile ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %._crit_edge, label %.lr.ph
@@ -7477,8 +7477,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_check_attr_group(ptr no
   br i1 %169, label %.critedge, label %.split29, !llvm.loop !126
 
 .critedge.sink.split:                             ; preds = %14, %32, %38, %53, %._crit_edge, %.split26.us, %.split31.us, %150, %157, %.split24.us, %.split22.us, %.split20.us
-  %.sink60 = phi ptr [ @valid_group_nh.__msg, %.split20.us ], [ @valid_group_nh.__msg.33, %.split22.us ], [ @valid_group_nh.__msg.34, %.split24.us ], [ @nh_check_attr_fdb_group.__msg, %150 ], [ @nh_check_attr_fdb_group.__msg.35, %157 ], [ @nh_check_attr_group.__msg, %14 ], [ @nh_check_attr_group.__msg.27, %32 ], [ @nh_check_attr_group.__msg.28, %38 ], [ @nh_check_attr_group.__msg.29, %53 ], [ @nh_check_attr_group.__msg.30, %._crit_edge ], [ @nh_check_attr_group.__msg.31, %.split26.us ], [ @nh_check_attr_group.__msg.32, %.split31.us ]
-  store ptr %.sink60, ptr %3, align 8
+  %.sink78 = phi ptr [ @valid_group_nh.__msg, %.split20.us ], [ @valid_group_nh.__msg.33, %.split22.us ], [ @valid_group_nh.__msg.34, %.split24.us ], [ @nh_check_attr_fdb_group.__msg, %150 ], [ @nh_check_attr_fdb_group.__msg.35, %157 ], [ @nh_check_attr_group.__msg, %14 ], [ @nh_check_attr_group.__msg.27, %32 ], [ @nh_check_attr_group.__msg.28, %38 ], [ @nh_check_attr_group.__msg.29, %53 ], [ @nh_check_attr_group.__msg.30, %._crit_edge ], [ @nh_check_attr_group.__msg.31, %.split26.us ], [ @nh_check_attr_group.__msg.32, %.split31.us ]
+  store ptr %.sink78, ptr %3, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %167, %108, %.critedge.sink.split, %157, %150, %.split24.us, %.split22.us, %.split20.us, %.split31.us, %.split26.us, %._crit_edge, %53, %38, %32, %14
@@ -7492,7 +7492,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %.thread11, label %6
+  br i1 %5, label %.thread18, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -7526,7 +7526,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %23 = icmp eq ptr %.pre, null
-  br i1 %23, label %.thread11, label %24
+  br i1 %23, label %.thread18, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr i8, ptr %.pre, i64 4
@@ -7536,7 +7536,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i8 1, ptr %28, align 8
   %29 = icmp eq i16 %26, 0
-  br i1 %29, label %30, label %.thread11
+  br i1 %29, label %30, label %.thread18
 
 30:                                               ; preds = %24
   call void @do_trace_netlink_extack(ptr noundef nonnull @rtm_to_nh_config_grp_res.__msg) #13
@@ -7547,7 +7547,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   store ptr @rtm_to_nh_config_grp_res.__msg, ptr %2, align 8
   br label %.thread
 
-.thread11:                                        ; preds = %3, %24, %22
+.thread18:                                        ; preds = %3, %24, %22
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %34 = load ptr, ptr %33, align 16
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -7555,7 +7555,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   %37 = icmp eq ptr %34, null
   br i1 %37, label %47, label %38
 
-38:                                               ; preds = %.thread11
+38:                                               ; preds = %.thread18
   %39 = getelementptr i8, ptr %34, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
@@ -7572,9 +7572,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_nh_config_grp_res(p
   store ptr @rtm_nh_get_timer.__msg, ptr %2, align 8
   br label %.thread
 
-47:                                               ; preds = %38, %.thread11
-  %storemerge10 = phi i64 [ 120000, %.thread11 ], [ %42, %38 ]
-  %storemerge = phi i8 [ 0, %.thread11 ], [ 1, %38 ]
+47:                                               ; preds = %38, %.thread18
+  %storemerge10 = phi i64 [ 120000, %.thread18 ], [ %42, %38 ]
+  %storemerge = phi i8 [ 0, %.thread18 ], [ 1, %38 ]
   store i64 %storemerge10, ptr %35, align 8
   store i8 %storemerge, ptr %36, align 1
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24

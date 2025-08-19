@@ -2819,7 +2819,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hfdfd78ca844633f6E.exit.i29.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %83, ptr nonnull align 4 %80, i64 %85, i1 false), !alias.scope !636, !noalias !632
   store i32 %23, ptr %80, align 4, !alias.scope !636, !noalias !632
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
-  %87 = getelementptr inbounds { [2 x i32] }, ptr %86, i64 %.sroa.724.0.i.i
+  %87 = getelementptr inbounds nuw { [2 x i32] }, ptr %86, i64 %.sroa.724.0.i.i
   %88 = getelementptr inbounds nuw { [2 x i32] }, ptr %86, i64 %82
   %89 = shl nuw nsw i64 %84, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %88, ptr nonnull align 4 %87, i64 %89, i1 false), !alias.scope !639, !noalias !632
@@ -3102,7 +3102,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h6e4922254f6c679aE.exit.i18.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %218, ptr nonnull align 4 %213, i64 %220, i1 false), !alias.scope !693, !noalias !690
   store i32 %.sroa.10.0119.i, ptr %213, align 4, !alias.scope !693, !noalias !690
   %221 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %222 = getelementptr inbounds { [2 x i32] }, ptr %221, i64 %.sroa.7.0.i.i
+  %222 = getelementptr inbounds nuw { [2 x i32] }, ptr %221, i64 %.sroa.7.0.i.i
   %223 = getelementptr inbounds nuw { [2 x i32] }, ptr %221, i64 %212
   %224 = shl nuw nsw i64 %219, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %223, ptr nonnull align 4 %222, i64 %224, i1 false), !alias.scope !696, !noalias !690
@@ -3427,7 +3427,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h806313e5e237e48aE.exit.i29.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %79, ptr nonnull align 4 %76, i64 %81, i1 false), !alias.scope !755, !noalias !751
   store i32 %21, ptr %76, align 4, !alias.scope !755, !noalias !751
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
-  %83 = getelementptr inbounds i64, ptr %82, i64 %.sroa.724.0.i.i
+  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %.sroa.724.0.i.i
   %84 = getelementptr inbounds nuw i64, ptr %82, i64 %78
   %85 = shl nuw nsw i64 %80, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %84, ptr nonnull align 8 %83, i64 %85, i1 false), !alias.scope !758, !noalias !751
@@ -3697,7 +3697,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h653ee67a747a8121E.exit.i18.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %207, ptr nonnull align 4 %203, i64 %209, i1 false), !alias.scope !810, !noalias !807
   store i32 %.sroa.10.0107.i, ptr %203, align 4, !alias.scope !810, !noalias !807
   %210 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %211 = getelementptr inbounds i64, ptr %210, i64 %.sroa.7.0.i.i
+  %211 = getelementptr inbounds nuw i64, ptr %210, i64 %.sroa.7.0.i.i
   %212 = getelementptr inbounds nuw i64, ptr %210, i64 %202
   %213 = shl nuw nsw i64 %208, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %212, ptr nonnull align 8 %211, i64 %213, i1 false), !alias.scope !813, !noalias !807

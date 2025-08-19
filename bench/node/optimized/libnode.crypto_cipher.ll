@@ -863,10 +863,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %11 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
-  %cmp.not20.i.i = icmp eq ptr %11, null
-  br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
+  %incdec.ptr.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %5, i64 -8
+  %11 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %11, null
+  br i1 %cmp.not21.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i
   %12 = phi ptr [ %11, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %10, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i ]
@@ -7474,10 +7474,10 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit50: ; pred
   br i1 %cmp.not.i51, label %if.end98, label %if.end98.sink.split
 
 if.end98.sink.split:                              ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit50, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit36
-  %.sink66 = phi ptr [ %.pr61, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit36 ], [ %32, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit50 ]
+  %.sink72 = phi ptr [ %.pr61, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit36 ], [ %32, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit50 ]
   %agg.tmp.sink.ph = phi ptr [ %ref.tmp89, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit36 ], [ %agg.tmp, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit50 ]
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink66) #20
-  call void @_ZdlPv(ptr noundef nonnull %.sink66) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink72) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sink72) #20
   br label %if.end98
 
 if.end98:                                         ; preds = %if.end98.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit50, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit36, %if.then88
@@ -8044,10 +8044,10 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit48: ; p
   br i1 %cmp.not.i49, label %if.end63, label %if.end63.sink.split
 
 if.end63.sink.split:                              ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit48, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38
-  %.pr63.sink69 = phi ptr [ %36, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38 ], [ %.pr63, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit48 ]
+  %.pr63.sink79 = phi ptr [ %36, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38 ], [ %.pr63, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit48 ]
   %ref.tmp59.sink.ph = phi ptr [ %agg.tmp, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38 ], [ %ref.tmp59, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit48 ]
-  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.pr63.sink69) #20
-  call void @_ZdlPv(ptr noundef nonnull %.pr63.sink69) #20
+  call void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.pr63.sink79) #20
+  call void @_ZdlPv(ptr noundef nonnull %.pr63.sink79) #20
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.sink.split, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EEaSEOS4_.exit48, %if.else58, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit38
@@ -9369,13 +9369,13 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %cmp.not.i27, label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.end, %cleanup
-  %retval.0.ph38 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ false, %if.end ]
-  %.pr3037 = phi ptr [ %.pr30.pr, %cleanup ], [ %call1, %if.end ]
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.pr3037) #20
+  %retval.0.ph40 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ false, %if.end ]
+  %.pr3039 = phi ptr [ %.pr30.pr, %cleanup ], [ %call1, %if.end ]
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.pr3039) #20
   br label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit: ; preds = %entry, %cleanup, %if.then.i28
-  %retval.033 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ %retval.0.ph38, %if.then.i28 ], [ false, %entry ]
+  %retval.033 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ %retval.0.ph40, %if.then.i28 ], [ false, %entry ]
   ret i1 %retval.033
 }
 
@@ -9629,13 +9629,13 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %cmp.not.i27, label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.end, %cleanup
-  %retval.0.ph38 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ false, %if.end ]
-  %.pr3037 = phi ptr [ %.pr30.pr, %cleanup ], [ %call1, %if.end ]
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.pr3037) #20
+  %retval.0.ph40 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ false, %if.end ]
+  %.pr3039 = phi ptr [ %.pr30.pr, %cleanup ], [ %call1, %if.end ]
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.pr3039) #20
   br label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit: ; preds = %entry, %cleanup, %if.then.i28
-  %retval.033 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ %retval.0.ph38, %if.then.i28 ], [ false, %entry ]
+  %retval.033 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ %retval.0.ph40, %if.then.i28 ], [ false, %entry ]
   ret i1 %retval.033
 }
 
@@ -9813,13 +9813,13 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %cmp.not.i27, label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.end, %cleanup
-  %retval.0.ph38 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ false, %if.end ]
-  %.pr3037 = phi ptr [ %.pr30.pr, %cleanup ], [ %call1, %if.end ]
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.pr3037) #20
+  %retval.0.ph40 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ false, %if.end ]
+  %.pr3039 = phi ptr [ %.pr30.pr, %cleanup ], [ %call1, %if.end ]
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.pr3039) #20
   br label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit: ; preds = %entry, %cleanup, %if.then.i28
-  %retval.033 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ %retval.0.ph38, %if.then.i28 ], [ false, %entry ]
+  %retval.033 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ %retval.0.ph40, %if.then.i28 ], [ false, %entry ]
   ret i1 %retval.033
 }
 
@@ -9997,13 +9997,13 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %cmp.not.i27, label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.end, %cleanup
-  %retval.0.ph38 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ false, %if.end ]
-  %.pr3037 = phi ptr [ %.pr30.pr, %cleanup ], [ %call1, %if.end ]
-  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.pr3037) #20
+  %retval.0.ph40 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ false, %if.end ]
+  %.pr3039 = phi ptr [ %.pr30.pr, %cleanup ], [ %call1, %if.end ]
+  call void @EVP_PKEY_CTX_free(ptr noundef nonnull %.pr3039) #20
   br label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit: ; preds = %entry, %cleanup, %if.then.i28
-  %retval.033 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ %retval.0.ph38, %if.then.i28 ], [ false, %entry ]
+  %retval.033 = phi i1 [ %retval.0.ph.ph, %cleanup ], [ %retval.0.ph40, %if.then.i28 ], [ false, %entry ]
   ret i1 %retval.033
 }
 

@@ -289,7 +289,7 @@ XorWords.exit.i.us:                               ; preds = %.lr.ph.i.i.us, %47
   br i1 %.not40.i.us, label %xorbuf.exit.us, label %.lr.ph38.preheader.i.us
 
 .lr.ph38.preheader.i.us:                          ; preds = %XorWords.exit.i.us
-  %wide.trip.count.i.us = zext i32 %.022.i.us to i64
+  %wide.trip.count.i.us = zext nneg i32 %.022.i.us to i64
   br label %.lr.ph38.i.us
 
 .lr.ph38.i.us:                                    ; preds = %.lr.ph38.i.us, %.lr.ph38.preheader.i.us
@@ -504,8 +504,8 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   br i1 %63, label %.lr.ph, label %.preheader175, !llvm.loop !14
 
 .preheader173:                                    ; preds = %.lr.ph178, %.preheader175
-  %.not205 = icmp eq i32 %6, 0
-  br i1 %.not205, label %.thread164, label %.lr.ph186
+  %.not222 = icmp eq i32 %6, 0
+  br i1 %.not222, label %.thread164, label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %.preheader173
   %64 = icmp sgt i32 %5, 1
@@ -526,9 +526,9 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %
   %72 = icmp samesign ult i64 %indvars.iv.next196, %56
   br i1 %72, label %.lr.ph178, label %.preheader173, !llvm.loop !15
 
-73:                                               ; preds = %.lr.ph186, %.thread159.thread201
-  %.0119185 = phi ptr [ %0, %.lr.ph186 ], [ %137, %.thread159.thread201 ]
-  %.0122184 = phi i32 [ %6, %.lr.ph186 ], [ %138, %.thread159.thread201 ]
+73:                                               ; preds = %.lr.ph186, %.thread159.thread218
+  %.0119185 = phi ptr [ %0, %.lr.ph186 ], [ %137, %.thread159.thread218 ]
+  %.0122184 = phi i32 [ %6, %.lr.ph186 ], [ %138, %.thread159.thread218 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %74 = call i32 @wc_HashTypeConvert(i32 noundef %7) #6
   %75 = call i32 @wc_HashInit(ptr noundef nonnull %11, i32 noundef %74) #6
@@ -613,7 +613,7 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   br i1 %.not148, label %.preheader, label %.thread164.sink.split
 
 .preheader:                                       ; preds = %103
-  br i1 %.not192, label %.thread159.thread201, label %.lr.ph181
+  br i1 %.not192, label %.thread159.thread218, label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %.preheader, %130
   %.3131180 = phi i32 [ %132, %130 ], [ 0, %.preheader ]
@@ -681,10 +681,10 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
 
 .thread159:                                       ; preds = %130
   %134 = icmp slt i32 %.7.fr, 0
-  br i1 %134, label %.thread164.sink.split, label %.thread159.thread201
+  br i1 %134, label %.thread164.sink.split, label %.thread159.thread218
 
-.thread159.thread201:                             ; preds = %.preheader, %.thread159
-  %.5203 = phi i32 [ %.7.fr, %.thread159 ], [ 0, %.preheader ]
+.thread159.thread218:                             ; preds = %.preheader, %.thread159
+  %.5220 = phi i32 [ %.7.fr, %.thread159 ], [ 0, %.preheader ]
   %135 = call noundef i32 @llvm.umin.i32(i32 %.0122184, i32 range(i32 -2147483647, -2147483648) %25)
   %136 = zext nneg i32 %135 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0119185, ptr nonnull align 16 %13, i64 %136, i1 false)
@@ -699,8 +699,8 @@ DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
   call void @sp_clear(ptr noundef nonnull %15) #6
   br label %.thread164
 
-.thread164:                                       ; preds = %.thread159.thread201, %DoPKCS12Hash.exit, %.thread164.sink.split, %.preheader173
-  %.1127 = phi i32 [ %.fr, %.preheader173 ], [ %.1127.ph, %.thread164.sink.split ], [ %.5203, %.thread159.thread201 ], [ %.0.i, %DoPKCS12Hash.exit ]
+.thread164:                                       ; preds = %.thread159.thread218, %DoPKCS12Hash.exit, %.thread164.sink.split, %.preheader173
+  %.1127 = phi i32 [ %.fr, %.preheader173 ], [ %.1127.ph, %.thread164.sink.split ], [ %.5220, %.thread159.thread218 ], [ %.0.i, %DoPKCS12Hash.exit ]
   br i1 %45, label %141, label %140
 
 140:                                              ; preds = %.thread164

@@ -1481,8 +1481,8 @@ define internal void @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo19setTargetAttri
   %27 = icmp ult i32 %26, -6
   %28 = and i32 %24, 256
   %.not.i = icmp eq i32 %28, 0
-  %or.cond48 = or i1 %27, %.not.i
-  br i1 %or.cond48, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %29
+  %or.cond51 = or i1 %27, %.not.i
+  br i1 %or.cond51, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %29
 
 29:                                               ; preds = %22
   %30 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #13

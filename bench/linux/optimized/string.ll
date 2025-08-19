@@ -260,12 +260,12 @@ define dso_local i64 @strscpy(ptr noundef writeonly captures(none) %0, ptr nound
 
 .preheader.preheader:                             ; preds = %36, %8
   %.ph = phi i64 [ 0, %8 ], [ %38, %36 ]
-  %.ph40 = phi i64 [ %2, %8 ], [ %39, %36 ]
+  %.ph45 = phi i64 [ %2, %8 ], [ %39, %36 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %45
   %42 = phi i64 [ %51, %45 ], [ %.ph, %.preheader.preheader ]
-  %43 = phi i64 [ %53, %45 ], [ %.ph40, %.preheader.preheader ]
+  %43 = phi i64 [ %53, %45 ], [ %.ph45, %.preheader.preheader ]
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %54, label %45
 
@@ -881,14 +881,14 @@ define dso_local range(i32 -255, 256) i32 @memcmp(ptr noundef readonly captures(
 
 .preheader.preheader:                             ; preds = %.preheader6, %.loopexit7
   %.ph = phi i64 [ %16, %.loopexit7 ], [ %7, %.preheader6 ]
-  %.ph30 = phi ptr [ %18, %.loopexit7 ], [ %5, %.preheader6 ]
-  %.ph31 = phi ptr [ %17, %.loopexit7 ], [ %6, %.preheader6 ]
+  %.ph35 = phi ptr [ %18, %.loopexit7 ], [ %5, %.preheader6 ]
+  %.ph36 = phi ptr [ %17, %.loopexit7 ], [ %6, %.preheader6 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %29
   %20 = phi i64 [ %32, %29 ], [ %.ph, %.preheader.preheader ]
-  %21 = phi ptr [ %30, %29 ], [ %.ph30, %.preheader.preheader ]
-  %22 = phi ptr [ %31, %29 ], [ %.ph31, %.preheader.preheader ]
+  %21 = phi ptr [ %30, %29 ], [ %.ph35, %.preheader.preheader ]
+  %22 = phi ptr [ %31, %29 ], [ %.ph36, %.preheader.preheader ]
   %23 = load i8, ptr %21, align 1
   %24 = zext i8 %23 to i32
   %25 = load i8, ptr %22, align 1
@@ -939,14 +939,14 @@ define dso_local range(i32 -255, 256) i32 @bcmp(ptr noundef readonly captures(no
 
 .preheader.preheader:                             ; preds = %.preheader6, %.loopexit7
   %.ph = phi i64 [ %16, %.loopexit7 ], [ %7, %.preheader6 ]
-  %.ph30 = phi ptr [ %18, %.loopexit7 ], [ %5, %.preheader6 ]
-  %.ph31 = phi ptr [ %17, %.loopexit7 ], [ %6, %.preheader6 ]
+  %.ph35 = phi ptr [ %18, %.loopexit7 ], [ %5, %.preheader6 ]
+  %.ph36 = phi ptr [ %17, %.loopexit7 ], [ %6, %.preheader6 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %29
   %20 = phi i64 [ %32, %29 ], [ %.ph, %.preheader.preheader ]
-  %21 = phi ptr [ %30, %29 ], [ %.ph30, %.preheader.preheader ]
-  %22 = phi ptr [ %31, %29 ], [ %.ph31, %.preheader.preheader ]
+  %21 = phi ptr [ %30, %29 ], [ %.ph35, %.preheader.preheader ]
+  %22 = phi ptr [ %31, %29 ], [ %.ph36, %.preheader.preheader ]
   %23 = load i8, ptr %21, align 1
   %24 = zext i8 %23 to i32
   %25 = load i8, ptr %22, align 1
@@ -1098,7 +1098,7 @@ define dso_local ptr @strstr(ptr noundef %0, ptr noundef %1) #0 align 16 {
 63:                                               ; preds = %56
   %64 = getelementptr i8, ptr %58, i64 1
   %65 = getelementptr i8, ptr %59, i64 1
-  %66 = add i64 %57, -1
+  %66 = add nsw i64 %57, -1
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %.loopexit, label %56, !llvm.loop !38
 
@@ -1206,7 +1206,7 @@ define dso_local ptr @strnstr(ptr noundef readonly captures(ret: address, proven
 57:                                               ; preds = %50
   %58 = getelementptr i8, ptr %52, i64 1
   %59 = getelementptr i8, ptr %53, i64 1
-  %60 = add i64 %51, -1
+  %60 = add nsw i64 %51, -1
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %.loopexit, label %50, !llvm.loop !38
 

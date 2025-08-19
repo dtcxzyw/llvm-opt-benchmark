@@ -1611,10 +1611,10 @@ define hidden void @"_ZN3png7encoder15Writer$LT$W$GT$16write_image_data17h0b1b35
   br i1 %169, label %146, label %170
 
 170:                                              ; preds = %168, %164
-  %.lcssa573.sink = phi ptr [ %152, %164 ], [ %167, %168 ]
+  %.lcssa605.sink = phi ptr [ %152, %164 ], [ %167, %168 ]
   store i64 2, ptr %0, align 8
   %.sroa.4208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.lcssa573.sink, ptr %.sroa.4208.0..sroa_idx, align 8
+  store ptr %.lcssa605.sink, ptr %.sroa.4208.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr125drop_in_place$LT$fdeflate..compress..StoredOnlyCompressor$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$17hef006bd5e3755156E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26)
           to label %163 unwind label %136
 
@@ -4254,7 +4254,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 328:                                              ; preds = %326, %.noexc49.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1273
   %.not.i = icmp eq i8 %291, 63
-  br i1 %.not.i, label %.loopexit142, label %.lr.ph.i
+  br i1 %.not.i, label %.loopexit207, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %328
   %.promoted.i = load i64, ptr %301, align 8, !alias.scope !1285, !noalias !1292
@@ -4317,7 +4317,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %.pre19.i.i209.i = phi i64 [ %349, %345 ], [ %348, %351 ]
   store i64 %348, ptr %301, align 8, !alias.scope !1285, !noalias !1292
   %exitcond.not.i = icmp eq i64 %331, %293
-  br i1 %exitcond.not.i, label %.loopexit142, label %329
+  br i1 %exitcond.not.i, label %.loopexit207, label %329
 
 352:                                              ; preds = %289
   %353 = landingpad { ptr, i32 }
@@ -4343,7 +4343,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
 354:                                              ; preds = %376, %278
   unreachable
 
-.loopexit142:                                     ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.llvm.1563996087720595280.exit25.i", %328
+.loopexit207:                                     ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hb6911dba0d5832f9E.llvm.1563996087720595280.exit25.i", %328
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 9
   %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.595.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12.0..sroa_idx, i64 7, i1 false)
@@ -4360,7 +4360,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   %.not45 = icmp eq i16 %.pre, 2
   br i1 %.not45, label %360, label %355
 
-355:                                              ; preds = %.loopexit142
+355:                                              ; preds = %.loopexit207
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %trunc = trunc nuw i16 %.pre to i1
@@ -4376,7 +4376,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   invoke fastcc void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17h2c813f65603824e4E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %16, ptr noalias noundef align 8 dereferenceable(40) %17, i48 %.sroa.030.0.insert.insert)
           to label %365 unwind label %380
 
-360:                                              ; preds = %370, %.loopexit142
+360:                                              ; preds = %370, %.loopexit207
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false)
   %361 = load i64, ptr %1, align 8, !range !585, !alias.scope !1322, !noundef !7

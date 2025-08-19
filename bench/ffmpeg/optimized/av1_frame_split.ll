@@ -309,7 +309,7 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   unreachable
 
 .thread220.thread:                                ; preds = %55, %.thread220.thread.sink.split, %.thread220
-  %.5224322 = phi ptr [ %.2138205, %.thread220 ], [ %.5224.ph.ph, %.thread220.thread.sink.split ], [ %58, %55 ]
+  %.5224332 = phi ptr [ %.2138205, %.thread220 ], [ %.5224.ph.ph, %.thread220.thread.sink.split ], [ %58, %55 ]
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %111 = load ptr, ptr %4, align 8, !tbaa !14
@@ -339,12 +339,12 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   %130 = load i32, ptr %129, align 8, !tbaa !62
   %131 = sub nsw i32 %130, %52
   store i32 %131, ptr %129, align 8, !tbaa !62
-  %132 = load i8, ptr %.5224322, align 4, !tbaa !51
+  %132 = load i8, ptr %.5224332, align 4, !tbaa !51
   %.not158 = icmp eq i8 %132, 0
   br i1 %.not158, label %133, label %138
 
 133:                                              ; preds = %114
-  %134 = getelementptr inbounds nuw i8, ptr %.5224322, i64 13
+  %134 = getelementptr inbounds nuw i8, ptr %.5224332, i64 13
   %135 = load i8, ptr %134, align 1, !tbaa !63
   %.not159 = icmp eq i8 %135, 0
   br i1 %.not159, label %136, label %138

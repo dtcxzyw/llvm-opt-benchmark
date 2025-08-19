@@ -342,14 +342,14 @@ _ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3
   br i1 %cmp.i.i.i26.i, label %if.end12.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i161.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit165.i
-  %.pr242.i = phi i32 [ %.pr.pre.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit165.i ], [ %10, %for.body.i.i161.i ]
+  %.pr319.i = phi i32 [ %.pr.pre.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit165.i ], [ %10, %for.body.i.i161.i ]
   %19 = phi ptr [ %.pre.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit165.i ], [ %call.i.i95.i, %for.body.i.i161.i ]
   %20 = ptrtoint ptr %call.i15.i to i64
   %conv.i.i.i.i.i27.i = trunc i64 %20 to i32
   %shr.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i27.i, 4
   %shr2.i.i.i.i.i.i = lshr i32 %conv.i.i.i.i.i27.i, 9
   %xor.i.i.i.i.i.i = xor i32 %shr.i.i.i.i.i.i, %shr2.i.i.i.i.i.i
-  %sub.i.i.i28.i = add i32 %.pr242.i, -1
+  %sub.i.i.i28.i = add i32 %.pr319.i, -1
   %BucketNo.019.i.i.i.i = and i32 %sub.i.i.i28.i, %xor.i.i.i.i.i.i
   %idx.ext20.i.i.i.i = zext nneg i32 %BucketNo.019.i.i.i.i to i64
   %add.ptr21.i.i.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %19, i64 %idx.ext20.i.i.i.i
@@ -533,14 +533,14 @@ _ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3
   br i1 %cmp.i.i10.i.i, label %if.end12.i.i, label %if.end.i.i11.i.i
 
 if.end.i.i11.i.i:                                 ; preds = %for.body.i.i.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit.i
-  %.pr174245.i = phi i32 [ %.pr174.pre.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit.i ], [ %26, %for.body.i.i.i ]
+  %.pr174322.i = phi i32 [ %.pr174.pre.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit.i ], [ %26, %for.body.i.i.i ]
   %35 = phi ptr [ %.pre239.i, %_ZN4llvh8DenseMapIPN6hermes5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE4growEj.exit.i ], [ %call.i.i36.i, %for.body.i.i.i ]
   %36 = ptrtoint ptr %call.i15.i to i64
   %conv.i.i.i.i12.i.i = trunc i64 %36 to i32
   %shr.i.i.i.i13.i.i = lshr i32 %conv.i.i.i.i12.i.i, 4
   %shr2.i.i.i.i14.i.i = lshr i32 %conv.i.i.i.i12.i.i, 9
   %xor.i.i.i.i15.i.i = xor i32 %shr.i.i.i.i13.i.i, %shr2.i.i.i.i14.i.i
-  %sub.i.i16.i.i = add i32 %.pr174245.i, -1
+  %sub.i.i16.i.i = add i32 %.pr174322.i, -1
   %BucketNo.019.i.i17.i.i = and i32 %sub.i.i16.i.i, %xor.i.i.i.i15.i.i
   %idx.ext20.i.i18.i.i = zext nneg i32 %BucketNo.019.i.i17.i.i to i64
   %add.ptr21.i.i19.i.i = getelementptr inbounds nuw %"class.llvh::detail::DenseSetPair", ptr %35, i64 %idx.ext20.i.i18.i.i
@@ -1249,12 +1249,12 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i
   br label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i
 
 _ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.end.i.i.i.i.i, %if.then.i.i.i
-  %changed.0.lcssa2326.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %for.end.i.i.i.i.i ], [ %changed.1.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i ]
+  %changed.0.lcssa3639.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %for.end.i.i.i.i.i ], [ %changed.1.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %destroyer.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %tdzStorage.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp32.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp50.i.i.i.i)
-  %or6.i.i.i = or i1 %changed.0224.i.i.i, %changed.0.lcssa2326.i.i.i.i
+  %or6.i.i.i = or i1 %changed.0224.i.i.i, %changed.0.lcssa3639.i.i.i.i
   store i8 1, ptr %52, align 8
   br label %if.end16thread-pre-split.i.i.i
 

@@ -210,8 +210,8 @@ define dso_local void @_ZN30btBox2dBox2dCollisionAlgorithm16processCollisionEPK2
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %. = select i1 %.not1.i, ptr %34, ptr %30
-  %.10 = select i1 %.not1.i, ptr %30, ptr %34
-  %.sink.i = getelementptr inbounds nuw i8, ptr %.10, i64 8
+  %.11 = select i1 %.not1.i, ptr %30, ptr %34
+  %.sink.i = getelementptr inbounds nuw i8, ptr %.11, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %., i64 8
   tail call void @_ZN20btPersistentManifold20refreshContactPointsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(880) %22, ptr noundef nonnull align 4 dereferenceable(64) %.sink.i, ptr noundef nonnull align 4 dereferenceable(64) %35)
   br label %_ZN16btManifoldResult20refreshContactPointsEv.exit
@@ -421,8 +421,8 @@ _ZL16FindIncidentEdgeP10ClipVertexPK12btBox2dShapeRK11btTransformiS3_S6_.exit: ;
   %111 = fsub float %.sroa.0170.4.vec.extract, %.sroa.0183.4.vec.extract
   %.sroa.10.8.vec.extract = extractelement <2 x float> %.sroa.10.0.copyload, i64 0
   %.sroa.12.8.vec.extract = extractelement <2 x float> %.sroa.12.0.copyload, i64 0
-  %foldExtExtBinop368 = fsub <2 x float> %.sroa.10.0.copyload, %.sroa.12.0.copyload
-  %112 = extractelement <2 x float> %foldExtExtBinop368, i64 0
+  %foldExtExtBinop371 = fsub <2 x float> %.sroa.10.0.copyload, %.sroa.12.0.copyload
+  %112 = extractelement <2 x float> %foldExtExtBinop371, i64 0
   %113 = fmul float %.sroa.8274.0, %111
   %114 = tail call float @llvm.fmuladd.f32(float %.sroa.0269.0, float %110, float %113)
   %115 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.12280.0, float %112, float %114)
@@ -959,9 +959,9 @@ _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; pred
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %27
   %.old.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.old5.i = load i8, ptr %.old.i, align 8, !tbaa !59, !range !25, !noundef !26
-  %.old6.i = trunc nuw i8 %.old5.i to i1
-  br i1 %.old6.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !59, !range !25, !noundef !26
+  %.old9.i = trunc nuw i8 %.old8.i to i1
+  br i1 %.old9.i, label %34, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
 34:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %26)

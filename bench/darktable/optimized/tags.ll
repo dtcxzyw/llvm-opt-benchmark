@@ -723,7 +723,7 @@ define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0
 
 4:                                                ; preds = %12
   %.not24 = icmp eq ptr %9, null
-  br i1 %.not24, label %.thread33, label %23
+  br i1 %.not24, label %.thread38, label %23
 
 5:                                                ; preds = %.outer, %12
   %.01527 = phi ptr [ %14, %12 ], [ %.01527.ph, %.outer ]
@@ -757,8 +757,8 @@ define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0
   %20 = add i32 %.01626.ph, %8
   %21 = getelementptr inbounds nuw i8, ptr %.01527, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !62
-  %.not2330 = icmp eq ptr %22, null
-  br i1 %.not2330, label %.thread33, label %.outer
+  %.not2335 = icmp eq ptr %22, null
+  br i1 %.not2335, label %.thread38, label %.outer
 
 23:                                               ; preds = %4
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
@@ -770,15 +770,15 @@ define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0
   %28 = load ptr, ptr %2, align 8, !tbaa !57
   call void @g_free(ptr noundef %28) #11
   %29 = add i32 %.01626.ph, %8
-  br label %.thread33
+  br label %.thread38
 
-.thread33:                                        ; preds = %.thread, %23, %4
+.thread38:                                        ; preds = %.thread, %23, %4
   %.2 = phi i32 [ %29, %23 ], [ %.01626.ph, %4 ], [ %20, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
-30:                                               ; preds = %1, %.thread33
-  %.0 = phi i32 [ %.2, %.thread33 ], [ 0, %1 ]
+30:                                               ; preds = %1, %.thread38
+  %.0 = phi i32 [ %.2, %.thread38 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -1077,7 +1077,7 @@ define internal fastcc range(i32 0, 2) i32 @_tag_execute(ptr noundef %0, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !67
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  switch i32 %4, label %default.unreachable53 [
+  switch i32 %4, label %default.unreachable57 [
     i32 0, label %15
     i32 1, label %28
     i32 2, label %38
@@ -1115,14 +1115,14 @@ define internal fastcc range(i32 0, 2) i32 @_tag_execute(ptr noundef %0, ptr nou
   store ptr %25, ptr %14, align 8, !tbaa !63
   %26 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !62
-  %.not.i55 = icmp eq ptr %27, null
-  br i1 %.not.i55, label %_tag_add_tags_to_list.exit.thread57, label %.lr.ph.i.outer
+  %.not.i59 = icmp eq ptr %27, null
+  br i1 %.not.i59, label %_tag_add_tags_to_list.exit.thread61, label %.lr.ph.i.outer
 
 _tag_add_tags_to_list.exit:                       ; preds = %20
-  br i1 %.not41, label %_tag_add_tags_to_list.exit.thread, label %_tag_add_tags_to_list.exit.thread57
+  br i1 %.not41, label %_tag_add_tags_to_list.exit.thread, label %_tag_add_tags_to_list.exit.thread61
 
 _tag_add_tags_to_list.exit.thread:                ; preds = %15, %_tag_add_tags_to_list.exit
-  br label %_tag_add_tags_to_list.exit.thread57
+  br label %_tag_add_tags_to_list.exit.thread61
 
 28:                                               ; preds = %7
   %29 = tail call ptr @g_list_copy(ptr noundef %12) #11
@@ -1147,30 +1147,30 @@ _tag_remove_tags_from_list.exit:                  ; preds = %.lr.ph.i44, %28
   %37 = tail call i32 @g_list_length(ptr noundef %36) #11
   %.not49 = icmp eq i32 %37, %30
   %spec.select43 = select i1 %.not49, i32 %.052, i32 1
-  br label %_tag_add_tags_to_list.exit.thread57
+  br label %_tag_add_tags_to_list.exit.thread61
 
 38:                                               ; preds = %7
   %39 = tail call ptr @g_list_copy(ptr noundef %0) #11
   store ptr %39, ptr %14, align 8, !tbaa !68
   %40 = tail call fastcc ptr @_tag_get_tags(i32 noundef %10, i32 noundef 0)
   %.not39 = icmp eq ptr %40, null
-  br i1 %.not39, label %_tag_add_tags_to_list.exit.thread57, label %41
+  br i1 %.not39, label %_tag_add_tags_to_list.exit.thread61, label %41
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %14, align 8, !tbaa !68
   %43 = tail call ptr @g_list_concat(ptr noundef %42, ptr noundef nonnull %40) #11
   store ptr %43, ptr %14, align 8, !tbaa !68
-  br label %_tag_add_tags_to_list.exit.thread57
+  br label %_tag_add_tags_to_list.exit.thread61
 
 44:                                               ; preds = %7
   %45 = tail call ptr @g_list_copy(ptr noundef %0) #11
   store ptr %45, ptr %14, align 8, !tbaa !68
-  br label %_tag_add_tags_to_list.exit.thread57
+  br label %_tag_add_tags_to_list.exit.thread61
 
-default.unreachable53:                            ; preds = %7
+default.unreachable57:                            ; preds = %7
   unreachable
 
-_tag_add_tags_to_list.exit.thread57:              ; preds = %.thread, %_tag_add_tags_to_list.exit.thread, %_tag_add_tags_to_list.exit, %_tag_remove_tags_from_list.exit, %38, %41, %44
+_tag_add_tags_to_list.exit.thread61:              ; preds = %.thread, %_tag_add_tags_to_list.exit.thread, %_tag_add_tags_to_list.exit, %_tag_remove_tags_from_list.exit, %38, %41, %44
   %.1 = phi i32 [ 1, %44 ], [ %spec.select43, %_tag_remove_tags_from_list.exit ], [ 1, %41 ], [ 1, %38 ], [ %.052, %_tag_add_tags_to_list.exit.thread ], [ 1, %_tag_add_tags_to_list.exit ], [ 1, %.thread ]
   %46 = load ptr, ptr %13, align 8, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1178,13 +1178,13 @@ _tag_add_tags_to_list.exit.thread57:              ; preds = %.thread, %_tag_add_
   tail call fastcc void @_pop_undo_execute(i32 noundef %10, ptr noundef %46, ptr noundef %48)
   br i1 %.not42, label %52, label %49
 
-49:                                               ; preds = %_tag_add_tags_to_list.exit.thread57
+49:                                               ; preds = %_tag_add_tags_to_list.exit.thread61
   %50 = load ptr, ptr %2, align 8, !tbaa !63
   %51 = tail call ptr @g_list_append(ptr noundef %50, ptr noundef nonnull %11) #11
   store ptr %51, ptr %2, align 8, !tbaa !63
   br label %55
 
-52:                                               ; preds = %_tag_add_tags_to_list.exit.thread57
+52:                                               ; preds = %_tag_add_tags_to_list.exit.thread61
   %53 = load ptr, ptr %13, align 8, !tbaa !67
   tail call void @g_list_free(ptr noundef %53) #11
   %54 = load ptr, ptr %47, align 8, !tbaa !68
@@ -1315,9 +1315,9 @@ define range(i32 0, 2) i32 @dt_tag_attach(i32 noundef %0, i32 noundef %1, i32 no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %6
-  %.sink17 = phi ptr [ %8, %6 ], [ %14, %11 ]
-  %15 = tail call i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef %.sink17, i32 noundef %2)
-  tail call void @g_list_free(ptr noundef %.sink17) #11
+  %.sink18 = phi ptr [ %8, %6 ], [ %14, %11 ]
+  %15 = tail call i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef %.sink18, i32 noundef %2)
+  tail call void @g_list_free(ptr noundef %.sink18) #11
   br label %16
 
 16:                                               ; preds = %.sink.split, %9
@@ -2705,8 +2705,8 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %or.cond = select i1 %.not, i1 true, i1 %.not67
   %103 = and i32 %101, 1
   %.not68 = icmp eq i32 %103, 0
-  %or.cond124 = select i1 %or.cond, i1 %.not68, i1 false
-  br i1 %or.cond124, label %104, label %153
+  %or.cond141 = select i1 %or.cond, i1 %.not68, i1 false
+  br i1 %or.cond141, label %104, label %153
 
 104:                                              ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -4703,9 +4703,9 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
 
 .lr.ph:                                           ; preds = %.lr.ph141
   %.not147 = icmp eq ptr %.fr146, null
-  br i1 %.not147, label %.critedge.thread161, label %.lr.ph.split.split
+  br i1 %.not147, label %.critedge.thread173, label %.lr.ph.split.split
 
-.critedge.thread161:                              ; preds = %.lr.ph
+.critedge.thread173:                              ; preds = %.lr.ph
   tail call void @g_strfreev(ptr noundef nonnull %.078136) #11
   br label %.critedge3
 
@@ -4740,7 +4740,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.loopexit, %.lr.ph.split.split
-  %.076.lcssa.ph157 = phi i32 [ %.076.lcssa.ph, %.critedge.loopexit ], [ 0, %.lr.ph.split.split ]
+  %.076.lcssa.ph169 = phi i32 [ %.076.lcssa.ph, %.critedge.loopexit ], [ 0, %.lr.ph.split.split ]
   tail call void @g_strfreev(ptr noundef nonnull %.078136) #11
   br label %.lr.ph130
 
@@ -4750,15 +4750,15 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   br i1 %.not92, label %.critedge3, label %.lr.ph130
 
 .lr.ph130:                                        ; preds = %.critedge.thread, %.critedge
-  %.076.lcssa160 = phi i32 [ %.076.lcssa.ph157, %.critedge.thread ], [ 0, %.critedge ]
-  %50 = zext nneg i32 %.076.lcssa160 to i64
+  %.076.lcssa172 = phi i32 [ %.076.lcssa.ph169, %.critedge.thread ], [ 0, %.critedge ]
+  %50 = zext nneg i32 %.076.lcssa172 to i64
   %51 = and i32 %39, 1
   %.not95 = icmp eq i32 %51, 0
   %.not96 = icmp eq ptr %37, null
   %52 = getelementptr inbounds nuw ptr, ptr %.fr146, i64 %50
   %53 = load ptr, ptr %52, align 8, !tbaa !57
-  %.not93165 = icmp eq ptr %53, null
-  br i1 %.not93165, label %.critedge3, label %.preheader102.preheader
+  %.not93177 = icmp eq ptr %53, null
+  br i1 %.not93177, label %.critedge3, label %.preheader102.preheader
 
 .preheader102.preheader:                          ; preds = %.lr.ph130
   %.str.64..str.63 = select i1 %.not95, ptr @.str.64, ptr @.str.63
@@ -4766,16 +4766,16 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
 
 .preheader102:                                    ; preds = %.preheader102.preheader, %82
   %54 = phi ptr [ %83, %82 ], [ %52, %.preheader102.preheader ]
-  %indvars156170 = phi i32 [ %indvars156, %82 ], [ %.076.lcssa160, %.preheader102.preheader ]
-  %.1125168 = phi i32 [ %.2, %82 ], [ %.077140, %.preheader102.preheader ]
-  %.074129167 = phi i64 [ %55, %82 ], [ %50, %.preheader102.preheader ]
-  %indvars.iv152.in166 = phi i32 [ %indvars.iv152169, %82 ], [ %.076.lcssa160, %.preheader102.preheader ]
-  %indvars.iv152169 = add i32 %indvars.iv152.in166, 1
-  %.not150 = icmp eq i32 %indvars156170, 0
+  %indvars156182 = phi i32 [ %indvars156, %82 ], [ %.076.lcssa172, %.preheader102.preheader ]
+  %.1125180 = phi i32 [ %.2, %82 ], [ %.077140, %.preheader102.preheader ]
+  %.074129179 = phi i64 [ %55, %82 ], [ %50, %.preheader102.preheader ]
+  %indvars.iv152.in178 = phi i32 [ %indvars.iv152181, %82 ], [ %.076.lcssa172, %.preheader102.preheader ]
+  %indvars.iv152181 = add i32 %indvars.iv152.in178, 1
+  %.not150 = icmp eq i32 %indvars156182, 0
   br i1 %.not150, label %._crit_edge, label %.lr.ph120
 
 ._crit_edge:                                      ; preds = %.lr.ph120, %.preheader102
-  %55 = add nuw i64 %.074129167, 1
+  %55 = add nuw i64 %.074129179, 1
   %56 = getelementptr inbounds nuw ptr, ptr %.fr146, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !57
   %.not94 = icmp eq ptr %57, null
@@ -4785,11 +4785,11 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %.073119 = phi i32 [ %59, %.lr.ph120 ], [ 0, %.preheader102 ]
   %58 = tail call i32 @fputc(i32 noundef 9, ptr noundef nonnull %3)
   %59 = add nuw i32 %.073119, 1
-  %exitcond.not = icmp eq i32 %59, %indvars156170
+  %exitcond.not = icmp eq i32 %59, %indvars156182
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph120
 
 60:                                               ; preds = %._crit_edge
-  %61 = add nsw i32 %.1125168, 1
+  %61 = add nsw i32 %.1125180, 1
   %62 = load ptr, ptr %54, align 8, !tbaa !57
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull %.str.64..str.63, ptr noundef %62) #11
   br i1 %.not96, label %82, label %64
@@ -4829,7 +4829,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %.0121 = phi i32 [ 0, %.lr.ph124 ], [ %78, %76 ]
   %77 = tail call i32 @fputc(i32 noundef 9, ptr noundef nonnull %3)
   %78 = add nuw i32 %.0121, 1
-  %exitcond154.not = icmp eq i32 %.0121, %indvars.iv152.in166
+  %exitcond154.not = icmp eq i32 %.0121, %indvars.iv152.in178
   br i1 %exitcond154.not, label %71, label %76
 
 .loopexit:                                        ; preds = %71, %.preheader, %66
@@ -4842,15 +4842,15 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   br label %82
 
 82:                                               ; preds = %79, %.loopexit, %64, %60
-  %.2 = phi i32 [ %.1125168, %79 ], [ %61, %.loopexit ], [ %61, %64 ], [ %61, %60 ]
+  %.2 = phi i32 [ %.1125180, %79 ], [ %61, %.loopexit ], [ %61, %64 ], [ %61, %60 ]
   %indvars156 = trunc i64 %55 to i32
   %83 = getelementptr inbounds nuw ptr, ptr %.fr146, i64 %55
   %84 = load ptr, ptr %83, align 8, !tbaa !57
   %.not93 = icmp eq ptr %84, null
   br i1 %.not93, label %.critedge3, label %.preheader102
 
-.critedge3:                                       ; preds = %82, %.lr.ph130, %.critedge.thread161, %.critedge
-  %.1.lcssa = phi i32 [ %.077140, %.critedge ], [ %.077140, %.critedge.thread161 ], [ %.077140, %.lr.ph130 ], [ %.2, %82 ]
+.critedge3:                                       ; preds = %82, %.lr.ph130, %.critedge.thread173, %.critedge
+  %.1.lcssa = phi i32 [ %.077140, %.critedge ], [ %.077140, %.critedge.thread173 ], [ %.077140, %.lr.ph130 ], [ %.2, %82 ]
   %85 = getelementptr inbounds nuw i8, ptr %.079135, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !62
   %.not88 = icmp eq ptr %86, null

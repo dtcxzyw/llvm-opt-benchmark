@@ -778,12 +778,12 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
   %24 = load float, ptr %20, align 4, !tbaa !13
   %25 = load float, ptr %21, align 4, !tbaa !13
   %26 = load float, ptr %22, align 4, !tbaa !13
-  br label %.outer74
+  br label %.outer84
 
-.outer74:                                         ; preds = %.sink.split.i.thread, %.lr.ph.i
+.outer84:                                         ; preds = %.sink.split.i.thread, %.lr.ph.i
   %.sink.i47.ph = phi i32 [ 1, %.sink.split.i.thread ], [ 0, %.lr.ph.i ]
-  %.ph75 = phi float [ %43, %.sink.split.i.thread ], [ -1.000000e+03, %.lr.ph.i ]
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i59, %.sink.split.i.thread ], [ 0, %.lr.ph.i ]
+  %.ph85 = phi float [ %43, %.sink.split.i.thread ], [ -1.000000e+03, %.lr.ph.i ]
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i69, %.sink.split.i.thread ], [ 0, %.lr.ph.i ]
   br label %31
 
 .preheader.i:                                     ; preds = %.sink.split.i
@@ -791,17 +791,17 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
   br i1 %27, label %.lr.ph22.i, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit
 
 .lr.ph22.i:                                       ; preds = %.sink.split.i.thread, %.preheader.i
-  %.pr6164 = phi i32 [ %.pr, %.preheader.i ], [ 1, %.sink.split.i.thread ]
-  %28 = phi float [ %.ph75, %.preheader.i ], [ %43, %.sink.split.i.thread ]
+  %.pr7174 = phi i32 [ %.pr, %.preheader.i ], [ 1, %.sink.split.i.thread ]
+  %28 = phi float [ %.ph85, %.preheader.i ], [ %43, %.sink.split.i.thread ]
   %29 = phi i32 [ %55, %.preheader.i ], [ 1, %.sink.split.i.thread ]
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %wide.trip.count27.i = zext nneg i32 %29 to i64
   br label %57
 
-31:                                               ; preds = %.outer74, %.sink.split.i
-  %.sink.i47 = phi i32 [ %.pr, %.sink.split.i ], [ %.sink.i47.ph, %.outer74 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.sink.split.i ], [ %indvars.iv.i.ph, %.outer74 ]
-  %32 = phi i32 [ %55, %.sink.split.i ], [ %.sink.i47.ph, %.outer74 ]
+31:                                               ; preds = %.outer84, %.sink.split.i
+  %.sink.i47 = phi i32 [ %.pr, %.sink.split.i ], [ %.sink.i47.ph, %.outer84 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.sink.split.i ], [ %indvars.iv.i.ph, %.outer84 ]
+  %32 = phi i32 [ %55, %.sink.split.i ], [ %.sink.i47.ph, %.outer84 ]
   %33 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv.i
   %34 = load float, ptr %33, align 16, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -817,12 +817,12 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
   br i1 %44, label %.sink.split.i, label %45
 
 45:                                               ; preds = %31
-  %46 = fcmp ogt float %43, %.ph75
+  %46 = fcmp ogt float %43, %.ph85
   br i1 %46, label %.sink.split.i.thread, label %47
 
 47:                                               ; preds = %45
   %48 = fadd float %43, 0x3E80000000000000
-  %49 = fcmp ult float %48, %.ph75
+  %49 = fcmp ult float %48, %.ph85
   br i1 %49, label %.sink.split.i, label %50
 
 50:                                               ; preds = %47
@@ -843,9 +843,9 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
 .sink.split.i.thread:                             ; preds = %45
   %56 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %56, ptr %5, align 16, !tbaa !14
-  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
-  br i1 %exitcond.not.i60, label %.lr.ph22.i, label %.outer74, !llvm.loop !15
+  %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %wide.trip.count.i
+  br i1 %exitcond.not.i70, label %.lr.ph22.i, label %.outer84, !llvm.loop !15
 
 57:                                               ; preds = %57, %.lr.ph22.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph22.i ], [ %indvars.iv.next25.i, %57 ]
@@ -860,10 +860,10 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
   br i1 %exitcond28.not.i, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit, label %57, !llvm.loop !19
 
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit: ; preds = %57, %.preheader.i
-  %.pr6163 = phi i32 [ %.pr, %.preheader.i ], [ %.pr6164, %57 ]
-  %63 = phi float [ %.ph75, %.preheader.i ], [ %28, %57 ]
+  %.pr7173 = phi i32 [ %.pr, %.preheader.i ], [ %.pr7174, %57 ]
+  %63 = phi float [ %.ph85, %.preheader.i ], [ %28, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %64 = icmp eq i32 %.pr6163, 0
+  %64 = icmp eq i32 %.pr7173, 0
   br i1 %64, label %131, label %65
 
 65:                                               ; preds = %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit
@@ -904,7 +904,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
 .outer:                                           ; preds = %.sink.split.i19.thread, %.lr.ph.i16
   %.sink.i2052.ph = phi i32 [ 1, %.sink.split.i19.thread ], [ 0, %.lr.ph.i16 ]
   %.ph = phi float [ %98, %.sink.split.i19.thread ], [ -1.000000e+03, %.lr.ph.i16 ]
-  %indvars.iv.i18.ph = phi i64 [ %indvars.iv.next.i2266, %.sink.split.i19.thread ], [ 0, %.lr.ph.i16 ]
+  %indvars.iv.i18.ph = phi i64 [ %indvars.iv.next.i2276, %.sink.split.i19.thread ], [ 0, %.lr.ph.i16 ]
   br label %86
 
 .preheader.i24:                                   ; preds = %.sink.split.i19
@@ -912,7 +912,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
   br i1 %82, label %.lr.ph22.i25, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30
 
 .lr.ph22.i25:                                     ; preds = %.sink.split.i19.thread, %.preheader.i24
-  %.pr426871 = phi i32 [ %.pr42, %.preheader.i24 ], [ 1, %.sink.split.i19.thread ]
+  %.pr427881 = phi i32 [ %.pr42, %.preheader.i24 ], [ 1, %.sink.split.i19.thread ]
   %83 = phi float [ %.ph, %.preheader.i24 ], [ %98, %.sink.split.i19.thread ]
   %84 = phi i32 [ %110, %.preheader.i24 ], [ 1, %.sink.split.i19.thread ]
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -964,9 +964,9 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
 .sink.split.i19.thread:                           ; preds = %100
   %111 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   store i32 %111, ptr %4, align 16, !tbaa !14
-  %indvars.iv.next.i2266 = add nuw nsw i64 %indvars.iv.i18, 1
-  %exitcond.not.i2367 = icmp eq i64 %indvars.iv.next.i2266, %wide.trip.count.i17
-  br i1 %exitcond.not.i2367, label %.lr.ph22.i25, label %.outer, !llvm.loop !15
+  %indvars.iv.next.i2276 = add nuw nsw i64 %indvars.iv.i18, 1
+  %exitcond.not.i2377 = icmp eq i64 %indvars.iv.next.i2276, %wide.trip.count.i17
+  br i1 %exitcond.not.i2377, label %.lr.ph22.i25, label %.outer, !llvm.loop !15
 
 112:                                              ; preds = %112, %.lr.ph22.i25
   %indvars.iv24.i27 = phi i64 [ 0, %.lr.ph22.i25 ], [ %indvars.iv.next25.i28, %112 ]
@@ -981,10 +981,10 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
   br i1 %exitcond28.not.i29, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30, label %112, !llvm.loop !19
 
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30: ; preds = %112, %.preheader.i24
-  %.pr426870 = phi i32 [ %.pr42, %.preheader.i24 ], [ %.pr426871, %112 ]
+  %.pr427880 = phi i32 [ %.pr42, %.preheader.i24 ], [ %.pr427881, %112 ]
   %118 = phi float [ %.ph, %.preheader.i24 ], [ %83, %112 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %119 = icmp eq i32 %.pr426870, 0
+  %119 = icmp eq i32 %.pr427880, 0
   br i1 %119, label %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit, label %120
 
 120:                                              ; preds = %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30
@@ -997,9 +997,9 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30: ; pre
 .lr.ph.i31:                                       ; preds = %120
   store float %118, ptr %2, align 4, !tbaa !12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %122, ptr noundef nonnull align 4 dereferenceable(16) %70, i64 16, i1 false)
-  store i32 %.pr426870, ptr %123, align 4, !tbaa !4
+  store i32 %.pr427880, ptr %123, align 4, !tbaa !4
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %126 = sext i32 %.pr426870 to i64
+  %126 = sext i32 %.pr427880 to i64
   %127 = shl nuw nsw i64 %126, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %124, ptr nonnull align 4 %125, i64 %127, i1 false)
   br label %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit
@@ -1007,9 +1007,9 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30: ; pre
 .lr.ph.i35:                                       ; preds = %120
   store float %63, ptr %2, align 4, !tbaa !12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %122, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false)
-  store i32 %.pr6163, ptr %123, align 4, !tbaa !4
+  store i32 %.pr7173, ptr %123, align 4, !tbaa !4
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %129 = sext i32 %.pr6163 to i64
+  %129 = sext i32 %.pr7173 to i64
   %130 = shl nuw nsw i64 %129, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %124, ptr nonnull align 4 %128, i64 %130, i1 false)
   br label %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit

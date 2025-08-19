@@ -181,7 +181,7 @@ define dso_local i32 @tool_ssls_load(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %52
 
 52:                                               ; preds = %49, %50
-  %.05698101 = phi i32 [ %.056, %50 ], [ 0, %49 ]
+  %.056103106 = phi i32 [ %.056, %50 ], [ 0, %49 ]
   call void @curlx_dyn_free(ptr noundef nonnull %6) #5
   %53 = load ptr, ptr %7, align 8, !tbaa !4
   call void @curl_free(ptr noundef %53) #5
@@ -193,7 +193,7 @@ define dso_local i32 @tool_ssls_load(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.05698101
+  ret i32 %.056103106
 }
 
 declare void @curlx_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -308,10 +308,10 @@ thread-pre-split:                                 ; preds = %10, %12
   br label %18
 
 18:                                               ; preds = %.thread, %16, %15
-  %.01721 = phi i32 [ 0, %.thread ], [ %.0, %16 ], [ %.0, %15 ]
+  %.02024 = phi i32 [ 0, %.thread ], [ %.0, %16 ], [ %.0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.01721
+  ret i32 %.02024
 }
 
 declare i32 @curl_easy_ssls_export(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

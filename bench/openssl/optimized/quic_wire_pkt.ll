@@ -702,7 +702,7 @@ PACKET_forward.exit233:                           ; preds = %152
   %168 = and i32 %167, 3
   %169 = load i32, ptr %4, align 8
   %170 = and i32 %169, -49152
-  switch i32 %168, label %default.unreachable315 [
+  switch i32 %168, label %default.unreachable329 [
     i32 0, label %174
     i32 1, label %171
     i32 2, label %172
@@ -718,7 +718,7 @@ PACKET_forward.exit233:                           ; preds = %152
 173:                                              ; preds = %166
   br label %174
 
-default.unreachable315:                           ; preds = %166
+default.unreachable329:                           ; preds = %166
   unreachable
 
 174:                                              ; preds = %166, %173, %172, %171
@@ -875,11 +875,11 @@ PACKET_forward.exit238:                           ; preds = %199
   br label %254
 
 254:                                              ; preds = %243, %232
-  %.sink316 = phi i64 [ %253, %243 ], [ %236, %232 ]
+  %.sink330 = phi i64 [ %253, %243 ], [ %236, %232 ]
   %.val.i245 = phi i64 [ %248, %243 ], [ %235, %232 ]
   %.val203 = phi ptr [ %246, %243 ], [ %234, %232 ]
   %255 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i64 %.sink316, ptr %255, align 8, !tbaa !37
+  store i64 %.sink330, ptr %255, align 8, !tbaa !37
   %256 = getelementptr inbounds nuw i8, ptr %4, i64 80
   br i1 %.not178, label %258, label %257
 
@@ -889,13 +889,13 @@ PACKET_forward.exit238:                           ; preds = %199
 
 258:                                              ; preds = %254
   store ptr %.val203, ptr %256, align 8, !tbaa !38
-  %259 = icmp ult i64 %.val.i245, %.sink316
+  %259 = icmp ult i64 %.val.i245, %.sink330
   br i1 %259, label %.thread, label %PACKET_forward.exit247
 
 PACKET_forward.exit247:                           ; preds = %258
-  %260 = getelementptr inbounds nuw i8, ptr %.val203, i64 %.sink316
+  %260 = getelementptr inbounds nuw i8, ptr %.val203, i64 %.sink330
   store ptr %260, ptr %0, align 8, !tbaa !31
-  %261 = sub nuw i64 %.val.i245, %.sink316
+  %261 = sub nuw i64 %.val.i245, %.sink330
   store i64 %261, ptr %10, align 8, !tbaa !28
   br label %262
 
@@ -1403,7 +1403,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
   %34 = zext nneg i32 %32 to i64
   %35 = add nuw nsw i64 %28, %34
   %36 = icmp eq i32 %6, 1
-  br i1 %36, label %37, label %.thread71
+  br i1 %36, label %37, label %.thread77
 
 37:                                               ; preds = %.thread
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1427,9 +1427,9 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
   %.0.i.ph = phi i64 [ 4, %43 ], [ 2, %41 ], [ 1, %37 ], [ 8, %45 ]
   %47 = add nuw nsw i64 %39, %35
   %48 = add nuw nsw i64 %47, %.0.i.ph
-  br label %.thread71
+  br label %.thread77
 
-.thread71:                                        ; preds = %.thread, %.thread59
+.thread77:                                        ; preds = %.thread, %.thread59
   %.163 = phi i64 [ %48, %.thread59 ], [ %35, %.thread ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %50 = load i64, ptr %49, align 8, !tbaa !37
@@ -1440,7 +1440,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
   %55 = icmp ult i64 %54, 64
   br i1 %55, label %select.unfold64, label %56
 
-56:                                               ; preds = %.thread71
+56:                                               ; preds = %.thread77
   %57 = icmp ult i64 %54, 16384
   br i1 %57, label %select.unfold64, label %58
 
@@ -1452,8 +1452,8 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
   %61 = icmp ult i64 %54, 4611686018427387904
   br i1 %61, label %select.unfold64, label %ossl_quic_vlint_encode_len.exit
 
-select.unfold64:                                  ; preds = %60, %.thread71, %56, %58
-  %.0.i54.ph = phi i64 [ 4, %58 ], [ 2, %56 ], [ 1, %.thread71 ], [ 8, %60 ]
+select.unfold64:                                  ; preds = %60, %.thread77, %56, %58
+  %.0.i54.ph = phi i64 [ 4, %58 ], [ 2, %56 ], [ 1, %.thread77 ], [ 8, %60 ]
   %62 = add nuw nsw i64 %.0.i54.ph, %.163
   br label %63
 
@@ -1534,12 +1534,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef r
 
 .sink.split:                                      ; preds = %24, %35
   %.sink = phi i8 [ %36, %35 ], [ %26, %24 ]
-  %.sink44 = phi i64 [ 1, %35 ], [ 6, %24 ]
-  %.sink43 = phi i64 [ %2, %35 ], [ %27, %24 ]
+  %.sink48 = phi i64 [ 1, %35 ], [ 6, %24 ]
+  %.sink47 = phi i64 [ %2, %35 ], [ %27, %24 ]
   store i8 %.sink, ptr %3, align 1, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %38, i64 %.sink43, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %38, i64 %.sink47, i1 false)
   br label %39
 
 39:                                               ; preds = %.sink.split, %31, %24, %23, %18, %4

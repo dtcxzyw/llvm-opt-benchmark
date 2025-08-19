@@ -157,8 +157,8 @@ define internal noundef i32 @exposure_slice(ptr noundef readonly captures(none) 
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %25 = icmp slt i32 %13, %16
   %26 = icmp sgt i32 %9, 0
-  %or.cond103 = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond103, label %.preheader.lr.ph.us.us.preheader, label %.split90.us
+  %or.cond110 = select i1 %25, i1 %26, i1 false
+  br i1 %or.cond110, label %.preheader.lr.ph.us.us.preheader, label %.split90.us
 
 .preheader.lr.ph.us.us.preheader:                 ; preds = %4
   %wide.trip.count = zext nneg i32 %9 to i64
@@ -227,8 +227,8 @@ define internal noundef i32 @exposure_slice(ptr noundef readonly captures(none) 
   %58 = load i32, ptr %57, align 4, !tbaa !52
   %.not75 = icmp ne i32 %58, 0
   %.not76 = icmp ne ptr %22, %7
-  %or.cond.not105 = and i1 %.not76, %.not75
-  %brmerge.not = and i1 %or.cond.not105, %25
+  %or.cond.not112 = and i1 %.not76, %.not75
+  %brmerge.not = and i1 %or.cond.not112, %25
   br i1 %brmerge.not, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %56

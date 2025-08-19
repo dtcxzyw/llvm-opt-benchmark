@@ -1129,7 +1129,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_fitting(ptr noundef 
   %209 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %210 = load i16, ptr %209, align 8
   %211 = icmp ugt i16 %210, 3
-  br i1 %211, label %.thread25, label %.thread
+  br i1 %211, label %.thread36, label %.thread
 
 .thread:                                          ; preds = %205
   %212 = icmp sgt i32 %206, -1
@@ -1137,7 +1137,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_fitting(ptr noundef 
   %214 = select i1 %212, i32 0, i32 %207
   br label %225
 
-.thread25:                                        ; preds = %205
+.thread36:                                        ; preds = %205
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 1648
   %216 = load i32, ptr %215, align 8
   %217 = shl i32 %216, 29
@@ -1165,10 +1165,10 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_fitting(ptr noundef 
   %233 = select i1 %231, i32 %232, i32 %227
   br label %234
 
-234:                                              ; preds = %.thread25, %225, %223
-  %235 = phi i32 [ 0, %223 ], [ %226, %225 ], [ %222, %.thread25 ]
-  %236 = phi i32 [ 0, %223 ], [ %228, %225 ], [ %208, %.thread25 ]
-  %237 = phi i32 [ 0, %223 ], [ %233, %225 ], [ %221, %.thread25 ]
+234:                                              ; preds = %.thread36, %225, %223
+  %235 = phi i32 [ 0, %223 ], [ %226, %225 ], [ %222, %.thread36 ]
+  %236 = phi i32 [ 0, %223 ], [ %228, %225 ], [ %208, %.thread36 ]
+  %237 = phi i32 [ 0, %223 ], [ %233, %225 ], [ %221, %.thread36 ]
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 1460
   store i32 %237, ptr %238, align 4
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 1464

@@ -267,13 +267,13 @@ define dso_local void @get_relation_info(ptr noundef %0, i32 noundef %1, i1 noun
   %138 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %139 = load i32, ptr %133, align 4
   %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %.lr.ph434, label %.critedge324
+  br i1 %140, label %.lr.ph462, label %.critedge324
 
-.lr.ph434:                                        ; preds = %.lr.ph367, %479
-  %.1365433 = phi ptr [ %.2, %479 ], [ null, %.lr.ph367 ]
-  %indvars.iv400432 = phi i64 [ %indvars.iv.next401, %479 ], [ 0, %.lr.ph367 ]
+.lr.ph462:                                        ; preds = %.lr.ph367, %479
+  %.1365461 = phi ptr [ %.2, %479 ], [ null, %.lr.ph367 ]
+  %indvars.iv400460 = phi i64 [ %indvars.iv.next401, %479 ], [ 0, %.lr.ph367 ]
   %141 = load ptr, ptr %134, align 8
-  %142 = getelementptr inbounds nuw %union.ListCell, ptr %141, i64 %indvars.iv400432
+  %142 = getelementptr inbounds nuw %union.ListCell, ptr %141, i64 %indvars.iv400460
   %143 = load i32, ptr %142, align 8
   %144 = call ptr @index_open(i32 noundef %143, i32 noundef %132) #10
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 328
@@ -288,11 +288,11 @@ define dso_local void @get_relation_info(ptr noundef %0, i32 noundef %1, i1 noun
   call void @list_free(ptr noundef %125) #10
   br label %.critedge
 
-150:                                              ; preds = %.lr.ph434
+150:                                              ; preds = %.lr.ph462
   call void @index_close(ptr noundef nonnull %144, i32 noundef 0) #10
   br label %479
 
-151:                                              ; preds = %.lr.ph434
+151:                                              ; preds = %.lr.ph462
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 19
   %153 = load i8, ptr %152, align 1, !range !4, !noundef !5
   %154 = trunc nuw i8 %153 to i1
@@ -871,16 +871,16 @@ build_index_tlist.exit:                           ; preds = %._crit_edge.i
   %477 = getelementptr inbounds nuw i8, ptr %171, i64 40
   store i32 %.sink, ptr %477, align 8
   call void @index_close(ptr noundef nonnull %144, i32 noundef 0) #10
-  %478 = call ptr @lcons(ptr noundef nonnull %171, ptr noundef %.1365433) #10
+  %478 = call ptr @lcons(ptr noundef nonnull %171, ptr noundef %.1365461) #10
   br label %479
 
 479:                                              ; preds = %476, %167, %150
-  %.2 = phi ptr [ %478, %476 ], [ %.1365433, %167 ], [ %.1365433, %150 ]
-  %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400432, 1
+  %.2 = phi ptr [ %478, %476 ], [ %.1365461, %167 ], [ %.1365461, %150 ]
+  %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400460, 1
   %480 = load i32, ptr %133, align 4
   %481 = sext i32 %480 to i64
   %482 = icmp slt i64 %indvars.iv.next401, %481
-  br i1 %482, label %.lr.ph434, label %.critedge324
+  br i1 %482, label %.lr.ph462, label %.critedge324
 
 .critedge:                                        ; preds = %117, %110, %.critedge324, %119
   %.0287 = phi ptr [ %.1.lcssa, %.critedge324 ], [ null, %119 ], [ null, %110 ], [ null, %117 ]
@@ -1026,9 +1026,9 @@ get_relation_statistics.exit:                     ; preds = %.lr.ph50.i, %.crite
   br label %550
 
 550:                                              ; preds = %548, %542
-  %.sink421 = phi ptr [ null, %548 ], [ %547, %542 ]
+  %.sink449 = phi ptr [ null, %548 ], [ %547, %542 ]
   %551 = getelementptr inbounds nuw i8, ptr %3, i64 264
-  store ptr %.sink421, ptr %551, align 8
+  store ptr %.sink449, ptr %551, align 8
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %553 = load ptr, ptr %552, align 8
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 64
@@ -1798,13 +1798,13 @@ define dso_local ptr @infer_arbiter_indexes(ptr noundef readonly captures(none) 
   br i1 %.not142, label %.lr.ph209.split.us.preheader, label %.lr.ph209.split.split
 
 .lr.ph209.split.us.preheader:                     ; preds = %.lr.ph209
-  br i1 %72, label %.lr.ph286, label %._crit_edge210
+  br i1 %72, label %.lr.ph300, label %._crit_edge210
 
-.lr.ph286:                                        ; preds = %.lr.ph209.split.us.preheader, %.critedge150.thread165.us
-  %.0117207.us284 = phi ptr [ %.2119.us, %.critedge150.thread165.us ], [ null, %.lr.ph209.split.us.preheader ]
-  %indvars.iv260283 = phi i64 [ %indvars.iv.next261, %.critedge150.thread165.us ], [ 0, %.lr.ph209.split.us.preheader ]
+.lr.ph300:                                        ; preds = %.lr.ph209.split.us.preheader, %.critedge150.thread165.us
+  %.0117207.us298 = phi ptr [ %.2119.us, %.critedge150.thread165.us ], [ null, %.lr.ph209.split.us.preheader ]
+  %indvars.iv260297 = phi i64 [ %indvars.iv.next261, %.critedge150.thread165.us ], [ 0, %.lr.ph209.split.us.preheader ]
   %73 = load ptr, ptr %67, align 8
-  %74 = getelementptr inbounds nuw %union.ListCell, ptr %73, i64 %indvars.iv260283
+  %74 = getelementptr inbounds nuw %union.ListCell, ptr %73, i64 %indvars.iv260297
   %75 = load i32, ptr %74, align 8
   %76 = load i32, ptr %68, align 4
   %77 = tail call ptr @index_open(i32 noundef %75, i32 noundef %76) #10
@@ -1815,7 +1815,7 @@ define dso_local ptr @infer_arbiter_indexes(ptr noundef readonly captures(none) 
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %.critedge150.thread165.us
 
-83:                                               ; preds = %.lr.ph286
+83:                                               ; preds = %.lr.ph300
   %84 = load i32, ptr %79, align 4
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %.split216.us, label %86
@@ -1852,10 +1852,10 @@ define dso_local ptr @infer_arbiter_indexes(ptr noundef readonly captures(none) 
   %.not143.us = icmp eq ptr %100, null
   br i1 %.not143.us, label %.critedge150.thread.us, label %.lr.ph204.us
 
-.lr.ph282:                                        ; preds = %.lr.ph204.us, %infer_collation_opclass_match.exit.thread157.us
-  %indvars.iv257281 = phi i64 [ %indvars.iv.next258, %infer_collation_opclass_match.exit.thread157.us ], [ 0, %.lr.ph204.us ]
+.lr.ph296:                                        ; preds = %.lr.ph204.us, %infer_collation_opclass_match.exit.thread157.us
+  %indvars.iv257295 = phi i64 [ %indvars.iv.next258, %infer_collation_opclass_match.exit.thread157.us ], [ 0, %.lr.ph204.us ]
   %101 = load ptr, ptr %204, align 8
-  %102 = getelementptr inbounds nuw %union.ListCell, ptr %101, i64 %indvars.iv257281
+  %102 = getelementptr inbounds nuw %union.ListCell, ptr %101, i64 %indvars.iv257295
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load i32, ptr %104, align 8
@@ -1865,10 +1865,10 @@ define dso_local ptr @infer_arbiter_indexes(ptr noundef readonly captures(none) 
   %109 = icmp eq i32 %108, 0
   br i1 %106, label %111, label %110
 
-110:                                              ; preds = %.lr.ph282
+110:                                              ; preds = %.lr.ph296
   br i1 %109, label %115, label %.thread.i.us
 
-111:                                              ; preds = %.lr.ph282
+111:                                              ; preds = %.lr.ph296
   br i1 %109, label %.loopexit.us, label %.thread.i.us
 
 .thread.i.us:                                     ; preds = %111, %110
@@ -1987,11 +1987,11 @@ infer_collation_opclass_match.exit.us:            ; preds = %167
   br i1 %169, label %infer_collation_opclass_match.exit.thread157.us, label %.critedge150.thread165.us
 
 infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opclass_match.exit.us, %167, %165, %.loopexit.us
-  %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257281, 1
+  %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257295, 1
   %170 = load i32, ptr %203, align 4
   %171 = sext i32 %170 to i64
   %172 = icmp slt i64 %indvars.iv.next258, %171
-  br i1 %172, label %.lr.ph282, label %.critedge150.thread.us
+  br i1 %172, label %.lr.ph296, label %.critedge150.thread.us
 
 .critedge150.thread.us:                           ; preds = %infer_collation_opclass_match.exit.thread157.us, %.lr.ph204.us, %99
   %173 = tail call ptr @list_difference(ptr noundef %96, ptr noundef %.0115.lcssa) #10
@@ -2015,7 +2015,7 @@ infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opc
 
 181:                                              ; preds = %178
   %182 = load i32, ptr %79, align 4
-  %183 = tail call ptr @lappend_oid(ptr noundef %.0117207.us284, i32 noundef %182) #10
+  %183 = tail call ptr @lappend_oid(ptr noundef %.0117207.us298, i32 noundef %182) #10
   br label %.critedge150.thread165.us
 
 .lr.ph200.us:                                     ; preds = %.preheader.us, %193
@@ -2044,14 +2044,14 @@ infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opc
   %196 = icmp slt i64 %indvars.iv.next255, %195
   br i1 %196, label %.lr.ph200.us, label %._crit_edge.us, !llvm.loop !21
 
-.critedge150.thread165.us:                        ; preds = %115, %infer_collation_opclass_match.exit.us, %157, %181, %178, %.critedge150.thread.us, %._crit_edge.us, %90, %86, %.lr.ph286
-  %.2119.us = phi ptr [ %.0117207.us284, %90 ], [ %.0117207.us284, %.critedge150.thread.us ], [ %183, %181 ], [ %.0117207.us284, %178 ], [ %.0117207.us284, %._crit_edge.us ], [ %.0117207.us284, %86 ], [ %.0117207.us284, %.lr.ph286 ], [ %.0117207.us284, %157 ], [ %.0117207.us284, %infer_collation_opclass_match.exit.us ], [ %.0117207.us284, %115 ]
+.critedge150.thread165.us:                        ; preds = %115, %infer_collation_opclass_match.exit.us, %157, %181, %178, %.critedge150.thread.us, %._crit_edge.us, %90, %86, %.lr.ph300
+  %.2119.us = phi ptr [ %.0117207.us298, %90 ], [ %.0117207.us298, %.critedge150.thread.us ], [ %183, %181 ], [ %.0117207.us298, %178 ], [ %.0117207.us298, %._crit_edge.us ], [ %.0117207.us298, %86 ], [ %.0117207.us298, %.lr.ph300 ], [ %.0117207.us298, %157 ], [ %.0117207.us298, %infer_collation_opclass_match.exit.us ], [ %.0117207.us298, %115 ]
   tail call void @index_close(ptr noundef %77, i32 noundef 0) #10
-  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260283, 1
+  %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260297, 1
   %197 = load i32, ptr %66, align 4
   %198 = sext i32 %197 to i64
   %199 = icmp slt i64 %indvars.iv.next261, %198
-  br i1 %199, label %.lr.ph286, label %._crit_edge210
+  br i1 %199, label %.lr.ph300, label %._crit_edge210
 
 .preheader.us:                                    ; preds = %90
   %200 = getelementptr inbounds nuw i8, ptr %79, i64 10
@@ -2069,7 +2069,7 @@ infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opc
   %209 = getelementptr i8, ptr %96, i64 16
   %210 = load i32, ptr %203, align 4
   %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %.lr.ph282, label %.critedge150.thread.us
+  br i1 %211, label %.lr.ph296, label %.critedge150.thread.us
 
 .lr.ph209.split.split:                            ; preds = %.lr.ph209
   br i1 %72, label %.lr.ph237, label %._crit_edge210
@@ -2097,7 +2097,7 @@ infer_collation_opclass_match.exit.thread157.us:  ; preds = %infer_collation_opc
   %.us-phi217 = phi i32 [ 0, %83 ], [ %.0108.fr, %222 ]
   %.us-phi218 = phi ptr [ %77, %83 ], [ %216, %222 ]
   %.us-phi219 = phi ptr [ %79, %83 ], [ %218, %222 ]
-  %.us-phi220 = phi ptr [ %.0117207.us284, %83 ], [ null, %222 ]
+  %.us-phi220 = phi ptr [ %.0117207.us298, %83 ], [ null, %222 ]
   %225 = getelementptr inbounds nuw i8, ptr %.us-phi219, i64 15
   %226 = load i8, ptr %225, align 1, !range !4, !noundef !5
   %227 = trunc nuw i8 %226 to i1

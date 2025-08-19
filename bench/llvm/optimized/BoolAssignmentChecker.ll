@@ -1091,8 +1091,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_121BoolAssignmentChecker10emitRepo
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.0.copyload.i.i.i.i6.i = load i64, ptr %11, align 8
-  %12 = and i64 %.0.copyload.i.i.i.i6.i, -8
+  %.0.copyload.i.i.i.i7.i = load i64, ptr %11, align 8
+  %12 = and i64 %.0.copyload.i.i.i.i7.i, -8
   %13 = inttoptr i64 %12 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -182,15 +182,15 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %81
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.sink.split: ; preds = %31, %20
-  %.sink41 = phi i32 [ %25, %20 ], [ %36, %31 ]
+  %.sink48 = phi i32 [ %25, %20 ], [ %36, %31 ]
   %.sink = phi i64 [ %22, %20 ], [ %33, %31 ]
-  %.sink36 = phi ptr [ %21, %20 ], [ %32, %31 ]
-  %42 = add nuw nsw i32 %.sink41, 1
+  %.sink43 = phi ptr [ %21, %20 ], [ %32, %31 ]
+  %42 = add nuw nsw i32 %.sink48, 1
   %43 = zext nneg i32 %42 to i64
   %44 = shl nuw nsw i64 %43, 40
   %45 = and i64 %.sink, -1152920405095219201
   %46 = or i64 %44, %45
-  store i64 %46, ptr %.sink36, align 8
+  store i64 %46, ptr %.sink43, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.sink.split, %38, %40, %27, %29
@@ -755,15 +755,15 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit45
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %118
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.sink.split: ; preds = %70, %59
-  %.sink71 = phi i32 [ %64, %59 ], [ %75, %70 ]
+  %.sink87 = phi i32 [ %64, %59 ], [ %75, %70 ]
   %.sink = phi i64 [ %61, %59 ], [ %72, %70 ]
-  %.sink66 = phi ptr [ %60, %59 ], [ %71, %70 ]
-  %81 = add nuw nsw i32 %.sink71, 1
+  %.sink82 = phi ptr [ %60, %59 ], [ %71, %70 ]
+  %81 = add nuw nsw i32 %.sink87, 1
   %82 = zext nneg i32 %81 to i64
   %83 = shl nuw nsw i64 %82, 40
   %84 = and i64 %.sink, -1152920405095219201
   %85 = or i64 %83, %84
-  store i64 %85, ptr %.sink66, align 8
+  store i64 %85, ptr %.sink82, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.sink.split, %77, %79, %66, %68
@@ -1097,15 +1097,15 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %71
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.sink.split: ; preds = %27, %16
-  %.sink36 = phi i32 [ %21, %16 ], [ %32, %27 ]
+  %.sink43 = phi i32 [ %21, %16 ], [ %32, %27 ]
   %.sink = phi i64 [ %18, %16 ], [ %29, %27 ]
-  %.sink31 = phi ptr [ %17, %16 ], [ %28, %27 ]
-  %38 = add nuw nsw i32 %.sink36, 1
+  %.sink38 = phi ptr [ %17, %16 ], [ %28, %27 ]
+  %38 = add nuw nsw i32 %.sink43, 1
   %39 = zext nneg i32 %38 to i64
   %40 = shl nuw nsw i64 %39, 40
   %41 = and i64 %.sink, -1152920405095219201
   %42 = or i64 %40, %41
-  store i64 %42, ptr %.sink31, align 8
+  store i64 %42, ptr %.sink38, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.sink.split, %34, %36, %23, %25
@@ -1817,7 +1817,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
 
 .outer:                                           ; preds = %.thread, %.lr.ph
   %.ph = phi ptr [ %764, %.thread ], [ %134, %.lr.ph ]
-  %.ph683 = phi i64 [ %762, %.thread ], [ 0, %.lr.ph ]
+  %.ph855 = phi i64 [ %762, %.thread ], [ 0, %.lr.ph ]
   %.091654.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph ]
   %.093653.ph = phi i32 [ %761, %.thread ], [ 0, %.lr.ph ]
   br label %147
@@ -1827,7 +1827,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
 
 147:                                              ; preds = %.outer, %751
   %148 = phi ptr [ %755, %751 ], [ %.ph, %.outer ]
-  %149 = phi i64 [ %753, %751 ], [ %.ph683, %.outer ]
+  %149 = phi i64 [ %753, %751 ], [ %.ph855, %.outer ]
   %.093653 = phi i32 [ %752, %751 ], [ %.093653.ph, %.outer ]
   %150 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %148, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !3
@@ -8161,11 +8161,11 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTempla
 
 41:                                               ; preds = %39
   %42 = icmp samesign ult i64 %30, %34
-  %.26.i.i = select i1 %42, ptr %24, ptr %23
+  %.30.i.i = select i1 %42, ptr %24, ptr %23
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_.exit.i: ; preds = %41, %39, %37, %35
-  %.sink.i.i = phi ptr [ %23, %35 ], [ %..i.i, %37 ], [ %11, %39 ], [ %.26.i.i, %41 ]
+  %.sink.i.i = phi ptr [ %23, %35 ], [ %..i.i, %37 ], [ %11, %39 ], [ %.30.i.i, %41 ]
   tail call void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sink.i.i)
   br label %43
 

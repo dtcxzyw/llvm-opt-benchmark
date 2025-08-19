@@ -127,8 +127,8 @@ sub_034:                                          ; preds = %12, %.tail
   %.not2642 = icmp slt i32 %22, %0
   br i1 %.not2642, label %.lr.ph.outer, label %.loopexit
 
-.lr.ph.outer:                                     ; preds = %.thread, %.thread50
-  %.143.ph = phi i1 [ true, %.thread50 ], [ false, %.thread ]
+.lr.ph.outer:                                     ; preds = %.thread, %.thread52
+  %.143.ph = phi i1 [ true, %.thread52 ], [ false, %.thread ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %57
@@ -139,7 +139,7 @@ sub_034:                                          ; preds = %12, %.tail
     i32 104, label %41
     i32 109, label %43
     i32 118, label %44
-    i32 4000, label %.thread50
+    i32 4000, label %.thread52
   ]
 
 24:                                               ; preds = %.lr.ph
@@ -213,10 +213,10 @@ sub_034:                                          ; preds = %12, %.tail
   %.not26 = icmp slt i32 %58, %0
   br i1 %.not26, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-.thread50:                                        ; preds = %.lr.ph
+.thread52:                                        ; preds = %.lr.ph
   %59 = load i32, ptr @ws_optind, align 4
-  %.not2652 = icmp slt i32 %59, %0
-  br i1 %.not2652, label %.lr.ph.outer, label %.loopexit, !llvm.loop !7
+  %.not2654 = icmp slt i32 %59, %0
+  br i1 %.not2654, label %.lr.ph.outer, label %.loopexit, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %57
   br i1 %.143.ph, label %.loopexit, label %.thread30
@@ -247,8 +247,8 @@ sub_034:                                          ; preds = %12, %.tail
   tail call void @exit(i32 noundef 0) #11
   unreachable
 
-.loopexit:                                        ; preds = %.thread50, %33, %.thread, %.thread30.thread, %._crit_edge, %.thread30, %60, %.tail33.thread, %29, %4
-  %.020 = phi i32 [ -1, %4 ], [ -1, %29 ], [ -1, %.tail33.thread ], [ %61, %60 ], [ 0, %.thread30 ], [ 0, %._crit_edge ], [ 0, %.thread30.thread ], [ 0, %.thread ], [ -1, %33 ], [ 0, %.thread50 ]
+.loopexit:                                        ; preds = %.thread52, %33, %.thread, %.thread30.thread, %._crit_edge, %.thread30, %60, %.tail33.thread, %29, %4
+  %.020 = phi i32 [ -1, %4 ], [ -1, %29 ], [ -1, %.tail33.thread ], [ %61, %60 ], [ 0, %.thread30 ], [ 0, %._crit_edge ], [ 0, %.thread30.thread ], [ 0, %.thread ], [ -1, %33 ], [ 0, %.thread52 ]
   ret i32 %.020
 }
 

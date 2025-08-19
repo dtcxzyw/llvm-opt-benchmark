@@ -636,7 +636,7 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 8
   store double 0.000000e+00, ptr %second.i.i.i.i.i, align 8, !tbaa !11
-  %dec.i.i.i = add i64 %__n.addr.08.i.i.i, -1
+  %dec.i.i.i = add nsw i64 %__n.addr.08.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPSt4pairIN8QuantLib4DateEdEmS3_ET_S5_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !46
@@ -699,7 +699,7 @@ for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorISt4pa
 for.inc.i.i.i29:                                  ; preds = %for.body.i.i.i21
   %second.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i22, i64 8
   store double 0.000000e+00, ptr %second.i.i.i.i.i30, align 8, !tbaa !11
-  %dec.i.i.i31 = add i64 %__n.addr.08.i.i.i23, -1
+  %dec.i.i.i31 = add nsw i64 %__n.addr.08.i.i.i23, -1
   %incdec.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i22, i64 16
   %cmp.not.i.i.i33 = icmp eq i64 %dec.i.i.i31, 0
   br i1 %cmp.not.i.i.i33, label %try.cont, label %for.body.i.i.i21, !llvm.loop !46

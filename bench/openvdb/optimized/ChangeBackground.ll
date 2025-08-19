@@ -21949,8 +21949,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond162 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond162, label %if.else50, label %if.then44
+  %or.cond168 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond168, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -21989,9 +21989,9 @@ if.end65:                                         ; preds = %if.then64, %invoke.
   store i32 %background.0, ptr %inactiveVal1, align 4
   %14 = load i8, ptr %metadata, align 1
   %cmp66 = icmp eq i8 %14, 0
-  br i1 %cmp66, label %invoke.cont97.thread158, label %cond.end
+  br i1 %cmp66, label %invoke.cont97.thread164, label %cond.end
 
-invoke.cont97.thread158:                          ; preds = %if.end65
+invoke.cont97.thread164:                          ; preds = %if.end65
   store i32 %background.0, ptr %inactiveVal0, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   br label %if.end117
@@ -22019,7 +22019,7 @@ if.else80:                                        ; preds = %if.then75
 if.end83:                                         ; preds = %if.else80
   %15 = load i8, ptr %metadata, align 1
   %cmp85 = icmp eq i8 %15, 5
-  br i1 %cmp85, label %if.else91, label %invoke.cont97.thread160
+  br i1 %cmp85, label %if.else91, label %invoke.cont97.thread166
 
 if.end83.thread:                                  ; preds = %if.then77
   %16 = load i8, ptr %metadata, align 1
@@ -22045,11 +22045,11 @@ invoke.cont97:                                    ; preds = %if.then88.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then106, label %if.end117
 
-invoke.cont97.thread160:                          ; preds = %if.end83
+invoke.cont97.thread166:                          ; preds = %if.end83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4161 = icmp ult i8 %19, 3
-  br i1 %or.cond4161, label %if.else114, label %if.end117
+  %or.cond4167 = icmp ult i8 %19, 3
+  br i1 %or.cond4167, label %if.else114, label %if.end117
 
 invoke.cont97.thread:                             ; preds = %if.else91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -22070,11 +22070,11 @@ lpad111:                                          ; preds = %if.else114, %if.the
           cleanup
   br label %ehcleanup186
 
-if.else114:                                       ; preds = %invoke.cont97.thread160, %invoke.cont97.thread, %if.then106
+if.else114:                                       ; preds = %invoke.cont97.thread166, %invoke.cont97.thread, %if.then106
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end117 unwind label %lpad111
 
-if.end117:                                        ; preds = %invoke.cont97.thread160, %invoke.cont97.thread158, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
+if.end117:                                        ; preds = %invoke.cont97.thread166, %invoke.cont97.thread164, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
   %23 = load i8, ptr %metadata, align 1
   %cmp121 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp121, i1 false
@@ -25585,10 +25585,10 @@ _ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21: ; preds =
   br i1 %tobool.not.i.i.i22, label %if.end11, label %if.end11.sink.split
 
 if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21, %if.then.i.i.i
-  %.sink27 = phi i32 [ %5, %if.then.i.i.i ], [ %15, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
+  %.sink28 = phi i32 [ %5, %if.then.i.i.i ], [ %15, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
   %.sink = phi ptr [ %7, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
   %sub.i15.sink = phi i32 [ %8, %if.then.i.i.i ], [ %sub.i15, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
-  %idxprom.i.i.i24 = zext i32 %.sink27 to i64
+  %idxprom.i.i.i24 = zext i32 %.sink28 to i64
   %arrayidx.i.i.i25 = getelementptr inbounds nuw i32, ptr %.sink, i64 %idxprom.i.i.i24
   store i32 %sub.i15.sink, ptr %arrayidx.i.i.i25, align 4
   br label %if.end11
@@ -30385,8 +30385,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond162 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond162, label %if.else50, label %if.then44
+  %or.cond168 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond168, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -30425,9 +30425,9 @@ if.end65:                                         ; preds = %if.then64, %invoke.
   store i64 %background.0, ptr %inactiveVal1, align 8
   %14 = load i8, ptr %metadata, align 1
   %cmp66 = icmp eq i8 %14, 0
-  br i1 %cmp66, label %invoke.cont97.thread158, label %cond.end
+  br i1 %cmp66, label %invoke.cont97.thread164, label %cond.end
 
-invoke.cont97.thread158:                          ; preds = %if.end65
+invoke.cont97.thread164:                          ; preds = %if.end65
   store i64 %background.0, ptr %inactiveVal0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   br label %if.end117
@@ -30455,7 +30455,7 @@ if.else80:                                        ; preds = %if.then75
 if.end83:                                         ; preds = %if.else80
   %15 = load i8, ptr %metadata, align 1
   %cmp85 = icmp eq i8 %15, 5
-  br i1 %cmp85, label %if.else91, label %invoke.cont97.thread160
+  br i1 %cmp85, label %if.else91, label %invoke.cont97.thread166
 
 if.end83.thread:                                  ; preds = %if.then77
   %16 = load i8, ptr %metadata, align 1
@@ -30481,11 +30481,11 @@ invoke.cont97:                                    ; preds = %if.then88.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then106, label %if.end117
 
-invoke.cont97.thread160:                          ; preds = %if.end83
+invoke.cont97.thread166:                          ; preds = %if.end83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4161 = icmp ult i8 %19, 3
-  br i1 %or.cond4161, label %if.else114, label %if.end117
+  %or.cond4167 = icmp ult i8 %19, 3
+  br i1 %or.cond4167, label %if.else114, label %if.end117
 
 invoke.cont97.thread:                             ; preds = %if.else91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -30506,11 +30506,11 @@ lpad111:                                          ; preds = %if.else114, %if.the
           cleanup
   br label %ehcleanup185
 
-if.else114:                                       ; preds = %invoke.cont97.thread160, %invoke.cont97.thread, %if.then106
+if.else114:                                       ; preds = %invoke.cont97.thread166, %invoke.cont97.thread, %if.then106
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end117 unwind label %lpad111
 
-if.end117:                                        ; preds = %invoke.cont97.thread160, %invoke.cont97.thread158, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
+if.end117:                                        ; preds = %invoke.cont97.thread166, %invoke.cont97.thread164, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
   %23 = load i8, ptr %metadata, align 1
   %cmp121 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp121, i1 false
@@ -33558,10 +33558,10 @@ _ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21: ; preds =
   br i1 %tobool.not.i.i.i22, label %if.end11, label %if.end11.sink.split
 
 if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21, %if.then.i.i.i
-  %.sink27 = phi i32 [ %5, %if.then.i.i.i ], [ %15, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
+  %.sink28 = phi i32 [ %5, %if.then.i.i.i ], [ %15, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
   %.sink = phi ptr [ %7, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
   %sub.i15.sink = phi i64 [ %8, %if.then.i.i.i ], [ %sub.i15, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
-  %idxprom.i.i.i24 = zext i32 %.sink27 to i64
+  %idxprom.i.i.i24 = zext i32 %.sink28 to i64
   %arrayidx.i.i.i25 = getelementptr inbounds nuw i64, ptr %.sink, i64 %idxprom.i.i.i24
   store i64 %sub.i15.sink, ptr %arrayidx.i.i.i25, align 8
   br label %if.end11
@@ -38364,8 +38364,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond161 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond161, label %if.else50, label %if.then44
+  %or.cond167 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond167, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -38404,9 +38404,9 @@ if.end65:                                         ; preds = %if.then64, %invoke.
   store float %background.0, ptr %inactiveVal1, align 4
   %14 = load i8, ptr %metadata, align 1
   %cmp66 = icmp eq i8 %14, 0
-  br i1 %cmp66, label %invoke.cont98.thread157, label %cond.end
+  br i1 %cmp66, label %invoke.cont98.thread163, label %cond.end
 
-invoke.cont98.thread157:                          ; preds = %if.end65
+invoke.cont98.thread163:                          ; preds = %if.end65
   store float %background.0, ptr %inactiveVal0, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   br label %if.end118
@@ -38434,7 +38434,7 @@ if.else81:                                        ; preds = %if.then76
 if.end84:                                         ; preds = %if.else81
   %15 = load i8, ptr %metadata, align 1
   %cmp86 = icmp eq i8 %15, 5
-  br i1 %cmp86, label %if.else92, label %invoke.cont98.thread159
+  br i1 %cmp86, label %if.else92, label %invoke.cont98.thread165
 
 if.end84.thread:                                  ; preds = %if.then78
   %16 = load i8, ptr %metadata, align 1
@@ -38460,11 +38460,11 @@ invoke.cont98:                                    ; preds = %if.then89.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then107, label %if.end118
 
-invoke.cont98.thread159:                          ; preds = %if.end84
+invoke.cont98.thread165:                          ; preds = %if.end84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4160 = icmp ult i8 %19, 3
-  br i1 %or.cond4160, label %if.else115, label %if.end118
+  %or.cond4166 = icmp ult i8 %19, 3
+  br i1 %or.cond4166, label %if.else115, label %if.end118
 
 invoke.cont98.thread:                             ; preds = %if.else92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -38485,11 +38485,11 @@ lpad112:                                          ; preds = %if.else115, %if.the
           cleanup
   br label %ehcleanup186
 
-if.else115:                                       ; preds = %invoke.cont98.thread159, %invoke.cont98.thread, %if.then107
+if.else115:                                       ; preds = %invoke.cont98.thread165, %invoke.cont98.thread, %if.then107
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
-if.end118:                                        ; preds = %invoke.cont98.thread159, %invoke.cont98.thread157, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
+if.end118:                                        ; preds = %invoke.cont98.thread165, %invoke.cont98.thread163, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
   %23 = load i8, ptr %metadata, align 1
   %cmp122 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp122, i1 false
@@ -41724,10 +41724,10 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22: ; preds =
   br i1 %tobool.not.i.i.i23, label %if.end11, label %if.end11.sink.split
 
 if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22, %if.then.i.i.i
-  %.sink28 = phi i32 [ %6, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
+  %.sink29 = phi i32 [ %6, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
   %.sink = phi ptr [ %8, %if.then.i.i.i ], [ %19, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
   %fneg.i16.sink = phi float [ %9, %if.then.i.i.i ], [ %fneg.i16, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
-  %idxprom.i.i.i25 = zext i32 %.sink28 to i64
+  %idxprom.i.i.i25 = zext i32 %.sink29 to i64
   %arrayidx.i.i.i26 = getelementptr inbounds nuw float, ptr %.sink, i64 %idxprom.i.i.i25
   store float %fneg.i16.sink, ptr %arrayidx.i.i.i26, align 4
   br label %if.end11
@@ -46527,8 +46527,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond161 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond161, label %if.else50, label %if.then44
+  %or.cond167 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond167, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -46567,9 +46567,9 @@ if.end65:                                         ; preds = %if.then64, %invoke.
   store double %background.0, ptr %inactiveVal1, align 8
   %14 = load i8, ptr %metadata, align 1
   %cmp66 = icmp eq i8 %14, 0
-  br i1 %cmp66, label %invoke.cont98.thread157, label %cond.end
+  br i1 %cmp66, label %invoke.cont98.thread163, label %cond.end
 
-invoke.cont98.thread157:                          ; preds = %if.end65
+invoke.cont98.thread163:                          ; preds = %if.end65
   store double %background.0, ptr %inactiveVal0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   br label %if.end118
@@ -46597,7 +46597,7 @@ if.else81:                                        ; preds = %if.then76
 if.end84:                                         ; preds = %if.else81
   %15 = load i8, ptr %metadata, align 1
   %cmp86 = icmp eq i8 %15, 5
-  br i1 %cmp86, label %if.else92, label %invoke.cont98.thread159
+  br i1 %cmp86, label %if.else92, label %invoke.cont98.thread165
 
 if.end84.thread:                                  ; preds = %if.then78
   %16 = load i8, ptr %metadata, align 1
@@ -46623,11 +46623,11 @@ invoke.cont98:                                    ; preds = %if.then89.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then107, label %if.end118
 
-invoke.cont98.thread159:                          ; preds = %if.end84
+invoke.cont98.thread165:                          ; preds = %if.end84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4160 = icmp ult i8 %19, 3
-  br i1 %or.cond4160, label %if.else115, label %if.end118
+  %or.cond4166 = icmp ult i8 %19, 3
+  br i1 %or.cond4166, label %if.else115, label %if.end118
 
 invoke.cont98.thread:                             ; preds = %if.else92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -46648,11 +46648,11 @@ lpad112:                                          ; preds = %if.else115, %if.the
           cleanup
   br label %ehcleanup186
 
-if.else115:                                       ; preds = %invoke.cont98.thread159, %invoke.cont98.thread, %if.then107
+if.else115:                                       ; preds = %invoke.cont98.thread165, %invoke.cont98.thread, %if.then107
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end118 unwind label %lpad112
 
-if.end118:                                        ; preds = %invoke.cont98.thread159, %invoke.cont98.thread157, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
+if.end118:                                        ; preds = %invoke.cont98.thread165, %invoke.cont98.thread163, %if.else115, %invoke.cont98.thread, %if.then109, %invoke.cont98
   %23 = load i8, ptr %metadata, align 1
   %cmp122 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp122, i1 false
@@ -49877,10 +49877,10 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22: ; preds =
   br i1 %tobool.not.i.i.i23, label %if.end11, label %if.end11.sink.split
 
 if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22, %if.then.i.i.i
-  %.sink28 = phi i32 [ %6, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
+  %.sink29 = phi i32 [ %6, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
   %.sink = phi ptr [ %8, %if.then.i.i.i ], [ %19, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
   %fneg.i16.sink = phi double [ %9, %if.then.i.i.i ], [ %fneg.i16, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
-  %idxprom.i.i.i25 = zext i32 %.sink28 to i64
+  %idxprom.i.i.i25 = zext i32 %.sink29 to i64
   %arrayidx.i.i.i26 = getelementptr inbounds nuw double, ptr %.sink, i64 %idxprom.i.i.i25
   store double %fneg.i16.sink, ptr %arrayidx.i.i.i26, align 8
   br label %if.end11
@@ -54830,8 +54830,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond162 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond162, label %if.else50, label %if.then44
+  %or.cond168 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond168, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -54875,9 +54875,9 @@ if.end67:                                         ; preds = %if.then66, %invoke.
   store float %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal1.sroa_idx, align 8
   %13 = load i8, ptr %metadata, align 1
   %cmp68 = icmp eq i8 %13, 0
-  br i1 %cmp68, label %invoke.cont103.thread158, label %cond.end
+  br i1 %cmp68, label %invoke.cont103.thread164, label %cond.end
 
-invoke.cont103.thread158:                         ; preds = %if.end67
+invoke.cont103.thread164:                         ; preds = %if.end67
   store <2 x float> %background.sroa.0.0, ptr %inactiveVal0, align 8
   %background.sroa.6.0.inactiveVal0.sroa_idx = getelementptr inbounds nuw i8, ptr %inactiveVal0, i64 8
   store float %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal0.sroa_idx, align 8
@@ -54913,7 +54913,7 @@ if.else86:                                        ; preds = %if.then81
 if.end89:                                         ; preds = %if.else86
   %15 = load i8, ptr %metadata, align 1
   %cmp91 = icmp eq i8 %15, 5
-  br i1 %cmp91, label %if.else97, label %invoke.cont103.thread160
+  br i1 %cmp91, label %if.else97, label %invoke.cont103.thread166
 
 if.end89.thread:                                  ; preds = %if.then83
   %16 = load i8, ptr %metadata, align 1
@@ -54939,11 +54939,11 @@ invoke.cont103:                                   ; preds = %if.then94.invoke.co
   %or.cond4 = icmp ult i8 %18, 3
   br i1 %or.cond4, label %if.then112, label %if.end123
 
-invoke.cont103.thread160:                         ; preds = %if.end89
+invoke.cont103.thread166:                         ; preds = %if.end89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %19 = add i8 %15, -3
-  %or.cond4161 = icmp ult i8 %19, 3
-  br i1 %or.cond4161, label %if.else120, label %if.end123
+  %or.cond4167 = icmp ult i8 %19, 3
+  br i1 %or.cond4167, label %if.else120, label %if.end123
 
 invoke.cont103.thread:                            ; preds = %if.else97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -54964,11 +54964,11 @@ lpad117:                                          ; preds = %if.else120, %if.the
           cleanup
   br label %ehcleanup189
 
-if.else120:                                       ; preds = %invoke.cont103.thread160, %invoke.cont103.thread, %if.then112
+if.else120:                                       ; preds = %invoke.cont103.thread166, %invoke.cont103.thread, %if.then112
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end123 unwind label %lpad117
 
-if.end123:                                        ; preds = %invoke.cont103.thread160, %invoke.cont103.thread158, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
+if.end123:                                        ; preds = %invoke.cont103.thread166, %invoke.cont103.thread164, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
   %23 = load i8, ptr %metadata, align 1
   %cmp127 = icmp ne i8 %23, 6
   %or.cond5 = select i1 %tobool, i1 %cmp127, i1 false
@@ -63635,8 +63635,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond164 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond164, label %if.else50, label %if.then44
+  %or.cond170 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond170, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -63685,9 +63685,9 @@ if.end65:                                         ; preds = %if.then64, %invoke.
   store double %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal1.sroa_idx, align 8
   %13 = load i8, ptr %metadata, align 1
   %cmp66 = icmp eq i8 %13, 0
-  br i1 %cmp66, label %invoke.cont97.thread160, label %cond.end
+  br i1 %cmp66, label %invoke.cont97.thread166, label %cond.end
 
-invoke.cont97.thread160:                          ; preds = %if.end65
+invoke.cont97.thread166:                          ; preds = %if.end65
   store double %background.sroa.0.0, ptr %inactiveVal0, align 8
   %background.sroa.5.0.inactiveVal0.sroa_idx = getelementptr inbounds nuw i8, ptr %inactiveVal0, i64 8
   store double %background.sroa.5.0, ptr %background.sroa.5.0.inactiveVal0.sroa_idx, align 8
@@ -63725,7 +63725,7 @@ if.else80:                                        ; preds = %if.then75
 if.end83:                                         ; preds = %if.else80
   %14 = load i8, ptr %metadata, align 1
   %cmp85 = icmp eq i8 %14, 5
-  br i1 %cmp85, label %if.else91, label %invoke.cont97.thread162
+  br i1 %cmp85, label %if.else91, label %invoke.cont97.thread168
 
 if.end83.thread:                                  ; preds = %if.then77
   %15 = load i8, ptr %metadata, align 1
@@ -63751,11 +63751,11 @@ invoke.cont97:                                    ; preds = %if.then88.invoke.co
   %or.cond4 = icmp ult i8 %17, 3
   br i1 %or.cond4, label %if.then106, label %if.end117
 
-invoke.cont97.thread162:                          ; preds = %if.end83
+invoke.cont97.thread168:                          ; preds = %if.end83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %18 = add i8 %14, -3
-  %or.cond4163 = icmp ult i8 %18, 3
-  br i1 %or.cond4163, label %if.else114, label %if.end117
+  %or.cond4169 = icmp ult i8 %18, 3
+  br i1 %or.cond4169, label %if.else114, label %if.end117
 
 invoke.cont97.thread:                             ; preds = %if.else91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -63776,11 +63776,11 @@ lpad111:                                          ; preds = %if.else114, %if.the
           cleanup
   br label %ehcleanup183
 
-if.else114:                                       ; preds = %invoke.cont97.thread162, %invoke.cont97.thread, %if.then106
+if.else114:                                       ; preds = %invoke.cont97.thread168, %invoke.cont97.thread, %if.then106
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end117 unwind label %lpad111
 
-if.end117:                                        ; preds = %invoke.cont97.thread162, %invoke.cont97.thread160, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
+if.end117:                                        ; preds = %invoke.cont97.thread168, %invoke.cont97.thread166, %if.else114, %invoke.cont97.thread, %if.then108, %invoke.cont97
   %22 = load i8, ptr %metadata, align 1
   %cmp121 = icmp ne i8 %22, 6
   %or.cond5 = select i1 %tobool, i1 %cmp121, i1 false
@@ -72442,8 +72442,8 @@ if.then34:                                        ; preds = %invoke.cont31
 
 if.else:                                          ; preds = %if.then34
   %cmp.i65.not = icmp eq ptr %11, null
-  %or.cond173 = select i1 %cmp, i1 true, i1 %cmp.i65.not
-  br i1 %or.cond173, label %if.else50, label %if.then44
+  %or.cond179 = select i1 %cmp, i1 true, i1 %cmp.i65.not
+  br i1 %or.cond179, label %if.else50, label %if.then44
 
 if.then44:                                        ; preds = %if.else
   %call47 = invoke noundef signext i8 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata7getMaskEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %leafIndex.0)
@@ -72495,9 +72495,9 @@ if.end67:                                         ; preds = %if.then66, %invoke.
   store i32 %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal1.sroa_idx, align 8
   %13 = load i8, ptr %metadata, align 1
   %cmp68 = icmp eq i8 %13, 0
-  br i1 %cmp68, label %invoke.cont103.thread169, label %cond.end
+  br i1 %cmp68, label %invoke.cont103.thread175, label %cond.end
 
-invoke.cont103.thread169:                         ; preds = %if.end67
+invoke.cont103.thread175:                         ; preds = %if.end67
   store i64 %background.sroa.0.sroa.0.0.insert.insert, ptr %inactiveVal0, align 8
   %background.sroa.6.0.inactiveVal0.sroa_idx = getelementptr inbounds nuw i8, ptr %inactiveVal0, i64 8
   store i32 %background.sroa.6.0, ptr %background.sroa.6.0.inactiveVal0.sroa_idx, align 8
@@ -72535,7 +72535,7 @@ if.else86:                                        ; preds = %if.then81
 if.end89:                                         ; preds = %if.else86
   %14 = load i8, ptr %metadata, align 1
   %cmp91 = icmp eq i8 %14, 5
-  br i1 %cmp91, label %if.else97, label %invoke.cont103.thread171
+  br i1 %cmp91, label %if.else97, label %invoke.cont103.thread177
 
 if.end89.thread:                                  ; preds = %if.then83
   %15 = load i8, ptr %metadata, align 1
@@ -72561,11 +72561,11 @@ invoke.cont103:                                   ; preds = %if.then94.invoke.co
   %or.cond4 = icmp ult i8 %17, 3
   br i1 %or.cond4, label %if.then112, label %if.end123
 
-invoke.cont103.thread171:                         ; preds = %if.end89
+invoke.cont103.thread177:                         ; preds = %if.end89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
   %18 = add i8 %14, -3
-  %or.cond4172 = icmp ult i8 %18, 3
-  br i1 %or.cond4172, label %if.else120, label %if.end123
+  %or.cond4178 = icmp ult i8 %18, 3
+  br i1 %or.cond4178, label %if.else120, label %if.end123
 
 invoke.cont103.thread:                            ; preds = %if.else97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i8 0, i64 64, i1 false)
@@ -72586,11 +72586,11 @@ lpad117:                                          ; preds = %if.else120, %if.the
           cleanup
   br label %ehcleanup189
 
-if.else120:                                       ; preds = %invoke.cont103.thread171, %invoke.cont103.thread, %if.then112
+if.else120:                                       ; preds = %invoke.cont103.thread177, %invoke.cont103.thread, %if.then112
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull align 8 dereferenceable(64) %selectionMask, i64 noundef 64)
           to label %if.end123 unwind label %lpad117
 
-if.end123:                                        ; preds = %invoke.cont103.thread171, %invoke.cont103.thread169, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
+if.end123:                                        ; preds = %invoke.cont103.thread177, %invoke.cont103.thread175, %if.else120, %invoke.cont103.thread, %if.then114, %invoke.cont103
   %22 = load i8, ptr %metadata, align 1
   %cmp127 = icmp ne i8 %22, 6
   %or.cond5 = select i1 %tobool, i1 %cmp127, i1 false
@@ -81391,10 +81391,10 @@ _ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21: ; preds =
   br i1 %tobool.not.i.i.i22, label %if.end11, label %if.end11.sink.split
 
 if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21, %if.then.i.i.i
-  %.sink27 = phi i32 [ %5, %if.then.i.i.i ], [ %15, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
+  %.sink28 = phi i32 [ %5, %if.then.i.i.i ], [ %15, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
   %.sink = phi ptr [ %7, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
   %sub.i15.sink = phi i32 [ %8, %if.then.i.i.i ], [ %sub.i15, %_ZNK7openvdb5v11_04tree10LeafBufferIiLj3EE10loadValuesEv.exit.i.i.i21 ]
-  %idxprom.i.i.i24 = zext i32 %.sink27 to i64
+  %idxprom.i.i.i24 = zext i32 %.sink28 to i64
   %arrayidx.i.i.i25 = getelementptr inbounds nuw i32, ptr %.sink, i64 %idxprom.i.i.i24
   store i32 %sub.i15.sink, ptr %arrayidx.i.i.i25, align 4
   br label %if.end11
@@ -84047,10 +84047,10 @@ _ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21: ; preds =
   br i1 %tobool.not.i.i.i22, label %if.end11, label %if.end11.sink.split
 
 if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21, %if.then.i.i.i
-  %.sink27 = phi i32 [ %5, %if.then.i.i.i ], [ %15, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
+  %.sink28 = phi i32 [ %5, %if.then.i.i.i ], [ %15, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
   %.sink = phi ptr [ %7, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
   %sub.i15.sink = phi i64 [ %8, %if.then.i.i.i ], [ %sub.i15, %_ZNK7openvdb5v11_04tree10LeafBufferIlLj3EE10loadValuesEv.exit.i.i.i21 ]
-  %idxprom.i.i.i24 = zext i32 %.sink27 to i64
+  %idxprom.i.i.i24 = zext i32 %.sink28 to i64
   %arrayidx.i.i.i25 = getelementptr inbounds nuw i64, ptr %.sink, i64 %idxprom.i.i.i24
   store i64 %sub.i15.sink, ptr %arrayidx.i.i.i25, align 8
   br label %if.end11
@@ -86724,10 +86724,10 @@ _ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22: ; preds =
   br i1 %tobool.not.i.i.i23, label %if.end11, label %if.end11.sink.split
 
 if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22, %if.then.i.i.i
-  %.sink28 = phi i32 [ %6, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
+  %.sink29 = phi i32 [ %6, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
   %.sink = phi ptr [ %8, %if.then.i.i.i ], [ %19, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
   %fneg.i16.sink = phi float [ %9, %if.then.i.i.i ], [ %fneg.i16, %_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE10loadValuesEv.exit.i.i.i22 ]
-  %idxprom.i.i.i25 = zext i32 %.sink28 to i64
+  %idxprom.i.i.i25 = zext i32 %.sink29 to i64
   %arrayidx.i.i.i26 = getelementptr inbounds nuw float, ptr %.sink, i64 %idxprom.i.i.i25
   store float %fneg.i16.sink, ptr %arrayidx.i.i.i26, align 4
   br label %if.end11
@@ -89392,10 +89392,10 @@ _ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22: ; preds =
   br i1 %tobool.not.i.i.i23, label %if.end11, label %if.end11.sink.split
 
 if.end11.sink.split:                              ; preds = %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22, %if.then.i.i.i
-  %.sink28 = phi i32 [ %6, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
+  %.sink29 = phi i32 [ %6, %if.then.i.i.i ], [ %17, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
   %.sink = phi ptr [ %8, %if.then.i.i.i ], [ %19, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
   %fneg.i16.sink = phi double [ %9, %if.then.i.i.i ], [ %fneg.i16, %_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE10loadValuesEv.exit.i.i.i22 ]
-  %idxprom.i.i.i25 = zext i32 %.sink28 to i64
+  %idxprom.i.i.i25 = zext i32 %.sink29 to i64
   %arrayidx.i.i.i26 = getelementptr inbounds nuw double, ptr %.sink, i64 %idxprom.i.i.i25
   store double %fneg.i16.sink, ptr %arrayidx.i.i.i26, align 8
   br label %if.end11

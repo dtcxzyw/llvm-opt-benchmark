@@ -302,8 +302,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i25.i:  ; preds = %_ZNK4llvm9StringRef
   br i1 %49, label %_ZN4llvm12StringSwitchISt8optionalINS_11SectionKindEES3_E10StartsWithENS_13StringLiteralES3_.exit64.i, label %_ZN4llvm12StringSwitchISt8optionalINS_11SectionKindEES3_E10StartsWithENS_13StringLiteralES3_.exit28.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i25.thread.i: ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_11SectionKindEES3_E10StartsWithENS_13StringLiteralES3_.exit.i
-  %bcmp.i.i26238.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.010.0.copyload.i, ptr noundef nonnull dereferenceable(5) @.str.14, i64 5)
-  %50 = icmp eq i32 %bcmp.i.i26238.i, 0
+  %bcmp.i.i26241.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.010.0.copyload.i, ptr noundef nonnull dereferenceable(5) @.str.14, i64 5)
+  %50 = icmp eq i32 %bcmp.i.i26241.i, 0
   br i1 %50, label %_ZN4llvm12StringSwitchISt8optionalINS_11SectionKindEES3_E10StartsWithENS_13StringLiteralES3_.exit64.i, label %_ZN4llvm12StringSwitchISt8optionalINS_11SectionKindEES3_E10StartsWithENS_13StringLiteralES3_.exit34.i
 
 _ZN4llvm12StringSwitchISt8optionalINS_11SectionKindEES3_E10StartsWithENS_13StringLiteralES3_.exit28.thread231.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i, %46

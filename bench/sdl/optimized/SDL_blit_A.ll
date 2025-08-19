@@ -274,7 +274,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %.0445481 = phi ptr [ %21, %.lr.ph ], [ %936, %935 ]
   %.0446480 = phi ptr [ %17, %.lr.ph ], [ %937, %935 ]
   %44 = add nsw i32 %.in, -1
-  switch i32 %26, label %default.unreachable482 [
+  switch i32 %26, label %default.unreachable487 [
     i32 0, label %45
     i32 3, label %267
     i32 2, label %489
@@ -1315,7 +1315,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %934 = icmp sgt i32 %.3470, 1
   br i1 %934, label %45, label %935, !llvm.loop !3
 
-default.unreachable482:                           ; preds = %43
+default.unreachable487:                           ; preds = %43
   unreachable
 
 935:                                              ; preds = %930
@@ -1392,7 +1392,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %.0849993 = phi ptr [ %19, %.lr.ph ], [ %1626, %1625 ]
   %.0850992 = phi ptr [ %15, %.lr.ph ], [ %1627, %1625 ]
   %54 = add nsw i32 %.in, -1
-  switch i32 %24, label %default.unreachable994 [
+  switch i32 %24, label %default.unreachable995 [
     i32 0, label %55
     i32 3, label %447
     i32 2, label %839
@@ -1440,13 +1440,13 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   br label %76
 
 76:                                               ; preds = %74, %59, %56
-  %.sink1028 = phi i32 [ %75, %74 ], [ %61, %59 ], [ %58, %56 ]
+  %.sink1029 = phi i32 [ %75, %74 ], [ %61, %59 ], [ %58, %56 ]
   %77 = load i8, ptr %25, align 4
   %78 = zext i8 %77 to i64
   %79 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %26, align 4
-  %82 = and i32 %81, %.sink1028
+  %82 = and i32 %81, %.sink1029
   %83 = load i8, ptr %27, align 4
   %84 = zext nneg i8 %83 to i32
   %85 = lshr i32 %82, %84
@@ -1457,7 +1457,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %90 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = load i32, ptr %29, align 4
-  %93 = and i32 %92, %.sink1028
+  %93 = and i32 %92, %.sink1029
   %94 = load i8, ptr %30, align 1
   %95 = zext nneg i8 %94 to i32
   %96 = lshr i32 %93, %95
@@ -1468,7 +1468,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %101 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %32, align 4
-  %104 = and i32 %103, %.sink1028
+  %104 = and i32 %103, %.sink1029
   %105 = load i8, ptr %33, align 2
   %106 = zext nneg i8 %105 to i32
   %107 = lshr i32 %104, %106
@@ -1479,7 +1479,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %112 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = load i32, ptr %35, align 4
-  %115 = and i32 %114, %.sink1028
+  %115 = and i32 %114, %.sink1029
   %116 = load i8, ptr %36, align 1
   %117 = zext nneg i8 %116 to i32
   %118 = lshr i32 %115, %117
@@ -1914,13 +1914,13 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   br label %468
 
 468:                                              ; preds = %466, %451, %448
-  %.sink1064 = phi i32 [ %467, %466 ], [ %453, %451 ], [ %450, %448 ]
+  %.sink1065 = phi i32 [ %467, %466 ], [ %453, %451 ], [ %450, %448 ]
   %469 = load i8, ptr %25, align 4
   %470 = zext i8 %469 to i64
   %471 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %470
   %472 = load ptr, ptr %471, align 8
   %473 = load i32, ptr %26, align 4
-  %474 = and i32 %473, %.sink1064
+  %474 = and i32 %473, %.sink1065
   %475 = load i8, ptr %27, align 4
   %476 = zext nneg i8 %475 to i32
   %477 = lshr i32 %474, %476
@@ -1931,7 +1931,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %482 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %481
   %483 = load ptr, ptr %482, align 8
   %484 = load i32, ptr %29, align 4
-  %485 = and i32 %484, %.sink1064
+  %485 = and i32 %484, %.sink1065
   %486 = load i8, ptr %30, align 1
   %487 = zext nneg i8 %486 to i32
   %488 = lshr i32 %485, %487
@@ -1942,7 +1942,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %493 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %492
   %494 = load ptr, ptr %493, align 8
   %495 = load i32, ptr %32, align 4
-  %496 = and i32 %495, %.sink1064
+  %496 = and i32 %495, %.sink1065
   %497 = load i8, ptr %33, align 2
   %498 = zext nneg i8 %497 to i32
   %499 = lshr i32 %496, %498
@@ -1953,7 +1953,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %504 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %503
   %505 = load ptr, ptr %504, align 8
   %506 = load i32, ptr %35, align 4
-  %507 = and i32 %506, %.sink1064
+  %507 = and i32 %506, %.sink1065
   %508 = load i8, ptr %36, align 1
   %509 = zext nneg i8 %508 to i32
   %510 = lshr i32 %507, %509
@@ -2388,13 +2388,13 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   br label %860
 
 860:                                              ; preds = %858, %843, %840
-  %.sink1100 = phi i32 [ %859, %858 ], [ %845, %843 ], [ %842, %840 ]
+  %.sink1101 = phi i32 [ %859, %858 ], [ %845, %843 ], [ %842, %840 ]
   %861 = load i8, ptr %25, align 4
   %862 = zext i8 %861 to i64
   %863 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %862
   %864 = load ptr, ptr %863, align 8
   %865 = load i32, ptr %26, align 4
-  %866 = and i32 %865, %.sink1100
+  %866 = and i32 %865, %.sink1101
   %867 = load i8, ptr %27, align 4
   %868 = zext nneg i8 %867 to i32
   %869 = lshr i32 %866, %868
@@ -2405,7 +2405,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %874 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %873
   %875 = load ptr, ptr %874, align 8
   %876 = load i32, ptr %29, align 4
-  %877 = and i32 %876, %.sink1100
+  %877 = and i32 %876, %.sink1101
   %878 = load i8, ptr %30, align 1
   %879 = zext nneg i8 %878 to i32
   %880 = lshr i32 %877, %879
@@ -2416,7 +2416,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %885 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %884
   %886 = load ptr, ptr %885, align 8
   %887 = load i32, ptr %32, align 4
-  %888 = and i32 %887, %.sink1100
+  %888 = and i32 %887, %.sink1101
   %889 = load i8, ptr %33, align 2
   %890 = zext nneg i8 %889 to i32
   %891 = lshr i32 %888, %890
@@ -2427,7 +2427,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %896 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %895
   %897 = load ptr, ptr %896, align 8
   %898 = load i32, ptr %35, align 4
-  %899 = and i32 %898, %.sink1100
+  %899 = and i32 %898, %.sink1101
   %900 = load i8, ptr %36, align 1
   %901 = zext nneg i8 %900 to i32
   %902 = lshr i32 %899, %901
@@ -2862,13 +2862,13 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   br label %1252
 
 1252:                                             ; preds = %1250, %1235, %1232
-  %.sink1136 = phi i32 [ %1251, %1250 ], [ %1237, %1235 ], [ %1234, %1232 ]
+  %.sink1137 = phi i32 [ %1251, %1250 ], [ %1237, %1235 ], [ %1234, %1232 ]
   %1253 = load i8, ptr %25, align 4
   %1254 = zext i8 %1253 to i64
   %1255 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1254
   %1256 = load ptr, ptr %1255, align 8
   %1257 = load i32, ptr %26, align 4
-  %1258 = and i32 %1257, %.sink1136
+  %1258 = and i32 %1257, %.sink1137
   %1259 = load i8, ptr %27, align 4
   %1260 = zext nneg i8 %1259 to i32
   %1261 = lshr i32 %1258, %1260
@@ -2879,7 +2879,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1266 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1265
   %1267 = load ptr, ptr %1266, align 8
   %1268 = load i32, ptr %29, align 4
-  %1269 = and i32 %1268, %.sink1136
+  %1269 = and i32 %1268, %.sink1137
   %1270 = load i8, ptr %30, align 1
   %1271 = zext nneg i8 %1270 to i32
   %1272 = lshr i32 %1269, %1271
@@ -2890,7 +2890,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1277 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1276
   %1278 = load ptr, ptr %1277, align 8
   %1279 = load i32, ptr %32, align 4
-  %1280 = and i32 %1279, %.sink1136
+  %1280 = and i32 %1279, %.sink1137
   %1281 = load i8, ptr %33, align 2
   %1282 = zext nneg i8 %1281 to i32
   %1283 = lshr i32 %1280, %1282
@@ -2901,7 +2901,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1288 = getelementptr inbounds nuw [9 x ptr], ptr @SDL_expand_byte, i64 0, i64 %1287
   %1289 = load ptr, ptr %1288, align 8
   %1290 = load i32, ptr %35, align 4
-  %1291 = and i32 %1290, %.sink1136
+  %1291 = and i32 %1290, %.sink1137
   %1292 = load i8, ptr %36, align 1
   %1293 = zext nneg i8 %1292 to i32
   %1294 = lshr i32 %1291, %1293
@@ -3297,7 +3297,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1624 = icmp sgt i32 %.3890, 1
   br i1 %1624, label %55, label %1625, !llvm.loop !6
 
-default.unreachable994:                           ; preds = %53
+default.unreachable995:                           ; preds = %53
   unreachable
 
 1625:                                             ; preds = %.thread967
@@ -3342,7 +3342,7 @@ define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none
   %.0109133 = phi ptr [ %13, %.lr.ph ], [ %182, %181 ]
   %.0110132 = phi ptr [ %8, %.lr.ph ], [ %183, %181 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable134 [
+  switch i32 %18, label %default.unreachable143 [
     i32 0, label %23
     i32 3, label %62
     i32 2, label %101
@@ -3397,8 +3397,8 @@ define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none
   br label %.sink.split
 
 .sink.split:                                      ; preds = %37, %28
-  %.sink135 = phi i32 [ %36, %28 ], [ %57, %37 ]
-  %58 = trunc i32 %.sink135 to i16
+  %.sink144 = phi i32 [ %36, %28 ], [ %57, %37 ]
+  %58 = trunc i32 %.sink144 to i16
   store i16 %58, ptr %.4114, align 2
   br label %59
 
@@ -3429,7 +3429,7 @@ define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none
   %73 = lshr i32 %63, 3
   %74 = and i32 %73, 31
   %75 = or disjoint i32 %72, %74
-  br label %.sink.split136
+  br label %.sink.split145
 
 76:                                               ; preds = %65
   %77 = load i16, ptr %.1111, align 2
@@ -3452,15 +3452,15 @@ define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none
   %94 = and i32 %93, 132184095
   %95 = lshr i32 %94, 16
   %96 = or disjoint i32 %95, %94
-  br label %.sink.split136
+  br label %.sink.split145
 
-.sink.split136:                                   ; preds = %76, %67
-  %.sink137 = phi i32 [ %75, %67 ], [ %96, %76 ]
-  %97 = trunc i32 %.sink137 to i16
+.sink.split145:                                   ; preds = %76, %67
+  %.sink146 = phi i32 [ %75, %67 ], [ %96, %76 ]
+  %97 = trunc i32 %.sink146 to i16
   store i16 %97, ptr %.1111, align 2
   br label %98
 
-98:                                               ; preds = %.sink.split136, %62
+98:                                               ; preds = %.sink.split145, %62
   %99 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %100 = getelementptr inbounds nuw i8, ptr %.1111, i64 2
   br label %101
@@ -3487,7 +3487,7 @@ define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none
   %112 = lshr i32 %102, 3
   %113 = and i32 %112, 31
   %114 = or disjoint i32 %111, %113
-  br label %.sink.split138
+  br label %.sink.split147
 
 115:                                              ; preds = %104
   %116 = load i16, ptr %.2112, align 2
@@ -3510,15 +3510,15 @@ define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none
   %133 = and i32 %132, 132184095
   %134 = lshr i32 %133, 16
   %135 = or disjoint i32 %134, %133
-  br label %.sink.split138
+  br label %.sink.split147
 
-.sink.split138:                                   ; preds = %115, %106
-  %.sink139 = phi i32 [ %114, %106 ], [ %135, %115 ]
-  %136 = trunc i32 %.sink139 to i16
+.sink.split147:                                   ; preds = %115, %106
+  %.sink148 = phi i32 [ %114, %106 ], [ %135, %115 ]
+  %136 = trunc i32 %.sink148 to i16
   store i16 %136, ptr %.2112, align 2
   br label %137
 
-137:                                              ; preds = %.sink.split138, %101
+137:                                              ; preds = %.sink.split147, %101
   %138 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %139 = getelementptr inbounds nuw i8, ptr %.2112, i64 2
   br label %140
@@ -3545,7 +3545,7 @@ define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none
   %151 = lshr i32 %141, 3
   %152 = and i32 %151, 31
   %153 = or disjoint i32 %150, %152
-  br label %.sink.split140
+  br label %.sink.split149
 
 154:                                              ; preds = %143
   %155 = load i16, ptr %.3113, align 2
@@ -3568,22 +3568,22 @@ define internal void @BlitARGBto565PixelAlpha(ptr noundef readonly captures(none
   %172 = and i32 %171, 132184095
   %173 = lshr i32 %172, 16
   %174 = or disjoint i32 %173, %172
-  br label %.sink.split140
+  br label %.sink.split149
 
-.sink.split140:                                   ; preds = %154, %145
-  %.sink141 = phi i32 [ %153, %145 ], [ %174, %154 ]
-  %175 = trunc i32 %.sink141 to i16
+.sink.split149:                                   ; preds = %154, %145
+  %.sink150 = phi i32 [ %153, %145 ], [ %174, %154 ]
+  %175 = trunc i32 %.sink150 to i16
   store i16 %175, ptr %.3113, align 2
   br label %176
 
-176:                                              ; preds = %.sink.split140, %140
+176:                                              ; preds = %.sink.split149, %140
   %177 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %178 = getelementptr inbounds nuw i8, ptr %.3113, i64 2
   %179 = add nsw i32 %.2117, -1
   %180 = icmp sgt i32 %.2117, 1
   br i1 %180, label %23, label %181, !llvm.loop !8
 
-default.unreachable134:                           ; preds = %21
+default.unreachable143:                           ; preds = %21
   unreachable
 
 181:                                              ; preds = %176
@@ -3628,7 +3628,7 @@ define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none
   %.0109133 = phi ptr [ %13, %.lr.ph ], [ %182, %181 ]
   %.0110132 = phi ptr [ %8, %.lr.ph ], [ %183, %181 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable134 [
+  switch i32 %18, label %default.unreachable143 [
     i32 0, label %23
     i32 3, label %62
     i32 2, label %101
@@ -3683,8 +3683,8 @@ define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none
   br label %.sink.split
 
 .sink.split:                                      ; preds = %37, %28
-  %.sink135 = phi i32 [ %36, %28 ], [ %57, %37 ]
-  %58 = trunc i32 %.sink135 to i16
+  %.sink144 = phi i32 [ %36, %28 ], [ %57, %37 ]
+  %58 = trunc i32 %.sink144 to i16
   store i16 %58, ptr %.4114, align 2
   br label %59
 
@@ -3715,7 +3715,7 @@ define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none
   %73 = lshr i32 %63, 3
   %74 = and i32 %73, 31
   %75 = or disjoint i32 %72, %74
-  br label %.sink.split136
+  br label %.sink.split145
 
 76:                                               ; preds = %65
   %77 = load i16, ptr %.1111, align 2
@@ -3738,15 +3738,15 @@ define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none
   %94 = and i32 %93, 65043487
   %95 = lshr i32 %94, 16
   %96 = or disjoint i32 %95, %94
-  br label %.sink.split136
+  br label %.sink.split145
 
-.sink.split136:                                   ; preds = %76, %67
-  %.sink137 = phi i32 [ %75, %67 ], [ %96, %76 ]
-  %97 = trunc i32 %.sink137 to i16
+.sink.split145:                                   ; preds = %76, %67
+  %.sink146 = phi i32 [ %75, %67 ], [ %96, %76 ]
+  %97 = trunc i32 %.sink146 to i16
   store i16 %97, ptr %.1111, align 2
   br label %98
 
-98:                                               ; preds = %.sink.split136, %62
+98:                                               ; preds = %.sink.split145, %62
   %99 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %100 = getelementptr inbounds nuw i8, ptr %.1111, i64 2
   br label %101
@@ -3773,7 +3773,7 @@ define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none
   %112 = lshr i32 %102, 3
   %113 = and i32 %112, 31
   %114 = or disjoint i32 %111, %113
-  br label %.sink.split138
+  br label %.sink.split147
 
 115:                                              ; preds = %104
   %116 = load i16, ptr %.2112, align 2
@@ -3796,15 +3796,15 @@ define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none
   %133 = and i32 %132, 65043487
   %134 = lshr i32 %133, 16
   %135 = or disjoint i32 %134, %133
-  br label %.sink.split138
+  br label %.sink.split147
 
-.sink.split138:                                   ; preds = %115, %106
-  %.sink139 = phi i32 [ %114, %106 ], [ %135, %115 ]
-  %136 = trunc i32 %.sink139 to i16
+.sink.split147:                                   ; preds = %115, %106
+  %.sink148 = phi i32 [ %114, %106 ], [ %135, %115 ]
+  %136 = trunc i32 %.sink148 to i16
   store i16 %136, ptr %.2112, align 2
   br label %137
 
-137:                                              ; preds = %.sink.split138, %101
+137:                                              ; preds = %.sink.split147, %101
   %138 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %139 = getelementptr inbounds nuw i8, ptr %.2112, i64 2
   br label %140
@@ -3831,7 +3831,7 @@ define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none
   %151 = lshr i32 %141, 3
   %152 = and i32 %151, 31
   %153 = or disjoint i32 %150, %152
-  br label %.sink.split140
+  br label %.sink.split149
 
 154:                                              ; preds = %143
   %155 = load i16, ptr %.3113, align 2
@@ -3854,22 +3854,22 @@ define internal void @BlitARGBto555PixelAlpha(ptr noundef readonly captures(none
   %172 = and i32 %171, 65043487
   %173 = lshr i32 %172, 16
   %174 = or disjoint i32 %173, %172
-  br label %.sink.split140
+  br label %.sink.split149
 
-.sink.split140:                                   ; preds = %154, %145
-  %.sink141 = phi i32 [ %153, %145 ], [ %174, %154 ]
-  %175 = trunc i32 %.sink141 to i16
+.sink.split149:                                   ; preds = %154, %145
+  %.sink150 = phi i32 [ %153, %145 ], [ %174, %154 ]
+  %175 = trunc i32 %.sink150 to i16
   store i16 %175, ptr %.3113, align 2
   br label %176
 
-176:                                              ; preds = %.sink.split140, %140
+176:                                              ; preds = %.sink.split149, %140
   %177 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %178 = getelementptr inbounds nuw i8, ptr %.3113, i64 2
   %179 = add nsw i32 %.2117, -1
   %180 = icmp sgt i32 %.2117, 1
   br i1 %180, label %23, label %181, !llvm.loop !10
 
-default.unreachable134:                           ; preds = %21
+default.unreachable143:                           ; preds = %21
   unreachable
 
 181:                                              ; preds = %176
@@ -4152,7 +4152,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %.0398430 = phi ptr [ %24, %.lr.ph ], [ %792, %791 ]
   %.0399429 = phi ptr [ %20, %.lr.ph ], [ %793, %791 ]
   %44 = add nsw i32 %.in, -1
-  switch i32 %29, label %default.unreachable431 [
+  switch i32 %29, label %default.unreachable436 [
     i32 0, label %45
     i32 3, label %231
     i32 2, label %417
@@ -5041,7 +5041,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %790 = icmp sgt i32 %.3419, 1
   br i1 %790, label %45, label %791, !llvm.loop !16
 
-default.unreachable431:                           ; preds = %43
+default.unreachable436:                           ; preds = %43
   unreachable
 
 791:                                              ; preds = %786
@@ -5122,7 +5122,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %.0799841 = phi ptr [ %5, %.lr.ph ], [ %1898, %1897 ]
   %.0800840 = phi ptr [ %9, %.lr.ph ], [ %1899, %1897 ]
   %54 = add nsw i32 %.in, -1
-  switch i32 %27, label %default.unreachable842 [
+  switch i32 %27, label %default.unreachable843 [
     i32 0, label %55
     i32 3, label %515
     i32 2, label %975
@@ -7251,7 +7251,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1896 = icmp sgt i32 %.3836, 1
   br i1 %1896, label %55, label %1897, !llvm.loop !18
 
-default.unreachable842:                           ; preds = %53
+default.unreachable843:                           ; preds = %53
   unreachable
 
 1897:                                             ; preds = %1892
@@ -7308,7 +7308,7 @@ define internal void @Blit565to565SurfaceAlpha(ptr noundef readonly captures(non
   %.07387 = phi ptr [ %20, %.lr.ph ], [ %117, %116 ]
   %.07486 = phi ptr [ %15, %.lr.ph ], [ %118, %116 ]
   %29 = add nsw i32 %.in, -1
-  switch i32 %25, label %default.unreachable88 [
+  switch i32 %25, label %default.unreachable90 [
     i32 0, label %30
     i32 3, label %51
     i32 2, label %72
@@ -7425,7 +7425,7 @@ define internal void @Blit565to565SurfaceAlpha(ptr noundef readonly captures(non
   %115 = icmp sgt i32 %.281, 1
   br i1 %115, label %30, label %116, !llvm.loop !20
 
-default.unreachable88:                            ; preds = %28
+default.unreachable90:                            ; preds = %28
   unreachable
 
 116:                                              ; preds = %93
@@ -7482,7 +7482,7 @@ define internal void @Blit555to555SurfaceAlpha(ptr noundef readonly captures(non
   %.07387 = phi ptr [ %20, %.lr.ph ], [ %117, %116 ]
   %.07486 = phi ptr [ %15, %.lr.ph ], [ %118, %116 ]
   %29 = add nsw i32 %.in, -1
-  switch i32 %25, label %default.unreachable88 [
+  switch i32 %25, label %default.unreachable90 [
     i32 0, label %30
     i32 3, label %51
     i32 2, label %72
@@ -7599,7 +7599,7 @@ define internal void @Blit555to555SurfaceAlpha(ptr noundef readonly captures(non
   %115 = icmp sgt i32 %.281, 1
   br i1 %115, label %30, label %116, !llvm.loop !22
 
-default.unreachable88:                            ; preds = %28
+default.unreachable90:                            ; preds = %28
   unreachable
 
 116:                                              ; preds = %93
@@ -7738,7 +7738,7 @@ define internal void @BlitRGBtoRGBSurfaceAlpha(ptr noundef readonly captures(non
 .unreachabledefault:                              ; preds = %25
   unreachable
 
-default.unreachable131:                           ; preds = %103
+default.unreachable135:                           ; preds = %103
   unreachable
 
 81:                                               ; preds = %66
@@ -7776,7 +7776,7 @@ default.unreachable131:                           ; preds = %103
   %.0108126 = phi ptr [ %94, %.lr.ph ], [ %212, %211 ]
   %.0109125 = phi ptr [ %89, %.lr.ph ], [ %213, %211 ]
   %104 = add nsw i32 %.in, -1
-  switch i32 %99, label %default.unreachable131 [
+  switch i32 %99, label %default.unreachable135 [
     i32 0, label %105
     i32 3, label %131
     i32 2, label %157
@@ -7983,7 +7983,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %.0407444 = phi ptr [ %26, %.lr.ph ], [ %798, %797 ]
   %.0408443 = phi ptr [ %22, %.lr.ph ], [ %799, %797 ]
   %46 = add nsw i32 %.in, -1
-  switch i32 %31, label %default.unreachable445 [
+  switch i32 %31, label %default.unreachable450 [
     i32 0, label %47
     i32 3, label %234
     i32 2, label %421
@@ -8428,20 +8428,20 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
 
 412:                                              ; preds = %368
   %413 = trunc nuw i32 %411 to i8
-  br label %.sink.split446
+  br label %.sink.split451
 
 414:                                              ; preds = %368
   %415 = zext nneg i32 %411 to i64
   %416 = getelementptr inbounds nuw i8, ptr %5, i64 %415
   %417 = load i8, ptr %416, align 1
-  br label %.sink.split446
+  br label %.sink.split451
 
-.sink.split446:                                   ; preds = %414, %412
-  %.sink447 = phi i8 [ %413, %412 ], [ %417, %414 ]
-  store i8 %.sink447, ptr %.2410, align 1
+.sink.split451:                                   ; preds = %414, %412
+  %.sink452 = phi i8 [ %413, %412 ], [ %417, %414 ]
+  store i8 %.sink452, ptr %.2410, align 1
   br label %418
 
-418:                                              ; preds = %.sink.split446, %367
+418:                                              ; preds = %.sink.split451, %367
   %419 = getelementptr inbounds nuw i8, ptr %.2410, i64 1
   %420 = getelementptr inbounds nuw i8, ptr %.2, i64 %42
   br label %421
@@ -8656,20 +8656,20 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
 
 599:                                              ; preds = %555
   %600 = trunc nuw i32 %598 to i8
-  br label %.sink.split448
+  br label %.sink.split453
 
 601:                                              ; preds = %555
   %602 = zext nneg i32 %598 to i64
   %603 = getelementptr inbounds nuw i8, ptr %5, i64 %602
   %604 = load i8, ptr %603, align 1
-  br label %.sink.split448
+  br label %.sink.split453
 
-.sink.split448:                                   ; preds = %601, %599
-  %.sink449 = phi i8 [ %600, %599 ], [ %604, %601 ]
-  store i8 %.sink449, ptr %.3411, align 1
+.sink.split453:                                   ; preds = %601, %599
+  %.sink454 = phi i8 [ %600, %599 ], [ %604, %601 ]
+  store i8 %.sink454, ptr %.3411, align 1
   br label %605
 
-605:                                              ; preds = %.sink.split448, %554
+605:                                              ; preds = %.sink.split453, %554
   %606 = getelementptr inbounds nuw i8, ptr %.3411, i64 1
   %607 = getelementptr inbounds nuw i8, ptr %.3, i64 %42
   br label %608
@@ -8884,27 +8884,27 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
 
 786:                                              ; preds = %742
   %787 = trunc nuw i32 %785 to i8
-  br label %.sink.split450
+  br label %.sink.split455
 
 788:                                              ; preds = %742
   %789 = zext nneg i32 %785 to i64
   %790 = getelementptr inbounds nuw i8, ptr %5, i64 %789
   %791 = load i8, ptr %790, align 1
-  br label %.sink.split450
+  br label %.sink.split455
 
-.sink.split450:                                   ; preds = %788, %786
-  %.sink451 = phi i8 [ %787, %786 ], [ %791, %788 ]
-  store i8 %.sink451, ptr %.4412, align 1
+.sink.split455:                                   ; preds = %788, %786
+  %.sink456 = phi i8 [ %787, %786 ], [ %791, %788 ]
+  store i8 %.sink456, ptr %.4412, align 1
   br label %792
 
-792:                                              ; preds = %.sink.split450, %741
+792:                                              ; preds = %.sink.split455, %741
   %793 = getelementptr inbounds nuw i8, ptr %.4412, i64 1
   %794 = getelementptr inbounds nuw i8, ptr %.4, i64 %42
   %795 = add nsw i32 %.3432, -1
   %796 = icmp sgt i32 %.3432, 1
   br i1 %796, label %47, label %797, !llvm.loop !28
 
-default.unreachable445:                           ; preds = %45
+default.unreachable450:                           ; preds = %45
   unreachable
 
 797:                                              ; preds = %792
@@ -8984,7 +8984,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %.0707755 = phi ptr [ %24, %.lr.ph ], [ %1596, %1595 ]
   %.0708754 = phi ptr [ %20, %.lr.ph ], [ %1597, %1595 ]
   %56 = add nsw i32 %.in, -1
-  switch i32 %29, label %default.unreachable756 [
+  switch i32 %29, label %default.unreachable757 [
     i32 0, label %57
     i32 3, label %441
     i32 2, label %825
@@ -10805,7 +10805,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1594 = icmp sgt i32 %.3736, 1
   br i1 %1594, label %57, label %1595, !llvm.loop !30
 
-default.unreachable756:                           ; preds = %55
+default.unreachable757:                           ; preds = %55
   unreachable
 
 1595:                                             ; preds = %1590

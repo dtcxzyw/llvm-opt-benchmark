@@ -72,7 +72,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare void @die(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @xmalloc(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @xmalloc(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr @memory_limit_check.limit, align 8, !tbaa !4
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %3, label %5
@@ -118,7 +118,7 @@ do_xmalloc.exit:                                  ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @xmallocz(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @xmallocz(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq i64 %0, -1
   br i1 %2, label %3, label %4
 
@@ -214,7 +214,7 @@ do_xmallocz.exit:                                 ; preds = %3, %12, %16, %do_xm
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @xmemdupz(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @xmemdupz(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %1, -1
   br i1 %3, label %4, label %5
 
@@ -264,7 +264,7 @@ xmallocz.exit:                                    ; preds = %13
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @xstrndup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @xstrndup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @memchr(ptr noundef %0, i32 noundef 0, i64 noundef %1) #23
   %.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
@@ -750,7 +750,7 @@ define dso_local i64 @xpread(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64
 declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @read_in_full(i32 noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @read_in_full(i32 noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pollfd, align 4
   %.not30 = icmp eq i64 %2, 0
   br i1 %.not30, label %.thread, label %.lr.ph
@@ -816,7 +816,7 @@ xread.exit:                                       ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @write_in_full(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @write_in_full(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pollfd, align 4
   %.not26 = icmp eq i64 %2, 0
   br i1 %.not26, label %.critedge, label %.lr.ph
@@ -887,7 +887,7 @@ xwrite.exit:                                      ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pread_in_full(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @pread_in_full(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not41 = icmp eq i64 %2, 0
   br i1 %.not41, label %xpread.exit.thread32, label %.lr.ph
 
@@ -953,7 +953,7 @@ define dso_local range(i32 0, -2147483648) i32 @xdup(i32 noundef %0) local_unnam
 declare i32 @dup(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @xfopen(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @xfopen(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %5, %2

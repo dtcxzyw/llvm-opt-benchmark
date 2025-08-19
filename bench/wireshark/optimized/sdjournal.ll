@@ -504,18 +504,18 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.backedge188.i, %92
-  %.lcssa = phi i32 [ %99, %92 ], [ %246, %.backedge188.i ]
+._crit_edge:                                      ; preds = %.backedge198.i, %92
+  %.lcssa = phi i32 [ %99, %92 ], [ %246, %.backedge198.i ]
   %101 = call ptr @g_strerror(i32 noundef %.lcssa) #16
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 96, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.50, ptr noundef %101)
   br label %sdj_dump_entries.exit.thread50
 
-.lr.ph:                                           ; preds = %92, %.backedge188.i
-  %102 = phi i32 [ %246, %.backedge188.i ], [ %99, %92 ]
+.lr.ph:                                           ; preds = %92, %.backedge198.i
+  %102 = phi i32 [ %246, %.backedge198.i ], [ %99, %92 ]
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %.thread178.i, label %105
+  br i1 %103, label %.thread188.i, label %105
 
-.thread178.i:                                     ; preds = %.lr.ph
+.thread188.i:                                     ; preds = %.lr.ph
   %104 = call i32 @sd_journal_wait(ptr noundef %93, i64 noundef -1)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -526,7 +526,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.backedge188.i
+  br label %.backedge198.i
 
 105:                                              ; preds = %.lr.ph
   %106 = call i32 @sd_journal_get_cursor(ptr noundef %93, ptr noundef nonnull %4)
@@ -748,13 +748,13 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %245, label %.backedge188.i, label %sdj_dump_entries.exit.thread
+  br i1 %245, label %.backedge198.i, label %sdj_dump_entries.exit.thread
 
 sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i
   call void @g_free(ptr noundef %94)
   br label %251
 
-.backedge188.i:                                   ; preds = %.backedge.i, %.thread178.i
+.backedge198.i:                                   ; preds = %.backedge.i, %.thread188.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

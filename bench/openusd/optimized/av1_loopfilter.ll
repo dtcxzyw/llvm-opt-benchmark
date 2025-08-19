@@ -644,9 +644,9 @@ define hidden void @av1_filter_block_plane_vert(ptr noundef %0, ptr noundef read
   br label %93
 
 93:                                               ; preds = %.thread, %89, %82, %77, %70, %65, %58, %53, %46, %40
-  %.059.us74.shrunk = phi i8 [ 0, %.thread ], [ %38, %89 ], [ %38, %82 ], [ %38, %77 ], [ %38, %70 ], [ %38, %65 ], [ %38, %58 ], [ %38, %53 ], [ %38, %46 ], [ %38, %40 ]
-  %.059.us74 = zext i8 %.059.us74.shrunk to i64
-  %94 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_unit, i64 0, i64 %.059.us74
+  %.059.us76.shrunk = phi i8 [ 0, %.thread ], [ %38, %89 ], [ %38, %82 ], [ %38, %77 ], [ %38, %70 ], [ %38, %65 ], [ %38, %58 ], [ %38, %53 ], [ %38, %46 ], [ %38, %40 ]
+  %.059.us76 = zext i8 %.059.us76.shrunk to i64
+  %94 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_unit, i64 0, i64 %.059.us76
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, %.06064.us
   %97 = shl i32 %95, 2
@@ -1024,9 +1024,9 @@ define hidden void @av1_filter_block_plane_horz(ptr noundef %0, ptr noundef read
   br label %94
 
 94:                                               ; preds = %.thread, %90, %83, %78, %71, %66, %59, %54, %47, %41
-  %.060.us75.shrunk = phi i8 [ 0, %.thread ], [ %39, %90 ], [ %39, %83 ], [ %39, %78 ], [ %39, %71 ], [ %39, %66 ], [ %39, %59 ], [ %39, %54 ], [ %39, %47 ], [ %39, %41 ]
-  %.060.us75 = zext i8 %.060.us75.shrunk to i64
-  %95 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_unit, i64 0, i64 %.060.us75
+  %.060.us78.shrunk = phi i8 [ 0, %.thread ], [ %39, %90 ], [ %39, %83 ], [ %39, %78 ], [ %39, %71 ], [ %39, %66 ], [ %39, %59 ], [ %39, %54 ], [ %39, %47 ], [ %39, %41 ]
+  %.060.us78 = zext i8 %.060.us78.shrunk to i64
+  %95 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_unit, i64 0, i64 %.060.us78
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, %.06165.us
   %98 = mul i32 %28, %96

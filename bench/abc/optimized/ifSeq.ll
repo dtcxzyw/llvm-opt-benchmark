@@ -965,7 +965,7 @@ If_ManBinarySearch_rec.exit:                      ; preds = %tailrecurse.i
   br label %108
 
 If_ManBinarySearch_rec.exit.thread:               ; preds = %71, %._crit_edge, %If_ManBinarySearch_rec.exit
-  %.tr16.lcssa.i40 = phi i32 [ %.tr16..i, %._crit_edge ], [ %.tr16..i, %If_ManBinarySearch_rec.exit ], [ 1, %71 ]
+  %.tr16.lcssa.i43 = phi i32 [ %.tr16..i, %._crit_edge ], [ %.tr16..i, %If_ManBinarySearch_rec.exit ], [ 1, %71 ]
   %84 = phi i32 [ %.pre, %._crit_edge ], [ %78, %If_ManBinarySearch_rec.exit ], [ 1, %71 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, i32 noundef %84)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -990,7 +990,7 @@ Abc_Clock.exit34:                                 ; preds = %If_ManBinarySearch_
   %95 = sitofp i64 %94 to double
   %96 = fdiv double %95, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %96)
-  %97 = sitofp i32 %.tr16.lcssa.i40 to float
+  %97 = sitofp i32 %.tr16.lcssa.i43 to float
   store float %97, ptr %17, align 4, !tbaa !68
   call void @If_ManPerformMappingSeqPost(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

@@ -2187,8 +2187,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %161, %166, %173
   %293 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %294 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %295 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %sext2195 = shl i64 %.pre1977, 32
-  %296 = ashr exact i64 %sext2195, 32
+  %sext2489 = shl i64 %.pre1977, 32
+  %296 = ashr exact i64 %sext2489, 32
   %297 = getelementptr inbounds nuw i8, ptr %26, i64 19
   %298 = getelementptr inbounds nuw i8, ptr %30, i64 19
   %299 = getelementptr inbounds nuw i8, ptr %33, i64 19
@@ -2487,8 +2487,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
   br i1 %.not9521719, label %._crit_edge1724, label %.lr.ph1723.preheader
 
 .lr.ph1723.preheader:                             ; preds = %426
-  %sext1981 = shl i64 %433, 28
-  %435 = ashr i64 %sext1981, 32
+  %sext2275 = shl i64 %433, 28
+  %435 = ashr i64 %sext2275, 32
   br label %.lr.ph1723
 
 .lr.ph1723:                                       ; preds = %.lr.ph1723.preheader, %1029
@@ -4002,11 +4002,11 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.
   store i32 %1042, ptr %1036, align 4, !tbaa !40, !noalias !165
   %1043 = getelementptr inbounds nuw i8, ptr %1030, i64 224
   %1044 = shl i64 %1040, 32
-  %sext2196 = add i64 %1044, -4294967296
-  %1045 = ashr exact i64 %sext2196, 32
+  %sext2490 = add i64 %1044, -4294967296
+  %1045 = ashr exact i64 %sext2490, 32
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit498: ; preds = %._crit_edge1724, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread2001
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit498: ; preds = %._crit_edge1724, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread2295
   %1046 = load i8, ptr %226, align 8, !tbaa !42, !range !47, !noundef !48
   %1047 = trunc nuw i8 %1046 to i1
   %.pre1971 = load ptr, ptr %239, align 8, !tbaa !154
@@ -4573,9 +4573,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i54
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %indvars.iv.next1961 = add nsw i64 %indvars.iv1960, -1
   %1301 = icmp eq i64 %indvars.iv1960, 0
-  br i1 %1301, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread2001, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
+  br i1 %1301, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread2295, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEEppEv.exit
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread2001: ; preds = %1300
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread2295: ; preds = %1300
   %1302 = load i32, ptr %1036, align 4, !tbaa !40
   %1303 = add nsw i32 %1302, -1
   store i32 %1303, ptr %1036, align 4, !tbaa !40
@@ -4603,8 +4603,8 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread2001: ; preds = %1300
   br i1 %.not9541738, label %._crit_edge1743, label %.lr.ph1742.preheader
 
 .lr.ph1742.preheader:                             ; preds = %1309
-  %sext1982 = shl i64 %1312, 28
-  %1314 = ashr i64 %sext1982, 32
+  %sext2276 = shl i64 %1312, 28
+  %1314 = ashr i64 %sext2276, 32
   br label %.lr.ph1742
 
 ._crit_edge1743:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit635, %1309
@@ -12033,11 +12033,11 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE7do_hashERKS4_.exit.
   br label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE9do_lookupERKS4_Rj.exit: ; preds = %78, %.loopexit
-  %.sink16 = phi i32 [ %87, %.loopexit ], [ %.013.i, %78 ]
+  %.sink23 = phi i32 [ %87, %.loopexit ], [ %.013.i, %78 ]
   %.sink = phi i8 [ 1, %.loopexit ], [ 0, %78 ]
   store ptr %1, ptr %0, align 8, !tbaa !266
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink16, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !40
+  store i32 %.sink23, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !40
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %88, align 8, !tbaa !268
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

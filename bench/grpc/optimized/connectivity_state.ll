@@ -2760,12 +2760,12 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %60
 
 60:                                               ; preds = %.thread, %.critedge21
-  %.sink72 = phi ptr [ %53, %.thread ], [ %59, %.critedge21 ]
-  %.sink71 = phi ptr [ %54, %.thread ], [ %58, %.critedge21 ]
+  %.sink74 = phi ptr [ %53, %.thread ], [ %59, %.critedge21 ]
+  %.sink73 = phi ptr [ %54, %.thread ], [ %58, %.critedge21 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge21 ]
-  store ptr %.sink72, ptr %0, align 8
+  store ptr %.sink74, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink71, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sink73, ptr %.sroa.4.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %61, align 8, !tbaa !93
   ret void

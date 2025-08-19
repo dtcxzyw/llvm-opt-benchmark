@@ -1498,16 +1498,16 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr noundef readonly captures
 .lr.ph142.preheader:                              ; preds = %.preheader
   %39 = tail call i32 @Cudd_NodeReadIndex(ptr noundef %31) #20
   %40 = icmp eq i32 %.0100146, %39
-  br i1 %40, label %.lr.ph142._crit_edge, label %.lr.ph185
+  br i1 %40, label %.lr.ph142._crit_edge, label %.lr.ph187
 
-.lr.ph142:                                        ; preds = %.lr.ph185
+.lr.ph142:                                        ; preds = %.lr.ph187
   %41 = tail call i32 @Cudd_NodeReadIndex(ptr noundef %44) #20
   %42 = icmp eq i32 %.0100146, %41
-  br i1 %42, label %.lr.ph142._crit_edge, label %.lr.ph185, !llvm.loop !78
+  br i1 %42, label %.lr.ph142._crit_edge, label %.lr.ph187, !llvm.loop !78
 
-.lr.ph185:                                        ; preds = %.lr.ph142.preheader, %.lr.ph142
-  %.0106141184 = phi ptr [ %44, %.lr.ph142 ], [ %31, %.lr.ph142.preheader ]
-  %43 = getelementptr inbounds nuw i8, ptr %.0106141184, i64 16
+.lr.ph187:                                        ; preds = %.lr.ph142.preheader, %.lr.ph142
+  %.0106141186 = phi ptr [ %44, %.lr.ph142 ], [ %31, %.lr.ph142.preheader ]
+  %43 = getelementptr inbounds nuw i8, ptr %.0106141186, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !50
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, -2
@@ -1532,8 +1532,8 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr noundef readonly captures
   %52 = icmp slt i32 %51, %.val112
   br i1 %52, label %36, label %.thread, !llvm.loop !79
 
-.thread:                                          ; preds = %50, %.lr.ph142._crit_edge, %.preheader, %.lr.ph185, %29
-  %.098 = phi i32 [ -1, %29 ], [ %.0100146, %.lr.ph185 ], [ %.0100146, %.preheader ], [ -1, %50 ], [ %.0100146, %.lr.ph142._crit_edge ]
+.thread:                                          ; preds = %50, %.lr.ph142._crit_edge, %.preheader, %.lr.ph187, %29
+  %.098 = phi i32 [ -1, %29 ], [ %.0100146, %.lr.ph187 ], [ %.0100146, %.preheader ], [ -1, %50 ], [ %.0100146, %.lr.ph142._crit_edge ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %31) #20
   %53 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %6, ptr noundef %8, ptr noundef %.1103) #20
   tail call void @Cudd_Ref(ptr noundef %53) #20

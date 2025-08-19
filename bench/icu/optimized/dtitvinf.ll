@@ -1658,8 +1658,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7716DateInterva
   %switch.maskindex = trunc i32 %2 to i16
   %switch.shifted = lshr i16 32423, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond23 = select i1 %16, i1 %switch.lobit, i1 false
-  br i1 %or.cond23, label %switch.lookup, label %17
+  %or.cond24 = select i1 %16, i1 %switch.lobit, i1 false
+  br i1 %or.cond24, label %switch.lookup, label %17
 
 17:                                               ; preds = %15
   store i32 1, ptr %4, align 4, !tbaa !13
@@ -2279,7 +2279,7 @@ _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit116: ; preds = %155
 208:                                              ; preds = %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit116, %_ZNK6icu_7713UnicodeString7indexOfEDs.exit112
   %.053.sroa.phi = phi ptr [ %18, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit116 ], [ %19, %_ZNK6icu_7713UnicodeString7indexOfEDs.exit112 ]
   %.053.sroa.phi124 = phi ptr [ %.053.sroa.gep125, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit116 ], [ %24, %_ZNK6icu_7713UnicodeString7indexOfEDs.exit112 ]
-  %.pn155 = phi ptr [ %6, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit116 ], [ %1, %_ZNK6icu_7713UnicodeString7indexOfEDs.exit112 ]
+  %.pn159 = phi ptr [ %6, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit116 ], [ %1, %_ZNK6icu_7713UnicodeString7indexOfEDs.exit112 ]
   %.not106 = phi i1 [ false, %_ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit116 ], [ true, %_ZNK6icu_7713UnicodeString7indexOfEDs.exit112 ]
   %209 = load i16, ptr %.053.sroa.phi, align 8, !tbaa !17
   %210 = icmp slt i16 %209, 0
@@ -2291,12 +2291,12 @@ _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit116: ; preds = %155
   br i1 %215, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i.preheader, label %_ZN6icu_7716DateIntervalInfo13parseSkeletonERKNS_13UnicodeStringEPi.exit
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.i.preheader: ; preds = %208
-  %.pn149.sroa.phi152 = getelementptr inbounds nuw i8, ptr %.pn155, i64 24
-  %.pn149.sroa.phi = getelementptr inbounds nuw i8, ptr %.pn155, i64 10
+  %.pn153.sroa.phi156 = getelementptr inbounds nuw i8, ptr %.pn159, i64 24
+  %.pn153.sroa.phi = getelementptr inbounds nuw i8, ptr %.pn159, i64 10
   %216 = and i16 %209, 2
   %.not.i.i.i.i = icmp eq i16 %216, 0
-  %217 = load ptr, ptr %.pn149.sroa.phi152, align 8
-  %218 = select i1 %.not.i.i.i.i, ptr %217, ptr %.pn149.sroa.phi
+  %217 = load ptr, ptr %.pn153.sroa.phi156, align 8
+  %218 = select i1 %.not.i.i.i.i, ptr %217, ptr %.pn153.sroa.phi
   %219 = zext nneg i32 %214 to i64
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
 

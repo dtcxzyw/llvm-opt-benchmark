@@ -320,23 +320,23 @@ define internal range(i32 -1, 8193) i32 @SimpleXLogPageRead(ptr noundef %0, i64 
   %34 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %33, i32 2
   %35 = load i64, ptr %34, align 8
   %36 = icmp ult i64 %35, %13
-  br i1 %36, label %.lr.ph53, label %.critedge
+  br i1 %36, label %.lr.ph59, label %.critedge
 
-37:                                               ; preds = %.lr.ph53
+37:                                               ; preds = %.lr.ph59
   %38 = getelementptr inbounds %struct.TimeLineHistoryEntry, ptr %.pre50.pre, i64 %indvars.iv.next, i32 2
   %39 = load i64, ptr %38, align 8
   %40 = icmp ult i64 %39, %13
-  br i1 %40, label %.lr.ph53, label %.critedge, !llvm.loop !7
+  br i1 %40, label %.lr.ph59, label %.critedge, !llvm.loop !7
 
-.lr.ph53:                                         ; preds = %.lr.ph, %37
-  %indvars.iv52 = phi i64 [ %indvars.iv.next, %37 ], [ %33, %.lr.ph ]
-  %indvars.iv.next = add nsw i64 %indvars.iv52, 1
+.lr.ph59:                                         ; preds = %.lr.ph, %37
+  %indvars.iv58 = phi i64 [ %indvars.iv.next, %37 ], [ %33, %.lr.ph ]
+  %indvars.iv.next = add nsw i64 %indvars.iv58, 1
   %41 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %41, ptr %29, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..critedge.loopexit_crit_edge, label %37, !llvm.loop !7
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph53
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph59
   br label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %37, %.lr.ph, %..critedge.loopexit_crit_edge, %26

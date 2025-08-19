@@ -142,11 +142,11 @@ define hidden range(i32 0, 2) i32 @_glfwCreateWindowNull(ptr noundef %0, ptr nou
   %21 = icmp eq i32 %20, -2147483648
   %or.cond.i = select i1 %18, i1 %21, i1 false
   %..i = select i1 %or.cond.i, i32 17, i32 %17
-  %.28.i = select i1 %or.cond.i, i32 17, i32 %20
+  %.29.i = select i1 %or.cond.i, i32 17, i32 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 3368
   store i32 %..i, ptr %22, align 8, !tbaa !58
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 3372
-  store i32 %.28.i, ptr %23, align 4, !tbaa !59
+  store i32 %.29.i, ptr %23, align 4, !tbaa !59
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !60
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 12

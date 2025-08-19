@@ -559,12 +559,12 @@ define void @_Z15vrescale_tcouplPK10t_inputreclP14gmx_ekindata_tfN3gmx8ArrayRefI
   %18 = load ptr, ptr %11, align 8, !tbaa !111
   %19 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %18, i64 %indvars.iv, i32 2
   %20 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %18, i64 %indvars.iv, i32 4
-  %.sink57 = select i1 %17, ptr %20, ptr %19
-  %.sink55 = load float, ptr %.sink57, align 4, !tbaa !114
-  %21 = getelementptr inbounds nuw i8, ptr %.sink57, i64 16
+  %.sink60 = select i1 %17, ptr %20, ptr %19
+  %.sink58 = load float, ptr %.sink60, align 4, !tbaa !114
+  %21 = getelementptr inbounds nuw i8, ptr %.sink60, i64 16
   %22 = load float, ptr %21, align 4, !tbaa !114
-  %23 = fadd float %.sink55, %22
-  %24 = getelementptr inbounds nuw i8, ptr %.sink57, i64 32
+  %23 = fadd float %.sink58, %22
+  %24 = getelementptr inbounds nuw i8, ptr %.sink60, i64 32
   %25 = load float, ptr %24, align 4, !tbaa !114
   %26 = fadd float %23, %25
   %27 = load ptr, ptr %12, align 8, !tbaa !133
@@ -941,9 +941,9 @@ define void @_Z23parrinellorahman_pcouplRKN3gmx8MDLoggerElRK23PressureCouplingOp
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %31 = tail call float @llvm.fabs.f32(float %30)
   %32 = fcmp ugt float %31, 0x3879000000000000
-  %indvars.iv221.sroa.gep280 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %indvars.iv221.sroa.gep283 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %indvars.iv.sroa.gep284 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %indvars.iv221.sroa.gep284 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %indvars.iv221.sroa.gep287 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %indvars.iv.sroa.gep288 = getelementptr inbounds nuw i8, ptr %15, i64 12
   br i1 %32, label %_ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit, label %33
 
 33:                                               ; preds = %11
@@ -1145,7 +1145,7 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 
 143:                                              ; preds = %140, %143
   %144 = phi i1 [ true, %140 ], [ false, %143 ]
-  %indvars.iv.sroa.phi = phi ptr [ %15, %140 ], [ %indvars.iv.sroa.gep284, %143 ]
+  %indvars.iv.sroa.phi = phi ptr [ %15, %140 ], [ %indvars.iv.sroa.gep288, %143 ]
   %indvars.iv = phi i64 [ 0, %140 ], [ 1, %143 ]
   %145 = getelementptr inbounds nuw [3 x [3 x float]], ptr %86, i64 0, i64 %indvars.iv
   %146 = getelementptr inbounds nuw [3 x float], ptr %145, i64 0, i64 %indvars.iv
@@ -1333,8 +1333,8 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 
 .preheader185:                                    ; preds = %232, %243
   %240 = phi i1 [ true, %232 ], [ false, %243 ]
-  %indvars.iv221.sroa.phi = phi ptr [ %17, %232 ], [ %indvars.iv221.sroa.gep280, %243 ]
-  %indvars.iv221.sroa.phi281 = phi ptr [ %16, %232 ], [ %indvars.iv221.sroa.gep283, %243 ]
+  %indvars.iv221.sroa.phi = phi ptr [ %17, %232 ], [ %indvars.iv221.sroa.gep284, %243 ]
+  %indvars.iv221.sroa.phi285 = phi ptr [ %16, %232 ], [ %indvars.iv221.sroa.gep287, %243 ]
   %indvars.iv221 = phi i64 [ 0, %232 ], [ 1, %243 ]
   %indvars.iv219 = phi i64 [ 1, %232 ], [ %indvars.iv.next220, %243 ]
   %241 = getelementptr inbounds nuw [3 x float], ptr %6, i64 %indvars.iv221
@@ -1357,7 +1357,7 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
   %249 = getelementptr inbounds nuw [3 x float], ptr %241, i64 0, i64 %indvars.iv213
   %250 = load float, ptr %249, align 4, !tbaa !114
   %251 = fmul float %250, %248
-  %252 = getelementptr inbounds nuw [3 x float], ptr %indvars.iv221.sroa.phi281, i64 0, i64 %indvars.iv213
+  %252 = getelementptr inbounds nuw [3 x float], ptr %indvars.iv221.sroa.phi285, i64 0, i64 %indvars.iv213
   store float %251, ptr %252, align 4, !tbaa !114
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next214, %indvars.iv219
@@ -3367,7 +3367,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
   br i1 %155, label %157, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %152
-  %156 = add i32 %.sroa.9.050, -14
+  %156 = add nsw i32 %.sroa.9.050, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
 
 157:                                              ; preds = %152
@@ -4375,12 +4375,12 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.019, label %.sink.split62, label %37
+  br i1 %.019, label %.sink.split63, label %37
 
 .sink.split:                                      ; preds = %.thread, %.thread51
   %.pn39.pn50.ph = phi { ptr, i32 } [ %17, %.thread51 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split62
+  br label %.sink.split63
 
 20:                                               ; preds = %2
   %21 = shl nuw i64 %1, 57
@@ -4421,13 +4421,13 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
 .thread54:                                        ; preds = %26
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split61
+  br label %.sink.split62
 
 .thread58:                                        ; preds = %28
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #21
-  br label %.sink.split61
+  br label %.sink.split62
 
 34:                                               ; preds = %29, %31
   %.0 = phi i1 [ false, %31 ], [ true, %29 ]
@@ -4438,24 +4438,24 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #21
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split62, label %37
+  br i1 %.0, label %.sink.split63, label %37
 
-.sink.split61:                                    ; preds = %.thread54, %.thread58
+.sink.split62:                                    ; preds = %.thread54, %.thread58
   %.pn.pn57.ph = phi { ptr, i32 } [ %33, %.thread58 ], [ %32, %.thread54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split62
+  br label %.sink.split63
 
 36:                                               ; preds = %20
   ret void
 
-.sink.split62:                                    ; preds = %34, %.sink.split61, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split61 ], [ %27, %34 ]
-  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split61 ], [ %35, %34 ]
+.sink.split63:                                    ; preds = %34, %.sink.split62, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split62 ], [ %27, %34 ]
+  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
   call void @__cxa_free_exception(ptr %.sink) #21
   br label %37
 
-37:                                               ; preds = %.sink.split62, %34, %18
-  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split62 ]
+37:                                               ; preds = %.sink.split63, %34, %18
+  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
   resume { ptr, i32 } %.pn39.pn.pn
 
 38:                                               ; preds = %31, %15
@@ -4631,6 +4631,7 @@ define linkonce_odr noundef float @_ZN3gmx18NormalDistributionIfEclINS_12ThreeFr
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i32, ptr %7, align 8, !tbaa !255
+  %.phi.trans.insert2.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %12
 
 9:                                                ; preds = %3
@@ -4673,8 +4674,6 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   br i1 %27, label %28, label %._crit_edge.i.i.i.i19
 
 ._crit_edge.i.i.i.i19:                            ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit
-  %.phi.trans.insert1.i.i.i.i21 = zext nneg i32 %21 to i64
-  %.phi.trans.insert2.i.i.i.i22 = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i21
   %.pre.i.i.i.i23 = load i64, ptr %.phi.trans.insert2.i.i.i.i22, align 8, !tbaa !144
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26
 
@@ -6406,13 +6405,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !115
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !115
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -6848,8 +6847,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %143, %141, %139, %1
 177:                                              ; preds = %149, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   %178 = icmp sgt i32 %10, 0
   %179 = icmp sgt i32 %12, 0
-  %or.cond105 = select i1 %178, i1 %179, i1 false
-  br i1 %or.cond105, label %.preheader79.lr.ph.split.us, label %.loopexit
+  %or.cond117 = select i1 %178, i1 %179, i1 false
+  br i1 %or.cond117, label %.preheader79.lr.ph.split.us, label %.loopexit
 
 .preheader79.lr.ph.split.us:                      ; preds = %177
   %180 = load ptr, ptr %124, align 8, !tbaa !105
@@ -8054,6 +8053,7 @@ _ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
 
 .preheader.i:                                     ; preds = %47
   %.pre.i = load i32, ptr %39, align 8, !tbaa !255
+  %.sroa.4.0..sroa_idx.i.i.i.i.i.promoted = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8
   %.sroa.024.0.copyload.i58 = load i64, ptr %40, align 8
   %48 = load i64, ptr %1, align 8
   %49 = add i64 %48, %.sroa.024.0.copyload.i58
@@ -8070,6 +8070,7 @@ _ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
 
 58:                                               ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i, %.preheader.i
   %59 = phi i64 [ %.promoted, %.preheader.i ], [ %242, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i ]
+  %.pre.i.i.i.i23.i91 = phi i64 [ %.sroa.4.0..sroa_idx.i.i.i.i.i.promoted, %.preheader.i ], [ %.pre.i.i.i.i23.i92, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i ]
   %60 = phi i32 [ %.pre.i, %.preheader.i ], [ %244, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i ]
   %61 = icmp ugt i32 %60, 1
   br i1 %61, label %63, label %._crit_edge.i.i.i.i.i
@@ -8234,6 +8235,7 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit7
 
 _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; preds = %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit72, %._crit_edge.i.i.i.i.i
   %148 = phi i64 [ %64, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit72 ], [ %59, %._crit_edge.i.i.i.i.i ]
+  %.pre.i.i.i.i23.i93 = phi i64 [ %147, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit72 ], [ %.pre.i.i.i.i23.i91, %._crit_edge.i.i.i.i.i ]
   %149 = phi i64 [ %146, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit72 ], [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %150 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit72 ], [ %62, %._crit_edge.i.i.i.i.i ]
   store i32 %150, ptr %39, align 8, !tbaa !255
@@ -8243,13 +8245,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; 
   %154 = tail call float @llvm.fmuladd.f32(float %152, float 2.000000e+00, float -1.000000e+00)
   %155 = select i1 %153, float -1.000000e+00, float %154
   %156 = icmp samesign ugt i32 %150, 1
-  br i1 %156, label %157, label %._crit_edge.i.i.i.i19.i
-
-._crit_edge.i.i.i.i19.i:                          ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i
-  %.phi.trans.insert1.i.i.i.i21.i = zext nneg i32 %150 to i64
-  %.phi.trans.insert2.i.i.i.i22.i = getelementptr inbounds nuw [2 x i64], ptr %.phi.trans.insert.i.i.i.i.i, i64 0, i64 %.phi.trans.insert1.i.i.i.i21.i
-  %.pre.i.i.i.i23.i = load i64, ptr %.phi.trans.insert2.i.i.i.i22.i, align 8, !tbaa !144
-  br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
+  br i1 %156, label %157, label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
 
 157:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8392,10 +8388,11 @@ _ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit:
   store i64 %241, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !147
   br label %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
 
-_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i: ; preds = %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit, %._crit_edge.i.i.i.i19.i
-  %242 = phi i64 [ %158, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %148, %._crit_edge.i.i.i.i19.i ]
-  %243 = phi i64 [ %240, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %.pre.i.i.i.i23.i, %._crit_edge.i.i.i.i19.i ]
-  %244 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ 2, %._crit_edge.i.i.i.i19.i ]
+_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i: ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit
+  %242 = phi i64 [ %158, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %148, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i ]
+  %.pre.i.i.i.i23.i92 = phi i64 [ %241, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %.pre.i.i.i.i23.i93, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i ]
+  %243 = phi i64 [ %240, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ %.pre.i.i.i.i23.i93, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i ]
+  %244 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ 2, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i ]
   store i32 %244, ptr %39, align 8, !tbaa !255
   %245 = uitofp i64 %243 to float
   %246 = fmul float %245, 0x3BF0000000000000

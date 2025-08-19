@@ -1475,9 +1475,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
           to label %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i unwind label %34
 
 common.resume:                                    ; preds = %73, %34
-  %.lcssa29.sink = phi ptr [ %72, %73 ], [ %33, %34 ]
+  %.lcssa37.sink = phi ptr [ %72, %73 ], [ %33, %34 ]
   %common.resume.op = phi { ptr, i32 } [ %74, %73 ], [ %35, %34 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa29.sink, i64 noundef 328) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa37.sink, i64 noundef 328) #20
   resume { ptr, i32 } %common.resume.op
 
 34:                                               ; preds = %32

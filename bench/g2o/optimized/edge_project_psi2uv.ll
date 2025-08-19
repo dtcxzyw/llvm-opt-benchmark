@@ -1331,8 +1331,8 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
   store double %214, ptr %.sroa.0.sroa.4, align 16, !tbaa !70, !alias.scope !127
   %.sroa.0.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 8
   store <2 x double> %211, ptr %.sroa.0.sroa.4.8..sroa_idx, align 8, !tbaa !56, !alias.scope !127
-  %.sroa.0.sroa.4.24..sroa_idx241 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 24
-  store double %215, ptr %.sroa.0.sroa.4.24..sroa_idx241, align 8, !tbaa !70, !alias.scope !127
+  %.sroa.0.sroa.4.24..sroa_idx242 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 24
+  store double %215, ptr %.sroa.0.sroa.4.24..sroa_idx242, align 8, !tbaa !70, !alias.scope !127
   %218 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> zeroinitializer
   %219 = fneg <2 x double> %211
   %.sroa.0.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 8
@@ -1361,8 +1361,8 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
   %.sroa.0.sroa.4.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 16
   %.sroa.0.sroa.4.16..sroa.0.sroa.4.32..sroa.0.32..sroa.0.32..sroa.0.32. = load <2 x double>, ptr %.sroa.0.sroa.4.16..sroa_idx, align 16, !tbaa !56, !alias.scope !127
   %239 = fmul <2 x double> %236, %.sroa.0.sroa.4.16..sroa.0.sroa.4.32..sroa.0.32..sroa.0.32..sroa.0.32.
-  %.sroa.0.sroa.4.16..sroa_idx240 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 16
-  store <2 x double> %239, ptr %.sroa.0.sroa.4.16..sroa_idx240, align 16, !tbaa !56, !alias.scope !127
+  %.sroa.0.sroa.4.16..sroa_idx241 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 16
+  store <2 x double> %239, ptr %.sroa.0.sroa.4.16..sroa_idx241, align 16, !tbaa !56, !alias.scope !127
   %240 = fmul <2 x double> %236, %226
   store <2 x double> %240, ptr %.sroa.0.sroa.13, align 16, !tbaa !56, !alias.scope !127
   %241 = fmul double %144, %234
@@ -1383,15 +1383,15 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
   %252 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> zeroinitializer
   %253 = fmul <2 x double> %186, %252
   %254 = fsub <2 x double> %251, %253
-  %.sroa.0.sroa.4.8..sroa_idx239 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 8
-  %.sroa.0.sroa.4.8..sroa.0.sroa.4.24. = load <1 x double>, ptr %.sroa.0.sroa.4.8..sroa_idx239, align 8
+  %.sroa.0.sroa.4.8..sroa_idx240 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 8
+  %.sroa.0.sroa.4.8..sroa.0.sroa.4.24. = load <1 x double>, ptr %.sroa.0.sroa.4.8..sroa_idx240, align 8
   %255 = shufflevector <1 x double> %.sroa.0.sroa.4.8..sroa.0.sroa.4.24., <1 x double> poison, <2 x i32> zeroinitializer
   %256 = fmul <2 x double> %255, %243
   %257 = shufflevector <2 x double> %239, <2 x double> poison, <2 x i32> zeroinitializer
   %258 = fmul <2 x double> %257, %247
   %259 = fadd <2 x double> %258, %256
-  %.sroa.0.sroa.4.24..sroa_idx242 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 24
-  %.sroa.0.sroa.4.24..sroa.0.sroa.4.40. = load <1 x double>, ptr %.sroa.0.sroa.4.24..sroa_idx242, align 8
+  %.sroa.0.sroa.4.24..sroa_idx243 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.4, i64 24
+  %.sroa.0.sroa.4.24..sroa.0.sroa.4.40. = load <1 x double>, ptr %.sroa.0.sroa.4.24..sroa_idx243, align 8
   %260 = shufflevector <1 x double> %.sroa.0.sroa.4.24..sroa.0.sroa.4.40., <1 x double> poison, <2 x i32> zeroinitializer
   %261 = fmul <2 x double> %186, %260
   %262 = fsub <2 x double> %259, %261
@@ -2563,7 +2563,7 @@ _ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %64 = load ptr, ptr %63, align 8, !tbaa !65
   %65 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %66 = icmp eq ptr %64, %65
-  br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i.i
+  br i1 %66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i68
   %67 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -24
@@ -2575,14 +2575,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %72 = icmp eq ptr %70, %71
   br i1 %72, label %76, label %.thread.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i68
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i68
   %73 = load ptr, ptr %62, align 8, !tbaa !65
   %74 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   %75 = icmp eq ptr %73, %74
   br i1 %75, label %76, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i.i
 
-76:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  %77 = phi ptr [ %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i.i ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ]
+76:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+  %77 = phi ptr [ %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i.i.i ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ]
   %78 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24
   %79 = load i64, ptr %78, align 8, !tbaa !58
   %80 = icmp ult i64 %79, 16
@@ -2624,7 +2624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i.
   store i64 %91, ptr %65, align 8, !tbaa !56
   br label %98
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i.i.i.i
   %92 = load i64, ptr %65, align 8, !tbaa !56
   store ptr %73, ptr %63, align 8, !tbaa !65
   %93 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -24

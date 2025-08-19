@@ -653,8 +653,8 @@ uprv_stableBinarySearch_77.exit.i:                ; preds = %43, %.thread.loopex
   %88 = mul nsw i64 %87, %9
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 %88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %89, i64 %9, i1 false)
-  %sext107 = shl i64 %indvars.iv.next105, 32
-  %90 = ashr exact i64 %sext107, 32
+  %sext112 = shl i64 %indvars.iv.next105, 32
+  %90 = ashr exact i64 %sext112, 32
   %91 = mul nsw i64 %90, %9
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 %91
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %89, ptr noundef nonnull align 1 dereferenceable(1) %92, i64 %9, i1 false)

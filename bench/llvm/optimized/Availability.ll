@@ -279,8 +279,8 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZSt3maxIN4llvm12Ve
   %141 = load i64, ptr %140, align 4
   %142 = and i64 %141, 9223372034707292159
   %or.cond41 = icmp eq i64 %142, 0
-  %or.cond66 = select i1 %or.cond.i11, i1 %or.cond41, i1 false
-  br i1 %or.cond66, label %._crit_edge, label %_ZNK4llvm12VersionTuple5emptyEv.exit12.thread
+  %or.cond99 = select i1 %or.cond.i11, i1 %or.cond41, i1 false
+  br i1 %or.cond99, label %._crit_edge, label %_ZNK4llvm12VersionTuple5emptyEv.exit12.thread
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
   %.phi.trans.insert48 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -420,8 +420,8 @@ _ZNK4llvm12VersionTuple5emptyEv.exit23.thread:    ; preds = %_ZSt3minIN4llvm12Ve
   %218 = load i64, ptr %217, align 4
   %219 = and i64 %218, 9223372034707292159
   %or.cond45 = icmp eq i64 %219, 0
-  %or.cond67 = select i1 %or.cond.i24, i1 %or.cond45, i1 false
-  br i1 %or.cond67, label %._crit_edge57, label %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
+  %or.cond100 = select i1 %or.cond.i24, i1 %or.cond45, i1 false
+  br i1 %or.cond100, label %._crit_edge57, label %_ZNK4llvm12VersionTuple5emptyEv.exit25.thread
 
 ._crit_edge57:                                    ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit23.thread
   %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -531,8 +531,8 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34: ; preds = %_ZN4llvmltERKNS_1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i31, %279, %275, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i26, %245, %241
-  %.sink68 = phi ptr [ %214, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i26 ], [ %5, %241 ], [ %5, %245 ], [ %255, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i31 ], [ %5, %275 ], [ %5, %279 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %.sink68, i64 16, i1 false)
+  %.sink101 = phi ptr [ %214, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i29 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i26 ], [ %5, %241 ], [ %5, %245 ], [ %255, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread.i34 ], [ %5, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.i31 ], [ %5, %275 ], [ %5, %279 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %.sink101, i64 16, i1 false)
   br label %285
 
 285:                                              ; preds = %.sink.split, %_ZNK5clang16AvailabilityInfo9isDefaultEv.exit9
@@ -1037,8 +1037,8 @@ _ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread.i: ; preds = %177
   %197 = load ptr, ptr %196, align 8
   %198 = call noundef ptr %197(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.090.0115.i) #10
   %.not.i70.i = icmp eq ptr %198, %.031
-  %.not140.i = icmp eq ptr %198, null
-  %.not.i = or i1 %.not.i70.i, %.not140.i
+  %.not158.i = icmp eq ptr %198, null
+  %.not.i = or i1 %.not.i70.i, %.not158.i
   br i1 %.not.i, label %_ZN12_GLOBAL__N_117createInfoForDeclEPKN5clang4DeclERNS_15AvailabilitySetE.exit, label %30
 
 _ZN12_GLOBAL__N_117createInfoForDeclEPKN5clang4DeclERNS_15AvailabilitySetE.exit: ; preds = %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread.i

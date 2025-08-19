@@ -1568,10 +1568,10 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 ._crit_edge577.thread:                            ; preds = %.preheader, %254
-  %.sroa.0328.0.lcssa644.ph = phi ptr [ %.sroa.0328.1, %.preheader ], [ null, %254 ]
-  %.sroa.13.0.lcssa643.ph = phi ptr [ %.sroa.13.1, %.preheader ], [ null, %254 ]
-  %537 = ptrtoint ptr %.sroa.13.0.lcssa643.ph to i64
-  %538 = ptrtoint ptr %.sroa.0328.0.lcssa644.ph to i64
+  %.sroa.0328.0.lcssa689.ph = phi ptr [ %.sroa.0328.1, %.preheader ], [ null, %254 ]
+  %.sroa.13.0.lcssa688.ph = phi ptr [ %.sroa.13.1, %.preheader ], [ null, %254 ]
+  %537 = ptrtoint ptr %.sroa.13.0.lcssa688.ph to i64
+  %538 = ptrtoint ptr %.sroa.0328.0.lcssa689.ph to i64
   %539 = sub i64 %537, %538
   %540 = ashr exact i64 %539, 3
   %541 = uitofp i64 %540 to double
@@ -1599,18 +1599,18 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
 ._crit_edge584:                                   ; preds = %.lr.ph583, %._crit_edge577.thread
   %552 = phi double [ %542, %._crit_edge577.thread ], [ %548, %.lr.ph583 ]
   %553 = phi double [ %541, %._crit_edge577.thread ], [ %547, %.lr.ph583 ]
-  %.sroa.0328.0.lcssa644650 = phi ptr [ %.sroa.0328.0.lcssa644.ph, %._crit_edge577.thread ], [ %.sroa.0328.1, %.lr.ph583 ]
+  %.sroa.0328.0.lcssa689695 = phi ptr [ %.sroa.0328.0.lcssa689.ph, %._crit_edge577.thread ], [ %.sroa.0328.1, %.lr.ph583 ]
   %.068.lcssa = phi double [ 0.000000e+00, %._crit_edge577.thread ], [ %588, %.lr.ph583 ]
   %554 = fdiv double %.068.lcssa, %553
   %555 = call double @sqrt(double noundef %554) #20, !tbaa !69
   %sqrt = call double @llvm.sqrt.f64(double %553)
   %556 = fdiv double %555, %sqrt
   %557 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef %552, double noundef %556)
-  %.not.i.i.i303 = icmp eq ptr %.sroa.0328.0.lcssa644650, null
+  %.not.i.i.i303 = icmp eq ptr %.sroa.0328.0.lcssa689695, null
   br i1 %.not.i.i.i303, label %_ZNSt6vectorIdSaIdEED2Ev.exit304, label %558
 
 558:                                              ; preds = %._crit_edge584
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0328.0.lcssa644650) #19
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0328.0.lcssa689695) #19
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit304
 
 _ZNSt6vectorIdSaIdEED2Ev.exit304:                 ; preds = %._crit_edge584, %558

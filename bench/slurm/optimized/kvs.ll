@@ -250,8 +250,8 @@ define dso_local i32 @temp_kvs_send() local_unnamed_addr #0 {
   br i1 %.not, label %8, label %.sink.split
 
 .sink.split:                                      ; preds = %5, %3
-  %.sink12 = phi ptr [ %4, %3 ], [ %6, %5 ]
-  %7 = tail call ptr @slurm_xstrdup(ptr noundef %.sink12) #6
+  %.sink13 = phi ptr [ %4, %3 ], [ %6, %5 ]
+  %7 = tail call ptr @slurm_xstrdup(ptr noundef %.sink13) #6
   store ptr %7, ptr %1, align 8
   br label %8
 

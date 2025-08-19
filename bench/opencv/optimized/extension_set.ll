@@ -1259,17 +1259,17 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet3Ha
 
 10:                                               ; preds = %6
   %.not.i = icmp eq i16 %4, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %10
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %14 = lshr i64 %.01116.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !74
@@ -1431,17 +1431,17 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7Ha
 
 10:                                               ; preds = %6
   %.not.i.i = icmp eq i16 %4, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %10
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %14 = lshr i64 %.01116.i.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !74
@@ -1458,7 +1458,7 @@ _ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15Fir
   %.0.lcssa.i.i.i.i = phi ptr [ %9, %10 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ]
   %22 = load i32, ptr %.0.lcssa.i.i.i.i, align 8, !tbaa !74
   %23 = icmp eq i32 %22, %1
-  br i1 %23, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread4, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread
+  br i1 %23, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread
 
 24:                                               ; preds = %6
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1496,25 +1496,25 @@ _ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit: ; preds = %_ZNSt3mapIiN6
   %37 = trunc i8 %36 to i1
   br i1 %37, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread, label %53
 
-_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread4: ; preds = %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i
+_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5: ; preds = %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 18
   %39 = load i8, ptr %38, align 2
   %40 = trunc i8 %39 to i1
   br i1 %40, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread, label %.thread
 
-.thread:                                          ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread4
+.thread:                                          ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5
   %.not.i = icmp eq i16 %4, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %.thread
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %.thread
   %41 = zext nneg i16 %4 to i64
   %42 = add nuw nsw i64 %41, 576460752303423487
   %43 = and i64 %42, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %43, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %43, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %44 = lshr i64 %.01116.i.i.i, 1
   %45 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !74
@@ -1565,8 +1565,8 @@ _ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %_ZSt1
   %65 = icmp ne i8 %64, 0
   br label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread
 
-_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread: ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread4, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i, %24, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, %2, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, %_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
-  %66 = phi i1 [ false, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit ], [ %65, %_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit ], [ false, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i ], [ false, %2 ], [ false, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ false, %24 ], [ false, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i ], [ false, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread4 ]
+_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread: ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i, %24, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, %2, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, %_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
+  %66 = phi i1 [ false, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit ], [ %65, %_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit ], [ false, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i ], [ false, %2 ], [ false, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ false, %24 ], [ false, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i ], [ false, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5 ]
   ret i1 %66
 }
 
@@ -1639,17 +1639,17 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet13Extensio
 
 10:                                               ; preds = %6
   %.not.i = icmp eq i16 %4, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %10
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %14 = lshr i64 %.01116.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !74
@@ -1842,17 +1842,17 @@ define hidden noundef zeroext i8 @_ZNK6google8protobuf8internal12ExtensionSet13E
 
 14:                                               ; preds = %10
   %.not.i = icmp eq i16 %8, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %18 = lshr i64 %.01116.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -2007,17 +2007,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet14ClearExtensionEi
 
 10:                                               ; preds = %6
   %.not.i.i = icmp eq i16 %4, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %10
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %14 = lshr i64 %.01116.i.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !74
@@ -2092,17 +2092,17 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10FindOrNul
 
 10:                                               ; preds = %6
   %.not.i = icmp eq i16 %4, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %10
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %14 = lshr i64 %.01116.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !74
@@ -2356,17 +2356,17 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt32E
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -2448,17 +2448,17 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -2577,17 +2577,17 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet16GetRepea
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -2703,17 +2703,17 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -2828,17 +2828,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedInt32
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -3035,17 +3035,17 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt64E
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -3127,17 +3127,17 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -3244,17 +3244,17 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet16GetRepea
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -3370,17 +3370,17 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -3495,17 +3495,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedInt64
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -3702,17 +3702,17 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt32
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -3794,17 +3794,17 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -3911,17 +3911,17 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet17GetRepea
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -4037,17 +4037,17 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -4162,17 +4162,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedUInt3
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -4369,17 +4369,17 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt64
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -4461,17 +4461,17 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -4578,17 +4578,17 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet17GetRepea
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -4704,17 +4704,17 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -4829,17 +4829,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedUInt6
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -5036,17 +5036,17 @@ define hidden noundef float @_ZNK6google8protobuf8internal12ExtensionSet8GetFloa
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -5128,17 +5128,17 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -5245,17 +5245,17 @@ define hidden noundef float @_ZNK6google8protobuf8internal12ExtensionSet16GetRep
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -5371,17 +5371,17 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -5496,17 +5496,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedFloat
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -5703,17 +5703,17 @@ define hidden noundef double @_ZNK6google8protobuf8internal12ExtensionSet9GetDou
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -5795,17 +5795,17 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -5912,17 +5912,17 @@ define hidden noundef double @_ZNK6google8protobuf8internal12ExtensionSet17GetRe
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -6038,17 +6038,17 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -6163,17 +6163,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedDoubl
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -6370,17 +6370,17 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7Ge
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -6463,17 +6463,17 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8protob
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -6581,17 +6581,17 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet15G
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -6708,17 +6708,17 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8protob
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -6833,17 +6833,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet15SetRepeatedBoolE
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -7042,17 +7042,17 @@ define hidden noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet19GetRawRe
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -7410,17 +7410,17 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRa
 
 12:                                               ; preds = %8
   %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %12
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !74
@@ -7529,17 +7529,17 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet7GetEnumEi
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -7621,17 +7621,17 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -7738,17 +7738,17 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet15GetRepea
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -7864,17 +7864,17 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -7989,17 +7989,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet15SetRepeatedEnumE
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -8196,17 +8196,17 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8proto
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -8345,17 +8345,17 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8proto
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -8472,17 +8472,17 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet21MutableRe
 
 13:                                               ; preds = %9
   %.not.i.i = icmp eq i16 %7, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %17 = lshr i64 %.01116.i.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -8700,17 +8700,17 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8proto
 
 11:                                               ; preds = %7
   %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %11
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !74
@@ -8855,17 +8855,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet19SetAllocatedMess
 
 15:                                               ; preds = %11
   %.not.i.i.i = icmp eq i16 %9, 1
-  br i1 %.not.i.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i
+  br i1 %.not.i.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i: ; preds = %15
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i: ; preds = %15
   %16 = zext nneg i16 %9 to i64
   %17 = add nuw nsw i64 %16, 576460752303423487
   %18 = and i64 %17, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i
-  %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i ]
-  %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %18, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i
+  %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i ]
+  %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %18, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i ]
   %19 = lshr i64 %.01116.i.i.i.i.i, 1
   %20 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i.i, i64 %19
   %21 = load i32, ptr %20, align 8, !tbaa !74
@@ -9087,17 +9087,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet30UnsafeArenaSetAl
 
 15:                                               ; preds = %11
   %.not.i.i.i = icmp eq i16 %9, 1
-  br i1 %.not.i.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i
+  br i1 %.not.i.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i: ; preds = %15
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i: ; preds = %15
   %16 = zext nneg i16 %9 to i64
   %17 = add nuw nsw i64 %16, 576460752303423487
   %18 = and i64 %17, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i
-  %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i ]
-  %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %18, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i
+  %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i ]
+  %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %18, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i ]
   %19 = lshr i64 %.01116.i.i.i.i.i, 1
   %20 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i.i, i64 %19
   %21 = load i32, ptr %20, align 8, !tbaa !74
@@ -9238,17 +9238,17 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14ReleaseMe
 
 12:                                               ; preds = %8
   %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %12
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !74
@@ -9505,17 +9505,17 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet25UnsafeAre
 
 12:                                               ; preds = %8
   %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %12
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !74
@@ -9686,17 +9686,17 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8proto
 
 13:                                               ; preds = %9
   %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -9813,17 +9813,17 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet22MutableRe
 
 13:                                               ; preds = %9
   %.not.i.i = icmp eq i16 %7, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %13
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %17 = lshr i64 %.01116.i.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !74
@@ -10024,17 +10024,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet10RemoveLastEi(ptr
 
 12:                                               ; preds = %8
   %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %12
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !74
@@ -10255,17 +10255,17 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet11ReleaseLa
 
 12:                                               ; preds = %8
   %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %12
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !74
@@ -10400,17 +10400,17 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet22UnsafeAre
 
 12:                                               ; preds = %8
   %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %12
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !74
@@ -10545,17 +10545,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet12SwapElementsEiii
 
 14:                                               ; preds = %10
   %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %14
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !74
@@ -10988,19 +10988,19 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet12GrowCapacityEm(p
   br label %_ZN6google8protobuf5Arena14CreateInternalISt3mapIiNS0_8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS6_EEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
 
 _ZN6google8protobuf5Arena14CreateInternalISt3mapIiNS0_8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS6_EEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit: ; preds = %25, %29
-  %.sink38 = phi ptr [ %26, %25 ], [ %31, %29 ]
+  %.sink46 = phi ptr [ %26, %25 ], [ %31, %29 ]
   %.sink = phi ptr [ %27, %25 ], [ %34, %29 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink38, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.sink46, i64 32
   store ptr %.sink, ptr %36, align 8, !tbaa !154
-  %37 = getelementptr inbounds nuw i8, ptr %.sink38, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.sink46, i64 40
   store i64 0, ptr %37, align 8, !tbaa !155
   %.not2331 = icmp eq i16 %5, 0
   br i1 %.not2331, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6google8protobuf5Arena14CreateInternalISt3mapIiNS0_8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS6_EEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %39 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %.sink38, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.sink46, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sink46, i64 40
   br label %41
 
 ._crit_edge:                                      ; preds = %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE6insertESt23_Rb_tree_const_iteratorIS9_EOS9_.exit, %_ZN6google8protobuf5Arena14CreateInternalISt3mapIiNS0_8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS6_EEEJEEEPT_PS1_St17integral_constantIbLb0EEDpOT0_.exit
@@ -11015,7 +11015,7 @@ _ZN6google8protobuf5Arena14CreateInternalISt3mapIiNS0_8internal12ExtensionSet9Ex
   %43 = load i32, ptr %.02033, align 4, !tbaa !37
   store i32 %43, ptr %3, align 8, !tbaa !156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !tbaa.struct !158
-  %44 = call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %.sink38, ptr %.sroa.028.032, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %44 = call { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %.sink46, ptr %.sroa.028.032, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %45 = extractvalue { ptr, ptr } %44, 0
   %46 = extractvalue { ptr, ptr } %44, 1
   %.not.i.i.i = icmp eq ptr %46, null
@@ -11074,7 +11074,7 @@ _ZN6google8protobuf5Arena11CreateArrayINS0_8internal12ExtensionSet8KeyValueEEEPT
   br label %_ZSt4copyIPKN6google8protobuf8internal12ExtensionSet8KeyValueEPS4_ET0_T_S9_S8_.exit
 
 _ZSt4copyIPKN6google8protobuf8internal12ExtensionSet8KeyValueEPS4_ET0_T_S9_S8_.exit: ; preds = %64, %_ZN6google8protobuf5Arena11CreateArrayINS0_8internal12ExtensionSet8KeyValueEEEPT_PS1_m.exit, %._crit_edge
-  %.sroa.04.0 = phi ptr [ %.sink38, %._crit_edge ], [ %.014.i, %_ZN6google8protobuf5Arena11CreateArrayINS0_8internal12ExtensionSet8KeyValueEEEPT_PS1_m.exit ], [ %.014.i, %64 ]
+  %.sroa.04.0 = phi ptr [ %.sink46, %._crit_edge ], [ %.014.i, %_ZN6google8protobuf5Arena11CreateArrayINS0_8internal12ExtensionSet8KeyValueEEEPT_PS1_m.exit ], [ %.014.i, %64 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !61
   %66 = icmp ne ptr %65, null
   %67 = icmp eq ptr %18, null
@@ -12352,7 +12352,7 @@ _ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15Field
   %27 = load ptr, ptr %23, align 8, !tbaa !56
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = icmp eq ptr %27, %28
-  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -12364,14 +12364,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %39, label %.thread.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i: ; preds = %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i: ; preds = %_ZN6google8protobuf8internal12ExtensionSet13MutableStringB5cxx11EihPKNS0_15FieldDescriptorE.exit
   %36 = load ptr, ptr %3, align 8, !tbaa !56
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i
 
-39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %40 = phi ptr [ %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %40 = phi ptr [ %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !60
   %43 = icmp ult i64 %42, 16
@@ -12413,7 +12413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i: ;
   store i64 %54, ptr %28, align 8, !tbaa !38
   br label %61
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i
   %55 = load i64, ptr %28, align 8, !tbaa !38
   store ptr %36, ptr %23, align 8, !tbaa !56
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -12852,17 +12852,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet13SwapExtensionEPK
 
 22:                                               ; preds = %18
   %.not.i.i = icmp eq i16 %16, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %22
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %22
   %23 = zext nneg i16 %16 to i64
   %24 = add nuw nsw i64 %23, 576460752303423487
   %25 = and i64 %24, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %21, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %25, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %21, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %25, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %26 = lshr i64 %.01116.i.i.i.i, 1
   %27 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %26
   %28 = load i32, ptr %27, align 8, !tbaa !74
@@ -12930,17 +12930,17 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %14, %_
 
 57:                                               ; preds = %53
   %.not.i.i49 = icmp eq i16 %51, 1
-  br i1 %.not.i.i49, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i58, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i50
+  br i1 %.not.i.i49, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i58, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i50: ; preds = %57
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50: ; preds = %57
   %58 = zext nneg i16 %51 to i64
   %59 = add nuw nsw i64 %58, 576460752303423487
   %60 = and i64 %59, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i50
-  %.017.i.i.i.i52 = phi ptr [ %.1.i.i.i.i57, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51 ], [ %56, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i50 ]
-  %.01116.i.i.i.i53 = phi i64 [ %.112.i.i.i.i56, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51 ], [ %60, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i50 ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50
+  %.017.i.i.i.i52 = phi ptr [ %.1.i.i.i.i57, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51 ], [ %56, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50 ]
+  %.01116.i.i.i.i53 = phi i64 [ %.112.i.i.i.i56, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51 ], [ %60, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50 ]
   %61 = lshr i64 %.01116.i.i.i.i53, 1
   %62 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i52, i64 %61
   %63 = load i32, ptr %62, align 8, !tbaa !74
@@ -13028,17 +13028,17 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73: ; preds = %_ZN6
 
 99:                                               ; preds = %96
   %.not.i.i74 = icmp eq i16 %94, 1
-  br i1 %.not.i.i74, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i83, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i75
+  br i1 %.not.i.i74, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i83, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i75: ; preds = %99
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75: ; preds = %99
   %100 = zext nneg i16 %94 to i64
   %101 = add nuw nsw i64 %100, 576460752303423487
   %102 = and i64 %101, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i75
-  %.017.i.i.i.i77 = phi ptr [ %.1.i.i.i.i82, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76 ], [ %98, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i75 ]
-  %.01116.i.i.i.i78 = phi i64 [ %.112.i.i.i.i81, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76 ], [ %102, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i75 ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75
+  %.017.i.i.i.i77 = phi ptr [ %.1.i.i.i.i82, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76 ], [ %98, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75 ]
+  %.01116.i.i.i.i78 = phi i64 [ %.112.i.i.i.i81, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76 ], [ %102, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75 ]
   %103 = lshr i64 %.01116.i.i.i.i78, 1
   %104 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i77, i64 %103
   %105 = load i32, ptr %104, align 8, !tbaa !74
@@ -13361,17 +13361,17 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet26UnsafeShallowSwa
 
 16:                                               ; preds = %12
   %.not.i.i = icmp eq i16 %10, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i: ; preds = %16
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %16
   %17 = zext nneg i16 %10 to i64
   %18 = add nuw nsw i64 %17, 576460752303423487
   %19 = and i64 %18, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %19, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %19, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
   %20 = lshr i64 %.01116.i.i.i.i, 1
   %21 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %20
   %22 = load i32, ptr %21, align 8, !tbaa !74
@@ -13439,17 +13439,17 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %8, %_Z
 
 51:                                               ; preds = %47
   %.not.i.i31 = icmp eq i16 %45, 1
-  br i1 %.not.i.i31, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i40, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i32
+  br i1 %.not.i.i31, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i40, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i32: ; preds = %51
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32: ; preds = %51
   %52 = zext nneg i16 %45 to i64
   %53 = add nuw nsw i64 %52, 576460752303423487
   %54 = and i64 %53, 576460752303423487
   br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i32
-  %.017.i.i.i.i34 = phi ptr [ %.1.i.i.i.i39, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33 ], [ %50, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i32 ]
-  %.01116.i.i.i.i35 = phi i64 [ %.112.i.i.i.i38, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33 ], [ %54, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.preheader.i32 ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32
+  %.017.i.i.i.i34 = phi ptr [ %.1.i.i.i.i39, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33 ], [ %50, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32 ]
+  %.01116.i.i.i.i35 = phi i64 [ %.112.i.i.i.i38, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33 ], [ %54, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32 ]
   %55 = lshr i64 %.01116.i.i.i.i35, 1
   %56 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i34, i64 %55
   %57 = load i32, ptr %56, align 8, !tbaa !74
@@ -18776,15 +18776,15 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionS
   %.0138.ph = phi ptr [ %1, %5 ], [ %.0138.ph.be, %.thread228.outer.backedge ]
   %.057.ph = phi i1 [ false, %5 ], [ %.057.ph.be, %.thread228.outer.backedge ]
   %.036.ph = phi i32 [ 0, %5 ], [ %.036.ph.be, %.thread228.outer.backedge ]
-  br label %.thread228.outer417
+  br label %.thread228.outer428
 
-.thread228.outer417:                              ; preds = %.thread228.outer, %236
-  %.0138.ph418 = phi ptr [ %.0138.ph, %.thread228.outer ], [ %.0.i.i90, %236 ]
-  %.036.ph419 = phi i32 [ %.036.ph, %.thread228.outer ], [ 0, %236 ]
+.thread228.outer428:                              ; preds = %.thread228.outer, %236
+  %.0138.ph429 = phi ptr [ %.0138.ph, %.thread228.outer ], [ %.0.i.i90, %236 ]
+  %.036.ph430 = phi i32 [ %.036.ph, %.thread228.outer ], [ 0, %236 ]
   br label %.thread228
 
-.thread228:                                       ; preds = %.thread228.outer417, %296
-  %.0138 = phi ptr [ %.0.i107, %296 ], [ %.0138.ph418, %.thread228.outer417 ]
+.thread228:                                       ; preds = %.thread228.outer428, %296
+  %.0138 = phi ptr [ %.0.i107, %296 ], [ %.0138.ph429, %.thread228.outer428 ]
   %42 = load i32, ptr %18, align 4, !tbaa !205
   %43 = load ptr, ptr %4, align 8, !tbaa !207
   %44 = icmp ult ptr %.0138, %43
@@ -19202,11 +19202,11 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11ch
   br i1 %217, label %.thread228.outer.backedge, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
 218:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread149
-  %.not64 = icmp eq i32 %.036.ph419, 0
+  %.not64 = icmp eq i32 %.036.ph430, 0
   br i1 %.not64, label %237, label %219
 
 219:                                              ; preds = %218
-  %220 = shl i32 %.036.ph419, 3
+  %220 = shl i32 %.036.ph430, 3
   %221 = or disjoint i32 %220, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal24GeneratedExtensionFinderE, i64 16), ptr %11, align 8, !tbaa !54
@@ -19215,7 +19215,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11ch
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 15, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %222 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef 2, i32 noundef %.036.ph419, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %12)
+  %222 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef 2, i32 noundef %.036.ph430, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %12)
           to label %.noexc91 unwind label %.loopexit.split-lp
 
 .noexc91:                                         ; preds = %219
@@ -19245,7 +19245,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
 232:                                              ; preds = %.noexc91
   %233 = load i8, ptr %12, align 1, !tbaa !39, !range !104, !noundef !80
   %234 = trunc nuw i8 %233 to i1
-  %235 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27ParseFieldWithExtensionInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcibRKNS1_13ExtensionInfoEPNS1_16InternalMetadataESB_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.036.ph419, i1 noundef zeroext %234, ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %3, ptr noundef nonnull %61, ptr noundef nonnull %4)
+  %235 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27ParseFieldWithExtensionInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcibRKNS1_13ExtensionInfoEPNS1_16InternalMetadataESB_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.036.ph430, i1 noundef zeroext %234, ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %3, ptr noundef nonnull %61, ptr noundef nonnull %4)
           to label %236 unwind label %.loopexit.split-lp
 
 236:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i.i, %232
@@ -19254,9 +19254,9 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not67 = icmp eq ptr %.0.i.i90, null
-  br i1 %.not67, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread228.outer417, !llvm.loop !215
+  br i1 %.not67, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread228.outer428, !llvm.loop !215
 
-.loopexit420:                                     ; preds = %272, %280, %289, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %292
+.loopexit431:                                     ; preds = %272, %280, %289, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %292
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -19346,7 +19346,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %242
 
 272:                                              ; preds = %263
   %273 = invoke { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.4140152, i32 noundef %268)
-          to label %.noexc104 unwind label %.loopexit420
+          to label %.noexc104 unwind label %.loopexit431
 
 .noexc104:                                        ; preds = %272
   %.fca.0.extract.i101 = extractvalue { ptr, i32 } %273, 0
@@ -19378,7 +19378,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %260, %.noexc104, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 15, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   %282 = invoke noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberEiiPNS1_15ExtensionFinderEPNS1_13ExtensionInfoEPb(ptr nonnull align 8 poison, i32 noundef %275, i32 noundef %281, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9)
-          to label %.noexc108 unwind label %.loopexit420
+          to label %.noexc108 unwind label %.loopexit431
 
 .noexc108:                                        ; preds = %280
   br i1 %282, label %292, label %.noexc.i
@@ -19397,18 +19397,18 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %260, %.noexc104, %2
 
 289:                                              ; preds = %.noexc.i
   %290 = invoke noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %.loopexit420
+          to label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i unwind label %.loopexit431
 
 _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %289, %285
   %.0.i.i106 = phi ptr [ %288, %285 ], [ %290, %289 ]
   %291 = invoke noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(i32 noundef %.0141, ptr noundef %.0.i.i106, ptr noundef %.0.i103, ptr noundef nonnull %4)
-          to label %296 unwind label %.loopexit420
+          to label %296 unwind label %.loopexit431
 
 292:                                              ; preds = %.noexc108
   %293 = load i8, ptr %9, align 1, !tbaa !39, !range !104, !noundef !80
   %294 = trunc nuw i8 %293 to i1
   %295 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27ParseFieldWithExtensionInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcibRKNS1_13ExtensionInfoEPNS1_16InternalMetadataESB_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %281, i1 noundef zeroext %294, ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %3, ptr noundef %.0.i103, ptr noundef nonnull %4)
-          to label %296 unwind label %.loopexit420
+          to label %296 unwind label %.loopexit431
 
 296:                                              ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i, %292
   %.0.i107 = phi ptr [ %291, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i ], [ %295, %292 ]
@@ -19438,8 +19438,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret ptr %.9
 
-.body:                                            ; preds = %.loopexit420, %.loopexit.split-lp, %213, %211, %145, %157, %244, %93
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %245, %244 ], [ %214, %213 ], [ %212, %211 ], [ %158, %157 ], [ %.pn.i.i, %145 ], [ %lpad.loopexit, %.loopexit420 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit431, %.loopexit.split-lp, %213, %211, %145, %157, %244, %93
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %245, %244 ], [ %214, %213 ], [ %212, %211 ], [ %158, %157 ], [ %.pn.i.i, %145 ], [ %lpad.loopexit, %.loopexit431 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %301 = load ptr, ptr %14, align 8, !tbaa !56
   %302 = icmp eq ptr %301, %16
   br i1 %302, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i112
@@ -20345,16 +20345,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %20,
   br i1 %35, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, label %.preheader785.preheader
 
 .preheader785.preheader:                          ; preds = %30
-  %scevgep1537 = getelementptr i8, ptr %.0.i367, i64 1
-  %load_initial1538 = load i8, ptr %scevgep1537, align 1
+  %scevgep1590 = getelementptr i8, ptr %.0.i367, i64 1
+  %load_initial1591 = load i8, ptr %scevgep1590, align 1
   br label %.preheader785
 
 .preheader785:                                    ; preds = %.preheader785.preheader, %.preheader785
-  %store_forwarded1539 = phi i8 [ %load_initial1538, %.preheader785.preheader ], [ %40, %.preheader785 ]
+  %store_forwarded1592 = phi i8 [ %load_initial1591, %.preheader785.preheader ], [ %40, %.preheader785 ]
   %.018.i.i = phi i32 [ %32, %.preheader785.preheader ], [ %39, %.preheader785 ]
   %.0.i.i = phi ptr [ %36, %.preheader785.preheader ], [ %41, %.preheader785 ]
   %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
-  %38 = or i8 %store_forwarded1539, -128
+  %38 = or i8 %store_forwarded1592, -128
   store i8 %38, ptr %37, align 1, !tbaa !38
   %39 = lshr i32 %.018.i.i, 7
   %40 = trunc i32 %39 to i8
@@ -20388,16 +20388,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   br i1 %54, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %48
-  %scevgep1534 = getelementptr i8, ptr %.019.i.i, i64 1
-  %load_initial1535 = load i8, ptr %scevgep1534, align 1
+  %scevgep1587 = getelementptr i8, ptr %.019.i.i, i64 1
+  %load_initial1588 = load i8, ptr %scevgep1587, align 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %store_forwarded1536 = phi i8 [ %load_initial1535, %.preheader.i.preheader ], [ %59, %.preheader.i ]
+  %store_forwarded1589 = phi i8 [ %load_initial1588, %.preheader.i.preheader ], [ %59, %.preheader.i ]
   %.018.i.i.i = phi i64 [ %51, %.preheader.i.preheader ], [ %58, %.preheader.i ]
   %.0.i.i.i = phi ptr [ %55, %.preheader.i.preheader ], [ %60, %.preheader.i ]
   %56 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -1
-  %57 = or i8 %store_forwarded1536, -128
+  %57 = or i8 %store_forwarded1589, -128
   store i8 %57, ptr %56, align 1, !tbaa !38
   %58 = lshr i64 %.018.i.i.i, 7
   %59 = trunc i64 %58 to i8
@@ -20625,16 +20625,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit378: ; preds = %
   br i1 %155, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit, label %.preheader754.preheader
 
 .preheader754.preheader:                          ; preds = %150
-  %scevgep1516 = getelementptr i8, ptr %.0.i377, i64 1
-  %load_initial1517 = load i8, ptr %scevgep1516, align 1
+  %scevgep1569 = getelementptr i8, ptr %.0.i377, i64 1
+  %load_initial1570 = load i8, ptr %scevgep1569, align 1
   br label %.preheader754
 
 .preheader754:                                    ; preds = %.preheader754.preheader, %.preheader754
-  %store_forwarded1518 = phi i8 [ %load_initial1517, %.preheader754.preheader ], [ %160, %.preheader754 ]
+  %store_forwarded1571 = phi i8 [ %load_initial1570, %.preheader754.preheader ], [ %160, %.preheader754 ]
   %.018.i.i379 = phi i64 [ %152, %.preheader754.preheader ], [ %159, %.preheader754 ]
   %.0.i.i380 = phi ptr [ %156, %.preheader754.preheader ], [ %161, %.preheader754 ]
   %157 = getelementptr inbounds i8, ptr %.0.i.i380, i64 -1
-  %158 = or i8 %store_forwarded1518, -128
+  %158 = or i8 %store_forwarded1571, -128
   store i8 %158, ptr %157, align 1, !tbaa !38
   %159 = lshr i64 %.018.i.i379, 7
   %160 = trunc i64 %159 to i8
@@ -20693,16 +20693,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit384: ; preds = %
   br i1 %185, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit388, label %.preheader757.preheader
 
 .preheader757.preheader:                          ; preds = %180
-  %scevgep1519 = getelementptr i8, ptr %.0.i383, i64 1
-  %load_initial1520 = load i8, ptr %scevgep1519, align 1
+  %scevgep1572 = getelementptr i8, ptr %.0.i383, i64 1
+  %load_initial1573 = load i8, ptr %scevgep1572, align 1
   br label %.preheader757
 
 .preheader757:                                    ; preds = %.preheader757.preheader, %.preheader757
-  %store_forwarded1521 = phi i8 [ %load_initial1520, %.preheader757.preheader ], [ %190, %.preheader757 ]
+  %store_forwarded1574 = phi i8 [ %load_initial1573, %.preheader757.preheader ], [ %190, %.preheader757 ]
   %.018.i.i385 = phi i32 [ %182, %.preheader757.preheader ], [ %189, %.preheader757 ]
   %.0.i.i386 = phi ptr [ %186, %.preheader757.preheader ], [ %191, %.preheader757 ]
   %187 = getelementptr inbounds i8, ptr %.0.i.i386, i64 -1
-  %188 = or i8 %store_forwarded1521, -128
+  %188 = or i8 %store_forwarded1574, -128
   store i8 %188, ptr %187, align 1, !tbaa !38
   %189 = lshr i32 %.018.i.i385, 7
   %190 = trunc i32 %189 to i8
@@ -20761,16 +20761,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit391: ; preds = %
   br i1 %215, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit395, label %.preheader760.preheader
 
 .preheader760.preheader:                          ; preds = %210
-  %scevgep1522 = getelementptr i8, ptr %.0.i390, i64 1
-  %load_initial1523 = load i8, ptr %scevgep1522, align 1
+  %scevgep1575 = getelementptr i8, ptr %.0.i390, i64 1
+  %load_initial1576 = load i8, ptr %scevgep1575, align 1
   br label %.preheader760
 
 .preheader760:                                    ; preds = %.preheader760.preheader, %.preheader760
-  %store_forwarded1524 = phi i8 [ %load_initial1523, %.preheader760.preheader ], [ %220, %.preheader760 ]
+  %store_forwarded1577 = phi i8 [ %load_initial1576, %.preheader760.preheader ], [ %220, %.preheader760 ]
   %.018.i.i392 = phi i64 [ %212, %.preheader760.preheader ], [ %219, %.preheader760 ]
   %.0.i.i393 = phi ptr [ %216, %.preheader760.preheader ], [ %221, %.preheader760 ]
   %217 = getelementptr inbounds i8, ptr %.0.i.i393, i64 -1
-  %218 = or i8 %store_forwarded1524, -128
+  %218 = or i8 %store_forwarded1577, -128
   store i8 %218, ptr %217, align 1, !tbaa !38
   %219 = lshr i64 %.018.i.i392, 7
   %220 = trunc i64 %219 to i8
@@ -20832,16 +20832,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit398: ; preds = %
   br i1 %248, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit402, label %.preheader763.preheader
 
 .preheader763.preheader:                          ; preds = %243
-  %scevgep1525 = getelementptr i8, ptr %.0.i397, i64 1
-  %load_initial1526 = load i8, ptr %scevgep1525, align 1
+  %scevgep1578 = getelementptr i8, ptr %.0.i397, i64 1
+  %load_initial1579 = load i8, ptr %scevgep1578, align 1
   br label %.preheader763
 
 .preheader763:                                    ; preds = %.preheader763.preheader, %.preheader763
-  %store_forwarded1527 = phi i8 [ %load_initial1526, %.preheader763.preheader ], [ %253, %.preheader763 ]
+  %store_forwarded1580 = phi i8 [ %load_initial1579, %.preheader763.preheader ], [ %253, %.preheader763 ]
   %.018.i.i399 = phi i32 [ %245, %.preheader763.preheader ], [ %252, %.preheader763 ]
   %.0.i.i400 = phi ptr [ %249, %.preheader763.preheader ], [ %254, %.preheader763 ]
   %250 = getelementptr inbounds i8, ptr %.0.i.i400, i64 -1
-  %251 = or i8 %store_forwarded1527, -128
+  %251 = or i8 %store_forwarded1580, -128
   store i8 %251, ptr %250, align 1, !tbaa !38
   %252 = lshr i32 %.018.i.i399, 7
   %253 = trunc i32 %252 to i8
@@ -20903,16 +20903,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit405: ; preds = %
   br i1 %281, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit409, label %.preheader766.preheader
 
 .preheader766.preheader:                          ; preds = %276
-  %scevgep1528 = getelementptr i8, ptr %.0.i404, i64 1
-  %load_initial1529 = load i8, ptr %scevgep1528, align 1
+  %scevgep1581 = getelementptr i8, ptr %.0.i404, i64 1
+  %load_initial1582 = load i8, ptr %scevgep1581, align 1
   br label %.preheader766
 
 .preheader766:                                    ; preds = %.preheader766.preheader, %.preheader766
-  %store_forwarded1530 = phi i8 [ %load_initial1529, %.preheader766.preheader ], [ %286, %.preheader766 ]
+  %store_forwarded1583 = phi i8 [ %load_initial1582, %.preheader766.preheader ], [ %286, %.preheader766 ]
   %.018.i.i406 = phi i64 [ %278, %.preheader766.preheader ], [ %285, %.preheader766 ]
   %.0.i.i407 = phi ptr [ %282, %.preheader766.preheader ], [ %287, %.preheader766 ]
   %283 = getelementptr inbounds i8, ptr %.0.i.i407, i64 -1
-  %284 = or i8 %store_forwarded1530, -128
+  %284 = or i8 %store_forwarded1583, -128
   store i8 %284, ptr %283, align 1, !tbaa !38
   %285 = lshr i64 %.018.i.i406, 7
   %286 = trunc i64 %285 to i8
@@ -21175,16 +21175,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit436: ; preds = %
   br i1 %410, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit441, label %.preheader.i437.preheader
 
 .preheader.i437.preheader:                        ; preds = %404
-  %scevgep1531 = getelementptr i8, ptr %.0.i435, i64 1
-  %load_initial1532 = load i8, ptr %scevgep1531, align 1
+  %scevgep1584 = getelementptr i8, ptr %.0.i435, i64 1
+  %load_initial1585 = load i8, ptr %scevgep1584, align 1
   br label %.preheader.i437
 
 .preheader.i437:                                  ; preds = %.preheader.i437.preheader, %.preheader.i437
-  %store_forwarded1533 = phi i8 [ %load_initial1532, %.preheader.i437.preheader ], [ %415, %.preheader.i437 ]
+  %store_forwarded1586 = phi i8 [ %load_initial1585, %.preheader.i437.preheader ], [ %415, %.preheader.i437 ]
   %.018.i.i.i438 = phi i64 [ %407, %.preheader.i437.preheader ], [ %414, %.preheader.i437 ]
   %.0.i.i.i439 = phi ptr [ %411, %.preheader.i437.preheader ], [ %416, %.preheader.i437 ]
   %412 = getelementptr inbounds i8, ptr %.0.i.i.i439, i64 -1
-  %413 = or i8 %store_forwarded1533, -128
+  %413 = or i8 %store_forwarded1586, -128
   store i8 %413, ptr %412, align 1, !tbaa !38
   %414 = lshr i64 %.018.i.i.i438, 7
   %415 = trunc i64 %414 to i8
@@ -21611,16 +21611,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit444: ; preds = %
   br i1 %641, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit448, label %.preheader786.preheader
 
 .preheader786.preheader:                          ; preds = %654
-  %scevgep1540 = getelementptr i8, ptr %.0.i443, i64 1
-  %load_initial1541 = load i8, ptr %scevgep1540, align 1
+  %scevgep1593 = getelementptr i8, ptr %.0.i443, i64 1
+  %load_initial1594 = load i8, ptr %scevgep1593, align 1
   br label %.preheader786
 
 .preheader786:                                    ; preds = %.preheader786.preheader, %.preheader786
-  %store_forwarded1542 = phi i8 [ %load_initial1541, %.preheader786.preheader ], [ %660, %.preheader786 ]
+  %store_forwarded1595 = phi i8 [ %load_initial1594, %.preheader786.preheader ], [ %660, %.preheader786 ]
   %.018.i.i445 = phi i32 [ %639, %.preheader786.preheader ], [ %659, %.preheader786 ]
   %.0.i.i446 = phi ptr [ %656, %.preheader786.preheader ], [ %661, %.preheader786 ]
   %657 = getelementptr inbounds i8, ptr %.0.i.i446, i64 -1
-  %658 = or i8 %store_forwarded1542, -128
+  %658 = or i8 %store_forwarded1595, -128
   store i8 %658, ptr %657, align 1, !tbaa !38
   %659 = lshr i32 %.018.i.i445, 7
   %660 = trunc i32 %659 to i8
@@ -21653,16 +21653,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit448: ; p
   br i1 %673, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit453, label %.preheader.i449.preheader
 
 .preheader.i449.preheader:                        ; preds = %667
-  %scevgep1543 = getelementptr i8, ptr %.019.i.i447, i64 1
-  %load_initial1544 = load i8, ptr %scevgep1543, align 1
+  %scevgep1596 = getelementptr i8, ptr %.019.i.i447, i64 1
+  %load_initial1597 = load i8, ptr %scevgep1596, align 1
   br label %.preheader.i449
 
 .preheader.i449:                                  ; preds = %.preheader.i449.preheader, %.preheader.i449
-  %store_forwarded1545 = phi i8 [ %load_initial1544, %.preheader.i449.preheader ], [ %678, %.preheader.i449 ]
+  %store_forwarded1598 = phi i8 [ %load_initial1597, %.preheader.i449.preheader ], [ %678, %.preheader.i449 ]
   %.018.i.i.i450 = phi i64 [ %670, %.preheader.i449.preheader ], [ %677, %.preheader.i449 ]
   %.0.i.i.i451 = phi ptr [ %674, %.preheader.i449.preheader ], [ %679, %.preheader.i449 ]
   %675 = getelementptr inbounds i8, ptr %.0.i.i.i451, i64 -1
-  %676 = or i8 %store_forwarded1545, -128
+  %676 = or i8 %store_forwarded1598, -128
   store i8 %676, ptr %675, align 1, !tbaa !38
   %677 = lshr i64 %.018.i.i.i450, 7
   %678 = trunc i64 %677 to i8
@@ -21715,16 +21715,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit456: ; preds = %
   br i1 %631, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit460, label %.preheader790.preheader
 
 .preheader790.preheader:                          ; preds = %697
-  %scevgep1546 = getelementptr i8, ptr %.0.i455, i64 1
-  %load_initial1547 = load i8, ptr %scevgep1546, align 1
+  %scevgep1599 = getelementptr i8, ptr %.0.i455, i64 1
+  %load_initial1600 = load i8, ptr %scevgep1599, align 1
   br label %.preheader790
 
 .preheader790:                                    ; preds = %.preheader790.preheader, %.preheader790
-  %store_forwarded1548 = phi i8 [ %load_initial1547, %.preheader790.preheader ], [ %703, %.preheader790 ]
+  %store_forwarded1601 = phi i8 [ %load_initial1600, %.preheader790.preheader ], [ %703, %.preheader790 ]
   %.018.i.i457 = phi i32 [ %629, %.preheader790.preheader ], [ %702, %.preheader790 ]
   %.0.i.i458 = phi ptr [ %699, %.preheader790.preheader ], [ %704, %.preheader790 ]
   %700 = getelementptr inbounds i8, ptr %.0.i.i458, i64 -1
-  %701 = or i8 %store_forwarded1548, -128
+  %701 = or i8 %store_forwarded1601, -128
   store i8 %701, ptr %700, align 1, !tbaa !38
   %702 = lshr i32 %.018.i.i457, 7
   %703 = trunc i32 %702 to i8
@@ -21756,16 +21756,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit460: ; p
   br i1 %715, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit464, label %.preheader789.preheader
 
 .preheader789.preheader:                          ; preds = %710
-  %scevgep1549 = getelementptr i8, ptr %.019.i.i459, i64 1
-  %load_initial1550 = load i8, ptr %scevgep1549, align 1
+  %scevgep1602 = getelementptr i8, ptr %.019.i.i459, i64 1
+  %load_initial1603 = load i8, ptr %scevgep1602, align 1
   br label %.preheader789
 
 .preheader789:                                    ; preds = %.preheader789.preheader, %.preheader789
-  %store_forwarded1551 = phi i8 [ %load_initial1550, %.preheader789.preheader ], [ %720, %.preheader789 ]
+  %store_forwarded1604 = phi i8 [ %load_initial1603, %.preheader789.preheader ], [ %720, %.preheader789 ]
   %.018.i.i461 = phi i64 [ %712, %.preheader789.preheader ], [ %719, %.preheader789 ]
   %.0.i.i462 = phi ptr [ %716, %.preheader789.preheader ], [ %721, %.preheader789 ]
   %717 = getelementptr inbounds i8, ptr %.0.i.i462, i64 -1
-  %718 = or i8 %store_forwarded1551, -128
+  %718 = or i8 %store_forwarded1604, -128
   store i8 %718, ptr %717, align 1, !tbaa !38
   %719 = lshr i64 %.018.i.i461, 7
   %720 = trunc i64 %719 to i8
@@ -21818,16 +21818,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit467: ; preds = %
   br i1 %621, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit471, label %.preheader794.preheader
 
 .preheader794.preheader:                          ; preds = %739
-  %scevgep1552 = getelementptr i8, ptr %.0.i466, i64 1
-  %load_initial1553 = load i8, ptr %scevgep1552, align 1
+  %scevgep1605 = getelementptr i8, ptr %.0.i466, i64 1
+  %load_initial1606 = load i8, ptr %scevgep1605, align 1
   br label %.preheader794
 
 .preheader794:                                    ; preds = %.preheader794.preheader, %.preheader794
-  %store_forwarded1554 = phi i8 [ %load_initial1553, %.preheader794.preheader ], [ %745, %.preheader794 ]
+  %store_forwarded1607 = phi i8 [ %load_initial1606, %.preheader794.preheader ], [ %745, %.preheader794 ]
   %.018.i.i468 = phi i32 [ %619, %.preheader794.preheader ], [ %744, %.preheader794 ]
   %.0.i.i469 = phi ptr [ %741, %.preheader794.preheader ], [ %746, %.preheader794 ]
   %742 = getelementptr inbounds i8, ptr %.0.i.i469, i64 -1
-  %743 = or i8 %store_forwarded1554, -128
+  %743 = or i8 %store_forwarded1607, -128
   store i8 %743, ptr %742, align 1, !tbaa !38
   %744 = lshr i32 %.018.i.i468, 7
   %745 = trunc i32 %744 to i8
@@ -21859,16 +21859,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit471: ; p
   br i1 %757, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit475, label %.preheader793.preheader
 
 .preheader793.preheader:                          ; preds = %752
-  %scevgep1555 = getelementptr i8, ptr %.019.i.i470, i64 1
-  %load_initial1556 = load i8, ptr %scevgep1555, align 1
+  %scevgep1608 = getelementptr i8, ptr %.019.i.i470, i64 1
+  %load_initial1609 = load i8, ptr %scevgep1608, align 1
   br label %.preheader793
 
 .preheader793:                                    ; preds = %.preheader793.preheader, %.preheader793
-  %store_forwarded1557 = phi i8 [ %load_initial1556, %.preheader793.preheader ], [ %762, %.preheader793 ]
+  %store_forwarded1610 = phi i8 [ %load_initial1609, %.preheader793.preheader ], [ %762, %.preheader793 ]
   %.018.i.i472 = phi i32 [ %754, %.preheader793.preheader ], [ %761, %.preheader793 ]
   %.0.i.i473 = phi ptr [ %758, %.preheader793.preheader ], [ %763, %.preheader793 ]
   %759 = getelementptr inbounds i8, ptr %.0.i.i473, i64 -1
-  %760 = or i8 %store_forwarded1557, -128
+  %760 = or i8 %store_forwarded1610, -128
   store i8 %760, ptr %759, align 1, !tbaa !38
   %761 = lshr i32 %.018.i.i472, 7
   %762 = trunc i32 %761 to i8
@@ -21921,16 +21921,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit478: ; preds = %
   br i1 %611, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit482, label %.preheader798.preheader
 
 .preheader798.preheader:                          ; preds = %781
-  %scevgep1558 = getelementptr i8, ptr %.0.i477, i64 1
-  %load_initial1559 = load i8, ptr %scevgep1558, align 1
+  %scevgep1611 = getelementptr i8, ptr %.0.i477, i64 1
+  %load_initial1612 = load i8, ptr %scevgep1611, align 1
   br label %.preheader798
 
 .preheader798:                                    ; preds = %.preheader798.preheader, %.preheader798
-  %store_forwarded1560 = phi i8 [ %load_initial1559, %.preheader798.preheader ], [ %787, %.preheader798 ]
+  %store_forwarded1613 = phi i8 [ %load_initial1612, %.preheader798.preheader ], [ %787, %.preheader798 ]
   %.018.i.i479 = phi i32 [ %609, %.preheader798.preheader ], [ %786, %.preheader798 ]
   %.0.i.i480 = phi ptr [ %783, %.preheader798.preheader ], [ %788, %.preheader798 ]
   %784 = getelementptr inbounds i8, ptr %.0.i.i480, i64 -1
-  %785 = or i8 %store_forwarded1560, -128
+  %785 = or i8 %store_forwarded1613, -128
   store i8 %785, ptr %784, align 1, !tbaa !38
   %786 = lshr i32 %.018.i.i479, 7
   %787 = trunc i32 %786 to i8
@@ -21962,16 +21962,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit482: ; p
   br i1 %799, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit486, label %.preheader797.preheader
 
 .preheader797.preheader:                          ; preds = %794
-  %scevgep1561 = getelementptr i8, ptr %.019.i.i481, i64 1
-  %load_initial1562 = load i8, ptr %scevgep1561, align 1
+  %scevgep1614 = getelementptr i8, ptr %.019.i.i481, i64 1
+  %load_initial1615 = load i8, ptr %scevgep1614, align 1
   br label %.preheader797
 
 .preheader797:                                    ; preds = %.preheader797.preheader, %.preheader797
-  %store_forwarded1563 = phi i8 [ %load_initial1562, %.preheader797.preheader ], [ %804, %.preheader797 ]
+  %store_forwarded1616 = phi i8 [ %load_initial1615, %.preheader797.preheader ], [ %804, %.preheader797 ]
   %.018.i.i483 = phi i64 [ %796, %.preheader797.preheader ], [ %803, %.preheader797 ]
   %.0.i.i484 = phi ptr [ %800, %.preheader797.preheader ], [ %805, %.preheader797 ]
   %801 = getelementptr inbounds i8, ptr %.0.i.i484, i64 -1
-  %802 = or i8 %store_forwarded1563, -128
+  %802 = or i8 %store_forwarded1616, -128
   store i8 %802, ptr %801, align 1, !tbaa !38
   %803 = lshr i64 %.018.i.i483, 7
   %804 = trunc i64 %803 to i8
@@ -22024,16 +22024,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit489: ; preds = %
   br i1 %601, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit493, label %.preheader802.preheader
 
 .preheader802.preheader:                          ; preds = %823
-  %scevgep1564 = getelementptr i8, ptr %.0.i488, i64 1
-  %load_initial1565 = load i8, ptr %scevgep1564, align 1
+  %scevgep1617 = getelementptr i8, ptr %.0.i488, i64 1
+  %load_initial1618 = load i8, ptr %scevgep1617, align 1
   br label %.preheader802
 
 .preheader802:                                    ; preds = %.preheader802.preheader, %.preheader802
-  %store_forwarded1566 = phi i8 [ %load_initial1565, %.preheader802.preheader ], [ %829, %.preheader802 ]
+  %store_forwarded1619 = phi i8 [ %load_initial1618, %.preheader802.preheader ], [ %829, %.preheader802 ]
   %.018.i.i490 = phi i32 [ %599, %.preheader802.preheader ], [ %828, %.preheader802 ]
   %.0.i.i491 = phi ptr [ %825, %.preheader802.preheader ], [ %830, %.preheader802 ]
   %826 = getelementptr inbounds i8, ptr %.0.i.i491, i64 -1
-  %827 = or i8 %store_forwarded1566, -128
+  %827 = or i8 %store_forwarded1619, -128
   store i8 %827, ptr %826, align 1, !tbaa !38
   %828 = lshr i32 %.018.i.i490, 7
   %829 = trunc i32 %828 to i8
@@ -22068,16 +22068,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit493: ; p
   br i1 %844, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit497, label %.preheader801.preheader
 
 .preheader801.preheader:                          ; preds = %839
-  %scevgep1567 = getelementptr i8, ptr %.019.i.i492, i64 1
-  %load_initial1568 = load i8, ptr %scevgep1567, align 1
+  %scevgep1620 = getelementptr i8, ptr %.019.i.i492, i64 1
+  %load_initial1621 = load i8, ptr %scevgep1620, align 1
   br label %.preheader801
 
 .preheader801:                                    ; preds = %.preheader801.preheader, %.preheader801
-  %store_forwarded1569 = phi i8 [ %load_initial1568, %.preheader801.preheader ], [ %849, %.preheader801 ]
+  %store_forwarded1622 = phi i8 [ %load_initial1621, %.preheader801.preheader ], [ %849, %.preheader801 ]
   %.018.i.i494 = phi i32 [ %841, %.preheader801.preheader ], [ %848, %.preheader801 ]
   %.0.i.i495 = phi ptr [ %845, %.preheader801.preheader ], [ %850, %.preheader801 ]
   %846 = getelementptr inbounds i8, ptr %.0.i.i495, i64 -1
-  %847 = or i8 %store_forwarded1569, -128
+  %847 = or i8 %store_forwarded1622, -128
   store i8 %847, ptr %846, align 1, !tbaa !38
   %848 = lshr i32 %.018.i.i494, 7
   %849 = trunc i32 %848 to i8
@@ -22130,16 +22130,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit500: ; preds = %
   br i1 %591, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit504, label %.preheader806.preheader
 
 .preheader806.preheader:                          ; preds = %868
-  %scevgep1570 = getelementptr i8, ptr %.0.i499, i64 1
-  %load_initial1571 = load i8, ptr %scevgep1570, align 1
+  %scevgep1623 = getelementptr i8, ptr %.0.i499, i64 1
+  %load_initial1624 = load i8, ptr %scevgep1623, align 1
   br label %.preheader806
 
 .preheader806:                                    ; preds = %.preheader806.preheader, %.preheader806
-  %store_forwarded1572 = phi i8 [ %load_initial1571, %.preheader806.preheader ], [ %874, %.preheader806 ]
+  %store_forwarded1625 = phi i8 [ %load_initial1624, %.preheader806.preheader ], [ %874, %.preheader806 ]
   %.018.i.i501 = phi i32 [ %589, %.preheader806.preheader ], [ %873, %.preheader806 ]
   %.0.i.i502 = phi ptr [ %870, %.preheader806.preheader ], [ %875, %.preheader806 ]
   %871 = getelementptr inbounds i8, ptr %.0.i.i502, i64 -1
-  %872 = or i8 %store_forwarded1572, -128
+  %872 = or i8 %store_forwarded1625, -128
   store i8 %872, ptr %871, align 1, !tbaa !38
   %873 = lshr i32 %.018.i.i501, 7
   %874 = trunc i32 %873 to i8
@@ -22174,16 +22174,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit504: ; p
   br i1 %889, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit508, label %.preheader805.preheader
 
 .preheader805.preheader:                          ; preds = %884
-  %scevgep1573 = getelementptr i8, ptr %.019.i.i503, i64 1
-  %load_initial1574 = load i8, ptr %scevgep1573, align 1
+  %scevgep1626 = getelementptr i8, ptr %.019.i.i503, i64 1
+  %load_initial1627 = load i8, ptr %scevgep1626, align 1
   br label %.preheader805
 
 .preheader805:                                    ; preds = %.preheader805.preheader, %.preheader805
-  %store_forwarded1575 = phi i8 [ %load_initial1574, %.preheader805.preheader ], [ %894, %.preheader805 ]
+  %store_forwarded1628 = phi i8 [ %load_initial1627, %.preheader805.preheader ], [ %894, %.preheader805 ]
   %.018.i.i505 = phi i64 [ %886, %.preheader805.preheader ], [ %893, %.preheader805 ]
   %.0.i.i506 = phi ptr [ %890, %.preheader805.preheader ], [ %895, %.preheader805 ]
   %891 = getelementptr inbounds i8, ptr %.0.i.i506, i64 -1
-  %892 = or i8 %store_forwarded1575, -128
+  %892 = or i8 %store_forwarded1628, -128
   store i8 %892, ptr %891, align 1, !tbaa !38
   %893 = lshr i64 %.018.i.i505, 7
   %894 = trunc i64 %893 to i8
@@ -22236,16 +22236,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit511: ; preds = %
   br i1 %581, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit515, label %.preheader809.preheader
 
 .preheader809.preheader:                          ; preds = %913
-  %scevgep1576 = getelementptr i8, ptr %.0.i510, i64 1
-  %load_initial1577 = load i8, ptr %scevgep1576, align 1
+  %scevgep1629 = getelementptr i8, ptr %.0.i510, i64 1
+  %load_initial1630 = load i8, ptr %scevgep1629, align 1
   br label %.preheader809
 
 .preheader809:                                    ; preds = %.preheader809.preheader, %.preheader809
-  %store_forwarded1578 = phi i8 [ %load_initial1577, %.preheader809.preheader ], [ %919, %.preheader809 ]
+  %store_forwarded1631 = phi i8 [ %load_initial1630, %.preheader809.preheader ], [ %919, %.preheader809 ]
   %.018.i.i512 = phi i32 [ %579, %.preheader809.preheader ], [ %918, %.preheader809 ]
   %.0.i.i513 = phi ptr [ %915, %.preheader809.preheader ], [ %920, %.preheader809 ]
   %916 = getelementptr inbounds i8, ptr %.0.i.i513, i64 -1
-  %917 = or i8 %store_forwarded1578, -128
+  %917 = or i8 %store_forwarded1631, -128
   store i8 %917, ptr %916, align 1, !tbaa !38
   %918 = lshr i32 %.018.i.i512, 7
   %919 = trunc i32 %918 to i8
@@ -22300,16 +22300,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit518: ; preds = %
   br i1 %570, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit522, label %.preheader812.preheader
 
 .preheader812.preheader:                          ; preds = %939
-  %scevgep1579 = getelementptr i8, ptr %.0.i517, i64 1
-  %load_initial1580 = load i8, ptr %scevgep1579, align 1
+  %scevgep1632 = getelementptr i8, ptr %.0.i517, i64 1
+  %load_initial1633 = load i8, ptr %scevgep1632, align 1
   br label %.preheader812
 
 .preheader812:                                    ; preds = %.preheader812.preheader, %.preheader812
-  %store_forwarded1581 = phi i8 [ %load_initial1580, %.preheader812.preheader ], [ %945, %.preheader812 ]
+  %store_forwarded1634 = phi i8 [ %load_initial1633, %.preheader812.preheader ], [ %945, %.preheader812 ]
   %.018.i.i519 = phi i32 [ %568, %.preheader812.preheader ], [ %944, %.preheader812 ]
   %.0.i.i520 = phi ptr [ %941, %.preheader812.preheader ], [ %946, %.preheader812 ]
   %942 = getelementptr inbounds i8, ptr %.0.i.i520, i64 -1
-  %943 = or i8 %store_forwarded1581, -128
+  %943 = or i8 %store_forwarded1634, -128
   store i8 %943, ptr %942, align 1, !tbaa !38
   %944 = lshr i32 %.018.i.i519, 7
   %945 = trunc i32 %944 to i8
@@ -22364,16 +22364,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit525: ; preds = %
   br i1 %559, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit529, label %.preheader815.preheader
 
 .preheader815.preheader:                          ; preds = %965
-  %scevgep1582 = getelementptr i8, ptr %.0.i524, i64 1
-  %load_initial1583 = load i8, ptr %scevgep1582, align 1
+  %scevgep1635 = getelementptr i8, ptr %.0.i524, i64 1
+  %load_initial1636 = load i8, ptr %scevgep1635, align 1
   br label %.preheader815
 
 .preheader815:                                    ; preds = %.preheader815.preheader, %.preheader815
-  %store_forwarded1584 = phi i8 [ %load_initial1583, %.preheader815.preheader ], [ %971, %.preheader815 ]
+  %store_forwarded1637 = phi i8 [ %load_initial1636, %.preheader815.preheader ], [ %971, %.preheader815 ]
   %.018.i.i526 = phi i32 [ %557, %.preheader815.preheader ], [ %970, %.preheader815 ]
   %.0.i.i527 = phi ptr [ %967, %.preheader815.preheader ], [ %972, %.preheader815 ]
   %968 = getelementptr inbounds i8, ptr %.0.i.i527, i64 -1
-  %969 = or i8 %store_forwarded1584, -128
+  %969 = or i8 %store_forwarded1637, -128
   store i8 %969, ptr %968, align 1, !tbaa !38
   %970 = lshr i32 %.018.i.i526, 7
   %971 = trunc i32 %970 to i8
@@ -22428,16 +22428,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit532: ; preds = %
   br i1 %548, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit536, label %.preheader818.preheader
 
 .preheader818.preheader:                          ; preds = %991
-  %scevgep1585 = getelementptr i8, ptr %.0.i531, i64 1
-  %load_initial1586 = load i8, ptr %scevgep1585, align 1
+  %scevgep1638 = getelementptr i8, ptr %.0.i531, i64 1
+  %load_initial1639 = load i8, ptr %scevgep1638, align 1
   br label %.preheader818
 
 .preheader818:                                    ; preds = %.preheader818.preheader, %.preheader818
-  %store_forwarded1587 = phi i8 [ %load_initial1586, %.preheader818.preheader ], [ %997, %.preheader818 ]
+  %store_forwarded1640 = phi i8 [ %load_initial1639, %.preheader818.preheader ], [ %997, %.preheader818 ]
   %.018.i.i533 = phi i32 [ %546, %.preheader818.preheader ], [ %996, %.preheader818 ]
   %.0.i.i534 = phi ptr [ %993, %.preheader818.preheader ], [ %998, %.preheader818 ]
   %994 = getelementptr inbounds i8, ptr %.0.i.i534, i64 -1
-  %995 = or i8 %store_forwarded1587, -128
+  %995 = or i8 %store_forwarded1640, -128
   store i8 %995, ptr %994, align 1, !tbaa !38
   %996 = lshr i32 %.018.i.i533, 7
   %997 = trunc i32 %996 to i8
@@ -22492,16 +22492,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit539: ; preds = %
   br i1 %537, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit543, label %.preheader821.preheader
 
 .preheader821.preheader:                          ; preds = %1017
-  %scevgep1588 = getelementptr i8, ptr %.0.i538, i64 1
-  %load_initial1589 = load i8, ptr %scevgep1588, align 1
+  %scevgep1641 = getelementptr i8, ptr %.0.i538, i64 1
+  %load_initial1642 = load i8, ptr %scevgep1641, align 1
   br label %.preheader821
 
 .preheader821:                                    ; preds = %.preheader821.preheader, %.preheader821
-  %store_forwarded1590 = phi i8 [ %load_initial1589, %.preheader821.preheader ], [ %1023, %.preheader821 ]
+  %store_forwarded1643 = phi i8 [ %load_initial1642, %.preheader821.preheader ], [ %1023, %.preheader821 ]
   %.018.i.i540 = phi i32 [ %535, %.preheader821.preheader ], [ %1022, %.preheader821 ]
   %.0.i.i541 = phi ptr [ %1019, %.preheader821.preheader ], [ %1024, %.preheader821 ]
   %1020 = getelementptr inbounds i8, ptr %.0.i.i541, i64 -1
-  %1021 = or i8 %store_forwarded1590, -128
+  %1021 = or i8 %store_forwarded1643, -128
   store i8 %1021, ptr %1020, align 1, !tbaa !38
   %1022 = lshr i32 %.018.i.i540, 7
   %1023 = trunc i32 %1022 to i8
@@ -22556,16 +22556,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit546: ; preds = %
   br i1 %526, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit550, label %.preheader824.preheader
 
 .preheader824.preheader:                          ; preds = %1043
-  %scevgep1591 = getelementptr i8, ptr %.0.i545, i64 1
-  %load_initial1592 = load i8, ptr %scevgep1591, align 1
+  %scevgep1644 = getelementptr i8, ptr %.0.i545, i64 1
+  %load_initial1645 = load i8, ptr %scevgep1644, align 1
   br label %.preheader824
 
 .preheader824:                                    ; preds = %.preheader824.preheader, %.preheader824
-  %store_forwarded1593 = phi i8 [ %load_initial1592, %.preheader824.preheader ], [ %1049, %.preheader824 ]
+  %store_forwarded1646 = phi i8 [ %load_initial1645, %.preheader824.preheader ], [ %1049, %.preheader824 ]
   %.018.i.i547 = phi i32 [ %524, %.preheader824.preheader ], [ %1048, %.preheader824 ]
   %.0.i.i548 = phi ptr [ %1045, %.preheader824.preheader ], [ %1050, %.preheader824 ]
   %1046 = getelementptr inbounds i8, ptr %.0.i.i548, i64 -1
-  %1047 = or i8 %store_forwarded1593, -128
+  %1047 = or i8 %store_forwarded1646, -128
   store i8 %1047, ptr %1046, align 1, !tbaa !38
   %1048 = lshr i32 %.018.i.i547, 7
   %1049 = trunc i32 %1048 to i8
@@ -22620,16 +22620,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit553: ; preds = %
   br i1 %515, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit557, label %.preheader827.preheader
 
 .preheader827.preheader:                          ; preds = %1069
-  %scevgep1594 = getelementptr i8, ptr %.0.i552, i64 1
-  %load_initial1595 = load i8, ptr %scevgep1594, align 1
+  %scevgep1647 = getelementptr i8, ptr %.0.i552, i64 1
+  %load_initial1648 = load i8, ptr %scevgep1647, align 1
   br label %.preheader827
 
 .preheader827:                                    ; preds = %.preheader827.preheader, %.preheader827
-  %store_forwarded1596 = phi i8 [ %load_initial1595, %.preheader827.preheader ], [ %1075, %.preheader827 ]
+  %store_forwarded1649 = phi i8 [ %load_initial1648, %.preheader827.preheader ], [ %1075, %.preheader827 ]
   %.018.i.i554 = phi i32 [ %513, %.preheader827.preheader ], [ %1074, %.preheader827 ]
   %.0.i.i555 = phi ptr [ %1071, %.preheader827.preheader ], [ %1076, %.preheader827 ]
   %1072 = getelementptr inbounds i8, ptr %.0.i.i555, i64 -1
-  %1073 = or i8 %store_forwarded1596, -128
+  %1073 = or i8 %store_forwarded1649, -128
   store i8 %1073, ptr %1072, align 1, !tbaa !38
   %1074 = lshr i32 %.018.i.i554, 7
   %1075 = trunc i32 %1074 to i8
@@ -22684,16 +22684,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit563: ; preds = %
   br i1 %505, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit567, label %.preheader830.preheader
 
 .preheader830.preheader:                          ; preds = %1095
-  %scevgep1597 = getelementptr i8, ptr %.0.i562, i64 1
-  %load_initial1598 = load i8, ptr %scevgep1597, align 1
+  %scevgep1650 = getelementptr i8, ptr %.0.i562, i64 1
+  %load_initial1651 = load i8, ptr %scevgep1650, align 1
   br label %.preheader830
 
 .preheader830:                                    ; preds = %.preheader830.preheader, %.preheader830
-  %store_forwarded1599 = phi i8 [ %load_initial1598, %.preheader830.preheader ], [ %1101, %.preheader830 ]
+  %store_forwarded1652 = phi i8 [ %load_initial1651, %.preheader830.preheader ], [ %1101, %.preheader830 ]
   %.018.i.i564 = phi i32 [ %503, %.preheader830.preheader ], [ %1100, %.preheader830 ]
   %.0.i.i565 = phi ptr [ %1097, %.preheader830.preheader ], [ %1102, %.preheader830 ]
   %1098 = getelementptr inbounds i8, ptr %.0.i.i565, i64 -1
-  %1099 = or i8 %store_forwarded1599, -128
+  %1099 = or i8 %store_forwarded1652, -128
   store i8 %1099, ptr %1098, align 1, !tbaa !38
   %1100 = lshr i32 %.018.i.i564, 7
   %1101 = trunc i32 %1100 to i8
@@ -22726,16 +22726,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit567: ; p
   br i1 %1114, label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit572, label %.preheader.i568.preheader
 
 .preheader.i568.preheader:                        ; preds = %1108
-  %scevgep1600 = getelementptr i8, ptr %.019.i.i566, i64 1
-  %load_initial1601 = load i8, ptr %scevgep1600, align 1
+  %scevgep1653 = getelementptr i8, ptr %.019.i.i566, i64 1
+  %load_initial1654 = load i8, ptr %scevgep1653, align 1
   br label %.preheader.i568
 
 .preheader.i568:                                  ; preds = %.preheader.i568.preheader, %.preheader.i568
-  %store_forwarded1602 = phi i8 [ %load_initial1601, %.preheader.i568.preheader ], [ %1119, %.preheader.i568 ]
+  %store_forwarded1655 = phi i8 [ %load_initial1654, %.preheader.i568.preheader ], [ %1119, %.preheader.i568 ]
   %.018.i.i.i569 = phi i64 [ %1111, %.preheader.i568.preheader ], [ %1118, %.preheader.i568 ]
   %.0.i.i.i570 = phi ptr [ %1115, %.preheader.i568.preheader ], [ %1120, %.preheader.i568 ]
   %1116 = getelementptr inbounds i8, ptr %.0.i.i.i570, i64 -1
-  %1117 = or i8 %store_forwarded1602, -128
+  %1117 = or i8 %store_forwarded1655, -128
   store i8 %1117, ptr %1116, align 1, !tbaa !38
   %1118 = lshr i64 %.018.i.i.i569, 7
   %1119 = trunc i64 %1118 to i8
@@ -22806,19 +22806,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit: ; preds = %_ZN6googl
   %1152 = getelementptr inbounds nuw i8, ptr %.0.i574, i64 1
   store i8 %491, ptr %1152, align 1, !tbaa !38
   %1153 = getelementptr inbounds nuw i8, ptr %.0.i574, i64 2
-  br i1 %484, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit366, label %.preheader1429
+  br i1 %484, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit366, label %.preheader1482
 
-.preheader1429:                                   ; preds = %1151
-  %scevgep1603 = getelementptr i8, ptr %.0.i574, i64 1
-  %load_initial1604 = load i8, ptr %scevgep1603, align 1
+.preheader1482:                                   ; preds = %1151
+  %scevgep1656 = getelementptr i8, ptr %.0.i574, i64 1
+  %load_initial1657 = load i8, ptr %scevgep1656, align 1
   br label %1154
 
-1154:                                             ; preds = %.preheader1429, %1154
-  %store_forwarded1605 = phi i8 [ %load_initial1604, %.preheader1429 ], [ %1158, %1154 ]
-  %.018.i363 = phi i32 [ %490, %.preheader1429 ], [ %1157, %1154 ]
-  %.0.i364 = phi ptr [ %1153, %.preheader1429 ], [ %1159, %1154 ]
+1154:                                             ; preds = %.preheader1482, %1154
+  %store_forwarded1658 = phi i8 [ %load_initial1657, %.preheader1482 ], [ %1158, %1154 ]
+  %.018.i363 = phi i32 [ %490, %.preheader1482 ], [ %1157, %1154 ]
+  %.0.i364 = phi ptr [ %1153, %.preheader1482 ], [ %1159, %1154 ]
   %1155 = getelementptr inbounds i8, ptr %.0.i364, i64 -1
-  %1156 = or i8 %store_forwarded1605, -128
+  %1156 = or i8 %store_forwarded1658, -128
   store i8 %1156, ptr %1155, align 1, !tbaa !38
   %1157 = lshr i32 %.018.i363, 7
   %1158 = trunc i32 %1157 to i8
@@ -22900,19 +22900,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit579: ; preds = %_ZN6go
   %1196 = getelementptr inbounds nuw i8, ptr %.0.i577, i64 1
   store i8 %473, ptr %1196, align 1, !tbaa !38
   %1197 = getelementptr inbounds nuw i8, ptr %.0.i577, i64 2
-  br i1 %466, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit362, label %.preheader1431
+  br i1 %466, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit362, label %.preheader1484
 
-.preheader1431:                                   ; preds = %1195
-  %scevgep1606 = getelementptr i8, ptr %.0.i577, i64 1
-  %load_initial1607 = load i8, ptr %scevgep1606, align 1
+.preheader1484:                                   ; preds = %1195
+  %scevgep1659 = getelementptr i8, ptr %.0.i577, i64 1
+  %load_initial1660 = load i8, ptr %scevgep1659, align 1
   br label %1198
 
-1198:                                             ; preds = %.preheader1431, %1198
-  %store_forwarded1608 = phi i8 [ %load_initial1607, %.preheader1431 ], [ %1202, %1198 ]
-  %.018.i359 = phi i32 [ %472, %.preheader1431 ], [ %1201, %1198 ]
-  %.0.i360 = phi ptr [ %1197, %.preheader1431 ], [ %1203, %1198 ]
+1198:                                             ; preds = %.preheader1484, %1198
+  %store_forwarded1661 = phi i8 [ %load_initial1660, %.preheader1484 ], [ %1202, %1198 ]
+  %.018.i359 = phi i32 [ %472, %.preheader1484 ], [ %1201, %1198 ]
+  %.0.i360 = phi ptr [ %1197, %.preheader1484 ], [ %1203, %1198 ]
   %1199 = getelementptr inbounds i8, ptr %.0.i360, i64 -1
-  %1200 = or i8 %store_forwarded1608, -128
+  %1200 = or i8 %store_forwarded1661, -128
   store i8 %1200, ptr %1199, align 1, !tbaa !38
   %1201 = lshr i32 %.018.i359, 7
   %1202 = trunc i32 %1201 to i8
@@ -22977,16 +22977,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit582: ; preds = %
   br i1 %457, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit586, label %.preheader838.preheader
 
 .preheader838.preheader:                          ; preds = %1227
-  %scevgep1609 = getelementptr i8, ptr %.0.i581, i64 1
-  %load_initial1610 = load i8, ptr %scevgep1609, align 1
+  %scevgep1662 = getelementptr i8, ptr %.0.i581, i64 1
+  %load_initial1663 = load i8, ptr %scevgep1662, align 1
   br label %.preheader838
 
 .preheader838:                                    ; preds = %.preheader838.preheader, %.preheader838
-  %store_forwarded1611 = phi i8 [ %load_initial1610, %.preheader838.preheader ], [ %1233, %.preheader838 ]
+  %store_forwarded1664 = phi i8 [ %load_initial1663, %.preheader838.preheader ], [ %1233, %.preheader838 ]
   %.018.i.i583 = phi i32 [ %455, %.preheader838.preheader ], [ %1232, %.preheader838 ]
   %.0.i.i584 = phi ptr [ %1229, %.preheader838.preheader ], [ %1234, %.preheader838 ]
   %1230 = getelementptr inbounds i8, ptr %.0.i.i584, i64 -1
-  %1231 = or i8 %store_forwarded1611, -128
+  %1231 = or i8 %store_forwarded1664, -128
   store i8 %1231, ptr %1230, align 1, !tbaa !38
   %1232 = lshr i32 %.018.i.i583, 7
   %1233 = trunc i32 %1232 to i8
@@ -23026,16 +23026,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit589: ; preds = %
   br i1 %457, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit593, label %.preheader837.preheader
 
 .preheader837.preheader:                          ; preds = %1245
-  %scevgep1612 = getelementptr i8, ptr %.0.i588, i64 1
-  %load_initial1613 = load i8, ptr %scevgep1612, align 1
+  %scevgep1665 = getelementptr i8, ptr %.0.i588, i64 1
+  %load_initial1666 = load i8, ptr %scevgep1665, align 1
   br label %.preheader837
 
 .preheader837:                                    ; preds = %.preheader837.preheader, %.preheader837
-  %store_forwarded1614 = phi i8 [ %load_initial1613, %.preheader837.preheader ], [ %1251, %.preheader837 ]
+  %store_forwarded1667 = phi i8 [ %load_initial1666, %.preheader837.preheader ], [ %1251, %.preheader837 ]
   %.018.i.i590 = phi i32 [ %455, %.preheader837.preheader ], [ %1250, %.preheader837 ]
   %.0.i.i591 = phi ptr [ %1247, %.preheader837.preheader ], [ %1252, %.preheader837 ]
   %1248 = getelementptr inbounds i8, ptr %.0.i.i591, i64 -1
-  %1249 = or i8 %store_forwarded1614, -128
+  %1249 = or i8 %store_forwarded1667, -128
   store i8 %1249, ptr %1248, align 1, !tbaa !38
   %1250 = lshr i32 %.018.i.i590, 7
   %1251 = trunc i32 %1250 to i8
@@ -23090,16 +23090,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit596: ; preds = %
   br i1 %445, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit600, label %.preheader841.preheader
 
 .preheader841.preheader:                          ; preds = %1272
-  %scevgep1615 = getelementptr i8, ptr %.0.i595, i64 1
-  %load_initial1616 = load i8, ptr %scevgep1615, align 1
+  %scevgep1668 = getelementptr i8, ptr %.0.i595, i64 1
+  %load_initial1669 = load i8, ptr %scevgep1668, align 1
   br label %.preheader841
 
 .preheader841:                                    ; preds = %.preheader841.preheader, %.preheader841
-  %store_forwarded1617 = phi i8 [ %load_initial1616, %.preheader841.preheader ], [ %1278, %.preheader841 ]
+  %store_forwarded1670 = phi i8 [ %load_initial1669, %.preheader841.preheader ], [ %1278, %.preheader841 ]
   %.018.i.i597 = phi i32 [ %443, %.preheader841.preheader ], [ %1277, %.preheader841 ]
   %.0.i.i598 = phi ptr [ %1274, %.preheader841.preheader ], [ %1279, %.preheader841 ]
   %1275 = getelementptr inbounds i8, ptr %.0.i.i598, i64 -1
-  %1276 = or i8 %store_forwarded1617, -128
+  %1276 = or i8 %store_forwarded1670, -128
   store i8 %1276, ptr %1275, align 1, !tbaa !38
   %1277 = lshr i32 %.018.i.i597, 7
   %1278 = trunc i32 %1277 to i8
@@ -23205,16 +23205,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit604: ; preds = %
   br i1 %1322, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit608, label %.preheader844.preheader
 
 .preheader844.preheader:                          ; preds = %1317
-  %scevgep1618 = getelementptr i8, ptr %.0.i603, i64 1
-  %load_initial1619 = load i8, ptr %scevgep1618, align 1
+  %scevgep1671 = getelementptr i8, ptr %.0.i603, i64 1
+  %load_initial1672 = load i8, ptr %scevgep1671, align 1
   br label %.preheader844
 
 .preheader844:                                    ; preds = %.preheader844.preheader, %.preheader844
-  %store_forwarded1620 = phi i8 [ %load_initial1619, %.preheader844.preheader ], [ %1327, %.preheader844 ]
+  %store_forwarded1673 = phi i8 [ %load_initial1672, %.preheader844.preheader ], [ %1327, %.preheader844 ]
   %.018.i.i605 = phi i32 [ %1319, %.preheader844.preheader ], [ %1326, %.preheader844 ]
   %.0.i.i606 = phi ptr [ %1323, %.preheader844.preheader ], [ %1328, %.preheader844 ]
   %1324 = getelementptr inbounds i8, ptr %.0.i.i606, i64 -1
-  %1325 = or i8 %store_forwarded1620, -128
+  %1325 = or i8 %store_forwarded1673, -128
   store i8 %1325, ptr %1324, align 1, !tbaa !38
   %1326 = lshr i32 %.018.i.i605, 7
   %1327 = trunc i32 %1326 to i8
@@ -23262,16 +23262,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit611: ; preds = %
   br i1 %1346, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit615, label %.preheader847.preheader
 
 .preheader847.preheader:                          ; preds = %1341
-  %scevgep1624 = getelementptr i8, ptr %.0.i610, i64 1
-  %load_initial1625 = load i8, ptr %scevgep1624, align 1
+  %scevgep1677 = getelementptr i8, ptr %.0.i610, i64 1
+  %load_initial1678 = load i8, ptr %scevgep1677, align 1
   br label %.preheader847
 
 .preheader847:                                    ; preds = %.preheader847.preheader, %.preheader847
-  %store_forwarded1626 = phi i8 [ %load_initial1625, %.preheader847.preheader ], [ %1351, %.preheader847 ]
+  %store_forwarded1679 = phi i8 [ %load_initial1678, %.preheader847.preheader ], [ %1351, %.preheader847 ]
   %.018.i.i612 = phi i32 [ %1343, %.preheader847.preheader ], [ %1350, %.preheader847 ]
   %.0.i.i613 = phi ptr [ %1347, %.preheader847.preheader ], [ %1352, %.preheader847 ]
   %1348 = getelementptr inbounds i8, ptr %.0.i.i613, i64 -1
-  %1349 = or i8 %store_forwarded1626, -128
+  %1349 = or i8 %store_forwarded1679, -128
   store i8 %1349, ptr %1348, align 1, !tbaa !38
   %1350 = lshr i32 %.018.i.i612, 7
   %1351 = trunc i32 %1350 to i8
@@ -23303,16 +23303,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit615: ; p
   br i1 %1363, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit619, label %.preheader845.preheader
 
 .preheader845.preheader:                          ; preds = %1358
-  %scevgep1621 = getelementptr i8, ptr %.019.i.i614, i64 1
-  %load_initial1622 = load i8, ptr %scevgep1621, align 1
+  %scevgep1674 = getelementptr i8, ptr %.019.i.i614, i64 1
+  %load_initial1675 = load i8, ptr %scevgep1674, align 1
   br label %.preheader845
 
 .preheader845:                                    ; preds = %.preheader845.preheader, %.preheader845
-  %store_forwarded1623 = phi i8 [ %load_initial1622, %.preheader845.preheader ], [ %1368, %.preheader845 ]
+  %store_forwarded1676 = phi i8 [ %load_initial1675, %.preheader845.preheader ], [ %1368, %.preheader845 ]
   %.018.i.i616 = phi i64 [ %1360, %.preheader845.preheader ], [ %1367, %.preheader845 ]
   %.0.i.i617 = phi ptr [ %1364, %.preheader845.preheader ], [ %1369, %.preheader845 ]
   %1365 = getelementptr inbounds i8, ptr %.0.i.i617, i64 -1
-  %1366 = or i8 %store_forwarded1623, -128
+  %1366 = or i8 %store_forwarded1676, -128
   store i8 %1366, ptr %1365, align 1, !tbaa !38
   %1367 = lshr i64 %.018.i.i616, 7
   %1368 = trunc i64 %1367 to i8
@@ -23355,16 +23355,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit622: ; preds = %
   br i1 %1386, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit626, label %.preheader850.preheader
 
 .preheader850.preheader:                          ; preds = %1381
-  %scevgep1630 = getelementptr i8, ptr %.0.i621, i64 1
-  %load_initial1631 = load i8, ptr %scevgep1630, align 1
+  %scevgep1683 = getelementptr i8, ptr %.0.i621, i64 1
+  %load_initial1684 = load i8, ptr %scevgep1683, align 1
   br label %.preheader850
 
 .preheader850:                                    ; preds = %.preheader850.preheader, %.preheader850
-  %store_forwarded1632 = phi i8 [ %load_initial1631, %.preheader850.preheader ], [ %1391, %.preheader850 ]
+  %store_forwarded1685 = phi i8 [ %load_initial1684, %.preheader850.preheader ], [ %1391, %.preheader850 ]
   %.018.i.i623 = phi i32 [ %1383, %.preheader850.preheader ], [ %1390, %.preheader850 ]
   %.0.i.i624 = phi ptr [ %1387, %.preheader850.preheader ], [ %1392, %.preheader850 ]
   %1388 = getelementptr inbounds i8, ptr %.0.i.i624, i64 -1
-  %1389 = or i8 %store_forwarded1632, -128
+  %1389 = or i8 %store_forwarded1685, -128
   store i8 %1389, ptr %1388, align 1, !tbaa !38
   %1390 = lshr i32 %.018.i.i623, 7
   %1391 = trunc i32 %1390 to i8
@@ -23396,16 +23396,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit626: ; p
   br i1 %1403, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit619, label %.preheader848.preheader
 
 .preheader848.preheader:                          ; preds = %1398
-  %scevgep1627 = getelementptr i8, ptr %.019.i.i625, i64 1
-  %load_initial1628 = load i8, ptr %scevgep1627, align 1
+  %scevgep1680 = getelementptr i8, ptr %.019.i.i625, i64 1
+  %load_initial1681 = load i8, ptr %scevgep1680, align 1
   br label %.preheader848
 
 .preheader848:                                    ; preds = %.preheader848.preheader, %.preheader848
-  %store_forwarded1629 = phi i8 [ %load_initial1628, %.preheader848.preheader ], [ %1408, %.preheader848 ]
+  %store_forwarded1682 = phi i8 [ %load_initial1681, %.preheader848.preheader ], [ %1408, %.preheader848 ]
   %.018.i.i627 = phi i32 [ %1400, %.preheader848.preheader ], [ %1407, %.preheader848 ]
   %.0.i.i628 = phi ptr [ %1404, %.preheader848.preheader ], [ %1409, %.preheader848 ]
   %1405 = getelementptr inbounds i8, ptr %.0.i.i628, i64 -1
-  %1406 = or i8 %store_forwarded1629, -128
+  %1406 = or i8 %store_forwarded1682, -128
   store i8 %1406, ptr %1405, align 1, !tbaa !38
   %1407 = lshr i32 %.018.i.i627, 7
   %1408 = trunc i32 %1407 to i8
@@ -23448,16 +23448,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit633: ; preds = %
   br i1 %1426, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit637, label %.preheader853.preheader
 
 .preheader853.preheader:                          ; preds = %1421
-  %scevgep1636 = getelementptr i8, ptr %.0.i632, i64 1
-  %load_initial1637 = load i8, ptr %scevgep1636, align 1
+  %scevgep1689 = getelementptr i8, ptr %.0.i632, i64 1
+  %load_initial1690 = load i8, ptr %scevgep1689, align 1
   br label %.preheader853
 
 .preheader853:                                    ; preds = %.preheader853.preheader, %.preheader853
-  %store_forwarded1638 = phi i8 [ %load_initial1637, %.preheader853.preheader ], [ %1431, %.preheader853 ]
+  %store_forwarded1691 = phi i8 [ %load_initial1690, %.preheader853.preheader ], [ %1431, %.preheader853 ]
   %.018.i.i634 = phi i32 [ %1423, %.preheader853.preheader ], [ %1430, %.preheader853 ]
   %.0.i.i635 = phi ptr [ %1427, %.preheader853.preheader ], [ %1432, %.preheader853 ]
   %1428 = getelementptr inbounds i8, ptr %.0.i.i635, i64 -1
-  %1429 = or i8 %store_forwarded1638, -128
+  %1429 = or i8 %store_forwarded1691, -128
   store i8 %1429, ptr %1428, align 1, !tbaa !38
   %1430 = lshr i32 %.018.i.i634, 7
   %1431 = trunc i32 %1430 to i8
@@ -23489,16 +23489,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit637: ; p
   br i1 %1443, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit619, label %.preheader851.preheader
 
 .preheader851.preheader:                          ; preds = %1438
-  %scevgep1633 = getelementptr i8, ptr %.019.i.i636, i64 1
-  %load_initial1634 = load i8, ptr %scevgep1633, align 1
+  %scevgep1686 = getelementptr i8, ptr %.019.i.i636, i64 1
+  %load_initial1687 = load i8, ptr %scevgep1686, align 1
   br label %.preheader851
 
 .preheader851:                                    ; preds = %.preheader851.preheader, %.preheader851
-  %store_forwarded1635 = phi i8 [ %load_initial1634, %.preheader851.preheader ], [ %1448, %.preheader851 ]
+  %store_forwarded1688 = phi i8 [ %load_initial1687, %.preheader851.preheader ], [ %1448, %.preheader851 ]
   %.018.i.i638 = phi i64 [ %1440, %.preheader851.preheader ], [ %1447, %.preheader851 ]
   %.0.i.i639 = phi ptr [ %1444, %.preheader851.preheader ], [ %1449, %.preheader851 ]
   %1445 = getelementptr inbounds i8, ptr %.0.i.i639, i64 -1
-  %1446 = or i8 %store_forwarded1635, -128
+  %1446 = or i8 %store_forwarded1688, -128
   store i8 %1446, ptr %1445, align 1, !tbaa !38
   %1447 = lshr i64 %.018.i.i638, 7
   %1448 = trunc i64 %1447 to i8
@@ -23541,16 +23541,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit644: ; preds = %
   br i1 %1466, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit648, label %.preheader856.preheader
 
 .preheader856.preheader:                          ; preds = %1461
-  %scevgep1642 = getelementptr i8, ptr %.0.i643, i64 1
-  %load_initial1643 = load i8, ptr %scevgep1642, align 1
+  %scevgep1695 = getelementptr i8, ptr %.0.i643, i64 1
+  %load_initial1696 = load i8, ptr %scevgep1695, align 1
   br label %.preheader856
 
 .preheader856:                                    ; preds = %.preheader856.preheader, %.preheader856
-  %store_forwarded1644 = phi i8 [ %load_initial1643, %.preheader856.preheader ], [ %1471, %.preheader856 ]
+  %store_forwarded1697 = phi i8 [ %load_initial1696, %.preheader856.preheader ], [ %1471, %.preheader856 ]
   %.018.i.i645 = phi i32 [ %1463, %.preheader856.preheader ], [ %1470, %.preheader856 ]
   %.0.i.i646 = phi ptr [ %1467, %.preheader856.preheader ], [ %1472, %.preheader856 ]
   %1468 = getelementptr inbounds i8, ptr %.0.i.i646, i64 -1
-  %1469 = or i8 %store_forwarded1644, -128
+  %1469 = or i8 %store_forwarded1697, -128
   store i8 %1469, ptr %1468, align 1, !tbaa !38
   %1470 = lshr i32 %.018.i.i645, 7
   %1471 = trunc i32 %1470 to i8
@@ -23585,16 +23585,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit648: ; p
   br i1 %1486, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit619, label %.preheader854.preheader
 
 .preheader854.preheader:                          ; preds = %1481
-  %scevgep1639 = getelementptr i8, ptr %.019.i.i647, i64 1
-  %load_initial1640 = load i8, ptr %scevgep1639, align 1
+  %scevgep1692 = getelementptr i8, ptr %.019.i.i647, i64 1
+  %load_initial1693 = load i8, ptr %scevgep1692, align 1
   br label %.preheader854
 
 .preheader854:                                    ; preds = %.preheader854.preheader, %.preheader854
-  %store_forwarded1641 = phi i8 [ %load_initial1640, %.preheader854.preheader ], [ %1491, %.preheader854 ]
+  %store_forwarded1694 = phi i8 [ %load_initial1693, %.preheader854.preheader ], [ %1491, %.preheader854 ]
   %.018.i.i649 = phi i32 [ %1483, %.preheader854.preheader ], [ %1490, %.preheader854 ]
   %.0.i.i650 = phi ptr [ %1487, %.preheader854.preheader ], [ %1492, %.preheader854 ]
   %1488 = getelementptr inbounds i8, ptr %.0.i.i650, i64 -1
-  %1489 = or i8 %store_forwarded1641, -128
+  %1489 = or i8 %store_forwarded1694, -128
   store i8 %1489, ptr %1488, align 1, !tbaa !38
   %1490 = lshr i32 %.018.i.i649, 7
   %1491 = trunc i32 %1490 to i8
@@ -23637,16 +23637,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit655: ; preds = %
   br i1 %1509, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit659, label %.preheader859.preheader
 
 .preheader859.preheader:                          ; preds = %1504
-  %scevgep1648 = getelementptr i8, ptr %.0.i654, i64 1
-  %load_initial1649 = load i8, ptr %scevgep1648, align 1
+  %scevgep1701 = getelementptr i8, ptr %.0.i654, i64 1
+  %load_initial1702 = load i8, ptr %scevgep1701, align 1
   br label %.preheader859
 
 .preheader859:                                    ; preds = %.preheader859.preheader, %.preheader859
-  %store_forwarded1650 = phi i8 [ %load_initial1649, %.preheader859.preheader ], [ %1514, %.preheader859 ]
+  %store_forwarded1703 = phi i8 [ %load_initial1702, %.preheader859.preheader ], [ %1514, %.preheader859 ]
   %.018.i.i656 = phi i32 [ %1506, %.preheader859.preheader ], [ %1513, %.preheader859 ]
   %.0.i.i657 = phi ptr [ %1510, %.preheader859.preheader ], [ %1515, %.preheader859 ]
   %1511 = getelementptr inbounds i8, ptr %.0.i.i657, i64 -1
-  %1512 = or i8 %store_forwarded1650, -128
+  %1512 = or i8 %store_forwarded1703, -128
   store i8 %1512, ptr %1511, align 1, !tbaa !38
   %1513 = lshr i32 %.018.i.i656, 7
   %1514 = trunc i32 %1513 to i8
@@ -23681,16 +23681,16 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit659: ; p
   br i1 %1529, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit619, label %.preheader857.preheader
 
 .preheader857.preheader:                          ; preds = %1524
-  %scevgep1645 = getelementptr i8, ptr %.019.i.i658, i64 1
-  %load_initial1646 = load i8, ptr %scevgep1645, align 1
+  %scevgep1698 = getelementptr i8, ptr %.019.i.i658, i64 1
+  %load_initial1699 = load i8, ptr %scevgep1698, align 1
   br label %.preheader857
 
 .preheader857:                                    ; preds = %.preheader857.preheader, %.preheader857
-  %store_forwarded1647 = phi i8 [ %load_initial1646, %.preheader857.preheader ], [ %1534, %.preheader857 ]
+  %store_forwarded1700 = phi i8 [ %load_initial1699, %.preheader857.preheader ], [ %1534, %.preheader857 ]
   %.018.i.i660 = phi i64 [ %1526, %.preheader857.preheader ], [ %1533, %.preheader857 ]
   %.0.i.i661 = phi ptr [ %1530, %.preheader857.preheader ], [ %1535, %.preheader857 ]
   %1531 = getelementptr inbounds i8, ptr %.0.i.i661, i64 -1
-  %1532 = or i8 %store_forwarded1647, -128
+  %1532 = or i8 %store_forwarded1700, -128
   store i8 %1532, ptr %1531, align 1, !tbaa !38
   %1533 = lshr i64 %.018.i.i660, 7
   %1534 = trunc i64 %1533 to i8
@@ -23734,16 +23734,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit666: ; preds = %
   br i1 %1553, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit670, label %.preheader860.preheader
 
 .preheader860.preheader:                          ; preds = %1548
-  %scevgep1651 = getelementptr i8, ptr %.0.i665, i64 1
-  %load_initial1652 = load i8, ptr %scevgep1651, align 1
+  %scevgep1704 = getelementptr i8, ptr %.0.i665, i64 1
+  %load_initial1705 = load i8, ptr %scevgep1704, align 1
   br label %.preheader860
 
 .preheader860:                                    ; preds = %.preheader860.preheader, %.preheader860
-  %store_forwarded1653 = phi i8 [ %load_initial1652, %.preheader860.preheader ], [ %1558, %.preheader860 ]
+  %store_forwarded1706 = phi i8 [ %load_initial1705, %.preheader860.preheader ], [ %1558, %.preheader860 ]
   %.018.i.i667 = phi i32 [ %1550, %.preheader860.preheader ], [ %1557, %.preheader860 ]
   %.0.i.i668 = phi ptr [ %1554, %.preheader860.preheader ], [ %1559, %.preheader860 ]
   %1555 = getelementptr inbounds i8, ptr %.0.i.i668, i64 -1
-  %1556 = or i8 %store_forwarded1653, -128
+  %1556 = or i8 %store_forwarded1706, -128
   store i8 %1556, ptr %1555, align 1, !tbaa !38
   %1557 = lshr i32 %.018.i.i667, 7
   %1558 = trunc i32 %1557 to i8
@@ -23793,16 +23793,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit673: ; preds = %
   br i1 %1578, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit677, label %.preheader861.preheader
 
 .preheader861.preheader:                          ; preds = %1573
-  %scevgep1654 = getelementptr i8, ptr %.0.i672, i64 1
-  %load_initial1655 = load i8, ptr %scevgep1654, align 1
+  %scevgep1707 = getelementptr i8, ptr %.0.i672, i64 1
+  %load_initial1708 = load i8, ptr %scevgep1707, align 1
   br label %.preheader861
 
 .preheader861:                                    ; preds = %.preheader861.preheader, %.preheader861
-  %store_forwarded1656 = phi i8 [ %load_initial1655, %.preheader861.preheader ], [ %1583, %.preheader861 ]
+  %store_forwarded1709 = phi i8 [ %load_initial1708, %.preheader861.preheader ], [ %1583, %.preheader861 ]
   %.018.i.i674 = phi i32 [ %1575, %.preheader861.preheader ], [ %1582, %.preheader861 ]
   %.0.i.i675 = phi ptr [ %1579, %.preheader861.preheader ], [ %1584, %.preheader861 ]
   %1580 = getelementptr inbounds i8, ptr %.0.i.i675, i64 -1
-  %1581 = or i8 %store_forwarded1656, -128
+  %1581 = or i8 %store_forwarded1709, -128
   store i8 %1581, ptr %1580, align 1, !tbaa !38
   %1582 = lshr i32 %.018.i.i674, 7
   %1583 = trunc i32 %1582 to i8
@@ -23852,16 +23852,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit680: ; preds = %
   br i1 %1603, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit684, label %.preheader862.preheader
 
 .preheader862.preheader:                          ; preds = %1598
-  %scevgep1657 = getelementptr i8, ptr %.0.i679, i64 1
-  %load_initial1658 = load i8, ptr %scevgep1657, align 1
+  %scevgep1710 = getelementptr i8, ptr %.0.i679, i64 1
+  %load_initial1711 = load i8, ptr %scevgep1710, align 1
   br label %.preheader862
 
 .preheader862:                                    ; preds = %.preheader862.preheader, %.preheader862
-  %store_forwarded1659 = phi i8 [ %load_initial1658, %.preheader862.preheader ], [ %1608, %.preheader862 ]
+  %store_forwarded1712 = phi i8 [ %load_initial1711, %.preheader862.preheader ], [ %1608, %.preheader862 ]
   %.018.i.i681 = phi i32 [ %1600, %.preheader862.preheader ], [ %1607, %.preheader862 ]
   %.0.i.i682 = phi ptr [ %1604, %.preheader862.preheader ], [ %1609, %.preheader862 ]
   %1605 = getelementptr inbounds i8, ptr %.0.i.i682, i64 -1
-  %1606 = or i8 %store_forwarded1659, -128
+  %1606 = or i8 %store_forwarded1712, -128
   store i8 %1606, ptr %1605, align 1, !tbaa !38
   %1607 = lshr i32 %.018.i.i681, 7
   %1608 = trunc i32 %1607 to i8
@@ -23911,16 +23911,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit687: ; preds = %
   br i1 %1628, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit691, label %.preheader863.preheader
 
 .preheader863.preheader:                          ; preds = %1623
-  %scevgep1660 = getelementptr i8, ptr %.0.i686, i64 1
-  %load_initial1661 = load i8, ptr %scevgep1660, align 1
+  %scevgep1713 = getelementptr i8, ptr %.0.i686, i64 1
+  %load_initial1714 = load i8, ptr %scevgep1713, align 1
   br label %.preheader863
 
 .preheader863:                                    ; preds = %.preheader863.preheader, %.preheader863
-  %store_forwarded1662 = phi i8 [ %load_initial1661, %.preheader863.preheader ], [ %1633, %.preheader863 ]
+  %store_forwarded1715 = phi i8 [ %load_initial1714, %.preheader863.preheader ], [ %1633, %.preheader863 ]
   %.018.i.i688 = phi i32 [ %1625, %.preheader863.preheader ], [ %1632, %.preheader863 ]
   %.0.i.i689 = phi ptr [ %1629, %.preheader863.preheader ], [ %1634, %.preheader863 ]
   %1630 = getelementptr inbounds i8, ptr %.0.i.i689, i64 -1
-  %1631 = or i8 %store_forwarded1662, -128
+  %1631 = or i8 %store_forwarded1715, -128
   store i8 %1631, ptr %1630, align 1, !tbaa !38
   %1632 = lshr i32 %.018.i.i688, 7
   %1633 = trunc i32 %1632 to i8
@@ -23970,16 +23970,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit694: ; preds = %
   br i1 %1653, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit698, label %.preheader864.preheader
 
 .preheader864.preheader:                          ; preds = %1648
-  %scevgep1663 = getelementptr i8, ptr %.0.i693, i64 1
-  %load_initial1664 = load i8, ptr %scevgep1663, align 1
+  %scevgep1716 = getelementptr i8, ptr %.0.i693, i64 1
+  %load_initial1717 = load i8, ptr %scevgep1716, align 1
   br label %.preheader864
 
 .preheader864:                                    ; preds = %.preheader864.preheader, %.preheader864
-  %store_forwarded1665 = phi i8 [ %load_initial1664, %.preheader864.preheader ], [ %1658, %.preheader864 ]
+  %store_forwarded1718 = phi i8 [ %load_initial1717, %.preheader864.preheader ], [ %1658, %.preheader864 ]
   %.018.i.i695 = phi i32 [ %1650, %.preheader864.preheader ], [ %1657, %.preheader864 ]
   %.0.i.i696 = phi ptr [ %1654, %.preheader864.preheader ], [ %1659, %.preheader864 ]
   %1655 = getelementptr inbounds i8, ptr %.0.i.i696, i64 -1
-  %1656 = or i8 %store_forwarded1665, -128
+  %1656 = or i8 %store_forwarded1718, -128
   store i8 %1656, ptr %1655, align 1, !tbaa !38
   %1657 = lshr i32 %.018.i.i695, 7
   %1658 = trunc i32 %1657 to i8
@@ -24029,16 +24029,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit701: ; preds = %
   br i1 %1678, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit705, label %.preheader865.preheader
 
 .preheader865.preheader:                          ; preds = %1673
-  %scevgep1666 = getelementptr i8, ptr %.0.i700, i64 1
-  %load_initial1667 = load i8, ptr %scevgep1666, align 1
+  %scevgep1719 = getelementptr i8, ptr %.0.i700, i64 1
+  %load_initial1720 = load i8, ptr %scevgep1719, align 1
   br label %.preheader865
 
 .preheader865:                                    ; preds = %.preheader865.preheader, %.preheader865
-  %store_forwarded1668 = phi i8 [ %load_initial1667, %.preheader865.preheader ], [ %1683, %.preheader865 ]
+  %store_forwarded1721 = phi i8 [ %load_initial1720, %.preheader865.preheader ], [ %1683, %.preheader865 ]
   %.018.i.i702 = phi i32 [ %1675, %.preheader865.preheader ], [ %1682, %.preheader865 ]
   %.0.i.i703 = phi ptr [ %1679, %.preheader865.preheader ], [ %1684, %.preheader865 ]
   %1680 = getelementptr inbounds i8, ptr %.0.i.i703, i64 -1
-  %1681 = or i8 %store_forwarded1668, -128
+  %1681 = or i8 %store_forwarded1721, -128
   store i8 %1681, ptr %1680, align 1, !tbaa !38
   %1682 = lshr i32 %.018.i.i702, 7
   %1683 = trunc i32 %1682 to i8
@@ -24087,16 +24087,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit708: ; preds = %
   br i1 %1702, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit712, label %.preheader866.preheader
 
 .preheader866.preheader:                          ; preds = %1697
-  %scevgep1669 = getelementptr i8, ptr %.0.i707, i64 1
-  %load_initial1670 = load i8, ptr %scevgep1669, align 1
+  %scevgep1722 = getelementptr i8, ptr %.0.i707, i64 1
+  %load_initial1723 = load i8, ptr %scevgep1722, align 1
   br label %.preheader866
 
 .preheader866:                                    ; preds = %.preheader866.preheader, %.preheader866
-  %store_forwarded1671 = phi i8 [ %load_initial1670, %.preheader866.preheader ], [ %1707, %.preheader866 ]
+  %store_forwarded1724 = phi i8 [ %load_initial1723, %.preheader866.preheader ], [ %1707, %.preheader866 ]
   %.018.i.i709 = phi i32 [ %1699, %.preheader866.preheader ], [ %1706, %.preheader866 ]
   %.0.i.i710 = phi ptr [ %1703, %.preheader866.preheader ], [ %1708, %.preheader866 ]
   %1704 = getelementptr inbounds i8, ptr %.0.i.i710, i64 -1
-  %1705 = or i8 %store_forwarded1671, -128
+  %1705 = or i8 %store_forwarded1724, -128
   store i8 %1705, ptr %1704, align 1, !tbaa !38
   %1706 = lshr i32 %.018.i.i709, 7
   %1707 = trunc i32 %1706 to i8
@@ -24145,16 +24145,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit718: ; preds = %
   br i1 %1726, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit722, label %.preheader867.preheader
 
 .preheader867.preheader:                          ; preds = %1721
-  %scevgep1672 = getelementptr i8, ptr %.0.i717, i64 1
-  %load_initial1673 = load i8, ptr %scevgep1672, align 1
+  %scevgep1725 = getelementptr i8, ptr %.0.i717, i64 1
+  %load_initial1726 = load i8, ptr %scevgep1725, align 1
   br label %.preheader867
 
 .preheader867:                                    ; preds = %.preheader867.preheader, %.preheader867
-  %store_forwarded1674 = phi i8 [ %load_initial1673, %.preheader867.preheader ], [ %1731, %.preheader867 ]
+  %store_forwarded1727 = phi i8 [ %load_initial1726, %.preheader867.preheader ], [ %1731, %.preheader867 ]
   %.018.i.i719 = phi i32 [ %1723, %.preheader867.preheader ], [ %1730, %.preheader867 ]
   %.0.i.i720 = phi ptr [ %1727, %.preheader867.preheader ], [ %1732, %.preheader867 ]
   %1728 = getelementptr inbounds i8, ptr %.0.i.i720, i64 -1
-  %1729 = or i8 %store_forwarded1674, -128
+  %1729 = or i8 %store_forwarded1727, -128
   store i8 %1729, ptr %1728, align 1, !tbaa !38
   %1730 = lshr i32 %.018.i.i719, 7
   %1731 = trunc i32 %1730 to i8
@@ -24236,19 +24236,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit726: ; preds = %1743, 
   store i8 %1771, ptr %1772, align 1, !tbaa !38
   %1773 = icmp ult i32 %1747, 16384
   %1774 = getelementptr inbounds nuw i8, ptr %.0.i724, i64 2
-  br i1 %1773, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit358, label %.preheader1440
+  br i1 %1773, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit358, label %.preheader1493
 
-.preheader1440:                                   ; preds = %1768
-  %scevgep1675 = getelementptr i8, ptr %.0.i724, i64 1
-  %load_initial1676 = load i8, ptr %scevgep1675, align 1
+.preheader1493:                                   ; preds = %1768
+  %scevgep1728 = getelementptr i8, ptr %.0.i724, i64 1
+  %load_initial1729 = load i8, ptr %scevgep1728, align 1
   br label %1775
 
-1775:                                             ; preds = %.preheader1440, %1775
-  %store_forwarded1677 = phi i8 [ %load_initial1676, %.preheader1440 ], [ %1779, %1775 ]
-  %.018.i355 = phi i32 [ %1770, %.preheader1440 ], [ %1778, %1775 ]
-  %.0.i356 = phi ptr [ %1774, %.preheader1440 ], [ %1780, %1775 ]
+1775:                                             ; preds = %.preheader1493, %1775
+  %store_forwarded1730 = phi i8 [ %load_initial1729, %.preheader1493 ], [ %1779, %1775 ]
+  %.018.i355 = phi i32 [ %1770, %.preheader1493 ], [ %1778, %1775 ]
+  %.0.i356 = phi ptr [ %1774, %.preheader1493 ], [ %1780, %1775 ]
   %1776 = getelementptr inbounds i8, ptr %.0.i356, i64 -1
-  %1777 = or i8 %store_forwarded1677, -128
+  %1777 = or i8 %store_forwarded1730, -128
   store i8 %1777, ptr %1776, align 1, !tbaa !38
   %1778 = lshr i32 %.018.i355, 7
   %1779 = trunc i32 %1778 to i8
@@ -24335,19 +24335,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream7TagSizeEj.exit730: ; preds = %1794, 
   store i8 %1822, ptr %1823, align 1, !tbaa !38
   %1824 = icmp ult i32 %1798, 16384
   %1825 = getelementptr inbounds nuw i8, ptr %.0.i728, i64 2
-  br i1 %1824, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit, label %.preheader1441
+  br i1 %1824, label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit, label %.preheader1494
 
-.preheader1441:                                   ; preds = %1819
-  %scevgep1678 = getelementptr i8, ptr %.0.i728, i64 1
-  %load_initial1679 = load i8, ptr %scevgep1678, align 1
+.preheader1494:                                   ; preds = %1819
+  %scevgep1731 = getelementptr i8, ptr %.0.i728, i64 1
+  %load_initial1732 = load i8, ptr %scevgep1731, align 1
   br label %1826
 
-1826:                                             ; preds = %.preheader1441, %1826
-  %store_forwarded1680 = phi i8 [ %load_initial1679, %.preheader1441 ], [ %1830, %1826 ]
-  %.018.i = phi i32 [ %1821, %.preheader1441 ], [ %1829, %1826 ]
-  %.0.i354 = phi ptr [ %1825, %.preheader1441 ], [ %1831, %1826 ]
+1826:                                             ; preds = %.preheader1494, %1826
+  %store_forwarded1733 = phi i8 [ %load_initial1732, %.preheader1494 ], [ %1830, %1826 ]
+  %.018.i = phi i32 [ %1821, %.preheader1494 ], [ %1829, %1826 ]
+  %.0.i354 = phi ptr [ %1825, %.preheader1494 ], [ %1831, %1826 ]
   %1827 = getelementptr inbounds i8, ptr %.0.i354, i64 -1
-  %1828 = or i8 %store_forwarded1680, -128
+  %1828 = or i8 %store_forwarded1733, -128
   store i8 %1828, ptr %1827, align 1, !tbaa !38
   %1829 = lshr i32 %.018.i, 7
   %1830 = trunc i32 %1829 to i8
@@ -24401,16 +24401,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit733: ; preds = %
   br i1 %1853, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit737, label %.preheader870.preheader
 
 .preheader870.preheader:                          ; preds = %1848
-  %scevgep1684 = getelementptr i8, ptr %.0.i732, i64 1
-  %load_initial1685 = load i8, ptr %scevgep1684, align 1
+  %scevgep1737 = getelementptr i8, ptr %.0.i732, i64 1
+  %load_initial1738 = load i8, ptr %scevgep1737, align 1
   br label %.preheader870
 
 .preheader870:                                    ; preds = %.preheader870.preheader, %.preheader870
-  %store_forwarded1686 = phi i8 [ %load_initial1685, %.preheader870.preheader ], [ %1858, %.preheader870 ]
+  %store_forwarded1739 = phi i8 [ %load_initial1738, %.preheader870.preheader ], [ %1858, %.preheader870 ]
   %.018.i.i734 = phi i32 [ %1850, %.preheader870.preheader ], [ %1857, %.preheader870 ]
   %.0.i.i735 = phi ptr [ %1854, %.preheader870.preheader ], [ %1859, %.preheader870 ]
   %1855 = getelementptr inbounds i8, ptr %.0.i.i735, i64 -1
-  %1856 = or i8 %store_forwarded1686, -128
+  %1856 = or i8 %store_forwarded1739, -128
   store i8 %1856, ptr %1855, align 1, !tbaa !38
   %1857 = lshr i32 %.018.i.i734, 7
   %1858 = trunc i32 %1857 to i8
@@ -24455,16 +24455,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit740: ; preds = %
   br i1 %1876, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit619, label %.preheader868.preheader
 
 .preheader868.preheader:                          ; preds = %1871
-  %scevgep1681 = getelementptr i8, ptr %.0.i739, i64 1
-  %load_initial1682 = load i8, ptr %scevgep1681, align 1
+  %scevgep1734 = getelementptr i8, ptr %.0.i739, i64 1
+  %load_initial1735 = load i8, ptr %scevgep1734, align 1
   br label %.preheader868
 
 .preheader868:                                    ; preds = %.preheader868.preheader, %.preheader868
-  %store_forwarded1683 = phi i8 [ %load_initial1682, %.preheader868.preheader ], [ %1881, %.preheader868 ]
+  %store_forwarded1736 = phi i8 [ %load_initial1735, %.preheader868.preheader ], [ %1881, %.preheader868 ]
   %.018.i.i741 = phi i32 [ %1873, %.preheader868.preheader ], [ %1880, %.preheader868 ]
   %.0.i.i742 = phi ptr [ %1877, %.preheader868.preheader ], [ %1882, %.preheader868 ]
   %1878 = getelementptr inbounds i8, ptr %.0.i.i742, i64 -1
-  %1879 = or i8 %store_forwarded1683, -128
+  %1879 = or i8 %store_forwarded1736, -128
   store i8 %1879, ptr %1878, align 1, !tbaa !38
   %1880 = lshr i32 %.018.i.i741, 7
   %1881 = trunc i32 %1880 to i8
@@ -24522,16 +24522,16 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit747: ; preds = %
   br i1 %1909, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit751, label %.preheader871.preheader
 
 .preheader871.preheader:                          ; preds = %1904
-  %scevgep1687 = getelementptr i8, ptr %.0.i746, i64 1
-  %load_initial1688 = load i8, ptr %scevgep1687, align 1
+  %scevgep1740 = getelementptr i8, ptr %.0.i746, i64 1
+  %load_initial1741 = load i8, ptr %scevgep1740, align 1
   br label %.preheader871
 
 .preheader871:                                    ; preds = %.preheader871.preheader, %.preheader871
-  %store_forwarded1689 = phi i8 [ %load_initial1688, %.preheader871.preheader ], [ %1914, %.preheader871 ]
+  %store_forwarded1742 = phi i8 [ %load_initial1741, %.preheader871.preheader ], [ %1914, %.preheader871 ]
   %.018.i.i748 = phi i32 [ %1906, %.preheader871.preheader ], [ %1913, %.preheader871 ]
   %.0.i.i749 = phi ptr [ %1910, %.preheader871.preheader ], [ %1915, %.preheader871 ]
   %1911 = getelementptr inbounds i8, ptr %.0.i.i749, i64 -1
-  %1912 = or i8 %store_forwarded1689, -128
+  %1912 = or i8 %store_forwarded1742, -128
   store i8 %1912, ptr %1911, align 1, !tbaa !38
   %1913 = lshr i32 %.018.i.i748, 7
   %1914 = trunc i32 %1913 to i8
@@ -25858,14 +25858,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapIiN6google8protobuf8internal12E
   br i1 %9, label %._crit_edge.thread.i.i, label %15
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %2
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %4, %2 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !67
-  %12 = icmp eq ptr %.019.lcssa28.i.i, %11
+  %12 = icmp eq ptr %.019.lcssa29.i.i, %11
   br i1 %12, label %select.unfold.i, label %13
 
 13:                                               ; preds = %._crit_edge.thread.i.i
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #34
+  %14 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #34
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !37
   %.pre18.i = load i32, ptr %1, align 8, !tbaa !37
@@ -25874,13 +25874,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3mapIiN6google8protobuf8internal12E
 15:                                               ; preds = %13, %._crit_edge.i.i
   %16 = phi i32 [ %.pre18.i, %13 ], [ %5, %._crit_edge.i.i ]
   %17 = phi i32 [ %.pre.i, %13 ], [ %8, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %13 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %13 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %.sroa.05.0.i.i = phi ptr [ %14, %13 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %18 = icmp slt i32 %17, %16
   br i1 %18, label %select.unfold.i, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE16_M_insert_uniqueIS7_EES0_ISt17_Rb_tree_iteratorIS7_EbEOT_.exit
 
 select.unfold.i:                                  ; preds = %15, %._crit_edge.thread.i.i
-  %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa29.i.i, %15 ]
+  %.sroa.4.0.i.ph.i = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %.019.lcssa28.i.i, %15 ]
   %19 = icmp eq ptr %.sroa.4.0.i.ph.i, %4
   br i1 %19, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE10_M_insert_IS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i, label %20
 
@@ -27619,14 +27619,14 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8prot
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !67
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #34
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #34
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4, !tbaa !37
   %.pre82 = load i32, ptr %2, align 4, !tbaa !37
@@ -27635,11 +27635,11 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8prot
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i32 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i32 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp slt i32 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -27691,23 +27691,23 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8prot
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #34
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #34
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4, !tbaa !37
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i32 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp slt i32 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -27756,30 +27756,30 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN6google8prot
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !67
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #34
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !37
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i32 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp slt i32 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

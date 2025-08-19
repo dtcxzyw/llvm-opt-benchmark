@@ -381,21 +381,21 @@ _ZL13unrar_strndupPKcm.exit:                      ; preds = %_ZL13unrar_strnlenP
 
 .thread133:                                       ; preds = %108, %.thread173, %.thread171, %.thread164, %.thread149, %25, %33, %.thread139
   %.0138.ph = phi i32 [ 0, %.thread173 ], [ 0, %.thread171 ], [ 0, %.thread164 ], [ 0, %.thread149 ], [ %36, %33 ], [ 3, %25 ], [ 0, %.thread139 ], [ 0, %108 ]
-  %.pr175 = load ptr, ptr %22, align 1, !tbaa !16
-  %.not92 = icmp eq ptr %.pr175, null
+  %.pr186 = load ptr, ptr %22, align 1, !tbaa !16
+  %.not92 = icmp eq ptr %.pr186, null
   br i1 %.not92, label %.thread133.thread, label %109
 
 109:                                              ; preds = %.thread133
-  tail call void @free(ptr noundef nonnull %.pr175) #16
+  tail call void @free(ptr noundef nonnull %.pr186) #16
   br label %.thread133.thread
 
 .thread133.thread:                                ; preds = %24, %109, %.thread133
-  %.0138178 = phi i32 [ %.0138.ph, %109 ], [ %.0138.ph, %.thread133 ], [ 3, %24 ]
+  %.0138189 = phi i32 [ %.0138.ph, %109 ], [ %.0138.ph, %.thread133 ], [ 3, %24 ]
   tail call void @free(ptr noundef nonnull %14) #16
   br label %.thread126
 
 .thread126:                                       ; preds = %17, %16, %10, %12, %.thread133.thread
-  %.0130 = phi i32 [ %.0138178, %.thread133.thread ], [ 3, %17 ], [ 3, %16 ], [ 4, %10 ], [ 4, %12 ]
+  %.0130 = phi i32 [ %.0138189, %.thread133.thread ], [ 3, %17 ], [ 3, %16 ], [ 4, %10 ], [ 4, %12 ]
   ret i32 %.0130
 }
 

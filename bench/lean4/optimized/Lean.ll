@@ -5117,11 +5117,11 @@ lean_alloc_ctor.exit80:                           ; preds = %lean_alloc_ctor.exi
   br label %104
 
 104:                                              ; preds = %lean_alloc_ctor.exit80, %48
-  %.sink97 = phi ptr [ %97, %lean_alloc_ctor.exit80 ], [ %49, %48 ]
+  %.sink106 = phi ptr [ %97, %lean_alloc_ctor.exit80 ], [ %49, %48 ]
   %105 = load ptr, ptr @l_Lake_instToLeanArrayMkStr1___rarg___closed__1, align 8, !tbaa !12
   %106 = load ptr, ptr @l_Lake_instToLeanArrayMkStr1___rarg___closed__7, align 8, !tbaa !12
   %107 = load ptr, ptr @l_Lake_quoteLeanOption___closed__5, align 8, !tbaa !12
-  %108 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %105, ptr noundef %106, ptr noundef %.sink97, ptr noundef %107, ptr noundef %38) #6
+  %108 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %105, ptr noundef %106, ptr noundef %.sink106, ptr noundef %107, ptr noundef %38) #6
   %109 = load ptr, ptr @l_Lake_quoteLeanOption___closed__2, align 8, !tbaa !12
   %110 = load ptr, ptr @l_Lake_quoteLeanOption___closed__4, align 8, !tbaa !12
   %111 = load ptr, ptr @l_Lake_quoteLeanOption___closed__7, align 8, !tbaa !12
@@ -15951,16 +15951,16 @@ lean_alloc_ctor.exit146:                          ; preds = %lean_inc.exit
   unreachable
 
 lean_alloc_ctor.exit126:                          ; preds = %lean_alloc_ctor.exit146, %lean_alloc_ctor.exit125
-  %.sink157 = phi ptr [ %89, %lean_alloc_ctor.exit125 ], [ %183, %lean_alloc_ctor.exit146 ]
+  %.sink171 = phi ptr [ %89, %lean_alloc_ctor.exit125 ], [ %183, %lean_alloc_ctor.exit146 ]
   %.sink = phi ptr [ %88, %lean_alloc_ctor.exit125 ], [ %182, %lean_alloc_ctor.exit146 ]
-  %186 = getelementptr inbounds nuw i8, ptr %.sink157, i64 4
-  store i32 1, ptr %.sink157, align 4, !tbaa !8
+  %186 = getelementptr inbounds nuw i8, ptr %.sink171, i64 4
+  store i32 1, ptr %.sink171, align 4, !tbaa !8
   store i32 131096, ptr %186, align 4
-  %187 = getelementptr inbounds nuw i8, ptr %.sink157, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %.sink171, i64 8
   store ptr %.sink, ptr %187, align 8, !tbaa !12
-  %188 = getelementptr inbounds nuw i8, ptr %.sink157, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %.sink171, i64 16
   store ptr %4, ptr %188, align 8, !tbaa !12
-  ret ptr %.sink157
+  ret ptr %.sink171
 }
 
 declare zeroext i8 @l_Lean_Name_isAnonymous(ptr noundef) local_unnamed_addr #1
@@ -19360,16 +19360,16 @@ lean_inc.exit:                                    ; preds = %481, %480, %478, %l
   unreachable
 
 lean_alloc_ctor.exit375:                          ; preds = %lean_inc.exit, %lean_inc.exit238
-  %.sink419 = phi ptr [ %409, %lean_inc.exit238 ], [ %485, %lean_inc.exit ]
+  %.sink458 = phi ptr [ %409, %lean_inc.exit238 ], [ %485, %lean_inc.exit ]
   %.sink = phi ptr [ %408, %lean_inc.exit238 ], [ %484, %lean_inc.exit ]
-  %488 = getelementptr inbounds nuw i8, ptr %.sink419, i64 4
-  store i32 1, ptr %.sink419, align 4, !tbaa !8
+  %488 = getelementptr inbounds nuw i8, ptr %.sink458, i64 4
+  store i32 1, ptr %.sink458, align 4, !tbaa !8
   store i32 131096, ptr %488, align 4
-  %489 = getelementptr inbounds nuw i8, ptr %.sink419, i64 8
+  %489 = getelementptr inbounds nuw i8, ptr %.sink458, i64 8
   store ptr %.sink, ptr %489, align 8, !tbaa !12
-  %490 = getelementptr inbounds nuw i8, ptr %.sink419, i64 16
+  %490 = getelementptr inbounds nuw i8, ptr %.sink458, i64 16
   store ptr %5, ptr %490, align 8, !tbaa !12
-  ret ptr %.sink419
+  ret ptr %.sink458
 }
 
 declare ptr @l_Array_mkArray2___rarg(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -20452,7 +20452,7 @@ lean_inc.exit400:                                 ; preds = %407, %406, %404, %l
   br label %lean_dec.exit378
 
 lean_dec.exit378:                                 ; preds = %411, %427, %426, %424
-  %.0.i353650 = phi ptr [ %421, %427 ], [ %421, %426 ], [ %421, %424 ], [ %417, %411 ]
+  %.0.i353737 = phi ptr [ %421, %427 ], [ %421, %426 ], [ %421, %424 ], [ %417, %411 ]
   br i1 %.not634, label %428, label %lean_inc.exit399
 
 428:                                              ; preds = %lean_dec.exit378
@@ -20492,7 +20492,7 @@ lean_alloc_ctor.exit568:                          ; preds = %lean_inc.exit399
   %439 = getelementptr inbounds nuw i8, ptr %434, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %439, align 8, !tbaa !12
   %440 = getelementptr inbounds nuw i8, ptr %434, i64 24
-  store ptr %.0.i353650, ptr %440, align 8, !tbaa !12
+  store ptr %.0.i353737, ptr %440, align 8, !tbaa !12
   %441 = load ptr, ptr @l_Lake_Dependency_mkRequire___closed__4, align 8, !tbaa !12
   %442 = tail call zeroext i8 @l_Substring_beq(ptr noundef nonnull %434, ptr noundef %441) #6
   %443 = icmp eq i8 %442, 0
@@ -20652,21 +20652,21 @@ lean_dec.exit373:                                 ; preds = %487, %494, %496, %4
   br label %lean_dec.exit371
 
 lean_dec.exit371:                                 ; preds = %lean_dec.exit373, %504, %506, %507
-  %.0.i350653 = phi ptr [ %501, %504 ], [ %501, %506 ], [ %501, %507 ], [ %488, %lean_dec.exit373 ]
-  %508 = tail call ptr @lean_string_utf8_extract(ptr noundef nonnull %395, ptr noundef %.0.i350653, ptr noundef nonnull %399) #6
-  %509 = ptrtoint ptr %.0.i350653 to i64
+  %.0.i350740 = phi ptr [ %501, %504 ], [ %501, %506 ], [ %501, %507 ], [ %488, %lean_dec.exit373 ]
+  %508 = tail call ptr @lean_string_utf8_extract(ptr noundef nonnull %395, ptr noundef %.0.i350740, ptr noundef nonnull %399) #6
+  %509 = ptrtoint ptr %.0.i350740 to i64
   %510 = and i64 %509, 1
   %.not640 = icmp eq i64 %510, 0
   br i1 %.not640, label %511, label %lean_dec.exit370
 
 511:                                              ; preds = %lean_dec.exit371
-  %512 = load i32, ptr %.0.i350653, align 4, !tbaa !8
+  %512 = load i32, ptr %.0.i350740, align 4, !tbaa !8
   %513 = icmp sgt i32 %512, 1
   br i1 %513, label %514, label %516, !prof !11
 
 514:                                              ; preds = %511
   %515 = add nsw i32 %512, -1
-  store i32 %515, ptr %.0.i350653, align 4, !tbaa !8
+  store i32 %515, ptr %.0.i350740, align 4, !tbaa !8
   br label %lean_dec.exit370
 
 516:                                              ; preds = %511
@@ -20674,7 +20674,7 @@ lean_dec.exit371:                                 ; preds = %lean_dec.exit373, %
   br i1 %.not.i452, label %lean_dec.exit370, label %517
 
 517:                                              ; preds = %516
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i350653) #6
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i350740) #6
   br label %lean_dec.exit370
 
 lean_dec.exit370:                                 ; preds = %517, %516, %514, %lean_dec.exit371
@@ -20898,7 +20898,7 @@ lean_inc.exit394:                                 ; preds = %585, %584, %582, %l
   br label %lean_dec.exit365
 
 lean_dec.exit365:                                 ; preds = %589, %605, %604, %602
-  %.0.i347656 = phi ptr [ %599, %605 ], [ %599, %604 ], [ %599, %602 ], [ %595, %589 ]
+  %.0.i347743 = phi ptr [ %599, %605 ], [ %599, %604 ], [ %599, %602 ], [ %595, %589 ]
   br i1 %.not621, label %606, label %lean_inc.exit393
 
 606:                                              ; preds = %lean_dec.exit365
@@ -20938,7 +20938,7 @@ lean_alloc_ctor.exit592:                          ; preds = %lean_inc.exit393
   %617 = getelementptr inbounds nuw i8, ptr %612, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %617, align 8, !tbaa !12
   %618 = getelementptr inbounds nuw i8, ptr %612, i64 24
-  store ptr %.0.i347656, ptr %618, align 8, !tbaa !12
+  store ptr %.0.i347743, ptr %618, align 8, !tbaa !12
   %619 = load ptr, ptr @l_Lake_Dependency_mkRequire___closed__4, align 8, !tbaa !12
   %620 = tail call zeroext i8 @l_Substring_beq(ptr noundef nonnull %612, ptr noundef %619) #6
   %621 = icmp eq i8 %620, 0
@@ -21112,21 +21112,21 @@ lean_dec.exit360:                                 ; preds = %670, %677, %679, %6
   br label %lean_dec.exit358
 
 lean_dec.exit358:                                 ; preds = %lean_dec.exit360, %687, %689, %690
-  %.0.i659 = phi ptr [ %684, %687 ], [ %684, %689 ], [ %684, %690 ], [ %671, %lean_dec.exit360 ]
-  %691 = tail call ptr @lean_string_utf8_extract(ptr noundef nonnull %395, ptr noundef %.0.i659, ptr noundef nonnull %579) #6
-  %692 = ptrtoint ptr %.0.i659 to i64
+  %.0.i746 = phi ptr [ %684, %687 ], [ %684, %689 ], [ %684, %690 ], [ %671, %lean_dec.exit360 ]
+  %691 = tail call ptr @lean_string_utf8_extract(ptr noundef nonnull %395, ptr noundef %.0.i746, ptr noundef nonnull %579) #6
+  %692 = ptrtoint ptr %.0.i746 to i64
   %693 = and i64 %692, 1
   %.not627 = icmp eq i64 %693, 0
   br i1 %.not627, label %694, label %lean_dec.exit357
 
 694:                                              ; preds = %lean_dec.exit358
-  %695 = load i32, ptr %.0.i659, align 4, !tbaa !8
+  %695 = load i32, ptr %.0.i746, align 4, !tbaa !8
   %696 = icmp sgt i32 %695, 1
   br i1 %696, label %697, label %699, !prof !11
 
 697:                                              ; preds = %694
   %698 = add nsw i32 %695, -1
-  store i32 %698, ptr %.0.i659, align 4, !tbaa !8
+  store i32 %698, ptr %.0.i746, align 4, !tbaa !8
   br label %lean_dec.exit357
 
 699:                                              ; preds = %694
@@ -21134,7 +21134,7 @@ lean_dec.exit358:                                 ; preds = %lean_dec.exit360, %
   br i1 %.not.i478, label %lean_dec.exit357, label %700
 
 700:                                              ; preds = %699
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i659) #6
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i746) #6
   br label %lean_dec.exit357
 
 lean_dec.exit357:                                 ; preds = %700, %699, %697, %lean_dec.exit358
@@ -21353,7 +21353,7 @@ lean_alloc_ctor.exit:                             ; preds = %4
 declare ptr @l_Lean_mkIdentFrom(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___spec__2(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___spec__2(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not276 = icmp eq i64 %4, %5
   br i1 %.not276, label %._crit_edge, label %.lr.ph
 
@@ -22200,7 +22200,7 @@ lean_dec.exit158:                                 ; preds = %294, %298, %300, %3
 declare zeroext i8 @l_Array_contains___at_Lean_registerInternalExceptionId___spec__1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = ptrtoint ptr %9 to i64
@@ -25320,7 +25320,7 @@ lean_dec.exit:                                    ; preds = %33, %32, %30, %l_Le
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val28 = load i64, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %4 to i64
@@ -25450,7 +25450,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = ptrtoint ptr %3 to i64
   %9 = lshr i64 %8, 1
   %10 = trunc i64 %9 to i8
@@ -25530,7 +25530,7 @@ lean_dec.exit:                                    ; preds = %37, %36, %34, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__2(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__2(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not276 = icmp eq i64 %4, %5
   br i1 %.not276, label %._crit_edge, label %.lr.ph
 
@@ -26375,7 +26375,7 @@ lean_dec.exit158:                                 ; preds = %294, %298, %300, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = ptrtoint ptr %8 to i64
@@ -29526,7 +29526,7 @@ lean_alloc_ctor.exit1411:                         ; preds = %lean_inc.exit943
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__4(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__4(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not276 = icmp eq i64 %4, %5
   br i1 %.not276, label %._crit_edge, label %.lr.ph
 
@@ -30371,7 +30371,7 @@ lean_dec.exit158:                                 ; preds = %294, %298, %300, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = ptrtoint ptr %8 to i64
@@ -33522,7 +33522,7 @@ lean_alloc_ctor.exit1411:                         ; preds = %lean_inc.exit943
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__6(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__6(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not276 = icmp eq i64 %4, %5
   br i1 %.not276, label %._crit_edge, label %.lr.ph
 
@@ -34367,7 +34367,7 @@ lean_dec.exit158:                                 ; preds = %294, %298, %300, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = ptrtoint ptr %8 to i64
@@ -37518,7 +37518,7 @@ lean_alloc_ctor.exit1411:                         ; preds = %lean_inc.exit943
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__8(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__8(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not276 = icmp eq i64 %4, %5
   br i1 %.not276, label %._crit_edge, label %.lr.ph
 
@@ -38363,7 +38363,7 @@ lean_dec.exit158:                                 ; preds = %294, %298, %300, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = ptrtoint ptr %8 to i64
@@ -41514,7 +41514,7 @@ lean_alloc_ctor.exit1411:                         ; preds = %lean_inc.exit943
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__10(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__10(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not276 = icmp eq i64 %4, %5
   br i1 %.not276, label %._crit_edge, label %.lr.ph
 
@@ -42359,7 +42359,7 @@ lean_dec.exit158:                                 ; preds = %294, %298, %300, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = ptrtoint ptr %8 to i64
@@ -45510,7 +45510,7 @@ lean_alloc_ctor.exit1411:                         ; preds = %lean_inc.exit943
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__12(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__12(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not276 = icmp eq i64 %4, %5
   br i1 %.not276, label %._crit_edge, label %.lr.ph
 
@@ -46355,7 +46355,7 @@ lean_dec.exit158:                                 ; preds = %294, %298, %300, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = ptrtoint ptr %8 to i64
@@ -49506,7 +49506,7 @@ lean_alloc_ctor.exit1411:                         ; preds = %lean_inc.exit943
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__14(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__14(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %.not276 = icmp eq i64 %4, %5
   br i1 %.not276, label %._crit_edge, label %.lr.ph
 
@@ -50351,7 +50351,7 @@ lean_dec.exit158:                                 ; preds = %294, %298, %300, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = ptrtoint ptr %8 to i64
@@ -53502,7 +53502,7 @@ lean_alloc_ctor.exit1411:                         ; preds = %lean_inc.exit943
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @l_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @l_Lake_commandGen__lean__encoders_x25____x40_Lake_CLI_Translate_Lean___hyg_3966____closed__14, align 8, !tbaa !12
   %5 = tail call zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef %0, ptr noundef %4) #6
   %6 = icmp eq i8 %5, 0
@@ -54306,7 +54306,7 @@ lean_alloc_ctor.exit215:                          ; preds = %lean_alloc_ctor.exi
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val28 = load i64, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %4 to i64
@@ -54436,7 +54436,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = lshr i64 %7, 1
   %9 = trunc i64 %8 to i8
@@ -54492,7 +54492,7 @@ lean_dec.exit:                                    ; preds = %27, %26, %24, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val28 = load i64, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %4 to i64
@@ -54622,7 +54622,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = lshr i64 %7, 1
   %9 = trunc i64 %8 to i8
@@ -54678,7 +54678,7 @@ lean_dec.exit:                                    ; preds = %27, %26, %24, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__6___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__6___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val28 = load i64, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %4 to i64
@@ -54808,7 +54808,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__5___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = lshr i64 %7, 1
   %9 = trunc i64 %8 to i8
@@ -54864,7 +54864,7 @@ lean_dec.exit:                                    ; preds = %27, %26, %24, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__8___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__8___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val28 = load i64, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %4 to i64
@@ -54994,7 +54994,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__7___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = lshr i64 %7, 1
   %9 = trunc i64 %8 to i8
@@ -55050,7 +55050,7 @@ lean_dec.exit:                                    ; preds = %27, %26, %24, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__10___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__10___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val28 = load i64, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %4 to i64
@@ -55180,7 +55180,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__9___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = lshr i64 %7, 1
   %9 = trunc i64 %8 to i8
@@ -55236,7 +55236,7 @@ lean_dec.exit:                                    ; preds = %27, %26, %24, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__12___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__12___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val28 = load i64, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %4 to i64
@@ -55366,7 +55366,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__11___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = lshr i64 %7, 1
   %9 = trunc i64 %8 to i8
@@ -55422,7 +55422,7 @@ lean_dec.exit:                                    ; preds = %27, %26, %24, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__14___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__14___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %4, i64 8
   %.val28 = load i64, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %4 to i64
@@ -55552,7 +55552,7 @@ lean_dec.exit:                                    ; preds = %57, %56, %54, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define nonnull ptr @l___private_Lake_CLI_Translate_Lean_0__Lake_genMkDeclFields___at_Lake___aux__Lake__CLI__Translate__Lean______macroRules__Lake__commandGen__lean__encoders_x25__1___spec__13___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = lshr i64 %7, 1
   %9 = trunc i64 %8 to i8
@@ -70036,7 +70036,7 @@ lean_dec.exit1186.thread:                         ; preds = %1351, %1350, %1348,
   br i1 %.not2008, label %1159, label %lean_dec.exit1202
 
 lean_dec.exit1173:                                ; preds = %1578, %1582, %1584, %1585, %1523, %1527, %1529, %1530, %lean_alloc_ctor.exit1780, %lean_alloc_ctor.exit1781
-  %.01072 = phi ptr [ %1577, %lean_alloc_ctor.exit1781 ], [ %1522, %lean_alloc_ctor.exit1780 ], [ %1476, %1530 ], [ %1476, %1529 ], [ %1476, %1527 ], [ %1476, %1523 ], [ %.010782044, %1585 ], [ %.010782044, %1584 ], [ %.010782044, %1582 ], [ %.010782044, %1578 ]
+  %.01072 = phi ptr [ %1577, %lean_alloc_ctor.exit1781 ], [ %1522, %lean_alloc_ctor.exit1780 ], [ %1476, %1530 ], [ %1476, %1529 ], [ %1476, %1527 ], [ %1476, %1523 ], [ %.010782295, %1585 ], [ %.010782295, %1584 ], [ %.010782295, %1582 ], [ %.010782295, %1578 ]
   br i1 %.not1998, label %1404, label %lean_dec.exit1182
 
 lean_dec.exit1182:                                ; preds = %lean_dec.exit1173
@@ -70207,7 +70207,7 @@ lean_dec.exit1179.thread:                         ; preds = %1423, %1422, %1420,
   br i1 %.not2003, label %1332, label %lean_dec.exit1189
 
 1467:                                             ; preds = %lean_alloc_ctor.exit1782, %1659
-  %.010742045 = phi ptr [ %1657, %lean_alloc_ctor.exit1782 ], [ %.01082, %1659 ]
+  %.010742296 = phi ptr [ %1657, %lean_alloc_ctor.exit1782 ], [ %.01082, %1659 ]
   %1468 = icmp ult i8 %185, 3
   br i1 %1468, label %switch.lookup, label %l_Lake_BuildType_toLean.exit
 
@@ -70226,7 +70226,7 @@ l_Lake_BuildType_toLean.exit:                     ; preds = %1467, %switch.looku
   %1473 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__4, align 8, !tbaa !12
   %1474 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__6, align 8, !tbaa !12
   %1475 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %1472, ptr noundef %1473, ptr noundef %1471, ptr noundef %1474, ptr noundef %.0.i1779) #6
-  %1476 = tail call ptr @lean_array_push(ptr noundef %.010742045, ptr noundef %1475) #6
+  %1476 = tail call ptr @lean_array_push(ptr noundef %.010742296, ptr noundef %1475) #6
   %1477 = icmp eq i8 %196, 0
   br i1 %1477, label %1478, label %1523
 
@@ -70342,7 +70342,7 @@ lean_alloc_ctor.exit1780:                         ; preds = %lean_dec.exit1174
   br label %lean_dec.exit1173
 
 1531:                                             ; preds = %lean_alloc_ctor.exit1782, %1659
-  %.010782044 = phi ptr [ %1657, %lean_alloc_ctor.exit1782 ], [ %.01082, %1659 ]
+  %.010782295 = phi ptr [ %1657, %lean_alloc_ctor.exit1782 ], [ %.01082, %1659 ]
   %1532 = icmp eq i8 %196, 0
   br i1 %1532, label %1533, label %1578
 
@@ -70433,7 +70433,7 @@ lean_alloc_ctor.exit1781:                         ; preds = %lean_dec.exit1171
   %1574 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__4, align 8, !tbaa !12
   %1575 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__6, align 8, !tbaa !12
   %1576 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %1573, ptr noundef %1574, ptr noundef %1572, ptr noundef %1575, ptr noundef %1570) #6
-  %1577 = tail call ptr @lean_array_push(ptr noundef %.010782044, ptr noundef %1576) #6
+  %1577 = tail call ptr @lean_array_push(ptr noundef %.010782295, ptr noundef %1576) #6
   br label %lean_dec.exit1173
 
 1578:                                             ; preds = %1531
@@ -79441,7 +79441,7 @@ lean_dec.exit1063.thread:                         ; preds = %1336, %1335, %1333,
   br i1 %.not1800, label %1144, label %lean_dec.exit1079
 
 lean_dec.exit1050:                                ; preds = %1563, %1567, %1569, %1570, %1508, %1512, %1514, %1515, %lean_alloc_ctor.exit1592, %lean_alloc_ctor.exit1593
-  %.0970 = phi ptr [ %1562, %lean_alloc_ctor.exit1593 ], [ %1507, %lean_alloc_ctor.exit1592 ], [ %1461, %1515 ], [ %1461, %1514 ], [ %1461, %1512 ], [ %1461, %1508 ], [ %.09751838, %1570 ], [ %.09751838, %1569 ], [ %.09751838, %1567 ], [ %.09751838, %1563 ]
+  %.0970 = phi ptr [ %1562, %lean_alloc_ctor.exit1593 ], [ %1507, %lean_alloc_ctor.exit1592 ], [ %1461, %1515 ], [ %1461, %1514 ], [ %1461, %1512 ], [ %1461, %1508 ], [ %.09752072, %1570 ], [ %.09752072, %1569 ], [ %.09752072, %1567 ], [ %.09752072, %1563 ]
   br i1 %.not1790, label %1389, label %lean_dec.exit1059
 
 lean_dec.exit1059:                                ; preds = %lean_dec.exit1050
@@ -79612,7 +79612,7 @@ lean_dec.exit1056.thread:                         ; preds = %1408, %1407, %1405,
   br i1 %.not1795, label %1317, label %lean_dec.exit1066
 
 1452:                                             ; preds = %1571, %1581
-  %.09721839 = phi ptr [ %1579, %1571 ], [ %.0978, %1581 ]
+  %.09722073 = phi ptr [ %1579, %1571 ], [ %.0978, %1581 ]
   %1453 = icmp ult i8 %132, 3
   br i1 %1453, label %switch.lookup, label %l_Lake_BuildType_toLean.exit
 
@@ -79631,7 +79631,7 @@ l_Lake_BuildType_toLean.exit:                     ; preds = %1452, %switch.looku
   %1458 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__4, align 8, !tbaa !12
   %1459 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__6, align 8, !tbaa !12
   %1460 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %1457, ptr noundef %1458, ptr noundef %1456, ptr noundef %1459, ptr noundef %.0.i1591) #6
-  %1461 = tail call ptr @lean_array_push(ptr noundef %.09721839, ptr noundef %1460) #6
+  %1461 = tail call ptr @lean_array_push(ptr noundef %.09722073, ptr noundef %1460) #6
   %1462 = icmp eq i8 %143, 0
   br i1 %1462, label %1463, label %1508
 
@@ -79747,7 +79747,7 @@ lean_alloc_ctor.exit1592:                         ; preds = %lean_dec.exit1051
   br label %lean_dec.exit1050
 
 1516:                                             ; preds = %1571, %1581
-  %.09751838 = phi ptr [ %1579, %1571 ], [ %.0978, %1581 ]
+  %.09752072 = phi ptr [ %1579, %1571 ], [ %.0978, %1581 ]
   %1517 = icmp eq i8 %143, 0
   br i1 %1517, label %1518, label %1563
 
@@ -79838,7 +79838,7 @@ lean_alloc_ctor.exit1593:                         ; preds = %lean_dec.exit1048
   %1559 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__4, align 8, !tbaa !12
   %1560 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__6, align 8, !tbaa !12
   %1561 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %1558, ptr noundef %1559, ptr noundef %1557, ptr noundef %1560, ptr noundef %1555) #6
-  %1562 = tail call ptr @lean_array_push(ptr noundef %.09751838, ptr noundef %1561) #6
+  %1562 = tail call ptr @lean_array_push(ptr noundef %.09752072, ptr noundef %1561) #6
   br label %lean_dec.exit1050
 
 1563:                                             ; preds = %1516
@@ -84559,14 +84559,14 @@ lean_inc.exit:                                    ; preds = %156, %155, %153, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %lean_inc.exit, %160, %162, %163, %lean_inc.exit76, %132, %134, %135
-  %.sink124 = phi ptr [ %120, %135 ], [ %120, %134 ], [ %120, %132 ], [ %120, %lean_inc.exit76 ], [ %148, %163 ], [ %148, %162 ], [ %148, %160 ], [ %148, %lean_inc.exit ]
+  %.sink139 = phi ptr [ %120, %135 ], [ %120, %134 ], [ %120, %132 ], [ %120, %lean_inc.exit76 ], [ %148, %163 ], [ %148, %162 ], [ %148, %160 ], [ %148, %lean_inc.exit ]
   %.068.sink = phi ptr [ %108, %135 ], [ %108, %134 ], [ %108, %132 ], [ %108, %lean_inc.exit76 ], [ %.068, %163 ], [ %.068, %162 ], [ %.068, %160 ], [ %.068, %lean_inc.exit ]
   %164 = load ptr, ptr @l_Lake_InputDirConfig_mkDeclFields___closed__2, align 8, !tbaa !12
   %165 = tail call ptr @lean_mk_syntax_ident(ptr noundef %164) #6
   %166 = load ptr, ptr @l_Lake_instToLeanArrayMkStr1___rarg___closed__1, align 8, !tbaa !12
   %167 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__4, align 8, !tbaa !12
   %168 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__6, align 8, !tbaa !12
-  %169 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %166, ptr noundef %167, ptr noundef %165, ptr noundef %168, ptr noundef %.sink124) #6
+  %169 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %166, ptr noundef %167, ptr noundef %165, ptr noundef %168, ptr noundef %.sink139) #6
   %170 = tail call ptr @lean_array_push(ptr noundef %.068.sink, ptr noundef %169) #6
   br label %171
 
@@ -95538,14 +95538,14 @@ lean_dec.exit1903:                                ; preds = %lean_dec.exit1909, 
   br i1 %.not3371, label %2503, label %lean_dec.exit1922
 
 .sink.split:                                      ; preds = %lean_dec.exit1887, %2995, %2997, %2998, %lean_dec.exit1891, %2929, %2931, %2932, %lean_dec.exit1893, %2888, %2890, %2891, %lean_dec.exit1897, %2822, %2824, %2825
-  %.sink3447 = phi ptr [ %2818, %2825 ], [ %2818, %2824 ], [ %2818, %2822 ], [ %2818, %lean_dec.exit1897 ], [ %2884, %2891 ], [ %2884, %2890 ], [ %2884, %2888 ], [ %2884, %lean_dec.exit1893 ], [ %2925, %2932 ], [ %2925, %2931 ], [ %2925, %2929 ], [ %2925, %lean_dec.exit1891 ], [ %2991, %2998 ], [ %2991, %2997 ], [ %2991, %2995 ], [ %2991, %lean_dec.exit1887 ]
+  %.sink3907 = phi ptr [ %2818, %2825 ], [ %2818, %2824 ], [ %2818, %2822 ], [ %2818, %lean_dec.exit1897 ], [ %2884, %2891 ], [ %2884, %2890 ], [ %2884, %2888 ], [ %2884, %lean_dec.exit1893 ], [ %2925, %2932 ], [ %2925, %2931 ], [ %2925, %2929 ], [ %2925, %lean_dec.exit1891 ], [ %2991, %2998 ], [ %2991, %2997 ], [ %2991, %2995 ], [ %2991, %lean_dec.exit1887 ]
   %.sink = phi ptr [ %2784, %2825 ], [ %2784, %2824 ], [ %2784, %2822 ], [ %2784, %lean_dec.exit1897 ], [ %2858, %2891 ], [ %2858, %2890 ], [ %2858, %2888 ], [ %2858, %lean_dec.exit1893 ], [ %.01742, %2932 ], [ %.01742, %2931 ], [ %.01742, %2929 ], [ %.01742, %lean_dec.exit1891 ], [ %2965, %2998 ], [ %2965, %2997 ], [ %2965, %2995 ], [ %2965, %lean_dec.exit1887 ]
   %2704 = load ptr, ptr @l_Lake_PackageConfig_mkDeclFields___closed__30, align 8, !tbaa !12
   %2705 = tail call ptr @lean_mk_syntax_ident(ptr noundef %2704) #6
   %2706 = load ptr, ptr @l_Lake_instToLeanArrayMkStr1___rarg___closed__1, align 8, !tbaa !12
   %2707 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__4, align 8, !tbaa !12
   %2708 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__6, align 8, !tbaa !12
-  %2709 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %2706, ptr noundef %2707, ptr noundef %2705, ptr noundef %2708, ptr noundef %.sink3447) #6
+  %2709 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %2706, ptr noundef %2707, ptr noundef %2705, ptr noundef %2708, ptr noundef %.sink3907) #6
   %2710 = tail call ptr @lean_array_push(ptr noundef %.sink, ptr noundef %2709) #6
   br label %2711
 
@@ -97301,20 +97301,20 @@ lean_alloc_ctor.exit2982:                         ; preds = %lean_dec.exit1845
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %54) #6
   br label %lean_dec.exit1844.thread
 
-.sink.split3449:                                  ; preds = %lean_dec.exit1834, %3581, %3583, %3584, %lean_dec.exit1836, %3547, %3549, %3550
-  %.sink3456 = phi ptr [ %3543, %3550 ], [ %3543, %3549 ], [ %3543, %3547 ], [ %3543, %lean_dec.exit1836 ], [ %3577, %3584 ], [ %3577, %3583 ], [ %3577, %3581 ], [ %3577, %lean_dec.exit1834 ]
-  %.sink3450 = phi ptr [ %3517, %3550 ], [ %3517, %3549 ], [ %3517, %3547 ], [ %3517, %lean_dec.exit1836 ], [ %2, %3584 ], [ %2, %3583 ], [ %2, %3581 ], [ %2, %lean_dec.exit1834 ]
+.sink.split3909:                                  ; preds = %lean_dec.exit1834, %3581, %3583, %3584, %lean_dec.exit1836, %3547, %3549, %3550
+  %.sink3916 = phi ptr [ %3543, %3550 ], [ %3543, %3549 ], [ %3543, %3547 ], [ %3543, %lean_dec.exit1836 ], [ %3577, %3584 ], [ %3577, %3583 ], [ %3577, %3581 ], [ %3577, %lean_dec.exit1834 ]
+  %.sink3910 = phi ptr [ %3517, %3550 ], [ %3517, %3549 ], [ %3517, %3547 ], [ %3517, %lean_dec.exit1836 ], [ %2, %3584 ], [ %2, %3583 ], [ %2, %3581 ], [ %2, %lean_dec.exit1834 ]
   %3419 = load ptr, ptr @l_Lake_PackageConfig_mkDeclFields___closed__46, align 8, !tbaa !12
   %3420 = tail call ptr @lean_mk_syntax_ident(ptr noundef %3419) #6
   %3421 = load ptr, ptr @l_Lake_instToLeanArrayMkStr1___rarg___closed__1, align 8, !tbaa !12
   %3422 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__4, align 8, !tbaa !12
   %3423 = load ptr, ptr @l_Lake_addDeclFieldCore___closed__6, align 8, !tbaa !12
-  %3424 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %3421, ptr noundef %3422, ptr noundef %3420, ptr noundef %3423, ptr noundef %.sink3456) #6
-  %3425 = tail call ptr @lean_array_push(ptr noundef %.sink3450, ptr noundef %3424) #6
+  %3424 = tail call ptr @l_Lean_Syntax_node3(ptr noundef %3421, ptr noundef %3422, ptr noundef %3420, ptr noundef %3423, ptr noundef %.sink3916) #6
+  %3425 = tail call ptr @lean_array_push(ptr noundef %.sink3910, ptr noundef %3424) #6
   br label %3426
 
-3426:                                             ; preds = %.sink.split3449, %lean_obj_tag.exit2994, %lean_obj_tag.exit2987
-  %.01778 = phi ptr [ %3517, %lean_obj_tag.exit2987 ], [ %2, %lean_obj_tag.exit2994 ], [ %3425, %.sink.split3449 ]
+3426:                                             ; preds = %.sink.split3909, %lean_obj_tag.exit2994, %lean_obj_tag.exit2987
+  %.01778 = phi ptr [ %3517, %lean_obj_tag.exit2987 ], [ %2, %lean_obj_tag.exit2994 ], [ %3425, %.sink.split3909 ]
   br i1 %.not3350, label %3436, label %lean_dec.exit1843
 
 lean_dec.exit1843:                                ; preds = %3426
@@ -97577,7 +97577,7 @@ lean_inc.exit2078:                                ; preds = %3535, %3534, %3532,
 
 lean_dec.exit1836:                                ; preds = %3542, %3541, %3539, %lean_inc.exit2078
   %3543 = tail call ptr @l_Lean_Syntax_mkStrLit(ptr noundef %3527, ptr noundef nonnull inttoptr (i64 5 to ptr)) #6
-  br i1 %.not3348, label %3544, label %.sink.split3449
+  br i1 %.not3348, label %3544, label %.sink.split3909
 
 3544:                                             ; preds = %lean_dec.exit1836
   %3545 = load i32, ptr %3527, align 4, !tbaa !8
@@ -97587,15 +97587,15 @@ lean_dec.exit1836:                                ; preds = %3542, %3541, %3539,
 3547:                                             ; preds = %3544
   %3548 = add nsw i32 %3545, -1
   store i32 %3548, ptr %3527, align 4, !tbaa !8
-  br label %.sink.split3449
+  br label %.sink.split3909
 
 3549:                                             ; preds = %3544
   %.not.i2619 = icmp eq i32 %3545, 0
-  br i1 %.not.i2619, label %.sink.split3449, label %3550
+  br i1 %.not.i2619, label %.sink.split3909, label %3550
 
 3550:                                             ; preds = %3549
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3527) #6
-  br label %.sink.split3449
+  br label %.sink.split3909
 
 3551:                                             ; preds = %lean_dec.exit2056
   br i1 %.not3301, label %3555, label %3552
@@ -97665,7 +97665,7 @@ lean_inc.exit:                                    ; preds = %3569, %3568, %3566,
 
 lean_dec.exit1834:                                ; preds = %3576, %3575, %3573, %lean_inc.exit
   %3577 = tail call ptr @l_Lean_Syntax_mkStrLit(ptr noundef %3561, ptr noundef nonnull inttoptr (i64 5 to ptr)) #6
-  br i1 %.not3349, label %3578, label %.sink.split3449
+  br i1 %.not3349, label %3578, label %.sink.split3909
 
 3578:                                             ; preds = %lean_dec.exit1834
   %3579 = load i32, ptr %3561, align 4, !tbaa !8
@@ -97675,15 +97675,15 @@ lean_dec.exit1834:                                ; preds = %3576, %3575, %3573,
 3581:                                             ; preds = %3578
   %3582 = add nsw i32 %3579, -1
   store i32 %3582, ptr %3561, align 4, !tbaa !8
-  br label %.sink.split3449
+  br label %.sink.split3909
 
 3583:                                             ; preds = %3578
   %.not.i2623 = icmp eq i32 %3579, 0
-  br i1 %.not.i2623, label %.sink.split3449, label %3584
+  br i1 %.not.i2623, label %.sink.split3909, label %3584
 
 3584:                                             ; preds = %3583
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3561) #6
-  br label %.sink.split3449
+  br label %.sink.split3909
 
 lean_dec.exit2051.thread:                         ; preds = %993, %992, %990, %986, %1045, %1044, %1042, %1038, %1193, %1197, %1199, %1200, %1141, %1145, %1147, %1148, %904, %908, %910, %911, %879, %883, %885, %886, %857, %856, %854, %850, %lean_alloc_ctor.exit
   %.0 = phi ptr [ %804, %lean_alloc_ctor.exit ], [ %848, %850 ], [ %848, %854 ], [ %848, %856 ], [ %848, %857 ], [ %869, %886 ], [ %869, %885 ], [ %869, %883 ], [ %869, %879 ], [ %894, %911 ], [ %894, %910 ], [ %894, %908 ], [ %894, %904 ], [ %1113, %1193 ], [ %1113, %1197 ], [ %1113, %1199 ], [ %1113, %1200 ], [ %1122, %1141 ], [ %1122, %1145 ], [ %1122, %1147 ], [ %1122, %1148 ], [ %967, %993 ], [ %967, %992 ], [ %967, %990 ], [ %967, %986 ], [ %.01661, %1045 ], [ %.01661, %1044 ], [ %.01661, %1042 ], [ %.01661, %1038 ]
@@ -101239,16 +101239,16 @@ lean_inc.exit:                                    ; preds = %288, %287, %285, %l
   unreachable
 
 lean_alloc_ctor.exit206:                          ; preds = %lean_inc.exit, %lean_inc.exit155, %lean_inc.exit159, %lean_inc.exit162
-  %.sink263 = phi ptr [ %103, %lean_inc.exit162 ], [ %158, %lean_inc.exit159 ], [ %237, %lean_inc.exit155 ], [ %292, %lean_inc.exit ]
+  %.sink285 = phi ptr [ %103, %lean_inc.exit162 ], [ %158, %lean_inc.exit159 ], [ %237, %lean_inc.exit155 ], [ %292, %lean_inc.exit ]
   %.sink = phi ptr [ %102, %lean_inc.exit162 ], [ %157, %lean_inc.exit159 ], [ %236, %lean_inc.exit155 ], [ %291, %lean_inc.exit ]
-  %295 = getelementptr inbounds nuw i8, ptr %.sink263, i64 4
-  store i32 1, ptr %.sink263, align 4, !tbaa !8
+  %295 = getelementptr inbounds nuw i8, ptr %.sink285, i64 4
+  store i32 1, ptr %.sink285, align 4, !tbaa !8
   store i32 131096, ptr %295, align 4
-  %296 = getelementptr inbounds nuw i8, ptr %.sink263, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %.sink285, i64 8
   store ptr %.sink, ptr %296, align 8, !tbaa !12
-  %297 = getelementptr inbounds nuw i8, ptr %.sink263, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %.sink285, i64 16
   store ptr %4, ptr %297, align 8, !tbaa !12
-  ret ptr %.sink263
+  ret ptr %.sink285
 }
 
 ; Function Attrs: nounwind uwtable
@@ -102255,16 +102255,16 @@ lean_inc.exit:                                    ; preds = %288, %287, %285, %l
   unreachable
 
 lean_alloc_ctor.exit206:                          ; preds = %lean_inc.exit, %lean_inc.exit155, %lean_inc.exit159, %lean_inc.exit162
-  %.sink263 = phi ptr [ %103, %lean_inc.exit162 ], [ %158, %lean_inc.exit159 ], [ %237, %lean_inc.exit155 ], [ %292, %lean_inc.exit ]
+  %.sink285 = phi ptr [ %103, %lean_inc.exit162 ], [ %158, %lean_inc.exit159 ], [ %237, %lean_inc.exit155 ], [ %292, %lean_inc.exit ]
   %.sink = phi ptr [ %102, %lean_inc.exit162 ], [ %157, %lean_inc.exit159 ], [ %236, %lean_inc.exit155 ], [ %291, %lean_inc.exit ]
-  %295 = getelementptr inbounds nuw i8, ptr %.sink263, i64 4
-  store i32 1, ptr %.sink263, align 4, !tbaa !8
+  %295 = getelementptr inbounds nuw i8, ptr %.sink285, i64 4
+  store i32 1, ptr %.sink285, align 4, !tbaa !8
   store i32 131096, ptr %295, align 4
-  %296 = getelementptr inbounds nuw i8, ptr %.sink263, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %.sink285, i64 8
   store ptr %.sink, ptr %296, align 8, !tbaa !12
-  %297 = getelementptr inbounds nuw i8, ptr %.sink263, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %.sink285, i64 16
   store ptr %4, ptr %297, align 8, !tbaa !12
-  ret ptr %.sink263
+  ret ptr %.sink285
 }
 
 ; Function Attrs: nounwind uwtable
@@ -103271,16 +103271,16 @@ lean_inc.exit:                                    ; preds = %288, %287, %285, %l
   unreachable
 
 lean_alloc_ctor.exit206:                          ; preds = %lean_inc.exit, %lean_inc.exit155, %lean_inc.exit159, %lean_inc.exit162
-  %.sink263 = phi ptr [ %103, %lean_inc.exit162 ], [ %158, %lean_inc.exit159 ], [ %237, %lean_inc.exit155 ], [ %292, %lean_inc.exit ]
+  %.sink285 = phi ptr [ %103, %lean_inc.exit162 ], [ %158, %lean_inc.exit159 ], [ %237, %lean_inc.exit155 ], [ %292, %lean_inc.exit ]
   %.sink = phi ptr [ %102, %lean_inc.exit162 ], [ %157, %lean_inc.exit159 ], [ %236, %lean_inc.exit155 ], [ %291, %lean_inc.exit ]
-  %295 = getelementptr inbounds nuw i8, ptr %.sink263, i64 4
-  store i32 1, ptr %.sink263, align 4, !tbaa !8
+  %295 = getelementptr inbounds nuw i8, ptr %.sink285, i64 4
+  store i32 1, ptr %.sink285, align 4, !tbaa !8
   store i32 131096, ptr %295, align 4
-  %296 = getelementptr inbounds nuw i8, ptr %.sink263, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %.sink285, i64 8
   store ptr %.sink, ptr %296, align 8, !tbaa !12
-  %297 = getelementptr inbounds nuw i8, ptr %.sink263, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %.sink285, i64 16
   store ptr %4, ptr %297, align 8, !tbaa !12
-  ret ptr %.sink263
+  ret ptr %.sink285
 }
 
 ; Function Attrs: nounwind uwtable
@@ -104287,16 +104287,16 @@ lean_inc.exit:                                    ; preds = %288, %287, %285, %l
   unreachable
 
 lean_alloc_ctor.exit206:                          ; preds = %lean_inc.exit, %lean_inc.exit155, %lean_inc.exit159, %lean_inc.exit162
-  %.sink263 = phi ptr [ %103, %lean_inc.exit162 ], [ %158, %lean_inc.exit159 ], [ %237, %lean_inc.exit155 ], [ %292, %lean_inc.exit ]
+  %.sink285 = phi ptr [ %103, %lean_inc.exit162 ], [ %158, %lean_inc.exit159 ], [ %237, %lean_inc.exit155 ], [ %292, %lean_inc.exit ]
   %.sink = phi ptr [ %102, %lean_inc.exit162 ], [ %157, %lean_inc.exit159 ], [ %236, %lean_inc.exit155 ], [ %291, %lean_inc.exit ]
-  %295 = getelementptr inbounds nuw i8, ptr %.sink263, i64 4
-  store i32 1, ptr %.sink263, align 4, !tbaa !8
+  %295 = getelementptr inbounds nuw i8, ptr %.sink285, i64 4
+  store i32 1, ptr %.sink285, align 4, !tbaa !8
   store i32 131096, ptr %295, align 4
-  %296 = getelementptr inbounds nuw i8, ptr %.sink263, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %.sink285, i64 8
   store ptr %.sink, ptr %296, align 8, !tbaa !12
-  %297 = getelementptr inbounds nuw i8, ptr %.sink263, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %.sink285, i64 16
   store ptr %4, ptr %297, align 8, !tbaa !12
-  ret ptr %.sink263
+  ret ptr %.sink285
 }
 
 ; Function Attrs: nounwind uwtable
@@ -104847,8 +104847,8 @@ lean_dec.exit24:                                  ; preds = %24, %23, %21, %15
   br i1 %.not, label %lean_dec.exit23, label %32, !prof !18
 
 32:                                               ; preds = %26
-  %.not38 = icmp ugt ptr %6, %30
-  br i1 %.not38, label %34, label %45
+  %.not41 = icmp ugt ptr %6, %30
+  br i1 %.not41, label %34, label %45
 
 lean_dec.exit23:                                  ; preds = %26
   %33 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %6, ptr noundef nonnull %30) #6
@@ -110858,7 +110858,7 @@ _init_l_Lake_PartialBuildKey_toLean_go___closed__6.exit: ; preds = %_init_l_Lake
   br label %_init_l_Lake_PartialBuildKey_toLean_go___closed__7.exit
 
 544:                                              ; preds = %536
-  %545 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %538) #6
+  %545 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %_init_l_Lake_PartialBuildKey_toLean_go___closed__7.exit
 
 .critedge.i.i:                                    ; preds = %_init_l_Lake_PartialBuildKey_toLean_go___closed__6.exit
@@ -113757,18 +113757,18 @@ _init_l_Lake_Package_mkLeanConfig___closed__28.exit: ; preds = %_init_l_Lake_Pac
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_Package_mkLeanConfig___closed__28.exit, %3
-  %.sink196 = phi ptr [ %4, %3 ], [ %1763, %_init_l_Lake_Package_mkLeanConfig___closed__28.exit ]
-  %1766 = getelementptr inbounds nuw i8, ptr %.sink196, i64 4
-  store i32 1, ptr %.sink196, align 4, !tbaa !8
+  %.sink281 = phi ptr [ %4, %3 ], [ %1763, %_init_l_Lake_Package_mkLeanConfig___closed__28.exit ]
+  %1766 = getelementptr inbounds nuw i8, ptr %.sink281, i64 4
+  store i32 1, ptr %.sink281, align 4, !tbaa !8
   store i32 131096, ptr %1766, align 4
-  %1767 = getelementptr inbounds nuw i8, ptr %.sink196, i64 8
+  %1767 = getelementptr inbounds nuw i8, ptr %.sink281, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1767, align 8, !tbaa !12
-  %1768 = getelementptr inbounds nuw i8, ptr %.sink196, i64 16
+  %1768 = getelementptr inbounds nuw i8, ptr %.sink281, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1768, align 8, !tbaa !12
   br label %1769
 
 1769:                                             ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink196, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink281, %.sink.split ]
   ret ptr %.0
 }
 

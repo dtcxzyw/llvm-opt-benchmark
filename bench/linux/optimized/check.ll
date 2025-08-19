@@ -149,29 +149,29 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @memory_corruption_check, align 4
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %.thread7, label %6
+  br i1 %5, label %.thread11, label %6
 
 6:                                                ; preds = %0
   %7 = load i32, ptr @corruption_check_size, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread, label %11
 
-.thread7:                                         ; preds = %0
+.thread11:                                        ; preds = %0
   store i32 1, ptr @memory_corruption_check, align 4
   %9 = load i32, ptr @corruption_check_size, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread, label %.thread10
+  br i1 %10, label %.thread, label %.thread14
 
-.thread:                                          ; preds = %.thread7, %6
+.thread:                                          ; preds = %.thread11, %6
   store i32 0, ptr @memory_corruption_check, align 4
   br label %57
 
 11:                                               ; preds = %6
   %12 = icmp eq i32 %4, 0
-  br i1 %12, label %57, label %.thread10
+  br i1 %12, label %57, label %.thread14
 
-.thread10:                                        ; preds = %.thread7, %11
-  %13 = phi i32 [ %7, %11 ], [ %9, %.thread7 ]
+.thread14:                                        ; preds = %.thread11, %11
+  %13 = phi i32 [ %7, %11 ], [ %9, %.thread11 ]
   store i64 0, ptr %1, align 8, !annotation !5
   store i64 0, ptr %2, align 8, !annotation !5
   %14 = add i32 %13, -1
@@ -184,7 +184,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   %18 = icmp eq i64 %17, -1
   br i1 %18, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread10, %51
+.preheader:                                       ; preds = %.thread14, %51
   %19 = load i64, ptr %1, align 8
   %20 = add i64 %19, -1
   %21 = or i64 %20, 4095
@@ -233,7 +233,7 @@ define dso_local void @setup_bios_corruption_check() local_unnamed_addr #0 secti
   %53 = icmp eq i64 %52, -1
   br i1 %53, label %.loopexit, label %.preheader, !llvm.loop !6
 
-.loopexit:                                        ; preds = %51, %.thread10
+.loopexit:                                        ; preds = %51, %.thread14
   %.pr4 = load i32, ptr @num_scan_areas, align 4
   %54 = icmp eq i32 %.pr4, 0
   br i1 %54, label %57, label %.thread5

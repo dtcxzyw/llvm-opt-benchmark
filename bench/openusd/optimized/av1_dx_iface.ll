@@ -643,36 +643,36 @@ init_decoder.exit:                                ; preds = %164, %170, %175
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 48008
   %268 = load i32, ptr %267, align 8
   %.not.i.i80 = icmp eq i32 %268, 0
-  br i1 %.not.i.i80, label %decode_one.exit.thread118, label %decode_one.exit
+  br i1 %.not.i.i80, label %decode_one.exit.thread132, label %decode_one.exit
 
 269:                                              ; preds = %230
   %270 = load i32, ptr %203, align 8
   %271 = icmp eq i32 %270, 1
-  br i1 %271, label %272, label %decode_one.exit.thread118
+  br i1 %271, label %272, label %decode_one.exit.thread132
 
 272:                                              ; preds = %269
   %273 = getelementptr inbounds nuw i8, ptr %265, i64 431856
   %274 = load i32, ptr %273, align 16
   %275 = icmp eq i32 %274, 0
-  br i1 %275, label %276, label %decode_one.exit.thread118
+  br i1 %275, label %276, label %decode_one.exit.thread132
 
 276:                                              ; preds = %272
   %277 = getelementptr inbounds nuw i8, ptr %265, i64 47968
   %.val.i.i = load i8, ptr %277, align 16
   %278 = and i8 %.val.i.i, -3
   %narrow.i.not.i.i = icmp eq i8 %278, 0
-  br i1 %narrow.i.not.i.i, label %279, label %decode_one.exit.thread118
+  br i1 %narrow.i.not.i.i, label %279, label %decode_one.exit.thread132
 
 279:                                              ; preds = %276
   store i32 0, ptr %203, align 8
-  br label %decode_one.exit.thread118
+  br label %decode_one.exit.thread132
 
 decode_one.exit.thread:                           ; preds = %222, %225
   %.0.i81.ph = phi i32 [ 1, %225 ], [ %224, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %init_decoder.exit.thread
 
-decode_one.exit.thread118:                        ; preds = %266, %269, %272, %276, %279
+decode_one.exit.thread132:                        ; preds = %266, %269, %272, %276, %279
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader
 
@@ -688,7 +688,7 @@ decode_one.exit:                                  ; preds = %266
   %.not76 = icmp eq i32 %.pre.i.i, 0
   br i1 %.not76, label %.preheader, label %init_decoder.exit.thread
 
-.preheader:                                       ; preds = %decode_one.exit.thread118, %decode_one.exit
+.preheader:                                       ; preds = %decode_one.exit.thread132, %decode_one.exit
   %284 = icmp ult ptr %262, %.059
   br i1 %284, label %.lr.ph101.preheader, label %._crit_edge102
 
@@ -830,7 +830,7 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 75684
   %65 = load i32, ptr %64, align 4
   %.not125 = icmp eq i32 %65, 0
-  br i1 %.not125, label %.thread162, label %66
+  br i1 %.not125, label %.thread166, label %66
 
 66:                                               ; preds = %63
   %67 = load i64, ptr %1, align 8
@@ -856,13 +856,13 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   %75 = getelementptr inbounds nuw i8, ptr %18, i64 75688
   %76 = load i32, ptr %75, align 4
   %.not127 = icmp eq i32 %76, 0
-  br i1 %.not127, label %.thread158, label %77
+  br i1 %.not127, label %.thread162, label %77
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %18, i64 431872
   %79 = load i32, ptr %78, align 32
   %80 = icmp sgt i32 %79, -1
-  br i1 %80, label %81, label %.thread158
+  br i1 %80, label %81, label %.thread162
 
 81:                                               ; preds = %77
   call void @av1_get_uniform_tile_size(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
@@ -884,7 +884,7 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   %96 = sext i32 %93 to i64
   %97 = getelementptr inbounds i8, ptr %95, i64 %96
   store ptr %97, ptr %94, align 8
-  br i1 %.not.i, label %.preheader147, label %.loopexit165
+  br i1 %.not.i, label %.preheader147, label %.loopexit169
 
 .preheader147:                                    ; preds = %81
   %98 = lshr i32 4, %89
@@ -903,9 +903,9 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   store ptr %107, ptr %104, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit165, label %100, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit169, label %100, !llvm.loop !10
 
-.loopexit165:                                     ; preds = %100, %81
+.loopexit169:                                     ; preds = %100, %81
   %108 = getelementptr inbounds nuw i8, ptr %18, i64 49044
   %109 = load i32, ptr %108, align 4
   %110 = sub nsw i32 %109, %87
@@ -915,19 +915,19 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   store i32 %111, ptr %112, align 4
   %.pre157 = load i32, ptr %61, align 16
   %113 = icmp eq i32 %.pre157, 0
-  br i1 %113, label %.thread162, label %.thread158
+  br i1 %113, label %.thread166, label %.thread162
 
-.thread158:                                       ; preds = %73, %77, %.loopexit165
+.thread162:                                       ; preds = %73, %77, %.loopexit169
   %114 = getelementptr inbounds nuw i8, ptr %18, i64 75688
   %115 = load i32, ptr %114, align 4
   %.not129 = icmp eq i32 %115, 0
-  br i1 %.not129, label %.thread162, label %116
+  br i1 %.not129, label %.thread166, label %116
 
-116:                                              ; preds = %.thread158
+116:                                              ; preds = %.thread162
   %117 = getelementptr inbounds nuw i8, ptr %18, i64 431876
   %118 = load i32, ptr %117, align 4
   %119 = icmp sgt i32 %118, -1
-  br i1 %119, label %120, label %.thread162
+  br i1 %119, label %120, label %.thread166
 
 120:                                              ; preds = %116
   call void @av1_get_uniform_tile_size(ptr noundef nonnull %19, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
@@ -977,9 +977,9 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   %148 = shl nsw i32 %.135, 2
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %148, ptr %149, align 8
-  br label %.thread162
+  br label %.thread166
 
-.thread162:                                       ; preds = %63, %.loopexit, %116, %.thread158, %.loopexit165
+.thread166:                                       ; preds = %63, %.loopexit, %116, %.thread162, %.loopexit169
   %150 = getelementptr inbounds nuw i8, ptr %48, i64 1304
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -997,12 +997,12 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
   %.not131 = icmp eq i32 %160, 0
   br i1 %.not131, label %163, label %161
 
-161:                                              ; preds = %.thread162
+161:                                              ; preds = %.thread166
   %162 = load ptr, ptr %5, align 8
   store i32 0, ptr %162, align 4
   br label %163
 
-163:                                              ; preds = %161, %.thread162
+163:                                              ; preds = %161, %.thread166
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 27128
   %165 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3989,7 +3989,7 @@ define internal fastcc i32 @decoder_peek_si_internal(ptr noundef %0, i64 noundef
   br i1 %25, label %parse_operating_points.exit.thread, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %24
   %28 = sub nuw nsw i64 %1, %24
   %29 = load i32, ptr %14, align 4
   %30 = call i32 @aom_read_obu_header_and_size(ptr noundef %27, i64 noundef %28, i32 noundef %29, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
@@ -4258,7 +4258,7 @@ parse_operating_points.exit:                      ; preds = %144, %124, %109, %9
   %157 = icmp ne i32 %.078, 0
   %158 = icmp ne i8 %.082, 0
   %or.cond11 = select i1 %157, i1 %158, i1 false
-  br i1 %or.cond11, label %.thread117, label %159
+  br i1 %or.cond11, label %.thread125, label %159
 
 159:                                              ; preds = %156
   %160 = icmp eq i64 %.175, %41
@@ -4303,14 +4303,14 @@ parse_operating_points.exit:                      ; preds = %144, %124, %109, %9
 
 175:                                              ; preds = %164
   %.not106 = icmp eq i32 %.078, 0
-  br i1 %.not106, label %.thread, label %.thread117
+  br i1 %.not106, label %.thread, label %.thread125
 
-.thread117:                                       ; preds = %156, %175
+.thread125:                                       ; preds = %156, %175
   store i32 1, ptr %13, align 4
   br label %.thread
 
-.thread:                                          ; preds = %167, %.thread117, %175
-  %.2105 = phi i32 [ %.076, %.thread117 ], [ %.076, %175 ], [ %.177, %167 ]
+.thread:                                          ; preds = %167, %.thread125, %175
+  %.2105 = phi i32 [ %.076, %.thread125 ], [ %.076, %175 ], [ %.177, %167 ]
   %.not99 = icmp eq ptr %3, null
   br i1 %.not99, label %parse_operating_points.exit.thread, label %176
 

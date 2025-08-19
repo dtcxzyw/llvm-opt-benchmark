@@ -172,26 +172,26 @@ define void @_ZN3spv7Builder15postProcessTypeERKNS_11InstructionEj(ptr noundef n
   br i1 %30, label %._crit_edge.thread.i.i.i.i, label %36
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %25
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %27, %25 ]
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %27, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %.019.lcssa28.i.i.i.i, %32
+  %33 = icmp eq ptr %.019.lcssa29.i.i.i.i, %32
   br i1 %33, label %select.unfold.i.i.i, label %34
 
 34:                                               ; preds = %._crit_edge.thread.i.i.i.i
-  %35 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #17
+  %35 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #17
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 32
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge.i.i.i.i
   %37 = phi i32 [ %.pre.i.i.i, %34 ], [ %29, %._crit_edge.i.i.i.i ]
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %34 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %34 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
   %38 = icmp slt i32 %37, 39
   br i1 %38, label %select.unfold.i.i.i, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
 
 select.unfold.i.i.i:                              ; preds = %36, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %36 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %36 ]
   %39 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %27
   br i1 %39, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i, label %40
 
@@ -239,26 +239,26 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %_ZNSt8_Rb_treeI
   br i1 %56, label %._crit_edge.thread.i.i.i.i75, label %62
 
 ._crit_edge.thread.i.i.i.i75:                     ; preds = %._crit_edge.i.i.i.i70, %51
-  %.019.lcssa28.i.i.i.i76 = phi ptr [ %.02024.i.i.i.i65, %._crit_edge.i.i.i.i70 ], [ %53, %51 ]
+  %.019.lcssa29.i.i.i.i76 = phi ptr [ %.02024.i.i.i.i65, %._crit_edge.i.i.i.i70 ], [ %53, %51 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %.019.lcssa28.i.i.i.i76, %58
+  %59 = icmp eq ptr %.019.lcssa29.i.i.i.i76, %58
   br i1 %59, label %select.unfold.i.i.i72, label %60
 
 60:                                               ; preds = %._crit_edge.thread.i.i.i.i75
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i76) #17
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i76) #17
   %.phi.trans.insert.i.i.i77 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %.pre.i.i.i78 = load i32, ptr %.phi.trans.insert.i.i.i77, align 4
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge.i.i.i.i70
   %63 = phi i32 [ %.pre.i.i.i78, %60 ], [ %55, %._crit_edge.i.i.i.i70 ]
-  %.019.lcssa29.i.i.i.i71 = phi ptr [ %.019.lcssa28.i.i.i.i76, %60 ], [ %.02024.i.i.i.i65, %._crit_edge.i.i.i.i70 ]
+  %.019.lcssa28.i.i.i.i71 = phi ptr [ %.019.lcssa29.i.i.i.i76, %60 ], [ %.02024.i.i.i.i65, %._crit_edge.i.i.i.i70 ]
   %64 = icmp slt i32 %63, 22
   br i1 %64, label %select.unfold.i.i.i72, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit79
 
 select.unfold.i.i.i72:                            ; preds = %62, %._crit_edge.thread.i.i.i.i75
-  %.sroa.4.0.i.ph.i.i.i73 = phi ptr [ %.019.lcssa28.i.i.i.i76, %._crit_edge.thread.i.i.i.i75 ], [ %.019.lcssa29.i.i.i.i71, %62 ]
+  %.sroa.4.0.i.ph.i.i.i73 = phi ptr [ %.019.lcssa29.i.i.i.i76, %._crit_edge.thread.i.i.i.i75 ], [ %.019.lcssa28.i.i.i.i71, %62 ]
   %65 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i73, %53
   br i1 %65, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i74, label %66
 
@@ -306,26 +306,26 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit79: ; preds = %_ZNSt8_Rb_tre
   br i1 %82, label %._crit_edge.thread.i.i.i.i93, label %88
 
 ._crit_edge.thread.i.i.i.i93:                     ; preds = %._crit_edge.i.i.i.i88, %77
-  %.019.lcssa28.i.i.i.i94 = phi ptr [ %.02024.i.i.i.i83, %._crit_edge.i.i.i.i88 ], [ %79, %77 ]
+  %.019.lcssa29.i.i.i.i94 = phi ptr [ %.02024.i.i.i.i83, %._crit_edge.i.i.i.i88 ], [ %79, %77 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %.019.lcssa28.i.i.i.i94, %84
+  %85 = icmp eq ptr %.019.lcssa29.i.i.i.i94, %84
   br i1 %85, label %select.unfold.i.i.i90, label %86
 
 86:                                               ; preds = %._crit_edge.thread.i.i.i.i93
-  %87 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i94) #17
+  %87 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i94) #17
   %.phi.trans.insert.i.i.i95 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %.pre.i.i.i96 = load i32, ptr %.phi.trans.insert.i.i.i95, align 4
   br label %88
 
 88:                                               ; preds = %86, %._crit_edge.i.i.i.i88
   %89 = phi i32 [ %.pre.i.i.i96, %86 ], [ %81, %._crit_edge.i.i.i.i88 ]
-  %.019.lcssa29.i.i.i.i89 = phi ptr [ %.019.lcssa28.i.i.i.i94, %86 ], [ %.02024.i.i.i.i83, %._crit_edge.i.i.i.i88 ]
+  %.019.lcssa28.i.i.i.i89 = phi ptr [ %.019.lcssa29.i.i.i.i94, %86 ], [ %.02024.i.i.i.i83, %._crit_edge.i.i.i.i88 ]
   %90 = icmp slt i32 %89, 9
   br i1 %90, label %select.unfold.i.i.i90, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit97
 
 select.unfold.i.i.i90:                            ; preds = %88, %._crit_edge.thread.i.i.i.i93
-  %.sroa.4.0.i.ph.i.i.i91 = phi ptr [ %.019.lcssa28.i.i.i.i94, %._crit_edge.thread.i.i.i.i93 ], [ %.019.lcssa29.i.i.i.i89, %88 ]
+  %.sroa.4.0.i.ph.i.i.i91 = phi ptr [ %.019.lcssa29.i.i.i.i94, %._crit_edge.thread.i.i.i.i93 ], [ %.019.lcssa28.i.i.i.i89, %88 ]
   %91 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i91, %79
   br i1 %91, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i92, label %92
 
@@ -466,25 +466,25 @@ _ZNK3spv7Builder15getStorageClassEj.exit:         ; preds = %102, %112
   br i1 %146, label %._crit_edge.thread.i.i.i.i111, label %151
 
 ._crit_edge.thread.i.i.i.i111:                    ; preds = %._crit_edge.i.i.i.i106, %142
-  %.019.lcssa28.i.i.i.i112 = phi ptr [ %.02024.i.i.i.i101, %._crit_edge.i.i.i.i106 ], [ %135, %142 ]
+  %.019.lcssa29.i.i.i.i112 = phi ptr [ %.02024.i.i.i.i101, %._crit_edge.i.i.i.i106 ], [ %135, %142 ]
   %147 = load ptr, ptr %133, align 8
-  %148 = icmp eq ptr %.019.lcssa28.i.i.i.i112, %147
+  %148 = icmp eq ptr %.019.lcssa29.i.i.i.i112, %147
   br i1 %148, label %select.unfold.i.i.i108, label %149
 
 149:                                              ; preds = %._crit_edge.thread.i.i.i.i111
-  %150 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i112) #17
+  %150 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i112) #17
   %.phi.trans.insert.i.i.i113 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %.pre.i.i.i114 = load i32, ptr %.phi.trans.insert.i.i.i113, align 4
   br label %151
 
 151:                                              ; preds = %149, %._crit_edge.i.i.i.i106
   %152 = phi i32 [ %.pre.i.i.i114, %149 ], [ %145, %._crit_edge.i.i.i.i106 ]
-  %.019.lcssa29.i.i.i.i107 = phi ptr [ %.019.lcssa28.i.i.i.i112, %149 ], [ %.02024.i.i.i.i101, %._crit_edge.i.i.i.i106 ]
+  %.019.lcssa28.i.i.i.i107 = phi ptr [ %.019.lcssa29.i.i.i.i112, %149 ], [ %.02024.i.i.i.i101, %._crit_edge.i.i.i.i106 ]
   %153 = icmp slt i32 %152, 9
   br i1 %153, label %select.unfold.i.i.i108, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit115
 
 select.unfold.i.i.i108:                           ; preds = %151, %._crit_edge.thread.i.i.i.i111
-  %.sroa.4.0.i.ph.i.i.i109 = phi ptr [ %.019.lcssa28.i.i.i.i112, %._crit_edge.thread.i.i.i.i111 ], [ %.019.lcssa29.i.i.i.i107, %151 ]
+  %.sroa.4.0.i.ph.i.i.i109 = phi ptr [ %.019.lcssa29.i.i.i.i112, %._crit_edge.thread.i.i.i.i111 ], [ %.019.lcssa28.i.i.i.i107, %151 ]
   %154 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i109, %135
   br i1 %154, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i110, label %155
 
@@ -531,25 +531,25 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit115: ; preds = %_ZNSt8_Rb_tr
   br i1 %170, label %._crit_edge.thread.i.i.i.i129, label %175
 
 ._crit_edge.thread.i.i.i.i129:                    ; preds = %._crit_edge.i.i.i.i124, %166
-  %.019.lcssa28.i.i.i.i130 = phi ptr [ %.02024.i.i.i.i119, %._crit_edge.i.i.i.i124 ], [ %135, %166 ]
+  %.019.lcssa29.i.i.i.i130 = phi ptr [ %.02024.i.i.i.i119, %._crit_edge.i.i.i.i124 ], [ %135, %166 ]
   %171 = load ptr, ptr %133, align 8
-  %172 = icmp eq ptr %.019.lcssa28.i.i.i.i130, %171
+  %172 = icmp eq ptr %.019.lcssa29.i.i.i.i130, %171
   br i1 %172, label %select.unfold.i.i.i126, label %173
 
 173:                                              ; preds = %._crit_edge.thread.i.i.i.i129
-  %174 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i130) #17
+  %174 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i130) #17
   %.phi.trans.insert.i.i.i131 = getelementptr inbounds nuw i8, ptr %174, i64 32
   %.pre.i.i.i132 = load i32, ptr %.phi.trans.insert.i.i.i131, align 4
   br label %175
 
 175:                                              ; preds = %173, %._crit_edge.i.i.i.i124
   %176 = phi i32 [ %.pre.i.i.i132, %173 ], [ %169, %._crit_edge.i.i.i.i124 ]
-  %.019.lcssa29.i.i.i.i125 = phi ptr [ %.019.lcssa28.i.i.i.i130, %173 ], [ %.02024.i.i.i.i119, %._crit_edge.i.i.i.i124 ]
+  %.019.lcssa28.i.i.i.i125 = phi ptr [ %.019.lcssa29.i.i.i.i130, %173 ], [ %.02024.i.i.i.i119, %._crit_edge.i.i.i.i124 ]
   %177 = icmp slt i32 %176, 22
   br i1 %177, label %select.unfold.i.i.i126, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit133
 
 select.unfold.i.i.i126:                           ; preds = %175, %._crit_edge.thread.i.i.i.i129
-  %.sroa.4.0.i.ph.i.i.i127 = phi ptr [ %.019.lcssa28.i.i.i.i130, %._crit_edge.thread.i.i.i.i129 ], [ %.019.lcssa29.i.i.i.i125, %175 ]
+  %.sroa.4.0.i.ph.i.i.i127 = phi ptr [ %.019.lcssa29.i.i.i.i130, %._crit_edge.thread.i.i.i.i129 ], [ %.019.lcssa28.i.i.i.i125, %175 ]
   %178 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i127, %135
   br i1 %178, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i128, label %179
 
@@ -616,24 +616,24 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit133: ; preds = %.lr.ph, %_ZN
   br i1 %202, label %._crit_edge.thread.i.i.i.i147, label %206
 
 ._crit_edge.thread.i.i.i.i147:                    ; preds = %._crit_edge.i.i.i.i142, %.critedge61
-  %.019.lcssa28.i.i.i.i148 = phi ptr [ %.02024.i.i.i.i137, %._crit_edge.i.i.i.i142 ], [ %193, %.critedge61 ]
-  %203 = icmp eq ptr %.019.lcssa28.i.i.i.i148, %192
+  %.019.lcssa29.i.i.i.i148 = phi ptr [ %.02024.i.i.i.i137, %._crit_edge.i.i.i.i142 ], [ %193, %.critedge61 ]
+  %203 = icmp eq ptr %.019.lcssa29.i.i.i.i148, %192
   br i1 %203, label %select.unfold.i.i.i144, label %204
 
 204:                                              ; preds = %._crit_edge.thread.i.i.i.i147
-  %205 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i148) #17
+  %205 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i148) #17
   %.phi.trans.insert.i.i.i149 = getelementptr inbounds nuw i8, ptr %205, i64 32
   %.pre.i.i.i150 = load i32, ptr %.phi.trans.insert.i.i.i149, align 4
   br label %206
 
 206:                                              ; preds = %204, %._crit_edge.i.i.i.i142
   %207 = phi i32 [ %.pre.i.i.i150, %204 ], [ %201, %._crit_edge.i.i.i.i142 ]
-  %.019.lcssa29.i.i.i.i143 = phi ptr [ %.019.lcssa28.i.i.i.i148, %204 ], [ %.02024.i.i.i.i137, %._crit_edge.i.i.i.i142 ]
+  %.019.lcssa28.i.i.i.i143 = phi ptr [ %.019.lcssa29.i.i.i.i148, %204 ], [ %.02024.i.i.i.i137, %._crit_edge.i.i.i.i142 ]
   %208 = icmp slt i32 %207, 39
   br i1 %208, label %select.unfold.i.i.i144, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit97
 
 select.unfold.i.i.i144:                           ; preds = %206, %._crit_edge.thread.i.i.i.i147
-  %.sroa.4.0.i.ph.i.i.i145 = phi ptr [ %.019.lcssa28.i.i.i.i148, %._crit_edge.thread.i.i.i.i147 ], [ %.019.lcssa29.i.i.i.i143, %206 ]
+  %.sroa.4.0.i.ph.i.i.i145 = phi ptr [ %.019.lcssa29.i.i.i.i148, %._crit_edge.thread.i.i.i.i147 ], [ %.019.lcssa28.i.i.i.i143, %206 ]
   %209 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i145, %193
   br i1 %209, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i146, label %210
 
@@ -736,26 +736,26 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   br i1 %254, label %._crit_edge.thread.i.i.i.i165, label %260
 
 ._crit_edge.thread.i.i.i.i165:                    ; preds = %._crit_edge.i.i.i.i160, %249
-  %.019.lcssa28.i.i.i.i166 = phi ptr [ %.02024.i.i.i.i155, %._crit_edge.i.i.i.i160 ], [ %251, %249 ]
+  %.019.lcssa29.i.i.i.i166 = phi ptr [ %.02024.i.i.i.i155, %._crit_edge.i.i.i.i160 ], [ %251, %249 ]
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %256 = load ptr, ptr %255, align 8
-  %257 = icmp eq ptr %.019.lcssa28.i.i.i.i166, %256
+  %257 = icmp eq ptr %.019.lcssa29.i.i.i.i166, %256
   br i1 %257, label %select.unfold.i.i.i162, label %258
 
 258:                                              ; preds = %._crit_edge.thread.i.i.i.i165
-  %259 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i166) #17
+  %259 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i166) #17
   %.phi.trans.insert.i.i.i167 = getelementptr inbounds nuw i8, ptr %259, i64 32
   %.pre.i.i.i168 = load i32, ptr %.phi.trans.insert.i.i.i167, align 4
   br label %260
 
 260:                                              ; preds = %258, %._crit_edge.i.i.i.i160
   %261 = phi i32 [ %.pre.i.i.i168, %258 ], [ %253, %._crit_edge.i.i.i.i160 ]
-  %.019.lcssa29.i.i.i.i161 = phi ptr [ %.019.lcssa28.i.i.i.i166, %258 ], [ %.02024.i.i.i.i155, %._crit_edge.i.i.i.i160 ]
+  %.019.lcssa28.i.i.i.i161 = phi ptr [ %.019.lcssa29.i.i.i.i166, %258 ], [ %.02024.i.i.i.i155, %._crit_edge.i.i.i.i160 ]
   %262 = icmp slt i32 %261, 22
   br i1 %262, label %select.unfold.i.i.i162, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit97
 
 select.unfold.i.i.i162:                           ; preds = %260, %._crit_edge.thread.i.i.i.i165
-  %.sroa.4.0.i.ph.i.i.i163 = phi ptr [ %.019.lcssa28.i.i.i.i166, %._crit_edge.thread.i.i.i.i165 ], [ %.019.lcssa29.i.i.i.i161, %260 ]
+  %.sroa.4.0.i.ph.i.i.i163 = phi ptr [ %.019.lcssa29.i.i.i.i166, %._crit_edge.thread.i.i.i.i165 ], [ %.019.lcssa28.i.i.i.i161, %260 ]
   %263 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i163, %251
   br i1 %263, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i164, label %264
 
@@ -799,26 +799,26 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   br i1 %279, label %._crit_edge.thread.i.i.i.i183, label %285
 
 ._crit_edge.thread.i.i.i.i183:                    ; preds = %._crit_edge.i.i.i.i178, %274
-  %.019.lcssa28.i.i.i.i184 = phi ptr [ %.02024.i.i.i.i173, %._crit_edge.i.i.i.i178 ], [ %276, %274 ]
+  %.019.lcssa29.i.i.i.i184 = phi ptr [ %.02024.i.i.i.i173, %._crit_edge.i.i.i.i178 ], [ %276, %274 ]
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %281 = load ptr, ptr %280, align 8
-  %282 = icmp eq ptr %.019.lcssa28.i.i.i.i184, %281
+  %282 = icmp eq ptr %.019.lcssa29.i.i.i.i184, %281
   br i1 %282, label %select.unfold.i.i.i180, label %283
 
 283:                                              ; preds = %._crit_edge.thread.i.i.i.i183
-  %284 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i184) #17
+  %284 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i184) #17
   %.phi.trans.insert.i.i.i185 = getelementptr inbounds nuw i8, ptr %284, i64 32
   %.pre.i.i.i186 = load i32, ptr %.phi.trans.insert.i.i.i185, align 4
   br label %285
 
 285:                                              ; preds = %283, %._crit_edge.i.i.i.i178
   %286 = phi i32 [ %.pre.i.i.i186, %283 ], [ %278, %._crit_edge.i.i.i.i178 ]
-  %.019.lcssa29.i.i.i.i179 = phi ptr [ %.019.lcssa28.i.i.i.i184, %283 ], [ %.02024.i.i.i.i173, %._crit_edge.i.i.i.i178 ]
+  %.019.lcssa28.i.i.i.i179 = phi ptr [ %.019.lcssa29.i.i.i.i184, %283 ], [ %.02024.i.i.i.i173, %._crit_edge.i.i.i.i178 ]
   %287 = icmp slt i32 %286, 39
   br i1 %287, label %select.unfold.i.i.i180, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit97
 
 select.unfold.i.i.i180:                           ; preds = %285, %._crit_edge.thread.i.i.i.i183
-  %.sroa.4.0.i.ph.i.i.i181 = phi ptr [ %.019.lcssa28.i.i.i.i184, %._crit_edge.thread.i.i.i.i183 ], [ %.019.lcssa29.i.i.i.i179, %285 ]
+  %.sroa.4.0.i.ph.i.i.i181 = phi ptr [ %.019.lcssa29.i.i.i.i184, %._crit_edge.thread.i.i.i.i183 ], [ %.019.lcssa28.i.i.i.i179, %285 ]
   %288 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i181, %276
   br i1 %288, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i182, label %289
 
@@ -910,26 +910,26 @@ define linkonce_odr void @_ZN3spv7Builder13addCapabilityENS_10CapabilityE(ptr no
   br i1 %7, label %._crit_edge.thread.i.i.i, label %13
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %2
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %4, %2 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %4, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %.019.lcssa28.i.i.i, %9
+  %10 = icmp eq ptr %.019.lcssa29.i.i.i, %9
   br i1 %10, label %select.unfold.i.i, label %11
 
 11:                                               ; preds = %._crit_edge.thread.i.i.i
-  %12 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #17
+  %12 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #17
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %13
 
 13:                                               ; preds = %11, %._crit_edge.i.i.i
   %14 = phi i32 [ %.pre.i.i, %11 ], [ %6, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %11 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %11 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %15 = icmp slt i32 %14, %1
   br i1 %15, label %select.unfold.i.i, label %_ZNSt3setIN3spv10CapabilityESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
 
 select.unfold.i.i:                                ; preds = %13, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %13 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %13 ]
   %16 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %4
   br i1 %16, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i, label %17
 
@@ -1035,26 +1035,26 @@ define void @_ZN3spv7Builder11postProcessERNS_11InstructionE(ptr noundef nonnull
   br i1 %17, label %._crit_edge.thread.i.i.i.i, label %23
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %12
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %14, %12 ]
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %14, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %.019.lcssa28.i.i.i.i, %19
+  %20 = icmp eq ptr %.019.lcssa29.i.i.i.i, %19
   br i1 %20, label %select.unfold.i.i.i, label %21
 
 21:                                               ; preds = %._crit_edge.thread.i.i.i.i
-  %22 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #17
+  %22 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #17
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 32
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %23
 
 23:                                               ; preds = %21, %._crit_edge.i.i.i.i
   %24 = phi i32 [ %.pre.i.i.i, %21 ], [ %16, %._crit_edge.i.i.i.i ]
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %21 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %21 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
   %25 = icmp slt i32 %24, 52
   br i1 %25, label %select.unfold.i.i.i, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
 
 select.unfold.i.i.i:                              ; preds = %23, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %23 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %23 ]
   %26 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %14
   br i1 %26, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i, label %27
 
@@ -1098,26 +1098,26 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   br i1 %42, label %._crit_edge.thread.i.i.i.i68, label %48
 
 ._crit_edge.thread.i.i.i.i68:                     ; preds = %._crit_edge.i.i.i.i63, %37
-  %.019.lcssa28.i.i.i.i69 = phi ptr [ %.02024.i.i.i.i58, %._crit_edge.i.i.i.i63 ], [ %39, %37 ]
+  %.019.lcssa29.i.i.i.i69 = phi ptr [ %.02024.i.i.i.i58, %._crit_edge.i.i.i.i63 ], [ %39, %37 ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %.019.lcssa28.i.i.i.i69, %44
+  %45 = icmp eq ptr %.019.lcssa29.i.i.i.i69, %44
   br i1 %45, label %select.unfold.i.i.i65, label %46
 
 46:                                               ; preds = %._crit_edge.thread.i.i.i.i68
-  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i69) #17
+  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i69) #17
   %.phi.trans.insert.i.i.i70 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %.pre.i.i.i71 = load i32, ptr %.phi.trans.insert.i.i.i70, align 4
   br label %48
 
 48:                                               ; preds = %46, %._crit_edge.i.i.i.i63
   %49 = phi i32 [ %.pre.i.i.i71, %46 ], [ %41, %._crit_edge.i.i.i.i63 ]
-  %.019.lcssa29.i.i.i.i64 = phi ptr [ %.019.lcssa28.i.i.i.i69, %46 ], [ %.02024.i.i.i.i58, %._crit_edge.i.i.i.i63 ]
+  %.019.lcssa28.i.i.i.i64 = phi ptr [ %.019.lcssa29.i.i.i.i69, %46 ], [ %.02024.i.i.i.i58, %._crit_edge.i.i.i.i63 ]
   %50 = icmp slt i32 %49, 51
   br i1 %50, label %select.unfold.i.i.i65, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
 
 select.unfold.i.i.i65:                            ; preds = %48, %._crit_edge.thread.i.i.i.i68
-  %.sroa.4.0.i.ph.i.i.i66 = phi ptr [ %.019.lcssa28.i.i.i.i69, %._crit_edge.thread.i.i.i.i68 ], [ %.019.lcssa29.i.i.i.i64, %48 ]
+  %.sroa.4.0.i.ph.i.i.i66 = phi ptr [ %.019.lcssa29.i.i.i.i69, %._crit_edge.thread.i.i.i.i68 ], [ %.019.lcssa28.i.i.i.i64, %48 ]
   %51 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i66, %39
   br i1 %51, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i67, label %52
 
@@ -1161,26 +1161,26 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   br i1 %67, label %._crit_edge.thread.i.i.i.i86, label %73
 
 ._crit_edge.thread.i.i.i.i86:                     ; preds = %._crit_edge.i.i.i.i81, %62
-  %.019.lcssa28.i.i.i.i87 = phi ptr [ %.02024.i.i.i.i76, %._crit_edge.i.i.i.i81 ], [ %64, %62 ]
+  %.019.lcssa29.i.i.i.i87 = phi ptr [ %.02024.i.i.i.i76, %._crit_edge.i.i.i.i81 ], [ %64, %62 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %.019.lcssa28.i.i.i.i87, %69
+  %70 = icmp eq ptr %.019.lcssa29.i.i.i.i87, %69
   br i1 %70, label %select.unfold.i.i.i83, label %71
 
 71:                                               ; preds = %._crit_edge.thread.i.i.i.i86
-  %72 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i87) #17
+  %72 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i87) #17
   %.phi.trans.insert.i.i.i88 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %.pre.i.i.i89 = load i32, ptr %.phi.trans.insert.i.i.i88, align 4
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i.i.i81
   %74 = phi i32 [ %.pre.i.i.i89, %71 ], [ %66, %._crit_edge.i.i.i.i81 ]
-  %.019.lcssa29.i.i.i.i82 = phi ptr [ %.019.lcssa28.i.i.i.i87, %71 ], [ %.02024.i.i.i.i76, %._crit_edge.i.i.i.i81 ]
+  %.019.lcssa28.i.i.i.i82 = phi ptr [ %.019.lcssa29.i.i.i.i87, %71 ], [ %.02024.i.i.i.i76, %._crit_edge.i.i.i.i81 ]
   %75 = icmp slt i32 %74, 50
   br i1 %75, label %select.unfold.i.i.i83, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
 
 select.unfold.i.i.i83:                            ; preds = %73, %._crit_edge.thread.i.i.i.i86
-  %.sroa.4.0.i.ph.i.i.i84 = phi ptr [ %.019.lcssa28.i.i.i.i87, %._crit_edge.thread.i.i.i.i86 ], [ %.019.lcssa29.i.i.i.i82, %73 ]
+  %.sroa.4.0.i.ph.i.i.i84 = phi ptr [ %.019.lcssa29.i.i.i.i87, %._crit_edge.thread.i.i.i.i86 ], [ %.019.lcssa28.i.i.i.i82, %73 ]
   %76 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i84, %64
   br i1 %76, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i85, label %77
 
@@ -1236,26 +1236,26 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   br i1 %95, label %._crit_edge.thread.i.i.i.i104, label %101
 
 ._crit_edge.thread.i.i.i.i104:                    ; preds = %._crit_edge.i.i.i.i99, %87
-  %.019.lcssa28.i.i.i.i105 = phi ptr [ %.02024.i.i.i.i94, %._crit_edge.i.i.i.i99 ], [ %92, %87 ]
+  %.019.lcssa29.i.i.i.i105 = phi ptr [ %.02024.i.i.i.i94, %._crit_edge.i.i.i.i99 ], [ %92, %87 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %97 = load ptr, ptr %96, align 8
-  %98 = icmp eq ptr %.019.lcssa28.i.i.i.i105, %97
+  %98 = icmp eq ptr %.019.lcssa29.i.i.i.i105, %97
   br i1 %98, label %select.unfold.i.i.i101, label %99
 
 99:                                               ; preds = %._crit_edge.thread.i.i.i.i104
-  %100 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i105) #17
+  %100 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i105) #17
   %.phi.trans.insert.i.i.i106 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %.pre.i.i.i107 = load i32, ptr %.phi.trans.insert.i.i.i106, align 4
   br label %101
 
 101:                                              ; preds = %99, %._crit_edge.i.i.i.i99
   %102 = phi i32 [ %.pre.i.i.i107, %99 ], [ %94, %._crit_edge.i.i.i.i99 ]
-  %.019.lcssa29.i.i.i.i100 = phi ptr [ %.019.lcssa28.i.i.i.i105, %99 ], [ %.02024.i.i.i.i94, %._crit_edge.i.i.i.i99 ]
+  %.019.lcssa28.i.i.i.i100 = phi ptr [ %.019.lcssa29.i.i.i.i105, %99 ], [ %.02024.i.i.i.i94, %._crit_edge.i.i.i.i99 ]
   %103 = icmp slt i32 %102, 5297
   br i1 %103, label %select.unfold.i.i.i101, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
 
 select.unfold.i.i.i101:                           ; preds = %101, %._crit_edge.thread.i.i.i.i104
-  %.sroa.4.0.i.ph.i.i.i102 = phi ptr [ %.019.lcssa28.i.i.i.i105, %._crit_edge.thread.i.i.i.i104 ], [ %.019.lcssa29.i.i.i.i100, %101 ]
+  %.sroa.4.0.i.ph.i.i.i102 = phi ptr [ %.019.lcssa29.i.i.i.i105, %._crit_edge.thread.i.i.i.i104 ], [ %.019.lcssa28.i.i.i.i100, %101 ]
   %104 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i102, %92
   br i1 %104, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i103, label %105
 
@@ -1335,8 +1335,8 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   %.in = phi ptr [ %151, %.lr.ph ], [ %.pn.in.in, %217 ]
   %.lcssa128135136 = phi i32 [ 0, %.lr.ph ], [ %.lcssa128132, %217 ]
   %157 = load i32, ptr %.in, align 4
-  %.pn162 = zext i32 %157 to i64
-  %.050138.in = getelementptr inbounds nuw ptr, ptr %121, i64 %.pn162
+  %.pn175 = zext i32 %157 to i64
+  %.050138.in = getelementptr inbounds nuw ptr, ptr %121, i64 %.pn175
   %.050138 = load ptr, ptr %.050138.in, align 8
   %158 = getelementptr inbounds nuw i8, ptr %.050138, i64 16
   %159 = load i32, ptr %158, align 8
@@ -3686,25 +3686,25 @@ _ZN3spv7Builder24addIncorporatedExtensionEPKcNS_10SpvVersionE.exit: ; preds = %4
   br i1 %48, label %._crit_edge.thread.i.i.i.i, label %53
 
 ._crit_edge.thread.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i, %_ZN3spv7Builder24addIncorporatedExtensionEPKcNS_10SpvVersionE.exit
-  %.019.lcssa28.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %24, %_ZN3spv7Builder24addIncorporatedExtensionEPKcNS_10SpvVersionE.exit ]
+  %.019.lcssa29.i.i.i.i = phi ptr [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ], [ %24, %_ZN3spv7Builder24addIncorporatedExtensionEPKcNS_10SpvVersionE.exit ]
   %49 = load ptr, ptr %25, align 8
-  %50 = icmp eq ptr %.019.lcssa28.i.i.i.i, %49
+  %50 = icmp eq ptr %.019.lcssa29.i.i.i.i, %49
   br i1 %50, label %select.unfold.i.i.i, label %51
 
 51:                                               ; preds = %._crit_edge.thread.i.i.i.i
-  %52 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #17
+  %52 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i) #17
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 32
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %53
 
 53:                                               ; preds = %51, %._crit_edge.i.i.i.i
   %54 = phi i32 [ %.pre.i.i.i, %51 ], [ %47, %._crit_edge.i.i.i.i ]
-  %.019.lcssa29.i.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %51 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.019.lcssa28.i.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %51 ], [ %.02024.i.i.i.i, %._crit_edge.i.i.i.i ]
   %55 = icmp slt i32 %54, 4448
   br i1 %55, label %select.unfold.i.i.i, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
 
 select.unfold.i.i.i:                              ; preds = %53, %._crit_edge.thread.i.i.i.i
-  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa28.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa29.i.i.i.i, %53 ]
+  %.sroa.4.0.i.ph.i.i.i = phi ptr [ %.019.lcssa29.i.i.i.i, %._crit_edge.thread.i.i.i.i ], [ %.019.lcssa28.i.i.i.i, %53 ]
   %56 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i, %24
   br i1 %56, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i, label %57
 
@@ -3778,25 +3778,25 @@ _ZN3spv7Builder24addIncorporatedExtensionEPKcNS_10SpvVersionE.exit37: ; preds = 
   br i1 %83, label %._crit_edge.thread.i.i.i.i51, label %88
 
 ._crit_edge.thread.i.i.i.i51:                     ; preds = %._crit_edge.i.i.i.i46, %_ZN3spv7Builder24addIncorporatedExtensionEPKcNS_10SpvVersionE.exit37
-  %.019.lcssa28.i.i.i.i52 = phi ptr [ %.02024.i.i.i.i41, %._crit_edge.i.i.i.i46 ], [ %24, %_ZN3spv7Builder24addIncorporatedExtensionEPKcNS_10SpvVersionE.exit37 ]
+  %.019.lcssa29.i.i.i.i52 = phi ptr [ %.02024.i.i.i.i41, %._crit_edge.i.i.i.i46 ], [ %24, %_ZN3spv7Builder24addIncorporatedExtensionEPKcNS_10SpvVersionE.exit37 ]
   %84 = load ptr, ptr %25, align 8
-  %85 = icmp eq ptr %.019.lcssa28.i.i.i.i52, %84
+  %85 = icmp eq ptr %.019.lcssa29.i.i.i.i52, %84
   br i1 %85, label %select.unfold.i.i.i48, label %86
 
 86:                                               ; preds = %._crit_edge.thread.i.i.i.i51
-  %87 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i52) #17
+  %87 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i.i52) #17
   %.phi.trans.insert.i.i.i53 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %.pre.i.i.i54 = load i32, ptr %.phi.trans.insert.i.i.i53, align 4
   br label %88
 
 88:                                               ; preds = %86, %._crit_edge.i.i.i.i46
   %89 = phi i32 [ %.pre.i.i.i54, %86 ], [ %82, %._crit_edge.i.i.i.i46 ]
-  %.019.lcssa29.i.i.i.i47 = phi ptr [ %.019.lcssa28.i.i.i.i52, %86 ], [ %.02024.i.i.i.i41, %._crit_edge.i.i.i.i46 ]
+  %.019.lcssa28.i.i.i.i47 = phi ptr [ %.019.lcssa29.i.i.i.i52, %86 ], [ %.02024.i.i.i.i41, %._crit_edge.i.i.i.i46 ]
   %90 = icmp slt i32 %89, 4433
   br i1 %90, label %select.unfold.i.i.i48, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit55
 
 select.unfold.i.i.i48:                            ; preds = %88, %._crit_edge.thread.i.i.i.i51
-  %.sroa.4.0.i.ph.i.i.i49 = phi ptr [ %.019.lcssa28.i.i.i.i52, %._crit_edge.thread.i.i.i.i51 ], [ %.019.lcssa29.i.i.i.i47, %88 ]
+  %.sroa.4.0.i.ph.i.i.i49 = phi ptr [ %.019.lcssa29.i.i.i.i52, %._crit_edge.thread.i.i.i.i51 ], [ %.019.lcssa28.i.i.i.i47, %88 ]
   %91 = icmp eq ptr %.sroa.4.0.i.ph.i.i.i49, %24
   br i1 %91, label %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i50, label %92
 
@@ -4164,8 +4164,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %257 = ptrtoint ptr %255 to i64
   %258 = ptrtoint ptr %256 to i64
   %259 = sub i64 %257, %258
-  %sext186 = shl i64 %259, 30
-  %260 = ashr i64 %sext186, 32
+  %sext202 = shl i64 %259, 30
+  %260 = ashr i64 %sext202, 32
   %261 = icmp slt i64 %indvars.iv.next182, %260
   br i1 %261, label %205, label %._crit_edge170, !llvm.loop !57
 
@@ -4325,20 +4325,20 @@ _ZNSt3mapIjPN3spv11InstructionESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.e
   br i1 %51, label %._crit_edge.thread.i.i, label %56
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %48
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %3, %48 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %3, %48 ]
   %52 = load ptr, ptr %5, align 8
-  %53 = icmp eq ptr %.019.lcssa28.i.i, %52
+  %53 = icmp eq ptr %.019.lcssa29.i.i, %52
   br i1 %53, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread, label %54
 
 54:                                               ; preds = %._crit_edge.thread.i.i
-  %55 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #17
+  %55 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #17
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %55, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   br label %56
 
 56:                                               ; preds = %54, %._crit_edge.i.i
   %57 = phi i32 [ %.pre81.i, %54 ], [ %50, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %54 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %54 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %.sroa.05.0.i.i = phi ptr [ %55, %54 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %58 = icmp ult i32 %57, %28
   br i1 %58, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread193
@@ -4387,19 +4387,19 @@ _ZNSt3mapIjPN3spv11InstructionESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.e
   br i1 %78, label %._crit_edge.thread.i27.i, label %82
 
 ._crit_edge.thread.i27.i:                         ; preds = %._crit_edge.i18.i, %75
-  %.019.lcssa28.i28.i = phi ptr [ %.02024.i13.i, %._crit_edge.i18.i ], [ %3, %75 ]
-  %79 = icmp eq ptr %.019.lcssa28.i28.i, %64
+  %.019.lcssa29.i28.i = phi ptr [ %.02024.i13.i, %._crit_edge.i18.i ], [ %3, %75 ]
+  %79 = icmp eq ptr %.019.lcssa29.i28.i, %64
   br i1 %79, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread, label %80
 
 80:                                               ; preds = %._crit_edge.thread.i27.i
-  %81 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28.i) #17
+  %81 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28.i) #17
   %.phi.trans.insert78.i = getelementptr inbounds nuw i8, ptr %81, i64 32
   %.pre79.i = load i32, ptr %.phi.trans.insert78.i, align 4
   br label %82
 
 82:                                               ; preds = %80, %._crit_edge.i18.i
   %83 = phi i32 [ %.pre79.i, %80 ], [ %77, %._crit_edge.i18.i ]
-  %.019.lcssa29.i19.i = phi ptr [ %.019.lcssa28.i28.i, %80 ], [ %.02024.i13.i, %._crit_edge.i18.i ]
+  %.019.lcssa28.i19.i = phi ptr [ %.019.lcssa29.i28.i, %80 ], [ %.02024.i13.i, %._crit_edge.i18.i ]
   %.sroa.05.0.i20.i = phi ptr [ %81, %80 ], [ %.02024.i13.i, %._crit_edge.i18.i ]
   %84 = icmp ult i32 %83, %28
   br i1 %84, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread193
@@ -4446,20 +4446,20 @@ _ZNSt3mapIjPN3spv11InstructionESt4lessIjESaISt4pairIKjS2_EEE11lower_boundERS6_.e
   br i1 %102, label %._crit_edge.thread.i47.i, label %107
 
 ._crit_edge.thread.i47.i:                         ; preds = %._crit_edge.i38.i, %99
-  %.019.lcssa28.i48.i = phi ptr [ %.02024.i33.i, %._crit_edge.i38.i ], [ %3, %99 ]
+  %.019.lcssa29.i48.i = phi ptr [ %.02024.i33.i, %._crit_edge.i38.i ], [ %3, %99 ]
   %103 = load ptr, ptr %5, align 8
-  %104 = icmp eq ptr %.019.lcssa28.i48.i, %103
+  %104 = icmp eq ptr %.019.lcssa29.i48.i, %103
   br i1 %104, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread, label %105
 
 105:                                              ; preds = %._crit_edge.thread.i47.i
-  %106 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48.i) #17
+  %106 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48.i) #17
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %106, i64 32
   %.pre.i85 = load i32, ptr %.phi.trans.insert.i, align 4
   br label %107
 
 107:                                              ; preds = %105, %._crit_edge.i38.i
   %108 = phi i32 [ %.pre.i85, %105 ], [ %101, %._crit_edge.i38.i ]
-  %.019.lcssa29.i39.i = phi ptr [ %.019.lcssa28.i48.i, %105 ], [ %.02024.i33.i, %._crit_edge.i38.i ]
+  %.019.lcssa28.i39.i = phi ptr [ %.019.lcssa29.i48.i, %105 ], [ %.02024.i33.i, %._crit_edge.i38.i ]
   %.sroa.05.0.i40.i = phi ptr [ %106, %105 ], [ %.02024.i33.i, %._crit_edge.i38.i ]
   %109 = icmp ult i32 %108, %28
   br i1 %109, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread193
@@ -4471,7 +4471,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS
   br i1 %.not.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread193, label %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread
 
 _ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit.thread: ; preds = %107, %82, %56, %._crit_edge.thread.i47.i, %._crit_edge.thread.i27.i, %._crit_edge.thread.i.i, %95, %71, %43, %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit
-  %.sroa.12.0.i190 = phi ptr [ %.sroa.12.0.i, %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit ], [ %.019.lcssa28.i48.i, %._crit_edge.thread.i47.i ], [ %.019.lcssa28.i28.i, %._crit_edge.thread.i27.i ], [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %spec.select73.i, %95 ], [ %spec.select71.i, %71 ], [ %44, %43 ], [ %.019.lcssa29.i.i, %56 ], [ %.019.lcssa29.i19.i, %82 ], [ %.019.lcssa29.i39.i, %107 ]
+  %.sroa.12.0.i190 = phi ptr [ %.sroa.12.0.i, %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit ], [ %.019.lcssa29.i48.i, %._crit_edge.thread.i47.i ], [ %.019.lcssa29.i28.i, %._crit_edge.thread.i27.i ], [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %spec.select73.i, %95 ], [ %spec.select71.i, %71 ], [ %44, %43 ], [ %.019.lcssa28.i.i, %56 ], [ %.019.lcssa28.i19.i, %82 ], [ %.019.lcssa28.i39.i, %107 ]
   %.sroa.070.0.i189 = phi ptr [ %.sroa.070.0.i, %_ZNSt8_Rb_treeIjSt4pairIKjPN3spv11InstructionEESt10_Select1stIS5_ESt4lessIjESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_.exit ], [ null, %._crit_edge.thread.i47.i ], [ null, %._crit_edge.thread.i27.i ], [ null, %._crit_edge.thread.i.i ], [ %spec.select72.i, %95 ], [ %spec.select.i, %71 ], [ null, %43 ], [ null, %56 ], [ null, %82 ], [ null, %107 ]
   %.not.i.i.i4.i = icmp ne ptr %.sroa.070.0.i189, null
   %110 = icmp eq ptr %.sroa.12.0.i190, %3
@@ -5364,18 +5364,18 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   br i1 %7, label %._crit_edge.thread.i, label %13
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %2 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %.019.lcssa28.i, %9
+  %10 = icmp eq ptr %.019.lcssa29.i, %9
   br i1 %10, label %select.unfold, label %11
 
 11:                                               ; preds = %._crit_edge.thread.i
-  %12 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #17
+  %12 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #17
   br label %13
 
 13:                                               ; preds = %11, %._crit_edge.i
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %11 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %11 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %12, %11 ], [ %.02024.i, %._crit_edge.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 32
   %15 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
@@ -5383,7 +5383,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   br i1 %16, label %select.unfold, label %28
 
 select.unfold:                                    ; preds = %13, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %13 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %.019.lcssa28.i, %13 ]
   %17 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %17, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE10_M_insert_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit, label %18
 
@@ -5497,7 +5497,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14def
   br i1 %.not23, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EEmS5_ET_S7_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 3
+  %19 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
@@ -5549,7 +5549,7 @@ _ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE1
 
 _ZNSt12_Vector_baseISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3spv11InstructionESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %32
   store ptr %26, ptr %0, align 8
-  %36 = getelementptr inbounds %"class.std::unique_ptr", ptr %27, i64 %1
+  %36 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %27, i64 %1
   store ptr %36, ptr %4, align 8
   %37 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i64 %24
   store ptr %37, ptr %11, align 8
@@ -5597,16 +5597,16 @@ define linkonce_odr void @_ZNSt6vectorIPN3spv11InstructionESaIS2_EE17_M_default_
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPN3spv11InstructionEmS2_ET_S4_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPN3spv11InstructionEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPN3spv11InstructionEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false)
-  %.idx.i.i.i.i.i = shl nsw i64 %21, 3
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.idx.i.i.i.i.i
+  %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN3spv11InstructionEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3spv11InstructionEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPN3spv11InstructionEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
@@ -5659,7 +5659,7 @@ _ZNSt6vectorIPN3spv11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pr
 
 _ZNSt12_Vector_baseIPN3spv11InstructionESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIPN3spv11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %40
   store ptr %32, ptr %0, align 8
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %1
+  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
   store ptr %43, ptr %11, align 8

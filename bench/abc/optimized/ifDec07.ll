@@ -1017,7 +1017,7 @@ define range(i64 8070450532247928832, 2) i64 @If_Dec7Perform(ptr noundef readonl
   br i1 %.not26.i, label %If_Dec7MoveTo.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26, %If_Dec7SwapAdjacent.exit.i
-  %storemerge28.i = phi i64 [ %storemerge.i, %If_Dec7SwapAdjacent.exit.i ], [ %28, %26 ]
+  %storemerge31.i = phi i64 [ %storemerge.i, %If_Dec7SwapAdjacent.exit.i ], [ %28, %26 ]
   %30 = phi i64 [ %64, %If_Dec7SwapAdjacent.exit.i ], [ %.promoted.i, %26 ]
   %31 = phi i32 [ %78, %If_Dec7SwapAdjacent.exit.i ], [ %29, %26 ]
   %32 = add nsw i32 %31, -1
@@ -1027,9 +1027,9 @@ define range(i64 8070450532247928832, 2) i64 @If_Dec7Perform(ptr noundef readonl
 34:                                               ; preds = %.lr.ph.i
   %35 = lshr i64 %30, 32
   %36 = and i64 %30, 4294967295
-  %37 = shl i64 %storemerge28.i, 32
+  %37 = shl i64 %storemerge31.i, 32
   %38 = or disjoint i64 %36, %37
-  %and.ra.i.i = and i64 %storemerge28.i, -4294967296
+  %and.ra.i.i = and i64 %storemerge31.i, -4294967296
   %39 = or disjoint i64 %35, %and.ra.i.i
   br label %If_Dec7SwapAdjacent.exit.i
 
@@ -1050,11 +1050,11 @@ define range(i64 8070450532247928832, 2) i64 @If_Dec7Perform(ptr noundef readonl
   %54 = and i64 %53, %30
   %55 = lshr i64 %54, %49
   %56 = or i64 %51, %55
-  %57 = and i64 %43, %storemerge28.i
-  %58 = and i64 %46, %storemerge28.i
+  %57 = and i64 %43, %storemerge31.i
+  %58 = and i64 %46, %storemerge31.i
   %59 = shl i64 %58, %49
   %60 = or i64 %59, %57
-  %61 = and i64 %53, %storemerge28.i
+  %61 = and i64 %53, %storemerge31.i
   %62 = lshr i64 %61, %49
   %63 = or i64 %60, %62
   br label %If_Dec7SwapAdjacent.exit.i
@@ -1099,7 +1099,7 @@ If_Dec7MoveTo.exit:                               ; preds = %26, %._crit_edge.lo
   br i1 %.not26.i23, label %If_Dec7MoveTo.exit34, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %If_Dec7MoveTo.exit, %If_Dec7SwapAdjacent.exit.i28
-  %storemerge28.i27 = phi i64 [ %storemerge.i29, %If_Dec7SwapAdjacent.exit.i28 ], [ %81, %If_Dec7MoveTo.exit ]
+  %storemerge31.i27 = phi i64 [ %storemerge.i29, %If_Dec7SwapAdjacent.exit.i28 ], [ %81, %If_Dec7MoveTo.exit ]
   %83 = phi i64 [ %117, %If_Dec7SwapAdjacent.exit.i28 ], [ %.promoted.i25, %If_Dec7MoveTo.exit ]
   %84 = phi i32 [ %131, %If_Dec7SwapAdjacent.exit.i28 ], [ %82, %If_Dec7MoveTo.exit ]
   %85 = add nsw i32 %84, -1
@@ -1109,9 +1109,9 @@ If_Dec7MoveTo.exit:                               ; preds = %26, %._crit_edge.lo
 87:                                               ; preds = %.lr.ph.i24
   %88 = lshr i64 %83, 32
   %89 = and i64 %83, 4294967295
-  %90 = shl i64 %storemerge28.i27, 32
+  %90 = shl i64 %storemerge31.i27, 32
   %91 = or disjoint i64 %89, %90
-  %and.ra.i.i33 = and i64 %storemerge28.i27, -4294967296
+  %and.ra.i.i33 = and i64 %storemerge31.i27, -4294967296
   %92 = or disjoint i64 %88, %and.ra.i.i33
   br label %If_Dec7SwapAdjacent.exit.i28
 
@@ -1132,11 +1132,11 @@ If_Dec7MoveTo.exit:                               ; preds = %26, %._crit_edge.lo
   %107 = and i64 %106, %83
   %108 = lshr i64 %107, %102
   %109 = or i64 %104, %108
-  %110 = and i64 %96, %storemerge28.i27
-  %111 = and i64 %99, %storemerge28.i27
+  %110 = and i64 %96, %storemerge31.i27
+  %111 = and i64 %99, %storemerge31.i27
   %112 = shl i64 %111, %102
   %113 = or i64 %112, %110
-  %114 = and i64 %106, %storemerge28.i27
+  %114 = and i64 %106, %storemerge31.i27
   %115 = lshr i64 %114, %102
   %116 = or i64 %113, %115
   br label %If_Dec7SwapAdjacent.exit.i28
@@ -1182,7 +1182,7 @@ If_Dec7MoveTo.exit34:                             ; preds = %If_Dec7MoveTo.exit,
   br i1 %.not26.i35, label %If_Dec7MoveTo.exit46, label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %If_Dec7MoveTo.exit34, %If_Dec7SwapAdjacent.exit.i40
-  %storemerge28.i39 = phi i64 [ %storemerge.i41, %If_Dec7SwapAdjacent.exit.i40 ], [ %134, %If_Dec7MoveTo.exit34 ]
+  %storemerge31.i39 = phi i64 [ %storemerge.i41, %If_Dec7SwapAdjacent.exit.i40 ], [ %134, %If_Dec7MoveTo.exit34 ]
   %137 = phi i64 [ %171, %If_Dec7SwapAdjacent.exit.i40 ], [ %.promoted.i37, %If_Dec7MoveTo.exit34 ]
   %138 = phi i32 [ %185, %If_Dec7SwapAdjacent.exit.i40 ], [ %136, %If_Dec7MoveTo.exit34 ]
   %139 = add nsw i32 %138, -1
@@ -1192,9 +1192,9 @@ If_Dec7MoveTo.exit34:                             ; preds = %If_Dec7MoveTo.exit,
 141:                                              ; preds = %.lr.ph.i36
   %142 = lshr i64 %137, 32
   %143 = and i64 %137, 4294967295
-  %144 = shl i64 %storemerge28.i39, 32
+  %144 = shl i64 %storemerge31.i39, 32
   %145 = or disjoint i64 %143, %144
-  %and.ra.i.i45 = and i64 %storemerge28.i39, -4294967296
+  %and.ra.i.i45 = and i64 %storemerge31.i39, -4294967296
   %146 = or disjoint i64 %142, %and.ra.i.i45
   br label %If_Dec7SwapAdjacent.exit.i40
 
@@ -1215,11 +1215,11 @@ If_Dec7MoveTo.exit34:                             ; preds = %If_Dec7MoveTo.exit,
   %161 = and i64 %160, %137
   %162 = lshr i64 %161, %156
   %163 = or i64 %158, %162
-  %164 = and i64 %150, %storemerge28.i39
-  %165 = and i64 %153, %storemerge28.i39
+  %164 = and i64 %150, %storemerge31.i39
+  %165 = and i64 %153, %storemerge31.i39
   %166 = shl i64 %165, %156
   %167 = or i64 %166, %164
-  %168 = and i64 %160, %storemerge28.i39
+  %168 = and i64 %160, %storemerge31.i39
   %169 = lshr i64 %168, %156
   %170 = or i64 %167, %169
   br label %If_Dec7SwapAdjacent.exit.i40
@@ -1548,16 +1548,16 @@ define void @If_Dec7MinimumBase(ptr noundef captures(none) %0, ptr noundef captu
 
 19:                                               ; preds = %.lr.ph.split.us
   %20 = load i64, ptr %7, align 8, !tbaa !10
-  %.not57 = icmp eq i64 %6, %20
-  br i1 %.not57, label %27, label %If_Dec7HasVar.exit.us.If_Dec7HasVar.exit.thread.us_crit_edge
+  %.not60 = icmp eq i64 %6, %20
+  br i1 %.not60, label %27, label %If_Dec7HasVar.exit.us.If_Dec7HasVar.exit.thread.us_crit_edge
 
 If_Dec7HasVar.exit.us:                            ; preds = %9
   %21 = load i64, ptr %7, align 8, !tbaa !10
   %22 = and i64 %21, %11
   %23 = lshr i64 %22, %15
   %24 = and i64 %21, %17
-  %.not56 = icmp eq i64 %23, %24
-  br i1 %.not56, label %27, label %If_Dec7HasVar.exit.us.If_Dec7HasVar.exit.thread.us_crit_edge
+  %.not59 = icmp eq i64 %23, %24
+  br i1 %.not59, label %27, label %If_Dec7HasVar.exit.us.If_Dec7HasVar.exit.thread.us_crit_edge
 
 If_Dec7HasVar.exit.us.If_Dec7HasVar.exit.thread.us_crit_edge: ; preds = %19, %If_Dec7HasVar.exit.us
   %.pre = trunc nuw nsw i64 %indvars.iv42 to i32
@@ -1586,8 +1586,8 @@ If_Dec7HasVar.exit.thread.us:                     ; preds = %If_Dec7HasVar.exit.
 
 29:                                               ; preds = %.lr.ph.split
   %30 = load i64, ptr %7, align 8, !tbaa !10
-  %.not55 = icmp eq i64 %6, %30
-  br i1 %.not55, label %51, label %If_Dec7HasVar.exit.If_Dec7HasVar.exit.thread_crit_edge
+  %.not58 = icmp eq i64 %6, %30
+  br i1 %.not58, label %51, label %If_Dec7HasVar.exit.If_Dec7HasVar.exit.thread_crit_edge
 
 31:                                               ; preds = %.lr.ph.split
   %32 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
@@ -1607,8 +1607,8 @@ If_Dec7HasVar.exit:                               ; preds = %31
   %42 = and i64 %41, %33
   %43 = lshr i64 %42, %37
   %44 = and i64 %41, %39
-  %.not54 = icmp eq i64 %43, %44
-  br i1 %.not54, label %51, label %If_Dec7HasVar.exit.If_Dec7HasVar.exit.thread_crit_edge
+  %.not57 = icmp eq i64 %43, %44
+  br i1 %.not57, label %51, label %If_Dec7HasVar.exit.If_Dec7HasVar.exit.thread_crit_edge
 
 If_Dec7HasVar.exit.If_Dec7HasVar.exit.thread_crit_edge: ; preds = %29, %If_Dec7HasVar.exit
   %.pre49 = trunc nuw nsw i64 %indvars.iv to i32

@@ -159,9 +159,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %52 = load i8, ptr %51, align 1, !tbaa !45
   %53 = zext i8 %52 to i32
   %54 = icmp slt i32 %48, %53
-  br i1 %54, label %56, label %.critedge2.loopexit.split.loop.exit108.i.us
+  br i1 %54, label %56, label %.critedge2.loopexit.split.loop.exit112.i.us
 
-.critedge2.loopexit.split.loop.exit108.i.us:      ; preds = %50
+.critedge2.loopexit.split.loop.exit112.i.us:      ; preds = %50
   %55 = trunc nsw i64 %indvars.iv95.i.us to i32
   br label %.critedge2.i.us
 
@@ -175,8 +175,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %58 = icmp slt i64 %indvars.iv.next.i.us, %33
   br i1 %58, label %41, label %.critedge2.i.us, !llvm.loop !48
 
-.critedge2.i.us:                                  ; preds = %57, %56, %.critedge2.loopexit.split.loop.exit108.i.us, %.critedge.i.us
-  %.2.lcssa.i.us = phi i32 [ %46, %.critedge.i.us ], [ %55, %.critedge2.loopexit.split.loop.exit108.i.us ], [ %11, %56 ], [ %smax.i.us, %57 ]
+.critedge2.i.us:                                  ; preds = %57, %56, %.critedge2.loopexit.split.loop.exit112.i.us, %.critedge.i.us
+  %.2.lcssa.i.us = phi i32 [ %46, %.critedge.i.us ], [ %55, %.critedge2.loopexit.split.loop.exit112.i.us ], [ %11, %56 ], [ %smax.i.us, %57 ]
   %59 = add i32 %.2.lcssa.i.us, %.neg.i.us
   %spec.select.i.us = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
   %60 = add nsw i32 %spec.select.i.us, %.pre24

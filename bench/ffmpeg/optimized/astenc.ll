@@ -65,8 +65,8 @@ define internal range(i32 -1163346256, 1) i32 @ast_write_header(ptr noundef %0) 
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !40
   %.not56 = icmp slt i64 %23, %20
-  %or.cond59 = select i1 %21, i1 true, i1 %.not56
-  br i1 %or.cond59, label %._crit_edge, label %24
+  %or.cond64 = select i1 %21, i1 true, i1 %.not56
+  br i1 %or.cond64, label %._crit_edge, label %24
 
 24:                                               ; preds = %18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.11) #3

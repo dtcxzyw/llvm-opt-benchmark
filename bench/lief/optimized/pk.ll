@@ -435,9 +435,9 @@ mbedtls_pk_get_type.exit.thread.thread:           ; preds = %14
   %.val27 = load i16, ptr %1, align 4, !tbaa !22
   %21 = and i16 %.val27, 28672
   %22 = icmp eq i16 %21, 16384
-  br i1 %22, label %.thread32, label %import_pair_into_psa.exit
+  br i1 %22, label %.thread39, label %import_pair_into_psa.exit
 
-.thread32:                                        ; preds = %mbedtls_pk_get_type.exit.thread.thread
+.thread39:                                        ; preds = %mbedtls_pk_get_type.exit.thread.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -523,8 +523,8 @@ mbedtls_pk_ec_ro.exit.i:                          ; preds = %mbedtls_pk_get_type
   %50 = call i32 @psa_pk_status_to_mbedtls(i32 noundef %49) #7
   br label %import_public_into_psa.exit
 
-import_public_into_psa.exit:                      ; preds = %.thread32, %25, %mbedtls_pk_get_type.exit.i, %27, %mbedtls_pk_rsa.exit.i, %.thread.i, %46
-  %.0.i10 = phi i32 [ %50, %46 ], [ -16128, %27 ], [ -16000, %mbedtls_pk_get_type.exit.i ], [ %31, %mbedtls_pk_rsa.exit.i ], [ %.2.ph.i, %.thread.i ], [ -16000, %25 ], [ -16000, %.thread32 ]
+import_public_into_psa.exit:                      ; preds = %.thread39, %25, %mbedtls_pk_get_type.exit.i, %27, %mbedtls_pk_rsa.exit.i, %.thread.i, %46
+  %.0.i10 = phi i32 [ %50, %46 ], [ -16128, %27 ], [ -16000, %mbedtls_pk_get_type.exit.i ], [ %31, %mbedtls_pk_rsa.exit.i ], [ %.2.ph.i, %.thread.i ], [ -16000, %25 ], [ -16000, %.thread39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -3481,7 +3481,7 @@ define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channe
   %9 = alloca { ptr, ptr }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i8, ptr %10, align 8, !range !73, !noundef !13
-  switch i8 %11, label %default.unreachable113 [
+  switch i8 %11, label %default.unreachable115 [
     i8 0, label %12
     i8 1, label %86
     i8 2, label %87
@@ -3495,7 +3495,7 @@ define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channe
   %.pre112 = load ptr, ptr %.phi.trans.insert111, align 8, !alias.scope !631, !noalias !636
   br label %88
 
-default.unreachable113:                           ; preds = %3
+default.unreachable115:                           ; preds = %3
   unreachable
 
 12:                                               ; preds = %3
@@ -3869,13 +3869,13 @@ define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channe
   %7 = alloca { ptr, ptr }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i8, ptr %8, align 8, !range !134, !noundef !13
-  switch i8 %9, label %default.unreachable17 [
+  switch i8 %9, label %default.unreachable18 [
     i8 0, label %10
     i8 1, label %78
     i8 2, label %79
   ]
 
-default.unreachable17:                            ; preds = %2
+default.unreachable18:                            ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -4134,13 +4134,13 @@ define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channe
   %7 = alloca { ptr, ptr }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i8, ptr %8, align 8, !range !134, !noundef !13
-  switch i8 %9, label %default.unreachable18 [
+  switch i8 %9, label %default.unreachable19 [
     i8 0, label %10
     i8 1, label %70
     i8 2, label %71
   ]
 
-default.unreachable18:                            ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -4426,14 +4426,14 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %15 = alloca { i64, [3 x i64] }, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i8, ptr %16, align 8, !range !73, !noundef !13
-  switch i8 %17, label %default.unreachable65 [
+  switch i8 %17, label %default.unreachable67 [
     i8 0, label %18
     i8 1, label %29
     i8 2, label %30
     i8 3, label %31
   ]
 
-default.unreachable65:                            ; preds = %3
+default.unreachable67:                            ; preds = %3
   unreachable
 
 18:                                               ; preds = %3
@@ -4903,7 +4903,7 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %25 = load i8, ptr %24, align 1, !range !116, !noundef !13
-  switch i8 %25, label %default.unreachable186 [
+  switch i8 %25, label %default.unreachable200 [
     i8 0, label %29
     i8 1, label %41
     i8 2, label %42
@@ -4911,7 +4911,7 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
     i8 4, label %26
   ]
 
-default.unreachable186:                           ; preds = %3
+default.unreachable200:                           ; preds = %3
   unreachable
 
 26:                                               ; preds = %3
@@ -4919,9 +4919,9 @@ default.unreachable186:                           ; preds = %3
   br label %62
 
 common.ret:                                       ; preds = %68, %49, %27
-  %.sink187 = phi i64 [ 1, %68 ], [ 1, %49 ], [ 0, %27 ]
+  %.sink201 = phi i64 [ 1, %68 ], [ 1, %49 ], [ 0, %27 ]
   %.sink = phi i8 [ 4, %68 ], [ 3, %49 ], [ 1, %27 ]
-  store i64 %.sink187, ptr %0, align 8
+  store i64 %.sink201, ptr %0, align 8
   store i8 %.sink, ptr %24, align 1
   ret void
 
@@ -5572,14 +5572,14 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %9 = alloca { i64, [3 x i64] }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %11 = load i8, ptr %10, align 8, !range !73, !noundef !13
-  switch i8 %11, label %default.unreachable38 [
+  switch i8 %11, label %default.unreachable39 [
     i8 0, label %12
     i8 1, label %29
     i8 2, label %30
     i8 3, label %31
   ]
 
-default.unreachable38:                            ; preds = %31, %3
+default.unreachable39:                            ; preds = %31, %3
   unreachable
 
 12:                                               ; preds = %3
@@ -5639,7 +5639,7 @@ common.ret:                                       ; preds = %125, %128
 .noexc14:                                         ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !913
   invoke void @"_ZN76_$LT$x25519_dalek..x25519..StaticSecret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf4039142127d73beE"(ptr noalias noundef nonnull align 1 dereferenceable(32) %8)
-          to label %.thread39 unwind label %24
+          to label %.thread40 unwind label %24
 
 .body:                                            ; preds = %126, %.body18, %24, %18, %13
   %.pn11.pn = phi { ptr, i32 } [ %14, %13 ], [ %25, %24 ], [ %19, %18 ], [ %127, %126 ], [ %.pn, %.body18 ]
@@ -5651,7 +5651,7 @@ common.ret:                                       ; preds = %125, %128
           cleanup
   br label %.body
 
-.thread39:                                        ; preds = %.noexc14
+.thread40:                                        ; preds = %.noexc14
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !913
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store <32 x i8> %23, ptr %26, align 8
@@ -5676,7 +5676,7 @@ common.ret:                                       ; preds = %125, %128
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !73, !noalias !920
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 153
-  switch i8 %.pre, label %default.unreachable38 [
+  switch i8 %.pre, label %default.unreachable39 [
     i8 0, label %34
     i8 1, label %.invoke
     i8 2, label %76
@@ -5690,9 +5690,9 @@ common.ret:                                       ; preds = %125, %128
   %.pre43.i = load ptr, ptr %.phi.trans.insert42.i, align 8, !alias.scope !924, !noalias !929
   br label %79
 
-34:                                               ; preds = %.thread39, %31
-  %35 = phi ptr [ %28, %.thread39 ], [ %33, %31 ]
-  %36 = phi ptr [ %27, %.thread39 ], [ %32, %31 ]
+34:                                               ; preds = %.thread40, %31
+  %35 = phi ptr [ %28, %.thread40 ], [ %33, %31 ]
+  %36 = phi ptr [ %27, %.thread40 ], [ %32, %31 ]
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %39 = load ptr, ptr %38, align 8, !noalias !920, !nonnull !13, !align !81, !noundef !13
@@ -6002,14 +6002,14 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %10 = alloca { i8, [15 x i8] }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %12 = load i8, ptr %11, align 1, !range !73, !noundef !13
-  switch i8 %12, label %default.unreachable64 [
+  switch i8 %12, label %default.unreachable72 [
     i8 0, label %18
     i8 1, label %45
     i8 2, label %46
     i8 3, label %13
   ]
 
-default.unreachable64:                            ; preds = %3
+default.unreachable72:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -6548,13 +6548,13 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %14 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i8, ptr %15, align 8, !range !134, !noundef !13
-  switch i8 %16, label %default.unreachable40 [
+  switch i8 %16, label %default.unreachable46 [
     i8 0, label %17
     i8 1, label %102
     i8 2, label %103
   ]
 
-default.unreachable40:                            ; preds = %3
+default.unreachable46:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -6916,14 +6916,14 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %7 = alloca { [32 x i8] }, align 1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load i8, ptr %8, align 8, !range !73, !noundef !13
-  switch i8 %9, label %default.unreachable38 [
+  switch i8 %9, label %default.unreachable40 [
     i8 0, label %12
     i8 1, label %17
     i8 2, label %18
     i8 3, label %10
   ]
 
-default.unreachable38:                            ; preds = %3
+default.unreachable40:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -7388,13 +7388,13 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %14 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i8, ptr %15, align 8, !range !134, !noundef !13
-  switch i8 %16, label %default.unreachable42 [
+  switch i8 %16, label %default.unreachable48 [
     i8 0, label %17
     i8 1, label %110
     i8 2, label %111
   ]
 
-default.unreachable42:                            ; preds = %3
+default.unreachable48:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -7786,13 +7786,13 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %25 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i8, ptr %26, align 8, !range !134, !noundef !13
-  switch i8 %27, label %default.unreachable192 [
+  switch i8 %27, label %default.unreachable206 [
     i8 0, label %28
     i8 1, label %243
     i8 2, label %244
   ]
 
-default.unreachable192:                           ; preds = %3
+default.unreachable206:                           ; preds = %3
   unreachable
 
 28:                                               ; preds = %3
@@ -8633,7 +8633,7 @@ define internal { i64, ptr } @"_ZN198_$LT$ockam_vault..software..vault_for_secur
   %9 = alloca { { ptr, i64 }, ptr }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 114
   %11 = load i8, ptr %10, align 2, !range !116, !noundef !13
-  switch i8 %11, label %default.unreachable173 [
+  switch i8 %11, label %default.unreachable177 [
     i8 0, label %12
     i8 1, label %84
     i8 2, label %85
@@ -8641,7 +8641,7 @@ define internal { i64, ptr } @"_ZN198_$LT$ockam_vault..software..vault_for_secur
     i8 4, label %104
   ]
 
-default.unreachable173:                           ; preds = %104, %2
+default.unreachable177:                           ; preds = %104, %2
   unreachable
 
 12:                                               ; preds = %2
@@ -8784,7 +8784,7 @@ default.unreachable173:                           ; preds = %104, %2
   %.val78 = load i64, ptr %73, align 8, !range !253, !noundef !13
   %.not.i = icmp eq i64 %.val78, 2
   store i8 0, ptr %14, align 1
-  br i1 %.not.i, label %.thread174, label %74
+  br i1 %.not.i, label %.thread178, label %74
 
 74:                                               ; preds = %55
   store i8 0, ptr %13, align 8
@@ -8812,7 +8812,7 @@ default.unreachable173:                           ; preds = %104, %2
   store i8 0, ptr %.sroa.16144.0..sroa_idx, align 8
   br label %86
 
-.thread174:                                       ; preds = %55
+.thread178:                                       ; preds = %55
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %57, ptr %76, align 8
   %.sroa.6158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -8927,7 +8927,7 @@ common.ret:                                       ; preds = %171, %170, %97
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.58.i)
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  switch i8 %.pre, label %default.unreachable173 [
+  switch i8 %.pre, label %default.unreachable177 [
     i8 0, label %109
     i8 1, label %.invoke
     i8 2, label %116
@@ -8945,8 +8945,8 @@ common.ret:                                       ; preds = %171, %170, %97
   %108 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0.i81, 1
   br label %169
 
-109:                                              ; preds = %.thread174, %104
-  %110 = phi ptr [ %77, %.thread174 ], [ %105, %104 ]
+109:                                              ; preds = %.thread178, %104
+  %110 = phi ptr [ %77, %.thread178 ], [ %105, %104 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %112 = load ptr, ptr %111, align 8, !nonnull !13, !align !81, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -9230,7 +9230,7 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %13 = alloca { { ptr, i64 }, ptr }, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %15 = load i8, ptr %14, align 2, !range !116, !noundef !13
-  switch i8 %15, label %default.unreachable173 [
+  switch i8 %15, label %default.unreachable177 [
     i8 0, label %16
     i8 1, label %86
     i8 2, label %87
@@ -9238,7 +9238,7 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
     i8 4, label %107
   ]
 
-default.unreachable173:                           ; preds = %107, %3
+default.unreachable177:                           ; preds = %107, %3
   unreachable
 
 16:                                               ; preds = %3
@@ -9379,7 +9379,7 @@ default.unreachable173:                           ; preds = %107, %3
   %.val62 = load i64, ptr %75, align 8, !range !253, !noundef !13
   %.not.i = icmp eq i64 %.val62, 2
   store i8 0, ptr %18, align 1
-  br i1 %.not.i, label %.thread174, label %76
+  br i1 %.not.i, label %.thread178, label %76
 
 76:                                               ; preds = %59
   store i8 0, ptr %17, align 8
@@ -9405,7 +9405,7 @@ default.unreachable173:                           ; preds = %107, %3
   store i8 0, ptr %.sroa.15125.0..sroa_idx, align 8
   br label %88
 
-.thread174:                                       ; preds = %59
+.thread178:                                       ; preds = %59
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %61, ptr %78, align 8
   %.sroa.6138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -9499,9 +9499,9 @@ default.unreachable173:                           ; preds = %107, %3
   unreachable
 
 common.ret:                                       ; preds = %178, %176, %100
-  %.sink175 = phi i64 [ 0, %178 ], [ 1, %176 ], [ 1, %100 ]
+  %.sink179 = phi i64 [ 0, %178 ], [ 1, %176 ], [ 1, %100 ]
   %.sink = phi i8 [ 1, %178 ], [ 4, %176 ], [ 3, %100 ]
-  store i64 %.sink175, ptr %0, align 8
+  store i64 %.sink179, ptr %0, align 8
   store i8 %.sink, ptr %14, align 2
   ret void
 
@@ -9531,7 +9531,7 @@ common.ret:                                       ; preds = %178, %176, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.2.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.59.i)
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  switch i8 %.pre, label %default.unreachable173 [
+  switch i8 %.pre, label %default.unreachable177 [
     i8 0, label %110
     i8 1, label %.invoke
     i8 2, label %118
@@ -9542,8 +9542,8 @@ common.ret:                                       ; preds = %178, %176, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1366
   br label %121
 
-110:                                              ; preds = %.thread174, %107
-  %111 = phi ptr [ %79, %.thread174 ], [ %108, %107 ]
+110:                                              ; preds = %.thread178, %107
+  %111 = phi ptr [ %79, %.thread178 ], [ %108, %107 ]
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %113 = load ptr, ptr %112, align 8, !noalias !1366, !nonnull !13, !align !81, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1366
@@ -9866,7 +9866,7 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %19 = alloca { { ptr, i64 }, ptr }, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 75
   %21 = load i8, ptr %20, align 1, !range !116, !noundef !13
-  switch i8 %21, label %default.unreachable84 [
+  switch i8 %21, label %default.unreachable92 [
     i8 0, label %24
     i8 1, label %85
     i8 2, label %86
@@ -9874,7 +9874,7 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
     i8 4, label %23
   ]
 
-default.unreachable84:                            ; preds = %106, %3
+default.unreachable92:                            ; preds = %106, %3
   unreachable
 
 22:                                               ; preds = %3
@@ -10129,7 +10129,7 @@ common.ret:                                       ; preds = %203, %201, %99
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %109 = load i8, ptr %108, align 8, !range !134, !noalias !1411, !noundef !13
-  switch i8 %109, label %default.unreachable84 [
+  switch i8 %109, label %default.unreachable92 [
     i8 0, label %110
     i8 1, label %.invoke
     i8 2, label %194

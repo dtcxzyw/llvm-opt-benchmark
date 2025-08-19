@@ -473,7 +473,7 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   %81 = sub i64 -5, %78
   %82 = select i1 %80, i64 %81, i64 %79
   %83 = icmp sgt i64 %82, 2147483647
-  br i1 %83, label %.thread15, label %84
+  br i1 %83, label %.thread22, label %84
 
 84:                                               ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 1 @optprobe_template_entry, i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i1 false)
@@ -564,8 +564,8 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   %138 = call ptr @text_poke(ptr noundef nonnull %71, ptr noundef nonnull %68, i64 noundef %137) #10
   br label %139
 
-139:                                              ; preds = %.thread15, %.loopexit, %123, %70
-  %140 = phi i32 [ 0, %123 ], [ -12, %70 ], [ %.ph, %.loopexit ], [ %142, %.thread15 ]
+139:                                              ; preds = %.thread22, %.loopexit, %123, %70
+  %140 = phi i32 [ 0, %123 ], [ -12, %70 ], [ %.ph, %.loopexit ], [ %142, %.thread22 ]
   call void @kfree(ptr noundef nonnull %68) #10
   br label %144
 
@@ -574,9 +574,9 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %72, align 8
   %141 = icmp eq ptr %.pre, null
-  br i1 %141, label %139, label %.thread15
+  br i1 %141, label %139, label %.thread22
 
-.thread15:                                        ; preds = %74, %.loopexit
+.thread22:                                        ; preds = %74, %.loopexit
   %142 = phi i32 [ %.ph, %.loopexit ], [ -34, %74 ]
   %143 = phi ptr [ %.pre, %.loopexit ], [ %71, %74 ]
   call void @__free_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots, ptr noundef nonnull %143, i32 noundef 0) #10

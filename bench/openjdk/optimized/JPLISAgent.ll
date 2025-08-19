@@ -1576,9 +1576,9 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %31, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread113.thread125, label %25
+  br i1 %36, label %.thread113.thread128, label %25
 
-.thread113.thread125:                             ; preds = %34
+.thread113.thread128:                             ; preds = %34
   tail call void @JPLISAssertCondition(i8 noundef zeroext 0, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 1185) #10
   tail call void @deallocate(ptr noundef nonnull %4, ptr noundef nonnull %21) #10
   br label %.thread113.thread
@@ -1598,8 +1598,8 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
     i32 0, label %.thread113.thread119
   ]
 
-.thread113.thread:                                ; preds = %18, %.thread113.thread125, %7, %.thread, %16, %.thread113
-  %.5111118 = phi i32 [ %.5110, %.thread113 ], [ 100, %7 ], [ 99, %.thread ], [ 100, %16 ], [ 100, %.thread113.thread125 ], [ 110, %18 ]
+.thread113.thread:                                ; preds = %18, %.thread113.thread128, %7, %.thread, %16, %.thread113
+  %.5111118 = phi i32 [ %.5110, %.thread113 ], [ 100, %7 ], [ 99, %.thread ], [ 100, %16 ], [ 100, %.thread113.thread128 ], [ 110, %18 ]
   tail call void @createAndThrowThrowableFromJVMTIErrorCode(ptr noundef %0, i32 noundef %.5111118) #10
   br label %.thread113.thread119
 

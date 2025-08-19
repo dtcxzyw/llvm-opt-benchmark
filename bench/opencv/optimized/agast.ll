@@ -435,20 +435,20 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i: ; preds = %93, %77
   %122 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %sext.i = shl i64 %121, 48
   %123 = ashr exact i64 %sext.i, 48
-  %sext1250.i = shl i64 %116, 48
-  %124 = ashr exact i64 %sext1250.i, 48
-  %sext1251.i = shl i64 %113, 48
-  %125 = ashr exact i64 %sext1251.i, 48
-  %sext1252.i = shl i64 %119, 48
-  %126 = ashr exact i64 %sext1252.i, 48
-  %sext1253.i = shl i64 %110, 48
-  %127 = ashr exact i64 %sext1253.i, 48
-  %sext1254.i = shl i64 %104, 48
-  %128 = ashr exact i64 %sext1254.i, 48
-  %sext1255.i = shl i64 %101, 48
-  %129 = ashr exact i64 %sext1255.i, 48
-  %sext1256.i = shl i64 %107, 48
-  %130 = ashr exact i64 %sext1256.i, 48
+  %sext1296.i = shl i64 %116, 48
+  %124 = ashr exact i64 %sext1296.i, 48
+  %sext1297.i = shl i64 %113, 48
+  %125 = ashr exact i64 %sext1297.i, 48
+  %sext1298.i = shl i64 %119, 48
+  %126 = ashr exact i64 %sext1298.i, 48
+  %sext1299.i = shl i64 %110, 48
+  %127 = ashr exact i64 %sext1299.i, 48
+  %sext1300.i = shl i64 %104, 48
+  %128 = ashr exact i64 %sext1300.i, 48
+  %sext1301.i = shl i64 %101, 48
+  %129 = ashr exact i64 %sext1301.i, 48
+  %sext1302.i = shl i64 %107, 48
+  %130 = ashr exact i64 %sext1302.i, 48
   %131 = sext i32 %89 to i64
   %132 = sext i32 %79 to i64
   %wide.trip.count.i = zext nneg i32 %90 to i64
@@ -1971,7 +1971,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; pred
   br label %1221
 
 1106:                                             ; preds = %1088
-  %1107 = shl i64 %.3736.i, 1
+  %1107 = shl nsw i64 %.3736.i, 1
   %1108 = icmp ugt i64 %1107, 329406144173384850
   br i1 %1108, label %.invoke.i, label %1109
 
@@ -2211,7 +2211,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i886.i: ; p
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit888.i
 
 1174:                                             ; preds = %1156
-  %1175 = shl i64 %.4737.i, 1
+  %1175 = shl nsw i64 %.4737.i, 1
   %1176 = icmp ugt i64 %1175, 329406144173384850
   br i1 %1176, label %.invoke.i, label %1177
 
@@ -2613,28 +2613,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i118: ; preds = %1282, %1266
   %1323 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %sext.i119 = shl i64 %1322, 48
   %1324 = ashr exact i64 %sext.i119, 48
-  %sext3249.i = shl i64 %1317, 48
-  %1325 = ashr exact i64 %sext3249.i, 48
-  %sext3250.i = shl i64 %1314, 48
-  %1326 = ashr exact i64 %sext3250.i, 48
-  %sext3251.i = shl i64 %1320, 48
-  %1327 = ashr exact i64 %sext3251.i, 48
-  %sext3252.i = shl i64 %1308, 48
-  %1328 = ashr exact i64 %sext3252.i, 48
-  %sext3253.i = shl i64 %1305, 48
-  %1329 = ashr exact i64 %sext3253.i, 48
-  %sext3254.i = shl i64 %1299, 48
-  %1330 = ashr exact i64 %sext3254.i, 48
-  %sext3255.i = shl i64 %1311, 48
-  %1331 = ashr exact i64 %sext3255.i, 48
-  %sext3256.i = shl i64 %1302, 48
-  %1332 = ashr exact i64 %sext3256.i, 48
-  %sext3257.i = shl i64 %1296, 48
-  %1333 = ashr exact i64 %sext3257.i, 48
-  %sext3258.i = shl i64 %1290, 48
-  %1334 = ashr exact i64 %sext3258.i, 48
-  %sext3259.i = shl i64 %1293, 48
-  %1335 = ashr exact i64 %sext3259.i, 48
+  %sext3314.i = shl i64 %1317, 48
+  %1325 = ashr exact i64 %sext3314.i, 48
+  %sext3315.i = shl i64 %1314, 48
+  %1326 = ashr exact i64 %sext3315.i, 48
+  %sext3316.i = shl i64 %1320, 48
+  %1327 = ashr exact i64 %sext3316.i, 48
+  %sext3317.i = shl i64 %1308, 48
+  %1328 = ashr exact i64 %sext3317.i, 48
+  %sext3318.i = shl i64 %1305, 48
+  %1329 = ashr exact i64 %sext3318.i, 48
+  %sext3319.i = shl i64 %1299, 48
+  %1330 = ashr exact i64 %sext3319.i, 48
+  %sext3320.i = shl i64 %1311, 48
+  %1331 = ashr exact i64 %sext3320.i, 48
+  %sext3321.i = shl i64 %1302, 48
+  %1332 = ashr exact i64 %sext3321.i, 48
+  %sext3322.i = shl i64 %1296, 48
+  %1333 = ashr exact i64 %sext3322.i, 48
+  %sext3323.i = shl i64 %1290, 48
+  %1334 = ashr exact i64 %sext3323.i, 48
+  %sext3324.i = shl i64 %1293, 48
+  %1335 = ashr exact i64 %sext3324.i, 48
   %1336 = sext i32 %1268 to i64
   %wide.trip.count3240.i = zext nneg i32 %1279 to i64
   %wide.trip.count.i120 = sext i32 %1278 to i64
@@ -7969,7 +7969,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i.i159: ; p
   br label %5130
 
 5015:                                             ; preds = %4997
-  %5016 = shl i64 %.12406.ph3118.i, 1
+  %5016 = shl nsw i64 %.12406.ph3118.i, 1
   %5017 = icmp ugt i64 %5016, 329406144173384850
   br i1 %5017, label %.invoke.i147, label %5018
 
@@ -8209,7 +8209,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i2690.i: ; 
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit2692.i
 
 5083:                                             ; preds = %5065
-  %5084 = shl i64 %.32415.i, 1
+  %5084 = shl nsw i64 %.32415.i, 1
   %5085 = icmp ugt i64 %5084, 329406144173384850
   br i1 %5085, label %.invoke.i147, label %5086
 
@@ -8611,28 +8611,28 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i177: ; preds = %5191, %5175
   %5232 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %sext.i178 = shl i64 %5231, 48
   %5233 = ashr exact i64 %sext.i178, 48
-  %sext2828.i = shl i64 %5226, 48
-  %5234 = ashr exact i64 %sext2828.i, 48
-  %sext2829.i = shl i64 %5223, 48
-  %5235 = ashr exact i64 %sext2829.i, 48
-  %sext2830.i = shl i64 %5220, 48
-  %5236 = ashr exact i64 %sext2830.i, 48
-  %sext2831.i = shl i64 %5229, 48
-  %5237 = ashr exact i64 %sext2831.i, 48
-  %sext2832.i = shl i64 %5214, 48
-  %5238 = ashr exact i64 %sext2832.i, 48
-  %sext2833.i = shl i64 %5211, 48
-  %5239 = ashr exact i64 %sext2833.i, 48
-  %sext2834.i = shl i64 %5217, 48
-  %5240 = ashr exact i64 %sext2834.i, 48
-  %sext2835.i = shl i64 %5208, 48
-  %5241 = ashr exact i64 %sext2835.i, 48
-  %sext2836.i = shl i64 %5205, 48
-  %5242 = ashr exact i64 %sext2836.i, 48
-  %sext2837.i = shl i64 %5199, 48
-  %5243 = ashr exact i64 %sext2837.i, 48
-  %sext2838.i = shl i64 %5202, 48
-  %5244 = ashr exact i64 %sext2838.i, 48
+  %sext2885.i = shl i64 %5226, 48
+  %5234 = ashr exact i64 %sext2885.i, 48
+  %sext2886.i = shl i64 %5223, 48
+  %5235 = ashr exact i64 %sext2886.i, 48
+  %sext2887.i = shl i64 %5220, 48
+  %5236 = ashr exact i64 %sext2887.i, 48
+  %sext2888.i = shl i64 %5229, 48
+  %5237 = ashr exact i64 %sext2888.i, 48
+  %sext2889.i = shl i64 %5214, 48
+  %5238 = ashr exact i64 %sext2889.i, 48
+  %sext2890.i = shl i64 %5211, 48
+  %5239 = ashr exact i64 %sext2890.i, 48
+  %sext2891.i = shl i64 %5217, 48
+  %5240 = ashr exact i64 %sext2891.i, 48
+  %sext2892.i = shl i64 %5208, 48
+  %5241 = ashr exact i64 %sext2892.i, 48
+  %sext2893.i = shl i64 %5205, 48
+  %5242 = ashr exact i64 %sext2893.i, 48
+  %sext2894.i = shl i64 %5199, 48
+  %5243 = ashr exact i64 %sext2894.i, 48
+  %sext2895.i = shl i64 %5202, 48
+  %5244 = ashr exact i64 %sext2895.i, 48
   %5245 = sext i32 %5177 to i64
   %wide.trip.count2819.i = zext nneg i32 %5188 to i64
   %wide.trip.count.i179 = sext i32 %5187 to i64
@@ -13139,7 +13139,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i.i219: ; p
   br label %8455
 
 8340:                                             ; preds = %8322
-  %8341 = shl i64 %.12043.ph2700.i, 1
+  %8341 = shl nsw i64 %.12043.ph2700.i, 1
   %8342 = icmp ugt i64 %8341, 329406144173384850
   br i1 %8342, label %.invoke.i207, label %8343
 
@@ -13379,7 +13379,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit.i2299.i: ; 
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE7reserveEm.exit2301.i
 
 8408:                                             ; preds = %8390
-  %8409 = shl i64 %.32052.i, 1
+  %8409 = shl nsw i64 %.32052.i, 1
   %8410 = icmp ugt i64 %8409, 329406144173384850
   br i1 %8410, label %.invoke.i207, label %8411
 
@@ -13793,36 +13793,36 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8516, %8500
   %8569 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %sext.i237 = shl i64 %8568, 48
   %8570 = ashr exact i64 %sext.i237, 48
-  %sext2233.i = shl i64 %8548, 48
-  %8571 = ashr exact i64 %sext2233.i, 48
-  %sext2234.i = shl i64 %8545, 48
-  %8572 = ashr exact i64 %sext2234.i, 48
-  %sext2235.i = shl i64 %8542, 48
-  %8573 = ashr exact i64 %sext2235.i, 48
-  %sext2236.i = shl i64 %8551, 48
-  %8574 = ashr exact i64 %sext2236.i, 48
-  %sext2237.i = shl i64 %8539, 48
-  %8575 = ashr exact i64 %sext2237.i, 48
-  %sext2238.i = shl i64 %8536, 48
-  %8576 = ashr exact i64 %sext2238.i, 48
-  %sext2239.i = shl i64 %8533, 48
-  %8577 = ashr exact i64 %sext2239.i, 48
-  %sext2240.i = shl i64 %8530, 48
-  %8578 = ashr exact i64 %sext2240.i, 48
-  %sext2241.i = shl i64 %8527, 48
-  %8579 = ashr exact i64 %sext2241.i, 48
-  %sext2242.i = shl i64 %8524, 48
-  %8580 = ashr exact i64 %sext2242.i, 48
-  %sext2243.i = shl i64 %8554, 48
-  %8581 = ashr exact i64 %sext2243.i, 48
-  %sext2244.i = shl i64 %8557, 48
-  %8582 = ashr exact i64 %sext2244.i, 48
-  %sext2245.i = shl i64 %8560, 48
-  %8583 = ashr exact i64 %sext2245.i, 48
-  %sext2246.i = shl i64 %8563, 48
-  %8584 = ashr exact i64 %sext2246.i, 48
-  %sext2247.i = shl i64 %8566, 48
-  %8585 = ashr exact i64 %sext2247.i, 48
+  %sext2270.i = shl i64 %8548, 48
+  %8571 = ashr exact i64 %sext2270.i, 48
+  %sext2271.i = shl i64 %8545, 48
+  %8572 = ashr exact i64 %sext2271.i, 48
+  %sext2272.i = shl i64 %8542, 48
+  %8573 = ashr exact i64 %sext2272.i, 48
+  %sext2273.i = shl i64 %8551, 48
+  %8574 = ashr exact i64 %sext2273.i, 48
+  %sext2274.i = shl i64 %8539, 48
+  %8575 = ashr exact i64 %sext2274.i, 48
+  %sext2275.i = shl i64 %8536, 48
+  %8576 = ashr exact i64 %sext2275.i, 48
+  %sext2276.i = shl i64 %8533, 48
+  %8577 = ashr exact i64 %sext2276.i, 48
+  %sext2277.i = shl i64 %8530, 48
+  %8578 = ashr exact i64 %sext2277.i, 48
+  %sext2278.i = shl i64 %8527, 48
+  %8579 = ashr exact i64 %sext2278.i, 48
+  %sext2279.i = shl i64 %8524, 48
+  %8580 = ashr exact i64 %sext2279.i, 48
+  %sext2280.i = shl i64 %8554, 48
+  %8581 = ashr exact i64 %sext2280.i, 48
+  %sext2281.i = shl i64 %8557, 48
+  %8582 = ashr exact i64 %sext2281.i, 48
+  %sext2282.i = shl i64 %8560, 48
+  %8583 = ashr exact i64 %sext2282.i, 48
+  %sext2283.i = shl i64 %8563, 48
+  %8584 = ashr exact i64 %sext2283.i, 48
+  %sext2284.i = shl i64 %8566, 48
+  %8585 = ashr exact i64 %sext2284.i, 48
   br i1 %.not21942198.i, label %.preheader.us.preheader.i, label %_ZN2cvL9OAST_9_16ERKNS_11_InputArrayERSt6vectorINS_8KeyPointESaIS4_EEi.exit
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
@@ -18568,7 +18568,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit.i236: ; preds = %8516, %8500
   br i1 %11932, label %11954, label %11933
 
 11933:                                            ; preds = %11931
-  %11934 = shl i64 %.12096.ph2200.us.i, 1
+  %11934 = shl nsw i64 %.12096.ph2200.us.i, 1
   %11935 = icmp ugt i64 %11934, 329406144173384850
   br i1 %11935, label %.split.us.i, label %11936
 
@@ -18969,8 +18969,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %12010, %12013
           to label %.sink.split unwind label %.loopexit324
 
 .sink.split:                                      ; preds = %12073, %12058, %12043, %12028
-  %.sink1272 = phi i32 [ %12042, %12028 ], [ %12057, %12043 ], [ %12072, %12058 ], [ %12087, %12073 ]
-  %12088 = sitofp i32 %.sink1272 to float
+  %.sink1501 = phi i32 [ %12042, %12028 ], [ %12057, %12043 ], [ %12072, %12058 ], [ %12087, %12073 ]
+  %12088 = sitofp i32 %.sink1501 to float
   %12089 = getelementptr inbounds nuw i8, ptr %.sroa.0301.0635, i64 16
   store float %12088, ptr %12089, align 4, !tbaa !173
   br label %12090
@@ -19093,23 +19093,23 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %12093, %.noexc269, 
   %12128 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %12094, i64 %.188, i32 0, i32 1
   %12129 = load float, ptr %12128, align 4, !tbaa !168
   %12130 = fcmp oeq float %12129, %12127
-  br i1 %12130, label %.lr.ph1573, label %.critedge
+  br i1 %12130, label %.lr.ph1802, label %.critedge
 
-12131:                                            ; preds = %.lr.ph1573
+12131:                                            ; preds = %.lr.ph1802
   %12132 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %12094, i64 %12135, i32 0, i32 1
   %12133 = load float, ptr %12132, align 4, !tbaa !168
   %12134 = fcmp oeq float %12133, %12127
-  br i1 %12134, label %.lr.ph1573, label %.critedge, !llvm.loop !175
+  br i1 %12134, label %.lr.ph1802, label %.critedge, !llvm.loop !175
 
-.lr.ph1573:                                       ; preds = %.lr.ph639, %12131
-  %.3906381572 = phi i64 [ %12135, %12131 ], [ %.188, %.lr.ph639 ]
-  %12135 = add i64 %.3906381572, 1
+.lr.ph1802:                                       ; preds = %.lr.ph639, %12131
+  %.3906381801 = phi i64 [ %12135, %12131 ], [ %.188, %.lr.ph639 ]
+  %12135 = add i64 %.3906381801, 1
   %12136 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %12094, i64 %12135
   %12137 = load float, ptr %12136, align 4, !tbaa !171
   %12138 = fcmp olt float %12137, %12123
   br i1 %12138, label %12131, label %..critedge.loopexit_crit_edge, !llvm.loop !175
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph1573
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph1802
   br label %.critedge, !llvm.loop !175
 
 .critedge:                                        ; preds = %12131, %.lr.ph639, %..critedge.loopexit_crit_edge, %.preheader322
@@ -20476,12 +20476,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %23, %26
 31:                                               ; preds = %29
   %32 = icmp eq i32 %30, 655360
   %spec.select = select i1 %32, i32 34209792, i32 33619968
-  %spec.select27 = select i1 %32, ptr %8, ptr %7
+  %spec.select28 = select i1 %32, ptr %8, ptr %7
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %33, align 8
   store i32 %spec.select, ptr %10, align 8, !tbaa !235
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %spec.select27, ptr %34, align 8, !tbaa !10
+  store ptr %spec.select28, ptr %34, align 8, !tbaa !10
   invoke void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEiiNS_13AlgorithmHintE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 6, i32 noundef 0, i32 noundef 0)
           to label %35 unwind label %42
 

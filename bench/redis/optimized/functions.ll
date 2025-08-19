@@ -898,7 +898,7 @@ define dso_local void @functionListCommand(ptr noundef %0) local_unnamed_addr #1
   br label %46
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %.0.lcssa146 = phi i1 [ %36, %._crit_edge ], [ true, %1 ]
+  %.0.lcssa154 = phi i1 [ %36, %._crit_edge ], [ true, %1 ]
   %39 = load ptr, ptr @curr_functions_lib_ctx, align 8, !tbaa !40
   %40 = load ptr, ptr %39, align 8, !tbaa !35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -910,9 +910,9 @@ define dso_local void @functionListCommand(ptr noundef %0) local_unnamed_addr #1
   br label %46
 
 46:                                               ; preds = %._crit_edge.thread, %37
-  %.not89147 = phi i1 [ false, %37 ], [ true, %._crit_edge.thread ]
-  %.0.lcssa145 = phi i1 [ %36, %37 ], [ %.0.lcssa146, %._crit_edge.thread ]
-  %.071.lcssa143 = phi ptr [ %.273.ph, %37 ], [ null, %._crit_edge.thread ]
+  %.not89155 = phi i1 [ false, %37 ], [ true, %._crit_edge.thread ]
+  %.0.lcssa153 = phi i1 [ %36, %37 ], [ %.0.lcssa154, %._crit_edge.thread ]
+  %.071.lcssa151 = phi ptr [ %.273.ph, %37 ], [ null, %._crit_edge.thread ]
   %.078 = phi ptr [ %38, %37 ], [ null, %._crit_edge.thread ]
   %47 = load ptr, ptr @curr_functions_lib_ctx, align 8, !tbaa !40
   %48 = load ptr, ptr %47, align 8, !tbaa !35
@@ -922,19 +922,19 @@ define dso_local void @functionListCommand(ptr noundef %0) local_unnamed_addr #1
   br i1 %.not90132, label %._crit_edge136, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.071.lcssa143, i64 -1
-  %52 = getelementptr inbounds i8, ptr %.071.lcssa143, i64 -17
-  %53 = getelementptr inbounds i8, ptr %.071.lcssa143, i64 -9
-  %54 = getelementptr inbounds i8, ptr %.071.lcssa143, i64 -5
-  %55 = getelementptr inbounds i8, ptr %.071.lcssa143, i64 -3
-  %56 = select i1 %.0.lcssa145, i64 3, i64 4
+  %51 = getelementptr inbounds i8, ptr %.071.lcssa151, i64 -1
+  %52 = getelementptr inbounds i8, ptr %.071.lcssa151, i64 -17
+  %53 = getelementptr inbounds i8, ptr %.071.lcssa151, i64 -9
+  %54 = getelementptr inbounds i8, ptr %.071.lcssa151, i64 -5
+  %55 = getelementptr inbounds i8, ptr %.071.lcssa151, i64 -3
+  %56 = select i1 %.0.lcssa153, i64 3, i64 4
   br label %57
 
 57:                                               ; preds = %.lr.ph135, %265
   %58 = phi ptr [ %50, %.lr.ph135 ], [ %266, %265 ]
   %.079133 = phi i64 [ 0, %.lr.ph135 ], [ %.180, %265 ]
   %59 = tail call ptr @dictGetVal(ptr noundef nonnull %58) #12
-  br i1 %.not89147, label %104, label %60
+  br i1 %.not89155, label %104, label %60
 
 60:                                               ; preds = %57
   %61 = load i8, ptr %51, align 1, !tbaa !44
@@ -1019,7 +1019,7 @@ sdslen.exit:                                      ; preds = %60, %64, %67, %70, 
 sdslen.exit97:                                    ; preds = %sdslen.exit, %84, %87, %91, %95, %99
   %.0.i96 = phi i64 [ %86, %84 ], [ %90, %87 ], [ %94, %91 ], [ %98, %95 ], [ %101, %99 ], [ 0, %sdslen.exit ]
   %102 = trunc i64 %.0.i96 to i32
-  %103 = tail call i32 @stringmatchlen(ptr noundef nonnull %.071.lcssa143, i32 noundef %78, ptr noundef nonnull %79, i32 noundef %102, i32 noundef 1) #12
+  %103 = tail call i32 @stringmatchlen(ptr noundef nonnull %.071.lcssa151, i32 noundef %78, ptr noundef nonnull %79, i32 noundef %102, i32 noundef 1) #12
   %.not92 = icmp eq i32 %103, 0
   br i1 %.not92, label %265, label %104, !llvm.loop !107
 
@@ -1305,7 +1305,7 @@ functionListReplyFlags.exit:                      ; preds = %235, %._crit_edge.i
 
 ._crit_edge131:                                   ; preds = %functionListReplyFlags.exit, %sdslen.exit101
   tail call void @dictReleaseIterator(ptr noundef %162) #12
-  br i1 %.0.lcssa145, label %265, label %240
+  br i1 %.0.lcssa153, label %265, label %240
 
 240:                                              ; preds = %._crit_edge131
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull @.str.21) #12
@@ -2963,11 +2963,11 @@ define dso_local void @functionLoadCommand(ptr noundef %0) local_unnamed_addr #1
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.loopexit, %._crit_edge
-  %.019.lcssa41 = phi i32 [ 0, %._crit_edge ], [ 1, %._crit_edge.thread.loopexit ]
-  %.021.lcssa40 = phi i64 [ 2, %._crit_edge ], [ %18, %._crit_edge.thread.loopexit ]
+  %.019.lcssa42 = phi i32 [ 0, %._crit_edge ], [ 1, %._crit_edge.thread.loopexit ]
+  %.021.lcssa41 = phi i64 [ 2, %._crit_edge ], [ %18, %._crit_edge.thread.loopexit ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8, !tbaa !97
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.021.lcssa40
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.021.lcssa41
   %22 = load ptr, ptr %21, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !51
@@ -2977,7 +2977,7 @@ define dso_local void @functionLoadCommand(ptr noundef %0) local_unnamed_addr #1
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !99
   %26 = load ptr, ptr @curr_functions_lib_ctx, align 8, !tbaa !40
-  %27 = call ptr @functionsCreateWithLibraryCtx(ptr noundef %25, i32 noundef %.019.lcssa41, ptr noundef nonnull %2, ptr noundef %26, i64 noundef %spec.select)
+  %27 = call ptr @functionsCreateWithLibraryCtx(ptr noundef %25, i32 noundef %.019.lcssa42, ptr noundef nonnull %2, ptr noundef %26, i64 noundef %spec.select)
   %.not24 = icmp eq ptr %27, null
   br i1 %.not24, label %28, label %30
 

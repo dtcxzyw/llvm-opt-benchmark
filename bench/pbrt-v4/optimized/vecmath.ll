@@ -535,11 +535,11 @@ define dso_local { <2 x float>, <2 x float> } @_ZN4pbrt5UnionERKNS_13DirectionCo
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %13
-  %foldExtExtBinop86 = fadd <2 x float> %.sroa.041.0.copyload, %.sroa.039.0.copyload
+  %foldExtExtBinop90 = fadd <2 x float> %.sroa.041.0.copyload, %.sroa.039.0.copyload
   %27 = fadd float %.sroa.04.4.vec.extract.i.i, %.sroa.01.4.vec.extract.i.i
   %28 = fadd float %.sroa.242.0.copyload, %.sroa.240.0.copyload
-  %foldExtExtBinop88 = fmul <2 x float> %foldExtExtBinop86, %foldExtExtBinop86
-  %29 = extractelement <2 x float> %foldExtExtBinop88, i64 0
+  %foldExtExtBinop92 = fmul <2 x float> %foldExtExtBinop90, %foldExtExtBinop90
+  %29 = extractelement <2 x float> %foldExtExtBinop92, i64 0
   %30 = fmul float %27, %27
   %31 = fadd float %29, %30
   %32 = fmul float %28, %28
@@ -556,11 +556,11 @@ define dso_local { <2 x float>, <2 x float> } @_ZN4pbrt5UnionERKNS_13DirectionCo
   br label %_ZN4pbrt12AngleBetweenIfEEfNS_7Vector3IT_EES3_.exit
 
 40:                                               ; preds = %13
-  %foldExtExtBinop90 = fsub <2 x float> %.sroa.039.0.copyload, %.sroa.041.0.copyload
+  %foldExtExtBinop94 = fsub <2 x float> %.sroa.039.0.copyload, %.sroa.041.0.copyload
   %41 = fsub float %.sroa.01.4.vec.extract.i.i, %.sroa.04.4.vec.extract.i.i
   %42 = fsub float %.sroa.240.0.copyload, %.sroa.242.0.copyload
-  %foldExtExtBinop92 = fmul <2 x float> %foldExtExtBinop90, %foldExtExtBinop90
-  %43 = extractelement <2 x float> %foldExtExtBinop92, i64 0
+  %foldExtExtBinop96 = fmul <2 x float> %foldExtExtBinop94, %foldExtExtBinop94
+  %43 = extractelement <2 x float> %foldExtExtBinop96, i64 0
   %44 = fmul float %41, %41
   %45 = fadd float %43, %44
   %46 = fmul float %42, %42
@@ -659,8 +659,8 @@ _ZN4pbrt12AngleBetweenIfEEfNS_7Vector3IT_EES3_.exit: ; preds = %26, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %98 = call noundef float @cosf(float noundef %64) #22, !tbaa !25
   %.sroa.01.0.vec.extract.i.i.i.i = extractelement <2 x float> %.fca.0.extract, i64 0
-  %foldExtExtBinop94 = fmul <2 x float> %.fca.0.extract, %.fca.0.extract
-  %99 = extractelement <2 x float> %foldExtExtBinop94, i64 0
+  %foldExtExtBinop98 = fmul <2 x float> %.fca.0.extract, %.fca.0.extract
+  %99 = extractelement <2 x float> %foldExtExtBinop98, i64 0
   %.sroa.01.4.vec.extract.i.i.i.i = extractelement <2 x float> %.fca.0.extract, i64 1
   %100 = fmul float %.sroa.01.4.vec.extract.i.i.i.i, %.sroa.01.4.vec.extract.i.i.i.i
   %101 = fadd float %99, %100

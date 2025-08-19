@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [48 x i8] c"cannot duplicate null pointer (internal error)\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @pg_malloc(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @pg_malloc(i64 noundef %0) local_unnamed_addr #0 {
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   %2 = tail call noalias ptr @malloc(i64 noundef %spec.store.select.i) #12
   %3 = icmp eq ptr %2, null
@@ -25,7 +25,7 @@ pg_malloc_internal.exit:                          ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pg_malloc0(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @pg_malloc0(i64 noundef %0) local_unnamed_addr #0 {
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   %2 = tail call noalias ptr @malloc(i64 noundef %spec.store.select.i) #12
   %3 = icmp eq ptr %2, null
@@ -188,7 +188,7 @@ define dso_local void @pg_free(ptr noundef captures(none) %0) local_unnamed_addr
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @palloc(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local noalias nonnull ptr @palloc(i64 noundef %0) local_unnamed_addr #0 {
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   %2 = tail call noalias ptr @malloc(i64 noundef %spec.store.select.i) #12
   %3 = icmp eq ptr %2, null
@@ -205,7 +205,7 @@ pg_malloc_internal.exit:                          ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @palloc0(i64 noundef %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @palloc0(i64 noundef %0) local_unnamed_addr #0 {
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   %2 = tail call noalias ptr @malloc(i64 noundef %spec.store.select.i) #12
   %3 = icmp eq ptr %2, null

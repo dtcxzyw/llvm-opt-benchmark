@@ -546,8 +546,8 @@ define ptr @hw_device_for_filter() local_unnamed_addr #3 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %11, %0
-  %.sink8 = phi ptr [ %1, %0 ], [ %10, %11 ], [ %10, %5 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink8, i64 16
+  %.sink10 = phi ptr [ %1, %0 ], [ %10, %11 ], [ %10, %5 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   br label %19
 

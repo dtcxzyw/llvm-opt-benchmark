@@ -166,9 +166,9 @@ default.unreachable:                              ; preds = %.lr.ph
   br i1 %.not.i, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i
 
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %._crit_edge
-  %.025.lcssa48 = phi ptr [ %.1, %._crit_edge ], [ %17, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %.025.lcssa53 = phi ptr [ %.1, %._crit_edge ], [ %17, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
   %47 = phi ptr [ %.pre, %._crit_edge ], [ %17, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %48 = ptrtoint ptr %.025.lcssa48 to i64
+  %48 = ptrtoint ptr %.025.lcssa53 to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = lshr exact i64 %50, 4
@@ -211,7 +211,7 @@ _ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit:       ; preds = %2
   %12 = shl nuw nsw i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   %.not58 = icmp eq i32 %10, 0
-  br i1 %.not58, label %._crit_edge.thread70, label %.lr.ph61
+  br i1 %.not58, label %._crit_edge.thread74, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -419,12 +419,12 @@ _ZN3sat6solver11assign_unitENS_7literalE.exit:    ; preds = %49, %57, %59, %60, 
 ._crit_edge:                                      ; preds = %90
   %.pre = load ptr, ptr %1, align 8, !tbaa !33
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZN6vectorIPN3sat6clauseELb0EjE7set_endEPS2_.exit, label %._crit_edge.thread70
+  br i1 %.not.i, label %_ZN6vectorIPN3sat6clauseELb0EjE7set_endEPS2_.exit, label %._crit_edge.thread74
 
-._crit_edge.thread70:                             ; preds = %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit, %._crit_edge
-  %.046.lcssa73 = phi ptr [ %.1, %._crit_edge ], [ %7, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
+._crit_edge.thread74:                             ; preds = %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit, %._crit_edge
+  %.046.lcssa77 = phi ptr [ %.1, %._crit_edge ], [ %7, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
   %92 = phi ptr [ %.pre, %._crit_edge ], [ %7, %_ZN6vectorIPN3sat6clauseELb0EjE3endEv.exit ]
-  %93 = ptrtoint ptr %.046.lcssa73 to i64
+  %93 = ptrtoint ptr %.046.lcssa77 to i64
   %94 = ptrtoint ptr %92 to i64
   %95 = sub i64 %93, %94
   %96 = lshr exact i64 %95, 3
@@ -433,7 +433,7 @@ _ZN3sat6solver11assign_unitENS_7literalE.exit:    ; preds = %49, %57, %59, %60, 
   store i32 %97, ptr %98, align 4, !tbaa !16
   br label %_ZN6vectorIPN3sat6clauseELb0EjE7set_endEPS2_.exit
 
-_ZN6vectorIPN3sat6clauseELb0EjE7set_endEPS2_.exit: ; preds = %2, %._crit_edge, %._crit_edge.thread70
+_ZN6vectorIPN3sat6clauseELb0EjE7set_endEPS2_.exit: ; preds = %2, %._crit_edge, %._crit_edge.thread74
   ret void
 }
 

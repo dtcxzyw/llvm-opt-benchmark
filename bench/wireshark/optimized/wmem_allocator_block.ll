@@ -74,18 +74,18 @@ define hidden void @wmem_block_verify(ptr noundef readonly captures(none) %0) lo
   %20 = getelementptr i8, ptr %11, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not33.i = icmp eq ptr %21, null
-  br i1 %.not33.i, label %.preheader75, label %22, !prof !6
+  br i1 %.not33.i, label %.preheader85, label %22, !prof !6
 
 22:                                               ; preds = %19
   tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.7)
-  br label %.preheader75
+  br label %.preheader85
 
-.preheader75:                                     ; preds = %22, %19
+.preheader85:                                     ; preds = %22, %19
   br label %23
 
-23:                                               ; preds = %.preheader75, %42
-  %.02544.i = phi ptr [ %43, %42 ], [ %11, %.preheader75 ]
-  %.02743.i = phi i32 [ %27, %42 ], [ 0, %.preheader75 ]
+23:                                               ; preds = %.preheader85, %42
+  %.02544.i = phi ptr [ %43, %42 ], [ %11, %.preheader85 ]
+  %.02743.i = phi i32 [ %27, %42 ], [ 0, %.preheader85 ]
   %24 = getelementptr inbounds nuw i8, ptr %.02544.i, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = lshr i32 %25, 3

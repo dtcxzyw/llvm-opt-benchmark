@@ -603,8 +603,8 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   %125 = mul nuw nsw i32 %124, %123
   %126 = icmp ne i32 %112, 6
   %127 = icmp sgt i8 %120, -1
-  %or.cond36 = select i1 %126, i1 true, i1 %127
-  br i1 %or.cond36, label %.thread21, label %128
+  %or.cond51 = select i1 %126, i1 true, i1 %127
+  br i1 %or.cond51, label %.thread21, label %128
 
 128:                                              ; preds = %114
   %129 = getelementptr inbounds nuw i8, ptr %34, i64 19
@@ -764,7 +764,7 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   br label %233
 
 233:                                              ; preds = %226, %209
-  switch i8 %42, label %default.unreachable33 [
+  switch i8 %42, label %default.unreachable48 [
     i8 2, label %234
     i8 3, label %234
     i8 1, label %241
@@ -775,7 +775,7 @@ define dso_local i32 @usb_submit_urb(ptr noundef %0, i32 noundef %1) #2 align 16
   %235 = select i1 %192, i32 964, i32 900
   br label %236
 
-default.unreachable33:                            ; preds = %233
+default.unreachable48:                            ; preds = %233
   unreachable
 
 236:                                              ; preds = %233, %234
@@ -1442,27 +1442,27 @@ define dso_local void @usb_unlink_anchored_urbs(ptr noundef %0) #2 align 16 {
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
-  %.sink11 = phi ptr [ %7, %.preheader.preheader ], [ %46, %.preheader.backedge ]
-  %.sink10 = phi i64 [ %3, %.preheader.preheader ], [ %42, %.preheader.backedge ]
-  tail call fastcc void @__usb_unanchor_urb(ptr noundef nonnull %.sink11, ptr noundef %0)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %.sink10) #10
-  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 64
+  %.sink19 = phi ptr [ %7, %.preheader.preheader ], [ %46, %.preheader.backedge ]
+  %.sink18 = phi i64 [ %3, %.preheader.preheader ], [ %42, %.preheader.backedge ]
+  tail call fastcc void @__usb_unanchor_urb(ptr noundef nonnull %.sink19, ptr noundef %0)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %2, i64 noundef %.sink18) #10
+  %18 = getelementptr inbounds nuw i8, ptr %.sink19, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i8, ptr %.sink11, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %.sink19, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call i32 @usb_hcd_unlink_urb(ptr noundef nonnull %.sink11, i32 noundef -104) #10
+  %26 = tail call i32 @usb_hcd_unlink_urb(ptr noundef nonnull %.sink19, i32 noundef -104) #10
   br label %27
 
 27:                                               ; preds = %25, %21, %.preheader
-  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.sink11, i32 -1, ptr nonnull elementtype(i32) %.sink11) #10, !srcloc !5
+  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.sink19, i32 -1, ptr nonnull elementtype(i32) %.sink19) #10, !srcloc !5
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %33, label %30
 
@@ -1471,25 +1471,25 @@ define dso_local void @usb_unlink_anchored_urbs(ptr noundef %0) #2 align 16 {
   br i1 %31, label %.thread, label %32, !prof !6
 
 32:                                               ; preds = %30
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %.sink11, i32 noundef 3) #10
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %.sink19, i32 noundef 3) #10
   br label %.thread
 
 33:                                               ; preds = %27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
-  %34 = getelementptr inbounds nuw i8, ptr %.sink11, i64 92
+  %34 = getelementptr inbounds nuw i8, ptr %.sink19, i64 92
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 256
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %.sink11, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %.sink19, i64 96
   %40 = load ptr, ptr %39, align 8
   tail call void @kfree(ptr noundef %40) #10
   br label %41
 
 41:                                               ; preds = %38, %33
-  tail call void @kfree(ptr noundef nonnull %.sink11) #10
+  tail call void @kfree(ptr noundef nonnull %.sink19) #10
   br label %.thread
 
 .thread:                                          ; preds = %30, %32, %41
@@ -1523,9 +1523,9 @@ define dso_local void @usb_unlink_anchored_urbs(ptr noundef %0) #2 align 16 {
   br label %.preheader.backedge
 
 .loopexit.sink.split.sink.split:                  ; preds = %45, %6
-  %.sink7 = phi ptr [ %7, %6 ], [ %46, %45 ]
+  %.sink15 = phi ptr [ %7, %6 ], [ %46, %45 ]
   %.sink.ph = phi i64 [ %3, %6 ], [ %42, %45 ]
-  tail call fastcc void @__usb_unanchor_urb(ptr noundef %.sink7, ptr noundef %0)
+  tail call fastcc void @__usb_unanchor_urb(ptr noundef %.sink15, ptr noundef %0)
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.thread, %.loopexit.sink.split.sink.split, %1

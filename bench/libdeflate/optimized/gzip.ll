@@ -78,18 +78,18 @@ is_gunzip.exit:                                   ; preds = %2, %14
 
 24:                                               ; preds = %.backedge, %is_gunzip.exit
   %25 = phi i32 [ 6, %is_gunzip.exit ], [ %.be, %.backedge ]
-  %26 = phi i8 [ 0, %is_gunzip.exit ], [ %.be430, %.backedge ]
-  %27 = phi i8 [ 0, %is_gunzip.exit ], [ %.be431, %.backedge ]
-  %28 = phi ptr [ @.str, %is_gunzip.exit ], [ %.be432, %.backedge ]
-  %29 = phi i8 [ 0, %is_gunzip.exit ], [ %.be433, %.backedge ]
-  %30 = phi i8 [ %.0.i, %is_gunzip.exit ], [ %.be434, %.backedge ]
-  %31 = phi i8 [ 0, %is_gunzip.exit ], [ %.be435, %.backedge ]
-  %32 = phi ptr [ @.str, %is_gunzip.exit ], [ %.be436, %.backedge ]
-  %33 = phi i32 [ 6, %is_gunzip.exit ], [ %.be437, %.backedge ]
-  %34 = phi i8 [ 0, %is_gunzip.exit ], [ %.be438, %.backedge ]
-  %35 = phi i8 [ 0, %is_gunzip.exit ], [ %.be439, %.backedge ]
-  %36 = phi i8 [ %.0.i, %is_gunzip.exit ], [ %.be440, %.backedge ]
-  %37 = phi i8 [ 0, %is_gunzip.exit ], [ %.be441, %.backedge ]
+  %26 = phi i8 [ 0, %is_gunzip.exit ], [ %.be456, %.backedge ]
+  %27 = phi i8 [ 0, %is_gunzip.exit ], [ %.be457, %.backedge ]
+  %28 = phi ptr [ @.str, %is_gunzip.exit ], [ %.be458, %.backedge ]
+  %29 = phi i8 [ 0, %is_gunzip.exit ], [ %.be459, %.backedge ]
+  %30 = phi i8 [ %.0.i, %is_gunzip.exit ], [ %.be460, %.backedge ]
+  %31 = phi i8 [ 0, %is_gunzip.exit ], [ %.be461, %.backedge ]
+  %32 = phi ptr [ @.str, %is_gunzip.exit ], [ %.be462, %.backedge ]
+  %33 = phi i32 [ 6, %is_gunzip.exit ], [ %.be463, %.backedge ]
+  %34 = phi i8 [ 0, %is_gunzip.exit ], [ %.be464, %.backedge ]
+  %35 = phi i8 [ 0, %is_gunzip.exit ], [ %.be465, %.backedge ]
+  %36 = phi i8 [ %.0.i, %is_gunzip.exit ], [ %.be466, %.backedge ]
+  %37 = phi i8 [ 0, %is_gunzip.exit ], [ %.be467, %.backedge ]
   %38 = tail call i32 @tgetopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.1) #11
   switch i32 %38, label %60 [
     i32 -1, label %64
@@ -116,18 +116,18 @@ is_gunzip.exit:                                   ; preds = %2, %14
 
 .backedge:                                        ; preds = %24, %53, %39, %58, %52, %51, %46, %45, %44
   %.be = phi i32 [ %25, %24 ], [ %25, %53 ], [ %42, %39 ], [ %25, %58 ], [ %25, %52 ], [ %25, %51 ], [ %25, %46 ], [ %25, %45 ], [ %25, %44 ]
-  %.be430 = phi i8 [ %26, %24 ], [ %26, %53 ], [ %26, %39 ], [ %26, %58 ], [ %26, %52 ], [ %26, %51 ], [ 1, %46 ], [ %26, %45 ], [ %26, %44 ]
-  %.be431 = phi i8 [ %27, %24 ], [ %27, %53 ], [ %27, %39 ], [ %27, %58 ], [ %27, %52 ], [ 1, %51 ], [ %27, %46 ], [ %27, %45 ], [ %27, %44 ]
-  %.be432 = phi ptr [ %28, %24 ], [ %54, %53 ], [ %28, %39 ], [ %28, %58 ], [ %28, %52 ], [ %28, %51 ], [ %28, %46 ], [ %28, %45 ], [ %28, %44 ]
-  %.be433 = phi i8 [ %29, %24 ], [ %29, %53 ], [ %29, %39 ], [ 1, %58 ], [ %29, %52 ], [ %29, %51 ], [ %29, %46 ], [ %29, %45 ], [ 1, %44 ]
-  %.be434 = phi i8 [ %30, %24 ], [ %30, %53 ], [ %30, %39 ], [ 1, %58 ], [ %30, %52 ], [ %30, %51 ], [ %30, %46 ], [ 1, %45 ], [ %30, %44 ]
-  %.be435 = phi i8 [ %31, %24 ], [ %31, %53 ], [ %31, %39 ], [ 1, %58 ], [ %31, %52 ], [ %31, %51 ], [ %31, %46 ], [ %31, %45 ], [ %31, %44 ]
-  %.be436 = phi ptr [ %32, %24 ], [ %54, %53 ], [ %32, %39 ], [ %32, %58 ], [ %32, %52 ], [ %32, %51 ], [ %32, %46 ], [ %32, %45 ], [ %32, %44 ]
-  %.be437 = phi i32 [ %33, %24 ], [ %33, %53 ], [ %42, %39 ], [ %33, %58 ], [ %33, %52 ], [ %33, %51 ], [ %33, %46 ], [ %33, %45 ], [ %33, %44 ]
-  %.be438 = phi i8 [ %34, %24 ], [ %34, %53 ], [ %34, %39 ], [ %34, %58 ], [ %34, %52 ], [ 1, %51 ], [ %34, %46 ], [ %34, %45 ], [ %34, %44 ]
-  %.be439 = phi i8 [ %35, %24 ], [ %35, %53 ], [ %35, %39 ], [ %35, %58 ], [ %35, %52 ], [ %35, %51 ], [ 1, %46 ], [ %35, %45 ], [ %35, %44 ]
-  %.be440 = phi i8 [ %36, %24 ], [ %36, %53 ], [ %36, %39 ], [ 1, %58 ], [ %36, %52 ], [ %36, %51 ], [ %36, %46 ], [ 1, %45 ], [ %36, %44 ]
-  %.be441 = phi i8 [ %37, %24 ], [ %37, %53 ], [ %37, %39 ], [ 1, %58 ], [ %37, %52 ], [ %37, %51 ], [ %37, %46 ], [ %37, %45 ], [ 1, %44 ]
+  %.be456 = phi i8 [ %26, %24 ], [ %26, %53 ], [ %26, %39 ], [ %26, %58 ], [ %26, %52 ], [ %26, %51 ], [ 1, %46 ], [ %26, %45 ], [ %26, %44 ]
+  %.be457 = phi i8 [ %27, %24 ], [ %27, %53 ], [ %27, %39 ], [ %27, %58 ], [ %27, %52 ], [ 1, %51 ], [ %27, %46 ], [ %27, %45 ], [ %27, %44 ]
+  %.be458 = phi ptr [ %28, %24 ], [ %54, %53 ], [ %28, %39 ], [ %28, %58 ], [ %28, %52 ], [ %28, %51 ], [ %28, %46 ], [ %28, %45 ], [ %28, %44 ]
+  %.be459 = phi i8 [ %29, %24 ], [ %29, %53 ], [ %29, %39 ], [ 1, %58 ], [ %29, %52 ], [ %29, %51 ], [ %29, %46 ], [ %29, %45 ], [ 1, %44 ]
+  %.be460 = phi i8 [ %30, %24 ], [ %30, %53 ], [ %30, %39 ], [ 1, %58 ], [ %30, %52 ], [ %30, %51 ], [ %30, %46 ], [ 1, %45 ], [ %30, %44 ]
+  %.be461 = phi i8 [ %31, %24 ], [ %31, %53 ], [ %31, %39 ], [ 1, %58 ], [ %31, %52 ], [ %31, %51 ], [ %31, %46 ], [ %31, %45 ], [ %31, %44 ]
+  %.be462 = phi ptr [ %32, %24 ], [ %54, %53 ], [ %32, %39 ], [ %32, %58 ], [ %32, %52 ], [ %32, %51 ], [ %32, %46 ], [ %32, %45 ], [ %32, %44 ]
+  %.be463 = phi i32 [ %33, %24 ], [ %33, %53 ], [ %42, %39 ], [ %33, %58 ], [ %33, %52 ], [ %33, %51 ], [ %33, %46 ], [ %33, %45 ], [ %33, %44 ]
+  %.be464 = phi i8 [ %34, %24 ], [ %34, %53 ], [ %34, %39 ], [ %34, %58 ], [ %34, %52 ], [ 1, %51 ], [ %34, %46 ], [ %34, %45 ], [ %34, %44 ]
+  %.be465 = phi i8 [ %35, %24 ], [ %35, %53 ], [ %35, %39 ], [ %35, %58 ], [ %35, %52 ], [ %35, %51 ], [ 1, %46 ], [ %35, %45 ], [ %35, %44 ]
+  %.be466 = phi i8 [ %36, %24 ], [ %36, %53 ], [ %36, %39 ], [ 1, %58 ], [ %36, %52 ], [ %36, %51 ], [ %36, %46 ], [ 1, %45 ], [ %36, %44 ]
+  %.be467 = phi i8 [ %37, %24 ], [ %37, %53 ], [ %37, %39 ], [ 1, %58 ], [ %37, %52 ], [ %37, %51 ], [ %37, %46 ], [ %37, %45 ], [ 1, %44 ]
   br label %24
 
 39:                                               ; preds = %24, %24, %24, %24, %24, %24, %24, %24, %24
@@ -336,7 +336,7 @@ get_suffix.exit.i:                                ; preds = %99
 127:                                              ; preds = %.thread.i
   %128 = call i32 @xopen_for_read(ptr noundef %.073.i, i1 noundef zeroext true, ptr noundef nonnull %6) #11
   %.not94.i = icmp eq i32 %128, 0
-  br i1 %.not94.i, label %.thread120.i, label %183
+  br i1 %.not94.i, label %.thread130.i, label %183
 
 .thread:                                          ; preds = %.thread.i
   %129 = call i32 @xopen_for_read(ptr noundef %.073.i, i1 noundef zeroext %85, ptr noundef nonnull %6) #11
@@ -358,21 +358,21 @@ get_suffix.exit.i:                                ; preds = %99
   %or.cond.i = or i1 %135, %87
   %136 = icmp eq ptr %.078.i, null
   %spec.select102.i = select i1 %or.cond.i, i1 true, i1 %136
-  br label %.thread120.i
+  br label %.thread130.i
 
-.thread120.i:                                     ; preds = %127, %134
+.thread130.i:                                     ; preds = %127, %134
   %137 = phi i1 [ %spec.select102.i, %134 ], [ true, %127 ]
   %138 = load i32, ptr %6, align 8, !tbaa !17
   %139 = call i32 @fstat64(i32 noundef %138, ptr noundef nonnull %8) #11
   %.not.i104.i = icmp eq i32 %139, 0
   br i1 %.not.i104.i, label %142, label %140
 
-140:                                              ; preds = %.thread120.i
+140:                                              ; preds = %.thread130.i
   %141 = load ptr, ptr %88, align 8, !tbaa !20
   call void (ptr, ...) @msg(ptr noundef nonnull @.str.9, ptr noundef %141) #11
   br label %stat_file.exit.thread.i
 
-142:                                              ; preds = %.thread120.i
+142:                                              ; preds = %.thread130.i
   %143 = load i32, ptr %89, align 8, !tbaa !21
   %144 = and i32 %143, 61440
   %145 = icmp eq i32 %144, 32768

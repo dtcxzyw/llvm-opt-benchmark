@@ -260,7 +260,7 @@ json_skip_space.exit106:                          ; preds = %.lr.ph.i102, %json_
   store ptr %64, ptr %5, align 8, !tbaa !13
   %66 = load i8, ptr %.0.lcssa.i99, align 1, !tbaa !23
   %.not.i50 = icmp eq i8 %66, 34
-  br i1 %.not.i50, label %67, label %json_parse_object.exit.loopexit.split.loop.exit181
+  br i1 %.not.i50, label %67, label %json_parse_object.exit.loopexit.split.loop.exit208
 
 67:                                               ; preds = %65
   %68 = call fastcc i32 @json_parse_string(ptr noundef %5, ptr noundef nonnull %1)
@@ -303,15 +303,15 @@ json_skip_space.exit98:                           ; preds = %.lr.ph.i94, %json_i
   store ptr %77, ptr %5, align 8, !tbaa !13
   %78 = load i8, ptr %.0.lcssa.i91, align 1, !tbaa !23
   %.not21.i = icmp eq i8 %78, 58
-  br i1 %.not21.i, label %79, label %json_parse_object.exit.loopexit.split.loop.exit172
+  br i1 %.not21.i, label %79, label %json_parse_object.exit.loopexit.split.loop.exit199
 
 79:                                               ; preds = %76
   %80 = call fastcc i32 @json_parse(ptr noundef %5, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %52)
   %.not22.i = icmp eq i32 %80, 0
   %storemerge.i49.pre.pre = load ptr, ptr %5, align 8, !tbaa !13
   %81 = icmp eq ptr %storemerge.i49.pre.pre, %1
-  %or.cond191 = select i1 %.not22.i, i1 true, i1 %81
-  br i1 %or.cond191, label %json_parse_object.exit, label %82
+  %or.cond218 = select i1 %.not22.i, i1 true, i1 %81
+  br i1 %or.cond218, label %json_parse_object.exit, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %storemerge.i49.pre.pre, i64 1
@@ -326,17 +326,17 @@ json_skip_space.exit98:                           ; preds = %.lr.ph.i94, %json_i
   store ptr %storemerge.i49.pre.pre, ptr %7, align 8, !tbaa !13
   br label %json_parse_object.exit
 
-json_parse_object.exit.loopexit.split.loop.exit172: ; preds = %76
+json_parse_object.exit.loopexit.split.loop.exit199: ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i91, i64 1
   br label %json_parse_object.exit
 
-json_parse_object.exit.loopexit.split.loop.exit181: ; preds = %65
+json_parse_object.exit.loopexit.split.loop.exit208: ; preds = %65
   %87 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i99, i64 1
   br label %json_parse_object.exit
 
-json_parse_object.exit:                           ; preds = %82, %79, %json_skip_space.exit98, %67, %json_skip_space.exit106, %53, %61, %json_parse_object.exit.loopexit.split.loop.exit172, %json_parse_object.exit.loopexit.split.loop.exit181, %85
-  %storemerge.i49 = phi ptr [ %83, %85 ], [ %86, %json_parse_object.exit.loopexit.split.loop.exit172 ], [ %87, %json_parse_object.exit.loopexit.split.loop.exit181 ], [ %83, %82 ], [ %storemerge.i49.pre.pre, %79 ], [ %.0.lcssa.i91, %json_skip_space.exit98 ], [ %storemerge.i49.pre.pre158, %67 ], [ %.0.lcssa.i99, %json_skip_space.exit106 ], [ %54, %53 ], [ %64, %61 ]
-  %.0.i48 = phi i32 [ 0, %85 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit172 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit181 ], [ 1, %82 ], [ 0, %79 ], [ 0, %json_skip_space.exit98 ], [ 0, %67 ], [ 0, %json_skip_space.exit106 ], [ 0, %53 ], [ 1, %61 ]
+json_parse_object.exit:                           ; preds = %82, %79, %json_skip_space.exit98, %67, %json_skip_space.exit106, %53, %61, %json_parse_object.exit.loopexit.split.loop.exit199, %json_parse_object.exit.loopexit.split.loop.exit208, %85
+  %storemerge.i49 = phi ptr [ %83, %85 ], [ %86, %json_parse_object.exit.loopexit.split.loop.exit199 ], [ %87, %json_parse_object.exit.loopexit.split.loop.exit208 ], [ %83, %82 ], [ %storemerge.i49.pre.pre, %79 ], [ %.0.lcssa.i91, %json_skip_space.exit98 ], [ %storemerge.i49.pre.pre158, %67 ], [ %.0.lcssa.i99, %json_skip_space.exit106 ], [ %54, %53 ], [ %64, %61 ]
+  %.0.i48 = phi i32 [ 0, %85 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit199 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit208 ], [ 1, %82 ], [ 0, %79 ], [ 0, %json_skip_space.exit98 ], [ 0, %67 ], [ 0, %json_skip_space.exit106 ], [ 0, %53 ], [ 1, %61 ]
   store ptr %storemerge.i49, ptr %7, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %json_parse_const.exit

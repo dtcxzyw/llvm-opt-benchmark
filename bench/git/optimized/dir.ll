@@ -632,7 +632,7 @@ define dso_local i32 @read_directory(ptr noundef initializes((300, 308)) %0, ptr
   %16 = load ptr, ptr %10, align 8, !tbaa !39
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 3099, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef %16) #27
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %.thread75
+  br label %.thread93
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1033,7 +1033,7 @@ emit_traversal_statistics.exit:                   ; preds = %sane_qsort.exit63, 
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 3117, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef %193) #27
   %194 = load ptr, ptr %19, align 8, !tbaa !54
   %.not54 = icmp eq ptr %194, null
-  br i1 %.not54, label %.thread75, label %195
+  br i1 %.not54, label %.thread93, label %195
 
 195:                                              ; preds = %emit_traversal_statistics.exit
   %196 = load i32, ptr @read_directory.force_untracked_cache, align 4, !tbaa !10
@@ -1065,7 +1065,7 @@ emit_traversal_statistics.exit:                   ; preds = %sane_qsort.exit63, 
   br i1 %.not55, label %223, label %209
 
 209:                                              ; preds = %.thread
-  br i1 %208, label %210, label %.thread77
+  br i1 %208, label %210, label %.thread95
 
 210:                                              ; preds = %209
   %211 = getelementptr inbounds nuw i8, ptr %.pre, i64 220
@@ -1083,25 +1083,25 @@ emit_traversal_statistics.exit:                   ; preds = %sane_qsort.exit63, 
   %217 = getelementptr inbounds nuw i8, ptr %.pre, i64 216
   %218 = load i32, ptr %217, align 8, !tbaa !81
   %.not58 = icmp eq i32 %218, 0
-  br i1 %.not58, label %.thread75, label %219
+  br i1 %.not58, label %.thread93, label %219
 
 219:                                              ; preds = %216, %213, %210
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %221 = load i32, ptr %220, align 4, !tbaa !66
   %222 = or i32 %221, 128
   store i32 %222, ptr %220, align 4, !tbaa !66
-  br label %.thread75
+  br label %.thread93
 
 223:                                              ; preds = %.thread
-  br i1 %208, label %.thread75, label %.thread77
+  br i1 %208, label %.thread93, label %.thread95
 
-.thread77:                                        ; preds = %209, %223
+.thread95:                                        ; preds = %209, %223
   call void @free(ptr noundef %.pre) #27
   store ptr null, ptr %19, align 8, !tbaa !54
-  br label %.thread75
+  br label %.thread93
 
-.thread75:                                        ; preds = %216, %219, %emit_traversal_statistics.exit, %.thread77, %223, %15
-  %.0.in = phi ptr [ %17, %15 ], [ %149, %223 ], [ %149, %.thread77 ], [ %149, %emit_traversal_statistics.exit ], [ %149, %219 ], [ %149, %216 ]
+.thread93:                                        ; preds = %216, %219, %emit_traversal_statistics.exit, %.thread95, %223, %15
+  %.0.in = phi ptr [ %17, %15 ], [ %149, %223 ], [ %149, %.thread95 ], [ %149, %emit_traversal_statistics.exit ], [ %149, %219 ], [ %149, %216 ]
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !76
   ret i32 %.0
 }
@@ -1366,7 +1366,7 @@ define dso_local void @parse_path_pattern(ptr noundef captures(none) %0, ptr nou
   %.032 = phi ptr [ %9, %8 ], [ %5, %4 ]
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.032) #28
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %._crit_edge.thread54, label %13
+  br i1 %.not, label %._crit_edge.thread58, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr i8, ptr %.032, i64 %12
@@ -1380,10 +1380,10 @@ define dso_local void @parse_path_pattern(ptr noundef captures(none) %0, ptr nou
   %20 = or disjoint i32 %11, 8
   store i32 %20, ptr %2, align 4, !tbaa !10
   %.not41 = icmp eq i64 %19, 0
-  br i1 %.not41, label %._crit_edge.thread54, label %.lr.ph.preheader
+  br i1 %.not41, label %._crit_edge.thread58, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13, %18
-  %.049 = phi i64 [ %19, %18 ], [ %12, %13 ]
+  %.053 = phi i64 [ %19, %18 ], [ %12, %13 ]
   %21 = phi i32 [ %20, %18 ], [ %11, %13 ]
   br label %.lr.ph
 
@@ -1396,22 +1396,22 @@ define dso_local void @parse_path_pattern(ptr noundef captures(none) %0, ptr nou
 
 25:                                               ; preds = %.lr.ph
   %26 = add nuw i64 %.03138, 1
-  %exitcond.not = icmp eq i64 %26, %.049
-  br i1 %exitcond.not, label %._crit_edge.thread54, label %.lr.ph, !llvm.loop !103
+  %exitcond.not = icmp eq i64 %26, %.053
+  br i1 %exitcond.not, label %._crit_edge.thread58, label %.lr.ph, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %27 = icmp eq i64 %.03138, %.049
-  br i1 %27, label %._crit_edge.thread54, label %30
+  %27 = icmp eq i64 %.03138, %.053
+  br i1 %27, label %._crit_edge.thread58, label %30
 
-._crit_edge.thread54:                             ; preds = %25, %10, %18, %._crit_edge
+._crit_edge.thread58:                             ; preds = %25, %10, %18, %._crit_edge
   %28 = phi i32 [ %21, %._crit_edge ], [ %20, %18 ], [ %11, %10 ], [ %21, %25 ]
-  %.04553 = phi i64 [ %.049, %._crit_edge ], [ 0, %18 ], [ 0, %10 ], [ %.049, %25 ]
+  %.04957 = phi i64 [ %.053, %._crit_edge ], [ 0, %18 ], [ 0, %10 ], [ %.053, %25 ]
   %29 = or i32 %28, 1
   store i32 %29, ptr %2, align 4, !tbaa !10
   br label %30
 
-30:                                               ; preds = %._crit_edge.thread54, %._crit_edge
-  %.04552 = phi i64 [ %.04553, %._crit_edge.thread54 ], [ %.049, %._crit_edge ]
+30:                                               ; preds = %._crit_edge.thread58, %._crit_edge
+  %.04956 = phi i64 [ %.04957, %._crit_edge.thread58 ], [ %.053, %._crit_edge ]
   br label %31
 
 31:                                               ; preds = %35, %30
@@ -1433,7 +1433,7 @@ define dso_local void @parse_path_pattern(ptr noundef captures(none) %0, ptr nou
 
 simple_length.exit:                               ; preds = %31, %35
   %41 = sext i32 %33 to i64
-  %spec.select35 = tail call i64 @llvm.umin.i64(i64 %.04552, i64 %41)
+  %spec.select35 = tail call i64 @llvm.umin.i64(i64 %.04956, i64 %41)
   %spec.select = trunc i64 %spec.select35 to i32
   store i32 %spec.select, ptr %3, align 4, !tbaa !10
   %42 = load i8, ptr %.032, align 1, !tbaa !4
@@ -1475,7 +1475,7 @@ no_wildcard.exit:                                 ; preds = %46, %50
   br label %62
 
 62:                                               ; preds = %59, %no_wildcard.exit, %simple_length.exit
-  %63 = trunc i64 %.04552 to i32
+  %63 = trunc i64 %.04956 to i32
   store ptr %.032, ptr %0, align 8, !tbaa !102
   store i32 %63, ptr %1, align 4, !tbaa !10
   ret void
@@ -1689,7 +1689,7 @@ define dso_local void @add_pattern(ptr noundef readonly captures(none) %0, ptr n
   %.032.i = getelementptr inbounds nuw i8, ptr %0, i64 %.032.i.idx
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.032.i) #28
   %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %._crit_edge.thread54.i, label %12
+  br i1 %.not.i, label %._crit_edge.thread58.i, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr i8, ptr %.032.i, i64 %11
@@ -1702,11 +1702,11 @@ define dso_local void @add_pattern(ptr noundef readonly captures(none) %0, ptr n
   %18 = add i64 %11, -1
   %19 = or disjoint i32 %.0, 8
   %.not41.i = icmp eq i64 %18, 0
-  br i1 %.not41.i, label %._crit_edge.thread54.i, label %.lr.ph.preheader.i
+  br i1 %.not41.i, label %._crit_edge.thread58.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %17, %12
   %.1 = phi i32 [ %19, %17 ], [ %.0, %12 ]
-  %.049.i = phi i64 [ %18, %17 ], [ %11, %12 ]
+  %.053.i = phi i64 [ %18, %17 ], [ %11, %12 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
@@ -1718,22 +1718,22 @@ define dso_local void @add_pattern(ptr noundef readonly captures(none) %0, ptr n
 
 23:                                               ; preds = %.lr.ph.i
   %24 = add nuw i64 %.03138.i, 1
-  %exitcond.not.i = icmp eq i64 %24, %.049.i
-  br i1 %exitcond.not.i, label %._crit_edge.thread54.i, label %.lr.ph.i, !llvm.loop !103
+  %exitcond.not.i = icmp eq i64 %24, %.053.i
+  br i1 %exitcond.not.i, label %._crit_edge.thread58.i, label %.lr.ph.i, !llvm.loop !103
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %25 = icmp eq i64 %.03138.i, %.049.i
-  br i1 %25, label %._crit_edge.thread54.i, label %28
+  %25 = icmp eq i64 %.03138.i, %.053.i
+  br i1 %25, label %._crit_edge.thread58.i, label %28
 
-._crit_edge.thread54.i:                           ; preds = %23, %._crit_edge.i, %17, %5
+._crit_edge.thread58.i:                           ; preds = %23, %._crit_edge.i, %17, %5
   %26 = phi i32 [ %.1, %._crit_edge.i ], [ %19, %17 ], [ %.0, %5 ], [ %.1, %23 ]
-  %.04553.i = phi i64 [ %.049.i, %._crit_edge.i ], [ 0, %17 ], [ 0, %5 ], [ %.049.i, %23 ]
+  %.04957.i = phi i64 [ %.053.i, %._crit_edge.i ], [ 0, %17 ], [ 0, %5 ], [ %.053.i, %23 ]
   %27 = or i32 %26, 1
   br label %28
 
-28:                                               ; preds = %._crit_edge.thread54.i, %._crit_edge.i
-  %.2 = phi i32 [ %27, %._crit_edge.thread54.i ], [ %.1, %._crit_edge.i ]
-  %.04552.i = phi i64 [ %.04553.i, %._crit_edge.thread54.i ], [ %.049.i, %._crit_edge.i ]
+28:                                               ; preds = %._crit_edge.thread58.i, %._crit_edge.i
+  %.2 = phi i32 [ %27, %._crit_edge.thread58.i ], [ %.1, %._crit_edge.i ]
+  %.04956.i = phi i64 [ %.04957.i, %._crit_edge.thread58.i ], [ %.053.i, %._crit_edge.i ]
   br label %29
 
 29:                                               ; preds = %33, %28
@@ -1755,7 +1755,7 @@ define dso_local void @add_pattern(ptr noundef readonly captures(none) %0, ptr n
 
 simple_length.exit.i:                             ; preds = %33, %29
   %39 = sext i32 %31 to i64
-  %spec.select35.i = tail call i64 @llvm.umin.i64(i64 %.04552.i, i64 %39)
+  %spec.select35.i = tail call i64 @llvm.umin.i64(i64 %.04956.i, i64 %39)
   %spec.select.i = trunc i64 %spec.select35.i to i32
   %40 = load i8, ptr %.032.i, align 1, !tbaa !4
   %41 = icmp eq i8 %40, 42
@@ -1793,8 +1793,8 @@ no_wildcard.exit.i:                               ; preds = %48, %44
 
 parse_path_pattern.exit:                          ; preds = %no_wildcard.exit.i, %simple_length.exit.i
   %.3 = phi i32 [ %.2, %simple_length.exit.i ], [ %spec.select, %no_wildcard.exit.i ]
-  %58 = trunc i64 %.04552.i to i32
-  %sext = shl i64 %.04552.i, 32
+  %58 = trunc i64 %.04956.i to i32
+  %sext = shl i64 %.04956.i, 32
   %59 = ashr exact i64 %sext, 32
   %60 = icmp ugt i64 %59, -41
   br i1 %60, label %61, label %st_add.exit
@@ -5266,7 +5266,7 @@ read_cached_dir.exit.thread83:                    ; preds = %238, %read_cached_d
   br i1 %.not.i.i, label %close_cached_dir.exit, label %read_cached_dir.exit.thread83.thread
 
 read_cached_dir.exit.thread83.thread:             ; preds = %._crit_edge.i, %read_cached_dir.exit.thread83
-  %.282127 = phi i32 [ %.282, %read_cached_dir.exit.thread83 ], [ %.150, %._crit_edge.i ]
+  %.282145 = phi i32 [ %.282, %read_cached_dir.exit.thread83 ], [ %.150, %._crit_edge.i ]
   %264 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %265 = load i8, ptr %264, align 4
   %266 = or i8 %265, 6
@@ -5274,7 +5274,7 @@ read_cached_dir.exit.thread83.thread:             ; preds = %._crit_edge.i, %rea
   br label %close_cached_dir.exit
 
 close_cached_dir.exit:                            ; preds = %read_cached_dir.exit.thread83.thread, %read_cached_dir.exit.thread83, %open_cached_dir.exit
-  %.049 = phi i32 [ 0, %open_cached_dir.exit ], [ %.282, %read_cached_dir.exit.thread83 ], [ %.282127, %read_cached_dir.exit.thread83.thread ]
+  %.049 = phi i32 [ 0, %open_cached_dir.exit ], [ %.282, %read_cached_dir.exit.thread83 ], [ %.282145, %read_cached_dir.exit.thread83.thread ]
   call void @strbuf_release(ptr noundef nonnull %11) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5688,19 +5688,19 @@ define dso_local noundef ptr @git_url_basename(ptr noundef %0, i32 noundef %1, i
   unreachable
 
 .critedge6.thread:                                ; preds = %28, %31, %.critedge6
-  %.197154 = phi ptr [ %.197, %.critedge6 ], [ %.096.lcssa, %31 ], [ %.096.lcssa, %28 ]
-  %.pre-phi150153 = phi i64 [ %.pre-phi150, %.critedge6 ], [ %26, %31 ], [ %26, %28 ]
-  %41 = tail call ptr @memchr(ptr noundef %.194.lcssa, i32 noundef 47, i64 noundef %.pre-phi150153) #28
+  %.197166 = phi ptr [ %.197, %.critedge6 ], [ %.096.lcssa, %31 ], [ %.096.lcssa, %28 ]
+  %.pre-phi150165 = phi i64 [ %.pre-phi150, %.critedge6 ], [ %26, %31 ], [ %26, %28 ]
+  %41 = tail call ptr @memchr(ptr noundef %.194.lcssa, i32 noundef 47, i64 noundef %.pre-phi150165) #28
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %.critedge122
 
 43:                                               ; preds = %.critedge6.thread
-  %44 = tail call ptr @memchr(ptr noundef %.194.lcssa, i32 noundef 58, i64 noundef %.pre-phi150153) #28
+  %44 = tail call ptr @memchr(ptr noundef %.194.lcssa, i32 noundef 58, i64 noundef %.pre-phi150165) #28
   %.not109 = icmp eq ptr %44, null
   br i1 %.not109, label %.critedge122, label %.preheader134
 
 .preheader134:                                    ; preds = %43, %46
-  %.191 = phi ptr [ %47, %46 ], [ %.197154, %43 ]
+  %.191 = phi ptr [ %47, %46 ], [ %.197166, %43 ]
   %45 = icmp ult ptr %.194.lcssa, %.191
   br i1 %45, label %46, label %.critedge122
 
@@ -5717,11 +5717,11 @@ define dso_local noundef ptr @git_url_basename(ptr noundef %0, i32 noundef %1, i
   br i1 %or.cond121, label %.critedge8, label %.preheader134, !llvm.loop !188
 
 .critedge8:                                       ; preds = %46
-  %spec.select123 = select i1 %.not111, ptr %47, ptr %.197154
+  %spec.select123 = select i1 %.not111, ptr %47, ptr %.197166
   br label %.critedge122
 
 .critedge122:                                     ; preds = %.preheader134, %.critedge8, %43, %.critedge6.thread
-  %.3 = phi ptr [ %.197154, %43 ], [ %.197154, %.critedge6.thread ], [ %spec.select123, %.critedge8 ], [ %.197154, %.preheader134 ]
+  %.3 = phi ptr [ %.197166, %43 ], [ %.197166, %.critedge6.thread ], [ %spec.select123, %.critedge8 ], [ %.197166, %.preheader134 ]
   br label %53
 
 53:                                               ; preds = %55, %.critedge122
@@ -5752,11 +5752,11 @@ define dso_local noundef ptr @git_url_basename(ptr noundef %0, i32 noundef %1, i
   %66 = getelementptr inbounds nuw i8, ptr %.292, i64 %65
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %66, ptr noundef nonnull readonly dereferenceable(4) %64, i64 %61)
   %.not.i = icmp eq i32 %bcmp.i, 0
-  %spec.select155 = select i1 %.not.i, i64 %65, i64 %60
+  %spec.select167 = select i1 %.not.i, i64 %65, i64 %60
   br label %strip_suffix_mem.exit
 
 strip_suffix_mem.exit:                            ; preds = %63, %.critedge10
-  %.0127 = phi i64 [ %60, %.critedge10 ], [ %spec.select155, %63 ]
+  %.0127 = phi i64 [ %60, %.critedge10 ], [ %spec.select167, %63 ]
   switch i64 %.0127, label %72 [
     i64 0, label %70
     i64 1, label %67
@@ -7148,19 +7148,19 @@ git_bswap32.exit.i.i:                             ; preds = %23
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %58, ptr nonnull readonly align 1 %31, i64 %63, i1 false)
   %64 = load i64, ptr %62, align 8, !tbaa !203
   %65 = icmp ult i64 %64, 32
-  br i1 %65, label %66, label %.preheader93
+  br i1 %65, label %66, label %.preheader105
 
 66:                                               ; preds = %git_bswap32.exit.i.i
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 %64
   %68 = sub nuw nsw i64 32, %64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %68, i1 false)
-  br label %.preheader93
+  br label %.preheader105
 
-.preheader93:                                     ; preds = %66, %git_bswap32.exit.i.i
+.preheader105:                                    ; preds = %66, %git_bswap32.exit.i.i
   br label %69
 
-69:                                               ; preds = %.preheader93, %71
-  %.0811.i.i.i = phi i64 [ %72, %71 ], [ 0, %.preheader93 ]
+69:                                               ; preds = %.preheader105, %71
+  %.0811.i.i.i = phi i64 [ %72, %71 ], [ 0, %.preheader105 ]
   %70 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %61, %70
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %71
@@ -9565,7 +9565,7 @@ is_excluded.exit.thread:                          ; preds = %155, %159, %is_excl
   br label %treat_path_fast.exit
 
 168:                                              ; preds = %is_excluded.exit.thread, %is_excluded.exit.thread
-  br i1 %.not.i67, label %match_pathspec.exit.thread91, label %169
+  br i1 %.not.i67, label %match_pathspec.exit.thread103, label %169
 
 169:                                              ; preds = %168
   %170 = load ptr, ptr %75, align 8, !tbaa !74
@@ -9582,18 +9582,18 @@ is_excluded.exit.thread:                          ; preds = %155, %159, %is_excl
 
 179:                                              ; preds = %169
   %180 = tail call fastcc i32 @do_match_pathspec(ptr noundef %3, ptr noundef nonnull readonly %6, ptr noundef %170, i32 noundef %172, i32 noundef 0, ptr noundef null, i32 noundef 1)
-  %.not.i.i88 = icmp eq i32 %180, 0
-  br i1 %.not.i.i88, label %match_pathspec.exit.thread91, label %treat_path_fast.exit
+  %.not.i.i100 = icmp eq i32 %180, 0
+  br i1 %.not.i.i100, label %match_pathspec.exit.thread103, label %treat_path_fast.exit
 
 match_pathspec.exit:                              ; preds = %169
   %.not65 = icmp eq i32 %173, 0
-  br i1 %.not65, label %treat_path_fast.exit, label %match_pathspec.exit.thread91
+  br i1 %.not65, label %treat_path_fast.exit, label %match_pathspec.exit.thread103
 
-match_pathspec.exit.thread91:                     ; preds = %179, %match_pathspec.exit, %168
+match_pathspec.exit.thread103:                    ; preds = %179, %match_pathspec.exit, %168
   br label %treat_path_fast.exit
 
-treat_path_fast.exit:                             ; preds = %94, %179, %57, %.preheader.i, %49, %strbuf_complete.exit, %24, %match_pathspec.exit.thread91, %match_pathspec.exit, %is_excluded.exit.thread, %159, %121, %.loopexit, %is_dot_or_dotdot.exit, %git_fspathcmp.exit, %163
-  %.0 = phi i32 [ %167, %163 ], [ 0, %git_fspathcmp.exit ], [ 0, %is_dot_or_dotdot.exit ], [ 0, %.loopexit ], [ 0, %121 ], [ 2, %159 ], [ 0, %is_excluded.exit.thread ], [ 0, %match_pathspec.exit ], [ %.not6285, %match_pathspec.exit.thread91 ], [ %53, %49 ], [ 3, %24 ], [ 1, %strbuf_complete.exit ], [ 0, %.preheader.i ], [ 0, %57 ], [ 0, %179 ], [ 0, %94 ]
+treat_path_fast.exit:                             ; preds = %94, %179, %57, %.preheader.i, %49, %strbuf_complete.exit, %24, %match_pathspec.exit.thread103, %match_pathspec.exit, %is_excluded.exit.thread, %159, %121, %.loopexit, %is_dot_or_dotdot.exit, %git_fspathcmp.exit, %163
+  %.0 = phi i32 [ %167, %163 ], [ 0, %git_fspathcmp.exit ], [ 0, %is_dot_or_dotdot.exit ], [ 0, %.loopexit ], [ 0, %121 ], [ 2, %159 ], [ 0, %is_excluded.exit.thread ], [ 0, %match_pathspec.exit ], [ %.not6285, %match_pathspec.exit.thread103 ], [ %53, %49 ], [ 3, %24 ], [ 1, %strbuf_complete.exit ], [ 0, %.preheader.i ], [ 0, %57 ], [ 0, %179 ], [ 0, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
@@ -9895,7 +9895,7 @@ define internal fastcc i32 @treat_directory(ptr noundef %0, ptr noundef %1, ptr 
   %9 = alloca %struct.strbuf, align 8
   %10 = add nsw i32 %4, -1
   %11 = tail call fastcc i32 @directory_exists_in_index(ptr noundef %1, ptr noundef %3, i32 noundef %10)
-  switch i32 %11, label %default.unreachable163 [
+  switch i32 %11, label %default.unreachable167 [
     i32 1, label %match_pathspec_with_flags.exit.thread
     i32 2, label %12
     i32 0, label %13
@@ -9904,7 +9904,7 @@ define internal fastcc i32 @treat_directory(ptr noundef %0, ptr noundef %1, ptr 
 12:                                               ; preds = %8
   br label %match_pathspec_with_flags.exit.thread
 
-default.unreachable163:                           ; preds = %8
+default.unreachable167:                           ; preds = %8
   unreachable
 
 13:                                               ; preds = %8

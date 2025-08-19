@@ -421,20 +421,20 @@ pow_ii.exit229:                                   ; preds = %.lr.ph.i222, %pow_i
   %229 = sext i32 %215 to i64
   %230 = sext i32 %217 to i64
   %wide.trip.count286 = zext nneg i32 %219 to i64
-  %invariant.gep290 = getelementptr i32, ptr %26, i64 %229
-  %invariant.gep292 = getelementptr double, ptr %19, i64 %230
+  %invariant.gep305 = getelementptr i32, ptr %26, i64 %229
+  %invariant.gep307 = getelementptr double, ptr %19, i64 %230
   br label %.lr.ph268
 
 .lr.ph268:                                        ; preds = %.lr.ph268.preheader, %.lr.ph268
   %indvars.iv283 = phi i64 [ 0, %.lr.ph268.preheader ], [ %indvars.iv.next284, %.lr.ph268 ]
-  %gep291 = getelementptr i32, ptr %invariant.gep290, i64 %indvars.iv283
-  %231 = load i32, ptr %gep291, align 4, !tbaa !3
+  %gep306 = getelementptr i32, ptr %invariant.gep305, i64 %indvars.iv283
+  %231 = load i32, ptr %gep306, align 4, !tbaa !3
   %232 = add i32 %231, %35
   %233 = sext i32 %232 to i64
   %234 = getelementptr inbounds double, ptr %20, i64 %233
   %235 = load double, ptr %234, align 8, !tbaa !7
-  %gep293 = getelementptr double, ptr %invariant.gep292, i64 %indvars.iv283
-  %236 = getelementptr i8, ptr %gep293, i64 8
+  %gep308 = getelementptr double, ptr %invariant.gep307, i64 %indvars.iv283
+  %236 = getelementptr i8, ptr %gep308, i64 8
   store double %235, ptr %236, align 8, !tbaa !7
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count286

@@ -1071,19 +1071,19 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711Formattable
   store i64 %15, ptr %21, align 8
   %.ptr21.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = icmp eq i32 %11, 0
-  br i1 %24, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.preheader44
+  br i1 %24, label %_ZN6icu_77L15createArrayCopyEPKNS_11FormattableEi.exit, label %.preheader50
 
-.preheader44:                                     ; preds = %23, %25
+.preheader50:                                     ; preds = %23, %25
   %.idx.i = phi i64 [ %.add.i, %25 ], [ 8, %23 ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %21, i64 %.idx.i
   invoke void @_ZN6icu_7711FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %.ptr.ptr.i)
           to label %25 unwind label %29
 
-25:                                               ; preds = %.preheader44
+25:                                               ; preds = %.preheader50
   %.add.i = add nuw nsw i64 %.idx.i, 112
   %26 = add nuw nsw i64 %.idx.i, 104
   %27 = icmp eq i64 %26, %18
-  br i1 %27, label %.loopexit38, label %.preheader44
+  br i1 %27, label %.loopexit38, label %.preheader50
 
 .loopexit38:                                      ; preds = %25
   %28 = icmp sgt i32 %11, 0
@@ -1093,7 +1093,7 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7711Formattable
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
 
-29:                                               ; preds = %.preheader44
+29:                                               ; preds = %.preheader50
   %30 = landingpad { ptr, i32 }
           cleanup
   %31 = icmp eq i64 %.idx.i, 8
@@ -2969,8 +2969,8 @@ _ZN6icu_7711Formattable9getStringER10UErrorCode.exit: ; preds = %10
   br label %29
 
 29:                                               ; preds = %_ZN6icu_7711Formattable9getStringER10UErrorCode.exit.thread, %20, %_ZN6icu_7711Formattable9getStringER10UErrorCode.exit
-  %.0.i17 = phi ptr [ %17, %_ZN6icu_7711Formattable9getStringER10UErrorCode.exit.thread ], [ %12, %20 ], [ %12, %_ZN6icu_7711Formattable9getStringER10UErrorCode.exit ]
-  %30 = tail call noundef ptr @_ZN6icu_7713UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %.0.i17)
+  %.0.i19 = phi ptr [ %17, %_ZN6icu_7711Formattable9getStringER10UErrorCode.exit.thread ], [ %12, %20 ], [ %12, %_ZN6icu_7711Formattable9getStringER10UErrorCode.exit ]
+  %30 = tail call noundef ptr @_ZN6icu_7713UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 dereferenceable(64) %.0.i19)
   br label %31
 
 31:                                               ; preds = %6, %9, %29

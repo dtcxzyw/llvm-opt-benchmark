@@ -1284,8 +1284,8 @@ sub_1580:                                         ; preds = %sub_0579
   br i1 %467, label %.thread539.sink.split, label %468
 
 468:                                              ; preds = %466
-  %.not1592 = icmp eq i32 %.0292, 0
-  %.str.73..str.74 = select i1 %.not1592, ptr @.str.74, ptr @.str.73
+  %.not1621 = icmp eq i32 %.0292, 0
+  %.str.73..str.74 = select i1 %.not1621, ptr @.str.74, ptr @.str.73
   br label %.thread539.sink.split
 
 .loopexit:                                        ; preds = %428, %425, %422, %214, %211, %208, %.tail578.thread, %.tail578, %198, %195, %192, %119, %116, %113, %110, %107, %104, %101, %84, %81, %78, %75, %.tail573.thread, %58, %.tail.thread, %87, %139, %66, %96, %128, %162, %180, %220, %228, %236, %247, %260, %281, %299, %317, %335, %353, %368, %379, %397, %415, %437, %446, %406, %388, %372, %362, %344, %326, %308, %290, %272, %253, %240, %232, %224, %189, %171, %72
@@ -1327,10 +1327,10 @@ sub_1580:                                         ; preds = %sub_0579
   br label %.outer, !llvm.loop !26
 
 .thread539.sink.split:                            ; preds = %96, %466, %468
-  %.lcssa1399.sink = phi ptr [ %46, %468 ], [ %46, %466 ], [ %98, %96 ]
+  %.lcssa1428.sink = phi ptr [ %46, %468 ], [ %46, %466 ], [ %98, %96 ]
   %.str.73.sink = phi ptr [ %.str.73..str.74, %468 ], [ @.str.72, %466 ], [ @.str.17, %96 ]
   %.sink = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %473 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.sink, ptr noundef nonnull %.str.73.sink, ptr noundef nonnull %.lcssa1399.sink) #23
+  %473 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.sink, ptr noundef nonnull %.str.73.sink, ptr noundef nonnull %.lcssa1428.sink) #23
   br label %.thread539
 
 .thread539:                                       ; preds = %443, %434, %412, %403, %394, %385, %376, %359, %350, %341, %332, %323, %314, %305, %296, %287, %278, %269, %257, %244, %186, %177, %168, %159, %136, %125, %93, %.thread539.sink.split
@@ -1891,17 +1891,17 @@ sub_1580:                                         ; preds = %sub_0579
   br i1 %.not452, label %742, label %736
 
 736:                                              ; preds = %733
-  %737 = call i32 @SSL_CTX_load_verify_file(ptr noundef %546, ptr noundef %.0277.ph) #23
+  %737 = call i32 @SSL_CTX_load_verify_file(ptr noundef nonnull %546, ptr noundef %.0277.ph) #23
   %.not453 = icmp eq i32 %737, 0
   br i1 %.not453, label %738, label %740
 
 738:                                              ; preds = %736
-  %739 = call i32 @SSL_CTX_load_verify_dir(ptr noundef %546, ptr noundef %.0.ph) #23
+  %739 = call i32 @SSL_CTX_load_verify_dir(ptr noundef nonnull %546, ptr noundef %.0.ph) #23
   %.not454 = icmp eq i32 %739, 0
   br i1 %.not454, label %742, label %740
 
 740:                                              ; preds = %738, %736
-  %741 = call i32 @SSL_CTX_set_default_verify_paths(ptr noundef %546) #23
+  %741 = call i32 @SSL_CTX_set_default_verify_paths(ptr noundef nonnull %546) #23
   %.not455 = icmp eq i32 %741, 0
   br i1 %.not455, label %742, label %744
 
@@ -1923,7 +1923,7 @@ sub_1580:                                         ; preds = %sub_0579
   br i1 %.not457, label %752, label %750
 
 750:                                              ; preds = %747
-  %751 = call i32 @SSL_CTX_set_default_ctlog_list_file(ptr noundef %546) #23
+  %751 = call i32 @SSL_CTX_set_default_ctlog_list_file(ptr noundef nonnull %546) #23
   %.not458 = icmp eq i32 %751, 0
   br i1 %.not458, label %752, label %754
 
@@ -1954,8 +1954,8 @@ sub_1580:                                         ; preds = %sub_0579
 
 761:                                              ; preds = %760
   %puts461 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  call void @SSL_CTX_set_verify(ptr noundef %546, i32 noundef 1, ptr noundef nonnull @verify_callback) #23
-  call void @SSL_CTX_set_cert_verify_callback(ptr noundef %546, ptr noundef nonnull @app_verify_callback, ptr noundef nonnull %5) #23
+  call void @SSL_CTX_set_verify(ptr noundef nonnull %546, i32 noundef 1, ptr noundef nonnull @verify_callback) #23
+  call void @SSL_CTX_set_cert_verify_callback(ptr noundef nonnull %546, ptr noundef nonnull @app_verify_callback, ptr noundef nonnull %5) #23
   br label %762
 
 762:                                              ; preds = %761, %760
@@ -1985,7 +1985,7 @@ sub_1580:                                         ; preds = %sub_0579
   br i1 %.not464, label %788, label %772
 
 772:                                              ; preds = %770
-  call void @SSL_CTX_set_psk_client_callback(ptr noundef %546, ptr noundef nonnull @psk_client_callback) #23
+  call void @SSL_CTX_set_psk_client_callback(ptr noundef nonnull %546, ptr noundef nonnull @psk_client_callback) #23
   %773 = load ptr, ptr @s_ctx, align 8, !tbaa !29
   call void @SSL_CTX_set_psk_server_callback(ptr noundef %773, ptr noundef nonnull @psk_server_callback) #23
   %774 = load ptr, ptr @s_ctx2, align 8, !tbaa !29
@@ -2022,7 +2022,7 @@ sub_1580:                                         ; preds = %sub_0579
   br i1 %.b399, label %789, label %790
 
 789:                                              ; preds = %788
-  call void @SSL_CTX_set_next_proto_select_cb(ptr noundef %546, ptr noundef nonnull @cb_client_npn, ptr noundef null) #23
+  call void @SSL_CTX_set_next_proto_select_cb(ptr noundef nonnull %546, ptr noundef nonnull @cb_client_npn, ptr noundef null) #23
   br label %790
 
 790:                                              ; preds = %789, %788
@@ -2061,7 +2061,7 @@ sub_1580:                                         ; preds = %sub_0579
   br i1 %.b403, label %803, label %808
 
 803:                                              ; preds = %802
-  %804 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef %546, i32 noundef 18, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfo_cli_parse_cb, ptr noundef null) #23
+  %804 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef nonnull %546, i32 noundef 18, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfo_cli_parse_cb, ptr noundef null) #23
   %.not467 = icmp eq i32 %804, 0
   br i1 %.not467, label %805, label %808
 
@@ -2075,7 +2075,7 @@ sub_1580:                                         ; preds = %sub_0579
   br i1 %.b404, label %809, label %814
 
 809:                                              ; preds = %808
-  %810 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef %546, i32 noundef 62208, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfo_cli_parse_cb, ptr noundef null) #23
+  %810 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef nonnull %546, i32 noundef 62208, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfo_cli_parse_cb, ptr noundef null) #23
   %.not468 = icmp eq i32 %810, 0
   br i1 %.not468, label %811, label %814
 
@@ -2112,22 +2112,22 @@ sub_1580:                                         ; preds = %sub_0579
   br i1 %.b405, label %827, label %862
 
 827:                                              ; preds = %826
-  %828 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef %546, i32 noundef 1000, ptr noundef nonnull @custom_ext_0_cli_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @custom_ext_0_cli_parse_cb, ptr noundef null) #23
+  %828 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef nonnull %546, i32 noundef 1000, ptr noundef nonnull @custom_ext_0_cli_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @custom_ext_0_cli_parse_cb, ptr noundef null) #23
   %.not472 = icmp eq i32 %828, 0
   br i1 %.not472, label %859, label %829
 
 829:                                              ; preds = %827
-  %830 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef %546, i32 noundef 1001, ptr noundef nonnull @custom_ext_1_cli_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @custom_ext_1_cli_parse_cb, ptr noundef null) #23
+  %830 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef nonnull %546, i32 noundef 1001, ptr noundef nonnull @custom_ext_1_cli_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @custom_ext_1_cli_parse_cb, ptr noundef null) #23
   %.not473 = icmp eq i32 %830, 0
   br i1 %.not473, label %859, label %831
 
 831:                                              ; preds = %829
-  %832 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef %546, i32 noundef 1002, ptr noundef nonnull @custom_ext_2_cli_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @custom_ext_2_cli_parse_cb, ptr noundef null) #23
+  %832 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef nonnull %546, i32 noundef 1002, ptr noundef nonnull @custom_ext_2_cli_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @custom_ext_2_cli_parse_cb, ptr noundef null) #23
   %.not474 = icmp eq i32 %832, 0
   br i1 %.not474, label %859, label %833
 
 833:                                              ; preds = %831
-  %834 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef %546, i32 noundef 1003, ptr noundef nonnull @custom_ext_3_cli_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @custom_ext_3_cli_parse_cb, ptr noundef null) #23
+  %834 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef nonnull %546, i32 noundef 1003, ptr noundef nonnull @custom_ext_3_cli_add_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @custom_ext_3_cli_parse_cb, ptr noundef null) #23
   %.not475 = icmp eq i32 %834, 0
   br i1 %.not475, label %859, label %835
 
@@ -2223,7 +2223,7 @@ sub_1580:                                         ; preds = %sub_0579
 878:                                              ; preds = %872
   %879 = load i64, ptr %12, align 8, !tbaa !11
   %880 = trunc i64 %879 to i32
-  %881 = call i32 @SSL_CTX_set_alpn_protos(ptr noundef %546, ptr noundef nonnull %873, i32 noundef %880) #23
+  %881 = call i32 @SSL_CTX_set_alpn_protos(ptr noundef nonnull %546, ptr noundef nonnull %873, i32 noundef %880) #23
   %.not487 = icmp eq i32 %881, 0
   br i1 %.not487, label %885, label %882
 
@@ -2299,7 +2299,7 @@ sub_1580:                                         ; preds = %sub_0579
   br label %916
 
 916:                                              ; preds = %908, %913
-  %917 = call ptr @SSL_new(ptr noundef %546) #23
+  %917 = call ptr @SSL_new(ptr noundef nonnull %546) #23
   %918 = load ptr, ptr @s_ctx, align 8, !tbaa !29
   %919 = call ptr @SSL_new(ptr noundef %918) #23
   %920 = icmp eq ptr %917, null
@@ -2452,8 +2452,8 @@ default.unreachable:                              ; preds = %975
 
 ._crit_edge919:                                   ; preds = %958
   %985 = load ptr, ptr @should_negotiate, align 8, !tbaa !21
-  %.not1591 = icmp eq ptr %985, null
-  br i1 %.not1591, label %.thread560, label %986
+  %.not1620 = icmp eq ptr %985, null
+  br i1 %.not1620, label %.thread560, label %986
 
 986:                                              ; preds = %._crit_edge919
   %987 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %985, ptr noundef nonnull dereferenceable(12) @.str.109) #25
@@ -3310,7 +3310,7 @@ define internal range(i32 0, 4) i32 @cb_server_alpn(ptr readnone captures(none) 
   unreachable
 
 next_protos_parse.exit:                           ; preds = %28
-  %32 = trunc nuw i64 %10 to i32
+  %32 = trunc nuw nsw i64 %10 to i32
   %33 = tail call i32 @SSL_select_next_proto(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11, i32 noundef %32, ptr noundef %3, i32 noundef %4) #23
   %.not = icmp eq i32 %33, 1
   br i1 %.not, label %34, label %46

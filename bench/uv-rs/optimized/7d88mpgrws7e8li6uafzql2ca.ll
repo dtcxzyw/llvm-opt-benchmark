@@ -580,8 +580,8 @@ default.unreachable:                              ; preds = %105
   br i1 %.not537, label %299, label %298, !prof !66
 
 130:                                              ; preds = %105
-  %.not1898 = icmp eq i64 %.sroa.0169.0, 0
-  br i1 %.not1898, label %309, label %308, !prof !66
+  %.not1922 = icmp eq i64 %.sroa.0169.0, 0
+  br i1 %.not1922, label %309, label %308, !prof !66
 
 131:                                              ; preds = %105
   %132 = load i64, ptr %51, align 8, !range !63, !noundef !15
@@ -1800,8 +1800,8 @@ common.resume:                                    ; preds = %565, %543, %551, %4
   %trunc550 = trunc nuw i64 %460 to i1
   %461 = load ptr, ptr %73, align 8
   %462 = icmp ne ptr %461, null
-  %or.cond1611.not = select i1 %trunc550, i1 %462, i1 false
-  br i1 %or.cond1611.not, label %471, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h5749c4837838015eE.exit658"
+  %or.cond1635.not = select i1 %trunc550, i1 %462, i1 false
+  br i1 %or.cond1635.not, label %471, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h5749c4837838015eE.exit658"
 
 463:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h406d177a0c8de27dE.exit"
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.3262719230128846288"(ptr noalias noundef nonnull align 8 dereferenceable(8) %60)
@@ -1821,8 +1821,8 @@ common.resume:                                    ; preds = %565, %543, %551, %4
   %or.cond17 = and i1 %465, %.sroa.0304.20
   %466 = load ptr, ptr %73, align 8
   %467 = icmp ne ptr %466, null
-  %or.cond1615.not = select i1 %or.cond17, i1 %467, i1 false
-  br i1 %or.cond1615.not, label %571, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h5749c4837838015eE.exit689"
+  %or.cond1639.not = select i1 %or.cond17, i1 %467, i1 false
+  br i1 %or.cond1639.not, label %571, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h5749c4837838015eE.exit689"
 
 468:                                              ; preds = %463
   %469 = landingpad { ptr, i32 }
@@ -1995,8 +1995,8 @@ common.resume:                                    ; preds = %565, %543, %551, %4
   %trunc555 = trunc nuw i64 %518 to i1
   %519 = load ptr, ptr %92, align 8
   %520 = icmp ne ptr %519, null
-  %or.cond1613.not = select i1 %trunc555, i1 %520, i1 false
-  br i1 %or.cond1613.not, label %537, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h5749c4837838015eE.exit672"
+  %or.cond1637.not = select i1 %trunc555, i1 %520, i1 false
+  br i1 %or.cond1637.not, label %537, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h5749c4837838015eE.exit672"
 
 521:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17ha9d25085bed512c7E.exit666"
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !221
@@ -2029,8 +2029,8 @@ common.resume:                                    ; preds = %565, %543, %551, %4
   %or.cond27 = select i1 %531, i1 %.sroa.0314.15, i1 false
   %532 = load ptr, ptr %92, align 8
   %533 = icmp ne ptr %532, null
-  %or.cond1617.not = select i1 %or.cond27, i1 %533, i1 false
-  br i1 %or.cond1617.not, label %576, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h5749c4837838015eE.exit691"
+  %or.cond1641.not = select i1 %or.cond27, i1 %533, i1 false
+  br i1 %or.cond1641.not, label %576, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h5749c4837838015eE.exit691"
 
 534:                                              ; preds = %525, %521
   %535 = landingpad { ptr, i32 }
@@ -7551,7 +7551,7 @@ define hidden void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$ser
   store ptr %14, ptr %8, align 8, !alias.scope !1209, !noalias !1199
   %.sroa.0.0.copyload3.i.i = load i64, ptr %13, align 8, !noalias !1210
   %15 = icmp eq i64 %.sroa.0.0.copyload3.i.i, 12
-  br i1 %15, label %.critedge.loopexit.split.loop.exit16, label %16
+  br i1 %15, label %.critedge.loopexit.split.loop.exit19, label %16
 
 16:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3418dbd3afdf371E.llvm.13999927383908161603.exit.i.i"
   %.sroa.8.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -7626,12 +7626,12 @@ common.resume:                                    ; preds = %23, %36, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1226
   br label %41
 
-.critedge.loopexit.split.loop.exit16:             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3418dbd3afdf371E.llvm.13999927383908161603.exit.i.i"
+.critedge.loopexit.split.loop.exit19:             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3418dbd3afdf371E.llvm.13999927383908161603.exit.i.i"
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 176
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit16, %2
-  %34 = phi ptr [ %10, %2 ], [ %33, %.critedge.loopexit.split.loop.exit16 ], [ %21, %19 ]
+.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit19, %2
+  %34 = phi ptr [ %10, %2 ], [ %33, %.critedge.loopexit.split.loop.exit19 ], [ %21, %19 ]
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1227
   store ptr %1, ptr %3, align 8, !noalias !1227

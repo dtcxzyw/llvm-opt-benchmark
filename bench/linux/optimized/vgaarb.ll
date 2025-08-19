@@ -1376,7 +1376,7 @@ define internal fastcc noundef zeroext i1 @vga_arbiter_add_pci_device(ptr nounde
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %220, ptr noundef nonnull @.str.29) #15
   br label %224
 
-default.unreachable31:                            ; preds = %236, %224
+default.unreachable49:                            ; preds = %236, %224
   unreachable
 
 224:                                              ; preds = %172, %221, %223
@@ -1393,7 +1393,7 @@ default.unreachable31:                            ; preds = %236, %224
   %230 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %231 = load i32, ptr %230, align 4
   %232 = and i32 %231, 3
-  switch i32 %232, label %default.unreachable31 [
+  switch i32 %232, label %default.unreachable49 [
     i32 3, label %236
     i32 1, label %233
     i32 2, label %234
@@ -1414,7 +1414,7 @@ default.unreachable31:                            ; preds = %236, %224
   %238 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %239 = load i32, ptr %238, align 8
   %240 = and i32 %239, 3
-  switch i32 %240, label %default.unreachable31 [
+  switch i32 %240, label %default.unreachable49 [
     i32 3, label %244
     i32 1, label %241
     i32 2, label %242
@@ -1506,7 +1506,7 @@ define internal i64 @vga_arb_read(ptr noundef readonly captures(none) %0, ptr no
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 3
-  switch i32 %37, label %default.unreachable9 [
+  switch i32 %37, label %default.unreachable13 [
     i32 3, label %41
     i32 1, label %38
     i32 2, label %39
@@ -1519,7 +1519,7 @@ define internal i64 @vga_arb_read(ptr noundef readonly captures(none) %0, ptr no
 39:                                               ; preds = %33
   br label %41
 
-default.unreachable9:                             ; preds = %49, %41, %33
+default.unreachable13:                            ; preds = %49, %41, %33
   unreachable
 
 40:                                               ; preds = %33
@@ -1530,7 +1530,7 @@ default.unreachable9:                             ; preds = %49, %41, %33
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 3
-  switch i32 %45, label %default.unreachable9 [
+  switch i32 %45, label %default.unreachable13 [
     i32 3, label %49
     i32 1, label %46
     i32 2, label %47
@@ -1551,7 +1551,7 @@ default.unreachable9:                             ; preds = %49, %41, %33
   %51 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 3
-  switch i32 %53, label %default.unreachable9 [
+  switch i32 %53, label %default.unreachable13 [
     i32 3, label %57
     i32 1, label %54
     i32 2, label %55
@@ -1606,7 +1606,7 @@ default.unreachable9:                             ; preds = %49, %41, %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @vga_arb_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 align 16 {
+define internal range(i64 -71, 64) i64 @vga_arb_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca [64 x i8], align 16
   %7 = alloca i32, align 4

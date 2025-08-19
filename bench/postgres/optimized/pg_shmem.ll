@@ -285,7 +285,7 @@ define dso_local noundef zeroext i1 @check_huge_page_size(ptr noundef readnone c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PGSharedMemoryCreate(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @PGSharedMemoryCreate(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
@@ -538,7 +538,7 @@ InternalIpcMemoryCreate.exit.thread:              ; preds = %74, %74, %74, %80, 
 
 113:                                              ; preds = %InternalIpcMemoryCreate.exit.thread
   %114 = call fastcc i32 @PGSharedMemoryAttach(i32 noundef %111, ptr noundef %7)
-  switch i32 %114, label %default.unreachable108 [
+  switch i32 %114, label %default.unreachable114 [
     i32 0, label %115
     i32 1, label %115
     i32 2, label %123
@@ -590,7 +590,7 @@ InternalIpcMemoryCreate.exit.thread:              ; preds = %74, %74, %74, %80, 
   %spec.select = add i32 %138, %.033
   br label %139
 
-default.unreachable108:                           ; preds = %113
+default.unreachable114:                           ; preds = %113
   unreachable
 
 139:                                              ; preds = %136, %123, %125, %129

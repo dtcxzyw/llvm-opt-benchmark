@@ -146,10 +146,10 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   br label %58
 
 58:                                               ; preds = %51, %55
-  %.sink129 = phi i32 [ %57, %55 ], [ -4, %51 ]
+  %.sink135 = phi i32 [ %57, %55 ], [ -4, %51 ]
   %59 = sext i32 %.084121 to i64
   %60 = getelementptr inbounds i32, ptr %23, i64 %59
-  store i32 %.sink129, ptr %60, align 4, !tbaa !44
+  store i32 %.sink135, ptr %60, align 4, !tbaa !44
   %61 = add nsw i32 %.084121, 1
   %.pre128 = load i32, ptr %24, align 8, !tbaa !19
   br label %62

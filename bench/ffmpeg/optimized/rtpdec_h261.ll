@@ -168,7 +168,7 @@ define internal range(i32 -2147483648, 1) i32 @h261_handle_packet(ptr noundef %0
   %100 = and i32 %.sroa.8.1128, 7
   %101 = shl i32 %99, %100
   %102 = lshr i32 %101, 24
-  %103 = add i32 %.sroa.8.1128, 8
+  %103 = add nuw i32 %.sroa.8.1128, 8
   %104 = tail call i32 @llvm.umin.i32(i32 %75, i32 %103)
   tail call void @avio_w8(ptr noundef %94, i32 noundef %102) #4
   %105 = sub nsw i32 %72, %104

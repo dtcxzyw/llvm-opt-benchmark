@@ -449,10 +449,10 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep17 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel.2, i64 0, i64 %6
-  %switch.load18 = load i64, ptr %switch.gep17, align 8
+  %switch.gep19 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel.2, i64 0, i64 %6
+  %switch.load20 = load i64, ptr %switch.gep19, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load18
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load20
   %.0 = load ptr, ptr %7, align 8, !tbaa !30
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16

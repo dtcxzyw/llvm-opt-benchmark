@@ -636,12 +636,12 @@ fib6_walk_continue.exit.thread:                   ; preds = %.loopexit.i, %99, %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %fib6_walk_continue.exit.thread, %26, %8, %108
-  %.ph26 = phi i32 [ -22, %108 ], [ 0, %8 ], [ 0, %26 ], [ %103, %fib6_walk_continue.exit.thread ]
+  %.ph36 = phi i32 [ -22, %108 ], [ 0, %8 ], [ 0, %26 ], [ %103, %fib6_walk_continue.exit.thread ]
   call void @kfree(ptr noundef nonnull %6) #13
   br label %109
 
 109:                                              ; preds = %.sink.split, %3
-  %110 = phi i32 [ -12, %3 ], [ %.ph26, %.sink.split ]
+  %110 = phi i32 [ -12, %3 ], [ %.ph36, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %110
 }
@@ -1156,7 +1156,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %175, label %179, label %245
 
 179:                                              ; preds = %.loopexit105
-  br i1 %178, label %180, label %.thread198
+  br i1 %178, label %180, label %.thread253
 
 180:                                              ; preds = %179
   %181 = load ptr, ptr @fib6_node_kmem, align 8
@@ -1164,7 +1164,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %183 = icmp eq ptr %182, null
   br i1 %183, label %.thread64, label %197
 
-.thread198:                                       ; preds = %179
+.thread253:                                       ; preds = %179
   %184 = getelementptr inbounds nuw i8, ptr %23, i64 1896
   %185 = load ptr, ptr %184, align 8
   %186 = load i32, ptr %185, align 4
@@ -1175,7 +1175,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %190 = icmp eq ptr %189, null
   br i1 %190, label %191, label %206
 
-191:                                              ; preds = %.thread198
+191:                                              ; preds = %.thread253
   %192 = load ptr, ptr @fib6_node_kmem, align 8
   tail call void @kmem_cache_free(ptr noundef %192, ptr noundef nonnull %177) #13
   %193 = getelementptr inbounds nuw i8, ptr %23, i64 1896
@@ -1199,7 +1199,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store i32 %205, ptr %203, align 4
   br label %.thread64
 
-206:                                              ; preds = %.thread198
+206:                                              ; preds = %.thread253
   %207 = getelementptr inbounds nuw i8, ptr %23, i64 1896
   %208 = load ptr, ptr %207, align 8
   %209 = load i32, ptr %208, align 4
@@ -1382,11 +1382,11 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %317
 
-317:                                              ; preds = %.thread200, %309
-  %318 = phi ptr [ %275, %309 ], [ %433, %.thread200 ]
-  %319 = phi ptr [ %274, %309 ], [ %432, %.thread200 ]
-  %320 = phi ptr [ null, %309 ], [ %431, %.thread200 ]
-  %321 = phi i16 [ %307, %309 ], [ %430, %.thread200 ]
+317:                                              ; preds = %.thread255, %309
+  %318 = phi ptr [ %275, %309 ], [ %433, %.thread255 ]
+  %319 = phi ptr [ %274, %309 ], [ %432, %.thread255 ]
+  %320 = phi ptr [ null, %309 ], [ %431, %.thread255 ]
+  %321 = phi i16 [ %307, %309 ], [ %430, %.thread255 ]
   %322 = getelementptr inbounds nuw i8, ptr %318, i64 128
   %323 = load i32, ptr %322, align 8
   %324 = icmp eq i32 %323, %311
@@ -1434,7 +1434,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 349:                                              ; preds = %.thr_comm66, %344
   %350 = icmp eq ptr %320, null
   %351 = select i1 %350, ptr %319, ptr %320
-  br label %.thread200
+  br label %.thread255
 
 352:                                              ; preds = %333
   %353 = getelementptr inbounds nuw i8, ptr %318, i64 160
@@ -1535,7 +1535,7 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread76
 
 412:                                              ; preds = %357, %364, %359
-  br i1 %300, label %413, label %.thread200
+  br i1 %300, label %413, label %.thread255
 
 413:                                              ; preds = %412
   %414 = getelementptr inbounds nuw i8, ptr %318, i64 84
@@ -1543,13 +1543,13 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %416 = and i32 %415, 262144
   %417 = icmp ne i32 %416, 0
   %418 = or i1 %355, %417
-  br i1 %418, label %.thread200, label %419
+  br i1 %418, label %.thread255, label %419
 
 419:                                              ; preds = %413
   %420 = getelementptr inbounds nuw i8, ptr %318, i64 182
   %421 = load i8, ptr %420, align 2
   %422 = icmp eq i8 %421, 0
-  br i1 %422, label %.thread200, label %423
+  br i1 %422, label %.thread255, label %423
 
 423:                                              ; preds = %419
   %424 = load i32, ptr %316, align 8
@@ -1562,9 +1562,9 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %427 = phi i32 [ %.pre195, %423 ], [ %323, %317 ]
   %428 = phi i16 [ %334, %423 ], [ %321, %317 ]
   %429 = icmp ugt i32 %427, %311
-  br i1 %429, label %435, label %.thread200
+  br i1 %429, label %435, label %.thread255
 
-.thread200:                                       ; preds = %413, %412, %419, %426, %349
+.thread255:                                       ; preds = %413, %412, %419, %426, %349
   %430 = phi i16 [ %334, %349 ], [ %428, %426 ], [ %334, %419 ], [ %334, %412 ], [ %334, %413 ]
   %431 = phi ptr [ %351, %349 ], [ %320, %426 ], [ %320, %419 ], [ %320, %412 ], [ %320, %413 ]
   %432 = getelementptr inbounds nuw i8, ptr %318, i64 8
@@ -1572,11 +1572,11 @@ define dso_local i32 @fib6_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %434 = icmp eq ptr %433, null
   br i1 %434, label %435, label %317, !llvm.loop !41
 
-435:                                              ; preds = %.thread200, %426
-  %436 = phi ptr [ %431, %.thread200 ], [ %320, %426 ]
-  %437 = phi ptr [ %432, %.thread200 ], [ %319, %426 ]
-  %438 = phi ptr [ null, %.thread200 ], [ %318, %426 ]
-  %439 = phi i16 [ %430, %.thread200 ], [ %428, %426 ]
+435:                                              ; preds = %.thread255, %426
+  %436 = phi ptr [ %431, %.thread255 ], [ %320, %426 ]
+  %437 = phi ptr [ %432, %.thread255 ], [ %319, %426 ]
+  %438 = phi ptr [ null, %.thread255 ], [ %318, %426 ]
+  %439 = phi i16 [ %430, %.thread255 ], [ %428, %426 ]
   %440 = icmp eq ptr %436, null
   br i1 %440, label %.thread74, label %441
 
@@ -2408,7 +2408,7 @@ define internal fastcc ptr @fib6_repair_tree(ptr noundef %0, ptr noundef nonnull
 
 92:                                               ; preds = %91, %90, %87
   %93 = icmp eq ptr %47, null
-  br i1 %93, label %94, label %.thread38
+  br i1 %93, label %94, label %.thread51
 
 94:                                               ; preds = %92
   tail call void @_raw_read_lock(ptr noundef nonnull %8) #13
@@ -2416,7 +2416,7 @@ define internal fastcc ptr @fib6_repair_tree(ptr noundef %0, ptr noundef nonnull
   %96 = icmp eq ptr %95, %9
   br i1 %96, label %.loopexit, label %.preheader14.split.us
 
-.thread38:                                        ; preds = %92
+.thread51:                                        ; preds = %92
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !80
   store volatile ptr %23, ptr %47, align 8
   tail call void @_raw_read_lock(ptr noundef nonnull %8) #13
@@ -2442,7 +2442,7 @@ define internal fastcc ptr @fib6_repair_tree(ptr noundef %0, ptr noundef nonnull
   %107 = icmp eq ptr %106, %9
   br i1 %107, label %.loopexit, label %.preheader14.split.us, !llvm.loop !81
 
-.preheader14.split:                               ; preds = %.thread38
+.preheader14.split:                               ; preds = %.thread51
   br i1 %46, label %.preheader14.split.split.us, label %.preheader14.split.split
 
 .preheader14.split.split.us:                      ; preds = %.preheader14.split, %117
@@ -2487,7 +2487,7 @@ define internal fastcc ptr @fib6_repair_tree(ptr noundef %0, ptr noundef nonnull
   %131 = icmp eq ptr %130, %9
   br i1 %131, label %.loopexit, label %.preheader14.split.split, !llvm.loop !81
 
-.loopexit:                                        ; preds = %129, %117, %105, %.thread38, %94
+.loopexit:                                        ; preds = %129, %117, %105, %.thread51, %94
   tail call void @_raw_read_unlock(ptr noundef nonnull %8) #13
   %132 = getelementptr inbounds nuw i8, ptr %18, i64 48
   tail call void @call_rcu(ptr noundef nonnull %132, ptr noundef nonnull @node_free_rcu) #13

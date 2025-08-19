@@ -201,22 +201,22 @@ sub_1:                                            ; preds = %sub_0
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.40) #6
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %._crit_edge65, label %.lr.ph64
+  br i1 %44, label %._crit_edge67, label %.lr.ph66
 
-.lr.ph64:                                         ; preds = %.preheader34, %45
-  %indvars.iv5063 = phi i64 [ %indvars.iv.next51, %45 ], [ 0, %.preheader34 ]
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv5063, 1
+.lr.ph66:                                         ; preds = %.preheader34, %45
+  %indvars.iv5065 = phi i64 [ %indvars.iv.next51, %45 ], [ 0, %.preheader34 ]
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv5065, 1
   %exitcond53 = icmp eq i64 %indvars.iv.next51, 23
   br i1 %exitcond53, label %show_item.exit.thread, label %45, !llvm.loop !7
 
-45:                                               ; preds = %.lr.ph64
+45:                                               ; preds = %.lr.ph66
   %46 = getelementptr inbounds nuw [24 x %struct.InfoItem], ptr @info_items, i64 0, i64 %indvars.iv.next51
   %47 = load ptr, ptr %46, align 16
   %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %47) #6
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %._crit_edge65, label %.lr.ph64, !llvm.loop !7
+  br i1 %49, label %._crit_edge67, label %.lr.ph66, !llvm.loop !7
 
-._crit_edge65:                                    ; preds = %45, %.preheader34
+._crit_edge67:                                    ; preds = %45, %.preheader34
   %.lcssa = phi ptr [ @info_items, %.preheader34 ], [ %46, %45 ]
   %50 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %51 = load ptr, ptr %50, align 8
@@ -224,9 +224,9 @@ sub_1:                                            ; preds = %sub_0
   %.not.i = icmp eq i64 %52, 0
   br i1 %.not.i, label %show_item.exit.thread33, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge65, %62
-  %53 = phi i64 [ %64, %62 ], [ 0, %._crit_edge65 ]
-  %.08.i = phi i32 [ %63, %62 ], [ 0, %._crit_edge65 ]
+.lr.ph.i:                                         ; preds = %._crit_edge67, %62
+  %53 = phi i64 [ %64, %62 ], [ 0, %._crit_edge67 ]
+  %.08.i = phi i32 [ %63, %62 ], [ 0, %._crit_edge67 ]
   %54 = getelementptr inbounds %struct.ConfigData, ptr %28, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %55) #6
@@ -245,7 +245,7 @@ sub_1:                                            ; preds = %sub_0
   %65 = icmp ugt i64 %52, %64
   br i1 %65, label %.lr.ph.i, label %show_item.exit.thread33, !llvm.loop !8
 
-show_item.exit.thread:                            ; preds = %.lr.ph64
+show_item.exit.thread:                            ; preds = %.lr.ph66
   %66 = load ptr, ptr @stderr, align 8
   %67 = load ptr, ptr @progname, align 8
   %68 = and i64 %indvars.iv54, 4294967295
@@ -256,7 +256,7 @@ show_item.exit.thread:                            ; preds = %.lr.ph64
   call void @exit(i32 noundef 1) #8
   unreachable
 
-show_item.exit.thread33:                          ; preds = %62, %._crit_edge65
+show_item.exit.thread33:                          ; preds = %62, %._crit_edge67
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
   br i1 %exitcond58.not, label %72, label %.preheader34, !llvm.loop !9

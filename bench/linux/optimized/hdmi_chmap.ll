@@ -409,7 +409,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   br i1 %166, label %.thread26.preheader, label %.loopexit29
 
 .thread26.preheader:                              ; preds = %159, %165
-  %.ph90 = phi i64 [ 0, %159 ], [ %164, %165 ]
+  %.ph110 = phi i64 [ 0, %159 ], [ %164, %165 ]
   br label %.thread26
 
 167:                                              ; preds = %167, %163
@@ -424,7 +424,7 @@ define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captu
   br i1 %174, label %165, label %167, !llvm.loop !24
 
 .thread26:                                        ; preds = %.thread26.preheader, %.thread26
-  %175 = phi i64 [ %179, %.thread26 ], [ %.ph90, %.thread26.preheader ]
+  %175 = phi i64 [ %179, %.thread26 ], [ %.ph110, %.thread26.preheader ]
   %176 = trunc i64 %175 to i32
   %177 = or i32 %176, 240
   %178 = getelementptr [8 x i32], ptr %8, i64 0, i64 %175
@@ -674,7 +674,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %7, i8 0, i64 80, i1 false), !annotation !15
   %59 = icmp slt i32 %2, 3
-  br i1 %59, label %.loopexit47, label %.preheader11
+  br i1 %59, label %.loopexit55, label %.preheader11
 
 .preheader11:                                     ; preds = %58, %70
   %60 = phi i64 [ %72, %70 ], [ 0, %58 ]
@@ -770,15 +770,15 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
   %117 = phi i32 [ %115, %107 ], [ %102, %100 ]
   %118 = add nuw nsw i64 %101, 1
   %119 = icmp eq i64 %118, 11
-  br i1 %119, label %.loopexit47, label %100, !llvm.loop !6
+  br i1 %119, label %.loopexit55, label %100, !llvm.loop !6
 
-.loopexit47:                                      ; preds = %116, %58
+.loopexit55:                                      ; preds = %116, %58
   %120 = phi i32 [ 0, %58 ], [ %99, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit12
 
-.loopexit12:                                      ; preds = %55, %.loopexit47, %53
-  %121 = phi i32 [ %120, %.loopexit47 ], [ %54, %53 ], [ -1, %55 ]
+.loopexit12:                                      ; preds = %55, %.loopexit55, %53
+  %121 = phi i32 [ %120, %.loopexit55 ], [ %54, %53 ], [ -1, %55 ]
   %122 = call i32 @llvm.smax.i32(i32 %121, i32 0)
   ret i32 %122
 }

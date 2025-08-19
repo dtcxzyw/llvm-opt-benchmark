@@ -163,11 +163,11 @@ define internal i32 @h261_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %67 = and i32 %66, %64
   %68 = icmp eq i32 %67, 0
   %spec.select.i = select i1 %68, i32 176, i32 352
-  %spec.select39.i = select i1 %68, i32 144, i32 288
+  %spec.select42.i = select i1 %68, i32 144, i32 288
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 488
   store i32 %spec.select.i, ptr %69, align 8, !tbaa !70
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 492
-  store i32 %spec.select39.i, ptr %70, align 4, !tbaa !71
+  store i32 %spec.select42.i, ptr %70, align 4, !tbaa !71
   %spec.select.i29.i = add i32 %spec.select.i.i, 1
   %71 = add i32 %spec.select.i29.i, %63
   %72 = tail call i32 @llvm.umin.i32(i32 %17, i32 %71)
@@ -218,7 +218,7 @@ define internal i32 @h261_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %97 = load i32, ptr %96, align 4, !tbaa !75
-  %.not51 = icmp eq i32 %spec.select39.i, %97
+  %.not51 = icmp eq i32 %spec.select42.i, %97
   br i1 %.not51, label %99, label %98
 
 98:                                               ; preds = %95, %91
@@ -523,7 +523,7 @@ get_vlc2.exit.i.i:                                ; preds = %240, %222
   %278 = add nsw i32 %277, -1
   %279 = srem i32 %278, 2
   %280 = mul nsw i32 %279, 11
-  %281 = add i32 %.062.i.i.i, %219
+  %281 = add nsw i32 %.062.i.i.i, %219
   %282 = srem i32 %281, 11
   %283 = add nsw i32 %280, %282
   store i32 %283, ptr %122, align 4, !tbaa !78
@@ -1137,10 +1137,10 @@ decode_mv_component.exit131.i.i:                  ; preds = %496, %493, %491, %g
   br label %670
 
 670:                                              ; preds = %666, %662, %660, %657
-  %.sink160.i.i.i = phi i32 [ 1, %666 ], [ 14, %660 ], [ 14, %662 ], [ 14, %657 ]
+  %.sink163.i.i.i = phi i32 [ 1, %666 ], [ 14, %660 ], [ 14, %662 ], [ 14, %657 ]
   %.0126.i.i.i = phi i32 [ %641, %666 ], [ %653, %660 ], [ %653, %662 ], [ %653, %657 ]
   %.2.i.i.i = phi i32 [ %spec.select.i133.i.i, %666 ], [ 0, %660 ], [ %664, %662 ], [ %659, %657 ]
-  %671 = add i32 %.sink160.i.i.i, %644
+  %671 = add i32 %.sink163.i.i.i, %644
   %672 = tail call i32 @llvm.umin.i32(i32 %604, i32 %671)
   %673 = add nsw i32 %.0126.i.i.i, %.2123.i.i.i
   %674 = icmp sgt i32 %673, 63

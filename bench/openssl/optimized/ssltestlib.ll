@@ -2370,9 +2370,9 @@ define dso_local range(i32 0, 2) i32 @create_bare_ssl_connection(ptr noundef %0,
   br label %16
 
 16:                                               ; preds = %67, %13
-  %.0104 = phi i32 [ %4, %13 ], [ %.1105.lcssa180, %67 ]
-  %.0102 = phi i32 [ -1, %13 ], [ %.1103.lcssa162, %67 ]
-  %.099 = phi i32 [ -1, %13 ], [ %.1100.lcssa181, %67 ]
+  %.0104 = phi i32 [ %4, %13 ], [ %.1105.lcssa190, %67 ]
+  %.0102 = phi i32 [ -1, %13 ], [ %.1103.lcssa172, %67 ]
+  %.099 = phi i32 [ -1, %13 ], [ %.1100.lcssa191, %67 ]
   %.096 = phi i32 [ 0, %13 ], [ %59, %67 ]
   %.093 = phi i32 [ 0, %13 ], [ %.194, %67 ]
   %.092 = phi i32 [ 0, %13 ], [ %.1, %67 ]
@@ -2402,11 +2402,11 @@ define dso_local range(i32 0, 2) i32 @create_bare_ssl_connection(ptr noundef %0,
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.lr.ph.split, %21, %16, %23, %24
-  %.lcssa165 = phi i1 [ true, %24 ], [ true, %23 ], [ %18, %16 ], [ %20, %21 ], [ %20, %.lr.ph.split ]
-  %.097.lcssa164 = phi i32 [ %22, %24 ], [ %22, %23 ], [ 3, %16 ], [ 3, %.lr.ph.split ], [ %22, %21 ]
-  %.1103.lcssa162 = phi i32 [ %19, %24 ], [ %19, %23 ], [ %.0102, %16 ], [ %19, %21 ], [ %19, %.lr.ph.split ]
+  %.lcssa175 = phi i1 [ true, %24 ], [ true, %23 ], [ %18, %16 ], [ %20, %21 ], [ %20, %.lr.ph.split ]
+  %.097.lcssa174 = phi i32 [ %22, %24 ], [ %22, %23 ], [ 3, %16 ], [ 3, %.lr.ph.split ], [ %22, %21 ]
+  %.1103.lcssa172 = phi i32 [ %19, %24 ], [ %19, %23 ], [ %.0102, %16 ], [ %19, %21 ], [ %19, %.lr.ph.split ]
   %.194 = phi i32 [ 1, %24 ], [ 1, %23 ], [ %.093, %16 ], [ %.093, %21 ], [ %.093, %.lr.ph.split ]
-  %25 = icmp eq i32 %.097.lcssa164, %2
+  %25 = icmp eq i32 %.097.lcssa174, %2
   %or.cond121 = and i1 %.not118, %25
   br i1 %or.cond121, label %.loopexit, label %.preheader
 
@@ -2423,12 +2423,12 @@ define dso_local range(i32 0, 2) i32 @create_bare_ssl_connection(ptr noundef %0,
 
 28:                                               ; preds = %.lr.ph139.split
   %29 = call i32 @DTLSv1_listen(ptr noundef %0, ptr noundef %.090) #14
-  %.2101.fr170 = freeze i32 %29
-  %30 = icmp slt i32 %.2101.fr170, 0
+  %.2101.fr180 = freeze i32 %29
+  %30 = icmp slt i32 %.2101.fr180, 0
   br i1 %30, label %switch.early.test.thread, label %31
 
 31:                                               ; preds = %28
-  %32 = icmp eq i32 %.2101.fr170, 0
+  %32 = icmp eq i32 %.2101.fr180, 0
   %.1105. = select i1 %32, i32 %.1105138, i32 0
   %. = select i1 %32, i32 2, i32 3
   br label %38
@@ -2462,10 +2462,10 @@ switch.early.test:                                ; preds = %.critedge9
   ]
 
 switch.early.test.thread:                         ; preds = %28, %switch.early.test
-  %.1105.lcssa185196 = phi i32 [ %.2106, %switch.early.test ], [ %.1105138, %28 ]
-  %.1100.lcssa186195 = phi i32 [ %.2101.fr, %switch.early.test ], [ %.2101.fr170, %28 ]
-  %.2.lcssa187194 = phi i32 [ %.3, %switch.early.test ], [ 1, %28 ]
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 1290, ptr noundef nonnull @.str.66, i32 noundef %.1100.lcssa186195, i32 noundef %.2.lcssa187194) #14
+  %.1105.lcssa195206 = phi i32 [ %.2106, %switch.early.test ], [ %.1105138, %28 ]
+  %.1100.lcssa196205 = phi i32 [ %.2101.fr, %switch.early.test ], [ %.2101.fr180, %28 ]
+  %.2.lcssa197204 = phi i32 [ %.3, %switch.early.test ], [ 1, %28 ]
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 1290, ptr noundef nonnull @.str.66, i32 noundef %.1100.lcssa196205, i32 noundef %.2.lcssa197204) #14
   br i1 %.not117, label %.critedge9.thread, label %41
 
 41:                                               ; preds = %switch.early.test.thread
@@ -2473,12 +2473,12 @@ switch.early.test.thread:                         ; preds = %28, %switch.early.t
   br label %.critedge9.thread
 
 .critedge9.thread:                                ; preds = %.preheader, %switch.early.test, %switch.early.test, %.critedge9, %switch.early.test.thread, %41
-  %.lcssa129183 = phi i1 [ true, %switch.early.test ], [ true, %41 ], [ true, %switch.early.test.thread ], [ false, %.critedge9 ], [ true, %switch.early.test ], [ %27, %.preheader ]
-  %.2.lcssa182 = phi i32 [ %.3, %switch.early.test ], [ %.2.lcssa187194, %41 ], [ %.2.lcssa187194, %switch.early.test.thread ], [ %.3, %.critedge9 ], [ %.3, %switch.early.test ], [ 3, %.preheader ]
-  %.1100.lcssa181 = phi i32 [ %.2101.fr, %switch.early.test ], [ %.1100.lcssa186195, %41 ], [ %.1100.lcssa186195, %switch.early.test.thread ], [ %.2101.fr, %.critedge9 ], [ %.2101.fr, %switch.early.test ], [ %.099, %.preheader ]
-  %.1105.lcssa180 = phi i32 [ %.2106, %switch.early.test ], [ %.1105.lcssa185196, %41 ], [ %.1105.lcssa185196, %switch.early.test.thread ], [ %.2106, %.critedge9 ], [ %.2106, %switch.early.test ], [ %.0104, %.preheader ]
+  %.lcssa129193 = phi i1 [ true, %switch.early.test ], [ true, %41 ], [ true, %switch.early.test.thread ], [ false, %.critedge9 ], [ true, %switch.early.test ], [ %27, %.preheader ]
+  %.2.lcssa192 = phi i32 [ %.3, %switch.early.test ], [ %.2.lcssa197204, %41 ], [ %.2.lcssa197204, %switch.early.test.thread ], [ %.3, %.critedge9 ], [ %.3, %switch.early.test ], [ 3, %.preheader ]
+  %.1100.lcssa191 = phi i32 [ %.2101.fr, %switch.early.test ], [ %.1100.lcssa196205, %41 ], [ %.1100.lcssa196205, %switch.early.test.thread ], [ %.2101.fr, %.critedge9 ], [ %.2101.fr, %switch.early.test ], [ %.099, %.preheader ]
+  %.1105.lcssa190 = phi i32 [ %.2106, %switch.early.test ], [ %.1105.lcssa195206, %41 ], [ %.1105.lcssa195206, %switch.early.test.thread ], [ %.2106, %.critedge9 ], [ %.2106, %switch.early.test ], [ %.0104, %.preheader ]
   %.1 = phi i32 [ %.092, %switch.early.test ], [ 1, %41 ], [ 1, %switch.early.test.thread ], [ %.092, %.critedge9 ], [ %.092, %switch.early.test ], [ %.092, %.preheader ]
-  %42 = icmp eq i32 %.2.lcssa182, %2
+  %42 = icmp eq i32 %.2.lcssa192, %2
   %or.cond123 = select i1 %.not118, i1 %42, i1 false
   br i1 %or.cond123, label %.loopexit, label %43
 
@@ -2493,8 +2493,8 @@ switch.early.test.thread:                         ; preds = %28, %switch.early.t
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %48 = icmp sgt i32 %.1100.lcssa181, 0
-  %or.cond21 = select i1 %48, i1 %.lcssa165, i1 false
+  %48 = icmp sgt i32 %.1100.lcssa191, 0
+  %or.cond21 = select i1 %48, i1 %.lcssa175, i1 false
   br i1 %or.cond21, label %49, label %52
 
 49:                                               ; preds = %47
@@ -2503,8 +2503,8 @@ switch.early.test.thread:                         ; preds = %28, %switch.early.t
   br i1 %51, label %57, label %.thread127
 
 52:                                               ; preds = %47
-  %53 = icmp sgt i32 %.1103.lcssa162, 0
-  %or.cond23 = select i1 %53, i1 %.lcssa129183, i1 false
+  %53 = icmp sgt i32 %.1103.lcssa172, 0
+  %or.cond23 = select i1 %53, i1 %.lcssa129193, i1 false
   br i1 %or.cond23, label %54, label %.thread127
 
 54:                                               ; preds = %52
@@ -2544,7 +2544,7 @@ switch.early.test.thread:                         ; preds = %28, %switch.early.t
   br label %67
 
 67:                                               ; preds = %62, %66
-  %68 = select i1 %.lcssa165, i1 true, i1 %.lcssa129183
+  %68 = select i1 %.lcssa175, i1 true, i1 %.lcssa129193
   br i1 %68, label %16, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %67, %.critedge9.thread, %.critedge.thread, %43, %57, %61

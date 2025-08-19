@@ -2101,13 +2101,13 @@ agxbputc.exit:                                    ; preds = %312, %307, %301
   br label %344
 
 344:                                              ; preds = %320, %328
-  %.sink584 = phi double [ %327, %320 ], [ %343, %328 ]
-  %.sink579 = phi double [ %324, %320 ], [ %338, %328 ]
+  %.sink613 = phi double [ %327, %320 ], [ %343, %328 ]
+  %.sink608 = phi double [ %324, %320 ], [ %338, %328 ]
   %345 = load i8, ptr @Y_invert, align 1, !tbaa !3, !range !7, !noundef !8
   %346 = trunc nuw i8 %345 to i1
-  %347 = fsub double %.sroa.4.0.i, %.sink584
-  %348 = select i1 %346, double %347, double %.sink584
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.28, double noundef %.sink579, double noundef %348)
+  %347 = fsub double %.sroa.4.0.i, %.sink613
+  %348 = select i1 %346, double %347, double %.sink613
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.28, double noundef %.sink608, double noundef %348)
   %349 = add nuw i64 %.0175506, 1
   %exitcond.not = icmp eq i64 %349, %.0177
   br i1 %exitcond.not, label %278, label %301, !llvm.loop !133

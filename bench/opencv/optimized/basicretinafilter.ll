@@ -566,8 +566,8 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
 
 .lr.ph.i.i.i8.preheader:                          ; preds = %.thread, %64
   %67 = phi ptr [ %.pre.i5, %.thread ], [ %66, %64 ]
-  %.idx.pre-phi.i627 = phi i64 [ %.pre5.i12, %.thread ], [ %65, %64 ]
-  tail call void @llvm.memset.p0.i64(ptr align 4 %67, i8 0, i64 %.idx.pre-phi.i627, i1 false), !tbaa !11
+  %.idx.pre-phi.i636 = phi i64 [ %.pre5.i12, %.thread ], [ %65, %64 ]
+  tail call void @llvm.memset.p0.i64(ptr align 4 %67, i8 0, i64 %.idx.pre-phi.i636, i1 false), !tbaa !11
   br label %_ZNSt8valarrayIfE6resizeEmf.exit13
 
 _ZNSt8valarrayIfE6resizeEmf.exit13:               ; preds = %.lr.ph.i.i.i8.preheader, %64

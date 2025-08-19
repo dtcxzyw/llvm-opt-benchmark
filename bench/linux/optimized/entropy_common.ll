@@ -591,7 +591,7 @@ define dso_local i64 @FSE_readNCount(ptr noundef writeonly captures(none) %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 align 16 {
   %8 = alloca [218 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(872) %8, i8 0, i64 872, i1 false), !annotation !10
@@ -604,7 +604,7 @@ define dso_local i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr noundef 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -119, -9223372036854775808) i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, i32 noundef %9) local_unnamed_addr #1 align 16 {
   %11 = icmp eq i32 %9, 0
   br i1 %11, label %14, label %12
 
@@ -777,14 +777,14 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %5, i64 1
   %24 = icmp eq i64 %16, 0
-  br i1 %24, label %.thread, label %.preheader11
+  br i1 %24, label %.thread, label %.preheader20
 
 .thread:                                          ; preds = %22
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
   br label %.thread10
 
-.preheader11:                                     ; preds = %22, %.preheader11
-  %25 = phi i64 [ %34, %.preheader11 ], [ 0, %22 ]
+.preheader20:                                     ; preds = %22, %.preheader20
+  %25 = phi i64 [ %34, %.preheader20 ], [ 0, %22 ]
   %26 = lshr exact i64 %25, 1
   %27 = getelementptr i8, ptr %23, i64 %26
   %28 = load i8, ptr %27, align 1
@@ -797,7 +797,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   store i8 %32, ptr %33, align 1
   %34 = add nuw nsw i64 %25, 2
   %35 = icmp ult i64 %34, %16
-  br i1 %35, label %.preheader11, label %.loopexit, !llvm.loop !11
+  br i1 %35, label %.preheader20, label %.loopexit, !llvm.loop !11
 
 36:                                               ; preds = %11
   %37 = icmp ugt i64 %6, %13
@@ -810,9 +810,9 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   %42 = icmp ult i64 %41, -119
   br i1 %42, label %.loopexit, label %.thread10
 
-.loopexit:                                        ; preds = %.preheader11, %38
-  %43 = phi i64 [ %13, %38 ], [ %18, %.preheader11 ]
-  %44 = phi i64 [ %41, %38 ], [ %16, %.preheader11 ]
+.loopexit:                                        ; preds = %.preheader20, %38
+  %43 = phi i64 [ %13, %38 ], [ %18, %.preheader20 ]
+  %44 = phi i64 [ %41, %38 ], [ %16, %.preheader20 ]
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(52) %2, i8 0, i64 52, i1 false)
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.thread10, label %.preheader

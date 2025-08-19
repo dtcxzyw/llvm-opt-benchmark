@@ -2603,8 +2603,8 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %221 = fcmp ugt double %220, 0.000000e+00
   %222 = fmul double %220, 1.800000e+02
   %223 = fcmp ult double %74, %222
-  %or.cond651 = select i1 %221, i1 %223, i1 false
-  br i1 %or.cond651, label %236, label %224
+  %or.cond677 = select i1 %221, i1 %223, i1 false
+  br i1 %or.cond677, label %236, label %224
 
 224:                                              ; preds = %218
   %225 = load double, ptr %0, align 8, !tbaa !8
@@ -5406,8 +5406,8 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #8 {
   %124 = alloca double, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %.b.i = load i1, ptr @init, align 4
-  %indvars.iv2278.sroa.gep2342 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %indvars.iv.sroa.gep2343 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %indvars.iv2278.sroa.gep2443 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %indvars.iv.sroa.gep2444 = getelementptr inbounds nuw i8, ptr %108, i64 24
   br i1 %.b.i, label %Init.exit, label %125
 
 125:                                              ; preds = %0
@@ -8672,7 +8672,7 @@ equiv.exit1776:                                   ; preds = %equiv.exit1771, %eq
 
 1215:                                             ; preds = %equiv.exit1776, %equiv.exit1786
   %1216 = phi i1 [ true, %equiv.exit1776 ], [ false, %equiv.exit1786 ]
-  %indvars.iv.sroa.phi = phi ptr [ %108, %equiv.exit1776 ], [ %indvars.iv.sroa.gep2343, %equiv.exit1786 ]
+  %indvars.iv.sroa.phi = phi ptr [ %108, %equiv.exit1776 ], [ %indvars.iv.sroa.gep2444, %equiv.exit1786 ]
   %.06002267 = phi i32 [ 0, %equiv.exit1776 ], [ %spec.select, %equiv.exit1786 ]
   %1217 = load double, ptr %indvars.iv.sroa.phi, align 8, !tbaa !4
   %1218 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 8
@@ -8762,7 +8762,7 @@ equiv.exit1786:                                   ; preds = %equiv.exit1781, %12
 
 1253:                                             ; preds = %1245, %checkEquals.exit1788
   %1254 = phi i1 [ true, %1245 ], [ false, %checkEquals.exit1788 ]
-  %indvars.iv2278.sroa.phi = phi ptr [ %112, %1245 ], [ %indvars.iv2278.sroa.gep2342, %checkEquals.exit1788 ]
+  %indvars.iv2278.sroa.phi = phi ptr [ %112, %1245 ], [ %indvars.iv2278.sroa.gep2443, %checkEquals.exit1788 ]
   %.05982269 = phi i32 [ 0, %1245 ], [ %1276, %checkEquals.exit1788 ]
   %1255 = load double, ptr %indvars.iv2278.sroa.phi, align 16, !tbaa !4
   %1256 = getelementptr inbounds nuw i8, ptr %indvars.iv2278.sroa.phi, i64 8
@@ -9054,10 +9054,10 @@ equiv.exit1818:                                   ; preds = %equiv.exit1813, %13
   br i1 %.not756, label %1385, label %1381
 
 1381:                                             ; preds = %.thread, %1380
-  %.1512341 = phi i32 [ %1379, %.thread ], [ %.150, %1380 ]
-  %1382 = icmp sgt i32 %.1512341, 1
+  %.1512442 = phi i32 [ %1379, %.thread ], [ %.150, %1380 ]
+  %1382 = icmp sgt i32 %.1512442, 1
   %1383 = select i1 %1382, ptr @.str.148, ptr @.str.149
-  %1384 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, i32 noundef %.1512341, ptr noundef nonnull @.str.147, ptr noundef nonnull %1383)
+  %1384 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, i32 noundef %.1512442, ptr noundef nonnull @.str.147, ptr noundef nonnull %1383)
   br label %1385
 
 1385:                                             ; preds = %1380, %1381

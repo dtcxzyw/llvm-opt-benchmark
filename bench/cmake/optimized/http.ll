@@ -994,7 +994,7 @@ define dso_local range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 3280
   store i64 4, ptr %36, align 8, !tbaa !127
-  br label %.thread114
+  br label %.thread118
 
 37:                                               ; preds = %28
   %38 = and i64 %33, %spec.select
@@ -1004,7 +1004,7 @@ define dso_local range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 3280
   store i64 64, ptr %40, align 8, !tbaa !127
-  br label %.thread114
+  br label %.thread118
 
 41:                                               ; preds = %37
   %42 = and i64 %33, 2
@@ -1014,7 +1014,7 @@ define dso_local range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 3280
   store i64 2, ptr %44, align 8, !tbaa !127
-  br label %.thread114
+  br label %.thread118
 
 45:                                               ; preds = %41
   %46 = and i64 %33, 8
@@ -1029,26 +1029,26 @@ define dso_local range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 3280
   store i64 1, ptr %50, align 8, !tbaa !127
-  br label %.thread114
+  br label %.thread118
 
 51:                                               ; preds = %47
   %52 = and i64 %33, 128
   %.not21.i = icmp eq i64 %52, 0
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 3280
-  br i1 %.not21.i, label %.thread112, label %54
+  br i1 %.not21.i, label %.thread116, label %54
 
 54:                                               ; preds = %51
   store i64 128, ptr %53, align 8, !tbaa !127
-  br label %.thread114
+  br label %.thread118
 
-.thread112:                                       ; preds = %51
+.thread116:                                       ; preds = %51
   store i64 1073741824, ptr %53, align 8, !tbaa !127
   store i64 0, ptr %30, align 8, !tbaa !125
   %55 = or disjoint i32 %11, 128
   store i32 %55, ptr %10, align 4
   br label %75
 
-.thread114:                                       ; preds = %35, %39, %43, %49, %54
+.thread118:                                       ; preds = %35, %39, %43, %49, %54
   store i64 0, ptr %30, align 8, !tbaa !125
   br label %75
 
@@ -1090,8 +1090,8 @@ define dso_local range(i32 0, 28) i32 @Curl_http_auth_act(ptr noundef %0) local_
   store i8 2, ptr %74, align 8, !tbaa !4
   br label %75
 
-75:                                               ; preds = %.thread114, %.thread112, %18, %56, %73, %23
-  %.061.shrunk = phi i1 [ true, %73 ], [ true, %56 ], [ false, %23 ], [ false, %18 ], [ false, %.thread112 ], [ true, %.thread114 ]
+75:                                               ; preds = %.thread118, %.thread116, %18, %56, %73, %23
+  %.061.shrunk = phi i1 [ true, %73 ], [ true, %56 ], [ false, %23 ], [ false, %18 ], [ false, %.thread116 ], [ true, %.thread118 ]
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 920
   %77 = load i64, ptr %76, align 8
   %78 = and i64 %77, 4
@@ -2297,8 +2297,8 @@ define dso_local noundef zeroext i1 @Curl_compareheader(ptr noundef %0, ptr noun
   %23 = add i64 %.02840, -1
   %24 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   %.not37 = icmp ult i64 %23, %4
-  %or.cond45 = select i1 %.not38.not, i1 true, i1 %.not37
-  br i1 %or.cond45, label %.loopexit, label %.lr.ph, !llvm.loop !144
+  %or.cond50 = select i1 %.not38.not, i1 true, i1 %.not37
+  br i1 %or.cond50, label %.loopexit, label %.lr.ph, !llvm.loop !144
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %5
   %.029 = phi i1 [ false, %5 ], [ false, %18 ], [ %.not38.not, %.lr.ph ]
@@ -2646,9 +2646,9 @@ switch.lookup:                                    ; preds = %13
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Curl_add_timecondition, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep26 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.Curl_add_timecondition.3, i64 0, i64 %17
-  %switch.load27 = load i64, ptr %switch.gep26, align 8
-  %18 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull %switch.load, i64 noundef %switch.load27) #11
+  %switch.gep27 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.Curl_add_timecondition.3, i64 0, i64 %17
+  %switch.load28 = load i64, ptr %switch.gep27, align 8
+  %18 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull %switch.load, i64 noundef %switch.load28) #11
   %.not24 = icmp eq ptr %18, null
   br i1 %.not24, label %19, label %43
 
@@ -3607,8 +3607,8 @@ Curl_use_http_1_1plus.exit.i:                     ; preds = %51
   %58 = load i8, ptr %57, align 8, !tbaa !4
   %.not28.i = icmp ne i8 %58, 1
   %59 = icmp ult i8 %55, 20
-  %or.cond29.i = and i1 %59, %.not28.i
-  br i1 %or.cond29.i, label %60, label %addexpect.exit.thread
+  %or.cond32.i = and i1 %59, %.not28.i
+  br i1 %or.cond32.i, label %60, label %addexpect.exit.thread
 
 60:                                               ; preds = %Curl_use_http_1_1plus.exit.i
   %61 = tail call i64 @Curl_creader_client_length(ptr noundef nonnull %0) #11
@@ -6707,9 +6707,9 @@ checkprotoprefix.exit114.thread.i:                ; preds = %checkprotoprefix.ex
   br label %.critedge.i
 
 .thread131.thread.i:                              ; preds = %75, %71
-  %.str.159.sink190.i = phi ptr [ @.str.158, %71 ], [ @.str.159, %75 ]
+  %.str.159.sink195.i = phi ptr [ @.str.158, %71 ], [ @.str.159, %75 ]
   %.1.ph150.i = phi i32 [ 8, %71 ], [ 1, %75 ]
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull %.str.159.sink190.i) #11
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull %.str.159.sink195.i) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %http_parse_headers.exit
 

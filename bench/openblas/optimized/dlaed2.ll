@@ -82,8 +82,8 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
 
 57:                                               ; preds = %53
   %58 = zext nneg i32 %47 to i64
-  %59 = getelementptr double, ptr %30, i64 %58
-  %60 = getelementptr i8, ptr %59, i64 8
+  %59 = getelementptr inbounds nuw double, ptr %30, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   call void @dscal_(ptr noundef nonnull %23, ptr noundef nonnull @c_b3, ptr noundef nonnull %60, ptr noundef nonnull @c__1) #7
   br label %61
 
@@ -290,14 +290,14 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
   %148 = select i1 %146, double %145, double %147
   %149 = fmul double %110, %148
   %150 = fcmp ugt double %149, %109
-  br i1 %150, label %.preheader, label %.lr.ph684
+  br i1 %150, label %.preheader, label %.lr.ph698
 
-.lr.ph684:                                        ; preds = %.lr.ph492.preheader
+.lr.ph698:                                        ; preds = %.lr.ph492.preheader
   %151 = sext i32 %141 to i64
   br label %168
 
 .lr.ph492:                                        ; preds = %176
-  %152 = getelementptr i32, ptr %12, i64 %indvars.iv593682
+  %152 = getelementptr i32, ptr %12, i64 %indvars.iv593696
   %153 = load i32, ptr %152, align 4, !tbaa !3
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds double, ptr %30, i64 %154
@@ -326,23 +326,23 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
   %167 = sext i32 %.1415.lcssa.ph to i64
   br label %.lr.ph508
 
-168:                                              ; preds = %.lr.ph684, %.lr.ph492
-  %169 = phi i64 [ %143, %.lr.ph684 ], [ %154, %.lr.ph492 ]
-  %170 = phi i32 [ %142, %.lr.ph684 ], [ %153, %.lr.ph492 ]
-  %indvars.iv591683 = phi i64 [ %151, %.lr.ph684 ], [ %indvars.iv.next592, %.lr.ph492 ]
-  %indvars.iv593682 = phi i64 [ 1, %.lr.ph684 ], [ %indvars.iv.next594, %.lr.ph492 ]
-  %indvars.iv.next592 = add nsw i64 %indvars.iv591683, -1
+168:                                              ; preds = %.lr.ph698, %.lr.ph492
+  %169 = phi i64 [ %143, %.lr.ph698 ], [ %154, %.lr.ph492 ]
+  %170 = phi i32 [ %142, %.lr.ph698 ], [ %153, %.lr.ph492 ]
+  %indvars.iv591697 = phi i64 [ %151, %.lr.ph698 ], [ %indvars.iv.next592, %.lr.ph492 ]
+  %indvars.iv593696 = phi i64 [ 1, %.lr.ph698 ], [ %indvars.iv.next594, %.lr.ph492 ]
+  %indvars.iv.next592 = add nsw i64 %indvars.iv591697, -1
   %171 = getelementptr inbounds i32, ptr %37, i64 %169
   store i32 4, ptr %171, align 4, !tbaa !3
   %172 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.next592
   store i32 %170, ptr %172, align 4, !tbaa !3
   %173 = load i32, ptr %1, align 4, !tbaa !3
   %174 = zext i32 %173 to i64
-  %175 = icmp eq i64 %indvars.iv593682, %174
+  %175 = icmp eq i64 %indvars.iv593696, %174
   br i1 %175, label %.loopexit454, label %176
 
 176:                                              ; preds = %168
-  %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593682, 1
+  %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593696, 1
   %exitcond599.not = icmp eq i64 %indvars.iv.next594, %wide.trip.count598
   br i1 %exitcond599.not, label %.preheader, label %.lr.ph492, !llvm.loop !16
 

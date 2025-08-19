@@ -4446,16 +4446,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not.i.i.i52, label %_ZNSt6vectorIiSaIiEED2Ev.exit53, label %101
 
 101:                                              ; preds = %.thread, %100
-  %.pn2574 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread ], [ %.pn25, %100 ]
-  %.sroa.012.14273 = phi ptr [ %.sroa.012.150.us, %.thread ], [ %.sroa.012.142, %100 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.012.14273) #29
+  %.pn2580 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.thread ], [ %.pn25, %100 ]
+  %.sroa.012.14279 = phi ptr [ %.sroa.012.150.us, %.thread ], [ %.sroa.012.142, %100 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.012.14279) #29
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit53
 
 ._crit_edge55:                                    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.us, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit.thread, %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit
   ret void
 
 _ZNSt6vectorIiSaIiEED2Ev.exit53:                  ; preds = %101, %100, %86
-  %.pn25.pn = phi { ptr, i32 } [ %87, %86 ], [ %.pn25, %100 ], [ %.pn2574, %101 ]
+  %.pn25.pn = phi { ptr, i32 } [ %87, %86 ], [ %.pn25, %100 ], [ %.pn2580, %101 ]
   %102 = load ptr, ptr %0, align 8, !tbaa !174
   %.not.i.i.i54 = icmp eq ptr %102, null
   br i1 %.not.i.i.i54, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %103

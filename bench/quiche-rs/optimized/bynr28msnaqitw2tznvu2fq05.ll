@@ -1487,7 +1487,7 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
   br label %325
 
 190:                                              ; preds = %130, %112, %124, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i"
-  %spec.select.i.sink15.i.ph = phi i64 [ 1, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i" ], [ 14, %124 ], [ 12, %112 ], [ 14, %130 ]
+  %spec.select.i.sink20.i.ph = phi i64 [ 1, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i" ], [ 14, %124 ], [ 12, %112 ], [ 14, %130 ]
   %spec.select.i.sink.i.ph = phi i64 [ 0, %"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h1aff8f6b1889ab5eE.exit.i" ], [ undef, %124 ], [ %114, %112 ], [ undef, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !86
   invoke void @"_ZN6quiche6stream18StreamMap$LT$F$GT$15remove_writable17h5845324f443657c3E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
@@ -1704,8 +1704,8 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %287 = load i64, ptr %283, align 16, !range !135
   %.not70 = icmp ne i64 %287, 3
-  %or.cond154.not = select i1 %285, i1 %.not70, i1 false
-  br i1 %or.cond154.not, label %290, label %288
+  %or.cond164.not = select i1 %285, i1 %.not70, i1 false
+  br i1 %or.cond164.not, label %290, label %288
 
 288:                                              ; preds = %286, %"_ZN4core3ptr71drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$qlog..Error$GT$$GT$17h9baaa62f56c37685E.exit"
   %289 = icmp ne i64 %., 0
@@ -1854,7 +1854,7 @@ define hidden void @"_ZN6quiche19Connection$LT$F$GT$14stream_do_send17h7014e6249
   ret void
 
 326:                                              ; preds = %190
-  store i64 %spec.select.i.sink15.i.ph, ptr %0, align 8
+  store i64 %spec.select.i.sink20.i.ph, ptr %0, align 8
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %spec.select.i.sink.i.ph, ptr %327, align 8
   br label %185
@@ -1942,10 +1942,10 @@ define internal fastcc { i64, i64 } @"_ZN6quiche19Connection$LT$F$GT$22dgram_max
   br i1 %.not19.i, label %37, label %"_ZN6quiche19Connection$LT$F$GT$14destination_id17hefb311f67e3217a9E.exit"
 
 "_ZN6quiche19Connection$LT$F$GT$14destination_id17hefb311f67e3217a9E.exit": ; preds = %37, %40
-  %.sink25.i = phi ptr [ %39, %37 ], [ %44, %40 ]
-  %.sroa.35.0.in.i = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 64
+  %.sink26.i = phi ptr [ %39, %37 ], [ %44, %40 ]
+  %.sroa.35.0.in.i = getelementptr inbounds nuw i8, ptr %.sink26.i, i64 64
   %.sroa.35.0.i = load i64, ptr %.sroa.35.0.in.i, align 16, !noalias !157, !noundef !8
-  %.sroa.04.0.in.i = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 56
+  %.sroa.04.0.in.i = getelementptr inbounds nuw i8, ptr %.sink26.i, i64 56
   %.sroa.04.0.i = load ptr, ptr %.sroa.04.0.in.i, align 8, !noalias !157, !nonnull !8, !noundef !8
   store i64 -9223372036854775808, ptr %4, align 8, !alias.scope !157, !noalias !160
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3326,12 +3326,12 @@ define void @_ZN12tokio_quiche4quic21addr_validation_token26AddrValidationTokenM
   br label %41
 
 41:                                               ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit23", %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit"
-  %.sink30 = phi i64 [ %35, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit23" ], [ %24, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
-  %.sink29 = phi ptr [ %39, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit23" ], [ %28, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
+  %.sink33 = phi i64 [ %35, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit23" ], [ %24, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
+  %.sink32 = phi ptr [ %39, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit23" ], [ %28, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
   %.sink = phi i64 [ 4, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit23" ], [ 16, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
-  store i64 %.sink30, ptr %16, align 8, !noalias !8
+  store i64 %.sink33, ptr %16, align 8, !noalias !8
   %.sroa.4.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %.sink29, ptr %.sroa.4.0..sroa_idx.i21, align 8, !noalias !8
+  store ptr %.sink32, ptr %.sroa.4.0..sroa_idx.i21, align 8, !noalias !8
   %.sroa.6.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %.sink, ptr %.sroa.6.0..sroa_idx.i22, align 8, !noalias !8
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3622,13 +3622,13 @@ define void @_ZN12tokio_quiche4quic21addr_validation_token26AddrValidationTokenM
   br label %42
 
 42:                                               ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit35", %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit"
-  %.sink81 = phi i64 [ %36, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit35" ], [ %25, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
-  %.sink80 = phi ptr [ %40, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit35" ], [ %29, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
+  %.sink87 = phi i64 [ %36, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit35" ], [ %25, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
+  %.sink86 = phi ptr [ %40, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit35" ], [ %29, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
   %.sink = phi i64 [ 4, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit35" ], [ 16, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
   %43 = phi i64 [ 36, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit35" ], [ 48, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h8e3c7b4f55e24ce0E.exit" ]
-  store i64 %.sink81, ptr %17, align 8, !noalias !8
+  store i64 %.sink87, ptr %17, align 8, !noalias !8
   %.sroa.4.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %.sink80, ptr %.sroa.4.0..sroa_idx.i33, align 8, !noalias !8
+  store ptr %.sink86, ptr %.sroa.4.0..sroa_idx.i33, align 8, !noalias !8
   %.sroa.6.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %.sink, ptr %.sroa.6.0..sroa_idx.i34, align 8, !noalias !8
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -3652,7 +3652,7 @@ define void @_ZN12tokio_quiche4quic21addr_validation_token26AddrValidationTokenM
   %53 = load i64, ptr %51, align 8, !noalias !317
   br label %.invoke
 
-54:                                               ; preds = %.invoke79, %.invoke, %105, %73, %46, %85, %144, %100, %69, %56
+54:                                               ; preds = %.invoke85, %.invoke, %105, %73, %46, %85, %144, %100, %69, %56
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -3779,9 +3779,9 @@ define void @_ZN12tokio_quiche4quic21addr_validation_token26AddrValidationTokenM
 97:                                               ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.invoke79
+  br label %.invoke85
 
-98:                                               ; preds = %.invoke79
+98:                                               ; preds = %.invoke85
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %132, ptr %99, align 8
   store i64 -9223372036854775807, ptr %0, align 8
@@ -3878,9 +3878,9 @@ define void @_ZN12tokio_quiche4quic21addr_validation_token26AddrValidationTokenM
 130:                                              ; preds = %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.invoke79
+  br label %.invoke85
 
-.invoke79:                                        ; preds = %97, %130
+.invoke85:                                        ; preds = %97, %130
   %131 = phi ptr [ %123, %130 ], [ %90, %97 ]
   %132 = invoke noundef nonnull ptr @_ZN3std2io5error5Error4_new17h86ca3d1f815bac21E(i8 noundef 40, ptr noundef nonnull align 1 %131, ptr noalias noundef readonly align 8 dereferenceable(80) @anon.18713408902420a565912fd74e212ff2.88)
           to label %98 unwind label %54
@@ -3977,7 +3977,7 @@ define void @_ZN12tokio_quiche4quic10connection3map13ConnectionMap6remove17h939b
   %16 = phi ptr [ %17, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i" ], [ %.sroa.07.0.i, %13 ]
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 8)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.sroa.0.0.sroa.speculated.i.i.i
-  %18 = sub nuw i64 %15, %.sroa.0.0.sroa.speculated.i.i.i
+  %18 = sub nuw nsw i64 %15, %.sroa.0.0.sroa.speculated.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !360), !noalias !356
   tail call void @llvm.experimental.noalias.scope.decl(metadata !363), !noalias !356
   %19 = icmp ugt i64 %15, 7
@@ -4206,7 +4206,7 @@ define void @_ZN12tokio_quiche4quic10connection3map13ConnectionMap9unmap_cid17hf
   %14 = phi ptr [ %15, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0e57053b2c98903aE.exit.i" ], [ %.sroa.07.0.i, %11 ]
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %13, i64 8)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.sroa.0.0.sroa.speculated.i.i.i
-  %16 = sub nuw i64 %13, %.sroa.0.0.sroa.speculated.i.i.i
+  %16 = sub nuw nsw i64 %13, %.sroa.0.0.sroa.speculated.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403), !noalias !399
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406), !noalias !399
   %17 = icmp ugt i64 %13, 7
@@ -4728,10 +4728,10 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   br label %71
 
 48:                                               ; preds = %.noexc10, %40
-  %.sink24.i = phi ptr [ %47, %.noexc10 ], [ %42, %40 ]
-  %.sroa.35.0.in.i = getelementptr inbounds nuw i8, ptr %.sink24.i, i64 64
+  %.sink25.i = phi ptr [ %47, %.noexc10 ], [ %42, %40 ]
+  %.sroa.35.0.in.i = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 64
   %.sroa.35.0.i = load i64, ptr %.sroa.35.0.in.i, align 16, !noalias !496, !noundef !8
-  %.sroa.04.0.in.i = getelementptr inbounds nuw i8, ptr %.sink24.i, i64 56
+  %.sroa.04.0.in.i = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 56
   %.sroa.04.0.i = load ptr, ptr %.sroa.04.0.in.i, align 8, !noalias !496, !nonnull !8, !noundef !8
   store i64 -9223372036854775808, ptr %5, align 8, !alias.scope !496, !noalias !499
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8

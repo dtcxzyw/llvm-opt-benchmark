@@ -8982,7 +8982,7 @@ define internal void @dissect_ul_config_harq_info_uci_rel9_later_fdd_value(ptr n
   %31 = load i32, ptr %4, align 4
   %32 = add i32 %31, -1
   %or.cond9 = icmp ult i32 %32, 4
-  br i1 %or.cond9, label %38, label %.sink.split60
+  br i1 %or.cond9, label %38, label %.sink.split61
 
 33:                                               ; preds = %25
   %34 = add i32 %28, -3
@@ -8990,14 +8990,14 @@ define internal void @dissect_ul_config_harq_info_uci_rel9_later_fdd_value(ptr n
   %35 = load i32, ptr %4, align 4
   %36 = icmp ne i32 %35, 0
   %or.cond23 = select i1 %or.cond11, i1 %36, i1 false
-  br i1 %or.cond23, label %.sink.split60, label %38
+  br i1 %or.cond23, label %.sink.split61, label %38
 
-.sink.split60:                                    ; preds = %33, %30
-  %.str.2085.sink61 = phi ptr [ @.str.2086, %30 ], [ @.str.2085, %33 ]
-  %37 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %27, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull %.str.2085.sink61)
+.sink.split61:                                    ; preds = %33, %30
+  %.str.2085.sink62 = phi ptr [ @.str.2086, %30 ], [ @.str.2085, %33 ]
+  %37 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %27, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull %.str.2085.sink62)
   br label %38
 
-38:                                               ; preds = %.sink.split60, %33, %30
+38:                                               ; preds = %.sink.split61, %33, %30
   %39 = load i32, ptr @hf_nfapi_n_pucch_1_0, align 4
   %40 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3)
   %41 = load i32, ptr %5, align 4
@@ -9007,21 +9007,21 @@ define internal void @dissect_ul_config_harq_info_uci_rel9_later_fdd_value(ptr n
 42:                                               ; preds = %38
   %43 = load i32, ptr %3, align 4
   %44 = icmp ugt i32 %43, 2047
-  br i1 %44, label %.sink.split62, label %50
+  br i1 %44, label %.sink.split63, label %50
 
 45:                                               ; preds = %38
   %46 = icmp eq i32 %41, 2
   %47 = load i32, ptr %3, align 4
   %48 = icmp ugt i32 %47, 549
   %or.cond25 = select i1 %46, i1 %48, i1 false
-  br i1 %or.cond25, label %.sink.split62, label %50
+  br i1 %or.cond25, label %.sink.split63, label %50
 
-.sink.split62:                                    ; preds = %45, %42
+.sink.split63:                                    ; preds = %45, %42
   %.str.2088.sink = phi ptr [ @.str.2087, %42 ], [ @.str.2088, %45 ]
   %49 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %40, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull %.str.2088.sink)
   br label %50
 
-50:                                               ; preds = %.sink.split62, %45, %42
+50:                                               ; preds = %.sink.split63, %45, %42
   %51 = load i32, ptr @hf_nfapi_n_pucch_1_1, align 4
   %52 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %51, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3)
   %53 = load i32, ptr %5, align 4

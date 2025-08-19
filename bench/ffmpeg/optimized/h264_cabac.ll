@@ -424,9 +424,9 @@ define range(i32 -2147483648, 1) i32 @ff_h264_decode_mb_cabac(ptr noundef %0, pt
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %214, ptr %215, align 4, !tbaa !77
   %216 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %sh.diff50.i = lshr i32 %214, 15
-  %tr.sh.diff51.i = trunc i32 %sh.diff50.i to i16
-  %217 = and i16 %tr.sh.diff51.i, -2
+  %sh.diff57.i = lshr i32 %214, 15
+  %tr.sh.diff58.i = trunc i32 %sh.diff57.i to i16
+  %217 = and i16 %tr.sh.diff58.i, -2
   store i16 %217, ptr %216, align 2, !tbaa !96
   br label %218
 
@@ -504,9 +504,9 @@ define range(i32 -2147483648, 1) i32 @ff_h264_decode_mb_cabac(ptr noundef %0, pt
   %261 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %260, ptr %261, align 4, !tbaa !77
   %262 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %sh.diff52.i = lshr i32 %260, 15
-  %tr.sh.diff53.i = trunc i32 %sh.diff52.i to i16
-  %263 = and i16 %tr.sh.diff53.i, -2
+  %sh.diff59.i = lshr i32 %260, 15
+  %tr.sh.diff60.i = trunc i32 %sh.diff59.i to i16
+  %263 = and i16 %tr.sh.diff60.i, -2
   store i16 %263, ptr %262, align 2, !tbaa !96
   br label %314
 
@@ -581,9 +581,9 @@ define range(i32 -2147483648, 1) i32 @ff_h264_decode_mb_cabac(ptr noundef %0, pt
   %311 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %310, ptr %311, align 4, !tbaa !77
   %312 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %sh.diff54.i = lshr i32 %310, 15
-  %tr.sh.diff55.i = trunc i32 %sh.diff54.i to i16
-  %313 = and i16 %tr.sh.diff55.i, -2
+  %sh.diff61.i = lshr i32 %310, 15
+  %tr.sh.diff62.i = trunc i32 %sh.diff61.i to i16
+  %313 = and i16 %tr.sh.diff62.i, -2
   store i16 %313, ptr %312, align 2, !tbaa !96
   br label %314
 
@@ -1258,11 +1258,11 @@ decode_mb_skip.exit:                              ; preds = %554, %558
   br label %740
 
 740:                                              ; preds = %.thread1408, %716, %729
-  %.sink1873.in = phi ptr [ %696, %.thread1408 ], [ %718, %716 ], [ %732, %729 ]
+  %.sink1952.in = phi ptr [ %696, %.thread1408 ], [ %718, %716 ], [ %732, %729 ]
   %.0845 = phi i32 [ 0, %.thread1408 ], [ 0, %716 ], [ %735, %729 ]
   %.1838.shrunk = phi i8 [ %698, %.thread1408 ], [ %720, %716 ], [ 0, %729 ]
-  %.sink1873 = load i16, ptr %.sink1873.in, align 4, !tbaa !96
-  %741 = zext i16 %.sink1873 to i32
+  %.sink1952 = load i16, ptr %.sink1952.in, align 4, !tbaa !96
+  %741 = zext i16 %.sink1952 to i32
   store i32 %741, ptr %5, align 4, !tbaa !93
   %742 = load i32, ptr %645, align 16, !tbaa !94
   %.not952 = icmp eq i32 %742, 0
@@ -3690,10 +3690,10 @@ pred_motion.exit1056:                             ; preds = %2203, %2201, %2200,
 
 2316:                                             ; preds = %.thread1450, %2312
   %2317 = phi i64 [ %2306, %.thread1450 ], [ %2314, %2312 ]
-  %.sink1878 = phi i32 [ %2308, %.thread1450 ], [ -1, %2312 ]
+  %.sink1957 = phi i32 [ %2308, %.thread1450 ], [ -1, %2312 ]
   %2318 = getelementptr inbounds nuw [40 x i8], ptr %2275, i64 0, i64 %2317
   %2319 = getelementptr inbounds nuw i8, ptr %2318, i64 8
-  store i32 %.sink1878, ptr %2319, align 4, !tbaa !93
+  store i32 %.sink1957, ptr %2319, align 4, !tbaa !93
   br i1 %2292, label %2291, label %2320, !llvm.loop !156
 
 2320:                                             ; preds = %2316
@@ -4280,14 +4280,14 @@ pred_16x8_motion.exit:                            ; preds = %2540, %2547, %2553,
   br label %2697
 
 2697:                                             ; preds = %.thread1475, %2693
-  %.sink1889 = phi ptr [ %2687, %.thread1475 ], [ %2696, %2693 ]
-  %.sink1887 = phi i16 [ %2689, %.thread1475 ], [ -1, %2693 ]
-  %2698 = getelementptr inbounds nuw i8, ptr %.sink1889, i64 8
-  store i16 %.sink1887, ptr %2698, align 2, !tbaa !96
-  %2699 = getelementptr inbounds nuw i8, ptr %.sink1889, i64 16
-  store i16 %.sink1887, ptr %2699, align 2, !tbaa !96
-  %2700 = getelementptr inbounds nuw i8, ptr %.sink1889, i64 24
-  store i16 %.sink1887, ptr %2700, align 2, !tbaa !96
+  %.sink1968 = phi ptr [ %2687, %.thread1475 ], [ %2696, %2693 ]
+  %.sink1966 = phi i16 [ %2689, %.thread1475 ], [ -1, %2693 ]
+  %2698 = getelementptr inbounds nuw i8, ptr %.sink1968, i64 8
+  store i16 %.sink1966, ptr %2698, align 2, !tbaa !96
+  %2699 = getelementptr inbounds nuw i8, ptr %.sink1968, i64 16
+  store i16 %.sink1966, ptr %2699, align 2, !tbaa !96
+  %2700 = getelementptr inbounds nuw i8, ptr %.sink1968, i64 24
+  store i16 %.sink1966, ptr %2700, align 2, !tbaa !96
   br i1 %2672, label %2671, label %2701, !llvm.loop !160
 
 2701:                                             ; preds = %2697
@@ -5118,8 +5118,8 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3177, %3190
   %3230 = icmp ne i32 %3229, 3
   %3231 = and i32 %3226, 16777216
   %.not998 = icmp eq i32 %3231, 0
-  %or.cond1890 = select i1 %3230, i1 true, i1 %.not998
-  br i1 %or.cond1890, label %3285, label %3232
+  %or.cond1969 = select i1 %3230, i1 true, i1 %.not998
+  br i1 %or.cond1969, label %3285, label %3232
 
 3232:                                             ; preds = %3225
   %3233 = getelementptr inbounds nuw i8, ptr %1, i64 28624
@@ -5173,7 +5173,7 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3177, %3190
   %3258 = and i32 %3257, 16777216
   %.not1006 = icmp eq i32 %3258, 0
   %or.cond1044 = and i1 %.not1005, %.not1006
-  br i1 %or.cond1044, label %.sink.split1891, label %3285
+  br i1 %or.cond1044, label %.sink.split1970, label %3285
 
 .preheader1575:                                   ; preds = %3232, %3274
   %3259 = phi i1 [ false, %3274 ], [ true, %3232 ]
@@ -5221,9 +5221,9 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3177, %3190
 3279:                                             ; preds = %3275
   %3280 = and i32 %3277, 4
   %.not1001 = icmp eq i32 %3280, 0
-  br label %.sink.split1891
+  br label %.sink.split1970
 
-.sink.split1891:                                  ; preds = %3255, %3279
+.sink.split1970:                                  ; preds = %3255, %3279
   %.not1029.sink = phi i1 [ %.not1001, %3279 ], [ %.not1029, %3255 ]
   %3281 = select i1 %.not1029.sink, i32 0, i32 1077952576
   %3282 = getelementptr inbounds nuw i8, ptr %1, i64 28628
@@ -5234,7 +5234,7 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3177, %3190
   store i32 %3281, ptr %3284, align 4, !tbaa !77
   br label %3285
 
-3285:                                             ; preds = %.sink.split1891, %3255, %3275, %3225
+3285:                                             ; preds = %.sink.split1970, %3255, %3275, %3225
   %3286 = getelementptr inbounds nuw i8, ptr %0, i64 729312
   %3287 = load ptr, ptr %3286, align 8, !tbaa !92
   %3288 = getelementptr inbounds i32, ptr %3287, i64 %752
@@ -5303,14 +5303,14 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3177, %3190
   %3322 = add i32 %reass.sub, -4
   %3323 = add i32 %3303, 4
   %3324 = add nsw i32 %3323, %3319
-  %.sink1898 = select i1 %3321, i32 %3324, i32 %3322
+  %.sink1977 = select i1 %3321, i32 %3324, i32 %3322
   %.ph = select i1 %3321, i32 %3324, i32 %3322
   br label %.thread1504
 
 .thread1504:                                      ; preds = %.thread1504.sink.split, %3311
-  %storemerge1899 = phi i32 [ %.sink1898, %.thread1504.sink.split ], [ %3319, %3311 ]
+  %storemerge1978 = phi i32 [ %.sink1977, %.thread1504.sink.split ], [ %3319, %3311 ]
   %3325 = phi i32 [ %.ph, %.thread1504.sink.split ], [ %3319, %3311 ]
-  store i32 %storemerge1899, ptr %3317, align 16, !tbaa !4
+  store i32 %storemerge1978, ptr %3317, align 16, !tbaa !4
   %3326 = load ptr, ptr %17, align 8, !tbaa !80
   %3327 = getelementptr inbounds nuw i8, ptr %3326, i64 558
   %3328 = sext i32 %3325 to i64
@@ -5739,8 +5739,8 @@ get_cabac.exit1300:                               ; preds = %.split20.i, %3582
 3618:                                             ; preds = %3611, %decode_cabac_residual_nondc.exit1095
   %indvars.iv1764 = phi i64 [ 0, %3611 ], [ %indvars.iv.next1765, %decode_cabac_residual_nondc.exit1095 ]
   %3619 = add nuw nsw i64 %indvars.iv1764, %3617
-  %.tr1838 = trunc i64 %3619 to i32
-  %3620 = shl i32 %.tr1838, 4
+  %.tr1917 = trunc i64 %3619 to i32
+  %3620 = shl i32 %.tr1917, 4
   %3621 = shl i32 %3620, %24
   %3622 = sext i32 %3621 to i64
   %3623 = getelementptr inbounds i16, ptr %3512, i64 %3622
@@ -5924,8 +5924,8 @@ decode_cabac_residual_dc.exit1104:                ; preds = %3724, %3726
 3738:                                             ; preds = %3727, %decode_cabac_residual_nondc.exit1093
   %indvars.iv1785 = phi i64 [ 0, %3727 ], [ %indvars.iv.next1786, %decode_cabac_residual_nondc.exit1093 ]
   %3739 = or disjoint i64 %indvars.iv1785, 16
-  %.tr1840 = trunc i64 %3739 to i32
-  %3740 = shl i32 %.tr1840, 4
+  %.tr1919 = trunc i64 %3739 to i32
+  %3740 = shl i32 %.tr1919, 4
   %3741 = shl i32 %3740, %24
   %3742 = sext i32 %3741 to i64
   %3743 = getelementptr inbounds i16, ptr %3733, i64 %3742
@@ -6070,8 +6070,8 @@ decode_cabac_residual_nondc.exit1093:             ; preds = %.split22.i1092, %38
 3835:                                             ; preds = %3834
   %3836 = shl nuw nsw i64 %indvars.iv1794, 2
   %3837 = add nuw nsw i64 %3836, 16
-  %.tr1841 = trunc i64 %3837 to i32
-  %3838 = shl i32 %.tr1841, 4
+  %.tr1920 = trunc i64 %3837 to i32
+  %3838 = shl i32 %.tr1920, 4
   %3839 = shl i32 %3838, %24
   %3840 = sext i32 %3839 to i64
   %3841 = getelementptr inbounds i16, ptr %3825, i64 %3840
@@ -6191,8 +6191,8 @@ get_cabac.exit1306:                               ; preds = %3835, %3891
 3928:                                             ; preds = %3920, %decode_cabac_residual_nondc.exit1089
   %indvars.iv1789 = phi i64 [ 0, %3920 ], [ %indvars.iv.next1790, %decode_cabac_residual_nondc.exit1089 ]
   %3929 = add nuw nsw i64 %indvars.iv1789, %3927
-  %.tr1842 = trunc i64 %3929 to i32
-  %3930 = shl i32 %.tr1842, 4
+  %.tr1921 = trunc i64 %3929 to i32
+  %3930 = shl i32 %.tr1921, 4
   %3931 = shl i32 %3930, %24
   %3932 = sext i32 %3931 to i64
   %3933 = getelementptr inbounds i16, ptr %3825, i64 %3932
@@ -6369,8 +6369,8 @@ decode_cabac_residual_dc.exit:                    ; preds = %4032, %4034
 4046:                                             ; preds = %4035, %decode_cabac_residual_nondc.exit1087
   %indvars.iv1799 = phi i64 [ 0, %4035 ], [ %indvars.iv.next1800, %decode_cabac_residual_nondc.exit1087 ]
   %4047 = or disjoint i64 %indvars.iv1799, 32
-  %.tr1843 = trunc i64 %4047 to i32
-  %4048 = shl i32 %.tr1843, 4
+  %.tr1922 = trunc i64 %4047 to i32
+  %4048 = shl i32 %.tr1922, 4
   %4049 = shl i32 %4048, %24
   %4050 = sext i32 %4049 to i64
   %4051 = getelementptr inbounds i16, ptr %4041, i64 %4050
@@ -6515,8 +6515,8 @@ decode_cabac_residual_nondc.exit1087:             ; preds = %.split22.i1086, %41
 4143:                                             ; preds = %4142
   %4144 = shl nuw nsw i64 %indvars.iv1808, 2
   %4145 = add nuw nsw i64 %4144, 32
-  %.tr1844 = trunc i64 %4145 to i32
-  %4146 = shl i32 %.tr1844, 4
+  %.tr1923 = trunc i64 %4145 to i32
+  %4146 = shl i32 %.tr1923, 4
   %4147 = shl i32 %4146, %24
   %4148 = sext i32 %4147 to i64
   %4149 = getelementptr inbounds i16, ptr %4133, i64 %4148
@@ -6636,8 +6636,8 @@ get_cabac.exit1312:                               ; preds = %4143, %4199
 4236:                                             ; preds = %4228, %decode_cabac_residual_nondc.exit
   %indvars.iv1803 = phi i64 [ 0, %4228 ], [ %indvars.iv.next1804, %decode_cabac_residual_nondc.exit ]
   %4237 = add nuw nsw i64 %indvars.iv1803, %4235
-  %.tr1845 = trunc i64 %4237 to i32
-  %4238 = shl i32 %.tr1845, 4
+  %.tr1924 = trunc i64 %4237 to i32
+  %4238 = shl i32 %.tr1924, 4
   %4239 = shl i32 %4238, %24
   %4240 = sext i32 %4239 to i64
   %4241 = getelementptr inbounds i16, ptr %4133, i64 %4240
@@ -6902,8 +6902,8 @@ decode_cabac_residual_dc_422.exit:                ; preds = %4401, %4406
   %indvars.iv1782 = phi i64 [ 0, %.preheader1569 ], [ 1, %.loopexit1568 ]
   %4418 = shl nuw nsw i64 %indvars.iv1782, 4
   %4419 = add nuw nsw i64 %4418, 16
-  %.tr1839 = trunc nuw nsw i64 %4419 to i32
-  %4420 = shl nuw nsw i32 %.tr1839, 4
+  %.tr1918 = trunc nuw nsw i64 %4419 to i32
+  %4420 = shl nuw nsw i32 %.tr1918, 4
   %4421 = shl i32 %4420, %24
   %4422 = sext i32 %4421 to i64
   %4423 = getelementptr inbounds i16, ptr %4409, i64 %4422
@@ -7217,8 +7217,8 @@ decode_cabac_residual_dc.exit1106:                ; preds = %4602, %4607
 4629:                                             ; preds = %4617, %decode_cabac_residual_nondc.exit1103
   %indvars.iv1816 = phi i64 [ 0, %4617 ], [ %indvars.iv.next1817, %decode_cabac_residual_nondc.exit1103 ]
   %4630 = add nuw nsw i64 %indvars.iv1816, %4628
-  %.tr1846 = trunc i64 %4630 to i32
-  %4631 = shl i32 %.tr1846, 4
+  %.tr1925 = trunc i64 %4630 to i32
+  %4631 = shl i32 %.tr1925, 4
   %4632 = shl i32 %4631, %24
   %4633 = sext i32 %4632 to i64
   %4634 = getelementptr inbounds i16, ptr %4612, i64 %4633
@@ -8017,10 +8017,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %.sroa.0749 = alloca i32, align 4
-  %.sroa.6750 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0749)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6750)
+  %.sroa.0770 = alloca i32, align 4
+  %.sroa.6771 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0770)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6771)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20968
   %5 = load ptr, ptr %4, align 8, !tbaa !104
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20928
@@ -8031,10 +8031,10 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %11 = load i32, ptr %10, align 8, !tbaa !109
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20940
   %13 = load i32, ptr %12, align 4, !tbaa !93
-  store i32 %13, ptr %.sroa.0749, align 4, !tbaa !93
+  store i32 %13, ptr %.sroa.0770, align 4, !tbaa !93
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20944
   %15 = load i32, ptr %14, align 16, !tbaa !93
-  store i32 %15, ptr %.sroa.6750, align 4, !tbaa !93
+  store i32 %15, ptr %.sroa.6771, align 4, !tbaa !93
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20948
   %17 = load i32, ptr %16, align 4, !tbaa !110
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 20952
@@ -8143,14 +8143,14 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %55, %72, %68
-  %.sink715 = phi i32 [ %69, %68 ], [ %73, %72 ], [ %56, %55 ]
-  %.sink714 = phi i32 [ 24415, %68 ], [ 24415, %72 ], [ %52, %55 ]
-  store i32 %.sink715, ptr %37, align 4, !tbaa !186
-  store i32 %.sink714, ptr %35, align 16, !tbaa !136
+  %.sink736 = phi i32 [ %69, %68 ], [ %73, %72 ], [ %56, %55 ]
+  %.sink735 = phi i32 [ 24415, %68 ], [ 24415, %72 ], [ %52, %55 ]
+  store i32 %.sink736, ptr %37, align 4, !tbaa !186
+  store i32 %.sink735, ptr %35, align 16, !tbaa !136
   br label %74
 
 74:                                               ; preds = %.sink.split, %57, %70, %51
-  %75 = phi i32 [ %43, %57 ], [ %43, %70 ], [ %53, %51 ], [ %.sink715, %.sink.split ]
+  %75 = phi i32 [ %43, %57 ], [ %43, %70 ], [ %53, %51 ], [ %.sink736, %.sink.split ]
   %76 = and i32 %34, %17
   %.not608 = icmp eq i32 %76, 0
   br i1 %.not608, label %77, label %79
@@ -8209,7 +8209,7 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
 105:                                              ; preds = %101, %141
   %106 = phi i1 [ true, %101 ], [ false, %141 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi i32 [ %23, %101 ], [ %25, %141 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0749, %101 ], [ %.sroa.6750, %141 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0770, %101 ], [ %.sroa.6771, %141 ]
   %indvars.iv = phi i64 [ 0, %101 ], [ 1, %141 ]
   %107 = and i32 %indvars.iv.sroa.phi.sroa.speculated, 1
   %.not616 = icmp eq i32 %107, 0
@@ -8256,10 +8256,10 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   br label %141
 
 141:                                              ; preds = %108, %134
-  %.sink718 = phi i64 [ %133, %108 ], [ %140, %134 ]
-  %.sink716 = phi i8 [ %132, %108 ], [ %136, %134 ]
-  %142 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 0, i64 %.sink718
-  store i8 %.sink716, ptr %142, align 1, !tbaa !77
+  %.sink739 = phi i64 [ %133, %108 ], [ %140, %134 ]
+  %.sink737 = phi i8 [ %132, %108 ], [ %136, %134 ]
+  %142 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 0, i64 %.sink739
+  store i8 %.sink737, ptr %142, align 1, !tbaa !77
   br i1 %106, label %105, label %.loopexit693, !llvm.loop !188
 
 .loopexit693:                                     ; preds = %141, %82, %27
@@ -8320,7 +8320,7 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
 175:                                              ; preds = %171, %275
   %176 = phi i1 [ true, %171 ], [ false, %275 ]
   %indvars.iv700.sroa.phi.sroa.speculated = phi i32 [ %23, %171 ], [ %25, %275 ]
-  %indvars.iv700.sroa.phi = phi ptr [ %.sroa.0749, %171 ], [ %.sroa.6750, %275 ]
+  %indvars.iv700.sroa.phi = phi ptr [ %.sroa.0770, %171 ], [ %.sroa.6771, %275 ]
   %indvars.iv700 = phi i64 [ 0, %171 ], [ 1, %275 ]
   %.not615 = icmp eq i32 %indvars.iv700.sroa.phi.sroa.speculated, 0
   br i1 %.not615, label %266, label %177
@@ -8506,21 +8506,21 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %311 = shl nuw nsw i32 %310, 2
   %312 = and i32 %311, 8
   %313 = or disjoint i32 %301, %312
-  br label %.sink.split719
+  br label %.sink.split740
 
 314:                                              ; preds = %286
   %315 = select i1 %.not598, i32 15, i32 1999
-  br label %.sink.split719
+  br label %.sink.split740
 
-.sink.split719:                                   ; preds = %314, %288
-  %.sink721 = phi i32 [ %313, %288 ], [ %315, %314 ]
-  %.ph720 = phi i32 [ %23, %288 ], [ 0, %314 ]
+.sink.split740:                                   ; preds = %314, %288
+  %.sink742 = phi i32 [ %313, %288 ], [ %315, %314 ]
+  %.ph741 = phi i32 [ %23, %288 ], [ 0, %314 ]
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 21108
-  store i32 %.sink721, ptr %316, align 4, !tbaa !164
+  store i32 %.sink742, ptr %316, align 4, !tbaa !164
   br label %317
 
-317:                                              ; preds = %.sink.split719, %3
-  %318 = phi i32 [ %23, %3 ], [ %.ph720, %.sink.split719 ]
+317:                                              ; preds = %.sink.split740, %3
+  %318 = phi i32 [ %23, %3 ], [ %.ph741, %.sink.split740 ]
   %319 = and i32 %2, 120
   %.not618 = icmp eq i32 %319, 0
   br i1 %.not618, label %320, label %325
@@ -8630,8 +8630,8 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %brmerge.not = icmp eq i32 %396, 64
   %.mux = select i1 %.not638.not, i8 4, i8 -128
   %397 = and i32 %25, 320
-  %brmerge735.not = icmp eq i32 %397, 64
-  %.mux736 = select i1 %.not640.not, i8 4, i8 -128
+  %brmerge756.not = icmp eq i32 %397, 64
+  %.mux757 = select i1 %.not640.not, i8 4, i8 -128
   br label %398
 
 398:                                              ; preds = %.lr.ph, %.critedge683
@@ -8698,7 +8698,7 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
 .preheader:                                       ; preds = %436, %491
   %437 = phi i1 [ false, %491 ], [ true, %436 ]
   %indvars.iv703.sroa.phi.sroa.speculated = phi i32 [ %25, %491 ], [ %23, %436 ]
-  %indvars.iv703.sroa.phi = phi ptr [ %.sroa.6750, %491 ], [ %.sroa.0749, %436 ]
+  %indvars.iv703.sroa.phi = phi ptr [ %.sroa.6771, %491 ], [ %.sroa.0770, %436 ]
   %indvars.iv703 = phi i64 [ 1, %491 ], [ 0, %436 ]
   %438 = shl nuw nsw i64 %indvars.iv703, 4
   %439 = add nsw i64 %438, -1
@@ -8768,10 +8768,10 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   br label %491
 
 491:                                              ; preds = %485, %441
-  %.sink725 = phi i64 [ %439, %485 ], [ %468, %441 ]
-  %.sink723 = phi i8 [ %489, %485 ], [ %484, %441 ]
-  %492 = getelementptr inbounds i8, ptr %400, i64 %.sink725
-  store i8 %.sink723, ptr %492, align 1, !tbaa !77
+  %.sink746 = phi i64 [ %439, %485 ], [ %468, %441 ]
+  %.sink744 = phi i8 [ %489, %485 ], [ %484, %441 ]
+  %492 = getelementptr inbounds i8, ptr %400, i64 %.sink746
+  store i8 %.sink744, ptr %492, align 1, !tbaa !77
   br i1 %437, label %.preheader, label %.loopexit, !llvm.loop !190
 
 493:                                              ; preds = %436
@@ -8808,9 +8808,9 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %515, %495
-  %.sink726 = phi i8 [ %514, %495 ], [ %344, %515 ]
+  %.sink747 = phi i8 [ %514, %495 ], [ %344, %515 ]
   %517 = getelementptr inbounds nuw i8, ptr %399, i64 11
-  store i8 %.sink726, ptr %517, align 1, !tbaa !77
+  store i8 %.sink747, ptr %517, align 1, !tbaa !77
   br label %.loopexit
 
 .loopexit:                                        ; preds = %491, %.loopexit.sink.split
@@ -8846,8 +8846,8 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %537 = load i8, ptr %536, align 1, !tbaa !77
   %538 = icmp slt i8 %537, 0
   %539 = icmp slt i8 %534, 0
-  %or.cond728 = select i1 %538, i1 true, i1 %539
-  br i1 %or.cond728, label %540, label %563
+  %or.cond749 = select i1 %538, i1 true, i1 %539
+  br i1 %or.cond749, label %540, label %563
 
 540:                                              ; preds = %533
   %541 = and i32 %408, %17
@@ -8873,20 +8873,20 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %557 = getelementptr i8, ptr %402, i64 %556
   %558 = getelementptr i8, ptr %557, i64 1
   %559 = load i8, ptr %558, align 1, !tbaa !77
-  br label %.sink.split729
+  br label %.sink.split750
 
 560:                                              ; preds = %540
   %561 = getelementptr inbounds nuw i8, ptr %403, i64 12
   store i32 0, ptr %561, align 4, !tbaa !77
-  br label %.sink.split729
+  br label %.sink.split750
 
-.sink.split729:                                   ; preds = %560, %542
-  %.sink730 = phi i8 [ %559, %542 ], [ %354, %560 ]
+.sink.split750:                                   ; preds = %560, %542
+  %.sink751 = phi i8 [ %559, %542 ], [ %354, %560 ]
   %562 = getelementptr inbounds nuw i8, ptr %399, i64 3
-  store i8 %.sink730, ptr %562, align 1, !tbaa !77
+  store i8 %.sink751, ptr %562, align 1, !tbaa !77
   br label %563
 
-563:                                              ; preds = %.sink.split729, %533
+563:                                              ; preds = %.sink.split750, %533
   br i1 %.not632, label %.critedge, label %564
 
 564:                                              ; preds = %563
@@ -9041,9 +9041,9 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   br label %652
 
 652:                                              ; preds = %643, %644
-  %.sink732 = phi i8 [ %651, %644 ], [ %.mux, %643 ]
-  store i8 %.sink732, ptr %375, align 1, !tbaa !77
-  br i1 %brmerge735.not, label %653, label %.sink.split733
+  %.sink753 = phi i8 [ %651, %644 ], [ %.mux, %643 ]
+  store i8 %.sink753, ptr %375, align 1, !tbaa !77
+  br i1 %brmerge756.not, label %653, label %.sink.split754
 
 653:                                              ; preds = %652
   %654 = load i8, ptr %362, align 1, !tbaa !77
@@ -9053,14 +9053,14 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %658 = sext i32 %657 to i64
   %659 = getelementptr inbounds i8, ptr %633, i64 %658
   %660 = load i8, ptr %659, align 1, !tbaa !77
-  br label %.sink.split733
+  br label %.sink.split754
 
-.sink.split733:                                   ; preds = %652, %653
-  %.sink734 = phi i8 [ %660, %653 ], [ %.mux736, %652 ]
-  store i8 %.sink734, ptr %377, align 1, !tbaa !77
+.sink.split754:                                   ; preds = %652, %653
+  %.sink755 = phi i8 [ %660, %653 ], [ %.mux757, %652 ]
+  store i8 %.sink755, ptr %377, align 1, !tbaa !77
   br label %661
 
-661:                                              ; preds = %.sink.split733, %626
+661:                                              ; preds = %.sink.split754, %626
   %.pr = load i32, ptr %356, align 8, !tbaa !89
   %.not642 = icmp eq i32 %.pr, 0
   br i1 %.not642, label %.critedge683, label %.thread
@@ -9531,8 +9531,8 @@ define internal fastcc void @fill_decode_caches(ptr noundef readonly captures(no
   %926 = add nuw nsw i32 %.lobit621, %.lobit
   %927 = getelementptr inbounds nuw i8, ptr %1, i64 21084
   store i32 %926, ptr %927, align 4, !tbaa !130
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0749)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6750)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0770)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6771)
   ret void
 }
 
@@ -10542,9 +10542,9 @@ select.unfold:                                    ; preds = %get_cabac.exit7, %g
   br label %.loopexit
 
 .loopexit:                                        ; preds = %get_cabac.exit7, %134
-  %.sroa.0.4166 = phi i32 [ %.sroa.0.3.ph, %134 ], [ %.sroa.0.2, %get_cabac.exit7 ]
-  %.sroa.74.2164 = phi i32 [ %.sroa.74.1.ph, %134 ], [ %109, %get_cabac.exit7 ]
-  %.sroa.10849.4162 = phi ptr [ %.sroa.10849.3.ph, %134 ], [ %.sroa.10849.2, %get_cabac.exit7 ]
+  %.sroa.0.4169 = phi i32 [ %.sroa.0.3.ph, %134 ], [ %.sroa.0.2, %get_cabac.exit7 ]
+  %.sroa.74.2167 = phi i32 [ %.sroa.74.1.ph, %134 ], [ %109, %get_cabac.exit7 ]
+  %.sroa.10849.4165 = phi ptr [ %.sroa.10849.3.ph, %134 ], [ %.sroa.10849.2, %get_cabac.exit7 ]
   %.5188.i = phi i32 [ %135, %134 ], [ %81, %get_cabac.exit7 ]
   %138 = add nsw i32 %3, -49
   %139 = shl nuw nsw i32 64, %138
@@ -10574,9 +10574,9 @@ select.unfold:                                    ; preds = %get_cabac.exit7, %g
 
 .preheader93:                                     ; preds = %.loopexit, %get_cabac_bypass_sign.exit245.i
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %get_cabac_bypass_sign.exit245.i ], [ %158, %.loopexit ]
-  %.sroa.10849.5 = phi ptr [ %.sroa.10849.17, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.10849.4162, %.loopexit ]
-  %.sroa.74.3 = phi i32 [ %.sink193, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.74.2164, %.loopexit ]
-  %.sroa.0.5 = phi i32 [ %339, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.0.4166, %.loopexit ]
+  %.sroa.10849.5 = phi ptr [ %.sroa.10849.17, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.10849.4165, %.loopexit ]
+  %.sroa.74.3 = phi i32 [ %.sink196, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.74.2167, %.loopexit ]
+  %.sroa.0.5 = phi i32 [ %339, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.0.4169, %.loopexit ]
   %.0198.i = phi i64 [ %.1199.i, %get_cabac_bypass_sign.exit245.i ], [ 0, %.loopexit ]
   %159 = getelementptr inbounds nuw [8 x i8], ptr @decode_cabac_residual_internal.coeff_abs_level1_ctx, i64 0, i64 %.0198.i
   %160 = load i8, ptr %159, align 1, !tbaa !77
@@ -10832,36 +10832,36 @@ get_cabac_bypass.exit15:                          ; preds = %305, %.lr.ph
   br i1 %.not.i240.i, label %get_cabac_bypass_sign.exit245.i.sink.split, label %get_cabac_bypass_sign.exit245.i
 
 get_cabac_bypass_sign.exit245.i.sink.split:       ; preds = %.critedge.i.thread, %218
-  %.sroa.10849.15.sink215 = phi ptr [ %.sroa.10849.6, %218 ], [ %.sroa.10849.15, %.critedge.i.thread ]
-  %.sink206 = phi i32 [ %221, %218 ], [ %322, %.critedge.i.thread ]
-  %.sink193.ph = phi i32 [ %192, %218 ], [ %256, %.critedge.i.thread ]
-  %.sink187.ph = phi i32 [ -1, %218 ], [ %321, %.critedge.i.thread ]
+  %.sroa.10849.15.sink218 = phi ptr [ %.sroa.10849.6, %218 ], [ %.sroa.10849.15, %.critedge.i.thread ]
+  %.sink209 = phi i32 [ %221, %218 ], [ %322, %.critedge.i.thread ]
+  %.sink196.ph = phi i32 [ %192, %218 ], [ %256, %.critedge.i.thread ]
+  %.sink190.ph = phi i32 [ -1, %218 ], [ %321, %.critedge.i.thread ]
   %.1199.in.i.ph = phi i8 [ %220, %218 ], [ %229, %.critedge.i.thread ]
-  %324 = load i8, ptr %.sroa.10849.15.sink215, align 1, !tbaa !77
+  %324 = load i8, ptr %.sroa.10849.15.sink218, align 1, !tbaa !77
   %325 = zext i8 %324 to i32
   %326 = shl nuw nsw i32 %325, 9
-  %327 = getelementptr inbounds nuw i8, ptr %.sroa.10849.15.sink215, i64 1
+  %327 = getelementptr inbounds nuw i8, ptr %.sroa.10849.15.sink218, i64 1
   %328 = load i8, ptr %327, align 1, !tbaa !77
   %329 = zext i8 %328 to i32
   %330 = shl nuw nsw i32 %329, 1
   %331 = or disjoint i32 %330, %326
-  %332 = add i32 %.sink206, -65535
+  %332 = add i32 %.sink209, -65535
   %333 = add i32 %332, %331
-  %334 = getelementptr inbounds nuw i8, ptr %.sroa.10849.15.sink215, i64 2
+  %334 = getelementptr inbounds nuw i8, ptr %.sroa.10849.15.sink218, i64 2
   br label %get_cabac_bypass_sign.exit245.i
 
 get_cabac_bypass_sign.exit245.i:                  ; preds = %get_cabac_bypass_sign.exit245.i.sink.split, %.critedge.i.thread, %218
-  %.sink193 = phi i32 [ %192, %218 ], [ %256, %.critedge.i.thread ], [ %.sink193.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
+  %.sink196 = phi i32 [ %192, %218 ], [ %256, %.critedge.i.thread ], [ %.sink196.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
   %.sroa.0.18.sink = phi i32 [ %221, %218 ], [ %322, %.critedge.i.thread ], [ %333, %get_cabac_bypass_sign.exit245.i.sink.split ]
-  %.sink187 = phi i32 [ -1, %218 ], [ %321, %.critedge.i.thread ], [ %.sink187.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
+  %.sink190 = phi i32 [ -1, %218 ], [ %321, %.critedge.i.thread ], [ %.sink190.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
   %.sroa.10849.17 = phi ptr [ %.sroa.10849.6, %218 ], [ %.sroa.10849.15, %.critedge.i.thread ], [ %334, %get_cabac_bypass_sign.exit245.i.sink.split ]
   %.1199.in.i = phi i8 [ %220, %218 ], [ %229, %.critedge.i.thread ], [ %.1199.in.i.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
-  %335 = shl i32 %.sink193, 17
+  %335 = shl i32 %.sink196, 17
   %336 = sub nsw i32 %.sroa.0.18.sink, %335
   %337 = ashr i32 %336, 31
   %338 = and i32 %337, %335
   %339 = add nsw i32 %338, %336
-  %340 = xor i32 %337, %.sink187
+  %340 = xor i32 %337, %.sink190
   %341 = sub nsw i32 %340, %337
   %342 = zext i8 %167 to i64
   %343 = getelementptr inbounds nuw i32, ptr %2, i64 %342
@@ -10872,9 +10872,9 @@ get_cabac_bypass_sign.exit245.i:                  ; preds = %get_cabac_bypass_si
 
 .preheader91:                                     ; preds = %.loopexit, %get_cabac_bypass_sign.exit237.i
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %get_cabac_bypass_sign.exit237.i ], [ %158, %.loopexit ]
-  %.sroa.10849.18 = phi ptr [ %.sroa.10849.30, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.10849.4162, %.loopexit ]
-  %.sroa.74.7 = phi i32 [ %.sink, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.74.2164, %.loopexit ]
-  %.sroa.0.20 = phi i32 [ %524, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.0.4166, %.loopexit ]
+  %.sroa.10849.18 = phi ptr [ %.sroa.10849.30, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.10849.4165, %.loopexit ]
+  %.sroa.74.7 = phi i32 [ %.sink, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.74.2167, %.loopexit ]
+  %.sroa.0.20 = phi i32 [ %524, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.0.4169, %.loopexit ]
   %.2200.i = phi i64 [ %.3201.i, %get_cabac_bypass_sign.exit237.i ], [ 0, %.loopexit ]
   %344 = getelementptr inbounds nuw [8 x i8], ptr @decode_cabac_residual_internal.coeff_abs_level1_ctx, i64 0, i64 %.2200.i
   %345 = load i8, ptr %344, align 1, !tbaa !77
@@ -11130,28 +11130,28 @@ get_cabac_bypass.exit25:                          ; preds = %490, %.lr.ph132
   br i1 %.not.i232.i, label %get_cabac_bypass_sign.exit237.i.sink.split, label %get_cabac_bypass_sign.exit237.i
 
 get_cabac_bypass_sign.exit237.i.sink.split:       ; preds = %.critedge7.i.thread, %403
-  %.sroa.10849.28.sink227 = phi ptr [ %.sroa.10849.19, %403 ], [ %.sroa.10849.28, %.critedge7.i.thread ]
-  %.sink218 = phi i32 [ %406, %403 ], [ %507, %.critedge7.i.thread ]
+  %.sroa.10849.28.sink230 = phi ptr [ %.sroa.10849.19, %403 ], [ %.sroa.10849.28, %.critedge7.i.thread ]
+  %.sink221 = phi i32 [ %406, %403 ], [ %507, %.critedge7.i.thread ]
   %.sink.ph = phi i32 [ %377, %403 ], [ %441, %.critedge7.i.thread ]
-  %.sink199.ph = phi i32 [ -1, %403 ], [ %506, %.critedge7.i.thread ]
+  %.sink202.ph = phi i32 [ -1, %403 ], [ %506, %.critedge7.i.thread ]
   %.3201.in.i.ph = phi i8 [ %405, %403 ], [ %414, %.critedge7.i.thread ]
-  %509 = load i8, ptr %.sroa.10849.28.sink227, align 1, !tbaa !77
+  %509 = load i8, ptr %.sroa.10849.28.sink230, align 1, !tbaa !77
   %510 = zext i8 %509 to i32
   %511 = shl nuw nsw i32 %510, 9
-  %512 = getelementptr inbounds nuw i8, ptr %.sroa.10849.28.sink227, i64 1
+  %512 = getelementptr inbounds nuw i8, ptr %.sroa.10849.28.sink230, i64 1
   %513 = load i8, ptr %512, align 1, !tbaa !77
   %514 = zext i8 %513 to i32
   %515 = shl nuw nsw i32 %514, 1
   %516 = or disjoint i32 %515, %511
-  %517 = add i32 %.sink218, -65535
+  %517 = add i32 %.sink221, -65535
   %518 = add i32 %517, %516
-  %519 = getelementptr inbounds nuw i8, ptr %.sroa.10849.28.sink227, i64 2
+  %519 = getelementptr inbounds nuw i8, ptr %.sroa.10849.28.sink230, i64 2
   br label %get_cabac_bypass_sign.exit237.i
 
 get_cabac_bypass_sign.exit237.i:                  ; preds = %get_cabac_bypass_sign.exit237.i.sink.split, %.critedge7.i.thread, %403
   %.sink = phi i32 [ %377, %403 ], [ %441, %.critedge7.i.thread ], [ %.sink.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
   %.sroa.0.33.sink = phi i32 [ %406, %403 ], [ %507, %.critedge7.i.thread ], [ %518, %get_cabac_bypass_sign.exit237.i.sink.split ]
-  %.sink199 = phi i32 [ -1, %403 ], [ %506, %.critedge7.i.thread ], [ %.sink199.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
+  %.sink202 = phi i32 [ -1, %403 ], [ %506, %.critedge7.i.thread ], [ %.sink202.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
   %.sroa.10849.30 = phi ptr [ %.sroa.10849.19, %403 ], [ %.sroa.10849.28, %.critedge7.i.thread ], [ %519, %get_cabac_bypass_sign.exit237.i.sink.split ]
   %.3201.in.i = phi i8 [ %405, %403 ], [ %414, %.critedge7.i.thread ], [ %.3201.in.i.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
   %520 = shl i32 %.sink, 17
@@ -11159,7 +11159,7 @@ get_cabac_bypass_sign.exit237.i:                  ; preds = %get_cabac_bypass_si
   %522 = ashr i32 %521, 31
   %523 = and i32 %522, %520
   %524 = add nsw i32 %523, %521
-  %525 = xor i32 %522, %.sink199
+  %525 = xor i32 %522, %.sink202
   %526 = sub nsw i32 %525, %522
   %527 = trunc i32 %526 to i16
   %528 = zext i8 %352 to i64
@@ -11171,7 +11171,7 @@ get_cabac_bypass_sign.exit237.i:                  ; preds = %get_cabac_bypass_si
 
 decode_cabac_residual_internal.exit:              ; preds = %get_cabac_bypass_sign.exit245.i, %get_cabac_bypass_sign.exit237.i
   %.sroa.10849.31 = phi ptr [ %.sroa.10849.30, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.10849.17, %get_cabac_bypass_sign.exit245.i ]
-  %.sroa.74.11 = phi i32 [ %.sink, %get_cabac_bypass_sign.exit237.i ], [ %.sink193, %get_cabac_bypass_sign.exit245.i ]
+  %.sroa.74.11 = phi i32 [ %.sink, %get_cabac_bypass_sign.exit237.i ], [ %.sink196, %get_cabac_bypass_sign.exit245.i ]
   %.sroa.0.35 = phi i32 [ %524, %get_cabac_bypass_sign.exit237.i ], [ %339, %get_cabac_bypass_sign.exit245.i ]
   store i32 %.sroa.74.11, ptr %7, align 4, !tbaa !197
   store i32 %.sroa.0.35, ptr %6, align 16, !tbaa !127
@@ -11518,13 +11518,13 @@ select.unfold118:                                 ; preds = %get_cabac.exit13, %
   br i1 %exitcond.not, label %get_cabac.exit13._crit_edge.sink.split, label %.lr.ph, !llvm.loop !208
 
 get_cabac.exit13._crit_edge.sink.split:           ; preds = %select.unfold118, %select.unfold
-  %.13196.i.ph.lcssa.sink281 = phi i32 [ %.3186.i.ph, %select.unfold ], [ %.13196.i.ph, %select.unfold118 ]
+  %.13196.i.ph.lcssa.sink286 = phi i32 [ %.3186.i.ph, %select.unfold ], [ %.13196.i.ph, %select.unfold118 ]
   %.sink = phi i32 [ 63, %select.unfold ], [ %36, %select.unfold118 ]
   %.sroa.12689.2.ph = phi ptr [ %.sroa.12689.24.ph, %select.unfold ], [ %.sroa.12689.21.ph, %select.unfold118 ]
   %.sroa.84.2.ph = phi i32 [ %.sroa.84.14.ph, %select.unfold ], [ %.sroa.84.11.ph, %select.unfold118 ]
   %.sroa.0.2.ph = phi i32 [ %.sroa.0.24.ph, %select.unfold ], [ %.sroa.0.21.ph, %select.unfold118 ]
-  %256 = add nsw i32 %.13196.i.ph.lcssa.sink281, 1
-  %257 = sext i32 %.13196.i.ph.lcssa.sink281 to i64
+  %256 = add nsw i32 %.13196.i.ph.lcssa.sink286, 1
+  %257 = sext i32 %.13196.i.ph.lcssa.sink286 to i64
   %258 = getelementptr inbounds [64 x i32], ptr %9, i64 0, i64 %257
   store i32 %.sink, ptr %258, align 4, !tbaa !93
   br label %get_cabac.exit13._crit_edge
@@ -11891,14 +11891,14 @@ get_cabac_bypass_sign.exit239.i:                  ; preds = %470, %.critedge.i.t
   br label %494
 
 494:                                              ; preds = %get_cabac_bypass_sign.exit239.i, %get_cabac_bypass_sign.exit243.i
-  %.sink285 = phi i32 [ %493, %get_cabac_bypass_sign.exit239.i ], [ %368, %get_cabac_bypass_sign.exit243.i ]
-  %.sink284 = phi i64 [ %489, %get_cabac_bypass_sign.exit239.i ], [ %343, %get_cabac_bypass_sign.exit243.i ]
+  %.sink290 = phi i32 [ %493, %get_cabac_bypass_sign.exit239.i ], [ %368, %get_cabac_bypass_sign.exit243.i ]
+  %.sink289 = phi i64 [ %489, %get_cabac_bypass_sign.exit239.i ], [ %343, %get_cabac_bypass_sign.exit243.i ]
   %.sroa.12689.8 = phi ptr [ %.sroa.12689.7, %get_cabac_bypass_sign.exit239.i ], [ %.sroa.12689.11, %get_cabac_bypass_sign.exit243.i ]
   %.sroa.84.6 = phi i32 [ %402, %get_cabac_bypass_sign.exit239.i ], [ %314, %get_cabac_bypass_sign.exit243.i ]
   %.sroa.0.8 = phi i32 [ %486, %get_cabac_bypass_sign.exit239.i ], [ %365, %get_cabac_bypass_sign.exit243.i ]
   %.1199.in.i = phi i8 [ %375, %get_cabac_bypass_sign.exit239.i ], [ %342, %get_cabac_bypass_sign.exit243.i ]
-  %495 = ashr i32 %.sink285, 6
-  %496 = getelementptr inbounds nuw i32, ptr %2, i64 %.sink284
+  %495 = ashr i32 %.sink290, 6
+  %496 = getelementptr inbounds nuw i32, ptr %2, i64 %.sink289
   store i32 %495, ptr %496, align 4, !tbaa !93
   %.1199.i = zext i8 %.1199.in.i to i64
   %.not223.i = icmp eq i64 %indvars.iv.next237, 0
@@ -12227,15 +12227,15 @@ get_cabac_bypass_sign.exit.i:                     ; preds = %686, %.critedge7.i.
   br label %710
 
 710:                                              ; preds = %get_cabac_bypass_sign.exit.i, %get_cabac_bypass_sign.exit235.i
-  %.sink290 = phi i32 [ %709, %get_cabac_bypass_sign.exit.i ], [ %584, %get_cabac_bypass_sign.exit235.i ]
-  %.sink288 = phi i64 [ %705, %get_cabac_bypass_sign.exit.i ], [ %559, %get_cabac_bypass_sign.exit235.i ]
+  %.sink295 = phi i32 [ %709, %get_cabac_bypass_sign.exit.i ], [ %584, %get_cabac_bypass_sign.exit235.i ]
+  %.sink293 = phi i64 [ %705, %get_cabac_bypass_sign.exit.i ], [ %559, %get_cabac_bypass_sign.exit235.i ]
   %.sroa.12689.17 = phi ptr [ %.sroa.12689.16, %get_cabac_bypass_sign.exit.i ], [ %.sroa.12689.20, %get_cabac_bypass_sign.exit235.i ]
   %.sroa.84.10 = phi i32 [ %618, %get_cabac_bypass_sign.exit.i ], [ %530, %get_cabac_bypass_sign.exit235.i ]
   %.sroa.0.17 = phi i32 [ %702, %get_cabac_bypass_sign.exit.i ], [ %581, %get_cabac_bypass_sign.exit235.i ]
   %.3201.in.i = phi i8 [ %591, %get_cabac_bypass_sign.exit.i ], [ %558, %get_cabac_bypass_sign.exit235.i ]
-  %711 = lshr i32 %.sink290, 6
+  %711 = lshr i32 %.sink295, 6
   %712 = trunc i32 %711 to i16
-  %713 = getelementptr inbounds nuw i16, ptr %2, i64 %.sink288
+  %713 = getelementptr inbounds nuw i16, ptr %2, i64 %.sink293
   store i16 %712, ptr %713, align 2, !tbaa !96
   %.3201.i = zext i8 %.3201.in.i to i64
   %.not219.i = icmp eq i64 %indvars.iv.next241, 0
@@ -12439,9 +12439,9 @@ select.unfold:                                    ; preds = %get_cabac.exit7, %g
   br label %get_cabac.exit7._crit_edge
 
 get_cabac.exit7._crit_edge:                       ; preds = %get_cabac.exit7, %139
-  %.sroa.0.1.ph208 = phi i32 [ %.sroa.0.20.ph, %139 ], [ %.sroa.0.23, %get_cabac.exit7 ]
-  %.sroa.74.1.ph206 = phi i32 [ %.sroa.74.10.ph, %139 ], [ %114, %get_cabac.exit7 ]
-  %.sroa.10875.1.ph204 = phi ptr [ %.sroa.10875.20.ph, %139 ], [ %.sroa.10875.23, %get_cabac.exit7 ]
+  %.sroa.0.1.ph212 = phi i32 [ %.sroa.0.20.ph, %139 ], [ %.sroa.0.23, %get_cabac.exit7 ]
+  %.sroa.74.1.ph210 = phi i32 [ %.sroa.74.10.ph, %139 ], [ %114, %get_cabac.exit7 ]
+  %.sroa.10875.1.ph208 = phi ptr [ %.sroa.10875.20.ph, %139 ], [ %.sroa.10875.23, %get_cabac.exit7 ]
   %.5188.i = phi i32 [ %140, %139 ], [ %86, %get_cabac.exit7 ]
   %143 = icmp eq i32 %3, 3
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 731792
@@ -12452,9 +12452,9 @@ get_cabac.exit7._crit_edge:                       ; preds = %get_cabac.exit7, %1
   %149 = getelementptr inbounds i16, ptr %145, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !96
   %. = select i1 %143, i32 -49, i32 -48
-  %.257 = select i1 %143, i32 64, i32 256
+  %.261 = select i1 %143, i32 64, i32 256
   %151 = add nsw i32 %4, %.
-  %152 = shl nuw nsw i32 %.257, %151
+  %152 = shl nuw nsw i32 %.261, %151
   %153 = trunc i32 %152 to i16
   %154 = or i16 %150, %153
   store i16 %154, ptr %149, align 2, !tbaa !96
@@ -12474,9 +12474,9 @@ get_cabac.exit7._crit_edge:                       ; preds = %get_cabac.exit7, %1
 
 .preheader119:                                    ; preds = %get_cabac.exit7._crit_edge, %get_cabac_bypass_sign.exit245.i
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %get_cabac_bypass_sign.exit245.i ], [ %164, %get_cabac.exit7._crit_edge ]
-  %.sroa.10875.2 = phi ptr [ %.sroa.10875.7, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.10875.1.ph204, %get_cabac.exit7._crit_edge ]
-  %.sroa.74.2 = phi i32 [ %.sink241, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.74.1.ph206, %get_cabac.exit7._crit_edge ]
-  %.sroa.0.2 = phi i32 [ %345, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.0.1.ph208, %get_cabac.exit7._crit_edge ]
+  %.sroa.10875.2 = phi ptr [ %.sroa.10875.7, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.10875.1.ph208, %get_cabac.exit7._crit_edge ]
+  %.sroa.74.2 = phi i32 [ %.sink245, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.74.1.ph210, %get_cabac.exit7._crit_edge ]
+  %.sroa.0.2 = phi i32 [ %345, %get_cabac_bypass_sign.exit245.i ], [ %.sroa.0.1.ph212, %get_cabac.exit7._crit_edge ]
   %.0198.i = phi i64 [ %.1199.i, %get_cabac_bypass_sign.exit245.i ], [ 0, %get_cabac.exit7._crit_edge ]
   %165 = getelementptr inbounds nuw [8 x i8], ptr @decode_cabac_residual_internal.coeff_abs_level1_ctx, i64 0, i64 %.0198.i
   %166 = load i8, ptr %165, align 1, !tbaa !77
@@ -12732,36 +12732,36 @@ get_cabac_bypass.exit16:                          ; preds = %311, %.lr.ph158
   br i1 %.not.i240.i, label %get_cabac_bypass_sign.exit245.i.sink.split, label %get_cabac_bypass_sign.exit245.i
 
 get_cabac_bypass_sign.exit245.i.sink.split:       ; preds = %.critedge.i.thread, %224
-  %.sroa.10875.5.sink265 = phi ptr [ %.sroa.10875.24, %224 ], [ %.sroa.10875.5, %.critedge.i.thread ]
-  %.sink259 = phi i32 [ %227, %224 ], [ %328, %.critedge.i.thread ]
-  %.sink241.ph = phi i32 [ %198, %224 ], [ %262, %.critedge.i.thread ]
-  %.sink234.ph = phi i32 [ -1, %224 ], [ %327, %.critedge.i.thread ]
+  %.sroa.10875.5.sink269 = phi ptr [ %.sroa.10875.24, %224 ], [ %.sroa.10875.5, %.critedge.i.thread ]
+  %.sink263 = phi i32 [ %227, %224 ], [ %328, %.critedge.i.thread ]
+  %.sink245.ph = phi i32 [ %198, %224 ], [ %262, %.critedge.i.thread ]
+  %.sink238.ph = phi i32 [ -1, %224 ], [ %327, %.critedge.i.thread ]
   %.1199.in.i.ph = phi i8 [ %226, %224 ], [ %235, %.critedge.i.thread ]
-  %330 = load i8, ptr %.sroa.10875.5.sink265, align 1, !tbaa !77
+  %330 = load i8, ptr %.sroa.10875.5.sink269, align 1, !tbaa !77
   %331 = zext i8 %330 to i32
   %332 = shl nuw nsw i32 %331, 9
-  %333 = getelementptr inbounds nuw i8, ptr %.sroa.10875.5.sink265, i64 1
+  %333 = getelementptr inbounds nuw i8, ptr %.sroa.10875.5.sink269, i64 1
   %334 = load i8, ptr %333, align 1, !tbaa !77
   %335 = zext i8 %334 to i32
   %336 = shl nuw nsw i32 %335, 1
   %337 = or disjoint i32 %336, %332
-  %338 = add i32 %.sink259, -65535
+  %338 = add i32 %.sink263, -65535
   %339 = add i32 %338, %337
-  %340 = getelementptr inbounds nuw i8, ptr %.sroa.10875.5.sink265, i64 2
+  %340 = getelementptr inbounds nuw i8, ptr %.sroa.10875.5.sink269, i64 2
   br label %get_cabac_bypass_sign.exit245.i
 
 get_cabac_bypass_sign.exit245.i:                  ; preds = %get_cabac_bypass_sign.exit245.i.sink.split, %.critedge.i.thread, %224
-  %.sink241 = phi i32 [ %198, %224 ], [ %262, %.critedge.i.thread ], [ %.sink241.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
+  %.sink245 = phi i32 [ %198, %224 ], [ %262, %.critedge.i.thread ], [ %.sink245.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
   %.sroa.0.6.sink = phi i32 [ %227, %224 ], [ %328, %.critedge.i.thread ], [ %339, %get_cabac_bypass_sign.exit245.i.sink.split ]
-  %.sink234 = phi i32 [ -1, %224 ], [ %327, %.critedge.i.thread ], [ %.sink234.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
+  %.sink238 = phi i32 [ -1, %224 ], [ %327, %.critedge.i.thread ], [ %.sink238.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
   %.sroa.10875.7 = phi ptr [ %.sroa.10875.24, %224 ], [ %.sroa.10875.5, %.critedge.i.thread ], [ %340, %get_cabac_bypass_sign.exit245.i.sink.split ]
   %.1199.in.i = phi i8 [ %226, %224 ], [ %235, %.critedge.i.thread ], [ %.1199.in.i.ph, %get_cabac_bypass_sign.exit245.i.sink.split ]
-  %341 = shl i32 %.sink241, 17
+  %341 = shl i32 %.sink245, 17
   %342 = sub nsw i32 %.sroa.0.6.sink, %341
   %343 = ashr i32 %342, 31
   %344 = and i32 %343, %341
   %345 = add nsw i32 %344, %342
-  %346 = xor i32 %343, %.sink234
+  %346 = xor i32 %343, %.sink238
   %347 = sub nsw i32 %346, %343
   %348 = zext i8 %173 to i64
   %349 = getelementptr inbounds nuw i32, ptr %2, i64 %348
@@ -12772,9 +12772,9 @@ get_cabac_bypass_sign.exit245.i:                  ; preds = %get_cabac_bypass_si
 
 .preheader117:                                    ; preds = %get_cabac.exit7._crit_edge, %get_cabac_bypass_sign.exit237.i
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %get_cabac_bypass_sign.exit237.i ], [ %164, %get_cabac.exit7._crit_edge ]
-  %.sroa.10875.11 = phi ptr [ %.sroa.10875.16, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.10875.1.ph204, %get_cabac.exit7._crit_edge ]
-  %.sroa.74.6 = phi i32 [ %.sink256, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.74.1.ph206, %get_cabac.exit7._crit_edge ]
-  %.sroa.0.11 = phi i32 [ %530, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.0.1.ph208, %get_cabac.exit7._crit_edge ]
+  %.sroa.10875.11 = phi ptr [ %.sroa.10875.16, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.10875.1.ph208, %get_cabac.exit7._crit_edge ]
+  %.sroa.74.6 = phi i32 [ %.sink260, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.74.1.ph210, %get_cabac.exit7._crit_edge ]
+  %.sroa.0.11 = phi i32 [ %530, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.0.1.ph212, %get_cabac.exit7._crit_edge ]
   %.2200.i = phi i64 [ %.3201.i, %get_cabac_bypass_sign.exit237.i ], [ 0, %get_cabac.exit7._crit_edge ]
   %350 = getelementptr inbounds nuw [8 x i8], ptr @decode_cabac_residual_internal.coeff_abs_level1_ctx, i64 0, i64 %.2200.i
   %351 = load i8, ptr %350, align 1, !tbaa !77
@@ -13030,36 +13030,36 @@ get_cabac_bypass.exit26:                          ; preds = %496, %.lr.ph173
   br i1 %.not.i232.i, label %get_cabac_bypass_sign.exit237.i.sink.split, label %get_cabac_bypass_sign.exit237.i
 
 get_cabac_bypass_sign.exit237.i.sink.split:       ; preds = %.critedge7.i.thread, %409
-  %.sroa.10875.14.sink273 = phi ptr [ %.sroa.10875.28, %409 ], [ %.sroa.10875.14, %.critedge7.i.thread ]
-  %.sink267 = phi i32 [ %412, %409 ], [ %513, %.critedge7.i.thread ]
-  %.sink256.ph = phi i32 [ %383, %409 ], [ %447, %.critedge7.i.thread ]
-  %.sink249.ph = phi i32 [ -1, %409 ], [ %512, %.critedge7.i.thread ]
+  %.sroa.10875.14.sink277 = phi ptr [ %.sroa.10875.28, %409 ], [ %.sroa.10875.14, %.critedge7.i.thread ]
+  %.sink271 = phi i32 [ %412, %409 ], [ %513, %.critedge7.i.thread ]
+  %.sink260.ph = phi i32 [ %383, %409 ], [ %447, %.critedge7.i.thread ]
+  %.sink253.ph = phi i32 [ -1, %409 ], [ %512, %.critedge7.i.thread ]
   %.3201.in.i.ph = phi i8 [ %411, %409 ], [ %420, %.critedge7.i.thread ]
-  %515 = load i8, ptr %.sroa.10875.14.sink273, align 1, !tbaa !77
+  %515 = load i8, ptr %.sroa.10875.14.sink277, align 1, !tbaa !77
   %516 = zext i8 %515 to i32
   %517 = shl nuw nsw i32 %516, 9
-  %518 = getelementptr inbounds nuw i8, ptr %.sroa.10875.14.sink273, i64 1
+  %518 = getelementptr inbounds nuw i8, ptr %.sroa.10875.14.sink277, i64 1
   %519 = load i8, ptr %518, align 1, !tbaa !77
   %520 = zext i8 %519 to i32
   %521 = shl nuw nsw i32 %520, 1
   %522 = or disjoint i32 %521, %517
-  %523 = add i32 %.sink267, -65535
+  %523 = add i32 %.sink271, -65535
   %524 = add i32 %523, %522
-  %525 = getelementptr inbounds nuw i8, ptr %.sroa.10875.14.sink273, i64 2
+  %525 = getelementptr inbounds nuw i8, ptr %.sroa.10875.14.sink277, i64 2
   br label %get_cabac_bypass_sign.exit237.i
 
 get_cabac_bypass_sign.exit237.i:                  ; preds = %get_cabac_bypass_sign.exit237.i.sink.split, %.critedge7.i.thread, %409
-  %.sink256 = phi i32 [ %383, %409 ], [ %447, %.critedge7.i.thread ], [ %.sink256.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
+  %.sink260 = phi i32 [ %383, %409 ], [ %447, %.critedge7.i.thread ], [ %.sink260.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
   %.sroa.0.15.sink = phi i32 [ %412, %409 ], [ %513, %.critedge7.i.thread ], [ %524, %get_cabac_bypass_sign.exit237.i.sink.split ]
-  %.sink249 = phi i32 [ -1, %409 ], [ %512, %.critedge7.i.thread ], [ %.sink249.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
+  %.sink253 = phi i32 [ -1, %409 ], [ %512, %.critedge7.i.thread ], [ %.sink253.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
   %.sroa.10875.16 = phi ptr [ %.sroa.10875.28, %409 ], [ %.sroa.10875.14, %.critedge7.i.thread ], [ %525, %get_cabac_bypass_sign.exit237.i.sink.split ]
   %.3201.in.i = phi i8 [ %411, %409 ], [ %420, %.critedge7.i.thread ], [ %.3201.in.i.ph, %get_cabac_bypass_sign.exit237.i.sink.split ]
-  %526 = shl i32 %.sink256, 17
+  %526 = shl i32 %.sink260, 17
   %527 = sub nsw i32 %.sroa.0.15.sink, %526
   %528 = ashr i32 %527, 31
   %529 = and i32 %528, %526
   %530 = add nsw i32 %529, %527
-  %531 = xor i32 %528, %.sink249
+  %531 = xor i32 %528, %.sink253
   %532 = sub nsw i32 %531, %528
   %533 = trunc i32 %532 to i16
   %534 = zext i8 %358 to i64
@@ -13071,7 +13071,7 @@ get_cabac_bypass_sign.exit237.i:                  ; preds = %get_cabac_bypass_si
 
 decode_cabac_residual_internal.exit:              ; preds = %get_cabac_bypass_sign.exit245.i, %get_cabac_bypass_sign.exit237.i
   %.sroa.10875.21 = phi ptr [ %.sroa.10875.16, %get_cabac_bypass_sign.exit237.i ], [ %.sroa.10875.7, %get_cabac_bypass_sign.exit245.i ]
-  %.sroa.74.11 = phi i32 [ %.sink256, %get_cabac_bypass_sign.exit237.i ], [ %.sink241, %get_cabac_bypass_sign.exit245.i ]
+  %.sroa.74.11 = phi i32 [ %.sink260, %get_cabac_bypass_sign.exit237.i ], [ %.sink245, %get_cabac_bypass_sign.exit245.i ]
   %.sroa.0.21 = phi i32 [ %530, %get_cabac_bypass_sign.exit237.i ], [ %345, %get_cabac_bypass_sign.exit245.i ]
   store i32 %.sroa.74.11, ptr %9, align 4, !tbaa !197
   store i32 %.sroa.0.21, ptr %8, align 16, !tbaa !127

@@ -250,20 +250,20 @@ strbuf_setlen.exit:                               ; preds = %45, %48
   %56 = load i64, ptr %14, align 8, !tbaa !8
   %57 = getelementptr inbounds nuw %struct.string_list_item, ptr %55, i64 %56
   %58 = icmp ult ptr %54, %57
-  br i1 %58, label %.lr.ph152, label %.critedge2
+  br i1 %58, label %.lr.ph164, label %.critedge2
 
-.lr.ph123:                                        ; preds = %.lr.ph152
-  %59 = getelementptr inbounds nuw i8, ptr %.1122151, i64 16
+.lr.ph123:                                        ; preds = %.lr.ph164
+  %59 = getelementptr inbounds nuw i8, ptr %.1122163, i64 16
   %60 = load ptr, ptr %3, align 8, !tbaa !13
   %61 = load i64, ptr %14, align 8, !tbaa !8
   %62 = getelementptr inbounds nuw %struct.string_list_item, ptr %60, i64 %61
   %63 = icmp ult ptr %59, %62
-  br i1 %63, label %.lr.ph152, label %.critedge2
+  br i1 %63, label %.lr.ph164, label %.critedge2
 
-.lr.ph152:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
-  %.1122151 = phi ptr [ %59, %.lr.ph123 ], [ %54, %.lr.ph123.preheader ]
+.lr.ph164:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
+  %.1122163 = phi ptr [ %59, %.lr.ph123 ], [ %54, %.lr.ph123.preheader ]
   %64 = load ptr, ptr %40, align 8, !tbaa !21
-  %65 = load ptr, ptr %.1122151, align 8, !tbaa !14
+  %65 = load ptr, ptr %.1122163, align 8, !tbaa !14
   %66 = load ptr, ptr @the_repository, align 8, !tbaa !23
   %67 = call i32 @repo_config_set_multivar_gently(ptr noundef %66, ptr noundef %64, ptr noundef %65, ptr noundef nonnull inttoptr (i64 1 to ptr), i32 noundef 0) #14
   %68 = icmp slt i32 %67, 0
@@ -309,11 +309,11 @@ strbuf_setlen.exit84:                             ; preds = %69, %71
   br i1 %.not79125, label %.critedge4, label %.lr.ph127
 
 .lr.ph127:                                        ; preds = %78
-  %.not146 = icmp eq i64 %.pr, 0
+  %.not158 = icmp eq i64 %.pr, 0
   br i1 %.not74, label %.lr.ph127.split.us.split, label %.lr.ph127.split.split
 
 .lr.ph127.split.us.split:                         ; preds = %.lr.ph127
-  br i1 %.not146, label %.critedge4.thread, label %.lr.ph131
+  br i1 %.not158, label %.critedge4.thread, label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %.lr.ph127.split.us.split, %skip_prefix.exit92.us
   %.2126.us130 = phi ptr [ %89, %skip_prefix.exit92.us ], [ %80, %.lr.ph127.split.us.split ]
@@ -347,7 +347,7 @@ skip_prefix.exit92.us:                            ; preds = %83, %82
   br i1 %93, label %.lr.ph131, label %.critedge4
 
 .lr.ph127.split.split:                            ; preds = %.lr.ph127
-  br i1 %.not146, label %.critedge4.thread, label %.lr.ph129
+  br i1 %.not158, label %.critedge4.thread, label %.lr.ph129
 
 .lr.ph129:                                        ; preds = %.lr.ph127.split.split, %skip_prefix.exit92
   %.2126128 = phi ptr [ %103, %skip_prefix.exit92 ], [ %80, %.lr.ph127.split.split ]
@@ -426,26 +426,26 @@ _.exit101:                                        ; preds = %.critedge4.thread, 
   %124 = load i64, ptr %122, align 8, !tbaa !8
   %125 = getelementptr inbounds nuw %struct.string_list_item, ptr %123, i64 %124
   %126 = icmp ult ptr %121, %125
-  br i1 %126, label %.lr.ph154, label %.critedge6
+  br i1 %126, label %.lr.ph166, label %.critedge6
 
-.lr.ph154:                                        ; preds = %.lr.ph135, %.lr.ph154
-  %.3134153 = phi ptr [ %129, %.lr.ph154 ], [ %121, %.lr.ph135 ]
-  %127 = load ptr, ptr %.3134153, align 8, !tbaa !14
+.lr.ph166:                                        ; preds = %.lr.ph135, %.lr.ph166
+  %.3134165 = phi ptr [ %129, %.lr.ph166 ], [ %121, %.lr.ph135 ]
+  %127 = load ptr, ptr %.3134165, align 8, !tbaa !14
   %128 = call i32 (ptr, ...) @printf_ln(ptr noundef nonnull @.str.32, ptr noundef %127) #14
-  %129 = getelementptr inbounds nuw i8, ptr %.3134153, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %.3134165, i64 16
   %130 = load ptr, ptr %7, align 8, !tbaa !13
   %131 = load i64, ptr %122, align 8, !tbaa !8
   %132 = getelementptr inbounds nuw %struct.string_list_item, ptr %130, i64 %131
   %133 = icmp ult ptr %129, %132
-  br i1 %133, label %.lr.ph154, label %.critedge6
+  br i1 %133, label %.lr.ph166, label %.critedge6
 
-.critedge6:                                       ; preds = %.lr.ph154, %.lr.ph135, %_.exit101, %_.exit95
+.critedge6:                                       ; preds = %.lr.ph166, %.lr.ph135, %_.exit101, %_.exit95
   call void @string_list_clear(ptr noundef nonnull %7, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge8
 
-.loopexit:                                        ; preds = %.lr.ph152, %strbuf_setlen.exit84, %strbuf_setlen.exit, %.critedge
+.loopexit:                                        ; preds = %.lr.ph164, %strbuf_setlen.exit84, %strbuf_setlen.exit, %.critedge
   call void @strbuf_release(ptr noundef nonnull %5) #14
   %134 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i102 = icmp eq i32 %134, 0
@@ -495,10 +495,10 @@ _.exit107:                                        ; preds = %_.exit104, %139
   br i1 %153, label %.lr.ph139, label %.critedge8
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %.lr.ph139
-  %.4138155 = phi ptr [ %155, %.lr.ph139 ], [ %149, %.lr.ph139.preheader ]
-  %154 = load ptr, ptr %.4138155, align 8, !tbaa !14
+  %.4138167 = phi ptr [ %155, %.lr.ph139 ], [ %149, %.lr.ph139.preheader ]
+  %154 = load ptr, ptr %.4138167, align 8, !tbaa !14
   call void (ptr, ...) @advise(ptr noundef nonnull @.str.38, ptr noundef %1, ptr noundef %154) #14
-  %155 = getelementptr inbounds nuw i8, ptr %.4138155, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %.4138167, i64 16
   %156 = load ptr, ptr %3, align 8, !tbaa !13
   %157 = load i64, ptr %14, align 8, !tbaa !8
   %158 = getelementptr inbounds nuw %struct.string_list_item, ptr %156, i64 %157
@@ -1248,28 +1248,28 @@ _.exit:                                           ; preds = %58, %60
   %68 = load i64, ptr %66, align 8, !tbaa !59
   %69 = getelementptr inbounds nuw %struct.string_list_item, ptr %67, i64 %68
   %70 = icmp ult ptr %65, %69
-  br i1 %70, label %.lr.ph48, label %.critedge
+  br i1 %70, label %.lr.ph51, label %.critedge
 
-.lr.ph48:                                         ; preds = %.lr.ph, %_.exit30
-  %.0184447 = phi ptr [ %75, %_.exit30 ], [ %65, %.lr.ph ]
+.lr.ph51:                                         ; preds = %.lr.ph, %_.exit30
+  %.0184450 = phi ptr [ %75, %_.exit30 ], [ %65, %.lr.ph ]
   %71 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i28 = icmp eq i32 %71, 0
   br i1 %.not4.i28, label %_.exit30, label %72
 
-72:                                               ; preds = %.lr.ph48
+72:                                               ; preds = %.lr.ph51
   %73 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #14
   br label %_.exit30
 
-_.exit30:                                         ; preds = %.lr.ph48, %72
-  %.0.i29 = phi ptr [ %73, %72 ], [ @.str.49, %.lr.ph48 ]
-  %74 = load ptr, ptr %.0184447, align 8, !tbaa !14
+_.exit30:                                         ; preds = %.lr.ph51, %72
+  %.0.i29 = phi ptr [ %73, %72 ], [ @.str.49, %.lr.ph51 ]
+  %74 = load ptr, ptr %.0184450, align 8, !tbaa !14
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %8, ptr noundef %.0.i29, ptr noundef %74) #14
-  %75 = getelementptr inbounds nuw i8, ptr %.0184447, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.0184450, i64 16
   %76 = load ptr, ptr %12, align 8, !tbaa !58
   %77 = load i64, ptr %66, align 8, !tbaa !59
   %78 = getelementptr inbounds nuw %struct.string_list_item, ptr %76, i64 %77
   %79 = icmp ult ptr %75, %78
-  br i1 %79, label %.lr.ph48, label %.critedge
+  br i1 %79, label %.lr.ph51, label %.critedge
 
 .critedge:                                        ; preds = %_.exit30, %.lr.ph, %64
   %80 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4

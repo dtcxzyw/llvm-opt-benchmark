@@ -9541,8 +9541,8 @@ _RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoI
   br label %39
 
 .body.thread:                                     ; preds = %13, %18, %22, %42, %.body
-  %.pn3438 = phi { ptr, i32 } [ %40, %42 ], [ %40, %.body ], [ %14, %13 ], [ %19, %18 ], [ %19, %22 ]
-  resume { ptr, i32 } %.pn3438
+  %.pn3440 = phi { ptr, i32 } [ %40, %42 ], [ %40, %.body ], [ %14, %13 ], [ %19, %18 ], [ %19, %22 ]
+  resume { ptr, i32 } %.pn3440
 
 39:                                               ; preds = %_RINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB6_8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4folduNCINvNvB2f_8for_each4callB1i_NCINvMsi_NtBc_3vecINtB3S_3VecB1i_E14extend_trustedINtNtNtB2l_8adapters5chain5ChainIB4y_B13_B13_EB13_EE0E0EB1o_.exit, %37
   ret void

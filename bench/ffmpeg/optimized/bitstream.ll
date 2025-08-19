@@ -115,9 +115,9 @@ put_bits.exit:                                    ; preds = %24, %32, %14
   br label %put_bits.exit10
 
 put_bits.exit10:                                  ; preds = %52, %57, %41
-  %.sink14 = phi i32 [ -8, %41 ], [ 24, %57 ], [ 24, %52 ]
+  %.sink18 = phi i32 [ -8, %41 ], [ 24, %57 ], [ 24, %52 ]
   %.026.i.i8 = phi i32 [ %42, %41 ], [ 0, %57 ], [ 0, %52 ]
-  %58 = add nsw i32 %39, %.sink14
+  %58 = add nsw i32 %39, %.sink18
   store i32 %.026.i.i8, ptr %0, align 8, !tbaa !7
   store i32 %58, ptr %38, align 4, !tbaa !12
   br label %59
@@ -167,7 +167,7 @@ define void @ff_copy_bits(ptr noundef captures(none) %0, ptr noundef readonly ca
   br i1 %.not33, label %thread-pre-split, label %.thread
 
 .thread:                                          ; preds = %23
-  %.pre6669 = load i32, ptr %0, align 8, !tbaa !7
+  %.pre6680 = load i32, ptr %0, align 8, !tbaa !7
   br label %.lr.ph54.preheader
 
 26:                                               ; preds = %21
@@ -176,13 +176,13 @@ define void @ff_copy_bits(ptr noundef captures(none) %0, ptr noundef readonly ca
   br i1 %27, label %.lr.ph54.preheader, label %.loopexit
 
 .lr.ph54.preheader:                               ; preds = %.thread, %26
-  %.pre6670 = phi i32 [ %.pre6669, %.thread ], [ %.pre66, %26 ]
+  %.pre6681 = phi i32 [ %.pre6680, %.thread ], [ %.pre66, %26 ]
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %put_bits.exit
   %28 = phi i32 [ %16, %.lr.ph54.preheader ], [ %55, %put_bits.exit ]
-  %29 = phi i32 [ %.pre6670, %.lr.ph54.preheader ], [ %.026.i.i, %put_bits.exit ]
+  %29 = phi i32 [ %.pre6681, %.lr.ph54.preheader ], [ %.026.i.i, %put_bits.exit ]
   %indvars.iv57 = phi i64 [ 0, %.lr.ph54.preheader ], [ %indvars.iv.next58, %put_bits.exit ]
   %30 = shl nuw nsw i64 %indvars.iv57, 1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30

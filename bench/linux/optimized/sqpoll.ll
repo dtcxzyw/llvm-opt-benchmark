@@ -874,8 +874,8 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #4 align 16 {
   br label %98
 
 98:                                               ; preds = %96, %165
-  %99 = phi ptr [ %167, %165 ], [ %94, %96 ]
-  %100 = phi i8 [ %166, %165 ], [ 0, %96 ]
+  %99 = phi ptr [ %168, %165 ], [ %94, %96 ]
+  %100 = phi i8 [ %167, %165 ], [ 0, %96 ]
   %101 = getelementptr i8, ptr %99, i64 -992
   %102 = getelementptr i8, ptr %99, i64 -976
   %103 = load ptr, ptr %102, align 16
@@ -988,17 +988,14 @@ define internal noundef i32 @io_sq_thread(ptr noundef %0) #4 align 16 {
   br label %165
 
 165:                                              ; preds = %.thread13, %164, %.thread14, %157
-  %166 = phi i8 [ %100, %157 ], [ 1, %164 ], [ 0, %.thread14 ], [ %100, %.thread13 ]
-  %167 = load ptr, ptr %99, align 8
-  %168 = icmp eq ptr %167, %36
-  br i1 %168, label %.thread.loopexit, label %98, !llvm.loop !41
+  %166 = phi i1 [ false, %157 ], [ false, %164 ], [ true, %.thread14 ], [ false, %.thread13 ]
+  %167 = phi i8 [ 1, %157 ], [ 1, %164 ], [ 0, %.thread14 ], [ 1, %.thread13 ]
+  %168 = load ptr, ptr %99, align 8
+  %169 = icmp eq ptr %168, %36
+  br i1 %169, label %.thread, label %98, !llvm.loop !41
 
-.thread.loopexit:                                 ; preds = %165
-  %169 = icmp eq i8 %166, 0
-  br label %.thread
-
-.thread:                                          ; preds = %.thread.loopexit, %92
-  %170 = phi i1 [ true, %92 ], [ %169, %.thread.loopexit ]
+.thread:                                          ; preds = %165, %92
+  %170 = phi i1 [ true, %92 ], [ %166, %165 ]
   %171 = load volatile i64, ptr %7, align 8
   %172 = and i64 %171, 131072
   %173 = icmp eq i64 %172, 0

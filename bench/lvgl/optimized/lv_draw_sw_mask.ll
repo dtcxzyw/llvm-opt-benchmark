@@ -693,7 +693,7 @@ mask_mix.exit133.i:                               ; preds = %179, %177, %163
   %227 = and i32 %225, 255
   %228 = sub nsw i32 %221, %11
   %.not.i = icmp eq i32 %221, %226
-  br i1 %.not.i, label %.thread237.i, label %229
+  br i1 %.not.i, label %.thread245.i, label %229
 
 229:                                              ; preds = %217
   %230 = icmp slt i32 %204, 0
@@ -703,9 +703,9 @@ mask_mix.exit133.i:                               ; preds = %179, %177, %163
 
 .thread.i:                                        ; preds = %229
   %232 = add nsw i32 %228, -1
-  br label %.thread237.i
+  br label %.thread245.i
 
-.thread237.i:                                     ; preds = %.thread.i, %217
+.thread245.i:                                     ; preds = %.thread.i, %217
   %.0161230.i = phi i32 [ %232, %.thread.i ], [ %228, %217 ]
   %.0173229.i = phi i32 [ %226, %.thread.i ], [ %221, %217 ]
   %.0174228.i = phi i32 [ 255, %.thread.i ], [ %222, %217 ]
@@ -714,7 +714,7 @@ mask_mix.exit133.i:                               ; preds = %179, %177, %163
   %or.cond205.i = and i1 %233, %234
   br i1 %or.cond205.i, label %235, label %253
 
-235:                                              ; preds = %.thread237.i
+235:                                              ; preds = %.thread245.i
   %236 = add nuw nsw i32 %.0174228.i, %227
   %237 = lshr i32 %236, 1
   %238 = trunc nuw i32 %237 to i8
@@ -746,8 +746,8 @@ mask_mix.exit.i71:                                ; preds = %247, %245, %235
   %.pre80 = load i8, ptr %15, align 4
   br label %253
 
-253:                                              ; preds = %mask_mix.exit.i71, %.thread237.i
-  %254 = phi i8 [ %.pre80, %mask_mix.exit.i71 ], [ %16, %.thread237.i ]
+253:                                              ; preds = %mask_mix.exit.i71, %.thread245.i
+  %254 = phi i8 [ %.pre80, %mask_mix.exit.i71 ], [ %16, %.thread245.i ]
   %255 = and i8 %254, 2
   %.not199.i = icmp eq i8 %255, 0
   br i1 %.not199.i, label %262, label %256
@@ -1808,14 +1808,14 @@ circ_next.exit.i:                                 ; preds = %124, %120
   br label %222
 
 222:                                              ; preds = %204, %186, %154, %140
-  %.sink292.i = phi i64 [ %168, %154 ], [ %216, %204 ], [ %196, %186 ], [ %141, %140 ]
-  %.sink289.i = phi i8 [ %177, %154 ], [ %221, %204 ], [ %203, %186 ], [ %151, %140 ]
+  %.sink299.i = phi i64 [ %168, %154 ], [ %216, %204 ], [ %196, %186 ], [ %141, %140 ]
+  %.sink296.i = phi i8 [ %177, %154 ], [ %221, %204 ], [ %203, %186 ], [ %151, %140 ]
   %.sink.i = phi i32 [ 2, %154 ], [ 2, %204 ], [ 2, %186 ], [ 1, %140 ]
   %223 = load ptr, ptr %84, align 8, !tbaa !21
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 %.sink292.i
-  store i8 %.sink289.i, ptr %224, align 1, !tbaa !36
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 %.sink299.i
+  store i8 %.sink296.i, ptr %224, align 1, !tbaa !36
   %225 = load ptr, ptr %84, align 8, !tbaa !21
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %.sink292.i
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %.sink299.i
   %227 = load i8, ptr %226, align 1, !tbaa !36
   %228 = shl i8 %227, 4
   store i8 %228, ptr %226, align 1, !tbaa !36
@@ -1906,8 +1906,8 @@ circ_next.exit.i:                                 ; preds = %124, %120
   store i8 %276, ptr %277, align 1, !tbaa !36
   %indvars.iv.next268.i = add nsw i64 %indvars.iv267.i, -1
   %indvars.iv.next270.i = add nuw nsw i64 %indvars.iv269.i, 1
-  %.not293.i = icmp eq i64 %indvars.iv267.i, 0
-  br i1 %.not293.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !66
+  %.not300.i = icmp eq i64 %indvars.iv267.i, 0
+  br i1 %.not300.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !66
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %278 = trunc nsw i64 %indvars.iv.next270.i to i32
@@ -2009,7 +2009,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %21 = load i32, ptr %20, align 4, !tbaa !53
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %21, ptr %22, align 4, !tbaa !53
-  %.not254 = icmp eq i8 %10, 0
+  %.not267 = icmp eq i8 %10, 0
   %23 = icmp slt i32 %2, %15
   %24 = icmp sgt i32 %2, %21
   %or.cond = select i1 %23, i1 true, i1 %24
@@ -2037,7 +2037,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
 
 33:                                               ; preds = %30, %27
   %34 = sub nsw i32 %13, %1
-  br i1 %.not254, label %35, label %55
+  br i1 %.not267, label %35, label %55
 
 35:                                               ; preds = %33
   %36 = icmp sgt i32 %34, %3
@@ -2140,7 +2140,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %102 = sub i32 %101, %93
   %103 = add nsw i32 %102, -1
   %104 = icmp sgt i32 %88, 0
-  br i1 %.not254, label %.preheader, label %.preheader243
+  br i1 %.not267, label %.preheader, label %.preheader243
 
 .preheader243:                                    ; preds = %67
   br i1 %104, label %.lr.ph.preheader, label %._crit_edge

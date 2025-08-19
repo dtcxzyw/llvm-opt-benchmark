@@ -865,7 +865,7 @@ _ZN3gmx11ListOfListsIiEC2Ev.exit:                 ; preds = %_ZL10mk_sblocksP8_I
 285:                                              ; preds = %_ZL10mk_sblocksP8_IO_FILEP7t_graphiN3gmx8ArrayRefI5t_sidEE.exit
   %.idx = shl nuw nsw i64 %19, 3
   %286 = getelementptr inbounds nuw i8, ptr %.sroa.099.1.lcssa, i64 %.idx
-  br i1 %.not134, label %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread379, label %287
+  br i1 %.not134, label %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread420, label %287
 
 287:                                              ; preds = %285
   %288 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
@@ -1054,19 +1054,19 @@ _ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit:     ; preds = %_ZSt25__unguarded_l
   %.not38 = icmp eq ptr %367, null
   br i1 %.not38, label %._crit_edge257, label %.lr.ph253.preheader
 
-_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread379: ; preds = %285
+_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread420: ; preds = %285
   %368 = load ptr, ptr @debug, align 8, !tbaa !4
-  %.not38380 = icmp eq ptr %368, null
-  br i1 %.not38380, label %._crit_edge257, label %.thread381
+  %.not38421 = icmp eq ptr %368, null
+  br i1 %.not38421, label %._crit_edge257, label %.thread422
 
-.thread381:                                       ; preds = %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread379
+.thread422:                                       ; preds = %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread420
   %369 = call i64 @fwrite(ptr nonnull @.str.1, i64 19, i64 1, ptr nonnull %368)
   br label %._crit_edge257
 
 _ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread: ; preds = %335
   %370 = load ptr, ptr @debug, align 8, !tbaa !4
-  %.not38378 = icmp eq ptr %370, null
-  br i1 %.not38378, label %._crit_edge257, label %.lr.ph253.preheader
+  %.not38419 = icmp eq ptr %370, null
+  br i1 %.not38419, label %._crit_edge257, label %.lr.ph253.preheader
 
 .lr.ph253.preheader:                              ; preds = %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread
   %.sink = phi ptr [ %370, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread ], [ %367, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit ]
@@ -1088,7 +1088,7 @@ _ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread: ; preds = %335
   %exitcond367.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count366
   br i1 %exitcond367.not, label %._crit_edge257, label %.lr.ph253, !llvm.loop !58
 
-._crit_edge257:                                   ; preds = %.lr.ph253, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread379, %.thread381
+._crit_edge257:                                   ; preds = %.lr.ph253, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread, %_ZSt4sortIP5t_sidPFbRKS0_S3_EEvT_S6_T0_.exit.thread420, %.thread422
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %379 = sext i32 %.046.lcssa.i to i64
   %380 = mul nuw nsw i64 %379, 12
@@ -2139,7 +2139,7 @@ define linkonce_odr void @_ZSt11__make_heapIP5t_sidN9__gnu_cxx5__ops15_Iter_comp
 
 .split.preheader:                                 ; preds = %10
   %18 = or disjoint i64 %11, 1
-  %19 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %18
   %20 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %17
   br label %.split
 
@@ -2182,12 +2182,12 @@ define linkonce_odr void @_ZSt11__make_heapIP5t_sidN9__gnu_cxx5__ops15_Iter_comp
   %.01316.i.i.us = phi i64 [ %.017.i.i.us, %37 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.017.in.i.i.us = add nsw i64 %.01316.i.i.us, -1
   %.017.i.i.us = sdiv i64 %.017.in.i.i.us, 2
-  %35 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %.017.i.i.us
+  %35 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %.017.i.i.us
   %36 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %35, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %36, label %37, label %.critedge.loopexit.i.i.us
 
 37:                                               ; preds = %.lr.ph.i.i.us
-  %38 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %.01316.i.i.us
+  %38 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %.01316.i.i.us
   %39 = load i64, ptr %35, align 4
   store i64 %39, ptr %38, align 4
   %40 = icmp sgt i64 %.017.i.i.us, %.015.us
@@ -2201,7 +2201,7 @@ define linkonce_odr void @_ZSt11__make_heapIP5t_sidN9__gnu_cxx5__ops15_Iter_comp
 _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit.us: ; preds = %._crit_edge.i.us.thread, %.critedge.loopexit.i.i.us, %._crit_edge.i.us
   %41 = phi i64 [ %.sroa.02.0.copyload.us, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %.sroa.02.0.copyload.us, %._crit_edge.i.us.thread ]
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.lcssa.ph.i.i.us, %.critedge.loopexit.i.i.us ], [ %.015.us, %._crit_edge.i.us.thread ]
-  %42 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %.013.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %.013.lcssa.i.i.us
   store i64 %41, ptr %42, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.us = icmp eq i64 %.015.us, 0
@@ -2254,12 +2254,12 @@ _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
   %.01316.i.i = phi i64 [ %.017.i.i, %64 ], [ %.1.i, %60 ]
   %.017.in.i.i = add nsw i64 %.01316.i.i, -1
   %.017.i.i = sdiv i64 %.017.in.i.i, 2
-  %62 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %.017.i.i
+  %62 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %.017.i.i
   %63 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %62, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %63, label %64, label %.critedge.loopexit.i.i
 
 64:                                               ; preds = %.lr.ph.i.i
-  %65 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %.01316.i.i
+  %65 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %.01316.i.i
   %66 = load i64, ptr %62, align 4
   store i64 %66, ptr %65, align 4
   %67 = icmp sgt i64 %.017.i.i, %.015
@@ -2273,7 +2273,7 @@ _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
 _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit: ; preds = %60, %.critedge.loopexit.i.i
   %68 = phi i64 [ %.sroa.02.0.copyload, %60 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
   %.013.lcssa.i.i = phi i64 [ %.1.i, %60 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %69 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %.013.lcssa.i.i
+  %69 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %.013.lcssa.i.i
   store i64 %68, ptr %69, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.015, 0

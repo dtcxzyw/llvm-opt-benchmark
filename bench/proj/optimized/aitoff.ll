@@ -337,8 +337,8 @@ define internal { double, double } @_ZL16aitoff_s_inverse5PJ_XYP8PJconsts(double
   %109 = tail call double @llvm.fabs.f64(double %108)
   %110 = fcmp olt double %109, 0x3D719799812DEA11
   %111 = icmp eq i32 %63, 0
-  %or.cond201 = and i1 %110, %111
-  %.sroa.0120.4 = select i1 %or.cond201, double 0.000000e+00, double %94
+  %or.cond204 = and i1 %110, %111
+  %.sroa.0120.4 = select i1 %or.cond204, double 0.000000e+00, double %94
   %112 = tail call double @cos(double noundef %.sroa.12.5) #7, !tbaa !49
   %113 = fmul double %.sroa.0120.4, 5.000000e-01
   %114 = tail call double @cos(double noundef %113) #7, !tbaa !49

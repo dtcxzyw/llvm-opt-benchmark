@@ -13430,7 +13430,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_var
   %trunc = trunc nuw i64 %42 to i1
   br i1 %trunc, label %54, label %43
 
-default.unreachable202:                           ; preds = %235, %80
+default.unreachable218:                           ; preds = %235, %80
   unreachable
 
 43:                                               ; preds = %6
@@ -13546,7 +13546,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit: ; p
 80:                                               ; preds = %._crit_edge
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %82 = load i8, ptr %81, align 4, !range !2914, !noundef !4
-  switch i8 %82, label %default.unreachable202 [
+  switch i8 %82, label %default.unreachable218 [
     i8 0, label %86
     i8 1, label %100
     i8 2, label %114
@@ -13991,7 +13991,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e11496
   unreachable
 
 235:                                              ; preds = %232
-  switch i8 %178, label %default.unreachable202 [
+  switch i8 %178, label %default.unreachable218 [
     i8 0, label %240
     i8 1, label %243
     i8 2, label %246
@@ -14346,7 +14346,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_var
   %trunc = trunc nuw i64 %42 to i1
   br i1 %trunc, label %53, label %43
 
-default.unreachable243:                           ; preds = %207, %68
+default.unreachable255:                           ; preds = %207, %68
   unreachable
 
 43:                                               ; preds = %6
@@ -14440,7 +14440,7 @@ default.unreachable243:                           ; preds = %207, %68
 68:                                               ; preds = %._crit_edge
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %70 = load i8, ptr %69, align 4, !range !2914, !noundef !4
-  switch i8 %70, label %default.unreachable243 [
+  switch i8 %70, label %default.unreachable255 [
     i8 0, label %.noexc104
     i8 1, label %.noexc111
     i8 2, label %.noexc118
@@ -14851,7 +14851,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e11496
   unreachable
 
 207:                                              ; preds = %204
-  switch i8 %168, label %default.unreachable243 [
+  switch i8 %168, label %default.unreachable255 [
     i8 0, label %212
     i8 1, label %215
     i8 2, label %218
@@ -14966,10 +14966,10 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
   br i1 %225, label %227, label %228
 
 227:                                              ; preds = %224
-  br i1 %226, label %229, label %.invoke247
+  br i1 %226, label %229, label %.invoke259
 
 228:                                              ; preds = %224
-  br i1 %226, label %.invoke247, label %232
+  br i1 %226, label %.invoke259, label %232
 
 229:                                              ; preds = %232, %227
   %230 = load i64, ptr %31, align 8, !range !933, !noundef !4
@@ -14990,7 +14990,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke249, %.invoke247
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke261, %.invoke259
   %lpad.loopexit.split-lp183 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -15011,11 +15011,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
   br i1 %.not77, label %264, label %261
 
 235:                                              ; preds = %233
-  br i1 %164, label %.invoke249, label %236
+  br i1 %164, label %.invoke261, label %236
 
 236:                                              ; preds = %235
   %237 = icmp ugt i64 %234, %178
-  br i1 %237, label %.invoke249, label %238
+  br i1 %237, label %.invoke261, label %238
 
 238:                                              ; preds = %236
   %.idx = mul nsw i64 %234, 12
@@ -15028,14 +15028,14 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
   %241 = getelementptr inbounds i8, ptr %166, i64 %239
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit"
 
-.invoke249:                                       ; preds = %236, %235
+.invoke261:                                       ; preds = %236, %235
   %242 = phi i64 [ 1, %235 ], [ %234, %236 ]
   %243 = phi i64 [ 0, %235 ], [ %178, %236 ]
   %244 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.84, %235 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.83, %236 ]
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %242, i64 noundef %243, ptr noalias noundef readonly align 8 dereferenceable(24) %244) #43
-          to label %.cont250 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont262 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont250:                                         ; preds = %.invoke249
+.cont262:                                         ; preds = %.invoke261
   unreachable
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit.preheader", %256
@@ -15044,21 +15044,21 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
   %246 = load i32, ptr %.sroa.0150.0201, align 4, !range !115, !noundef !4
   %247 = add nsw i32 %246, -13
   %narrow = call i32 @llvm.umin.i32(i32 %247, i32 5)
-  switch i32 %narrow, label %.invoke247 [
+  switch i32 %narrow, label %.invoke259 [
     i32 0, label %251
     i32 1, label %252
     i32 2, label %253
     i32 3, label %254
   ]
 
-.invoke247:                                       ; preds = %227, %228, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit"
+.invoke259:                                       ; preds = %227, %228, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit"
   %248 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.81, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit" ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.85, %228 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.85, %227 ]
   %249 = phi i64 [ 40, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit" ], [ 15, %228 ], [ 15, %227 ]
   %250 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.82, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit" ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.86, %228 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.86, %227 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %248, i64 noundef %249, ptr noalias noundef readonly align 8 dereferenceable(24) %250) #43
-          to label %.cont248 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont260 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont248:                                         ; preds = %.invoke247
+.cont260:                                         ; preds = %.invoke259
   unreachable
 
 251:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit"
@@ -15236,7 +15236,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_var
   %trunc = trunc nuw i64 %42 to i1
   br i1 %trunc, label %53, label %43
 
-default.unreachable204:                           ; preds = %247, %79
+default.unreachable220:                           ; preds = %247, %79
   unreachable
 
 43:                                               ; preds = %6
@@ -15349,7 +15349,7 @@ _ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29deE.exit: ; p
 79:                                               ; preds = %._crit_edge
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %81 = load i8, ptr %80, align 4, !range !2914, !noundef !4
-  switch i8 %81, label %default.unreachable204 [
+  switch i8 %81, label %default.unreachable220 [
     i8 0, label %85
     i8 1, label %99
     i8 2, label %113
@@ -15825,7 +15825,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler13push_dst_addr17h5ae0cb115e11496
   unreachable
 
 247:                                              ; preds = %244
-  switch i8 %178, label %default.unreachable204 [
+  switch i8 %178, label %default.unreachable220 [
     i8 0, label %252
     i8 1, label %255
     i8 2, label %258
@@ -15955,7 +15955,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke212, %.invoke
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke228, %.invoke
   %lpad.loopexit.split-lp170 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -15976,11 +15976,11 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
   br i1 %.not75, label %302, label %299
 
 273:                                              ; preds = %271
-  br i1 %174, label %.invoke212, label %274
+  br i1 %174, label %.invoke228, label %274
 
 274:                                              ; preds = %273
   %275 = icmp ugt i64 %272, %188
-  br i1 %275, label %.invoke212, label %276
+  br i1 %275, label %.invoke228, label %276
 
 276:                                              ; preds = %274
   %.idx = mul nsw i64 %272, 12
@@ -15993,14 +15993,14 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
   %279 = getelementptr inbounds i8, ptr %176, i64 %277
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit"
 
-.invoke212:                                       ; preds = %274, %273
+.invoke228:                                       ; preds = %274, %273
   %280 = phi i64 [ 1, %273 ], [ %272, %274 ]
   %281 = phi i64 [ 0, %273 ], [ %188, %274 ]
   %282 = phi ptr [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.84, %273 ], [ @anon.9b245dddcf682bd7d7bb6af6fb912ebe.83, %274 ]
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %280, i64 noundef %281, ptr noalias noundef readonly align 8 dereferenceable(24) %282) #43
-          to label %.cont213 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont229 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont213:                                         ; preds = %.invoke212
+.cont229:                                         ; preds = %.invoke228
   unreachable
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit.preheader", %294

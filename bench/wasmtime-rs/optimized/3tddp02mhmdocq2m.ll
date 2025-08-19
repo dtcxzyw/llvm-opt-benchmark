@@ -867,20 +867,20 @@ define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr w
   %145 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %147 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.sroa.9.0..sroa_idx151 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %.sroa.9.0..sroa_idx168 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 24
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 40
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 48
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 56
-  %.sroa.15152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 72
+  %.sroa.15169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 72
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 73
   br label %.backedge91
 
 .backedge91:                                      ; preds = %.backedge91.backedge, %118
   %.sroa.16.0 = phi i8 [ undef, %118 ], [ %.sroa.16.2, %.backedge91.backedge ]
-  %.sroa.15152.0 = phi i8 [ undef, %118 ], [ %.sroa.15152.2, %.backedge91.backedge ]
+  %.sroa.15169.0 = phi i8 [ undef, %118 ], [ %.sroa.15169.2, %.backedge91.backedge ]
   %.sroa.14.0 = phi i64 [ undef, %118 ], [ %.sroa.14.2, %.backedge91.backedge ]
   %.sroa.12.0 = phi i64 [ undef, %118 ], [ %.sroa.12.2, %.backedge91.backedge ]
   %.sroa.11.0 = phi i64 [ undef, %118 ], [ %.sroa.11.2, %.backedge91.backedge ]
@@ -1257,8 +1257,8 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %261 = getelementptr inbounds nuw i8, ptr %148, i64 185
   %262 = load i8, ptr %261, align 1, !range !8, !noalias !14, !noundef !4
   %263 = getelementptr inbounds nuw i8, ptr %148, i64 152
-  %.sroa.0.0.copyload150 = load i64, ptr %39, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx151, i64 16, i1 false)
+  %.sroa.0.0.copyload167 = load i64, ptr %39, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx168, i64 16, i1 false)
   %.sroa.12.40.copyload = load i64, ptr %263, align 8
   %.sroa.14.40..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 160
   %.sroa.14.40.copyload = load i64, ptr %.sroa.14.40..sroa_idx, align 16
@@ -1589,12 +1589,12 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
 
 .noexc57:                                         ; preds = %250, %242, %232, %260, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i, %343
   %.sroa.16.1 = phi i8 [ %262, %260 ], [ %.sroa.16.0, %343 ], [ %.sroa.16.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.16.0, %232 ], [ %.sroa.16.0, %242 ], [ %.sroa.16.0, %250 ]
-  %.sroa.15152.1 = phi i8 [ %226, %260 ], [ %.sroa.15152.0, %343 ], [ %.sroa.15152.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.15152.0, %232 ], [ %.sroa.15152.0, %242 ], [ %.sroa.15152.0, %250 ]
+  %.sroa.15169.1 = phi i8 [ %226, %260 ], [ %.sroa.15169.0, %343 ], [ %.sroa.15169.0, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.15169.0, %232 ], [ %.sroa.15169.0, %242 ], [ %.sroa.15169.0, %250 ]
   %.sroa.14.1 = phi i64 [ %.sroa.14.40.copyload, %260 ], [ %.sroa.14.0, %343 ], [ %.0.i.i, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.14.0, %232 ], [ %.sroa.14.0, %242 ], [ %.sroa.14.0, %250 ]
   %.sroa.12.1 = phi i64 [ %.sroa.12.40.copyload, %260 ], [ %.sroa.12.0, %343 ], [ %210, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.12.0, %232 ], [ %.sroa.12.0, %242 ], [ %.sroa.12.0, %250 ]
   %.sroa.11.1 = phi i64 [ %210, %260 ], [ %.sroa.11.0, %343 ], [ %.sroa.11.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.11.0, %232 ], [ %.sroa.11.0, %242 ], [ %.sroa.11.0, %250 ]
   %.sroa.10.1 = phi i64 [ %216, %260 ], [ %.sroa.10.0, %343 ], [ %.sroa.10.8.copyload, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ %.sroa.10.0, %232 ], [ %.sroa.10.0, %242 ], [ %.sroa.10.0, %250 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload150, %260 ], [ -9223372036854775807, %343 ], [ -9223372036854775808, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ -9223372036854775807, %232 ], [ -9223372036854775807, %242 ], [ -9223372036854775807, %250 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload167, %260 ], [ -9223372036854775807, %343 ], [ -9223372036854775808, %_ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i ], [ -9223372036854775807, %232 ], [ -9223372036854775807, %242 ], [ -9223372036854775807, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -1635,14 +1635,14 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   store i64 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx, align 8
   store i64 %.sroa.14.1, ptr %.sroa.14.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15, i64 16, i1 false)
-  store i8 %.sroa.15152.1, ptr %.sroa.15152.0..sroa_idx, align 8
+  store i8 %.sroa.15169.1, ptr %.sroa.15169.0..sroa_idx, align 8
   store i8 %.sroa.16.1, ptr %.sroa.16.0..sroa_idx, align 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8ee9c068f8f4f3aeE"(ptr nonnull align 8 %95, ptr nonnull align 8 %51)
           to label %.backedge91.backedge unwind label %.loopexit.split-lp.loopexit
 
 .backedge91.backedge:                             ; preds = %344, %.noexc57, %153
   %.sroa.16.2 = phi i8 [ %.sroa.16.1, %.noexc57 ], [ %.sroa.16.1, %344 ], [ %.sroa.16.0, %153 ]
-  %.sroa.15152.2 = phi i8 [ %.sroa.15152.1, %.noexc57 ], [ %.sroa.15152.1, %344 ], [ %.sroa.15152.0, %153 ]
+  %.sroa.15169.2 = phi i8 [ %.sroa.15169.1, %.noexc57 ], [ %.sroa.15169.1, %344 ], [ %.sroa.15169.0, %153 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.1, %.noexc57 ], [ %.sroa.14.1, %344 ], [ %.sroa.14.0, %153 ]
   %.sroa.12.2 = phi i64 [ %.sroa.12.1, %.noexc57 ], [ %.sroa.12.1, %344 ], [ %.sroa.12.0, %153 ]
   %.sroa.11.2 = phi i64 [ %.sroa.11.1, %.noexc57 ], [ %.sroa.11.1, %344 ], [ %.sroa.11.0, %153 ]
@@ -5073,7 +5073,7 @@ define hidden void @_ZN14cranelift_isle4sema7TermEnv17translate_pattern17hdaa883
   %74 = alloca i64, align 8
   store i64 %4, ptr %74, align 8
   %75 = load i64, ptr %3, align 16, !range !9, !noundef !4
-  switch i64 %75, label %default.unreachable197 [
+  switch i64 %75, label %default.unreachable239 [
     i64 0, label %76
     i64 1, label %97
     i64 2, label %103
@@ -5084,7 +5084,7 @@ define hidden void @_ZN14cranelift_isle4sema7TermEnv17translate_pattern17hdaa883
     i64 7, label %146
   ]
 
-default.unreachable197:                           ; preds = %6
+default.unreachable239:                           ; preds = %6
   unreachable
 
 76:                                               ; preds = %6
@@ -6224,7 +6224,7 @@ define hidden void @_ZN14cranelift_isle4sema7TermEnv14translate_expr17he41d1ccfb
   %96 = zext i1 %8 to i8
   store i8 %96, ptr %95, align 1
   %97 = load i64, ptr %3, align 16, !range !46, !noundef !4
-  switch i64 %97, label %default.unreachable301 [
+  switch i64 %97, label %default.unreachable340 [
     i64 0, label %98
     i64 1, label %113
     i64 2, label %134
@@ -6232,7 +6232,7 @@ define hidden void @_ZN14cranelift_isle4sema7TermEnv14translate_expr17he41d1ccfb
     i64 4, label %153
   ]
 
-default.unreachable301:                           ; preds = %9
+default.unreachable340:                           ; preds = %9
   unreachable
 
 98:                                               ; preds = %9
@@ -6426,8 +6426,8 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit258: ; pred
   br label %183
 
 183:                                              ; preds = %181, %179
-  %.sink302 = phi ptr [ %89, %181 ], [ %92, %179 ]
-  call void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d80067833dd6E(ptr align 8 %2, ptr nonnull align 8 %94, ptr nonnull align 8 %.sink302)
+  %.sink341 = phi ptr [ %89, %181 ], [ %92, %179 ]
+  call void @_ZN14cranelift_isle4sema7TypeEnv12report_error17hc627d80067833dd6E(ptr align 8 %2, ptr nonnull align 8 %94, ptr nonnull align 8 %.sink341)
   store i64 5, ptr %0, align 16
   br label %184
 
@@ -6665,10 +6665,10 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit262: ; preds = %227
 
 285:                                              ; preds = %281
   %spec.select = select i1 %264, ptr @anon.5e57fe82ff1aab3e07530ed2abc6b869.21, ptr @anon.5e57fe82ff1aab3e07530ed2abc6b869.159
-  %spec.select303 = select i1 %264, i64 0, i64 37
+  %spec.select342 = select i1 %264, i64 0, i64 37
   store ptr %spec.select, ptr %70, align 8
   %286 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i64 %spec.select303, ptr %286, align 8
+  store i64 %spec.select342, ptr %286, align 8
   store ptr %100, ptr %71, align 8
   %287 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17hfd92b114c250e98cE", ptr %287, align 8

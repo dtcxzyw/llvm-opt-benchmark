@@ -471,8 +471,8 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit: ; preds = %22, %.
   br label %48
 
 48:                                               ; preds = %45, %41
-  %.01825.i.lcssa44 = phi ptr [ %.01822.i, %45 ], [ %.018.i, %41 ]
-  tail call void @free(ptr noundef nonnull %.01825.i.lcssa44) #19
+  %.01825.i.lcssa52 = phi ptr [ %.01822.i, %45 ], [ %.018.i, %41 ]
+  tail call void @free(ptr noundef nonnull %.01825.i.lcssa52) #19
   br label %_ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i21.preheader, %.lr.ph.i21

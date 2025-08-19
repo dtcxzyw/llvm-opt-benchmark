@@ -285,10 +285,10 @@ define internal fastcc range(i32 -1, 1) i32 @biquad_init_coeffs(ptr noundef %0, 
   %17 = fadd nsz double %12, 1.000000e+00
   %18 = fneg nsz double %17
   %19 = fsub nsz double 1.000000e+00, %12
-  %.pn38.in = select i1 %16, double %17, double %19
+  %.pn39.in = select i1 %16, double %17, double %19
   %.pn = select i1 %16, double %18, double %19
-  %.pn38 = fmul nsz double %.pn38.in, 5.000000e-01
-  %.036 = fdiv nsz double %.pn38, %15
+  %.pn39 = fmul nsz double %.pn39.in, 5.000000e-01
+  %.036 = fdiv nsz double %.pn39, %15
   %.sink = fptrunc double %.036 to float
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %.sink, ptr %20, align 4, !tbaa !24

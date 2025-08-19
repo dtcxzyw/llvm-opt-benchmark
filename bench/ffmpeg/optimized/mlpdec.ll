@@ -447,9 +447,9 @@ define internal range(i32 -2147483648, 8191) i32 @read_access_unit(ptr noundef %
   %136 = getelementptr inbounds nuw i8, ptr %100, i64 652
   store i32 %58, ptr %136, align 4, !tbaa !74
   %137 = icmp sgt i32 %58, 16
-  %spec.select133.i = select i1 %137, i32 2, i32 1
+  %spec.select146.i = select i1 %137, i32 2, i32 1
   %138 = getelementptr inbounds nuw i8, ptr %100, i64 348
-  store i32 %spec.select133.i, ptr %138, align 4, !tbaa !75
+  store i32 %spec.select146.i, ptr %138, align 4, !tbaa !75
   %139 = getelementptr inbounds nuw i8, ptr %16, i64 13536
   %140 = load ptr, ptr %139, align 16, !tbaa !76
   %141 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -865,7 +865,7 @@ read_major_sync.exit:                             ; preds = %52
   %358 = load ptr, ptr %281, align 8, !tbaa !27
   %359 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %358, i32 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %359) #8
-  %360 = sub i32 %23, %345
+  %360 = sub nsw i32 %23, %345
   br label %361
 
 361:                                              ; preds = %357, %353
@@ -889,8 +889,8 @@ read_major_sync.exit:                             ; preds = %52
   %371 = lshr i8 %370, 7
   %372 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %indvars.iv
   store i8 %371, ptr %372, align 1, !tbaa !39
-  %373 = sub i32 %.0181, %.0175428
-  %374 = trunc i32 %373 to i16
+  %373 = sub nsw i32 %.0181, %.0175428
+  %374 = trunc nsw i32 %373 to i16
   %375 = getelementptr inbounds nuw [4 x i16], ptr %10, i64 0, i64 %indvars.iv
   store i16 %374, ptr %375, align 2, !tbaa !99
   br label %376
@@ -1010,7 +1010,7 @@ read_major_sync.exit:                             ; preds = %52
   %458 = load i8, ptr %457, align 1, !tbaa !39
   %459 = icmp slt i32 %454, %452
   %460 = zext i1 %459 to i32
-  %spec.select.i237 = add i32 %454, %460
+  %spec.select.i237 = add nsw i32 %454, %460
   %461 = zext i8 %458 to i32
   %462 = and i32 %454, 7
   store i32 %spec.select.i237, ptr %37, align 8, !tbaa !51
@@ -1026,7 +1026,7 @@ read_major_sync.exit:                             ; preds = %52
   %469 = load i8, ptr %468, align 1, !tbaa !39
   %470 = icmp slt i32 %spec.select.i237, %452
   %471 = zext i1 %470 to i32
-  %spec.select.i238 = add i32 %spec.select.i237, %471
+  %spec.select.i238 = add nsw i32 %spec.select.i237, %471
   %472 = zext i8 %469 to i32
   %473 = and i32 %spec.select.i237, 7
   store i32 %spec.select.i238, ptr %37, align 8, !tbaa !51
@@ -1049,7 +1049,7 @@ read_major_sync.exit:                             ; preds = %52
   %487 = and i32 %spec.select.i238, 7
   %488 = shl i32 %486, %487
   %489 = lshr i32 %488, 19
-  %490 = add i32 %spec.select.i238, 13
+  %490 = add nsw i32 %spec.select.i238, 13
   %491 = call i32 @llvm.umin.i32(i32 %452, i32 %490)
   store i32 %491, ptr %37, align 8, !tbaa !51
   %.not.i239 = icmp eq i32 %489, 6389
@@ -1175,8 +1175,8 @@ mlp_channel_layout_subset.exit.i:                 ; preds = %550
   %.pre521 = load i8, ptr %393, align 4, !tbaa !71
   %564 = zext i8 %.pre521 to i64
   %565 = icmp samesign ult i64 %indvars.iv514, %564
-  %or.cond601 = select i1 %.not179.i, i1 %565, i1 false
-  br i1 %or.cond601, label %566, label %mlp_channel_layout_subset.exit.thread.i
+  %or.cond649 = select i1 %.not179.i, i1 %565, i1 false
+  br i1 %or.cond649, label %566, label %mlp_channel_layout_subset.exit.thread.i
 
 566:                                              ; preds = %mlp_channel_layout_subset.exit.i
   %567 = load ptr, ptr %396, align 8, !tbaa !27

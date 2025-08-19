@@ -1328,8 +1328,8 @@ do.end:                                           ; preds = %entry
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !49
-  %n_.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %sub.ptr.div.i.i, ptr %n_.i47, align 8, !tbaa !68
+  %n_.i54 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i64 %sub.ptr.div.i.i, ptr %n_.i54, align 8, !tbaa !68
   br label %nrvo.skipdtor
 
 invoke.cont32.lr.ph:                              ; preds = %do.end

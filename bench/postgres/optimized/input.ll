@@ -225,14 +225,14 @@ define dso_local void @pg_send_history(ptr noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 10
-  br i1 %15, label %8, label %.critedge.split.loop.exit20, !llvm.loop !4
+  br i1 %15, label %8, label %.critedge.split.loop.exit21, !llvm.loop !4
 
-.critedge.split.loop.exit20:                      ; preds = %11
+.critedge.split.loop.exit21:                      ; preds = %11
   %16 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %8, %.critedge.split.loop.exit20
-  %.0.in.lcssa = phi i32 [ %16, %.critedge.split.loop.exit20 ], [ %7, %8 ]
+.critedge:                                        ; preds = %8, %.critedge.split.loop.exit21
+  %.0.in.lcssa = phi i32 [ %16, %.critedge.split.loop.exit21 ], [ %7, %8 ]
   %17 = sext i32 %.0.in.lcssa to i64
   %18 = getelementptr inbounds i8, ptr %2, i64 %17
   store i8 0, ptr %18, align 1

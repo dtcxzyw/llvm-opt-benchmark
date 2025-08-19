@@ -1042,8 +1042,8 @@ bytestream2_get_le32.exit.i.i105:                 ; preds = %447, %446
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %452 = load i32, ptr %451, align 4, !tbaa !29
   %.not165.i.i = icmp slt i32 %.0.i.i103, %452
-  %or.cond273.i.i = select i1 %.not.i.i107, i1 %.not165.i.i, i1 false
-  br i1 %or.cond273.i.i, label %453, label %bytestream2_get_le32.exit._crit_edge.i.i108
+  %or.cond306.i.i = select i1 %.not.i.i107, i1 %.not165.i.i, i1 false
+  br i1 %or.cond306.i.i, label %453, label %bytestream2_get_le32.exit._crit_edge.i.i108
 
 bytestream2_get_le32.exit._crit_edge.i.i108:      ; preds = %bytestream2_get_le32.exit.i.i105
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %.0.i19.i, i32 noundef %.0.i.i103, i32 noundef %450, i32 noundef %452) #7
@@ -1187,8 +1187,8 @@ bytestream2_get_be32.exit.i.i:                    ; preds = %bytestream2_get_be3
 ._crit_edge221.i.i:                               ; preds = %._crit_edge216.i.i
   %514 = icmp sgt i32 %506, 0
   %515 = icmp sgt i32 %.pr.i.i, 0
-  %or.cond64.i = and i1 %514, %515
-  br i1 %or.cond64.i, label %.preheader.preheader.i.i, label %.thread133
+  %or.cond92.i = and i1 %514, %515
+  br i1 %or.cond92.i, label %.preheader.preheader.i.i, label %.thread133
 
 .preheader.preheader.i.i:                         ; preds = %._crit_edge221.i.i
   %516 = load ptr, ptr %472, align 8, !tbaa !76
@@ -1310,14 +1310,14 @@ bytestream2_get_be32.exit179.i.i:                 ; preds = %bytestream2_get_be3
   %.not168.i.i = icmp eq i32 %572, 0
   %573 = icmp sgt i32 %559, 0
   %574 = icmp sgt i32 %560, 0
-  %or.cond275.i.i = select i1 %573, i1 %574, i1 false
+  %or.cond308.i.i = select i1 %573, i1 %574, i1 false
   br i1 %.not168.i.i, label %.preheader189.i.i, label %.preheader192.i.i
 
 .preheader192.i.i:                                ; preds = %558
-  br i1 %or.cond275.i.i, label %.preheader191.i.i, label %.thread133
+  br i1 %or.cond308.i.i, label %.preheader191.i.i, label %.thread133
 
 .preheader189.i.i:                                ; preds = %558
-  br i1 %or.cond275.i.i, label %.preheader188.i.i, label %.thread133
+  br i1 %or.cond308.i.i, label %.preheader188.i.i, label %.thread133
 
 .preheader191.i.i:                                ; preds = %.preheader192.i.i, %._crit_edge.i.i
   %575 = phi i32 [ %603, %._crit_edge.i.i ], [ %559, %.preheader192.i.i ]
@@ -1470,8 +1470,8 @@ tdsc_load_cursor.exit.i:                          ; preds = %649, %477, %456, %b
   br i1 %.not.i, label %.thread133, label %bytestream2_get_le32.exit96
 
 653:                                              ; preds = %bytestream2_get_le32.exit22.i, %bytestream2_get_le32.exit22.thread.i
-  %.0.i2152.i = phi i32 [ 0, %bytestream2_get_le32.exit22.thread.i ], [ %384, %bytestream2_get_le32.exit22.i ]
-  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, i32 noundef %.0.i2152.i) #7
+  %.0.i2180.i = phi i32 [ 0, %bytestream2_get_le32.exit22.thread.i ], [ %384, %bytestream2_get_le32.exit22.i ]
+  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, i32 noundef %.0.i2180.i) #7
   br label %.thread133
 
 .thread133:                                       ; preds = %._crit_edge.i.i, %._crit_edge205.i.i, %._crit_edge228.i.i, %354, %tdsc_parse_tdsf.exit.thread120, %653, %tdsc_load_cursor.exit.i, %.preheader189.i.i, %.preheader192.i.i, %._crit_edge221.i.i, %.preheader186.lr.ph.i.i, %.preheader187.i.i, %bytestream2_get_le32.exit.i102, %.thread126, %bytestream2_get_le32.exit96.thread
@@ -1562,10 +1562,10 @@ tdsc_load_cursor.exit.i:                          ; preds = %649, %477, %456, %b
   br i1 %or.cond7.i, label %.preheader.lr.ph.i, label %tdsc_paint_cursor.exit
 
 .preheader.lr.ph.i:                               ; preds = %707
-  %.not13.i = icmp eq i32 %.178.i, 0
+  %.not17.i = icmp eq i32 %.178.i, 0
   %710 = sext i32 %663 to i64
   %711 = getelementptr inbounds nuw i8, ptr %.val, i64 96
-  br i1 %.not13.i, label %tdsc_paint_cursor.exit, label %.preheader.us.preheader.i
+  br i1 %.not17.i, label %tdsc_paint_cursor.exit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
   %712 = zext nneg i32 %.178.i to i64

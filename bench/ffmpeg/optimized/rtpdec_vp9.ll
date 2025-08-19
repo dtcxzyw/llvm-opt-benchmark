@@ -159,9 +159,9 @@ define internal range(i32 -2147483648, 1) i32 @vp9_handle_packet(ptr noundef %0,
   br label %.thread201
 
 64:                                               ; preds = %58, %61
-  %.sink223 = phi i64 [ 2, %61 ], [ 1, %58 ]
+  %.sink229 = phi i64 [ 2, %61 ], [ 1, %58 ]
   %.sink = phi i32 [ -2, %61 ], [ -1, %58 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.3131, i64 %.sink223
+  %65 = getelementptr inbounds nuw i8, ptr %.3131, i64 %.sink229
   %66 = add nsw i32 %.3137, %.sink
   %67 = add nsw i32 %.2152, -1
   %.old3.not = icmp eq i32 %67, 0

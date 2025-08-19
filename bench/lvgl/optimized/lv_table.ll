@@ -260,13 +260,13 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   br label %51
 
 51:                                               ; preds = %48, %45
-  %.sink94.i = phi i8 [ 18, %48 ], [ 19, %45 ]
-  %.sink91.i = phi i32 [ %50, %48 ], [ %40, %45 ]
+  %.sink96.i = phi i8 [ 18, %48 ], [ 19, %45 ]
+  %.sink93.i = phi i32 [ %50, %48 ], [ %40, %45 ]
   %.sink.i = phi i32 [ %40, %48 ], [ %47, %45 ]
-  %52 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %7, i32 noundef 0, i8 noundef zeroext %.sink94.i) #9
+  %52 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %7, i32 noundef 0, i8 noundef zeroext %.sink96.i) #9
   %53 = ptrtoint ptr %52 to i64
   %.sroa.0.0.extract.trunc.i65.i = trunc i64 %53 to i32
-  %54 = add i32 %.sink91.i, %.sroa.0.0.extract.trunc.i65.i
+  %54 = add i32 %.sink93.i, %.sroa.0.0.extract.trunc.i65.i
   %55 = sub i32 %.sink.i, %54
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %57 = load i32, ptr %56, align 8, !tbaa !3
@@ -1540,7 +1540,7 @@ define internal fastcc void @scroll_to_selected_cell(ptr noundef %0) unnamed_add
 
 23:                                               ; preds = %19
   %24 = sub nsw i32 0, %21
-  br label %.sink.split13
+  br label %.sink.split16
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1552,14 +1552,14 @@ define internal fastcc void @scroll_to_selected_cell(ptr noundef %0) unnamed_add
 30:                                               ; preds = %25
   %31 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %0) #9
   %32 = sub nsw i32 %31, %27
-  br label %.sink.split13
+  br label %.sink.split16
 
-.sink.split13:                                    ; preds = %23, %30
-  %.sink14 = phi i32 [ %32, %30 ], [ %24, %23 ]
-  tail call void @lv_obj_scroll_by_bounded(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.sink14, i1 noundef zeroext true) #9
+.sink.split16:                                    ; preds = %23, %30
+  %.sink17 = phi i32 [ %32, %30 ], [ %24, %23 ]
+  tail call void @lv_obj_scroll_by_bounded(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.sink17, i1 noundef zeroext true) #9
   br label %33
 
-33:                                               ; preds = %.sink.split13, %25
+33:                                               ; preds = %.sink.split16, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -2012,7 +2012,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %152 = load i32, ptr %149, align 8, !tbaa !41
   %153 = and i32 %152, 1
   %.not162.us = icmp eq i32 %153, 0
-  br i1 %.not162.us, label %._crit_edge.loopexit.split.loop.exit271, label %154
+  br i1 %.not162.us, label %._crit_edge.loopexit.split.loop.exit284, label %154
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i32, ptr %129, i64 %144
@@ -2035,13 +2035,13 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %164 = getelementptr inbounds nuw ptr, ptr %114, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !23
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %._crit_edge.loopexit257.split.loop.exit, label %167
+  br i1 %166, label %._crit_edge.loopexit270.split.loop.exit, label %167
 
 167:                                              ; preds = %.lr.ph.split
   %168 = load i32, ptr %165, align 8, !tbaa !41
   %169 = and i32 %168, 1
   %.not162 = icmp eq i32 %169, 0
-  br i1 %.not162, label %._crit_edge.loopexit257.split.loop.exit261, label %170
+  br i1 %.not162, label %._crit_edge.loopexit270.split.loop.exit274, label %170
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i32, ptr %135, i64 %160
@@ -2058,23 +2058,23 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %175 = trunc nuw i64 %144 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit.split.loop.exit271:          ; preds = %151
+._crit_edge.loopexit.split.loop.exit284:          ; preds = %151
   %176 = trunc nuw i64 %144 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit257.split.loop.exit:          ; preds = %.lr.ph.split
+._crit_edge.loopexit270.split.loop.exit:          ; preds = %.lr.ph.split
   %177 = trunc nuw i64 %160 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit257.split.loop.exit261:       ; preds = %167
+._crit_edge.loopexit270.split.loop.exit274:       ; preds = %167
   %178 = trunc nuw i64 %160 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %170, %154, %._crit_edge.loopexit257.split.loop.exit, %._crit_edge.loopexit257.split.loop.exit261, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit271, %.thread, %126
-  %179 = phi i32 [ %128, %126 ], [ %138, %.thread ], [ %128, %._crit_edge.loopexit.split.loop.exit271 ], [ %128, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit257.split.loop.exit ], [ %159, %._crit_edge.loopexit257.split.loop.exit261 ], [ %128, %154 ], [ %174, %170 ]
-  %180 = phi i32 [ %132, %126 ], [ %134, %.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit271 ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %134, %._crit_edge.loopexit257.split.loop.exit ], [ %134, %._crit_edge.loopexit257.split.loop.exit261 ], [ %158, %154 ], [ %134, %170 ]
-  %.0150.lcssa = phi i32 [ 0, %126 ], [ 0, %.thread ], [ %145, %._crit_edge.loopexit.split.loop.exit271 ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %161, %._crit_edge.loopexit257.split.loop.exit ], [ %161, %._crit_edge.loopexit257.split.loop.exit261 ], [ %142, %154 ], [ %140, %170 ]
-  %.lcssa = phi i32 [ %.0142219, %126 ], [ %.0142219, %.thread ], [ %176, %._crit_edge.loopexit.split.loop.exit271 ], [ %175, %._crit_edge.loopexit.split.loop.exit ], [ %177, %._crit_edge.loopexit257.split.loop.exit ], [ %178, %._crit_edge.loopexit257.split.loop.exit261 ], [ %124, %154 ], [ %124, %170 ]
+._crit_edge:                                      ; preds = %170, %154, %._crit_edge.loopexit270.split.loop.exit, %._crit_edge.loopexit270.split.loop.exit274, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit.split.loop.exit284, %.thread, %126
+  %179 = phi i32 [ %128, %126 ], [ %138, %.thread ], [ %128, %._crit_edge.loopexit.split.loop.exit284 ], [ %128, %._crit_edge.loopexit.split.loop.exit ], [ %159, %._crit_edge.loopexit270.split.loop.exit ], [ %159, %._crit_edge.loopexit270.split.loop.exit274 ], [ %128, %154 ], [ %174, %170 ]
+  %180 = phi i32 [ %132, %126 ], [ %134, %.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit284 ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %134, %._crit_edge.loopexit270.split.loop.exit ], [ %134, %._crit_edge.loopexit270.split.loop.exit274 ], [ %158, %154 ], [ %134, %170 ]
+  %.0150.lcssa = phi i32 [ 0, %126 ], [ 0, %.thread ], [ %145, %._crit_edge.loopexit.split.loop.exit284 ], [ %145, %._crit_edge.loopexit.split.loop.exit ], [ %161, %._crit_edge.loopexit270.split.loop.exit ], [ %161, %._crit_edge.loopexit270.split.loop.exit274 ], [ %142, %154 ], [ %140, %170 ]
+  %.lcssa = phi i32 [ %.0142219, %126 ], [ %.0142219, %.thread ], [ %176, %._crit_edge.loopexit.split.loop.exit284 ], [ %175, %._crit_edge.loopexit.split.loop.exit ], [ %177, %._crit_edge.loopexit270.split.loop.exit ], [ %178, %._crit_edge.loopexit270.split.loop.exit274 ], [ %124, %154 ], [ %124, %170 ]
   %181 = load i32, ptr %43, align 4, !tbaa !51
   %182 = load i32, ptr %67, align 4, !tbaa !50
   %183 = icmp slt i32 %181, %182
@@ -2437,7 +2437,7 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   %42 = getelementptr inbounds nuw ptr, ptr %25, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread.loopexit.split.loop.exit99, label %45
+  br i1 %44, label %.thread.loopexit.split.loop.exit104, label %45
 
 45:                                               ; preds = %.lr.ph
   %46 = load i32, ptr %43, align 8, !tbaa !41
@@ -2459,14 +2459,14 @@ define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %
   %53 = trunc nuw i64 %38 to i32
   br label %.thread
 
-.thread.loopexit.split.loop.exit99:               ; preds = %.lr.ph
+.thread.loopexit.split.loop.exit104:              ; preds = %.lr.ph
   %54 = trunc nuw i64 %38 to i32
   br label %.thread
 
-.thread:                                          ; preds = %48, %.thread.loopexit.split.loop.exit, %.thread.loopexit.split.loop.exit99, %30
-  %.068.lcssa = phi i32 [ %34, %30 ], [ %.06881, %.thread.loopexit.split.loop.exit ], [ %.06881, %.thread.loopexit.split.loop.exit99 ], [ %52, %48 ]
-  %.067.lcssa = phi i32 [ 0, %30 ], [ %39, %.thread.loopexit.split.loop.exit ], [ %39, %.thread.loopexit.split.loop.exit99 ], [ %37, %48 ]
-  %.lcssa = phi i32 [ %.06493, %30 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit.split.loop.exit99 ], [ %35, %48 ]
+.thread:                                          ; preds = %48, %.thread.loopexit.split.loop.exit, %.thread.loopexit.split.loop.exit104, %30
+  %.068.lcssa = phi i32 [ %34, %30 ], [ %.06881, %.thread.loopexit.split.loop.exit ], [ %.06881, %.thread.loopexit.split.loop.exit104 ], [ %52, %48 ]
+  %.067.lcssa = phi i32 [ 0, %30 ], [ %39, %.thread.loopexit.split.loop.exit ], [ %39, %.thread.loopexit.split.loop.exit104 ], [ %37, %48 ]
+  %.lcssa = phi i32 [ %.06493, %30 ], [ %53, %.thread.loopexit.split.loop.exit ], [ %54, %.thread.loopexit.split.loop.exit104 ], [ %35, %48 ]
   %55 = load i32, ptr %28, align 8, !tbaa !41
   %56 = and i32 %55, 2
   %.not75 = icmp eq i32 %56, 0

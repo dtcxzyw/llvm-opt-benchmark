@@ -144,9 +144,9 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %85 = load i32, ptr %14, align 4, !tbaa !3
   %86 = icmp slt i32 %85, 1
   %87 = icmp samesign ult i32 %85, %62
-  %or.cond460 = select i1 %.not, i1 %87, i1 false
-  %or.cond463 = select i1 %86, i1 true, i1 %or.cond460
-  br i1 %or.cond463, label %.thread415.sink.split, label %.thread
+  %or.cond469 = select i1 %.not, i1 %87, i1 false
+  %or.cond472 = select i1 %86, i1 true, i1 %or.cond469
+  br i1 %or.cond472, label %.thread415.sink.split, label %.thread
 
 .thread:                                          ; preds = %84
   %88 = icmp samesign ult i32 %62, 2
@@ -229,8 +229,8 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %109, %118
-  %.sink461 = phi double [ %113, %118 ], [ %110, %109 ]
-  store double %.sink461, ptr %12, align 8, !tbaa !7
+  %.sink470 = phi double [ %113, %118 ], [ %110, %109 ]
+  store double %.sink470, ptr %12, align 8, !tbaa !7
   br label %119
 
 119:                                              ; preds = %.sink.split, %111, %115

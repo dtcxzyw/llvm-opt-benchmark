@@ -650,8 +650,8 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30EssentialMinimalSolver5pts
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.idx751 = mul nuw nsw i64 %indvars.iv698, 80
-  %169 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx751
+  %.idx764 = mul nuw nsw i64 %indvars.iv698, 80
+  %169 = getelementptr inbounds nuw i8, ptr %158, i64 %.idx764
   %170 = load double, ptr %169, align 8, !tbaa !54
   %171 = fdiv double %180, %170
   %172 = add nuw nsw i64 %indvars.iv698, %166
@@ -3601,10 +3601,10 @@ _ZN2cv4MatxIdLi3ELi3EEC2EPKd.exit:                ; preds = %1905
 1905:                                             ; preds = %1891, %1905
   %indvars.iv739 = phi i64 [ 0, %1891 ], [ %indvars.iv.next740, %1905 ]
   %.0259682 = phi double [ 0.000000e+00, %1891 ], [ %1951, %1905 ]
-  %.idx752 = mul nuw nsw i64 %indvars.iv739, 104
-  %1906 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx752
-  %.idx753 = mul nuw nsw i64 %indvars.iv739, 24
-  %1907 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx753
+  %.idx765 = mul nuw nsw i64 %indvars.iv739, 104
+  %1906 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx765
+  %.idx766 = mul nuw nsw i64 %indvars.iv739, 24
+  %1907 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx766
   %1908 = load double, ptr %1906, align 8, !tbaa !54
   %1909 = getelementptr inbounds nuw i8, ptr %1906, i64 8
   %1910 = load double, ptr %1909, align 8, !tbaa !54
@@ -4039,12 +4039,12 @@ define linkonce_odr hidden void @_ZNK2cv3MatcvNS_4MatxIT_XT0_EXT1_EEEIdLi10ELi10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 10
-  %or.cond15 = select i1 %or.cond, i1 %14, i1 false
+  %or.cond16 = select i1 %or.cond, i1 %14, i1 false
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 10
-  %or.cond18 = select i1 %or.cond15, i1 %17, i1 false
-  br i1 %or.cond18, label %18, label %22
+  %or.cond19 = select i1 %or.cond16, i1 %17, i1 false
+  br i1 %or.cond19, label %18, label %22
 
 18:                                               ; preds = %2
   %19 = load i32, ptr %1, align 8, !tbaa !152

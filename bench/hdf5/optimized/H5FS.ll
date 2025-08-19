@@ -291,13 +291,13 @@ define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readon
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 408
   store ptr %22, ptr %23, align 8, !tbaa !44
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %.thread58, label %.preheader
+  br i1 %24, label %.thread64, label %.preheader
 
 .preheader:                                       ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 384
   br label %29
 
-.thread58:                                        ; preds = %20
+.thread64:                                        ; preds = %20
   %26 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !11
   %27 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !11
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__new, i32 noundef 604, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.21) #6
@@ -376,7 +376,7 @@ define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readon
   store ptr %77, ptr %23, align 8, !tbaa !44
   br label %78
 
-78:                                               ; preds = %.thread58, %73
+78:                                               ; preds = %.thread64, %73
   %79 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FS_t_reg_free_list, ptr noundef nonnull %12) #6
   br label %.thread
 

@@ -380,8 +380,8 @@ define internal range(i32 -2147483648, 1) i32 @movie_common_init(ptr noundef %0)
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i, %._crit_edge.thread.i.split.loop.exit
-  %.042.lcssa75.i = phi ptr [ %143, %._crit_edge.thread.i.split.loop.exit ], [ @.str.44, %.preheader.i ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.42, ptr noundef nonnull %102, ptr noundef nonnull %.042.lcssa75.i) #13
+  %.042.lcssa78.i = phi ptr [ %143, %._crit_edge.thread.i.split.loop.exit ], [ @.str.44, %.preheader.i ]
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.42, ptr noundef nonnull %102, ptr noundef nonnull %.042.lcssa78.i) #13
   br label %find_stream.exit.thread
 
 144:                                              ; preds = %._crit_edge.i, %.thread.i
@@ -1006,7 +1006,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   br i1 %76, label %58, label %._crit_edge100, !llvm.loop !116
 
 ._crit_edge100.thread:                            ; preds = %.preheader, %._crit_edge100
-  %.074.lcssa148 = phi i32 [ %73, %._crit_edge100 ], [ 0, %.preheader ]
+  %.074.lcssa153 = phi i32 [ %73, %._crit_edge100 ], [ 0, %.preheader ]
   %77 = phi i32 [ %74, %._crit_edge100 ], [ 0, %.preheader ]
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %79 = load i32, ptr %78, align 4, !tbaa !40
@@ -1091,7 +1091,7 @@ rewind_file.exit:                                 ; preds = %80
   br i1 %exitcond.not, label %._crit_edge106, label %108, !llvm.loop !118
 
 110:                                              ; preds = %._crit_edge100.thread, %._crit_edge100
-  %.074.lcssa147 = phi i32 [ %.074.lcssa148, %._crit_edge100.thread ], [ %73, %._crit_edge100 ]
+  %.074.lcssa152 = phi i32 [ %.074.lcssa153, %._crit_edge100.thread ], [ %73, %._crit_edge100 ]
   %111 = phi i32 [ %77, %._crit_edge100.thread ], [ %74, %._crit_edge100 ]
   %.not121 = icmp eq i32 %111, 0
   br i1 %.not121, label %._crit_edge.thread, label %.lr.ph110
@@ -1108,7 +1108,7 @@ rewind_file.exit:                                 ; preds = %80
 115:                                              ; preds = %.lr.ph110, %128
   %116 = phi i32 [ %111, %.lr.ph110 ], [ %129, %128 ]
   %indvars.iv133 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next134, %128 ]
-  %.1107 = phi i32 [ %.074.lcssa147, %.lr.ph110 ], [ %.2, %128 ]
+  %.1107 = phi i32 [ %.074.lcssa152, %.lr.ph110 ], [ %.2, %128 ]
   %117 = load ptr, ptr %112, align 8, !tbaa !66
   %118 = getelementptr inbounds nuw %struct.MovieStream, ptr %117, i64 %indvars.iv133
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 48

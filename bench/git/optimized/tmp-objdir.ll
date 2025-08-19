@@ -780,8 +780,8 @@ ends_with.exit12:                                 ; preds = %ends_with.exit
   br i1 %.not.i.i.i10.not, label %14, label %ends_with.exit16
 
 ends_with.exit12.thread:                          ; preds = %3
-  %.not30 = icmp eq i64 %4, 4
-  br i1 %.not30, label %ends_with.exit16, label %ends_with.exit20.thread
+  %.not31 = icmp eq i64 %4, 4
+  br i1 %.not31, label %ends_with.exit16, label %ends_with.exit20.thread
 
 ends_with.exit16:                                 ; preds = %ends_with.exit12, %ends_with.exit12.thread
   %10 = getelementptr i8, ptr %0, i64 %4

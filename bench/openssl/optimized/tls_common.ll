@@ -1302,7 +1302,7 @@ tls_record_app_data_waiting.exit:                 ; preds = %155
   %283 = call i32 %282(ptr noundef nonnull %0, ptr noundef nonnull %279, ptr noundef nonnull %3, i32 noundef 0) #13
   %284 = add nuw i64 %.1232418.us, 1
   %exitcond468.not = icmp eq i64 %284, %indvars.iv
-  br i1 %exitcond468.not, label %.loopexit391.thread489, label %.preheader390.split.us, !llvm.loop !81
+  br i1 %exitcond468.not, label %.loopexit391.thread513, label %.preheader390.split.us, !llvm.loop !81
 
 .preheader390.split:                              ; preds = %.preheader390, %298
   %.1223420 = phi i32 [ %spec.select, %298 ], [ %245, %.preheader390 ]
@@ -1341,20 +1341,20 @@ tls_record_app_data_waiting.exit:                 ; preds = %155
 
 .loopexit391:                                     ; preds = %298
   %303 = icmp eq i32 %spec.select, 0
-  br i1 %303, label %.loopexit391.thread489, label %.preheader389
+  br i1 %303, label %.loopexit391.thread513, label %.preheader389
 
 .preheader389:                                    ; preds = %269, %274, %272, %.loopexit391
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 4172
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 4112
   br label %309
 
-.loopexit391.thread489:                           ; preds = %.preheader390.split.us, %.loopexit391
+.loopexit391.thread513:                           ; preds = %.preheader390.split.us, %.loopexit391
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %307 = load i32, ptr %306, align 8, !tbaa !11
   %.not291 = icmp eq i32 %307, -1
   br i1 %.not291, label %308, label %.loopexit
 
-308:                                              ; preds = %.loopexit391.thread489
+308:                                              ; preds = %.loopexit391.thread513
   call void @ERR_new() #13
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 917, ptr noundef nonnull @__func__.tls_get_more_records) #13
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 281, ptr noundef null)
@@ -1377,8 +1377,8 @@ tls_record_app_data_waiting.exit:                 ; preds = %155
   %.pre487 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !65
   %317 = zext i32 %316 to i64
   %318 = icmp ugt i64 %.pre487, %317
-  %or.cond517 = select i1 %.not290, i1 %318, i1 false
-  br i1 %or.cond517, label %319, label %._crit_edge486
+  %or.cond541 = select i1 %.not290, i1 %318, i1 false
+  br i1 %or.cond541, label %319, label %._crit_edge486
 
 319:                                              ; preds = %315
   call void @ERR_new() #13
@@ -1440,8 +1440,8 @@ tls_record_app_data_waiting.exit:                 ; preds = %155
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %344, i8 0, i64 16, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %309, %338, %.loopexit391.thread489, %259, %342, %326, %319, %308, %267, %264, %250
-  %.0229 = phi i32 [ -2, %250 ], [ 1, %264 ], [ -2, %259 ], [ -2, %267 ], [ -2, %.loopexit391.thread489 ], [ -2, %308 ], [ -2, %319 ], [ -2, %326 ], [ 1, %342 ], [ -2, %338 ], [ -2, %309 ]
+.loopexit:                                        ; preds = %309, %338, %.loopexit391.thread513, %259, %342, %326, %319, %308, %267, %264, %250
+  %.0229 = phi i32 [ -2, %250 ], [ 1, %264 ], [ -2, %259 ], [ -2, %267 ], [ -2, %.loopexit391.thread513 ], [ -2, %308 ], [ -2, %319 ], [ -2, %326 ], [ 1, %342 ], [ -2, %338 ], [ -2, %309 ]
   %.not296 = icmp eq ptr %.0230.fr, null
   br i1 %.not296, label %.thread, label %.preheader
 
@@ -1741,10 +1741,10 @@ define range(i32 0, 2) i32 @tls13_common_post_process_record(ptr noundef capture
   br i1 %17, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %14, %2
-  %.sink22 = phi i32 [ 1092, %2 ], [ 1106, %14 ]
+  %.sink23 = phi i32 [ 1092, %2 ], [ 1106, %14 ]
   %.sink = phi i32 [ 443, %2 ], [ 271, %14 ]
   tail call void @ERR_new() #13
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink22, ptr noundef nonnull @__func__.tls13_common_post_process_record) #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink23, ptr noundef nonnull @__func__.tls13_common_post_process_record) #13
   tail call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 10, i32 noundef %.sink, ptr noundef null)
   br label %18
 
@@ -2271,10 +2271,10 @@ define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %0, ptr nounde
   br label %117
 
 tls_set1_bio.exit.thread.sink.split:              ; preds = %49, %52, %47, %42, %37, %32, %.loopexit
-  %.sink110 = phi i32 [ 1363, %.loopexit ], [ 1279, %32 ], [ 1285, %37 ], [ 1291, %42 ], [ 1297, %47 ], [ 1303, %52 ], [ 1307, %49 ]
+  %.sink117 = phi i32 [ 1363, %.loopexit ], [ 1279, %32 ], [ 1285, %37 ], [ 1291, %42 ], [ 1297, %47 ], [ 1303, %52 ], [ 1307, %49 ]
   %.sink = phi i32 [ 316, %.loopexit ], [ 316, %32 ], [ 316, %37 ], [ 316, %42 ], [ 316, %47 ], [ 316, %52 ], [ 323, %49 ]
   tail call void @ERR_new() #13
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink110, ptr noundef nonnull @__func__.tls_int_new_record_layer) #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink117, ptr noundef nonnull @__func__.tls_int_new_record_layer) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #13
   br label %tls_set1_bio.exit.thread
 
@@ -3116,10 +3116,10 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   br i1 %.not122, label %.thread, label %92
 
 .thread.sink.split:                               ; preds = %77, %72, %67
-  %.sink163 = phi i32 [ 1824, %67 ], [ 1824, %72 ], [ 1829, %77 ]
+  %.sink172 = phi i32 [ 1824, %67 ], [ 1824, %72 ], [ 1829, %77 ]
   %.sink = phi i32 [ 141, %67 ], [ 141, %72 ], [ 786691, %77 ]
   call void @ERR_new() #13
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink163, ptr noundef nonnull @__func__.tls_write_records_default) #13
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink172, ptr noundef nonnull @__func__.tls_write_records_default) #13
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null)
   br label %.thread
 
@@ -3357,7 +3357,7 @@ define i32 @tls_retry_write_records(ptr noundef %0) #0 {
 33:                                               ; preds = %22
   %34 = zext nneg i32 %31 to i64
   %35 = icmp eq i32 %31, 0
-  br i1 %35, label %36, label %.thread124
+  br i1 %35, label %36, label %.thread136
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %8, align 8, !tbaa !52
@@ -3390,7 +3390,7 @@ define i32 @tls_retry_write_records(ptr noundef %0) #0 {
   %46 = icmp eq i64 %39, %34
   br i1 %46, label %50, label %.thread73
 
-.thread124:                                       ; preds = %33
+.thread136:                                       ; preds = %33
   %47 = load i64, ptr %28, align 8, !tbaa !45
   %48 = icmp eq i64 %47, %34
   br i1 %48, label %50, label %94
@@ -3399,11 +3399,11 @@ define i32 @tls_retry_write_records(ptr noundef %0) #0 {
   %49 = icmp eq i64 %39, 0
   br i1 %49, label %50, label %.thread73
 
-50:                                               ; preds = %.thread124, %.thread, %45
-  %.1118 = phi i64 [ 0, %.thread ], [ 0, %45 ], [ %34, %.thread124 ]
+50:                                               ; preds = %.thread136, %.thread, %45
+  %.1130 = phi i64 [ 0, %.thread ], [ 0, %45 ], [ %34, %.thread136 ]
   store i64 0, ptr %28, align 8, !tbaa !45
   %51 = load i64, ptr %25, align 8, !tbaa !47
-  %52 = add i64 %51, %.1118
+  %52 = add i64 %51, %.1130
   store i64 %52, ptr %25, align 8, !tbaa !47
   %53 = load i64, ptr %2, align 8, !tbaa !144
   %54 = add i64 %53, 1
@@ -3502,7 +3502,7 @@ define i32 @tls_retry_write_records(ptr noundef %0) #0 {
   %.not2.i65 = icmp eq i64 %86, 0
   br i1 %.not2.i65, label %.loopexit.sink.split, label %.lr.ph.i.i62, !llvm.loop !42
 
-94:                                               ; preds = %.thread124
+94:                                               ; preds = %.thread136
   %95 = load i64, ptr %25, align 8, !tbaa !47
   %96 = add i64 %95, %34
   store i64 %96, ptr %25, align 8, !tbaa !47

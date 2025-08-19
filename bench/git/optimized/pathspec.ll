@@ -664,17 +664,17 @@ get_literal_global.exit.i:                        ; preds = %18, %16
 
 .outer:                                           ; preds = %.outer.backedge, %25
   %.297.ph = phi i32 [ 0, %25 ], [ %.297.ph.be, %.outer.backedge ]
-  %.1.ph = phi i32 [ -1, %25 ], [ %.1.ph371, %.outer.backedge ]
+  %.1.ph = phi i32 [ -1, %25 ], [ %.1.ph392, %.outer.backedge ]
   %.0.i.i.ph = phi ptr [ %26, %25 ], [ %.041.i.i, %.outer.backedge ]
-  br label %.outer370
+  br label %.outer391
 
-.outer370:                                        ; preds = %.outer, %54
-  %.1.ph371 = phi i32 [ %.1.ph, %.outer ], [ %55, %54 ]
-  %.0.i.i.ph372 = phi ptr [ %.0.i.i.ph, %.outer ], [ %.041.i.i, %54 ]
+.outer391:                                        ; preds = %.outer, %54
+  %.1.ph392 = phi i32 [ %.1.ph, %.outer ], [ %55, %54 ]
+  %.0.i.i.ph393 = phi ptr [ %.0.i.i.ph, %.outer ], [ %.041.i.i, %54 ]
   br label %29
 
-29:                                               ; preds = %.outer370, %strcspn_escaped.exit.i.i
-  %.0.i.i = phi ptr [ %.041.i.i, %strcspn_escaped.exit.i.i ], [ %.0.i.i.ph372, %.outer370 ]
+29:                                               ; preds = %.outer391, %strcspn_escaped.exit.i.i
+  %.0.i.i = phi ptr [ %.041.i.i, %strcspn_escaped.exit.i.i ], [ %.0.i.i.ph393, %.outer391 ]
   %30 = load i8, ptr %.0.i.i, align 1, !tbaa !11
   switch i8 %30, label %.preheader52.i.i [
     i8 41, label %parse_long_magic.exit.i
@@ -744,7 +744,7 @@ strcspn_escaped.exit.i.i:                         ; preds = %35, %.preheader52.i
 54:                                               ; preds = %48
   %55 = trunc i64 %50 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.outer370, !llvm.loop !76
+  br label %.outer391, !llvm.loop !76
 
 56:                                               ; preds = %46
   %57 = call i32 @starts_with(ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.31) #17
@@ -1045,7 +1045,7 @@ get_literal_global.exit.i79.thread:               ; preds = %158, %.preheader.i,
 parse_element_magic.exit:                         ; preds = %14, %get_literal_global.exit.i, %parse_long_magic.exit.i
   %177 = phi i32 [ %.pre, %parse_long_magic.exit.i ], [ %20, %get_literal_global.exit.i ], [ %.pre243, %14 ]
   %.4 = phi i32 [ %.297.ph, %parse_long_magic.exit.i ], [ 0, %get_literal_global.exit.i ], [ 0, %14 ]
-  %.3 = phi i32 [ %.1.ph371, %parse_long_magic.exit.i ], [ -1, %get_literal_global.exit.i ], [ -1, %14 ]
+  %.3 = phi i32 [ %.1.ph392, %parse_long_magic.exit.i ], [ -1, %get_literal_global.exit.i ], [ -1, %14 ]
   %.0.i = phi ptr [ %156, %parse_long_magic.exit.i ], [ %4, %get_literal_global.exit.i ], [ %4, %14 ]
   %178 = icmp slt i32 %177, 0
   br i1 %178, label %179, label %get_literal_global.exit.i79
@@ -1063,9 +1063,9 @@ get_literal_global.exit.i79:                      ; preds = %179, %parse_element
   br label %182
 
 182:                                              ; preds = %get_literal_global.exit.i79, %get_literal_global.exit.i79.thread
-  %.4250262 = phi i32 [ %.196, %get_literal_global.exit.i79.thread ], [ %.4, %get_literal_global.exit.i79 ]
-  %.3251260 = phi i32 [ -1, %get_literal_global.exit.i79.thread ], [ %.3, %get_literal_global.exit.i79 ]
-  %.0.i252258 = phi ptr [ %spec.select.i.i, %get_literal_global.exit.i79.thread ], [ %.0.i, %get_literal_global.exit.i79 ]
+  %.4271283 = phi i32 [ %.196, %get_literal_global.exit.i79.thread ], [ %.4, %get_literal_global.exit.i79 ]
+  %.3272281 = phi i32 [ -1, %get_literal_global.exit.i79.thread ], [ %.3, %get_literal_global.exit.i79 ]
+  %.0.i273279 = phi ptr [ %spec.select.i.i, %get_literal_global.exit.i79.thread ], [ %.0.i, %get_literal_global.exit.i79 ]
   %183 = phi i32 [ 0, %get_literal_global.exit.i79.thread ], [ %spec.select, %get_literal_global.exit.i79 ]
   %184 = load i32, ptr @get_glob_global.glob, align 4, !tbaa !34
   %185 = icmp slt i32 %184, 0
@@ -1079,7 +1079,7 @@ get_literal_global.exit.i79:                      ; preds = %179, %parse_element
 get_glob_global.exit.i:                           ; preds = %186, %182
   %188 = phi i32 [ %187, %186 ], [ %184, %182 ]
   %.not9.i = icmp ne i32 %188, 0
-  %189 = and i32 %.4250262, 4
+  %189 = and i32 %.4271283, 4
   %.not10.i81 = icmp eq i32 %189, 0
   %or.cond.i = and i1 %.not10.i81, %.not9.i
   %190 = or disjoint i32 %183, 8
@@ -1156,15 +1156,15 @@ get_icase_global.exit.i:                          ; preds = %206, %203
 218:                                              ; preds = %216, %213
   %219 = phi i32 [ %217, %216 ], [ %214, %213 ]
   %.not16.i = icmp ne i32 %219, 0
-  %220 = and i32 %.4250262, 8
+  %220 = and i32 %.4271283, 8
   %.not17.i = icmp eq i32 %220, 0
   %or.cond20.i = and i1 %.not17.i, %.not16.i
   %221 = or i32 %spec.select18.i, 4
   %.3.i = select i1 %or.cond20.i, i32 %221, i32 %spec.select18.i
-  %222 = or i32 %.3.i, %.4250262
+  %222 = or i32 %.3.i, %.4271283
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %222, ptr %223, align 8, !tbaa !73
-  %224 = icmp sgt i32 %.3251260, -1
+  %224 = icmp sgt i32 %.3272281, -1
   br i1 %224, label %225, label %.thread
 
 225:                                              ; preds = %218
@@ -1192,12 +1192,12 @@ get_icase_global.exit.i:                          ; preds = %206, %203
 
 .thread:                                          ; preds = %218
   %233 = and i32 %222, 4
-  %.not69264 = icmp eq i32 %233, 0
+  %.not69285 = icmp eq i32 %233, 0
   %234 = and i32 %222, 8
-  %.not70265 = icmp eq i32 %234, 0
+  %.not70286 = icmp eq i32 %234, 0
   %235 = and i32 %222, 12
-  %or.cond.not266 = icmp eq i32 %235, 12
-  br i1 %or.cond.not266, label %237, label %.thread269
+  %or.cond.not287 = icmp eq i32 %235, 12
+  br i1 %or.cond.not287, label %237, label %.thread290
 
 .thread136:                                       ; preds = %5
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1214,30 +1214,30 @@ get_icase_global.exit.i:                          ; preds = %206, %203
   %.not70 = icmp eq i32 %240, 0
   %241 = and i32 %222, 4
   %.not69 = icmp eq i32 %241, 0
-  %242 = call ptr @xstrdup(ptr noundef nonnull %.0.i252258) #17
-  store i32 %.3251260, ptr %8, align 4, !tbaa !34
+  %242 = call ptr @xstrdup(ptr noundef nonnull %.0.i273279) #17
+  store i32 %.3272281, ptr %8, align 4, !tbaa !34
   br label %262
 
-.thread269:                                       ; preds = %.thread
+.thread290:                                       ; preds = %.thread
   %243 = and i32 %222, 1
   %.not71 = icmp eq i32 %243, 0
   br i1 %.not71, label %._crit_edge, label %244
 
-._crit_edge:                                      ; preds = %.thread269
+._crit_edge:                                      ; preds = %.thread290
   %.pre244 = load i32, ptr %8, align 4, !tbaa !34
   br label %246
 
-244:                                              ; preds = %.thread269
-  %245 = call ptr @xstrdup(ptr noundef nonnull %.0.i252258) #17
+244:                                              ; preds = %.thread290
+  %245 = call ptr @xstrdup(ptr noundef nonnull %.0.i273279) #17
   store i32 0, ptr %8, align 4, !tbaa !34
   br label %262
 
 246:                                              ; preds = %._crit_edge, %.thread136
   %247 = phi i32 [ %3, %.thread136 ], [ %.pre244, %._crit_edge ]
-  %.not70120129146 = phi i1 [ true, %.thread136 ], [ %.not70265, %._crit_edge ]
-  %.not69119131145 = phi i1 [ false, %.thread136 ], [ %.not69264, %._crit_edge ]
-  %.095103118133144 = phi i32 [ 0, %.thread136 ], [ %.4250262, %._crit_edge ]
-  %.058106115135143 = phi ptr [ %4, %.thread136 ], [ %.0.i252258, %._crit_edge ]
+  %.not70120129146 = phi i1 [ true, %.thread136 ], [ %.not70286, %._crit_edge ]
+  %.not69119131145 = phi i1 [ false, %.thread136 ], [ %.not69285, %._crit_edge ]
+  %.095103118133144 = phi i32 [ 0, %.thread136 ], [ %.4271283, %._crit_edge ]
+  %.058106115135143 = phi ptr [ %4, %.thread136 ], [ %.0.i273279, %._crit_edge ]
   %248 = call ptr @prefix_path_gently(ptr noundef %2, i32 noundef %247, ptr noundef nonnull %8, ptr noundef %.058106115135143) #17
   %.not72 = icmp eq ptr %248, null
   br i1 %.not72, label %249, label %._crit_edge245
@@ -1275,10 +1275,10 @@ get_icase_global.exit.i:                          ; preds = %206, %203
   unreachable
 
 262:                                              ; preds = %._crit_edge245, %244, %239
-  %263 = phi i32 [ %.3251260, %239 ], [ 0, %244 ], [ %.pre246, %._crit_edge245 ]
-  %.095103118132 = phi i32 [ %.4250262, %239 ], [ %.4250262, %244 ], [ %.095103118133144, %._crit_edge245 ]
-  %.not69119130 = phi i1 [ %.not69, %239 ], [ %.not69264, %244 ], [ %.not69119131145, %._crit_edge245 ]
-  %.not70120128 = phi i1 [ %.not70, %239 ], [ %.not70265, %244 ], [ %.not70120129146, %._crit_edge245 ]
+  %263 = phi i32 [ %.3272281, %239 ], [ 0, %244 ], [ %.pre246, %._crit_edge245 ]
+  %.095103118132 = phi i32 [ %.4271283, %239 ], [ %.4271283, %244 ], [ %.095103118133144, %._crit_edge245 ]
+  %.not69119130 = phi i1 [ %.not69, %239 ], [ %.not69285, %244 ], [ %.not69119131145, %._crit_edge245 ]
+  %.not70120128 = phi i1 [ %.not70, %239 ], [ %.not70286, %244 ], [ %.not70120129146, %._crit_edge245 ]
   %.057 = phi ptr [ %242, %239 ], [ %245, %244 ], [ %248, %._crit_edge245 ]
   store ptr %.057, ptr %0, align 8, !tbaa !64
   %264 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.057) #19

@@ -170,7 +170,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 invoke.cont4.thread:                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %names, i8 0, i64 24, i1 false)
-  %_M_finish.i.i7.i1980 = getelementptr inbounds nuw i8, ptr %types, i64 8
+  %_M_finish.i.i7.i1990 = getelementptr inbounds nuw i8, ptr %types, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %types, i8 0, i64 24, i1 false)
   br label %for.end
 
@@ -341,7 +341,7 @@ lpad11:                                           ; preds = %lpad11.loopexit.spl
   br label %ehcleanup
 
 for.end:                                          ; preds = %invoke.cont14, %invoke.cont4.thread
-  %_M_finish.i.i7.i1981 = phi ptr [ %_M_finish.i.i7.i1980, %invoke.cont4.thread ], [ %_M_finish.i.i7.i19, %invoke.cont14 ]
+  %_M_finish.i.i7.i1991 = phi ptr [ %_M_finish.i.i7.i1990, %invoke.cont4.thread ], [ %_M_finish.i.i7.i19, %invoke.cont14 ]
   invoke void @_ZN8facebook5velox3ROWEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEOS1_ISt10shared_ptrIKNS0_4TypeEESaISE_EE(ptr nonnull sret(%"class.std::shared_ptr.8") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(24) %names, ptr noundef nonnull align 8 dereferenceable(24) %types)
           to label %_ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit unwind label %lpad11.loopexit.split-lp
 
@@ -355,7 +355,7 @@ _ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit: ; preds = %for.end
   store ptr %25, ptr %_M_refcount.i.i27, align 8
   store ptr null, ptr %ref.tmp18, align 8
   %26 = load ptr, ptr %types, align 8
-  %27 = load ptr, ptr %_M_finish.i.i7.i1981, align 8
+  %27 = load ptr, ptr %_M_finish.i.i7.i1991, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %26, %27
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 

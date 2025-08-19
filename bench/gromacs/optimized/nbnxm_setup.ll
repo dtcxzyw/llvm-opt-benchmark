@@ -828,9 +828,9 @@ _ZN3gmxL28kernelTypeUsesSimplePairlistENS_15NbnxmKernelTypeE.exit.thread.i: ; pr
 165:                                              ; preds = %_ZN3gmxL28kernelTypeUsesSimplePairlistENS_15NbnxmKernelTypeE.exit.thread.i
   %166 = load ptr, ptr %1, align 8, !tbaa !46
   %167 = icmp eq ptr %166, null
-  br i1 %167, label %_ZN3gmxL17pick_nbnxn_kernelERKNS_8MDLoggerEbRK13gmx_hw_info_tNS_12PairlistTypeERKNS_17NonbondedResourceERK10t_inputrec.exit, label %switch.lookup174
+  br i1 %167, label %_ZN3gmxL17pick_nbnxn_kernelERKNS_8MDLoggerEbRK13gmx_hw_info_tNS_12PairlistTypeERKNS_17NonbondedResourceERK10t_inputrec.exit, label %switch.lookup212
 
-switch.lookup174:                                 ; preds = %165
+switch.lookup212:                                 ; preds = %165
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %168 = getelementptr inbounds nuw i8, ptr %22, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
@@ -839,14 +839,14 @@ switch.lookup174:                                 ; preds = %165
   store i64 0, ptr %169, align 8, !tbaa !15
   %170 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 1, ptr %170, align 8, !tbaa !49
-  %switch.tableidx175 = add nsw i32 %.sroa.09.01930.i, -1
-  %171 = zext nneg i32 %switch.tableidx175 to i64
-  %switch.gep176 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN3gmx14init_nb_verletERKNS_8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS_19DeviceStreamManagerERK10gmx_mtop_tbPNS_25ObservablesReducerBuilderENS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 0, i64 %171
-  %switch.load177 = load ptr, ptr %switch.gep176, align 8
-  %172 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull @.str.16, ptr noundef nonnull %switch.load177)
+  %switch.tableidx213 = add nsw i32 %.sroa.09.01930.i, -1
+  %171 = zext nneg i32 %switch.tableidx213 to i64
+  %switch.gep214 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN3gmx14init_nb_verletERKNS_8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS_19DeviceStreamManagerERK10gmx_mtop_tbPNS_25ObservablesReducerBuilderENS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 0, i64 %171
+  %switch.load215 = load ptr, ptr %switch.gep214, align 8
+  %172 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull @.str.16, ptr noundef nonnull %switch.load215)
           to label %173 unwind label %.body60.i
 
-173:                                              ; preds = %switch.lookup174
+173:                                              ; preds = %switch.lookup212
   %174 = load ptr, ptr %166, align 8, !tbaa !52
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load ptr, ptr %175, align 8
@@ -874,7 +874,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit67.i:             ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN3gmxL17pick_nbnxn_kernelERKNS_8MDLoggerEbRK13gmx_hw_info_tNS_12PairlistTypeERKNS_17NonbondedResourceERK10t_inputrec.exit
 
-.body60.i:                                        ; preds = %173, %switch.lookup174
+.body60.i:                                        ; preds = %173, %switch.lookup212
   %183 = landingpad { ptr, i32 }
           cleanup
   %184 = load ptr, ptr %22, align 8, !tbaa !12

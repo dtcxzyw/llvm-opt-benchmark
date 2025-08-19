@@ -1054,7 +1054,7 @@ Fraig_MappingSetChoiceLevels.exit:                ; preds = %.lr.ph.i23
   br i1 %exitcond.not.i33, label %Fraig_GetMaxLevel.exit34, label %40, !llvm.loop !50
 
 Fraig_GetMaxLevel.exit34:                         ; preds = %40, %Fraig_MappingSetChoiceLevels.exit.thread, %Fraig_MappingSetChoiceLevels.exit
-  %.09.lcssa.i3648 = phi i32 [ %.09..i, %Fraig_MappingSetChoiceLevels.exit ], [ 0, %Fraig_MappingSetChoiceLevels.exit.thread ], [ %.09..i, %40 ]
+  %.09.lcssa.i3652 = phi i32 [ %.09..i, %Fraig_MappingSetChoiceLevels.exit ], [ 0, %Fraig_MappingSetChoiceLevels.exit.thread ], [ %.09..i, %40 ]
   %.09.lcssa.i26 = phi i32 [ 0, %Fraig_MappingSetChoiceLevels.exit ], [ 0, %Fraig_MappingSetChoiceLevels.exit.thread ], [ %.09..i31, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !53
@@ -1109,7 +1109,7 @@ Fraig_GetMaxLevel.exit34:                         ; preds = %40, %Fraig_MappingS
 ._crit_edge:                                      ; preds = %.loopexit, %Fraig_GetMaxLevel.exit34
   %.020.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.2, %.loopexit ]
   %.018.lcssa = phi i32 [ 0, %Fraig_GetMaxLevel.exit34 ], [ %.1, %.loopexit ]
-  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.09.lcssa.i3648, i32 noundef %.09.lcssa.i26)
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.09.lcssa.i3652, i32 noundef %.09.lcssa.i26)
   %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.018.lcssa, i32 noundef %.020.lcssa)
   ret void
 }

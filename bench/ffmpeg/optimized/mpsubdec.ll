@@ -195,7 +195,7 @@ define internal i32 @mpsub_read_header(ptr noundef %0) #1 {
 .lr.ph30.i:                                       ; preds = %.preheader.i, %.lr.ph30.i
   %53 = phi i32 [ %56, %.lr.ph30.i ], [ %.promoted.i, %.preheader.i ]
   %54 = phi i64 [ %55, %.lr.ph30.i ], [ %42, %.preheader.i ]
-  %55 = sdiv i64 %54, 10
+  %55 = udiv i64 %54, 10
   %56 = add nsw i32 %53, 1
   %57 = sub nsw i32 %44, %56
   %58 = icmp sgt i32 %57, 8
@@ -221,9 +221,9 @@ define internal i32 @mpsub_read_header(ptr noundef %0) #1 {
   br label %67
 
 67:                                               ; preds = %65, %63
-  %.sink52.i = phi { i64, i1 } [ %66, %65 ], [ %64, %63 ]
-  %68 = extractvalue { i64, i1 } %.sink52.i, 1
-  %69 = extractvalue { i64, i1 } %.sink52.i, 0
+  %.sink54.i = phi { i64, i1 } [ %66, %65 ], [ %64, %63 ]
+  %68 = extractvalue { i64, i1 } %.sink54.i, 1
+  %69 = extractvalue { i64, i1 } %.sink54.i, 0
   %70 = icmp slt i64 %69, 0
   %71 = select i1 %70, i64 9223372036854775807, i64 -9223372036854775808
   %72 = select i1 %68, i64 %71, i64 %69
@@ -281,8 +281,8 @@ parse_line.exit:                                  ; preds = %31, %41
   %.0..0..0.81.pre = load i64, ptr %8, align 8, !tbaa !36
   %91 = sub nuw nsw i64 9223372036854775807, %.054118
   %92 = icmp sgt i64 %.0..0..0.81.pre, %91
-  %or.cond148 = select i1 %.not104, i1 %92, i1 false
-  br i1 %or.cond148, label %.thread98, label %.thread
+  %or.cond155 = select i1 %.not104, i1 %92, i1 false
+  br i1 %or.cond155, label %.thread98, label %.thread
 
 .thread:                                          ; preds = %87, %90
   %.0..0.81 = phi i64 [ %.0..0..0.79, %87 ], [ %.0..0..0.81.pre, %90 ]
@@ -377,7 +377,7 @@ parse_line.exit:                                  ; preds = %31, %41
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %1, %._crit_edge, %.loopexit
-  %.051112138 = phi i32 [ %.051112, %._crit_edge ], [ %.051112, %.loopexit ], [ 0, %1 ]
+  %.051112145 = phi i32 [ %.051112, %._crit_edge ], [ %.051112, %.loopexit ], [ 0, %1 ]
   %.sroa.031.4 = phi i32 [ %130, %._crit_edge ], [ %.sroa.031.0109, %.loopexit ], [ 10000000, %1 ]
   %131 = call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #10
   %.not75 = icmp eq ptr %131, null
@@ -394,7 +394,7 @@ parse_line.exit:                                  ; preds = %31, %41
   br label %136
 
 136:                                              ; preds = %132, %.loopexit.thread, %.thread98
-  %.5 = phi i32 [ %.051112138, %132 ], [ -12, %.loopexit.thread ], [ %.4.ph, %.thread98 ]
+  %.5 = phi i32 [ %.051112145, %132 ], [ -12, %.loopexit.thread ], [ %.4.ph, %.thread98 ]
   %137 = call i32 @av_bprint_finalize(ptr noundef nonnull %6, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.5

@@ -944,7 +944,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %287 = icmp ult i8 %286, 2
   tail call void @llvm.assume(i1 %287)
   %288 = icmp eq i8 %286, 0
-  br i1 %288, label %.thread17, label %289
+  br i1 %288, label %.thread31, label %289
 
 289:                                              ; preds = %284
   %290 = load i32, ptr %157, align 4
@@ -962,9 +962,9 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %297 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #19, !srcloc !5
   %.pre13 = and i32 %297, 1
   %298 = icmp eq i32 %.pre13, 0
-  br i1 %298, label %.thread, label %.thread17
+  br i1 %298, label %.thread, label %.thread31
 
-.thread17:                                        ; preds = %284, %296
+.thread31:                                        ; preds = %284, %296
   %299 = phi i32 [ %297, %296 ], [ %281, %284 ]
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %301 = load i8, ptr %300, align 8
@@ -972,12 +972,12 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %303 = icmp eq i8 %302, 0
   br i1 %303, label %307, label %304
 
-304:                                              ; preds = %.thread17
+304:                                              ; preds = %.thread31
   %305 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22) #19, !srcloc !5
   %306 = or i32 %280, 1025
   br label %.thread
 
-307:                                              ; preds = %.thread17
+307:                                              ; preds = %.thread31
   %308 = or i32 %280, 1025
   br label %.thread
 
@@ -3848,8 +3848,8 @@ thread-pre-split:                                 ; preds = %71, %95, %96, %99, 
   %198 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %197) #19
   %199 = and i32 %198, 7
   %200 = icmp eq i32 %199, 0
-  %or.cond48 = select i1 %195, i1 %200, i1 false
-  br i1 %or.cond48, label %201, label %205, !prof !43
+  %or.cond69 = select i1 %195, i1 %200, i1 false
+  br i1 %or.cond69, label %201, label %205, !prof !43
 
 201:                                              ; preds = %192
   %202 = load ptr, ptr %29, align 8
@@ -4012,9 +4012,9 @@ thread-pre-split:                                 ; preds = %71, %95, %96, %99, 
   %305 = and i32 %296, 536870912
   %306 = icmp eq i32 %305, 0
   %307 = getelementptr inbounds nuw i8, ptr %294, i64 12
-  br i1 %306, label %.thread, label %.thread38
+  br i1 %306, label %.thread, label %.thread59
 
-.thread38:                                        ; preds = %304
+.thread59:                                        ; preds = %304
   store i32 -75, ptr %307, align 4
   br label %331
 
@@ -4062,8 +4062,8 @@ thread-pre-split:                                 ; preds = %71, %95, %96, %99, 
   store i32 %330, ptr %327, align 4
   br label %331
 
-331:                                              ; preds = %.thread38, %326, %308, %286
-  %332 = phi i32 [ %288, %286 ], [ %290, %308 ], [ %290, %326 ], [ %290, %.thread38 ]
+331:                                              ; preds = %.thread59, %326, %308, %286
+  %332 = phi i32 [ %288, %286 ], [ %290, %308 ], [ %290, %326 ], [ %290, %.thread59 ]
   %333 = add nuw nsw i64 %287, 1
   %334 = icmp eq i64 %333, 8
   br i1 %334, label %335, label %286, !llvm.loop !47
@@ -4240,8 +4240,8 @@ thread-pre-split:                                 ; preds = %71, %95, %96, %99, 
   %429 = icmp ne i32 %428, 0
   %.pre34 = load i32, ptr %246, align 32
   %430 = icmp eq i32 %.pre34, 1
-  %or.cond46 = select i1 %429, i1 %430, i1 false
-  br i1 %or.cond46, label %431, label %436
+  %or.cond67 = select i1 %429, i1 %430, i1 false
+  br i1 %or.cond67, label %431, label %436
 
 431:                                              ; preds = %424
   %432 = load ptr, ptr %34, align 8
@@ -4902,15 +4902,15 @@ define internal fastcc range(i32 0, 256) i32 @qh_completions(ptr noundef %0, ptr
   %158 = and i1 %156, %157
   %159 = and i32 %134, 64
   %160 = icmp eq i32 %159, 0
-  br i1 %158, label %161, label %.thread35, !prof !41
+  br i1 %158, label %161, label %.thread43, !prof !41
 
 161:                                              ; preds = %154
   br i1 %160, label %179, label %162
 
-.thread35:                                        ; preds = %154
+.thread43:                                        ; preds = %154
   br i1 %160, label %.thread14, label %162
 
-162:                                              ; preds = %.thread35, %161
+162:                                              ; preds = %.thread43, %161
   %163 = and i32 %134, 16
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %.thread11.thread
@@ -4981,8 +4981,8 @@ define internal fastcc range(i32 0, 256) i32 @qh_completions(ptr noundef %0, ptr
   store i8 %205, ptr %10, align 8
   br label %.thread14
 
-.thread14:                                        ; preds = %.thread11, %.thread35, %179, %150, %203, %200, %196, %191, %.thread11.thread, %131
-  %206 = phi i32 [ %132, %131 ], [ %185, %.thread11.thread ], [ %185, %191 ], [ %185, %196 ], [ %185, %200 ], [ %185, %203 ], [ -115, %150 ], [ %spec.select, %179 ], [ -115, %.thread35 ], [ -32, %.thread11 ]
+.thread14:                                        ; preds = %.thread11, %.thread43, %179, %150, %203, %200, %196, %191, %.thread11.thread, %131
+  %206 = phi i32 [ %132, %131 ], [ %185, %.thread11.thread ], [ %185, %191 ], [ %185, %196 ], [ %185, %200 ], [ %185, %203 ], [ -115, %150 ], [ %spec.select, %179 ], [ -115, %.thread43 ], [ -32, %.thread11 ]
   %207 = icmp eq i32 %133, 0
   br i1 %207, label %215, label %208
 
@@ -6239,7 +6239,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @tt_available(ptr noundef rea
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %47
-  %53 = add i16 %49, %.32.val.fr
+  %53 = add nuw nsw i16 %49, %.32.val.fr
   store i16 %53, ptr %19, align 2
   br label %54
 
@@ -7627,7 +7627,7 @@ define internal i32 @ehci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 30
-  switch i32 %12, label %default.unreachable93 [
+  switch i32 %12, label %default.unreachable139 [
     i32 2, label %13
     i32 1, label %48
     i32 0, label %119
@@ -7640,7 +7640,7 @@ define internal i32 @ehci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %16 = icmp ugt i32 %15, 16384
   br i1 %16, label %756, label %17
 
-default.unreachable93:                            ; preds = %3
+default.unreachable139:                           ; preds = %3
   unreachable
 
 17:                                               ; preds = %3, %13
@@ -10761,7 +10761,7 @@ define internal noundef i64 @companion_store(ptr noundef readonly captures(none)
   %11 = load i32, ptr %5, align 4
   %12 = icmp slt i32 %11, 0
   %spec.select = call i32 @llvm.abs.i32(i32 %11, i1 false)
-  %spec.select3 = select i1 %12, i32 0, i32 8192
+  %spec.select6 = select i1 %12, i32 0, i32 8192
   %13 = icmp slt i32 %spec.select, 1
   br i1 %13, label %.critedge, label %14
 
@@ -10799,7 +10799,7 @@ define internal noundef i64 @companion_store(ptr noundef readonly captures(none)
   call void @_raw_spin_lock_irq(ptr noundef nonnull %32) #19
   %34 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #19, !srcloc !5
   %35 = and i32 %34, 8192
-  %36 = icmp eq i32 %35, %spec.select3
+  %36 = icmp eq i32 %35, %spec.select6
   %37 = and i32 %34, 8193
   %38 = icmp eq i32 %37, 0
   %39 = or i1 %36, %38
@@ -10834,7 +10834,7 @@ define internal noundef i64 @companion_store(ptr noundef readonly captures(none)
   call void @_raw_spin_lock_irq(ptr noundef nonnull %32) #19
   %52 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31) #19, !srcloc !5
   %53 = and i32 %52, 8192
-  %54 = icmp eq i32 %53, %spec.select3
+  %54 = icmp eq i32 %53, %spec.select6
   %55 = and i32 %52, 8193
   %56 = icmp eq i32 %55, 0
   %57 = or i1 %54, %56
@@ -11774,10 +11774,10 @@ define internal fastcc noundef ptr @qh_make(ptr noundef readonly captures(none) 
   %90 = load i8, ptr %44, align 2
   %91 = add i8 %90, 1
   %spec.select = select i1 %19, i8 %91, i8 1
-  %spec.select8 = select i1 %19, i8 1, i8 %91
+  %spec.select16 = select i1 %19, i8 1, i8 %91
   store i8 %spec.select, ptr %44, align 2
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 123
-  store i8 %spec.select8, ptr %92, align 1
+  store i8 %spec.select16, ptr %92, align 1
   %93 = icmp eq ptr %7, null
   br i1 %93, label %99, label %94
 

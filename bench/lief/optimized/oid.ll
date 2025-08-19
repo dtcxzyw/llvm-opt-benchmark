@@ -1008,7 +1008,7 @@ oid_pkcs12_pbe_alg_from_asn1.exit.thread:         ; preds = %16, %3, %oid_pkcs12
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @mbedtls_oid_get_numeric_string(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define hidden range(i32 -2147483647, -2147483648) i32 @mbedtls_oid_get_numeric_string(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp ugt i64 %1, 2147483647
   br i1 %4, label %.thread, label %5
 
@@ -1022,11 +1022,11 @@ define hidden i32 @mbedtls_oid_get_numeric_string(ptr noundef writeonly captures
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.outer
 
-.outer:                                           ; preds = %.thread74, %.lr.ph
-  %.ph = phi i64 [ %.pre73, %.thread74 ], [ %7, %.lr.ph ]
-  %.04369.ph = phi i64 [ %42, %.thread74 ], [ 0, %.lr.ph ]
-  %.04667.ph = phi i64 [ %40, %.thread74 ], [ %1, %.lr.ph ]
-  %.04866.ph = phi ptr [ %41, %.thread74 ], [ %0, %.lr.ph ]
+.outer:                                           ; preds = %.thread81, %.lr.ph
+  %.ph = phi i64 [ %.pre73, %.thread81 ], [ %7, %.lr.ph ]
+  %.04369.ph = phi i64 [ %42, %.thread81 ], [ 0, %.lr.ph ]
+  %.04667.ph = phi i64 [ %40, %.thread81 ], [ %1, %.lr.ph ]
+  %.04866.ph = phi ptr [ %41, %.thread81 ], [ %0, %.lr.ph ]
   br label %10
 
 10:                                               ; preds = %.outer, %38
@@ -1089,29 +1089,29 @@ define hidden i32 @mbedtls_oid_get_numeric_string(ptr noundef writeonly captures
 36:                                               ; preds = %34
   %37 = zext nneg i32 %.050 to i64
   %.not57 = icmp ugt i64 %.04667.ph, %37
-  br i1 %.not57, label %.thread74, label %.thread
+  br i1 %.not57, label %.thread81, label %.thread
 
 38:                                               ; preds = %._crit_edge71
   %39 = add nuw i64 %.04369, 1
   %.not58 = icmp ult i64 %39, %.ph
   br i1 %.not58, label %10, label %._crit_edge, !llvm.loop !49
 
-.thread74:                                        ; preds = %36
-  %40 = sub nuw i64 %.04667.ph, %37
+.thread81:                                        ; preds = %36
+  %40 = sub nuw nsw i64 %.04667.ph, %37
   %41 = getelementptr inbounds nuw i8, ptr %.04866.ph, i64 %37
   %.pre73 = load i64, ptr %6, align 8, !tbaa !3
   %42 = add nuw i64 %.04369, 1
-  %.not5878 = icmp ult i64 %42, %.pre73
-  br i1 %.not5878, label %.outer, label %._crit_edge.thread, !llvm.loop !49
+  %.not5885 = icmp ult i64 %42, %.pre73
+  br i1 %.not5885, label %.outer, label %._crit_edge.thread, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %38
   %.not59 = icmp eq i32 %20, 0
   br i1 %.not59, label %._crit_edge.thread, label %.thread
 
-._crit_edge.thread:                               ; preds = %.thread74, %._crit_edge
-  %.1477984 = phi i64 [ %.04667.ph, %._crit_edge ], [ %40, %.thread74 ]
-  %43 = sub i64 %1, %.1477984
-  %44 = trunc i64 %43 to i32
+._crit_edge.thread:                               ; preds = %.thread81, %._crit_edge
+  %.1478691 = phi i64 [ %.04667.ph, %._crit_edge ], [ %40, %.thread81 ]
+  %43 = sub nsw i64 %1, %.1478691
+  %44 = trunc nsw i64 %43 to i32
   br label %.thread
 
 .thread:                                          ; preds = %36, %34, %12, %10, %._crit_edge, %5, %3, %._crit_edge.thread

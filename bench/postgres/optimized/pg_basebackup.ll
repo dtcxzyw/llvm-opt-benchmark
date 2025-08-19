@@ -541,19 +541,19 @@ sub_0118:                                         ; preds = %57
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 0
-  br i1 %82, label %87, label %.thread283
+  br i1 %82, label %87, label %.thread321
 
 .tail117.thread:                                  ; preds = %sub_0118
   %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(6) @.str.47) #18
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %87, label %sub_0122
 
-.thread283:                                       ; preds = %.tail117
+.thread321:                                       ; preds = %.tail117
   %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(6) @.str.47) #18
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %.tail121.thread
 
-87:                                               ; preds = %.thread283, %.tail117.thread, %.tail117
+87:                                               ; preds = %.thread321, %.tail117.thread, %.tail117
   store i8 112, ptr @format, align 1
   br label %.backedge
 
@@ -567,7 +567,7 @@ sub_0122:                                         ; preds = %.tail117.thread
   %90 = icmp eq i8 %89, 0
   br i1 %90, label %93, label %.tail121.thread
 
-.tail121.thread:                                  ; preds = %.thread283, %sub_0122, %.tail121
+.tail121.thread:                                  ; preds = %.thread321, %sub_0122, %.tail121
   %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(4) @.str.49) #18
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %94
@@ -967,19 +967,19 @@ sub_0126:                                         ; preds = %57
   %242 = getelementptr inbounds nuw i8, ptr %240, i64 1
   %243 = load i8, ptr %242, align 1
   %244 = icmp eq i8 %243, 0
-  br i1 %244, label %249, label %.thread285
+  br i1 %244, label %249, label %.thread323
 
 .tail125.thread:                                  ; preds = %sub_0126
   %245 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(5) @.str.35) #18
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %249, label %sub_0130
 
-.thread285:                                       ; preds = %.tail125
+.thread323:                                       ; preds = %.tail125
   %247 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(5) @.str.35) #18
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %249, label %.tail129.thread.thread
 
-249:                                              ; preds = %.thread285, %.tail125.thread, %.tail125
+249:                                              ; preds = %.thread323, %.tail125.thread, %.tail125
   store i32 0, ptr @includewal, align 4
   br label %.backedge
 
@@ -991,24 +991,24 @@ sub_0130:                                         ; preds = %.tail125.thread
   %250 = getelementptr inbounds nuw i8, ptr %240, i64 1
   %251 = load i8, ptr %250, align 1
   %252 = icmp eq i8 %251, 0
-  br i1 %252, label %259, label %.thread287
+  br i1 %252, label %259, label %.thread325
 
 .tail129.thread:                                  ; preds = %sub_0130
   %253 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(6) @.str.54) #18
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %259, label %sub_0134
 
-.tail129.thread.thread:                           ; preds = %.thread285
+.tail129.thread.thread:                           ; preds = %.thread323
   %255 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(6) @.str.54) #18
   %256 = icmp eq i32 %255, 0
   br i1 %256, label %259, label %.tail133.thread
 
-.thread287:                                       ; preds = %.tail129
+.thread325:                                       ; preds = %.tail129
   %257 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(6) @.str.54) #18
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %259, label %.tail133.thread
 
-259:                                              ; preds = %.tail129.thread.thread, %.thread287, %.tail129.thread, %.tail129
+259:                                              ; preds = %.tail129.thread.thread, %.thread325, %.tail129.thread, %.tail129
   store i32 1, ptr @includewal, align 4
   br label %.backedge
 
@@ -1022,7 +1022,7 @@ sub_0134:                                         ; preds = %.tail129.thread
   %262 = icmp eq i8 %261, 0
   br i1 %262, label %265, label %.tail133.thread
 
-.tail133.thread:                                  ; preds = %.tail129.thread.thread, %.thread287, %sub_0134, %.tail133
+.tail133.thread:                                  ; preds = %.tail129.thread.thread, %.thread325, %sub_0134, %.tail133
   %263 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(7) @.str.56) #18
   %264 = icmp eq i32 %263, 0
   br i1 %264, label %265, label %266
@@ -1146,7 +1146,7 @@ backup_parse_compress_options.exit:               ; preds = %268, %272
 306:                                              ; preds = %302
   %307 = load i8, ptr @format, align 1
   %.not110 = icmp eq i8 %307, 0
-  br i1 %.not110, label %.thread289, label %308
+  br i1 %.not110, label %.thread327, label %308
 
 308:                                              ; preds = %306
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.61) #17
@@ -1158,20 +1158,20 @@ backup_parse_compress_options.exit:               ; preds = %268, %272
 310:                                              ; preds = %300, %305
   %311 = load i8, ptr @format, align 1
   %312 = icmp eq i8 %311, 0
-  br i1 %312, label %.thread289, label %316
+  br i1 %312, label %.thread327, label %316
 
-.thread289:                                       ; preds = %306, %310
+.thread327:                                       ; preds = %306, %310
   %313 = phi i1 [ true, %310 ], [ false, %306 ]
   %314 = phi i1 [ false, %310 ], [ true, %306 ]
   %315 = phi ptr [ null, %310 ], [ %301, %306 ]
   store i8 112, ptr @format, align 1
   br label %316
 
-316:                                              ; preds = %.thread289, %310
-  %317 = phi i1 [ %313, %.thread289 ], [ true, %310 ]
-  %318 = phi i1 [ %314, %.thread289 ], [ false, %310 ]
-  %319 = phi ptr [ %315, %.thread289 ], [ null, %310 ]
-  %320 = phi i8 [ 112, %.thread289 ], [ %311, %310 ]
+316:                                              ; preds = %.thread327, %310
+  %317 = phi i1 [ %313, %.thread327 ], [ true, %310 ]
+  %318 = phi i1 [ %314, %.thread327 ], [ false, %310 ]
+  %319 = phi ptr [ %315, %.thread327 ], [ null, %310 ]
+  %320 = phi i8 [ 112, %.thread327 ], [ %311, %310 ]
   %321 = load ptr, ptr @basedir, align 8
   %322 = icmp eq ptr %321, null
   %or.cond4 = and i1 %317, %322
@@ -1249,9 +1249,9 @@ backup_parse_compress_options.exit:               ; preds = %268, %272
   %347 = load i32, ptr %27, align 8
   %348 = icmp ne i32 %347, 0
   %or.cond13 = select i1 %346, i1 %348, i1 false
-  br i1 %or.cond13, label %351, label %.thread290
+  br i1 %or.cond13, label %351, label %.thread328
 
-.thread290:                                       ; preds = %344
+.thread328:                                       ; preds = %344
   %349 = load i32, ptr @includewal, align 4
   %350 = icmp eq i32 %349, 2
   br label %363
@@ -1284,13 +1284,13 @@ backup_parse_compress_options.exit:               ; preds = %268, %272
   call void @exit(i32 noundef 1) #20
   unreachable
 
-363:                                              ; preds = %.thread290, %353
-  %364 = phi i1 [ %350, %.thread290 ], [ %360, %353 ]
-  %365 = phi i32 [ %349, %.thread290 ], [ %359, %353 ]
-  %.not66295 = phi i1 [ true, %.thread290 ], [ %357, %353 ]
-  %.29199104294 = phi i1 [ false, %.thread290 ], [ %358, %353 ]
-  %366 = phi i8 [ %345, %.thread290 ], [ %320, %353 ]
-  %367 = phi i1 [ %346, %.thread290 ], [ %356, %353 ]
+363:                                              ; preds = %.thread328, %353
+  %364 = phi i1 [ %350, %.thread328 ], [ %360, %353 ]
+  %365 = phi i32 [ %349, %.thread328 ], [ %359, %353 ]
+  %.not66333 = phi i1 [ true, %.thread328 ], [ %357, %353 ]
+  %.29199104332 = phi i1 [ false, %.thread328 ], [ %358, %353 ]
+  %366 = phi i8 [ %345, %.thread328 ], [ %320, %353 ]
+  %367 = phi i1 [ %346, %.thread328 ], [ %356, %353 ]
   %368 = icmp eq i8 %366, 116
   %or.cond17 = select i1 %368, i1 %364, i1 false
   br i1 %or.cond17, label %sub_0138, label %378
@@ -1384,7 +1384,7 @@ sub_0138:                                         ; preds = %363
   br i1 %.not65, label %412, label %400
 
 400:                                              ; preds = %398
-  br i1 %.not66295, label %403, label %401
+  br i1 %.not66333, label %403, label %401
 
 401:                                              ; preds = %400
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.77) #17
@@ -1898,14 +1898,14 @@ sub_0142:                                         ; preds = %437
   br i1 %472, label %.thread230.i, label %.thread228.i
 
 603:                                              ; preds = %596, %595
-  br i1 %.29199104294, label %.thread231.i, label %605
+  br i1 %.29199104332, label %.thread231.i, label %605
 
 .thread230.i:                                     ; preds = %602
   call void @AppendStringCommandOption(ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.60) #17
-  br i1 %.29199104294, label %.thread231.i, label %605
+  br i1 %.29199104332, label %.thread231.i, label %605
 
 .thread228.i:                                     ; preds = %602
-  br i1 %.29199104294, label %.thread229.i, label %605
+  br i1 %.29199104332, label %.thread229.i, label %605
 
 .thread229.i:                                     ; preds = %.thread228.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.198) #17

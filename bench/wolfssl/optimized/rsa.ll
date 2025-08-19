@@ -687,7 +687,7 @@ define i32 @wc_RsaUnPad_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
 .preheader.i:                                     ; preds = %29, %.preheader.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 2, %.preheader.preheader.i ]
   %exitcond65.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond65.not, label %.split.loop.exit80, label %29
+  br i1 %exitcond65.not, label %.split.loop.exit102, label %29
 
 29:                                               ; preds = %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -698,15 +698,15 @@ define i32 @wc_RsaUnPad_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
 
 .split.loop.exit:                                 ; preds = %29
   %indvars.le = trunc i64 %indvars.iv.next to i16
-  br label %.split.loop.exit80
+  br label %.split.loop.exit102
 
-.split.loop.exit80:                               ; preds = %.preheader.i, %.split.loop.exit
+.split.loop.exit102:                              ; preds = %.preheader.i, %.split.loop.exit
   %.1.i = phi i16 [ %indvars.le, %.split.loop.exit ], [ %28, %.preheader.i ]
   %32 = zext i16 %.1.i to i32
   %33 = icmp ult i16 %.1.i, 11
   br i1 %33, label %RsaUnPad.exit, label %34
 
-34:                                               ; preds = %.split.loop.exit80
+34:                                               ; preds = %.split.loop.exit102
   %35 = zext i16 %.1.i to i64
   %36 = getelementptr i8, ptr %0, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -1
@@ -1007,10 +1007,10 @@ RsaMGF.exit82.i:                                  ; preds = %123, %122, %121, %1
   br i1 %exitcond.not.i.i103.i, label %XorWords.exit.i104.i, label %.lr.ph.i.i99.i, !llvm.loop !32
 
 XorWords.exit.i104.i:                             ; preds = %.lr.ph.i.i99.i, %.lr.ph.split.i108.i, %._crit_edge.i97.i
-  %.123.lcssa50.i105.i = phi i32 [ %89, %._crit_edge.i97.i ], [ 0, %.lr.ph.split.i108.i ], [ %89, %.lr.ph.i.i99.i ]
+  %.123.lcssa52.i105.i = phi i32 [ %89, %._crit_edge.i97.i ], [ 0, %.lr.ph.split.i108.i ], [ %89, %.lr.ph.i.i99.i ]
   %.sroa.026.1.i106.i = phi ptr [ %133, %._crit_edge.i97.i ], [ %144, %.lr.ph.split.i108.i ], [ %151, %.lr.ph.i.i99.i ]
   %.sroa.0.1.i107.i = phi ptr [ %117, %._crit_edge.i97.i ], [ %142, %.lr.ph.split.i108.i ], [ %149, %.lr.ph.i.i99.i ]
-  %155 = and i32 %.123.lcssa50.i105.i, 7
+  %155 = and i32 %.123.lcssa52.i105.i, 7
   br label %156
 
 156:                                              ; preds = %XorWords.exit.i104.i, %131
@@ -1278,8 +1278,8 @@ RsaUnPad_OAEP.exit:                               ; preds = %.lr.ph35.i.i, %73, 
   %266 = add nuw nsw i32 %.077.i, %201
   br label %RsaUnPad.exit
 
-RsaUnPad.exit:                                    ; preds = %260, %259, %252, %236, %229, %225, %224, %222, %210, %203, %200, %._crit_edge.i, %39, %34, %.split.loop.exit80, %25, %23, %15, %12, %RsaUnPad_OAEP.exit
-  %.0 = phi i32 [ %.069.i, %RsaUnPad_OAEP.exit ], [ -201, %12 ], [ -173, %15 ], [ -201, %23 ], [ -201, %25 ], [ -201, %.split.loop.exit80 ], [ -201, %34 ], [ %40, %39 ], [ %72, %._crit_edge.i ], [ %235, %236 ], [ -250, %252 ], [ -250, %259 ], [ %266, %260 ], [ %201, %200 ], [ -193, %203 ], [ -234, %210 ], [ -250, %222 ], [ -250, %224 ], [ -193, %225 ], [ -125, %229 ]
+RsaUnPad.exit:                                    ; preds = %260, %259, %252, %236, %229, %225, %224, %222, %210, %203, %200, %._crit_edge.i, %39, %34, %.split.loop.exit102, %25, %23, %15, %12, %RsaUnPad_OAEP.exit
+  %.0 = phi i32 [ %.069.i, %RsaUnPad_OAEP.exit ], [ -201, %12 ], [ -173, %15 ], [ -201, %23 ], [ -201, %25 ], [ -201, %.split.loop.exit102 ], [ -201, %34 ], [ %40, %39 ], [ %72, %._crit_edge.i ], [ %235, %236 ], [ -250, %252 ], [ -250, %259 ], [ %266, %260 ], [ %201, %200 ], [ -193, %203 ], [ -234, %210 ], [ -250, %222 ], [ -250, %224 ], [ -193, %225 ], [ -125, %229 ]
   ret i32 %.0
 }
 
@@ -2842,10 +2842,10 @@ define internal fastcc void @xorbuf(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %exitcond.not.i, label %XorWords.exit, label %.lr.ph.i, !llvm.loop !32
 
 XorWords.exit:                                    ; preds = %.lr.ph.i, %.lr.ph.split, %._crit_edge
-  %.123.lcssa50 = phi i32 [ %2, %._crit_edge ], [ 0, %.lr.ph.split ], [ %2, %.lr.ph.i ]
+  %.123.lcssa52 = phi i32 [ %2, %._crit_edge ], [ 0, %.lr.ph.split ], [ %2, %.lr.ph.i ]
   %.sroa.026.1 = phi ptr [ %0, %._crit_edge ], [ %14, %.lr.ph.split ], [ %21, %.lr.ph.i ]
   %.sroa.0.1 = phi ptr [ %1, %._crit_edge ], [ %12, %.lr.ph.split ], [ %19, %.lr.ph.i ]
-  %25 = and i32 %.123.lcssa50, 7
+  %25 = and i32 %.123.lcssa52, 7
   br label %26
 
 26:                                               ; preds = %XorWords.exit, %3

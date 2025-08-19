@@ -499,10 +499,10 @@ free_copy_options.exit:                           ; preds = %198
   br i1 %213, label %218, label %219
 
 218:                                              ; preds = %212
-  br i1 %217, label %free_copy_options.exit71.sink.split, label %.thread85
+  br i1 %217, label %free_copy_options.exit71.sink.split, label %.thread105
 
 219:                                              ; preds = %212
-  br i1 %217, label %free_copy_options.exit71, label %.thread85
+  br i1 %217, label %free_copy_options.exit71, label %.thread105
 
 free_copy_options.exit71.sink.split:              ; preds = %208, %218
   %.str.5.sink = phi ptr [ @.str.5, %218 ], [ @.str.4, %208 ]
@@ -523,11 +523,11 @@ free_copy_options.exit71:                         ; preds = %free_copy_options.e
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %parse_slash_copy.exit.thread
 
-.thread85:                                        ; preds = %218, %219
+.thread105:                                       ; preds = %218, %219
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %226
 
-226:                                              ; preds = %.thread85, %207
+226:                                              ; preds = %.thread105, %207
   call void @initPQExpBuffer(ptr noundef nonnull %2) #11
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.6) #11
   %227 = load ptr, ptr %8, align 8
@@ -816,7 +816,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   br i1 %2, label %20, label %.preheader
 
 20:                                               ; preds = %19
-  br i1 %.not73, label %21, label %.preheader110
+  br i1 %.not73, label %21, label %.preheader113
 
 21:                                               ; preds = %20
   %22 = call ptr @get_prompt(i32 noundef 7, ptr noundef null) #11
@@ -824,12 +824,12 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %24 = call i32 @fputs(ptr noundef %22, ptr noundef %23)
   %25 = load ptr, ptr @stdout, align 8
   %26 = call i32 @fflush(ptr noundef %25)
-  br label %.preheader110
+  br label %.preheader113
 
-.preheader110:                                    ; preds = %21, %20
+.preheader113:                                    ; preds = %21, %20
   br label %27
 
-27:                                               ; preds = %.preheader110, %31
+27:                                               ; preds = %.preheader113, %31
   store volatile i32 1, ptr @sigint_interrupt_enabled, align 4
   %28 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 8192, ptr noundef %1)
   %29 = trunc i64 %28 to i32
@@ -884,7 +884,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   br i1 %or.cond79, label %57, label %63
 
 57:                                               ; preds = %54
-  switch i32 %47, label %.thread101 [
+  switch i32 %47, label %.thread104 [
     i32 3, label %58
     i32 4, label %60
   ]
@@ -892,12 +892,12 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 58:                                               ; preds = %57
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %44, ptr noundef nonnull dereferenceable(3) @.str.17, i64 3)
   %59 = icmp eq i32 %bcmp, 0
-  br i1 %59, label %62, label %.thread101
+  br i1 %59, label %62, label %.thread104
 
 60:                                               ; preds = %57
   %bcmp75 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %44, ptr noundef nonnull dereferenceable(4) @.str.18, i64 4)
   %61 = icmp eq i32 %bcmp75, 0
-  br i1 %61, label %62, label %.thread101
+  br i1 %61, label %62, label %.thread104
 
 62:                                               ; preds = %60, %58
   store i8 0, ptr %44, align 1
@@ -909,11 +909,11 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %.269 = phi i8 [ 1, %62 ], [ 0, %54 ]
   %.263 = phi i32 [ %.06197, %62 ], [ %48, %54 ]
   %65 = icmp eq ptr %1, %64
-  br i1 %65, label %.thread101, label %70
+  br i1 %65, label %.thread104, label %70
 
-.thread101:                                       ; preds = %58, %57, %60, %63
-  %.263105 = phi i32 [ %.263, %63 ], [ %48, %60 ], [ %48, %57 ], [ %48, %58 ]
-  %.269104 = phi i8 [ %.269, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %58 ]
+.thread104:                                       ; preds = %58, %57, %60, %63
+  %.263108 = phi i32 [ %.263, %63 ], [ %48, %60 ], [ %48, %57 ], [ %48, %58 ]
+  %.269107 = phi i8 [ %.269, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %58 ]
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 352), align 8
   %67 = add i64 %66, 1
   store i64 %67, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 352), align 8
@@ -922,10 +922,10 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   store i64 %69, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 360), align 8
   br label %70
 
-70:                                               ; preds = %.thread101, %63, %45, %40
-  %.168 = phi i8 [ 1, %40 ], [ %.269104, %.thread101 ], [ %.269, %63 ], [ 0, %45 ]
-  %.162 = phi i32 [ %.06197, %40 ], [ %.263105, %.thread101 ], [ %.263, %63 ], [ %48, %45 ]
-  %.159 = phi i1 [ %.05898, %40 ], [ true, %.thread101 ], [ true, %63 ], [ false, %45 ]
+70:                                               ; preds = %.thread104, %63, %45, %40
+  %.168 = phi i8 [ 1, %40 ], [ %.269107, %.thread104 ], [ %.269, %63 ], [ 0, %45 ]
+  %.162 = phi i32 [ %.06197, %40 ], [ %.263108, %.thread104 ], [ %.263, %63 ], [ %48, %45 ]
+  %.159 = phi i1 [ %.05898, %40 ], [ true, %.thread104 ], [ true, %63 ], [ false, %45 ]
   %71 = icmp sgt i32 %.162, 8186
   %72 = trunc nuw i8 %.168 to i1
   %73 = icmp sgt i32 %.162, 0

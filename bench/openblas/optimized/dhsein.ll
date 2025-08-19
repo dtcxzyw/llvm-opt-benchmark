@@ -269,14 +269,14 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %135 = getelementptr double, ptr %134, i64 %indvars.iv337
   %136 = load double, ptr %135, align 8, !tbaa !7
   %137 = fcmp oeq double %136, 0.000000e+00
-  br i1 %137, label %.split.loop.exit368, label %131, !llvm.loop !11
+  br i1 %137, label %.split.loop.exit377, label %131, !llvm.loop !11
 
-.split.loop.exit368:                              ; preds = %132
+.split.loop.exit377:                              ; preds = %132
   %138 = trunc nsw i64 %indvars.iv337 to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %131, %.split.loop.exit368
-  %.0247.lcssa = phi i32 [ %138, %.split.loop.exit368 ], [ %smin, %131 ]
+.split.loop.exit:                                 ; preds = %131, %.split.loop.exit377
+  %.0247.lcssa = phi i32 [ %138, %.split.loop.exit377 ], [ %smin, %131 ]
   %139 = load i32, ptr %24, align 4, !tbaa !3
   %140 = sext i32 %139 to i64
   %141 = icmp sgt i64 %indvars.iv335, %140
@@ -291,7 +291,7 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 145:                                              ; preds = %146, %142
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %146 ], [ %indvars.iv335, %142 ]
   %.not268.not = icmp slt i64 %indvars.iv340, %144
-  br i1 %.not268.not, label %146, label %.split.loop.exit370
+  br i1 %.not268.not, label %146, label %.split.loop.exit379
 
 146:                                              ; preds = %145
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
@@ -300,19 +300,19 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %149 = getelementptr double, ptr %148, i64 %147
   %150 = load double, ptr %149, align 8, !tbaa !7
   %151 = fcmp oeq double %150, 0.000000e+00
-  br i1 %151, label %.split.loop.exit371, label %145, !llvm.loop !12
+  br i1 %151, label %.split.loop.exit380, label %145, !llvm.loop !12
 
-.split.loop.exit371:                              ; preds = %146
+.split.loop.exit380:                              ; preds = %146
   %152 = trunc nuw nsw i64 %indvars.iv340 to i32
-  br label %.split.loop.exit370
+  br label %.split.loop.exit379
 
-.split.loop.exit370:                              ; preds = %145, %.split.loop.exit371
-  %.1248.lcssa = phi i32 [ %152, %.split.loop.exit371 ], [ %smax, %145 ]
+.split.loop.exit379:                              ; preds = %145, %.split.loop.exit380
+  %.1248.lcssa = phi i32 [ %152, %.split.loop.exit380 ], [ %smax, %145 ]
   store i32 %.1248.lcssa, ptr %24, align 4, !tbaa !3
   br label %153
 
-153:                                              ; preds = %.split.loop.exit, %.split.loop.exit370, %127
-  %.1243 = phi i32 [ %.0247.lcssa, %.split.loop.exit370 ], [ %.0247.lcssa, %.split.loop.exit ], [ %.0242326, %127 ]
+153:                                              ; preds = %.split.loop.exit, %.split.loop.exit379, %127
+  %.1243 = phi i32 [ %.0247.lcssa, %.split.loop.exit379 ], [ %.0247.lcssa, %.split.loop.exit ], [ %.0242326, %127 ]
   %.not269 = icmp eq i32 %.1243, %.0240327
   br i1 %.not269, label %167, label %154
 
@@ -339,8 +339,8 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %164 = fcmp ogt double %163, 0.000000e+00
   %165 = load double, ptr %28, align 8
   %166 = fmul double %111, %163
-  %.sink373 = select i1 %164, double %166, double %165
-  store double %.sink373, ptr %31, align 8, !tbaa !7
+  %.sink382 = select i1 %164, double %166, double %165
+  store double %.sink382, ptr %31, align 8, !tbaa !7
   br label %167
 
 167:                                              ; preds = %.sink.split, %153
@@ -450,10 +450,10 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %229
 
 229:                                              ; preds = %226, %220
-  %.sink375 = phi i32 [ 0, %226 ], [ %225, %220 ]
+  %.sink384 = phi i32 [ 0, %226 ], [ %225, %220 ]
   %230 = sext i32 %.0239 to i64
   %231 = getelementptr inbounds i32, ptr %45, i64 %230
-  store i32 %.sink375, ptr %231, align 4, !tbaa !3
+  store i32 %.sink384, ptr %231, align 4, !tbaa !3
   %232 = add i32 %.1243, -1
   store i32 %232, ptr %21, align 4, !tbaa !3
   %.not273.not303 = icmp sgt i32 %.1243, 1
@@ -505,8 +505,8 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 260:                                              ; preds = %243
   %261 = load i32, ptr %18, align 4, !tbaa !3
-  %.382 = select i1 %197, i32 2, i32 1
-  %262 = add nsw i32 %261, %.382
+  %.391 = select i1 %197, i32 2, i32 1
+  %262 = add nsw i32 %261, %.391
   store i32 %262, ptr %18, align 4, !tbaa !3
   %263 = sext i32 %.0328 to i64
   %264 = getelementptr inbounds i32, ptr %46, i64 %263
@@ -521,10 +521,10 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %269
 
 269:                                              ; preds = %266, %260
-  %.sink379 = phi i32 [ 0, %266 ], [ %265, %260 ]
+  %.sink388 = phi i32 [ 0, %266 ], [ %265, %260 ]
   %270 = sext i32 %.0239 to i64
   %271 = getelementptr inbounds i32, ptr %46, i64 %270
-  store i32 %.sink379, ptr %271, align 4, !tbaa !3
+  store i32 %.sink388, ptr %271, align 4, !tbaa !3
   %272 = load i32, ptr %4, align 4, !tbaa !3
   store i32 %272, ptr %21, align 4, !tbaa !3
   %273 = load i32, ptr %24, align 4, !tbaa !3

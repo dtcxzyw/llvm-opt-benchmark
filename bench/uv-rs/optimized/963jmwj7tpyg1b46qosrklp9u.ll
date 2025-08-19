@@ -2190,13 +2190,13 @@ define void @"_ZN16uv_configuration15package_options117_$LT$impl$u20$core..conve
   %13 = alloca [64 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = load i64, ptr %1, align 8, !range !319, !noundef !7
-  switch i64 %15, label %default.unreachable3 [
+  switch i64 %15, label %default.unreachable7 [
     i64 0, label %16
     i64 1, label %22
     i64 2, label %28
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable7:                             ; preds = %2
   unreachable
 
 16:                                               ; preds = %2

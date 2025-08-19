@@ -277,7 +277,7 @@ define dso_local { i64, ptr } @_ZN4absl23FindLongestCommonPrefixESt17basic_strin
   %38 = xor i64 %.0.copyload.i.i65, %.0.copyload.i.i64
   %39 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %38, i1 true)
   %40 = lshr i64 %39, 3
-  %41 = add i64 %40, %34
+  %41 = add nuw i64 %40, %34
   br label %42
 
 42:                                               ; preds = %33, %24, %14, %15, %.thread, %37

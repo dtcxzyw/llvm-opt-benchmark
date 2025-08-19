@@ -1498,20 +1498,20 @@ define dso_local noundef zeroext i1 @LWLockWaitForVar(ptr noundef %0, ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 90
   %11 = load volatile i32, ptr %8, align 4
   %12 = and i32 %11, 16777216
-  %.not.i58 = icmp eq i32 %12, 0
-  br i1 %.not.i58, label %.preheader, label %.lr.ph61
+  %.not.i60 = icmp eq i32 %12, 0
+  br i1 %.not.i60, label %.preheader, label %.lr.ph63
 
-.lr.ph61:                                         ; preds = %4, %LWLockConflictsWithVar.exit.thread
-  %.01959 = phi i32 [ %.2, %LWLockConflictsWithVar.exit.thread ], [ 0, %4 ]
+.lr.ph63:                                         ; preds = %4, %LWLockConflictsWithVar.exit.thread
+  %.01961 = phi i32 [ %.2, %LWLockConflictsWithVar.exit.thread ], [ 0, %4 ]
   %13 = load volatile i64, ptr %1, align 8
   %.not12.i = icmp eq i64 %13, %2
   br i1 %.not12.i, label %LWLockConflictsWithVar.exit, label %14
 
-14:                                               ; preds = %.lr.ph61
+14:                                               ; preds = %.lr.ph63
   store i64 %13, ptr %3, align 8
   br label %.preheader
 
-LWLockConflictsWithVar.exit:                      ; preds = %.lr.ph61
+LWLockConflictsWithVar.exit:                      ; preds = %.lr.ph63
   tail call fastcc void @LWLockQueueSelf(ptr noundef nonnull %0, i32 noundef 2)
   %15 = atomicrmw or ptr %8, i32 536870912 seq_cst, align 4
   %16 = load volatile i32, ptr %8, align 4
@@ -1541,7 +1541,7 @@ LWLockConflictsWithVar.exit23:                    ; preds = %18
   br label %25
 
 25:                                               ; preds = %25, %LWLockConflictsWithVar.exit23
-  %.2 = phi i32 [ %.01959, %LWLockConflictsWithVar.exit23 ], [ %29, %25 ]
+  %.2 = phi i32 [ %.01961, %LWLockConflictsWithVar.exit23 ], [ %29, %25 ]
   %26 = load ptr, ptr %9, align 8
   tail call void @PGSemaphoreLock(ptr noundef %26) #15
   %27 = load i8, ptr %10, align 2
@@ -1555,16 +1555,16 @@ LWLockConflictsWithVar.exit.thread:               ; preds = %25
   %31 = load volatile i32, ptr %8, align 4
   %32 = and i32 %31, 16777216
   %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %.preheader, label %.lr.ph61
+  br i1 %.not.i, label %.preheader, label %.lr.ph63
 
 .preheader:                                       ; preds = %LWLockConflictsWithVar.exit.thread, %4, %.loopexit, %14
-  %.01951 = phi i32 [ %.01959, %14 ], [ %.01959, %.loopexit ], [ 0, %4 ], [ %.2, %LWLockConflictsWithVar.exit.thread ]
+  %.01953 = phi i32 [ %.01961, %14 ], [ %.01961, %.loopexit ], [ 0, %4 ], [ %.2, %LWLockConflictsWithVar.exit.thread ]
   %.024.ph = phi i1 [ false, %14 ], [ %.not.i20, %.loopexit ], [ true, %4 ], [ true, %LWLockConflictsWithVar.exit.thread ]
-  %33 = icmp sgt i32 %.01951, 0
+  %33 = icmp sgt i32 %.01953, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.332 = phi i32 [ %34, %.lr.ph ], [ %.01951, %.preheader ]
+  %.332 = phi i32 [ %34, %.lr.ph ], [ %.01953, %.preheader ]
   %34 = add nsw i32 %.332, -1
   %35 = load ptr, ptr %9, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %35) #15
@@ -1642,25 +1642,25 @@ LWLockWaitListLock.exit:                          ; preds = %._crit_edge.i, %3
   %29 = getelementptr inbounds %struct.PGPROC, ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 91
   %31 = load i8, ptr %30, align 1
-  %.not2761 = icmp eq i8 %31, 2
-  br i1 %.not2761, label %.lr.ph66, label %._crit_edge
+  %.not2765 = icmp eq i8 %31, 2
+  br i1 %.not2765, label %.lr.ph70, label %._crit_edge
 
-.lr.ph66:                                         ; preds = %.lr.ph
+.lr.ph70:                                         ; preds = %.lr.ph
   %32 = load ptr, ptr @ProcGlobal, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %22 to i64
   %35 = getelementptr inbounds %struct.PGPROC, ptr %33, i64 %34, i32 17
   br label %36
 
-36:                                               ; preds = %.lr.ph66, %72
-  %37 = phi ptr [ %29, %.lr.ph66 ], [ %78, %72 ]
-  %38 = phi i64 [ %28, %.lr.ph66 ], [ %77, %72 ]
-  %39 = phi ptr [ %27, %.lr.ph66 ], [ %74, %72 ]
-  %.sroa.21.04265.in = phi ptr [ %35, %.lr.ph66 ], [ %76, %72 ]
-  %.sroa.6.03964 = phi i32 [ -1, %.lr.ph66 ], [ %.sroa.0.04162, %72 ]
-  %.sroa.0.0304063 = phi i32 [ -1, %.lr.ph66 ], [ %.sroa.0.3, %72 ]
-  %.sroa.0.04162 = phi i32 [ %22, %.lr.ph66 ], [ %.sroa.21.04265, %72 ]
-  %.sroa.21.04265 = load i32, ptr %.sroa.21.04265.in, align 4
+36:                                               ; preds = %.lr.ph70, %72
+  %37 = phi ptr [ %29, %.lr.ph70 ], [ %78, %72 ]
+  %38 = phi i64 [ %28, %.lr.ph70 ], [ %77, %72 ]
+  %39 = phi ptr [ %27, %.lr.ph70 ], [ %74, %72 ]
+  %.sroa.21.04269.in = phi ptr [ %35, %.lr.ph70 ], [ %76, %72 ]
+  %.sroa.6.03968 = phi i32 [ -1, %.lr.ph70 ], [ %.sroa.0.04166, %72 ]
+  %.sroa.0.0304067 = phi i32 [ -1, %.lr.ph70 ], [ %.sroa.0.3, %72 ]
+  %.sroa.0.04166 = phi i32 [ %22, %.lr.ph70 ], [ %.sroa.21.04269, %72 ]
+  %.sroa.21.04269 = load i32, ptr %.sroa.21.04269.in, align 4
   %40 = getelementptr inbounds %struct.PGPROC, ptr %39, i64 %38, i32 17
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
@@ -1702,7 +1702,7 @@ proclist_delete_offset.exit:                      ; preds = %52, %53
   %58 = load ptr, ptr @ProcGlobal, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds %struct.PGPROC, ptr %59, i64 %38, i32 17
-  %61 = icmp eq i32 %.sroa.6.03964, -1
+  %61 = icmp eq i32 %.sroa.6.03968, -1
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
   br i1 %61, label %63, label %64
 
@@ -1711,28 +1711,28 @@ proclist_delete_offset.exit:                      ; preds = %52, %53
   br label %69
 
 64:                                               ; preds = %proclist_delete_offset.exit
-  store i32 %.sroa.6.03964, ptr %62, align 4
+  store i32 %.sroa.6.03968, ptr %62, align 4
   %65 = load ptr, ptr @ProcGlobal, align 8
   %66 = load ptr, ptr %65, align 8
-  %67 = sext i32 %.sroa.6.03964 to i64
+  %67 = sext i32 %.sroa.6.03968 to i64
   %68 = getelementptr inbounds %struct.PGPROC, ptr %66, i64 %67, i32 17
-  store i32 %.sroa.0.04162, ptr %68, align 4
+  store i32 %.sroa.0.04166, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %64, %63
-  %.sroa.0.3 = phi i32 [ %.sroa.0.04162, %63 ], [ %.sroa.0.0304063, %64 ]
+  %.sroa.0.3 = phi i32 [ %.sroa.0.04166, %63 ], [ %.sroa.0.0304067, %64 ]
   store i32 -1, ptr %60, align 4
   %70 = getelementptr inbounds nuw i8, ptr %37, i64 90
   store i8 2, ptr %70, align 2
-  %71 = icmp eq i32 %.sroa.21.04265, -1
+  %71 = icmp eq i32 %.sroa.21.04269, -1
   br i1 %71, label %._crit_edge, label %72
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr @ProcGlobal, align 8
   %74 = load ptr, ptr %73, align 8
-  %75 = sext i32 %.sroa.21.04265 to i64
+  %75 = sext i32 %.sroa.21.04269 to i64
   %76 = getelementptr inbounds %struct.PGPROC, ptr %74, i64 %75, i32 17
-  %77 = sext i32 %.sroa.21.04265 to i64
+  %77 = sext i32 %.sroa.21.04269 to i64
   %78 = getelementptr inbounds %struct.PGPROC, ptr %74, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 91
   %80 = load i8, ptr %79, align 1
@@ -1853,9 +1853,9 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %27 = icmp eq i32 %20, 0
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %. = select i1 %27, i32 16777216, i32 1
-  %.47 = select i1 %27, i32 2130706432, i32 2147483647
+  %.53 = select i1 %27, i32 2130706432, i32 2147483647
   %29 = atomicrmw sub ptr %28, i32 %. seq_cst, align 4
-  %30 = add i32 %29, %.47
+  %30 = add i32 %29, %.53
   %31 = and i32 %30, 1644167167
   %or.cond = icmp eq i32 %31, 1610612736
   br i1 %or.cond, label %32, label %.critedge

@@ -93,16 +93,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %20, ptr %22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  %.sink315.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink315.sroa.gep316 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink315.sroa.gep318 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink315.sroa.gep319 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink315.sroa.gep321 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink315.sroa.gep322 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink315.sroa.gep324 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink315.sroa.gep325 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink315.sroa.gep327 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %.sink315.sroa.gep328 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sink322.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink322.sroa.gep323 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink322.sroa.gep325 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink322.sroa.gep326 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink322.sroa.gep328 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink322.sroa.gep329 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink322.sroa.gep331 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink322.sroa.gep332 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink322.sroa.gep334 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sink322.sroa.gep335 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %23 = invoke noalias noundef nonnull dereferenceable(20) ptr @_Znwm(i64 noundef 20) #10
           to label %24 unwind label %87
 
@@ -231,21 +231,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   br label %.body61
 
 .invoke:                                          ; preds = %75, %46
-  %.sink315.sroa.phi = phi ptr [ %.sink315.sroa.gep, %46 ], [ %.sink315.sroa.gep316, %75 ]
-  %.sink315.sroa.phi317 = phi ptr [ %.sink315.sroa.gep318, %46 ], [ %.sink315.sroa.gep319, %75 ]
-  %.sink315.sroa.phi320 = phi ptr [ %.sink315.sroa.gep321, %46 ], [ %.sink315.sroa.gep322, %75 ]
-  %.sink315.sroa.phi323 = phi ptr [ %.sink315.sroa.gep324, %46 ], [ %.sink315.sroa.gep325, %75 ]
-  %.sink315.sroa.phi326 = phi ptr [ %.sink315.sroa.gep327, %46 ], [ %.sink315.sroa.gep328, %75 ]
-  %.sink315 = phi ptr [ %8, %46 ], [ %7, %75 ]
-  %.sink312 = phi i64 [ 73, %46 ], [ 111, %75 ]
+  %.sink322.sroa.phi = phi ptr [ %.sink322.sroa.gep, %46 ], [ %.sink322.sroa.gep323, %75 ]
+  %.sink322.sroa.phi324 = phi ptr [ %.sink322.sroa.gep325, %46 ], [ %.sink322.sroa.gep326, %75 ]
+  %.sink322.sroa.phi327 = phi ptr [ %.sink322.sroa.gep328, %46 ], [ %.sink322.sroa.gep329, %75 ]
+  %.sink322.sroa.phi330 = phi ptr [ %.sink322.sroa.gep331, %46 ], [ %.sink322.sroa.gep332, %75 ]
+  %.sink322.sroa.phi333 = phi ptr [ %.sink322.sroa.gep334, %46 ], [ %.sink322.sroa.gep335, %75 ]
+  %.sink322 = phi ptr [ %8, %46 ], [ %7, %75 ]
+  %.sink319 = phi i64 [ 73, %46 ], [ 111, %75 ]
   %91 = phi ptr [ @.str.4, %46 ], [ @.str.7, %75 ]
-  store ptr @.str, ptr %.sink315, align 8
-  store ptr @__func__.main, ptr %.sink315.sroa.phi, align 8
-  store i64 %.sink312, ptr %.sink315.sroa.phi317, align 8
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink315.sroa.phi320, align 8
-  store i8 0, ptr %.sink315.sroa.phi323, align 8
-  store i32 4, ptr %.sink315.sroa.phi326, align 8
-  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink315, ptr noundef nonnull @.str.14, ptr noundef nonnull %91) #11
+  store ptr @.str, ptr %.sink322, align 8
+  store ptr @__func__.main, ptr %.sink322.sroa.phi, align 8
+  store i64 %.sink319, ptr %.sink322.sroa.phi324, align 8
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sink322.sroa.phi327, align 8
+  store i8 0, ptr %.sink322.sroa.phi330, align 8
+  store i32 4, ptr %.sink322.sroa.phi333, align 8
+  invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %.sink322, ptr noundef nonnull @.str.14, ptr noundef nonnull %91) #11
           to label %.cont unwind label %89
 
 .cont:                                            ; preds = %.invoke

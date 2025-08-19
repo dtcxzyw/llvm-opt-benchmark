@@ -159,7 +159,7 @@ residual_filter.exit:                             ; preds = %59, %41
   br label %94
 
 .lr.ph352.preheader.i:                            ; preds = %78, %._crit_edge.i
-  %.0272421423.i = phi i32 [ 3, %._crit_edge.i ], [ %85, %78 ]
+  %.0272425428.i = phi i32 [ 3, %._crit_edge.i ], [ %85, %78 ]
   br label %.lr.ph352.i
 
 .lr.ph352.i:                                      ; preds = %.lr.ph352.i, %.lr.ph352.preheader.i
@@ -167,7 +167,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %88 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv385.i
   %89 = load i16, ptr %88, align 2, !tbaa !4
   %90 = sext i16 %89 to i32
-  %91 = ashr i32 %90, %.0272421423.i
+  %91 = ashr i32 %90, %.0272425428.i
   %92 = trunc nsw i32 %91 to i16
   %93 = getelementptr inbounds nuw [192 x i16], ptr %11, i64 0, i64 %indvars.iv385.i
   store i16 %92, ptr %93, align 2, !tbaa !4
@@ -190,7 +190,7 @@ residual_filter.exit:                             ; preds = %59, %41
 
 .loopexit343.i:                                   ; preds = %94, %.lr.ph352.i, %residual_filter.exit
   %101 = phi i1 [ true, %residual_filter.exit ], [ true, %.lr.ph352.i ], [ false, %94 ]
-  %.0272420.i = phi i32 [ 3, %residual_filter.exit ], [ %.0272421423.i, %.lr.ph352.i ], [ %85, %94 ]
+  %.0272426.i = phi i32 [ 3, %residual_filter.exit ], [ %.0272425428.i, %.lr.ph352.i ], [ %85, %94 ]
   %102 = load ptr, ptr %0, align 8, !tbaa !17
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 304
   %104 = call i32 %102(ptr noundef nonnull %103, ptr noundef nonnull %103, i32 noundef %9) #7
@@ -527,7 +527,7 @@ residual_filter.exit:                             ; preds = %59, %41
   br i1 %45, label %.lr.ph372.i, label %.loopexit.i
 
 .lr.ph372.i:                                      ; preds = %.preheader338.i
-  %297 = sub nsw i32 0, %.0272420.i
+  %297 = sub nsw i32 0, %.0272426.i
   %wide.trip.count409.i = zext nneg i32 %9 to i64
   br label %303
 
@@ -543,7 +543,7 @@ residual_filter.exit:                             ; preds = %59, %41
   %298 = getelementptr inbounds nuw i16, ptr %.0231.i, i64 %indvars.iv411.i
   %299 = load i16, ptr %298, align 2, !tbaa !4
   %300 = zext i16 %299 to i32
-  %301 = shl i32 %300, %.0272420.i
+  %301 = shl i32 %300, %.0272426.i
   %302 = trunc i32 %301 to i16
   store i16 %302, ptr %298, align 2, !tbaa !4
   %indvars.iv.next412.i = add nuw nsw i64 %indvars.iv411.i, 1

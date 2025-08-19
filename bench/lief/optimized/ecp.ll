@@ -3173,8 +3173,8 @@ define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef nonnull 
   br i1 %.not42, label %25, label %.thread51
 
 .loopexit.thread:                                 ; preds = %20
-  %.not4264 = icmp eq i32 %0, 0
-  br i1 %.not4264, label %25, label %24
+  %.not4269 = icmp eq i32 %0, 0
+  br i1 %.not4269, label %25, label %24
 
 .thread:                                          ; preds = %16
   %.not4247 = icmp eq i32 %0, 0

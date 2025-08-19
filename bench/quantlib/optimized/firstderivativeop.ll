@@ -315,10 +315,10 @@ if.else72:                                        ; preds = %invoke.cont54
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then60, %if.else72, %if.then
-  %.sink93.in = phi ptr [ %upper_84, %if.then60 ], [ %upper_84, %if.else72 ], [ %diag_80, %if.then ]
+  %.sink106.in = phi ptr [ %upper_84, %if.then60 ], [ %upper_84, %if.else72 ], [ %diag_80, %if.then ]
   %.sink = phi double [ 0.000000e+00, %if.then60 ], [ %div83, %if.else72 ], [ %fneg, %if.then ]
-  %.sink93 = load ptr, ptr %.sink93.in, align 8, !tbaa !44
-  %arrayidx.i85 = getelementptr inbounds nuw double, ptr %.sink93, i64 %11
+  %.sink106 = load ptr, ptr %.sink106.in, align 8, !tbaa !44
+  %arrayidx.i85 = getelementptr inbounds nuw double, ptr %.sink106, i64 %11
   store double %.sink, ptr %arrayidx.i85, align 8, !tbaa !45
   %38 = load i64, ptr %__begin1, align 8, !tbaa !24
   %inc.i = add i64 %38, 1

@@ -4167,9 +4167,9 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load float, ptr %7, align 4
   %. = select i1 %6, float %5, float %3
-  %.37 = zext i1 %6 to i32
+  %.41 = zext i1 %6 to i32
   %9 = fcmp ogt float %., %8
-  %10 = select i1 %9, i32 %.37, i32 2
+  %10 = select i1 %9, i32 %.41, i32 2
   %.0.fr = freeze i32 %10
   %11 = fadd float %3, %5
   %12 = fadd float %11, %8

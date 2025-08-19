@@ -8856,8 +8856,8 @@ define internal fastcc { i64, i64 } @"_ZN11polars_core13chunked_array21ChunkedAr
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !676, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !676
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -9038,8 +9038,8 @@ define internal fastcc { i32, float } @"_ZN11polars_core13chunked_array21Chunked
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !685, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !685
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -9220,8 +9220,8 @@ define internal fastcc { i64, double } @"_ZN11polars_core13chunked_array21Chunke
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !694, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !694
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -9402,8 +9402,8 @@ define internal fastcc { i32, i32 } @"_ZN11polars_core13chunked_array21ChunkedAr
   %29 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 48
   %30 = load ptr, ptr %29, align 8, !invariant.load !3, !noalias !703, !nonnull !3
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 1 %.val.i.i), !noalias !703
-  %.not16 = icmp eq i64 %31, 0
-  br i1 %.not16, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i, i64 16
@@ -9560,7 +9560,7 @@ define internal fastcc void @_ZN11polars_core13chunked_array3ops9any_value16arr_
 
 27:                                               ; preds = %4
   %28 = load i8, ptr %3, align 16, !range !704, !noundef !3
-  switch i8 %28, label %default.unreachable34 [
+  switch i8 %28, label %default.unreachable39 [
     i8 0, label %30
     i8 1, label %49
     i8 2, label %58
@@ -9595,7 +9595,7 @@ define internal fastcc void @_ZN11polars_core13chunked_array3ops9any_value16arr_
   store i8 0, ptr %0, align 16
   br label %355
 
-default.unreachable34:                            ; preds = %27
+default.unreachable39:                            ; preds = %27
   unreachable
 
 30:                                               ; preds = %27
@@ -14126,8 +14126,8 @@ define hidden void @_ZN11polars_core5utils9supertype17merge_dtypes_many17h55d8d1
   %25 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %25)
   %26 = icmp eq ptr %1, %2
-  %.sink253.sroa.gep = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sink253.sroa.gep260 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sink258.sroa.gep = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sink258.sroa.gep265 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br i1 %26, label %27, label %38
 
 27:                                               ; preds = %3
@@ -14779,8 +14779,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %.sroa.043.1, label %209, label %common.resume
 
 .invoke:                                          ; preds = %207, %206
-  %.sink253.sroa.phi = phi ptr [ %.sink253.sroa.gep, %206 ], [ %.sink253.sroa.gep260, %207 ]
-  %.val106 = load ptr, ptr %.sink253.sroa.phi, align 8, !nonnull !3, !noundef !3
+  %.sink258.sroa.phi = phi ptr [ %.sink258.sroa.gep, %206 ], [ %.sink258.sroa.gep265, %207 ]
+  %.val106 = load ptr, ptr %.sink258.sroa.phi, align 8, !nonnull !3, !noundef !3
   invoke fastcc void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$polars_core..datatypes..dtype..DataType$GT$$GT$17hbde3d42e465cbf3cE"(ptr %.val106) #29
           to label %common.resume unwind label %91
 
@@ -23426,7 +23426,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h043
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -23586,7 +23586,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h143
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -23746,7 +23746,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h1a3
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -23906,7 +23906,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h330
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -24066,7 +24066,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h56f
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -24226,7 +24226,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h5c6
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -24386,7 +24386,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h630
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -24546,7 +24546,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h656
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -24706,7 +24706,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h79b
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -24866,7 +24866,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h7b2
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -25026,7 +25026,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h82b
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -25239,7 +25239,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h85f
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -25399,7 +25399,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17h9f1
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -25559,7 +25559,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17ha54
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -25719,7 +25719,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17hdf9
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -25879,7 +25879,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17he0b
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -26039,7 +26039,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait3get17hf71
 
 53:                                               ; preds = %.lr.ph.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %55 = sub nuw i64 %.sroa.0.020.i.i.i.i, %51
+  %55 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %51
   %56 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %57 = icmp eq ptr %54, %31
   br i1 %57, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -26245,7 +26245,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h0b
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -26405,7 +26405,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h12
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -26565,7 +26565,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h19
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -26725,7 +26725,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h2d
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -26885,7 +26885,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h32
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -27098,7 +27098,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h4c
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -27258,7 +27258,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h58
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -27418,7 +27418,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h70
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -27578,7 +27578,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h86
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -27738,7 +27738,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h86
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -27898,7 +27898,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17h8c
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -28058,7 +28058,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17ha1
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -28218,7 +28218,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hb0
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -28378,7 +28378,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hcf
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -28538,7 +28538,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hd5
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -28698,7 +28698,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hef
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -28858,7 +28858,7 @@ define hidden void @_ZN11polars_core6series12series_trait11SeriesTrait4last17hf4
 
 51:                                               ; preds = %.lr.ph.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i.i, i64 16
-  %53 = sub nuw i64 %.sroa.0.020.i.i.i.i, %49
+  %53 = sub nuw nsw i64 %.sroa.0.020.i.i.i.i, %49
   %54 = add nuw nsw i64 %.sroa.07.019.i.i.i.i, 1
   %55 = icmp eq ptr %52, %29
   br i1 %55, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -37224,7 +37224,7 @@ define internal void @"_ZN11polars_core6series15implementations4list213_$LT$impl
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -37337,7 +37337,7 @@ define internal void @"_ZN11polars_core6series15implementations6floats216_$LT$im
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -37450,7 +37450,7 @@ define internal void @"_ZN11polars_core6series15implementations6floats216_$LT$im
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -37563,7 +37563,7 @@ define internal void @"_ZN11polars_core6series15implementations6string215_$LT$im
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -37676,7 +37676,7 @@ define internal void @"_ZN11polars_core6series15implementations7boolean216_$LT$i
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -37735,7 +37735,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
   %18 = alloca [2 x i8], align 2
   store i16 %2, ptr %18, align 2
   %19 = load i8, ptr %1, align 16, !range !704, !noundef !3
-  switch i8 %19, label %default.unreachable127 [
+  switch i8 %19, label %default.unreachable129 [
     i8 0, label %20
     i8 1, label %22
     i8 2, label %24
@@ -37766,7 +37766,7 @@ define internal fastcc void @_ZN11polars_core9datatypes5dtype8DataType12try_to_a
     i8 27, label %110
   ], !prof !3234
 
-default.unreachable127:                           ; preds = %110, %3
+default.unreachable129:                           ; preds = %110, %3
   unreachable
 
 20:                                               ; preds = %3
@@ -38058,7 +38058,7 @@ common.resume:                                    ; preds = %147, %98, %84
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i128, ptr %111, align 16, !range !3255, !noundef !3
   %113 = trunc nuw nsw i128 %112 to i64
-  switch i64 %113, label %default.unreachable127 [
+  switch i64 %113, label %default.unreachable129 [
     i64 0, label %142
     i64 1, label %157
     i64 2, label %145
@@ -38251,7 +38251,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
   %19 = alloca [24 x i8], align 8
   %20 = alloca [48 x i8], align 8
   %21 = load i8, ptr %1, align 16, !range !3256, !noundef !3
-  switch i8 %21, label %default.unreachable47 [
+  switch i8 %21, label %default.unreachable53 [
     i8 0, label %22
     i8 1, label %23
     i8 2, label %24
@@ -38287,7 +38287,7 @@ define internal fastcc void @_ZN11polars_core9datatypes9any_value8AnyValue11into
     i8 32, label %227
   ]
 
-default.unreachable47:                            ; preds = %2
+default.unreachable53:                            ; preds = %2
   unreachable
 
 22:                                               ; preds = %2
@@ -39064,7 +39064,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -39139,7 +39139,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -39148,15 +39148,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3328)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3330)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !3330, !noalias !3332, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !3333
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3334, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3334, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !3333, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -39181,7 +39181,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !3325, !noalias !3335
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !3333
   unreachable
 
@@ -39196,7 +39196,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -40050,7 +40050,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -40125,7 +40125,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -40134,15 +40134,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3482)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3484)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !3484, !noalias !3486, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !3487
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3488, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3488, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !3487, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -40167,7 +40167,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !3479, !noalias !3489
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !3487
   unreachable
 
@@ -40182,7 +40182,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -41036,7 +41036,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -41111,7 +41111,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -41120,15 +41120,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3635)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3637)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !3637, !noalias !3639, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !3640
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3641, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3641, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !3640, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -41153,7 +41153,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !3632, !noalias !3642
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !3640
   unreachable
 
@@ -41168,7 +41168,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -42022,7 +42022,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -42097,7 +42097,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -42106,15 +42106,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3788)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3790)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !3790, !noalias !3792, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !3793
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3794, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3794, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !3793, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -42139,7 +42139,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !3785, !noalias !3795
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !3793
   unreachable
 
@@ -42154,7 +42154,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -43008,7 +43008,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -43083,7 +43083,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -43092,15 +43092,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3941)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3943)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !3943, !noalias !3945, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !3946
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3947, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !3947, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !3946, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -43125,7 +43125,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !3938, !noalias !3948
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !3946
   unreachable
 
@@ -43140,7 +43140,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -43994,7 +43994,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -44069,7 +44069,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -44078,15 +44078,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4094)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4096)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !4096, !noalias !4098, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !4099
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4100, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4100, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !4099, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -44111,7 +44111,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !4091, !noalias !4101
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !4099
   unreachable
 
@@ -44126,7 +44126,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -44980,7 +44980,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -45055,7 +45055,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -45064,15 +45064,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4247)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4249)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !4249, !noalias !4251, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !4252
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4253, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4253, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !4252, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -45097,7 +45097,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !4244, !noalias !4254
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !4252
   unreachable
 
@@ -45112,7 +45112,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -45966,7 +45966,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -46041,7 +46041,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -46050,15 +46050,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4400)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4402)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !4402, !noalias !4404, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !4405
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4406, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4406, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !4405, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -46083,7 +46083,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !4397, !noalias !4407
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !4405
   unreachable
 
@@ -46098,7 +46098,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -46952,7 +46952,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -47027,7 +47027,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -47036,15 +47036,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4553)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4555)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !4555, !noalias !4557, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !4558
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4559, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4559, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !4558, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -47069,7 +47069,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !4550, !noalias !4560
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !4558
   unreachable
 
@@ -47084,7 +47084,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -47938,7 +47938,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -48013,7 +48013,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -48022,15 +48022,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4706)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4708)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !4708, !noalias !4710, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !4711
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4712, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4712, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !4711, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -48055,7 +48055,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !4703, !noalias !4713
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !4711
   unreachable
 
@@ -48070,7 +48070,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -48924,7 +48924,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -48999,7 +48999,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -49008,15 +49008,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4859)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4861)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !4861, !noalias !4863, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !4864
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4865, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !4865, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !4864, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -49041,7 +49041,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !4856, !noalias !4866
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !4864
   unreachable
 
@@ -49056,7 +49056,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -49910,7 +49910,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -49985,7 +49985,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -49994,15 +49994,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5012)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5014)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !5014, !noalias !5016, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !5017
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5018, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5018, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !5017, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -50027,7 +50027,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !5009, !noalias !5019
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !5017
   unreachable
 
@@ -50042,7 +50042,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -50896,7 +50896,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -50971,7 +50971,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -50980,15 +50980,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5167)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !5167, !noalias !5169, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !5170
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5171, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5171, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !5170, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -51013,7 +51013,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !5162, !noalias !5172
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !5170
   unreachable
 
@@ -51028,7 +51028,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -51882,7 +51882,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -51957,7 +51957,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -51966,15 +51966,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5318)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5320)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !5320, !noalias !5322, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !5323
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5324, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5324, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !5323, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -51999,7 +51999,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !5315, !noalias !5325
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !5323
   unreachable
 
@@ -52014,7 +52014,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -52868,7 +52868,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -52943,7 +52943,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -52952,15 +52952,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5471)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5473)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !5473, !noalias !5475, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !5476
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5477, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5477, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !5476, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -52985,7 +52985,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !5468, !noalias !5478
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !5476
   unreachable
 
@@ -53000,7 +53000,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -53854,7 +53854,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -53929,7 +53929,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -53938,15 +53938,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5624)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5626)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !5626, !noalias !5628, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !5629
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5630, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5630, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !5629, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -53971,7 +53971,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !5621, !noalias !5631
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !5629
   unreachable
 
@@ -53986,7 +53986,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -54840,7 +54840,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -54915,7 +54915,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -54924,15 +54924,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5777)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5779)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !5779, !noalias !5781, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !5782
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5783, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5783, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !5782, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -54957,7 +54957,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !5774, !noalias !5784
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !5782
   unreachable
 
@@ -54972,7 +54972,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -55826,7 +55826,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -55901,7 +55901,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -55910,15 +55910,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5930)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5932)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !5932, !noalias !5934, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !5935
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5936, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !5936, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !5935, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -55943,7 +55943,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !5927, !noalias !5937
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !5935
   unreachable
 
@@ -55958,7 +55958,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -56812,7 +56812,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -56887,7 +56887,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -56896,15 +56896,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6083)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6085)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !6085, !noalias !6087, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !6088
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6089, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6089, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !6088, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -56929,7 +56929,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !6080, !noalias !6090
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !6088
   unreachable
 
@@ -56944,7 +56944,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -57798,7 +57798,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -57873,7 +57873,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -57882,15 +57882,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6238)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !6238, !noalias !6240, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !6241
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6242, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6242, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !6241, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -57915,7 +57915,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !6233, !noalias !6243
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !6241
   unreachable
 
@@ -57930,7 +57930,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -58784,7 +58784,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -58859,7 +58859,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -58868,15 +58868,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6389)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6391)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !6391, !noalias !6393, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !6394
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6395, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6395, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !6394, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -58901,7 +58901,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !6386, !noalias !6396
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !6394
   unreachable
 
@@ -58916,7 +58916,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -59770,7 +59770,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -59845,7 +59845,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -59854,15 +59854,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6542)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6544)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup74
+87:                                               ; preds = %switch.lookup86
   %88 = load i64, ptr %4, align 8, !alias.scope !6544, !noalias !6546, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !6547
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6548, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6548, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !6547, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -59887,7 +59887,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !6539, !noalias !6549
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !6547
   unreachable
 
@@ -59902,7 +59902,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -60754,7 +60754,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -60829,7 +60829,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -60838,15 +60838,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6695)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6697)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !6697, !noalias !6699, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !6700
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6701, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6701, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !6700, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -60871,7 +60871,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !6692, !noalias !6702
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !6700
   unreachable
 
@@ -60886,7 +60886,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -61731,7 +61731,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -61806,7 +61806,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -61815,15 +61815,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6864)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6866)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !6866, !noalias !6868, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !6869
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6870, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !6870, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !6869, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -61848,7 +61848,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !6861, !noalias !6871
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !6869
   unreachable
 
@@ -61863,7 +61863,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -62708,7 +62708,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -62783,7 +62783,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -62792,15 +62792,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7033)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7035)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !7035, !noalias !7037, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !7038
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7039, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7039, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !7038, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -62825,7 +62825,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !7030, !noalias !7040
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !7038
   unreachable
 
@@ -62840,7 +62840,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -63685,7 +63685,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -63760,7 +63760,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -63769,15 +63769,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7204)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !7204, !noalias !7206, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !7207
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7208, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7208, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !7207, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -63802,7 +63802,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !7199, !noalias !7209
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !7207
   unreachable
 
@@ -63817,7 +63817,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -64662,7 +64662,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup81, label %switch.lookup
+  br i1 %.not, label %switch.lookup93, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -64737,7 +64737,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup81:                                  ; preds = %13
+switch.lookup93:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -64746,15 +64746,15 @@ switch.lookup81:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7373)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep82 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load83 = load ptr, ptr %switch.gep82, align 8
+  %switch.gep94 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load95 = load ptr, ptr %switch.gep94, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup81
+85:                                               ; preds = %switch.lookup93
   %86 = load i64, ptr %4, align 8, !alias.scope !7373, !noalias !7375, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !7376
-  call void %switch.load83(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7377, !callees !3322
+  call void %switch.load95(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7377, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !7376, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -64779,7 +64779,7 @@ switch.lookup81:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !7368, !noalias !7378
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup81
+.critedge.i29:                                    ; preds = %switch.lookup93
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !7376
   unreachable
 
@@ -64794,7 +64794,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load83, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load95, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -65611,7 +65611,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -65686,7 +65686,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -65695,15 +65695,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7532)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7534)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !7534, !noalias !7536, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !7537
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7538, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7538, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !7537, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -65728,7 +65728,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !7529, !noalias !7539
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !7537
   unreachable
 
@@ -65743,7 +65743,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -66584,7 +66584,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -66659,7 +66659,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -66668,15 +66668,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7701)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7703)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !7703, !noalias !7705, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !7706
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7707, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7707, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !7706, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -66701,7 +66701,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !7698, !noalias !7708
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !7706
   unreachable
 
@@ -66716,7 +66716,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -67561,7 +67561,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -67636,7 +67636,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -67645,15 +67645,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7870)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7872)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !7872, !noalias !7874, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !7875
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7876, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !7876, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !7875, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -67678,7 +67678,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !7867, !noalias !7877
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !7875
   unreachable
 
@@ -67693,7 +67693,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -68534,7 +68534,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup81, label %switch.lookup
+  br i1 %.not, label %switch.lookup93, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -68609,7 +68609,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup81:                                  ; preds = %13
+switch.lookup93:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -68618,15 +68618,15 @@ switch.lookup81:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8041)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8043)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep82 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load83 = load ptr, ptr %switch.gep82, align 8
+  %switch.gep94 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load95 = load ptr, ptr %switch.gep94, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup81
+85:                                               ; preds = %switch.lookup93
   %86 = load i64, ptr %4, align 8, !alias.scope !8043, !noalias !8045, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !8046
-  call void %switch.load83(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8047, !callees !3322
+  call void %switch.load95(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8047, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !8046, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -68651,7 +68651,7 @@ switch.lookup81:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !8038, !noalias !8048
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup81
+.critedge.i29:                                    ; preds = %switch.lookup93
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !8046
   unreachable
 
@@ -68666,7 +68666,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load83, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load95, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -69483,7 +69483,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -69558,7 +69558,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -69567,15 +69567,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8202)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8204)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !8204, !noalias !8206, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !8207
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8208, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8208, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !8207, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -69600,7 +69600,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !8199, !noalias !8209
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !8207
   unreachable
 
@@ -69615,7 +69615,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -70460,7 +70460,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup83, label %switch.lookup
+  br i1 %.not, label %switch.lookup95, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -70535,7 +70535,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup83:                                  ; preds = %13
+switch.lookup95:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -70544,15 +70544,15 @@ switch.lookup83:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8373)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep84 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load85 = load ptr, ptr %switch.gep84, align 8
+  %switch.gep96 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup83
+85:                                               ; preds = %switch.lookup95
   %86 = load i64, ptr %4, align 8, !alias.scope !8373, !noalias !8375, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !8376
-  call void %switch.load85(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8377, !callees !3322
+  call void %switch.load97(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8377, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !8376, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -70577,7 +70577,7 @@ switch.lookup83:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !8368, !noalias !8378
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup83
+.critedge.i29:                                    ; preds = %switch.lookup95
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !8376
   unreachable
 
@@ -70592,7 +70592,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load85, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load97, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -71433,7 +71433,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup73, label %switch.lookup
+  br i1 %.not, label %switch.lookup85, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -71508,7 +71508,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup73:                                  ; preds = %13
+switch.lookup85:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -71517,15 +71517,15 @@ switch.lookup73:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8542)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep74 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load75 = load ptr, ptr %switch.gep74, align 8
+  %switch.gep86 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup73
+85:                                               ; preds = %switch.lookup85
   %86 = load i64, ptr %4, align 8, !alias.scope !8542, !noalias !8544, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !8545
-  call void %switch.load75(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8546, !callees !3322
+  call void %switch.load87(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8546, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !8545, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -71550,7 +71550,7 @@ switch.lookup73:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !8537, !noalias !8547
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup73
+.critedge.i29:                                    ; preds = %switch.lookup85
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !8545
   unreachable
 
@@ -71565,7 +71565,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load75, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load87, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -72374,7 +72374,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup73, label %switch.lookup
+  br i1 %.not, label %switch.lookup85, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -72449,7 +72449,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup73:                                  ; preds = %13
+switch.lookup85:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -72458,15 +72458,15 @@ switch.lookup73:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8695)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8697)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep74 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load75 = load ptr, ptr %switch.gep74, align 8
+  %switch.gep86 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup73
+85:                                               ; preds = %switch.lookup85
   %86 = load i64, ptr %4, align 8, !alias.scope !8697, !noalias !8699, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !8700
-  call void %switch.load75(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8701, !callees !3322
+  call void %switch.load87(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8701, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !8700, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -72491,7 +72491,7 @@ switch.lookup73:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !8692, !noalias !8702
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup73
+.critedge.i29:                                    ; preds = %switch.lookup85
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !8700
   unreachable
 
@@ -72506,7 +72506,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load75, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load87, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -73317,7 +73317,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup73, label %switch.lookup
+  br i1 %.not, label %switch.lookup85, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -73392,7 +73392,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup73:                                  ; preds = %13
+switch.lookup85:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -73401,15 +73401,15 @@ switch.lookup73:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8850)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8852)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep74 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load75 = load ptr, ptr %switch.gep74, align 8
+  %switch.gep86 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup73
+87:                                               ; preds = %switch.lookup85
   %88 = load i64, ptr %4, align 8, !alias.scope !8852, !noalias !8854, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !8855
-  call void %switch.load75(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8856, !callees !3322
+  call void %switch.load87(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !8856, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !8855, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -73434,7 +73434,7 @@ switch.lookup73:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !8847, !noalias !8857
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup73
+.critedge.i29:                                    ; preds = %switch.lookup85
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !8855
   unreachable
 
@@ -73449,7 +73449,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load75, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load87, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -74268,7 +74268,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup73, label %switch.lookup
+  br i1 %.not, label %switch.lookup85, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %60 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -74343,7 +74343,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %98
 
-switch.lookup73:                                  ; preds = %13
+switch.lookup85:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -74352,15 +74352,15 @@ switch.lookup73:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9005)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9007)
   %86 = zext nneg i8 %8 to i64
-  %switch.gep74 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
-  %switch.load75 = load ptr, ptr %switch.gep74, align 8
+  %switch.gep86 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %86
+  %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %87
 
-87:                                               ; preds = %switch.lookup73
+87:                                               ; preds = %switch.lookup85
   %88 = load i64, ptr %4, align 8, !alias.scope !9007, !noalias !9009, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !9010
-  call void %switch.load75(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !9011, !callees !3322
+  call void %switch.load87(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %88, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !9011, !callees !3322
   %89 = load i64, ptr %53, align 8, !range !729, !noalias !9010, !noundef !3
   %.not38.i15 = icmp eq i64 %89, 17
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -74385,7 +74385,7 @@ switch.lookup73:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !9002, !noalias !9012
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup73
+.critedge.i29:                                    ; preds = %switch.lookup85
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !9010
   unreachable
 
@@ -74400,7 +74400,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 98:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %74, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load75, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load87, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -75217,7 +75217,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -75292,7 +75292,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -75301,15 +75301,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9162)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup74
+85:                                               ; preds = %switch.lookup86
   %86 = load i64, ptr %4, align 8, !alias.scope !9162, !noalias !9164, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !9165
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !9166, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !9166, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !9165, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -75334,7 +75334,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !9157, !noalias !9167
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !9165
   unreachable
 
@@ -75349,7 +75349,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -76193,7 +76193,7 @@ define hidden void @_ZN11polars_time12chunkedarray14rolling_window15rolling_kern
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.17)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.27)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %switch.lookup74, label %switch.lookup
+  br i1 %.not, label %switch.lookup86, label %switch.lookup
 
 switch.lookup:                                    ; preds = %13
   %58 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN97_$LT$polars_core..datatypes..temporal..time_zone..TimeZone$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc9e349cdd9746e23E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -76268,7 +76268,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %96
 
-switch.lookup74:                                  ; preds = %13
+switch.lookup86:                                  ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %57, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -76277,15 +76277,15 @@ switch.lookup74:                                  ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9315)
   %84 = zext nneg i8 %8 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
-  %switch.load76 = load ptr, ptr %switch.gep75, align 8
+  %switch.gep87 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN11polars_time12chunkedarray14rolling_window15rolling_kernels8no_nulls16rolling_quantile17h9c7e29f4788c04dbE.757, i64 0, i64 %84
+  %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %.not.i13 = icmp eq i64 %5, 0
   br i1 %.not.i13, label %.critedge.i29, label %85
 
-85:                                               ; preds = %switch.lookup74
+85:                                               ; preds = %switch.lookup86
   %86 = load i64, ptr %4, align 8, !alias.scope !9315, !noalias !9317, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !9318
-  call void %switch.load76(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !9319, !callees !3322
+  call void %switch.load88(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %57, i64 noundef %86, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) null), !noalias !9319, !callees !3322
   %87 = load i64, ptr %53, align 8, !range !729, !noalias !9318, !noundef !3
   %.not38.i15 = icmp eq i64 %87, 17
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -76310,7 +76310,7 @@ switch.lookup74:                                  ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.27, i8 0, i64 24, i1 false), !alias.scope !9310, !noalias !9320
   br label %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
 
-.critedge.i29:                                    ; preds = %switch.lookup74
+.critedge.i29:                                    ; preds = %switch.lookup86
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.184) #28, !noalias !9318
   unreachable
 
@@ -76325,7 +76325,7 @@ _ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f
 96:                                               ; preds = %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31
   %.sroa.29.0 = phi i16 [ %.sink.i19, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sink.i, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.25.0 = phi i64 [ %86, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %72, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
-  %.sroa.19.0 = phi ptr [ %switch.load76, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
+  %.sroa.19.0 = phi ptr [ %switch.load88, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %switch.load, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.13.0 = phi i64 [ %.sroa.13.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.13.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.9.0 = phi i64 [ %.sroa.9.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.9.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.2, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit31 ], [ %.sroa.0.1, %_ZN11polars_time7windows8group_by31group_by_values_iter_lookbehind17hc62112f297f01633E.exit ]
@@ -85634,7 +85634,7 @@ _ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h5ab17d5cbb6271d0E.exit: ; p
   br label %.loopexit
 
 51:                                               ; preds = %.lr.ph12, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17hc88399ec0f52e1a7E.exit"
-  %52 = phi double [ %.promoted14, %.lr.ph12 ], [ %storemerge17, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17hc88399ec0f52e1a7E.exit" ]
+  %52 = phi double [ %.promoted14, %.lr.ph12 ], [ %storemerge23, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17hc88399ec0f52e1a7E.exit" ]
   %53 = phi double [ %.promoted13, %.lr.ph12 ], [ %67, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17hc88399ec0f52e1a7E.exit" ]
   %.sroa.06.010 = phi i64 [ %5, %.lr.ph12 ], [ %54, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17hc88399ec0f52e1a7E.exit" ]
   %54 = add nuw i64 %.sroa.06.010, 1
@@ -85659,17 +85659,17 @@ _ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h5ab17d5cbb6271d0E.exit: ; p
   br label %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17hc88399ec0f52e1a7E.exit"
 
 "_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17hc88399ec0f52e1a7E.exit": ; preds = %60, %62
-  %storemerge17 = phi double [ %64, %62 ], [ %61, %60 ]
+  %storemerge23 = phi double [ %64, %62 ], [ %61, %60 ]
   %67 = phi double [ %66, %62 ], [ %53, %60 ]
   %exitcond15.not = icmp eq i64 %54, %2
   br i1 %exitcond15.not, label %.loopexit.loopexit, label %51
 
 .loopexit.loopexit:                               ; preds = %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17hc88399ec0f52e1a7E.exit"
-  store double %storemerge17, ptr %21, align 8, !alias.scope !10014
+  store double %storemerge23, ptr %21, align 8, !alias.scope !10014
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge..loopexit_crit_edge, %_ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h5ab17d5cbb6271d0E.exit
-  %68 = phi double [ %.pre16, %._crit_edge..loopexit_crit_edge ], [ %.sroa.0.0.lcssa.i, %_ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h5ab17d5cbb6271d0E.exit ], [ %storemerge17, %.loopexit.loopexit ]
+  %68 = phi double [ %.pre16, %._crit_edge..loopexit_crit_edge ], [ %.sroa.0.0.lcssa.i, %_ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h5ab17d5cbb6271d0E.exit ], [ %storemerge23, %.loopexit.loopexit ]
   store i64 %2, ptr %4, align 8
   %69 = insertvalue { i64, double } { i64 1, double poison }, double %68, 1
   ret { i64, double } %69
@@ -86596,7 +86596,7 @@ _ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h8936c61eb174b7bbE.exit: ; p
   br label %.loopexit
 
 51:                                               ; preds = %.lr.ph12, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17h82698b9b04d97e3dE.exit"
-  %52 = phi float [ %.promoted14, %.lr.ph12 ], [ %storemerge17, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17h82698b9b04d97e3dE.exit" ]
+  %52 = phi float [ %.promoted14, %.lr.ph12 ], [ %storemerge23, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17h82698b9b04d97e3dE.exit" ]
   %53 = phi float [ %.promoted13, %.lr.ph12 ], [ %67, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17h82698b9b04d97e3dE.exit" ]
   %.sroa.06.010 = phi i64 [ %5, %.lr.ph12 ], [ %54, %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17h82698b9b04d97e3dE.exit" ]
   %54 = add nuw i64 %.sroa.06.010, 1
@@ -86621,17 +86621,17 @@ _ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h8936c61eb174b7bbE.exit: ; p
   br label %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17h82698b9b04d97e3dE.exit"
 
 "_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17h82698b9b04d97e3dE.exit": ; preds = %60, %62
-  %storemerge17 = phi float [ %64, %62 ], [ %61, %60 ]
+  %storemerge23 = phi float [ %64, %62 ], [ %61, %60 ]
   %67 = phi float [ %66, %62 ], [ %53, %60 ]
   %exitcond15.not = icmp eq i64 %54, %2
   br i1 %exitcond15.not, label %.loopexit.loopexit, label %51
 
 .loopexit.loopexit:                               ; preds = %"_ZN14polars_compute7rolling8no_nulls3sum18SumWindow$LT$T$GT$3add17h82698b9b04d97e3dE.exit"
-  store float %storemerge17, ptr %21, align 8, !alias.scope !10089
+  store float %storemerge23, ptr %21, align 8, !alias.scope !10089
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge..loopexit_crit_edge, %_ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h8936c61eb174b7bbE.exit
-  %68 = phi float [ %.pre16, %._crit_edge..loopexit_crit_edge ], [ %.sroa.0.0.lcssa.i, %_ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h8936c61eb174b7bbE.exit ], [ %storemerge17, %.loopexit.loopexit ]
+  %68 = phi float [ %.pre16, %._crit_edge..loopexit_crit_edge ], [ %.sroa.0.0.lcssa.i, %_ZN14polars_compute7rolling8no_nulls3sum9sum_kahan17h8936c61eb174b7bbE.exit ], [ %storemerge23, %.loopexit.loopexit ]
   store i64 %2, ptr %4, align 8
   %69 = insertvalue { i32, float } { i32 1, float poison }, float %68, 1
   ret { i32, float } %69
@@ -149214,7 +149214,7 @@ define internal void @"_ZN203_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -149327,7 +149327,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -149440,7 +149440,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -149553,7 +149553,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -149666,7 +149666,7 @@ define internal void @"_ZN204_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -149779,7 +149779,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -149892,7 +149892,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -150005,7 +150005,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -150118,7 +150118,7 @@ define internal void @"_ZN205_$LT$polars_core..series..implementations..SeriesWr
 
 42:                                               ; preds = %.lr.ph.i.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i.i.i, i64 16
-  %44 = sub nuw i64 %.sroa.0.020.i.i.i, %40
+  %44 = sub nuw nsw i64 %.sroa.0.020.i.i.i, %40
   %45 = add nuw nsw i64 %.sroa.07.019.i.i.i, 1
   %46 = icmp eq ptr %43, %20
   br i1 %46, label %_ZN11polars_core5utils22index_to_chunked_index17h7928c39feaa43872E.exit.i.i, label %.lr.ph.i.i.i
@@ -158427,12 +158427,12 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 130:                                              ; preds = %._crit_edge.i.i
-  %.not19 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %115
-  %.sroa.0.0..sroa.06.0.i.i = select i1 %.not19, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
+  %.not22 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %115
+  %.sroa.0.0..sroa.06.0.i.i = select i1 %.not22, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0..sroa.06.0.i.i, i64 24, i1 false), !alias.scope !17289
-  %.sroa.sel18.idx.sroa.sel.idx = select i1 %.not19, i64 24, i64 0
+  %.sroa.sel18.idx.sroa.sel.idx = select i1 %.not22, i64 24, i64 0
   %.sroa.sel18.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel18.idx.sroa.sel.idx
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not19, i64 0, i64 24
+  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not22, i64 0, i64 24
   %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
   br label %131
 
@@ -163643,14 +163643,14 @@ common.resume:                                    ; preds = %19, %44, %46
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha954a060b059cfebE.exit.preheader.i": ; preds = %14, %3
-  %.sink22 = phi i64 [ %7, %3 ], [ %1, %14 ]
-  %28 = icmp ult i64 %.sink22, 115292150460684698
+  %.sink27 = phi i64 [ %7, %3 ], [ %1, %14 ]
+  %28 = icmp ult i64 %.sink27, 115292150460684698
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17786)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17789)
-  %.not.i = icmp eq i64 %.sink22, 0
+  %.not.i = icmp eq i64 %.sink27, 0
   br i1 %.not.i, label %"_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17h762480b4f45a46ffE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha954a060b059cfebE.exit.preheader.i", %"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hee46ab49fe4b34a5E.exit.i"
@@ -163708,11 +163708,11 @@ _ZN4core5clone5Clone10clone_from17h290ccbf0b5f9dd34E.exit.i.i: ; preds = %"_ZN71
 "_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hee46ab49fe4b34a5E.exit.i": ; preds = %_ZN4core5clone5Clone10clone_from17h290ccbf0b5f9dd34E.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %32, ptr noundef nonnull align 16 dereferenceable(48) %4, i64 48, i1 false), !noalias !17819
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17814
-  %exitcond.not.i = icmp eq i64 %31, %.sink22
+  %exitcond.not.i = icmp eq i64 %31, %.sink27
   br i1 %exitcond.not.i, label %"_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17h762480b4f45a46ffE.exit", label %.lr.ph.i
 
 "_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17h762480b4f45a46ffE.exit": ; preds = %"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hee46ab49fe4b34a5E.exit.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha954a060b059cfebE.exit.preheader.i"
-  %48 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %0, i64 %.sink22
+  %48 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %0, i64 %.sink27
   %49 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %0, i64 %1
   tail call void @"_ZN101_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$I$GT$$GT$11spec_extend17h0f73dca9db4411dfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.afe9e91cad546e80c20547a8bf0cd769.398)
   ret void
@@ -163803,7 +163803,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !16144, !noundef !3
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -163845,7 +163845,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -164690,7 +164690,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
   %5 = alloca [24 x i8], align 8
   %.sroa.03 = alloca [23 x i8], align 8
   %6 = load i8, ptr %1, align 16, !range !704, !noundef !3
-  switch i8 %6, label %default.unreachable23 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %8
     i8 2, label %9
@@ -164721,7 +164721,7 @@ define internal fastcc void @"_ZN78_$LT$polars_core..datatypes..dtype..DataType$
     i8 27, label %74
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -177442,7 +177442,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hbb08c1a71d1d6fddE.exit.i: ; pre
   unreachable
 
 .thread60.i.thread.i:                             ; preds = %69, %53
-  %lpad.thr_comm48.i = landingpad { ptr, i32 }
+  %lpad.thr_comm51.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -177450,8 +177450,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hbb08c1a71d1d6fddE.exit.i: ; pre
   %.pre.i.ph.i = phi i8 [ %.sroa.6.i.sroa.5.8.copyload.i, %64 ], [ %.sroa.69.i.sroa.5.8.copyload.i, %76 ]
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  %.not82.i.i = icmp eq i8 %.pre.i.ph.i, 28
-  br i1 %.not82.i.i, label %.body.i, label %88
+  %.not87.i.i = icmp eq i8 %.pre.i.ph.i, 28
+  br i1 %.not87.i.i, label %.body.i, label %88
 
 88:                                               ; preds = %.thread60.i.i
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hcb7811c438f03c27E"(ptr noalias noundef align 16 dereferenceable(48) %10) #29
@@ -177463,7 +177463,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hbb08c1a71d1d6fddE.exit.i: ; pre
   br label %.body.i
 
 .body.i:                                          ; preds = %89, %88, %.thread60.i.i, %.thread60.i.thread.i, %83, %71, %59, %.thread56.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %90, %89 ], [ %lpad.thr_comm.split-lp.i, %88 ], [ %lpad.thr_comm.split-lp.i, %.thread60.i.i ], [ %84, %83 ], [ %72, %71 ], [ %60, %59 ], [ %56, %.thread56.i.i ], [ %lpad.thr_comm48.i, %.thread60.i.thread.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %90, %89 ], [ %lpad.thr_comm.split-lp.i, %88 ], [ %lpad.thr_comm.split-lp.i, %.thread60.i.i ], [ %84, %83 ], [ %72, %71 ], [ %60, %59 ], [ %56, %.thread56.i.i ], [ %lpad.thr_comm51.i, %.thread60.i.thread.i ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$$RF$polars_core..datatypes..dtype..DataType$GT$$GT$17hd7e16e75d3ba3eb5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #29
           to label %.thread.i unwind label %96, !noalias !19362
 
@@ -182032,7 +182032,7 @@ define hidden void @_ZN11polars_plan5plans9functions5count10count_rows17h03a98e5
     i64 1, label %53
     i64 2, label %99
     i64 3, label %116
-    i64 4, label %.invoke118
+    i64 4, label %.invoke123
     i64 5, label %138
   ], !prof !19654
 
@@ -182123,14 +182123,14 @@ _ZN11polars_plan5plans9functions5count18count_all_rows_csv17h5c3999daca5d6e2eE.e
           to label %.noexc63 unwind label %140
 
 .noexc63:                                         ; preds = %57
-  br i1 %58, label %59, label %.thread20.i
+  br i1 %58, label %59, label %.thread21.i
 
 .thread.i:                                        ; preds = %.noexc62
   store i8 1, ptr %15, align 1, !noalias !19680
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !19680
   br label %63
 
-.thread20.i:                                      ; preds = %.noexc63
+.thread21.i:                                      ; preds = %.noexc63
   store i8 0, ptr %15, align 1, !noalias !19680
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !19680
   br label %62
@@ -182145,7 +182145,7 @@ _ZN11polars_plan5plans9functions5count18count_all_rows_csv17h5c3999daca5d6e2eE.e
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !19680
   br i1 %60, label %63, label %62
 
-62:                                               ; preds = %.noexc64, %.thread20.i
+62:                                               ; preds = %.noexc64, %.thread21.i
   store i64 -9223372036854775808, ptr %14, align 8, !noalias !19680
   br label %66
 
@@ -182391,17 +182391,17 @@ _ZN11polars_plan5plans9functions5count18count_all_rows_csv17h5c3999daca5d6e2eE.e
   unreachable
 
 138:                                              ; preds = %5
-  br label %.invoke118
+  br label %.invoke123
 
-.invoke118:                                       ; preds = %5, %138
+.invoke123:                                       ; preds = %5, %138
   %139 = phi ptr [ @anon.afe9e91cad546e80c20547a8bf0cd769.564, %138 ], [ @anon.afe9e91cad546e80c20547a8bf0cd769.563, %5 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.afe9e91cad546e80c20547a8bf0cd769.60, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) %139) #28
-          to label %.cont119 unwind label %140
+          to label %.cont124 unwind label %140
 
-.cont119:                                         ; preds = %.invoke118
+.cont124:                                         ; preds = %.invoke123
   unreachable
 
-140:                                              ; preds = %.invoke118, %.invoke, %.noexc91, %145, %131, %.noexc87, %127, %.noexc85, %123, %121, %116, %111, %.noexc78, %107, %.noexc76, %103, %101, %99, %96, %81, %80, %68, %63, %59, %57, %55, %53, %50, %31
+140:                                              ; preds = %.invoke123, %.invoke, %.noexc91, %145, %131, %.noexc87, %127, %.noexc85, %123, %121, %116, %111, %.noexc78, %107, %.noexc76, %103, %101, %99, %96, %81, %80, %68, %63, %59, %57, %55, %53, %50, %31
   %141 = landingpad { ptr, i32 }
           cleanup
   br label %.body71
@@ -182615,7 +182615,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7boolean1_109_$LT$impl$u
   %14 = alloca [24 x i8], align 8
   %15 = alloca [8 x i8], align 8
   %16 = load i8, ptr %1, align 1, !range !19733, !noundef !3
-  switch i8 %16, label %default.unreachable87 [
+  switch i8 %16, label %default.unreachable90 [
     i8 0, label %17
     i8 1, label %19
     i8 2, label %21
@@ -182635,7 +182635,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7boolean1_109_$LT$impl$u
     i8 16, label %37
   ]
 
-default.unreachable87:                            ; preds = %3
+default.unreachable90:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -182901,7 +182901,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7boolean1_109_$LT$impl$u
   %14 = alloca [24 x i8], align 8
   %15 = alloca [8 x i8], align 8
   %16 = load i8, ptr %1, align 1, !range !19733, !noundef !3
-  switch i8 %16, label %default.unreachable87 [
+  switch i8 %16, label %default.unreachable90 [
     i8 0, label %17
     i8 1, label %19
     i8 2, label %21
@@ -182921,7 +182921,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7boolean1_109_$LT$impl$u
     i8 16, label %37
   ]
 
-default.unreachable87:                            ; preds = %3
+default.unreachable90:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -183187,7 +183187,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7boolean1_109_$LT$impl$u
   %14 = alloca [24 x i8], align 8
   %15 = alloca [8 x i8], align 8
   %16 = load i8, ptr %1, align 1, !range !19733, !noundef !3
-  switch i8 %16, label %default.unreachable87 [
+  switch i8 %16, label %default.unreachable90 [
     i8 0, label %17
     i8 1, label %19
     i8 2, label %21
@@ -183207,7 +183207,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7boolean1_109_$LT$impl$u
     i8 16, label %37
   ]
 
-default.unreachable87:                            ; preds = %3
+default.unreachable90:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -183630,7 +183630,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr5range1_105_$LT$impl$u20
   %41 = alloca [24 x i8], align 8
   %42 = alloca [8 x i8], align 8
   %43 = load i8, ptr %1, align 16, !range !19771, !noundef !3
-  switch i8 %43, label %default.unreachable558 [
+  switch i8 %43, label %default.unreachable587 [
     i8 0, label %44
     i8 1, label %47
     i8 2, label %48
@@ -183643,7 +183643,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr5range1_105_$LT$impl$u20
     i8 9, label %72
   ]
 
-default.unreachable558:                           ; preds = %3
+default.unreachable587:                           ; preds = %3
   unreachable
 
 44:                                               ; preds = %3
@@ -184350,7 +184350,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr5range1_105_$LT$impl$u20
   %41 = alloca [24 x i8], align 8
   %42 = alloca [8 x i8], align 8
   %43 = load i8, ptr %1, align 16, !range !19771, !noundef !3
-  switch i8 %43, label %default.unreachable558 [
+  switch i8 %43, label %default.unreachable587 [
     i8 0, label %44
     i8 1, label %47
     i8 2, label %48
@@ -184363,7 +184363,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr5range1_105_$LT$impl$u20
     i8 9, label %72
   ]
 
-default.unreachable558:                           ; preds = %3
+default.unreachable587:                           ; preds = %3
   unreachable
 
 44:                                               ; preds = %3
@@ -185070,7 +185070,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr5range1_105_$LT$impl$u20
   %41 = alloca [24 x i8], align 8
   %42 = alloca [8 x i8], align 8
   %43 = load i8, ptr %1, align 16, !range !19771, !noundef !3
-  switch i8 %43, label %default.unreachable558 [
+  switch i8 %43, label %default.unreachable587 [
     i8 0, label %44
     i8 1, label %47
     i8 2, label %48
@@ -185083,7 +185083,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr5range1_105_$LT$impl$u20
     i8 9, label %72
   ]
 
-default.unreachable558:                           ; preds = %3
+default.unreachable587:                           ; preds = %3
   unreachable
 
 44:                                               ; preds = %3

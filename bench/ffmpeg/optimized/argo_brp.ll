@@ -372,14 +372,14 @@ read_extradata.exit:                              ; preds = %55, %64
 170:                                              ; preds = %164
   %171 = add nuw nsw i32 %.0199, 1
   %exitcond.not = icmp eq i32 %171, 10
-  br i1 %exitcond.not, label %.thread212, label %154, !llvm.loop !74
+  br i1 %exitcond.not, label %.thread228, label %154, !llvm.loop !74
 
 172:                                              ; preds = %157
   %173 = icmp eq i32 %.0199, 10
   %or.cond7 = or i1 %173, %163
-  br i1 %or.cond7, label %.thread212, label %174
+  br i1 %or.cond7, label %.thread228, label %174
 
-.thread212:                                       ; preds = %170, %172
+.thread228:                                       ; preds = %170, %172
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.10) #7
   br label %207
 
@@ -438,7 +438,7 @@ read_extradata.exit:                              ; preds = %55, %64
   store i64 %205, ptr %206, align 8, !tbaa !43
   br label %207
 
-207:                                              ; preds = %.thread212, %194
+207:                                              ; preds = %.thread228, %194
   %208 = load ptr, ptr %3, align 8, !tbaa !12
   %209 = call i64 @avio_seek(ptr noundef %208, i64 noundef %149, i32 noundef 0) #7
   %210 = icmp sgt i64 %209, -1

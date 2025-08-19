@@ -374,8 +374,8 @@ check_for_old_linux_tvb.exit.thread:              ; preds = %42, %check_for_old_
   %82 = call i32 @_setjmp(ptr noundef nonnull %81) #12
   %.not160 = icmp eq i32 %82, 0
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %.sink190 = select i1 %.not160, ptr null, ptr %83
-  store volatile ptr %.sink190, ptr %15, align 8
+  %.sink205 = select i1 %.not160, ptr null, ptr %83
+  store volatile ptr %.sink205, ptr %15, align 8
   %.0..0..0..0.12 = load volatile i32, ptr %16, align 4
   %84 = and i32 %.0..0..0..0.12, 1
   %.not161 = icmp eq i32 %84, 0
@@ -510,8 +510,8 @@ check_for_old_linux_tvb.exit.thread:              ; preds = %42, %check_for_old_
   br label %130
 
 130:                                              ; preds = %129, %128
-  %.sink191 = phi i8 [ 0, %129 ], [ %.0..0..0..0.87, %128 ]
-  store volatile i8 %.sink191, ptr %9, align 1
+  %.sink206 = phi i8 [ 0, %129 ], [ %.0..0..0..0.87, %128 ]
+  store volatile i8 %.sink206, ptr %9, align 1
   %131 = load i8, ptr @fix_linux_botches, align 1, !range !6, !noundef !7
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %186
@@ -527,8 +527,8 @@ check_for_old_linux_tvb.exit.thread:              ; preds = %42, %check_for_old_
   %135 = call i32 @_setjmp(ptr noundef nonnull %134) #12
   %.not167 = icmp eq i32 %135, 0
   %136 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.sink192 = select i1 %.not167, ptr null, ptr %136
-  store volatile ptr %.sink192, ptr %19, align 8
+  %.sink207 = select i1 %.not167, ptr null, ptr %136
+  store volatile ptr %.sink207, ptr %19, align 8
   %.0..0..0..0. = load volatile i32, ptr %20, align 4
   %137 = and i32 %.0..0..0..0., 1
   %.not168 = icmp eq i32 %137, 0

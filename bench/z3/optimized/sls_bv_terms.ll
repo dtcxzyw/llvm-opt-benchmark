@@ -5942,14 +5942,14 @@ _Z11is_uninterpPK4expr.exit.thread98.sink.split.sink.split: ; preds = %288, %270
   br label %_Z11is_uninterpPK4expr.exit.thread98.sink.split
 
 _Z11is_uninterpPK4expr.exit.thread98.sink.split:  ; preds = %_Z11is_uninterpPK4expr.exit.thread98.sink.split.sink.split, %282, %260
-  %.sink132 = phi ptr [ %262, %260 ], [ %280, %282 ], [ %.pre.i55.sink, %_Z11is_uninterpPK4expr.exit.thread98.sink.split.sink.split ]
-  %.sink131 = phi i32 [ %266, %260 ], [ %284, %282 ], [ %.pre2.i57, %_Z11is_uninterpPK4expr.exit.thread98.sink.split.sink.split ]
+  %.sink168 = phi ptr [ %262, %260 ], [ %280, %282 ], [ %.pre.i55.sink, %_Z11is_uninterpPK4expr.exit.thread98.sink.split.sink.split ]
+  %.sink167 = phi i32 [ %266, %260 ], [ %284, %282 ], [ %.pre2.i57, %_Z11is_uninterpPK4expr.exit.thread98.sink.split.sink.split ]
   %.sink = phi ptr [ %239, %260 ], [ %78, %282 ], [ %.sink.ph, %_Z11is_uninterpPK4expr.exit.thread98.sink.split.sink.split ]
-  %289 = getelementptr inbounds i8, ptr %.sink132, i64 -4
-  %290 = zext i32 %.sink131 to i64
-  %291 = getelementptr inbounds nuw ptr, ptr %.sink132, i64 %290
+  %289 = getelementptr inbounds i8, ptr %.sink168, i64 -4
+  %290 = zext i32 %.sink167 to i64
+  %291 = getelementptr inbounds nuw ptr, ptr %.sink168, i64 %290
   store ptr %.sink, ptr %291, align 8, !tbaa !61
-  %292 = add i32 %.sink131, 1
+  %292 = add i32 %.sink167, 1
   store i32 %292, ptr %289, align 4, !tbaa !60
   br label %_Z11is_uninterpPK4expr.exit.thread98
 

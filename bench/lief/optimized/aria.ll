@@ -653,8 +653,8 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   br label %12
 
 .preheader:                                       ; preds = %17
-  %.not58 = icmp eq i8 %6, 1
-  br i1 %.not58, label %.loopexit, label %.lr.ph
+  %.not60 = icmp eq i8 %6, 1
+  br i1 %.not60, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1346,20 +1346,20 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %3, i8 0, i64 276, i1 false)
   %.0.i3647.i.sroa.gep124 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not87 = icmp eq i32 %0, 0
-  br label %.backedge195
+  br label %.backedge201
 
-.backedge195:                                     ; preds = %.backedge195.backedge, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.be, %.backedge195.backedge ]
-  %indvars.iv.tr171 = trunc i64 %indvars.iv to i32
-  %6 = shl i32 %indvars.iv.tr171, 6
+.backedge201:                                     ; preds = %.backedge201.backedge, %1
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.be, %.backedge201.backedge ]
+  %indvars.iv.tr177 = trunc i64 %indvars.iv to i32
+  %6 = shl i32 %indvars.iv.tr177, 6
   %.pre151 = add i32 %6, 128
   br i1 %.not87, label %._crit_edge148, label %7
 
-7:                                                ; preds = %.backedge195
+7:                                                ; preds = %.backedge201
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.pre151)
   br label %._crit_edge148
 
-._crit_edge148:                                   ; preds = %.backedge195, %7
+._crit_edge148:                                   ; preds = %.backedge201, %7
   %9 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test1_ecb_key, i32 noundef %.pre151)
   %10 = call i32 @mbedtls_aria_crypt_ecb(ptr noundef nonnull %3, ptr noundef nonnull @aria_test1_ecb_pt, ptr noundef nonnull %2)
   %11 = getelementptr inbounds nuw [3 x [16 x i8]], ptr @aria_test1_ecb_ct, i64 0, i64 %indvars.iv
@@ -1402,37 +1402,37 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
 22:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit194.preheader, label %.backedge195.backedge
+  br i1 %exitcond.not, label %.loopexit200.preheader, label %.backedge201.backedge
 
-.backedge195.backedge:                            ; preds = %22, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %22 ], [ %indvars.iv.next175, %.thread ]
-  br label %.backedge195, !llvm.loop !24
+.backedge201.backedge:                            ; preds = %22, %.thread
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %22 ], [ %indvars.iv.next181, %.thread ]
+  br label %.backedge201, !llvm.loop !24
 
 .thread:                                          ; preds = %21
   %puts93 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not176 = icmp eq i64 %indvars.iv.next175, 3
-  br i1 %exitcond.not176, label %23, label %.backedge195.backedge
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not182 = icmp eq i64 %indvars.iv.next181, 3
+  br i1 %exitcond.not182, label %23, label %.backedge201.backedge
 
 23:                                               ; preds = %.thread
   %putchar = tail call i32 @putchar(i32 10)
-  br label %.loopexit194.preheader
+  br label %.loopexit200.preheader
 
-.loopexit194.preheader:                           ; preds = %22, %23
-  br label %.loopexit194
+.loopexit200.preheader:                           ; preds = %22, %23
+  br label %.loopexit200
 
-.loopexit194:                                     ; preds = %.loopexit194.backedge, %.loopexit194.preheader
-  %indvars.iv135 = phi i64 [ 0, %.loopexit194.preheader ], [ %indvars.iv135.be, %.loopexit194.backedge ]
-  %indvars.iv135.tr172 = trunc i64 %indvars.iv135 to i32
-  %24 = shl i32 %indvars.iv135.tr172, 6
+.loopexit200:                                     ; preds = %.loopexit200.backedge, %.loopexit200.preheader
+  %indvars.iv135 = phi i64 [ 0, %.loopexit200.preheader ], [ %indvars.iv135.be, %.loopexit200.backedge ]
+  %indvars.iv135.tr178 = trunc i64 %indvars.iv135 to i32
+  %24 = shl i32 %indvars.iv135.tr178, 6
   %.pre157 = add i32 %24, 128
   br i1 %.not87, label %._crit_edge147, label %25
 
-25:                                               ; preds = %.loopexit194
+25:                                               ; preds = %.loopexit200
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.pre157)
   br label %._crit_edge147
 
-._crit_edge147:                                   ; preds = %.loopexit194, %25
+._crit_edge147:                                   ; preds = %.loopexit200, %25
   %27 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre157)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @aria_test2_iv, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 85, i64 48, i1 false)
@@ -1521,42 +1521,42 @@ mbedtls_aria_crypt_cbc.exit102:                   ; preds = %.lr.ph60.i
   br label %.loopexit
 
 52:                                               ; preds = %mbedtls_aria_crypt_cbc.exit102
-  br i1 %.not87, label %53, label %.thread178
+  br i1 %.not87, label %53, label %.thread184
 
 53:                                               ; preds = %52
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next136, 3
-  br i1 %exitcond138.not, label %.loopexit192.preheader, label %.loopexit194.backedge
+  br i1 %exitcond138.not, label %.loopexit198.preheader, label %.loopexit200.backedge
 
-.loopexit194.backedge:                            ; preds = %53, %.thread178
-  %indvars.iv135.be = phi i64 [ %indvars.iv.next136, %53 ], [ %indvars.iv.next136179, %.thread178 ]
-  br label %.loopexit194, !llvm.loop !25
+.loopexit200.backedge:                            ; preds = %53, %.thread184
+  %indvars.iv135.be = phi i64 [ %indvars.iv.next136, %53 ], [ %indvars.iv.next136185, %.thread184 ]
+  br label %.loopexit200, !llvm.loop !25
 
-.thread178:                                       ; preds = %52
+.thread184:                                       ; preds = %52
   %puts84 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %indvars.iv.next136179 = add nuw nsw i64 %indvars.iv135, 1
-  %exitcond138.not180 = icmp eq i64 %indvars.iv.next136179, 3
-  br i1 %exitcond138.not180, label %54, label %.loopexit194.backedge
+  %indvars.iv.next136185 = add nuw nsw i64 %indvars.iv135, 1
+  %exitcond138.not186 = icmp eq i64 %indvars.iv.next136185, 3
+  br i1 %exitcond138.not186, label %54, label %.loopexit200.backedge
 
-54:                                               ; preds = %.thread178
+54:                                               ; preds = %.thread184
   %putchar62 = tail call i32 @putchar(i32 10)
-  br label %.loopexit192.preheader
+  br label %.loopexit198.preheader
 
-.loopexit192.preheader:                           ; preds = %53, %54
-  br label %.loopexit192
+.loopexit198.preheader:                           ; preds = %53, %54
+  br label %.loopexit198
 
-.loopexit192:                                     ; preds = %.loopexit192.backedge, %.loopexit192.preheader
-  %indvars.iv139 = phi i64 [ 0, %.loopexit192.preheader ], [ %indvars.iv139.be, %.loopexit192.backedge ]
-  %indvars.iv139.tr173 = trunc i64 %indvars.iv139 to i32
-  %55 = shl i32 %indvars.iv139.tr173, 6
+.loopexit198:                                     ; preds = %.loopexit198.backedge, %.loopexit198.preheader
+  %indvars.iv139 = phi i64 [ 0, %.loopexit198.preheader ], [ %indvars.iv139.be, %.loopexit198.backedge ]
+  %indvars.iv139.tr179 = trunc i64 %indvars.iv139 to i32
+  %55 = shl i32 %indvars.iv139.tr179, 6
   %.pre163 = add i32 %55, 128
   br i1 %.not87, label %._crit_edge, label %56
 
-56:                                               ; preds = %.loopexit192
+56:                                               ; preds = %.loopexit198
   %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.pre163)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.loopexit192, %56
+._crit_edge:                                      ; preds = %.loopexit198, %56
   %58 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre163)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @aria_test2_iv, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 85, i64 48, i1 false)
@@ -1656,42 +1656,42 @@ mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
   br label %.loopexit
 
 95:                                               ; preds = %mbedtls_aria_crypt_cfb128.exit105
-  br i1 %.not87, label %96, label %.thread182
+  br i1 %.not87, label %96, label %.thread188
 
 96:                                               ; preds = %95
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, 3
-  br i1 %exitcond142.not, label %.loopexit190.preheader, label %.loopexit192.backedge
+  br i1 %exitcond142.not, label %.loopexit196.preheader, label %.loopexit198.backedge
 
-.loopexit192.backedge:                            ; preds = %96, %.thread182
-  %indvars.iv139.be = phi i64 [ %indvars.iv.next140, %96 ], [ %indvars.iv.next140183, %.thread182 ]
-  br label %.loopexit192, !llvm.loop !26
+.loopexit198.backedge:                            ; preds = %96, %.thread188
+  %indvars.iv139.be = phi i64 [ %indvars.iv.next140, %96 ], [ %indvars.iv.next140189, %.thread188 ]
+  br label %.loopexit198, !llvm.loop !26
 
-.thread182:                                       ; preds = %95
+.thread188:                                       ; preds = %95
   %puts76 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %indvars.iv.next140183 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond142.not184 = icmp eq i64 %indvars.iv.next140183, 3
-  br i1 %exitcond142.not184, label %97, label %.loopexit192.backedge
+  %indvars.iv.next140189 = add nuw nsw i64 %indvars.iv139, 1
+  %exitcond142.not190 = icmp eq i64 %indvars.iv.next140189, 3
+  br i1 %exitcond142.not190, label %97, label %.loopexit198.backedge
 
-97:                                               ; preds = %.thread182
+97:                                               ; preds = %.thread188
   %putchar63 = tail call i32 @putchar(i32 10)
-  br label %.loopexit190.preheader
+  br label %.loopexit196.preheader
 
-.loopexit190.preheader:                           ; preds = %96, %97
-  br label %.loopexit190
+.loopexit196.preheader:                           ; preds = %96, %97
+  br label %.loopexit196
 
-.loopexit190:                                     ; preds = %.loopexit190.backedge, %.loopexit190.preheader
-  %indvars.iv143 = phi i64 [ 0, %.loopexit190.preheader ], [ %indvars.iv143.be, %.loopexit190.backedge ]
-  %indvars.iv143.tr174 = trunc i64 %indvars.iv143 to i32
-  %98 = shl i32 %indvars.iv143.tr174, 6
+.loopexit196:                                     ; preds = %.loopexit196.backedge, %.loopexit196.preheader
+  %indvars.iv143 = phi i64 [ 0, %.loopexit196.preheader ], [ %indvars.iv143.be, %.loopexit196.backedge ]
+  %indvars.iv143.tr180 = trunc i64 %indvars.iv143 to i32
+  %98 = shl i32 %indvars.iv143.tr180, 6
   %.pre169 = add i32 %98, 128
   br i1 %.not87, label %.preheader.i, label %99
 
-99:                                               ; preds = %.loopexit190
+99:                                               ; preds = %.loopexit196
   %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.pre169)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit190, %99
+.preheader.i:                                     ; preds = %.loopexit196, %99
   %101 = call i32 @mbedtls_aria_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull @aria_test2_key, i32 noundef %.pre169)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 85, i64 48, i1 false)
@@ -1817,24 +1817,24 @@ mbedtls_aria_crypt_ctr.exit123:                   ; preds = %.loopexit.i116
   br label %.loopexit
 
 151:                                              ; preds = %mbedtls_aria_crypt_ctr.exit123
-  br i1 %.not87, label %152, label %.thread186
+  br i1 %.not87, label %152, label %.thread192
 
 152:                                              ; preds = %151
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, 3
-  br i1 %exitcond146.not, label %.loopexit, label %.loopexit190.backedge
+  br i1 %exitcond146.not, label %.loopexit, label %.loopexit196.backedge
 
-.loopexit190.backedge:                            ; preds = %152, %.thread186
-  %indvars.iv143.be = phi i64 [ %indvars.iv.next144, %152 ], [ %indvars.iv.next144187, %.thread186 ]
-  br label %.loopexit190, !llvm.loop !27
+.loopexit196.backedge:                            ; preds = %152, %.thread192
+  %indvars.iv143.be = phi i64 [ %indvars.iv.next144, %152 ], [ %indvars.iv.next144193, %.thread192 ]
+  br label %.loopexit196, !llvm.loop !27
 
-.thread186:                                       ; preds = %151
+.thread192:                                       ; preds = %151
   %puts68 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
-  %indvars.iv.next144187 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond146.not188 = icmp eq i64 %indvars.iv.next144187, 3
-  br i1 %exitcond146.not188, label %153, label %.loopexit190.backedge
+  %indvars.iv.next144193 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond146.not194 = icmp eq i64 %indvars.iv.next144193, 3
+  br i1 %exitcond146.not194, label %153, label %.loopexit196.backedge
 
-153:                                              ; preds = %.thread186
+153:                                              ; preds = %.thread192
   %putchar64 = tail call i32 @putchar(i32 10)
   br label %.loopexit
 

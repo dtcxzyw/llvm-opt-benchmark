@@ -442,14 +442,14 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
   br i1 %76, label %78, label %.sink.split
 
 .sink.split:                                      ; preds = %73, %69
-  %.sink79 = phi ptr [ %12, %69 ], [ %75, %73 ]
-  %77 = tail call noalias ptr @strdup(ptr noundef nonnull %.sink79) #22
+  %.sink85 = phi ptr [ %12, %69 ], [ %75, %73 ]
+  %77 = tail call noalias ptr @strdup(ptr noundef nonnull %.sink85) #22
   br label %78
 
 78:                                               ; preds = %.sink.split, %73
-  %.sink77 = phi ptr [ null, %73 ], [ %77, %.sink.split ]
+  %.sink83 = phi ptr [ null, %73 ], [ %77, %.sink.split ]
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store ptr %.sink77, ptr %79, align 8, !tbaa !39
+  store ptr %.sink83, ptr %79, align 8, !tbaa !39
   %80 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 157
   %81 = load i8, ptr %80, align 1, !tbaa !57, !range !26, !noundef !27
   %82 = getelementptr inbounds nuw i8, ptr %22, i64 55

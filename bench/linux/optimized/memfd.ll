@@ -927,8 +927,8 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
   %288 = phi i32 [ %136, %151 ], [ %239, %285 ]
   %289 = load ptr, ptr %2, align 8
   call void @_raw_spin_unlock_irq(ptr noundef %289) #9
-  %290 = add i32 %152, 1
-  %291 = icmp slt i32 %290, 5
+  %290 = add nuw nsw i32 %152, 1
+  %291 = icmp slt i32 %152, 4
   br i1 %291, label %134, label %.thread18, !llvm.loop !25
 
 .thread18:                                        ; preds = %134, %.loopexit

@@ -101,15 +101,15 @@ define ptr @ff_ebur128_init(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 
   br i1 %33, label %.lr.ph.i, label %.loopexit, !llvm.loop !20
 
 .loopexit.sink.split.i:                           ; preds = %21, %20
-  %.sink40.i = phi i64 [ 4, %20 ], [ 8, %21 ]
+  %.sink41.i = phi i64 [ 4, %20 ], [ 8, %21 ]
   %.sink.i = phi i32 [ 2, %20 ], [ 3, %21 ]
-  %.sink38.i = phi i64 [ 8, %20 ], [ 12, %21 ]
-  %.sink37.i = phi i64 [ 12, %20 ], [ 16, %21 ]
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink40.i
+  %.sink39.i = phi i64 [ 8, %20 ], [ 12, %21 ]
+  %.sink38.i = phi i64 [ 12, %20 ], [ 16, %21 ]
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink41.i
   store i32 %.sink.i, ptr %34, align 4, !tbaa !19
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink38.i
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink39.i
   store i32 4, ptr %35, align 4, !tbaa !19
-  %36 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink37.i
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink38.i
   store i32 5, ptr %36, align 4, !tbaa !19
   br label %.loopexit
 
@@ -1312,11 +1312,11 @@ find_histogram_index.exit:                        ; preds = %.preheader
   br i1 %47, label %.lr.ph95.preheader, label %.loopexit82.sink.split
 
 .lr.ph95.preheader:                               ; preds = %31, %find_histogram_index.exit
-  %.0121 = phi i64 [ %.0, %find_histogram_index.exit ], [ 0, %31 ]
+  %.0129 = phi i64 [ %.0, %find_histogram_index.exit ], [ 0, %31 ]
   br label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
-  %.16393 = phi i64 [ %51, %.lr.ph95 ], [ %.0121, %.lr.ph95.preheader ]
+  %.16393 = phi i64 [ %51, %.lr.ph95 ], [ %.0129, %.lr.ph95.preheader ]
   %.36792 = phi i64 [ %50, %.lr.ph95 ], [ 0, %.lr.ph95.preheader ]
   %48 = getelementptr inbounds nuw [1000 x i64], ptr %4, i64 0, i64 %.16393
   %49 = load i64, ptr %48, align 8, !tbaa !48
@@ -1337,7 +1337,7 @@ find_histogram_index.exit:                        ; preds = %.preheader
   br label %57
 
 57:                                               ; preds = %52, %57
-  %.299 = phi i64 [ %.0121, %52 ], [ %58, %57 ]
+  %.299 = phi i64 [ %.0129, %52 ], [ %58, %57 ]
   %.498 = phi i64 [ 0, %52 ], [ %61, %57 ]
   %58 = add i64 %.299, 1
   %59 = getelementptr inbounds nuw [1000 x i64], ptr %4, i64 0, i64 %.299

@@ -407,10 +407,10 @@ define void @_ZN9grpc_core9Transport16SetPollingEntityEP11grpc_streamP19grpc_pol
   br i1 %.not10, label %10, label %.sink.split
 
 .sink.split:                                      ; preds = %5, %3
-  %.sink14 = phi i64 [ 56, %3 ], [ 64, %5 ]
+  %.sink15 = phi i64 [ 56, %3 ], [ 64, %5 ]
   %.sink = phi ptr [ %4, %3 ], [ %6, %5 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !31
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink14
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink15
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %.sink)
   br label %10

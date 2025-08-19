@@ -7006,13 +7006,13 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
   %42 = icmp eq i64 %41, 4
   br i1 %42, label %43, label %46
 
-default.unreachable75:                            ; preds = %43
+default.unreachable79:                            ; preds = %43
   unreachable
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = load i64, ptr %44, align 8, !range !236, !noundef !9
-  switch i64 %45, label %default.unreachable75 [
+  switch i64 %45, label %default.unreachable79 [
     i64 0, label %55
     i64 1, label %48
     i64 2, label %50
@@ -7324,13 +7324,13 @@ define hidden noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$L
   %45 = icmp eq i64 %44, 3
   br i1 %45, label %46, label %49
 
-default.unreachable75:                            ; preds = %46
+default.unreachable79:                            ; preds = %46
   unreachable
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %48 = load i64, ptr %47, align 8, !range !236, !noundef !9
-  switch i64 %48, label %default.unreachable75 [
+  switch i64 %48, label %default.unreachable79 [
     i64 0, label %58
     i64 1, label %51
     i64 2, label %53
@@ -9390,7 +9390,7 @@ define hidden void @"_ZN4moka6common10concurrent6deques15Deques$LT$K$GT$15move_t
   %18 = inttoptr i64 %17 to ptr
   %19 = and i64 %16, 3
   %20 = tail call noundef i8 @"_ZN78_$LT$moka..common..CacheRegion$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17hb62338cda0f768eaE"(i64 noundef %19), !range !669
-  switch i8 %20, label %default.unreachable29 [
+  switch i8 %20, label %default.unreachable45 [
     i8 0, label %22
     i8 1, label %28
     i8 2, label %35
@@ -9400,7 +9400,7 @@ define hidden void @"_ZN4moka6common10concurrent6deques15Deques$LT$K$GT$15move_t
 "_ZN4moka6common5deque14Deque$LT$T$GT$12move_to_back17h8873045b6181bd50E.exit": ; preds = %112, %85, %58, %121, %113, %96, %94, %86, %69, %67, %59, %42, %"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$19access_order_q_node17ha177fbeee628a760E.exit"
   ret void
 
-default.unreachable29:                            ; preds = %15
+default.unreachable45:                            ; preds = %15
   unreachable
 
 21:                                               ; preds = %35, %28, %22, %15
@@ -10179,9 +10179,9 @@ define hidden void @"_ZN4moka6common10concurrent6deques15Deques$LT$K$GT$25unlink
   %44 = getelementptr inbounds nuw i8, ptr %..i.i, i64 24
   store ptr %43, ptr %44, align 8
   %45 = icmp eq ptr %43, null
-  %.sink8.i.i = select i1 %45, ptr %2, ptr %43
+  %.sink10.i.i = select i1 %45, ptr %2, ptr %43
   %46 = load ptr, ptr %28, align 8, !noalias !1408, !noundef !9
-  %47 = getelementptr inbounds nuw i8, ptr %.sink8.i.i, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.sink10.i.i, i64 32
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !noalias !1408

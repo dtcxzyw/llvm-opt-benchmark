@@ -1977,8 +1977,8 @@ reg_pattern_test.exit62.thread:                   ; preds = %.preheader.i61, %re
   br i1 %436, label %440, label %437
 
 .sink.split:                                      ; preds = %420, %431
-  %.sink306 = phi i64 [ 2, %431 ], [ 1, %420 ]
-  store i64 %.sink306, ptr %418, align 8
+  %.sink384 = phi i64 [ 2, %431 ], [ 1, %420 ]
+  store i64 %.sink384, ptr %418, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %437
 
@@ -2153,9 +2153,9 @@ reg_pattern_test.exit62.thread:                   ; preds = %.preheader.i61, %re
 525:                                              ; preds = %520
   %526 = call i32 %523(ptr noundef %40) #15
   %527 = icmp eq i32 %526, 0
-  br i1 %527, label %529, label %.thread243
+  br i1 %527, label %529, label %.thread321
 
-.thread243:                                       ; preds = %525
+.thread321:                                       ; preds = %525
   %528 = load ptr, ptr %35, align 8
   call void (ptr, ptr, ...) @netdev_err(ptr noundef %528, ptr noundef nonnull @.str.11) #16
   store i64 0, ptr %521, align 8
@@ -3021,7 +3021,7 @@ reg_pattern_test.exit62.thread:                   ; preds = %.preheader.i61, %re
   store i32 %1075, ptr %25, align 4
   br label %1076
 
-1076:                                             ; preds = %.thread243, %1073, %1069
+1076:                                             ; preds = %.thread321, %1073, %1069
   %1077 = getelementptr i8, ptr %0, i64 4823
   store i8 1, ptr %1077, align 1
   call void @e1000e_reset(ptr noundef %7) #15

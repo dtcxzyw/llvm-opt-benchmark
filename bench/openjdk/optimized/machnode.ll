@@ -869,9 +869,9 @@ define hidden noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr no
   %26 = load i32, ptr %25, align 8
   %.not4860 = icmp eq ptr %24, null
   %27 = add i32 %26, -8
-  %.not4968 = icmp ult i32 %27, -2
-  %or.cond65 = or i1 %.not4860, %.not4968
-  br i1 %or.cond65, label %44, label %28
+  %.not4974 = icmp ult i32 %27, -2
+  %or.cond71 = or i1 %.not4860, %.not4974
+  br i1 %or.cond71, label %44, label %28
 
 28:                                               ; preds = %20
   store i64 %14, ptr %1, align 8
@@ -915,8 +915,8 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %30, %33, %36
   %or.cond = or i1 %.not50, %.not62
   %48 = icmp ne i32 %26, 4
   %49 = or i1 %.not4860, %48
-  %or.cond67 = or i1 %or.cond, %49
-  br i1 %or.cond67, label %56, label %50
+  %or.cond73 = or i1 %or.cond, %49
+  br i1 %or.cond73, label %56, label %50
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %24, i64 24

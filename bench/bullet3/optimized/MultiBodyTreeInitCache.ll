@@ -104,10 +104,10 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   br label %116
 
 .sink.split:                                      ; preds = %12, %12, %15, %16
-  %.sink30 = phi i32 [ 6, %16 ], [ 3, %15 ], [ 1, %12 ], [ 1, %12 ]
+  %.sink42 = phi i32 [ 6, %16 ], [ 3, %15 ], [ 1, %12 ], [ 1, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load i32, ptr %18, align 8, !tbaa !36
-  %20 = add nsw i32 %19, %.sink30
+  %20 = add nsw i32 %19, %.sink42
   store i32 %20, ptr %18, align 8, !tbaa !36
   br label %21
 

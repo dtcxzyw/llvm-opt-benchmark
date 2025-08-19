@@ -330,7 +330,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .preheader270:                                    ; preds = %.preheader270.lr.ph, %._crit_edge297
   %indvars.iv359 = phi i64 [ %118, %.preheader270.lr.ph ], [ %indvars.iv.next360, %._crit_edge297 ]
   %132 = mul nsw i64 %indvars.iv359, %120
-  %invariant.gep378 = getelementptr float, ptr %100, i64 %132
+  %invariant.gep391 = getelementptr float, ptr %100, i64 %132
   br label %141
 
 .preheader269:                                    ; preds = %._crit_edge297
@@ -359,10 +359,10 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 141:                                              ; preds = %.preheader270, %141
   %indvars.iv354 = phi i64 [ %118, %.preheader270 ], [ %indvars.iv.next355, %141 ]
-  %gep379 = getelementptr float, ptr %invariant.gep378, i64 %indvars.iv354
-  %142 = load float, ptr %gep379, align 4, !tbaa !33
+  %gep392 = getelementptr float, ptr %invariant.gep391, i64 %indvars.iv354
+  %142 = load float, ptr %gep392, align 4, !tbaa !33
   %143 = fmul reassoc nsz arcp contract afn float %142, %121
-  store float %143, ptr %gep379, align 4, !tbaa !33
+  store float %143, ptr %gep392, align 4, !tbaa !33
   %indvars.iv.next355 = add nsw i64 %indvars.iv354, 1
   %lftr.wideiv357 = trunc i64 %indvars.iv.next355 to i32
   %exitcond358.not = icmp eq i32 %119, %lftr.wideiv357
@@ -792,7 +792,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %invariant.gep71 = getelementptr i32, ptr %7, i64 %14
+  %invariant.gep72 = getelementptr i32, ptr %7, i64 %14
   %19 = trunc i64 %indvars.iv61 to i32
   %20 = add i32 %19, -6
   br label %22
@@ -813,8 +813,8 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv58 = phi i64 [ %indvars.iv56, %.lr.ph ], [ %indvars.iv.next59, %22 ]
-  %gep72 = getelementptr i32, ptr %invariant.gep71, i64 %indvars.iv58
-  store i32 %20, ptr %gep72, align 4, !tbaa !115
+  %gep73 = getelementptr i32, ptr %invariant.gep72, i64 %indvars.iv58
+  store i32 %20, ptr %gep73, align 4, !tbaa !115
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %23 = icmp samesign ult i64 %indvars.iv58, 5
   br i1 %23, label %22, label %._crit_edge, !llvm.loop !128
@@ -1913,8 +1913,8 @@ _ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us: ; preds = %111
   br i1 %.not30, label %.sink.split, label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread
 
 .split77.us.thread:                               ; preds = %.preheader
-  %.not3090 = icmp eq ptr %.06773, %13
-  br i1 %.not3090, label %126, label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
+  %.not3091 = icmp eq ptr %.06773, %13
+  br i1 %.not3091, label %126, label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread: ; preds = %.split77.us
   %.idx = shl nuw nsw i64 %19, 4
@@ -1931,8 +1931,8 @@ _ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit: ; preds = %.
   br i1 %127, label %128, label %.sink.split
 
 .sink.split:                                      ; preds = %126, %.split77.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread
-  %.us-phi9199.sink = phi ptr [ %.06773.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread ], [ %.06773, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit ], [ %.06674, %126 ], [ %.06674.us, %.split77.us ]
-  tail call void @_ZdaPv(ptr noundef nonnull %.us-phi9199.sink) #26
+  %.us-phi92100.sink = phi ptr [ %.06773.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread ], [ %.06773, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit ], [ %.06674, %126 ], [ %.06674.us, %.split77.us ]
+  tail call void @_ZdaPv(ptr noundef nonnull %.us-phi92100.sink) #26
   br label %128
 
 128:                                              ; preds = %.sink.split, %126, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
@@ -2451,28 +2451,28 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi5ELi4EE7setSizeEm
 
 .loopexit:                                        ; preds = %19, %.thread
   %25 = phi i64 [ 131072, %.thread ], [ %23, %19 ]
-  %.fr.lcssa19 = phi i64 [ 131072, %.thread ], [ %24, %19 ]
+  %.fr.lcssa21 = phi i64 [ 131072, %.thread ], [ %24, %19 ]
   %26 = phi i64 [ 131072, %.thread ], [ %spec.select, %19 ]
   %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #25
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %27, i8 -1, i64 %.fr.lcssa19, i1 false), !tbaa !154
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %27, i8 -1, i64 %.fr.lcssa21, i1 false), !tbaa !154
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !148
   %29 = icmp ugt i64 %1, 1152921504606846975
   %30 = shl nuw i64 %1, 4
-  %spec.select23 = select i1 %29, i64 -1, i64 %30
+  %spec.select25 = select i1 %29, i64 -1, i64 %30
   %31 = shl i64 %1, 5
   br label %32
 
 32:                                               ; preds = %.loopexit, %.loopexit.thread
   %33 = phi i64 [ 131072, %.loopexit.thread ], [ %25, %.loopexit ]
-  %.071021 = phi i64 [ 524288, %.loopexit.thread ], [ %31, %.loopexit ]
-  %34 = phi i64 [ 262144, %.loopexit.thread ], [ %spec.select23, %.loopexit ]
+  %.071023 = phi i64 [ 524288, %.loopexit.thread ], [ %31, %.loopexit ]
+  %34 = phi i64 [ 262144, %.loopexit.thread ], [ %spec.select25, %.loopexit ]
   %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #25
   store ptr %35, ptr %0, align 8, !tbaa !149
   %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #25
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8, !tbaa !110
-  %38 = add i64 %.071021, %33
+  %38 = add i64 %.071023, %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %38, ptr %39, align 8, !tbaa !161
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56

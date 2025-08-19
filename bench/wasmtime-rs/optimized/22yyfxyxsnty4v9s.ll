@@ -23848,10 +23848,10 @@ define hidden void @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtim
           to label %"_ZN4core3ptr44drop_in_place$LT$cap_std..fs..file..File$GT$17h41be46f60dc01a82E.exit55" unwind label %20
 
 .critedge.sink.split:                             ; preds = %33, %51
-  %.sink72 = phi i32 [ 1, %51 ], [ 0, %33 ]
+  %.sink76 = phi i32 [ 1, %51 ], [ 0, %33 ]
   %.sink = phi i32 [ %52, %51 ], [ %17, %33 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink72, ptr %62, align 4
+  store i32 %.sink76, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %63, align 8
   store i32 0, ptr %0, align 8
@@ -24832,14 +24832,14 @@ define hidden noundef zeroext i1 @"_ZN87_$LT$wasmtime_wasi..pipe..AsyncReadStrea
   %.sroa.720 = alloca [4 x i64], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8, !range !25, !noundef !9
-  switch i8 %6, label %default.unreachable24 [
+  switch i8 %6, label %default.unreachable25 [
     i8 0, label %7
     i8 1, label %17
     i8 2, label %18
     i8 3, label %19
   ]
 
-default.unreachable24:                            ; preds = %19, %2
+default.unreachable25:                            ; preds = %19, %2
   unreachable
 
 7:                                                ; preds = %2
@@ -24888,7 +24888,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr133dro
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !25, !noalias !4166
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  switch i8 %.pre, label %default.unreachable24 [
+  switch i8 %.pre, label %default.unreachable25 [
     i8 0, label %21
     i8 1, label %.invoke
     i8 2, label %26
@@ -25772,14 +25772,14 @@ define hidden noundef zeroext i1 @"_ZN96_$LT$wasmtime_wasi..write_stream..AsyncW
   %4 = alloca { ptr, i64, { { { { ptr, ptr, {} } } }, { { { ptr, [1 x i64] } } }, { { { { i64 } } } }, {} }, i8, [7 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8, !range !25, !noundef !9
-  switch i8 %6, label %default.unreachable21 [
+  switch i8 %6, label %default.unreachable22 [
     i8 0, label %.thread
     i8 1, label %13
     i8 2, label %14
     i8 3, label %15
   ]
 
-default.unreachable21:                            ; preds = %15, %2
+default.unreachable22:                            ; preds = %15, %2
   unreachable
 
 .thread:                                          ; preds = %2
@@ -25811,7 +25811,7 @@ default.unreachable21:                            ; preds = %15, %2
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !25, !noalias !4291
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  switch i8 %.pre, label %default.unreachable21 [
+  switch i8 %.pre, label %default.unreachable22 [
     i8 0, label %18
     i8 1, label %.invoke
     i8 2, label %30

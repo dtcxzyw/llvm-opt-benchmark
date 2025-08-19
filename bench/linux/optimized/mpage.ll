@@ -847,13 +847,13 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %63 = add i32 %21, 1
   %64 = load volatile i64, ptr %27, align 8
   %65 = and i64 %64, 512
-  %.not60 = icmp eq i64 %65, 0
+  %.not79 = icmp eq i64 %65, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %27, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.lobit = lshr exact i64 %65, 9
   %. = trunc nuw nsw i64 %.lobit to i32
-  %.59 = select i1 %.not60, i64 %25, i64 %56
-  %..pre = select i1 %.not60, ptr %26, ptr %.pre
+  %.78 = select i1 %.not79, i64 %25, i64 %56
+  %..pre = select i1 %.not79, ptr %26, ptr %.pre
   br label %66
 
 66:                                               ; preds = %61, %40
@@ -862,7 +862,7 @@ define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nound
   %69 = phi i32 [ %42, %40 ], [ %14, %61 ]
   %70 = phi ptr [ %23, %40 ], [ %.pre, %61 ]
   %71 = phi i32 [ %24, %40 ], [ %., %61 ]
-  %72 = phi i64 [ %25, %40 ], [ %.59, %61 ]
+  %72 = phi i64 [ %25, %40 ], [ %.78, %61 ]
   %73 = phi ptr [ %26, %40 ], [ %..pre, %61 ]
   %74 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %75 = load ptr, ptr %74, align 8

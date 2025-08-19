@@ -53,14 +53,14 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
   %19 = icmp slt i32 %18, 1
   %20 = fcmp ole float %2, 0.000000e+00
   %or.cond = and i1 %20, %19
-  br i1 %or.cond, label %22, label %.preheader131
+  br i1 %or.cond, label %22, label %.preheader133
 
-.preheader131:                                    ; preds = %21, %17
+.preheader133:                                    ; preds = %21, %17
   br label %27
 
 21:                                               ; preds = %14, %7
   %.old1 = fcmp ugt float %2, 0.000000e+00
-  br i1 %.old1, label %.preheader131, label %22
+  br i1 %.old1, label %.preheader133, label %22
 
 22:                                               ; preds = %17, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -82,8 +82,8 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %26
 
-27:                                               ; preds = %.preheader131, %35
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %35 ], [ 0, %.preheader131 ]
+27:                                               ; preds = %.preheader133, %35
+  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %35 ], [ 0, %.preheader133 ]
   %28 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv113
   %29 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv113
   br label %30
@@ -123,11 +123,11 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
   %46 = icmp slt i32 %41, 1
   %47 = icmp ne ptr %0, null
   %or.cond10 = and i1 %47, %46
-  br i1 %or.cond10, label %49, label %.preheader130
+  br i1 %or.cond10, label %49, label %.preheader132
 
 48:                                               ; preds = %37
   %.old9.not = icmp eq ptr %0, null
-  br i1 %.old9.not, label %.preheader130, label %49
+  br i1 %.old9.not, label %.preheader132, label %49
 
 49:                                               ; preds = %45, %48
   %50 = icmp sgt i32 %38, 0
@@ -137,14 +137,14 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
   %54 = icmp sgt i32 %41, 0
   %55 = select i1 %54, ptr @.str.3, ptr @.str.6
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef nonnull %55) #15
-  br label %.preheader130
+  br label %.preheader132
 
-.preheader130:                                    ; preds = %48, %49, %45
+.preheader132:                                    ; preds = %48, %49, %45
   br label %57
 
-57:                                               ; preds = %.preheader130, %.loopexit
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit ], [ 0, %.preheader130 ]
-  %.099110 = phi float [ %.sroa.speculated, %.loopexit ], [ 0.000000e+00, %.preheader130 ]
+57:                                               ; preds = %.preheader132, %.loopexit
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.loopexit ], [ 0, %.preheader132 ]
+  %.099110 = phi float [ %.sroa.speculated, %.loopexit ], [ 0.000000e+00, %.preheader132 ]
   %58 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv123
   %59 = load i32, ptr %58, align 4, !tbaa !4
   %60 = icmp slt i32 %59, 1
@@ -163,8 +163,8 @@ define noundef float @_Z11calcFftGridP8_IO_FILEPA3_KffiPiS4_S4_(ptr noundef capt
 
 .preheader:                                       ; preds = %63, %69
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %69 ], [ 14, %63 ]
-  %.not127 = icmp eq i64 %indvars.iv120, 0
-  br i1 %.not127, label %.critedge, label %69
+  %.not129 = icmp eq i64 %indvars.iv120, 0
+  br i1 %.not129, label %.critedge, label %69
 
 69:                                               ; preds = %.preheader
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, -1

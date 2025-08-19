@@ -758,9 +758,9 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split:  ; preds = %134, %137, %122, %1
 
 _ZN6vectorIcLb1EjE9push_backEOc.exit:             ; preds = %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split, %137, %125
   %.sink = phi i32 [ %127, %125 ], [ %139, %137 ], [ %.pre2.i34, %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split ]
-  %.sink72 = phi ptr [ %123, %125 ], [ %135, %137 ], [ %.pre.i32, %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split ]
+  %.sink88 = phi ptr [ %123, %125 ], [ %135, %137 ], [ %.pre.i32, %_ZN6vectorIcLb1EjE9push_backEOc.exit.sink.split ]
   %165 = zext i32 %.sink to i64
-  %166 = getelementptr inbounds nuw i8, ptr %.sink72, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr %.sink88, i64 %165
   store i8 %117, ptr %166, align 1, !tbaa !32
   %167 = load ptr, ptr %3, align 8, !tbaa !39
   %168 = getelementptr inbounds i8, ptr %167, i64 -4
@@ -4143,11 +4143,11 @@ _ZN6vectorIcLb1EjE9push_backEOc.exit135.sink.split: ; preds = %758, %726
   br label %_ZN6vectorIcLb1EjE9push_backEOc.exit135
 
 _ZN6vectorIcLb1EjE9push_backEOc.exit135:          ; preds = %_ZN6vectorIcLb1EjE9push_backEOc.exit135.sink.split, %758, %726
-  %.sink196 = phi i32 [ %734, %726 ], [ %766, %758 ], [ %.pre2.i146, %_ZN6vectorIcLb1EjE9push_backEOc.exit135.sink.split ]
-  %.sink194 = phi ptr [ %731, %726 ], [ %763, %758 ], [ %.pre.i144, %_ZN6vectorIcLb1EjE9push_backEOc.exit135.sink.split ]
+  %.sink219 = phi i32 [ %734, %726 ], [ %766, %758 ], [ %.pre2.i146, %_ZN6vectorIcLb1EjE9push_backEOc.exit135.sink.split ]
+  %.sink217 = phi ptr [ %731, %726 ], [ %763, %758 ], [ %.pre.i144, %_ZN6vectorIcLb1EjE9push_backEOc.exit135.sink.split ]
   %.sink = phi i8 [ 120, %726 ], [ 110, %758 ], [ %.sink.ph, %_ZN6vectorIcLb1EjE9push_backEOc.exit135.sink.split ]
-  %778 = zext i32 %.sink196 to i64
-  %779 = getelementptr inbounds nuw i8, ptr %.sink194, i64 %778
+  %778 = zext i32 %.sink219 to i64
+  %779 = getelementptr inbounds nuw i8, ptr %.sink217, i64 %778
   store i8 %.sink, ptr %779, align 1, !tbaa !32
   %780 = load ptr, ptr %665, align 8, !tbaa !39
   %781 = getelementptr inbounds i8, ptr %780, i64 -4

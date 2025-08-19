@@ -268,18 +268,18 @@ syncrep_yyensure_buffer_stack.exit:               ; preds = %32, %35, %43
   %124 = shl nuw i64 1, %.lcssa
   %125 = and i64 %124, -32985348833280
   %.not153.not = icmp eq i64 %125, 0
-  br i1 %.not153.not, label %85, label %.backedge.sink.split620, !llvm.loop !6
+  br i1 %.not153.not, label %85, label %.backedge.sink.split645, !llvm.loop !6
 
-.backedge.sink.split620:                          ; preds = %._crit_edge, %.backedge.sink.split620.backedge
-  %.1140.ph = phi ptr [ %.1140.ph.be, %.backedge.sink.split620.backedge ], [ %.0139, %._crit_edge ]
+.backedge.sink.split645:                          ; preds = %._crit_edge, %.backedge.sink.split645.backedge
+  %.1140.ph = phi ptr [ %.1140.ph.be, %.backedge.sink.split645.backedge ], [ %.0139, %._crit_edge ]
   %126 = load ptr, ptr %74, align 8
   %127 = load i32, ptr %73, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split620
-  %.1140 = phi ptr [ %.1140.ph, %.backedge.sink.split620 ], [ %547, %.backedge.backedge ]
-  %.2133 = phi ptr [ %126, %.backedge.sink.split620 ], [ %549, %.backedge.backedge ]
-  %.3 = phi i32 [ %127, %.backedge.sink.split620 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split645
+  %.1140 = phi ptr [ %.1140.ph, %.backedge.sink.split645 ], [ %547, %.backedge.backedge ]
+  %.2133 = phi ptr [ %126, %.backedge.sink.split645 ], [ %549, %.backedge.backedge ]
+  %.3 = phi i32 [ %127, %.backedge.sink.split645 ], [ %.3.be, %.backedge.backedge ]
   %128 = sext i32 %.3 to i64
   %129 = getelementptr inbounds [32 x i16], ptr @yy_accept, i64 0, i64 %128
   %130 = load i16, ptr %129, align 2
@@ -311,9 +311,9 @@ syncrep_yyensure_buffer_stack.exit:               ; preds = %32, %35, %43
     i32 8, label %161
     i32 9, label %165
     i32 10, label %169
-    i32 11, label %syncrep_yyerror.exit.loopexit443
-    i32 12, label %syncrep_yyerror.exit.loopexit524
-    i32 13, label %syncrep_yyerror.exit.loopexit621
+    i32 11, label %syncrep_yyerror.exit.loopexit468
+    i32 12, label %syncrep_yyerror.exit.loopexit549
+    i32 13, label %syncrep_yyerror.exit.loopexit646
     i32 14, label %syncrep_yyerror.exit
     i32 15, label %171
     i32 17, label %172
@@ -323,7 +323,7 @@ syncrep_yyensure_buffer_stack.exit:               ; preds = %32, %35, %43
 138:                                              ; preds = %137
   %139 = load i8, ptr %71, align 8
   store i8 %139, ptr %.2133, align 1
-  br label %.backedge.sink.split620.backedge
+  br label %.backedge.sink.split645.backedge
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %2, align 8
@@ -576,13 +576,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i160, %258
   %276 = shl nuw i64 1, %.lcssa.i162
   %277 = and i64 %276, -32985348833280
   %.not19.i = icmp ne i64 %277, 0
-  %.not155523 = icmp eq i64 %.lcssa.i162, 0
-  %.not155 = or i1 %.not19.i, %.not155523
-  br i1 %.not155, label %.backedge.sink.split620.backedge, label %278
+  %.not155548 = icmp eq i64 %.lcssa.i162, 0
+  %.not155 = or i1 %.not19.i, %.not155548
+  br i1 %.not155, label %.backedge.sink.split645.backedge, label %278
 
-.backedge.sink.split620.backedge:                 ; preds = %yy_try_NUL_trans.exit, %138
+.backedge.sink.split645.backedge:                 ; preds = %yy_try_NUL_trans.exit, %138
   %.1140.ph.be = phi ptr [ %.1140, %138 ], [ %209, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split620
+  br label %.backedge.sink.split645
 
 278:                                              ; preds = %yy_try_NUL_trans.exit
   %279 = getelementptr inbounds [64 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i162
@@ -885,10 +885,10 @@ syncrep_yyrealloc.exit.i165:                      ; preds = %341, %339
   br label %422
 
 422:                                              ; preds = %.critedge2.i, %314
-  %.sink198.in.i = phi ptr [ %421, %.critedge2.i ], [ %315, %314 ]
+  %.sink206.in.i = phi ptr [ %421, %.critedge2.i ], [ %315, %314 ]
   %.sink.i = phi i32 [ %418, %.critedge2.i ], [ 0, %314 ]
-  %.sink198.i = load ptr, ptr %.sink198.in.i, align 8
-  %423 = getelementptr inbounds nuw i8, ptr %.sink198.i, i64 28
+  %.sink206.i = load ptr, ptr %.sink206.in.i, align 8
+  %423 = getelementptr inbounds nuw i8, ptr %.sink206.i, i64 28
   store i32 %.sink.i, ptr %423, align 4
   %424 = load i32, ptr %79, align 4
   %425 = icmp eq i32 %424, 0
@@ -1003,7 +1003,7 @@ yy_get_next_buffer.exit:                          ; preds = %436, %468
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
   %494 = load ptr, ptr %493, align 8
   store ptr %494, ptr %75, align 8
-  switch i32 %.0135.i, label %default.unreachable424 [
+  switch i32 %.0135.i, label %default.unreachable449 [
     i32 1, label %yy_get_previous_state.exit183
     i32 0, label %496
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread201_crit_edge
@@ -1195,7 +1195,7 @@ yy_get_next_buffer.exit.thread201:                ; preds = %296, %yy_get_next_b
   %exitcond.not.i198 = icmp eq ptr %592, %549
   br i1 %exitcond.not.i198, label %.backedge.backedge, label %.lr.ph32.i185, !llvm.loop !8
 
-default.unreachable424:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable449:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit183:                    ; preds = %yy_get_next_buffer.exit, %296
@@ -1218,17 +1218,17 @@ syncrep_yyerror.exit.loopexit:                    ; preds = %137
 syncrep_yyerror.exit.loopexit334:                 ; preds = %137
   br label %syncrep_yyerror.exit
 
-syncrep_yyerror.exit.loopexit443:                 ; preds = %137
+syncrep_yyerror.exit.loopexit468:                 ; preds = %137
   br label %syncrep_yyerror.exit
 
-syncrep_yyerror.exit.loopexit524:                 ; preds = %137
+syncrep_yyerror.exit.loopexit549:                 ; preds = %137
   br label %syncrep_yyerror.exit
 
-syncrep_yyerror.exit.loopexit621:                 ; preds = %137
+syncrep_yyerror.exit.loopexit646:                 ; preds = %137
   br label %syncrep_yyerror.exit
 
-syncrep_yyerror.exit:                             ; preds = %137, %syncrep_yyerror.exit.loopexit621, %syncrep_yyerror.exit.loopexit524, %syncrep_yyerror.exit.loopexit443, %syncrep_yyerror.exit.loopexit334, %syncrep_yyerror.exit.loopexit, %159, %157, %152, %172, %169, %165, %161, %147
-  %.0 = phi i32 [ 258, %147 ], [ 258, %161 ], [ 259, %165 ], [ 258, %169 ], [ 0, %172 ], [ 260, %152 ], [ 260, %157 ], [ 260, %159 ], [ 261, %syncrep_yyerror.exit.loopexit ], [ 262, %syncrep_yyerror.exit.loopexit334 ], [ 44, %syncrep_yyerror.exit.loopexit443 ], [ 40, %syncrep_yyerror.exit.loopexit524 ], [ 41, %syncrep_yyerror.exit.loopexit621 ], [ 260, %137 ]
+syncrep_yyerror.exit:                             ; preds = %137, %syncrep_yyerror.exit.loopexit646, %syncrep_yyerror.exit.loopexit549, %syncrep_yyerror.exit.loopexit468, %syncrep_yyerror.exit.loopexit334, %syncrep_yyerror.exit.loopexit, %159, %157, %152, %172, %169, %165, %161, %147
+  %.0 = phi i32 [ 258, %147 ], [ 258, %161 ], [ 259, %165 ], [ 258, %169 ], [ 0, %172 ], [ 260, %152 ], [ 260, %157 ], [ 260, %159 ], [ 261, %syncrep_yyerror.exit.loopexit ], [ 262, %syncrep_yyerror.exit.loopexit334 ], [ 44, %syncrep_yyerror.exit.loopexit468 ], [ 40, %syncrep_yyerror.exit.loopexit549 ], [ 41, %syncrep_yyerror.exit.loopexit646 ], [ 260, %137 ]
   ret i32 %.0
 }
 
@@ -1931,9 +1931,9 @@ syncrep_yyensure_buffer_stack.exit:               ; preds = %10, %13, %23
   br label %.thread
 
 .thread:                                          ; preds = %syncrep_yyensure_buffer_stack.exit, %50, %31
-  %.pr36 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %syncrep_yyensure_buffer_stack.exit ]
+  %.pr40 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %syncrep_yyensure_buffer_stack.exit ]
   %52 = phi i64 [ %51, %50 ], [ %.pre30, %31 ], [ %26, %syncrep_yyensure_buffer_stack.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.pr36, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %52
   store ptr %0, ptr %53, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load i64, ptr %28, align 8

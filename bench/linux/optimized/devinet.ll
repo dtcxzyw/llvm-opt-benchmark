@@ -248,7 +248,7 @@ define dso_local ptr @__ip_dev_find(ptr noundef %0, i32 noundef %1, i1 noundef z
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 272
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %0
-  br i1 %25, label %.loopexit7, label %26
+  br i1 %25, label %.loopexit10, label %26
 
 26:                                               ; preds = %19, %.preheader
   %27 = load volatile ptr, ptr %15, align 8
@@ -285,21 +285,21 @@ define dso_local ptr @__ip_dev_find(ptr noundef %0, i32 noundef %1, i1 noundef z
   %44 = phi ptr [ %42, %39 ], [ null, %32 ], [ null, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit7
+  br label %.loopexit10
 
-.loopexit7:                                       ; preds = %19, %43
+.loopexit10:                                      ; preds = %19, %43
   %45 = phi ptr [ %44, %43 ], [ %22, %19 ]
   %46 = icmp ne ptr %45, null
   %47 = and i1 %2, %46
   br i1 %47, label %48, label %51
 
-48:                                               ; preds = %.loopexit7
+48:                                               ; preds = %.loopexit10
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 1280
   %50 = load ptr, ptr %49, align 8
   call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, ptr elementtype(i32) %50) #18, !srcloc !8
   br label %51
 
-51:                                               ; preds = %48, %.loopexit7
+51:                                               ; preds = %48, %.loopexit10
   call void @__rcu_read_unlock() #18
   ret ptr %45
 }
@@ -1461,7 +1461,7 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load volatile ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit.thread99, label %.lr.ph
+  br i1 %25, label %.loopexit.thread109, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
@@ -1608,9 +1608,9 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   %111 = and i32 %108, %110
   %112 = icmp eq i32 %111, 0
   %113 = icmp ne i32 %105, 0
-  %.not122 = select i1 %112, i1 %113, i1 false
+  %.not132 = select i1 %112, i1 %113, i1 false
   %114 = zext i1 %112 to i32
-  br i1 %.not122, label %.loopexit, label %.backedge.us54
+  br i1 %.not132, label %.loopexit, label %.backedge.us54
 
 .backedge.us54:                                   ; preds = %102, %104
   %115 = phi i32 [ %105, %104 ], [ %89, %102 ]
@@ -1630,8 +1630,8 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   %126 = tail call i32 @llvm.umin.i32(i32 %19, i32 %125)
   %127 = icmp ne i32 %121, 0
   %128 = icmp sgt i32 %126, %3
-  %or.cond120 = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond120, label %133, label %129
+  %or.cond130 = select i1 %127, i1 true, i1 %128
+  br i1 %or.cond130, label %133, label %129
 
 129:                                              ; preds = %.lr.ph.split.split.split
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 48
@@ -1686,13 +1686,13 @@ define internal fastcc i32 @confirm_addr_indev(ptr noundef nonnull %0, i32 nound
   %159 = phi i32 [ %.be12.us, %.backedge.us ], [ %44, %67 ], [ %44, %.thread4.us ], [ %115, %.backedge.us54 ], [ %105, %104 ], [ %153, %.backedge ]
   %.fr = freeze i32 %158
   %160 = icmp eq i32 %.fr, 0
-  br i1 %160, label %.loopexit.thread99, label %.loopexit.thread
+  br i1 %160, label %.loopexit.thread109, label %.loopexit.thread
 
-.loopexit.thread99:                               ; preds = %18, %.loopexit
+.loopexit.thread109:                              ; preds = %18, %.loopexit
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %129, %144, %98, %.backedge.us34, %82, %40, %61, %.split.us, %.loopexit, %.loopexit.thread99
-  %161 = phi i32 [ 0, %.loopexit.thread99 ], [ %159, %.loopexit ], [ %151, %.split.us ], [ %44, %61 ], [ %2, %40 ], [ %84, %82 ], [ 0, %.backedge.us34 ], [ %100, %98 ], [ %135, %144 ], [ %131, %129 ]
+.loopexit.thread:                                 ; preds = %129, %144, %98, %.backedge.us34, %82, %40, %61, %.split.us, %.loopexit, %.loopexit.thread109
+  %161 = phi i32 [ 0, %.loopexit.thread109 ], [ %159, %.loopexit ], [ %151, %.split.us ], [ %44, %61 ], [ %2, %40 ], [ %84, %82 ], [ 0, %.backedge.us34 ], [ %100, %98 ], [ %135, %144 ], [ %131, %129 ]
   ret i32 %161
 }
 
@@ -3162,7 +3162,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %237 = load ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, null
-  br i1 %238, label %.sink.split134, label %.preheader
+  br i1 %238, label %.sink.split169, label %.preheader
 
 .preheader:                                       ; preds = %235, %257
   %239 = phi ptr [ %260, %257 ], [ %237, %235 ]
@@ -3208,7 +3208,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
 
 262:                                              ; preds = %257
   %263 = sext i32 %258 to i64
-  br label %.sink.split134
+  br label %.sink.split169
 
 .split62.us:                                      ; preds = %242, %195
   %.us-phi63 = phi i32 [ %180, %195 ], [ %226, %242 ]
@@ -3219,13 +3219,13 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   call void @__rcu_read_unlock() #18
   br label %.loopexit41
 
-.sink.split134:                                   ; preds = %235, %262
-  %.sink135 = phi i64 [ %263, %262 ], [ 0, %235 ]
-  store i64 %.sink135, ptr %27, align 8
+.sink.split169:                                   ; preds = %235, %262
+  %.sink170 = phi i64 [ %263, %262 ], [ 0, %235 ]
+  store i64 %.sink170, ptr %27, align 8
   br label %265
 
-265:                                              ; preds = %.sink.split134, %230, %.split
-  %266 = phi i32 [ %227, %.split ], [ %spec.select, %230 ], [ %spec.select, %.sink.split134 ]
+265:                                              ; preds = %.sink.split169, %230, %.split
+  %266 = phi i32 [ %227, %.split ], [ %spec.select, %230 ], [ %spec.select, %.sink.split169 ]
   %267 = add i32 %226, 1
   %268 = getelementptr inbounds nuw i8, ptr %228, i64 1040
   %269 = load volatile ptr, ptr %268, align 8

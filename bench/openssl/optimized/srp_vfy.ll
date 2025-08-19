@@ -159,9 +159,9 @@ define ptr @SRP_VBASE_new(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %._crit_edge, %16
-  %.sink18 = phi ptr [ %18, %16 ], [ %.pre, %._crit_edge ], [ null, %4 ]
+  %.sink20 = phi ptr [ %18, %16 ], [ %.pre, %._crit_edge ], [ null, %4 ]
   %.sink = phi i32 [ 296, %16 ], [ 287, %._crit_edge ], [ 287, %4 ]
-  tail call void @OPENSSL_sk_free(ptr noundef %.sink18) #7
+  tail call void @OPENSSL_sk_free(ptr noundef %.sink20) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef %.sink) #7
   br label %19
 

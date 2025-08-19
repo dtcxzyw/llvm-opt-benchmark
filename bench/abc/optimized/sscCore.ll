@@ -795,9 +795,9 @@ define range(i32 0, 2) i32 @Ssc_GiaSimulatePattern_rec(ptr noundef %0, ptr nound
   br label %49
 
 49:                                               ; preds = %29, %22
-  %.sink26 = phi i32 [ %48, %29 ], [ %27, %22 ]
+  %.sink28 = phi i32 [ %48, %29 ], [ %27, %22 ]
   %.val.sink = phi i64 [ %.val, %29 ], [ %28, %22 ]
-  %50 = shl nuw nsw i32 %.sink26, 30
+  %50 = shl nuw nsw i32 %.sink28, 30
   %51 = zext nneg i32 %50 to i64
   %52 = and i64 %.val.sink, -1073741825
   %53 = or disjoint i64 %52, %51

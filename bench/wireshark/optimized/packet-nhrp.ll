@@ -510,21 +510,21 @@ define internal fastcc void @_dissect_nhrp(ptr noundef %0, ptr noundef %1, ptr n
 
 50:                                               ; preds = %34
   %51 = icmp ult i16 %46, 1024
-  br i1 %51, label %.thread59, label %52
+  br i1 %51, label %.thread76, label %52
 
 52:                                               ; preds = %50
   %53 = icmp ult i16 %46, 1280
-  br i1 %53, label %.thread59, label %54
+  br i1 %53, label %.thread76, label %54
 
 54:                                               ; preds = %52
   %55 = icmp ult i16 %46, 1536
-  br i1 %55, label %.thread59, label %56
+  br i1 %55, label %.thread76, label %56
 
 56:                                               ; preds = %54
   %57 = call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @etype_vals, ptr noundef nonnull @.str.209)
-  br label %.thread59
+  br label %.thread76
 
-.thread59:                                        ; preds = %56, %54, %52, %50
+.thread76:                                        ; preds = %56, %54, %52, %50
   %.0135.i.ph = phi ptr [ @.str.208, %54 ], [ @.str.207, %52 ], [ @.str.206, %50 ], [ %57, %56 ]
   %58 = load i32, ptr @hf_nhrp_hdr_pro_type, align 4
   %59 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %58, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.210, ptr noundef %.0135.i.ph, i32 noundef %48)
@@ -565,7 +565,7 @@ define internal fastcc void @_dissect_nhrp(ptr noundef %0, ptr noundef %1, ptr n
   %82 = and i32 %78, 65535
   br label %86
 
-83:                                               ; preds = %.thread59, %60
+83:                                               ; preds = %.thread76, %60
   %84 = load i32, ptr @hf_nhrp_protocol_type, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %84, ptr noundef %0, i32 noundef 4, i32 noundef 5, i32 noundef 0)
   br label %86
@@ -860,32 +860,32 @@ dissect_nhrp_hdr.exit:                            ; preds = %97, %178
 
 .sink.split:                                      ; preds = %257, %258
   %hf_nhrp_src_prot_addr_bytes.sink = phi ptr [ @hf_nhrp_src_prot_addr_bytes, %258 ], [ @hf_nhrp_src_prot_addr, %257 ]
-  %.sink64 = phi i32 [ %193, %258 ], [ 4, %257 ]
+  %.sink81 = phi i32 [ %193, %258 ], [ 4, %257 ]
   %259 = load i32, ptr %hf_nhrp_src_prot_addr_bytes.sink, align 4
-  %260 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %259, ptr noundef %188, i32 noundef %.2.i, i32 noundef %.sink64, i32 noundef 0)
-  %261 = add nuw nsw i32 %.2.i, %.sink64
+  %260 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %259, ptr noundef %188, i32 noundef %.2.i, i32 noundef %.sink81, i32 noundef 0)
+  %261 = add nuw nsw i32 %.2.i, %.sink81
   br label %262
 
 262:                                              ; preds = %.sink.split, %257
   %.3.i = phi i32 [ %.2.i, %257 ], [ %261, %.sink.split ]
   switch i8 %196, label %263 [
-    i8 4, label %.sink.split65
+    i8 4, label %.sink.split82
     i8 0, label %267
   ]
 
 263:                                              ; preds = %262
-  br label %.sink.split65
+  br label %.sink.split82
 
-.sink.split65:                                    ; preds = %262, %263
+.sink.split82:                                    ; preds = %262, %263
   %hf_nhrp_dst_prot_addr_bytes.sink = phi ptr [ @hf_nhrp_dst_prot_addr_bytes, %263 ], [ @hf_nhrp_dst_prot_addr, %262 ]
-  %.sink68 = phi i32 [ %197, %263 ], [ 4, %262 ]
+  %.sink85 = phi i32 [ %197, %263 ], [ 4, %262 ]
   %264 = load i32, ptr %hf_nhrp_dst_prot_addr_bytes.sink, align 4
-  %265 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %264, ptr noundef %188, i32 noundef %.3.i, i32 noundef %.sink68, i32 noundef 0)
-  %266 = add nuw nsw i32 %.3.i, %.sink68
+  %265 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %264, ptr noundef %188, i32 noundef %.3.i, i32 noundef %.sink85, i32 noundef 0)
+  %266 = add nuw nsw i32 %.3.i, %.sink85
   br label %267
 
-267:                                              ; preds = %.sink.split65, %262
-  %.4.i = phi i32 [ %.3.i, %262 ], [ %266, %.sink.split65 ]
+267:                                              ; preds = %.sink.split82, %262
+  %.4.i = phi i32 [ %.3.i, %262 ], [ %266, %.sink.split82 ]
   switch i8 %27, label %dissect_nhrp_mand.exit [
     i8 1, label %268
     i8 3, label %268
@@ -1462,9 +1462,9 @@ define internal fastcc void @dissect_cie_list(ptr noundef %0, ptr noundef readon
 
 94:                                               ; preds = %92, %93
   %hf_nhrp_client_prot_addr_bytes.sink = phi ptr [ @hf_nhrp_client_prot_addr_bytes, %93 ], [ @hf_nhrp_client_prot_addr, %92 ]
-  %.sink125 = phi i32 [ %21, %93 ], [ 4, %92 ]
+  %.sink128 = phi i32 [ %21, %93 ], [ 4, %92 ]
   %95 = load i32, ptr %hf_nhrp_client_prot_addr_bytes.sink, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %95, ptr noundef %0, i32 noundef %.1, i32 noundef %.sink125, i32 noundef 0)
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %95, ptr noundef %0, i32 noundef %.1, i32 noundef %.sink128, i32 noundef 0)
   %97 = add i32 %.1, %21
   br label %98
 

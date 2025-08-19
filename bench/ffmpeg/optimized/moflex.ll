@@ -227,7 +227,7 @@ define internal i32 @moflex_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %32, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %26, %.backedge
-  %.2211 = phi i32 [ %.3243, %.backedge ], [ %.0217, %26 ]
+  %.2211 = phi i32 [ %.3251, %.backedge ], [ %.0217, %26 ]
   %33 = tail call i32 @avio_feof(ptr noundef %6) #5
   %.not110 = icmp eq i32 %33, 0
   br i1 %.not110, label %34, label %.critedge
@@ -666,7 +666,7 @@ pop_int.exit176:                                  ; preds = %pop_int.exit165, %p
   br i1 %cond, label %.backedge, label %.thread
 
 .backedge:                                        ; preds = %233, %213, %207
-  %.3243 = phi i32 [ %.mux116, %233 ], [ %.2211, %207 ], [ %.2211, %213 ]
+  %.3251 = phi i32 [ %.mux116, %233 ], [ %.2211, %207 ], [ %.2211, %213 ]
   %234 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #5
   %235 = load i64, ptr %10, align 8, !tbaa !33
   %236 = load i32, ptr %4, align 8, !tbaa !35
@@ -676,7 +676,7 @@ pop_int.exit176:                                  ; preds = %pop_int.exit165, %p
   br i1 %239, label %.lr.ph, label %.critedge, !llvm.loop !52
 
 .critedge:                                        ; preds = %34, %.backedge, %.lr.ph, %26
-  %.2.lcssa = phi i32 [ %.0217, %26 ], [ %.2211, %.lr.ph ], [ %.3243, %.backedge ], [ %.2211, %34 ]
+  %.2.lcssa = phi i32 [ %.0217, %26 ], [ %.2211, %.lr.ph ], [ %.3251, %.backedge ], [ %.2211, %34 ]
   store i32 0, ptr %9, align 4, !tbaa !30
   %240 = load i32, ptr %11, align 8, !tbaa !34
   %241 = and i32 %240, 1

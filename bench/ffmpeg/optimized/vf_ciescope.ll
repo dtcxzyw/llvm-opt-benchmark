@@ -923,10 +923,10 @@ draw_background.exit:                             ; preds = %34
   unreachable
 
 459:                                              ; preds = %447, %428, %409
-  %.sink120.i = phi float [ %446, %428 ], [ %457, %447 ], [ %427, %409 ]
+  %.sink123.i = phi float [ %446, %428 ], [ %457, %447 ], [ %427, %409 ]
   %.sink.i = phi i32 [ %444, %428 ], [ %453, %447 ], [ %425, %409 ]
   %.082.in.i = phi float [ %443, %428 ], [ %452, %447 ], [ %424, %409 ]
-  %460 = fptosi float %.sink120.i to i32
+  %460 = fptosi float %.sink123.i to i32
   %461 = sub nsw i32 %.sink.i, %460
   %.082.i = fptosi float %.082.in.i to i32
   %462 = call i32 @llvm.smin.i32(i32 %402, i32 %282)
@@ -1028,26 +1028,26 @@ draw_rline.exit.i:                                ; preds = %496, %459
   %530 = select i1 %529, i64 %528, i64 0
   %531 = sext i32 %508 to i64
   %532 = sext i32 %469 to i64
-  %invariant.gep117.i = getelementptr i16, ptr %.pre176.pre, i64 %532
+  %invariant.gep120.i = getelementptr i16, ptr %.pre176.pre, i64 %532
   br label %533
 
 533:                                              ; preds = %533, %.lr.ph111.i
   %indvars.iv113.i = phi i64 [ %531, %.lr.ph111.i ], [ %indvars.iv.next114.i, %533 ]
   %indvars.iv.next114.i = add nsw i64 %indvars.iv113.i, %530
-  %.idx116.i = shl i64 %indvars.iv.next114.i, 3
-  %gep118.i = getelementptr i8, ptr %invariant.gep117.i, i64 %.idx116.i
-  %534 = load i16, ptr %gep118.i, align 2, !tbaa !60
+  %.idx119.i = shl i64 %indvars.iv.next114.i, 3
+  %gep121.i = getelementptr i8, ptr %invariant.gep120.i, i64 %.idx119.i
+  %534 = load i16, ptr %gep121.i, align 2, !tbaa !60
   %535 = xor i16 %534, -1
-  store i16 %535, ptr %gep118.i, align 2, !tbaa !60
-  %536 = getelementptr i8, ptr %gep118.i, i64 2
+  store i16 %535, ptr %gep121.i, align 2, !tbaa !60
+  %536 = getelementptr i8, ptr %gep121.i, i64 2
   %537 = load i16, ptr %536, align 2, !tbaa !60
   %538 = xor i16 %537, -1
   store i16 %538, ptr %536, align 2, !tbaa !60
-  %539 = getelementptr i8, ptr %gep118.i, i64 4
+  %539 = getelementptr i8, ptr %gep121.i, i64 4
   %540 = load i16, ptr %539, align 2, !tbaa !60
   %541 = xor i16 %540, -1
   store i16 %541, ptr %539, align 2, !tbaa !60
-  %542 = getelementptr i8, ptr %gep118.i, i64 6
+  %542 = getelementptr i8, ptr %gep121.i, i64 6
   store i16 -1, ptr %542, align 2, !tbaa !60
   %543 = trunc nsw i64 %indvars.iv.next114.i to i32
   %544 = icmp eq i32 %509, %543
@@ -1106,25 +1106,25 @@ draw_rline.exit95.i:                              ; preds = %558
   %578 = select i1 %577, i64 %575, i64 0
   %579 = sext i32 %570 to i64
   %sext172 = sext i32 %571 to i64
-  %invariant.gep188 = getelementptr i16, ptr %.pre176.pre, i64 %557
+  %invariant.gep205 = getelementptr i16, ptr %.pre176.pre, i64 %557
   br label %580
 
 580:                                              ; preds = %580, %draw_rline.exit95.i
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %580 ], [ %579, %draw_rline.exit95.i ]
   %581 = mul nsw i64 %indvars.iv170, %556
-  %gep189 = getelementptr i16, ptr %invariant.gep188, i64 %581
-  %582 = load i16, ptr %gep189, align 2, !tbaa !60
+  %gep206 = getelementptr i16, ptr %invariant.gep205, i64 %581
+  %582 = load i16, ptr %gep206, align 2, !tbaa !60
   %583 = xor i16 %582, -1
-  store i16 %583, ptr %gep189, align 2, !tbaa !60
-  %584 = getelementptr i8, ptr %gep189, i64 2
+  store i16 %583, ptr %gep206, align 2, !tbaa !60
+  %584 = getelementptr i8, ptr %gep206, i64 2
   %585 = load i16, ptr %584, align 2, !tbaa !60
   %586 = xor i16 %585, -1
   store i16 %586, ptr %584, align 2, !tbaa !60
-  %587 = getelementptr i8, ptr %gep189, i64 4
+  %587 = getelementptr i8, ptr %gep206, i64 4
   %588 = load i16, ptr %587, align 2, !tbaa !60
   %589 = xor i16 %588, -1
   store i16 %589, ptr %587, align 2, !tbaa !60
-  %590 = getelementptr i8, ptr %gep189, i64 6
+  %590 = getelementptr i8, ptr %gep206, i64 6
   store i16 -1, ptr %590, align 2, !tbaa !60
   %591 = icmp eq i64 %indvars.iv170, %sext172
   %indvars.iv.next171 = add nsw i64 %indvars.iv170, %578

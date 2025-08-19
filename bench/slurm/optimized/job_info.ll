@@ -2353,10 +2353,10 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   %15 = load i32, ptr @cluster_flags, align 4
   %16 = trunc i32 %15 to i16
   %17 = lshr i16 %16, 5
-  %spec.select4652 = and i16 %17, 64
+  %spec.select4659 = and i16 %17, 64
   %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 510), align 2, !range !18, !noundef !19
   %19 = zext nneg i8 %18 to i16
-  %.153 = or disjoint i16 %spec.select4652, %19
+  %.160 = or disjoint i16 %spec.select4659, %19
   br label %28
 
 20:                                               ; preds = %9
@@ -2380,9 +2380,9 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   br i1 %7, label %43, label %28
 
 28:                                               ; preds = %.thread, %22
-  %.154 = phi i16 [ %.153, %.thread ], [ %.1, %22 ]
+  %.161 = phi i16 [ %.160, %.thread ], [ %.1, %22 ]
   %29 = load i16, ptr @get_new_info_job.last_flags, align 2
-  %.not38 = icmp eq i16 %.154, %29
+  %.not38 = icmp eq i16 %.161, %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %.not38, label %._crit_edge, label %30
 
@@ -2396,7 +2396,7 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 31:                                               ; preds = %._crit_edge, %30
   %32 = phi i64 [ %.pre, %._crit_edge ], [ 0, %30 ]
-  %33 = call i32 @slurm_load_jobs(i64 noundef %32, ptr noundef nonnull %3, i16 noundef zeroext %.154) #17
+  %33 = call i32 @slurm_load_jobs(i64 noundef %32, ptr noundef nonnull %3, i16 noundef zeroext %.161) #17
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %37
 
@@ -2423,13 +2423,13 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 .sink.split:                                      ; preds = %43, %41, %35
   %.sink = phi i1 [ true, %35 ], [ false, %41 ], [ true, %43 ]
-  %.155.ph = phi i16 [ %.154, %35 ], [ %.154, %41 ], [ %.1, %43 ]
+  %.162.ph = phi i16 [ %.161, %35 ], [ %.161, %41 ], [ %.1, %43 ]
   %.2.ph = phi i32 [ 0, %35 ], [ 1900, %41 ], [ %44, %43 ]
   store i1 %.sink, ptr @get_new_info_job.changed, align 1
   br label %45
 
 45:                                               ; preds = %.sink.split, %37
-  %.155 = phi i16 [ %.154, %37 ], [ %.155.ph, %.sink.split ]
+  %.162 = phi i16 [ %.161, %37 ], [ %.162.ph, %.sink.split ]
   %.2 = phi i32 [ %33, %37 ], [ %.2.ph, %.sink.split ]
   %46 = load ptr, ptr @working_cluster_rec, align 8
   %.not39 = icmp eq ptr %46, null
@@ -2446,8 +2446,8 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   br label %52
 
 52:                                               ; preds = %47, %50
-  %.sink56 = phi ptr [ %51, %50 ], [ %49, %47 ]
-  %53 = call ptr @xstrdup(ptr noundef %.sink56) #17
+  %.sink63 = phi ptr [ %51, %50 ], [ %49, %47 ]
+  %53 = call ptr @xstrdup(ptr noundef %.sink63) #17
   store ptr %53, ptr %4, align 8
   %54 = icmp eq i32 %.2, 0
   br i1 %54, label %55, label %.loopexit
@@ -2499,7 +2499,7 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 .loopexit:                                        ; preds = %70, %55, %52
   call void @slurm_xfree(ptr noundef nonnull %4) #17
-  store i16 %.155, ptr @get_new_info_job.last_flags, align 2
+  store i16 %.162, ptr @get_new_info_job.last_flags, align 2
   %77 = load ptr, ptr %3, align 8
   store ptr %77, ptr @g_job_info_ptr, align 8
   %.not41 = icmp eq ptr %77, null
@@ -4323,9 +4323,9 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %342, %339, %336, %333, %238
-  %.sink58.i = phi ptr [ %239, %238 ], [ %335, %333 ], [ %338, %336 ], [ %341, %339 ], [ %344, %342 ]
-  call void @display_edit_note(ptr noundef %.sink58.i) #17
-  call void @g_free(ptr noundef %.sink58.i) #17
+  %.sink67.i = phi ptr [ %239, %238 ], [ %335, %333 ], [ %338, %336 ], [ %341, %339 ], [ %344, %342 ]
+  call void @display_edit_note(ptr noundef %.sink67.i) #17
+  call void @g_free(ptr noundef %.sink67.i) #17
   br label %process_foreach_list.exit
 
 process_foreach_list.exit:                        ; preds = %._crit_edge.i, %332, %.sink.split.i
@@ -4534,7 +4534,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 71:                                               ; preds = %67
   %72 = load ptr, ptr @get_info_job.display_widget, align 8
   %.not96 = icmp eq ptr %72, null
-  br i1 %.not96, label %.thread128, label %73
+  br i1 %.not96, label %.thread145, label %73
 
 73:                                               ; preds = %71
   %74 = tail call i64 @gtk_tree_view_get_type() #18
@@ -4550,14 +4550,14 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 79:                                               ; preds = %76, %73
   %80 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %72, i64 noundef %74) #20
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.thread128, label %.critedge
+  br i1 %81, label %.thread145, label %.critedge
 
 .critedge:                                        ; preds = %76, %79
   %82 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %72, i64 noundef %74) #17
   %83 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %82) #17
   %84 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %83) #17
   %.not99 = icmp eq i32 %84, 0
-  br i1 %.not99, label %.thread128, label %85
+  br i1 %.not99, label %.thread145, label %85
 
 85:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4568,9 +4568,9 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %4, align 8
   %88 = icmp eq ptr %.pre, null
-  br i1 %88, label %.thread128, label %126
+  br i1 %88, label %.thread145, label %126
 
-.thread128:                                       ; preds = %71, %79, %.critedge, %85
+.thread145:                                       ; preds = %71, %79, %.critedge, %85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %89 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3827, ptr noundef nonnull @__func__.get_info_job) #17
   store ptr %89, ptr %6, align 8
@@ -4582,9 +4582,9 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %.not101116 = icmp eq ptr %92, null
   br i1 %.not101116, label %._crit_edge120, label %.lr.ph119
 
-.lr.ph119:                                        ; preds = %.thread128, %.loopexit
-  %93 = phi ptr [ %122, %.loopexit ], [ %92, %.thread128 ]
-  %.0117 = phi i32 [ %.1, %.loopexit ], [ 0, %.thread128 ]
+.lr.ph119:                                        ; preds = %.thread145, %.loopexit
+  %93 = phi ptr [ %122, %.loopexit ], [ %92, %.thread145 ]
+  %.0117 = phi i32 [ %.1, %.loopexit ], [ 0, %.thread145 ]
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 432
@@ -4657,8 +4657,8 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %123 = add nuw nsw i32 %.1, 1
   br label %._crit_edge120
 
-._crit_edge120:                                   ; preds = %._crit_edge120.loopexit, %.thread128
-  %.0.lcssa = phi i32 [ 1, %.thread128 ], [ %123, %._crit_edge120.loopexit ]
+._crit_edge120:                                   ; preds = %._crit_edge120.loopexit, %.thread145
+  %.0.lcssa = phi i32 [ 1, %.thread145 ], [ %123, %._crit_edge120.loopexit ]
   call void @list_iterator_destroy(ptr noundef %91) #17
   %124 = load ptr, ptr @grid_button_list, align 8
   call void @change_grid_color_array(ptr noundef %124, i32 noundef %.0.lcssa, ptr noundef %89, ptr noundef %90, i1 noundef zeroext true, i32 noundef 0) #17
@@ -4969,9 +4969,9 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %91, %98
-  %.sink188.in = phi ptr [ %99, %98 ], [ %82, %91 ]
-  %.sink188 = load ptr, ptr %.sink188.in, align 8
-  call void @list_append(ptr noundef %.sink188, ptr noundef nonnull %.1114) #17
+  %.sink198.in = phi ptr [ %99, %98 ], [ %82, %91 ]
+  %.sink198 = load ptr, ptr %.sink198.in, align 8
+  call void @list_append(ptr noundef %.sink198, ptr noundef nonnull %.1114) #17
   br label %100
 
 100:                                              ; preds = %.sink.split, %94
@@ -5221,18 +5221,18 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   %10 = load ptr, ptr @last_model, align 8
   %.not34 = icmp eq ptr %10, %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %.not34, label %12, label %.thread44
+  br i1 %.not34, label %12, label %.thread47
 
-.thread44:                                        ; preds = %.lr.ph
+.thread47:                                        ; preds = %.lr.ph
   store i8 0, ptr %.phi.trans.insert, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br label %.thread45
+  br label %.thread48
 
 12:                                               ; preds = %.lr.ph
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !18
   %13 = trunc nuw i8 %.pre to i1
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %13, label %15, label %.thread45
+  br i1 %13, label %15, label %.thread48
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5281,7 +5281,7 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre43 = load i8, ptr %14, align 8, !range !18
   %35 = trunc nuw i8 %.pre43 to i1
-  br i1 %35, label %36, label %.thread45
+  br i1 %35, label %36, label %.thread48
 
 36:                                               ; preds = %34
   %37 = tail call i64 @gtk_tree_store_get_type() #18
@@ -5289,8 +5289,8 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   call fastcc void @_update_job_record(ptr noundef %7, ptr noundef %38, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %.backedge
 
-.thread45:                                        ; preds = %.thread44, %12, %34
-  %39 = phi ptr [ %14, %34 ], [ %11, %.thread44 ], [ %14, %12 ]
+.thread48:                                        ; preds = %.thread47, %12, %34
+  %39 = phi ptr [ %14, %34 ], [ %11, %.thread47 ], [ %14, %12 ]
   %40 = tail call i64 @gtk_tree_store_get_type() #18
   %41 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %40) #17
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5302,7 +5302,7 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   store i8 1, ptr %39, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %36, %.thread45, %33
+.backedge:                                        ; preds = %36, %.thread48, %33
   %45 = call ptr @list_next(ptr noundef %5) #17
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
@@ -5840,17 +5840,17 @@ define internal void @selected_foreach_build_list(ptr noundef %0, ptr readnone c
   %19 = call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #17
   %20 = trunc i64 %19 to i32
   %. = select i1 %.not42, i32 -2, i32 %16
-  %.47 = select i1 %.not42, i32 -2, i32 %20
-  %.48 = select i1 %.not42, i32 %16, i32 -2
-  %.49 = select i1 %.not42, i32 %20, i32 -2
+  %.50 = select i1 %.not42, i32 -2, i32 %20
+  %.51 = select i1 %.not42, i32 %16, i32 -2
+  %.52 = select i1 %.not42, i32 %20, i32 -2
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 1
   br label %22
 
 22:                                               ; preds = %11, %13
   %.137 = phi i32 [ %., %13 ], [ -2, %11 ]
-  %.135 = phi i32 [ %.47, %13 ], [ -2, %11 ]
-  %.133 = phi i32 [ %.48, %13 ], [ -2, %11 ]
-  %.1 = phi i32 [ %.49, %13 ], [ -2, %11 ]
+  %.135 = phi i32 [ %.50, %13 ], [ -2, %11 ]
+  %.133 = phi i32 [ %.51, %13 ], [ -2, %11 ]
+  %.1 = phi i32 [ %.52, %13 ], [ -2, %11 ]
   %.0 = phi ptr [ %21, %13 ], [ %10, %11 ]
   %23 = call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #17
   %24 = trunc i64 %23 to i32

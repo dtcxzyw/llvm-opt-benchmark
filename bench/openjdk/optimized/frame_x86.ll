@@ -370,8 +370,8 @@ _ZN7nmethod17is_deopt_mh_entryEPh.exit.thread82:  ; preds = %177
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 5
   %189 = icmp eq ptr %.164, %188
   %or.cond92 = select i1 %180, i1 %189, i1 false
-  %or.cond101 = select i1 %187, i1 true, i1 %or.cond92
-  br i1 %or.cond101, label %.thread85, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread83
+  %or.cond118 = select i1 %187, i1 true, i1 %or.cond92
+  br i1 %or.cond118, label %.thread85, label %_ZN7nmethod14is_deopt_entryEPh.exit.thread83
 
 _ZN7nmethod14is_deopt_entryEPh.exit.thread83:     ; preds = %_ZN7nmethod17is_deopt_mh_entryEPh.exit.thread82
   %190 = getelementptr inbounds nuw i8, ptr %137, i64 72

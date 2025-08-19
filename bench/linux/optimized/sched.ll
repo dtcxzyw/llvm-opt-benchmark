@@ -20112,36 +20112,36 @@ define internal fastcc void @__rpc_execute(ptr noundef %0) unnamed_addr #1 align
 32:                                               ; preds = %27
   %33 = load volatile i32, ptr %22, align 4
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %.thread14
+  br i1 %34, label %35, label %.thread25
 
 35:                                               ; preds = %32, %27
   %36 = load ptr, ptr %21, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %41, label %.thread
 
-.thread14:                                        ; preds = %32
+.thread25:                                        ; preds = %32
   store i32 %33, ptr %23, align 4
   %38 = load ptr, ptr %21, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread15, label %.thread
+  br i1 %39, label %.thread26, label %.thread
 
-.thread:                                          ; preds = %.thread14, %35
-  %40 = phi ptr [ %38, %.thread14 ], [ %36, %35 ]
+.thread:                                          ; preds = %.thread25, %35
+  %40 = phi ptr [ %38, %.thread25 ], [ %36, %35 ]
   store ptr null, ptr %21, align 8
-  br label %.thread15
+  br label %.thread26
 
 41:                                               ; preds = %35
   %42 = icmp eq ptr %28, null
-  br i1 %42, label %155, label %.thread15
+  br i1 %42, label %155, label %.thread26
 
-.thread15:                                        ; preds = %.thread14, %.thread, %41
-  %43 = phi ptr [ %40, %.thread ], [ %28, %41 ], [ @rpc_exit_task, %.thread14 ]
+.thread26:                                        ; preds = %.thread25, %.thread, %41
+  %43 = phi ptr [ %40, %.thread ], [ %28, %41 ], [ @rpc_exit_task, %.thread25 ]
   %44 = load i16, ptr %3, align 8
   %45 = and i16 %44, 2
   %46 = icmp eq i16 %45, 0
   br i1 %46, label %47, label %63
 
-47:                                               ; preds = %.thread15
+47:                                               ; preds = %.thread26
   %48 = load ptr, ptr %24, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %66, label %50
@@ -20165,7 +20165,7 @@ define internal fastcc void @__rpc_execute(ptr noundef %0) unnamed_addr #1 align
   %62 = icmp eq ptr %61, %0
   br i1 %62, label %63, label %66
 
-63:                                               ; preds = %59, %.thread15
+63:                                               ; preds = %59, %.thread26
   %64 = load i32, ptr %8, align 4
   %65 = or i32 %64, 2048
   store i32 %65, ptr %8, align 4

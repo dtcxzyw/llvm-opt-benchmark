@@ -1352,7 +1352,7 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %.not47 = icmp eq ptr %2, null
-  br i1 %.not47, label %31, label %.thread66
+  br i1 %.not47, label %31, label %.thread74
 
 31:                                               ; preds = %30
   %32 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1360,21 +1360,21 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre63 = and i64 %.pre, 1024
   %33 = icmp eq i64 %.pre63, 0
-  br i1 %33, label %40, label %.thread66
+  br i1 %33, label %40, label %.thread74
 
-.thread66:                                        ; preds = %30, %31
+.thread74:                                        ; preds = %30, %31
   %34 = phi ptr [ %32, %31 ], [ %2, %30 ]
   %35 = call i32 @get_log_level() #10
   %36 = icmp sgt i32 %35, 3
   br i1 %36, label %37, label %40
 
-37:                                               ; preds = %.thread66
+37:                                               ; preds = %.thread74
   %38 = ptrtoint ptr %4 to i64
   %39 = call ptr @slurm_strerror(i32 noundef %27) #10
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.fd_get_readable_bytes, ptr noundef %34, i32 noundef %0, i64 noundef %38, ptr noundef %39) #10
   br label %40
 
-40:                                               ; preds = %.thread66, %37, %31
+40:                                               ; preds = %.thread74, %37, %31
   call void @slurm_xfree(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %89
@@ -1394,7 +1394,7 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not44 = icmp eq ptr %2, null
-  br i1 %.not44, label %48, label %.thread68
+  br i1 %.not44, label %48, label %.thread76
 
 48:                                               ; preds = %47
   %49 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1402,21 +1402,21 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   %.pre54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre57 = and i64 %.pre54, 1024
   %50 = icmp eq i64 %.pre57, 0
-  br i1 %50, label %57, label %.thread68
+  br i1 %50, label %57, label %.thread76
 
-.thread68:                                        ; preds = %47, %48
+.thread76:                                        ; preds = %47, %48
   %51 = phi ptr [ %49, %48 ], [ %2, %47 ]
   %52 = call i32 @get_log_level() #10
   %53 = icmp sgt i32 %52, 3
   br i1 %53, label %54, label %57
 
-54:                                               ; preds = %.thread68
+54:                                               ; preds = %.thread76
   %55 = ptrtoint ptr %4 to i64
   %56 = load i32, ptr %4, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.fd_get_readable_bytes, ptr noundef %51, i32 noundef %0, i64 noundef %55, i32 noundef %56) #10
   br label %57
 
-57:                                               ; preds = %.thread68, %54, %48
+57:                                               ; preds = %.thread76, %54, %48
   call void @slurm_xfree(ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %89
@@ -1435,7 +1435,7 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %.not41 = icmp eq ptr %2, null
-  br i1 %.not41, label %64, label %.thread70
+  br i1 %.not41, label %64, label %.thread78
 
 64:                                               ; preds = %63
   %65 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1443,21 +1443,21 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   %.pre53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre59 = and i64 %.pre53, 1024
   %66 = icmp eq i64 %.pre59, 0
-  br i1 %66, label %73, label %.thread70
+  br i1 %66, label %73, label %.thread78
 
-.thread70:                                        ; preds = %63, %64
+.thread78:                                        ; preds = %63, %64
   %67 = phi ptr [ %65, %64 ], [ %2, %63 ]
   %68 = call i32 @get_log_level() #10
   %69 = icmp sgt i32 %68, 3
   br i1 %69, label %70, label %73
 
-70:                                               ; preds = %.thread70
+70:                                               ; preds = %.thread78
   %71 = ptrtoint ptr %4 to i64
   %72 = load i32, ptr %4, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.38, ptr noundef nonnull @__func__.fd_get_readable_bytes, ptr noundef %67, i32 noundef %0, i64 noundef %71, i32 noundef %72) #10
   br label %73
 
-73:                                               ; preds = %.thread70, %70, %64
+73:                                               ; preds = %.thread78, %70, %64
   call void @slurm_xfree(ptr noundef nonnull %8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %89
@@ -1477,7 +1477,7 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %79, label %.thread72
+  br i1 %.not38, label %79, label %.thread80
 
 79:                                               ; preds = %78
   %80 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1485,21 +1485,21 @@ define dso_local i32 @fd_get_readable_bytes(i32 noundef %0, ptr noundef %1, ptr 
   %.pre52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre61 = and i64 %.pre52, 1024
   %81 = icmp eq i64 %.pre61, 0
-  br i1 %81, label %88, label %.thread72
+  br i1 %81, label %88, label %.thread80
 
-.thread72:                                        ; preds = %78, %79
+.thread80:                                        ; preds = %78, %79
   %82 = phi ptr [ %80, %79 ], [ %2, %78 ]
   %83 = call i32 @get_log_level() #10
   %84 = icmp sgt i32 %83, 3
   br i1 %84, label %85, label %88
 
-85:                                               ; preds = %.thread72
+85:                                               ; preds = %.thread80
   %86 = ptrtoint ptr %1 to i64
   %87 = load i32, ptr %4, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__.fd_get_readable_bytes, ptr noundef %82, i32 noundef %0, i64 noundef %86, i32 noundef %87) #10
   br label %88
 
-88:                                               ; preds = %.thread72, %85, %79
+88:                                               ; preds = %.thread80, %85, %79
   call void @slurm_xfree(ptr noundef nonnull %9) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %89
@@ -1580,7 +1580,7 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %.not44 = icmp eq ptr %2, null
-  br i1 %.not44, label %31, label %.thread63
+  br i1 %.not44, label %31, label %.thread70
 
 31:                                               ; preds = %30
   %32 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1588,21 +1588,21 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre60 = and i64 %.pre, 1024
   %33 = icmp eq i64 %.pre60, 0
-  br i1 %33, label %40, label %.thread63
+  br i1 %33, label %40, label %.thread70
 
-.thread63:                                        ; preds = %30, %31
+.thread70:                                        ; preds = %30, %31
   %34 = phi ptr [ %32, %31 ], [ %2, %30 ]
   %35 = call i32 @get_log_level() #10
   %36 = icmp sgt i32 %35, 3
   br i1 %36, label %37, label %40
 
-37:                                               ; preds = %.thread63
+37:                                               ; preds = %.thread70
   %38 = ptrtoint ptr %4 to i64
   %39 = call ptr @slurm_strerror(i32 noundef %27) #10
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef nonnull @__func__.fd_get_buffered_output_bytes, ptr noundef %34, i32 noundef %0, i64 noundef %38, ptr noundef %39) #10
   br label %40
 
-40:                                               ; preds = %.thread63, %37, %31
+40:                                               ; preds = %.thread70, %37, %31
   call void @slurm_xfree(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %88
@@ -1622,7 +1622,7 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not41 = icmp eq ptr %2, null
-  br i1 %.not41, label %48, label %.thread65
+  br i1 %.not41, label %48, label %.thread72
 
 48:                                               ; preds = %47
   %49 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1630,21 +1630,21 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   %.pre51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre54 = and i64 %.pre51, 1024
   %50 = icmp eq i64 %.pre54, 0
-  br i1 %50, label %57, label %.thread65
+  br i1 %50, label %57, label %.thread72
 
-.thread65:                                        ; preds = %47, %48
+.thread72:                                        ; preds = %47, %48
   %51 = phi ptr [ %49, %48 ], [ %2, %47 ]
   %52 = call i32 @get_log_level() #10
   %53 = icmp sgt i32 %52, 3
   br i1 %53, label %54, label %57
 
-54:                                               ; preds = %.thread65
+54:                                               ; preds = %.thread72
   %55 = ptrtoint ptr %4 to i64
   %56 = load i32, ptr %4, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.fd_get_buffered_output_bytes, ptr noundef %51, i32 noundef %0, i64 noundef %55, i32 noundef %56) #10
   br label %57
 
-57:                                               ; preds = %.thread65, %54, %48
+57:                                               ; preds = %.thread72, %54, %48
   call void @slurm_xfree(ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %88
@@ -1663,7 +1663,7 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %.not38 = icmp eq ptr %2, null
-  br i1 %.not38, label %64, label %.thread67
+  br i1 %.not38, label %64, label %.thread74
 
 64:                                               ; preds = %63
   %65 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1671,21 +1671,21 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   %.pre50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre56 = and i64 %.pre50, 1024
   %66 = icmp eq i64 %.pre56, 0
-  br i1 %66, label %73, label %.thread67
+  br i1 %66, label %73, label %.thread74
 
-.thread67:                                        ; preds = %63, %64
+.thread74:                                        ; preds = %63, %64
   %67 = phi ptr [ %65, %64 ], [ %2, %63 ]
   %68 = call i32 @get_log_level() #10
   %69 = icmp sgt i32 %68, 3
   br i1 %69, label %70, label %73
 
-70:                                               ; preds = %.thread67
+70:                                               ; preds = %.thread74
   %71 = ptrtoint ptr %4 to i64
   %72 = load i32, ptr %4, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__.fd_get_buffered_output_bytes, ptr noundef %67, i32 noundef %0, i64 noundef %71, i32 noundef %72) #10
   br label %73
 
-73:                                               ; preds = %.thread67, %70, %64
+73:                                               ; preds = %.thread74, %70, %64
   call void @slurm_xfree(ptr noundef nonnull %8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %88
@@ -1701,7 +1701,7 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not35 = icmp eq ptr %2, null
-  br i1 %.not35, label %78, label %.thread69
+  br i1 %.not35, label %78, label %.thread76
 
 78:                                               ; preds = %77
   %79 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1709,21 +1709,21 @@ define dso_local i32 @fd_get_buffered_output_bytes(i32 noundef %0, ptr noundef %
   %.pre49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre58 = and i64 %.pre49, 1024
   %80 = icmp eq i64 %.pre58, 0
-  br i1 %80, label %87, label %.thread69
+  br i1 %80, label %87, label %.thread76
 
-.thread69:                                        ; preds = %77, %78
+.thread76:                                        ; preds = %77, %78
   %81 = phi ptr [ %79, %78 ], [ %2, %77 ]
   %82 = call i32 @get_log_level() #10
   %83 = icmp sgt i32 %82, 3
   br i1 %83, label %84, label %87
 
-84:                                               ; preds = %.thread69
+84:                                               ; preds = %.thread76
   %85 = ptrtoint ptr %1 to i64
   %86 = load i32, ptr %4, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__.fd_get_buffered_output_bytes, ptr noundef %81, i32 noundef %0, i64 noundef %85, i32 noundef %86) #10
   br label %87
 
-87:                                               ; preds = %.thread69, %84, %78
+87:                                               ; preds = %.thread76, %84, %78
   call void @slurm_xfree(ptr noundef nonnull %9) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %88
@@ -1791,7 +1791,7 @@ define dso_local range(i32 -2, 1073741825) i32 @fd_get_maxmss(i32 noundef %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %.not17 = icmp eq ptr %1, null
-  br i1 %.not17, label %23, label %.thread33
+  br i1 %.not17, label %23, label %.thread35
 
 23:                                               ; preds = %22
   %24 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1799,20 +1799,20 @@ define dso_local range(i32 -2, 1073741825) i32 @fd_get_maxmss(i32 noundef %0, pt
   %.pre25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre28 = and i64 %.pre25, 1024
   %25 = icmp eq i64 %.pre28, 0
-  br i1 %25, label %31, label %.thread33
+  br i1 %25, label %31, label %.thread35
 
-.thread33:                                        ; preds = %22, %23
+.thread35:                                        ; preds = %22, %23
   %26 = phi ptr [ %24, %23 ], [ %1, %22 ]
   %27 = call i32 @get_log_level() #10
   %28 = icmp sgt i32 %27, 3
   br i1 %28, label %29, label %31
 
-29:                                               ; preds = %.thread33
+29:                                               ; preds = %.thread35
   %30 = load i32, ptr %3, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.46, ptr noundef nonnull @__func__.fd_get_maxmss, ptr noundef %26, i32 noundef %0, i32 noundef %30) #10
   br label %31
 
-31:                                               ; preds = %.thread33, %29, %23
+31:                                               ; preds = %.thread35, %29, %23
   call void @slurm_xfree(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
@@ -1833,7 +1833,7 @@ define dso_local range(i32 -2, 1073741825) i32 @fd_get_maxmss(i32 noundef %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not23 = icmp eq ptr %1, null
-  br i1 %.not23, label %39, label %.thread35
+  br i1 %.not23, label %39, label %.thread37
 
 39:                                               ; preds = %38
   %40 = call ptr @fd_resolve_path(i32 noundef %0)
@@ -1841,20 +1841,20 @@ define dso_local range(i32 -2, 1073741825) i32 @fd_get_maxmss(i32 noundef %0, pt
   %.pre26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre27 = and i64 %.pre26, 1024
   %41 = icmp eq i64 %.pre27, 0
-  br i1 %41, label %47, label %.thread35
+  br i1 %41, label %47, label %.thread37
 
-.thread35:                                        ; preds = %38, %39
+.thread37:                                        ; preds = %38, %39
   %42 = phi ptr [ %40, %39 ], [ %1, %38 ]
   %43 = call i32 @get_log_level() #10
   %44 = icmp sgt i32 %43, 3
   br i1 %44, label %45, label %47
 
-45:                                               ; preds = %.thread35
+45:                                               ; preds = %.thread37
   %46 = load i32, ptr %3, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.47, ptr noundef nonnull @__func__.fd_get_maxmss, ptr noundef %42, i32 noundef %0, i32 noundef %46) #10
   br label %47
 
-47:                                               ; preds = %.thread35, %45, %39
+47:                                               ; preds = %.thread37, %45, %39
   call void @slurm_xfree(ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %48

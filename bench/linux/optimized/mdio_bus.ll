@@ -1251,14 +1251,14 @@ define internal fastcc i32 @mdiobus_scan_bus_c45(ptr noundef nonnull %0) unnamed
 .thread3:                                         ; preds = %19, %22, %11, %.thread4, %4
   %23 = add nuw nsw i64 %5, 1
   %24 = icmp eq i64 %23, 32
-  br i1 %24, label %.split.loop.exit5, label %4, !llvm.loop !29
+  br i1 %24, label %.split.loop.exit6, label %4, !llvm.loop !29
 
 .split.loop.exit:                                 ; preds = %22
   %25 = ptrtoint ptr %17 to i64
   %26 = trunc i64 %25 to i32
-  br label %.split.loop.exit5
+  br label %.split.loop.exit6
 
-.split.loop.exit5:                                ; preds = %.thread3, %.split.loop.exit
+.split.loop.exit6:                                ; preds = %.thread3, %.split.loop.exit
   %27 = phi i32 [ %26, %.split.loop.exit ], [ 0, %.thread3 ]
   ret i32 %27
 }

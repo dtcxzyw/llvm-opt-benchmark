@@ -443,7 +443,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %137, %139
   br i1 %.not.i40, label %_ZNSt14_Function_baseD2Ev.exit41, label %144
 
 144:                                              ; preds = %.body.thread, %.body
-  %eh.lpad-body47 = phi { ptr, i32 } [ %108, %.body.thread ], [ %.pn.i, %.body ]
+  %eh.lpad-body67 = phi { ptr, i32 } [ %108, %.body.thread ], [ %.pn.i, %.body ]
   %145 = phi ptr [ @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn7softmaxERNS0_3MatERKS6_iiiE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", %.body.thread ], [ %.pre, %.body ]
   %146 = invoke noundef zeroext i1 %145(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit41 unwind label %147
@@ -456,7 +456,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %137, %139
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit41:                 ; preds = %.body, %144
-  %eh.lpad-body48 = phi { ptr, i32 } [ %.pn.i, %.body ], [ %eh.lpad-body47, %144 ]
+  %eh.lpad-body68 = phi { ptr, i32 } [ %.pn.i, %.body ], [ %eh.lpad-body67, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -467,7 +467,7 @@ _ZNSt14_Function_baseD2Ev.exit41:                 ; preds = %.body, %144
   br label %150
 
 150:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn31 = phi { ptr, i32 } [ %eh.lpad-body48, %_ZNSt14_Function_baseD2Ev.exit41 ], [ %.pn29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pn31 = phi { ptr, i32 } [ %eh.lpad-body68, %_ZNSt14_Function_baseD2Ev.exit41 ], [ %.pn29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ], [ %.pn27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn31
 }
 
@@ -709,8 +709,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
 
 ._crit_edge.i.i.i:                                ; preds = %49
   %48 = load float, ptr %13, align 4, !tbaa !58
-  %.not78.i.i.i = icmp eq i32 %37, 1
-  br i1 %.not78.i.i.i, label %.lr.ph55.preheader.i.i.i, label %.lr.ph51.i.i.i
+  %.not83.i.i.i = icmp eq i32 %37, 1
+  br i1 %.not83.i.i.i, label %.lr.ph55.preheader.i.i.i, label %.lr.ph51.i.i.i
 
 49:                                               ; preds = %49, %.lr.ph.i.i.i
   %.03946.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %55, %49 ]

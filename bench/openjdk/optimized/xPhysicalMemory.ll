@@ -1078,16 +1078,16 @@ _ZN15XPhysicalMemory16uncommit_segmentEim.exit.i: ; preds = %77
   br i1 %.not.i14, label %.lr.ph.i11, label %.thread, !llvm.loop !17
 
 _ZN22XPhysicalMemoryManager6commitER15XPhysicalMemory.exit.sink.split: ; preds = %_ZN15XPhysicalMemory14commit_segmentEim.exit.i, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i
-  %indvars.iv.i12.lcssa.sink50 = phi i64 [ %indvars.iv.i12, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ %indvars.iv.i, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
-  %.lcssa38.sink = phi i64 [ %69, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ %40, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
+  %indvars.iv.i12.lcssa.sink53 = phi i64 [ %indvars.iv.i12, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ %indvars.iv.i, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
+  %.lcssa41.sink = phi i64 [ %69, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ %40, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
   %.sink = phi i8 [ 0, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ 1, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
   %86 = load ptr, ptr %27, align 8
-  %87 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %86, i64 %indvars.iv.i12.lcssa.sink50
+  %87 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %86, i64 %indvars.iv.i12.lcssa.sink53
   %88 = load i64, ptr %87, align 8
-  %89 = add i64 %88, %.lcssa38.sink
+  %89 = add i64 %88, %.lcssa41.sink
   %.sroa.2.0..sroa_idx.i.i.i16 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 %89, ptr %.sroa.2.0..sroa_idx.i.i.i16, align 8
-  %.sroa.3.0..sroa_idx.i.i.i17 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %86, i64 %indvars.iv.i12.lcssa.sink50, i32 2
+  %.sroa.3.0..sroa_idx.i.i.i17 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %86, i64 %indvars.iv.i12.lcssa.sink53, i32 2
   store i8 %.sink, ptr %.sroa.3.0..sroa_idx.i.i.i17, align 8
   br label %_ZN22XPhysicalMemoryManager6commitER15XPhysicalMemory.exit
 
@@ -1802,10 +1802,10 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit29: ; preds = %._
   br i1 %or.cond.i32, label %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split, label %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit
 
 _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split: ; preds = %._crit_edge.i30, %._crit_edge.i
-  %.sink66 = phi i64 [ %46, %._crit_edge.i ], [ %109, %._crit_edge.i30 ]
+  %.sink69 = phi i64 [ %46, %._crit_edge.i ], [ %109, %._crit_edge.i30 ]
   %.0.lcssa.i31.sink = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %.0.lcssa.i31, %._crit_edge.i30 ]
   %.05.lcssa.i39.ph = phi i64 [ %.05.lcssa.i4143, %._crit_edge.i ], [ %.05.lcssa.i4046, %._crit_edge.i30 ]
-  %131 = inttoptr i64 %.sink66 to ptr
+  %131 = inttoptr i64 %.sink69 to ptr
   tail call void @_ZN2os16numa_make_globalEPcm(ptr noundef %131, i64 noundef %.0.lcssa.i31.sink) #14
   br label %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit
 

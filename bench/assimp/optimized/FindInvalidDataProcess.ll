@@ -403,13 +403,13 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = invoke noundef i32 @_ZN6Assimp22FindInvalidDataProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef %28)
-          to label %30 unwind label %.thread67
+          to label %30 unwind label %.thread72
 
 30:                                               ; preds = %25
   %31 = icmp eq i32 %29, 2
   br i1 %31, label %33, label %42
 
-.thread67:                                        ; preds = %25
+.thread72:                                        ; preds = %25
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %111
@@ -603,10 +603,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %105, %106
   %.not.i.i.i50 = icmp eq ptr %20, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorIjSaIjEED2Ev.exit51, label %111
 
-111:                                              ; preds = %.thread67, %110
-  %.merged4870 = phi { ptr, i32 } [ %32, %.thread67 ], [ %.merged48, %110 ]
-  %112 = phi ptr [ %10, %.thread67 ], [ %21, %110 ]
-  %113 = phi ptr [ %9, %.thread67 ], [ %20, %110 ]
+111:                                              ; preds = %.thread72, %110
+  %.merged4875 = phi { ptr, i32 } [ %32, %.thread72 ], [ %.merged48, %110 ]
+  %112 = phi ptr [ %10, %.thread72 ], [ %21, %110 ]
+  %113 = phi ptr [ %9, %.thread72 ], [ %20, %110 ]
   %114 = ptrtoint ptr %112 to i64
   %115 = ptrtoint ptr %113 to i64
   %116 = sub i64 %114, %115
@@ -614,9 +614,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %105, %106
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit51
 
 _ZNSt6vectorIjSaIjEED2Ev.exit51:                  ; preds = %111, %110
-  %.merged4871 = phi { ptr, i32 } [ %.merged4870, %111 ], [ %.merged48, %110 ]
+  %.merged4876 = phi { ptr, i32 } [ %.merged4875, %111 ], [ %.merged48, %110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %.merged4871
+  resume { ptr, i32 } %.merged4876
 
 117:                                              ; preds = %96
   %118 = landingpad { ptr, i32 }

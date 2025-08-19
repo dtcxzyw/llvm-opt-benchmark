@@ -32,8 +32,8 @@ define range(i32 -1, 2) i32 @avpriv_mpegaudio_decode_header(ptr noundef writeonl
   %.lobit = and i32 %13, 1
   %14 = xor i32 %.lobit, 1
   %.sink = select i1 %.not, i32 1, i32 %14
-  %.lobit61 = lshr exact i32 %12, 20
-  %.055 = xor i32 %.lobit61, 1
+  %.lobit63 = lshr exact i32 %12, 20
+  %.055 = xor i32 %.lobit63, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sink, ptr %15, align 4, !tbaa !4
   %16 = lshr i32 %1, 17

@@ -901,7 +901,7 @@ define internal i32 @dissect_pcp_message(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph.i124:                                      ; preds = %104
   %.not71.i = icmp eq i32 %115, 0
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sink85.i = select i1 %.not71.i, i32 4, i32 8
+  %.sink95.i = select i1 %.not71.i, i32 4, i32 8
   br label %120
 
 120:                                              ; preds = %168, %.lr.ph.i124
@@ -910,7 +910,7 @@ define internal i32 @dissect_pcp_message(ptr noundef %0, ptr noundef %1, ptr nou
   %121 = add i32 %.06983.i, 4
   %.06983.sink.i = select i1 %.not71.i, i32 %.06983.i, i32 %121
   %122 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.06983.sink.i)
-  %123 = add i32 %122, %.sink85.i
+  %123 = add i32 %122, %.sink95.i
   %124 = load i32, ptr @hf_pcp_pmns_names_nametree, align 4
   %125 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %124, ptr noundef %0, i32 noundef %.06983.i, i32 noundef %123, i32 noundef 0)
   %126 = load i32, ptr @ett_pcp, align 4

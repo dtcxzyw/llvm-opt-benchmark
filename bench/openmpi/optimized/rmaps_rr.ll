@@ -378,9 +378,9 @@ pmix_obj_run_destructors.exit123:                 ; preds = %.lr.ph.i120, %._cri
 
 .loopexit.sink.split:                             ; preds = %123, %pmix_obj_run_constructors.exit
   %.lcssa.sink = phi i32 [ %99, %pmix_obj_run_constructors.exit ], [ %.086, %123 ]
-  %.sink163 = phi i32 [ 114, %pmix_obj_run_constructors.exit ], [ 150, %123 ]
+  %.sink178 = phi i32 [ 114, %pmix_obj_run_constructors.exit ], [ 150, %123 ]
   %179 = call ptr @prte_strerror(i32 noundef %.lcssa.sink) #11
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %179, ptr noundef nonnull @.str.4, i32 noundef %.sink163) #11
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %179, ptr noundef nonnull @.str.4, i32 noundef %.sink178) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %pmix_obj_run_constructors.exit, %.loopexit.sink.split

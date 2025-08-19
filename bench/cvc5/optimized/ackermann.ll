@@ -3148,8 +3148,8 @@ _ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPN4cvc58internal12N
   %432 = icmp eq i32 %430, 2
   %433 = zext i1 %432 to i64
   %spec.select.i.i52.i.i.i = add nuw i64 %indvars.iv.i.i.i, %433
-  %sext21.i.i.i = shl i64 %spec.select.i.i52.i.i.i, 32
-  %434 = ashr exact i64 %sext21.i.i.i, 32
+  %sext38.i.i.i = shl i64 %spec.select.i.i52.i.i.i, 32
+  %434 = ashr exact i64 %sext38.i.i.i, 32
   %435 = getelementptr inbounds [0 x ptr], ptr %402, i64 0, i64 %434
   %436 = load ptr, ptr %435, align 8, !tbaa !48, !noalias !313
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -3561,8 +3561,8 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i.i.i
   br i1 %.not.i.i.i83.i.i.i, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i.i.i, label %597
 
 597:                                              ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i
-  %.idx22.i.i.i = shl nuw nsw i64 %361, 3
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i.i.i83.i, i64 noundef %.idx22.i.i.i) #26
+  %.idx39.i.i.i = shl nuw nsw i64 %361, 3
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i.i.i83.i, i64 noundef %.idx39.i.i.i) #26
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i.i.i
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit.i.i.i: ; preds = %597, %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i.i.i.i

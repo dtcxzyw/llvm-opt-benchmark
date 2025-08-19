@@ -424,8 +424,8 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nounde
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = zext i32 %40 to i64
   %42 = mul nuw i64 %41, %38
-  %calloc47 = tail call ptr @calloc(i64 1, i64 %42)
-  %43 = icmp eq ptr %calloc47, null
+  %calloc50 = tail call ptr @calloc(i64 1, i64 %42)
+  %43 = icmp eq ptr %calloc50, null
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %37
@@ -484,7 +484,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nounde
 .lr.ph45.i:                                       ; preds = %.preheader.i, %.lr.ph45.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph45.i ], [ 0, %.preheader.i ]
   %70 = mul nuw i64 %indvars.iv56.i, %41
-  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull %calloc47, i64 noundef %70, ptr noundef readonly %49, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  call fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull %calloc50, i64 noundef %70, ptr noundef readonly %49, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %38
   br i1 %exitcond60.not.i, label %H5Z__nbit_decompress.exit.thread, label %.lr.ph45.i, !llvm.loop !21
@@ -497,7 +497,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nounde
 .lr.ph43.i:                                       ; preds = %71, %79
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %79 ], [ 0, %71 ]
   %72 = mul nuw i64 %indvars.iv51.i, %41
-  %73 = call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef nonnull %calloc47, i64 noundef %72, ptr noundef readonly %49, ptr noundef %11, ptr noundef %12, ptr noundef nonnull readonly %2, ptr noundef %14)
+  %73 = call fastcc i32 @H5Z__nbit_decompress_one_array(ptr noundef nonnull %calloc50, i64 noundef %72, ptr noundef readonly %49, ptr noundef %11, ptr noundef %12, ptr noundef nonnull readonly %2, ptr noundef %14)
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %75, label %79
 
@@ -521,7 +521,7 @@ define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nounde
 .lr.ph.i:                                         ; preds = %80, %88
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %88 ], [ 0, %80 ]
   %81 = mul nuw i64 %indvars.iv.i, %41
-  %82 = call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef nonnull %calloc47, i64 noundef %81, ptr noundef readonly %49, ptr noundef %11, ptr noundef %12, ptr noundef nonnull readonly %2, ptr noundef %14)
+  %82 = call fastcc i32 @H5Z__nbit_decompress_one_compound(ptr noundef nonnull %calloc50, i64 noundef %81, ptr noundef readonly %49, ptr noundef %11, ptr noundef %12, ptr noundef nonnull readonly %2, ptr noundef %14)
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %88
 
@@ -550,7 +550,7 @@ H5Z__nbit_decompress.exit.thread:                 ; preds = %88, %79, %.lr.ph45.
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %90 = tail call ptr @H5MM_xfree(ptr noundef nonnull %calloc47) #8
+  %90 = tail call ptr @H5MM_xfree(ptr noundef nonnull %calloc50) #8
   %91 = load i64, ptr @H5E_PLINE_g, align 8, !tbaa !10
   %92 = load i64, ptr @H5E_CANTFILTER_g, align 8, !tbaa !10
   %93 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Z__filter_nbit, i32 noundef 958, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.31) #8
@@ -669,7 +669,7 @@ H5Z__nbit_compress.exit:                          ; preds = %.lr.ph.i32, %.lr.ph
 131:                                              ; preds = %H5Z__nbit_decompress.exit.thread, %H5Z__nbit_compress.exit
   %132 = phi ptr [ %101, %H5Z__nbit_compress.exit ], [ %.pre, %H5Z__nbit_decompress.exit.thread ]
   %.037 = phi i64 [ %130, %H5Z__nbit_compress.exit ], [ %42, %H5Z__nbit_decompress.exit.thread ]
-  %.026 = phi ptr [ %calloc, %H5Z__nbit_compress.exit ], [ %calloc47, %H5Z__nbit_decompress.exit.thread ]
+  %.026 = phi ptr [ %calloc, %H5Z__nbit_compress.exit ], [ %calloc50, %H5Z__nbit_decompress.exit.thread ]
   %133 = tail call ptr @H5MM_xfree(ptr noundef %132) #8
   store ptr %.026, ptr %5, align 8, !tbaa !14
   store i64 %.037, ptr %4, align 8, !tbaa !10
@@ -897,8 +897,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr nounde
   br label %66
 
 .sink.split:                                      ; preds = %32, %32, %49
-  %.sink72 = phi i64 [ 3, %49 ], [ 6, %32 ], [ 6, %32 ]
-  %54 = add i64 %33, %.sink72
+  %.sink75 = phi i64 [ 3, %49 ], [ 6, %32 ], [ 6, %32 ]
+  %54 = add i64 %33, %.sink75
   store i64 %54, ptr %1, align 8, !tbaa !10
   br label %55
 
@@ -1621,7 +1621,7 @@ define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull
 
 70:                                               ; preds = %62, %46
   %.sink.i.us = phi i8 [ %61, %46 ], [ %69, %62 ]
-  %.sink59.i.us = phi i64 [ %47, %46 ], [ %29, %62 ]
+  %.sink64.i.us = phi i64 [ %47, %46 ], [ %29, %62 ]
   store i8 %.sink.i.us, ptr %32, align 1, !tbaa !30
   br label %.loopexit.sink.split
 
@@ -1715,10 +1715,10 @@ define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull
 
 136:                                              ; preds = %120, %96
   %.sink.i = phi i8 [ %135, %120 ], [ %105, %96 ]
-  %.sink59.i = phi i64 [ %121, %120 ], [ %.051.i, %96 ]
+  %.sink64.i = phi i64 [ %121, %120 ], [ %.051.i, %96 ]
   store i8 %.sink.i, ptr %95, align 1, !tbaa !30
   %137 = load i64, ptr %4, align 8, !tbaa !10
-  %138 = sub i64 %137, %.sink59.i
+  %138 = sub i64 %137, %.sink64.i
   store i64 %138, ptr %4, align 8, !tbaa !10
   br label %H5Z__nbit_decompress_one_byte.exit
 
@@ -1821,7 +1821,7 @@ H5Z__nbit_decompress_one_byte.exit:               ; preds = %106, %136
 
 205:                                              ; preds = %197, %181
   %.sink.i53.us = phi i8 [ %196, %181 ], [ %204, %197 ]
-  %.sink59.i54.us = phi i64 [ %182, %181 ], [ %164, %197 ]
+  %.sink64.i54.us = phi i64 [ %182, %181 ], [ %164, %197 ]
   store i8 %.sink.i53.us, ptr %167, align 1, !tbaa !30
   br label %.loopexit.sink.split
 
@@ -1915,10 +1915,10 @@ H5Z__nbit_decompress_one_byte.exit:               ; preds = %106, %136
 
 271:                                              ; preds = %255, %231
   %.sink.i53 = phi i8 [ %270, %255 ], [ %240, %231 ]
-  %.sink59.i54 = phi i64 [ %256, %255 ], [ %.051.i51, %231 ]
+  %.sink64.i54 = phi i64 [ %256, %255 ], [ %.051.i51, %231 ]
   store i8 %.sink.i53, ptr %230, align 1, !tbaa !30
   %272 = load i64, ptr %4, align 8, !tbaa !10
-  %273 = sub i64 %272, %.sink59.i54
+  %273 = sub i64 %272, %.sink64.i54
   store i64 %273, ptr %4, align 8, !tbaa !10
   br label %H5Z__nbit_decompress_one_byte.exit55
 
@@ -1928,9 +1928,9 @@ H5Z__nbit_decompress_one_byte.exit55:             ; preds = %241, %271
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !32
 
 .loopexit.sink.split:                             ; preds = %70, %205
-  %.sink59.i54.us.sink = phi i64 [ %.sink59.i54.us, %205 ], [ %.sink59.i.us, %70 ]
+  %.sink64.i54.us.sink = phi i64 [ %.sink64.i54.us, %205 ], [ %.sink64.i.us, %70 ]
   %274 = load i64, ptr %4, align 8, !tbaa !10
-  %275 = sub i64 %274, %.sink59.i54.us.sink
+  %275 = sub i64 %274, %.sink64.i54.us.sink
   store i64 %275, ptr %4, align 8, !tbaa !10
   br label %.loopexit
 
@@ -2565,9 +2565,9 @@ define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly 
   br label %126
 
 126:                                              ; preds = %118, %94
-  %.sink54.i = phi i64 [ %119, %118 ], [ %.046.i, %94 ]
+  %.sink59.i = phi i64 [ %119, %118 ], [ %.046.i, %94 ]
   %127 = load i64, ptr %4, align 8, !tbaa !10
-  %128 = sub i64 %127, %.sink54.i
+  %128 = sub i64 %127, %.sink59.i
   store i64 %128, ptr %4, align 8, !tbaa !10
   br label %H5Z__nbit_compress_one_byte.exit
 
@@ -2752,9 +2752,9 @@ H5Z__nbit_compress_one_byte.exit:                 ; preds = %104, %126
   br label %251
 
 251:                                              ; preds = %243, %219
-  %.sink54.i53 = phi i64 [ %244, %243 ], [ %.046.i51, %219 ]
+  %.sink59.i53 = phi i64 [ %244, %243 ], [ %.046.i51, %219 ]
   %252 = load i64, ptr %4, align 8, !tbaa !10
-  %253 = sub i64 %252, %.sink54.i53
+  %253 = sub i64 %252, %.sink59.i53
   store i64 %253, ptr %4, align 8, !tbaa !10
   br label %H5Z__nbit_compress_one_byte.exit54
 
@@ -2764,9 +2764,9 @@ H5Z__nbit_compress_one_byte.exit54:               ; preds = %229, %251
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !39
 
 .loopexit.sink.split:                             ; preds = %173, %181, %48, %56
-  %.sink54.i53.us.sink = phi i64 [ %49, %48 ], [ %30, %56 ], [ %174, %173 ], [ %155, %181 ]
+  %.sink59.i53.us.sink = phi i64 [ %49, %48 ], [ %30, %56 ], [ %174, %173 ], [ %155, %181 ]
   %254 = load i64, ptr %4, align 8, !tbaa !10
-  %255 = sub i64 %254, %.sink54.i53.us.sink
+  %255 = sub i64 %254, %.sink59.i53.us.sink
   store i64 %255, ptr %4, align 8, !tbaa !10
   br label %.loopexit
 

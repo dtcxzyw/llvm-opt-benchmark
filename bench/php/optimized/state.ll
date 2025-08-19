@@ -1297,9 +1297,9 @@ lxb_html_tokenizer_temp_append_data.exit82:       ; preds = %123
   br label %192
 
 .sink.split:                                      ; preds = %10, %10, %10, %111
-  %.sink121 = phi i32 [ 45, %111 ], [ 42, %10 ], [ 42, %10 ], [ 42, %10 ]
+  %.sink137 = phi i32 [ 45, %111 ], [ 42, %10 ], [ 42, %10 ], [ 42, %10 ]
   %159 = load ptr, ptr %5, align 8, !tbaa !42
-  %160 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %159, ptr noundef nonnull %.062110, i32 noundef %.sink121) #5
+  %160 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %159, ptr noundef nonnull %.062110, i32 noundef %.sink137) #5
   br label %161
 
 161:                                              ; preds = %.sink.split, %10
@@ -6032,20 +6032,20 @@ lxb_html_tokenizer_temp_append.exit90:            ; preds = %64
   %100 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alphanumeric_character, i64 0, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !52
   %.not83 = icmp eq i64 %101, 255
-  br i1 %.not83, label %.thread122, label %159
+  br i1 %.not83, label %.thread137, label %159
 
 102:                                              ; preds = %88
-  br i1 %.not82, label %.thread, label %.thread122
+  br i1 %.not82, label %.thread, label %.thread137
 
-.thread122:                                       ; preds = %98, %102
+.thread137:                                       ; preds = %98, %102
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %104 = load ptr, ptr %103, align 8, !tbaa !42
   %105 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %104, ptr noundef nonnull %.075110, i32 noundef 28) #5
   %.pre = load ptr, ptr %8, align 8, !tbaa !19
   br label %.thread
 
-.thread:                                          ; preds = %94, %.thread122, %102
-  %106 = phi ptr [ %84, %94 ], [ %.pre, %.thread122 ], [ %84, %102 ]
+.thread:                                          ; preds = %94, %.thread137, %102
+  %106 = phi ptr [ %84, %94 ], [ %.pre, %.thread137 ], [ %84, %102 ]
   %107 = load ptr, ptr %10, align 8, !tbaa !18
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %109 = load i64, ptr %108, align 8, !tbaa !55
@@ -6466,7 +6466,7 @@ switch.early.test:                                ; preds = %54
 .thread:                                          ; preds = %58, %56
   %64 = phi i32 [ %.pre66, %58 ], [ %.fr, %56 ]
   %65 = icmp ult i32 %64, 160
-  br i1 %65, label %.thread.thread, label %.thread67
+  br i1 %65, label %.thread.thread, label %.thread73
 
 .thread.thread:                                   ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.thread
   %66 = phi i32 [ %64, %.thread ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ]
@@ -6476,19 +6476,19 @@ switch.early.test:                                ; preds = %54
   %70 = trunc i64 %69 to i32
   store i32 %70, ptr %30, align 4, !tbaa !74
   %71 = icmp ult i32 %70, 128
-  br i1 %71, label %72, label %.thread67
+  br i1 %71, label %72, label %.thread73
 
 72:                                               ; preds = %.thread.thread
   %73 = trunc i64 %69 to i8
   store i8 %73, ptr %.0, align 1, !tbaa !30
   br label %lxb_html_tokenizer_state_to_ascii_utf_8.exit
 
-.thread67:                                        ; preds = %.thread, %.thread.thread
+.thread73:                                        ; preds = %.thread, %.thread.thread
   %74 = phi i32 [ %70, %.thread.thread ], [ %64, %.thread ]
   %75 = icmp ult i32 %74, 2048
   br i1 %75, label %76, label %84
 
-76:                                               ; preds = %.thread67
+76:                                               ; preds = %.thread73
   %77 = lshr i32 %74, 6
   %78 = trunc nuw nsw i32 %77 to i8
   %79 = or disjoint i8 %78, -64
@@ -6500,7 +6500,7 @@ switch.early.test:                                ; preds = %54
   store i8 %82, ptr %83, align 1, !tbaa !30
   br label %lxb_html_tokenizer_state_to_ascii_utf_8.exit
 
-84:                                               ; preds = %.thread67
+84:                                               ; preds = %.thread73
   %85 = icmp ult i32 %74, 65536
   br i1 %85, label %86, label %99
 
@@ -6558,12 +6558,12 @@ lxb_html_tokenizer_state_to_ascii_utf_8.exit:     ; preds = %72, %76, %86, %99, 
   br label %129
 
 121:                                              ; preds = %35, %33, %29
-  %.sink69 = phi i32 [ 38, %29 ], [ 5, %33 ], [ 39, %35 ]
+  %.sink75 = phi i32 [ 38, %29 ], [ 5, %33 ], [ 39, %35 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %123 = load ptr, ptr %122, align 8, !tbaa !42
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %125 = load ptr, ptr %124, align 8, !tbaa !56
-  %126 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %123, ptr noundef %125, i32 noundef %.sink69) #5
+  %126 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %123, ptr noundef %125, i32 noundef %.sink75) #5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 136

@@ -2619,32 +2619,32 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
 
 .thread.i.i.i.i.i:                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %switch = icmp ult i64 %.val10, 3
-  br i1 %switch, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+  br i1 %switch, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
 _ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %8 = icmp slt i32 %.fr.i.i.i.i.i, 0
-  br i1 %8, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread
+  br i1 %8, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread
 
 _ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread: ; preds = %.thread.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
   %9 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.32) #16
   %.not = icmp eq i32 %9, 0
   %spec.select = select i1 %.not, ptr @_ZN4llvm10AArch64ISBL8ISBsListE, ptr null
-  br label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+  br label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
-_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
+_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
   %.0 = phi ptr [ null, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ], [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ]
   %10 = load ptr, ptr %3, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
   %13 = load i64, ptr %5, align 8, !tbaa !23
   %14 = icmp ult i64 %13, 16
   call void @llvm.assume(i1 %14)
   br label %_ZZN4llvm10AArch64ISB15lookupISBByNameENS_9StringRefEEN7KeyTypeD2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
   %15 = load i64, ptr %11, align 8, !tbaa !24
   %16 = add i64 %15, 1
   call void @_ZdlPvm(ptr noundef %10, i64 noundef %16) #18
@@ -2687,32 +2687,32 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
 
 .thread.i.i.i.i.i:                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %switch = icmp ult i64 %.val10, 6
-  br i1 %switch, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+  br i1 %switch, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
 _ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %8 = icmp slt i32 %.fr.i.i.i.i.i, 0
-  br i1 %8, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread
+  br i1 %8, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread
 
 _ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread: ; preds = %.thread.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
   %9 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.74) #16
   %.not = icmp eq i32 %9, 0
   %spec.select = select i1 %.not, ptr @_ZN4llvm10AArch64TSBL8TSBsListE, ptr null
-  br label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+  br label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
-_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
+_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
   %.0 = phi ptr [ null, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ], [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ]
   %10 = load ptr, ptr %3, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
   %13 = load i64, ptr %5, align 8, !tbaa !23
   %14 = icmp ult i64 %13, 16
   call void @llvm.assume(i1 %14)
   br label %_ZZN4llvm10AArch64TSB15lookupTSBByNameENS_9StringRefEEN7KeyTypeD2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
   %15 = load i64, ptr %11, align 8, !tbaa !24
   %16 = add i64 %15, 1
   call void @_ZdlPvm(ptr noundef %10, i64 noundef %16) #18
@@ -3281,7 +3281,7 @@ define dso_local noundef ptr @_ZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECL
 
 .lr.ph.i.i:                                       ; preds = %2, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS2_9StringRefEE4CompEclIPKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E9IndexTypeKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
   %.04.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS2_9StringRefEE4CompEclIPKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E9IndexTypeKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ @_ZZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS_9StringRefEE5Index, %2 ]
-  %.0113.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS2_9StringRefEE4CompEclIPKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E9IndexTypeKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 2, %2 ]
+  %.0113.i.i = phi i64 [ 1, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25AArch64SVEVecLenSpecifier30lookupSVEVECLENSPECIFIERByNameENS2_9StringRefEE4CompEclIPKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E9IndexTypeKZNS3_30lookupSVEVECLENSPECIFIERByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 2, %2 ]
   %7 = lshr i64 %.0113.i.i, 1
   %8 = getelementptr inbounds nuw %struct.IndexType.73, ptr %.04.i.i, i64 %7
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !73
@@ -3578,7 +3578,7 @@ define dso_local noundef ptr @_ZN4llvm13AArch64PState24lookupPStateImm0_1ByNameE
 
 .lr.ph.i.i:                                       ; preds = %2, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS2_9StringRefEE4CompEclIPKZNS3_24lookupPStateImm0_1ByNameES4_E9IndexTypeKZNS3_24lookupPStateImm0_1ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
   %.04.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS2_9StringRefEE4CompEclIPKZNS3_24lookupPStateImm0_1ByNameES4_E9IndexTypeKZNS3_24lookupPStateImm0_1ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ @_ZZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS_9StringRefEE5Index, %2 ]
-  %.0113.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS2_9StringRefEE4CompEclIPKZNS3_24lookupPStateImm0_1ByNameES4_E9IndexTypeKZNS3_24lookupPStateImm0_1ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 2, %2 ]
+  %.0113.i.i = phi i64 [ 1, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm13AArch64PState24lookupPStateImm0_1ByNameENS2_9StringRefEE4CompEclIPKZNS3_24lookupPStateImm0_1ByNameES4_E9IndexTypeKZNS3_24lookupPStateImm0_1ByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 2, %2 ]
   %7 = lshr i64 %.0113.i.i, 1
   %8 = getelementptr inbounds nuw %struct.IndexType.89, ptr %.04.i.i, i64 %7
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !85
@@ -3696,32 +3696,32 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9St
 
 .thread.i.i.i.i.i:                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %switch = icmp ult i64 %.val10, 6
-  br i1 %switch, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+  br i1 %switch, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
 _ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %8 = icmp slt i32 %.fr.i.i.i.i.i, 0
-  br i1 %8, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread
+  br i1 %8, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread
 
 _ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread: ; preds = %.thread.i.i.i.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
   %9 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.74) #16
   %.not = icmp eq i32 %9, 0
   %spec.select = select i1 %.not, ptr @_ZN4llvm14AArch64PSBHintL8PSBsListE, ptr null
-  br label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+  br label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
 
-_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15: ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
+_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18: ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread, %.thread.i.i.i.i.i, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit
   %.0 = phi ptr [ null, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit ], [ null, %.thread.i.i.i.i.i ], [ %spec.select, %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread ]
   %10 = load ptr, ptr %3, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
   %13 = load i64, ptr %5, align 8, !tbaa !23
   %14 = icmp ult i64 %13, 16
   call void @llvm.assume(i1 %14)
   br label %_ZZN4llvm14AArch64PSBHint15lookupPSBByNameENS_9StringRefEEN7KeyTypeD2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread15
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit.thread18
   %15 = load i64, ptr %11, align 8, !tbaa !24
   %16 = add i64 %15, 1
   call void @_ZdlPvm(ptr noundef %10, i64 noundef %16) #18
@@ -3757,7 +3757,7 @@ define dso_local noundef ptr @_ZN4llvm12AArch64PHint17lookupPHintByNameENS_9Stri
 
 .lr.ph.i.i:                                       ; preds = %2, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64PHint17lookupPHintByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupPHintByNameES4_E9IndexTypeKZNS3_17lookupPHintByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i
   %.04.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64PHint17lookupPHintByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupPHintByNameES4_E9IndexTypeKZNS3_17lookupPHintByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ @_ZZN4llvm12AArch64PHint17lookupPHintByNameENS_9StringRefEE5Index, %2 ]
-  %.0113.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64PHint17lookupPHintByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupPHintByNameES4_E9IndexTypeKZNS3_17lookupPHintByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 2, %2 ]
+  %.0113.i.i = phi i64 [ 1, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm12AArch64PHint17lookupPHintByNameENS2_9StringRefEE4CompEclIPKZNS3_17lookupPHintByNameES4_E9IndexTypeKZNS3_17lookupPHintByNameES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 2, %2 ]
   %7 = lshr i64 %.0113.i.i, 1
   %8 = getelementptr inbounds nuw %struct.IndexType.99, ptr %.04.i.i, i64 %7
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !89
@@ -3993,8 +3993,8 @@ _ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i: ; preds = %32, %
   %.01320.i.i = phi i64 [ 1254, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i.i ], [ %.2.i.i, %32 ]
   %.019.i.i = phi ptr [ @_ZN4llvm13AArch64SysRegL11SysRegsListE, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %32 ]
   %2 = lshr i64 %.01320.i.i, 1
-  %.idx23 = mul nuw nsw i64 %2, 80
-  %3 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 %.idx23
+  %.idx25 = mul nuw nsw i64 %2, 80
+  %3 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 %.idx25
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i = load i32, ptr %4, align 8, !tbaa !98
   %5 = icmp ult i32 %.val.i.i, %1
@@ -4034,7 +4034,7 @@ _ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncoding
   %.0.lcssa.i.i.i = phi ptr [ %.019.i.i, %.critedge.i.i ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i.i ]
   %.idx = mul nuw nsw i64 %.01320.i.i, 80
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %21 = add nuw nsw i64 %.idx23, 80
+  %21 = add nuw nsw i64 %.idx25, 80
   %gepdiff = sub nsw i64 %.idx, %21
   %22 = icmp sgt i64 %gepdiff, 0
   br i1 %22, label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i, label %_ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit

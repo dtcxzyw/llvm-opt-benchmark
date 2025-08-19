@@ -577,20 +577,20 @@ _ZN7rocksdb8ReadLockD2Ev.exit56:                  ; preds = %97
 
 117:                                              ; preds = %52
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %54, label %_ZN7rocksdb8ReadLockD2Ev.exit70, label %.thread119
+  br i1 %54, label %_ZN7rocksdb8ReadLockD2Ev.exit70, label %.thread130
 
 118:                                              ; preds = %_ZN7rocksdb8ReadLockD2Ev.exit, %50
   %.129.ph = phi i64 [ %51, %50 ], [ %.331, %_ZN7rocksdb8ReadLockD2Ev.exit ]
   %.2.ph93 = phi i1 [ %.1, %50 ], [ %.5, %_ZN7rocksdb8ReadLockD2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %119 = icmp eq i64 %39, %.129.ph
-  br i1 %119, label %.thread119, label %31, !prof !161, !llvm.loop !162
+  br i1 %119, label %.thread130, label %31, !prof !161, !llvm.loop !162
 
-.thread119:                                       ; preds = %118, %117
+.thread130:                                       ; preds = %118, %117
   %120 = icmp ult i64 %39, %2
   br i1 %120, label %_ZN7rocksdb8ReadLockD2Ev.exit70, label %121
 
-121:                                              ; preds = %.thread119
+121:                                              ; preds = %.thread130
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1057
   %123 = load atomic i8, ptr %122 acquire, align 1
   %124 = trunc i8 %123 to i1
@@ -687,8 +687,8 @@ _ZNKSt3mapImSt6vectorImSaImEESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit.thread
   call void @__clang_call_terminate(ptr %160) #21
   unreachable
 
-_ZN7rocksdb8ReadLockD2Ev.exit70:                  ; preds = %117, %154, %.thread, %.thread119, %125
-  %.6 = phi i1 [ true, %125 ], [ true, %.thread119 ], [ %.2.ph, %.thread ], [ %cond1, %154 ], [ false, %117 ]
+_ZN7rocksdb8ReadLockD2Ev.exit70:                  ; preds = %117, %154, %.thread, %.thread130, %125
+  %.6 = phi i1 [ true, %125 ], [ true, %.thread130 ], [ %.2.ph, %.thread ], [ %cond1, %154 ], [ false, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %161
 

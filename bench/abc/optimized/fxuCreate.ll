@@ -238,8 +238,8 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
 
 116:                                              ; preds = %110
   %117 = load ptr, ptr %42, align 8, !tbaa !18
-  %.idx262 = shl nuw nsw i64 %indvars.iv257, 4
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx262
+  %.idx274 = shl nuw nsw i64 %indvars.iv257, 4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx274
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !34
   %121 = load ptr, ptr %108, align 8, !tbaa !46
@@ -831,14 +831,14 @@ define internal fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef re
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %56, %58, %48, %50
-  %.sink134 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %57, %56 ], [ %59, %58 ]
+  %.sink146 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %57, %56 ], [ %59, %58 ]
   %.sink = phi i32 [ 16, %48 ], [ 16, %50 ], [ %53, %56 ], [ %53, %58 ]
-  store ptr %.sink134, ptr %38, align 8, !tbaa !47
+  store ptr %.sink146, ptr %38, align 8, !tbaa !47
   store i32 %.sink, ptr %35, align 8, !tbaa !92
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph108
-  %.pre.i131 = phi ptr [ %39, %.lr.ph108 ], [ %.sink134, %Vec_IntPush.exit.sink.split ]
+  %.pre.i131 = phi ptr [ %39, %.lr.ph108 ], [ %.sink146, %Vec_IntPush.exit.sink.split ]
   %60 = load i32, ptr %36, align 4, !tbaa !91
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %36, align 4, !tbaa !91
@@ -972,8 +972,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %131 = getelementptr inbounds i8, ptr %119, i64 %130
   %132 = xor i8 %129, 49
   %133 = or disjoint i8 %129, 48
-  %.sink135 = select i1 %127, i8 %132, i8 %133
-  store i8 %.sink135, ptr %131, align 1, !tbaa !53
+  %.sink147 = select i1 %127, i8 %132, i8 %133
+  store i8 %.sink147, ptr %131, align 1, !tbaa !53
   %134 = getelementptr inbounds nuw i8, ptr %.180120, i64 32
   %.180 = load ptr, ptr %134, align 8, !tbaa !85
   %.not91 = icmp eq ptr %.180, null

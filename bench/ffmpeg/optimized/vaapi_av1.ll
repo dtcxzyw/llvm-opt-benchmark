@@ -969,9 +969,9 @@ vaapi_av1_surface_id.exit:                        ; preds = %477, %vaapi_av1_sur
   br label %602
 
 602:                                              ; preds = %594, %598
-  %.sink551 = phi i16 [ %597, %594 ], [ %601, %598 ]
+  %.sink553 = phi i16 [ %597, %594 ], [ %601, %598 ]
   %603 = getelementptr inbounds nuw [8 x i16], ptr %570, i64 0, i64 %indvars.iv525
-  store i16 %.sink551, ptr %603, align 2, !tbaa !174
+  store i16 %.sink553, ptr %603, align 2, !tbaa !174
   %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
   %exitcond528.not = icmp eq i64 %indvars.iv.next526, 8
   br i1 %exitcond528.not, label %576, label %577, !llvm.loop !191
@@ -1247,11 +1247,11 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_av1_end_frame(ptr noundef %
 
 .preheader:                                       ; preds = %15
   %.fr37 = freeze i8 %17
-  %.not48 = icmp eq i8 %.fr37, 0
+  %.not49 = icmp eq i8 %.fr37, 0
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 177
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  br i1 %.not48, label %.preheader.split.preheader, label %.preheader.split.us
+  br i1 %.not49, label %.preheader.split.preheader, label %.preheader.split.us
 
 .preheader.split.preheader:                       ; preds = %.preheader.thread, %.preheader
   %26 = phi ptr [ %22, %.preheader.thread ], [ %23, %.preheader ]

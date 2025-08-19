@@ -3158,10 +3158,10 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   br i1 %.not151, label %.sink.split, label %140
 
 .sink.split:                                      ; preds = %134, %132
-  %.sink188 = phi double [ 2.000000e-01, %132 ], [ 3.000000e-01, %134 ]
+  %.sink196 = phi double [ 2.000000e-01, %132 ], [ 3.000000e-01, %134 ]
   %136 = load ptr, ptr %57, align 8, !tbaa !83
   %137 = load double, ptr %35, align 8, !tbaa !68
-  %138 = fmul double %137, %.sink188
+  %138 = fmul double %137, %.sink196
   %139 = load ptr, ptr %55, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %136, double noundef %138, ptr noundef %139, ptr noundef %136) #13
   br label %140

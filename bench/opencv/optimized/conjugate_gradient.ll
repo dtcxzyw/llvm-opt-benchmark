@@ -253,8 +253,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %55, %52
   %56 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %21, %_ZN2cv10AutoBufferIdLm136EEC2Em.exit ]
   %.not.i.i39 = icmp eq ptr %56, %14
   %57 = icmp eq ptr %56, null
-  %or.cond50 = or i1 %.not.i.i39, %57
-  br i1 %or.cond50, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit40, label %58
+  %or.cond54 = or i1 %.not.i.i39, %57
+  br i1 %or.cond54, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit40, label %58
 
 58:                                               ; preds = %._crit_edge
   call void @_ZdaPv(ptr noundef nonnull %56) #21

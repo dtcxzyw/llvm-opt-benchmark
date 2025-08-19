@@ -137,7 +137,7 @@ define internal fastcc i32 @dissect_tivoconnect(ptr noundef %0, ptr noundef read
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17)
   %19 = tail call ptr @strtok(ptr noundef %10, ptr noundef nonnull @.str.30) #4
   %.not97103 = icmp eq ptr %19, null
-  br i1 %.not97103, label %.thread113, label %.lr.ph
+  br i1 %.not97103, label %.thread116, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %53
   %.090107 = phi ptr [ %56, %53 ], [ %19, %6 ]
@@ -216,33 +216,33 @@ define internal fastcc i32 @dissect_tivoconnect(ptr noundef %0, ptr noundef read
 
 57:                                               ; preds = %._crit_edge
   %.not99 = icmp eq ptr %.1, null
-  br i1 %.not99, label %.thread113, label %61
+  br i1 %.not99, label %.thread116, label %61
 
 .thread:                                          ; preds = %._crit_edge
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.37, ptr noundef nonnull %.194)
   %58 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.38, ptr noundef nonnull %13, ptr noundef nonnull %.194)
   %.not99101 = icmp eq ptr %.1, null
-  br i1 %.not99101, label %.thread113, label %59
+  br i1 %.not99101, label %.thread116, label %59
 
 59:                                               ; preds = %.thread
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.39, ptr noundef nonnull %.1)
   %60 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.41, ptr noundef nonnull %13, ptr noundef nonnull %.194, ptr noundef nonnull %.1)
-  br label %.thread113
+  br label %.thread116
 
 61:                                               ; preds = %57
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.40, ptr noundef nonnull %.1)
   %62 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.42, ptr noundef nonnull %13, ptr noundef nonnull %.1)
-  br label %.thread113
+  br label %.thread116
 
-.thread113:                                       ; preds = %6, %.thread, %59, %61, %57
+.thread116:                                       ; preds = %6, %.thread, %59, %61, %57
   %63 = tail call i32 @tvb_reported_length(ptr noundef %0)
   br label %64
 
-64:                                               ; preds = %4, %.thread113
-  %.0 = phi i32 [ %63, %.thread113 ], [ 0, %4 ]
+64:                                               ; preds = %4, %.thread116
+  %.0 = phi i32 [ %63, %.thread116 ], [ 0, %4 ]
   ret i32 %.0
 }
 

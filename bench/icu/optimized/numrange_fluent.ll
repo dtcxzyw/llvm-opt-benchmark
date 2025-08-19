@@ -2741,13 +2741,13 @@ define void @_ZNK6icu_776number29LocalizedNumberRangeFormatter22formatFormattabl
 23:                                               ; preds = %11
   %24 = load i32, ptr %4, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.thread40, label %26
+  br i1 %25, label %.thread45, label %26
 
 26:                                               ; preds = %23
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %.thread40
+  br label %.thread45
 
-.thread40:                                        ; preds = %26, %23
+.thread45:                                        ; preds = %26, %23
   %.ph = phi i32 [ 7, %26 ], [ %24, %23 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_776number20FormattedNumberRangeE, i64 16), ptr %0, align 8, !tbaa !81
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2863,7 +2863,7 @@ _ZN6icu_7712LocalPointerINS_6number4impl25UFormattedNumberRangeDataEED2Ev.exit: 
   %.pn = phi { ptr, i32 } [ %33, %_ZN6icu_7712LocalPointerINS_6number4impl25UFormattedNumberRangeDataEED2Ev.exit ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %.pn
 
-_ZN6icu_7712LocalPointerINS_6number4impl25UFormattedNumberRangeDataEED2Ev.exit28: ; preds = %.thread40, %.thread35, %.thread38, %8
+_ZN6icu_7712LocalPointerINS_6number4impl25UFormattedNumberRangeDataEED2Ev.exit28: ; preds = %.thread45, %.thread35, %.thread38, %8
   ret void
 }
 

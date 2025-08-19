@@ -103,15 +103,15 @@ define internal i32 @dissect_aruba_adp(ptr noundef %0, ptr noundef readonly capt
 
 .sink.split:                                      ; preds = %13, %21
   %hf_adp_switchip.sink = phi ptr [ @hf_adp_switchip, %21 ], [ @hf_adp_mac, %13 ]
-  %.sink36 = phi i32 [ 4, %21 ], [ 6, %13 ]
-  %.sink35 = phi i32 [ 2, %21 ], [ 1, %13 ]
+  %.sink37 = phi i32 [ 4, %21 ], [ 6, %13 ]
+  %.sink36 = phi i32 [ 2, %21 ], [ 1, %13 ]
   %.str.23.sink = phi ptr [ @.str.23, %21 ], [ @.str.21, %13 ]
   %.str.24.sink = phi ptr [ @.str.24, %21 ], [ @.str.22, %13 ]
   %22 = load i32, ptr %hf_adp_switchip.sink, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %.030, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef %.sink36, i32 noundef 0)
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %.030, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef %.sink37, i32 noundef 0)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %0, i32 noundef %.sink35, i32 noundef 6)
+  %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %0, i32 noundef %.sink36, i32 noundef 6)
   %27 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull %.str.23.sink, ptr noundef %26)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull %.str.24.sink, ptr noundef %26)

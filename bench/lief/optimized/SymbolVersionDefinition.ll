@@ -180,8 +180,8 @@ define void @_ZN4LIEF3ELF23SymbolVersionDefinitionC2ERKS1_(ptr noundef nonnull a
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.not18 = icmp eq ptr %19, %20
-  br i1 %.not18, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i
+  %.not24 = icmp eq ptr %19, %20
+  br i1 %.not24, label %_ZNSt6vectorISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN4LIEF3ELF16SymbolVersionAuxESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit.i: ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32

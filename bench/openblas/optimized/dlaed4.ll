@@ -847,7 +847,7 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   %529 = fneg double %413
   %530 = load i32, ptr %0, align 4, !tbaa !3
   %.not12841355 = icmp slt i32 %530, 1
-  br i1 %.not12841355, label %.loopexit1689, label %.lr.ph1358.preheader
+  br i1 %.not12841355, label %.loopexit1725, label %.lr.ph1358.preheader
 
 .lr.ph1358.preheader:                             ; preds = %528
   %531 = add nuw i32 %530, 1
@@ -865,24 +865,24 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   store double %536, ptr %537, align 8, !tbaa !7
   %indvars.iv.next1581 = add nuw nsw i64 %indvars.iv1580, 1
   %exitcond1584.not = icmp eq i64 %indvars.iv.next1581, %wide.trip.count1583
-  br i1 %exitcond1584.not, label %.loopexit1689, label %.lr.ph1358, !llvm.loop !23
+  br i1 %exitcond1584.not, label %.loopexit1725, label %.lr.ph1358, !llvm.loop !23
 
 .loopexit1332:                                    ; preds = %521, %515
   %538 = load i32, ptr %1, align 4, !tbaa !3
   br label %541
 
-.loopexit1689:                                    ; preds = %.lr.ph1358, %528
+.loopexit1725:                                    ; preds = %.lr.ph1358, %528
   %539 = load i32, ptr %1, align 4, !tbaa !3
   %540 = add nsw i32 %539, 1
   br label %541
 
-541:                                              ; preds = %.loopexit1689, %.loopexit1332
-  %542 = phi i32 [ %516, %.loopexit1332 ], [ %530, %.loopexit1689 ]
-  %.4121516741687 = phi double [ 0.000000e+00, %.loopexit1332 ], [ %529, %.loopexit1689 ]
-  %.4120716761685 = phi double [ %413, %.loopexit1332 ], [ 0.000000e+00, %.loopexit1689 ]
-  %.5117916791683 = phi double [ %.51179.ph, %.loopexit1332 ], [ %.61180, %.loopexit1689 ]
-  %543 = phi i32 [ %538, %.loopexit1332 ], [ %539, %.loopexit1689 ]
-  %.01197 = phi i32 [ %538, %.loopexit1332 ], [ %540, %.loopexit1689 ]
+541:                                              ; preds = %.loopexit1725, %.loopexit1332
+  %542 = phi i32 [ %516, %.loopexit1332 ], [ %530, %.loopexit1725 ]
+  %.4121517101723 = phi double [ 0.000000e+00, %.loopexit1332 ], [ %529, %.loopexit1725 ]
+  %.4120717121721 = phi double [ %413, %.loopexit1332 ], [ 0.000000e+00, %.loopexit1725 ]
+  %.5117917151719 = phi double [ %.51179.ph, %.loopexit1332 ], [ %.61180, %.loopexit1725 ]
+  %543 = phi i32 [ %538, %.loopexit1332 ], [ %539, %.loopexit1725 ]
+  %.01197 = phi i32 [ %538, %.loopexit1332 ], [ %540, %.loopexit1725 ]
   %544 = add nsw i32 %.01197, -1
   %545 = add nsw i32 %.01197, 1
   %.not1287.not1359 = icmp sgt i32 %.01197, 1
@@ -983,9 +983,9 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   %590 = fneg double %584
   %591 = select i1 %589, double %584, double %590
   %592 = tail call double @llvm.fmuladd.f64(double %591, double 3.000000e+00, double %588)
-  %593 = fcmp oge double %.5117916791683, 0.000000e+00
-  %594 = fneg double %.5117916791683
-  %595 = select i1 %593, double %.5117916791683, double %594
+  %593 = fcmp oge double %.5117917151719, 0.000000e+00
+  %594 = fneg double %.5117917151719
+  %595 = select i1 %593, double %.5117917151719, double %594
   %596 = tail call double @llvm.fmuladd.f64(double %595, double %583, double %592)
   %597 = tail call double @llvm.fabs.f64(double %585)
   %598 = fmul double %27, %596
@@ -999,13 +999,13 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   %602 = sext i32 %543 to i64
   %603 = getelementptr inbounds double, ptr %17, i64 %602
   %604 = load double, ptr %603, align 8, !tbaa !7
-  %605 = fadd double %.5117916791683, %604
+  %605 = fadd double %.5117917151719, %604
   store double %605, ptr %6, align 8, !tbaa !7
   br label %.loopexit
 
 606:                                              ; preds = %600
   %607 = load double, ptr %407, align 8, !tbaa !7
-  %608 = fadd double %.5117916791683, %607
+  %608 = fadd double %.5117917151719, %607
   store double %608, ptr %6, align 8, !tbaa !7
   br label %.loopexit
 
@@ -1014,12 +1014,12 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   %611 = icmp eq i32 %.01197, %542
   %or.cond1328 = or i1 %610, %611
   %612 = fcmp ugt double %585, 0.000000e+00
-  %613 = fcmp oge double %.4121516741687, %.5117916791683
-  %614 = fcmp ole double %.4120716761685, %.5117916791683
-  %615 = select i1 %614, double %.4120716761685, double %.5117916791683
+  %613 = fcmp oge double %.4121517101723, %.5117917151719
+  %614 = fcmp ole double %.4120717121721, %.5117917151719
+  %615 = select i1 %614, double %.4120717121721, double %.5117917151719
   %616 = select i1 %612, i1 true, i1 %613
-  %.51216 = select i1 %616, double %.4121516741687, double %.5117916791683
-  %.51208 = select i1 %612, double %615, double %.4120716761685
+  %.51216 = select i1 %616, double %.4121517101723, double %.5117917151719
+  %.51208 = select i1 %612, double %615, double %.4120717121721
   store i32 2, ptr %11, align 4, !tbaa !3
   %.not1290 = or i1 %or.cond1328, %.not12901329
   br i1 %.not1290, label %617, label %703
@@ -1237,7 +1237,7 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
 
 770:                                              ; preds = %767, %762
   %771 = phi double [ %769, %767 ], [ %763, %762 ]
-  %772 = fadd double %.5117916791683, %771
+  %772 = fadd double %.5117917151719, %771
   %773 = fcmp ogt double %772, %.51208
   %774 = fcmp olt double %772, %.51216
   %or.cond1326 = select i1 %773, i1 true, i1 %774
@@ -1246,7 +1246,7 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
 .sink.split:                                      ; preds = %770
   %775 = fcmp olt double %764, 0.000000e+00
   %.51208..51216 = select i1 %775, double %.51208, double %.51216
-  %776 = fsub double %.51208..51216, %.5117916791683
+  %776 = fsub double %.51208..51216, %.5117917151719
   %777 = fmul double %776, 5.000000e-01
   store double %777, ptr %14, align 8, !tbaa !7
   br label %778
@@ -1348,7 +1348,7 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   %819 = fneg double %811
   %820 = select i1 %818, double %811, double %819
   %821 = call double @llvm.fmuladd.f64(double %820, double 3.000000e+00, double %817)
-  %822 = fadd double %.5117916791683, %779
+  %822 = fadd double %.5117917151719, %779
   %823 = fcmp oge double %822, 0.000000e+00
   %824 = fneg double %822
   %825 = select i1 %823, double %822, double %824
@@ -1684,8 +1684,8 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   br label %1045
 
 1045:                                             ; preds = %1009, %1027, %995
-  %.sink1726 = phi double [ %1026, %1009 ], [ %1044, %1027 ], [ %1005, %995 ]
-  store double %.sink1726, ptr %849, align 16, !tbaa !7
+  %.sink1762 = phi double [ %1026, %1009 ], [ %1044, %1027 ], [ %1005, %995 ]
+  store double %.sink1762, ptr %849, align 16, !tbaa !7
   call void @dlaed6_(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %846, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %7) #6
   %1046 = load i32, ptr %7, align 4, !tbaa !3
   %.not1307 = icmp eq i32 %1046, 0
@@ -1715,9 +1715,9 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   %1058 = fcmp ogt double %1057, %.71210
   %1059 = fcmp olt double %1057, %.71218
   %or.cond1327 = select i1 %1058, i1 true, i1 %1059
-  br i1 %or.cond1327, label %.sink.split1727, label %1063
+  br i1 %or.cond1327, label %.sink.split1763, label %1063
 
-.sink.split1727:                                  ; preds = %1055
+.sink.split1763:                                  ; preds = %1055
   %1060 = fcmp olt double %1049, 0.000000e+00
   %.71210..71218 = select i1 %1060, double %.71210, double %.71218
   %1061 = fsub double %.71210..71218, %.711811443
@@ -1725,8 +1725,8 @@ thread-pre-split:                                 ; preds = %._crit_edge1471
   store double %1062, ptr %14, align 8, !tbaa !7
   br label %1063
 
-1063:                                             ; preds = %.sink.split1727, %1055
-  %1064 = phi double [ %1056, %1055 ], [ %1062, %.sink.split1727 ]
+1063:                                             ; preds = %.sink.split1763, %1055
+  %1064 = phi double [ %1056, %1055 ], [ %1062, %.sink.split1763 ]
   %1065 = load i32, ptr %0, align 4, !tbaa !3
   %.not13081406 = icmp slt i32 %1065, 1
   br i1 %.not13081406, label %._crit_edge1410, label %.lr.ph1409

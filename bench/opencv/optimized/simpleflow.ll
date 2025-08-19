@@ -2276,13 +2276,13 @@ _ZN2cv3MataSERKNS_7MatExprE.exit171:              ; preds = %100
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 %indvars.iv
   %177 = load i8, ptr %176, align 1, !tbaa !132
   %.not155 = icmp ne i8 %177, 0
-  %brmerge.not284 = select i1 %.not155, i1 %137, i1 false
+  %brmerge.not290 = select i1 %.not155, i1 %137, i1 false
   %.pre275 = shl nuw nsw i64 %indvars.iv, 1
   %178 = trunc i64 %.pre275 to i32
   %179 = or disjoint i32 %178, 1
   %180 = icmp slt i32 %179, %4
-  %or.cond280 = select i1 %brmerge.not284, i1 %180, i1 false
-  br i1 %or.cond280, label %181, label %._crit_edge274
+  %or.cond286 = select i1 %brmerge.not290, i1 %180, i1 false
+  br i1 %or.cond286, label %181, label %._crit_edge274
 
 181:                                              ; preds = %170
   %182 = load ptr, ptr %116, align 8, !tbaa !104
@@ -2299,8 +2299,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit171:              ; preds = %100
   %192 = trunc nuw nsw i64 %indvars.iv to i32
   %193 = add nuw nsw i32 %192, %190
   %.not163211.not = icmp slt i64 %indvars.iv, %128
-  %or.cond281 = and i1 %.not156214.not, %.not163211.not
-  br i1 %or.cond281, label %.preheader206.preheader, label %._crit_edge217
+  %or.cond287 = and i1 %.not156214.not, %.not163211.not
+  br i1 %or.cond287, label %.preheader206.preheader, label %._crit_edge217
 
 .preheader206.preheader:                          ; preds = %181
   %.sroa.speculated195 = call i32 @llvm.smin.i32(i32 %119, i32 %193)
@@ -2337,8 +2337,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit171:              ; preds = %100
 .preheader207:                                    ; preds = %._crit_edge217
   %.not159227 = icmp slt i32 %198, %.sroa.speculated190
   %.not160224 = icmp slt i32 %201, %.sroa.speculated180
-  %or.cond282 = select i1 %.not159227, i1 true, i1 %.not160224
-  br i1 %or.cond282, label %.loopexit, label %.preheader.preheader
+  %or.cond288 = select i1 %.not159227, i1 true, i1 %.not160224
+  br i1 %or.cond288, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader207
   %202 = sext i32 %.sroa.speculated to i64
@@ -2726,7 +2726,7 @@ _ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge:       ; preds = %.preheader130.us, %
   %.177134.us = phi i32 [ %.076141.us, %.preheader.us151 ], [ %.2.us, %69 ]
   %.179133.us = phi i1 [ %.078140.us, %.preheader.us151 ], [ false, %69 ]
   %.1132.us = phi i32 [ %.0139.us, %.preheader.us151 ], [ %storemerge.us, %69 ]
-  %gep = getelementptr %"class.cv::Vec.10", ptr %gep171, i64 %indvars.iv
+  %gep = getelementptr %"class.cv::Vec.10", ptr %gep174, i64 %indvars.iv
   %70 = load i8, ptr %gep, align 1, !tbaa !132
   %71 = zext i8 %70 to i32
   %72 = sub nsw i32 %119, %71
@@ -2799,7 +2799,7 @@ _ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge:       ; preds = %.preheader130.us, %
   %.0139.us = phi i32 [ 0, %.preheader.lr.ph.split.us155 ], [ %storemerge.us, %._crit_edge.us ]
   %109 = add nsw i64 %indvars.iv159, %132
   %110 = mul i64 %117, %109
-  %gep171 = getelementptr i8, ptr %invariant.gep170, i64 %110
+  %gep174 = getelementptr i8, ptr %invariant.gep173, i64 %110
   br label %69
 
 ._crit_edge.us:                                   ; preds = %69
@@ -2833,7 +2833,7 @@ _ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.critedge:       ; preds = %.preheader130.us, %
   %131 = sext i32 %130 to i64
   %132 = sext i32 %61 to i64
   %133 = sext i32 %.sroa.speculated114.us to i64
-  %invariant.gep170 = getelementptr %"class.cv::Vec.10", ptr %111, i64 %128
+  %invariant.gep173 = getelementptr %"class.cv::Vec.10", ptr %111, i64 %128
   br label %.preheader.us151
 
 ._crit_edge148.us:                                ; preds = %108
@@ -4277,7 +4277,7 @@ define linkonce_odr hidden void @_ZNK2cv7optflow28CalcOpticalFlowSingleScaleSFIN
   %30 = phi ptr [ %21, %.lr.ph233.split.preheader ], [ %55, %._crit_edge230 ]
   %31 = phi ptr [ %21, %.lr.ph233.split.preheader ], [ %56, %._crit_edge230 ]
   %indvars.iv252 = phi i64 [ %25, %.lr.ph233.split.preheader ], [ %indvars.iv.next253, %._crit_edge230 ]
-  %indvars276 = trunc i64 %indvars.iv252 to i32
+  %indvars276 = trunc nsw i64 %indvars.iv252 to i32
   %32 = load ptr, ptr %12, align 8, !tbaa !172
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !104
@@ -4515,8 +4515,8 @@ define linkonce_odr hidden void @_ZNK2cv7optflow28CalcOpticalFlowSingleScaleSFIN
   %175 = sext i32 %174 to i64
   %176 = sext i32 %88 to i64
   %177 = sext i32 %.sroa.speculated167 to i64
-  %invariant.gep281 = getelementptr %"class.cv::Vec.10", ptr %104, i64 %indvars.iv243
-  %invariant.gep286 = getelementptr %"class.cv::Vec.10", ptr %166, i64 %172
+  %invariant.gep285 = getelementptr %"class.cv::Vec.10", ptr %104, i64 %indvars.iv243
+  %invariant.gep290 = getelementptr %"class.cv::Vec.10", ptr %166, i64 %172
   br label %.lr.ph198
 
 .lr.ph198:                                        ; preds = %.lr.ph210.split.split, %._crit_edge199.split
@@ -4540,7 +4540,7 @@ define linkonce_odr hidden void @_ZNK2cv7optflow28CalcOpticalFlowSingleScaleSFIN
   %.1136195 = phi float [ %.0135208, %.lr.ph198 ], [ %.2, %._crit_edge190.split ]
   %.1140194 = phi float [ %.0139207, %.lr.ph198 ], [ %.2141, %._crit_edge190.split ]
   %.1143193 = phi float [ %.0142206, %.lr.ph198 ], [ %.2144, %._crit_edge190.split ]
-  %gep287 = getelementptr %"class.cv::Vec.10", ptr %invariant.gep286, i64 %indvars.iv268
+  %gep291 = getelementptr %"class.cv::Vec.10", ptr %invariant.gep290, i64 %indvars.iv268
   br label %.lr.ph
 
 ._crit_edge190.split:                             ; preds = %._crit_edge
@@ -4564,8 +4564,8 @@ define linkonce_odr hidden void @_ZNK2cv7optflow28CalcOpticalFlowSingleScaleSFIN
   %189 = mul i64 %168, %188
   %190 = mul i64 %169, %indvars.iv263
   %191 = getelementptr inbounds nuw i8, ptr %156, i64 %190
-  %gep282 = getelementptr i8, ptr %invariant.gep281, i64 %187
-  %gep285 = getelementptr i8, ptr %gep287, i64 %189
+  %gep286 = getelementptr i8, ptr %invariant.gep285, i64 %187
+  %gep289 = getelementptr i8, ptr %gep291, i64 %189
   br label %192
 
 ._crit_edge:                                      ; preds = %192
@@ -4578,8 +4578,8 @@ define linkonce_odr hidden void @_ZNK2cv7optflow28CalcOpticalFlowSingleScaleSFIN
   %.1121183 = phi float [ %.0120186, %.lr.ph ], [ %221, %192 ]
   %193 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv259
   %194 = load float, ptr %193, align 4, !tbaa !106
-  %gep = getelementptr inbounds nuw %"class.cv::Vec.10", ptr %gep282, i64 %indvars.iv259
-  %195 = getelementptr %"class.cv::Vec.10", ptr %gep285, i64 %indvars.iv259
+  %gep = getelementptr inbounds nuw %"class.cv::Vec.10", ptr %gep286, i64 %indvars.iv259
+  %195 = getelementptr %"class.cv::Vec.10", ptr %gep289, i64 %indvars.iv259
   %196 = load i8, ptr %gep, align 1, !tbaa !132
   %197 = zext i8 %196 to i32
   %198 = load i8, ptr %195, align 1, !tbaa !132

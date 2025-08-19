@@ -361,9 +361,9 @@ SubsetCountMinterm.exit:                          ; preds = %42
 
 .sink.split.sink.split.sink.split.i:              ; preds = %83, %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge86.i
   %.pre114.sink.i = phi ptr [ %.pre114.i, %._crit_edge86.i ], [ %71, %._crit_edge.thread.i ], [ %71, %._crit_edge.i ], [ %.pre114.i, %83 ]
-  %nodeDataPages.sink121.i = phi ptr [ @nodeDataPages, %._crit_edge86.i ], [ @currentNodePage, %._crit_edge.thread.i ], [ @currentNodePage, %._crit_edge.i ], [ @nodeDataPages, %83 ]
+  %nodeDataPages.sink133.i = phi ptr [ @nodeDataPages, %._crit_edge86.i ], [ @currentNodePage, %._crit_edge.thread.i ], [ @currentNodePage, %._crit_edge.i ], [ @nodeDataPages, %83 ]
   tail call void @free(ptr noundef %.pre114.sink.i) #7
-  store ptr null, ptr %nodeDataPages.sink121.i, align 8, !tbaa !40
+  store ptr null, ptr %nodeDataPages.sink133.i, align 8, !tbaa !40
   br label %.sink.split.sink.split.i110
 
 .sink.split.sink.split.i110:                      ; preds = %69, %.sink.split.sink.split.sink.split.i, %._crit_edge86.i, %._crit_edge95.i
@@ -524,9 +524,9 @@ SubsetCountNodes.exit:                            ; preds = %98
 
 ._crit_edge126:                                   ; preds = %._crit_edge121
   %.not97 = icmp eq ptr %.pre, null
-  br i1 %.not97, label %._crit_edge131, label %.thread164
+  br i1 %.not97, label %._crit_edge131, label %.thread193
 
-.thread164:                                       ; preds = %._crit_edge126
+.thread193:                                       ; preds = %._crit_edge126
   call void @free(ptr noundef nonnull %.pre) #7
   store ptr null, ptr @mintermPages, align 8, !tbaa !32
   br label %._crit_edge131
@@ -556,13 +556,13 @@ SubsetCountNodes.exit:                            ; preds = %98
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %.lr.ph135, label %164, !llvm.loop !54
 
-._crit_edge131:                                   ; preds = %._crit_edge126, %.thread164
-  %.pre158163 = load ptr, ptr @nodePages, align 8, !tbaa !41
-  %.not99 = icmp eq ptr %.pre158163, null
-  br i1 %.not99, label %._crit_edge136, label %.thread172
+._crit_edge131:                                   ; preds = %._crit_edge126, %.thread193
+  %.pre158192 = load ptr, ptr @nodePages, align 8, !tbaa !41
+  %.not99 = icmp eq ptr %.pre158192, null
+  br i1 %.not99, label %._crit_edge136, label %.thread201
 
-.thread172:                                       ; preds = %._crit_edge131
-  call void @free(ptr noundef nonnull %.pre158163) #7
+.thread201:                                       ; preds = %._crit_edge131
+  call void @free(ptr noundef nonnull %.pre158192) #7
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   br label %._crit_edge136
 
@@ -591,14 +591,14 @@ SubsetCountNodes.exit:                            ; preds = %98
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
   br i1 %exitcond152.not, label %._crit_edge136.thread, label %170, !llvm.loop !55
 
-._crit_edge136:                                   ; preds = %._crit_edge131, %.thread172
-  %.pre159171 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
-  %.not101 = icmp eq ptr %.pre159171, null
+._crit_edge136:                                   ; preds = %._crit_edge131, %.thread201
+  %.pre159200 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
+  %.not101 = icmp eq ptr %.pre159200, null
   br i1 %.not101, label %175, label %._crit_edge136.thread
 
 ._crit_edge136.thread:                            ; preds = %174, %._crit_edge136
-  %.pre159171177 = phi ptr [ %.pre159171, %._crit_edge136 ], [ %.pre159, %174 ]
-  call void @free(ptr noundef nonnull %.pre159171177) #7
+  %.pre159200206 = phi ptr [ %.pre159200, %._crit_edge136 ], [ %.pre159, %174 ]
+  call void @free(ptr noundef nonnull %.pre159200206) #7
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %175
 
@@ -908,10 +908,10 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br label %133
 
 133:                                              ; preds = %113, %90, %128, %123, %105, %100
-  %.sink125 = phi ptr [ %132, %128 ], [ %127, %123 ], [ %109, %105 ], [ %104, %100 ], [ %60, %90 ], [ %39, %113 ]
+  %.sink129 = phi ptr [ %132, %128 ], [ %127, %123 ], [ %109, %105 ], [ %104, %100 ], [ %60, %90 ], [ %39, %113 ]
   %.0102 = phi ptr [ %129, %128 ], [ %124, %123 ], [ %88, %105 ], [ %88, %100 ], [ %88, %90 ], [ %34, %113 ]
   %.0101 = phi ptr [ %111, %128 ], [ %111, %123 ], [ %106, %105 ], [ %101, %100 ], [ %37, %90 ], [ %111, %113 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.sink125, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.sink129, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !48
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 4, !tbaa !48
@@ -1838,13 +1838,13 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
 
 .thread:                                          ; preds = %93, %..thread148_crit_edge, %69, %..thread_crit_edge
   %.sink = phi i32 [ %.pre, %..thread_crit_edge ], [ %70, %69 ], [ %.pre221, %..thread148_crit_edge ], [ %94, %93 ]
-  %.sink241 = phi i32 [ %68, %..thread_crit_edge ], [ %68, %69 ], [ %92, %..thread148_crit_edge ], [ %92, %93 ]
+  %.sink260 = phi i32 [ %68, %..thread_crit_edge ], [ %68, %69 ], [ %92, %..thread148_crit_edge ], [ %92, %93 ]
   %.0101 = phi i32 [ %68, %..thread_crit_edge ], [ %68, %69 ], [ %90, %..thread148_crit_edge ], [ %90, %93 ]
   %.099 = phi i32 [ %66, %..thread_crit_edge ], [ %66, %69 ], [ %92, %..thread148_crit_edge ], [ %92, %93 ]
   %113 = load ptr, ptr @currentLightNodePage, align 8, !tbaa !45
   %114 = sext i32 %.sink to i64
   %115 = getelementptr inbounds i32, ptr %113, i64 %114
-  store i32 %.sink241, ptr %115, align 4, !tbaa !31
+  store i32 %.sink260, ptr %115, align 4, !tbaa !31
   %116 = load ptr, ptr %4, align 8, !tbaa !38
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr %115, ptr %117, align 8, !tbaa !61
@@ -1962,12 +1962,12 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr %153, ptr %155, align 8, !tbaa !61
   %156 = icmp eq i32 %151, 2048
-  br i1 %156, label %157, label %.thread235
+  br i1 %156, label %157, label %.thread254
 
 157:                                              ; preds = %149
   call fastcc void @ResizeCountNodePages()
   %.b.pre = load i1, ptr @memOut, align 4
-  br i1 %.b.pre, label %.preheader151, label %.thread235
+  br i1 %.b.pre, label %.preheader151, label %.thread254
 
 .preheader151:                                    ; preds = %157
   %158 = load i32, ptr @page, align 4, !tbaa !31
@@ -2045,7 +2045,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   call void @st__free_table(ptr noundef nonnull %1) #7
   br label %183
 
-.thread235:                                       ; preds = %149, %157
+.thread254:                                       ; preds = %149, %157
   %174 = load ptr, ptr @currentNodePage, align 8, !tbaa !45
   %175 = load i32, ptr @pageIndex, align 4, !tbaa !31
   %176 = sext i32 %175 to i64
@@ -2058,7 +2058,7 @@ define internal fastcc i32 @SubsetCountNodesAux(ptr noundef %0, ptr noundef nonn
   store i32 %180, ptr @pageIndex, align 4, !tbaa !31
   br label %181
 
-181:                                              ; preds = %.thread235, %.thread
+181:                                              ; preds = %.thread254, %.thread
   %182 = load i32, ptr %119, align 4, !tbaa !31
   br label %183
 
@@ -2128,9 +2128,9 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
 
 ._crit_edge138:                                   ; preds = %.preheader
   %.not88 = icmp eq ptr %.pre195, null
-  br i1 %.not88, label %._crit_edge143, label %.thread200
+  br i1 %.not88, label %._crit_edge143, label %.thread212
 
-.thread200:                                       ; preds = %._crit_edge138
+.thread212:                                       ; preds = %._crit_edge138
   tail call void @free(ptr noundef nonnull %.pre195) #7
   store ptr null, ptr @nodePages, align 8, !tbaa !41
   br label %._crit_edge143
@@ -2159,14 +2159,14 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
   br i1 %exitcond189.not, label %._crit_edge143.thread, label %17, !llvm.loop !82
 
-._crit_edge143:                                   ; preds = %._crit_edge138, %.thread200
-  %.pre196199 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
-  %.not89 = icmp eq ptr %.pre196199, null
+._crit_edge143:                                   ; preds = %._crit_edge138, %.thread212
+  %.pre196211 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
+  %.not89 = icmp eq ptr %.pre196211, null
   br i1 %.not89, label %22, label %._crit_edge143.thread
 
 ._crit_edge143.thread:                            ; preds = %21, %._crit_edge143
-  %.pre196199204 = phi ptr [ %.pre196199, %._crit_edge143 ], [ %.pre196, %21 ]
-  tail call void @free(ptr noundef nonnull %.pre196199204) #7
+  %.pre196211216 = phi ptr [ %.pre196211, %._crit_edge143 ], [ %.pre196, %21 ]
+  tail call void @free(ptr noundef nonnull %.pre196211216) #7
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %22
 
@@ -2213,8 +2213,8 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
 ._crit_edge129.thread:                            ; preds = %.preheader99
   tail call void @free(ptr noundef nonnull %9) #7
   store ptr null, ptr @nodePages, align 8, !tbaa !41
-  %.pre194206 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
-  %.not85 = icmp eq ptr %.pre194206, null
+  %.pre194218 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
+  %.not85 = icmp eq ptr %.pre194218, null
   br i1 %.not85, label %39, label %._crit_edge134.thread
 
 .lr.ph128.preheader:                              ; preds = %.preheader99
@@ -2263,8 +2263,8 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %exitcond179.not, label %._crit_edge134.thread, label %34, !llvm.loop !85
 
 ._crit_edge134.thread:                            ; preds = %38, %._crit_edge129.thread
-  %.pre194207210 = phi ptr [ %.pre194206, %._crit_edge129.thread ], [ %.pre194, %38 ]
-  tail call void @free(ptr noundef nonnull %.pre194207210) #7
+  %.pre194219222 = phi ptr [ %.pre194218, %._crit_edge129.thread ], [ %.pre194, %38 ]
+  tail call void @free(ptr noundef nonnull %.pre194219222) #7
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %39
 
@@ -2312,8 +2312,8 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
 ._crit_edge120.thread:                            ; preds = %.preheader100
   tail call void @free(ptr noundef nonnull %46) #7
   store ptr null, ptr @nodePages, align 8, !tbaa !41
-  %.pre193212 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
-  %.not81 = icmp eq ptr %.pre193212, null
+  %.pre193224 = load ptr, ptr @lightNodePages, align 8, !tbaa !41
+  %.not81 = icmp eq ptr %.pre193224, null
   br i1 %.not81, label %60, label %._crit_edge125.thread
 
 .lr.ph119.preheader:                              ; preds = %.preheader100
@@ -2362,8 +2362,8 @@ define internal fastcc void @ResizeCountNodePages() unnamed_addr #0 {
   br i1 %exitcond169.not, label %._crit_edge125.thread, label %55, !llvm.loop !88
 
 ._crit_edge125.thread:                            ; preds = %59, %._crit_edge120.thread
-  %.pre193213216 = phi ptr [ %.pre193212, %._crit_edge120.thread ], [ %.pre193, %59 ]
-  tail call void @free(ptr noundef nonnull %.pre193213216) #7
+  %.pre193225228 = phi ptr [ %.pre193224, %._crit_edge120.thread ], [ %.pre193, %59 ]
+  tail call void @free(ptr noundef nonnull %.pre193225228) #7
   store ptr null, ptr @lightNodePages, align 8, !tbaa !41
   br label %60
 

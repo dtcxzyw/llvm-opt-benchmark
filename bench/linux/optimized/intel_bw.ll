@@ -2182,18 +2182,18 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
 
 .loopexit.thread:                                 ; preds = %.split.us
   %405 = icmp eq i16 %312, 0
-  br i1 %405, label %.thread96, label %.thread97
+  br i1 %405, label %.thread123, label %.thread124
 
 406:                                              ; preds = %.loopexit
   %407 = icmp eq ptr %3, null
-  br i1 %407, label %.thread96, label %408
+  br i1 %407, label %.thread123, label %408
 
 408:                                              ; preds = %406
   %409 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %410 = load ptr, ptr %409, align 8
-  br label %.thread96
+  br label %.thread123
 
-.thread96:                                        ; preds = %.loopexit.thread, %408, %406
+.thread123:                                       ; preds = %.loopexit.thread, %408, %406
   %411 = phi ptr [ %410, %408 ], [ null, %406 ], [ null, %.loopexit.thread ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %411, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %207, i32 noundef %202) #10
   br label %472
@@ -2204,21 +2204,21 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %415 = select i1 %413, i1 %414, i1 false
   br i1 %415, label %417, label %423
 
-.thread97:                                        ; preds = %.loopexit.thread
+.thread124:                                       ; preds = %.loopexit.thread
   %416 = icmp eq i16 %327, 0
-  br i1 %416, label %.thread98, label %.thread99
+  br i1 %416, label %.thread125, label %.thread126
 
 417:                                              ; preds = %412
   %418 = icmp eq ptr %3, null
-  br i1 %418, label %.thread98, label %419
+  br i1 %418, label %.thread125, label %419
 
 419:                                              ; preds = %417
   %420 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %421 = load ptr, ptr %420, align 8
-  br label %.thread98
+  br label %.thread125
 
-.thread98:                                        ; preds = %.thread97, %419, %417
-  %422 = phi ptr [ %421, %419 ], [ null, %417 ], [ null, %.thread97 ]
+.thread125:                                       ; preds = %.thread124, %419, %417
+  %422 = phi ptr [ %421, %419 ], [ null, %417 ], [ null, %.thread124 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %422, i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %207, i32 noundef %202) #10
   br label %472
 
@@ -2226,31 +2226,31 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %424 = tail call zeroext i1 @intel_can_enable_sagv(ptr noundef %3, ptr noundef %150) #10
   br i1 %424, label %434, label %426
 
-.thread99:                                        ; preds = %.thread97
+.thread126:                                       ; preds = %.thread124
   %425 = tail call zeroext i1 @intel_can_enable_sagv(ptr noundef %3, ptr noundef %150) #10
-  br i1 %425, label %434, label %.thread100
+  br i1 %425, label %434, label %.thread127
 
 426:                                              ; preds = %423
   %427 = icmp eq ptr %3, null
-  br i1 %427, label %.thread100, label %428
+  br i1 %427, label %.thread127, label %428
 
 428:                                              ; preds = %426
   %429 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %430 = load ptr, ptr %429, align 8
-  br label %.thread100
+  br label %.thread127
 
-.thread100:                                       ; preds = %.thread99, %428, %426
-  %431 = phi i16 [ %403, %428 ], [ %403, %426 ], [ %327, %.thread99 ]
-  %432 = phi ptr [ %430, %428 ], [ null, %426 ], [ null, %.thread99 ]
+.thread127:                                       ; preds = %.thread126, %428, %426
+  %431 = phi i16 [ %403, %428 ], [ %403, %426 ], [ %327, %.thread126 ]
+  %432 = phi ptr [ %430, %428 ], [ null, %426 ], [ null, %.thread126 ]
   %.pn = zext nneg i32 %311 to i64
-  %.in123 = shl nuw i64 1, %.pn
-  %433 = trunc i64 %.in123 to i16
+  %.in150 = shl nuw i64 1, %.pn
+  %433 = trunc i64 %.in150 to i16
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %432, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %311) #10
   br label %434
 
-434:                                              ; preds = %.thread99, %.thread100, %423
-  %435 = phi i16 [ %403, %423 ], [ %431, %.thread100 ], [ %327, %.thread99 ]
-  %436 = phi i16 [ %312, %423 ], [ %433, %.thread100 ], [ %312, %.thread99 ]
+434:                                              ; preds = %.thread126, %.thread127, %423
+  %435 = phi i16 [ %403, %423 ], [ %431, %.thread127 ], [ %327, %.thread126 ]
+  %436 = phi i16 [ %312, %423 ], [ %433, %.thread127 ], [ %312, %.thread126 ]
   %437 = and i16 %436, 255
   %438 = shl i16 %435, 8
   %439 = or disjoint i16 %437, %438
@@ -2297,8 +2297,8 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
 471:                                              ; preds = %468, %452
   br label %472
 
-472:                                              ; preds = %152, %471, %468, %.thread98, %.thread96, %297, %292, %290, %231, %211, %157, %140, %1
-  %473 = phi i32 [ 0, %1 ], [ %142, %140 ], [ 0, %157 ], [ -22, %290 ], [ 0, %292 ], [ 0, %231 ], [ %214, %211 ], [ -22, %.thread96 ], [ -22, %.thread98 ], [ 0, %471 ], [ %302, %297 ], [ %469, %468 ], [ 0, %152 ]
+472:                                              ; preds = %152, %471, %468, %.thread125, %.thread123, %297, %292, %290, %231, %211, %157, %140, %1
+  %473 = phi i32 [ 0, %1 ], [ %142, %140 ], [ 0, %157 ], [ -22, %290 ], [ 0, %292 ], [ 0, %231 ], [ %214, %211 ], [ -22, %.thread123 ], [ -22, %.thread125 ], [ 0, %471 ], [ %302, %297 ], [ %469, %468 ], [ 0, %152 ]
   ret i32 %473
 }
 

@@ -681,8 +681,8 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   br label %157
 
 157:                                              ; preds = %155, %142
-  %.sink115 = phi i64 [ %156, %155 ], [ %143, %142 ]
-  %158 = trunc i64 %.sink115 to i32
+  %.sink122 = phi i64 [ %156, %155 ], [ %143, %142 ]
+  %158 = trunc i64 %.sink122 to i32
   %.sroa.0.0.insert.insert.i95 = call noundef i32 @llvm.fshl.i32(i32 %158, i32 %158, i32 16)
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 22
   store i32 %.sroa.0.0.insert.insert.i95, ptr %159, align 2, !tbaa !55

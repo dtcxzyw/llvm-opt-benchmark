@@ -216,13 +216,13 @@ define internal fastcc void @"_ZN67_$LT$typst..visualize..paint..Paint$u20$as$u2
 _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit: ; preds = %19, %45
   %47 = phi i64 [ %.0.i.i.i, %19 ], [ %17, %45 ]
   %48 = phi i64 [ %11, %19 ], [ %46, %45 ]
-  switch i32 %5, label %default.unreachable57 [
+  switch i32 %5, label %default.unreachable105 [
     i32 0, label %49
     i32 1, label %64
     i32 2, label %1017
   ]
 
-default.unreachable57:                            ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
+default.unreachable105:                           ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
   unreachable
 
 49:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
@@ -320,7 +320,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i: ; preds = %99, %73
   %105 = getelementptr inbounds nuw i8, ptr %.val1, i64 32
   %106 = add i64 %8, 24
   %107 = icmp ugt i64 %102, 8
-  switch i64 %.val, label %default.unreachable57 [
+  switch i64 %.val, label %default.unreachable105 [
     i64 0, label %108
     i64 1, label %337
     i64 2, label %725
@@ -2179,7 +2179,7 @@ define hidden void @"_ZN68_$LT$typst..layout..frame..FrameItem$u20$as$u20$core..
 _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit: ; preds = %24, %50
   %52 = phi i64 [ %.0.i.i.i, %24 ], [ %22, %50 ]
   %.pr = phi i64 [ %16, %24 ], [ %51, %50 ]
-  switch i64 %11, label %default.unreachable192 [
+  switch i64 %11, label %default.unreachable257 [
     i64 0, label %53
     i64 1, label %581
     i64 2, label %809
@@ -2187,7 +2187,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit: ; preds = %24, %50
     i64 4, label %1416
   ]
 
-default.unreachable192:                           ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
+default.unreachable257:                           ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i, %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
   unreachable
 
 53:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
@@ -2566,8 +2566,8 @@ _ZN4core4hash4Hash10hash_slice17h429873bb422b6957E.exit.i: ; preds = %_ZN4core4h
   %292 = phi i64 [ %285, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit.thread" ], [ %290, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit" ]
   %293 = phi i64 [ %283, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit.thread" ], [ %288, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit" ]
   %294 = phi i64 [ %.pr68, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit.thread" ], [ %286, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit" ]
-  %.pre-phi165196 = phi i64 [ %252, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit.thread" ], [ %.pre164, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit" ]
-  %.pre-phi167195 = phi i64 [ %253, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit.thread" ], [ %.pre166, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit" ]
+  %.pre-phi165261 = phi i64 [ %252, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit.thread" ], [ %.pre164, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit" ]
+  %.pre-phi167260 = phi i64 [ %253, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit.thread" ], [ %.pre166, %"_ZN64_$LT$typst..layout..frame..Frame$u20$as$u20$core..hash..Hash$GT$4hash17h5e7c780f9e47843bE.exit" ]
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %296 = load i64, ptr %295, align 8, !alias.scope !464, !noalias !459, !noundef !8
   %297 = xor i64 %296, %292
@@ -2594,12 +2594,12 @@ _ZN4core4hash4Hash10hash_slice17h429873bb422b6957E.exit.i: ; preds = %_ZN4core4h
   %317 = xor i64 %310, %292
   store i64 %317, ptr %1, align 8, !alias.scope !464, !noalias !459
   %.not.i.i.i51 = icmp eq i64 %294, 0
-  %318 = sub nsw i64 64, %.pre-phi165196
+  %318 = sub nsw i64 64, %.pre-phi165261
   %319 = lshr i64 %293, %318
   %.0.i.i.i52 = select i1 %.not.i.i.i51, i64 0, i64 %319
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %321 = load i64, ptr %320, align 8, !alias.scope !463, !noalias !461, !noundef !8
-  %322 = shl i64 %321, %.pre-phi167195
+  %322 = shl i64 %321, %.pre-phi167260
   %323 = or i64 %322, %.0.i.i.i52
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit8.i.thread"
 
@@ -2635,8 +2635,8 @@ _ZN4core4hash4Hash10hash_slice17h429873bb422b6957E.exit.i: ; preds = %_ZN4core4h
   %334 = phi i64 [ %328, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53._ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit8.i.thread_crit_edge" ], [ %323, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53.thread" ]
   %335 = phi i64 [ %326, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53._ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit8.i.thread_crit_edge" ], [ %321, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53.thread" ]
   %.pr21.i74 = phi i64 [ %324, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53._ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit8.i.thread_crit_edge" ], [ %294, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53.thread" ]
-  %.pre-phi.i73 = phi i64 [ %.pre.i54, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53._ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit8.i.thread_crit_edge" ], [ %.pre-phi165196, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53.thread" ]
-  %.pre-phi26.i72 = phi i64 [ %.pre25.i, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53._ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit8.i.thread_crit_edge" ], [ %.pre-phi167195, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53.thread" ]
+  %.pre-phi.i73 = phi i64 [ %.pre.i54, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53._ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit8.i.thread_crit_edge" ], [ %.pre-phi165261, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53.thread" ]
+  %.pre-phi26.i72 = phi i64 [ %.pre25.i, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53._ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit8.i.thread_crit_edge" ], [ %.pre-phi167260, %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$9write_u6417he1267e4f766102a4E.llvm.4929685277518489967.exit.i53.thread" ]
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %337 = xor i64 %333, %334
   %338 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3435,7 +3435,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i: ; preds = %845, 
   %847 = phi i64 [ %.0.i.i.i.i.i, %819 ], [ %817, %845 ]
   %.pr.i.i = phi i64 [ %.pr, %819 ], [ %846, %845 ]
   %848 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  switch i64 %813, label %default.unreachable192 [
+  switch i64 %813, label %default.unreachable257 [
     i64 0, label %849
     i64 1, label %924
     i64 2, label %996
@@ -4472,13 +4472,13 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i24: ; preds = %1455,
 _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i36: ; preds = %1492, %1466
   %1494 = phi i64 [ %.0.i.i.i.i.i35, %1466 ], [ %1464, %1492 ]
   %1495 = phi i64 [ %1458, %1466 ], [ %1493, %1492 ]
-  switch i64 %1418, label %default.unreachable15.i.i [
+  switch i64 %1418, label %default.unreachable21.i.i [
     i64 0, label %1496
     i64 1, label %1546
     i64 2, label %1654
   ]
 
-default.unreachable15.i.i:                        ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i36
+default.unreachable21.i.i:                        ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i36
   unreachable
 
 1496:                                             ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit.i.i36

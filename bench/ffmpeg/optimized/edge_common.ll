@@ -31,8 +31,8 @@ define void @ff_sobel_8(i32 noundef %0, i32 noundef %1, ptr noundef writeonly ca
   %19 = getelementptr inbounds i8, ptr %.07689.us, i64 %13
   %20 = getelementptr inbounds i8, ptr %.07590.us, i64 %10
   %invariant.gep = getelementptr i8, ptr %20, i64 %10
-  %invariant.gep99 = getelementptr i8, ptr %20, i64 %10
-  %invariant.gep101 = getelementptr i8, ptr %20, i64 %10
+  %invariant.gep100 = getelementptr i8, ptr %20, i64 %10
+  %invariant.gep102 = getelementptr i8, ptr %20, i64 %10
   br label %21
 
 21:                                               ; preds = %.lr.ph.us, %get_rounded_direction.exit.us
@@ -56,8 +56,8 @@ define void @ff_sobel_8(i32 noundef %0, i32 noundef %1, ptr noundef writeonly ca
   %gep = getelementptr i8, ptr %invariant.gep, i64 %23
   %37 = load i8, ptr %gep, align 1, !tbaa !4
   %38 = zext i8 %37 to i32
-  %gep100 = getelementptr i8, ptr %invariant.gep99, i64 %27
-  %39 = load i8, ptr %gep100, align 1, !tbaa !4
+  %gep101 = getelementptr i8, ptr %invariant.gep100, i64 %27
+  %39 = load i8, ptr %gep101, align 1, !tbaa !4
   %40 = zext i8 %39 to i32
   %reass.add.us = sub nsw i32 %36, %33
   %reass.mul.us = shl nsw i32 %reass.add.us, 1
@@ -69,8 +69,8 @@ define void @ff_sobel_8(i32 noundef %0, i32 noundef %1, ptr noundef writeonly ca
   %46 = getelementptr inbounds i8, ptr %.07590.us, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !4
   %48 = zext i8 %47 to i32
-  %gep102 = getelementptr i8, ptr %invariant.gep101, i64 %45
-  %49 = load i8, ptr %gep102, align 1, !tbaa !4
+  %gep103 = getelementptr i8, ptr %invariant.gep102, i64 %45
+  %49 = load i8, ptr %gep103, align 1, !tbaa !4
   %50 = zext i8 %49 to i32
   %reass.add86.us = sub nsw i32 %50, %48
   %reass.mul87.us = shl nsw i32 %reass.add86.us, 1
@@ -188,9 +188,9 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
   br i1 %27, label %.lr.ph196, label %._crit_edge197
 
 .lr.ph196:                                        ; preds = %._crit_edge, %.preheader
-  %.1150.lcssa224 = phi ptr [ %.0149.lcssa, %.preheader ], [ %132, %._crit_edge ]
-  %.1153.lcssa223 = phi ptr [ %.0152.lcssa, %.preheader ], [ %133, %._crit_edge ]
-  %.1156.lcssa222 = phi i32 [ %.0155.lcssa, %.preheader ], [ %13, %._crit_edge ]
+  %.1150.lcssa229 = phi ptr [ %.0149.lcssa, %.preheader ], [ %132, %._crit_edge ]
+  %.1153.lcssa228 = phi ptr [ %.0152.lcssa, %.preheader ], [ %133, %._crit_edge ]
+  %.1156.lcssa227 = phi i32 [ %.0155.lcssa, %.preheader ], [ %13, %._crit_edge ]
   %28 = sext i32 %0 to i64
   br label %135
 
@@ -202,20 +202,20 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
 .lr.ph183.preheader:                              ; preds = %.preheader171
   %30 = zext nneg i32 %.0.lcssa to i64
   %invariant.gep = getelementptr i8, ptr %.1153188, i64 %21
-  %invariant.gep228 = getelementptr i8, ptr %.1153188, i64 %22
-  %invariant.gep230 = getelementptr i8, ptr %.1153188, i64 %21
-  %invariant.gep232 = getelementptr i8, ptr %.1153188, i64 %22
-  %invariant.gep234 = getelementptr i8, ptr %.1153188, i64 %21
-  %invariant.gep236 = getelementptr i8, ptr %.1153188, i64 %22
-  %invariant.gep238 = getelementptr i8, ptr %.1153188, i64 %21
-  %invariant.gep240 = getelementptr i8, ptr %.1153188, i64 %22
-  %invariant.gep242 = getelementptr i8, ptr %.1153188, i64 %21
-  %invariant.gep244 = getelementptr i8, ptr %.1153188, i64 %22
-  %invariant.gep246 = getelementptr i8, ptr %.1153188, i64 %8
-  %invariant.gep248 = getelementptr i8, ptr %.1153188, i64 %8
-  %invariant.gep250 = getelementptr i8, ptr %.1153188, i64 %8
-  %invariant.gep252 = getelementptr i8, ptr %.1153188, i64 %8
-  %invariant.gep254 = getelementptr i8, ptr %.1153188, i64 %8
+  %invariant.gep233 = getelementptr i8, ptr %.1153188, i64 %22
+  %invariant.gep235 = getelementptr i8, ptr %.1153188, i64 %21
+  %invariant.gep237 = getelementptr i8, ptr %.1153188, i64 %22
+  %invariant.gep239 = getelementptr i8, ptr %.1153188, i64 %21
+  %invariant.gep241 = getelementptr i8, ptr %.1153188, i64 %22
+  %invariant.gep243 = getelementptr i8, ptr %.1153188, i64 %21
+  %invariant.gep245 = getelementptr i8, ptr %.1153188, i64 %22
+  %invariant.gep247 = getelementptr i8, ptr %.1153188, i64 %21
+  %invariant.gep249 = getelementptr i8, ptr %.1153188, i64 %22
+  %invariant.gep251 = getelementptr i8, ptr %.1153188, i64 %8
+  %invariant.gep253 = getelementptr i8, ptr %.1153188, i64 %8
+  %invariant.gep255 = getelementptr i8, ptr %.1153188, i64 %8
+  %invariant.gep257 = getelementptr i8, ptr %.1153188, i64 %8
+  %invariant.gep259 = getelementptr i8, ptr %.1153188, i64 %8
   br label %.lr.ph183
 
 .lr.ph180:                                        ; preds = %.preheader172, %.lr.ph180
@@ -245,74 +245,74 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
   %gep = getelementptr i8, ptr %invariant.gep, i64 %38
   %39 = load i8, ptr %gep, align 1, !tbaa !4
   %40 = zext i8 %39 to i16
-  %gep229 = getelementptr i8, ptr %invariant.gep228, i64 %38
-  %41 = load i8, ptr %gep229, align 1, !tbaa !4
+  %gep234 = getelementptr i8, ptr %invariant.gep233, i64 %38
+  %41 = load i8, ptr %gep234, align 1, !tbaa !4
   %42 = zext i8 %41 to i16
   %43 = add nsw i64 %indvars.iv207, -1
   %44 = mul nsw i64 %43, %20
-  %gep231 = getelementptr i8, ptr %invariant.gep230, i64 %44
-  %45 = load i8, ptr %gep231, align 1, !tbaa !4
+  %gep236 = getelementptr i8, ptr %invariant.gep235, i64 %44
+  %45 = load i8, ptr %gep236, align 1, !tbaa !4
   %46 = zext i8 %45 to i16
-  %gep233 = getelementptr i8, ptr %invariant.gep232, i64 %44
-  %47 = load i8, ptr %gep233, align 1, !tbaa !4
+  %gep238 = getelementptr i8, ptr %invariant.gep237, i64 %44
+  %47 = load i8, ptr %gep238, align 1, !tbaa !4
   %48 = zext i8 %47 to i16
   %49 = mul nsw i64 %indvars.iv207, %20
-  %gep235 = getelementptr i8, ptr %invariant.gep234, i64 %49
-  %50 = load i8, ptr %gep235, align 1, !tbaa !4
+  %gep240 = getelementptr i8, ptr %invariant.gep239, i64 %49
+  %50 = load i8, ptr %gep240, align 1, !tbaa !4
   %51 = zext i8 %50 to i16
-  %gep237 = getelementptr i8, ptr %invariant.gep236, i64 %49
-  %52 = load i8, ptr %gep237, align 1, !tbaa !4
+  %gep242 = getelementptr i8, ptr %invariant.gep241, i64 %49
+  %52 = load i8, ptr %gep242, align 1, !tbaa !4
   %53 = zext i8 %52 to i16
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %54 = mul nsw i64 %indvars.iv.next208, %20
-  %gep239 = getelementptr i8, ptr %invariant.gep238, i64 %54
-  %55 = load i8, ptr %gep239, align 1, !tbaa !4
+  %gep244 = getelementptr i8, ptr %invariant.gep243, i64 %54
+  %55 = load i8, ptr %gep244, align 1, !tbaa !4
   %56 = zext i8 %55 to i16
-  %gep241 = getelementptr i8, ptr %invariant.gep240, i64 %54
-  %57 = load i8, ptr %gep241, align 1, !tbaa !4
+  %gep246 = getelementptr i8, ptr %invariant.gep245, i64 %54
+  %57 = load i8, ptr %gep246, align 1, !tbaa !4
   %58 = zext i8 %57 to i16
   %59 = add nuw nsw i64 %indvars.iv207, 2
   %60 = mul nsw i64 %59, %20
-  %gep243 = getelementptr i8, ptr %invariant.gep242, i64 %60
-  %61 = load i8, ptr %gep243, align 1, !tbaa !4
+  %gep248 = getelementptr i8, ptr %invariant.gep247, i64 %60
+  %61 = load i8, ptr %gep248, align 1, !tbaa !4
   %62 = zext i8 %61 to i16
-  %gep245 = getelementptr i8, ptr %invariant.gep244, i64 %60
-  %63 = load i8, ptr %gep245, align 1, !tbaa !4
+  %gep250 = getelementptr i8, ptr %invariant.gep249, i64 %60
+  %63 = load i8, ptr %gep250, align 1, !tbaa !4
   %64 = zext i8 %63 to i16
   %65 = sub nsw i64 %38, %8
   %66 = getelementptr inbounds i8, ptr %.1153188, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !4
   %68 = zext i8 %67 to i16
-  %gep247 = getelementptr i8, ptr %invariant.gep246, i64 %38
-  %69 = load i8, ptr %gep247, align 1, !tbaa !4
+  %gep252 = getelementptr i8, ptr %invariant.gep251, i64 %38
+  %69 = load i8, ptr %gep252, align 1, !tbaa !4
   %70 = zext i8 %69 to i16
   %71 = sub nsw i64 %44, %8
   %72 = getelementptr inbounds i8, ptr %.1153188, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !4
   %74 = zext i8 %73 to i16
-  %gep249 = getelementptr i8, ptr %invariant.gep248, i64 %44
-  %75 = load i8, ptr %gep249, align 1, !tbaa !4
+  %gep254 = getelementptr i8, ptr %invariant.gep253, i64 %44
+  %75 = load i8, ptr %gep254, align 1, !tbaa !4
   %76 = zext i8 %75 to i16
   %77 = sub nsw i64 %49, %8
   %78 = getelementptr inbounds i8, ptr %.1153188, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !4
   %80 = zext i8 %79 to i16
-  %gep251 = getelementptr i8, ptr %invariant.gep250, i64 %49
-  %81 = load i8, ptr %gep251, align 1, !tbaa !4
+  %gep256 = getelementptr i8, ptr %invariant.gep255, i64 %49
+  %81 = load i8, ptr %gep256, align 1, !tbaa !4
   %82 = zext i8 %81 to i16
   %83 = sub nsw i64 %54, %8
   %84 = getelementptr inbounds i8, ptr %.1153188, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !4
   %86 = zext i8 %85 to i16
-  %gep253 = getelementptr i8, ptr %invariant.gep252, i64 %54
-  %87 = load i8, ptr %gep253, align 1, !tbaa !4
+  %gep258 = getelementptr i8, ptr %invariant.gep257, i64 %54
+  %87 = load i8, ptr %gep258, align 1, !tbaa !4
   %88 = zext i8 %87 to i16
   %89 = sub nsw i64 %60, %8
   %90 = getelementptr inbounds i8, ptr %.1153188, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !4
   %92 = zext i8 %91 to i16
-  %gep255 = getelementptr i8, ptr %invariant.gep254, i64 %60
-  %93 = load i8, ptr %gep255, align 1, !tbaa !4
+  %gep260 = getelementptr i8, ptr %invariant.gep259, i64 %60
+  %93 = load i8, ptr %gep260, align 1, !tbaa !4
   %94 = zext i8 %93 to i16
   %95 = getelementptr inbounds i8, ptr %.1153188, i64 %38
   %96 = load i8, ptr %95, align 1, !tbaa !4
@@ -385,9 +385,9 @@ define void @ff_gaussian_blur_8(i32 noundef %0, i32 noundef %1, ptr noundef writ
   br i1 %exitcond217.not, label %.lr.ph196, label %.preheader172, !llvm.loop !16
 
 135:                                              ; preds = %.lr.ph196, %135
-  %.2151195 = phi ptr [ %.1150.lcssa224, %.lr.ph196 ], [ %136, %135 ]
-  %.2154194 = phi ptr [ %.1153.lcssa223, %.lr.ph196 ], [ %137, %135 ]
-  %.2157193 = phi i32 [ %.1156.lcssa222, %.lr.ph196 ], [ %138, %135 ]
+  %.2151195 = phi ptr [ %.1150.lcssa229, %.lr.ph196 ], [ %136, %135 ]
+  %.2154194 = phi ptr [ %.1153.lcssa228, %.lr.ph196 ], [ %137, %135 ]
+  %.2157193 = phi i32 [ %.1156.lcssa227, %.lr.ph196 ], [ %138, %135 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2151195, ptr align 1 %.2154194, i64 %28, i1 false)
   %136 = getelementptr inbounds i8, ptr %.2151195, i64 %9
   %137 = getelementptr inbounds i8, ptr %.2154194, i64 %8
@@ -433,8 +433,8 @@ define void @ff_sobel_16(i32 noundef %0, i32 noundef %1, ptr noundef writeonly c
   %22 = getelementptr inbounds i8, ptr %.07689.us, i64 %15
   %23 = getelementptr inbounds i16, ptr %.07590.us, i64 %16
   %invariant.gep = getelementptr i16, ptr %23, i64 %16
-  %invariant.gep99 = getelementptr i16, ptr %23, i64 %16
-  %invariant.gep101 = getelementptr i16, ptr %23, i64 %16
+  %invariant.gep100 = getelementptr i16, ptr %23, i64 %16
+  %invariant.gep102 = getelementptr i16, ptr %23, i64 %16
   br label %24
 
 24:                                               ; preds = %.lr.ph.us, %get_rounded_direction.exit.us
@@ -458,8 +458,8 @@ define void @ff_sobel_16(i32 noundef %0, i32 noundef %1, ptr noundef writeonly c
   %gep = getelementptr i16, ptr %invariant.gep, i64 %26
   %40 = load i16, ptr %gep, align 2, !tbaa !7
   %41 = zext i16 %40 to i32
-  %gep100 = getelementptr i16, ptr %invariant.gep99, i64 %30
-  %42 = load i16, ptr %gep100, align 2, !tbaa !7
+  %gep101 = getelementptr i16, ptr %invariant.gep100, i64 %30
+  %42 = load i16, ptr %gep101, align 2, !tbaa !7
   %43 = zext i16 %42 to i32
   %reass.add.us = sub nsw i32 %39, %36
   %reass.mul.us = shl nsw i32 %reass.add.us, 1
@@ -471,8 +471,8 @@ define void @ff_sobel_16(i32 noundef %0, i32 noundef %1, ptr noundef writeonly c
   %49 = getelementptr inbounds i16, ptr %.07590.us, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !7
   %51 = zext i16 %50 to i32
-  %gep102 = getelementptr i16, ptr %invariant.gep101, i64 %48
-  %52 = load i16, ptr %gep102, align 2, !tbaa !7
+  %gep103 = getelementptr i16, ptr %invariant.gep102, i64 %48
+  %52 = load i16, ptr %gep103, align 2, !tbaa !7
   %53 = zext i16 %52 to i32
   %reass.add86.us = sub nsw i32 %53, %51
   %reass.mul87.us = shl nsw i32 %reass.add86.us, 1
@@ -596,9 +596,9 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   br i1 %33, label %.lr.ph196, label %._crit_edge197
 
 .lr.ph196:                                        ; preds = %._crit_edge, %.preheader
-  %.1150.lcssa224 = phi ptr [ %.0149.lcssa, %.preheader ], [ %142, %._crit_edge ]
-  %.1153.lcssa223 = phi ptr [ %.0152.lcssa, %.preheader ], [ %143, %._crit_edge ]
-  %.1156.lcssa222 = phi i32 [ %.0155.lcssa, %.preheader ], [ %17, %._crit_edge ]
+  %.1150.lcssa229 = phi ptr [ %.0149.lcssa, %.preheader ], [ %142, %._crit_edge ]
+  %.1153.lcssa228 = phi ptr [ %.0152.lcssa, %.preheader ], [ %143, %._crit_edge ]
+  %.1156.lcssa227 = phi i32 [ %.0155.lcssa, %.preheader ], [ %17, %._crit_edge ]
   %34 = sext i32 %0 to i64
   %35 = shl nsw i64 %34, 1
   %36 = sext i32 %10 to i64
@@ -613,20 +613,20 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
 .lr.ph183.preheader:                              ; preds = %.preheader171
   %39 = zext nneg i32 %.0.lcssa to i64
   %invariant.gep = getelementptr i16, ptr %.1153188, i64 %27
-  %invariant.gep228 = getelementptr i16, ptr %.1153188, i64 %28
-  %invariant.gep230 = getelementptr i16, ptr %.1153188, i64 %27
-  %invariant.gep232 = getelementptr i16, ptr %.1153188, i64 %28
-  %invariant.gep234 = getelementptr i16, ptr %.1153188, i64 %27
-  %invariant.gep236 = getelementptr i16, ptr %.1153188, i64 %28
-  %invariant.gep238 = getelementptr i16, ptr %.1153188, i64 %27
-  %invariant.gep240 = getelementptr i16, ptr %.1153188, i64 %28
-  %invariant.gep242 = getelementptr i16, ptr %.1153188, i64 %27
-  %invariant.gep244 = getelementptr i16, ptr %.1153188, i64 %28
-  %invariant.gep246 = getelementptr i16, ptr %.1153188, i64 %25
-  %invariant.gep248 = getelementptr i16, ptr %.1153188, i64 %25
-  %invariant.gep250 = getelementptr i16, ptr %.1153188, i64 %25
-  %invariant.gep252 = getelementptr i16, ptr %.1153188, i64 %25
-  %invariant.gep254 = getelementptr i16, ptr %.1153188, i64 %25
+  %invariant.gep233 = getelementptr i16, ptr %.1153188, i64 %28
+  %invariant.gep235 = getelementptr i16, ptr %.1153188, i64 %27
+  %invariant.gep237 = getelementptr i16, ptr %.1153188, i64 %28
+  %invariant.gep239 = getelementptr i16, ptr %.1153188, i64 %27
+  %invariant.gep241 = getelementptr i16, ptr %.1153188, i64 %28
+  %invariant.gep243 = getelementptr i16, ptr %.1153188, i64 %27
+  %invariant.gep245 = getelementptr i16, ptr %.1153188, i64 %28
+  %invariant.gep247 = getelementptr i16, ptr %.1153188, i64 %27
+  %invariant.gep249 = getelementptr i16, ptr %.1153188, i64 %28
+  %invariant.gep251 = getelementptr i16, ptr %.1153188, i64 %25
+  %invariant.gep253 = getelementptr i16, ptr %.1153188, i64 %25
+  %invariant.gep255 = getelementptr i16, ptr %.1153188, i64 %25
+  %invariant.gep257 = getelementptr i16, ptr %.1153188, i64 %25
+  %invariant.gep259 = getelementptr i16, ptr %.1153188, i64 %25
   br label %.lr.ph183
 
 .lr.ph180:                                        ; preds = %.preheader172, %.lr.ph180
@@ -656,74 +656,74 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   %gep = getelementptr i16, ptr %invariant.gep, i64 %47
   %48 = load i16, ptr %gep, align 2, !tbaa !7
   %49 = zext i16 %48 to i32
-  %gep229 = getelementptr i16, ptr %invariant.gep228, i64 %47
-  %50 = load i16, ptr %gep229, align 2, !tbaa !7
+  %gep234 = getelementptr i16, ptr %invariant.gep233, i64 %47
+  %50 = load i16, ptr %gep234, align 2, !tbaa !7
   %51 = zext i16 %50 to i32
   %52 = add nsw i64 %indvars.iv207, -1
   %53 = mul nsw i64 %52, %26
-  %gep231 = getelementptr i16, ptr %invariant.gep230, i64 %53
-  %54 = load i16, ptr %gep231, align 2, !tbaa !7
+  %gep236 = getelementptr i16, ptr %invariant.gep235, i64 %53
+  %54 = load i16, ptr %gep236, align 2, !tbaa !7
   %55 = zext i16 %54 to i32
-  %gep233 = getelementptr i16, ptr %invariant.gep232, i64 %53
-  %56 = load i16, ptr %gep233, align 2, !tbaa !7
+  %gep238 = getelementptr i16, ptr %invariant.gep237, i64 %53
+  %56 = load i16, ptr %gep238, align 2, !tbaa !7
   %57 = zext i16 %56 to i32
   %58 = mul nsw i64 %indvars.iv207, %26
-  %gep235 = getelementptr i16, ptr %invariant.gep234, i64 %58
-  %59 = load i16, ptr %gep235, align 2, !tbaa !7
+  %gep240 = getelementptr i16, ptr %invariant.gep239, i64 %58
+  %59 = load i16, ptr %gep240, align 2, !tbaa !7
   %60 = zext i16 %59 to i32
-  %gep237 = getelementptr i16, ptr %invariant.gep236, i64 %58
-  %61 = load i16, ptr %gep237, align 2, !tbaa !7
+  %gep242 = getelementptr i16, ptr %invariant.gep241, i64 %58
+  %61 = load i16, ptr %gep242, align 2, !tbaa !7
   %62 = zext i16 %61 to i32
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %63 = mul nsw i64 %indvars.iv.next208, %26
-  %gep239 = getelementptr i16, ptr %invariant.gep238, i64 %63
-  %64 = load i16, ptr %gep239, align 2, !tbaa !7
+  %gep244 = getelementptr i16, ptr %invariant.gep243, i64 %63
+  %64 = load i16, ptr %gep244, align 2, !tbaa !7
   %65 = zext i16 %64 to i32
-  %gep241 = getelementptr i16, ptr %invariant.gep240, i64 %63
-  %66 = load i16, ptr %gep241, align 2, !tbaa !7
+  %gep246 = getelementptr i16, ptr %invariant.gep245, i64 %63
+  %66 = load i16, ptr %gep246, align 2, !tbaa !7
   %67 = zext i16 %66 to i32
   %68 = add nuw nsw i64 %indvars.iv207, 2
   %69 = mul nsw i64 %68, %26
-  %gep243 = getelementptr i16, ptr %invariant.gep242, i64 %69
-  %70 = load i16, ptr %gep243, align 2, !tbaa !7
+  %gep248 = getelementptr i16, ptr %invariant.gep247, i64 %69
+  %70 = load i16, ptr %gep248, align 2, !tbaa !7
   %71 = zext i16 %70 to i32
-  %gep245 = getelementptr i16, ptr %invariant.gep244, i64 %69
-  %72 = load i16, ptr %gep245, align 2, !tbaa !7
+  %gep250 = getelementptr i16, ptr %invariant.gep249, i64 %69
+  %72 = load i16, ptr %gep250, align 2, !tbaa !7
   %73 = zext i16 %72 to i32
   %74 = sub nsw i64 %47, %25
   %75 = getelementptr inbounds i16, ptr %.1153188, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !7
   %77 = zext i16 %76 to i32
-  %gep247 = getelementptr i16, ptr %invariant.gep246, i64 %47
-  %78 = load i16, ptr %gep247, align 2, !tbaa !7
+  %gep252 = getelementptr i16, ptr %invariant.gep251, i64 %47
+  %78 = load i16, ptr %gep252, align 2, !tbaa !7
   %79 = zext i16 %78 to i32
   %80 = sub nsw i64 %53, %25
   %81 = getelementptr inbounds i16, ptr %.1153188, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !7
   %83 = zext i16 %82 to i32
-  %gep249 = getelementptr i16, ptr %invariant.gep248, i64 %53
-  %84 = load i16, ptr %gep249, align 2, !tbaa !7
+  %gep254 = getelementptr i16, ptr %invariant.gep253, i64 %53
+  %84 = load i16, ptr %gep254, align 2, !tbaa !7
   %85 = zext i16 %84 to i32
   %86 = sub nsw i64 %58, %25
   %87 = getelementptr inbounds i16, ptr %.1153188, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !7
   %89 = zext i16 %88 to i32
-  %gep251 = getelementptr i16, ptr %invariant.gep250, i64 %58
-  %90 = load i16, ptr %gep251, align 2, !tbaa !7
+  %gep256 = getelementptr i16, ptr %invariant.gep255, i64 %58
+  %90 = load i16, ptr %gep256, align 2, !tbaa !7
   %91 = zext i16 %90 to i32
   %92 = sub nsw i64 %63, %25
   %93 = getelementptr inbounds i16, ptr %.1153188, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !7
   %95 = zext i16 %94 to i32
-  %gep253 = getelementptr i16, ptr %invariant.gep252, i64 %63
-  %96 = load i16, ptr %gep253, align 2, !tbaa !7
+  %gep258 = getelementptr i16, ptr %invariant.gep257, i64 %63
+  %96 = load i16, ptr %gep258, align 2, !tbaa !7
   %97 = zext i16 %96 to i32
   %98 = sub nsw i64 %69, %25
   %99 = getelementptr inbounds i16, ptr %.1153188, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !7
   %101 = zext i16 %100 to i32
-  %gep255 = getelementptr i16, ptr %invariant.gep254, i64 %69
-  %102 = load i16, ptr %gep255, align 2, !tbaa !7
+  %gep260 = getelementptr i16, ptr %invariant.gep259, i64 %69
+  %102 = load i16, ptr %gep260, align 2, !tbaa !7
   %103 = zext i16 %102 to i32
   %104 = getelementptr inbounds i16, ptr %.1153188, i64 %47
   %105 = load i16, ptr %104, align 2, !tbaa !7
@@ -796,9 +796,9 @@ define void @ff_gaussian_blur_16(i32 noundef %0, i32 noundef %1, ptr noundef wri
   br i1 %exitcond217.not, label %.lr.ph196, label %.preheader172, !llvm.loop !24
 
 145:                                              ; preds = %.lr.ph196, %145
-  %.2151195 = phi ptr [ %.1150.lcssa224, %.lr.ph196 ], [ %146, %145 ]
-  %.2154194 = phi ptr [ %.1153.lcssa223, %.lr.ph196 ], [ %147, %145 ]
-  %.2157193 = phi i32 [ %.1156.lcssa222, %.lr.ph196 ], [ %148, %145 ]
+  %.2151195 = phi ptr [ %.1150.lcssa229, %.lr.ph196 ], [ %146, %145 ]
+  %.2154194 = phi ptr [ %.1153.lcssa228, %.lr.ph196 ], [ %147, %145 ]
+  %.2157193 = phi i32 [ %.1156.lcssa227, %.lr.ph196 ], [ %148, %145 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.2151195, ptr align 2 %.2154194, i64 %35, i1 false)
   %146 = getelementptr inbounds i16, ptr %.2151195, i64 %36
   %147 = getelementptr inbounds i16, ptr %.2154194, i64 %37
@@ -838,8 +838,8 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
   %18 = getelementptr inbounds i8, ptr %.07284.us, i64 %11
   %19 = getelementptr inbounds i16, ptr %.07185.us, i64 %12
   %invariant.gep = getelementptr i16, ptr %19, i64 %12
-  %invariant.gep94 = getelementptr i16, ptr %19, i64 %12
-  %invariant.gep96 = getelementptr i16, ptr %19, i64 %12
+  %invariant.gep98 = getelementptr i16, ptr %19, i64 %12
+  %invariant.gep100 = getelementptr i16, ptr %19, i64 %12
   br label %20
 
 20:                                               ; preds = %.lr.ph.us, %68
@@ -893,8 +893,8 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
   br i1 %50, label %51, label %68
 
 51:                                               ; preds = %42
-  %gep95 = getelementptr i16, ptr %invariant.gep94, i64 %indvars.iv
-  %52 = getelementptr i8, ptr %gep95, i64 2
+  %gep99 = getelementptr i16, ptr %invariant.gep98, i64 %indvars.iv
+  %52 = getelementptr i8, ptr %gep99, i64 2
   %53 = load i16, ptr %52, align 2, !tbaa !7
   %54 = icmp ugt i16 %44, %53
   br i1 %54, label %.sink.split, label %68
@@ -902,8 +902,8 @@ define void @ff_non_maximum_suppression(i32 noundef %0, i32 noundef %1, ptr noun
 55:                                               ; preds = %20
   %56 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
   %57 = load i16, ptr %56, align 2, !tbaa !7
-  %gep97 = getelementptr i16, ptr %invariant.gep96, i64 %indvars.iv
-  %58 = getelementptr i8, ptr %gep97, i64 -2
+  %gep101 = getelementptr i16, ptr %invariant.gep100, i64 %indvars.iv
+  %58 = getelementptr i8, ptr %gep101, i64 -2
   %59 = load i16, ptr %58, align 2, !tbaa !7
   %60 = icmp ugt i16 %57, %59
   br i1 %60, label %61, label %68
@@ -1050,9 +1050,9 @@ define void @ff_double_threshold(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br label %68
 
 68:                                               ; preds = %.lr.ph.split.us92, %27, %34, %38, %43, %48, %53, %58, %62, %67
-  %.sink103 = phi i8 [ 0, %67 ], [ %20, %62 ], [ %20, %58 ], [ %20, %53 ], [ %20, %48 ], [ %20, %43 ], [ %20, %38 ], [ %20, %34 ], [ %20, %27 ], [ %20, %.lr.ph.split.us92 ]
+  %.sink107 = phi i8 [ 0, %67 ], [ %20, %62 ], [ %20, %58 ], [ %20, %53 ], [ %20, %48 ], [ %20, %43 ], [ %20, %38 ], [ %20, %34 ], [ %20, %27 ], [ %20, %.lr.ph.split.us92 ]
   %69 = getelementptr inbounds nuw i8, ptr %.06385.us, i64 %indvars.iv96
-  store i8 %.sink103, ptr %69, align 1, !tbaa !4
+  store i8 %.sink107, ptr %69, align 1, !tbaa !4
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %._crit_edge.us, label %.lr.ph.split.us92, !llvm.loop !28

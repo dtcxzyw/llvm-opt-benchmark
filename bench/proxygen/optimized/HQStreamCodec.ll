@@ -2899,12 +2899,12 @@ if.else:                                          ; preds = %invoke.cont14
   br i1 %cmp.not.i8, label %if.end21, label %if.end21.sink.split
 
 if.end21.sink.split:                              ; preds = %if.else, %invoke.cont17
-  %.sink25 = phi ptr [ %20, %invoke.cont17 ], [ %22, %if.else ]
+  %.sink27 = phi ptr [ %20, %invoke.cont17 ], [ %22, %if.else ]
   %agg.tmp20.sink.ph = phi ptr [ %agg.tmp, %invoke.cont17 ], [ %agg.tmp20, %if.else ]
   %res.sroa.0.0.ph = phi i8 [ %res.sroa.0.0.copyload, %invoke.cont17 ], [ %res.sroa.0.0.copyload21, %if.else ]
   %res.sroa.522.0.ph = phi i64 [ %res.sroa.522.0.copyload, %invoke.cont17 ], [ %res.sroa.522.0.copyload23, %if.else ]
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink25) #22
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sink25) #22
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink27) #22
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.sink27) #22
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %if.else, %invoke.cont17

@@ -1019,10 +1019,10 @@ cond.false.i7:                                    ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i7
-  %cmp.not.i113 = phi i1 [ true, %cond.false.i7 ], [ false, %if.then.i.i.i ], [ false, %cond.true.i ]
-  %.pre.i46112 = phi ptr [ null, %cond.false.i7 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %cmp.not.i120 = phi i1 [ true, %cond.false.i7 ], [ false, %if.then.i.i.i ], [ false, %cond.true.i ]
+  %.pre.i46119 = phi ptr [ null, %cond.false.i7 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i7 ], [ %3, %if.then.i.i.i ], [ %3, %cond.true.i ]
-  %arguments_.i = getelementptr inbounds nuw i8, ptr %.pre.i46112, i64 8
+  %arguments_.i = getelementptr inbounds nuw i8, ptr %.pre.i46119, i64 8
   %6 = load ptr, ptr %arguments_.i, align 8, !tbaa !46
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 240
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !48
@@ -1047,7 +1047,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i:               ; preds = %.noexc9, %invoke.co
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i
-  br i1 %cmp.not.i113, label %cond.false.i12, label %invoke.cont6, !prof !50
+  br i1 %cmp.not.i120, label %cond.false.i12, label %invoke.cont6, !prof !50
 
 cond.false.i12:                                   ; preds = %invoke.cont3
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10BatesModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -1079,7 +1079,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i19:             ; preds = %.noexc25, %invoke.c
 
 invoke.cont8:                                     ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i19
   %mul = fmul double %call2.i.i26, 5.000000e-01
-  br i1 %cmp.not.i113, label %cond.false.i28, label %invoke.cont10, !prof !50
+  br i1 %cmp.not.i120, label %cond.false.i28, label %invoke.cont10, !prof !50
 
 cond.false.i28:                                   ; preds = %invoke.cont8
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10BatesModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -1111,7 +1111,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i35:             ; preds = %.noexc41, %invoke.c
 
 invoke.cont12:                                    ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i35
   %mul14 = fmul double %mul, %call2.i.i42
-  br i1 %cmp.not.i113, label %cond.false.i45, label %invoke.cont16, !prof !50
+  br i1 %cmp.not.i120, label %cond.false.i45, label %invoke.cont16, !prof !50
 
 cond.false.i45:                                   ; preds = %invoke.cont12
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10BatesModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -1673,10 +1673,10 @@ cond.false.i16:                                   ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i16
-  %cmp.not.i77 = phi i1 [ true, %cond.false.i16 ], [ false, %if.then.i.i.i ], [ false, %cond.true.i ]
-  %.pre.i3876 = phi ptr [ null, %cond.false.i16 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %cmp.not.i83 = phi i1 [ true, %cond.false.i16 ], [ false, %if.then.i.i.i ], [ false, %cond.true.i ]
+  %.pre.i3882 = phi ptr [ null, %cond.false.i16 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i16 ], [ %3, %if.then.i.i.i ], [ %3, %cond.true.i ]
-  %arguments_.i = getelementptr inbounds nuw i8, ptr %.pre.i3876, i64 8
+  %arguments_.i = getelementptr inbounds nuw i8, ptr %.pre.i3882, i64 8
   %6 = load ptr, ptr %arguments_.i, align 8, !tbaa !46
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 336
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !48
@@ -1701,7 +1701,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i:               ; preds = %.noexc18, %invoke.c
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i
-  br i1 %cmp.not.i77, label %cond.false.i21, label %invoke.cont7, !prof !50
+  br i1 %cmp.not.i83, label %cond.false.i21, label %invoke.cont7, !prof !50
 
 cond.false.i21:                                   ; preds = %invoke.cont4
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib17BatesDetJumpModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -1732,7 +1732,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i28:             ; preds = %.noexc34, %invoke.c
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i28
-  br i1 %cmp.not.i77, label %cond.false.i37, label %invoke.cont12, !prof !50
+  br i1 %cmp.not.i83, label %cond.false.i37, label %invoke.cont12, !prof !50
 
 cond.false.i37:                                   ; preds = %invoke.cont9
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib17BatesDetJumpModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -2277,10 +2277,10 @@ cond.false.i8:                                    ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i8
-  %cmp.not.i124 = phi i1 [ true, %cond.false.i8 ], [ false, %if.then.i.i.i ], [ false, %cond.true.i ]
-  %.pre.i46123 = phi ptr [ null, %cond.false.i8 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %cmp.not.i131 = phi i1 [ true, %cond.false.i8 ], [ false, %if.then.i.i.i ], [ false, %cond.true.i ]
+  %.pre.i46130 = phi ptr [ null, %cond.false.i8 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i8 ], [ %3, %if.then.i.i.i ], [ %3, %cond.true.i ]
-  %arguments_.i = getelementptr inbounds nuw i8, ptr %.pre.i46123, i64 8
+  %arguments_.i = getelementptr inbounds nuw i8, ptr %.pre.i46130, i64 8
   %6 = load ptr, ptr %arguments_.i, align 8, !tbaa !46
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 240
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !48
@@ -2306,7 +2306,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i:               ; preds = %.noexc10, %invoke.c
 
 invoke.cont3:                                     ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i
   %sub = fsub double 1.000000e+00, %call2.i.i11
-  br i1 %cmp.not.i124, label %cond.false.i13, label %invoke.cont6, !prof !50
+  br i1 %cmp.not.i131, label %cond.false.i13, label %invoke.cont6, !prof !50
 
 cond.false.i13:                                   ; preds = %invoke.cont3
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19BatesDoubleExpModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -2337,7 +2337,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i20:             ; preds = %.noexc26, %invoke.c
           to label %invoke.cont8 unwind label %lpad5
 
 invoke.cont8:                                     ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i20
-  br i1 %cmp.not.i124, label %cond.false.i29, label %invoke.cont11, !prof !50
+  br i1 %cmp.not.i131, label %cond.false.i29, label %invoke.cont11, !prof !50
 
 cond.false.i29:                                   ; preds = %invoke.cont8
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19BatesDoubleExpModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -2368,7 +2368,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i36:             ; preds = %.noexc42, %invoke.c
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i36
-  br i1 %cmp.not.i124, label %cond.false.i45, label %invoke.cont16, !prof !50
+  br i1 %cmp.not.i131, label %cond.false.i45, label %invoke.cont16, !prof !50
 
 cond.false.i45:                                   ; preds = %invoke.cont13
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib19BatesDoubleExpModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -2730,10 +2730,10 @@ cond.false.i16:                                   ; preds = %dynamic_cast.end3.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i16
-  %cmp.not.i77 = phi i1 [ true, %cond.false.i16 ], [ false, %if.then.i.i.i ], [ false, %cond.true.i ]
-  %.pre.i3876 = phi ptr [ null, %cond.false.i16 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
+  %cmp.not.i83 = phi i1 [ true, %cond.false.i16 ], [ false, %if.then.i.i.i ], [ false, %cond.true.i ]
+  %.pre.i3882 = phi ptr [ null, %cond.false.i16 ], [ %2, %if.then.i.i.i ], [ %2, %cond.true.i ]
   %5 = phi ptr [ null, %cond.false.i16 ], [ %3, %if.then.i.i.i ], [ %3, %cond.true.i ]
-  %arguments_.i = getelementptr inbounds nuw i8, ptr %.pre.i3876, i64 8
+  %arguments_.i = getelementptr inbounds nuw i8, ptr %.pre.i3882, i64 8
   %6 = load ptr, ptr %arguments_.i, align 8, !tbaa !46
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 384
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !48
@@ -2758,7 +2758,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i:               ; preds = %.noexc18, %invoke.c
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i
-  br i1 %cmp.not.i77, label %cond.false.i21, label %invoke.cont7, !prof !50
+  br i1 %cmp.not.i83, label %cond.false.i21, label %invoke.cont7, !prof !50
 
 cond.false.i21:                                   ; preds = %invoke.cont4
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib26BatesDoubleExpDetJumpModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
@@ -2789,7 +2789,7 @@ _ZNK8QuantLib9ParameterclEd.exit.i28:             ; preds = %.noexc34, %invoke.c
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %_ZNK8QuantLib9ParameterclEd.exit.i28
-  br i1 %cmp.not.i77, label %cond.false.i37, label %invoke.cont12, !prof !50
+  br i1 %cmp.not.i83, label %cond.false.i37, label %invoke.cont12, !prof !50
 
 cond.false.i37:                                   ; preds = %invoke.cont9
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib26BatesDoubleExpDetJumpModelEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)

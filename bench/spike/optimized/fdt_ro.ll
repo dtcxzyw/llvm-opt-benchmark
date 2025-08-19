@@ -371,8 +371,8 @@ fdt_getprop.exit18.thread:                        ; preds = %53
   br label %fdt_getprop.exit18
 
 fdt_getprop.exit18:                               ; preds = %78, %98
-  %.sink24 = phi i64 [ 12, %98 ], [ 16, %78 ]
-  %99 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink24
+  %.sink26 = phi i64 [ 12, %98 ], [ 16, %78 ]
+  %99 = getelementptr inbounds nuw i8, ptr %54, i64 %.sink26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %100 = load i32, ptr %5, align 4
   %.not23 = icmp eq i32 %100, 4
@@ -1401,14 +1401,14 @@ define internal fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 nounde
   %16 = load i32, ptr %9, align 4, !tbaa !6
   %17 = icmp sgt i32 %16, -1
   %spec.select = select i1 %17, i32 -11, i32 %16
-  br label %fdt_first_property_offset.exit.thread76
+  br label %fdt_first_property_offset.exit.thread83
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %9, align 4, !tbaa !6
   %20 = icmp eq i32 %14, 4
-  br i1 %20, label %13, label %fdt_first_property_offset.exit.thread76, !llvm.loop !15
+  br i1 %20, label %13, label %fdt_first_property_offset.exit.thread83, !llvm.loop !15
 
-fdt_first_property_offset.exit.thread76:          ; preds = %18, %15
+fdt_first_property_offset.exit.thread83:          ; preds = %18, %15
   %.0.i.i.ph = phi i32 [ %spec.select, %15 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread54
@@ -1543,16 +1543,16 @@ fdt_string_eq_.exit:                              ; preds = %fdt_get_property_by
 96:                                               ; preds = %94
   %97 = load i32, ptr %7, align 4, !tbaa !6
   %98 = icmp sgt i32 %97, -1
-  %spec.select94 = select i1 %98, i32 -11, i32 %97
-  br label %fdt_next_property_offset.exit.thread81
+  %spec.select101 = select i1 %98, i32 -11, i32 %97
+  br label %fdt_next_property_offset.exit.thread88
 
 99:                                               ; preds = %94
   %100 = load i32, ptr %7, align 4, !tbaa !6
   %101 = icmp eq i32 %95, 4
-  br i1 %101, label %94, label %fdt_next_property_offset.exit.thread81, !llvm.loop !15
+  br i1 %101, label %94, label %fdt_next_property_offset.exit.thread88, !llvm.loop !15
 
-fdt_next_property_offset.exit.thread81:           ; preds = %99, %96
-  %.0.i.i34.ph = phi i32 [ %spec.select94, %96 ], [ -1, %99 ]
+fdt_next_property_offset.exit.thread88:           ; preds = %99, %96
+  %.0.i.i34.ph = phi i32 [ %spec.select101, %96 ], [ -1, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread54
 
@@ -1561,8 +1561,8 @@ fdt_next_property_offset.exit:                    ; preds = %94
   %102 = icmp sgt i32 %.05.i.i32, -1
   br i1 %102, label %27, label %.thread54, !llvm.loop !16
 
-.thread54:                                        ; preds = %90, %fdt_next_property_offset.exit, %6, %fdt_next_property_offset.exit.thread81, %fdt_first_property_offset.exit.thread76, %fdt_first_property_offset.exit
-  %.021.lcssa = phi i32 [ %.05.i.i, %fdt_first_property_offset.exit ], [ %.0.i.i.ph, %fdt_first_property_offset.exit.thread76 ], [ %.0.i.i34.ph, %fdt_next_property_offset.exit.thread81 ], [ %10, %6 ], [ %91, %90 ], [ %.05.i.i32, %fdt_next_property_offset.exit ]
+.thread54:                                        ; preds = %90, %fdt_next_property_offset.exit, %6, %fdt_next_property_offset.exit.thread88, %fdt_first_property_offset.exit.thread83, %fdt_first_property_offset.exit
+  %.021.lcssa = phi i32 [ %.05.i.i, %fdt_first_property_offset.exit ], [ %.0.i.i.ph, %fdt_first_property_offset.exit.thread83 ], [ %.0.i.i34.ph, %fdt_next_property_offset.exit.thread88 ], [ %10, %6 ], [ %91, %90 ], [ %.05.i.i32, %fdt_next_property_offset.exit ]
   %.not29 = icmp eq ptr %4, null
   br i1 %.not29, label %.thread54.thread, label %.thread54.thread60
 
@@ -2277,7 +2277,7 @@ define i32 @fdt_node_depth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 .lr.ph.ithread-pre-split:                         ; preds = %.lr.ph
   %.pr = load i32, ptr %3, align 4, !tbaa !6
   %9 = icmp eq i32 %.pr, 0
-  %spec.select.i = select i1 %9, i32 %12, i32 %spec.select.i.fr33
+  %spec.select.i = select i1 %9, i32 %12, i32 %spec.select.i.fr36
   %spec.select.i.fr = freeze i32 %spec.select.i
   %10 = icmp eq i32 %12, %1
   br i1 %10, label %.lr.ph.i._crit_edge, label %.lr.ph
@@ -2289,9 +2289,9 @@ define i32 @fdt_node_depth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br i1 %11, label %fdt_supernode_atdepth_offset.exit.thread, label %fdt_supernode_atdepth_offset.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.ithread-pre-split
-  %spec.select.i.fr33 = phi i32 [ %spec.select.i.fr, %.lr.ph.ithread-pre-split ], [ 0, %.lr.ph.i.preheader ]
-  %.02530.i32 = phi i32 [ %12, %.lr.ph.ithread-pre-split ], [ 0, %.lr.ph.i.preheader ]
-  %12 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02530.i32, ptr noundef nonnull %3) #9
+  %spec.select.i.fr36 = phi i32 [ %spec.select.i.fr, %.lr.ph.ithread-pre-split ], [ 0, %.lr.ph.i.preheader ]
+  %.02530.i35 = phi i32 [ %12, %.lr.ph.ithread-pre-split ], [ 0, %.lr.ph.i.preheader ]
+  %12 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02530.i35, ptr noundef nonnull %3) #9
   %.not32.i = icmp ugt i32 %12, %1
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.ithread-pre-split, !llvm.loop !23
 
@@ -2385,15 +2385,15 @@ fdt_supernode_atdepth_offset.exit.i:              ; preds = %.lr.ph.i.i._crit_ed
   br i1 %.not.i.not, label %fdt_node_depth.exit, label %fdt_node_depth.exit.thread
 
 fdt_node_depth.exit:                              ; preds = %fdt_supernode_atdepth_offset.exit.i, %.thread
-  %.lcssa13273236 = phi i32 [ 0, %.thread ], [ %.pr.i, %fdt_supernode_atdepth_offset.exit.i ]
-  %17 = add nsw i32 %.lcssa13273236, -1
+  %.lcssa13323741 = phi i32 [ 0, %.thread ], [ %.pr.i, %fdt_supernode_atdepth_offset.exit.i ]
+  %17 = add nsw i32 %.lcssa13323741, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %20, label %fdt_supernode_atdepth_offset.exit
 
 20:                                               ; preds = %fdt_node_depth.exit
-  %21 = icmp eq i32 %.lcssa13273236, 0
+  %21 = icmp eq i32 %.lcssa13323741, 0
   br i1 %21, label %fdt_supernode_atdepth_offset.exit, label %22
 
 22:                                               ; preds = %20
@@ -2966,9 +2966,9 @@ define noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not31, label %81, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %79, %76, %56
-  %.sink56 = phi i32 [ %57, %56 ], [ -15, %76 ], [ %80, %79 ], [ -1, %._crit_edge ]
+  %.sink61 = phi i32 [ %57, %56 ], [ -15, %76 ], [ %80, %79 ], [ -1, %._crit_edge ]
   %.0.ph = phi ptr [ null, %56 ], [ null, %76 ], [ %.02443, %79 ], [ null, %._crit_edge ]
-  store i32 %.sink56, ptr %4, align 4, !tbaa !6
+  store i32 %.sink61, ptr %4, align 4, !tbaa !6
   br label %81
 
 81:                                               ; preds = %.sink.split, %._crit_edge, %79, %76, %55

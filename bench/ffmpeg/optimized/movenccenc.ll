@@ -493,8 +493,8 @@ define range(i32 -12, 1) i32 @ff_mov_cenc_avc_write_nal_units(ptr noundef %0, pt
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge.thread
   %35 = phi i32 [ %24, %._crit_edge.thread ], [ %32, %._crit_edge ]
-  %.039.lcssa76 = phi i32 [ 0, %._crit_edge.thread ], [ %29, %._crit_edge ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.039.lcssa76, i32 noundef %35) #5
+  %.039.lcssa84 = phi i32 [ 0, %._crit_edge.thread ], [ %29, %._crit_edge ]
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %.039.lcssa84, i32 noundef %35) #5
   br label %mov_cenc_end_packet.exit
 
 36:                                               ; preds = %._crit_edge

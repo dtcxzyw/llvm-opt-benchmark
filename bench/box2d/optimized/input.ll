@@ -1091,8 +1091,8 @@ thread-pre-split:                                 ; preds = %99, %101
   br label %118
 
 118:                                              ; preds = %115, %107
-  %.sink108 = phi i64 [ %117, %115 ], [ %114, %107 ]
-  %119 = trunc i64 %.sink108 to i8
+  %.sink112 = phi i64 [ %117, %115 ], [ %114, %107 ]
+  %119 = trunc i64 %.sink112 to i8
   %120 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store i8 %119, ptr %120, align 1, !tbaa !158
   %121 = load i8, ptr %98, align 1, !tbaa !156

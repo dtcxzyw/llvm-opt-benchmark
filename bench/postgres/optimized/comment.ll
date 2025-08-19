@@ -562,7 +562,7 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %.val20.i.i = load i8, ptr %63, align 1
   %64 = and i8 %.val20.i.i, 8
   %.not.i21.i.i = icmp eq i8 %64, 0
-  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread14, label %65
+  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread16, label %65
 
 65:                                               ; preds = %62
   %66 = call i64 @nocachegetattr(ptr noundef nonnull %15, i32 noundef 4, ptr noundef %13) #6
@@ -572,21 +572,21 @@ heap_getattr.exit:                                ; preds = %16
   %67 = call i64 @getmissingattr(ptr noundef %13, i32 noundef 4, ptr noundef nonnull %5) #6
   %.pre = load i8, ptr %5, align 1, !range !7
   %68 = trunc nuw i8 %.pre to i1
-  br i1 %68, label %heap_getattr.exit.thread14, label %heap_getattr.exit.thread
+  br i1 %68, label %heap_getattr.exit.thread16, label %heap_getattr.exit.thread
 
 heap_getattr.exit.thread:                         ; preds = %58, %52, %49, %46, %43, %60, %65, %heap_getattr.exit
-  %.0.i13 = phi i64 [ %67, %heap_getattr.exit ], [ %59, %58 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %61, %60 ], [ %66, %65 ]
-  %69 = inttoptr i64 %.0.i13 to ptr
+  %.0.i15 = phi i64 [ %67, %heap_getattr.exit ], [ %59, %58 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %61, %60 ], [ %66, %65 ]
+  %69 = inttoptr i64 %.0.i15 to ptr
   %70 = call ptr @text_to_cstring(ptr noundef %69) #6
-  br label %heap_getattr.exit.thread14
+  br label %heap_getattr.exit.thread16
 
-heap_getattr.exit.thread14:                       ; preds = %62, %heap_getattr.exit.thread, %heap_getattr.exit
+heap_getattr.exit.thread16:                       ; preds = %62, %heap_getattr.exit.thread, %heap_getattr.exit
   %.1 = phi ptr [ null, %heap_getattr.exit ], [ %70, %heap_getattr.exit.thread ], [ null, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %71
 
-71:                                               ; preds = %heap_getattr.exit.thread14, %3
-  %.0 = phi ptr [ %.1, %heap_getattr.exit.thread14 ], [ null, %3 ]
+71:                                               ; preds = %heap_getattr.exit.thread16, %3
+  %.0 = phi ptr [ %.1, %heap_getattr.exit.thread16 ], [ null, %3 ]
   call void @systable_endscan(ptr noundef %14) #6
   call void @table_close(ptr noundef nonnull %11, i32 noundef 1) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

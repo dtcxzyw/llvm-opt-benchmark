@@ -114,8 +114,8 @@ define void @DES_ede3_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %8, %72, %._crit_edge
-  %.081.lcssa103 = phi i32 [ %70, %72 ], [ %70, %._crit_edge ], [ %11, %8 ]
-  store i32 %.081.lcssa103, ptr %7, align 4, !tbaa !3
+  %.081.lcssa104 = phi i32 [ %70, %72 ], [ %70, %._crit_edge ], [ %11, %8 ]
+  store i32 %.081.lcssa104, ptr %7, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void

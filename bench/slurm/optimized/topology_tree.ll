@@ -585,8 +585,8 @@ define dso_local i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, 
   %or.cond137 = or i1 %78, %79
   %80 = load i32, ptr @switch_record_cnt, align 4
   %81 = icmp slt i32 %80, 1
-  %or.cond166 = select i1 %or.cond137, i1 true, i1 %81
-  br i1 %or.cond166, label %._crit_edge141, label %.preheader
+  %or.cond180 = select i1 %or.cond137, i1 true, i1 %81
+  br i1 %or.cond180, label %._crit_edge141, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge134
   %82 = phi i32 [ %120, %._crit_edge134 ], [ %77, %._crit_edge ]
@@ -662,7 +662,7 @@ define dso_local i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, 
   call void @slurm_bit_clear(ptr noundef %113, i64 noundef %111) #13
   %114 = load ptr, ptr %10, align 8
   call void @slurm_bit_set(ptr noundef %114, i64 noundef %87) #13
-  %.neg = add i32 %.177132, 1
+  %.neg = add nuw i32 %.177132, 1
   %115 = sub i32 %.neg, %.1
   br label %._crit_edge127.thread
 

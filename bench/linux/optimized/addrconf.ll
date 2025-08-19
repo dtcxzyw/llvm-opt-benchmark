@@ -6886,13 +6886,13 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   store i32 1, ptr %21, align 8
   store volatile ptr null, ptr %16, align 8
   %22 = call i32 @snmp6_unregister_dev(ptr noundef nonnull %17) #20
-  br label %.thread46
+  br label %.thread76
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 796
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %.thread46
+  br i1 %26, label %27, label %.thread76
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 1848
@@ -6907,7 +6907,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   %35 = load i32, ptr %34, align 8
   br label %38
 
-.thread46:                                        ; preds = %20, %23
+.thread76:                                        ; preds = %20, %23
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 2040
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 2048
   br label %.split.preheader
@@ -6920,9 +6920,9 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 2048
   br i1 %40, label %.split.us, label %.split.preheader
 
-.split.preheader:                                 ; preds = %.thread46, %38
-  %43 = phi ptr [ %37, %.thread46 ], [ %42, %38 ]
-  %44 = phi ptr [ %36, %.thread46 ], [ %41, %38 ]
+.split.preheader:                                 ; preds = %.thread76, %38
+  %43 = phi ptr [ %37, %.thread76 ], [ %42, %38 ]
+  %44 = phi ptr [ %36, %.thread76 ], [ %41, %38 ]
   br label %.split
 
 .split.us:                                        ; preds = %38, %.loopexit41.split.us.us
@@ -6944,7 +6944,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %54, label %.split43.us, label %.split.us, !llvm.loop !104
 
 .preheader40.us:                                  ; preds = %.split.us, %.preheader40.us.backedge
-  %55 = phi ptr [ %.be52, %.preheader40.us.backedge ], [ %50, %.split.us ]
+  %55 = phi ptr [ %.be82, %.preheader40.us.backedge ], [ %50, %.split.us ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 168
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %17
@@ -7018,7 +7018,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %99, label %.loopexit41.split.us.us, label %.preheader40.us.backedge
 
 .preheader40.us.backedge:                         ; preds = %94, %76
-  %.be52 = phi ptr [ %80, %76 ], [ %97, %94 ]
+  %.be82 = phi ptr [ %80, %76 ], [ %97, %94 ]
   br label %.preheader40.us, !llvm.loop !105
 
 .split:                                           ; preds = %.split.preheader, %.loopexit41.split
@@ -7105,7 +7105,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br i1 %145, label %.split43.us, label %.split, !llvm.loop !104
 
 .split43.us:                                      ; preds = %.loopexit41.split.us.us, %.loopexit41.split
-  %.fr48 = phi i1 [ false, %.loopexit41.split ], [ true, %.loopexit41.split.us.us ]
+  %.fr78 = phi i1 [ false, %.loopexit41.split ], [ true, %.loopexit41.split.us.us ]
   %146 = getelementptr inbounds nuw i8, ptr %17, i64 616
   call void @_raw_write_lock_bh(ptr noundef nonnull %146) #20
   %147 = getelementptr inbounds nuw i8, ptr %17, i64 936
@@ -7266,7 +7266,7 @@ define internal fastcc void @addrconf_ifdown(ptr noundef %0, i1 noundef zeroext 
   br label %223
 
 223:                                              ; preds = %222, %218, %209
-  br i1 %.fr48, label %224, label %.thread26
+  br i1 %.fr78, label %224, label %.thread26
 
 224:                                              ; preds = %223
   %225 = getelementptr i8, ptr %210, i64 -172
@@ -9776,7 +9776,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
 
 .preheader:                                       ; preds = %16, %.preheader.backedge
   %33 = phi i64 [ %.be, %.preheader.backedge ], [ %18, %16 ]
-  %34 = phi ptr [ %.be31, %.preheader.backedge ], [ %23, %16 ]
+  %34 = phi ptr [ %.be45, %.preheader.backedge ], [ %23, %16 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 128
@@ -10068,12 +10068,12 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
   br label %.sink.split
 
 .sink.split:                                      ; preds = %148, %194
-  %.ph28 = phi i64 [ %200, %194 ], [ %130, %148 ]
+  %.ph42 = phi i64 [ %200, %194 ], [ %130, %148 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %44) #20
   br label %201
 
 201:                                              ; preds = %.sink.split, %39, %168
-  %202 = phi i64 [ %33, %39 ], [ %169, %168 ], [ %.ph28, %.sink.split ]
+  %202 = phi i64 [ %33, %39 ], [ %169, %168 ], [ %.ph42, %.sink.split ]
   %203 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %204 = load volatile ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
@@ -10084,7 +10084,7 @@ define internal fastcc void @addrconf_verify_rtnl(ptr noundef %0) unnamed_addr #
 
 .preheader.backedge:                              ; preds = %201, %.thread19
   %.be = phi i64 [ %202, %201 ], [ %.ph, %.thread19 ]
-  %.be31 = phi ptr [ %206, %201 ], [ %30, %.thread19 ]
+  %.be45 = phi ptr [ %206, %201 ], [ %30, %.thread19 ]
   br label %.preheader, !llvm.loop !133
 
 .loopexit:                                        ; preds = %201, %.thread19, %16
@@ -11418,9 +11418,9 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifaddr(ptr noun
 
 71:                                               ; preds = %66
   %72 = icmp eq i32 %.pre, -1
-  br i1 %72, label %97, label %.thread7
+  br i1 %72, label %97, label %.thread14
 
-.thread7:                                         ; preds = %71
+.thread14:                                        ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %74 = load i32, ptr %73, align 8
   br label %79
@@ -11431,8 +11431,8 @@ define internal fastcc noundef range(i32 -90, 1) i32 @inet6_fill_ifaddr(ptr noun
   %78 = icmp eq i32 %.pre, -1
   br i1 %78, label %97, label %79
 
-79:                                               ; preds = %.thread7, %75
-  %80 = phi i32 [ %74, %.thread7 ], [ %77, %75 ]
+79:                                               ; preds = %.thread14, %75
+  %80 = phi i32 [ %74, %.thread14 ], [ %77, %75 ]
   %81 = load volatile i64, ptr @jiffies, align 64
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %83 = load i64, ptr %82, align 8
@@ -13832,7 +13832,7 @@ define internal fastcc void @addrconf_dad_run(ptr noundef nonnull %0, i1 noundef
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 864
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %.preheader3
+  br i1 %40, label %41, label %.preheader8
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %26, align 8
@@ -13843,12 +13843,12 @@ define internal fastcc void @addrconf_dad_run(ptr noundef nonnull %0, i1 noundef
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 184
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.loopexit, label %.preheader3
+  br i1 %49, label %.loopexit, label %.preheader8
 
-.preheader3:                                      ; preds = %41, %36
+.preheader8:                                      ; preds = %41, %36
   br label %50
 
-50:                                               ; preds = %.preheader3, %50
+50:                                               ; preds = %.preheader8, %50
   call void @get_random_bytes(ptr noundef nonnull %3, i64 noundef 6) #20
   %51 = load i64, ptr %3, align 8
   %52 = icmp eq i64 %51, 0
@@ -16010,9 +16010,9 @@ define internal fastcc range(i32 -90, 2) i32 @in6_dump_addrs(ptr noundef nonnull
   br label %.thread20.sink.split
 
 .thread20.sink.split:                             ; preds = %.thread20.sink.split.sink.split, %127, %100
-  %.sink79 = phi ptr [ %101, %100 ], [ %128, %127 ], [ %.pre58, %.thread20.sink.split.sink.split ]
+  %.sink101 = phi ptr [ %101, %100 ], [ %128, %127 ], [ %.pre58, %.thread20.sink.split.sink.split ]
   %146 = ptrtoint ptr %92 to i64
-  %147 = ptrtoint ptr %.sink79 to i64
+  %147 = ptrtoint ptr %.sink101 to i64
   %148 = sub i64 %146, %147
   %149 = trunc i64 %148 to i32
   call void @skb_trim(ptr noundef %1, i32 noundef %149) #20

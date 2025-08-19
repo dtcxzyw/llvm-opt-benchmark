@@ -260,7 +260,7 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit39: ; preds = %_ZNSt7__cxx111
   %74 = load i64, ptr %20, align 8, !tbaa !3
   %75 = sub i64 4611686018427387903, %74
   %76 = icmp ult i64 %75, %73
-  br i1 %76, label %.invoke129, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i44
+  br i1 %76, label %.invoke151, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i44
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i44: ; preds = %68
   %77 = load ptr, ptr %14, align 8, !tbaa !17
@@ -271,7 +271,7 @@ _ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char
   %79 = load i64, ptr %20, align 8, !tbaa !3
   %80 = add i64 %79, -4611686018427387699
   %81 = icmp ult i64 %80, 205
-  br i1 %81, label %.invoke129, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i48
+  br i1 %81, label %.invoke151, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i48: ; preds = %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47
   %82 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull @.str.3, i64 noundef 205)
@@ -282,7 +282,7 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit51: ; preds = %_ZNSt7__cxx111
   %84 = load i64, ptr %20, align 8, !tbaa !3
   %85 = sub i64 4611686018427387903, %84
   %86 = icmp ult i64 %85, %83
-  br i1 %86, label %.invoke129, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i52
+  br i1 %86, label %.invoke151, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i52
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i52: ; preds = %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit51
   %87 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull %2, i64 noundef %83)
@@ -292,13 +292,13 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit55: ; preds = %_ZNSt7__cxx111
   %88 = load i64, ptr %20, align 8, !tbaa !3
   %89 = add i64 %88, -4611686018427387901
   %90 = icmp ult i64 %89, 3
-  br i1 %90, label %.invoke129, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i56
+  br i1 %90, label %.invoke151, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i56
 
-.invoke129:                                       ; preds = %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit55, %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit51, %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47, %68
+.invoke151:                                       ; preds = %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit55, %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit51, %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit47, %68
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #24
-          to label %.cont130 unwind label %133
+          to label %.cont152 unwind label %133
 
-.cont130:                                         ; preds = %.invoke129
+.cont152:                                         ; preds = %.invoke151
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i56: ; preds = %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit55
@@ -417,7 +417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67
 
-133:                                              ; preds = %.invoke129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i44
+133:                                              ; preds = %.invoke151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i44
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -562,7 +562,7 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit74: ; preds = %_ZNSt7__cxx111
   %182 = load i64, ptr %154, align 8, !tbaa !3
   %183 = sub i64 4611686018427387903, %182
   %184 = icmp ult i64 %183, %181
-  br i1 %184, label %.invoke131, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i79
+  br i1 %184, label %.invoke153, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i79
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i79: ; preds = %176
   %185 = load ptr, ptr %16, align 8, !tbaa !17
@@ -573,13 +573,13 @@ _ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char
   %187 = load i64, ptr %154, align 8, !tbaa !3
   %188 = add i64 %187, -4611686018427387811
   %189 = icmp ult i64 %188, 93
-  br i1 %189, label %.invoke131, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i83
+  br i1 %189, label %.invoke153, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i83
 
-.invoke131:                                       ; preds = %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit82, %176
+.invoke153:                                       ; preds = %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit82, %176
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #24
-          to label %.cont132 unwind label %263
+          to label %.cont154 unwind label %263
 
-.cont132:                                         ; preds = %.invoke131
+.cont154:                                         ; preds = %.invoke153
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i83: ; preds = %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit82
@@ -640,7 +640,7 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit86: ; preds = %_ZNSt7__cxx111
   %208 = load i64, ptr %154, align 8, !tbaa !3
   %209 = sub i64 4611686018427387903, %208
   %210 = icmp ult i64 %209, %207
-  br i1 %210, label %.invoke133, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i91
+  br i1 %210, label %.invoke155, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i91
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i91: ; preds = %202
   %211 = load ptr, ptr %17, align 8, !tbaa !17
@@ -651,7 +651,7 @@ _ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char
   %213 = load i64, ptr %154, align 8, !tbaa !3
   %214 = add i64 %213, -4611686018427387684
   %215 = icmp ult i64 %214, 220
-  br i1 %215, label %.invoke133, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i95
+  br i1 %215, label %.invoke155, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i95
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i95: ; preds = %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit94
   %216 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull @.str.7, i64 noundef 220)
@@ -662,7 +662,7 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit98: ; preds = %_ZNSt7__cxx111
   %218 = load i64, ptr %154, align 8, !tbaa !3
   %219 = sub i64 4611686018427387903, %218
   %220 = icmp ult i64 %219, %217
-  br i1 %220, label %.invoke133, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i99
+  br i1 %220, label %.invoke155, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i99
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i99: ; preds = %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit98
   %221 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %159, ptr noundef nonnull %2, i64 noundef %217)
@@ -672,13 +672,13 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit102: ; preds = %_ZNSt7__cxx11
   %222 = load i64, ptr %154, align 8, !tbaa !3
   %223 = add i64 %222, -4611686018427387901
   %224 = icmp ult i64 %223, 3
-  br i1 %224, label %.invoke133, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i103
+  br i1 %224, label %.invoke155, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i103
 
-.invoke133:                                       ; preds = %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit102, %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit98, %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit94, %202
+.invoke155:                                       ; preds = %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit102, %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit98, %_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit94, %202
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.26) #24
-          to label %.cont134 unwind label %267
+          to label %.cont156 unwind label %267
 
-.cont134:                                         ; preds = %.invoke133
+.cont156:                                         ; preds = %.invoke155
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i103: ; preds = %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit102
@@ -787,7 +787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %_Z
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127
 
-263:                                              ; preds = %.invoke131, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i79
+263:                                              ; preds = %.invoke153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i83, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i79
   %264 = landingpad { ptr, i32 }
           cleanup
   br label %277
@@ -797,7 +797,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %_Z
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124
 
-267:                                              ; preds = %.invoke133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i91
+267:                                              ; preds = %.invoke155, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i91
   %268 = landingpad { ptr, i32 }
           cleanup
   br label %.body113

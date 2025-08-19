@@ -3464,9 +3464,9 @@ _ZN13CompileReplay9had_errorEv.exit.i64:          ; preds = %143
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8
   %.not2.i65 = icmp eq ptr %147, null
-  br i1 %.not2.i65, label %148, label %_ZN13CompileReplay9parse_intEPKc.exit67.thread106
+  br i1 %.not2.i65, label %148, label %_ZN13CompileReplay9parse_intEPKc.exit67.thread110
 
-_ZN13CompileReplay9parse_intEPKc.exit67.thread106: ; preds = %_ZN13CompileReplay9had_errorEv.exit.i64
+_ZN13CompileReplay9parse_intEPKc.exit67.thread110: ; preds = %_ZN13CompileReplay9had_errorEv.exit.i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3478,9 +3478,9 @@ _ZN13CompileReplay9parse_intEPKc.exit67.thread106: ; preds = %_ZN13CompileReplay
   %149 = load ptr, ptr %141, align 8
   %150 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %149, ptr noundef nonnull @.str.34, ptr noundef nonnull %7, ptr noundef nonnull %8) #17
   %.not.i66 = icmp eq i32 %150, 1
-  br i1 %.not.i66, label %_ZN13CompileReplay9parse_intEPKc.exit67, label %_ZN13CompileReplay9parse_intEPKc.exit67.thread110
+  br i1 %.not.i66, label %_ZN13CompileReplay9parse_intEPKc.exit67, label %_ZN13CompileReplay9parse_intEPKc.exit67.thread114
 
-_ZN13CompileReplay9parse_intEPKc.exit67.thread110: ; preds = %148
+_ZN13CompileReplay9parse_intEPKc.exit67.thread114: ; preds = %148
   store ptr @.str.38, ptr %20, align 8
   br label %_ZN13CompileReplay9parse_intEPKc.exit73.thread.sink.split
 
@@ -3499,15 +3499,15 @@ _ZN13CompileReplay9parse_intEPKc.exit67:          ; preds = %148
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %155, label %_ZN13CompileReplay9had_errorEv.exit.i70, label %_ZN13CompileReplay9parse_intEPKc.exit73.thread
 
-_ZN13CompileReplay9had_errorEv.exit.i70:          ; preds = %_ZN13CompileReplay9parse_intEPKc.exit67.thread106, %_ZN13CompileReplay9parse_intEPKc.exit67
-  %.0.i63.ph109 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit67.thread106 ], [ %156, %_ZN13CompileReplay9parse_intEPKc.exit67 ]
+_ZN13CompileReplay9had_errorEv.exit.i70:          ; preds = %_ZN13CompileReplay9parse_intEPKc.exit67.thread110, %_ZN13CompileReplay9parse_intEPKc.exit67
+  %.0.i63.ph113 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit67.thread110 ], [ %156, %_ZN13CompileReplay9parse_intEPKc.exit67 ]
   %157 = load ptr, ptr %22, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8
   %.not2.i71 = icmp eq ptr %159, null
-  br i1 %.not2.i71, label %160, label %_ZN13CompileReplay9parse_intEPKc.exit73.thread115
+  br i1 %.not2.i71, label %160, label %_ZN13CompileReplay9parse_intEPKc.exit73.thread119
 
-_ZN13CompileReplay9parse_intEPKc.exit73.thread115: ; preds = %_ZN13CompileReplay9had_errorEv.exit.i70
+_ZN13CompileReplay9parse_intEPKc.exit73.thread119: ; preds = %_ZN13CompileReplay9had_errorEv.exit.i70
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN13CompileReplay9had_errorEv.exit75
@@ -3517,15 +3517,15 @@ _ZN13CompileReplay9parse_intEPKc.exit73.thread115: ; preds = %_ZN13CompileReplay
   %161 = load ptr, ptr %141, align 8
   %162 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %161, ptr noundef nonnull @.str.34, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   %.not.i72 = icmp eq i32 %162, 1
-  br i1 %.not.i72, label %_ZN13CompileReplay9parse_intEPKc.exit73, label %_ZN13CompileReplay9parse_intEPKc.exit73.thread121
+  br i1 %.not.i72, label %_ZN13CompileReplay9parse_intEPKc.exit73, label %_ZN13CompileReplay9parse_intEPKc.exit73.thread125
 
-_ZN13CompileReplay9parse_intEPKc.exit73.thread121: ; preds = %160
+_ZN13CompileReplay9parse_intEPKc.exit73.thread125: ; preds = %160
   store ptr @.str.39, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN13CompileReplay9had_errorEv.exit75.thread
 
-_ZN13CompileReplay9parse_intEPKc.exit73.thread.sink.split: ; preds = %143, %_ZN13CompileReplay9parse_intEPKc.exit67.thread110
+_ZN13CompileReplay9parse_intEPKc.exit73.thread.sink.split: ; preds = %143, %_ZN13CompileReplay9parse_intEPKc.exit67.thread114
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3550,8 +3550,8 @@ _ZN13CompileReplay9parse_intEPKc.exit73:          ; preds = %160
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %167, label %_ZN13CompileReplay9had_errorEv.exit75, label %_ZN13CompileReplay9had_errorEv.exit75.thread
 
-_ZN13CompileReplay9had_errorEv.exit75:            ; preds = %_ZN13CompileReplay9parse_intEPKc.exit73.thread115, %_ZN13CompileReplay9parse_intEPKc.exit73
-  %.0.i69120 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit73.thread115 ], [ %168, %_ZN13CompileReplay9parse_intEPKc.exit73 ]
+_ZN13CompileReplay9had_errorEv.exit75:            ; preds = %_ZN13CompileReplay9parse_intEPKc.exit73.thread119, %_ZN13CompileReplay9parse_intEPKc.exit73
+  %.0.i69124 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit73.thread119 ], [ %168, %_ZN13CompileReplay9parse_intEPKc.exit73 ]
   %169 = load ptr, ptr %22, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
@@ -3618,13 +3618,13 @@ _ZN13CompileReplay9had_errorEv.exit85:            ; preds = %190
   br i1 %.not94, label %195, label %_ZN13CompileReplay9had_errorEv.exit75.thread
 
 195:                                              ; preds = %_ZN13CompileReplay9had_errorEv.exit85
-  %196 = call noundef ptr @_ZN13CompileReplay18new_ciInlineRecordEP6Methodiii(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %188, i32 noundef %.0.i69120, i32 noundef %.0.i63.ph109, i32 noundef %.042)
+  %196 = call noundef ptr @_ZN13CompileReplay18new_ciInlineRecordEP6Methodiii(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %188, i32 noundef %.0.i69124, i32 noundef %.0.i63.ph113, i32 noundef %.042)
   %197 = add nuw nsw i32 %.096, 1
   %198 = load i32, ptr %13, align 4
   %199 = icmp slt i32 %197, %198
   br i1 %199, label %143, label %_ZN13CompileReplay9had_errorEv.exit75.thread, !llvm.loop !22
 
-_ZN13CompileReplay9had_errorEv.exit75.thread:     ; preds = %_ZN13CompileReplay9had_errorEv.exit85, %_ZN13CompileReplay9had_errorEv.exit83, %_ZN13CompileReplay9had_errorEv.exit75, %195, %_ZN13CompileReplay9parse_intEPKc.exit73, %_ZN13CompileReplay9parse_intEPKc.exit81, %190, %_ZN13CompileReplay9parse_intEPKc.exit73.thread, %_ZN13CompileReplay9parse_intEPKc.exit73.thread121, %_ZN13CompileReplay9parse_intEPKc.exit81.thread, %132, %130
+_ZN13CompileReplay9had_errorEv.exit75.thread:     ; preds = %_ZN13CompileReplay9had_errorEv.exit85, %_ZN13CompileReplay9had_errorEv.exit83, %_ZN13CompileReplay9had_errorEv.exit75, %195, %_ZN13CompileReplay9parse_intEPKc.exit73, %_ZN13CompileReplay9parse_intEPKc.exit81, %190, %_ZN13CompileReplay9parse_intEPKc.exit73.thread, %_ZN13CompileReplay9parse_intEPKc.exit73.thread125, %_ZN13CompileReplay9parse_intEPKc.exit81.thread, %132, %130
   %200 = load ptr, ptr %55, align 8
   %.not51 = icmp eq ptr %200, null
   br i1 %.not51, label %201, label %_ZN13CompileReplay9had_errorEv.exit.thread
@@ -4910,7 +4910,7 @@ sub_0213:                                         ; preds = %_ZNK5Klass11java_mi
   %235 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %236 = load i8, ptr %235, align 1
   %237 = icmp eq i8 %236, 0
-  br i1 %237, label %238, label %.thread339
+  br i1 %237, label %238, label %.thread349
 
 238:                                              ; preds = %.tail240
   %239 = call double @atof(ptr noundef %159) #19
@@ -4928,12 +4928,12 @@ sub_0213:                                         ; preds = %_ZNK5Klass11java_mi
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %248, label %258
 
-.thread339:                                       ; preds = %.tail240
+.thread349:                                       ; preds = %.tail240
   %246 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i, ptr noundef nonnull dereferenceable(19) @.str.108) #19
   %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %.thread340
+  br i1 %247, label %248, label %.thread350
 
-248:                                              ; preds = %.thread339, %.tail240.thread
+248:                                              ; preds = %.thread349, %.tail240.thread
   %249 = call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef %159, ptr noundef nonnull %1) #17
   %250 = load ptr, ptr %6, align 8
   %.not165 = icmp eq ptr %250, null
@@ -4958,7 +4958,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %251, %253
 
 258:                                              ; preds = %.tail240.thread
   %259 = icmp eq i8 %160, 76
-  br i1 %259, label %260, label %.thread340
+  br i1 %259, label %260, label %.thread350
 
 260:                                              ; preds = %258
   %.not = icmp eq ptr %159, null
@@ -4985,11 +4985,11 @@ _ZNK6HandleclEv.exit:                             ; preds = %251, %253
   call void %269(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef %268, ptr noundef %.0) #17
   br label %270
 
-.thread340:                                       ; preds = %.thread339, %258
+.thread350:                                       ; preds = %.thread349, %258
   store ptr @.str.109, ptr %30, align 8
   br label %270
 
-270:                                              ; preds = %156, %173, %193, %219, %238, %267, %.thread340, %_ZNK6HandleclEv.exit, %228, %203, %183, %164, %264, %261, %248, %151, %148, %145, %139, %133, %127, %121, %115, %109, %103, %._crit_edge, %80, %216, %63
+270:                                              ; preds = %156, %173, %193, %219, %238, %267, %.thread350, %_ZNK6HandleclEv.exit, %228, %203, %183, %164, %264, %261, %248, %151, %148, %145, %139, %133, %127, %121, %115, %109, %103, %._crit_edge, %80, %216, %63
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #17
   br label %271
 
@@ -5041,9 +5041,9 @@ _ZN13CompileReplay9had_errorEv.exit.i:            ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not2.i = icmp eq ptr %29, null
-  br i1 %.not2.i, label %30, label %_ZN13CompileReplay9parse_intEPKc.exit.thread108
+  br i1 %.not2.i, label %30, label %_ZN13CompileReplay9parse_intEPKc.exit.thread114
 
-_ZN13CompileReplay9parse_intEPKc.exit.thread108:  ; preds = %_ZN13CompileReplay9had_errorEv.exit.i
+_ZN13CompileReplay9parse_intEPKc.exit.thread114:  ; preds = %_ZN13CompileReplay9had_errorEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5056,9 +5056,9 @@ _ZN13CompileReplay9parse_intEPKc.exit.thread108:  ; preds = %_ZN13CompileReplay9
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %32, ptr noundef nonnull @.str.34, ptr noundef nonnull %11, ptr noundef nonnull %12) #17
   %.not.i = icmp eq i32 %33, 1
-  br i1 %.not.i, label %_ZN13CompileReplay9parse_intEPKc.exit, label %_ZN13CompileReplay9parse_intEPKc.exit.thread112
+  br i1 %.not.i, label %_ZN13CompileReplay9parse_intEPKc.exit, label %_ZN13CompileReplay9parse_intEPKc.exit.thread118
 
-_ZN13CompileReplay9parse_intEPKc.exit.thread112:  ; preds = %30
+_ZN13CompileReplay9parse_intEPKc.exit.thread118:  ; preds = %30
   store ptr @.str.110, ptr %24, align 8
   %34 = load i32, ptr %11, align 4
   br label %_ZN13CompileReplay9parse_intEPKc.exit66.thread.sink.split
@@ -5078,15 +5078,15 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br i1 %39, label %_ZN13CompileReplay9had_errorEv.exit.i57, label %_ZN13CompileReplay9parse_intEPKc.exit66.thread
 
-_ZN13CompileReplay9had_errorEv.exit.i57:          ; preds = %_ZN13CompileReplay9parse_intEPKc.exit.thread108, %_ZN13CompileReplay9parse_intEPKc.exit
-  %.0.i.ph111 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit.thread108 ], [ %40, %_ZN13CompileReplay9parse_intEPKc.exit ]
+_ZN13CompileReplay9had_errorEv.exit.i57:          ; preds = %_ZN13CompileReplay9parse_intEPKc.exit.thread114, %_ZN13CompileReplay9parse_intEPKc.exit
+  %.0.i.ph117 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit.thread114 ], [ %40, %_ZN13CompileReplay9parse_intEPKc.exit ]
   %41 = load ptr, ptr %26, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not2.i58 = icmp eq ptr %43, null
-  br i1 %.not2.i58, label %44, label %_ZN13CompileReplay9parse_intEPKc.exit60.thread119
+  br i1 %.not2.i58, label %44, label %_ZN13CompileReplay9parse_intEPKc.exit60.thread125
 
-_ZN13CompileReplay9parse_intEPKc.exit60.thread119: ; preds = %_ZN13CompileReplay9had_errorEv.exit.i57
+_ZN13CompileReplay9parse_intEPKc.exit60.thread125: ; preds = %_ZN13CompileReplay9had_errorEv.exit.i57
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5099,9 +5099,9 @@ _ZN13CompileReplay9parse_intEPKc.exit60.thread119: ; preds = %_ZN13CompileReplay
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %46, ptr noundef nonnull @.str.34, ptr noundef nonnull %9, ptr noundef nonnull %10) #17
   %.not.i59 = icmp eq i32 %47, 1
-  br i1 %.not.i59, label %_ZN13CompileReplay9parse_intEPKc.exit60, label %_ZN13CompileReplay9parse_intEPKc.exit60.thread125
+  br i1 %.not.i59, label %_ZN13CompileReplay9parse_intEPKc.exit60, label %_ZN13CompileReplay9parse_intEPKc.exit60.thread131
 
-_ZN13CompileReplay9parse_intEPKc.exit60.thread125: ; preds = %44
+_ZN13CompileReplay9parse_intEPKc.exit60.thread131: ; preds = %44
   store ptr @.str.111, ptr %24, align 8
   %48 = load i32, ptr %9, align 4
   %49 = icmp eq i32 %48, 0
@@ -5109,8 +5109,8 @@ _ZN13CompileReplay9parse_intEPKc.exit60.thread125: ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %49, label %84, label %73
 
-_ZN13CompileReplay9parse_intEPKc.exit66.thread.sink.split: ; preds = %23, %_ZN13CompileReplay9parse_intEPKc.exit.thread112
-  %.0.i82.ph.ph = phi i32 [ %34, %_ZN13CompileReplay9parse_intEPKc.exit.thread112 ], [ 0, %23 ]
+_ZN13CompileReplay9parse_intEPKc.exit66.thread.sink.split: ; preds = %23, %_ZN13CompileReplay9parse_intEPKc.exit.thread118
+  %.0.i82.ph.ph = phi i32 [ %34, %_ZN13CompileReplay9parse_intEPKc.exit.thread118 ], [ 0, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5139,8 +5139,8 @@ _ZN13CompileReplay9parse_intEPKc.exit60:          ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %54, label %_ZN13CompileReplay9had_errorEv.exit.i63, label %_ZN13CompileReplay9parse_intEPKc.exit66
 
-_ZN13CompileReplay9had_errorEv.exit.i63:          ; preds = %_ZN13CompileReplay9parse_intEPKc.exit60.thread119, %_ZN13CompileReplay9parse_intEPKc.exit60
-  %.0.i56124 = phi i1 [ true, %_ZN13CompileReplay9parse_intEPKc.exit60.thread119 ], [ %56, %_ZN13CompileReplay9parse_intEPKc.exit60 ]
+_ZN13CompileReplay9had_errorEv.exit.i63:          ; preds = %_ZN13CompileReplay9parse_intEPKc.exit60.thread125, %_ZN13CompileReplay9parse_intEPKc.exit60
+  %.0.i56130 = phi i1 [ true, %_ZN13CompileReplay9parse_intEPKc.exit60.thread125 ], [ %56, %_ZN13CompileReplay9parse_intEPKc.exit60 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -5172,16 +5172,16 @@ _ZN13CompileReplay9had_errorEv.exit.i63:          ; preds = %_ZN13CompileReplay9
   %72 = load i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0.i56124, label %84, label %73
+  br i1 %.0.i56130, label %84, label %73
 
 _ZN13CompileReplay9parse_intEPKc.exit66:          ; preds = %_ZN13CompileReplay9parse_intEPKc.exit60, %_ZN13CompileReplay9had_errorEv.exit.i63
-  %.0.i56118 = phi i1 [ %.0.i56124, %_ZN13CompileReplay9had_errorEv.exit.i63 ], [ %56, %_ZN13CompileReplay9parse_intEPKc.exit60 ]
+  %.0.i56124 = phi i1 [ %.0.i56130, %_ZN13CompileReplay9had_errorEv.exit.i63 ], [ %56, %_ZN13CompileReplay9parse_intEPKc.exit60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.0.i56118, label %84, label %73
+  br i1 %.0.i56124, label %84, label %73
 
-73:                                               ; preds = %_ZN13CompileReplay9parse_intEPKc.exit60.thread125, %71, %_ZN13CompileReplay9parse_intEPKc.exit66
-  %.0.i62133 = phi i32 [ %72, %71 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit66 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit60.thread125 ]
+73:                                               ; preds = %_ZN13CompileReplay9parse_intEPKc.exit60.thread131, %71, %_ZN13CompileReplay9parse_intEPKc.exit66
+  %.0.i62139 = phi i32 [ %72, %71 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit66 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit60.thread131 ]
   %74 = load ptr, ptr %13, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 176
   %76 = load ptr, ptr %75, align 8
@@ -5204,10 +5204,10 @@ _ZN13CompileReplay9parse_intEPKc.exit66:          ; preds = %_ZN13CompileReplay9
   call void @_ZN13InstanceKlass14set_init_stateENS_10ClassStateE(ptr noundef nonnull align 8 dereferenceable(464) %13, i8 noundef zeroext 4) #17
   br label %87
 
-84:                                               ; preds = %_ZN13CompileReplay9parse_intEPKc.exit60.thread125, %71, %_ZN13CompileReplay9parse_intEPKc.exit66.thread, %_ZN13CompileReplay9parse_intEPKc.exit66
-  %.0.i62132 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit66.thread ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit66 ], [ %72, %71 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit60.thread125 ]
-  %.0.i82117130 = phi i32 [ %.0.i82.ph, %_ZN13CompileReplay9parse_intEPKc.exit66.thread ], [ %.0.i.ph111, %_ZN13CompileReplay9parse_intEPKc.exit66 ], [ %.0.i.ph111, %71 ], [ %.0.i.ph111, %_ZN13CompileReplay9parse_intEPKc.exit60.thread125 ]
-  %.not51 = icmp eq i32 %.0.i82117130, 0
+84:                                               ; preds = %_ZN13CompileReplay9parse_intEPKc.exit60.thread131, %71, %_ZN13CompileReplay9parse_intEPKc.exit66.thread, %_ZN13CompileReplay9parse_intEPKc.exit66
+  %.0.i62138 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit66.thread ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit66 ], [ %72, %71 ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit60.thread131 ]
+  %.0.i82123136 = phi i32 [ %.0.i82.ph, %_ZN13CompileReplay9parse_intEPKc.exit66.thread ], [ %.0.i.ph117, %_ZN13CompileReplay9parse_intEPKc.exit66 ], [ %.0.i.ph117, %71 ], [ %.0.i.ph117, %_ZN13CompileReplay9parse_intEPKc.exit60.thread131 ]
+  %.not51 = icmp eq i32 %.0.i82123136, 0
   br i1 %.not51, label %87, label %85
 
 85:                                               ; preds = %84
@@ -5217,17 +5217,17 @@ _ZN13CompileReplay9parse_intEPKc.exit66:          ; preds = %_ZN13CompileReplay9
   br i1 %.not89, label %87, label %_ZN13CompileReplay9had_errorEv.exit.thread
 
 87:                                               ; preds = %84, %85, %73, %83
-  %.0.i62131 = phi i32 [ %.0.i62132, %84 ], [ %.0.i62132, %85 ], [ %.0.i62133, %73 ], [ %.0.i62133, %83 ]
+  %.0.i62137 = phi i32 [ %.0.i62138, %84 ], [ %.0.i62138, %85 ], [ %.0.i62139, %73 ], [ %.0.i62139, %83 ]
   call void @_ZN13CompileReplay19new_ciInstanceKlassEPK13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %13)
   %88 = getelementptr inbounds nuw i8, ptr %13, i64 224
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 60
   %91 = load i32, ptr %90, align 4
-  %.not52 = icmp eq i32 %.0.i62131, %91
+  %.not52 = icmp eq i32 %.0.i62137, %91
   br i1 %.not52, label %.preheader, label %99
 
 .preheader:                                       ; preds = %87
-  %92 = icmp sgt i32 %.0.i62131, 1
+  %92 = icmp sgt i32 %.0.i62137, 1
   br i1 %92, label %.lr.ph, label %_ZN13CompileReplay9had_errorEv.exit.thread
 
 .lr.ph:                                           ; preds = %.preheader
@@ -5237,7 +5237,7 @@ _ZN13CompileReplay9parse_intEPKc.exit66:          ; preds = %_ZN13CompileReplay9
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %wide.trip.count = zext nneg i32 %.0.i62131 to i64
+  %wide.trip.count = zext nneg i32 %.0.i62137 to i64
   br label %100
 
 99:                                               ; preds = %87
@@ -5263,9 +5263,9 @@ _ZN13CompileReplay9had_errorEv.exit.i69:          ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   %.not2.i70 = icmp eq ptr %104, null
-  br i1 %.not2.i70, label %105, label %_ZN13CompileReplay9parse_intEPKc.exit72.thread134
+  br i1 %.not2.i70, label %105, label %_ZN13CompileReplay9parse_intEPKc.exit72.thread140
 
-_ZN13CompileReplay9parse_intEPKc.exit72.thread134: ; preds = %_ZN13CompileReplay9had_errorEv.exit.i69
+_ZN13CompileReplay9parse_intEPKc.exit72.thread140: ; preds = %_ZN13CompileReplay9had_errorEv.exit.i69
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN13CompileReplay9had_errorEv.exit
@@ -5275,9 +5275,9 @@ _ZN13CompileReplay9parse_intEPKc.exit72.thread134: ; preds = %_ZN13CompileReplay
   %106 = load ptr, ptr %94, align 8
   %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %106, ptr noundef nonnull @.str.34, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   %.not.i71 = icmp eq i32 %107, 1
-  br i1 %.not.i71, label %_ZN13CompileReplay9parse_intEPKc.exit72, label %_ZN13CompileReplay9parse_intEPKc.exit72.thread138
+  br i1 %.not.i71, label %_ZN13CompileReplay9parse_intEPKc.exit72, label %_ZN13CompileReplay9parse_intEPKc.exit72.thread144
 
-_ZN13CompileReplay9parse_intEPKc.exit72.thread138: ; preds = %105
+_ZN13CompileReplay9parse_intEPKc.exit72.thread144: ; preds = %105
   store ptr @.str.114, ptr %24, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5296,8 +5296,8 @@ _ZN13CompileReplay9parse_intEPKc.exit72:          ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %112, label %_ZN13CompileReplay9had_errorEv.exit, label %_ZN13CompileReplay9had_errorEv.exit.thread
 
-_ZN13CompileReplay9had_errorEv.exit:              ; preds = %_ZN13CompileReplay9parse_intEPKc.exit72.thread134, %_ZN13CompileReplay9parse_intEPKc.exit72
-  %.0.i68.ph137 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit72.thread134 ], [ %113, %_ZN13CompileReplay9parse_intEPKc.exit72 ]
+_ZN13CompileReplay9had_errorEv.exit:              ; preds = %_ZN13CompileReplay9parse_intEPKc.exit72.thread140, %_ZN13CompileReplay9parse_intEPKc.exit72
+  %.0.i68.ph143 = phi i32 [ 0, %_ZN13CompileReplay9parse_intEPKc.exit72.thread140 ], [ %113, %_ZN13CompileReplay9parse_intEPKc.exit72 ]
   %114 = load ptr, ptr %93, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
@@ -5334,7 +5334,7 @@ _ZN13CompileReplay9had_errorEv.exit:              ; preds = %_ZN13CompileReplay9
   ]
 
 122:                                              ; preds = %117
-  %123 = icmp eq i32 %.0.i68.ph137, 7
+  %123 = icmp eq i32 %.0.i68.ph143, 7
   br i1 %123, label %124, label %200
 
 124:                                              ; preds = %122
@@ -5396,7 +5396,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %124, %134
   %157 = load volatile i8, ptr %156, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !7
   %158 = sext i8 %157 to i32
-  %.not54 = icmp eq i32 %.0.i68.ph137, %158
+  %.not54 = icmp eq i32 %.0.i68.ph143, %158
   br i1 %.not54, label %200, label %159
 
 159:                                              ; preds = %153
@@ -5404,7 +5404,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %124, %134
   br label %_ZN13CompileReplay9had_errorEv.exit.thread
 
 160:                                              ; preds = %117
-  switch i32 %.0.i68.ph137, label %189 [
+  switch i32 %.0.i68.ph143, label %189 [
     i32 100, label %161
     i32 7, label %200
   ]
@@ -5486,7 +5486,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit77: ; preds = %161, %167
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN13CompileReplay9had_errorEv.exit.thread, label %100, !llvm.loop !27
 
-_ZN13CompileReplay9had_errorEv.exit.thread:       ; preds = %200, %_ZN13CompileReplay9had_errorEv.exit, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit77, %_ZN13CompileReplay9parse_intEPKc.exit72, %_ZN13CompileReplay9parse_intEPKc.exit72.thread138, %.preheader, %_ZN13CompileReplay9parse_intEPKc.exit72.thread, %85, %78, %2, %189, %159, %99, %18
+_ZN13CompileReplay9had_errorEv.exit.thread:       ; preds = %200, %_ZN13CompileReplay9had_errorEv.exit, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit77, %_ZN13CompileReplay9parse_intEPKc.exit72, %_ZN13CompileReplay9parse_intEPKc.exit72.thread144, %.preheader, %_ZN13CompileReplay9parse_intEPKc.exit72.thread, %85, %78, %2, %189, %159, %99, %18
   ret void
 }
 
@@ -5631,10 +5631,10 @@ sub_0:                                            ; preds = %.lr.ph.i.i, %_ZN13C
 
 sub_0..tail_crit_edge:                            ; preds = %sub_0
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 164
-  %.sroa.0.0.copyload.i.i34 = load i32, ptr %63, align 4
-  %64 = and i32 %.sroa.0.0.copyload.i.i34, 67108864
-  %.not39 = icmp eq i32 %64, 0
-  br i1 %.not39, label %.thread, label %72
+  %.sroa.0.0.copyload.i.i37 = load i32, ptr %63, align 4
+  %64 = and i32 %.sroa.0.0.copyload.i.i37, 67108864
+  %.not42 = icmp eq i32 %64, 0
+  br i1 %.not42, label %.thread, label %72
 
 .tail:                                            ; preds = %sub_0
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 1
@@ -8252,9 +8252,9 @@ define linkonce_odr hidden void @_ZN13CompileReplay15unescape_stringEPc(ptr noun
 
 34:                                               ; preds = %18, %22, %27
   %.sink = phi i32 [ %21, %18 ], [ %26, %22 ], [ %31, %27 ]
-  %.sink49 = phi i16 [ -48, %18 ], [ -97, %22 ], [ -65, %27 ]
+  %.sink50 = phi i16 [ -48, %18 ], [ -97, %22 ], [ -65, %27 ]
   %35 = trunc i32 %.sink to i16
-  %36 = add i16 %.sink49, %35
+  %36 = add i16 %.sink50, %35
   store i16 %36, ptr %2, align 2
   %37 = add nuw nsw i32 %.02636, 1
   %exitcond.not = icmp eq i32 %37, 4
@@ -8746,11 +8746,11 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %33, %34, %.lr.ph.sp
   br i1 %42, label %.lr.ph42, label %._crit_edge
 
 .lr.ph42:                                         ; preds = %_ZN13CompileReplay9parse_intEPKc.exit, %.lr.ph, %10, %17, %.loopexit
-  %.02552 = phi i32 [ %smax, %.loopexit ], [ 0, %17 ], [ 0, %10 ], [ 0, %.lr.ph ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit ]
+  %.02555 = phi i32 [ %smax, %.loopexit ], [ 0, %17 ], [ 0, %10 ], [ 0, %.lr.ph ], [ 0, %_ZN13CompileReplay9parse_intEPKc.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %46 = zext nneg i32 %.02552 to i64
+  %46 = zext nneg i32 %.02555 to i64
   br label %47
 
 47:                                               ; preds = %.lr.ph42, %_ZN13CompileReplay9parse_intEPKc.exit36
@@ -10667,14 +10667,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #17, !srcloc !35
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #17, !srcloc !35
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -10808,14 +10808,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #17, !srcloc !35
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #17, !srcloc !35
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 

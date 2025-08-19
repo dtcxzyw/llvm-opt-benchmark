@@ -609,8 +609,8 @@ mbedtls_nist_kw_setkey.exit89.thread:             ; preds = %41, %38, %35, %mbed
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = add i64 %28, -24
-  %or.cond139 = icmp ult i64 %47, 33
-  br i1 %or.cond139, label %48, label %mbedtls_nist_kw_unwrap.exit.thread
+  %or.cond154 = icmp ult i64 %47, 33
+  br i1 %or.cond154, label %48, label %mbedtls_nist_kw_unwrap.exit.thread
 
 48:                                               ; preds = %46
   %49 = lshr exact i64 %28, 3

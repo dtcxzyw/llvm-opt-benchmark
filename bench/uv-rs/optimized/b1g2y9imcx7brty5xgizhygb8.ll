@@ -3854,14 +3854,14 @@ _ZN10std_detect6detect5cache4test17h366885be2bf46305E.exit.i.i.i: ; preds = %_ZN
 69:                                               ; preds = %_ZN10std_detect6detect5cache4test17h366885be2bf46305E.exit.i.i.i, %.noexc12.i.i
   %70 = zext i8 %24 to i64
   %71 = icmp ult i8 %24, 12
-  br i1 %71, label %72, label %.invoke30.i.i
+  br i1 %71, label %72, label %.invoke36.i.i
 
 72:                                               ; preds = %69
   %73 = zext i8 %23 to i64
   %74 = icmp ult i8 %23, 12
-  br i1 %74, label %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h101d612a18ccb2fbE.exit.i.i.i, label %.invoke30.i.i
+  br i1 %74, label %_ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h101d612a18ccb2fbE.exit.i.i.i, label %.invoke36.i.i
 
-.invoke30.i.i:                                    ; preds = %72, %69
+.invoke36.i.i:                                    ; preds = %72, %69
   %75 = phi i64 [ %70, %69 ], [ %73, %72 ]
   %76 = phi ptr [ @anon.a85d07673c5f5f168557a1ba331298a1.100, %69 ], [ @anon.a85d07673c5f5f168557a1ba331298a1.101, %72 ]
   call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %75, i64 noundef range(i64 2, 0) 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %76) #31, !noalias !427
@@ -10424,8 +10424,8 @@ _ZN3std4sync6poison4once4Once9call_once17h7af23f1b83079907E.exit: ; preds = %3, 
   %89 = extractvalue { ptr, i64 } %86, 1
   %90 = icmp eq ptr %88, null
   %.not.i.i = icmp eq i64 %89, 0
-  %or.cond155 = select i1 %90, i1 true, i1 %.not.i.i
-  br i1 %or.cond155, label %.thread146, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0768c783e434544eE.exit.i"
+  %or.cond164 = select i1 %90, i1 true, i1 %.not.i.i
+  br i1 %or.cond164, label %.thread146, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0768c783e434544eE.exit.i"
 
 .thread146:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0768c783e434544eE.exit.i", %81, %109, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -10466,15 +10466,15 @@ _ZN3std4sync6poison4once4Once9call_once17h7af23f1b83079907E.exit: ; preds = %3, 
           to label %.backedge unwind label %.loopexit
 
 .backedge:                                        ; preds = %101, %105, %112, %116
-  %.sink161 = phi i64 [ %113, %116 ], [ %113, %112 ], [ %102, %105 ], [ %102, %101 ]
-  %.sink158 = phi ptr [ %111, %116 ], [ %111, %112 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %101 ]
+  %.sink170 = phi i64 [ %113, %116 ], [ %113, %112 ], [ %102, %105 ], [ %102, %101 ]
+  %.sink167 = phi ptr [ %111, %116 ], [ %111, %112 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %101 ]
   %.sink = phi i64 [ %110, %116 ], [ %110, %112 ], [ 0, %105 ], [ 0, %101 ]
   %106 = load ptr, ptr %75, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %107 = getelementptr inbounds { ptr, i64 }, ptr %106, i64 %.sink161
-  store ptr %.sink158, ptr %107, align 8, !noalias !3
+  %107 = getelementptr inbounds { ptr, i64 }, ptr %106, i64 %.sink170
+  store ptr %.sink167, ptr %107, align 8, !noalias !3
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i64 %.sink, ptr %108, align 8
-  %storemerge = add i64 %.sink161, 1
+  %storemerge = add i64 %.sink170, 1
   store i64 %storemerge, ptr %76, align 8, !noalias !3
   br label %78
 

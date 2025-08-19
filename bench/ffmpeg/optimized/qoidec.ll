@@ -88,17 +88,17 @@ bytestream2_get_byte.exit71.thread:               ; preds = %26, %bytestream2_ge
   %43 = load ptr, ptr %1, align 8, !tbaa !33
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %45 = zext i8 %21 to i64
-  %.sroa.093.1..sroa_idx140 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
-  %.sroa.093.1..sroa_idx141 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
-  %.sroa.093.2..sroa_idx145 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
-  %.sroa.093.2..sroa_idx146 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
-  %.sroa.093.1..sroa_idx142 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
-  %.sroa.093.1..sroa_idx143 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
-  %.sroa.093.2..sroa_idx147 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
-  %.sroa.093.2..sroa_idx148 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
-  %.sroa.093.1..sroa_idx144 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
-  %.sroa.093.2..sroa_idx149 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
-  %.sroa.093.3..sroa_idx150 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 3
+  %.sroa.093.1..sroa_idx145 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
+  %.sroa.093.1..sroa_idx146 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
+  %.sroa.093.2..sroa_idx150 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
+  %.sroa.093.2..sroa_idx151 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
+  %.sroa.093.1..sroa_idx147 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
+  %.sroa.093.1..sroa_idx148 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
+  %.sroa.093.2..sroa_idx152 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
+  %.sroa.093.2..sroa_idx153 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
+  %.sroa.093.1..sroa_idx149 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 1
+  %.sroa.093.2..sroa_idx154 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 2
+  %.sroa.093.3..sroa_idx155 = getelementptr inbounds nuw i8, ptr %.sroa.093, i64 3
   br label %46
 
 46:                                               ; preds = %.lr.ph, %119
@@ -176,17 +176,17 @@ bytestream2_get_byte.exit71.thread:               ; preds = %26, %bytestream2_ge
   %77 = add nsw i8 %76, -2
   %78 = add i8 %77, %.sroa.093.0..sroa.093.0..sroa.093.0..sroa.093.0.94
   store i8 %78, ptr %.sroa.093, align 4, !tbaa !16
-  %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1.100 = load i8, ptr %.sroa.093.1..sroa_idx142, align 1, !tbaa !16
+  %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1.100 = load i8, ptr %.sroa.093.1..sroa_idx147, align 1, !tbaa !16
   %79 = lshr i8 %62, 2
   %80 = and i8 %79, 3
   %81 = add nsw i8 %80, -2
   %82 = add i8 %81, %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1.100
-  store i8 %82, ptr %.sroa.093.1..sroa_idx143, align 1, !tbaa !16
-  %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2.106 = load i8, ptr %.sroa.093.2..sroa_idx147, align 2, !tbaa !16
+  store i8 %82, ptr %.sroa.093.1..sroa_idx148, align 1, !tbaa !16
+  %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2.106 = load i8, ptr %.sroa.093.2..sroa_idx152, align 2, !tbaa !16
   %83 = and i8 %62, 3
   %84 = add nsw i8 %83, -2
   %85 = add i8 %84, %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2.106
-  store i8 %85, ptr %.sroa.093.2..sroa_idx148, align 2, !tbaa !16
+  store i8 %85, ptr %.sroa.093.2..sroa_idx153, align 2, !tbaa !16
   br label %105
 
 86:                                               ; preds = %68
@@ -201,17 +201,17 @@ bytestream2_get_byte.exit71.thread:               ; preds = %26, %bytestream2_ge
   %94 = trunc nsw i32 %93 to i8
   %95 = add i8 %.sroa.093.0..sroa.093.0..sroa.093.0..sroa.093.0.95, %94
   store i8 %95, ptr %.sroa.093, align 4, !tbaa !16
-  %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1. = load i8, ptr %.sroa.093.1..sroa_idx140, align 1, !tbaa !16
+  %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1. = load i8, ptr %.sroa.093.1..sroa_idx145, align 1, !tbaa !16
   %96 = trunc nuw nsw i32 %90 to i8
   %97 = add nsw i8 %96, -32
   %98 = add i8 %97, %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1.
-  store i8 %98, ptr %.sroa.093.1..sroa_idx141, align 1, !tbaa !16
+  store i8 %98, ptr %.sroa.093.1..sroa_idx146, align 1, !tbaa !16
   %99 = and i32 %89, 15
   %100 = add nsw i32 %99, %91
-  %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2. = load i8, ptr %.sroa.093.2..sroa_idx145, align 2, !tbaa !16
+  %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2. = load i8, ptr %.sroa.093.2..sroa_idx150, align 2, !tbaa !16
   %101 = trunc nsw i32 %100 to i8
   %102 = add i8 %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2., %101
-  store i8 %102, ptr %.sroa.093.2..sroa_idx146, align 2, !tbaa !16
+  store i8 %102, ptr %.sroa.093.2..sroa_idx151, align 2, !tbaa !16
   br label %105
 
 103:                                              ; preds = %68
@@ -227,15 +227,15 @@ default.unreachable:                              ; preds = %68
   %.sroa.093.0..sroa.093.0..sroa.093.0..sroa.093.0. = load i8, ptr %.sroa.093, align 4, !tbaa !16
   %106 = zext i8 %.sroa.093.0..sroa.093.0..sroa.093.0..sroa.093.0. to i64
   %107 = mul nuw nsw i64 %106, 3
-  %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1.102 = load i8, ptr %.sroa.093.1..sroa_idx144, align 1, !tbaa !16
+  %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1.102 = load i8, ptr %.sroa.093.1..sroa_idx149, align 1, !tbaa !16
   %108 = zext i8 %.sroa.093.1..sroa.093.1..sroa.093.1..sroa.093.1.102 to i64
   %109 = mul nuw nsw i64 %108, 5
   %110 = add nuw nsw i64 %109, %107
-  %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2.108 = load i8, ptr %.sroa.093.2..sroa_idx149, align 2, !tbaa !16
+  %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2.108 = load i8, ptr %.sroa.093.2..sroa_idx154, align 2, !tbaa !16
   %111 = zext i8 %.sroa.093.2..sroa.093.2..sroa.093.2..sroa.093.2.108 to i64
   %112 = mul nuw nsw i64 %111, 7
   %113 = add nuw nsw i64 %110, %112
-  %.sroa.093.3..sroa.093.3..sroa.093.3..sroa.093.3. = load i8, ptr %.sroa.093.3..sroa_idx150, align 1, !tbaa !16
+  %.sroa.093.3..sroa.093.3..sroa.093.3..sroa.093.3. = load i8, ptr %.sroa.093.3..sroa_idx155, align 1, !tbaa !16
   %114 = zext i8 %.sroa.093.3..sroa.093.3..sroa.093.3..sroa.093.3. to i64
   %115 = mul nuw nsw i64 %114, 11
   %116 = add nuw nsw i64 %113, %115

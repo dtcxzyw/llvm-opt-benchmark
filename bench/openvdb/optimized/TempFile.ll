@@ -3353,11 +3353,11 @@ if.then23:                                        ; preds = %entry, %if.then23.f
   %conv26 = ashr exact i64 %sext8, 32
   tail call void @_ZN5boost9iostreams6detail12basic_bufferIcSaIcEE6resizeEl(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i9, i64 noundef %conv26)
   %0 = icmp sgt i64 %cond20, 1
-  %spec.select22 = select i1 %0, i32 3, i32 1
+  %spec.select23 = select i1 %0, i32 3, i32 1
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then23, %entry
-  %cond21 = phi i32 [ 1, %entry ], [ %spec.select22, %if.then23 ]
+  %cond21 = phi i32 [ 1, %entry ], [ %spec.select23, %if.then23 ]
   %vtable28 = load ptr, ptr %this, align 8
   %vfn29 = getelementptr inbounds nuw i8, ptr %vtable28, i64 176
   %1 = load ptr, ptr %vfn29, align 8

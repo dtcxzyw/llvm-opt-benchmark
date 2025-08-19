@@ -1090,8 +1090,8 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %.phi.trans.insert69 = getelementptr inbounds i16, ptr %13, i64 %.phi.trans.insert68
   %.pre70 = load i16, ptr %.phi.trans.insert69, align 2, !tbaa !25
   %.not41.us = icmp eq i16 %.pre70, 0
-  %or.cond77 = select i1 %15, i1 %.not41.us, i1 false
-  br i1 %or.cond77, label %.critedge, label %.critedge2.us
+  %or.cond95 = select i1 %15, i1 %.not41.us, i1 false
+  br i1 %or.cond95, label %.critedge, label %.critedge2.us
 
 .critedge2.us:                                    ; preds = %.preheader.split.us
   %16 = add nsw i32 %14, 1
@@ -1181,8 +1181,8 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %.phi.trans.insert67 = getelementptr inbounds i16, ptr %58, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert67, align 2, !tbaa !25
   %.not.us = icmp eq i16 %.pre, 0
-  %or.cond78 = select i1 %60, i1 %.not.us, i1 false
-  br i1 %or.cond78, label %.critedge, label %.critedge6.us
+  %or.cond96 = select i1 %60, i1 %.not.us, i1 false
+  br i1 %or.cond96, label %.critedge, label %.critedge6.us
 
 .critedge6.us:                                    ; preds = %.preheader48.split.us
   %61 = add nsw i32 %59, 1

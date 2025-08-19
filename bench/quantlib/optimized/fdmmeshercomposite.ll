@@ -313,8 +313,8 @@ call5.i.i.i.i2.i.noexc51:                         ; preds = %_ZN5boost10shared_p
   br i1 %cmp.not.i.i30, label %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i45.thread, label %if.then.i.i56
 
 _ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i45.thread: ; preds = %call5.i.i.i.i2.i.noexc51
-  %_M_finish.i.i5070 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr %add.ptr.i1.i35, ptr %_M_finish.i.i5070, align 8, !tbaa !13
+  %_M_finish.i.i5075 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  store ptr %add.ptr.i1.i35, ptr %_M_finish.i.i5075, align 8, !tbaa !13
   br label %_ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit69
 
 if.then.i.i56:                                    ; preds = %call5.i.i.i.i2.i.noexc51
@@ -515,7 +515,7 @@ ehcleanup:                                        ; preds = %for.cond.cleanup
   br i1 %tobool.not.i.i.i18, label %ehcleanup11, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %ehcleanup.thread, %ehcleanup
-  %.pn38 = phi { ptr, i32 } [ %9, %ehcleanup.thread ], [ %12, %ehcleanup ]
+  %.pn42 = phi { ptr, i32 } [ %9, %ehcleanup.thread ], [ %12, %ehcleanup ]
   %13 = phi ptr [ %call5.i.i.i.i2.i.i7, %ehcleanup.thread ], [ %.pre, %ehcleanup ]
   %_M_end_of_storage.i.i20 = getelementptr inbounds nuw i8, ptr %dim, i64 16
   %14 = load ptr, ptr %_M_end_of_storage.i.i20, align 8, !tbaa !20
@@ -526,9 +526,9 @@ if.then.i.i.i19:                                  ; preds = %ehcleanup.thread, %
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %if.then.i.i.i19, %ehcleanup
-  %.pn39 = phi { ptr, i32 } [ %.pn38, %if.then.i.i.i19 ], [ %12, %ehcleanup ]
+  %.pn43 = phi { ptr, i32 } [ %.pn42, %if.then.i.i.i19 ], [ %12, %ehcleanup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %dim)
-  resume { ptr, i32 } %.pn39
+  resume { ptr, i32 } %.pn43
 }
 
 declare i32 @__gxx_personality_v0(...)

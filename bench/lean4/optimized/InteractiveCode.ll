@@ -2696,16 +2696,16 @@ lean_dec.exit130:                                 ; preds = %125, %124, %122, %l
 
 lean_dec.exit129:                                 ; preds = %134, %133, %131, %lean_dec.exit130
   %135 = icmp ult i8 %127, 5
-  br i1 %135, label %switch.lookup241, label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit191
+  br i1 %135, label %switch.lookup270, label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit191
 
-switch.lookup241:                                 ; preds = %lean_dec.exit129
+switch.lookup270:                                 ; preds = %lean_dec.exit129
   %136 = and i64 %126, 7
-  %switch.gep242 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %136
-  %switch.load243 = load ptr, ptr %switch.gep242, align 8
+  %switch.gep271 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %136
+  %switch.load272 = load ptr, ptr %switch.gep271, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit191
 
-l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit191: ; preds = %lean_dec.exit129, %switch.lookup241
-  %.0.in.i189 = phi ptr [ %switch.load243, %switch.lookup241 ], [ @l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11____closed__12, %lean_dec.exit129 ]
+l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit191: ; preds = %lean_dec.exit129, %switch.lookup270
+  %.0.in.i189 = phi ptr [ %switch.load272, %switch.lookup270 ], [ @l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11____closed__12, %lean_dec.exit129 ]
   %.0.i190 = load ptr, ptr %.0.in.i189, align 8, !tbaa !10
   tail call void @lean_inc_heartbeat() #8
   %137 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #8
@@ -3116,16 +3116,16 @@ lean_dec_ref.exit171:                             ; preds = %278, %277, %275, %l
 
 lean_dec.exit123:                                 ; preds = %287, %286, %284, %lean_dec_ref.exit171
   %288 = icmp ult i8 %280, 5
-  br i1 %288, label %switch.lookup244, label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit219
+  br i1 %288, label %switch.lookup273, label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit219
 
-switch.lookup244:                                 ; preds = %lean_dec.exit123
+switch.lookup273:                                 ; preds = %lean_dec.exit123
   %289 = and i64 %279, 7
-  %switch.gep245 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %289
-  %switch.load246 = load ptr, ptr %switch.gep245, align 8
+  %switch.gep274 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_.9, i64 0, i64 %289
+  %switch.load275 = load ptr, ptr %switch.gep274, align 8
   br label %l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit219
 
-l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit219: ; preds = %lean_dec.exit123, %switch.lookup244
-  %.0.in.i217 = phi ptr [ %switch.load246, %switch.lookup244 ], [ @l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11____closed__12, %lean_dec.exit123 ]
+l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11_.exit219: ; preds = %lean_dec.exit123, %switch.lookup273
+  %.0.in.i217 = phi ptr [ %switch.load275, %switch.lookup273 ], [ @l___private_Lean_Widget_InteractiveCode_0__Lean_Widget_toJsonDiffTag____x40_Lean_Widget_InteractiveCode___hyg_11____closed__12, %lean_dec.exit123 ]
   %.0.i218 = load ptr, ptr %.0.in.i217, align 8, !tbaa !10
   %290 = ptrtoint ptr %.0121 to i64
   %291 = and i64 %290, 1
@@ -3390,18 +3390,18 @@ lean_dec.exit:                                    ; preds = %53, %52, %50, %lean
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit19
-  %.sink39 = phi ptr [ %32, %lean_dec.exit19 ], [ %54, %lean_dec.exit ]
-  %.sink36 = phi i32 [ 65552, %lean_dec.exit19 ], [ 16842768, %lean_dec.exit ]
+  %.sink44 = phi ptr [ %32, %lean_dec.exit19 ], [ %54, %lean_dec.exit ]
+  %.sink41 = phi i32 [ 65552, %lean_dec.exit19 ], [ 16842768, %lean_dec.exit ]
   %.sink = phi ptr [ %16, %lean_dec.exit19 ], [ %38, %lean_dec.exit ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink39, i64 4
-  store i32 1, ptr %.sink39, align 4, !tbaa !4
-  store i32 %.sink36, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !4
+  store i32 %.sink41, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr %.sink, ptr %58, align 8, !tbaa !10
   br label %59
 
 59:                                               ; preds = %.sink.split, %35, %13
-  %.1 = phi ptr [ %0, %13 ], [ %0, %35 ], [ %.sink39, %.sink.split ]
+  %.1 = phi ptr [ %0, %13 ], [ %0, %35 ], [ %.sink44, %.sink.split ]
   ret ptr %.1
 }
 
@@ -3551,18 +3551,18 @@ lean_dec.exit:                                    ; preds = %53, %52, %50, %lean
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec.exit, %lean_dec.exit19
-  %.sink39 = phi ptr [ %32, %lean_dec.exit19 ], [ %54, %lean_dec.exit ]
-  %.sink36 = phi i32 [ 65552, %lean_dec.exit19 ], [ 16842768, %lean_dec.exit ]
+  %.sink44 = phi ptr [ %32, %lean_dec.exit19 ], [ %54, %lean_dec.exit ]
+  %.sink41 = phi i32 [ 65552, %lean_dec.exit19 ], [ 16842768, %lean_dec.exit ]
   %.sink = phi ptr [ %16, %lean_dec.exit19 ], [ %38, %lean_dec.exit ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink39, i64 4
-  store i32 1, ptr %.sink39, align 4, !tbaa !4
-  store i32 %.sink36, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sink44, i64 4
+  store i32 1, ptr %.sink44, align 4, !tbaa !4
+  store i32 %.sink41, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr %.sink, ptr %58, align 8, !tbaa !10
   br label %59
 
 59:                                               ; preds = %.sink.split, %35, %13
-  %.1 = phi ptr [ %0, %13 ], [ %0, %35 ], [ %.sink39, %.sink.split ]
+  %.1 = phi ptr [ %0, %13 ], [ %0, %35 ], [ %.sink44, %.sink.split ]
   ret ptr %.1
 }
 
@@ -12682,18 +12682,18 @@ _init_l_Lean_Widget_ppExprTagged___closed__2.exit: ; preds = %_init_l_Lean_Widge
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Widget_ppExprTagged___closed__2.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %313, %_init_l_Lean_Widget_ppExprTagged___closed__2.exit ]
-  %316 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !4
+  %.sink68 = phi ptr [ %4, %3 ], [ %313, %_init_l_Lean_Widget_ppExprTagged___closed__2.exit ]
+  %316 = getelementptr inbounds nuw i8, ptr %.sink68, i64 4
+  store i32 1, ptr %.sink68, align 4, !tbaa !4
   store i32 131096, ptr %316, align 4
-  %317 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.sink68, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %317, align 8, !tbaa !10
-  %318 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %.sink68, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %318, align 8, !tbaa !10
   br label %319
 
 319:                                              ; preds = %.sink.split, %lean_dec_ref.exit18, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink68, %.sink.split ]
   ret ptr %.0
 }
 

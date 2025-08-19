@@ -885,9 +885,9 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %28, %36
   br label %67
 
 67:                                               ; preds = %57, %65, %50
-  %.sink56 = phi ptr [ %59, %57 ], [ %66, %65 ], [ %52, %50 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink56, i64 8
-  %69 = load i32, ptr %.sink56, align 8, !tbaa !137
+  %.sink59 = phi ptr [ %59, %57 ], [ %66, %65 ], [ %52, %50 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
+  %69 = load i32, ptr %.sink59, align 8, !tbaa !137
   %.sroa.8.0 = zext i32 %69 to i64
   %.idx = mul nuw nsw i64 %.sroa.8.0, 24
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
@@ -1675,8 +1675,8 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %_ZNK5clang17Constan
   br i1 %135, label %_ZNK4llvm5APInteqEm.exit.thread.thread, label %_ZNK4llvm5APInteqEm.exit.thread
 
 _ZNK4llvm5APInteqEm.exit.thread.thread:           ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
-  %.0.i.i98 = load i64, ptr %.pre95, align 8, !tbaa !39
-  %136 = icmp eq i64 %.0.i.i98, %94
+  %.0.i.i120 = load i64, ptr %.pre95, align 8, !tbaa !39
+  %136 = icmp eq i64 %.0.i.i120, %94
   %137 = or i1 %.14592, %136
   br label %141
 
@@ -1832,10 +1832,10 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %_ZNK5clang9FieldDec
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68
 
 _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68:  ; preds = %199, %.loopexit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEl.exit
-  %.sink102 = phi i32 [ %49, %_ZN4llvm16FoldingSetNodeID10AddIntegerEl.exit ], [ %197, %.loopexit ], [ %.pre.i.i67, %199 ]
+  %.sink124 = phi i32 [ %49, %_ZN4llvm16FoldingSetNodeID10AddIntegerEl.exit ], [ %197, %.loopexit ], [ %.pre.i.i67, %199 ]
   %.2.sink = phi i32 [ %51, %_ZN4llvm16FoldingSetNodeID10AddIntegerEl.exit ], [ %.2, %.loopexit ], [ %.2, %199 ]
   %203 = load ptr, ptr %5, align 8, !tbaa !28
-  %204 = zext i32 %.sink102 to i64
+  %204 = zext i32 %.sink124 to i64
   %205 = getelementptr inbounds nuw i32, ptr %203, i64 %204
   store i32 %.2.sink, ptr %205, align 1
   %storemerge.in = load i32, ptr %7, align 8, !tbaa !24

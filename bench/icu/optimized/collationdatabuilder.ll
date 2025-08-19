@@ -789,15 +789,15 @@ _ZNK6icu_7715ConditionalCE3212prefixLengthEv.exit: ; preds = %38, %29
   %49 = getelementptr inbounds nuw i8, ptr %.0110, i64 88
   %50 = load i32, ptr %49, align 8, !tbaa !99
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.lr.ph272, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit.thread
+  br i1 %51, label %.lr.ph279, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit.thread
 
-.lr.ph272:                                        ; preds = %.preheader245.preheader, %.preheader245.backedge
+.lr.ph279:                                        ; preds = %.preheader245.preheader, %.preheader245.backedge
   %52 = phi i32 [ %73, %.preheader245.backedge ], [ %50, %.preheader245.preheader ]
-  %.1111271 = phi ptr [ %53, %.preheader245.backedge ], [ %.0110, %.preheader245.preheader ]
+  %.1111278 = phi ptr [ %53, %.preheader245.backedge ], [ %.0110, %.preheader245.preheader ]
   %53 = invoke noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef %52)
           to label %_ZNK6icu_7720CollationDataBuilder18getConditionalCE32Ei.exit unwind label %89
 
-_ZNK6icu_7720CollationDataBuilder18getConditionalCE32Ei.exit: ; preds = %.lr.ph272
+_ZNK6icu_7720CollationDataBuilder18getConditionalCE32Ei.exit: ; preds = %.lr.ph279
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i16, ptr %12, align 8, !tbaa !74
   %56 = icmp slt i16 %55, 0
@@ -839,10 +839,10 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit: ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %53, i64 88
   %73 = load i32, ptr %72, align 8, !tbaa !99
   %74 = icmp sgt i32 %73, -1
-  br i1 %74, label %.lr.ph272, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit.thread, !llvm.loop !100
+  br i1 %74, label %.lr.ph279, label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit.thread, !llvm.loop !100
 
 _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit.thread: ; preds = %.preheader245.backedge, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit, %.sink.split.i.i.i, %65, %.preheader245.preheader
-  %.1111.lcssa = phi ptr [ %.0110, %.preheader245.preheader ], [ %53, %.preheader245.backedge ], [ %.1111271, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit ], [ %.1111271, %.sink.split.i.i.i ], [ %.1111271, %65 ]
+  %.1111.lcssa = phi ptr [ %.0110, %.preheader245.preheader ], [ %53, %.preheader245.backedge ], [ %.1111278, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit ], [ %.1111278, %.sink.split.i.i.i ], [ %.1111278, %65 ]
   %75 = getelementptr inbounds nuw i8, ptr %.1111.lcssa, i64 16
   %76 = load i16, ptr %75, align 8, !tbaa !74
   %77 = icmp slt i16 %76, 0
@@ -864,7 +864,7 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit.thread: ; preds = %.preheader2
           cleanup
   br label %306
 
-89:                                               ; preds = %66, %.lr.ph272
+89:                                               ; preds = %66, %.lr.ph279
   %90 = landingpad { ptr, i32 }
           cleanup
   br label %305
@@ -2119,8 +2119,8 @@ define noundef i64 @_ZNK6icu_7720CollationDataBuilder11getSingleCEEiR10UErrorCod
 
 .thread:                                          ; preds = %6
   %74 = and i32 %9, 192
-  %.not5092 = icmp eq i32 %74, 192
-  br i1 %.not5092, label %.lr.ph.thread, label %._crit_edge
+  %.not5099 = icmp eq i32 %74, 192
+  br i1 %.not5099, label %.lr.ph.thread, label %._crit_edge
 
 .lr.ph.thread:                                    ; preds = %.thread
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2700,8 +2700,8 @@ define void @_ZN6icu_7720CollationDataBuilder7addCE32ERKNS_13UnicodeStringES3_jR
           to label %84 unwind label %85
 
 84:                                               ; preds = %77
-  %.not316 = icmp eq i8 %83, 0
-  br i1 %.not316, label %.thread, label %87
+  %.not323 = icmp eq i8 %83, 0
+  br i1 %.not323, label %.thread, label %87
 
 85:                                               ; preds = %77, %48
   %86 = landingpad { ptr, i32 }
@@ -2892,9 +2892,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713Unicod
   %154 = call noundef i32 @_ZNK6icu_7713CollationData7getCE32Ei(ptr noundef nonnull align 8 dereferenceable(140) %153, i32 noundef %27)
   %155 = call noundef i32 @_ZNK6icu_7713CollationData12getFinalCE32Ej(ptr noundef nonnull align 8 dereferenceable(140) %153, i32 noundef %154)
   %156 = and i32 %155, 206
-  %or.cond315 = icmp eq i32 %156, 200
-  %or.cond328 = or i1 %45, %or.cond315
-  br i1 %or.cond328, label %_ZN6icu_779Collation14ce32HasContextEj.exit.thread244, label %.thread252
+  %or.cond322 = icmp eq i32 %156, 200
+  %or.cond335 = or i1 %45, %or.cond322
+  br i1 %or.cond335, label %_ZN6icu_779Collation14ce32HasContextEj.exit.thread244, label %.thread252
 
 _ZN6icu_779Collation14ce32HasContextEj.exit.thread244: ; preds = %151
   %157 = call noundef i32 @_ZN6icu_7720CollationDataBuilder16copyFromBaseCE32EijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %0, i32 noundef %27, i32 noundef %155, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -6636,12 +6636,12 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit105:       ; preds = %70, %81, %86
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %117
-  br i1 %.not99, label %133, label %.sink.split145
+  br i1 %.not99, label %133, label %.sink.split153
 
 127:                                              ; preds = %117
   %128 = icmp ne i64 %indvars.iv130, 0
   %or.cond126 = and i1 %.not99, %128
-  br i1 %or.cond126, label %.lr.ph112, label %.sink.split145
+  br i1 %or.cond126, label %.lr.ph112, label %.sink.split153
 
 .lr.ph112:                                        ; preds = %127, %.lr.ph112
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph112 ], [ 0, %127 ]
@@ -6651,17 +6651,17 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit105:       ; preds = %70, %81, %86
   store i64 %130, ptr %131, align 8, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv130
-  br i1 %exitcond.not, label %.sink.split145, label %.lr.ph112, !llvm.loop !187
+  br i1 %exitcond.not, label %.sink.split153, label %.lr.ph112, !llvm.loop !187
 
-.sink.split145:                                   ; preds = %.lr.ph112, %127, %126
+.sink.split153:                                   ; preds = %.lr.ph112, %127, %126
   %.sink = phi i64 [ %119, %126 ], [ %124, %127 ], [ %124, %.lr.ph112 ]
   %132 = getelementptr inbounds nuw [31 x i64], ptr %116, i64 0, i64 %indvars.iv130
   store i64 %.sink, ptr %132, align 8, !tbaa !89
   br label %133
 
-133:                                              ; preds = %.sink.split145, %126
-  %134 = phi i1 [ true, %126 ], [ false, %.sink.split145 ]
-  %.187 = phi i8 [ 0, %126 ], [ 1, %.sink.split145 ]
+133:                                              ; preds = %.sink.split153, %126
+  %134 = phi i1 [ true, %126 ], [ false, %.sink.split153 ]
+  %.187 = phi i8 [ 0, %126 ], [ 1, %.sink.split153 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count132
   br i1 %exitcond133.not, label %._crit_edge, label %117, !llvm.loop !188

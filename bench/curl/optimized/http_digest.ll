@@ -63,15 +63,15 @@ define hidden i32 @Curl_output_digest(ptr noundef %0, i1 noundef zeroext %1, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %. = select i1 %1, i64 3328, i64 3272
-  %.66 = select i1 %1, i64 5008, i64 4936
-  %.67 = select i1 %1, i64 5016, i64 4992
-  %.68 = select i1 %1, i64 5024, i64 5000
-  %.69 = select i1 %1, i64 3416, i64 3384
+  %.68 = select i1 %1, i64 5008, i64 4936
+  %.69 = select i1 %1, i64 5016, i64 4992
+  %.70 = select i1 %1, i64 5024, i64 5000
+  %.71 = select i1 %1, i64 3416, i64 3384
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.66
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.67
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.68
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.69
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.68
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.69
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.70
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.71
   %.044 = load ptr, ptr %10, align 8, !tbaa !8
   %.045 = load ptr, ptr %9, align 8, !tbaa !8
   %12 = load ptr, ptr @Curl_cfree, align 8, !tbaa !11

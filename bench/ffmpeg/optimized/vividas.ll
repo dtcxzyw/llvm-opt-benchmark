@@ -521,8 +521,8 @@ track_header.exit.thread:                         ; preds = %.lr.ph233.i, %.lr.p
 241:                                              ; preds = %238
   %242 = trunc nuw nsw i64 %234 to i32
   store i32 %242, ptr %9, align 8, !tbaa !62
-  %.not9.i = icmp eq i64 %234, 0
-  br i1 %.not9.i, label %._crit_edge.i99, label %.lr.ph.i96
+  %.not12.i = icmp eq i64 %234, 0
+  br i1 %.not12.i, label %._crit_edge.i99, label %.lr.ph.i96
 
 .lr.ph.i96:                                       ; preds = %241, %247
   %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i98, %247 ], [ 0, %241 ]

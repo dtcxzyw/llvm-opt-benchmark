@@ -47,22 +47,22 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 openFile.exit.i.outer:                            ; preds = %13, %2
   %.ph = phi ptr [ %16, %13 ], [ null, %2 ]
-  %.ph77 = phi i8 [ %.ph80, %13 ], [ 1, %2 ]
-  %.ph78 = phi i8 [ %8, %13 ], [ 0, %2 ]
-  br label %openFile.exit.i.outer79
+  %.ph83 = phi i8 [ %.ph86, %13 ], [ 1, %2 ]
+  %.ph84 = phi i8 [ %8, %13 ], [ 0, %2 ]
+  br label %openFile.exit.i.outer85
 
-openFile.exit.i.outer79:                          ; preds = %openFile.exit.i, %openFile.exit.i.outer
-  %.ph80 = phi i8 [ %.ph77, %openFile.exit.i.outer ], [ 0, %openFile.exit.i ]
-  %.ph81 = phi i8 [ %.ph78, %openFile.exit.i.outer ], [ %8, %openFile.exit.i ]
+openFile.exit.i.outer85:                          ; preds = %openFile.exit.i, %openFile.exit.i.outer
+  %.ph86 = phi i8 [ %.ph83, %openFile.exit.i.outer ], [ 0, %openFile.exit.i ]
+  %.ph87 = phi i8 [ %.ph84, %openFile.exit.i.outer ], [ %8, %openFile.exit.i ]
   br label %openFile.exit.i
 
-openFile.exit.i:                                  ; preds = %openFile.exit.i.outer79, %20
-  %8 = phi i8 [ 1, %20 ], [ %.ph81, %openFile.exit.i.outer79 ]
+openFile.exit.i:                                  ; preds = %openFile.exit.i.outer85, %20
+  %8 = phi i8 [ 1, %20 ], [ %.ph87, %openFile.exit.i.outer85 ]
   %9 = tail call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #10
   switch i32 %9, label %34 [
     i32 -1, label %37
     i32 111, label %10
-    i32 110, label %openFile.exit.i.outer79
+    i32 110, label %openFile.exit.i.outer85
     i32 118, label %20
     i32 63, label %21
     i32 58, label %29
@@ -125,7 +125,7 @@ sub_0.i.i:                                        ; preds = %13
 
 37:                                               ; preds = %openFile.exit.i
   store i8 %8, ptr %6, align 1
-  store i8 %.ph80, ptr %7, align 8
+  store i8 %.ph86, ptr %7, align 8
   store ptr %.ph, ptr %3, align 8
   %38 = load i32, ptr @optind, align 4, !tbaa !11
   %39 = icmp slt i32 %38, %0

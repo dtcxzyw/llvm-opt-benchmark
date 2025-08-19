@@ -1349,7 +1349,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %42, 
   %scevgep = getelementptr i8, ptr %70, i64 8
   %124 = shl nuw nsw i64 %121, 3
   %125 = getelementptr i8, ptr %72, i64 %124
-  %scevgep137 = getelementptr i8, ptr %125, i64 8
+  %scevgep147 = getelementptr i8, ptr %125, i64 8
   %ident.check.not = icmp eq i32 %74, 1
   br label %128
 
@@ -1437,7 +1437,7 @@ common.resume:                                    ; preds = %660, %504, %388, %2
   %163 = fmul double %95, %160
   %164 = fadd double %163, %162
   store double %164, ptr %118, align 8, !tbaa !90
-  %load_initial138 = load double, ptr %scevgep137, align 8
+  %load_initial148 = load double, ptr %scevgep147, align 8
   br label %.lr.ph129.i
 
 .preheader.critedge.i:                            ; preds = %128
@@ -1453,14 +1453,14 @@ common.resume:                                    ; preds = %660, %504, %388, %2
   br i1 %120, label %.lr.ph132.i.preheader, label %._crit_edge133.i
 
 .lr.ph129.i:                                      ; preds = %.lr.ph129.i, %._crit_edge.i
-  %store_forwarded139 = phi double [ %load_initial138, %._crit_edge.i ], [ %178, %.lr.ph129.i ]
+  %store_forwarded149 = phi double [ %load_initial148, %._crit_edge.i ], [ %178, %.lr.ph129.i ]
   %indvars.iv139.i = phi i64 [ %121, %._crit_edge.i ], [ %indvars.iv.next140.i, %.lr.ph129.i ]
   %.pn123126.i = phi ptr [ %gep.i, %._crit_edge.i ], [ %.pn122.i, %.lr.ph129.i ]
   %.pn122.i = getelementptr inbounds i8, ptr %.pn123126.i, i64 %115
   %171 = load i8, ptr %.pn122.i, align 1, !tbaa !85
   %172 = uitofp i8 %171 to double
   %173 = getelementptr inbounds nuw double, ptr %72, i64 %indvars.iv139.i
-  %174 = fmul double %95, %store_forwarded139
+  %174 = fmul double %95, %store_forwarded149
   %175 = fsub double %172, %174
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %177 = load double, ptr %176, align 8, !tbaa !90
@@ -1581,11 +1581,11 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %wide.trip.count150.i12 = sext i32 %230 to i64
   %wide.trip.count.i13 = zext nneg i32 %204 to i64
   %invariant.gep.i14 = getelementptr i8, ptr %233, i64 %254
-  %scevgep142 = getelementptr i8, ptr %201, i64 8
+  %scevgep152 = getelementptr i8, ptr %201, i64 8
   %255 = shl nuw nsw i64 %252, 3
   %256 = getelementptr i8, ptr %203, i64 %255
-  %scevgep145 = getelementptr i8, ptr %256, i64 8
-  %ident.check140.not = icmp eq i32 %205, 1
+  %scevgep155 = getelementptr i8, ptr %256, i64 8
+  %ident.check150.not = icmp eq i32 %205, 1
   br label %259
 
 257:                                              ; preds = %188
@@ -1613,7 +1613,7 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %240, label %.lr.ph.i28.lver.check, label %.preheader.critedge.i17
 
 .lr.ph.i28.lver.check:                            ; preds = %259
-  br i1 %ident.check140.not, label %.lr.ph.i28.ph, label %.lr.ph.i28.lver.orig
+  br i1 %ident.check150.not, label %.lr.ph.i28.ph, label %.lr.ph.i28.lver.orig
 
 .lr.ph.i28.lver.orig:                             ; preds = %.lr.ph.i28.lver.check, %.lr.ph.i28.lver.orig
   %indvars.iv.i29.lver.orig = phi i64 [ %indvars.iv.next.i32.lver.orig, %.lr.ph.i28.lver.orig ], [ 2, %.lr.ph.i28.lver.check ]
@@ -1636,11 +1636,11 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %exitcond.not.i33.lver.orig, label %._crit_edge.i34, label %.lr.ph.i28.lver.orig, !llvm.loop !97
 
 .lr.ph.i28.ph:                                    ; preds = %.lr.ph.i28.lver.check
-  %load_initial143 = load double, ptr %scevgep142, align 8
+  %load_initial153 = load double, ptr %scevgep152, align 8
   br label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28.ph, %.lr.ph.i28
-  %store_forwarded144 = phi double [ %load_initial143, %.lr.ph.i28.ph ], [ %289, %.lr.ph.i28 ]
+  %store_forwarded154 = phi double [ %load_initial153, %.lr.ph.i28.ph ], [ %289, %.lr.ph.i28 ]
   %indvars.iv.i29 = phi i64 [ 2, %.lr.ph.i28.ph ], [ %indvars.iv.next.i32, %.lr.ph.i28 ]
   %.pn124.i30 = phi ptr [ %264, %.lr.ph.i28.ph ], [ %.0115.i31, %.lr.ph.i28 ]
   %.0115.i31 = getelementptr inbounds nuw i8, ptr %.pn124.i30, i64 %236
@@ -1648,7 +1648,7 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %282 = load i8, ptr %281, align 1, !tbaa !85
   %283 = sitofp i8 %282 to double
   %284 = getelementptr double, ptr %201, i64 %indvars.iv.i29
-  %285 = fmul double %226, %store_forwarded144
+  %285 = fmul double %226, %store_forwarded154
   %286 = fsub double %283, %285
   %287 = getelementptr i8, ptr %284, i64 -16
   %288 = load double, ptr %287, align 8, !tbaa !90
@@ -1668,7 +1668,7 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %294 = fmul double %226, %291
   %295 = fadd double %294, %293
   store double %295, ptr %249, align 8, !tbaa !90
-  %load_initial146 = load double, ptr %scevgep145, align 8
+  %load_initial156 = load double, ptr %scevgep155, align 8
   br label %.lr.ph129.i36
 
 .preheader.critedge.i17:                          ; preds = %259
@@ -1684,14 +1684,14 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %251, label %.lr.ph132.i23.preheader, label %._crit_edge133.i19
 
 .lr.ph129.i36:                                    ; preds = %.lr.ph129.i36, %._crit_edge.i34
-  %store_forwarded147 = phi double [ %load_initial146, %._crit_edge.i34 ], [ %309, %.lr.ph129.i36 ]
+  %store_forwarded157 = phi double [ %load_initial156, %._crit_edge.i34 ], [ %309, %.lr.ph129.i36 ]
   %indvars.iv139.i37 = phi i64 [ %252, %._crit_edge.i34 ], [ %indvars.iv.next140.i40, %.lr.ph129.i36 ]
   %.pn123126.i38 = phi ptr [ %gep.i35, %._crit_edge.i34 ], [ %.pn122.i39, %.lr.ph129.i36 ]
   %.pn122.i39 = getelementptr inbounds i8, ptr %.pn123126.i38, i64 %246
   %302 = load i8, ptr %.pn122.i39, align 1, !tbaa !85
   %303 = sitofp i8 %302 to double
   %304 = getelementptr inbounds nuw double, ptr %203, i64 %indvars.iv139.i37
-  %305 = fmul double %226, %store_forwarded147
+  %305 = fmul double %226, %store_forwarded157
   %306 = fsub double %303, %305
   %307 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %308 = load double, ptr %307, align 8, !tbaa !90
@@ -1812,10 +1812,10 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %wide.trip.count150.i43 = sext i32 %361 to i64
   %invariant.gep.i44 = getelementptr i16, ptr %364, i64 %385
   %wide.trip.count.i45 = zext nneg i32 %335 to i64
-  %scevgep148 = getelementptr i8, ptr %332, i64 8
+  %scevgep158 = getelementptr i8, ptr %332, i64 8
   %386 = shl nuw nsw i64 %383, 3
   %387 = getelementptr i8, ptr %334, i64 %386
-  %scevgep151 = getelementptr i8, ptr %387, i64 8
+  %scevgep161 = getelementptr i8, ptr %387, i64 8
   br label %390
 
 388:                                              ; preds = %319
@@ -1843,11 +1843,11 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %371, label %.lr.ph.i58.preheader, label %.preheader.i
 
 .lr.ph.i58.preheader:                             ; preds = %390
-  %load_initial149 = load double, ptr %scevgep148, align 8
+  %load_initial159 = load double, ptr %scevgep158, align 8
   br label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58.preheader, %.lr.ph.i58
-  %store_forwarded150 = phi double [ %load_initial149, %.lr.ph.i58.preheader ], [ %409, %.lr.ph.i58 ]
+  %store_forwarded160 = phi double [ %load_initial159, %.lr.ph.i58.preheader ], [ %409, %.lr.ph.i58 ]
   %indvars.iv.i59 = phi i64 [ 2, %.lr.ph.i58.preheader ], [ %indvars.iv.next.i62, %.lr.ph.i58 ]
   %.pn124.i60 = phi ptr [ %395, %.lr.ph.i58.preheader ], [ %.0115.i61, %.lr.ph.i58 ]
   %.0115.i61 = getelementptr inbounds i16, ptr %.pn124.i60, i64 %367
@@ -1855,7 +1855,7 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %402 = load i16, ptr %401, align 2, !tbaa !101
   %403 = uitofp i16 %402 to double
   %404 = getelementptr double, ptr %332, i64 %indvars.iv.i59
-  %405 = fmul double %357, %store_forwarded150
+  %405 = fmul double %357, %store_forwarded160
   %406 = fsub double %403, %405
   %407 = getelementptr i8, ptr %404, i64 -16
   %408 = load double, ptr %407, align 8, !tbaa !90
@@ -1866,14 +1866,14 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %exitcond.not.i63, label %.lr.ph129.preheader.i, label %.lr.ph.i58, !llvm.loop !103
 
 .lr.ph129.preheader.i:                            ; preds = %.lr.ph.i58
-  %gep153.i = getelementptr i16, ptr %invariant.gep.i44, i64 %indvars.iv147.i47
-  %410 = load i16, ptr %gep153.i, align 2, !tbaa !101
+  %gep155.i = getelementptr i16, ptr %invariant.gep.i44, i64 %indvars.iv147.i47
+  %410 = load i16, ptr %gep155.i, align 2, !tbaa !101
   %411 = uitofp i16 %410 to double
   store double %411, ptr %376, align 8, !tbaa !90
   %412 = fmul double %357, %411
   %413 = fadd double %412, %411
   store double %413, ptr %380, align 8, !tbaa !90
-  %load_initial152 = load double, ptr %scevgep151, align 8
+  %load_initial162 = load double, ptr %scevgep161, align 8
   br label %.lr.ph129.i64
 
 .preheader.i:                                     ; preds = %390
@@ -1887,14 +1887,14 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %382, label %.lr.ph132.i53.preheader, label %._crit_edge133.i49
 
 .lr.ph129.i64:                                    ; preds = %.lr.ph129.i64, %.lr.ph129.preheader.i
-  %store_forwarded153 = phi double [ %load_initial152, %.lr.ph129.preheader.i ], [ %425, %.lr.ph129.i64 ]
+  %store_forwarded163 = phi double [ %load_initial162, %.lr.ph129.preheader.i ], [ %425, %.lr.ph129.i64 ]
   %indvars.iv139.i65 = phi i64 [ %383, %.lr.ph129.preheader.i ], [ %indvars.iv.next140.i68, %.lr.ph129.i64 ]
-  %.pn123126.i66 = phi ptr [ %gep153.i, %.lr.ph129.preheader.i ], [ %.pn122.i67, %.lr.ph129.i64 ]
+  %.pn123126.i66 = phi ptr [ %gep155.i, %.lr.ph129.preheader.i ], [ %.pn122.i67, %.lr.ph129.i64 ]
   %.pn122.i67 = getelementptr inbounds i16, ptr %.pn123126.i66, i64 %377
   %418 = load i16, ptr %.pn122.i67, align 2, !tbaa !101
   %419 = uitofp i16 %418 to double
   %420 = getelementptr inbounds nuw double, ptr %334, i64 %indvars.iv139.i65
-  %421 = fmul double %357, %store_forwarded153
+  %421 = fmul double %357, %store_forwarded163
   %422 = fsub double %419, %421
   %423 = getelementptr inbounds nuw i8, ptr %420, i64 16
   %424 = load double, ptr %423, align 8, !tbaa !90
@@ -2015,10 +2015,10 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %wide.trip.count150.i71 = sext i32 %477 to i64
   %invariant.gep.i72 = getelementptr i16, ptr %480, i64 %501
   %wide.trip.count.i73 = zext nneg i32 %451 to i64
-  %scevgep154 = getelementptr i8, ptr %448, i64 8
+  %scevgep164 = getelementptr i8, ptr %448, i64 8
   %502 = shl nuw nsw i64 %499, 3
   %503 = getelementptr i8, ptr %450, i64 %502
-  %scevgep157 = getelementptr i8, ptr %503, i64 8
+  %scevgep167 = getelementptr i8, ptr %503, i64 8
   br label %506
 
 504:                                              ; preds = %435
@@ -2046,11 +2046,11 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %487, label %.lr.ph.i88.preheader, label %.preheader.i77
 
 .lr.ph.i88.preheader:                             ; preds = %506
-  %load_initial155 = load double, ptr %scevgep154, align 8
+  %load_initial165 = load double, ptr %scevgep164, align 8
   br label %.lr.ph.i88
 
 .lr.ph.i88:                                       ; preds = %.lr.ph.i88.preheader, %.lr.ph.i88
-  %store_forwarded156 = phi double [ %load_initial155, %.lr.ph.i88.preheader ], [ %525, %.lr.ph.i88 ]
+  %store_forwarded166 = phi double [ %load_initial165, %.lr.ph.i88.preheader ], [ %525, %.lr.ph.i88 ]
   %indvars.iv.i89 = phi i64 [ 2, %.lr.ph.i88.preheader ], [ %indvars.iv.next.i92, %.lr.ph.i88 ]
   %.pn124.i90 = phi ptr [ %511, %.lr.ph.i88.preheader ], [ %.0115.i91, %.lr.ph.i88 ]
   %.0115.i91 = getelementptr inbounds i16, ptr %.pn124.i90, i64 %483
@@ -2058,7 +2058,7 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %518 = load i16, ptr %517, align 2, !tbaa !101
   %519 = sitofp i16 %518 to double
   %520 = getelementptr double, ptr %448, i64 %indvars.iv.i89
-  %521 = fmul double %473, %store_forwarded156
+  %521 = fmul double %473, %store_forwarded166
   %522 = fsub double %519, %521
   %523 = getelementptr i8, ptr %520, i64 -16
   %524 = load double, ptr %523, align 8, !tbaa !90
@@ -2069,14 +2069,14 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %exitcond.not.i93, label %.lr.ph129.preheader.i94, label %.lr.ph.i88, !llvm.loop !107
 
 .lr.ph129.preheader.i94:                          ; preds = %.lr.ph.i88
-  %gep153.i95 = getelementptr i16, ptr %invariant.gep.i72, i64 %indvars.iv147.i76
-  %526 = load i16, ptr %gep153.i95, align 2, !tbaa !101
+  %gep155.i95 = getelementptr i16, ptr %invariant.gep.i72, i64 %indvars.iv147.i76
+  %526 = load i16, ptr %gep155.i95, align 2, !tbaa !101
   %527 = sitofp i16 %526 to double
   store double %527, ptr %492, align 8, !tbaa !90
   %528 = fmul double %473, %527
   %529 = fadd double %528, %527
   store double %529, ptr %496, align 8, !tbaa !90
-  %load_initial158 = load double, ptr %scevgep157, align 8
+  %load_initial168 = load double, ptr %scevgep167, align 8
   br label %.lr.ph129.i96
 
 .preheader.i77:                                   ; preds = %506
@@ -2090,14 +2090,14 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %498, label %.lr.ph132.i83.preheader, label %._crit_edge133.i79
 
 .lr.ph129.i96:                                    ; preds = %.lr.ph129.i96, %.lr.ph129.preheader.i94
-  %store_forwarded159 = phi double [ %load_initial158, %.lr.ph129.preheader.i94 ], [ %541, %.lr.ph129.i96 ]
+  %store_forwarded169 = phi double [ %load_initial168, %.lr.ph129.preheader.i94 ], [ %541, %.lr.ph129.i96 ]
   %indvars.iv139.i97 = phi i64 [ %499, %.lr.ph129.preheader.i94 ], [ %indvars.iv.next140.i100, %.lr.ph129.i96 ]
-  %.pn123126.i98 = phi ptr [ %gep153.i95, %.lr.ph129.preheader.i94 ], [ %.pn122.i99, %.lr.ph129.i96 ]
+  %.pn123126.i98 = phi ptr [ %gep155.i95, %.lr.ph129.preheader.i94 ], [ %.pn122.i99, %.lr.ph129.i96 ]
   %.pn122.i99 = getelementptr inbounds i16, ptr %.pn123126.i98, i64 %493
   %534 = load i16, ptr %.pn122.i99, align 2, !tbaa !101
   %535 = sitofp i16 %534 to double
   %536 = getelementptr inbounds nuw double, ptr %450, i64 %indvars.iv139.i97
-  %537 = fmul double %473, %store_forwarded159
+  %537 = fmul double %473, %store_forwarded169
   %538 = fsub double %535, %537
   %539 = getelementptr inbounds nuw i8, ptr %536, i64 16
   %540 = load double, ptr %539, align 8, !tbaa !90
@@ -2223,7 +2223,7 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
 .lr.ph.i120.preheader.us.preheader:               ; preds = %.lr.ph136.i102
   %618 = shl nuw nsw i64 %615, 3
   %619 = getelementptr i8, ptr %566, i64 %618
-  %scevgep163 = getelementptr i8, ptr %619, i64 8
+  %scevgep173 = getelementptr i8, ptr %619, i64 8
   br label %.lr.ph.i120.preheader.us
 
 .lr.ph.i120.preheader.us:                         ; preds = %.lr.ph.i120.preheader.us.preheader, %._crit_edge133.i111.loopexit.us
@@ -2242,7 +2242,7 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br label %.lr.ph.i120.us
 
 .lr.ph.i120.us:                                   ; preds = %.lr.ph.i120.preheader.us, %.lr.ph.i120.us
-  %store_forwarded162 = phi double [ %628, %.lr.ph.i120.preheader.us ], [ %637, %.lr.ph.i120.us ]
+  %store_forwarded172 = phi double [ %628, %.lr.ph.i120.preheader.us ], [ %637, %.lr.ph.i120.us ]
   %indvars.iv.i121.us = phi i64 [ 2, %.lr.ph.i120.preheader.us ], [ %indvars.iv.next.i124.us, %.lr.ph.i120.us ]
   %.pn124.i122.us = phi ptr [ %623, %.lr.ph.i120.preheader.us ], [ %.0115.i123.us, %.lr.ph.i120.us ]
   %.0115.i123.us = getelementptr inbounds float, ptr %.pn124.i122.us, i64 %599
@@ -2250,7 +2250,7 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %630 = load float, ptr %629, align 4, !tbaa !93
   %631 = fpext float %630 to double
   %632 = getelementptr double, ptr %564, i64 %indvars.iv.i121.us
-  %633 = fmul double %589, %store_forwarded162
+  %633 = fmul double %589, %store_forwarded172
   %634 = fsub double %631, %633
   %635 = getelementptr i8, ptr %632, i64 -16
   %636 = load double, ptr %635, align 8, !tbaa !90
@@ -2261,25 +2261,25 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   br i1 %exitcond.not.i125.us, label %.lr.ph129.preheader.i126.us, label %.lr.ph.i120.us, !llvm.loop !111
 
 .lr.ph129.preheader.i126.us:                      ; preds = %.lr.ph.i120.us
-  %gep153.i127.us = getelementptr float, ptr %invariant.gep.i104, i64 %indvars.iv147.i108.us
-  %638 = load float, ptr %gep153.i127.us, align 4, !tbaa !93
+  %gep155.i127.us = getelementptr float, ptr %invariant.gep.i104, i64 %indvars.iv147.i108.us
+  %638 = load float, ptr %gep155.i127.us, align 4, !tbaa !93
   %639 = fpext float %638 to double
   store double %639, ptr %608, align 8, !tbaa !90
   %640 = fmul double %589, %639
   %641 = fadd double %640, %639
   store double %641, ptr %612, align 8, !tbaa !90
-  %load_initial164 = load double, ptr %scevgep163, align 8
+  %load_initial174 = load double, ptr %scevgep173, align 8
   br label %.lr.ph129.i128.us
 
 .lr.ph129.i128.us:                                ; preds = %.lr.ph129.i128.us, %.lr.ph129.preheader.i126.us
-  %store_forwarded165 = phi double [ %load_initial164, %.lr.ph129.preheader.i126.us ], [ %649, %.lr.ph129.i128.us ]
+  %store_forwarded175 = phi double [ %load_initial174, %.lr.ph129.preheader.i126.us ], [ %649, %.lr.ph129.i128.us ]
   %indvars.iv139.i129.us = phi i64 [ %615, %.lr.ph129.preheader.i126.us ], [ %indvars.iv.next140.i132.us, %.lr.ph129.i128.us ]
-  %.pn123126.i130.us = phi ptr [ %gep153.i127.us, %.lr.ph129.preheader.i126.us ], [ %.pn122.i131.us, %.lr.ph129.i128.us ]
+  %.pn123126.i130.us = phi ptr [ %gep155.i127.us, %.lr.ph129.preheader.i126.us ], [ %.pn122.i131.us, %.lr.ph129.i128.us ]
   %.pn122.i131.us = getelementptr inbounds float, ptr %.pn123126.i130.us, i64 %609
   %642 = load float, ptr %.pn122.i131.us, align 4, !tbaa !93
   %643 = fpext float %642 to double
   %644 = getelementptr inbounds nuw double, ptr %566, i64 %indvars.iv139.i129.us
-  %645 = fmul double %589, %store_forwarded165
+  %645 = fmul double %589, %store_forwarded175
   %646 = fsub double %643, %645
   %647 = getelementptr inbounds nuw i8, ptr %644, i64 16
   %648 = load double, ptr %647, align 8, !tbaa !90
@@ -2585,7 +2585,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %scevgep = getelementptr i8, ptr %53, i64 8
   %130 = shl nuw nsw i64 %128, 3
   %131 = getelementptr i8, ptr %55, i64 %130
-  %scevgep144 = getelementptr i8, ptr %131, i64 8
+  %scevgep147 = getelementptr i8, ptr %131, i64 8
   br label %134
 
 .loopexit:                                        ; preds = %.lr.ph125, %.preheader
@@ -2672,14 +2672,14 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
 
 .lr.ph122.preheader:                              ; preds = %._crit_edge
   %173 = getelementptr i8, ptr %165, i64 -12
-  %load_initial145 = load double, ptr %scevgep144, align 8
+  %load_initial148 = load double, ptr %scevgep147, align 8
   br label %.lr.ph122
 
 .preheader:                                       ; preds = %._crit_edge
   br i1 %127, label %.lr.ph125.preheader, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
-  %store_forwarded146 = phi double [ %load_initial145, %.lr.ph122.preheader ], [ %186, %.lr.ph122 ]
+  %store_forwarded149 = phi double [ %load_initial148, %.lr.ph122.preheader ], [ %186, %.lr.ph122 ]
   %indvars.iv131 = phi i64 [ %128, %.lr.ph122.preheader ], [ %indvars.iv.next132, %.lr.ph122 ]
   %.1112119 = phi ptr [ %173, %.lr.ph122.preheader ], [ %187, %.lr.ph122 ]
   %174 = getelementptr inbounds nuw i8, ptr %.1112119, i64 4
@@ -2691,7 +2691,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %180 = fmul double %99, %179
   %181 = call double @llvm.fmuladd.f64(double %98, double %176, double %180)
   %182 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv131
-  %183 = call double @llvm.fmuladd.f64(double %117, double %store_forwarded146, double %181)
+  %183 = call double @llvm.fmuladd.f64(double %117, double %store_forwarded149, double %181)
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %185 = load double, ptr %184, align 8, !tbaa !90
   %186 = call double @llvm.fmuladd.f64(double %120, double %185, double %183)
@@ -2890,7 +2890,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %42, 
   %scevgep = getelementptr i8, ptr %71, i64 8
   %121 = shl nuw nsw i64 %119, 3
   %122 = getelementptr i8, ptr %73, i64 %121
-  %scevgep118 = getelementptr i8, ptr %122, i64 8
+  %scevgep128 = getelementptr i8, ptr %122, i64 8
   br label %125
 
 .loopexit.i:                                      ; preds = %.lr.ph116.i, %.preheader.i
@@ -2969,21 +2969,21 @@ common.resume:                                    ; preds = %607, %487, %367, %2
 
 .lr.ph113.preheader.i:                            ; preds = %._crit_edge.i
   %159 = getelementptr i8, ptr %151, i64 -3
-  %load_initial119 = load double, ptr %scevgep118, align 8
+  %load_initial129 = load double, ptr %scevgep128, align 8
   br label %.lr.ph113.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   br i1 %118, label %.lr.ph116.i.preheader, label %.loopexit.i
 
 .lr.ph113.i:                                      ; preds = %.lr.ph113.i, %.lr.ph113.preheader.i
-  %store_forwarded120 = phi double [ %load_initial119, %.lr.ph113.preheader.i ], [ %168, %.lr.ph113.i ]
+  %store_forwarded130 = phi double [ %load_initial129, %.lr.ph113.preheader.i ], [ %168, %.lr.ph113.i ]
   %indvars.iv122.i = phi i64 [ %119, %.lr.ph113.preheader.i ], [ %indvars.iv.next123.i, %.lr.ph113.i ]
   %.1104110.i = phi ptr [ %159, %.lr.ph113.preheader.i ], [ %169, %.lr.ph113.i ]
   %160 = getelementptr inbounds nuw i8, ptr %.1104110.i, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !85
   %162 = uitofp i8 %161 to double
   %163 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv122.i
-  %164 = fmul double %94, %store_forwarded120
+  %164 = fmul double %94, %store_forwarded130
   %165 = fsub double %162, %164
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %167 = load double, ptr %166, align 8, !tbaa !90
@@ -3095,10 +3095,10 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %242 = sext i32 %218 to i64
   %wide.trip.count133.i11 = sext i32 %220 to i64
   %wide.trip.count.i12 = zext nneg i32 %189 to i64
-  %scevgep121 = getelementptr i8, ptr %193, i64 8
+  %scevgep131 = getelementptr i8, ptr %193, i64 8
   %243 = shl nuw nsw i64 %241, 3
   %244 = getelementptr i8, ptr %195, i64 %243
-  %scevgep124 = getelementptr i8, ptr %244, i64 8
+  %scevgep134 = getelementptr i8, ptr %244, i64 8
   br label %247
 
 .loopexit.i18:                                    ; preds = %.lr.ph116.i21, %.preheader.i17
@@ -3132,18 +3132,18 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
 
 .lr.ph.preheader.i31:                             ; preds = %247
   %259 = getelementptr inbounds nuw i8, ptr %251, i64 2
-  %load_initial122 = load double, ptr %scevgep121, align 8
+  %load_initial132 = load double, ptr %scevgep131, align 8
   br label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %.lr.ph.preheader.i31
-  %store_forwarded123 = phi double [ %load_initial122, %.lr.ph.preheader.i31 ], [ %268, %.lr.ph.i32 ]
+  %store_forwarded133 = phi double [ %load_initial132, %.lr.ph.preheader.i31 ], [ %268, %.lr.ph.i32 ]
   %indvars.iv.i33 = phi i64 [ 2, %.lr.ph.preheader.i31 ], [ %indvars.iv.next.i35, %.lr.ph.i32 ]
   %.0103108.i34 = phi ptr [ %259, %.lr.ph.preheader.i31 ], [ %269, %.lr.ph.i32 ]
   %260 = getelementptr inbounds i8, ptr %.0103108.i34, i64 -1
   %261 = load i8, ptr %260, align 1, !tbaa !85
   %262 = sitofp i8 %261 to double
   %263 = getelementptr double, ptr %193, i64 %indvars.iv.i33
-  %264 = fmul double %216, %store_forwarded123
+  %264 = fmul double %216, %store_forwarded133
   %265 = fsub double %262, %264
   %266 = getelementptr i8, ptr %263, i64 -16
   %267 = load double, ptr %266, align 8, !tbaa !90
@@ -3173,21 +3173,21 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
 
 .lr.ph113.preheader.i26:                          ; preds = %._crit_edge.i15
   %281 = getelementptr i8, ptr %273, i64 -3
-  %load_initial125 = load double, ptr %scevgep124, align 8
+  %load_initial135 = load double, ptr %scevgep134, align 8
   br label %.lr.ph113.i27
 
 .preheader.i17:                                   ; preds = %._crit_edge.i15
   br i1 %240, label %.lr.ph116.i21.preheader, label %.loopexit.i18
 
 .lr.ph113.i27:                                    ; preds = %.lr.ph113.i27, %.lr.ph113.preheader.i26
-  %store_forwarded126 = phi double [ %load_initial125, %.lr.ph113.preheader.i26 ], [ %290, %.lr.ph113.i27 ]
+  %store_forwarded136 = phi double [ %load_initial135, %.lr.ph113.preheader.i26 ], [ %290, %.lr.ph113.i27 ]
   %indvars.iv122.i28 = phi i64 [ %241, %.lr.ph113.preheader.i26 ], [ %indvars.iv.next123.i30, %.lr.ph113.i27 ]
   %.1104110.i29 = phi ptr [ %281, %.lr.ph113.preheader.i26 ], [ %291, %.lr.ph113.i27 ]
   %282 = getelementptr inbounds nuw i8, ptr %.1104110.i29, i64 1
   %283 = load i8, ptr %282, align 1, !tbaa !85
   %284 = sitofp i8 %283 to double
   %285 = getelementptr inbounds nuw double, ptr %195, i64 %indvars.iv122.i28
-  %286 = fmul double %216, %store_forwarded126
+  %286 = fmul double %216, %store_forwarded136
   %287 = fsub double %284, %286
   %288 = getelementptr inbounds nuw i8, ptr %285, i64 16
   %289 = load double, ptr %288, align 8, !tbaa !90
@@ -3299,10 +3299,10 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %364 = sext i32 %340 to i64
   %wide.trip.count133.i38 = sext i32 %342 to i64
   %wide.trip.count.i39 = zext nneg i32 %311 to i64
-  %scevgep127 = getelementptr i8, ptr %315, i64 8
+  %scevgep137 = getelementptr i8, ptr %315, i64 8
   %365 = shl nuw nsw i64 %363, 3
   %366 = getelementptr i8, ptr %317, i64 %365
-  %scevgep130 = getelementptr i8, ptr %366, i64 8
+  %scevgep140 = getelementptr i8, ptr %366, i64 8
   br label %369
 
 .loopexit.i45:                                    ; preds = %.lr.ph116.i48, %.preheader.i44
@@ -3336,18 +3336,18 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
 
 .lr.ph.preheader.i58:                             ; preds = %369
   %381 = getelementptr inbounds nuw i8, ptr %373, i64 4
-  %load_initial128 = load double, ptr %scevgep127, align 8
+  %load_initial138 = load double, ptr %scevgep137, align 8
   br label %.lr.ph.i59
 
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59, %.lr.ph.preheader.i58
-  %store_forwarded129 = phi double [ %load_initial128, %.lr.ph.preheader.i58 ], [ %390, %.lr.ph.i59 ]
+  %store_forwarded139 = phi double [ %load_initial138, %.lr.ph.preheader.i58 ], [ %390, %.lr.ph.i59 ]
   %indvars.iv.i60 = phi i64 [ 2, %.lr.ph.preheader.i58 ], [ %indvars.iv.next.i62, %.lr.ph.i59 ]
   %.0103108.i61 = phi ptr [ %381, %.lr.ph.preheader.i58 ], [ %391, %.lr.ph.i59 ]
   %382 = getelementptr inbounds i8, ptr %.0103108.i61, i64 -2
   %383 = load i16, ptr %382, align 2, !tbaa !101
   %384 = uitofp i16 %383 to double
   %385 = getelementptr double, ptr %315, i64 %indvars.iv.i60
-  %386 = fmul double %338, %store_forwarded129
+  %386 = fmul double %338, %store_forwarded139
   %387 = fsub double %384, %386
   %388 = getelementptr i8, ptr %385, i64 -16
   %389 = load double, ptr %388, align 8, !tbaa !90
@@ -3375,21 +3375,21 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
 
 .lr.ph113.preheader.i53:                          ; preds = %._crit_edge.i42
   %401 = getelementptr i8, ptr %395, i64 -6
-  %load_initial131 = load double, ptr %scevgep130, align 8
+  %load_initial141 = load double, ptr %scevgep140, align 8
   br label %.lr.ph113.i54
 
 .preheader.i44:                                   ; preds = %._crit_edge.i42
   br i1 %362, label %.lr.ph116.i48.preheader, label %.loopexit.i45
 
 .lr.ph113.i54:                                    ; preds = %.lr.ph113.i54, %.lr.ph113.preheader.i53
-  %store_forwarded132 = phi double [ %load_initial131, %.lr.ph113.preheader.i53 ], [ %410, %.lr.ph113.i54 ]
+  %store_forwarded142 = phi double [ %load_initial141, %.lr.ph113.preheader.i53 ], [ %410, %.lr.ph113.i54 ]
   %indvars.iv122.i55 = phi i64 [ %363, %.lr.ph113.preheader.i53 ], [ %indvars.iv.next123.i57, %.lr.ph113.i54 ]
   %.1104110.i56 = phi ptr [ %401, %.lr.ph113.preheader.i53 ], [ %411, %.lr.ph113.i54 ]
   %402 = getelementptr inbounds nuw i8, ptr %.1104110.i56, i64 2
   %403 = load i16, ptr %402, align 2, !tbaa !101
   %404 = uitofp i16 %403 to double
   %405 = getelementptr inbounds nuw double, ptr %317, i64 %indvars.iv122.i55
-  %406 = fmul double %338, %store_forwarded132
+  %406 = fmul double %338, %store_forwarded142
   %407 = fsub double %404, %406
   %408 = getelementptr inbounds nuw i8, ptr %405, i64 16
   %409 = load double, ptr %408, align 8, !tbaa !90
@@ -3501,10 +3501,10 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %484 = sext i32 %460 to i64
   %wide.trip.count133.i65 = sext i32 %462 to i64
   %wide.trip.count.i66 = zext nneg i32 %431 to i64
-  %scevgep133 = getelementptr i8, ptr %435, i64 8
+  %scevgep143 = getelementptr i8, ptr %435, i64 8
   %485 = shl nuw nsw i64 %483, 3
   %486 = getelementptr i8, ptr %437, i64 %485
-  %scevgep136 = getelementptr i8, ptr %486, i64 8
+  %scevgep146 = getelementptr i8, ptr %486, i64 8
   br label %489
 
 .loopexit.i72:                                    ; preds = %.lr.ph116.i75, %.preheader.i71
@@ -3538,18 +3538,18 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
 
 .lr.ph.preheader.i85:                             ; preds = %489
   %501 = getelementptr inbounds nuw i8, ptr %493, i64 4
-  %load_initial134 = load double, ptr %scevgep133, align 8
+  %load_initial144 = load double, ptr %scevgep143, align 8
   br label %.lr.ph.i86
 
 .lr.ph.i86:                                       ; preds = %.lr.ph.i86, %.lr.ph.preheader.i85
-  %store_forwarded135 = phi double [ %load_initial134, %.lr.ph.preheader.i85 ], [ %510, %.lr.ph.i86 ]
+  %store_forwarded145 = phi double [ %load_initial144, %.lr.ph.preheader.i85 ], [ %510, %.lr.ph.i86 ]
   %indvars.iv.i87 = phi i64 [ 2, %.lr.ph.preheader.i85 ], [ %indvars.iv.next.i89, %.lr.ph.i86 ]
   %.0103108.i88 = phi ptr [ %501, %.lr.ph.preheader.i85 ], [ %511, %.lr.ph.i86 ]
   %502 = getelementptr inbounds i8, ptr %.0103108.i88, i64 -2
   %503 = load i16, ptr %502, align 2, !tbaa !101
   %504 = sitofp i16 %503 to double
   %505 = getelementptr double, ptr %435, i64 %indvars.iv.i87
-  %506 = fmul double %458, %store_forwarded135
+  %506 = fmul double %458, %store_forwarded145
   %507 = fsub double %504, %506
   %508 = getelementptr i8, ptr %505, i64 -16
   %509 = load double, ptr %508, align 8, !tbaa !90
@@ -3577,21 +3577,21 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
 
 .lr.ph113.preheader.i80:                          ; preds = %._crit_edge.i69
   %521 = getelementptr i8, ptr %515, i64 -6
-  %load_initial137 = load double, ptr %scevgep136, align 8
+  %load_initial147 = load double, ptr %scevgep146, align 8
   br label %.lr.ph113.i81
 
 .preheader.i71:                                   ; preds = %._crit_edge.i69
   br i1 %482, label %.lr.ph116.i75.preheader, label %.loopexit.i72
 
 .lr.ph113.i81:                                    ; preds = %.lr.ph113.i81, %.lr.ph113.preheader.i80
-  %store_forwarded138 = phi double [ %load_initial137, %.lr.ph113.preheader.i80 ], [ %530, %.lr.ph113.i81 ]
+  %store_forwarded148 = phi double [ %load_initial147, %.lr.ph113.preheader.i80 ], [ %530, %.lr.ph113.i81 ]
   %indvars.iv122.i82 = phi i64 [ %483, %.lr.ph113.preheader.i80 ], [ %indvars.iv.next123.i84, %.lr.ph113.i81 ]
   %.1104110.i83 = phi ptr [ %521, %.lr.ph113.preheader.i80 ], [ %531, %.lr.ph113.i81 ]
   %522 = getelementptr inbounds nuw i8, ptr %.1104110.i83, i64 2
   %523 = load i16, ptr %522, align 2, !tbaa !101
   %524 = sitofp i16 %523 to double
   %525 = getelementptr inbounds nuw double, ptr %437, i64 %indvars.iv122.i82
-  %526 = fmul double %458, %store_forwarded138
+  %526 = fmul double %458, %store_forwarded148
   %527 = fsub double %524, %526
   %528 = getelementptr inbounds nuw i8, ptr %525, i64 16
   %529 = load double, ptr %528, align 8, !tbaa !90
@@ -3703,10 +3703,10 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %604 = sext i32 %580 to i64
   %wide.trip.count133.i92 = sext i32 %582 to i64
   %wide.trip.count.i93 = zext nneg i32 %551 to i64
-  %scevgep139 = getelementptr i8, ptr %555, i64 8
+  %scevgep149 = getelementptr i8, ptr %555, i64 8
   %605 = shl nuw nsw i64 %603, 3
   %606 = getelementptr i8, ptr %557, i64 %605
-  %scevgep142 = getelementptr i8, ptr %606, i64 8
+  %scevgep152 = getelementptr i8, ptr %606, i64 8
   br label %609
 
 .loopexit.i99:                                    ; preds = %.lr.ph116.i102, %.preheader.i98
@@ -3740,18 +3740,18 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
 
 .lr.ph.preheader.i112:                            ; preds = %609
   %621 = getelementptr inbounds nuw i8, ptr %613, i64 8
-  %load_initial140 = load double, ptr %scevgep139, align 8
+  %load_initial150 = load double, ptr %scevgep149, align 8
   br label %.lr.ph.i113
 
 .lr.ph.i113:                                      ; preds = %.lr.ph.i113, %.lr.ph.preheader.i112
-  %store_forwarded141 = phi double [ %load_initial140, %.lr.ph.preheader.i112 ], [ %630, %.lr.ph.i113 ]
+  %store_forwarded151 = phi double [ %load_initial150, %.lr.ph.preheader.i112 ], [ %630, %.lr.ph.i113 ]
   %indvars.iv.i114 = phi i64 [ 2, %.lr.ph.preheader.i112 ], [ %indvars.iv.next.i116, %.lr.ph.i113 ]
   %.0103108.i115 = phi ptr [ %621, %.lr.ph.preheader.i112 ], [ %631, %.lr.ph.i113 ]
   %622 = getelementptr inbounds i8, ptr %.0103108.i115, i64 -4
   %623 = load float, ptr %622, align 4, !tbaa !93
   %624 = fpext float %623 to double
   %625 = getelementptr double, ptr %555, i64 %indvars.iv.i114
-  %626 = fmul double %578, %store_forwarded141
+  %626 = fmul double %578, %store_forwarded151
   %627 = fsub double %624, %626
   %628 = getelementptr i8, ptr %625, i64 -16
   %629 = load double, ptr %628, align 8, !tbaa !90
@@ -3779,21 +3779,21 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
 
 .lr.ph113.preheader.i107:                         ; preds = %._crit_edge.i96
   %641 = getelementptr i8, ptr %635, i64 -12
-  %load_initial143 = load double, ptr %scevgep142, align 8
+  %load_initial153 = load double, ptr %scevgep152, align 8
   br label %.lr.ph113.i108
 
 .preheader.i98:                                   ; preds = %._crit_edge.i96
   br i1 %602, label %.lr.ph116.i102.preheader, label %.loopexit.i99
 
 .lr.ph113.i108:                                   ; preds = %.lr.ph113.i108, %.lr.ph113.preheader.i107
-  %store_forwarded144 = phi double [ %load_initial143, %.lr.ph113.preheader.i107 ], [ %650, %.lr.ph113.i108 ]
+  %store_forwarded154 = phi double [ %load_initial153, %.lr.ph113.preheader.i107 ], [ %650, %.lr.ph113.i108 ]
   %indvars.iv122.i109 = phi i64 [ %603, %.lr.ph113.preheader.i107 ], [ %indvars.iv.next123.i111, %.lr.ph113.i108 ]
   %.1104110.i110 = phi ptr [ %641, %.lr.ph113.preheader.i107 ], [ %651, %.lr.ph113.i108 ]
   %642 = getelementptr inbounds nuw i8, ptr %.1104110.i110, i64 4
   %643 = load float, ptr %642, align 4, !tbaa !93
   %644 = fpext float %643 to double
   %645 = getelementptr inbounds nuw double, ptr %557, i64 %indvars.iv122.i109
-  %646 = fmul double %578, %store_forwarded144
+  %646 = fmul double %578, %store_forwarded154
   %647 = fsub double %644, %646
   %648 = getelementptr inbounds nuw i8, ptr %645, i64 16
   %649 = load double, ptr %648, align 8, !tbaa !90
@@ -4005,12 +4005,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %132 = sext i32 %114 to i64
   %wide.trip.count157 = sext i32 %100 to i64
   %wide.trip.count = zext nneg i32 %48 to i64
-  %invariant.gep159 = getelementptr float, ptr %104, i64 %132
+  %invariant.gep162 = getelementptr float, ptr %104, i64 %132
   %wide.trip.count152 = zext nneg i32 %48 to i64
   %scevgep = getelementptr i8, ptr %54, i64 8
   %133 = shl nuw nsw i64 %130, 3
   %134 = getelementptr i8, ptr %56, i64 %133
-  %scevgep161 = getelementptr i8, ptr %134, i64 8
+  %scevgep164 = getelementptr i8, ptr %134, i64 8
   br label %137
 
 ._crit_edge144:                                   ; preds = %._crit_edge140, %52
@@ -4074,8 +4074,8 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %gep160 = getelementptr float, ptr %invariant.gep159, i64 %indvars.iv154
-  %163 = load float, ptr %gep160, align 4, !tbaa !93
+  %gep163 = getelementptr float, ptr %invariant.gep162, i64 %indvars.iv154
+  %163 = load float, ptr %gep163, align 4, !tbaa !93
   %164 = fpext float %163 to double
   %165 = fmul double %115, %164
   store double %165, ptr %117, align 8, !tbaa !90
@@ -4083,13 +4083,13 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %167 = fmul double %95, %166
   %168 = call double @llvm.fmuladd.f64(double %115, double %164, double %167)
   store double %168, ptr %121, align 8, !tbaa !90
-  %169 = getelementptr inbounds float, ptr %gep160, i64 %118
-  %load_initial162 = load double, ptr %scevgep161, align 8
+  %169 = getelementptr inbounds float, ptr %gep163, i64 %118
+  %load_initial165 = load double, ptr %scevgep164, align 8
   br label %.lr.ph137
 
 .preheader.critedge:                              ; preds = %137
-  %gep160.c = getelementptr float, ptr %invariant.gep159, i64 %indvars.iv154
-  %170 = load float, ptr %gep160.c, align 4, !tbaa !93
+  %gep163.c = getelementptr float, ptr %invariant.gep162, i64 %indvars.iv154
+  %170 = load float, ptr %gep163.c, align 4, !tbaa !93
   %171 = fpext float %170 to double
   %172 = fmul double %115, %171
   store double %172, ptr %117, align 8, !tbaa !90
@@ -4113,7 +4113,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   br label %198
 
 .lr.ph137:                                        ; preds = %._crit_edge, %.lr.ph137
-  %store_forwarded163 = phi double [ %load_initial162, %._crit_edge ], [ %196, %.lr.ph137 ]
+  %store_forwarded166 = phi double [ %load_initial165, %._crit_edge ], [ %196, %.lr.ph137 ]
   %indvars.iv146 = phi i64 [ %130, %._crit_edge ], [ %indvars.iv.next147, %.lr.ph137 ]
   %.pn131134 = phi ptr [ %169, %._crit_edge ], [ %.1129, %.lr.ph137 ]
   %.1129 = getelementptr inbounds float, ptr %.pn131134, i64 %118
@@ -4125,7 +4125,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
   %190 = fmul double %97, %189
   %191 = call double @llvm.fmuladd.f64(double %96, double %186, double %190)
   %192 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv146
-  %193 = call double @llvm.fmuladd.f64(double %109, double %store_forwarded163, double %191)
+  %193 = call double @llvm.fmuladd.f64(double %109, double %store_forwarded166, double %191)
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %195 = load double, ptr %194, align 8, !tbaa !90
   %196 = call double @llvm.fmuladd.f64(double %112, double %195, double %193)

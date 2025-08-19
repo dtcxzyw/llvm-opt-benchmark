@@ -877,9 +877,9 @@ define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captur
   br i1 %33, label %mi_abandoned_visited_revisit.exit.i, label %26, !llvm.loop !60
 
 mi_abandoned_visited_revisit.exit.i:              ; preds = %26, %14
-  %.sink46.i.i = phi i64 [ %15, %14 ], [ %27, %26 ]
-  %35 = atomicrmw add ptr @abandoned_count, i64 %.sink46.i.i monotonic, align 64
-  %36 = atomicrmw sub ptr @abandoned_visited_count, i64 %.sink46.i.i monotonic, align 64
+  %.sink48.i.i = phi i64 [ %15, %14 ], [ %27, %26 ]
+  %35 = atomicrmw add ptr @abandoned_count, i64 %.sink48.i.i monotonic, align 64
+  %36 = atomicrmw sub ptr @abandoned_visited_count, i64 %.sink48.i.i monotonic, align 64
   br label %37
 
 37:                                               ; preds = %mi_abandoned_visited_revisit.exit.i, %3
@@ -1199,9 +1199,9 @@ define hidden void @_mi_abandoned_collect(ptr noundef %0, i1 noundef zeroext %1,
   br i1 %31, label %.sink.split.i, label %24, !llvm.loop !60
 
 .sink.split.i:                                    ; preds = %24, %12
-  %.sink46.i = phi i64 [ %13, %12 ], [ %25, %24 ]
-  %33 = atomicrmw add ptr @abandoned_count, i64 %.sink46.i monotonic, align 64
-  %34 = atomicrmw sub ptr @abandoned_visited_count, i64 %.sink46.i monotonic, align 64
+  %.sink48.i = phi i64 [ %13, %12 ], [ %25, %24 ]
+  %33 = atomicrmw add ptr @abandoned_count, i64 %.sink48.i monotonic, align 64
+  %34 = atomicrmw sub ptr @abandoned_visited_count, i64 %.sink48.i monotonic, align 64
   br label %mi_abandoned_visited_revisit.exit
 
 mi_abandoned_visited_revisit.exit:                ; preds = %.sink.split.i, %7, %4, %3
@@ -1269,9 +1269,9 @@ mi_abandoned_visited_revisit.exit:                ; preds = %.sink.split.i, %7, 
   br i1 %68, label %mi_abandoned_visited_revisit.exit.i, label %61, !llvm.loop !60
 
 mi_abandoned_visited_revisit.exit.i:              ; preds = %61, %49
-  %.sink46.i.i = phi i64 [ %50, %49 ], [ %62, %61 ]
-  %70 = atomicrmw add ptr @abandoned_count, i64 %.sink46.i.i monotonic, align 64
-  %71 = atomicrmw sub ptr @abandoned_visited_count, i64 %.sink46.i.i monotonic, align 64
+  %.sink48.i.i = phi i64 [ %50, %49 ], [ %62, %61 ]
+  %70 = atomicrmw add ptr @abandoned_count, i64 %.sink48.i.i monotonic, align 64
+  %71 = atomicrmw sub ptr @abandoned_visited_count, i64 %.sink48.i.i monotonic, align 64
   br label %72
 
 72:                                               ; preds = %mi_abandoned_visited_revisit.exit.i, %37
@@ -1669,7 +1669,7 @@ define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef r
   br i1 %12, label %mi_span_queue_for.exit.thread.i, label %mi_span_queue_for.exit.i
 
 mi_span_queue_for.exit.thread.i:                  ; preds = %5
-  %spec.store.select59.i = tail call i64 @llvm.umax.i64(i64 range(i64 0, 281474976710656) %11, i64 1)
+  %spec.store.select63.i = tail call i64 @llvm.umax.i64(i64 range(i64 0, 281474976710656) %11, i64 1)
   br label %.preheader.preheader.i
 
 mi_span_queue_for.exit.i:                         ; preds = %5
@@ -1686,9 +1686,9 @@ mi_span_queue_for.exit.i:                         ; preds = %5
   br i1 %.not45.i, label %.loopexit, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %mi_span_queue_for.exit.i, %mi_span_queue_for.exit.thread.i
-  %spec.store.select62.i = phi i64 [ %spec.store.select59.i, %mi_span_queue_for.exit.thread.i ], [ %11, %mi_span_queue_for.exit.i ]
-  %.0.i.i.i61.i = phi i64 [ %11, %mi_span_queue_for.exit.thread.i ], [ %21, %mi_span_queue_for.exit.i ]
-  %.idx.i = mul nuw nsw i64 %.0.i.i.i61.i, 24
+  %spec.store.select66.i = phi i64 [ %spec.store.select63.i, %mi_span_queue_for.exit.thread.i ], [ %11, %mi_span_queue_for.exit.i ]
+  %.0.i.i.i65.i = phi i64 [ %11, %mi_span_queue_for.exit.thread.i ], [ %21, %mi_span_queue_for.exit.i ]
+  %.idx.i = mul nuw nsw i64 %.0.i.i.i65.i, 24
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.preheader.i
@@ -1702,7 +1702,7 @@ mi_span_queue_for.exit.i:                         ; preds = %5
   %.03143.i = phi ptr [ %.031.i, %54 ], [ %.03141.i, %.preheader.i ]
   %22 = load i32, ptr %.03143.i, align 8, !tbaa !21
   %23 = zext i32 %22 to i64
-  %.not35.i = icmp samesign ugt i64 %spec.store.select62.i, %23
+  %.not35.i = icmp samesign ugt i64 %spec.store.select66.i, %23
   br i1 %.not35.i, label %54, label %24
 
 24:                                               ; preds = %.lr.ph.i
@@ -1754,22 +1754,22 @@ mi_span_queue_delete.exit.i:                      ; preds = %37, %33
   %40 = ptrtoint ptr %.03143.i to i64
   %41 = and i64 %40, -67108864
   %42 = inttoptr i64 %41 to ptr
-  %43 = icmp samesign ult i64 %spec.store.select62.i, %23
+  %43 = icmp samesign ult i64 %spec.store.select66.i, %23
   %.neg3.i.i.i = add i64 %40, -368
   %44 = sub i64 %.neg3.i.i.i, %41
   %45 = sdiv exact i64 %44, 80
   br i1 %43, label %mi_segment_slice_split.exit.i, label %mi_span_queue_delete.exit._crit_edge.i
 
 mi_segment_slice_split.exit.i:                    ; preds = %mi_span_queue_delete.exit.i
-  %46 = add nsw i64 %45, %spec.store.select62.i
-  %47 = sub nuw nsw i64 %23, %spec.store.select62.i
+  %46 = add nsw i64 %45, %spec.store.select66.i
+  %47 = sub nuw nsw i64 %23, %spec.store.select66.i
   tail call fastcc void @mi_segment_span_free(ptr noundef %42, i64 noundef %46, i64 noundef %47, ptr noundef nonnull %3)
-  %48 = trunc nuw nsw i64 %spec.store.select62.i to i32
+  %48 = trunc nuw nsw i64 %spec.store.select66.i to i32
   store i32 %48, ptr %.03143.i, align 8, !tbaa !21
   br label %mi_span_queue_delete.exit._crit_edge.i
 
 mi_span_queue_delete.exit._crit_edge.i:           ; preds = %mi_segment_slice_split.exit.i, %mi_span_queue_delete.exit.i
-  %.pre-phi.i = phi i64 [ %spec.store.select62.i, %mi_segment_slice_split.exit.i ], [ %23, %mi_span_queue_delete.exit.i ]
+  %.pre-phi.i = phi i64 [ %spec.store.select66.i, %mi_segment_slice_split.exit.i ], [ %23, %mi_span_queue_delete.exit.i ]
   %49 = getelementptr i8, ptr %3, i64 896
   %.val.i = load ptr, ptr %49, align 8, !tbaa !30
   %50 = tail call fastcc ptr @mi_segment_span_allocate(ptr noundef %42, i64 noundef %45, i64 noundef %.pre-phi.i, ptr %.val.i)
@@ -1863,9 +1863,9 @@ mi_span_queue_delete.exit._crit_edge.i:           ; preds = %mi_segment_slice_sp
   br i1 %90, label %mi_abandoned_visited_revisit.exit.i.i.i, label %83, !llvm.loop !60
 
 mi_abandoned_visited_revisit.exit.i.i.i:          ; preds = %83, %71
-  %.sink46.i.i.i.i = phi i64 [ %72, %71 ], [ %84, %83 ]
-  %92 = atomicrmw add ptr @abandoned_count, i64 %.sink46.i.i.i.i monotonic, align 64
-  %93 = atomicrmw sub ptr @abandoned_visited_count, i64 %.sink46.i.i.i.i monotonic, align 64
+  %.sink48.i.i.i.i = phi i64 [ %72, %71 ], [ %84, %83 ]
+  %92 = atomicrmw add ptr @abandoned_count, i64 %.sink48.i.i.i.i monotonic, align 64
+  %93 = atomicrmw sub ptr @abandoned_visited_count, i64 %.sink48.i.i.i.i monotonic, align 64
   br label %94
 
 94:                                               ; preds = %mi_abandoned_visited_revisit.exit.i.i.i, %59
@@ -2562,10 +2562,10 @@ mi_commit_mask_is_empty.exit:                     ; preds = %13
 
 19:                                               ; preds = %mi_commit_mask_is_empty.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  br i1 %1, label %.preheader57, label %.critedge23
+  br i1 %1, label %.preheader59, label %.critedge23
 
-.preheader57:                                     ; preds = %19, %.preheader57
-  %.0911.i = phi i64 [ %26, %.preheader57 ], [ 0, %19 ]
+.preheader59:                                     ; preds = %19, %.preheader59
+  %.0911.i = phi i64 [ %26, %.preheader59 ], [ 0, %19 ]
   %21 = getelementptr inbounds nuw [16 x i64], ptr %20, i64 0, i64 %.0911.i
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.0911.i
@@ -2575,9 +2575,9 @@ mi_commit_mask_is_empty.exit:                     ; preds = %13
   %26 = add nuw nsw i64 %.0911.i, 1
   %exitcond.i27 = icmp ne i64 %26, 16
   %or.cond.not.i28 = select i1 %.not.i26, i1 %exitcond.i27, i1 false
-  br i1 %or.cond.not.i28, label %.preheader57, label %mi_commit_mask_all_set.exit, !llvm.loop !95
+  br i1 %or.cond.not.i28, label %.preheader59, label %mi_commit_mask_all_set.exit, !llvm.loop !95
 
-mi_commit_mask_all_set.exit:                      ; preds = %.preheader57
+mi_commit_mask_all_set.exit:                      ; preds = %.preheader59
   br i1 %.not.i26, label %.critedge25, label %27
 
 27:                                               ; preds = %mi_commit_mask_all_set.exit
@@ -2721,18 +2721,18 @@ _mi_commit_mask_committed_size.exit46:            ; preds = %.loopexit.i38
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %77 = load i8, ptr %76, align 1, !tbaa !71, !range !35, !noundef !36
   %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %.preheader58
+  br i1 %78, label %79, label %.preheader60
 
 79:                                               ; preds = %_mi_commit_mask_committed_size.exit46
   %80 = load ptr, ptr %6, align 8, !tbaa !93
   %81 = tail call zeroext i1 @_mi_os_decommit(ptr noundef %80, i64 noundef %17, ptr noundef %4) #8
-  br label %.preheader58
+  br label %.preheader60
 
-.preheader58:                                     ; preds = %79, %_mi_commit_mask_committed_size.exit46
+.preheader60:                                     ; preds = %79, %_mi_commit_mask_committed_size.exit46
   br label %82
 
-82:                                               ; preds = %.preheader58, %82
-  %.05.i47 = phi i64 [ %89, %82 ], [ 0, %.preheader58 ]
+82:                                               ; preds = %.preheader60, %82
+  %.05.i47 = phi i64 [ %89, %82 ], [ 0, %.preheader60 ]
   %83 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.05.i47
   %84 = load i64, ptr %83, align 8, !tbaa !3
   %85 = xor i64 %84, -1

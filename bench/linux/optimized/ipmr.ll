@@ -1462,18 +1462,18 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %210 = icmp ult i8 %209, 2
   call void @llvm.assume(i1 %210)
   %211 = icmp eq i8 %209, 0
-  br i1 %211, label %.preheader60, label %212, !prof !13
+  br i1 %211, label %.preheader77, label %212, !prof !13
 
 212:                                              ; preds = %.preheader
   %213 = call i64 @llvm.read_register.i64(metadata !0)
   %214 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %213) #17, !srcloc !46
   call void @llvm.write_register.i64(metadata !0, i64 %214)
-  br label %.preheader60
+  br label %.preheader77
 
-.preheader60:                                     ; preds = %212, %.preheader
+.preheader77:                                     ; preds = %212, %.preheader
   br label %215
 
-215:                                              ; preds = %.preheader60, %215
+215:                                              ; preds = %.preheader77, %215
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !47
   %216 = load volatile i64, ptr %202, align 8
   %217 = and i64 %216, 1
@@ -4127,9 +4127,9 @@ define internal i32 @ipmr_rtm_route(ptr noundef readonly captures(none) %0, ptr 
   %106 = getelementptr inbounds nuw i8, ptr %8, i64 1352
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, null
-  br i1 %108, label %.thread17, label %.thread49
+  br i1 %108, label %.thread17, label %.thread61
 
-.thread49:                                        ; preds = %.critedge.thread
+.thread61:                                        ; preds = %.critedge.thread
   %109 = load i8, ptr %33, align 1
   %110 = icmp eq i8 %109, 17
   br label %135
@@ -4171,9 +4171,9 @@ define internal i32 @ipmr_rtm_route(ptr noundef readonly captures(none) %0, ptr 
 134:                                              ; preds = %111
   br i1 %102, label %135, label %138
 
-135:                                              ; preds = %130, %.thread49, %134
-  %136 = phi ptr [ %107, %.thread49 ], [ %104, %134 ], [ %104, %130 ]
-  %137 = phi i1 [ %110, %.thread49 ], [ %113, %134 ], [ %113, %130 ]
+135:                                              ; preds = %130, %.thread61, %134
+  %136 = phi ptr [ %107, %.thread61 ], [ %104, %134 ], [ %104, %130 ]
+  %137 = phi i1 [ %110, %.thread61 ], [ %113, %134 ], [ %113, %130 ]
   br label %138
 
 138:                                              ; preds = %130, %134, %135
@@ -5316,18 +5316,18 @@ define internal fastcc void @rhltable_remove(ptr noundef %0, ptr noundef %1, ptr
   %68 = icmp ult i8 %67, 2
   call void @llvm.assume(i1 %68)
   %69 = icmp eq i8 %67, 0
-  br i1 %69, label %.preheader115, label %70, !prof !13
+  br i1 %69, label %.preheader124, label %70, !prof !13
 
 70:                                               ; preds = %.preheader17
   %71 = call i64 @llvm.read_register.i64(metadata !0)
   %72 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %71) #17, !srcloc !46
   call void @llvm.write_register.i64(metadata !0, i64 %72)
-  br label %.preheader115
+  br label %.preheader124
 
-.preheader115:                                    ; preds = %70, %.preheader17
+.preheader124:                                    ; preds = %70, %.preheader17
   br label %73
 
-73:                                               ; preds = %.preheader115, %73
+73:                                               ; preds = %.preheader124, %73
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !47
   %74 = load volatile i64, ptr %60, align 8
   %75 = and i64 %74, 1

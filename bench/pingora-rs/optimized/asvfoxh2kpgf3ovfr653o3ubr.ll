@@ -256,7 +256,7 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17h2628a5e3e
 37:                                               ; preds = %36, %34, %24, %21
   %.sroa.0.1.sink = phi i16 [ %14, %21 ], [ %35, %36 ], [ undef, %34 ], [ undef, %24 ]
   %.sroa.9.1.sink = phi i16 [ %.sroa.012.0, %21 ], [ 0, %36 ], [ 2, %34 ], [ 2, %24 ]
-  %.sink54 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
+  %.sink56 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   %.sink = phi i8 [ %23, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   store i16 %.sroa.0.1.sink, ptr %0, align 4
   %.sroa.8.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -264,7 +264,7 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17h2628a5e3e
   %.sroa.9.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 %.sroa.9.1.sink, ptr %.sroa.9.0..sroa_idx23, align 4
   %.sroa.15.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i32 %.sink54, ptr %.sroa.15.0..sroa_idx26, align 2
+  store i32 %.sink56, ptr %.sroa.15.0..sroa_idx26, align 2
   %.sroa.18.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 38
   store i8 %.sink, ptr %.sroa.18.0..sroa_idx28, align 2
   ret void
@@ -344,7 +344,7 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17hc04ac5fc3
 37:                                               ; preds = %36, %34, %24, %21
   %.sroa.0.1.sink = phi i16 [ %14, %21 ], [ %35, %36 ], [ undef, %34 ], [ undef, %24 ]
   %.sroa.9.1.sink = phi i16 [ %.sroa.012.0, %21 ], [ 0, %36 ], [ 2, %34 ], [ 2, %24 ]
-  %.sink54 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
+  %.sink56 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   %.sink = phi i8 [ %23, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   store i16 %.sroa.0.1.sink, ptr %0, align 4
   %.sroa.8.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -352,7 +352,7 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17hc04ac5fc3
   %.sroa.9.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 %.sroa.9.1.sink, ptr %.sroa.9.0..sroa_idx23, align 4
   %.sroa.15.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i32 %.sink54, ptr %.sroa.15.0..sroa_idx26, align 2
+  store i32 %.sink56, ptr %.sroa.15.0..sroa_idx26, align 2
   %.sroa.18.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 38
   store i8 %.sink, ptr %.sroa.18.0..sroa_idx28, align 2
   ret void
@@ -3272,12 +3272,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17hdc84516b85c0d288E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 

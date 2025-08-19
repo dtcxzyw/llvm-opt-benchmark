@@ -419,7 +419,7 @@ define i32 @mriStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
   %38 = fmul double %16, %37
   %39 = fdiv double %38, %3
   %40 = fcmp ugt double %39, 1.000000e+00
-  br i1 %40, label %.thread21, label %49
+  br i1 %40, label %.thread22, label %49
 
 41:                                               ; preds = %21
   %42 = getelementptr inbounds nuw i8, ptr %.pre, i64 240
@@ -428,15 +428,15 @@ define i32 @mriStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
   %45 = load double, ptr %44, align 8, !tbaa !56
   %46 = fmul double %43, %45
   %47 = fcmp ogt double %16, %46
-  br i1 %47, label %49, label %.thread21
+  br i1 %47, label %49, label %.thread22
 
-.thread21:                                        ; preds = %.thread, %41
+.thread22:                                        ; preds = %.thread, %41
   %48 = getelementptr inbounds nuw i8, ptr %.pre, i64 256
   store double %16, ptr %48, align 8, !tbaa !56
   br label %49
 
-49:                                               ; preds = %.thread, %41, %21, %15, %11, %6, %.thread21
-  %.0 = phi i32 [ 901, %.thread21 ], [ %10, %6 ], [ 0, %11 ], [ -21, %15 ], [ 0, %21 ], [ 902, %41 ], [ 0, %.thread ]
+49:                                               ; preds = %.thread, %41, %21, %15, %11, %6, %.thread22
+  %.0 = phi i32 [ 901, %.thread22 ], [ %10, %6 ], [ 0, %11 ], [ -21, %15 ], [ 0, %21 ], [ 902, %41 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -775,8 +775,8 @@ define range(i32 903, 902) i32 @mriStep_Nls(ptr noundef %0, i32 noundef %1) loca
   br label %19
 
 19:                                               ; preds = %12, %16
-  %.sink54 = phi i1 [ %18, %16 ], [ %15, %12 ]
-  %20 = select i1 %.sink54, i32 0, i32 2
+  %.sink55 = phi i1 [ %18, %16 ], [ %15, %12 ]
+  %20 = select i1 %.sink55, i32 0, i32 2
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 300
   store i32 %20, ptr %21, align 4, !tbaa !62
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 972

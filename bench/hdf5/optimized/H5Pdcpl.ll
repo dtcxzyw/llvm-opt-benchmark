@@ -1207,7 +1207,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 90:                                               ; preds = %87
   %91 = call i32 @H5O_msg_reset(i32 noundef 8, ptr noundef nonnull %6) #12
   %92 = icmp slt i32 %91, 0
-  br i1 %92, label %93, label %.thread210
+  br i1 %92, label %93, label %.thread220
 
 93:                                               ; preds = %90
   %94 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
@@ -1215,7 +1215,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %96 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_virtual, i32 noundef 2069, i64 noundef %94, i64 noundef %95, ptr noundef nonnull @.str.22) #12
   br label %217
 
-.thread210:                                       ; preds = %90
+.thread220:                                       ; preds = %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2256) %6, ptr noundef nonnull align 8 dereferenceable(2256) @H5D_def_layout_virtual_g, i64 2256, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 1936
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 1952
@@ -1235,11 +1235,11 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 1952
   br i1 %102, label %107, label %120
 
-107:                                              ; preds = %.thread210, %99
-  %108 = phi ptr [ %98, %.thread210 ], [ %106, %99 ]
-  %109 = phi ptr [ %97, %.thread210 ], [ %105, %99 ]
-  %110 = phi ptr [ null, %.thread210 ], [ %101, %99 ]
-  %111 = phi i64 [ 8, %.thread210 ], [ %104, %99 ]
+107:                                              ; preds = %.thread220, %99
+  %108 = phi ptr [ %98, %.thread220 ], [ %106, %99 ]
+  %109 = phi ptr [ %97, %.thread220 ], [ %105, %99 ]
+  %110 = phi ptr [ null, %.thread220 ], [ %101, %99 ]
+  %111 = phi i64 [ 8, %.thread220 ], [ %104, %99 ]
   %112 = mul i64 %111, 224
   %113 = call ptr @H5MM_realloc(ptr noundef %110, i64 noundef %112) #12
   %114 = icmp eq ptr %113, null
@@ -1364,9 +1364,9 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %186 = load ptr, ptr %169, align 8, !tbaa !53
   %.not134 = icmp eq ptr %186, null
   %. = select i1 %.not134, ptr %142, ptr %186
-  %.sink230 = load ptr, ptr %., align 8, !tbaa !51
+  %.sink240 = load ptr, ptr %., align 8, !tbaa !51
   %187 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  store ptr %.sink230, ptr %187, align 8, !tbaa !54
+  store ptr %.sink240, ptr %187, align 8, !tbaa !54
   br label %188
 
 188:                                              ; preds = %.sink.split, %181, %178
@@ -1409,7 +1409,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %210 = load i64, ptr %121, align 8, !tbaa !32
   %211 = call i32 @H5D_virtual_update_min_dims(ptr noundef nonnull %6, i64 noundef %210) #12
   %212 = icmp slt i32 %211, 0
-  br i1 %212, label %213, label %.thread211
+  br i1 %212, label %213, label %.thread221
 
 213:                                              ; preds = %209
   %214 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
@@ -1424,7 +1424,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %.thread159, label %.thread159.thread
 
-.thread211:                                       ; preds = %209
+.thread221:                                       ; preds = %209
   %220 = load i64, ptr %121, align 8, !tbaa !32
   %221 = add i64 %220, 1
   store i64 %221, ptr %121, align 8, !tbaa !32
@@ -1432,34 +1432,34 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %.thread159, label %.thread191
 
-.thread159:                                       ; preds = %217, %.thread211
-  %.0117.ph217 = phi ptr [ %125, %.thread211 ], [ %.0117.ph, %217 ]
-  %.0118.ph214 = phi ptr [ %122, %.thread211 ], [ %.0118.ph, %217 ]
+.thread159:                                       ; preds = %217, %.thread221
+  %.0117.ph227 = phi ptr [ %125, %.thread221 ], [ %.0117.ph, %217 ]
+  %.0118.ph224 = phi ptr [ %122, %.thread221 ], [ %.0118.ph, %217 ]
   %224 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
   %225 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !10
   %226 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_virtual, i32 noundef 2147, i64 noundef %224, i64 noundef %225, ptr noundef nonnull @.str.8) #12
   %227 = getelementptr inbounds nuw i8, ptr %6, i64 1944
   %228 = load ptr, ptr %227, align 8, !tbaa !32
-  %.not135 = icmp ne ptr %.0118.ph214, %228
-  %.not136 = icmp eq ptr %.0117.ph217, null
+  %.not135 = icmp ne ptr %.0118.ph224, %228
+  %.not136 = icmp eq ptr %.0117.ph227, null
   br i1 %.not136, label %261, label %229
 
 .thread159.thread:                                ; preds = %217
-  %.not136222 = icmp eq ptr %.0117.ph, null
-  br i1 %.not136222, label %.thread191.thread, label %229
+  %.not136232 = icmp eq ptr %.0117.ph, null
+  br i1 %.not136232, label %.thread191.thread, label %229
 
 229:                                              ; preds = %.thread159.thread, %.thread159
-  %.0115168224 = phi i1 [ false, %.thread159.thread ], [ %.not135, %.thread159 ]
-  %.0117.ph215223 = phi ptr [ %.0117.ph, %.thread159.thread ], [ %.0117.ph217, %.thread159 ]
-  %230 = getelementptr inbounds nuw i8, ptr %.0117.ph215223, i64 64
+  %.0115168234 = phi i1 [ false, %.thread159.thread ], [ %.not135, %.thread159 ]
+  %.0117.ph225233 = phi ptr [ %.0117.ph, %.thread159.thread ], [ %.0117.ph227, %.thread159 ]
+  %230 = getelementptr inbounds nuw i8, ptr %.0117.ph225233, i64 64
   %231 = load ptr, ptr %230, align 8, !tbaa !45
   %232 = call ptr @H5MM_xfree(ptr noundef %231) #12
   store ptr %232, ptr %230, align 8, !tbaa !45
-  %233 = getelementptr inbounds nuw i8, ptr %.0117.ph215223, i64 72
+  %233 = getelementptr inbounds nuw i8, ptr %.0117.ph225233, i64 72
   %234 = load ptr, ptr %233, align 8, !tbaa !46
   %235 = call ptr @H5MM_xfree(ptr noundef %234) #12
   store ptr %235, ptr %233, align 8, !tbaa !46
-  %236 = load ptr, ptr %.0117.ph215223, align 8, !tbaa !37
+  %236 = load ptr, ptr %.0117.ph225233, align 8, !tbaa !37
   %.not137 = icmp eq ptr %236, null
   br i1 %.not137, label %244, label %237
 
@@ -1475,8 +1475,8 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   br label %244
 
 244:                                              ; preds = %240, %237, %229
-  store ptr null, ptr %.0117.ph215223, align 8, !tbaa !37
-  %245 = getelementptr inbounds nuw i8, ptr %.0117.ph215223, i64 80
+  store ptr null, ptr %.0117.ph225233, align 8, !tbaa !37
+  %245 = getelementptr inbounds nuw i8, ptr %.0117.ph225233, i64 80
   %246 = load ptr, ptr %245, align 8, !tbaa !47
   %.not138 = icmp eq ptr %246, null
   br i1 %.not138, label %254, label %247
@@ -1494,15 +1494,15 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 254:                                              ; preds = %250, %247, %244
   store ptr null, ptr %245, align 8, !tbaa !47
-  %255 = getelementptr inbounds nuw i8, ptr %.0117.ph215223, i64 128
+  %255 = getelementptr inbounds nuw i8, ptr %.0117.ph225233, i64 128
   %256 = load ptr, ptr %255, align 8, !tbaa !50
   %257 = call i32 @H5D_virtual_free_parsed_name(ptr noundef %256) #12
   store ptr null, ptr %255, align 8, !tbaa !50
-  %258 = getelementptr inbounds nuw i8, ptr %.0117.ph215223, i64 152
+  %258 = getelementptr inbounds nuw i8, ptr %.0117.ph225233, i64 152
   %259 = load ptr, ptr %258, align 8, !tbaa !53
   %260 = call i32 @H5D_virtual_free_parsed_name(ptr noundef %259) #12
   store ptr null, ptr %258, align 8, !tbaa !53
-  br i1 %.0115168224, label %262, label %.thread191.thread
+  br i1 %.0115168234, label %262, label %.thread191.thread
 
 261:                                              ; preds = %.thread159
   br i1 %.not135, label %262, label %.thread191.thread
@@ -1522,7 +1522,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %267 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %.thread199
 
-.thread191:                                       ; preds = %.thread211
+.thread191:                                       ; preds = %.thread221
   %268 = call i32 @H5CX_pop(i1 noundef zeroext true) #12
   br label %270
 
@@ -6116,10 +6116,10 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   %174 = load ptr, ptr %173, align 8, !tbaa !53
   %.not119 = icmp eq ptr %174, null
   %175 = getelementptr inbounds nuw i8, ptr %172, i64 72
-  %.sink142.in = select i1 %.not119, ptr %175, ptr %174
-  %.sink142 = load ptr, ptr %.sink142.in, align 8, !tbaa !51
+  %.sink145.in = select i1 %.not119, ptr %175, ptr %174
+  %.sink145 = load ptr, ptr %.sink145.in, align 8, !tbaa !51
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  store ptr %.sink142, ptr %176, align 8, !tbaa !54
+  store ptr %.sink145, ptr %176, align 8, !tbaa !54
   br label %177
 
 177:                                              ; preds = %.sink.split, %163, %157
@@ -7308,9 +7308,9 @@ H5VM_limit_enc_size.exit:                         ; preds = %17, %23, %29, %35, 
   store ptr %78, ptr %1, align 8, !tbaa !51
   %79 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !64
   %.not190 = icmp eq i64 %79, 0
-  br i1 %.not190, label %.thread197, label %.lr.ph
+  br i1 %.not190, label %.thread219, label %.lr.ph
 
-.thread197:                                       ; preds = %76
+.thread219:                                       ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %351
 
@@ -7779,9 +7779,9 @@ H5VM_limit_enc_size.exit134:                      ; preds = %236, %242, %248, %2
   %350 = add nuw nsw i32 %349, 8
   br label %H5VM_limit_enc_size.exit143
 
-351:                                              ; preds = %.thread197, %344
-  %352 = phi ptr [ %80, %.thread197 ], [ %302, %344 ]
-  %353 = phi i64 [ 0, %.thread197 ], [ %301, %344 ]
+351:                                              ; preds = %.thread219, %344
+  %352 = phi ptr [ %80, %.thread219 ], [ %302, %344 ]
+  %353 = phi i64 [ 0, %.thread219 ], [ %301, %344 ]
   %354 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %353
   %355 = load i8, ptr %354, align 1, !tbaa !32
   %356 = zext i8 %355 to i32

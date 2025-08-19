@@ -1548,8 +1548,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb702287547be558eE.exit.thread.
   br i1 %.not.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit.thread", label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit27"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit27": ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit", %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit.thread36"
-  %.pn3.i.i4455 = phi i64 [ %.sroa.0.0.copyload, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit.thread36" ], [ %4, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit" ]
-  %.pn1.i.i4554 = phi ptr [ %.sroa.8.0.copyload, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit.thread36" ], [ %5, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit" ]
+  %.pn3.i.i4456 = phi i64 [ %.sroa.0.0.copyload, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit.thread36" ], [ %4, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit" ]
+  %.pn1.i.i4555 = phi ptr [ %.sroa.8.0.copyload, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit.thread36" ], [ %5, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit" ]
   %6 = tail call { i64, ptr } @"_ZN106_$LT$ruff_python_ast..expression..StringLikePartIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb48730bcdc24d3e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.10.0.copyload), !noalias !155
   %7 = extractvalue { i64, ptr } %6, 0
   %.not14 = icmp eq i64 %7, 3
@@ -1561,9 +1561,9 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hb702287547be558eE.exit.thread.
 
 8:                                                ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30cd61b1cbbef80dE.exit27"
   %9 = extractvalue { i64, ptr } %6, 1
-  store i64 %.pn3.i.i4455, ptr %0, align 8
+  store i64 %.pn3.i.i4456, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.pn1.i.i4554, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %.pn1.i.i4555, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %7, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2837,9 +2837,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17hb7f303eb9ae04f02E.exit.threa
 
 ._crit_edge.i.i8:                                 ; preds = %156
   %. = tail call i64 @llvm.umax.i64(i64 %19, i64 16)
-  %.75 = tail call i64 @llvm.umin.i64(i64 %19, i64 16)
+  %.85 = tail call i64 @llvm.umin.i64(i64 %19, i64 16)
   %153 = getelementptr inbounds nuw i8, ptr %.val9.i, i64 %.
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull align 1 %.val9.i, i64 %.75, i1 false), !noalias !302
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %153, ptr nonnull align 1 %.val9.i, i64 %.85, i1 false), !noalias !302
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !302
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN4core3ops8function6FnOnce9call_once17h2a9985a138731b93E, ptr %154, align 8, !noalias !302
@@ -4727,21 +4727,21 @@ define hidden void @"_ZN21ruff_python_formatter8comments3map21MultiMap$LT$K$C$V$
   br i1 %39, label %45, label %51
 
 select.unfold:                                    ; preds = %._crit_edge.i.i, %3, %106, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit"
-  %.sink29 = phi ptr [ %91, %106 ], [ %65, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ inttoptr (i64 4 to ptr), %3 ], [ inttoptr (i64 4 to ptr), %._crit_edge.i.i ]
-  %.sink27 = phi i64 [ %93, %106 ], [ %64, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ 0, %3 ], [ 0, %._crit_edge.i.i ]
-  %.sink25 = phi ptr [ %100, %106 ], [ %75, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ inttoptr (i64 4 to ptr), %3 ], [ inttoptr (i64 4 to ptr), %._crit_edge.i.i ]
-  %.sink23 = phi i64 [ %102, %106 ], [ %74, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ 0, %3 ], [ 0, %._crit_edge.i.i ]
-  %.sink21 = phi ptr [ %109, %106 ], [ %85, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ inttoptr (i64 4 to ptr), %3 ], [ inttoptr (i64 4 to ptr), %._crit_edge.i.i ]
+  %.sink50 = phi ptr [ %91, %106 ], [ %65, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ inttoptr (i64 4 to ptr), %3 ], [ inttoptr (i64 4 to ptr), %._crit_edge.i.i ]
+  %.sink48 = phi i64 [ %93, %106 ], [ %64, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ 0, %3 ], [ 0, %._crit_edge.i.i ]
+  %.sink46 = phi ptr [ %100, %106 ], [ %75, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ inttoptr (i64 4 to ptr), %3 ], [ inttoptr (i64 4 to ptr), %._crit_edge.i.i ]
+  %.sink44 = phi i64 [ %102, %106 ], [ %74, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ 0, %3 ], [ 0, %._crit_edge.i.i ]
+  %.sink42 = phi ptr [ %109, %106 ], [ %85, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ inttoptr (i64 4 to ptr), %3 ], [ inttoptr (i64 4 to ptr), %._crit_edge.i.i ]
   %.sink = phi i64 [ %111, %106 ], [ %84, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfa546c6ee5f8e92fE.exit" ], [ 0, %3 ], [ 0, %._crit_edge.i.i ]
-  store ptr %.sink29, ptr %0, align 8
+  store ptr %.sink50, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink27, ptr %40, align 8
+  store i64 %.sink48, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink25, ptr %41, align 8
+  store ptr %.sink46, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink23, ptr %42, align 8
+  store i64 %.sink44, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink21, ptr %43, align 8
+  store ptr %.sink42, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sink, ptr %44, align 8
   ret void

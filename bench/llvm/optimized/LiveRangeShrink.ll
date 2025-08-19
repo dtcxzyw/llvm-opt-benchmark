@@ -974,8 +974,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapI
   br i1 %367, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit217.thread, label %.lr.ph.i.i196, !prof !231
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairIjPNS_12MachineInstrEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixEOj.exit217.thread: ; preds = %361
-  %.0.i204632 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  %368 = load i32, ptr %.0.i204632, align 8, !tbaa !238
+  %.0.i204723 = getelementptr inbounds nuw i8, ptr %365, i64 8
+  %368 = load i32, ptr %.0.i204723, align 8, !tbaa !238
   br label %434
 
 .lr.ph.i.i196:                                    ; preds = %361, %374
@@ -1795,8 +1795,8 @@ select.unfold:                                    ; preds = %768
   %773 = load ptr, ptr %772, align 8, !tbaa !155
   %774 = getelementptr inbounds nuw i8, ptr %771, i64 48
   %775 = icmp eq ptr %773, %774
-  %.not149694 = icmp eq ptr %773, null
-  %.not149 = or i1 %775, %.not149694
+  %.not149785 = icmp eq ptr %773, null
+  %.not149 = or i1 %775, %.not149785
   br i1 %.not149, label %.critedge7, label %.lr.ph537
 
 .critedge7:                                       ; preds = %select.unfold, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_.exit

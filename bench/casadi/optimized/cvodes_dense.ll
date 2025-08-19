@@ -239,10 +239,10 @@ define internal range(i32 -1, 2) i32 @cvDenseSetup(ptr noundef %0, i32 noundef %
   br label %68
 
 54:                                               ; preds = %51, %30
-  %.sink51 = phi i64 [ 72, %30 ], [ 80, %51 ]
+  %.sink53 = phi i64 [ 72, %30 ], [ 80, %51 ]
   %.sink.in = phi ptr [ %31, %30 ], [ %36, %51 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !49
-  %55 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink51
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink53
   %56 = load ptr, ptr %55, align 8, !tbaa !49
   tail call void @DenseCopy(ptr noundef %.sink, ptr noundef %56) #7
   %57 = load double, ptr %11, align 8, !tbaa !42

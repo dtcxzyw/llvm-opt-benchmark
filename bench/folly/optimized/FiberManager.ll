@@ -1840,8 +1840,8 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   br i1 %46, label %69, label %.critedge.i.i.i.i.i.i.sink.split, !prof !152
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %43, %52
-  %.sink51 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
-  %47 = extractvalue { i32, i1 } %.sink51, 0
+  %.sink60 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
+  %47 = extractvalue { i32, i1 } %.sink60, 0
   store i32 %47, ptr %2, align 4, !noalias !153
   br label %.critedge.i.i.i.i.i.i
 
@@ -4280,8 +4280,8 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   unreachable
 
 _ZN5folly6detail14ScopeGuardImplIZNS_17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultISA_EEE9new_arrayEmRPNSD_5arrayEEUlvE_Lb1EED2Ev.exit: ; preds = %.critedge, %.preheader49, %55
-  %.364 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
-  ret ptr %.364
+  %.367 = phi ptr [ null, %55 ], [ %23, %.preheader49 ], [ %23, %.critedge ]
+  ret ptr %.367
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5145,12 +5145,12 @@ define noundef nonnull ptr @_ZN5folly6fibers12FiberManager8getFiberEv(ptr nounde
   br label %25
 
 25:                                               ; preds = %15, %19
-  %.sink14 = phi i64 [ 88, %19 ], [ 80, %15 ]
-  %.sink13 = phi i64 [ -1, %19 ], [ 1, %15 ]
+  %.sink17 = phi i64 [ 88, %19 ], [ 80, %15 ]
+  %.sink16 = phi i64 [ -1, %19 ], [ 1, %15 ]
   %.0 = phi ptr [ %20, %19 ], [ %16, %15 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink14
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
   %27 = load atomic i64, ptr %26 monotonic, align 8
-  %28 = add i64 %27, %.sink13
+  %28 = add i64 %27, %.sink16
   store atomic i64 %28, ptr %26 monotonic, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = atomicrmw add ptr %29, i64 1 monotonic, align 8
@@ -6769,8 +6769,8 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   br i1 %46, label %69, label %.critedge.i.i.i.i.i.i.sink.split, !prof !152
 
 .critedge.i.i.i.i.i.i.sink.split:                 ; preds = %43, %52
-  %.sink51 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
-  %47 = extractvalue { i32, i1 } %.sink51, 0
+  %.sink60 = phi { i32, i1 } [ %59, %52 ], [ %45, %43 ]
+  %47 = extractvalue { i32, i1 } %.sink60, 0
   store i32 %47, ptr %2, align 4, !noalias !391
   br label %.critedge.i.i.i.i.i.i
 

@@ -1377,16 +1377,16 @@ define dso_local void @SHA1DCUpdate(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not38, label %31, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %9, %._crit_edge
-  %.1.lcssa53 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %1, %9 ]
-  %.132.lcssa52 = phi i64 [ %.132.lcssa, %._crit_edge ], [ %2, %9 ]
-  %.0304651 = phi i32 [ 0, %._crit_edge ], [ %8, %9 ]
+  %.1.lcssa57 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %1, %9 ]
+  %.132.lcssa56 = phi i64 [ %.132.lcssa, %._crit_edge ], [ %2, %9 ]
+  %.0305055 = phi i32 [ 0, %._crit_edge ], [ %8, %9 ]
   %26 = load i64, ptr %0, align 8, !tbaa !8
-  %27 = add i64 %26, %.132.lcssa52
+  %27 = add i64 %26, %.132.lcssa56
   store i64 %27, ptr %0, align 8, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %29 = zext nneg i32 %.0304651 to i64
+  %29 = zext nneg i32 %.0305055 to i64
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.1.lcssa53, i64 %.132.lcssa52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.1.lcssa57, i64 %.132.lcssa56, i1 false)
   br label %31
 
 31:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
@@ -3325,15 +3325,15 @@ define dso_local i32 @SHA1DCFinal(ptr noundef writeonly captures(none) %0, ptr n
 
 ._crit_edge.thread.i:                             ; preds = %.._crit_edge.thread.i_crit_edge, %._crit_edge.i, %9
   %26 = phi i64 [ %.pre73, %._crit_edge.i ], [ %3, %9 ], [ %.pre72, %.._crit_edge.thread.i_crit_edge ]
-  %.1.lcssa53.i = phi ptr [ %23, %._crit_edge.i ], [ @sha1_padding, %9 ], [ %.0.i, %.._crit_edge.thread.i_crit_edge ]
-  %.132.lcssa52.i = phi i64 [ %24, %._crit_edge.i ], [ %8, %9 ], [ %.031.i, %.._crit_edge.thread.i_crit_edge ]
-  %.0304651.i = phi i32 [ 0, %._crit_edge.i ], [ %5, %9 ], [ 0, %.._crit_edge.thread.i_crit_edge ]
-  %27 = add i64 %26, %.132.lcssa52.i
+  %.1.lcssa57.i = phi ptr [ %23, %._crit_edge.i ], [ @sha1_padding, %9 ], [ %.0.i, %.._crit_edge.thread.i_crit_edge ]
+  %.132.lcssa56.i = phi i64 [ %24, %._crit_edge.i ], [ %8, %9 ], [ %.031.i, %.._crit_edge.thread.i_crit_edge ]
+  %.0305055.i = phi i32 [ 0, %._crit_edge.i ], [ %5, %9 ], [ 0, %.._crit_edge.thread.i_crit_edge ]
+  %27 = add i64 %26, %.132.lcssa56.i
   store i64 %27, ptr %1, align 8, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %29 = zext nneg i32 %.0304651.i to i64
+  %29 = zext nneg i32 %.0305055.i to i64
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.1.lcssa53.i, i64 %.132.lcssa52.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.1.lcssa57.i, i64 %.132.lcssa56.i, i1 false)
   br label %SHA1DCUpdate.exit
 
 SHA1DCUpdate.exit:                                ; preds = %._crit_edge.i, %._crit_edge.thread.i

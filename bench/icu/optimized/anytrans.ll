@@ -762,12 +762,12 @@ _ZN6icu_775MutexD2Ev.exit52:                      ; preds = %87
   br i1 %91, label %95, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN6icu_775MutexD2Ev.exit52, %57
-  %.sink70 = phi ptr [ %56, %57 ], [ %.027, %_ZN6icu_775MutexD2Ev.exit52 ]
+  %.sink76 = phi ptr [ %56, %57 ], [ %.027, %_ZN6icu_775MutexD2Ev.exit52 ]
   %.235.ph = phi ptr [ null, %57 ], [ %.336, %_ZN6icu_775MutexD2Ev.exit52 ]
-  %92 = load ptr, ptr %.sink70, align 8, !tbaa !19
+  %92 = load ptr, ptr %.sink76, align 8, !tbaa !19
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(84) %.sink70) #10
+  call void %94(ptr noundef nonnull align 8 dereferenceable(84) %.sink76) #10
   br label %95
 
 95:                                               ; preds = %.sink.split, %_ZN6icu_775MutexD2Ev.exit52, %72

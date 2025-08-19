@@ -462,14 +462,14 @@ switch.lookup:                                    ; preds = %21
   %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep122 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.1, i64 0, i64 %28
-  %switch.load123 = load i32, ptr %switch.gep122, align 4
+  %switch.gep123 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.1, i64 0, i64 %28
+  %switch.load124 = load i32, ptr %switch.gep123, align 4
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep124 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.2, i64 0, i64 %29
-  %switch.load125 = load i32, ptr %switch.gep124, align 4
+  %switch.gep125 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.2, i64 0, i64 %29
+  %switch.load126 = load i32, ptr %switch.gep125, align 4
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep126 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.3, i64 0, i64 %30
-  %switch.load127 = load i32, ptr %switch.gep126, align 4
+  %switch.gep127 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.SDL_GetMasksForPixelFormat_REAL.3, i64 0, i64 %30
+  %switch.load128 = load i32, ptr %switch.gep127, align 4
   %31 = lshr i32 %0, 20
   %32 = and i32 %31, 15
   switch i32 %32, label %41 [
@@ -484,54 +484,54 @@ switch.lookup:                                    ; preds = %21
   ]
 
 33:                                               ; preds = %switch.lookup
-  store i32 %switch.load125, ptr %2, align 4
-  store i32 %switch.load123, ptr %3, align 4
+  store i32 %switch.load126, ptr %2, align 4
+  store i32 %switch.load124, ptr %3, align 4
   store i32 %switch.load, ptr %4, align 4
   br label %43
 
 34:                                               ; preds = %switch.lookup
-  store i32 %switch.load127, ptr %2, align 4
-  store i32 %switch.load125, ptr %3, align 4
-  store i32 %switch.load123, ptr %4, align 4
+  store i32 %switch.load128, ptr %2, align 4
+  store i32 %switch.load126, ptr %3, align 4
+  store i32 %switch.load124, ptr %4, align 4
   br label %43
 
 35:                                               ; preds = %switch.lookup
-  store i32 %switch.load127, ptr %5, align 4
-  store i32 %switch.load125, ptr %2, align 4
-  store i32 %switch.load123, ptr %3, align 4
+  store i32 %switch.load128, ptr %5, align 4
+  store i32 %switch.load126, ptr %2, align 4
+  store i32 %switch.load124, ptr %3, align 4
   store i32 %switch.load, ptr %4, align 4
   br label %43
 
 36:                                               ; preds = %switch.lookup
-  store i32 %switch.load127, ptr %2, align 4
-  store i32 %switch.load125, ptr %3, align 4
-  store i32 %switch.load123, ptr %4, align 4
+  store i32 %switch.load128, ptr %2, align 4
+  store i32 %switch.load126, ptr %3, align 4
+  store i32 %switch.load124, ptr %4, align 4
   store i32 %switch.load, ptr %5, align 4
   br label %43
 
 37:                                               ; preds = %switch.lookup
-  store i32 %switch.load125, ptr %4, align 4
-  store i32 %switch.load123, ptr %3, align 4
+  store i32 %switch.load126, ptr %4, align 4
+  store i32 %switch.load124, ptr %3, align 4
   store i32 %switch.load, ptr %2, align 4
   br label %43
 
 38:                                               ; preds = %switch.lookup
-  store i32 %switch.load127, ptr %4, align 4
-  store i32 %switch.load125, ptr %3, align 4
-  store i32 %switch.load123, ptr %2, align 4
+  store i32 %switch.load128, ptr %4, align 4
+  store i32 %switch.load126, ptr %3, align 4
+  store i32 %switch.load124, ptr %2, align 4
   br label %43
 
 39:                                               ; preds = %switch.lookup
-  store i32 %switch.load127, ptr %4, align 4
-  store i32 %switch.load125, ptr %3, align 4
-  store i32 %switch.load123, ptr %2, align 4
+  store i32 %switch.load128, ptr %4, align 4
+  store i32 %switch.load126, ptr %3, align 4
+  store i32 %switch.load124, ptr %2, align 4
   store i32 %switch.load, ptr %5, align 4
   br label %43
 
 40:                                               ; preds = %switch.lookup
-  store i32 %switch.load127, ptr %5, align 4
-  store i32 %switch.load125, ptr %4, align 4
-  store i32 %switch.load123, ptr %3, align 4
+  store i32 %switch.load128, ptr %5, align 4
+  store i32 %switch.load126, ptr %4, align 4
+  store i32 %switch.load124, ptr %3, align 4
   store i32 %switch.load, ptr %2, align 4
   br label %43
 
@@ -2975,10 +2975,10 @@ SDL_FindColor.exit.loopexit.us.i:                 ; preds = %104, %101
   br label %106
 
 .loopexit.thread:                                 ; preds = %53
-  %.pr.pr111 = load i32, ptr %3, align 8
+  %.pr.pr124 = load i32, ptr %3, align 8
   store ptr %54, ptr %12, align 8
-  %.not77112 = icmp eq i32 %.pr.pr111, 0
-  br i1 %.not77112, label %.thread113, label %106
+  %.not77125 = icmp eq i32 %.pr.pr124, 0
+  br i1 %.not77125, label %.thread126, label %106
 
 106:                                              ; preds = %.loopexit, %.loopexit.thread, %.thread98, %.thread
   %107 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -3277,7 +3277,7 @@ Map1toN.exit.thread107:                           ; preds = %.preheader.i91
 
 Map1toN.exit.thread:                              ; preds = %121, %137
   store ptr null, ptr %12, align 8
-  br label %.thread113
+  br label %.thread126
 
 Map1toN.exit:                                     ; preds = %317
   store ptr %144, ptr %12, align 8
@@ -3338,9 +3338,9 @@ Map1toN.exit:                                     ; preds = %317
   %.sink110 = phi i32 [ %335, %333 ], [ 0, %332 ]
   store i32 %.sink110, ptr %10, align 4
   %337 = tail call zeroext i1 @SDL_CalculateBlit(ptr noundef nonnull %0, ptr noundef %1) #15
-  br label %.thread113
+  br label %.thread126
 
-.thread113:                                       ; preds = %.loopexit.thread, %Map1toN.exit.thread, %336
+.thread126:                                       ; preds = %.loopexit.thread, %Map1toN.exit.thread, %336
   %.0 = phi i1 [ %337, %336 ], [ false, %Map1toN.exit.thread ], [ false, %.loopexit.thread ]
   ret i1 %.0
 }

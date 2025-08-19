@@ -27,8 +27,8 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.idx1079 = shl nsw i64 %12, 3
   %23 = add nsw i64 %.idx1079, 8
   %.idx1080 = shl nsw i64 %22, 3
-  %.not1245 = icmp eq i64 %23, %.idx1080
-  br i1 %.not1245, label %.loopexit, label %.lr.ph1180.preheader
+  %.not1229 = icmp eq i64 %23, %.idx1080
+  br i1 %.not1229, label %.loopexit, label %.lr.ph1180.preheader
 
 .lr.ph1180.preheader:                             ; preds = %20
   %24 = getelementptr i8, ptr %4, i64 %.idx1079

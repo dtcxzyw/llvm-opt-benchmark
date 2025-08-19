@@ -1577,7 +1577,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483648, 3) i32 @_ZNK7msdfgen16QuadraticSegment21scanlineIntersectionsEPdPid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %x, ptr noundef writeonly captures(none) %dy, double noundef %y) unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -1, 3) i32 @_ZNK7msdfgen16QuadraticSegment21scanlineIntersectionsEPdPid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %x, ptr noundef writeonly captures(none) %dy, double noundef %y) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [2 x double], align 16
   %p = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1756,18 +1756,18 @@ if.end158:                                        ; preds = %lor.lhs.false127, %
 
 if.end158.thread:                                 ; preds = %land.lhs.true143
   %19 = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
-  %cmp16273 = fcmp oge double %y, %19
-  %cond16374 = select i1 %cmp16273, i32 1, i32 -1
-  %cmp164.not75 = icmp eq i32 %spec.select, %cond16374
-  br i1 %cmp164.not75, label %if.end190, label %if.then167
+  %cmp16279 = fcmp oge double %y, %19
+  %cond16380 = select i1 %cmp16279, i32 1, i32 -1
+  %cmp164.not81 = icmp eq i32 %spec.select, %cond16380
+  br i1 %cmp164.not81, label %if.end190, label %if.then167
 
 if.then165:                                       ; preds = %if.end158
   %cmp166 = icmp sgt i32 %total.3, 0
   br i1 %cmp166, label %if.then167, label %if.else169
 
 if.then167:                                       ; preds = %if.end158.thread, %if.then165
-  %total.37781 = phi i32 [ %total.3, %if.then165 ], [ 2, %if.end158.thread ]
-  %dec168 = add nsw i32 %total.37781, -1
+  %total.38387 = phi i32 [ %total.3, %if.then165 ], [ 2, %if.end158.thread ]
+  %dec168 = add nsw i32 %total.38387, -1
   br label %if.end190
 
 if.else169:                                       ; preds = %if.then165
@@ -2042,18 +2042,18 @@ if.end252:                                        ; preds = %lor.lhs.false205, %
 
 if.end252.thread:                                 ; preds = %land.lhs.true237
   %26 = load double, ptr %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx, align 8
-  %cmp256104 = fcmp oge double %y, %26
-  %cond257105 = select i1 %cmp256104, i32 1, i32 -1
-  %cmp258.not106 = icmp eq i32 %spec.select, %cond257105
-  br i1 %cmp258.not106, label %if.end284, label %if.then261
+  %cmp256117 = fcmp oge double %y, %26
+  %cond257118 = select i1 %cmp256117, i32 1, i32 -1
+  %cmp258.not119 = icmp eq i32 %spec.select, %cond257118
+  br i1 %cmp258.not119, label %if.end284, label %if.then261
 
 if.then259:                                       ; preds = %if.end252
   %cmp260 = icmp sgt i32 %total.3, 0
   br i1 %cmp260, label %if.then261, label %if.else263
 
 if.then261:                                       ; preds = %if.end252.thread, %if.then259
-  %total.3108112 = phi i32 [ %total.3, %if.then259 ], [ 3, %if.end252.thread ]
-  %dec262 = add nsw i32 %total.3108112, -1
+  %total.3121125 = phi i32 [ %total.3, %if.then259 ], [ 3, %if.end252.thread ]
+  %dec262 = add nsw i32 %total.3121125, -1
   br label %if.end284
 
 if.else263:                                       ; preds = %if.then259

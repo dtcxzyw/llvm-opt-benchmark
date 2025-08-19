@@ -1274,9 +1274,9 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %24, %26
   %33 = load i64, ptr %32, align 8
   %34 = load volatile i32, ptr @_ZN27JvmtiVTMSTransitionDisabler38_VTMS_transition_disable_for_all_countE, align 4
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread85, label %_ZNK6HandleclEv.exit16
+  br i1 %35, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92, label %_ZNK6HandleclEv.exit16
 
-_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread85: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92: ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   store volatile i8 0, ptr %7, align 1
   br label %72
 
@@ -1365,15 +1365,15 @@ _ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %68, %57, %51, %45
   store volatile i8 0, ptr %7, align 1
   br i1 %13, label %_ZNK6HandleclEv.exit17, label %72
 
-72:                                               ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread85, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
-  %storemerge.i404387 = phi ptr [ %.0.i.i.i.i, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread85 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
-  %73 = phi i64 [ %33, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread85 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
-  %74 = load ptr, ptr %storemerge.i404387, align 8
+72:                                               ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit
+  %storemerge.i404394 = phi ptr [ %.0.i.i.i.i, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
+  %73 = phi i64 [ %33, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread92 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ]
+  %74 = load ptr, ptr %storemerge.i404394, align 8
   br label %_ZNK6HandleclEv.exit17
 
 _ZNK6HandleclEv.exit17:                           ; preds = %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, %72
   %75 = phi i1 [ false, %72 ], [ true, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ true, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
-  %storemerge.i404348 = phi ptr [ %storemerge.i404387, %72 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
+  %storemerge.i404348 = phi ptr [ %storemerge.i404394, %72 ], [ %storemerge.i404245, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
   %76 = phi i64 [ %73, %72 ], [ %42, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ %39, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
   %77 = phi ptr [ %74, %72 ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit ], [ null, %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit.thread46 ]
   call void @_ZN16java_lang_Thread25set_is_in_VTMS_transitionEP7oopDescb(ptr noundef %77, i1 noundef zeroext false) #14
@@ -1553,8 +1553,8 @@ define hidden noundef zeroext i1 @_ZN16JvmtiVTSuspender20is_vthread_suspendedEl(
   %21 = icmp eq i64 %20, %0
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i6 = icmp eq i64 %indvars.iv.next.i5, %wide.trip.count.i3
-  %or.cond17 = select i1 %21, i1 true, i1 %exitcond.not.i6
-  br i1 %or.cond17, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7, label %18, !llvm.loop !19
+  %or.cond18 = select i1 %21, i1 true, i1 %exitcond.not.i6
+  br i1 %or.cond18, label %_ZNK17GrowableArrayViewIlE8containsERKl.exit7, label %18, !llvm.loop !19
 
 _ZNK17GrowableArrayViewIlE8containsERKl.exit7:    ; preds = %18, %9, %1, %3, %12
   %22 = phi i1 [ false, %12 ], [ true, %3 ], [ false, %1 ], [ %.not, %9 ], [ %21, %18 ]
@@ -2344,8 +2344,8 @@ define hidden noundef zeroext i1 @_ZN16JvmtiVTSuspender20is_vthread_suspendedEP7
   %27 = icmp eq i64 %26, %7
   %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
   %exitcond.not.i6.i = icmp eq i64 %indvars.iv.next.i5.i, %wide.trip.count.i3.i
-  %or.cond9 = select i1 %27, i1 true, i1 %exitcond.not.i6.i
-  br i1 %or.cond9, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %24, !llvm.loop !19
+  %or.cond10 = select i1 %27, i1 true, i1 %exitcond.not.i6.i
+  br i1 %or.cond10, label %_ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit, label %24, !llvm.loop !19
 
 _ZN16JvmtiVTSuspender20is_vthread_suspendedEl.exit: ; preds = %24, %15, %1, %9, %18
   %28 = phi i1 [ false, %18 ], [ true, %9 ], [ false, %1 ], [ %.not.i.not, %15 ], [ %27, %24 ]
@@ -4212,14 +4212,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !31
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #14, !srcloc !31
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -4353,14 +4353,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #14, !srcloc !31
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #14, !srcloc !31
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
@@ -5059,7 +5059,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP5Klass13Growab
   br i1 %.not, label %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -5071,8 +5071,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP5Klass13Growab
   br label %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit

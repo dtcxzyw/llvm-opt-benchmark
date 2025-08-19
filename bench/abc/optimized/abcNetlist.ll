@@ -358,14 +358,14 @@ Abc_AigNodeIsChoice.exit:                         ; preds = %53
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %85, %87, %77, %79
-  %.sink182 = phi ptr [ %78, %77 ], [ %80, %79 ], [ %86, %85 ], [ %88, %87 ]
+  %.sink191 = phi ptr [ %78, %77 ], [ %80, %79 ], [ %86, %85 ], [ %88, %87 ]
   %.sink = phi i32 [ 16, %77 ], [ 16, %79 ], [ %82, %85 ], [ %82, %87 ]
-  store ptr %.sink182, ptr %63, align 8, !tbaa !50
+  store ptr %.sink191, ptr %63, align 8, !tbaa !50
   store i32 %.sink, ptr %60, align 8, !tbaa !49
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %64
-  %.val126 = phi ptr [ %65, %64 ], [ %.sink182, %Vec_IntPush.exit.sink.split ]
+  %.val126 = phi ptr [ %65, %64 ], [ %.sink191, %Vec_IntPush.exit.sink.split ]
   %89 = add nsw i32 %71, 1
   store i32 %89, ptr %61, align 4, !tbaa !48
   %90 = sext i32 %71 to i64
@@ -405,7 +405,7 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %53, %Vec_IntFree.ex
   br i1 %105, label %44, label %.critedge2.preheader, !llvm.loop !52
 
 .critedge4.preheader:                             ; preds = %.critedge6, %9, %.critedge.preheader, %.critedge2.preheader
-  %.0.lcssa180 = phi i1 [ %43, %.critedge2.preheader ], [ true, %.critedge.preheader ], [ true, %9 ], [ %43, %.critedge6 ]
+  %.0.lcssa189 = phi i1 [ %43, %.critedge2.preheader ], [ true, %.critedge.preheader ], [ true, %9 ], [ %43, %.critedge6 ]
   %106 = getelementptr i8, ptr %0, i64 64
   %.val130153 = load ptr, ptr %106, align 8, !tbaa !53
   %107 = getelementptr i8, ptr %.val130153, i64 4
@@ -509,8 +509,8 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %53, %Vec_IntFree.ex
   %154 = lshr i32 %.val123, 10
   %155 = and i32 %154, 1
   %156 = zext nneg i32 %155 to i64
-  %.187 = select i1 %.not104, ptr %150, ptr %152
-  %157 = ptrtoint ptr %.187 to i64
+  %.196 = select i1 %.not104, ptr %150, ptr %152
+  %157 = ptrtoint ptr %.196 to i64
   %158 = xor i64 %156, %157
   %.093 = inttoptr i64 %158 to ptr
   %159 = getelementptr inbounds nuw i8, ptr %142, i64 64
@@ -525,7 +525,7 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %53, %Vec_IntFree.ex
   br i1 %163, label %.lr.ph157, label %.critedge8, !llvm.loop !56
 
 .critedge8:                                       ; preds = %.lr.ph157, %.critedge4.preheader
-  br i1 %.0.lcssa180, label %166, label %164
+  br i1 %.0.lcssa189, label %166, label %164
 
 164:                                              ; preds = %.critedge8
   %165 = tail call i32 @Abc_NtkLogicMakeSimpleCos2(ptr noundef %2, i32 noundef 0) #8
@@ -556,8 +556,8 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %53, %Vec_IntFree.ex
   br label %.sink.split
 
 .sink.split:                                      ; preds = %175, %173
-  %.sink186 = phi ptr [ %174, %173 ], [ %176, %175 ]
-  store ptr %.sink186, ptr %172, align 8, !tbaa !42
+  %.sink195 = phi ptr [ %174, %173 ], [ %176, %175 ]
+  store ptr %.sink195, ptr %172, align 8, !tbaa !42
   br label %177
 
 177:                                              ; preds = %.sink.split, %168
@@ -1563,8 +1563,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge8, %127
   br label %149
 
 149:                                              ; preds = %.lr.ph181, %146
-  %.sink218 = phi ptr [ %148, %146 ], [ %145, %.lr.ph181 ]
-  tail call void @Abc_ObjAddFanin(ptr noundef %143, ptr noundef %.sink218) #8
+  %.sink220 = phi ptr [ %148, %146 ], [ %145, %.lr.ph181 ]
+  tail call void @Abc_ObjAddFanin(ptr noundef %143, ptr noundef %.sink220) #8
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %.val143 = load ptr, ptr %128, align 8, !tbaa !53
   %150 = getelementptr i8, ptr %.val143, i64 4

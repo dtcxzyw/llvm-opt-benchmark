@@ -155,11 +155,11 @@ define hidden noundef zeroext i1 @_ZN4lean5is_ltERKNS_4exprES2_bPKNS_9local_ctxE
   br i1 %65, label %73, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %61, %148, %143, %138, %133, %79
-  %.sink282 = phi i64 [ 24, %79 ], [ %., %133 ], [ %.283, %138 ], [ 16, %143 ], [ %.284, %148 ], [ 16, %61 ]
+  %.sink290 = phi i64 [ 24, %79 ], [ %., %133 ], [ %.291, %138 ], [ 16, %143 ], [ %.292, %148 ], [ 16, %61 ]
   %66 = load ptr, ptr %.tr174, align 8, !tbaa !3
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.sink282
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.sink290
   %68 = load ptr, ptr %.tr123175, align 8, !tbaa !3
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.sink282
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.sink290
   %70 = load ptr, ptr %67, align 8, !tbaa !3
   %71 = load ptr, ptr %69, align 8, !tbaa !3
   %72 = icmp eq ptr %70, %71
@@ -262,7 +262,7 @@ tailrecurse.backedge:                             ; preds = %61, %148, %143, %13
   %140 = load ptr, ptr %.tr123175, align 8, !tbaa !3
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = tail call noundef zeroext i1 @_ZN4lean8is_equalERKNS_4exprES2_(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull align 8 dereferenceable(8) %141)
-  %.283 = select i1 %142, i64 24, i64 16
+  %.291 = select i1 %142, i64 24, i64 16
   br label %tailrecurse.backedge
 
 143:                                              ; preds = %39
@@ -278,7 +278,7 @@ tailrecurse.backedge:                             ; preds = %61, %148, %143, %13
   %151 = load ptr, ptr %.tr123175, align 8, !tbaa !3
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = tail call noundef zeroext i1 @_ZN4lean8is_equalERKNS_4exprES2_(ptr noundef nonnull align 8 dereferenceable(8) %150, ptr noundef nonnull align 8 dereferenceable(8) %152)
-  %.284 = select i1 %153, i64 32, i64 24
+  %.292 = select i1 %153, i64 32, i64 24
   br label %tailrecurse.backedge
 
 154:                                              ; preds = %39
@@ -869,11 +869,11 @@ define hidden noundef zeroext i1 @_ZN4lean21is_lt_no_level_paramsERKNS_4exprES2_
   br i1 %34, label %42, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %31, %136, %114, %104, %48
-  %.sink278 = phi i64 [ 24, %48 ], [ 16, %104 ], [ 24, %114 ], [ 32, %136 ], [ 16, %31 ]
+  %.sink284 = phi i64 [ 24, %48 ], [ 16, %104 ], [ 24, %114 ], [ 32, %136 ], [ 16, %31 ]
   %35 = load ptr, ptr %.tr134, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.sink278
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.sink284
   %37 = load ptr, ptr %.tr72135, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink278
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.sink284
   %39 = load ptr, ptr %36, align 8, !tbaa !3
   %40 = load ptr, ptr %38, align 8, !tbaa !3
   %41 = icmp eq ptr %39, %40

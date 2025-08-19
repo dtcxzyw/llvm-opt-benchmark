@@ -43,10 +43,10 @@ define range(i32 0, 1044481) i32 @ff_aac_ac_map_process(ptr noundef captures(non
   br i1 %16, label %.lr.ph34.preheader, label %._crit_edge
 
 .lr.ph34.preheader:                               ; preds = %10, %.preheader
-  %.0.lcssa40 = phi i32 [ %14, %.preheader ], [ 0, %10 ]
-  %17 = zext nneg i32 %.0.lcssa40 to i64
+  %.0.lcssa41 = phi i32 [ %14, %.preheader ], [ 0, %10 ]
+  %17 = zext nneg i32 %.0.lcssa41 to i64
   %scevgep = getelementptr i8, ptr %0, i64 %17
-  %narrow = sub nuw nsw i32 513, %.0.lcssa40
+  %narrow = sub nuw nsw i32 513, %.0.lcssa41
   %18 = zext nneg i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %18, i1 false), !tbaa !10
   br label %._crit_edge

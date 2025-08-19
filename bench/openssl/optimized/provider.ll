@@ -135,7 +135,7 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
   %18 = add i64 %1, -16
   store i64 %18, ptr %4, align 8, !tbaa !30
   %19 = urem i8 %8, 10
-  switch i8 %19, label %default.unreachable138 [
+  switch i8 %19, label %default.unreachable157 [
     i8 0, label %20
     i8 1, label %29
     i8 2, label %38
@@ -151,8 +151,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 20:                                               ; preds = %12
   %21 = load ptr, ptr @digests_collection, align 8, !tbaa !9
   %22 = tail call i32 @OPENSSL_sk_num(ptr noundef %21) #6
-  %.lhs.trunc139 = zext i8 %15 to i32
-  %23 = srem i32 %.lhs.trunc139, %22
+  %.lhs.trunc158 = zext i8 %15 to i32
+  %23 = srem i32 %.lhs.trunc158, %22
   %24 = tail call ptr @OPENSSL_sk_value(ptr noundef %21, i32 noundef range(i32 -2147483647, -2147483648) %23) #6
   %25 = icmp eq ptr %24, null
   br i1 %25, label %read_uint.exit.thread, label %26
@@ -170,8 +170,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 29:                                               ; preds = %12
   %30 = load ptr, ptr @cipher_collection, align 8, !tbaa !13
   %31 = tail call i32 @OPENSSL_sk_num(ptr noundef %30) #6
-  %.lhs.trunc140 = zext i8 %15 to i32
-  %32 = srem i32 %.lhs.trunc140, %31
+  %.lhs.trunc159 = zext i8 %15 to i32
+  %32 = srem i32 %.lhs.trunc159, %31
   %33 = tail call ptr @OPENSSL_sk_value(ptr noundef %30, i32 noundef range(i32 -2147483647, -2147483648) %32) #6
   %34 = icmp eq ptr %33, null
   br i1 %34, label %read_uint.exit.thread, label %35
@@ -189,8 +189,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 38:                                               ; preds = %12
   %39 = load ptr, ptr @kdf_collection, align 8, !tbaa !11
   %40 = tail call i32 @OPENSSL_sk_num(ptr noundef %39) #6
-  %.lhs.trunc143 = zext i8 %15 to i32
-  %41 = srem i32 %.lhs.trunc143, %40
+  %.lhs.trunc162 = zext i8 %15 to i32
+  %41 = srem i32 %.lhs.trunc162, %40
   %42 = tail call ptr @OPENSSL_sk_value(ptr noundef %39, i32 noundef range(i32 -2147483647, -2147483648) %41) #6
   %43 = icmp eq ptr %42, null
   br i1 %43, label %read_uint.exit.thread, label %44
@@ -208,8 +208,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 47:                                               ; preds = %12
   %48 = load ptr, ptr @mac_collection, align 8, !tbaa !21
   %49 = tail call i32 @OPENSSL_sk_num(ptr noundef %48) #6
-  %.lhs.trunc146 = zext i8 %15 to i32
-  %50 = srem i32 %.lhs.trunc146, %49
+  %.lhs.trunc165 = zext i8 %15 to i32
+  %50 = srem i32 %.lhs.trunc165, %49
   %51 = tail call ptr @OPENSSL_sk_value(ptr noundef %48, i32 noundef range(i32 -2147483647, -2147483648) %50) #6
   %52 = icmp eq ptr %51, null
   br i1 %52, label %read_uint.exit.thread, label %53
@@ -227,8 +227,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 56:                                               ; preds = %12
   %57 = load ptr, ptr @kem_collection, align 8, !tbaa !15
   %58 = tail call i32 @OPENSSL_sk_num(ptr noundef %57) #6
-  %.lhs.trunc149 = zext i8 %15 to i32
-  %59 = srem i32 %.lhs.trunc149, %58
+  %.lhs.trunc168 = zext i8 %15 to i32
+  %59 = srem i32 %.lhs.trunc168, %58
   %60 = tail call ptr @OPENSSL_sk_value(ptr noundef %57, i32 noundef range(i32 -2147483647, -2147483648) %59) #6
   %61 = icmp eq ptr %60, null
   br i1 %61, label %read_uint.exit.thread, label %62
@@ -242,8 +242,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 65:                                               ; preds = %12
   %66 = load ptr, ptr @rand_collection, align 8, !tbaa !19
   %67 = tail call i32 @OPENSSL_sk_num(ptr noundef %66) #6
-  %.lhs.trunc152 = zext i8 %15 to i32
-  %68 = srem i32 %.lhs.trunc152, %67
+  %.lhs.trunc171 = zext i8 %15 to i32
+  %68 = srem i32 %.lhs.trunc171, %67
   %69 = tail call ptr @OPENSSL_sk_value(ptr noundef %66, i32 noundef range(i32 -2147483647, -2147483648) %68) #6
   %70 = icmp eq ptr %69, null
   br i1 %70, label %read_uint.exit.thread, label %71
@@ -261,8 +261,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 74:                                               ; preds = %12
   %75 = load ptr, ptr @asym_ciphers_collection, align 8, !tbaa !27
   %76 = tail call i32 @OPENSSL_sk_num(ptr noundef %75) #6
-  %.lhs.trunc155 = zext i8 %15 to i32
-  %77 = srem i32 %.lhs.trunc155, %76
+  %.lhs.trunc174 = zext i8 %15 to i32
+  %77 = srem i32 %.lhs.trunc174, %76
   %78 = tail call ptr @OPENSSL_sk_value(ptr noundef %75, i32 noundef range(i32 -2147483647, -2147483648) %77) #6
   %79 = icmp eq ptr %78, null
   br i1 %79, label %read_uint.exit.thread, label %80
@@ -276,8 +276,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 83:                                               ; preds = %12
   %84 = load ptr, ptr @signature_collection, align 8, !tbaa !25
   %85 = tail call i32 @OPENSSL_sk_num(ptr noundef %84) #6
-  %.lhs.trunc158 = zext i8 %15 to i32
-  %86 = srem i32 %.lhs.trunc158, %85
+  %.lhs.trunc177 = zext i8 %15 to i32
+  %86 = srem i32 %.lhs.trunc177, %85
   %87 = tail call ptr @OPENSSL_sk_value(ptr noundef %84, i32 noundef range(i32 -2147483647, -2147483648) %86) #6
   %88 = icmp eq ptr %87, null
   br i1 %88, label %read_uint.exit.thread, label %89
@@ -291,8 +291,8 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
 92:                                               ; preds = %12
   %93 = load ptr, ptr @keyexch_collection, align 8, !tbaa !17
   %94 = tail call i32 @OPENSSL_sk_num(ptr noundef %93) #6
-  %.lhs.trunc161 = zext i8 %15 to i32
-  %95 = srem i32 %.lhs.trunc161, %94
+  %.lhs.trunc180 = zext i8 %15 to i32
+  %95 = srem i32 %.lhs.trunc180, %94
   %96 = tail call ptr @OPENSSL_sk_value(ptr noundef %93, i32 noundef range(i32 -2147483647, -2147483648) %95) #6
   %97 = icmp eq ptr %96, null
   br i1 %97, label %read_uint.exit.thread, label %98
@@ -303,16 +303,16 @@ define dso_local range(i32 0, 2) i32 @FuzzerTestOneInput(ptr noundef %0, i64 nou
   %.not108 = icmp eq ptr %100, null
   br i1 %.not108, label %read_uint.exit.thread.sink.split, label %read_uint.exit.thread.sink.split.sink.split
 
-default.unreachable138:                           ; preds = %12
+default.unreachable157:                           ; preds = %12
   unreachable
 
 read_uint.exit.thread.sink.split.sink.split:      ; preds = %98, %89, %80, %62, %.split64, %.split67, %.split70, %.split73, %.split79
-  %.sink164 = phi ptr [ %73, %.split79 ], [ %55, %.split73 ], [ %46, %.split70 ], [ %37, %.split67 ], [ %28, %.split64 ], [ %64, %62 ], [ %82, %80 ], [ %91, %89 ], [ %100, %98 ]
-  tail call fastcc void @free_params(ptr noundef nonnull %.sink164)
+  %.sink183 = phi ptr [ %73, %.split79 ], [ %55, %.split73 ], [ %46, %.split70 ], [ %37, %.split67 ], [ %28, %.split64 ], [ %64, %62 ], [ %82, %80 ], [ %91, %89 ], [ %100, %98 ]
+  tail call fastcc void @free_params(ptr noundef nonnull %.sink183)
   br label %read_uint.exit.thread.sink.split
 
 read_uint.exit.thread.sink.split:                 ; preds = %read_uint.exit.thread.sink.split.sink.split, %98, %89, %80, %71, %62, %53, %44, %35, %26
-  %.sink = phi ptr [ %28, %26 ], [ %37, %35 ], [ %46, %44 ], [ %55, %53 ], [ %64, %62 ], [ %73, %71 ], [ %82, %80 ], [ %91, %89 ], [ %100, %98 ], [ %.sink164, %read_uint.exit.thread.sink.split.sink.split ]
+  %.sink = phi ptr [ %28, %26 ], [ %37, %35 ], [ %46, %44 ], [ %55, %53 ], [ %64, %62 ], [ %73, %71 ], [ %82, %80 ], [ %91, %89 ], [ %100, %98 ], [ %.sink183, %read_uint.exit.thread.sink.split.sink.split ]
   tail call void @OSSL_PARAM_free(ptr noundef %.sink) #6
   br label %read_uint.exit.thread
 
@@ -332,24 +332,24 @@ define internal fastcc noalias ptr @fuzz_params(ptr noundef readonly captures(ad
 
 .lr.ph.preheader:                                 ; preds = %3
   %4 = load ptr, ptr %0, align 8, !tbaa !34
-  %.not81195 = icmp eq ptr %4, null
-  br i1 %.not81195, label %.critedge, label %.lr.ph
+  %.not81208 = icmp eq ptr %4, null
+  br i1 %.not81208, label %.critedge, label %.lr.ph
 
 .critedge.thread:                                 ; preds = %3
   %5 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 273) #6
   br label %.critedge2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.078167197 = phi ptr [ %7, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.076168196 = phi i32 [ %6, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %6 = add nuw nsw i32 %.076168196, 1
-  %7 = getelementptr inbounds nuw i8, ptr %.078167197, i64 40
+  %.078167210 = phi ptr [ %7, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.076168209 = phi i32 [ %6, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %6 = add nuw nsw i32 %.076168209, 1
+  %7 = getelementptr inbounds nuw i8, ptr %.078167210, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %.not81 = icmp eq ptr %8, null
   br i1 %.not81, label %.lr.ph..critedge_crit_edge, label %.lr.ph
 
 .lr.ph..critedge_crit_edge:                       ; preds = %.lr.ph
-  %9 = add nuw nsw i32 %.076168196, 2
+  %9 = add nuw nsw i32 %.076168209, 2
   %10 = zext nneg i32 %9 to i64
   %11 = mul nuw nsw i64 %10, 40
   br label %.critedge
@@ -358,17 +358,17 @@ define internal fastcc noalias ptr @fuzz_params(ptr noundef readonly captures(ad
   %.076168.lcssa = phi i64 [ %11, %.lr.ph..critedge_crit_edge ], [ 40, %.lr.ph.preheader ]
   %12 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %.076168.lcssa, ptr noundef nonnull @.str, i32 noundef 273) #6
   %13 = load ptr, ptr %0, align 8, !tbaa !34
-  %.not83199 = icmp eq ptr %13, null
-  br i1 %.not83199, label %.critedge2, label %.lr.ph202
+  %.not83212 = icmp eq ptr %13, null
+  br i1 %.not83212, label %.critedge2, label %.lr.ph215
 
-.lr.ph202:                                        ; preds = %.critedge, %.lr.ph174
-  %.179172201 = phi ptr [ %.280, %.lr.ph174 ], [ %12, %.critedge ]
-  %.077173200 = phi ptr [ %223, %.lr.ph174 ], [ %0, %.critedge ]
+.lr.ph215:                                        ; preds = %.critedge, %.lr.ph174
+  %.179172214 = phi ptr [ %.280, %.lr.ph174 ], [ %12, %.critedge ]
+  %.077173213 = phi ptr [ %223, %.lr.ph174 ], [ %0, %.critedge ]
   %14 = load i64, ptr %2, align 8, !tbaa !30
   %15 = icmp ult i64 %14, 8
   br i1 %15, label %24, label %read_int.exit
 
-read_int.exit:                                    ; preds = %.lr.ph202
+read_int.exit:                                    ; preds = %.lr.ph215
   %16 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 8, ptr noundef nonnull @.str, i32 noundef 131) #6
   %17 = load ptr, ptr %1, align 8, !tbaa !32
   %18 = load i8, ptr %17, align 1, !tbaa !29
@@ -382,7 +382,7 @@ read_int.exit:                                    ; preds = %.lr.ph202
   %23 = icmp eq i8 %18, 0
   br label %26
 
-24:                                               ; preds = %.lr.ph202
+24:                                               ; preds = %.lr.ph215
   %25 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 8, ptr noundef nonnull @.str, i32 noundef 289) #6
   store i64 0, ptr %25, align 8, !tbaa !30
   br label %26
@@ -390,7 +390,7 @@ read_int.exit:                                    ; preds = %.lr.ph202
 26:                                               ; preds = %read_int.exit, %24
   %.not93 = phi i1 [ true, %24 ], [ %23, %read_int.exit ]
   %.0131 = phi ptr [ %25, %24 ], [ %16, %read_int.exit ]
-  %27 = getelementptr inbounds nuw i8, ptr %.077173200, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.077173213, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !37
   switch i32 %28, label %.lr.ph174 [
     i32 1, label %29
@@ -403,7 +403,7 @@ read_int.exit:                                    ; preds = %.lr.ph202
   ]
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %.077173200, align 8, !tbaa !34
+  %30 = load ptr, ptr %.077173213, align 8, !tbaa !34
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(5) @.str.1) #7
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %sub_0
@@ -482,14 +482,14 @@ read_int.exit96.thread:                           ; preds = %51, %.tail149.threa
 
 62:                                               ; preds = %read_int.exit96, %39, %49, %read_int.exit96.thread, %44, %33
   %.0129 = phi ptr [ %34, %33 ], [ %40, %39 ], [ %45, %44 ], [ %50, %49 ], [ %61, %read_int.exit96.thread ], [ %54, %read_int.exit96 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
-  %63 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172214, ptr noundef nonnull align 8 dereferenceable(40) %.077173213, i64 40, i1 false), !tbaa.struct !38
+  %63 = getelementptr inbounds nuw i8, ptr %.179172214, i64 16
   store ptr %.0129, ptr %63, align 8, !tbaa !41
-  %64 = getelementptr inbounds nuw i8, ptr %.179172201, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.179172214, i64 40
   br label %.lr.ph174
 
 65:                                               ; preds = %26
-  %66 = load ptr, ptr %.077173200, align 8, !tbaa !34
+  %66 = load ptr, ptr %.077173213, align 8, !tbaa !34
   %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(5) @.str.1) #7
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %sub_0154
@@ -568,10 +568,10 @@ read_uint.exit.thread:                            ; preds = %87, %.tail161.threa
 
 98:                                               ; preds = %read_uint.exit, %75, %85, %read_uint.exit.thread, %80, %69
   %.0127 = phi ptr [ %70, %69 ], [ %76, %75 ], [ %81, %80 ], [ %86, %85 ], [ %97, %read_uint.exit.thread ], [ %90, %read_uint.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
-  %99 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172214, ptr noundef nonnull align 8 dereferenceable(40) %.077173213, i64 40, i1 false), !tbaa.struct !38
+  %99 = getelementptr inbounds nuw i8, ptr %.179172214, i64 16
   store ptr %.0127, ptr %99, align 8, !tbaa !41
-  %100 = getelementptr inbounds nuw i8, ptr %.179172201, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %.179172214, i64 40
   br label %.lr.ph174
 
 101:                                              ; preds = %26
@@ -602,10 +602,10 @@ read_double.exit.thread:                          ; preds = %102, %101
 
 113:                                              ; preds = %read_double.exit, %read_double.exit.thread
   %.0125 = phi ptr [ %112, %read_double.exit.thread ], [ %105, %read_double.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
-  %114 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172214, ptr noundef nonnull align 8 dereferenceable(40) %.077173213, i64 40, i1 false), !tbaa.struct !38
+  %114 = getelementptr inbounds nuw i8, ptr %.179172214, i64 16
   store ptr %.0125, ptr %114, align 8, !tbaa !41
-  %115 = getelementptr inbounds nuw i8, ptr %.179172201, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %.179172214, i64 40
   br label %.lr.ph174
 
 116:                                              ; preds = %26
@@ -634,12 +634,12 @@ read_double.exit.thread:                          ; preds = %102, %101
 read_utf8_string.exit:                            ; preds = %123, %117, %116
   %.0123 = phi ptr [ @.str.5, %116 ], [ @.str.5, %117 ], [ %126, %123 ]
   %.0 = phi i64 [ 0, %116 ], [ 0, %117 ], [ %130, %123 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
-  %131 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172214, ptr noundef nonnull align 8 dereferenceable(40) %.077173213, i64 40, i1 false), !tbaa.struct !38
+  %131 = getelementptr inbounds nuw i8, ptr %.179172214, i64 16
   store ptr %.0123, ptr %131, align 8, !tbaa !41
-  %132 = getelementptr inbounds nuw i8, ptr %.179172201, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %.179172214, i64 24
   store i64 %.0, ptr %132, align 8, !tbaa !44
-  %133 = getelementptr inbounds nuw i8, ptr %.179172201, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %.179172214, i64 40
   br label %.lr.ph174
 
 134:                                              ; preds = %26
@@ -690,12 +690,12 @@ read_utf8_string.exit:                            ; preds = %123, %117, %116
 read_octet_string.exit:                           ; preds = %146, %148, %135, %134
   %.0121 = phi ptr [ @.str.5, %134 ], [ @.str.5, %135 ], [ %136, %148 ], [ @.str.5, %146 ]
   %.1 = phi i64 [ 0, %134 ], [ 0, %135 ], [ %157, %148 ], [ 0, %146 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
-  %158 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172214, ptr noundef nonnull align 8 dereferenceable(40) %.077173213, i64 40, i1 false), !tbaa.struct !38
+  %158 = getelementptr inbounds nuw i8, ptr %.179172214, i64 16
   store ptr %.0121, ptr %158, align 8, !tbaa !41
-  %159 = getelementptr inbounds nuw i8, ptr %.179172201, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %.179172214, i64 24
   store i64 %.1, ptr %159, align 8, !tbaa !44
-  %160 = getelementptr inbounds nuw i8, ptr %.179172201, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %.179172214, i64 40
   br label %.lr.ph174
 
 161:                                              ; preds = %26
@@ -740,12 +740,12 @@ read_octet_string.exit:                           ; preds = %146, %148, %135, %1
 read_utf8_ptr.exit:                               ; preds = %174, %170, %167, %161
   %.0119 = phi ptr [ null, %161 ], [ null, %170 ], [ %177, %174 ], [ null, %167 ]
   %.2 = phi i64 [ 0, %161 ], [ 0, %170 ], [ %181, %174 ], [ 0, %167 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
-  %182 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172214, ptr noundef nonnull align 8 dereferenceable(40) %.077173213, i64 40, i1 false), !tbaa.struct !38
+  %182 = getelementptr inbounds nuw i8, ptr %.179172214, i64 16
   store ptr %.0119, ptr %182, align 8, !tbaa !41
-  %183 = getelementptr inbounds nuw i8, ptr %.179172201, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %.179172214, i64 24
   store i64 %.2, ptr %183, align 8, !tbaa !44
-  %184 = getelementptr inbounds nuw i8, ptr %.179172201, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %.179172214, i64 40
   br label %.lr.ph174
 
 185:                                              ; preds = %26
@@ -821,21 +821,21 @@ read_utf8_ptr.exit:                               ; preds = %174, %170, %167, %1
 read_octet_ptr.exit:                              ; preds = %208, %210, %199, %196, %185
   %.0117 = phi ptr [ null, %185 ], [ null, %196 ], [ %.pre.i101, %210 ], [ null, %199 ], [ null, %208 ]
   %.3 = phi i64 [ 0, %185 ], [ 0, %196 ], [ %219, %210 ], [ 0, %199 ], [ 0, %208 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172201, ptr noundef nonnull align 8 dereferenceable(40) %.077173200, i64 40, i1 false), !tbaa.struct !38
-  %220 = getelementptr inbounds nuw i8, ptr %.179172201, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.179172214, ptr noundef nonnull align 8 dereferenceable(40) %.077173213, i64 40, i1 false), !tbaa.struct !38
+  %220 = getelementptr inbounds nuw i8, ptr %.179172214, i64 16
   store ptr %.0117, ptr %220, align 8, !tbaa !41
-  %221 = getelementptr inbounds nuw i8, ptr %.179172201, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %.179172214, i64 24
   store i64 %.3, ptr %221, align 8, !tbaa !44
-  %222 = getelementptr inbounds nuw i8, ptr %.179172201, i64 40
+  %222 = getelementptr inbounds nuw i8, ptr %.179172214, i64 40
   br label %.lr.ph174
 
 .lr.ph174:                                        ; preds = %26, %read_octet_ptr.exit, %read_utf8_ptr.exit, %read_octet_string.exit, %read_utf8_string.exit, %113, %98, %62
-  %.280 = phi ptr [ %.179172201, %26 ], [ %64, %62 ], [ %100, %98 ], [ %115, %113 ], [ %133, %read_utf8_string.exit ], [ %160, %read_octet_string.exit ], [ %184, %read_utf8_ptr.exit ], [ %222, %read_octet_ptr.exit ]
+  %.280 = phi ptr [ %.179172214, %26 ], [ %64, %62 ], [ %100, %98 ], [ %115, %113 ], [ %133, %read_utf8_string.exit ], [ %160, %read_octet_string.exit ], [ %184, %read_utf8_ptr.exit ], [ %222, %read_octet_ptr.exit ]
   tail call void @CRYPTO_free(ptr noundef nonnull %.0131, ptr noundef nonnull @.str, i32 noundef 384) #6
-  %223 = getelementptr inbounds nuw i8, ptr %.077173200, i64 40
+  %223 = getelementptr inbounds nuw i8, ptr %.077173213, i64 40
   %224 = load ptr, ptr %223, align 8, !tbaa !34
   %.not83 = icmp eq ptr %224, null
-  br i1 %.not83, label %.critedge2, label %.lr.ph202
+  br i1 %.not83, label %.critedge2, label %.lr.ph215
 
 .critedge2:                                       ; preds = %.lr.ph174, %.critedge, %.critedge.thread
   %225 = phi ptr [ %5, %.critedge.thread ], [ %12, %.critedge ], [ %12, %.lr.ph174 ]
@@ -887,19 +887,19 @@ define internal fastcc void @free_params(ptr noundef readonly captures(address_i
 
 .lr.ph.preheader:                                 ; preds = %1
   %2 = load ptr, ptr %0, align 8, !tbaa !34
-  %.not712 = icmp eq ptr %2, null
-  br i1 %.not712, label %.critedge, label %.lr.ph14
+  %.not713 = icmp eq ptr %2, null
+  br i1 %.not713, label %.critedge, label %.lr.ph15
 
-.lr.ph14:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01013 = phi ptr [ %9, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %3 = getelementptr inbounds nuw i8, ptr %.01013, i64 8
+.lr.ph15:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01014 = phi ptr [ %9, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %3 = getelementptr inbounds nuw i8, ptr %.01014, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !37
   %.off = add i32 %4, -1
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %5, label %.lr.ph
 
-5:                                                ; preds = %.lr.ph14
-  %6 = getelementptr inbounds nuw i8, ptr %.01013, i64 16
+5:                                                ; preds = %.lr.ph15
+  %6 = getelementptr inbounds nuw i8, ptr %.01014, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !41
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %.lr.ph, label %8
@@ -908,11 +908,11 @@ define internal fastcc void @free_params(ptr noundef readonly captures(address_i
   tail call void @CRYPTO_free(ptr noundef nonnull %7, ptr noundef nonnull @.str, i32 noundef 257) #6
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph14, %8, %5
-  %9 = getelementptr inbounds nuw i8, ptr %.01013, i64 40
+.lr.ph:                                           ; preds = %.lr.ph15, %8, %5
+  %9 = getelementptr inbounds nuw i8, ptr %.01014, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %.not7 = icmp eq ptr %10, null
-  br i1 %.not7, label %.critedge, label %.lr.ph14
+  br i1 %.not7, label %.critedge, label %.lr.ph15
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %1
   ret void

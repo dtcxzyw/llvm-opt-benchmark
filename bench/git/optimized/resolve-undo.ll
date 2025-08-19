@@ -91,17 +91,17 @@ define dso_local void @resolve_undo_write(ptr noundef %0, ptr noundef readonly c
   %10 = load i64, ptr %5, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %10
   %12 = icmp ult ptr %4, %11
-  br i1 %12, label %.lr.ph38, label %.critedge
+  br i1 %12, label %.lr.ph40, label %.critedge
 
-.lr.ph38:                                         ; preds = %.lr.ph, %.loopexit
-  %.0233037 = phi ptr [ %37, %.loopexit ], [ %4, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i8, ptr %.0233037, i64 8
+.lr.ph40:                                         ; preds = %.lr.ph, %.loopexit
+  %.0233039 = phi ptr [ %37, %.loopexit ], [ %4, %.lr.ph ]
+  %13 = getelementptr inbounds nuw i8, ptr %.0233039, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %.not25 = icmp eq ptr %14, null
   br i1 %.not25, label %.loopexit, label %15
 
-15:                                               ; preds = %.lr.ph38
-  %16 = load ptr, ptr %.0233037, align 8, !tbaa !34
+15:                                               ; preds = %.lr.ph40
+  %16 = load ptr, ptr %.0233039, align 8, !tbaa !34
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
   tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %16, i64 noundef %17) #8
   %18 = load i64, ptr %0, align 8, !tbaa !35
@@ -164,13 +164,13 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 3
   br i1 %exitcond36.not, label %.loopexit, label %30, !llvm.loop !46
 
-.loopexit:                                        ; preds = %36, %.lr.ph38
-  %37 = getelementptr inbounds nuw i8, ptr %.0233037, i64 16
+.loopexit:                                        ; preds = %36, %.lr.ph40
+  %37 = getelementptr inbounds nuw i8, ptr %.0233039, i64 16
   %38 = load ptr, ptr %1, align 8, !tbaa !29
   %39 = load i64, ptr %5, align 8, !tbaa !33
   %40 = getelementptr inbounds nuw %struct.string_list_item, ptr %38, i64 %39
   %41 = icmp ult ptr %37, %40
-  br i1 %41, label %.lr.ph38, label %.critedge
+  br i1 %41, label %.lr.ph40, label %.critedge
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph, %3
   ret void
@@ -285,19 +285,19 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr readonly align 1 %.383, i64 %49, i1 false)
   %50 = load i64, ptr %5, align 8, !tbaa !42
   %51 = icmp ult i64 %50, 32
-  br i1 %51, label %52, label %.preheader104
+  br i1 %51, label %52, label %.preheader111
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 %50
   %54 = sub nuw nsw i64 32, %50
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %53, i8 0, i64 %54, i1 false)
-  br label %.preheader104
+  br label %.preheader111
 
-.preheader104:                                    ; preds = %52, %47
+.preheader111:                                    ; preds = %52, %47
   br label %55
 
-55:                                               ; preds = %.preheader104, %57
-  %.0811.i.i = phi i64 [ %58, %57 ], [ 0, %.preheader104 ]
+55:                                               ; preds = %.preheader111, %57
+  %.0811.i.i = phi i64 [ %58, %57 ], [ 0, %.preheader111 ]
   %56 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %2, %56
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %57
@@ -474,17 +474,17 @@ define dso_local void @unmerge_index(ptr noundef %0, ptr noundef %1, i32 noundef
   %12 = load i64, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw %struct.string_list_item, ptr %10, i64 %12
   %14 = icmp ult ptr %8, %13
-  br i1 %14, label %.lr.ph28, label %.critedge
+  br i1 %14, label %.lr.ph29, label %.critedge
 
-.lr.ph28:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02527 = phi ptr [ %24, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %15 = load ptr, ptr %.02527, align 8, !tbaa !34
-  %16 = getelementptr inbounds nuw i8, ptr %.02527, i64 8
+.lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02528 = phi ptr [ %24, %.lr.ph ], [ %8, %.lr.ph.preheader ]
+  %15 = load ptr, ptr %.02528, align 8, !tbaa !34
+  %16 = getelementptr inbounds nuw i8, ptr %.02528, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %.lr.ph, label %18
 
-18:                                               ; preds = %.lr.ph28
+18:                                               ; preds = %.lr.ph29
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #9
   %20 = trunc i64 %19 to i32
   %21 = tail call i32 @match_pathspec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %15, i32 noundef %20, i32 noundef 0, ptr noundef null, i32 noundef 0) #8
@@ -497,15 +497,15 @@ define dso_local void @unmerge_index(ptr noundef %0, ptr noundef %1, i32 noundef
   store ptr null, ptr %16, align 8, !tbaa !26
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %18, %.lr.ph28, %22
-  %24 = getelementptr inbounds nuw i8, ptr %.02527, i64 16
+.lr.ph:                                           ; preds = %18, %.lr.ph29, %22
+  %24 = getelementptr inbounds nuw i8, ptr %.02528, i64 16
   %25 = load ptr, ptr %4, align 8, !tbaa !8
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !33
   %29 = getelementptr inbounds nuw %struct.string_list_item, ptr %26, i64 %28
   %30 = icmp ult ptr %24, %29
-  br i1 %30, label %.lr.ph28, label %.critedge
+  br i1 %30, label %.lr.ph29, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %6, %3
   ret void

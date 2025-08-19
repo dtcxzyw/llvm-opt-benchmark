@@ -259,9 +259,9 @@ define void @EpdGetValueAndDecimalExponent(ptr noundef readonly captures(none) %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %27, %22, %16, %12, %10
-  %.sink10 = phi double [ 0.000000e+00, %10 ], [ %26, %22 ], [ %.pre, %27 ], [ 0xFFF8000000000000, %16 ], [ 0xFFF8000000000000, %12 ]
+  %.sink12 = phi double [ 0.000000e+00, %10 ], [ %26, %22 ], [ %.pre, %27 ], [ 0xFFF8000000000000, %16 ], [ 0xFFF8000000000000, %12 ]
   %.sink = phi i32 [ 0, %10 ], [ 0, %22 ], [ %.pre9, %27 ], [ 0, %16 ], [ 0, %12 ]
-  store double %.sink10, ptr %1, align 8, !tbaa !9
+  store double %.sink12, ptr %1, align 8, !tbaa !9
   store i32 %.sink, ptr %2, align 4, !tbaa !11
   br label %31
 

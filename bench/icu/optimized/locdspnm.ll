@@ -1906,7 +1906,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722LocaleDispl
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %54 = load i32, ptr %53, align 8, !tbaa !23
   %55 = icmp eq i32 %54, 1
-  br i1 %55, label %56, label %.thread208
+  br i1 %55, label %56, label %.thread211
 
 56:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -2100,18 +2100,18 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156: ; preds = 
   %.not112 = icmp eq i16 %137, 0
   %138 = icmp ugt i16 %.pre, 31
   %or.cond205 = and i1 %138, %.not112
-  br i1 %or.cond205, label %149, label %.thread208
+  br i1 %or.cond205, label %149, label %.thread211
 
-.thread208:                                       ; preds = %39, %136
-  %.066215 = phi i1 [ %.167, %136 ], [ %52, %39 ]
-  %.068213 = phi i1 [ %.169, %136 ], [ %51, %39 ]
+.thread211:                                       ; preds = %39, %136
+  %.066218 = phi i1 [ %.167, %136 ], [ %52, %39 ]
+  %.068216 = phi i1 [ %.169, %136 ], [ %51, %39 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   %140 = load i32, ptr %139, align 4, !tbaa !35
   %141 = icmp eq i32 %140, 768
   %142 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7722LocaleDisplayNamesImpl12localeIdNameEPKcRNS_13UnicodeStringEb(ptr noundef nonnull align 8 dereferenceable(1206) %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull align 8 dereferenceable(64) %14, i1 noundef zeroext %141)
           to label %143 unwind label %147
 
-143:                                              ; preds = %.thread208
+143:                                              ; preds = %.thread211
   %144 = load i16, ptr %40, align 8, !tbaa !20
   %145 = and i16 %144, 1
   %.not114 = icmp eq i16 %145, 0
@@ -2121,14 +2121,14 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156: ; preds = 
   invoke void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %529 unwind label %147
 
-147:                                              ; preds = %146, %.thread208
+147:                                              ; preds = %146, %.thread211
   %148 = landingpad { ptr, i32 }
           cleanup
   br label %530
 
 149:                                              ; preds = %136, %143
-  %.066216 = phi i1 [ %.167, %136 ], [ %.066215, %143 ]
-  %.068214 = phi i1 [ %.169, %136 ], [ %.068213, %143 ]
+  %.066219 = phi i1 [ %.167, %136 ], [ %.066218, %143 ]
+  %.068217 = phi i1 [ %.169, %136 ], [ %.068216, %143 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %24, align 8, !tbaa !21
   %150 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2139,7 +2139,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit156: ; preds = 
   store i16 2, ptr %151, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 0, ptr %26, align 4, !tbaa !13
-  br i1 %.068214, label %152, label %173
+  br i1 %.068217, label %152, label %173
 
 152:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -2198,7 +2198,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %159
   br label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit191
 
 173:                                              ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit.thread, %149
-  br i1 %.066216, label %174, label %196
+  br i1 %.066219, label %174, label %196
 
 174:                                              ; preds = %173
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -2627,10 +2627,10 @@ _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit169: ; preds = %_ZN6icu_7
 410:                                              ; preds = %407
   %411 = load i16, ptr %275, align 8, !tbaa !20
   %412 = and i16 %411, 1
-  %.not217 = icmp eq i16 %412, 0
+  %.not220 = icmp eq i16 %412, 0
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %33) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br i1 %.not217, label %433, label %445
+  br i1 %.not220, label %433, label %445
 
 413:                                              ; preds = %407
   %414 = icmp slt i16 %408, 0
@@ -2664,10 +2664,10 @@ _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit169: ; preds = %_ZN6icu_7
           to label %432 unwind label %442
 
 432:                                              ; preds = %427
-  %.not218 = icmp eq i8 %431, 0
+  %.not221 = icmp eq i8 %431, 0
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %33) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  br i1 %.not218, label %433, label %445
+  br i1 %.not221, label %433, label %445
 
 433:                                              ; preds = %410, %.thread196, %432
   %434 = load i16, ptr %150, align 8, !tbaa !20
@@ -2722,10 +2722,10 @@ _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit169: ; preds = %_ZN6icu_7
 449:                                              ; preds = %446
   %450 = load i16, ptr %281, align 8, !tbaa !20
   %451 = and i16 %450, 1
-  %.not219 = icmp eq i16 %451, 0
+  %.not222 = icmp eq i16 %451, 0
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %34) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br i1 %.not219, label %472, label %488
+  br i1 %.not222, label %472, label %488
 
 452:                                              ; preds = %446
   %453 = icmp slt i16 %447, 0
@@ -2759,10 +2759,10 @@ _ZN6icu_7713UnicodeString14findAndReplaceERKS0_S2_.exit169: ; preds = %_ZN6icu_7
           to label %471 unwind label %483
 
 471:                                              ; preds = %466
-  %.not220 = icmp eq i8 %470, 0
+  %.not223 = icmp eq i8 %470, 0
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %34) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br i1 %.not220, label %472, label %488
+  br i1 %.not223, label %472, label %488
 
 472:                                              ; preds = %449, %471, %.thread198
   call void @llvm.lifetime.start.p0(ptr nonnull %35)

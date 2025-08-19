@@ -241,12 +241,12 @@ define noundef ptr @X509v3_add_ext(ptr noundef captures(address_is_null) %0, ptr
   br label %28
 
 24:                                               ; preds = %15, %11, %8
-  %.sink38 = phi i32 [ 115, %8 ], [ 128, %11 ], [ 132, %15 ]
+  %.sink41 = phi i32 [ 115, %8 ], [ 128, %11 ], [ 132, %15 ]
   %.sink = phi i32 [ 524303, %8 ], [ 524301, %11 ], [ 524303, %15 ]
   %.022.ph = phi ptr [ null, %8 ], [ null, %11 ], [ %13, %15 ]
   %.0.ph = phi ptr [ null, %8 ], [ %.1, %11 ], [ %.1, %15 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink38, ptr noundef nonnull @__func__.X509v3_add_ext) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink41, ptr noundef nonnull @__func__.X509v3_add_ext) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #6
   tail call void @X509_EXTENSION_free(ptr noundef %.022.ph) #6
   %25 = load ptr, ptr %0, align 8, !tbaa !17

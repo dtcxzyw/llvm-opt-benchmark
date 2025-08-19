@@ -308,9 +308,9 @@ define internal i32 @activate(ptr noundef %0) #1 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %88, %83
-  %.sink40.i = phi i64 [ 40, %83 ], [ 64, %88 ]
+  %.sink41.i = phi i64 [ 40, %83 ], [ 64, %88 ]
   %.sink.i = phi double [ %87, %83 ], [ %91, %88 ]
-  %93 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink40.i
+  %93 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink41.i
   store double %.sink.i, ptr %93, align 8, !tbaa !23
   br label %eval_pts.exit48
 
@@ -414,9 +414,9 @@ double2int64str.exit49.i:                         ; preds = %130, %129
   br label %148
 
 148:                                              ; preds = %144, %140
-  %.sink56.i = phi double [ %147, %144 ], [ 1.000000e+00, %140 ]
+  %.sink57.i = phi double [ %147, %144 ], [ 1.000000e+00, %140 ]
   %149 = load double, ptr %103, align 8, !tbaa !23
-  %150 = fadd nsz double %.sink56.i, %149
+  %150 = fadd nsz double %.sink57.i, %149
   store double %150, ptr %103, align 8, !tbaa !23
   %151 = getelementptr inbounds nuw i8, ptr %27, i64 72
   store double %66, ptr %151, align 8, !tbaa !23

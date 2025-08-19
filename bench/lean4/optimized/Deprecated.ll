@@ -12667,18 +12667,18 @@ _init_l_Lean_Linter_checkDeprecated___rarg___lambda__1___closed__5.exit: ; preds
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Linter_checkDeprecated___rarg___lambda__1___closed__5.exit, %3
-  %.sink45 = phi ptr [ %4, %3 ], [ %216, %_init_l_Lean_Linter_checkDeprecated___rarg___lambda__1___closed__5.exit ]
-  %219 = getelementptr inbounds nuw i8, ptr %.sink45, i64 4
-  store i32 1, ptr %.sink45, align 4, !tbaa !8
+  %.sink68 = phi ptr [ %4, %3 ], [ %216, %_init_l_Lean_Linter_checkDeprecated___rarg___lambda__1___closed__5.exit ]
+  %219 = getelementptr inbounds nuw i8, ptr %.sink68, i64 4
+  store i32 1, ptr %.sink68, align 4, !tbaa !8
   store i32 131096, ptr %219, align 4
-  %220 = getelementptr inbounds nuw i8, ptr %.sink45, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %.sink68, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %220, align 8, !tbaa !4
-  %221 = getelementptr inbounds nuw i8, ptr %.sink45, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %.sink68, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %221, align 8, !tbaa !4
   br label %222
 
 222:                                              ; preds = %.sink.split, %173, %61, %lean_dec_ref.exit28, %lean_dec_ref.exit30, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit30 ], [ %28, %lean_dec_ref.exit28 ], [ %65, %61 ], [ %175, %173 ], [ %.sink45, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit30 ], [ %28, %lean_dec_ref.exit28 ], [ %65, %61 ], [ %175, %173 ], [ %.sink68, %.sink.split ]
   ret ptr %.0
 }
 

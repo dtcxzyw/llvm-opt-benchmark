@@ -4193,12 +4193,12 @@ for.cond.cleanup:                                 ; preds = %for.cond.preheader
   br i1 %cmp.not.i.i, label %_ZN8QuantLib5ArrayD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %for.body, %for.cond.cleanup
-  %fwdRate.0.lcssa20 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %9, %for.body ]
+  %fwdRate.0.lcssa22 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %9, %for.body ]
   call void @_ZdaPv(ptr noundef nonnull %.pre) #29
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %for.cond.cleanup, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
-  %fwdRate.0.lcssa21 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %fwdRate.0.lcssa20, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i ]
+  %fwdRate.0.lcssa23 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %fwdRate.0.lcssa22, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %f)
   %4 = load ptr, ptr %w, align 8, !tbaa !3
   %cmp.not.i.i7 = icmp eq ptr %4, null
@@ -4210,7 +4210,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit9:                     ; preds = %_ZN8QuantLib5ArrayD2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i8
   call void @llvm.lifetime.end.p0(ptr nonnull %w)
-  ret double %fwdRate.0.lcssa21
+  ret double %fwdRate.0.lcssa23
 
 lpad:                                             ; preds = %cond.false.i, %invoke.cont
   %5 = landingpad { ptr, i32 }

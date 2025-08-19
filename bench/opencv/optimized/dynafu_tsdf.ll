@@ -1300,9 +1300,9 @@ _ZN2cvmlIfEENS_7Affine3IT_EERKS3_S5_.exit.i:      ; preds = %75
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %94 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !23
   %.not.i.i.i.i.i.i = icmp eq i8 %94, 0
-  br i1 %.not.i.i.i.i.i.i, label %102, label %.thread28
+  br i1 %.not.i.i.i.i.i.i, label %102, label %.thread31
 
-.thread28:                                        ; preds = %92
+.thread31:                                        ; preds = %92
   %95 = load i32, ptr %93, align 4, !tbaa !20
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %93, align 4, !tbaa !20
@@ -1334,9 +1334,9 @@ _ZN2cvmlIfEENS_7Affine3IT_EERKS3_S5_.exit.i:      ; preds = %75
   %.not.i.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %108
 
-108:                                              ; preds = %.thread28, %102
-  %.pr31 = phi ptr [ %87, %.thread28 ], [ %.pr.pre, %102 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.pr31, i64 8
+108:                                              ; preds = %.thread31, %102
+  %.pr34 = phi ptr [ %87, %.thread31 ], [ %.pr.pre, %102 ]
+  %109 = getelementptr inbounds nuw i8, ptr %.pr34, i64 8
   %110 = load atomic i64, ptr %109 acquire, align 8
   %111 = icmp eq i64 %110, 4294967297
   %112 = trunc i64 %110 to i32
@@ -1344,16 +1344,16 @@ _ZN2cvmlIfEENS_7Affine3IT_EERKS3_S5_.exit.i:      ; preds = %75
 
 113:                                              ; preds = %108
   store i32 0, ptr %109, align 8, !tbaa !97
-  %114 = getelementptr inbounds nuw i8, ptr %.pr31, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %.pr34, i64 12
   store i32 0, ptr %114, align 4, !tbaa !99
-  %115 = load ptr, ptr %.pr31, align 8, !tbaa !3
+  %115 = load ptr, ptr %.pr34, align 8, !tbaa !3
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(16) %.pr31) #31
-  %118 = load ptr, ptr %.pr31, align 8, !tbaa !3
+  call void %117(ptr noundef nonnull align 8 dereferenceable(16) %.pr34) #31
+  %118 = load ptr, ptr %.pr34, align 8, !tbaa !3
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull align 8 dereferenceable(16) %.pr31) #31
+  call void %120(ptr noundef nonnull align 8 dereferenceable(16) %.pr34) #31
   br label %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 121:                                              ; preds = %108
@@ -1376,7 +1376,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %125, %123
   br i1 %127, label %128, label %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !100
 
 128:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr31) #31
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.pr34) #31
   br label %_ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv6dynafu9WarpFieldELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread, %102, %113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %128
@@ -4238,8 +4238,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc113
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc113, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.0144.4226235 = phi ptr [ %147, %.noexc113 ], [ %147, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %147, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i230234 = phi ptr [ %.0.i.i.i.i.i.ph, %.noexc113 ], [ %.0.i.i.i.i.i.ph, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.0.i.i.i.i.i.ph, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.sroa.0144.4249258 = phi ptr [ %147, %.noexc113 ], [ %147, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %147, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %.0.i.i.i.i.i253257 = phi ptr [ %.0.i.i.i.i.i.ph, %.noexc113 ], [ %.0.i.i.i.i.i.ph, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %.0.i.i.i.i.i.ph, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.sroa.0134.4 = phi ptr [ %158, %.noexc113 ], [ %158, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.0.i.i.i.i.i111 = phi ptr [ %159, %.noexc113 ], [ %163, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %164 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #35
@@ -4275,13 +4275,13 @@ _ZN7cvflann12SearchParamsC2Eifb.exit.i:           ; preds = %.noexc115
   store ptr %164, ptr %25, align 8, !tbaa !237
   store i64 3, ptr %24, align 8, !tbaa !238
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %170 = ptrtoint ptr %.0.i.i.i.i.i230234 to i64
-  %171 = ptrtoint ptr %.sroa.0144.4226235 to i64
+  %170 = ptrtoint ptr %.0.i.i.i.i.i253257 to i64
+  %171 = ptrtoint ptr %.sroa.0144.4249258 to i64
   %172 = sub i64 %170, %171
   %173 = ashr exact i64 %172, 2
   store i64 1, ptr %4, align 8, !tbaa !239
   store i64 %173, ptr %26, align 8, !tbaa !241
-  store ptr %.sroa.0144.4226235, ptr %28, align 8, !tbaa !242
+  store ptr %.sroa.0144.4249258, ptr %28, align 8, !tbaa !242
   store i64 %173, ptr %27, align 8, !tbaa !243
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %174 = ptrtoint ptr %.0.i.i.i.i.i111 to i64
@@ -4354,7 +4354,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   call void @_ZdlPv(ptr noundef nonnull %164) #33
   %197 = getelementptr inbounds nuw i8, ptr %107, i64 88
   store i32 0, ptr %197, align 4, !tbaa !188
-  %.not202 = icmp eq ptr %.0.i.i.i.i.i230234, %.sroa.0144.4226235
+  %.not202 = icmp eq ptr %.0.i.i.i.i.i253257, %.sroa.0144.4249258
   br i1 %.not202, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %196
@@ -4371,11 +4371,11 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7cvflann3anyESt4l
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %._crit_edge.thread
-  %.not.i.i.i117 = icmp eq ptr %.sroa.0144.4226235, null
+  %.not.i.i.i117 = icmp eq ptr %.sroa.0144.4249258, null
   br i1 %.not.i.i.i117, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %200
 
 200:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0144.4226235) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0144.4249258) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 201:                                              ; preds = %101
@@ -4430,7 +4430,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds [10 x float], ptr %198, i64 0, i64 %212
   store float %208, ptr %213, align 4, !tbaa !25
-  %214 = getelementptr inbounds nuw i32, ptr %.sroa.0144.4226235, i64 %.096184
+  %214 = getelementptr inbounds nuw i32, ptr %.sroa.0144.4249258, i64 %.096184
   %215 = load i32, ptr %214, align 4, !tbaa !20
   %216 = add nsw i32 %211, 1
   store i32 %216, ptr %197, align 4, !tbaa !188
@@ -4444,13 +4444,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   br i1 %exitcond.not, label %._crit_edge.thread, label %206, !llvm.loop !247
 
 _ZNSt6vectorIfSaIfEED2Ev.exit119:                 ; preds = %205, %.body
-  %.not.i.i.i120 = icmp eq ptr %.sroa.0144.4226235, null
+  %.not.i.i.i120 = icmp eq ptr %.sroa.0144.4249258, null
   br i1 %.not.i.i.i120, label %_ZNSt6vectorIiSaIiEED2Ev.exit121, label %_ZNSt6vectorIfSaIfEED2Ev.exit119.thread
 
 _ZNSt6vectorIfSaIfEED2Ev.exit119.thread:          ; preds = %.loopexit.split-lp160, %.loopexit159, %_ZNSt6vectorIfSaIfEED2Ev.exit119
-  %.pn241 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt6vectorIfSaIfEED2Ev.exit119 ], [ %lpad.loopexit.split-lp162, %.loopexit.split-lp160 ], [ %lpad.loopexit161, %.loopexit159 ]
-  %.sroa.0144.4227240 = phi ptr [ %.sroa.0144.4226235, %_ZNSt6vectorIfSaIfEED2Ev.exit119 ], [ %147, %.loopexit.split-lp160 ], [ %147, %.loopexit159 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0144.4227240) #33
+  %.pn264 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt6vectorIfSaIfEED2Ev.exit119 ], [ %lpad.loopexit.split-lp162, %.loopexit.split-lp160 ], [ %lpad.loopexit161, %.loopexit159 ]
+  %.sroa.0144.4250263 = phi ptr [ %.sroa.0144.4249258, %_ZNSt6vectorIfSaIfEED2Ev.exit119 ], [ %147, %.loopexit.split-lp160 ], [ %147, %.loopexit159 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0144.4250263) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit121
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %200, %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZNSt12__shared_ptrIN2cv5flann12GenericIndexIN7cvflann9L2_SimpleIfEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4678,7 +4678,7 @@ _ZN2cv6dynafuL13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread: ; preds 
   br i1 %380, label %101, label %._crit_edge193, !llvm.loop !260
 
 _ZNSt6vectorIiSaIiEED2Ev.exit121:                 ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt6vectorIfSaIfEED2Ev.exit119, %_ZNSt6vectorIfSaIfEED2Ev.exit119.thread, %235, %201
-  %.pn103.pn.pn.pn = phi { ptr, i32 } [ %202, %201 ], [ %236, %235 ], [ %eh.lpad-body, %_ZNSt6vectorIfSaIfEED2Ev.exit119 ], [ %.pn241, %_ZNSt6vectorIfSaIfEED2Ev.exit119.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn103.pn.pn.pn = phi { ptr, i32 } [ %202, %201 ], [ %236, %235 ], [ %eh.lpad-body, %_ZNSt6vectorIfSaIfEED2Ev.exit119 ], [ %.pn264, %_ZNSt6vectorIfSaIfEED2Ev.exit119.thread ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %381 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %382 = load i32, ptr %381, align 8, !tbaa !56
   %.not.i127 = icmp eq i32 %382, 0
@@ -6020,18 +6020,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !230
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #36
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #36
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !38
@@ -6065,7 +6065,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -8881,8 +8881,8 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %foldExtExtBinop = fsub <2 x float> %.sroa.0252.0.copyload, %.sroa.0254.0.copyload
   %138 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.033.4.vec.extract.i = extractelement <2 x float> %.sroa.0254.0.copyload, i64 1
-  %foldExtExtBinop880 = fsub <2 x float> %.sroa.0252.0.copyload, %.sroa.0254.0.copyload
-  %139 = extractelement <2 x float> %foldExtExtBinop880, i64 1
+  %foldExtExtBinop894 = fsub <2 x float> %.sroa.0252.0.copyload, %.sroa.0254.0.copyload
+  %139 = extractelement <2 x float> %foldExtExtBinop894, i64 1
   %140 = fsub float %.sroa.2253.0.copyload, %.sroa.2255.0.copyload
   %141 = fmul float %138, %.0.i
   %142 = fmul float %139, %.0.i
@@ -8917,11 +8917,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %158 = fdiv float %153, %155
   %.0.i334 = select i1 %157, float %158, float 5.000000e-01
   %.sroa.033.0.vec.extract.i336 = extractelement <2 x float> %.sroa.0236.0.copyload, i64 0
-  %foldExtExtBinop882 = fsub <2 x float> %.sroa.0234.0.copyload, %.sroa.0236.0.copyload
-  %159 = extractelement <2 x float> %foldExtExtBinop882, i64 0
+  %foldExtExtBinop896 = fsub <2 x float> %.sroa.0234.0.copyload, %.sroa.0236.0.copyload
+  %159 = extractelement <2 x float> %foldExtExtBinop896, i64 0
   %.sroa.033.4.vec.extract.i338 = extractelement <2 x float> %.sroa.0236.0.copyload, i64 1
-  %foldExtExtBinop884 = fsub <2 x float> %.sroa.0234.0.copyload, %.sroa.0236.0.copyload
-  %160 = extractelement <2 x float> %foldExtExtBinop884, i64 1
+  %foldExtExtBinop898 = fsub <2 x float> %.sroa.0234.0.copyload, %.sroa.0236.0.copyload
+  %160 = extractelement <2 x float> %foldExtExtBinop898, i64 1
   %161 = fsub float %.sroa.2235.0.copyload, %.sroa.2237.0.copyload
   %162 = fmul float %159, %.0.i334
   %163 = fmul float %160, %.0.i334
@@ -8956,11 +8956,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %179 = fdiv float %174, %176
   %.0.i347 = select i1 %178, float %179, float 5.000000e-01
   %.sroa.033.0.vec.extract.i349 = extractelement <2 x float> %.sroa.0218.0.copyload, i64 0
-  %foldExtExtBinop886 = fsub <2 x float> %.sroa.0216.0.copyload, %.sroa.0218.0.copyload
-  %180 = extractelement <2 x float> %foldExtExtBinop886, i64 0
+  %foldExtExtBinop900 = fsub <2 x float> %.sroa.0216.0.copyload, %.sroa.0218.0.copyload
+  %180 = extractelement <2 x float> %foldExtExtBinop900, i64 0
   %.sroa.033.4.vec.extract.i351 = extractelement <2 x float> %.sroa.0218.0.copyload, i64 1
-  %foldExtExtBinop888 = fsub <2 x float> %.sroa.0216.0.copyload, %.sroa.0218.0.copyload
-  %181 = extractelement <2 x float> %foldExtExtBinop888, i64 1
+  %foldExtExtBinop902 = fsub <2 x float> %.sroa.0216.0.copyload, %.sroa.0218.0.copyload
+  %181 = extractelement <2 x float> %foldExtExtBinop902, i64 1
   %182 = fsub float %.sroa.2217.0.copyload, %.sroa.2219.0.copyload
   %183 = fmul float %180, %.0.i347
   %184 = fmul float %181, %.0.i347
@@ -8995,11 +8995,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %200 = fdiv float %195, %197
   %.0.i360 = select i1 %199, float %200, float 5.000000e-01
   %.sroa.033.0.vec.extract.i362 = extractelement <2 x float> %.sroa.0200.0.copyload, i64 0
-  %foldExtExtBinop890 = fsub <2 x float> %.sroa.0198.0.copyload, %.sroa.0200.0.copyload
-  %201 = extractelement <2 x float> %foldExtExtBinop890, i64 0
+  %foldExtExtBinop904 = fsub <2 x float> %.sroa.0198.0.copyload, %.sroa.0200.0.copyload
+  %201 = extractelement <2 x float> %foldExtExtBinop904, i64 0
   %.sroa.033.4.vec.extract.i364 = extractelement <2 x float> %.sroa.0200.0.copyload, i64 1
-  %foldExtExtBinop892 = fsub <2 x float> %.sroa.0198.0.copyload, %.sroa.0200.0.copyload
-  %202 = extractelement <2 x float> %foldExtExtBinop892, i64 1
+  %foldExtExtBinop906 = fsub <2 x float> %.sroa.0198.0.copyload, %.sroa.0200.0.copyload
+  %202 = extractelement <2 x float> %foldExtExtBinop906, i64 1
   %203 = fsub float %.sroa.2199.0.copyload, %.sroa.2201.0.copyload
   %204 = fmul float %201, %.0.i360
   %205 = fmul float %202, %.0.i360
@@ -9034,11 +9034,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %221 = fdiv float %216, %218
   %.0.i373 = select i1 %220, float %221, float 5.000000e-01
   %.sroa.033.0.vec.extract.i375 = extractelement <2 x float> %.sroa.0182.0.copyload, i64 0
-  %foldExtExtBinop894 = fsub <2 x float> %.sroa.0180.0.copyload, %.sroa.0182.0.copyload
-  %222 = extractelement <2 x float> %foldExtExtBinop894, i64 0
+  %foldExtExtBinop908 = fsub <2 x float> %.sroa.0180.0.copyload, %.sroa.0182.0.copyload
+  %222 = extractelement <2 x float> %foldExtExtBinop908, i64 0
   %.sroa.033.4.vec.extract.i377 = extractelement <2 x float> %.sroa.0182.0.copyload, i64 1
-  %foldExtExtBinop896 = fsub <2 x float> %.sroa.0180.0.copyload, %.sroa.0182.0.copyload
-  %223 = extractelement <2 x float> %foldExtExtBinop896, i64 1
+  %foldExtExtBinop910 = fsub <2 x float> %.sroa.0180.0.copyload, %.sroa.0182.0.copyload
+  %223 = extractelement <2 x float> %foldExtExtBinop910, i64 1
   %224 = fsub float %.sroa.2181.0.copyload, %.sroa.2183.0.copyload
   %225 = fmul float %222, %.0.i373
   %226 = fmul float %223, %.0.i373
@@ -9073,11 +9073,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %242 = fdiv float %237, %239
   %.0.i386 = select i1 %241, float %242, float 5.000000e-01
   %.sroa.033.0.vec.extract.i388 = extractelement <2 x float> %.sroa.0164.0.copyload, i64 0
-  %foldExtExtBinop898 = fsub <2 x float> %.sroa.0162.0.copyload, %.sroa.0164.0.copyload
-  %243 = extractelement <2 x float> %foldExtExtBinop898, i64 0
+  %foldExtExtBinop912 = fsub <2 x float> %.sroa.0162.0.copyload, %.sroa.0164.0.copyload
+  %243 = extractelement <2 x float> %foldExtExtBinop912, i64 0
   %.sroa.033.4.vec.extract.i390 = extractelement <2 x float> %.sroa.0164.0.copyload, i64 1
-  %foldExtExtBinop900 = fsub <2 x float> %.sroa.0162.0.copyload, %.sroa.0164.0.copyload
-  %244 = extractelement <2 x float> %foldExtExtBinop900, i64 1
+  %foldExtExtBinop914 = fsub <2 x float> %.sroa.0162.0.copyload, %.sroa.0164.0.copyload
+  %244 = extractelement <2 x float> %foldExtExtBinop914, i64 1
   %245 = fsub float %.sroa.2163.0.copyload, %.sroa.2165.0.copyload
   %246 = fmul float %243, %.0.i386
   %247 = fmul float %244, %.0.i386
@@ -9112,11 +9112,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %263 = fdiv float %258, %260
   %.0.i399 = select i1 %262, float %263, float 5.000000e-01
   %.sroa.033.0.vec.extract.i401 = extractelement <2 x float> %.sroa.0146.0.copyload, i64 0
-  %foldExtExtBinop902 = fsub <2 x float> %.sroa.0144.0.copyload, %.sroa.0146.0.copyload
-  %264 = extractelement <2 x float> %foldExtExtBinop902, i64 0
+  %foldExtExtBinop916 = fsub <2 x float> %.sroa.0144.0.copyload, %.sroa.0146.0.copyload
+  %264 = extractelement <2 x float> %foldExtExtBinop916, i64 0
   %.sroa.033.4.vec.extract.i403 = extractelement <2 x float> %.sroa.0146.0.copyload, i64 1
-  %foldExtExtBinop904 = fsub <2 x float> %.sroa.0144.0.copyload, %.sroa.0146.0.copyload
-  %265 = extractelement <2 x float> %foldExtExtBinop904, i64 1
+  %foldExtExtBinop918 = fsub <2 x float> %.sroa.0144.0.copyload, %.sroa.0146.0.copyload
+  %265 = extractelement <2 x float> %foldExtExtBinop918, i64 1
   %266 = fsub float %.sroa.2145.0.copyload, %.sroa.2147.0.copyload
   %267 = fmul float %264, %.0.i399
   %268 = fmul float %265, %.0.i399
@@ -9151,11 +9151,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %284 = fdiv float %279, %281
   %.0.i412 = select i1 %283, float %284, float 5.000000e-01
   %.sroa.033.0.vec.extract.i414 = extractelement <2 x float> %.sroa.0128.0.copyload, i64 0
-  %foldExtExtBinop906 = fsub <2 x float> %.sroa.0126.0.copyload, %.sroa.0128.0.copyload
-  %285 = extractelement <2 x float> %foldExtExtBinop906, i64 0
+  %foldExtExtBinop920 = fsub <2 x float> %.sroa.0126.0.copyload, %.sroa.0128.0.copyload
+  %285 = extractelement <2 x float> %foldExtExtBinop920, i64 0
   %.sroa.033.4.vec.extract.i416 = extractelement <2 x float> %.sroa.0128.0.copyload, i64 1
-  %foldExtExtBinop908 = fsub <2 x float> %.sroa.0126.0.copyload, %.sroa.0128.0.copyload
-  %286 = extractelement <2 x float> %foldExtExtBinop908, i64 1
+  %foldExtExtBinop922 = fsub <2 x float> %.sroa.0126.0.copyload, %.sroa.0128.0.copyload
+  %286 = extractelement <2 x float> %foldExtExtBinop922, i64 1
   %287 = fsub float %.sroa.2127.0.copyload, %.sroa.2129.0.copyload
   %288 = fmul float %285, %.0.i412
   %289 = fmul float %286, %.0.i412
@@ -9190,11 +9190,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %305 = fdiv float %300, %302
   %.0.i425 = select i1 %304, float %305, float 5.000000e-01
   %.sroa.033.0.vec.extract.i427 = extractelement <2 x float> %.sroa.0110.0.copyload, i64 0
-  %foldExtExtBinop910 = fsub <2 x float> %.sroa.0108.0.copyload, %.sroa.0110.0.copyload
-  %306 = extractelement <2 x float> %foldExtExtBinop910, i64 0
+  %foldExtExtBinop924 = fsub <2 x float> %.sroa.0108.0.copyload, %.sroa.0110.0.copyload
+  %306 = extractelement <2 x float> %foldExtExtBinop924, i64 0
   %.sroa.033.4.vec.extract.i429 = extractelement <2 x float> %.sroa.0110.0.copyload, i64 1
-  %foldExtExtBinop912 = fsub <2 x float> %.sroa.0108.0.copyload, %.sroa.0110.0.copyload
-  %307 = extractelement <2 x float> %foldExtExtBinop912, i64 1
+  %foldExtExtBinop926 = fsub <2 x float> %.sroa.0108.0.copyload, %.sroa.0110.0.copyload
+  %307 = extractelement <2 x float> %foldExtExtBinop926, i64 1
   %308 = fsub float %.sroa.2109.0.copyload, %.sroa.2111.0.copyload
   %309 = fmul float %306, %.0.i425
   %310 = fmul float %307, %.0.i425
@@ -9229,11 +9229,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %326 = fdiv float %321, %323
   %.0.i438 = select i1 %325, float %326, float 5.000000e-01
   %.sroa.033.0.vec.extract.i440 = extractelement <2 x float> %.sroa.092.0.copyload, i64 0
-  %foldExtExtBinop914 = fsub <2 x float> %.sroa.090.0.copyload, %.sroa.092.0.copyload
-  %327 = extractelement <2 x float> %foldExtExtBinop914, i64 0
+  %foldExtExtBinop928 = fsub <2 x float> %.sroa.090.0.copyload, %.sroa.092.0.copyload
+  %327 = extractelement <2 x float> %foldExtExtBinop928, i64 0
   %.sroa.033.4.vec.extract.i442 = extractelement <2 x float> %.sroa.092.0.copyload, i64 1
-  %foldExtExtBinop916 = fsub <2 x float> %.sroa.090.0.copyload, %.sroa.092.0.copyload
-  %328 = extractelement <2 x float> %foldExtExtBinop916, i64 1
+  %foldExtExtBinop930 = fsub <2 x float> %.sroa.090.0.copyload, %.sroa.092.0.copyload
+  %328 = extractelement <2 x float> %foldExtExtBinop930, i64 1
   %329 = fsub float %.sroa.291.0.copyload, %.sroa.293.0.copyload
   %330 = fmul float %327, %.0.i438
   %331 = fmul float %328, %.0.i438
@@ -9268,11 +9268,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %347 = fdiv float %342, %344
   %.0.i451 = select i1 %346, float %347, float 5.000000e-01
   %.sroa.033.0.vec.extract.i453 = extractelement <2 x float> %.sroa.074.0.copyload, i64 0
-  %foldExtExtBinop918 = fsub <2 x float> %.sroa.072.0.copyload, %.sroa.074.0.copyload
-  %348 = extractelement <2 x float> %foldExtExtBinop918, i64 0
+  %foldExtExtBinop932 = fsub <2 x float> %.sroa.072.0.copyload, %.sroa.074.0.copyload
+  %348 = extractelement <2 x float> %foldExtExtBinop932, i64 0
   %.sroa.033.4.vec.extract.i455 = extractelement <2 x float> %.sroa.074.0.copyload, i64 1
-  %foldExtExtBinop920 = fsub <2 x float> %.sroa.072.0.copyload, %.sroa.074.0.copyload
-  %349 = extractelement <2 x float> %foldExtExtBinop920, i64 1
+  %foldExtExtBinop934 = fsub <2 x float> %.sroa.072.0.copyload, %.sroa.074.0.copyload
+  %349 = extractelement <2 x float> %foldExtExtBinop934, i64 1
   %350 = fsub float %.sroa.273.0.copyload, %.sroa.275.0.copyload
   %351 = fmul float %348, %.0.i451
   %352 = fmul float %349, %.0.i451
@@ -9307,11 +9307,11 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %368 = fdiv float %363, %365
   %.0.i464 = select i1 %367, float %368, float 5.000000e-01
   %.sroa.033.0.vec.extract.i466 = extractelement <2 x float> %.sroa.056.0.copyload, i64 0
-  %foldExtExtBinop922 = fsub <2 x float> %.sroa.054.0.copyload, %.sroa.056.0.copyload
-  %369 = extractelement <2 x float> %foldExtExtBinop922, i64 0
+  %foldExtExtBinop936 = fsub <2 x float> %.sroa.054.0.copyload, %.sroa.056.0.copyload
+  %369 = extractelement <2 x float> %foldExtExtBinop936, i64 0
   %.sroa.033.4.vec.extract.i468 = extractelement <2 x float> %.sroa.056.0.copyload, i64 1
-  %foldExtExtBinop924 = fsub <2 x float> %.sroa.054.0.copyload, %.sroa.056.0.copyload
-  %370 = extractelement <2 x float> %foldExtExtBinop924, i64 1
+  %foldExtExtBinop938 = fsub <2 x float> %.sroa.054.0.copyload, %.sroa.056.0.copyload
+  %370 = extractelement <2 x float> %foldExtExtBinop938, i64 1
   %371 = fsub float %.sroa.255.0.copyload, %.sroa.257.0.copyload
   %372 = fmul float %369, %.0.i464
   %373 = fmul float %370, %.0.i464

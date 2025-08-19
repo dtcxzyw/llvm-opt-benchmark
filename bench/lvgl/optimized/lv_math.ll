@@ -269,7 +269,7 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
 11:                                               ; preds = %5
   %12 = icmp samesign ugt i32 %0, 67108863
   %. = select i1 %12, i32 20, i32 18
-  %.46 = select i1 %12, i32 6, i32 5
+  %.47 = select i1 %12, i32 6, i32 5
   br label %89
 
 13:                                               ; preds = %3
@@ -384,14 +384,14 @@ define range(i32 -1, -2147483648) i32 @lv_sqrt32(i32 noundef %0) local_unnamed_a
   br label %109
 
 89:                                               ; preds = %11, %7, %9
-  %.sink45 = phi i32 [ 24, %9 ], [ 22, %7 ], [ %., %11 ]
-  %.sink42 = phi i32 [ 8, %9 ], [ 7, %7 ], [ %.46, %11 ]
-  %90 = lshr i32 %0, %.sink45
+  %.sink46 = phi i32 [ 24, %9 ], [ 22, %7 ], [ %., %11 ]
+  %.sink43 = phi i32 [ 8, %9 ], [ 7, %7 ], [ %.47, %11 ]
+  %90 = lshr i32 %0, %.sink46
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds nuw [256 x i8], ptr @lv_sqrt32.sqq_table, i64 0, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !14
   %94 = zext i8 %93 to i32
-  %95 = shl nuw nsw i32 %94, %.sink42
+  %95 = shl nuw nsw i32 %94, %.sink43
   %96 = or disjoint i32 %95, 1
   %97 = udiv i32 %0, %95
   %98 = add i32 %96, %97

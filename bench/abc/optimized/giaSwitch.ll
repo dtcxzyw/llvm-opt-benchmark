@@ -415,7 +415,7 @@ Gia_ManSwiSimInfoRandom.exit.i:                   ; preds = %.lr.ph.i.i
   br i1 %124, label %.lr.ph27.split.i, label %Gia_ManSwiSimInfoInit.exit, !llvm.loop !58
 
 Gia_ManSwiSimInfoInit.exit:                       ; preds = %.lr.ph27.split.i, %.lr.ph.i, %.preheader.i
-  %.val12.lcssa.i348 = phi ptr [ %.val12.lcssa.i, %.preheader.i ], [ %.val1220.i, %.lr.ph.i ], [ %.val12.lcssa.i, %.lr.ph27.split.i ]
+  %.val12.lcssa.i356 = phi ptr [ %.val12.lcssa.i, %.preheader.i ], [ %.val1220.i, %.lr.ph.i ], [ %.val12.lcssa.i, %.lr.ph27.split.i ]
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !8
   %127 = icmp sgt i32 %126, 0
@@ -434,8 +434,8 @@ Gia_ManSwiSimInfoInit.exit:                       ; preds = %.lr.ph27.split.i, %
   br label %137
 
 137:                                              ; preds = %.lr.ph, %Gia_ManSwiSimInfoTransferShift.exit
-  %.val18.i152 = phi ptr [ %.val12.lcssa.i348, %.lr.ph ], [ %.val18.i152342, %Gia_ManSwiSimInfoTransferShift.exit ]
-  %.val18.i = phi ptr [ %.val12.lcssa.i348, %.lr.ph ], [ %.val18.i337, %Gia_ManSwiSimInfoTransferShift.exit ]
+  %.val18.i152 = phi ptr [ %.val12.lcssa.i356, %.lr.ph ], [ %.val18.i152342, %Gia_ManSwiSimInfoTransferShift.exit ]
+  %.val18.i = phi ptr [ %.val12.lcssa.i356, %.lr.ph ], [ %.val18.i337, %Gia_ManSwiSimInfoTransferShift.exit ]
   %138 = phi i32 [ %126, %.lr.ph ], [ %441, %Gia_ManSwiSimInfoTransferShift.exit ]
   %.0254 = phi i32 [ 0, %.lr.ph ], [ %440, %Gia_ManSwiSimInfoTransferShift.exit ]
   %139 = load i32, ptr %128, align 4, !tbaa !9
@@ -1762,8 +1762,8 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
   %51 = lshr i64 %.val50, 32
   %52 = and i64 %51, 536870911
   %53 = sub nsw i64 %indvars.iv79, %52
-  %sext84 = shl i64 %53, 32
-  %54 = ashr exact i64 %sext84, 30
+  %sext86 = shl i64 %53, 32
+  %54 = ashr exact i64 %sext86, 30
   %55 = getelementptr inbounds i8, ptr %.val45, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !85
   %57 = fadd float %50, %56

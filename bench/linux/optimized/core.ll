@@ -1014,21 +1014,21 @@ define dso_local i32 @intel_pmu_init() local_unnamed_addr #2 section ".init.text
   %53 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %54 = and i64 %53, 32768
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %.thread24, label %56
+  br i1 %55, label %.thread36, label %56
 
 56:                                               ; preds = %51
   %57 = tail call fastcc i64 @native_read_msr()
   store i64 %57, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
   %58 = and i64 %57, 63
   %59 = icmp eq i64 %58, 0
-  br i1 %59, label %.thread24, label %60
+  br i1 %59, label %.thread36, label %60
 
-.thread24:                                        ; preds = %51, %56
+.thread36:                                        ; preds = %51, %56
   store ptr @intel_pmu_lbr_reset_32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 496), align 8
   store ptr @intel_pmu_lbr_read_32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 504), align 8
   br label %60
 
-60:                                               ; preds = %.thread24, %56
+60:                                               ; preds = %.thread36, %56
   %61 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 112), align 8
   %62 = and i64 %61, 524288
   %63 = icmp eq i64 %62, 0
@@ -2778,17 +2778,17 @@ define internal void @intel_pmu_nhm_enable_all(i32 noundef %0) #1 align 16 {
 33:                                               ; preds = %32, %31
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 911, i32 0, i32 0) #22, !srcloc !6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #22
-          to label %.preheader5 [label %34], !srcloc !7
+          to label %.preheader9 [label %34], !srcloc !7
 
 34:                                               ; preds = %33
   tail call void @do_trace_write_msr(i32 noundef 911, i64 noundef 0, i32 noundef 0) #22
-  br label %.preheader5
+  br label %.preheader9
 
-.preheader5:                                      ; preds = %34, %33
+.preheader9:                                      ; preds = %34, %33
   br label %35
 
-35:                                               ; preds = %.preheader5, %47
-  %36 = phi i64 [ %48, %47 ], [ 0, %.preheader5 ]
+35:                                               ; preds = %.preheader9, %47
+  %36 = phi i64 [ %48, %47 ], [ 0, %.preheader9 ]
   %37 = getelementptr [64 x ptr], ptr %5, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null

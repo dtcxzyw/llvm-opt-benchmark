@@ -797,8 +797,8 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %14
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = load ptr, ptr %0, align 8, !tbaa !15
-  %.not121 = icmp eq i32 %13, 1
-  br i1 %.not121, label %_ZNK6icu_779UVector3210elementAtiEi.exit70, label %25
+  %.not132 = icmp eq i32 %13, 1
+  br i1 %.not132, label %_ZNK6icu_779UVector3210elementAtiEi.exit70, label %25
 
 25:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit
   %26 = add nsw i32 %13, -2

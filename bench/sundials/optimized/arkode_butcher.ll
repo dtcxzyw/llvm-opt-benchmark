@@ -881,10 +881,10 @@ arkode_butcher_order1.exit:                       ; preds = %.lr.ph.i
 
 .thread1002:                                      ; preds = %arkode_butcher_order1.exit
   store i32 1, ptr %1, align 4, !tbaa !22
-  br label %.preheader1160
+  br label %.preheader1230
 
 arkode_butcher_order1.exit.thread:                ; preds = %arkode_butcher_order1.exit
-  br i1 %.not, label %.thread1132, label %50
+  br i1 %.not, label %.thread1202, label %50
 
 50:                                               ; preds = %arkode_butcher_order1.exit.thread
   %51 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 33, i64 1, ptr nonnull %3)
@@ -894,14 +894,14 @@ arkode_butcher_order1.exit.thread:                ; preds = %arkode_butcher_orde
 thread-pre-split:                                 ; preds = %50, %42
   %52 = phi i32 [ %.pr, %42 ], [ %.pr1001.pre, %50 ]
   %53 = icmp eq i32 %52, 1
-  br i1 %53, label %.preheader1160, label %67
+  br i1 %53, label %.preheader1230, label %67
 
-.preheader1160:                                   ; preds = %thread-pre-split, %.thread1002
+.preheader1230:                                   ; preds = %thread-pre-split, %.thread1002
   br label %54
 
-54:                                               ; preds = %.preheader1160, %54
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %54 ], [ 0, %.preheader1160 ]
-  %55 = phi double [ %60, %54 ], [ 0.000000e+00, %.preheader1160 ]
+54:                                               ; preds = %.preheader1230, %54
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %54 ], [ 0, %.preheader1230 ]
+  %55 = phi double [ %60, %54 ], [ 0.000000e+00, %.preheader1230 ]
   %56 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i.i
   %57 = load double, ptr %56, align 8, !tbaa !18
   %58 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i
@@ -922,7 +922,7 @@ arkode_butcher_order2.exit:                       ; preds = %54
   br label %69
 
 64:                                               ; preds = %arkode_butcher_order2.exit
-  br i1 %.not, label %.thread1132, label %65
+  br i1 %.not, label %.thread1202, label %65
 
 65:                                               ; preds = %64
   %66 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 33, i64 1, ptr nonnull %3)
@@ -1053,7 +1053,7 @@ thread-pre-split1011:                             ; preds = %112, %.thread1008
 113:                                              ; preds = %thread-pre-split1011, %67
   %114 = phi i32 [ %.pr1012, %thread-pre-split1011 ], [ %.pr1005, %67 ]
   %115 = icmp eq i32 %114, 3
-  br i1 %115, label %116, label %.thread1132
+  br i1 %115, label %116, label %.thread1202
 
 116:                                              ; preds = %.thread1013, %113
   %117 = tail call fastcc i32 @arkode_butcher_order4a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
@@ -1097,23 +1097,23 @@ thread-pre-split1011:                             ; preds = %112, %.thread1008
 
 .thread1015:                                      ; preds = %128
   %130 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 35, i64 1, ptr nonnull %3)
-  br label %.thread1132
+  br label %.thread1202
 
 131:                                              ; preds = %128
   %.not7951095 = icmp ne i32 %.4, 0
   %.not795.not = and i1 %.not7951095, %.not794
-  br i1 %.not795.not, label %.thread1020, label %.thread1132
+  br i1 %.not795.not, label %.thread1020, label %.thread1202
 
 .thread1020:                                      ; preds = %131
   store i32 4, ptr %1, align 4, !tbaa !22
   br label %133
 
-.thread1132:                                      ; preds = %64, %arkode_butcher_order1.exit.thread, %.thread1015, %131, %113
+.thread1202:                                      ; preds = %64, %arkode_butcher_order1.exit.thread, %.thread1015, %131, %113
   %.pr1019 = load i32, ptr %1, align 4, !tbaa !22
   %132 = icmp eq i32 %.pr1019, 4
   br i1 %132, label %133, label %169
 
-133:                                              ; preds = %.thread1020, %.thread1132
+133:                                              ; preds = %.thread1020, %.thread1202
   %134 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %23, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not796 = icmp ne i32 %134, 0
   %brmerge874 = or i1 %.not, %.not796
@@ -1230,8 +1230,8 @@ thread-pre-split1025:                             ; preds = %arkode_butcher_rows
   %.pr1026 = load i32, ptr %1, align 4, !tbaa !22
   br label %169
 
-169:                                              ; preds = %thread-pre-split1025, %.thread1132
-  %170 = phi i32 [ %.pr1026, %thread-pre-split1025 ], [ %.pr1019, %.thread1132 ]
+169:                                              ; preds = %thread-pre-split1025, %.thread1202
+  %170 = phi i32 [ %.pr1026, %thread-pre-split1025 ], [ %.pr1019, %.thread1202 ]
   %171 = icmp eq i32 %170, 5
   br i1 %171, label %172, label %248
 
@@ -1571,10 +1571,10 @@ arkode_butcher_order1.exit987:                    ; preds = %.lr.ph.i981
 
 .thread1055:                                      ; preds = %arkode_butcher_order1.exit987
   store i32 1, ptr %2, align 4, !tbaa !22
-  br label %.preheader1154
+  br label %.preheader1224
 
 arkode_butcher_order1.exit987.thread:             ; preds = %arkode_butcher_order1.exit987
-  br i1 %.not, label %.thread1136, label %279
+  br i1 %.not, label %.thread1206, label %279
 
 279:                                              ; preds = %arkode_butcher_order1.exit987.thread
   %280 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 36, i64 1, ptr nonnull %3)
@@ -1584,14 +1584,14 @@ arkode_butcher_order1.exit987.thread:             ; preds = %arkode_butcher_orde
 thread-pre-split1053:                             ; preds = %279, %271
   %281 = phi i32 [ %.pr1048, %271 ], [ %.pr1054.pre, %279 ]
   %282 = icmp eq i32 %281, 1
-  br i1 %282, label %.preheader1154, label %296
+  br i1 %282, label %.preheader1224, label %296
 
-.preheader1154:                                   ; preds = %thread-pre-split1053, %.thread1055
+.preheader1224:                                   ; preds = %thread-pre-split1053, %.thread1055
   br label %283
 
-283:                                              ; preds = %.preheader1154, %283
-  %indvars.iv.i.i991 = phi i64 [ %indvars.iv.next.i.i992, %283 ], [ 0, %.preheader1154 ]
-  %284 = phi double [ %289, %283 ], [ 0.000000e+00, %.preheader1154 ]
+283:                                              ; preds = %.preheader1224, %283
+  %indvars.iv.i.i991 = phi i64 [ %indvars.iv.next.i.i992, %283 ], [ 0, %.preheader1224 ]
+  %284 = phi double [ %289, %283 ], [ 0.000000e+00, %.preheader1224 ]
   %285 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i.i991
   %286 = load double, ptr %285, align 8, !tbaa !18
   %287 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i.i991
@@ -1612,7 +1612,7 @@ arkode_butcher_order2.exit995:                    ; preds = %283
   br label %298
 
 293:                                              ; preds = %arkode_butcher_order2.exit995
-  br i1 %.not, label %.thread1136, label %294
+  br i1 %.not, label %.thread1206, label %294
 
 294:                                              ; preds = %293
   %295 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 36, i64 1, ptr nonnull %3)
@@ -1660,7 +1660,7 @@ thread-pre-split1064:                             ; preds = %305, %.thread1061
 306:                                              ; preds = %thread-pre-split1064, %296
   %307 = phi i32 [ %.pr1065, %thread-pre-split1064 ], [ %.pr1058, %296 ]
   %308 = icmp eq i32 %307, 3
-  br i1 %308, label %309, label %.thread1136
+  br i1 %308, label %309, label %.thread1206
 
 309:                                              ; preds = %.thread1066, %306
   %310 = tail call fastcc i32 @arkode_butcher_order4a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
@@ -1704,23 +1704,23 @@ thread-pre-split1064:                             ; preds = %305, %.thread1061
 
 .thread1068:                                      ; preds = %321
   %323 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 38, i64 1, ptr nonnull %3)
-  br label %.thread1136
+  br label %.thread1206
 
 324:                                              ; preds = %321
   %.not8371099 = icmp ne i32 %.38, 0
   %.not837.not = and i1 %.not8371099, %.not836
-  br i1 %.not837.not, label %.thread1073, label %.thread1136
+  br i1 %.not837.not, label %.thread1073, label %.thread1206
 
 .thread1073:                                      ; preds = %324
   store i32 4, ptr %2, align 4, !tbaa !22
   br label %326
 
-.thread1136:                                      ; preds = %293, %arkode_butcher_order1.exit987.thread, %.thread1068, %324, %306
+.thread1206:                                      ; preds = %293, %arkode_butcher_order1.exit987.thread, %.thread1068, %324, %306
   %.pr1072 = load i32, ptr %2, align 4, !tbaa !22
   %325 = icmp eq i32 %.pr1072, 4
   br i1 %325, label %326, label %362
 
-326:                                              ; preds = %.thread1073, %.thread1136
+326:                                              ; preds = %.thread1073, %.thread1206
   %327 = tail call fastcc i32 @arkode_butcher_order5a(ptr noundef %27, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, ptr noundef nonnull %19, i32 noundef %8)
   %.not838 = icmp ne i32 %327, 0
   %brmerge912 = or i1 %.not, %.not838
@@ -1837,8 +1837,8 @@ thread-pre-split1078:                             ; preds = %arkode_butcher_rows
   %.pr1079 = load i32, ptr %2, align 4, !tbaa !22
   br label %362
 
-362:                                              ; preds = %thread-pre-split1078, %.thread1136
-  %363 = phi i32 [ %.pr1079, %thread-pre-split1078 ], [ %.pr1072, %.thread1136 ]
+362:                                              ; preds = %thread-pre-split1078, %.thread1206
+  %363 = phi i32 [ %.pr1079, %thread-pre-split1078 ], [ %.pr1072, %.thread1206 ]
   %364 = icmp eq i32 %363, 5
   br i1 %364, label %365, label %441
 
@@ -2138,8 +2138,8 @@ thread-pre-split1078:                             ; preds = %arkode_butcher_rows
   %or.cond1093 = or i1 %or.cond9441090, %468
   %470 = icmp sgt i32 %458, 5
   %or.cond945 = and i1 %470, %461
-  %or.cond1145 = or i1 %or.cond1093, %or.cond945
-  br i1 %or.cond1145, label %.loopexit, label %471
+  %or.cond1215 = or i1 %or.cond1093, %or.cond945
+  br i1 %or.cond1215, label %.loopexit, label %471
 
 471:                                              ; preds = %467, %463
   br label %.loopexit
@@ -7163,176 +7163,174 @@ arkode_butcher_dot.exit:                          ; preds = %.preheader164
   %22 = fsub double %21, %19
   %23 = tail call double @llvm.fabs.f64(double %22)
   %24 = fcmp ogt double %23, 0x3E50000000000000
-  br i1 %24, label %28, label %25
+  br i1 %24, label %.preheader130.us.preheader, label %25
 
 25:                                               ; preds = %arkode_butcher_dot.exit
   %26 = add nuw nsw i32 %.082141, 1
   %27 = add nuw nsw i32 %.078142, 1
   %exitcond.not = icmp eq i32 %26, 999
-  br i1 %exitcond.not, label %28, label %.preheader.preheader.i
+  br i1 %exitcond.not, label %.preheader130.us.preheader, label %.preheader.preheader.i
 
-28:                                               ; preds = %arkode_butcher_dot.exit, %25
+.preheader130.us.preheader:                       ; preds = %arkode_butcher_dot.exit, %25
   %.082.lcssa = phi i32 [ %.082141, %arkode_butcher_dot.exit ], [ 999, %25 ]
-  %29 = icmp sgt i32 %3, 0
-  br i1 %29, label %.preheader130.us, label %.loopexit
+  br label %.preheader130.us
 
-.preheader130.us:                                 ; preds = %28, %..critedge_crit_edge.us
-  %.075145.us = phi i32 [ %56, %..critedge_crit_edge.us ], [ 1, %28 ]
-  %.081144.us = phi i32 [ %55, %..critedge_crit_edge.us ], [ 0, %28 ]
-  %30 = add nsw i32 %.075145.us, -1
-  %31 = uitofp nneg i32 %.075145.us to double
+.preheader130.us:                                 ; preds = %.preheader130.us.preheader, %..critedge_crit_edge.us
+  %.075145.us = phi i32 [ %54, %..critedge_crit_edge.us ], [ 1, %.preheader130.us.preheader ]
+  %.081144.us = phi i32 [ %53, %..critedge_crit_edge.us ], [ 0, %.preheader130.us.preheader ]
+  %28 = add nsw i32 %.075145.us, -1
+  %29 = uitofp nneg i32 %.075145.us to double
   br label %.preheader.preheader.i98.us
 
-32:                                               ; preds = %47
+30:                                               ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond176.not, label %..critedge_crit_edge.us, label %.preheader.preheader.i98.us
 
-.preheader.preheader.i98.us:                      ; preds = %.preheader130.us, %32
-  %indvars.iv = phi i64 [ 0, %.preheader130.us ], [ %indvars.iv.next, %32 ]
+.preheader.preheader.i98.us:                      ; preds = %.preheader130.us, %30
+  %indvars.iv = phi i64 [ 0, %.preheader130.us ], [ %indvars.iv.next, %30 ]
   br label %.preheader.i100.us
 
 .preheader.i100.us:                               ; preds = %.preheader.i100.us, %.preheader.preheader.i98.us
   %indvars.iv.i101.us = phi i64 [ 0, %.preheader.preheader.i98.us ], [ %indvars.iv.next.i102.us, %.preheader.i100.us ]
-  %33 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i101.us
-  %34 = load double, ptr %33, align 8, !tbaa !18
-  %35 = tail call double @SUNRpowerI(double noundef %34, i32 noundef range(i32 -2147483648, 999) %30) #17
-  %36 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i101.us
-  store double %35, ptr %36, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i101.us
+  %32 = load double, ptr %31, align 8, !tbaa !18
+  %33 = tail call double @SUNRpowerI(double noundef %32, i32 noundef range(i32 -2147483648, 999) %28) #17
+  %34 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i101.us
+  store double %33, ptr %34, align 8, !tbaa !18
   %indvars.iv.next.i102.us = add nuw nsw i64 %indvars.iv.i101.us, 1
   %exitcond.not.i103.us = icmp eq i64 %indvars.iv.next.i102.us, %wide.trip.count.i
-  br i1 %exitcond.not.i103.us, label %37, label %.preheader.i100.us
+  br i1 %exitcond.not.i103.us, label %35, label %.preheader.i100.us
 
-37:                                               ; preds = %.preheader.i100.us
-  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8, !tbaa !12
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %arkode_butcher_vp.exit, label %.preheader
+35:                                               ; preds = %.preheader.i100.us
+  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8, !tbaa !12
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %arkode_butcher_vp.exit, label %.preheader
 
-.preheader:                                       ; preds = %37, %.preheader
-  %indvars.iv.i108.us = phi i64 [ %indvars.iv.next.i109.us, %.preheader ], [ 0, %37 ]
-  %41 = phi double [ %46, %.preheader ], [ 0.000000e+00, %37 ]
-  %42 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv.i108.us
+.preheader:                                       ; preds = %35, %.preheader
+  %indvars.iv.i108.us = phi i64 [ %indvars.iv.next.i109.us, %.preheader ], [ 0, %35 ]
+  %39 = phi double [ %44, %.preheader ], [ 0.000000e+00, %35 ]
+  %40 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv.i108.us
+  %41 = load double, ptr %40, align 8, !tbaa !18
+  %42 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i108.us
   %43 = load double, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i108.us
-  %45 = load double, ptr %44, align 8, !tbaa !18
-  %46 = tail call double @llvm.fmuladd.f64(double %43, double %45, double %41)
+  %44 = tail call double @llvm.fmuladd.f64(double %41, double %43, double %39)
   %indvars.iv.next.i109.us = add nuw nsw i64 %indvars.iv.i108.us, 1
   %exitcond.not.i110.us = icmp eq i64 %indvars.iv.next.i109.us, %wide.trip.count.i
-  br i1 %exitcond.not.i110.us, label %47, label %.preheader
+  br i1 %exitcond.not.i110.us, label %45, label %.preheader
 
-47:                                               ; preds = %.preheader
-  %48 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %49 = load double, ptr %48, align 8, !tbaa !18
-  %50 = tail call double @SUNRpowerI(double noundef %49, i32 noundef %.075145.us) #17
-  %51 = fdiv double %50, %31
-  %52 = fsub double %51, %46
-  %53 = tail call double @llvm.fabs.f64(double %52)
-  %54 = fcmp ogt double %53, 0x3E50000000000000
-  br i1 %54, label %.split152, label %32
+45:                                               ; preds = %.preheader
+  %46 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %47 = load double, ptr %46, align 8, !tbaa !18
+  %48 = tail call double @SUNRpowerI(double noundef %47, i32 noundef %.075145.us) #17
+  %49 = fdiv double %48, %29
+  %50 = fsub double %49, %44
+  %51 = tail call double @llvm.fabs.f64(double %50)
+  %52 = fcmp ogt double %51, 0x3E50000000000000
+  br i1 %52, label %.preheader128.us.preheader, label %30
 
-..critedge_crit_edge.us:                          ; preds = %32
-  %55 = add nuw nsw i32 %.081144.us, 1
-  %56 = add nuw nsw i32 %.075145.us, 1
-  %exitcond177.not = icmp eq i32 %55, 999
-  br i1 %exitcond177.not, label %.split152, label %.preheader130.us
+..critedge_crit_edge.us:                          ; preds = %30
+  %53 = add nuw nsw i32 %.081144.us, 1
+  %54 = add nuw nsw i32 %.075145.us, 1
+  %exitcond177.not = icmp eq i32 %53, 999
+  br i1 %exitcond177.not, label %.preheader128.us.preheader, label %.preheader130.us
 
-.split152:                                        ; preds = %..critedge_crit_edge.us, %47
-  %.081138 = phi i32 [ %.081144.us, %47 ], [ 999, %..critedge_crit_edge.us ]
+.preheader128.us.preheader:                       ; preds = %..critedge_crit_edge.us, %45
+  %.081138 = phi i32 [ %.081144.us, %45 ], [ 999, %..critedge_crit_edge.us ]
   br label %.preheader128.us
 
-.preheader128.us:                                 ; preds = %.split152, %..critedge92_crit_edge.split.us.us
-  %.176154.us = phi i32 [ %84, %..critedge92_crit_edge.split.us.us ], [ 1, %.split152 ]
-  %.080153.us = phi i32 [ %83, %..critedge92_crit_edge.split.us.us ], [ 0, %.split152 ]
-  %57 = add nsw i32 %.176154.us, -1
-  %58 = uitofp nneg i32 %.176154.us to double
+.preheader128.us:                                 ; preds = %.preheader128.us.preheader, %..critedge92_crit_edge.split.us.us
+  %.176154.us = phi i32 [ %82, %..critedge92_crit_edge.split.us.us ], [ 1, %.preheader128.us.preheader ]
+  %.080153.us = phi i32 [ %81, %..critedge92_crit_edge.split.us.us ], [ 0, %.preheader128.us.preheader ]
+  %55 = add nsw i32 %.176154.us, -1
+  %56 = uitofp nneg i32 %.176154.us to double
   br label %.preheader.us.us
 
-.preheader.us.us:                                 ; preds = %71, %.preheader128.us
-  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %71 ], [ 0, %.preheader128.us ]
-  br label %59
+.preheader.us.us:                                 ; preds = %69, %.preheader128.us
+  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %69 ], [ 0, %.preheader128.us ]
+  br label %57
 
-59:                                               ; preds = %59, %.preheader.us.us
-  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %59 ], [ 0, %.preheader.us.us ]
-  %.5148.us.us = phi double [ %70, %59 ], [ 0.000000e+00, %.preheader.us.us ]
-  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv178
-  %61 = load ptr, ptr %60, align 8, !tbaa !12
-  %62 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv183
+57:                                               ; preds = %57, %.preheader.us.us
+  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %57 ], [ 0, %.preheader.us.us ]
+  %.5148.us.us = phi double [ %68, %57 ], [ 0.000000e+00, %.preheader.us.us ]
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv178
+  %59 = load ptr, ptr %58, align 8, !tbaa !12
+  %60 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv183
+  %61 = load double, ptr %60, align 8, !tbaa !18
+  %62 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv178
   %63 = load double, ptr %62, align 8, !tbaa !18
-  %64 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv178
-  %65 = load double, ptr %64, align 8, !tbaa !18
-  %66 = fmul double %63, %65
-  %67 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv178
-  %68 = load double, ptr %67, align 8, !tbaa !18
-  %69 = tail call double @SUNRpowerI(double noundef %68, i32 noundef %57) #17
-  %70 = tail call double @llvm.fmuladd.f64(double %66, double %69, double %.5148.us.us)
+  %64 = fmul double %61, %63
+  %65 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv178
+  %66 = load double, ptr %65, align 8, !tbaa !18
+  %67 = tail call double @SUNRpowerI(double noundef %66, i32 noundef %55) #17
+  %68 = tail call double @llvm.fmuladd.f64(double %64, double %67, double %.5148.us.us)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count.i
-  br i1 %exitcond182.not, label %._crit_edge.us.us, label %59
+  br i1 %exitcond182.not, label %._crit_edge.us.us, label %57
 
-71:                                               ; preds = %._crit_edge.us.us
+69:                                               ; preds = %._crit_edge.us.us
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count.i
   br i1 %exitcond187.not, label %..critedge92_crit_edge.split.us.us, label %.preheader.us.us
 
-._crit_edge.us.us:                                ; preds = %59
-  %72 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv183
-  %73 = load double, ptr %72, align 8, !tbaa !18
-  %74 = fdiv double %73, %58
-  %75 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv183
-  %76 = load double, ptr %75, align 8, !tbaa !18
-  %77 = tail call double @SUNRpowerI(double noundef %76, i32 noundef %.176154.us) #17
-  %78 = fsub double 1.000000e+00, %77
-  %79 = fmul double %74, %78
-  %80 = fsub double %79, %70
-  %81 = tail call double @llvm.fabs.f64(double %80)
-  %82 = fcmp ogt double %81, 0x3E50000000000000
-  br i1 %82, label %.loopexit, label %71
+._crit_edge.us.us:                                ; preds = %57
+  %70 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv183
+  %71 = load double, ptr %70, align 8, !tbaa !18
+  %72 = fdiv double %71, %56
+  %73 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv183
+  %74 = load double, ptr %73, align 8, !tbaa !18
+  %75 = tail call double @SUNRpowerI(double noundef %74, i32 noundef %.176154.us) #17
+  %76 = fsub double 1.000000e+00, %75
+  %77 = fmul double %72, %76
+  %78 = fsub double %77, %68
+  %79 = tail call double @llvm.fabs.f64(double %78)
+  %80 = fcmp ogt double %79, 0x3E50000000000000
+  br i1 %80, label %.loopexit, label %69
 
-..critedge92_crit_edge.split.us.us:               ; preds = %71
-  %83 = add nuw nsw i32 %.080153.us, 1
-  %84 = add nuw nsw i32 %.176154.us, 1
-  %exitcond188.not = icmp eq i32 %83, 999
+..critedge92_crit_edge.split.us.us:               ; preds = %69
+  %81 = add nuw nsw i32 %.080153.us, 1
+  %82 = add nuw nsw i32 %.176154.us, 1
+  %exitcond188.not = icmp eq i32 %81, 999
   br i1 %exitcond188.not, label %.loopexit, label %.preheader128.us
 
-.loopexit:                                        ; preds = %..critedge92_crit_edge.split.us.us, %._crit_edge.us.us, %28
-  %.081138191 = phi i32 [ 999, %28 ], [ %.081138, %._crit_edge.us.us ], [ %.081138, %..critedge92_crit_edge.split.us.us ]
-  %.080134 = phi i32 [ 999, %28 ], [ %.080153.us, %._crit_edge.us.us ], [ 999, %..critedge92_crit_edge.split.us.us ]
+.loopexit:                                        ; preds = %..critedge92_crit_edge.split.us.us, %._crit_edge.us.us
+  %.080134 = phi i32 [ %.080153.us, %._crit_edge.us.us ], [ 999, %..critedge92_crit_edge.split.us.us ]
   %.not90157 = icmp eq i32 %.082.lcssa, 0
   br i1 %.not90157, label %arkode_butcher_vp.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.loopexit
-  %85 = shl nuw i32 %.081138191, 1
-  %86 = add nuw nsw i32 %85, 2
-  %87 = add nuw nsw i32 %.081138191, 1
-  %88 = add nuw i32 %87, %.080134
-  %89 = add nsw i32 %.082.lcssa, -1
-  %umin = tail call i32 @llvm.umin.i32(i32 %88, i32 %89)
-  %umin189 = tail call i32 @llvm.umin.i32(i32 %umin, i32 %86)
-  %90 = add nuw nsw i32 %umin189, 1
+  %83 = shl nuw i32 %.081138, 1
+  %84 = add nuw nsw i32 %83, 2
+  %85 = add nuw nsw i32 %.081138, 1
+  %86 = add nuw i32 %85, %.080134
+  %87 = add nsw i32 %.082.lcssa, -1
+  %umin = tail call i32 @llvm.umin.i32(i32 %86, i32 %87)
+  %umin189 = tail call i32 @llvm.umin.i32(i32 %umin, i32 %84)
+  %88 = add nuw nsw i32 %umin189, 1
   br label %arkode_butcher_vp.exit
 
-arkode_butcher_vp.exit:                           ; preds = %37, %.loopexit, %.lr.ph.preheader, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.loopexit ], [ %90, %.lr.ph.preheader ], [ 0, %37 ]
+arkode_butcher_vp.exit:                           ; preds = %35, %.loopexit, %.lr.ph.preheader, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %.loopexit ], [ %88, %.lr.ph.preheader ], [ 0, %35 ]
   tail call void @free(ptr noundef %6) #17
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
-  %.sroa.05626 = alloca ptr, align 16
+  %.sroa.05711 = alloca ptr, align 16
   %.sroa.121 = alloca ptr, align 8
-  %.sroa.05506 = alloca ptr, align 16
-  %.sroa.385507 = alloca ptr, align 8
-  %.sroa.05470 = alloca ptr, align 16
+  %.sroa.05591 = alloca ptr, align 16
+  %.sroa.385592 = alloca ptr, align 8
+  %.sroa.05555 = alloca ptr, align 16
   %.sroa.181 = alloca ptr, align 8
   %.sroa.0 = alloca ptr, align 16
   %.sroa.38 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05626)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05711)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.121)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05506)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.385507)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05470)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05591)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.385592)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05555)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.181)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.38)
@@ -7426,14 +7424,14 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
   br i1 %or.cond2606, label %46, label %.loopexit
 
 46:                                               ; preds = %42
-  store ptr %13, ptr %.sroa.05626, align 16, !tbaa !23
-  store ptr %24, ptr %.sroa.05506, align 16, !tbaa !12
-  store ptr %20, ptr %.sroa.05470, align 16, !tbaa !12
+  store ptr %13, ptr %.sroa.05711, align 16, !tbaa !23
+  store ptr %24, ptr %.sroa.05591, align 16, !tbaa !12
+  store ptr %20, ptr %.sroa.05555, align 16, !tbaa !12
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   store ptr %48, ptr %.sroa.0, align 16, !tbaa !12
   store ptr %33, ptr %.sroa.121, align 8, !tbaa !23
-  store ptr %44, ptr %.sroa.385507, align 8, !tbaa !12
+  store ptr %44, ptr %.sroa.385592, align 8, !tbaa !12
   store ptr %40, ptr %.sroa.181, align 8, !tbaa !12
   store ptr %48, ptr %.sroa.38, align 8, !tbaa !12
   %49 = icmp ne ptr %4, null
@@ -7574,13 +7572,13 @@ thread-pre-split:                                 ; preds = %89, %76
 
 .preheader2940:                                   ; preds = %.preheader2940.preheader, %113
   %93 = phi i1 [ false, %113 ], [ true, %.preheader2940.preheader ]
-  %indvars.iv3828.sroa.phi = phi ptr [ %.sroa.385507, %113 ], [ %.sroa.05506, %.preheader2940.preheader ]
+  %indvars.iv3828.sroa.phi = phi ptr [ %.sroa.385592, %113 ], [ %.sroa.05591, %.preheader2940.preheader ]
   %.02984 = phi i32 [ %112, %113 ], [ 1, %.preheader2940.preheader ]
   br label %94
 
 94:                                               ; preds = %.preheader2940, %arkode_butcher_order2.exit
   %95 = phi i1 [ true, %.preheader2940 ], [ false, %arkode_butcher_order2.exit ]
-  %indvars.iv3825.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2940 ], [ %.sroa.181, %arkode_butcher_order2.exit ]
+  %indvars.iv3825.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2940 ], [ %.sroa.181, %arkode_butcher_order2.exit ]
   %.12982 = phi i32 [ %.02984, %.preheader2940 ], [ %112, %arkode_butcher_order2.exit ]
   %.not2244 = icmp eq i32 %.12982, 0
   br i1 %.not2244, label %arkode_butcher_order2.exit, label %96
@@ -7645,19 +7643,19 @@ thread-pre-split2563:                             ; preds = %thread-pre-split, %
 
 .preheader2938:                                   ; preds = %.preheader2938.preheader, %152
   %119 = phi i1 [ false, %152 ], [ true, %.preheader2938.preheader ]
-  %indvars.iv3837.sroa.phi = phi ptr [ %.sroa.385507, %152 ], [ %.sroa.05506, %.preheader2938.preheader ]
+  %indvars.iv3837.sroa.phi = phi ptr [ %.sroa.385592, %152 ], [ %.sroa.05591, %.preheader2938.preheader ]
   %.22990 = phi i32 [ %150, %152 ], [ 1, %.preheader2938.preheader ]
   br label %.preheader2937
 
 .preheader2937:                                   ; preds = %.preheader2938, %151
   %120 = phi i1 [ true, %.preheader2938 ], [ false, %151 ]
-  %indvars.iv3834.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2938 ], [ %.sroa.181, %151 ]
+  %indvars.iv3834.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2938 ], [ %.sroa.181, %151 ]
   %.32988 = phi i32 [ %.22990, %.preheader2938 ], [ %150, %151 ]
   br label %121
 
 121:                                              ; preds = %.preheader2937, %arkode_butcher_order3a.exit
   %122 = phi i1 [ true, %.preheader2937 ], [ false, %arkode_butcher_order3a.exit ]
-  %indvars.iv3831.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2937 ], [ %.sroa.181, %arkode_butcher_order3a.exit ]
+  %indvars.iv3831.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2937 ], [ %.sroa.181, %arkode_butcher_order3a.exit ]
   %.42986 = phi i32 [ %.32988, %.preheader2937 ], [ %150, %arkode_butcher_order3a.exit ]
   %.not2243 = icmp eq i32 %.42986, 0
   br i1 %.not2243, label %arkode_butcher_order3a.exit, label %123
@@ -7739,19 +7737,19 @@ arkode_butcher_order3a.exit:                      ; preds = %145, %137, %arkode_
 
 .preheader2935:                                   ; preds = %.preheader2935.preheader, %194
   %157 = phi i1 [ false, %194 ], [ true, %.preheader2935.preheader ]
-  %indvars.iv3846.sroa.phi = phi ptr [ %.sroa.385507, %194 ], [ %.sroa.05506, %.preheader2935.preheader ]
+  %indvars.iv3846.sroa.phi = phi ptr [ %.sroa.385592, %194 ], [ %.sroa.05591, %.preheader2935.preheader ]
   %.52996 = phi i32 [ %192, %194 ], [ %150, %.preheader2935.preheader ]
   br label %.preheader2934
 
 .preheader2934:                                   ; preds = %.preheader2935, %193
   %158 = phi i1 [ true, %.preheader2935 ], [ false, %193 ]
-  %indvars.iv3843.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2935 ], [ %.sroa.121, %193 ]
+  %indvars.iv3843.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2935 ], [ %.sroa.121, %193 ]
   %.62994 = phi i32 [ %.52996, %.preheader2935 ], [ %192, %193 ]
   br label %159
 
 159:                                              ; preds = %.preheader2934, %arkode_butcher_order3b.exit
   %160 = phi i1 [ true, %.preheader2934 ], [ false, %arkode_butcher_order3b.exit ]
-  %indvars.iv3840.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2934 ], [ %.sroa.181, %arkode_butcher_order3b.exit ]
+  %indvars.iv3840.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2934 ], [ %.sroa.181, %arkode_butcher_order3b.exit ]
   %.72992 = phi i32 [ %.62994, %.preheader2934 ], [ %192, %arkode_butcher_order3b.exit ]
   %.not2242 = icmp eq i32 %.72992, 0
   br i1 %.not2242, label %arkode_butcher_order3b.exit, label %161
@@ -7858,25 +7856,25 @@ thread-pre-split2567:                             ; preds = %arkode_butcher_orde
 
 .preheader2931:                                   ; preds = %.preheader2931.preheader, %246
   %200 = phi i1 [ false, %246 ], [ true, %.preheader2931.preheader ]
-  %indvars.iv3858.sroa.phi = phi ptr [ %.sroa.385507, %246 ], [ %.sroa.05506, %.preheader2931.preheader ]
+  %indvars.iv3858.sroa.phi = phi ptr [ %.sroa.385592, %246 ], [ %.sroa.05591, %.preheader2931.preheader ]
   %.83004 = phi i32 [ %243, %246 ], [ 1, %.preheader2931.preheader ]
   br label %.preheader2930
 
 .preheader2930:                                   ; preds = %.preheader2931, %245
   %201 = phi i1 [ true, %.preheader2931 ], [ false, %245 ]
-  %indvars.iv3855.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2931 ], [ %.sroa.181, %245 ]
+  %indvars.iv3855.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2931 ], [ %.sroa.181, %245 ]
   %.93002 = phi i32 [ %.83004, %.preheader2931 ], [ %243, %245 ]
   br label %.preheader2929
 
 .preheader2929:                                   ; preds = %.preheader2930, %244
   %202 = phi i1 [ true, %.preheader2930 ], [ false, %244 ]
-  %indvars.iv3852.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2930 ], [ %.sroa.181, %244 ]
+  %indvars.iv3852.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2930 ], [ %.sroa.181, %244 ]
   %.103000 = phi i32 [ %.93002, %.preheader2930 ], [ %243, %244 ]
   br label %203
 
 203:                                              ; preds = %.preheader2929, %arkode_butcher_order4a.exit
   %204 = phi i1 [ true, %.preheader2929 ], [ false, %arkode_butcher_order4a.exit ]
-  %indvars.iv3849.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2929 ], [ %.sroa.181, %arkode_butcher_order4a.exit ]
+  %indvars.iv3849.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2929 ], [ %.sroa.181, %arkode_butcher_order4a.exit ]
   %.112998 = phi i32 [ %.103000, %.preheader2929 ], [ %243, %arkode_butcher_order4a.exit ]
   %.not2241 = icmp eq i32 %.112998, 0
   br i1 %.not2241, label %arkode_butcher_order4a.exit, label %205
@@ -7989,25 +7987,25 @@ arkode_butcher_order4a.exit:                      ; preds = %238, %230, %arkode_
 
 .preheader2927:                                   ; preds = %.preheader2927.preheader, %300
   %251 = phi i1 [ false, %300 ], [ true, %.preheader2927.preheader ]
-  %indvars.iv3870.sroa.phi = phi ptr [ %.sroa.385507, %300 ], [ %.sroa.05506, %.preheader2927.preheader ]
+  %indvars.iv3870.sroa.phi = phi ptr [ %.sroa.385592, %300 ], [ %.sroa.05591, %.preheader2927.preheader ]
   %.123012 = phi i32 [ %297, %300 ], [ %243, %.preheader2927.preheader ]
   br label %.preheader2926
 
 .preheader2926:                                   ; preds = %.preheader2927, %299
   %252 = phi i1 [ true, %.preheader2927 ], [ false, %299 ]
-  %indvars.iv3867.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2927 ], [ %.sroa.181, %299 ]
+  %indvars.iv3867.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2927 ], [ %.sroa.181, %299 ]
   %.133010 = phi i32 [ %.123012, %.preheader2927 ], [ %297, %299 ]
   br label %.preheader2925
 
 .preheader2925:                                   ; preds = %.preheader2926, %298
   %253 = phi i1 [ true, %.preheader2926 ], [ false, %298 ]
-  %indvars.iv3864.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2926 ], [ %.sroa.121, %298 ]
+  %indvars.iv3864.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2926 ], [ %.sroa.121, %298 ]
   %.143008 = phi i32 [ %.133010, %.preheader2926 ], [ %297, %298 ]
   br label %254
 
 254:                                              ; preds = %.preheader2925, %arkode_butcher_order4b.exit
   %255 = phi i1 [ true, %.preheader2925 ], [ false, %arkode_butcher_order4b.exit ]
-  %indvars.iv3861.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2925 ], [ %.sroa.181, %arkode_butcher_order4b.exit ]
+  %indvars.iv3861.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2925 ], [ %.sroa.181, %arkode_butcher_order4b.exit ]
   %.153006 = phi i32 [ %.143008, %.preheader2925 ], [ %297, %arkode_butcher_order4b.exit ]
   %.not2240 = icmp eq i32 %.153006, 0
   br i1 %.not2240, label %arkode_butcher_order4b.exit, label %256
@@ -8131,25 +8129,25 @@ arkode_butcher_order4b.exit:                      ; preds = %292, %arkode_butche
 
 .preheader2923:                                   ; preds = %.preheader2923.preheader, %355
   %305 = phi i1 [ false, %355 ], [ true, %.preheader2923.preheader ]
-  %indvars.iv3882.sroa.phi = phi ptr [ %.sroa.385507, %355 ], [ %.sroa.05506, %.preheader2923.preheader ]
+  %indvars.iv3882.sroa.phi = phi ptr [ %.sroa.385592, %355 ], [ %.sroa.05591, %.preheader2923.preheader ]
   %.163020 = phi i32 [ %352, %355 ], [ %297, %.preheader2923.preheader ]
   br label %.preheader2922
 
 .preheader2922:                                   ; preds = %.preheader2923, %354
   %306 = phi i1 [ true, %.preheader2923 ], [ false, %354 ]
-  %indvars.iv3879.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2923 ], [ %.sroa.121, %354 ]
+  %indvars.iv3879.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2923 ], [ %.sroa.121, %354 ]
   %.173018 = phi i32 [ %.163020, %.preheader2923 ], [ %352, %354 ]
   br label %.preheader2921
 
 .preheader2921:                                   ; preds = %.preheader2922, %353
   %307 = phi i1 [ true, %.preheader2922 ], [ false, %353 ]
-  %indvars.iv3876.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2922 ], [ %.sroa.181, %353 ]
+  %indvars.iv3876.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2922 ], [ %.sroa.181, %353 ]
   %.183016 = phi i32 [ %.173018, %.preheader2922 ], [ %352, %353 ]
   br label %308
 
 308:                                              ; preds = %.preheader2921, %arkode_butcher_order4c.exit
   %309 = phi i1 [ true, %.preheader2921 ], [ false, %arkode_butcher_order4c.exit ]
-  %indvars.iv3873.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2921 ], [ %.sroa.181, %arkode_butcher_order4c.exit ]
+  %indvars.iv3873.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2921 ], [ %.sroa.181, %arkode_butcher_order4c.exit ]
   %.193014 = phi i32 [ %.183016, %.preheader2921 ], [ %352, %arkode_butcher_order4c.exit ]
   %.not2239 = icmp eq i32 %.193014, 0
   br i1 %.not2239, label %arkode_butcher_order4c.exit, label %310
@@ -8275,25 +8273,25 @@ arkode_butcher_order4c.exit:                      ; preds = %347, %339, %arkode_
 
 .preheader2919:                                   ; preds = %.preheader2919.preheader, %414
   %360 = phi i1 [ false, %414 ], [ true, %.preheader2919.preheader ]
-  %indvars.iv3894.sroa.phi = phi ptr [ %.sroa.385507, %414 ], [ %.sroa.05506, %.preheader2919.preheader ]
+  %indvars.iv3894.sroa.phi = phi ptr [ %.sroa.385592, %414 ], [ %.sroa.05591, %.preheader2919.preheader ]
   %.203028 = phi i32 [ %411, %414 ], [ %352, %.preheader2919.preheader ]
   br label %.preheader2918
 
 .preheader2918:                                   ; preds = %.preheader2919, %413
   %361 = phi i1 [ true, %.preheader2919 ], [ false, %413 ]
-  %indvars.iv3891.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2919 ], [ %.sroa.121, %413 ]
+  %indvars.iv3891.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2919 ], [ %.sroa.121, %413 ]
   %.213026 = phi i32 [ %.203028, %.preheader2919 ], [ %411, %413 ]
   br label %.preheader2917
 
 .preheader2917:                                   ; preds = %.preheader2918, %412
   %362 = phi i1 [ true, %.preheader2918 ], [ false, %412 ]
-  %indvars.iv3888.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2918 ], [ %.sroa.121, %412 ]
+  %indvars.iv3888.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2918 ], [ %.sroa.121, %412 ]
   %.223024 = phi i32 [ %.213026, %.preheader2918 ], [ %411, %412 ]
   br label %363
 
 363:                                              ; preds = %.preheader2917, %arkode_butcher_order4d.exit
   %364 = phi i1 [ true, %.preheader2917 ], [ false, %arkode_butcher_order4d.exit ]
-  %indvars.iv3885.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2917 ], [ %.sroa.181, %arkode_butcher_order4d.exit ]
+  %indvars.iv3885.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2917 ], [ %.sroa.181, %arkode_butcher_order4d.exit ]
   %.233022 = phi i32 [ %.223024, %.preheader2917 ], [ %411, %arkode_butcher_order4d.exit ]
   %.not2238 = icmp eq i32 %.233022, 0
   br i1 %.not2238, label %arkode_butcher_order4d.exit, label %365
@@ -8448,31 +8446,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2914:                                   ; preds = %.preheader2914.preheader, %438
   %420 = phi i1 [ false, %438 ], [ true, %.preheader2914.preheader ]
-  %indvars.iv3909.sroa.phi = phi ptr [ %.sroa.385507, %438 ], [ %.sroa.05506, %.preheader2914.preheader ]
+  %indvars.iv3909.sroa.phi = phi ptr [ %.sroa.385592, %438 ], [ %.sroa.05591, %.preheader2914.preheader ]
   %.243038 = phi i32 [ %434, %438 ], [ 1, %.preheader2914.preheader ]
   br label %.preheader2913
 
 .preheader2913:                                   ; preds = %.preheader2914, %437
   %421 = phi i1 [ true, %.preheader2914 ], [ false, %437 ]
-  %indvars.iv3906.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2914 ], [ %.sroa.181, %437 ]
+  %indvars.iv3906.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2914 ], [ %.sroa.181, %437 ]
   %.253036 = phi i32 [ %.243038, %.preheader2914 ], [ %434, %437 ]
   br label %.preheader2912
 
 .preheader2912:                                   ; preds = %.preheader2913, %436
   %422 = phi i1 [ true, %.preheader2913 ], [ false, %436 ]
-  %indvars.iv3903.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2913 ], [ %.sroa.181, %436 ]
+  %indvars.iv3903.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2913 ], [ %.sroa.181, %436 ]
   %.263034 = phi i32 [ %.253036, %.preheader2913 ], [ %434, %436 ]
   br label %.preheader2911
 
 .preheader2911:                                   ; preds = %.preheader2912, %435
   %423 = phi i1 [ true, %.preheader2912 ], [ false, %435 ]
-  %indvars.iv3900.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2912 ], [ %.sroa.181, %435 ]
+  %indvars.iv3900.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2912 ], [ %.sroa.181, %435 ]
   %.273032 = phi i32 [ %.263034, %.preheader2912 ], [ %434, %435 ]
   br label %424
 
 424:                                              ; preds = %.preheader2911, %433
   %425 = phi i1 [ true, %.preheader2911 ], [ false, %433 ]
-  %indvars.iv3897.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2911 ], [ %.sroa.181, %433 ]
+  %indvars.iv3897.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2911 ], [ %.sroa.181, %433 ]
   %.283030 = phi i32 [ %.273032, %.preheader2911 ], [ %434, %433 ]
   %.not2237 = icmp eq i32 %.283030, 0
   br i1 %.not2237, label %433, label %426
@@ -8516,31 +8514,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2910:                                   ; preds = %.preheader2910.preheader, %461
   %443 = phi i1 [ false, %461 ], [ true, %.preheader2910.preheader ]
-  %indvars.iv3924.sroa.phi = phi ptr [ %.sroa.385507, %461 ], [ %.sroa.05506, %.preheader2910.preheader ]
+  %indvars.iv3924.sroa.phi = phi ptr [ %.sroa.385592, %461 ], [ %.sroa.05591, %.preheader2910.preheader ]
   %.293048 = phi i32 [ %457, %461 ], [ %434, %.preheader2910.preheader ]
   br label %.preheader2909
 
 .preheader2909:                                   ; preds = %.preheader2910, %460
   %444 = phi i1 [ true, %.preheader2910 ], [ false, %460 ]
-  %indvars.iv3921.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2910 ], [ %.sroa.181, %460 ]
+  %indvars.iv3921.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2910 ], [ %.sroa.181, %460 ]
   %.303046 = phi i32 [ %.293048, %.preheader2910 ], [ %457, %460 ]
   br label %.preheader2908
 
 .preheader2908:                                   ; preds = %.preheader2909, %459
   %445 = phi i1 [ true, %.preheader2909 ], [ false, %459 ]
-  %indvars.iv3918.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2909 ], [ %.sroa.181, %459 ]
+  %indvars.iv3918.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2909 ], [ %.sroa.181, %459 ]
   %.313044 = phi i32 [ %.303046, %.preheader2909 ], [ %457, %459 ]
   br label %.preheader2907
 
 .preheader2907:                                   ; preds = %.preheader2908, %458
   %446 = phi i1 [ true, %.preheader2908 ], [ false, %458 ]
-  %indvars.iv3915.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2908 ], [ %.sroa.121, %458 ]
+  %indvars.iv3915.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2908 ], [ %.sroa.121, %458 ]
   %.323042 = phi i32 [ %.313044, %.preheader2908 ], [ %457, %458 ]
   br label %447
 
 447:                                              ; preds = %.preheader2907, %456
   %448 = phi i1 [ true, %.preheader2907 ], [ false, %456 ]
-  %indvars.iv3912.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2907 ], [ %.sroa.181, %456 ]
+  %indvars.iv3912.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2907 ], [ %.sroa.181, %456 ]
   %.333040 = phi i32 [ %.323042, %.preheader2907 ], [ %457, %456 ]
   %.not2236 = icmp eq i32 %.333040, 0
   br i1 %.not2236, label %456, label %449
@@ -8584,31 +8582,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2906:                                   ; preds = %.preheader2906.preheader, %484
   %466 = phi i1 [ false, %484 ], [ true, %.preheader2906.preheader ]
-  %indvars.iv3939.sroa.phi = phi ptr [ %.sroa.385507, %484 ], [ %.sroa.05506, %.preheader2906.preheader ]
+  %indvars.iv3939.sroa.phi = phi ptr [ %.sroa.385592, %484 ], [ %.sroa.05591, %.preheader2906.preheader ]
   %.343058 = phi i32 [ %480, %484 ], [ %457, %.preheader2906.preheader ]
   br label %.preheader2905
 
 .preheader2905:                                   ; preds = %.preheader2906, %483
   %467 = phi i1 [ true, %.preheader2906 ], [ false, %483 ]
-  %indvars.iv3936.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2906 ], [ %.sroa.121, %483 ]
+  %indvars.iv3936.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2906 ], [ %.sroa.121, %483 ]
   %.353056 = phi i32 [ %.343058, %.preheader2906 ], [ %480, %483 ]
   br label %.preheader2904
 
 .preheader2904:                                   ; preds = %.preheader2905, %482
   %468 = phi i1 [ true, %.preheader2905 ], [ false, %482 ]
-  %indvars.iv3933.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2905 ], [ %.sroa.181, %482 ]
+  %indvars.iv3933.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2905 ], [ %.sroa.181, %482 ]
   %.363054 = phi i32 [ %.353056, %.preheader2905 ], [ %480, %482 ]
   br label %.preheader2903
 
 .preheader2903:                                   ; preds = %.preheader2904, %481
   %469 = phi i1 [ true, %.preheader2904 ], [ false, %481 ]
-  %indvars.iv3930.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2904 ], [ %.sroa.121, %481 ]
+  %indvars.iv3930.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2904 ], [ %.sroa.121, %481 ]
   %.373052 = phi i32 [ %.363054, %.preheader2904 ], [ %480, %481 ]
   br label %470
 
 470:                                              ; preds = %.preheader2903, %479
   %471 = phi i1 [ true, %.preheader2903 ], [ false, %479 ]
-  %indvars.iv3927.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2903 ], [ %.sroa.181, %479 ]
+  %indvars.iv3927.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2903 ], [ %.sroa.181, %479 ]
   %.383050 = phi i32 [ %.373052, %.preheader2903 ], [ %480, %479 ]
   %.not2235 = icmp eq i32 %.383050, 0
   br i1 %.not2235, label %479, label %472
@@ -8652,31 +8650,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2902:                                   ; preds = %.preheader2902.preheader, %507
   %489 = phi i1 [ false, %507 ], [ true, %.preheader2902.preheader ]
-  %indvars.iv3954.sroa.phi = phi ptr [ %.sroa.385507, %507 ], [ %.sroa.05506, %.preheader2902.preheader ]
+  %indvars.iv3954.sroa.phi = phi ptr [ %.sroa.385592, %507 ], [ %.sroa.05591, %.preheader2902.preheader ]
   %.393068 = phi i32 [ %503, %507 ], [ %480, %.preheader2902.preheader ]
   br label %.preheader2901
 
 .preheader2901:                                   ; preds = %.preheader2902, %506
   %490 = phi i1 [ true, %.preheader2902 ], [ false, %506 ]
-  %indvars.iv3951.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2902 ], [ %.sroa.181, %506 ]
+  %indvars.iv3951.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2902 ], [ %.sroa.181, %506 ]
   %.403066 = phi i32 [ %.393068, %.preheader2902 ], [ %503, %506 ]
   br label %.preheader2900
 
 .preheader2900:                                   ; preds = %.preheader2901, %505
   %491 = phi i1 [ true, %.preheader2901 ], [ false, %505 ]
-  %indvars.iv3948.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2901 ], [ %.sroa.121, %505 ]
+  %indvars.iv3948.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2901 ], [ %.sroa.121, %505 ]
   %.413064 = phi i32 [ %.403066, %.preheader2901 ], [ %503, %505 ]
   br label %.preheader2899
 
 .preheader2899:                                   ; preds = %.preheader2900, %504
   %492 = phi i1 [ true, %.preheader2900 ], [ false, %504 ]
-  %indvars.iv3945.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2900 ], [ %.sroa.181, %504 ]
+  %indvars.iv3945.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2900 ], [ %.sroa.181, %504 ]
   %.423062 = phi i32 [ %.413064, %.preheader2900 ], [ %503, %504 ]
   br label %493
 
 493:                                              ; preds = %.preheader2899, %502
   %494 = phi i1 [ true, %.preheader2899 ], [ false, %502 ]
-  %indvars.iv3942.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2899 ], [ %.sroa.181, %502 ]
+  %indvars.iv3942.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2899 ], [ %.sroa.181, %502 ]
   %.433060 = phi i32 [ %.423062, %.preheader2899 ], [ %503, %502 ]
   %.not2234 = icmp eq i32 %.433060, 0
   br i1 %.not2234, label %502, label %495
@@ -8720,31 +8718,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2898:                                   ; preds = %.preheader2898.preheader, %530
   %512 = phi i1 [ false, %530 ], [ true, %.preheader2898.preheader ]
-  %indvars.iv3969.sroa.phi = phi ptr [ %.sroa.385507, %530 ], [ %.sroa.05506, %.preheader2898.preheader ]
+  %indvars.iv3969.sroa.phi = phi ptr [ %.sroa.385592, %530 ], [ %.sroa.05591, %.preheader2898.preheader ]
   %.443078 = phi i32 [ %526, %530 ], [ %503, %.preheader2898.preheader ]
   br label %.preheader2897
 
 .preheader2897:                                   ; preds = %.preheader2898, %529
   %513 = phi i1 [ true, %.preheader2898 ], [ false, %529 ]
-  %indvars.iv3966.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2898 ], [ %.sroa.121, %529 ]
+  %indvars.iv3966.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2898 ], [ %.sroa.121, %529 ]
   %.453076 = phi i32 [ %.443078, %.preheader2898 ], [ %526, %529 ]
   br label %.preheader2896
 
 .preheader2896:                                   ; preds = %.preheader2897, %528
   %514 = phi i1 [ true, %.preheader2897 ], [ false, %528 ]
-  %indvars.iv3963.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2897 ], [ %.sroa.181, %528 ]
+  %indvars.iv3963.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2897 ], [ %.sroa.181, %528 ]
   %.463074 = phi i32 [ %.453076, %.preheader2897 ], [ %526, %528 ]
   br label %.preheader2895
 
 .preheader2895:                                   ; preds = %.preheader2896, %527
   %515 = phi i1 [ true, %.preheader2896 ], [ false, %527 ]
-  %indvars.iv3960.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2896 ], [ %.sroa.181, %527 ]
+  %indvars.iv3960.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2896 ], [ %.sroa.181, %527 ]
   %.473072 = phi i32 [ %.463074, %.preheader2896 ], [ %526, %527 ]
   br label %516
 
 516:                                              ; preds = %.preheader2895, %525
   %517 = phi i1 [ true, %.preheader2895 ], [ false, %525 ]
-  %indvars.iv3957.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2895 ], [ %.sroa.181, %525 ]
+  %indvars.iv3957.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2895 ], [ %.sroa.181, %525 ]
   %.483070 = phi i32 [ %.473072, %.preheader2895 ], [ %526, %525 ]
   %.not2233 = icmp eq i32 %.483070, 0
   br i1 %.not2233, label %525, label %518
@@ -8788,31 +8786,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2894:                                   ; preds = %.preheader2894.preheader, %553
   %535 = phi i1 [ false, %553 ], [ true, %.preheader2894.preheader ]
-  %indvars.iv3984.sroa.phi = phi ptr [ %.sroa.385507, %553 ], [ %.sroa.05506, %.preheader2894.preheader ]
+  %indvars.iv3984.sroa.phi = phi ptr [ %.sroa.385592, %553 ], [ %.sroa.05591, %.preheader2894.preheader ]
   %.493088 = phi i32 [ %549, %553 ], [ %526, %.preheader2894.preheader ]
   br label %.preheader2893
 
 .preheader2893:                                   ; preds = %.preheader2894, %552
   %536 = phi i1 [ true, %.preheader2894 ], [ false, %552 ]
-  %indvars.iv3981.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2894 ], [ %.sroa.181, %552 ]
+  %indvars.iv3981.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2894 ], [ %.sroa.181, %552 ]
   %.503086 = phi i32 [ %.493088, %.preheader2894 ], [ %549, %552 ]
   br label %.preheader2892
 
 .preheader2892:                                   ; preds = %.preheader2893, %551
   %537 = phi i1 [ true, %.preheader2893 ], [ false, %551 ]
-  %indvars.iv3978.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2893 ], [ %.sroa.121, %551 ]
+  %indvars.iv3978.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2893 ], [ %.sroa.121, %551 ]
   %.513084 = phi i32 [ %.503086, %.preheader2893 ], [ %549, %551 ]
   br label %.preheader2891
 
 .preheader2891:                                   ; preds = %.preheader2892, %550
   %538 = phi i1 [ true, %.preheader2892 ], [ false, %550 ]
-  %indvars.iv3975.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2892 ], [ %.sroa.121, %550 ]
+  %indvars.iv3975.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2892 ], [ %.sroa.121, %550 ]
   %.523082 = phi i32 [ %.513084, %.preheader2892 ], [ %549, %550 ]
   br label %539
 
 539:                                              ; preds = %.preheader2891, %548
   %540 = phi i1 [ true, %.preheader2891 ], [ false, %548 ]
-  %indvars.iv3972.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2891 ], [ %.sroa.181, %548 ]
+  %indvars.iv3972.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2891 ], [ %.sroa.181, %548 ]
   %.533080 = phi i32 [ %.523082, %.preheader2891 ], [ %549, %548 ]
   %.not2232 = icmp eq i32 %.533080, 0
   br i1 %.not2232, label %548, label %541
@@ -8856,31 +8854,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2890:                                   ; preds = %.preheader2890.preheader, %576
   %558 = phi i1 [ false, %576 ], [ true, %.preheader2890.preheader ]
-  %indvars.iv3999.sroa.phi = phi ptr [ %.sroa.385507, %576 ], [ %.sroa.05506, %.preheader2890.preheader ]
+  %indvars.iv3999.sroa.phi = phi ptr [ %.sroa.385592, %576 ], [ %.sroa.05591, %.preheader2890.preheader ]
   %.543098 = phi i32 [ %572, %576 ], [ %549, %.preheader2890.preheader ]
   br label %.preheader2889
 
 .preheader2889:                                   ; preds = %.preheader2890, %575
   %559 = phi i1 [ true, %.preheader2890 ], [ false, %575 ]
-  %indvars.iv3996.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2890 ], [ %.sroa.121, %575 ]
+  %indvars.iv3996.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2890 ], [ %.sroa.121, %575 ]
   %.553096 = phi i32 [ %.543098, %.preheader2890 ], [ %572, %575 ]
   br label %.preheader2888
 
 .preheader2888:                                   ; preds = %.preheader2889, %574
   %560 = phi i1 [ true, %.preheader2889 ], [ false, %574 ]
-  %indvars.iv3993.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2889 ], [ %.sroa.181, %574 ]
+  %indvars.iv3993.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2889 ], [ %.sroa.181, %574 ]
   %.563094 = phi i32 [ %.553096, %.preheader2889 ], [ %572, %574 ]
   br label %.preheader2887
 
 .preheader2887:                                   ; preds = %.preheader2888, %573
   %561 = phi i1 [ true, %.preheader2888 ], [ false, %573 ]
-  %indvars.iv3990.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2888 ], [ %.sroa.121, %573 ]
+  %indvars.iv3990.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2888 ], [ %.sroa.121, %573 ]
   %.573092 = phi i32 [ %.563094, %.preheader2888 ], [ %572, %573 ]
   br label %562
 
 562:                                              ; preds = %.preheader2887, %571
   %563 = phi i1 [ true, %.preheader2887 ], [ false, %571 ]
-  %indvars.iv3987.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2887 ], [ %.sroa.181, %571 ]
+  %indvars.iv3987.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2887 ], [ %.sroa.181, %571 ]
   %.583090 = phi i32 [ %.573092, %.preheader2887 ], [ %572, %571 ]
   %.not2231 = icmp eq i32 %.583090, 0
   br i1 %.not2231, label %571, label %564
@@ -8924,31 +8922,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2886:                                   ; preds = %.preheader2886.preheader, %599
   %581 = phi i1 [ false, %599 ], [ true, %.preheader2886.preheader ]
-  %indvars.iv4014.sroa.phi = phi ptr [ %.sroa.385507, %599 ], [ %.sroa.05506, %.preheader2886.preheader ]
+  %indvars.iv4014.sroa.phi = phi ptr [ %.sroa.385592, %599 ], [ %.sroa.05591, %.preheader2886.preheader ]
   %.593108 = phi i32 [ %595, %599 ], [ %572, %.preheader2886.preheader ]
   br label %.preheader2885
 
 .preheader2885:                                   ; preds = %.preheader2886, %598
   %582 = phi i1 [ true, %.preheader2886 ], [ false, %598 ]
-  %indvars.iv4011.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2886 ], [ %.sroa.121, %598 ]
+  %indvars.iv4011.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2886 ], [ %.sroa.121, %598 ]
   %.603106 = phi i32 [ %.593108, %.preheader2886 ], [ %595, %598 ]
   br label %.preheader2884
 
 .preheader2884:                                   ; preds = %.preheader2885, %597
   %583 = phi i1 [ true, %.preheader2885 ], [ false, %597 ]
-  %indvars.iv4008.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2885 ], [ %.sroa.121, %597 ]
+  %indvars.iv4008.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2885 ], [ %.sroa.121, %597 ]
   %.613104 = phi i32 [ %.603106, %.preheader2885 ], [ %595, %597 ]
   br label %.preheader2883
 
 .preheader2883:                                   ; preds = %.preheader2884, %596
   %584 = phi i1 [ true, %.preheader2884 ], [ false, %596 ]
-  %indvars.iv4005.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2884 ], [ %.sroa.181, %596 ]
+  %indvars.iv4005.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2884 ], [ %.sroa.181, %596 ]
   %.623102 = phi i32 [ %.613104, %.preheader2884 ], [ %595, %596 ]
   br label %585
 
 585:                                              ; preds = %.preheader2883, %594
   %586 = phi i1 [ true, %.preheader2883 ], [ false, %594 ]
-  %indvars.iv4002.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2883 ], [ %.sroa.181, %594 ]
+  %indvars.iv4002.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2883 ], [ %.sroa.181, %594 ]
   %.633100 = phi i32 [ %.623102, %.preheader2883 ], [ %595, %594 ]
   %.not2230 = icmp eq i32 %.633100, 0
   br i1 %.not2230, label %594, label %587
@@ -8992,31 +8990,31 @@ thread-pre-split2571:                             ; preds = %thread-pre-split257
 
 .preheader2882:                                   ; preds = %.preheader2882.preheader, %622
   %604 = phi i1 [ false, %622 ], [ true, %.preheader2882.preheader ]
-  %indvars.iv4029.sroa.phi = phi ptr [ %.sroa.385507, %622 ], [ %.sroa.05506, %.preheader2882.preheader ]
+  %indvars.iv4029.sroa.phi = phi ptr [ %.sroa.385592, %622 ], [ %.sroa.05591, %.preheader2882.preheader ]
   %.643118 = phi i32 [ %618, %622 ], [ %595, %.preheader2882.preheader ]
   br label %.preheader2881
 
 .preheader2881:                                   ; preds = %.preheader2882, %621
   %605 = phi i1 [ true, %.preheader2882 ], [ false, %621 ]
-  %indvars.iv4026.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2882 ], [ %.sroa.121, %621 ]
+  %indvars.iv4026.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2882 ], [ %.sroa.121, %621 ]
   %.653116 = phi i32 [ %.643118, %.preheader2882 ], [ %618, %621 ]
   br label %.preheader2880
 
 .preheader2880:                                   ; preds = %.preheader2881, %620
   %606 = phi i1 [ true, %.preheader2881 ], [ false, %620 ]
-  %indvars.iv4023.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2881 ], [ %.sroa.121, %620 ]
+  %indvars.iv4023.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2881 ], [ %.sroa.121, %620 ]
   %.663114 = phi i32 [ %.653116, %.preheader2881 ], [ %618, %620 ]
   br label %.preheader2879
 
 .preheader2879:                                   ; preds = %.preheader2880, %619
   %607 = phi i1 [ true, %.preheader2880 ], [ false, %619 ]
-  %indvars.iv4020.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2880 ], [ %.sroa.121, %619 ]
+  %indvars.iv4020.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2880 ], [ %.sroa.121, %619 ]
   %.673112 = phi i32 [ %.663114, %.preheader2880 ], [ %618, %619 ]
   br label %608
 
 608:                                              ; preds = %.preheader2879, %617
   %609 = phi i1 [ true, %.preheader2879 ], [ false, %617 ]
-  %indvars.iv4017.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2879 ], [ %.sroa.181, %617 ]
+  %indvars.iv4017.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2879 ], [ %.sroa.181, %617 ]
   %.683110 = phi i32 [ %.673112, %.preheader2879 ], [ %618, %617 ]
   %.not2229 = icmp eq i32 %.683110, 0
   br i1 %.not2229, label %617, label %610
@@ -9072,37 +9070,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2877:                                   ; preds = %.preheader2877.preheader, %649
   %628 = phi i1 [ false, %649 ], [ true, %.preheader2877.preheader ]
-  %indvars.iv4047.sroa.phi = phi ptr [ %.sroa.385507, %649 ], [ %.sroa.05506, %.preheader2877.preheader ]
+  %indvars.iv4047.sroa.phi = phi ptr [ %.sroa.385592, %649 ], [ %.sroa.05591, %.preheader2877.preheader ]
   %.693130 = phi i32 [ %644, %649 ], [ 1, %.preheader2877.preheader ]
   br label %.preheader2876
 
 .preheader2876:                                   ; preds = %.preheader2877, %648
   %629 = phi i1 [ true, %.preheader2877 ], [ false, %648 ]
-  %indvars.iv4044.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2877 ], [ %.sroa.181, %648 ]
+  %indvars.iv4044.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2877 ], [ %.sroa.181, %648 ]
   %.703128 = phi i32 [ %.693130, %.preheader2877 ], [ %644, %648 ]
   br label %.preheader2875
 
 .preheader2875:                                   ; preds = %.preheader2876, %647
   %630 = phi i1 [ true, %.preheader2876 ], [ false, %647 ]
-  %indvars.iv4041.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2876 ], [ %.sroa.181, %647 ]
+  %indvars.iv4041.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2876 ], [ %.sroa.181, %647 ]
   %.713126 = phi i32 [ %.703128, %.preheader2876 ], [ %644, %647 ]
   br label %.preheader2874
 
 .preheader2874:                                   ; preds = %.preheader2875, %646
   %631 = phi i1 [ true, %.preheader2875 ], [ false, %646 ]
-  %indvars.iv4038.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2875 ], [ %.sroa.181, %646 ]
+  %indvars.iv4038.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2875 ], [ %.sroa.181, %646 ]
   %.723124 = phi i32 [ %.713126, %.preheader2875 ], [ %644, %646 ]
   br label %.preheader2873
 
 .preheader2873:                                   ; preds = %.preheader2874, %645
   %632 = phi i1 [ true, %.preheader2874 ], [ false, %645 ]
-  %indvars.iv4035.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2874 ], [ %.sroa.181, %645 ]
+  %indvars.iv4035.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2874 ], [ %.sroa.181, %645 ]
   %.733122 = phi i32 [ %.723124, %.preheader2874 ], [ %644, %645 ]
   br label %633
 
 633:                                              ; preds = %.preheader2873, %643
   %634 = phi i1 [ true, %.preheader2873 ], [ false, %643 ]
-  %indvars.iv4032.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2873 ], [ %.sroa.181, %643 ]
+  %indvars.iv4032.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2873 ], [ %.sroa.181, %643 ]
   %.743120 = phi i32 [ %.733122, %.preheader2873 ], [ %644, %643 ]
   %.not2228 = icmp eq i32 %.743120, 0
   br i1 %.not2228, label %643, label %635
@@ -9150,37 +9148,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2872:                                   ; preds = %.preheader2872.preheader, %675
   %654 = phi i1 [ false, %675 ], [ true, %.preheader2872.preheader ]
-  %indvars.iv4065.sroa.phi = phi ptr [ %.sroa.385507, %675 ], [ %.sroa.05506, %.preheader2872.preheader ]
+  %indvars.iv4065.sroa.phi = phi ptr [ %.sroa.385592, %675 ], [ %.sroa.05591, %.preheader2872.preheader ]
   %.753142 = phi i32 [ %670, %675 ], [ %644, %.preheader2872.preheader ]
   br label %.preheader2871
 
 .preheader2871:                                   ; preds = %.preheader2872, %674
   %655 = phi i1 [ true, %.preheader2872 ], [ false, %674 ]
-  %indvars.iv4062.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2872 ], [ %.sroa.181, %674 ]
+  %indvars.iv4062.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2872 ], [ %.sroa.181, %674 ]
   %.763140 = phi i32 [ %.753142, %.preheader2872 ], [ %670, %674 ]
   br label %.preheader2870
 
 .preheader2870:                                   ; preds = %.preheader2871, %673
   %656 = phi i1 [ true, %.preheader2871 ], [ false, %673 ]
-  %indvars.iv4059.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2871 ], [ %.sroa.181, %673 ]
+  %indvars.iv4059.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2871 ], [ %.sroa.181, %673 ]
   %.773138 = phi i32 [ %.763140, %.preheader2871 ], [ %670, %673 ]
   br label %.preheader2869
 
 .preheader2869:                                   ; preds = %.preheader2870, %672
   %657 = phi i1 [ true, %.preheader2870 ], [ false, %672 ]
-  %indvars.iv4056.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2870 ], [ %.sroa.181, %672 ]
+  %indvars.iv4056.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2870 ], [ %.sroa.181, %672 ]
   %.783136 = phi i32 [ %.773138, %.preheader2870 ], [ %670, %672 ]
   br label %.preheader2868
 
 .preheader2868:                                   ; preds = %.preheader2869, %671
   %658 = phi i1 [ true, %.preheader2869 ], [ false, %671 ]
-  %indvars.iv4053.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2869 ], [ %.sroa.121, %671 ]
+  %indvars.iv4053.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2869 ], [ %.sroa.121, %671 ]
   %.793134 = phi i32 [ %.783136, %.preheader2869 ], [ %670, %671 ]
   br label %659
 
 659:                                              ; preds = %.preheader2868, %669
   %660 = phi i1 [ true, %.preheader2868 ], [ false, %669 ]
-  %indvars.iv4050.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2868 ], [ %.sroa.181, %669 ]
+  %indvars.iv4050.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2868 ], [ %.sroa.181, %669 ]
   %.803132 = phi i32 [ %.793134, %.preheader2868 ], [ %670, %669 ]
   %.not2227 = icmp eq i32 %.803132, 0
   br i1 %.not2227, label %669, label %661
@@ -9228,37 +9226,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2867:                                   ; preds = %.preheader2867.preheader, %701
   %680 = phi i1 [ false, %701 ], [ true, %.preheader2867.preheader ]
-  %indvars.iv4083.sroa.phi = phi ptr [ %.sroa.385507, %701 ], [ %.sroa.05506, %.preheader2867.preheader ]
+  %indvars.iv4083.sroa.phi = phi ptr [ %.sroa.385592, %701 ], [ %.sroa.05591, %.preheader2867.preheader ]
   %.813154 = phi i32 [ %696, %701 ], [ %670, %.preheader2867.preheader ]
   br label %.preheader2866
 
 .preheader2866:                                   ; preds = %.preheader2867, %700
   %681 = phi i1 [ true, %.preheader2867 ], [ false, %700 ]
-  %indvars.iv4080.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2867 ], [ %.sroa.181, %700 ]
+  %indvars.iv4080.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2867 ], [ %.sroa.181, %700 ]
   %.823152 = phi i32 [ %.813154, %.preheader2867 ], [ %696, %700 ]
   br label %.preheader2865
 
 .preheader2865:                                   ; preds = %.preheader2866, %699
   %682 = phi i1 [ true, %.preheader2866 ], [ false, %699 ]
-  %indvars.iv4077.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2866 ], [ %.sroa.121, %699 ]
+  %indvars.iv4077.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2866 ], [ %.sroa.121, %699 ]
   %.833150 = phi i32 [ %.823152, %.preheader2866 ], [ %696, %699 ]
   br label %.preheader2864
 
 .preheader2864:                                   ; preds = %.preheader2865, %698
   %683 = phi i1 [ true, %.preheader2865 ], [ false, %698 ]
-  %indvars.iv4074.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2865 ], [ %.sroa.181, %698 ]
+  %indvars.iv4074.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2865 ], [ %.sroa.181, %698 ]
   %.843148 = phi i32 [ %.833150, %.preheader2865 ], [ %696, %698 ]
   br label %.preheader2863
 
 .preheader2863:                                   ; preds = %.preheader2864, %697
   %684 = phi i1 [ true, %.preheader2864 ], [ false, %697 ]
-  %indvars.iv4071.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2864 ], [ %.sroa.121, %697 ]
+  %indvars.iv4071.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2864 ], [ %.sroa.121, %697 ]
   %.853146 = phi i32 [ %.843148, %.preheader2864 ], [ %696, %697 ]
   br label %685
 
 685:                                              ; preds = %.preheader2863, %695
   %686 = phi i1 [ true, %.preheader2863 ], [ false, %695 ]
-  %indvars.iv4068.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2863 ], [ %.sroa.181, %695 ]
+  %indvars.iv4068.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2863 ], [ %.sroa.181, %695 ]
   %.863144 = phi i32 [ %.853146, %.preheader2863 ], [ %696, %695 ]
   %.not2226 = icmp eq i32 %.863144, 0
   br i1 %.not2226, label %695, label %687
@@ -9306,37 +9304,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2862:                                   ; preds = %.preheader2862.preheader, %727
   %706 = phi i1 [ false, %727 ], [ true, %.preheader2862.preheader ]
-  %indvars.iv4101.sroa.phi = phi ptr [ %.sroa.385507, %727 ], [ %.sroa.05506, %.preheader2862.preheader ]
+  %indvars.iv4101.sroa.phi = phi ptr [ %.sroa.385592, %727 ], [ %.sroa.05591, %.preheader2862.preheader ]
   %.873166 = phi i32 [ %722, %727 ], [ %696, %.preheader2862.preheader ]
   br label %.preheader2861
 
 .preheader2861:                                   ; preds = %.preheader2862, %726
   %707 = phi i1 [ true, %.preheader2862 ], [ false, %726 ]
-  %indvars.iv4098.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2862 ], [ %.sroa.181, %726 ]
+  %indvars.iv4098.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2862 ], [ %.sroa.181, %726 ]
   %.883164 = phi i32 [ %.873166, %.preheader2862 ], [ %722, %726 ]
   br label %.preheader2860
 
 .preheader2860:                                   ; preds = %.preheader2861, %725
   %708 = phi i1 [ true, %.preheader2861 ], [ false, %725 ]
-  %indvars.iv4095.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2861 ], [ %.sroa.181, %725 ]
+  %indvars.iv4095.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2861 ], [ %.sroa.181, %725 ]
   %.893162 = phi i32 [ %.883164, %.preheader2861 ], [ %722, %725 ]
   br label %.preheader2859
 
 .preheader2859:                                   ; preds = %.preheader2860, %724
   %709 = phi i1 [ true, %.preheader2860 ], [ false, %724 ]
-  %indvars.iv4092.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2860 ], [ %.sroa.121, %724 ]
+  %indvars.iv4092.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2860 ], [ %.sroa.121, %724 ]
   %.903160 = phi i32 [ %.893162, %.preheader2860 ], [ %722, %724 ]
   br label %.preheader2858
 
 .preheader2858:                                   ; preds = %.preheader2859, %723
   %710 = phi i1 [ true, %.preheader2859 ], [ false, %723 ]
-  %indvars.iv4089.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2859 ], [ %.sroa.181, %723 ]
+  %indvars.iv4089.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2859 ], [ %.sroa.181, %723 ]
   %.913158 = phi i32 [ %.903160, %.preheader2859 ], [ %722, %723 ]
   br label %711
 
 711:                                              ; preds = %.preheader2858, %721
   %712 = phi i1 [ true, %.preheader2858 ], [ false, %721 ]
-  %indvars.iv4086.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2858 ], [ %.sroa.181, %721 ]
+  %indvars.iv4086.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2858 ], [ %.sroa.181, %721 ]
   %.923156 = phi i32 [ %.913158, %.preheader2858 ], [ %722, %721 ]
   %.not2225 = icmp eq i32 %.923156, 0
   br i1 %.not2225, label %721, label %713
@@ -9384,37 +9382,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2857:                                   ; preds = %.preheader2857.preheader, %753
   %732 = phi i1 [ false, %753 ], [ true, %.preheader2857.preheader ]
-  %indvars.iv4119.sroa.phi = phi ptr [ %.sroa.385507, %753 ], [ %.sroa.05506, %.preheader2857.preheader ]
+  %indvars.iv4119.sroa.phi = phi ptr [ %.sroa.385592, %753 ], [ %.sroa.05591, %.preheader2857.preheader ]
   %.933178 = phi i32 [ %748, %753 ], [ %722, %.preheader2857.preheader ]
   br label %.preheader2856
 
 .preheader2856:                                   ; preds = %.preheader2857, %752
   %733 = phi i1 [ true, %.preheader2857 ], [ false, %752 ]
-  %indvars.iv4116.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2857 ], [ %.sroa.181, %752 ]
+  %indvars.iv4116.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2857 ], [ %.sroa.181, %752 ]
   %.943176 = phi i32 [ %.933178, %.preheader2857 ], [ %748, %752 ]
   br label %.preheader2855
 
 .preheader2855:                                   ; preds = %.preheader2856, %751
   %734 = phi i1 [ true, %.preheader2856 ], [ false, %751 ]
-  %indvars.iv4113.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2856 ], [ %.sroa.181, %751 ]
+  %indvars.iv4113.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2856 ], [ %.sroa.181, %751 ]
   %.953174 = phi i32 [ %.943176, %.preheader2856 ], [ %748, %751 ]
   br label %.preheader2854
 
 .preheader2854:                                   ; preds = %.preheader2855, %750
   %735 = phi i1 [ true, %.preheader2855 ], [ false, %750 ]
-  %indvars.iv4110.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2855 ], [ %.sroa.121, %750 ]
+  %indvars.iv4110.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2855 ], [ %.sroa.121, %750 ]
   %.963172 = phi i32 [ %.953174, %.preheader2855 ], [ %748, %750 ]
   br label %.preheader2853
 
 .preheader2853:                                   ; preds = %.preheader2854, %749
   %736 = phi i1 [ true, %.preheader2854 ], [ false, %749 ]
-  %indvars.iv4107.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2854 ], [ %.sroa.121, %749 ]
+  %indvars.iv4107.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2854 ], [ %.sroa.121, %749 ]
   %.973170 = phi i32 [ %.963172, %.preheader2854 ], [ %748, %749 ]
   br label %737
 
 737:                                              ; preds = %.preheader2853, %747
   %738 = phi i1 [ true, %.preheader2853 ], [ false, %747 ]
-  %indvars.iv4104.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2853 ], [ %.sroa.181, %747 ]
+  %indvars.iv4104.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2853 ], [ %.sroa.181, %747 ]
   %.983168 = phi i32 [ %.973170, %.preheader2853 ], [ %748, %747 ]
   %.not2224 = icmp eq i32 %.983168, 0
   br i1 %.not2224, label %747, label %739
@@ -9462,37 +9460,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2852:                                   ; preds = %.preheader2852.preheader, %779
   %758 = phi i1 [ false, %779 ], [ true, %.preheader2852.preheader ]
-  %indvars.iv4137.sroa.phi = phi ptr [ %.sroa.385507, %779 ], [ %.sroa.05506, %.preheader2852.preheader ]
+  %indvars.iv4137.sroa.phi = phi ptr [ %.sroa.385592, %779 ], [ %.sroa.05591, %.preheader2852.preheader ]
   %.993190 = phi i32 [ %774, %779 ], [ %748, %.preheader2852.preheader ]
   br label %.preheader2851
 
 .preheader2851:                                   ; preds = %.preheader2852, %778
   %759 = phi i1 [ true, %.preheader2852 ], [ false, %778 ]
-  %indvars.iv4134.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2852 ], [ %.sroa.121, %778 ]
+  %indvars.iv4134.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2852 ], [ %.sroa.121, %778 ]
   %.1003188 = phi i32 [ %.993190, %.preheader2852 ], [ %774, %778 ]
   br label %.preheader2850
 
 .preheader2850:                                   ; preds = %.preheader2851, %777
   %760 = phi i1 [ true, %.preheader2851 ], [ false, %777 ]
-  %indvars.iv4131.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2851 ], [ %.sroa.121, %777 ]
+  %indvars.iv4131.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2851 ], [ %.sroa.121, %777 ]
   %.1013186 = phi i32 [ %.1003188, %.preheader2851 ], [ %774, %777 ]
   br label %.preheader2849
 
 .preheader2849:                                   ; preds = %.preheader2850, %776
   %761 = phi i1 [ true, %.preheader2850 ], [ false, %776 ]
-  %indvars.iv4128.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2850 ], [ %.sroa.181, %776 ]
+  %indvars.iv4128.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2850 ], [ %.sroa.181, %776 ]
   %.1023184 = phi i32 [ %.1013186, %.preheader2850 ], [ %774, %776 ]
   br label %.preheader2848
 
 .preheader2848:                                   ; preds = %.preheader2849, %775
   %762 = phi i1 [ true, %.preheader2849 ], [ false, %775 ]
-  %indvars.iv4125.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2849 ], [ %.sroa.121, %775 ]
+  %indvars.iv4125.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2849 ], [ %.sroa.121, %775 ]
   %.1033182 = phi i32 [ %.1023184, %.preheader2849 ], [ %774, %775 ]
   br label %763
 
 763:                                              ; preds = %.preheader2848, %773
   %764 = phi i1 [ true, %.preheader2848 ], [ false, %773 ]
-  %indvars.iv4122.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2848 ], [ %.sroa.181, %773 ]
+  %indvars.iv4122.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2848 ], [ %.sroa.181, %773 ]
   %.1043180 = phi i32 [ %.1033182, %.preheader2848 ], [ %774, %773 ]
   %.not2223 = icmp eq i32 %.1043180, 0
   br i1 %.not2223, label %773, label %765
@@ -9540,37 +9538,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2847:                                   ; preds = %.preheader2847.preheader, %805
   %784 = phi i1 [ false, %805 ], [ true, %.preheader2847.preheader ]
-  %indvars.iv4155.sroa.phi = phi ptr [ %.sroa.385507, %805 ], [ %.sroa.05506, %.preheader2847.preheader ]
+  %indvars.iv4155.sroa.phi = phi ptr [ %.sroa.385592, %805 ], [ %.sroa.05591, %.preheader2847.preheader ]
   %.1053202 = phi i32 [ %800, %805 ], [ %774, %.preheader2847.preheader ]
   br label %.preheader2846
 
 .preheader2846:                                   ; preds = %.preheader2847, %804
   %785 = phi i1 [ true, %.preheader2847 ], [ false, %804 ]
-  %indvars.iv4152.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2847 ], [ %.sroa.181, %804 ]
+  %indvars.iv4152.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2847 ], [ %.sroa.181, %804 ]
   %.1063200 = phi i32 [ %.1053202, %.preheader2847 ], [ %800, %804 ]
   br label %.preheader2845
 
 .preheader2845:                                   ; preds = %.preheader2846, %803
   %786 = phi i1 [ true, %.preheader2846 ], [ false, %803 ]
-  %indvars.iv4149.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2846 ], [ %.sroa.121, %803 ]
+  %indvars.iv4149.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2846 ], [ %.sroa.121, %803 ]
   %.1073198 = phi i32 [ %.1063200, %.preheader2846 ], [ %800, %803 ]
   br label %.preheader2844
 
 .preheader2844:                                   ; preds = %.preheader2845, %802
   %787 = phi i1 [ true, %.preheader2845 ], [ false, %802 ]
-  %indvars.iv4146.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2845 ], [ %.sroa.181, %802 ]
+  %indvars.iv4146.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2845 ], [ %.sroa.181, %802 ]
   %.1083196 = phi i32 [ %.1073198, %.preheader2845 ], [ %800, %802 ]
   br label %.preheader2843
 
 .preheader2843:                                   ; preds = %.preheader2844, %801
   %788 = phi i1 [ true, %.preheader2844 ], [ false, %801 ]
-  %indvars.iv4143.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2844 ], [ %.sroa.181, %801 ]
+  %indvars.iv4143.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2844 ], [ %.sroa.181, %801 ]
   %.1093194 = phi i32 [ %.1083196, %.preheader2844 ], [ %800, %801 ]
   br label %789
 
 789:                                              ; preds = %.preheader2843, %799
   %790 = phi i1 [ true, %.preheader2843 ], [ false, %799 ]
-  %indvars.iv4140.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2843 ], [ %.sroa.181, %799 ]
+  %indvars.iv4140.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2843 ], [ %.sroa.181, %799 ]
   %.1103192 = phi i32 [ %.1093194, %.preheader2843 ], [ %800, %799 ]
   %.not2222 = icmp eq i32 %.1103192, 0
   br i1 %.not2222, label %799, label %791
@@ -9618,37 +9616,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2842:                                   ; preds = %.preheader2842.preheader, %831
   %810 = phi i1 [ false, %831 ], [ true, %.preheader2842.preheader ]
-  %indvars.iv4173.sroa.phi = phi ptr [ %.sroa.385507, %831 ], [ %.sroa.05506, %.preheader2842.preheader ]
+  %indvars.iv4173.sroa.phi = phi ptr [ %.sroa.385592, %831 ], [ %.sroa.05591, %.preheader2842.preheader ]
   %.1113214 = phi i32 [ %826, %831 ], [ %800, %.preheader2842.preheader ]
   br label %.preheader2841
 
 .preheader2841:                                   ; preds = %.preheader2842, %830
   %811 = phi i1 [ true, %.preheader2842 ], [ false, %830 ]
-  %indvars.iv4170.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2842 ], [ %.sroa.181, %830 ]
+  %indvars.iv4170.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2842 ], [ %.sroa.181, %830 ]
   %.1123212 = phi i32 [ %.1113214, %.preheader2842 ], [ %826, %830 ]
   br label %.preheader2840
 
 .preheader2840:                                   ; preds = %.preheader2841, %829
   %812 = phi i1 [ true, %.preheader2841 ], [ false, %829 ]
-  %indvars.iv4167.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2841 ], [ %.sroa.121, %829 ]
+  %indvars.iv4167.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2841 ], [ %.sroa.121, %829 ]
   %.1133210 = phi i32 [ %.1123212, %.preheader2841 ], [ %826, %829 ]
   br label %.preheader2839
 
 .preheader2839:                                   ; preds = %.preheader2840, %828
   %813 = phi i1 [ true, %.preheader2840 ], [ false, %828 ]
-  %indvars.iv4164.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2840 ], [ %.sroa.181, %828 ]
+  %indvars.iv4164.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2840 ], [ %.sroa.181, %828 ]
   %.1143208 = phi i32 [ %.1133210, %.preheader2840 ], [ %826, %828 ]
   br label %.preheader2838
 
 .preheader2838:                                   ; preds = %.preheader2839, %827
   %814 = phi i1 [ true, %.preheader2839 ], [ false, %827 ]
-  %indvars.iv4161.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2839 ], [ %.sroa.121, %827 ]
+  %indvars.iv4161.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2839 ], [ %.sroa.121, %827 ]
   %.1153206 = phi i32 [ %.1143208, %.preheader2839 ], [ %826, %827 ]
   br label %815
 
 815:                                              ; preds = %.preheader2838, %825
   %816 = phi i1 [ true, %.preheader2838 ], [ false, %825 ]
-  %indvars.iv4158.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2838 ], [ %.sroa.181, %825 ]
+  %indvars.iv4158.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2838 ], [ %.sroa.181, %825 ]
   %.1163204 = phi i32 [ %.1153206, %.preheader2838 ], [ %826, %825 ]
   %.not2221 = icmp eq i32 %.1163204, 0
   br i1 %.not2221, label %825, label %817
@@ -9696,37 +9694,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2837:                                   ; preds = %.preheader2837.preheader, %857
   %836 = phi i1 [ false, %857 ], [ true, %.preheader2837.preheader ]
-  %indvars.iv4191.sroa.phi = phi ptr [ %.sroa.385507, %857 ], [ %.sroa.05506, %.preheader2837.preheader ]
+  %indvars.iv4191.sroa.phi = phi ptr [ %.sroa.385592, %857 ], [ %.sroa.05591, %.preheader2837.preheader ]
   %.1173226 = phi i32 [ %852, %857 ], [ %826, %.preheader2837.preheader ]
   br label %.preheader2836
 
 .preheader2836:                                   ; preds = %.preheader2837, %856
   %837 = phi i1 [ true, %.preheader2837 ], [ false, %856 ]
-  %indvars.iv4188.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2837 ], [ %.sroa.181, %856 ]
+  %indvars.iv4188.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2837 ], [ %.sroa.181, %856 ]
   %.1183224 = phi i32 [ %.1173226, %.preheader2837 ], [ %852, %856 ]
   br label %.preheader2835
 
 .preheader2835:                                   ; preds = %.preheader2836, %855
   %838 = phi i1 [ true, %.preheader2836 ], [ false, %855 ]
-  %indvars.iv4185.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2836 ], [ %.sroa.121, %855 ]
+  %indvars.iv4185.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2836 ], [ %.sroa.121, %855 ]
   %.1193222 = phi i32 [ %.1183224, %.preheader2836 ], [ %852, %855 ]
   br label %.preheader2834
 
 .preheader2834:                                   ; preds = %.preheader2835, %854
   %839 = phi i1 [ true, %.preheader2835 ], [ false, %854 ]
-  %indvars.iv4182.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2835 ], [ %.sroa.121, %854 ]
+  %indvars.iv4182.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2835 ], [ %.sroa.121, %854 ]
   %.1203220 = phi i32 [ %.1193222, %.preheader2835 ], [ %852, %854 ]
   br label %.preheader2833
 
 .preheader2833:                                   ; preds = %.preheader2834, %853
   %840 = phi i1 [ true, %.preheader2834 ], [ false, %853 ]
-  %indvars.iv4179.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2834 ], [ %.sroa.181, %853 ]
+  %indvars.iv4179.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2834 ], [ %.sroa.181, %853 ]
   %.1213218 = phi i32 [ %.1203220, %.preheader2834 ], [ %852, %853 ]
   br label %841
 
 841:                                              ; preds = %.preheader2833, %851
   %842 = phi i1 [ true, %.preheader2833 ], [ false, %851 ]
-  %indvars.iv4176.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2833 ], [ %.sroa.181, %851 ]
+  %indvars.iv4176.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2833 ], [ %.sroa.181, %851 ]
   %.1223216 = phi i32 [ %.1213218, %.preheader2833 ], [ %852, %851 ]
   %.not2220 = icmp eq i32 %.1223216, 0
   br i1 %.not2220, label %851, label %843
@@ -9774,37 +9772,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2832:                                   ; preds = %.preheader2832.preheader, %883
   %862 = phi i1 [ false, %883 ], [ true, %.preheader2832.preheader ]
-  %indvars.iv4209.sroa.phi = phi ptr [ %.sroa.385507, %883 ], [ %.sroa.05506, %.preheader2832.preheader ]
+  %indvars.iv4209.sroa.phi = phi ptr [ %.sroa.385592, %883 ], [ %.sroa.05591, %.preheader2832.preheader ]
   %.1233238 = phi i32 [ %878, %883 ], [ %852, %.preheader2832.preheader ]
   br label %.preheader2831
 
 .preheader2831:                                   ; preds = %.preheader2832, %882
   %863 = phi i1 [ true, %.preheader2832 ], [ false, %882 ]
-  %indvars.iv4206.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2832 ], [ %.sroa.181, %882 ]
+  %indvars.iv4206.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2832 ], [ %.sroa.181, %882 ]
   %.1243236 = phi i32 [ %.1233238, %.preheader2832 ], [ %878, %882 ]
   br label %.preheader2830
 
 .preheader2830:                                   ; preds = %.preheader2831, %881
   %864 = phi i1 [ true, %.preheader2831 ], [ false, %881 ]
-  %indvars.iv4203.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2831 ], [ %.sroa.121, %881 ]
+  %indvars.iv4203.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2831 ], [ %.sroa.121, %881 ]
   %.1253234 = phi i32 [ %.1243236, %.preheader2831 ], [ %878, %881 ]
   br label %.preheader2829
 
 .preheader2829:                                   ; preds = %.preheader2830, %880
   %865 = phi i1 [ true, %.preheader2830 ], [ false, %880 ]
-  %indvars.iv4200.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2830 ], [ %.sroa.121, %880 ]
+  %indvars.iv4200.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2830 ], [ %.sroa.121, %880 ]
   %.1263232 = phi i32 [ %.1253234, %.preheader2830 ], [ %878, %880 ]
   br label %.preheader2828
 
 .preheader2828:                                   ; preds = %.preheader2829, %879
   %866 = phi i1 [ true, %.preheader2829 ], [ false, %879 ]
-  %indvars.iv4197.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2829 ], [ %.sroa.121, %879 ]
+  %indvars.iv4197.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2829 ], [ %.sroa.121, %879 ]
   %.1273230 = phi i32 [ %.1263232, %.preheader2829 ], [ %878, %879 ]
   br label %867
 
 867:                                              ; preds = %.preheader2828, %877
   %868 = phi i1 [ true, %.preheader2828 ], [ false, %877 ]
-  %indvars.iv4194.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2828 ], [ %.sroa.181, %877 ]
+  %indvars.iv4194.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2828 ], [ %.sroa.181, %877 ]
   %.1283228 = phi i32 [ %.1273230, %.preheader2828 ], [ %878, %877 ]
   %.not2219 = icmp eq i32 %.1283228, 0
   br i1 %.not2219, label %877, label %869
@@ -9852,37 +9850,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2827:                                   ; preds = %.preheader2827.preheader, %909
   %888 = phi i1 [ false, %909 ], [ true, %.preheader2827.preheader ]
-  %indvars.iv4227.sroa.phi = phi ptr [ %.sroa.385507, %909 ], [ %.sroa.05506, %.preheader2827.preheader ]
+  %indvars.iv4227.sroa.phi = phi ptr [ %.sroa.385592, %909 ], [ %.sroa.05591, %.preheader2827.preheader ]
   %.1293250 = phi i32 [ %904, %909 ], [ %878, %.preheader2827.preheader ]
   br label %.preheader2826
 
 .preheader2826:                                   ; preds = %.preheader2827, %908
   %889 = phi i1 [ true, %.preheader2827 ], [ false, %908 ]
-  %indvars.iv4224.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2827 ], [ %.sroa.121, %908 ]
+  %indvars.iv4224.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2827 ], [ %.sroa.121, %908 ]
   %.1303248 = phi i32 [ %.1293250, %.preheader2827 ], [ %904, %908 ]
   br label %.preheader2825
 
 .preheader2825:                                   ; preds = %.preheader2826, %907
   %890 = phi i1 [ true, %.preheader2826 ], [ false, %907 ]
-  %indvars.iv4221.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2826 ], [ %.sroa.181, %907 ]
+  %indvars.iv4221.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2826 ], [ %.sroa.181, %907 ]
   %.1313246 = phi i32 [ %.1303248, %.preheader2826 ], [ %904, %907 ]
   br label %.preheader2824
 
 .preheader2824:                                   ; preds = %.preheader2825, %906
   %891 = phi i1 [ true, %.preheader2825 ], [ false, %906 ]
-  %indvars.iv4218.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2825 ], [ %.sroa.181, %906 ]
+  %indvars.iv4218.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2825 ], [ %.sroa.181, %906 ]
   %.1323244 = phi i32 [ %.1313246, %.preheader2825 ], [ %904, %906 ]
   br label %.preheader2823
 
 .preheader2823:                                   ; preds = %.preheader2824, %905
   %892 = phi i1 [ true, %.preheader2824 ], [ false, %905 ]
-  %indvars.iv4215.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2824 ], [ %.sroa.181, %905 ]
+  %indvars.iv4215.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2824 ], [ %.sroa.181, %905 ]
   %.1333242 = phi i32 [ %.1323244, %.preheader2824 ], [ %904, %905 ]
   br label %893
 
 893:                                              ; preds = %.preheader2823, %903
   %894 = phi i1 [ true, %.preheader2823 ], [ false, %903 ]
-  %indvars.iv4212.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2823 ], [ %.sroa.181, %903 ]
+  %indvars.iv4212.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2823 ], [ %.sroa.181, %903 ]
   %.1343240 = phi i32 [ %.1333242, %.preheader2823 ], [ %904, %903 ]
   %.not2218 = icmp eq i32 %.1343240, 0
   br i1 %.not2218, label %903, label %895
@@ -9930,37 +9928,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2822:                                   ; preds = %.preheader2822.preheader, %935
   %914 = phi i1 [ false, %935 ], [ true, %.preheader2822.preheader ]
-  %indvars.iv4245.sroa.phi = phi ptr [ %.sroa.385507, %935 ], [ %.sroa.05506, %.preheader2822.preheader ]
+  %indvars.iv4245.sroa.phi = phi ptr [ %.sroa.385592, %935 ], [ %.sroa.05591, %.preheader2822.preheader ]
   %.1353262 = phi i32 [ %930, %935 ], [ %904, %.preheader2822.preheader ]
   br label %.preheader2821
 
 .preheader2821:                                   ; preds = %.preheader2822, %934
   %915 = phi i1 [ true, %.preheader2822 ], [ false, %934 ]
-  %indvars.iv4242.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2822 ], [ %.sroa.121, %934 ]
+  %indvars.iv4242.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2822 ], [ %.sroa.121, %934 ]
   %.1363260 = phi i32 [ %.1353262, %.preheader2822 ], [ %930, %934 ]
   br label %.preheader2820
 
 .preheader2820:                                   ; preds = %.preheader2821, %933
   %916 = phi i1 [ true, %.preheader2821 ], [ false, %933 ]
-  %indvars.iv4239.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2821 ], [ %.sroa.181, %933 ]
+  %indvars.iv4239.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2821 ], [ %.sroa.181, %933 ]
   %.1373258 = phi i32 [ %.1363260, %.preheader2821 ], [ %930, %933 ]
   br label %.preheader2819
 
 .preheader2819:                                   ; preds = %.preheader2820, %932
   %917 = phi i1 [ true, %.preheader2820 ], [ false, %932 ]
-  %indvars.iv4236.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2820 ], [ %.sroa.181, %932 ]
+  %indvars.iv4236.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2820 ], [ %.sroa.181, %932 ]
   %.1383256 = phi i32 [ %.1373258, %.preheader2820 ], [ %930, %932 ]
   br label %.preheader2818
 
 .preheader2818:                                   ; preds = %.preheader2819, %931
   %918 = phi i1 [ true, %.preheader2819 ], [ false, %931 ]
-  %indvars.iv4233.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2819 ], [ %.sroa.121, %931 ]
+  %indvars.iv4233.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2819 ], [ %.sroa.121, %931 ]
   %.1393254 = phi i32 [ %.1383256, %.preheader2819 ], [ %930, %931 ]
   br label %919
 
 919:                                              ; preds = %.preheader2818, %929
   %920 = phi i1 [ true, %.preheader2818 ], [ false, %929 ]
-  %indvars.iv4230.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2818 ], [ %.sroa.181, %929 ]
+  %indvars.iv4230.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2818 ], [ %.sroa.181, %929 ]
   %.1403252 = phi i32 [ %.1393254, %.preheader2818 ], [ %930, %929 ]
   %.not2217 = icmp eq i32 %.1403252, 0
   br i1 %.not2217, label %929, label %921
@@ -10008,37 +10006,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2817:                                   ; preds = %.preheader2817.preheader, %961
   %940 = phi i1 [ false, %961 ], [ true, %.preheader2817.preheader ]
-  %indvars.iv4263.sroa.phi = phi ptr [ %.sroa.385507, %961 ], [ %.sroa.05506, %.preheader2817.preheader ]
+  %indvars.iv4263.sroa.phi = phi ptr [ %.sroa.385592, %961 ], [ %.sroa.05591, %.preheader2817.preheader ]
   %.1413274 = phi i32 [ %956, %961 ], [ %930, %.preheader2817.preheader ]
   br label %.preheader2816
 
 .preheader2816:                                   ; preds = %.preheader2817, %960
   %941 = phi i1 [ true, %.preheader2817 ], [ false, %960 ]
-  %indvars.iv4260.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2817 ], [ %.sroa.121, %960 ]
+  %indvars.iv4260.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2817 ], [ %.sroa.121, %960 ]
   %.1423272 = phi i32 [ %.1413274, %.preheader2817 ], [ %956, %960 ]
   br label %.preheader2815
 
 .preheader2815:                                   ; preds = %.preheader2816, %959
   %942 = phi i1 [ true, %.preheader2816 ], [ false, %959 ]
-  %indvars.iv4257.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2816 ], [ %.sroa.121, %959 ]
+  %indvars.iv4257.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2816 ], [ %.sroa.121, %959 ]
   %.1433270 = phi i32 [ %.1423272, %.preheader2816 ], [ %956, %959 ]
   br label %.preheader2814
 
 .preheader2814:                                   ; preds = %.preheader2815, %958
   %943 = phi i1 [ true, %.preheader2815 ], [ false, %958 ]
-  %indvars.iv4254.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2815 ], [ %.sroa.181, %958 ]
+  %indvars.iv4254.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2815 ], [ %.sroa.181, %958 ]
   %.1443268 = phi i32 [ %.1433270, %.preheader2815 ], [ %956, %958 ]
   br label %.preheader2813
 
 .preheader2813:                                   ; preds = %.preheader2814, %957
   %944 = phi i1 [ true, %.preheader2814 ], [ false, %957 ]
-  %indvars.iv4251.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2814 ], [ %.sroa.121, %957 ]
+  %indvars.iv4251.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2814 ], [ %.sroa.121, %957 ]
   %.1453266 = phi i32 [ %.1443268, %.preheader2814 ], [ %956, %957 ]
   br label %945
 
 945:                                              ; preds = %.preheader2813, %955
   %946 = phi i1 [ true, %.preheader2813 ], [ false, %955 ]
-  %indvars.iv4248.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2813 ], [ %.sroa.181, %955 ]
+  %indvars.iv4248.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2813 ], [ %.sroa.181, %955 ]
   %.1463264 = phi i32 [ %.1453266, %.preheader2813 ], [ %956, %955 ]
   %.not2216 = icmp eq i32 %.1463264, 0
   br i1 %.not2216, label %955, label %947
@@ -10086,37 +10084,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2812:                                   ; preds = %.preheader2812.preheader, %987
   %966 = phi i1 [ false, %987 ], [ true, %.preheader2812.preheader ]
-  %indvars.iv4281.sroa.phi = phi ptr [ %.sroa.385507, %987 ], [ %.sroa.05506, %.preheader2812.preheader ]
+  %indvars.iv4281.sroa.phi = phi ptr [ %.sroa.385592, %987 ], [ %.sroa.05591, %.preheader2812.preheader ]
   %.1473286 = phi i32 [ %982, %987 ], [ %956, %.preheader2812.preheader ]
   br label %.preheader2811
 
 .preheader2811:                                   ; preds = %.preheader2812, %986
   %967 = phi i1 [ true, %.preheader2812 ], [ false, %986 ]
-  %indvars.iv4278.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2812 ], [ %.sroa.121, %986 ]
+  %indvars.iv4278.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2812 ], [ %.sroa.121, %986 ]
   %.1483284 = phi i32 [ %.1473286, %.preheader2812 ], [ %982, %986 ]
   br label %.preheader2810
 
 .preheader2810:                                   ; preds = %.preheader2811, %985
   %968 = phi i1 [ true, %.preheader2811 ], [ false, %985 ]
-  %indvars.iv4275.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2811 ], [ %.sroa.181, %985 ]
+  %indvars.iv4275.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2811 ], [ %.sroa.181, %985 ]
   %.1493282 = phi i32 [ %.1483284, %.preheader2811 ], [ %982, %985 ]
   br label %.preheader2809
 
 .preheader2809:                                   ; preds = %.preheader2810, %984
   %969 = phi i1 [ true, %.preheader2810 ], [ false, %984 ]
-  %indvars.iv4272.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2810 ], [ %.sroa.121, %984 ]
+  %indvars.iv4272.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2810 ], [ %.sroa.121, %984 ]
   %.1503280 = phi i32 [ %.1493282, %.preheader2810 ], [ %982, %984 ]
   br label %.preheader2808
 
 .preheader2808:                                   ; preds = %.preheader2809, %983
   %970 = phi i1 [ true, %.preheader2809 ], [ false, %983 ]
-  %indvars.iv4269.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2809 ], [ %.sroa.181, %983 ]
+  %indvars.iv4269.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2809 ], [ %.sroa.181, %983 ]
   %.1513278 = phi i32 [ %.1503280, %.preheader2809 ], [ %982, %983 ]
   br label %971
 
 971:                                              ; preds = %.preheader2808, %981
   %972 = phi i1 [ true, %.preheader2808 ], [ false, %981 ]
-  %indvars.iv4266.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2808 ], [ %.sroa.181, %981 ]
+  %indvars.iv4266.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2808 ], [ %.sroa.181, %981 ]
   %.1523276 = phi i32 [ %.1513278, %.preheader2808 ], [ %982, %981 ]
   %.not2215 = icmp eq i32 %.1523276, 0
   br i1 %.not2215, label %981, label %973
@@ -10164,37 +10162,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2807:                                   ; preds = %.preheader2807.preheader, %1013
   %992 = phi i1 [ false, %1013 ], [ true, %.preheader2807.preheader ]
-  %indvars.iv4299.sroa.phi = phi ptr [ %.sroa.385507, %1013 ], [ %.sroa.05506, %.preheader2807.preheader ]
+  %indvars.iv4299.sroa.phi = phi ptr [ %.sroa.385592, %1013 ], [ %.sroa.05591, %.preheader2807.preheader ]
   %.1533298 = phi i32 [ %1008, %1013 ], [ %982, %.preheader2807.preheader ]
   br label %.preheader2806
 
 .preheader2806:                                   ; preds = %.preheader2807, %1012
   %993 = phi i1 [ true, %.preheader2807 ], [ false, %1012 ]
-  %indvars.iv4296.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2807 ], [ %.sroa.121, %1012 ]
+  %indvars.iv4296.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2807 ], [ %.sroa.121, %1012 ]
   %.1543296 = phi i32 [ %.1533298, %.preheader2807 ], [ %1008, %1012 ]
   br label %.preheader2805
 
 .preheader2805:                                   ; preds = %.preheader2806, %1011
   %994 = phi i1 [ true, %.preheader2806 ], [ false, %1011 ]
-  %indvars.iv4293.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2806 ], [ %.sroa.181, %1011 ]
+  %indvars.iv4293.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2806 ], [ %.sroa.181, %1011 ]
   %.1553294 = phi i32 [ %.1543296, %.preheader2806 ], [ %1008, %1011 ]
   br label %.preheader2804
 
 .preheader2804:                                   ; preds = %.preheader2805, %1010
   %995 = phi i1 [ true, %.preheader2805 ], [ false, %1010 ]
-  %indvars.iv4290.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2805 ], [ %.sroa.121, %1010 ]
+  %indvars.iv4290.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2805 ], [ %.sroa.121, %1010 ]
   %.1563292 = phi i32 [ %.1553294, %.preheader2805 ], [ %1008, %1010 ]
   br label %.preheader2803
 
 .preheader2803:                                   ; preds = %.preheader2804, %1009
   %996 = phi i1 [ true, %.preheader2804 ], [ false, %1009 ]
-  %indvars.iv4287.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2804 ], [ %.sroa.121, %1009 ]
+  %indvars.iv4287.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2804 ], [ %.sroa.121, %1009 ]
   %.1573290 = phi i32 [ %.1563292, %.preheader2804 ], [ %1008, %1009 ]
   br label %997
 
 997:                                              ; preds = %.preheader2803, %1007
   %998 = phi i1 [ true, %.preheader2803 ], [ false, %1007 ]
-  %indvars.iv4284.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2803 ], [ %.sroa.181, %1007 ]
+  %indvars.iv4284.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2803 ], [ %.sroa.181, %1007 ]
   %.1583288 = phi i32 [ %.1573290, %.preheader2803 ], [ %1008, %1007 ]
   %.not2214 = icmp eq i32 %.1583288, 0
   br i1 %.not2214, label %1007, label %999
@@ -10242,37 +10240,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2802:                                   ; preds = %.preheader2802.preheader, %1039
   %1018 = phi i1 [ false, %1039 ], [ true, %.preheader2802.preheader ]
-  %indvars.iv4317.sroa.phi = phi ptr [ %.sroa.385507, %1039 ], [ %.sroa.05506, %.preheader2802.preheader ]
+  %indvars.iv4317.sroa.phi = phi ptr [ %.sroa.385592, %1039 ], [ %.sroa.05591, %.preheader2802.preheader ]
   %.1593310 = phi i32 [ %1034, %1039 ], [ %1008, %.preheader2802.preheader ]
   br label %.preheader2801
 
 .preheader2801:                                   ; preds = %.preheader2802, %1038
   %1019 = phi i1 [ true, %.preheader2802 ], [ false, %1038 ]
-  %indvars.iv4314.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2802 ], [ %.sroa.121, %1038 ]
+  %indvars.iv4314.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2802 ], [ %.sroa.121, %1038 ]
   %.1603308 = phi i32 [ %.1593310, %.preheader2802 ], [ %1034, %1038 ]
   br label %.preheader2800
 
 .preheader2800:                                   ; preds = %.preheader2801, %1037
   %1020 = phi i1 [ true, %.preheader2801 ], [ false, %1037 ]
-  %indvars.iv4311.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2801 ], [ %.sroa.121, %1037 ]
+  %indvars.iv4311.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2801 ], [ %.sroa.121, %1037 ]
   %.1613306 = phi i32 [ %.1603308, %.preheader2801 ], [ %1034, %1037 ]
   br label %.preheader2799
 
 .preheader2799:                                   ; preds = %.preheader2800, %1036
   %1021 = phi i1 [ true, %.preheader2800 ], [ false, %1036 ]
-  %indvars.iv4308.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2800 ], [ %.sroa.181, %1036 ]
+  %indvars.iv4308.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2800 ], [ %.sroa.181, %1036 ]
   %.1623304 = phi i32 [ %.1613306, %.preheader2800 ], [ %1034, %1036 ]
   br label %.preheader2798
 
 .preheader2798:                                   ; preds = %.preheader2799, %1035
   %1022 = phi i1 [ true, %.preheader2799 ], [ false, %1035 ]
-  %indvars.iv4305.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2799 ], [ %.sroa.181, %1035 ]
+  %indvars.iv4305.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2799 ], [ %.sroa.181, %1035 ]
   %.1633302 = phi i32 [ %.1623304, %.preheader2799 ], [ %1034, %1035 ]
   br label %1023
 
 1023:                                             ; preds = %.preheader2798, %1033
   %1024 = phi i1 [ true, %.preheader2798 ], [ false, %1033 ]
-  %indvars.iv4302.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2798 ], [ %.sroa.181, %1033 ]
+  %indvars.iv4302.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2798 ], [ %.sroa.181, %1033 ]
   %.1643300 = phi i32 [ %.1633302, %.preheader2798 ], [ %1034, %1033 ]
   %.not2213 = icmp eq i32 %.1643300, 0
   br i1 %.not2213, label %1033, label %1025
@@ -10320,37 +10318,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2797:                                   ; preds = %.preheader2797.preheader, %1065
   %1044 = phi i1 [ false, %1065 ], [ true, %.preheader2797.preheader ]
-  %indvars.iv4335.sroa.phi = phi ptr [ %.sroa.385507, %1065 ], [ %.sroa.05506, %.preheader2797.preheader ]
+  %indvars.iv4335.sroa.phi = phi ptr [ %.sroa.385592, %1065 ], [ %.sroa.05591, %.preheader2797.preheader ]
   %.1653322 = phi i32 [ %1060, %1065 ], [ %1034, %.preheader2797.preheader ]
   br label %.preheader2796
 
 .preheader2796:                                   ; preds = %.preheader2797, %1064
   %1045 = phi i1 [ true, %.preheader2797 ], [ false, %1064 ]
-  %indvars.iv4332.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2797 ], [ %.sroa.121, %1064 ]
+  %indvars.iv4332.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2797 ], [ %.sroa.121, %1064 ]
   %.1663320 = phi i32 [ %.1653322, %.preheader2797 ], [ %1060, %1064 ]
   br label %.preheader2795
 
 .preheader2795:                                   ; preds = %.preheader2796, %1063
   %1046 = phi i1 [ true, %.preheader2796 ], [ false, %1063 ]
-  %indvars.iv4329.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2796 ], [ %.sroa.121, %1063 ]
+  %indvars.iv4329.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2796 ], [ %.sroa.121, %1063 ]
   %.1673318 = phi i32 [ %.1663320, %.preheader2796 ], [ %1060, %1063 ]
   br label %.preheader2794
 
 .preheader2794:                                   ; preds = %.preheader2795, %1062
   %1047 = phi i1 [ true, %.preheader2795 ], [ false, %1062 ]
-  %indvars.iv4326.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2795 ], [ %.sroa.181, %1062 ]
+  %indvars.iv4326.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2795 ], [ %.sroa.181, %1062 ]
   %.1683316 = phi i32 [ %.1673318, %.preheader2795 ], [ %1060, %1062 ]
   br label %.preheader2793
 
 .preheader2793:                                   ; preds = %.preheader2794, %1061
   %1048 = phi i1 [ true, %.preheader2794 ], [ false, %1061 ]
-  %indvars.iv4323.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2794 ], [ %.sroa.121, %1061 ]
+  %indvars.iv4323.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2794 ], [ %.sroa.121, %1061 ]
   %.1693314 = phi i32 [ %.1683316, %.preheader2794 ], [ %1060, %1061 ]
   br label %1049
 
 1049:                                             ; preds = %.preheader2793, %1059
   %1050 = phi i1 [ true, %.preheader2793 ], [ false, %1059 ]
-  %indvars.iv4320.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2793 ], [ %.sroa.181, %1059 ]
+  %indvars.iv4320.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2793 ], [ %.sroa.181, %1059 ]
   %.1703312 = phi i32 [ %.1693314, %.preheader2793 ], [ %1060, %1059 ]
   %.not2212 = icmp eq i32 %.1703312, 0
   br i1 %.not2212, label %1059, label %1051
@@ -10398,37 +10396,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2792:                                   ; preds = %.preheader2792.preheader, %1091
   %1070 = phi i1 [ false, %1091 ], [ true, %.preheader2792.preheader ]
-  %indvars.iv4353.sroa.phi = phi ptr [ %.sroa.385507, %1091 ], [ %.sroa.05506, %.preheader2792.preheader ]
+  %indvars.iv4353.sroa.phi = phi ptr [ %.sroa.385592, %1091 ], [ %.sroa.05591, %.preheader2792.preheader ]
   %.1713334 = phi i32 [ %1086, %1091 ], [ %1060, %.preheader2792.preheader ]
   br label %.preheader2791
 
 .preheader2791:                                   ; preds = %.preheader2792, %1090
   %1071 = phi i1 [ true, %.preheader2792 ], [ false, %1090 ]
-  %indvars.iv4350.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2792 ], [ %.sroa.121, %1090 ]
+  %indvars.iv4350.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2792 ], [ %.sroa.121, %1090 ]
   %.1723332 = phi i32 [ %.1713334, %.preheader2792 ], [ %1086, %1090 ]
   br label %.preheader2790
 
 .preheader2790:                                   ; preds = %.preheader2791, %1089
   %1072 = phi i1 [ true, %.preheader2791 ], [ false, %1089 ]
-  %indvars.iv4347.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2791 ], [ %.sroa.121, %1089 ]
+  %indvars.iv4347.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2791 ], [ %.sroa.121, %1089 ]
   %.1733330 = phi i32 [ %.1723332, %.preheader2791 ], [ %1086, %1089 ]
   br label %.preheader2789
 
 .preheader2789:                                   ; preds = %.preheader2790, %1088
   %1073 = phi i1 [ true, %.preheader2790 ], [ false, %1088 ]
-  %indvars.iv4344.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2790 ], [ %.sroa.121, %1088 ]
+  %indvars.iv4344.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2790 ], [ %.sroa.121, %1088 ]
   %.1743328 = phi i32 [ %.1733330, %.preheader2790 ], [ %1086, %1088 ]
   br label %.preheader2788
 
 .preheader2788:                                   ; preds = %.preheader2789, %1087
   %1074 = phi i1 [ true, %.preheader2789 ], [ false, %1087 ]
-  %indvars.iv4341.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2789 ], [ %.sroa.181, %1087 ]
+  %indvars.iv4341.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2789 ], [ %.sroa.181, %1087 ]
   %.1753326 = phi i32 [ %.1743328, %.preheader2789 ], [ %1086, %1087 ]
   br label %1075
 
 1075:                                             ; preds = %.preheader2788, %1085
   %1076 = phi i1 [ true, %.preheader2788 ], [ false, %1085 ]
-  %indvars.iv4338.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2788 ], [ %.sroa.181, %1085 ]
+  %indvars.iv4338.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2788 ], [ %.sroa.181, %1085 ]
   %.1763324 = phi i32 [ %.1753326, %.preheader2788 ], [ %1086, %1085 ]
   %.not2211 = icmp eq i32 %.1763324, 0
   br i1 %.not2211, label %1085, label %1077
@@ -10476,37 +10474,37 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
 
 .preheader2787:                                   ; preds = %.preheader2787.preheader, %1117
   %1096 = phi i1 [ false, %1117 ], [ true, %.preheader2787.preheader ]
-  %indvars.iv4371.sroa.phi = phi ptr [ %.sroa.385507, %1117 ], [ %.sroa.05506, %.preheader2787.preheader ]
+  %indvars.iv4371.sroa.phi = phi ptr [ %.sroa.385592, %1117 ], [ %.sroa.05591, %.preheader2787.preheader ]
   %.1773346 = phi i32 [ %1112, %1117 ], [ %1086, %.preheader2787.preheader ]
   br label %.preheader2786
 
 .preheader2786:                                   ; preds = %.preheader2787, %1116
   %1097 = phi i1 [ true, %.preheader2787 ], [ false, %1116 ]
-  %indvars.iv4368.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2787 ], [ %.sroa.121, %1116 ]
+  %indvars.iv4368.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2787 ], [ %.sroa.121, %1116 ]
   %.1783344 = phi i32 [ %.1773346, %.preheader2787 ], [ %1112, %1116 ]
   br label %.preheader2785
 
 .preheader2785:                                   ; preds = %.preheader2786, %1115
   %1098 = phi i1 [ true, %.preheader2786 ], [ false, %1115 ]
-  %indvars.iv4365.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2786 ], [ %.sroa.121, %1115 ]
+  %indvars.iv4365.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2786 ], [ %.sroa.121, %1115 ]
   %.1793342 = phi i32 [ %.1783344, %.preheader2786 ], [ %1112, %1115 ]
   br label %.preheader2784
 
 .preheader2784:                                   ; preds = %.preheader2785, %1114
   %1099 = phi i1 [ true, %.preheader2785 ], [ false, %1114 ]
-  %indvars.iv4362.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2785 ], [ %.sroa.121, %1114 ]
+  %indvars.iv4362.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2785 ], [ %.sroa.121, %1114 ]
   %.1803340 = phi i32 [ %.1793342, %.preheader2785 ], [ %1112, %1114 ]
   br label %.preheader2783
 
 .preheader2783:                                   ; preds = %.preheader2784, %1113
   %1100 = phi i1 [ true, %.preheader2784 ], [ false, %1113 ]
-  %indvars.iv4359.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2784 ], [ %.sroa.121, %1113 ]
+  %indvars.iv4359.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2784 ], [ %.sroa.121, %1113 ]
   %.1813338 = phi i32 [ %.1803340, %.preheader2784 ], [ %1112, %1113 ]
   br label %1101
 
 1101:                                             ; preds = %.preheader2783, %1111
   %1102 = phi i1 [ true, %.preheader2783 ], [ false, %1111 ]
-  %indvars.iv4356.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2783 ], [ %.sroa.181, %1111 ]
+  %indvars.iv4356.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2783 ], [ %.sroa.181, %1111 ]
   %.1823336 = phi i32 [ %.1813338, %.preheader2783 ], [ %1112, %1111 ]
   %.not2210 = icmp eq i32 %.1823336, 0
   br i1 %.not2210, label %1111, label %1103
@@ -10561,8 +10559,8 @@ thread-pre-split2575:                             ; preds = %thread-pre-split257
   br i1 %.not2608, label %thread-pre-split2603.thread, label %1124
 
 .thread:                                          ; preds = %arkode_butcher_rowsum.exit
-  %.not26084932 = icmp eq ptr %48, null
-  br i1 %.not26084932, label %thread-pre-split2603.thread, label %.preheader.us.i2364.preheader
+  %.not26085017 = icmp eq ptr %48, null
+  br i1 %.not26085017, label %thread-pre-split2603.thread, label %.preheader.us.i2364.preheader
 
 1124:                                             ; preds = %1123
   br i1 %49, label %1125, label %.preheader.us.i2364.preheader
@@ -10707,7 +10705,7 @@ thread-pre-split2588:                             ; preds = %1163, %1150
 
 1168:                                             ; preds = %.preheader2780, %arkode_butcher_order2.exit2414
   %1169 = phi i1 [ true, %.preheader2780 ], [ false, %arkode_butcher_order2.exit2414 ]
-  %indvars.iv4374.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2780 ], [ %.sroa.181, %arkode_butcher_order2.exit2414 ]
+  %indvars.iv4374.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2780 ], [ %.sroa.181, %arkode_butcher_order2.exit2414 ]
   %.1843348 = phi i32 [ %.1833350, %.preheader2780 ], [ %1186, %arkode_butcher_order2.exit2414 ]
   %.not2209 = icmp eq i32 %.1843348, 0
   br i1 %.not2209, label %arkode_butcher_order2.exit2414, label %1170
@@ -10778,13 +10776,13 @@ thread-pre-split2591:                             ; preds = %thread-pre-split258
 
 .preheader2777:                                   ; preds = %.preheader2778, %1225
   %1194 = phi i1 [ true, %.preheader2778 ], [ false, %1225 ]
-  %indvars.iv4383.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2778 ], [ %.sroa.181, %1225 ]
+  %indvars.iv4383.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2778 ], [ %.sroa.181, %1225 ]
   %.1863354 = phi i32 [ %.1853356, %.preheader2778 ], [ %1224, %1225 ]
   br label %1195
 
 1195:                                             ; preds = %.preheader2777, %arkode_butcher_order3a.exit2429
   %1196 = phi i1 [ true, %.preheader2777 ], [ false, %arkode_butcher_order3a.exit2429 ]
-  %indvars.iv4380.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2777 ], [ %.sroa.181, %arkode_butcher_order3a.exit2429 ]
+  %indvars.iv4380.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2777 ], [ %.sroa.181, %arkode_butcher_order3a.exit2429 ]
   %.1873352 = phi i32 [ %.1863354, %.preheader2777 ], [ %1224, %arkode_butcher_order3a.exit2429 ]
   %.not2208 = icmp eq i32 %.1873352, 0
   br i1 %.not2208, label %arkode_butcher_order3a.exit2429, label %1197
@@ -10872,13 +10870,13 @@ arkode_butcher_order3a.exit2429:                  ; preds = %1219, %1211, %arkod
 
 .preheader2774:                                   ; preds = %.preheader2775, %1267
   %1232 = phi i1 [ true, %.preheader2775 ], [ false, %1267 ]
-  %indvars.iv4392.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2775 ], [ %.sroa.121, %1267 ]
+  %indvars.iv4392.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2775 ], [ %.sroa.121, %1267 ]
   %.1893360 = phi i32 [ %.1883362, %.preheader2775 ], [ %1266, %1267 ]
   br label %1233
 
 1233:                                             ; preds = %.preheader2774, %arkode_butcher_order3b.exit2448
   %1234 = phi i1 [ true, %.preheader2774 ], [ false, %arkode_butcher_order3b.exit2448 ]
-  %indvars.iv4389.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2774 ], [ %.sroa.181, %arkode_butcher_order3b.exit2448 ]
+  %indvars.iv4389.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2774 ], [ %.sroa.181, %arkode_butcher_order3b.exit2448 ]
   %.1903358 = phi i32 [ %.1893360, %.preheader2774 ], [ %1266, %arkode_butcher_order3b.exit2448 ]
   %.not2207 = icmp eq i32 %.1903358, 0
   br i1 %.not2207, label %arkode_butcher_order3b.exit2448, label %1235
@@ -10991,19 +10989,19 @@ thread-pre-split2595:                             ; preds = %arkode_butcher_orde
 
 .preheader2770:                                   ; preds = %.preheader2771, %1319
   %1275 = phi i1 [ true, %.preheader2771 ], [ false, %1319 ]
-  %indvars.iv4404.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2771 ], [ %.sroa.181, %1319 ]
+  %indvars.iv4404.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2771 ], [ %.sroa.181, %1319 ]
   %.1923368 = phi i32 [ %.1913370, %.preheader2771 ], [ %1317, %1319 ]
   br label %.preheader2769
 
 .preheader2769:                                   ; preds = %.preheader2770, %1318
   %1276 = phi i1 [ true, %.preheader2770 ], [ false, %1318 ]
-  %indvars.iv4401.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2770 ], [ %.sroa.181, %1318 ]
+  %indvars.iv4401.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2770 ], [ %.sroa.181, %1318 ]
   %.1933366 = phi i32 [ %.1923368, %.preheader2770 ], [ %1317, %1318 ]
   br label %1277
 
 1277:                                             ; preds = %.preheader2769, %arkode_butcher_order4a.exit2469
   %1278 = phi i1 [ true, %.preheader2769 ], [ false, %arkode_butcher_order4a.exit2469 ]
-  %indvars.iv4398.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2769 ], [ %.sroa.181, %arkode_butcher_order4a.exit2469 ]
+  %indvars.iv4398.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2769 ], [ %.sroa.181, %arkode_butcher_order4a.exit2469 ]
   %.1943364 = phi i32 [ %.1933366, %.preheader2769 ], [ %1317, %arkode_butcher_order4a.exit2469 ]
   %.not2206 = icmp eq i32 %.1943364, 0
   br i1 %.not2206, label %arkode_butcher_order4a.exit2469, label %1279
@@ -11122,19 +11120,19 @@ arkode_butcher_order4a.exit2469:                  ; preds = %1312, %1304, %arkod
 
 .preheader2766:                                   ; preds = %.preheader2767, %1373
   %1326 = phi i1 [ true, %.preheader2767 ], [ false, %1373 ]
-  %indvars.iv4416.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2767 ], [ %.sroa.181, %1373 ]
+  %indvars.iv4416.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2767 ], [ %.sroa.181, %1373 ]
   %.1963376 = phi i32 [ %.1953378, %.preheader2767 ], [ %1371, %1373 ]
   br label %.preheader2765
 
 .preheader2765:                                   ; preds = %.preheader2766, %1372
   %1327 = phi i1 [ true, %.preheader2766 ], [ false, %1372 ]
-  %indvars.iv4413.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2766 ], [ %.sroa.121, %1372 ]
+  %indvars.iv4413.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2766 ], [ %.sroa.121, %1372 ]
   %.1973374 = phi i32 [ %.1963376, %.preheader2766 ], [ %1371, %1372 ]
   br label %1328
 
 1328:                                             ; preds = %.preheader2765, %arkode_butcher_order4b.exit2496
   %1329 = phi i1 [ true, %.preheader2765 ], [ false, %arkode_butcher_order4b.exit2496 ]
-  %indvars.iv4410.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2765 ], [ %.sroa.181, %arkode_butcher_order4b.exit2496 ]
+  %indvars.iv4410.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2765 ], [ %.sroa.181, %arkode_butcher_order4b.exit2496 ]
   %.1983372 = phi i32 [ %.1973374, %.preheader2765 ], [ %1371, %arkode_butcher_order4b.exit2496 ]
   %.not2205 = icmp eq i32 %.1983372, 0
   br i1 %.not2205, label %arkode_butcher_order4b.exit2496, label %1330
@@ -11264,19 +11262,19 @@ arkode_butcher_order4b.exit2496:                  ; preds = %1366, %arkode_butch
 
 .preheader2762:                                   ; preds = %.preheader2763, %1428
   %1380 = phi i1 [ true, %.preheader2763 ], [ false, %1428 ]
-  %indvars.iv4428.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2763 ], [ %.sroa.121, %1428 ]
+  %indvars.iv4428.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2763 ], [ %.sroa.121, %1428 ]
   %.2003384 = phi i32 [ %.1993386, %.preheader2763 ], [ %1426, %1428 ]
   br label %.preheader2761
 
 .preheader2761:                                   ; preds = %.preheader2762, %1427
   %1381 = phi i1 [ true, %.preheader2762 ], [ false, %1427 ]
-  %indvars.iv4425.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2762 ], [ %.sroa.181, %1427 ]
+  %indvars.iv4425.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2762 ], [ %.sroa.181, %1427 ]
   %.2013382 = phi i32 [ %.2003384, %.preheader2762 ], [ %1426, %1427 ]
   br label %1382
 
 1382:                                             ; preds = %.preheader2761, %arkode_butcher_order4c.exit2522
   %1383 = phi i1 [ true, %.preheader2761 ], [ false, %arkode_butcher_order4c.exit2522 ]
-  %indvars.iv4422.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2761 ], [ %.sroa.181, %arkode_butcher_order4c.exit2522 ]
+  %indvars.iv4422.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2761 ], [ %.sroa.181, %arkode_butcher_order4c.exit2522 ]
   %.2023380 = phi i32 [ %.2013382, %.preheader2761 ], [ %1426, %arkode_butcher_order4c.exit2522 ]
   %.not2204 = icmp eq i32 %.2023380, 0
   br i1 %.not2204, label %arkode_butcher_order4c.exit2522, label %1384
@@ -11408,19 +11406,19 @@ arkode_butcher_order4c.exit2522:                  ; preds = %1421, %1413, %arkod
 
 .preheader2758:                                   ; preds = %.preheader2759, %1487
   %1435 = phi i1 [ true, %.preheader2759 ], [ false, %1487 ]
-  %indvars.iv4440.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2759 ], [ %.sroa.121, %1487 ]
+  %indvars.iv4440.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2759 ], [ %.sroa.121, %1487 ]
   %.2043392 = phi i32 [ %.2033394, %.preheader2759 ], [ %1485, %1487 ]
   br label %.preheader2757
 
 .preheader2757:                                   ; preds = %.preheader2758, %1486
   %1436 = phi i1 [ true, %.preheader2758 ], [ false, %1486 ]
-  %indvars.iv4437.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2758 ], [ %.sroa.121, %1486 ]
+  %indvars.iv4437.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2758 ], [ %.sroa.121, %1486 ]
   %.2053390 = phi i32 [ %.2043392, %.preheader2758 ], [ %1485, %1486 ]
   br label %1437
 
 1437:                                             ; preds = %.preheader2757, %arkode_butcher_order4d.exit2552
   %1438 = phi i1 [ true, %.preheader2757 ], [ false, %arkode_butcher_order4d.exit2552 ]
-  %indvars.iv4434.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2757 ], [ %.sroa.181, %arkode_butcher_order4d.exit2552 ]
+  %indvars.iv4434.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2757 ], [ %.sroa.181, %arkode_butcher_order4d.exit2552 ]
   %.2063388 = phi i32 [ %.2053390, %.preheader2757 ], [ %1485, %arkode_butcher_order4d.exit2552 ]
   %.not2203 = icmp eq i32 %.2063388, 0
   br i1 %.not2203, label %arkode_butcher_order4d.exit2552, label %1439
@@ -11581,25 +11579,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2753:                                   ; preds = %.preheader2754, %1511
   %1495 = phi i1 [ true, %.preheader2754 ], [ false, %1511 ]
-  %indvars.iv4455.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2754 ], [ %.sroa.181, %1511 ]
+  %indvars.iv4455.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2754 ], [ %.sroa.181, %1511 ]
   %.2083402 = phi i32 [ %.2073404, %.preheader2754 ], [ %1508, %1511 ]
   br label %.preheader2752
 
 .preheader2752:                                   ; preds = %.preheader2753, %1510
   %1496 = phi i1 [ true, %.preheader2753 ], [ false, %1510 ]
-  %indvars.iv4452.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2753 ], [ %.sroa.181, %1510 ]
+  %indvars.iv4452.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2753 ], [ %.sroa.181, %1510 ]
   %.2093400 = phi i32 [ %.2083402, %.preheader2753 ], [ %1508, %1510 ]
   br label %.preheader2751
 
 .preheader2751:                                   ; preds = %.preheader2752, %1509
   %1497 = phi i1 [ true, %.preheader2752 ], [ false, %1509 ]
-  %indvars.iv4449.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2752 ], [ %.sroa.181, %1509 ]
+  %indvars.iv4449.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2752 ], [ %.sroa.181, %1509 ]
   %.2103398 = phi i32 [ %.2093400, %.preheader2752 ], [ %1508, %1509 ]
   br label %1498
 
 1498:                                             ; preds = %.preheader2751, %1507
   %1499 = phi i1 [ true, %.preheader2751 ], [ false, %1507 ]
-  %indvars.iv4446.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2751 ], [ %.sroa.181, %1507 ]
+  %indvars.iv4446.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2751 ], [ %.sroa.181, %1507 ]
   %.2113396 = phi i32 [ %.2103398, %.preheader2751 ], [ %1508, %1507 ]
   %.not2202 = icmp eq i32 %.2113396, 0
   br i1 %.not2202, label %1507, label %1500
@@ -11649,25 +11647,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2749:                                   ; preds = %.preheader2750, %1534
   %1518 = phi i1 [ true, %.preheader2750 ], [ false, %1534 ]
-  %indvars.iv4470.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2750 ], [ %.sroa.181, %1534 ]
+  %indvars.iv4470.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2750 ], [ %.sroa.181, %1534 ]
   %.2133412 = phi i32 [ %.2123414, %.preheader2750 ], [ %1531, %1534 ]
   br label %.preheader2748
 
 .preheader2748:                                   ; preds = %.preheader2749, %1533
   %1519 = phi i1 [ true, %.preheader2749 ], [ false, %1533 ]
-  %indvars.iv4467.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2749 ], [ %.sroa.181, %1533 ]
+  %indvars.iv4467.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2749 ], [ %.sroa.181, %1533 ]
   %.2143410 = phi i32 [ %.2133412, %.preheader2749 ], [ %1531, %1533 ]
   br label %.preheader2747
 
 .preheader2747:                                   ; preds = %.preheader2748, %1532
   %1520 = phi i1 [ true, %.preheader2748 ], [ false, %1532 ]
-  %indvars.iv4464.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2748 ], [ %.sroa.121, %1532 ]
+  %indvars.iv4464.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2748 ], [ %.sroa.121, %1532 ]
   %.2153408 = phi i32 [ %.2143410, %.preheader2748 ], [ %1531, %1532 ]
   br label %1521
 
 1521:                                             ; preds = %.preheader2747, %1530
   %1522 = phi i1 [ true, %.preheader2747 ], [ false, %1530 ]
-  %indvars.iv4461.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2747 ], [ %.sroa.181, %1530 ]
+  %indvars.iv4461.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2747 ], [ %.sroa.181, %1530 ]
   %.2163406 = phi i32 [ %.2153408, %.preheader2747 ], [ %1531, %1530 ]
   %.not2201 = icmp eq i32 %.2163406, 0
   br i1 %.not2201, label %1530, label %1523
@@ -11717,25 +11715,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2745:                                   ; preds = %.preheader2746, %1557
   %1541 = phi i1 [ true, %.preheader2746 ], [ false, %1557 ]
-  %indvars.iv4485.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2746 ], [ %.sroa.121, %1557 ]
+  %indvars.iv4485.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2746 ], [ %.sroa.121, %1557 ]
   %.2183422 = phi i32 [ %.2173424, %.preheader2746 ], [ %1554, %1557 ]
   br label %.preheader2744
 
 .preheader2744:                                   ; preds = %.preheader2745, %1556
   %1542 = phi i1 [ true, %.preheader2745 ], [ false, %1556 ]
-  %indvars.iv4482.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2745 ], [ %.sroa.181, %1556 ]
+  %indvars.iv4482.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2745 ], [ %.sroa.181, %1556 ]
   %.2193420 = phi i32 [ %.2183422, %.preheader2745 ], [ %1554, %1556 ]
   br label %.preheader2743
 
 .preheader2743:                                   ; preds = %.preheader2744, %1555
   %1543 = phi i1 [ true, %.preheader2744 ], [ false, %1555 ]
-  %indvars.iv4479.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2744 ], [ %.sroa.121, %1555 ]
+  %indvars.iv4479.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2744 ], [ %.sroa.121, %1555 ]
   %.2203418 = phi i32 [ %.2193420, %.preheader2744 ], [ %1554, %1555 ]
   br label %1544
 
 1544:                                             ; preds = %.preheader2743, %1553
   %1545 = phi i1 [ true, %.preheader2743 ], [ false, %1553 ]
-  %indvars.iv4476.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2743 ], [ %.sroa.181, %1553 ]
+  %indvars.iv4476.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2743 ], [ %.sroa.181, %1553 ]
   %.2213416 = phi i32 [ %.2203418, %.preheader2743 ], [ %1554, %1553 ]
   %.not2200 = icmp eq i32 %.2213416, 0
   br i1 %.not2200, label %1553, label %1546
@@ -11785,25 +11783,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2741:                                   ; preds = %.preheader2742, %1580
   %1564 = phi i1 [ true, %.preheader2742 ], [ false, %1580 ]
-  %indvars.iv4500.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2742 ], [ %.sroa.181, %1580 ]
+  %indvars.iv4500.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2742 ], [ %.sroa.181, %1580 ]
   %.2233432 = phi i32 [ %.2223434, %.preheader2742 ], [ %1577, %1580 ]
   br label %.preheader2740
 
 .preheader2740:                                   ; preds = %.preheader2741, %1579
   %1565 = phi i1 [ true, %.preheader2741 ], [ false, %1579 ]
-  %indvars.iv4497.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2741 ], [ %.sroa.121, %1579 ]
+  %indvars.iv4497.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2741 ], [ %.sroa.121, %1579 ]
   %.2243430 = phi i32 [ %.2233432, %.preheader2741 ], [ %1577, %1579 ]
   br label %.preheader2739
 
 .preheader2739:                                   ; preds = %.preheader2740, %1578
   %1566 = phi i1 [ true, %.preheader2740 ], [ false, %1578 ]
-  %indvars.iv4494.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2740 ], [ %.sroa.181, %1578 ]
+  %indvars.iv4494.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2740 ], [ %.sroa.181, %1578 ]
   %.2253428 = phi i32 [ %.2243430, %.preheader2740 ], [ %1577, %1578 ]
   br label %1567
 
 1567:                                             ; preds = %.preheader2739, %1576
   %1568 = phi i1 [ true, %.preheader2739 ], [ false, %1576 ]
-  %indvars.iv4491.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2739 ], [ %.sroa.181, %1576 ]
+  %indvars.iv4491.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2739 ], [ %.sroa.181, %1576 ]
   %.2263426 = phi i32 [ %.2253428, %.preheader2739 ], [ %1577, %1576 ]
   %.not2199 = icmp eq i32 %.2263426, 0
   br i1 %.not2199, label %1576, label %1569
@@ -11853,25 +11851,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2737:                                   ; preds = %.preheader2738, %1603
   %1587 = phi i1 [ true, %.preheader2738 ], [ false, %1603 ]
-  %indvars.iv4515.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2738 ], [ %.sroa.121, %1603 ]
+  %indvars.iv4515.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2738 ], [ %.sroa.121, %1603 ]
   %.2283442 = phi i32 [ %.2273444, %.preheader2738 ], [ %1600, %1603 ]
   br label %.preheader2736
 
 .preheader2736:                                   ; preds = %.preheader2737, %1602
   %1588 = phi i1 [ true, %.preheader2737 ], [ false, %1602 ]
-  %indvars.iv4512.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2737 ], [ %.sroa.181, %1602 ]
+  %indvars.iv4512.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2737 ], [ %.sroa.181, %1602 ]
   %.2293440 = phi i32 [ %.2283442, %.preheader2737 ], [ %1600, %1602 ]
   br label %.preheader2735
 
 .preheader2735:                                   ; preds = %.preheader2736, %1601
   %1589 = phi i1 [ true, %.preheader2736 ], [ false, %1601 ]
-  %indvars.iv4509.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2736 ], [ %.sroa.181, %1601 ]
+  %indvars.iv4509.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2736 ], [ %.sroa.181, %1601 ]
   %.2303438 = phi i32 [ %.2293440, %.preheader2736 ], [ %1600, %1601 ]
   br label %1590
 
 1590:                                             ; preds = %.preheader2735, %1599
   %1591 = phi i1 [ true, %.preheader2735 ], [ false, %1599 ]
-  %indvars.iv4506.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2735 ], [ %.sroa.181, %1599 ]
+  %indvars.iv4506.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2735 ], [ %.sroa.181, %1599 ]
   %.2313436 = phi i32 [ %.2303438, %.preheader2735 ], [ %1600, %1599 ]
   %.not2198 = icmp eq i32 %.2313436, 0
   br i1 %.not2198, label %1599, label %1592
@@ -11921,25 +11919,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2733:                                   ; preds = %.preheader2734, %1626
   %1610 = phi i1 [ true, %.preheader2734 ], [ false, %1626 ]
-  %indvars.iv4530.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2734 ], [ %.sroa.181, %1626 ]
+  %indvars.iv4530.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2734 ], [ %.sroa.181, %1626 ]
   %.2333452 = phi i32 [ %.2323454, %.preheader2734 ], [ %1623, %1626 ]
   br label %.preheader2732
 
 .preheader2732:                                   ; preds = %.preheader2733, %1625
   %1611 = phi i1 [ true, %.preheader2733 ], [ false, %1625 ]
-  %indvars.iv4527.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2733 ], [ %.sroa.121, %1625 ]
+  %indvars.iv4527.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2733 ], [ %.sroa.121, %1625 ]
   %.2343450 = phi i32 [ %.2333452, %.preheader2733 ], [ %1623, %1625 ]
   br label %.preheader2731
 
 .preheader2731:                                   ; preds = %.preheader2732, %1624
   %1612 = phi i1 [ true, %.preheader2732 ], [ false, %1624 ]
-  %indvars.iv4524.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2732 ], [ %.sroa.121, %1624 ]
+  %indvars.iv4524.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2732 ], [ %.sroa.121, %1624 ]
   %.2353448 = phi i32 [ %.2343450, %.preheader2732 ], [ %1623, %1624 ]
   br label %1613
 
 1613:                                             ; preds = %.preheader2731, %1622
   %1614 = phi i1 [ true, %.preheader2731 ], [ false, %1622 ]
-  %indvars.iv4521.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2731 ], [ %.sroa.181, %1622 ]
+  %indvars.iv4521.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2731 ], [ %.sroa.181, %1622 ]
   %.2363446 = phi i32 [ %.2353448, %.preheader2731 ], [ %1623, %1622 ]
   %.not2197 = icmp eq i32 %.2363446, 0
   br i1 %.not2197, label %1622, label %1615
@@ -11989,25 +11987,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2729:                                   ; preds = %.preheader2730, %1649
   %1633 = phi i1 [ true, %.preheader2730 ], [ false, %1649 ]
-  %indvars.iv4545.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2730 ], [ %.sroa.121, %1649 ]
+  %indvars.iv4545.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2730 ], [ %.sroa.121, %1649 ]
   %.2383462 = phi i32 [ %.2373464, %.preheader2730 ], [ %1646, %1649 ]
   br label %.preheader2728
 
 .preheader2728:                                   ; preds = %.preheader2729, %1648
   %1634 = phi i1 [ true, %.preheader2729 ], [ false, %1648 ]
-  %indvars.iv4542.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2729 ], [ %.sroa.181, %1648 ]
+  %indvars.iv4542.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2729 ], [ %.sroa.181, %1648 ]
   %.2393460 = phi i32 [ %.2383462, %.preheader2729 ], [ %1646, %1648 ]
   br label %.preheader2727
 
 .preheader2727:                                   ; preds = %.preheader2728, %1647
   %1635 = phi i1 [ true, %.preheader2728 ], [ false, %1647 ]
-  %indvars.iv4539.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2728 ], [ %.sroa.121, %1647 ]
+  %indvars.iv4539.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2728 ], [ %.sroa.121, %1647 ]
   %.2403458 = phi i32 [ %.2393460, %.preheader2728 ], [ %1646, %1647 ]
   br label %1636
 
 1636:                                             ; preds = %.preheader2727, %1645
   %1637 = phi i1 [ true, %.preheader2727 ], [ false, %1645 ]
-  %indvars.iv4536.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2727 ], [ %.sroa.181, %1645 ]
+  %indvars.iv4536.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2727 ], [ %.sroa.181, %1645 ]
   %.2413456 = phi i32 [ %.2403458, %.preheader2727 ], [ %1646, %1645 ]
   %.not2196 = icmp eq i32 %.2413456, 0
   br i1 %.not2196, label %1645, label %1638
@@ -12057,25 +12055,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2725:                                   ; preds = %.preheader2726, %1672
   %1656 = phi i1 [ true, %.preheader2726 ], [ false, %1672 ]
-  %indvars.iv4560.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2726 ], [ %.sroa.121, %1672 ]
+  %indvars.iv4560.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2726 ], [ %.sroa.121, %1672 ]
   %.2433472 = phi i32 [ %.2423474, %.preheader2726 ], [ %1669, %1672 ]
   br label %.preheader2724
 
 .preheader2724:                                   ; preds = %.preheader2725, %1671
   %1657 = phi i1 [ true, %.preheader2725 ], [ false, %1671 ]
-  %indvars.iv4557.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2725 ], [ %.sroa.121, %1671 ]
+  %indvars.iv4557.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2725 ], [ %.sroa.121, %1671 ]
   %.2443470 = phi i32 [ %.2433472, %.preheader2725 ], [ %1669, %1671 ]
   br label %.preheader2723
 
 .preheader2723:                                   ; preds = %.preheader2724, %1670
   %1658 = phi i1 [ true, %.preheader2724 ], [ false, %1670 ]
-  %indvars.iv4554.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2724 ], [ %.sroa.181, %1670 ]
+  %indvars.iv4554.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2724 ], [ %.sroa.181, %1670 ]
   %.2453468 = phi i32 [ %.2443470, %.preheader2724 ], [ %1669, %1670 ]
   br label %1659
 
 1659:                                             ; preds = %.preheader2723, %1668
   %1660 = phi i1 [ true, %.preheader2723 ], [ false, %1668 ]
-  %indvars.iv4551.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2723 ], [ %.sroa.181, %1668 ]
+  %indvars.iv4551.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2723 ], [ %.sroa.181, %1668 ]
   %.2463466 = phi i32 [ %.2453468, %.preheader2723 ], [ %1669, %1668 ]
   %.not2195 = icmp eq i32 %.2463466, 0
   br i1 %.not2195, label %1668, label %1661
@@ -12125,25 +12123,25 @@ thread-pre-split2599:                             ; preds = %thread-pre-split259
 
 .preheader2721:                                   ; preds = %.preheader2722, %1695
   %1679 = phi i1 [ true, %.preheader2722 ], [ false, %1695 ]
-  %indvars.iv4575.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2722 ], [ %.sroa.121, %1695 ]
+  %indvars.iv4575.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2722 ], [ %.sroa.121, %1695 ]
   %.2483482 = phi i32 [ %.2473484, %.preheader2722 ], [ %1692, %1695 ]
   br label %.preheader2720
 
 .preheader2720:                                   ; preds = %.preheader2721, %1694
   %1680 = phi i1 [ true, %.preheader2721 ], [ false, %1694 ]
-  %indvars.iv4572.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2721 ], [ %.sroa.121, %1694 ]
+  %indvars.iv4572.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2721 ], [ %.sroa.121, %1694 ]
   %.2493480 = phi i32 [ %.2483482, %.preheader2721 ], [ %1692, %1694 ]
   br label %.preheader2719
 
 .preheader2719:                                   ; preds = %.preheader2720, %1693
   %1681 = phi i1 [ true, %.preheader2720 ], [ false, %1693 ]
-  %indvars.iv4569.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2720 ], [ %.sroa.121, %1693 ]
+  %indvars.iv4569.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2720 ], [ %.sroa.121, %1693 ]
   %.2503478 = phi i32 [ %.2493480, %.preheader2720 ], [ %1692, %1693 ]
   br label %1682
 
 1682:                                             ; preds = %.preheader2719, %1691
   %1683 = phi i1 [ true, %.preheader2719 ], [ false, %1691 ]
-  %indvars.iv4566.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2719 ], [ %.sroa.181, %1691 ]
+  %indvars.iv4566.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2719 ], [ %.sroa.181, %1691 ]
   %.2513476 = phi i32 [ %.2503478, %.preheader2719 ], [ %1692, %1691 ]
   %.not2194 = icmp eq i32 %.2513476, 0
   br i1 %.not2194, label %1691, label %1684
@@ -12205,31 +12203,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2716:                                   ; preds = %.preheader2717, %1722
   %1703 = phi i1 [ true, %.preheader2717 ], [ false, %1722 ]
-  %indvars.iv4593.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2717 ], [ %.sroa.181, %1722 ]
+  %indvars.iv4593.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2717 ], [ %.sroa.181, %1722 ]
   %.2533494 = phi i32 [ %.2523496, %.preheader2717 ], [ %1718, %1722 ]
   br label %.preheader2715
 
 .preheader2715:                                   ; preds = %.preheader2716, %1721
   %1704 = phi i1 [ true, %.preheader2716 ], [ false, %1721 ]
-  %indvars.iv4590.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2716 ], [ %.sroa.181, %1721 ]
+  %indvars.iv4590.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2716 ], [ %.sroa.181, %1721 ]
   %.2543492 = phi i32 [ %.2533494, %.preheader2716 ], [ %1718, %1721 ]
   br label %.preheader2714
 
 .preheader2714:                                   ; preds = %.preheader2715, %1720
   %1705 = phi i1 [ true, %.preheader2715 ], [ false, %1720 ]
-  %indvars.iv4587.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2715 ], [ %.sroa.181, %1720 ]
+  %indvars.iv4587.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2715 ], [ %.sroa.181, %1720 ]
   %.2553490 = phi i32 [ %.2543492, %.preheader2715 ], [ %1718, %1720 ]
   br label %.preheader2713
 
 .preheader2713:                                   ; preds = %.preheader2714, %1719
   %1706 = phi i1 [ true, %.preheader2714 ], [ false, %1719 ]
-  %indvars.iv4584.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2714 ], [ %.sroa.181, %1719 ]
+  %indvars.iv4584.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2714 ], [ %.sroa.181, %1719 ]
   %.2563488 = phi i32 [ %.2553490, %.preheader2714 ], [ %1718, %1719 ]
   br label %1707
 
 1707:                                             ; preds = %.preheader2713, %1717
   %1708 = phi i1 [ true, %.preheader2713 ], [ false, %1717 ]
-  %indvars.iv4581.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2713 ], [ %.sroa.181, %1717 ]
+  %indvars.iv4581.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2713 ], [ %.sroa.181, %1717 ]
   %.2573486 = phi i32 [ %.2563488, %.preheader2713 ], [ %1718, %1717 ]
   %.not2193 = icmp eq i32 %.2573486, 0
   br i1 %.not2193, label %1717, label %1709
@@ -12283,31 +12281,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2711:                                   ; preds = %.preheader2712, %1748
   %1729 = phi i1 [ true, %.preheader2712 ], [ false, %1748 ]
-  %indvars.iv4611.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2712 ], [ %.sroa.181, %1748 ]
+  %indvars.iv4611.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2712 ], [ %.sroa.181, %1748 ]
   %.2593506 = phi i32 [ %.2583508, %.preheader2712 ], [ %1744, %1748 ]
   br label %.preheader2710
 
 .preheader2710:                                   ; preds = %.preheader2711, %1747
   %1730 = phi i1 [ true, %.preheader2711 ], [ false, %1747 ]
-  %indvars.iv4608.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2711 ], [ %.sroa.181, %1747 ]
+  %indvars.iv4608.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2711 ], [ %.sroa.181, %1747 ]
   %.2603504 = phi i32 [ %.2593506, %.preheader2711 ], [ %1744, %1747 ]
   br label %.preheader2709
 
 .preheader2709:                                   ; preds = %.preheader2710, %1746
   %1731 = phi i1 [ true, %.preheader2710 ], [ false, %1746 ]
-  %indvars.iv4605.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2710 ], [ %.sroa.181, %1746 ]
+  %indvars.iv4605.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2710 ], [ %.sroa.181, %1746 ]
   %.2613502 = phi i32 [ %.2603504, %.preheader2710 ], [ %1744, %1746 ]
   br label %.preheader2708
 
 .preheader2708:                                   ; preds = %.preheader2709, %1745
   %1732 = phi i1 [ true, %.preheader2709 ], [ false, %1745 ]
-  %indvars.iv4602.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2709 ], [ %.sroa.121, %1745 ]
+  %indvars.iv4602.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2709 ], [ %.sroa.121, %1745 ]
   %.2623500 = phi i32 [ %.2613502, %.preheader2709 ], [ %1744, %1745 ]
   br label %1733
 
 1733:                                             ; preds = %.preheader2708, %1743
   %1734 = phi i1 [ true, %.preheader2708 ], [ false, %1743 ]
-  %indvars.iv4599.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2708 ], [ %.sroa.181, %1743 ]
+  %indvars.iv4599.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2708 ], [ %.sroa.181, %1743 ]
   %.2633498 = phi i32 [ %.2623500, %.preheader2708 ], [ %1744, %1743 ]
   %.not2192 = icmp eq i32 %.2633498, 0
   br i1 %.not2192, label %1743, label %1735
@@ -12361,31 +12359,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2706:                                   ; preds = %.preheader2707, %1774
   %1755 = phi i1 [ true, %.preheader2707 ], [ false, %1774 ]
-  %indvars.iv4629.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2707 ], [ %.sroa.181, %1774 ]
+  %indvars.iv4629.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2707 ], [ %.sroa.181, %1774 ]
   %.2653518 = phi i32 [ %.2643520, %.preheader2707 ], [ %1770, %1774 ]
   br label %.preheader2705
 
 .preheader2705:                                   ; preds = %.preheader2706, %1773
   %1756 = phi i1 [ true, %.preheader2706 ], [ false, %1773 ]
-  %indvars.iv4626.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2706 ], [ %.sroa.121, %1773 ]
+  %indvars.iv4626.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2706 ], [ %.sroa.121, %1773 ]
   %.2663516 = phi i32 [ %.2653518, %.preheader2706 ], [ %1770, %1773 ]
   br label %.preheader2704
 
 .preheader2704:                                   ; preds = %.preheader2705, %1772
   %1757 = phi i1 [ true, %.preheader2705 ], [ false, %1772 ]
-  %indvars.iv4623.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2705 ], [ %.sroa.181, %1772 ]
+  %indvars.iv4623.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2705 ], [ %.sroa.181, %1772 ]
   %.2673514 = phi i32 [ %.2663516, %.preheader2705 ], [ %1770, %1772 ]
   br label %.preheader2703
 
 .preheader2703:                                   ; preds = %.preheader2704, %1771
   %1758 = phi i1 [ true, %.preheader2704 ], [ false, %1771 ]
-  %indvars.iv4620.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2704 ], [ %.sroa.121, %1771 ]
+  %indvars.iv4620.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2704 ], [ %.sroa.121, %1771 ]
   %.2683512 = phi i32 [ %.2673514, %.preheader2704 ], [ %1770, %1771 ]
   br label %1759
 
 1759:                                             ; preds = %.preheader2703, %1769
   %1760 = phi i1 [ true, %.preheader2703 ], [ false, %1769 ]
-  %indvars.iv4617.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2703 ], [ %.sroa.181, %1769 ]
+  %indvars.iv4617.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2703 ], [ %.sroa.181, %1769 ]
   %.2693510 = phi i32 [ %.2683512, %.preheader2703 ], [ %1770, %1769 ]
   %.not2191 = icmp eq i32 %.2693510, 0
   br i1 %.not2191, label %1769, label %1761
@@ -12439,31 +12437,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2701:                                   ; preds = %.preheader2702, %1800
   %1781 = phi i1 [ true, %.preheader2702 ], [ false, %1800 ]
-  %indvars.iv4647.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2702 ], [ %.sroa.181, %1800 ]
+  %indvars.iv4647.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2702 ], [ %.sroa.181, %1800 ]
   %.2713530 = phi i32 [ %.2703532, %.preheader2702 ], [ %1796, %1800 ]
   br label %.preheader2700
 
 .preheader2700:                                   ; preds = %.preheader2701, %1799
   %1782 = phi i1 [ true, %.preheader2701 ], [ false, %1799 ]
-  %indvars.iv4644.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2701 ], [ %.sroa.181, %1799 ]
+  %indvars.iv4644.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2701 ], [ %.sroa.181, %1799 ]
   %.2723528 = phi i32 [ %.2713530, %.preheader2701 ], [ %1796, %1799 ]
   br label %.preheader2699
 
 .preheader2699:                                   ; preds = %.preheader2700, %1798
   %1783 = phi i1 [ true, %.preheader2700 ], [ false, %1798 ]
-  %indvars.iv4641.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2700 ], [ %.sroa.121, %1798 ]
+  %indvars.iv4641.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2700 ], [ %.sroa.121, %1798 ]
   %.2733526 = phi i32 [ %.2723528, %.preheader2700 ], [ %1796, %1798 ]
   br label %.preheader2698
 
 .preheader2698:                                   ; preds = %.preheader2699, %1797
   %1784 = phi i1 [ true, %.preheader2699 ], [ false, %1797 ]
-  %indvars.iv4638.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2699 ], [ %.sroa.181, %1797 ]
+  %indvars.iv4638.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2699 ], [ %.sroa.181, %1797 ]
   %.2743524 = phi i32 [ %.2733526, %.preheader2699 ], [ %1796, %1797 ]
   br label %1785
 
 1785:                                             ; preds = %.preheader2698, %1795
   %1786 = phi i1 [ true, %.preheader2698 ], [ false, %1795 ]
-  %indvars.iv4635.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2698 ], [ %.sroa.181, %1795 ]
+  %indvars.iv4635.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2698 ], [ %.sroa.181, %1795 ]
   %.2753522 = phi i32 [ %.2743524, %.preheader2698 ], [ %1796, %1795 ]
   %.not2190 = icmp eq i32 %.2753522, 0
   br i1 %.not2190, label %1795, label %1787
@@ -12517,31 +12515,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2696:                                   ; preds = %.preheader2697, %1826
   %1807 = phi i1 [ true, %.preheader2697 ], [ false, %1826 ]
-  %indvars.iv4665.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2697 ], [ %.sroa.181, %1826 ]
+  %indvars.iv4665.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2697 ], [ %.sroa.181, %1826 ]
   %.2773542 = phi i32 [ %.2763544, %.preheader2697 ], [ %1822, %1826 ]
   br label %.preheader2695
 
 .preheader2695:                                   ; preds = %.preheader2696, %1825
   %1808 = phi i1 [ true, %.preheader2696 ], [ false, %1825 ]
-  %indvars.iv4662.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2696 ], [ %.sroa.181, %1825 ]
+  %indvars.iv4662.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2696 ], [ %.sroa.181, %1825 ]
   %.2783540 = phi i32 [ %.2773542, %.preheader2696 ], [ %1822, %1825 ]
   br label %.preheader2694
 
 .preheader2694:                                   ; preds = %.preheader2695, %1824
   %1809 = phi i1 [ true, %.preheader2695 ], [ false, %1824 ]
-  %indvars.iv4659.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2695 ], [ %.sroa.121, %1824 ]
+  %indvars.iv4659.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2695 ], [ %.sroa.121, %1824 ]
   %.2793538 = phi i32 [ %.2783540, %.preheader2695 ], [ %1822, %1824 ]
   br label %.preheader2693
 
 .preheader2693:                                   ; preds = %.preheader2694, %1823
   %1810 = phi i1 [ true, %.preheader2694 ], [ false, %1823 ]
-  %indvars.iv4656.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2694 ], [ %.sroa.121, %1823 ]
+  %indvars.iv4656.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2694 ], [ %.sroa.121, %1823 ]
   %.2803536 = phi i32 [ %.2793538, %.preheader2694 ], [ %1822, %1823 ]
   br label %1811
 
 1811:                                             ; preds = %.preheader2693, %1821
   %1812 = phi i1 [ true, %.preheader2693 ], [ false, %1821 ]
-  %indvars.iv4653.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2693 ], [ %.sroa.181, %1821 ]
+  %indvars.iv4653.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2693 ], [ %.sroa.181, %1821 ]
   %.2813534 = phi i32 [ %.2803536, %.preheader2693 ], [ %1822, %1821 ]
   %.not2189 = icmp eq i32 %.2813534, 0
   br i1 %.not2189, label %1821, label %1813
@@ -12595,31 +12593,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2691:                                   ; preds = %.preheader2692, %1852
   %1833 = phi i1 [ true, %.preheader2692 ], [ false, %1852 ]
-  %indvars.iv4683.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2692 ], [ %.sroa.121, %1852 ]
+  %indvars.iv4683.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2692 ], [ %.sroa.121, %1852 ]
   %.2833554 = phi i32 [ %.2823556, %.preheader2692 ], [ %1848, %1852 ]
   br label %.preheader2690
 
 .preheader2690:                                   ; preds = %.preheader2691, %1851
   %1834 = phi i1 [ true, %.preheader2691 ], [ false, %1851 ]
-  %indvars.iv4680.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2691 ], [ %.sroa.121, %1851 ]
+  %indvars.iv4680.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2691 ], [ %.sroa.121, %1851 ]
   %.2843552 = phi i32 [ %.2833554, %.preheader2691 ], [ %1848, %1851 ]
   br label %.preheader2689
 
 .preheader2689:                                   ; preds = %.preheader2690, %1850
   %1835 = phi i1 [ true, %.preheader2690 ], [ false, %1850 ]
-  %indvars.iv4677.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2690 ], [ %.sroa.181, %1850 ]
+  %indvars.iv4677.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2690 ], [ %.sroa.181, %1850 ]
   %.2853550 = phi i32 [ %.2843552, %.preheader2690 ], [ %1848, %1850 ]
   br label %.preheader2688
 
 .preheader2688:                                   ; preds = %.preheader2689, %1849
   %1836 = phi i1 [ true, %.preheader2689 ], [ false, %1849 ]
-  %indvars.iv4674.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2689 ], [ %.sroa.121, %1849 ]
+  %indvars.iv4674.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2689 ], [ %.sroa.121, %1849 ]
   %.2863548 = phi i32 [ %.2853550, %.preheader2689 ], [ %1848, %1849 ]
   br label %1837
 
 1837:                                             ; preds = %.preheader2688, %1847
   %1838 = phi i1 [ true, %.preheader2688 ], [ false, %1847 ]
-  %indvars.iv4671.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2688 ], [ %.sroa.181, %1847 ]
+  %indvars.iv4671.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2688 ], [ %.sroa.181, %1847 ]
   %.2873546 = phi i32 [ %.2863548, %.preheader2688 ], [ %1848, %1847 ]
   %.not2188 = icmp eq i32 %.2873546, 0
   br i1 %.not2188, label %1847, label %1839
@@ -12673,31 +12671,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2686:                                   ; preds = %.preheader2687, %1878
   %1859 = phi i1 [ true, %.preheader2687 ], [ false, %1878 ]
-  %indvars.iv4701.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2687 ], [ %.sroa.181, %1878 ]
+  %indvars.iv4701.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2687 ], [ %.sroa.181, %1878 ]
   %.2893566 = phi i32 [ %.2883568, %.preheader2687 ], [ %1874, %1878 ]
   br label %.preheader2685
 
 .preheader2685:                                   ; preds = %.preheader2686, %1877
   %1860 = phi i1 [ true, %.preheader2686 ], [ false, %1877 ]
-  %indvars.iv4698.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2686 ], [ %.sroa.121, %1877 ]
+  %indvars.iv4698.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2686 ], [ %.sroa.121, %1877 ]
   %.2903564 = phi i32 [ %.2893566, %.preheader2686 ], [ %1874, %1877 ]
   br label %.preheader2684
 
 .preheader2684:                                   ; preds = %.preheader2685, %1876
   %1861 = phi i1 [ true, %.preheader2685 ], [ false, %1876 ]
-  %indvars.iv4695.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2685 ], [ %.sroa.181, %1876 ]
+  %indvars.iv4695.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2685 ], [ %.sroa.181, %1876 ]
   %.2913562 = phi i32 [ %.2903564, %.preheader2685 ], [ %1874, %1876 ]
   br label %.preheader2683
 
 .preheader2683:                                   ; preds = %.preheader2684, %1875
   %1862 = phi i1 [ true, %.preheader2684 ], [ false, %1875 ]
-  %indvars.iv4692.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2684 ], [ %.sroa.181, %1875 ]
+  %indvars.iv4692.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2684 ], [ %.sroa.181, %1875 ]
   %.2923560 = phi i32 [ %.2913562, %.preheader2684 ], [ %1874, %1875 ]
   br label %1863
 
 1863:                                             ; preds = %.preheader2683, %1873
   %1864 = phi i1 [ true, %.preheader2683 ], [ false, %1873 ]
-  %indvars.iv4689.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2683 ], [ %.sroa.181, %1873 ]
+  %indvars.iv4689.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2683 ], [ %.sroa.181, %1873 ]
   %.2933558 = phi i32 [ %.2923560, %.preheader2683 ], [ %1874, %1873 ]
   %.not2187 = icmp eq i32 %.2933558, 0
   br i1 %.not2187, label %1873, label %1865
@@ -12751,31 +12749,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2681:                                   ; preds = %.preheader2682, %1904
   %1885 = phi i1 [ true, %.preheader2682 ], [ false, %1904 ]
-  %indvars.iv4719.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2682 ], [ %.sroa.181, %1904 ]
+  %indvars.iv4719.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2682 ], [ %.sroa.181, %1904 ]
   %.2953578 = phi i32 [ %.2943580, %.preheader2682 ], [ %1900, %1904 ]
   br label %.preheader2680
 
 .preheader2680:                                   ; preds = %.preheader2681, %1903
   %1886 = phi i1 [ true, %.preheader2681 ], [ false, %1903 ]
-  %indvars.iv4716.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2681 ], [ %.sroa.121, %1903 ]
+  %indvars.iv4716.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2681 ], [ %.sroa.121, %1903 ]
   %.2963576 = phi i32 [ %.2953578, %.preheader2681 ], [ %1900, %1903 ]
   br label %.preheader2679
 
 .preheader2679:                                   ; preds = %.preheader2680, %1902
   %1887 = phi i1 [ true, %.preheader2680 ], [ false, %1902 ]
-  %indvars.iv4713.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2680 ], [ %.sroa.181, %1902 ]
+  %indvars.iv4713.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2680 ], [ %.sroa.181, %1902 ]
   %.2973574 = phi i32 [ %.2963576, %.preheader2680 ], [ %1900, %1902 ]
   br label %.preheader2678
 
 .preheader2678:                                   ; preds = %.preheader2679, %1901
   %1888 = phi i1 [ true, %.preheader2679 ], [ false, %1901 ]
-  %indvars.iv4710.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2679 ], [ %.sroa.121, %1901 ]
+  %indvars.iv4710.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2679 ], [ %.sroa.121, %1901 ]
   %.2983572 = phi i32 [ %.2973574, %.preheader2679 ], [ %1900, %1901 ]
   br label %1889
 
 1889:                                             ; preds = %.preheader2678, %1899
   %1890 = phi i1 [ true, %.preheader2678 ], [ false, %1899 ]
-  %indvars.iv4707.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2678 ], [ %.sroa.181, %1899 ]
+  %indvars.iv4707.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2678 ], [ %.sroa.181, %1899 ]
   %.2993570 = phi i32 [ %.2983572, %.preheader2678 ], [ %1900, %1899 ]
   %.not2186 = icmp eq i32 %.2993570, 0
   br i1 %.not2186, label %1899, label %1891
@@ -12829,31 +12827,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2676:                                   ; preds = %.preheader2677, %1930
   %1911 = phi i1 [ true, %.preheader2677 ], [ false, %1930 ]
-  %indvars.iv4737.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2677 ], [ %.sroa.181, %1930 ]
+  %indvars.iv4737.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2677 ], [ %.sroa.181, %1930 ]
   %.3013590 = phi i32 [ %.3003592, %.preheader2677 ], [ %1926, %1930 ]
   br label %.preheader2675
 
 .preheader2675:                                   ; preds = %.preheader2676, %1929
   %1912 = phi i1 [ true, %.preheader2676 ], [ false, %1929 ]
-  %indvars.iv4734.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2676 ], [ %.sroa.121, %1929 ]
+  %indvars.iv4734.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2676 ], [ %.sroa.121, %1929 ]
   %.3023588 = phi i32 [ %.3013590, %.preheader2676 ], [ %1926, %1929 ]
   br label %.preheader2674
 
 .preheader2674:                                   ; preds = %.preheader2675, %1928
   %1913 = phi i1 [ true, %.preheader2675 ], [ false, %1928 ]
-  %indvars.iv4731.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2675 ], [ %.sroa.121, %1928 ]
+  %indvars.iv4731.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2675 ], [ %.sroa.121, %1928 ]
   %.3033586 = phi i32 [ %.3023588, %.preheader2675 ], [ %1926, %1928 ]
   br label %.preheader2673
 
 .preheader2673:                                   ; preds = %.preheader2674, %1927
   %1914 = phi i1 [ true, %.preheader2674 ], [ false, %1927 ]
-  %indvars.iv4728.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2674 ], [ %.sroa.181, %1927 ]
+  %indvars.iv4728.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2674 ], [ %.sroa.181, %1927 ]
   %.3043584 = phi i32 [ %.3033586, %.preheader2674 ], [ %1926, %1927 ]
   br label %1915
 
 1915:                                             ; preds = %.preheader2673, %1925
   %1916 = phi i1 [ true, %.preheader2673 ], [ false, %1925 ]
-  %indvars.iv4725.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2673 ], [ %.sroa.181, %1925 ]
+  %indvars.iv4725.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2673 ], [ %.sroa.181, %1925 ]
   %.3053582 = phi i32 [ %.3043584, %.preheader2673 ], [ %1926, %1925 ]
   %.not2185 = icmp eq i32 %.3053582, 0
   br i1 %.not2185, label %1925, label %1917
@@ -12907,31 +12905,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2671:                                   ; preds = %.preheader2672, %1956
   %1937 = phi i1 [ true, %.preheader2672 ], [ false, %1956 ]
-  %indvars.iv4755.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2672 ], [ %.sroa.181, %1956 ]
+  %indvars.iv4755.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2672 ], [ %.sroa.181, %1956 ]
   %.3073602 = phi i32 [ %.3063604, %.preheader2672 ], [ %1952, %1956 ]
   br label %.preheader2670
 
 .preheader2670:                                   ; preds = %.preheader2671, %1955
   %1938 = phi i1 [ true, %.preheader2671 ], [ false, %1955 ]
-  %indvars.iv4752.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2671 ], [ %.sroa.121, %1955 ]
+  %indvars.iv4752.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2671 ], [ %.sroa.121, %1955 ]
   %.3083600 = phi i32 [ %.3073602, %.preheader2671 ], [ %1952, %1955 ]
   br label %.preheader2669
 
 .preheader2669:                                   ; preds = %.preheader2670, %1954
   %1939 = phi i1 [ true, %.preheader2670 ], [ false, %1954 ]
-  %indvars.iv4749.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2670 ], [ %.sroa.121, %1954 ]
+  %indvars.iv4749.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2670 ], [ %.sroa.121, %1954 ]
   %.3093598 = phi i32 [ %.3083600, %.preheader2670 ], [ %1952, %1954 ]
   br label %.preheader2668
 
 .preheader2668:                                   ; preds = %.preheader2669, %1953
   %1940 = phi i1 [ true, %.preheader2669 ], [ false, %1953 ]
-  %indvars.iv4746.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2669 ], [ %.sroa.121, %1953 ]
+  %indvars.iv4746.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2669 ], [ %.sroa.121, %1953 ]
   %.3103596 = phi i32 [ %.3093598, %.preheader2669 ], [ %1952, %1953 ]
   br label %1941
 
 1941:                                             ; preds = %.preheader2668, %1951
   %1942 = phi i1 [ true, %.preheader2668 ], [ false, %1951 ]
-  %indvars.iv4743.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2668 ], [ %.sroa.181, %1951 ]
+  %indvars.iv4743.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2668 ], [ %.sroa.181, %1951 ]
   %.3113594 = phi i32 [ %.3103596, %.preheader2668 ], [ %1952, %1951 ]
   %.not2184 = icmp eq i32 %.3113594, 0
   br i1 %.not2184, label %1951, label %1943
@@ -12985,31 +12983,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2666:                                   ; preds = %.preheader2667, %1982
   %1963 = phi i1 [ true, %.preheader2667 ], [ false, %1982 ]
-  %indvars.iv4773.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2667 ], [ %.sroa.121, %1982 ]
+  %indvars.iv4773.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2667 ], [ %.sroa.121, %1982 ]
   %.3133614 = phi i32 [ %.3123616, %.preheader2667 ], [ %1978, %1982 ]
   br label %.preheader2665
 
 .preheader2665:                                   ; preds = %.preheader2666, %1981
   %1964 = phi i1 [ true, %.preheader2666 ], [ false, %1981 ]
-  %indvars.iv4770.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2666 ], [ %.sroa.181, %1981 ]
+  %indvars.iv4770.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2666 ], [ %.sroa.181, %1981 ]
   %.3143612 = phi i32 [ %.3133614, %.preheader2666 ], [ %1978, %1981 ]
   br label %.preheader2664
 
 .preheader2664:                                   ; preds = %.preheader2665, %1980
   %1965 = phi i1 [ true, %.preheader2665 ], [ false, %1980 ]
-  %indvars.iv4767.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2665 ], [ %.sroa.181, %1980 ]
+  %indvars.iv4767.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2665 ], [ %.sroa.181, %1980 ]
   %.3153610 = phi i32 [ %.3143612, %.preheader2665 ], [ %1978, %1980 ]
   br label %.preheader2663
 
 .preheader2663:                                   ; preds = %.preheader2664, %1979
   %1966 = phi i1 [ true, %.preheader2664 ], [ false, %1979 ]
-  %indvars.iv4764.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2664 ], [ %.sroa.181, %1979 ]
+  %indvars.iv4764.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2664 ], [ %.sroa.181, %1979 ]
   %.3163608 = phi i32 [ %.3153610, %.preheader2664 ], [ %1978, %1979 ]
   br label %1967
 
 1967:                                             ; preds = %.preheader2663, %1977
   %1968 = phi i1 [ true, %.preheader2663 ], [ false, %1977 ]
-  %indvars.iv4761.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2663 ], [ %.sroa.181, %1977 ]
+  %indvars.iv4761.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2663 ], [ %.sroa.181, %1977 ]
   %.3173606 = phi i32 [ %.3163608, %.preheader2663 ], [ %1978, %1977 ]
   %.not2183 = icmp eq i32 %.3173606, 0
   br i1 %.not2183, label %1977, label %1969
@@ -13063,31 +13061,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2661:                                   ; preds = %.preheader2662, %2008
   %1989 = phi i1 [ true, %.preheader2662 ], [ false, %2008 ]
-  %indvars.iv4791.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2662 ], [ %.sroa.121, %2008 ]
+  %indvars.iv4791.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2662 ], [ %.sroa.121, %2008 ]
   %.3193626 = phi i32 [ %.3183628, %.preheader2662 ], [ %2004, %2008 ]
   br label %.preheader2660
 
 .preheader2660:                                   ; preds = %.preheader2661, %2007
   %1990 = phi i1 [ true, %.preheader2661 ], [ false, %2007 ]
-  %indvars.iv4788.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2661 ], [ %.sroa.181, %2007 ]
+  %indvars.iv4788.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2661 ], [ %.sroa.181, %2007 ]
   %.3203624 = phi i32 [ %.3193626, %.preheader2661 ], [ %2004, %2007 ]
   br label %.preheader2659
 
 .preheader2659:                                   ; preds = %.preheader2660, %2006
   %1991 = phi i1 [ true, %.preheader2660 ], [ false, %2006 ]
-  %indvars.iv4785.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2660 ], [ %.sroa.181, %2006 ]
+  %indvars.iv4785.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2660 ], [ %.sroa.181, %2006 ]
   %.3213622 = phi i32 [ %.3203624, %.preheader2660 ], [ %2004, %2006 ]
   br label %.preheader2658
 
 .preheader2658:                                   ; preds = %.preheader2659, %2005
   %1992 = phi i1 [ true, %.preheader2659 ], [ false, %2005 ]
-  %indvars.iv4782.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2659 ], [ %.sroa.121, %2005 ]
+  %indvars.iv4782.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2659 ], [ %.sroa.121, %2005 ]
   %.3223620 = phi i32 [ %.3213622, %.preheader2659 ], [ %2004, %2005 ]
   br label %1993
 
 1993:                                             ; preds = %.preheader2658, %2003
   %1994 = phi i1 [ true, %.preheader2658 ], [ false, %2003 ]
-  %indvars.iv4779.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2658 ], [ %.sroa.181, %2003 ]
+  %indvars.iv4779.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2658 ], [ %.sroa.181, %2003 ]
   %.3233618 = phi i32 [ %.3223620, %.preheader2658 ], [ %2004, %2003 ]
   %.not2182 = icmp eq i32 %.3233618, 0
   br i1 %.not2182, label %2003, label %1995
@@ -13141,31 +13139,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2656:                                   ; preds = %.preheader2657, %2034
   %2015 = phi i1 [ true, %.preheader2657 ], [ false, %2034 ]
-  %indvars.iv4809.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2657 ], [ %.sroa.121, %2034 ]
+  %indvars.iv4809.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2657 ], [ %.sroa.121, %2034 ]
   %.3253638 = phi i32 [ %.3243640, %.preheader2657 ], [ %2030, %2034 ]
   br label %.preheader2655
 
 .preheader2655:                                   ; preds = %.preheader2656, %2033
   %2016 = phi i1 [ true, %.preheader2656 ], [ false, %2033 ]
-  %indvars.iv4806.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2656 ], [ %.sroa.121, %2033 ]
+  %indvars.iv4806.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2656 ], [ %.sroa.121, %2033 ]
   %.3263636 = phi i32 [ %.3253638, %.preheader2656 ], [ %2030, %2033 ]
   br label %.preheader2654
 
 .preheader2654:                                   ; preds = %.preheader2655, %2032
   %2017 = phi i1 [ true, %.preheader2655 ], [ false, %2032 ]
-  %indvars.iv4803.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2655 ], [ %.sroa.181, %2032 ]
+  %indvars.iv4803.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2655 ], [ %.sroa.181, %2032 ]
   %.3273634 = phi i32 [ %.3263636, %.preheader2655 ], [ %2030, %2032 ]
   br label %.preheader2653
 
 .preheader2653:                                   ; preds = %.preheader2654, %2031
   %2018 = phi i1 [ true, %.preheader2654 ], [ false, %2031 ]
-  %indvars.iv4800.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2654 ], [ %.sroa.121, %2031 ]
+  %indvars.iv4800.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2654 ], [ %.sroa.121, %2031 ]
   %.3283632 = phi i32 [ %.3273634, %.preheader2654 ], [ %2030, %2031 ]
   br label %2019
 
 2019:                                             ; preds = %.preheader2653, %2029
   %2020 = phi i1 [ true, %.preheader2653 ], [ false, %2029 ]
-  %indvars.iv4797.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2653 ], [ %.sroa.181, %2029 ]
+  %indvars.iv4797.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2653 ], [ %.sroa.181, %2029 ]
   %.3293630 = phi i32 [ %.3283632, %.preheader2653 ], [ %2030, %2029 ]
   %.not2181 = icmp eq i32 %.3293630, 0
   br i1 %.not2181, label %2029, label %2021
@@ -13219,31 +13217,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2651:                                   ; preds = %.preheader2652, %2060
   %2041 = phi i1 [ true, %.preheader2652 ], [ false, %2060 ]
-  %indvars.iv4827.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2652 ], [ %.sroa.121, %2060 ]
+  %indvars.iv4827.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2652 ], [ %.sroa.121, %2060 ]
   %.3313650 = phi i32 [ %.3303652, %.preheader2652 ], [ %2056, %2060 ]
   br label %.preheader2650
 
 .preheader2650:                                   ; preds = %.preheader2651, %2059
   %2042 = phi i1 [ true, %.preheader2651 ], [ false, %2059 ]
-  %indvars.iv4824.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2651 ], [ %.sroa.181, %2059 ]
+  %indvars.iv4824.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2651 ], [ %.sroa.181, %2059 ]
   %.3323648 = phi i32 [ %.3313650, %.preheader2651 ], [ %2056, %2059 ]
   br label %.preheader2649
 
 .preheader2649:                                   ; preds = %.preheader2650, %2058
   %2043 = phi i1 [ true, %.preheader2650 ], [ false, %2058 ]
-  %indvars.iv4821.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2650 ], [ %.sroa.121, %2058 ]
+  %indvars.iv4821.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2650 ], [ %.sroa.121, %2058 ]
   %.3333646 = phi i32 [ %.3323648, %.preheader2650 ], [ %2056, %2058 ]
   br label %.preheader2648
 
 .preheader2648:                                   ; preds = %.preheader2649, %2057
   %2044 = phi i1 [ true, %.preheader2649 ], [ false, %2057 ]
-  %indvars.iv4818.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2649 ], [ %.sroa.181, %2057 ]
+  %indvars.iv4818.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2649 ], [ %.sroa.181, %2057 ]
   %.3343644 = phi i32 [ %.3333646, %.preheader2649 ], [ %2056, %2057 ]
   br label %2045
 
 2045:                                             ; preds = %.preheader2648, %2055
   %2046 = phi i1 [ true, %.preheader2648 ], [ false, %2055 ]
-  %indvars.iv4815.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2648 ], [ %.sroa.181, %2055 ]
+  %indvars.iv4815.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2648 ], [ %.sroa.181, %2055 ]
   %.3353642 = phi i32 [ %.3343644, %.preheader2648 ], [ %2056, %2055 ]
   %.not2180 = icmp eq i32 %.3353642, 0
   br i1 %.not2180, label %2055, label %2047
@@ -13297,31 +13295,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2646:                                   ; preds = %.preheader2647, %2086
   %2067 = phi i1 [ true, %.preheader2647 ], [ false, %2086 ]
-  %indvars.iv4845.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2647 ], [ %.sroa.121, %2086 ]
+  %indvars.iv4845.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2647 ], [ %.sroa.121, %2086 ]
   %.3373662 = phi i32 [ %.3363664, %.preheader2647 ], [ %2082, %2086 ]
   br label %.preheader2645
 
 .preheader2645:                                   ; preds = %.preheader2646, %2085
   %2068 = phi i1 [ true, %.preheader2646 ], [ false, %2085 ]
-  %indvars.iv4842.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2646 ], [ %.sroa.181, %2085 ]
+  %indvars.iv4842.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2646 ], [ %.sroa.181, %2085 ]
   %.3383660 = phi i32 [ %.3373662, %.preheader2646 ], [ %2082, %2085 ]
   br label %.preheader2644
 
 .preheader2644:                                   ; preds = %.preheader2645, %2084
   %2069 = phi i1 [ true, %.preheader2645 ], [ false, %2084 ]
-  %indvars.iv4839.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2645 ], [ %.sroa.121, %2084 ]
+  %indvars.iv4839.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2645 ], [ %.sroa.121, %2084 ]
   %.3393658 = phi i32 [ %.3383660, %.preheader2645 ], [ %2082, %2084 ]
   br label %.preheader2643
 
 .preheader2643:                                   ; preds = %.preheader2644, %2083
   %2070 = phi i1 [ true, %.preheader2644 ], [ false, %2083 ]
-  %indvars.iv4836.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2644 ], [ %.sroa.121, %2083 ]
+  %indvars.iv4836.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2644 ], [ %.sroa.121, %2083 ]
   %.3403656 = phi i32 [ %.3393658, %.preheader2644 ], [ %2082, %2083 ]
   br label %2071
 
 2071:                                             ; preds = %.preheader2643, %2081
   %2072 = phi i1 [ true, %.preheader2643 ], [ false, %2081 ]
-  %indvars.iv4833.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2643 ], [ %.sroa.181, %2081 ]
+  %indvars.iv4833.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2643 ], [ %.sroa.181, %2081 ]
   %.3413654 = phi i32 [ %.3403656, %.preheader2643 ], [ %2082, %2081 ]
   %.not2179 = icmp eq i32 %.3413654, 0
   br i1 %.not2179, label %2081, label %2073
@@ -13375,31 +13373,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2641:                                   ; preds = %.preheader2642, %2112
   %2093 = phi i1 [ true, %.preheader2642 ], [ false, %2112 ]
-  %indvars.iv4863.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2642 ], [ %.sroa.121, %2112 ]
+  %indvars.iv4863.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2642 ], [ %.sroa.121, %2112 ]
   %.3433674 = phi i32 [ %.3423676, %.preheader2642 ], [ %2108, %2112 ]
   br label %.preheader2640
 
 .preheader2640:                                   ; preds = %.preheader2641, %2111
   %2094 = phi i1 [ true, %.preheader2641 ], [ false, %2111 ]
-  %indvars.iv4860.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2641 ], [ %.sroa.121, %2111 ]
+  %indvars.iv4860.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2641 ], [ %.sroa.121, %2111 ]
   %.3443672 = phi i32 [ %.3433674, %.preheader2641 ], [ %2108, %2111 ]
   br label %.preheader2639
 
 .preheader2639:                                   ; preds = %.preheader2640, %2110
   %2095 = phi i1 [ true, %.preheader2640 ], [ false, %2110 ]
-  %indvars.iv4857.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2640 ], [ %.sroa.181, %2110 ]
+  %indvars.iv4857.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2640 ], [ %.sroa.181, %2110 ]
   %.3453670 = phi i32 [ %.3443672, %.preheader2640 ], [ %2108, %2110 ]
   br label %.preheader2638
 
 .preheader2638:                                   ; preds = %.preheader2639, %2109
   %2096 = phi i1 [ true, %.preheader2639 ], [ false, %2109 ]
-  %indvars.iv4854.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2639 ], [ %.sroa.181, %2109 ]
+  %indvars.iv4854.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2639 ], [ %.sroa.181, %2109 ]
   %.3463668 = phi i32 [ %.3453670, %.preheader2639 ], [ %2108, %2109 ]
   br label %2097
 
 2097:                                             ; preds = %.preheader2638, %2107
   %2098 = phi i1 [ true, %.preheader2638 ], [ false, %2107 ]
-  %indvars.iv4851.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2638 ], [ %.sroa.181, %2107 ]
+  %indvars.iv4851.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2638 ], [ %.sroa.181, %2107 ]
   %.3473666 = phi i32 [ %.3463668, %.preheader2638 ], [ %2108, %2107 ]
   %.not2178 = icmp eq i32 %.3473666, 0
   br i1 %.not2178, label %2107, label %2099
@@ -13453,31 +13451,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2636:                                   ; preds = %.preheader2637, %2138
   %2119 = phi i1 [ true, %.preheader2637 ], [ false, %2138 ]
-  %indvars.iv4881.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2637 ], [ %.sroa.121, %2138 ]
+  %indvars.iv4881.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2637 ], [ %.sroa.121, %2138 ]
   %.3493686 = phi i32 [ %.3483688, %.preheader2637 ], [ %2134, %2138 ]
   br label %.preheader2635
 
 .preheader2635:                                   ; preds = %.preheader2636, %2137
   %2120 = phi i1 [ true, %.preheader2636 ], [ false, %2137 ]
-  %indvars.iv4878.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2636 ], [ %.sroa.121, %2137 ]
+  %indvars.iv4878.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2636 ], [ %.sroa.121, %2137 ]
   %.3503684 = phi i32 [ %.3493686, %.preheader2636 ], [ %2134, %2137 ]
   br label %.preheader2634
 
 .preheader2634:                                   ; preds = %.preheader2635, %2136
   %2121 = phi i1 [ true, %.preheader2635 ], [ false, %2136 ]
-  %indvars.iv4875.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2635 ], [ %.sroa.181, %2136 ]
+  %indvars.iv4875.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2635 ], [ %.sroa.181, %2136 ]
   %.3513682 = phi i32 [ %.3503684, %.preheader2635 ], [ %2134, %2136 ]
   br label %.preheader2633
 
 .preheader2633:                                   ; preds = %.preheader2634, %2135
   %2122 = phi i1 [ true, %.preheader2634 ], [ false, %2135 ]
-  %indvars.iv4872.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2634 ], [ %.sroa.121, %2135 ]
+  %indvars.iv4872.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2634 ], [ %.sroa.121, %2135 ]
   %.3523680 = phi i32 [ %.3513682, %.preheader2634 ], [ %2134, %2135 ]
   br label %2123
 
 2123:                                             ; preds = %.preheader2633, %2133
   %2124 = phi i1 [ true, %.preheader2633 ], [ false, %2133 ]
-  %indvars.iv4869.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2633 ], [ %.sroa.181, %2133 ]
+  %indvars.iv4869.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2633 ], [ %.sroa.181, %2133 ]
   %.3533678 = phi i32 [ %.3523680, %.preheader2633 ], [ %2134, %2133 ]
   %.not2177 = icmp eq i32 %.3533678, 0
   br i1 %.not2177, label %2133, label %2125
@@ -13531,31 +13529,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2631:                                   ; preds = %.preheader2632, %2164
   %2145 = phi i1 [ true, %.preheader2632 ], [ false, %2164 ]
-  %indvars.iv4899.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2632 ], [ %.sroa.121, %2164 ]
+  %indvars.iv4899.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2632 ], [ %.sroa.121, %2164 ]
   %.3553698 = phi i32 [ %.3543700, %.preheader2632 ], [ %2160, %2164 ]
   br label %.preheader2630
 
 .preheader2630:                                   ; preds = %.preheader2631, %2163
   %2146 = phi i1 [ true, %.preheader2631 ], [ false, %2163 ]
-  %indvars.iv4896.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2631 ], [ %.sroa.121, %2163 ]
+  %indvars.iv4896.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2631 ], [ %.sroa.121, %2163 ]
   %.3563696 = phi i32 [ %.3553698, %.preheader2631 ], [ %2160, %2163 ]
   br label %.preheader2629
 
 .preheader2629:                                   ; preds = %.preheader2630, %2162
   %2147 = phi i1 [ true, %.preheader2630 ], [ false, %2162 ]
-  %indvars.iv4893.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2630 ], [ %.sroa.121, %2162 ]
+  %indvars.iv4893.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2630 ], [ %.sroa.121, %2162 ]
   %.3573694 = phi i32 [ %.3563696, %.preheader2630 ], [ %2160, %2162 ]
   br label %.preheader2628
 
 .preheader2628:                                   ; preds = %.preheader2629, %2161
   %2148 = phi i1 [ true, %.preheader2629 ], [ false, %2161 ]
-  %indvars.iv4890.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2629 ], [ %.sroa.181, %2161 ]
+  %indvars.iv4890.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2629 ], [ %.sroa.181, %2161 ]
   %.3583692 = phi i32 [ %.3573694, %.preheader2629 ], [ %2160, %2161 ]
   br label %2149
 
 2149:                                             ; preds = %.preheader2628, %2159
   %2150 = phi i1 [ true, %.preheader2628 ], [ false, %2159 ]
-  %indvars.iv4887.sroa.phi = phi ptr [ %.sroa.05470, %.preheader2628 ], [ %.sroa.181, %2159 ]
+  %indvars.iv4887.sroa.phi = phi ptr [ %.sroa.05555, %.preheader2628 ], [ %.sroa.181, %2159 ]
   %.3593690 = phi i32 [ %.3583692, %.preheader2628 ], [ %2160, %2159 ]
   %.not2176 = icmp eq i32 %.3593690, 0
   br i1 %.not2176, label %2159, label %2151
@@ -13609,31 +13607,31 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
 
 .preheader2626:                                   ; preds = %.preheader2627, %2190
   %2171 = phi i1 [ true, %.preheader2627 ], [ false, %2190 ]
-  %indvars.iv4917.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2627 ], [ %.sroa.121, %2190 ]
+  %indvars.iv4917.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2627 ], [ %.sroa.121, %2190 ]
   %.3613710 = phi i32 [ %.3603712, %.preheader2627 ], [ %2186, %2190 ]
   br label %.preheader2625
 
 .preheader2625:                                   ; preds = %.preheader2626, %2189
   %2172 = phi i1 [ true, %.preheader2626 ], [ false, %2189 ]
-  %indvars.iv4914.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2626 ], [ %.sroa.121, %2189 ]
+  %indvars.iv4914.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2626 ], [ %.sroa.121, %2189 ]
   %.3623708 = phi i32 [ %.3613710, %.preheader2626 ], [ %2186, %2189 ]
   br label %.preheader2624
 
 .preheader2624:                                   ; preds = %.preheader2625, %2188
   %2173 = phi i1 [ true, %.preheader2625 ], [ false, %2188 ]
-  %indvars.iv4911.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2625 ], [ %.sroa.121, %2188 ]
+  %indvars.iv4911.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2625 ], [ %.sroa.121, %2188 ]
   %.3633706 = phi i32 [ %.3623708, %.preheader2625 ], [ %2186, %2188 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader2624, %2187
   %2174 = phi i1 [ true, %.preheader2624 ], [ false, %2187 ]
-  %indvars.iv4908.sroa.phi = phi ptr [ %.sroa.05626, %.preheader2624 ], [ %.sroa.121, %2187 ]
+  %indvars.iv4908.sroa.phi = phi ptr [ %.sroa.05711, %.preheader2624 ], [ %.sroa.121, %2187 ]
   %.3643704 = phi i32 [ %.3633706, %.preheader2624 ], [ %2186, %2187 ]
   br label %2175
 
 2175:                                             ; preds = %.preheader, %2185
   %2176 = phi i1 [ true, %.preheader ], [ false, %2185 ]
-  %indvars.iv4905.sroa.phi = phi ptr [ %.sroa.05470, %.preheader ], [ %.sroa.181, %2185 ]
+  %indvars.iv4905.sroa.phi = phi ptr [ %.sroa.05555, %.preheader ], [ %.sroa.181, %2185 ]
   %.3653702 = phi i32 [ %.3643704, %.preheader ], [ %2186, %2185 ]
   %.not2175 = icmp eq i32 %.3653702, 0
   br i1 %.not2175, label %2185, label %2177
@@ -13684,7 +13682,7 @@ thread-pre-split2603:                             ; preds = %thread-pre-split259
   br label %thread-pre-split2603.thread
 
 thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rowsum.exit2373, %.thread, %.thread2605, %thread-pre-split2603, %2196, %2195, %1123
-  %.not26084934 = phi i1 [ true, %.thread ], [ false, %.thread2605 ], [ false, %thread-pre-split2603 ], [ false, %2196 ], [ false, %2195 ], [ true, %1123 ], [ false, %arkode_butcher_rowsum.exit2373 ]
+  %.not26085019 = phi i1 [ true, %.thread ], [ false, %.thread2605 ], [ false, %thread-pre-split2603 ], [ false, %2196 ], [ false, %2195 ], [ true, %1123 ], [ false, %arkode_butcher_rowsum.exit2373 ]
   %2197 = load i32, ptr %2, align 4, !tbaa !22
   %2198 = load i32, ptr %0, align 8, !tbaa !16
   %2199 = icmp sgt i32 %2197, %2198
@@ -13696,7 +13694,7 @@ thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rows
   br i1 %2202, label %.loopexit, label %2203
 
 2203:                                             ; preds = %2200
-  br i1 %.not26084934, label %2213, label %2204
+  br i1 %.not26085019, label %2213, label %2204
 
 2204:                                             ; preds = %2203
   %2205 = load i32, ptr %3, align 4, !tbaa !22
@@ -13709,7 +13707,7 @@ thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rows
   %2210 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2211 = load i32, ptr %2210, align 4, !tbaa !17
   %2212 = icmp sgt i32 %2205, %2211
-  br i1 %2212, label %.loopexit, label %.thread4941
+  br i1 %2212, label %.loopexit, label %.thread5026
 
 2213:                                             ; preds = %2203
   %2214 = icmp eq i32 %2197, 6
@@ -13719,15 +13717,15 @@ thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rows
   %or.cond2607 = and i1 %2214, %or.cond22462609
   br i1 %or.cond2607, label %.loopexit, label %2230
 
-.thread4941:                                      ; preds = %2209
+.thread5026:                                      ; preds = %2209
   %2217 = icmp eq i32 %2197, 6
   %2218 = icmp sgt i32 %2198, 6
   %2219 = icmp sgt i32 %2201, 6
-  %or.cond224626094942 = or i1 %2218, %2219
-  %or.cond26074943 = and i1 %2217, %or.cond224626094942
-  br i1 %or.cond26074943, label %.loopexit, label %2220
+  %or.cond224626095027 = or i1 %2218, %2219
+  %or.cond26075028 = and i1 %2217, %or.cond224626095027
+  br i1 %or.cond26075028, label %.loopexit, label %2220
 
-2220:                                             ; preds = %.thread4941
+2220:                                             ; preds = %.thread5026
   %2221 = load i32, ptr %3, align 4, !tbaa !22
   %2222 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2223 = load i32, ptr %2222, align 4, !tbaa !17
@@ -13746,15 +13744,15 @@ thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rows
 2230:                                             ; preds = %2213, %2226
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph2979, %.thread4941, %2226, %2220, %2213, %2209, %2204, %2200, %thread-pre-split2603.thread, %42, %._crit_edge2980, %31, %27, %22, %._crit_edge, %11, %7, %5, %2230
-  %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2980 ], [ -1, %42 ], [ 1, %thread-pre-split2603.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ 1, %2213 ], [ 1, %2220 ], [ 1, %2226 ], [ 1, %.thread4941 ], [ -1, %.lr.ph2979 ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph2979, %.thread5026, %2226, %2220, %2213, %2209, %2204, %2200, %thread-pre-split2603.thread, %42, %._crit_edge2980, %31, %27, %22, %._crit_edge, %11, %7, %5, %2230
+  %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2980 ], [ -1, %42 ], [ 1, %thread-pre-split2603.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ 1, %2213 ], [ 1, %2220 ], [ 1, %2226 ], [ 1, %.thread5026 ], [ -1, %.lr.ph2979 ], [ -1, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.38)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05470)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05555)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.181)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05506)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.385507)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05626)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05591)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.385592)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05711)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.121)
   ret i32 %.01701
 }

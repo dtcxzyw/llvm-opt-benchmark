@@ -1392,11 +1392,11 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN8uu_split8Settings26instantiate_current_writer17hacf64a1ed7873ce6E(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %3, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %31, i1 noundef zeroext %34)
   %35 = load i64, ptr %15, align 8, !range !53, !noundef !4
-  %.not.us197 = icmp eq i64 %35, -9223372036854775808
+  %.not.us201 = icmp eq i64 %35, -9223372036854775808
   br i1 %.not68, label %.lr.ph167.split.us.split.preheader, label %.lr.ph167.split
 
 .lr.ph167.split.us.split.preheader:               ; preds = %.lr.ph167
-  br i1 %.not.us197, label %.lr.ph.us, label %.split.us
+  br i1 %.not.us201, label %.lr.ph.us, label %.split.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph167.split.us.split.preheader, %.lr.ph.us.backedge
   %.sroa.0.0163.us = phi ptr [ %.sroa.0.0163.us.be, %.lr.ph.us.backedge ], [ %21, %.lr.ph167.split.us.split.preheader ]
@@ -1517,7 +1517,7 @@ define void @"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_s
   unreachable
 
 .lr.ph167.split:                                  ; preds = %.lr.ph167
-  br i1 %.not.us197, label %86, label %.split.us
+  br i1 %.not.us201, label %86, label %.split.us
 
 .split.us:                                        ; preds = %"_ZN4core3ptr167drop_in_place$LT$core..result..Result$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$C$std..io..error..Error$GT$$GT$17h35f3947b1b6d52a5E.exit97.us", %.lr.ph167.split.us.split.preheader, %.lr.ph167.split
   call void @llvm.lifetime.start.p0(ptr nonnull %14)

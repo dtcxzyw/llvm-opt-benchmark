@@ -184,12 +184,12 @@ define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(
   tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %9, ptr noundef nonnull %13, i32 noundef %10, ptr noundef %.275) #7
   %95 = add nuw nsw i32 %.07182, 1
   %96 = getelementptr inbounds nuw i8, ptr %.07083, i64 12
-  %exitcond.not95 = icmp eq i32 %95, %2
-  br i1 %exitcond.not95, label %.thread99, label %.outer, !llvm.loop !4
+  %exitcond.not98 = icmp eq i32 %95, %2
+  br i1 %exitcond.not98, label %.thread102, label %.outer, !llvm.loop !4
 
 97:                                               ; preds = %92
   %98 = icmp sgt i32 %.1, 0
-  br i1 %98, label %99, label %.thread99
+  br i1 %98, label %99, label %.thread102
 
 99:                                               ; preds = %97
   %100 = icmp eq ptr %.07381.ph, null
@@ -202,25 +202,25 @@ define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(
 103:                                              ; preds = %101, %99
   %.4 = phi ptr [ %102, %101 ], [ %.07381.ph, %99 ]
   tail call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %9, ptr noundef %13, i32 noundef %.1, ptr noundef %.4) #7
-  br label %.thread99
+  br label %.thread102
 
-.thread99:                                        ; preds = %.thread, %103, %97
-  %.16997103 = phi i32 [ %.169, %103 ], [ %.169, %97 ], [ %.2, %.thread ]
+.thread102:                                       ; preds = %.thread, %103, %97
+  %.169100106 = phi i32 [ %.169, %103 ], [ %.169, %97 ], [ %.2, %.thread ]
   %.3 = phi ptr [ %.4, %103 ], [ %.07381.ph, %97 ], [ %.275, %.thread ]
   %.not = icmp eq ptr %.3, null
   br i1 %.not, label %105, label %104
 
-104:                                              ; preds = %.thread99
+104:                                              ; preds = %.thread102
   tail call void @CatalogCloseIndexes(ptr noundef nonnull %.3) #7
   br label %105
 
-105:                                              ; preds = %104, %.thread99
+105:                                              ; preds = %104, %.thread102
   tail call void @table_close(ptr noundef %9, i32 noundef 3) #7
-  %106 = icmp sgt i32 %.16997103, 0
+  %106 = icmp sgt i32 %.169100106, 0
   br i1 %106, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %105
-  %wide.trip.count = zext nneg i32 %.16997103 to i64
+  %wide.trip.count = zext nneg i32 %.169100106 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

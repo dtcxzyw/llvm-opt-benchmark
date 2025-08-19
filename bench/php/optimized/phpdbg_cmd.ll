@@ -544,10 +544,10 @@ define dso_local zeroext i1 @phpdbg_match_param(ptr noundef readonly captures(ad
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !19
   %.not56 = icmp eq i64 %57, 0
-  %or.cond70 = select i1 %.not55, i1 %.not56, i1 false
+  %or.cond77 = select i1 %.not55, i1 %.not56, i1 false
   %58 = icmp eq i64 %55, %57
-  %or.cond71 = select i1 %or.cond70, i1 true, i1 %58
-  br i1 %or.cond71, label %59, label %.thread
+  %or.cond78 = select i1 %or.cond77, i1 true, i1 %58
+  br i1 %or.cond78, label %59, label %.thread
 
 59:                                               ; preds = %53
   %bcmp57 = tail call i32 @bcmp(ptr nonnull %48, ptr nonnull %50, i64 %49)
@@ -1756,38 +1756,38 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %8 = load ptr, ptr %0, align 8, !tbaa !40
-  %.not190236 = icmp eq ptr %8, null
-  br i1 %.not190236, label %.critedge, label %.lr.ph239
+  %.not190243 = icmp eq ptr %8, null
+  br i1 %.not190243, label %.critedge, label %.lr.ph246
 
-.lr.ph239:                                        ; preds = %.lr.ph, %.thread206
+.lr.ph246:                                        ; preds = %.lr.ph, %.thread206
   %9 = phi ptr [ %40, %.thread206 ], [ %8, %.lr.ph ]
-  %.0182212238 = phi ptr [ %39, %.thread206 ], [ %0, %.lr.ph ]
-  %.0179213237 = phi i64 [ %.2, %.thread206 ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %.0182212238, i64 40
+  %.0182212245 = phi ptr [ %39, %.thread206 ], [ %0, %.lr.ph ]
+  %.0179213244 = phi i64 [ %.2, %.thread206 ], [ 0, %.lr.ph ]
+  %10 = getelementptr inbounds nuw i8, ptr %.0182212245, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %.not191 = icmp eq ptr %11, null
   br i1 %.not191, label %.critedge, label %12
 
-12:                                               ; preds = %.lr.ph239
+12:                                               ; preds = %.lr.ph246
   %13 = load i64, ptr %6, align 8, !tbaa !23
   %14 = icmp eq i64 %13, 1
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.0182212238, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0182212245, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !41
   %.not192 = icmp ult i64 %17, %13
   br i1 %.not192, label %.thread206, label %.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %.0182212238, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.0182212245, i64 32
   %20 = load i8, ptr %19, align 8, !tbaa !43
   %.not193 = icmp eq i8 %20, 0
   %.pre227 = load ptr, ptr %7, align 8, !tbaa !17
   br i1 %.not193, label %.thread203, label %23
 
 .thread:                                          ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %.0182212238, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0182212245, i64 32
   %22 = load i8, ptr %21, align 8, !tbaa !43
   %.not193200 = icmp eq i8 %22, 0
   %.pre = load ptr, ptr %7, align 8, !tbaa !17
@@ -1806,39 +1806,39 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   br i1 %28, label %29, label %.thread206
 
 29:                                               ; preds = %.thread203
-  %30 = icmp ult i64 %.0179213237, 3
+  %30 = icmp ult i64 %.0179213244, 3
   br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %.0182212238, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0182212245, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !41
   %.not194 = icmp eq i64 %13, %33
   br i1 %.not194, label %.thread208, label %36
 
 .thread208:                                       ; preds = %31
-  %34 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %.0179213237
-  store ptr %.0182212238, ptr %34, align 8, !tbaa !44
-  %35 = add nuw nsw i64 %.0179213237, 1
+  %34 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %.0179213244
+  store ptr %.0182212245, ptr %34, align 8, !tbaa !44
+  %35 = add nuw nsw i64 %.0179213244, 1
   br label %.critedge
 
 36:                                               ; preds = %31
   br i1 %.not193202, label %.thread206, label %.thread206.sink.split
 
 .thread206.sink.split:                            ; preds = %36, %23
-  %37 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %.0179213237
-  store ptr %.0182212238, ptr %37, align 8, !tbaa !44
-  %38 = add i64 %.0179213237, 1
+  %37 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %.0179213244
+  store ptr %.0182212245, ptr %37, align 8, !tbaa !44
+  %38 = add i64 %.0179213244, 1
   br label %.thread206
 
 .thread206:                                       ; preds = %.thread206.sink.split, %36, %23, %.thread203, %15
-  %.2 = phi i64 [ %.0179213237, %23 ], [ %.0179213237, %.thread203 ], [ %.0179213237, %15 ], [ %.0179213237, %36 ], [ %38, %.thread206.sink.split ]
-  %39 = getelementptr inbounds nuw i8, ptr %.0182212238, i64 80
+  %.2 = phi i64 [ %.0179213244, %23 ], [ %.0179213244, %.thread203 ], [ %.0179213244, %15 ], [ %.0179213244, %36 ], [ %38, %.thread206.sink.split ]
+  %39 = getelementptr inbounds nuw i8, ptr %.0182212245, i64 80
   %40 = load ptr, ptr %39, align 8, !tbaa !40
   %.not190 = icmp eq ptr %40, null
-  br i1 %.not190, label %.critedge, label %.lr.ph239
+  br i1 %.not190, label %.critedge, label %.lr.ph246
 
-.critedge:                                        ; preds = %.thread206, %29, %.lr.ph239, %.lr.ph, %.thread208
-  %.1180 = phi i64 [ %35, %.thread208 ], [ 0, %.lr.ph ], [ %.0179213237, %.lr.ph239 ], [ %.0179213237, %29 ], [ %.2, %.thread206 ]
+.critedge:                                        ; preds = %.thread206, %29, %.lr.ph246, %.lr.ph, %.thread208
+  %.1180 = phi i64 [ %35, %.thread208 ], [ 0, %.lr.ph ], [ %.0179213244, %.lr.ph246 ], [ %.0179213244, %29 ], [ %.2, %.thread206 ]
   switch i64 %.1180, label %.lr.ph223 [
     i64 0, label %.critedge.thread
     i64 1, label %51
@@ -2160,11 +2160,11 @@ define dso_local ptr @phpdbg_read_input(ptr noundef %0) local_unnamed_addr #1 {
   %.136 = phi ptr [ %31, %..thread33_crit_edge ], [ %.016, %16 ]
   %.not23 = icmp eq i8 %char0, 0
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1608), align 8, !tbaa !78
-  %.not2450 = icmp eq ptr %32, null
+  %.not2455 = icmp eq ptr %32, null
   br i1 %.not23, label %.thread, label %33
 
 33:                                               ; preds = %.thread33
-  br i1 %.not2450, label %35, label %34
+  br i1 %.not2455, label %35, label %34
 
 34:                                               ; preds = %33
   call void @free(ptr noundef nonnull %32) #22
@@ -2181,7 +2181,7 @@ define dso_local ptr @phpdbg_read_input(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not24, label %43, label %.thread44
 
 .thread:                                          ; preds = %.thread33
-  br i1 %.not2450, label %43, label %40
+  br i1 %.not2455, label %43, label %40
 
 .thread38:                                        ; preds = %1, %15
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1608), align 8, !tbaa !78

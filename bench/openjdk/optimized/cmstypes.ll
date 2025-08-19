@@ -1469,9 +1469,9 @@ _cmsWriteWCharArray.exit.thread72.thread:         ; preds = %17
   %50 = trunc i32 %49 to i16
   %51 = tail call i32 @_cmsWriteUInt16Number(ptr noundef nonnull %1, i16 noundef zeroext %50) #14
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %_cmsWriteWCharArray.exit.thread72.thread95, label %47
+  br i1 %.not.i, label %_cmsWriteWCharArray.exit.thread72.thread100, label %47
 
-_cmsWriteWCharArray.exit.thread72.thread95:       ; preds = %.lr.ph.i
+_cmsWriteWCharArray.exit.thread72.thread100:      ; preds = %.lr.ph.i
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8
   tail call void @_cmsFree(ptr noundef %53, ptr noundef nonnull %.049) #14
@@ -1515,15 +1515,15 @@ _cmsWriteWCharArray.exit.thread72:                ; preds = %65, %.loopexit, %55
   %.not68 = icmp eq ptr %.050, null
   br i1 %.not68, label %.thread, label %68
 
-68:                                               ; preds = %_cmsWriteWCharArray.exit.thread72.thread95, %_cmsWriteWCharArray.exit.thread72
-  %69 = phi ptr [ %52, %_cmsWriteWCharArray.exit.thread72.thread95 ], [ %66, %_cmsWriteWCharArray.exit.thread72 ]
-  %.080100 = phi i32 [ 0, %_cmsWriteWCharArray.exit.thread72.thread95 ], [ %.080, %_cmsWriteWCharArray.exit.thread72 ]
+68:                                               ; preds = %_cmsWriteWCharArray.exit.thread72.thread100, %_cmsWriteWCharArray.exit.thread72
+  %69 = phi ptr [ %52, %_cmsWriteWCharArray.exit.thread72.thread100 ], [ %66, %_cmsWriteWCharArray.exit.thread72 ]
+  %.080105 = phi i32 [ 0, %_cmsWriteWCharArray.exit.thread72.thread100 ], [ %.080, %_cmsWriteWCharArray.exit.thread72 ]
   %70 = load ptr, ptr %69, align 8
   call void @_cmsFree(ptr noundef %70, ptr noundef nonnull %.050) #14
   br label %.thread
 
 .thread:                                          ; preds = %_cmsWriteWCharArray.exit.thread72.thread, %14, %68, %_cmsWriteWCharArray.exit.thread72
-  %.08190 = phi i32 [ %.080100, %68 ], [ %.080, %_cmsWriteWCharArray.exit.thread72 ], [ 0, %14 ], [ 0, %_cmsWriteWCharArray.exit.thread72.thread ]
+  %.08190 = phi i32 [ %.080105, %68 ], [ %.080, %_cmsWriteWCharArray.exit.thread72 ], [ 0, %14 ], [ 0, %_cmsWriteWCharArray.exit.thread72.thread ]
   ret i32 %.08190
 }
 
@@ -2117,9 +2117,9 @@ uipow.exit.thread100:                             ; preds = %72, %uipow.exit, %1
   br label %.thread106
 
 .thread.sink.split:                               ; preds = %88, %96
-  %.sink117 = phi ptr [ %90, %96 ], [ %86, %88 ]
+  %.sink122 = phi ptr [ %90, %96 ], [ %86, %88 ]
   %119 = load ptr, ptr %28, align 8
-  call void @_cmsFree(ptr noundef %119, ptr noundef nonnull %.sink117) #14
+  call void @_cmsFree(ptr noundef %119, ptr noundef nonnull %.sink122) #14
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.i, %.thread.sink.split, %._crit_edge, %84, %uipow.exit, %._crit_edge.i, %32, %34, %37, %40, %43, %46, %49, %52, %55, %63, %67, %uipow.exit.thread100
@@ -3018,8 +3018,8 @@ define internal range(i32 0, 2) i32 @Type_LUT16_Write(ptr noundef readonly captu
 .loopexit211.thread:                              ; preds = %.preheader210
   %125 = icmp eq i32 %.0, 0
   %126 = icmp eq i32 %46, 0
-  %or.cond.i241 = or i1 %126, %125
-  br i1 %or.cond.i241, label %.thread205, label %._crit_edge.i
+  %or.cond.i255 = or i1 %126, %125
+  br i1 %or.cond.i255, label %.thread205, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %.loopexit211
   %.not23.i = icmp eq i32 %45, 0
@@ -3591,14 +3591,14 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge, %68
-  %.0.lcssa79 = phi i32 [ %62, %68 ], [ 0, %._crit_edge ], [ 0, %21 ]
+  %.0.lcssa84 = phi i32 [ %62, %68 ], [ 0, %._crit_edge ], [ 0, %21 ]
   %.052 = phi ptr [ %66, %68 ], [ null, %._crit_edge ], [ null, %21 ]
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %.052, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i32 %.0.lcssa79, ptr %74, align 8
+  store i32 %.0.lcssa84, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  store i32 %.0.lcssa79, ptr %75, align 4
+  store i32 %.0.lcssa84, ptr %75, align 4
   store i32 1, ptr %2, align 4
   br label %76
 
@@ -5116,11 +5116,11 @@ define internal ptr @Type_UcrBg_Read(ptr noundef readonly captures(none) %0, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %78, %81, %68
-  %.sink77 = phi ptr [ %62, %68 ], [ %9, %81 ], [ %9, %78 ]
+  %.sink87 = phi ptr [ %62, %68 ], [ %9, %81 ], [ %9, %78 ]
   %.sink = phi i32 [ 1, %68 ], [ 0, %81 ], [ 0, %78 ]
   %.0.ph = phi ptr [ %9, %68 ], [ null, %81 ], [ null, %78 ]
   %82 = load ptr, ptr %7, align 8
-  call void @_cmsFree(ptr noundef %82, ptr noundef %.sink77) #14
+  call void @_cmsFree(ptr noundef %82, ptr noundef %.sink87) #14
   store i32 %.sink, ptr %2, align 4
   br label %83
 
@@ -5537,9 +5537,9 @@ define internal range(i32 0, 2) i32 @Type_MPE_Write(ptr noundef %0, ptr noundef 
   %20 = load ptr, ptr %7, align 8
   %21 = tail call ptr @_cmsCalloc(ptr noundef %20, i32 noundef %15, i32 noundef 4) #14
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread.thread154, label %24
+  br i1 %22, label %.thread.thread162, label %24
 
-.thread.thread154:                                ; preds = %19
+.thread.thread162:                                ; preds = %19
   %23 = load ptr, ptr %7, align 8
   tail call void @_cmsFree(ptr noundef %23, ptr noundef nonnull %17) #14
   br label %.thread116
@@ -5729,8 +5729,8 @@ GetHandler.exit:                                  ; preds = %56
   call void @_cmsFree(ptr noundef %97, ptr noundef nonnull %21) #14
   br label %.thread116
 
-.thread116:                                       ; preds = %.thread.thread154, %4, %.thread.thread, %93
-  %.0 = phi i32 [ 1, %93 ], [ 0, %.thread.thread ], [ 0, %4 ], [ 0, %.thread.thread154 ]
+.thread116:                                       ; preds = %.thread.thread162, %4, %.thread.thread, %93
+  %.0 = phi i32 [ 1, %93 ], [ 0, %.thread.thread ], [ 0, %4 ], [ 0, %.thread.thread162 ]
   ret i32 %.0
 }
 
@@ -6370,8 +6370,8 @@ ReadOneElem.exit40.i:                             ; preds = %129, %127
   br i1 %exitcond.not.i, label %ReadOffsetArray.exit, label %.lr.ph.split.i, !llvm.loop !46
 
 ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.i, %ReadOneElem.exit50.us.i
-  %.pr117 = load i32, ptr %7, align 4
-  %.not111 = icmp eq i32 %.pr117, 0
+  %.pr135 = load i32, ptr %7, align 4
+  %.not111 = icmp eq i32 %.pr135, 0
   br i1 %.not111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ReadOffsetArray.exit
@@ -6610,13 +6610,13 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %20 = select i1 %19, i32 16, i32 24
   %21 = icmp eq i32 %.170, 0
   %22 = add nuw nsw i32 %20, 8
-  %spec.select150 = select i1 %21, i32 %20, i32 %22
+  %spec.select158 = select i1 %21, i32 %20, i32 %22
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %7
-  %.067.lcssa145 = phi i32 [ 0, %7 ], [ %17, %._crit_edge ]
-  %23 = phi i32 [ 16, %7 ], [ %spec.select150, %._crit_edge ]
-  %24 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %.067.lcssa145) #14
+  %.067.lcssa153 = phi i32 [ 0, %7 ], [ %17, %._crit_edge ]
+  %23 = phi i32 [ 16, %7 ], [ %spec.select158, %._crit_edge ]
+  %24 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %.067.lcssa153) #14
   %.not76 = icmp eq i32 %24, 0
   br i1 %.not76, label %135, label %25
 
@@ -6630,18 +6630,18 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %29 = tail call i32 %28(ptr noundef nonnull %1) #14
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef %5, i32 noundef %.067.lcssa145, i32 noundef %23)
+  %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %23)
   %.not78 = icmp eq i32 %32, 0
   br i1 %.not78, label %WriteOneMLUC.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa145, i32 noundef %23)
+  %34 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %23)
   %.not79 = icmp eq i32 %34, 0
   br i1 %.not79, label %WriteOneMLUC.exit, label %35
 
 35:                                               ; preds = %33
   %36 = tail call ptr @cmsDictGetEntryList(ptr noundef nonnull %2) #14
-  %.not137 = icmp eq i32 %.067.lcssa145, 0
+  %.not137 = icmp eq i32 %.067.lcssa153, 0
   br i1 %.not137, label %._crit_edge136, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %35
@@ -6665,7 +6665,7 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   %.val94 = load ptr, ptr %48, align 8
   %.not.i110 = icmp eq ptr %.val93, null
   %.not24.i112 = icmp eq ptr %.val94, null
-  %wide.trip.count = zext i32 %.067.lcssa145 to i64
+  %wide.trip.count = zext i32 %.067.lcssa153 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph135, %WriteOneMLUC.exit114.thread
@@ -6713,10 +6713,10 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   br label %69
 
 69:                                               ; preds = %.loopexit.i, %57
-  %.sink24.in.i = phi ptr [ %39, %.loopexit.i ], [ %37, %57 ]
+  %.sink26.in.i = phi ptr [ %39, %.loopexit.i ], [ %37, %57 ]
   %.sink.i = phi i32 [ %68, %.loopexit.i ], [ 0, %57 ]
-  %.sink24.i = load ptr, ptr %.sink24.in.i, align 8
-  %70 = getelementptr inbounds nuw i32, ptr %.sink24.i, i64 %indvars.iv
+  %.sink26.i = load ptr, ptr %.sink26.in.i, align 8
+  %70 = getelementptr inbounds nuw i32, ptr %.sink26.i, i64 %indvars.iv
   store i32 %.sink.i, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %.1133, i64 32
   %72 = load ptr, ptr %71, align 8
@@ -6760,10 +6760,10 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
   br label %90
 
 90:                                               ; preds = %.loopexit.i102, %78
-  %.sink24.in.i104 = phi ptr [ %43, %.loopexit.i102 ], [ %41, %78 ]
+  %.sink26.in.i104 = phi ptr [ %43, %.loopexit.i102 ], [ %41, %78 ]
   %.sink.i105 = phi i32 [ %89, %.loopexit.i102 ], [ 0, %78 ]
-  %.sink24.i106 = load ptr, ptr %.sink24.in.i104, align 8
-  %91 = getelementptr inbounds nuw i32, ptr %.sink24.i106, i64 %indvars.iv
+  %.sink26.i106 = load ptr, ptr %.sink26.in.i104, align 8
+  %91 = getelementptr inbounds nuw i32, ptr %.sink26.i106, i64 %indvars.iv
   store i32 %.sink.i105, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %.1133, i64 8
   %93 = load ptr, ptr %92, align 8
@@ -6846,7 +6846,7 @@ WriteOneMLUC.exit114.thread:                      ; preds = %118, %119, %WriteOn
   br i1 %.not80, label %WriteOneMLUC.exit, label %130
 
 130:                                              ; preds = %._crit_edge136
-  %131 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa145, i32 noundef %23)
+  %131 = call fastcc i32 @WriteOffsetArray(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %.067.lcssa153, i32 noundef %23)
   %.not81 = icmp eq i32 %131, 0
   br i1 %.not81, label %WriteOneMLUC.exit, label %132
 
@@ -7051,17 +7051,17 @@ define internal ptr @Type_vcgt_Read(ptr noundef readonly captures(none) %0, ptr 
   %or.cond = select i1 %37, i1 %39, i1 false
   %40 = icmp eq i32 %3, 1576
   %or.cond4 = and i1 %40, %or.cond
-  br i1 %or.cond4, label %41, label %.preheader102
+  br i1 %or.cond4, label %41, label %.preheader105
 
 41:                                               ; preds = %35
   store i16 2, ptr %8, align 2
-  br label %.preheader102
+  br label %.preheader105
 
-.preheader102:                                    ; preds = %41, %35
+.preheader105:                                    ; preds = %41, %35
   br label %42
 
-42:                                               ; preds = %.preheader102, %.loopexit
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.loopexit ], [ 0, %.preheader102 ]
+42:                                               ; preds = %.preheader105, %.loopexit
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.loopexit ], [ 0, %.preheader105 ]
   %43 = load ptr, ptr %14, align 8
   %44 = load i16, ptr %7, align 2
   %45 = zext i16 %44 to i32
@@ -8369,9 +8369,9 @@ define internal fastcc range(i32 0, 2) i32 @ReadEmbeddedText(ptr noundef readonl
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %15, %20
-  %.sink28 = phi ptr [ %21, %20 ], [ %16, %15 ], [ %11, %10 ]
-  store ptr %.sink28, ptr %2, align 8
-  %22 = icmp ne ptr %.sink28, null
+  %.sink31 = phi ptr [ %21, %20 ], [ %16, %15 ], [ %11, %10 ]
+  store ptr %.sink31, ptr %2, align 8
+  %22 = icmp ne ptr %.sink31, null
   %23 = zext i1 %22 to i32
   br label %24
 
@@ -9205,7 +9205,7 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
 
 .lr.ph79:                                         ; preds = %30
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %wide.trip.count87 = zext i32 %2 to i64
+  %wide.trip.count87 = zext nneg i32 %2 to i64
   br label %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
@@ -9258,10 +9258,10 @@ define internal fastcc range(i32 0, 2) i32 @ReadPositionTable(ptr noundef %0, pt
   br label %.thread64.sink.split
 
 .thread64.sink.split:                             ; preds = %.thread64.sink.split.sink.split, %20
-  %.sink90 = phi ptr [ %18, %20 ], [ %22, %.thread64.sink.split.sink.split ]
+  %.sink93 = phi ptr [ %18, %20 ], [ %22, %.thread64.sink.split.sink.split ]
   %.0.ph = phi i32 [ 0, %20 ], [ %.0.ph.ph, %.thread64.sink.split.sink.split ]
   %45 = load ptr, ptr %16, align 8
-  tail call void @_cmsFree(ptr noundef %45, ptr noundef nonnull %.sink90) #14
+  tail call void @_cmsFree(ptr noundef %45, ptr noundef nonnull %.sink93) #14
   br label %.thread64
 
 .thread64:                                        ; preds = %.thread64.sink.split, %15, %6
@@ -10339,10 +10339,10 @@ define internal fastcc range(i32 0, 2) i32 @WritePositionTable(ptr noundef %0, p
   br label %.thread82.sink.split
 
 .thread82.sink.split:                             ; preds = %.thread82.sink.split.sink.split3, %11
-  %.sink114 = phi ptr [ %9, %11 ], [ %13, %.thread82.sink.split.sink.split3 ]
+  %.sink117 = phi ptr [ %9, %11 ], [ %13, %.thread82.sink.split.sink.split3 ]
   %.062.ph = phi i32 [ 0, %11 ], [ %.062.ph.ph4, %.thread82.sink.split.sink.split3 ]
   %51 = load ptr, ptr %7, align 8
-  tail call void @_cmsFree(ptr noundef %51, ptr noundef nonnull %.sink114) #14
+  tail call void @_cmsFree(ptr noundef %51, ptr noundef nonnull %.sink117) #14
   br label %.thread82
 
 .thread82:                                        ; preds = %.thread82.sink.split, %6

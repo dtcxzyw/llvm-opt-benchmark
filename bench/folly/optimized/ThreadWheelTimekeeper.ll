@@ -3116,7 +3116,7 @@ define linkonce_odr void @_ZN5folly7futures6detail8CoreBase19setInterruptHandler
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load atomic i64, ptr %8 acquire, align 8
   %10 = and i64 %9, 3
-  switch i64 %10, label %default.unreachable45 [
+  switch i64 %10, label %default.unreachable46 [
     i64 0, label %11
     i64 2, label %.thread
     i64 1, label %112
@@ -3393,7 +3393,7 @@ _ZN5folly17exception_wrapperD2Ev.exit25:          ; preds = %109, %111
   tail call void @_ZN5folly6detail15terminate_with_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.10) #27
   unreachable
 
-default.unreachable45:                            ; preds = %7
+default.unreachable46:                            ; preds = %7
   unreachable
 
 .critedge:                                        ; preds = %11, %_ZN5folly17exception_wrapperD2Ev.exit25, %105, %2

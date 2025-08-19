@@ -289,7 +289,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   %46 = trunc nuw i64 %45 to i32
   br i1 %42, label %.noexc, label %49
 
-47:                                               ; preds = %.invoke91.i, %.invoke.i
+47:                                               ; preds = %.invoke97.i, %.invoke.i
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h0bc1d51c2821d2ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #14
@@ -323,7 +323,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   %.070.i = phi i64 [ %.val80.i, %52 ], [ %56, %55 ]
   %59 = add i64 %.070.i, -8
   %60 = icmp ugt i64 %59, %.val80.i
-  br i1 %60, label %.invoke91.i, label %61
+  br i1 %60, label %.invoke97.i, label %61
 
 61:                                               ; preds = %58
   %62 = sub nuw i64 %.val80.i, %59
@@ -335,7 +335,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
   %.val.i.i85.i = load i64, ptr %65, align 1, !alias.scope !88, !noalias !93
   %66 = add i64 %.070.i, -16
   %67 = icmp ugt i64 %66, %.val80.i
-  br i1 %67, label %.invoke91.i, label %68
+  br i1 %67, label %.invoke97.i, label %68
 
 68:                                               ; preds = %64
   %69 = sub nuw i64 %.val80.i, %66
@@ -350,13 +350,13 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
 .cont.i:                                          ; preds = %.invoke.i
   unreachable
 
-.invoke91.i:                                      ; preds = %64, %58
+.invoke97.i:                                      ; preds = %64, %58
   %72 = phi i64 [ %59, %58 ], [ %66, %64 ]
   %73 = phi ptr [ @anon.743454413f851b0103dae1284bacd0c0.4, %58 ], [ @anon.743454413f851b0103dae1284bacd0c0.3, %64 ]
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %72, i64 noundef %.val80.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %73) #13
-          to label %.cont92.i unwind label %47, !noalias !87
+          to label %.cont98.i unwind label %47, !noalias !87
 
-.cont92.i:                                        ; preds = %.invoke91.i
+.cont98.i:                                        ; preds = %.invoke97.i
   unreachable
 
 74:                                               ; preds = %68
@@ -1152,14 +1152,14 @@ _ZN4core3str11validations15next_code_point17hc2744f6ef45f0174E.exit.thread: ; pr
   br label %131
 
 .sink.split.i:                                    ; preds = %163, %151, %125
-  %.sink91.i = phi i64 [ %108, %151 ], [ 0, %163 ], [ 0, %125 ]
-  %.ph90.i = phi i64 [ %109, %151 ], [ %164, %163 ], [ %111, %125 ]
-  store i64 %.sink91.i, ptr %92, align 8, !alias.scope !211, !noalias !218
+  %.sink101.i = phi i64 [ %108, %151 ], [ 0, %163 ], [ 0, %125 ]
+  %.ph100.i = phi i64 [ %109, %151 ], [ %164, %163 ], [ %111, %125 ]
+  store i64 %.sink101.i, ptr %92, align 8, !alias.scope !211, !noalias !218
   br label %127
 
 127:                                              ; preds = %163, %151, %.sink.split.i, %125
-  %128 = phi i64 [ %114, %151 ], [ %114, %163 ], [ %114, %125 ], [ %.sink91.i, %.sink.split.i ]
-  %129 = phi i64 [ %109, %151 ], [ %164, %163 ], [ %111, %125 ], [ %.ph90.i, %.sink.split.i ]
+  %128 = phi i64 [ %114, %151 ], [ %114, %163 ], [ %114, %125 ], [ %.sink101.i, %.sink.split.i ]
+  %129 = phi i64 [ %109, %151 ], [ %164, %163 ], [ %111, %125 ], [ %.ph100.i, %.sink.split.i ]
   %130 = add i64 %129, %100
   %.not38.i = icmp ult i64 %130, %13
   br i1 %.not38.i, label %113, label %.loopexit

@@ -156,10 +156,10 @@ define noundef i32 @dtrsm_oltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %76, %.thread
-  %.sink142 = phi double [ %73, %.thread ], [ %77, %76 ]
+  %.sink145 = phi double [ %73, %.thread ], [ %77, %76 ]
   %.sink.in = getelementptr inbounds nuw i8, ptr %.082102, i64 8
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !3
-  store double %.sink142, ptr %.08999, align 8, !tbaa !3
+  store double %.sink145, ptr %.08999, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %.08999, i64 8
   store double %.sink, ptr %78, align 8, !tbaa !3
   br label %79

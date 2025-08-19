@@ -4957,10 +4957,10 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_start(ptr noundef %
   br label %114
 
 114:                                              ; preds = %112, %110
-  %.sink84.in = phi ptr [ %113, %112 ], [ %111, %110 ]
-  %.sink84 = load ptr, ptr %.sink84.in, align 8
+  %.sink92.in = phi ptr [ %113, %112 ], [ %111, %110 ]
+  %.sink92 = load ptr, ptr %.sink92.in, align 8
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store ptr %.sink84, ptr %115, align 8
+  store ptr %.sink92, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %85, i64 268
   %117 = load i32, ptr %116, align 4
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -5404,9 +5404,9 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %73, %81
-  %.sink43 = phi i64 [ %83, %81 ], [ %72, %73 ]
+  %.sink46 = phi i64 [ %83, %81 ], [ %72, %73 ]
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i64 %.sink43, ptr %84, align 8
+  store i64 %.sink46, ptr %84, align 8
   br label %85
 
 85:                                               ; preds = %.sink.split, %75

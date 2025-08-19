@@ -677,7 +677,7 @@ define internal fastcc i64 @_ZN14ruff_formatter7printer7Printer13print_element17
   %19 = alloca [24 x i8], align 8
   %20 = tail call i48 @_ZN14ruff_formatter7printer10call_stack9CallStack3top17h7f01190d6d05e7e5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %21 = load i8, ptr %3, align 8, !range !35, !noundef !3
-  switch i8 %21, label %default.unreachable742 [
+  switch i8 %21, label %default.unreachable763 [
     i8 0, label %22
     i8 1, label %25
     i8 2, label %232
@@ -691,7 +691,7 @@ define internal fastcc i64 @_ZN14ruff_formatter7printer7Printer13print_element17
     i8 10, label %149
   ]
 
-default.unreachable742:                           ; preds = %149, %4
+default.unreachable763:                           ; preds = %149, %4
   unreachable
 
 22:                                               ; preds = %4
@@ -974,7 +974,7 @@ _ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit
 149:                                              ; preds = %4
   %150 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %151 = load i8, ptr %150, align 8, !range !48, !noundef !3
-  switch i8 %151, label %default.unreachable742 [
+  switch i8 %151, label %default.unreachable763 [
     i8 0, label %233
     i8 1, label %247
     i8 2, label %252
@@ -1138,10 +1138,10 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE, i64 0, i64 %217
   %switch.load = load i64, ptr %switch.gep, align 8
   %218 = zext nneg i8 %216 to i64
-  %switch.gep781 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 0, i64 %218
-  %switch.load782 = load ptr, ptr %switch.gep781, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %switch.load782, i64 %switch.load
-  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hed1506d528fc4b8aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %switch.load782, ptr noundef nonnull %219, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.792f56bc6fd94c6e001afc9fe69165bf.62)
+  %switch.gep802 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN14ruff_formatter7printer7Printer10print_char17h12b19ebec838e9bfE.15, i64 0, i64 %218
+  %switch.load803 = load ptr, ptr %switch.gep802, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %switch.load803, i64 %switch.load
+  call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hed1506d528fc4b8aE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %switch.load803, ptr noundef nonnull %219, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.792f56bc6fd94c6e001afc9fe69165bf.62)
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 0, ptr %220, align 4, !alias.scope !71
   %221 = load i64, ptr %168, align 8, !alias.scope !71, !noundef !3
@@ -1170,8 +1170,8 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   br label %228
 
 232:                                              ; preds = %584, %247, %398, %348, %588, %293, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit, %383, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit679", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit680", %4, %22, %29, %34, %41, %51, %65, %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit666", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669", %308, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit670", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit671", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit689", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit690", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit700", %158, %160, %228, %178, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688", %433, %529, %560, %515, %445, %431
-  %.sroa.16.sroa.0.0 = phi i64 [ %.sroa.57.4.insert.shift.i682, %431 ], [ %.sroa.57.4.insert.shift.i, %445 ], [ %.sroa.57.4.insert.shift.i692, %515 ], [ %.sroa.4565.0.extract.shift, %529 ], [ %.sroa.16.sroa.0.2, %560 ], [ 0, %433 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688" ], [ 0, %178 ], [ 0, %228 ], [ 0, %160 ], [ 0, %158 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit700" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit690" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit689" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit671" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit670" ], [ 0, %308 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit666" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit" ], [ 0, %67 ], [ 0, %65 ], [ 0, %51 ], [ 0, %41 ], [ 0, %34 ], [ 0, %29 ], [ 0, %22 ], [ 0, %4 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit680" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit679" ], [ %.sroa.57.4.insert.shift.i673, %383 ], [ %589, %588 ], [ %spec.select, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit ], [ %spec.select653, %293 ], [ %.sroa.4487.0.extract.shift, %348 ], [ %.sroa.4510.0.extract.shift, %398 ], [ %spec.select769, %247 ], [ %spec.select771, %584 ]
-  %.sroa.0.0 = phi i64 [ 3, %431 ], [ 3, %445 ], [ 3, %515 ], [ %327, %529 ], [ %.sroa.0.2, %560 ], [ 4, %433 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688" ], [ 4, %178 ], [ 4, %228 ], [ 4, %160 ], [ 4, %158 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit700" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit690" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit689" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit671" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit670" ], [ 4, %308 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit666" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit" ], [ 4, %67 ], [ 4, %65 ], [ 4, %51 ], [ 4, %41 ], [ 4, %34 ], [ 4, %29 ], [ 4, %22 ], [ 4, %4 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit680" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit679" ], [ 3, %383 ], [ %582, %588 ], [ %.sroa.0.0.i, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit ], [ %294, %293 ], [ %350, %348 ], [ %399, %398 ], [ %spec.select770, %247 ], [ %spec.select772, %584 ]
+  %.sroa.16.sroa.0.0 = phi i64 [ %.sroa.57.4.insert.shift.i682, %431 ], [ %.sroa.57.4.insert.shift.i, %445 ], [ %.sroa.57.4.insert.shift.i692, %515 ], [ %.sroa.4565.0.extract.shift, %529 ], [ %.sroa.16.sroa.0.2, %560 ], [ 0, %433 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688" ], [ 0, %178 ], [ 0, %228 ], [ 0, %160 ], [ 0, %158 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit700" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit690" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit689" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit671" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit670" ], [ 0, %308 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit666" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit" ], [ 0, %67 ], [ 0, %65 ], [ 0, %51 ], [ 0, %41 ], [ 0, %34 ], [ 0, %29 ], [ 0, %22 ], [ 0, %4 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit680" ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit679" ], [ %.sroa.57.4.insert.shift.i673, %383 ], [ %589, %588 ], [ %spec.select, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit ], [ %spec.select653, %293 ], [ %.sroa.4487.0.extract.shift, %348 ], [ %.sroa.4510.0.extract.shift, %398 ], [ %spec.select790, %247 ], [ %spec.select792, %584 ]
+  %.sroa.0.0 = phi i64 [ 3, %431 ], [ 3, %445 ], [ 3, %515 ], [ %327, %529 ], [ %.sroa.0.2, %560 ], [ 4, %433 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit688" ], [ 4, %178 ], [ 4, %228 ], [ 4, %160 ], [ 4, %158 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit700" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit698" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit690" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit689" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit671" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit670" ], [ 4, %308 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit669" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit666" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit" ], [ 4, %67 ], [ 4, %65 ], [ 4, %51 ], [ 4, %41 ], [ 4, %34 ], [ 4, %29 ], [ 4, %22 ], [ 4, %4 ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit680" ], [ 4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd553cde7e3dba17dE.exit679" ], [ 3, %383 ], [ %582, %588 ], [ %.sroa.0.0.i, %_ZN14ruff_formatter7printer7Printer18print_best_fitting17h51f83c68699fb46fE.exit ], [ %294, %293 ], [ %350, %348 ], [ %399, %398 ], [ %spec.select791, %247 ], [ %spec.select793, %584 ]
   %.sroa.16.0.insert.ext = shl nuw i64 %.sroa.16.sroa.0.0, 8
   %.sroa.0.0.insert.ext = and i64 %.sroa.0.0, 255
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, %.sroa.16.0.insert.ext
@@ -1208,8 +1208,8 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   %250 = and i64 %249, 255
   %.not644 = icmp eq i64 %250, 4
   %251 = lshr i64 %249, 8
-  %spec.select769 = select i1 %.not644, i64 0, i64 %251
-  %spec.select770 = select i1 %.not644, i64 4, i64 %249
+  %spec.select790 = select i1 %.not644, i64 0, i64 %251
+  %spec.select791 = select i1 %.not644, i64 4, i64 %249
   br label %232
 
 252:                                              ; preds = %149
@@ -1916,8 +1916,8 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   %586 = and i64 %585, 255
   %.not600 = icmp eq i64 %586, 4
   %587 = lshr i64 %585, 8
-  %spec.select771 = select i1 %.not600, i64 0, i64 %587
-  %spec.select772 = select i1 %.not600, i64 4, i64 %585
+  %spec.select792 = select i1 %.not600, i64 0, i64 %587
+  %spec.select793 = select i1 %.not600, i64 4, i64 %585
   br label %232
 
 588:                                              ; preds = %581
@@ -2281,10 +2281,10 @@ _ZN14ruff_formatter7printer7Printer11push_marker17h90909da73ac6f913E.exit: ; pre
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %80, %86
-  %.sink52 = phi i32 [ %87, %86 ], [ %82, %80 ]
+  %.sink56 = phi i32 [ %87, %86 ], [ %82, %80 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %84 = load i32, ptr %83, align 4, !noundef !3
-  %85 = add i32 %84, %.sink52
+  %85 = add i32 %84, %.sink56
   store i32 %85, ptr %83, align 4
   br label %.loopexit
 
@@ -2698,7 +2698,7 @@ _ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.ex
   %.sroa.4194.1.insert.shift = and i64 %56, 72057594037927680
   %.sroa.2193.1.insert.ext = and i64 %.sroa.4290.0.extract.shift, 255
   %.sroa.2193.1.insert.insert = or disjoint i64 %.sroa.4194.1.insert.shift, %.sroa.2193.1.insert.ext
-  br label %.loopexit568
+  br label %.loopexit573
 
 57:                                               ; preds = %_ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.exit
   %.sroa.4290.0.extract.trunc = trunc i64 %.sroa.4290.0.extract.shift to i1
@@ -2743,7 +2743,7 @@ _ZN14ruff_formatter7printer12FitsMeasurer19fill_separator_fits17h989d8f5f92523fb
   %.sroa.4293.0.extract.shift = lshr i64 %68, 8
   %69 = and i64 %68, 255
   %.not370 = icmp eq i64 %69, 4
-  br i1 %.not370, label %70, label %.loopexit568
+  br i1 %.not370, label %70, label %.loopexit573
 
 70:                                               ; preds = %_ZN14ruff_formatter7printer12FitsMeasurer19fill_separator_fits17h989d8f5f92523fb6E.exit
   %.sroa.4293.0.extract.trunc = trunc i64 %.sroa.4293.0.extract.shift to i1
@@ -2776,7 +2776,7 @@ _ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.ex
   %.sroa.4296.0.extract.shift = lshr i64 %82, 8
   %83 = and i64 %82, 255
   %.not373 = icmp eq i64 %83, 4
-  br i1 %.not373, label %84, label %.loopexit568
+  br i1 %.not373, label %84, label %.loopexit573
 
 84:                                               ; preds = %_ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.exit392
   %.sroa.4296.0.extract.trunc = trunc i64 %.sroa.4296.0.extract.shift to i1
@@ -2800,14 +2800,14 @@ _ZN14ruff_formatter7printer7Printer15print_fill_item17hddb95bed48a2c02fE.exit398
   br i1 %.not386, label %_ZN14ruff_formatter7printer7Printer20print_fill_separator17h24f49356c36c88f7E.exit400, label %.thread422.loopexit.split.loop.exit491
 
 92:                                               ; preds = %87
-  switch i64 %.sroa.044.0, label %default.unreachable567 [
+  switch i64 %.sroa.044.0, label %default.unreachable572 [
     i64 0, label %_ZN14ruff_formatter7printer7Printer15print_fill_item17hddb95bed48a2c02fE.exit
     i64 1, label %_ZN14ruff_formatter7printer7Printer15print_fill_item17hddb95bed48a2c02fE.exit
     i64 2, label %93
     i64 3, label %94
   ]
 
-default.unreachable567:                           ; preds = %92
+default.unreachable572:                           ; preds = %92
   unreachable
 
 93:                                               ; preds = %92
@@ -2980,13 +2980,13 @@ _ZN14ruff_formatter7printer7Printer20print_fill_separator17h24f49356c36c88f7E.ex
   %.sroa.4332.0.extract.shift.le = lshr i64 %129, 8
   br label %.thread422
 
-.thread422:                                       ; preds = %.thread422.loopexit441.split.loop.exit, %.thread422.loopexit441.split.loop.exit496, %.thread422.loopexit.split.loop.exit, %.thread422.loopexit.split.loop.exit491, %134, %138, %.loopexit568
-  %.sroa.0.1427 = phi i64 [ %.sroa.0.1, %.loopexit568 ], [ %132, %134 ], [ %.sroa.0.3, %138 ], [ %143, %.thread422.loopexit.split.loop.exit ], [ %90, %.thread422.loopexit.split.loop.exit491 ], [ %97, %.thread422.loopexit441.split.loop.exit ], [ %129, %.thread422.loopexit441.split.loop.exit496 ]
-  %.sroa.14.sroa.0.1426 = phi i64 [ %.sroa.14.sroa.0.1, %.loopexit568 ], [ %.sroa.4261.sroa.0.0.insert.insert, %134 ], [ %.sroa.14.sroa.0.3, %138 ], [ %.sroa.4355.0.extract.shift.le, %.thread422.loopexit.split.loop.exit ], [ %.sroa.4345.0.extract.shift.le, %.thread422.loopexit.split.loop.exit491 ], [ %.sroa.4313.0.extract.shift.le, %.thread422.loopexit441.split.loop.exit ], [ %.sroa.4332.0.extract.shift.le, %.thread422.loopexit441.split.loop.exit496 ]
+.thread422:                                       ; preds = %.thread422.loopexit441.split.loop.exit, %.thread422.loopexit441.split.loop.exit496, %.thread422.loopexit.split.loop.exit, %.thread422.loopexit.split.loop.exit491, %134, %138, %.loopexit573
+  %.sroa.0.1427 = phi i64 [ %.sroa.0.1, %.loopexit573 ], [ %132, %134 ], [ %.sroa.0.3, %138 ], [ %143, %.thread422.loopexit.split.loop.exit ], [ %90, %.thread422.loopexit.split.loop.exit491 ], [ %97, %.thread422.loopexit441.split.loop.exit ], [ %129, %.thread422.loopexit441.split.loop.exit496 ]
+  %.sroa.14.sroa.0.1426 = phi i64 [ %.sroa.14.sroa.0.1, %.loopexit573 ], [ %.sroa.4261.sroa.0.0.insert.insert, %134 ], [ %.sroa.14.sroa.0.3, %138 ], [ %.sroa.4355.0.extract.shift.le, %.thread422.loopexit.split.loop.exit ], [ %.sroa.4345.0.extract.shift.le, %.thread422.loopexit.split.loop.exit491 ], [ %.sroa.4313.0.extract.shift.le, %.thread422.loopexit441.split.loop.exit ], [ %.sroa.4332.0.extract.shift.le, %.thread422.loopexit441.split.loop.exit496 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %145
 
-.loopexit568:                                     ; preds = %_ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.exit392, %_ZN14ruff_formatter7printer12FitsMeasurer19fill_separator_fits17h989d8f5f92523fb6E.exit, %55
+.loopexit573:                                     ; preds = %_ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.exit392, %_ZN14ruff_formatter7printer12FitsMeasurer19fill_separator_fits17h989d8f5f92523fb6E.exit, %55
   %.sroa.14.sroa.0.1 = phi i64 [ %.sroa.2193.1.insert.insert, %55 ], [ %.sroa.4296.0.extract.shift, %_ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.exit392 ], [ %.sroa.4293.0.extract.shift, %_ZN14ruff_formatter7printer12FitsMeasurer19fill_separator_fits17h989d8f5f92523fb6E.exit ]
   %.sroa.0.1 = phi i64 [ %53, %55 ], [ %82, %_ZN14ruff_formatter7printer12FitsMeasurer14fill_item_fits17he1f767fe795c5455E.exit392 ], [ %68, %_ZN14ruff_formatter7printer12FitsMeasurer19fill_separator_fits17h989d8f5f92523fb6E.exit ]
   call void @"_ZN4core3ptr58drop_in_place$LT$ruff_formatter..printer..FitsMeasurer$GT$17h5a451749fc95a948E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %7)
@@ -3623,7 +3623,7 @@ define hidden i64 @_ZN14ruff_formatter7printer12FitsMeasurer12fits_element17h241
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = tail call i48 @_ZN14ruff_formatter7printer10call_stack9CallStack3top17hb606beb1c22274f2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %11)
   %13 = load i8, ptr %1, align 8, !range !35, !noundef !3
-  switch i8 %13, label %default.unreachable544 [
+  switch i8 %13, label %default.unreachable556 [
     i8 0, label %14
     i8 1, label %18
     i8 2, label %20
@@ -3637,7 +3637,7 @@ define hidden i64 @_ZN14ruff_formatter7printer12FitsMeasurer12fits_element17h241
     i8 10, label %70
   ]
 
-default.unreachable544:                           ; preds = %76, %70, %2
+default.unreachable556:                           ; preds = %76, %70, %2
   unreachable
 
 14:                                               ; preds = %2
@@ -3742,7 +3742,7 @@ default.unreachable544:                           ; preds = %76, %70, %2
 70:                                               ; preds = %2
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load i8, ptr %71, align 8, !range !48, !noundef !3
-  switch i8 %72, label %default.unreachable544 [
+  switch i8 %72, label %default.unreachable556 [
     i8 0, label %122
     i8 1, label %137
     i8 2, label %141
@@ -3795,7 +3795,7 @@ default.unreachable544:                           ; preds = %76, %70, %2
 76:                                               ; preds = %18
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %78 = load i8, ptr %77, align 1, !range !60, !noundef !3
-  switch i8 %78, label %default.unreachable544 [
+  switch i8 %78, label %default.unreachable556 [
     i8 0, label %79
     i8 1, label %73
     i8 2, label %83

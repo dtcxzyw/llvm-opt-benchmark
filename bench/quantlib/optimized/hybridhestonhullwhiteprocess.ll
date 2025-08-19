@@ -2563,13 +2563,13 @@ invoke.cont107.thread:                            ; preds = %cond.false.i213
   br label %invoke.cont112
 
 invoke.cont112:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib23HullWhiteForwardProcessEEptEv.exit211, %invoke.cont107.thread
-  %.sink387 = phi ptr [ %.pre.i214, %invoke.cont107.thread ], [ %37, %_ZNK5boost10shared_ptrIN8QuantLib23HullWhiteForwardProcessEEptEv.exit211 ]
-  %sigma_.i324 = getelementptr inbounds nuw i8, ptr %.sink387, i64 200
+  %.sink429 = phi ptr [ %.pre.i214, %invoke.cont107.thread ], [ %37, %_ZNK5boost10shared_ptrIN8QuantLib23HullWhiteForwardProcessEEptEv.exit211 ]
+  %sigma_.i324 = getelementptr inbounds nuw i8, ptr %.sink429, i64 200
   %38 = load double, ptr %sigma_.i324, align 8, !tbaa !103
   %mul104325 = fmul double %cond, %38
-  %kappa_.i = getelementptr inbounds nuw i8, ptr %.sink387, i64 184
+  %kappa_.i = getelementptr inbounds nuw i8, ptr %.sink429, i64 184
   %39 = load double, ptr %kappa_.i, align 8, !tbaa !104
-  %theta_.i = getelementptr inbounds nuw i8, ptr %.sink387, i64 192
+  %theta_.i = getelementptr inbounds nuw i8, ptr %.sink429, i64 192
   %40 = load double, ptr %theta_.i, align 8, !tbaa !105
   %neg117 = fneg double %cond
   %41 = call double @llvm.fmuladd.f64(double %neg117, double %cond, double %40)

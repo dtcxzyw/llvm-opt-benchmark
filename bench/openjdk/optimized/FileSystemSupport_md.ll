@@ -102,8 +102,8 @@ define hidden noundef ptr @normalize_path(ptr noundef captures(ret: address, pro
   br i1 %12, label %._crit_edge.thread.sink.split, label %._crit_edge.thread
 
 ._crit_edge.thread.sink.split:                    ; preds = %._crit_edge, %9
-  %.sink31 = phi i32 [ %10, %9 ], [ %3, %._crit_edge ]
-  %13 = add nsw i32 %.sink31, -1
+  %.sink32 = phi i32 [ %10, %9 ], [ %3, %._crit_edge ]
+  %13 = add nsw i32 %.sink32, -1
   %14 = tail call fastcc ptr @normalizePath(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %13)
   br label %._crit_edge.thread
 
@@ -186,9 +186,9 @@ define internal fastcc noundef ptr @normalizePath(ptr noundef readonly captures(
   br i1 %or.cond, label %38, label %34
 
 34:                                               ; preds = %.lr.ph44
-  %35 = add nsw i32 %.13441, 1
-  %36 = sext i32 %.13441 to i64
-  %37 = getelementptr inbounds i8, ptr %18, i64 %36
+  %35 = add nuw nsw i32 %.13441, 1
+  %36 = zext nneg i32 %.13441 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 %36
   store i8 %31, ptr %37, align 1
   br label %38
 

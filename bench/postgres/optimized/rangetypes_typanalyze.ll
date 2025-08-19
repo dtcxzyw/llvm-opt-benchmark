@@ -75,7 +75,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %26 = shl nsw i64 %22, 3
   %27 = tail call ptr @palloc(i64 noundef %26) #5
   %28 = icmp sgt i32 %2, 0
-  br i1 %28, label %.lr.ph, label %.thread262
+  br i1 %28, label %.lr.ph, label %.thread265
 
 .lr.ph:                                           ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -153,9 +153,9 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.thread254, label %.thread255
+  br i1 %67, label %.thread257, label %.thread258
 
-.thread255:                                       ; preds = %64
+.thread258:                                       ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @multirange_get_bounds(ptr noundef %.0, ptr noundef nonnull %63, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %9) #5
   %68 = load i32, ptr %65, align 4
@@ -169,9 +169,9 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   call void @range_deserialize(ptr noundef %.0, ptr noundef %63, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6) #5
   %.pre = load i8, ptr %6, align 1, !range !4
   %71 = trunc nuw i8 %.pre to i1
-  br i1 %71, label %.thread254, label %72
+  br i1 %71, label %.thread257, label %72
 
-72:                                               ; preds = %.thread255, %70
+72:                                               ; preds = %.thread258, %70
   %73 = sext i32 %.0193229 to i64
   %74 = getelementptr inbounds %struct.RangeBound, ptr %24, i64 %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
@@ -201,13 +201,13 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %88 = add i32 %.0193229, 1
   br label %90
 
-.thread254:                                       ; preds = %64, %70
+.thread257:                                       ; preds = %64, %70
   %89 = add i32 %.0196228, 1
   br label %90
 
-90:                                               ; preds = %.thread254, %86
-  %.2198 = phi i32 [ %89, %.thread254 ], [ %.0196228, %86 ]
-  %.2195 = phi i32 [ %.0193229, %.thread254 ], [ %88, %86 ]
+90:                                               ; preds = %.thread257, %86
+  %.2198 = phi i32 [ %89, %.thread257 ], [ %.0196228, %86 ]
+  %.2195 = phi i32 [ %.0193229, %.thread257 ], [ %88, %86 ]
   %91 = add i32 %.0191230, 1
   br label %92
 
@@ -394,11 +394,11 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %184 = getelementptr inbounds nuw [5 x i16], ptr %183, i64 0, i64 %.0202221
   store i16 6, ptr %184, align 2
   store ptr %112, ptr @CurrentMemoryContext, align 8
-  br label %.thread262
+  br label %.thread265
 
 185:                                              ; preds = %._crit_edge
   %186 = icmp sgt i32 %.1189, 0
-  br i1 %186, label %187, label %.thread262
+  br i1 %186, label %187, label %.thread265
 
 187:                                              ; preds = %185
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -409,9 +409,9 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   store i32 0, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float 0.000000e+00, ptr %191, align 4
-  br label %.thread262
+  br label %.thread265
 
-.thread262:                                       ; preds = %18, %185, %187, %.loopexit
+.thread265:                                       ; preds = %18, %185, %187, %.loopexit
   ret void
 }
 

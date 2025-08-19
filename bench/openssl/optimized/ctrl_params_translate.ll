@@ -1055,18 +1055,18 @@ define internal fastcc range(i32 0, 2) i32 @evp_pkey_ctx_setget_params_to_ctrl(p
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load ptr, ptr %2, align 8, !tbaa !60
-  %.not4052 = icmp eq ptr %21, null
-  br i1 %.not4052, label %.critedge, label %.lr.ph54
+  %.not4056 = icmp eq ptr %21, null
+  br i1 %.not4056, label %.critedge, label %.lr.ph58
 
 22:                                               ; preds = %cleanup_translation_ctx.exit
-  %23 = getelementptr inbounds nuw i8, ptr %.0364853, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0364857, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !60
   %.not40 = icmp eq ptr %24, null
-  br i1 %.not40, label %.critedge, label %.lr.ph54
+  br i1 %.not40, label %.critedge, label %.lr.ph58
 
-.lr.ph54:                                         ; preds = %.lr.ph, %22
+.lr.ph58:                                         ; preds = %.lr.ph, %22
   %25 = phi ptr [ %24, %22 ], [ %21, %.lr.ph ]
-  %.0364853 = phi ptr [ %23, %22 ], [ %2, %.lr.ph ]
+  %.0364857 = phi ptr [ %23, %22 ], [ %2, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1081,7 +1081,7 @@ define internal fastcc range(i32 0, 2) i32 @evp_pkey_ctx_setget_params_to_ctrl(p
   %.not41 = icmp eq ptr %26, null
   br i1 %.not41, label %32, label %27
 
-27:                                               ; preds = %.lr.ph54
+27:                                               ; preds = %.lr.ph58
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %.not42 = icmp eq ptr %29, null
@@ -1091,10 +1091,10 @@ define internal fastcc range(i32 0, 2) i32 @evp_pkey_ctx_setget_params_to_ctrl(p
   store i32 %31, ptr %15, align 4, !tbaa !33
   br label %32
 
-32:                                               ; preds = %27, %.lr.ph54
-  %.032 = phi ptr [ %spec.select43, %27 ], [ @default_fixup_args, %.lr.ph54 ]
+32:                                               ; preds = %27, %.lr.ph58
+  %.032 = phi ptr [ %spec.select43, %27 ], [ @default_fixup_args, %.lr.ph58 ]
   store ptr %0, ptr %4, align 8, !tbaa !36
-  store ptr %.0364853, ptr %16, align 8, !tbaa !37
+  store ptr %.0364857, ptr %16, align 8, !tbaa !37
   %33 = call i32 %.032(i32 noundef 7, ptr noundef %26, ptr noundef nonnull %4) #8
   %34 = icmp sgt i32 %33, 0
   %35 = load i32, ptr %10, align 8
@@ -1290,11 +1290,11 @@ define internal fastcc range(i32 -2, 2) i32 @default_check(i32 noundef %0, ptr n
   br i1 %.not13, label %.sink.split, label %26, !prof !56
 
 .sink.split:                                      ; preds = %20, %23, %19, %13, %16, %11, %4, %7, %3
-  %.sink1 = phi i32 [ 298, %3 ], [ 303, %7 ], [ 303, %4 ], [ 316, %11 ], [ 321, %16 ], [ 321, %13 ], [ 329, %19 ], [ 334, %23 ], [ 334, %20 ]
+  %.sink2 = phi i32 [ 298, %3 ], [ 303, %7 ], [ 303, %4 ], [ 316, %11 ], [ 321, %16 ], [ 321, %13 ], [ 329, %19 ], [ 334, %23 ], [ 334, %20 ]
   %.sink = phi i32 [ 147, %3 ], [ 786691, %7 ], [ 786691, %4 ], [ 147, %11 ], [ 786691, %16 ], [ 786691, %13 ], [ 147, %19 ], [ 786691, %23 ], [ 786691, %20 ]
   %.0.ph = phi i32 [ -2, %3 ], [ -1, %7 ], [ -1, %4 ], [ -2, %11 ], [ 0, %16 ], [ 0, %13 ], [ -2, %19 ], [ -1, %23 ], [ -1, %20 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink1, ptr noundef nonnull @__func__.default_check) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink2, ptr noundef nonnull @__func__.default_check) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef %.sink, ptr noundef null) #8
   br label %26
 
@@ -1669,9 +1669,9 @@ define internal i32 @fix_md(i32 noundef %0, ptr noundef readonly captures(addres
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %64, %51
-  %.sink52.i = phi i32 [ 1, %51 ], [ 0, %64 ]
+  %.sink56.i = phi i32 [ 1, %51 ], [ 0, %64 ]
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %.sink52.i, ptr %71, align 4, !tbaa !34
+  store i32 %.sink56.i, ptr %71, align 4, !tbaa !34
   br label %fix_cipher_md.exit
 
 fix_cipher_md.exit:                               ; preds = %3, %.critedge.thread.i, %46, %47, %60, %.sink.split.i
@@ -2761,9 +2761,9 @@ define internal i32 @fix_cipher(i32 noundef %0, ptr noundef readonly captures(ad
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %64, %51
-  %.sink52.i = phi i32 [ 1, %51 ], [ 0, %64 ]
+  %.sink56.i = phi i32 [ 1, %51 ], [ 0, %64 ]
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %.sink52.i, ptr %71, align 4, !tbaa !34
+  store i32 %.sink56.i, ptr %71, align 4, !tbaa !34
   br label %fix_cipher_md.exit
 
 fix_cipher_md.exit:                               ; preds = %3, %.critedge.thread.i, %46, %47, %60, %.sink.split.i
@@ -2895,17 +2895,17 @@ define internal fastcc i32 @fix_kdf_type(i32 noundef %0, ptr noundef readonly ca
   %37 = load i32, ptr %36, align 4, !tbaa !34
   %38 = load i32, ptr %3, align 8, !tbaa !79
   %39 = icmp eq i32 %37, %38
-  br i1 %39, label %._crit_edge, label %.lr.ph83
+  br i1 %39, label %._crit_edge, label %.lr.ph91
 
-40:                                               ; preds = %.lr.ph83
-  %41 = getelementptr inbounds nuw i8, ptr %.1506982, i64 16
+40:                                               ; preds = %.lr.ph91
+  %41 = getelementptr inbounds nuw i8, ptr %.1506990, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !79
   %43 = icmp eq i32 %37, %42
-  br i1 %43, label %._crit_edge, label %.lr.ph83, !llvm.loop !80
+  br i1 %43, label %._crit_edge, label %.lr.ph91, !llvm.loop !80
 
-.lr.ph83:                                         ; preds = %.lr.ph, %40
-  %.1506982 = phi ptr [ %41, %40 ], [ %3, %.lr.ph ]
-  %44 = getelementptr inbounds nuw i8, ptr %.1506982, i64 24
+.lr.ph91:                                         ; preds = %.lr.ph, %40
+  %.1506990 = phi ptr [ %41, %40 ], [ %3, %.lr.ph ]
+  %44 = getelementptr inbounds nuw i8, ptr %.1506990, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !77
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %.critedge, label %40, !llvm.loop !80
@@ -2989,8 +2989,8 @@ define internal fastcc i32 @fix_kdf_type(i32 noundef %0, ptr noundef readonly ca
   store i32 -2, ptr %77, align 4, !tbaa !34
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph83, %33, %56, %51, %52, %.thread, %76, %.loopexit, %.thread61, %20, %9, %4
-  %.052 = phi i32 [ %5, %4 ], [ 0, %9 ], [ %21, %20 ], [ %49, %.thread61 ], [ %.2, %.loopexit ], [ %49, %76 ], [ %23, %.thread ], [ %49, %52 ], [ %49, %51 ], [ %49, %56 ], [ -2, %33 ], [ -2, %.lr.ph83 ]
+.critedge:                                        ; preds = %.lr.ph91, %33, %56, %51, %52, %.thread, %76, %.loopexit, %.thread61, %20, %9, %4
+  %.052 = phi i32 [ %5, %4 ], [ 0, %9 ], [ %21, %20 ], [ %49, %.thread61 ], [ %.2, %.loopexit ], [ %49, %76 ], [ %23, %.thread ], [ %49, %52 ], [ %49, %51 ], [ %49, %56 ], [ -2, %33 ], [ -2, %.lr.ph91 ]
   ret i32 %.052
 }
 

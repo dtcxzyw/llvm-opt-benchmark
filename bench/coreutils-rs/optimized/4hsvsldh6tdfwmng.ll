@@ -125,10 +125,9 @@ define hidden void @_ZN3ini3Ini13read_from_opt17hb5012d60518b2bc9E(ptr noalias n
           to label %32 unwind label %11
 
 22:                                               ; preds = %13
-  %.sink1.i = sub nuw nsw i64 -9223372036854775806, %14
   %.sink.i = ptrtoint ptr %16 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink1.i, ptr %23, align 8
+  store i64 -9223372036854775807, ptr %23, align 8
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.i, ptr %.sroa.221.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -348,10 +347,9 @@ define hidden void @_ZN3ini3Ini18load_from_file_opt17hcc751519d237f041E(ptr noal
           to label %65 unwind label %44, !noalias !60
 
 55:                                               ; preds = %46
-  %.sink1.i.i = sub nuw nsw i64 -9223372036854775806, %47
   %.sink.i.i = ptrtoint ptr %49 to i64
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink1.i.i, ptr %56, align 8, !alias.scope !60, !noalias !70
+  store i64 -9223372036854775807, ptr %56, align 8, !alias.scope !60, !noalias !70
   %.sroa.221.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.i.i, ptr %.sroa.221.0..sroa_idx.i, align 8, !alias.scope !60, !noalias !70
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !60, !noalias !70

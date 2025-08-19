@@ -863,8 +863,8 @@ define hidden void @zim_SplFixedArray_fromArray(ptr noundef readonly captures(no
   br label %.critedge
 
 .lr.ph.preheader.i.i:                             ; preds = %20, %._crit_edge
-  %.0103.lcssa177 = phi i64 [ %.0103.lcssa, %._crit_edge ], [ 0, %20 ]
-  %57 = add nuw nsw i64 %.0103.lcssa177, 1
+  %.0103.lcssa184 = phi i64 [ %.0103.lcssa, %._crit_edge ], [ 0, %20 ]
+  %57 = add nuw nsw i64 %.0103.lcssa184, 1
   %58 = call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, -9223372036854775808) %57, i64 noundef 16, i64 noundef 0) #12
   %59 = getelementptr inbounds nuw %struct._zval_struct, ptr %58, i64 %57
   br label %.lr.ph.i.i
@@ -942,9 +942,9 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i
   br i1 %.not135, label %99, label %.sink.split
 
 .sink.split:                                      ; preds = %86, %89
-  %.sink191 = phi i32 [ %93, %89 ], [ %84, %86 ]
+  %.sink198 = phi i32 [ %93, %89 ], [ %84, %86 ]
   %.sink.in = phi ptr [ %91, %89 ], [ %.0123170, %86 ]
-  %95 = and i32 %.sink191, 65280
+  %95 = and i32 %.sink198, 65280
   %96 = icmp ne i32 %95, 0
   call void @llvm.assume(i1 %96)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !8
@@ -1025,7 +1025,7 @@ spl_fixedarray_init.exit140:                      ; preds = %.lr.ph.i.i137
 133:                                              ; preds = %130
   %134 = and i32 %131, 255
   %135 = icmp eq i32 %134, 10
-  br i1 %135, label %136, label %.sink.split182, !prof !56
+  br i1 %135, label %136, label %.sink.split189, !prof !56
 
 136:                                              ; preds = %133
   %137 = load ptr, ptr %.0108159, align 8, !tbaa !8
@@ -1034,22 +1034,22 @@ spl_fixedarray_init.exit140:                      ; preds = %.lr.ph.i.i137
   %140 = load i32, ptr %139, align 8
   %141 = and i32 %140, 65280
   %.not129 = icmp eq i32 %141, 0
-  br i1 %.not129, label %146, label %.sink.split182
+  br i1 %.not129, label %146, label %.sink.split189
 
-.sink.split182:                                   ; preds = %133, %136
-  %.sink194 = phi i32 [ %140, %136 ], [ %131, %133 ]
-  %.sink186.in = phi ptr [ %138, %136 ], [ %.0108159, %133 ]
-  %142 = and i32 %.sink194, 65280
+.sink.split189:                                   ; preds = %133, %136
+  %.sink201 = phi i32 [ %140, %136 ], [ %131, %133 ]
+  %.sink193.in = phi ptr [ %138, %136 ], [ %.0108159, %133 ]
+  %142 = and i32 %.sink201, 65280
   %143 = icmp ne i32 %142, 0
   call void @llvm.assume(i1 %143)
-  %.sink186 = load ptr, ptr %.sink186.in, align 8, !tbaa !8
-  %144 = load i32, ptr %.sink186, align 4, !tbaa !58
+  %.sink193 = load ptr, ptr %.sink193.in, align 8, !tbaa !8
+  %144 = load i32, ptr %.sink193, align 4, !tbaa !58
   %145 = add i32 %144, 1
-  store i32 %145, ptr %.sink186, align 4, !tbaa !58
+  store i32 %145, ptr %.sink193, align 4, !tbaa !58
   br label %146
 
-146:                                              ; preds = %.sink.split182, %130, %136
-  %.0107 = phi ptr [ %138, %136 ], [ %.0108159, %130 ], [ %.sink186.in, %.sink.split182 ]
+146:                                              ; preds = %.sink.split189, %130, %136
+  %.0107 = phi ptr [ %138, %136 ], [ %.0108159, %130 ], [ %.sink193.in, %.sink.split189 ]
   %147 = getelementptr inbounds %struct._zval_struct, ptr %110, i64 %.0114157
   %148 = load ptr, ptr %.0107, align 8, !tbaa !8
   %149 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
@@ -1429,9 +1429,9 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %22
   br i1 %.not21, label %47, label %.sink.split
 
 .sink.split:                                      ; preds = %34, %37
-  %.sink28 = phi i32 [ %41, %37 ], [ %32, %34 ]
+  %.sink30 = phi i32 [ %41, %37 ], [ %32, %34 ]
   %.sink.in = phi ptr [ %39, %37 ], [ %29, %34 ]
-  %43 = and i32 %.sink28, 65280
+  %43 = and i32 %.sink30, 65280
   %44 = icmp ne i32 %43, 0
   call void @llvm.assume(i1 %44)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !8
@@ -1555,9 +1555,9 @@ define internal fastcc void @spl_fixedarray_object_write_dimension_helper(ptr no
   br i1 %.not33, label %40, label %.sink.split
 
 .sink.split:                                      ; preds = %27, %30
-  %.sink38 = phi i32 [ %34, %30 ], [ %25, %27 ]
+  %.sink40 = phi i32 [ %34, %30 ], [ %25, %27 ]
   %.sink.in = phi ptr [ %32, %30 ], [ %2, %27 ]
-  %36 = and i32 %.sink38, 65280
+  %36 = and i32 %.sink40, 65280
   %37 = icmp ne i32 %36, 0
   tail call void @llvm.assume(i1 %37)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !8
@@ -1974,8 +1974,8 @@ spl_fixedarray_object_has_dimension.exit:         ; preds = %24
   %28 = load ptr, ptr %27, align 8, !tbaa !57
   %29 = getelementptr inbounds nuw %struct._zval_struct, ptr %28, i64 %21, i32 1
   %30 = load i8, ptr %29, align 8, !tbaa !8
-  %.not26 = icmp eq i8 %30, 1
-  br i1 %.not26, label %spl_fixedarray_object_read_dimension_helper.exit, label %31
+  %.not33 = icmp eq i8 %30, 1
+  br i1 %.not33, label %spl_fixedarray_object_read_dimension_helper.exit, label %31
 
 31:                                               ; preds = %19, %spl_fixedarray_object_has_dimension.exit, %4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16

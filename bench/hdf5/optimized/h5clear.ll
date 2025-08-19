@@ -190,11 +190,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %parse_command_line.exit
 
 parse_command_line.exitthread-pre-split:          ; preds = %28, %18, %16
-  %.pr57 = load ptr, ptr @fname_g, align 8
+  %.pr65 = load ptr, ptr @fname_g, align 8
   br label %parse_command_line.exit
 
 parse_command_line.exit:                          ; preds = %parse_command_line.exitthread-pre-split, %39
-  %44 = phi ptr [ %.pr57, %parse_command_line.exitthread-pre-split ], [ %43, %39 ]
+  %44 = phi ptr [ %.pr65, %parse_command_line.exitthread-pre-split ], [ %43, %39 ]
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread50.thread, label %46
 
@@ -420,8 +420,8 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
   br label %.thread50.thread
 
 .thread50.thread:                                 ; preds = %parse_command_line.exit, %138, %.thread50
-  %.0335562 = phi i64 [ %.03355.ph, %138 ], [ %.03355.ph, %.thread50 ], [ -1, %parse_command_line.exit ]
-  %.0325661 = phi i64 [ %.03256.ph, %138 ], [ %.03256.ph, %.thread50 ], [ -1, %parse_command_line.exit ]
+  %.0335570 = phi i64 [ %.03355.ph, %138 ], [ %.03355.ph, %.thread50 ], [ -1, %parse_command_line.exit ]
+  %.0325669 = phi i64 [ %.03256.ph, %138 ], [ %.03256.ph, %.thread50 ], [ -1, %parse_command_line.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -441,8 +441,8 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
   br label %147
 
 147:                                              ; preds = %144, %141
-  %148 = call i32 @H5Pclose(i64 noundef %.0335562) #11
-  %149 = call i32 @H5Fclose(i64 noundef %.0325661) #11
+  %148 = call i32 @H5Pclose(i64 noundef %.0335570) #11
+  %149 = call i32 @H5Fclose(i64 noundef %.0325669) #11
   %150 = load i32, ptr %7, align 4, !tbaa !15
   %.not44 = icmp eq i32 %150, 0
   %151 = load ptr, ptr %8, align 8, !tbaa !25

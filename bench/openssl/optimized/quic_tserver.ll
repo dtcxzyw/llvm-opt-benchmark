@@ -67,12 +67,12 @@ define ptr @ossl_quic_tserver_new(ptr noundef readonly captures(none) %0, ptr no
 
 32:                                               ; preds = %.thread, %24
   %33 = phi ptr [ %23, %.thread ], [ %30, %24 ]
-  %.sink82 = phi ptr [ %22, %.thread ], [ %29, %24 ]
+  %.sink88 = phi ptr [ %22, %.thread ], [ %29, %24 ]
   %.not69 = icmp eq ptr %1, null
   br i1 %.not69, label %37, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call i32 @SSL_CTX_use_certificate_file(ptr noundef nonnull %.sink82, ptr noundef nonnull %1, i32 noundef 1) #6
+  %35 = tail call i32 @SSL_CTX_use_certificate_file(ptr noundef nonnull %.sink88, ptr noundef nonnull %1, i32 noundef 1) #6
   %36 = icmp slt i32 %35, 1
   br i1 %36, label %92, label %._crit_edge79
 
@@ -81,7 +81,7 @@ define ptr @ossl_quic_tserver_new(ptr noundef readonly captures(none) %0, ptr no
   br label %37
 
 37:                                               ; preds = %._crit_edge79, %32
-  %.pre78 = phi ptr [ %.pre78.pre, %._crit_edge79 ], [ %.sink82, %32 ]
+  %.pre78 = phi ptr [ %.pre78.pre, %._crit_edge79 ], [ %.sink88, %32 ]
   %.not70 = icmp eq ptr %2, null
   br i1 %.not70, label %41, label %38
 

@@ -95,7 +95,7 @@ define dso_local i32 @fsnotify_conn_mask(ptr noundef readonly captures(none) %0)
   br label %15
 
 6:                                                ; preds = %1
-  switch i16 %3, label %default.unreachable [
+  switch i16 %3, label %default.unreachable1 [
     i16 0, label %9
     i16 1, label %7
     i16 2, label %8
@@ -107,7 +107,7 @@ define dso_local i32 @fsnotify_conn_mask(ptr noundef readonly captures(none) %0)
 8:                                                ; preds = %6
   br label %9
 
-default.unreachable:                              ; preds = %6
+default.unreachable1:                             ; preds = %6
   unreachable
 
 9:                                                ; preds = %6, %7, %8
@@ -271,7 +271,7 @@ define internal fastcc ptr @__fsnotify_recalc_mask(ptr noundef nonnull %0) unnam
 .split5.us:                                       ; preds = %73, %.split5.us.loopexit, %9
   %82 = phi i1 [ false, %9 ], [ %81, %.split5.us.loopexit ], [ false, %73 ]
   %83 = phi i32 [ 0, %9 ], [ %45, %.split5.us.loopexit ], [ %74, %73 ]
-  switch i16 %.fr7, label %default.unreachable [
+  switch i16 %.fr7, label %default.unreachable13 [
     i16 0, label %86
     i16 1, label %84
     i16 2, label %85
@@ -283,7 +283,7 @@ define internal fastcc ptr @__fsnotify_recalc_mask(ptr noundef nonnull %0) unnam
 85:                                               ; preds = %.split5.us
   br label %86
 
-default.unreachable:                              ; preds = %.split5.us
+default.unreachable13:                            ; preds = %.split5.us
   unreachable
 
 86:                                               ; preds = %.split5.us, %84, %85
@@ -1098,7 +1098,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fsnotify_add_mark_locked(ptr nou
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %1, ptr %63, align 8
   store i16 0, ptr %61, align 2
-  switch i16 %49, label %default.unreachable [
+  switch i16 %49, label %default.unreachable55 [
     i16 0, label %64
     i16 1, label %66
     i16 2, label %68
@@ -1112,7 +1112,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fsnotify_add_mark_locked(ptr nou
   %67 = load ptr, ptr %51, align 8
   br label %68
 
-default.unreachable:                              ; preds = %59
+default.unreachable55:                            ; preds = %59
   unreachable
 
 68:                                               ; preds = %59, %66, %64

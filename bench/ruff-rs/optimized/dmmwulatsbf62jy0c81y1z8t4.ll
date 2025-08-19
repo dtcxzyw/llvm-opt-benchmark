@@ -2059,7 +2059,7 @@ _ZN5serde2de7Visitor12visit_string17hca867d1c9fe40881E.exit.i.i.i.i: ; preds = %
           to label %.body.thread.i unwind label %90, !noalias !148
 
 .sink.split.i.i:                                  ; preds = %80, %56
-  %.sink14.i.i = phi i32 [ 0, %56 ], [ %73, %80 ]
+  %.sink20.i.i = phi i32 [ 0, %56 ], [ %73, %80 ]
   %.sink.i.i = phi i32 [ 0, %56 ], [ %78, %80 ]
   %.sroa.614.0.copyload.i.sink.i.i = phi i8 [ %54, %56 ], [ %.sroa.614.0.copyload.i.i.i, %80 ]
   %88 = load ptr, ptr %9, align 8, !noalias !153, !noundef !4
@@ -2111,7 +2111,7 @@ _ZN5serde2de7Visitor12visit_string17hca867d1c9fe40881E.exit.i.i.i.i: ; preds = %
 100:                                              ; preds = %.sink.split.i.i, %62, %59, %57
   %.sroa.6.sroa.6.sroa.0.1.i = phi i56 [ %.sroa.6.sroa.6.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.6.sroa.0.0.i, %57 ], [ %.sroa.6.sroa.6.sroa.0.0.i, %62 ], [ %.sroa.6.sroa.6.sroa.0.0.i, %59 ]
   %.sroa.6.sroa.0.1.i = phi i8 [ %.sroa.6.sroa.0.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.0.0.i, %57 ], [ %.sroa.6.sroa.0.0.i, %62 ], [ %.sroa.6.sroa.0.0.i, %59 ]
-  %.sroa.10.sroa.6.1.i = phi i32 [ %.sink14.i.i, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.i, %57 ], [ %.sroa.10.sroa.6.0.i, %62 ], [ %.sroa.10.sroa.6.0.i, %59 ]
+  %.sroa.10.sroa.6.1.i = phi i32 [ %.sink20.i.i, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.i, %57 ], [ %.sroa.10.sroa.6.0.i, %62 ], [ %.sroa.10.sroa.6.0.i, %59 ]
   %.sroa.10.sroa.0.1.i = phi i64 [ 1, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.in.in.i, %57 ], [ %.sroa.10.sroa.6.0.in.in.i, %62 ], [ %.sroa.10.sroa.6.0.in.in.i, %59 ]
   %.sroa.13.sroa.6.sroa.0.1.i = phi i24 [ %.sroa.13.sroa.6.0.extract.trunc3.i, %.sink.split.i.i ], [ %.sroa.13.sroa.6.sroa.0.0.i, %57 ], [ %.sroa.13.sroa.6.sroa.0.0.i, %62 ], [ %.sroa.13.sroa.6.sroa.0.0.i, %59 ]
   %.sroa.13.sroa.0.1.i = phi i8 [ %.sroa.13.sroa.0.0.extract.trunc1.i, %.sink.split.i.i ], [ %.sroa.13.sroa.0.0.i, %57 ], [ %.sroa.13.sroa.0.0.i, %62 ], [ %.sroa.13.sroa.0.0.i, %59 ]
@@ -3057,7 +3057,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h5eea3e258194
           to label %.body.thread.i unwind label %83, !noalias !256
 
 .sink.split.i.i:                                  ; preds = %73, %49
-  %.sink14.i.i = phi i32 [ 0, %49 ], [ %66, %73 ]
+  %.sink20.i.i = phi i32 [ 0, %49 ], [ %66, %73 ]
   %.sink.i.i = phi i32 [ 0, %49 ], [ %71, %73 ]
   %.sroa.614.0.copyload.i.sink.i.i = phi i8 [ %47, %49 ], [ %.sroa.614.0.copyload.i.i.i, %73 ]
   %81 = load ptr, ptr %9, align 8, !noalias !261, !noundef !4
@@ -3109,7 +3109,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h5eea3e258194
 93:                                               ; preds = %.sink.split.i.i, %55, %52, %50
   %.sroa.6.sroa.6.sroa.0.1.i = phi i56 [ %.sroa.6.sroa.6.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.6.sroa.0.0.i, %50 ], [ %.sroa.6.sroa.6.sroa.0.0.i, %55 ], [ %.sroa.6.sroa.6.sroa.0.0.i, %52 ]
   %.sroa.6.sroa.0.1.i = phi i8 [ %.sroa.6.sroa.0.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.0.0.i, %50 ], [ %.sroa.6.sroa.0.0.i, %55 ], [ %.sroa.6.sroa.0.0.i, %52 ]
-  %.sroa.10.sroa.6.1.i = phi i32 [ %.sink14.i.i, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.i, %50 ], [ %.sroa.10.sroa.6.0.i, %55 ], [ %.sroa.10.sroa.6.0.i, %52 ]
+  %.sroa.10.sroa.6.1.i = phi i32 [ %.sink20.i.i, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.i, %50 ], [ %.sroa.10.sroa.6.0.i, %55 ], [ %.sroa.10.sroa.6.0.i, %52 ]
   %.sroa.10.sroa.0.1.i = phi i64 [ 1, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.in.in.i, %50 ], [ %.sroa.10.sroa.6.0.in.in.i, %55 ], [ %.sroa.10.sroa.6.0.in.in.i, %52 ]
   %.sroa.13.sroa.6.sroa.0.1.i = phi i24 [ %.sroa.13.sroa.6.0.extract.trunc3.i, %.sink.split.i.i ], [ %.sroa.13.sroa.6.sroa.0.0.i, %50 ], [ %.sroa.13.sroa.6.sroa.0.0.i, %55 ], [ %.sroa.13.sroa.6.sroa.0.0.i, %52 ]
   %.sroa.13.sroa.0.1.i = phi i8 [ %.sroa.13.sroa.0.0.extract.trunc1.i, %.sink.split.i.i ], [ %.sroa.13.sroa.0.0.i, %50 ], [ %.sroa.13.sroa.0.0.i, %55 ], [ %.sroa.13.sroa.0.0.i, %52 ]
@@ -5129,7 +5129,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hdb4f5e8cebdb
           to label %.body.thread.i unwind label %83, !noalias !495
 
 .sink.split.i.i:                                  ; preds = %73, %49
-  %.sink14.i.i = phi i32 [ 0, %49 ], [ %66, %73 ]
+  %.sink20.i.i = phi i32 [ 0, %49 ], [ %66, %73 ]
   %.sink.i.i = phi i32 [ 0, %49 ], [ %71, %73 ]
   %.sroa.614.0.copyload.i.sink.i.i = phi i8 [ %47, %49 ], [ %.sroa.614.0.copyload.i.i.i, %73 ]
   %81 = load ptr, ptr %9, align 8, !noalias !500, !noundef !4
@@ -5181,7 +5181,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hdb4f5e8cebdb
 93:                                               ; preds = %.sink.split.i.i, %55, %52, %50
   %.sroa.6.sroa.6.sroa.0.1.i = phi i56 [ %.sroa.6.sroa.6.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.6.sroa.0.0.i, %50 ], [ %.sroa.6.sroa.6.sroa.0.0.i, %55 ], [ %.sroa.6.sroa.6.sroa.0.0.i, %52 ]
   %.sroa.6.sroa.0.1.i = phi i8 [ %.sroa.6.sroa.0.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.0.0.i, %50 ], [ %.sroa.6.sroa.0.0.i, %55 ], [ %.sroa.6.sroa.0.0.i, %52 ]
-  %.sroa.10.sroa.6.1.i = phi i32 [ %.sink14.i.i, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.i, %50 ], [ %.sroa.10.sroa.6.0.i, %55 ], [ %.sroa.10.sroa.6.0.i, %52 ]
+  %.sroa.10.sroa.6.1.i = phi i32 [ %.sink20.i.i, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.i, %50 ], [ %.sroa.10.sroa.6.0.i, %55 ], [ %.sroa.10.sroa.6.0.i, %52 ]
   %.sroa.10.sroa.0.1.i = phi i64 [ 1, %.sink.split.i.i ], [ %.sroa.10.sroa.6.0.in.in.i, %50 ], [ %.sroa.10.sroa.6.0.in.in.i, %55 ], [ %.sroa.10.sroa.6.0.in.in.i, %52 ]
   %.sroa.13.sroa.6.sroa.0.1.i = phi i24 [ %.sroa.13.sroa.6.0.extract.trunc3.i, %.sink.split.i.i ], [ %.sroa.13.sroa.6.sroa.0.0.i, %50 ], [ %.sroa.13.sroa.6.sroa.0.0.i, %55 ], [ %.sroa.13.sroa.6.sroa.0.0.i, %52 ]
   %.sroa.13.sroa.0.1.i = phi i8 [ %.sroa.13.sroa.0.0.extract.trunc1.i, %.sink.split.i.i ], [ %.sroa.13.sroa.0.0.i, %50 ], [ %.sroa.13.sroa.0.0.i, %55 ], [ %.sroa.13.sroa.0.0.i, %52 ]
@@ -5487,7 +5487,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he4f67017f629
           to label %.body.thread.i unwind label %86, !noalias !526
 
 .sink.split.i.i:                                  ; preds = %76, %51
-  %.sink14.i.i = phi i32 [ 0, %51 ], [ %69, %76 ]
+  %.sink20.i.i = phi i32 [ 0, %51 ], [ %69, %76 ]
   %.sink.i.i = phi i32 [ 0, %51 ], [ %74, %76 ]
   %.sroa.617.0.copyload.i.sink.i.i = phi i8 [ %47, %51 ], [ %.sroa.617.0.copyload.i.i.i, %76 ]
   %.sroa.718.0.copyload.i.sink.i.i = phi i8 [ %49, %51 ], [ %.sroa.718.0.copyload.i.i.i, %76 ]
@@ -5546,7 +5546,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17he4f67017f629
   %.sroa.6.sroa.7.sroa.0.1.i = phi i48 [ %.sroa.6.sroa.7.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.7.sroa.0.0.i, %52 ], [ %.sroa.6.sroa.7.sroa.0.0.i, %57 ], [ %.sroa.6.sroa.7.sroa.0.0.i, %54 ]
   %.sroa.6.sroa.6.1.i = phi i8 [ %.sroa.6.sroa.6.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.6.0.i, %52 ], [ %.sroa.6.sroa.6.0.i, %57 ], [ %.sroa.6.sroa.6.0.i, %54 ]
   %.sroa.6.sroa.0.1.i = phi i8 [ %.sroa.6.sroa.0.0.extract.trunc.i, %.sink.split.i.i ], [ %.sroa.6.sroa.0.0.i, %52 ], [ %.sroa.6.sroa.0.0.i, %57 ], [ %.sroa.6.sroa.0.0.i, %54 ]
-  %.sroa.11.sroa.6.1.i = phi i32 [ %.sink14.i.i, %.sink.split.i.i ], [ %.sroa.11.sroa.6.0.i, %52 ], [ %.sroa.11.sroa.6.0.i, %57 ], [ %.sroa.11.sroa.6.0.i, %54 ]
+  %.sroa.11.sroa.6.1.i = phi i32 [ %.sink20.i.i, %.sink.split.i.i ], [ %.sroa.11.sroa.6.0.i, %52 ], [ %.sroa.11.sroa.6.0.i, %57 ], [ %.sroa.11.sroa.6.0.i, %54 ]
   %.sroa.11.sroa.0.1.i = phi i64 [ 1, %.sink.split.i.i ], [ %.sroa.11.sroa.6.0.in.in.i, %52 ], [ %.sroa.11.sroa.6.0.in.in.i, %57 ], [ %.sroa.11.sroa.6.0.in.in.i, %54 ]
   %.sroa.14.sroa.7.1.i = phi i16 [ %.sroa.14.sroa.7.0.extract.trunc5.i, %.sink.split.i.i ], [ %.sroa.14.sroa.7.0.i, %52 ], [ %.sroa.14.sroa.7.0.i, %57 ], [ %.sroa.14.sroa.7.0.i, %54 ]
   %.sroa.14.sroa.6.1.i = phi i8 [ %.sroa.14.sroa.6.0.extract.trunc3.i, %.sink.split.i.i ], [ %.sroa.14.sroa.6.0.i, %52 ], [ %.sroa.14.sroa.6.0.i, %57 ], [ %.sroa.14.sroa.6.0.i, %54 ]
@@ -14619,7 +14619,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %208, %.no
   invoke void @"_ZN4core3ptr59drop_in_place$LT$ruff_db..system..walk_directory..Error$GT$17ha3d3ba465f0f9dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %20) #26
           to label %.thread unwind label %212
 
-214:                                              ; preds = %.invoke178, %376, %327, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i128, %252, %248, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i123, %236, %232, %221, %39
+214:                                              ; preds = %.invoke182, %376, %327, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i128, %252, %248, %_ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i123, %236, %232, %221, %39
   %215 = landingpad { ptr, i32 }
           cleanup
   br label %.body101
@@ -14950,9 +14950,9 @@ _ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit.i128: ; preds = %.noexc1
 _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i146: ; preds = %329, %.noexc147, %323, %317
   %330 = atomicrmw xchg ptr %274, i32 0 release, align 4
   %331 = icmp eq i32 %330, 2
-  br i1 %331, label %.invoke178, label %"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$alloc..vec..Vec$LT$ty_project..IOErrorDiagnostic$GT$$GT$$GT$17heb3afdd5b79e45f5E.exit", !prof !34
+  br i1 %331, label %.invoke182, label %"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$alloc..vec..Vec$LT$ty_project..IOErrorDiagnostic$GT$$GT$$GT$17heb3afdd5b79e45f5E.exit", !prof !34
 
-"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$alloc..vec..Vec$LT$ty_project..IOErrorDiagnostic$GT$$GT$$GT$17heb3afdd5b79e45f5E.exit": ; preds = %.invoke178, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i152, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i146
+"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$alloc..vec..Vec$LT$ty_project..IOErrorDiagnostic$GT$$GT$$GT$17heb3afdd5b79e45f5E.exit": ; preds = %.invoke182, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i152, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i146
   call void @"_ZN4core3ptr59drop_in_place$LT$ruff_db..system..walk_directory..Error$GT$17ha3d3ba465f0f9dbeE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %135
@@ -15074,9 +15074,9 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i146: ; preds = %329, %
 _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i152: ; preds = %378, %.noexc153, %372, %366
   %379 = atomicrmw xchg ptr %347, i32 0 release, align 4
   %380 = icmp eq i32 %379, 2
-  br i1 %380, label %.invoke178, label %"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$alloc..vec..Vec$LT$ty_project..IOErrorDiagnostic$GT$$GT$$GT$17heb3afdd5b79e45f5E.exit", !prof !34
+  br i1 %380, label %.invoke182, label %"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$alloc..vec..Vec$LT$ty_project..IOErrorDiagnostic$GT$$GT$$GT$17heb3afdd5b79e45f5E.exit", !prof !34
 
-.invoke178:                                       ; preds = %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i152, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i146
+.invoke182:                                       ; preds = %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i152, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i146
   %381 = phi ptr [ %274, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i146 ], [ %347, %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i152 ]
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h0439a4c6ca014734E(ptr noundef nonnull align 4 %381)
           to label %"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$alloc..vec..Vec$LT$ty_project..IOErrorDiagnostic$GT$$GT$$GT$17heb3afdd5b79e45f5E.exit" unwind label %214
@@ -15424,7 +15424,7 @@ define hidden { i64, ptr } @_ZN10ty_project5catch17h4dd2cf577f2e9964E(ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %42, i64 48, i1 false)
   %105 = load i64, ptr %24, align 8, !range !67, !noundef !4
-  switch i64 %105, label %default.unreachable155 [
+  switch i64 %105, label %default.unreachable157 [
     i64 1, label %109
     i64 2, label %111
     i64 0, label %112
@@ -15437,7 +15437,7 @@ define hidden { i64, ptr } @_ZN10ty_project5catch17h4dd2cf577f2e9964E(ptr nounde
   %.not67 = icmp eq ptr %108, null
   br i1 %.not67, label %155, label %119
 
-default.unreachable155:                           ; preds = %104
+default.unreachable157:                           ; preds = %104
   unreachable
 
 109:                                              ; preds = %104

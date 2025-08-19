@@ -157,23 +157,23 @@ define dso_local void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr
   %scevgep = getelementptr i8, ptr %4, i64 %7
   %8 = load i8, ptr %4, align 1, !tbaa !8
   %9 = add i8 %8, -48
-  %or.cond48 = icmp ult i8 %9, 10
-  br i1 %or.cond48, label %.lr.ph51, label %.lr.ph._crit_edge
+  %or.cond50 = icmp ult i8 %9, 10
+  br i1 %or.cond50, label %.lr.ph53, label %.lr.ph._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph51
-  %10 = mul i32 %.0133849, 10
+.lr.ph:                                           ; preds = %.lr.ph53
+  %10 = mul i32 %.0133851, 10
   %11 = add i32 %10, -48
   %12 = zext nneg i8 %25 to i32
   %13 = add i32 %11, %12
   %14 = load i8, ptr %26, align 1, !tbaa !8
   %15 = add i8 %14, -48
   %or.cond = icmp ult i8 %15, 10
-  br i1 %or.cond, label %.lr.ph51, label %.lr.ph._crit_edge, !llvm.loop !9
+  br i1 %or.cond, label %.lr.ph53, label %.lr.ph._crit_edge, !llvm.loop !9
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01338.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
   %.02036.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %26, %.lr.ph ]
-  br i1 %or.cond48, label %.thread, label %.loopexit
+  br i1 %or.cond50, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %.lr.ph._crit_edge
   %16 = ptrtoint ptr %.02036.lcssa to i64
@@ -192,16 +192,16 @@ define dso_local void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr
   store i8 %24, ptr %22, align 4
   br label %30
 
-.lr.ph51:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph53:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %25 = phi i8 [ %14, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.0203650 = phi ptr [ %26, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %.0133849 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0203650, i64 1
+  %.0203652 = phi ptr [ %26, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %.0133851 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %26 = getelementptr inbounds nuw i8, ptr %.0203652, i64 1
   %.not = icmp eq ptr %26, %2
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.lr.ph51, %3, %.lr.ph._crit_edge
-  %.02034 = phi ptr [ %.02036.lcssa, %.lr.ph._crit_edge ], [ %4, %3 ], [ %scevgep, %.lr.ph51 ]
+.loopexit:                                        ; preds = %.lr.ph53, %3, %.lr.ph._crit_edge
+  %.02034 = phi ptr [ %.02036.lcssa, %.lr.ph._crit_edge ], [ %4, %3 ], [ %scevgep, %.lr.ph53 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %28 = load i8, ptr %27, align 4
@@ -642,7 +642,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgP
   %7 = load i8, ptr %6, align 1, !tbaa !8, !noalias !41
   %8 = add i8 %7, -48
   %or.cond.i41 = icmp ult i8 %8, 10
-  br i1 %or.cond.i41, label %.lr.ph, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
+  br i1 %or.cond.i41, label %.lr.ph, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread53
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %9 = mul i32 %.01338.i42, 10
@@ -671,12 +671,12 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge: ; preds =
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %19) #17
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread53
 
 _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %.02036.i43, i64 2
   %24 = icmp eq i8 %13, 36
-  br i1 %24, label %25, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
+  br i1 %24, label %25, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread53
 
 25:                                               ; preds = %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread
   %26 = ptrtoint ptr %23 to i64
@@ -695,7 +695,7 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.l
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %29) #17
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread53
 
 38:                                               ; preds = %25
   %39 = add i32 %12, -1
@@ -704,9 +704,9 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.l
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i8 1, ptr %41, align 8, !tbaa !50
   store ptr %23, ptr %3, align 8, !tbaa !3
-  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50
+  br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread53
 
-_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread50: ; preds = %.lr.ph.preheader.i, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread, %38, %34, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge
+_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread53: ; preds = %.lr.ph.preheader.i, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread, %38, %34, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge
   %.0 = phi i1 [ true, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge ], [ true, %34 ], [ false, %38 ], [ false, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread ], [ false, %.lr.ph.preheader.i ]
   ret i1 %.0
 }
@@ -960,7 +960,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
   %66 = icmp eq i8 %65, 50
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %spec.select = select i1 %66, ptr %67, ptr %50
-  %spec.select69 = select i1 %66, i32 10, i32 11
+  %spec.select77 = select i1 %66, i32 10, i32 11
   br label %.thread.sink.split
 
 68:                                               ; preds = %5
@@ -969,7 +969,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
 
 .thread.sink.split:                               ; preds = %64, %49, %51, %62, %.thread67, %27, %29, %31, %33, %35, %47, %59, %68, %18, %12, %25
   %.sink = phi ptr [ %26, %25 ], [ %13, %12 ], [ %19, %18 ], [ %69, %68 ], [ %60, %59 ], [ %48, %47 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %50, %.thread67 ], [ %50, %62 ], [ %50, %51 ], [ %50, %49 ], [ %spec.select, %64 ]
-  %.050.ph = phi i32 [ 5, %25 ], [ 1, %12 ], [ 3, %18 ], [ 16, %68 ], [ 12, %59 ], [ 15, %47 ], [ 6, %35 ], [ 13, %33 ], [ 9, %31 ], [ 8, %29 ], [ 7, %27 ], [ 11, %.thread67 ], [ 11, %62 ], [ 11, %51 ], [ 11, %49 ], [ %spec.select69, %64 ]
+  %.050.ph = phi i32 [ 5, %25 ], [ 1, %12 ], [ 3, %18 ], [ 16, %68 ], [ 12, %59 ], [ 15, %47 ], [ 6, %35 ], [ 13, %33 ], [ 9, %31 ], [ 8, %29 ], [ 7, %27 ], [ 11, %.thread67 ], [ 11, %62 ], [ 11, %51 ], [ 11, %49 ], [ %spec.select77, %64 ]
   store ptr %.sink, ptr %1, align 8, !tbaa !3
   br label %.thread
 
@@ -2931,8 +2931,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSp
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !450
   %10 = add i32 %.pre, -13
   %spec.select.i = icmp ult i32 %10, 8
-  %or.cond34 = select i1 %.not15, i1 %spec.select.i, i1 false
-  br i1 %or.cond34, label %11, label %._crit_edge
+  %or.cond36 = select i1 %.not15, i1 %spec.select.i, i1 false
+  br i1 %or.cond36, label %11, label %._crit_edge
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -2963,8 +2963,8 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %16
   %26 = icmp ult i32 %switch.tableidx, 28
   %switch.shifted = lshr i32 185597953, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  %or.cond46 = select i1 %26, i1 %switch.lobit, i1 false
-  br i1 %or.cond46, label %_ZNK4llvm6Triple4isPSEv.exit, label %27
+  %or.cond48 = select i1 %26, i1 %switch.lobit, i1 false
+  br i1 %or.cond48, label %_ZNK4llvm6Triple4isPSEv.exit, label %27
 
 27:                                               ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %16, %3, %3, %3, %3, %3, %3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3121,7 +3121,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
 
 85:                                               ; preds = %81
   %86 = icmp ult i32 %83, 31
-  br i1 %86, label %switch.lookup35, label %_ZNK4llvm6Triple4isPSEv.exit
+  br i1 %86, label %switch.lookup37, label %_ZNK4llvm6Triple4isPSEv.exit
 
 87:                                               ; preds = %78
   br label %_ZNK4llvm6Triple4isPSEv.exit
@@ -3130,13 +3130,13 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %90 = load i32, ptr %89, align 8, !tbaa !450
   %91 = icmp ult i32 %90, 40
-  br i1 %91, label %switch.lookup36, label %_ZNK4llvm6Triple4isPSEv.exit
+  br i1 %91, label %switch.lookup38, label %_ZNK4llvm6Triple4isPSEv.exit
 
 92:                                               ; preds = %3
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %94 = load i32, ptr %93, align 8, !tbaa !450
   %95 = icmp ult i32 %94, 40
-  br i1 %95, label %switch.lookup41, label %_ZNK4llvm6Triple4isPSEv.exit
+  br i1 %95, label %switch.lookup43, label %_ZNK4llvm6Triple4isPSEv.exit
 
 96:                                               ; preds = %3, %3, %3
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3198,26 +3198,26 @@ _ZNK4llvm6Triple5isPS4Ev.exit.i21:                ; preds = %69
 126:                                              ; preds = %3
   unreachable
 
-switch.lookup35:                                  ; preds = %85
+switch.lookup37:                                  ; preds = %85
   %switch.cast = trunc nuw i32 %83 to i31
   %switch.downshift = lshr i31 335527903, %switch.cast
   %switch.masked = trunc i31 %switch.downshift to i1
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-switch.lookup36:                                  ; preds = %88
-  %switch.cast37 = zext nneg i32 %90 to i40
-  %switch.downshift39 = lshr i40 -549686607872, %switch.cast37
-  %switch.masked40 = trunc i40 %switch.downshift39 to i1
+switch.lookup38:                                  ; preds = %88
+  %switch.cast39 = zext nneg i32 %90 to i40
+  %switch.downshift41 = lshr i40 -549686607872, %switch.cast39
+  %switch.masked42 = trunc i40 %switch.downshift41 to i1
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-switch.lookup41:                                  ; preds = %92
-  %switch.cast42 = zext nneg i32 %94 to i40
-  %switch.downshift44 = lshr i40 -549653053438, %switch.cast42
-  %switch.masked45 = trunc i40 %switch.downshift44 to i1
+switch.lookup43:                                  ; preds = %92
+  %switch.cast44 = zext nneg i32 %94 to i40
+  %switch.downshift46 = lshr i40 -549653053438, %switch.cast44
+  %switch.masked47 = trunc i40 %switch.downshift46 to i1
   br label %_ZNK4llvm6Triple4isPSEv.exit
 
-_ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %92, %switch.lookup41, %88, %switch.lookup36, %85, %switch.lookup35, %55, %81, %123, %114, %108, %99, %_ZNK4llvm6Triple5isPS4Ev.exit.i21, %69, %_ZNK4llvm6Triple5isPS4Ev.exit.i, %34, %111, %96, %78, %78, %78, %78, %78, %78, %78, %78, %65, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %62, %43, %47, %30, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %._crit_edge, %3, %87, %77, %42, %11
-  %.0 = phi i1 [ %14, %11 ], [ false, %42 ], [ false, %77 ], [ false, %87 ], [ true, %3 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %30 ], [ false, %43 ], [ %50, %47 ], [ true, %62 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %65 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ false, %96 ], [ false, %111 ], [ false, %34 ], [ %spec.select.i17, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ false, %69 ], [ %spec.select.i22, %_ZNK4llvm6Triple5isPS4Ev.exit.i21 ], [ %110, %108 ], [ true, %99 ], [ %125, %123 ], [ true, %114 ], [ false, %81 ], [ %or.cond32.not, %55 ], [ %switch.masked, %switch.lookup35 ], [ true, %85 ], [ %switch.masked40, %switch.lookup36 ], [ false, %88 ], [ %switch.masked45, %switch.lookup41 ], [ false, %92 ], [ true, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread ]
+_ZNK4llvm6Triple4isPSEv.exit:                     ; preds = %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread, %92, %switch.lookup43, %88, %switch.lookup38, %85, %switch.lookup37, %55, %81, %123, %114, %108, %99, %_ZNK4llvm6Triple5isPS4Ev.exit.i21, %69, %_ZNK4llvm6Triple5isPS4Ev.exit.i, %34, %111, %96, %78, %78, %78, %78, %78, %78, %78, %78, %65, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %62, %43, %47, %30, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %._crit_edge, %3, %87, %77, %42, %11
+  %.0 = phi i1 [ %14, %11 ], [ false, %42 ], [ false, %77 ], [ false, %87 ], [ true, %3 ], [ true, %._crit_edge ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %27 ], [ true, %30 ], [ false, %43 ], [ %50, %47 ], [ true, %62 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %64 ], [ true, %65 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ true, %78 ], [ false, %96 ], [ false, %111 ], [ false, %34 ], [ %spec.select.i17, %_ZNK4llvm6Triple5isPS4Ev.exit.i ], [ false, %69 ], [ %spec.select.i22, %_ZNK4llvm6Triple5isPS4Ev.exit.i21 ], [ %110, %108 ], [ true, %99 ], [ %125, %123 ], [ true, %114 ], [ false, %81 ], [ %or.cond32.not, %55 ], [ %switch.masked, %switch.lookup37 ], [ true, %85 ], [ %switch.masked42, %switch.lookup38 ], [ false, %88 ], [ %switch.masked47, %switch.lookup43 ], [ false, %92 ], [ true, %_ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread ]
   ret i1 %.0
 }
 
@@ -3410,23 +3410,23 @@ _ZN4llvmeqENS_9StringRefES0_.exit39:              ; preds = %.lr.ph
 
 _ZN4llvmeqENS_9StringRefES0_.exit39.thread69:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit39
   %cond = icmp eq i64 %18, 9
-  br i1 %cond, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread92, label %.critedge
+  br i1 %cond, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread93, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit45:              ; preds = %.lr.ph
   %bcmp.i44 = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull @.str.61, i64 %18)
   %22 = icmp eq i32 %bcmp.i44, 0
   br i1 %22, label %.critedge.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread72
 
-_ZN4llvmeqENS_9StringRefES0_.exit45.thread92:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit39.thread69
-  %bcmp.i4493 = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull @.str.61, i64 %18)
-  %23 = icmp eq i32 %bcmp.i4493, 0
+_ZN4llvmeqENS_9StringRefES0_.exit45.thread93:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit39.thread69
+  %bcmp.i4494 = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull @.str.61, i64 %18)
+  %23 = icmp eq i32 %bcmp.i4494, 0
   br i1 %23, label %.critedge.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit51
 
 _ZN4llvmeqENS_9StringRefES0_.exit45.thread72:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45
   %.not.i48 = icmp eq i64 %18, 9
   br i1 %.not.i48, label %_ZN4llvmeqENS_9StringRefES0_.exit51, label %.critedge
 
-_ZN4llvmeqENS_9StringRefES0_.exit51:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45.thread92, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread72
+_ZN4llvmeqENS_9StringRefES0_.exit51:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45.thread93, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread72
   %bcmp.i50 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %16, ptr noundef nonnull dereferenceable(9) @.str.62, i64 9)
   %24 = icmp eq i32 %bcmp.i50, 0
   br i1 %24, label %.critedge.thread.sink.split, label %.critedge
@@ -3447,8 +3447,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit51:              ; preds = %_ZN4llvmeqENS_9Stri
   %.not.not = icmp eq ptr %32, null
   br i1 %.not.not, label %.critedge.thread, label %.lr.ph
 
-.critedge.thread.sink.split:                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit51, %_ZN4llvmeqENS_9StringRefES0_.exit45, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread92, %_ZN4llvmeqENS_9StringRefES0_.exit39, %_ZN4llvmeqENS_9StringRefES0_.exit33, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.sink = phi i32 [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit39 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread92 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit51 ]
+.critedge.thread.sink.split:                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit51, %_ZN4llvmeqENS_9StringRefES0_.exit45, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread93, %_ZN4llvmeqENS_9StringRefES0_.exit39, %_ZN4llvmeqENS_9StringRefES0_.exit33, %_ZN4llvmeqENS_9StringRefES0_.exit
+  %.sink = phi i32 [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit39 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread93 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit51 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %33, align 8, !tbaa !449
   br label %.critedge.thread

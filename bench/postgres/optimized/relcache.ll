@@ -906,11 +906,11 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
   %30 = tail call ptr @palloc0(i64 noundef %29) #13
   %31 = icmp sgt i16 %10, 0
   %.not61 = icmp ne i32 %.fr60, 2659
-  %or.cond.not74 = and i1 %31, %.not61
+  %or.cond.not79 = and i1 %31, %.not61
   %32 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6
   %33 = trunc nuw i8 %32 to i1
-  %or.cond72 = select i1 %or.cond.not74, i1 %33, i1 false
-  br i1 %or.cond72, label %.lr.ph.split.split.preheader, label %._crit_edge
+  %or.cond77 = select i1 %or.cond.not79, i1 %33, i1 false
+  br i1 %or.cond77, label %.lr.ph.split.split.preheader, label %._crit_edge
 
 .lr.ph.split.split.preheader:                     ; preds = %27
   %wide.trip.count = zext nneg i32 %11 to i64
@@ -1563,8 +1563,8 @@ list_length.exit.i:                               ; preds = %209
 list_length.exit.thread.i:                        ; preds = %209
   %216 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %217 = load ptr, ptr %216, align 8
-  %.not.i4454.i = icmp eq ptr %217, null
-  br i1 %.not.i4454.i, label %equalRSDesc.exit, label %list_length.exit45.thread.i
+  %.not.i4463.i = icmp eq ptr %217, null
+  br i1 %.not.i4463.i, label %equalRSDesc.exit, label %list_length.exit45.thread.i
 
 list_length.exit45.i:                             ; preds = %list_length.exit.i
   %.not.i145 = icmp eq i32 %213, 0
@@ -1575,8 +1575,8 @@ list_length.exit45.thread.i:                      ; preds = %list_length.exit.th
   %219 = phi i32 [ 0, %list_length.exit.thread.i ], [ %213, %list_length.exit.i ]
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %221 = load i32, ptr %220, align 4
-  %.not53.i = icmp eq i32 %219, %221
-  br i1 %.not53.i, label %.preheader.split.preheader.i, label %equalRSDesc.exit
+  %.not62.i = icmp eq i32 %219, %221
+  br i1 %.not62.i, label %.preheader.split.preheader.i, label %equalRSDesc.exit
 
 .preheader.split.preheader.i:                     ; preds = %list_length.exit45.thread.i
   %222 = getelementptr inbounds nuw i8, ptr %211, i64 4
@@ -3644,8 +3644,8 @@ RelationCloseSmgr.exit:                           ; preds = %33, %36
   br i1 %61, label %66, label %74
 
 .critedge:                                        ; preds = %84, %.lr.ph84, %.outer._crit_edge
-  %.0.ph.lcssa110 = phi ptr [ %.0.ph.lcssa, %.lr.ph84 ], [ null, %.outer._crit_edge ], [ %.0.ph.lcssa, %84 ]
-  call void @list_free(ptr noundef %.0.ph.lcssa110) #13
+  %.0.ph.lcssa118 = phi ptr [ %.0.ph.lcssa, %.lr.ph84 ], [ null, %.outer._crit_edge ], [ %.0.ph.lcssa, %84 ]
+  call void @list_free(ptr noundef %.0.ph.lcssa118) #13
   %62 = getelementptr inbounds nuw i8, ptr %.052.ph.lcssa, i64 4
   %.not62 = icmp eq ptr %.052.ph.lcssa, null
   br i1 %.not62, label %.critedge67, label %.lr.ph89
@@ -3717,8 +3717,8 @@ RelationInvalidateRelation.exit:                  ; preds = %RelationCloseSmgr.e
   br i1 %91, label %95, label %103
 
 .critedge67:                                      ; preds = %113, %.critedge.thread, %.lr.ph89, %.critedge
-  %.052.ph.lcssa109114 = phi ptr [ null, %.critedge.thread ], [ %.052.ph.lcssa, %.lr.ph89 ], [ null, %.critedge ], [ %.052.ph.lcssa, %113 ]
-  call void @list_free(ptr noundef %.052.ph.lcssa109114) #13
+  %.052.ph.lcssa117122 = phi ptr [ null, %.critedge.thread ], [ %.052.ph.lcssa, %.lr.ph89 ], [ null, %.critedge ], [ %.052.ph.lcssa, %113 ]
+  call void @list_free(ptr noundef %.052.ph.lcssa117122) #13
   br i1 %0, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.critedge67
@@ -3947,8 +3947,8 @@ define internal fastcc void @RelationInitPhysicalAddr(ptr noundef %0) unnamed_ad
   %83 = load i32, ptr @ParallelWorkerNumber, align 4
   %84 = icmp slt i32 %83, 0
   %.not54 = icmp eq i32 %3, %82
-  %or.cond55 = select i1 %84, i1 true, i1 %.not54
-  br i1 %or.cond55, label %87, label %.sink.split
+  %or.cond58 = select i1 %84, i1 true, i1 %.not54
+  br i1 %or.cond58, label %87, label %.sink.split
 
 .sink.split:                                      ; preds = %81
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
@@ -4500,10 +4500,10 @@ define dso_local ptr @RelationBuildLocalRelation(ptr noundef %0, i32 noundef %1,
   unreachable
 
 99:                                               ; preds = %.critedge, %.critedge, %90
-  %.sink138 = phi i32 [ %94, %90 ], [ -1, %.critedge ], [ -1, %.critedge ]
+  %.sink140 = phi i32 [ %94, %90 ], [ -1, %.critedge ], [ -1, %.critedge ]
   %.sink = phi i8 [ 1, %90 ], [ 0, %.critedge ], [ 0, %.critedge ]
   %100 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  store i32 %.sink138, ptr %100, align 4
+  store i32 %.sink140, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i8 %.sink, ptr %101, align 8
   %102 = icmp ne i8 %10, 109
@@ -4515,22 +4515,22 @@ define dso_local ptr @RelationBuildLocalRelation(ptr noundef %0, i32 noundef %1,
   br i1 %105, label %109, label %106
 
 106:                                              ; preds = %99
-  %switch.tableidx147 = add i8 %10, -109
-  %107 = icmp ult i8 %switch.tableidx147, 6
-  br i1 %107, label %switch.lookup146, label %109
+  %switch.tableidx149 = add i8 %10, -109
+  %107 = icmp ult i8 %switch.tableidx149, 6
+  br i1 %107, label %switch.lookup148, label %109
 
-switch.lookup146:                                 ; preds = %106
-  %108 = shl nuw nsw i8 %switch.tableidx147, 3
-  %switch.shiftamt149 = zext nneg i8 %108 to i48
-  %switch.downshift150 = lshr i48 110425294138980, %switch.shiftamt149
-  %switch.masked151 = trunc i48 %switch.downshift150 to i8
+switch.lookup148:                                 ; preds = %106
+  %108 = shl nuw nsw i8 %switch.tableidx149, 3
+  %switch.shiftamt151 = zext nneg i8 %108 to i48
+  %switch.downshift152 = lshr i48 110425294138980, %switch.shiftamt151
+  %switch.masked153 = trunc i48 %switch.downshift152 to i8
   br label %109
 
-109:                                              ; preds = %99, %106, %switch.lookup146
-  %.sink143 = phi i8 [ %switch.masked151, %switch.lookup146 ], [ 110, %106 ], [ 110, %99 ]
+109:                                              ; preds = %99, %106, %switch.lookup148
+  %.sink145 = phi i8 [ %switch.masked153, %switch.lookup148 ], [ 110, %106 ], [ 110, %99 ]
   %110 = load ptr, ptr %75, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 126
-  store i8 %.sink143, ptr %111, align 2
+  store i8 %.sink145, ptr %111, align 2
   %112 = load ptr, ptr %75, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 113
   store i8 %13, ptr %113, align 1
@@ -5737,9 +5737,9 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %202, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %206, i8 0, i64 40, i1 false)
   %210 = load i8, ptr %209, align 1, !range !6, !noundef !7
-  %spec.select366 = zext nneg i8 %210 to i32
+  %spec.select370 = zext nneg i8 %210 to i32
   %211 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %spec.select366, ptr %211, align 8
+  store i32 %spec.select370, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %31, i64 35
   store i8 0, ptr %212, align 1
   %213 = getelementptr inbounds nuw i8, ptr %31, i64 216
@@ -8974,12 +8974,12 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef 
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %56 = load i32, ptr %51, align 4
   %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph159, label %.critedge124
+  br i1 %57, label %.lr.ph164, label %.critedge124
 
-.lr.ph159:                                        ; preds = %.lr.ph144, %.critedge126
-  %indvars.iv149158 = phi i64 [ %indvars.iv.next150, %.critedge126 ], [ 0, %.lr.ph144 ]
+.lr.ph164:                                        ; preds = %.lr.ph144, %.critedge126
+  %indvars.iv149163 = phi i64 [ %indvars.iv.next150, %.critedge126 ], [ 0, %.lr.ph144 ]
   %58 = load ptr, ptr %52, align 8
-  %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv149158
+  %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv149163
   %60 = load i32, ptr %59, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8988,14 +8988,14 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef 
   %.not121 = icmp eq ptr %62, null
   br i1 %.not121, label %63, label %66
 
-63:                                               ; preds = %.lr.ph159
+63:                                               ; preds = %.lr.ph164
   %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %64)
   %65 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %60) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5790, ptr noundef nonnull @__func__.RelationBuildPublicationDesc) #13
   unreachable
 
-66:                                               ; preds = %.lr.ph159
+66:                                               ; preds = %.lr.ph164
   %67 = getelementptr i8, ptr %62, i64 16
   %.val = load ptr, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -9183,11 +9183,11 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef 
 .critedge126:                                     ; preds = %142, %139, %178, %175, %172, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149158, 1
+  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149163, 1
   %181 = load i32, ptr %51, align 4
   %182 = sext i32 %181 to i64
   %183 = icmp slt i64 %indvars.iv.next150, %182
-  br i1 %183, label %.lr.ph159, label %.critedge124
+  br i1 %183, label %.lr.ph164, label %.critedge124
 
 184:                                              ; preds = %178, %166, %154
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -202,10 +202,10 @@ qdm2_parse_config.exit:                           ; preds = %43
   br i1 %120, label %qdm2_restore_block.exit, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %119
-  %.097 = phi ptr [ %116, %.thread ], [ %5, %119 ]
-  %.15296 = phi i32 [ %113, %.thread ], [ -1094995529, %119 ]
+  %.0108 = phi ptr [ %116, %.thread ], [ %5, %119 ]
+  %.152107 = phi i32 [ %113, %.thread ], [ -1094995529, %119 ]
   %121 = ptrtoint ptr %11 to i64
-  %122 = ptrtoint ptr %.097 to i64
+  %122 = ptrtoint ptr %.0108 to i64
   %123 = sub i64 %121, %122
   %124 = icmp sgt i64 %123, 3
   br i1 %124, label %.lr.ph, label %._crit_edge
@@ -217,7 +217,7 @@ qdm2_parse_config.exit:                           ; preds = %43
 
 127:                                              ; preds = %.lr.ph, %174
   %128 = phi i64 [ %122, %.lr.ph ], [ %177, %174 ]
-  %.178 = phi ptr [ %.097, %.lr.ph ], [ %176, %174 ]
+  %.178 = phi ptr [ %.0108, %.lr.ph ], [ %176, %174 ]
   %129 = getelementptr inbounds nuw i8, ptr %.178, i64 1
   %130 = load i8, ptr %.178, align 1, !tbaa !9
   %131 = getelementptr inbounds nuw i8, ptr %.178, i64 2
@@ -292,7 +292,7 @@ qdm2_parse_subpacket.exit:                        ; preds = %144
   br i1 %179, label %127, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %174, %.preheader
-  %.2.lcssa = phi i32 [ %.15296, %.preheader ], [ %172, %174 ]
+  %.2.lcssa = phi i32 [ %.152107, %.preheader ], [ %172, %174 ]
   %180 = load i32, ptr %4, align 4, !tbaa !35
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 262420
   store i32 %180, ptr %181, align 4, !tbaa !36

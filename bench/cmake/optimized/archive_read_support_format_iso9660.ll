@@ -726,9 +726,9 @@ define internal i32 @archive_read_format_iso9660_read_header(ptr noundef %0, ptr
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %.not.i = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 42
-  br i1 %.not.i, label %.thread81.i, label %19
+  br i1 %.not.i, label %.thread89.i, label %19
 
-.thread81.i:                                      ; preds = %15
+.thread89.i:                                      ; preds = %15
   store i8 0, ptr %18, align 2, !tbaa !52
   br label %25
 
@@ -745,9 +745,9 @@ define internal i32 @archive_read_format_iso9660_read_header(ptr noundef %0, ptr
   %spec.select80.i = select i1 %24, i64 188, i64 196
   br label %25
 
-25:                                               ; preds = %21, %19, %.thread81.i
-  %26 = phi i1 [ true, %19 ], [ %24, %21 ], [ true, %.thread81.i ]
-  %.063.idx.i = phi i64 [ 188, %19 ], [ %spec.select80.i, %21 ], [ 188, %.thread81.i ]
+25:                                               ; preds = %21, %19, %.thread89.i
+  %26 = phi i1 [ true, %19 ], [ %24, %21 ], [ true, %.thread89.i ]
+  %.063.idx.i = phi i64 [ 188, %19 ], [ %spec.select80.i, %21 ], [ 188, %.thread89.i ]
   %.063.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %.063.idx.i
   %27 = load i32, ptr %.063.ptr.i, align 4, !tbaa !59
   %28 = sext i32 %27 to i64
@@ -1376,9 +1376,9 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %33 = sub nuw i64 %30, %29
   %34 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %33) #20
   %35 = icmp sgt i64 %34, -1
-  br i1 %35, label %.thread69, label %38
+  br i1 %35, label %.thread93, label %38
 
-.thread69:                                        ; preds = %32
+.thread93:                                        ; preds = %32
   %36 = load ptr, ptr %19, align 8, !tbaa !106
   %37 = load i64, ptr %36, align 8, !tbaa !112
   store i64 %37, ptr %28, align 8, !tbaa !58
@@ -1403,8 +1403,8 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   store i64 %46, ptr %3, align 8, !tbaa !44
   br label %271
 
-47:                                               ; preds = %.thread69, %40
-  %48 = phi ptr [ %36, %.thread69 ], [ %23, %40 ]
+47:                                               ; preds = %.thread93, %40
+  %48 = phi ptr [ %36, %.thread93 ], [ %23, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !107
   store i64 %50, ptr %15, align 8, !tbaa !75
@@ -1723,10 +1723,10 @@ define internal i32 @archive_read_format_iso9660_read_data(ptr noundef %0, ptr n
   %207 = getelementptr inbounds nuw i8, ptr %56, i64 360
   store ptr %.0159.i, ptr %207, align 8, !tbaa !123
   %208 = zext i32 %206 to i64
-  %spec.select238239.i = call i64 @llvm.umin.i64(i64 %.0166.i, i64 %208)
-  %spec.select238.i = trunc nuw i64 %spec.select238239.i to i32
+  %spec.select251252.i = call i64 @llvm.umin.i64(i64 %.0166.i, i64 %208)
+  %spec.select251.i = trunc nuw i64 %spec.select251252.i to i32
   %209 = getelementptr inbounds nuw i8, ptr %56, i64 368
-  store i32 %spec.select238.i, ptr %209, align 8, !tbaa !124
+  store i32 %spec.select251.i, ptr %209, align 8, !tbaa !124
   %210 = getelementptr inbounds nuw i8, ptr %56, i64 256
   %211 = load ptr, ptr %210, align 8, !tbaa !117
   %212 = getelementptr inbounds nuw i8, ptr %56, i64 384
@@ -2272,9 +2272,9 @@ define internal fastcc range(i32 -1, 1) i32 @build_pathname_utf16be(ptr noundef 
   br label %40
 
 40:                                               ; preds = %35, %27
-  %.sink32 = phi i64 [ %39, %35 ], [ 2, %27 ]
+  %.sink34 = phi i64 [ %39, %35 ], [ 2, %27 ]
   %41 = load i64, ptr %1, align 8, !tbaa !44
-  %42 = add i64 %41, %.sink32
+  %42 = add i64 %41, %.sink34
   store i64 %42, ptr %1, align 8, !tbaa !44
   br label %43
 
@@ -2642,9 +2642,9 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
   %136 = load i8, ptr %135, align 1, !tbaa !45
   %137 = and i8 %136, 2
   %.not221 = icmp eq i8 %137, 0
-  %spec.select263 = select i1 %.not221, i32 33024, i32 16832
+  %spec.select279 = select i1 %.not221, i32 33024, i32 16832
   %138 = getelementptr inbounds nuw i8, ptr %55, i64 136
-  store i32 %spec.select263, ptr %138, align 8, !tbaa !77
+  store i32 %spec.select279, ptr %138, align 8, !tbaa !77
   %.lobit = lshr i8 %136, 7
   %.sink259 = zext nneg i8 %.lobit to i32
   %139 = getelementptr inbounds nuw i8, ptr %55, i64 264
@@ -2675,8 +2675,8 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 150:                                              ; preds = %146
   %gepdiff = sub nsw i64 %22, %77
   %151 = icmp sgt i64 %gepdiff, 6
-  %or.cond264 = select i1 %.not217256, i1 %151, i1 false
-  br i1 %or.cond264, label %152, label %160
+  %or.cond280 = select i1 %.not217256, i1 %151, i1 false
+  br i1 %or.cond280, label %152, label %160
 
 152:                                              ; preds = %150
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %78, ptr noundef nonnull dereferenceable(6) @.str.29, i64 6)
@@ -2875,16 +2875,16 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 .critedge.thread:                                 ; preds = %.thread248
   %240 = getelementptr inbounds nuw i8, ptr %55, i64 80
   %241 = load i64, ptr %240, align 8, !tbaa !154
-  %.not235261 = icmp eq i64 %241, 0
-  br i1 %.not235261, label %265, label %.thread262
+  %.not235277 = icmp eq i64 %241, 0
+  br i1 %.not235277, label %265, label %.thread278
 
 242:                                              ; preds = %.critedge
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !137
   %245 = icmp eq ptr %244, null
-  br i1 %245, label %.thread262, label %246
+  br i1 %245, label %.thread278, label %246
 
-.thread262:                                       ; preds = %.critedge.thread, %242
+.thread278:                                       ; preds = %.critedge.thread, %242
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.34) #20
   br label %.thread253
 
@@ -2939,7 +2939,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
   store ptr %55, ptr %266, align 8, !tbaa !127
   br label %269
 
-.thread253:                                       ; preds = %264, %257, %247, %.thread262, %163, %225, %223, %.thread250, %107
+.thread253:                                       ; preds = %264, %257, %247, %.thread278, %163, %225, %223, %.thread250, %107
   %268 = getelementptr inbounds nuw i8, ptr %55, i64 168
   tail call void @archive_string_free(ptr noundef nonnull %268) #20
   tail call void @free(ptr noundef %55) #20
@@ -3243,32 +3243,32 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %64 = load i8, ptr %2, align 1, !tbaa !45
   %65 = add i8 %64, -65
-  %or.cond136201 = icmp ult i8 %65, 26
-  br i1 %or.cond136201, label %.lr.ph204, label %.critedge179
+  %or.cond136218 = icmp ult i8 %65, 26
+  br i1 %or.cond136218, label %.lr.ph221, label %.critedge179
 
 66:                                               ; preds = %register_CE.exit
   %67 = load i8, ptr %601, align 1, !tbaa !45
   %68 = add i8 %67, -65
   %or.cond136 = icmp ult i8 %68, 26
-  br i1 %or.cond136, label %.lr.ph204, label %.thread156, !llvm.loop !169
+  br i1 %or.cond136, label %.lr.ph221, label %.thread156, !llvm.loop !169
 
-.lr.ph204:                                        ; preds = %.lr.ph, %66
+.lr.ph221:                                        ; preds = %.lr.ph, %66
   %69 = phi i8 [ %67, %66 ], [ %64, %.lr.ph ]
-  %.not134168203 = phi i1 [ false, %66 ], [ true, %.lr.ph ]
-  %.0124169202 = phi ptr [ %601, %66 ], [ %2, %.lr.ph ]
+  %.not134168220 = phi i1 [ false, %66 ], [ true, %.lr.ph ]
+  %.0124169219 = phi ptr [ %601, %66 ], [ %2, %.lr.ph ]
   %70 = phi ptr [ %602, %66 ], [ %12, %.lr.ph ]
-  %71 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 1
   %72 = load i8, ptr %71, align 1, !tbaa !45
   %73 = add i8 %72, -65
   %or.cond137 = icmp ult i8 %73, 26
   br i1 %or.cond137, label %74, label %.critedge
 
-74:                                               ; preds = %.lr.ph204
-  %75 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 2
+74:                                               ; preds = %.lr.ph221
+  %75 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 2
   %76 = load i8, ptr %75, align 1, !tbaa !45
   %77 = icmp ult i8 %76, 4
   %78 = zext i8 %76 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 %78
   %.not133 = icmp ugt ptr %79, %3
   %or.cond139 = select i1 %77, i1 true, i1 %.not133
   br i1 %or.cond139, label %.critedge, label %80
@@ -3276,7 +3276,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
 80:                                               ; preds = %74
   %81 = zext i8 %76 to i32
   %82 = add nsw i32 %81, -4
-  %83 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 3
+  %83 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 3
   %84 = load i8, ptr %83, align 1, !tbaa !45
   switch i8 %69, label %register_CE.exit [
     i8 67, label %85
@@ -3302,10 +3302,10 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
 
 89:                                               ; preds = %86
   %90 = load i32, ptr %70, align 1
-  %91 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 12
   %92 = load i32, ptr %91, align 1
   store i32 %92, ptr %61, align 8, !tbaa !170
-  %93 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 20
   %94 = load i32, ptr %93, align 1
   store i32 %94, ptr %62, align 4, !tbaa !171
   %95 = load ptr, ptr %9, align 8, !tbaa !29
@@ -3484,7 +3484,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
   br i1 %178, label %parse_rockridge_NM1.exit, label %179
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 5
+  %180 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 5
   %181 = add nsw i32 %81, -5
   %182 = zext nneg i32 %181 to i64
   %183 = call ptr @archive_strncat(ptr noundef nonnull %58, ptr noundef nonnull %180, i64 noundef %182) #20
@@ -3495,7 +3495,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
   br i1 %185, label %parse_rockridge_NM1.exit, label %186
 
 186:                                              ; preds = %184
-  %187 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 5
+  %187 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 5
   %188 = add nsw i32 %81, -5
   %189 = zext nneg i32 %188 to i64
   %190 = call ptr @archive_strncat(ptr noundef nonnull %58, ptr noundef nonnull %187, i64 noundef %189) #20
@@ -3529,7 +3529,7 @@ parse_rockridge_NM1.exit:                         ; preds = %173, %175, %177, %1
   %202 = zext i32 %201 to i64
   %203 = shl nuw i64 %202, 32
   store i64 %203, ptr %55, align 8, !tbaa !86
-  %204 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 12
+  %204 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 12
   %205 = call fastcc i32 @toi(ptr noundef nonnull %204, i32 noundef 4)
   %206 = zext i32 %205 to i64
   %207 = or disjoint i64 %203, %206
@@ -3554,28 +3554,28 @@ parse_rockridge_NM1.exit:                         ; preds = %173, %175, %177, %1
   br i1 %215, label %216, label %.thread154
 
 216:                                              ; preds = %213
-  %217 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 12
+  %217 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 12
   %218 = call fastcc i32 @toi(ptr noundef nonnull %217, i32 noundef 4)
   store i32 %218, ptr %51, align 8, !tbaa !80
   %219 = icmp ugt i8 %76, 27
   br i1 %219, label %220, label %.thread154
 
 220:                                              ; preds = %216
-  %221 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 20
+  %221 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 20
   %222 = call fastcc i32 @toi(ptr noundef nonnull %221, i32 noundef 4)
   store i32 %222, ptr %52, align 4, !tbaa !78
   %223 = icmp ugt i8 %76, 35
   br i1 %223, label %224, label %.thread154
 
 224:                                              ; preds = %220
-  %225 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 28
+  %225 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 28
   %226 = call fastcc i32 @toi(ptr noundef nonnull %225, i32 noundef 4)
   store i32 %226, ptr %53, align 8, !tbaa !79
   %227 = icmp ugt i8 %76, 43
   br i1 %227, label %228, label %.thread154
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 36
+  %229 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 36
   %230 = call fastcc i32 @toi(ptr noundef nonnull %229, i32 noundef 4)
   %231 = zext i32 %230 to i64
   store i64 %231, ptr %54, align 8, !tbaa !88
@@ -3640,7 +3640,7 @@ parse_rockridge_NM1.exit:                         ; preds = %173, %175, %177, %1
 
 .lr.ph.i142:                                      ; preds = %251
   %253 = add nsw i32 %81, -5
-  %254 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 5
+  %254 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 5
   br label %255
 
 255:                                              ; preds = %284, %.lr.ph.i142
@@ -3743,7 +3743,7 @@ parse_rockridge_SL1.exit:                         ; preds = %255, %262, %268, %2
 
 301:                                              ; preds = %299
   %302 = load i8, ptr %70, align 1, !tbaa !45
-  %303 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 5
+  %303 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 5
   %304 = add nsw i32 %81, -5
   %.not.i143 = icmp sgt i8 %302, -1
   %305 = and i8 %302, 1
@@ -3769,7 +3769,7 @@ parse_rockridge_SL1.exit:                         ; preds = %255, %262, %268, %2
   br label %315
 
 315:                                              ; preds = %311, %309
-  %316 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 22
+  %316 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 22
   %317 = add nsw i32 %81, -22
   br label %318
 
@@ -3855,17 +3855,17 @@ parse_rockridge_SL1.exit:                         ; preds = %255, %262, %268, %2
 
 356:                                              ; preds = %354
   %357 = load i8, ptr %303, align 1, !tbaa !45
-  %358 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 6
+  %358 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 6
   %359 = load i8, ptr %358, align 1, !tbaa !45
-  %360 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 7
+  %360 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 7
   %361 = load i8, ptr %360, align 1, !tbaa !45
-  %362 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 8
   %363 = load i8, ptr %362, align 1, !tbaa !45
-  %364 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 9
+  %364 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 9
   %365 = load i8, ptr %364, align 1, !tbaa !45
-  %366 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 10
+  %366 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 10
   %367 = load i8, ptr %366, align 1, !tbaa !45
-  %368 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 11
+  %368 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 11
   %369 = load i8, ptr %368, align 1, !tbaa !45
   %370 = icmp eq i8 %357, 0
   %371 = icmp eq i8 %359, 0
@@ -3948,7 +3948,7 @@ isodate7.exit.i:                                  ; preds = %401, %383
   br label %407
 
 407:                                              ; preds = %isodate7.exit.i, %356
-  %408 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 12
+  %408 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 12
   %409 = add nsw i32 %81, -12
   br label %410
 
@@ -4291,7 +4291,7 @@ parse_rockridge_TF1.exit:                         ; preds = %299, %344, %348, %5
   br i1 %586, label %587, label %register_CE.exit
 
 587:                                              ; preds = %584
-  %588 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 5
+  %588 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 5
   %589 = load i8, ptr %588, align 1, !tbaa !45
   %590 = icmp eq i8 %589, 122
   %591 = icmp eq i32 %82, 12
@@ -4300,11 +4300,11 @@ parse_rockridge_TF1.exit:                         ; preds = %299, %344, %348, %5
 
 592:                                              ; preds = %587
   store i32 1, ptr %13, align 4, !tbaa !93
-  %593 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 7
+  %593 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 7
   %594 = load i8, ptr %593, align 1, !tbaa !45
   %595 = zext i8 %594 to i32
   store i32 %595, ptr %14, align 8, !tbaa !96
-  %596 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 8
+  %596 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 8
   %597 = load i32, ptr %596, align 1
   %598 = zext i32 %597 to i64
   store i64 %598, ptr %15, align 8, !tbaa !98
@@ -4313,13 +4313,13 @@ parse_rockridge_TF1.exit:                         ; preds = %299, %344, %348, %5
 register_CE.exit:                                 ; preds = %._crit_edge.i, %154, %162, %159, %86, %parse_rockridge_NM1.exit, %167, %208, %.thread154, %197, %200, %235, %290, %238, %parse_rockridge_SL1.exit, %parse_rockridge_TF1.exit, %296, %581, %80, %85, %232, %584, %587, %592
   %599 = load i8, ptr %75, align 1, !tbaa !45
   %600 = zext i8 %599 to i64
-  %601 = getelementptr inbounds nuw i8, ptr %.0124169202, i64 %600
+  %601 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 %600
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 4
   %.not = icmp ugt ptr %602, %3
   br i1 %.not, label %.thread156, label %66, !llvm.loop !169
 
-.critedge:                                        ; preds = %74, %.lr.ph204
-  br i1 %.not134168203, label %.critedge179, label %.thread156
+.critedge:                                        ; preds = %74, %.lr.ph221
+  br i1 %.not134168220, label %.critedge179, label %.thread156
 
 .critedge179:                                     ; preds = %.lr.ph, %4, %.critedge
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.35) #20
@@ -4765,10 +4765,10 @@ heap_get_entry.exit:                              ; preds = %48, %49, %22
   store ptr null, ptr %89, align 8, !tbaa !184
   store ptr %81, ptr %.promoted372, align 8, !tbaa !66
   %90 = load ptr, ptr %80, align 8, !tbaa !142
-  %cond377603 = icmp eq ptr %90, null
-  br i1 %cond377603, label %..loopexit_crit_edge, label %.lr.ph604
+  %cond377649 = icmp eq ptr %90, null
+  br i1 %cond377649, label %..loopexit_crit_edge, label %.lr.ph650
 
-.lr.ph604:                                        ; preds = %.split.lr.ph, %rede_get_entry.exit157
+.lr.ph650:                                        ; preds = %.split.lr.ph, %rede_get_entry.exit157
   %91 = phi ptr [ %98, %rede_get_entry.exit157 ], [ %90, %.split.lr.ph ]
   %92 = phi ptr [ %97, %rede_get_entry.exit157 ], [ %89, %.split.lr.ph ]
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 24
@@ -4777,17 +4777,17 @@ heap_get_entry.exit:                              ; preds = %48, %49, %22
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %rede_get_entry.exit157
 
-96:                                               ; preds = %.lr.ph604
+96:                                               ; preds = %.lr.ph650
   store ptr %80, ptr %88, align 8, !tbaa !143
   br label %rede_get_entry.exit157
 
-rede_get_entry.exit157:                           ; preds = %.lr.ph604, %96
+rede_get_entry.exit157:                           ; preds = %.lr.ph650, %96
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr null, ptr %97, align 8, !tbaa !184
   store ptr %91, ptr %92, align 8, !tbaa !66
   %98 = load ptr, ptr %80, align 8, !tbaa !142
   %cond377 = icmp eq ptr %98, null
-  br i1 %cond377, label %..loopexit_crit_edge, label %.lr.ph604
+  br i1 %cond377, label %..loopexit_crit_edge, label %.lr.ph650
 
 re_get_entry.exit:                                ; preds = %.loopexit, %.loopexit262, %66
   %99 = load ptr, ptr %6, align 8, !tbaa !183
@@ -4888,17 +4888,17 @@ rede_add_entry.exit:                              ; preds = %129
   %141 = load ptr, ptr %140, align 8, !tbaa !187
   store ptr %141, ptr %135, align 8, !tbaa !142
   %142 = icmp eq ptr %141, null
-  br i1 %142, label %143, label %.preheader608
+  br i1 %142, label %143, label %.preheader654
 
 143:                                              ; preds = %138
   store ptr %135, ptr %137, align 8, !tbaa !143
-  br label %.preheader608
+  br label %.preheader654
 
-.preheader608:                                    ; preds = %138, %143
+.preheader654:                                    ; preds = %138, %143
   br label %144
 
-144:                                              ; preds = %.preheader608, %145
-  %.pn.i163 = phi ptr [ %.0.i165, %145 ], [ %139, %.preheader608 ]
+144:                                              ; preds = %.preheader654, %145
+  %.pn.i163 = phi ptr [ %.0.i165, %145 ], [ %139, %.preheader654 ]
   %.0.in.i164 = getelementptr inbounds nuw i8, ptr %.pn.i163, i64 8
   %.0.i165 = load ptr, ptr %.0.in.i164, align 8, !tbaa !137
   %cond.i166 = icmp eq ptr %.0.i165, null
@@ -5545,9 +5545,9 @@ heap_get_entry.exit196:                           ; preds = %447, %448, %423
   br i1 %458, label %.critedge.thread, label %461
 
 .critedge.thread:                                 ; preds = %396, %.critedge
-  %.4118.lcssa446 = phi ptr [ %.4118.lcssa, %.critedge ], [ %.0114237, %396 ]
-  store ptr %.4118.lcssa446, ptr %2, align 8, !tbaa !66
-  %459 = icmp eq ptr %.4118.lcssa446, null
+  %.4118.lcssa492 = phi ptr [ %.4118.lcssa, %.critedge ], [ %.0114237, %396 ]
+  store ptr %.4118.lcssa492, ptr %2, align 8, !tbaa !66
+  %459 = icmp eq ptr %.4118.lcssa492, null
   %460 = zext i1 %459 to i32
   br label %rede_get_entry.exit162.thread239
 

@@ -2074,9 +2074,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12Ma
   br label %.body
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.sink.split: ; preds = %.noexc68, %.noexc53, %.noexc39, %.noexc27, %.noexc
-  %.sink116 = phi ptr [ %108, %.noexc ], [ %118, %.noexc27 ], [ %139, %.noexc39 ], [ %149, %.noexc53 ], [ %157, %.noexc68 ]
+  %.sink124 = phi ptr [ %108, %.noexc ], [ %118, %.noexc27 ], [ %139, %.noexc39 ], [ %149, %.noexc53 ], [ %157, %.noexc68 ]
   %.sink = phi ptr [ %105, %.noexc ], [ %115, %.noexc27 ], [ %136, %.noexc39 ], [ %146, %.noexc53 ], [ %154, %.noexc68 ]
-  store ptr %.sink116, ptr %0, align 8, !tbaa !67
+  store ptr %.sink124, ptr %0, align 8, !tbaa !67
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %161, align 8, !tbaa !69
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4076,8 +4076,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZNSo
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke: ; preds = %44, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
-  %.sink18 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
+  %.sink26 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   %69 = load double, ptr %68, align 8, !tbaa !40
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %69)
           to label %_ZNSolsEd.exit unwind label %55
@@ -4315,8 +4315,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZNSo
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke: ; preds = %44, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
-  %.sink18 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink18, i64 24
+  %.sink26 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sink26, i64 24
   %69 = load double, ptr %68, align 8, !tbaa !40
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %69)
           to label %_ZNSolsEd.exit unwind label %55
@@ -4554,8 +4554,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZNSo
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke: ; preds = %44, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
-  %.sink18 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
+  %.sink26 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   %69 = load double, ptr %68, align 8, !tbaa !40
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %69)
           to label %_ZNSolsEd.exit unwind label %55
@@ -4793,8 +4793,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZNSo
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke: ; preds = %44, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
-  %.sink18 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink18, i64 32
+  %.sink26 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sink26, i64 32
   %69 = load double, ptr %68, align 8, !tbaa !40
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %69)
           to label %_ZNSolsEd.exit unwind label %55
@@ -5032,8 +5032,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12: ; preds = %_ZNSo
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12.invoke: ; preds = %44, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
-  %.sink18 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink18, i64 40
+  %.sink26 = phi ptr [ %67, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %13, %_ZNK19OpenColorIO_v2_5dev9LogOpData18allComponentsEqualEv.exit ], [ %13, %44 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sink26, i64 40
   %69 = load double, ptr %68, align 8, !tbaa !40
   %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %69)
           to label %_ZNSolsEd.exit unwind label %55
@@ -5467,13 +5467,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !40
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !40
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

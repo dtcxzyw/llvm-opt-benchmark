@@ -4251,18 +4251,18 @@ _init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_Grind_addExtAttr___spec__1___
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_Grind_addExtAttr___spec__1___closed__3.exit, %3
-  %.sink19 = phi ptr [ %4, %3 ], [ %96, %_init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_Grind_addExtAttr___spec__1___closed__3.exit ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
-  store i32 1, ptr %.sink19, align 4, !tbaa !8
+  %.sink29 = phi ptr [ %4, %3 ], [ %96, %_init_l_Lean_ScopedEnvExtension_add___at_Lean_Meta_Grind_addExtAttr___spec__1___closed__3.exit ]
+  %99 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
+  store i32 1, ptr %.sink29, align 4, !tbaa !8
   store i32 131096, ptr %99, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %100, align 8, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %101, align 8, !tbaa !4
   br label %102
 
 102:                                              ; preds = %.sink.split, %53, %7
-  %.0 = phi ptr [ %8, %7 ], [ %55, %53 ], [ %.sink19, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %55, %53 ], [ %.sink29, %.sink.split ]
   ret ptr %.0
 }
 

@@ -910,7 +910,7 @@ php_output_context_feed.exit:                     ; preds = %113, %122, %124
   %142 = or i32 %141, 4096
   store i32 %142, ptr %6, align 8, !tbaa !54
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @output_globals, i64 32), align 8, !tbaa !47
-  switch i32 %.056, label %default.unreachable84 [
+  switch i32 %.056, label %default.unreachable91 [
     i32 0, label %143
     i32 2, label %162
     i32 1, label %177
@@ -999,7 +999,7 @@ php_output_context_reset.exit:                    ; preds = %169, %173, %176
   store i32 %180, ptr %6, align 8, !tbaa !54
   br label %181
 
-default.unreachable84:                            ; preds = %140
+default.unreachable91:                            ; preds = %140
   unreachable
 
 181:                                              ; preds = %177, %153
@@ -1183,8 +1183,8 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef ran
   %9 = load i32, ptr %8, align 8, !tbaa !54
   %10 = and i32 %9, 64
   %.not18 = icmp eq i32 %10, 0
-  %or.cond31 = select i1 %.not17, i1 %.not18, i1 false
-  br i1 %or.cond31, label %11, label %._crit_edge
+  %or.cond37 = select i1 %.not17, i1 %.not18, i1 false
+  br i1 %or.cond37, label %11, label %._crit_edge
 
 11:                                               ; preds = %6
   %.not19 = icmp samesign ult i32 %0, 16
@@ -1400,9 +1400,9 @@ zend_string_alloc.exit:                           ; preds = %3
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %zend_string_alloc.exit
-  %.sink13 = phi ptr [ %10, %zend_string_alloc.exit ], [ %17, %16 ]
+  %.sink16 = phi ptr [ %10, %zend_string_alloc.exit ], [ %17, %16 ]
   %.sink.ph = phi i32 [ 262, %zend_string_alloc.exit ], [ 6, %16 ]
-  store ptr %.sink13, ptr %0, align 8, !tbaa !8
+  store ptr %.sink16, ptr %0, align 8, !tbaa !8
   br label %18
 
 18:                                               ; preds = %.sink.split, %1
@@ -2906,9 +2906,9 @@ zend_string_alloc.exit.i:                         ; preds = %9
   br label %35
 
 26:                                               ; preds = %22, %zend_string_alloc.exit.i
-  %.sink13.i = phi ptr [ %16, %zend_string_alloc.exit.i ], [ %23, %22 ]
+  %.sink16.i = phi ptr [ %16, %zend_string_alloc.exit.i ], [ %23, %22 ]
   %.sink.ph.i = phi i32 [ 262, %zend_string_alloc.exit.i ], [ 6, %22 ]
-  store ptr %.sink13.i, ptr %1, align 8, !tbaa !8
+  store ptr %.sink16.i, ptr %1, align 8, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink.ph.i, ptr %27, align 8, !tbaa !8
   %28 = tail call fastcc i32 @php_output_stack_pop(i32 noundef 0)
@@ -2982,9 +2982,9 @@ zend_string_alloc.exit.i:                         ; preds = %11
   br label %26
 
 26:                                               ; preds = %24, %zend_string_alloc.exit.i
-  %.sink13.i = phi ptr [ %18, %zend_string_alloc.exit.i ], [ %25, %24 ]
+  %.sink16.i = phi ptr [ %18, %zend_string_alloc.exit.i ], [ %25, %24 ]
   %.sink.ph.i = phi i32 [ 262, %zend_string_alloc.exit.i ], [ 6, %24 ]
-  store ptr %.sink13.i, ptr %1, align 8, !tbaa !8
+  store ptr %.sink16.i, ptr %1, align 8, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink.ph.i, ptr %27, align 8, !tbaa !8
   %28 = tail call fastcc i32 @php_output_stack_pop(i32 noundef 16)
@@ -3053,9 +3053,9 @@ zend_string_alloc.exit.i:                         ; preds = %9
   br label %php_output_get_contents.exit
 
 php_output_get_contents.exit:                     ; preds = %zend_string_alloc.exit.i, %22
-  %.sink13.i = phi ptr [ %16, %zend_string_alloc.exit.i ], [ %23, %22 ]
+  %.sink16.i = phi ptr [ %16, %zend_string_alloc.exit.i ], [ %23, %22 ]
   %.sink.ph.i = phi i32 [ 262, %zend_string_alloc.exit.i ], [ 6, %22 ]
-  store ptr %.sink13.i, ptr %1, align 8, !tbaa !8
+  store ptr %.sink16.i, ptr %1, align 8, !tbaa !8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink.ph.i, ptr %24, align 8, !tbaa !8
   br label %27

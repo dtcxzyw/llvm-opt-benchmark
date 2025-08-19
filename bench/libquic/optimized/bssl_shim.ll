@@ -934,7 +934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_
   unreachable
 
 _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit: ; preds = %285, %311
-  %.21232 = phi i32 [ %.313, %311 ], [ 1, %285 ]
+  %.21238 = phi i32 [ %.313, %311 ], [ 1, %285 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %316
 
@@ -949,7 +949,7 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
   br label %317
 
 316:                                              ; preds = %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit, %123
-  %.111 = phi i32 [ %.21232, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit ], [ 1, %123 ]
+  %.111 = phi i32 [ %.21238, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit ], [ 1, %123 ]
   call void @_ZN10TestConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %318
@@ -1820,11 +1820,11 @@ _ZL12GetTestStatePK6ssl_st.exit246:               ; preds = %350
   br i1 %373, label %374, label %376
 
 374:                                              ; preds = %.preheader311
-  %375 = invoke i32 @SSL_accept(ptr noundef %20)
+  %375 = invoke i32 @SSL_accept(ptr noundef nonnull %20)
           to label %378 unwind label %.loopexit
 
 376:                                              ; preds = %.preheader311
-  %377 = invoke i32 @SSL_connect(ptr noundef %20)
+  %377 = invoke i32 @SSL_connect(ptr noundef nonnull %20)
           to label %378 unwind label %.loopexit
 
 378:                                              ; preds = %376, %374
@@ -1834,7 +1834,7 @@ _ZL12GetTestStatePK6ssl_st.exit246:               ; preds = %350
   br i1 %380, label %381, label %.critedge
 
 381:                                              ; preds = %378
-  %382 = invoke fastcc noundef zeroext i1 @_ZL10RetryAsyncP6ssl_sti(ptr noundef %20, i32 noundef %.0155)
+  %382 = invoke fastcc noundef zeroext i1 @_ZL10RetryAsyncP6ssl_sti(ptr noundef nonnull %20, i32 noundef %.0155)
           to label %383 unwind label %.loopexit
 
 383:                                              ; preds = %381
@@ -1845,7 +1845,7 @@ _ZL12GetTestStatePK6ssl_st.exit246:               ; preds = %350
   br i1 %.not199, label %384, label %596
 
 384:                                              ; preds = %.critedge
-  %385 = invoke fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_stb(ptr noundef %20, i1 noundef zeroext %3)
+  %385 = invoke fastcc noundef zeroext i1 @_ZL24CheckHandshakePropertiesP6ssl_stb(ptr noundef nonnull %20, i1 noundef zeroext %3)
           to label %386 unwind label %.loopexit.split-lp
 
 386:                                              ; preds = %384
@@ -1853,7 +1853,7 @@ _ZL12GetTestStatePK6ssl_st.exit246:               ; preds = %350
 
 387:                                              ; preds = %386
   %388 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
-  %389 = invoke noundef ptr @SSL_get_ex_data(ptr noundef %20, i32 noundef %388)
+  %389 = invoke noundef ptr @SSL_get_ex_data(ptr noundef nonnull %20, i32 noundef %388)
           to label %_ZL12GetTestStatePK6ssl_st.exit248 unwind label %.loopexit.split-lp
 
 _ZL12GetTestStatePK6ssl_st.exit248:               ; preds = %387
@@ -1893,7 +1893,7 @@ _ZL12GetTestStatePK6ssl_st.exit248:               ; preds = %387
   %412 = getelementptr inbounds nuw i8, ptr %2, i64 896
   %413 = load i8, ptr %412, align 8, !tbaa !142, !range !39, !noundef !40
   %414 = zext nneg i8 %413 to i32
-  %415 = invoke i32 @SSL_export_keying_material(ptr noundef %20, ptr noundef %398, i64 noundef %403, ptr noundef %405, i64 noundef %407, ptr noundef %409, i64 noundef %411, i32 noundef %414)
+  %415 = invoke i32 @SSL_export_keying_material(ptr noundef nonnull %20, ptr noundef %398, i64 noundef %403, ptr noundef %405, i64 noundef %407, ptr noundef %409, i64 noundef %411, i32 noundef %414)
           to label %416 unwind label %423
 
 416:                                              ; preds = %397
@@ -1938,7 +1938,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %.critedge229, %420
   %430 = ptrtoint ptr %429 to i64
   %431 = ptrtoint ptr %428 to i64
   %432 = sub i64 %430, %431
-  %433 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef %20, ptr noundef %428, i64 noundef %432)
+  %433 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef nonnull %20, ptr noundef %428, i64 noundef %432)
           to label %434 unwind label %423
 
 434:                                              ; preds = %427
@@ -1969,7 +1969,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit250:                 ; preds = %426, %423, %421
 442:                                              ; preds = %438
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %443 = invoke i32 @SSL_get_tls_unique(ptr noundef %20, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef 16)
+  %443 = invoke i32 @SSL_get_tls_unique(ptr noundef nonnull %20, ptr noundef nonnull %18, ptr noundef nonnull %19, i64 noundef 16)
           to label %444 unwind label %448
 
 444:                                              ; preds = %442
@@ -2000,7 +2000,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit250:                 ; preds = %426, %423, %421
   br label %.critedge232
 
 456:                                              ; preds = %450
-  %457 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef %20, ptr noundef nonnull %18, i64 noundef 12)
+  %457 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef nonnull %20, ptr noundef nonnull %18, i64 noundef 12)
           to label %458 unwind label %448
 
 458:                                              ; preds = %456
@@ -2047,7 +2047,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit250:                 ; preds = %426, %423, %421
   %.0154327 = phi i64 [ 0, %472 ], [ %474, %473 ]
   %478 = getelementptr inbounds nuw [11 x i64], ptr @_ZZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_E12kRecordSizes, i64 0, i64 %.0154327
   %479 = load i64, ptr %478, align 8, !tbaa !144
-  %480 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef %20, ptr noundef nonnull %471, i64 noundef %479)
+  %480 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef nonnull %20, ptr noundef nonnull %471, i64 noundef %479)
           to label %481 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 481:                                              ; preds = %477
@@ -2071,7 +2071,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit256: ; preds = %481
   br i1 %487, label %488, label %492
 
 488:                                              ; preds = %484
-  %489 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef %20, ptr noundef nonnull @.str.25, i64 noundef 5)
+  %489 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef nonnull %20, ptr noundef nonnull @.str.25, i64 noundef 5)
           to label %490 unwind label %.loopexit.split-lp
 
 490:                                              ; preds = %488
@@ -2092,11 +2092,11 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit256: ; preds = %481
   %498 = load i8, ptr %292, align 1, !tbaa !38, !range !39, !noundef !40
   %499 = trunc nuw i8 %498 to i1
   %500 = select i1 %499, i64 16384, i64 512
-  %501 = invoke fastcc noundef i32 @_ZL6DoReadP6ssl_stPhm(ptr noundef %20, ptr noundef nonnull %496, i64 noundef %500)
+  %501 = invoke fastcc noundef i32 @_ZL6DoReadP6ssl_stPhm(ptr noundef nonnull %20, ptr noundef nonnull %496, i64 noundef %500)
           to label %502 unwind label %514
 
 502:                                              ; preds = %497
-  %503 = invoke i32 @SSL_get_error(ptr noundef %20, i32 noundef %501)
+  %503 = invoke i32 @SSL_get_error(ptr noundef nonnull %20, i32 noundef %501)
           to label %504 unwind label %516
 
 504:                                              ; preds = %502
@@ -2156,7 +2156,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit256: ; preds = %481
 
 529:                                              ; preds = %524
   %530 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
-  %531 = invoke noundef ptr @SSL_get_ex_data(ptr noundef %20, i32 noundef %530)
+  %531 = invoke noundef ptr @SSL_get_ex_data(ptr noundef nonnull %20, i32 noundef %530)
           to label %_ZL12GetTestStatePK6ssl_st.exit258 unwind label %516
 
 _ZL12GetTestStatePK6ssl_st.exit258:               ; preds = %529
@@ -2175,7 +2175,7 @@ _ZL12GetTestStatePK6ssl_st.exit258:               ; preds = %529
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit261.thread
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %538 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef %20, ptr noundef nonnull %496, i64 noundef %wide.trip.count)
+  %538 = invoke fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef nonnull %20, ptr noundef nonnull %496, i64 noundef %wide.trip.count)
           to label %542 unwind label %516
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2228,7 +2228,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit264: ; preds = %516, %514
 
 554:                                              ; preds = %551
   %555 = load i32, ptr @_ZL13g_state_index, align 4, !tbaa !6
-  %556 = invoke noundef ptr @SSL_get_ex_data(ptr noundef %20, i32 noundef %555)
+  %556 = invoke noundef ptr @SSL_get_ex_data(ptr noundef nonnull %20, i32 noundef %555)
           to label %_ZL12GetTestStatePK6ssl_st.exit269 unwind label %.loopexit.split-lp
 
 _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
@@ -2247,7 +2247,7 @@ _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
   br i1 %.not212, label %567, label %564
 
 564:                                              ; preds = %563
-  %565 = invoke ptr @SSL_get1_session(ptr noundef %20)
+  %565 = invoke ptr @SSL_get1_session(ptr noundef nonnull %20)
           to label %566 unwind label %.loopexit.split-lp
 
 566:                                              ; preds = %564
@@ -2255,7 +2255,7 @@ _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
   br label %567
 
 567:                                              ; preds = %566, %563
-  %568 = invoke fastcc noundef i32 @_ZL10DoShutdownP6ssl_st(ptr noundef %20)
+  %568 = invoke fastcc noundef i32 @_ZL10DoShutdownP6ssl_st(ptr noundef nonnull %20)
           to label %569 unwind label %.loopexit.split-lp
 
 569:                                              ; preds = %567
@@ -2279,7 +2279,7 @@ _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
   br label %596
 
 580:                                              ; preds = %576
-  %581 = invoke fastcc noundef i32 @_ZL10DoShutdownP6ssl_st(ptr noundef %20)
+  %581 = invoke fastcc noundef i32 @_ZL10DoShutdownP6ssl_st(ptr noundef nonnull %20)
           to label %582 unwind label %.loopexit.split-lp
 
 582:                                              ; preds = %580, %573, %569
@@ -2293,7 +2293,7 @@ _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
   br label %596
 
 586:                                              ; preds = %582
-  %587 = invoke i32 @SSL_total_renegotiations(ptr noundef %20)
+  %587 = invoke i32 @SSL_total_renegotiations(ptr noundef nonnull %20)
           to label %588 unwind label %.loopexit.split-lp
 
 588:                                              ; preds = %586
@@ -2304,7 +2304,7 @@ _ZL12GetTestStatePK6ssl_st.exit269:               ; preds = %554
 
 591:                                              ; preds = %588
   %592 = load ptr, ptr @stderr, align 8, !tbaa !33
-  %593 = invoke i32 @SSL_total_renegotiations(ptr noundef %20)
+  %593 = invoke i32 @SSL_total_renegotiations(ptr noundef nonnull %20)
           to label %594 unwind label %.loopexit.split-lp
 
 594:                                              ; preds = %591
@@ -3837,7 +3837,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEaSEO
   br i1 %.not.i, label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %30, %37
-  %.025 = phi i1 [ %.0, %37 ], [ false, %30 ]
+  %.029 = phi i1 [ %.0, %37 ], [ false, %30 ]
   %39 = phi ptr [ %38, %37 ], [ %.pre, %30 ]
   invoke void @EVP_PKEY_free(ptr noundef nonnull %39)
           to label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit unwind label %40
@@ -3850,7 +3850,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEaSEO
   unreachable
 
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit: ; preds = %37, %.thread
-  %.026 = phi i1 [ %.0, %37 ], [ %.025, %.thread ]
+  %.030 = phi i1 [ %.0, %37 ], [ %.029, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr %2, align 8, !tbaa !160
   %.not.i20 = icmp eq ptr %43, null
@@ -3869,7 +3869,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
 
 _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %.026
+  ret i1 %.030
 
 48:                                               ; preds = %24, %26, %6
   %.pn17 = phi { ptr, i32 } [ %7, %6 ], [ %27, %26 ], [ %25, %24 ]
@@ -4891,7 +4891,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

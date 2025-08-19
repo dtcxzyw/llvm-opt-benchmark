@@ -283,8 +283,8 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
   %23 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %23) #27
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %.not60 = icmp eq i64 %indvars.iv55, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+  %.not61 = icmp eq i64 %indvars.iv55, 0
+  br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @free(ptr noundef nonnull %8) #27
@@ -900,8 +900,8 @@ check_field_number.exit:                          ; preds = %8
   %12 = icmp slt i32 %1, 0
   %.pre = load i32, ptr %0, align 8
   %13 = icmp sgt i32 %1, %.pre
-  %or.cond90 = select i1 %12, i1 true, i1 %13
-  br i1 %or.cond90, label %14, label %16
+  %or.cond99 = select i1 %12, i1 true, i1 %13
+  br i1 %or.cond99, label %14, label %16
 
 14:                                               ; preds = %check_field_number.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1942,10 +1942,10 @@ define range(i32 0, 2) i32 @pqRowProcessor(ptr noundef captures(none) %0, ptr no
   br label %.critedge65
 
 .critedge65:                                      ; preds = %33, %45
-  %.sink71 = phi i32 [ %35, %45 ], [ -1, %33 ]
+  %.sink79 = phi i32 [ %35, %45 ], [ -1, %33 ]
   %.sink = phi ptr [ %44, %45 ], [ %32, %33 ]
   %50 = getelementptr inbounds nuw %struct.pgresAttValue, ptr %28, i64 %indvars.iv
-  store i32 %.sink71, ptr %50, align 8
+  store i32 %.sink79, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %.sink, ptr %51, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2205,7 +2205,7 @@ define range(i32 0, 2) i32 @PQsendQueryParams(ptr noundef %0, ptr noundef %1, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread22, label %3
+  br i1 %.not, label %.thread24, label %3
 
 3:                                                ; preds = %2
   br i1 %1, label %4, label %11
@@ -2231,7 +2231,7 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
 
 14:                                               ; preds = %11
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #27
-  br label %.thread22
+  br label %.thread24
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 420
@@ -2247,19 +2247,19 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
 
 20:                                               ; preds = %19
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #27
-  br label %.thread22
+  br label %.thread24
 
 21:                                               ; preds = %15
-  br i1 %18, label %24, label %.thread22
+  br i1 %18, label %24, label %.thread24
 
 22:                                               ; preds = %19
   %.off = add i32 %17, -4
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %23, label %.thread22
+  br i1 %switch, label %23, label %.thread24
 
 23:                                               ; preds = %22
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #27
-  br label %.thread22
+  br label %.thread24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -2278,9 +2278,9 @@ define internal fastcc noundef zeroext i1 @PQsendQueryStart(ptr noundef %0, i1 n
   store i8 0, ptr %31, align 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 444
   store i32 0, ptr %32, align 4
-  br label %.thread22
+  br label %.thread24
 
-.thread22:                                        ; preds = %21, %24, %22, %2, %23, %20, %14
+.thread24:                                        ; preds = %21, %24, %22, %2, %23, %20, %14
   %.0 = phi i1 [ false, %14 ], [ false, %20 ], [ false, %23 ], [ false, %2 ], [ true, %22 ], [ true, %24 ], [ true, %21 ]
   ret i1 %.0
 }
@@ -5660,8 +5660,8 @@ define ptr @PQgetvalue(ptr noundef readonly captures(address_is_null) %0, i32 no
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %.not17.i = icmp slt i32 %2, %.pre.i
-  %or.cond19.i = select i1 %10, i1 %.not17.i, i1 false
-  br i1 %or.cond19.i, label %check_tuple_field_number.exit, label %._crit_edge.i
+  %or.cond23.i = select i1 %10, i1 %.not17.i, i1 false
+  br i1 %or.cond23.i, label %check_tuple_field_number.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5708,8 +5708,8 @@ define range(i32 0, -1) i32 @PQgetlength(ptr noundef readonly captures(address_i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %.not17.i = icmp slt i32 %2, %.pre.i
-  %or.cond19.i = select i1 %10, i1 %.not17.i, i1 false
-  br i1 %or.cond19.i, label %check_tuple_field_number.exit, label %._crit_edge.i
+  %or.cond23.i = select i1 %10, i1 %.not17.i, i1 false
+  br i1 %or.cond23.i, label %check_tuple_field_number.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5758,8 +5758,8 @@ define range(i32 0, 2) i32 @PQgetisnull(ptr noundef readonly captures(address_is
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %.not17.i = icmp slt i32 %2, %.pre.i
-  %or.cond19.i = select i1 %10, i1 %.not17.i, i1 false
-  br i1 %or.cond19.i, label %check_tuple_field_number.exit, label %._crit_edge.i
+  %or.cond23.i = select i1 %10, i1 %.not17.i, i1 false
+  br i1 %or.cond23.i, label %check_tuple_field_number.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -6588,30 +6588,30 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   br label %97
 
 .thread85:                                        ; preds = %.thread
-  br i1 %4, label %.thread107, label %28
+  br i1 %4, label %.thread114, label %28
 
 28:                                               ; preds = %.thread85
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 92, ptr %24, align 1
-  br label %.thread107
+  br label %.thread114
 
 30:                                               ; preds = %._crit_edge
   %.not8190 = icmp eq i64 %2, 0
   br i1 %.not8190, label %._crit_edge96, label %.lr.ph95.split
 
-.thread107:                                       ; preds = %.thread85, %28
+.thread114:                                       ; preds = %.thread85, %28
   %.175 = phi ptr [ %24, %.thread85 ], [ %29, %28 ]
   %31 = getelementptr inbounds nuw i8, ptr %.175, i64 1
   store i8 92, ptr %.175, align 1
   %32 = getelementptr inbounds nuw i8, ptr %.175, i64 2
   store i8 120, ptr %31, align 1
-  %.not8190109 = icmp eq i64 %2, 0
-  br i1 %.not8190109, label %._crit_edge96, label %.lr.ph95.split.us
+  %.not8190116 = icmp eq i64 %2, 0
+  br i1 %.not8190116, label %._crit_edge96, label %.lr.ph95.split.us
 
-.lr.ph95.split.us:                                ; preds = %.thread107, %.lr.ph95.split.us
-  %.193.us = phi ptr [ %46, %.lr.ph95.split.us ], [ %1, %.thread107 ]
-  %.17392.us = phi i64 [ %45, %.lr.ph95.split.us ], [ %2, %.thread107 ]
-  %.27691.us = phi ptr [ %44, %.lr.ph95.split.us ], [ %32, %.thread107 ]
+.lr.ph95.split.us:                                ; preds = %.thread114, %.lr.ph95.split.us
+  %.193.us = phi ptr [ %46, %.lr.ph95.split.us ], [ %1, %.thread114 ]
+  %.17392.us = phi i64 [ %45, %.lr.ph95.split.us ], [ %2, %.thread114 ]
+  %.27691.us = phi ptr [ %44, %.lr.ph95.split.us ], [ %32, %.thread114 ]
   %33 = load i8, ptr %.193.us, align 1
   %34 = zext i8 %33 to i32
   %35 = lshr i32 %34, 4
@@ -6749,9 +6749,9 @@ define internal fastcc noalias ptr @PQescapeByteaInternal(ptr noundef %0, ptr no
   %.not81 = icmp eq i64 %94, 0
   br i1 %.not81, label %._crit_edge96, label %.lr.ph95.split.split, !llvm.loop !38
 
-._crit_edge96:                                    ; preds = %93, %67, %.lr.ph95.split.us, %.thread107, %30
-  %96 = phi ptr [ %19, %30 ], [ %24, %.thread107 ], [ %24, %.lr.ph95.split.us ], [ %19, %67 ], [ %19, %93 ]
-  %.276.lcssa = phi ptr [ %19, %30 ], [ %32, %.thread107 ], [ %44, %.lr.ph95.split.us ], [ %.3.us101, %67 ], [ %.3, %93 ]
+._crit_edge96:                                    ; preds = %93, %67, %.lr.ph95.split.us, %.thread114, %30
+  %96 = phi ptr [ %19, %30 ], [ %24, %.thread114 ], [ %24, %.lr.ph95.split.us ], [ %19, %67 ], [ %19, %93 ]
+  %.276.lcssa = phi ptr [ %19, %30 ], [ %32, %.thread114 ], [ %44, %.lr.ph95.split.us ], [ %.3.us101, %67 ], [ %.3, %93 ]
   store i8 0, ptr %.276.lcssa, align 1
   br label %97
 

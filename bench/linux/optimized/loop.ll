@@ -1156,7 +1156,7 @@ define internal void @lo_complete_rq(ptr noundef %0) #2 align 16 {
   br i1 %4, label %17, label %6
 
 6:                                                ; preds = %1
-  br i1 %5, label %.thread3, label %7
+  br i1 %5, label %.thread5, label %7
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1173,9 +1173,9 @@ define internal void @lo_complete_rq(ptr noundef %0) #2 align 16 {
   br i1 %16, label %20, label %.loopexit
 
 17:                                               ; preds = %1
-  br i1 %5, label %.thread3, label %.loopexit
+  br i1 %5, label %.thread5, label %.loopexit
 
-.thread3:                                         ; preds = %6, %17
+.thread5:                                         ; preds = %6, %17
   %18 = trunc i64 %.pre to i32
   %19 = tail call zeroext i8 @errno_to_blk_status(i32 noundef %18) #14
   br label %.loopexit
@@ -1205,8 +1205,8 @@ define internal void @lo_complete_rq(ptr noundef %0) #2 align 16 {
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !22
 
-.loopexit:                                        ; preds = %.preheader, %7, %12, %25, %.thread3, %17
-  %33 = phi i8 [ %19, %.thread3 ], [ 0, %17 ], [ 10, %25 ], [ 0, %12 ], [ 0, %7 ], [ 10, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %7, %12, %25, %.thread5, %17
+  %33 = phi i8 [ %19, %.thread5 ], [ 0, %17 ], [ 10, %25 ], [ 0, %12 ], [ 0, %7 ], [ 10, %.preheader ]
   tail call void @blk_mq_end_request(ptr noundef %0, i8 noundef zeroext %33) #14
   br label %34
 
@@ -3331,21 +3331,21 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %35 = tail call i32 @mutex_lock_killable(ptr noundef nonnull %34) #14
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %.thread32, label %.thread18.sink.split
+  br i1 %.not, label %.thread45, label %.thread18.sink.split
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %38 = tail call i32 @mutex_lock_killable(ptr noundef nonnull %37) #14
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread32, label %.thread18
+  br i1 %39, label %.thread45, label %.thread18
 
-.thread32:                                        ; preds = %33, %36
+.thread45:                                        ; preds = %33, %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.thread24
 
-43:                                               ; preds = %.thread32
+43:                                               ; preds = %.thread45
   %44 = load ptr, ptr %9, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 52
@@ -3678,8 +3678,8 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   tail call void @bd_abort_claiming(ptr noundef %2, ptr noundef nonnull @loop_configure) #14
   br label %265
 
-.thread24:                                        ; preds = %59, %56, %92, %.critedge, %120, %97, %80, %.thread32
-  %259 = phi i32 [ -16, %.thread32 ], [ %98, %97 ], [ -22, %80 ], [ -12, %120 ], [ -22, %.critedge ], [ -22, %92 ], [ -9, %56 ], [ -22, %59 ]
+.thread24:                                        ; preds = %59, %56, %92, %.critedge, %120, %97, %80, %.thread45
+  %259 = phi i32 [ -16, %.thread45 ], [ %98, %97 ], [ -22, %80 ], [ -12, %120 ], [ -22, %.critedge ], [ -22, %92 ], [ -9, %56 ], [ -22, %59 ]
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 440
   tail call void @mutex_unlock(ptr noundef nonnull %260) #14
   br i1 %23, label %.thread18.sink.split, label %.thread18

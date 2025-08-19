@@ -1078,23 +1078,23 @@ put_bits.exit270:                                 ; preds = %.put_bits.exit270_c
 
 112:                                              ; preds = %._crit_edge605.thread, %._crit_edge605
   %113 = phi i32 [ %96, %._crit_edge605.thread ], [ %106, %._crit_edge605 ]
-  %.sroa.0.0.lcssa747 = phi i32 [ %87, %._crit_edge605.thread ], [ %.026.i.i320, %._crit_edge605 ]
-  %.sroa.79.0.lcssa746 = phi i32 [ 22, %._crit_edge605.thread ], [ %378, %._crit_edge605 ]
-  %.sroa.155.0.lcssa745 = phi ptr [ %.0245, %._crit_edge605.thread ], [ %.sroa.155.42, %._crit_edge605 ]
+  %.sroa.0.0.lcssa755 = phi i32 [ %87, %._crit_edge605.thread ], [ %.026.i.i320, %._crit_edge605 ]
+  %.sroa.79.0.lcssa754 = phi i32 [ 22, %._crit_edge605.thread ], [ %378, %._crit_edge605 ]
+  %.sroa.155.0.lcssa753 = phi ptr [ %.0245, %._crit_edge605.thread ], [ %.sroa.155.42, %._crit_edge605 ]
   %114 = ptrtoint ptr %85 to i64
-  %115 = ptrtoint ptr %.sroa.155.0.lcssa745 to i64
+  %115 = ptrtoint ptr %.sroa.155.0.lcssa753 to i64
   %116 = sub i64 %114, %115
   %117 = icmp ugt i64 %116, 3
   br i1 %117, label %118, label %125
 
 118:                                              ; preds = %112
-  %119 = shl i32 %.sroa.0.0.lcssa747, %.sroa.79.0.lcssa746
-  %120 = sub nsw i32 27, %.sroa.79.0.lcssa746
+  %119 = shl i32 %.sroa.0.0.lcssa755, %.sroa.79.0.lcssa754
+  %120 = sub nsw i32 27, %.sroa.79.0.lcssa754
   %121 = lshr i32 %113, %120
   %122 = or i32 %121, %119
   %123 = tail call i32 @llvm.bswap.i32(i32 %122)
-  store i32 %123, ptr %.sroa.155.0.lcssa745, align 1, !tbaa !20
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.155.0.lcssa745, i64 4
+  store i32 %123, ptr %.sroa.155.0.lcssa753, align 1, !tbaa !20
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.155.0.lcssa753, i64 4
   br label %126
 
 125:                                              ; preds = %112
@@ -1102,8 +1102,8 @@ put_bits.exit270:                                 ; preds = %.put_bits.exit270_c
   br label %126
 
 126:                                              ; preds = %125, %118
-  %.sroa.155.17 = phi ptr [ %124, %118 ], [ %.sroa.155.0.lcssa745, %125 ]
-  %127 = add nsw i32 %.sroa.79.0.lcssa746, 5
+  %.sroa.155.17 = phi ptr [ %124, %118 ], [ %.sroa.155.0.lcssa753, %125 ]
+  %127 = add nsw i32 %.sroa.79.0.lcssa754, 5
   br label %put_bits.exit274
 
 put_bits.exit274:                                 ; preds = %108, %126
@@ -1233,10 +1233,10 @@ put_bits.exit282:                                 ; preds = %165, %172, %158
   br label %put_bits.exit286
 
 put_bits.exit286:                                 ; preds = %187, %194, %180
-  %.sink750 = phi i32 [ -16, %180 ], [ 16, %194 ], [ 16, %187 ]
+  %.sink758 = phi i32 [ -16, %180 ], [ 16, %194 ], [ 16, %187 ]
   %.sroa.155.24 = phi ptr [ %.sroa.155.22, %180 ], [ %.sroa.155.22, %194 ], [ %193, %187 ]
   %.026.i.i284 = phi i32 [ %182, %180 ], [ %178, %194 ], [ %178, %187 ]
-  %195 = add nsw i32 %173, %.sink750
+  %195 = add nsw i32 %173, %.sink758
   %196 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %197 = load i32, ptr %196, align 4, !tbaa !68
   %198 = getelementptr inbounds nuw i8, ptr %152, i64 20
@@ -1271,10 +1271,10 @@ put_bits.exit286:                                 ; preds = %187, %194, %180
   br label %put_bits.exit290
 
 put_bits.exit290:                                 ; preds = %209, %216, %202
-  %.sink751 = phi i32 [ -16, %202 ], [ 16, %216 ], [ 16, %209 ]
+  %.sink759 = phi i32 [ -16, %202 ], [ 16, %216 ], [ 16, %209 ]
   %.sroa.155.26 = phi ptr [ %.sroa.155.24, %202 ], [ %.sroa.155.24, %216 ], [ %215, %209 ]
   %.026.i.i288 = phi i32 [ %204, %202 ], [ %200, %216 ], [ %200, %209 ]
-  %217 = add nsw i32 %195, %.sink751
+  %217 = add nsw i32 %195, %.sink759
   %218 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %219 = load i32, ptr %218, align 4, !tbaa !70
   %220 = getelementptr inbounds nuw i8, ptr %152, i64 28
@@ -1309,10 +1309,10 @@ put_bits.exit290:                                 ; preds = %209, %216, %202
   br label %put_bits.exit294
 
 put_bits.exit294:                                 ; preds = %231, %238, %224
-  %.sink752 = phi i32 [ -16, %224 ], [ 16, %238 ], [ 16, %231 ]
+  %.sink760 = phi i32 [ -16, %224 ], [ 16, %238 ], [ 16, %231 ]
   %.sroa.155.28 = phi ptr [ %.sroa.155.26, %224 ], [ %.sroa.155.26, %238 ], [ %237, %231 ]
   %.026.i.i292 = phi i32 [ %226, %224 ], [ %222, %238 ], [ %222, %231 ]
-  %239 = add nsw i32 %217, %.sink752
+  %239 = add nsw i32 %217, %.sink760
   %240 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %241 = load i16, ptr %240, align 4, !tbaa !26
   %242 = zext i16 %241 to i32
@@ -1345,10 +1345,10 @@ put_bits.exit294:                                 ; preds = %231, %238, %224
   br label %put_bits.exit298
 
 put_bits.exit298:                                 ; preds = %251, %258, %244
-  %.sink753 = phi i32 [ -16, %244 ], [ 16, %258 ], [ 16, %251 ]
+  %.sink761 = phi i32 [ -16, %244 ], [ 16, %258 ], [ 16, %251 ]
   %.sroa.155.30 = phi ptr [ %.sroa.155.28, %244 ], [ %.sroa.155.28, %258 ], [ %257, %251 ]
   %.026.i.i296 = phi i32 [ %246, %244 ], [ %242, %258 ], [ %242, %251 ]
-  %259 = add nsw i32 %239, %.sink753
+  %259 = add nsw i32 %239, %.sink761
   %260 = getelementptr inbounds nuw i8, ptr %152, i64 34
   %261 = load i16, ptr %260, align 2, !tbaa !29
   %262 = zext i16 %261 to i32
@@ -1381,10 +1381,10 @@ put_bits.exit298:                                 ; preds = %251, %258, %244
   br label %put_bits.exit302
 
 put_bits.exit302:                                 ; preds = %271, %278, %264
-  %.sink754 = phi i32 [ -16, %264 ], [ 16, %278 ], [ 16, %271 ]
+  %.sink762 = phi i32 [ -16, %264 ], [ 16, %278 ], [ 16, %271 ]
   %.sroa.155.32 = phi ptr [ %.sroa.155.30, %264 ], [ %.sroa.155.30, %278 ], [ %277, %271 ]
   %.026.i.i300 = phi i32 [ %266, %264 ], [ %262, %278 ], [ %262, %271 ]
-  %279 = add nsw i32 %259, %.sink754
+  %279 = add nsw i32 %259, %.sink762
   %280 = getelementptr inbounds nuw i8, ptr %152, i64 36
   %281 = load i8, ptr %280, align 4, !tbaa !30
   %282 = zext i8 %281 to i32
@@ -1417,10 +1417,10 @@ put_bits.exit302:                                 ; preds = %271, %278, %264
   br label %put_bits.exit306
 
 put_bits.exit306:                                 ; preds = %291, %298, %284
-  %.sink755 = phi i32 [ -8, %284 ], [ 24, %298 ], [ 24, %291 ]
+  %.sink763 = phi i32 [ -8, %284 ], [ 24, %298 ], [ 24, %291 ]
   %.sroa.155.34 = phi ptr [ %.sroa.155.32, %284 ], [ %.sroa.155.32, %298 ], [ %297, %291 ]
   %.026.i.i304 = phi i32 [ %286, %284 ], [ %282, %298 ], [ %282, %291 ]
-  %299 = add nsw i32 %279, %.sink755
+  %299 = add nsw i32 %279, %.sink763
   %300 = getelementptr inbounds nuw i8, ptr %152, i64 38
   %301 = load i16, ptr %300, align 2, !tbaa !31
   %302 = zext i16 %301 to i32
@@ -1453,10 +1453,10 @@ put_bits.exit306:                                 ; preds = %291, %298, %284
   br label %put_bits.exit310
 
 put_bits.exit310:                                 ; preds = %311, %318, %304
-  %.sink756 = phi i32 [ -16, %304 ], [ 16, %318 ], [ 16, %311 ]
+  %.sink764 = phi i32 [ -16, %304 ], [ 16, %318 ], [ 16, %311 ]
   %.sroa.155.36 = phi ptr [ %.sroa.155.34, %304 ], [ %.sroa.155.34, %318 ], [ %317, %311 ]
   %.026.i.i308 = phi i32 [ %306, %304 ], [ %302, %318 ], [ %302, %311 ]
-  %319 = add nsw i32 %299, %.sink756
+  %319 = add nsw i32 %299, %.sink764
   %320 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %321 = load i16, ptr %320, align 4, !tbaa !32
   %322 = zext i16 %321 to i32
@@ -1489,10 +1489,10 @@ put_bits.exit310:                                 ; preds = %311, %318, %304
   br label %put_bits.exit314
 
 put_bits.exit314:                                 ; preds = %331, %338, %324
-  %.sink757 = phi i32 [ -16, %324 ], [ 16, %338 ], [ 16, %331 ]
+  %.sink765 = phi i32 [ -16, %324 ], [ 16, %338 ], [ 16, %331 ]
   %.sroa.155.38 = phi ptr [ %.sroa.155.36, %324 ], [ %.sroa.155.36, %338 ], [ %337, %331 ]
   %.026.i.i312 = phi i32 [ %326, %324 ], [ %322, %338 ], [ %322, %331 ]
-  %339 = add nsw i32 %319, %.sink757
+  %339 = add nsw i32 %319, %.sink765
   %340 = getelementptr inbounds nuw i8, ptr %152, i64 42
   %341 = load i16, ptr %340, align 2, !tbaa !33
   %342 = zext i16 %341 to i32
@@ -1525,10 +1525,10 @@ put_bits.exit314:                                 ; preds = %331, %338, %324
   br label %put_bits.exit318
 
 put_bits.exit318:                                 ; preds = %351, %358, %344
-  %.sink758 = phi i32 [ -16, %344 ], [ 16, %358 ], [ 16, %351 ]
+  %.sink766 = phi i32 [ -16, %344 ], [ 16, %358 ], [ 16, %351 ]
   %.sroa.155.40 = phi ptr [ %.sroa.155.38, %344 ], [ %.sroa.155.38, %358 ], [ %357, %351 ]
   %.026.i.i316 = phi i32 [ %346, %344 ], [ %342, %358 ], [ %342, %351 ]
-  %359 = add nsw i32 %339, %.sink758
+  %359 = add nsw i32 %339, %.sink766
   %360 = getelementptr inbounds nuw i8, ptr %152, i64 44
   %361 = load i32, ptr %360, align 4, !tbaa !34
   %362 = icmp sgt i32 %359, 1
@@ -1560,10 +1560,10 @@ put_bits.exit318:                                 ; preds = %351, %358, %344
   br label %put_bits.exit322
 
 put_bits.exit322:                                 ; preds = %370, %377, %363
-  %.sink759 = phi i32 [ -1, %363 ], [ 31, %377 ], [ 31, %370 ]
+  %.sink767 = phi i32 [ -1, %363 ], [ 31, %377 ], [ 31, %370 ]
   %.sroa.155.42 = phi ptr [ %.sroa.155.40, %363 ], [ %.sroa.155.40, %377 ], [ %376, %370 ]
   %.026.i.i320 = phi i32 [ %365, %363 ], [ %361, %377 ], [ %361, %370 ]
-  %378 = add nsw i32 %359, %.sink759
+  %378 = add nsw i32 %359, %.sink767
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 1
   %379 = load i8, ptr %10, align 2, !tbaa !24
   %380 = zext i8 %379 to i64
@@ -1604,10 +1604,10 @@ put_bits.exit322:                                 ; preds = %370, %377, %363
   br label %put_bits.exit326
 
 put_bits.exit326:                                 ; preds = %395, %402, %387
-  %.sink760 = phi i32 [ -5, %387 ], [ 27, %402 ], [ 27, %395 ]
+  %.sink768 = phi i32 [ -5, %387 ], [ 27, %402 ], [ 27, %395 ]
   %.sroa.155.44 = phi ptr [ %.sroa.155.20, %387 ], [ %.sroa.155.20, %402 ], [ %401, %395 ]
   %.026.i.i324 = phi i32 [ %389, %387 ], [ %385, %402 ], [ %385, %395 ]
-  %403 = add nsw i32 %.0.i.i277, %.sink760
+  %403 = add nsw i32 %.0.i.i277, %.sink768
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 1298
   %405 = load i8, ptr %404, align 2, !tbaa !40
   %406 = zext i8 %405 to i32
@@ -1641,10 +1641,10 @@ put_bits.exit326:                                 ; preds = %395, %402, %387
   br label %put_bits.exit330
 
 put_bits.exit330:                                 ; preds = %416, %423, %408
-  %.sink761 = phi i32 [ -5, %408 ], [ 27, %423 ], [ 27, %416 ]
+  %.sink769 = phi i32 [ -5, %408 ], [ 27, %423 ], [ 27, %416 ]
   %.sroa.155.46 = phi ptr [ %.sroa.155.44, %408 ], [ %.sroa.155.44, %423 ], [ %422, %416 ]
   %.026.i.i328 = phi i32 [ %410, %408 ], [ %406, %423 ], [ %406, %416 ]
-  %424 = add nsw i32 %403, %.sink761
+  %424 = add nsw i32 %403, %.sink769
   %425 = load i8, ptr %383, align 1, !tbaa !39
   %.not683 = icmp eq i8 %425, 0
   br i1 %.not683, label %.loopexit583, label %.preheader582.lr.ph
@@ -1856,10 +1856,10 @@ put_bits.exit338:                                 ; preds = %475, %492
   br label %put_bits.exit342
 
 put_bits.exit342:                                 ; preds = %514, %521, %507
-  %.sink762 = phi i32 [ -17, %507 ], [ 15, %521 ], [ 15, %514 ]
+  %.sink770 = phi i32 [ -17, %507 ], [ 15, %521 ], [ 15, %514 ]
   %.sroa.155.52 = phi ptr [ %.sroa.155.56, %507 ], [ %.sroa.155.56, %521 ], [ %520, %514 ]
   %.026.i.i340 = phi i32 [ %509, %507 ], [ %505, %521 ], [ %505, %514 ]
-  %522 = add nsw i32 %573, %.sink762
+  %522 = add nsw i32 %573, %.sink770
   %523 = getelementptr inbounds nuw i8, ptr %496, i64 80
   %524 = load i8, ptr %523, align 4, !tbaa !43
   %525 = zext i8 %524 to i32
@@ -1953,10 +1953,10 @@ put_bits.exit346:                                 ; preds = %527, %543
   br label %put_bits.exit350
 
 put_bits.exit350:                                 ; preds = %565, %572, %558
-  %.sink763 = phi i32 [ -17, %558 ], [ 15, %572 ], [ 15, %565 ]
+  %.sink771 = phi i32 [ -17, %558 ], [ 15, %572 ], [ 15, %565 ]
   %.sroa.155.56 = phi ptr [ %.sroa.155.5625, %558 ], [ %.sroa.155.5625, %572 ], [ %571, %565 ]
   %.026.i.i348 = phi i32 [ %560, %558 ], [ %556, %572 ], [ %556, %565 ]
-  %573 = add nsw i32 %.sroa.79.5626, %.sink763
+  %573 = add nsw i32 %.sroa.79.5626, %.sink771
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 1
   %exitcond710.not = icmp eq i64 %indvars.iv.next708, 3
   br i1 %exitcond710.not, label %495, label %547, !llvm.loop !79
@@ -2000,10 +2000,10 @@ put_bits.exit350:                                 ; preds = %565, %572, %558
   br label %put_bits.exit354
 
 put_bits.exit354:                                 ; preds = %588, %595, %581
-  %.sink764 = phi i32 [ -10, %581 ], [ 22, %595 ], [ 22, %588 ]
+  %.sink772 = phi i32 [ -10, %581 ], [ 22, %595 ], [ 22, %588 ]
   %.sroa.155.58 = phi ptr [ %.sroa.155.6.lcssa, %581 ], [ %.sroa.155.6.lcssa, %595 ], [ %594, %588 ]
   %.026.i.i352 = phi i32 [ %583, %581 ], [ %579, %595 ], [ %579, %588 ]
-  %596 = add nsw i32 %.sroa.79.6.lcssa, %.sink764
+  %596 = add nsw i32 %.sroa.79.6.lcssa, %.sink772
   %indvars.iv.next715 = add nuw nsw i64 %indvars.iv714, 1
   %597 = load i8, ptr %10, align 2, !tbaa !24
   %598 = zext i8 %597 to i64
@@ -2047,10 +2047,10 @@ put_bits.exit354:                                 ; preds = %588, %595, %581
   br label %put_bits.exit358
 
 put_bits.exit358:                                 ; preds = %612, %619, %605
-  %.sink765 = phi i32 [ -7, %605 ], [ 25, %619 ], [ 25, %612 ]
+  %.sink773 = phi i32 [ -7, %605 ], [ 25, %619 ], [ 25, %612 ]
   %.sroa.155.60 = phi ptr [ %.sroa.155.6629, %605 ], [ %.sroa.155.6629, %619 ], [ %618, %612 ]
   %.026.i.i356 = phi i32 [ %607, %605 ], [ %603, %619 ], [ %603, %612 ]
-  %620 = add nsw i32 %.sroa.79.6630, %.sink765
+  %620 = add nsw i32 %.sroa.79.6630, %.sink773
   %621 = getelementptr inbounds nuw i8, ptr %601, i64 4
   %622 = load i32, ptr %621, align 4, !tbaa !83
   %623 = sext i32 %622 to i64
@@ -2089,10 +2089,10 @@ put_bits.exit358:                                 ; preds = %612, %619, %605
   br label %put_bits.exit362
 
 put_bits.exit362:                                 ; preds = %638, %645, %631
-  %.sink766 = phi i32 [ -17, %631 ], [ 15, %645 ], [ 15, %638 ]
+  %.sink774 = phi i32 [ -17, %631 ], [ 15, %645 ], [ 15, %638 ]
   %.sroa.155.62 = phi ptr [ %.sroa.155.60, %631 ], [ %.sroa.155.60, %645 ], [ %644, %638 ]
   %.026.i.i360 = phi i32 [ %633, %631 ], [ %629, %645 ], [ %629, %638 ]
-  %646 = add nsw i32 %620, %.sink766
+  %646 = add nsw i32 %620, %.sink774
   %indvars.iv.next712 = add nuw nsw i64 %indvars.iv711, 1
   %647 = load i8, ptr %523, align 4, !tbaa !43
   %648 = zext i8 %647 to i64
@@ -2133,10 +2133,10 @@ put_bits.exit362:                                 ; preds = %638, %645, %631
   br label %put_bits.exit366
 
 put_bits.exit366:                                 ; preds = %663, %670, %655
-  %.sink767 = phi i32 [ -5, %655 ], [ 27, %670 ], [ 27, %663 ]
+  %.sink775 = phi i32 [ -5, %655 ], [ 27, %670 ], [ 27, %663 ]
   %.sroa.155.64 = phi ptr [ %.sroa.155.50, %655 ], [ %.sroa.155.50, %670 ], [ %669, %663 ]
   %.026.i.i364 = phi i32 [ %657, %655 ], [ %653, %670 ], [ %653, %663 ]
-  %671 = add nsw i32 %.0.i.i337, %.sink767
+  %671 = add nsw i32 %.0.i.i337, %.sink775
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 6302
   %673 = load i8, ptr %672, align 2, !tbaa !51
   %674 = zext i8 %673 to i32
@@ -2170,10 +2170,10 @@ put_bits.exit366:                                 ; preds = %663, %670, %655
   br label %put_bits.exit370
 
 put_bits.exit370:                                 ; preds = %684, %691, %676
-  %.sink768 = phi i32 [ -5, %676 ], [ 27, %691 ], [ 27, %684 ]
+  %.sink776 = phi i32 [ -5, %676 ], [ 27, %691 ], [ 27, %684 ]
   %.sroa.155.66 = phi ptr [ %.sroa.155.64, %676 ], [ %.sroa.155.64, %691 ], [ %690, %684 ]
   %.026.i.i368 = phi i32 [ %678, %676 ], [ %674, %691 ], [ %674, %684 ]
-  %692 = add nsw i32 %671, %.sink768
+  %692 = add nsw i32 %671, %.sink776
   %693 = load i8, ptr %651, align 1, !tbaa !50
   %.not687 = icmp eq i8 %693, 0
   br i1 %.not687, label %.loopexit, label %.preheader.lr.ph
@@ -2411,10 +2411,10 @@ put_bits.exit378:                                 ; preds = %756, %772
   br label %put_bits.exit382
 
 put_bits.exit382:                                 ; preds = %790, %797, %783
-  %.sink769 = phi i32 [ -12, %783 ], [ 20, %797 ], [ 20, %790 ]
+  %.sink777 = phi i32 [ -12, %783 ], [ 20, %797 ], [ 20, %790 ]
   %.sroa.155.73 = phi ptr [ %.sroa.155.71, %783 ], [ %.sroa.155.71, %797 ], [ %796, %790 ]
   %.026.i.i380 = phi i32 [ %785, %783 ], [ %781, %797 ], [ %781, %790 ]
-  %798 = add nsw i32 %.0.i.i377, %.sink769
+  %798 = add nsw i32 %.0.i.i377, %.sink777
   %799 = getelementptr inbounds nuw i8, ptr %751, i64 284
   %800 = load i32, ptr %799, align 4, !tbaa !91
   %801 = mul nsw i32 %800, 4095
@@ -2450,10 +2450,10 @@ put_bits.exit382:                                 ; preds = %790, %797, %783
   br label %put_bits.exit386
 
 put_bits.exit386:                                 ; preds = %813, %820, %806
-  %.sink770 = phi i32 [ -12, %806 ], [ 20, %820 ], [ 20, %813 ]
+  %.sink778 = phi i32 [ -12, %806 ], [ 20, %820 ], [ 20, %813 ]
   %.sroa.155.75 = phi ptr [ %.sroa.155.73, %806 ], [ %.sroa.155.73, %820 ], [ %819, %813 ]
   %.026.i.i384 = phi i32 [ %808, %806 ], [ %804, %820 ], [ %804, %813 ]
-  %821 = add nsw i32 %798, %.sink770
+  %821 = add nsw i32 %798, %.sink778
   %822 = getelementptr inbounds nuw i8, ptr %751, i64 292
   %823 = load i8, ptr %822, align 4, !tbaa !55
   %824 = zext i8 %823 to i32

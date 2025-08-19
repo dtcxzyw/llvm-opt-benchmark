@@ -1195,18 +1195,18 @@ qrx_decrypt_pkt_body.exit.thread.i:               ; preds = %312, %305, %302, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val.i5.i = load i32, ptr %232, align 8
   %trunc.i.i.i.i = trunc i32 %.val.i5.i to i8
-  %switch.tableidx48 = add i8 %trunc.i.i.i.i, -2
-  %318 = icmp ult i8 %switch.tableidx48, 4
-  br i1 %318, label %switch.lookup47, label %rxe_determine_pn_space.exit.i.i
+  %switch.tableidx73 = add i8 %trunc.i.i.i.i, -2
+  %318 = icmp ult i8 %switch.tableidx73, 4
+  br i1 %318, label %switch.lookup72, label %rxe_determine_pn_space.exit.i.i
 
-switch.lookup47:                                  ; preds = %315
-  %319 = zext nneg i8 %switch.tableidx48 to i64
-  %switch.gep49 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.ossl_qrx_read_pkt.15, i64 0, i64 %319
-  %switch.load50 = load i32, ptr %switch.gep49, align 4
+switch.lookup72:                                  ; preds = %315
+  %319 = zext nneg i8 %switch.tableidx73 to i64
+  %switch.gep74 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.ossl_qrx_read_pkt.15, i64 0, i64 %319
+  %switch.load75 = load i32, ptr %switch.gep74, align 4
   br label %rxe_determine_pn_space.exit.i.i
 
-rxe_determine_pn_space.exit.i.i:                  ; preds = %315, %switch.lookup47
-  %.0.i1.i.i.i = phi i32 [ %switch.load50, %switch.lookup47 ], [ 0, %315 ]
+rxe_determine_pn_space.exit.i.i:                  ; preds = %315, %switch.lookup72
+  %.0.i1.i.i.i = phi i32 [ %switch.load75, %switch.lookup72 ], [ 0, %315 ]
   %320 = load ptr, ptr %30, align 8, !tbaa !103
   %.not.i6.i = icmp eq ptr %320, null
   br i1 %.not.i6.i, label %qrx_validate_hdr_late.exit.i, label %321
@@ -1257,18 +1257,18 @@ qrx_validate_hdr_late.exit.i:                     ; preds = %.qrx_validate_hdr_l
   store i64 %.018.i, ptr %342, align 8, !tbaa !81
   %.val120.i.i.i.i = load i32, ptr %232, align 8
   %trunc.i.i.i.i.i.i = trunc i32 %.val120.i.i.i.i to i8
-  %switch.tableidx52 = add i8 %trunc.i.i.i.i.i.i, -2
-  %343 = icmp ult i8 %switch.tableidx52, 4
-  br i1 %343, label %switch.lookup51, label %rxe_determine_pn_space.exit.i.i.i.i
+  %switch.tableidx77 = add i8 %trunc.i.i.i.i.i.i, -2
+  %343 = icmp ult i8 %switch.tableidx77, 4
+  br i1 %343, label %switch.lookup76, label %rxe_determine_pn_space.exit.i.i.i.i
 
-switch.lookup51:                                  ; preds = %337
-  %344 = zext nneg i8 %switch.tableidx52 to i64
-  %switch.gep53 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.ossl_qrx_read_pkt.16, i64 0, i64 %344
-  %switch.load54 = load i64, ptr %switch.gep53, align 8
+switch.lookup76:                                  ; preds = %337
+  %344 = zext nneg i8 %switch.tableidx77 to i64
+  %switch.gep78 = getelementptr inbounds nuw [4 x i64], ptr @switch.table.ossl_qrx_read_pkt.16, i64 0, i64 %344
+  %switch.load79 = load i64, ptr %switch.gep78, align 8
   br label %rxe_determine_pn_space.exit.i.i.i.i
 
-rxe_determine_pn_space.exit.i.i.i.i:              ; preds = %337, %switch.lookup51
-  %.0.i1.i.i.i.i.i = phi i64 [ %switch.load54, %switch.lookup51 ], [ 0, %337 ]
+rxe_determine_pn_space.exit.i.i.i.i:              ; preds = %337, %switch.lookup76
+  %.0.i1.i.i.i.i.i = phi i64 [ %switch.load79, %switch.lookup76 ], [ 0, %337 ]
   %345 = load i64, ptr %237, align 8, !tbaa !79
   %346 = getelementptr inbounds nuw [3 x i64], ptr %25, i64 0, i64 %.0.i1.i.i.i.i.i
   %347 = load i64, ptr %346, align 8, !tbaa !13
@@ -1447,13 +1447,13 @@ qrx_process_datagram.exit.i.i:                    ; preds = %408, %53
   br i1 %411, label %413, label %415
 
 413:                                              ; preds = %qrx_process_datagram.exit.i.i, %qrx_process_datagram.exit.thread.i.i
-  %.013.i32.i.i = phi i1 [ true, %qrx_process_datagram.exit.thread.i.i ], [ %412, %qrx_process_datagram.exit.i.i ]
+  %.013.i50.i.i = phi i1 [ true, %qrx_process_datagram.exit.thread.i.i ], [ %412, %qrx_process_datagram.exit.i.i ]
   %414 = load ptr, ptr %.val30.i, align 8, !tbaa !49
   store ptr %414, ptr %12, align 8, !tbaa !48
   br label %415
 
 415:                                              ; preds = %413, %qrx_process_datagram.exit.i.i
-  %.013.i31.i.i = phi i1 [ %.013.i32.i.i, %413 ], [ %412, %qrx_process_datagram.exit.i.i ]
+  %.013.i49.i.i = phi i1 [ %.013.i50.i.i, %413 ], [ %412, %qrx_process_datagram.exit.i.i ]
   %416 = load ptr, ptr %32, align 8, !tbaa !52
   %417 = icmp eq ptr %416, %.val30.i
   %418 = getelementptr inbounds nuw i8, ptr %.val30.i, i64 8
@@ -1490,7 +1490,7 @@ ossl_list_urxe_remove.exit.i.i:                   ; preds = %423, %422
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.val30.i, i64 288
   %.pre29.i.i = load i8, ptr %.phi.trans.insert.i.i, align 8, !tbaa !57
   %427 = icmp eq i8 %.pre29.i.i, 0
-  br i1 %.013.i31.i.i, label %445, label %428
+  br i1 %.013.i49.i.i, label %445, label %428
 
 428:                                              ; preds = %ossl_list_urxe_remove.exit.i.i
   br i1 %427, label %429, label %433

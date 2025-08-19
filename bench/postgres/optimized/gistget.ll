@@ -314,7 +314,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %94
   %or.cond85.not91 = and i1 %.not77, %156
   %157 = icmp eq i16 %154, %153
   %or.cond86 = and i1 %157, %or.cond85.not91
-  br i1 %or.cond86, label %158, label %.preheader118
+  br i1 %or.cond86, label %158, label %.preheader133
 
 158:                                              ; preds = %152
   %159 = load ptr, ptr %52, align 8
@@ -335,7 +335,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %94
   %167 = phi ptr [ %165, %161 ], [ %159, %158 ]
   %168 = load i32, ptr %53, align 8
   %169 = icmp slt i32 %168, 408
-  br i1 %169, label %170, label %.preheader118
+  br i1 %169, label %170, label %.preheader133
 
 170:                                              ; preds = %166
   %171 = load i16, ptr %46, align 2
@@ -348,12 +348,12 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %94
   %177 = sext i32 %168 to i64
   %178 = getelementptr inbounds i16, ptr %167, i64 %177
   store i16 %175, ptr %178, align 2
-  br label %.preheader118
+  br label %.preheader133
 
-.preheader118:                                    ; preds = %166, %170, %152
+.preheader133:                                    ; preds = %166, %170, %152
   br label %179
 
-179:                                              ; preds = %.preheader118, %242
+179:                                              ; preds = %.preheader133, %242
   %180 = load i32, ptr %55, align 4
   %.not78 = icmp eq i32 %180, -1
   br i1 %.not78, label %gistkillitems.exit, label %181
@@ -747,10 +747,10 @@ BufferGetPage.exit:                               ; preds = %23, %29
   %157 = icmp slt i64 %indvars.iv.next.i, %156
   br i1 %157, label %150, label %gistindex_keytest.exit, !llvm.loop !12
 
-158:                                              ; preds = %.thread183, %.lr.ph.i
-  %.1152 = phi i8 [ 0, %.lr.ph.i ], [ %.2153, %.thread183 ]
-  %.07694.i = phi ptr [ %128, %.lr.ph.i ], [ %242, %.thread183 ]
-  %.07993.i = phi i32 [ %129, %.lr.ph.i ], [ %243, %.thread183 ]
+158:                                              ; preds = %.thread193, %.lr.ph.i
+  %.1152 = phi i8 [ 0, %.lr.ph.i ], [ %.2153, %.thread193 ]
+  %.07694.i = phi ptr [ %128, %.lr.ph.i ], [ %242, %.thread193 ]
+  %.07993.i = phi i32 [ %129, %.lr.ph.i ], [ %243, %.thread193 ]
   %159 = getelementptr inbounds nuw i8, ptr %.07694.i, i64 4
   %160 = load i16, ptr %159, align 4
   %161 = sext i16 %160 to i32
@@ -842,20 +842,20 @@ index_getattr.exit140:                            ; preds = %180, %183, %186, %1
   %210 = load i32, ptr %.07694.i, align 8
   %211 = and i32 %210, 1
   %.not.i = icmp eq i32 %211, 0
-  br i1 %.not.i, label %223, label %.thread178
+  br i1 %.not.i, label %223, label %.thread188
 
 index_getattr.exit140.thread:                     ; preds = %199
   %212 = load i32, ptr %.07694.i, align 8
   %213 = and i32 %212, 65
-  %or.cond191.not = icmp eq i32 %213, 65
-  br i1 %or.cond191.not, label %.thread183, label %.critedge
+  %or.cond201.not = icmp eq i32 %213, 65
+  br i1 %or.cond201.not, label %.thread193, label %.critedge
 
-.thread178:                                       ; preds = %index_getattr.exit140
+.thread188:                                       ; preds = %index_getattr.exit140
   %214 = and i32 %210, 64
-  %.not86.i180 = icmp eq i32 %214, 0
-  br i1 %.not86.i180, label %.thread183, label %215
+  %.not86.i190 = icmp eq i32 %214, 0
+  br i1 %.not86.i190, label %.thread193, label %215
 
-215:                                              ; preds = %.thread178
+215:                                              ; preds = %.thread188
   %216 = load i16, ptr %35, align 4
   %217 = zext i16 %216 to i64
   %218 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %217
@@ -863,7 +863,7 @@ index_getattr.exit140.thread:                     ; preds = %199
   %220 = load i16, ptr %219, align 4
   %221 = and i16 %220, 1
   %222 = icmp eq i16 %221, 0
-  br i1 %222, label %.thread183, label %.critedge
+  br i1 %222, label %.thread193, label %.critedge
 
 223:                                              ; preds = %index_getattr.exit140
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -893,10 +893,10 @@ index_getattr.exit140.thread:                     ; preds = %199
   %241 = or i8 %240, %.1152
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread183
+  br label %.thread193
 
-.thread183:                                       ; preds = %index_getattr.exit140.thread, %.thread178, %239, %215
-  %.2153 = phi i8 [ %241, %239 ], [ %.1152, %215 ], [ %.1152, %.thread178 ], [ %.1152, %index_getattr.exit140.thread ]
+.thread193:                                       ; preds = %index_getattr.exit140.thread, %.thread188, %239, %215
+  %.2153 = phi i8 [ %241, %239 ], [ %.1152, %215 ], [ %.1152, %.thread188 ], [ %.1152, %index_getattr.exit140.thread ]
   %242 = getelementptr inbounds nuw i8, ptr %.07694.i, i64 72
   %243 = add nsw i32 %.07993.i, -1
   %244 = icmp sgt i32 %.07993.i, 1
@@ -907,8 +907,8 @@ index_getattr.exit140.thread:                     ; preds = %199
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
-._crit_edge.i:                                    ; preds = %.thread183, %.preheader92.i
-  %.0151 = phi i8 [ 0, %.preheader92.i ], [ %.2153, %.thread183 ]
+._crit_edge.i:                                    ; preds = %.thread193, %.preheader92.i
+  %.0151 = phi i8 [ 0, %.preheader92.i ], [ %.2153, %.thread193 ]
   %245 = load i32, ptr %101, align 4
   %246 = icmp sgt i32 %245, 0
   br i1 %246, label %.lr.ph99.i, label %gistindex_keytest.exit

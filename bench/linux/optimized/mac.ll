@@ -1585,12 +1585,12 @@ define dso_local i32 @e1000e_id_led_init_generic(ptr noundef %0) local_unnamed_a
   br label %25
 
 25:                                               ; preds = %17, %17, %17, %24
-  %.sink3 = phi i32 [ 15, %24 ], [ 14, %17 ], [ 14, %17 ], [ 14, %17 ]
+  %.sink4 = phi i32 [ 15, %24 ], [ 14, %17 ], [ 14, %17 ], [ 14, %17 ]
   %26 = shl nuw nsw i32 %20, 3
   %27 = shl nuw i32 255, %26
   %28 = xor i32 %27, -1
   %29 = and i32 %19, %28
-  %30 = shl nuw nsw i32 %.sink3, %26
+  %30 = shl nuw nsw i32 %.sink4, %26
   %31 = or i32 %29, %30
   store i32 %31, ptr %13, align 8
   switch i32 %23, label %42 [
@@ -1605,13 +1605,13 @@ define dso_local i32 @e1000e_id_led_init_generic(ptr noundef %0) local_unnamed_a
   br label %34
 
 34:                                               ; preds = %17, %25, %25, %32
-  %.sink8 = phi i32 [ 15, %32 ], [ 14, %25 ], [ 14, %25 ], [ 14, %17 ]
+  %.sink9 = phi i32 [ 15, %32 ], [ 14, %25 ], [ 14, %25 ], [ 14, %17 ]
   %35 = phi i32 [ %33, %32 ], [ %31, %25 ], [ %31, %25 ], [ %19, %17 ]
   %36 = shl nuw nsw i32 %20, 3
   %37 = shl nuw i32 255, %36
   %38 = xor i32 %37, -1
   %39 = and i32 %18, %38
-  %40 = shl nuw nsw i32 %.sink8, %36
+  %40 = shl nuw nsw i32 %.sink9, %36
   %41 = or i32 %39, %40
   store i32 %41, ptr %14, align 4
   br label %42

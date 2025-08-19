@@ -723,8 +723,8 @@ define void @_ZN5nblib25createNonBondedParametersERKSt6vectorINS_12ParticleTypeE
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not144 = icmp eq i64 %16, 0
-  br i1 %.not144, label %_ZNSt6vectorIfSaIfEE7reserveEm.exit, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
+  %.not178 = icmp eq i64 %16, 0
+  br i1 %.not178, label %_ZNSt6vectorIfSaIfEE7reserveEm.exit, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8

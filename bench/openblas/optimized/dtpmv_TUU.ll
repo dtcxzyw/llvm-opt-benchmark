@@ -35,7 +35,7 @@ define noundef i32 @dtpmv_TUU(i64 noundef %0, ptr noundef %1, ptr noundef %2, i6
 18:                                               ; preds = %16
   %19 = xor i64 %.03137, -1
   %20 = add nsw i64 %0, %19
-  %21 = sub i64 0, %20
+  %21 = sub nsw i64 0, %20
   %22 = getelementptr inbounds double, ptr %.03236, i64 %21
   %23 = tail call double @ddot_k(i64 noundef %20, ptr noundef %22, i64 noundef 1, ptr noundef %.0, i64 noundef 1) #2
   %24 = getelementptr inbounds double, ptr %.0, i64 %20

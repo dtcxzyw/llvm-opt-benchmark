@@ -268,7 +268,7 @@ define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 derefe
 24:                                               ; preds = %3
   %25 = call i32 @flock(i32 noundef %21, i32 noundef 6) #19
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %.thread29
+  br i1 %26, label %27, label %.thread30
 
 27:                                               ; preds = %24
   %28 = call i32 @close(i32 noundef %21)
@@ -276,7 +276,7 @@ define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 derefe
 
 29:                                               ; preds = %3
   %30 = icmp eq i32 %21, -1
-  br i1 %30, label %31, label %.thread29
+  br i1 %30, label %31, label %.thread30
 
 31:                                               ; preds = %29
   %32 = tail call ptr @__errno_location() #21
@@ -297,7 +297,7 @@ define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 derefe
   store i8 0, ptr %38, align 1, !tbaa !22
   br label %46
 
-.thread29:                                        ; preds = %24, %29
+.thread30:                                        ; preds = %24, %29
   %39 = sext i32 %21 to i64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %40, align 8, !tbaa !18
@@ -313,8 +313,8 @@ define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 derefe
   store i8 0, ptr %45, align 4, !tbaa !29
   br label %46
 
-46:                                               ; preds = %.thread, %.thread29, %27
-  %.0 = phi i1 [ false, %27 ], [ true, %.thread29 ], [ false, %.thread ]
+46:                                               ; preds = %.thread, %.thread30, %27
+  %.0 = phi i1 [ false, %27 ], [ true, %.thread30 ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -553,8 +553,8 @@ define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 deref
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = icmp eq i64 %10, -1
-  %or.cond32 = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond32, label %12, label %._crit_edge
+  %or.cond34 = select i1 %8, i1 %11, i1 false
+  br i1 %or.cond34, label %12, label %._crit_edge
 
 12:                                               ; preds = %5
   %13 = tail call i32 @dup(i32 noundef 1) #19
@@ -768,7 +768,7 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
   %62 = load i32, ptr %20, align 4
   %63 = icmp eq i32 %62, 0
   %or.cond = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond, label %64, label %.loopexit84
+  br i1 %or.cond, label %64, label %.loopexit89
 
 64:                                               ; preds = %60
   call void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %24, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -780,23 +780,23 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
   %.pre = load i8, ptr %4, align 1, !tbaa !38, !range !31
   %.pre81 = load i32, ptr %11, align 4
   %67 = trunc nuw i8 %.pre to i1
-  br label %.loopexit84, !llvm.loop !39
+  br label %.loopexit89, !llvm.loop !39
 
-.loopexit84:                                      ; preds = %60, %._crit_edge
+.loopexit89:                                      ; preds = %60, %._crit_edge
   %68 = phi i32 [ %.pre81, %._crit_edge ], [ %39, %60 ]
   %69 = phi i1 [ %67, %._crit_edge ], [ false, %60 ]
   %70 = icmp eq i32 %68, 1
   %or.cond58 = select i1 %69, i1 true, i1 %70
-  br i1 %or.cond58, label %.thread82, label %71
+  br i1 %or.cond58, label %.thread87, label %71
 
-.thread82:                                        ; preds = %.loopexit84
+.thread87:                                        ; preds = %.loopexit89
   store i8 1, ptr %7, align 4, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit74
 
-71:                                               ; preds = %.loopexit84
+71:                                               ; preds = %.loopexit89
   call void @_ZN12ErrorHandler9ReadErrorEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -844,8 +844,8 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
   store i64 %90, ptr %88, align 8, !tbaa !30
   br label %.loopexit74
 
-.loopexit74:                                      ; preds = %.thread82, %86, %.thread67, %3
-  %.036 = phi i32 [ 0, %3 ], [ %72, %86 ], [ %72, %.thread67 ], [ 0, %.thread82 ]
+.loopexit74:                                      ; preds = %.thread87, %86, %.thread67, %3
+  %.036 = phi i32 [ 0, %3 ], [ %72, %86 ], [ %72, %.thread67 ], [ 0, %.thread87 ]
   ret i32 %.036
 }
 

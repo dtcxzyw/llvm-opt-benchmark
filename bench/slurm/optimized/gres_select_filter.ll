@@ -360,8 +360,8 @@ _build_avail_cores_by_sock.exit:                  ; preds = %..loopexit_crit_edg
 143:                                              ; preds = %121
   %144 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %145 = load i64, ptr %144, align 8
-  %.not307 = xor i1 %126, true
-  %brmerge = or i1 %.not.i, %.not307
+  %.not322 = xor i1 %126, true
+  %brmerge = or i1 %.not.i, %.not322
   br i1 %brmerge, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %143, %153
@@ -537,8 +537,8 @@ _set_max_node_gres.exit217:                       ; preds = %170, %166, %163, %_
   %227 = load i16, ptr %13, align 2
   %228 = zext i16 %227 to i64
   %229 = add i64 %.3167, %228
-  %.sink308 = tail call i64 @llvm.umin.i64(i64 %229, i64 255)
-  %.sink = trunc nuw nsw i64 %.sink308 to i16
+  %.sink323 = tail call i64 @llvm.umin.i64(i64 %229, i64 255)
+  %.sink = trunc nuw nsw i64 %.sink323 to i16
   store i16 %.sink, ptr %13, align 2
   br label %230
 
@@ -1319,11 +1319,11 @@ _set_used_cnts.exit:                              ; preds = %._crit_edge.i
   br i1 %207, label %.loopexit180.i, label %.preheader178.i
 
 .preheader178.ithread-pre-split:                  ; preds = %.loopexit179.i
-  %.pr279 = load i16, ptr %12, align 2
+  %.pr329 = load i16, ptr %12, align 2
   br label %.preheader178.i
 
 .preheader178.i:                                  ; preds = %.preheader178.lr.ph.i, %.preheader178.ithread-pre-split
-  %208 = phi i16 [ %.pr279, %.preheader178.ithread-pre-split ], [ %206, %.preheader178.lr.ph.i ]
+  %208 = phi i16 [ %.pr329, %.preheader178.ithread-pre-split ], [ %206, %.preheader178.lr.ph.i ]
   %209 = phi i16 [ %281, %.preheader178.ithread-pre-split ], [ %204, %.preheader178.lr.ph.i ]
   %.0125193.i = phi i32 [ %.2127.i, %.preheader178.ithread-pre-split ], [ 0, %.preheader178.lr.ph.i ]
   %.2131192.i = phi i32 [ %.4.i, %.preheader178.ithread-pre-split ], [ %.0129197.i, %.preheader178.lr.ph.i ]
@@ -1512,22 +1512,22 @@ _set_used_cnts.exit:                              ; preds = %._crit_edge.i
 
 .preheader177.i:                                  ; preds = %290
   %293 = load i16, ptr %11, align 2
-  %.not227.i = icmp eq i16 %293, 0
+  %.not246.i = icmp eq i16 %293, 0
   %294 = load i16, ptr %12, align 2
   %295 = icmp eq i16 %294, 0
-  %or.cond286 = select i1 %.not227.i, i1 true, i1 %295
-  br i1 %or.cond286, label %._crit_edge205.i, label %.preheader.i
+  %or.cond336 = select i1 %.not246.i, i1 true, i1 %295
+  br i1 %or.cond336, label %._crit_edge205.i, label %.preheader.i
 
 .critedge.i:                                      ; preds = %290
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.lr.ph210.i, !llvm.loop !29
 
 .preheader.ithread-pre-split:                     ; preds = %.loopexit.i
-  %.pr280 = load i16, ptr %12, align 2
+  %.pr330 = load i16, ptr %12, align 2
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader177.i, %.preheader.ithread-pre-split
-  %296 = phi i16 [ %.pr280, %.preheader.ithread-pre-split ], [ %294, %.preheader177.i ]
+  %296 = phi i16 [ %.pr330, %.preheader.ithread-pre-split ], [ %294, %.preheader177.i ]
   %indvars.iv.i199 = phi i64 [ %indvars.iv.next.i200, %.preheader.ithread-pre-split ], [ 0, %.preheader177.i ]
   %.11204.i = phi i32 [ %.12.i, %.preheader.ithread-pre-split ], [ %.10207.i, %.preheader177.i ]
   %.not216.i = icmp eq i16 %296, 0
@@ -1565,7 +1565,7 @@ _set_used_cnts.exit:                              ; preds = %._crit_edge.i
   %316 = load i32, ptr %315, align 4
   %317 = add i32 %316, 1
   store i32 %317, ptr %315, align 4
-  %318 = add i32 %.11204.i, -1
+  %318 = add nsw i32 %.11204.i, -1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %299, %310, %.preheader.i
@@ -1801,8 +1801,8 @@ _build_tasks_per_node_sock.exit:                  ; preds = %._crit_edge211.i
   br i1 %exitcond.not.i, label %_get_gres_node_cnt.exit, label %431, !llvm.loop !33
 
 .loopexit.sink.split.i:                           ; preds = %425, %418
-  %.sink25.i = phi ptr [ %421, %418 ], [ %426, %425 ]
-  %436 = call i64 @slurm_bit_size(ptr noundef nonnull %.sink25.i) #8
+  %.sink27.i = phi ptr [ %421, %418 ], [ %426, %425 ]
+  %436 = call i64 @slurm_bit_size(ptr noundef nonnull %.sink27.i) #8
   %437 = trunc i64 %436 to i32
   %.pre = load ptr, ptr %413, align 8
   br label %_get_gres_node_cnt.exit
@@ -2322,10 +2322,10 @@ _set_shared_node_bits.exit:                       ; preds = %621, %.sink.split.i
   br i1 %692, label %._crit_edge.thread.i, label %.loopexit.i228
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i227, %.loopexit78.i
-  %.067.lcssa111.i = phi i32 [ %.1.i226, %._crit_edge.i227 ], [ %660, %.loopexit78.i ]
-  %694 = call fastcc i64 @_pick_gres_topo(ptr noundef readonly %0, i32 noundef %.067.lcssa111.i, i32 noundef %23, i32 noundef -1, ptr noundef %676, ptr noundef %675)
+  %.067.lcssa116.i = phi i32 [ %.1.i226, %._crit_edge.i227 ], [ %660, %.loopexit78.i ]
+  %694 = call fastcc i64 @_pick_gres_topo(ptr noundef readonly %0, i32 noundef %.067.lcssa116.i, i32 noundef %23, i32 noundef -1, ptr noundef %676, ptr noundef %675)
   %695 = trunc i64 %694 to i32
-  %696 = sub i32 %.067.lcssa111.i, %695
+  %696 = sub i32 %.067.lcssa116.i, %695
   %697 = icmp ne i32 %677, 0
   %698 = icmp ne i32 %696, 0
   %699 = select i1 %697, i1 %698, i1 false
@@ -2910,8 +2910,8 @@ define internal fastcc void @_set_sock_bits(i32 noundef %0, ptr noundef readonly
 .preheader205:                                    ; preds = %141
   %94 = load i16, ptr %31, align 4
   %95 = zext i16 %94 to i32
-  %.not289 = icmp ult i32 %.4146, %95
-  br i1 %.not289, label %.preheader204.us.preheader, label %.thread
+  %.not308 = icmp ult i32 %.4146, %95
+  br i1 %.not308, label %.preheader204.us.preheader, label %.thread
 
 .preheader204.us.preheader:                       ; preds = %.preheader205
   %96 = and i32 %22, 65535
@@ -3178,11 +3178,11 @@ define internal fastcc void @_set_sock_bits(i32 noundef %0, ptr noundef readonly
   br i1 %.not184, label %.thread199, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader202, %.loopexit
-  %.6285 = phi i64 [ %.6, %.loopexit ], [ %187, %.preheader202 ]
+  %.6304 = phi i64 [ %.6, %.loopexit ], [ %187, %.preheader202 ]
   %215 = load ptr, ptr %13, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load ptr, ptr %216, align 8
-  %218 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._set_sock_bits, ptr noundef %217, i32 noundef %2, i32 noundef %0, i64 noundef %.6285) #8
+  %218 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._set_sock_bits, ptr noundef %217, i32 noundef %2, i32 noundef %0, i64 noundef %.6304) #8
   br label %.thread199
 
 .thread199:                                       ; preds = %182, %._crit_edge, %.loopexit.thread, %.loopexit
@@ -3551,11 +3551,11 @@ define internal fastcc range(i32 0, 2) i32 @_set_job_bits1(i32 noundef %0, i32 n
   br i1 %94, label %._crit_edge.thread, label %100
 
 ._crit_edge.thread:                               ; preds = %75, %._crit_edge
-  %.0181.lcssa332 = phi i32 [ %.1182, %._crit_edge ], [ 0, %75 ]
-  %96 = sub nsw i32 %.0179, %.0181.lcssa332
+  %.0181.lcssa340 = phi i32 [ %.1182, %._crit_edge ], [ 0, %75 ]
+  %96 = sub nsw i32 %.0179, %.0181.lcssa340
   %97 = tail call fastcc i64 @_pick_gres_topo(ptr noundef %3, i32 noundef %96, i32 noundef %0, i32 noundef -1, ptr noundef null, ptr noundef null)
   %98 = trunc i64 %97 to i32
-  %99 = add i32 %.0181.lcssa332, %98
+  %99 = add i32 %.0181.lcssa340, %98
   br label %100
 
 100:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -3637,11 +3637,11 @@ define internal fastcc range(i32 0, 2) i32 @_set_job_bits1(i32 noundef %0, i32 n
   br label %131
 
 131:                                              ; preds = %.loopexit248.thread, %.loopexit248
-  %.5334 = phi i32 [ 0, %.loopexit248.thread ], [ %.5, %.loopexit248 ]
-  %132 = icmp sgt i32 %.5334, %67
+  %.5342 = phi i32 [ 0, %.loopexit248.thread ], [ %.5, %.loopexit248 ]
+  %132 = icmp sgt i32 %.5342, %67
   %133 = icmp sgt i32 %45, 0
-  %or.cond342 = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond342, label %.lr.ph275, label %.loopexit
+  %or.cond350 = select i1 %132, i1 %133, i1 false
+  br i1 %or.cond350, label %.lr.ph275, label %.loopexit
 
 .lr.ph275:                                        ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %19, i64 72
@@ -3662,7 +3662,7 @@ define internal fastcc range(i32 0, 2) i32 @_set_job_bits1(i32 noundef %0, i32 n
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %141
-  %.9284.us = phi i32 [ %150, %141 ], [ %.5334, %.preheader.lr.ph ]
+  %.9284.us = phi i32 [ %150, %141 ], [ %.5342, %.preheader.lr.ph ]
   br label %152
 
 141:                                              ; preds = %._crit_edge282.us
@@ -3779,7 +3779,7 @@ define internal fastcc range(i32 0, 2) i32 @_set_job_bits1(i32 noundef %0, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %141, %.preheader243, %.thread237, %131
-  %.8 = phi i32 [ %.5334, %131 ], [ %.9284.us, %.thread237 ], [ %.5334, %.preheader243 ], [ %67, %141 ]
+  %.8 = phi i32 [ %.5342, %131 ], [ %.9284.us, %.thread237 ], [ %.5342, %.preheader243 ], [ %67, %141 ]
   %188 = add i32 %.8, %9
   %189 = zext i32 %188 to i64
   %190 = load i64, ptr %22, align 8

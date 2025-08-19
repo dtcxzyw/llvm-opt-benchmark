@@ -626,9 +626,9 @@ list_length.exit449:                              ; preds = %list_length.exit447
   br label %389
 
 389:                                              ; preds = %365, %373
-  %.sink496 = phi ptr [ %388, %373 ], [ null, %365 ]
+  %.sink531 = phi ptr [ %388, %373 ], [ null, %365 ]
   %390 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %370) #5
-  %391 = tail call ptr @makeFromExpr(ptr noundef %390, ptr noundef %.sink496) #5
+  %391 = tail call ptr @makeFromExpr(ptr noundef %390, ptr noundef %.sink531) #5
   %392 = getelementptr inbounds nuw i8, ptr %247, i64 80
   store ptr %391, ptr %392, align 8
   %393 = load ptr, ptr %59, align 8
@@ -1223,12 +1223,12 @@ define internal fastcc noundef ptr @make_path_rowexpr(ptr noundef readonly captu
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load i32, ptr %7, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph57, label %.critedge
+  br i1 %16, label %.lr.ph59, label %.critedge
 
-.lr.ph57:                                         ; preds = %.lr.ph46, %.critedge40
-  %indvars.iv5156 = phi i64 [ %indvars.iv.next52, %.critedge40 ], [ 0, %.lr.ph46 ]
+.lr.ph59:                                         ; preds = %.lr.ph46, %.critedge40
+  %indvars.iv5158 = phi i64 [ %indvars.iv.next52, %.critedge40 ], [ 0, %.lr.ph46 ]
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv5156
+  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv5158
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -1236,7 +1236,7 @@ define internal fastcc noundef ptr @make_path_rowexpr(ptr noundef readonly captu
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %.critedge40, label %list_length.exit.lr.ph
 
-list_length.exit.lr.ph:                           ; preds = %.lr.ph57
+list_length.exit.lr.ph:                           ; preds = %.lr.ph59
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 0
@@ -1294,12 +1294,12 @@ list_length.exit.lr.ph:                           ; preds = %.lr.ph57
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge40, label %27
 
-.critedge40:                                      ; preds = %.critedge36, %.lr.ph57, %list_length.exit.lr.ph, %.split
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv5156, 1
+.critedge40:                                      ; preds = %.critedge36, %.lr.ph59, %list_length.exit.lr.ph, %.split
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv5158, 1
   %53 = load i32, ptr %7, align 4
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next52, %54
-  br i1 %55, label %.lr.ph57, label %.critedge
+  br i1 %55, label %.lr.ph59, label %.critedge
 }
 
 declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -558,13 +558,13 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   br i1 %.not43, label %._crit_edge61, label %79, !llvm.loop !48
 
 ._crit_edge61:                                    ; preds = %94, %68, %._crit_edge
-  %.sink77 = phi i64 [ 1, %._crit_edge ], [ 2, %68 ], [ 2, %94 ]
+  %.sink82 = phi i64 [ 1, %._crit_edge ], [ 2, %68 ], [ 2, %94 ]
   %95 = sext i32 %.lcssa51 to i64
   %96 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !8
   %98 = zext i8 %97 to i64
   %.split = getelementptr inbounds nuw [3 x [11 x i32]], ptr %5, i64 %98
-  %99 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %.split, i64 0, i64 %.sink77
+  %99 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %.split, i64 0, i64 %.sink82
   %100 = load i32, ptr %10, align 4, !tbaa !40
   %.not = icmp sgt i32 %.lcssa51, %100
   br i1 %.not, label %._crit_edge66, label %22, !llvm.loop !49

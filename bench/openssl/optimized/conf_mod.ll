@@ -593,8 +593,8 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
   %16 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %7, i32 noundef range(i32 0, 2147483647) %.014.us) #7
   %17 = tail call i32 @OPENSSL_sk_push(ptr noundef %12, ptr noundef nonnull %15) #7
   %.0.us = add nsw i32 %.014.us, -1
-  %.not21 = icmp eq i32 %.014.us, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !40
+  %.not22 = icmp eq i32 %.014.us, 0
+  br i1 %.not22, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !40
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %27
   %.014.us15 = phi i32 [ %.0.us16, %27 ], [ %.013, %.lr.ph ]

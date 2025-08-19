@@ -603,15 +603,15 @@ _ZNK6icu_7710UnicodeSet8spanBackERKNS_13UnicodeStringEi17USetSpanCondition.exit:
 85:                                               ; preds = %_ZNK6icu_7710UnicodeSet8spanBackERKNS_13UnicodeStringEi17USetSpanCondition.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %75, i32 noundef 2147483647)
-          to label %.invoke75 unwind label %92
+          to label %.invoke81 unwind label %92
 
-.invoke75:                                        ; preds = %85
+.invoke81:                                        ; preds = %85
   %.not59 = icmp eq i8 %3, 0
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !17
   %88 = load ptr, ptr %87, align 8, !tbaa !8
-  %.77 = select i1 %.not59, i64 48, i64 40
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.77
+  %.83 = select i1 %.not59, i64 48, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.83
   %90 = load ptr, ptr %89, align 8
   %91 = invoke noundef nonnull align 8 dereferenceable(64) ptr %90(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %96 unwind label %94
@@ -621,13 +621,13 @@ _ZNK6icu_7710UnicodeSet8spanBackERKNS_13UnicodeStringEi17USetSpanCondition.exit:
           cleanup
   br label %106
 
-94:                                               ; preds = %.invoke75, %96
+94:                                               ; preds = %.invoke81, %96
   %95 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
   br label %106
 
-96:                                               ; preds = %.invoke75
+96:                                               ; preds = %.invoke81
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %98 = load i16, ptr %97, align 8, !tbaa !7
   %99 = icmp slt i16 %98, 0

@@ -498,15 +498,15 @@ sub_0:                                            ; preds = %147
 
 fgetline.exit.preheader:                          ; preds = %159
   %161 = call i64 @strcspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.53) #12
-  %sext.i130 = shl i64 %161, 32
-  %162 = ashr exact i64 %sext.i130, 32
+  %sext.i137 = shl i64 %161, 32
+  %162 = ashr exact i64 %sext.i137, 32
   %163 = getelementptr i8, ptr %7, i64 %162
   store i8 0, ptr %163, align 1
   %164 = and i64 %161, 2147483648
   %165 = icmp eq i64 %164, 0
-  br i1 %165, label %.lr.ph132, label %fgetline.exit.thread
+  br i1 %165, label %.lr.ph139, label %fgetline.exit.thread
 
-166:                                              ; preds = %.lr.ph132
+166:                                              ; preds = %.lr.ph139
   %167 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef %.035)
   %.not.i59 = icmp eq ptr %167, null
   br i1 %.not.i59, label %.fgetline.exit.thread.loopexit_crit_edge, label %fgetline.exit, !llvm.loop !10
@@ -523,14 +523,14 @@ fgetline.exit:                                    ; preds = %166
 
 .critedge:                                        ; preds = %fgetline.exit
   %173 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.26)
-  br label %.lr.ph132
+  br label %.lr.ph139
 
-.lr.ph132:                                        ; preds = %fgetline.exit.preheader, %.critedge
+.lr.ph139:                                        ; preds = %fgetline.exit.preheader, %.critedge
   %174 = call fastcc i32 @test_filter(ptr noundef nonnull %7)
   %.not55 = icmp eq i32 %174, 0
   br i1 %.not55, label %166, label %.fgetline.exit.thread_crit_edge79, !llvm.loop !10
 
-.fgetline.exit.thread_crit_edge79:                ; preds = %.lr.ph132
+.fgetline.exit.thread_crit_edge79:                ; preds = %.lr.ph139
   br label %fgetline.exit.thread, !llvm.loop !10
 
 .fgetline.exit.thread.loopexit_crit_edge:         ; preds = %166

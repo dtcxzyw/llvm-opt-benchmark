@@ -1471,9 +1471,9 @@ _ZN4llvm5APIntD2Ev.exit.i405.thread:              ; preds = %_ZN4llvm5APIntaSEOS
 186:                                              ; preds = %_ZN4llvm5APIntaSEOS0_.exit.i403
   %187 = load ptr, ptr %180, align 8, !tbaa !186
   %188 = icmp eq ptr %187, null
-  br i1 %188, label %_ZN4llvm5APIntD2Ev.exit.i405.thread582, label %_ZN4llvm5APIntD2Ev.exit.i405
+  br i1 %188, label %_ZN4llvm5APIntD2Ev.exit.i405.thread629, label %_ZN4llvm5APIntD2Ev.exit.i405
 
-_ZN4llvm5APIntD2Ev.exit.i405.thread582:           ; preds = %186
+_ZN4llvm5APIntD2Ev.exit.i405.thread629:           ; preds = %186
   %189 = load i64, ptr %167, align 8
   store i64 %189, ptr %180, align 8
   %190 = load i32, ptr %168, align 8, !tbaa !210
@@ -1500,7 +1500,7 @@ _ZN4llvm5APIntD2Ev.exit.i405:                     ; preds = %186
   call void @_ZdaPv(ptr noundef nonnull %195) #20
   br label %_ZN4llvm9KnownBitsD2Ev.exit406
 
-_ZN4llvm9KnownBitsD2Ev.exit406:                   ; preds = %_ZN4llvm5APIntD2Ev.exit.i405.thread582, %_ZN4llvm5APIntD2Ev.exit.i405.thread, %_ZN4llvm5APIntD2Ev.exit.i405, %194, %197
+_ZN4llvm9KnownBitsD2Ev.exit406:                   ; preds = %_ZN4llvm5APIntD2Ev.exit.i405.thread629, %_ZN4llvm5APIntD2Ev.exit.i405.thread, %_ZN4llvm5APIntD2Ev.exit.i405, %194, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %199 = load i32, ptr %198, align 8, !tbaa !153
@@ -5044,7 +5044,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit133: ; preds = %104, %1
   br label %tailrecurse.outer
 
 common.ret:                                       ; preds = %67, %70, %56, %_ZNK4llvm5APIntntEv.exit, %62, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130, %82, %88, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %93, %38, %40, %47, %50, %54, %240, %249, %_ZN4llvm9KnownBitsD2Ev.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit, %154, %151, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146, %180, %177, %265, %149, %278, %273, %128
-  %.sroa.speculated191.pn = phi i32 [ %.sroa.speculated191, %128 ], [ %46, %40 ], [ %48, %47 ], [ 0, %38 ], [ %53, %50 ], [ %55, %54 ], [ %.12568, %_ZN4llvm9KnownBitsD2Ev.exit ], [ %150, %149 ], [ %239, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %248, %240 ], [ %257, %249 ], [ 1, %151 ], [ %176, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ %155, %154 ], [ 1, %177 ], [ %201, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146 ], [ %181, %180 ], [ %.0.i.le366, %265 ], [ %279, %278 ], [ %.0.i.le, %273 ], [ 1, %93 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ 1, %88 ], [ 1, %82 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130 ], [ 1, %62 ], [ 1, %_ZNK4llvm5APIntntEv.exit ], [ 1, %56 ], [ 1, %70 ], [ 1, %67 ]
+  %.sroa.speculated191.pn = phi i32 [ %.sroa.speculated191, %128 ], [ %46, %40 ], [ %48, %47 ], [ 0, %38 ], [ %53, %50 ], [ %55, %54 ], [ %.12586, %_ZN4llvm9KnownBitsD2Ev.exit ], [ %150, %149 ], [ %239, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit151 ], [ %248, %240 ], [ %257, %249 ], [ 1, %151 ], [ %176, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ %155, %154 ], [ 1, %177 ], [ %201, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit146 ], [ %181, %180 ], [ %.0.i.le366, %265 ], [ %279, %278 ], [ %.0.i.le, %273 ], [ 1, %93 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ 1, %88 ], [ 1, %82 ], [ 1, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit130 ], [ 1, %62 ], [ 1, %_ZNK4llvm5APIntntEv.exit ], [ 1, %56 ], [ 1, %70 ], [ 1, %67 ]
   %common.ret.op = add i32 %.sroa.speculated191.pn, %accumulator.tr.ph
   ret i32 %common.ret.op
 
@@ -5467,7 +5467,7 @@ _ZN4llvm5APIntlSEj.exit:                          ; preds = %321
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %338, %341, %308, %350, %354
-  %.12568 = phi i32 [ %.sroa.speculated, %350 ], [ %.sroa.speculated, %354 ], [ %.0216, %308 ], [ %.0216, %338 ], [ %349, %341 ]
+  %.12586 = phi i32 [ %.sroa.speculated, %350 ], [ %.sroa.speculated, %354 ], [ %.0216, %308 ], [ %.0216, %338 ], [ %349, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %355 = load i32, ptr %290, align 8, !tbaa !210
   %356 = icmp ugt i32 %355, 64

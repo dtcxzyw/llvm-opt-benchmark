@@ -35,7 +35,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef zeroext i1 @_ZN6google8protobuf8internal17SecondsToDateTimeElPNS1_8DateTimeE(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = add i64 %0, 62135596800
   %or.cond = icmp ult i64 %3, 315537897600
-  br i1 %or.cond, label %4, label %69
+  br i1 %or.cond, label %4, label %70
 
 4:                                                ; preds = %2
   %5 = icmp sgt i64 %0, -49512816001
@@ -52,8 +52,8 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17SecondsToDateTimeElPNS1
 12:                                               ; preds = %6, %4
   %.051 = phi i32 [ %10, %6 ], [ 1, %4 ]
   %.050 = phi i64 [ %11, %6 ], [ %3, %4 ]
-  %.lhs.trunc135 = trunc i32 %.051 to i16
-  %13 = urem i16 %.lhs.trunc135, 400
+  %.lhs.trunc137 = trunc i32 %.051 to i16
+  %13 = urem i16 %.lhs.trunc137, 400
   %14 = icmp samesign ugt i16 %13, 300
   %.0.i107 = select i1 %14, i64 3155760000, i64 3155673600
   %.not108 = icmp samesign ult i64 %.050, %.0.i107
@@ -63,97 +63,98 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17SecondsToDateTimeElPNS1
   %.152.lcssa = phi i32 [ %.051, %12 ], [ %16, %.lr.ph ]
   %.1.lcssa = phi i64 [ %.050, %12 ], [ %15, %.lr.ph ]
   %.152.lcssa.fr = freeze i32 %.152.lcssa
-  br label %19
+  br label %20
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.0.i111 = phi i64 [ %.0.i, %.lr.ph ], [ %.0.i107, %12 ]
   %.1110 = phi i64 [ %15, %.lr.ph ], [ %.050, %12 ]
   %.152109 = phi i32 [ %16, %.lr.ph ], [ %.051, %12 ]
   %15 = sub nsw i64 %.1110, %.0.i111
-  %16 = add nuw nsw i32 %.152109, 100
-  %17 = urem i32 %16, 400
-  %18 = add nsw i32 %17, -301
-  %or.cond.i = icmp ult i32 %18, -300
+  %16 = add nsw i32 %.152109, 100
+  %17 = srem i32 %16, 400
+  %18 = icmp eq i32 %17, 0
+  %19 = icmp sgt i32 %17, 300
+  %or.cond.i = or i1 %18, %19
   %.0.i = select i1 %or.cond.i, i64 3155760000, i64 3155673600
   %.not = icmp slt i64 %15, %.0.i
   br i1 %.not, label %.preheader101, label %.lr.ph, !llvm.loop !3
 
-19:                                               ; preds = %.preheader101, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
-  %.253 = phi i32 [ %28, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69 ], [ %.152.lcssa.fr, %.preheader101 ]
-  %.2 = phi i64 [ %27, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69 ], [ %.1.lcssa, %.preheader101 ]
-  %20 = srem i32 %.253, 100
-  %21 = icmp eq i32 %20, 0
-  %22 = icmp sgt i32 %20, 96
-  %or.cond.i64 = or i1 %21, %22
-  br i1 %or.cond.i64, label %23, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread87
+20:                                               ; preds = %.preheader101, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
+  %.253 = phi i32 [ %29, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69 ], [ %.152.lcssa.fr, %.preheader101 ]
+  %.2 = phi i64 [ %28, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69 ], [ %.1.lcssa, %.preheader101 ]
+  %21 = srem i32 %.253, 100
+  %22 = icmp eq i32 %21, 0
+  %23 = icmp sgt i32 %21, 96
+  %or.cond.i64 = or i1 %22, %23
+  br i1 %or.cond.i64, label %24, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread87
 
-23:                                               ; preds = %19
-  %24 = srem i32 %.253, 400
-  %25 = icmp eq i32 %24, 0
-  %26 = icmp sgt i32 %24, 396
-  %or.cond7.i = or i1 %25, %26
+24:                                               ; preds = %20
+  %25 = srem i32 %.253, 400
+  %26 = icmp eq i32 %25, 0
+  %27 = icmp sgt i32 %25, 396
+  %or.cond7.i = or i1 %26, %27
   br i1 %or.cond7.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread
 
-_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit: ; preds = %23
+_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit: ; preds = %24
   %.not59 = icmp slt i64 %.2, 126230400
   br i1 %.not59, label %.preheader.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
 
-_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread87: ; preds = %19
+_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread87: ; preds = %20
   %.not5988 = icmp slt i64 %.2, 126230400
   br i1 %.not5988, label %.preheader.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
 
 .preheader.preheader:                             ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread87
   br label %.preheader
 
-_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread: ; preds = %23
+_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread: ; preds = %24
   %.not5980 = icmp slt i64 %.2, 126144000
   br i1 %.not5980, label %.preheader.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69
 
 _ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit69: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread87, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread
   %.0.i67.neg = phi i64 [ -126144000, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread ], [ -126230400, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit.thread87 ], [ -126230400, %_ZN6google8protobuf8internal12_GLOBAL__N_116SecondsPer4YearsEi.exit ]
-  %27 = add nsw i64 %.0.i67.neg, %.2
-  %28 = add i32 %.253, 4
-  br label %19, !llvm.loop !5
+  %28 = add nsw i64 %.0.i67.neg, %.2
+  %29 = add i32 %.253, 4
+  br label %20, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73
-  %.354 = phi i32 [ %37, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73 ], [ %.253, %.preheader.preheader ]
-  %.3 = phi i64 [ %36, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73 ], [ %.2, %.preheader.preheader ]
-  %29 = srem i32 %.354, 400
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit, label %31
+  %.354 = phi i32 [ %38, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73 ], [ %.253, %.preheader.preheader ]
+  %.3 = phi i64 [ %37, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73 ], [ %.2, %.preheader.preheader ]
+  %30 = srem i32 %.354, 400
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit, label %32
 
-31:                                               ; preds = %.preheader
-  %32 = and i32 %.354, 3
-  %33 = icmp eq i32 %32, 0
-  %34 = srem i32 %.354, 100
-  %35 = icmp ne i32 %34, 0
-  %or.cond.i70 = and i1 %33, %35
+32:                                               ; preds = %.preheader
+  %33 = and i32 %.354, 3
+  %34 = icmp eq i32 %33, 0
+  %35 = srem i32 %.354, 100
+  %36 = icmp ne i32 %35, 0
+  %or.cond.i70 = and i1 %34, %36
   br i1 %or.cond.i70, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread90, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread
 
 _ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit: ; preds = %.preheader
   %.not60 = icmp slt i64 %.3, 31622400
   br i1 %.not60, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73
 
-_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread90: ; preds = %31
+_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread90: ; preds = %32
   %.not6091 = icmp slt i64 %.3, 31622400
   br i1 %.not6091, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73
 
-_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread: ; preds = %31
+_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread: ; preds = %32
   %.not6081 = icmp slt i64 %.3, 31536000
   br i1 %.not6081, label %.thread83, label %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73
 
 _ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit73: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread90, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread
   %.neg = phi i64 [ -31536000, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread ], [ -31622400, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit ], [ -31622400, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread90 ]
-  %36 = add nsw i64 %.neg, %.3
-  %37 = add i32 %.354, 1
+  %37 = add nsw i64 %.neg, %.3
+  %38 = add i32 %.354, 1
   br label %.preheader, !llvm.loop !6
 
 .thread83:                                        ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread
-  %brmerge.demorgan = and i1 %33, %35
+  %brmerge.demorgan = and i1 %34, %36
   br i1 %brmerge.demorgan, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us
 
 _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.thread90
-  br i1 %35, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us
+  br i1 %36, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us
 
 _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit, %.thread83, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split
@@ -163,85 +164,85 @@ _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us: ; preds 
   br i1 %.not6185.us114, label %.split.us, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us
 
 _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us
-  %38 = phi i32 [ %42, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us ], [ 31, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
+  %39 = phi i32 [ %43, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us ], [ 31, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us ], [ 1, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
-  %.4.us116 = phi i64 [ %40, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us ], [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
-  %39 = sext i32 %38 to i64
-  %.neg100.us = mul nsw i64 %39, -86400
-  %40 = add i64 %.neg100.us, %.4.us116
+  %.4.us116 = phi i64 [ %41, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us ], [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ]
+  %40 = sext i32 %39 to i64
+  %.neg100.us = mul nsw i64 %40, -86400
+  %41 = add i64 %.neg100.us, %.4.us116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr inbounds nuw [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv.next
-  %42 = load i32, ptr %41, align 4, !tbaa !7
-  %43 = sext i32 %42 to i64
-  %44 = mul nsw i64 %43, 86400
-  %.not6185.us = icmp slt i64 %40, %44
+  %42 = getelementptr inbounds nuw [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv.next
+  %43 = load i32, ptr %42, align 4, !tbaa !7
+  %44 = sext i32 %43 to i64
+  %45 = mul nsw i64 %44, 86400
+  %.not6185.us = icmp slt i64 %41, %45
   br i1 %.not6185.us, label %.split.us.loopexit120, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us, !llvm.loop !11
 
 _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78 ], [ 1, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader ]
-  %.4 = phi i64 [ %51, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78 ], [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader ]
-  %45 = icmp eq i64 %indvars.iv129, 2
-  br i1 %45, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
+  %.4 = phi i64 [ %52, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78 ], [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.preheader ]
+  %46 = icmp eq i64 %indvars.iv129, 2
+  br i1 %46, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
 
 _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split
   %.not61 = icmp slt i64 %.4, 2505600
   br i1 %.not61, label %.split.us, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78
 
 _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split
-  %46 = getelementptr inbounds nuw [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv129
-  %47 = load i32, ptr %46, align 4, !tbaa !7
-  %48 = sext i32 %47 to i64
-  %49 = mul nsw i64 %48, 86400
-  %.not6185 = icmp slt i64 %.4, %49
-  br i1 %.not6185, label %.split.us.loopexit.split.loop.exit, label %50
+  %47 = getelementptr inbounds nuw [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv129
+  %48 = load i32, ptr %47, align 4, !tbaa !7
+  %49 = sext i32 %48 to i64
+  %50 = mul nsw i64 %49, 86400
+  %.not6185 = icmp slt i64 %.4, %50
+  br i1 %.not6185, label %.split.us.loopexit.split.loop.exit, label %51
 
-50:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
-  %.neg100 = mul nsw i64 %48, -86400
+51:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
+  %.neg100 = mul nsw i64 %49, -86400
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78
 
-_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, %50
-  %.0.i77.neg = phi i64 [ %.neg100, %50 ], [ -2505600, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
-  %51 = add i64 %.0.i77.neg, %.4
+_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, %51
+  %.0.i77.neg = phi i64 [ %.neg100, %51 ], [ -2505600, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
+  %52 = add i64 %.0.i77.neg, %.4
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split, !llvm.loop !11
 
 .split.us.loopexit120:                            ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us
-  %52 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.split.us
 
 .split.us.loopexit.split.loop.exit:               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread
-  %53 = trunc nuw nsw i64 %indvars.iv129 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv129 to i32
   br label %.split.us
 
 .split.us:                                        ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit, %.split.us.loopexit.split.loop.exit, %.split.us.loopexit120, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us
-  %.us-phi = phi i32 [ 1, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ], [ %52, %.split.us.loopexit120 ], [ %53, %.split.us.loopexit.split.loop.exit ], [ 2, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
-  %.us-phi113 = phi i64 [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ], [ %40, %.split.us.loopexit120 ], [ %.4, %.split.us.loopexit.split.loop.exit ], [ %.4, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
-  %54 = sdiv i64 %.us-phi113, 86400
-  %55 = trunc i64 %54 to i32
-  %56 = add i32 %55, 1
-  %57 = srem i64 %.us-phi113, 86400
-  %.lhs.trunc = trunc nsw i64 %57 to i32
-  %58 = sdiv i32 %.lhs.trunc, 3600
-  %59 = srem i32 %.lhs.trunc, 3600
-  %.lhs.trunc96 = trunc nsw i32 %59 to i16
-  %60 = sdiv i16 %.lhs.trunc96, 60
-  %61 = sext i16 %60 to i32
-  %62 = srem i16 %.lhs.trunc96, 60
+  %.us-phi = phi i32 [ 1, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ], [ %53, %.split.us.loopexit120 ], [ %54, %.split.us.loopexit.split.loop.exit ], [ 2, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
+  %.us-phi113 = phi i64 [ %.3, %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split.us ], [ %41, %.split.us.loopexit120 ], [ %.4, %.split.us.loopexit.split.loop.exit ], [ %.4, %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit ]
+  %55 = sdiv i64 %.us-phi113, 86400
+  %56 = trunc i64 %55 to i32
+  %57 = add i32 %56, 1
+  %58 = srem i64 %.us-phi113, 86400
+  %.lhs.trunc = trunc nsw i64 %58 to i32
+  %59 = sdiv i32 %.lhs.trunc, 3600
+  %60 = srem i32 %.lhs.trunc, 3600
+  %.lhs.trunc96 = trunc nsw i32 %60 to i16
+  %61 = sdiv i16 %.lhs.trunc96, 60
+  %62 = sext i16 %61 to i32
+  %63 = srem i16 %.lhs.trunc96, 60
   store i32 %.354, ptr %1, align 4, !tbaa !12
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.us-phi, ptr %63, align 4, !tbaa !14
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %56, ptr %64, align 4, !tbaa !15
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %58, ptr %65, align 4, !tbaa !16
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %61, ptr %66, align 4, !tbaa !17
-  %67 = sext i16 %62 to i32
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %67, ptr %68, align 4, !tbaa !18
-  br label %69
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %.us-phi, ptr %64, align 4, !tbaa !14
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %57, ptr %65, align 4, !tbaa !15
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %59, ptr %66, align 4, !tbaa !16
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %62, ptr %67, align 4, !tbaa !17
+  %68 = sext i16 %63 to i32
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %68, ptr %69, align 4, !tbaa !18
+  br label %70
 
-69:                                               ; preds = %2, %.split.us
+70:                                               ; preds = %2, %.split.us
   ret i1 %or.cond
 }
 
@@ -447,10 +448,10 @@ _ZN6google8protobuf8internal12_GLOBAL__N_121SecondsSinceCommonEraERKNS1_8DateTim
   %91 = mul nuw nsw i32 %11, 86400
   %narrow = add nsw i32 %91, -86400
   %92 = sext i32 %narrow to i64
-  %narrow20 = mul nuw nsw i32 %14, 3600
-  %93 = zext nneg i32 %narrow20 to i64
-  %narrow21 = mul nuw nsw i32 %16, 60
-  %94 = zext nneg i32 %narrow21 to i64
+  %narrow25 = mul nuw nsw i32 %14, 3600
+  %93 = zext nneg i32 %narrow25 to i64
+  %narrow26 = mul nuw nsw i32 %16, 60
+  %94 = zext nneg i32 %narrow26 to i64
   %95 = zext nneg i32 %18 to i64
   %96 = add i64 %.4.i, -62135596800
   %97 = add i64 %96, %92
@@ -531,12 +532,12 @@ define void @_ZN6google8protobuf8internal10FormatTimeB5cxx11Eli(ptr dead_on_unwi
   %32 = udiv i32 %2, 1000
   %33 = icmp eq i32 %31, 0
   %spec.select = select i1 %33, ptr @.str.5, ptr @.str.6
-  %spec.select42 = select i1 %33, i32 %32, i32 %2
+  %spec.select59 = select i1 %33, i32 %32, i32 %2
   br label %.invoke
 
 .invoke:                                          ; preds = %30, %26
   %34 = phi ptr [ @.str.4, %26 ], [ %spec.select, %30 ]
-  %35 = phi i32 [ %28, %26 ], [ %spec.select42, %30 ]
+  %35 = phi i32 [ %28, %26 ], [ %spec.select59, %30 ]
   invoke void (ptr, ptr, ...) @_ZN6google8protobuf12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull %34, i32 noundef %35)
           to label %_ZN6google8protobuf8internal12_GLOBAL__N_111FormatNanosB5cxx11Ei.exit unwind label %73
 
@@ -898,303 +899,293 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit: ; preds = %21
   br label %.preheader.i55
 
 .preheader.i55:                                   ; preds = %35, %.preheader.preheader.i53
-  %.021.i56 = phi i32 [ %40, %35 ], [ 0, %.preheader.preheader.i53 ]
+  %exitcond.not.i64 = phi i1 [ true, %35 ], [ false, %.preheader.preheader.i53 ]
   %.01520.i57 = phi i32 [ %39, %35 ], [ 0, %.preheader.preheader.i53 ]
-  %.01719.i58 = phi ptr [ %41, %35 ], [ %27, %.preheader.preheader.i53 ]
+  %.01719.i58 = phi ptr [ %40, %35 ], [ %27, %.preheader.preheader.i53 ]
   %32 = load i8, ptr %.01719.i58, align 1, !tbaa !30
   %33 = add i8 %32, -48
   %34 = icmp ult i8 %33, 10
-  br i1 %34, label %35, label %42
+  br i1 %34, label %35, label %41
 
 35:                                               ; preds = %.preheader.i55
   %36 = mul nsw i32 %.01520.i57, 10
   %37 = zext nneg i8 %32 to i32
   %38 = add i32 %36, -48
   %39 = add i32 %38, %37
-  %40 = add nuw nsw i32 %.021.i56, 1
-  %41 = getelementptr inbounds nuw i8, ptr %.01719.i58, i64 1
-  %exitcond.not.i64 = icmp eq i32 %40, 2
-  br i1 %exitcond.not.i64, label %42, label %.preheader.i55, !llvm.loop !38
+  %40 = getelementptr inbounds nuw i8, ptr %.01719.i58, i64 1
+  br i1 %exitcond.not.i64, label %41, label %.preheader.i55, !llvm.loop !38
 
-42:                                               ; preds = %35, %.preheader.i55
+41:                                               ; preds = %35, %.preheader.i55
   %.017.lcssa.i59 = phi ptr [ %.01719.i58, %.preheader.i55 ], [ %scevgep.i54, %35 ]
   %.015.lcssa.i60 = phi i32 [ %.01520.i57, %.preheader.i55 ], [ %39, %35 ]
-  %43 = add i32 %.015.lcssa.i60, -13
-  %or.cond.i63 = icmp ult i32 %43, -12
+  %42 = add i32 %.015.lcssa.i60, -13
+  %or.cond.i63 = icmp ult i32 %42, -12
   br i1 %or.cond.i63, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65: ; preds = %42
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65: ; preds = %41
   store i32 %.015.lcssa.i60, ptr %28, align 4, !tbaa !7
-  %44 = icmp eq ptr %.017.lcssa.i59, null
-  br i1 %44, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %45
+  %43 = icmp eq ptr %.017.lcssa.i59, null
+  br i1 %43, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %44
 
-45:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65
-  %46 = load i8, ptr %.017.lcssa.i59, align 1, !tbaa !30
-  %.not44 = icmp eq i8 %46, 45
-  br i1 %.not44, label %47, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+44:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65
+  %45 = load i8, ptr %.017.lcssa.i59, align 1, !tbaa !30
+  %.not44 = icmp eq i8 %45, 45
+  br i1 %.not44, label %46, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i59, i64 1
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %50 = load i8, ptr %48, align 1, !tbaa !30
-  %51 = add i8 %50, -48
-  %52 = icmp ult i8 %51, 10
-  br i1 %52, label %.preheader.preheader.i67, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i59, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %49 = load i8, ptr %47, align 1, !tbaa !30
+  %50 = add i8 %49, -48
+  %51 = icmp ult i8 %50, 10
+  br i1 %51, label %.preheader.preheader.i67, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.preheader.i67:                         ; preds = %47
+.preheader.preheader.i67:                         ; preds = %46
   %scevgep.i68 = getelementptr i8, ptr %.017.lcssa.i59, i64 3
   br label %.preheader.i69
 
-.preheader.i69:                                   ; preds = %56, %.preheader.preheader.i67
-  %.021.i70 = phi i32 [ %61, %56 ], [ 0, %.preheader.preheader.i67 ]
-  %.01520.i71 = phi i32 [ %60, %56 ], [ 0, %.preheader.preheader.i67 ]
-  %.01719.i72 = phi ptr [ %62, %56 ], [ %48, %.preheader.preheader.i67 ]
-  %53 = load i8, ptr %.01719.i72, align 1, !tbaa !30
-  %54 = add i8 %53, -48
-  %55 = icmp ult i8 %54, 10
-  br i1 %55, label %56, label %63
+.preheader.i69:                                   ; preds = %55, %.preheader.preheader.i67
+  %exitcond.not.i78 = phi i1 [ true, %55 ], [ false, %.preheader.preheader.i67 ]
+  %.01520.i71 = phi i32 [ %59, %55 ], [ 0, %.preheader.preheader.i67 ]
+  %.01719.i72 = phi ptr [ %60, %55 ], [ %47, %.preheader.preheader.i67 ]
+  %52 = load i8, ptr %.01719.i72, align 1, !tbaa !30
+  %53 = add i8 %52, -48
+  %54 = icmp ult i8 %53, 10
+  br i1 %54, label %55, label %61
 
-56:                                               ; preds = %.preheader.i69
-  %57 = mul nsw i32 %.01520.i71, 10
-  %58 = zext nneg i8 %53 to i32
-  %59 = add i32 %57, -48
-  %60 = add i32 %59, %58
-  %61 = add nuw nsw i32 %.021.i70, 1
-  %62 = getelementptr inbounds nuw i8, ptr %.01719.i72, i64 1
-  %exitcond.not.i78 = icmp eq i32 %61, 2
-  br i1 %exitcond.not.i78, label %63, label %.preheader.i69, !llvm.loop !38
+55:                                               ; preds = %.preheader.i69
+  %56 = mul nsw i32 %.01520.i71, 10
+  %57 = zext nneg i8 %52 to i32
+  %58 = add i32 %56, -48
+  %59 = add i32 %58, %57
+  %60 = getelementptr inbounds nuw i8, ptr %.01719.i72, i64 1
+  br i1 %exitcond.not.i78, label %61, label %.preheader.i69, !llvm.loop !38
 
-63:                                               ; preds = %56, %.preheader.i69
-  %.017.lcssa.i73 = phi ptr [ %.01719.i72, %.preheader.i69 ], [ %scevgep.i68, %56 ]
-  %.015.lcssa.i74 = phi i32 [ %.01520.i71, %.preheader.i69 ], [ %60, %56 ]
-  %64 = add i32 %.015.lcssa.i74, -32
-  %or.cond.i77 = icmp ult i32 %64, -31
+61:                                               ; preds = %55, %.preheader.i69
+  %.017.lcssa.i73 = phi ptr [ %.01719.i72, %.preheader.i69 ], [ %scevgep.i68, %55 ]
+  %.015.lcssa.i74 = phi i32 [ %.01520.i71, %.preheader.i69 ], [ %59, %55 ]
+  %62 = add i32 %.015.lcssa.i74, -32
+  %or.cond.i77 = icmp ult i32 %62, -31
   br i1 %or.cond.i77, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79: ; preds = %63
-  store i32 %.015.lcssa.i74, ptr %49, align 4, !tbaa !7
-  %65 = icmp eq ptr %.017.lcssa.i73, null
-  br i1 %65, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %66
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79: ; preds = %61
+  store i32 %.015.lcssa.i74, ptr %48, align 4, !tbaa !7
+  %63 = icmp eq ptr %.017.lcssa.i73, null
+  br i1 %63, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %64
 
-66:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79
-  %67 = load i8, ptr %.017.lcssa.i73, align 1, !tbaa !30
-  %.not45 = icmp eq i8 %67, 84
-  br i1 %.not45, label %68, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+64:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79
+  %65 = load i8, ptr %.017.lcssa.i73, align 1, !tbaa !30
+  %.not45 = icmp eq i8 %65, 84
+  br i1 %.not45, label %66, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i73, i64 1
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %71 = load i8, ptr %69, align 1, !tbaa !30
-  %72 = add i8 %71, -48
-  %73 = icmp ult i8 %72, 10
-  br i1 %73, label %.preheader.preheader.i81, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i73, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %69 = load i8, ptr %67, align 1, !tbaa !30
+  %70 = add i8 %69, -48
+  %71 = icmp ult i8 %70, 10
+  br i1 %71, label %.preheader.preheader.i81, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.preheader.i81:                         ; preds = %68
+.preheader.preheader.i81:                         ; preds = %66
   %scevgep.i82 = getelementptr i8, ptr %.017.lcssa.i73, i64 3
   br label %.preheader.i83
 
-.preheader.i83:                                   ; preds = %77, %.preheader.preheader.i81
-  %.021.i84 = phi i32 [ %82, %77 ], [ 0, %.preheader.preheader.i81 ]
-  %.01520.i85 = phi i32 [ %81, %77 ], [ 0, %.preheader.preheader.i81 ]
-  %.01719.i86 = phi ptr [ %83, %77 ], [ %69, %.preheader.preheader.i81 ]
-  %74 = load i8, ptr %.01719.i86, align 1, !tbaa !30
-  %75 = add i8 %74, -48
-  %76 = icmp ult i8 %75, 10
-  br i1 %76, label %77, label %84
+.preheader.i83:                                   ; preds = %75, %.preheader.preheader.i81
+  %exitcond.not.i92 = phi i1 [ true, %75 ], [ false, %.preheader.preheader.i81 ]
+  %.01520.i85 = phi i32 [ %79, %75 ], [ 0, %.preheader.preheader.i81 ]
+  %.01719.i86 = phi ptr [ %80, %75 ], [ %67, %.preheader.preheader.i81 ]
+  %72 = load i8, ptr %.01719.i86, align 1, !tbaa !30
+  %73 = add i8 %72, -48
+  %74 = icmp ult i8 %73, 10
+  br i1 %74, label %75, label %81
 
-77:                                               ; preds = %.preheader.i83
-  %78 = mul nsw i32 %.01520.i85, 10
-  %79 = zext nneg i8 %74 to i32
-  %80 = add i32 %78, -48
-  %81 = add i32 %80, %79
-  %82 = add nuw nsw i32 %.021.i84, 1
-  %83 = getelementptr inbounds nuw i8, ptr %.01719.i86, i64 1
-  %exitcond.not.i92 = icmp eq i32 %82, 2
-  br i1 %exitcond.not.i92, label %84, label %.preheader.i83, !llvm.loop !38
+75:                                               ; preds = %.preheader.i83
+  %76 = mul nsw i32 %.01520.i85, 10
+  %77 = zext nneg i8 %72 to i32
+  %78 = add i32 %76, -48
+  %79 = add i32 %78, %77
+  %80 = getelementptr inbounds nuw i8, ptr %.01719.i86, i64 1
+  br i1 %exitcond.not.i92, label %81, label %.preheader.i83, !llvm.loop !38
 
-84:                                               ; preds = %77, %.preheader.i83
-  %.017.lcssa.i87 = phi ptr [ %.01719.i86, %.preheader.i83 ], [ %scevgep.i82, %77 ]
-  %.015.lcssa.i88 = phi i32 [ %.01520.i85, %.preheader.i83 ], [ %81, %77 ]
+81:                                               ; preds = %75, %.preheader.i83
+  %.017.lcssa.i87 = phi ptr [ %.01719.i86, %.preheader.i83 ], [ %scevgep.i82, %75 ]
+  %.015.lcssa.i88 = phi i32 [ %.01520.i85, %.preheader.i83 ], [ %79, %75 ]
   %or.cond.i91 = icmp ugt i32 %.015.lcssa.i88, 23
   br i1 %or.cond.i91, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93: ; preds = %84
-  store i32 %.015.lcssa.i88, ptr %70, align 4, !tbaa !7
-  %85 = icmp eq ptr %.017.lcssa.i87, null
-  br i1 %85, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %86
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93: ; preds = %81
+  store i32 %.015.lcssa.i88, ptr %68, align 4, !tbaa !7
+  %82 = icmp eq ptr %.017.lcssa.i87, null
+  br i1 %82, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %83
 
-86:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93
-  %87 = load i8, ptr %.017.lcssa.i87, align 1, !tbaa !30
-  %.not46 = icmp eq i8 %87, 58
-  br i1 %.not46, label %88, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+83:                                               ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93
+  %84 = load i8, ptr %.017.lcssa.i87, align 1, !tbaa !30
+  %.not46 = icmp eq i8 %84, 58
+  br i1 %.not46, label %85, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i87, i64 1
-  %90 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %91 = load i8, ptr %89, align 1, !tbaa !30
-  %92 = add i8 %91, -48
-  %93 = icmp ult i8 %92, 10
-  br i1 %93, label %.preheader.preheader.i95, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i87, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %88 = load i8, ptr %86, align 1, !tbaa !30
+  %89 = add i8 %88, -48
+  %90 = icmp ult i8 %89, 10
+  br i1 %90, label %.preheader.preheader.i95, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.preheader.i95:                         ; preds = %88
+.preheader.preheader.i95:                         ; preds = %85
   %scevgep.i96 = getelementptr i8, ptr %.017.lcssa.i87, i64 3
   br label %.preheader.i97
 
-.preheader.i97:                                   ; preds = %97, %.preheader.preheader.i95
-  %.021.i98 = phi i32 [ %102, %97 ], [ 0, %.preheader.preheader.i95 ]
-  %.01520.i99 = phi i32 [ %101, %97 ], [ 0, %.preheader.preheader.i95 ]
-  %.01719.i100 = phi ptr [ %103, %97 ], [ %89, %.preheader.preheader.i95 ]
-  %94 = load i8, ptr %.01719.i100, align 1, !tbaa !30
-  %95 = add i8 %94, -48
-  %96 = icmp ult i8 %95, 10
-  br i1 %96, label %97, label %104
+.preheader.i97:                                   ; preds = %94, %.preheader.preheader.i95
+  %exitcond.not.i106 = phi i1 [ true, %94 ], [ false, %.preheader.preheader.i95 ]
+  %.01520.i99 = phi i32 [ %98, %94 ], [ 0, %.preheader.preheader.i95 ]
+  %.01719.i100 = phi ptr [ %99, %94 ], [ %86, %.preheader.preheader.i95 ]
+  %91 = load i8, ptr %.01719.i100, align 1, !tbaa !30
+  %92 = add i8 %91, -48
+  %93 = icmp ult i8 %92, 10
+  br i1 %93, label %94, label %100
 
-97:                                               ; preds = %.preheader.i97
-  %98 = mul nsw i32 %.01520.i99, 10
-  %99 = zext nneg i8 %94 to i32
-  %100 = add i32 %98, -48
-  %101 = add i32 %100, %99
-  %102 = add nuw nsw i32 %.021.i98, 1
-  %103 = getelementptr inbounds nuw i8, ptr %.01719.i100, i64 1
-  %exitcond.not.i106 = icmp eq i32 %102, 2
-  br i1 %exitcond.not.i106, label %104, label %.preheader.i97, !llvm.loop !38
+94:                                               ; preds = %.preheader.i97
+  %95 = mul nsw i32 %.01520.i99, 10
+  %96 = zext nneg i8 %91 to i32
+  %97 = add i32 %95, -48
+  %98 = add i32 %97, %96
+  %99 = getelementptr inbounds nuw i8, ptr %.01719.i100, i64 1
+  br i1 %exitcond.not.i106, label %100, label %.preheader.i97, !llvm.loop !38
 
-104:                                              ; preds = %97, %.preheader.i97
-  %.017.lcssa.i101 = phi ptr [ %.01719.i100, %.preheader.i97 ], [ %scevgep.i96, %97 ]
-  %.015.lcssa.i102 = phi i32 [ %.01520.i99, %.preheader.i97 ], [ %101, %97 ]
+100:                                              ; preds = %94, %.preheader.i97
+  %.017.lcssa.i101 = phi ptr [ %.01719.i100, %.preheader.i97 ], [ %scevgep.i96, %94 ]
+  %.015.lcssa.i102 = phi i32 [ %.01520.i99, %.preheader.i97 ], [ %98, %94 ]
   %or.cond.i105 = icmp ugt i32 %.015.lcssa.i102, 59
   br i1 %or.cond.i105, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107: ; preds = %104
-  store i32 %.015.lcssa.i102, ptr %90, align 4, !tbaa !7
-  %105 = icmp eq ptr %.017.lcssa.i101, null
-  br i1 %105, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %106
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107: ; preds = %100
+  store i32 %.015.lcssa.i102, ptr %87, align 4, !tbaa !7
+  %101 = icmp eq ptr %.017.lcssa.i101, null
+  br i1 %101, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %102
 
-106:                                              ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107
-  %107 = load i8, ptr %.017.lcssa.i101, align 1, !tbaa !30
-  %.not47 = icmp eq i8 %107, 58
-  br i1 %.not47, label %108, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+102:                                              ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107
+  %103 = load i8, ptr %.017.lcssa.i101, align 1, !tbaa !30
+  %.not47 = icmp eq i8 %103, 58
+  br i1 %.not47, label %104, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i101, i64 1
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %111 = load i8, ptr %109, align 1, !tbaa !30
-  %112 = add i8 %111, -48
-  %113 = icmp ult i8 %112, 10
-  br i1 %113, label %.preheader.preheader.i109, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i101, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %107 = load i8, ptr %105, align 1, !tbaa !30
+  %108 = add i8 %107, -48
+  %109 = icmp ult i8 %108, 10
+  br i1 %109, label %.preheader.preheader.i109, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.preheader.i109:                        ; preds = %108
+.preheader.preheader.i109:                        ; preds = %104
   %scevgep.i110 = getelementptr i8, ptr %.017.lcssa.i101, i64 3
   br label %.preheader.i111
 
-.preheader.i111:                                  ; preds = %117, %.preheader.preheader.i109
-  %.021.i112 = phi i32 [ %122, %117 ], [ 0, %.preheader.preheader.i109 ]
-  %.01520.i113 = phi i32 [ %121, %117 ], [ 0, %.preheader.preheader.i109 ]
-  %.01719.i114 = phi ptr [ %123, %117 ], [ %109, %.preheader.preheader.i109 ]
-  %114 = load i8, ptr %.01719.i114, align 1, !tbaa !30
-  %115 = add i8 %114, -48
-  %116 = icmp ult i8 %115, 10
-  br i1 %116, label %117, label %124
+.preheader.i111:                                  ; preds = %113, %.preheader.preheader.i109
+  %exitcond.not.i120 = phi i1 [ true, %113 ], [ false, %.preheader.preheader.i109 ]
+  %.01520.i113 = phi i32 [ %117, %113 ], [ 0, %.preheader.preheader.i109 ]
+  %.01719.i114 = phi ptr [ %118, %113 ], [ %105, %.preheader.preheader.i109 ]
+  %110 = load i8, ptr %.01719.i114, align 1, !tbaa !30
+  %111 = add i8 %110, -48
+  %112 = icmp ult i8 %111, 10
+  br i1 %112, label %113, label %119
 
-117:                                              ; preds = %.preheader.i111
-  %118 = mul nsw i32 %.01520.i113, 10
-  %119 = zext nneg i8 %114 to i32
-  %120 = add i32 %118, -48
-  %121 = add i32 %120, %119
-  %122 = add nuw nsw i32 %.021.i112, 1
-  %123 = getelementptr inbounds nuw i8, ptr %.01719.i114, i64 1
-  %exitcond.not.i120 = icmp eq i32 %122, 2
-  br i1 %exitcond.not.i120, label %124, label %.preheader.i111, !llvm.loop !38
+113:                                              ; preds = %.preheader.i111
+  %114 = mul nsw i32 %.01520.i113, 10
+  %115 = zext nneg i8 %110 to i32
+  %116 = add i32 %114, -48
+  %117 = add i32 %116, %115
+  %118 = getelementptr inbounds nuw i8, ptr %.01719.i114, i64 1
+  br i1 %exitcond.not.i120, label %119, label %.preheader.i111, !llvm.loop !38
 
-124:                                              ; preds = %117, %.preheader.i111
-  %.017.lcssa.i115 = phi ptr [ %.01719.i114, %.preheader.i111 ], [ %scevgep.i110, %117 ]
-  %.015.lcssa.i116 = phi i32 [ %.01520.i113, %.preheader.i111 ], [ %121, %117 ]
+119:                                              ; preds = %113, %.preheader.i111
+  %.017.lcssa.i115 = phi ptr [ %.01719.i114, %.preheader.i111 ], [ %scevgep.i110, %113 ]
+  %.015.lcssa.i116 = phi i32 [ %.01520.i113, %.preheader.i111 ], [ %117, %113 ]
   %or.cond.i119 = icmp ugt i32 %.015.lcssa.i116, 59
   br i1 %or.cond.i119, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121: ; preds = %124
-  store i32 %.015.lcssa.i116, ptr %110, align 4, !tbaa !7
-  %125 = icmp eq ptr %.017.lcssa.i115, null
-  br i1 %125, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %126
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121: ; preds = %119
+  store i32 %.015.lcssa.i116, ptr %106, align 4, !tbaa !7
+  %120 = icmp eq ptr %.017.lcssa.i115, null
+  br i1 %120, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %121
 
-126:                                              ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121
-  %127 = call noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1_8DateTimeEPl(ptr noundef nonnull align 4 dereferenceable(24) %4, ptr noundef %1)
-  br i1 %127, label %128, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+121:                                              ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121
+  %122 = call noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1_8DateTimeEPl(ptr noundef nonnull align 4 dereferenceable(24) %4, ptr noundef %1)
+  br i1 %122, label %123, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-128:                                              ; preds = %126
-  %129 = load i8, ptr %.017.lcssa.i115, align 1, !tbaa !30
-  %130 = icmp eq i8 %129, 46
-  br i1 %130, label %131, label %135
+123:                                              ; preds = %121
+  %124 = load i8, ptr %.017.lcssa.i115, align 1, !tbaa !30
+  %125 = icmp eq i8 %124, 46
+  br i1 %125, label %126, label %130
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i115, i64 1
-  %133 = tail call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110ParseNanosEPKcPi(ptr noundef %132, ptr noundef %2)
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %136
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i115, i64 1
+  %128 = tail call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110ParseNanosEPKcPi(ptr noundef %127, ptr noundef %2)
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %131
 
-135:                                              ; preds = %128
+130:                                              ; preds = %123
   store i32 0, ptr %2, align 4, !tbaa !7
-  br label %136
+  br label %131
 
-136:                                              ; preds = %131, %135
-  %.032 = phi ptr [ %133, %131 ], [ %.017.lcssa.i115, %135 ]
-  %137 = load i8, ptr %.032, align 1, !tbaa !30
-  switch i8 %137, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread [
-    i8 90, label %138
-    i8 43, label %140
-    i8 45, label %147
+131:                                              ; preds = %126, %130
+  %.032 = phi ptr [ %128, %126 ], [ %.017.lcssa.i115, %130 ]
+  %132 = load i8, ptr %.032, align 1, !tbaa !30
+  switch i8 %132, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread [
+    i8 90, label %133
+    i8 43, label %135
+    i8 45, label %142
   ]
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %.032, i64 1
-  br label %154
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds nuw i8, ptr %.032, i64 1
+  br label %149
 
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds nuw i8, ptr %.032, i64 1
+135:                                              ; preds = %131
+  %136 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %142 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef %141, ptr noundef %5)
-  %.not49 = icmp eq ptr %142, null
-  br i1 %.not49, label %.critedge, label %143
+  %137 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef %136, ptr noundef %5)
+  %.not49 = icmp eq ptr %137, null
+  br i1 %.not49, label %.critedge, label %138
 
-143:                                              ; preds = %140
-  %144 = load i64, ptr %5, align 8, !tbaa !22
-  %145 = load i64, ptr %1, align 8, !tbaa !22
-  %146 = sub nsw i64 %145, %144
-  store i64 %146, ptr %1, align 8, !tbaa !22
+138:                                              ; preds = %135
+  %139 = load i64, ptr %5, align 8, !tbaa !22
+  %140 = load i64, ptr %1, align 8, !tbaa !22
+  %141 = sub nsw i64 %140, %139
+  store i64 %141, ptr %1, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %154
+  br label %149
 
-147:                                              ; preds = %136
-  %148 = getelementptr inbounds nuw i8, ptr %.032, i64 1
+142:                                              ; preds = %131
+  %143 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %149 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef %148, ptr noundef %6)
-  %.not48 = icmp eq ptr %149, null
-  br i1 %.not48, label %.critedge51, label %150
+  %144 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef %143, ptr noundef %6)
+  %.not48 = icmp eq ptr %144, null
+  br i1 %.not48, label %.critedge51, label %145
 
-150:                                              ; preds = %147
-  %151 = load i64, ptr %6, align 8, !tbaa !22
-  %152 = load i64, ptr %1, align 8, !tbaa !22
-  %153 = add nsw i64 %152, %151
-  store i64 %153, ptr %1, align 8, !tbaa !22
+145:                                              ; preds = %142
+  %146 = load i64, ptr %6, align 8, !tbaa !22
+  %147 = load i64, ptr %1, align 8, !tbaa !22
+  %148 = add nsw i64 %147, %146
+  store i64 %148, ptr %1, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %154
+  br label %149
 
-154:                                              ; preds = %150, %143, %138
-  %.133 = phi ptr [ %139, %138 ], [ %142, %143 ], [ %149, %150 ]
-  %155 = load i8, ptr %.133, align 1, !tbaa !30
-  %156 = icmp eq i8 %155, 0
+149:                                              ; preds = %145, %138, %133
+  %.133 = phi ptr [ %134, %133 ], [ %137, %138 ], [ %144, %145 ]
+  %150 = load i8, ptr %.133, align 1, !tbaa !30
+  %151 = icmp eq i8 %150, 0
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.critedge:                                        ; preds = %140
+.critedge:                                        ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.critedge51:                                      ; preds = %147
+.critedge51:                                      ; preds = %142
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %124, %108, %104, %88, %84, %68, %63, %47, %42, %26, %21, %3, %136, %.critedge51, %.critedge, %131, %126, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121, %106, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107, %86, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93, %66, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79, %45, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65, %24, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit, %154
-  %.034 = phi i1 [ %156, %154 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit ], [ false, %24 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65 ], [ false, %45 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79 ], [ false, %66 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93 ], [ false, %86 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107 ], [ false, %106 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121 ], [ false, %126 ], [ false, %131 ], [ false, %.critedge ], [ false, %.critedge51 ], [ false, %136 ], [ false, %3 ], [ false, %21 ], [ false, %26 ], [ false, %42 ], [ false, %47 ], [ false, %63 ], [ false, %68 ], [ false, %84 ], [ false, %88 ], [ false, %104 ], [ false, %108 ], [ false, %124 ]
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %119, %104, %100, %85, %81, %66, %61, %46, %41, %26, %21, %3, %131, %.critedge51, %.critedge, %126, %121, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121, %102, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107, %83, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93, %64, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79, %44, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65, %24, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit, %149
+  %.034 = phi i1 [ %151, %149 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit ], [ false, %24 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit65 ], [ false, %44 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit79 ], [ false, %64 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit93 ], [ false, %83 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit107 ], [ false, %102 ], [ false, %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit121 ], [ false, %121 ], [ false, %126 ], [ false, %.critedge ], [ false, %.critedge51 ], [ false, %131 ], [ false, %3 ], [ false, %21 ], [ false, %26 ], [ false, %41 ], [ false, %46 ], [ false, %61 ], [ false, %66 ], [ false, %81 ], [ false, %85 ], [ false, %100 ], [ false, %104 ], [ false, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.034
 }
@@ -1258,85 +1249,81 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %9, %.preheader.preheader.i
-  %.021.i = phi i32 [ %14, %9 ], [ 0, %.preheader.preheader.i ]
+  %exitcond.not.i = phi i1 [ true, %9 ], [ false, %.preheader.preheader.i ]
   %.01520.i = phi i32 [ %13, %9 ], [ 0, %.preheader.preheader.i ]
-  %.01719.i = phi ptr [ %15, %9 ], [ %0, %.preheader.preheader.i ]
+  %.01719.i = phi ptr [ %14, %9 ], [ %0, %.preheader.preheader.i ]
   %6 = load i8, ptr %.01719.i, align 1, !tbaa !30
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
-  br i1 %8, label %9, label %16
+  br i1 %8, label %9, label %15
 
 9:                                                ; preds = %.preheader.i
   %10 = mul nsw i32 %.01520.i, 10
   %11 = zext nneg i8 %6 to i32
   %12 = add i32 %10, -48
   %13 = add i32 %12, %11
-  %14 = add nuw nsw i32 %.021.i, 1
-  %15 = getelementptr inbounds nuw i8, ptr %.01719.i, i64 1
-  %exitcond.not.i = icmp eq i32 %14, 2
-  br i1 %exitcond.not.i, label %16, label %.preheader.i, !llvm.loop !38
+  %14 = getelementptr inbounds nuw i8, ptr %.01719.i, i64 1
+  br i1 %exitcond.not.i, label %15, label %.preheader.i, !llvm.loop !38
 
-16:                                               ; preds = %9, %.preheader.i
+15:                                               ; preds = %9, %.preheader.i
   %.017.lcssa.i = phi ptr [ %.01719.i, %.preheader.i ], [ %scevgep.i, %9 ]
   %.015.lcssa.i = phi i32 [ %.01520.i, %.preheader.i ], [ %13, %9 ]
   %or.cond.i = icmp ugt i32 %.015.lcssa.i, 23
-  %17 = icmp eq ptr %.017.lcssa.i, null
-  %or.cond = or i1 %17, %or.cond.i
-  br i1 %or.cond, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %18
+  %16 = icmp eq ptr %.017.lcssa.i, null
+  %or.cond = or i1 %16, %or.cond.i
+  br i1 %or.cond, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %17
 
-18:                                               ; preds = %16
-  %19 = load i8, ptr %.017.lcssa.i, align 1, !tbaa !30
-  %.not = icmp eq i8 %19, 58
-  br i1 %.not, label %20, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+17:                                               ; preds = %15
+  %18 = load i8, ptr %.017.lcssa.i, align 1, !tbaa !30
+  %.not = icmp eq i8 %18, 58
+  br i1 %.not, label %19, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i, i64 1
-  %22 = load i8, ptr %21, align 1, !tbaa !30
-  %23 = add i8 %22, -48
-  %24 = icmp ult i8 %23, 10
-  br i1 %24, label %.preheader.preheader.i9, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i, i64 1
+  %21 = load i8, ptr %20, align 1, !tbaa !30
+  %22 = add i8 %21, -48
+  %23 = icmp ult i8 %22, 10
+  br i1 %23, label %.preheader.preheader.i9, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-.preheader.preheader.i9:                          ; preds = %20
+.preheader.preheader.i9:                          ; preds = %19
   %scevgep.i10 = getelementptr i8, ptr %.017.lcssa.i, i64 3
   br label %.preheader.i11
 
-.preheader.i11:                                   ; preds = %28, %.preheader.preheader.i9
-  %.021.i12 = phi i32 [ %33, %28 ], [ 0, %.preheader.preheader.i9 ]
-  %.01520.i13 = phi i32 [ %32, %28 ], [ 0, %.preheader.preheader.i9 ]
-  %.01719.i14 = phi ptr [ %34, %28 ], [ %21, %.preheader.preheader.i9 ]
-  %25 = load i8, ptr %.01719.i14, align 1, !tbaa !30
-  %26 = add i8 %25, -48
-  %27 = icmp ult i8 %26, 10
-  br i1 %27, label %28, label %35
+.preheader.i11:                                   ; preds = %27, %.preheader.preheader.i9
+  %exitcond.not.i20 = phi i1 [ true, %27 ], [ false, %.preheader.preheader.i9 ]
+  %.01520.i13 = phi i32 [ %31, %27 ], [ 0, %.preheader.preheader.i9 ]
+  %.01719.i14 = phi ptr [ %32, %27 ], [ %20, %.preheader.preheader.i9 ]
+  %24 = load i8, ptr %.01719.i14, align 1, !tbaa !30
+  %25 = add i8 %24, -48
+  %26 = icmp ult i8 %25, 10
+  br i1 %26, label %27, label %33
 
-28:                                               ; preds = %.preheader.i11
-  %29 = mul nsw i32 %.01520.i13, 10
-  %30 = zext nneg i8 %25 to i32
-  %31 = add i32 %29, -48
-  %32 = add i32 %31, %30
-  %33 = add nuw nsw i32 %.021.i12, 1
-  %34 = getelementptr inbounds nuw i8, ptr %.01719.i14, i64 1
-  %exitcond.not.i20 = icmp eq i32 %33, 2
-  br i1 %exitcond.not.i20, label %35, label %.preheader.i11, !llvm.loop !38
+27:                                               ; preds = %.preheader.i11
+  %28 = mul nsw i32 %.01520.i13, 10
+  %29 = zext nneg i8 %24 to i32
+  %30 = add i32 %28, -48
+  %31 = add i32 %30, %29
+  %32 = getelementptr inbounds nuw i8, ptr %.01719.i14, i64 1
+  br i1 %exitcond.not.i20, label %33, label %.preheader.i11, !llvm.loop !38
 
-35:                                               ; preds = %28, %.preheader.i11
-  %.017.lcssa.i15 = phi ptr [ %.01719.i14, %.preheader.i11 ], [ %scevgep.i10, %28 ]
-  %.015.lcssa.i16 = phi i32 [ %.01520.i13, %.preheader.i11 ], [ %32, %28 ]
+33:                                               ; preds = %27, %.preheader.i11
+  %.017.lcssa.i15 = phi ptr [ %.01719.i14, %.preheader.i11 ], [ %scevgep.i10, %27 ]
+  %.015.lcssa.i16 = phi i32 [ %.01520.i13, %.preheader.i11 ], [ %31, %27 ]
   %or.cond.i19 = icmp ugt i32 %.015.lcssa.i16, 59
-  %36 = icmp eq ptr %.017.lcssa.i15, null
-  %or.cond29 = or i1 %36, %or.cond.i19
-  br i1 %or.cond29, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %37
+  %34 = icmp eq ptr %.017.lcssa.i15, null
+  %or.cond29 = or i1 %34, %or.cond.i19
+  br i1 %or.cond29, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %35
 
-37:                                               ; preds = %35
-  %38 = mul nuw nsw i32 %.015.lcssa.i, 60
-  %39 = add nuw nsw i32 %.015.lcssa.i16, %38
-  %40 = mul nuw nsw i32 %39, 60
-  %41 = zext nneg i32 %40 to i64
-  store i64 %41, ptr %1, align 8, !tbaa !22
+35:                                               ; preds = %33
+  %36 = mul nuw nsw i32 %.015.lcssa.i, 60
+  %37 = add nuw nsw i32 %.015.lcssa.i16, %36
+  %38 = mul nuw nsw i32 %37, 60
+  %39 = zext nneg i32 %38 to i64
+  store i64 %39, ptr %1, align 8, !tbaa !22
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
-_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %35, %20, %16, %2, %37, %18
-  %.0 = phi ptr [ null, %18 ], [ %.017.lcssa.i15, %37 ], [ null, %2 ], [ null, %16 ], [ null, %20 ], [ null, %35 ]
+_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread: ; preds = %33, %19, %15, %2, %35, %17
+  %.0 = phi ptr [ null, %17 ], [ %.017.lcssa.i15, %35 ], [ null, %2 ], [ null, %15 ], [ null, %19 ], [ null, %33 ]
   ret ptr %.0
 }
 

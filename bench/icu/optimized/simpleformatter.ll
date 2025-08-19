@@ -229,7 +229,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
   %108 = zext nneg i16 %105 to i32
   %109 = mul nuw nsw i32 %.285, 10
   %110 = add nsw i32 %109, -48
-  %111 = add i32 %110, %108
+  %111 = add nsw i32 %110, %108
   %112 = icmp samesign ugt i32 %111, 255
   br i1 %112, label %.critedge.thread, label %102, !llvm.loop !12
 
@@ -308,10 +308,10 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
   br label %.thread137.thread
 
 .thread137.thread:                                ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %127, %.thread137
-  %.0103.lcssa163 = phi i32 [ %.2105, %127 ], [ %.2105, %.thread137 ], [ -1, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
-  %139 = add nsw i32 %.0103.lcssa163, 1
+  %.0103.lcssa170 = phi i32 [ %.2105, %127 ], [ %.2105, %.thread137 ], [ -1, %_ZNK6icu_7713UnicodeString9getBufferEv.exit ]
+  %139 = add nsw i32 %.0103.lcssa170, 1
   %140 = icmp sge i32 %139, %2
-  %.not126 = icmp sgt i32 %3, %.0103.lcssa163
+  %.not126 = icmp sgt i32 %3, %.0103.lcssa170
   %or.cond = and i1 %.not126, %140
   br i1 %or.cond, label %142, label %141
 
@@ -1114,8 +1114,8 @@ _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58: ; preds = %_ZN6icu_7
   store i16 2, ptr %43, align 8, !tbaa !7
   %.not = icmp ne i16 %38, 0
   %44 = icmp sgt i32 %36, 1
-  %or.cond72 = and i1 %.not, %44
-  br i1 %or.cond72, label %.lr.ph, label %.critedge
+  %or.cond77 = and i1 %.not, %44
+  br i1 %or.cond77, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8

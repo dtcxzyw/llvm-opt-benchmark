@@ -132,7 +132,7 @@ isJvmIdentifier.exit:                             ; preds = %12
 
 15:                                               ; preds = %.lr.ph
   %16 = lshr i8 %5, 4
-  switch i8 %16, label %default.unreachable [
+  switch i8 %16, label %default.unreachable106 [
     i8 8, label %next_utf2unicode.exit
     i8 9, label %next_utf2unicode.exit
     i8 10, label %next_utf2unicode.exit
@@ -143,7 +143,7 @@ isJvmIdentifier.exit:                             ; preds = %12
     i8 14, label %25
   ]
 
-default.unreachable:                              ; preds = %15
+default.unreachable106:                           ; preds = %15
   unreachable
 
 17:                                               ; preds = %15, %15
@@ -185,11 +185,11 @@ default.unreachable:                              ; preds = %15
   br label %isJvmIdentifier.exit.thread51
 
 41:                                               ; preds = %21, %33
-  %.sink110.in = phi i8 [ %19, %21 ], [ %31, %33 ]
+  %.sink117.in = phi i8 [ %19, %21 ], [ %31, %33 ]
   %.sink = phi i16 [ %24, %21 ], [ %39, %33 ]
   %.0.i38.ph = phi i64 [ 2, %21 ], [ 3, %33 ]
-  %.sink110 = and i8 %.sink110.in, 63
-  %42 = zext nneg i8 %.sink110 to i16
+  %.sink117 = and i8 %.sink117.in, 63
+  %42 = zext nneg i8 %.sink117 to i16
   %43 = or disjoint i16 %.sink, %42
   %44 = getelementptr inbounds nuw i8, ptr %.03288, i64 %.0.i38.ph
   %45 = add i16 %43, -92
@@ -248,153 +248,137 @@ next_utf2unicode.exit:                            ; preds = %15, %15, %15, %15, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+  br label %.outer
+
+.outer:                                           ; preds = %.loopexit, %1
+  %.012.ph = phi i8 [ %.1, %.loopexit ], [ 0, %1 ]
+  %.0710.ph = phi ptr [ %.18, %.loopexit ], [ %0, %1 ]
   br label %2
 
-2:                                                ; preds = %1, %24
-  %.012 = phi i8 [ 0, %1 ], [ %.1, %24 ]
-  %.0511 = phi i32 [ 1, %1 ], [ %.16, %24 ]
-  %.0710 = phi ptr [ %0, %1 ], [ %.18, %24 ]
+2:                                                ; preds = %.outer, %next_utf2unicode.exit
+  %.0710 = phi ptr [ %19, %next_utf2unicode.exit ], [ %.0710.ph, %.outer ]
   %3 = load i8, ptr %.0710, align 1
-  switch i8 %3, label %8 [
+  switch i8 %3, label %5 [
     i8 0, label %.critedge
-    i8 47, label %4
-    i8 46, label %6
-  ]
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
-  br label %24
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
-  store i8 47, ptr %.0710, align 1
-  br label %24
-
-8:                                                ; preds = %2
-  %9 = lshr i8 %3, 4
-  switch i8 %9, label %10 [
-    i8 8, label %next_utf2unicode.exit
-    i8 9, label %next_utf2unicode.exit
-    i8 10, label %next_utf2unicode.exit
-    i8 11, label %next_utf2unicode.exit
-    i8 15, label %next_utf2unicode.exit
-    i8 12, label %11
-    i8 13, label %11
-    i8 14, label %15
-  ]
-
-10:                                               ; preds = %8
-  br label %next_utf2unicode.exit
-
-11:                                               ; preds = %8, %8
-  %12 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
-  %13 = load i8, ptr %12, align 1
-  %14 = icmp slt i8 %13, -64
-  %spec.select = select i1 %14, i64 2, i64 1
-  br label %next_utf2unicode.exit
-
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp slt i8 %17, -64
-  br i1 %18, label %19, label %next_utf2unicode.exit
-
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %.0710, i64 2
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp slt i8 %21, -64
-  %spec.select9 = select i1 %22, i64 3, i64 2
-  br label %next_utf2unicode.exit
-
-next_utf2unicode.exit:                            ; preds = %19, %11, %8, %8, %8, %8, %8, %10, %15
-  %.2 = phi i32 [ 1, %10 ], [ 1, %15 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 1, %11 ], [ 1, %19 ]
-  %.0.i = phi i64 [ 1, %10 ], [ 1, %15 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %spec.select, %11 ], [ %spec.select9, %19 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.0710, i64 %.0.i
-  br label %24
-
-24:                                               ; preds = %6, %next_utf2unicode.exit, %4
-  %.18 = phi ptr [ %23, %next_utf2unicode.exit ], [ %5, %4 ], [ %7, %6 ]
-  %.16 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.0511, %4 ], [ %.0511, %6 ]
-  %.1 = phi i8 [ %.012, %next_utf2unicode.exit ], [ 1, %4 ], [ %.012, %6 ]
-  %.not = icmp eq i32 %.16, 0
-  br i1 %.not, label %.critedge, label %2, !llvm.loop !9
-
-.critedge:                                        ; preds = %2, %24
-  %.05.lcssa = phi i1 [ true, %2 ], [ false, %24 ]
-  %.0.lcssa = phi i8 [ %.012, %2 ], [ %.1, %24 ]
-  %25 = icmp ne i8 %.0.lcssa, 0
-  %26 = and i1 %.05.lcssa, %25
-  %27 = zext i1 %26 to i8
-  ret i8 %27
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @fixClassname(ptr noundef captures(none) %0) local_unnamed_addr #3 {
-  br label %2
-
-2:                                                ; preds = %1, %22
-  %.07 = phi i32 [ 1, %1 ], [ %.1, %22 ]
-  %.036 = phi ptr [ %0, %1 ], [ %.14, %22 ]
-  %3 = load i8, ptr %.036, align 1
-  switch i8 %3, label %6 [
-    i8 0, label %.critedge
+    i8 47, label %.loopexit
     i8 46, label %4
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %.036, i64 1
-  store i8 47, ptr %.036, align 1
-  br label %22
+  store i8 47, ptr %.0710, align 1
+  br label %.loopexit
 
-6:                                                ; preds = %2
-  %7 = lshr i8 %3, 4
-  switch i8 %7, label %8 [
-    i8 8, label %next_utf2unicode.exit
-    i8 9, label %next_utf2unicode.exit
-    i8 10, label %next_utf2unicode.exit
-    i8 11, label %next_utf2unicode.exit
-    i8 15, label %next_utf2unicode.exit
-    i8 12, label %9
-    i8 13, label %9
-    i8 14, label %13
+5:                                                ; preds = %2
+  %6 = lshr i8 %3, 4
+  switch i8 %6, label %next_utf2unicode.exit [
+    i8 8, label %.critedge
+    i8 9, label %.critedge
+    i8 10, label %.critedge
+    i8 11, label %.critedge
+    i8 15, label %.critedge
+    i8 12, label %7
+    i8 13, label %7
+    i8 14, label %11
   ]
 
-8:                                                ; preds = %6
+7:                                                ; preds = %5, %5
+  %8 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp slt i8 %9, -64
+  %spec.select = select i1 %10, i64 2, i64 1
   br label %next_utf2unicode.exit
 
-9:                                                ; preds = %6, %6
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = icmp slt i8 %13, -64
+  br i1 %14, label %15, label %next_utf2unicode.exit
+
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %.0710, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp slt i8 %17, -64
+  %spec.select9 = select i1 %18, i64 3, i64 2
+  br label %next_utf2unicode.exit
+
+next_utf2unicode.exit:                            ; preds = %5, %15, %7, %11
+  %.0.i = phi i64 [ 1, %11 ], [ %spec.select, %7 ], [ %spec.select9, %15 ], [ 1, %5 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.0710, i64 %.0.i
+  br label %2, !llvm.loop !9
+
+.loopexit:                                        ; preds = %2, %4
+  %.1 = phi i8 [ %.012.ph, %4 ], [ 1, %2 ]
+  %.18 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
+  br label %.outer, !llvm.loop !9
+
+.critedge:                                        ; preds = %5, %5, %5, %5, %5, %2
+  %.05.lcssa = phi i1 [ true, %2 ], [ false, %5 ], [ false, %5 ], [ false, %5 ], [ false, %5 ], [ false, %5 ]
+  %20 = icmp ne i8 %.012.ph, 0
+  %21 = and i1 %.05.lcssa, %20
+  %22 = zext i1 %21 to i8
+  ret i8 %22
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @fixClassname(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+  br label %.backedge
+
+.backedge:                                        ; preds = %.backedge.backedge, %1
+  %.036 = phi ptr [ %0, %1 ], [ %.036.be, %.backedge.backedge ]
+  %2 = load i8, ptr %.036, align 1
+  switch i8 %2, label %3 [
+    i8 0, label %.critedge
+    i8 46, label %18
+  ]
+
+3:                                                ; preds = %.backedge
+  %4 = lshr i8 %2, 4
+  switch i8 %4, label %next_utf2unicode.exit [
+    i8 8, label %.critedge
+    i8 9, label %.critedge
+    i8 10, label %.critedge
+    i8 11, label %.critedge
+    i8 15, label %.critedge
+    i8 12, label %5
+    i8 13, label %5
+    i8 14, label %9
+  ]
+
+5:                                                ; preds = %3, %3
+  %6 = getelementptr inbounds nuw i8, ptr %.036, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp slt i8 %7, -64
+  %spec.select = select i1 %8, i64 2, i64 1
+  br label %next_utf2unicode.exit
+
+9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp slt i8 %11, -64
-  %spec.select = select i1 %12, i64 2, i64 1
-  br label %next_utf2unicode.exit
+  br i1 %12, label %13, label %next_utf2unicode.exit
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %.036, i64 1
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %.036, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp slt i8 %15, -64
-  br i1 %16, label %17, label %next_utf2unicode.exit
-
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %.036, i64 2
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp slt i8 %19, -64
-  %spec.select5 = select i1 %20, i64 3, i64 2
+  %spec.select5 = select i1 %16, i64 3, i64 2
   br label %next_utf2unicode.exit
 
-next_utf2unicode.exit:                            ; preds = %17, %9, %6, %6, %6, %6, %6, %8, %13
-  %.2 = phi i32 [ 1, %8 ], [ 1, %13 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 1, %9 ], [ 1, %17 ]
-  %.0.i = phi i64 [ 1, %8 ], [ 1, %13 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ %spec.select, %9 ], [ %spec.select5, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.036, i64 %.0.i
-  br label %22
+next_utf2unicode.exit:                            ; preds = %3, %13, %5, %9
+  %.0.i = phi i64 [ 1, %9 ], [ %spec.select, %5 ], [ %spec.select5, %13 ], [ 1, %3 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.036, i64 %.0.i
+  br label %.backedge.backedge
 
-22:                                               ; preds = %next_utf2unicode.exit, %4
-  %.14 = phi ptr [ %21, %next_utf2unicode.exit ], [ %5, %4 ]
-  %.1 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.07, %4 ]
-  %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %.critedge, label %2, !llvm.loop !10
+18:                                               ; preds = %.backedge
+  %19 = getelementptr inbounds nuw i8, ptr %.036, i64 1
+  store i8 47, ptr %.036, align 1
+  br label %.backedge.backedge
 
-.critedge:                                        ; preds = %2, %22
+.backedge.backedge:                               ; preds = %18, %next_utf2unicode.exit
+  %.036.be = phi ptr [ %19, %18 ], [ %17, %next_utf2unicode.exit ]
+  br label %.backedge, !llvm.loop !10
+
+.critedge:                                        ; preds = %3, %3, %3, %3, %3, %.backedge
   ret void
 }
 

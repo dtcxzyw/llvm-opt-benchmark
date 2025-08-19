@@ -252,13 +252,13 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   br i1 %23, label %._crit_edge.thread.i.i, label %28
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #26
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #26
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   %.pre82.i = load i32, ptr %.08.i, align 4
@@ -267,12 +267,12 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 28:                                               ; preds = %26, %._crit_edge.i.i
   %29 = phi i32 [ %.pre82.i, %26 ], [ %19, %._crit_edge.i.i ]
   %30 = phi i32 [ %.pre81.i, %26 ], [ %22, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
@@ -992,18 +992,18 @@ define void @_ZN22EditManipulatorsPlugin12UpdateMatrixER9MeshModelP6GLAreabb(ptr
   %84 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %83)
   %85 = tail call float @llvm.fmuladd.f32(float %70, float %70, float %84)
   %86 = fcmp ogt float %85, 0.000000e+00
-  %.sink921.sroa.gep = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %.sink921.sroa.gep960 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %.sink921.sroa.gep962 = getelementptr inbounds nuw i8, ptr %32, i64 20
-  %.sink921.sroa.gep963 = getelementptr inbounds nuw i8, ptr %34, i64 20
-  %.sink921.sroa.gep965 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.sink921.sroa.gep966 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %.sink921.sroa.gep968 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %.sink921.sroa.gep969 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %.sink921.sroa.gep971 = getelementptr inbounds nuw i8, ptr %32, i64 44
-  %.sink921.sroa.gep972 = getelementptr inbounds nuw i8, ptr %34, i64 44
-  %.sink921.sroa.gep974 = getelementptr inbounds nuw i8, ptr %32, i64 60
-  %.sink921.sroa.gep975 = getelementptr inbounds nuw i8, ptr %34, i64 60
+  %.sink932.sroa.gep = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %.sink932.sroa.gep971 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %.sink932.sroa.gep973 = getelementptr inbounds nuw i8, ptr %32, i64 20
+  %.sink932.sroa.gep974 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  %.sink932.sroa.gep976 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %.sink932.sroa.gep977 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %.sink932.sroa.gep979 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %.sink932.sroa.gep980 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %.sink932.sroa.gep982 = getelementptr inbounds nuw i8, ptr %32, i64 44
+  %.sink932.sroa.gep983 = getelementptr inbounds nuw i8, ptr %34, i64 44
+  %.sink932.sroa.gep985 = getelementptr inbounds nuw i8, ptr %32, i64 60
+  %.sink932.sroa.gep986 = getelementptr inbounds nuw i8, ptr %34, i64 60
   br i1 %86, label %87, label %_ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit
 
 87:                                               ; preds = %5
@@ -3168,20 +3168,20 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit491:             ; preds = %946
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1143, %1142
-  %.sink921.sroa.phi = phi ptr [ %.sink921.sroa.gep, %1142 ], [ %.sink921.sroa.gep960, %1143 ]
-  %.sink921.sroa.phi961 = phi ptr [ %.sink921.sroa.gep962, %1142 ], [ %.sink921.sroa.gep963, %1143 ]
-  %.sink921.sroa.phi964 = phi ptr [ %.sink921.sroa.gep965, %1142 ], [ %.sink921.sroa.gep966, %1143 ]
-  %.sink921.sroa.phi967 = phi ptr [ %.sink921.sroa.gep968, %1142 ], [ %.sink921.sroa.gep969, %1143 ]
-  %.sink921.sroa.phi970 = phi ptr [ %.sink921.sroa.gep971, %1142 ], [ %.sink921.sroa.gep972, %1143 ]
-  %.sink921.sroa.phi973 = phi ptr [ %.sink921.sroa.gep974, %1142 ], [ %.sink921.sroa.gep975, %1143 ]
-  %.sink921 = phi ptr [ %32, %1142 ], [ %34, %1143 ]
-  %.sroa.0715.0.copyload724 = load float, ptr %.sink921, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.15, ptr noundef nonnull align 4 dereferenceable(16) %.sink921.sroa.phi, i64 16, i1 false)
-  %.sroa.16.0.copyload759 = load float, ptr %.sink921.sroa.phi961, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.17, ptr noundef nonnull align 4 dereferenceable(16) %.sink921.sroa.phi964, i64 16, i1 false)
-  %.sroa.17781.0.copyload799 = load float, ptr %.sink921.sroa.phi967, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.18, ptr noundef nonnull align 4 dereferenceable(16) %.sink921.sroa.phi970, i64 16, i1 false)
-  %.sroa.18821.0.copyload839 = load float, ptr %.sink921.sroa.phi973, align 4
+  %.sink932.sroa.phi = phi ptr [ %.sink932.sroa.gep, %1142 ], [ %.sink932.sroa.gep971, %1143 ]
+  %.sink932.sroa.phi972 = phi ptr [ %.sink932.sroa.gep973, %1142 ], [ %.sink932.sroa.gep974, %1143 ]
+  %.sink932.sroa.phi975 = phi ptr [ %.sink932.sroa.gep976, %1142 ], [ %.sink932.sroa.gep977, %1143 ]
+  %.sink932.sroa.phi978 = phi ptr [ %.sink932.sroa.gep979, %1142 ], [ %.sink932.sroa.gep980, %1143 ]
+  %.sink932.sroa.phi981 = phi ptr [ %.sink932.sroa.gep982, %1142 ], [ %.sink932.sroa.gep983, %1143 ]
+  %.sink932.sroa.phi984 = phi ptr [ %.sink932.sroa.gep985, %1142 ], [ %.sink932.sroa.gep986, %1143 ]
+  %.sink932 = phi ptr [ %32, %1142 ], [ %34, %1143 ]
+  %.sroa.0715.0.copyload724 = load float, ptr %.sink932, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.15, ptr noundef nonnull align 4 dereferenceable(16) %.sink932.sroa.phi, i64 16, i1 false)
+  %.sroa.16.0.copyload759 = load float, ptr %.sink932.sroa.phi972, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.17, ptr noundef nonnull align 4 dereferenceable(16) %.sink932.sroa.phi975, i64 16, i1 false)
+  %.sroa.17781.0.copyload799 = load float, ptr %.sink932.sroa.phi978, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.18, ptr noundef nonnull align 4 dereferenceable(16) %.sink932.sroa.phi981, i64 16, i1 false)
+  %.sroa.18821.0.copyload839 = load float, ptr %.sink932.sroa.phi984, align 4
   br label %1144
 
 1144:                                             ; preds = %.sink.split, %947
@@ -4169,9 +4169,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringpLEPKc.exit
 
 common.resume:                                    ; preds = %322, %320, %289, %247, %234, %221, %208, %195, %182, %169, %156, %143
-  %.sink167 = phi ptr [ %18, %322 ], [ %5, %320 ], [ %7, %289 ], [ %9, %247 ], [ %10, %234 ], [ %11, %221 ], [ %12, %208 ], [ %13, %195 ], [ %14, %182 ], [ %15, %169 ], [ %16, %156 ], [ %17, %143 ]
+  %.sink183 = phi ptr [ %18, %322 ], [ %5, %320 ], [ %7, %289 ], [ %9, %247 ], [ %10, %234 ], [ %11, %221 ], [ %12, %208 ], [ %13, %195 ], [ %14, %182 ], [ %15, %169 ], [ %16, %156 ], [ %17, %143 ]
   %common.resume.op = phi { ptr, i32 } [ %323, %322 ], [ %321, %320 ], [ %290, %289 ], [ %248, %247 ], [ %235, %234 ], [ %222, %221 ], [ %209, %208 ], [ %196, %195 ], [ %183, %182 ], [ %170, %169 ], [ %157, %156 ], [ %144, %143 ]
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink167) #24
+  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink183) #24
   resume { ptr, i32 } %common.resume.op
 
 143:                                              ; preds = %135
@@ -4796,17 +4796,17 @@ thread-pre-split144:                              ; preds = %_ZN7QStringD2Ev.exi
   %326 = icmp eq i32 %325, 45
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %328 = load i8, ptr %327, align 8
-  br i1 %326, label %.critedge168, label %._crit_edge
+  br i1 %326, label %.critedge184, label %._crit_edge
 
-.critedge168:                                     ; preds = %324
+.critedge184:                                     ; preds = %324
   %329 = and i8 %328, 1
   %330 = xor i8 %329, 1
   store i8 %330, ptr %327, align 8
-  %.not169.not = icmp eq i8 %329, 0
+  %.not185.not = icmp eq i8 %329, 0
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %332 = call noundef float @_ZNK7QString7toFloatEPb(ptr noundef nonnull align 8 dereferenceable(8) %331, ptr noundef null)
   %333 = fneg float %332
-  %.sink.c = select i1 %.not169.not, float %333, float %332
+  %.sink.c = select i1 %.not185.not, float %333, float %332
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store float %.sink.c, ptr %334, align 4
   br label %340
@@ -4821,7 +4821,7 @@ thread-pre-split144:                              ; preds = %_ZN7QStringD2Ev.exi
   store float %.sink, ptr %339, align 4
   br i1 %.10, label %340, label %341
 
-340:                                              ; preds = %.critedge168, %._crit_edge
+340:                                              ; preds = %.critedge184, %._crit_edge
   call void @_ZN22EditManipulatorsPlugin12UpdateMatrixER9MeshModelP6GLAreabb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(1288) %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %341
 

@@ -1842,8 +1842,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %15, %17
   %48 = fmul float %.sroa.0.4.vec.extract.i, -0.000000e+00
   %49 = fmul float %.sroa.4.8.vec.extract.i, -0.000000e+00
   %50 = fmul float %.sroa.4.12.vec.extract.i, -0.000000e+00
-  %foldExtExtBinop407 = fmul <2 x float> %.sroa.0323.0, %.sroa.0.0.copyload.i
-  %51 = extractelement <2 x float> %foldExtExtBinop407, i64 0
+  %foldExtExtBinop408 = fmul <2 x float> %.sroa.0323.0, %.sroa.0.0.copyload.i
+  %51 = extractelement <2 x float> %foldExtExtBinop408, i64 0
   %52 = fmul float %.sroa.028.4.vec.extract.i, %.sroa.0284.0.vec.extract
   %53 = fmul float %.sroa.6327.0, %.sroa.0284.0.vec.extract
   %54 = fadd float %51, %48
@@ -1883,11 +1883,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %15, %17
   %84 = tail call float @llvm.fmuladd.f32(float %37, float %.sroa.10312.0, float %83)
   %85 = fmul float %.sroa.10312.0, %.sroa.0.4.vec.extract.i
   %86 = tail call float @llvm.fmuladd.f32(float %38, float %.sroa.028.0.vec.extract.i144, float %85)
-  %foldExtExtBinop409 = fmul <2 x float> %.sroa.0304.0, %.sroa.4.0.copyload.i
-  %87 = extractelement <2 x float> %foldExtExtBinop409, i64 0
+  %foldExtExtBinop410 = fmul <2 x float> %.sroa.0304.0, %.sroa.4.0.copyload.i
+  %87 = extractelement <2 x float> %foldExtExtBinop410, i64 0
   %88 = tail call float @llvm.fmuladd.f32(float %36, float %.sroa.028.4.vec.extract.i145, float %87)
-  %foldExtExtBinop411 = fmul <2 x float> %.sroa.0304.0, %.sroa.0.0.copyload.i
-  %89 = extractelement <2 x float> %foldExtExtBinop411, i64 0
+  %foldExtExtBinop412 = fmul <2 x float> %.sroa.0304.0, %.sroa.0.0.copyload.i
+  %89 = extractelement <2 x float> %foldExtExtBinop412, i64 0
   %90 = fmul float %.sroa.028.4.vec.extract.i145, %.sroa.0284.0.vec.extract
   %91 = fmul float %.sroa.10312.0, %.sroa.0284.0.vec.extract
   %92 = fadd float %89, %48
@@ -1937,11 +1937,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %15, %17
   %132 = tail call float @llvm.fmuladd.f32(float %37, float %.sroa.10.0, float %131)
   %133 = fmul float %.sroa.10.0, %.sroa.0.4.vec.extract.i
   %134 = tail call float @llvm.fmuladd.f32(float %38, float %.sroa.028.0.vec.extract.i168, float %133)
-  %foldExtExtBinop413 = fmul <2 x float> %.sroa.0286.0, %.sroa.4.0.copyload.i
-  %135 = extractelement <2 x float> %foldExtExtBinop413, i64 0
+  %foldExtExtBinop414 = fmul <2 x float> %.sroa.0286.0, %.sroa.4.0.copyload.i
+  %135 = extractelement <2 x float> %foldExtExtBinop414, i64 0
   %136 = tail call float @llvm.fmuladd.f32(float %36, float %.sroa.028.4.vec.extract.i169, float %135)
-  %foldExtExtBinop415 = fmul <2 x float> %.sroa.0286.0, %.sroa.0.0.copyload.i
-  %137 = extractelement <2 x float> %foldExtExtBinop415, i64 0
+  %foldExtExtBinop416 = fmul <2 x float> %.sroa.0286.0, %.sroa.0.0.copyload.i
+  %137 = extractelement <2 x float> %foldExtExtBinop416, i64 0
   %138 = fmul float %.sroa.028.4.vec.extract.i169, %.sroa.0284.0.vec.extract
   %139 = fmul float %.sroa.10.0, %.sroa.0284.0.vec.extract
   %140 = fadd float %137, %48
@@ -2013,14 +2013,14 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %15, %17
   %193 = tail call float @llvm.fmuladd.f32(float %187, float %.sroa.10312.0, float %192)
   %194 = fmul float %.sroa.10312.0, %.sroa.0.4.vec.extract.i185
   %195 = tail call float @llvm.fmuladd.f32(float %188, float %.sroa.028.0.vec.extract.i144, float %194)
-  %foldExtExtBinop417 = fmul <2 x float> %.sroa.0304.0, %.sroa.4.0.copyload.i184
-  %196 = extractelement <2 x float> %foldExtExtBinop417, i64 0
+  %foldExtExtBinop418 = fmul <2 x float> %.sroa.0304.0, %.sroa.4.0.copyload.i184
+  %196 = extractelement <2 x float> %foldExtExtBinop418, i64 0
   %197 = tail call float @llvm.fmuladd.f32(float %186, float %.sroa.028.4.vec.extract.i145, float %196)
   %198 = fmul float %.sroa.0.4.vec.extract.i185, -0.000000e+00
   %199 = fmul float %.sroa.4.8.vec.extract.i187, -0.000000e+00
   %200 = fmul float %.sroa.4.12.vec.extract.i189, -0.000000e+00
-  %foldExtExtBinop419 = fmul <2 x float> %.sroa.0304.0, %.sroa.0.0.copyload.i182
-  %201 = extractelement <2 x float> %foldExtExtBinop419, i64 0
+  %foldExtExtBinop420 = fmul <2 x float> %.sroa.0304.0, %.sroa.0.0.copyload.i182
+  %201 = extractelement <2 x float> %foldExtExtBinop420, i64 0
   %202 = fmul float %.sroa.028.4.vec.extract.i145, %.sroa.0249.0.vec.extract
   %203 = fmul float %.sroa.10312.0, %.sroa.0249.0.vec.extract
   %204 = fadd float %201, %198
@@ -2130,11 +2130,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit216:            ; preds = %262, %264
   %273 = tail call float @llvm.fmuladd.f32(float %187, float %.sroa.10.0, float %272)
   %274 = fmul float %.sroa.10.0, %.sroa.0.4.vec.extract.i185
   %275 = tail call float @llvm.fmuladd.f32(float %188, float %.sroa.028.0.vec.extract.i168, float %274)
-  %foldExtExtBinop421 = fmul <2 x float> %.sroa.0286.0, %.sroa.4.0.copyload.i184
-  %276 = extractelement <2 x float> %foldExtExtBinop421, i64 0
+  %foldExtExtBinop422 = fmul <2 x float> %.sroa.0286.0, %.sroa.4.0.copyload.i184
+  %276 = extractelement <2 x float> %foldExtExtBinop422, i64 0
   %277 = tail call float @llvm.fmuladd.f32(float %186, float %.sroa.028.4.vec.extract.i169, float %276)
-  %foldExtExtBinop423 = fmul <2 x float> %.sroa.0286.0, %.sroa.0.0.copyload.i182
-  %278 = extractelement <2 x float> %foldExtExtBinop423, i64 0
+  %foldExtExtBinop424 = fmul <2 x float> %.sroa.0286.0, %.sroa.0.0.copyload.i182
+  %278 = extractelement <2 x float> %foldExtExtBinop424, i64 0
   %279 = fmul float %.sroa.028.4.vec.extract.i169, %.sroa.0249.0.vec.extract
   %280 = fmul float %.sroa.10.0, %.sroa.0249.0.vec.extract
   %281 = fadd float %278, %198
@@ -3160,27 +3160,27 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_E
   br i1 %13, label %._crit_edge.thread.i, label %19
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %10, %2 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %10, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = icmp eq ptr %.019.lcssa28.i, %15
+  %16 = icmp eq ptr %.019.lcssa29.i, %15
   br i1 %16, label %select.unfold, label %17
 
 17:                                               ; preds = %._crit_edge.thread.i
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #30
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %19
 
 19:                                               ; preds = %17, %._crit_edge.i
   %20 = phi i32 [ %.pre, %17 ], [ %12, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %17 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %17 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %18, %17 ], [ %.02024.i, %._crit_edge.i ]
   %21 = icmp slt i32 %20, %5
   br i1 %21, label %select.unfold, label %31
 
 select.unfold:                                    ; preds = %19, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %19 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %.019.lcssa28.i, %19 ]
   %22 = icmp eq ptr %.sroa.4.0.i.ph, %10
   br i1 %22, label %.thread21, label %23
 

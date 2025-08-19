@@ -220,8 +220,8 @@ _ZN14regex_automata4util6search5Input8set_span17hf9561881ad2848b0E.exit.i.us.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !17
   %89 = xor i1 %88, %75
   %90 = icmp ne ptr %80, %.sroa.7169.0.copyload.i.i
-  %or.cond.not127.i = select i1 %89, i1 %90, i1 false
-  br i1 %or.cond.not127.i, label %.lr.ph.i132.i.us.i.backedge, label %.backedge.i
+  %or.cond.not147.i = select i1 %89, i1 %90, i1 false
+  br i1 %or.cond.not147.i, label %.lr.ph.i132.i.us.i.backedge, label %.backedge.i
 
 91:                                               ; preds = %36
   %92 = getelementptr inbounds nuw i8, ptr %37, i64 4

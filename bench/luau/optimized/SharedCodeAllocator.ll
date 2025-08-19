@@ -1877,8 +1877,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26
   %.02148 = phi i64 [ %.2, %56 ], [ %7, %3 ]
   %.sroa.037.047 = phi ptr [ %.sroa.037.1, %56 ], [ %0, %3 ]
   %9 = lshr i64 %.02148, 1
-  %.idx62 = shl nuw nsw i64 %9, 3
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.037.047, i64 %.idx62
+  %.idx64 = shl nuw nsw i64 %9, 3
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.037.047, i64 %.idx64
   %11 = load i32, ptr %2, align 4, !tbaa !55
   %12 = load ptr, ptr %10, align 8, !tbaa !32
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4Luau7CodeGen28getNativeProtoExecDataHeaderEPj(ptr noundef %12) #22
@@ -1929,7 +1929,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7Co
   %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.037.047, %.critedge ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ]
   %.idx = shl nuw nsw i64 %.02148, 3
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %41 = add nuw nsw i64 %.idx62, 8
+  %41 = add nuw nsw i64 %.idx64, 8
   %gepdiff = sub nsw i64 %.idx, %41
   %42 = ashr exact i64 %gepdiff, 3
   %43 = icmp sgt i64 %42, 0

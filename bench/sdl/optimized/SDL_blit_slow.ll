@@ -151,23 +151,23 @@ GetPixelAccessMethod.exit:                        ; preds = %39, %49, %50, %swit
 71:                                               ; preds = %70
   %72 = lshr i32 %55, 20
   %73 = and i32 %72, 15
-  %switch.tableidx795 = add nsw i32 %73, -2
-  %74 = icmp ult i32 %switch.tableidx795, 5
-  br i1 %74, label %switch.lookup794, label %GetPixelAccessMethod.exit643.thread
+  %switch.tableidx800 = add nsw i32 %73, -2
+  %74 = icmp ult i32 %switch.tableidx800, 5
+  br i1 %74, label %switch.lookup799, label %GetPixelAccessMethod.exit643.thread
 
 GetPixelAccessMethod.exit643:                     ; preds = %59
   %75 = tail call zeroext i8 @SDL_LookupRGBAColor(ptr noundef %25, i32 noundef 0, ptr noundef %23) #5
   br label %GetPixelAccessMethod.exit643.thread
 
-switch.lookup794:                                 ; preds = %71
-  %76 = zext nneg i32 %switch.tableidx795 to i64
-  %switch.gep796 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SDL_Blit_Slow_Float, i64 0, i64 %76
-  %switch.load797 = load i32, ptr %switch.gep796, align 4
+switch.lookup799:                                 ; preds = %71
+  %76 = zext nneg i32 %switch.tableidx800 to i64
+  %switch.gep801 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.SDL_Blit_Slow_Float, i64 0, i64 %76
+  %switch.load802 = load i32, ptr %switch.gep801, align 4
   br label %GetPixelAccessMethod.exit643.thread
 
-GetPixelAccessMethod.exit643.thread:              ; preds = %61, %70, %71, %switch.lookup794, %65, %GetPixelAccessMethod.exit, %.critedge.i633, %GetPixelAccessMethod.exit643
-  %.0.i636645 = phi i32 [ 0, %GetPixelAccessMethod.exit643 ], [ %69, %65 ], [ 4, %GetPixelAccessMethod.exit ], [ 3, %.critedge.i633 ], [ %switch.load797, %switch.lookup794 ], [ 1, %71 ], [ 1, %70 ], [ 1, %61 ]
-  %.0577 = phi i8 [ %75, %GetPixelAccessMethod.exit643 ], [ 0, %65 ], [ 0, %GetPixelAccessMethod.exit ], [ 0, %.critedge.i633 ], [ 0, %switch.lookup794 ], [ 0, %71 ], [ 0, %70 ], [ 0, %61 ]
+GetPixelAccessMethod.exit643.thread:              ; preds = %61, %70, %71, %switch.lookup799, %65, %GetPixelAccessMethod.exit, %.critedge.i633, %GetPixelAccessMethod.exit643
+  %.0.i636645 = phi i32 [ 0, %GetPixelAccessMethod.exit643 ], [ %69, %65 ], [ 4, %GetPixelAccessMethod.exit ], [ 3, %.critedge.i633 ], [ %switch.load802, %switch.lookup799 ], [ 1, %71 ], [ 1, %70 ], [ 1, %61 ]
+  %.0577 = phi i8 [ %75, %GetPixelAccessMethod.exit643 ], [ 0, %65 ], [ 0, %GetPixelAccessMethod.exit ], [ 0, %.critedge.i633 ], [ 0, %switch.lookup799 ], [ 0, %71 ], [ 0, %70 ], [ 0, %61 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
@@ -2460,7 +2460,7 @@ ApplyTonemap.exit:                                ; preds = %.lr.ph, %TonemapChr
   %.0226.i = phi float [ %356, %354 ], [ %361, %358 ], [ %368, %362 ], [ %372, %369 ]
   %.0225.i = phi float [ %355, %354 ], [ %360, %358 ], [ %366, %362 ], [ %371, %369 ]
   %.0.i165 = phi float [ %291, %354 ], [ %359, %358 ], [ %364, %362 ], [ %370, %369 ]
-  switch i32 %.0.i156179, label %default.unreachable251.i [
+  switch i32 %.0.i156179, label %default.unreachable260.i [
     i32 4, label %727
     i32 1, label %374
     i32 2, label %499
@@ -2921,14 +2921,14 @@ ApplyTonemap.exit:                                ; preds = %.lr.ph, %TonemapChr
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %708, %705, %680, %677
-  %.sink265.i = phi float [ %683, %680 ], [ 0.000000e+00, %677 ], [ %711, %708 ], [ 0.000000e+00, %705 ]
-  %.sink262.i = phi float [ %664, %680 ], [ %664, %677 ], [ %706, %708 ], [ %706, %705 ]
+  %.sink274.i = phi float [ %683, %680 ], [ 0.000000e+00, %677 ], [ %711, %708 ], [ 0.000000e+00, %705 ]
+  %.sink271.i = phi float [ %664, %680 ], [ %664, %677 ], [ %706, %708 ], [ %706, %705 ]
   %.sink.i166 = phi float [ %671, %680 ], [ %671, %677 ], [ %699, %708 ], [ %699, %705 ]
-  %.sink254.i = phi float [ %678, %680 ], [ %678, %677 ], [ %692, %708 ], [ %692, %705 ]
-  %712 = call float @SDL_roundf_REAL(float noundef %.sink265.i) #5
+  %.sink263.i = phi float [ %678, %680 ], [ %678, %677 ], [ %692, %708 ], [ %692, %705 ]
+  %712 = call float @SDL_roundf_REAL(float noundef %.sink274.i) #5
   %713 = fptoui float %712 to i32
   %714 = shl i32 %713, 30
-  %715 = call float @SDL_roundf_REAL(float noundef %.sink262.i) #5
+  %715 = call float @SDL_roundf_REAL(float noundef %.sink271.i) #5
   %716 = fptoui float %715 to i32
   %717 = shl i32 %716, 20
   %718 = or i32 %717, %714
@@ -2936,7 +2936,7 @@ ApplyTonemap.exit:                                ; preds = %.lr.ph, %TonemapChr
   %720 = fptoui float %719 to i32
   %721 = shl i32 %720, 10
   %722 = or i32 %718, %721
-  %723 = call float @SDL_roundf_REAL(float noundef %.sink254.i) #5
+  %723 = call float @SDL_roundf_REAL(float noundef %.sink263.i) #5
   %724 = fptoui float %723 to i32
   %725 = or i32 %722, %724
   br label %726
@@ -3431,7 +3431,7 @@ float_to_half.exit250.i:                          ; preds = %999, %996, %973, %9
   store float %.sroa.38.0.i, ptr %1008, align 4
   br label %WriteFloatPixel.exit
 
-default.unreachable251.i:                         ; preds = %373
+default.unreachable260.i:                         ; preds = %373
   unreachable
 
 WriteFloatPixel.exit:                             ; preds = %1007, %1002, %float_to_half.exit250.i, %float_to_half.exit243.i, %778, %765, %737, %726, %620, %607, %574, %541, %535, %473, %460, %433, %406, %400, %353

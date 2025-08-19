@@ -1810,18 +1810,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !60
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #32
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #32
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !70
@@ -1855,7 +1855,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -1873,7 +1873,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare void @_ZN3gmx21CommandLineHelpModuleC1ERKNS_15IProgramContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS9_St10unique_ptrINS_18ICommandLineModuleESt14default_deleteISE_EESt4lessIS9_ESaISt4pairISA_SH_EEERKSt6vectorISD_INS_26CommandLineModuleGroupDataESF_ISR_EESaIST_EE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @_ZNK3gmx24CommandLineModuleManager4Impl16findModuleByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(129) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define nonnull ptr @_ZNK3gmx24CommandLineModuleManager4Impl16findModuleByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(129) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2031,9 +2031,9 @@ define noundef ptr @_ZN3gmx24CommandLineModuleManager4Impl20processCommonOptions
   br label %common.resume
 
 .critedge.thread:                                 ; preds = %.preheader, %33, %.critedge
-  %.050.lcssa126 = phi i32 [ %.050.lcssa, %33 ], [ %.050.lcssa, %.critedge ], [ 1, %.preheader ]
+  %.050.lcssa151 = phi i32 [ %.050.lcssa, %33 ], [ %.050.lcssa, %.critedge ], [ 1, %.preheader ]
   %36 = phi i32 [ %.pre, %33 ], [ %20, %.critedge ], [ %20, %.preheader ]
-  %37 = icmp slt i32 %.050.lcssa126, %36
+  %37 = icmp slt i32 %.050.lcssa151, %36
   br i1 %37, label %38, label %.thread103
 
 38:                                               ; preds = %.critedge.thread
@@ -2048,7 +2048,7 @@ define noundef ptr @_ZN3gmx24CommandLineModuleManager4Impl20processCommonOptions
 
 46:                                               ; preds = %38
   %47 = load ptr, ptr %3, align 8, !tbaa !119
-  %48 = zext nneg i32 %.050.lcssa126 to i64
+  %48 = zext nneg i32 %.050.lcssa151 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2285,7 +2285,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 64
   %118 = load ptr, ptr %117, align 8, !tbaa !88
   %119 = load i32, ptr %2, align 4, !tbaa !47
-  %120 = sub nsw i32 %119, %.050.lcssa126
+  %120 = sub nsw i32 %119, %.050.lcssa151
   store i32 %120, ptr %2, align 4, !tbaa !47
   %121 = load ptr, ptr %3, align 8, !tbaa !119
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %48
@@ -2585,7 +2585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
 
 .thread118:                                       ; preds = %230
   call void @_ZN3gmx24CommandLineModuleManager4Impl22ensureHelpModuleExistsEv(ptr noundef nonnull align 8 dereferenceable(129) %0)
-  br label %.thread127
+  br label %.thread152
 
 231:                                              ; preds = %230
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2598,9 +2598,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %237 = load ptr, ptr %236, align 8, !tbaa !91
   call void @_ZN3gmx21CommandLineHelpModule17setModuleOverrideERKNS_18ICommandLineModuleE(ptr noundef nonnull align 8 dereferenceable(16) %237, ptr noundef nonnull align 8 dereferenceable(8) %.051106)
-  br label %.thread127
+  br label %.thread152
 
-.thread127:                                       ; preds = %235, %.thread118
+.thread152:                                       ; preds = %235, %.thread118
   store i32 1, ptr %2, align 4, !tbaa !47
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %239 = load ptr, ptr %238, align 8, !tbaa !91
@@ -2612,9 +2612,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
   %241 = icmp eq ptr %.051106, %.pre124
   br i1 %241, label %242, label %247
 
-242:                                              ; preds = %.thread127, %240
-  %.253129 = phi ptr [ %239, %.thread127 ], [ %.051106, %240 ]
-  %243 = phi ptr [ %239, %.thread127 ], [ %.pre124, %240 ]
+242:                                              ; preds = %.thread152, %240
+  %.253154 = phi ptr [ %239, %.thread152 ], [ %.051106, %240 ]
+  %243 = phi ptr [ %239, %.thread152 ], [ %.pre124, %240 ]
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %245 = load i8, ptr %244, align 1, !tbaa !131, !range !50, !noundef !51
   %246 = trunc nuw i8 %245 to i1
@@ -2622,7 +2622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZN
   br label %247
 
 247:                                              ; preds = %240, %242, %.thread103
-  %.039 = phi ptr [ null, %.thread103 ], [ %.253129, %242 ], [ %.051106, %240 ]
+  %.039 = phi ptr [ null, %.thread103 ], [ %.253154, %242 ], [ %.051106, %240 ]
   ret ptr %.039
 
 248:                                              ; preds = %101

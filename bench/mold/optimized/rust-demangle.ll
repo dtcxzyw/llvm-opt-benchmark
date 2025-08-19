@@ -164,8 +164,8 @@ sub_180:                                          ; preds = %.tail74, %sub_176
   br i1 %37, label %.thread, label %.loopexit
 
 38:                                               ; preds = %.tail74, %sub_0, %.tail
-  %.sink180 = phi i64 [ 2, %.tail ], [ 1, %sub_0 ], [ 3, %.tail74 ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink180
+  %.sink199 = phi i64 [ 2, %.tail ], [ 1, %sub_0 ], [ 3, %.tail74 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink199
   store ptr %39, ptr %7, align 8, !tbaa !19
   store i32 0, ptr %17, align 4, !tbaa !20
   %40 = load i8, ptr %39, align 1, !tbaa !21
@@ -174,8 +174,8 @@ sub_180:                                          ; preds = %.tail74, %sub_176
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .thread:                                          ; preds = %.tail83.thread, %.tail83, %.tail78
-  %.sink181 = phi i64 [ 3, %.tail78 ], [ 2, %.tail83 ], [ 4, %.tail83.thread ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink181
+  %.sink200 = phi i64 [ 3, %.tail78 ], [ 2, %.tail83 ], [ 4, %.tail83.thread ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink200
   store ptr %42, ptr %7, align 8, !tbaa !19
   store i32 -1, ptr %17, align 4, !tbaa !20
   %.pr = load i8, ptr %42, align 1, !tbaa !21
@@ -183,7 +183,7 @@ sub_180:                                          ; preds = %.tail74, %sub_176
   br i1 %.not31108, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %38, %.thread
-  %.not43152 = phi i1 [ true, %.thread ], [ false, %38 ]
+  %.not43171 = phi i1 [ true, %.thread ], [ false, %38 ]
   %43 = phi ptr [ %42, %.thread ], [ %39, %38 ]
   %44 = phi i8 [ %.pr, %.thread ], [ %40, %38 ]
   br label %.lr.ph
@@ -214,7 +214,7 @@ sub_180:                                          ; preds = %.tail74, %sub_176
 
 .critedge:                                        ; preds = %52, %49
   %56 = phi i64 [ %46, %49 ], [ %53, %52 ]
-  br i1 %.not43152, label %.critedge.thread, label %301
+  br i1 %.not43171, label %.critedge.thread, label %301
 
 .critedge.thread:                                 ; preds = %.thread, %.critedge
   %57 = phi i64 [ %56, %.critedge ], [ 0, %.thread ]
@@ -322,7 +322,7 @@ print_str.exit.i:                                 ; preds = %94, %is_rust_hash.e
   %.sroa.6.0.copyload.i = load i64, ptr %58, align 8
   %.pre139 = load i8, ptr %13, align 1, !tbaa !16, !range !24
   %100 = trunc nuw i8 %.pre139 to i1
-  %.sroa.0.0.copyload79.i = load ptr, ptr %6, align 8
+  %.sroa.0.0.copyload88.i = load ptr, ptr %6, align 8
   br i1 %100, label %eat.exit13.i, label %101
 
 101:                                              ; preds = %99
@@ -331,22 +331,22 @@ print_str.exit.i:                                 ; preds = %94, %is_rust_hash.e
   br i1 %.not.i14.i, label %102, label %print_legacy_ident.exit.thread.i
 
 102:                                              ; preds = %101
-  %103 = load i8, ptr %.sroa.0.0.copyload79.i, align 1, !tbaa !21
+  %103 = load i8, ptr %.sroa.0.0.copyload88.i, align 1, !tbaa !21
   %104 = icmp eq i8 %103, 95
   br i1 %104, label %105, label %110
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload79.i, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload88.i, i64 1
   %107 = load i8, ptr %106, align 1, !tbaa !21
   %108 = icmp eq i8 %107, 36
   %109 = sext i1 %108 to i64
   %spec.select.i = add i64 %.sroa.6.0.copyload.i, %109
-  %spec.select24.i = select i1 %108, ptr %106, ptr %.sroa.0.0.copyload79.i
+  %spec.select24.i = select i1 %108, ptr %106, ptr %.sroa.0.0.copyload88.i
   br label %110
 
 110:                                              ; preds = %105, %102
   %.sroa.6.0.i = phi i64 [ %.sroa.6.0.copyload.i, %102 ], [ %spec.select.i, %105 ]
-  %.promoted152.i.i = phi ptr [ %.sroa.0.0.copyload79.i, %102 ], [ %spec.select24.i, %105 ]
+  %.promoted152.i.i = phi ptr [ %.sroa.0.0.copyload88.i, %102 ], [ %spec.select24.i, %105 ]
   %111 = icmp eq i64 %.sroa.6.0.i, 0
   br i1 %111, label %.critedge92.i.i, label %.lr.ph156.i.i
 
@@ -593,15 +593,15 @@ sub_0.i.i:                                        ; preds = %138
 
 .critedge.preheader.i.i:                          ; preds = %223
   %.not179.i.i = icmp eq i64 %225, 0
-  br i1 %.not179.i.i, label %.critedge.preheader.i..thread234.i_crit_edge.i, label %.critedge.i.i.preheader
+  br i1 %.not179.i.i, label %.critedge.preheader.i..thread240.i_crit_edge.i, label %.critedge.i.i.preheader
 
 .critedge.i.i.preheader:                          ; preds = %227, %.critedge.preheader.i.i
   br label %.critedge.i.i
 
-.critedge.preheader.i..thread234.i_crit_edge.i:   ; preds = %.critedge.preheader.i.i
+.critedge.preheader.i..thread240.i_crit_edge.i:   ; preds = %.critedge.preheader.i.i
   %.pre68.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
   %.pre140 = load i8, ptr %13, align 1, !range !24
-  br label %.thread234.i.i
+  br label %.thread240.i.i
 
 .lr.ph.i16.i:                                     ; preds = %223, %227
   %.078145.i.i = phi i64 [ %228, %227 ], [ 1, %223 ]
@@ -641,7 +641,7 @@ sub_0.i.i:                                        ; preds = %138
   %or.cond3.i.i = icmp ult i32 %244, 95
   %.pre69.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
   %.pre141 = load i8, ptr %13, align 1, !range !24
-  br i1 %or.cond3.i.i, label %245, label %.thread234.i.i
+  br i1 %or.cond3.i.i, label %245, label %.thread240.i.i
 
 245:                                              ; preds = %243
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -662,25 +662,25 @@ print_str.exit102.i.i:                            ; preds = %249, %245
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread.i.i
 
-.thread234.i.i:                                   ; preds = %243, %.critedge.preheader.i..thread234.i_crit_edge.i
-  %252 = phi i8 [ %.pre141, %243 ], [ %.pre140, %.critedge.preheader.i..thread234.i_crit_edge.i ]
-  %253 = phi i8 [ %.pre69.i, %243 ], [ %.pre68.i, %.critedge.preheader.i..thread234.i_crit_edge.i ]
-  %.075.lcssa233237.i.i = phi i32 [ %241, %243 ], [ 0, %.critedge.preheader.i..thread234.i_crit_edge.i ]
+.thread240.i.i:                                   ; preds = %243, %.critedge.preheader.i..thread240.i_crit_edge.i
+  %252 = phi i8 [ %.pre141, %243 ], [ %.pre140, %.critedge.preheader.i..thread240.i_crit_edge.i ]
+  %253 = phi i8 [ %.pre69.i, %243 ], [ %.pre68.i, %.critedge.preheader.i..thread240.i_crit_edge.i ]
+  %.075.lcssa239243.i.i = phi i32 [ %241, %243 ], [ 0, %.critedge.preheader.i..thread240.i_crit_edge.i ]
   %254 = trunc nuw i8 %253 to i1
   %255 = trunc nuw i8 %252 to i1
   %or.cond67 = select i1 %254, i1 true, i1 %255
   br i1 %or.cond67, label %print_str.exit103.i.i, label %256
 
-256:                                              ; preds = %.thread234.i.i
+256:                                              ; preds = %.thread240.i.i
   %257 = load ptr, ptr %10, align 8, !tbaa !13
   %258 = load ptr, ptr %9, align 8, !tbaa !12
   call void %257(ptr noundef nonnull @.str.25, i64 noundef 3, ptr noundef %258) #12
   br label %print_str.exit103.i.i
 
-print_str.exit103.i.i:                            ; preds = %256, %.thread234.i.i
+print_str.exit103.i.i:                            ; preds = %256, %.thread240.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
-  %259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %.075.lcssa233237.i.i) #12
+  %259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %.075.lcssa239243.i.i) #12
   %260 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %261 = trunc nuw i8 %260 to i1
   %262 = load i8, ptr %13, align 1, !range !24
@@ -806,8 +806,8 @@ peek.exit:                                        ; preds = %304
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 %305
   %310 = load i8, ptr %309, align 1, !tbaa !21
   %311 = add i8 %310, -65
-  %or.cond182 = icmp ult i8 %311, 26
-  br i1 %or.cond182, label %312, label %demangle_legacy_path.exit
+  %or.cond201 = icmp ult i8 %311, 26
+  br i1 %or.cond201, label %312, label %demangle_legacy_path.exit
 
 312:                                              ; preds = %peek.exit
   store i8 1, ptr %13, align 1, !tbaa !16
@@ -890,7 +890,7 @@ define internal fastcc void @demangle_path(ptr noundef nonnull %0, i1 noundef ze
 
 10:                                               ; preds = %2
   store i8 1, ptr %7, align 8, !tbaa !15
-  br label %common.ret275
+  br label %common.ret295
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1039,9 +1039,9 @@ print_uint64_hex.exit.thread:                     ; preds = %print_str.exit
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %70 = load i8, ptr %69, align 1, !tbaa !16, !range !24, !noundef !25
   %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %print_uint64_hex.exit.thread206, label %print_uint64_hex.exit
+  br i1 %71, label %print_uint64_hex.exit.thread226, label %print_uint64_hex.exit
 
-print_uint64_hex.exit.thread206:                  ; preds = %68
+print_uint64_hex.exit.thread226:                  ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %77
 
@@ -1056,7 +1056,7 @@ print_uint64_hex.exit:                            ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %76, label %print_str.exit84, label %77
 
-77:                                               ; preds = %print_uint64_hex.exit.thread206, %print_uint64_hex.exit
+77:                                               ; preds = %print_uint64_hex.exit.thread226, %print_uint64_hex.exit
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %79 = load i8, ptr %78, align 1, !tbaa !16, !range !24, !noundef !25
   %80 = trunc nuw i8 %79 to i1
@@ -1072,7 +1072,7 @@ print_uint64_hex.exit:                            ; preds = %68
 
 print_str.exit84:                                 ; preds = %print_uint64_hex.exit.thread, %81, %77, %print_uint64_hex.exit, %parse_disambiguator.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %common.ret275
+  br label %common.ret295
 
 86:                                               ; preds = %next.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1097,7 +1097,7 @@ next.exit89:                                      ; preds = %peek.exit.i87
 next.exit89.thread:                               ; preds = %peek.exit.i87, %86, %next.exit89
   store i8 1, ptr %7, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %common.ret275
+  br label %common.ret295
 
 93:                                               ; preds = %next.exit89
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext %1)
@@ -1370,7 +1370,7 @@ print_str.exit113:                                ; preds = %214, %217, %221
 .critedge83:                                      ; preds = %203, %199, %print_str.exit111, %print_str.exit113, %208
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %common.ret275
+  br label %common.ret295
 
 226:                                              ; preds = %next.exit, %next.exit
   %227 = icmp ult i64 %20, %15
@@ -1416,10 +1416,10 @@ next.exit.i.i.i120:                               ; preds = %peek.exit.i33.i.i.i
   %243 = and i8 %240, -33
   %244 = add i8 %243, -91
   %245 = icmp ult i8 %244, -26
-  %or.cond226.not229 = and i1 %or.cond.i.i.i121, %245
+  %or.cond246.not249 = and i1 %or.cond.i.i.i121, %245
   %exitcond.not.i.i127 = icmp eq i64 %241, %15
-  %or.cond227 = or i1 %or.cond226.not229, %exitcond.not.i.i127
-  br i1 %or.cond227, label %.critedge.i.i.i116, label %peek.exit.i33.i.i.i118, !llvm.loop !33
+  %or.cond247 = or i1 %or.cond246.not249, %exitcond.not.i.i127
+  br i1 %or.cond247, label %.critedge.i.i.i116, label %peek.exit.i33.i.i.i118, !llvm.loop !33
 
 .critedge.i.i.i116:                               ; preds = %peek.exit.i33.i.i.i118, %next.exit.i.i.i120, %231
   store i8 1, ptr %7, align 8, !tbaa !15
@@ -1485,13 +1485,13 @@ print_str.exit131:                                ; preds = %260, %263, %267
 272:                                              ; preds = %print_str.exit131, %print_str.exit130
   %273 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %274 = trunc nuw i8 %273 to i1
-  br i1 %274, label %common.ret275, label %275
+  br i1 %274, label %common.ret295, label %275
 
 275:                                              ; preds = %272
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %277 = load i8, ptr %276, align 1, !tbaa !16, !range !24, !noundef !25
   %278 = trunc nuw i8 %277 to i1
-  br i1 %278, label %common.ret275, label %279
+  br i1 %278, label %common.ret295, label %279
 
 279:                                              ; preds = %275
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1499,7 +1499,7 @@ print_str.exit131:                                ; preds = %260, %263, %267
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %283 = load ptr, ptr %282, align 8, !tbaa !12
   tail call void %281(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %283) #12
-  br label %common.ret275
+  br label %common.ret295
 
 284:                                              ; preds = %next.exit
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext %1)
@@ -1508,13 +1508,13 @@ print_str.exit131:                                ; preds = %260, %263, %267
 
 285:                                              ; preds = %284
   %286 = trunc nuw i8 %.pre198 to i1
-  br i1 %286, label %common.ret275, label %287
+  br i1 %286, label %common.ret295, label %287
 
 287:                                              ; preds = %285
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %289 = load i8, ptr %288, align 1, !tbaa !16, !range !24, !noundef !25
   %290 = trunc nuw i8 %289 to i1
-  br i1 %290, label %print_str.exit133.thread208, label %291
+  br i1 %290, label %print_str.exit133.thread228, label %291
 
 291:                                              ; preds = %287
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1528,15 +1528,15 @@ print_str.exit131:                                ; preds = %260, %263, %267
 print_str.exit133:                                ; preds = %291, %284
   %296 = phi i8 [ %.pre, %291 ], [ %.pre198, %284 ]
   %297 = trunc nuw i8 %296 to i1
-  br i1 %297, label %common.ret275, label %print_str.exit133.thread208
+  br i1 %297, label %common.ret295, label %print_str.exit133.thread228
 
-print_str.exit133.thread208:                      ; preds = %287, %print_str.exit133
+print_str.exit133.thread228:                      ; preds = %287, %print_str.exit133
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %299 = load i8, ptr %298, align 1, !tbaa !16, !range !24, !noundef !25
   %300 = trunc nuw i8 %299 to i1
   br i1 %300, label %.lr.ph, label %print_str.exit134
 
-print_str.exit134:                                ; preds = %print_str.exit133.thread208
+print_str.exit134:                                ; preds = %print_str.exit133.thread228
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %302 = load ptr, ptr %301, align 8, !tbaa !13
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1544,9 +1544,9 @@ print_str.exit134:                                ; preds = %print_str.exit133.t
   tail call void %302(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %304) #12
   %.pre199 = load i8, ptr %7, align 8, !tbaa !15, !range !24
   %305 = trunc nuw i8 %.pre199 to i1
-  br i1 %305, label %common.ret275, label %.lr.ph
+  br i1 %305, label %common.ret295, label %.lr.ph
 
-.lr.ph:                                           ; preds = %print_str.exit133.thread208, %print_str.exit134
+.lr.ph:                                           ; preds = %print_str.exit133.thread228, %print_str.exit134
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1571,13 +1571,13 @@ peek.exit.i136:                                   ; preds = %309
   store i64 %318, ptr %12, align 8, !tbaa !14
   %319 = load i8, ptr %306, align 1, !tbaa !16, !range !24, !noundef !25
   %320 = trunc nuw i8 %319 to i1
-  br i1 %320, label %common.ret275, label %321
+  br i1 %320, label %common.ret295, label %321
 
 321:                                              ; preds = %317
   %322 = load ptr, ptr %307, align 8, !tbaa !13
   %323 = load ptr, ptr %308, align 8, !tbaa !12
   tail call void %322(ptr noundef nonnull @.str.18, i64 noundef 1, ptr noundef %323) #12
-  br label %common.ret275
+  br label %common.ret295
 
 324:                                              ; preds = %peek.exit.i136, %309
   %.not = icmp eq i64 %.079181, 0
@@ -1699,7 +1699,7 @@ demangle_generic_arg.exit:                        ; preds = %parse_integer_62.ex
   %368 = add i64 %.079181, 1
   %369 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %370 = trunc nuw i8 %369 to i1
-  br i1 %370, label %common.ret275, label %309, !llvm.loop !34
+  br i1 %370, label %common.ret295, label %309, !llvm.loop !34
 
 371:                                              ; preds = %next.exit
   %372 = icmp ult i64 %20, %15
@@ -1770,20 +1770,20 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %396 = load i8, ptr %395, align 1, !tbaa !16, !range !24, !noundef !25
   %397 = trunc nuw i8 %396 to i1
-  br i1 %397, label %common.ret275, label %398
+  br i1 %397, label %common.ret295, label %398
 
-common.ret275:                                    ; preds = %321, %317, %279, %275, %272, %next.exit.thread, %next.exit89.thread, %parse_integer_62.exit, %.critedge83, %print_str.exit84, %10, %print_str.exit134, %print_str.exit133, %285, %demangle_generic_arg.exit, %398
+common.ret295:                                    ; preds = %321, %317, %279, %275, %272, %next.exit.thread, %next.exit89.thread, %parse_integer_62.exit, %.critedge83, %print_str.exit84, %10, %print_str.exit134, %print_str.exit133, %285, %demangle_generic_arg.exit, %398
   ret void
 
 398:                                              ; preds = %parse_integer_62.exit
   store i64 %.027.i, ptr %12, align 8, !tbaa !14
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext %1)
   store i64 %394, ptr %12, align 8, !tbaa !14
-  br label %common.ret275
+  br label %common.ret295
 
 next.exit.thread:                                 ; preds = %peek.exit.i, %11, %next.exit
   store i8 1, ptr %7, align 8, !tbaa !15
-  br label %common.ret275
+  br label %common.ret295
 }
 
 ; Function Attrs: nounwind
@@ -1811,11 +1811,11 @@ define dso_local ptr @rust_demangle(ptr noundef %0, i32 noundef %1) local_unname
   %14 = load i64, ptr %5, align 8, !tbaa !38
   %15 = load i64, ptr %4, align 8, !tbaa !39
   %.not.i.i = icmp eq i64 %14, %15
-  br i1 %.not.i.i, label %16, label %.str_buf_reserve.exit.thread10.i_crit_edge
+  br i1 %.not.i.i, label %16, label %.str_buf_reserve.exit.thread15.i_crit_edge
 
-.str_buf_reserve.exit.thread10.i_crit_edge:       ; preds = %13
+.str_buf_reserve.exit.thread15.i_crit_edge:       ; preds = %13
   %.pre = load ptr, ptr %3, align 8, !tbaa !35
-  br label %str_buf_reserve.exit.thread10.i
+  br label %str_buf_reserve.exit.thread15.i
 
 16:                                               ; preds = %13
   %17 = add i64 %14, 1
@@ -1853,20 +1853,20 @@ str_buf_reserve.exit.i:                           ; preds = %26
   store ptr %28, ptr %3, align 8, !tbaa !35
   %.pre.i = load i8, ptr %6, align 8, !tbaa !37, !range !24
   %32 = trunc nuw i8 %.pre.i to i1
-  br i1 %32, label %str_buf_append.exit, label %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge
+  br i1 %32, label %str_buf_append.exit, label %str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge
 
-str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge: ; preds = %str_buf_reserve.exit.i
+str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge: ; preds = %str_buf_reserve.exit.i
   %.pre5 = load i64, ptr %4, align 8, !tbaa !39
-  br label %str_buf_reserve.exit.thread10.i
+  br label %str_buf_reserve.exit.thread15.i
 
-str_buf_reserve.exit.thread10.i:                  ; preds = %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge, %.str_buf_reserve.exit.thread10.i_crit_edge
-  %33 = phi i64 [ %15, %.str_buf_reserve.exit.thread10.i_crit_edge ], [ %.pre5, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge ]
-  %34 = phi ptr [ %.pre, %.str_buf_reserve.exit.thread10.i_crit_edge ], [ %28, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge ]
+str_buf_reserve.exit.thread15.i:                  ; preds = %str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge, %.str_buf_reserve.exit.thread15.i_crit_edge
+  %33 = phi i64 [ %15, %.str_buf_reserve.exit.thread15.i_crit_edge ], [ %.pre5, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge ]
+  %34 = phi ptr [ %.pre, %.str_buf_reserve.exit.thread15.i_crit_edge ], [ %28, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   store i8 0, ptr %35, align 1
   br label %str_buf_append.exit
 
-str_buf_append.exit:                              ; preds = %23, %16, %10, %30, %str_buf_reserve.exit.i, %str_buf_reserve.exit.thread10.i
+str_buf_append.exit:                              ; preds = %23, %16, %10, %30, %str_buf_reserve.exit.i, %str_buf_reserve.exit.thread15.i
   %36 = load ptr, ptr %3, align 8, !tbaa !35
   br label %37
 
@@ -1890,11 +1890,11 @@ define internal void @str_buf_demangle_callback(ptr noundef readonly captures(no
   %11 = load i64, ptr %10, align 8, !tbaa !39
   %12 = sub i64 %9, %11
   %.not.i.i = icmp ugt i64 %1, %12
-  br i1 %.not.i.i, label %13, label %.str_buf_reserve.exit.thread10.i_crit_edge
+  br i1 %.not.i.i, label %13, label %.str_buf_reserve.exit.thread15.i_crit_edge
 
-.str_buf_reserve.exit.thread10.i_crit_edge:       ; preds = %7
+.str_buf_reserve.exit.thread15.i_crit_edge:       ; preds = %7
   %.pre = load ptr, ptr %2, align 8, !tbaa !35
-  br label %str_buf_reserve.exit.thread10.i
+  br label %str_buf_reserve.exit.thread15.i
 
 13:                                               ; preds = %7
   %14 = sub nuw i64 %1, %12
@@ -1943,15 +1943,15 @@ str_buf_reserve.exit.i:                           ; preds = %26
   store i64 %.0.i.i, ptr %8, align 8, !tbaa !38
   %.pre.i = load i8, ptr %4, align 8, !tbaa !37, !range !24
   %32 = trunc nuw i8 %.pre.i to i1
-  br i1 %32, label %str_buf_append.exit, label %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge
+  br i1 %32, label %str_buf_append.exit, label %str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge
 
-str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge: ; preds = %str_buf_reserve.exit.i
+str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge: ; preds = %str_buf_reserve.exit.i
   %.pre4 = load i64, ptr %10, align 8, !tbaa !39
-  br label %str_buf_reserve.exit.thread10.i
+  br label %str_buf_reserve.exit.thread15.i
 
-str_buf_reserve.exit.thread10.i:                  ; preds = %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge, %.str_buf_reserve.exit.thread10.i_crit_edge
-  %33 = phi i64 [ %11, %.str_buf_reserve.exit.thread10.i_crit_edge ], [ %.pre4, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge ]
-  %34 = phi ptr [ %.pre, %.str_buf_reserve.exit.thread10.i_crit_edge ], [ %28, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge ]
+str_buf_reserve.exit.thread15.i:                  ; preds = %str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge, %.str_buf_reserve.exit.thread15.i_crit_edge
+  %33 = phi i64 [ %11, %.str_buf_reserve.exit.thread15.i_crit_edge ], [ %.pre4, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge ]
+  %34 = phi ptr [ %.pre, %.str_buf_reserve.exit.thread15.i_crit_edge ], [ %28, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread15.i_crit_edge ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr readonly align 1 %0, i64 %1, i1 false)
   %36 = load i64, ptr %10, align 8, !tbaa !39
@@ -1959,7 +1959,7 @@ str_buf_reserve.exit.thread10.i:                  ; preds = %str_buf_reserve.exi
   store i64 %37, ptr %10, align 8, !tbaa !39
   br label %str_buf_append.exit
 
-str_buf_append.exit:                              ; preds = %3, %17, %25, %30, %str_buf_reserve.exit.i, %str_buf_reserve.exit.thread10.i
+str_buf_append.exit:                              ; preds = %3, %17, %25, %30, %str_buf_reserve.exit.i, %str_buf_reserve.exit.thread15.i
   ret void
 }
 
@@ -1980,8 +1980,8 @@ define internal fastcc void @parse_ident(ptr dead_on_unwind noalias nonnull writ
   %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre76 = load i64, ptr %.phi.trans.insert75, align 8, !tbaa !3
   %8 = icmp ult i64 %.pre, %.pre76
-  %or.cond84 = select i1 %.not, i1 %8, i1 false
-  br i1 %or.cond84, label %peek.exit.i, label %eat.exit
+  %or.cond98 = select i1 %.not, i1 %8, i1 false
+  br i1 %or.cond98, label %peek.exit.i, label %eat.exit
 
 peek.exit.i:                                      ; preds = %2
   %9 = load ptr, ptr %1, align 8, !tbaa !19
@@ -2026,8 +2026,8 @@ next.exit.thread:                                 ; preds = %peek.exit.i41, %eat
   %26 = zext nneg i8 %25 to i64
   %.not35 = icmp ne i8 %20, 48
   %27 = icmp ult i64 %21, %.pre76
-  %or.cond85 = select i1 %.not35, i1 %27, i1 false
-  br i1 %or.cond85, label %peek.exit, label %.critedge
+  %or.cond99 = select i1 %.not35, i1 %27, i1 false
+  br i1 %or.cond99, label %peek.exit, label %.critedge
 
 peek.exit:                                        ; preds = %24, %next.exit49
   %.159 = phi i64 [ %36, %next.exit49 ], [ %26, %24 ]
@@ -2035,8 +2035,8 @@ peek.exit:                                        ; preds = %24, %next.exit49
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !21
   %31 = add i8 %30, -48
-  %or.cond81 = icmp ult i8 %31, 10
-  br i1 %or.cond81, label %next.exit49, label %.critedge
+  %or.cond95 = icmp ult i8 %31, 10
+  br i1 %or.cond95, label %next.exit49, label %.critedge
 
 next.exit49:                                      ; preds = %peek.exit
   %32 = mul i64 %.159, 10
@@ -2052,8 +2052,8 @@ next.exit49:                                      ; preds = %peek.exit
   %38 = phi i64 [ %21, %24 ], [ %28, %peek.exit ], [ %33, %next.exit49 ]
   %.029 = phi i64 [ %26, %24 ], [ %.159, %peek.exit ], [ %36, %next.exit49 ]
   %39 = icmp ult i64 %38, %.pre76
-  %or.cond87 = select i1 %.not, i1 %39, i1 false
-  br i1 %or.cond87, label %peek.exit.i51, label %eat.exit52
+  %or.cond101 = select i1 %.not, i1 %39, i1 false
+  br i1 %or.cond101, label %peek.exit.i51, label %eat.exit52
 
 peek.exit.i51:                                    ; preds = %.critedge
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 %38
@@ -2529,12 +2529,12 @@ next.exit:                                        ; preds = %peek.exit.i
   switch i8 %18, label %.loopexit [
     i8 98, label %.loopexit198
     i8 99, label %.loopexit330
-    i8 101, label %.loopexit380
-    i8 117, label %.loopexit448
-    i8 97, label %.loopexit518
-    i8 115, label %.loopexit593
-    i8 108, label %.loopexit661
-    i8 120, label %.loopexit736
+    i8 101, label %.loopexit400
+    i8 117, label %.loopexit468
+    i8 97, label %.loopexit538
+    i8 115, label %.loopexit637
+    i8 108, label %.loopexit705
+    i8 120, label %.loopexit780
     i8 110, label %33
     i8 105, label %21
     i8 104, label %22
@@ -2602,26 +2602,26 @@ next.exit:                                        ; preds = %peek.exit.i
 .loopexit330:                                     ; preds = %next.exit
   br label %33
 
-.loopexit380:                                     ; preds = %next.exit
+.loopexit400:                                     ; preds = %next.exit
   br label %33
 
-.loopexit448:                                     ; preds = %next.exit
+.loopexit468:                                     ; preds = %next.exit
   br label %33
 
-.loopexit518:                                     ; preds = %next.exit
+.loopexit538:                                     ; preds = %next.exit
   br label %33
 
-.loopexit593:                                     ; preds = %next.exit
+.loopexit637:                                     ; preds = %next.exit
   br label %33
 
-.loopexit661:                                     ; preds = %next.exit
+.loopexit705:                                     ; preds = %next.exit
   br label %33
 
-.loopexit736:                                     ; preds = %next.exit
+.loopexit780:                                     ; preds = %next.exit
   br label %33
 
-33:                                               ; preds = %next.exit, %.loopexit736, %.loopexit661, %.loopexit593, %.loopexit518, %.loopexit448, %.loopexit380, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %.loopexit198, %.loopexit330
-  %.0.i126.ph = phi ptr [ @.str.71, %32 ], [ @.str.70, %31 ], [ @.str.69, %30 ], [ @.str.68, %29 ], [ @.str.67, %28 ], [ @.str.66, %27 ], [ @.str.65, %26 ], [ @.str.64, %25 ], [ @.str.63, %24 ], [ @.str.62, %23 ], [ @.str.61, %22 ], [ @.str.60, %21 ], [ @.str.51, %.loopexit198 ], [ @.str.52, %.loopexit330 ], [ @.str.53, %.loopexit380 ], [ @.str.54, %.loopexit448 ], [ @.str.55, %.loopexit518 ], [ @.str.56, %.loopexit593 ], [ @.str.57, %.loopexit661 ], [ @.str.58, %.loopexit736 ], [ @.str.59, %next.exit ]
+33:                                               ; preds = %next.exit, %.loopexit780, %.loopexit705, %.loopexit637, %.loopexit538, %.loopexit468, %.loopexit400, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %.loopexit198, %.loopexit330
+  %.0.i126.ph = phi ptr [ @.str.71, %32 ], [ @.str.70, %31 ], [ @.str.69, %30 ], [ @.str.68, %29 ], [ @.str.67, %28 ], [ @.str.66, %27 ], [ @.str.65, %26 ], [ @.str.64, %25 ], [ @.str.63, %24 ], [ @.str.62, %23 ], [ @.str.61, %22 ], [ @.str.60, %21 ], [ @.str.51, %.loopexit198 ], [ @.str.52, %.loopexit330 ], [ @.str.53, %.loopexit400 ], [ @.str.54, %.loopexit468 ], [ @.str.55, %.loopexit538 ], [ @.str.56, %.loopexit637 ], [ @.str.57, %.loopexit705 ], [ @.str.58, %.loopexit780 ], [ @.str.59, %next.exit ]
   %34 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %common.ret, label %36
@@ -2677,7 +2677,7 @@ eat.exit.thread.i:                                ; preds = %peek.exit.i.i
   br label %print_str.exit130
 
 peek.exit.i33.i:                                  ; preds = %peek.exit.i.i, %71
-  %.028.i516 = phi i64 [ %.129.i, %71 ], [ 0, %peek.exit.i.i ]
+  %.028.i536 = phi i64 [ %.129.i, %71 ], [ 0, %peek.exit.i.i ]
   %60 = phi i64 [ %63, %71 ], [ %54, %peek.exit.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !21
@@ -2689,7 +2689,7 @@ peek.exit.i33.i:                                  ; preds = %peek.exit.i.i, %71
 next.exit.i:                                      ; preds = %peek.exit.i33.i
   %63 = add i64 %60, 1
   store i64 %63, ptr %7, align 8, !tbaa !14
-  %64 = mul i64 %.028.i516, 62
+  %64 = mul i64 %.028.i536, 62
   %65 = sext i8 %62 to i64
   %66 = add i8 %62, -48
   %or.cond.i = icmp ult i8 %66, 10
@@ -2720,7 +2720,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
 parse_integer_62.exit:                            ; preds = %peek.exit.i33.i
   %73 = add nuw i64 %60, 1
   store i64 %73, ptr %7, align 8, !tbaa !14
-  %74 = add i64 %.028.i516, 1
+  %74 = add i64 %.028.i536, 1
   %.not124 = icmp eq i64 %74, 0
   br i1 %.not124, label %print_str.exit130, label %75
 
@@ -2761,7 +2761,7 @@ print_str.exit130:                                ; preds = %eat.exit.thread.i, 
   tail call void %91(ptr noundef nonnull @.str.40, i64 noundef 4, ptr noundef %92) #12
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %101, %.thread, %104, %107, %.thread592, %110, %print_str.exit130, %84, %87, %90
+tailrecurse.backedge:                             ; preds = %101, %.thread, %104, %107, %.thread636, %110, %print_str.exit130, %84, %87, %90
   %93 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %tailrecurse._crit_edge, label %12
@@ -2775,14 +2775,14 @@ print_str.exit132:                                ; preds = %95
   %98 = load ptr, ptr %10, align 8, !tbaa !13
   %99 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %98(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef %99) #12
-  %.pre590 = load i8, ptr %4, align 8, !tbaa !15, !range !24
-  %100 = trunc nuw i8 %.pre590 to i1
+  %.pre610 = load i8, ptr %4, align 8, !tbaa !15, !range !24
+  %100 = trunc nuw i8 %.pre610 to i1
   %.not123 = icmp eq i8 %18, 80
   br i1 %.not123, label %107, label %101
 
 print_str.exit132.thread:                         ; preds = %95
-  %.not123591 = icmp eq i8 %18, 80
-  br i1 %.not123591, label %.thread592, label %.thread
+  %.not123635 = icmp eq i8 %18, 80
+  br i1 %.not123635, label %.thread636, label %.thread
 
 101:                                              ; preds = %print_str.exit132
   br i1 %100, label %tailrecurse.backedge, label %.thread
@@ -2799,14 +2799,14 @@ print_str.exit132.thread:                         ; preds = %95
   br label %tailrecurse.backedge
 
 107:                                              ; preds = %print_str.exit132
-  br i1 %100, label %tailrecurse.backedge, label %.thread592
+  br i1 %100, label %tailrecurse.backedge, label %.thread636
 
-.thread592:                                       ; preds = %print_str.exit132.thread, %107
+.thread636:                                       ; preds = %print_str.exit132.thread, %107
   %108 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %109 = trunc nuw i8 %108 to i1
   br i1 %109, label %tailrecurse.backedge, label %110
 
-110:                                              ; preds = %.thread592
+110:                                              ; preds = %.thread636
   %111 = load ptr, ptr %10, align 8, !tbaa !13
   %112 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %111(ptr noundef nonnull @.str.41, i64 noundef 6, ptr noundef %112) #12
@@ -2920,11 +2920,11 @@ print_str.exit142:                                ; preds = %155, %152, %151
   %161 = add nuw i64 %144, 1
   store i64 %161, ptr %7, align 8, !tbaa !14
   %162 = icmp eq i64 %.0112328, 1
-  %.pre589 = load i8, ptr %9, align 1, !tbaa !16, !range !24
-  br i1 %162, label %163, label %print_str.exit143.thread376
+  %.pre609 = load i8, ptr %9, align 1, !tbaa !16, !range !24
+  br i1 %162, label %163, label %print_str.exit143.thread396
 
 163:                                              ; preds = %.critedge.thread
-  %164 = trunc nuw i8 %.pre589 to i1
+  %164 = trunc nuw i8 %.pre609 to i1
   br i1 %164, label %common.ret, label %print_str.exit143
 
 print_str.exit143:                                ; preds = %163
@@ -2933,18 +2933,18 @@ print_str.exit143:                                ; preds = %163
   tail call void %165(ptr noundef nonnull @.str.24, i64 noundef 1, ptr noundef %166) #12
   %.pre372 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %167 = trunc nuw i8 %.pre372 to i1
-  br i1 %167, label %common.ret, label %print_str.exit143.print_str.exit143.thread376_crit_edge
+  br i1 %167, label %common.ret, label %print_str.exit143.print_str.exit143.thread396_crit_edge
 
-print_str.exit143.print_str.exit143.thread376_crit_edge: ; preds = %print_str.exit143
-  %.pre588 = load i8, ptr %9, align 1, !tbaa !16, !range !24
-  br label %print_str.exit143.thread376
+print_str.exit143.print_str.exit143.thread396_crit_edge: ; preds = %print_str.exit143
+  %.pre608 = load i8, ptr %9, align 1, !tbaa !16, !range !24
+  br label %print_str.exit143.thread396
 
-print_str.exit143.thread376:                      ; preds = %print_str.exit143.print_str.exit143.thread376_crit_edge, %.critedge.thread
-  %168 = phi i8 [ %.pre588, %print_str.exit143.print_str.exit143.thread376_crit_edge ], [ %.pre589, %.critedge.thread ]
+print_str.exit143.thread396:                      ; preds = %print_str.exit143.print_str.exit143.thread396_crit_edge, %.critedge.thread
+  %168 = phi i8 [ %.pre608, %print_str.exit143.print_str.exit143.thread396_crit_edge ], [ %.pre609, %.critedge.thread ]
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %common.ret, label %170
 
-170:                                              ; preds = %print_str.exit143.thread376
+170:                                              ; preds = %print_str.exit143.thread396
   %171 = load ptr, ptr %10, align 8, !tbaa !13
   %172 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %171(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %172) #12
@@ -3070,14 +3070,14 @@ print_str.exit156:                                ; preds = %221
   tail call void %224(ptr noundef %.sroa.0.1.lcssa, i64 noundef %.sroa.10.1.lcssa, ptr noundef %225) #12
   %.pre369 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %226 = trunc nuw i8 %.pre369 to i1
-  br i1 %226, label %eat.exit151.thread, label %print_str.exit156.thread377
+  br i1 %226, label %eat.exit151.thread, label %print_str.exit156.thread397
 
-print_str.exit156.thread377:                      ; preds = %print_str.exit156
-  %.pre587 = load i8, ptr %9, align 1, !tbaa !16, !range !24
-  %227 = trunc nuw i8 %.pre587 to i1
+print_str.exit156.thread397:                      ; preds = %print_str.exit156
+  %.pre607 = load i8, ptr %9, align 1, !tbaa !16, !range !24
+  %227 = trunc nuw i8 %.pre607 to i1
   br i1 %227, label %eat.exit151.thread, label %228
 
-228:                                              ; preds = %print_str.exit156.thread377
+228:                                              ; preds = %print_str.exit156.thread397
   %229 = load ptr, ptr %10, align 8, !tbaa !13
   %230 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %229(ptr noundef nonnull @.str.46, i64 noundef 2, ptr noundef %230) #12
@@ -3108,20 +3108,20 @@ print_str.exit158:                                ; preds = %237
   tail call void %240(ptr noundef nonnull %.sroa.0.1320, i64 noundef %.0115319, ptr noundef %241) #12
   %.pre368 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %242 = trunc nuw i8 %.pre368 to i1
-  br i1 %242, label %print_str.exit159, label %print_str.exit158.thread378
+  br i1 %242, label %print_str.exit159, label %print_str.exit158.thread398
 
-print_str.exit158.thread378:                      ; preds = %print_str.exit158
-  %.pre586 = load i8, ptr %9, align 1, !tbaa !16, !range !24
-  %243 = trunc nuw i8 %.pre586 to i1
+print_str.exit158.thread398:                      ; preds = %print_str.exit158
+  %.pre606 = load i8, ptr %9, align 1, !tbaa !16, !range !24
+  %243 = trunc nuw i8 %.pre606 to i1
   br i1 %243, label %print_str.exit159, label %244
 
-244:                                              ; preds = %print_str.exit158.thread378
+244:                                              ; preds = %print_str.exit158.thread398
   %245 = load ptr, ptr %10, align 8, !tbaa !13
   %246 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %245(ptr noundef nonnull @.str.45, i64 noundef 1, ptr noundef %246) #12
   br label %print_str.exit159
 
-print_str.exit159:                                ; preds = %237, %234, %print_str.exit158, %print_str.exit158.thread378, %244
+print_str.exit159:                                ; preds = %237, %234, %print_str.exit158, %print_str.exit158.thread398, %244
   %247 = add nuw i64 %.0115319, 1
   %248 = getelementptr inbounds nuw i8, ptr %.sroa.0.1320, i64 %247
   %249 = sub i64 %.sroa.10.1321, %247
@@ -3139,7 +3139,7 @@ print_str.exit157:                                ; preds = %207
   store i8 1, ptr %4, align 8, !tbaa !15
   br label %302
 
-eat.exit151.thread:                               ; preds = %221, %._crit_edge323, %228, %print_str.exit156.thread377, %print_str.exit156, %print_str.exit148, %peek.exit.i150
+eat.exit151.thread:                               ; preds = %221, %._crit_edge323, %228, %print_str.exit156.thread397, %print_str.exit156, %print_str.exit148, %peek.exit.i150
   %253 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %254 = trunc nuw i8 %253 to i1
   br i1 %254, label %print_str.exit164, label %255
@@ -3465,7 +3465,7 @@ print_str.exit179:                                ; preds = %389, %392, %395
   %401 = trunc nuw i8 %400 to i1
   br i1 %401, label %common.ret, label %402
 
-common.ret:                                       ; preds = %print_str.exit138, %tailrecurse._crit_edge, %.loopexit, %print_str.exit179, %386, %302, %398, %385, %33, %36, %129, %132, %135, %print_str.exit143, %print_str.exit143.thread376, %170, %163, %print_str.exit142, %402
+common.ret:                                       ; preds = %print_str.exit138, %tailrecurse._crit_edge, %.loopexit, %print_str.exit179, %386, %302, %398, %385, %33, %36, %129, %132, %135, %print_str.exit143, %print_str.exit143.thread396, %170, %163, %print_str.exit142, %402
   ret void
 
 402:                                              ; preds = %398
@@ -3512,7 +3512,7 @@ peek.exit.i33.preheader:                          ; preds = %eat.exit
   br label %peek.exit.i33
 
 peek.exit.i33:                                    ; preds = %peek.exit.i33.preheader, %30
-  %.02859 = phi i64 [ %.129, %30 ], [ 0, %peek.exit.i33.preheader ]
+  %.02861 = phi i64 [ %.129, %30 ], [ 0, %peek.exit.i33.preheader ]
   %14 = phi i64 [ %21, %30 ], [ %3, %peek.exit.i33.preheader ]
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !21
@@ -3529,7 +3529,7 @@ peek.exit.i35:                                    ; preds = %peek.exit.i33
 next.exit:                                        ; preds = %peek.exit.i35
   %21 = add nuw i64 %14, 1
   store i64 %21, ptr %2, align 8, !tbaa !14
-  %22 = mul i64 %.02859, 62
+  %22 = mul i64 %.02861, 62
   %23 = sext i8 %20 to i64
   %24 = add i8 %20, -48
   %or.cond = icmp ult i8 %24, 10
@@ -3561,7 +3561,7 @@ next.exit:                                        ; preds = %peek.exit.i35
 33:                                               ; preds = %peek.exit.i33
   %34 = add nuw i64 %14, 1
   store i64 %34, ptr %2, align 8, !tbaa !14
-  %35 = add i64 %.02859, 1
+  %35 = add i64 %.02861, 1
   br label %36
 
 36:                                               ; preds = %eat.exit.thread, %33, %.critedge
@@ -3717,7 +3717,7 @@ define internal fastcc void @demangle_const(ptr noundef nonnull %0, i1 noundef z
 
 7:                                                ; preds = %2
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3751,8 +3751,8 @@ next.exit:                                        ; preds = %peek.exit.i
     i8 120, label %28
     i8 110, label %28
     i8 105, label %28
-    i8 98, label %.preheader334
-    i8 99, label %.preheader335
+    i8 98, label %.preheader352
+    i8 99, label %.preheader353
     i8 101, label %129
     i8 66, label %425
     i8 86, label %290
@@ -3766,7 +3766,7 @@ next.exit:                                        ; preds = %peek.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %20 = load i8, ptr %19, align 1, !tbaa !16, !range !24, !noundef !25
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %common.ret402, label %22
+  br i1 %21, label %common.ret420, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3774,11 +3774,11 @@ next.exit:                                        ; preds = %peek.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !12
   tail call void %24(ptr noundef nonnull @.str.70, i64 noundef 1, ptr noundef %26) #12
-  br label %common.ret402
+  br label %common.ret420
 
 27:                                               ; preds = %next.exit, %next.exit, %next.exit, %next.exit, %next.exit, %next.exit
   tail call fastcc void @demangle_const_uint(ptr noundef %0, i8 noundef signext %16)
-  br label %common.ret402
+  br label %common.ret420
 
 28:                                               ; preds = %next.exit, %next.exit, %next.exit, %next.exit, %next.exit, %next.exit
   %29 = icmp ult i64 %17, %12
@@ -3808,16 +3808,16 @@ peek.exit.i149:                                   ; preds = %28
 
 print_str.exit150:                                ; preds = %28, %peek.exit.i149, %38, %33
   tail call fastcc void @demangle_const_uint(ptr noundef %0, i8 noundef signext %16)
-  br label %common.ret402
+  br label %common.ret420
 
-.preheader334:                                    ; preds = %next.exit, %52
+.preheader352:                                    ; preds = %next.exit, %52
   %.pre.i = phi i8 [ %.pre.i297, %52 ], [ 0, %next.exit ]
   %43 = phi i64 [ %49, %52 ], [ %17, %next.exit ]
   %.017.i.i = phi i64 [ %53, %52 ], [ 0, %next.exit ]
   %44 = icmp ult i64 %43, %12
   br i1 %44, label %peek.exit.i.i.i, label %peek.exit.thread.i.i.i
 
-peek.exit.i.i.i:                                  ; preds = %.preheader334
+peek.exit.i.i.i:                                  ; preds = %.preheader352
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 %43
   %46 = load i8, ptr %45, align 1, !tbaa !21
   switch i8 %46, label %47 [
@@ -3825,7 +3825,7 @@ peek.exit.i.i.i:                                  ; preds = %.preheader334
     i8 0, label %peek.exit.thread.i.i.i
   ]
 
-peek.exit.thread.i.i.i:                           ; preds = %peek.exit.i.i.i, %.preheader334
+peek.exit.thread.i.i.i:                           ; preds = %peek.exit.i.i.i, %.preheader352
   store i8 1, ptr %4, align 8, !tbaa !15
   br label %next.exit.i.i
 
@@ -3847,7 +3847,7 @@ next.exit.i.i:                                    ; preds = %47, %peek.exit.thre
 
 52:                                               ; preds = %next.exit.i.i
   %53 = add i64 %.017.i.i, 1
-  br label %.preheader334, !llvm.loop !58
+  br label %.preheader352, !llvm.loop !58
 
 parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %54 = add nuw i64 %43, 1
@@ -3885,7 +3885,7 @@ parse_hex_nibbles_for_const_uint.exit:            ; preds = %.lr.ph.i, %59, %.pr
 
 .critedge:                                        ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i, %parse_hex_nibbles_for_const_uint.exit
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
 63:                                               ; preds = %parse_hex_nibbles_for_const_uint.exit
   %.not = icmp eq i64 %.sroa.5.0.i, 0
@@ -3905,7 +3905,7 @@ parse_hex_nibbles_for_const_uint.exit:            ; preds = %.lr.ph.i, %59, %.pr
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %72 = load i8, ptr %71, align 1, !tbaa !16, !range !24, !noundef !25
   %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %common.ret402, label %74
+  br i1 %73, label %common.ret420, label %74
 
 74:                                               ; preds = %.thread
   %75 = icmp eq i32 %70, 1
@@ -3916,20 +3916,20 @@ parse_hex_nibbles_for_const_uint.exit:            ; preds = %.lr.ph.i, %59, %.pr
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !12
   tail call void %79(ptr noundef nonnull %77, i64 noundef %76, ptr noundef %81) #12
-  br label %common.ret402
+  br label %common.ret420
 
 print_str.exit152:                                ; preds = %64
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
-.preheader335:                                    ; preds = %next.exit, %91
+.preheader353:                                    ; preds = %next.exit, %91
   %.pre.i169 = phi i8 [ %.pre.i169295, %91 ], [ 0, %next.exit ]
   %82 = phi i64 [ %88, %91 ], [ %17, %next.exit ]
   %.017.i.i153 = phi i64 [ %92, %91 ], [ 0, %next.exit ]
   %83 = icmp ult i64 %82, %12
   br i1 %83, label %peek.exit.i.i.i167, label %peek.exit.thread.i.i.i154
 
-peek.exit.i.i.i167:                               ; preds = %.preheader335
+peek.exit.i.i.i167:                               ; preds = %.preheader353
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 %82
   %85 = load i8, ptr %84, align 1, !tbaa !21
   switch i8 %85, label %86 [
@@ -3937,7 +3937,7 @@ peek.exit.i.i.i167:                               ; preds = %.preheader335
     i8 0, label %peek.exit.thread.i.i.i154
   ]
 
-peek.exit.thread.i.i.i154:                        ; preds = %peek.exit.i.i.i167, %.preheader335
+peek.exit.thread.i.i.i154:                        ; preds = %peek.exit.i.i.i167, %.preheader353
   store i8 1, ptr %4, align 8, !tbaa !15
   br label %next.exit.i.i155
 
@@ -3959,7 +3959,7 @@ next.exit.i.i155:                                 ; preds = %86, %peek.exit.thre
 
 91:                                               ; preds = %next.exit.i.i155
   %92 = add i64 %.017.i.i153, 1
-  br label %.preheader335, !llvm.loop !58
+  br label %.preheader353, !llvm.loop !58
 
 parse_hex_nibbles.exit.i168:                      ; preds = %peek.exit.i.i.i167
   %93 = add nuw i64 %82, 1
@@ -4001,7 +4001,7 @@ parse_hex_nibbles_for_const_uint.exit178:         ; preds = %.lr.ph.i174, %98, %
 
 print_str.exit180.thread:                         ; preds = %next.exit.i.i155, %parse_hex_nibbles.exit.i168, %parse_hex_nibbles_for_const_uint.exit178
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0137.lcssa = phi i32 [ 0, %.preheader ], [ %127, %.lr.ph ]
@@ -4022,13 +4022,13 @@ print_str.exit179:                                ; preds = %._crit_edge, %105
   tail call fastcc void @print_quoted_escaped_char(ptr noundef %0, i8 noundef signext 39, i32 noundef %.0137.lcssa)
   %110 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %common.ret402, label %112
+  br i1 %111, label %common.ret420, label %112
 
 112:                                              ; preds = %print_str.exit179
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %114 = load i8, ptr %113, align 1, !tbaa !16, !range !24, !noundef !25
   %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %common.ret402, label %116
+  br i1 %115, label %common.ret420, label %116
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4036,7 +4036,7 @@ print_str.exit179:                                ; preds = %._crit_edge, %105
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !12
   tail call void %118(ptr noundef nonnull @.str.72, i64 noundef 1, ptr noundef %120) #12
-  br label %common.ret402
+  br label %common.ret420
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.0136253 = phi i64 [ %128, %.lr.ph ], [ 0, %.preheader ]
@@ -4104,7 +4104,7 @@ peek.exit.i185:                                   ; preds = %147
   %153 = add nuw i64 %10, 2
   store i64 %153, ptr %9, align 8, !tbaa !14
   tail call fastcc void @demangle_const_str_literal(ptr noundef %0)
-  br label %common.ret402
+  br label %common.ret420
 
 eat.exit186.thread:                               ; preds = %147, %peek.exit.i185, %next.exit
   br i1 %1, label %print_str.exit187.thread, label %154
@@ -4268,7 +4268,7 @@ print_str.exit195:                                ; preds = %219, %216, %215
 
 print_str.exit196:                                ; preds = %212
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
 232:                                              ; preds = %next.exit
   br i1 %1, label %print_str.exit197.thread, label %233
@@ -4366,7 +4366,7 @@ print_str.exit202:                                ; preds = %268, %265, %264
 277:                                              ; preds = %275
   %278 = load i8, ptr %250, align 1, !tbaa !16, !range !24, !noundef !25
   %279 = trunc nuw i8 %278 to i1
-  br i1 %279, label %print_str.exit203.thread307, label %280
+  br i1 %279, label %print_str.exit203.thread325, label %280
 
 280:                                              ; preds = %277
   %281 = load ptr, ptr %251, align 8, !tbaa !13
@@ -4378,14 +4378,14 @@ print_str.exit202:                                ; preds = %268, %265, %264
 print_str.exit203:                                ; preds = %280, %272
   %283 = phi i8 [ %.pre279, %280 ], [ %.pre300, %272 ]
   %284 = trunc nuw i8 %283 to i1
-  br i1 %284, label %print_str.exit, label %print_str.exit203.thread307
+  br i1 %284, label %print_str.exit, label %print_str.exit203.thread325
 
-print_str.exit203.thread307:                      ; preds = %277, %print_str.exit203
+print_str.exit203.thread325:                      ; preds = %277, %print_str.exit203
   %285 = load i8, ptr %250, align 1, !tbaa !16, !range !24, !noundef !25
   %286 = trunc nuw i8 %285 to i1
   br i1 %286, label %print_str.exit, label %287
 
-287:                                              ; preds = %print_str.exit203.thread307
+287:                                              ; preds = %print_str.exit203.thread325
   %288 = load ptr, ptr %251, align 8, !tbaa !13
   %289 = load ptr, ptr %252, align 8, !tbaa !12
   tail call void %288(ptr noundef nonnull @.str.22, i64 noundef 1, ptr noundef %289) #12
@@ -4393,7 +4393,7 @@ print_str.exit203.thread307:                      ; preds = %277, %print_str.exi
 
 print_str.exit204:                                ; preds = %261
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
 290:                                              ; preds = %next.exit
   br i1 %1, label %print_str.exit205, label %291
@@ -4523,7 +4523,7 @@ print_str.exit215:                                ; preds = %337, %334, %333
 
 print_str.exit216:                                ; preds = %330
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
 350:                                              ; preds = %next.exit210
   %351 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
@@ -4638,10 +4638,10 @@ next.exit.i.i.i:                                  ; preds = %peek.exit.i33.i.i.i
   %402 = and i8 %399, -33
   %403 = add i8 %402, -91
   %404 = icmp ult i8 %403, -26
-  %or.cond330.not333 = and i1 %or.cond.i.i.i, %404
+  %or.cond348.not351 = and i1 %or.cond.i.i.i, %404
   %exitcond.not.i.i = icmp eq i64 %400, %383
-  %or.cond331 = or i1 %or.cond330.not333, %exitcond.not.i.i
-  br i1 %or.cond331, label %.critedge.i.i.i, label %peek.exit.i33.i.i.i, !llvm.loop !33
+  %or.cond349 = or i1 %or.cond348.not351, %exitcond.not.i.i
+  br i1 %or.cond349, label %.critedge.i.i.i, label %peek.exit.i33.i.i.i, !llvm.loop !33
 
 .critedge.i.i.i:                                  ; preds = %peek.exit.i33.i.i.i, %next.exit.i.i.i, %390
   store i8 1, ptr %4, align 8, !tbaa !15
@@ -4696,11 +4696,11 @@ print_str.exit223:                                ; preds = %parse_disambiguator
 
 print_str.exit224:                                ; preds = %373
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
 next.exit210.thread:                              ; preds = %peek.exit.i208, %print_str.exit205, %next.exit210
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
 425:                                              ; preds = %next.exit
   %426 = icmp ult i64 %17, %12
@@ -4771,34 +4771,34 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %450 = load i8, ptr %449, align 1, !tbaa !16, !range !24, !noundef !25
   %451 = trunc nuw i8 %450 to i1
-  br i1 %451, label %common.ret402, label %452
+  br i1 %451, label %common.ret420, label %452
 
-common.ret402:                                    ; preds = %print_str.exit179, %112, %116, %74, %.thread, %22, %18, %parse_integer_62.exit, %152, %print_str.exit150, %27, %460, %456, %453, %print_str.exit224, %print_str.exit216, %print_str.exit204, %print_str.exit196, %print_str.exit180.thread, %print_str.exit152, %next.exit210.thread, %next.exit.thread, %.critedge, %print_str.exit, %7, %452
+common.ret420:                                    ; preds = %print_str.exit179, %112, %116, %74, %.thread, %22, %18, %parse_integer_62.exit, %152, %print_str.exit150, %27, %460, %456, %453, %print_str.exit224, %print_str.exit216, %print_str.exit204, %print_str.exit196, %print_str.exit180.thread, %print_str.exit152, %next.exit210.thread, %next.exit.thread, %.critedge, %print_str.exit, %7, %452
   ret void
 
 452:                                              ; preds = %parse_integer_62.exit
   store i64 %.027.i, ptr %9, align 8, !tbaa !14
   tail call fastcc void @demangle_const(ptr noundef %0, i1 noundef zeroext %1)
   store i64 %448, ptr %9, align 8, !tbaa !14
-  br label %common.ret402
+  br label %common.ret420
 
 next.exit.thread:                                 ; preds = %peek.exit.i, %8, %next.exit
   store i8 1, ptr %4, align 8, !tbaa !15
-  br label %common.ret402
+  br label %common.ret420
 
-print_str.exit:                                   ; preds = %275, %422, %419, %416, %347, %344, %341, %287, %print_str.exit203.thread307, %print_str.exit203, %229, %226, %223, %next.exit210, %print_str.exit189, %print_str.exit183
-  br i1 %1, label %common.ret402, label %453
+print_str.exit:                                   ; preds = %275, %422, %419, %416, %347, %344, %341, %287, %print_str.exit203.thread325, %print_str.exit203, %229, %226, %223, %next.exit210, %print_str.exit189, %print_str.exit183
+  br i1 %1, label %common.ret420, label %453
 
 453:                                              ; preds = %print_str.exit
   %454 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %455 = trunc nuw i8 %454 to i1
-  br i1 %455, label %common.ret402, label %456
+  br i1 %455, label %common.ret420, label %456
 
 456:                                              ; preds = %453
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %458 = load i8, ptr %457, align 1, !tbaa !16, !range !24, !noundef !25
   %459 = trunc nuw i8 %458 to i1
-  br i1 %459, label %common.ret402, label %460
+  br i1 %459, label %common.ret420, label %460
 
 460:                                              ; preds = %456
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4806,7 +4806,7 @@ print_str.exit:                                   ; preds = %275, %422, %419, %4
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %464 = load ptr, ptr %463, align 8, !tbaa !12
   tail call void %462(ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef %464) #12
-  br label %common.ret402
+  br label %common.ret420
 }
 
 ; Function Attrs: nounwind
@@ -4916,7 +4916,7 @@ parse_opt_integer_62.exit.thread19:               ; preds = %peek.exit.i33.i.i, 
   br label %print_str.exit
 
 print_str.exit:                                   ; preds = %parse_opt_integer_62.exit.thread19, %38, %42
-  %.0.i2230 = phi i64 [ 1, %parse_opt_integer_62.exit.thread19 ], [ %.0.i22.ph, %38 ], [ %.0.i22.ph, %42 ]
+  %.0.i2235 = phi i64 [ 1, %parse_opt_integer_62.exit.thread19 ], [ %.0.i22.ph, %38 ], [ %.0.i22.ph, %42 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4966,7 +4966,7 @@ print_str.exit15:                                 ; preds = %67, %64, %61, %60
   store i64 %71, ptr %50, align 8, !tbaa !18
   tail call fastcc void @print_lifetime_from_index(ptr noundef %0, i64 noundef 1)
   %72 = add nuw i64 %.025, 1
-  %exitcond.not = icmp eq i64 %72, %.0.i2230
+  %exitcond.not = icmp eq i64 %72, %.0.i2235
   br i1 %exitcond.not, label %51, label %60, !llvm.loop !65
 
 print_str.exit14:                                 ; preds = %6, %peek.exit.i.i, %57, %54, %51, %parse_opt_integer_62.exit, %5
@@ -5616,21 +5616,20 @@ utf8_decode.exit:                                 ; preds = %49
   %59 = icmp ne i64 %.sroa.050.0, 1
   %60 = icmp samesign ult i64 %.sroa.050.0, 5
   %or.cond = and i1 %59, %60
-  br i1 %or.cond, label %.preheader, label %.thread
+  br i1 %or.cond, label %.lr.ph.preheader, label %.thread
 
-.preheader:                                       ; preds = %58
+.lr.ph.preheader:                                 ; preds = %58
   %.079 = add nsw i64 %.sroa.050.0, -1
-  %.not3780 = icmp eq i64 %.079, 0
-  br i1 %.not3780, label %.thread60, label %.lr.ph
+  br label %.lr.ph
 
 .thread:                                          ; preds = %58, %thread-pre-split.i
   store i8 1, ptr %2, align 8, !tbaa !15
   br label %print_str.exit48
 
-.lr.ph:                                           ; preds = %.preheader, %85
-  %.083 = phi i64 [ %.0, %85 ], [ %.079, %.preheader ]
-  %.182 = phi i32 [ %88, %85 ], [ %57, %.preheader ]
-  %.381 = phi i64 [ %61, %85 ], [ %.03186, %.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %85
+  %.083 = phi i64 [ %.0, %85 ], [ %.079, %.lr.ph.preheader ]
+  %.182 = phi i32 [ %88, %85 ], [ %57, %.lr.ph.preheader ]
+  %.381 = phi i64 [ %61, %85 ], [ %.03186, %.lr.ph.preheader ]
   %61 = add i64 %.381, 2
   %62 = getelementptr inbounds nuw i8, ptr %25, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !21
@@ -5681,9 +5680,9 @@ utf8_decode.exit47.thread:                        ; preds = %utf8_decode.exit47,
   store i8 1, ptr %2, align 8, !tbaa !15
   br label %print_str.exit48
 
-.thread60:                                        ; preds = %85, %.preheader, %utf8_decode.exit
-  %.132 = phi i64 [ %.03186, %utf8_decode.exit ], [ %.03186, %.preheader ], [ %indvars.iv, %85 ]
-  %.030 = phi i32 [ %57, %utf8_decode.exit ], [ %57, %.preheader ], [ %88, %85 ]
+.thread60:                                        ; preds = %85, %utf8_decode.exit
+  %.132 = phi i64 [ %.03186, %utf8_decode.exit ], [ %indvars.iv, %85 ]
+  %.030 = phi i32 [ %57, %utf8_decode.exit ], [ %88, %85 ]
   tail call fastcc void @print_quoted_escaped_char(ptr noundef %0, i8 noundef signext 34, i32 noundef %.030)
   %89 = add i64 %.132, 2
   %.not38 = icmp ult i64 %89, %.017.i.i
@@ -5720,7 +5719,7 @@ define internal fastcc zeroext i1 @demangle_path_maybe_open_generics(ptr noundef
 
 5:                                                ; preds = %1
   store i8 1, ptr %2, align 8, !tbaa !15
-  br label %common.ret100
+  br label %common.ret111
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5808,17 +5807,17 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %42 = load i8, ptr %41, align 1, !tbaa !16, !range !24, !noundef !25
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %common.ret100, label %44
+  br i1 %43, label %common.ret111, label %44
 
-common.ret100:                                    ; preds = %eat.exit28, %122, %parse_integer_62.exit, %5, %print_str.exit, %50, %demangle_generic_arg.exit, %44
-  %common.ret100.op = phi i1 [ %45, %44 ], [ false, %5 ], [ false, %122 ], [ false, %parse_integer_62.exit ], [ true, %eat.exit28 ], [ true, %print_str.exit ], [ true, %50 ], [ true, %demangle_generic_arg.exit ]
-  ret i1 %common.ret100.op
+common.ret111:                                    ; preds = %eat.exit28, %122, %parse_integer_62.exit, %5, %print_str.exit, %50, %demangle_generic_arg.exit, %44
+  %common.ret111.op = phi i1 [ %45, %44 ], [ false, %5 ], [ false, %122 ], [ false, %parse_integer_62.exit ], [ true, %eat.exit28 ], [ true, %print_str.exit ], [ true, %50 ], [ true, %demangle_generic_arg.exit ]
+  ret i1 %common.ret111.op
 
 44:                                               ; preds = %parse_integer_62.exit
   store i64 %.027.i, ptr %7, align 8, !tbaa !14
   %45 = tail call fastcc zeroext i1 @demangle_path_maybe_open_generics(ptr noundef %0)
   store i64 %40, ptr %7, align 8, !tbaa !14
-  br label %common.ret100
+  br label %common.ret111
 
 peek.exit.i25:                                    ; preds = %peek.exit.i
   %46 = load ptr, ptr %0, align 8, !tbaa !19
@@ -5833,7 +5832,7 @@ peek.exit.i25:                                    ; preds = %peek.exit.i
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext false)
   %52 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %common.ret100, label %54
+  br i1 %53, label %common.ret111, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 41
@@ -5849,7 +5848,7 @@ print_str.exit:                                   ; preds = %54
   tail call void %59(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %61) #12
   %.pre = load i8, ptr %2, align 8, !tbaa !15, !range !24
   %62 = trunc nuw i8 %.pre to i1
-  br i1 %62, label %common.ret100, label %.lr.ph
+  br i1 %62, label %common.ret111, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54, %print_str.exit
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 41
@@ -5874,7 +5873,7 @@ peek.exit.i27:                                    ; preds = %66
 eat.exit28:                                       ; preds = %peek.exit.i27
   %74 = add nuw i64 %67, 1
   store i64 %74, ptr %7, align 8, !tbaa !14
-  br label %common.ret100
+  br label %common.ret111
 
 75:                                               ; preds = %peek.exit.i27, %66
   %.not = icmp eq i64 %.057, 0
@@ -5996,11 +5995,11 @@ demangle_generic_arg.exit:                        ; preds = %parse_integer_62.ex
   %119 = add i64 %.057, 1
   %120 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %common.ret100, label %66, !llvm.loop !69
+  br i1 %121, label %common.ret111, label %66, !llvm.loop !69
 
 122:                                              ; preds = %6, %peek.exit.i25
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext false)
-  br label %common.ret100
+  br label %common.ret111
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

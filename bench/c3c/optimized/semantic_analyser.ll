@@ -1804,10 +1804,10 @@ sema_context_init.exit:                           ; preds = %.critedge.i8.i, %31
   br label %43
 
 43:                                               ; preds = %3, %sema_context_init.exit
-  %.sink16 = phi i64 [ 48, %sema_context_init.exit ], [ 8, %3 ]
+  %.sink23 = phi i64 [ 48, %sema_context_init.exit ], [ 8, %3 ]
   %.sink = phi ptr [ %42, %sema_context_init.exit ], [ null, %3 ]
   %.0 = phi ptr [ %1, %sema_context_init.exit ], [ %0, %3 ]
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink23
   store ptr %.sink, ptr %44, align 8
   ret ptr %.0
 }

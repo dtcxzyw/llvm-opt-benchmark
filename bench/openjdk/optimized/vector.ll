@@ -1646,9 +1646,9 @@ _ZN9Node_List4pushEP4Node.exit.i166:              ; preds = %583, %579
 
 _ZN16Unique_Node_List4pushEP4Node.exit161.sink.split: ; preds = %_ZN9Node_List4pushEP4Node.exit.i160, %_ZN9Node_List4pushEP4Node.exit.i166
   %.sink = phi i32 [ %580, %_ZN9Node_List4pushEP4Node.exit.i166 ], [ %557, %_ZN9Node_List4pushEP4Node.exit.i160 ]
-  %.sink242 = phi ptr [ %584, %_ZN9Node_List4pushEP4Node.exit.i166 ], [ %561, %_ZN9Node_List4pushEP4Node.exit.i160 ]
+  %.sink317 = phi ptr [ %584, %_ZN9Node_List4pushEP4Node.exit.i166 ], [ %561, %_ZN9Node_List4pushEP4Node.exit.i160 ]
   %585 = zext i32 %.sink to i64
-  %586 = getelementptr inbounds nuw ptr, ptr %.sink242, i64 %585
+  %586 = getelementptr inbounds nuw ptr, ptr %.sink317, i64 %585
   store ptr %532, ptr %586, align 8
   br label %_ZN16Unique_Node_List4pushEP4Node.exit161
 

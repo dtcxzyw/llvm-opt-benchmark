@@ -300,8 +300,8 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
 
 .thread.thread.i:                                 ; preds = %.thread.i..thread.thread.i_crit_edge, %68
   %.pre-phi = phi i64 [ %.pre, %.thread.i..thread.thread.i_crit_edge ], [ %69, %68 ]
-  %.16985.i = phi ptr [ %.1.i, %.thread.i..thread.thread.i_crit_edge ], [ %.0.lcssa.i, %68 ]
-  %80 = call noalias ptr @zend_strndup(ptr noundef nonnull %.16985.i, i64 noundef %.pre-phi) #13
+  %.16992.i = phi ptr [ %.1.i, %.thread.i..thread.thread.i_crit_edge ], [ %.0.lcssa.i, %68 ]
+  %80 = call noalias ptr @zend_strndup(ptr noundef nonnull %.16992.i, i64 noundef %.pre-phi) #13
   br i1 %.not62.i, label %83, label %81
 
 81:                                               ; preds = %.thread.thread.i

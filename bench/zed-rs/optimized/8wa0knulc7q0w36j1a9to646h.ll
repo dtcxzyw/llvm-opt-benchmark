@@ -2879,14 +2879,14 @@ _ZN10serde_json3ser18format_escaped_str17h6d6229684a2e2b40E.exit.i.i1: ; preds =
 define hidden noundef align 8 ptr @"_ZN16telemetry_events1_84_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$telemetry_events..AssistantPhase$GT$9serialize17h0a0da635e99b4a93E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !995, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i8 %3, label %default.unreachable19 [
+  switch i8 %3, label %default.unreachable37 [
     i8 0, label %5
     i8 1, label %35
     i8 2, label %65
     i8 3, label %95
   ]
 
-default.unreachable19:                            ; preds = %2
+default.unreachable37:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -4393,7 +4393,7 @@ define internal fastcc void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$clos
   %222 = alloca [24 x i8], align 8
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %224 = load i8, ptr %223, align 8, !range !1371, !noundef !5
-  switch i8 %224, label %default.unreachable2924 [
+  switch i8 %224, label %default.unreachable2969 [
     i8 0, label %226
     i8 1, label %1652
     i8 2, label %1653
@@ -4406,7 +4406,7 @@ define internal fastcc void @"_ZN3rpc4peer4Peer14add_connection28_$u7b$$u7b$clos
   %.pre2923 = load ptr, ptr %.phi.trans.insert2922, align 8, !alias.scope !1372, !noalias !1375
   br label %1813
 
-default.unreachable2924:                          ; preds = %3
+default.unreachable2969:                          ; preds = %3
   unreachable
 
 225:                                              ; preds = %3
@@ -11702,14 +11702,14 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %10 = lshr exact i64 %.sroa.01.0.ph94, 1
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 31
-  br i1 %12, label %.lr.ph163, label %._crit_edge
+  br i1 %12, label %.lr.ph165, label %._crit_edge
 
 13:                                               ; preds = %.loopexit
-  %14 = add i32 %.sroa.0.087162, 1
+  %14 = add i32 %.sroa.0.087164, 1
   %15 = lshr exact i64 %62, 1
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 31
-  br i1 %17, label %.lr.ph163, label %._crit_edge
+  br i1 %17, label %.lr.ph165, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
   %.sroa.048.0.ph.lcssa86 = phi ptr [ null, %2 ], [ %.sroa.048.0.ph91, %.loopexit ], [ %.sroa.048.0.ph.be, %.outer.backedge ]
@@ -11727,18 +11727,18 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %or.cond = select i1 %.not69, i1 %.not, i1 false
   br i1 %or.cond, label %26, label %24
 
-.lr.ph163:                                        ; preds = %.lr.ph, %13
-  %.sroa.0.087162 = phi i32 [ %14, %13 ], [ %.sroa.0.0.ph92, %.lr.ph ]
-  %19 = icmp ult i32 %.sroa.0.087162, 7
+.lr.ph165:                                        ; preds = %.lr.ph, %13
+  %.sroa.0.087164 = phi i32 [ %14, %13 ], [ %.sroa.0.0.ph92, %.lr.ph ]
+  %19 = icmp ult i32 %.sroa.0.087164, 7
   br i1 %19, label %21, label %20
 
-20:                                               ; preds = %.lr.ph163
+20:                                               ; preds = %.lr.ph165
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %.loopexit unwind label %.loopexit70
 
-21:                                               ; preds = %.lr.ph163
-  %22 = mul nuw nsw i32 %.sroa.0.087162, %.sroa.0.087162
-  %.not.i = icmp eq i32 %.sroa.0.087162, 0
+21:                                               ; preds = %.lr.ph165
+  %22 = mul nuw nsw i32 %.sroa.0.087164, %.sroa.0.087164
+  %.not.i = icmp eq i32 %.sroa.0.087164, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
@@ -22190,8 +22190,8 @@ common.ret:                                       ; preds = %306, %302, %130, %1
           to label %191 unwind label %132
 
 "_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit.sink.split": ; preds = %143, %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17h7f99806f651d200cE.exit", %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit85"
-  %.sink137 = phi i64 [ 705, %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit85" ], [ 707, %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17h7f99806f651d200cE.exit" ], [ 707, %143 ]
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink137
+  %.sink140 = phi i64 [ 705, %"_ZN4core3ptr235drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$C$$LP$proto..Envelope$C$std..time..Instant$RP$$GT$$GT$$GT$17h93f6a15b3fb6cc61E.exit85" ], [ 707, %"_ZN4core3ptr105drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17h7f99806f651d200cE.exit" ], [ 707, %143 ]
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink140
   store i8 0, ptr %179, align 1
   br label %"_ZN4core3ptr267drop_in_place$LT$rpc..peer..Peer..add_connection..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$rpc..proto..Message$GT$$C$$LP$$RP$$C$core..result..Result$LT$$LP$rpc..proto..Message$C$std..time..Instant$RP$$C$anyhow..Error$GT$$C$$LP$$RP$$GT$$GT$17h3ef4642576c2b1d8E.exit"
 

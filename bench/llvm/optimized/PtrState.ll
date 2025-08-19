@@ -467,9 +467,9 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %97
   %102 = phi i32 [ %100, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre44, %97 ], [ %85, %.lr.ph.i.i ]
   %103 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %97 ], [ 1, %.lr.ph.i.i ]
-  %.fca.1.insert.merged.i9.i = phi i8 [ %101, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %97 ], [ 0, %.lr.ph.i.i ]
+  %.fca.1.insert.merged.i12.i = phi i8 [ %101, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %97 ], [ 0, %.lr.ph.i.i ]
   %104 = zext i1 %.0.in42 to i8
-  %105 = or i8 %.fca.1.insert.merged.i9.i, %104
+  %105 = or i8 %.fca.1.insert.merged.i12.i, %104
   %106 = icmp ne i8 %105, 0
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 8
   %.not3.i3.i = icmp eq ptr %107, %78
@@ -623,7 +623,7 @@ define dso_local void @_ZN4llvm7objcarc8PtrState5MergeERKS1_b(ptr noundef nonnul
   %12 = icmp eq i8 %5, 0
   %13 = icmp eq i8 %8, 0
   %or.cond.i = or i1 %12, %13
-  br i1 %or.cond.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread9, label %14
+  br i1 %or.cond.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread10, label %14
 
 14:                                               ; preds = %11
   %15 = tail call i32 @llvm.umin.i32(i32 %6, i32 %9)
@@ -636,7 +636,7 @@ define dso_local void @_ZN4llvm7objcarc8PtrState5MergeERKS1_b(ptr noundef nonnul
   %19 = and i32 %16, 254
   %or.cond5.i = icmp eq i32 %19, 2
   %or.cond29.i = and i1 %or.cond3.i, %or.cond5.i
-  br i1 %or.cond29.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread9
+  br i1 %or.cond29.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread10
 
 20:                                               ; preds = %14
   %21 = and i32 %15, 254
@@ -646,13 +646,13 @@ define dso_local void @_ZN4llvm7objcarc8PtrState5MergeERKS1_b(ptr noundef nonnul
 22:                                               ; preds = %20
   %23 = add nsw i32 %16, -3
   %or.cond11.i = icmp ult i32 %23, 3
-  br i1 %or.cond11.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread9
+  br i1 %or.cond11.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread10
 
 24:                                               ; preds = %20
   %25 = icmp eq i32 %15, 4
   %26 = icmp eq i32 %16, 5
   %or.cond13.i = and i1 %25, %26
-  br i1 %or.cond13.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread9
+  br i1 %or.cond13.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread10
 
 _ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread: ; preds = %22, %24, %17
   %.0.i.ph = phi i32 [ %16, %17 ], [ 4, %24 ], [ %15, %22 ]
@@ -664,7 +664,7 @@ _ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread: ; preds = %22, %24, %17
   store i8 %30, ptr %0, align 8, !tbaa !41
   br label %90
 
-_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread9: ; preds = %11, %24, %22, %17
+_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread10: ; preds = %11, %24, %22, %17
   store i8 0, ptr %4, align 2
   %31 = load i8, ptr %1, align 8, !tbaa !41, !range !23, !noundef !24
   %32 = load i8, ptr %0, align 8, !tbaa !41, !range !23, !noundef !24
@@ -681,7 +681,7 @@ _ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit:   ; preds = %3
   %37 = icmp eq i8 %5, 0
   br i1 %37, label %38, label %90
 
-38:                                               ; preds = %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread9, %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit
+38:                                               ; preds = %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread10, %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %39, align 1, !tbaa !43
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8

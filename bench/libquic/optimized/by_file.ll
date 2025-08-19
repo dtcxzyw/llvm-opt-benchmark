@@ -24,9 +24,9 @@ define hidden i32 @X509_load_cert_file(ptr noundef readonly captures(none) %0, p
   %6 = tail call ptr @BIO_s_file() #4
   %7 = tail call ptr @BIO_new(ptr noundef %6) #4
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread.thread54, label %9
+  br i1 %8, label %.thread.thread59, label %9
 
-.thread.thread54:                                 ; preds = %5
+.thread.thread59:                                 ; preds = %5
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 134) #4
   br label %40
 
@@ -73,7 +73,7 @@ define hidden i32 @X509_load_cert_file(ptr noundef readonly captures(none) %0, p
   %24 = load ptr, ptr %15, align 8, !tbaa !6
   %25 = tail call i32 @X509_STORE_add_cert(ptr noundef %24, ptr noundef nonnull %23) #4
   %.not38 = icmp eq i32 %25, 0
-  br i1 %.not38, label %.thread.thread52, label %26
+  br i1 %.not38, label %.thread.thread57, label %26
 
 26:                                               ; preds = %22
   %27 = add nuw nsw i32 %.02749, 1
@@ -95,13 +95,13 @@ define hidden i32 @X509_load_cert_file(ptr noundef readonly captures(none) %0, p
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !6
   %37 = tail call i32 @X509_STORE_add_cert(ptr noundef %36, ptr noundef nonnull %31) #4
-  br label %.thread.thread52
+  br label %.thread.thread57
 
 38:                                               ; preds = %12
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 170) #4
   br label %.thread.thread
 
-.thread.thread52:                                 ; preds = %22, %34
+.thread.thread57:                                 ; preds = %22, %34
   %.028 = phi i32 [ %37, %34 ], [ 0, %22 ]
   %.0 = phi ptr [ %31, %34 ], [ %23, %22 ]
   tail call void @X509_free(ptr noundef nonnull %.0) #4
@@ -111,13 +111,13 @@ define hidden i32 @X509_load_cert_file(ptr noundef readonly captures(none) %0, p
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 134) #4
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %.thread.thread52, %20, %21, %33, %38
-  %.0284446 = phi i32 [ 0, %.thread ], [ %.027.lcssa, %20 ], [ 0, %21 ], [ 0, %33 ], [ 0, %38 ], [ %.028, %.thread.thread52 ]
+.thread.thread:                                   ; preds = %.thread, %.thread.thread57, %20, %21, %33, %38
+  %.0284446 = phi i32 [ 0, %.thread ], [ %.027.lcssa, %20 ], [ 0, %21 ], [ 0, %33 ], [ 0, %38 ], [ %.028, %.thread.thread57 ]
   %39 = tail call i32 @BIO_free(ptr noundef nonnull %7) #4
   br label %40
 
-40:                                               ; preds = %.thread.thread54, %.thread.thread, %3
-  %.029 = phi i32 [ 1, %3 ], [ %.0284446, %.thread.thread ], [ 0, %.thread.thread54 ]
+40:                                               ; preds = %.thread.thread59, %.thread.thread, %3
+  %.029 = phi i32 [ 1, %3 ], [ %.0284446, %.thread.thread ], [ 0, %.thread.thread59 ]
   ret i32 %.029
 }
 
@@ -152,9 +152,9 @@ define hidden i32 @X509_load_crl_file(ptr noundef readonly captures(none) %0, pt
   %6 = tail call ptr @BIO_s_file() #4
   %7 = tail call ptr @BIO_new(ptr noundef %6) #4
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread.thread54, label %9
+  br i1 %8, label %.thread.thread59, label %9
 
-.thread.thread54:                                 ; preds = %5
+.thread.thread59:                                 ; preds = %5
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 193) #4
   br label %40
 
@@ -201,7 +201,7 @@ define hidden i32 @X509_load_crl_file(ptr noundef readonly captures(none) %0, pt
   %24 = load ptr, ptr %15, align 8, !tbaa !6
   %25 = tail call i32 @X509_STORE_add_crl(ptr noundef %24, ptr noundef nonnull %23) #4
   %.not38 = icmp eq i32 %25, 0
-  br i1 %.not38, label %.thread.thread52, label %26
+  br i1 %.not38, label %.thread.thread57, label %26
 
 26:                                               ; preds = %22
   %27 = add nuw nsw i32 %.02749, 1
@@ -223,13 +223,13 @@ define hidden i32 @X509_load_crl_file(ptr noundef readonly captures(none) %0, pt
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !6
   %37 = tail call i32 @X509_STORE_add_crl(ptr noundef %36, ptr noundef nonnull %31) #4
-  br label %.thread.thread52
+  br label %.thread.thread57
 
 38:                                               ; preds = %12
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 229) #4
   br label %.thread.thread
 
-.thread.thread52:                                 ; preds = %22, %34
+.thread.thread57:                                 ; preds = %22, %34
   %.028 = phi i32 [ %37, %34 ], [ 0, %22 ]
   %.0 = phi ptr [ %31, %34 ], [ %23, %22 ]
   tail call void @X509_CRL_free(ptr noundef nonnull %.0) #4
@@ -239,13 +239,13 @@ define hidden i32 @X509_load_crl_file(ptr noundef readonly captures(none) %0, pt
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 193) #4
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %.thread, %.thread.thread52, %20, %21, %33, %38
-  %.0284446 = phi i32 [ 0, %.thread ], [ %.027.lcssa, %20 ], [ 0, %21 ], [ 0, %33 ], [ 0, %38 ], [ %.028, %.thread.thread52 ]
+.thread.thread:                                   ; preds = %.thread, %.thread.thread57, %20, %21, %33, %38
+  %.0284446 = phi i32 [ 0, %.thread ], [ %.027.lcssa, %20 ], [ 0, %21 ], [ 0, %33 ], [ 0, %38 ], [ %.028, %.thread.thread57 ]
   %39 = tail call i32 @BIO_free(ptr noundef nonnull %7) #4
   br label %40
 
-40:                                               ; preds = %.thread.thread54, %.thread.thread, %3
-  %.029 = phi i32 [ 1, %3 ], [ %.0284446, %.thread.thread ], [ 0, %.thread.thread54 ]
+40:                                               ; preds = %.thread.thread59, %.thread.thread, %3
+  %.029 = phi i32 [ 1, %3 ], [ %.0284446, %.thread.thread ], [ 0, %.thread.thread59 ]
   ret i32 %.029
 }
 

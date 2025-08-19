@@ -3903,8 +3903,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr94drop
           to label %98 unwind label %95
 
 "_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.sink.split.i.i": ; preds = %113, %.noexc3.i.i, %98, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit3.i.i.i.i", %53
-  %.sink4.i.i = phi i64 [ 16, %113 ], [ 16, %.noexc3.i.i ], [ 16, %98 ], [ 40, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit3.i.i.i.i" ], [ 40, %53 ]
-  %91 = getelementptr inbounds nuw i8, ptr %50, i64 %.sink4.i.i
+  %.sink7.i.i = phi i64 [ 16, %113 ], [ 16, %.noexc3.i.i ], [ 16, %98 ], [ 40, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit3.i.i.i.i" ], [ 40, %53 ]
+  %91 = getelementptr inbounds nuw i8, ptr %50, i64 %.sink7.i.i
   store i8 0, ptr %91, align 8
   br label %"_ZN4core3ptr157drop_in_place$LT$ockam_node..context..receive_message..$LT$impl$u20$ockam_node..context..context..Context$GT$..receiver_next..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb70b62cd8233347fE.exit.i.i"
 
@@ -3914,9 +3914,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr94drop
   br label %"_ZN4core3ptr98drop_in_place$LT$ockam_node..context..context..Context..set_ready..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf4077974149bcfeaE.exit"
 
 .body.i.i:                                        ; preds = %117, %95, %85, %.body.i.i.i
-  %.sink5.i.i = phi i64 [ 16, %117 ], [ 16, %95 ], [ 40, %85 ], [ 40, %.body.i.i.i ]
+  %.sink8.i.i = phi i64 [ 16, %117 ], [ 16, %95 ], [ 40, %85 ], [ 40, %.body.i.i.i ]
   %.pn.pn.i.i = phi { ptr, i32 } [ %118, %117 ], [ %96, %95 ], [ %86, %85 ], [ %65, %.body.i.i.i ]
-  %93 = getelementptr inbounds nuw i8, ptr %50, i64 %.sink5.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %50, i64 %.sink8.i.i
   store i8 0, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 697
   store i8 0, ptr %94, align 1
@@ -4777,10 +4777,10 @@ define hidden void @"_ZN4core3ptr155drop_in_place$LT$ockam_node..delayed..Delaye
   ]
 
 common.ret.sink.split:                            ; preds = %364, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit"
-  %.sink16 = phi i64 [ %336, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit" ], [ %366, %364 ]
+  %.sink48 = phi i64 [ %336, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit" ], [ %366, %364 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink16, i64 noundef 1) #23, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink48, i64 noundef 1) #23, !noalias !4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %364, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit", %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit13", %1
@@ -11179,9 +11179,9 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..messages..NodeMe
   unreachable
 
 152:                                              ; preds = %130, %135, %.body48, %172
-  %.sink57 = phi i64 [ 56, %172 ], [ 56, %.body48 ], [ 64, %135 ], [ 64, %130 ]
+  %.sink82 = phi i64 [ 56, %172 ], [ 56, %.body48 ], [ 64, %135 ], [ 64, %130 ]
   %.pn12 = phi { ptr, i32 } [ %173, %172 ], [ %.pn, %.body48 ], [ %136, %135 ], [ %.pn8, %130 ]
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink57
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink82
   tail call void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_core..routing..address_meta..AddressAndMetadata$GT$$GT$17habdef1943310a54eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %153) #21
   resume { ptr, i32 } %.pn12
 

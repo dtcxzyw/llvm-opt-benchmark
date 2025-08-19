@@ -1142,12 +1142,12 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %220, %198, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %518, %520, %522, %525, %528, %531
-  %.sink347 = phi ptr [ %533, %531 ], [ %530, %528 ], [ %527, %525 ], [ %524, %522 ], [ %521, %520 ], [ %519, %518 ]
-  store ptr %.sink347, ptr %490, align 8
+  %.sink361 = phi ptr [ %533, %531 ], [ %530, %528 ], [ %527, %525 ], [ %524, %522 ], [ %521, %520 ], [ %519, %518 ]
+  store ptr %.sink361, ptr %490, align 8
   br label %534
 
 534:                                              ; preds = %.sink.split, %517
-  %535 = phi ptr [ %491, %517 ], [ %.sink347, %.sink.split ]
+  %535 = phi ptr [ %491, %517 ], [ %.sink361, %.sink.split ]
   %536 = load i16, ptr %1, align 8
   %537 = and i16 %536, 512
   %.not273 = icmp eq i16 %537, 0

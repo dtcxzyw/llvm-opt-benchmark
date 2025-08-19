@@ -1487,7 +1487,7 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   br i1 %exitcond523.not.i, label %._crit_edge486.i, label %.lr.ph485.i
 
 ._crit_edge486.i:                                 ; preds = %501, %._crit_edge480.i, %._crit_edge480.thread.i
-  %.0368.lcssa567.i = phi i32 [ 0, %._crit_edge480.thread.i ], [ %.5373.i, %._crit_edge480.i ], [ %.5373.i, %501 ]
+  %.0368.lcssa602.i = phi i32 [ 0, %._crit_edge480.thread.i ], [ %.5373.i, %._crit_edge480.i ], [ %.5373.i, %501 ]
   %502 = load ptr, ptr %10, align 8, !tbaa !34
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %504 = load i32, ptr %503, align 8, !tbaa !26
@@ -1502,14 +1502,14 @@ ir_sparse_set_in.exit419.thread._crit_edge.i:     ; preds = %ir_sparse_set_in.ex
   %512 = call ptr @_erealloc(ptr noundef %508, i64 noundef %511) #12
   store ptr %512, ptr %6, align 8, !tbaa !4
   %513 = load ptr, ptr %10, align 8, !tbaa !34
-  %.not511.i = icmp eq i32 %.0368.lcssa567.i, 0
+  %.not511.i = icmp eq i32 %.0368.lcssa602.i, 0
   br i1 %.not511.i, label %ir_split_partially_dead_node.exit, label %.lr.ph508.i
 
 .lr.ph508.i:                                      ; preds = %._crit_edge486.i
   %514 = getelementptr inbounds %struct._ir_use_list, ptr %513, i64 %8
   %515 = load i32, ptr %514, align 4, !tbaa !38
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %wide.trip.count543.i = zext i32 %.0368.lcssa567.i to i64
+  %wide.trip.count543.i = zext i32 %.0368.lcssa602.i to i64
   br label %517
 
 517:                                              ; preds = %._crit_edge503.i, %.lr.ph508.i
@@ -1712,17 +1712,17 @@ ir_split_partially_dead_node.exit:                ; preds = %._crit_edge503.i, %
   br label %.loopexit
 
 ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.exit416.thread.i, %ir_sparse_set_in.exit.thread.i, %3, %.critedge415.i, %._crit_edge
-  %.084.lcssa186 = phi i32 [ %.1, %.critedge415.i ], [ %.1, %._crit_edge ], [ 0, %3 ], [ %.1, %ir_sparse_set_in.exit.thread.i ], [ %.1, %ir_sparse_set_in.exit416.thread.i ]
+  %.084.lcssa240 = phi i32 [ %.1, %.critedge415.i ], [ %.1, %._crit_edge ], [ 0, %3 ], [ %.1, %ir_sparse_set_in.exit.thread.i ], [ %.1, %ir_sparse_set_in.exit416.thread.i ]
   %602 = phi ptr [ %.pre, %.critedge415.i ], [ %121, %._crit_edge ], [ %7, %3 ], [ %121, %ir_sparse_set_in.exit.thread.i ], [ %121, %ir_sparse_set_in.exit416.thread.i ]
   %603 = getelementptr inbounds i32, ptr %602, i64 %8
   %604 = load i32, ptr %603, align 4, !tbaa !32
-  %.not = icmp eq i32 %.084.lcssa186, %604
+  %.not = icmp eq i32 %.084.lcssa240, %604
   br i1 %.not, label %.loopexit, label %605
 
 605:                                              ; preds = %ir_split_partially_dead_node.exit.thread
   %606 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %607 = load ptr, ptr %606, align 8, !tbaa !28
-  %608 = zext i32 %.084.lcssa186 to i64
+  %608 = zext i32 %.084.lcssa240 to i64
   %609 = getelementptr inbounds nuw %struct._ir_block, ptr %607, i64 %608
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 48
   %611 = load i32, ptr %610, align 4, !tbaa !65
@@ -1767,7 +1767,7 @@ ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.ex
 631:                                              ; preds = %683, %629
   %.058.i = phi ptr [ %609, %629 ], [ %636, %683 ]
   %.056.i = phi i32 [ %611, %629 ], [ %.157.i, %683 ]
-  %.055.i = phi i32 [ %.084.lcssa186, %629 ], [ %.3.i, %683 ]
+  %.055.i = phi i32 [ %.084.lcssa240, %629 ], [ %.3.i, %683 ]
   %632 = getelementptr inbounds nuw i8, ptr %.058.i, i64 28
   %633 = load i32, ptr %632, align 4, !tbaa !33
   %634 = load ptr, ptr %606, align 8, !tbaa !28
@@ -1870,7 +1870,7 @@ ir_split_partially_dead_node.exit.thread:         ; preds = %ir_sparse_set_in.ex
   br i1 %.not75.i, label %ir_gcm_select_best_block.exit, label %631
 
 ir_gcm_select_best_block.exit:                    ; preds = %679, %681, %683, %662, %664, %605, %624, %627, %651
-  %.059.i = phi i32 [ %.084.lcssa186, %605 ], [ %.084.lcssa186, %627 ], [ %.084.lcssa186, %624 ], [ %633, %651 ], [ %.055.i, %664 ], [ %633, %662 ], [ %.3.i, %683 ], [ %.055.i, %681 ], [ %.055.i, %679 ]
+  %.059.i = phi i32 [ %.084.lcssa240, %605 ], [ %.084.lcssa240, %627 ], [ %.084.lcssa240, %624 ], [ %633, %651 ], [ %.055.i, %664 ], [ %633, %662 ], [ %.3.i, %683 ], [ %.055.i, %681 ], [ %.055.i, %679 ]
   %687 = load ptr, ptr %6, align 8, !tbaa !4
   %688 = getelementptr inbounds i32, ptr %687, i64 %8
   store i32 %.059.i, ptr %688, align 4, !tbaa !32
@@ -2573,10 +2573,10 @@ ir_count_constant.exit940:                        ; preds = %250, %254
 
 .lr.ph1026:                                       ; preds = %.preheader957, %333
   %.pn = phi ptr [ %347, %333 ], [ %.88721043, %.preheader957 ]
-  %.in1158 = phi i16 [ %349, %333 ], [ %320, %.preheader957 ]
+  %.in1201 = phi i16 [ %349, %333 ], [ %320, %.preheader957 ]
   %.91037 = phi i32 [ %323, %333 ], [ %.81046, %.preheader957 ]
   %.121036 = phi i32 [ %.131022, %333 ], [ %.118381044, %.preheader957 ]
-  %321 = zext i16 %.in1158 to i32
+  %321 = zext i16 %.in1201 to i32
   br label %322
 
 322:                                              ; preds = %.lr.ph1026, %353

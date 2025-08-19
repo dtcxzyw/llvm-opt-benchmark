@@ -4569,8 +4569,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %6, %_ZN4ncnn3Mat7re
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !42
   %74 = icmp sgt i32 %.pre, 0
-  %or.cond63 = select i1 %73, i1 true, i1 %74
-  br i1 %or.cond63, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %75
+  %or.cond72 = select i1 %73, i1 true, i1 %74
+  br i1 %or.cond72, label %_ZN4ncnn3MataSERKS0_.exit._crit_edge, label %75
 
 75:                                               ; preds = %_ZN4ncnn3MataSERKS0_.exit
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 244

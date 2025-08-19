@@ -336,11 +336,11 @@ define internal i32 @cid_face_init(ptr noundef %0, ptr noundef initializes((0, 8
   br i1 %83, label %.sink.split.i.i, label %88
 
 .sink.split.i.i:                                  ; preds = %81, %74
-  %.sink233.i.i = phi i64 [ 10, %74 ], [ 7, %81 ]
+  %.sink245.i.i = phi i64 [ 10, %74 ], [ 7, %81 ]
   %84 = call i64 @FT_Stream_Pos(ptr noundef %37) #13
   %85 = ptrtoint ptr %.2146209.i.i to i64
   %reass.sub224.i.i = sub i64 %85, %70
-  %86 = add i64 %reass.sub224.i.i, %.sink233.i.i
+  %86 = add i64 %reass.sub224.i.i, %.sink245.i.i
   %87 = add i64 %86, %84
   br label %88
 
@@ -468,7 +468,7 @@ define internal i32 @cid_face_init(ptr noundef %0, ptr noundef initializes((0, 8
   %143 = load ptr, ptr %142, align 8, !tbaa !85
   %144 = call i64 %143(ptr noundef nonnull %9) #13
   %145 = icmp slt i64 %144, 0
-  br i1 %145, label %.thread124.i, label %146
+  br i1 %145, label %.thread154.i, label %146
 
 146:                                              ; preds = %141
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 176
@@ -484,21 +484,21 @@ define internal i32 @cid_face_init(ptr noundef %0, ptr noundef initializes((0, 8
   %.not178.i.i = icmp eq i64 %153, %.4143.i.i
   br i1 %.not178.i.i, label %cid_parser_new.exit._crit_edge.i, label %159
 
-.thread124.i:                                     ; preds = %141
+.thread154.i:                                     ; preds = %141
   %154 = load ptr, ptr %100, align 8, !tbaa !73
   %155 = ptrtoint ptr %.0153216.i.i to i64
   %156 = ptrtoint ptr %154 to i64
   %157 = sub i64 %155, %156
   %158 = add i64 %157, 10
-  %.not178.i127.i = icmp eq i64 %158, %.4143.i.i
-  br i1 %.not178.i127.i, label %cid_parser_new.exit.thread130.i, label %159
+  %.not178.i157.i = icmp eq i64 %158, %.4143.i.i
+  br i1 %.not178.i157.i, label %cid_parser_new.exit.thread160.i, label %159
 
-cid_parser_new.exit.thread130.i:                  ; preds = %.thread124.i
+cid_parser_new.exit.thread160.i:                  ; preds = %.thread154.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread.sink.split.i
 
-159:                                              ; preds = %.thread124.i, %148
-  %160 = phi i64 [ %158, %.thread124.i ], [ %153, %148 ]
+159:                                              ; preds = %.thread154.i, %148
+  %160 = phi i64 [ %158, %.thread154.i ], [ %153, %148 ]
   call void @FT_Stream_ReleaseFrame(ptr noundef %37, ptr noundef nonnull %100) #13
   %161 = sub i64 %160, %43
   %162 = call i32 @FT_Stream_Seek(ptr noundef %37, i64 noundef %43) #13
@@ -902,18 +902,18 @@ cid_parse_dict.exit.i:                            ; preds = %260
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %327, i64 328
   %.pre123.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !122
   %338 = icmp eq i32 %.pre123.i, 0
-  %or.cond138.i = select i1 %.not84.i, i1 %338, i1 false
+  %or.cond168.i = select i1 %.not84.i, i1 %338, i1 false
   %339 = icmp ugt i32 %.pre123.i, 4
-  %or.cond140.i = select i1 %or.cond138.i, i1 true, i1 %339
-  br i1 %or.cond140.i, label %.thread.sink.split.i, label %340
+  %or.cond170.i = select i1 %or.cond168.i, i1 true, i1 %339
+  br i1 %or.cond170.i, label %.thread.sink.split.i, label %340
 
 340:                                              ; preds = %335
   %341 = getelementptr inbounds nuw i8, ptr %327, i64 320
   %342 = load i64, ptr %341, align 8, !tbaa !123
   %343 = icmp ugt i64 %342, %309
   %344 = icmp ugt i32 %337, 1073741823
-  %or.cond141.i = or i1 %344, %343
-  br i1 %or.cond141.i, label %.thread.sink.split.i, label %345
+  %or.cond171.i = or i1 %344, %343
+  br i1 %or.cond171.i, label %.thread.sink.split.i, label %345
 
 345:                                              ; preds = %340
   %346 = mul nuw i32 %.pre123.i, %337
@@ -926,9 +926,9 @@ cid_parse_dict.exit.i:                            ; preds = %260
   %350 = call fastcc i32 @cid_read_subrs(ptr noundef nonnull %1)
   br label %.thread.sink.split.i
 
-.thread.sink.split.i:                             ; preds = %173, %170, %121, %cid_load_keyword.exit.i.i, %345, %340, %335, %._crit_edge.i, %317, %313, %305, %300, %295, %260, %cid_load_keyword.exit.thread.i.i, %cid_parser_new.exit.thread98.i, %cid_parser_new.exit.thread130.i, %102, %99, %96, %.thread192.i.i, %45, %32
-  %.sink139.i = phi i32 [ 3, %cid_parser_new.exit.thread130.i ], [ %.8.i.ph.i, %cid_parser_new.exit.thread98.i ], [ %350, %._crit_edge.i ], [ 3, %102 ], [ %.4.ph.ph.i.i, %.thread192.i.i ], [ 2, %32 ], [ %101, %99 ], [ %98, %96 ], [ 2, %45 ], [ 160, %cid_load_keyword.exit.thread.i.i ], [ 3, %260 ], [ 3, %295 ], [ 3, %300 ], [ 3, %305 ], [ 3, %313 ], [ 3, %317 ], [ 3, %335 ], [ 3, %340 ], [ 3, %345 ], [ %.031.i.i.i, %cid_load_keyword.exit.i.i ], [ %122, %121 ], [ 2, %170 ], [ 3, %173 ]
-  store i32 %.sink139.i, ptr %10, align 4, !tbaa !19
+.thread.sink.split.i:                             ; preds = %173, %170, %121, %cid_load_keyword.exit.i.i, %345, %340, %335, %._crit_edge.i, %317, %313, %305, %300, %295, %260, %cid_load_keyword.exit.thread.i.i, %cid_parser_new.exit.thread98.i, %cid_parser_new.exit.thread160.i, %102, %99, %96, %.thread192.i.i, %45, %32
+  %.sink169.i = phi i32 [ 3, %cid_parser_new.exit.thread160.i ], [ %.8.i.ph.i, %cid_parser_new.exit.thread98.i ], [ %350, %._crit_edge.i ], [ 3, %102 ], [ %.4.ph.ph.i.i, %.thread192.i.i ], [ 2, %32 ], [ %101, %99 ], [ %98, %96 ], [ 2, %45 ], [ 160, %cid_load_keyword.exit.thread.i.i ], [ 3, %260 ], [ 3, %295 ], [ 3, %300 ], [ 3, %305 ], [ 3, %313 ], [ 3, %317 ], [ 3, %335 ], [ 3, %340 ], [ 3, %345 ], [ %.031.i.i.i, %cid_load_keyword.exit.i.i ], [ %122, %121 ], [ 2, %170 ], [ 3, %173 ]
+  store i32 %.sink169.i, ptr %10, align 4, !tbaa !19
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %285, %280, %265, %cid_parse_dict.exit.i
@@ -974,9 +974,9 @@ cid_face_open.exit:                               ; preds = %.thread.i, %353
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %371 = load i8, ptr %370, align 8, !tbaa !129
   %.not113 = icmp eq i8 %371, 0
-  %spec.select151.v = select i1 %.not113, i64 2065, i64 2069
-  %spec.select151 = or i64 %369, %spec.select151.v
-  %372 = or i64 %spec.select151, 4096
+  %spec.select192.v = select i1 %.not113, i64 2065, i64 2069
+  %spec.select192 = or i64 %369, %spec.select192.v
+  %372 = or i64 %spec.select192, 4096
   store i64 %372, ptr %368, align 8, !tbaa !128
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %374 = load ptr, ptr %373, align 8, !tbaa !130

@@ -272,7 +272,7 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   %58 = phi ptr [ %.pre89, %51 ], [ %49, %46 ]
   %59 = tail call i32 %58(ptr noundef nonnull %0, ptr noundef null) #4
   %.not76 = icmp eq i32 %59, 0
-  br i1 %.not76, label %.sink.split90, label %92
+  br i1 %.not76, label %.sink.split95, label %92
 
 60:                                               ; preds = %43
   %61 = icmp samesign ult i32 %44, 13
@@ -303,7 +303,7 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   %74 = phi ptr [ %.pre86, %67 ], [ %65, %63 ]
   %75 = tail call i32 %74(ptr noundef nonnull %0, ptr noundef null) #4
   %.not75 = icmp eq i32 %75, 0
-  br i1 %.not75, label %.sink.split90, label %92
+  br i1 %.not75, label %.sink.split95, label %92
 
 76:                                               ; preds = %60
   %77 = getelementptr inbounds nuw i8, ptr %62, i64 24
@@ -329,9 +329,9 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   %87 = phi ptr [ %.pre83, %80 ], [ %78, %76 ]
   %88 = tail call i32 %87(ptr noundef nonnull %0, ptr noundef null) #4
   %.not74 = icmp eq i32 %88, 0
-  br i1 %.not74, label %.sink.split90, label %92
+  br i1 %.not74, label %.sink.split95, label %92
 
-.sink.split90:                                    ; preds = %86, %73, %57
+.sink.split95:                                    ; preds = %86, %73, %57
   %89 = load ptr, ptr %0, align 8, !tbaa !24
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   store i32 24, ptr %90, align 8, !tbaa !25
@@ -339,7 +339,7 @@ define void @jpeg_finish_compress(ptr noundef %0) local_unnamed_addr #0 {
   tail call void %91(ptr noundef nonnull %0) #4
   br label %92
 
-92:                                               ; preds = %.sink.split90, %57, %86, %73
+92:                                               ; preds = %.sink.split95, %57, %86, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = load i32, ptr %28, align 8, !tbaa !54
   %94 = zext i32 %93 to i64

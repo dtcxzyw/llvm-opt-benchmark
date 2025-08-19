@@ -199,10 +199,10 @@ parse_chunk_headers.exit.i:                       ; preds = %67, %65, %63, %61, 
   br i1 %72, label %.sink.split.i, label %75
 
 .sink.split.i:                                    ; preds = %71, %69
-  %.sink25.i = phi i32 [ 1, %69 ], [ 2, %71 ]
+  %.sink30.i = phi i32 [ 1, %69 ], [ 2, %71 ]
   %.sink.i = phi i32 [ 11, %69 ], [ 16, %71 ]
   %73 = getelementptr inbounds nuw i8, ptr %.val, i64 20
-  store i32 %.sink25.i, ptr %73, align 4, !tbaa !43
+  store i32 %.sink30.i, ptr %73, align 4, !tbaa !43
   %74 = getelementptr inbounds nuw i8, ptr %.val, i64 28
   store i32 %.sink.i, ptr %74, align 4, !tbaa !44
   br label %75
@@ -285,9 +285,9 @@ find_es_header.exit.i:                            ; preds = %105
   %.not77.i = icmp sgt i8 %113, -1
   %114 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %..i = select i1 %.not77.i, i32 2, i32 1
-  %.29.i = select i1 %.not77.i, i32 6, i32 9
+  %.34.i = select i1 %.not77.i, i32 6, i32 9
   store i32 %..i, ptr %87, align 8, !tbaa !46
-  store i32 %.29.i, ptr %114, align 8, !tbaa !47
+  store i32 %.34.i, ptr %114, align 8, !tbaa !47
   br label %.loopexit.i
 
 .thread.i:                                        ; preds = %107, %97
@@ -307,7 +307,7 @@ find_es_header.exit.i:                            ; preds = %105
 117:                                              ; preds = %115
   %118 = load i32, ptr %12, align 8, !tbaa !45
   %.not39 = icmp eq i32 %118, 0
-  br i1 %.not39, label %.thread50, label %119
+  br i1 %.not39, label %.thread56, label %119
 
 119:                                              ; preds = %117
   %120 = load i32, ptr %13, align 8, !tbaa !46
@@ -320,11 +320,11 @@ find_es_header.exit.i:                            ; preds = %105
   %.old47 = icmp samesign ult i32 %.046, 2
   br i1 %.old47, label %.backedge, label %analyze_chunk.exit
 
-.thread50:                                        ; preds = %117
-  %.old4751 = icmp samesign ult i32 %.046, 2
-  br i1 %.old4751, label %.backedge, label %analyze_chunk.exit
+.thread56:                                        ; preds = %117
+  %.old4757 = icmp samesign ult i32 %.046, 2
+  br i1 %.old4757, label %.backedge, label %analyze_chunk.exit
 
-.backedge:                                        ; preds = %.thread50, %122, %119
+.backedge:                                        ; preds = %.thread56, %122, %119
   %.046.be = add nuw nsw i32 %.046, 1
   br label %14, !llvm.loop !50
 
@@ -379,8 +379,8 @@ find_es_header.exit.i:                            ; preds = %105
   %146 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef 0, i32 noundef 0) #6
   br label %analyze_chunk.exit
 
-analyze_chunk.exit:                               ; preds = %.thread50, %22, %122, %130, %128, %123, %125, %143
-  %.035 = phi i32 [ 0, %143 ], [ -5, %125 ], [ -5, %123 ], [ -12, %128 ], [ -12, %130 ], [ -5, %.thread50 ], [ -12, %22 ], [ -5, %122 ]
+analyze_chunk.exit:                               ; preds = %.thread56, %22, %122, %130, %128, %123, %125, %143
+  %.035 = phi i32 [ 0, %143 ], [ -5, %125 ], [ -5, %123 ], [ -12, %128 ], [ -12, %130 ], [ -5, %.thread56 ], [ -12, %22 ], [ -5, %122 ]
   ret i32 %.035
 }
 
@@ -407,7 +407,7 @@ define internal range(i32 -1094995529, 1) i32 @ty_read_packet(ptr noundef readon
   br label %.outer.split.preheader
 
 .outer.split.preheader:                           ; preds = %.preheader, %demux_video.exit
-  %.0.ph103 = phi i32 [ 0, %.preheader ], [ %.1, %demux_video.exit ]
+  %.0.ph122 = phi i32 [ 0, %.preheader ], [ %.1, %demux_video.exit ]
   %.pre = load ptr, ptr %8, align 8, !tbaa !75
   br label %.outer.split
 
@@ -1230,9 +1230,9 @@ find_es_header.exit161.i:                         ; preds = %422
   br label %demux_video.exit
 
 check_sync_pes.exit165.i:                         ; preds = %467, %432
-  %.sink37.i = phi i32 [ %474, %467 ], [ %436, %432 ]
+  %.sink45.i = phi i32 [ %474, %467 ], [ %436, %432 ]
   %476 = load i32, ptr %16, align 8, !tbaa !83
-  %477 = sub nsw i32 %476, %.sink37.i
+  %477 = sub nsw i32 %476, %.sink45.i
   store i32 %477, ptr %16, align 8, !tbaa !83
   %478 = getelementptr inbounds nuw i8, ptr %199, i64 20
   %479 = load i32, ptr %478, align 4, !tbaa !43
@@ -1271,7 +1271,7 @@ check_sync_pes.exit165.i:                         ; preds = %467, %432
   br label %demux_video.exit
 
 demux_video.exit:                                 ; preds = %489, %486, %483, %check_sync_pes.exit165.i, %475, %409, %398, %395, %394, %384, %353, %340, %295, %294, %292, %281, %269, %264, %209, %196, %193, %176, %164, %.thread.i, %150, %144, %493
-  %.1 = phi i32 [ %.0.ph103, %493 ], [ 0, %.thread.i ], [ 0, %150 ], [ %165, %164 ], [ 1, %176 ], [ 1, %193 ], [ 1, %196 ], [ %148, %144 ], [ 0, %340 ], [ 0, %394 ], [ 0, %475 ], [ 0, %489 ], [ %296, %295 ], [ %396, %395 ], [ %410, %409 ], [ 0, %209 ], [ %267, %264 ], [ 1, %384 ], [ 1, %353 ], [ 1, %483 ], [ 1, %486 ], [ 1, %check_sync_pes.exit165.i ], [ 1, %398 ], [ 1, %292 ], [ 1, %294 ], [ 1, %281 ], [ 1, %269 ]
+  %.1 = phi i32 [ %.0.ph122, %493 ], [ 0, %.thread.i ], [ 0, %150 ], [ %165, %164 ], [ 1, %176 ], [ 1, %193 ], [ 1, %196 ], [ %148, %144 ], [ 0, %340 ], [ 0, %394 ], [ 0, %475 ], [ 0, %489 ], [ %296, %295 ], [ %396, %395 ], [ %410, %409 ], [ 0, %209 ], [ %267, %264 ], [ 1, %384 ], [ 1, %353 ], [ 1, %483 ], [ 1, %486 ], [ 1, %check_sync_pes.exit165.i ], [ 1, %398 ], [ 1, %292 ], [ 1, %294 ], [ 1, %281 ], [ 1, %269 ]
   %497 = icmp slt i32 %.1, 1
   br i1 %497, label %.outer.split.preheader, label %get_chunk.exit.thread, !llvm.loop !80
 

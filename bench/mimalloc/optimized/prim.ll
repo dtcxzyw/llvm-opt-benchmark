@@ -221,9 +221,9 @@ define internal fastcc ptr @unix_mmap(ptr noundef %0, i64 noundef %1, i64 nounde
 
 31:                                               ; preds = %28
   store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
-  br i1 %4, label %.thread102, label %35
+  br i1 %4, label %.thread104, label %35
 
-.thread102:                                       ; preds = %31
+.thread104:                                       ; preds = %31
   %32 = tail call ptr @__errno_location() #11
   %33 = load i32, ptr %32, align 4, !tbaa !15
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i32 noundef %33) #10
@@ -257,8 +257,8 @@ define internal fastcc ptr @unix_mmap(ptr noundef %0, i64 noundef %1, i64 nounde
   %42 = tail call i32 @madvise(ptr noundef nonnull %37, i64 noundef %1, i32 noundef 14) #10
   br label %unix_madvise.exit
 
-unix_madvise.exit:                                ; preds = %25, %.thread102, %41, %.thread81, %35, %39, %.thread95
-  %.3 = phi ptr [ %37, %39 ], [ %37, %.thread95 ], [ %36, %35 ], [ null, %.thread81 ], [ %37, %41 ], [ %34, %.thread102 ], [ %26, %25 ]
+unix_madvise.exit:                                ; preds = %25, %.thread104, %41, %.thread81, %35, %39, %.thread95
+  %.3 = phi ptr [ %37, %39 ], [ %37, %.thread95 ], [ %36, %35 ], [ null, %.thread81 ], [ %37, %41 ], [ %34, %.thread104 ], [ %26, %25 ]
   ret ptr %.3
 }
 

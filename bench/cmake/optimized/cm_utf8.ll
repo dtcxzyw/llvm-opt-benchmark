@@ -31,8 +31,8 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly captures(add
 
 13:                                               ; preds = %5
   %14 = zext i8 %10 to i64
-  %.not52 = icmp eq ptr %6, %1
-  br i1 %.not52, label %.loopexit, label %.lr.ph.preheader
+  %.not57 = icmp eq ptr %6, %1
+  br i1 %.not57, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
   %15 = zext i8 %10 to i32
@@ -116,8 +116,8 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly capt
 
 10:                                               ; preds = %.lr.ph
   %11 = zext i8 %9 to i64
-  %.not52.i = icmp eq ptr %5, %4
-  br i1 %.not52.i, label %.critedge, label %.lr.ph.i.preheader
+  %.not57.i = icmp eq ptr %5, %4
+  br i1 %.not57.i, label %.critedge, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %10
   %12 = zext i8 %9 to i32

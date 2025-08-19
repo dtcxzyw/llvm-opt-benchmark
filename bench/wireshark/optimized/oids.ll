@@ -490,7 +490,7 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   %.030 = phi ptr [ %69, %61 ], [ %.030.ph, %.outer ]
   %.0 = phi i64 [ %57, %61 ], [ 0, %.outer ]
   %52 = load i8, ptr %.030, align 1
-  switch i8 %52, label %.thread.loopexit55 [
+  switch i8 %52, label %.thread.loopexit61 [
     i8 46, label %70
     i8 49, label %53
     i8 50, label %53
@@ -539,11 +539,11 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   %72 = getelementptr i8, ptr %.030, i64 1
   br label %.outer, !llvm.loop !12
 
-.thread.loopexit55:                               ; preds = %51
+.thread.loopexit61:                               ; preds = %51
   br label %.thread
 
-.thread:                                          ; preds = %51, %61, %.thread.loopexit55, %59, %44
-  %.029 = phi i32 [ 0, %59 ], [ 0, %44 ], [ 0, %.thread.loopexit55 ], [ %.012.i, %61 ], [ %.012.i, %51 ]
+.thread:                                          ; preds = %51, %61, %.thread.loopexit61, %59, %44
+  %.029 = phi i32 [ 0, %59 ], [ 0, %44 ], [ 0, %.thread.loopexit61 ], [ %.012.i, %61 ], [ %.012.i, %51 ]
   ret i32 %.029
 }
 
@@ -1779,89 +1779,85 @@ define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readon
   %23 = add i32 %.05470, %.sink
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %24, label %11, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %11, !llvm.loop !17
 
-24:                                               ; preds = %22
-  %25 = zext i32 %23 to i64
-  %26 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %25) #8
-  store ptr %26, ptr %3, align 8
-  %27 = icmp ugt i32 %1, 1
-  br i1 %27, label %.lr.ph.preheader, label %.loopexit
-
-.lr.ph.preheader:                                 ; preds = %24
-  %28 = load i32, ptr %2, align 4
-  %29 = mul i32 %28, 40
+.lr.ph.preheader:                                 ; preds = %22
+  %24 = zext i32 %23 to i64
+  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %24) #8
+  store ptr %25, ptr %3, align 8
+  %26 = load i32, ptr %2, align 4
+  %27 = mul i32 %26, 40
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %57
-  %indvars.iv77 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next78, %57 ]
-  %.04975 = phi ptr [ %26, %.lr.ph.preheader ], [ %60, %57 ]
-  %.15174 = phi i32 [ %29, %.lr.ph.preheader ], [ 0, %57 ]
-  %30 = getelementptr i32, ptr %2, i64 %indvars.iv77
-  %31 = load i32, ptr %30, align 4
-  %32 = add i32 %31, %.15174
-  %33 = icmp ult i32 %32, 128
-  br i1 %33, label %57, label %34
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %55
+  %indvars.iv77 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next78, %55 ]
+  %.04975 = phi ptr [ %25, %.lr.ph.preheader ], [ %58, %55 ]
+  %.15174 = phi i32 [ %27, %.lr.ph.preheader ], [ 0, %55 ]
+  %28 = getelementptr i32, ptr %2, i64 %indvars.iv77
+  %29 = load i32, ptr %28, align 4
+  %30 = add i32 %29, %.15174
+  %31 = icmp ult i32 %30, 128
+  br i1 %31, label %55, label %32
 
-34:                                               ; preds = %.lr.ph
-  %35 = icmp ult i32 %32, 16384
-  br i1 %35, label %.thread68, label %36
+32:                                               ; preds = %.lr.ph
+  %33 = icmp ult i32 %30, 16384
+  br i1 %33, label %.thread68, label %34
+
+34:                                               ; preds = %32
+  %35 = icmp ult i32 %30, 2097152
+  br i1 %35, label %.thread66, label %36
 
 36:                                               ; preds = %34
-  %37 = icmp ult i32 %32, 2097152
-  br i1 %37, label %.thread66, label %38
+  %37 = icmp ult i32 %30, 268435456
+  br i1 %37, label %.thread64, label %38
 
 38:                                               ; preds = %36
-  %39 = icmp ult i32 %32, 268435456
-  br i1 %39, label %.thread64, label %40
-
-40:                                               ; preds = %38
-  %41 = lshr i32 %32, 28
-  %42 = trunc nuw nsw i32 %41 to i8
-  %43 = or disjoint i8 %42, -128
-  %44 = getelementptr i8, ptr %.04975, i64 1
-  store i8 %43, ptr %.04975, align 1
+  %39 = lshr i32 %30, 28
+  %40 = trunc nuw nsw i32 %39 to i8
+  %41 = or disjoint i8 %40, -128
+  %42 = getelementptr i8, ptr %.04975, i64 1
+  store i8 %41, ptr %.04975, align 1
   br label %.thread64
 
-.thread64:                                        ; preds = %38, %40
-  %.1 = phi ptr [ %44, %40 ], [ %.04975, %38 ]
-  %45 = lshr i32 %32, 21
-  %46 = trunc i32 %45 to i8
-  %47 = or i8 %46, -128
-  %48 = getelementptr i8, ptr %.1, i64 1
-  store i8 %47, ptr %.1, align 1
+.thread64:                                        ; preds = %36, %38
+  %.1 = phi ptr [ %42, %38 ], [ %.04975, %36 ]
+  %43 = lshr i32 %30, 21
+  %44 = trunc i32 %43 to i8
+  %45 = or i8 %44, -128
+  %46 = getelementptr i8, ptr %.1, i64 1
+  store i8 %45, ptr %.1, align 1
   br label %.thread66
 
-.thread66:                                        ; preds = %36, %.thread64
-  %.2 = phi ptr [ %48, %.thread64 ], [ %.04975, %36 ]
-  %49 = lshr i32 %32, 14
-  %50 = trunc i32 %49 to i8
-  %51 = or i8 %50, -128
-  %52 = getelementptr i8, ptr %.2, i64 1
-  store i8 %51, ptr %.2, align 1
+.thread66:                                        ; preds = %34, %.thread64
+  %.2 = phi ptr [ %46, %.thread64 ], [ %.04975, %34 ]
+  %47 = lshr i32 %30, 14
+  %48 = trunc i32 %47 to i8
+  %49 = or i8 %48, -128
+  %50 = getelementptr i8, ptr %.2, i64 1
+  store i8 %49, ptr %.2, align 1
   br label %.thread68
 
-.thread68:                                        ; preds = %34, %.thread66
-  %.3 = phi ptr [ %52, %.thread66 ], [ %.04975, %34 ]
-  %53 = lshr i32 %32, 7
-  %54 = trunc i32 %53 to i8
-  %55 = or i8 %54, -128
-  %56 = getelementptr i8, ptr %.3, i64 1
-  store i8 %55, ptr %.3, align 1
-  br label %57
+.thread68:                                        ; preds = %32, %.thread66
+  %.3 = phi ptr [ %50, %.thread66 ], [ %.04975, %32 ]
+  %51 = lshr i32 %30, 7
+  %52 = trunc i32 %51 to i8
+  %53 = or i8 %52, -128
+  %54 = getelementptr i8, ptr %.3, i64 1
+  store i8 %53, ptr %.3, align 1
+  br label %55
 
-57:                                               ; preds = %.lr.ph, %.thread68
-  %.4 = phi ptr [ %56, %.thread68 ], [ %.04975, %.lr.ph ]
-  %58 = trunc i32 %32 to i8
-  %59 = and i8 %58, 127
-  %60 = getelementptr i8, ptr %.4, i64 1
-  store i8 %59, ptr %.4, align 1
+55:                                               ; preds = %.lr.ph, %.thread68
+  %.4 = phi ptr [ %54, %.thread68 ], [ %.04975, %.lr.ph ]
+  %56 = trunc i32 %30 to i8
+  %57 = and i8 %56, 127
+  %58 = getelementptr i8, ptr %.4, i64 1
+  store i8 %57, ptr %.4, align 1
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count
   br i1 %exitcond81.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
-.loopexit:                                        ; preds = %57, %24, %7
-  %.056 = phi i32 [ 0, %7 ], [ %23, %24 ], [ %23, %57 ]
+.loopexit:                                        ; preds = %55, %7
+  %.056 = phi i32 [ 0, %7 ], [ %23, %55 ]
   ret i32 %.056
 }
 
@@ -2104,20 +2100,138 @@ define i32 @oid_string2encoded(ptr noundef %0, ptr noundef %1, ptr noundef write
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @oid_string2subid(ptr noundef null, ptr noundef %1, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
-  %.pre = load ptr, ptr %4, align 8
-  br i1 %.not, label %8, label %6
+  %.pre10 = load ptr, ptr %4, align 8
+  br i1 %.not, label %60, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %5, ptr noundef %.pre, ptr noundef %2)
-  %.not7 = icmp eq i32 %7, 0
-  br i1 %.not7, label %8, label %9
+  %7 = icmp eq ptr %.pre10, null
+  %8 = icmp eq i32 %5, 1
+  %or.cond.i = or i1 %8, %7
+  br i1 %or.cond.i, label %oid_subid2encoded.exit.thread, label %9
 
-8:                                                ; preds = %6, %3
-  br label %9
+oid_subid2encoded.exit.thread:                    ; preds = %6
+  store ptr null, ptr %2, align 8
+  br label %60
 
-9:                                                ; preds = %6, %8
-  %.0 = phi i32 [ 0, %8 ], [ %7, %6 ]
-  tail call void @wmem_free(ptr noundef null, ptr noundef %.pre)
+9:                                                ; preds = %6
+  %10 = load i32, ptr %.pre10, align 4
+  %11 = mul i32 %10, 40
+  %wide.trip.count.i = zext i32 %5 to i64
+  br label %12
+
+12:                                               ; preds = %23, %9
+  %indvars.iv.i = phi i64 [ 1, %9 ], [ %indvars.iv.next.i, %23 ]
+  %.05072.i = phi i32 [ %11, %9 ], [ 0, %23 ]
+  %.05470.i = phi i32 [ 0, %9 ], [ %24, %23 ]
+  %13 = getelementptr i32, ptr %.pre10, i64 %indvars.iv.i
+  %14 = load i32, ptr %13, align 4
+  %15 = add i32 %14, %.05072.i
+  %16 = icmp ult i32 %15, 128
+  br i1 %16, label %23, label %17
+
+17:                                               ; preds = %12
+  %18 = icmp ult i32 %15, 16384
+  br i1 %18, label %23, label %19
+
+19:                                               ; preds = %17
+  %20 = icmp ult i32 %15, 2097152
+  br i1 %20, label %23, label %21
+
+21:                                               ; preds = %19
+  %22 = icmp ult i32 %15, 268435456
+  %..i = select i1 %22, i32 4, i32 5
+  br label %23
+
+23:                                               ; preds = %21, %19, %17, %12
+  %.sink.i = phi i32 [ 1, %12 ], [ 2, %17 ], [ 3, %19 ], [ %..i, %21 ]
+  %24 = add i32 %.sink.i, %.05470.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i, label %12, !llvm.loop !17
+
+.lr.ph.preheader.i:                               ; preds = %23
+  %25 = zext i32 %24 to i64
+  %26 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %25) #8
+  store ptr %26, ptr %2, align 8
+  %27 = load i32, ptr %.pre10, align 4
+  %28 = mul i32 %27, 40
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
+  %indvars.iv77.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next78.i, %56 ]
+  %.04975.i = phi ptr [ %26, %.lr.ph.preheader.i ], [ %59, %56 ]
+  %.15174.i = phi i32 [ %28, %.lr.ph.preheader.i ], [ 0, %56 ]
+  %29 = getelementptr i32, ptr %.pre10, i64 %indvars.iv77.i
+  %30 = load i32, ptr %29, align 4
+  %31 = add i32 %30, %.15174.i
+  %32 = icmp ult i32 %31, 128
+  br i1 %32, label %56, label %33
+
+33:                                               ; preds = %.lr.ph.i
+  %34 = icmp ult i32 %31, 16384
+  br i1 %34, label %.thread68.i, label %35
+
+35:                                               ; preds = %33
+  %36 = icmp ult i32 %31, 2097152
+  br i1 %36, label %.thread66.i, label %37
+
+37:                                               ; preds = %35
+  %38 = icmp ult i32 %31, 268435456
+  br i1 %38, label %.thread64.i, label %39
+
+39:                                               ; preds = %37
+  %40 = lshr i32 %31, 28
+  %41 = trunc nuw nsw i32 %40 to i8
+  %42 = or disjoint i8 %41, -128
+  %43 = getelementptr i8, ptr %.04975.i, i64 1
+  store i8 %42, ptr %.04975.i, align 1
+  br label %.thread64.i
+
+.thread64.i:                                      ; preds = %39, %37
+  %.1.i = phi ptr [ %43, %39 ], [ %.04975.i, %37 ]
+  %44 = lshr i32 %31, 21
+  %45 = trunc i32 %44 to i8
+  %46 = or i8 %45, -128
+  %47 = getelementptr i8, ptr %.1.i, i64 1
+  store i8 %46, ptr %.1.i, align 1
+  br label %.thread66.i
+
+.thread66.i:                                      ; preds = %.thread64.i, %35
+  %.2.i = phi ptr [ %47, %.thread64.i ], [ %.04975.i, %35 ]
+  %48 = lshr i32 %31, 14
+  %49 = trunc i32 %48 to i8
+  %50 = or i8 %49, -128
+  %51 = getelementptr i8, ptr %.2.i, i64 1
+  store i8 %50, ptr %.2.i, align 1
+  br label %.thread68.i
+
+.thread68.i:                                      ; preds = %.thread66.i, %33
+  %.3.i = phi ptr [ %51, %.thread66.i ], [ %.04975.i, %33 ]
+  %52 = lshr i32 %31, 7
+  %53 = trunc i32 %52 to i8
+  %54 = or i8 %53, -128
+  %55 = getelementptr i8, ptr %.3.i, i64 1
+  store i8 %54, ptr %.3.i, align 1
+  br label %56
+
+56:                                               ; preds = %.thread68.i, %.lr.ph.i
+  %.4.i = phi ptr [ %55, %.thread68.i ], [ %.04975.i, %.lr.ph.i ]
+  %57 = trunc i32 %31 to i8
+  %58 = and i8 %57, 127
+  %59 = getelementptr i8, ptr %.4.i, i64 1
+  store i8 %58, ptr %.4.i, align 1
+  %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
+  %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count.i
+  br i1 %exitcond81.not.i, label %oid_subid2encoded.exit, label %.lr.ph.i, !llvm.loop !18
+
+oid_subid2encoded.exit:                           ; preds = %56
+  %.pre = load ptr, ptr %4, align 8
+  br label %60
+
+60:                                               ; preds = %oid_subid2encoded.exit, %3, %oid_subid2encoded.exit.thread
+  %.sink = phi ptr [ %.pre10, %oid_subid2encoded.exit.thread ], [ %.pre10, %3 ], [ %.pre, %oid_subid2encoded.exit ]
+  %.0 = phi i32 [ 0, %oid_subid2encoded.exit.thread ], [ 0, %3 ], [ %24, %oid_subid2encoded.exit ]
+  tail call void @wmem_free(ptr noundef null, ptr noundef %.sink)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

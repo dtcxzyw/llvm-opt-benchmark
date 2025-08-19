@@ -187,10 +187,10 @@ define range(i32 -1, 1) i32 @H5HG_extend(ptr noundef %0, i64 noundef %1, i64 nou
 
 .loopexit147.sink.split:                          ; preds = %33, %51
   %.sink = phi i64 [ 9, %51 ], [ 11, %33 ]
-  %.sink159 = phi i64 [ 8, %51 ], [ 24, %33 ]
+  %.sink164 = phi i64 [ 8, %51 ], [ 24, %33 ]
   %54 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink
   %55 = load i64, ptr %17, align 8, !tbaa !27
-  %56 = lshr i64 %55, %.sink159
+  %56 = lshr i64 %55, %.sink164
   %57 = trunc i64 %56 to i8
   store i8 %57, ptr %54, align 1, !tbaa !28
   br label %.loopexit147
@@ -303,13 +303,13 @@ define range(i32 -1, 1) i32 @H5HG_extend(ptr noundef %0, i64 noundef %1, i64 nou
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %86, %112
-  %.sink167 = phi i64 [ 9, %112 ], [ 11, %86 ]
-  %.sink164 = phi i64 [ 8, %112 ], [ 24, %86 ]
-  %117 = getelementptr inbounds nuw i8, ptr %83, i64 %.sink167
+  %.sink172 = phi i64 [ 9, %112 ], [ 11, %86 ]
+  %.sink169 = phi i64 [ 8, %112 ], [ 24, %86 ]
+  %117 = getelementptr inbounds nuw i8, ptr %83, i64 %.sink172
   %118 = load ptr, ptr %73, align 8, !tbaa !32
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !36
-  %121 = lshr i64 %120, %.sink164
+  %121 = lshr i64 %120, %.sink169
   %122 = trunc i64 %121 to i8
   store i8 %122, ptr %117, align 1, !tbaa !28
   br label %.loopexit
@@ -640,12 +640,12 @@ define range(i32 -1, 1) i32 @H5HG_insert(ptr noundef %0, i64 noundef %1, ptr nou
 
 .loopexit.sink.split.i:                           ; preds = %164, %138
   %.sink.i = phi i64 [ 9, %164 ], [ 11, %138 ]
-  %.sink168.i = phi i64 [ 8, %164 ], [ 24, %138 ]
+  %.sink170.i = phi i64 [ 8, %164 ], [ 24, %138 ]
   %169 = getelementptr inbounds nuw i8, ptr %127, i64 %.sink.i
   %170 = load ptr, ptr %91, align 8, !tbaa !32
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load i64, ptr %171, align 8, !tbaa !36
-  %173 = lshr i64 %172, %.sink168.i
+  %173 = lshr i64 %172, %.sink170.i
   %174 = trunc i64 %173 to i8
   store i8 %174, ptr %169, align 1, !tbaa !28
   br label %.loopexit.i
@@ -1759,12 +1759,12 @@ define range(i32 -1, 1) i32 @H5HG_remove(ptr noundef %0, ptr noundef readonly ca
 
 .loopexit.sink.split:                             ; preds = %168, %142
   %.sink = phi i64 [ 11, %142 ], [ 9, %168 ]
-  %.sink161 = phi i64 [ 24, %142 ], [ 8, %168 ]
+  %.sink166 = phi i64 [ 24, %142 ], [ 8, %168 ]
   %173 = getelementptr inbounds nuw i8, ptr %139, i64 %.sink
   %174 = load ptr, ptr %59, align 8, !tbaa !32
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i64, ptr %175, align 8, !tbaa !36
-  %177 = lshr i64 %176, %.sink161
+  %177 = lshr i64 %176, %.sink166
   %178 = trunc i64 %177 to i8
   store i8 %178, ptr %173, align 1, !tbaa !28
   br label %.loopexit

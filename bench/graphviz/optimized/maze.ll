@@ -199,7 +199,7 @@ updateWt.exit34:                                  ; preds = %94, %81, %.lr.ph42.
 declare double @llvm.minnum.f64(double, double) #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @mkMaze(ptr noundef %0) local_unnamed_addr #2 {
+define noalias nonnull ptr @mkMaze(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.pointf_s, align 8
   %3 = alloca %struct.pointf_s, align 8
   %4 = alloca %struct.pointf_s, align 8
@@ -1059,7 +1059,7 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
 ._crit_edge225.i:                                 ; preds = %._crit_edge225.i.loopexit, %gv_calloc.exit189.i
   %.pre-phi = phi i64 [ %.pre73, %._crit_edge225.i.loopexit ], [ %230, %gv_calloc.exit189.i ]
   %457 = phi i32 [ %.pre, %._crit_edge225.i.loopexit ], [ %229, %gv_calloc.exit189.i ]
-  %.0160.lcssa245.i = phi i32 [ %spec.select.i, %._crit_edge225.i.loopexit ], [ 0, %gv_calloc.exit189.i ]
+  %.0160.lcssa291.i = phi i32 [ %spec.select.i, %._crit_edge225.i.loopexit ], [ 0, %gv_calloc.exit189.i ]
   %458 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %459 = load ptr, ptr %458, align 8, !tbaa !3
   %460 = getelementptr inbounds %struct.snode, ptr %459, i64 %.pre-phi, i32 8
@@ -1068,7 +1068,7 @@ markSmall.exit.i:                                 ; preds = %.critedge4.i.i, %.p
   %462 = sext i32 %461 to i64
   %463 = getelementptr inbounds %struct.snode, ptr %459, i64 %462, i32 8
   store i32 %461, ptr %463, align 8, !tbaa !85
-  call void @initSEdges(ptr noundef nonnull %104, i32 noundef %.0160.lcssa245.i) #18
+  call void @initSEdges(ptr noundef nonnull %104, i32 noundef %.0160.lcssa291.i) #18
   %464 = icmp sgt i32 %100, 0
   br i1 %464, label %.lr.ph228.i.preheader, label %._crit_edge229.i
 

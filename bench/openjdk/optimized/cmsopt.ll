@@ -233,11 +233,11 @@ define internal fastcc range(i32 0, 2) i32 @PreOptimize(ptr noundef captures(non
   br i1 %6, label %.split126, label %.split
 
 .splitthread-pre-split:                           ; preds = %_MultiplyMatrix.exit
-  %.pr127 = load ptr, ptr %0, align 8
+  %.pr137 = load ptr, ptr %0, align 8
   br label %.split
 
 .split:                                           ; preds = %1, %.splitthread-pre-split
-  %7 = phi ptr [ %.pr127, %.splitthread-pre-split ], [ %5, %1 ]
+  %7 = phi ptr [ %.pr137, %.splitthread-pre-split ], [ %5, %1 ]
   %.0 = phi i32 [ 1, %.splitthread-pre-split ], [ 0, %1 ]
   %.not9.i = icmp eq ptr %7, null
   br i1 %.not9.i, label %_MultiplyMatrix.exit.sink.split, label %.lr.ph.i
@@ -2168,8 +2168,8 @@ define internal range(i32 0, 2) i32 @OptimizeMatrixShaper(ptr noundef captures(n
   br label %59
 
 59:                                               ; preds = %57, %43
-  %.sink65 = phi ptr [ %50, %57 ], [ %26, %43 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink65, i64 8
+  %.sink66 = phi ptr [ %50, %57 ], [ %26, %43 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.sink66, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 @_cmsMAT3isIdentity(ptr noundef nonnull %10) #10
   %63 = icmp eq i32 %62, 0
@@ -2491,18 +2491,18 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
 
 .preheader221.backedge:                           ; preds = %._crit_edge233, %._crit_edge233.thread
   %.be = phi i32 [ %114, %._crit_edge233 ], [ 0, %._crit_edge233.thread ]
-  %indvars.iv268.be = phi i64 [ %indvars.iv.next269, %._crit_edge233 ], [ %indvars.iv.next269288, %._crit_edge233.thread ]
+  %indvars.iv268.be = phi i64 [ %indvars.iv.next269, %._crit_edge233 ], [ %indvars.iv.next269309, %._crit_edge233.thread ]
   br label %.preheader221, !llvm.loop !42
 
 ._crit_edge233.thread:                            ; preds = %._crit_edge
-  %indvars.iv.next269288 = add nuw nsw i64 %indvars.iv268, 1
-  %exitcond271.not289 = icmp eq i64 %indvars.iv.next269288, 4096
-  br i1 %exitcond271.not289, label %.preheader218, label %.preheader221.backedge
+  %indvars.iv.next269309 = add nuw nsw i64 %indvars.iv268, 1
+  %exitcond271.not310 = icmp eq i64 %indvars.iv.next269309, 4096
+  br i1 %exitcond271.not310, label %.preheader218, label %.preheader221.backedge
 
 .preheader218:                                    ; preds = %._crit_edge233.thread, %SlopeLimiting.exit, %.preheader220
   %117 = load i32, ptr %70, align 8
-  %.not312 = icmp eq i32 %117, 0
-  br i1 %.not312, label %.critedge._crit_edge, label %.lr.ph311
+  %.not333 = icmp eq i32 %117, 0
+  br i1 %.not333, label %.critedge._crit_edge, label %.lr.ph332
 
 .lr.ph236:                                        ; preds = %.preheader220, %SlopeLimiting.exit
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %SlopeLimiting.exit ], [ 0, %.preheader220 ]
@@ -2626,27 +2626,27 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   %188 = icmp samesign ult i64 %indvars.iv.next273, %187
   br i1 %188, label %.lr.ph236, label %.preheader218, !llvm.loop !45
 
-.backedge:                                        ; preds = %.lr.ph311, %215
-  %189 = phi i32 [ %216, %215 ], [ 0, %.lr.ph311 ]
-  %.017.lcssa3235.i201 = phi i32 [ %.1.i195, %215 ], [ 0, %.lr.ph311 ]
-  %190 = icmp ugt i32 %.017.lcssa3235.i201, %189
+.backedge:                                        ; preds = %.lr.ph332, %215
+  %189 = phi i32 [ %216, %215 ], [ 0, %.lr.ph332 ]
+  %.017.lcssa3437.i201 = phi i32 [ %.1.i195, %215 ], [ 0, %.lr.ph332 ]
+  %190 = icmp ugt i32 %.017.lcssa3437.i201, %189
   %191 = select i1 %190, i1 true, i1 %.not168
-  br i1 %191, label %.critedge176, label %.backedge295
+  br i1 %191, label %.critedge176, label %.backedge316
 
-.backedge295:                                     ; preds = %.backedge, %IsDegenerated.exit204.thread
-  %indvars.iv275.be = add nuw nsw i64 %indvars.iv275310, 1
+.backedge316:                                     ; preds = %.backedge, %IsDegenerated.exit204.thread
+  %indvars.iv275.be = add nuw nsw i64 %indvars.iv275331, 1
   %192 = load i32, ptr %70, align 8
   %193 = zext i32 %192 to i64
   %194 = icmp samesign ult i64 %indvars.iv275.be, %193
-  br i1 %194, label %.lr.ph311, label %..critedge.preheader_crit_edge, !llvm.loop !46
+  br i1 %194, label %.lr.ph332, label %..critedge.preheader_crit_edge, !llvm.loop !46
 
-..critedge.preheader_crit_edge:                   ; preds = %.backedge295
+..critedge.preheader_crit_edge:                   ; preds = %.backedge316
   %195 = icmp eq i32 %192, 0
   br i1 %195, label %.critedge._crit_edge, label %.lr.ph240
 
-.lr.ph311:                                        ; preds = %.preheader218, %.backedge295
-  %indvars.iv275310 = phi i64 [ %indvars.iv275.be, %.backedge295 ], [ 0, %.preheader218 ]
-  %196 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv275310
+.lr.ph332:                                        ; preds = %.preheader218, %.backedge316
+  %indvars.iv275331 = phi i64 [ %indvars.iv275.be, %.backedge316 ], [ 0, %.preheader218 ]
+  %196 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv275331
   %197 = load ptr, ptr %196, align 8
   %198 = call i32 @cmsIsToneCurveLinear(ptr noundef %197) #10
   %199 = load ptr, ptr %196, align 8
@@ -2658,7 +2658,7 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   %.not.i188 = icmp eq i32 %203, 0
   br i1 %.not.i188, label %.backedge, label %.lr.ph.i189
 
-.lr.ph.i189:                                      ; preds = %.lr.ph311
+.lr.ph.i189:                                      ; preds = %.lr.ph332
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 48
   %205 = load ptr, ptr %204, align 8
   %wide.trip.count.i190 = zext i32 %203 to i64
@@ -2687,7 +2687,7 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   br i1 %or.cond.i199, label %IsDegenerated.exit204.thread, label %215
 
 IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
-  br i1 %.not168, label %.critedge176, label %.backedge295
+  br i1 %.not168, label %.critedge176, label %.backedge316
 
 215:                                              ; preds = %._crit_edge.i198
   %216 = udiv i32 %203, 20

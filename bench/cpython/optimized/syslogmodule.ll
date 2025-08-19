@@ -553,17 +553,17 @@ Py_INCREF.exit:                                   ; preds = %27
   br i1 %.not23, label %43, label %Py_INCREF.exit.thread6
 
 Py_INCREF.exit.thread6.sink.split:                ; preds = %29, %9
-  %.sink32 = phi i32 [ %10, %9 ], [ %30, %29 ]
-  %.sink31 = phi ptr [ %0, %9 ], [ %18, %29 ]
-  %34 = add nuw i32 %.sink32, 1
-  store i32 %34, ptr %.sink31, align 8, !tbaa !22
+  %.sink43 = phi i32 [ %10, %9 ], [ %30, %29 ]
+  %.sink42 = phi ptr [ %0, %9 ], [ %18, %29 ]
+  %34 = add nuw i32 %.sink43, 1
+  store i32 %34, ptr %.sink42, align 8, !tbaa !22
   br label %Py_INCREF.exit.thread6
 
 Py_INCREF.exit.thread6:                           ; preds = %Py_INCREF.exit.thread6.sink.split, %29, %9, %Py_INCREF.exit
-  %.0189 = phi ptr [ %33, %Py_INCREF.exit ], [ %18, %29 ], [ %0, %9 ], [ %.sink31, %Py_INCREF.exit.thread6.sink.split ]
+  %.0189 = phi ptr [ %33, %Py_INCREF.exit ], [ %18, %29 ], [ %0, %9 ], [ %.sink42, %Py_INCREF.exit.thread6.sink.split ]
   %35 = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %.0189) #5
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %.thread21
+  br i1 %36, label %37, label %.thread32
 
 37:                                               ; preds = %Py_INCREF.exit.thread6
   %38 = load i32, ptr %.0189, align 8, !tbaa !22
@@ -585,7 +585,7 @@ Py_INCREF.exit.thread6:                           ; preds = %Py_INCREF.exit.thre
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %Py_DECREF.exit, label %56
 
-.thread21:                                        ; preds = %Py_INCREF.exit.thread6
+.thread32:                                        ; preds = %Py_INCREF.exit.thread6
   %46 = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %.0189, i64 noundef %1, i64 noundef %2) #5
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %50, label %56
@@ -599,7 +599,7 @@ Py_INCREF.exit.thread6:                           ; preds = %Py_INCREF.exit.thre
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %Py_DECREF.exit, label %56
 
-50:                                               ; preds = %.thread21
+50:                                               ; preds = %.thread32
   %51 = load i32, ptr %.0189, align 8, !tbaa !22
   %.not.i.i = icmp sgt i32 %51, -1
   br i1 %.not.i.i, label %52, label %Py_DECREF.exit
@@ -614,9 +614,9 @@ Py_INCREF.exit.thread6:                           ; preds = %Py_INCREF.exit.thre
   tail call void @_Py_Dealloc(ptr noundef nonnull %.0189) #5
   br label %Py_DECREF.exit
 
-56:                                               ; preds = %.thread21, %.thread, %43
-  %.01917 = phi ptr [ null, %.thread ], [ null, %43 ], [ %35, %.thread21 ]
-  %.018315 = phi ptr [ null, %.thread ], [ null, %43 ], [ %.0189, %.thread21 ]
+56:                                               ; preds = %.thread32, %.thread, %43
+  %.01917 = phi ptr [ null, %.thread ], [ null, %43 ], [ %35, %.thread32 ]
+  %.018315 = phi ptr [ null, %.thread ], [ null, %43 ], [ %.0189, %.thread32 ]
   %57 = trunc i64 %1 to i32
   %58 = trunc i64 %2 to i32
   tail call void @openlog(ptr noundef %.01917, i32 noundef %57, i32 noundef %58) #5

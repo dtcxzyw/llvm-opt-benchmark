@@ -695,7 +695,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   %32 = load i32, ptr %31, align 4, !tbaa !25
   %33 = sext i32 %32 to i64
   %34 = mul nsw i64 %33, %28
-  %35 = add i64 %34, %.33144.us
+  %35 = add nsw i64 %34, %.33144.us
   %36 = icmp ugt i64 %35, 2147483647
   br i1 %36, label %.split.us, label %29
 
@@ -740,7 +740,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   %51 = load i32, ptr %50, align 4, !tbaa !25
   %52 = sext i32 %51 to i64
   %53 = mul nsw i64 %52, %49
-  %54 = add i64 %53, %.12949
+  %54 = add nsw i64 %53, %.12949
   %55 = icmp ugt i64 %54, 2147483647
   br i1 %55, label %56, label %45
 
@@ -806,13 +806,13 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   br i1 %75, label %77, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %45, %.loopexit
-  %.02869 = phi i64 [ %.028, %.loopexit ], [ %54, %45 ]
+  %.02877 = phi i64 [ %.028, %.loopexit ], [ %54, %45 ]
   %76 = phi ptr [ %74, %.loopexit ], [ %.pre67, %45 ]
   tail call void @_ZdaPv(ptr noundef nonnull %76) #17
   br label %77
 
 77:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.02870 = phi i64 [ %.02869, %.loopexit.thread ], [ %.028, %.loopexit ]
+  %.02878 = phi i64 [ %.02877, %.loopexit.thread ], [ %.028, %.loopexit ]
   %78 = load ptr, ptr %3, align 8, !tbaa !37
   %79 = icmp eq ptr %78, null
   br i1 %79, label %81, label %80
@@ -822,7 +822,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   br label %81
 
 81:                                               ; preds = %80, %77
-  %82 = trunc nuw nsw i64 %.02870 to i32
+  %82 = trunc nuw nsw i64 %.02878 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

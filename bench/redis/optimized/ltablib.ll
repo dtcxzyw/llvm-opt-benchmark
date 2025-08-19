@@ -442,10 +442,10 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
 
 24:                                               ; preds = %48, %22
   %.lcssa.sink = phi i32 [ %13, %22 ], [ %26, %48 ]
-  %.lcssa116.sink = phi i32 [ %23, %22 ], [ %37, %48 ]
+  %.lcssa120.sink = phi i32 [ %23, %22 ], [ %37, %48 ]
   %.084 = phi i32 [ %.090111, %22 ], [ %26, %48 ]
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.lcssa.sink) #3
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.lcssa116.sink) #3
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.lcssa120.sink) #3
   br label %25
 
 25:                                               ; preds = %36, %24
@@ -487,7 +487,7 @@ sort_comp.exit:                                   ; preds = %29, %31
   br label %25, !llvm.loop !15
 
 .preheader:                                       ; preds = %sort_comp.exit, %47
-  %.1 = phi i32 [ %37, %47 ], [ %.lcssa116.sink, %sort_comp.exit ]
+  %.1 = phi i32 [ %37, %47 ], [ %.lcssa120.sink, %sort_comp.exit ]
   %37 = add nsw i32 %.1, -1
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %37) #3
   %38 = tail call i32 @lua_type(ptr noundef %0, i32 noundef 2) #3

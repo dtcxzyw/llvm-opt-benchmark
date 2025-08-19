@@ -322,8 +322,8 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv174
   %14 = load double, ptr %13, align 8, !tbaa !12
-  %.idx184 = shl nuw nsw i64 %indvars.iv167, 4
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx184
+  %.idx186 = shl nuw nsw i64 %indvars.iv167, 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx186
   %16 = load double, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load double, ptr %17, align 8, !tbaa !12
@@ -381,8 +381,8 @@ define i32 @SUNQRfact(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
 53:                                               ; preds = %._crit_edge163, %37, %45
   %.0146 = phi double [ %42, %37 ], [ %52, %45 ], [ 0.000000e+00, %._crit_edge163 ]
   %.0141 = phi double [ %44, %37 ], [ %50, %45 ], [ 1.000000e+00, %._crit_edge163 ]
-  %.idx185 = shl nuw nsw i64 %indvars.iv174, 4
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx185
+  %.idx187 = shl nuw nsw i64 %indvars.iv174, 4
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx187
   store double %.0141, ptr %54, align 8, !tbaa !12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %.0146, ptr %55, align 8, !tbaa !12
@@ -520,15 +520,15 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
 
 .lr.ph56.preheader:                               ; preds = %.lr.ph
   %6 = zext nneg i32 %0 to i64
-  %indvars.iv.next7078 = add nsw i64 %6, -1
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next7078
+  %indvars.iv.next7080 = add nsw i64 %6, -1
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next7080
   %8 = load ptr, ptr %7, align 8, !tbaa !10
-  %9 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next7078
+  %9 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next7080
   %10 = load double, ptr %9, align 8, !tbaa !12
   %11 = fcmp oeq double %10, 0.000000e+00
-  br i1 %11, label %._crit_edge, label %.lr.ph82
+  br i1 %11, label %._crit_edge, label %.lr.ph84
 
-.lr.ph82:                                         ; preds = %.lr.ph56.preheader
+.lr.ph84:                                         ; preds = %.lr.ph56.preheader
   %12 = add nsw i32 %0, -1
   %13 = zext nneg i32 %12 to i64
   br label %32
@@ -556,25 +556,25 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
   br i1 %exitcond.not, label %.lr.ph56.preheader, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph52
-  %indvars.iv.next68 = add nsw i64 %indvars.iv6780, -1
-  %indvars.iv.next70 = add nsw i64 %indvars.iv.next7081, -1
+  %indvars.iv.next68 = add nsw i64 %indvars.iv6782, -1
+  %indvars.iv.next70 = add nsw i64 %indvars.iv.next7083, -1
   %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next70
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.next70
   %30 = load double, ptr %29, align 8, !tbaa !12
   %31 = fcmp oeq double %30, 0.000000e+00
-  br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge, label %32
+  br i1 %31, label %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge, label %32
 
-32:                                               ; preds = %.lr.ph82, %.loopexit
-  %33 = phi double [ %10, %.lr.ph82 ], [ %30, %.loopexit ]
-  %indvars.iv.next7081 = phi i64 [ %indvars.iv.next7078, %.lr.ph82 ], [ %indvars.iv.next70, %.loopexit ]
-  %indvars.iv6780 = phi i64 [ %13, %.lr.ph82 ], [ %indvars.iv.next68, %.loopexit ]
-  %indvars.iv6979 = phi i64 [ %6, %.lr.ph82 ], [ %indvars.iv.next7081, %.loopexit ]
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next7081
+32:                                               ; preds = %.lr.ph84, %.loopexit
+  %33 = phi double [ %10, %.lr.ph84 ], [ %30, %.loopexit ]
+  %indvars.iv.next7083 = phi i64 [ %indvars.iv.next7080, %.lr.ph84 ], [ %indvars.iv.next70, %.loopexit ]
+  %indvars.iv6782 = phi i64 [ %13, %.lr.ph84 ], [ %indvars.iv.next68, %.loopexit ]
+  %indvars.iv6981 = phi i64 [ %6, %.lr.ph84 ], [ %indvars.iv.next7083, %.loopexit ]
+  %34 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next7083
   %35 = load double, ptr %34, align 8, !tbaa !12
   %36 = fdiv double %35, %33
   store double %36, ptr %34, align 8, !tbaa !12
-  %37 = icmp samesign ugt i64 %indvars.iv6979, 1
+  %37 = icmp samesign ugt i64 %indvars.iv6981, 1
   br i1 %37, label %.lr.ph52, label %._crit_edge
 
 .lr.ph52:                                         ; preds = %32, %.lr.ph52
@@ -582,7 +582,7 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
   %38 = load double, ptr %34, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv60
   %40 = load ptr, ptr %39, align 8, !tbaa !10
-  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next7081
+  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next7083
   %42 = load double, ptr %41, align 8, !tbaa !12
   %43 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv60
   %44 = load double, ptr %43, align 8, !tbaa !12
@@ -590,15 +590,15 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr noundef reado
   %46 = tail call double @llvm.fmuladd.f64(double %45, double %42, double %44)
   store double %46, ptr %43, align 8, !tbaa !12
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next61, %indvars.iv6780
+  %exitcond66.not = icmp eq i64 %indvars.iv.next61, %indvars.iv6782
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph52
 
-.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge: ; preds = %.loopexit
-  %47 = trunc nuw nsw i64 %indvars.iv.next7081 to i32
+.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge: ; preds = %.loopexit
+  %47 = trunc nuw nsw i64 %indvars.iv.next7083 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %32, %.lr.ph56.preheader, %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge, %4
-  %.0 = phi i32 [ 0, %4 ], [ %47, %.lr.ph56.._crit_edge.loopexit.split.loop.exit75_crit_edge ], [ %0, %.lr.ph56.preheader ], [ 0, %32 ]
+._crit_edge:                                      ; preds = %32, %.lr.ph56.preheader, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge, %4
+  %.0 = phi i32 [ 0, %4 ], [ %47, %.lr.ph56.._crit_edge.loopexit.split.loop.exit77_crit_edge ], [ %0, %.lr.ph56.preheader ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -1055,8 +1055,7 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds double, ptr %1, i64 %13
   %15 = tail call i32 @N_VDotProdMulti(i32 noundef 1, ptr noundef %11, ptr noundef %0, ptr noundef %14) #7
-  %.pre = mul nuw nsw i32 %4, %3
-  %.pre103 = sext i32 %.pre to i64
+  %.pre103 = sext i32 %4 to i64
   br label %.loopexit
 
 16:                                               ; preds = %9

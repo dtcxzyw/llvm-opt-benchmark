@@ -491,7 +491,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %19 = getelementptr inbounds nuw [25 x float], ptr %14, i64 0, i64 %indvars.iv44.i
   %20 = load float, ptr %19, align 4, !tbaa !86
   %21 = fcmp reassoc nsz arcp contract afn oeq float %20, -1.000000e+00
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %22, label %.thread.i
 
 22:                                               ; preds = %18
   %23 = add nsw i32 %.03239.i, 1
@@ -499,19 +499,19 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 
 24:                                               ; preds = %16
   %25 = icmp eq i64 %indvars.iv44.i, 0
-  br i1 %25, label %30, label %.thread
+  br i1 %25, label %30, label %.thread.i
 
-.thread:                                          ; preds = %18, %24
+.thread.i:                                        ; preds = %24, %18
   %26 = icmp eq i64 %indvars.iv44.i, %15
   br i1 %26, label %30, label %27
 
-27:                                               ; preds = %.thread
+27:                                               ; preds = %.thread.i
   %28 = getelementptr inbounds nuw [25 x float], ptr %14, i64 0, i64 %indvars.iv44.i
   %29 = load float, ptr %28, align 4, !tbaa !86
   br label %30
 
-30:                                               ; preds = %27, %.thread, %24
-  %31 = phi float [ 0.000000e+00, %24 ], [ %29, %27 ], [ 1.000000e+00, %.thread ]
+30:                                               ; preds = %27, %.thread.i, %24
+  %31 = phi float [ 0.000000e+00, %24 ], [ %29, %27 ], [ 1.000000e+00, %.thread.i ]
   %32 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv44.i
   store float %31, ptr %32, align 4, !tbaa !86
   %.not3537.i = icmp slt i32 %.03239.i, 1
@@ -910,7 +910,7 @@ define internal noundef i32 @dt_iop_zonesystem_preview_draw(ptr noundef %0, ptr 
   %63 = getelementptr inbounds nuw [25 x float], ptr %58, i64 0, i64 %indvars.iv44.i
   %64 = load float, ptr %63, align 4, !tbaa !86
   %65 = fcmp reassoc nsz arcp contract afn oeq float %64, -1.000000e+00
-  br i1 %65, label %66, label %.thread
+  br i1 %65, label %66, label %.thread.i
 
 66:                                               ; preds = %62
   %67 = add nsw i32 %.03239.i, 1
@@ -918,19 +918,19 @@ define internal noundef i32 @dt_iop_zonesystem_preview_draw(ptr noundef %0, ptr 
 
 68:                                               ; preds = %60
   %69 = icmp eq i64 %indvars.iv44.i, 0
-  br i1 %69, label %74, label %.thread
+  br i1 %69, label %74, label %.thread.i
 
-.thread:                                          ; preds = %62, %68
+.thread.i:                                        ; preds = %68, %62
   %70 = icmp eq i64 %indvars.iv44.i, %59
   br i1 %70, label %74, label %71
 
-71:                                               ; preds = %.thread
+71:                                               ; preds = %.thread.i
   %72 = getelementptr inbounds nuw [25 x float], ptr %58, i64 0, i64 %indvars.iv44.i
   %73 = load float, ptr %72, align 4, !tbaa !86
   br label %74
 
-74:                                               ; preds = %71, %.thread, %68
-  %75 = phi float [ 0.000000e+00, %68 ], [ %73, %71 ], [ 1.000000e+00, %.thread ]
+74:                                               ; preds = %71, %.thread.i, %68
+  %75 = phi float [ 0.000000e+00, %68 ], [ %73, %71 ], [ 1.000000e+00, %.thread.i ]
   %76 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv44.i
   store float %75, ptr %76, align 4, !tbaa !86
   %.not3537.i = icmp slt i32 %.03239.i, 1
@@ -1081,8 +1081,8 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %54
   %165 = shl nuw nsw i64 %indvars.iv, 2
   %166 = getelementptr inbounds nuw i8, ptr %99, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 2
-  %.132 = select i1 %164, i8 -1, i8 %159
-  store i8 %.132, ptr %167, align 1, !tbaa !89
+  %.133 = select i1 %164, i8 -1, i8 %159
+  store i8 %.133, ptr %167, align 1, !tbaa !89
   %168 = zext i8 %148 to i32
   %169 = load i32, ptr %108, align 4, !tbaa !158
   %170 = icmp eq i32 %169, %168
@@ -1256,7 +1256,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_draw(ptr noundef %0, ptr noun
   %47 = getelementptr inbounds nuw [25 x float], ptr %42, i64 0, i64 %indvars.iv44.i
   %48 = load float, ptr %47, align 4, !tbaa !86
   %49 = fcmp reassoc nsz arcp contract afn oeq float %48, -1.000000e+00
-  br i1 %49, label %50, label %.thread
+  br i1 %49, label %50, label %.thread.i
 
 50:                                               ; preds = %46
   %51 = add nsw i32 %.03239.i, 1
@@ -1264,19 +1264,19 @@ define internal noundef i32 @dt_iop_zonesystem_bar_draw(ptr noundef %0, ptr noun
 
 52:                                               ; preds = %44
   %53 = icmp eq i64 %indvars.iv44.i, 0
-  br i1 %53, label %58, label %.thread
+  br i1 %53, label %58, label %.thread.i
 
-.thread:                                          ; preds = %46, %52
+.thread.i:                                        ; preds = %52, %46
   %54 = icmp eq i64 %indvars.iv44.i, %43
   br i1 %54, label %58, label %55
 
-55:                                               ; preds = %.thread
+55:                                               ; preds = %.thread.i
   %56 = getelementptr inbounds nuw [25 x float], ptr %42, i64 0, i64 %indvars.iv44.i
   %57 = load float, ptr %56, align 4, !tbaa !86
   br label %58
 
-58:                                               ; preds = %55, %.thread, %52
-  %59 = phi float [ 0.000000e+00, %52 ], [ %57, %55 ], [ 1.000000e+00, %.thread ]
+58:                                               ; preds = %55, %.thread.i, %52
+  %59 = phi float [ 0.000000e+00, %52 ], [ %57, %55 ], [ 1.000000e+00, %.thread.i ]
   %60 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv44.i
   store float %59, ptr %60, align 4, !tbaa !86
   %.not3537.i = icmp slt i32 %.03239.i, 1
@@ -1524,7 +1524,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_motion_notify(ptr noundef %0,
   %30 = getelementptr inbounds nuw [25 x float], ptr %25, i64 0, i64 %indvars.iv44.i
   %31 = load float, ptr %30, align 4, !tbaa !86
   %32 = fcmp reassoc nsz arcp contract afn oeq float %31, -1.000000e+00
-  br i1 %32, label %33, label %.thread
+  br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %29
   %34 = add nsw i32 %.03239.i, 1
@@ -1532,19 +1532,19 @@ define internal noundef i32 @dt_iop_zonesystem_bar_motion_notify(ptr noundef %0,
 
 35:                                               ; preds = %27
   %36 = icmp eq i64 %indvars.iv44.i, 0
-  br i1 %36, label %41, label %.thread
+  br i1 %36, label %41, label %.thread.i
 
-.thread:                                          ; preds = %29, %35
+.thread.i:                                        ; preds = %35, %29
   %37 = icmp eq i64 %indvars.iv44.i, %26
   br i1 %37, label %41, label %38
 
-38:                                               ; preds = %.thread
+38:                                               ; preds = %.thread.i
   %39 = getelementptr inbounds nuw [25 x float], ptr %25, i64 0, i64 %indvars.iv44.i
   %40 = load float, ptr %39, align 4, !tbaa !86
   br label %41
 
-41:                                               ; preds = %38, %.thread, %35
-  %42 = phi float [ 0.000000e+00, %35 ], [ %40, %38 ], [ 1.000000e+00, %.thread ]
+41:                                               ; preds = %38, %.thread.i, %35
+  %42 = phi float [ 0.000000e+00, %35 ], [ %40, %38 ], [ 1.000000e+00, %.thread.i ]
   %43 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv44.i
   store float %42, ptr %43, align 4, !tbaa !86
   %.not3537.i = icmp slt i32 %.03239.i, 1
@@ -1708,10 +1708,10 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %115, %131
-  %.sink75 = phi i32 [ %132, %131 ], [ %120, %115 ]
+  %.sink81 = phi i32 [ %132, %131 ], [ %120, %115 ]
   %.sink.ph = phi i32 [ 0, %131 ], [ 1, %115 ]
   %133 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  store i32 %.sink75, ptr %133, align 4, !tbaa !158
+  store i32 %.sink81, ptr %133, align 4, !tbaa !158
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph._crit_edge, %.loopexit.sink.split, %121
@@ -1795,7 +1795,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_button_press(ptr noundef %0, 
   %27 = getelementptr inbounds nuw [25 x float], ptr %22, i64 0, i64 %indvars.iv44.i
   %28 = load float, ptr %27, align 4, !tbaa !86
   %29 = fcmp reassoc nsz arcp contract afn oeq float %28, -1.000000e+00
-  br i1 %29, label %30, label %.thread
+  br i1 %29, label %30, label %.thread.i
 
 30:                                               ; preds = %26
   %31 = add nsw i32 %.03239.i, 1
@@ -1803,19 +1803,19 @@ define internal noundef i32 @dt_iop_zonesystem_bar_button_press(ptr noundef %0, 
 
 32:                                               ; preds = %24
   %33 = icmp eq i64 %indvars.iv44.i, 0
-  br i1 %33, label %38, label %.thread
+  br i1 %33, label %38, label %.thread.i
 
-.thread:                                          ; preds = %26, %32
+.thread.i:                                        ; preds = %32, %26
   %34 = icmp eq i64 %indvars.iv44.i, %23
   br i1 %34, label %38, label %35
 
-35:                                               ; preds = %.thread
+35:                                               ; preds = %.thread.i
   %36 = getelementptr inbounds nuw [25 x float], ptr %22, i64 0, i64 %indvars.iv44.i
   %37 = load float, ptr %36, align 4, !tbaa !86
   br label %38
 
-38:                                               ; preds = %35, %.thread, %32
-  %39 = phi float [ 0.000000e+00, %32 ], [ %37, %35 ], [ 1.000000e+00, %.thread ]
+38:                                               ; preds = %35, %.thread.i, %32
+  %39 = phi float [ 0.000000e+00, %32 ], [ %37, %35 ], [ 1.000000e+00, %.thread.i ]
   %40 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv44.i
   store float %39, ptr %40, align 4, !tbaa !86
   %.not3537.i = icmp slt i32 %.03239.i, 1

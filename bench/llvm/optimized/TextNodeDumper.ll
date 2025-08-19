@@ -13525,7 +13525,7 @@ tailrecurse.i:                                    ; preds = %17, %14
 
 _ZL15isSimpleAPValueRKN5clang7APValueE.exit:      ; preds = %21, %24, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %storemerge25 = phi i32 [ %storemerge26, %tailrecurse.i ], [ %storemerge26, %tailrecurse.i ], [ %storemerge26, %tailrecurse.i ], [ %25, %24 ], [ %storemerge26, %21 ]
-  %27 = add i32 %.027, 1
+  %27 = add nuw i32 %.027, 1
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %27, i32 %storemerge25)
   %28 = sub i32 %.sroa.speculated, %.027
   %29 = icmp ugt i32 %28, 1
@@ -33038,9 +33038,9 @@ define dso_local void @_ZN5clang14TextNodeDumper17VisitFunctionDeclEPKNS_12Funct
   %.sroa.0.0.copyload.i.i = load i64, ptr %15, align 8, !tbaa !425
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %.sink.sroa.gep157 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %.sink.sroa.gep158 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %.sink.sroa.gep159 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %.sink.sroa.gep190 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %.sink.sroa.gep191 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %.sink.sroa.gep192 = getelementptr inbounds nuw i8, ptr %14, i64 64
   br i1 %.not.i, label %_ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit, label %16
 
 16:                                               ; preds = %2
@@ -33867,7 +33867,7 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread142: ; preds = %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %443, %441, %428, %426
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %426 ], [ %.sink.sroa.gep157, %428 ], [ %.sink.sroa.gep158, %441 ], [ %.sink.sroa.gep159, %443 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %426 ], [ %.sink.sroa.gep190, %428 ], [ %.sink.sroa.gep191, %441 ], [ %.sink.sroa.gep192, %443 ]
   %.0.i.i75.sink = phi ptr [ %427, %426 ], [ %417, %428 ], [ %442, %441 ], [ %432, %443 ]
   %446 = load ptr, ptr %.sink.sroa.phi, align 8, !tbaa !910
   %447 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i75.sink, ptr noundef %446) #22
@@ -35046,7 +35046,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit70:               ; preds = %216, %214, %_ZN4llv
   %229 = ptrtoint ptr %226 to i64
   %230 = ptrtoint ptr %228 to i64
   %231 = sub i64 %229, %230
-  switch i8 %223, label %default.unreachable109 [
+  switch i8 %223, label %default.unreachable128 [
     i8 0, label %232
     i8 1, label %239
     i8 2, label %246
@@ -35113,7 +35113,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit70:               ; preds = %216, %214, %_ZN4llv
   store ptr %259, ptr %227, align 8, !tbaa !423
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit74
 
-default.unreachable109:                           ; preds = %220
+default.unreachable128:                           ; preds = %220
   unreachable
 
 _ZN4llvm11raw_ostreamlsEPKc.exit74:               ; preds = %257, %255, %250, %248, %243, %241, %236, %234, %_ZN4llvm11raw_ostreamlsEPKc.exit70

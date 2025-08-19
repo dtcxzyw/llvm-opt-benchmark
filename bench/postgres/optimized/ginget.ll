@@ -557,8 +557,8 @@ matchPartialInPendingList.exit138.i.i:            ; preds = %274, %257, %254, %2
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 6
   %309 = load i16, ptr %308, align 2
   %310 = and i16 %309, 32
-  %.not.i89.i = icmp eq i16 %310, 0
-  br i1 %.not.i89.i, label %311, label %.critedge.i.thread.i
+  %.not.i118.i = icmp eq i16 %310, 0
+  br i1 %.not.i118.i, label %311, label %.critedge.i.thread.i
 
 .critedge.i.thread.i:                             ; preds = %._crit_edge174.i.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2578,8 +2578,8 @@ keyGetItem.exit.i:                                ; preds = %1257, %1195, %1076,
   %1326 = trunc nuw i8 %1325 to i1
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next60.i, %1318
-  %or.cond242 = select i1 %1326, i1 true, i1 %exitcond.not.i46
-  br i1 %or.cond242, label %.loopexit, label %1323, !llvm.loop !34
+  %or.cond305 = select i1 %1326, i1 true, i1 %exitcond.not.i46
+  br i1 %or.cond305, label %.loopexit, label %1323, !llvm.loop !34
 
 .loopexit:                                        ; preds = %1323, %.loopexit.thread.i
   %.1.ph.ph = phi i1 [ false, %.loopexit.thread.i ], [ %1326, %1323 ]
@@ -3169,7 +3169,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   %.pre133 = load i32, ptr %122, align 8
   br label %.backedge
 
-171:                                              ; preds = %.backedge157, %.outer
+171:                                              ; preds = %.backedge174, %.outer
   %172 = load i16, ptr %107, align 4
   %173 = zext i16 %172 to i32
   %174 = load i32, ptr %108, align 8
@@ -3417,9 +3417,9 @@ BufferGetPage.exit71.i:                           ; preds = %238, %232, %218
 entryLoadMoreItems.exit:                          ; preds = %177, %227, %289, %290
   %292 = load i8, ptr %118, align 2, !range !4, !noundef !5
   %293 = trunc nuw i8 %292 to i1
-  br i1 %293, label %294, label %.backedge157
+  br i1 %293, label %294, label %.backedge174
 
-.backedge157:                                     ; preds = %entryLoadMoreItems.exit, %295
+.backedge174:                                     ; preds = %entryLoadMoreItems.exit, %295
   br label %171, !llvm.loop !38
 
 294:                                              ; preds = %entryLoadMoreItems.exit
@@ -3446,7 +3446,7 @@ entryLoadMoreItems.exit:                          ; preds = %177, %227, %289, %2
   %305 = zext i16 %.val5.i81 to i64
   %306 = or disjoint i64 %304, %305
   %.not90 = icmp ugt i64 %306, %345
-  br i1 %.not90, label %307, label %.backedge157
+  br i1 %.not90, label %307, label %.backedge174
 
 307:                                              ; preds = %295
   %308 = load i8, ptr %119, align 1, !range !4, !noundef !5

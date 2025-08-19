@@ -2259,9 +2259,9 @@ print_colored.exit150:                            ; preds = %.critedge2.i145, %9
   %1040 = call i32 @wborder(ptr noundef %1039, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #25
   %1041 = load double, ptr %830, align 8, !tbaa !73
   %1042 = fcmp ogt double %1041, 0.000000e+00
-  br i1 %1042, label %1046, label %.thread247
+  br i1 %1042, label %1046, label %.thread327
 
-.thread247:                                       ; preds = %1038
+.thread327:                                       ; preds = %1038
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %4, ptr noundef nonnull align 1 dereferenceable(34) @.str.161, i64 34, i1 false)
   %1043 = load ptr, ptr @mem_window, align 8, !tbaa !34
   %1044 = call i32 (ptr, i32, i32, ptr, ...) @mvwprintw(ptr noundef %1043, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @.str.162) #25
@@ -2283,8 +2283,8 @@ print_colored.exit150:                            ; preds = %.critedge2.i145, %9
   %1057 = load ptr, ptr @mem_window, align 8, !tbaa !34
   br i1 %1054, label %print_colored.exit130, label %.lr.ph33.i112.preheader
 
-.lr.ph33.i112.preheader:                          ; preds = %.thread247, %1046
-  %1058 = phi ptr [ %1045, %.thread247 ], [ %1057, %1046 ]
+.lr.ph33.i112.preheader:                          ; preds = %.thread327, %1046
+  %1058 = phi ptr [ %1045, %.thread327 ], [ %1057, %1046 ]
   br label %.lr.ph33.i112
 
 .lr.ph33.i112:                                    ; preds = %.lr.ph33.i112.preheader, %.critedge2.i125
@@ -2364,9 +2364,9 @@ print_colored.exit130:                            ; preds = %print_colored.exit1
   %1093 = call i32 (ptr, i32, i32, ptr, ...) @mvwprintw(ptr noundef %1092, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @.str.163) #25
   %1094 = load double, ptr %830, align 8, !tbaa !73
   %1095 = fcmp ogt double %1094, 0.000000e+00
-  br i1 %1095, label %1097, label %.thread249
+  br i1 %1095, label %1097, label %.thread329
 
-.thread249:                                       ; preds = %print_colored.exit130
+.thread329:                                       ; preds = %print_colored.exit130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %4, ptr noundef nonnull align 1 dereferenceable(34) @.str.165, i64 34, i1 false)
   %1096 = load ptr, ptr @mem_window, align 8, !tbaa !34
   br label %.lr.ph33.i92.preheader
@@ -2383,8 +2383,8 @@ print_colored.exit130:                            ; preds = %print_colored.exit1
   %1105 = load ptr, ptr @mem_window, align 8, !tbaa !34
   br i1 %1104, label %print_colored.exit110, label %.lr.ph33.i92.preheader
 
-.lr.ph33.i92.preheader:                           ; preds = %.thread249, %1097
-  %1106 = phi ptr [ %1096, %.thread249 ], [ %1105, %1097 ]
+.lr.ph33.i92.preheader:                           ; preds = %.thread329, %1097
+  %1106 = phi ptr [ %1096, %.thread329 ], [ %1105, %1097 ]
   br label %.lr.ph33.i92
 
 .lr.ph33.i92:                                     ; preds = %.lr.ph33.i92.preheader, %.critedge2.i105
@@ -3785,7 +3785,7 @@ get_port.exit:                                    ; preds = %27, %.sink.split.i
 .preheader:                                       ; preds = %get_port.exit
   %.069100 = load ptr, ptr %5, align 8, !tbaa !100
   %.not83101 = icmp eq ptr %.069100, null
-  br i1 %.not83101, label %.thread111, label %.lr.ph
+  br i1 %.not83101, label %.thread118, label %.lr.ph
 
 42:                                               ; preds = %get_port.exit
   %43 = call ptr @gai_strerror(i32 noundef %41) #25
@@ -3899,30 +3899,30 @@ make_ip.exit:                                     ; preds = %72, %74, %82
 
 87:                                               ; preds = %86, %.thread97
   %.not90 = icmp eq ptr %.171.ph, null
-  br i1 %.not90, label %88, label %.thread111
+  br i1 %.not90, label %88, label %.thread118
 
-.thread111:                                       ; preds = %.preheader, %87
-  %.171108120 = phi ptr [ %.171.ph, %87 ], [ %26, %.preheader ]
-  %.168109118 = phi ptr [ %.168.ph, %87 ], [ %.012.i, %.preheader ]
-  %.266110116 = phi i32 [ %.266.ph, %87 ], [ -1, %.preheader ]
-  call void @free(ptr noundef nonnull %.171108120) #25
+.thread118:                                       ; preds = %.preheader, %87
+  %.171115127 = phi ptr [ %.171.ph, %87 ], [ %26, %.preheader ]
+  %.168116125 = phi ptr [ %.168.ph, %87 ], [ %.012.i, %.preheader ]
+  %.266117123 = phi i32 [ %.266.ph, %87 ], [ -1, %.preheader ]
+  call void @free(ptr noundef nonnull %.171115127) #25
   br label %88
 
-88:                                               ; preds = %.thread111, %87
-  %.168109119 = phi ptr [ %.168109118, %.thread111 ], [ %.168.ph, %87 ]
-  %.266110117 = phi i32 [ %.266110116, %.thread111 ], [ %.266.ph, %87 ]
-  %.not91 = icmp eq ptr %.168109119, null
+88:                                               ; preds = %.thread118, %87
+  %.168116126 = phi ptr [ %.168116125, %.thread118 ], [ %.168.ph, %87 ]
+  %.266117124 = phi i32 [ %.266117123, %.thread118 ], [ %.266.ph, %87 ]
+  %.not91 = icmp eq ptr %.168116126, null
   br i1 %.not91, label %90, label %89
 
 89:                                               ; preds = %88
-  call void @free(ptr noundef nonnull %.168109119) #25
+  call void @free(ptr noundef nonnull %.168116126) #25
   br label %90
 
 90:                                               ; preds = %88, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.266110117
+  ret i32 %.266117124
 }
 
 ; Function Attrs: nounwind uwtable

@@ -2706,7 +2706,7 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %12 = load i8, ptr %11, align 1, !range !377, !noundef !21
-  switch i8 %12, label %default.unreachable140 [
+  switch i8 %12, label %default.unreachable147 [
     i8 0, label %15
     i8 1, label %43
     i8 2, label %44
@@ -2714,7 +2714,7 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
     i8 4, label %14
   ]
 
-default.unreachable140:                           ; preds = %3
+default.unreachable147:                           ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -3302,13 +3302,13 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
   %9 = alloca { i8, [71 x i8] }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i8, ptr %10, align 8, !range !434, !noundef !21
-  switch i8 %11, label %default.unreachable34 [
+  switch i8 %11, label %default.unreachable35 [
     i8 0, label %12
     i8 1, label %78
     i8 2, label %79
   ]
 
-default.unreachable34:                            ; preds = %3
+default.unreachable35:                            ; preds = %3
   unreachable
 
 12:                                               ; preds = %3
@@ -3580,13 +3580,13 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
   %10 = alloca { i64, [3 x i64] }, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8, !range !434, !noundef !21
-  switch i8 %12, label %default.unreachable36 [
+  switch i8 %12, label %default.unreachable38 [
     i8 0, label %13
     i8 1, label %83
     i8 2, label %84
   ]
 
-default.unreachable36:                            ; preds = %3
+default.unreachable38:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
@@ -3902,7 +3902,7 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
   %16 = alloca { i8, [15 x i8] }, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %18 = load i8, ptr %17, align 8, !range !74, !noundef !21
-  switch i8 %18, label %default.unreachable94 [
+  switch i8 %18, label %default.unreachable107 [
     i8 0, label %23
     i8 1, label %50
     i8 2, label %51
@@ -3916,7 +3916,7 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
   %.val44.pre = load ptr, ptr %.phi.trans.insert92, align 8, !alias.scope !869
   br label %52
 
-default.unreachable94:                            ; preds = %3
+default.unreachable107:                           ; preds = %3
   unreachable
 
 19:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i63", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i65"

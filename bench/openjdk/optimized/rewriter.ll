@@ -1016,9 +1016,9 @@ _ZN5Bytes11put_Java_u2EPht.exit.i:                ; preds = %227, %226
 230:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit.i
   %231 = load i8, ptr %199, align 1
   %232 = icmp eq i8 %231, -23
-  br i1 %232, label %.sink.split40.i.i, label %_ZN8Rewriter23rewrite_field_referenceEPhib.exit
+  br i1 %232, label %.sink.split42.i.i, label %_ZN8Rewriter23rewrite_field_referenceEPhib.exit
 
-.sink.split40.i.i:                                ; preds = %230
+.sink.split42.i.i:                                ; preds = %230
   store i8 -74, ptr %199, align 1
   br label %_ZN8Rewriter23rewrite_field_referenceEPhib.exit
 
@@ -1041,8 +1041,8 @@ _ZN5Bytes11put_Java_u2EPht.exit.i:                ; preds = %227, %226
   %240 = add nsw i32 %.0104.ph, 1
   br label %_ZN8Rewriter23rewrite_field_referenceEPhib.exit
 
-_ZN8Rewriter23rewrite_field_referenceEPhib.exit:  ; preds = %.thread, %.sink.split40.i.i, %230, %_ZN5Bytes11put_Java_u2EPht.exit.i, %216, %_ZN5Bytes13put_native_u2EPht.exit.i, %196, %195, %184, %183, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit, %66, %67, %233, %235, %237, %239
-  %.1 = phi i32 [ %.0104.ph, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit ], [ %.0104.ph, %66 ], [ %.0104.ph, %67 ], [ %.0104.ph, %233 ], [ %.0104.ph, %235 ], [ %.0104.ph, %237 ], [ %240, %239 ], [ %.0104.ph, %183 ], [ %.0104.ph, %184 ], [ %.0104.ph, %195 ], [ %.0104.ph, %196 ], [ %.0104.ph, %_ZN5Bytes13put_native_u2EPht.exit.i ], [ %.0104.ph, %216 ], [ %.0104.ph, %_ZN5Bytes11put_Java_u2EPht.exit.i ], [ %.0104.ph, %230 ], [ %.0104.ph, %.sink.split40.i.i ], [ %.0104.ph, %.thread ]
+_ZN8Rewriter23rewrite_field_referenceEPhib.exit:  ; preds = %.thread, %.sink.split42.i.i, %230, %_ZN5Bytes11put_Java_u2EPht.exit.i, %216, %_ZN5Bytes13put_native_u2EPht.exit.i, %196, %195, %184, %183, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit, %66, %67, %233, %235, %237, %239
+  %.1 = phi i32 [ %.0104.ph, %_ZN21Bytecode_lookupswitchC2EP6MethodPh.exit ], [ %.0104.ph, %66 ], [ %.0104.ph, %67 ], [ %.0104.ph, %233 ], [ %.0104.ph, %235 ], [ %.0104.ph, %237 ], [ %240, %239 ], [ %.0104.ph, %183 ], [ %.0104.ph, %184 ], [ %.0104.ph, %195 ], [ %.0104.ph, %196 ], [ %.0104.ph, %_ZN5Bytes13put_native_u2EPht.exit.i ], [ %.0104.ph, %216 ], [ %.0104.ph, %_ZN5Bytes11put_Java_u2EPht.exit.i ], [ %.0104.ph, %230 ], [ %.0104.ph, %.sink.split42.i.i ], [ %.0104.ph, %.thread ]
   %241 = add nuw nsw i32 %.06485, %.065102
   %242 = icmp samesign ult i32 %241, %13
   br i1 %242, label %.outer, label %._crit_edge, !llvm.loop !13
@@ -1050,9 +1050,9 @@ _ZN8Rewriter23rewrite_field_referenceEPhib.exit:  ; preds = %.thread, %.sink.spl
 _ZN8Rewriter23rewrite_field_referenceEPhib.exit.thread: ; preds = %.thread, %.thread
   %243 = add nuw nsw i32 %.06485, %.065102
   %244 = icmp samesign ult i32 %243, %13
-  br i1 %244, label %23, label %._crit_edge.thread115, !llvm.loop !13
+  br i1 %244, label %23, label %._crit_edge.thread121, !llvm.loop !13
 
-._crit_edge.thread115:                            ; preds = %_ZN8Rewriter23rewrite_field_referenceEPhib.exit.thread
+._crit_edge.thread121:                            ; preds = %_ZN8Rewriter23rewrite_field_referenceEPhib.exit.thread
   %245 = icmp sgt i32 %.0104.ph, 0
   br label %247
 
@@ -1060,8 +1060,8 @@ _ZN8Rewriter23rewrite_field_referenceEPhib.exit.thread: ; preds = %.thread, %.th
   %246 = icmp sgt i32 %.1, 0
   br i1 %.061103, label %247, label %_ZN6Method25set_has_monitor_bytecodesEv.exit
 
-247:                                              ; preds = %._crit_edge.thread115, %._crit_edge
-  %248 = phi i1 [ %245, %._crit_edge.thread115 ], [ %246, %._crit_edge ]
+247:                                              ; preds = %._crit_edge.thread121, %._crit_edge
+  %248 = phi i1 [ %245, %._crit_edge.thread121 ], [ %246, %._crit_edge ]
   %249 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %250 = load volatile i32, ptr %249, align 4
   br label %251
@@ -1074,8 +1074,8 @@ _ZN8Rewriter23rewrite_field_referenceEPhib.exit.thread: ; preds = %.thread, %.th
   br i1 %.not.i.i.i.i.i.i, label %_ZN6Method25set_has_monitor_bytecodesEv.exit, label %251, !llvm.loop !15
 
 _ZN6Method25set_has_monitor_bytecodesEv.exit:     ; preds = %251, %._crit_edge
-  %.0.lcssa110 = phi i1 [ %246, %._crit_edge ], [ %248, %251 ]
-  br i1 %.0.lcssa110, label %254, label %_ZN6Method12set_has_jsrsEv.exit
+  %.0.lcssa116 = phi i1 [ %246, %._crit_edge ], [ %248, %251 ]
+  br i1 %.0.lcssa116, label %254, label %_ZN6Method12set_has_jsrsEv.exit
 
 254:                                              ; preds = %_ZN6Method25set_has_monitor_bytecodesEv.exit
   %255 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -1460,13 +1460,13 @@ _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %36, %37
   %42 = getelementptr inbounds i8, ptr %6, i64 -1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, -23
-  br i1 %44, label %.sink.split40.i, label %_ZN8Rewriter26maybe_rewrite_invokehandleEPhiib.exit
+  br i1 %44, label %.sink.split42.i, label %_ZN8Rewriter26maybe_rewrite_invokehandleEPhiib.exit
 
-.sink.split40.i:                                  ; preds = %41
+.sink.split42.i:                                  ; preds = %41
   store i8 -74, ptr %42, align 1
   br label %_ZN8Rewriter26maybe_rewrite_invokehandleEPhiib.exit
 
-_ZN8Rewriter26maybe_rewrite_invokehandleEPhiib.exit: ; preds = %.sink.split40.i, %41, %_ZN5Bytes11put_Java_u2EPht.exit, %_ZN5Bytes13put_native_u2EPht.exit, %24
+_ZN8Rewriter26maybe_rewrite_invokehandleEPhiib.exit: ; preds = %.sink.split42.i, %41, %_ZN5Bytes11put_Java_u2EPht.exit, %_ZN5Bytes13put_native_u2EPht.exit, %24
   ret void
 }
 
@@ -1549,18 +1549,18 @@ define hidden void @_ZN8Rewriter26maybe_rewrite_invokehandleEPhiib(ptr noundef n
 52:                                               ; preds = %49, %11
   %.0 = phi i32 [ %.1, %49 ], [ %16, %11 ]
   %53 = icmp sgt i32 %.0, 0
-  br i1 %53, label %.sink.split40, label %56
+  br i1 %53, label %.sink.split42, label %56
 
 54:                                               ; preds = %5
   %55 = icmp eq i8 %6, -23
-  br i1 %55, label %.sink.split40, label %56
+  br i1 %55, label %.sink.split42, label %56
 
-.sink.split40:                                    ; preds = %54, %52
+.sink.split42:                                    ; preds = %54, %52
   %.sink = phi i8 [ -23, %52 ], [ -74, %54 ]
   store i8 %.sink, ptr %1, align 1
   br label %56
 
-56:                                               ; preds = %.sink.split40, %7, %54, %52
+56:                                               ; preds = %.sink.split42, %7, %54, %52
   ret void
 }
 
@@ -1711,13 +1711,13 @@ _ZN5Bytes11put_Java_u2EPht.exit.i:                ; preds = %82, %81
   %87 = getelementptr inbounds i8, ptr %7, i64 -1
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, -23
-  br i1 %89, label %.sink.split40.i.i, label %_ZN8Rewriter24rewrite_method_referenceEPhib.exit
+  br i1 %89, label %.sink.split42.i.i, label %_ZN8Rewriter24rewrite_method_referenceEPhib.exit
 
-.sink.split40.i.i:                                ; preds = %86
+.sink.split42.i.i:                                ; preds = %86
   store i8 -74, ptr %87, align 1
   br label %_ZN8Rewriter24rewrite_method_referenceEPhib.exit
 
-_ZN8Rewriter24rewrite_method_referenceEPhib.exit: ; preds = %.sink.split40.i.i, %86, %_ZN5Bytes11put_Java_u2EPht.exit.i, %69, %_ZN5Bytes13put_native_u2EPht.exit.i, %51, %_ZN5Bytes13put_native_u2EPht.exit
+_ZN8Rewriter24rewrite_method_referenceEPhib.exit: ; preds = %.sink.split42.i.i, %86, %_ZN5Bytes11put_Java_u2EPht.exit.i, %69, %_ZN5Bytes13put_native_u2EPht.exit.i, %51, %_ZN5Bytes13put_native_u2EPht.exit
   ret void
 }
 
@@ -3202,7 +3202,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   br i1 %.not, label %_ZN13GrowableArrayIiE10deallocateEPi.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -3214,8 +3214,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   br label %_ZN13GrowableArrayIiE10deallocateEPi.exit
 
 _ZN13GrowableArrayIiE10deallocateEPi.exit:        ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIiE10deallocateEPi.exit
@@ -3532,7 +3532,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI17ResolvedIndyE
   br i1 %.not, label %_ZN13GrowableArrayI17ResolvedIndyEntryE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 1
@@ -3544,8 +3544,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI17ResolvedIndyE
   br label %_ZN13GrowableArrayI17ResolvedIndyEntryE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI17ResolvedIndyEntryE10deallocateEPS0_.exit: ; preds = %30, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %30 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %30 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %31
 
 31:                                               ; preds = %1, %_ZN13GrowableArrayI17ResolvedIndyEntryE10deallocateEPS0_.exit
@@ -3641,7 +3641,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI18ResolvedField
   br i1 %.not, label %_ZN13GrowableArrayI18ResolvedFieldEntryE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 1
@@ -3653,8 +3653,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI18ResolvedField
   br label %_ZN13GrowableArrayI18ResolvedFieldEntryE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI18ResolvedFieldEntryE10deallocateEPS0_.exit: ; preds = %52, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %52 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %52 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %53
 
 53:                                               ; preds = %1, %_ZN13GrowableArrayI18ResolvedFieldEntryE10deallocateEPS0_.exit
@@ -3750,7 +3750,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI19ResolvedMetho
   br i1 %.not, label %_ZN13GrowableArrayI19ResolvedMethodEntryE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 1
@@ -3762,8 +3762,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI19ResolvedMetho
   br label %_ZN13GrowableArrayI19ResolvedMethodEntryE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI19ResolvedMethodEntryE10deallocateEPS0_.exit: ; preds = %52, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %52 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %52 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %53
 
 53:                                               ; preds = %1, %_ZN13GrowableArrayI19ResolvedMethodEntryE10deallocateEPS0_.exit

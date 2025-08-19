@@ -18,9 +18,9 @@ define range(i32 -1, -2147483648) i32 @ff_dcaadpcm_subband_analysis(ptr noundef 
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge59.thread
 
 ._crit_edge59.thread:                             ; preds = %4
-  %.val93 = load ptr, ptr %0, align 8, !tbaa !4
+  %.val94 = load ptr, ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %wide.trip.count.i.i94 = zext i32 %2 to i64
+  %wide.trip.count.i.i95 = zext i32 %2 to i64
   br label %.preheader1.i.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
@@ -112,8 +112,8 @@ define range(i32 -1, -2147483648) i32 @ff_dcaadpcm_subband_analysis(ptr noundef 
   br i1 %46, label %.preheader1.us.i, label %.preheader1.i.preheader
 
 .preheader1.i.preheader:                          ; preds = %._crit_edge59.thread, %._crit_edge59
-  %wide.trip.count.i.i98 = phi i64 [ %wide.trip.count.i.i94, %._crit_edge59.thread ], [ %wide.trip.count.i.i, %._crit_edge59 ]
-  %.val96 = phi ptr [ %.val93, %._crit_edge59.thread ], [ %.val, %._crit_edge59 ]
+  %wide.trip.count.i.i99 = phi i64 [ %wide.trip.count.i.i95, %._crit_edge59.thread ], [ %wide.trip.count.i.i, %._crit_edge59 ]
+  %.val97 = phi ptr [ %.val94, %._crit_edge59.thread ], [ %.val, %._crit_edge59 ]
   br label %.preheader1.i
 
 .preheader1.us.i:                                 ; preds = %._crit_edge59, %.split.us.us.i
@@ -176,9 +176,9 @@ calc_corr.exit.loopexit.us.us.i:                  ; preds = %.lr.ph.i.us.us.i
   br i1 %exitcond.not.i, label %.preheader.i, label %.preheader1.i, !llvm.loop !19
 
 .preheader.i:                                     ; preds = %.preheader1.i, %.split.us.us.i
-  %wide.trip.count.i.i97 = phi i64 [ %wide.trip.count.i.i, %.split.us.us.i ], [ %wide.trip.count.i.i98, %.preheader1.i ]
+  %wide.trip.count.i.i98 = phi i64 [ %wide.trip.count.i.i, %.split.us.us.i ], [ %wide.trip.count.i.i99, %.preheader1.i ]
   %64 = phi i1 [ true, %.split.us.us.i ], [ false, %.preheader1.i ]
-  %.val95 = phi ptr [ %.val, %.split.us.us.i ], [ %.val96, %.preheader1.i ]
+  %.val96 = phi ptr [ %.val, %.split.us.us.i ], [ %.val97, %.preheader1.i ]
   %65 = load i64, ptr %5, align 16, !tbaa !16
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !16
@@ -217,7 +217,7 @@ calc_corr.exit.loopexit.us.us.i:                  ; preds = %.lr.ph.i.us.us.i
 94:                                               ; preds = %94, %.preheader.i
   %indvars.iv34.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next35.i, %94 ]
   %.016.i = phi i64 [ 4611686018427387904, %.preheader.i ], [ %spec.select29.i, %94 ]
-  %.02015.i = phi ptr [ %.val95, %.preheader.i ], [ %166, %94 ]
+  %.02015.i = phi ptr [ %.val96, %.preheader.i ], [ %166, %94 ]
   %.02114.i = phi i32 [ -1, %.preheader.i ], [ %spec.select.i41, %94 ]
   %95 = getelementptr inbounds nuw [4096 x [4 x i16]], ptr @ff_dca_adpcm_vb, i64 0, i64 %indvars.iv34.i
   %96 = load i16, ptr %95, align 8, !tbaa !20
@@ -357,7 +357,7 @@ ff_dcaadpcm_predict.exit.i:                       ; preds = %174
   %193 = mul nsw i64 %192, %192
   %194 = add nuw nsw i64 %193, %.027.i
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
-  %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i.i97
+  %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i.i98
   br i1 %exitcond.not.i44, label %._crit_edge.i, label %170, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %ff_dcaadpcm_predict.exit.i
@@ -367,9 +367,9 @@ ff_dcaadpcm_predict.exit.i:                       ; preds = %174
 calc_prediction_gain.exit:                        ; preds = %._crit_edge.i
   %195 = udiv i64 %191, %194
   %196 = icmp samesign ugt i64 %195, 9
-  %brmerge106.not = and i1 %196, %64
-  %.mux107 = select i1 %196, i32 %spec.select.i41, i32 -1
-  br i1 %brmerge106.not, label %.lr.ph64.preheader, label %.loopexit
+  %brmerge107.not = and i1 %196, %64
+  %.mux108 = select i1 %196, i32 %spec.select.i41, i32 -1
+  br i1 %brmerge107.not, label %.lr.ph64.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge.i
   br i1 %64, label %.lr.ph64.preheader, label %.loopexit
@@ -384,11 +384,11 @@ calc_prediction_gain.exit:                        ; preds = %._crit_edge.i
   %199 = shl i32 %198, 7
   store i32 %199, ptr %197, align 4, !tbaa !9
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count.i.i97
+  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count.i.i98
   br i1 %exitcond90.not, label %.loopexit, label %.lr.ph64, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph64, %calc_prediction_gain.exit, %find_best_filter.exit, %.preheader
-  %.0 = phi i32 [ %.mux, %find_best_filter.exit ], [ %.mux107, %calc_prediction_gain.exit ], [ %spec.select.i41, %.preheader ], [ %spec.select.i41, %.lr.ph64 ]
+  %.0 = phi i32 [ %.mux, %find_best_filter.exit ], [ %.mux108, %calc_prediction_gain.exit ], [ %spec.select.i41, %.preheader ], [ %spec.select.i41, %.lr.ph64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -497,14 +497,14 @@ ff_dcaadpcm_predict.exit:                         ; preds = %34
   br i1 %73, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %65, %ff_dcaadpcm_predict.exit
-  %.033.i = phi i32 [ %72, %65 ], [ 22, %ff_dcaadpcm_predict.exit ]
-  %.02532.i = phi i64 [ %71, %65 ], [ %23, %ff_dcaadpcm_predict.exit ]
-  %74 = zext nneg i32 %.033.i to i64
-  %75 = add nsw i32 %.033.i, -1
+  %.034.i = phi i32 [ %72, %65 ], [ 22, %ff_dcaadpcm_predict.exit ]
+  %.02533.i = phi i64 [ %71, %65 ], [ %23, %ff_dcaadpcm_predict.exit ]
+  %74 = zext nneg i32 %.034.i to i64
+  %75 = add nsw i32 %.034.i, -1
   %76 = zext nneg i32 %75 to i64
   %77 = shl nuw i64 1, %76
   %78 = sext i32 %63 to i64
-  %79 = mul nsw i64 %.02532.i, %78
+  %79 = mul nsw i64 %.02533.i, %78
   %80 = add nsw i64 %77, %79
   %81 = ashr i64 %80, %74
   %.0.i.us.i = trunc i64 %81 to i32

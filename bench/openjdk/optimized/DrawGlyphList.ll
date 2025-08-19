@@ -87,7 +87,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
 .lr.ph176.preheader:                              ; preds = %.preheader
   %50 = sext i32 %2 to i64
   %wide.trip.count187 = zext nneg i32 %15 to i64
-  %invariant.gep190 = getelementptr i64, ptr %45, i64 %50
+  %invariant.gep203 = getelementptr i64, ptr %45, i64 %50
   br label %.lr.ph176
 
 51:                                               ; preds = %48
@@ -164,8 +164,8 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %99 = fadd float %70, %98
   %100 = fcmp olt float %99, 0.000000e+00
   %101 = tail call float @llvm.floor.f32(float %99)
-  %.sink194 = select i1 %100, float %101, float %99
-  %102 = fptosi float %.sink194 to i32
+  %.sink207 = select i1 %100, float %101, float %99
+  %102 = fptosi float %.sink207 to i32
   %103 = load ptr, ptr %41, align 8
   %104 = getelementptr inbounds nuw %struct.ImageRef, ptr %103, i64 %indvars.iv, i32 6
   store i32 %102, ptr %104, align 8
@@ -174,8 +174,8 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %107 = fadd float %73, %106
   %108 = fcmp olt float %107, 0.000000e+00
   %109 = tail call float @llvm.floor.f32(float %107)
-  %.sink197 = select i1 %108, float %109, float %107
-  %110 = fptosi float %.sink197 to i32
+  %.sink210 = select i1 %108, float %109, float %107
+  %110 = fptosi float %.sink210 to i32
   %111 = load ptr, ptr %41, align 8
   %112 = getelementptr inbounds nuw %struct.ImageRef, ptr %111, i64 %indvars.iv, i32 7
   store i32 %110, ptr %112, align 4
@@ -198,8 +198,8 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %indvars.iv184 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next185, %.lr.ph176 ]
   %.1153174 = phi float [ %9, %.lr.ph176.preheader ], [ %159, %.lr.ph176 ]
   %.1155173 = phi float [ %14, %.lr.ph176.preheader ], [ %162, %.lr.ph176 ]
-  %gep191 = getelementptr i64, ptr %invariant.gep190, i64 %indvars.iv184
-  %119 = load i64, ptr %gep191, align 8
+  %gep204 = getelementptr i64, ptr %invariant.gep203, i64 %indvars.iv184
+  %119 = load i64, ptr %gep204, align 8
   %120 = inttoptr i64 %119 to ptr
   %121 = load ptr, ptr %41, align 8
   %122 = getelementptr inbounds nuw %struct.ImageRef, ptr %121, i64 %indvars.iv184
@@ -232,8 +232,8 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %144 = fadd float %.1153174, %143
   %145 = fcmp olt float %144, 0.000000e+00
   %146 = tail call float @llvm.floor.f32(float %144)
-  %.sink200 = select i1 %145, float %146, float %144
-  %147 = fptosi float %.sink200 to i32
+  %.sink213 = select i1 %145, float %146, float %144
+  %147 = fptosi float %.sink213 to i32
   %148 = load ptr, ptr %41, align 8
   %149 = getelementptr inbounds nuw %struct.ImageRef, ptr %148, i64 %indvars.iv184, i32 6
   store i32 %147, ptr %149, align 8
@@ -242,8 +242,8 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %152 = fadd float %.1155173, %151
   %153 = fcmp olt float %152, 0.000000e+00
   %154 = tail call float @llvm.floor.f32(float %152)
-  %.sink203 = select i1 %153, float %154, float %152
-  %155 = fptosi float %.sink203 to i32
+  %.sink216 = select i1 %153, float %154, float %152
+  %155 = fptosi float %.sink216 to i32
   %156 = load ptr, ptr %41, align 8
   %157 = getelementptr inbounds nuw %struct.ImageRef, ptr %156, i64 %indvars.iv184, i32 7
   store i32 %155, ptr %157, align 4
@@ -1106,7 +1106,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %.not261 = icmp eq i8 %.0234, 0
   %73 = sext i32 %2 to i64
   %wide.trip.count283 = zext nneg i32 %15 to i64
-  %invariant.gep286 = getelementptr i64, ptr %50, i64 %73
+  %invariant.gep306 = getelementptr i64, ptr %50, i64 %73
   br label %181
 
 74:                                               ; preds = %72
@@ -1200,8 +1200,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %131 = fadd float %127, %130
   %132 = fcmp olt float %131, 0.000000e+00
   %133 = tail call float @llvm.floor.f32(float %131)
-  %.sink290 = select i1 %132, float %133, float %131
-  %134 = fptosi float %.sink290 to i32
+  %.sink310 = select i1 %132, float %133, float %131
+  %134 = fptosi float %.sink310 to i32
   %135 = load ptr, ptr %46, align 8
   %136 = getelementptr inbounds nuw %struct.ImageRef, ptr %135, i64 %indvars.iv, i32 6
   store i32 %134, ptr %136, align 8
@@ -1238,8 +1238,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %158 = fadd float %122, %157
   %159 = fcmp olt float %158, 0.000000e+00
   %160 = tail call float @llvm.floor.f32(float %158)
-  %.sink293 = select i1 %159, float %160, float %158
-  %161 = fptosi float %.sink293 to i32
+  %.sink313 = select i1 %159, float %160, float %158
+  %161 = fptosi float %.sink313 to i32
   %162 = load ptr, ptr %46, align 8
   %163 = getelementptr inbounds nuw %struct.ImageRef, ptr %162, i64 %indvars.iv, i32 6
   store i32 %161, ptr %163, align 8
@@ -1255,8 +1255,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %169 = fadd float %.0232, %168
   %170 = fcmp olt float %169, 0.000000e+00
   %171 = tail call float @llvm.floor.f32(float %169)
-  %.sink296 = select i1 %170, float %171, float %169
-  %172 = fptosi float %.sink296 to i32
+  %.sink316 = select i1 %170, float %171, float %169
+  %172 = fptosi float %.sink316 to i32
   %173 = load ptr, ptr %46, align 8
   %174 = getelementptr inbounds nuw %struct.ImageRef, ptr %173, i64 %indvars.iv, i32 7
   store i32 %172, ptr %174, align 4
@@ -1279,8 +1279,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %indvars.iv280 = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next281, %251 ]
   %.1236270 = phi float [ %9, %.lr.ph272 ], [ %261, %251 ]
   %.1238269 = phi float [ %14, %.lr.ph272 ], [ %264, %251 ]
-  %gep287 = getelementptr i64, ptr %invariant.gep286, i64 %indvars.iv280
-  %182 = load i64, ptr %gep287, align 8
+  %gep307 = getelementptr i64, ptr %invariant.gep306, i64 %indvars.iv280
+  %182 = load i64, ptr %gep307, align 8
   %183 = inttoptr i64 %182 to ptr
   %184 = icmp eq i64 %182, 0
   br i1 %184, label %185, label %189
@@ -1330,8 +1330,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %216 = fadd float %212, %215
   %217 = fcmp olt float %216, 0.000000e+00
   %218 = tail call float @llvm.floor.f32(float %216)
-  %.sink299 = select i1 %217, float %218, float %216
-  %219 = fptosi float %.sink299 to i32
+  %.sink319 = select i1 %217, float %218, float %216
+  %219 = fptosi float %.sink319 to i32
   %220 = load ptr, ptr %46, align 8
   %221 = getelementptr inbounds nuw %struct.ImageRef, ptr %220, i64 %indvars.iv280, i32 6
   store i32 %219, ptr %221, align 8
@@ -1368,8 +1368,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %243 = fadd float %.1236270, %242
   %244 = fcmp olt float %243, 0.000000e+00
   %245 = tail call float @llvm.floor.f32(float %243)
-  %.sink302 = select i1 %244, float %245, float %243
-  %246 = fptosi float %.sink302 to i32
+  %.sink322 = select i1 %244, float %245, float %243
+  %246 = fptosi float %.sink322 to i32
   %247 = load ptr, ptr %46, align 8
   %248 = getelementptr inbounds nuw %struct.ImageRef, ptr %247, i64 %indvars.iv280, i32 6
   store i32 %246, ptr %248, align 8
@@ -1385,8 +1385,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %254 = fadd float %.0231, %253
   %255 = fcmp olt float %254, 0.000000e+00
   %256 = tail call float @llvm.floor.f32(float %254)
-  %.sink305 = select i1 %255, float %256, float %254
-  %257 = fptosi float %.sink305 to i32
+  %.sink325 = select i1 %255, float %256, float %254
+  %257 = fptosi float %.sink325 to i32
   %258 = load ptr, ptr %46, align 8
   %259 = getelementptr inbounds nuw %struct.ImageRef, ptr %258, i64 %indvars.iv280, i32 7
   store i32 %257, ptr %259, align 4

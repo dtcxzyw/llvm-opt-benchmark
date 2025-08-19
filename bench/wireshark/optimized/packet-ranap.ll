@@ -11967,8 +11967,8 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
   %.pre = load i32, ptr @ProtocolIE_ID, align 4
   %6 = and i32 %.pre, -3
   %or.cond = icmp eq i32 %6, 61
-  %or.cond19 = select i1 %cond, i1 %or.cond, i1 false
-  br i1 %or.cond19, label %7, label %11
+  %or.cond20 = select i1 %cond, i1 %or.cond, i1 false
+  br i1 %or.cond20, label %7, label %11
 
 7:                                                ; preds = %4
   %8 = or disjoint i32 %.pre, 262144

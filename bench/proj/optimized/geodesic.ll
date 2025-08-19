@@ -2466,8 +2466,8 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %221 = fcmp ugt double %220, 0.000000e+00
   %222 = fmul double %220, 1.800000e+02
   %223 = fcmp ult double %74, %222
-  %or.cond651 = select i1 %221, i1 %223, i1 false
-  br i1 %or.cond651, label %236, label %224
+  %or.cond677 = select i1 %221, i1 %223, i1 false
+  br i1 %or.cond677, label %236, label %224
 
 224:                                              ; preds = %218
   %225 = load double, ptr %0, align 8, !tbaa !7

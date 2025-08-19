@@ -354,7 +354,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
 
 142:                                              ; preds = %.loopexit17
   %143 = icmp slt i32 %141, %32
-  br i1 %143, label %144, label %.loopexit56.preheader
+  br i1 %143, label %144, label %.loopexit67.preheader
 
 144:                                              ; preds = %142
   %145 = sext i32 %141 to i64
@@ -374,22 +374,22 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %155 = getelementptr i8, ptr %4, i64 %148
   store i8 32, ptr %155, align 1
   %156 = icmp eq i64 %154, %146
-  br i1 %156, label %.loopexit56.preheader, label %147, !llvm.loop !14
+  br i1 %156, label %.loopexit67.preheader, label %147, !llvm.loop !14
 
-.loopexit56.preheader:                            ; preds = %153, %142
+.loopexit67.preheader:                            ; preds = %153, %142
   %.ph = phi i32 [ %141, %142 ], [ %32, %153 ]
-  br label %.loopexit56
+  br label %.loopexit67
 
-.loopexit56:                                      ; preds = %.loopexit56.preheader, %174
-  %157 = phi i64 [ %180, %174 ], [ 0, %.loopexit56.preheader ]
-  %158 = phi i32 [ %176, %174 ], [ %.ph, %.loopexit56.preheader ]
-  %159 = phi i32 [ %179, %174 ], [ 0, %.loopexit56.preheader ]
+.loopexit67:                                      ; preds = %.loopexit67.preheader, %174
+  %157 = phi i64 [ %180, %174 ], [ 0, %.loopexit67.preheader ]
+  %158 = phi i32 [ %176, %174 ], [ %.ph, %.loopexit67.preheader ]
+  %159 = phi i32 [ %179, %174 ], [ 0, %.loopexit67.preheader ]
   %160 = add i32 %158, 2
   %161 = sext i32 %160 to i64
   %162 = icmp ult i64 %5, %161
   br i1 %162, label %.loopexit, label %163
 
-163:                                              ; preds = %.loopexit56
+163:                                              ; preds = %.loopexit67
   %164 = getelementptr i8, ptr %0, i64 %157
   %165 = load i8, ptr %164, align 1
   %166 = icmp sgt i8 %165, -1
@@ -413,7 +413,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %179 = add i32 %159, 1
   %180 = sext i32 %179 to i64
   %181 = icmp ugt i64 %11, %180
-  br i1 %181, label %.loopexit56, label %.loopexit14, !llvm.loop !15
+  br i1 %181, label %.loopexit67, label %.loopexit14, !llvm.loop !15
 
 .loopexit14:                                      ; preds = %174, %.loopexit17, %34
   %182 = phi i32 [ %141, %.loopexit17 ], [ 0, %34 ], [ %176, %174 ]
@@ -426,8 +426,8 @@ define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0,
   %186 = trunc i64 %148 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %122, %108, %.preheader, %.loopexit56, %185
-  %187 = phi i32 [ %186, %185 ], [ %158, %.loopexit56 ], [ %105, %122 ], [ %116, %108 ], [ %103, %.preheader ]
+.loopexit:                                        ; preds = %122, %108, %.preheader, %.loopexit67, %185
+  %187 = phi i32 [ %186, %185 ], [ %158, %.loopexit67 ], [ %105, %122 ], [ %116, %108 ], [ %103, %.preheader ]
   %188 = sext i32 %187 to i64
   %189 = getelementptr i8, ptr %4, i64 %188
   store i8 0, ptr %189, align 1

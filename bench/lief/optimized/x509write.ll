@@ -84,8 +84,8 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   br i1 %37, label %.critedge, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.094.lcssa159 = phi i64 [ %.397, %._crit_edge ], [ 0, %2 ]
-  %38 = add nuw i64 %.094.lcssa159, 5
+  %.094.lcssa184 = phi i64 [ %.397, %._crit_edge ], [ 0, %2 ]
+  %38 = add nuw i64 %.094.lcssa184, 5
   %39 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %38) #5
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.critedge, label %41
@@ -156,9 +156,9 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
 
 73:                                               ; preds = %60, %72
   %narrow126.sink = phi i32 [ %narrow126, %60 ], [ %narrow, %72 ]
-  %.sink163 = phi i32 [ %58, %60 ], [ %70, %72 ]
+  %.sink188 = phi i32 [ %58, %60 ], [ %70, %72 ]
   %74 = zext i32 %narrow126.sink to i64
-  %75 = zext nneg i32 %.sink163 to i64
+  %75 = zext nneg i32 %.sink188 to i64
   %76 = add nuw nsw i64 %75, %74
   %77 = xor i64 %76, -1
   %78 = icmp ugt i64 %.098151, %77

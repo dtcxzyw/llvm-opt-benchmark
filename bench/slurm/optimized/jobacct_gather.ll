@@ -2417,24 +2417,24 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
 
 .lr.ph136.preheader:                              ; preds = %.lr.ph.split.us.split
   %24 = icmp slt i32 %22, 0
-  br i1 %24, label %.lr.ph317.preheader, label %.split99.us
+  br i1 %24, label %.lr.ph332.preheader, label %.split99.us
 
-.lr.ph317.preheader:                              ; preds = %.lr.ph136.preheader
+.lr.ph332.preheader:                              ; preds = %.lr.ph136.preheader
   %25 = tail call ptr @__errno_location() #11
-  br label %.lr.ph317
+  br label %.lr.ph332
 
 .lr.ph136:                                        ; preds = %28
   %26 = icmp slt i32 %31, 0
-  br i1 %26, label %.lr.ph317, label %.split99.us
+  br i1 %26, label %.lr.ph332, label %.split99.us
 
-.lr.ph317:                                        ; preds = %.lr.ph317.preheader, %.lr.ph136
+.lr.ph332:                                        ; preds = %.lr.ph332.preheader, %.lr.ph136
   %27 = load i32, ptr %25, align 4
   switch i32 %27, label %.split102.us [
     i32 11, label %28
     i32 4, label %28
   ]
 
-28:                                               ; preds = %.lr.ph317, %.lr.ph317
+28:                                               ; preds = %.lr.ph332, %.lr.ph332
   %29 = load i32, ptr %2, align 4
   %30 = call i64 @read(i32 noundef %29, ptr noundef %.059.ph140, i64 noundef %.060.ph138) #10
   %31 = trunc i64 %30 to i32
@@ -2449,11 +2449,11 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
 
 .lr.ph121.preheader.preheader:                    ; preds = %.lr.ph.split.split
   %36 = icmp slt i32 %34, 0
-  br i1 %36, label %.lr.ph318.preheader, label %.split99.us
+  br i1 %36, label %.lr.ph333.preheader, label %.split99.us
 
-.lr.ph318.preheader:                              ; preds = %.lr.ph121.preheader.preheader
+.lr.ph333.preheader:                              ; preds = %.lr.ph121.preheader.preheader
   %37 = tail call ptr @__errno_location() #11
-  br label %.lr.ph318
+  br label %.lr.ph333
 
 .split105.us:                                     ; preds = %.lr.ph.split.split, %50
   %38 = tail call i32 @get_log_level() #10
@@ -2485,24 +2485,24 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
 
 .lr.ph121.preheader:                              ; preds = %50
   %48 = icmp slt i32 %53, 0
-  br i1 %48, label %.lr.ph318, label %.split99.us
+  br i1 %48, label %.lr.ph333, label %.split99.us
 
-.lr.ph318:                                        ; preds = %.lr.ph318.preheader, %.lr.ph121.preheader
+.lr.ph333:                                        ; preds = %.lr.ph333.preheader, %.lr.ph121.preheader
   %49 = load i32, ptr %37, align 4
   switch i32 %49, label %.split102.us [
     i32 11, label %50
     i32 4, label %50
   ]
 
-50:                                               ; preds = %.lr.ph318, %.lr.ph318
+50:                                               ; preds = %.lr.ph333, %.lr.ph333
   %51 = load i32, ptr %2, align 4
   %52 = call i64 @read(i32 noundef %51, ptr noundef %.059.ph140, i64 noundef 4) #10
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.split105.us, label %.lr.ph121.preheader
 
-.split102.us:                                     ; preds = %.lr.ph317, %.lr.ph318
-  %.060.ph138239 = phi i64 [ 4, %.lr.ph318 ], [ %.060.ph138, %.lr.ph317 ]
+.split102.us:                                     ; preds = %.lr.ph332, %.lr.ph333
+  %.060.ph138239 = phi i64 [ 4, %.lr.ph333 ], [ %.060.ph138, %.lr.ph332 ]
   %55 = tail call i32 @get_log_level() #10
   %56 = icmp sgt i32 %55, 4
   br i1 %56, label %57, label %.thread
@@ -2554,24 +2554,24 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
 
 .lr.ph187.preheader:                              ; preds = %.lr.ph143.split.us.split
   %73 = icmp slt i32 %71, 0
-  br i1 %73, label %.lr.ph320.preheader, label %.split149.us
+  br i1 %73, label %.lr.ph335.preheader, label %.split149.us
 
-.lr.ph320.preheader:                              ; preds = %.lr.ph187.preheader
+.lr.ph335.preheader:                              ; preds = %.lr.ph187.preheader
   %74 = tail call ptr @__errno_location() #11
-  br label %.lr.ph320
+  br label %.lr.ph335
 
 .lr.ph187:                                        ; preds = %77
   %75 = icmp slt i32 %80, 0
-  br i1 %75, label %.lr.ph320, label %.split149.us
+  br i1 %75, label %.lr.ph335, label %.split149.us
 
-.lr.ph320:                                        ; preds = %.lr.ph320.preheader, %.lr.ph187
+.lr.ph335:                                        ; preds = %.lr.ph335.preheader, %.lr.ph187
   %76 = load i32, ptr %74, align 4
   switch i32 %76, label %.split152.us [
     i32 11, label %77
     i32 4, label %77
   ]
 
-77:                                               ; preds = %.lr.ph320, %.lr.ph320
+77:                                               ; preds = %.lr.ph335, %.lr.ph335
   %78 = load i32, ptr %2, align 4
   %79 = tail call i64 @read(i32 noundef %78, ptr noundef %.056.ph193, i64 noundef %.057.ph191) #10
   %80 = trunc i64 %79 to i32
@@ -2586,11 +2586,11 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
 
 .lr.ph172.preheader.preheader:                    ; preds = %.lr.ph143.split.split
   %85 = icmp slt i32 %83, 0
-  br i1 %85, label %.lr.ph322.preheader, label %.split149.us
+  br i1 %85, label %.lr.ph337.preheader, label %.split149.us
 
-.lr.ph322.preheader:                              ; preds = %.lr.ph172.preheader.preheader
+.lr.ph337.preheader:                              ; preds = %.lr.ph172.preheader.preheader
   %86 = tail call ptr @__errno_location() #11
-  br label %.lr.ph322
+  br label %.lr.ph337
 
 .split156.us:                                     ; preds = %.lr.ph143.split.split, %99
   %87 = tail call i32 @get_log_level() #10
@@ -2622,24 +2622,24 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
 
 .lr.ph172.preheader:                              ; preds = %99
   %97 = icmp slt i32 %102, 0
-  br i1 %97, label %.lr.ph322, label %.split149.us
+  br i1 %97, label %.lr.ph337, label %.split149.us
 
-.lr.ph322:                                        ; preds = %.lr.ph322.preheader, %.lr.ph172.preheader
+.lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph172.preheader
   %98 = load i32, ptr %86, align 4
   switch i32 %98, label %.split152.us [
     i32 11, label %99
     i32 4, label %99
   ]
 
-99:                                               ; preds = %.lr.ph322, %.lr.ph322
+99:                                               ; preds = %.lr.ph337, %.lr.ph337
   %100 = load i32, ptr %2, align 4
   %101 = tail call i64 @read(i32 noundef %100, ptr noundef %.056.ph193, i64 noundef %66) #10
   %102 = trunc i64 %101 to i32
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %.split156.us, label %.lr.ph172.preheader
 
-.split152.us:                                     ; preds = %.lr.ph320, %.lr.ph322
-  %.057.ph191221 = phi i64 [ %66, %.lr.ph322 ], [ %.057.ph191, %.lr.ph320 ]
+.split152.us:                                     ; preds = %.lr.ph335, %.lr.ph337
+  %.057.ph191221 = phi i64 [ %66, %.lr.ph337 ], [ %.057.ph191, %.lr.ph335 ]
   %104 = tail call i32 @get_log_level() #10
   %105 = icmp sgt i32 %104, 4
   br i1 %105, label %106, label %.thread
@@ -3073,19 +3073,19 @@ define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr 
   %188 = getelementptr inbounds nuw i64, ptr %187, i64 %indvars.iv.i
   %189 = load i64, ptr %188, align 8
   %.not130.i = icmp eq i64 %189, -1
-  br i1 %.not130.i, label %195, label %.sink.split137.i
+  br i1 %.not130.i, label %195, label %.sink.split144.i
 
-.sink.split137.i:                                 ; preds = %186
+.sink.split144.i:                                 ; preds = %186
   %190 = load ptr, ptr %86, align 8
   %191 = getelementptr inbounds nuw i64, ptr %190, i64 %indvars.iv.i
   %192 = load i64, ptr %191, align 8
   %193 = icmp eq i64 %192, -1
   %194 = select i1 %193, i64 0, i64 %192
-  %.sink138.i = add i64 %194, %189
-  store i64 %.sink138.i, ptr %191, align 8
+  %.sink145.i = add i64 %194, %189
+  store i64 %.sink145.i, ptr %191, align 8
   br label %195
 
-195:                                              ; preds = %.sink.split137.i, %186
+195:                                              ; preds = %.sink.split144.i, %186
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %196 = load i32, ptr %57, align 8
   %197 = zext i32 %196 to i64

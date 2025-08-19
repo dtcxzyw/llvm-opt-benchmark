@@ -2632,7 +2632,7 @@ _ZN7CommandC2EPKc.exit:                           ; preds = %1, %19
   br i1 %27, label %_ZN9UNSIGNED59read_uintIPhmNS_11ArrayGetSetIS1_mEEEEjT_RT0_S5_T1_.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i24, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i29, 1
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.next.i
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
@@ -2640,9 +2640,9 @@ _ZN7CommandC2EPKc.exit:                           ; preds = %1, %19
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %31 = phi i8 [ %29, %.lr.ph.i ], [ %26, %.lr.ph.i.preheader ]
-  %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
+  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
   %32 = icmp ult i8 %31, -64
-  %33 = icmp eq i64 %indvars.iv.i24, 4
+  %33 = icmp eq i64 %indvars.iv.i29, 4
   %or.cond.i = or i1 %33, %32
   br i1 %or.cond.i, label %_ZN9UNSIGNED512check_lengthIPhmNS_11ArrayGetSetIS1_mEEEEiT_T0_S5_T1_.exit.thread16, label %.lr.ph.i
 

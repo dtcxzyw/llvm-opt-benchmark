@@ -78,10 +78,10 @@ list_length.exit79:                               ; preds = %32, %33
   br label %.sink.split
 
 .sink.split:                                      ; preds = %list_length.exit79, %29
-  %.sink87 = phi i64 [ 256, %29 ], [ 248, %list_length.exit79 ]
+  %.sink93 = phi i64 [ 256, %29 ], [ 248, %list_length.exit79 ]
   %.sink = phi ptr [ %31, %29 ], [ null, %list_length.exit79 ]
   %.0.ph = phi i32 [ %24, %29 ], [ %36, %list_length.exit79 ]
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink87
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink93
   store ptr %.sink, ptr %40, align 8
   br label %41
 

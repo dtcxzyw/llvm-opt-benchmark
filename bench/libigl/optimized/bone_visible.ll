@@ -2258,12 +2258,12 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   br label %88
 
 88:                                               ; preds = %._crit_edge, %58, %74, %24
-  %.pre.sink109 = phi <2 x double> [ %.pre, %._crit_edge ], [ %70, %58 ], [ %86, %74 ], [ %37, %24 ]
+  %.pre.sink110 = phi <2 x double> [ %.pre, %._crit_edge ], [ %70, %58 ], [ %86, %74 ], [ %37, %24 ]
   %89 = phi double [ %.pre95, %._crit_edge ], [ %71, %58 ], [ %87, %74 ], [ %33, %24 ]
-  %90 = extractelement <2 x double> %.pre.sink109, i64 0
-  %91 = extractelement <2 x double> %.pre.sink109, i64 1
+  %90 = extractelement <2 x double> %.pre.sink110, i64 0
+  %91 = extractelement <2 x double> %.pre.sink110, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %92 = fsub <2 x double> %.sroa.0.8.vec.insert, %.pre.sink109
+  %92 = fsub <2 x double> %.sroa.0.8.vec.insert, %.pre.sink110
   %93 = fsub double %19, %89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !168
@@ -2306,7 +2306,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %118 = load i64, ptr %117, align 8, !tbaa !11
   %119 = icmp sgt i64 %118, 0
-  br i1 %119, label %.lr.ph, label %.loopexit108
+  br i1 %119, label %.lr.ph, label %.loopexit109
 
 .lr.ph:                                           ; preds = %107
   %120 = sext i32 %108 to i64
@@ -2318,7 +2318,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
 124:                                              ; preds = %125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %118
-  br i1 %exitcond.not, label %.loopexit108, label %125, !llvm.loop !175
+  br i1 %exitcond.not, label %.loopexit109, label %125, !llvm.loop !175
 
 125:                                              ; preds = %.lr.ph, %124
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %124 ]
@@ -2332,7 +2332,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   store i8 1, ptr %116, align 1, !tbaa !173
   br label %147
 
-.loopexit108:                                     ; preds = %124, %107
+.loopexit109:                                     ; preds = %124, %107
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %131 = load float, ptr %130, align 4, !tbaa !176
   %132 = fmul float %131, %131
@@ -2348,7 +2348,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   %140 = fcmp ogt double %138, %139
   br i1 %140, label %141, label %147
 
-141:                                              ; preds = %.loopexit108
+141:                                              ; preds = %.loopexit109
   store i8 1, ptr %116, align 1, !tbaa !173
   br label %147
 
@@ -2360,7 +2360,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   store i8 1, ptr %146, align 1, !tbaa !173
   br label %147
 
-147:                                              ; preds = %.loopexit, %.loopexit108, %141, %142
+147:                                              ; preds = %.loopexit, %.loopexit109, %141, %142
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3258,12 +3258,12 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   br label %93
 
 93:                                               ; preds = %._crit_edge, %61, %78, %24
-  %.pre.sink109 = phi <2 x double> [ %.pre, %._crit_edge ], [ %74, %61 ], [ %91, %78 ], [ %38, %24 ]
+  %.pre.sink110 = phi <2 x double> [ %.pre, %._crit_edge ], [ %74, %61 ], [ %91, %78 ], [ %38, %24 ]
   %94 = phi double [ %.pre95, %._crit_edge ], [ %75, %61 ], [ %92, %78 ], [ %34, %24 ]
-  %95 = extractelement <2 x double> %.pre.sink109, i64 0
-  %96 = extractelement <2 x double> %.pre.sink109, i64 1
+  %95 = extractelement <2 x double> %.pre.sink110, i64 0
+  %96 = extractelement <2 x double> %.pre.sink110, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %97 = fsub <2 x double> %.sroa.0.8.vec.insert, %.pre.sink109
+  %97 = fsub <2 x double> %.sroa.0.8.vec.insert, %.pre.sink110
   %98 = fsub double %19, %94
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %100 = load ptr, ptr %99, align 8, !tbaa !213
@@ -3306,7 +3306,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %123 = load i64, ptr %122, align 8, !tbaa !11
   %124 = icmp sgt i64 %123, 0
-  br i1 %124, label %.lr.ph, label %.loopexit108
+  br i1 %124, label %.lr.ph, label %.loopexit109
 
 .lr.ph:                                           ; preds = %112
   %125 = sext i32 %113 to i64
@@ -3318,7 +3318,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
 129:                                              ; preds = %130
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %123
-  br i1 %exitcond.not, label %.loopexit108, label %130, !llvm.loop !216
+  br i1 %exitcond.not, label %.loopexit109, label %130, !llvm.loop !216
 
 130:                                              ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
@@ -3332,7 +3332,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   store i8 1, ptr %121, align 1, !tbaa !173
   br label %152
 
-.loopexit108:                                     ; preds = %129, %112
+.loopexit109:                                     ; preds = %129, %112
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %136 = load float, ptr %135, align 4, !tbaa !176
   %137 = fmul float %136, %136
@@ -3348,7 +3348,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   %145 = fcmp ogt double %143, %144
   br i1 %145, label %146, label %152
 
-146:                                              ; preds = %.loopexit108
+146:                                              ; preds = %.loopexit109
   store i8 1, ptr %121, align 1, !tbaa !173
   br label %152
 
@@ -3360,7 +3360,7 @@ define linkonce_odr dso_local void @_ZZN3igl6embree12bone_visibleIN5Eigen6Matrix
   store i8 1, ptr %151, align 1, !tbaa !173
   br label %152
 
-152:                                              ; preds = %.loopexit, %.loopexit108, %146, %147
+152:                                              ; preds = %.loopexit, %.loopexit109, %146, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

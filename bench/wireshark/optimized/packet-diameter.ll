@@ -3513,8 +3513,8 @@ proto_item_set_generated.exit150:                 ; preds = %207, %210, %213
   br i1 %.not5.i152, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
 proto_item_set_generated.exit.sink.split:         ; preds = %222, %201
-  %.sink170 = phi ptr [ %203, %201 ], [ %224, %222 ]
-  %225 = getelementptr inbounds nuw i8, ptr %.sink170, i64 28
+  %.sink183 = phi ptr [ %203, %201 ], [ %224, %222 ]
+  %225 = getelementptr inbounds nuw i8, ptr %.sink183, i64 28
   %226 = load i32, ptr %225, align 4
   %227 = or i32 %226, 2
   store i32 %227, ptr %225, align 4
@@ -5441,15 +5441,15 @@ define internal ptr @address_rfc_avp(ptr noundef readonly captures(none) %0, ptr
 30:                                               ; preds = %4
   %31 = call zeroext i1 @tvb_ascii_isprint(ptr noundef %2, i32 noundef 2, i32 noundef %15)
   %. = select i1 %31, i64 16, i64 20
-  %.55 = select i1 %31, i32 %15, i32 -1
+  %.56 = select i1 %31, i32 %15, i32 -1
   br label %32
 
 32:                                               ; preds = %4, %30, %25, %20
   %.sink = phi i64 [ 8, %20 ], [ 12, %25 ], [ %., %30 ], [ 20, %4 ]
-  %.sink53 = phi i32 [ 4, %20 ], [ 16, %25 ], [ %.55, %30 ], [ -1, %4 ]
+  %.sink54 = phi i32 [ 4, %20 ], [ 16, %25 ], [ %.56, %30 ], [ -1, %4 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink
   %34 = load i32, ptr %33, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %34, ptr noundef %2, i32 noundef 2, i32 noundef %.sink53, i32 noundef 0)
+  %35 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %34, ptr noundef %2, i32 noundef 2, i32 noundef %.sink54, i32 noundef 0)
   %36 = load ptr, ptr %0, align 8
   %.not52 = icmp eq ptr %36, null
   br i1 %.not52, label %47, label %37

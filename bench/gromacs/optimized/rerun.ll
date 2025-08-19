@@ -744,13 +744,13 @@ _ZN3gmx14LogEntryWriterD2Ev.exit267:              ; preds = %_ZNKSt7__cxx1112bas
   %236 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
   %.val.i.i.i.i.i = load i32, ptr %236, align 4, !tbaa !239
   %.not36.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i, 0
-  br i1 %.not36.i.i.i.i.i, label %237, label %.loopexit366.loopexit.split.loop.exit476
+  br i1 %.not36.i.i.i.i.i, label %237, label %.loopexit366.loopexit.split.loop.exit532
 
 237:                                              ; preds = %235
   %238 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   %.val30.i.i.i.i.i = load i32, ptr %238, align 4, !tbaa !239
   %.not37.i.i.i.i.i = icmp eq i32 %.val30.i.i.i.i.i, 0
-  br i1 %.not37.i.i.i.i.i, label %239, label %.loopexit366.loopexit.split.loop.exit474
+  br i1 %.not37.i.i.i.i.i, label %239, label %.loopexit366.loopexit.split.loop.exit530
 
 239:                                              ; preds = %237
   %240 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
@@ -806,16 +806,16 @@ _ZN3gmx14LogEntryWriterD2Ev.exit267:              ; preds = %_ZNKSt7__cxx1112bas
   %253 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
   br label %.loopexit366
 
-.loopexit366.loopexit.split.loop.exit474:         ; preds = %237
+.loopexit366.loopexit.split.loop.exit530:         ; preds = %237
   %254 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   br label %.loopexit366
 
-.loopexit366.loopexit.split.loop.exit476:         ; preds = %235
+.loopexit366.loopexit.split.loop.exit532:         ; preds = %235
   %255 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
   br label %.loopexit366
 
-.loopexit366:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit366.loopexit.split.loop.exit, %.loopexit366.loopexit.split.loop.exit474, %.loopexit366.loopexit.split.loop.exit476, %252, %249, %246
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %246 ], [ %.1.i.i.i.i.i, %249 ], [ %.2.i.i.i.i.i, %252 ], [ %253, %.loopexit366.loopexit.split.loop.exit ], [ %254, %.loopexit366.loopexit.split.loop.exit474 ], [ %255, %.loopexit366.loopexit.split.loop.exit476 ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+.loopexit366:                                     ; preds = %.lr.ph.i.i.i.i.i, %.loopexit366.loopexit.split.loop.exit, %.loopexit366.loopexit.split.loop.exit530, %.loopexit366.loopexit.split.loop.exit532, %252, %249, %246
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %246 ], [ %.1.i.i.i.i.i, %249 ], [ %.2.i.i.i.i.i, %252 ], [ %253, %.loopexit366.loopexit.split.loop.exit ], [ %254, %.loopexit366.loopexit.split.loop.exit530 ], [ %255, %.loopexit366.loopexit.split.loop.exit532 ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.not350 = icmp eq ptr %231, %.028.i.i.i.i.i
   br i1 %.not350, label %.thread, label %256
 
@@ -2354,7 +2354,7 @@ _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEl.exit: ; preds = %_ZN3gmx11Stop
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %1500, %1546, %1537, %.thread443, %1488, %1440, %1434, %1425, %1123, %1098
+.loopexit.split-lp.loopexit:                      ; preds = %1500, %1546, %1537, %.thread499, %1488, %1440, %1434, %1425, %1123, %1098
   %lpad.loopexit362 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3032,7 +3032,7 @@ _Z11do_per_stepll.exit320.thread:                 ; preds = %1452, %1475, %_Z11d
   %1485 = getelementptr inbounds nuw i8, ptr %1480, i64 56
   %1486 = load i32, ptr %1485, align 8, !tbaa !253
   %1487 = icmp sgt i32 %1486, 1
-  br i1 %1487, label %.thread443, label %1488
+  br i1 %1487, label %.thread499, label %1488
 
 1488:                                             ; preds = %1484, %_Z11do_per_stepll.exit320.thread
   %1489 = load ptr, ptr %390, align 8, !tbaa !264
@@ -3048,14 +3048,14 @@ _Z11do_per_stepll.exit320.thread:                 ; preds = %1452, %1475, %_Z11d
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre437, i64 56
   %.pre438 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !253
   %1495 = icmp sgt i32 %.pre438, 1
-  br i1 %1495, label %.thread443, label %1497
+  br i1 %1495, label %.thread499, label %1497
 
-.thread443:                                       ; preds = %1484, %1492
+.thread499:                                       ; preds = %1484, %1492
   %1496 = phi ptr [ %.pre437, %1492 ], [ %1480, %1484 ]
   invoke void @_Z19rerun_parallel_commP9t_commrecP10t_trxframePb(ptr noundef nonnull %1496, ptr noundef nonnull %9, ptr noundef nonnull %2)
           to label %1497 unwind label %.loopexit.split-lp.loopexit
 
-1497:                                             ; preds = %.thread443, %1492
+1497:                                             ; preds = %.thread499, %1492
   %1498 = load ptr, ptr %392, align 8, !tbaa !265
   %1499 = icmp eq ptr %1498, null
   br i1 %1499, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit.thread, label %1500

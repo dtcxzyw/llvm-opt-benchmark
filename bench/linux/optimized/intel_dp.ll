@@ -7228,7 +7228,7 @@ define dso_local noundef range(i32 0, 2) i32 @intel_dp_hpd_pulse(ptr noundef %0,
   br label %131
 
 131:                                              ; preds = %117, %126, %119, %107
-  %132 = phi i8 [ 0, %107 ], [ %85, %119 ], [ 0, %126 ], [ %85, %117 ]
+  %132 = phi i8 [ 0, %107 ], [ 1, %119 ], [ 0, %126 ], [ 1, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %133 = load i8, ptr %75, align 1
   %134 = or i8 %133, 2
@@ -7236,7 +7236,7 @@ define dso_local noundef range(i32 0, 2) i32 @intel_dp_hpd_pulse(ptr noundef %0,
   br label %135
 
 135:                                              ; preds = %131, %94, %88
-  %136 = phi i8 [ %132, %131 ], [ %85, %94 ], [ %85, %88 ]
+  %136 = phi i8 [ %132, %131 ], [ 1, %94 ], [ %85, %88 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %137 = call i32 @drm_dp_mst_hpd_irq_handle_event(ptr noundef nonnull %76, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7) #14
@@ -9772,11 +9772,11 @@ define internal fastcc noundef range(i32 0, 3) i32 @intel_dp_output_format(ptr r
   br i1 %66, label %71, label %76
 
 select.unfold.sink.split:                         ; preds = %58, %49
-  %.pre46 = load ptr, ptr %9, align 8
+  %.pre48 = load ptr, ptr %9, align 8
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.sink.split, %59
-  %67 = phi ptr [ %.pre4, %59 ], [ %.pre46, %select.unfold.sink.split ]
+  %67 = phi ptr [ %.pre4, %59 ], [ %.pre48, %select.unfold.sink.split ]
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 2632
   %69 = load i16, ptr %68, align 8
   %70 = icmp ugt i16 %69, 10
@@ -10873,14 +10873,14 @@ define internal fastcc void @intel_dp_set_sink_rates(ptr noundef %0) unnamed_add
 44:                                               ; preds = %39
   %45 = load i8, ptr %16, align 1
   %46 = icmp ugt i8 %45, 31
-  br i1 %46, label %47, label %.thread7
+  br i1 %46, label %47, label %.thread9
 
 47:                                               ; preds = %44
   %48 = getelementptr i8, ptr %0, i64 59
   %49 = load i8, ptr %48, align 1
   %50 = and i8 %49, 1
   %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.thread7, label %52
+  br i1 %51, label %.thread9, label %52
 
 52:                                               ; preds = %47
   %53 = getelementptr i8, ptr %0, i64 60
@@ -10918,22 +10918,22 @@ define internal fastcc void @intel_dp_set_sink_rates(ptr noundef %0) unnamed_add
   %73 = phi i32 [ %69, %68 ], [ %65, %64 ]
   %74 = and i8 %58, 2
   %75 = icmp eq i8 %74, 0
-  br i1 %75, label %.thread7, label %76
+  br i1 %75, label %.thread9, label %76
 
 76:                                               ; preds = %72
   %77 = add i32 %73, 1
   %78 = sext i32 %73 to i64
   %79 = getelementptr [8 x i32], ptr %21, i64 0, i64 %78
   store i32 2000000, ptr %79, align 4
-  br label %.thread7
+  br label %.thread9
 
-.thread7:                                         ; preds = %47, %44, %76, %72
+.thread9:                                         ; preds = %47, %44, %76, %72
   %80 = phi i32 [ %77, %76 ], [ %73, %72 ], [ %33, %44 ], [ %33, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %81
 
-81:                                               ; preds = %.thread7, %.loopexit
-  %82 = phi i32 [ %80, %.thread7 ], [ %33, %.loopexit ]
+81:                                               ; preds = %.thread9, %.loopexit
+  %82 = phi i32 [ %80, %.thread9 ], [ %33, %.loopexit ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %82, ptr %83, align 8
   %84 = icmp eq i32 %82, 0

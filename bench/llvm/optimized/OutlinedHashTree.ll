@@ -681,19 +681,19 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12emplace_backIJRS3_RS5_E
   %37 = load i64, ptr %29, align 8, !tbaa !41
   %.not.not.i.i = icmp eq i64 %37, 0
   %38 = load i64, ptr %35, align 8
-  br i1 %.not.not.i.i, label %.preheader74, label %43
+  br i1 %.not.not.i.i, label %.preheader90, label %43
 
-.preheader74:                                     ; preds = %34, %39
+.preheader90:                                     ; preds = %34, %39
   %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %39 ], [ %31, %34 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !17
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i, label %.loopexit, label %39
 
-39:                                               ; preds = %.preheader74
+39:                                               ; preds = %.preheader90
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !21
   %42 = icmp eq i64 %38, %41
-  br i1 %42, label %_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit, label %.preheader74, !llvm.loop !46
+  br i1 %42, label %_ZNSt13unordered_mapImSt10unique_ptrIN4llvm8HashNodeESt14default_deleteIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEE4findERSB_.exit, label %.preheader90, !llvm.loop !46
 
 43:                                               ; preds = %34
   %44 = load i64, ptr %30, align 8, !tbaa !47
@@ -731,7 +731,7 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_8HashNodeEPKS2_EE12emplace_backIJRS3_RS5_E
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %57
   br label %.loopexit, !llvm.loop !50
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader74, %43, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader90, %43, %..loopexit_crit_edge21.i.i.i.i
   %61 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18, !noalias !69
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 64
@@ -1142,11 +1142,11 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairImPKN4llvm8HashNodeEElN
 
 .lr.ph.preheader:                                 ; preds = %3
   %8 = icmp eq i64 %2, 0
-  br i1 %8, label %.lr.ph._crit_edge, label %.lr.ph31
+  br i1 %8, label %.lr.ph._crit_edge, label %.lr.ph32
 
-.lr.ph:                                           ; preds = %.lr.ph31
+.lr.ph:                                           ; preds = %.lr.ph32
   %9 = icmp eq i64 %25, 0
-  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph31, !llvm.loop !86
+  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph32, !llvm.loop !86
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi i64 [ %6, %.lr.ph.preheader ], [ %28, %.lr.ph ]
@@ -1188,18 +1188,18 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairImPKN4llvm8HashNodeEElN
   %24 = icmp sgt i64 %22, 16
   br i1 %24, label %17, label %_ZSt14__partial_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_.exit, !llvm.loop !88
 
-.lr.ph31:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0121830 = phi i64 [ %25, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.01929 = phi ptr [ %26, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %25 = add nsw i64 %.0121830, -1
-  %26 = tail call noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_T0_(ptr noundef %0, ptr noundef %.01929)
-  tail call void @_ZSt16__introsort_loopIPSt4pairImPKN4llvm8HashNodeEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_T1_(ptr noundef %26, ptr noundef %.01929, i64 noundef %25)
+.lr.ph32:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0121831 = phi i64 [ %25, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.01930 = phi ptr [ %26, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %25 = add nsw i64 %.0121831, -1
+  %26 = tail call noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SA_SA_T0_(ptr noundef %0, ptr noundef %.01930)
+  tail call void @_ZSt16__introsort_loopIPSt4pairImPKN4llvm8HashNodeEElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_T0_T1_(ptr noundef %26, ptr noundef %.01930, i64 noundef %25)
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %4
   %29 = icmp sgt i64 %28, 256
   br i1 %29, label %.lr.ph, label %_ZSt14__partial_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_.exit, !llvm.loop !86
 
-_ZSt14__partial_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_.exit: ; preds = %.lr.ph31, %17, %3
+_ZSt14__partial_sortIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_.exit: ; preds = %.lr.ph32, %17, %3
   ret void
 }
 
@@ -1596,16 +1596,16 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_
   br label %_ZSt22__move_median_to_firstIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_SA_T0_.exit
 
 _ZSt22__move_median_to_firstIPSt4pairImPKN4llvm8HashNodeEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_SA_T0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread_crit_edge.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread27._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread_crit_edge.i, %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread28.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread26._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread_crit_edge.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread29._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread_crit_edge.i, %46, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread30.i
-  %.sink47.i = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread_crit_edge.i ], [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.i ], [ %21, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread27._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread_crit_edge.i ], [ %21, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.i ], [ %11, %31 ], [ %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread28.i ], [ %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread26._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread_crit_edge.i ], [ %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.i ], [ %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread29._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread_crit_edge.i ], [ %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.i ], [ %12, %46 ], [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread30.i ]
-  %.sink46.i = phi ptr [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread_crit_edge.i ], [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.i ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread27._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread_crit_edge.i ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.i ], [ %9, %31 ], [ %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread28.i ], [ %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread26._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread_crit_edge.i ], [ %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.i ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread29._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread_crit_edge.i ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.i ], [ %8, %46 ], [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread30.i ]
-  %.sink42.i = phi ptr [ %.pre40.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread_crit_edge.i ], [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.i ], [ %.pre38.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread27._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread_crit_edge.i ], [ %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.i ], [ %.pre36.i, %31 ], [ %.pre36.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread28.i ], [ %.pre34.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread26._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread_crit_edge.i ], [ %41, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.i ], [ %.pre32.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread29._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread_crit_edge.i ], [ %49, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.i ], [ %.pre.i, %46 ], [ %.pre.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread30.i ]
+  %.sink57.i = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread_crit_edge.i ], [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.i ], [ %21, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread27._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread_crit_edge.i ], [ %21, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.i ], [ %11, %31 ], [ %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread28.i ], [ %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread26._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread_crit_edge.i ], [ %11, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.i ], [ %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread29._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread_crit_edge.i ], [ %36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.i ], [ %12, %46 ], [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread30.i ]
+  %.sink56.i = phi ptr [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread_crit_edge.i ], [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.i ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread27._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread_crit_edge.i ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.i ], [ %9, %31 ], [ %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread28.i ], [ %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread26._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread_crit_edge.i ], [ %9, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.i ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread29._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread_crit_edge.i ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.i ], [ %8, %46 ], [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread30.i ]
+  %.sink52.i = phi ptr [ %.pre40.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread_crit_edge.i ], [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.i ], [ %.pre38.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit22.thread27._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread_crit_edge.i ], [ %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.i ], [ %.pre36.i, %31 ], [ %.pre36.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit23.thread28.i ], [ %.pre34.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit.thread26._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread_crit_edge.i ], [ %41, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.i ], [ %.pre32.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit24.thread29._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread_crit_edge.i ], [ %49, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.i ], [ %.pre.i, %46 ], [ %.pre.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImPKN4llvm8HashNodeEES9_EEbT_T0_.exit25.thread30.i ]
   %51 = load i64, ptr %0, align 8, !tbaa !21
-  store i64 %.sink47.i, ptr %0, align 8, !tbaa !21
-  store i64 %51, ptr %.sink46.i, align 8, !tbaa !21
+  store i64 %.sink57.i, ptr %0, align 8, !tbaa !21
+  store i64 %51, ptr %.sink56.i, align 8, !tbaa !21
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 8
   %54 = load ptr, ptr %52, align 8, !tbaa !10
-  store ptr %.sink42.i, ptr %52, align 8, !tbaa !10
+  store ptr %.sink52.i, ptr %52, align 8, !tbaa !10
   store ptr %54, ptr %53, align 8, !tbaa !10
   br label %55
 

@@ -370,12 +370,12 @@ truehd_channels.exit96:                           ; preds = %233
   br i1 %exitcond.not.i100, label %truehd_layout.exit101, label %243, !llvm.loop !31
 
 truehd_layout.exit101:                            ; preds = %243, %mlp_samplerate.exit
-  %.sink115 = phi i64 [ 56, %mlp_samplerate.exit ], [ 72, %243 ]
+  %.sink117 = phi i64 [ 56, %mlp_samplerate.exit ], [ 72, %243 ]
   %.lcssa.sink = phi i64 [ %138, %mlp_samplerate.exit ], [ %251, %243 ]
   %.pre-phi = phi i32 [ %101, %mlp_samplerate.exit ], [ %153, %243 ]
   %252 = phi i32 [ %.0.i, %mlp_samplerate.exit ], [ %.0.i87, %243 ]
   %253 = phi i32 [ %130, %mlp_samplerate.exit ], [ %232, %243 ]
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink115
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink117
   store i64 %.lcssa.sink, ptr %254, align 8, !tbaa !25
   %255 = shl nuw nsw i32 40, %.pre-phi
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 80

@@ -41,12 +41,12 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
   br i1 %8, label %19, label %.preheader
 
 .preheader:                                       ; preds = %6, %.loopexit
-  %.055 = phi i64 [ %.0, %.loopexit ], [ 0, %6 ]
-  %.02854 = phi i64 [ %.028, %.loopexit ], [ %2, %6 ]
-  %16 = mul i64 %.02854, 3
+  %.061 = phi i64 [ %.0, %.loopexit ], [ 0, %6 ]
+  %.02860 = phi i64 [ %.028, %.loopexit ], [ %2, %6 ]
+  %16 = mul i64 %.02860, 3
   %17 = load i8, ptr %0, align 1
   %.not3745 = icmp ne i8 %17, 0
-  %18 = icmp ult i64 %.055, %16
+  %18 = icmp ult i64 %.061, %16
   %or.cond3946 = select i1 %.not3745, i1 %18, i1 false
   br i1 %or.cond3946, label %.lr.ph49, label %.critedge
 
@@ -56,7 +56,7 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
   br label %41
 
 .lr.ph49:                                         ; preds = %.preheader, %34
-  %.248 = phi i64 [ %37, %34 ], [ %.055, %.preheader ]
+  %.248 = phi i64 [ %37, %34 ], [ %.061, %.preheader ]
   %.03247 = phi ptr [ %36, %34 ], [ %0, %.preheader ]
   %22 = urem i64 %.248, 3
   %23 = udiv i64 %.248, 3
@@ -95,7 +95,7 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
   br i1 %or.cond39, label %.lr.ph49, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %34, %.preheader
-  %.2.lcssa = phi i64 [ %.055, %.preheader ], [ %37, %34 ]
+  %.2.lcssa = phi i64 [ %.061, %.preheader ], [ %37, %34 ]
   %40 = udiv i64 %.2.lcssa, 3
   br label %41
 

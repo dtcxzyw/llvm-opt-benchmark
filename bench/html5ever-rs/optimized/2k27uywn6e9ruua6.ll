@@ -112,9 +112,9 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
 
 4:                                                ; preds = %1
   %5 = icmp ult i64 %2, 9
-  br i1 %5, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread50", label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit"
+  br i1 %5, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread57", label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit"
 
-"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread50": ; preds = %4
+"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread57": ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 %2
   br label %21
@@ -137,22 +137,22 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
   %20 = icmp eq i32 %16, 0
   br i1 %20, label %.thread, label %21
 
-21:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread50", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit"
-  %22 = phi ptr [ %7, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread50" ], [ %19, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
-  %.sroa.0.0.i54 = phi ptr [ %6, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread50" ], [ %18, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
-  %.sroa.4.0.i53 = phi i64 [ %2, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread50" ], [ %17, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
-  %23 = ptrtoint ptr %.sroa.0.0.i54 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i54, i64 1
-  %25 = load i8, ptr %.sroa.0.0.i54, align 1, !noalias !27, !noundef !15
+21:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread57", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit"
+  %22 = phi ptr [ %7, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread57" ], [ %19, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
+  %.sroa.0.0.i61 = phi ptr [ %6, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread57" ], [ %18, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
+  %.sroa.4.0.i60 = phi i64 [ %2, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread57" ], [ %17, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit" ]
+  %23 = ptrtoint ptr %.sroa.0.0.i61 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i61, i64 1
+  %25 = load i8, ptr %.sroa.0.0.i61, align 1, !noalias !27, !noundef !15
   %26 = icmp sgt i8 %25, -1
   br i1 %26, label %37, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i": ; preds = %21
   %27 = and i8 %25, 31
   %28 = zext nneg i8 %27 to i32
-  %29 = icmp samesign ne i64 %.sroa.4.0.i53, 1
+  %29 = icmp samesign ne i64 %.sroa.4.0.i60, 1
   tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i54, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i61, i64 2
   %31 = load i8, ptr %24, align 1, !noalias !27, !noundef !15
   %32 = shl nuw nsw i32 %28, 6
   %33 = and i8 %31, 63
@@ -166,9 +166,9 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
   br label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread29"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i"
-  %39 = icmp samesign ne i64 %.sroa.4.0.i53, 2
+  %39 = icmp samesign ne i64 %.sroa.4.0.i60, 2
   tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i54, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i61, i64 3
   %41 = load i8, ptr %30, align 1, !noalias !27, !noundef !15
   %42 = shl nuw nsw i32 %34, 6
   %43 = and i8 %41, 63
@@ -180,7 +180,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
   br i1 %48, label %49, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread29"
 
 49:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i"
-  %50 = icmp samesign ne i64 %.sroa.4.0.i53, 3
+  %50 = icmp samesign ne i64 %.sroa.4.0.i60, 3
   tail call void @llvm.assume(i1 %50)
   %51 = load i8, ptr %40, align 1, !noalias !27, !noundef !15
   %52 = shl nuw nsw i32 %28, 18
@@ -202,7 +202,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
   br label %64
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit": ; preds = %49
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i54, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i61, i64 4
   br label %64
 
 64:                                               ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit", %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread29"
@@ -273,7 +273,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
   br i1 %.not.i.i20, label %101, label %103
 
 .thread.thread:                                   ; preds = %1, %.thread
-  %.04756 = phi i32 [ %.047, %.thread ], [ 1114112, %1 ]
+  %.04763 = phi i32 [ %.047, %.thread ], [ 1114112, %1 ]
   store i64 15, ptr %0, align 8, !alias.scope !37
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17hcb102b257bbd1529E.exit"
 
@@ -390,7 +390,7 @@ common.resume:                                    ; preds = %142, %105
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17hcb102b257bbd1529E.exit"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17hcb102b257bbd1529E.exit": ; preds = %144, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h1058aac47622e06aE.exit.i", %107, %101, %.thread.thread
-  %.046 = phi i32 [ %.04756, %.thread.thread ], [ %.047, %101 ], [ %.047, %107 ], [ %.sroa.4.0.i.ph10.i33, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h1058aac47622e06aE.exit.i" ], [ %.sroa.4.0.i.ph10.i33, %144 ]
+  %.046 = phi i32 [ %.04763, %.thread.thread ], [ %.047, %101 ], [ %.047, %107 ], [ %.sroa.4.0.i.ph10.i33, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h1058aac47622e06aE.exit.i" ], [ %.sroa.4.0.i.ph10.i33, %144 ]
   ret i32 %.046
 }
 
@@ -571,7 +571,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
 
 14:                                               ; preds = %4
   %15 = icmp ult i64 %12, 9
-  br i1 %15, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread14.i", label %16
+  br i1 %15, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread16.i", label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %12, -2
@@ -586,7 +586,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   %23 = zext i32 %22 to i64
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i"
 
-"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread14.i": ; preds = %14
+"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread16.i": ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %31
 
@@ -600,18 +600,18 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   %30 = icmp eq i32 %27, 0
   br i1 %30, label %.thread.i, label %31
 
-31:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread14.i"
-  %.sroa.0.0.i18.i = phi ptr [ %24, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread14.i" ], [ %29, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ]
-  %.sroa.4.0.i17.i = phi i64 [ %12, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread14.i" ], [ %28, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ]
-  %32 = load i8, ptr %.sroa.0.0.i18.i, align 1, !noalias !73, !noundef !15
+31:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread16.i"
+  %.sroa.0.0.i20.i = phi ptr [ %24, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread16.i" ], [ %29, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ]
+  %.sroa.4.0.i19.i = phi i64 [ %12, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.thread16.i" ], [ %28, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ]
+  %32 = load i8, ptr %.sroa.0.0.i20.i, align 1, !noalias !73, !noundef !15
   %33 = icmp sgt i8 %32, -1
   br i1 %33, label %44, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i": ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i18.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i20.i, i64 1
   %35 = and i8 %32, 31
   %36 = zext nneg i8 %35 to i32
-  %37 = icmp samesign ne i64 %.sroa.4.0.i17.i, 1
+  %37 = icmp samesign ne i64 %.sroa.4.0.i19.i, 1
   tail call void @llvm.assume(i1 %37)
   %38 = load i8, ptr %34, align 1, !noalias !73, !noundef !15
   %39 = shl nuw nsw i32 %36, 6
@@ -626,8 +626,8 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   br label %"_ZN11markup5ever4util12buffer_queue11BufferQueue4peek28_$u7b$$u7b$closure$u7d$$u7d$17hb8321746d227a486E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i"
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i18.i, i64 2
-  %47 = icmp samesign ne i64 %.sroa.4.0.i17.i, 2
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i20.i, i64 2
+  %47 = icmp samesign ne i64 %.sroa.4.0.i19.i, 2
   tail call void @llvm.assume(i1 %47)
   %48 = load i8, ptr %46, align 1, !noalias !73, !noundef !15
   %49 = shl nuw nsw i32 %41, 6
@@ -640,8 +640,8 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   br i1 %55, label %56, label %"_ZN11markup5ever4util12buffer_queue11BufferQueue4peek28_$u7b$$u7b$closure$u7d$$u7d$17hb8321746d227a486E.exit"
 
 56:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i"
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i18.i, i64 3
-  %58 = icmp samesign ne i64 %.sroa.4.0.i17.i, 3
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i20.i, i64 3
+  %58 = icmp samesign ne i64 %.sroa.4.0.i19.i, 3
   tail call void @llvm.assume(i1 %58)
   %59 = load i8, ptr %57, align 1, !noalias !73, !noundef !15
   %60 = shl nuw nsw i32 %36, 18

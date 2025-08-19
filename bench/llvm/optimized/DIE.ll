@@ -927,10 +927,10 @@ _ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i: ; preds = %83
   br i1 %.not.i.i.i15, label %_ZN4llvm23SmallVectorTemplateBaseINS_13DIEAbbrevDataELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i, label %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i.thread
 
 _ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i.thread: ; preds = %83, %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i
-  %.pre-phi24 = phi i64 [ %.pre21, %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i ], [ %84, %83 ]
+  %.pre-phi40 = phi i64 [ %.pre21, %_ZSt4moveIPN4llvm13DIEAbbrevDataES2_ET0_T_S4_S3_.exit35.i ], [ %84, %83 ]
   %86 = load ptr, ptr %36, align 8, !tbaa !16
   %87 = load ptr, ptr %71, align 8, !tbaa !16
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi24, 4
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi40, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 8 %86, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13DIEAbbrevDataELb1EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit.i
 
@@ -1140,11 +1140,11 @@ _ZN4llvm9DIEAbbrev12AddAttributeENS_5dwarf9AttributeENS1_4FormE.exit: ; preds = 
   br label %select.unfold
 
 select.unfold:                                    ; preds = %_ZN4llvm9DIEAbbrev12AddAttributeENS_5dwarf9AttributeENS1_4FormE.exit, %_ZN4llvm9DIEAbbrev25AddImplicitConstAttributeENS_5dwarf9AttributeEl.exit
-  %.sink29 = phi i32 [ %41, %_ZN4llvm9DIEAbbrev12AddAttributeENS_5dwarf9AttributeENS1_4FormE.exit ], [ %35, %_ZN4llvm9DIEAbbrev25AddImplicitConstAttributeENS_5dwarf9AttributeEl.exit ]
+  %.sink31 = phi i32 [ %41, %_ZN4llvm9DIEAbbrev12AddAttributeENS_5dwarf9AttributeENS1_4FormE.exit ], [ %35, %_ZN4llvm9DIEAbbrev25AddImplicitConstAttributeENS_5dwarf9AttributeEl.exit ]
   %.sroa.0.0.insert.insert.i13.sink = phi i64 [ %.sroa.0.0.insert.insert.i13, %_ZN4llvm9DIEAbbrev12AddAttributeENS_5dwarf9AttributeENS1_4FormE.exit ], [ %.sroa.0.0.insert.insert.i, %_ZN4llvm9DIEAbbrev25AddImplicitConstAttributeENS_5dwarf9AttributeEl.exit ]
   %.sink = phi i64 [ 0, %_ZN4llvm9DIEAbbrev12AddAttributeENS_5dwarf9AttributeENS1_4FormE.exit ], [ %30, %_ZN4llvm9DIEAbbrev25AddImplicitConstAttributeENS_5dwarf9AttributeEl.exit ]
   %42 = load ptr, ptr %15, align 8, !tbaa !16
-  %43 = zext i32 %.sink29 to i64
+  %43 = zext i32 %.sink31 to i64
   %44 = getelementptr inbounds nuw %"class.llvm::DIEAbbrevData", ptr %42, i64 %43
   store i64 %.sroa.0.0.insert.insert.i13.sink, ptr %44, align 1
   %.sroa.2.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -1156,8 +1156,8 @@ select.unfold:                                    ; preds = %_ZN4llvm9DIEAbbrev1
   %45 = and i64 %.0.copyload.i.i.i.i.i.i15, 4
   %.not.i.i.i16 = icmp ne i64 %45, 0
   %46 = and i64 %.0.copyload.i.i.i.i.i.i15, -8
-  %.not30 = icmp eq i64 %46, 0
-  %.not = or i1 %.not.i.i.i16, %.not30
+  %.not32 = icmp eq i64 %46, 0
+  %.not = or i1 %.not.i.i.i16, %.not32
   br i1 %.not, label %select.unfold._crit_edge, label %.lr.ph
 }
 
@@ -1453,8 +1453,8 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   %58 = and i64 %.0.copyload.i.i.i.i.i.i8, 4
   %.not.i.i.i9 = icmp ne i64 %58, 0
   %59 = and i64 %.0.copyload.i.i.i.i.i.i8, -8
-  %.not1726 = icmp eq i64 %59, 0
-  %.not17 = or i1 %.not.i.i.i9, %.not1726
+  %.not1727 = icmp eq i64 %59, 0
+  %.not17 = or i1 %.not.i.i.i9, %.not1727
   br i1 %.not17, label %select.unfold._crit_edge, label %.lr.ph
 
 select.unfold._crit_edge:                         ; preds = %.critedge, %3, %_ZNK4llvm12DIEValueList6valuesEv.exit
@@ -1869,8 +1869,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit67:               ; preds = %215, %217
   %220 = and i64 %.0.copyload.i.i.i.i.i.i68, 4
   %.not.i.i.i69 = icmp ne i64 %220, 0
   %221 = and i64 %.0.copyload.i.i.i.i.i.i68, -8
-  %.not102 = icmp eq i64 %221, 0
-  %.not = or i1 %.not.i.i.i69, %.not102
+  %.not118 = icmp eq i64 %221, 0
+  %.not = or i1 %.not.i.i.i69, %.not118
   br i1 %.not, label %select.unfold._crit_edge, label %148
 
 select.unfold85._crit_edge:                       ; preds = %select.unfold85, %select.unfold._crit_edge, %_ZNK4llvm3DIE8childrenEv.exit
@@ -1921,8 +1921,8 @@ select.unfold85:                                  ; preds = %.lr.ph92, %select.u
   %238 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not.i.i73 = icmp ne i64 %238, 0
   %239 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not87103 = icmp eq i64 %239, 0
-  %.not87 = or i1 %.not.i.i73, %.not87103
+  %.not87119 = icmp eq i64 %239, 0
+  %.not87 = or i1 %.not.i.i73, %.not87119
   br i1 %.not87, label %select.unfold85._crit_edge, label %select.unfold85
 }
 
@@ -2057,8 +2057,8 @@ select.unfold:                                    ; preds = %_ZN4llvm12DIEValueL
   %24 = and i64 %.0.copyload.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp ne i64 %24, 0
   %25 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %.not55 = icmp eq i64 %25, 0
-  %.not = or i1 %.not.i.i.i, %.not55
+  %.not56 = icmp eq i64 %25, 0
+  %.not = or i1 %.not.i.i.i, %.not56
   br i1 %.not, label %select.unfold._crit_edge, label %select.unfold
 
 26:                                               ; preds = %select.unfold._crit_edge
@@ -2085,8 +2085,8 @@ select.unfold38:                                  ; preds = %_ZN4llvm3DIE8childr
   %30 = and i64 %.0.copyload.i.i.i.i.i26, 4
   %.not.i.i27 = icmp ne i64 %30, 0
   %31 = and i64 %.0.copyload.i.i.i.i.i26, -8
-  %.not4056 = icmp eq i64 %31, 0
-  %.not40 = or i1 %.not.i.i27, %.not4056
+  %.not4057 = icmp eq i64 %31, 0
+  %.not40 = or i1 %.not.i.i27, %.not4057
   br i1 %.not40, label %select.unfold38._crit_edge, label %select.unfold38
 
 32:                                               ; preds = %select.unfold38._crit_edge, %select.unfold._crit_edge
@@ -4327,8 +4327,8 @@ select.unfold:                                    ; preds = %_ZNK4llvm12DIEValue
   %12 = and i64 %.0.copyload.i.i.i.i.i.i6, 4
   %.not.i.i.i7 = icmp ne i64 %12, 0
   %13 = and i64 %.0.copyload.i.i.i.i.i.i6, -8
-  %.not1217 = icmp eq i64 %13, 0
-  %.not12 = or i1 %.not.i.i.i7, %.not1217
+  %.not1218 = icmp eq i64 %13, 0
+  %.not12 = or i1 %.not.i.i.i7, %.not1218
   br i1 %.not12, label %.loopexit, label %select.unfold
 
 .loopexit:                                        ; preds = %select.unfold, %5, %_ZNK4llvm12DIEValueList6valuesEv.exit, %2
@@ -4604,8 +4604,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38:               ; preds = %130, %132
   %135 = and i64 %.0.copyload.i.i.i.i.i.i39, 4
   %.not.i.i.i40 = icmp ne i64 %135, 0
   %136 = and i64 %.0.copyload.i.i.i.i.i.i39, -8
-  %.not53 = icmp eq i64 %136, 0
-  %.not = or i1 %.not.i.i.i40, %.not53
+  %.not62 = icmp eq i64 %136, 0
+  %.not = or i1 %.not.i.i.i40, %.not62
   br i1 %.not, label %select.unfold._crit_edge, label %57
 }
 
@@ -4639,8 +4639,8 @@ select.unfold:                                    ; preds = %_ZNK4llvm12DIEValue
   %12 = and i64 %.0.copyload.i.i.i.i.i.i6, 4
   %.not.i.i.i7 = icmp ne i64 %12, 0
   %13 = and i64 %.0.copyload.i.i.i.i.i.i6, -8
-  %.not1217 = icmp eq i64 %13, 0
-  %.not12 = or i1 %.not.i.i.i7, %.not1217
+  %.not1218 = icmp eq i64 %13, 0
+  %.not12 = or i1 %.not.i.i.i7, %.not1218
   br i1 %.not12, label %.loopexit, label %select.unfold
 
 .loopexit:                                        ; preds = %select.unfold, %5, %_ZNK4llvm12DIEValueList6valuesEv.exit, %2

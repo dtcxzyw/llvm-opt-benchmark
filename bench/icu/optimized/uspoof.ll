@@ -91,9 +91,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_117initializeStaticsER10UErrorCode(
   store ptr %6, ptr @_ZL15gRecommendedSet, align 8, !tbaa !12
   %12 = load ptr, ptr @_ZL13gInclusionSet, align 8, !tbaa !12
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread22, label %21
+  br i1 %13, label %.thread27, label %21
 
-.thread22:                                        ; preds = %11
+.thread27:                                        ; preds = %11
   store i32 7, ptr %0, align 4, !tbaa !3
   br label %16
 
@@ -105,10 +105,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_117initializeStaticsER10UErrorCode(
   %15 = icmp eq ptr %.pr.pre, null
   br i1 %15, label %.thread20, label %16
 
-16:                                               ; preds = %.thread22, %14
-  %.pr24 = phi ptr [ %6, %.thread22 ], [ %.pr.pre, %14 ]
-  tail call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %.pr24) #6
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.pr24) #6
+16:                                               ; preds = %.thread27, %14
+  %.pr29 = phi ptr [ %6, %.thread27 ], [ %.pr.pre, %14 ]
+  tail call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %.pr29) #6
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.pr29) #6
   br label %.thread20
 
 .thread20:                                        ; preds = %.thread, %16, %14
@@ -1174,8 +1174,8 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
           to label %60 unwind label %29
 
 60:                                               ; preds = %53
-  %.not56 = icmp eq i8 %59, 0
-  br i1 %.not56, label %.thread, label %61
+  %.not57 = icmp eq i8 %59, 0
+  br i1 %.not57, label %.thread, label %61
 
 61:                                               ; preds = %34, %60
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1696,8 +1696,8 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
           to label %61 unwind label %30
 
 61:                                               ; preds = %54
-  %.not49 = icmp eq i8 %60, 0
-  br i1 %.not49, label %.thread, label %62
+  %.not50 = icmp eq i8 %60, 0
+  br i1 %.not50, label %.thread, label %62
 
 62:                                               ; preds = %35, %61
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

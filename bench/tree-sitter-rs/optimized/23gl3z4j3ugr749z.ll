@@ -303,12 +303,12 @@ _ZN5serde2de9MapAccess10next_value17h5dea298616bea054E.exit._crit_edge: ; preds 
   %98 = load i64, ptr %11, align 8, !range !4, !noalias !66, !noundef !5
   switch i64 %98, label %101 [
     i64 -9223372036854775807, label %99
-    i64 -9223372036854775808, label %.thread123
+    i64 -9223372036854775808, label %.thread127
   ]
 
-.thread123:                                       ; preds = %.noexc33
+.thread127:                                       ; preds = %.noexc33
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !66
-  br label %.loopexit128
+  br label %.loopexit132
 
 99:                                               ; preds = %.noexc33
   %100 = load ptr, ptr %93, align 8, !noalias !66, !nonnull !5, !align !6, !noundef !5
@@ -451,7 +451,7 @@ _ZN5serde2de9MapAccess10next_value17h5dea298616bea054E.exit._crit_edge: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !66
   switch i64 %.sroa.071.0.copyload, label %136 [
     i64 -9223372036854775807, label %.loopexit104
-    i64 -9223372036854775808, label %.loopexit128
+    i64 -9223372036854775808, label %.loopexit132
   ]
 
 .loopexit104:                                     ; preds = %132, %.thread90
@@ -488,13 +488,13 @@ _ZN5serde2de9MapAccess10next_value17h5dea298616bea054E.exit._crit_edge: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %97
 
-.loopexit128:                                     ; preds = %132, %.thread123
+.loopexit132:                                     ; preds = %132, %.thread127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %25, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %141
 
-141:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4941a9f7fc303549E.exit", %.loopexit128, %33, %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hf48481a2f57721f9E.exit44"
+141:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4941a9f7fc303549E.exit", %.loopexit132, %33, %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hf48481a2f57721f9E.exit44"
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret void
 

@@ -323,9 +323,9 @@ define range(i32 0, 2) i32 @X509v3_asid_add_id_or_range(ptr noundef captures(add
   br label %48
 
 48:                                               ; preds = %41, %36
-  %.sink39 = phi ptr [ %47, %41 ], [ %27, %36 ]
+  %.sink44 = phi ptr [ %47, %41 ], [ %27, %36 ]
   %.sink = phi ptr [ %3, %41 ], [ %2, %36 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sink39, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sink44, i64 8
   store ptr %.sink, ptr %49, align 8, !tbaa !11
   %50 = load ptr, ptr %.029, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -840,31 +840,31 @@ extract_min_max.exit76:                           ; preds = %37, %34
   br label %.sink.split
 
 .sink.split:                                      ; preds = %78, %80
-  %.sink151 = phi ptr [ %85, %80 ], [ %17, %78 ]
+  %.sink158 = phi ptr [ %85, %80 ], [ %17, %78 ]
   %.099.sink = phi ptr [ %.099, %80 ], [ %76, %78 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.sink151, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.sink158, i64 8
   store ptr %.099.sink, ptr %86, align 8, !tbaa !11
   br label %87
 
 87:                                               ; preds = %.sink.split, %73
   %88 = load i32, ptr %20, align 8, !tbaa !12
   switch i32 %88, label %93 [
-    i32 0, label %.sink.split152
+    i32 0, label %.sink.split159
     i32 1, label %89
   ]
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !11
-  br label %.sink.split152
+  br label %.sink.split159
 
-.sink.split152:                                   ; preds = %87, %89
-  %.sink153 = phi ptr [ %91, %89 ], [ %20, %87 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.sink153, i64 8
+.sink.split159:                                   ; preds = %87, %89
+  %.sink160 = phi ptr [ %91, %89 ], [ %20, %87 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.sink160, i64 8
   store ptr null, ptr %92, align 8, !tbaa !11
   br label %93
 
-93:                                               ; preds = %.sink.split152, %87
+93:                                               ; preds = %.sink.split159, %87
   tail call void @ASN1_item_free(ptr noundef nonnull %20, ptr noundef nonnull @ASIdOrRange_it.local_it) #6
   %94 = load ptr, ptr %6, align 8, !tbaa !11
   %95 = tail call ptr @OPENSSL_sk_delete(ptr noundef %94, i32 noundef %19) #6
@@ -1868,10 +1868,10 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   br label %.critedge.thread
 
 ._crit_edge.thread:                               ; preds = %147, %._crit_edge
-  %.1154.lcssa311 = phi i32 [ %.1154279, %._crit_edge ], [ %.1154, %147 ]
-  %.1.lcssa310 = phi ptr [ %.0, %._crit_edge ], [ %60, %147 ]
-  %.3151.lcssa309 = phi i32 [ %.1149, %._crit_edge ], [ %.5, %147 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.1.lcssa310, i64 304
+  %.1154.lcssa337 = phi i32 [ %.1154279, %._crit_edge ], [ %.1154, %147 ]
+  %.1.lcssa336 = phi ptr [ %.0, %._crit_edge ], [ %60, %147 ]
+  %.3151.lcssa335 = phi i32 [ %.1149, %._crit_edge ], [ %.5, %147 ]
+  %153 = getelementptr inbounds nuw i8, ptr %.1.lcssa336, i64 304
   %154 = load ptr, ptr %153, align 8, !tbaa !51
   %.not197 = icmp eq ptr %154, null
   br i1 %.not197, label %.critedge.thread, label %155
@@ -1893,9 +1893,9 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 46, ptr %162, align 8, !tbaa !50
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %.1154.lcssa311, ptr %163, align 4, !tbaa !74
+  store i32 %.1154.lcssa337, ptr %163, align 4, !tbaa !74
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.1.lcssa310, ptr %164, align 8, !tbaa !75
+  store ptr %.1.lcssa336, ptr %164, align 8, !tbaa !75
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %166 = load ptr, ptr %165, align 8, !tbaa !49
   %167 = tail call i32 %166(i32 noundef 0, ptr noundef nonnull %0) #6
@@ -1908,7 +1908,7 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
 
 168:                                              ; preds = %._crit_edge303, %157, %155
   %169 = phi ptr [ %.pre304, %._crit_edge303 ], [ %154, %157 ], [ %154, %155 ]
-  %.15 = phi i32 [ %167, %._crit_edge303 ], [ %.3151.lcssa309, %157 ], [ %.3151.lcssa309, %155 ]
+  %.15 = phi i32 [ %167, %._crit_edge303 ], [ %.3151.lcssa335, %157 ], [ %.3151.lcssa335, %155 ]
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8, !tbaa !23
   %.not200 = icmp eq ptr %171, null
@@ -1925,16 +1925,16 @@ X509v3_asid_is_canonical.exit220.thread:          ; preds = %74, %X509v3_asid_is
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 46, ptr %176, align 8, !tbaa !50
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %.1154.lcssa311, ptr %177, align 4, !tbaa !74
+  store i32 %.1154.lcssa337, ptr %177, align 4, !tbaa !74
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.1.lcssa310, ptr %178, align 8, !tbaa !75
+  store ptr %.1.lcssa336, ptr %178, align 8, !tbaa !75
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %180 = load ptr, ptr %179, align 8, !tbaa !49
   %181 = tail call i32 %180(i32 noundef 0, ptr noundef nonnull %0) #6
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %143, %126, %111, %92, %X509v3_asid_is_canonical.exit220.thread, %70, %71, %80, %.thread237, %112, %.thread253, %144, %160, %X509v3_asid_is_canonical.exit.thread, %7, %172, %17, %28, %161, %168, %._crit_edge.thread, %175, %150, %151, %61, %62, %.critedge, %.critedge.thread222
-  %.0165 = phi i32 [ 0, %.critedge.thread222 ], [ 0, %.critedge ], [ 0, %62 ], [ 0, %61 ], [ 0, %151 ], [ 0, %150 ], [ %181, %175 ], [ %.15.mux, %172 ], [ %.15, %168 ], [ 0, %161 ], [ %.3151.lcssa309, %._crit_edge.thread ], [ 0, %28 ], [ 1, %17 ], [ 0, %7 ], [ 0, %X509v3_asid_is_canonical.exit.thread ], [ 0, %160 ], [ 0, %144 ], [ 0, %.thread253 ], [ 0, %112 ], [ 0, %.thread237 ], [ 0, %80 ], [ 0, %71 ], [ 0, %70 ], [ 0, %X509v3_asid_is_canonical.exit220.thread ], [ 0, %92 ], [ 0, %111 ], [ 0, %126 ], [ 0, %143 ]
+  %.0165 = phi i32 [ 0, %.critedge.thread222 ], [ 0, %.critedge ], [ 0, %62 ], [ 0, %61 ], [ 0, %151 ], [ 0, %150 ], [ %181, %175 ], [ %.15.mux, %172 ], [ %.15, %168 ], [ 0, %161 ], [ %.3151.lcssa335, %._crit_edge.thread ], [ 0, %28 ], [ 1, %17 ], [ 0, %7 ], [ 0, %X509v3_asid_is_canonical.exit.thread ], [ 0, %160 ], [ 0, %144 ], [ 0, %.thread253 ], [ 0, %112 ], [ 0, %.thread237 ], [ 0, %80 ], [ 0, %71 ], [ 0, %70 ], [ 0, %X509v3_asid_is_canonical.exit220.thread ], [ 0, %92 ], [ 0, %111 ], [ 0, %126 ], [ 0, %143 ]
   ret i32 %.0165
 }
 

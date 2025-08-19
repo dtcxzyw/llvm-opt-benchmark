@@ -2265,9 +2265,9 @@ browscap_compute_prefix_len.exit:                 ; preds = %zend_string_copy.ex
   br i1 %exitcond39.not.i, label %browscap_compute_contains.exit, label %.lr.ph32.i
 
 browscap_compute_contains.exit:                   ; preds = %.lr.ph32.i, %.lr.ph32.i, %279, %._crit_edge.thread.i, %._crit_edge.i136
-  %.0.lcssa41.i = phi i64 [ %.0.lcssa.i137, %._crit_edge.i136 ], [ %262, %._crit_edge.thread.i ], [ %.0.lcssa.i137, %279 ], [ %.0.lcssa.i137, %.lr.ph32.i ], [ %.0.lcssa.i137, %.lr.ph32.i ]
+  %.0.lcssa45.i = phi i64 [ %.0.lcssa.i137, %._crit_edge.i136 ], [ %262, %._crit_edge.thread.i ], [ %.0.lcssa.i137, %279 ], [ %.0.lcssa.i137, %.lr.ph32.i ], [ %.0.lcssa.i137, %.lr.ph32.i ]
   %.1.lcssa.i = phi i64 [ %.0.lcssa.i137, %._crit_edge.i136 ], [ %262, %._crit_edge.thread.i ], [ %.130.i, %.lr.ph32.i ], [ %.130.i, %.lr.ph32.i ], [ %262, %279 ]
-  %281 = and i64 %.0.lcssa41.i, 65535
+  %281 = and i64 %.0.lcssa45.i, 65535
   %282 = sub i64 %.1.lcssa.i, %281
   %spec.select24.i = call i64 @llvm.umin.i64(i64 %282, i64 255)
   %spec.select.i = trunc nuw i64 %spec.select24.i to i8

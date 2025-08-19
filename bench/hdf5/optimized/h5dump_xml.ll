@@ -836,15 +836,15 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   %103 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.105, ptr noundef %102) #14
   %switch.selectcmp = icmp eq i32 %99, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.107, ptr @.str.108
-  %switch.selectcmp202 = icmp eq i32 %99, 0
-  %switch.select203 = select i1 %switch.selectcmp202, ptr @.str.106, ptr %switch.select
-  %104 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %switch.select203) #14
+  %switch.selectcmp208 = icmp eq i32 %99, 0
+  %switch.select209 = select i1 %switch.selectcmp208, ptr @.str.106, ptr %switch.select
+  %104 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %switch.select209) #14
   %105 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.109) #14
-  %switch.selectcmp208 = icmp eq i32 %100, 1
-  %switch.select209 = select i1 %switch.selectcmp208, ptr @.str.111, ptr @.str.108
-  %switch.selectcmp210 = icmp eq i32 %100, 0
-  %switch.select211 = select i1 %switch.selectcmp210, ptr @.str.110, ptr %switch.select209
-  %106 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %switch.select211) #14
+  %switch.selectcmp214 = icmp eq i32 %100, 1
+  %switch.select215 = select i1 %switch.selectcmp214, ptr @.str.111, ptr @.str.108
+  %switch.selectcmp216 = icmp eq i32 %100, 0
+  %switch.select217 = select i1 %switch.selectcmp216, ptr @.str.110, ptr %switch.select215
+  %106 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %switch.select217) #14
   %107 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.112) #14
   %108 = call i64 @H5Tget_size(i64 noundef %0) #14
   %109 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.86, i64 noundef %108) #14
@@ -894,8 +894,8 @@ switch.lookup:                                    ; preds = %124
   br label %141
 
 141:                                              ; preds = %124, %switch.lookup
-  %.str.108.sink200 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.108, %124 ]
-  %142 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %.str.108.sink200) #14
+  %.str.108.sink206 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.108, %124 ]
+  %142 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %.str.108.sink206) #14
   %143 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.112) #14
   %144 = call i64 @H5Tget_size(i64 noundef %0) #14
   %145 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.86, i64 noundef %144) #14
@@ -998,16 +998,16 @@ switch.lookup:                                    ; preds = %124
 
 221:                                              ; preds = %218, %216
   %222 = icmp ult i32 %198, 3
-  br i1 %222, label %switch.lookup212, label %224
+  br i1 %222, label %switch.lookup218, label %224
 
-switch.lookup212:                                 ; preds = %221
+switch.lookup218:                                 ; preds = %221
   %223 = zext nneg i32 %198 to i64
-  %switch.gep213 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_print_datatype.1, i64 0, i64 %223
-  %switch.load214 = load ptr, ptr %switch.gep213, align 8
+  %switch.gep219 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_print_datatype.1, i64 0, i64 %223
+  %switch.load220 = load ptr, ptr %switch.gep219, align 8
   br label %224
 
-224:                                              ; preds = %221, %switch.lookup212
-  %.str.128.sink = phi ptr [ %switch.load214, %switch.lookup212 ], [ @.str.130, %221 ]
+224:                                              ; preds = %221, %switch.lookup218
+  %.str.128.sink = phi ptr [ %switch.load220, %switch.lookup218 ], [ @.str.130, %221 ]
   %225 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %.str.128.sink) #14
   %226 = load ptr, ptr @rawoutstream, align 8, !tbaa !42
   %227 = load i32, ptr %38, align 8, !tbaa !28
@@ -1044,11 +1044,11 @@ switch.lookup212:                                 ; preds = %221
   %251 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %252 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
   %253 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.131, ptr noundef %252) #14
-  %switch.selectcmp204 = icmp eq i32 %240, 1
-  %switch.select205 = select i1 %switch.selectcmp204, ptr @.str.107, ptr @.str.108
-  %switch.selectcmp206 = icmp eq i32 %240, 0
-  %switch.select207 = select i1 %switch.selectcmp206, ptr @.str.106, ptr %switch.select205
-  %254 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %switch.select207) #14
+  %switch.selectcmp210 = icmp eq i32 %240, 1
+  %switch.select211 = select i1 %switch.selectcmp210, ptr @.str.107, ptr @.str.108
+  %switch.selectcmp212 = icmp eq i32 %240, 0
+  %switch.select213 = select i1 %switch.selectcmp212, ptr @.str.106, ptr %switch.select211
+  %254 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull %switch.select213) #14
   %255 = call i64 @H5Tget_size(i64 noundef %0) #14
   %256 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.132, i64 noundef %255) #14
   %257 = load ptr, ptr @rawoutstream, align 8, !tbaa !42
@@ -3710,9 +3710,9 @@ sub_0:                                            ; preds = %47, %50
   br label %232
 
 232:                                              ; preds = %228, %231
-  %.sink192 = phi i32 [ 0, %231 ], [ 1, %228 ]
+  %.sink201 = phi i32 [ 0, %231 ], [ 1, %228 ]
   %233 = load i32, ptr @sort_order, align 4, !tbaa !8
-  %234 = call i32 @H5Literate2(i64 noundef %0, i32 noundef %.sink192, i32 noundef %233, ptr noundef null, ptr noundef nonnull @xml_dump_all_cb, ptr noundef null) #14
+  %234 = call i32 @H5Literate2(i64 noundef %0, i32 noundef %.sink201, i32 noundef %233, ptr noundef null, ptr noundef nonnull @xml_dump_all_cb, ptr noundef null) #14
   %235 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %236 = add i32 %235, -3
   store i32 %236, ptr @dump_indent, align 4, !tbaa !8
@@ -3784,7 +3784,7 @@ sub_0:                                            ; preds = %47, %50
   %272 = load ptr, ptr %271, align 8, !tbaa !70
   %273 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %269, ptr noundef null, ptr noundef %272, ptr noundef null) #14
   %274 = icmp slt i32 %273, 0
-  br i1 %274, label %.sink.split194, label %282
+  br i1 %274, label %.sink.split203, label %282
 
 275:                                              ; preds = %265, %254
   %276 = load i32, ptr @sort_order, align 4, !tbaa !8
@@ -3793,14 +3793,14 @@ sub_0:                                            ; preds = %47, %50
   %279 = load ptr, ptr %278, align 8, !tbaa !70
   %280 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %276, ptr noundef null, ptr noundef %279, ptr noundef null) #14
   %281 = icmp slt i32 %280, 0
-  br i1 %281, label %.sink.split194, label %282
+  br i1 %281, label %.sink.split203, label %282
 
-.sink.split194:                                   ; preds = %275, %268
+.sink.split203:                                   ; preds = %275, %268
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.47) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
   br label %282
 
-282:                                              ; preds = %.sink.split194, %275, %268
+282:                                              ; preds = %.sink.split203, %275, %268
   %283 = load i32, ptr @unamedtype, align 4
   %284 = icmp ne i32 %283, 0
   %or.cond3 = select i1 %82, i1 %284, i1 false
@@ -3874,9 +3874,9 @@ sub_0:                                            ; preds = %47, %50
   br label %327
 
 327:                                              ; preds = %323, %326
-  %.sink195 = phi i32 [ 0, %326 ], [ 1, %323 ]
+  %.sink204 = phi i32 [ 0, %326 ], [ 1, %323 ]
   %328 = load i32, ptr @sort_order, align 4, !tbaa !8
-  %329 = call i32 @H5Literate2(i64 noundef %0, i32 noundef %.sink195, i32 noundef %328, ptr noundef null, ptr noundef nonnull @xml_dump_all_cb, ptr noundef null) #14
+  %329 = call i32 @H5Literate2(i64 noundef %0, i32 noundef %.sink204, i32 noundef %328, ptr noundef null, ptr noundef nonnull @xml_dump_all_cb, ptr noundef null) #14
   %330 = load i32, ptr @dump_indent, align 4, !tbaa !8
   %331 = add i32 %330, -3
   store i32 %331, ptr @dump_indent, align 4, !tbaa !8
@@ -4930,7 +4930,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
 
 197:                                              ; preds = %194, %192
   %198 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull @.str.181) #14
-  br label %.sink.split37.i
+  br label %.sink.split42.i
 
 199:                                              ; preds = %182
   %200 = load i32, ptr %154, align 8, !tbaa !32
@@ -4940,7 +4940,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
   %202 = call ptr @h5tools_str_reset(ptr noundef nonnull %22) #14
   %203 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
   %204 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull @.str.182, ptr noundef %203) #14
-  br label %.sink.split37.i
+  br label %.sink.split42.i
 
 205:                                              ; preds = %182
   %206 = load i32, ptr %154, align 8, !tbaa !32
@@ -4950,7 +4950,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
   %208 = call ptr @h5tools_str_reset(ptr noundef nonnull %22) #14
   %209 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
   %210 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull @.str.183, ptr noundef %209) #14
-  br label %.sink.split37.i
+  br label %.sink.split42.i
 
 211:                                              ; preds = %182
   %212 = load i32, ptr %154, align 8, !tbaa !32
@@ -4994,37 +4994,37 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
   %232 = load i32, ptr %20, align 16, !tbaa !8
   %233 = and i32 %232, 4
   %.not29.i = icmp eq i32 %233, 0
-  br i1 %.not29.i, label %234, label %.sink.split35.i
+  br i1 %.not29.i, label %234, label %.sink.split40.i
 
 234:                                              ; preds = %230
   %235 = and i32 %232, 32
   %.not30.i = icmp eq i32 %235, 0
-  br i1 %.not30.i, label %237, label %.sink.split35.i
+  br i1 %.not30.i, label %237, label %.sink.split40.i
 
-.sink.split35.i:                                  ; preds = %234, %230
+.sink.split40.i:                                  ; preds = %234, %230
   %.str.191.sink.i = phi ptr [ @.str.190, %230 ], [ @.str.191, %234 ]
   %236 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull %.str.191.sink.i) #14
   br label %237
 
-237:                                              ; preds = %.sink.split35.i, %234
+237:                                              ; preds = %.sink.split40.i, %234
   %238 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull @.str.70) #14
   %239 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull @.str.192) #14
   %240 = load i32, ptr %20, align 16, !tbaa !8
   %241 = and i32 %240, 8
   %.not31.i = icmp eq i32 %241, 0
-  br i1 %.not31.i, label %242, label %.sink.split36.i
+  br i1 %.not31.i, label %242, label %.sink.split41.i
 
 242:                                              ; preds = %237
   %243 = and i32 %240, 16
   %.not32.i = icmp eq i32 %243, 0
-  br i1 %.not32.i, label %245, label %.sink.split36.i
+  br i1 %.not32.i, label %245, label %.sink.split41.i
 
-.sink.split36.i:                                  ; preds = %242, %237
+.sink.split41.i:                                  ; preds = %242, %237
   %.str.194.sink.i = phi ptr [ @.str.193, %237 ], [ @.str.194, %242 ]
   %244 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull %.str.194.sink.i) #14
   br label %245
 
-245:                                              ; preds = %.sink.split36.i, %242
+245:                                              ; preds = %.sink.split41.i, %242
   %246 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull @.str.70) #14
   %247 = load i32, ptr %20, align 16, !tbaa !8
   %248 = and i32 %247, 128
@@ -5037,9 +5037,9 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
 
 251:                                              ; preds = %249, %245
   %252 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %22, ptr noundef nonnull @.str.196) #14
-  br label %.sink.split37.i
+  br label %.sink.split42.i
 
-.sink.split37.i:                                  ; preds = %251, %205, %199, %197
+.sink.split42.i:                                  ; preds = %251, %205, %199, %197
   %253 = load ptr, ptr @rawoutstream, align 8, !tbaa !42
   %254 = load i32, ptr %175, align 8, !tbaa !28
   %255 = zext i32 %254 to i64
@@ -5049,7 +5049,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
   store i32 %258, ptr %154, align 8, !tbaa !32
   br label %259
 
-259:                                              ; preds = %.sink.split37.i, %182
+259:                                              ; preds = %.sink.split42.i, %182
   %260 = add nuw nsw i32 %.034.i, 1
   %exitcond.not.i = icmp eq i32 %260, %178
   br i1 %exitcond.not.i, label %261, label %182, !llvm.loop !91
@@ -5235,17 +5235,17 @@ switch.lookup:                                    ; preds = %364
   %382 = load i32, ptr %27, align 4, !tbaa !8
   %switch.tableidx = add i32 %382, -1
   %383 = icmp ult i32 %switch.tableidx, 3
-  br i1 %383, label %switch.lookup172, label %385
+  br i1 %383, label %switch.lookup192, label %385
 
-switch.lookup172:                                 ; preds = %377
+switch.lookup192:                                 ; preds = %377
   %384 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep173 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_dump_dataset.2, i64 0, i64 %384
-  %switch.load174 = load ptr, ptr %switch.gep173, align 8
+  %switch.gep193 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_dump_dataset.2, i64 0, i64 %384
+  %switch.load194 = load ptr, ptr %switch.gep193, align 8
   br label %385
 
-385:                                              ; preds = %377, %switch.lookup172
-  %.str.69.sink167 = phi ptr [ %switch.load174, %switch.lookup172 ], [ @.str.69, %377 ]
-  %386 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %30, ptr noundef nonnull %.str.69.sink167) #14
+385:                                              ; preds = %377, %switch.lookup192
+  %.str.69.sink187 = phi ptr [ %switch.load194, %switch.lookup192 ], [ @.str.69, %377 ]
+  %386 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %30, ptr noundef nonnull %.str.69.sink187) #14
   %387 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %30, ptr noundef nonnull @.str.75) #14
   %388 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %30, ptr noundef nonnull @.str.76) #14
   %389 = load ptr, ptr @rawoutstream, align 8, !tbaa !42

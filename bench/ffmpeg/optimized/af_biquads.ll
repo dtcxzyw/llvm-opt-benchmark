@@ -1190,17 +1190,17 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %448 = icmp eq ptr %447, null
   %.not469 = icmp eq ptr %.pre498, null
   %brmerge = select i1 %.not469, i1 true, i1 %448
-  br i1 %brmerge, label %.loopexit, label %.thread508
+  br i1 %brmerge, label %.loopexit, label %.thread516
 
 .thread:                                          ; preds = %439
-  %.not469506 = icmp eq ptr %440, null
-  br i1 %.not469506, label %.loopexit, label %.thread508
+  %.not469514 = icmp eq ptr %440, null
+  br i1 %.not469514, label %.loopexit, label %.thread516
 
-.thread508:                                       ; preds = %443, %.thread
+.thread516:                                       ; preds = %443, %.thread
   %449 = phi ptr [ %440, %.thread ], [ %.pre498, %443 ]
   br i1 %31, label %450, label %.critedge476
 
-450:                                              ; preds = %.thread508
+450:                                              ; preds = %.thread516
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 96
   %452 = load ptr, ptr %451, align 8, !tbaa !60
   %453 = getelementptr inbounds nuw i8, ptr %449, i64 112
@@ -1271,7 +1271,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %exitcond = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond, label %.critedge476, label %479, !llvm.loop !68
 
-.critedge476:                                     ; preds = %.thread483, %.thread508, %450
+.critedge476:                                     ; preds = %.thread483, %.thread516, %450
   %496 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %497 = load i32, ptr %496, align 8, !tbaa !69
   switch i32 %497, label %533 [
@@ -1299,8 +1299,8 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
 503:                                              ; preds = %.critedge476
   %504 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %505 = load i32, ptr %504, align 4, !tbaa !70
-  %switch.tableidx511 = add i32 %505, -6
-  %506 = icmp ult i32 %switch.tableidx511, 4
+  %switch.tableidx519 = add i32 %505, -6
+  %506 = icmp ult i32 %switch.tableidx519, 4
   br i1 %506, label %switch.lookup, label %507
 
 507:                                              ; preds = %503
@@ -1311,8 +1311,8 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
 508:                                              ; preds = %.critedge476
   %509 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %510 = load i32, ptr %509, align 4, !tbaa !70
-  %switch.tableidx516 = add i32 %510, -6
-  %511 = icmp ult i32 %switch.tableidx516, 4
+  %switch.tableidx524 = add i32 %510, -6
+  %511 = icmp ult i32 %switch.tableidx524, 4
   br i1 %511, label %switch.lookup, label %512
 
 512:                                              ; preds = %508
@@ -1323,8 +1323,8 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
 513:                                              ; preds = %.critedge476
   %514 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %515 = load i32, ptr %514, align 4, !tbaa !70
-  %switch.tableidx521 = add i32 %515, -6
-  %516 = icmp ult i32 %switch.tableidx521, 4
+  %switch.tableidx529 = add i32 %515, -6
+  %516 = icmp ult i32 %switch.tableidx529, 4
   br i1 %516, label %switch.lookup, label %517
 
 517:                                              ; preds = %513
@@ -1335,8 +1335,8 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
 518:                                              ; preds = %.critedge476
   %519 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %520 = load i32, ptr %519, align 4, !tbaa !70
-  %switch.tableidx526 = add i32 %520, -6
-  %521 = icmp ult i32 %switch.tableidx526, 4
+  %switch.tableidx534 = add i32 %520, -6
+  %521 = icmp ult i32 %switch.tableidx534, 4
   br i1 %521, label %switch.lookup, label %522
 
 522:                                              ; preds = %518
@@ -1347,8 +1347,8 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
 523:                                              ; preds = %.critedge476
   %524 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %525 = load i32, ptr %524, align 4, !tbaa !70
-  %switch.tableidx531 = add i32 %525, -6
-  %526 = icmp ult i32 %switch.tableidx531, 4
+  %switch.tableidx539 = add i32 %525, -6
+  %526 = icmp ult i32 %switch.tableidx539, 4
   br i1 %526, label %switch.lookup, label %527
 
 527:                                              ; preds = %523
@@ -1359,8 +1359,8 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
 528:                                              ; preds = %.critedge476
   %529 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %530 = load i32, ptr %529, align 4, !tbaa !70
-  %switch.tableidx536 = add i32 %530, -6
-  %531 = icmp ult i32 %switch.tableidx536, 4
+  %switch.tableidx544 = add i32 %530, -6
+  %531 = icmp ult i32 %switch.tableidx544, 4
   br i1 %531, label %switch.lookup, label %532
 
 532:                                              ; preds = %528
@@ -1374,15 +1374,15 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   unreachable
 
 switch.lookup:                                    ; preds = %528, %523, %518, %513, %508, %503, %498
-  %switch.tableidx536.sink540 = phi i32 [ %switch.tableidx, %498 ], [ %switch.tableidx511, %503 ], [ %switch.tableidx516, %508 ], [ %switch.tableidx521, %513 ], [ %switch.tableidx526, %518 ], [ %switch.tableidx531, %523 ], [ %switch.tableidx536, %528 ]
+  %switch.tableidx544.sink548 = phi i32 [ %switch.tableidx, %498 ], [ %switch.tableidx519, %503 ], [ %switch.tableidx524, %508 ], [ %switch.tableidx529, %513 ], [ %switch.tableidx534, %518 ], [ %switch.tableidx539, %523 ], [ %switch.tableidx544, %528 ]
   %switch.table.config_filter.6.sink = phi ptr [ @switch.table.config_filter, %498 ], [ @switch.table.config_filter.1, %503 ], [ @switch.table.config_filter.2, %508 ], [ @switch.table.config_filter.3, %513 ], [ @switch.table.config_filter.4, %518 ], [ @switch.table.config_filter.5, %523 ], [ @switch.table.config_filter.6, %528 ]
-  %534 = zext nneg i32 %switch.tableidx536.sink540 to i64
-  %switch.gep537 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.config_filter.6.sink, i64 0, i64 %534
-  %switch.load538 = load ptr, ptr %switch.gep537, align 8
-  %switch.offset539 = add nuw nsw i32 %switch.tableidx536.sink540, 6
+  %534 = zext nneg i32 %switch.tableidx544.sink548 to i64
+  %switch.gep545 = getelementptr inbounds nuw [4 x ptr], ptr %switch.table.config_filter.6.sink, i64 0, i64 %534
+  %switch.load546 = load ptr, ptr %switch.gep545, align 8
+  %switch.offset547 = add nuw nsw i32 %switch.tableidx544.sink548, 6
   %535 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  store ptr %switch.load538, ptr %535, align 8, !tbaa !71
-  %536 = tail call i32 @av_get_bytes_per_sample(i32 noundef %switch.offset539) #14
+  store ptr %switch.load546, ptr %535, align 8, !tbaa !71
+  %536 = tail call i32 @av_get_bytes_per_sample(i32 noundef %switch.offset547) #14
   %537 = getelementptr inbounds nuw i8, ptr %5, i64 280
   store i32 %536, ptr %537, align 8, !tbaa !72
   %538 = load i32, ptr %496, align 8, !tbaa !69
@@ -1879,9 +1879,9 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
   br label %81
 
 81:                                               ; preds = %57, %76, %79, %71
-  %.sink159 = phi i16 [ 32767, %76 ], [ %80, %79 ], [ -32768, %71 ], [ %62, %57 ]
+  %.sink162 = phi i16 [ 32767, %76 ], [ %80, %79 ], [ -32768, %71 ], [ %62, %57 ]
   %82 = getelementptr inbounds nuw i16, ptr %2, i64 %34
-  store i16 %.sink159, ptr %82, align 2, !tbaa !76
+  store i16 %.sink162, ptr %82, align 2, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %83 = or disjoint i64 %indvars.iv.next, 1
   %84 = icmp samesign ult i64 %83, %32
@@ -1940,9 +1940,9 @@ define internal void @biquad_s16(ptr noundef readonly captures(none) %0, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %101, %109, %106
-  %.sink161 = phi i16 [ 32767, %106 ], [ %110, %109 ], [ -32768, %101 ], [ %90, %87 ]
+  %.sink164 = phi i16 [ 32767, %106 ], [ %110, %109 ], [ -32768, %101 ], [ %90, %87 ]
   %111 = getelementptr inbounds nuw i16, ptr %2, i64 %88
-  store i16 %.sink161, ptr %111, align 2, !tbaa !76
+  store i16 %.sink164, ptr %111, align 2, !tbaa !76
   br label %112
 
 112:                                              ; preds = %.sink.split, %._crit_edge
@@ -2073,9 +2073,9 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
   br label %80
 
 80:                                               ; preds = %56, %75, %78, %70
-  %.sink159 = phi i32 [ 2147483647, %75 ], [ %79, %78 ], [ -2147483648, %70 ], [ %61, %56 ]
+  %.sink162 = phi i32 [ 2147483647, %75 ], [ %79, %78 ], [ -2147483648, %70 ], [ %61, %56 ]
   %81 = getelementptr inbounds nuw i32, ptr %2, i64 %33
-  store i32 %.sink159, ptr %81, align 4, !tbaa !30
+  store i32 %.sink162, ptr %81, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %82 = or disjoint i64 %indvars.iv.next, 1
   %83 = icmp samesign ult i64 %82, %31
@@ -2134,9 +2134,9 @@ define internal void @biquad_s32(ptr noundef readonly captures(none) %0, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %86, %100, %108, %105
-  %.sink161 = phi i32 [ 2147483647, %105 ], [ %109, %108 ], [ -2147483648, %100 ], [ %89, %86 ]
+  %.sink164 = phi i32 [ 2147483647, %105 ], [ %109, %108 ], [ -2147483648, %100 ], [ %89, %86 ]
   %110 = getelementptr inbounds nuw i32, ptr %2, i64 %87
-  store i32 %.sink161, ptr %110, align 4, !tbaa !30
+  store i32 %.sink164, ptr %110, align 4, !tbaa !30
   br label %111
 
 111:                                              ; preds = %.sink.split, %._crit_edge

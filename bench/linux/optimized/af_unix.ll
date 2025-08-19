@@ -810,18 +810,18 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br label %.outer
 
 .outer:                                           ; preds = %205, %46
-  %.ph352 = phi i64 [ %115, %205 ], [ %13, %46 ]
-  %.ph353 = phi i32 [ %120, %205 ], [ %47, %46 ]
-  %.ph354 = phi i64 [ %190, %205 ], [ %38, %46 ]
-  %.ph355 = phi i8 [ %116, %205 ], [ 0, %46 ]
-  %.ph356 = phi i32 [ %117, %205 ], [ 0, %46 ]
+  %.ph382 = phi i64 [ %115, %205 ], [ %13, %46 ]
+  %.ph383 = phi i32 [ %120, %205 ], [ %47, %46 ]
+  %.ph384 = phi i64 [ %190, %205 ], [ %38, %46 ]
+  %.ph385 = phi i8 [ %116, %205 ], [ 0, %46 ]
+  %.ph386 = phi i32 [ %117, %205 ], [ 0, %46 ]
   br label %70
 
 70:                                               ; preds = %.outer, %350
-  %71 = phi i64 [ %326, %350 ], [ %.ph352, %.outer ]
-  %72 = phi i32 [ %211, %350 ], [ %.ph353, %.outer ]
-  %73 = phi i8 [ %278, %350 ], [ %.ph355, %.outer ]
-  %74 = phi i32 [ %324, %350 ], [ %.ph356, %.outer ]
+  %71 = phi i64 [ %326, %350 ], [ %.ph382, %.outer ]
+  %72 = phi i32 [ %211, %350 ], [ %.ph383, %.outer ]
+  %73 = phi i8 [ %278, %350 ], [ %.ph385, %.outer ]
+  %74 = phi i32 [ %324, %350 ], [ %.ph386, %.outer ]
   br label %75
 
 75:                                               ; preds = %.thread31, %70
@@ -876,8 +876,8 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br i1 %41, label %103, label %.thread29.preheader
 
 .thread29.preheader:                              ; preds = %105, %93, %104, %103, %102
-  %.ph343 = phi i32 [ 0, %103 ], [ 0, %102 ], [ 0, %104 ], [ %76, %93 ], [ 0, %105 ]
-  %.ph344 = phi ptr [ %81, %103 ], [ %81, %102 ], [ %81, %104 ], [ %81, %93 ], [ %106, %105 ]
+  %.ph373 = phi i32 [ 0, %103 ], [ 0, %102 ], [ 0, %104 ], [ %76, %93 ], [ 0, %105 ]
+  %.ph374 = phi ptr [ %81, %103 ], [ %81, %102 ], [ %81, %104 ], [ %81, %93 ], [ %106, %105 ]
   br label %.thread29
 
 103:                                              ; preds = %102
@@ -903,11 +903,11 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br i1 %109, label %75, label %.thread42
 
 .thread29:                                        ; preds = %.thread29.preheader, %369
-  %110 = phi i32 [ %324, %369 ], [ %.ph343, %.thread29.preheader ]
+  %110 = phi i32 [ %324, %369 ], [ %.ph373, %.thread29.preheader ]
   %111 = phi i8 [ %278, %369 ], [ %73, %.thread29.preheader ]
   %112 = phi i32 [ 0, %369 ], [ %72, %.thread29.preheader ]
   %113 = phi i64 [ %326, %369 ], [ %71, %.thread29.preheader ]
-  %114 = phi ptr [ %370, %369 ], [ %.ph344, %.thread29.preheader ]
+  %114 = phi ptr [ %370, %369 ], [ %.ph374, %.thread29.preheader ]
   br label %209
 
 .thread32:                                        ; preds = %80, %218
@@ -938,7 +938,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 
 131:                                              ; preds = %.thread33
   call void @_raw_spin_unlock(ptr noundef nonnull %48) #19
-  %132 = icmp eq i64 %.ph354, 0
+  %132 = icmp eq i64 %.ph384, 0
   br i1 %132, label %.thread42, label %133
 
 133:                                              ; preds = %131
@@ -962,7 +962,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 
 .preheader:                                       ; preds = %133, %184
   %141 = phi ptr [ %188, %184 ], [ %139, %133 ]
-  %142 = phi i64 [ %173, %184 ], [ %.ph354, %133 ]
+  %142 = phi i64 [ %173, %184 ], [ %.ph384, %133 ]
   %143 = icmp eq ptr %141, null
   br i1 %143, label %148, label %144
 
@@ -1040,7 +1040,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br i1 %189, label %.preheader, label %.thread34, !llvm.loop !21
 
 .thread34:                                        ; preds = %155, %184, %172, %159, %151, %148, %144, %133
-  %190 = phi i64 [ %.ph354, %133 ], [ %142, %155 ], [ %173, %172 ], [ %173, %184 ], [ %142, %144 ], [ %142, %148 ], [ %142, %151 ], [ %142, %159 ]
+  %190 = phi i64 [ %.ph384, %133 ], [ %142, %155 ], [ %173, %172 ], [ %173, %184 ], [ %142, %144 ], [ %142, %148 ], [ %142, %151 ], [ %142, %159 ]
   %191 = load volatile ptr, ptr %67, align 8
   call void @finish_wait(ptr noundef %191, ptr noundef nonnull %3) #19
   call void @_raw_spin_unlock(ptr noundef nonnull %48) #19
@@ -1096,7 +1096,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br i1 %217, label %224, label %218
 
 218:                                              ; preds = %209
-  %219 = sub nuw i32 %211, %216
+  %219 = sub nuw nsw i32 %211, %216
   %220 = load ptr, ptr %210, align 8
   %221 = icmp eq ptr %220, %50
   %222 = icmp eq ptr %220, null
@@ -1188,7 +1188,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br label %277
 
 277:                                              ; preds = %273, %252, %243
-  %278 = phi i8 [ %111, %243 ], [ 1, %273 ], [ 0, %252 ]
+  %278 = phi i8 [ 1, %243 ], [ 1, %273 ], [ 0, %252 ]
   %279 = load ptr, ptr %57, align 8
   %280 = icmp eq ptr %279, null
   br i1 %280, label %297, label %281
@@ -3347,11 +3347,11 @@ define internal noundef range(i32 -22, 1) i32 @unix_shutdown(ptr noundef readonl
   br label %.thread6
 
 .sink.split:                                      ; preds = %59, %52
-  %.sink7 = phi i32 [ 6, %52 ], [ 1, %59 ]
+  %.sink11 = phi i32 [ 6, %52 ], [ 1, %59 ]
   tail call void @__rcu_read_lock() #19
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 296
   %68 = load volatile ptr, ptr %67, align 8
-  %69 = tail call i32 @sock_wake_async(ptr noundef %68, i32 noundef 1, i32 noundef %.sink7) #19
+  %69 = tail call i32 @sock_wake_async(ptr noundef %68, i32 noundef 1, i32 noundef %.sink11) #19
   tail call void @__rcu_read_unlock() #19
   br label %70
 

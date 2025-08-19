@@ -317,18 +317,18 @@ pkcs12_fill_buffer.exit99:                        ; preds = %.preheader.i95, %pk
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %43 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %6) #6
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.loopexit119.sink.split, label %.lr.ph134
+  br i1 %44, label %.loopexit119.sink.split, label %.lr.ph142
 
-.lr.ph134:                                        ; preds = %.lr.ph, %.loopexit
+.lr.ph142:                                        ; preds = %.lr.ph, %.loopexit
   %45 = phi ptr [ %98, %.loopexit ], [ %43, %.lr.ph ]
-  %.081126133 = phi ptr [ %64, %.loopexit ], [ %0, %.lr.ph ]
-  %.078127132 = phi i64 [ %63, %.loopexit ], [ %1, %.lr.ph ]
+  %.081126141 = phi ptr [ %64, %.loopexit ], [ %0, %.lr.ph ]
+  %.078127140 = phi i64 [ %63, %.loopexit ], [ %1, %.lr.ph ]
   call void @mbedtls_md_init(ptr noundef nonnull %10) #6
   %46 = call i32 @mbedtls_md_setup(ptr noundef nonnull %10, ptr noundef nonnull %45, i32 noundef 0) #6
   %.not.i100 = icmp eq i32 %46, 0
   br i1 %.not.i100, label %47, label %.loopexit119.sink.split
 
-47:                                               ; preds = %.lr.ph134
+47:                                               ; preds = %.lr.ph142
   %48 = call i32 @mbedtls_md_starts(ptr noundef nonnull %10) #6
   %.not33.i = icmp eq i32 %48, 0
   br i1 %.not33.i, label %49, label %calculate_hashes.exit.thread113
@@ -380,10 +380,10 @@ calculate_hashes.exit.thread113:                  ; preds = %47, %49, %52, %55, 
 .loopexit118:                                     ; preds = %59, %.preheader.i102
   call void @mbedtls_md_free(ptr noundef nonnull %10) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %62 = call i64 @llvm.umin.i64(i64 %.078127132, i64 %32)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.081126133, ptr nonnull align 16 %15, i64 %62, i1 false)
-  %63 = sub i64 %.078127132, %62
-  %64 = getelementptr inbounds nuw i8, ptr %.081126133, i64 %62
+  %62 = call i64 @llvm.umin.i64(i64 %.078127140, i64 %32)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.081126141, ptr nonnull align 16 %15, i64 %62, i1 false)
+  %63 = sub i64 %.078127140, %62
+  %64 = getelementptr inbounds nuw i8, ptr %.081126141, i64 %62
   %65 = icmp eq i64 %63, 0
   br i1 %65, label %.loopexit119, label %66
 
@@ -463,9 +463,9 @@ pkcs12_fill_buffer.exit109:                       ; preds = %pkcs12_fill_buffer.
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %98 = call ptr @mbedtls_md_info_from_type(i32 noundef %6) #6
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %.loopexit119.sink.split, label %.lr.ph134
+  br i1 %99, label %.loopexit119.sink.split, label %.lr.ph142
 
-.loopexit119.sink.split:                          ; preds = %.loopexit, %.lr.ph134, %.lr.ph, %calculate_hashes.exit.thread113
+.loopexit119.sink.split:                          ; preds = %.loopexit, %.lr.ph142, %.lr.ph, %calculate_hashes.exit.thread113
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit119
 

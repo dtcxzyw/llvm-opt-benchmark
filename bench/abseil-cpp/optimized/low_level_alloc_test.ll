@@ -417,7 +417,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
   br label %132
 
 156:                                              ; preds = %.noexc65, %.noexc64, %109
-  %.sink83.i.sink.i.ph.i.i.i = phi ptr [ %152, %.noexc65 ], [ %13, %109 ], [ %118, %.noexc64 ]
+  %.sink85.i.sink.i.ph.i.i.i = phi ptr [ %152, %.noexc65 ], [ %13, %109 ], [ %118, %.noexc64 ]
   %157 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
           to label %.noexc66 unwind label %23
 
@@ -425,7 +425,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
   store i32 %44, ptr %157, align 8, !tbaa !44, !noalias !45
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false), !noalias !45
-  store ptr %157, ptr %.sink83.i.sink.i.ph.i.i.i, align 8, !tbaa !17, !noalias !45
+  store ptr %157, ptr %.sink85.i.sink.i.ph.i.i.i, align 8, !tbaa !17, !noalias !45
   br label %.loopexit132
 
 .loopexit132:                                     ; preds = %.lr.ph.i.i.i.i.i, %.noexc66, %110

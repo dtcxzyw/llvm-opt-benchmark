@@ -489,7 +489,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr noundef readonly captures(none) 
   %85 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %86 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8, !tbaa !27
   %87 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 342, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.10) #7
-  br label %.sink.split65
+  br label %.sink.split69
 
 .thread56:                                        ; preds = %43, %22, %77, %78, %81
   %.0335458 = phi ptr [ %47, %81 ], [ %47, %78 ], [ %47, %77 ], [ null, %22 ], [ null, %43 ]
@@ -517,13 +517,13 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr noundef readonly captures(none) 
   %99 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %100 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !27
   %101 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5A__dense_open, i32 noundef 393, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.8) #7
-  br label %.sink.split65
+  br label %.sink.split69
 
-.sink.split65:                                    ; preds = %.thread62, %98
+.sink.split69:                                    ; preds = %.thread62, %98
   store ptr null, ptr %6, align 8, !tbaa !37
   br label %102
 
-102:                                              ; preds = %.sink.split65, %3, %95, %94
+102:                                              ; preds = %.sink.split69, %3, %95, %94
   %103 = load ptr, ptr %6, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

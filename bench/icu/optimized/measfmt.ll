@@ -2071,16 +2071,16 @@ _ZN6icu_776number4impl20UFormattedNumberDataC2Ev.exit: ; preds = %95
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %112 = load i32, ptr %111, align 8, !tbaa !41
   %113 = icmp ult i32 %112, 4
-  br i1 %113, label %switch.lookup112, label %_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit96
+  br i1 %113, label %switch.lookup115, label %_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit96
 
-switch.lookup112:                                 ; preds = %110
+switch.lookup115:                                 ; preds = %110
   %114 = zext nneg i32 %112 to i64
-  %switch.gep113 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 0, i64 %114
-  %switch.load114 = load i32, ptr %switch.gep113, align 4
+  %switch.gep116 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK6icu_7713MeasureFormat18getUnitDisplayNameERKNS_11MeasureUnitER10UErrorCode, i64 0, i64 %114
+  %switch.load117 = load i32, ptr %switch.gep116, align 4
   br label %_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit96
 
-_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit96: ; preds = %110, %switch.lookup112
-  %.0.i95 = phi i32 [ %switch.load114, %switch.lookup112 ], [ 1, %110 ]
+_ZN6icu_77L12getUnitWidthE19UMeasureFormatWidth.exit96: ; preds = %110, %switch.lookup115
+  %.0.i95 = phi i32 [ %switch.load117, %switch.lookup115 ], [ 1, %110 ]
   invoke void @_ZNO6icu_776number23NumberFormatterSettingsINS0_24LocalizedNumberFormatterEE9unitWidthE16UNumberUnitWidth(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::number::LocalizedNumberFormatter") align 8 %15, ptr noundef nonnull align 8 dereferenceable(472) %16, i32 noundef %.0.i95)
           to label %115 unwind label %121
 

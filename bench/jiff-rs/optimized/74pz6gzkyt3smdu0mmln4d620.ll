@@ -1378,9 +1378,9 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   unreachable
 
 .thread.thread:                                   ; preds = %127, %.thread
-  %.sroa.06.0.i921951 = phi i64 [ %.sroa.06.0.i922, %.thread ], [ %.sroa.12.0.ph, %127 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.7719.0.ph, i64 %.sroa.06.0.i921951
-  %132 = sub nuw i64 %.sroa.12.0.ph, %.sroa.06.0.i921951
+  %.sroa.06.0.i921966 = phi i64 [ %.sroa.06.0.i922, %.thread ], [ %.sroa.12.0.ph, %127 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.7719.0.ph, i64 %.sroa.06.0.i921966
+  %132 = sub nuw i64 %.sroa.12.0.ph, %.sroa.06.0.i921966
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !87
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   br label %133
@@ -1465,7 +1465,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !91
   store ptr %.sroa.7719.0.ph, ptr %2, align 8, !noalias !91
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sroa.06.0.i921951, ptr %163, align 8, !noalias !91
+  store i64 %.sroa.06.0.i921966, ptr %163, align 8, !noalias !91
   store ptr %2, ptr %3, align 8, !noalias !91
   %.sroa.425.0..sroa_idx.i527 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN72_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Display$GT$3fmt17h437ed408f4fbe4ccE", ptr %.sroa.425.0..sroa_idx.i527, align 8, !noalias !91
@@ -1634,10 +1634,10 @@ common.resume:                                    ; preds = %1258, %1255, %1209,
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread": ; preds = %212, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i"
-  %.sroa.02.0.i913953 = phi i64 [ %.sroa.02.0.i924, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i" ], [ %umax, %212 ]
-  %.sroa.5.0.i766 = trunc i64 %.sroa.02.0.i913953 to i32
-  %215 = sub nuw i64 %.sroa.18724.0.ph, %.sroa.02.0.i913953
-  %216 = getelementptr inbounds nuw i8, ptr %.sroa.11723.2.ph, i64 %.sroa.02.0.i913953
+  %.sroa.02.0.i913968 = phi i64 [ %.sroa.02.0.i924, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i" ], [ %umax, %212 ]
+  %.sroa.5.0.i766 = trunc i64 %.sroa.02.0.i913968 to i32
+  %215 = sub nuw i64 %.sroa.18724.0.ph, %.sroa.02.0.i913968
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.11723.2.ph, i64 %.sroa.02.0.i913968
   store ptr %216, ptr %98, align 8, !alias.scope !70, !noalias !73
   store i64 %215, ptr %100, align 8, !alias.scope !70, !noalias !73
   %217 = or disjoint i32 %.sroa.0720.2.ph, %.sroa.9721.0.ph
@@ -1654,7 +1654,7 @@ common.resume:                                    ; preds = %1258, %1255, %1209,
   store i8 %.sroa.2.0.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 2
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 3
   store i8 %.sroa.3.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 1
-  %.not = icmp eq i64 %.sroa.18724.0.ph, %.sroa.02.0.i913953
+  %.not = icmp eq i64 %.sroa.18724.0.ph, %.sroa.02.0.i913968
   br i1 %.not, label %220, label %218
 
 218:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread"
@@ -3731,7 +3731,7 @@ common.resume:                                    ; preds = %1258, %1255, %1209,
 
 ._crit_edge928:                                   ; preds = %.lr.ph927
   %1153 = icmp eq i64 %.sroa.06.0.i489925, 0
-  br i1 %1153, label %._crit_edge928.thread, label %._crit_edge928.thread955
+  br i1 %1153, label %._crit_edge928.thread, label %._crit_edge928.thread970
 
 .lr.ph927:                                        ; preds = %1150, %1157
   %.sroa.06.0.i489925 = phi i64 [ %1158, %1157 ], [ 0, %1150 ]
@@ -3744,27 +3744,27 @@ common.resume:                                    ; preds = %1258, %1255, %1209,
 1157:                                             ; preds = %.lr.ph927
   %1158 = add nuw i64 %.sroa.06.0.i489925, 1
   %exitcond949.not = icmp eq i64 %1158, %1152
-  br i1 %exitcond949.not, label %._crit_edge928.thread955.thread, label %.lr.ph927
+  br i1 %exitcond949.not, label %._crit_edge928.thread970.thread, label %.lr.ph927
 
-._crit_edge928.thread955:                         ; preds = %._crit_edge928
+._crit_edge928.thread970:                         ; preds = %._crit_edge928
   %1159 = icmp ugt i64 %.sroa.06.0.i489925, %1152
-  br i1 %1159, label %1160, label %._crit_edge928.thread955.thread, !prof !258
+  br i1 %1159, label %1160, label %._crit_edge928.thread970.thread, !prof !258
 
-1160:                                             ; preds = %._crit_edge928.thread955
+1160:                                             ; preds = %._crit_edge928.thread970
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ebbfe4fa2bcd65020678261b9eefb9d7.263) #16, !noalias !259
   unreachable
 
-._crit_edge928.thread955.thread:                  ; preds = %1157, %._crit_edge928.thread955
-  %.sroa.06.0.i489.lcssa957959 = phi i64 [ %.sroa.06.0.i489925, %._crit_edge928.thread955 ], [ %1152, %1157 ]
-  %1161 = getelementptr inbounds nuw i8, ptr %1151, i64 %.sroa.06.0.i489.lcssa957959
-  %1162 = sub nuw i64 %1152, %.sroa.06.0.i489.lcssa957959
+._crit_edge928.thread970.thread:                  ; preds = %1157, %._crit_edge928.thread970
+  %.sroa.06.0.i489.lcssa972974 = phi i64 [ %.sroa.06.0.i489925, %._crit_edge928.thread970 ], [ %1152, %1157 ]
+  %1161 = getelementptr inbounds nuw i8, ptr %1151, i64 %.sroa.06.0.i489.lcssa972974
+  %1162 = sub nuw i64 %1152, %.sroa.06.0.i489.lcssa972974
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !259
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
   br label %1163
 
-1163:                                             ; preds = %1178, %._crit_edge928.thread955.thread
-  %.sroa.013.0.i = phi i64 [ 0, %._crit_edge928.thread955.thread ], [ %1185, %1178 ]
-  %.sroa.027.0.i = phi ptr [ %1151, %._crit_edge928.thread955.thread ], [ %1166, %1178 ]
+1163:                                             ; preds = %1178, %._crit_edge928.thread970.thread
+  %.sroa.013.0.i = phi i64 [ 0, %._crit_edge928.thread970.thread ], [ %1185, %1178 ]
+  %.sroa.027.0.i = phi ptr [ %1151, %._crit_edge928.thread970.thread ], [ %1166, %1178 ]
   %1164 = icmp eq ptr %.sroa.027.0.i, %1161
   br i1 %1164, label %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit, label %1165
 
@@ -3842,7 +3842,7 @@ common.resume:                                    ; preds = %1258, %1255, %1209,
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !263
   store ptr %1151, ptr %11, align 8, !noalias !263
   %1193 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.sroa.06.0.i489.lcssa957959, ptr %1193, align 8, !noalias !263
+  store i64 %.sroa.06.0.i489.lcssa972974, ptr %1193, align 8, !noalias !263
   store ptr %11, ptr %12, align 8, !noalias !263
   %.sroa.425.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN72_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Display$GT$3fmt17h437ed408f4fbe4ccE", ptr %.sroa.425.0..sroa_idx.i, align 8, !noalias !263
@@ -4594,20 +4594,20 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call fastcc void @_ZN4jiff3fmt7strtime14BrokenDownTime7to_date17h7f26ad2f9952e9cdE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.24.val)
   %14 = load i16, ptr %3, align 8, !range !316, !noalias !311, !noundef !13
   %15 = trunc nuw i16 %14 to i1
-  br i1 %15, label %89, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread9"
+  br i1 %15, label %89, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread10"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread9": ; preds = %13
+"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread10": ; preds = %13
   %.sroa.63.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 5
   %.sroa.63.0.copyload.i.i = load i8, ptr %.sroa.63.0..sroa_idx.i.i, align 1, !noalias !311
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !311
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread9"
-  %.pn3.i8 = phi i8 [ %.sroa.63.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread9" ], [ %12, %1 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread10"
+  %.pn3.i9 = phi i8 [ %.sroa.63.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h7efe24f5e47d1fa1E.exit.thread10" ], [ %12, %1 ]
   %16 = icmp ne ptr %.32.val, null
   tail call void @llvm.assume(i1 %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
-  %17 = sext i8 %.pn3.i8 to i64
+  %17 = sext i8 %.pn3.i9 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i8, ptr %18, align 1, !range !267, !alias.scope !317, !noalias !320, !noundef !13
   switch i8 %19, label %21 [
@@ -4642,7 +4642,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   store i24 %storemerge, ptr %5, align 4, !noalias !322
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !322
   tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
-  %33 = icmp sgt i8 %.pn3.i8, -1
+  %33 = icmp sgt i8 %.pn3.i9, -1
   %34 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %34, 2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false
@@ -4810,20 +4810,20 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call fastcc void @_ZN4jiff3fmt7strtime14BrokenDownTime7to_date17h7f26ad2f9952e9cdE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.24.val)
   %14 = load i16, ptr %3, align 8, !range !316, !noalias !337, !noundef !13
   %15 = trunc nuw i16 %14 to i1
-  br i1 %15, label %89, label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread9"
+  br i1 %15, label %89, label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread10"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread9": ; preds = %13
+"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread10": ; preds = %13
   %.sroa.63.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 5
   %.sroa.63.0.copyload.i.i = load i8, ptr %.sroa.63.0..sroa_idx.i.i, align 1, !noalias !337
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !337
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread9"
-  %.pn3.i8 = phi i8 [ %.sroa.63.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread9" ], [ %12, %1 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread10"
+  %.pn3.i9 = phi i8 [ %.sroa.63.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha9af8962ef049d2dE.exit.thread10" ], [ %12, %1 ]
   %16 = icmp ne ptr %.32.val, null
   tail call void @llvm.assume(i1 %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
-  %17 = sext i8 %.pn3.i8 to i64
+  %17 = sext i8 %.pn3.i9 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i8, ptr %18, align 1, !range !267, !alias.scope !342, !noalias !345, !noundef !13
   switch i8 %19, label %21 [
@@ -4858,7 +4858,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   store i24 %storemerge, ptr %5, align 4, !noalias !347
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !347
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  %33 = icmp sgt i8 %.pn3.i8, -1
+  %33 = icmp sgt i8 %.pn3.i9, -1
   %34 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %34, 2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false
@@ -6118,20 +6118,20 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call fastcc void @_ZN4jiff3fmt7strtime14BrokenDownTime7to_date17h7f26ad2f9952e9cdE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.24.val)
   %14 = load i16, ptr %3, align 8, !range !316, !noalias !470, !noundef !13
   %15 = trunc nuw i16 %14 to i1
-  br i1 %15, label %89, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread9"
+  br i1 %15, label %89, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread10"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread9": ; preds = %13
+"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread10": ; preds = %13
   %.sroa.63.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.63.0.copyload.i.i = load i8, ptr %.sroa.63.0..sroa_idx.i.i, align 4, !noalias !470
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !470
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread9"
-  %.pn3.i8 = phi i8 [ %.sroa.63.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread9" ], [ %12, %1 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread10"
+  %.pn3.i9 = phi i8 [ %.sroa.63.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h47d4c172c05870edE.exit.thread10" ], [ %12, %1 ]
   %16 = icmp ne ptr %.32.val, null
   tail call void @llvm.assume(i1 %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
-  %17 = sext i8 %.pn3.i8 to i64
+  %17 = sext i8 %.pn3.i9 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i8, ptr %18, align 1, !range !267, !alias.scope !475, !noalias !478, !noundef !13
   switch i8 %19, label %21 [
@@ -6166,7 +6166,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   store i24 %storemerge, ptr %5, align 4, !noalias !480
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !480
   tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
-  %33 = icmp sgt i8 %.pn3.i8, -1
+  %33 = icmp sgt i8 %.pn3.i9, -1
   %34 = trunc i24 %storemerge to i8
   %.not.i = icmp eq i8 %34, 2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false
@@ -7063,12 +7063,12 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %.sink.split
 
 .sink.split:                                      ; preds = %30, %83
-  %.sink15 = phi i24 [ %84, %83 ], [ %32, %30 ]
-  store i24 %.sink15, ptr %4, align 4, !noalias !546
-  %33 = trunc i24 %.sink15 to i8
-  %34 = lshr i24 %.sink15, 8
+  %.sink17 = phi i24 [ %84, %83 ], [ %32, %30 ]
+  store i24 %.sink17, ptr %4, align 4, !noalias !546
+  %33 = trunc i24 %.sink17 to i8
+  %34 = lshr i24 %.sink17, 8
   %35 = trunc i24 %34 to i8
-  %36 = lshr i24 %.sink15, 16
+  %36 = lshr i24 %.sink17, 16
   %37 = trunc nuw i24 %36 to i8
   br label %38
 
@@ -8103,12 +8103,12 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %.sink.split
 
 .sink.split:                                      ; preds = %57, %109
-  %.sink17 = phi i24 [ %110, %109 ], [ %59, %57 ]
-  store i24 %.sink17, ptr %5, align 4, !noalias !616
-  %60 = trunc i24 %.sink17 to i8
-  %61 = lshr i24 %.sink17, 8
+  %.sink19 = phi i24 [ %110, %109 ], [ %59, %57 ]
+  store i24 %.sink19, ptr %5, align 4, !noalias !616
+  %60 = trunc i24 %.sink19 to i8
+  %61 = lshr i24 %.sink19, 8
   %62 = trunc i24 %61 to i8
-  %63 = lshr i24 %.sink17, 16
+  %63 = lshr i24 %.sink19, 16
   %64 = trunc nuw i24 %63 to i8
   br label %65
 
@@ -8387,12 +8387,12 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %69, %122
-  %.sink18 = phi i24 [ %123, %122 ], [ %71, %69 ]
-  store i24 %.sink18, ptr %5, align 4, !noalias !640
-  %72 = trunc i24 %.sink18 to i8
-  %73 = lshr i24 %.sink18, 8
+  %.sink20 = phi i24 [ %123, %122 ], [ %71, %69 ]
+  store i24 %.sink20, ptr %5, align 4, !noalias !640
+  %72 = trunc i24 %.sink20 to i8
+  %73 = lshr i24 %.sink20, 8
   %74 = trunc i24 %73 to i8
-  %75 = lshr i24 %.sink18, 16
+  %75 = lshr i24 %.sink20, 16
   %76 = trunc nuw i24 %75 to i8
   br label %77
 
@@ -9087,9 +9087,9 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call fastcc void @_ZN4jiff3fmt7strtime14BrokenDownTime7to_date17h7f26ad2f9952e9cdE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.24.val)
   %14 = load i16, ptr %3, align 8, !range !316, !noalias !702, !noundef !13
   %15 = trunc nuw i16 %14 to i1
-  br i1 %15, label %91, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread9"
+  br i1 %15, label %91, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread10"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread9": ; preds = %13
+"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread10": ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %.sroa.03.0.copyload.i.i = load i32, ptr %16, align 2, !noalias !702
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !702
@@ -9098,12 +9098,12 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   %.sroa.411.0.extract.trunc.i.i = trunc i32 %.sroa.411.0.extract.shift.i.i to i8
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread9"
-  %.pn3.i8 = phi i8 [ %.sroa.411.0.extract.trunc.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread9" ], [ %12, %1 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread10"
+  %.pn3.i9 = phi i8 [ %.sroa.411.0.extract.trunc.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17h5560828c489416b0E.exit.thread10" ], [ %12, %1 ]
   %18 = icmp ne ptr %.32.val, null
   tail call void @llvm.assume(i1 %18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !707)
-  %19 = sext i8 %.pn3.i8 to i64
+  %19 = sext i8 %.pn3.i9 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %21 = load i8, ptr %20, align 1, !range !267, !alias.scope !707, !noalias !710, !noundef !13
   switch i8 %21, label %23 [
@@ -9138,7 +9138,7 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   store i24 %storemerge.i, ptr %5, align 4, !noalias !712
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !712
   tail call void @llvm.experimental.noalias.scope.decl(metadata !713)
-  %35 = icmp sgt i8 %.pn3.i8, -1
+  %35 = icmp sgt i8 %.pn3.i9, -1
   %36 = trunc i24 %storemerge.i to i8
   %.not.i = icmp eq i8 %36, 2
   %or.cond.i = select i1 %35, i1 %.not.i, i1 false
@@ -10337,12 +10337,12 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %.sink.split
 
 .sink.split:                                      ; preds = %35, %88
-  %.sink24 = phi i24 [ %89, %88 ], [ %37, %35 ]
-  store i24 %.sink24, ptr %5, align 4, !noalias !832
-  %38 = trunc i24 %.sink24 to i8
-  %39 = lshr i24 %.sink24, 8
+  %.sink25 = phi i24 [ %89, %88 ], [ %37, %35 ]
+  store i24 %.sink25, ptr %5, align 4, !noalias !832
+  %38 = trunc i24 %.sink25 to i8
+  %39 = lshr i24 %.sink25, 8
   %40 = trunc i24 %39 to i8
-  %41 = lshr i24 %.sink24, 16
+  %41 = lshr i24 %.sink25, 16
   %42 = trunc nuw i24 %41 to i8
   br label %43
 
@@ -10985,17 +10985,17 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call fastcc void @_ZN4jiff3fmt7strtime14BrokenDownTime7to_date17h7f26ad2f9952e9cdE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %.24.val)
   %14 = load i16, ptr %3, align 8, !range !316, !noalias !894, !noundef !13
   %15 = trunc nuw i16 %14 to i1
-  br i1 %15, label %17, label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread5"
+  br i1 %15, label %17, label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread6"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread5": ; preds = %13
+"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread6": ; preds = %13
   %.sroa.63.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.63.0.copyload.i.i = load i8, ptr %.sroa.63.0..sroa_idx.i.i, align 4, !noalias !894
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !894
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread5"
-  %.pn3.i4 = phi i8 [ %.sroa.63.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread5" ], [ %12, %1 ]
-  %16 = add i8 %.pn3.i4, -1
+"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread6"
+  %.pn3.i5 = phi i8 [ %.sroa.63.0.copyload.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread6" ], [ %12, %1 ]
+  %16 = add i8 %.pn3.i5, -1
   %or.cond = icmp ult i8 %16, 3
   br i1 %or.cond, label %32, label %25
 
@@ -11024,17 +11024,17 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   ret { i64, ptr } %.merged
 
 25:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17ha8f13c31028777abE.exit.thread"
-  %26 = add i8 %.pn3.i4, -4
+  %26 = add i8 %.pn3.i5, -4
   %or.cond1 = icmp ult i8 %26, 3
   br i1 %or.cond1, label %32, label %27
 
 27:                                               ; preds = %25
-  %28 = add i8 %.pn3.i4, -7
+  %28 = add i8 %.pn3.i5, -7
   %or.cond2 = icmp ult i8 %28, 3
   br i1 %or.cond2, label %32, label %29
 
 29:                                               ; preds = %27
-  %30 = add i8 %.pn3.i4, -10
+  %30 = add i8 %.pn3.i5, -10
   %or.cond3 = icmp ult i8 %30, 3
   br i1 %or.cond3, label %32, label %31, !prof !326
 
@@ -11081,12 +11081,12 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   br label %.sink.split
 
 .sink.split:                                      ; preds = %49, %89
-  %.sink14 = phi i24 [ %90, %89 ], [ %51, %49 ]
-  store i24 %.sink14, ptr %5, align 4, !noalias !904
-  %52 = trunc i24 %.sink14 to i8
-  %53 = lshr i24 %.sink14, 8
+  %.sink15 = phi i24 [ %90, %89 ], [ %51, %49 ]
+  store i24 %.sink15, ptr %5, align 4, !noalias !904
+  %52 = trunc i24 %.sink15 to i8
+  %53 = lshr i24 %.sink15, 8
   %54 = trunc i24 %53 to i8
-  %55 = lshr i24 %.sink14, 16
+  %55 = lshr i24 %.sink15, 16
   %56 = trunc nuw i24 %55 to i8
   br label %57
 
@@ -14088,21 +14088,21 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i99: ; preds = %33
   br label %499
 
 453:                                              ; preds = %.thread, %445
-  %.sroa.037.0.copyload204 = phi i32 [ %.sroa.060.0.copyload.i120, %.thread ], [ %.sroa.10.3.ph, %445 ]
+  %.sroa.037.0.copyload220 = phi i32 [ %.sroa.060.0.copyload.i120, %.thread ], [ %.sroa.10.3.ph, %445 ]
   %454 = phi i8 [ %164, %.thread ], [ %.pre, %445 ]
-  %.sroa.4.0.extract.shift.i = lshr i32 %.sroa.037.0.copyload204, 16
+  %.sroa.4.0.extract.shift.i = lshr i32 %.sroa.037.0.copyload220, 16
   %.sroa.4.0.extract.trunc.i = trunc i32 %.sroa.4.0.extract.shift.i to i8
   %sext.i129 = shl i32 %.sroa.4.0.extract.shift.i, 24
   %455 = ashr exact i32 %sext.i129, 24
   %456 = icmp ult i8 %.sroa.4.0.extract.trunc.i, 3
   %457 = or disjoint i32 %455, 12
   %.sroa.0.0.i.i = select i1 %456, i32 %457, i32 %455
-  %sext4.i = shl i32 %.sroa.037.0.copyload204, 16
+  %sext4.i = shl i32 %.sroa.037.0.copyload220, 16
   %458 = ashr exact i32 %sext4.i, 16
   %459 = add nsw i32 %458, 32800
   %.neg.i.i = sext i1 %456 to i32
   %460 = add nsw i32 %459, %.neg.i.i
-  %461 = ashr i32 %.sroa.037.0.copyload204, 24
+  %461 = ashr i32 %.sroa.037.0.copyload220, 24
   %462 = udiv i32 %460, 100
   %463 = mul nuw nsw i32 %460, 1461
   %464 = lshr i32 %463, 2
@@ -14125,9 +14125,9 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i99: ; preds = %33
   br i1 %.not75, label %479, label %481, !prof !8
 
 479:                                              ; preds = %453, %445
-  %.sroa.037.0.copyload205 = phi i32 [ %.sroa.037.0.copyload204, %453 ], [ %.sroa.10.3.ph, %445 ]
+  %.sroa.037.0.copyload221 = phi i32 [ %.sroa.037.0.copyload220, %453 ], [ %.sroa.10.3.ph, %445 ]
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i32 %.sroa.037.0.copyload205, ptr %480, align 2
+  store i32 %.sroa.037.0.copyload221, ptr %480, align 2
   store i16 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %499
@@ -14143,7 +14143,7 @@ _ZN4jiff5civil4date4Date10new_ranged17h13beb0486dc3afdcE.exit.i99: ; preds = %33
   %485 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %484, ptr %485, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %486 = call fastcc noundef i8 @_ZN4jiff5civil4date4Date7weekday17hdd2f08c56d059420E(i32 %.sroa.037.0.copyload204)
+  %486 = call fastcc noundef i8 @_ZN4jiff5civil4date4Date7weekday17hdd2f08c56d059420E(i32 %.sroa.037.0.copyload220)
   %487 = call { ptr, i64 } @_ZN4jiff3fmt7strtime17weekday_name_full17h7a47fe69d23cd7acE(i8 noundef %486)
   %488 = extractvalue { ptr, i64 } %487, 0
   %489 = extractvalue { ptr, i64 } %487, 1

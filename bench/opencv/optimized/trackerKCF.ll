@@ -3160,9 +3160,9 @@ _ZN2cv4Mat_INS_3VecIfLi2EEEEC2Eii.exit:           ; preds = %487
   br label %1457
 
 548:                                              ; preds = %540, %529
-  %.sink662 = phi ptr [ %39, %529 ], [ %42, %540 ]
+  %.sink728 = phi ptr [ %39, %529 ], [ %42, %540 ]
   %.sink = phi ptr [ %38, %529 ], [ %41, %540 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink662) #28
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink728) #28
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 1360
@@ -3286,7 +3286,7 @@ _ZN2cv4Mat_INS_3VecIfLi2EEEEC2Eii.exit:           ; preds = %487
   %.not281 = icmp ugt i64 %640, %627
   br i1 %.not281, label %643, label %.critedge367, !llvm.loop !152
 
-641:                                              ; preds = %.invoke663, %1149, %1127, %1106, %1085, %986, %965, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit487, %1168, %1013, %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm.exit
+641:                                              ; preds = %.invoke729, %1149, %1127, %1106, %1085, %986, %965, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit487, %1168, %1013, %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm.exit
   %642 = landingpad { ptr, i32 }
           cleanup
   br label %1457
@@ -4161,7 +4161,7 @@ _ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm.exit: ; preds = %992, %990, %988,
 1046:                                             ; preds = %1042
   %1047 = getelementptr inbounds nuw i8, ptr %0, i64 2464
   %1048 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  br label %.invoke663
+  br label %.invoke729
 
 1049:                                             ; preds = %1042
   %1050 = load ptr, ptr %833, align 8, !tbaa !109
@@ -4172,9 +4172,9 @@ _ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm.exit: ; preds = %992, %990, %988,
 
 1054:                                             ; preds = %1049
   %1055 = getelementptr inbounds nuw i8, ptr %0, i64 2560
-  br label %.invoke663
+  br label %.invoke729
 
-.invoke663:                                       ; preds = %1046, %1054
+.invoke729:                                       ; preds = %1046, %1054
   %1056 = phi ptr [ %1053, %1054 ], [ %1048, %1046 ]
   %1057 = phi ptr [ %1055, %1054 ], [ %1047, %1046 ]
   %1058 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %1056, ptr noundef nonnull align 8 dereferenceable(96) %1057)
@@ -4201,7 +4201,7 @@ _ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE6resizeEm.exit: ; preds = %992, %990, %988,
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %1457
 
-1066:                                             ; preds = %.invoke663, %1063
+1066:                                             ; preds = %.invoke729, %1063
   %1067 = load i32, ptr %135, align 4, !tbaa !56
   %1068 = icmp eq i32 %1067, 0
   br i1 %1068, label %1069, label %1168
@@ -11269,7 +11269,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE17_M_defau
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPN2cv7Scalar_IdEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN2cv7Scalar_IdEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 5
+  %19 = shl nuw nsw i64 %1, 5
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !157

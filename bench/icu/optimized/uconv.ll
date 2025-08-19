@@ -2183,7 +2183,7 @@ define dso_local noundef range(i32 0, 5) i32 @main(i32 noundef %0, ptr noundef c
   %.0230 = select i1 %.not290, ptr %31, ptr %33
   %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not2911066 = icmp eq i32 %0, 1
-  br i1 %.not2911066, label %.thread1248, label %sub_0.lr.ph
+  br i1 %.not2911066, label %.thread1280, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -3121,8 +3121,8 @@ sub_2531:                                         ; preds = %sub_1530
   %or.cond8 = select i1 %393, i1 true, i1 %396
   br i1 %or.cond8, label %397, label %532
 
-.thread1248:                                      ; preds = %30
-  %.0233.ptr.lcssa.ptr1195 = getelementptr inbounds nuw i8, ptr %1, i64 8
+.thread1280:                                      ; preds = %30
+  %.0233.ptr.lcssa.ptr1227 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %564
 
 397:                                              ; preds = %._crit_edge
@@ -3196,16 +3196,16 @@ sub_2531:                                         ; preds = %sub_1530
           to label %.thread451 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 420:                                              ; preds = %.noexc384
-  br i1 %394, label %421, label %.thread202.i
+  br i1 %394, label %421, label %.thread217.i
 
 421:                                              ; preds = %420
   %.not161.i = icmp eq i16 %.fr162.i, 0
   br i1 %.not161.i, label %.lr.ph148.split.us.preheader.i, label %.lr.ph.split.us.i
 
-.thread202.i:                                     ; preds = %420
+.thread217.i:                                     ; preds = %420
   %422 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.91)
-  %.not161203.i = icmp eq i16 %.fr162.i, 0
-  br i1 %.not161203.i, label %.lr.ph148.split.i, label %.lr.ph.split.i
+  %.not161218.i = icmp eq i16 %.fr162.i, 0
+  br i1 %.not161218.i, label %.lr.ph148.split.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %421, %428
   %indvars.iv184.i = phi i64 [ %indvars.iv.next185.i, %428 ], [ 0, %421 ]
@@ -3230,8 +3230,8 @@ sub_2531:                                         ; preds = %sub_1530
   %exitcond.not.i378 = icmp eq i64 %indvars.iv.next.i377, %413
   br i1 %exitcond.not.i378, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !54
 
-.lr.ph.split.i:                                   ; preds = %.thread202.i, %429
-  %indvars.iv.i376 = phi i64 [ %indvars.iv.next.i377, %429 ], [ 0, %.thread202.i ]
+.lr.ph.split.i:                                   ; preds = %.thread217.i, %429
+  %indvars.iv.i376 = phi i64 [ %indvars.iv.next.i377, %429 ], [ 0, %.thread217.i ]
   %430 = trunc nuw i64 %indvars.iv.i376 to i16
   %431 = invoke ptr @ucnv_getStandard_77(i16 noundef zeroext %430, ptr noundef nonnull %5)
           to label %.noexc388 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3307,7 +3307,7 @@ sub_2531:                                         ; preds = %sub_1530
   %exitcond199.not.i = icmp eq i16 %451, %441
   br i1 %exitcond199.not.i, label %._crit_edge141.split.us.us.i, label %.lr.ph140.us.i, !llvm.loop !56
 
-.lr.ph148.split.i:                                ; preds = %._crit_edge.i, %.thread202.i
+.lr.ph148.split.i:                                ; preds = %._crit_edge.i, %.thread217.i
   %452 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.93)
   %453 = icmp ugt i16 %.fr162.i, 1
   %smax197.i = call i32 @llvm.smax.i32(i32 %spec.select.i, i32 1)
@@ -3661,46 +3661,46 @@ sub_0534:                                         ; preds = %559
   %563 = icmp eq i8 %562, 0
   br i1 %563, label %564, label %.tail533.thread
 
-564:                                              ; preds = %.thread1248, %.tail533, %559
-  %.0233.ptr.lcssa.ptr121312351286 = phi ptr [ %.0233.ptr.lcssa.ptr1195, %.thread1248 ], [ %.0233.ptr.lcssa.ptr, %.tail533 ], [ %.0233.ptr.lcssa.ptr, %559 ]
-  %.0220.lcssa121212361284 = phi i32 [ 0, %.thread1248 ], [ %395, %.tail533 ], [ %395, %559 ]
-  %.0231.lcssa120712371282 = phi i64 [ 4096, %.thread1248 ], [ %.1232, %.tail533 ], [ %.1232, %559 ]
-  %.0233.idx.lcssa120612381280 = phi i64 [ 8, %.thread1248 ], [ %.1234.idx, %.tail533 ], [ %.1234.idx, %559 ]
-  %.0241.lcssa120412401278 = phi ptr [ null, %.thread1248 ], [ %.3244, %.tail533 ], [ %.3244, %559 ]
-  %.0245.lcssa120312411276 = phi ptr [ @UCNV_TO_U_CALLBACK_STOP_77, %.thread1248 ], [ %.3248, %.tail533 ], [ %.3248, %559 ]
-  %.0249.lcssa120212421274 = phi ptr [ null, %.thread1248 ], [ %.3252, %.tail533 ], [ %.3252, %559 ]
-  %.0253.lcssa120112431272 = phi ptr [ @UCNV_FROM_U_CALLBACK_STOP_77, %.thread1248 ], [ %.3256, %.tail533 ], [ %.3256, %559 ]
-  %.0257.lcssa120012441270 = phi i8 [ 0, %.thread1248 ], [ %.1258, %.tail533 ], [ %.1258, %559 ]
-  %.0259.lcssa119912451268 = phi ptr [ null, %.thread1248 ], [ %.1260, %.tail533 ], [ %.1260, %559 ]
-  %.0261.lcssa119812461266 = phi ptr [ null, %.thread1248 ], [ %.1262, %.tail533 ], [ %.1262, %559 ]
-  %.0263.lcssa119712471264 = phi ptr [ null, %.thread1248 ], [ %.1264, %.tail533 ], [ %.1264, %559 ]
+564:                                              ; preds = %.thread1280, %.tail533, %559
+  %.0233.ptr.lcssa.ptr124512671318 = phi ptr [ %.0233.ptr.lcssa.ptr1227, %.thread1280 ], [ %.0233.ptr.lcssa.ptr, %.tail533 ], [ %.0233.ptr.lcssa.ptr, %559 ]
+  %.0220.lcssa124412681316 = phi i32 [ 0, %.thread1280 ], [ %395, %.tail533 ], [ %395, %559 ]
+  %.0231.lcssa123912691314 = phi i64 [ 4096, %.thread1280 ], [ %.1232, %.tail533 ], [ %.1232, %559 ]
+  %.0233.idx.lcssa123812701312 = phi i64 [ 8, %.thread1280 ], [ %.1234.idx, %.tail533 ], [ %.1234.idx, %559 ]
+  %.0241.lcssa123612721310 = phi ptr [ null, %.thread1280 ], [ %.3244, %.tail533 ], [ %.3244, %559 ]
+  %.0245.lcssa123512731308 = phi ptr [ @UCNV_TO_U_CALLBACK_STOP_77, %.thread1280 ], [ %.3248, %.tail533 ], [ %.3248, %559 ]
+  %.0249.lcssa123412741306 = phi ptr [ null, %.thread1280 ], [ %.3252, %.tail533 ], [ %.3252, %559 ]
+  %.0253.lcssa123312751304 = phi ptr [ @UCNV_FROM_U_CALLBACK_STOP_77, %.thread1280 ], [ %.3256, %.tail533 ], [ %.3256, %559 ]
+  %.0257.lcssa123212761302 = phi i8 [ 0, %.thread1280 ], [ %.1258, %.tail533 ], [ %.1258, %559 ]
+  %.0259.lcssa123112771300 = phi ptr [ null, %.thread1280 ], [ %.1260, %.tail533 ], [ %.1260, %559 ]
+  %.0261.lcssa123012781298 = phi ptr [ null, %.thread1280 ], [ %.1262, %.tail533 ], [ %.1262, %559 ]
+  %.0263.lcssa122912791296 = phi ptr [ null, %.thread1280 ], [ %.1264, %.tail533 ], [ %.1264, %559 ]
   %565 = invoke ptr @ucnv_getDefaultName_77()
           to label %.tail533.thread unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .tail533.thread:                                  ; preds = %sub_0534, %564, %.tail533
-  %.0233.ptr.lcssa.ptr121312351285 = phi ptr [ %.0233.ptr.lcssa.ptr, %.tail533 ], [ %.0233.ptr.lcssa.ptr121312351286, %564 ], [ %.0233.ptr.lcssa.ptr, %sub_0534 ]
-  %.0220.lcssa121212361283 = phi i32 [ %395, %.tail533 ], [ %.0220.lcssa121212361284, %564 ], [ %395, %sub_0534 ]
-  %.0231.lcssa120712371281 = phi i64 [ %.1232, %.tail533 ], [ %.0231.lcssa120712371282, %564 ], [ %.1232, %sub_0534 ]
-  %.0233.idx.lcssa120612381279 = phi i64 [ %.1234.idx, %.tail533 ], [ %.0233.idx.lcssa120612381280, %564 ], [ %.1234.idx, %sub_0534 ]
-  %.0241.lcssa120412401277 = phi ptr [ %.3244, %.tail533 ], [ %.0241.lcssa120412401278, %564 ], [ %.3244, %sub_0534 ]
-  %.0245.lcssa120312411275 = phi ptr [ %.3248, %.tail533 ], [ %.0245.lcssa120312411276, %564 ], [ %.3248, %sub_0534 ]
-  %.0249.lcssa120212421273 = phi ptr [ %.3252, %.tail533 ], [ %.0249.lcssa120212421274, %564 ], [ %.3252, %sub_0534 ]
-  %.0253.lcssa120112431271 = phi ptr [ %.3256, %.tail533 ], [ %.0253.lcssa120112431272, %564 ], [ %.3256, %sub_0534 ]
-  %.0257.lcssa120012441269 = phi i8 [ %.1258, %.tail533 ], [ %.0257.lcssa120012441270, %564 ], [ %.1258, %sub_0534 ]
-  %.0259.lcssa119912451267 = phi ptr [ %.1260, %.tail533 ], [ %.0259.lcssa119912451268, %564 ], [ %.1260, %sub_0534 ]
-  %.0261.lcssa119812461265 = phi ptr [ %.1262, %.tail533 ], [ %.0261.lcssa119812461266, %564 ], [ %.1262, %sub_0534 ]
-  %.0263.lcssa119712471263 = phi ptr [ %.1264, %.tail533 ], [ %.0263.lcssa119712471264, %564 ], [ %.1264, %sub_0534 ]
+  %.0233.ptr.lcssa.ptr124512671317 = phi ptr [ %.0233.ptr.lcssa.ptr, %.tail533 ], [ %.0233.ptr.lcssa.ptr124512671318, %564 ], [ %.0233.ptr.lcssa.ptr, %sub_0534 ]
+  %.0220.lcssa124412681315 = phi i32 [ %395, %.tail533 ], [ %.0220.lcssa124412681316, %564 ], [ %395, %sub_0534 ]
+  %.0231.lcssa123912691313 = phi i64 [ %.1232, %.tail533 ], [ %.0231.lcssa123912691314, %564 ], [ %.1232, %sub_0534 ]
+  %.0233.idx.lcssa123812701311 = phi i64 [ %.1234.idx, %.tail533 ], [ %.0233.idx.lcssa123812701312, %564 ], [ %.1234.idx, %sub_0534 ]
+  %.0241.lcssa123612721309 = phi ptr [ %.3244, %.tail533 ], [ %.0241.lcssa123612721310, %564 ], [ %.3244, %sub_0534 ]
+  %.0245.lcssa123512731307 = phi ptr [ %.3248, %.tail533 ], [ %.0245.lcssa123512731308, %564 ], [ %.3248, %sub_0534 ]
+  %.0249.lcssa123412741305 = phi ptr [ %.3252, %.tail533 ], [ %.0249.lcssa123412741306, %564 ], [ %.3252, %sub_0534 ]
+  %.0253.lcssa123312751303 = phi ptr [ %.3256, %.tail533 ], [ %.0253.lcssa123312751304, %564 ], [ %.3256, %sub_0534 ]
+  %.0257.lcssa123212761301 = phi i8 [ %.1258, %.tail533 ], [ %.0257.lcssa123212761302, %564 ], [ %.1258, %sub_0534 ]
+  %.0259.lcssa123112771299 = phi ptr [ %.1260, %.tail533 ], [ %.0259.lcssa123112771300, %564 ], [ %.1260, %sub_0534 ]
+  %.0261.lcssa123012781297 = phi ptr [ %.1262, %.tail533 ], [ %.0261.lcssa123012781298, %564 ], [ %.1262, %sub_0534 ]
+  %.0263.lcssa122912791295 = phi ptr [ %.1264, %.tail533 ], [ %.0263.lcssa122912791296, %564 ], [ %.1264, %sub_0534 ]
   %.2237 = phi ptr [ %.1236, %.tail533 ], [ %565, %564 ], [ %.1236, %sub_0534 ]
-  %.not295 = icmp eq ptr %.0263.lcssa119712471263, null
+  %.not295 = icmp eq ptr %.0263.lcssa122912791295, null
   br i1 %.not295, label %570, label %sub_0538
 
 sub_0538:                                         ; preds = %.tail533.thread
-  %566 = load i8, ptr %.0263.lcssa119712471263, align 1
+  %566 = load i8, ptr %.0263.lcssa122912791295, align 1
   %.not1131 = icmp eq i8 %566, 45
   br i1 %.not1131, label %.tail537, label %.tail537.thread
 
 .tail537:                                         ; preds = %sub_0538
-  %567 = getelementptr inbounds nuw i8, ptr %.0263.lcssa119712471263, i64 1
+  %567 = getelementptr inbounds nuw i8, ptr %.0263.lcssa122912791295, i64 1
   %568 = load i8, ptr %567, align 1
   %569 = icmp eq i8 %568, 0
   br i1 %569, label %570, label %.tail537.thread
@@ -3710,29 +3710,29 @@ sub_0538:                                         ; preds = %.tail533.thread
           to label %.tail537.thread unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .tail537.thread:                                  ; preds = %sub_0538, %570, %.tail537
-  %.2265 = phi ptr [ %.0263.lcssa119712471263, %.tail537 ], [ %571, %570 ], [ %.0263.lcssa119712471263, %sub_0538 ]
-  %.not297 = icmp eq ptr %.0259.lcssa119912451267, null
+  %.2265 = phi ptr [ %.0263.lcssa122912791295, %.tail537 ], [ %571, %570 ], [ %.0263.lcssa122912791295, %sub_0538 ]
+  %.not297 = icmp eq ptr %.0259.lcssa123112771299, null
   br i1 %.not297, label %616, label %sub_0542
 
 sub_0542:                                         ; preds = %.tail537.thread
-  %572 = load i8, ptr %.0259.lcssa119912451267, align 1
+  %572 = load i8, ptr %.0259.lcssa123112771299, align 1
   %.not1132 = icmp eq i8 %572, 45
   br i1 %.not1132, label %.tail541, label %.tail541.thread
 
 .tail541:                                         ; preds = %sub_0542
-  %573 = getelementptr inbounds nuw i8, ptr %.0259.lcssa119912451267, i64 1
+  %573 = getelementptr inbounds nuw i8, ptr %.0259.lcssa123112771299, i64 1
   %574 = load i8, ptr %573, align 1
   %575 = icmp eq i8 %574, 0
   br i1 %575, label %616, label %.tail541.thread
 
 .tail541.thread:                                  ; preds = %sub_0542, %.tail541
-  %576 = call noalias ptr @fopen(ptr noundef nonnull %.0259.lcssa119912451267, ptr noundef nonnull @.str.58)
+  %576 = call noalias ptr @fopen(ptr noundef nonnull %.0259.lcssa123112771299, ptr noundef nonnull @.str.58)
   %577 = icmp eq ptr %576, null
   br i1 %577, label %578, label %618
 
 578:                                              ; preds = %.tail541.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  invoke void @_ZN6icu_7713UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull %.0259.lcssa119912451267, ptr noundef nonnull @.str.2)
+  invoke void @_ZN6icu_7713UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull %.0259.lcssa123112771299, ptr noundef nonnull @.str.2)
           to label %579 unwind label %608
 
 579:                                              ; preds = %578
@@ -3837,17 +3837,17 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit418:   ; preds = %_ZNK6icu_7713Unicod
 618:                                              ; preds = %.tail541.thread, %616
   %.0195 = phi ptr [ %576, %.tail541.thread ], [ %617, %616 ]
   %619 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.0231.lcssa120712371281, ptr %619, align 8, !tbaa !29
-  %620 = shl nuw nsw i64 %.0231.lcssa120712371281, 1
+  store i64 %.0231.lcssa123912691313, ptr %619, align 8, !tbaa !29
+  %620 = shl nuw nsw i64 %.0231.lcssa123912691313, 1
   %621 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %620) #26
           to label %.noexc419 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc419:                                        ; preds = %618
   store ptr %621, ptr %10, align 8, !tbaa !28
-  %622 = getelementptr inbounds nuw i8, ptr %621, i64 %.0231.lcssa120712371281
+  %622 = getelementptr inbounds nuw i8, ptr %621, i64 %.0231.lcssa123912691313
   %623 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %622, ptr %623, align 8, !tbaa !39
-  %624 = shl nsw i64 %.0231.lcssa120712371281, 2
+  %624 = shl nsw i64 %.0231.lcssa123912691313, 2
   %625 = add nsw i64 %624, 4
   %626 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %625) #26
           to label %627 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3855,18 +3855,18 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit418:   ; preds = %_ZNK6icu_7713Unicod
 627:                                              ; preds = %.noexc419
   %628 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %626, ptr %628, align 8, !tbaa !36
-  %629 = icmp sgt i64 %.0233.idx.lcssa120612381279, 8
+  %629 = icmp sgt i64 %.0233.idx.lcssa123812701311, 8
   br i1 %629, label %.lr.ph, label %635
 
 630:                                              ; preds = %634
   %631 = getelementptr inbounds nuw i8, ptr %.22401102, i64 8
-  %.not301 = icmp eq ptr %631, %.0233.ptr.lcssa.ptr121312351285
+  %.not301 = icmp eq ptr %631, %.0233.ptr.lcssa.ptr124512671317
   br i1 %.not301, label %.loopexit576, label %.lr.ph, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %627, %630
   %.22401102 = phi ptr [ %631, %630 ], [ %.ptr, %627 ]
   %632 = load ptr, ptr %.22401102, align 8, !tbaa !30
-  %633 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull %.0230, ptr noundef %.2237, ptr noundef %.0245.lcssa120312411275, ptr noundef %.0241.lcssa120412401277, ptr noundef %.2265, ptr noundef %.0253.lcssa120112431271, ptr noundef %.0249.lcssa120212421273, i8 noundef signext %.0257.lcssa120012441269, ptr noundef %.0261.lcssa119812461265, ptr noundef %632, ptr noundef %.0195, i32 noundef %.0220.lcssa121212361283)
+  %633 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull %.0230, ptr noundef %.2237, ptr noundef %.0245.lcssa123512731307, ptr noundef %.0241.lcssa123612721309, ptr noundef %.2265, ptr noundef %.0253.lcssa123312751303, ptr noundef %.0249.lcssa123412741305, i8 noundef signext %.0257.lcssa123212761301, ptr noundef %.0261.lcssa123012781297, ptr noundef %632, ptr noundef %.0195, i32 noundef %.0220.lcssa124412681315)
           to label %634 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 634:                                              ; preds = %.lr.ph
@@ -3874,7 +3874,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit418:   ; preds = %_ZNK6icu_7713Unicod
   br i1 %.not302, label %.loopexit579, label %630
 
 635:                                              ; preds = %627
-  %636 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull %.0230, ptr noundef %.2237, ptr noundef %.0245.lcssa120312411275, ptr noundef %.0241.lcssa120412401277, ptr noundef %.2265, ptr noundef %.0253.lcssa120112431271, ptr noundef %.0249.lcssa120212421273, i8 noundef signext %.0257.lcssa120012441269, ptr noundef %.0261.lcssa119812461265, ptr noundef null, ptr noundef %.0195, i32 noundef %.0220.lcssa121212361283)
+  %636 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull %.0230, ptr noundef %.2237, ptr noundef %.0245.lcssa123512731307, ptr noundef %.0241.lcssa123612721309, ptr noundef %.2265, ptr noundef %.0253.lcssa123312751303, ptr noundef %.0249.lcssa123412741305, i8 noundef signext %.0257.lcssa123212761301, ptr noundef %.0261.lcssa123012781297, ptr noundef null, ptr noundef %.0195, i32 noundef %.0220.lcssa124412681315)
           to label %637 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 637:                                              ; preds = %635

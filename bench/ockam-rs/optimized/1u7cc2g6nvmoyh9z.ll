@@ -15744,7 +15744,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$signature..error..Error$GT$1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17h2c6d1455edb9c650E.llvm.9153531805506995525"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4585, !noundef !4
-  switch i64 %2, label %default.unreachable17 [
+  switch i64 %2, label %default.unreachable28 [
     i64 0, label %29
     i64 1, label %44
     i64 2, label %57
@@ -15763,7 +15763,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$1
     i64 15, label %3
   ]
 
-default.unreachable17:                            ; preds = %1
+default.unreachable28:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1

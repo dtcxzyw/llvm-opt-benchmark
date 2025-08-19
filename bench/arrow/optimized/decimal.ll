@@ -2186,12 +2186,12 @@ _ZN5arrow10Decimal12810FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 .thread:                                          ; preds = %_ZN5arrow10Decimal12810FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN5arrow10Decimal12810FromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.0.0.copyload.i.i5 = load i64, ptr %22, align 8
-  %.sroa.2.0..sroa_idx.i.i6 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sroa.2.0.copyload.i.i7 = load i64, ptr %.sroa.2.0..sroa_idx.i.i6, align 8
-  store i64 %.sroa.0.0.copyload.i.i5, ptr %0, align 8
-  %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.2.0.copyload.i.i7, ptr %.sroa.5.0..sroa_idx8, align 8
+  %.sroa.0.0.copyload.i.i7 = load i64, ptr %22, align 8
+  %.sroa.2.0..sroa_idx.i.i8 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.2.0.copyload.i.i9 = load i64, ptr %.sroa.2.0..sroa_idx.i.i8, align 8
+  store i64 %.sroa.0.0.copyload.i.i7, ptr %0, align 8
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.2.0.copyload.i.i9, ptr %.sroa.5.0..sroa_idx10, align 8
   br label %_ZN5arrow6ResultINS_10Decimal128EED2Ev.exit
 
 23:                                               ; preds = %21
@@ -3064,7 +3064,7 @@ define internal fastcc void @_ZN5arrowL31AppendLittleEndianArrayToStringILm2EEEv
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6.val.i.i.i = load i64, ptr %6, align 8, !tbaa !155, !noalias !156
   %.not14.i.i.i = icmp eq i64 %.val6.val.i.i.i, 0
-  %.sroa.gep109 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.gep114 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not14.i.i.i, label %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit, label %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.thread
 
 _ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit: ; preds = %._crit_edge.i.i.i
@@ -3108,7 +3108,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   br label %123
 
 _ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit
-  %.sroa.phi = phi ptr [ %4, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit ], [ %.sroa.gep109, %._crit_edge.i.i.i ]
+  %.sroa.phi = phi ptr [ %4, %_ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlmE_ET_SI_SI_T0_.exit ], [ %.sroa.gep114, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !163
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3619,7 +3619,7 @@ _ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i: ; preds = %78, %70
   br i1 %102, label %103, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit
 
 103:                                              ; preds = %100
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, i64 noundef %101, i64 noundef %10) #26
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, i64 noundef %101, i64 noundef 0) #26
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit: ; preds = %100
@@ -9447,8 +9447,8 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63
 
 _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63: ; preds = %121, %127
-  %.sink111 = phi i64 [ %130, %127 ], [ 1, %121 ]
-  %131 = add nsw i64 %.0.i58, %.sink111
+  %.sink123 = phi i64 [ %130, %127 ], [ 1, %121 ]
+  %131 = add nsw i64 %.0.i58, %.sink123
   store i64 %131, ptr %16, align 8
   br label %139
 
@@ -9778,8 +9778,8 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63
 
 _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decimal64Ei.exit63: ; preds = %121, %127
-  %.sink110 = phi i64 [ %130, %127 ], [ 1, %121 ]
-  %131 = add nsw i64 %.0.i58, %.sink110
+  %.sink122 = phi i64 [ %130, %127 ], [ 1, %121 ]
+  %131 = add nsw i64 %.0.i58, %.sink122
   store i64 %131, ptr %17, align 8
   br label %139
 
@@ -12498,9 +12498,9 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
   br label %._crit_edge46
 
 ._crit_edge46:                                    ; preds = %.lr.ph45.split._crit_edge, %.lr.ph45.split.us.preheader
-  %.159 = phi i64 [ %.0.lcssa, %.lr.ph45.split.us.preheader ], [ %33, %.lr.ph45.split._crit_edge ]
+  %.160 = phi i64 [ %.0.lcssa, %.lr.ph45.split.us.preheader ], [ %33, %.lr.ph45.split._crit_edge ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %44 = icmp ugt i64 %.159, -9223372036854775808
+  %44 = icmp ugt i64 %.160, -9223372036854775808
   br i1 %44, label %57, label %60
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45.split.preheader, %.lr.ph45.split._crit_edge
@@ -12538,7 +12538,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
   br label %68
 
 60:                                               ; preds = %._crit_edge46
-  %61 = icmp eq i64 %.159, -9223372036854775808
+  %61 = icmp eq i64 %.160, -9223372036854775808
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %60

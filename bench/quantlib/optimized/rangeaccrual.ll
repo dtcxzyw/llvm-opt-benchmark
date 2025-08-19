@@ -4339,13 +4339,13 @@ cond.false.i39:                                   ; preds = %dynamic_cast.end3.i
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %cond.false.i39, %_ZN5boost20dynamic_pointer_castIN8QuantLib9IborIndexENS1_17InterestRateIndexEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit.thread
-  %.pre.i201 = phi ptr [ %28, %_ZN5boost20dynamic_pointer_castIN8QuantLib9IborIndexENS1_17InterestRateIndexEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit.thread ], [ null, %cond.false.i39 ]
+  %.pre.i228 = phi ptr [ %28, %_ZN5boost20dynamic_pointer_castIN8QuantLib9IborIndexENS1_17InterestRateIndexEEENS_10shared_ptrIT_EERKNS4_IT0_EE.exit.thread ], [ null, %cond.false.i39 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %termStructure_.i = getelementptr inbounds nuw i8, ptr %.pre.i201, i64 248
+  %termStructure_.i = getelementptr inbounds nuw i8, ptr %.pre.i228, i64 248
   %31 = load ptr, ptr %termStructure_.i, align 8, !tbaa !80, !noalias !108
   store ptr %31, ptr %ref.tmp34, align 8, !tbaa !80, !alias.scope !108
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 8
-  %pn3.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i201, i64 256
+  %pn3.i.i.i = getelementptr inbounds nuw i8, ptr %.pre.i228, i64 256
   %32 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !47, !noalias !108
   store ptr %32, ptr %pn.i.i.i, align 8, !tbaa !47, !alias.scope !108
   %cmp.not.i.i.i.i = icmp eq ptr %32, null

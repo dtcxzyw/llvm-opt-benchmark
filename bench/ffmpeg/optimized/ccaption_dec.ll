@@ -1042,33 +1042,33 @@ switch.lookup:                                    ; preds = %77
   %87 = sext i8 %86 to i32
   %.not160 = icmp ne i32 %.1143196, %87
   %88 = icmp ult i8 %86, 7
-  %or.cond239 = and i1 %.not160, %88
-  br i1 %or.cond239, label %switch.lookup236, label %90
+  %or.cond241 = and i1 %.not160, %88
+  br i1 %or.cond241, label %switch.lookup238, label %90
 
-switch.lookup236:                                 ; preds = %84
+switch.lookup238:                                 ; preds = %84
   %89 = zext nneg i8 %86 to i64
-  %switch.gep237 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.capture_screen.2, i64 0, i64 %89
-  %switch.load238 = load ptr, ptr %switch.gep237, align 8
+  %switch.gep239 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.capture_screen.2, i64 0, i64 %89
+  %switch.load240 = load ptr, ptr %switch.gep239, align 8
   br label %90
 
-90:                                               ; preds = %switch.lookup236, %84
-  %.0125 = phi ptr [ @.str.19, %84 ], [ %switch.load238, %switch.lookup236 ]
+90:                                               ; preds = %switch.lookup238, %84
+  %.0125 = phi ptr [ @.str.19, %84 ], [ %switch.load240, %switch.lookup238 ]
   %91 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv226
   %92 = load i8, ptr %91, align 1, !tbaa !42
   %93 = sext i8 %92 to i32
   %.not161 = icmp ne i32 %.1148195, %93
   %94 = icmp ult i8 %92, 9
-  %or.cond243 = and i1 %.not161, %94
-  br i1 %or.cond243, label %switch.lookup240, label %96
+  %or.cond245 = and i1 %.not161, %94
+  br i1 %or.cond245, label %switch.lookup242, label %96
 
-switch.lookup240:                                 ; preds = %90
+switch.lookup242:                                 ; preds = %90
   %95 = zext nneg i8 %92 to i64
-  %switch.gep241 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.capture_screen.3, i64 0, i64 %95
-  %switch.load242 = load ptr, ptr %switch.gep241, align 8
+  %switch.gep243 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.capture_screen.3, i64 0, i64 %95
+  %switch.load244 = load ptr, ptr %switch.gep243, align 8
   br label %96
 
-96:                                               ; preds = %switch.lookup240, %90
-  %.0124 = phi ptr [ @.str.19, %90 ], [ %switch.load242, %switch.lookup240 ]
+96:                                               ; preds = %switch.lookup242, %90
+  %.0124 = phi ptr [ @.str.19, %90 ], [ %switch.load244, %switch.lookup242 ]
   %97 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv226
   %98 = load i8, ptr %97, align 1, !tbaa !42
   %99 = sext i8 %98 to i64
@@ -1260,9 +1260,9 @@ define internal fastcc void @handle_edm(ptr noundef %0) unnamed_addr #1 {
   br i1 %.not, label %10, label %.thread
 
 .thread:                                          ; preds = %1
-  %.idx11 = mul nsw i64 %4, 2642
+  %.idx12 = mul nsw i64 %4, 2642
   %7 = getelementptr i8, ptr %0, i64 2668
-  %8 = getelementptr i8, ptr %7, i64 %.idx11
+  %8 = getelementptr i8, ptr %7, i64 %.idx12
   store i16 0, ptr %8, align 2, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 5319
   store i8 8, ptr %9, align 1, !tbaa !30

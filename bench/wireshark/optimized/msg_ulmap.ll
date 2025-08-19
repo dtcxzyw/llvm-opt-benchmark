@@ -2169,21 +2169,21 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @UL_sounding_command
   %133 = and i32 %132, %126
   %.not268 = icmp eq i32 %133, 0
   %. = select i1 %.not268, i32 7, i32 12
-  %.306 = select i1 %.not268, i32 24, i32 29
-  %.307 = select i1 %.not268, i32 7, i32 2
+  %.314 = select i1 %.not268, i32 24, i32 29
+  %.315 = select i1 %.not268, i32 7, i32 2
   %hf_ulmap_sounding_command_starting_frequency_band.val = load i32, ptr @hf_ulmap_sounding_command_starting_frequency_band, align 4
   %hf_ulmap_sounding_command_band_bit_map.val = load i32, ptr @hf_ulmap_sounding_command_band_bit_map, align 4
   %134 = select i1 %.not268, i32 %hf_ulmap_sounding_command_starting_frequency_band.val, i32 %hf_ulmap_sounding_command_band_bit_map.val
   %135 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %134, ptr noundef %3, i32 noundef %131, i32 noundef %., i32 noundef 0)
-  %136 = add i32 %.3279, %.306
+  %136 = add i32 %.3279, %.314
   %hf_ulmap_sounding_command_number_of_frequency_bands.val = load i32, ptr @hf_ulmap_sounding_command_number_of_frequency_bands, align 4
-  %hf_ulmap_reserved_uint.val308 = load i32, ptr @hf_ulmap_reserved_uint, align 4
-  %137 = select i1 %.not268, i32 %hf_ulmap_sounding_command_number_of_frequency_bands.val, i32 %hf_ulmap_reserved_uint.val308
-  %138 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %137, ptr noundef %3, i32 noundef %136, i32 noundef %.307, i32 noundef 0)
+  %hf_ulmap_reserved_uint.val316 = load i32, ptr @hf_ulmap_reserved_uint, align 4
+  %137 = select i1 %.not268, i32 %hf_ulmap_sounding_command_number_of_frequency_bands.val, i32 %hf_ulmap_reserved_uint.val316
+  %138 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %137, ptr noundef %3, i32 noundef %136, i32 noundef %.315, i32 noundef 0)
   %.4 = add i32 %.3279, 31
-  %hf_ulmap_reserved_uint.val309 = load i32, ptr @hf_ulmap_reserved_uint, align 4
+  %hf_ulmap_reserved_uint.val317 = load i32, ptr @hf_ulmap_reserved_uint, align 4
   %hf_ulmap_sounding_command_relevance.val = load i32, ptr @hf_ulmap_sounding_command_relevance, align 4
-  %139 = select i1 %40, i32 %hf_ulmap_reserved_uint.val309, i32 %hf_ulmap_sounding_command_relevance.val
+  %139 = select i1 %40, i32 %hf_ulmap_reserved_uint.val317, i32 %hf_ulmap_sounding_command_relevance.val
   %140 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %139, ptr noundef %3, i32 noundef %.4, i32 noundef 1, i32 noundef 0)
   %.5 = add i32 %.3279, 32
   br i1 %90, label %141, label %144
@@ -2213,8 +2213,8 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @UL_sounding_command
   br label %157
 
 157:                                              ; preds = %148, %154, %141
-  %.sink305 = phi i32 [ 41, %148 ], [ 41, %154 ], [ 37, %141 ]
-  %158 = add i32 %.3279, %.sink305
+  %.sink313 = phi i32 [ 41, %148 ], [ 41, %154 ], [ 37, %141 ]
+  %158 = add i32 %.3279, %.sink313
   %159 = load i32, ptr @hf_ulmap_sounding_command_periodicity, align 4
   %160 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %159, ptr noundef %3, i32 noundef %158, i32 noundef 3, i32 noundef 0)
   %161 = add i32 %158, 3
@@ -3584,12 +3584,12 @@ default.unreachable:                              ; preds = %99
   br label %.thread208
 
 .thread208:                                       ; preds = %105, %.thread, %116, %130
-  %.sink227 = phi i32 [ 11, %105 ], [ 6, %.thread ], [ 15, %116 ], [ 13, %130 ]
-  %.sink226 = phi i32 [ 1, %105 ], [ 2, %.thread ], [ 1, %116 ], [ 3, %130 ]
+  %.sink231 = phi i32 [ 11, %105 ], [ 6, %.thread ], [ 15, %116 ], [ 13, %130 ]
+  %.sink230 = phi i32 [ 1, %105 ], [ 2, %.thread ], [ 1, %116 ], [ 3, %130 ]
   %.sink = phi i32 [ 12, %105 ], [ 8, %.thread ], [ 16, %116 ], [ 16, %130 ]
-  %144 = add i32 %.3, %.sink227
+  %144 = add i32 %.3, %.sink231
   %145 = load i32, ptr @hf_ulmap_reserved_uint, align 4
-  %146 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %145, ptr noundef %3, i32 noundef %144, i32 noundef %.sink226, i32 noundef 0)
+  %146 = tail call ptr @proto_tree_add_bits_item(ptr noundef %12, i32 noundef %145, ptr noundef %3, i32 noundef %144, i32 noundef %.sink230, i32 noundef 0)
   %147 = add i32 %.3, %.sink
   %148 = shl nuw nsw i32 1, %78
   %149 = and i32 %148, %76

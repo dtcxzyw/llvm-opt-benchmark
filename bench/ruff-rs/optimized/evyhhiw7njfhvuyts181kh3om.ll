@@ -49481,7 +49481,7 @@ common.resume:                                    ; preds = %174, %182, %200, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.413.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.611, i64 40, i1 false)
   %326 = icmp eq i64 %.sroa.0.i.i.sroa.0.0.copyload15, 1
   %spec.select = select i1 %326, ptr %.sroa.413.0..sroa_idx, ptr %.sroa.611
-  %spec.select45 = select i1 %326, i64 2, i64 %.sroa.0.i.i.sroa.0.0.copyload15
+  %spec.select58 = select i1 %326, i64 2, i64 %.sroa.0.i.i.sroa.0.0.copyload15
   br label %329
 
 327:                                              ; preds = %"_ZN9toml_edit6parser8document6keyval28_$u7b$$u7b$closure$u7d$$u7d$17h90351232c7a9823eE.exit.thread", %"_ZN9toml_edit6parser8document6keyval28_$u7b$$u7b$closure$u7d$$u7d$17h90351232c7a9823eE.exit"
@@ -49494,7 +49494,7 @@ common.resume:                                    ; preds = %174, %182, %200, %2
 
 329:                                              ; preds = %325, %.thread
   %.sroa.413.0..sroa_idx33.sink = phi ptr [ %.sroa.413.0..sroa_idx32, %.thread ], [ %spec.select, %325 ]
-  %.sroa.021.0 = phi i64 [ 2, %.thread ], [ %spec.select45, %325 ]
+  %.sroa.021.0 = phi i64 [ 2, %.thread ], [ %spec.select58, %325 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.523, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.413.0..sroa_idx33.sink, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   store i64 %.sroa.021.0, ptr %0, align 8

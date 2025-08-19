@@ -1308,8 +1308,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %68 = load ptr, ptr %67, align 16, !tbaa !129
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %70 = load i32, ptr %69, align 4, !tbaa !115
-  %.sink43.i.sroa.gep = getelementptr inbounds nuw i8, ptr %44, i64 44
-  %.sink43.i.sroa.gep50 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %.sink64.i.sroa.gep = getelementptr inbounds nuw i8, ptr %44, i64 44
+  %.sink64.i.sroa.gep50 = getelementptr inbounds nuw i8, ptr %44, i64 40
   switch i32 %70, label %1316 [
     i32 0, label %71
     i32 3, label %71
@@ -2357,13 +2357,13 @@ invert_matrix.exit237.i:                          ; preds = %compute_wb_factors.
   %747 = getelementptr inbounds nuw i8, ptr %44, i64 36
   store float %746, ptr %747, align 4, !tbaa !36
   %748 = fmul reassoc nsz arcp contract afn float %732, %723
-  store float %748, ptr %.sink43.i.sroa.gep50, align 8, !tbaa !36
+  store float %748, ptr %.sink64.i.sroa.gep50, align 8, !tbaa !36
   br label %set_up_conversion_matrices.exit.sink.split.i
 
 set_up_conversion_matrices.exit.sink.split.i:     ; preds = %720, %invert_matrix.exit237.i
-  %.sink43.i.sroa.phi = phi ptr [ %.sink43.i.sroa.gep, %720 ], [ %.sink43.i.sroa.gep50, %invert_matrix.exit237.i ]
+  %.sink64.i.sroa.phi = phi ptr [ %.sink64.i.sroa.gep, %720 ], [ %.sink64.i.sroa.gep50, %invert_matrix.exit237.i ]
   %.sink.i = phi float [ 0.000000e+00, %720 ], [ %710, %invert_matrix.exit237.i ]
-  store float %.sink.i, ptr %.sink43.i.sroa.phi, align 4, !tbaa !36
+  store float %.sink.i, ptr %.sink64.i.sroa.phi, align 4, !tbaa !36
   br label %set_up_conversion_matrices.exit.i
 
 set_up_conversion_matrices.exit.i:                ; preds = %set_up_conversion_matrices.exit.sink.split.i, %711
@@ -4576,9 +4576,9 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %63 = load i32, ptr %62, align 4, !tbaa !127
   %64 = icmp eq i32 %63, 0
-  %spec.select105 = select i1 %64, i32 0, i32 4
+  %spec.select110 = select i1 %64, i32 0, i32 4
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 672
-  store i32 %spec.select105, ptr %65, align 16, !tbaa !255
+  store i32 %spec.select110, ptr %65, align 16, !tbaa !255
   br i1 %.not, label %81, label %.thread90
 
 .thread90:                                        ; preds = %.thread, %61
@@ -4603,9 +4603,9 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %78 = load i32, ptr %77, align 4, !tbaa !127
   %79 = icmp eq i32 %78, 0
-  %spec.select105.c = select i1 %79, i32 0, i32 4
+  %spec.select110.c = select i1 %79, i32 0, i32 4
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 672
-  store i32 %spec.select105.c, ptr %80, align 16, !tbaa !255
+  store i32 %spec.select110.c, ptr %80, align 16, !tbaa !255
   br label %81
 
 81:                                               ; preds = %.critedge, %73, %69, %.thread90, %61

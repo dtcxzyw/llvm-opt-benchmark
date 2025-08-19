@@ -1215,7 +1215,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %
   br i1 %exitcond.not.i.i.i43, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %110, !llvm.loop !96
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %110, %104, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %.0.i.i.i3457 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
+  %.0.i.i.i3464 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !91
   %.not.i5.i.i36 = icmp ne ptr %115, null
@@ -1231,7 +1231,7 @@ _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds =
 
 _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38: ; preds = %119, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
   store i8 1, ptr %116, align 8, !tbaa !26
-  store ptr %.0.i.i.i3457, ptr %114, align 8, !tbaa !91
+  store ptr %.0.i.i.i3464, ptr %114, align 8, !tbaa !91
   store i32 %98, ptr %101, align 8, !tbaa !90
   br label %.lr.ph.i26
 
@@ -1947,7 +1947,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33: ; preds = %
   br i1 %exitcond.not.i.i.i43, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35, label %110, !llvm.loop !96
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds = %110, %104, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33
-  %.0.i.i.i3457 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
+  %.0.i.i.i3464 = phi ptr [ %107, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i33 ], [ null, %104 ], [ %107, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !91
   %.not.i5.i.i36 = icmp ne ptr %115, null
@@ -1963,7 +1963,7 @@ _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35: ; preds =
 
 _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i38: ; preds = %119, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i35
   store i8 1, ptr %116, align 8, !tbaa !26
-  store ptr %.0.i.i.i3457, ptr %114, align 8, !tbaa !91
+  store ptr %.0.i.i.i3464, ptr %114, align 8, !tbaa !91
   store i32 %98, ptr %101, align 8, !tbaa !90
   br label %.lr.ph.i26
 
@@ -3041,8 +3041,8 @@ _ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us: ; preds
   br label %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us
 
 _ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us: ; preds = %39, %51, %59, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %69, %76, %37
-  %.sink48 = phi ptr [ %38, %37 ], [ %47, %76 ], [ %47, %69 ], [ %47, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ %47, %59 ], [ %47, %51 ], [ %47, %39 ]
-  %81 = getelementptr inbounds [3 x i16], ptr %.sink48, i64 0, i64 %7
+  %.sink51 = phi ptr [ %38, %37 ], [ %47, %76 ], [ %47, %69 ], [ %47, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ %47, %59 ], [ %47, %51 ], [ %47, %39 ]
+  %81 = getelementptr inbounds [3 x i16], ptr %.sink51, i64 0, i64 %7
   %82 = load i16, ptr %81, align 2, !tbaa !47
   %83 = add i16 %82, 1
   store i16 %83, ptr %81, align 2, !tbaa !47
@@ -3404,8 +3404,8 @@ _ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us: ; preds
   br label %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us
 
 _ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us: ; preds = %45, %51, %57, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %65, %76, %43
-  %.sink51 = phi ptr [ %44, %43 ], [ %47, %76 ], [ %47, %65 ], [ %47, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ %47, %57 ], [ %47, %51 ], [ %47, %45 ]
-  %81 = getelementptr inbounds [3 x i16], ptr %.sink51, i64 0, i64 %7
+  %.sink56 = phi ptr [ %44, %43 ], [ %47, %76 ], [ %47, %65 ], [ %47, %_ZN20btAxisSweep3InternalItE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ %47, %57 ], [ %47, %51 ], [ %47, %45 ]
+  %81 = getelementptr inbounds [3 x i16], ptr %.sink56, i64 0, i64 %7
   %82 = load i16, ptr %81, align 2, !tbaa !47
   %83 = add i16 %82, -1
   store i16 %83, ptr %81, align 2, !tbaa !47
@@ -4988,8 +4988,8 @@ _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us: ; preds
   br label %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us
 
 _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us: ; preds = %39, %51, %59, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %69, %76, %37
-  %.sink48 = phi ptr [ %38, %37 ], [ %47, %76 ], [ %47, %69 ], [ %47, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ %47, %59 ], [ %47, %51 ], [ %47, %39 ]
-  %81 = getelementptr inbounds [3 x i32], ptr %.sink48, i64 0, i64 %7
+  %.sink51 = phi ptr [ %38, %37 ], [ %47, %76 ], [ %47, %69 ], [ %47, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ %47, %59 ], [ %47, %51 ], [ %47, %39 ]
+  %81 = getelementptr inbounds [3 x i32], ptr %.sink51, i64 0, i64 %7
   %82 = load i32, ptr %81, align 4, !tbaa !72
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4, !tbaa !72
@@ -5351,8 +5351,8 @@ _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us: ; preds
   br label %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us
 
 _ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.thread.us: ; preds = %45, %51, %57, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us, %65, %76, %43
-  %.sink51 = phi ptr [ %44, %43 ], [ %47, %76 ], [ %47, %65 ], [ %47, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ %47, %57 ], [ %47, %51 ], [ %47, %45 ]
-  %81 = getelementptr inbounds [3 x i32], ptr %.sink51, i64 0, i64 %7
+  %.sink56 = phi ptr [ %44, %43 ], [ %47, %76 ], [ %47, %65 ], [ %47, %_ZN20btAxisSweep3InternalIjE13testOverlap2DEPKNS0_6HandleES3_ii.exit.us ], [ %47, %57 ], [ %47, %51 ], [ %47, %45 ]
+  %81 = getelementptr inbounds [3 x i32], ptr %.sink56, i64 0, i64 %7
   %82 = load i32, ptr %81, align 4, !tbaa !72
   %83 = add i32 %82, -1
   store i32 %83, ptr %81, align 4, !tbaa !72

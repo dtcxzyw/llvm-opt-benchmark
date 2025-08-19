@@ -483,8 +483,8 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   %206 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %207 = sext i32 %.2286 to i64
   %208 = icmp ugt i64 %205, %207
-  %or.cond1409 = select i1 %.0293, i1 %208, i1 false
-  br i1 %or.cond1409, label %.thread439.sink.split, label %.thread439
+  %or.cond1476 = select i1 %.0293, i1 %208, i1 false
+  br i1 %or.cond1476, label %.thread439.sink.split, label %.thread439
 
 209:                                              ; preds = %181
   %210 = load i32, ptr %3, align 8
@@ -514,8 +514,8 @@ zval_get_tmp_string.exit:                         ; preds = %200, %202
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %226 = sext i32 %.2286 to i64
   %227 = icmp ugt i64 %224, %226
-  %or.cond1411 = select i1 %.0293, i1 %227, i1 false
-  br i1 %or.cond1411, label %.thread439.sink.split, label %.thread439
+  %or.cond1478 = select i1 %.0293, i1 %227, i1 false
+  br i1 %or.cond1478, label %.thread439.sink.split, label %.thread439
 
 228:                                              ; preds = %181
   switch i32 %.0303, label %229 [
@@ -1853,8 +1853,8 @@ thread-pre-split492:                              ; preds = %884
   br i1 %.not.i.i426, label %904, label %897, !prof !49
 
 897:                                              ; preds = %thread-pre-split492.thread, %thread-pre-split492
-  %.72824841115 = phi i32 [ %.6281, %thread-pre-split492.thread ], [ %.4279, %thread-pre-split492 ]
-  %.124851112 = phi ptr [ %.11274, %thread-pre-split492.thread ], [ %.10273, %thread-pre-split492 ]
+  %.72824841182 = phi i32 [ %.6281, %thread-pre-split492.thread ], [ %.4279, %thread-pre-split492 ]
+  %.124851179 = phi ptr [ %.11274, %thread-pre-split492.thread ], [ %.10273, %thread-pre-split492 ]
   %898 = phi ptr [ %880, %thread-pre-split492.thread ], [ %.pre1087, %thread-pre-split492 ]
   %899 = phi i64 [ %878, %thread-pre-split492.thread ], [ %.pre1085.pre, %thread-pre-split492 ]
   %900 = getelementptr inbounds nuw i8, ptr %898, i64 16
@@ -1865,8 +1865,8 @@ thread-pre-split492:                              ; preds = %884
   br i1 %.not12.i.i427, label %smart_str_appendl_ex.exit, label %904, !prof !15
 
 904:                                              ; preds = %897, %thread-pre-split492
-  %.72824841113 = phi i32 [ %.4279, %thread-pre-split492 ], [ %.72824841115, %897 ]
-  %.124851110 = phi ptr [ %.10273, %thread-pre-split492 ], [ %.124851112, %897 ]
+  %.72824841180 = phi i32 [ %.4279, %thread-pre-split492 ], [ %.72824841182, %897 ]
+  %.124851177 = phi ptr [ %.10273, %thread-pre-split492 ], [ %.124851179, %897 ]
   %905 = phi i64 [ %.pre1085.pre, %thread-pre-split492 ], [ %899, %897 ]
   %.0.i.i428 = phi i64 [ %.pre1085.pre, %thread-pre-split492 ], [ %902, %897 ]
   call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i428) #12
@@ -1876,22 +1876,22 @@ thread-pre-split492:                              ; preds = %884
   br label %smart_str_appendl_ex.exit
 
 smart_str_appendl_ex.exit:                        ; preds = %897, %904
-  %.72824841114 = phi i32 [ %.72824841113, %904 ], [ %.72824841115, %897 ]
-  %.124851111 = phi ptr [ %.124851110, %904 ], [ %.124851112, %897 ]
+  %.72824841181 = phi i32 [ %.72824841180, %904 ], [ %.72824841182, %897 ]
+  %.124851178 = phi ptr [ %.124851177, %904 ], [ %.124851179, %897 ]
   %906 = phi i64 [ %905, %904 ], [ %899, %897 ]
   %907 = phi i64 [ %.pre1081, %904 ], [ %901, %897 ]
   %908 = phi ptr [ %.pre1079, %904 ], [ %898, %897 ]
   %.1.i.i429 = phi i64 [ %.0.i.i428, %904 ], [ %902, %897 ]
   %909 = getelementptr inbounds nuw i8, ptr %908, i64 24
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 %907
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %910, ptr align 1 %.124851111, i64 %906, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %910, ptr align 1 %.124851178, i64 %906, i1 false)
   %911 = load ptr, ptr %0, align 8, !tbaa !24
   %912 = getelementptr inbounds nuw i8, ptr %911, i64 16
   store i64 %.1.i.i429, ptr %912, align 8, !tbaa !17
   br label %913
 
 913:                                              ; preds = %smart_str_appendl_ex.exit, %smart_string_appendl_ex.exit
-  %.7282478 = phi i32 [ %.72824841114, %smart_str_appendl_ex.exit ], [ %.7282479, %smart_string_appendl_ex.exit ]
+  %.7282478 = phi i32 [ %.72824841181, %smart_str_appendl_ex.exit ], [ %.7282479, %smart_string_appendl_ex.exit ]
   %914 = icmp eq i32 %.3331, 0
   %or.cond18 = select i1 %.1292, i1 %914, i1 false
   br i1 %or.cond18, label %915, label %952

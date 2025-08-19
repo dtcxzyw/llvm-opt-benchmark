@@ -1091,13 +1091,13 @@ if.then.i197:                                     ; preds = %for.body142
 if.then.i.i.i.i:                                  ; preds = %if.then.i197
   store double 0.000000e+00, ptr %105, align 8, !tbaa !62
   %incdec.ptr.i.i.i.i530 = getelementptr i8, ptr %105, i64 8
-  %sub.i.i.i.i = add i64 %sub.i198, -1
+  %sub.i.i.i.i = add nsw i64 %sub.i198, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  %108 = shl i64 %sub.i198, 3
-  %109 = add i64 %108, -8
+  %108 = shl nuw nsw i64 %sub.i198, 3
+  %109 = add nsw i64 %108, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i530, i8 0, i64 %109, i1 false), !tbaa !62
   %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i530, i64 %add.ptr.idx.i.i.i.i.i.i
@@ -3151,11 +3151,11 @@ for.body247.lr.ph:                                ; preds = %for.body235
   br label %for.body247
 
 for.cond.cleanup246.loopexit:                     ; preds = %if.end356
-  %storedv273452 = zext i1 %165 to i8
+  %storedv273477 = zext i1 %165 to i8
   br label %for.cond.cleanup246
 
 for.cond.cleanup246:                              ; preds = %for.cond.cleanup246.loopexit, %for.body235
-  %flowsFound.1.lcssa = phi i8 [ %flowsFound.0411, %for.body235 ], [ %storedv273452, %for.cond.cleanup246.loopexit ]
+  %flowsFound.1.lcssa = phi i8 [ %flowsFound.0411, %for.body235 ], [ %storedv273477, %for.cond.cleanup246.loopexit ]
   %loadedv363 = trunc nuw i8 %flowsFound.1.lcssa to i1
   br i1 %loadedv363, label %if.then364, label %if.end546
 
@@ -3403,9 +3403,9 @@ for.cond388.preheader.lr.ph:                      ; preds = %for.cond383.prehead
   %196 = getelementptr i8, ptr %178, i64 %193
   %197 = icmp slt i64 %191, 0
   %198 = select i1 %197, i64 %192, i64 %191
-  %mul469 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %198, i64 %190)
-  %mul.result = extractvalue { i64, i1 } %mul469, 0
-  %mul.overflow = extractvalue { i64, i1 } %mul469, 1
+  %mul494 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %198, i64 %190)
+  %mul.result = extractvalue { i64, i1 } %mul494, 0
+  %mul.overflow = extractvalue { i64, i1 } %mul494, 1
   %199 = sub i64 0, %mul.result
   %200 = getelementptr i8, ptr %180, i64 %194
   %201 = getelementptr i8, ptr %200, i64 8
@@ -3471,8 +3471,8 @@ invoke.cont457.us.lver.orig:                      ; preds = %invoke.cont457.us.l
 
 invoke.cont457.us.ph:                             ; preds = %invoke.cont457.us.lver.check
   %220 = mul i64 %195, %f.0395.us
-  %scevgep471 = getelementptr i8, ptr %201, i64 %220
-  %load_initial = load double, ptr %scevgep471, align 8
+  %scevgep496 = getelementptr i8, ptr %201, i64 %220
+  %load_initial = load double, ptr %scevgep496, align 8
   br label %invoke.cont457.us
 
 invoke.cont457.us:                                ; preds = %invoke.cont457.us.ph, %invoke.cont457.us
@@ -5536,13 +5536,13 @@ if.then.i393:                                     ; preds = %for.body318
 if.then.i.i.i.i:                                  ; preds = %if.then.i393
   store double 0.000000e+00, ptr %215, align 8, !tbaa !62
   %incdec.ptr.i.i.i.i760 = getelementptr i8, ptr %215, i64 8
-  %sub.i.i.i.i = add i64 %sub.i394, -1
+  %sub.i.i.i.i = add nsw i64 %sub.i394, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  %218 = shl i64 %sub.i394, 3
-  %219 = add i64 %218, -8
+  %218 = shl nuw nsw i64 %sub.i394, 3
+  %219 = add nsw i64 %218, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i760, i8 0, i64 %219, i1 false), !tbaa !62
   %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i760, i64 %add.ptr.idx.i.i.i.i.i.i
@@ -7446,11 +7446,11 @@ for.body213.lr.ph:                                ; preds = %for.body203
   br label %for.body213
 
 for.cond.cleanup212.loopexit:                     ; preds = %if.end345
-  %storedv239521 = zext i1 %187 to i8
+  %storedv239550 = zext i1 %187 to i8
   br label %for.cond.cleanup212
 
 for.cond.cleanup212:                              ; preds = %for.cond.cleanup212.loopexit, %for.body203
-  %flowsFound.1.lcssa = phi i8 [ %flowsFound.0449, %for.body203 ], [ %storedv239521, %for.cond.cleanup212.loopexit ]
+  %flowsFound.1.lcssa = phi i8 [ %flowsFound.0449, %for.body203 ], [ %storedv239550, %for.cond.cleanup212.loopexit ]
   %loadedv349 = trunc nuw i8 %flowsFound.1.lcssa to i1
   br i1 %loadedv349, label %if.then350, label %if.end523
 
@@ -7741,9 +7741,9 @@ for.cond368.preheader.lr.ph:                      ; preds = %_ZNK5boost10shared_
   %219 = getelementptr i8, ptr %200, i64 %216
   %220 = icmp slt i64 %214, 0
   %221 = select i1 %220, i64 %215, i64 %214
-  %mul541 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %221, i64 %213)
-  %mul.result = extractvalue { i64, i1 } %mul541, 0
-  %mul.overflow = extractvalue { i64, i1 } %mul541, 1
+  %mul568 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %221, i64 %213)
+  %mul.result = extractvalue { i64, i1 } %mul568, 0
+  %mul.overflow = extractvalue { i64, i1 } %mul568, 1
   %222 = sub i64 0, %mul.result
   %223 = getelementptr i8, ptr %202, i64 %217
   %224 = getelementptr i8, ptr %223, i64 8
@@ -7809,8 +7809,8 @@ for.body401.us.lver.orig:                         ; preds = %for.body401.us.lver
 
 for.body401.us.ph:                                ; preds = %for.body401.us.lver.check
   %243 = mul i64 %218, %f.0427.us
-  %scevgep543 = getelementptr i8, ptr %224, i64 %243
-  %load_initial = load double, ptr %scevgep543, align 8
+  %scevgep570 = getelementptr i8, ptr %224, i64 %243
+  %load_initial = load double, ptr %scevgep570, align 8
   br label %for.body401.us
 
 for.body401.us:                                   ; preds = %for.body401.us.ph, %for.body401.us
@@ -9906,13 +9906,13 @@ if.then.i386:                                     ; preds = %for.body282
 if.then.i.i.i.i:                                  ; preds = %if.then.i386
   store double 0.000000e+00, ptr %197, align 8, !tbaa !62
   %incdec.ptr.i.i.i.i831 = getelementptr i8, ptr %197, i64 8
-  %sub.i.i.i.i = add i64 %sub.i387, -1
+  %sub.i.i.i.i = add nsw i64 %sub.i387, -1
   %cmp.i.i.i.i.i.i832 = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i832, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i
-  %200 = shl i64 %sub.i387, 3
-  %201 = add i64 %200, -8
+  %200 = shl nuw nsw i64 %sub.i387, 3
+  %201 = add nsw i64 %200, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i831, i8 0, i64 %201, i1 false), !tbaa !62
   %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i831, i64 %add.ptr.idx.i.i.i.i.i.i
@@ -12067,11 +12067,11 @@ for.body204.lr.ph:                                ; preds = %for.body194
   br label %for.body204
 
 for.cond.cleanup203.loopexit:                     ; preds = %if.end306
-  %storedv230538 = zext i1 %169 to i8
+  %storedv230567 = zext i1 %169 to i8
   br label %for.cond.cleanup203
 
 for.cond.cleanup203:                              ; preds = %for.cond.cleanup203.loopexit, %for.body194
-  %flowsFound.1.lcssa = phi i8 [ %flowsFound.0430, %for.body194 ], [ %storedv230538, %for.cond.cleanup203.loopexit ]
+  %flowsFound.1.lcssa = phi i8 [ %flowsFound.0430, %for.body194 ], [ %storedv230567, %for.cond.cleanup203.loopexit ]
   %loadedv310 = trunc nuw i8 %flowsFound.1.lcssa to i1
   br i1 %loadedv310, label %if.then311, label %if.end448
 
@@ -12312,9 +12312,9 @@ for.cond329.preheader.lr.ph:                      ; preds = %_ZNK5boost10shared_
   %200 = getelementptr i8, ptr %182, i64 %197
   %201 = icmp slt i64 %195, 0
   %202 = select i1 %201, i64 %196, i64 %195
-  %mul559 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %202, i64 %194)
-  %mul.result = extractvalue { i64, i1 } %mul559, 0
-  %mul.overflow = extractvalue { i64, i1 } %mul559, 1
+  %mul588 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %202, i64 %194)
+  %mul.result = extractvalue { i64, i1 } %mul588, 0
+  %mul.overflow = extractvalue { i64, i1 } %mul588, 1
   %203 = sub i64 0, %mul.result
   %204 = getelementptr i8, ptr %184, i64 %198
   %205 = getelementptr i8, ptr %204, i64 8
@@ -12380,8 +12380,8 @@ for.body362.us.lver.orig:                         ; preds = %for.body362.us.lver
 
 for.body362.us.ph:                                ; preds = %for.body362.us.lver.check
   %224 = mul i64 %199, %f.0414.us
-  %scevgep561 = getelementptr i8, ptr %205, i64 %224
-  %load_initial = load double, ptr %scevgep561, align 8
+  %scevgep590 = getelementptr i8, ptr %205, i64 %224
+  %load_initial = load double, ptr %scevgep590, align 8
   br label %for.body362.us
 
 for.body362.us:                                   ; preds = %for.body362.us.ph, %for.body362.us
@@ -12514,15 +12514,15 @@ if.end448:                                        ; preds = %for.cond.cleanup397
   br i1 %cmp192, label %for.body194, label %for.cond453.preheader, !llvm.loop !275
 
 for.body519.lr.phthread-pre-split:                ; preds = %for.cond459.for.cond.cleanup462_crit_edge.split.us.us.us, %for.cond459.preheader.lr.ph
-  %.pr543 = load i64, ptr %numberRates_82, align 8, !tbaa !222
+  %.pr572 = load i64, ptr %numberRates_82, align 8, !tbaa !222
   br label %for.body519.lr.ph
 
 for.body519.lr.ph:                                ; preds = %for.body519.lr.phthread-pre-split, %for.cond459.preheader.lr.ph.split.us.split.us, %for.cond459.preheader.lr.ph.split.us
-  %249 = phi i64 [ %.pr543, %for.body519.lr.phthread-pre-split ], [ %103, %for.cond459.preheader.lr.ph.split.us.split.us ], [ 0, %for.cond459.preheader.lr.ph.split.us ]
-  %add512539 = add i64 %249, 1
-  %numberElementaryVegas_540 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %250 = load i64, ptr %numberElementaryVegas_540, align 8, !tbaa !245
-  %add513541 = add i64 %add512539, %250
+  %249 = phi i64 [ %.pr572, %for.body519.lr.phthread-pre-split ], [ %103, %for.cond459.preheader.lr.ph.split.us.split.us ], [ 0, %for.cond459.preheader.lr.ph.split.us ]
+  %add512568 = add i64 %249, 1
+  %numberElementaryVegas_569 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %250 = load i64, ptr %numberElementaryVegas_569, align 8, !tbaa !245
+  %add513570 = add i64 %add512568, %250
   %numerairesHeld_520 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %251 = load ptr, ptr %numerairesHeld_520, align 8, !tbaa !60
   %initialNumeraireValue_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -12546,7 +12546,7 @@ for.body519:                                      ; preds = %for.body519.lr.ph, 
   %255 = load double, ptr %add.ptr.i346, align 8, !tbaa !62
   %256 = load double, ptr %initialNumeraireValue_, align 8, !tbaa !211
   %mul522 = fmul double %255, %256
-  %mul523 = mul i64 %i514.0488, %add513541
+  %mul523 = mul i64 %i514.0488, %add513570
   %add.ptr.i347 = getelementptr double, ptr %252, i64 %mul523
   store double %mul522, ptr %add.ptr.i347, align 8, !tbaa !62
   br i1 %cmp528465.not, label %for.cond.cleanup548, label %for.body530.lr.ph
@@ -12562,15 +12562,15 @@ for.cond545.preheader.thread:                     ; preds = %for.body530
 
 for.cond551.preheader.lr.ph.split.us:             ; preds = %for.cond545.preheader.thread
   %259 = load i64, ptr %factors_558, align 8
-  %factor.op.mul544 = mul i64 %249, %259
-  %gep492545 = getelementptr double, ptr %invariant.gep491, i64 %mul523
-  %260 = getelementptr i8, ptr %gep492545, i64 8
+  %factor.op.mul573 = mul i64 %249, %259
+  %gep492574 = getelementptr double, ptr %invariant.gep491, i64 %mul523
+  %260 = getelementptr i8, ptr %gep492574, i64 8
   %cmp559467.not = icmp eq i64 %259, 0
   br i1 %cmp559467.not, label %for.cond.cleanup548, label %for.cond551.preheader.us.us
 
 for.cond551.preheader.us.us:                      ; preds = %for.cond551.preheader.lr.ph.split.us, %for.cond551.for.cond.cleanup554_crit_edge.split.us.us.us
   %k544.0479.us.us = phi i64 [ %inc590.us.us, %for.cond551.for.cond.cleanup554_crit_edge.split.us.us.us ], [ 0, %for.cond551.preheader.lr.ph.split.us ]
-  %factor.op.mul473.reass.us.us = mul i64 %k544.0479.us.us, %factor.op.mul544
+  %factor.op.mul473.reass.us.us = mul i64 %k544.0479.us.us, %factor.op.mul573
   %261 = load ptr, ptr %elementary_vegas_ThisPath_562, align 8
   %add.ptr.i353.us.us = getelementptr inbounds nuw %"class.std::vector.28", ptr %261, i64 %i514.0488
   %invariant.gep476.us.us = getelementptr double, ptr %260, i64 %factor.op.mul473.reass.us.us
@@ -13128,8 +13128,8 @@ for.cond37.preheader.us.us:                       ; preds = %for.body25.us.us
   br i1 %cmp4890.not, label %for.cond42.preheader.us.us130.us.preheader, label %for.cond42.preheader.us.us.us.us.preheader
 
 for.cond42.preheader.us.us.us.us.preheader:       ; preds = %for.cond20.preheader.us.us, %for.cond37.preheader.us.us
-  %.pn212 = getelementptr double, ptr %12, i64 %.pre205
-  %.pn = getelementptr i8, ptr %.pn212, i64 8
+  %.pn220 = getelementptr double, ptr %12, i64 %.pre205
+  %.pn = getelementptr i8, ptr %.pn220, i64 8
   %25 = getelementptr double, ptr %.pn, i64 %10
   br label %for.cond42.preheader.us.us.us.us
 
@@ -13430,7 +13430,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorImSaImEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = mul nuw i64 %__n, 24
+  %3 = mul nuw nsw i64 %__n, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !87
@@ -13528,7 +13528,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN8QuantLib31MarketModelPathwiseMultiProduct8CashFlowEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 5
+  %3 = shl nuw nsw i64 %__n, 5
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !90
@@ -13632,13 +13632,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store double 0.000000e+00, ptr %0, align 8, !tbaa !62
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !62
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
@@ -13734,13 +13734,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i64 0, ptr %0, align 8, !tbaa !66
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
+  %3 = shl nuw nsw i64 %__n, 3
+  %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !66
   %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
@@ -15481,7 +15481,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
           to label %for.inc.i.i.i.i unwind label %invoke.cont2.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
+  %dec.i.i.i.i = add nsw i64 %__n.addr.08.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i, i64 128
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !342
@@ -17275,7 +17275,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPN8QuantLib6MatrixEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN8QuantLib6MatrixEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = mul nuw i64 %__n, 24
+  %3 = mul nuw nsw i64 %__n, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8, !tbaa !78

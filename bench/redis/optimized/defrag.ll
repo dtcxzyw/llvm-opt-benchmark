@@ -596,17 +596,17 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %15 = load ptr, ptr %14, align 8, !tbaa !60
-  %.not5476 = icmp eq ptr %15, %2
-  br i1 %.not5476, label %.critedge, label %.lr.ph78
+  %.not5485 = icmp eq ptr %15, %2
+  br i1 %.not5485, label %.critedge, label %.lr.ph87
 
 .lr.ph:                                           ; preds = %.critedge2
   %16 = load ptr, ptr %31, align 8, !tbaa !60
   %.not54 = icmp eq ptr %16, %2
-  br i1 %.not54, label %.critedge, label %.lr.ph78, !llvm.loop !61
+  br i1 %.not54, label %.critedge, label %.lr.ph87, !llvm.loop !61
 
-.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph87:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %17 = phi ptr [ %16, %.lr.ph ], [ %15, %.lr.ph.preheader ]
-  %.16077 = phi ptr [ %28, %.lr.ph ], [ %.04372, %.lr.ph.preheader ]
+  %.16086 = phi ptr [ %28, %.lr.ph ], [ %.04372, %.lr.ph.preheader ]
   %18 = phi ptr [ %30, %.lr.ph ], [ %13, %.lr.ph.preheader ]
   %19 = phi ptr [ %31, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -614,7 +614,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   %22 = fcmp olt double %21, %1
   br i1 %22, label %.critedge2, label %23
 
-23:                                               ; preds = %.lr.ph78
+23:                                               ; preds = %.lr.ph87
   %24 = fcmp oeq double %21, %1
   br i1 %24, label %25, label %.critedge
 
@@ -627,8 +627,8 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   %.pre = load ptr, ptr %18, align 8, !tbaa !52
   br label %.critedge2
 
-.critedge2:                                       ; preds = %..critedge2_crit_edge, %.lr.ph78
-  %28 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %19, %.lr.ph78 ]
+.critedge2:                                       ; preds = %..critedge2_crit_edge, %.lr.ph87
+  %28 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %19, %.lr.ph87 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %29, i64 0, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8, !tbaa !52
@@ -639,7 +639,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   br label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph, %23, %25, %.lr.ph.preheader, %.critedge2..critedge.loopexit_crit_edge, %.preheader
-  %.1.lcssa = phi ptr [ %.04372, %.preheader ], [ %28, %.critedge2..critedge.loopexit_crit_edge ], [ %.04372, %.lr.ph.preheader ], [ %.16077, %25 ], [ %.16077, %23 ], [ %28, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.04372, %.preheader ], [ %28, %.critedge2..critedge.loopexit_crit_edge ], [ %.04372, %.lr.ph.preheader ], [ %.16086, %25 ], [ %.16086, %23 ], [ %28, %.lr.ph ]
   %32 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %32, align 8, !tbaa !51
   %33 = icmp sgt i64 %indvars.iv, 1
@@ -2109,7 +2109,7 @@ activeDefragAlloc.exit22.thread.us:               ; preds = %.lr.ph.split.split.
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %61
   %50 = call ptr %2(ptr noundef nonnull %5, ptr noundef %3) #10
   %.not33 = icmp eq ptr %50, null
-  br i1 %.not33, label %51, label %activeDefragAlloc.exit22.thread37
+  br i1 %.not33, label %51, label %activeDefragAlloc.exit22.thread43
 
 51:                                               ; preds = %.lr.ph.split.split
   %52 = load ptr, ptr %30, align 8, !tbaa !110
@@ -2132,16 +2132,16 @@ activeDefragAlloc.exit22:                         ; preds = %51
   %59 = add nsw i64 %58, 1
   store i64 %59, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
   %.not17 = icmp eq ptr %57, null
-  br i1 %.not17, label %61, label %activeDefragAlloc.exit22.thread37
+  br i1 %.not17, label %61, label %activeDefragAlloc.exit22.thread43
 
-activeDefragAlloc.exit22.thread37:                ; preds = %.lr.ph.split.split, %activeDefragAlloc.exit22
-  %.140 = phi ptr [ %57, %activeDefragAlloc.exit22 ], [ %50, %.lr.ph.split.split ]
+activeDefragAlloc.exit22.thread43:                ; preds = %.lr.ph.split.split, %activeDefragAlloc.exit22
+  %.146 = phi ptr [ %57, %activeDefragAlloc.exit22 ], [ %50, %.lr.ph.split.split ]
   %60 = load ptr, ptr %31, align 8, !tbaa !111
-  store ptr %.140, ptr %30, align 8, !tbaa !110
-  call void @raxSetData(ptr noundef %60, ptr noundef nonnull %.140) #10
+  store ptr %.146, ptr %30, align 8, !tbaa !110
+  call void @raxSetData(ptr noundef %60, ptr noundef nonnull %.146) #10
   br label %61
 
-61:                                               ; preds = %activeDefragAlloc.exit22.thread, %activeDefragAlloc.exit22.thread37, %activeDefragAlloc.exit22
+61:                                               ; preds = %activeDefragAlloc.exit22.thread, %activeDefragAlloc.exit22.thread43, %activeDefragAlloc.exit22
   %62 = call i32 @raxNext(ptr noundef nonnull %5) #10
   %.not15 = icmp eq i32 %62, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !116
@@ -3440,7 +3440,7 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
 11:                                               ; preds = %0
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !153
   %.not71 = icmp eq i32 %12, 0
-  br i1 %.not71, label %247, label %13
+  br i1 %.not71, label %248, label %13
 
 13:                                               ; preds = %11
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !153
@@ -3465,12 +3465,12 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   store i1 false, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
   store ptr null, ptr @activeDefragCycle.db, align 8, !tbaa !161
   tail call void @moduleDefragEnd() #10
-  br label %.thread145
+  br label %.thread154
 
 19:                                               ; preds = %0
   %20 = tail call i32 @hasActiveChildProcess() #10
   %.not73 = icmp eq i32 %20, 0
-  br i1 %.not73, label %21, label %247
+  br i1 %.not73, label %21, label %248
 
 21:                                               ; preds = %19
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 52), align 4, !tbaa !163
@@ -3506,7 +3506,7 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
 35:                                               ; preds = %33, %31
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !153
   %.not76 = icmp eq i32 %36, 0
-  br i1 %.not76, label %247, label %37
+  br i1 %.not76, label %248, label %37
 
 37:                                               ; preds = %35
   %38 = tail call i64 @ustime() #10
@@ -3520,116 +3520,123 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   %45 = add nsw i64 %38, %spec.store.select
   %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !167
   %.not77 = icmp eq i64 %46, 0
-  br i1 %.not77, label %.outer, label %47
+  br i1 %.not77, label %49, label %47
 
 47:                                               ; preds = %37
   %48 = tail call i64 @mstime() #10
-  br label %.outer
+  br label %49
 
-.outer:                                           ; preds = %37, %47
+49:                                               ; preds = %37, %47
   %.048 = phi i64 [ %48, %47 ], [ 0, %37 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.activeDefragCycle.defragfns, i64 24, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %66 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
-  %67 = icmp eq i32 %66, 0
-  %68 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8
-  %69 = icmp eq i64 %68, 0
-  %or.cond.not80166 = select i1 %67, i1 %69, i1 false
-  %70 = load i32, ptr @activeDefragCycle.slot, align 4
-  %71 = icmp slt i32 %70, 0
-  %or.cond3167 = select i1 %or.cond.not80166, i1 %71, i1 false
-  %.pre142168 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
-  br i1 %or.cond3167, label %.lr.ph, label %.loopexit154
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  br label %.outer165
 
-.lr.ph:                                           ; preds = %.outer, %220
-  %.pre142169 = phi ptr [ %.pre142, %220 ], [ %.pre142168, %.outer ]
-  %72 = phi i32 [ %225, %220 ], [ %70, %.outer ]
-  %.not81 = icmp eq ptr %.pre142169, null
-  br i1 %.not81, label %75, label %73
+.outer165:                                        ; preds = %.thread113, %49
+  %67 = phi i1 [ false, %.thread113 ], [ true, %49 ]
+  %.043.ph = phi i64 [ %.245.ph.ph, %.thread113 ], [ %9, %49 ]
+  %.038.ph = phi i64 [ %.240.ph.ph, %.thread113 ], [ %8, %49 ]
+  %.0.ph = phi i32 [ %.2.ph, %.thread113 ], [ 0, %49 ]
+  %68 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
+  %69 = icmp eq i32 %68, 0
+  %70 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8
+  %71 = icmp eq i64 %70, 0
+  %or.cond.not80218 = select i1 %69, i1 %71, i1 false
+  %72 = load i32, ptr @activeDefragCycle.slot, align 4
+  %73 = icmp slt i32 %72, 0
+  %or.cond3219 = select i1 %or.cond.not80218, i1 %73, i1 false
+  %.pre142220 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
+  br i1 %or.cond3219, label %.lr.ph, label %.loopexit166
 
-73:                                               ; preds = %.lr.ph
-  %74 = call i32 @defragLaterStep(ptr noundef nonnull %.pre142169, i32 noundef %72, i64 noundef %45)
-  %.not82 = icmp eq i32 %74, 0
-  br i1 %.not82, label %75, label %.loopexit
+.lr.ph:                                           ; preds = %.outer165, %221
+  %.pre142221 = phi ptr [ %.pre142, %221 ], [ %.pre142220, %.outer165 ]
+  %74 = phi i32 [ %226, %221 ], [ %72, %.outer165 ]
+  %.not81 = icmp eq ptr %.pre142221, null
+  br i1 %.not81, label %77, label %75
 
-75:                                               ; preds = %73, %.lr.ph
-  %76 = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !162
-  %77 = icmp eq i32 %76, -1
-  br i1 %77, label %78, label %79
+75:                                               ; preds = %.lr.ph
+  %76 = call i32 @defragLaterStep(ptr noundef nonnull %.pre142221, i32 noundef %74, i64 noundef %45)
+  %.not82 = icmp eq i32 %76, 0
+  br i1 %.not82, label %77, label %.loopexit
 
-78:                                               ; preds = %75
+77:                                               ; preds = %75, %.lr.ph
+  %78 = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !162
+  %79 = icmp eq i32 %78, -1
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %77
   call void @moduleDefragStart() #10
   %.pre = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !162
-  br label %79
+  br label %81
 
-79:                                               ; preds = %78, %75
-  %80 = phi i32 [ %.pre, %78 ], [ %76, %75 ]
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr @activeDefragCycle.current_db, align 4, !tbaa !162
-  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8, !tbaa !168
-  %.not83 = icmp slt i32 %81, %82
-  br i1 %.not83, label %135, label %83
+81:                                               ; preds = %80, %77
+  %82 = phi i32 [ %.pre, %80 ], [ %78, %77 ]
+  %83 = add nsw i32 %82, 1
+  store i32 %83, ptr @activeDefragCycle.current_db, align 4, !tbaa !162
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8, !tbaa !168
+  %.not83 = icmp slt i32 %83, %84
+  br i1 %.not83, label %137, label %85
 
-83:                                               ; preds = %79
-  %84 = call ptr @evalScriptsDict() #10
+85:                                               ; preds = %81
+  %86 = call ptr @evalScriptsDict() #10
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @activeDefragAlloc, ptr %1, align 8, !tbaa !68
-  store ptr @activeDefragSds, ptr %49, align 8, !tbaa !70
-  store ptr @activeDefragLuaScript, ptr %50, align 8, !tbaa !71
-  br label %85
+  store ptr @activeDefragSds, ptr %50, align 8, !tbaa !70
+  store ptr @activeDefragLuaScript, ptr %51, align 8, !tbaa !71
+  br label %87
 
-85:                                               ; preds = %85, %83
-  %.0.i.i = phi i64 [ 0, %83 ], [ %86, %85 ]
-  %86 = call i64 @dictScanDefrag(ptr noundef %84, i64 noundef %.0.i.i, ptr noundef nonnull @activeDefragSdsDictCallback, ptr noundef nonnull %1, ptr noundef null) #10
-  %.not.i.i = icmp eq i64 %86, 0
-  br i1 %.not.i.i, label %defragOtherGlobals.exit, label %85, !llvm.loop !72
+87:                                               ; preds = %87, %85
+  %.0.i.i = phi i64 [ 0, %85 ], [ %88, %87 ]
+  %88 = call i64 @dictScanDefrag(ptr noundef %86, i64 noundef %.0.i.i, ptr noundef nonnull @activeDefragSdsDictCallback, ptr noundef nonnull %1, ptr noundef null) #10
+  %.not.i.i = icmp eq i64 %88, 0
+  br i1 %.not.i.i, label %defragOtherGlobals.exit, label %87, !llvm.loop !72
 
-defragOtherGlobals.exit:                          ; preds = %85
+defragOtherGlobals.exit:                          ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @moduleDefragGlobals() #10
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !150
-  call void @kvstoreDictLUTDefrag(ptr noundef %87, ptr noundef nonnull @dictDefragTables) #10
-  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !151
-  call void @kvstoreDictLUTDefrag(ptr noundef %88, ptr noundef nonnull @dictDefragTables) #10
-  %89 = call i64 @ustime() #10
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !150
+  call void @kvstoreDictLUTDefrag(ptr noundef %89, ptr noundef nonnull @dictDefragTables) #10
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !151
+  call void @kvstoreDictLUTDefrag(ptr noundef %90, ptr noundef nonnull @dictDefragTables) #10
+  %91 = call i64 @ustime() #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %90 = call float @getAllocatorFragmentation(ptr noundef nonnull %3)
-  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !145
-  %92 = icmp sgt i32 %91, 1
-  br i1 %92, label %104, label %93
+  %92 = call float @getAllocatorFragmentation(ptr noundef nonnull %3)
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !145
+  %94 = icmp sgt i32 %93, 1
+  br i1 %94, label %106, label %95
 
-93:                                               ; preds = %defragOtherGlobals.exit
-  %94 = load i64, ptr @activeDefragCycle.start_scan, align 8, !tbaa !169
-  %95 = sub nsw i64 %89, %94
-  %96 = sdiv i64 %95, 1000
-  %97 = trunc i64 %96 to i32
-  %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %99 = load i64, ptr @activeDefragCycle.start_hits, align 8, !tbaa !169
-  %100 = sub nsw i64 %98, %99
-  %101 = trunc i64 %100 to i32
-  %102 = fpext float %90 to double
-  %103 = load i64, ptr %3, align 8, !tbaa !94
-  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %97, i32 noundef %101, double noundef %102, i64 noundef %103) #10
-  br label %104
+95:                                               ; preds = %defragOtherGlobals.exit
+  %96 = load i64, ptr @activeDefragCycle.start_scan, align 8, !tbaa !169
+  %97 = sub nsw i64 %91, %96
+  %98 = sdiv i64 %97, 1000
+  %99 = trunc i64 %98 to i32
+  %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
+  %101 = load i64, ptr @activeDefragCycle.start_hits, align 8, !tbaa !169
+  %102 = sub nsw i64 %100, %101
+  %103 = trunc i64 %102 to i32
+  %104 = fpext float %92 to double
+  %105 = load i64, ptr %3, align 8, !tbaa !94
+  call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %99, i32 noundef %103, double noundef %104, i64 noundef %105) #10
+  br label %106
 
-104:                                              ; preds = %defragOtherGlobals.exit, %93
-  store i64 %89, ptr @activeDefragCycle.start_scan, align 8, !tbaa !169
+106:                                              ; preds = %defragOtherGlobals.exit, %95
+  store i64 %91, ptr @activeDefragCycle.start_scan, align 8, !tbaa !169
   store i32 -1, ptr @activeDefragCycle.current_db, align 4, !tbaa !162
   store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
   store i64 0, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
@@ -3637,318 +3644,329 @@ defragOtherGlobals.exit:                          ; preds = %85
   store i1 false, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
   store ptr null, ptr @activeDefragCycle.db, align 8, !tbaa !161
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !153
-  %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %106 = load i64, ptr @activeDefragCycle.start_hits, align 8, !tbaa !169
-  %107 = sub nsw i64 %105, %106
-  %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2592), align 8, !tbaa !5
-  %109 = load i64, ptr @activeDefragCycle.start_misses, align 8, !tbaa !169
-  %110 = load float, ptr @activeDefragCycle.start_frag_pct, align 4, !tbaa !165
-  %111 = fsub float %110, %90
-  %112 = call float @llvm.fabs.f32(float %111)
-  %113 = fcmp ogt float %112, 2.000000e+00
-  br i1 %113, label %128, label %114
+  %107 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
+  %108 = load i64, ptr @activeDefragCycle.start_hits, align 8, !tbaa !169
+  %109 = sub nsw i64 %107, %108
+  %110 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2592), align 8, !tbaa !5
+  %111 = load i64, ptr @activeDefragCycle.start_misses, align 8, !tbaa !169
+  %112 = load float, ptr @activeDefragCycle.start_frag_pct, align 4, !tbaa !165
+  %113 = fsub float %112, %92
+  %114 = call float @llvm.fabs.f32(float %113)
+  %115 = fcmp ogt float %114, 2.000000e+00
+  br i1 %115, label %130, label %116
 
-114:                                              ; preds = %104
-  %115 = fcmp olt float %111, 0.000000e+00
-  br i1 %115, label %116, label %123
+116:                                              ; preds = %106
+  %117 = fcmp olt float %113, 0.000000e+00
+  br i1 %117, label %118, label %125
 
-116:                                              ; preds = %114
-  %117 = sitofp i64 %107 to double
-  %118 = add i64 %107, %108
-  %119 = sub i64 %118, %109
-  %120 = sitofp i64 %119 to double
-  %121 = fmul double %120, 1.000000e-02
-  %122 = fcmp ugt double %121, %117
-  br i1 %122, label %123, label %128
+118:                                              ; preds = %116
+  %119 = sitofp i64 %109 to double
+  %120 = add i64 %109, %110
+  %121 = sub i64 %120, %111
+  %122 = sitofp i64 %121 to double
+  %123 = fmul double %122, 1.000000e-02
+  %124 = fcmp ugt double %123, %119
+  br i1 %124, label %125, label %130
 
-123:                                              ; preds = %116, %114
-  %124 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !165
-  %125 = fpext float %124 to double
-  %126 = fmul double %125, 9.000000e-01
-  %127 = fptrunc double %126 to float
-  br label %128
+125:                                              ; preds = %118, %116
+  %126 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !165
+  %127 = fpext float %126 to double
+  %128 = fmul double %127, 9.000000e-01
+  %129 = fptrunc double %128 to float
+  br label %130
 
-128:                                              ; preds = %104, %116, %123
-  %storemerge = phi float [ %127, %123 ], [ 1.000000e+00, %116 ], [ 1.000000e+00, %104 ]
+130:                                              ; preds = %106, %118, %125
+  %storemerge = phi float [ %129, %125 ], [ 1.000000e+00, %118 ], [ 1.000000e+00, %106 ]
   store float %storemerge, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !165
   call void @moduleDefragEnd() #10
-  %129 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !165
-  call void @computeDefragCycles(float noundef %129)
-  %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !153
-  %.not90 = icmp eq i32 %130, 0
-  br i1 %.not90, label %134, label %131
+  %131 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !165
+  call void @computeDefragCycles(float noundef %131)
+  %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !153
+  %.not90 = icmp eq i32 %132, 0
+  br i1 %.not90, label %136, label %133
 
-131:                                              ; preds = %128
-  %132 = call i64 @ustime() #10
-  %133 = icmp slt i64 %132, %45
-  br i1 %133, label %220, label %134
+133:                                              ; preds = %130
+  %134 = call i64 @ustime() #10
+  %135 = icmp slt i64 %134, %45
+  br i1 %135, label %221, label %136
 
-134:                                              ; preds = %128, %131
+136:                                              ; preds = %130, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-135:                                              ; preds = %79
-  %136 = icmp eq i32 %81, 0
-  br i1 %136, label %137, label %142
+137:                                              ; preds = %81
+  %138 = icmp eq i32 %83, 0
+  br i1 %138, label %139, label %144
 
-137:                                              ; preds = %135
-  %138 = call i64 @ustime() #10
-  store i64 %138, ptr @activeDefragCycle.start_scan, align 8, !tbaa !169
-  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  store i64 %139, ptr @activeDefragCycle.start_hits, align 8, !tbaa !169
-  %140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2592), align 8, !tbaa !5
-  store i64 %140, ptr @activeDefragCycle.start_misses, align 8, !tbaa !169
-  %141 = call float @getAllocatorFragmentation(ptr noundef null)
-  store float %141, ptr @activeDefragCycle.start_frag_pct, align 4, !tbaa !165
+139:                                              ; preds = %137
+  %140 = call i64 @ustime() #10
+  store i64 %140, ptr @activeDefragCycle.start_scan, align 8, !tbaa !169
+  %141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
+  store i64 %141, ptr @activeDefragCycle.start_hits, align 8, !tbaa !169
+  %142 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2592), align 8, !tbaa !5
+  store i64 %142, ptr @activeDefragCycle.start_misses, align 8, !tbaa !169
+  %143 = call float @getAllocatorFragmentation(ptr noundef null)
+  store float %143, ptr @activeDefragCycle.start_frag_pct, align 4, !tbaa !165
   %.pre140 = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !162
-  br label %142
+  br label %144
 
-142:                                              ; preds = %135, %137
-  %143 = phi i32 [ %81, %135 ], [ %.pre140, %137 ]
-  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !170
-  %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds %struct.redisDb, ptr %144, i64 %145
-  store ptr %146, ptr @activeDefragCycle.db, align 8, !tbaa !161
-  %147 = load ptr, ptr %146, align 8, !tbaa !136
-  call void @kvstoreDictLUTDefrag(ptr noundef %147, ptr noundef nonnull @dictDefragTables) #10
-  %148 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load ptr, ptr %149, align 8, !tbaa !137
-  call void @kvstoreDictLUTDefrag(ptr noundef %150, ptr noundef nonnull @dictDefragTables) #10
+144:                                              ; preds = %137, %139
+  %145 = phi i32 [ %83, %137 ], [ %.pre140, %139 ]
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !170
+  %147 = sext i32 %145 to i64
+  %148 = getelementptr inbounds %struct.redisDb, ptr %146, i64 %147
+  store ptr %148, ptr @activeDefragCycle.db, align 8, !tbaa !161
+  %149 = load ptr, ptr %148, align 8, !tbaa !136
+  call void @kvstoreDictLUTDefrag(ptr noundef %149, ptr noundef nonnull @dictDefragTables) #10
+  %150 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !137
+  call void @kvstoreDictLUTDefrag(ptr noundef %152, ptr noundef nonnull @dictDefragTables) #10
   store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
   store i64 0, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
   store i32 -1, ptr @activeDefragCycle.slot, align 4, !tbaa !162
   store i1 false, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
   %.pre141 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
-  br label %.loopexit154
+  br label %.loopexit166
 
-.loopexit154:                                     ; preds = %220, %.outer, %142
-  %151 = phi ptr [ %.pre141, %142 ], [ %.pre142168, %.outer ], [ %.pre142, %220 ]
+.loopexit166:                                     ; preds = %221, %.outer165, %144
+  %153 = phi ptr [ %.pre141, %144 ], [ %.pre142220, %.outer165 ], [ %.pre142, %221 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %152 = load ptr, ptr %151, align 8, !tbaa !136
-  store ptr %152, ptr %4, align 16, !tbaa !171
-  store ptr @defragScanCallback, ptr %51, align 8, !tbaa !173
-  store ptr %151, ptr %52, align 16, !tbaa !174
-  %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %154 = load ptr, ptr %153, align 8, !tbaa !137
-  store ptr %154, ptr %53, align 8, !tbaa !171
-  store ptr @scanCallbackCountScanned, ptr %54, align 16, !tbaa !173
-  store ptr null, ptr %55, align 8, !tbaa !174
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !150
-  store ptr %155, ptr %56, align 16, !tbaa !171
-  store ptr @defragPubsubScanCallback, ptr %57, align 8, !tbaa !173
-  store ptr %155, ptr %5, align 8, !tbaa !146
-  store ptr @getClientPubSubChannels, ptr %59, align 8, !tbaa !148
-  store ptr %5, ptr %58, align 16, !tbaa !174
-  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !151
-  store ptr %156, ptr %60, align 8, !tbaa !171
-  store ptr @defragPubsubScanCallback, ptr %61, align 16, !tbaa !173
-  store ptr %156, ptr %6, align 8, !tbaa !146
-  store ptr @getClientPubSubShardChannels, ptr %63, align 8, !tbaa !148
-  store ptr %6, ptr %62, align 8, !tbaa !174
-  %157 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
-  %158 = icmp slt i32 %157, 4
-  br i1 %158, label %.lr.ph173, label %._crit_edge, !prof !175
+  %154 = load ptr, ptr %153, align 8, !tbaa !136
+  store ptr %154, ptr %4, align 16, !tbaa !171
+  store ptr @defragScanCallback, ptr %52, align 8, !tbaa !173
+  store ptr %153, ptr %53, align 16, !tbaa !174
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !137
+  store ptr %156, ptr %54, align 8, !tbaa !171
+  store ptr @scanCallbackCountScanned, ptr %55, align 16, !tbaa !173
+  store ptr null, ptr %56, align 8, !tbaa !174
+  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !150
+  store ptr %157, ptr %57, align 16, !tbaa !171
+  store ptr @defragPubsubScanCallback, ptr %58, align 8, !tbaa !173
+  store ptr %157, ptr %5, align 8, !tbaa !146
+  store ptr @getClientPubSubChannels, ptr %60, align 8, !tbaa !148
+  store ptr %5, ptr %59, align 16, !tbaa !174
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !151
+  store ptr %158, ptr %61, align 8, !tbaa !171
+  store ptr @defragPubsubScanCallback, ptr %62, align 16, !tbaa !173
+  store ptr %158, ptr %6, align 8, !tbaa !146
+  store ptr @getClientPubSubShardChannels, ptr %64, align 8, !tbaa !148
+  store ptr %6, ptr %63, align 8, !tbaa !174
+  br label %.outer.outer
 
-._crit_edge:                                      ; preds = %217, %.loopexit154
+.outer.outer:                                     ; preds = %218, %.loopexit166
+  %.252.ph.ph = phi i1 [ true, %218 ], [ %67, %.loopexit166 ]
+  %.245.ph.ph = phi i64 [ %220, %218 ], [ %.043.ph, %.loopexit166 ]
+  %.240.ph.ph = phi i64 [ %219, %218 ], [ %.038.ph, %.loopexit166 ]
+  %.2.ph.ph = phi i32 [ 0, %218 ], [ %.0.ph, %.loopexit166 ]
+  br label %.outer
+
+.outer:                                           ; preds = %.outer.outer, %211
+  %.252.ph = phi i1 [ true, %211 ], [ %.252.ph.ph, %.outer.outer ]
+  %.2.ph = phi i32 [ %205, %211 ], [ %.2.ph.ph, %.outer.outer ]
+  br label %159
+
+159:                                              ; preds = %.outer, %191
+  %.252 = phi i1 [ true, %191 ], [ %.252.ph, %.outer ]
+  %160 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
+  %161 = icmp slt i32 %160, 4
+  br i1 %161, label %163, label %162, !prof !58
+
+162:                                              ; preds = %159
   call void @_serverAssert(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str, i32 noundef 1223) #10
   call void @abort() #11
   unreachable
 
-.lr.ph173:                                        ; preds = %.loopexit154, %217
-  %159 = phi i32 [ %218, %217 ], [ %157, %.loopexit154 ]
-  %.2172 = phi i32 [ %.3, %217 ], [ 0, %.loopexit154 ]
-  %.240171 = phi i64 [ %.341, %217 ], [ %8, %.loopexit154 ]
-  %.245170 = phi i64 [ %.346, %217 ], [ %9, %.loopexit154 ]
-  %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds [4 x %struct.defragStage], ptr %4, i64 0, i64 %160
-  %162 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
-  %163 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !162
-  %164 = call i32 @defragLaterStep(ptr noundef %162, i32 noundef %163, i64 noundef %45)
-  %.not84 = icmp eq i32 %164, 0
-  br i1 %.not84, label %165, label %.thread113.thread
-
-165:                                              ; preds = %.lr.ph173
-  %.b = load i1, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  br i1 %.b, label %thread-pre-split, label %166
-
-166:                                              ; preds = %165
+163:                                              ; preds = %159
+  %164 = sext i32 %160 to i64
+  %165 = getelementptr inbounds [4 x %struct.defragStage], ptr %4, i64 0, i64 %164
+  %166 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
   %167 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !162
-  %168 = icmp eq i32 %167, -1
-  %.pre143 = load ptr, ptr %161, align 8, !tbaa !171
-  br i1 %168, label %169, label %171
+  %168 = call i32 @defragLaterStep(ptr noundef %166, i32 noundef %167, i64 noundef %45)
+  %.not84 = icmp eq i32 %168, 0
+  br i1 %.not84, label %169, label %.thread113.thread
 
-169:                                              ; preds = %166
-  %170 = call i32 @kvstoreGetFirstNonEmptyDictIndex(ptr noundef %.pre143) #10
-  store i32 %170, ptr @activeDefragCycle.slot, align 4, !tbaa !162
-  br label %171
+169:                                              ; preds = %163
+  %.b = load i1, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
+  br i1 %.b, label %thread-pre-split, label %170
 
-171:                                              ; preds = %169, %166
-  %172 = phi i32 [ %170, %169 ], [ %167, %166 ]
-  %173 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
-  %174 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !173
-  %176 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %177 = load ptr, ptr %176, align 8, !tbaa !174
-  store ptr %177, ptr %7, align 8, !tbaa !133
-  store i32 %172, ptr %64, align 8, !tbaa !135
-  store i32 0, ptr %65, align 4
-  %178 = call i64 @kvstoreDictScanDefrag(ptr noundef %.pre143, i32 noundef %172, i64 noundef %173, ptr noundef %175, ptr noundef nonnull %2, ptr noundef nonnull %7) #10
-  store i64 %178, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
-  br label %179
+170:                                              ; preds = %169
+  %171 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !162
+  %172 = icmp eq i32 %171, -1
+  %.pre143 = load ptr, ptr %165, align 8, !tbaa !171
+  br i1 %172, label %173, label %175
 
-thread-pre-split:                                 ; preds = %165
+173:                                              ; preds = %170
+  %174 = call i32 @kvstoreGetFirstNonEmptyDictIndex(ptr noundef %.pre143) #10
+  store i32 %174, ptr @activeDefragCycle.slot, align 4, !tbaa !162
+  br label %175
+
+175:                                              ; preds = %173, %170
+  %176 = phi i32 [ %174, %173 ], [ %171, %170 ]
+  %177 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
+  %178 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %179 = load ptr, ptr %178, align 8, !tbaa !173
+  %180 = getelementptr inbounds nuw i8, ptr %165, i64 16
+  %181 = load ptr, ptr %180, align 8, !tbaa !174
+  store ptr %181, ptr %7, align 8, !tbaa !133
+  store i32 %176, ptr %65, align 8, !tbaa !135
+  store i32 0, ptr %66, align 4
+  %182 = call i64 @kvstoreDictScanDefrag(ptr noundef %.pre143, i32 noundef %176, i64 noundef %177, ptr noundef %179, ptr noundef nonnull %2, ptr noundef nonnull %7) #10
+  store i64 %182, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
+  br label %183
+
+thread-pre-split:                                 ; preds = %169
   %.pr = load i64, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
-  br label %179
+  br label %183
 
-179:                                              ; preds = %thread-pre-split, %171
-  %180 = phi i64 [ %.pr, %thread-pre-split ], [ %178, %171 ]
-  %.not85 = icmp eq i64 %180, 0
-  br i1 %.not85, label %181, label %197
+183:                                              ; preds = %thread-pre-split, %175
+  %184 = phi i64 [ %.pr, %thread-pre-split ], [ %182, %175 ]
+  %.not85 = icmp eq i64 %184, 0
+  br i1 %.not85, label %185, label %.loopexit163
 
-181:                                              ; preds = %179
-  %182 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 80
-  %184 = load ptr, ptr %183, align 8, !tbaa !90
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
-  %186 = load i64, ptr %185, align 8, !tbaa !176
-  %.not86 = icmp eq i64 %186, 0
-  br i1 %.not86, label %188, label %187
+185:                                              ; preds = %183
+  %186 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 80
+  %188 = load ptr, ptr %187, align 8, !tbaa !90
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 40
+  %190 = load i64, ptr %189, align 8, !tbaa !175
+  %.not86 = icmp eq i64 %190, 0
+  br i1 %.not86, label %192, label %191
 
-187:                                              ; preds = %181
+191:                                              ; preds = %185
   store i1 true, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  br label %217
+  br i1 %.252, label %159, label %.thread113, !llvm.loop !176
 
-188:                                              ; preds = %181
-  %189 = load ptr, ptr %161, align 8, !tbaa !171
-  %190 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !162
-  %191 = call i32 @kvstoreGetNextNonEmptyDictIndex(ptr noundef %189, i32 noundef %190) #10
-  store i32 %191, ptr @activeDefragCycle.slot, align 4, !tbaa !162
-  %192 = icmp eq i32 %191, -1
-  br i1 %192, label %193, label %196
+192:                                              ; preds = %185
+  %193 = load ptr, ptr %165, align 8, !tbaa !171
+  %194 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !162
+  %195 = call i32 @kvstoreGetNextNonEmptyDictIndex(ptr noundef %193, i32 noundef %194) #10
+  store i32 %195, ptr @activeDefragCycle.slot, align 4, !tbaa !162
+  %196 = icmp eq i32 %195, -1
+  br i1 %196, label %197, label %200
 
-193:                                              ; preds = %188
-  %194 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
-  %195 = add nsw i32 %194, 1
-  store i32 %195, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
-  br label %196
-
-196:                                              ; preds = %193, %188
-  store i1 false, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  br label %197
-
-197:                                              ; preds = %196, %179
+197:                                              ; preds = %192
   %198 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
-  %199 = icmp eq i32 %198, 4
-  br i1 %199, label %.thread101, label %200
+  %199 = add nsw i32 %198, 1
+  store i32 %199, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
+  br label %200
 
-.thread101:                                       ; preds = %197
+200:                                              ; preds = %197, %192
+  store i1 false, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
+  br label %.loopexit163
+
+.loopexit163:                                     ; preds = %183, %200
+  %201 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
+  %202 = icmp eq i32 %201, 4
+  br i1 %202, label %.thread101, label %203
+
+.thread101:                                       ; preds = %.loopexit163
   store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
   br label %.thread113.thread
 
-200:                                              ; preds = %197
-  %201 = add i32 %.2172, 1
-  %202 = icmp ugt i32 %201, 16
-  br i1 %202, label %211, label %203
+203:                                              ; preds = %.loopexit163
+  br i1 %.252, label %204, label %.thread113.thread
 
-203:                                              ; preds = %200
-  %204 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %205 = sub i64 %204, %.240171
-  %206 = icmp ugt i64 %205, 512
-  br i1 %206, label %211, label %207
+204:                                              ; preds = %203
+  %205 = add i32 %.2.ph, 1
+  %206 = icmp ugt i32 %205, 16
+  br i1 %206, label %215, label %207
 
-207:                                              ; preds = %203
-  %208 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
-  %209 = sub i64 %208, %.245170
-  %210 = icmp ugt i64 %209, 64
-  br i1 %210, label %211, label %217
+207:                                              ; preds = %204
+  %208 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
+  %209 = sub i64 %208, %.240.ph.ph
+  %210 = icmp ugt i64 %209, 512
+  br i1 %210, label %215, label %211
 
-211:                                              ; preds = %200, %203, %207
-  %212 = call i64 @ustime() #10
-  %213 = icmp sgt i64 %212, %45
-  br i1 %213, label %.thread113.thread, label %214
+211:                                              ; preds = %207
+  %212 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
+  %213 = sub i64 %212, %.245.ph.ph
+  %214 = icmp ugt i64 %213, 64
+  br i1 %214, label %215, label %.outer, !llvm.loop !176
 
-214:                                              ; preds = %211
-  %215 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %216 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
-  br label %217
+215:                                              ; preds = %204, %207, %211
+  %216 = call i64 @ustime() #10
+  %217 = icmp sgt i64 %216, %45
+  br i1 %217, label %.thread113.thread, label %218
 
-217:                                              ; preds = %187, %214, %207
-  %.346 = phi i64 [ %.245170, %187 ], [ %216, %214 ], [ %.245170, %207 ]
-  %.341 = phi i64 [ %.240171, %187 ], [ %215, %214 ], [ %.240171, %207 ]
-  %.3 = phi i32 [ %.2172, %187 ], [ 0, %214 ], [ %201, %207 ]
-  %218 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
-  %219 = icmp slt i32 %218, 4
-  br i1 %219, label %.lr.ph173, label %._crit_edge, !prof !177, !llvm.loop !178
+218:                                              ; preds = %215
+  %219 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
+  %220 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
+  br label %.outer.outer, !llvm.loop !176
 
-.thread113.thread:                                ; preds = %211, %.lr.ph173, %.thread101
+.thread113.thread:                                ; preds = %203, %215, %163, %.thread101
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-220:                                              ; preds = %131
+.thread113:                                       ; preds = %191
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %.outer165, !llvm.loop !177
+
+221:                                              ; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %221 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
-  %222 = icmp eq i32 %221, 0
-  %223 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8
-  %224 = icmp eq i64 %223, 0
-  %or.cond.not80 = select i1 %222, i1 %224, i1 false
-  %225 = load i32, ptr @activeDefragCycle.slot, align 4
-  %226 = icmp slt i32 %225, 0
-  %or.cond3 = select i1 %or.cond.not80, i1 %226, i1 false
+  %222 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
+  %223 = icmp eq i32 %222, 0
+  %224 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8
+  %225 = icmp eq i64 %224, 0
+  %or.cond.not80 = select i1 %223, i1 %225, i1 false
+  %226 = load i32, ptr @activeDefragCycle.slot, align 4
+  %227 = icmp slt i32 %226, 0
+  %or.cond3 = select i1 %or.cond.not80, i1 %227, i1 false
   %.pre142 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
-  br i1 %or.cond3, label %.lr.ph, label %.loopexit154, !llvm.loop !179
+  br i1 %or.cond3, label %.lr.ph, label %.loopexit166, !llvm.loop !177
 
-.loopexit:                                        ; preds = %73, %.thread113.thread, %134
-  %227 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !167
-  %.not92 = icmp eq i64 %227, 0
-  br i1 %.not92, label %.thread145, label %228
+.loopexit:                                        ; preds = %75, %.thread113.thread, %136
+  %228 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !167
+  %.not92 = icmp eq i64 %228, 0
+  br i1 %.not92, label %.thread154, label %229
 
-228:                                              ; preds = %.loopexit
-  %229 = call i64 @mstime() #10
-  %230 = sub nsw i64 %229, %.048
+229:                                              ; preds = %.loopexit
+  %230 = call i64 @mstime() #10
+  %231 = sub nsw i64 %230, %.048
   %.pre144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !167
   %.not93 = icmp eq i64 %.pre144, 0
-  %.not94 = icmp slt i64 %230, %.pre144
+  %.not94 = icmp slt i64 %231, %.pre144
   %or.cond = select i1 %.not93, i1 true, i1 %.not94
-  br i1 %or.cond, label %.thread145, label %231
+  br i1 %or.cond, label %.thread154, label %232
 
-231:                                              ; preds = %228
-  call void @latencyAddSample(ptr noundef nonnull @.str.30, i64 noundef %230) #10
-  br label %.thread145
+232:                                              ; preds = %229
+  call void @latencyAddSample(ptr noundef nonnull @.str.30, i64 noundef %231) #10
+  br label %.thread154
 
-.thread145:                                       ; preds = %.loopexit, %228, %231, %18
-  %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !153
-  %233 = icmp sgt i32 %232, 0
-  %234 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2632), align 8, !tbaa !180
-  %235 = icmp eq i64 %234, 0
-  br i1 %233, label %236, label %240
+.thread154:                                       ; preds = %.loopexit, %229, %232, %18
+  %233 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !153
+  %234 = icmp sgt i32 %233, 0
+  %235 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2632), align 8, !tbaa !178
+  %236 = icmp eq i64 %235, 0
+  br i1 %234, label %237, label %241
 
-236:                                              ; preds = %.thread145
-  br i1 %235, label %237, label %247
+237:                                              ; preds = %.thread154
+  br i1 %236, label %238, label %248
 
-237:                                              ; preds = %236
-  %238 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !126
-  %239 = call i64 %238() #10
+238:                                              ; preds = %237
+  %239 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !126
+  %240 = call i64 %239() #10
   br label %.sink.split
 
-240:                                              ; preds = %.thread145
-  br i1 %235, label %247, label %241
+241:                                              ; preds = %.thread154
+  br i1 %236, label %248, label %242
 
-241:                                              ; preds = %240
-  %242 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !126
-  %243 = call i64 %242() #10
-  %244 = sub i64 %243, %234
-  %245 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2624), align 8, !tbaa !181
-  %246 = add i64 %244, %245
-  store i64 %246, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2624), align 8, !tbaa !181
+242:                                              ; preds = %241
+  %243 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !126
+  %244 = call i64 %243() #10
+  %245 = sub i64 %244, %235
+  %246 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2624), align 8, !tbaa !179
+  %247 = add i64 %245, %246
+  store i64 %247, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2624), align 8, !tbaa !179
   br label %.sink.split
 
-.sink.split:                                      ; preds = %241, %237
-  %.sink = phi i64 [ %239, %237 ], [ 0, %241 ]
+.sink.split:                                      ; preds = %242, %238
+  %.sink = phi i64 [ %240, %238 ], [ 0, %242 ]
   store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2632), align 8, !tbaa !94
-  br label %247
+  br label %248
 
-247:                                              ; preds = %.sink.split, %236, %240, %35, %19, %11
+248:                                              ; preds = %.sink.split, %237, %241, %35, %19, %11
   ret void
 }
 
@@ -4181,10 +4199,8 @@ attributes #11 = { noreturn nounwind }
 !172 = !{!"defragStage", !33, i64 0, !12, i64 8, !12, i64 16}
 !173 = !{!172, !12, i64 8}
 !174 = !{!172, !12, i64 16}
-!175 = !{!"branch_weights", i32 127, i32 1}
-!176 = !{!79, !10, i64 40}
-!177 = !{!"branch_weights", i32 255873, i32 127}
-!178 = distinct !{!178, !55}
-!179 = distinct !{!179, !55}
-!180 = !{!6, !10, i64 2632}
-!181 = !{!6, !18, i64 2624}
+!175 = !{!79, !10, i64 40}
+!176 = distinct !{!176, !55}
+!177 = distinct !{!177, !55}
+!178 = !{!6, !10, i64 2632}
+!179 = !{!6, !18, i64 2624}

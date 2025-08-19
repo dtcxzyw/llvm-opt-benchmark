@@ -2934,10 +2934,10 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit.thread: ; preds = %21, %_ZNK5
 
 26:                                               ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit
   %27 = and i64 %25, 8
-  %.not.i.i71 = icmp eq i64 %27, 0
+  %.not.i.i74 = icmp eq i64 %27, 0
   %28 = and i64 %25, -16
   %29 = inttoptr i64 %28 to ptr
-  br i1 %.not.i.i71, label %30, label %32
+  br i1 %.not.i.i74, label %30, label %32
 
 30:                                               ; preds = %26
   %31 = and i64 %25, 7
@@ -3058,8 +3058,8 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12: ; preds = %88
   %90 = inttoptr i64 %89 to ptr
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !22
-  %.not.i.i.i72 = icmp ult i64 %92, 16
-  br i1 %.not.i.i.i72, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread, label %93
+  %.not.i.i.i75 = icmp ult i64 %92, 16
+  br i1 %.not.i.i.i75, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread, label %93
 
 _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread: ; preds = %88, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12
   store i8 1, ptr %0, align 8, !tbaa !3
@@ -3067,45 +3067,45 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread: ; preds = %88, %_ZN
 
 93:                                               ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12
   %94 = and i64 %92, 8
-  %.not.i.i73 = icmp eq i64 %94, 0
+  %.not.i.i76 = icmp eq i64 %94, 0
   %95 = and i64 %92, -16
   %96 = inttoptr i64 %95 to ptr
-  br i1 %.not.i.i73, label %97, label %99
+  br i1 %.not.i.i76, label %97, label %99
 
 97:                                               ; preds = %93
   %98 = and i64 %92, 7
-  br label %_ZNK5clang8QualType5splitEv.exit.i75
+  br label %_ZNK5clang8QualType5splitEv.exit.i78
 
 99:                                               ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %.sroa.0.0.copyload.i.i.i74 = load i64, ptr %100, align 8, !tbaa !23
+  %.sroa.0.0.copyload.i.i.i77 = load i64, ptr %100, align 8, !tbaa !23
   %101 = and i64 %92, 7
-  %102 = or i64 %.sroa.0.0.copyload.i.i.i74, %101
+  %102 = or i64 %.sroa.0.0.copyload.i.i.i77, %101
   %103 = load ptr, ptr %96, align 16, !tbaa !25
-  br label %_ZNK5clang8QualType5splitEv.exit.i75
+  br label %_ZNK5clang8QualType5splitEv.exit.i78
 
-_ZNK5clang8QualType5splitEv.exit.i75:             ; preds = %99, %97
-  %.sroa.09.0.i.i76 = phi ptr [ %103, %99 ], [ %96, %97 ]
-  %.sroa.3.0.i.i77 = phi i64 [ %102, %99 ], [ %98, %97 ]
-  %104 = trunc i64 %.sroa.3.0.i.i77 to i32
+_ZNK5clang8QualType5splitEv.exit.i78:             ; preds = %99, %97
+  %.sroa.09.0.i.i79 = phi ptr [ %103, %99 ], [ %96, %97 ]
+  %.sroa.3.0.i.i80 = phi i64 [ %102, %99 ], [ %98, %97 ]
+  %104 = trunc i64 %.sroa.3.0.i.i80 to i32
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load i32, ptr %106, align 8, !tbaa !19
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %109 = load i32, ptr %108, align 4, !tbaa !18
-  %.not.i.i.not.i.i.i.i78 = icmp ult i32 %107, %109
-  br i1 %.not.i.i.not.i.i.i.i78, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i80, label %110, !prof !21
+  %.not.i.i.not.i.i.i.i81 = icmp ult i32 %107, %109
+  br i1 %.not.i.i.not.i.i.i.i81, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83, label %110, !prof !21
 
-110:                                              ; preds = %_ZNK5clang8QualType5splitEv.exit.i75
+110:                                              ; preds = %_ZNK5clang8QualType5splitEv.exit.i78
   %111 = zext i32 %107 to i64
   %112 = add nuw nsw i64 %111, 1
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %105, ptr noundef nonnull %113, i64 noundef %112, i64 noundef 4) #8
-  %.pre.i.i.i.i79 = load i32, ptr %106, align 8, !tbaa !19
-  br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i80
+  %.pre.i.i.i.i82 = load i32, ptr %106, align 8, !tbaa !19
+  br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83
 
-_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i80: ; preds = %110, %_ZNK5clang8QualType5splitEv.exit.i75
-  %114 = phi i32 [ %107, %_ZNK5clang8QualType5splitEv.exit.i75 ], [ %.pre.i.i.i.i79, %110 ]
+_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83: ; preds = %110, %_ZNK5clang8QualType5splitEv.exit.i78
+  %114 = phi i32 [ %107, %_ZNK5clang8QualType5splitEv.exit.i78 ], [ %.pre.i.i.i.i82, %110 ]
   %115 = load ptr, ptr %105, align 8, !tbaa !17
   %116 = zext i32 %114 to i64
   %117 = getelementptr inbounds nuw i32, ptr %115, i64 %116
@@ -3117,7 +3117,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i80: ; preds = %110
   store ptr %105, ptr %3, align 8, !tbaa !31
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %120, align 8, !tbaa !33
-  call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i76)
+  call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i79)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
@@ -3157,7 +3157,7 @@ tailrecurse:                                      ; preds = %129
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit, %tailrecurse, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i15, %121, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i80, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit.thread, %2, %135, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, %20, %12
+_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit, %tailrecurse, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i15, %121, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit.thread, %2, %135, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, %20, %12
   ret void
 }
 

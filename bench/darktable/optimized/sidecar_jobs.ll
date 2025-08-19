@@ -151,7 +151,7 @@ define internal noundef i32 @_control_write_sidecars_job_run(ptr noundef %0) #0 
 
 5:                                                ; preds = %._crit_edge.thread, %1
   %.036 = phi nsz double [ 0.000000e+00, %1 ], [ %.137, %._crit_edge.thread ]
-  %.0 = phi ptr [ null, %1 ], [ %.2.lcssa56, %._crit_edge.thread ]
+  %.0 = phi ptr [ null, %1 ], [ %.2.lcssa59, %._crit_edge.thread ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %6, label %.critedge
 
@@ -261,7 +261,7 @@ _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %39
   %.sink = phi i64 [ 1000000, %39 ], [ %spec.select, %._crit_edge ]
-  %.2.lcssa56 = phi ptr [ null, %39 ], [ %47, %._crit_edge ]
+  %.2.lcssa59 = phi ptr [ null, %39 ], [ %47, %._crit_edge ]
   tail call void @g_usleep(i64 noundef %.sink) #6
   br label %5
 

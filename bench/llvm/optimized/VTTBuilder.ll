@@ -689,8 +689,8 @@ define dso_local void @_ZN5clang10VTTBuilder30LayoutSecondaryVirtualPointersENS_
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2608
   br label %27
 
-27:                                               ; preds = %.lr.ph, %.critedge81
-  %.04079 = phi ptr [ %21, %.lr.ph ], [ %128, %.critedge81 ]
+27:                                               ; preds = %.lr.ph, %.critedge89
+  %.04079 = phi ptr [ %21, %.lr.ph ], [ %128, %.critedge89 ]
   %28 = getelementptr inbounds nuw i8, ptr %.04079, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !113
   %.sroa.0.0.copyload.i.i = load i64, ptr %29, align 8, !tbaa !116
@@ -739,7 +739,7 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit: ; preds = %_ZNK5clang16CXXBase
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %58 = load i32, ptr %57, align 4, !tbaa !75
   %.not75 = icmp eq i32 %58, 0
-  br i1 %.not75, label %.critedge81, label %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
+  br i1 %.not75, label %.critedge89, label %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
 
 _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit
   %59 = getelementptr inbounds nuw i8, ptr %.04079, i64 12
@@ -766,7 +766,7 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZNK5clang16
   %.02937.i.i = phi ptr [ %71, %.critedge.i.i ], [ %66, %65 ]
   %70 = load ptr, ptr %.02937.i.i, align 8, !tbaa !137, !noalias !134
   %.not17.i.i = icmp eq ptr %70, %44
-  br i1 %.not17.i.i, label %.critedge81, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge89, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %71 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
@@ -788,7 +788,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %75 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull %44) #9, !noalias !134
   %76 = extractvalue { ptr, i8 } %75, 1
   %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %78, label %.critedge81
+  br i1 %77, label %78, label %.critedge89
 
 78:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %79 = load ptr, ptr %26, align 8, !tbaa !139
@@ -886,14 +886,14 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit: ; pr
   %.04170 = phi i1 [ false, %.thread ], [ %.04169, %126 ], [ %3, %_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit ]
   %.sroa.057.068 = phi i64 [ %.sroa.057.067, %.thread ], [ %.sroa.057.067, %126 ], [ %111, %_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit ]
   call void @_ZN5clang10VTTBuilder30LayoutSecondaryVirtualPointersENS_13BaseSubobjectEbmPKNS_13CXXRecordDeclERN4llvm11SmallPtrSetIS4_Lj4EEE(ptr noundef nonnull align 8 dereferenceable(2665) %0, ptr nonnull %44, i64 %.sroa.057.068, i1 noundef zeroext %.04170, i64 noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  br label %.critedge81
+  br label %.critedge89
 
-.critedge81:                                      ; preds = %.lr.ph.i.i, %127, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit
+.critedge89:                                      ; preds = %.lr.ph.i.i, %127, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit
   %128 = getelementptr inbounds nuw i8, ptr %.04079, i64 24
   %.not = icmp eq ptr %128, %22
   br i1 %.not, label %.loopexit, label %27
 
-.loopexit:                                        ; preds = %.critedge81, %19, %7
+.loopexit:                                        ; preds = %.critedge89, %19, %7
   ret void
 }
 
@@ -942,11 +942,11 @@ define dso_local void @_ZN5clang10VTTBuilder17LayoutVirtualVTTsEPKNS_13CXXRecord
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2608
   br label %12
 
-._crit_edge:                                      ; preds = %.critedge31, %3
+._crit_edge:                                      ; preds = %.critedge37, %3
   ret void
 
-12:                                               ; preds = %.lr.ph, %.critedge31
-  %.029 = phi ptr [ %6, %.lr.ph ], [ %77, %.critedge31 ]
+12:                                               ; preds = %.lr.ph, %.critedge37
+  %.029 = phi ptr [ %6, %.lr.ph ], [ %77, %.critedge37 ]
   %13 = getelementptr inbounds nuw i8, ptr %.029, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !113
   %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8, !tbaa !116
@@ -1000,7 +1000,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %12, %20
   %.02937.i.i = phi ptr [ %42, %.critedge.i.i ], [ %37, %36 ]
   %41 = load ptr, ptr %.02937.i.i, align 8, !tbaa !137, !noalias !140
   %.not17.i.i = icmp eq ptr %41, %29
-  br i1 %.not17.i.i, label %.critedge31, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge37, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
@@ -1022,7 +1022,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %46 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %2, ptr noundef %29) #9, !noalias !140
   %47 = extractvalue { ptr, i8 } %46, 1
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %.critedge31
+  br i1 %48, label %49, label %.critedge37
 
 49:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %50 = load ptr, ptr %11, align 8, !tbaa !139
@@ -1069,13 +1069,13 @@ _ZNK5clang15ASTRecordLayout19getVBaseClassOffsetEPKNS_13CXXRecordDeclE.exit: ; p
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %75 = load i32, ptr %74, align 4, !tbaa !75
   %.not19 = icmp eq i32 %75, 0
-  br i1 %.not19, label %.critedge31, label %76
+  br i1 %.not19, label %.critedge37, label %76
 
 76:                                               ; preds = %67
   call void @_ZN5clang10VTTBuilder17LayoutVirtualVTTsEPKNS_13CXXRecordDeclERN4llvm11SmallPtrSetIS3_Lj4EEE(ptr noundef nonnull align 8 dereferenceable(2665) %0, ptr noundef nonnull %29, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  br label %.critedge31
+  br label %.critedge37
 
-.critedge31:                                      ; preds = %.lr.ph.i.i, %67, %76, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+.critedge37:                                      ; preds = %.lr.ph.i.i, %67, %76, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %77 = getelementptr inbounds nuw i8, ptr %.029, i64 24
   %.not = icmp eq ptr %77, %7
   br i1 %.not, label %._crit_edge, label %12

@@ -2013,18 +2013,18 @@ define range(i32 0, -2147483648) i32 @Abc_NtkCountInst_rec(ptr noundef captures(
   br i1 %.not.i, label %Vec_PtrFree.exit, label %25
 
 25:                                               ; preds = %.critedge.thread, %.critedge
-  %.0.lcssa29 = phi i32 [ %24, %.critedge.thread ], [ 1, %.critedge ]
+  %.0.lcssa31 = phi i32 [ %24, %.critedge.thread ], [ 1, %.critedge ]
   tail call void @free(ptr noundef nonnull %.val22) #21
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %25
-  %.0.lcssa30 = phi i32 [ 1, %.critedge ], [ %.0.lcssa29, %25 ]
+  %.0.lcssa32 = phi i32 [ 1, %.critedge ], [ %.0.lcssa31, %25 ]
   tail call void @free(ptr noundef nonnull %6) #21
-  store i32 %.0.lcssa30, ptr %2, align 8, !tbaa !93
+  store i32 %.0.lcssa32, ptr %2, align 8, !tbaa !93
   br label %26
 
 26:                                               ; preds = %1, %Vec_PtrFree.exit
-  %.017 = phi i32 [ %.0.lcssa30, %Vec_PtrFree.exit ], [ %3, %1 ]
+  %.017 = phi i32 [ %.0.lcssa32, %Vec_PtrFree.exit ], [ %3, %1 ]
   ret i32 %.017
 }
 
@@ -2138,18 +2138,18 @@ define double @Abc_NtkCountNodes_rec(ptr noundef captures(address) %0) local_unn
   br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %26, %.critedge
-  %.018.lcssa33 = phi double [ 0.000000e+00, %.critedge ], [ %.1, %26 ]
+  %.018.lcssa36 = phi double [ 0.000000e+00, %.critedge ], [ %.1, %26 ]
   tail call void @free(ptr noundef nonnull %.val25) #21
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %.critedge.thread
-  %.018.lcssa34 = phi double [ 0.000000e+00, %.critedge ], [ %.018.lcssa33, %.critedge.thread ]
+  %.018.lcssa37 = phi double [ 0.000000e+00, %.critedge ], [ %.018.lcssa36, %.critedge.thread ]
   tail call void @free(ptr noundef nonnull %6) #21
-  store double %.018.lcssa34, ptr %2, align 8, !tbaa !102
+  store double %.018.lcssa37, ptr %2, align 8, !tbaa !102
   br label %27
 
 27:                                               ; preds = %1, %Vec_PtrFree.exit
-  %.019 = phi double [ %.018.lcssa34, %Vec_PtrFree.exit ], [ %3, %1 ]
+  %.019 = phi double [ %.018.lcssa37, %Vec_PtrFree.exit ], [ %3, %1 ]
   ret double %.019
 }
 

@@ -147,8 +147,8 @@ define internal void @_ZL27_Latin1ToUnicodeWithOffsetsP23UConverterToUnicodeArgs
   br i1 %82, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .loopexit.thread:                                 ; preds = %62
-  %.not137 = icmp eq i32 %63, 0
-  br i1 %.not137, label %._crit_edge.thread.thread, label %.lr.ph.preheader
+  %.not140 = icmp eq i32 %63, 0
+  br i1 %.not140, label %._crit_edge.thread.thread, label %.lr.ph.preheader
 
 ._crit_edge.thread.thread:                        ; preds = %.loopexit.thread
   store ptr %59, ptr %3, align 8, !tbaa !3
@@ -156,17 +156,17 @@ define internal void @_ZL27_Latin1ToUnicodeWithOffsetsP23UConverterToUnicodeArgs
   br label %92
 
 .lr.ph.preheader:                                 ; preds = %.loopexit.thread, %.loopexit
-  %.068126 = phi i32 [ 0, %.loopexit.thread ], [ %.068, %.loopexit ]
-  %.069124 = phi ptr [ null, %.loopexit.thread ], [ %.069, %.loopexit ]
-  %.174123 = phi i32 [ %63, %.loopexit.thread ], [ %.174, %.loopexit ]
-  %.079121 = phi ptr [ %58, %.loopexit.thread ], [ %.079, %.loopexit ]
-  %.082119 = phi ptr [ %59, %.loopexit.thread ], [ %.082, %.loopexit ]
+  %.068129 = phi i32 [ 0, %.loopexit.thread ], [ %.068, %.loopexit ]
+  %.069127 = phi ptr [ null, %.loopexit.thread ], [ %.069, %.loopexit ]
+  %.174126 = phi i32 [ %63, %.loopexit.thread ], [ %.174, %.loopexit ]
+  %.079124 = phi ptr [ %58, %.loopexit.thread ], [ %.079, %.loopexit ]
+  %.082122 = phi ptr [ %59, %.loopexit.thread ], [ %.082, %.loopexit ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.27897 = phi i32 [ %87, %.lr.ph ], [ %.174123, %.lr.ph.preheader ]
-  %.28196 = phi ptr [ %86, %.lr.ph ], [ %.079121, %.lr.ph.preheader ]
-  %.28495 = phi ptr [ %83, %.lr.ph ], [ %.082119, %.lr.ph.preheader ]
+  %.27897 = phi i32 [ %87, %.lr.ph ], [ %.174126, %.lr.ph.preheader ]
+  %.28196 = phi ptr [ %86, %.lr.ph ], [ %.079124, %.lr.ph.preheader ]
+  %.28495 = phi ptr [ %83, %.lr.ph ], [ %.082122, %.lr.ph.preheader ]
   %83 = getelementptr inbounds nuw i8, ptr %.28495, i64 1
   %84 = load i8, ptr %.28495, align 1, !tbaa !19
   %85 = zext i8 %84 to i16
@@ -179,22 +179,22 @@ define internal void @_ZL27_Latin1ToUnicodeWithOffsetsP23UConverterToUnicodeArgs
 ._crit_edge:                                      ; preds = %.lr.ph
   store ptr %83, ptr %3, align 8, !tbaa !3
   store ptr %86, ptr %5, align 8, !tbaa !13
-  %.not90 = icmp eq ptr %.069124, null
+  %.not90 = icmp eq ptr %.069127, null
   br i1 %.not90, label %92, label %.lr.ph102.preheader
 
 ._crit_edge.thread:                               ; preds = %.loopexit
   store ptr %.082, ptr %3, align 8, !tbaa !3
   store ptr %.079, ptr %5, align 8, !tbaa !13
-  %.not90113 = icmp eq ptr %.069, null
-  br i1 %.not90113, label %92, label %._crit_edge103
+  %.not90116 = icmp eq ptr %.069, null
+  br i1 %.not90116, label %92, label %._crit_edge103
 
 .lr.ph102.preheader:                              ; preds = %._crit_edge
-  %89 = add i32 %.174123, %.068126
+  %89 = add i32 %.174126, %.068129
   br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
-  %.3101 = phi i32 [ %90, %.lr.ph102 ], [ %.068126, %.lr.ph102.preheader ]
-  %.372100 = phi ptr [ %91, %.lr.ph102 ], [ %.069124, %.lr.ph102.preheader ]
+  %.3101 = phi i32 [ %90, %.lr.ph102 ], [ %.068129, %.lr.ph102.preheader ]
+  %.372100 = phi ptr [ %91, %.lr.ph102 ], [ %.069127, %.lr.ph102.preheader ]
   %90 = add i32 %.3101, 1
   %91 = getelementptr inbounds nuw i8, ptr %.372100, i64 4
   store i32 %.3101, ptr %.372100, align 4, !tbaa !24
@@ -458,7 +458,7 @@ define internal void @_ZL29_Latin1FromUnicodeWithOffsetsP25UConverterFromUnicode
   br i1 %.not219, label %.critedge, label %167
 
 167:                                              ; preds = %.lr.ph235
-  %168 = trunc i16 %166 to i8
+  %168 = trunc nuw i16 %166 to i8
   %169 = getelementptr inbounds nuw i8, ptr %.4176233, i64 1
   store i8 %168, ptr %.4176233, align 1, !tbaa !19
   %170 = add nsw i32 %.2186232, -1
@@ -782,10 +782,10 @@ define internal void @_ZL19ucnv_Latin1FromUTF8P25UConverterFromUnicodeArgsP23UCo
   br label %88
 
 88:                                               ; preds = %.loopexit.thread, %85, %66, %.loopexit
-  %.17192106 = phi ptr [ %.17192.ph, %85 ], [ %.17192.ph, %66 ], [ %.17192.ph, %.loopexit ], [ %.17197, %.loopexit.thread ]
+  %.17192114 = phi ptr [ %.17192.ph, %85 ], [ %.17192.ph, %66 ], [ %.17192.ph, %.loopexit ], [ %.17197, %.loopexit.thread ]
   %.3 = phi ptr [ %70, %85 ], [ %.17595.ph, %66 ], [ %.17595.ph, %.loopexit ], [ %.17596, %.loopexit.thread ]
   store ptr %.3, ptr %6, align 8, !tbaa !3
-  store ptr %.17192106, ptr %10, align 8, !tbaa !33
+  store ptr %.17192114, ptr %10, align 8, !tbaa !33
   br label %89
 
 89:                                               ; preds = %88, %62, %39, %27

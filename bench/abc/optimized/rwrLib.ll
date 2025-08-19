@@ -306,12 +306,12 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
   br i1 %148, label %.lr.ph137, label %.critedge6, !llvm.loop !39
 
 .critedge6:                                       ; preds = %.critedge4, %Rwr_ManIncTravId.exit, %.critedge4.preheader
-  %.0.lcssa162 = phi i32 [ %.1, %.critedge4.preheader ], [ 0, %Rwr_ManIncTravId.exit ], [ %.1, %.critedge4 ]
+  %.0.lcssa163 = phi i32 [ %.1, %.critedge4.preheader ], [ 0, %Rwr_ManIncTravId.exit ], [ %.1, %.critedge4 ]
   %.lcssa133 = phi ptr [ %130, %.critedge4.preheader ], [ %.pre154, %Rwr_ManIncTravId.exit ], [ %145, %.critedge4 ]
   %.1101.lcssa = phi i32 [ 5, %.critedge4.preheader ], [ 5, %Rwr_ManIncTravId.exit ], [ %.2102, %.critedge4 ]
   %149 = getelementptr i8, ptr %.lcssa133, i64 4
   store i32 %.1101.lcssa, ptr %149, align 4, !tbaa !18
-  %150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa162, i32 noundef %.1101.lcssa)
+  %150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa163, i32 noundef %.1101.lcssa)
   ret void
 }
 
@@ -512,7 +512,7 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
   br label %89
 
 89:                                               ; preds = %._crit_edge, %85, %._crit_edge.thread
-  %.057.lcssa73 = phi ptr [ %60, %85 ], [ %60, %._crit_edge.thread ], [ %78, %._crit_edge ]
+  %.057.lcssa76 = phi ptr [ %60, %85 ], [ %60, %._crit_edge.thread ], [ %78, %._crit_edge ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %91 = load ptr, ptr %90, align 8, !tbaa !45
   %92 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %91) #10
@@ -606,7 +606,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %138 = sext i32 %136 to i64
   %139 = getelementptr inbounds ptr, ptr %135, i64 %138
   store ptr %92, ptr %139, align 8, !tbaa !21
-  store ptr %92, ptr %.057.lcssa73, align 8, !tbaa !43
+  store ptr %92, ptr %.057.lcssa76, align 8, !tbaa !43
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %66, %46, %Vec_PtrPush.exit

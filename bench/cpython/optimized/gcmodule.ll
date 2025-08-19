@@ -1336,7 +1336,7 @@ define internal ptr @gc_get_objects(ptr readnone captures(none) %0, ptr noundef 
   %15 = phi i64 [ %12, %11 ], [ 0, %8 ]
   %16 = sub i64 0, %15
   %.not24 = icmp eq i64 %2, %16
-  br i1 %.not24, label %.thread30, label %17
+  br i1 %.not24, label %.thread34, label %17
 
 17:                                               ; preds = %.thread28
   %18 = load ptr, ptr %14, align 8, !tbaa !35
@@ -1350,10 +1350,10 @@ define internal ptr @gc_get_objects(ptr readnone captures(none) %0, ptr noundef 
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %gc_get_objects_impl.exit, label %25
 
-.thread30:                                        ; preds = %.thread28
+.thread34:                                        ; preds = %.thread28
   %23 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i64 noundef -1) #5
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %gc_get_objects_impl.exit, label %.thread32
+  br i1 %24, label %gc_get_objects_impl.exit, label %.thread36
 
 25:                                               ; preds = %20
   %26 = icmp sgt i64 %.pre, 2
@@ -1366,15 +1366,15 @@ define internal ptr @gc_get_objects(ptr readnone captures(none) %0, ptr noundef 
 
 30:                                               ; preds = %25
   %31 = icmp slt i64 %.pre, -1
-  br i1 %31, label %32, label %.thread32
+  br i1 %31, label %32, label %.thread36
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !35
   call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.30) #5
   br label %gc_get_objects_impl.exit
 
-.thread32:                                        ; preds = %.thread30, %30
-  %34 = phi i64 [ %.pre, %30 ], [ -1, %.thread30 ]
+.thread36:                                        ; preds = %.thread34, %30
+  %34 = phi i64 [ %.pre, %30 ], [ -1, %.thread34 ]
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -1383,8 +1383,8 @@ define internal ptr @gc_get_objects(ptr readnone captures(none) %0, ptr noundef 
   %40 = call ptr @_PyGC_GetObjects(ptr noundef %38, i32 noundef %39) #5
   br label %gc_get_objects_impl.exit
 
-gc_get_objects_impl.exit:                         ; preds = %.thread30, %.thread32, %32, %27, %20, %17, %11
-  %.0 = phi ptr [ null, %17 ], [ null, %11 ], [ %29, %27 ], [ null, %32 ], [ %40, %.thread32 ], [ null, %20 ], [ null, %.thread30 ]
+gc_get_objects_impl.exit:                         ; preds = %.thread34, %.thread36, %32, %27, %20, %17, %11
+  %.0 = phi ptr [ null, %17 ], [ null, %11 ], [ %29, %27 ], [ null, %32 ], [ %40, %.thread36 ], [ null, %20 ], [ null, %.thread34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0

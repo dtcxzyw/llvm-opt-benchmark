@@ -215,7 +215,7 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   store i32 %79, ptr %69, align 8
   %86 = add i32 %79, -1
   %.not80.i = icmp sgt i32 %86, %82
-  br i1 %.not80.i, label %87, label %.sink.split103
+  br i1 %.not80.i, label %87, label %.sink.split122
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %0, align 8
@@ -225,19 +225,19 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %92 = zext i8 %91 to i32
   %.mask.i77 = and i32 %92, 224
   %.not81.i = icmp eq i32 %.mask.i77, 96
-  br i1 %.not81.i, label %93, label %.sink.split103
+  br i1 %.not81.i, label %93, label %.sink.split122
 
 93:                                               ; preds = %87
   %94 = and i32 %92, 31
   %95 = shl nuw i32 1, %94
   %96 = and i32 %95, 1572992
   %.not82.i = icmp eq i32 %96, 0
-  br i1 %.not82.i, label %.sink.split103, label %97
+  br i1 %.not82.i, label %.sink.split122, label %97
 
 97:                                               ; preds = %93
   %98 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 5) #3
   %.not83.i = icmp eq i32 %98, 0
-  br i1 %.not83.i, label %.sink.split103, label %99
+  br i1 %.not83.i, label %.sink.split122, label %99
 
 99:                                               ; preds = %97
   %100 = load i32, ptr %2, align 8
@@ -264,11 +264,11 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %110 = icmp sgt i32 %109, -1
   br i1 %110, label %111, label %139
 
-.sink.split103:                                   ; preds = %97, %84, %87, %93
+.sink.split122:                                   ; preds = %97, %84, %87, %93
   store i32 %85, ptr %31, align 8
   br label %111
 
-111:                                              ; preds = %.sink.split103, %105, %99, %108, %78
+111:                                              ; preds = %.sink.split122, %105, %99, %108, %78
   %112 = load i32, ptr %4, align 4
   store i32 %112, ptr %2, align 8
   %113 = load ptr, ptr %6, align 8

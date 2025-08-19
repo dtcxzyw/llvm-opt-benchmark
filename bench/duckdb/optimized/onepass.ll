@@ -140,8 +140,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %.pre.pre = load ptr, ptr %1, align 8, !tbaa !27
   %.val = load ptr, ptr %11, align 8
   %.not = icmp ne ptr %.val, %.pre.pre
-  %or.cond205.not = select i1 %43, i1 %.not, i1 false
-  br i1 %or.cond205.not, label %.loopexit, label %44
+  %or.cond212.not = select i1 %43, i1 %.not, i1 false
+  br i1 %or.cond212.not, label %.loopexit, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -979,14 +979,14 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i266: ; preds = %_ZNK
   %228 = getelementptr inbounds [256 x i8], ptr %99, i64 0, i64 %indvars.iv.next478
   %229 = load i8, ptr %228, align 1, !tbaa !73
   %230 = icmp eq i8 %229, %224
-  br i1 %230, label %225, label %.critedge.split.loop.exit543, !llvm.loop !107
+  br i1 %230, label %225, label %.critedge.split.loop.exit577, !llvm.loop !107
 
-.critedge.split.loop.exit543:                     ; preds = %227
+.critedge.split.loop.exit577:                     ; preds = %227
   %231 = trunc nsw i64 %indvars.iv477 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %225, %.critedge.split.loop.exit543
-  %.1180.lcssa = phi i32 [ %231, %.critedge.split.loop.exit543 ], [ 255, %225 ]
+.critedge:                                        ; preds = %225, %.critedge.split.loop.exit577
+  %.1180.lcssa = phi i32 [ %231, %.critedge.split.loop.exit577 ], [ 255, %225 ]
   %232 = zext i8 %224 to i64
   %233 = getelementptr inbounds nuw [256 x i32], ptr %215, i64 0, i64 %232
   %234 = load i32, ptr %233, align 4, !tbaa !74
@@ -1056,14 +1056,14 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i266: ; preds = %_ZNK
   %265 = getelementptr inbounds [256 x i8], ptr %99, i64 0, i64 %indvars.iv.next481
   %266 = load i8, ptr %265, align 1, !tbaa !73
   %267 = icmp eq i8 %266, %261
-  br i1 %267, label %262, label %.critedge10.split.loop.exit545, !llvm.loop !109
+  br i1 %267, label %262, label %.critedge10.split.loop.exit579, !llvm.loop !109
 
-.critedge10.split.loop.exit545:                   ; preds = %264
+.critedge10.split.loop.exit579:                   ; preds = %264
   %268 = trunc nsw i64 %indvars.iv480 to i32
   br label %.critedge10
 
-.critedge10:                                      ; preds = %262, %.critedge10.split.loop.exit545
-  %.1147.lcssa = phi i32 [ %268, %.critedge10.split.loop.exit545 ], [ %smax482, %262 ]
+.critedge10:                                      ; preds = %262, %.critedge10.split.loop.exit579
+  %.1147.lcssa = phi i32 [ %268, %.critedge10.split.loop.exit579 ], [ %smax482, %262 ]
   %269 = zext i8 %261 to i64
   %270 = getelementptr inbounds nuw [256 x i32], ptr %253, i64 0, i64 %269
   %271 = load i32, ptr %270, align 4, !tbaa !74
@@ -1135,8 +1135,8 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i277: ; preds = %_ZNK
   %303 = icmp ne i32 %302, 0
   %304 = load i32, ptr %73, align 8
   %.not6.i.i282 = icmp ugt i32 %304, %302
-  %or.cond547 = select i1 %303, i1 %.not6.i.i282, i1 false
-  br i1 %or.cond547, label %305, label %319
+  %or.cond581 = select i1 %303, i1 %.not6.i.i282, i1 false
+  br i1 %or.cond581, label %305, label %319
 
 305:                                              ; preds = %301
   %306 = sext i32 %302 to i64
@@ -1206,8 +1206,8 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i285: ; preds = %_ZNK
   %339 = icmp ugt i32 %325, 15
   %340 = load i32, ptr %73, align 8
   %.not6.i.i290 = icmp ugt i32 %340, %338
-  %or.cond548 = select i1 %339, i1 %.not6.i.i290, i1 false
-  br i1 %or.cond548, label %341, label %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261.backedge
+  %or.cond582 = select i1 %339, i1 %.not6.i.i290, i1 false
+  br i1 %or.cond582, label %341, label %_ZN10duckdb_re2L4AddQEPNS_10SparseSetTIvEEi.exit261.backedge
 
 341:                                              ; preds = %.thread390
   %342 = zext nneg i32 %338 to i64
@@ -1391,13 +1391,13 @@ _ZN10duckdb_re28PODArrayINS_8InstCondEED2Ev.exit: ; preds = %_ZN10duckdb_re210Sp
   br label %_ZN10duckdb_re28PODArrayIiED2Ev.exit320
 
 _ZN10duckdb_re28PODArrayIiED2Ev.exit320:          ; preds = %.body.thread, %.body, %401
-  %.pn224.pn.pn.pn508 = phi { ptr, i32 } [ %.pn224.pn.pn.pn.ph, %.body.thread ], [ %.pn224.pn.pn, %.body ], [ %.pn224.pn.pn, %401 ]
+  %.pn224.pn.pn.pn542 = phi { ptr, i32 } [ %.pn224.pn.pn.pn.ph, %.body.thread ], [ %.pn224.pn.pn, %.body ], [ %.pn224.pn.pn, %401 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZdlPv(ptr noundef nonnull %55) #13
   br label %_ZN10duckdb_re28PODArrayINS_8InstCondEED2Ev.exit322
 
 _ZN10duckdb_re28PODArrayINS_8InstCondEED2Ev.exit322: ; preds = %_ZN10duckdb_re28PODArrayIiED2Ev.exit320, %100
-  %.pn224.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn224.pn.pn.pn508, %_ZN10duckdb_re28PODArrayIiED2Ev.exit320 ], [ %101, %100 ]
+  %.pn224.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn224.pn.pn.pn542, %_ZN10duckdb_re28PODArrayIiED2Ev.exit320 ], [ %101, %100 ]
   call void @_ZdlPv(ptr noundef nonnull %49) #13
   resume { ptr, i32 } %.pn224.pn.pn.pn.pn
 

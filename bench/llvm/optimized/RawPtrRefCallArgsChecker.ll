@@ -2952,19 +2952,19 @@ _ZNK4llvm9StringRef9ends_withES0_.exit11.thread26.i.i.i: ; preds = %_ZNK4llvm9St
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit11.thread26.i.i.i
   %bcmp.i13.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %157, ptr noundef nonnull dereferenceable(10) @.str.45, i64 10)
   %215 = icmp eq i32 %bcmp.i13.i.i.i, 0
-  br i1 %215, label %_ZNK4llvm9StringRef9ends_withES0_.exit16.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread35.i.i.i
+  br i1 %215, label %_ZNK4llvm9StringRef9ends_withES0_.exit16.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread42.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread28.i.i.i: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit11.thread26.i.i.i
-  br i1 %.not.i5.i.i.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit16.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread35.i.i.i
+  br i1 %.not.i5.i.i.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit16.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread42.i.i.i
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread35.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
+_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread42.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   %216 = getelementptr inbounds i8, ptr %211, i64 -6
   %bcmp.i15.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %216, ptr noundef nonnull dereferenceable(6) @.str.46, i64 6)
   %217 = icmp eq i32 %bcmp.i15.i.i.i, 0
   br label %_ZNK4llvm9StringRef9ends_withES0_.exit16.i.i.i
 
-_ZNK4llvm9StringRef9ends_withES0_.exit16.i.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread35.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit8.thread25.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit8.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread24.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i.i, %204, %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i.i.i
-  %218 = phi i1 [ false, %204 ], [ false, %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit8.thread25.i.i.i ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit8.i.i.i ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.i.i.i ], [ %217, %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread35.i.i.i ], [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread24.i.i.i ]
+_ZNK4llvm9StringRef9ends_withES0_.exit16.i.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread42.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit8.thread25.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit8.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread24.i.i.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i.i, %204, %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i.i.i
+  %218 = phi i1 [ false, %204 ], [ false, %_ZN5clang11safeGetNameINS_12FunctionDeclEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i.i.i ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit8.thread25.i.i.i ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit8.i.i.i ], [ true, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i.i ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.i.i.i ], [ %217, %_ZN4llvmeqENS_9StringRefES0_.exit.thread28.thread42.i.i.i ], [ false, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread24.i.i.i ]
   %219 = load ptr, ptr %18, align 8, !tbaa !14
   %220 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %221 = icmp eq ptr %219, %220

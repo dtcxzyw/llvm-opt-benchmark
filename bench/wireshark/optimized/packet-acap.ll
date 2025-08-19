@@ -129,8 +129,8 @@ define internal i32 @dissect_acap(ptr noundef %0, ptr noundef readonly captures(
   br i1 %.not5.i82, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %42, %36
-  %.sink86 = phi ptr [ %38, %36 ], [ %44, %42 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink86, i64 28
+  %.sink92 = phi ptr [ %38, %36 ], [ %44, %42 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink92, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, 1
   store i32 %47, ptr %45, align 4

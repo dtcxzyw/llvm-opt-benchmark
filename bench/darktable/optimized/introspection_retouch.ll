@@ -907,7 +907,7 @@ rt_get_shape_opacity.exit.thread.i:               ; preds = %38, %rt_get_shape_o
 48:                                               ; preds = %rt_get_shape_opacity.exit.thread.i, %rt_get_shape_opacity.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !31
-  switch i32 %50, label %.thread89.i [
+  switch i32 %50, label %.thread96.i [
     i32 3, label %51
     i32 4, label %63
   ]
@@ -987,15 +987,15 @@ rt_get_shape_opacity.exit.thread.i:               ; preds = %38, %rt_get_shape_o
   %.not.i = icmp eq i32 %98, %99
   br i1 %.not.i, label %129, label %.thread.i
 
-.thread89.i:                                      ; preds = %48
+.thread96.i:                                      ; preds = %48
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 13200
   %101 = load i32, ptr %100, align 4, !tbaa !162
-  %.not91.i = icmp eq i32 %101, %50
-  br i1 %.not91.i, label %rt_get_selected_shape_index.exit.thread.i, label %.thread.i
+  %.not98.i = icmp eq i32 %101, %50
+  br i1 %.not98.i, label %rt_get_selected_shape_index.exit.thread.i, label %.thread.i
 
-.thread.i:                                        ; preds = %.thread89.i, %96
-  %102 = phi i32 [ %50, %.thread89.i ], [ %99, %96 ]
-  %103 = phi ptr [ %100, %.thread89.i ], [ %97, %96 ]
+.thread.i:                                        ; preds = %.thread96.i, %96
+  %102 = phi i32 [ %50, %.thread96.i ], [ %99, %96 ]
+  %103 = phi ptr [ %100, %.thread96.i ], [ %97, %96 ]
   store i32 %102, ptr %103, align 4, !tbaa !162
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %105 = load ptr, ptr %104, align 8, !tbaa !171
@@ -1032,9 +1032,9 @@ rt_get_shape_opacity.exit.thread.i:               ; preds = %38, %rt_get_shape_o
   call fastcc void @rt_show_hide_controls(ptr noundef %0)
   br label %rt_get_selected_shape_index.exit.thread.i
 
-rt_get_selected_shape_index.exit.thread.i:        ; preds = %129, %.thread89.i, %.loopexit.loopexit.i.i.i, %6
-  %.08.i.i80.i = phi i32 [ %25, %129 ], [ -1, %6 ], [ -1, %.loopexit.loopexit.i.i.i ], [ %25, %.thread89.i ]
-  %.0.i = phi i1 [ false, %129 ], [ true, %6 ], [ true, %.loopexit.loopexit.i.i.i ], [ true, %.thread89.i ]
+rt_get_selected_shape_index.exit.thread.i:        ; preds = %129, %.thread96.i, %.loopexit.loopexit.i.i.i, %6
+  %.08.i.i80.i = phi i32 [ %25, %129 ], [ -1, %6 ], [ -1, %.loopexit.loopexit.i.i.i ], [ %25, %.thread96.i ]
+  %.0.i = phi i1 [ false, %129 ], [ true, %6 ], [ true, %.loopexit.loopexit.i.i.i ], [ true, %.thread96.i ]
   %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !61
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 2800
   %132 = load i32, ptr %131, align 16, !tbaa !95
@@ -1682,10 +1682,10 @@ select.unfold.i:                                  ; preds = %.loopexit.loopexit.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %53, %50
-  %.sink7.i = phi i64 [ 36, %53 ], [ 16, %50 ]
+  %.sink9.i = phi i64 [ 36, %53 ], [ 16, %50 ]
   %.sink.in.i = phi ptr [ %24, %53 ], [ %26, %50 ]
   %.sink.i = load float, ptr %.sink.in.i, align 4, !tbaa !22
-  %62 = getelementptr inbounds nuw i8, ptr %44, i64 %.sink7.i
+  %62 = getelementptr inbounds nuw i8, ptr %44, i64 %.sink9.i
   store float %.sink.i, ptr %62, align 4, !tbaa !22
   br label %63
 
@@ -4405,7 +4405,7 @@ define internal noundef i32 @rt_wdbar_motion_notify(ptr noundef %0, ptr noundef 
 
 67:                                               ; preds = %53
   store i32 -1, ptr %48, align 8, !tbaa !250
-  br label %.thread64
+  br label %.thread69
 
 68:                                               ; preds = %39
   %69 = fsub reassoc nsz arcp contract afn float %11, %28
@@ -4438,7 +4438,7 @@ define internal noundef i32 @rt_wdbar_motion_notify(ptr noundef %0, ptr noundef 
 
 84:                                               ; preds = %71
   store i32 -1, ptr %48, align 8, !tbaa !250
-  br label %.thread64
+  br label %.thread69
 
 85:                                               ; preds = %._crit_edge, %71, %53
   %86 = phi i32 [ %.pre, %._crit_edge ], [ %83, %71 ], [ %66, %53 ]
@@ -4454,14 +4454,14 @@ define internal noundef i32 @rt_wdbar_motion_notify(ptr noundef %0, ptr noundef 
 90:                                               ; preds = %88, %85
   %91 = phi i32 [ %.pr, %88 ], [ %86, %85 ]
   %92 = icmp eq i32 %91, 1
-  br i1 %92, label %93, label %.thread64
+  br i1 %92, label %93, label %.thread69
 
 93:                                               ; preds = %90
   %94 = load i32, ptr %48, align 8, !tbaa !250
   call fastcc void @rt_merge_from_scale_update(i32 noundef %94, ptr noundef nonnull %2)
-  br label %.thread64
+  br label %.thread69
 
-.thread64:                                        ; preds = %84, %67, %93, %90
+.thread69:                                        ; preds = %84, %67, %93, %90
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %96 = load ptr, ptr %95, align 8, !tbaa !238
   call void @gtk_widget_queue_draw(ptr noundef %96) #26

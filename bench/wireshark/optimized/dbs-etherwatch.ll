@@ -350,8 +350,8 @@ define internal fastcc noundef zeroext i1 @parse_dbs_etherwatch_packet(ptr nound
   br label %64
 
 64:                                               ; preds = %61, %59
-  %.sink53.i = phi i8 [ %63, %61 ], [ %60, %59 ]
-  %65 = add i8 %.sink53.i, %.sink.i
+  %.sink55.i = phi i8 [ %63, %61 ], [ %60, %59 ]
+  %65 = add i8 %.sink55.i, %.sink.i
   store i8 %65, ptr %53, align 1
   %66 = add i32 %.03543.i, 2
   br label %67
@@ -455,8 +455,8 @@ parse_hex_dump.exit.thread:                       ; preds = %34, %27, %22, %pars
   br label %116
 
 116:                                              ; preds = %113, %111
-  %.sink53.i151 = phi i8 [ %115, %113 ], [ %112, %111 ]
-  %117 = add i8 %.sink53.i151, %.sink.i149
+  %.sink55.i151 = phi i8 [ %115, %113 ], [ %112, %111 ]
+  %117 = add i8 %.sink55.i151, %.sink.i149
   store i8 %117, ptr %108, align 1
   %118 = add i32 %.03543.i145, 2
   br label %119
@@ -836,10 +836,10 @@ define internal fastcc i32 @parse_hex_dump(ptr noundef readonly captures(none) %
   br label %45
 
 45:                                               ; preds = %42, %40
-  %.sink53 = phi i8 [ %44, %42 ], [ %41, %40 ]
+  %.sink55 = phi i8 [ %44, %42 ], [ %41, %40 ]
   %46 = sext i32 %.044 to i64
   %47 = getelementptr i8, ptr %1, i64 %46
-  %48 = add i8 %.sink53, %.sink
+  %48 = add i8 %.sink55, %.sink
   store i8 %48, ptr %47, align 1
   %49 = add i32 %.03543, 2
   br label %50
@@ -1036,8 +1036,8 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr noundef readonly capt
   br label %86
 
 86:                                               ; preds = %83, %81
-  %.sink53.i = phi i8 [ %85, %83 ], [ %82, %81 ]
-  %87 = add i8 %.sink53.i, %.sink.i
+  %.sink55.i = phi i8 [ %85, %83 ], [ %82, %81 ]
+  %87 = add i8 %.sink55.i, %.sink.i
   store i8 %87, ptr %75, align 1
   %88 = add i32 %.03543.i, 2
   br label %89

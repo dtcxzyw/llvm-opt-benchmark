@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [11 x i8] c"structures\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_Range_forIn_x27_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__1(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13, ptr noundef %14) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Std_Range_forIn_x27_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__1(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13, ptr noundef %14) local_unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = ptrtoint ptr %1 to i64
   %18 = and i64 %17, 1
@@ -438,7 +438,7 @@ declare ptr @l_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_mkApplyProjControlDi
 declare ptr @l_Lean_Meta_Simp_Simprocs_addCore(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Std_DHashMap_Internal_AssocList_forInStep_go___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__2___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr noundef %12) local_unnamed_addr #0 {
+define nonnull ptr @l_Std_DHashMap_Internal_AssocList_forInStep_go___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__2___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, 1
   %.not = icmp eq i64 %15, 0
@@ -7307,27 +7307,27 @@ lean_dec.exit784.backedge:                        ; preds = %lean_inc.exit, %213
   br label %lean_dec.exit784.backedge
 
 lean_dec.exit784.thread1562.sink.split.sink.split: ; preds = %lean_alloc_ctor.exit1538, %2091, %lean_dec.exit689, %lean_dec.exit701, %1793, %1506, %1121, %lean_dec.exit756, %lean_dec.exit769, %lean_alloc_ctor.exit
-  %.sink2351 = phi ptr [ %89, %lean_alloc_ctor.exit ], [ %631, %lean_dec.exit769 ], [ %863, %lean_dec.exit756 ], [ %1122, %1121 ], [ %1507, %1506 ], [ %1794, %1793 ], [ %1911, %lean_dec.exit701 ], [ %2021, %lean_dec.exit689 ], [ %2092, %2091 ], [ %2118, %lean_alloc_ctor.exit1538 ]
-  %.sink2348 = phi i32 [ 131096, %lean_alloc_ctor.exit ], [ 16908312, %lean_dec.exit769 ], [ 16908312, %lean_dec.exit756 ], [ 16908312, %1121 ], [ 16908312, %1506 ], [ 16908312, %1793 ], [ 16908312, %lean_dec.exit701 ], [ 16908312, %lean_dec.exit689 ], [ 131096, %2091 ], [ 131096, %lean_alloc_ctor.exit1538 ]
-  %.sink2345.ph = phi ptr [ %84, %lean_alloc_ctor.exit ], [ %605, %lean_dec.exit769 ], [ %837, %lean_dec.exit756 ], [ %1072, %1121 ], [ %1457, %1506 ], [ %1744, %1793 ], [ %1885, %lean_dec.exit701 ], [ %1995, %lean_dec.exit689 ], [ %.12638.ph, %2091 ], [ %2113, %lean_alloc_ctor.exit1538 ]
+  %.sink2629 = phi ptr [ %89, %lean_alloc_ctor.exit ], [ %631, %lean_dec.exit769 ], [ %863, %lean_dec.exit756 ], [ %1122, %1121 ], [ %1507, %1506 ], [ %1794, %1793 ], [ %1911, %lean_dec.exit701 ], [ %2021, %lean_dec.exit689 ], [ %2092, %2091 ], [ %2118, %lean_alloc_ctor.exit1538 ]
+  %.sink2626 = phi i32 [ 131096, %lean_alloc_ctor.exit ], [ 16908312, %lean_dec.exit769 ], [ 16908312, %lean_dec.exit756 ], [ 16908312, %1121 ], [ 16908312, %1506 ], [ 16908312, %1793 ], [ 16908312, %lean_dec.exit701 ], [ 16908312, %lean_dec.exit689 ], [ 131096, %2091 ], [ 131096, %lean_alloc_ctor.exit1538 ]
+  %.sink2623.ph = phi ptr [ %84, %lean_alloc_ctor.exit ], [ %605, %lean_dec.exit769 ], [ %837, %lean_dec.exit756 ], [ %1072, %1121 ], [ %1457, %1506 ], [ %1744, %1793 ], [ %1885, %lean_dec.exit701 ], [ %1995, %lean_dec.exit689 ], [ %.12638.ph, %2091 ], [ %2113, %lean_alloc_ctor.exit1538 ]
   %.sink.ph = phi ptr [ %.0624, %lean_alloc_ctor.exit ], [ %607, %lean_dec.exit769 ], [ %839, %lean_dec.exit756 ], [ %1082, %1121 ], [ %1467, %1506 ], [ %1754, %1793 ], [ %1887, %lean_dec.exit701 ], [ %1997, %lean_dec.exit689 ], [ %.12652.ph, %2091 ], [ %.12652.ph, %lean_alloc_ctor.exit1538 ]
-  %2139 = getelementptr inbounds nuw i8, ptr %.sink2351, i64 4
-  store i32 1, ptr %.sink2351, align 4, !tbaa !9
-  store i32 %.sink2348, ptr %2139, align 4
+  %2139 = getelementptr inbounds nuw i8, ptr %.sink2629, i64 4
+  store i32 1, ptr %.sink2629, align 4, !tbaa !9
+  store i32 %.sink2626, ptr %2139, align 4
   br label %lean_dec.exit784.thread1562.sink.split
 
 lean_dec.exit784.thread1562.sink.split:           ; preds = %lean_dec.exit784.thread1562.sink.split.sink.split, %lean_dec_ref.exit1153, %lean_dec_ref.exit1149, %lean_dec_ref.exit1147
-  %.sink2347 = phi ptr [ %.0672, %lean_dec_ref.exit1147 ], [ %.0674, %lean_dec_ref.exit1149 ], [ %.0678, %lean_dec_ref.exit1153 ], [ %.sink2351, %lean_dec.exit784.thread1562.sink.split.sink.split ]
-  %.sink2345 = phi ptr [ %1072, %lean_dec_ref.exit1147 ], [ %1457, %lean_dec_ref.exit1149 ], [ %1744, %lean_dec_ref.exit1153 ], [ %.sink2345.ph, %lean_dec.exit784.thread1562.sink.split.sink.split ]
+  %.sink2625 = phi ptr [ %.0672, %lean_dec_ref.exit1147 ], [ %.0674, %lean_dec_ref.exit1149 ], [ %.0678, %lean_dec_ref.exit1153 ], [ %.sink2629, %lean_dec.exit784.thread1562.sink.split.sink.split ]
+  %.sink2623 = phi ptr [ %1072, %lean_dec_ref.exit1147 ], [ %1457, %lean_dec_ref.exit1149 ], [ %1744, %lean_dec_ref.exit1153 ], [ %.sink2623.ph, %lean_dec.exit784.thread1562.sink.split.sink.split ]
   %.sink = phi ptr [ %1082, %lean_dec_ref.exit1147 ], [ %1467, %lean_dec_ref.exit1149 ], [ %1754, %lean_dec_ref.exit1153 ], [ %.sink.ph, %lean_dec.exit784.thread1562.sink.split.sink.split ]
-  %2140 = getelementptr inbounds nuw i8, ptr %.sink2347, i64 8
-  store ptr %.sink2345, ptr %2140, align 8, !tbaa !4
-  %2141 = getelementptr inbounds nuw i8, ptr %.sink2347, i64 16
+  %2140 = getelementptr inbounds nuw i8, ptr %.sink2625, i64 8
+  store ptr %.sink2623, ptr %2140, align 8, !tbaa !4
+  %2141 = getelementptr inbounds nuw i8, ptr %.sink2625, i64 16
   store ptr %.sink, ptr %2141, align 8, !tbaa !4
   br label %lean_dec.exit784.thread1562
 
 lean_dec.exit784.thread1562:                      ; preds = %lean_dec.exit784.thread1562.sink.split, %lean_dec.exit702, %lean_dec.exit757, %lean_dec.exit770, %lean_dec.exit690
-  %.1 = phi ptr [ %215, %lean_dec.exit702 ], [ %732, %lean_dec.exit757 ], [ %507, %lean_dec.exit770 ], [ %155, %lean_dec.exit690 ], [ %.sink2347, %lean_dec.exit784.thread1562.sink.split ]
+  %.1 = phi ptr [ %215, %lean_dec.exit702 ], [ %732, %lean_dec.exit757 ], [ %507, %lean_dec.exit770 ], [ %155, %lean_dec.exit690 ], [ %.sink2625, %lean_dec.exit784.thread1562.sink.split ]
   ret ptr %.1
 }
 
@@ -7342,7 +7342,7 @@ declare ptr @l_Lean_Meta_mkInjectiveEqTheoremNameFor(ptr noundef) local_unnamed_
 declare ptr @lean_st_ref_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @l_Std_DHashMap_Internal_AssocList_forInStep_go___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__2___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #0 {
+define nonnull ptr @l_Std_DHashMap_Internal_AssocList_forInStep_go___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__2___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) #0 {
   %14 = tail call ptr @l_Std_DHashMap_Internal_AssocList_forInStep_go___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__2___lambda__1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr noundef %12)
   %15 = ptrtoint ptr %11 to i64
   %16 = and i64 %15, 1
@@ -10208,7 +10208,7 @@ lean_alloc_ctor.exit375:                          ; preds = %551
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_Range_forIn_x27_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6, ptr noundef readnone captures(none) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Std_Range_forIn_x27_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6, ptr noundef readnone captures(none) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 {
   %16 = tail call ptr @l_Std_Range_forIn_x27_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_addStructureSimpLemmas___spec__1(ptr noundef %0, ptr noundef %1, ptr poison, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr noundef %14)
   %17 = ptrtoint ptr %13 to i64
   %18 = and i64 %17, 1

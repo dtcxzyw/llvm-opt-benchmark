@@ -2383,7 +2383,7 @@ define internal void @ConvertRGB24ToY_SSE2(ptr noalias noundef readonly captures
   %4 = alloca [6 x <2 x i64>], align 16
   %5 = and i32 %2, -32
   %6 = icmp sgt i32 %2, 31
-  %indvars.iv.sroa.gep71 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv.sroa.gep72 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %6, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %3
@@ -2464,7 +2464,7 @@ define internal void @ConvertRGB24ToY_SSE2(ptr noalias noundef readonly captures
 57:                                               ; preds = %14, %57
   %indvars.iv60 = phi i64 [ %56, %14 ], [ %indvars.iv.next61, %57 ]
   %58 = phi i1 [ true, %14 ], [ false, %57 ]
-  %indvars.iv.sroa.phi = phi ptr [ %4, %14 ], [ %indvars.iv.sroa.gep71, %57 ]
+  %indvars.iv.sroa.phi = phi ptr [ %4, %14 ], [ %indvars.iv.sroa.gep72, %57 ]
   %indvars.iv = phi i64 [ 0, %14 ], [ 1, %57 ]
   %59 = load <16 x i8>, ptr %indvars.iv.sroa.phi, align 16, !tbaa !3
   %60 = shufflevector <16 x i8> %59, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -2563,7 +2563,7 @@ define internal void @ConvertBGR24ToY_SSE2(ptr noalias noundef readonly captures
   %4 = alloca [6 x <2 x i64>], align 16
   %5 = and i32 %2, -32
   %6 = icmp sgt i32 %2, 31
-  %indvars.iv.sroa.gep71 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %indvars.iv.sroa.gep72 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %6, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %3
@@ -2644,7 +2644,7 @@ define internal void @ConvertBGR24ToY_SSE2(ptr noalias noundef readonly captures
 57:                                               ; preds = %14, %57
   %indvars.iv60 = phi i64 [ %56, %14 ], [ %indvars.iv.next61, %57 ]
   %58 = phi i1 [ true, %14 ], [ false, %57 ]
-  %indvars.iv.sroa.phi = phi ptr [ %4, %14 ], [ %indvars.iv.sroa.gep71, %57 ]
+  %indvars.iv.sroa.phi = phi ptr [ %4, %14 ], [ %indvars.iv.sroa.gep72, %57 ]
   %indvars.iv = phi i64 [ 0, %14 ], [ 1, %57 ]
   %59 = load <16 x i8>, ptr %indvars.iv.sroa.phi, align 16, !tbaa !3
   %60 = shufflevector <16 x i8> %59, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>

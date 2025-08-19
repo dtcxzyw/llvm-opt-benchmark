@@ -512,7 +512,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   %19 = sext i32 %16 to i64
   %20 = tail call ptr @tvb_memdup(ptr noundef %18, ptr noundef %2, i32 noundef 0, i64 noundef %19)
   %21 = icmp eq ptr %4, null
-  %indvars.iv101.sroa.gep106 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %indvars.iv101.sroa.gep107 = getelementptr inbounds nuw i8, ptr %12, i64 64
   br i1 %21, label %.preheader74.preheader, label %22
 
 22:                                               ; preds = %7
@@ -521,7 +521,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   br i1 %24, label %.loopexit71, label %.preheader74.preheader
 
 .preheader74.preheader:                           ; preds = %7, %22
-  %.061105 = phi i64 [ %23, %22 ], [ 0, %7 ]
+  %.061106 = phi i64 [ %23, %22 ], [ 0, %7 ]
   br label %.preheader74
 
 .preheader74:                                     ; preds = %.preheader74.preheader, %.preheader74
@@ -554,7 +554,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   store i8 %36, ptr %33, align 1
   %38 = add i32 %.06278, 1
   %39 = zext i32 %38 to i64
-  %40 = icmp samesign ult i64 %.061105, %39
+  %40 = icmp samesign ult i64 %.061106, %39
   %spec.store.select = select i1 %40, i32 0, i32 %38
   %41 = add nuw nsw i32 %.15680, 2
   %42 = icmp samesign ult i32 %.15680, 62
@@ -622,7 +622,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   %65 = add nuw nsw i64 %umin, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %scevgep, ptr noundef nonnull align 16 dereferenceable(1) %10, i64 %65, i1 false)
   %66 = add nuw nsw i64 %.05390, 1
-  %67 = add i64 %66, %umin
+  %67 = add nuw nsw i64 %66, %umin
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %55, %.lr.ph
@@ -668,7 +668,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
 
 81:                                               ; preds = %79, %.critedge
   %82 = phi i1 [ true, %79 ], [ false, %.critedge ]
-  %indvars.iv101.sroa.phi = phi ptr [ %12, %79 ], [ %indvars.iv101.sroa.gep106, %.critedge ]
+  %indvars.iv101.sroa.phi = phi ptr [ %12, %79 ], [ %indvars.iv101.sroa.gep107, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 64, ptr %13, align 8
   %83 = call i32 @gcry_mpi_scan(ptr noundef nonnull %15, i32 noundef 5, ptr noundef nonnull %indvars.iv101.sroa.phi, i64 noundef 64, ptr noundef nonnull %13)

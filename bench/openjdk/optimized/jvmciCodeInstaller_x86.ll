@@ -267,10 +267,10 @@ _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %25, %27, %30
   br i1 %or.cond3, label %53, label %.sink.split
 
 .sink.split:                                      ; preds = %41, %_ZN11OopRecorder10find_indexEP8_jobject.exit
-  %.sink19 = phi ptr [ %20, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ %42, %41 ]
+  %.sink21 = phi ptr [ %20, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ %42, %41 ]
   %.str.6.sink = phi ptr [ @.str.5, %_ZN11OopRecorder10find_indexEP8_jobject.exit ], [ @.str.6, %41 ]
   %51 = ptrtoint ptr %12 to i64
-  %52 = ptrtoint ptr %.sink19 to i64
+  %52 = ptrtoint ptr %.sink21 to i64
   call void (ptr, ...) @_ZN5JVMCI6event3EPKcz(ptr noundef nonnull %.str.6.sink, i64 noundef %51, i64 noundef %52) #5
   br label %53
 

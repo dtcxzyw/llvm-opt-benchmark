@@ -195,20 +195,20 @@ define hidden ptr @cmsOpenIOhandlerFromMem(ptr noundef %0, ptr noundef %1, i32 n
   br label %41
 
 27:                                               ; preds = %24, %19
-  %.sink72 = phi ptr [ %22, %24 ], [ %10, %19 ]
-  %.sink70 = phi i32 [ 0, %24 ], [ 1, %19 ]
+  %.sink76 = phi ptr [ %22, %24 ], [ %10, %19 ]
+  %.sink74 = phi i32 [ 0, %24 ], [ 1, %19 ]
   %.sink = phi i32 [ 0, %24 ], [ %2, %19 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink72, i64 16
-  store i32 %.sink70, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.sink72, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sink76, i64 16
+  store i32 %.sink74, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sink76, i64 8
   store i32 %2, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %.sink72, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.sink76, i64 12
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %.sink, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %32, align 8
-  store ptr %.sink72, ptr %5, align 8
+  store ptr %.sink76, ptr %5, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24

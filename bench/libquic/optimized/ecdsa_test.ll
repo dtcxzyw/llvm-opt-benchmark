@@ -108,9 +108,9 @@ _ZL11TestBuiltinP8_IO_FILE.exit.thread6:          ; preds = %15
 
 27:                                               ; preds = %25
   %28 = icmp ult i32 %26, 160
-  br i1 %28, label %.thread173.i, label %32
+  br i1 %28, label %.thread189.i, label %32
 
-.thread173.i:                                     ; preds = %27
+.thread189.i:                                     ; preds = %27
   %29 = call i64 @fwrite(ptr nonnull @.str.10, i64 9, i64 1, ptr %8)
   br label %210
 
@@ -541,7 +541,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %195, %194
   br i1 %.not.i.i, label %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, label %198
 
 198:                                              ; preds = %196, %.thread.i
-  %.482167.i = phi i32 [ 1, %.thread.i ], [ %.482.i, %196 ]
+  %.482183.i = phi i32 [ 1, %.thread.i ], [ %.482.i, %196 ]
   %199 = phi ptr [ %48, %.thread.i ], [ %197, %196 ]
   invoke void @EC_KEY_free(ptr noundef nonnull %199)
           to label %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i unwind label %200
@@ -554,14 +554,14 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %195, %194
   unreachable
 
 _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i: ; preds = %198, %196
-  %.482168.i = phi i32 [ %.482.i, %196 ], [ %.482167.i, %198 ]
+  %.482184.i = phi i32 [ %.482.i, %196 ], [ %.482183.i, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre162.i = load ptr, ptr %4, align 8, !tbaa !17
   br label %203
 
 203:                                              ; preds = %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, %41
   %204 = phi ptr [ %.pre162.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ], [ %33, %41 ]
-  %.381.i = phi i32 [ %.482168.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ], [ 1, %41 ]
+  %.381.i = phi i32 [ %.482184.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ], [ 1, %41 ]
   %.not.i125.i = icmp eq ptr %204, null
   br i1 %.not.i125.i, label %209, label %205
 
@@ -582,9 +582,9 @@ _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit
   %.not.i127.i = icmp eq ptr %.pre163.i, null
   br i1 %.not.i127.i, label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i, label %210
 
-210:                                              ; preds = %209, %.thread173.i
-  %.179176.i = phi i32 [ 4, %.thread173.i ], [ %.381.i, %209 ]
-  %211 = phi ptr [ %21, %.thread173.i ], [ %.pre163.i, %209 ]
+210:                                              ; preds = %209, %.thread189.i
+  %.179192.i = phi i32 [ 4, %.thread189.i ], [ %.381.i, %209 ]
+  %211 = phi ptr [ %21, %.thread189.i ], [ %.pre163.i, %209 ]
   invoke void @EC_GROUP_free(ptr noundef nonnull %211)
           to label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i unwind label %212
 
@@ -596,9 +596,9 @@ _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit
   unreachable
 
 _ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i: ; preds = %210, %209
-  %.179172.i = phi i32 [ %.381.i, %209 ], [ %.179176.i, %210 ]
+  %.179188.i = phi i32 [ %.381.i, %209 ], [ %.179192.i, %210 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %.179172.i, label %_ZL11TestBuiltinP8_IO_FILE.exit [
+  switch i32 %.179188.i, label %_ZL11TestBuiltinP8_IO_FILE.exit [
     i32 0, label %215
     i32 4, label %215
   ]
@@ -664,7 +664,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit129.i:               ; preds = %221, %220, %86, %84
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
 
 _ZL11TestBuiltinP8_IO_FILE.exit:                  ; preds = %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i
-  %cond.i = icmp eq i32 %.179172.i, 2
+  %cond.i = icmp eq i32 %.179188.i, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %cond.i, label %227, label %237

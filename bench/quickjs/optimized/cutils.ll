@@ -779,7 +779,7 @@ define dso_local void @rqsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   %9 = and i64 %8, 15
   switch i64 %9, label %16 [
     i64 0, label %exchange_func.exit.thread
-    i64 8, label %exchange_func.exit.thread288
+    i64 8, label %exchange_func.exit.thread314
     i64 4, label %12
     i64 12, label %12
     i64 2, label %14
@@ -793,7 +793,7 @@ exchange_func.exit.thread:                        ; preds = %5
   %exchange_one_int128.exchange_int128s.i = select i1 %10, ptr @exchange_one_int128, ptr @exchange_int128s
   br label %exchange_func.exit215
 
-exchange_func.exit.thread288:                     ; preds = %5
+exchange_func.exit.thread314:                     ; preds = %5
   %11 = icmp eq i64 %2, 8
   %exchange_one_int64.exchange_int64s.i = select i1 %11, ptr @exchange_one_int64, ptr @exchange_int64s
   br label %exchange_func.exit215
@@ -838,9 +838,9 @@ exchange_func.exit:                               ; preds = %12, %14, %16
 21:                                               ; preds = %exchange_func.exit
   br label %exchange_func.exit215
 
-exchange_func.exit215:                            ; preds = %exchange_func.exit.thread288, %exchange_func.exit.thread, %exchange_func.exit, %18, %19, %20, %21
-  %.0.i287 = phi ptr [ %.0.i, %19 ], [ %.0.i, %20 ], [ %.0.i, %21 ], [ %.0.i, %exchange_func.exit ], [ %exchange_one_int128.exchange_int128s.i, %exchange_func.exit.thread ], [ %exchange_one_int64.exchange_int64s.i, %exchange_func.exit.thread288 ], [ %.0.i, %18 ]
-  %.0.i210 = phi ptr [ @exchange_int32s, %19 ], [ @exchange_int16s, %20 ], [ @exchange_bytes, %21 ], [ @exchange_int128s, %exchange_func.exit ], [ @exchange_int128s, %exchange_func.exit.thread ], [ @exchange_int64s, %exchange_func.exit.thread288 ], [ @exchange_int64s, %18 ]
+exchange_func.exit215:                            ; preds = %exchange_func.exit.thread314, %exchange_func.exit.thread, %exchange_func.exit, %18, %19, %20, %21
+  %.0.i313 = phi ptr [ %.0.i, %19 ], [ %.0.i, %20 ], [ %.0.i, %21 ], [ %.0.i, %exchange_func.exit ], [ %exchange_one_int128.exchange_int128s.i, %exchange_func.exit.thread ], [ %exchange_one_int64.exchange_int64s.i, %exchange_func.exit.thread314 ], [ %.0.i, %18 ]
+  %.0.i210 = phi ptr [ @exchange_int32s, %19 ], [ @exchange_int16s, %20 ], [ @exchange_bytes, %21 ], [ @exchange_int128s, %exchange_func.exit ], [ @exchange_int128s, %exchange_func.exit.thread ], [ @exchange_int64s, %exchange_func.exit.thread314 ], [ @exchange_int64s, %18 ]
   %22 = icmp ult i64 %1, 2
   %23 = icmp eq i64 %2, 0
   %or.cond = or i1 %22, %23
@@ -1052,7 +1052,7 @@ exchange_func.exit.i:                             ; preds = %45, %52, %51, %50, 
 
 med3.exit:                                        ; preds = %108, %110, %114, %116
   %120 = phi ptr [ %113, %110 ], [ %119, %116 ], [ %102, %108 ], [ %102, %114 ]
-  call void %.0.i287(ptr noundef %.0180253, ptr noundef %120, i64 noundef %2) #18
+  call void %.0.i313(ptr noundef %.0180253, ptr noundef %120, i64 noundef %2) #18
   %121 = getelementptr inbounds nuw i8, ptr %.0180253, i64 %2
   %122 = mul i64 %.0256, %2
   %123 = getelementptr inbounds nuw i8, ptr %.0180253, i64 %122
@@ -1083,7 +1083,7 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %128
-  call void %.0.i287(ptr noundef %.1189226, ptr noundef %.1183227, i64 noundef %2) #18
+  call void %.0.i313(ptr noundef %.1189226, ptr noundef %.1183227, i64 noundef %2) #18
   %131 = add i64 %.1176229, 1
   %132 = getelementptr inbounds nuw i8, ptr %.1189226, i64 %2
   br label %133
@@ -1120,7 +1120,7 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
 144:                                              ; preds = %142
   %145 = add i64 %.1173239, -1
   %146 = getelementptr inbounds i8, ptr %.1186238, i64 %28
-  call void %.0.i287(ptr noundef nonnull %146, ptr noundef nonnull %139, i64 noundef %2) #18
+  call void %.0.i313(ptr noundef nonnull %146, ptr noundef nonnull %139, i64 noundef %2) #18
   br label %147
 
 147:                                              ; preds = %144, %142
@@ -1131,7 +1131,7 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   br i1 %149, label %.lr.ph240, label %.critedge3, !llvm.loop !37
 
 150:                                              ; preds = %.lr.ph240
-  call void %.0.i287(ptr noundef %.1183.lcssa, ptr noundef nonnull %139, i64 noundef %2) #18
+  call void %.0.i313(ptr noundef %.1183.lcssa, ptr noundef nonnull %139, i64 noundef %2) #18
   %151 = add i64 %.1179.lcssa, 1
   %152 = getelementptr inbounds nuw i8, ptr %.1183.lcssa, i64 %2
   br label %124
@@ -1206,7 +1206,7 @@ heapsortx.exit:                                   ; preds = %172, %._crit_edge95
   br i1 %182, label %183, label %.critedge5
 
 183:                                              ; preds = %.lr.ph262
-  call void %.0.i287(ptr noundef nonnull %.2193261, ptr noundef nonnull %180, i64 noundef %2) #18
+  call void %.0.i313(ptr noundef nonnull %.2193261, ptr noundef nonnull %180, i64 noundef %2) #18
   %184 = icmp ugt ptr %180, %.0180225
   br i1 %184, label %.lr.ph262, label %.critedge5, !llvm.loop !39
 

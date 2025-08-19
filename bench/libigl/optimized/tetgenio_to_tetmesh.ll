@@ -108,8 +108,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %.idx220 = mul nuw nsw i64 %indvars.iv, 24
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx220
+  %.idx233 = mul nuw nsw i64 %indvars.iv, 24
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx233
   %50 = load double, ptr %49, align 8, !tbaa !44
   %51 = getelementptr double, ptr %42, i64 %indvars.iv
   store double %50, ptr %51, align 8, !tbaa !44
@@ -267,8 +267,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 135:                                              ; preds = %.lr.ph169, %135
   %indvars.iv190 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next191, %135 ]
-  %.idx221 = mul nuw nsw i64 %indvars.iv190, 12
-  %136 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx221
+  %.idx234 = mul nuw nsw i64 %indvars.iv190, 12
+  %136 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx234
   %137 = load i32, ptr %136, align 4, !tbaa !57
   %138 = getelementptr i32, ptr %113, i64 %indvars.iv190
   store i32 %137, ptr %138, align 4, !tbaa !57
@@ -499,8 +499,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .preheader159:                                    ; preds = %.preheader159.lr.ph, %233
   %indvars.iv203 = phi i64 [ 0, %.preheader159.lr.ph ], [ %indvars.iv.next204, %233 ]
   %232 = getelementptr i32, ptr %229, i64 %indvars.iv203
-  %.idx222 = shl nsw i64 %indvars.iv203, 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %228, i64 %.idx222
+  %.idx235 = shl nsw i64 %indvars.iv203, 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %228, i64 %.idx235
   br label %237
 
 233:                                              ; preds = %237
@@ -607,12 +607,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv212 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next213, %.preheader ]
   %278 = getelementptr i32, ptr %275, i64 %indvars.iv212
-  %.idx223 = shl nuw nsw i64 %indvars.iv212, 3
-  %invariant.gep225 = getelementptr inbounds nuw i8, ptr %274, i64 %.idx223
-  %279 = load i32, ptr %invariant.gep225, align 4, !tbaa !57
+  %.idx236 = shl nuw nsw i64 %indvars.iv212, 3
+  %invariant.gep238 = getelementptr inbounds nuw i8, ptr %274, i64 %.idx236
+  %279 = load i32, ptr %invariant.gep238, align 4, !tbaa !57
   store i32 %279, ptr %278, align 4, !tbaa !57
-  %gep226.c = getelementptr inbounds nuw i8, ptr %invariant.gep225, i64 4
-  %280 = load i32, ptr %gep226.c, align 4, !tbaa !57
+  %gep239.c = getelementptr inbounds nuw i8, ptr %invariant.gep238, i64 4
+  %280 = load i32, ptr %gep239.c, align 4, !tbaa !57
   %281 = getelementptr i32, ptr %278, i64 %277
   store i32 %280, ptr %281, align 4, !tbaa !57
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1

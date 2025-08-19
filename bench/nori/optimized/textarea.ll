@@ -447,9 +447,9 @@ _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE9push_backEOS2_.exit: ; preds = %4
 64:                                               ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE9push_backEOS2_.exit
   %65 = load i32, ptr %24, align 4
   %66 = invoke noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
-          to label %.critedge47 unwind label %74
+          to label %.critedge51 unwind label %74
 
-.critedge47:                                      ; preds = %64
+.critedge51:                                      ; preds = %64
   %67 = add nsw i32 %66, %65
   %.sroa.2.0.insert.ext = zext i32 %67 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -475,7 +475,7 @@ _ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE9push_backEOS2_.exit: ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
   br label %85
 
-78:                                               ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE9push_backEOS2_.exit, %.critedge47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit
+78:                                               ; preds = %_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EE9push_backEOS2_.exit, %.critedge51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   %79 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %80 = load i8, ptr %.1, align 1
@@ -603,15 +603,15 @@ define hidden noundef zeroext i1 @_ZN7nanogui8TextArea14keyboard_eventEiiii(ptr 
   %or.cond = and i1 %21, %22
   %23 = icmp eq i32 %3, 1
   %or.cond3 = and i1 %23, %or.cond
-  br i1 %or.cond3, label %.preheader106, label %.critedge
+  br i1 %or.cond3, label %.preheader107, label %.critedge
 
-.preheader106:                                    ; preds = %20
+.preheader107:                                    ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
 
-_ZN7nanogui5ArrayIiLm2EEC2Ei.exit:                ; preds = %.preheader106, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
-  %.not8.i.i = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ true, %.preheader106 ]
-  %.07.i.i = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ 0, %.preheader106 ]
+_ZN7nanogui5ArrayIiLm2EEC2Ei.exit:                ; preds = %.preheader107, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit
+  %.not8.i.i = phi i1 [ false, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ true, %.preheader107 ]
+  %.07.i.i = phi i64 [ 1, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit ], [ 0, %.preheader107 ]
   %25 = getelementptr inbounds nuw [2 x i32], ptr %24, i64 0, i64 %.07.i.i
   %26 = load i32, ptr %25, align 4
   %.not.i.i = icmp eq i32 %26, -1
@@ -673,12 +673,12 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %_ZN7nanogui5ArrayIi
 
 .lr.ph:                                           ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %sext103 = shl nuw i64 %.sroa.8.0, 32
-  %40 = ashr exact i64 %sext103, 32
+  %sext104 = shl nuw i64 %.sroa.8.0, 32
+  %40 = ashr exact i64 %sext104, 32
   %41 = getelementptr inbounds [1025 x %struct.NVGglyphPosition], ptr %7, i64 0, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %sext104 = shl nuw i64 %.sroa.9.0, 32
-  %43 = ashr exact i64 %sext104, 32
+  %sext105 = shl nuw i64 %.sroa.9.0, 32
+  %43 = ashr exact i64 %sext105, 32
   %44 = getelementptr inbounds [1025 x %struct.NVGglyphPosition], ptr %7, i64 0, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -888,9 +888,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit58:
           to label %120 unwind label %.loopexit
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit
-  %.sink105 = phi ptr [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit ], [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit53 ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit58 ]
+  %.sink106 = phi ptr [ %8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit ], [ %10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit53 ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit58 ]
   %.sink = phi ptr [ %9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit ], [ %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit53 ], [ %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit58 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink105) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink106) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #17
   br label %120
 
@@ -1377,8 +1377,8 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit95:              ; preds = %_ZNK7nanogui5ArrayI
 _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit100:        ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95
   %194 = icmp sle i32 %189, %.sroa.9.0..sroa.9.0..sroa.9.4.157
   %195 = icmp sge i32 %189, %.sroa.9178.0..sroa.9178.0..sroa.9178.4.184
-  %.not225 = or i1 %194, %195
-  %or.cond204.not = select i1 %.not.i.i98, i1 true, i1 %.not225
+  %.not229 = or i1 %194, %195
+  %or.cond204.not = select i1 %.not.i.i98, i1 true, i1 %.not229
   br i1 %or.cond204.not, label %.critedge2, label %196
 
 196:                                              ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit100

@@ -976,7 +976,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
 
 89:                                               ; preds = %78
   %90 = icmp eq i8 %85, 16
-  br i1 %90, label %.sink.split145, label %91
+  br i1 %90, label %.sink.split147, label %91
 
 91:                                               ; preds = %89
   %92 = icmp samesign ugt i8 %85, 16
@@ -984,11 +984,11 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
 
 93:                                               ; preds = %91
   %94 = add nsw i8 %85, -1
-  br label %.sink.split145
+  br label %.sink.split147
 
 95:                                               ; preds = %78
   %96 = icmp eq i8 %85, 24
-  br i1 %96, label %.sink.split145, label %97
+  br i1 %96, label %.sink.split147, label %97
 
 97:                                               ; preds = %95
   %98 = icmp samesign ugt i8 %85, 24
@@ -996,14 +996,14 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
 
 99:                                               ; preds = %97
   %100 = add nsw i8 %85, -1
-  br label %.sink.split145
+  br label %.sink.split147
 
-.sink.split145:                                   ; preds = %95, %89, %93, %99
-  %.sink146 = phi i8 [ %100, %99 ], [ %94, %93 ], [ 0, %89 ], [ 0, %95 ]
-  store i8 %.sink146, ptr %86, align 1
+.sink.split147:                                   ; preds = %95, %89, %93, %99
+  %.sink148 = phi i8 [ %100, %99 ], [ %94, %93 ], [ 0, %89 ], [ 0, %95 ]
+  store i8 %.sink148, ptr %86, align 1
   br label %101
 
-101:                                              ; preds = %.sink.split145, %97, %91, %78
+101:                                              ; preds = %.sink.split147, %97, %91, %78
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %103 = load i8, ptr %102, align 2
   %104 = icmp eq i8 %103, -1
@@ -1081,7 +1081,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %150 = load i8, ptr %127, align 4
   %151 = lshr i8 %150, 4
   %152 = and i8 %151, 7
-  switch i8 %152, label %default.unreachable144 [
+  switch i8 %152, label %default.unreachable146 [
     i8 0, label %153
     i8 1, label %157
     i8 2, label %161
@@ -1132,7 +1132,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 4, ptr %170, align 4
   %171 = and i8 %150, 7
-  switch i8 %171, label %default.unreachable144 [
+  switch i8 %171, label %default.unreachable146 [
     i8 1, label %172
     i8 2, label %172
     i8 3, label %175
@@ -1179,7 +1179,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   store i8 0, ptr %186, align 2
   br label %187
 
-default.unreachable144:                           ; preds = %169, %137
+default.unreachable146:                           ; preds = %169, %137
   unreachable
 
 187:                                              ; preds = %108, %101, %30, %20, %120, %34, %36, %71, %50, %172, %175, %178, %181, %184, %165, %161, %157, %153, %18, %15, %13
@@ -1225,7 +1225,7 @@ default.unreachable144:                           ; preds = %169, %137
   %218 = sub nsw i32 %217, %.0
   %219 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %218, ptr %219, align 8
-  br label %.sink.split147
+  br label %.sink.split149
 
 220:                                              ; preds = %187
   store i32 3, ptr %192, align 4
@@ -1258,16 +1258,16 @@ default.unreachable144:                           ; preds = %169, %137
   %.val142 = load i16, ptr %242, align 4
   %243 = zext i16 %.val142 to i32
   %244 = sub nsw i32 %243, %.0
-  br label %.sink.split147
+  br label %.sink.split149
 
-.sink.split147:                                   ; preds = %220, %198
-  %.sink148 = phi i32 [ %218, %198 ], [ %244, %220 ]
+.sink.split149:                                   ; preds = %220, %198
+  %.sink150 = phi i32 [ %218, %198 ], [ %244, %220 ]
   %245 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 %.sink148, ptr %245, align 4
+  store i32 %.sink150, ptr %245, align 4
   br label %246
 
-246:                                              ; preds = %.sink.split147, %5
-  %.0129 = phi i32 [ -1, %5 ], [ %.0, %.sink.split147 ]
+246:                                              ; preds = %.sink.split149, %5
+  %.0129 = phi i32 [ -1, %5 ], [ %.0, %.sink.split149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0129
 }

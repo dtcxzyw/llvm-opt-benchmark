@@ -345,14 +345,14 @@ Bbl_ManFileSize.exit:                             ; preds = %4, %5
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %56, %58, %48, %50
-  %.sink31 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %57, %56 ], [ %59, %58 ]
+  %.sink34 = phi ptr [ %49, %48 ], [ %51, %50 ], [ %57, %56 ], [ %59, %58 ]
   %.sink = phi i32 [ 16, %48 ], [ 16, %50 ], [ %53, %56 ], [ %53, %58 ]
-  store ptr %.sink31, ptr %34, align 8, !tbaa !28
+  store ptr %.sink34, ptr %34, align 8, !tbaa !28
   store i32 %.sink, ptr %31, align 8, !tbaa !27
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %41
-  %.pre.i29 = phi ptr [ %37, %41 ], [ %.sink31, %Vec_IntPush.exit.sink.split ]
+  %.pre.i29 = phi ptr [ %37, %41 ], [ %.sink34, %Vec_IntPush.exit.sink.split ]
   %60 = load i32, ptr %32, align 4, !tbaa !24
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %32, align 4, !tbaa !24
@@ -1929,10 +1929,10 @@ define void @Bbl_ManDumpBlif(ptr noundef readonly captures(none) %0, ptr noundef
   br label %28
 
 28:                                               ; preds = %Bbl_ObjFaninNext.exit, %.lr.ph
-  %.pn110.in.in = phi ptr [ %26, %.lr.ph ], [ %42, %Bbl_ObjFaninNext.exit ]
-  %.pn110.in = load i32, ptr %.pn110.in.in, align 4, !tbaa !15
-  %.pn110 = sext i32 %.pn110.in to i64
-  %.pn = sub nsw i64 0, %.pn110
+  %.pn113.in.in = phi ptr [ %26, %.lr.ph ], [ %42, %Bbl_ObjFaninNext.exit ]
+  %.pn113.in = load i32, ptr %.pn113.in.in, align 4, !tbaa !15
+  %.pn113 = sext i32 %.pn113.in to i64
+  %.pn = sub nsw i64 0, %.pn113
   %.081 = getelementptr inbounds i8, ptr %.04483, i64 %.pn
   %29 = load i32, ptr %.081, align 4, !tbaa !30
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.23, i32 noundef %29) #26
@@ -1949,7 +1949,7 @@ define void @Bbl_ManDumpBlif(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %36 ]
   %33 = getelementptr inbounds nuw [0 x i32], ptr %27, i64 0, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4, !tbaa !15
-  %35 = icmp eq i32 %.pn110.in, %34
+  %35 = icmp eq i32 %.pn113.in, %34
   br i1 %35, label %.critedge.loopexit.i, label %36
 
 36:                                               ; preds = %.lr.ph.split.i
@@ -2029,11 +2029,11 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
   br label %70
 
 70:                                               ; preds = %Bbl_ObjFaninNext.exit74, %.lr.ph88
-  %.pn112.in.in = phi ptr [ %68, %.lr.ph88 ], [ %84, %Bbl_ObjFaninNext.exit74 ]
-  %.pn112.in = load i32, ptr %.pn112.in.in, align 4, !tbaa !15
-  %.pn112 = sext i32 %.pn112.in to i64
-  %.pn111 = sub nsw i64 0, %.pn112
-  %.187 = getelementptr inbounds i8, ptr %.14591, i64 %.pn111
+  %.pn115.in.in = phi ptr [ %68, %.lr.ph88 ], [ %84, %Bbl_ObjFaninNext.exit74 ]
+  %.pn115.in = load i32, ptr %.pn115.in.in, align 4, !tbaa !15
+  %.pn115 = sext i32 %.pn115.in to i64
+  %.pn114 = sub nsw i64 0, %.pn115
+  %.187 = getelementptr inbounds i8, ptr %.14591, i64 %.pn114
   %71 = load i32, ptr %.187, align 4, !tbaa !30
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.23, i32 noundef %71) #26
   %73 = load i32, ptr %64, align 4
@@ -2049,7 +2049,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold
   %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.split.preheader.i65 ], [ %indvars.iv.next.i69, %78 ]
   %75 = getelementptr inbounds nuw [0 x i32], ptr %69, i64 0, i64 %indvars.iv.i68
   %76 = load i32, ptr %75, align 4, !tbaa !15
-  %77 = icmp eq i32 %.pn112.in, %76
+  %77 = icmp eq i32 %.pn115.in, %76
   br i1 %77, label %.critedge.loopexit.i71, label %78
 
 78:                                               ; preds = %.lr.ph.split.i67

@@ -1255,11 +1255,11 @@ if.else.i.i:                                      ; preds = %if.end8
   br i1 %tobool.not.i.i.i.i.i.i, label %return, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %if.else.i.i, %if.then.i.i
-  %.sink4.i.i = phi ptr [ %10, %if.then.i.i ], [ %11, %if.else.i.i ]
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %.sink4.i.i, align 8
+  %.sink6.i.i = phi ptr [ %10, %if.then.i.i ], [ %11, %if.else.i.i ]
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %.sink6.i.i, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(24) %.sink4.i.i) #20
+  call void %12(ptr noundef nonnull align 8 dereferenceable(24) %.sink6.i.i) #20
   br label %return
 
 return:                                           ; preds = %if.end.sink.split.i.i, %if.else.i.i, %if.then.i.i, %if.end, %entry

@@ -434,7 +434,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6plic_t20context_best_pendingEPK14plic_context_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1204) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, -1) i32 @_ZN6plic_t20context_best_pendingEPK14plic_context_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1204) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !18
   %.not47 = icmp eq i32 %4, 0
@@ -503,12 +503,12 @@ define noundef i32 @_ZN6plic_t20context_best_pendingEPK14plic_context_t(ptr noun
   %or.cond = select i1 %.not39, i1 true, i1 %29
   %30 = trunc nuw i64 %20 to i32
   %spec.select = select i1 %or.cond, i8 %.pre, i8 %.23140
-  %spec.select52 = select i1 %or.cond, i32 %30, i32 %.241
+  %spec.select55 = select i1 %or.cond, i32 %30, i32 %.241
   br label %._crit_edge51
 
 ._crit_edge51:                                    ; preds = %28, %19, %21, %25
   %.332 = phi i8 [ %.23140, %25 ], [ %.23140, %21 ], [ %.23140, %19 ], [ %spec.select, %28 ]
-  %.3 = phi i32 [ %.241, %25 ], [ %.241, %21 ], [ %.241, %19 ], [ %spec.select52, %28 ]
+  %.3 = phi i32 [ %.241, %25 ], [ %.241, %21 ], [ %.241, %19 ], [ %spec.select55, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !54
@@ -582,12 +582,12 @@ define void @_ZN6plic_t14context_updateEPK14plic_context_t(ptr noundef nonnull r
   %or.cond.i = select i1 %.not39.i, i1 true, i1 %27
   %28 = trunc nuw i64 %18 to i32
   %spec.select.i = select i1 %or.cond.i, i8 %.pre.i, i8 %.23140.i
-  %spec.select52.i = select i1 %or.cond.i, i32 %28, i32 %.241.i
+  %spec.select55.i = select i1 %or.cond.i, i32 %28, i32 %.241.i
   br label %._crit_edge51.i
 
 ._crit_edge51.i:                                  ; preds = %26, %23, %19, %17
   %.332.i = phi i8 [ %.23140.i, %23 ], [ %.23140.i, %19 ], [ %.23140.i, %17 ], [ %spec.select.i, %26 ]
-  %.3.i = phi i32 [ %.241.i, %23 ], [ %.241.i, %19 ], [ %.241.i, %17 ], [ %spec.select52.i, %26 ]
+  %.3.i = phi i32 [ %.241.i, %23 ], [ %.241.i, %19 ], [ %.241.i, %17 ], [ %spec.select55.i, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %.loopexit.i, label %17, !llvm.loop !54
@@ -686,12 +686,12 @@ define noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr noundef nonn
   %or.cond.i = select i1 %.not39.i, i1 true, i1 %27
   %28 = trunc nuw i64 %18 to i32
   %spec.select.i = select i1 %or.cond.i, i8 %.pre.i, i8 %.23140.i
-  %spec.select52.i = select i1 %or.cond.i, i32 %28, i32 %.241.i
+  %spec.select55.i = select i1 %or.cond.i, i32 %28, i32 %.241.i
   br label %._crit_edge51.i
 
 ._crit_edge51.i:                                  ; preds = %26, %23, %19, %17
   %.332.i = phi i8 [ %.23140.i, %23 ], [ %.23140.i, %19 ], [ %.23140.i, %17 ], [ %spec.select.i, %26 ]
-  %.3.i = phi i32 [ %.241.i, %23 ], [ %.241.i, %19 ], [ %.241.i, %17 ], [ %spec.select52.i, %26 ]
+  %.3.i = phi i32 [ %.241.i, %23 ], [ %.241.i, %19 ], [ %.241.i, %17 ], [ %spec.select55.i, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %.loopexit.i, label %17, !llvm.loop !54
@@ -778,12 +778,12 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit: ; preds = %.loopexit.i
   %or.cond.i.i = select i1 %.not39.i.i, i1 true, i1 %58
   %59 = trunc nuw i64 %49 to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i8 %.pre.i.i, i8 %.23140.i.i
-  %spec.select52.i.i = select i1 %or.cond.i.i, i32 %59, i32 %.241.i.i
+  %spec.select55.i.i = select i1 %or.cond.i.i, i32 %59, i32 %.241.i.i
   br label %._crit_edge51.i.i
 
 ._crit_edge51.i.i:                                ; preds = %57, %54, %50, %48
   %.332.i.i = phi i8 [ %.23140.i.i, %54 ], [ %.23140.i.i, %50 ], [ %.23140.i.i, %48 ], [ %spec.select.i.i, %57 ]
-  %.3.i.i = phi i32 [ %.241.i.i, %54 ], [ %.241.i.i, %50 ], [ %.241.i.i, %48 ], [ %spec.select52.i.i, %57 ]
+  %.3.i.i = phi i32 [ %.241.i.i, %54 ], [ %.241.i.i, %50 ], [ %.241.i.i, %48 ], [ %spec.select55.i.i, %57 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %48, !llvm.loop !54
@@ -817,13 +817,13 @@ _ZN6plic_t14context_updateEPK14plic_context_t.exit: ; preds = %.loopexit.i.i
 
 71:                                               ; preds = %_ZN6plic_t14context_updateEPK14plic_context_t.exit, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread
   %72 = phi i64 [ %63, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %70, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
-  %.028..i151823 = phi i32 [ %.028..i1518.ph, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %.028..i, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
+  %.028..i151827 = phi i32 [ %.028..i1518.ph, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %.028..i, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
   %73 = phi i64 [ 0, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %spec.select, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
   %.pn = load ptr, ptr %1, align 8, !tbaa !59
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 1264
   %74 = load ptr, ptr %.in, align 8, !tbaa !60
   tail call void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48) %74, i64 noundef %72, i64 noundef %73) #30
-  ret i32 %.028..i151823
+  ret i32 %.028..i151827
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -1029,12 +1029,12 @@ define noundef zeroext i1 @_ZN6plic_t20context_enable_writeEP14plic_context_tmj(
   %or.cond.i.i = select i1 %.not39.i.i, i1 true, i1 %49
   %50 = trunc nuw i64 %40 to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i8 %.pre.i.i, i8 %.23140.i.i
-  %spec.select52.i.i = select i1 %or.cond.i.i, i32 %50, i32 %.241.i.i
+  %spec.select55.i.i = select i1 %or.cond.i.i, i32 %50, i32 %.241.i.i
   br label %._crit_edge51.i.i
 
 ._crit_edge51.i.i:                                ; preds = %48, %45, %41, %39
   %.332.i.i = phi i8 [ %.23140.i.i, %45 ], [ %.23140.i.i, %41 ], [ %.23140.i.i, %39 ], [ %spec.select.i.i, %48 ]
-  %.3.i.i = phi i32 [ %.241.i.i, %45 ], [ %.241.i.i, %41 ], [ %.241.i.i, %39 ], [ %spec.select52.i.i, %48 ]
+  %.3.i.i = phi i32 [ %.241.i.i, %45 ], [ %.241.i.i, %41 ], [ %.241.i.i, %39 ], [ %spec.select55.i.i, %48 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %39, !llvm.loop !54
@@ -1252,12 +1252,12 @@ define noundef zeroext i1 @_ZN6plic_t13context_writeEP14plic_context_tmj(ptr nou
   %or.cond.i.i = select i1 %.not39.i.i, i1 true, i1 %56
   %57 = trunc nuw i64 %47 to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i8 %.pre.i.i, i8 %.23140.i.i
-  %spec.select52.i.i = select i1 %or.cond.i.i, i32 %57, i32 %.241.i.i
+  %spec.select55.i.i = select i1 %or.cond.i.i, i32 %57, i32 %.241.i.i
   br label %._crit_edge51.i.i
 
 ._crit_edge51.i.i:                                ; preds = %55, %52, %48, %46
   %.332.i.i = phi i8 [ %.23140.i.i, %52 ], [ %.23140.i.i, %48 ], [ %.23140.i.i, %46 ], [ %spec.select.i.i, %55 ]
-  %.3.i.i = phi i32 [ %.241.i.i, %52 ], [ %.241.i.i, %48 ], [ %.241.i.i, %46 ], [ %spec.select52.i.i, %55 ]
+  %.3.i.i = phi i32 [ %.241.i.i, %52 ], [ %.241.i.i, %48 ], [ %.241.i.i, %46 ], [ %spec.select55.i.i, %55 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %46, !llvm.loop !54
@@ -1456,12 +1456,12 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
   %or.cond.i.i = select i1 %.not39.i.i, i1 true, i1 %89
   %90 = trunc nuw i64 %80 to i32
   %spec.select.i.i = select i1 %or.cond.i.i, i8 %.pre.i.i, i8 %.23140.i.i
-  %spec.select52.i.i = select i1 %or.cond.i.i, i32 %90, i32 %.241.i.i
+  %spec.select55.i.i = select i1 %or.cond.i.i, i32 %90, i32 %.241.i.i
   br label %._crit_edge51.i.i
 
 ._crit_edge51.i.i:                                ; preds = %88, %85, %81, %79
   %.332.i.i = phi i8 [ %.23140.i.i, %85 ], [ %.23140.i.i, %81 ], [ %.23140.i.i, %79 ], [ %spec.select.i.i, %88 ]
-  %.3.i.i = phi i32 [ %.241.i.i, %85 ], [ %.241.i.i, %81 ], [ %.241.i.i, %79 ], [ %spec.select52.i.i, %88 ]
+  %.3.i.i = phi i32 [ %.241.i.i, %85 ], [ %.241.i.i, %81 ], [ %.241.i.i, %79 ], [ %spec.select55.i.i, %88 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %79, !llvm.loop !54
@@ -3314,18 +3314,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !20
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #31
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #31
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !93
@@ -3359,7 +3359,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

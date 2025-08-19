@@ -228,8 +228,8 @@ define noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineLiteralEPNS_16Hist
   br i1 %exitcond174.not, label %.preheader143, label %19, !llvm.loop !23
 
 .preheader143:                                    ; preds = %.loopexit144
-  %.not189 = icmp eq i64 %6, 1
-  br i1 %.not189, label %._crit_edge, label %.lr.ph168
+  %.not215 = icmp eq i64 %6, 1
+  br i1 %.not215, label %._crit_edge, label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.preheader143
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1522,8 +1522,8 @@ define noundef i64 @_ZN13duckdb_brotli29BrotliHistogramCombineCommandEPNS_16Hist
   br i1 %exitcond174.not, label %.preheader143, label %19, !llvm.loop !50
 
 .preheader143:                                    ; preds = %.loopexit144
-  %.not189 = icmp eq i64 %6, 1
-  br i1 %.not189, label %._crit_edge, label %.lr.ph168
+  %.not215 = icmp eq i64 %6, 1
+  br i1 %.not215, label %._crit_edge, label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.preheader143
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2809,8 +2809,8 @@ define noundef i64 @_ZN13duckdb_brotli30BrotliHistogramCombineDistanceEPNS_17His
   br i1 %exitcond174.not, label %.preheader143, label %19, !llvm.loop !75
 
 .preheader143:                                    ; preds = %.loopexit144
-  %.not189 = icmp eq i64 %6, 1
-  br i1 %.not189, label %._crit_edge, label %.lr.ph168
+  %.not215 = icmp eq i64 %6, 1
+  br i1 %.not215, label %._crit_edge, label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.preheader143
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16

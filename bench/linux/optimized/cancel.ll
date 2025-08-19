@@ -633,9 +633,9 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
   %56 = load i32, ptr %55, align 8
   %57 = call ptr @fget(i32 noundef %56) #10
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit14, label %.thread17
+  br i1 %58, label %.loopexit14, label %.thread28
 
-.thread17:                                        ; preds = %54
+.thread28:                                        ; preds = %54
   store ptr %57, ptr %8, align 8
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 1864
   %60 = load ptr, ptr %59, align 8
@@ -673,11 +673,11 @@ define dso_local i32 @io_sync_cancel(ptr noundef %0, ptr noundef %1) local_unnam
   %85 = icmp eq i64 %83, 0
   br i1 %85, label %.loopexit14, label %86
 
-86:                                               ; preds = %.thread17, %62, %72
-  %87 = phi ptr [ %61, %.thread17 ], [ %65, %62 ], [ %65, %72 ]
-  %88 = phi ptr [ %60, %.thread17 ], [ %64, %62 ], [ %64, %72 ]
-  %89 = phi ptr [ %59, %.thread17 ], [ %63, %62 ], [ %63, %72 ]
-  %90 = phi ptr [ %57, %.thread17 ], [ null, %62 ], [ null, %72 ]
+86:                                               ; preds = %.thread28, %62, %72
+  %87 = phi ptr [ %61, %.thread28 ], [ %65, %62 ], [ %65, %72 ]
+  %88 = phi ptr [ %60, %.thread28 ], [ %64, %62 ], [ %64, %72 ]
+  %89 = phi ptr [ %59, %.thread28 ], [ %63, %62 ], [ %63, %72 ]
+  %90 = phi ptr [ %57, %.thread28 ], [ null, %62 ], [ null, %72 ]
   %91 = call fastcc i32 @__io_async_cancel(ptr noundef nonnull %3, ptr noundef %88, i32 noundef 0)
   %92 = icmp eq i32 %91, -114
   br i1 %92, label %93, label %.thread

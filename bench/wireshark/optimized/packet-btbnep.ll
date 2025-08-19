@@ -222,9 +222,9 @@ define internal i32 @dissect_btbnep(ptr noundef %0, ptr noundef %1, ptr noundef 
   %15 = load ptr, ptr %10, align 8
   %switch.selectcmp = icmp eq i32 %14, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.112, ptr @.str.113
-  %switch.selectcmp158 = icmp eq i32 %14, 0
-  %switch.select159 = select i1 %switch.selectcmp158, ptr @.str.111, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull %switch.select159)
+  %switch.selectcmp160 = icmp eq i32 %14, 0
+  %switch.select161 = select i1 %switch.selectcmp160, ptr @.str.111, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull %switch.select161)
   %16 = load i32, ptr @hf_btbnep_extension_flag, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %18 = load i32, ptr @hf_btbnep_bnep_type, align 4

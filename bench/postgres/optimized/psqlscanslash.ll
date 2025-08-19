@@ -300,7 +300,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
     i32 37, label %333
     i32 38, label %336
     i32 39, label %341
-    i32 40, label %.loopexit1059
+    i32 40, label %.loopexit1090
     i32 41, label %.sink.split
     i32 44, label %344
     i32 45, label %344
@@ -824,7 +824,7 @@ evaluate_backtick.exit:                           ; preds = %.thread445, %.threa
 344:                                              ; preds = %123, %123, %123, %123, %123, %123, %123, %123, %123
   %345 = load ptr, ptr %90, align 8
   %346 = icmp eq ptr %345, null
-  br i1 %346, label %.loopexit1059, label %347
+  br i1 %346, label %.loopexit1090, label %347
 
 347:                                              ; preds = %344
   call void @psqlscan_pop_buffer_stack(ptr noundef nonnull %73) #29
@@ -1220,10 +1220,10 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
   br label %546
 
 546:                                              ; preds = %.critedge2.i, %441
-  %.sink196.in.i = phi ptr [ %545, %.critedge2.i ], [ %442, %441 ]
+  %.sink203.in.i = phi ptr [ %545, %.critedge2.i ], [ %442, %441 ]
   %.sink.i = phi i32 [ %542, %.critedge2.i ], [ 0, %441 ]
-  %.sink196.i = load ptr, ptr %.sink196.in.i, align 8
-  %547 = getelementptr inbounds nuw i8, ptr %.sink196.i, i64 28
+  %.sink203.i = load ptr, ptr %.sink203.in.i, align 8
+  %547 = getelementptr inbounds nuw i8, ptr %.sink203.i, i64 28
   store i32 %.sink.i, ptr %547, align 4
   %548 = load i32, ptr %87, align 4
   %549 = icmp eq i32 %548, 0
@@ -1326,7 +1326,7 @@ yy_get_next_buffer.exit:                          ; preds = %560, %589
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 8
   %615 = load ptr, ptr %614, align 8
   store ptr %615, ptr %83, align 8
-  switch i32 %.0135.i, label %default.unreachable852 [
+  switch i32 %.0135.i, label %default.unreachable883 [
     i32 1, label %yy_get_previous_state.exit429
     i32 0, label %617
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread449_crit_edge
@@ -1414,7 +1414,7 @@ yy_get_next_buffer.exit.thread449:                ; preds = %423, %yy_get_next_b
   %exitcond.not.i436 = icmp eq ptr %659, %643
   br i1 %exitcond.not.i436, label %.loopexit453.backedge, label %.lr.ph.i432, !llvm.loop !7
 
-default.unreachable852:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable883:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit429:                    ; preds = %yy_get_next_buffer.exit, %423
@@ -1441,9 +1441,9 @@ yy_get_previous_state.exit429:                    ; preds = %yy_get_next_buffer.
   store i8 %667, ptr %82, align 8
   store i8 0, ptr %.1388, align 1
   store ptr %.1388, ptr %81, align 8
-  br label %.loopexit1059
+  br label %.loopexit1090
 
-.loopexit1059:                                    ; preds = %344, %123, %.sink.split
+.loopexit1090:                                    ; preds = %344, %123, %.sink.split
   %.0 = phi i32 [ 1, %.sink.split ], [ 1, %123 ], [ 0, %344 ]
   %668 = load i32, ptr %80, align 4
   %669 = add i32 %668, -1
@@ -2123,9 +2123,9 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %10, %13, %24
   br label %.thread
 
 .thread:                                          ; preds = %slash_yyensure_buffer_stack.exit, %51, %32
-  %.pr36 = phi ptr [ %.pr.pre, %51 ], [ %.pr.pre, %32 ], [ %28, %slash_yyensure_buffer_stack.exit ]
+  %.pr40 = phi ptr [ %.pr.pre, %51 ], [ %.pr.pre, %32 ], [ %28, %slash_yyensure_buffer_stack.exit ]
   %53 = phi i64 [ %52, %51 ], [ %.pre30, %32 ], [ %27, %slash_yyensure_buffer_stack.exit ]
-  %54 = getelementptr inbounds nuw ptr, ptr %.pr36, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %53
   store ptr %0, ptr %54, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = load i64, ptr %29, align 8
@@ -2828,10 +2828,10 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sink41.in = select i1 %.not, ptr %11, ptr %10
-  %.sink41 = load ptr, ptr %.sink41.in, align 8
+  %.sink46.in = select i1 %.not, ptr %11, ptr %10
+  %.sink46 = load ptr, ptr %.sink46.in, align 8
   %12 = load ptr, ptr %0, align 8
-  call void @slash_yy_switch_to_buffer(ptr noundef %.sink41, ptr noundef %12)
+  call void @slash_yy_switch_to_buffer(ptr noundef %.sink46, ptr noundef %12)
   %13 = icmp eq i32 %1, 4
   %.sink = select i1 %13, i32 7, i32 2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72

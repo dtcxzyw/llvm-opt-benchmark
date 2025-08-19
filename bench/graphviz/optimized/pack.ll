@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.parsePackModeInfo = private unnamed_addr constant [5 x ptr] [ptr @.str.5, ptr @.str.7, ptr @.str.6, ptr @.str.2, ptr @.str.3], align 8
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @putGraphs(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define noalias ptr @putGraphs(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq i64 %0, 0
@@ -408,8 +408,8 @@ gv_calloc.exit.i.i:                               ; preds = %146, %.thread.i.i.i
   %223 = tail call double @llvm.round.f64(double %221)
   %224 = fcmp ugt double %208, %222
   %225 = fcmp ugt double %209, %223
-  %or.cond477.i.i = select i1 %224, i1 true, i1 %225
-  br i1 %or.cond477.i.i, label %._crit_edge426.i.i, label %.preheader402.i.i
+  %or.cond508.i.i = select i1 %224, i1 true, i1 %225
+  br i1 %or.cond508.i.i, label %._crit_edge426.i.i, label %.preheader402.i.i
 
 .preheader402.i.i:                                ; preds = %187, %._crit_edge424.i.i
   %.0339425.i.i = phi double [ %227, %._crit_edge424.i.i ], [ %208, %187 ]
@@ -524,8 +524,8 @@ gv_calloc.exit.i.i:                               ; preds = %146, %.thread.i.i.i
   %299 = tail call double @llvm.round.f64(double %297)
   %300 = fcmp ugt double %284, %298
   %301 = fcmp ugt double %285, %299
-  %or.cond478.i.i = select i1 %300, i1 true, i1 %301
-  br i1 %or.cond478.i.i, label %._crit_edge443.i.i, label %.preheader.i.i
+  %or.cond509.i.i = select i1 %300, i1 true, i1 %301
+  br i1 %or.cond509.i.i, label %._crit_edge443.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %254, %._crit_edge441.i.i
   %.0342442.i.i = phi double [ %317, %._crit_edge441.i.i ], [ %284, %254 ]
@@ -711,8 +711,8 @@ gv_calloc.exit.i.i:                               ; preds = %146, %.thread.i.i.i
   %421 = tail call double @llvm.round.f64(double %419)
   %422 = fcmp ugt double %406, %420
   %423 = fcmp ugt double %407, %421
-  %or.cond479.i.i = select i1 %422, i1 true, i1 %423
-  br i1 %or.cond479.i.i, label %._crit_edge409.i.i, label %.preheader405.i.i
+  %or.cond510.i.i = select i1 %422, i1 true, i1 %423
+  br i1 %or.cond510.i.i, label %._crit_edge409.i.i, label %.preheader405.i.i
 
 .preheader405.i.i:                                ; preds = %367, %._crit_edge.i.i
   %.0332408.i.i = phi double [ %439, %._crit_edge.i.i ], [ %406, %367 ]
@@ -1115,7 +1115,7 @@ declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @arrayRects(i64 noundef range(i64 1, 0) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @arrayRects(i64 noundef range(i64 1, 0) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1524,8 +1524,8 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   br label %187
 
 187:                                              ; preds = %174, %179, %171
-  %.sink222 = phi double [ %178, %174 ], [ %186, %179 ], [ %172, %171 ]
-  %188 = tail call double @llvm.round.f64(double %.sink222)
+  %.sink235 = phi double [ %178, %174 ], [ %186, %179 ], [ %172, %171 ]
+  %188 = tail call double @llvm.round.f64(double %.sink235)
   %189 = getelementptr inbounds nuw %struct.pointf_s, ptr %10, i64 %168
   store double %188, ptr %189, align 8, !tbaa !94
   %.0..0..0.199 = load i64, ptr %4, align 8, !tbaa !117
@@ -1557,8 +1557,8 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   br label %207
 
 207:                                              ; preds = %196, %199, %191
-  %.sink224 = phi double [ %198, %196 ], [ %206, %199 ], [ %194, %191 ]
-  %208 = tail call double @llvm.round.f64(double %.sink224)
+  %.sink237 = phi double [ %198, %196 ], [ %206, %199 ], [ %194, %191 ]
+  %208 = tail call double @llvm.round.f64(double %.sink237)
   %209 = getelementptr inbounds nuw %struct.pointf_s, ptr %10, i64 %168, i32 1
   store double %208, ptr %209, align 8, !tbaa !95
   br i1 %.not, label %210, label %213
@@ -1594,7 +1594,7 @@ INC.exit190:                                      ; preds = %210, %213, %.sink.s
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @putRects(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define noalias ptr @putRects(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %0, 0
   br i1 %4, label %polyRects.exit, label %5
 
@@ -2986,7 +2986,7 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
   br i1 %53, label %.lr.ph180, label %.preheader156, !llvm.loop !177
 
 54:                                               ; preds = %.lr.ph183
-  %55 = add i32 %.2182, 1
+  %55 = add nsw i32 %.2182, 1
   %exitcond219.not = icmp eq i32 %55, 0
   br i1 %exitcond219.not, label %._crit_edge, label %.lr.ph183, !llvm.loop !178
 
@@ -3017,8 +3017,8 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
   br i1 %62, label %.lr.ph186, label %.lr.ph189, !llvm.loop !179
 
 .preheader150:                                    ; preds = %64
-  %.not222 = icmp sgt i32 %.2129184, %.1134
-  br i1 %.not222, label %.lr.ph195.preheader, label %.lr.ph192
+  %.not235 = icmp sgt i32 %.2129184, %.1134
+  br i1 %.not235, label %.lr.ph195.preheader, label %.lr.ph192
 
 .lr.ph189:                                        ; preds = %60, %64
   %.3188 = phi i32 [ %65, %64 ], [ %58, %60 ]

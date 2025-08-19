@@ -35,52 +35,52 @@ define void @cblas_dgemm(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %14, %21
-  %.sink157 = phi i32 [ %4, %21 ], [ %3, %14 ]
-  %.sink155 = phi i32 [ %3, %21 ], [ %4, %14 ]
-  %.sink151 = phi ptr [ %9, %21 ], [ %7, %14 ]
-  %.sink149 = phi ptr [ %7, %21 ], [ %9, %14 ]
-  %.sink147 = phi i32 [ %10, %21 ], [ %8, %14 ]
-  %.sink144 = phi i32 [ %8, %21 ], [ %10, %14 ]
-  %.sink139 = phi i32 [ %2, %21 ], [ %1, %14 ]
-  %.sink131 = phi i32 [ %1, %21 ], [ %2, %14 ]
-  %22 = sext i32 %.sink157 to i64
+  %.sink160 = phi i32 [ %4, %21 ], [ %3, %14 ]
+  %.sink158 = phi i32 [ %3, %21 ], [ %4, %14 ]
+  %.sink154 = phi ptr [ %9, %21 ], [ %7, %14 ]
+  %.sink152 = phi ptr [ %7, %21 ], [ %9, %14 ]
+  %.sink150 = phi i32 [ %10, %21 ], [ %8, %14 ]
+  %.sink147 = phi i32 [ %8, %21 ], [ %10, %14 ]
+  %.sink142 = phi i32 [ %2, %21 ], [ %1, %14 ]
+  %.sink134 = phi i32 [ %1, %21 ], [ %2, %14 ]
+  %22 = sext i32 %.sink160 to i64
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i64 %22, ptr %23, align 8, !tbaa !14
-  %24 = sext i32 %.sink155 to i64
+  %24 = sext i32 %.sink158 to i64
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i64 %24, ptr %25, align 8, !tbaa !15
   %26 = sext i32 %5 to i64
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i64 %26, ptr %27, align 8, !tbaa !16
-  store ptr %.sink151, ptr %17, align 8, !tbaa !17
+  store ptr %.sink154, ptr %17, align 8, !tbaa !17
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %.sink149, ptr %28, align 8, !tbaa !18
+  store ptr %.sink152, ptr %28, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %12, ptr %29, align 8, !tbaa !19
-  %30 = sext i32 %.sink147 to i64
+  %30 = sext i32 %.sink150 to i64
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store i64 %30, ptr %31, align 8, !tbaa !20
-  %32 = sext i32 %.sink144 to i64
+  %32 = sext i32 %.sink147 to i64
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store i64 %32, ptr %33, align 8, !tbaa !21
   %34 = sext i32 %13 to i64
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 88
   store i64 %34, ptr %35, align 8, !tbaa !22
-  %36 = icmp ne i32 %.sink139, 111
+  %36 = icmp ne i32 %.sink142, 111
   %spec.select = sext i1 %36 to i32
-  %37 = icmp eq i32 %.sink139, 112
+  %37 = icmp eq i32 %.sink142, 112
   %.2 = select i1 %37, i32 1, i32 %spec.select
-  %38 = icmp eq i32 %.sink139, 114
+  %38 = icmp eq i32 %.sink142, 114
   %.3 = select i1 %38, i32 0, i32 %.2
-  %39 = icmp eq i32 %.sink139, 113
+  %39 = icmp eq i32 %.sink142, 113
   %.4 = select i1 %39, i32 1, i32 %.3
-  %40 = icmp ne i32 %.sink131, 111
+  %40 = icmp ne i32 %.sink134, 111
   %.183 = sext i1 %40 to i32
-  %41 = icmp eq i32 %.sink131, 112
+  %41 = icmp eq i32 %.sink134, 112
   %.284 = select i1 %41, i32 1, i32 %.183
-  %42 = icmp eq i32 %.sink131, 114
+  %42 = icmp eq i32 %.sink134, 114
   %.385 = select i1 %42, i32 0, i32 %.284
-  %43 = icmp eq i32 %.sink131, 113
+  %43 = icmp eq i32 %.sink134, 113
   %.486 = select i1 %43, i32 1, i32 %.385
   %44 = and i32 %.4, 1
   %.not = icmp eq i32 %44, 0
@@ -88,7 +88,7 @@ thread-pre-split:                                 ; preds = %14, %21
   %45 = and i32 %.486, 1
   %.not99 = icmp eq i32 %45, 0
   %.094.in = select i1 %.not99, i64 %26, i64 %24
-  %46 = icmp slt i32 %13, %.sink157
+  %46 = icmp slt i32 %13, %.sink160
   %spec.store.select = select i1 %46, i32 13, i32 -1
   %47 = icmp sgt i64 %.094.in, %32
   %spec.store.select4 = select i1 %47, i32 10, i32 %spec.store.select
@@ -96,9 +96,9 @@ thread-pre-split:                                 ; preds = %14, %21
   %spec.store.select6 = select i1 %48, i32 8, i32 %spec.store.select4
   %49 = icmp slt i32 %5, 0
   %spec.store.select8 = select i1 %49, i32 5, i32 %spec.store.select6
-  %50 = icmp slt i32 %.sink155, 0
+  %50 = icmp slt i32 %.sink158, 0
   %spec.store.select10 = select i1 %50, i32 4, i32 %spec.store.select8
-  %51 = icmp slt i32 %.sink157, 0
+  %51 = icmp slt i32 %.sink160, 0
   %spec.store.select12 = select i1 %51, i32 3, i32 %spec.store.select10
   %52 = icmp slt i32 %.486, 0
   %spec.store.select14 = select i1 %52, i32 2, i32 %spec.store.select12
@@ -113,8 +113,8 @@ thread-pre-split.thread:                          ; preds = %14, %thread-pre-spl
   br label %113
 
 56:                                               ; preds = %thread-pre-split
-  %57 = icmp eq i32 %.sink157, 0
-  %58 = icmp eq i32 %.sink155, 0
+  %57 = icmp eq i32 %.sink160, 0
+  %58 = icmp eq i32 %.sink158, 0
   %or.cond = or i1 %57, %58
   br i1 %or.cond, label %113, label %59
 
@@ -136,14 +136,14 @@ thread-pre-split.thread:                          ; preds = %14, %thread-pre-spl
   %69 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %66
   %70 = load i64, ptr %69, align 8, !tbaa !23
   %71 = inttoptr i64 %70 to ptr
-  %72 = call i32 %71(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink151, i64 noundef %30, double noundef %67, ptr noundef %.sink149, i64 noundef %32, ptr noundef %12, i64 noundef %34) #3
+  %72 = call i32 %71(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink154, i64 noundef %30, double noundef %67, ptr noundef %.sink152, i64 noundef %32, ptr noundef %12, i64 noundef %34) #3
   br label %113
 
 73:                                               ; preds = %61
   %74 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %66
   %75 = load i64, ptr %74, align 8, !tbaa !23
   %76 = inttoptr i64 %75 to ptr
-  %77 = call i32 %76(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink151, i64 noundef %30, double noundef %67, ptr noundef %.sink149, i64 noundef %32, double noundef %62, ptr noundef %12, i64 noundef %34) #3
+  %77 = call i32 %76(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink154, i64 noundef %30, double noundef %67, ptr noundef %.sink152, i64 noundef %32, double noundef %62, ptr noundef %12, i64 noundef %34) #3
   br label %113
 
 78:                                               ; preds = %59
@@ -151,8 +151,8 @@ thread-pre-split.thread:                          ; preds = %14, %thread-pre-spl
   %80 = ptrtoint ptr %79 to i64
   %81 = add nsw i64 %80, 589824
   %82 = inttoptr i64 %81 to ptr
-  %83 = sitofp i32 %.sink157 to double
-  %84 = sitofp i32 %.sink155 to double
+  %83 = sitofp i32 %.sink160 to double
+  %84 = sitofp i32 %.sink158 to double
   %85 = fmul double %83, %84
   %86 = sitofp i32 %5 to double
   %87 = fmul double %85, %86
@@ -194,8 +194,8 @@ get_gemm_optimal_nthreads.exit:                   ; preds = %78
   br label %108
 
 108:                                              ; preds = %104, %101
-  %.sink159 = phi i32 [ %107, %104 ], [ %103, %101 ]
-  %109 = sext i32 %.sink159 to i64
+  %.sink162 = phi i32 [ %107, %104 ], [ %103, %101 ]
+  %109 = sext i32 %.sink162 to i64
   %110 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !26
   %112 = call i32 %111(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef %79, ptr noundef %82, i64 noundef 0) #3

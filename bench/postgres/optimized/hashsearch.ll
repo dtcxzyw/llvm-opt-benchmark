@@ -480,10 +480,10 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   br label %176
 
 176:                                              ; preds = %._crit_edge, %._crit_edge13
-  %.sink34 = phi i32 [ 407, %._crit_edge ], [ %71, %._crit_edge13 ]
+  %.sink48 = phi i32 [ 407, %._crit_edge ], [ %71, %._crit_edge13 ]
   %.sink = phi i32 [ 407, %._crit_edge ], [ 0, %._crit_edge13 ]
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %.sink34, ptr %177, align 4
+  store i32 %.sink48, ptr %177, align 4
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 %.sink, ptr %178, align 4
   %179 = load i32, ptr %28, align 4
@@ -1096,7 +1096,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   %.15074 = phi i16 [ %90, %89 ], [ %.150.ph95, %.lr.ph.split ]
   %84 = zext i16 %.15074 to i64
   %85 = add nsw i64 %84, -1
-  %86 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %85
   %.val57 = load i32, ptr %86, align 4
   %87 = and i32 %.val57, 98304
   %88 = icmp eq i32 %87, 98304
@@ -1158,7 +1158,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us
   %110 = zext i16 %.150.ph95 to i64
   %111 = add nsw i64 %110, -1
-  %112 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %111
   %.val57.us.us.us = load i32, ptr %112, align 4
   br label %.split.us.split.us
 
@@ -1166,7 +1166,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   %.15074.us.us = phi i16 [ %119, %118 ], [ %.150.ph95, %.lr.ph.split.us.split.us ]
   %113 = zext i16 %.15074.us.us to i64
   %114 = add nsw i64 %113, -1
-  %115 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %114
   %.val57.us.us = load i32, ptr %115, align 4
   %116 = and i32 %.val57.us.us, 98304
   %117 = icmp eq i32 %116, 98304
@@ -1189,7 +1189,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   %.15074.us = phi i16 [ %138, %137 ], [ %.150.ph95, %.lr.ph.split.us ]
   %123 = zext i16 %.15074.us to i64
   %124 = add nsw i64 %123, -1
-  %125 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %124
   %.val57.us = load i32, ptr %125, align 4
   %126 = and i32 %.val57.us, 32767
   %127 = zext nneg i32 %126 to i64
@@ -1221,7 +1221,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   %141 = zext i16 %.150.ph95 to i64
   %142 = add nsw i64 %141, -1
-  %143 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %142
   %.val57.us81 = load i32, ptr %143, align 4
   br label %.split
 

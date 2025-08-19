@@ -1888,13 +1888,13 @@ _ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit22: ; preds = %_ZN13G1CMMar
   br i1 %.not39, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit, %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit22
-  %.0.i2151 = phi i64 [ %18, %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit22 ], [ 0, %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit ]
+  %.0.i2155 = phi i64 [ %18, %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit22 ], [ 0, %_ZN13G1CMMarkStack14ChunkAllocator10get_bucketEm.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %21
 
 21:                                               ; preds = %.lr.ph, %52
-  %.01640 = phi i64 [ %.0.i2151, %.lr.ph ], [ %53, %52 ]
+  %.01640 = phi i64 [ %.0.i2155, %.lr.ph ], [ %53, %52 ]
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.01640
   %24 = load volatile ptr, ptr %23, align 8
@@ -4736,14 +4736,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i: ; preds = %47, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %.pr19.i.i = load ptr, ptr %39, align 8
-  %.not.i11.i.i.i = icmp eq ptr %.pr19.i.i, null
+  %.pr20.i.i = load ptr, ptr %39, align 8
+  %.not.i11.i.i.i = icmp eq ptr %.pr20.i.i, null
   br i1 %.not.i11.i.i.i, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, label %50
 
 50:                                               ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i
-  %51 = load ptr, ptr %.pr19.i.i, align 8
+  %51 = load ptr, ptr %.pr20.i.i, align 8
   %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i, i64 %42, i64 %43) #22
+  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i, i64 %42, i64 %43) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit: ; preds = %17, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i, %50
@@ -4783,8 +4783,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %64, %60, %55
-  %.sroa.5.021.i.i.i = phi i64 [ %63, %60 ], [ %63, %64 ], [ 0, %55 ]
-  %.sroa.0.020.i.i.i = phi i64 [ %62, %60 ], [ %62, %64 ], [ 0, %55 ]
+  %.sroa.5.023.i.i.i = phi i64 [ %63, %60 ], [ %63, %64 ], [ 0, %55 ]
+  %.sroa.0.022.i.i.i = phi i64 [ %62, %60 ], [ %62, %64 ], [ 0, %55 ]
   %68 = load ptr, ptr %38, align 8
   %.not.i6.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %69
@@ -4793,7 +4793,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %70 = load ptr, ptr %68, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(8) %68, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #22
+  call void %72(ptr noundef nonnull align 8 dereferenceable(8) %68, i64 %.sroa.0.022.i.i.i, i64 %.sroa.5.023.i.i.i) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %69, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
@@ -4805,7 +4805,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %75 = load ptr, ptr %73, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %73, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #22
+  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %73, i64 %.sroa.0.022.i.i.i, i64 %.sroa.5.023.i.i.i) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %74, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %15, %3
@@ -4914,14 +4914,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i: ; preds = %48, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %.pr19.i.i = load ptr, ptr %40, align 8
-  %.not.i11.i.i.i = icmp eq ptr %.pr19.i.i, null
+  %.pr20.i.i = load ptr, ptr %40, align 8
+  %.not.i11.i.i.i = icmp eq ptr %.pr20.i.i, null
   br i1 %.not.i11.i.i.i, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, label %51
 
 51:                                               ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i
-  %52 = load ptr, ptr %.pr19.i.i, align 8
+  %52 = load ptr, ptr %.pr20.i.i, align 8
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i, i64 %43, i64 %44) #22
+  call void %53(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i, i64 %43, i64 %44) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit: ; preds = %13, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i, %51
@@ -4952,8 +4952,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %62, %58, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
-  %.sroa.5.021.i.i.i = phi i64 [ %61, %58 ], [ %61, %62 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
-  %.sroa.0.020.i.i.i = phi i64 [ %60, %58 ], [ %60, %62 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
+  %.sroa.5.023.i.i.i = phi i64 [ %61, %58 ], [ %61, %62 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
+  %.sroa.0.022.i.i.i = phi i64 [ %60, %58 ], [ %60, %62 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
   %66 = load ptr, ptr %39, align 8
   %.not.i6.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %67
@@ -4962,7 +4962,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %68 = load ptr, ptr %66, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #22
+  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 %.sroa.0.022.i.i.i, i64 %.sroa.5.023.i.i.i) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %67, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
@@ -4974,7 +4974,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %73 = load ptr, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %71, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #22
+  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %71, i64 %.sroa.0.022.i.i.i, i64 %.sroa.5.023.i.i.i) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %72
@@ -5073,14 +5073,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i23
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i23: ; preds = %118, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i20
-  %.pr19.i.i24 = load ptr, ptr %110, align 8
-  %.not.i11.i.i.i25 = icmp eq ptr %.pr19.i.i24, null
+  %.pr20.i.i24 = load ptr, ptr %110, align 8
+  %.not.i11.i.i.i25 = icmp eq ptr %.pr20.i.i24, null
   br i1 %.not.i11.i.i.i25, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit26, label %121
 
 121:                                              ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i23
-  %122 = load ptr, ptr %.pr19.i.i24, align 8
+  %122 = load ptr, ptr %.pr20.i.i24, align 8
   %123 = load ptr, ptr %122, align 8
-  call void %123(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i24, i64 %113, i64 %114) #22
+  call void %123(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i24, i64 %113, i64 %114) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit26
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit26: ; preds = %87, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i23, %121
@@ -5157,8 +5157,8 @@ _ZN16G1ConcurrentMark21flush_all_task_cachesEv.exit: ; preds = %._crit_edge.i, %
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i32
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i32: ; preds = %156, %152, %_ZN16G1ConcurrentMark21flush_all_task_cachesEv.exit
-  %.sroa.5.021.i.i.i33 = phi i64 [ %155, %152 ], [ %155, %156 ], [ 0, %_ZN16G1ConcurrentMark21flush_all_task_cachesEv.exit ]
-  %.sroa.0.020.i.i.i34 = phi i64 [ %154, %152 ], [ %154, %156 ], [ 0, %_ZN16G1ConcurrentMark21flush_all_task_cachesEv.exit ]
+  %.sroa.5.023.i.i.i33 = phi i64 [ %155, %152 ], [ %155, %156 ], [ 0, %_ZN16G1ConcurrentMark21flush_all_task_cachesEv.exit ]
+  %.sroa.0.022.i.i.i34 = phi i64 [ %154, %152 ], [ %154, %156 ], [ 0, %_ZN16G1ConcurrentMark21flush_all_task_cachesEv.exit ]
   %160 = load ptr, ptr %109, align 8
   %.not.i6.i.i.i35 = icmp eq ptr %160, null
   br i1 %.not.i6.i.i.i35, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i36, label %161
@@ -5167,7 +5167,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %162 = load ptr, ptr %160, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
-  call void %164(ptr noundef nonnull align 8 dereferenceable(8) %160, i64 %.sroa.0.020.i.i.i34, i64 %.sroa.5.021.i.i.i33) #22
+  call void %164(ptr noundef nonnull align 8 dereferenceable(8) %160, i64 %.sroa.0.022.i.i.i34, i64 %.sroa.5.023.i.i.i33) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i36
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i36: ; preds = %161, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i32
@@ -5179,7 +5179,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %167 = load ptr, ptr %165, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(8) %165, i64 %.sroa.0.020.i.i.i34, i64 %.sroa.5.021.i.i.i33) #22
+  call void %169(ptr noundef nonnull align 8 dereferenceable(8) %165, i64 %.sroa.0.022.i.i.i34, i64 %.sroa.5.023.i.i.i33) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit40
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit40: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i36, %166
@@ -5257,14 +5257,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i50
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i50: ; preds = %201, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i47
-  %.pr19.i.i51 = load ptr, ptr %193, align 8
-  %.not.i11.i.i.i52 = icmp eq ptr %.pr19.i.i51, null
+  %.pr20.i.i51 = load ptr, ptr %193, align 8
+  %.not.i11.i.i.i52 = icmp eq ptr %.pr20.i.i51, null
   br i1 %.not.i11.i.i.i52, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit53, label %204
 
 204:                                              ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i50
-  %205 = load ptr, ptr %.pr19.i.i51, align 8
+  %205 = load ptr, ptr %.pr20.i.i51, align 8
   %206 = load ptr, ptr %205, align 8
-  call void %206(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i51, i64 %196, i64 %197) #22
+  call void %206(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i51, i64 %196, i64 %197) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit53
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit53: ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit40, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i50, %204
@@ -5401,8 +5401,8 @@ _ZN45G1UpdateRegionLivenessAndSelectForRebuildTaskD2Ev.exit: ; preds = %259, %26
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i59
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i59: ; preds = %276, %272, %_ZN45G1UpdateRegionLivenessAndSelectForRebuildTaskD2Ev.exit
-  %.sroa.5.021.i.i.i60 = phi i64 [ %275, %272 ], [ %275, %276 ], [ 0, %_ZN45G1UpdateRegionLivenessAndSelectForRebuildTaskD2Ev.exit ]
-  %.sroa.0.020.i.i.i61 = phi i64 [ %274, %272 ], [ %274, %276 ], [ 0, %_ZN45G1UpdateRegionLivenessAndSelectForRebuildTaskD2Ev.exit ]
+  %.sroa.5.023.i.i.i60 = phi i64 [ %275, %272 ], [ %275, %276 ], [ 0, %_ZN45G1UpdateRegionLivenessAndSelectForRebuildTaskD2Ev.exit ]
+  %.sroa.0.022.i.i.i61 = phi i64 [ %274, %272 ], [ %274, %276 ], [ 0, %_ZN45G1UpdateRegionLivenessAndSelectForRebuildTaskD2Ev.exit ]
   %280 = load ptr, ptr %192, align 8
   %.not.i6.i.i.i62 = icmp eq ptr %280, null
   br i1 %.not.i6.i.i.i62, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i63, label %281
@@ -5411,7 +5411,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %282 = load ptr, ptr %280, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load ptr, ptr %283, align 8
-  call void %284(ptr noundef nonnull align 8 dereferenceable(8) %280, i64 %.sroa.0.020.i.i.i61, i64 %.sroa.5.021.i.i.i60) #22
+  call void %284(ptr noundef nonnull align 8 dereferenceable(8) %280, i64 %.sroa.0.022.i.i.i61, i64 %.sroa.5.023.i.i.i60) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i63
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i63: ; preds = %281, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i59
@@ -5423,7 +5423,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %287 = load ptr, ptr %285, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %289 = load ptr, ptr %288, align 8
-  call void %289(ptr noundef nonnull align 8 dereferenceable(8) %285, i64 %.sroa.0.020.i.i.i61, i64 %.sroa.5.021.i.i.i60) #22
+  call void %289(ptr noundef nonnull align 8 dereferenceable(8) %285, i64 %.sroa.0.022.i.i.i61, i64 %.sroa.5.023.i.i.i60) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit67
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit67: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i63, %286
@@ -5530,14 +5530,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i77
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i77: ; preds = %333, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i74
-  %.pr19.i.i78 = load ptr, ptr %325, align 8
-  %.not.i11.i.i.i79 = icmp eq ptr %.pr19.i.i78, null
+  %.pr20.i.i78 = load ptr, ptr %325, align 8
+  %.not.i11.i.i.i79 = icmp eq ptr %.pr20.i.i78, null
   br i1 %.not.i11.i.i.i79, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit80, label %336
 
 336:                                              ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i77
-  %337 = load ptr, ptr %.pr19.i.i78, align 8
+  %337 = load ptr, ptr %.pr20.i.i78, align 8
   %338 = load ptr, ptr %337, align 8
-  call void %338(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i78, i64 %328, i64 %329) #22
+  call void %338(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i78, i64 %328, i64 %329) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit80
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit80: ; preds = %293, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i77, %336
@@ -5576,8 +5576,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i85
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i85: ; preds = %353, %349, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit80
-  %.sroa.5.021.i.i.i86 = phi i64 [ %352, %349 ], [ %352, %353 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit80 ]
-  %.sroa.0.020.i.i.i87 = phi i64 [ %351, %349 ], [ %351, %353 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit80 ]
+  %.sroa.5.023.i.i.i86 = phi i64 [ %352, %349 ], [ %352, %353 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit80 ]
+  %.sroa.0.022.i.i.i87 = phi i64 [ %351, %349 ], [ %351, %353 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit80 ]
   %357 = load ptr, ptr %324, align 8
   %.not.i6.i.i.i88 = icmp eq ptr %357, null
   br i1 %.not.i6.i.i.i88, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i89, label %358
@@ -5586,7 +5586,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %359 = load ptr, ptr %357, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %361 = load ptr, ptr %360, align 8
-  call void %361(ptr noundef nonnull align 8 dereferenceable(8) %357, i64 %.sroa.0.020.i.i.i87, i64 %.sroa.5.021.i.i.i86) #22
+  call void %361(ptr noundef nonnull align 8 dereferenceable(8) %357, i64 %.sroa.0.022.i.i.i87, i64 %.sroa.5.023.i.i.i86) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i89
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i89: ; preds = %358, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i85
@@ -5598,7 +5598,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %364 = load ptr, ptr %362, align 8
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load ptr, ptr %365, align 8
-  call void %366(ptr noundef nonnull align 8 dereferenceable(8) %362, i64 %.sroa.0.020.i.i.i87, i64 %.sroa.5.021.i.i.i86) #22
+  call void %366(ptr noundef nonnull align 8 dereferenceable(8) %362, i64 %.sroa.0.022.i.i.i87, i64 %.sroa.5.023.i.i.i86) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit93
 
 367:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
@@ -5871,14 +5871,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i: ; preds = %50, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %.pr19.i.i = load ptr, ptr %42, align 8
-  %.not.i11.i.i.i = icmp eq ptr %.pr19.i.i, null
+  %.pr20.i.i = load ptr, ptr %42, align 8
+  %.not.i11.i.i.i = icmp eq ptr %.pr20.i.i, null
   br i1 %.not.i11.i.i.i, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, label %53
 
 53:                                               ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i
-  %54 = load ptr, ptr %.pr19.i.i, align 8
+  %54 = load ptr, ptr %.pr20.i.i, align 8
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i, i64 %45, i64 %46) #22
+  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i, i64 %45, i64 %46) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit: ; preds = %1, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i, %53
@@ -5964,8 +5964,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %99, %95, %69
-  %.sroa.5.021.i.i.i = phi i64 [ %98, %95 ], [ %98, %99 ], [ 0, %69 ]
-  %.sroa.0.020.i.i.i = phi i64 [ %97, %95 ], [ %97, %99 ], [ 0, %69 ]
+  %.sroa.5.023.i.i.i = phi i64 [ %98, %95 ], [ %98, %99 ], [ 0, %69 ]
+  %.sroa.0.022.i.i.i = phi i64 [ %97, %95 ], [ %97, %99 ], [ 0, %69 ]
   %103 = load ptr, ptr %41, align 8
   %.not.i6.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %104
@@ -5974,7 +5974,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %105 = load ptr, ptr %103, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(8) %103, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #22
+  call void %107(ptr noundef nonnull align 8 dereferenceable(8) %103, i64 %.sroa.0.022.i.i.i, i64 %.sroa.5.023.i.i.i) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %104, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
@@ -5986,7 +5986,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %110 = load ptr, ptr %108, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(8) %108, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #22
+  call void %112(ptr noundef nonnull align 8 dereferenceable(8) %108, i64 %.sroa.0.022.i.i.i, i64 %.sroa.5.023.i.i.i) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, %109
@@ -6077,14 +6077,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i18
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i18: ; preds = %152, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i15
-  %.pr19.i.i19 = load ptr, ptr %144, align 8
-  %.not.i11.i.i.i20 = icmp eq ptr %.pr19.i.i19, null
+  %.pr20.i.i19 = load ptr, ptr %144, align 8
+  %.not.i11.i.i.i20 = icmp eq ptr %.pr20.i.i19, null
   br i1 %.not.i11.i.i.i20, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit21, label %155
 
 155:                                              ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i18
-  %156 = load ptr, ptr %.pr19.i.i19, align 8
+  %156 = load ptr, ptr %.pr20.i.i19, align 8
   %157 = load ptr, ptr %156, align 8
-  call void %157(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i19, i64 %147, i64 %148) #22
+  call void %157(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i19, i64 %147, i64 %148) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit21
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit21: ; preds = %123, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i18, %155
@@ -6129,8 +6129,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i26
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i26: ; preds = %173, %169, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit21
-  %.sroa.5.021.i.i.i27 = phi i64 [ %172, %169 ], [ %172, %173 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit21 ]
-  %.sroa.0.020.i.i.i28 = phi i64 [ %171, %169 ], [ %171, %173 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit21 ]
+  %.sroa.5.023.i.i.i27 = phi i64 [ %172, %169 ], [ %172, %173 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit21 ]
+  %.sroa.0.022.i.i.i28 = phi i64 [ %171, %169 ], [ %171, %173 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit21 ]
   %177 = load ptr, ptr %143, align 8
   %.not.i6.i.i.i29 = icmp eq ptr %177, null
   br i1 %.not.i6.i.i.i29, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i30, label %178
@@ -6139,7 +6139,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %179 = load ptr, ptr %177, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8
-  call void %181(ptr noundef nonnull align 8 dereferenceable(8) %177, i64 %.sroa.0.020.i.i.i28, i64 %.sroa.5.021.i.i.i27) #22
+  call void %181(ptr noundef nonnull align 8 dereferenceable(8) %177, i64 %.sroa.0.022.i.i.i28, i64 %.sroa.5.023.i.i.i27) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i30
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i30: ; preds = %178, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i26
@@ -6151,7 +6151,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %184 = load ptr, ptr %182, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(8) %182, i64 %.sroa.0.020.i.i.i28, i64 %.sroa.5.021.i.i.i27) #22
+  call void %186(ptr noundef nonnull align 8 dereferenceable(8) %182, i64 %.sroa.0.022.i.i.i28, i64 %.sroa.5.023.i.i.i27) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit34
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit34: ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i30, %183
@@ -6377,14 +6377,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i: ; preds = %47, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
-  %.pr19.i.i = load ptr, ptr %39, align 8
-  %.not.i11.i.i.i = icmp eq ptr %.pr19.i.i, null
+  %.pr20.i.i = load ptr, ptr %39, align 8
+  %.not.i11.i.i.i = icmp eq ptr %.pr20.i.i, null
   br i1 %.not.i11.i.i.i, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, label %50
 
 50:                                               ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i
-  %51 = load ptr, ptr %.pr19.i.i, align 8
+  %51 = load ptr, ptr %.pr20.i.i, align 8
   %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i, i64 %42, i64 %43) #22
+  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i, i64 %42, i64 %43) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit: ; preds = %17, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i, %50
@@ -6421,8 +6421,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i: ; preds = %64, %60, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
-  %.sroa.5.021.i.i.i = phi i64 [ %63, %60 ], [ %63, %64 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
-  %.sroa.0.020.i.i.i = phi i64 [ %62, %60 ], [ %62, %64 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
+  %.sroa.5.023.i.i.i = phi i64 [ %63, %60 ], [ %63, %64 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
+  %.sroa.0.022.i.i.i = phi i64 [ %62, %60 ], [ %62, %64 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit ]
   %68 = load ptr, ptr %38, align 8
   %.not.i6.i.i.i = icmp eq ptr %68, null
   br i1 %.not.i6.i.i.i, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i, label %69
@@ -6431,7 +6431,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %70 = load ptr, ptr %68, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(8) %68, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #22
+  call void %72(ptr noundef nonnull align 8 dereferenceable(8) %68, i64 %.sroa.0.022.i.i.i, i64 %.sroa.5.023.i.i.i) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i: ; preds = %69, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i
@@ -6443,7 +6443,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %75 = load ptr, ptr %73, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %73, i64 %.sroa.0.020.i.i.i, i64 %.sroa.5.021.i.i.i) #22
+  call void %77(ptr noundef nonnull align 8 dereferenceable(8) %73, i64 %.sroa.0.022.i.i.i, i64 %.sroa.5.023.i.i.i) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
 78:                                               ; preds = %8
@@ -6533,14 +6533,14 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i15
 
 _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i15: ; preds = %114, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i12
-  %.pr19.i.i16 = load ptr, ptr %106, align 8
-  %.not.i11.i.i.i17 = icmp eq ptr %.pr19.i.i16, null
+  %.pr20.i.i16 = load ptr, ptr %106, align 8
+  %.not.i11.i.i.i17 = icmp eq ptr %.pr20.i.i16, null
   br i1 %.not.i11.i.i.i17, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit18, label %117
 
 117:                                              ; preds = %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i15
-  %118 = load ptr, ptr %.pr19.i.i16, align 8
+  %118 = load ptr, ptr %.pr20.i.i16, align 8
   %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(8) %.pr19.i.i16, i64 %109, i64 %110) #22
+  call void %119(ptr noundef nonnull align 8 dereferenceable(8) %.pr20.i.i16, i64 %109, i64 %110) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit18
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit18: ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i15, %117
@@ -6574,8 +6574,8 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i23
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i23: ; preds = %131, %127, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit18
-  %.sroa.5.021.i.i.i24 = phi i64 [ %130, %127 ], [ %130, %131 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit18 ]
-  %.sroa.0.020.i.i.i25 = phi i64 [ %129, %127 ], [ %129, %131 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit18 ]
+  %.sroa.5.023.i.i.i24 = phi i64 [ %130, %127 ], [ %130, %131 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit18 ]
+  %.sroa.0.022.i.i.i25 = phi i64 [ %129, %127 ], [ %129, %131 ], [ 0, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit18 ]
   %135 = load ptr, ptr %105, align 8
   %.not.i6.i.i.i26 = icmp eq ptr %135, null
   br i1 %.not.i6.i.i.i26, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i27, label %136
@@ -6584,7 +6584,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %137 = load ptr, ptr %135, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8
-  call void %139(ptr noundef nonnull align 8 dereferenceable(8) %135, i64 %.sroa.0.020.i.i.i25, i64 %.sroa.5.021.i.i.i24) #22
+  call void %139(ptr noundef nonnull align 8 dereferenceable(8) %135, i64 %.sroa.0.022.i.i.i25, i64 %.sroa.5.023.i.i.i24) #22
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i27
 
 _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i27: ; preds = %136, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i23
@@ -6596,7 +6596,7 @@ _ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounte
   %142 = load ptr, ptr %140, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
-  call void %144(ptr noundef nonnull align 8 dereferenceable(8) %140, i64 %.sroa.0.020.i.i.i25, i64 %.sroa.5.021.i.i.i24) #22
+  call void %144(ptr noundef nonnull align 8 dereferenceable(8) %140, i64 %.sroa.0.022.i.i.i25, i64 %.sroa.5.023.i.i.i24) #22
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit31
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit31: ; preds = %141, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i27, %1
@@ -8132,7 +8132,7 @@ _ZNK13G1Predictions20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %4, %
   %76 = load volatile i64, ptr %75, align 8
   %77 = mul i64 %76, 1023
   %78 = icmp ugt i64 %77, %73
-  br i1 %78, label %.lr.ph141, label %_ZN8G1CMTask18drain_global_stackEb.exit
+  br i1 %78, label %.lr.ph161, label %_ZN8G1CMTask18drain_global_stackEb.exit
 
 79:                                               ; preds = %112
   %80 = load ptr, ptr %52, align 8
@@ -8140,9 +8140,9 @@ _ZNK13G1Predictions20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %4, %
   %82 = load volatile i64, ptr %81, align 8
   %83 = mul i64 %82, 1023
   %84 = icmp ugt i64 %83, %73
-  br i1 %84, label %.lr.ph141, label %_ZN8G1CMTask18drain_global_stackEb.exit, !llvm.loop !9
+  br i1 %84, label %.lr.ph161, label %_ZN8G1CMTask18drain_global_stackEb.exit, !llvm.loop !9
 
-.lr.ph141:                                        ; preds = %69, %79
+.lr.ph161:                                        ; preds = %69, %79
   %85 = phi ptr [ %80, %79 ], [ %70, %69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8184) %8, i8 0, i64 8184, i1 false)
@@ -8150,12 +8150,12 @@ _ZNK13G1Predictions20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %4, %
   %87 = call noundef zeroext i1 @_ZN13G1CMMarkStack13par_pop_chunkEP16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(688) %86, ptr noundef nonnull %8)
   br i1 %87, label %.preheader.i.i, label %_ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i
 
-_ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i: ; preds = %.lr.ph141
+_ZN8G1CMTask29get_entries_from_global_stackEv.exit.thread.i: ; preds = %.lr.ph161
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %112
 
-.preheader.i.i:                                   ; preds = %.lr.ph141, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
-  %.046.i.i = phi i64 [ %107, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i ], [ 0, %.lr.ph141 ]
+.preheader.i.i:                                   ; preds = %.lr.ph161, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i
+  %.046.i.i = phi i64 [ %107, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i ], [ 0, %.lr.ph161 ]
   %88 = getelementptr inbounds nuw [1023 x %class.G1TaskQueueEntry], ptr %8, i64 0, i64 %.046.i.i
   %89 = load i64, ptr %88, align 8
   %90 = inttoptr i64 %89 to ptr
@@ -8617,7 +8617,7 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit: ; preds = %291, %286, 
   %361 = load volatile i64, ptr %360, align 8
   %362 = mul i64 %361, 1023
   %363 = icmp ugt i64 %362, %359
-  br i1 %363, label %.lr.ph144, label %_ZN8G1CMTask18drain_global_stackEb.exit51
+  br i1 %363, label %.lr.ph164, label %_ZN8G1CMTask18drain_global_stackEb.exit51
 
 364:                                              ; preds = %414
   %365 = load ptr, ptr %52, align 8
@@ -8625,9 +8625,9 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit: ; preds = %291, %286, 
   %367 = load volatile i64, ptr %366, align 8
   %368 = mul i64 %367, 1023
   %369 = icmp ugt i64 %368, %359
-  br i1 %369, label %.lr.ph144, label %_ZN8G1CMTask18drain_global_stackEb.exit51, !llvm.loop !9
+  br i1 %369, label %.lr.ph164, label %_ZN8G1CMTask18drain_global_stackEb.exit51, !llvm.loop !9
 
-.lr.ph144:                                        ; preds = %355, %364
+.lr.ph164:                                        ; preds = %355, %364
   %370 = phi ptr [ %366, %364 ], [ %360, %355 ]
   %371 = phi ptr [ %365, %364 ], [ %356, %355 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -8636,11 +8636,11 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit: ; preds = %291, %286, 
   %.not.i.i.i.i68 = icmp eq ptr %372, null
   br i1 %.not.i.i.i.i68, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i, label %373
 
-373:                                              ; preds = %.lr.ph144
+373:                                              ; preds = %.lr.ph164
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %372) #22
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i: ; preds = %373, %.lr.ph144
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i: ; preds = %373, %.lr.ph164
   %374 = getelementptr inbounds nuw i8, ptr %371, i64 696
   %375 = load volatile ptr, ptr %374, align 8
   %.not.i.i.i = icmp eq ptr %375, null
@@ -8768,7 +8768,7 @@ _ZN8G1CMTask18drain_global_stackEb.exit51:        ; preds = %364, %355, %._ZN8G1
   %427 = load i64, ptr %426, align 8
   %428 = getelementptr inbounds ptr, ptr %425, i64 %427
   %.not88 = icmp ult ptr %423, %428
-  br i1 %.not88, label %429, label %.critedge2.thread117
+  br i1 %.not88, label %429, label %.critedge2.thread137
 
 429:                                              ; preds = %.lr.ph
   %430 = getelementptr inbounds nuw i8, ptr %421, i64 8
@@ -8977,19 +8977,19 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit55: ; preds = %511, %530
   br i1 %.lcssa98, label %.critedge2.thread, label %121, !llvm.loop !39
 
 .critedge2:                                       ; preds = %.critedge
-  br i1 %.lcssa98, label %.critedge2.thread, label %.critedge2.thread117
+  br i1 %.lcssa98, label %.critedge2.thread, label %.critedge2.thread137
 
-.critedge2.thread117:                             ; preds = %.lr.ph, %.critedge2
+.critedge2.thread137:                             ; preds = %.lr.ph, %.critedge2
   call void @_ZN8G1CMTask18drain_satb_buffersEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %544, %.critedge2.thread117, %.critedge2
+.critedge2.thread:                                ; preds = %544, %.critedge2.thread137, %.critedge2
   call void @_ZN8G1CMTask17drain_local_queueEb(ptr noundef nonnull align 8 dereferenceable(376) %0, i1 noundef zeroext false)
   %545 = load i8, ptr %46, align 8
   %546 = trunc i8 %545 to i1
-  br i1 %546, label %_ZN8G1CMTask18drain_global_stackEb.exit56, label %.preheader132
+  br i1 %546, label %_ZN8G1CMTask18drain_global_stackEb.exit56, label %.preheader152
 
-.preheader132:                                    ; preds = %.critedge2.thread, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i
+.preheader152:                                    ; preds = %.critedge2.thread, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8184) %6, i8 0, i64 8184, i1 false)
   %547 = load ptr, ptr %52, align 8
@@ -8997,13 +8997,13 @@ _ZN8G1CMTask35abort_marking_if_regular_check_failEv.exit55: ; preds = %511, %530
   %549 = call noundef zeroext i1 @_ZN13G1CMMarkStack13par_pop_chunkEP16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(688) %548, ptr noundef nonnull %6)
   br i1 %549, label %.preheader.i6.i, label %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i
 
-_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i: ; preds = %.preheader132
+_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i: ; preds = %.preheader152
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre113 = load i8, ptr %46, align 8
   br label %_ZN8G1CMTask18drain_global_stackEb.exit56
 
-.preheader.i6.i:                                  ; preds = %.preheader132, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i
-  %.046.i7.i = phi i64 [ %569, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i ], [ 0, %.preheader132 ]
+.preheader.i6.i:                                  ; preds = %.preheader152, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i
+  %.046.i7.i = phi i64 [ %569, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE4pushES0_.exit.i9.i ], [ 0, %.preheader152 ]
   %550 = getelementptr inbounds nuw [1023 x %class.G1TaskQueueEntry], ptr %6, i64 0, i64 %.046.i7.i
   %551 = load i64, ptr %550, align 8
   %552 = inttoptr i64 %551 to ptr
@@ -9049,7 +9049,7 @@ _ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i: ; preds = %_ZN16GenericT
   call void @_ZN8G1CMTask17drain_local_queueEb(ptr noundef nonnull align 8 dereferenceable(376) %0, i1 noundef zeroext false)
   %574 = load i8, ptr %46, align 8
   %575 = trunc i8 %574 to i1
-  br i1 %575, label %_ZN8G1CMTask18drain_global_stackEb.exit56, label %.preheader132, !llvm.loop !13
+  br i1 %575, label %_ZN8G1CMTask18drain_global_stackEb.exit56, label %.preheader152, !llvm.loop !13
 
 _ZN8G1CMTask18drain_global_stackEb.exit56:        ; preds = %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i, %.critedge2.thread, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i
   %576 = phi i8 [ %545, %.critedge2.thread ], [ %.pre113, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.thread.i ], [ %574, %_ZN8G1CMTask29get_entries_from_global_stackEv.exit11.i ]
@@ -9069,8 +9069,8 @@ _ZN8G1CMTask18drain_global_stackEb.exit56:        ; preds = %_ZN8G1CMTask29get_e
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 8
   %584 = load i32, ptr %583, align 8
   %585 = shl i32 %584, 1
-  %.not.i.i57148 = icmp eq i32 %585, 0
-  br i1 %.not.i.i57148, label %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread, label %.lr.ph.i.i.preheader
+  %.not.i.i57168 = icmp eq i32 %585, 0
+  br i1 %.not.i.i57168, label %_ZN16G1ConcurrentMark12try_stealingEjR16G1TaskQueueEntry.exit.thread, label %.lr.ph.i.i.preheader
 
 586:                                              ; preds = %_ZN8G1CMTask18drain_global_stackEb.exit66
   store ptr null, ptr %11, align 8
@@ -9442,14 +9442,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10G1CMBitMap7iterateEP17G1CMBi
   br i1 %.not36.i.i, label %35, label %41, !llvm.loop !40
 
 41:                                               ; preds = %38
-  %42 = shl i64 %36, 6
+  %42 = shl nuw nsw i64 %36, 6
   br label %43
 
 43:                                               ; preds = %41, %30
   %.027.ph.i.i = phi i64 [ %28, %30 ], [ %40, %41 ]
   %.026.ph.i.i = phi i64 [ %20, %30 ], [ %42, %41 ]
   %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
-  %45 = add nuw i64 %.026.ph.i.i, %44
+  %45 = add nuw nsw i64 %.026.ph.i.i, %44
   %46 = icmp ult i64 %45, %15
   br i1 %46, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %._crit_edge
 
@@ -9589,14 +9589,14 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %77, %80, %87, %107
   br i1 %.not36.i.i21, label %.preheader, label %132, !llvm.loop !40
 
 132:                                              ; preds = %129
-  %133 = shl i64 %127, 6
+  %133 = shl nuw nsw i64 %127, 6
   br label %134
 
 134:                                              ; preds = %132, %125
   %.027.ph.i.i18 = phi i64 [ %123, %125 ], [ %131, %132 ]
   %.026.ph.i.i19 = phi i64 [ %115, %125 ], [ %133, %132 ]
   %135 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i18, i1 true)
-  %136 = add i64 %.026.ph.i.i19, %135
+  %136 = add nuw nsw i64 %.026.ph.i.i19, %135
   %137 = icmp ult i64 %136, %15
   br i1 %137, label %_ZNK6BitMap18find_first_set_bitEmm.exit22, label %._crit_edge
 
@@ -10610,10 +10610,10 @@ _ZN7oopDesc16oop_iterate_sizeI14G1CMOopClosureEEmPT_.exit: ; preds = %95, %98, %
   br label %135
 
 135:                                              ; preds = %71, %_ZN7oopDesc16oop_iterate_sizeI14G1CMOopClosureEEmPT_.exit, %5
-  %.sink8 = phi i64 [ %73, %71 ], [ %.0.i4.i, %_ZN7oopDesc16oop_iterate_sizeI14G1CMOopClosureEEmPT_.exit ], [ %9, %5 ]
+  %.sink10 = phi i64 [ %73, %71 ], [ %.0.i4.i, %_ZN7oopDesc16oop_iterate_sizeI14G1CMOopClosureEEmPT_.exit ], [ %9, %5 ]
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %137 = load i64, ptr %136, align 8
-  %138 = add i64 %137, %.sink8
+  %138 = add i64 %137, %.sink10
   store i64 %138, ptr %136, align 8
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %140 = load i64, ptr %139, align 8
@@ -11187,8 +11187,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i: ; preds = %133, %130
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit: ; preds = %_ZN7oopDesc4sizeEv.exit, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i
-  %.sink10.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit ]
-  %138 = getelementptr inbounds nuw i8, ptr %108, i64 %.sink10.i.i.i.i
+  %.sink12.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit ]
+  %138 = getelementptr inbounds nuw i8, ptr %108, i64 %.sink12.i.i.i.i
   %139 = load i64, ptr %138, align 8
   %140 = add i64 %139, 1
   store i64 %140, ptr %138, align 8
@@ -11571,7 +11571,7 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i.us: ;
 .lr.ph:                                           ; preds = %.critedge.split.preheader, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i
   %73 = phi i32 [ %100, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %37, %.critedge.split.preheader ]
   %74 = phi ptr [ %98, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %35, %.critedge.split.preheader ]
-  %.0.i27 = phi ptr [ %86, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %1, %.critedge.split.preheader ]
+  %.0.i32 = phi ptr [ %86, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %1, %.critedge.split.preheader ]
   %75 = zext i32 %73 to i64
   %76 = load ptr, ptr %32, align 8
   %77 = lshr i64 %75, 6
@@ -11596,7 +11596,7 @@ _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i.us: ;
 _ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i: ; preds = %83
   %90 = load ptr, ptr %13, align 8
   %91 = load i32, ptr %74, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.0.i27, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 16
   %93 = load volatile ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 1840
   %95 = load ptr, ptr %94, align 8
@@ -11746,7 +11746,7 @@ _ZN12G1HeapRegion19note_end_of_markingEPP12HeapWordImplm.exit: ; preds = %159, %
   br label %_ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN45G1UpdateRegionLivenessAndSelectForRebuildTask17G1OnRegionClosure14do_heap_regionEP12G1HeapRegionEUlS4_E_EEvS4_RKT_.exit
 
 _ZN15G1CollectedHeap29humongous_obj_regions_iterateIZN45G1UpdateRegionLivenessAndSelectForRebuildTask17G1OnRegionClosure14do_heap_regionEP12G1HeapRegionEUlS4_E_EEvS4_RKT_.exit.loopexit23: ; preds = %83, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i, %.lr.ph, %.critedge.split.preheader
-  %.0.i.lcssa = phi ptr [ %1, %.critedge.split.preheader ], [ %.0.i27, %83 ], [ %86, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %.0.i27, %.lr.ph ]
+  %.0.i.lcssa = phi ptr [ %1, %.critedge.split.preheader ], [ %.0.i32, %83 ], [ %86, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %.0.i32, %.lr.ph ]
   %.lcssa = phi ptr [ %35, %.critedge.split.preheader ], [ %74, %83 ], [ %98, %_ZNK19G1HeapRegionManager24next_region_in_humongousEP12G1HeapRegion.exit.i ], [ %74, %.lr.ph ]
   %186 = load ptr, ptr %13, align 8
   %187 = load i32, ptr %.lcssa, align 8
@@ -14181,14 +14181,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #22, !srcloc !11
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #22, !srcloc !11
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -14735,14 +14735,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #22, !srcloc !11
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #22, !srcloc !11
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_49blocking_load_barrier_on_weak_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -15759,7 +15759,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !40
 
 44:                                               ; preds = %41
-  %45 = shl i64 %39, 6
+  %45 = shl nuw i64 %39, 6
   br label %46
 
 46:                                               ; preds = %44, %37
@@ -16002,7 +16002,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %44, !llvm.loop !40
 
 44:                                               ; preds = %41
-  %45 = shl i64 %39, 6
+  %45 = shl nuw i64 %39, 6
   br label %46
 
 46:                                               ; preds = %44, %37
@@ -18512,8 +18512,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %173, %170
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i: ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %178 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %178 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink12.i.i.i.i.i
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, 1
   store i64 %180, ptr %178, align 8
@@ -18776,8 +18776,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %166, %163
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i: ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %171 = getelementptr inbounds nuw i8, ptr %141, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %171 = getelementptr inbounds nuw i8, ptr %141, i64 %.sink12.i.i.i.i.i
   %172 = load i64, ptr %171, align 8
   %173 = add i64 %172, 1
   store i64 %173, ptr %171, align 8
@@ -19070,8 +19070,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %174, %171
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i: ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %179 = getelementptr inbounds nuw i8, ptr %149, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %179 = getelementptr inbounds nuw i8, ptr %149, i64 %.sink12.i.i.i.i.i
   %180 = load i64, ptr %179, align 8
   %181 = add i64 %180, 1
   store i64 %181, ptr %179, align 8
@@ -19536,8 +19536,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %167, %164
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i: ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %172 = getelementptr inbounds nuw i8, ptr %142, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %172 = getelementptr inbounds nuw i8, ptr %142, i64 %.sink12.i.i.i.i.i
   %173 = load i64, ptr %172, align 8
   %174 = add i64 %173, 1
   store i64 %174, ptr %172, align 8
@@ -19686,12 +19686,12 @@ _ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysCon
   unreachable
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split: ; preds = %69, %_ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i14, %_ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i
-  %.sink16 = phi ptr [ %47, %_ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i ], [ %67, %_ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i14 ], [ %75, %69 ]
+  %.sink22 = phi ptr [ %47, %_ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i ], [ %67, %_ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i14 ], [ %75, %69 ]
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %82 = load i32, ptr %81, align 8
-  %83 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %80, i32 noundef %82, ptr noundef nonnull %.sink16)
+  %83 = tail call noundef zeroext i1 @_ZN16G1ConcurrentMark14mark_in_bitmapEjP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1849) %80, i32 noundef %82, ptr noundef nonnull %.sink22)
   br label %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit
 
 _ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit: ; preds = %_ZN16InstanceRefKlass25oop_oop_iterate_discoveryIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_13ReferenceTypePT0_RT1_.exit.sink.split, %69, %_ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i14, %_ZN16InstanceRefKlass11do_referentIP7oopDesc23G1RootRegionScanClosure14AlwaysContainsEEvS2_PT0_RT1_.exit.i, %_ZN16InstanceRefKlass12try_discoverIP7oopDesc23G1RootRegionScanClosureEEbS2_13ReferenceTypePT0_.exit.i
@@ -19966,8 +19966,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %173, %170
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i: ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %178 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %178 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink12.i.i.i.i.i
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, 1
   store i64 %180, ptr %178, align 8
@@ -20290,8 +20290,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %166, %163
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i: ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %171 = getelementptr inbounds nuw i8, ptr %141, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %171 = getelementptr inbounds nuw i8, ptr %141, i64 %.sink12.i.i.i.i.i
   %172 = load i64, ptr %171, align 8
   %173 = add i64 %172, 1
   store i64 %173, ptr %171, align 8
@@ -20635,8 +20635,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %173, %170
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i: ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %178 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %178 = getelementptr inbounds nuw i8, ptr %148, i64 %.sink12.i.i.i.i.i
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, 1
   store i64 %180, ptr %178, align 8
@@ -20909,8 +20909,8 @@ _ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i: ; preds = %166, %163
   br label %_ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i
 
 _ZN16G1ConcurrentMark15add_to_livenessEjP7oopDescm.exit.i: ; preds = %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i, %_ZN7oopDesc4sizeEv.exit.i
-  %.sink10.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
-  %171 = getelementptr inbounds nuw i8, ptr %141, i64 %.sink10.i.i.i.i.i
+  %.sink12.i.i.i.i.i = phi i64 [ 32, %_ZN22G1RegionMarkStatsCache5evictEj.exit.i.i.i.i.i ], [ 24, %_ZN7oopDesc4sizeEv.exit.i ]
+  %171 = getelementptr inbounds nuw i8, ptr %141, i64 %.sink12.i.i.i.i.i
   %172 = load i64, ptr %171, align 8
   %173 = add i64 %172, 1
   store i64 %173, ptr %171, align 8
@@ -21254,7 +21254,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %45, !llvm.loop !40
 
 45:                                               ; preds = %42
-  %46 = shl i64 %40, 6
+  %46 = shl nuw i64 %40, 6
   br label %47
 
 47:                                               ; preds = %45, %38
@@ -21489,7 +21489,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %45, !llvm.loop !40
 
 45:                                               ; preds = %42
-  %46 = shl i64 %40, 6
+  %46 = shl nuw i64 %40, 6
   br label %47
 
 47:                                               ; preds = %45, %38

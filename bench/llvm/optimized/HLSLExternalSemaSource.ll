@@ -8257,13 +8257,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13CXXRecordDeclESt8functionIFvS4_EEN
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %69
-  %.sink28 = phi i32 [ %71, %69 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %70, %69 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %69 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %71, %69 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %70, %69 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %69 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %69 ], [ 0, %10 ], [ 0, %27 ]
-  %72 = zext i32 %.sink28 to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %72
-  store ptr %.sink25, ptr %0, align 8
+  %72 = zext i32 %.sink32 to i64
+  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %72
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %73, ptr %.sroa.4.0..sroa_idx, align 8
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16

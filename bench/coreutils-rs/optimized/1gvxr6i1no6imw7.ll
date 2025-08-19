@@ -980,10 +980,10 @@ define void @_ZN11uu_basename8basename17hcb46eee7073df0d1E(ptr noalias noundef w
   br label %63
 
 56:                                               ; preds = %82, %86, %42
-  %.sink104 = phi i64 [ %83, %82 ], [ %87, %86 ], [ 0, %42 ]
+  %.sink109 = phi i64 [ %83, %82 ], [ %87, %86 ], [ 0, %42 ]
   %.sink = phi ptr [ %84, %82 ], [ %88, %86 ], [ inttoptr (i64 1 to ptr), %42 ]
   %spec.select48.sink = phi i64 [ %spec.select48, %82 ], [ %4, %86 ], [ 0, %42 ]
-  store i64 %.sink104, ptr %0, align 8
+  store i64 %.sink109, ptr %0, align 8
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %.sroa.441.0..sroa_idx, align 8
   %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

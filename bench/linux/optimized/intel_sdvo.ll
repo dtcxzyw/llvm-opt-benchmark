@@ -2328,9 +2328,9 @@ define internal void @intel_sdvo_get_config(ptr noundef readonly captures(none) 
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 768
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %63, label %.thread8
+  br i1 %55, label %63, label %.thread14
 
-.thread8:                                         ; preds = %47
+.thread14:                                        ; preds = %47
   %56 = lshr i32 %16, 23
   %57 = and i32 %56, 7
   %58 = add nuw nsw i32 %57, 1
@@ -2350,10 +2350,10 @@ define internal void @intel_sdvo_get_config(ptr noundef readonly captures(none) 
   %67 = icmp eq i32 %.pre, 0
   br i1 %67, label %73, label %68
 
-68:                                               ; preds = %.thread8, %63
-  %69 = phi ptr [ %62, %.thread8 ], [ %66, %63 ]
-  %70 = phi i32 [ %61, %.thread8 ], [ %65, %63 ]
-  %71 = phi i32 [ %58, %.thread8 ], [ %.pre, %63 ]
+68:                                               ; preds = %.thread14, %63
+  %69 = phi ptr [ %62, %.thread14 ], [ %66, %63 ]
+  %70 = phi i32 [ %61, %.thread14 ], [ %65, %63 ]
+  %71 = phi i32 [ %58, %.thread14 ], [ %.pre, %63 ]
   %72 = udiv i32 %70, %71
   br label %73
 
@@ -3812,7 +3812,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
 
 .preheader.preheader:                             ; preds = %20, %24
   %.ph = phi i32 [ 0, %20 ], [ %3, %24 ]
-  %.ph32 = phi i32 [ 0, %20 ], [ %38, %24 ]
+  %.ph41 = phi i32 [ 0, %20 ], [ %38, %24 ]
   br label %.preheader
 
 26:                                               ; preds = %26, %22
@@ -3838,7 +3838,7 @@ define internal fastcc noundef zeroext i1 @__intel_sdvo_write_cmd(ptr noundef re
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %42 = phi i32 [ %51, %.preheader ], [ %.ph, %.preheader.preheader ]
-  %43 = phi i32 [ %50, %.preheader ], [ %.ph32, %.preheader.preheader ]
+  %43 = phi i32 [ %50, %.preheader ], [ %.ph41, %.preheader.preheader ]
   %44 = sext i32 %43 to i64
   %45 = getelementptr i8, ptr %6, i64 %44
   %46 = sub i32 64, %43

@@ -1169,16 +1169,16 @@ moveArrayTypeName.exit.thread:                    ; preds = %23, %29, %10
   %.not33 = icmp eq i32 %17, 0
   %.not34 = icmp eq i32 %17, %20
   %or.cond = or i1 %.not33, %.not34
-  br i1 %or.cond, label %common.ret36, label %39
+  br i1 %or.cond, label %common.ret39, label %39
 
-common.ret36:                                     ; preds = %38, %39
+common.ret39:                                     ; preds = %38, %39
   ret void
 
 39:                                               ; preds = %38
   %40 = tail call ptr @makeArrayTypeName(ptr noundef %1, i32 noundef %2)
   tail call void @RenameTypeInternal(i32 noundef %17, ptr noundef %40, i32 noundef %2)
   tail call void @pfree(ptr noundef %40) #8
-  br label %common.ret36
+  br label %common.ret39
 }
 
 declare i32 @GetSysCacheOid(i32 noundef, i16 noundef signext, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

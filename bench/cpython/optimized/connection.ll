@@ -3613,10 +3613,10 @@ Py_XDECREF.exit.i.i32.i:                          ; preds = %91, %88, %86, %84
   br i1 %98, label %set_callback_context.exit.sink.split.sink.split.i, label %set_callback_context.exit.sink.split.i
 
 set_callback_context.exit.sink.split.sink.split.i: ; preds = %96, %61
-  %.sink49.i = phi ptr [ %58, %61 ], [ %93, %96 ]
+  %.sink69.i = phi ptr [ %58, %61 ], [ %93, %96 ]
   %.sink.ph.i = phi ptr [ %48, %61 ], [ %83, %96 ]
   %.017.ph.ph.i = phi i32 [ %46, %61 ], [ %81, %96 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink49.i) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink69.i) #7
   br label %set_callback_context.exit.sink.split.i
 
 set_callback_context.exit.sink.split.i:           ; preds = %set_callback_context.exit.sink.split.sink.split.i, %96, %94, %Py_XDECREF.exit.i.i32.i, %61, %59, %Py_XDECREF.exit.i.i.i

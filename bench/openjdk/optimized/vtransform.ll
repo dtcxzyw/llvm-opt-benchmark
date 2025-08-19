@@ -415,10 +415,10 @@ _ZNK9VectorSet4testEj.exit._crit_edge:            ; preds = %_ZNK9VectorSet4test
   br i1 %.1, label %_ZNK9VectorSet4testEj.exit._crit_edge.thread, label %192
 
 _ZNK9VectorSet4testEj.exit._crit_edge.thread:     ; preds = %_ZNK9VectorSet4testEj.exit.preheader, %_ZNK9VectorSet4testEj.exit._crit_edge
-  %.sroa.30.2.lcssa137 = phi ptr [ %.sroa.30.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.30.0119, %_ZNK9VectorSet4testEj.exit.preheader ]
-  %.sroa.19.2.lcssa136 = phi i32 [ %.sroa.19.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.19.0118, %_ZNK9VectorSet4testEj.exit.preheader ]
-  %.sroa.0.2.lcssa135 = phi i32 [ %.sroa.0.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.0.0117, %_ZNK9VectorSet4testEj.exit.preheader ]
-  %155 = add nsw i32 %.sroa.0.2.lcssa135, -1
+  %.sroa.30.2.lcssa148 = phi ptr [ %.sroa.30.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.30.0119, %_ZNK9VectorSet4testEj.exit.preheader ]
+  %.sroa.19.2.lcssa147 = phi i32 [ %.sroa.19.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.19.0118, %_ZNK9VectorSet4testEj.exit.preheader ]
+  %.sroa.0.2.lcssa146 = phi i32 [ %.sroa.0.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.0.0117, %_ZNK9VectorSet4testEj.exit.preheader ]
+  %155 = add nsw i32 %.sroa.0.2.lcssa146, -1
   %156 = load i32, ptr %74, align 8
   %157 = lshr i32 %156, 5
   %158 = load i32, ptr %3, align 8
@@ -499,8 +499,8 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_g
 
 192:                                              ; preds = %190, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit, %_ZNK9VectorSet4testEj.exit._crit_edge, %_ZN9VectorSet8test_setEj.exit
   %.sroa.0.1 = phi i32 [ %191, %190 ], [ %155, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit ], [ %.sroa.0.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.0.0117, %_ZN9VectorSet8test_setEj.exit ]
-  %.sroa.19.1 = phi i32 [ %.sroa.19.0118, %190 ], [ %.sroa.19.2.lcssa136, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit ], [ %.sroa.19.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.19.0118, %_ZN9VectorSet8test_setEj.exit ]
-  %.sroa.30.1 = phi ptr [ %.sroa.30.0119, %190 ], [ %.sroa.30.2.lcssa137, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit ], [ %.sroa.30.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.30.0119, %_ZN9VectorSet8test_setEj.exit ]
+  %.sroa.19.1 = phi i32 [ %.sroa.19.0118, %190 ], [ %.sroa.19.2.lcssa147, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit ], [ %.sroa.19.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.19.0118, %_ZN9VectorSet8test_setEj.exit ]
+  %.sroa.30.1 = phi ptr [ %.sroa.30.0119, %190 ], [ %.sroa.30.2.lcssa148, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit ], [ %.sroa.30.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.30.0119, %_ZN9VectorSet8test_setEj.exit ]
   %.18 = phi i32 [ %.07120, %190 ], [ %167, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit ], [ %.07120, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.07120, %_ZN9VectorSet8test_setEj.exit ]
   %193 = icmp eq i32 %.sroa.0.1, 0
   br i1 %193, label %_ZN13GrowableArrayIP14VTransformNodeED2Ev.exit, label %69, !llvm.loop !12

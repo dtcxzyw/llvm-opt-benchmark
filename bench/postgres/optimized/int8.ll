@@ -1942,8 +1942,8 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   br i1 %brmerge, label %is_funcclause.exit.thread, label %54
 
 .thread:                                          ; preds = %45
-  %brmerge47 = or i1 %33, %40
-  br i1 %brmerge47, label %is_funcclause.exit.thread, label %.thread42
+  %brmerge48 = or i1 %33, %40
+  br i1 %brmerge48, label %is_funcclause.exit.thread, label %.thread42
 
 54:                                               ; preds = %53
   %55 = load i32, ptr %.037, align 4

@@ -540,7 +540,7 @@ define void @H5_term_library() #0 {
   %9 = call i32 @H5E_get_default_auto_func(ptr noundef nonnull %2) #21
   %10 = load ptr, ptr @H5_atclose_head, align 8, !tbaa !26
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.preheader664, label %.preheader
+  br i1 %.not, label %.preheader666, label %.preheader
 
 .preheader:                                       ; preds = %7, %H5_user_cb_restore.exit
   %.0386628 = phi ptr [ %59, %H5_user_cb_restore.exit ], [ %10, %7 ]
@@ -650,14 +650,14 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 
 61:                                               ; preds = %H5_user_cb_restore.exit
   store ptr null, ptr @H5_atclose_head, align 8, !tbaa !26
-  br label %.preheader664
+  br label %.preheader666
 
-.preheader664:                                    ; preds = %61, %7
+.preheader666:                                    ; preds = %61, %7
   br label %62
 
-62:                                               ; preds = %.preheader664, %.thread591
-  %.0387 = phi i64 [ %.36, %.thread591 ], [ 0, %.preheader664 ]
-  %.0385 = phi i32 [ %466, %.thread591 ], [ 0, %.preheader664 ]
+62:                                               ; preds = %.preheader666, %.thread591
+  %.0387 = phi i64 [ %.36, %.thread591 ], [ 0, %.preheader666 ]
+  %.0385 = phi i32 [ %466, %.thread591 ], [ 0, %.preheader666 ]
   %63 = call i32 @H5ES_term_package() #21
   %.not404 = icmp ne i32 %63, 0
   %64 = add i64 %.0387, 8
@@ -712,8 +712,8 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   br label %.sink.split
 
 .sink.split:                                      ; preds = %80, %86
-  %.sink630 = phi ptr [ %87, %86 ], [ %81, %80 ]
-  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink630) #26
+  %.sink632 = phi ptr [ %87, %86 ], [ %81, %80 ]
+  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink632) #26
   %89 = add i64 %88, %.0387
   br label %90
 
@@ -731,7 +731,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not409 = icmp eq i64 %.3390, 0
   %96 = select i1 %.not409, ptr @.str.36, ptr @.str.35
   %97 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %96, ptr noundef nonnull @.str.40) #21
-  br label %.sink.split631
+  br label %.sink.split633
 
 98:                                               ; preds = %90
   %99 = icmp sgt i32 %91, 0
@@ -743,16 +743,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 %.3390
   store i32 3026478, ptr %103, align 1
-  br label %.sink.split631
+  br label %.sink.split633
 
-.sink.split631:                                   ; preds = %94, %102
-  %.sink632 = phi ptr [ %103, %102 ], [ %95, %94 ]
-  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink632) #26
+.sink.split633:                                   ; preds = %94, %102
+  %.sink634 = phi ptr [ %103, %102 ], [ %95, %94 ]
+  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink634) #26
   %105 = add i64 %104, %.3390
   br label %106
 
-106:                                              ; preds = %.sink.split631, %98
-  %.4391 = phi i64 [ %.3390, %98 ], [ %105, %.sink.split631 ]
+106:                                              ; preds = %.sink.split633, %98
+  %.4391 = phi i64 [ %.3390, %98 ], [ %105, %.sink.split633 ]
   %107 = add nsw i32 %91, %79
   %108 = call i32 @H5D_top_term_package() #21
   %.not410 = icmp ne i32 %108, 0
@@ -766,7 +766,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not411 = icmp eq i64 %.4391, 0
   %113 = select i1 %.not411, ptr @.str.36, ptr @.str.35
   %114 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %112, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %113, ptr noundef nonnull @.str.41) #21
-  br label %.sink.split633
+  br label %.sink.split635
 
 115:                                              ; preds = %106
   %116 = icmp sgt i32 %108, 0
@@ -778,16 +778,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 %.4391
   store i32 3026478, ptr %120, align 1
-  br label %.sink.split633
+  br label %.sink.split635
 
-.sink.split633:                                   ; preds = %111, %119
-  %.sink634 = phi ptr [ %120, %119 ], [ %112, %111 ]
-  %121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink634) #26
+.sink.split635:                                   ; preds = %111, %119
+  %.sink636 = phi ptr [ %120, %119 ], [ %112, %111 ]
+  %121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink636) #26
   %122 = add i64 %121, %.4391
   br label %123
 
-123:                                              ; preds = %.sink.split633, %115
-  %.5392 = phi i64 [ %.4391, %115 ], [ %122, %.sink.split633 ]
+123:                                              ; preds = %.sink.split635, %115
+  %.5392 = phi i64 [ %.4391, %115 ], [ %122, %.sink.split635 ]
   %124 = add nsw i32 %107, %108
   %125 = call i32 @H5G_top_term_package() #21
   %.not412 = icmp ne i32 %125, 0
@@ -801,7 +801,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not413 = icmp eq i64 %.5392, 0
   %130 = select i1 %.not413, ptr @.str.36, ptr @.str.35
   %131 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %130, ptr noundef nonnull @.str.42) #21
-  br label %.sink.split635
+  br label %.sink.split637
 
 132:                                              ; preds = %123
   %133 = icmp sgt i32 %125, 0
@@ -813,16 +813,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 136:                                              ; preds = %132
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 %.5392
   store i32 3026478, ptr %137, align 1
-  br label %.sink.split635
+  br label %.sink.split637
 
-.sink.split635:                                   ; preds = %128, %136
-  %.sink636 = phi ptr [ %137, %136 ], [ %129, %128 ]
-  %138 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink636) #26
+.sink.split637:                                   ; preds = %128, %136
+  %.sink638 = phi ptr [ %137, %136 ], [ %129, %128 ]
+  %138 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink638) #26
   %139 = add i64 %138, %.5392
   br label %140
 
-140:                                              ; preds = %.sink.split635, %132
-  %.6393 = phi i64 [ %.5392, %132 ], [ %139, %.sink.split635 ]
+140:                                              ; preds = %.sink.split637, %132
+  %.6393 = phi i64 [ %.5392, %132 ], [ %139, %.sink.split637 ]
   %141 = add nsw i32 %124, %125
   %142 = call i32 @H5M_top_term_package() #21
   %.not414 = icmp ne i32 %142, 0
@@ -836,7 +836,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not415 = icmp eq i64 %.6393, 0
   %147 = select i1 %.not415, ptr @.str.36, ptr @.str.35
   %148 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %146, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %147, ptr noundef nonnull @.str.43) #21
-  br label %.sink.split637
+  br label %.sink.split639
 
 149:                                              ; preds = %140
   %150 = icmp sgt i32 %142, 0
@@ -848,16 +848,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 153:                                              ; preds = %149
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 %.6393
   store i32 3026478, ptr %154, align 1
-  br label %.sink.split637
+  br label %.sink.split639
 
-.sink.split637:                                   ; preds = %145, %153
-  %.sink638 = phi ptr [ %154, %153 ], [ %146, %145 ]
-  %155 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink638) #26
+.sink.split639:                                   ; preds = %145, %153
+  %.sink640 = phi ptr [ %154, %153 ], [ %146, %145 ]
+  %155 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink640) #26
   %156 = add i64 %155, %.6393
   br label %157
 
-157:                                              ; preds = %.sink.split637, %149
-  %.7394 = phi i64 [ %.6393, %149 ], [ %156, %.sink.split637 ]
+157:                                              ; preds = %.sink.split639, %149
+  %.7394 = phi i64 [ %.6393, %149 ], [ %156, %.sink.split639 ]
   %158 = add nsw i32 %141, %142
   %159 = call i32 @H5S_top_term_package() #21
   %.not416 = icmp ne i32 %159, 0
@@ -871,7 +871,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not417 = icmp eq i64 %.7394, 0
   %164 = select i1 %.not417, ptr @.str.36, ptr @.str.35
   %165 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %164, ptr noundef nonnull @.str.44) #21
-  br label %.sink.split639
+  br label %.sink.split641
 
 166:                                              ; preds = %157
   %167 = icmp sgt i32 %159, 0
@@ -883,16 +883,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 170:                                              ; preds = %166
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 %.7394
   store i32 3026478, ptr %171, align 1
-  br label %.sink.split639
+  br label %.sink.split641
 
-.sink.split639:                                   ; preds = %162, %170
-  %.sink640 = phi ptr [ %171, %170 ], [ %163, %162 ]
-  %172 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink640) #26
+.sink.split641:                                   ; preds = %162, %170
+  %.sink642 = phi ptr [ %171, %170 ], [ %163, %162 ]
+  %172 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink642) #26
   %173 = add i64 %172, %.7394
   br label %174
 
-174:                                              ; preds = %.sink.split639, %166
-  %.8395 = phi i64 [ %.7394, %166 ], [ %173, %.sink.split639 ]
+174:                                              ; preds = %.sink.split641, %166
+  %.8395 = phi i64 [ %.7394, %166 ], [ %173, %.sink.split641 ]
   %175 = add nsw i32 %158, %159
   %176 = call i32 @H5T_top_term_package() #21
   %.not418 = icmp ne i32 %176, 0
@@ -906,7 +906,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not419 = icmp eq i64 %.8395, 0
   %181 = select i1 %.not419, ptr @.str.36, ptr @.str.35
   %182 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %180, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %181, ptr noundef nonnull @.str.45) #21
-  br label %.sink.split641
+  br label %.sink.split643
 
 183:                                              ; preds = %174
   %184 = icmp sgt i32 %176, 0
@@ -918,16 +918,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 187:                                              ; preds = %183
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 %.8395
   store i32 3026478, ptr %188, align 1
-  br label %.sink.split641
+  br label %.sink.split643
 
-.sink.split641:                                   ; preds = %187, %179
-  %.sink642 = phi ptr [ %180, %179 ], [ %188, %187 ]
-  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink642) #26
+.sink.split643:                                   ; preds = %187, %179
+  %.sink644 = phi ptr [ %180, %179 ], [ %188, %187 ]
+  %189 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink644) #26
   %190 = add i64 %189, %.8395
   br label %191
 
-191:                                              ; preds = %.sink.split641, %183
-  %.9396 = phi i64 [ %.8395, %183 ], [ %190, %.sink.split641 ]
+191:                                              ; preds = %.sink.split643, %183
+  %.9396 = phi i64 [ %.8395, %183 ], [ %190, %.sink.split643 ]
   %192 = sub i32 0, %176
   %193 = icmp eq i32 %175, %192
   br i1 %193, label %194, label %.thread591
@@ -1001,7 +1001,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not425 = icmp eq i64 %.9396, 0
   %226 = select i1 %.not425, ptr @.str.36, ptr @.str.35
   %227 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %225, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %226, ptr noundef nonnull @.str.48) #21
-  br label %.sink.split643
+  br label %.sink.split645
 
 228:                                              ; preds = %222
   %229 = icmp sgt i32 %223, 0
@@ -1011,16 +1011,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 230:                                              ; preds = %228
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 %.9396
   store i32 3026478, ptr %231, align 1
-  br label %.sink.split643
+  br label %.sink.split645
 
-.sink.split643:                                   ; preds = %224, %230
-  %.sink644 = phi ptr [ %231, %230 ], [ %225, %224 ]
-  %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink644) #26
+.sink.split645:                                   ; preds = %224, %230
+  %.sink646 = phi ptr [ %231, %230 ], [ %225, %224 ]
+  %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink646) #26
   %233 = add i64 %232, %.9396
   br label %234
 
-234:                                              ; preds = %.sink.split643, %228
-  %.15 = phi i64 [ %.9396, %228 ], [ %233, %.sink.split643 ]
+234:                                              ; preds = %.sink.split645, %228
+  %.15 = phi i64 [ %.9396, %228 ], [ %233, %.sink.split645 ]
   %235 = call i32 @H5D_term_package() #21
   %.not426 = icmp ne i32 %235, 0
   %236 = add i64 %.15, 8
@@ -1033,7 +1033,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not427 = icmp eq i64 %.15, 0
   %240 = select i1 %.not427, ptr @.str.36, ptr @.str.35
   %241 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %239, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %240, ptr noundef nonnull @.str.49) #21
-  br label %.sink.split645
+  br label %.sink.split647
 
 242:                                              ; preds = %234
   %243 = icmp sgt i32 %235, 0
@@ -1045,16 +1045,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 246:                                              ; preds = %242
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 %.15
   store i32 3026478, ptr %247, align 1
-  br label %.sink.split645
+  br label %.sink.split647
 
-.sink.split645:                                   ; preds = %238, %246
-  %.sink646 = phi ptr [ %247, %246 ], [ %239, %238 ]
-  %248 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink646) #26
+.sink.split647:                                   ; preds = %238, %246
+  %.sink648 = phi ptr [ %247, %246 ], [ %239, %238 ]
+  %248 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink648) #26
   %249 = add i64 %248, %.15
   br label %250
 
-250:                                              ; preds = %.sink.split645, %242
-  %.16 = phi i64 [ %.15, %242 ], [ %249, %.sink.split645 ]
+250:                                              ; preds = %.sink.split647, %242
+  %.16 = phi i64 [ %.15, %242 ], [ %249, %.sink.split647 ]
   %251 = add nsw i32 %235, %223
   %252 = call i32 @H5G_term_package() #21
   %.not428 = icmp ne i32 %252, 0
@@ -1068,7 +1068,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not429 = icmp eq i64 %.16, 0
   %257 = select i1 %.not429, ptr @.str.36, ptr @.str.35
   %258 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %257, ptr noundef nonnull @.str.50) #21
-  br label %.sink.split647
+  br label %.sink.split649
 
 259:                                              ; preds = %250
   %260 = icmp sgt i32 %252, 0
@@ -1080,16 +1080,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 263:                                              ; preds = %259
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 %.16
   store i32 3026478, ptr %264, align 1
-  br label %.sink.split647
+  br label %.sink.split649
 
-.sink.split647:                                   ; preds = %255, %263
-  %.sink648 = phi ptr [ %264, %263 ], [ %256, %255 ]
-  %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink648) #26
+.sink.split649:                                   ; preds = %255, %263
+  %.sink650 = phi ptr [ %264, %263 ], [ %256, %255 ]
+  %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink650) #26
   %266 = add i64 %265, %.16
   br label %267
 
-267:                                              ; preds = %.sink.split647, %259
-  %.17 = phi i64 [ %.16, %259 ], [ %266, %.sink.split647 ]
+267:                                              ; preds = %.sink.split649, %259
+  %.17 = phi i64 [ %.16, %259 ], [ %266, %.sink.split649 ]
   %268 = add nsw i32 %251, %252
   %269 = call i32 @H5M_term_package() #21
   %.not430 = icmp ne i32 %269, 0
@@ -1103,7 +1103,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not431 = icmp eq i64 %.17, 0
   %274 = select i1 %.not431, ptr @.str.36, ptr @.str.35
   %275 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %274, ptr noundef nonnull @.str.51) #21
-  br label %.sink.split649
+  br label %.sink.split651
 
 276:                                              ; preds = %267
   %277 = icmp sgt i32 %269, 0
@@ -1115,16 +1115,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 280:                                              ; preds = %276
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 %.17
   store i32 3026478, ptr %281, align 1
-  br label %.sink.split649
+  br label %.sink.split651
 
-.sink.split649:                                   ; preds = %272, %280
-  %.sink650 = phi ptr [ %281, %280 ], [ %273, %272 ]
-  %282 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink650) #26
+.sink.split651:                                   ; preds = %272, %280
+  %.sink652 = phi ptr [ %281, %280 ], [ %273, %272 ]
+  %282 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink652) #26
   %283 = add i64 %282, %.17
   br label %284
 
-284:                                              ; preds = %.sink.split649, %276
-  %.18 = phi i64 [ %.17, %276 ], [ %283, %.sink.split649 ]
+284:                                              ; preds = %.sink.split651, %276
+  %.18 = phi i64 [ %.17, %276 ], [ %283, %.sink.split651 ]
   %285 = add nsw i32 %268, %269
   %286 = call i32 @H5S_term_package() #21
   %.not432 = icmp ne i32 %286, 0
@@ -1138,7 +1138,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not433 = icmp eq i64 %.18, 0
   %291 = select i1 %.not433, ptr @.str.36, ptr @.str.35
   %292 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %291, ptr noundef nonnull @.str.52) #21
-  br label %.sink.split651
+  br label %.sink.split653
 
 293:                                              ; preds = %284
   %294 = icmp sgt i32 %286, 0
@@ -1150,16 +1150,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 297:                                              ; preds = %293
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 %.18
   store i32 3026478, ptr %298, align 1
-  br label %.sink.split651
+  br label %.sink.split653
 
-.sink.split651:                                   ; preds = %289, %297
-  %.sink652 = phi ptr [ %298, %297 ], [ %290, %289 ]
-  %299 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink652) #26
+.sink.split653:                                   ; preds = %289, %297
+  %.sink654 = phi ptr [ %298, %297 ], [ %290, %289 ]
+  %299 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink654) #26
   %300 = add i64 %299, %.18
   br label %301
 
-301:                                              ; preds = %.sink.split651, %293
-  %.19 = phi i64 [ %.18, %293 ], [ %300, %.sink.split651 ]
+301:                                              ; preds = %.sink.split653, %293
+  %.19 = phi i64 [ %.18, %293 ], [ %300, %.sink.split653 ]
   %302 = add nsw i32 %285, %286
   %303 = call i32 @H5T_term_package() #21
   %.not434 = icmp ne i32 %303, 0
@@ -1173,7 +1173,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not435 = icmp eq i64 %.19, 0
   %308 = select i1 %.not435, ptr @.str.36, ptr @.str.35
   %309 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %307, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %308, ptr noundef nonnull @.str.53) #21
-  br label %.sink.split653
+  br label %.sink.split655
 
 310:                                              ; preds = %301
   %311 = icmp sgt i32 %303, 0
@@ -1185,16 +1185,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 314:                                              ; preds = %310
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 %.19
   store i32 3026478, ptr %315, align 1
-  br label %.sink.split653
+  br label %.sink.split655
 
-.sink.split653:                                   ; preds = %314, %306
-  %.sink654 = phi ptr [ %307, %306 ], [ %315, %314 ]
-  %316 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink654) #26
+.sink.split655:                                   ; preds = %314, %306
+  %.sink656 = phi ptr [ %307, %306 ], [ %315, %314 ]
+  %316 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink656) #26
   %317 = add i64 %316, %.19
   br label %318
 
-318:                                              ; preds = %.sink.split653, %310
-  %.20 = phi i64 [ %.19, %310 ], [ %317, %.sink.split653 ]
+318:                                              ; preds = %.sink.split655, %310
+  %.20 = phi i64 [ %.19, %310 ], [ %317, %.sink.split655 ]
   %319 = sub i32 0, %303
   %320 = icmp eq i32 %302, %319
   br i1 %320, label %321, label %.thread591
@@ -1212,7 +1212,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not437 = icmp eq i64 %.20, 0
   %327 = select i1 %.not437, ptr @.str.36, ptr @.str.35
   %328 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %326, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %327, ptr noundef nonnull @.str.54) #21
-  br label %.sink.split655
+  br label %.sink.split657
 
 329:                                              ; preds = %321
   %330 = icmp sgt i32 %322, 0
@@ -1224,16 +1224,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 333:                                              ; preds = %329
   %334 = getelementptr inbounds nuw i8, ptr %1, i64 %.20
   store i32 3026478, ptr %334, align 1
-  br label %.sink.split655
+  br label %.sink.split657
 
-.sink.split655:                                   ; preds = %325, %333
-  %.sink656 = phi ptr [ %334, %333 ], [ %326, %325 ]
-  %335 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink656) #26
+.sink.split657:                                   ; preds = %325, %333
+  %.sink658 = phi ptr [ %334, %333 ], [ %326, %325 ]
+  %335 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink658) #26
   %336 = add i64 %335, %.20
   br label %337
 
-337:                                              ; preds = %.sink.split655, %329
-  %.21 = phi i64 [ %.20, %329 ], [ %336, %.sink.split655 ]
+337:                                              ; preds = %.sink.split657, %329
+  %.21 = phi i64 [ %.20, %329 ], [ %336, %.sink.split657 ]
   %338 = call i32 @H5Z_term_package() #21
   %.not438 = icmp ne i32 %338, 0
   %339 = add i64 %.21, 8
@@ -1246,7 +1246,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not439 = icmp eq i64 %.21, 0
   %343 = select i1 %.not439, ptr @.str.36, ptr @.str.35
   %344 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %342, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %343, ptr noundef nonnull @.str.55) #21
-  br label %.sink.split657
+  br label %.sink.split659
 
 345:                                              ; preds = %337
   %346 = icmp sgt i32 %338, 0
@@ -1258,16 +1258,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 349:                                              ; preds = %345
   %350 = getelementptr inbounds nuw i8, ptr %1, i64 %.21
   store i32 3026478, ptr %350, align 1
-  br label %.sink.split657
+  br label %.sink.split659
 
-.sink.split657:                                   ; preds = %341, %349
-  %.sink658 = phi ptr [ %350, %349 ], [ %342, %341 ]
-  %351 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink658) #26
+.sink.split659:                                   ; preds = %341, %349
+  %.sink660 = phi ptr [ %350, %349 ], [ %342, %341 ]
+  %351 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink660) #26
   %352 = add i64 %351, %.21
   br label %353
 
-353:                                              ; preds = %.sink.split657, %345
-  %.22 = phi i64 [ %.21, %345 ], [ %352, %.sink.split657 ]
+353:                                              ; preds = %.sink.split659, %345
+  %.22 = phi i64 [ %.21, %345 ], [ %352, %.sink.split659 ]
   %354 = add nsw i32 %338, %322
   %355 = call i32 @H5FD_term_package() #21
   %.not440 = icmp ne i32 %355, 0
@@ -1281,7 +1281,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not441 = icmp eq i64 %.22, 0
   %360 = select i1 %.not441, ptr @.str.36, ptr @.str.35
   %361 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %359, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %360, ptr noundef nonnull @.str.56) #21
-  br label %.sink.split659
+  br label %.sink.split661
 
 362:                                              ; preds = %353
   %363 = icmp sgt i32 %355, 0
@@ -1293,16 +1293,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 366:                                              ; preds = %362
   %367 = getelementptr inbounds nuw i8, ptr %1, i64 %.22
   store i32 3026478, ptr %367, align 1
-  br label %.sink.split659
+  br label %.sink.split661
 
-.sink.split659:                                   ; preds = %358, %366
-  %.sink660 = phi ptr [ %367, %366 ], [ %359, %358 ]
-  %368 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink660) #26
+.sink.split661:                                   ; preds = %358, %366
+  %.sink662 = phi ptr [ %367, %366 ], [ %359, %358 ]
+  %368 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink662) #26
   %369 = add i64 %368, %.22
   br label %370
 
-370:                                              ; preds = %.sink.split659, %362
-  %.23 = phi i64 [ %.22, %362 ], [ %369, %.sink.split659 ]
+370:                                              ; preds = %.sink.split661, %362
+  %.23 = phi i64 [ %.22, %362 ], [ %369, %.sink.split661 ]
   %371 = add nsw i32 %354, %355
   %372 = call i32 @H5VL_term_package() #21
   %.not442 = icmp ne i32 %372, 0
@@ -1316,7 +1316,7 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   %.not443 = icmp eq i64 %.23, 0
   %377 = select i1 %.not443, ptr @.str.36, ptr @.str.35
   %378 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %376, ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef nonnull %377, ptr noundef nonnull @.str.57) #21
-  br label %.sink.split661
+  br label %.sink.split663
 
 379:                                              ; preds = %370
   %380 = icmp sgt i32 %372, 0
@@ -1328,16 +1328,16 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
 383:                                              ; preds = %379
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 %.23
   store i32 3026478, ptr %384, align 1
-  br label %.sink.split661
+  br label %.sink.split663
 
-.sink.split661:                                   ; preds = %375, %383
-  %.sink662 = phi ptr [ %384, %383 ], [ %376, %375 ]
-  %385 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink662) #26
+.sink.split663:                                   ; preds = %375, %383
+  %.sink664 = phi ptr [ %384, %383 ], [ %376, %375 ]
+  %385 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink664) #26
   %386 = add i64 %385, %.23
   br label %387
 
-387:                                              ; preds = %.sink.split661, %379
-  %.24 = phi i64 [ %.23, %379 ], [ %386, %.sink.split661 ]
+387:                                              ; preds = %.sink.split663, %379
+  %.24 = phi i64 [ %.23, %379 ], [ %386, %.sink.split663 ]
   %388 = sub i32 0, %372
   %389 = icmp eq i32 %371, %388
   br i1 %389, label %390, label %.thread591
@@ -1505,9 +1505,9 @@ H5_user_cb_restore.exit:                          ; preds = %44, %48, %51, %54
   br label %.thread591.sink.split
 
 .thread591.sink.split:                            ; preds = %462, %456, %74, %66, %198, %206, %212, %218, %394, %402, %408, %414, %420, %426, %432, %438, %444, %450
-  %.sink663 = phi ptr [ %451, %450 ], [ %445, %444 ], [ %439, %438 ], [ %433, %432 ], [ %427, %426 ], [ %421, %420 ], [ %415, %414 ], [ %409, %408 ], [ %403, %402 ], [ %395, %394 ], [ %219, %218 ], [ %213, %212 ], [ %207, %206 ], [ %199, %198 ], [ %67, %66 ], [ %75, %74 ], [ %457, %456 ], [ %463, %462 ]
+  %.sink665 = phi ptr [ %451, %450 ], [ %445, %444 ], [ %439, %438 ], [ %433, %432 ], [ %427, %426 ], [ %421, %420 ], [ %415, %414 ], [ %409, %408 ], [ %403, %402 ], [ %395, %394 ], [ %219, %218 ], [ %213, %212 ], [ %207, %206 ], [ %199, %198 ], [ %67, %66 ], [ %75, %74 ], [ %457, %456 ], [ %463, %462 ]
   %.24.sink = phi i64 [ %.24, %450 ], [ %.24, %444 ], [ %.24, %438 ], [ %.24, %432 ], [ %.24, %426 ], [ %.24, %420 ], [ %.24, %414 ], [ %.24, %408 ], [ %.24, %402 ], [ %.24, %394 ], [ %.9396, %218 ], [ %.9396, %212 ], [ %.9396, %206 ], [ %.9396, %198 ], [ %.0387, %66 ], [ %.0387, %74 ], [ %.24, %456 ], [ %.24, %462 ]
-  %464 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink663) #26
+  %464 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink665) #26
   %465 = add i64 %464, %.24.sink
   br label %.thread591
 

@@ -1749,13 +1749,13 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..M
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i64 %3, label %default.unreachable.i.i.i [
+  switch i64 %3, label %default.unreachable [
     i64 0, label %7
     i64 1, label %8
     i64 2, label %9
   ]
 
-default.unreachable.i.i.i:                        ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 7:                                                ; preds = %5
@@ -2475,8 +2475,8 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr39drop
   %36 = load i64, ptr %17, align 8, !range !56, !alias.scope !420, !noalias !409, !noundef !3
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 8
   switch i64 %36, label %default.unreachable [
-    i64 0, label %.invoke19.i
-    i64 1, label %.invoke18.i
+    i64 0, label %.invoke22.i
+    i64 1, label %.invoke21.i
     i64 2, label %.invoke.i
   ]
 
@@ -2498,17 +2498,17 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr39drop
   %44 = load i64, ptr %43, align 8, !range !56, !alias.scope !427, !noalias !409, !noundef !3
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 16
   switch i64 %44, label %default.unreachable [
-    i64 0, label %.invoke19.i
-    i64 1, label %.invoke18.i
+    i64 0, label %.invoke22.i
+    i64 1, label %.invoke21.i
     i64 2, label %.invoke.i
   ]
 
-.invoke19.i:                                      ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit2.i.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit.i.i.i"
+.invoke22.i:                                      ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit2.i.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit.i.i.i"
   %46 = phi ptr [ %37, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit.i.i.i" ], [ %45, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit2.i.i.i" ]
   invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17h051d74f2f4a81da3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46)
           to label %"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17h9c55aca09df1a922E.exit.i.i" unwind label %50, !noalias !403
 
-.invoke18.i:                                      ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit2.i.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit.i.i.i"
+.invoke21.i:                                      ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit2.i.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit.i.i.i"
   %47 = phi ptr [ %37, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit.i.i.i" ], [ %45, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hfb3f123cd527227fE.exit2.i.i.i" ]
   invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17h55eedbc90c9ee832E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %47)
           to label %"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17h9c55aca09df1a922E.exit.i.i" unwind label %50, !noalias !403
@@ -2518,13 +2518,13 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr39drop
   invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17ha628e425bc6ef1a9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %48)
           to label %"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17h9c55aca09df1a922E.exit.i.i" unwind label %50, !noalias !403
 
-"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17h9c55aca09df1a922E.exit.i.i": ; preds = %.invoke.i, %.invoke18.i, %.invoke19.i, %29, %28, %27, %15, %13
-  %.sroa.06.1.i.i = phi ptr [ %14, %13 ], [ %.sroa.06.020.i.i, %15 ], [ %.sroa.06.020.i.i, %27 ], [ %.sroa.06.020.i.i, %28 ], [ %.sroa.06.020.i.i, %29 ], [ %.sroa.06.020.i.i, %.invoke.i ], [ %.sroa.06.020.i.i, %.invoke18.i ], [ %.sroa.06.020.i.i, %.invoke19.i ]
+"_ZN4core3ptr50drop_in_place$LT$notify..inotify..EventLoopMsg$GT$17h9c55aca09df1a922E.exit.i.i": ; preds = %.invoke.i, %.invoke21.i, %.invoke22.i, %29, %28, %27, %15, %13
+  %.sroa.06.1.i.i = phi ptr [ %14, %13 ], [ %.sroa.06.020.i.i, %15 ], [ %.sroa.06.020.i.i, %27 ], [ %.sroa.06.020.i.i, %28 ], [ %.sroa.06.020.i.i, %29 ], [ %.sroa.06.020.i.i, %.invoke.i ], [ %.sroa.06.020.i.i, %.invoke21.i ], [ %.sroa.06.020.i.i, %.invoke22.i ]
   %49 = add i64 %.sroa.0.021.i.i, 2
   %.not.i.i = icmp eq i64 %49, %8
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-50:                                               ; preds = %.invoke.i, %.invoke18.i, %.invoke19.i, %29, %28, %27
+50:                                               ; preds = %.invoke.i, %.invoke21.i, %.invoke22.i, %29, %28, %27
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -6359,13 +6359,13 @@ define hidden void @"_ZN4core3ptr185drop_in_place$LT$std..thread..Builder..spawn
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i64 %3, label %default.unreachable.i.i.i.i.i.i.i [
+  switch i64 %3, label %default.unreachable [
     i64 0, label %7
     i64 1, label %8
     i64 2, label %9
   ]
 
-default.unreachable.i.i.i.i.i.i.i:                ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 7:                                                ; preds = %5

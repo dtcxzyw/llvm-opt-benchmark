@@ -321,7 +321,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %29 = load i32, ptr %28, align 8, !tbaa !57
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph.i.i, label %.loopexit62.i.i
+  br i1 %30, label %.lr.ph.i.i, label %.loopexit66.i.i
 
 .lr.ph.i.i:                                       ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 96
@@ -377,13 +377,13 @@ parse_nal_units.exit.thread:                      ; preds = %17
   %49 = phi ptr [ %34, %33 ], [ %34, %37 ], [ %41, %40 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit62.i.i, label %33, !llvm.loop !70
+  br i1 %exitcond.not.i.i, label %.loopexit66.i.i, label %33, !llvm.loop !70
 
 50:                                               ; preds = %47
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.2) #4
   br label %parse_nal_units.exit.thread19
 
-.loopexit62.i.i:                                  ; preds = %48, %27
+.loopexit66.i.i:                                  ; preds = %48, %27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.3) #4
   br label %parse_nal_units.exit.thread19
 
@@ -721,8 +721,8 @@ get_format.exit.i.i:                              ; preds = %.sink.split.i.i.i, 
   %241 = tail call i32 @av_reduce(ptr noundef nonnull %238, ptr noundef nonnull %237, i64 noundef %239, i64 noundef %240, i64 noundef 1073741824) #4
   br label %parse_nal_units.exit
 
-parse_nal_units.exit.thread19:                    ; preds = %26, %is_au_start.exit.i, %67, %58, %.loopexit62.i.i, %50, %get_pu_info.exit.i
-  %.0.i.ph = phi i32 [ -12, %get_pu_info.exit.i ], [ -1094995529, %50 ], [ -1094995529, %.loopexit62.i.i ], [ -1094995529, %58 ], [ -1094995529, %67 ], [ 1, %is_au_start.exit.i ], [ %24, %26 ]
+parse_nal_units.exit.thread19:                    ; preds = %26, %is_au_start.exit.i, %67, %58, %.loopexit66.i.i, %50, %get_pu_info.exit.i
+  %.0.i.ph = phi i32 [ -12, %get_pu_info.exit.i ], [ -1094995529, %50 ], [ -1094995529, %.loopexit66.i.i ], [ -1094995529, %58 ], [ -1094995529, %67 ], [ 1, %is_au_start.exit.i ], [ %24, %26 ]
   tail call void @ff_cbs_fragment_reset(ptr noundef nonnull %16) #4
   br label %parse_nal_units.exit.thread17
 

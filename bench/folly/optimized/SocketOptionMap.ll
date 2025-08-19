@@ -476,14 +476,14 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pair
   br i1 %.0.i.i.i, label %._crit_edge.thread.i, label %21
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.020.lcssa29.i = phi ptr [ %.02125.i, %._crit_edge.i ], [ %4, %2 ]
+  %.020.lcssa30.i = phi ptr [ %.02125.i, %._crit_edge.i ], [ %4, %2 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !36
-  %18 = icmp eq ptr %.020.lcssa29.i, %17
+  %18 = icmp eq ptr %.020.lcssa30.i, %17
   br i1 %18, label %select.unfold, label %19
 
 19:                                               ; preds = %._crit_edge.thread.i
-  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i) #19
+  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i) #19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %20, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !30
   %.pre19 = load i32, ptr %1, align 8, !tbaa !30
@@ -498,7 +498,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pair
   %23 = phi i32 [ %.pre21, %19 ], [ %13, %._crit_edge.i ]
   %24 = phi i32 [ %.pre19, %19 ], [ %5, %._crit_edge.i ]
   %25 = phi i32 [ %.pre, %19 ], [ %10, %._crit_edge.i ]
-  %.020.lcssa30.i = phi ptr [ %.020.lcssa29.i, %19 ], [ %.02125.i, %._crit_edge.i ]
+  %.020.lcssa29.i = phi ptr [ %.020.lcssa30.i, %19 ], [ %.02125.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %20, %19 ], [ %.02125.i, %._crit_edge.i ]
   %26 = icmp eq i32 %25, %24
   %27 = icmp slt i32 %23, %22
@@ -507,7 +507,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pair
   br i1 %.0.i.i5.i, label %select.unfold, label %46
 
 select.unfold:                                    ; preds = %21, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa29.i, %._crit_edge.thread.i ], [ %.020.lcssa30.i, %21 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa30.i, %._crit_edge.thread.i ], [ %.020.lcssa29.i, %21 ]
   %29 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %29, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NS0_17SocketOptionValueEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit, label %30
 

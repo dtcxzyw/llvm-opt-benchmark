@@ -190,9 +190,9 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
   %17 = tail call fastcc ptr @_parse_plugin_type(ptr noundef %8)
   store ptr %17, ptr %12, align 8
   %.not31 = icmp eq ptr %17, null
-  br i1 %.not31, label %.thread55, label %19
+  br i1 %.not31, label %.thread59, label %19
 
-.thread55:                                        ; preds = %16
+.thread59:                                        ; preds = %16
   %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.data_parser_g_new, ptr noundef %8) #13
   br label %80
 
@@ -316,7 +316,7 @@ _find_plugin_by_type.exit.thread:                 ; preds = %62, %.preheader46.i
   br label %.preheader
 
 .preheader:                                       ; preds = %24, %28, %_find_plugin_by_type.exit.thread, %69, %73
-  %.02754 = phi ptr [ null, %73 ], [ %72, %69 ], [ null, %_find_plugin_by_type.exit.thread ], [ null, %28 ], [ null, %24 ]
+  %.02758 = phi ptr [ null, %73 ], [ %72, %69 ], [ null, %_find_plugin_by_type.exit.thread ], [ null, %28 ], [ null, %24 ]
   %75 = load ptr, ptr %17, align 8
   %.not3644 = icmp eq ptr %75, null
   br i1 %.not3644, label %._crit_edge, label %.lr.ph
@@ -337,8 +337,8 @@ _find_plugin_by_type.exit.thread:                 ; preds = %62, %.preheader46.i
   %.not36 = icmp eq ptr %79, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-80:                                               ; preds = %.thread55, %._crit_edge, %14
-  %.026 = phi ptr [ null, %14 ], [ %.02754, %._crit_edge ], [ null, %.thread55 ]
+80:                                               ; preds = %.thread59, %._crit_edge, %14
+  %.026 = phi ptr [ null, %14 ], [ %.02758, %._crit_edge ], [ null, %.thread59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %.026
 }
@@ -752,16 +752,16 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   br i1 %.not60, label %.loopexit68, label %.preheader69
 
 .preheader69:                                     ; preds = %.thread, %88
-  %.050121 = phi i64 [ %69, %.thread ], [ 0, %88 ]
+  %.050131 = phi i64 [ %69, %.thread ], [ 0, %88 ]
   %91 = phi ptr [ %30, %.thread ], [ %18, %88 ]
   %92 = phi ptr [ %25, %.thread ], [ null, %88 ]
-  %93 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %91, i64 %.050121
+  %93 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %91, i64 %.050131
   %94 = load ptr, ptr %93, align 8
   %.not6187 = icmp eq ptr %94, null
-  br i1 %.not6187, label %.loopexit124, label %.lr.ph
+  br i1 %.not6187, label %.loopexit134, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader69, %.lr.ph
-  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.lr.ph ], [ %.050121, %.preheader69 ]
+  %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.lr.ph ], [ %.050131, %.preheader69 ]
   %95 = phi ptr [ %97, %.lr.ph ], [ %93, %.preheader69 ]
   tail call void @slurm_xfree(ptr noundef nonnull %95) #13
   %96 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %91, i64 %indvars.iv110, i32 1
@@ -770,9 +770,9 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   %97 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %91, i64 %indvars.iv.next111
   %98 = load ptr, ptr %97, align 8
   %.not61 = icmp eq ptr %98, null
-  br i1 %.not61, label %.loopexit124, label %.lr.ph, !llvm.loop !18
+  br i1 %.not61, label %.loopexit134, label %.lr.ph, !llvm.loop !18
 
-.loopexit124:                                     ; preds = %.lr.ph, %.preheader69
+.loopexit134:                                     ; preds = %.lr.ph, %.preheader69
   call void @slurm_xfree(ptr noundef nonnull %13) #13
   %99 = load ptr, ptr @plugins, align 8
   %100 = icmp ne ptr %99, null
@@ -780,7 +780,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   %or.cond = select i1 %100, i1 %101, i1 false
   br i1 %or.cond, label %.preheader67, label %.loopexit68
 
-.preheader67:                                     ; preds = %.loopexit124
+.preheader67:                                     ; preds = %.loopexit134
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %103 = load i64, ptr %102, align 8
   %.not93 = icmp eq i64 %103, 0
@@ -806,7 +806,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   %111 = icmp ugt i64 %110, %indvars.iv.next114
   br i1 %111, label %.lr.ph90, label %.loopexit68, !llvm.loop !19
 
-.loopexit68:                                      ; preds = %107, %88, %.preheader67, %.loopexit124
+.loopexit68:                                      ; preds = %107, %88, %.preheader67, %.loopexit134
   call void @slurm_xfree(ptr noundef nonnull %12) #13
   br label %112
 

@@ -875,9 +875,9 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %312 = load i32, ptr %311, align 8, !tbaa !28
   %.not401 = icmp eq i32 %312, 0
-  br i1 %.not401, label %320, label %.sink.split622
+  br i1 %.not401, label %320, label %.sink.split678
 
-.sink.split622:                                   ; preds = %309
+.sink.split678:                                   ; preds = %309
   %313 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %314 = load i32, ptr %313, align 4, !tbaa !29
   %315 = and i32 %314, 1
@@ -891,28 +891,28 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
   store i32 %319, ptr %316, align 4, !tbaa !31
   br label %320
 
-320:                                              ; preds = %.sink.split622, %309
+320:                                              ; preds = %.sink.split678, %309
   %321 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.68) #15
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 32
   %323 = load i32, ptr %322, align 8, !tbaa !28
   %.not403 = icmp eq i32 %323, 0
-  br i1 %.not403, label %331, label %.sink.split625
+  br i1 %.not403, label %331, label %.sink.split681
 
-.sink.split625:                                   ; preds = %320
+.sink.split681:                                   ; preds = %320
   %324 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %325 = load i32, ptr %324, align 4, !tbaa !29
   %326 = and i32 %325, 1
   %.not404 = icmp eq i32 %326, 0
   %327 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.str.70..str.69 = select i1 %.not404, ptr @.str.70, ptr @.str.69
-  %.630 = select i1 %.not404, i32 128, i32 192
+  %.686 = select i1 %.not404, i32 128, i32 192
   %328 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull %.str.70..str.69) #15
   %329 = load i32, ptr %327, align 4, !tbaa !31
-  %330 = or i32 %329, %.630
+  %330 = or i32 %329, %.686
   store i32 %330, ptr %327, align 4, !tbaa !31
   br label %331
 
-331:                                              ; preds = %.sink.split625, %320
+331:                                              ; preds = %.sink.split681, %320
   %332 = call ptr @optget(ptr noundef %4, ptr noundef nonnull @.str.71) #15
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 32
   %334 = load i32, ptr %333, align 8, !tbaa !28
@@ -1774,10 +1774,10 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
   %848 = urem i64 %847, %831
   br label %.lr.ph542
 
-.lr.ph542:                                        ; preds = %.lr.ph542.preheader, %.critedge.thread597
-  %.4299540 = phi i64 [ %1122, %.critedge.thread597 ], [ %848, %.lr.ph542.preheader ]
-  %.0304539 = phi i64 [ %1119, %.critedge.thread597 ], [ 0, %.lr.ph542.preheader ]
-  %.2309538 = phi i64 [ %.3310, %.critedge.thread597 ], [ %.0307, %.lr.ph542.preheader ]
+.lr.ph542:                                        ; preds = %.lr.ph542.preheader, %.critedge.thread653
+  %.4299540 = phi i64 [ %1122, %.critedge.thread653 ], [ %848, %.lr.ph542.preheader ]
+  %.0304539 = phi i64 [ %1119, %.critedge.thread653 ], [ 0, %.lr.ph542.preheader ]
+  %.2309538 = phi i64 [ %.3310, %.critedge.thread653 ], [ %.0307, %.lr.ph542.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -1787,7 +1787,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 32
   %852 = load i32, ptr %851, align 8, !tbaa !42
   %.not470 = icmp eq i32 %852, 0
-  br i1 %.not470, label %.critedge.thread597, label %853
+  br i1 %.not470, label %.critedge.thread653, label %853
 
 853:                                              ; preds = %.lr.ph542
   %854 = getelementptr inbounds nuw i8, ptr %850, i64 24
@@ -1799,11 +1799,11 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
 858:                                              ; preds = %853
   %859 = call i64 @read(i32 noundef %855, ptr noundef nonnull %13, i64 noundef 1025) #15
   %860 = icmp slt i64 %859, 0
-  br i1 %860, label %861, label %.critedge.thread597
+  br i1 %860, label %861, label %.critedge.thread653
 
 861:                                              ; preds = %858
   %862 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.169) #15
-  br label %.critedge.thread597
+  br label %.critedge.thread653
 
 863:                                              ; preds = %853
   %864 = icmp eq i32 %852, -1
@@ -1823,7 +1823,7 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
   call void @thrmgr_group_terminate(ptr noundef %872) #15
   %873 = load ptr, ptr %871, align 8, !tbaa !47
   %874 = call i32 @thrmgr_group_finished(ptr noundef %873, i32 noundef 1) #15
-  br label %.critedge.thread597
+  br label %.critedge.thread653
 
 875:                                              ; preds = %865
   %876 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.171) #15
@@ -1880,23 +1880,23 @@ define dso_local range(i32 0, 2) i32 @recvloop(ptr noundef readonly captures(non
 902:                                              ; preds = %.preheader510, %thread-pre-split490.thread
   %903 = load i32, ptr %854, align 8, !tbaa !45
   %.not473 = icmp eq i32 %903, -1
-  br i1 %.not473, label %.critedge.thread597, label %904
+  br i1 %.not473, label %.critedge.thread653, label %904
 
 904:                                              ; preds = %902
   %905 = load ptr, ptr %850, align 8, !tbaa !48
   %.not474 = icmp eq ptr %905, null
-  br i1 %.not474, label %.critedge.thread597, label %906
+  br i1 %.not474, label %.critedge.thread653, label %906
 
 906:                                              ; preds = %904
   %907 = load i64, ptr %20, align 8, !tbaa !40
   %908 = load i64, ptr %893, align 8, !tbaa !49
   %909 = icmp ult i64 %907, %908
-  br i1 %909, label %910, label %.critedge.thread597
+  br i1 %909, label %910, label %.critedge.thread653
 
 910:                                              ; preds = %906
   %911 = load i32, ptr %887, align 8, !tbaa !46
   %.not475 = icmp eq i32 %911, 3
-  br i1 %.not475, label %.critedge.thread597, label %912
+  br i1 %.not475, label %.critedge.thread653, label %912
 
 912:                                              ; preds = %910
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -2255,18 +2255,18 @@ parse_dispatch_cmd.exit.thread:                   ; preds = %1049
   %1071 = call i32 @conn_reply_error(ptr noundef nonnull %22, ptr noundef nonnull @.str.220) #15
   store i32 1, ptr %21, align 4, !tbaa !4
   %1072 = load i32, ptr %818, align 8, !tbaa !67
-  %.not631 = icmp eq i32 %1072, 0
-  br i1 %.not631, label %.thread493, label %thread-pre-split490.thread589
+  %.not687 = icmp eq i32 %1072, 0
+  br i1 %.not687, label %.thread493, label %thread-pre-split490.thread645
 
 .thread493:                                       ; preds = %parse_dispatch_cmd.exit, %parse_dispatch_cmd.exit.thread
-  %.pr491583 = phi i32 [ 1, %parse_dispatch_cmd.exit.thread ], [ %1052, %parse_dispatch_cmd.exit ]
+  %.pr491639 = phi i32 [ 1, %parse_dispatch_cmd.exit.thread ], [ %1052, %parse_dispatch_cmd.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.critedge
 
 1073:                                             ; preds = %parse_dispatch_cmd.exit
-  switch i32 %1052, label %thread-pre-split490.thread589 [
+  switch i32 %1052, label %thread-pre-split490.thread645 [
     i32 0, label %1074
-    i32 21, label %.critedge.thread599
+    i32 21, label %.critedge.thread655
   ]
 
 1074:                                             ; preds = %1073
@@ -2290,7 +2290,7 @@ parse_dispatch_cmd.exit.thread:                   ; preds = %1049
   %1082 = load ptr, ptr %850, align 8, !tbaa !48
   %1083 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.176, ptr noundef %1082) #15
   store i32 1, ptr %21, align 4, !tbaa !4
-  br label %thread-pre-split490.thread589
+  br label %thread-pre-split490.thread645
 
 1084:                                             ; preds = %1074
   %1085 = call fastcc i32 @handle_stream(ptr noundef %22, ptr noundef nonnull %850, ptr noundef %4, ptr noundef %21, ptr noundef %20, i32 noundef %695)
@@ -2298,11 +2298,11 @@ parse_dispatch_cmd.exit.thread:                   ; preds = %1049
   %.pre = load i32, ptr %21, align 4
   br label %thread-pre-split490.thread
 
-thread-pre-split490.thread589:                    ; preds = %1073, %parse_dispatch_cmd.exit.thread, %.thread492
+thread-pre-split490.thread645:                    ; preds = %1073, %parse_dispatch_cmd.exit.thread, %.thread492
   %1087 = call i32 @conn_reply_error(ptr noundef nonnull %22, ptr noundef nonnull @.str.177) #15
-  br label %.critedge.thread599
+  br label %.critedge.thread655
 
-.critedge.thread599:                              ; preds = %1073, %thread-pre-split490.thread589
+.critedge.thread655:                              ; preds = %1073, %thread-pre-split490.thread645
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.critedge.thread
 
@@ -2315,11 +2315,11 @@ thread-pre-split490.thread:                       ; preds = %1076, %1074, %1084
   br i1 %or.cond486, label %902, label %.critedge
 
 .critedge:                                        ; preds = %thread-pre-split490.thread, %.thread493
-  %1089 = phi i32 [ %.pr491583, %.thread493 ], [ %1088, %thread-pre-split490.thread ]
+  %1089 = phi i32 [ %.pr491639, %.thread493 ], [ %1088, %thread-pre-split490.thread ]
   %.not478 = icmp eq i32 %1089, 0
-  br i1 %.not478, label %.critedge.thread597, label %.critedge.thread
+  br i1 %.not478, label %.critedge.thread653, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread599, %892, %.critedge
+.critedge.thread:                                 ; preds = %.critedge.thread655, %892, %.critedge
   %1090 = getelementptr inbounds nuw i8, ptr %850, i64 48
   %1091 = load i32, ptr %1090, align 8, !tbaa !72
   %.not479 = icmp eq i32 %1091, -1
@@ -2374,9 +2374,9 @@ thread-pre-split490.thread:                       ; preds = %1076, %1074, %1084
 
 1118:                                             ; preds = %1108, %1110, %1116
   store i32 -1, ptr %854, align 8, !tbaa !45
-  br label %.critedge.thread597
+  br label %.critedge.thread653
 
-.critedge.thread597:                              ; preds = %910, %902, %904, %906, %.critedge, %1118, %858, %861, %.lr.ph542, %869
+.critedge.thread653:                              ; preds = %910, %902, %904, %906, %.critedge, %1118, %858, %861, %.lr.ph542, %869
   %.3310 = phi i64 [ %.2309538, %869 ], [ %.2309538, %.lr.ph542 ], [ %.2309538, %861 ], [ %.2309538, %858 ], [ %.4299540, %1118 ], [ %.4299540, %.critedge ], [ %.4299540, %906 ], [ %.4299540, %904 ], [ %.4299540, %902 ], [ %.4299540, %910 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -2387,8 +2387,8 @@ thread-pre-split490.thread:                       ; preds = %1076, %1074, %1084
   %1123 = icmp ult i64 %1119, %1121
   br i1 %1123, label %.lr.ph542, label %._crit_edge543
 
-._crit_edge543:                                   ; preds = %.critedge.thread597, %841, %838, %845
-  %.2309.lcssa = phi i64 [ %.0307, %845 ], [ %.0307, %841 ], [ %.0307, %838 ], [ %.3310, %.critedge.thread597 ]
+._crit_edge543:                                   ; preds = %.critedge.thread653, %841, %838, %845
+  %.2309.lcssa = phi i64 [ %.0307, %845 ], [ %.0307, %841 ], [ %.0307, %838 ], [ %.3310, %.critedge.thread653 ]
   %1124 = load ptr, ptr %24, align 8, !tbaa !16
   %1125 = call i32 @pthread_mutex_unlock(ptr noundef %1124) #15
   %1126 = call i32 @pthread_mutex_lock(ptr noundef nonnull @exit_mutex) #15
@@ -2404,8 +2404,8 @@ thread-pre-split490.thread:                       ; preds = %1076, %1074, %1084
   %1133 = icmp ne i32 %1132, 0
   %1134 = load i64, ptr %803, align 8
   %.not552 = icmp eq i64 %1134, 0
-  %or.cond629 = select i1 %1133, i1 true, i1 %.not552
-  br i1 %or.cond629, label %.loopexit509, label %.lr.ph547
+  %or.cond685 = select i1 %1133, i1 true, i1 %.not552
+  br i1 %or.cond685, label %.loopexit509, label %.lr.ph547
 
 .lr.ph547:                                        ; preds = %1129, %1162
   %.6301546 = phi i64 [ %1163, %1162 ], [ 0, %1129 ]

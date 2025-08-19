@@ -1086,14 +1086,13 @@ define internal { ptr, ptr } @_ZN6wiggle21run_in_dummy_executor11dummy_waker5clo
   %4 = ptrtoint ptr %0 to i64
   store i64 %4, ptr %3, align 8
   %5 = icmp eq ptr %0, inttoptr (i64 5 to ptr)
-  br i1 %5, label %6, label %8
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %7 = insertvalue { ptr, ptr } { ptr @anon.374425ea2a9b14131fd407b6497073b6.0, ptr poison }, ptr %0, 1
-  ret { ptr, ptr } %7
+  ret { ptr, ptr } { ptr @anon.374425ea2a9b14131fd407b6497073b6.0, ptr inttoptr (i64 5 to ptr) }
 
-8:                                                ; preds = %1
+7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   call void @_ZN4core9panicking13assert_failed17h2c4dbbbe41bc01f7E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.374425ea2a9b14131fd407b6497073b6.1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.374425ea2a9b14131fd407b6497073b6.3) #15

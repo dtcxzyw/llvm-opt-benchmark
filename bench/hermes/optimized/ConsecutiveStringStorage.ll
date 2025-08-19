@@ -717,21 +717,21 @@ if.end.i.i:                                       ; preds = %for.body.i11.i
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.cond.backedge.i.i
   %hash.084.i.i = phi i32 [ %xor.i.i.i.i, %while.cond.backedge.i.i ], [ 0, %if.end.i.i ]
   %i.083.i.i = phi i64 [ %dec85.i.i, %while.cond.backedge.i.i ], [ %15, %if.end.i.i ]
-  %dec85.i.i = add i64 %i.083.i.i, -1
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %16, i64 %dec85.i.i
+  %dec85.i.i = add nsw i64 %i.083.i.i, -1
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %dec85.i.i
   %17 = load i8, ptr %arrayidx.i.i, align 1, !noalias !30
   %conv.i.i.i.i = zext i8 %17 to i32
   %add.i.i.i.i = add i32 %hash.084.i.i, %conv.i.i.i.i
   %add.i1.i.i.i = mul i32 %add.i.i.i.i, 1025
   %shr.i.i.i.i = lshr i32 %add.i1.i.i.i, 6
   %xor.i.i.i.i = xor i32 %shr.i.i.i.i, %add.i1.i.i.i
-  %add.i.i = add i64 %i.083.i.i, 2
+  %add.i.i = add nuw nsw i64 %i.083.i.i, 2
   %cmp9.not.i.i = icmp ugt i64 %add.i.i, %15
   br i1 %cmp9.not.i.i, label %if.end15.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i
   %shl.i.i14.i = shl nuw nsw i32 %conv.i.i.i.i, 16
-  %arrayidx1.i.i15.i = getelementptr inbounds i8, ptr %16, i64 %i.083.i.i
+  %arrayidx1.i.i15.i = getelementptr inbounds nuw i8, ptr %16, i64 %i.083.i.i
   %18 = load i8, ptr %arrayidx1.i.i15.i, align 1, !noalias !30
   %conv2.i.i16.i = zext i8 %18 to i32
   %shl4.i.i17.i = shl nuw nsw i32 %conv2.i.i16.i, 8
@@ -773,7 +773,7 @@ if.end13.i.i.i.i.i:                               ; preds = %if.end9.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i23.i, label %if.end15.i.i, label %if.end9.i.i.i.i.i, !llvm.loop !28
 
 if.end15.i.i:                                     ; preds = %if.end13.i.i.i.i.i, %if.end.i.i.i.i.i, %while.body.i.i
-  %sub.i.i = sub i64 %15, %dec85.i.i
+  %sub.i.i = sub nsw i64 %15, %dec85.i.i
   %agg.tmp.sroa.2.0.copyload.i.fr.i.i.i.i.i.i = freeze i64 %sub.i.i
   %this.val.i.i.i.i = load ptr, ptr %suffixMap.i.i, align 8, !noalias !30
   %this.val2.i.i.i.i = load i32, ptr %12, align 8, !noalias !30
@@ -1544,7 +1544,7 @@ if.then.i.i.i71.i:                                ; preds = %if.then15.i.i.i
   br i1 %cmp8.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_112StringPackerIhE7OverlapESaIS4_EEmS6_ET_S8_T0_RSaIT1_E.exit.i.i.i.i.i
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_112StringPackerIhE7OverlapESaIS4_EEmS6_ET_S8_T0_RSaIT1_E.exit.i.i.i.i.i: ; preds = %if.then.i.i.i71.i
-  %62 = mul nuw i64 %sub.i.i.i.i, 24
+  %62 = mul nuw nsw i64 %sub.i.i.i.i, 24
   call void @llvm.memset.p0.i64(ptr align 8 %overlaps.val38.i.i.i, i8 0, i64 %62, i1 false), !noalias !48
   %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %overlaps.val38.i.i.i, i64 %62
   br label %if.end17.i.i.i
@@ -1898,8 +1898,8 @@ if.end13.i.i.i.i102.i:                            ; preds = %if.end9.i.i.i.i101.
   br i1 %cmp.i.i.i.i29.i.i, label %for.inc.i95.i, label %if.end9.i.i.i.i101.i, !llvm.loop !70
 
 if.then16.i.i:                                    ; preds = %if.end9.i.i.i, %if.end9.i.i.i.i101.i
-  %next_.i.i.i.le1103 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  store ptr %81, ptr %next_.i.i.i.le1103, align 8, !noalias !16
+  %next_.i.i.i.le1170 = getelementptr inbounds nuw i8, ptr %86, i64 48
+  store ptr %81, ptr %next_.i.i.i.le1170, align 8, !noalias !16
   store ptr %86, ptr %prev_.i.i, align 8, !noalias !16
   %overlapAmount_.i.i = getelementptr inbounds nuw i8, ptr %81, i64 64
   store i64 %dec51.i.i, ptr %overlapAmount_.i.i, align 8, !noalias !16
@@ -2438,15 +2438,15 @@ if.end.i.i108:                                    ; preds = %for.body.i11.i104
 while.body.i.i111:                                ; preds = %if.end.i.i108, %while.cond.backedge.i.i206
   %hash.084.i.i112 = phi i32 [ %xor.i.i.i.i120, %while.cond.backedge.i.i206 ], [ 0, %if.end.i.i108 ]
   %i.083.i.i113 = phi i64 [ %dec85.i.i114, %while.cond.backedge.i.i206 ], [ %134, %if.end.i.i108 ]
-  %dec85.i.i114 = add i64 %i.083.i.i113, -1
-  %arrayidx.i.i115 = getelementptr inbounds i16, ptr %135, i64 %dec85.i.i114
+  %dec85.i.i114 = add nsw i64 %i.083.i.i113, -1
+  %arrayidx.i.i115 = getelementptr inbounds nuw i16, ptr %135, i64 %dec85.i.i114
   %136 = load i16, ptr %arrayidx.i.i115, align 2, !noalias !93
   %conv.i.i.i.i116 = zext i16 %136 to i32
   %add.i.i.i.i117 = add i32 %hash.084.i.i112, %conv.i.i.i.i116
   %add.i1.i.i.i118 = mul i32 %add.i.i.i.i117, 1025
   %shr.i.i.i.i119 = lshr i32 %add.i1.i.i.i118, 6
   %xor.i.i.i.i120 = xor i32 %shr.i.i.i.i119, %add.i1.i.i.i118
-  %add.i.i121 = add i64 %i.083.i.i113, 2
+  %add.i.i121 = add nuw nsw i64 %i.083.i.i113, 2
   %cmp9.not.i.i122 = icmp ugt i64 %add.i.i121, %134
   br i1 %cmp9.not.i.i122, label %if.end15.i.i141, label %land.rhs.i.i123
 
@@ -2496,7 +2496,7 @@ if.end13.i.i.i.i.i135:                            ; preds = %if.end9.i.i.i.i.i13
   br i1 %cmp.i.i.i.i.i24.i, label %if.end15.i.i141, label %if.end9.i.i.i.i.i131, !llvm.loop !91
 
 if.end15.i.i141:                                  ; preds = %if.end13.i.i.i.i.i135, %if.end.i.i.i.i.i125, %while.body.i.i111
-  %sub.i.i142 = sub i64 %134, %dec85.i.i114
+  %sub.i.i142 = sub nsw i64 %134, %dec85.i.i114
   %agg.tmp.sroa.2.0.copyload.i.fr.i.i.i.i.i.i143 = freeze i64 %sub.i.i142
   %this.val.i.i.i.i144 = load ptr, ptr %suffixMap.i.i29, align 8, !noalias !93
   %this.val2.i.i.i.i145 = load i32, ptr %131, align 8, !noalias !93
@@ -3270,7 +3270,7 @@ if.then.i.i.i71.i638:                             ; preds = %if.then15.i.i.i572
   br i1 %cmp8.not.i.i.i.i.i646, label %if.else.i.i.i.i.i648, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_112StringPackerIDsE7OverlapESaIS4_EEmS6_ET_S8_T0_RSaIT1_E.exit.i.i.i.i.i
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIN12_GLOBAL__N_112StringPackerIDsE7OverlapESaIS4_EEmS6_ET_S8_T0_RSaIT1_E.exit.i.i.i.i.i: ; preds = %if.then.i.i.i71.i638
-  %182 = mul nuw i64 %sub.i.i.i.i639, 24
+  %182 = mul nuw nsw i64 %sub.i.i.i.i639, 24
   call void @llvm.memset.p0.i64(ptr align 8 %overlaps.val38.i.i.i306, i8 0, i64 %182, i1 false), !noalias !111
   %scevgep.i.i.i.i.i.i.i.i647 = getelementptr i8, ptr %overlaps.val38.i.i.i306, i64 %182
   br label %if.end17.i.i.i577
@@ -3624,8 +3624,8 @@ if.end13.i.i.i.i102.i398:                         ; preds = %if.end9.i.i.i.i101.
   br i1 %cmp.i.i.i.i29.i.i404, label %for.inc.i95.i377, label %if.end9.i.i.i.i101.i394, !llvm.loop !133
 
 if.then16.i.i405:                                 ; preds = %if.end9.i.i.i383, %if.end9.i.i.i.i101.i394
-  %next_.i.i.i381.le1106 = getelementptr inbounds nuw i8, ptr %206, i64 48
-  store ptr %201, ptr %next_.i.i.i381.le1106, align 8, !noalias !79
+  %next_.i.i.i381.le1173 = getelementptr inbounds nuw i8, ptr %206, i64 48
+  store ptr %201, ptr %next_.i.i.i381.le1173, align 8, !noalias !79
   store ptr %206, ptr %prev_.i.i340, align 8, !noalias !79
   %overlapAmount_.i.i406 = getelementptr inbounds nuw i8, ptr %201, i64 64
   store i64 %dec51.i.i332, ptr %overlapAmount_.i.i406, align 8, !noalias !79
@@ -7655,7 +7655,7 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %if.then
   store i8 0, ptr %0, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %sub.i.i.i.i = add i64 %sub, -1
+  %sub.i.i.i.i = add nsw i64 %sub, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
@@ -7711,7 +7711,7 @@ if.then.i28.i:                                    ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %if.then.i28.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr33.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
+  %add.ptr33.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %__new_size
   store ptr %add.ptr33.i, ptr %_M_finish.i, align 8
   %add.ptr36.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %3
   store ptr %add.ptr36.i, ptr %_M_end_of_storage.i, align 8
@@ -7770,13 +7770,13 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i64 0, ptr %0, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %sub.i.i.i = add i64 %__n, -1
+  %sub.i.i.i = add nsw i64 %__n, -1
   %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN6hermes16StringTableEntryEmS1_ET_S3_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %add.ptr.idx.i.i.i.i.i = shl nsw i64 %sub.i.i.i, 3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i, 3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i, i64 %add.ptr.idx.i.i.i.i.i
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -7844,7 +7844,7 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIN6herm
 
 _ZNSt12_Vector_baseIN6hermes16StringTableEntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr34 = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw %"class.hermes::StringTableEntry", ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8
   %add.ptr37 = getelementptr inbounds nuw %"class.hermes::StringTableEntry", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8

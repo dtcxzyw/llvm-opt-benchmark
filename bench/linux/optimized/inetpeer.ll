@@ -154,12 +154,12 @@ define dso_local ptr @inet_getpeer(ptr noundef %0, ptr noundef readonly captures
 57:                                               ; preds = %56, %.thread9.i
   %58 = icmp eq i32 %52, 0
   %spec.select = select i1 %58, ptr %17, ptr null
-  %spec.select82 = select i1 %58, ptr null, ptr %16
+  %spec.select103 = select i1 %58, ptr null, ptr %16
   br label %lookup.exit
 
 lookup.exit:                                      ; preds = %29, %32, %57, %.loopexit25
   %.020 = phi ptr [ %0, %.loopexit25 ], [ %spec.select, %57 ], [ %35, %32 ], [ %17, %29 ]
-  %59 = phi ptr [ null, %.loopexit25 ], [ %spec.select82, %57 ], [ null, %32 ], [ null, %29 ]
+  %59 = phi ptr [ null, %.loopexit25 ], [ %spec.select103, %57 ], [ null, %32 ], [ null, %29 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %60 = load volatile i32, ptr %5, align 4
   tail call void @__rcu_read_unlock() #10

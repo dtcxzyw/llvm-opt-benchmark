@@ -417,13 +417,13 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %._crit_edge1003.sink.split
 
 ._crit_edge1003.sink.split:                       ; preds = %176, %219
-  %.sink1038 = phi i64 [ %226, %219 ], [ %133, %176 ]
-  %.sink1035 = phi i32 [ %218, %219 ], [ %177, %176 ]
+  %.sink1066 = phi i64 [ %226, %219 ], [ %133, %176 ]
+  %.sink1063 = phi i32 [ %218, %219 ], [ %177, %176 ]
   %.2808.ph = phi i32 [ %218, %219 ], [ %.1807879, %176 ]
-  %227 = getelementptr double, ptr %31, i64 %.sink1038
+  %227 = getelementptr double, ptr %31, i64 %.sink1066
   %228 = getelementptr i8, ptr %227, i64 8
   call void @daxpy_(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %228, ptr noundef nonnull @c__1, ptr noundef nonnull %8, ptr noundef nonnull @c__1) #4
-  store i32 %.sink1035, ptr %12, align 4, !tbaa !3
+  store i32 %.sink1063, ptr %12, align 4, !tbaa !3
   %229 = call i32 @idamax_(ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef nonnull @c__1) #4
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds double, ptr %33, i64 %230
@@ -944,7 +944,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not864.not941, label %.lr.ph945.preheader, label %.loopexit907
 
 .lr.ph945.preheader:                              ; preds = %523
-  %invariant.gep1024 = getelementptr double, ptr %33, i64 %540
+  %invariant.gep1052 = getelementptr double, ptr %33, i64 %540
   br label %.lr.ph945
 
 .lr.ph945:                                        ; preds = %.lr.ph945.preheader, %.lr.ph945
@@ -955,8 +955,8 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %555 = fcmp oge double %554, 0.000000e+00
   %556 = fneg double %554
   %557 = select i1 %555, double %554, double %556
-  %gep1025 = getelementptr double, ptr %invariant.gep1024, i64 %indvars.iv981
-  %558 = load double, ptr %gep1025, align 8, !tbaa !7
+  %gep1053 = getelementptr double, ptr %invariant.gep1052, i64 %indvars.iv981
+  %558 = load double, ptr %gep1053, align 8, !tbaa !7
   %559 = fcmp oge double %558, 0.000000e+00
   %560 = fneg double %558
   %561 = select i1 %559, double %558, double %560
@@ -1146,10 +1146,10 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %exitcond980.not, label %.loopexit.sink.split, label %.lr.ph939, !llvm.loop !15
 
 .loopexit.sink.split:                             ; preds = %.lr.ph939, %.lr.ph945
-  %.lcssa1021.sink = phi double [ %554, %.lr.ph945 ], [ %675, %.lr.ph939 ]
+  %.lcssa1049.sink = phi double [ %554, %.lr.ph945 ], [ %675, %.lr.ph939 ]
   %.13.ph = phi double [ %564, %.lr.ph945 ], [ %685, %.lr.ph939 ]
   %.8.ph = phi i32 [ %.7889901, %.lr.ph945 ], [ %621, %.lr.ph939 ]
-  store double %.lcssa1021.sink, ptr %14, align 8, !tbaa !7
+  store double %.lcssa1049.sink, ptr %14, align 8, !tbaa !7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %419, %622, %479, %618

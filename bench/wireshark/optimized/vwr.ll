@@ -1284,8 +1284,8 @@ get_ofdm_rate.exit.i:                             ; preds = %78, %switch.lookup,
 
 210:                                              ; preds = %205
   %211 = shl i64 %indvars.iv.i.i, 32
-  %sext45.i.i = add i64 %211, 17179869184
-  %212 = ashr exact i64 %sext45.i.i, 32
+  %sext48.i.i = add i64 %211, 17179869184
+  %212 = ashr exact i64 %sext48.i.i, 32
   %213 = getelementptr i8, ptr %102, i64 %212
   %214 = load i8, ptr %213, align 1
   %.not37.i.i = icmp eq i8 %214, %36
@@ -1344,8 +1344,8 @@ find_signature.exit.i:                            ; preds = %242, %231, %215
   br i1 %243, label %find_signature.exit.thread.i, label %get_signature_ts.exit.i
 
 find_signature.exit.thread.i:                     ; preds = %find_signature.exit.i, %112
-  %.032.i421.i = phi i32 [ %.032.i.ph.i, %find_signature.exit.i ], [ 42, %112 ]
-  %244 = add i32 %.032.i421.i, 15
+  %.032.i432.i = phi i32 [ %.032.i.ph.i, %find_signature.exit.i ], [ 42, %112 ]
+  %244 = add i32 %.032.i432.i, 15
   %.not.i408.i = icmp slt i32 %244, %20
   br i1 %.not.i408.i, label %245, label %get_signature_ts.exit.i
 
@@ -1355,7 +1355,7 @@ find_signature.exit.thread.i:                     ; preds = %find_signature.exit
   %248 = load i8, ptr %247, align 1
   %249 = icmp eq i8 %248, -30
   %..i.i = select i1 %249, i32 5, i32 8
-  %250 = add i32 %..i.i, %.032.i421.i
+  %250 = add i32 %..i.i, %.032.i432.i
   %251 = sext i32 %250 to i64
   %252 = getelementptr i8, ptr %102, i64 %251
   %253 = load i32, ptr %252, align 1
@@ -1513,9 +1513,9 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   store i8 0, ptr %342, align 1
   %343 = load i32, ptr %75, align 4
   %344 = icmp eq i32 %343, %74
-  %spec.select422.i = select i1 %344, i8 64, i8 32
+  %spec.select433.i = select i1 %344, i8 64, i8 32
   %345 = getelementptr i8, ptr %271, i64 46
-  store i8 %spec.select422.i, ptr %345, align 1
+  store i8 %spec.select433.i, ptr %345, align 1
   %346 = getelementptr i8, ptr %271, i64 47
   store i8 0, ptr %346, align 1
   %347 = zext nneg i8 %.0372.i to i64
@@ -2072,8 +2072,8 @@ get_legacy_rate.exit.i:                           ; preds = %605, %603, %601, %6
 
 719:                                              ; preds = %714
   %720 = shl i64 %indvars.iv.i.i52, 32
-  %sext45.i.i57 = add nuw i64 %720, 17179869184
-  %721 = ashr exact i64 %sext45.i.i57, 32
+  %sext48.i.i57 = add nuw i64 %720, 17179869184
+  %721 = ashr exact i64 %sext48.i.i57, 32
   %722 = getelementptr i8, ptr %701, i64 %721
   %723 = load i8, ptr %722, align 1
   %.not37.i.i58 = icmp eq i8 %723, %442
@@ -2966,8 +2966,8 @@ get_legacy_rate.exit.i66:                         ; preds = %1149, %1147, %1145,
 
 1268:                                             ; preds = %1263
   %1269 = shl i64 %indvars.iv.i.i79, 32
-  %sext45.i.i87 = add i64 %1269, 17179869184
-  %1270 = ashr exact i64 %sext45.i.i87, 32
+  %sext48.i.i87 = add i64 %1269, 17179869184
+  %1270 = ashr exact i64 %sext48.i.i87, 32
   %1271 = getelementptr i8, ptr %1250, i64 %1270
   %1272 = load i8, ptr %1271, align 1
   %.not37.i.i88 = icmp eq i8 %1272, %1010
@@ -3071,8 +3071,8 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
 
 1322:                                             ; preds = %1319, %1317, %get_signature_ts.exit.i71
   %.1726.i = phi i64 [ %1318, %1317 ], [ 0, %get_signature_ts.exit.i71 ], [ %..i72, %1319 ]
-  %.1180.i = select i1 %938, i32 163, i32 87
-  %1323 = add i32 %.3733.i, %.1180.i
+  %.1192.i = select i1 %938, i32 163, i32 87
+  %1323 = add i32 %.3733.i, %.1192.i
   %1324 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %1323, ptr %1324, align 4
   %1325 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -3246,9 +3246,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1412
 
 1412:                                             ; preds = %1410, %1409
-  %.sink1144.i = phi i8 [ 0, %1409 ], [ %1411, %1410 ]
+  %.sink1156.i = phi i8 [ 0, %1409 ], [ %1411, %1410 ]
   %1413 = getelementptr i8, ptr %1408, i64 1
-  store i8 %.sink1144.i, ptr %1413, align 1
+  store i8 %.sink1156.i, ptr %1413, align 1
   %indvars.iv.next998.i = add nuw nsw i64 %indvars.iv997.i, 2
   %indvars.iv.next1000.i = add nuw nsw i64 %indvars.iv999.i, 1
   %exitcond1004.not.i = icmp eq i64 %indvars.iv.next1000.i, 4
@@ -3283,9 +3283,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1426
 
 1426:                                             ; preds = %1424, %1423
-  %.sink1147.i = phi i8 [ 0, %1423 ], [ %1425, %1424 ]
+  %.sink1159.i = phi i8 [ 0, %1423 ], [ %1425, %1424 ]
   %1427 = getelementptr i8, ptr %1422, i64 1
-  store i8 %.sink1147.i, ptr %1427, align 1
+  store i8 %.sink1159.i, ptr %1427, align 1
   %indvars.iv.next1008.i = add nuw nsw i64 %indvars.iv1007.i, 2
   %indvars.iv.next1010.i = add nuw nsw i64 %indvars.iv1009.i, 1
   %exitcond1014.not.i = icmp eq i64 %indvars.iv.next1010.i, 4
@@ -3319,9 +3319,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1439
 
 1439:                                             ; preds = %1437, %1436
-  %.sink1150.i = phi i8 [ 0, %1436 ], [ %1438, %1437 ]
+  %.sink1162.i = phi i8 [ 0, %1436 ], [ %1438, %1437 ]
   %1440 = getelementptr i8, ptr %1435, i64 1
-  store i8 %.sink1150.i, ptr %1440, align 1
+  store i8 %.sink1162.i, ptr %1440, align 1
   %indvars.iv.next1020.i = add nuw nsw i64 %indvars.iv1019.i, 2
   %indvars.iv.next1022.i = add nuw nsw i64 %indvars.iv1021.i, 1
   %exitcond1026.not.i = icmp eq i64 %indvars.iv.next1022.i, 4
@@ -3355,9 +3355,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1452
 
 1452:                                             ; preds = %1450, %1449
-  %.sink1153.i = phi i8 [ 0, %1449 ], [ %1451, %1450 ]
+  %.sink1165.i = phi i8 [ 0, %1449 ], [ %1451, %1450 ]
   %1453 = getelementptr i8, ptr %1448, i64 1
-  store i8 %.sink1153.i, ptr %1453, align 1
+  store i8 %.sink1165.i, ptr %1453, align 1
   %indvars.iv.next1034.i = add nuw nsw i64 %indvars.iv1033.i, 2
   %indvars.iv.next1036.i = add nuw nsw i64 %indvars.iv1035.i, 1
   %exitcond1040.not.i = icmp eq i64 %indvars.iv.next1036.i, 4
@@ -3391,9 +3391,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1465
 
 1465:                                             ; preds = %1463, %1462
-  %.sink1156.i = phi i8 [ 0, %1462 ], [ %1464, %1463 ]
+  %.sink1168.i = phi i8 [ 0, %1462 ], [ %1464, %1463 ]
   %1466 = getelementptr i8, ptr %1461, i64 1
-  store i8 %.sink1156.i, ptr %1466, align 1
+  store i8 %.sink1168.i, ptr %1466, align 1
   %indvars.iv.next1050.i = add nuw nsw i64 %indvars.iv1049.i, 2
   %indvars.iv.next1052.i = add nuw nsw i64 %indvars.iv1051.i, 1
   %exitcond1056.not.i = icmp eq i64 %indvars.iv.next1052.i, 4
@@ -3423,9 +3423,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1477
 
 1477:                                             ; preds = %1475, %1474
-  %.sink1159.i = phi i8 [ 0, %1474 ], [ %1476, %1475 ]
+  %.sink1171.i = phi i8 [ 0, %1474 ], [ %1476, %1475 ]
   %1478 = getelementptr i8, ptr %1473, i64 1
-  store i8 %.sink1159.i, ptr %1478, align 1
+  store i8 %.sink1171.i, ptr %1478, align 1
   %indvars.iv.next1068.i = add nuw nsw i64 %indvars.iv1067.i, 2
   %indvars.iv.next1070.i = add nuw nsw i64 %indvars.iv1069.i, 1
   %exitcond1074.not.i = icmp eq i64 %indvars.iv.next1070.i, 4
@@ -3459,9 +3459,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1490
 
 1490:                                             ; preds = %1488, %1487
-  %.sink1162.i = phi i8 [ 0, %1487 ], [ %1489, %1488 ]
+  %.sink1174.i = phi i8 [ 0, %1487 ], [ %1489, %1488 ]
   %1491 = getelementptr i8, ptr %1486, i64 1
-  store i8 %.sink1162.i, ptr %1491, align 1
+  store i8 %.sink1174.i, ptr %1491, align 1
   %indvars.iv.next1088.i = add nuw nsw i64 %indvars.iv1087.i, 2
   %indvars.iv.next1090.i = add nuw nsw i64 %indvars.iv1089.i, 1
   %exitcond1094.not.i = icmp eq i64 %indvars.iv.next1090.i, 4
@@ -3495,9 +3495,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1503
 
 1503:                                             ; preds = %1501, %1500
-  %.sink1165.i = phi i8 [ 0, %1500 ], [ %1502, %1501 ]
+  %.sink1177.i = phi i8 [ 0, %1500 ], [ %1502, %1501 ]
   %1504 = getelementptr i8, ptr %1499, i64 1
-  store i8 %.sink1165.i, ptr %1504, align 1
+  store i8 %.sink1177.i, ptr %1504, align 1
   %indvars.iv.next1110.i = add nuw nsw i64 %indvars.iv1109.i, 2
   %indvars.iv.next1112.i = add nuw nsw i64 %indvars.iv1111.i, 1
   %exitcond1116.not.i = icmp eq i64 %indvars.iv.next1112.i, 4
@@ -3531,9 +3531,9 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1516
 
 1516:                                             ; preds = %1514, %1513
-  %.sink1168.i = phi i8 [ 0, %1513 ], [ %1515, %1514 ]
+  %.sink1180.i = phi i8 [ 0, %1513 ], [ %1515, %1514 ]
   %1517 = getelementptr i8, ptr %1512, i64 1
-  store i8 %.sink1168.i, ptr %1517, align 1
+  store i8 %.sink1180.i, ptr %1517, align 1
   %indvars.iv.next1134.i = add nuw nsw i64 %indvars.iv1133.i, 2
   %indvars.iv.next1136.i = add nuw nsw i64 %indvars.iv1135.i, 1
   %exitcond1138.not.i = icmp eq i64 %indvars.iv.next1136.i, 4
@@ -3636,10 +3636,10 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1572
 
 1572:                                             ; preds = %1571, %1570, %1570
-  %.sink1171.i = phi i8 [ 0, %1571 ], [ %.0707850890948.i, %1570 ], [ %.0707850890948.i, %1570 ]
+  %.sink1183.i = phi i8 [ 0, %1571 ], [ %.0707850890948.i, %1570 ], [ %.0707850890948.i, %1570 ]
   %1573 = sext i32 %1568 to i64
   %1574 = getelementptr i8, ptr %.0680856881952.i, i64 %1573
-  store i8 %.sink1171.i, ptr %1574, align 1
+  store i8 %.sink1183.i, ptr %1574, align 1
   %1575 = add i32 %.1683953.i, 14
   %1576 = sext i32 %1575 to i64
   %1577 = getelementptr i8, ptr %.0680856881952.i, i64 %1576
@@ -3735,14 +3735,14 @@ get_signature_ts.exit.i71:                        ; preds = %1305, %1303, %find_
   br label %1640
 
 1640:                                             ; preds = %1639, %1572, %1572
-  %.sink1174.i = phi i8 [ 0, %1639 ], [ %.0719844902942.i, %1572 ], [ %.0719844902942.i, %1572 ]
+  %.sink1186.i = phi i8 [ 0, %1639 ], [ %.0719844902942.i, %1572 ], [ %.0719844902942.i, %1572 ]
   %1641 = sext i32 %1638 to i64
   %1642 = getelementptr i8, ptr %.0680856881952.i, i64 %1641
   store i16 %.0722842906940.i, ptr %1642, align 1
   %1643 = add i32 %.1683953.i, 50
   %1644 = sext i32 %1643 to i64
   %1645 = getelementptr i8, ptr %.0680856881952.i, i64 %1644
-  store i8 %.sink1174.i, ptr %1645, align 1
+  store i8 %.sink1186.i, ptr %1645, align 1
   %.20.i = add i32 %.1683953.i, 51
   %1646 = sext i32 %.20.i to i64
   %1647 = getelementptr i8, ptr %.0680856881952.i, i64 %1646
@@ -3869,11 +3869,11 @@ vwr_read_s3_W_rec.exit:                           ; preds = %922, %944, %951, %1
   br label %1737
 
 1737:                                             ; preds = %1732, %1723
-  %.sink400.i = phi i32 [ %1717, %1732 ], [ %1728, %1723 ]
+  %.sink412.i = phi i32 [ %1717, %1732 ], [ %1728, %1723 ]
   %.0355.i = phi i32 [ %1736, %1732 ], [ %1731, %1723 ]
   %1738 = getelementptr inbounds nuw i8, ptr %3, i64 212
   %1739 = load i32, ptr %1738, align 4
-  %1740 = and i32 %1739, %.sink400.i
+  %1740 = and i32 %1739, %.sink412.i
   %.not.i95 = icmp eq i32 %1740, 0
   %1741 = select i1 %.not.i95, i32 14, i32 16
   %1742 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -4090,8 +4090,8 @@ vwr_read_s3_W_rec.exit:                           ; preds = %922, %944, %951, %1
 
 1905:                                             ; preds = %1900
   %1906 = shl i64 %indvars.iv.i.i110, 32
-  %sext45.i.i116 = add i64 %1906, 17179869184
-  %1907 = ashr exact i64 %sext45.i.i116, 32
+  %sext48.i.i116 = add i64 %1906, 17179869184
+  %1907 = ashr exact i64 %sext48.i.i116, 32
   %1908 = getelementptr i8, ptr %10, i64 %1907
   %1909 = load i8, ptr %1908, align 1
   %.not37.i.i117 = icmp eq i8 %1909, %1696

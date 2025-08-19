@@ -296,8 +296,8 @@ define dso_local i32 @lru_pull_tail(i32 noundef %0, i32 noundef %1, i64 noundef 
   %30 = getelementptr inbounds nuw i8, ptr %.0127291, i64 41
   %31 = load i8, ptr %30, align 1, !tbaa !30
   %32 = icmp eq i8 %31, 0
-  %or.cond411 = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond411, label %33, label %._crit_edge348
+  %or.cond424 = select i1 %29, i1 %32, i1 false
+  br i1 %or.cond424, label %33, label %._crit_edge348
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %.0127291, i64 38
@@ -1092,7 +1092,7 @@ do_item_unlink_q.exit182:                         ; preds = %447, %458
   br label %485
 
 485:                                              ; preds = %.thread203.thread, %479
-  %.4135.ph352 = phi i32 [ %.4135.ph.ph, %.thread203.thread ], [ %.4135.ph, %479 ]
+  %.4135.ph365 = phi i32 [ %.4135.ph.ph, %.thread203.thread ], [ %.4135.ph, %479 ]
   %486 = and i8 %3, 4
   %487 = icmp eq i8 %486, 0
   br i1 %487, label %488, label %497
@@ -1117,7 +1117,7 @@ do_item_remove.exit183:                           ; preds = %488, %492
   br label %497
 
 497:                                              ; preds = %._crit_edge, %38, %485, %do_item_remove.exit183, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %38 ], [ %.4135.ph352, %485 ], [ %.4135.ph352, %do_item_remove.exit183 ], [ %.0131.lcssa, %._crit_edge ]
+  %.0 = phi i32 [ 0, %6 ], [ 0, %38 ], [ %.4135.ph365, %485 ], [ %.4135.ph365, %do_item_remove.exit183 ], [ %.0131.lcssa, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -2656,9 +2656,9 @@ define dso_local void @fill_item_stats_automove(ptr noundef writeonly captures(n
   br i1 %.not25, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %17, %21, %25, %29
-  %.sink32 = phi ptr [ %31, %29 ], [ %16, %25 ], [ %16, %21 ], [ %16, %17 ]
+  %.sink33 = phi ptr [ %31, %29 ], [ %16, %25 ], [ %16, %21 ], [ %16, %17 ]
   %32 = load volatile i32, ptr @current_time, align 4, !tbaa !22
-  %33 = getelementptr inbounds nuw i8, ptr %.sink32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.sink33, i64 24
   %34 = load i32, ptr %33, align 8, !tbaa !22
   %35 = sub i32 %32, %34
   br label %36
@@ -4062,10 +4062,10 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.thread92.i, %167
-  %indvars.iv87.ph.i = phi i64 [ %indvars.iv.next8895.i, %.thread92.i ], [ 1, %167 ]
-  %.05781.ph.i = phi i1 [ true, %.thread92.i ], [ false, %167 ]
-  %.06080.ph.i = phi i32 [ %spec.select.i, %.thread92.i ], [ 0, %167 ]
+.outer.i:                                         ; preds = %.thread96.i, %167
+  %indvars.iv87.ph.i = phi i64 [ %indvars.iv.next8899.i, %.thread96.i ], [ 1, %167 ]
+  %.05781.ph.i = phi i1 [ true, %.thread96.i ], [ false, %167 ]
+  %.06080.ph.i = phi i32 [ %spec.select.i, %.thread96.i ], [ 0, %167 ]
   br label %168
 
 168:                                              ; preds = %241, %.outer.i
@@ -4187,14 +4187,14 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   %238 = getelementptr inbounds nuw [256 x i32], ptr @lru_maintainer_crawler_check.next_crawls, i64 0, i64 %indvars.iv87.i
   %239 = load i32, ptr %238, align 4, !tbaa !22
   %240 = icmp ugt i32 %237, %239
-  br i1 %240, label %.thread92.i, label %241
+  br i1 %240, label %.thread96.i, label %241
 
 241:                                              ; preds = %236
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next88.i, 256
   br i1 %exitcond89.not.i, label %251, label %168, !llvm.loop !143
 
-.thread92.i:                                      ; preds = %236
+.thread96.i:                                      ; preds = %236
   %242 = getelementptr inbounds nuw [256 x i32], ptr @lru_maintainer_crawler_check.next_crawls, i64 0, i64 %indvars.iv87.i
   %243 = getelementptr inbounds nuw [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv87.i
   %244 = call i32 @pthread_mutex_lock(ptr noundef nonnull %243) #19
@@ -4207,23 +4207,23 @@ lru_maintainer_bumps.exit:                        ; preds = %158
   %249 = load volatile i32, ptr @current_time, align 4, !tbaa !22
   %250 = add i32 %249, 5
   store i32 %250, ptr %242, align 4, !tbaa !22
-  %indvars.iv.next8895.i = add nuw nsw i64 %indvars.iv87.i, 1
-  %exitcond89.not96.i = icmp eq i64 %indvars.iv.next8895.i, 256
-  br i1 %exitcond89.not96.i, label %.thread99.i, label %.outer.i, !llvm.loop !143
+  %indvars.iv.next8899.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %exitcond89.not100.i = icmp eq i64 %indvars.iv.next8899.i, 256
+  br i1 %exitcond89.not100.i, label %.thread103.i, label %.outer.i, !llvm.loop !143
 
 251:                                              ; preds = %241
-  br i1 %.05781.ph.i, label %.thread99.i, label %lru_maintainer_crawler_check.exit
+  br i1 %.05781.ph.i, label %.thread103.i, label %lru_maintainer_crawler_check.exit
 
-.thread99.i:                                      ; preds = %.thread92.i, %251
-  %.16197102.i = phi i32 [ %.06080.ph.i, %251 ], [ %spec.select.i, %.thread92.i ]
+.thread103.i:                                     ; preds = %.thread96.i, %251
+  %.161101106.i = phi i32 [ %.06080.ph.i, %251 ], [ %spec.select.i, %.thread96.i ]
   %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 204), align 4, !tbaa !144
   %.not.not.i = icmp eq i32 %252, 0
-  %253 = call i32 @llvm.umin.i32(i32 %252, i32 %.16197102.i)
-  %.3.i = select i1 %.not.not.i, i32 %.16197102.i, i32 %253
+  %253 = call i32 @llvm.umin.i32(i32 %252, i32 %.161101106.i)
+  %.3.i = select i1 %.not.not.i, i32 %.161101106.i, i32 %253
   %254 = call i32 @lru_crawler_start(ptr noundef nonnull %2, i32 noundef %.3.i, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, i32 noundef 0) #19
   br label %lru_maintainer_crawler_check.exit
 
-lru_maintainer_crawler_check.exit:                ; preds = %251, %.thread99.i
+lru_maintainer_crawler_check.exit:                ; preds = %251, %.thread103.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %255 = load volatile i32, ptr @current_time, align 4, !tbaa !22
   br label %256

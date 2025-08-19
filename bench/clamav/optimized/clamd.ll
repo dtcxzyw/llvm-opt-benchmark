@@ -305,8 +305,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load i32, ptr %55, align 8, !tbaa !14
   %.not293 = icmp ne i32 %56, 0
-  %.517 = zext i1 %.not293 to i16
-  store i16 %.517, ptr @foreground, align 2, !tbaa !19
+  %.550 = zext i1 %.not293 to i16
+  store i16 %.550, ptr @foreground, align 2, !tbaa !19
   br label %.critedge376
 
 .critedge376:                                     ; preds = %47, %.critedge376.sink.split, %45
@@ -1526,8 +1526,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %758, label %.thread453.sink.split, label %.thread453
 
 .thread453.sink.split:                            ; preds = %757, %.thread450
-  %.sink516 = phi i32 [ %736, %.thread450 ], [ %752, %757 ]
-  %759 = add i32 %.sink516, 1
+  %.sink549 = phi i32 [ %736, %.thread450 ], [ %752, %757 ]
+  %759 = add i32 %.sink549, 1
   store i32 %759, ptr %8, align 4, !tbaa !4
   br label %.thread453
 

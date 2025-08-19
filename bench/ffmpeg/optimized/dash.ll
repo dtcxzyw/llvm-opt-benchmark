@@ -168,7 +168,7 @@ dash_read_tmpl_id.exit:                           ; preds = %52, %75
   %.2 = phi ptr [ %55, %52 ], [ %.177, %75 ]
   %.0.i = phi i32 [ %.130.i, %52 ], [ %.3.i, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  switch i32 %.0.i, label %default.unreachable108 [
+  switch i32 %.0.i, label %default.unreachable111 [
     i32 0, label %76
     i32 1, label %79
     i32 2, label %83
@@ -214,7 +214,7 @@ dash_read_tmpl_id.exit:                           ; preds = %52, %75
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br label %99
 
-default.unreachable108:                           ; preds = %dash_read_tmpl_id.exit
+default.unreachable111:                           ; preds = %dash_read_tmpl_id.exit
   unreachable
 
 .thread:                                          ; preds = %33, %16, %29

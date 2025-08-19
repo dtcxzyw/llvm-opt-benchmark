@@ -4124,9 +4124,9 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %or.cond.i = icmp ult i8 %46, 2
   %47 = load i32, ptr @hf_docsis_rngrsp_length, align 4
   %..i = select i1 %or.cond.i, i32 2, i32 1
-  %.90.i = select i1 %or.cond.i, i32 3, i32 2
+  %.94.i = select i1 %or.cond.i, i32 3, i32 2
   %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %40, i32 noundef %47, ptr noundef nonnull %30, i32 noundef %43, i32 noundef %..i, i32 noundef 0, ptr noundef nonnull %7)
-  %49 = add i32 %.90.i, %.088.i
+  %49 = add i32 %.94.i, %.088.i
   %50 = load ptr, ptr %6, align 8
   %51 = load i32, ptr %7, align 4
   %52 = add i32 %51, 2
@@ -6516,9 +6516,9 @@ dissect_mdd_channel_profile_reporting_control.exit: ; preds = %159, %138
 
 .sink.split.i152:                                 ; preds = %180, %.lr.ph.i150
   %hf_docsis_mdd_pre_registration_dsid.sink.i = phi ptr [ @hf_docsis_mdd_pre_registration_dsid, %180 ], [ @hf_docsis_mdd_ip_provisioning_mode, %.lr.ph.i150 ]
-  %.sink2.i = phi i32 [ 3, %180 ], [ 1, %.lr.ph.i150 ]
+  %.sink4.i = phi i32 [ 3, %180 ], [ 1, %.lr.ph.i150 ]
   %181 = load i32, ptr %hf_docsis_mdd_pre_registration_dsid.sink.i, align 4
-  %182 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %181, ptr noundef %0, i32 noundef %176, i32 noundef %.sink2.i, i32 noundef 0)
+  %182 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %181, ptr noundef %0, i32 noundef %176, i32 noundef %.sink4.i, i32 noundef 0)
   br label %183
 
 183:                                              ; preds = %.sink.split.i152, %.lr.ph.i150
@@ -6745,9 +6745,9 @@ dissect_mdd_cm_status_event_control.exit:         ; preds = %274, %246
 
 .sink.split.i159:                                 ; preds = %298, %.lr.ph.i157
   %hf_docsis_mdd_dsg_da_to_dsid_association_dsid.sink.i = phi ptr [ @hf_docsis_mdd_dsg_da_to_dsid_association_dsid, %298 ], [ @hf_docsis_mdd_dsg_da_to_dsid_association_da, %.lr.ph.i157 ]
-  %.sink2.i160 = phi i32 [ 3, %298 ], [ 6, %.lr.ph.i157 ]
+  %.sink4.i160 = phi i32 [ 3, %298 ], [ 6, %.lr.ph.i157 ]
   %299 = load i32, ptr %hf_docsis_mdd_dsg_da_to_dsid_association_dsid.sink.i, align 4
-  %300 = call ptr @proto_tree_add_item(ptr noundef %288, i32 noundef %299, ptr noundef %0, i32 noundef %294, i32 noundef %.sink2.i160, i32 noundef 0)
+  %300 = call ptr @proto_tree_add_item(ptr noundef %288, i32 noundef %299, ptr noundef %0, i32 noundef %294, i32 noundef %.sink4.i160, i32 noundef 0)
   br label %301
 
 301:                                              ; preds = %.sink.split.i159, %.lr.ph.i157
@@ -6951,27 +6951,27 @@ proto_item_set_hidden.exit.i:                     ; preds = %389, %386, %383, %.
   br label %proto_item_set_hidden.exit116.i
 
 proto_item_set_hidden.exit116.i:                  ; preds = %400, %397, %394, %proto_item_set_hidden.exit.i, %312
-  %.0104.lcssa134147.i = phi i32 [ %379, %400 ], [ %379, %397 ], [ %379, %394 ], [ %379, %proto_item_set_hidden.exit.i ], [ %54, %312 ]
-  %.0102.lcssa135146.i = phi i32 [ %.1103.i, %400 ], [ %.1103.i, %397 ], [ %.1103.i, %394 ], [ %.1103.i, %proto_item_set_hidden.exit.i ], [ -1, %312 ]
-  %.0100.lcssa136145.i = phi i32 [ %.1101.i, %400 ], [ %.1101.i, %397 ], [ %.1101.i, %394 ], [ %.1101.i, %proto_item_set_hidden.exit.i ], [ -1, %312 ]
-  %.0.lcssa138144.shrunk.i = phi i8 [ %.1.i, %400 ], [ %.1.i, %397 ], [ %.1.i, %394 ], [ %.1.i, %proto_item_set_hidden.exit.i ], [ 0, %312 ]
-  %404 = or i32 %.0100.lcssa136145.i, %.0102.lcssa135146.i
+  %.0104.lcssa140153.i = phi i32 [ %379, %400 ], [ %379, %397 ], [ %379, %394 ], [ %379, %proto_item_set_hidden.exit.i ], [ %54, %312 ]
+  %.0102.lcssa141152.i = phi i32 [ %.1103.i, %400 ], [ %.1103.i, %397 ], [ %.1103.i, %394 ], [ %.1103.i, %proto_item_set_hidden.exit.i ], [ -1, %312 ]
+  %.0100.lcssa142151.i = phi i32 [ %.1101.i, %400 ], [ %.1101.i, %397 ], [ %.1101.i, %394 ], [ %.1101.i, %proto_item_set_hidden.exit.i ], [ -1, %312 ]
+  %.0.lcssa144150.shrunk.i = phi i8 [ %.1.i, %400 ], [ %.1.i, %397 ], [ %.1.i, %394 ], [ %.1.i, %proto_item_set_hidden.exit.i ], [ 0, %312 ]
+  %404 = or i32 %.0100.lcssa142151.i, %.0102.lcssa141152.i
   %or.cond.i = icmp sgt i32 %404, -1
   br i1 %or.cond.i, label %405, label %410
 
 405:                                              ; preds = %proto_item_set_hidden.exit116.i
-  %.0.lcssa138144.i = zext i8 %.0.lcssa138144.shrunk.i to i32
-  %406 = and i32 %.0.lcssa138144.i, 1
+  %.0.lcssa144150.i = zext i8 %.0.lcssa144150.shrunk.i to i32
+  %406 = and i32 %.0.lcssa144150.i, 1
   %.not.i161 = icmp eq i32 %406, 0
   %407 = select i1 %.not.i161, ptr @.str.2197, ptr @.str.2196
-  %408 = and i32 %.0.lcssa138144.i, 2
+  %408 = and i32 %.0.lcssa144150.i, 2
   %.not109.i = icmp eq i32 %408, 0
   %409 = select i1 %.not109.i, ptr @.str.2197, ptr @.str.2198
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.2195, i32 noundef %.0102.lcssa135146.i, i32 noundef %.0100.lcssa136145.i, ptr noundef nonnull %407, ptr noundef nonnull %409)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.2195, i32 noundef %.0102.lcssa141152.i, i32 noundef %.0100.lcssa142151.i, ptr noundef nonnull %407, ptr noundef nonnull %409)
   br label %410
 
 410:                                              ; preds = %405, %proto_item_set_hidden.exit116.i
-  %.not110.i = icmp eq i32 %.0104.lcssa134147.i, %313
+  %.not110.i = icmp eq i32 %.0104.lcssa140153.i, %313
   br i1 %.not110.i, label %dissect_mdd_docsis_version.exit, label %411
 
 411:                                              ; preds = %410

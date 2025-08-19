@@ -929,8 +929,8 @@ gf2_matrix_times.exit:                            ; preds = %61
 gf2_matrix_times.exit24:                          ; preds = %70
   %73 = getelementptr inbounds nuw [256 x i32], ptr %52, i64 0, i64 %indvars.iv
   store i32 %.1.i21, ptr %73, align 4, !tbaa !14
-  %indvars.iv.tr53 = trunc i64 %indvars.iv to i32
-  %74 = shl i32 %indvars.iv.tr53, 16
+  %indvars.iv.tr56 = trunc i64 %indvars.iv to i32
+  %74 = shl i32 %indvars.iv.tr56, 16
   br label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %gf2_matrix_times.exit24, %79
@@ -956,8 +956,8 @@ gf2_matrix_times.exit24:                          ; preds = %70
 gf2_matrix_times.exit34:                          ; preds = %79
   %82 = getelementptr inbounds nuw [256 x i32], ptr %53, i64 0, i64 %indvars.iv
   store i32 %.1.i31, ptr %82, align 4, !tbaa !14
-  %indvars.iv.tr54 = trunc i64 %indvars.iv to i32
-  %83 = shl i32 %indvars.iv.tr54, 24
+  %indvars.iv.tr57 = trunc i64 %indvars.iv to i32
+  %83 = shl i32 %indvars.iv.tr57, 24
   br label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %gf2_matrix_times.exit34, %88

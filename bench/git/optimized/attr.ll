@@ -427,7 +427,7 @@ st_mult.exit:                                     ; preds = %._crit_edge
 
 st_add.exit:                                      ; preds = %60, %st_mult.exit
   %73 = phi i64 [ %70, %st_mult.exit ], [ 0, %60 ]
-  %.075.lcssa114116 = phi i64 [ %67, %st_mult.exit ], [ 0, %60 ]
+  %.075.lcssa120122 = phi i64 [ %67, %st_mult.exit ], [ 0, %60 ]
   %74 = add nuw i64 %73, 40
   %75 = add i64 %.177, 1
   %76 = select i1 %.not87, i64 %75, i64 0
@@ -451,7 +451,7 @@ st_add.exit95:                                    ; preds = %st_add.exit
 
 84:                                               ; preds = %st_add.exit95
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %86 = getelementptr inbounds nuw [0 x %struct.attr_state], ptr %85, i64 0, i64 %.075.lcssa114116
+  %86 = getelementptr inbounds nuw [0 x %struct.attr_state], ptr %85, i64 0, i64 %.075.lcssa120122
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 1 %.1, i64 %.177, i1 false)
   store ptr %86, ptr %81, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -481,7 +481,7 @@ st_add.exit95:                                    ; preds = %st_add.exit
   %97 = getelementptr inbounds nuw i8, ptr %81, i64 24
   store i8 %.069, ptr %97, align 8, !tbaa !4
   %98 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store i64 %.075.lcssa114116, ptr %98, align 8, !tbaa !31
+  store i64 %.075.lcssa120122, ptr %98, align 8, !tbaa !31
   %99 = load ptr, ptr %5, align 8, !tbaa !26
   %100 = load i8, ptr %99, align 1, !tbaa !4
   %.not89107 = icmp eq i8 %100, 0
@@ -1488,7 +1488,7 @@ define internal fastcc ptr @default_attr_source() unnamed_addr #1 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @default_attr_source_tree_object_name, align 8, !tbaa !26
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %5, label %.thread11.i
+  br i1 %.not.i, label %5, label %.thread13.i
 
 5:                                                ; preds = %3
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.21) #21
@@ -1500,9 +1500,9 @@ define internal fastcc ptr @default_attr_source() unnamed_addr #1 {
   br i1 %or.cond.not.not7.i, label %.thread2.i, label %10
 
 10:                                               ; preds = %5
-  br i1 %7, label %compute_default_attr_source.exit, label %.thread11.i
+  br i1 %7, label %compute_default_attr_source.exit, label %.thread13.i
 
-.thread11.i:                                      ; preds = %10, %3
+.thread13.i:                                      ; preds = %10, %3
   %11 = phi ptr [ %6, %10 ], [ %4, %3 ]
   %12 = load ptr, ptr @startup_info, align 8, !tbaa !101
   %13 = load i32, ptr %12, align 8, !tbaa !103
@@ -1516,18 +1516,18 @@ define internal fastcc ptr @default_attr_source() unnamed_addr #1 {
   %.not83.i = icmp eq i32 %15, 0
   br i1 %.not83.i, label %compute_default_attr_source.exit, label %18
 
-16:                                               ; preds = %.thread11.i
+16:                                               ; preds = %.thread13.i
   %17 = tail call fastcc ptr @_(ptr noundef nonnull @.str.22)
   tail call void (ptr, ...) @die(ptr noundef %17) #22
   unreachable
 
-18:                                               ; preds = %.thread2.i, %.thread11.i
-  %or.cond.not.not79.i = phi i1 [ true, %.thread2.i ], [ false, %.thread11.i ]
-  %19 = phi ptr [ %8, %.thread2.i ], [ %11, %.thread11.i ]
+18:                                               ; preds = %.thread2.i, %.thread13.i
+  %or.cond.not.not711.i = phi i1 [ true, %.thread2.i ], [ false, %.thread13.i ]
+  %19 = phi ptr [ %8, %.thread2.i ], [ %11, %.thread13.i ]
   %20 = load ptr, ptr @the_repository, align 8, !tbaa !95
   %21 = tail call i32 @repo_get_oid_treeish(ptr noundef %20, ptr noundef nonnull %19, ptr noundef nonnull @default_attr_source.attr_source) #21
   %.not12.i = icmp eq i32 %21, 0
-  %brmerge.i = or i1 %or.cond.not.not79.i, %.not12.i
+  %brmerge.i = or i1 %or.cond.not.not711.i, %.not12.i
   %.mux.i = zext i1 %.not12.i to i32
   br i1 %brmerge.i, label %compute_default_attr_source.exit, label %22
 

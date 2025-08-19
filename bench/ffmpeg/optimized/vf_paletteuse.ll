@@ -664,7 +664,7 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   %207 = sext i32 %206 to i64
   %bcmp143.i.i = call i32 @bcmp(ptr nonnull %202, ptr %204, i64 %207)
   %.not144.i.i = icmp eq i32 %bcmp143.i.i, 0
-  br i1 %.not144.i.i, label %208, label %.critedge3.loopexit.split.loop.exit256.i.i
+  br i1 %.not144.i.i, label %208, label %.critedge3.loopexit.split.loop.exit262.i.i
 
 208:                                              ; preds = %200
   %209 = mul nsw i64 %indvars.iv218.i.i, %197
@@ -678,24 +678,24 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   %215 = icmp sgt i64 %indvars.iv.next219.i.i, %199
   br i1 %215, label %200, label %.critedge3.i.i, !llvm.loop !84
 
-.critedge3.loopexit.split.loop.exit256.i.i:       ; preds = %200
+.critedge3.loopexit.split.loop.exit262.i.i:       ; preds = %200
   %216 = trunc nsw i64 %indvars.iv218.i.i to i32
   br label %.critedge3.i.i
 
-.critedge3.i.i:                                   ; preds = %184, %208, %.critedge3.loopexit.split.loop.exit256.i.i, %.critedge.i.i
-  %.1130.lcssa249.i.i = phi i32 [ %.1130.lcssa.i.i, %.critedge.i.i ], [ %.1130.lcssa.i.i, %.critedge3.loopexit.split.loop.exit256.i.i ], [ %.1130.lcssa.i.i, %208 ], [ %156, %184 ]
-  %.0140.lcssa.i.i = phi i32 [ %156, %.critedge.i.i ], [ %216, %.critedge3.loopexit.split.loop.exit256.i.i ], [ %.1130.lcssa.i.i, %208 ], [ %156, %184 ]
-  %reass.sub.i.i = sub i32 %.0140.lcssa.i.i, %.1130.lcssa249.i.i
+.critedge3.i.i:                                   ; preds = %184, %208, %.critedge3.loopexit.split.loop.exit262.i.i, %.critedge.i.i
+  %.1130.lcssa255.i.i = phi i32 [ %.1130.lcssa.i.i, %.critedge.i.i ], [ %.1130.lcssa.i.i, %.critedge3.loopexit.split.loop.exit262.i.i ], [ %.1130.lcssa.i.i, %208 ], [ %156, %184 ]
+  %.0140.lcssa.i.i = phi i32 [ %156, %.critedge.i.i ], [ %216, %.critedge3.loopexit.split.loop.exit262.i.i ], [ %.1130.lcssa.i.i, %208 ], [ %156, %184 ]
+  %reass.sub.i.i = sub i32 %.0140.lcssa.i.i, %.1130.lcssa255.i.i
   %217 = add i32 %reass.sub.i.i, 1
   %218 = icmp sgt i32 %147, 1
   br i1 %218, label %.preheader171.lr.ph.i.i, label %.thread.i.i
 
 .preheader171.lr.ph.i.i:                          ; preds = %.critedge3.i.i
-  %.not145.not185.i.i = icmp sgt i32 %.1130.lcssa249.i.i, %.0140.lcssa.i.i
+  %.not145.not185.i.i = icmp sgt i32 %.1130.lcssa255.i.i, %.0140.lcssa.i.i
   br i1 %.not145.not185.i.i, label %.thread164.i.i, label %.preheader171.preheader.i.i
 
 .preheader171.preheader.i.i:                      ; preds = %.preheader171.lr.ph.i.i
-  %219 = sext i32 %.1130.lcssa249.i.i to i64
+  %219 = sext i32 %.1130.lcssa255.i.i to i64
   %220 = sext i32 %162 to i64
   %221 = sext i32 %165 to i64
   %222 = add i32 %.0140.lcssa.i.i, 1
@@ -704,8 +704,8 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 
 .preheader171.i.i:                                ; preds = %._crit_edge.i.i, %.preheader171.preheader.i.i
   %indvars.iv225.i.i = phi i64 [ 0, %.preheader171.preheader.i.i ], [ %indvars.iv.next226.i.i, %._crit_edge.i.i ]
-  %invariant.gep258.i.i = getelementptr i32, ptr %150, i64 %indvars.iv225.i.i
-  %invariant.gep260.i.i = getelementptr i32, ptr %157, i64 %indvars.iv225.i.i
+  %invariant.gep264.i.i = getelementptr i32, ptr %150, i64 %indvars.iv225.i.i
+  %invariant.gep266.i.i = getelementptr i32, ptr %157, i64 %indvars.iv225.i.i
   br label %224
 
 223:                                              ; preds = %224
@@ -717,11 +717,11 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 224:                                              ; preds = %223, %.preheader171.i.i
   %indvars.iv221.i.i = phi i64 [ %219, %.preheader171.i.i ], [ %indvars.iv.next222.i.i, %223 ]
   %225 = mul nsw i64 %indvars.iv221.i.i, %220
-  %gep259.i.i = getelementptr i32, ptr %invariant.gep258.i.i, i64 %225
-  %226 = load i32, ptr %gep259.i.i, align 4, !tbaa !33
+  %gep265.i.i = getelementptr i32, ptr %invariant.gep264.i.i, i64 %225
+  %226 = load i32, ptr %gep265.i.i, align 4, !tbaa !33
   %227 = mul nsw i64 %indvars.iv221.i.i, %221
-  %gep261.i.i = getelementptr i32, ptr %invariant.gep260.i.i, i64 %227
-  %228 = load i32, ptr %gep261.i.i, align 4, !tbaa !33
+  %gep267.i.i = getelementptr i32, ptr %invariant.gep266.i.i, i64 %227
+  %228 = load i32, ptr %gep267.i.i, align 4, !tbaa !33
   %.not146.i.i = icmp eq i32 %226, %228
   br i1 %.not146.i.i, label %223, label %.thread.loopexit210.i.i
 
@@ -740,11 +740,11 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   br i1 %230, label %.preheader169.lr.ph.i.i, label %.thread164.i.i
 
 .preheader169.lr.ph.i.i:                          ; preds = %.thread.i.i
-  %.not148.not190.i.i = icmp sgt i32 %.1130.lcssa249.i.i, %.0140.lcssa.i.i
+  %.not148.not190.i.i = icmp sgt i32 %.1130.lcssa255.i.i, %.0140.lcssa.i.i
   br i1 %.not148.not190.i.i, label %.thread164.i.i, label %.preheader169.preheader.i.i
 
 .preheader169.preheader.i.i:                      ; preds = %.preheader169.lr.ph.i.i
-  %231 = sext i32 %.1130.lcssa249.i.i to i64
+  %231 = sext i32 %.1130.lcssa255.i.i to i64
   %232 = sext i32 %162 to i64
   %233 = sext i32 %165 to i64
   %234 = add i32 %.0140.lcssa.i.i, 1
@@ -754,8 +754,8 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 
 .preheader169.i.i:                                ; preds = %._crit_edge193.i.i, %.preheader169.preheader.i.i
   %indvars.iv235.i.i = phi i64 [ %235, %.preheader169.preheader.i.i ], [ %indvars.iv.next236.i.i, %._crit_edge193.i.i ]
-  %invariant.gep262.i.i = getelementptr i32, ptr %150, i64 %indvars.iv235.i.i
-  %invariant.gep264.i.i = getelementptr i32, ptr %157, i64 %indvars.iv235.i.i
+  %invariant.gep268.i.i = getelementptr i32, ptr %150, i64 %indvars.iv235.i.i
+  %invariant.gep270.i.i = getelementptr i32, ptr %157, i64 %indvars.iv235.i.i
   br label %238
 
 237:                                              ; preds = %238
@@ -767,11 +767,11 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 238:                                              ; preds = %237, %.preheader169.i.i
   %indvars.iv230.i.i = phi i64 [ %231, %.preheader169.i.i ], [ %indvars.iv.next231.i.i, %237 ]
   %239 = mul nsw i64 %indvars.iv230.i.i, %232
-  %gep263.i.i = getelementptr i32, ptr %invariant.gep262.i.i, i64 %239
-  %240 = load i32, ptr %gep263.i.i, align 4, !tbaa !33
+  %gep269.i.i = getelementptr i32, ptr %invariant.gep268.i.i, i64 %239
+  %240 = load i32, ptr %gep269.i.i, align 4, !tbaa !33
   %241 = mul nsw i64 %indvars.iv230.i.i, %233
-  %gep265.i.i = getelementptr i32, ptr %invariant.gep264.i.i, i64 %241
-  %242 = load i32, ptr %gep265.i.i, align 4, !tbaa !33
+  %gep271.i.i = getelementptr i32, ptr %invariant.gep270.i.i, i64 %241
+  %242 = load i32, ptr %gep271.i.i, align 4, !tbaa !33
   %.not149.i.i = icmp eq i32 %240, %242
   br i1 %.not149.i.i, label %237, label %.thread164.loopexit208.i.i
 
@@ -785,18 +785,18 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   br label %.thread164.i.i
 
 .thread164.i.i:                                   ; preds = %._crit_edge.i.i, %._crit_edge193.i.i, %.thread164.loopexit208.i.i, %.preheader169.lr.ph.i.i, %.thread.i.i, %.preheader171.lr.ph.i.i
-  %.1176251.i.i = phi i32 [ %.1176.i.i, %.thread.i.i ], [ %.1176.i.i, %.thread164.loopexit208.i.i ], [ %.1176.i.i, %.preheader169.lr.ph.i.i ], [ %155, %.preheader171.lr.ph.i.i ], [ %.1176.i.i, %._crit_edge193.i.i ], [ %155, %._crit_edge.i.i ]
+  %.1176257.i.i = phi i32 [ %.1176.i.i, %.thread.i.i ], [ %.1176.i.i, %.thread164.loopexit208.i.i ], [ %.1176.i.i, %.preheader169.lr.ph.i.i ], [ %155, %.preheader171.lr.ph.i.i ], [ %.1176.i.i, %._crit_edge193.i.i ], [ %155, %._crit_edge.i.i ]
   %.0137174.i.i = phi i32 [ %155, %.thread.i.i ], [ %244, %.thread164.loopexit208.i.i ], [ %.1176.i.i, %.preheader169.lr.ph.i.i ], [ %155, %.preheader171.lr.ph.i.i ], [ %.1176.i.i, %._crit_edge193.i.i ], [ %155, %._crit_edge.i.i ]
-  %reass.sub207.i.i = sub i32 %.0137174.i.i, %.1176251.i.i
+  %reass.sub207.i.i = sub i32 %.0137174.i.i, %.1176257.i.i
   %245 = add i32 %reass.sub207.i.i, 1
-  %.not151.i.i = icmp eq i32 %.1176251.i.i, 0
-  %.not152197.i.i = icmp sgt i32 %.1130.lcssa249.i.i, %.0140.lcssa.i.i
+  %.not151.i.i = icmp eq i32 %.1176257.i.i, 0
+  %.not152197.i.i = icmp sgt i32 %.1130.lcssa255.i.i, %.0140.lcssa.i.i
   %or.cond206.i.i = or i1 %.not152197.i.i, %.not151.i.i
   br i1 %or.cond206.i.i, label %.loopexit168.i.i, label %.lr.ph199.i.i
 
 .lr.ph199.i.i:                                    ; preds = %.thread164.i.i
-  %246 = zext nneg i32 %.1176251.i.i to i64
-  %247 = sext i32 %.1130.lcssa249.i.i to i64
+  %246 = zext nneg i32 %.1176257.i.i to i64
+  %247 = sext i32 %.1130.lcssa255.i.i to i64
   %248 = sext i32 %169 to i64
   %249 = sext i32 %167 to i64
   %250 = add i32 %.0140.lcssa.i.i, 1
@@ -829,7 +829,7 @@ load_palette.exit:                                ; preds = %125, %load_colormap
   %invariant.gep.i.i = getelementptr i8, ptr %159, i64 %260
   %invariant.gep204.i.i = getelementptr i8, ptr %158, i64 %260
   %261 = sext i32 %259 to i64
-  %262 = sext i32 %.1130.lcssa249.i.i to i64
+  %262 = sext i32 %.1130.lcssa255.i.i to i64
   %263 = sext i32 %169 to i64
   %264 = sext i32 %167 to i64
   %265 = add i32 %.0140.lcssa.i.i, 1
@@ -852,8 +852,8 @@ load_palette.exit:                                ; preds = %125, %load_colormap
 set_processing_window.exit.i:                     ; preds = %266, %258, %.loopexit168.i.i, %139
   %.0132.i.i = phi i32 [ %149, %139 ], [ %217, %.loopexit168.i.i ], [ %217, %258 ], [ %217, %266 ]
   %.0131.i.i = phi i32 [ %147, %139 ], [ %245, %.loopexit168.i.i ], [ %245, %258 ], [ %245, %266 ]
-  %.0129.i.i = phi i32 [ 0, %139 ], [ %.1130.lcssa249.i.i, %.loopexit168.i.i ], [ %.1130.lcssa249.i.i, %258 ], [ %.1130.lcssa249.i.i, %266 ]
-  %.0.i.i = phi i32 [ 0, %139 ], [ %.1176251.i.i, %.loopexit168.i.i ], [ %.1176251.i.i, %258 ], [ %.1176251.i.i, %266 ]
+  %.0129.i.i = phi i32 [ 0, %139 ], [ %.1130.lcssa255.i.i, %.loopexit168.i.i ], [ %.1130.lcssa255.i.i, %258 ], [ %.1130.lcssa255.i.i, %266 ]
+  %.0.i.i = phi i32 [ 0, %139 ], [ %.1176257.i.i, %.loopexit168.i.i ], [ %.1176257.i.i, %258 ], [ %.1176257.i.i, %266 ]
   %271 = load ptr, ptr %145, align 8, !tbaa !28
   call void @av_frame_unref(ptr noundef %271) #13
   %272 = load ptr, ptr %143, align 8, !tbaa !20
@@ -2254,7 +2254,7 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %.0476.i131.us = phi i32 [ %209, %..thread90_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %37 = icmp slt i32 %.0476.i131.us, %17
   %invariant.gep = getelementptr i32, ptr %.0474.i133.us, i64 %23
-  %invariant.gep141 = getelementptr i32, ptr %.0474.i133.us, i64 %23
+  %invariant.gep144 = getelementptr i32, ptr %.0474.i133.us, i64 %23
   br label %38
 
 38:                                               ; preds = %.preheader.us, %.thread69.us
@@ -2470,8 +2470,8 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   br i1 %37, label %155, label %.thread69.us
 
 155:                                              ; preds = %154
-  %gep142 = getelementptr i32, ptr %invariant.gep141, i64 %indvars.iv137
-  %156 = load i32, ptr %gep142, align 4, !tbaa !33
+  %gep145 = getelementptr i32, ptr %invariant.gep144, i64 %indvars.iv137
+  %156 = load i32, ptr %gep145, align 4, !tbaa !33
   %157 = and i32 %156, -16777216
   %158 = lshr i32 %156, 16
   %159 = and i32 %158, 255
@@ -2510,11 +2510,11 @@ define internal range(i32 -12, 1) i32 @set_frame_floyd_steinberg(ptr noundef %0,
   %177 = or disjoint i32 %176, %157
   %178 = or disjoint i32 %177, %164
   %179 = or disjoint i32 %178, %171
-  store i32 %179, ptr %gep142, align 4, !tbaa !33
+  store i32 %179, ptr %gep145, align 4, !tbaa !33
   br i1 %39, label %180, label %.thread69.us
 
 180:                                              ; preds = %155
-  %181 = getelementptr i8, ptr %gep142, i64 4
+  %181 = getelementptr i8, ptr %gep145, i64 4
   %182 = load i32, ptr %181, align 4, !tbaa !33
   %183 = and i32 %182, -16777216
   %184 = lshr i32 %182, 16
@@ -3137,7 +3137,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %.0476.i111.us = phi i32 [ %184, %..thread76_crit_edge.us ], [ %4, %.preheader.us.preheader ]
   %37 = icmp slt i32 %.0476.i111.us, %17
   %invariant.gep = getelementptr i32, ptr %.0474.i113.us, i64 %23
-  %invariant.gep121 = getelementptr i32, ptr %.0474.i113.us, i64 %23
+  %invariant.gep124 = getelementptr i32, ptr %.0474.i113.us, i64 %23
   br label %38
 
 38:                                               ; preds = %.preheader.us, %180
@@ -3347,8 +3347,8 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   br i1 %37, label %155, label %180
 
 155:                                              ; preds = %154
-  %gep122 = getelementptr i32, ptr %invariant.gep121, i64 %indvars.iv117
-  %156 = load i32, ptr %gep122, align 4, !tbaa !33
+  %gep125 = getelementptr i32, ptr %invariant.gep124, i64 %indvars.iv117
+  %156 = load i32, ptr %gep125, align 4, !tbaa !33
   %157 = and i32 %156, -16777216
   %158 = lshr i32 %156, 16
   %159 = and i32 %158, 255
@@ -3384,7 +3384,7 @@ define internal range(i32 -12, 1) i32 @set_frame_sierra2_4a(ptr noundef %0, ptr 
   %177 = or disjoint i32 %176, %157
   %178 = or disjoint i32 %177, %164
   %179 = or disjoint i32 %178, %171
-  store i32 %179, ptr %gep122, align 4, !tbaa !33
+  store i32 %179, ptr %gep125, align 4, !tbaa !33
   br label %180
 
 180:                                              ; preds = %155, %154

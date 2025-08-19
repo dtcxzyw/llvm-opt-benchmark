@@ -578,11 +578,11 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !57
   %.not = icmp eq i32 %1, 0
   %spec.select = select i1 %.not, ptr @encode_mcu_huff, ptr @encode_mcu_gather
-  %spec.select73 = select i1 %.not, ptr @finish_pass_huff, ptr @finish_pass_gather
+  %spec.select76 = select i1 %.not, ptr @finish_pass_huff, ptr @finish_pass_gather
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %spec.select, ptr %5, align 8, !tbaa !65
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %spec.select73, ptr %6, align 8, !tbaa !66
+  store ptr %spec.select76, ptr %6, align 8, !tbaa !66
   %7 = tail call i32 @jsimd_can_huff_encode_one_block() #6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store i32 %7, ptr %8, align 8, !tbaa !67

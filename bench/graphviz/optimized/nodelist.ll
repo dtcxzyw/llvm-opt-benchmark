@@ -291,9 +291,9 @@ nodelist_remove.exit.thread:                      ; preds = %4
 
 .critedge.i:                                      ; preds = %13
   %exitcond.not.i = icmp eq i64 %.01730.i, %7
-  br i1 %exitcond.not.i, label %nodelist_remove.exit.thread28, label %13, !llvm.loop !22
+  br i1 %exitcond.not.i, label %nodelist_remove.exit.thread30, label %13, !llvm.loop !22
 
-nodelist_remove.exit.thread28:                    ; preds = %.critedge.i
+nodelist_remove.exit.thread30:                    ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.lr.ph
 
@@ -304,8 +304,8 @@ nodelist_remove.exit:                             ; preds = %.lr.ph33.i, %.prehe
   %.not21 = icmp eq i64 %22, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %nodelist_remove.exit.thread28, %nodelist_remove.exit
-  %.val31 = phi i64 [ %7, %nodelist_remove.exit.thread28 ], [ %22, %nodelist_remove.exit ]
+.lr.ph:                                           ; preds = %nodelist_remove.exit.thread30, %nodelist_remove.exit
+  %.val33 = phi i64 [ %7, %nodelist_remove.exit.thread30 ], [ %22, %nodelist_remove.exit ]
   %23 = load ptr, ptr %0, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !11
@@ -337,7 +337,7 @@ nodelist_remove.exit:                             ; preds = %.lr.ph33.i, %.prehe
 
 .critedge:                                        ; preds = %28
   %38 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %38, %.val31
+  %exitcond.not = icmp eq i64 %38, %.val33
   br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.critedge, %nodelist_remove.exit.thread, %nodelist_remove.exit, %36, %35

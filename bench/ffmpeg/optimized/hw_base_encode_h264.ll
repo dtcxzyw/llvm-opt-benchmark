@@ -431,14 +431,14 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   br label %229
 
 229:                                              ; preds = %223, %221
-  %.sink252 = phi i32 [ %228, %223 ], [ %215, %221 ]
-  %.sink248 = phi i8 [ 0, %223 ], [ 1, %221 ]
+  %.sink264 = phi i32 [ %228, %223 ], [ %215, %221 ]
+  %.sink260 = phi i8 [ 0, %223 ], [ 1, %221 ]
   %.neg = phi i8 [ 1, %223 ], [ 0, %221 ]
-  %230 = shl nsw i32 %.sink252, 1
+  %230 = shl nsw i32 %.sink264, 1
   %231 = getelementptr inbounds nuw i8, ptr %2, i64 1884
   store i32 %230, ptr %231, align 4, !tbaa !127
   %232 = getelementptr inbounds nuw i8, ptr %2, i64 1888
-  store i8 %.sink248, ptr %232, align 4, !tbaa !128
+  store i8 %.sink260, ptr %232, align 4, !tbaa !128
   %233 = load i32, ptr %3, align 8, !tbaa !129
   %234 = and i32 %233, 1
   %.not226 = icmp eq i32 %234, 0

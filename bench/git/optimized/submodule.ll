@@ -885,10 +885,10 @@ define dso_local i32 @is_tree_submodule_active(ptr noundef %0, ptr noundef %1, p
   br i1 %27, label %.lr.ph, label %.critedge.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02830 = phi ptr [ %30, %.lr.ph ], [ %21, %.lr.ph.preheader ]
-  %28 = load ptr, ptr %.02830, align 8, !tbaa !56
+  %.02831 = phi ptr [ %30, %.lr.ph ], [ %21, %.lr.ph.preheader ]
+  %28 = load ptr, ptr %.02831, align 8, !tbaa !56
   %29 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %28) #18
-  %30 = getelementptr inbounds nuw i8, ptr %.02830, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.02831, i64 16
   %31 = load ptr, ptr %6, align 8, !tbaa !78
   %32 = load ptr, ptr %31, align 8, !tbaa !55
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -1686,11 +1686,11 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   %32 = load i32, ptr %31, align 8, !tbaa !156
   %.not43 = icmp eq i32 %32, 0
   %. = select i1 %.not43, i64 72, i64 80
-  %.60 = select i1 %.not43, i64 80, i64 72
+  %.62 = select i1 %.not43, i64 80, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %34 = load ptr, ptr %33, align 8, !tbaa !60
   %35 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.39, ptr noundef %34, ptr noundef %1) #18
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.60
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.62
   %37 = load ptr, ptr %36, align 8, !tbaa !60
   %38 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.40, ptr noundef %37, ptr noundef %1) #18
   %39 = call ptr @oid_to_hex(ptr noundef %spec.select) #18
@@ -1875,24 +1875,24 @@ define dso_local i32 @find_unpushed_submodules(ptr noundef %0, ptr noundef %1, p
   %22 = load i64, ptr %16, align 8, !tbaa !52
   %23 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %22
   %24 = icmp ult ptr %15, %23
-  br i1 %24, label %.lr.ph40, label %.critedge
+  br i1 %24, label %.lr.ph43, label %.critedge
 
-.lr.ph40:                                         ; preds = %.lr.ph, %.thread
-  %.0193039 = phi ptr [ %67, %.thread ], [ %15, %.lr.ph ]
-  %25 = getelementptr inbounds nuw i8, ptr %.0193039, i64 8
+.lr.ph43:                                         ; preds = %.lr.ph, %.thread
+  %.0193042 = phi ptr [ %67, %.thread ], [ %15, %.lr.ph ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0193042, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !159
   %27 = call ptr @null_oid() #18
-  %28 = load ptr, ptr %.0193039, align 8, !tbaa !56
+  %28 = load ptr, ptr %.0193042, align 8, !tbaa !56
   %29 = call ptr @submodule_from_name(ptr noundef %0, ptr noundef %27, ptr noundef %28) #18
   %.not21 = icmp eq ptr %29, null
   br i1 %.not21, label %32, label %30
 
-30:                                               ; preds = %.lr.ph40
+30:                                               ; preds = %.lr.ph43
   %31 = load ptr, ptr %29, align 8, !tbaa !160
   br label %36
 
-32:                                               ; preds = %.lr.ph40
-  %33 = load ptr, ptr %.0193039, align 8, !tbaa !56
+32:                                               ; preds = %.lr.ph43
+  %33 = load ptr, ptr %.0193042, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %33) #18
   %35 = call ptr @resolve_gitdir_gently(ptr noundef %34, ptr noundef nonnull %7) #18
@@ -1966,12 +1966,12 @@ submodule_needs_pushing.exit:                     ; preds = %46
   br label %.thread
 
 .thread:                                          ; preds = %41, %37, %32, %submodule_needs_pushing.exit, %65, %36
-  %67 = getelementptr inbounds nuw i8, ptr %.0193039, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.0193042, i64 16
   %68 = load ptr, ptr %8, align 8, !tbaa !55
   %69 = load i64, ptr %16, align 8, !tbaa !52
   %70 = getelementptr inbounds nuw %struct.string_list_item, ptr %68, i64 %69
   %71 = icmp ult ptr %67, %70
-  br i1 %71, label %.lr.ph40, label %.critedge
+  br i1 %71, label %.lr.ph43, label %.critedge
 
 .critedge:                                        ; preds = %.thread, %.lr.ph
   %.lcssa = phi ptr [ %21, %.lr.ph ], [ %68, %.thread ]
@@ -2440,8 +2440,8 @@ define dso_local i32 @submodule_touches_in_range(ptr noundef %0, ptr noundef %1,
   %20 = load ptr, ptr %4, align 8, !tbaa !55
   %.not8.i = icmp eq ptr %20, null
   %21 = load i64, ptr %17, align 8
-  %.not9 = icmp eq i64 %21, 0
-  %or.cond = select i1 %.not8.i, i1 true, i1 %.not9
+  %.not10 = icmp eq i64 %21, 0
+  %or.cond = select i1 %.not8.i, i1 true, i1 %.not10
   br i1 %or.cond, label %free_submodules_data.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
@@ -2590,8 +2590,8 @@ repo_has_absorbed_submodules.exit.i:              ; preds = %48
 .lr.ph.i:                                         ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %61 = load i64, ptr %60, align 8, !tbaa !52
-  %.not25 = icmp eq i64 %61, 0
-  br i1 %.not25, label %.critedge.i, label %.lr.ph20
+  %.not28 = icmp eq i64 %61, 0
+  br i1 %.not28, label %.critedge.i, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.lr.ph.i, %.thread.i
   %.02334.i19 = phi ptr [ %82, %.thread.i ], [ %59, %.lr.ph.i ]

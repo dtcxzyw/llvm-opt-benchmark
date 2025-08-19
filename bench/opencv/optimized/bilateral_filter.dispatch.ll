@@ -2023,8 +2023,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit331:          ; preds = %.noexc330, %.lr.ph3
   %529 = load ptr, ptr %7, align 8, !tbaa !79
   %.not.i.i334 = icmp eq ptr %529, %29
   %530 = icmp eq ptr %529, null
-  %or.cond444 = or i1 %.not.i.i334, %530
-  br i1 %or.cond444, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit335, label %531
+  %or.cond452 = or i1 %.not.i.i334, %530
+  br i1 %or.cond452, label %_ZN2cv10AutoBufferIfLm264EED2Ev.exit335, label %531
 
 531:                                              ; preds = %._crit_edge361
   call void @_ZdaPv(ptr noundef nonnull %529) #20
@@ -3193,9 +3193,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit500:          ; preds = %.noexc499, %318
   br label %697
 
 697:                                              ; preds = %681, %669
-  %.sink611 = phi float [ %696, %681 ], [ %680, %669 ]
+  %.sink628 = phi float [ %696, %681 ], [ %680, %669 ]
   %698 = load float, ptr %667, align 4, !tbaa !65
-  %699 = fmul float %.sink611, %698
+  %699 = fmul float %.sink628, %698
   %700 = getelementptr inbounds nuw i8, ptr %.0453532, i64 8
   store float %699, ptr %700, align 4, !tbaa !65
   %.1454 = getelementptr inbounds nuw i8, ptr %.0453532, i64 12

@@ -712,9 +712,9 @@ Vec_PtrPush.exit80:                               ; preds = %.Vec_PtrGrow.exit11
 
 .sink.split:                                      ; preds = %Vec_PtrPush.exit45, %Vec_PtrPush.exit59, %Vec_PtrPush.exit66, %Vec_PtrPush.exit73, %Vec_PtrPush.exit80
   %.sink = phi i32 [ %283, %Vec_PtrPush.exit80 ], [ %248, %Vec_PtrPush.exit73 ], [ %215, %Vec_PtrPush.exit66 ], [ %182, %Vec_PtrPush.exit59 ], [ %117, %Vec_PtrPush.exit45 ]
-  %.sink81 = phi ptr [ %282, %Vec_PtrPush.exit80 ], [ %247, %Vec_PtrPush.exit73 ], [ %214, %Vec_PtrPush.exit66 ], [ %181, %Vec_PtrPush.exit59 ], [ %116, %Vec_PtrPush.exit45 ]
+  %.sink108 = phi ptr [ %282, %Vec_PtrPush.exit80 ], [ %247, %Vec_PtrPush.exit73 ], [ %214, %Vec_PtrPush.exit66 ], [ %181, %Vec_PtrPush.exit59 ], [ %116, %Vec_PtrPush.exit45 ]
   %285 = sext i32 %.sink to i64
-  %286 = getelementptr inbounds ptr, ptr %.sink81, i64 %285
+  %286 = getelementptr inbounds ptr, ptr %.sink108, i64 %285
   store ptr %.0.i, ptr %286, align 8, !tbaa !36
   br label %287
 

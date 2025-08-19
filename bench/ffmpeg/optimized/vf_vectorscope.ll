@@ -617,11 +617,11 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   br label %82
 
 82:                                               ; preds = %78, %76
-  %.sink124 = phi i16 [ %81, %78 ], [ 0, %76 ]
+  %.sink127 = phi i16 [ %81, %78 ], [ 0, %76 ]
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 22
-  store i16 %.sink124, ptr %83, align 2, !tbaa !58
+  store i16 %.sink127, ptr %83, align 2, !tbaa !58
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i16 %.sink124, ptr %84, align 4, !tbaa !58
+  store i16 %.sink127, ptr %84, align 4, !tbaa !58
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %86 = load i8, ptr %85, align 1, !tbaa !86
   %87 = zext i8 %86 to i32
@@ -820,8 +820,8 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
 .preheader456:                                    ; preds = %.critedge
   %92 = icmp sgt i32 %25, 0
   %93 = icmp sgt i32 %28, 0
-  %or.cond656 = select i1 %92, i1 %93, i1 false
-  br i1 %or.cond656, label %.lr.ph475.us.preheader, label %.loopexit451
+  %or.cond691 = select i1 %92, i1 %93, i1 false
+  br i1 %or.cond691, label %.lr.ph475.us.preheader, label %.loopexit451
 
 .lr.ph475.us.preheader:                           ; preds = %.preheader456
   %94 = sext i32 %10 to i64
@@ -836,15 +836,15 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   %97 = mul nsw i64 %indvars.iv544, %94
   %98 = mul nsw i64 %indvars.iv544, %95
   %99 = mul nsw i64 %indvars.iv544, %96
-  %invariant.gep632 = getelementptr i8, ptr %34, i64 %99
-  %invariant.gep634 = getelementptr i8, ptr %32, i64 %98
-  %invariant.gep636 = getelementptr i8, ptr %30, i64 %97
+  %invariant.gep667 = getelementptr i8, ptr %34, i64 %99
+  %invariant.gep669 = getelementptr i8, ptr %32, i64 %98
+  %invariant.gep671 = getelementptr i8, ptr %30, i64 %97
   br label %100
 
 100:                                              ; preds = %.lr.ph475.us, %119
   %indvars.iv540 = phi i64 [ 0, %.lr.ph475.us ], [ %indvars.iv.next541, %119 ]
-  %gep633 = getelementptr i8, ptr %invariant.gep632, i64 %indvars.iv540
-  %101 = load i8, ptr %gep633, align 1, !tbaa !94
+  %gep668 = getelementptr i8, ptr %invariant.gep667, i64 %indvars.iv540
+  %101 = load i8, ptr %gep668, align 1, !tbaa !94
   %102 = zext i8 %101 to i32
   %103 = icmp sgt i32 %50, %102
   %104 = icmp slt i32 %52, %102
@@ -852,12 +852,12 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   br i1 %or.cond430.us, label %119, label %105
 
 105:                                              ; preds = %100
-  %gep635 = getelementptr i8, ptr %invariant.gep634, i64 %indvars.iv540
-  %106 = load i8, ptr %gep635, align 1, !tbaa !94
+  %gep670 = getelementptr i8, ptr %invariant.gep669, i64 %indvars.iv540
+  %106 = load i8, ptr %gep670, align 1, !tbaa !94
   %107 = zext i8 %106 to i32
   %108 = mul nsw i32 %20, %107
-  %gep637 = getelementptr i8, ptr %invariant.gep636, i64 %indvars.iv540
-  %109 = load i8, ptr %gep637, align 1, !tbaa !94
+  %gep672 = getelementptr i8, ptr %invariant.gep671, i64 %indvars.iv540
+  %109 = load i8, ptr %gep672, align 1, !tbaa !94
   %110 = zext i8 %109 to i32
   %111 = add nsw i32 %108, %110
   %112 = sext i32 %111 to i64
@@ -905,15 +905,15 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   %127 = mul nsw i64 %indvars.iv574, %125
   %128 = mul nsw i64 %indvars.iv574, %124
   %129 = mul nsw i64 %indvars.iv574, %123
-  %invariant.gep650 = getelementptr i8, ptr %34, i64 %127
-  %invariant.gep652 = getelementptr i8, ptr %32, i64 %128
-  %invariant.gep654 = getelementptr i8, ptr %30, i64 %129
+  %invariant.gep685 = getelementptr i8, ptr %34, i64 %127
+  %invariant.gep687 = getelementptr i8, ptr %32, i64 %128
+  %invariant.gep689 = getelementptr i8, ptr %30, i64 %129
   br label %.lr.ph493
 
 .lr.ph493:                                        ; preds = %.lr.ph493.preheader, %146
   %indvars.iv569 = phi i64 [ 0, %.lr.ph493.preheader ], [ %indvars.iv.next570, %146 ]
-  %gep651 = getelementptr i8, ptr %invariant.gep650, i64 %indvars.iv569
-  %130 = load i8, ptr %gep651, align 1, !tbaa !94
+  %gep686 = getelementptr i8, ptr %invariant.gep685, i64 %indvars.iv569
+  %130 = load i8, ptr %gep686, align 1, !tbaa !94
   %131 = zext i8 %130 to i32
   %132 = icmp sgt i32 %50, %131
   %133 = icmp slt i32 %52, %131
@@ -921,12 +921,12 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   br i1 %or.cond, label %146, label %134
 
 134:                                              ; preds = %.lr.ph493
-  %gep653 = getelementptr i8, ptr %invariant.gep652, i64 %indvars.iv569
-  %135 = load i8, ptr %gep653, align 1, !tbaa !94
+  %gep688 = getelementptr i8, ptr %invariant.gep687, i64 %indvars.iv569
+  %135 = load i8, ptr %gep688, align 1, !tbaa !94
   %136 = zext i8 %135 to i32
   %137 = mul nsw i32 %20, %136
-  %gep655 = getelementptr i8, ptr %invariant.gep654, i64 %indvars.iv569
-  %138 = load i8, ptr %gep655, align 1, !tbaa !94
+  %gep690 = getelementptr i8, ptr %invariant.gep689, i64 %indvars.iv569
+  %138 = load i8, ptr %gep690, align 1, !tbaa !94
   %139 = zext i8 %138 to i32
   %140 = add nsw i32 %137, %139
   %141 = sext i32 %140 to i64
@@ -955,11 +955,11 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   %.not414 = icmp eq i32 %149, 0
   %150 = icmp sgt i32 %25, 0
   %151 = icmp sgt i32 %28, 0
-  %or.cond658 = select i1 %150, i1 %151, i1 false
+  %or.cond693 = select i1 %150, i1 %151, i1 false
   br i1 %.not414, label %.preheader452, label %.preheader454
 
 .preheader454:                                    ; preds = %147
-  br i1 %or.cond658, label %.lr.ph481.us.preheader, label %.loopexit451
+  br i1 %or.cond693, label %.lr.ph481.us.preheader, label %.loopexit451
 
 .lr.ph481.us.preheader:                           ; preds = %.preheader454
   %152 = sext i32 %10 to i64
@@ -974,19 +974,19 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   %155 = mul nsw i64 %indvars.iv554, %152
   %156 = mul nsw i64 %indvars.iv554, %153
   %157 = mul nsw i64 %indvars.iv554, %154
-  %invariant.gep638 = getelementptr i8, ptr %30, i64 %155
-  %invariant.gep640 = getelementptr i8, ptr %32, i64 %156
-  %invariant.gep642 = getelementptr i8, ptr %34, i64 %157
+  %invariant.gep673 = getelementptr i8, ptr %30, i64 %155
+  %invariant.gep675 = getelementptr i8, ptr %32, i64 %156
+  %invariant.gep677 = getelementptr i8, ptr %34, i64 %157
   br label %158
 
 158:                                              ; preds = %.lr.ph481.us, %184
   %indvars.iv549 = phi i64 [ 0, %.lr.ph481.us ], [ %indvars.iv.next550, %184 ]
-  %gep639 = getelementptr i8, ptr %invariant.gep638, i64 %indvars.iv549
-  %159 = load i8, ptr %gep639, align 1, !tbaa !94
-  %gep641 = getelementptr i8, ptr %invariant.gep640, i64 %indvars.iv549
-  %160 = load i8, ptr %gep641, align 1, !tbaa !94
-  %gep643 = getelementptr i8, ptr %invariant.gep642, i64 %indvars.iv549
-  %161 = load i8, ptr %gep643, align 1, !tbaa !94
+  %gep674 = getelementptr i8, ptr %invariant.gep673, i64 %indvars.iv549
+  %159 = load i8, ptr %gep674, align 1, !tbaa !94
+  %gep676 = getelementptr i8, ptr %invariant.gep675, i64 %indvars.iv549
+  %160 = load i8, ptr %gep676, align 1, !tbaa !94
+  %gep678 = getelementptr i8, ptr %invariant.gep677, i64 %indvars.iv549
+  %161 = load i8, ptr %gep678, align 1, !tbaa !94
   %162 = zext i8 %161 to i32
   %163 = icmp sgt i32 %50, %162
   %164 = icmp slt i32 %52, %162
@@ -1035,7 +1035,7 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond558.not, label %.loopexit451, label %.lr.ph481.us, !llvm.loop !100
 
 .preheader452:                                    ; preds = %147
-  br i1 %or.cond658, label %.lr.ph487.us.preheader, label %.loopexit451
+  br i1 %or.cond693, label %.lr.ph487.us.preheader, label %.loopexit451
 
 .lr.ph487.us.preheader:                           ; preds = %.preheader452
   %185 = sext i32 %10 to i64
@@ -1050,21 +1050,21 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   %188 = mul nsw i64 %indvars.iv564, %185
   %189 = mul nsw i64 %indvars.iv564, %186
   %190 = mul nsw i64 %indvars.iv564, %187
-  %invariant.gep644 = getelementptr i8, ptr %30, i64 %188
-  %invariant.gep646 = getelementptr i8, ptr %32, i64 %189
-  %invariant.gep648 = getelementptr i8, ptr %34, i64 %190
+  %invariant.gep679 = getelementptr i8, ptr %30, i64 %188
+  %invariant.gep681 = getelementptr i8, ptr %32, i64 %189
+  %invariant.gep683 = getelementptr i8, ptr %34, i64 %190
   br label %191
 
 191:                                              ; preds = %.lr.ph487.us, %213
   %indvars.iv559 = phi i64 [ 0, %.lr.ph487.us ], [ %indvars.iv.next560, %213 ]
-  %gep645 = getelementptr i8, ptr %invariant.gep644, i64 %indvars.iv559
-  %192 = load i8, ptr %gep645, align 1, !tbaa !94
+  %gep680 = getelementptr i8, ptr %invariant.gep679, i64 %indvars.iv559
+  %192 = load i8, ptr %gep680, align 1, !tbaa !94
   %193 = zext i8 %192 to i32
-  %gep647 = getelementptr i8, ptr %invariant.gep646, i64 %indvars.iv559
-  %194 = load i8, ptr %gep647, align 1, !tbaa !94
+  %gep682 = getelementptr i8, ptr %invariant.gep681, i64 %indvars.iv559
+  %194 = load i8, ptr %gep682, align 1, !tbaa !94
   %195 = zext i8 %194 to i32
-  %gep649 = getelementptr i8, ptr %invariant.gep648, i64 %indvars.iv559
-  %196 = load i8, ptr %gep649, align 1, !tbaa !94
+  %gep684 = getelementptr i8, ptr %invariant.gep683, i64 %indvars.iv559
+  %196 = load i8, ptr %gep684, align 1, !tbaa !94
   %197 = zext i8 %196 to i32
   %198 = icmp sgt i32 %50, %197
   %199 = icmp slt i32 %52, %197
@@ -1325,7 +1325,7 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph72.split.preheader.i.i:                     ; preds = %.lr.ph72.i.i
   %318 = mul nsw i64 %indvars.iv92.i.i, %313
-  %invariant.gep104.i.i = getelementptr i8, ptr %274, i64 %318
+  %invariant.gep109.i.i = getelementptr i8, ptr %274, i64 %318
   br label %.lr.ph72.split.i.i
 
 .lr.ph72.split.us.i.i:                            ; preds = %.lr.ph72.i.i, %326
@@ -1408,8 +1408,8 @@ define internal void @vectorscope8(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not62.i.i, label %363, label %364
 
 363:                                              ; preds = %358, %353, %348, %345, %339, %338
-  %gep105.i.i = getelementptr i8, ptr %invariant.gep104.i.i, i64 %indvars.iv86.i.i
-  store i8 -1, ptr %gep105.i.i, align 1, !tbaa !94
+  %gep110.i.i = getelementptr i8, ptr %invariant.gep109.i.i, i64 %indvars.iv86.i.i
+  store i8 -1, ptr %gep110.i.i, align 1, !tbaa !94
   %.pre97.i.i = load i32, ptr %57, align 8, !tbaa !91
   br label %364
 
@@ -2063,8 +2063,8 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 .preheader563:                                    ; preds = %.critedge
   %143 = icmp sgt i32 %29, 0
   %144 = icmp sgt i32 %32, 0
-  %or.cond783 = select i1 %143, i1 %144, i1 false
-  br i1 %or.cond783, label %.lr.ph583.us.preheader, label %.loopexit558
+  %or.cond813 = select i1 %143, i1 %144, i1 false
+  br i1 %or.cond813, label %.lr.ph583.us.preheader, label %.loopexit558
 
 .lr.ph583.us.preheader:                           ; preds = %.preheader563
   %145 = sext i32 %11 to i64
@@ -2079,15 +2079,15 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %148 = mul nsw i64 %indvars.iv663, %145
   %149 = mul nsw i64 %indvars.iv663, %146
   %150 = mul nsw i64 %indvars.iv663, %147
-  %invariant.gep759 = getelementptr i16, ptr %38, i64 %150
-  %invariant.gep761 = getelementptr i16, ptr %36, i64 %149
-  %invariant.gep763 = getelementptr i16, ptr %34, i64 %148
+  %invariant.gep789 = getelementptr i16, ptr %38, i64 %150
+  %invariant.gep791 = getelementptr i16, ptr %36, i64 %149
+  %invariant.gep793 = getelementptr i16, ptr %34, i64 %148
   br label %151
 
 151:                                              ; preds = %.lr.ph583.us, %174
   %indvars.iv658 = phi i64 [ 0, %.lr.ph583.us ], [ %indvars.iv.next659, %174 ]
-  %gep760 = getelementptr i16, ptr %invariant.gep759, i64 %indvars.iv658
-  %152 = load i16, ptr %gep760, align 2, !tbaa !58
+  %gep790 = getelementptr i16, ptr %invariant.gep789, i64 %indvars.iv658
+  %152 = load i16, ptr %gep790, align 2, !tbaa !58
   %153 = zext i16 %152 to i32
   %154 = icmp sgt i32 %58, %153
   %155 = icmp slt i32 %60, %153
@@ -2095,13 +2095,13 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %or.cond537.us, label %174, label %156
 
 156:                                              ; preds = %151
-  %gep762 = getelementptr i16, ptr %invariant.gep761, i64 %indvars.iv658
-  %157 = load i16, ptr %gep762, align 2, !tbaa !58
+  %gep792 = getelementptr i16, ptr %invariant.gep791, i64 %indvars.iv658
+  %157 = load i16, ptr %gep792, align 2, !tbaa !58
   %158 = zext i16 %157 to i32
   %159 = tail call i32 @llvm.smin.i32(i32 %158, i32 %55)
   %160 = mul nsw i32 %159, %24
-  %gep764 = getelementptr i16, ptr %invariant.gep763, i64 %indvars.iv658
-  %161 = load i16, ptr %gep764, align 2, !tbaa !58
+  %gep794 = getelementptr i16, ptr %invariant.gep793, i64 %indvars.iv658
+  %161 = load i16, ptr %gep794, align 2, !tbaa !58
   %162 = zext i16 %161 to i32
   %.536.us = tail call i32 @llvm.smin.i32(i32 %162, i32 %55)
   %163 = add nsw i32 %160, %.536.us
@@ -2152,15 +2152,15 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %182 = mul nsw i64 %indvars.iv693, %180
   %183 = mul nsw i64 %indvars.iv693, %179
   %184 = mul nsw i64 %indvars.iv693, %178
-  %invariant.gep777 = getelementptr i16, ptr %38, i64 %182
-  %invariant.gep779 = getelementptr i16, ptr %36, i64 %183
-  %invariant.gep781 = getelementptr i16, ptr %34, i64 %184
+  %invariant.gep807 = getelementptr i16, ptr %38, i64 %182
+  %invariant.gep809 = getelementptr i16, ptr %36, i64 %183
+  %invariant.gep811 = getelementptr i16, ptr %34, i64 %184
   br label %.lr.ph601
 
 .lr.ph601:                                        ; preds = %.lr.ph601.preheader, %203
   %indvars.iv688 = phi i64 [ 0, %.lr.ph601.preheader ], [ %indvars.iv.next689, %203 ]
-  %gep778 = getelementptr i16, ptr %invariant.gep777, i64 %indvars.iv688
-  %185 = load i16, ptr %gep778, align 2, !tbaa !58
+  %gep808 = getelementptr i16, ptr %invariant.gep807, i64 %indvars.iv688
+  %185 = load i16, ptr %gep808, align 2, !tbaa !58
   %186 = zext i16 %185 to i32
   %187 = icmp sgt i32 %58, %186
   %188 = icmp slt i32 %60, %186
@@ -2168,13 +2168,13 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %or.cond, label %203, label %189
 
 189:                                              ; preds = %.lr.ph601
-  %gep780 = getelementptr i16, ptr %invariant.gep779, i64 %indvars.iv688
-  %190 = load i16, ptr %gep780, align 2, !tbaa !58
+  %gep810 = getelementptr i16, ptr %invariant.gep809, i64 %indvars.iv688
+  %190 = load i16, ptr %gep810, align 2, !tbaa !58
   %191 = zext i16 %190 to i32
   %192 = tail call i32 @llvm.smin.i32(i32 %191, i32 %55)
   %193 = mul nsw i32 %192, %24
-  %gep782 = getelementptr i16, ptr %invariant.gep781, i64 %indvars.iv688
-  %194 = load i16, ptr %gep782, align 2, !tbaa !58
+  %gep812 = getelementptr i16, ptr %invariant.gep811, i64 %indvars.iv688
+  %194 = load i16, ptr %gep812, align 2, !tbaa !58
   %195 = zext i16 %194 to i32
   %. = tail call i32 @llvm.smin.i32(i32 %195, i32 %55)
   %196 = add nsw i32 %193, %.
@@ -2207,8 +2207,8 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 
 .preheader561:                                    ; preds = %204
   %208 = icmp sgt i32 %32, 0
-  %or.cond784 = select i1 %207, i1 %208, i1 false
-  br i1 %or.cond784, label %.lr.ph589.us.preheader, label %.loopexit558
+  %or.cond814 = select i1 %207, i1 %208, i1 false
+  br i1 %or.cond814, label %.lr.ph589.us.preheader, label %.loopexit558
 
 .lr.ph589.us.preheader:                           ; preds = %.preheader561
   %209 = sext i32 %11 to i64
@@ -2223,23 +2223,23 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %212 = mul nsw i64 %indvars.iv673, %209
   %213 = mul nsw i64 %indvars.iv673, %210
   %214 = mul nsw i64 %indvars.iv673, %211
-  %invariant.gep765 = getelementptr i16, ptr %34, i64 %212
-  %invariant.gep767 = getelementptr i16, ptr %36, i64 %213
-  %invariant.gep769 = getelementptr i16, ptr %38, i64 %214
+  %invariant.gep795 = getelementptr i16, ptr %34, i64 %212
+  %invariant.gep797 = getelementptr i16, ptr %36, i64 %213
+  %invariant.gep799 = getelementptr i16, ptr %38, i64 %214
   br label %215
 
 215:                                              ; preds = %.lr.ph589.us, %243
   %indvars.iv668 = phi i64 [ 0, %.lr.ph589.us ], [ %indvars.iv.next669, %243 ]
-  %gep766 = getelementptr i16, ptr %invariant.gep765, i64 %indvars.iv668
-  %216 = load i16, ptr %gep766, align 2, !tbaa !58
+  %gep796 = getelementptr i16, ptr %invariant.gep795, i64 %indvars.iv668
+  %216 = load i16, ptr %gep796, align 2, !tbaa !58
   %217 = zext i16 %216 to i32
   %.532.us = tail call i32 @llvm.smin.i32(i32 %217, i32 %55)
-  %gep768 = getelementptr i16, ptr %invariant.gep767, i64 %indvars.iv668
-  %218 = load i16, ptr %gep768, align 2, !tbaa !58
+  %gep798 = getelementptr i16, ptr %invariant.gep797, i64 %indvars.iv668
+  %218 = load i16, ptr %gep798, align 2, !tbaa !58
   %219 = zext i16 %218 to i32
   %220 = tail call i32 @llvm.smin.i32(i32 %219, i32 %55)
-  %gep770 = getelementptr i16, ptr %invariant.gep769, i64 %indvars.iv668
-  %221 = load i16, ptr %gep770, align 2, !tbaa !58
+  %gep800 = getelementptr i16, ptr %invariant.gep799, i64 %indvars.iv668
+  %221 = load i16, ptr %gep800, align 2, !tbaa !58
   %222 = zext i16 %221 to i32
   %223 = icmp sgt i32 %58, %222
   %224 = icmp slt i32 %60, %222
@@ -2304,23 +2304,23 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   %249 = mul nsw i64 %indvars.iv683, %247
   %250 = mul nsw i64 %indvars.iv683, %246
   %251 = mul nsw i64 %indvars.iv683, %245
-  %invariant.gep771 = getelementptr i16, ptr %34, i64 %251
-  %invariant.gep773 = getelementptr i16, ptr %36, i64 %250
-  %invariant.gep775 = getelementptr i16, ptr %38, i64 %249
+  %invariant.gep801 = getelementptr i16, ptr %34, i64 %251
+  %invariant.gep803 = getelementptr i16, ptr %36, i64 %250
+  %invariant.gep805 = getelementptr i16, ptr %38, i64 %249
   br label %.lr.ph595
 
 .lr.ph595:                                        ; preds = %.lr.ph595.preheader, %276
   %indvars.iv678 = phi i64 [ 0, %.lr.ph595.preheader ], [ %indvars.iv.next679, %276 ]
-  %gep772 = getelementptr i16, ptr %invariant.gep771, i64 %indvars.iv678
-  %252 = load i16, ptr %gep772, align 2, !tbaa !58
+  %gep802 = getelementptr i16, ptr %invariant.gep801, i64 %indvars.iv678
+  %252 = load i16, ptr %gep802, align 2, !tbaa !58
   %253 = zext i16 %252 to i32
   %.534 = tail call i32 @llvm.smin.i32(i32 %253, i32 %55)
-  %gep774 = getelementptr i16, ptr %invariant.gep773, i64 %indvars.iv678
-  %254 = load i16, ptr %gep774, align 2, !tbaa !58
+  %gep804 = getelementptr i16, ptr %invariant.gep803, i64 %indvars.iv678
+  %254 = load i16, ptr %gep804, align 2, !tbaa !58
   %255 = zext i16 %254 to i32
   %256 = tail call i32 @llvm.smin.i32(i32 %255, i32 %55)
-  %gep776 = getelementptr i16, ptr %invariant.gep775, i64 %indvars.iv678
-  %257 = load i16, ptr %gep776, align 2, !tbaa !58
+  %gep806 = getelementptr i16, ptr %invariant.gep805, i64 %indvars.iv678
+  %257 = load i16, ptr %gep806, align 2, !tbaa !58
   %258 = zext i16 %257 to i32
   %259 = icmp sgt i32 %58, %258
   %260 = icmp slt i32 %60, %258
@@ -2516,7 +2516,7 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph76.split.us86.preheader.i.i:                ; preds = %.preheader.us.i.i
   %345 = icmp eq i64 %indvars.iv104.i.i, %340
   %346 = mul nsw i64 %indvars.iv104.i.i, %339
-  %invariant.gep113.i.i = getelementptr i16, ptr %293, i64 %346
+  %invariant.gep117.i.i = getelementptr i16, ptr %293, i64 %346
   %.fr.i = freeze i1 %345
   br i1 %.fr.i, label %.lr.ph76.split.us86.i.us.i, label %.lr.ph76.split.us86.i.i
 
@@ -2528,8 +2528,8 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not60.us81.i.us.i, label %350, label %349
 
 349:                                              ; preds = %.lr.ph76.split.us86.i.us.i
-  %gep114.i.us.i = getelementptr i16, ptr %invariant.gep113.i.i, i64 %indvars.iv96.i.us.i
-  store i16 %333, ptr %gep114.i.us.i, align 2, !tbaa !58
+  %gep118.i.us.i = getelementptr i16, ptr %invariant.gep117.i.i, i64 %indvars.iv96.i.us.i
+  store i16 %333, ptr %gep118.i.us.i, align 2, !tbaa !58
   br label %350
 
 350:                                              ; preds = %349, %.lr.ph76.split.us86.i.us.i
@@ -2577,8 +2577,8 @@ define internal void @vectorscope16(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not64.us.i.i, label %369, label %370
 
 369:                                              ; preds = %365, %361, %358, %354, %353
-  %gep114.i.i = getelementptr i16, ptr %invariant.gep113.i.i, i64 %indvars.iv96.i.i
-  store i16 %333, ptr %gep114.i.i, align 2, !tbaa !58
+  %gep118.i.i = getelementptr i16, ptr %invariant.gep117.i.i, i64 %indvars.iv96.i.i
+  store i16 %333, ptr %gep118.i.i, align 2, !tbaa !58
   br label %370
 
 370:                                              ; preds = %369, %365, %.lr.ph76.split.us86.i.i
@@ -9527,8 +9527,8 @@ define internal fastcc void @envelope_instant(ptr noundef readonly captures(none
   %32 = mul nsw i64 %31, %24
   %33 = mul nsw i64 %indvars.iv61, %24
   %invariant.gep = getelementptr i8, ptr %17, i64 %33
-  %invariant.gep69 = getelementptr i8, ptr %17, i64 %32
-  %invariant.gep71 = getelementptr i8, ptr %17, i64 %30
+  %invariant.gep70 = getelementptr i8, ptr %17, i64 %32
+  %invariant.gep72 = getelementptr i8, ptr %17, i64 %30
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %38
@@ -9582,8 +9582,8 @@ define internal fastcc void @envelope_instant(ptr noundef readonly captures(none
   br i1 %.not54, label %65, label %56
 
 56:                                               ; preds = %53
-  %gep70 = getelementptr i8, ptr %invariant.gep69, i64 %indvars.iv
-  %57 = load i8, ptr %gep70, align 1, !tbaa !94
+  %gep71 = getelementptr i8, ptr %invariant.gep70, i64 %indvars.iv
+  %57 = load i8, ptr %gep71, align 1, !tbaa !94
   %.not44 = icmp eq i8 %57, 0
   br i1 %.not44, label %65, label %58
 
@@ -9595,8 +9595,8 @@ define internal fastcc void @envelope_instant(ptr noundef readonly captures(none
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %58
-  %gep72 = getelementptr i8, ptr %invariant.gep71, i64 %indvars.iv
-  %64 = load i8, ptr %gep72, align 1, !tbaa !94
+  %gep73 = getelementptr i8, ptr %invariant.gep72, i64 %indvars.iv
+  %64 = load i8, ptr %gep73, align 1, !tbaa !94
   %.not45 = icmp eq i8 %64, 0
   br i1 %.not45, label %65, label %66
 
@@ -9694,8 +9694,8 @@ define internal fastcc void @envelope_instant16(ptr noundef readonly captures(no
   %37 = mul nsw i64 %36, %32
   %38 = mul nsw i64 %indvars.iv73, %32
   %invariant.gep = getelementptr i16, ptr %18, i64 %38
-  %invariant.gep79 = getelementptr i16, ptr %18, i64 %37
-  %invariant.gep81 = getelementptr i16, ptr %18, i64 %35
+  %invariant.gep80 = getelementptr i16, ptr %18, i64 %37
+  %invariant.gep82 = getelementptr i16, ptr %18, i64 %35
   br label %.lr.ph.split.us62
 
 .lr.ph.split.us62:                                ; preds = %.lr.ph.split.us62.preheader, %53
@@ -9724,15 +9724,15 @@ define internal fastcc void @envelope_instant16(ptr noundef readonly captures(no
   br i1 %.not64, label %52, label %48
 
 48:                                               ; preds = %45
-  %gep80 = getelementptr i16, ptr %invariant.gep79, i64 %indvars.iv
-  %49 = load i16, ptr %gep80, align 2, !tbaa !58
+  %gep81 = getelementptr i16, ptr %invariant.gep80, i64 %indvars.iv
+  %49 = load i16, ptr %gep81, align 2, !tbaa !58
   %.not46.us = icmp eq i16 %49, 0
   %or.cond51.us = select i1 %.not46.us, i1 true, i1 %34
   br i1 %or.cond51.us, label %52, label %50
 
 50:                                               ; preds = %48
-  %gep82 = getelementptr i16, ptr %invariant.gep81, i64 %indvars.iv
-  %51 = load i16, ptr %gep82, align 2, !tbaa !58
+  %gep83 = getelementptr i16, ptr %invariant.gep82, i64 %indvars.iv
+  %51 = load i16, ptr %gep83, align 2, !tbaa !58
   %.not47.us = icmp eq i16 %51, 0
   br i1 %.not47.us, label %52, label %53
 

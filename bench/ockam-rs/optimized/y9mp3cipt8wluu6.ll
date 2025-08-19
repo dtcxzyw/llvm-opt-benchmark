@@ -2037,7 +2037,7 @@ define hidden void @"_ZN22aws_smithy_runtime_api6client12orchestrator26Orchestra
     i16 5, label %41
   ]
 
-default.unreachable114:                           ; preds = %41, %19
+default.unreachable117:                           ; preds = %41, %19
   unreachable
 
 18:                                               ; preds = %4
@@ -2047,7 +2047,7 @@ default.unreachable114:                           ; preds = %41, %19
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %21 = load i8, ptr %2, align 1, !range !214, !noundef !5
-  switch i8 %21, label %default.unreachable114 [
+  switch i8 %21, label %default.unreachable117 [
     i8 0, label %47
     i8 1, label %47
     i8 2, label %56
@@ -2100,7 +2100,7 @@ default.unreachable114:                           ; preds = %41, %19
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !align !216, !noundef !5
   %46 = load i8, ptr %2, align 1, !range !214, !noundef !5
-  switch i8 %46, label %default.unreachable114 [
+  switch i8 %46, label %default.unreachable117 [
     i8 0, label %117
     i8 1, label %117
     i8 2, label %120

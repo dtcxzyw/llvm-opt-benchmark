@@ -2191,9 +2191,9 @@ get_se_golomb_long.exit:                          ; preds = %1397, %1452, %1456
   br label %get_ue_golomb.exit.thread
 
 .loopexit.sink.split:                             ; preds = %.thread486, %1091, %1051
-  %.sink591 = phi i64 [ 84, %1051 ], [ 88, %1091 ], [ 100, %.thread486 ]
+  %.sink616 = phi i64 [ 84, %1051 ], [ 88, %1091 ], [ 100, %.thread486 ]
   %.sink = phi i32 [ -1094995529, %1051 ], [ -1094995529, %1091 ], [ -1, %.thread486 ]
-  %1503 = getelementptr inbounds nuw i8, ptr %43, i64 %.sink591
+  %1503 = getelementptr inbounds nuw i8, ptr %43, i64 %.sink616
   store i32 %.sink, ptr %1503, align 4, !tbaa !58
   br label %.loopexit
 
@@ -2600,8 +2600,8 @@ get_ue_golomb_long.exit45:                        ; preds = %115, %119
 
 157:                                              ; preds = %get_ue_golomb_long.exit45, %139
   %.024 = phi i32 [ %150, %139 ], [ 0, %get_ue_golomb_long.exit45 ]
-  %.not76 = icmp eq i32 %67, 1
-  br i1 %.not76, label %.loopexit, label %.lr.ph
+  %.not80 = icmp eq i32 %67, 1
+  br i1 %.not80, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %157
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 4

@@ -2879,7 +2879,7 @@ define dso_local void @_ZN20Sample_TempObstacles12handleRenderEv(ptr noundef non
 
 82:                                               ; preds = %78
   %.not25 = icmp eq i32 %81, 5
-  br i1 %.not25, label %.thread36, label %83
+  br i1 %.not25, label %.thread44, label %83
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2909,19 +2909,19 @@ thread-pre-split:                                 ; preds = %87, %83
 93:                                               ; preds = %91, %thread-pre-split
   %94 = phi i32 [ %.pre33, %91 ], [ %89, %thread-pre-split ]
   %95 = icmp eq i32 %94, 3
-  br i1 %95, label %96, label %.thread36
+  br i1 %95, label %96, label %.thread44
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %79, align 8
   call void @_Z23duDebugDrawNavMeshNodesP11duDebugDrawRK14dtNavMeshQuery(ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(104) %97)
-  br label %.thread36
+  br label %.thread44
 
-.thread36:                                        ; preds = %82, %96, %93
+.thread44:                                        ; preds = %82, %96, %93
   %98 = load ptr, ptr %76, align 8
   call void @_Z32duDebugDrawNavMeshPolysWithFlagsP11duDebugDrawRK9dtNavMeshtj(ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(100) %98, i16 noundef zeroext 16, i32 noundef -2147483648)
   br label %99
 
-99:                                               ; preds = %.thread36, %78, %42
+99:                                               ; preds = %.thread44, %78, %42
   call void @glDepthMask(i8 noundef zeroext 1)
   %100 = load ptr, ptr %4, align 8
   call void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noundef nonnull align 8 dereferenceable(50312) %100, ptr noundef nonnull %49, i1 noundef zeroext false)
@@ -3541,8 +3541,8 @@ _ZN9rcContext11resetTimersEv.exit:                ; preds = %190, %194
 
 _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %._crit_edge75, %233
   %237 = icmp sgt i32 %34, 0
-  %or.cond91 = select i1 %201, i1 %237, i1 false
-  br i1 %or.cond91, label %.preheader.us, label %._crit_edge78
+  %or.cond104 = select i1 %201, i1 %237, i1 false
+  br i1 %or.cond104, label %.preheader.us, label %._crit_edge78
 
 .preheader.us:                                    ; preds = %_ZN9rcContext10startTimerE12rcTimerLabel.exit, %._crit_edge.us80
   %.05477.us = phi i32 [ %243, %._crit_edge.us80 ], [ 0, %_ZN9rcContext10startTimerE12rcTimerLabel.exit ]

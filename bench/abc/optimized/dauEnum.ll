@@ -929,7 +929,7 @@ thread-pre-split:                                 ; preds = %.thread329, %228, %
   br i1 %.not12.i.i303, label %Dau_EnumLift.exit.i309, label %.lr.ph.i.i304.preheader
 
 .lr.ph.i.i304.preheader:                          ; preds = %186, %thread-pre-split
-  %.not.i451 = phi ptr [ %.not.i, %thread-pre-split ], [ @.str.1, %186 ]
+  %.not.i480 = phi ptr [ %.not.i, %thread-pre-split ], [ @.str.1, %186 ]
   %236 = phi i8 [ %235, %thread-pre-split ], [ %.pr330.pre, %186 ]
   br label %.lr.ph.i.i304
 
@@ -949,7 +949,7 @@ thread-pre-split:                                 ; preds = %.thread329, %228, %
   br i1 %.not.i.i308, label %Dau_EnumLift.exit.i309, label %.lr.ph.i.i304, !llvm.loop !6
 
 Dau_EnumLift.exit.i309:                           ; preds = %.lr.ph.i.i304, %thread-pre-split
-  %.not.i452 = phi ptr [ %.not.i, %thread-pre-split ], [ %.not.i451, %.lr.ph.i.i304 ]
+  %.not.i481 = phi ptr [ %.not.i, %thread-pre-split ], [ %.not.i480, %.lr.ph.i.i304 ]
   %.0.lcssa.i.i310 = phi ptr [ @Dau_EnumLift.pBuffer, %thread-pre-split ], [ %241, %.lr.ph.i.i304 ]
   store i8 0, ptr %.0.lcssa.i.i310, align 1, !tbaa !3
   %244 = load i8, ptr %34, align 1, !tbaa !3
@@ -959,7 +959,7 @@ Dau_EnumLift.exit.i309:                           ; preds = %.lr.ph.i.i304, %thr
   %247 = load i8, ptr @Dau_EnumLift.pBuffer, align 16, !tbaa !3
   %248 = icmp eq i8 %247, 42
   %249 = select i1 %248, ptr getelementptr inbounds nuw (i8, ptr @Dau_EnumLift.pBuffer, i64 1), ptr @Dau_EnumLift.pBuffer
-  %250 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %.not.i452, i32 noundef 91, ptr noundef nonnull @.str.2, ptr noundef nonnull %246, ptr noundef nonnull @.str.2, ptr noundef nonnull %249, i32 noundef 93) #12
+  %250 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %.not.i481, i32 noundef 91, ptr noundef nonnull @.str.2, ptr noundef nonnull %246, ptr noundef nonnull @.str.2, ptr noundef nonnull %249, i32 noundef 93) #12
   %251 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #13
   %252 = add i64 %251, 1
   %253 = tail call noalias ptr @malloc(i64 noundef %252) #14
@@ -1378,8 +1378,8 @@ Vec_PtrPush.exit325:                              ; preds = %.Vec_PtrGrow.exit11
   %409 = icmp eq i64 %indvars.iv421, 4
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next422, %wide.trip.count
-  %or.cond458 = select i1 %409, i1 true, i1 %exitcond424.not
-  br i1 %or.cond458, label %.lr.ph366, label %396, !llvm.loop !31
+  %or.cond487 = select i1 %409, i1 true, i1 %exitcond424.not
+  br i1 %or.cond487, label %.lr.ph366, label %396, !llvm.loop !31
 
 .lr.ph366:                                        ; preds = %.critedge12
   %.val228 = load ptr, ptr %3, align 8, !tbaa !14

@@ -496,13 +496,13 @@ _ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit: ;
 .outer:                                           ; preds = %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit, %34
   %.024.ph = phi i32 [ %60, %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit ], [ 10, %34 ]
   %.023.ph = phi i32 [ %.024.ph, %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit ], [ 0, %34 ]
-  br label %.outer56
+  br label %.outer61
 
-.outer56:                                         ; preds = %.outer, %44
-  %.023.ph57 = phi i32 [ %.023.ph, %.outer ], [ %57, %44 ]
+.outer61:                                         ; preds = %.outer, %44
+  %.023.ph62 = phi i32 [ %.023.ph, %.outer ], [ %57, %44 ]
   br label %35
 
-35:                                               ; preds = %.outer56, %77
+35:                                               ; preds = %.outer61, %77
   %36 = load ptr, ptr %8, align 8, !tbaa !34
   %37 = invoke noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr noundef %36, ptr noundef nonnull %3, i32 noundef 4096)
           to label %38 unwind label %.loopexit.loopexit.loopexit
@@ -521,7 +521,7 @@ _ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit: ;
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %23, align 8, !tbaa !36
-  %46 = zext nneg i32 %.023.ph57 to i64
+  %46 = zext nneg i32 %.023.ph62 to i64
   %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
   store ptr %43, ptr %47, align 8, !tbaa !23
   %48 = load i32, ptr %4, align 4, !tbaa !37
@@ -536,10 +536,10 @@ _ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit: ;
   %55 = load ptr, ptr %32, align 8, !tbaa !40
   %56 = getelementptr inbounds nuw double, ptr %55, i64 %46
   store double %54, ptr %56, align 8, !tbaa !18
-  %57 = add nuw nsw i32 %.023.ph57, 1
+  %57 = add nuw nsw i32 %.023.ph62, 1
   store i32 %57, ptr %22, align 8, !tbaa !31
   %58 = icmp eq i32 %57, %.024.ph
-  br i1 %58, label %59, label %.outer56, !llvm.loop !41
+  br i1 %58, label %59, label %.outer61, !llvm.loop !41
 
 59:                                               ; preds = %44
   %60 = add nuw nsw i32 %.024.ph, 1
@@ -582,12 +582,12 @@ _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %69
   br label %.loopexit
 
 .loopexit.loopexit.loopexit.split-lp:             ; preds = %42
-  %lpad.loopexit.split-lp58 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .loopexit.loopexit.split-lp:                      ; preds = %69, %66, %63, %59
-  %lpad.loopexit.split-lp54 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp59 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
@@ -597,7 +597,7 @@ _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %69
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit, %.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp54, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp58, %.loopexit.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp59, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp63, %.loopexit.loopexit.loopexit.split-lp ]
   %74 = load ptr, ptr %8, align 8, !tbaa !34
   %.not.i = icmp eq ptr %74, null
   br i1 %.not.i, label %_ZNSt10unique_ptrI8_IO_FILEN3gmx15functor_wrapperIS0_XadL_ZNS1_14fclose_wrapperEPS0_EEEEED2Ev.exit, label %75
@@ -609,7 +609,7 @@ _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %69
 77:                                               ; preds = %39
   %78 = load ptr, ptr @stderr, align 8, !tbaa !34
   %79 = load ptr, ptr %2, align 8, !tbaa !23
-  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.10, ptr noundef %79, i32 noundef %.023.ph57) #30
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.10, ptr noundef %79, i32 noundef %.023.ph62) #30
   br label %35, !llvm.loop !41
 
 81:                                               ; preds = %38
@@ -857,15 +857,15 @@ define noundef ptr @_Z13gmx_sans_initPK10t_topologyP37gmx_neutron_atomic_structu
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %38, %36
-  %.sink39 = phi ptr [ %37, %36 ], [ %40, %38 ], [ %20, %41 ]
+  %.sink42 = phi ptr [ %37, %36 ], [ %40, %38 ], [ %20, %41 ]
   %.sink.in = phi ptr [ %35, %36 ], [ %39, %38 ], [ %43, %41 ]
   %.sink = load double, ptr %.sink.in, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw double, ptr %.sink39, i64 %indvars.iv34
+  %44 = getelementptr inbounds nuw double, ptr %.sink42, i64 %indvars.iv34
   store double %.sink, ptr %44, align 8, !tbaa !18
   br label %45
 
 45:                                               ; preds = %.sink.split, %.lr.ph
-  %46 = phi ptr [ %20, %.lr.ph ], [ %.sink39, %.sink.split ]
+  %46 = phi ptr [ %20, %.lr.ph ], [ %.sink42, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %1, align 8, !tbaa !31
   %48 = sext i32 %47 to i64
@@ -1038,11 +1038,11 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
   br label %124
 
 124:                                              ; preds = %118, %114
-  %.sink145 = phi i32 [ %121, %118 ], [ %115, %114 ]
-  %.sink143 = phi double [ %123, %118 ], [ %117, %114 ]
-  %125 = add nsw i32 %.sink145, -1
+  %.sink154 = phi i32 [ %121, %118 ], [ %115, %114 ]
+  %.sink152 = phi double [ %123, %118 ], [ %117, %114 ]
+  %125 = add nsw i32 %.sink154, -1
   %126 = sitofp i32 %125 to double
-  %127 = fmul double %.sink143, %126
+  %127 = fmul double %.sink152, %126
   %128 = call double @llvm.floor.f64(double %127)
   %storemerge = fptosi double %128 to i64
   store i64 %storemerge, ptr %18, align 8, !tbaa !10
@@ -2326,12 +2326,12 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.019, label %.sink.split62, label %37
+  br i1 %.019, label %.sink.split63, label %37
 
 .sink.split:                                      ; preds = %.thread, %.thread51
   %.pn39.pn50.ph = phi { ptr, i32 } [ %17, %.thread51 ], [ %16, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.sink.split62
+  br label %.sink.split63
 
 20:                                               ; preds = %2
   %21 = shl nuw i64 %1, 57
@@ -2372,13 +2372,13 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
 .thread54:                                        ; preds = %26
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split61
+  br label %.sink.split62
 
 .thread58:                                        ; preds = %28
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
-  br label %.sink.split61
+  br label %.sink.split62
 
 34:                                               ; preds = %29, %31
   %.0 = phi i1 [ false, %31 ], [ true, %29 ]
@@ -2389,24 +2389,24 @@ define linkonce_odr void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj7EEE
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #15
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.0, label %.sink.split62, label %37
+  br i1 %.0, label %.sink.split63, label %37
 
-.sink.split61:                                    ; preds = %.thread54, %.thread58
+.sink.split62:                                    ; preds = %.thread54, %.thread58
   %.pn.pn57.ph = phi { ptr, i32 } [ %33, %.thread58 ], [ %32, %.thread54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split62
+  br label %.sink.split63
 
 36:                                               ; preds = %20
   ret void
 
-.sink.split62:                                    ; preds = %34, %.sink.split61, %18, %.sink.split
-  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split61 ], [ %27, %34 ]
-  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split61 ], [ %35, %34 ]
+.sink.split63:                                    ; preds = %34, %.sink.split62, %18, %.sink.split
+  %.sink = phi ptr [ %11, %.sink.split ], [ %11, %18 ], [ %27, %.sink.split62 ], [ %27, %34 ]
+  %.pn39.pn.pn.ph = phi { ptr, i32 } [ %.pn39.pn50.ph, %.sink.split ], [ %19, %18 ], [ %.pn.pn57.ph, %.sink.split62 ], [ %35, %34 ]
   call void @__cxa_free_exception(ptr %.sink) #15
   br label %37
 
-37:                                               ; preds = %.sink.split62, %34, %18
-  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split62 ]
+37:                                               ; preds = %.sink.split63, %34, %18
+  %.pn39.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ], [ %.pn39.pn.pn.ph, %.sink.split63 ]
   resume { ptr, i32 } %.pn39.pn.pn
 
 38:                                               ; preds = %31, %15

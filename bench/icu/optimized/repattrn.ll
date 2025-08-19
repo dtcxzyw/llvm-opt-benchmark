@@ -1816,7 +1816,7 @@ define noundef signext i8 @_ZN6icu_7712RegexPattern7matchesEP5UTextS2_R11UParseE
   %8 = tail call noundef ptr @_ZN6icu_7712RegexPattern7compileEP5UTextjR11UParseErrorR10UErrorCode(ptr noundef %0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %9 = load i32, ptr %3, align 4, !tbaa !13
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %.thread23
+  br i1 %10, label %11, label %.thread25
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -1842,7 +1842,7 @@ define noundef signext i8 @_ZN6icu_7712RegexPattern7matchesEP5UTextS2_R11UParseE
 .sink.split.i:                                    ; preds = %15, %11
   %.sink.i = phi i32 [ %13, %11 ], [ 7, %15 ]
   store i32 %.sink.i, ptr %3, align 4, !tbaa !13
-  br label %.thread23
+  br label %.thread25
 
 _ZNK6icu_7712RegexPattern7matcherER10UErrorCode.exit: ; preds = %18
   %.pre = load i32, ptr %3, align 4, !tbaa !13
@@ -1858,16 +1858,16 @@ _ZNK6icu_7712RegexPattern7matcherER10UErrorCode.exit: ; preds = %18
   %.018 = phi i8 [ %23, %.thread ], [ 0, %_ZNK6icu_7712RegexPattern7matcherER10UErrorCode.exit ]
   tail call void @_ZN6icu_7712RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %16) #15
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %16) #15
-  br label %.thread23
+  br label %.thread25
 
-.thread23:                                        ; preds = %7, %.sink.split.i, %24
+.thread25:                                        ; preds = %7, %.sink.split.i, %24
   %.019 = phi i8 [ %.018, %24 ], [ 0, %.sink.split.i ], [ 0, %7 ]
   tail call void @_ZN6icu_7712RegexPatternD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %8) #15
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %8) #15
   br label %25
 
-25:                                               ; preds = %4, %.thread23
-  %.014 = phi i8 [ %.019, %.thread23 ], [ 0, %4 ]
+25:                                               ; preds = %4, %.thread25
+  %.014 = phi i8 [ %.019, %.thread25 ], [ 0, %4 ]
   ret i8 %.014
 }
 

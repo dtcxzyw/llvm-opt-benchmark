@@ -380,7 +380,7 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   br i1 %.not30, label %.lr.ph.us, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %.lr.ph.lr.ph
-  %.0234851 = phi i16 [ %41, %.lr.ph.lr.ph ], [ 0, %.thread ]
+  %.0235457 = phi i16 [ %41, %.lr.ph.lr.ph ], [ 0, %.thread ]
   %42 = phi ptr [ %37, %.lr.ph.lr.ph ], [ %39, %.thread ]
   br label %.lr.ph
 
@@ -405,7 +405,7 @@ define internal fastcc void @_load_dbd_state() unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 0, ptr %51, align 4
-  %52 = call i32 @slurm_unpack_slurmdbd_msg(ptr noundef nonnull %4, i16 noundef zeroext %.0234851, ptr noundef nonnull %50) #13
+  %52 = call i32 @slurm_unpack_slurmdbd_msg(ptr noundef nonnull %4, i16 noundef zeroext %.0235457, ptr noundef nonnull %50) #13
   call void @slurm_free_buf(ptr noundef nonnull %50) #13
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %.thread35
@@ -1700,7 +1700,7 @@ _process_id_rc_list.exit:                         ; preds = %_get_return_code.ex
   br label %.thread167
 
 .thread167:                                       ; preds = %322, %339, %_process_id_rc_list.exit
-  %.0.i154352354 = phi i32 [ 11, %339 ], [ %326, %_process_id_rc_list.exit ], [ -1, %322 ]
+  %.0.i154393395 = phi i32 [ 11, %339 ], [ %326, %_process_id_rc_list.exit ], [ -1, %322 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %343
 
@@ -1711,7 +1711,7 @@ _process_id_rc_list.exit:                         ; preds = %_get_return_code.ex
   br label %.loopexit
 
 343:                                              ; preds = %.thread167, %237, %_handle_mult_rc_ret.exit
-  %.0 = phi i32 [ %225, %237 ], [ %.0.i, %_handle_mult_rc_ret.exit ], [ %.0.i154352354, %.thread167 ]
+  %.0 = phi i32 [ %225, %237 ], [ %.0.i, %_handle_mult_rc_ret.exit ], [ %.0.i154393395, %.thread167 ]
   %344 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @slurmdbd_lock) #13
   %.not125 = icmp eq i32 %344, 0
   br i1 %.not125, label %347, label %345
@@ -2173,12 +2173,12 @@ _save_dbd_rec.exit:                               ; preds = %45, %.sink.split.i
   %.not.i40 = icmp eq i64 %66, 4
   br i1 %.not.i40, label %.outer.i43, label %_save_dbd_rec.exit48
 
-.critedge122:                                     ; preds = %.outer.i43, %78
+.critedge131:                                     ; preds = %.outer.i43, %78
   %67 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef %.0.ph.i45, i64 noundef %74) #13
   %68 = icmp sgt i64 %67, 0
   br i1 %68, label %69, label %76
 
-69:                                               ; preds = %.critedge122
+69:                                               ; preds = %.critedge131
   %70 = getelementptr inbounds nuw i8, ptr %.0.ph.i45, i64 %67
   %71 = trunc i64 %67 to i32
   %72 = sub i32 %73, %71
@@ -2190,9 +2190,9 @@ _save_dbd_rec.exit:                               ; preds = %45, %.sink.split.i
   %.0.ph.i45 = phi ptr [ %70, %69 ], [ %.val38, %64 ]
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %.018.ph.i44, %74
-  br i1 %75, label %.critedge122, label %82
+  br i1 %75, label %.critedge131, label %82
 
-76:                                               ; preds = %.critedge122
+76:                                               ; preds = %.critedge131
   %77 = icmp eq i64 %67, -1
   br i1 %77, label %78, label %_save_dbd_rec.exit48
 
@@ -2200,7 +2200,7 @@ _save_dbd_rec.exit:                               ; preds = %45, %.sink.split.i
   %79 = tail call ptr @__errno_location() #14
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 4
-  br i1 %81, label %.critedge122, label %_save_dbd_rec.exit48, !llvm.loop !12
+  br i1 %81, label %.critedge131, label %_save_dbd_rec.exit48, !llvm.loop !12
 
 82:                                               ; preds = %.outer.i43
   %83 = call i64 @write(i32 noundef range(i32 0, -2147483648) %12, ptr noundef nonnull %2, i64 noundef 4) #13

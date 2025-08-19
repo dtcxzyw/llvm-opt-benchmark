@@ -649,7 +649,7 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
 111:                                              ; preds = %96
   %112 = call i32 @tvb_reported_length(ptr noundef %0)
   %113 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %105, ptr noundef nonnull @ei_xmcp_length_bad, ptr noundef nonnull @.str.212, i32 noundef 20, i32 noundef %107, i32 noundef %112)
-  br label %.sink.split185
+  br label %.sink.split209
 
 114:                                              ; preds = %96
   %115 = load i32, ptr @hf_xmcp_cookie, align 4
@@ -1400,14 +1400,14 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 
 .thread387.thread.sink.split.i:                   ; preds = %379, %376
   %hf_xmcp_attr_servtrans_ipv4.sink.i = phi ptr [ @hf_xmcp_attr_servtrans_ipv4, %376 ], [ @hf_xmcp_attr_servtrans_ipv6, %379 ]
-  %.sink403.i = phi i32 [ 4, %376 ], [ 16, %379 ]
-  %.sink400.i = phi i32 [ 2, %376 ], [ 3, %379 ]
+  %.sink409.i = phi i32 [ 4, %376 ], [ 16, %379 ]
+  %.sink406.i = phi i32 [ 2, %376 ], [ 3, %379 ]
   %.str.235.sink.i = phi ptr [ @.str.235, %376 ], [ @.str.237, %379 ]
   %503 = load i32, ptr %hf_xmcp_attr_servtrans_ipv4.sink.i, align 4
   %504 = add nuw nsw i32 %191, 4
-  %505 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef %.sink403.i, i32 noundef 0)
+  %505 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef %.sink409.i, i32 noundef 0)
   %506 = load ptr, ptr %167, align 8
-  %507 = call ptr @tvb_address_to_str(ptr noundef %506, ptr noundef %0, i32 noundef %.sink400.i, i32 noundef %504)
+  %507 = call ptr @tvb_address_to_str(ptr noundef %506, ptr noundef %0, i32 noundef %.sink406.i, i32 noundef %504)
   %508 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %367)
   %509 = zext i16 %508 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %183, ptr noundef nonnull %.str.235.sink.i, ptr noundef %507, i32 noundef %509)
@@ -1505,18 +1505,18 @@ proto_item_set_generated.exit176:                 ; preds = %521, %524, %527
 534:                                              ; preds = %532, %proto_item_set_generated.exit176
   %535 = load i16, ptr @xmcp_msg_type_class, align 2
   %536 = icmp eq i16 %535, 0
-  br i1 %536, label %537, label %.sink.split185
+  br i1 %536, label %537, label %.sink.split209
 
 537:                                              ; preds = %534
   store i8 1, ptr %98, align 8
-  br label %.sink.split185
+  br label %.sink.split209
 
 538:                                              ; preds = %.loopexit
   %539 = load i16, ptr @xmcp_msg_type_class, align 2
   %540 = zext nneg i16 %539 to i32
   %541 = and i16 %539, -17
   %or.cond5 = icmp eq i16 %541, 0
-  br i1 %or.cond5, label %542, label %.sink.split185
+  br i1 %or.cond5, label %542, label %.sink.split209
 
 542:                                              ; preds = %538
   %543 = load i16, ptr @xmcp_msg_type_method, align 2
@@ -1527,12 +1527,12 @@ proto_item_set_generated.exit176:                 ; preds = %521, %524, %527
 546:                                              ; preds = %542
   %547 = call ptr @val_to_str_const(i32 noundef %540, ptr noundef nonnull @classes, ptr noundef nonnull @.str.219)
   %548 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %84, ptr noundef nonnull @ei_xmcp_new_session, ptr noundef nonnull @.str.218, ptr noundef %547)
-  br label %.sink.split185
+  br label %.sink.split209
 
 549:                                              ; preds = %542
   %550 = and i16 %543, -2
   %or.cond8 = icmp eq i16 %550, 2
-  br i1 %or.cond8, label %551, label %.sink.split185
+  br i1 %or.cond8, label %551, label %.sink.split209
 
 551:                                              ; preds = %549
   %552 = call ptr @val_to_str_const(i32 noundef %544, ptr noundef nonnull @methods, ptr noundef nonnull @.str.219)
@@ -1540,14 +1540,14 @@ proto_item_set_generated.exit176:                 ; preds = %521, %524, %527
   %554 = zext nneg i16 %553 to i32
   %555 = call ptr @val_to_str_const(i32 noundef %554, ptr noundef nonnull @classes, ptr noundef nonnull @.str.219)
   %556 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %84, ptr noundef nonnull @ei_xmcp_session_termination, ptr noundef nonnull @.str.220, ptr noundef %552, ptr noundef %555)
-  br label %.sink.split185
+  br label %.sink.split209
 
-.sink.split185:                                   ; preds = %537, %534, %546, %549, %551, %538, %111
+.sink.split209:                                   ; preds = %537, %534, %546, %549, %551, %538, %111
   %557 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %558
 
-558:                                              ; preds = %.sink.split185, %14, %12, %4
-  %.0144 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %14 ], [ %557, %.sink.split185 ]
+558:                                              ; preds = %.sink.split209, %14, %12, %4
+  %.0144 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %14 ], [ %557, %.sink.split209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0144

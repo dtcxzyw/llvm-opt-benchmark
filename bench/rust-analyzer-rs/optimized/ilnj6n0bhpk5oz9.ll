@@ -675,25 +675,25 @@ define hidden noundef zeroext i1 @_ZN6parser7grammar5items8use_item8use_tree17hb
   %17 = load i64, ptr %0, align 8, !alias.scope !84, !noalias !89, !noundef !10
   %18 = icmp eq i64 %14, %17
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink.sroa.gep65 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink.sroa.gep66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink.sroa.gep67 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep68 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink.sroa.gep70 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink.sroa.gep71 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sink.sroa.gep72 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink.sroa.gep73 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep74 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink.sroa.gep76 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink.sroa.gep77 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink.sroa.gep78 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink.sroa.gep79 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep80 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink.sroa.gep82 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sink.sroa.gep83 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink.sroa.gep84 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink.sroa.gep85 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink.sroa.gep86 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink.sroa.gep92 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink.sroa.gep94 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep95 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep97 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink.sroa.gep98 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink.sroa.gep99 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink.sroa.gep100 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep101 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink.sroa.gep103 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink.sroa.gep104 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink.sroa.gep105 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink.sroa.gep106 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep107 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.gep109 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink.sroa.gep110 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink.sroa.gep111 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink.sroa.gep112 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink.sroa.gep113 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %18, label %19, label %_ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit
 
 19:                                               ; preds = %2
@@ -760,23 +760,23 @@ _ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit: ; preds = %2, %._crit_e
 
 43:                                               ; preds = %_ZN6parser6parser6Parser5start17ha1a470a189718db9E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br label %.invoke58
+  br label %.invoke85
 
-.invoke58:                                        ; preds = %157, %125, %108, %73, %43
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %157 ], [ %.sink.sroa.gep65, %125 ], [ %.sink.sroa.gep66, %108 ], [ %.sink.sroa.gep67, %73 ], [ %.sink.sroa.gep68, %43 ]
-  %.sink.sroa.phi69 = phi ptr [ %.sink.sroa.gep70, %157 ], [ %.sink.sroa.gep71, %125 ], [ %.sink.sroa.gep72, %108 ], [ %.sink.sroa.gep73, %73 ], [ %.sink.sroa.gep74, %43 ]
-  %.sink.sroa.phi75 = phi ptr [ %.sink.sroa.gep76, %157 ], [ %.sink.sroa.gep77, %125 ], [ %.sink.sroa.gep78, %108 ], [ %.sink.sroa.gep79, %73 ], [ %.sink.sroa.gep80, %43 ]
-  %.sink.sroa.phi81 = phi ptr [ %.sink.sroa.gep82, %157 ], [ %.sink.sroa.gep83, %125 ], [ %.sink.sroa.gep84, %108 ], [ %.sink.sroa.gep85, %73 ], [ %.sink.sroa.gep86, %43 ]
+.invoke85:                                        ; preds = %157, %125, %108, %73, %43
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %157 ], [ %.sink.sroa.gep92, %125 ], [ %.sink.sroa.gep93, %108 ], [ %.sink.sroa.gep94, %73 ], [ %.sink.sroa.gep95, %43 ]
+  %.sink.sroa.phi96 = phi ptr [ %.sink.sroa.gep97, %157 ], [ %.sink.sroa.gep98, %125 ], [ %.sink.sroa.gep99, %108 ], [ %.sink.sroa.gep100, %73 ], [ %.sink.sroa.gep101, %43 ]
+  %.sink.sroa.phi102 = phi ptr [ %.sink.sroa.gep103, %157 ], [ %.sink.sroa.gep104, %125 ], [ %.sink.sroa.gep105, %108 ], [ %.sink.sroa.gep106, %73 ], [ %.sink.sroa.gep107, %43 ]
+  %.sink.sroa.phi108 = phi ptr [ %.sink.sroa.gep109, %157 ], [ %.sink.sroa.gep110, %125 ], [ %.sink.sroa.gep111, %108 ], [ %.sink.sroa.gep112, %73 ], [ %.sink.sroa.gep113, %43 ]
   %.sink = phi ptr [ %3, %157 ], [ %4, %125 ], [ %5, %108 ], [ %6, %73 ], [ %7, %43 ]
   store ptr @anon.b524e8eb8974857e663438d42e829098.18.llvm.6580822817679657170, ptr %.sink, align 8
   store i64 1, ptr %.sink.sroa.phi, align 8
-  store ptr null, ptr %.sink.sroa.phi69, align 8
-  store ptr @anon.b524e8eb8974857e663438d42e829098.3.llvm.6580822817679657170, ptr %.sink.sroa.phi75, align 8
-  store i64 0, ptr %.sink.sroa.phi81, align 8
+  store ptr null, ptr %.sink.sroa.phi96, align 8
+  store ptr @anon.b524e8eb8974857e663438d42e829098.3.llvm.6580822817679657170, ptr %.sink.sroa.phi102, align 8
+  store i64 0, ptr %.sink.sroa.phi108, align 8
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b524e8eb8974857e663438d42e829098.19.llvm.6580822817679657170) #14
           to label %.cont unwind label %168
 
-.cont:                                            ; preds = %.invoke58
+.cont:                                            ; preds = %.invoke85
   unreachable
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit: ; preds = %35
@@ -786,7 +786,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit: ; preds = %35
   %47 = load i16, ptr %46, align 2, !range !98, !noalias !95, !noundef !10
   switch i16 %47, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread [
     i16 6, label %.invoke
-    i16 20, label %.invoke57
+    i16 20, label %.invoke84
     i16 29, label %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i
   ]
 
@@ -811,18 +811,18 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i: ; preds = %_ZN6pars
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %56 = load i64, ptr %55, align 8, !alias.scope !102, !noundef !10
   %57 = icmp ult i64 %54, %56
-  br i1 %57, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit, label %.invoke59, !prof !105
+  br i1 %57, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit, label %.invoke86, !prof !105
 
-.invoke59:                                        ; preds = %134, %85, %53
+.invoke86:                                        ; preds = %134, %85, %53
   %58 = phi i64 [ %54, %53 ], [ %86, %85 ], [ %135, %134 ]
   %59 = phi i64 [ %56, %53 ], [ %88, %85 ], [ %137, %134 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %58, i64 noundef %59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.98165b6e5c4c464a5b8e4150dab5462e.22.llvm.10899465998927834341) #14
-          to label %.cont60 unwind label %168
+          to label %.cont87 unwind label %168
 
-.cont60:                                          ; preds = %.invoke59
+.cont87:                                          ; preds = %.invoke86
   unreachable
 
-_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread: ; preds = %.invoke57, %.invoke, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i41, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43, %119, %167, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit26, %139
+_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread: ; preds = %.invoke84, %.invoke, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i41, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43, %119, %167, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit26, %139
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false)
   %60 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 236)
@@ -855,7 +855,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %53
 
 73:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %.invoke58
+  br label %.invoke85
 
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit.thread: ; preds = %69, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
   %74 = phi i32 [ %70, %69 ], [ %36, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit.i69.i ], [ %36, %_ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i ], [ %70, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ %36, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ]
@@ -888,7 +888,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i35: ; preds = %80
   %87 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %88 = load i64, ptr %87, align 8, !alias.scope !115, !noundef !10
   %89 = icmp ult i64 %86, %88
-  br i1 %89, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16, label %.invoke59, !prof !105
+  br i1 %89, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16, label %.invoke86, !prof !105
 
 _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %69
   %90 = load ptr, ptr %44, align 8, !alias.scope !106, !nonnull !10
@@ -899,7 +899,7 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %69
 
 94:                                               ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit
   invoke void @_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 30)
-          to label %.invoke57 unwind label %168
+          to label %.invoke84 unwind label %168
 
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16: ; preds = %85
   %95 = and i64 %40, 63
@@ -927,7 +927,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit16: ; preds = %85
 
 108:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br label %.invoke58
+  br label %.invoke85
 
 _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit19: ; preds = %104
   %109 = load ptr, ptr %44, align 8, !alias.scope !118, !nonnull !10
@@ -979,7 +979,7 @@ _ZN6parser7grammar5paths8use_path17hcb910adb75381146E.exit: ; preds = %115
 
 125:                                              ; preds = %_ZN6parser7grammar5paths8use_path17hcb910adb75381146E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %.invoke58
+  br label %.invoke85
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24: ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -1008,7 +1008,7 @@ _ZN6parser5input5Input4kind17h4ea4dc12dc479dcdE.exit6.i71.i43: ; preds = %_ZN6pa
   %136 = getelementptr inbounds nuw i8, ptr %121, i64 40
   %137 = load i64, ptr %136, align 8, !alias.scope !127, !noundef !10
   %138 = icmp ult i64 %135, %137
-  br i1 %138, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit26, label %.invoke59, !prof !105
+  br i1 %138, label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit26, label %.invoke86, !prof !105
 
 139:                                              ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24
   invoke void @_ZN6parser7grammar10opt_rename17h36789cda95cc31a9E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
@@ -1047,7 +1047,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit26: ; preds = %134
 
 157:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br label %.invoke58
+  br label %.invoke85
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29: ; preds = %151
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -1056,7 +1056,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29: ; preds = %151
   %161 = load i16, ptr %160, align 2, !range !98, !noalias !130, !noundef !10
   switch i16 %161, label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread [
     i16 6, label %.invoke
-    i16 20, label %.invoke57
+    i16 20, label %.invoke84
   ]
 
 _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread: ; preds = %151, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29
@@ -1067,7 +1067,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread: ; preds = %1
   invoke void @_ZN6parser7grammar5items8use_item13use_tree_list17ha4b2e4e29fa73301E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread unwind label %168
 
-.invoke57:                                        ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29, %94, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
+.invoke84:                                        ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29, %94, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
   invoke void @_ZN6parser6parser6Parser4bump17h842b32f4aa8b1cf2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 20)
           to label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread unwind label %168
 
@@ -1090,7 +1090,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit24.thread
 
-168:                                              ; preds = %.invoke59, %.invoke58, %.invoke57, %.invoke, %163, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread, %147, %139, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread, %94, %113, %115
+168:                                              ; preds = %.invoke86, %.invoke85, %.invoke84, %.invoke, %163, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit29.thread, %147, %139, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread, %94, %113, %115
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$parser..parser..Marker$GT$17h537f17968311df0dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12) #15

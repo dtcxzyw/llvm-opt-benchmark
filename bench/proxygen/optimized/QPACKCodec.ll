@@ -846,8 +846,8 @@ call.i.i.i.i.noexc.i37:                           ; preds = %_ZNK8proxygen15HPAC
   %18 = icmp ult i64 %17, 87
   %19 = load ptr, ptr %agg.tmp19, align 8
   %isnull.i.i44 = icmp eq ptr %19, null
-  %or.cond292 = select i1 %18, i1 true, i1 %isnull.i.i44
-  br i1 %or.cond292, label %if.end68, label %if.end68.sink.split
+  %or.cond318 = select i1 %18, i1 true, i1 %isnull.i.i44
+  br i1 %or.cond318, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i36:                               ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i34
   %20 = landingpad { ptr, i32 }
@@ -954,8 +954,8 @@ call.i.i.i.i.noexc.i80:                           ; preds = %_ZNK8proxygen15HPAC
   %34 = icmp ult i64 %33, 87
   %35 = load ptr, ptr %agg.tmp44, align 8
   %isnull.i.i87 = icmp eq ptr %35, null
-  %or.cond293 = select i1 %34, i1 true, i1 %isnull.i.i87
-  br i1 %or.cond293, label %if.end68, label %if.end68.sink.split
+  %or.cond319 = select i1 %34, i1 true, i1 %isnull.i.i87
+  br i1 %or.cond319, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i79:                               ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i77
   %36 = landingpad { ptr, i32 }
@@ -1002,8 +1002,8 @@ call.i.i.i.i.noexc.i101:                          ; preds = %_ZNK8proxygen15HPAC
   %41 = icmp ult i64 %40, 87
   %42 = load ptr, ptr %agg.tmp57, align 8
   %isnull.i.i108 = icmp eq ptr %42, null
-  %or.cond294 = select i1 %41, i1 true, i1 %isnull.i.i108
-  br i1 %or.cond294, label %if.end68, label %if.end68.sink.split
+  %or.cond320 = select i1 %41, i1 true, i1 %isnull.i.i108
+  br i1 %or.cond320, label %if.end68, label %if.end68.sink.split
 
 terminate.lpad.i100:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i98
   %43 = landingpad { ptr, i32 }
@@ -1013,11 +1013,11 @@ terminate.lpad.i100:                              ; preds = %_ZNK8proxygen15HPAC
   unreachable
 
 if.end68.sink.split:                              ; preds = %call.i.i.i.i.noexc.i101, %call.i.i.i.i.noexc.i80, %call.i.i.i.i.noexc.i37
-  %.sink289 = phi ptr [ %19, %call.i.i.i.i.noexc.i37 ], [ %35, %call.i.i.i.i.noexc.i80 ], [ %42, %call.i.i.i.i.noexc.i101 ]
+  %.sink315 = phi ptr [ %19, %call.i.i.i.i.noexc.i37 ], [ %35, %call.i.i.i.i.noexc.i80 ], [ %42, %call.i.i.i.i.noexc.i101 ]
   %agg.tmp44.sink.ph = phi ptr [ %agg.tmp19, %call.i.i.i.i.noexc.i37 ], [ %agg.tmp44, %call.i.i.i.i.noexc.i80 ], [ %agg.tmp57, %call.i.i.i.i.noexc.i101 ]
   %.ph = phi i32 [ %conv27, %call.i.i.i.i.noexc.i37 ], [ %conv54, %call.i.i.i.i.noexc.i80 ], [ %38, %call.i.i.i.i.noexc.i101 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink289) #26
-  call void @_ZdlPv(ptr noundef nonnull %.sink289) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink315) #26
+  call void @_ZdlPv(ptr noundef nonnull %.sink315) #28
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end68.sink.split, %call.i.i.i.i.noexc.i101, %invoke.cont63, %call.i.i.i.i.noexc.i80, %invoke.cont50, %call.i.i.i.i.noexc.i37, %invoke.cont23
@@ -1235,8 +1235,8 @@ call.i.i.i.i.noexc.i169:                          ; preds = %_ZNK8proxygen15HPAC
   %72 = icmp ult i64 %71, 87
   %73 = load ptr, ptr %agg.tmp110, align 8
   %isnull.i.i176 = icmp eq ptr %73, null
-  %or.cond295 = select i1 %72, i1 true, i1 %isnull.i.i176
-  br i1 %or.cond295, label %if.end150, label %if.end150.sink.split
+  %or.cond321 = select i1 %72, i1 true, i1 %isnull.i.i176
+  br i1 %or.cond321, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i168:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i166
   %74 = landingpad { ptr, i32 }
@@ -1282,8 +1282,8 @@ call.i.i.i.i.noexc.i192:                          ; preds = %_ZNK8proxygen15HPAC
   %79 = icmp ult i64 %78, 87
   %80 = load ptr, ptr %agg.tmp124, align 8
   %isnull.i.i199 = icmp eq ptr %80, null
-  %or.cond296 = select i1 %79, i1 true, i1 %isnull.i.i199
-  br i1 %or.cond296, label %if.end150, label %if.end150.sink.split
+  %or.cond322 = select i1 %79, i1 true, i1 %isnull.i.i199
+  br i1 %or.cond322, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i191:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i189
   %81 = landingpad { ptr, i32 }
@@ -1400,8 +1400,8 @@ call.i.i.i.i.noexc.i218:                          ; preds = %_ZNK8proxygen15HPAC
   %97 = icmp ult i64 %96, 87
   %98 = load ptr, ptr %agg.tmp135, align 8
   %isnull.i.i225 = icmp eq ptr %98, null
-  %or.cond297 = select i1 %97, i1 true, i1 %isnull.i.i225
-  br i1 %or.cond297, label %if.end150, label %if.end150.sink.split
+  %or.cond323 = select i1 %97, i1 true, i1 %isnull.i.i225
+  br i1 %or.cond323, label %if.end150, label %if.end150.sink.split
 
 terminate.lpad.i217:                              ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i215
   %99 = landingpad { ptr, i32 }
@@ -1411,10 +1411,10 @@ terminate.lpad.i217:                              ; preds = %_ZNK8proxygen15HPAC
   unreachable
 
 if.end150.sink.split:                             ; preds = %call.i.i.i.i.noexc.i218, %call.i.i.i.i.noexc.i192, %call.i.i.i.i.noexc.i169
-  %.sink291 = phi ptr [ %73, %call.i.i.i.i.noexc.i169 ], [ %80, %call.i.i.i.i.noexc.i192 ], [ %98, %call.i.i.i.i.noexc.i218 ]
+  %.sink317 = phi ptr [ %73, %call.i.i.i.i.noexc.i169 ], [ %80, %call.i.i.i.i.noexc.i192 ], [ %98, %call.i.i.i.i.noexc.i218 ]
   %agg.tmp124.sink.ph = phi ptr [ %agg.tmp110, %call.i.i.i.i.noexc.i169 ], [ %agg.tmp124, %call.i.i.i.i.noexc.i192 ], [ %agg.tmp135, %call.i.i.i.i.noexc.i218 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink291) #26
-  call void @_ZdlPv(ptr noundef nonnull %.sink291) #28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink317) #26
+  call void @_ZdlPv(ptr noundef nonnull %.sink317) #28
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end150.sink.split, %call.i.i.i.i.noexc.i218, %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, %call.i.i.i.i.noexc.i192, %invoke.cont128, %call.i.i.i.i.noexc.i169, %invoke.cont114

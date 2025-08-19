@@ -260,8 +260,8 @@ define range(i32 0, 2) i32 @BN_X931_generate_Xpq(ptr noundef %0, ptr noundef %1,
   %20 = icmp sgt i32 %19, %13
   %21 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %21, 1000
-  %or.cond30 = select i1 %20, i1 true, i1 %exitcond.not
-  br i1 %or.cond30, label %22, label %14, !llvm.loop !10
+  %or.cond32 = select i1 %20, i1 true, i1 %exitcond.not
+  br i1 %or.cond32, label %22, label %14, !llvm.loop !10
 
 22:                                               ; preds = %18
   tail call void @BN_CTX_end(ptr noundef %3) #2

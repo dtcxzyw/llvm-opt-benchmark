@@ -295,7 +295,7 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
   %19 = load i32, ptr @enable_error_stack, align 4
   %20 = icmp sgt i32 %19, 0
   %or.cond7 = select i1 %18, i1 %20, i1 false
-  br i1 %or.cond7, label %21, label %.preheader64
+  br i1 %or.cond7, label %21, label %.preheader67
 
 21:                                               ; preds = %15
   %22 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !22
@@ -309,21 +309,21 @@ define void @parse_hsize_list(ptr noundef readonly captures(address_is_null) %0,
   %27 = load i64, ptr @H5E_tools_g, align 8, !tbaa !22
   %28 = load i64, ptr @H5E_tools_min_info_id_g, align 8, !tbaa !22
   %29 = tail call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %22, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.parse_hsize_list, i32 noundef 209, i64 noundef %24, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.6) #23
-  br label %.preheader64
+  br label %.preheader67
 
 30:                                               ; preds = %21
   %31 = load ptr, ptr @stderr, align 8, !tbaa !6
   %32 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 40, i64 1, ptr %31) #26
   %33 = load ptr, ptr @stderr, align 8, !tbaa !6
   %fputc = tail call i32 @fputc(i32 10, ptr %33)
-  br label %.preheader64
+  br label %.preheader67
 
-.preheader64:                                     ; preds = %30, %26, %15
+.preheader67:                                     ; preds = %30, %26, %15
   br label %34
 
-34:                                               ; preds = %.preheader64, %.loopexit
-  %.03863 = phi i32 [ %.139, %.loopexit ], [ 0, %.preheader64 ]
-  %.14362 = phi ptr [ %56, %.loopexit ], [ %0, %.preheader64 ]
+34:                                               ; preds = %.preheader67, %.loopexit
+  %.03863 = phi i32 [ %.139, %.loopexit ], [ 0, %.preheader67 ]
+  %.14362 = phi ptr [ %56, %.loopexit ], [ %0, %.preheader67 ]
   %35 = load i8, ptr %.14362, align 1, !tbaa !3
   switch i8 %35, label %36 [
     i8 0, label %.critedge5
@@ -561,7 +561,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr noundef readonly captures(none) %0,
   %or.cond = or i1 %30, %32
   %33 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %spec.select = select i1 %32, i8 %29, i8 92
-  %spec.select117 = select i1 %or.cond, ptr %33, ptr %28
+  %spec.select121 = select i1 %or.cond, ptr %33, ptr %28
   br label %.sink.split
 
 34:                                               ; preds = %25
@@ -605,7 +605,7 @@ define range(i32 -1, 1) i32 @parse_tuple(ptr noundef readonly captures(none) %0,
 
 .sink.split:                                      ; preds = %27, %57
   %.sink = phi i8 [ %26, %57 ], [ %spec.select, %27 ]
-  %.170.ph = phi ptr [ %58, %57 ], [ %spec.select117, %27 ]
+  %.170.ph = phi ptr [ %58, %57 ], [ %spec.select121, %27 ]
   %59 = getelementptr inbounds nuw i8, ptr %.067.ph, i64 1
   store i8 %.sink, ptr %.067.ph, align 1, !tbaa !3
   br label %.outer, !llvm.loop !34

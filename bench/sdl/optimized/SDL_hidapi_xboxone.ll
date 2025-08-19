@@ -484,9 +484,9 @@ HIDAPI_DriverXboxOneBluetooth_HandleStatePacket.exit: ; preds = %HIDAPI_DriverXb
   br label %303
 
 203:                                              ; preds = %57
-  br i1 %.not, label %303, label %switch.lookup52
+  br i1 %.not, label %303, label %switch.lookup76
 
-switch.lookup52:                                  ; preds = %203
+switch.lookup76:                                  ; preds = %203
   %.val = load i8, ptr %34, align 1
   %204 = zext i8 %.val to i32
   %205 = and i32 %204, 3
@@ -753,7 +753,7 @@ HIDAPI_GIP_ProcessData.exit:                      ; preds = %HIDAPI_GIP_DestroyC
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %303
 
-303:                                              ; preds = %198, %switch.lookup52, %59, %HIDAPI_DriverXboxOneBluetooth_HandleStatePacket.exit, %197, %203, %57, %HIDAPI_GIP_ProcessData.exit
+303:                                              ; preds = %198, %switch.lookup76, %59, %HIDAPI_DriverXboxOneBluetooth_HandleStatePacket.exit, %197, %203, %57, %HIDAPI_GIP_ProcessData.exit
   %304 = load ptr, ptr %17, align 8
   %305 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %304, ptr noundef nonnull %6, i64 noundef 64, i32 noundef 0) #9
   %306 = icmp sgt i32 %305, 0
@@ -1595,14 +1595,14 @@ define internal fastcc void @HIDAPI_DriverXboxOne_HandleStatePacket(ptr noundef 
   br label %58
 
 58:                                               ; preds = %53, %57
-  %.sink226 = phi i8 [ 16, %57 ], [ 32, %53 ]
-  %.sink224 = phi i8 [ 32, %57 ], [ 16, %53 ]
+  %.sink234 = phi i8 [ 16, %57 ], [ 32, %53 ]
+  %.sink232 = phi i8 [ 32, %57 ], [ 16, %53 ]
   %59 = load i8, ptr %42, align 1
-  %60 = and i8 %59, %.sink226
+  %60 = and i8 %59, %.sink234
   %61 = icmp ne i8 %60, 0
   call void @SDL_SendJoystickButton(i64 noundef %6, ptr noundef nonnull %0, i8 noundef zeroext 9, i1 noundef zeroext %61) #9
   %62 = load i8, ptr %42, align 1
-  %63 = and i8 %62, %.sink224
+  %63 = and i8 %62, %.sink232
   %64 = icmp ne i8 %63, 0
   call void @SDL_SendJoystickButton(i64 noundef %6, ptr noundef nonnull %0, i8 noundef zeroext 10, i1 noundef zeroext %64) #9
   %65 = load i8, ptr %42, align 1

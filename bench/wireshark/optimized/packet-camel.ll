@@ -2900,8 +2900,8 @@ define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr 
 .thread:                                          ; preds = %48
   %55 = getelementptr i8, ptr %9, i64 148
   %56 = load i32, ptr %55, align 4
-  %.not7684 = icmp eq i32 %56, 0
-  br i1 %.not7684, label %._crit_edge, label %57
+  %.not7699 = icmp eq i32 %56, 0
+  br i1 %.not7699, label %._crit_edge, label %57
 
 57:                                               ; preds = %.thread, %52
   %58 = phi i32 [ %56, %.thread ], [ %54, %52 ]
@@ -3322,8 +3322,8 @@ default.unreachable:                              ; preds = %101
   unreachable
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %135, %129, %123, %117, %111, %105
-  %.sink42.i = phi ptr [ %107, %105 ], [ %113, %111 ], [ %119, %117 ], [ %125, %123 ], [ %131, %129 ], [ %137, %135 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.sink42.i, i64 28
+  %.sink53.i = phi ptr [ %107, %105 ], [ %113, %111 ], [ %119, %117 ], [ %125, %123 ], [ %131, %129 ], [ %137, %135 ]
+  %138 = getelementptr inbounds nuw i8, ptr %.sink53.i, i64 28
   %139 = load i32, ptr %138, align 4
   %140 = or i32 %139, 2
   store i32 %140, ptr %138, align 4

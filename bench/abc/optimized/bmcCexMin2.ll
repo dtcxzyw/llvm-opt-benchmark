@@ -765,8 +765,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val216356.ph = phi ptr [ %.val.i274, %464 ], [ %.val.i276, %478 ], [ %.val.i268, %411 ], [ %.val.i272, %450 ]
   %.sink.in = sdiv exact i64 %.sink.in.in, 12
   %.sink = trunc i64 %.sink.in to i32
-  %.sink373 = load i32, ptr %10, align 4, !tbaa !28
-  %491 = mul nsw i32 %.sink373, %.1172335
+  %.sink380 = load i32, ptr %10, align 4, !tbaa !28
+  %491 = mul nsw i32 %.sink380, %.1172335
   %492 = sext i32 %491 to i64
   %493 = getelementptr inbounds i32, ptr %.val5.i275.sink, i64 %492
   %494 = shl i32 %.sink, 1
@@ -798,29 +798,29 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br i1 %506, label %.lr.ph327.preheader, label %.critedge13
 
 .lr.ph327.preheader:                              ; preds = %.preheader
-  %.val221374 = load ptr, ptr %242, align 8, !tbaa !38
-  %.not194375 = icmp eq ptr %.val221374, null
-  br i1 %.not194375, label %.critedge13, label %.lr.ph379
+  %.val221381 = load ptr, ptr %242, align 8, !tbaa !38
+  %.not194382 = icmp eq ptr %.val221381, null
+  br i1 %.not194382, label %.critedge13, label %.lr.ph386
 
-.lr.ph327:                                        ; preds = %.lr.ph379
+.lr.ph327:                                        ; preds = %.lr.ph386
   %.val221 = load ptr, ptr %242, align 8, !tbaa !38
   %.not194 = icmp eq ptr %.val221, null
-  br i1 %.not194, label %.critedge13, label %.lr.ph379, !llvm.loop !50
+  br i1 %.not194, label %.critedge13, label %.lr.ph386, !llvm.loop !50
 
-.lr.ph379:                                        ; preds = %.lr.ph327.preheader, %.lr.ph327
-  %.val221378 = phi ptr [ %.val221, %.lr.ph327 ], [ %.val221374, %.lr.ph327.preheader ]
-  %.val212326377 = phi ptr [ %.val212, %.lr.ph327 ], [ %.val212323, %.lr.ph327.preheader ]
-  %indvars.iv350376 = phi i64 [ %indvars.iv.next351, %.lr.ph327 ], [ 0, %.lr.ph327.preheader ]
-  %507 = getelementptr i8, ptr %.val212326377, i64 8
+.lr.ph386:                                        ; preds = %.lr.ph327.preheader, %.lr.ph327
+  %.val221385 = phi ptr [ %.val221, %.lr.ph327 ], [ %.val221381, %.lr.ph327.preheader ]
+  %.val212326384 = phi ptr [ %.val212, %.lr.ph327 ], [ %.val212323, %.lr.ph327.preheader ]
+  %indvars.iv350383 = phi i64 [ %indvars.iv.next351, %.lr.ph327 ], [ 0, %.lr.ph327.preheader ]
+  %507 = getelementptr i8, ptr %.val212326384, i64 8
   %.val222.val = load ptr, ptr %507, align 8, !tbaa !32
-  %508 = getelementptr inbounds nuw i32, ptr %.val222.val, i64 %indvars.iv350376
+  %508 = getelementptr inbounds nuw i32, ptr %.val222.val, i64 %indvars.iv350383
   %509 = load i32, ptr %508, align 4, !tbaa !39
   %510 = sext i32 %509 to i64
-  %511 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val221378, i64 %510
+  %511 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val221385, i64 %510
   %512 = load i64, ptr %511, align 4
   %513 = and i64 %512, -1073741825
   store i64 %513, ptr %511, align 4
-  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350376, 1
+  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350383, 1
   %.val211 = load i32, ptr %288, align 8, !tbaa !36
   %.val212 = load ptr, ptr %289, align 8, !tbaa !37
   %514 = getelementptr i8, ptr %.val212, i64 4
@@ -830,7 +830,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %517 = icmp slt i64 %indvars.iv.next351, %516
   br i1 %517, label %.lr.ph327, label %..critedge13.loopexit_crit_edge, !llvm.loop !50
 
-..critedge13.loopexit_crit_edge:                  ; preds = %.lr.ph379
+..critedge13.loopexit_crit_edge:                  ; preds = %.lr.ph386
   br label %.critedge13, !llvm.loop !50
 
 .critedge13:                                      ; preds = %.lr.ph327, %.lr.ph327.preheader, %..critedge13.loopexit_crit_edge, %.preheader
@@ -1341,40 +1341,40 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %.not185, label %244, label %235
 
 235:                                              ; preds = %226
-  br i1 %.not188, label %.sink.split330, label %236
+  br i1 %.not188, label %.sink.split341, label %236
 
 236:                                              ; preds = %235
   %237 = and i32 %224, 1
   %.not189 = icmp eq i32 %237, 0
   %.not253 = icmp eq i32 %229, 1
   %.not254 = icmp eq i32 %234, 1
-  %brmerge336 = select i1 %.not253, i1 true, i1 %.not254
-  %.mux337 = select i1 %.not253, i32 %234, i32 %229
+  %brmerge347 = select i1 %.not253, i1 true, i1 %.not254
+  %.mux348 = select i1 %.not253, i32 %234, i32 %229
   br i1 %.not189, label %241, label %238
 
 238:                                              ; preds = %236
-  br i1 %brmerge336, label %.sink.split330, label %239
+  br i1 %brmerge347, label %.sink.split341, label %239
 
 239:                                              ; preds = %238
   %240 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %6, i32 noundef %229, i32 noundef %234) #13
-  br label %.sink.split330
+  br label %.sink.split341
 
 241:                                              ; preds = %236
-  br i1 %brmerge336, label %.sink.split330, label %242
+  br i1 %brmerge347, label %.sink.split341, label %242
 
 242:                                              ; preds = %241
   %243 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %6, i32 noundef %229, i32 noundef %234) #13
-  br label %.sink.split330
+  br label %.sink.split341
 
 244:                                              ; preds = %226
-  br i1 %.not188, label %245, label %.sink.split330
+  br i1 %.not188, label %245, label %.sink.split341
 
-.sink.split330:                                   ; preds = %241, %238, %244, %235, %242, %239
-  %.sink331 = phi i32 [ %240, %239 ], [ %243, %242 ], [ %229, %235 ], [ %234, %244 ], [ %.mux337, %238 ], [ %.mux337, %241 ]
-  store i32 %.sink331, ptr %211, align 4, !tbaa !53
+.sink.split341:                                   ; preds = %241, %238, %244, %235, %242, %239
+  %.sink342 = phi i32 [ %240, %239 ], [ %243, %242 ], [ %229, %235 ], [ %234, %244 ], [ %.mux348, %238 ], [ %.mux348, %241 ]
+  store i32 %.sink342, ptr %211, align 4, !tbaa !53
   br label %245
 
-245:                                              ; preds = %.sink.split330, %206, %244, %210
+245:                                              ; preds = %.sink.split341, %206, %244, %210
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %246 = load i32, ptr %116, align 8, !tbaa !3
   %247 = sext i32 %246 to i64

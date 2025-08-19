@@ -1054,17 +1054,17 @@ define hidden void @"_ZN177_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   %51 = load ptr, ptr %50, align 8, !alias.scope !108, !noalias !115, !nonnull !9, !noundef !9
   %52 = load ptr, ptr %49, align 8, !alias.scope !108, !noalias !115, !nonnull !9, !noundef !9
   %53 = icmp eq ptr %52, %51
-  br i1 %53, label %.thread1837, label %.lr.ph.i.i.lr.ph
+  br i1 %53, label %.thread1860, label %.lr.ph.i.i.lr.ph
 
-.thread1837:                                      ; preds = %2
+.thread1860:                                      ; preds = %2
   %54 = load i64, ptr %48, align 8, !range !118, !noundef !9
-  %trunc4831769 = trunc nuw i64 %54 to i1
+  %trunc4831792 = trunc nuw i64 %54 to i1
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %56 = load ptr, ptr %55, align 8, !align !119
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %58 = load i64, ptr %57, align 8
-  %.sroa.5653.01770 = select i1 %trunc4831769, i64 %58, i64 undef
-  %.sroa.0652.01771 = select i1 %trunc4831769, ptr %56, ptr null
+  %.sroa.5653.01793 = select i1 %trunc4831792, i64 %58, i64 undef
+  %.sroa.0652.01794 = select i1 %trunc4831792, ptr %56, ptr null
   br label %116
 
 .lr.ph.i.i.lr.ph:                                 ; preds = %2
@@ -1290,11 +1290,11 @@ define hidden void @"_ZN177_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   %.sroa.5653.0 = select i1 %trunc483, i64 %105, i64 undef
   %.sroa.0652.0 = select i1 %trunc483, ptr %103, ptr null
   %106 = icmp eq i8 %.sroa.035.0863.fr, 3
-  %spec.select2345 = select i1 %106, i8 2, i8 %.sroa.035.0863.fr
+  %spec.select2368 = select i1 %106, i8 2, i8 %.sroa.035.0863.fr
   %107 = icmp eq i8 %.sroa.048.0899.fr, 3
   %108 = select i1 %107, i8 2, i8 %.sroa.048.0899.fr
   %109 = icmp eq i8 %.sroa.061.0935.fr, 3
-  %spec.select2346 = select i1 %109, i8 2, i8 %.sroa.061.0935.fr
+  %spec.select2369 = select i1 %109, i8 2, i8 %.sroa.061.0935.fr
   %110 = icmp eq i64 %.sroa.0122.01151, 0
   %111 = select i1 %110, i64 0, i64 %.sroa.4124.01187
   %112 = icmp eq i64 %.sroa.0135.01259, 0
@@ -1303,18 +1303,18 @@ define hidden void @"_ZN177_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   %115 = select i1 %114, i64 0, i64 %.sroa.4150.01043
   br label %116
 
-116:                                              ; preds = %.thread673, %.thread1837
-  %117 = phi i8 [ 2, %.thread1837 ], [ %108, %.thread673 ]
-  %.sroa.0652.0179718131871 = phi ptr [ %.sroa.0652.01771, %.thread1837 ], [ %.sroa.0652.0, %.thread673 ]
-  %.sroa.5653.0179518151869 = phi i64 [ %.sroa.5653.01770, %.thread1837 ], [ %.sroa.5653.0, %.thread673 ]
-  %.sroa.083.0971178918191867 = phi i8 [ 3, %.thread1837 ], [ %.sroa.083.0971, %.thread673 ]
-  %.sroa.096.01007178718211865 = phi i8 [ 5, %.thread1837 ], [ %.sroa.096.01007, %.thread673 ]
-  %.sroa.0148.01079178318251861 = phi i64 [ 0, %.thread1837 ], [ %115, %.thread673 ]
-  %.sroa.0109.01115178118271859 = phi i8 [ 4, %.thread1837 ], [ %.sroa.0109.01115, %.thread673 ]
-  %.sroa.0122.01151177918291857 = phi i64 [ 0, %.thread1837 ], [ %111, %.thread673 ]
-  %.sroa.0135.01259177318351851 = phi i64 [ 0, %.thread1837 ], [ %113, %.thread673 ]
-  %118 = phi i8 [ 2, %.thread1837 ], [ %spec.select2345, %.thread673 ]
-  %119 = phi i8 [ 2, %.thread1837 ], [ %spec.select2346, %.thread673 ]
+116:                                              ; preds = %.thread673, %.thread1860
+  %117 = phi i8 [ 2, %.thread1860 ], [ %108, %.thread673 ]
+  %.sroa.0652.0182018361894 = phi ptr [ %.sroa.0652.01794, %.thread1860 ], [ %.sroa.0652.0, %.thread673 ]
+  %.sroa.5653.0181818381892 = phi i64 [ %.sroa.5653.01793, %.thread1860 ], [ %.sroa.5653.0, %.thread673 ]
+  %.sroa.083.0971181218421890 = phi i8 [ 3, %.thread1860 ], [ %.sroa.083.0971, %.thread673 ]
+  %.sroa.096.01007181018441888 = phi i8 [ 5, %.thread1860 ], [ %.sroa.096.01007, %.thread673 ]
+  %.sroa.0148.01079180618481884 = phi i64 [ 0, %.thread1860 ], [ %115, %.thread673 ]
+  %.sroa.0109.01115180418501882 = phi i8 [ 4, %.thread1860 ], [ %.sroa.0109.01115, %.thread673 ]
+  %.sroa.0122.01151180218521880 = phi i64 [ 0, %.thread1860 ], [ %111, %.thread673 ]
+  %.sroa.0135.01259179618581874 = phi i64 [ 0, %.thread1860 ], [ %113, %.thread673 ]
+  %118 = phi i8 [ 2, %.thread1860 ], [ %spec.select2368, %.thread673 ]
+  %119 = phi i8 [ 2, %.thread1860 ], [ %spec.select2369, %.thread673 ]
   %120 = load i64, ptr %47, align 8, !range !131, !noundef !9
   %121 = icmp eq i64 %120, -9223372036854775807
   br i1 %121, label %350, label %349
@@ -2436,12 +2436,12 @@ default.unreachable:                              ; preds = %122
 
 350:                                              ; preds = %116, %349
   %.sroa.0654.0 = phi i64 [ %120, %349 ], [ -9223372036854775808, %116 ]
-  %351 = icmp eq i8 %.sroa.083.0971178918191867, 3
-  %.sroa.0260.0 = select i1 %351, i8 2, i8 %.sroa.083.0971178918191867
-  %352 = icmp eq i8 %.sroa.096.01007178718211865, 5
-  %.sroa.0261.0 = select i1 %352, i8 4, i8 %.sroa.096.01007178718211865
-  %353 = icmp eq i8 %.sroa.0109.01115178118271859, 4
-  %.sroa.0262.0 = select i1 %353, i8 3, i8 %.sroa.0109.01115178118271859
+  %351 = icmp eq i8 %.sroa.083.0971181218421890, 3
+  %.sroa.0260.0 = select i1 %351, i8 2, i8 %.sroa.083.0971181218421890
+  %352 = icmp eq i8 %.sroa.096.01007181018441888, 5
+  %.sroa.0261.0 = select i1 %352, i8 4, i8 %.sroa.096.01007181018441888
+  %353 = icmp eq i8 %.sroa.0109.01115180418501882, 4
+  %.sroa.0262.0 = select i1 %353, i8 3, i8 %.sroa.0109.01115180418501882
   %354 = load i64, ptr %46, align 8, !range !131, !noundef !9
   %355 = icmp eq i64 %354, -9223372036854775807
   br i1 %355, label %357, label %356
@@ -2462,15 +2462,15 @@ default.unreachable:                              ; preds = %122
   %.sroa.0250.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0250.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3443, i64 16, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sroa.0652.0179718131871, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %.sroa.0652.0182018361894, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %.sroa.5653.0179518151869, ptr %.sroa.6251.0..sroa_idx, align 8
+  store i64 %.sroa.5653.0181818381892, ptr %.sroa.6251.0..sroa_idx, align 8
   %.sroa.7252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.sroa.0122.01151177918291857, ptr %.sroa.7252.0..sroa_idx, align 8
+  store i64 %.sroa.0122.01151180218521880, ptr %.sroa.7252.0..sroa_idx, align 8
   %.sroa.8253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.sroa.0135.01259177318351851, ptr %.sroa.8253.0..sroa_idx, align 8
+  store i64 %.sroa.0135.01259179618581874, ptr %.sroa.8253.0..sroa_idx, align 8
   %.sroa.9254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %.sroa.0148.01079178318251861, ptr %.sroa.9254.0..sroa_idx, align 8
+  store i64 %.sroa.0148.01079180618481884, ptr %.sroa.9254.0..sroa_idx, align 8
   %.sroa.10255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 %118, ptr %.sroa.10255.0..sroa_idx, align 8
   %.sroa.11256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 97

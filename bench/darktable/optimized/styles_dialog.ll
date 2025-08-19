@@ -158,8 +158,8 @@ define void @_gui_styles_get_active_items(ptr noundef readonly captures(none) %0
   %47 = load i32, ptr %6, align 4
   %48 = sext i32 %47 to i64
   %49 = inttoptr i64 %48 to ptr
-  %.sink40 = select i1 %.not30, ptr null, ptr %49
-  %50 = call ptr @g_list_append(ptr noundef %46, ptr noundef %.sink40) #15
+  %.sink43 = select i1 %.not30, ptr null, ptr %49
+  %50 = call ptr @g_list_append(ptr noundef %46, ptr noundef %.sink43) #15
   store ptr %50, ptr %2, align 8, !tbaa !17
   br label %51
 
@@ -190,30 +190,30 @@ define void @_gui_styles_get_active_items(ptr noundef readonly captures(none) %0
 
 62:                                               ; preds = %59
   %63 = load i32, ptr %5, align 4, !tbaa !16
-  br label %.sink.split41
+  br label %.sink.split44
 
 64:                                               ; preds = %59
   %65 = load i32, ptr %9, align 4, !tbaa !16
   %.not34 = icmp eq i32 %65, 0
   %66 = sub nsw i32 0, %60
   %67 = select i1 %.not34, i32 %60, i32 %66
-  br label %.sink.split41
+  br label %.sink.split44
 
-.sink.split41:                                    ; preds = %62, %64
-  %.sink49 = phi i32 [ %67, %64 ], [ %63, %62 ]
-  %.sink45 = phi ptr [ %2, %64 ], [ %1, %62 ]
+.sink.split44:                                    ; preds = %62, %64
+  %.sink52 = phi i32 [ %67, %64 ], [ %63, %62 ]
+  %.sink48 = phi ptr [ %2, %64 ], [ %1, %62 ]
   %.sink = phi ptr [ %1, %64 ], [ %2, %62 ]
-  %.sink46 = load ptr, ptr %.sink45, align 8, !tbaa !17
-  %68 = sext i32 %.sink49 to i64
+  %.sink49 = load ptr, ptr %.sink48, align 8, !tbaa !17
+  %68 = sext i32 %.sink52 to i64
   %69 = inttoptr i64 %68 to ptr
-  %70 = call ptr @g_list_append(ptr noundef %.sink46, ptr noundef %69) #15
-  store ptr %70, ptr %.sink45, align 8, !tbaa !17
+  %70 = call ptr @g_list_append(ptr noundef %.sink49, ptr noundef %69) #15
+  store ptr %70, ptr %.sink48, align 8, !tbaa !17
   %71 = load ptr, ptr %.sink, align 8, !tbaa !17
   %72 = call ptr @g_list_append(ptr noundef %71, ptr noundef null) #15
   store ptr %72, ptr %.sink, align 8, !tbaa !17
   br label %73
 
-73:                                               ; preds = %.sink.split41, %.preheader
+73:                                               ; preds = %.sink.split44, %.preheader
   %74 = call i32 @gtk_tree_model_iter_next(ptr noundef %56, ptr noundef nonnull %4) #15
   %.not35 = icmp eq i32 %74, 0
   br i1 %.not35, label %.loopexit, label %.preheader
@@ -510,12 +510,12 @@ define internal fastcc void @_gui_styles_dialog_run(i32 noundef range(i32 0, 2) 
   br label %180
 
 180:                                              ; preds = %.critedge, %162
-  %.sink306.in = phi ptr [ %101, %.critedge ], [ %106, %162 ]
-  %.sink305 = phi ptr [ %178, %.critedge ], [ %172, %162 ]
-  %.sink306 = load ptr, ptr %.sink306.in, align 8, !tbaa !68
-  %181 = call ptr @g_type_check_instance_cast(ptr noundef %.sink306, i64 noundef %99) #15
+  %.sink322.in = phi ptr [ %101, %.critedge ], [ %106, %162 ]
+  %.sink321 = phi ptr [ %178, %.critedge ], [ %172, %162 ]
+  %.sink322 = load ptr, ptr %.sink322.in, align 8, !tbaa !68
+  %181 = call ptr @g_type_check_instance_cast(ptr noundef %.sink322, i64 noundef %99) #15
   %182 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #15
-  %183 = call i32 (ptr, i32, ptr, ptr, ...) @gtk_tree_view_insert_column_with_attributes(ptr noundef %181, i32 noundef -1, ptr noundef %182, ptr noundef %.sink305, ptr noundef nonnull @.str.38, i32 noundef 4, ptr noundef null) #15
+  %183 = call i32 (ptr, i32, ptr, ptr, ...) @gtk_tree_view_insert_column_with_attributes(ptr noundef %181, i32 noundef -1, ptr noundef %182, ptr noundef %.sink321, ptr noundef nonnull @.str.38, i32 noundef 4, ptr noundef null) #15
   %184 = call ptr @gtk_cell_renderer_pixbuf_new() #15
   %185 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.39, i32 noundef 5) #15
   %186 = call ptr (ptr, ptr, ...) @gtk_tree_view_column_new_with_attributes(ptr noundef %185, ptr noundef %184, ptr noundef nonnull @.str.35, i32 noundef 5, ptr noundef null) #15
@@ -979,14 +979,14 @@ dt_draw_paint_to_pixbuf.exit282:                  ; preds = %._crit_edge.us.i.i2
   %454 = getelementptr inbounds nuw i8, ptr %.0222296, i64 8
   %455 = load ptr, ptr %454, align 8, !tbaa !83
   %.not238 = icmp eq ptr %455, null
-  br i1 %.not238, label %.thread300, label %.preheader295
+  br i1 %.not238, label %.thread316, label %.preheader295
 
 .thread285:                                       ; preds = %419
   %456 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #15
   call void (ptr, ...) @dt_control_log(ptr noundef %456) #15
   br label %474
 
-.thread300:                                       ; preds = %442
+.thread316:                                       ; preds = %442
   call void @g_list_free_full(ptr noundef nonnull %427, ptr noundef nonnull @dt_history_item_free) #15
   br label %.sink.split
 
@@ -1005,10 +1005,10 @@ dt_draw_paint_to_pixbuf.exit282:                  ; preds = %._crit_edge.us.i.i2
 463:                                              ; preds = %457
   br i1 %458, label %465, label %.sink.split
 
-.sink.split:                                      ; preds = %463, %460, %.thread300
-  %.sink309.in = phi ptr [ %101, %.thread300 ], [ %106, %460 ], [ %106, %463 ]
-  %.sink309 = load ptr, ptr %.sink309.in, align 8, !tbaa !68
-  %464 = call ptr @g_type_check_instance_cast(ptr noundef %.sink309, i64 noundef %64) #15
+.sink.split:                                      ; preds = %463, %460, %.thread316
+  %.sink325.in = phi ptr [ %101, %.thread316 ], [ %106, %460 ], [ %106, %463 ]
+  %.sink325 = load ptr, ptr %.sink325.in, align 8, !tbaa !68
+  %464 = call ptr @g_type_check_instance_cast(ptr noundef %.sink325, i64 noundef %64) #15
   call void @gtk_box_pack_start(ptr noundef %62, ptr noundef %464, i32 noundef 1, i32 noundef 1, i32 noundef 0) #15
   br label %465
 

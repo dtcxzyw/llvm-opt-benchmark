@@ -2637,7 +2637,7 @@ _ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit: ; preds 
   %25 = load i8, ptr %24, align 1, !noundef !9
   %.lobit = ashr i8 %25, 7
   %26 = sext i8 %.lobit to i64
-  %.0 = add i64 %.010.i, %26
+  %.0 = add nsw i64 %.010.i, %26
   %27 = icmp ugt i64 %.0, %9
   br i1 %27, label %30, label %28
 
@@ -2673,7 +2673,7 @@ _ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit: ; preds 
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hcd5c9a8e6f63698bE.exit": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6e56ef8d07eaea13E.llvm.7363024586935657205.exit18"
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %39 = getelementptr inbounds i8, ptr %4, i64 %.0
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 %.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull readonly align 1 %39, i64 %29, i1 false), !alias.scope !743, !noalias !747
   %40 = add nuw nsw i64 %29, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

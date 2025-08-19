@@ -1157,11 +1157,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit7: ; p
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i13
-  %.not27 = icmp sge i32 %57, %59
+  %.not35 = icmp sge i32 %57, %59
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.i.i.i17
-  %.0.i.i.i19 = phi i1 [ %63, %._crit_edge.i.i.i17 ], [ %.not27, %.loopexit.loopexit ]
+  %.0.i.i.i19 = phi i1 [ %63, %._crit_edge.i.i.i17 ], [ %.not35, %.loopexit.loopexit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   br label %.critedge
@@ -2205,18 +2205,18 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %.0.i.i.i35, label %._crit_edge.thread, label %37
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.032.lcssa54 = phi ptr [ %.03347, %._crit_edge ], [ %4, %2 ]
+  %.032.lcssa61 = phi ptr [ %.03347, %._crit_edge ], [ %4, %2 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %.032.lcssa54, %33
+  %34 = icmp eq ptr %.032.lcssa61, %33
   br i1 %34, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17.thread, label %35
 
 35:                                               ; preds = %._crit_edge.thread
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.032.lcssa54) #18
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.032.lcssa61) #18
   br label %37
 
 37:                                               ; preds = %35, %._crit_edge
-  %.032.lcssa53 = phi ptr [ %.032.lcssa54, %35 ], [ %.03347, %._crit_edge ]
+  %.032.lcssa60 = phi ptr [ %.032.lcssa61, %35 ], [ %.03347, %._crit_edge ]
   %.sroa.018.0 = phi ptr [ %36, %35 ], [ %.03347, %._crit_edge ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.018.0, i64 32
   %39 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
@@ -2273,7 +2273,7 @@ _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 _ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17.thread: ; preds = %.lr.ph.i.i.i10, %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17, %._crit_edge.thread, %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17.thread41
   %.sroa.031.0 = phi ptr [ %.sroa.018.0, %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17.thread41 ], [ null, %._crit_edge.thread ], [ null, %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17 ], [ null, %.lr.ph.i.i.i10 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17.thread41 ], [ %.032.lcssa54, %._crit_edge.thread ], [ %.032.lcssa53, %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17 ], [ %.032.lcssa53, %.lr.ph.i.i.i10 ]
+  %.sroa.4.0 = phi ptr [ null, %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17.thread41 ], [ %.032.lcssa61, %._crit_edge.thread ], [ %.032.lcssa60, %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit17 ], [ %.032.lcssa60, %.lr.ph.i.i.i10 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.031.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2327,8 +2327,8 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt1
   %26 = tail call i32 @tolower(i32 noundef %25) #18
   %27 = sext i8 %24 to i32
   %28 = tail call i32 @tolower(i32 noundef %27) #18
-  %or.cond9.not = icmp eq i32 %28, %26
-  br i1 %or.cond9.not, label %29, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.loopexit
+  %or.cond13.not = icmp eq i32 %28, %26
+  br i1 %or.cond13.not, label %29, label %_ZNK9Stockfish19CaseInsensitiveLessclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.loopexit
 
 29:                                               ; preds = %.lr.ph.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.015.021.i.i.i, i64 1

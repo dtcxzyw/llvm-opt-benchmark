@@ -52,10 +52,10 @@ define internal range(i32 0, 2) i32 @sm4_xts_stream_update(ptr noundef %0, ptr n
   br i1 %.not, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %8, %6
-  %.sink11 = phi i32 [ 171, %6 ], [ 176, %8 ]
+  %.sink13 = phi i32 [ 171, %6 ], [ 176, %8 ]
   %.sink = phi i32 [ 106, %6 ], [ 102, %8 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink11, ptr noundef nonnull @__func__.sm4_xts_stream_update) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13, ptr noundef nonnull @__func__.sm4_xts_stream_update) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
   br label %10
 
@@ -275,11 +275,11 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %ossl_param_is_empty.exit.thread.sink.split
 
 .critedge.sink.split:                             ; preds = %17, %11
-  %.sink17 = phi i32 [ 227, %11 ], [ 235, %17 ]
-  %.sink16 = phi i32 [ 103, %11 ], [ 104, %17 ]
+  %.sink18 = phi i32 [ 227, %11 ], [ 235, %17 ]
+  %.sink17 = phi i32 [ 103, %11 ], [ 104, %17 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink17, ptr noundef nonnull @__func__.sm4_xts_set_ctx_params) #4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink16, ptr noundef null) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.sm4_xts_set_ctx_params) #4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink17, ptr noundef null) #4
   br label %ossl_param_is_empty.exit.thread.sink.split
 
 ossl_param_is_empty.exit.thread.sink.split:       ; preds = %8, %.critedge.sink.split, %21

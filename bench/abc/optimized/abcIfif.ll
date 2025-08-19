@@ -817,7 +817,7 @@ Abc_ObjDelay0.exit.us:                            ; preds = %Abc_ObjSortByDelay.
   store float %105, ptr %106, align 4, !tbaa !42
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %.critedge.thread225, label %.lr.ph159.split.us, !llvm.loop !60
+  br i1 %exitcond204.not, label %.critedge.thread228, label %.lr.ph159.split.us, !llvm.loop !60
 
 .lr.ph159.split:                                  ; preds = %.lr.ph159
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 148
@@ -1017,9 +1017,9 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
   %189 = load i32, ptr %188, align 4, !tbaa !48
   %.fr = freeze i32 %189
   %190 = sitofp i32 %.fr to float
-  br label %.critedge.thread225
+  br label %.critedge.thread228
 
-.critedge.thread225:                              ; preds = %Abc_ObjDelay0.exit.us, %.critedge.thread
+.critedge.thread228:                              ; preds = %Abc_ObjDelay0.exit.us, %.critedge.thread
   %.087 = phi float [ %190, %.critedge.thread ], [ 1.000000e+00, %Abc_ObjDelay0.exit.us ]
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %192 = load i32, ptr %191, align 8, !tbaa !62
@@ -1027,7 +1027,7 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
   %brmerge = or i1 %.not91, %48
   br i1 %brmerge, label %.critedge2, label %.lr.ph168
 
-.lr.ph168:                                        ; preds = %.critedge.thread225
+.lr.ph168:                                        ; preds = %.critedge.thread228
   %193 = getelementptr i8, ptr %46, i64 8
   %194 = fcmp ult float %.087, 0.000000e+00
   br i1 %194, label %.lr.ph168.split.us, label %.lr.ph164
@@ -1087,8 +1087,8 @@ Abc_ObjDelayDegree.exit.us:                       ; preds = %173, %.lr.ph.split.
   %221 = icmp slt i64 %indvars.iv.next209, %220
   br i1 %221, label %.lr.ph164, label %.critedge2, !llvm.loop !63
 
-.critedge2:                                       ; preds = %._crit_edge165, %.lr.ph168.split.us, %.critedge.thread225, %.critedge
-  %.087230 = phi float [ %.087, %.critedge.thread225 ], [ 1.000000e+00, %.critedge ], [ %.087, %.lr.ph168.split.us ], [ %.087, %._crit_edge165 ]
+.critedge2:                                       ; preds = %._crit_edge165, %.lr.ph168.split.us, %.critedge.thread228, %.critedge
+  %.087233 = phi float [ %.087, %.critedge.thread228 ], [ 1.000000e+00, %.critedge ], [ %.087, %.lr.ph168.split.us ], [ %.087, %._crit_edge165 ]
   %222 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %223 = load ptr, ptr %222, align 8, !tbaa !38
   %.not.i = icmp eq ptr %223, null
@@ -1110,7 +1110,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %224
 .lr.ph171:                                        ; preds = %Vec_PtrFree.exit
   %228 = getelementptr i8, ptr %.val107, i64 8
   %.val110.val = load ptr, ptr %228, align 8, !tbaa !38
-  %229 = fptosi float %.087230 to i32
+  %229 = fptosi float %.087233 to i32
   %230 = sext i32 %229 to i64
   %invariant.gep = getelementptr [7 x float], ptr %44, i64 0, i64 %230
   %wide.trip.count217 = zext nneg i32 %.val107.val to i64
@@ -1149,7 +1149,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %224
   %247 = fptrunc double %246 to float
   %248 = getelementptr i8, ptr %.val107, i64 8
   %.val111.val = load ptr, ptr %248, align 8, !tbaa !38
-  %249 = fptosi float %.087230 to i32
+  %249 = fptosi float %.087233 to i32
   %250 = sext i32 %249 to i64
   %invariant.gep178 = getelementptr [7 x float], ptr %44, i64 0, i64 %250
   %wide.trip.count222 = zext nneg i32 %.val107.val to i64
@@ -1189,11 +1189,11 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %224
   br label %.critedge6
 
 .critedge6:                                       ; preds = %Vec_PtrFree.exit, %.critedge6.loopexit
-  %.088.lcssa233 = phi double [ %245, %.critedge6.loopexit ], [ 0.000000e+00, %Vec_PtrFree.exit ]
+  %.088.lcssa236 = phi double [ %245, %.critedge6.loopexit ], [ 0.000000e+00, %Vec_PtrFree.exit ]
   %.0.lcssa = phi double [ %266, %.critedge6.loopexit ], [ 0.000000e+00, %Vec_PtrFree.exit ]
   %267 = sitofp i32 %.val107.val to double
   %268 = fdiv double %.0.lcssa, %267
-  %269 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, double noundef %.088.lcssa233, double noundef %268)
+  %269 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, double noundef %.088.lcssa236, double noundef %268)
   %.not.i146 = icmp eq ptr %44, null
   br i1 %.not.i146, label %Abc_NtkIfifStop.exit, label %270
 

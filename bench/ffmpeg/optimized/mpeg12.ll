@@ -139,7 +139,7 @@ define internal void @mpeg12_init_vlcs() #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 64) i32 @ff_mpeg1_decode_block_intra(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 2)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define range(i32 -1094995529, 64) i32 @ff_mpeg1_decode_block_intra(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 2)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = tail call i32 @llvm.smax.i32(i32 %5, i32 3)
   %9 = add nsw i32 %8, -3
   %10 = icmp eq i32 %9, 0
@@ -328,13 +328,13 @@ decode_dc.exit:                                   ; preds = %79, %81
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 3
   %141 = load i8, ptr %140, align 1, !tbaa !4
   %142 = zext i8 %141 to i32
-  %143 = add nsw i32 %.1, %142
+  %143 = add nuw nsw i32 %.1, %142
   %144 = icmp sgt i32 %143, 63
   br i1 %144, label %.thread127, label %145
 
 145:                                              ; preds = %137
-  %146 = sext i32 %143 to i64
-  %147 = getelementptr inbounds i8, ptr %2, i64 %146
+  %146 = zext nneg i32 %143 to i64
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !4
   %149 = mul nsw i32 %.0102, %6
   %150 = zext i8 %148 to i64
@@ -389,14 +389,14 @@ decode_dc.exit:                                   ; preds = %79, %81
   %.5 = phi i32 [ %180, %176 ], [ %187, %184 ], [ %182, %181 ]
   %.4 = phi i32 [ %179, %176 ], [ %186, %184 ], [ %174, %181 ]
   %.2104 = phi i32 [ %178, %176 ], [ %185, %184 ], [ %173, %181 ]
-  %189 = add i32 %.1, 1
-  %190 = add i32 %189, %164
+  %189 = add nuw nsw i32 %.1, 1
+  %190 = add nuw nsw i32 %189, %164
   %191 = icmp sgt i32 %190, 63
   br i1 %191, label %.thread127, label %192
 
 192:                                              ; preds = %188
-  %193 = sext i32 %190 to i64
-  %194 = getelementptr inbounds i8, ptr %2, i64 %193
+  %193 = zext nneg i32 %190 to i64
+  %194 = getelementptr inbounds nuw i8, ptr %2, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !4
   %196 = icmp slt i32 %.2104, 0
   br i1 %196, label %197, label %209

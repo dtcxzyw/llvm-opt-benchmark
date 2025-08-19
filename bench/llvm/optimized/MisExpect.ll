@@ -1238,7 +1238,7 @@ define linkonce_odr hidden void @_ZN4llvm15format_providerIdvE6formatERKdRNS_11r
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
   %lhsc = load i8, ptr %2, align 1
-  switch i8 %lhsc, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread99 [
+  switch i8 %lhsc, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread100 [
     i8 80, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
     i8 112, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
     i8 70, label %_ZN4llvm9StringRef13consume_frontES0_.exit16
@@ -1261,36 +1261,36 @@ _ZN4llvm9StringRef13consume_frontES0_.exit34.thread: ; preds = %_ZNK4llvm9String
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %8 = add i64 %3, -1
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread99
+  br i1 %9, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread100
 
-_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread99: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
-  %.0105 = phi i32 [ %.0, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %.sroa.14.0104 = phi i64 [ %8, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread ], [ %3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %.sroa.050.0103 = phi ptr [ %7, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread ], [ %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread100: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
+  %.0106 = phi i32 [ %.0, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread ], [ 2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %.sroa.14.0105 = phi i64 [ %8, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread ], [ %3, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %.sroa.050.0104 = phi ptr [ %7, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread ], [ %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %10 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %.sroa.050.0103, i64 %.sroa.14.0104, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #15
+  %10 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %.sroa.050.0104, i64 %.sroa.14.0105, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   br i1 %10, label %_ZNSt8optionalImEaSESt9nullopt_t.exit1.i, label %_ZN4llvm7support6detail15HelperFunctions21parseNumericPrecisionENS_9StringRefE.exit
 
-_ZNSt8optionalImEaSESt9nullopt_t.exit1.i:         ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread99
+_ZNSt8optionalImEaSESt9nullopt_t.exit1.i:         ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread100
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread
 
-_ZN4llvm7support6detail15HelperFunctions21parseNumericPrecisionENS_9StringRefE.exit: ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread99
+_ZN4llvm7support6detail15HelperFunctions21parseNumericPrecisionENS_9StringRefE.exit: ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread100
   %11 = load i64, ptr %5, align 8, !tbaa !158
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %11, i64 99)
   br label %13
 
 _ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread: ; preds = %4, %_ZNSt8optionalImEaSESt9nullopt_t.exit1.i, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread
-  %.098 = phi i32 [ %.0105, %_ZNSt8optionalImEaSESt9nullopt_t.exit1.i ], [ %.0, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread ], [ 2, %4 ]
-  %12 = call noundef i64 @_ZN4llvm19getDefaultPrecisionENS_10FloatStyleE(i32 noundef %.098) #15
+  %.099 = phi i32 [ %.0106, %_ZNSt8optionalImEaSESt9nullopt_t.exit1.i ], [ %.0, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread ], [ 2, %4 ]
+  %12 = call noundef i64 @_ZN4llvm19getDefaultPrecisionENS_10FloatStyleE(i32 noundef %.099) #15
   br label %13
 
 13:                                               ; preds = %_ZN4llvm7support6detail15HelperFunctions21parseNumericPrecisionENS_9StringRefE.exit, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread
-  %.097 = phi i32 [ %.0105, %_ZN4llvm7support6detail15HelperFunctions21parseNumericPrecisionENS_9StringRefE.exit ], [ %.098, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread ]
+  %.098 = phi i32 [ %.0106, %_ZN4llvm7support6detail15HelperFunctions21parseNumericPrecisionENS_9StringRefE.exit ], [ %.099, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread ]
   %.sroa.036.0 = phi i64 [ %.sroa.speculated.i, %_ZN4llvm7support6detail15HelperFunctions21parseNumericPrecisionENS_9StringRefE.exit ], [ %12, %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.thread ]
   %14 = load double, ptr %0, align 8, !tbaa !72
-  call void @_ZN4llvm12write_doubleERNS_11raw_ostreamEdNS_10FloatStyleESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %1, double noundef %14, i32 noundef %.097, i64 %.sroa.036.0, i8 1) #15
+  call void @_ZN4llvm12write_doubleERNS_11raw_ostreamEdNS_10FloatStyleESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %1, double noundef %14, i32 noundef %.098, i64 %.sroa.036.0, i8 1) #15
   ret void
 }
 

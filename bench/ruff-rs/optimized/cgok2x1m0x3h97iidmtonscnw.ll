@@ -74,7 +74,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   %17 = alloca [32 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = load i8, ptr %1, align 8, !range !3, !noundef !4
-  switch i8 %19, label %default.unreachable33 [
+  switch i8 %19, label %default.unreachable35 [
     i8 0, label %20
     i8 1, label %23
     i8 2, label %26
@@ -99,7 +99,7 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
     i8 21, label %180
   ]
 
-default.unreachable33:                            ; preds = %2
+default.unreachable35:                            ; preds = %2
   unreachable
 
 20:                                               ; preds = %2
@@ -225,8 +225,8 @@ default.unreachable33:                            ; preds = %2
   %68 = trunc i32 %67 to i8
   %69 = and i8 %68, 63
   %70 = or disjoint i8 %69, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx34 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %70, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx34, align 1, !alias.scope !38, !noalias !35
+  %.sroa.0.i.1.i.1.i.1..sroa_idx36 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %70, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx36, align 1, !alias.scope !38, !noalias !35
   %71 = lshr i32 %57, 6
   %72 = trunc i32 %71 to i8
   %73 = and i8 %72, 63
@@ -254,8 +254,8 @@ default.unreachable33:                            ; preds = %2
   %86 = trunc i32 %57 to i8
   %87 = and i8 %86, 63
   %88 = or disjoint i8 %87, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx36 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %88, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx36, align 2, !alias.scope !38, !noalias !35
+  %.sroa.0.i.2.i.2.i.2..sroa_idx38 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %88, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx38, align 2, !alias.scope !38, !noalias !35
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 89:                                               ; preds = %59
@@ -266,8 +266,8 @@ default.unreachable33:                            ; preds = %2
   %93 = trunc i32 %57 to i8
   %94 = and i8 %93, 63
   %95 = or disjoint i8 %94, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx35 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %95, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx35, align 1, !alias.scope !38, !noalias !35
+  %.sroa.0.i.1.i.1.i.1..sroa_idx37 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %95, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx37, align 1, !alias.scope !38, !noalias !35
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 96:                                               ; preds = %55
@@ -2361,12 +2361,12 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
           to label %91 unwind label %81, !noalias !227
 
 91:                                               ; preds = %89, %87
-  %.sink97.i.i = phi ptr [ %86, %87 ], [ %90, %89 ]
+  %.sink100.i.i = phi ptr [ %86, %87 ], [ %90, %89 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ruff_notebook..schema..CellMetadata$GT$17hc860c745e1aa7724E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %27)
           to label %92 unwind label %70, !noalias !227
 
 92:                                               ; preds = %91, %79, %76
-  %.sroa.10.0.i = phi ptr [ %.sink97.i.i, %91 ], [ %75, %76 ], [ %80, %79 ]
+  %.sroa.10.0.i = phi ptr [ %.sink100.i.i, %91 ], [ %75, %76 ], [ %80, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !222
   %93 = load i64, ptr %29, align 8, !range !52, !alias.scope !232, !noalias !222, !noundef !4
   %94 = icmp eq i64 %93, -9223372036854775808
@@ -3536,12 +3536,12 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
           to label %105 unwind label %95, !noalias !282
 
 105:                                              ; preds = %103, %101
-  %.sink105.i.i = phi ptr [ %100, %101 ], [ %104, %103 ]
+  %.sink109.i.i = phi ptr [ %100, %101 ], [ %104, %103 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17h35febd2862636490E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29)
           to label %106 unwind label %84, !noalias !282
 
 106:                                              ; preds = %105, %93, %90
-  %.sroa.11.0.in.i = phi ptr [ %.sink105.i.i, %105 ], [ %89, %90 ], [ %94, %93 ]
+  %.sroa.11.0.in.i = phi ptr [ %.sink109.i.i, %105 ], [ %89, %90 ], [ %94, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !278
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ruff_notebook..schema..CellMetadata$GT$17hc860c745e1aa7724E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %31)
           to label %109 unwind label %72, !noalias !282
@@ -5115,12 +5115,12 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
           to label %91 unwind label %81, !noalias !353
 
 91:                                               ; preds = %89, %87
-  %.sink97.i.i = phi ptr [ %86, %87 ], [ %90, %89 ]
+  %.sink100.i.i = phi ptr [ %86, %87 ], [ %90, %89 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ruff_notebook..schema..CellMetadata$GT$17hc860c745e1aa7724E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %27)
           to label %92 unwind label %70, !noalias !353
 
 92:                                               ; preds = %91, %79, %76
-  %.sroa.10.0.i = phi ptr [ %.sink97.i.i, %91 ], [ %75, %76 ], [ %80, %79 ]
+  %.sroa.10.0.i = phi ptr [ %.sink100.i.i, %91 ], [ %75, %76 ], [ %80, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !349
   %93 = load i64, ptr %29, align 8, !range !52, !alias.scope !357, !noalias !349, !noundef !4
   %94 = icmp eq i64 %93, -9223372036854775808
@@ -6705,7 +6705,7 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
 tailrecurse:                                      ; preds = %144, %2
   %.tr13 = phi ptr [ %1, %2 ], [ %146, %144 ]
   %17 = load i8, ptr %.tr13, align 8, !range !3, !noundef !4
-  switch i8 %17, label %default.unreachable59 [
+  switch i8 %17, label %default.unreachable61 [
     i8 0, label %18
     i8 1, label %21
     i8 2, label %24
@@ -6730,7 +6730,7 @@ tailrecurse:                                      ; preds = %144, %2
     i8 21, label %194
   ]
 
-default.unreachable59:                            ; preds = %tailrecurse
+default.unreachable61:                            ; preds = %tailrecurse
   unreachable
 
 18:                                               ; preds = %tailrecurse
@@ -6856,8 +6856,8 @@ default.unreachable59:                            ; preds = %tailrecurse
   %66 = trunc i32 %65 to i8
   %67 = and i8 %66, 63
   %68 = or disjoint i8 %67, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx123 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %68, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx123, align 1, !alias.scope !452, !noalias !449
+  %.sroa.0.i.1.i.1.i.1..sroa_idx125 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %68, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx125, align 1, !alias.scope !452, !noalias !449
   %69 = lshr i32 %55, 6
   %70 = trunc i32 %69 to i8
   %71 = and i8 %70, 63
@@ -6885,8 +6885,8 @@ default.unreachable59:                            ; preds = %tailrecurse
   %84 = trunc i32 %55 to i8
   %85 = and i8 %84, 63
   %86 = or disjoint i8 %85, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx125 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %86, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx125, align 2, !alias.scope !452, !noalias !449
+  %.sroa.0.i.2.i.2.i.2..sroa_idx127 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %86, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx127, align 2, !alias.scope !452, !noalias !449
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 87:                                               ; preds = %57
@@ -6897,8 +6897,8 @@ default.unreachable59:                            ; preds = %tailrecurse
   %91 = trunc i32 %55 to i8
   %92 = and i8 %91, 63
   %93 = or disjoint i8 %92, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx124 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %93, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx124, align 1, !alias.scope !452, !noalias !449
+  %.sroa.0.i.1.i.1.i.1..sroa_idx126 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %93, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx126, align 1, !alias.scope !452, !noalias !449
   br label %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i
 
 94:                                               ; preds = %53

@@ -24,12 +24,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Ivy_ManStart() local_unnamed_addr #0 {
-  %calloc22 = tail call dereferenceable_or_null(272) ptr @calloc(i64 1, i64 272)
-  %1 = getelementptr inbounds nuw i8, ptr %calloc22, i64 40
+  %calloc25 = tail call dereferenceable_or_null(272) ptr @calloc(i64 1, i64 272)
+  %1 = getelementptr inbounds nuw i8, ptr %calloc25, i64 40
   store i32 -1, ptr %1, align 8, !tbaa !3
-  %2 = getelementptr inbounds nuw i8, ptr %calloc22, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %calloc25, i64 176
   store i32 1, ptr %2, align 8, !tbaa !16
-  %3 = getelementptr inbounds nuw i8, ptr %calloc22, i64 172
+  %3 = getelementptr inbounds nuw i8, ptr %calloc25, i64 172
   store i32 1, ptr %3, align 4, !tbaa !17
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -38,7 +38,7 @@ define noundef ptr @Ivy_ManStart() local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !21
-  store ptr %4, ptr %calloc22, align 8, !tbaa !22
+  store ptr %4, ptr %calloc25, align 8, !tbaa !22
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4, !tbaa !18
@@ -46,7 +46,7 @@ define noundef ptr @Ivy_ManStart() local_unnamed_addr #0 {
   %10 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw i8, ptr %calloc22, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %calloc25, i64 8
   store ptr %8, ptr %12, align 8, !tbaa !23
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -55,7 +55,7 @@ define noundef ptr @Ivy_ManStart() local_unnamed_addr #0 {
   %15 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #16
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !21
-  %17 = getelementptr inbounds nuw i8, ptr %calloc22, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %calloc25, i64 16
   store ptr %13, ptr %17, align 8, !tbaa !24
   %18 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -64,16 +64,16 @@ define noundef ptr @Ivy_ManStart() local_unnamed_addr #0 {
   %20 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %20, ptr %21, align 8, !tbaa !21
-  %22 = getelementptr inbounds nuw i8, ptr %calloc22, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %calloc25, i64 24
   store ptr %18, ptr %22, align 8, !tbaa !25
-  tail call void @Ivy_ManStartMemory(ptr noundef nonnull %calloc22) #17
-  %23 = getelementptr inbounds nuw i8, ptr %calloc22, i64 248
+  tail call void @Ivy_ManStartMemory(ptr noundef nonnull %calloc25) #17
+  %23 = getelementptr inbounds nuw i8, ptr %calloc25, i64 248
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %Ivy_ManFetchMemory.exit
 
 26:                                               ; preds = %0
-  tail call void @Ivy_ManAddMemory(ptr noundef nonnull %calloc22) #17
+  tail call void @Ivy_ManAddMemory(ptr noundef nonnull %calloc25) #17
   %.pre.i = load ptr, ptr %23, align 8, !tbaa !26
   br label %Ivy_ManFetchMemory.exit
 
@@ -82,7 +82,7 @@ Ivy_ManFetchMemory.exit:                          ; preds = %0, %26
   %28 = load ptr, ptr %27, align 8, !tbaa !27
   store ptr %28, ptr %23, align 8, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %27, i8 0, i64 80, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %calloc22, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %calloc25, i64 32
   store ptr %27, ptr %29, align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8
@@ -156,14 +156,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %64 = sext i32 %62 to i64
   %65 = getelementptr inbounds ptr, ptr %61, i64 %64
   store ptr %34, ptr %65, align 8, !tbaa !29
-  %66 = getelementptr inbounds nuw i8, ptr %calloc22, i64 152
+  %66 = getelementptr inbounds nuw i8, ptr %calloc25, i64 152
   store i32 1, ptr %66, align 8, !tbaa !30
-  %67 = getelementptr inbounds nuw i8, ptr %calloc22, i64 168
+  %67 = getelementptr inbounds nuw i8, ptr %calloc25, i64 168
   store i32 10007, ptr %67, align 8, !tbaa !31
   %calloc = tail call dereferenceable_or_null(40028) ptr @calloc(i64 1, i64 40028)
-  %68 = getelementptr inbounds nuw i8, ptr %calloc22, i64 160
+  %68 = getelementptr inbounds nuw i8, ptr %calloc25, i64 160
   store ptr %calloc, ptr %68, align 8, !tbaa !32
-  ret ptr %calloc22
+  ret ptr %calloc25
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -701,8 +701,8 @@ Vec_PtrStart.exit:                                ; preds = %._crit_edge, %35
   %.val119 = load ptr, ptr %0, align 8, !tbaa !22
   %55 = getelementptr i8, ptr %.val119, i64 8
   %.val119.val = load ptr, ptr %55, align 8, !tbaa !21
-  %invariant.gep198 = getelementptr ptr, ptr %.val112.val, i64 %49
-  %invariant.gep200 = getelementptr ptr, ptr %.val119.val, i64 %50
+  %invariant.gep208 = getelementptr ptr, ptr %.val112.val, i64 %49
+  %invariant.gep210 = getelementptr ptr, ptr %.val119.val, i64 %50
   br label %64
 
 .lr.ph134:                                        ; preds = %52, %.lr.ph134
@@ -728,12 +728,12 @@ Vec_PtrStart.exit:                                ; preds = %._crit_edge, %35
 
 64:                                               ; preds = %.lr.ph136, %64
   %indvars.iv164 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next165, %64 ]
-  %gep199 = getelementptr ptr, ptr %invariant.gep198, i64 %indvars.iv164
-  %65 = load ptr, ptr %gep199, align 8, !tbaa !29
+  %gep209 = getelementptr ptr, ptr %invariant.gep208, i64 %indvars.iv164
+  %65 = load ptr, ptr %gep209, align 8, !tbaa !29
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 72
   %67 = load ptr, ptr %66, align 8, !tbaa !33
-  %gep201 = getelementptr ptr, ptr %invariant.gep200, i64 %indvars.iv164
-  %68 = load ptr, ptr %gep201, align 8, !tbaa !29
+  %gep211 = getelementptr ptr, ptr %invariant.gep210, i64 %indvars.iv164
+  %68 = load ptr, ptr %gep211, align 8, !tbaa !29
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 72
   store ptr %67, ptr %69, align 8, !tbaa !33
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
@@ -828,7 +828,7 @@ Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_ObjChild0Equiv.
   %.val115 = load ptr, ptr %47, align 8, !tbaa !23
   %111 = getelementptr i8, ptr %.val115, i64 8
   %.val115.val = load ptr, ptr %111, align 8, !tbaa !21
-  %invariant.gep202 = getelementptr ptr, ptr %.val115.val, i64 %49
+  %invariant.gep212 = getelementptr ptr, ptr %.val115.val, i64 %49
   br label %137
 
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %Ivy_ObjChild0Equiv.exit124
@@ -877,14 +877,14 @@ Ivy_ObjChild0Equiv.exit124:                       ; preds = %.lr.ph141, %117
 .lr.ph146:                                        ; preds = %.preheader127
   %134 = mul nsw i64 %indvars.iv185, %51
   %135 = getelementptr i8, ptr %131, i64 8
-  %invariant.gep204 = getelementptr ptr, ptr %.val121, i64 %134
+  %invariant.gep214 = getelementptr ptr, ptr %.val121, i64 %134
   %136 = zext nneg i32 %.val100144 to i64
   br label %152
 
 137:                                              ; preds = %.lr.ph143, %Ivy_ObjChild0Equiv.exit126
   %indvars.iv177 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next178, %Ivy_ObjChild0Equiv.exit126 ]
-  %gep203 = getelementptr ptr, ptr %invariant.gep202, i64 %indvars.iv177
-  %138 = load ptr, ptr %gep203, align 8, !tbaa !29
+  %gep213 = getelementptr ptr, ptr %invariant.gep212, i64 %indvars.iv177
+  %138 = load ptr, ptr %gep213, align 8, !tbaa !29
   %139 = getelementptr i8, ptr %138, i64 16
   %.val104 = load ptr, ptr %139, align 8, !tbaa !43
   %140 = ptrtoint ptr %.val104 to i64
@@ -921,8 +921,8 @@ Ivy_ObjChild0Equiv.exit126:                       ; preds = %137, %142
 156:                                              ; preds = %152
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 72
   %158 = load ptr, ptr %157, align 8, !tbaa !33
-  %gep205 = getelementptr ptr, ptr %invariant.gep204, i64 %indvars.iv182
-  store ptr %158, ptr %gep205, align 8, !tbaa !29
+  %gep215 = getelementptr ptr, ptr %invariant.gep214, i64 %indvars.iv182
+  store ptr %158, ptr %gep215, align 8, !tbaa !29
   br label %159
 
 159:                                              ; preds = %156, %152
@@ -1630,14 +1630,14 @@ Vec_PtrRemove.exit:                               ; preds = %130, %127
 
 Vec_PtrFree.exit.sink.split:                      ; preds = %.critedge8, %.critedge4.thread
   %.pre.pre.sink = phi ptr [ %88, %.critedge4.thread ], [ %.pre.pre, %.critedge8 ]
-  %.val66111.ph = phi i32 [ 0, %.critedge4.thread ], [ %81, %.critedge8 ]
+  %.val66117.ph = phi i32 [ 0, %.critedge4.thread ], [ %81, %.critedge8 ]
   tail call void @free(ptr noundef nonnull %.pre.pre.sink) #17
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %Vec_PtrFree.exit.sink.split, %.critedge8, %.critedge4.thread
-  %.val66111 = phi i32 [ 0, %.critedge4.thread ], [ %81, %.critedge8 ], [ %.val66111.ph, %Vec_PtrFree.exit.sink.split ]
+  %.val66117 = phi i32 [ 0, %.critedge4.thread ], [ %81, %.critedge8 ], [ %.val66117.ph, %Vec_PtrFree.exit.sink.split ]
   tail call void @free(ptr noundef nonnull %32) #17
-  ret i32 %.val66111
+  ret i32 %.val66117
 }
 
 declare void @Ivy_ObjDisconnect(ptr noundef, ptr noundef) local_unnamed_addr #3

@@ -2580,18 +2580,18 @@ define internal fastcc range(i32 -16, -17) i32 @netlink_insert(ptr noundef %0, i
   %102 = icmp ult i8 %101, 2
   call void @llvm.assume(i1 %102)
   %103 = icmp eq i8 %101, 0
-  br i1 %103, label %.preheader24, label %104, !prof !9
+  br i1 %103, label %.preheader27, label %104, !prof !9
 
 104:                                              ; preds = %.preheader
   %105 = call i64 @llvm.read_register.i64(metadata !0)
   %106 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %105) #23, !srcloc !64
   call void @llvm.write_register.i64(metadata !0, i64 %106)
-  br label %.preheader24
+  br label %.preheader27
 
-.preheader24:                                     ; preds = %104, %.preheader
+.preheader27:                                     ; preds = %104, %.preheader
   br label %107
 
-107:                                              ; preds = %.preheader24, %107
+107:                                              ; preds = %.preheader27, %107
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !65
   %108 = load volatile i64, ptr %94, align 8
   %109 = and i64 %108, 1
@@ -4852,18 +4852,18 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   %83 = icmp ult i8 %82, 2
   call void @llvm.assume(i1 %83)
   %84 = icmp eq i8 %82, 0
-  br i1 %84, label %.preheader83, label %85, !prof !9
+  br i1 %84, label %.preheader98, label %85, !prof !9
 
 85:                                               ; preds = %.preheader27
   %86 = call i64 @llvm.read_register.i64(metadata !0)
   %87 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %86) #23, !srcloc !64
   call void @llvm.write_register.i64(metadata !0, i64 %87)
-  br label %.preheader83
+  br label %.preheader98
 
-.preheader83:                                     ; preds = %85, %.preheader27
+.preheader98:                                     ; preds = %85, %.preheader27
   br label %88
 
-88:                                               ; preds = %.preheader83, %88
+88:                                               ; preds = %.preheader98, %88
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !65
   %89 = load volatile i64, ptr %75, align 8
   %90 = and i64 %89, 1
@@ -4897,8 +4897,8 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   br i1 %107, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %105
-  %.lcssa31.in60 = and i64 %78, 512
-  %.lcssa3161 = icmp eq i64 %.lcssa31.in60, 0
+  %.lcssa31.in75 = and i64 %78, 512
+  %.lcssa3176 = icmp eq i64 %.lcssa31.in75, 0
   %108 = load ptr, ptr %14, align 8
   br label %122
 
@@ -4940,7 +4940,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
 
 122:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %123 = phi ptr [ %108, %._crit_edge.thread ], [ %111, %._crit_edge ]
-  %.lcssa3162 = phi i1 [ %.lcssa3161, %._crit_edge.thread ], [ %.lcssa31, %._crit_edge ]
+  %.lcssa3177 = phi i1 [ %.lcssa3176, %._crit_edge.thread ], [ %.lcssa31, %._crit_edge ]
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 1
   %126 = icmp eq i64 %125, 0
@@ -4961,7 +4961,7 @@ define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 a
   br label %134
 
 134:                                              ; preds = %131, %122
-  br i1 %.lcssa3162, label %151, label %135
+  br i1 %.lcssa3177, label %151, label %135
 
 135:                                              ; preds = %134
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !74

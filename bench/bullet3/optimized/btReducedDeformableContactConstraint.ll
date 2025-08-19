@@ -536,10 +536,10 @@ define dso_local noundef float @_ZN41btReducedDeformableRigidContactConstraint15
   %15 = extractvalue { <2 x float>, <2 x float> } %13, 1
   %foldExtExtBinop = fsub <2 x float> %8, %14
   %16 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop118 = fsub <2 x float> %8, %14
-  %17 = extractelement <2 x float> %foldExtExtBinop118, i64 1
-  %foldExtExtBinop120 = fsub <2 x float> %9, %15
-  %18 = extractelement <2 x float> %foldExtExtBinop120, i64 0
+  %foldExtExtBinop127 = fsub <2 x float> %8, %14
+  %17 = extractelement <2 x float> %foldExtExtBinop127, i64 1
+  %foldExtExtBinop129 = fsub <2 x float> %9, %15
+  %18 = extractelement <2 x float> %foldExtExtBinop129, i64 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %20 = load float, ptr %19, align 4, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -601,13 +601,13 @@ define dso_local noundef float @_ZN41btReducedDeformableRigidContactConstraint15
   br i1 %71, label %.sink.split.i, label %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit
 
 .sink.split.i:                                    ; preds = %70, %2
-  %.sink30.i = phi float [ %46, %2 ], [ %45, %70 ]
-  %72 = fsub float %.sink30.i, %64
+  %.sink32.i = phi float [ %46, %2 ], [ %45, %70 ]
+  %72 = fsub float %.sink32.i, %64
   br label %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit
 
 _ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit: ; preds = %70, %.sink.split.i
   %.0110 = phi float [ %72, %.sink.split.i ], [ %67, %70 ]
-  %.sink.i = phi float [ %.sink30.i, %.sink.split.i ], [ %68, %70 ]
+  %.sink.i = phi float [ %.sink32.i, %.sink.split.i ], [ %68, %70 ]
   store float %.sink.i, ptr %47, align 8, !tbaa !35
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %74 = load i8, ptr %73, align 1, !tbaa !84, !range !85, !noundef !86
@@ -651,13 +651,13 @@ _ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_
   br i1 %98, label %.sink.split.i20, label %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit22
 
 .sink.split.i20:                                  ; preds = %97, %76
-  %.sink30.i21 = phi float [ %46, %76 ], [ %45, %97 ]
-  %99 = fsub float %.sink30.i21, %92
+  %.sink32.i21 = phi float [ %46, %76 ], [ %45, %97 ]
+  %99 = fsub float %.sink32.i21, %92
   br label %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit22
 
 _ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit22: ; preds = %97, %.sink.split.i20
   %.1 = phi float [ %99, %.sink.split.i20 ], [ %94, %97 ]
-  %.sink.i19 = phi float [ %.sink30.i21, %.sink.split.i20 ], [ %95, %97 ]
+  %.sink.i19 = phi float [ %.sink32.i21, %.sink.split.i20 ], [ %95, %97 ]
   store float %.sink.i19, ptr %77, align 4, !tbaa !35
   br label %100
 
@@ -950,13 +950,13 @@ define dso_local void @_ZN41btReducedDeformableRigidContactConstraint26calculate
   br i1 %34, label %.sink.split, label %36
 
 .sink.split:                                      ; preds = %33, %9
-  %.sink30 = phi float [ %7, %9 ], [ %6, %33 ]
-  %35 = fsub float %.sink30, %30
+  %.sink32 = phi float [ %7, %9 ], [ %6, %33 ]
+  %35 = fsub float %.sink32, %30
   store float %35, ptr %1, align 4, !tbaa !35
   br label %36
 
 36:                                               ; preds = %.sink.split, %33
-  %.sink = phi float [ %31, %33 ], [ %.sink30, %.sink.split ]
+  %.sink = phi float [ %31, %33 ], [ %.sink32, %.sink.split ]
   store float %.sink, ptr %2, align 4, !tbaa !35
   ret void
 }
@@ -1275,10 +1275,10 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmS
   store <2 x float> %13, ptr %.sroa.674.0..sroa_idx, align 4, !tbaa !25
   %foldExtExtBinop = fsub <2 x float> %12, %6
   %16 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop79 = fsub <2 x float> %12, %6
-  %17 = extractelement <2 x float> %foldExtExtBinop79, i64 1
-  %foldExtExtBinop81 = fsub <2 x float> %13, %7
-  %18 = extractelement <2 x float> %foldExtExtBinop81, i64 0
+  %foldExtExtBinop80 = fsub <2 x float> %12, %6
+  %17 = extractelement <2 x float> %foldExtExtBinop80, i64 1
+  %foldExtExtBinop82 = fsub <2 x float> %13, %7
+  %18 = extractelement <2 x float> %foldExtExtBinop82, i64 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %20 = load float, ptr %19, align 4, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 200

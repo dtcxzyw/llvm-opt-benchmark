@@ -270,7 +270,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %19
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %19
   %.ph = phi ptr [ null, %19 ], [ %23, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %19 ], [ %26, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph15 = add nuw nsw i32 %22, 1
+  %.ph34 = add nuw nsw i32 %22, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.backedge, %thread-pre-split.i.i.preheader
@@ -281,8 +281,8 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.
 _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i:          ; preds = %thread-pre-split.i.i
   %29 = getelementptr inbounds i8, ptr %27, i64 -8
   %30 = load i32, ptr %29, align 4, !tbaa !8
-  %.not17 = icmp ult i32 %22, %30
-  br i1 %.not17, label %78, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
+  %.not36 = icmp ult i32 %22, %30
+  br i1 %.not36, label %78, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
 
 31:                                               ; preds = %thread-pre-split.i.i
   %32 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
@@ -408,13 +408,13 @@ thread-pre-split.i.i.backedge:                    ; preds = %73, %31
 
 78:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
   %79 = getelementptr inbounds i8, ptr %27, i64 -4
-  store i32 %.ph15, ptr %79, align 4, !tbaa !8
-  %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph15
+  store i32 %.ph34, ptr %79, align 4, !tbaa !8
+  %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph34
   br i1 %.not1218.i.i, label %_ZN8uint_set6insertEj.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %78
-  %80 = zext nneg i32 %.ph15 to i64
-  %81 = zext i32 %.0.i16.i.i.ph to i64
+  %80 = zext nneg i32 %.ph34 to i64
+  %81 = zext nneg i32 %.0.i16.i.i.ph to i64
   %82 = getelementptr i32, ptr %27, i64 %81
   %83 = sub nsw i64 %80, %81
   %84 = shl nsw i64 %83, 2
@@ -967,24 +967,24 @@ _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_h
   unreachable
 
 _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split.sink.split: ; preds = %108, %94
-  %.048.i.sink75.ph = phi ptr [ %.04966.i, %94 ], [ %.269.i, %108 ]
+  %.048.i.sink84.ph = phi ptr [ %.04966.i, %94 ], [ %.269.i, %108 ]
   store i32 %75, ptr %10, align 8, !tbaa !52
   br label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split
 
 _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split: ; preds = %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split.sink.split, %108, %94
-  %.048.i.sink75 = phi ptr [ %.05065.i, %94 ], [ %.15168.i, %108 ], [ %.048.i.sink75.ph, %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split.sink.split ]
-  %111 = getelementptr inbounds nuw i8, ptr %.048.i.sink75, i64 8
+  %.048.i.sink84 = phi ptr [ %.05065.i, %94 ], [ %.15168.i, %108 ], [ %.048.i.sink84.ph, %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split.sink.split ]
+  %111 = getelementptr inbounds nuw i8, ptr %.048.i.sink84, i64 8
   store i64 %indvars.iv, ptr %111, align 4
-  %112 = getelementptr inbounds nuw i8, ptr %.048.i.sink75, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %.048.i.sink84, i64 4
   store i32 2, ptr %112, align 4, !tbaa !15
-  store i32 %78, ptr %.048.i.sink75, align 4, !tbaa !53
+  store i32 %78, ptr %.048.i.sink84, align 4, !tbaa !53
   %113 = load i32, ptr %9, align 4, !tbaa !51
   %114 = add i32 %113, 1
   store i32 %114, ptr %9, align 4, !tbaa !51
   br label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit
 
 _ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit: ; preds = %89, %103, %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split
-  %.023 = phi ptr [ %.048.i.sink75, %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split ], [ %.15168.i, %103 ], [ %.05065.i, %89 ]
+  %.023 = phi ptr [ %.048.i.sink84, %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIjiERPS1_.exit.sink.split ], [ %.15168.i, %103 ], [ %.05065.i, %89 ]
   %115 = getelementptr inbounds nuw i8, ptr %.023, i64 12
   %116 = load i32, ptr %115, align 4, !tbaa !8
   %117 = add nsw i32 %116, %2

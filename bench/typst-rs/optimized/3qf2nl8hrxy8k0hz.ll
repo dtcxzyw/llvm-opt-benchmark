@@ -2478,13 +2478,13 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit: ; preds = %16, %42
   %51 = shl i64 %45, 3
   %52 = and i64 %51, 56
   %53 = icmp ugt i64 %45, 8
-  switch i64 %3, label %default.unreachable169 [
+  switch i64 %3, label %default.unreachable205 [
     i64 0, label %54
     i64 1, label %283
     i64 2, label %681
   ]
 
-default.unreachable169:                           ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
+default.unreachable205:                           ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit
   unreachable
 
 54:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit

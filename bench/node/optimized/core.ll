@@ -899,7 +899,7 @@ if.end17:                                         ; preds = %land.rhs.i15, %do.b
 
 if.then18:                                        ; preds = %uv__nonblock_ioctl.exit, %if.end17
   %6 = phi i32 [ %5, %if.end17 ], [ %3, %uv__nonblock_ioctl.exit ]
-  %err.027 = sub nsw i32 0, %6
+  %err.031 = sub nsw i32 0, %6
   %call.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %call7) #23
   %7 = and i64 %call.i.i.i, 4294967295
   %cmp.i.i = icmp eq i64 %7, 4294967295
@@ -910,7 +910,7 @@ if.then.i.i:                                      ; preds = %if.then18
   br label %return
 
 return:                                           ; preds = %do.body.i12, %if.then.i.i, %if.then18, %if.end17, %entry, %if.then9, %if.then4
-  %retval.0 = phi i32 [ %sub, %if.then4 ], [ %sub11, %if.then9 ], [ %call, %entry ], [ %call7, %if.end17 ], [ %err.027, %if.then18 ], [ %err.027, %if.then.i.i ], [ %call7, %do.body.i12 ]
+  %retval.0 = phi i32 [ %sub, %if.then4 ], [ %sub11, %if.then9 ], [ %call, %entry ], [ %call7, %if.end17 ], [ %err.031, %if.then18 ], [ %err.031, %if.then.i.i ], [ %call7, %do.body.i12 ]
   ret i32 %retval.0
 }
 

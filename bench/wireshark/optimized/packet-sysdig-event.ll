@@ -1560,23 +1560,23 @@ format_param_str.exit:                            ; preds = %56, %61
 
 .preheader.preheader:                             ; preds = %103
   %111 = icmp eq i16 %13, 0
-  br i1 %111, label %.preheader._crit_edge, label %.lr.ph158
+  br i1 %111, label %.preheader._crit_edge, label %.lr.ph169
 
-.lr.ph158:                                        ; preds = %.preheader.preheader, %.preheader
-  %.0110141157 = phi ptr [ %114, %.preheader ], [ @event_tree_info, %.preheader.preheader ]
-  %112 = getelementptr i8, ptr %.0110141157, i64 24
+.lr.ph169:                                        ; preds = %.preheader.preheader, %.preheader
+  %.0110141168 = phi ptr [ %114, %.preheader ], [ @event_tree_info, %.preheader.preheader ]
+  %112 = getelementptr i8, ptr %.0110141168, i64 24
   %113 = load ptr, ptr %112, align 8
   %.not119 = icmp eq ptr %113, null
   br i1 %.not119, label %dissect_event_params.exit, label %.preheader, !llvm.loop !9
 
-.preheader:                                       ; preds = %.lr.ph158
-  %114 = getelementptr i8, ptr %.0110141157, i64 16
+.preheader:                                       ; preds = %.lr.ph169
+  %114 = getelementptr i8, ptr %.0110141168, i64 16
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, %14
-  br i1 %116, label %.preheader._crit_edge, label %.lr.ph158, !llvm.loop !9
+  br i1 %116, label %.preheader._crit_edge, label %.lr.ph169, !llvm.loop !9
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
-  %.lcssa155 = phi ptr [ @generic_e_indexes, %.preheader.preheader ], [ %113, %.preheader ]
+  %.lcssa166 = phi ptr [ @generic_e_indexes, %.preheader.preheader ], [ %113, %.preheader ]
   %117 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %118 = load i32, ptr %117, align 8
   switch i32 %118, label %.preheader.i [
@@ -1649,7 +1649,7 @@ dissect_header_lens_v2.exit.i:                    ; preds = %._crit_edge.loopexi
 .preheader.i:                                     ; preds = %.preheader._crit_edge, %.preheader.i
   %.0.i.i = phi i32 [ %154, %.preheader.i ], [ 0, %.preheader._crit_edge ]
   %151 = sext i32 %.0.i.i to i64
-  %152 = getelementptr ptr, ptr %.lcssa155, i64 %151
+  %152 = getelementptr ptr, ptr %.lcssa166, i64 %151
   %153 = load ptr, ptr %152, align 8
   %.not.i69.i = icmp eq ptr %153, null
   %154 = add i32 %.0.i.i, 1
@@ -1661,7 +1661,7 @@ dissect_header_lens_v2.exit.i:                    ; preds = %._crit_edge.loopexi
   %158 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %156, ptr noundef %0, i32 noundef 0, i32 noundef %157, i32 noundef 0)
   %159 = load i32, ptr @ett_sysdig_parm_lens, align 4
   %160 = call ptr @proto_item_add_subtree(ptr noundef %158, i32 noundef %159)
-  %161 = load ptr, ptr %.lcssa155, align 8
+  %161 = load ptr, ptr %.lcssa166, align 8
   %.not1617.i.i = icmp eq ptr %161, null
   br i1 %.not1617.i.i, label %dissect_header_lens_v1.exit.i, label %.lr.ph.i70.i
 
@@ -1672,7 +1672,7 @@ dissect_header_lens_v2.exit.i:                    ; preds = %._crit_edge.loopexi
   %164 = call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 2, i32 noundef range(i32 -2147483648, 1) %18)
   %165 = add i32 %.118.i.i, 1
   %166 = sext i32 %165 to i64
-  %167 = getelementptr ptr, ptr %.lcssa155, i64 %166
+  %167 = getelementptr ptr, ptr %.lcssa166, i64 %166
   %168 = load ptr, ptr %167, align 8
   %.not16.i.i = icmp eq ptr %168, null
   br i1 %.not16.i.i, label %._crit_edge.loopexit.i71.i, label %.lr.ph.i70.i, !llvm.loop !13
@@ -1703,7 +1703,7 @@ dissect_header_lens_v1.exit.i:                    ; preds = %._crit_edge.loopexi
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %211 ]
   %.077.i = phi i32 [ 0, %.lr.ph.i ], [ %213, %211 ]
   %.176.i = phi i32 [ %.060.i, %.lr.ph.i ], [ %212, %211 ]
-  %174 = getelementptr ptr, ptr %.lcssa155, i64 %indvars.iv.i
+  %174 = getelementptr ptr, ptr %.lcssa166, i64 %indvars.iv.i
   %175 = load ptr, ptr %174, align 8
   %.not.i = icmp eq ptr %175, null
   br i1 %.not.i, label %dissect_event_params.exit, label %176
@@ -1781,8 +1781,8 @@ format_param_str.exit.i:                          ; preds = %193, %189
   %216 = icmp samesign ult i64 %indvars.iv.next.i, %215
   br i1 %216, label %173, label %dissect_event_params.exit, !llvm.loop !14
 
-dissect_event_params.exit:                        ; preds = %.lr.ph158, %211, %173, %170, %103
-  %.0128 = phi ptr [ %28, %103 ], [ %28, %170 ], [ %.2, %211 ], [ %.1129, %173 ], [ %28, %.lr.ph158 ]
+dissect_event_params.exit:                        ; preds = %.lr.ph169, %211, %173, %170, %103
+  %.0128 = phi ptr [ %28, %103 ], [ %28, %170 ], [ %.2, %211 ], [ %.1129, %173 ], [ %28, %.lr.ph169 ]
   %217 = load i32, ptr @hf_se_event_name, align 4
   %218 = call ptr @proto_tree_add_string(ptr noundef %80, i32 noundef %217, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %.0128)
   %219 = load ptr, ptr @sinsp_dissector_handle, align 8

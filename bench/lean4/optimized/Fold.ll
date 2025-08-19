@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_G_initialized = internal unnamed_addr global i1 false, align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_Sat_AIG_RefVec_fold_go___rarg(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr readnone captures(none) %8) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Std_Sat_AIG_RefVec_fold_go___rarg(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = ptrtoint ptr %5 to i64
   %11 = and i64 %10, 1
   %.not147 = icmp eq i64 %11, 0
@@ -105,7 +105,7 @@ lean_dec.exit75:                                  ; preds = %34, %33, %31, %lean
   br label %lean_nat_add.exit
 
 45:                                               ; preds = %.thread
-  %46 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %39) #3
+  %46 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %lean_nat_lt.exit.thread145
@@ -534,7 +534,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_Sat_AIG_RefVec_fold_go___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr readnone captures(none) %8) #0 {
+define noalias nonnull ptr @l_Std_Sat_AIG_RefVec_fold_go___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr readnone captures(none) %8) #0 {
   %10 = tail call ptr @l_Std_Sat_AIG_RefVec_fold_go___rarg(ptr poison, ptr poison, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr poison)
   %11 = ptrtoint ptr %6 to i64
   %12 = and i64 %11, 1
@@ -636,7 +636,7 @@ lean_dec.exit:                                    ; preds = %46, %45, %43, %lean
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_Sat_AIG_RefVec_fold___rarg(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Std_Sat_AIG_RefVec_fold___rarg(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   tail call void @lean_inc_heartbeat() #3
   %8 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %9 = icmp eq ptr %8, null
@@ -683,7 +683,7 @@ lean_alloc_closure.exit:                          ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Std_Sat_AIG_RefVec_fold___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
+define noalias nonnull ptr @l_Std_Sat_AIG_RefVec_fold___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6) #0 {
   tail call void @lean_inc_heartbeat() #3
   %8 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
   %9 = icmp eq ptr %8, null
@@ -701,7 +701,7 @@ l_Std_Sat_AIG_RefVec_fold___rarg.exit:            ; preds = %7
   store i32 65560, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %13, align 8, !tbaa !11
-  %14 = tail call noalias ptr @l_Std_Sat_AIG_RefVec_fold_go___rarg(ptr readnone poison, ptr readnone poison, ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %2, ptr noundef readonly %4, ptr noundef %5, ptr nonnull poison)
+  %14 = tail call noalias nonnull ptr @l_Std_Sat_AIG_RefVec_fold_go___rarg(ptr readnone poison, ptr readnone poison, ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %2, ptr noundef readonly %4, ptr noundef %5, ptr nonnull poison)
   %15 = ptrtoint ptr %4 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
@@ -880,18 +880,18 @@ lean_dec_ref.exit10:                              ; preds = %24, %26, %27
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit10, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %28, %lean_dec_ref.exit10 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !5
+  %.sink22 = phi ptr [ %4, %3 ], [ %28, %lean_dec_ref.exit10 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
+  store i32 1, ptr %.sink22, align 4, !tbaa !5
   store i32 131096, ptr %31, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %32, align 8, !tbaa !11
-  %33 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %33, align 8, !tbaa !11
   br label %34
 
 34:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink22, %.sink.split ]
   ret ptr %.0
 }
 

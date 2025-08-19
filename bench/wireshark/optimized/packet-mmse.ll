@@ -493,7 +493,7 @@ define internal fastcc void @dissect_mmse(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %switch.early.test, label %.preheader
 
 switch.early.test:                                ; preds = %5
-  switch i8 %3, label %.critedge.thread596 [
+  switch i8 %3, label %.critedge.thread612 [
     i8 -109, label %.preheader
     i8 -113, label %.preheader
     i8 -114, label %.preheader
@@ -505,7 +505,7 @@ switch.early.test:                                ; preds = %5
 .preheader:                                       ; preds = %5, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
   %34 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %35 = icmp ugt i32 %34, 2
-  br i1 %35, label %.lr.ph, label %.critedge.thread596
+  br i1 %35, label %.lr.ph, label %.critedge.thread612
 
 .lr.ph:                                           ; preds = %.preheader
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -691,12 +691,12 @@ get_text_string.exit510:                          ; preds = %116, %121
   br label %124
 
 124:                                              ; preds = %103, %109, %get_text_string.exit510
-  %.sink606 = phi i32 [ %123, %get_text_string.exit510 ], [ %108, %103 ], [ %111, %109 ]
+  %.sink622 = phi i32 [ %123, %get_text_string.exit510 ], [ %108, %103 ], [ %111, %109 ]
   %.sink.i509.sink = phi ptr [ %.sink.i509, %get_text_string.exit510 ], [ @.str.220, %103 ], [ @.str.220, %109 ]
   %125 = load i32, ptr @hf_mmse_content_location, align 4
-  %126 = add i32 %.sink606, 1
+  %126 = add i32 %.sink622, 1
   %127 = call ptr @proto_tree_add_string(ptr noundef %30, i32 noundef %125, ptr noundef %0, i32 noundef %.0588, i32 noundef %126, ptr noundef %.sink.i509.sink)
-  %128 = add i32 %.sink606, %47
+  %128 = add i32 %.sink622, %47
   br label %733
 
 129:                                              ; preds = %46
@@ -1788,7 +1788,7 @@ get_text_string.exit563:                          ; preds = %713, %718
 
 .critedge:                                        ; preds = %43
   %735 = icmp eq i8 %.2491, -124
-  br i1 %735, label %.critedge.thread, label %.critedge.thread596
+  br i1 %735, label %.critedge.thread, label %.critedge.thread612
 
 .critedge.thread:                                 ; preds = %46, %.critedge
   %.1578 = phi i32 [ %.2, %.critedge ], [ %47, %46 ]
@@ -1801,9 +1801,9 @@ get_text_string.exit563:                          ; preds = %713, %718
   call void @add_post_data(ptr noundef %30, ptr noundef %737, i32 noundef %738, ptr noundef %739, ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %.critedge.thread596
+  br label %.critedge.thread612
 
-.critedge.thread596:                              ; preds = %.preheader, %.critedge, %.critedge.thread, %switch.early.test
+.critedge.thread612:                              ; preds = %.preheader, %.critedge, %.critedge.thread, %switch.early.test
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void

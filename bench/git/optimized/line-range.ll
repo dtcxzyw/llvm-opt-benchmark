@@ -430,7 +430,7 @@ match_funcname.exit:                              ; preds = %.lr.ph126, %match_f
   %135 = call i64 %130(ptr noundef %126, i64 noundef %133, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %134) #8
   %136 = icmp sgt i64 %135, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %136, label %.thread.thread142, label %match_funcname.exit.thread
+  br i1 %136, label %.thread.thread148, label %match_funcname.exit.thread
 
 .thread.thread:                                   ; preds = %117
   call void @regfree(ptr noundef nonnull %14) #8
@@ -441,9 +441,9 @@ match_funcname.exit.thread:                       ; preds = %match_funcname.exit
   %storemerge108 = add nsw i64 %137, 1
   store i64 %storemerge108, ptr %6, align 8, !tbaa !4
   %138 = icmp slt i64 %storemerge108, %3
-  br i1 %138, label %match_funcname.exit, label %.thread.thread142
+  br i1 %138, label %match_funcname.exit, label %.thread.thread148
 
-.thread.thread142:                                ; preds = %match_funcname.exit.thread, %match_funcname.exit
+.thread.thread148:                                ; preds = %match_funcname.exit.thread, %match_funcname.exit
   call void @regfree(ptr noundef nonnull %14) #8
   br label %139
 
@@ -451,7 +451,7 @@ match_funcname.exit.thread:                       ; preds = %match_funcname.exit
   call void @regfree(ptr noundef nonnull %14) #8
   br i1 %.not.i.i, label %140, label %139
 
-139:                                              ; preds = %.thread.thread142, %.thread
+139:                                              ; preds = %.thread.thread148, %.thread
   call void @xdiff_clear_find_func(ptr noundef nonnull %.071) #8
   br label %140
 

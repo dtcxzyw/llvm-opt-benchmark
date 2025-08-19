@@ -945,16 +945,16 @@ Saig_ManSimInfo2Not.exit.i:                       ; preds = %switch.lookup, %102
   %130 = and i32 %129, 3
   %131 = and i64 %120, 1
   %.not26.i = icmp eq i64 %131, 0
-  br i1 %.not26.i, label %Saig_ManSimInfo2Not.exit41.i, label %switch.lookup178
+  br i1 %.not26.i, label %Saig_ManSimInfo2Not.exit41.i, label %switch.lookup182
 
-switch.lookup178:                                 ; preds = %118
+switch.lookup182:                                 ; preds = %118
   %132 = zext nneg i32 %130 to i64
-  %switch.gep179 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %132
-  %switch.load180 = load i32, ptr %switch.gep179, align 4
+  %switch.gep183 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %132
+  %switch.load184 = load i32, ptr %switch.gep183, align 4
   br label %Saig_ManSimInfo2Not.exit41.i
 
-Saig_ManSimInfo2Not.exit41.i:                     ; preds = %switch.lookup178, %118
-  %.023.i = phi i32 [ %130, %118 ], [ %switch.load180, %switch.lookup178 ]
+Saig_ManSimInfo2Not.exit41.i:                     ; preds = %switch.lookup182, %118
+  %.023.i = phi i32 [ %130, %118 ], [ %switch.load184, %switch.lookup182 ]
   %133 = icmp eq i32 %.024.i, 1
   %134 = icmp eq i32 %.023.i, 1
   %or.cond3.i.i = and i1 %133, %134
@@ -1006,16 +1006,16 @@ Saig_ManExtendOneEval2.exit:                      ; preds = %Saig_ManSimInfo2Not
   %162 = and i32 %161, 3
   %163 = and i64 %152, 1
   %.not.i110 = icmp eq i64 %163, 0
-  br i1 %.not.i110, label %Saig_ManSimInfo2Not.exit.i111, label %switch.lookup181
+  br i1 %.not.i110, label %Saig_ManSimInfo2Not.exit.i111, label %switch.lookup185
 
-switch.lookup181:                                 ; preds = %148
+switch.lookup185:                                 ; preds = %148
   %164 = zext nneg i32 %162 to i64
-  %switch.gep182 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %164
-  %switch.load183 = load i32, ptr %switch.gep182, align 4
+  %switch.gep186 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %164
+  %switch.load187 = load i32, ptr %switch.gep186, align 4
   br label %Saig_ManSimInfo2Not.exit.i111
 
-Saig_ManSimInfo2Not.exit.i111:                    ; preds = %switch.lookup181, %148
-  %.024.i112 = phi i32 [ %162, %148 ], [ %switch.load183, %switch.lookup181 ]
+Saig_ManSimInfo2Not.exit.i111:                    ; preds = %switch.lookup185, %148
+  %.024.i112 = phi i32 [ %162, %148 ], [ %switch.load187, %switch.lookup185 ]
   %165 = getelementptr i8, ptr %150, i64 24
   %.val28.i113 = load i64, ptr %165, align 8
   %166 = and i64 %.val28.i113, 7
@@ -1039,16 +1039,16 @@ Saig_ManSimInfo2Not.exit.i111:                    ; preds = %switch.lookup181, %
   %179 = and i32 %178, 3
   %180 = and i64 %169, 1
   %.not26.i117 = icmp eq i64 %180, 0
-  br i1 %.not26.i117, label %Saig_ManSimInfo2Not.exit41.i118, label %switch.lookup184
+  br i1 %.not26.i117, label %Saig_ManSimInfo2Not.exit41.i118, label %switch.lookup188
 
-switch.lookup184:                                 ; preds = %167
+switch.lookup188:                                 ; preds = %167
   %181 = zext nneg i32 %179 to i64
-  %switch.gep185 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %181
-  %switch.load186 = load i32, ptr %switch.gep185, align 4
+  %switch.gep189 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Saig_ManSetAndDriveImplications_rec, i64 0, i64 %181
+  %switch.load190 = load i32, ptr %switch.gep189, align 4
   br label %Saig_ManSimInfo2Not.exit41.i118
 
-Saig_ManSimInfo2Not.exit41.i118:                  ; preds = %switch.lookup184, %167
-  %.023.i119 = phi i32 [ %179, %167 ], [ %switch.load186, %switch.lookup184 ]
+Saig_ManSimInfo2Not.exit41.i118:                  ; preds = %switch.lookup188, %167
+  %.023.i119 = phi i32 [ %179, %167 ], [ %switch.load190, %switch.lookup188 ]
   %182 = icmp eq i32 %.024.i112, 1
   %183 = icmp eq i32 %.023.i119, 1
   %or.cond3.i.i120 = and i1 %182, %183
@@ -1286,9 +1286,9 @@ Saig_ObjIsLi.exit:                                ; preds = %Saig_ObjIsPo.exit
   br label %Aig_ManObj.exit
 
 Aig_ManObj.exit:                                  ; preds = %60, %54
-  %.sink157 = phi i32 [ %62, %60 ], [ %59, %54 ]
+  %.sink158 = phi i32 [ %62, %60 ], [ %59, %54 ]
   %.val97.sink = load ptr, ptr %30, align 8, !tbaa !56
-  %63 = sext i32 %.sink157 to i64
+  %63 = sext i32 %.sink158 to i64
   %64 = getelementptr inbounds i32, ptr %.val97.sink, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !14
   %66 = ashr i32 %65, 1
@@ -1788,14 +1788,14 @@ define noalias noundef ptr @Saig_ManProcessCex(ptr noundef %0, i32 noundef %1, p
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %96, %98, %88, %90
-  %.sink100 = phi ptr [ %89, %88 ], [ %91, %90 ], [ %97, %96 ], [ %99, %98 ]
+  %.sink109 = phi ptr [ %89, %88 ], [ %91, %90 ], [ %97, %96 ], [ %99, %98 ]
   %.sink = phi i32 [ 16, %88 ], [ 16, %90 ], [ %93, %96 ], [ %93, %98 ]
-  store ptr %.sink100, ptr %48, align 8, !tbaa !40
+  store ptr %.sink109, ptr %48, align 8, !tbaa !40
   store i32 %.sink, ptr %45, align 8, !tbaa !64
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %81
-  %.pre.i98 = phi ptr [ %59, %81 ], [ %.sink100, %Vec_IntPush.exit.sink.split ]
+  %.pre.i98 = phi ptr [ %59, %81 ], [ %.sink109, %Vec_IntPush.exit.sink.split ]
   %100 = add nsw i32 %82, 1
   store i32 %100, ptr %46, align 4, !tbaa !38
   br label %126
@@ -1862,10 +1862,10 @@ Vec_IntPush.exit77:                               ; preds = %.Vec_IntGrow.exit10
   br label %126
 
 126:                                              ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit77
-  %.sink104 = phi i32 [ %82, %Vec_IntPush.exit ], [ %101, %Vec_IntPush.exit77 ]
+  %.sink113 = phi i32 [ %82, %Vec_IntPush.exit ], [ %101, %Vec_IntPush.exit77 ]
   %.pre.i98.sink = phi ptr [ %.pre.i98, %Vec_IntPush.exit ], [ %124, %Vec_IntPush.exit77 ]
   %.pre.i97 = phi ptr [ %.pre.i98, %Vec_IntPush.exit ], [ %59, %Vec_IntPush.exit77 ]
-  %127 = sext i32 %.sink104 to i64
+  %127 = sext i32 %.sink113 to i64
   %128 = getelementptr inbounds i32, ptr %.pre.i98.sink, i64 %127
   %129 = trunc nsw i64 %indvars.iv93 to i32
   store i32 %129, ptr %128, align 4, !tbaa !14

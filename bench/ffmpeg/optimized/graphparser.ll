@@ -962,7 +962,7 @@ avfilter_inout_free.exit:                         ; preds = %.lr.ph.i50, %48
   %.125.lcssa = phi i32 [ 0, %26 ], [ %.2, %64 ]
   %66 = load ptr, ptr %11, align 8, !tbaa !4
   %.not40 = icmp eq ptr %66, null
-  br i1 %.not40, label %.loopexit.thread143, label %67
+  br i1 %.not40, label %.loopexit.thread159, label %67
 
 67:                                               ; preds = %._crit_edge
   %68 = load ptr, ptr %66, align 8, !tbaa !80
@@ -1059,10 +1059,10 @@ avfilter_inout_free.exit67:                       ; preds = %.lr.ph.i64, %82
 
 .loopexit:                                        ; preds = %98
   %100 = icmp slt i32 %.4, 0
-  br i1 %100, label %.preheader, label %.loopexit.thread143
+  br i1 %100, label %.preheader, label %.loopexit.thread159
 
 .preheader:                                       ; preds = %avfilter_inout_free.exit, %avfilter_inout_free.exit67, %avfilter_graph_parse2.exit.thread, %73, %34, %.loopexit
-  %.024142 = phi i32 [ %.4, %.loopexit ], [ %.0.i.ph, %avfilter_graph_parse2.exit.thread ], [ -22, %73 ], [ -22, %34 ], [ %93, %avfilter_inout_free.exit67 ], [ %59, %avfilter_inout_free.exit ]
+  %.024158 = phi i32 [ %.4, %.loopexit ], [ %.0.i.ph, %avfilter_graph_parse2.exit.thread ], [ -22, %73 ], [ -22, %34 ], [ %93, %avfilter_inout_free.exit67 ], [ %59, %avfilter_inout_free.exit ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load i32, ptr %101, align 8, !tbaa !18
   %.not47118 = icmp eq i32 %102, 0
@@ -1083,16 +1083,16 @@ avfilter_inout_free.exit67:                       ; preds = %.lr.ph.i64, %82
 ._crit_edge120:                                   ; preds = %104, %.preheader
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @av_freep(ptr noundef nonnull %108) #7
-  br label %.loopexit.thread143
+  br label %.loopexit.thread159
 
-.loopexit.thread143:                              ; preds = %._crit_edge, %._crit_edge120, %.loopexit
-  %.024141 = phi i32 [ %.024142, %._crit_edge120 ], [ %.4, %.loopexit ], [ %.125.lcssa, %._crit_edge ]
+.loopexit.thread159:                              ; preds = %._crit_edge, %._crit_edge120, %.loopexit
+  %.024157 = phi i32 [ %.024158, %._crit_edge120 ], [ %.4, %.loopexit ], [ %.125.lcssa, %._crit_edge ]
   %.pr.i68 = load ptr, ptr %10, align 8, !tbaa !4
   %.not6.i69 = icmp eq ptr %.pr.i68, null
   br i1 %.not6.i69, label %avfilter_inout_free.exit73, label %.lr.ph.i70
 
-.lr.ph.i70:                                       ; preds = %.loopexit.thread143, %.lr.ph.i70
-  %109 = phi ptr [ %111, %.lr.ph.i70 ], [ %.pr.i68, %.loopexit.thread143 ]
+.lr.ph.i70:                                       ; preds = %.loopexit.thread159, %.lr.ph.i70
+  %109 = phi ptr [ %111, %.lr.ph.i70 ], [ %.pr.i68, %.loopexit.thread159 ]
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8, !tbaa !9
   call void @av_freep(ptr noundef nonnull %109) #7
@@ -1101,7 +1101,7 @@ avfilter_inout_free.exit67:                       ; preds = %.lr.ph.i64, %82
   %.not.i71 = icmp eq ptr %111, null
   br i1 %.not.i71, label %avfilter_inout_free.exit73, label %.lr.ph.i70, !llvm.loop !14
 
-avfilter_inout_free.exit73:                       ; preds = %.lr.ph.i70, %.loopexit.thread143
+avfilter_inout_free.exit73:                       ; preds = %.lr.ph.i70, %.loopexit.thread159
   %.pr.i74 = load ptr, ptr %11, align 8, !tbaa !4
   %.not6.i75 = icmp eq ptr %.pr.i74, null
   br i1 %.not6.i75, label %avfilter_inout_free.exit79, label %.lr.ph.i76
@@ -1150,7 +1150,7 @@ avfilter_inout_free.exit91:                       ; preds = %.lr.ph.i88, %avfilt
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i32 %.024141
+  ret i32 %.024157
 }
 
 declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #1
@@ -2036,7 +2036,7 @@ find_linklabel.exit.i90:                          ; preds = %181
 
 .thread110.i:                                     ; preds = %._crit_edge.i.i69, %.thread94.split.i, %219, %.preheader.i61, %154
   %220 = phi ptr [ null, %.preheader.i61 ], [ %146, %154 ], [ null, %219 ], [ null, %.thread94.split.i ], [ %146, %._crit_edge.i.i69 ]
-  %.not8496164.i = phi i1 [ true, %.preheader.i61 ], [ false, %154 ], [ true, %219 ], [ true, %.thread94.split.i ], [ false, %._crit_edge.i.i69 ]
+  %.not8496179.i = phi i1 [ true, %.preheader.i61 ], [ false, %154 ], [ true, %219 ], [ true, %.thread94.split.i ], [ false, %._crit_edge.i.i69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %221 = tail call noalias ptr @av_mallocz(i64 noundef 32) #7
   store ptr %221, ptr %5, align 8, !tbaa !4
@@ -2049,7 +2049,7 @@ find_linklabel.exit.i90:                          ; preds = %181
   %224 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %225 = trunc nuw i64 %indvars.iv160.i to i32
   store i32 %225, ptr %224, align 8, !tbaa !85
-  br i1 %.not8496164.i, label %231, label %226
+  br i1 %.not8496179.i, label %231, label %226
 
 226:                                              ; preds = %222
   %227 = tail call noalias ptr @av_strdup(ptr noundef nonnull %220) #7
@@ -2199,13 +2199,13 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr null, ptr %10, align 8, !tbaa !16
   %26 = call i32 @avfilter_graph_segment_parse(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %10)
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %log_unknown_opt.exit.thread, label %28
+  br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %10, align 8, !tbaa !16
   %30 = tail call i32 @avfilter_graph_segment_create_filters(ptr noundef %29, i32 noundef 0)
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %log_unknown_opt.exit.thread, label %32
+  br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %28
   %33 = tail call i32 @avfilter_graph_segment_apply_opts(ptr noundef %29, i32 noundef 0)
@@ -2214,13 +2214,13 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
 
 35:                                               ; preds = %32
   %36 = icmp eq i32 %33, -1414549496
-  br i1 %36, label %37, label %log_unknown_opt.exit.thread
+  br i1 %36, label %37, label %.loopexit
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !34
   %.not32.i = icmp eq i64 %39, 0
-  br i1 %.not32.i, label %log_unknown_opt.exit.thread, label %.lr.ph31.i
+  br i1 %.not32.i, label %.loopexit, label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2264,7 +2264,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !57
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %57, i32 noundef 16, ptr noundef nonnull @.str.29, ptr noundef %58, ptr noundef %60) #7
-  br label %log_unknown_opt.exit.thread
+  br label %.loopexit
 
 61:                                               ; preds = %._crit_edge36.i, %.lr.ph.i
   %62 = phi i64 [ %.pre.i, %._crit_edge36.i ], [ %48, %.lr.ph.i ]
@@ -2280,7 +2280,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
   %65 = phi i64 [ %.pre37.i, %._crit_edge.loopexit.i ], [ %42, %41 ]
   %66 = add nuw i64 %.029.i, 1
   %67 = icmp ult i64 %66, %65
-  br i1 %67, label %41, label %log_unknown_opt.exit.thread, !llvm.loop !59
+  br i1 %67, label %41, label %.loopexit, !llvm.loop !59
 
 68:                                               ; preds = %32
   %69 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -2317,7 +2317,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
 85:                                               ; preds = %.lr.ph.i82
   %.val.i = load ptr, ptr %29, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %.val.i, i32 noundef 16, ptr noundef nonnull @.str.26, ptr noundef nonnull %84, ptr noundef nonnull @__func__.avfilter_graph_segment_init) #7
-  br label %log_unknown_opt.exit.thread
+  br label %.loopexit
 
 86:                                               ; preds = %.lr.ph.i82
   %87 = load ptr, ptr %82, align 8, !tbaa !53
@@ -2334,7 +2334,7 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
 92:                                               ; preds = %88
   %93 = tail call i32 @avfilter_init_dict(ptr noundef nonnull %87, ptr noundef null) #7
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %log_unknown_opt.exit.thread, label %._crit_edge61.i
+  br i1 %94, label %.loopexit, label %._crit_edge61.i
 
 ._crit_edge61.i:                                  ; preds = %92
   %.pre.i87 = load i64, ptr %77, align 8, !tbaa !47
@@ -2382,7 +2382,7 @@ avfilter_graph_segment_init.exit:                 ; preds = %._crit_edge.i86, %6
   %116 = call fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef %11, ptr noundef nonnull %112, ptr noundef nonnull %115)
   %117 = icmp slt i32 %116, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %117, label %log_unknown_opt.exit.thread, label %._crit_edge216
+  br i1 %117, label %.loopexit, label %._crit_edge216
 
 ._crit_edge216:                                   ; preds = %114
   %.pre = load ptr, ptr %10, align 8, !tbaa !16
@@ -2424,7 +2424,7 @@ avfilter_graph_segment_init.exit:                 ; preds = %._crit_edge.i86, %6
   %140 = call fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %136, ptr noundef nonnull %139)
   %141 = icmp slt i32 %140, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %141, label %log_unknown_opt.exit.thread, label %._crit_edge220
+  br i1 %141, label %.loopexit, label %._crit_edge220
 
 ._crit_edge220:                                   ; preds = %138
   %.pre221 = load ptr, ptr %10, align 8, !tbaa !16
@@ -2435,7 +2435,7 @@ avfilter_graph_segment_init.exit:                 ; preds = %._crit_edge.i86, %6
   %144 = call i32 @avfilter_graph_segment_apply(ptr noundef %143, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9)
   call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
   %145 = icmp slt i32 %144, 0
-  br i1 %145, label %log_unknown_opt.exit.thread, label %.preheader169
+  br i1 %145, label %.loopexit, label %.preheader169
 
 .preheader169:                                    ; preds = %142
   %146 = load ptr, ptr %8, align 8, !tbaa !4
@@ -2560,7 +2560,7 @@ thread-pre-split.thread:                          ; preds = %.critedge2.i, %.lr.
 .thread:                                          ; preds = %avfilter_inout_free.exit98
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %log_unknown_opt.exit.thread
+  br label %.loopexit
 
 append_inout.exit:                                ; preds = %.critedge.i101, %._crit_edge.i102, %avfilter_inout_free.exit98._crit_edge
   %182 = phi ptr [ %.pre225, %avfilter_inout_free.exit98._crit_edge ], [ %150, %._crit_edge.i102 ], [ %150, %.critedge.i101 ]
@@ -2586,8 +2586,8 @@ append_inout.exit:                                ; preds = %.critedge.i101, %._
   %.not71 = icmp eq ptr %186, null
   %187 = load ptr, ptr %6, align 8
   %.not21.i103 = icmp eq ptr %187, null
-  %or.cond253 = select i1 %.not71, i1 true, i1 %.not21.i103
-  br i1 %or.cond253, label %thread-pre-split159.thread, label %.lr.ph.i104
+  %or.cond296 = select i1 %.not71, i1 true, i1 %.not21.i103
+  br i1 %or.cond296, label %thread-pre-split159.thread, label %.lr.ph.i104
 
 .lr.ph.i104:                                      ; preds = %.lr.ph195, %.critedge2.i108
   %188 = phi ptr [ %193, %.critedge2.i108 ], [ %187, %.lr.ph195 ]
@@ -2683,7 +2683,7 @@ thread-pre-split159.thread:                       ; preds = %.critedge2.i108, %.
 .thread162:                                       ; preds = %avfilter_inout_free.exit123
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %log_unknown_opt.exit.thread
+  br label %.loopexit
 
 append_inout.exit130:                             ; preds = %.critedge.i128, %._crit_edge.i129, %avfilter_inout_free.exit123._crit_edge
   %217 = phi ptr [ %.pre226, %avfilter_inout_free.exit123._crit_edge ], [ %185, %._crit_edge.i129 ], [ %185, %.critedge.i128 ]
@@ -2693,102 +2693,97 @@ append_inout.exit130:                             ; preds = %.critedge.i128, %._
   %.not70 = icmp eq ptr %217, null
   br i1 %.not70, label %log_unknown_opt.exit, label %.lr.ph195
 
-log_unknown_opt.exit.thread:                      ; preds = %92, %._crit_edge.i, %24, %28, %35, %142, %138, %114, %37, %.thread25.i, %.thread, %.thread162, %85
-  %.043.ph = phi i32 [ %205, %.thread162 ], [ %170, %.thread ], [ -1414549496, %.thread25.i ], [ -1414549496, %37 ], [ %116, %114 ], [ %140, %138 ], [ %144, %142 ], [ %33, %35 ], [ %30, %28 ], [ %26, %24 ], [ -22, %85 ], [ -1414549496, %._crit_edge.i ], [ %93, %92 ]
-  call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
-  br label %219
-
 log_unknown_opt.exit:                             ; preds = %append_inout.exit130, %.preheader
   %.4.lcssa = phi i32 [ %.144.lcssa, %.preheader ], [ %.5, %append_inout.exit130 ]
   call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
-  %218 = icmp slt i32 %.4.lcssa, 0
-  br i1 %218, label %219, label %229
+  br label %227
 
-219:                                              ; preds = %log_unknown_opt.exit.thread, %log_unknown_opt.exit
-  %.043168 = phi i32 [ %.043.ph, %log_unknown_opt.exit.thread ], [ %.4.lcssa, %log_unknown_opt.exit ]
+.loopexit:                                        ; preds = %92, %._crit_edge.i, %85, %.thread162, %.thread, %.thread25.i, %37, %114, %138, %142, %35, %28, %24
+  %.043.ph = phi i32 [ %205, %.thread162 ], [ %170, %.thread ], [ -1414549496, %.thread25.i ], [ -1414549496, %37 ], [ %116, %114 ], [ %140, %138 ], [ %144, %142 ], [ %33, %35 ], [ %30, %28 ], [ %26, %24 ], [ -22, %85 ], [ -1414549496, %._crit_edge.i ], [ %93, %92 ]
+  call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %17, i8 0, i64 64, i1 false)
-  %220 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.043168, ptr noundef nonnull %17, i64 noundef 64) #7
+  %218 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.043.ph, ptr noundef nonnull %17, i64 noundef 64) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.18, ptr noundef nonnull %17) #7
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %222 = load i32, ptr %221, align 8, !tbaa !18
-  %.not75197 = icmp eq i32 %222, 0
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %220 = load i32, ptr %219, align 8, !tbaa !18
+  %.not75197 = icmp eq i32 %220, 0
   br i1 %.not75197, label %._crit_edge, label %.lr.ph198
 
-.lr.ph198:                                        ; preds = %219
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %224
+.lr.ph198:                                        ; preds = %.loopexit
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %222
 
-224:                                              ; preds = %.lr.ph198, %224
-  %225 = load ptr, ptr %223, align 8, !tbaa !23
-  %226 = load ptr, ptr %225, align 8, !tbaa !24
-  call void @avfilter_free(ptr noundef %226) #7
-  %227 = load i32, ptr %221, align 8, !tbaa !18
-  %.not75 = icmp eq i32 %227, 0
-  br i1 %.not75, label %._crit_edge, label %224, !llvm.loop !115
+222:                                              ; preds = %.lr.ph198, %222
+  %223 = load ptr, ptr %221, align 8, !tbaa !23
+  %224 = load ptr, ptr %223, align 8, !tbaa !24
+  call void @avfilter_free(ptr noundef %224) #7
+  %225 = load i32, ptr %219, align 8, !tbaa !18
+  %.not75 = icmp eq i32 %225, 0
+  br i1 %.not75, label %._crit_edge, label %222, !llvm.loop !115
 
-._crit_edge:                                      ; preds = %224, %219
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @av_freep(ptr noundef nonnull %228) #7
-  br label %229
+._crit_edge:                                      ; preds = %222, %.loopexit
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @av_freep(ptr noundef nonnull %226) #7
+  br label %227
 
-229:                                              ; preds = %._crit_edge, %log_unknown_opt.exit
-  %.043167 = phi i32 [ %.043168, %._crit_edge ], [ %.4.lcssa, %log_unknown_opt.exit ]
+227:                                              ; preds = %log_unknown_opt.exit, %._crit_edge
+  %.043167 = phi i32 [ %.043.ph, %._crit_edge ], [ %.4.lcssa, %log_unknown_opt.exit ]
   %.pr.i131 = load ptr, ptr %6, align 8, !tbaa !4
-  br i1 %.not, label %231, label %230
+  br i1 %.not, label %229, label %228
 
-230:                                              ; preds = %229
+228:                                              ; preds = %227
   store ptr %.pr.i131, ptr %2, align 8, !tbaa !4
   br label %avfilter_inout_free.exit136
 
-231:                                              ; preds = %229
+229:                                              ; preds = %227
   %.not6.i132 = icmp eq ptr %.pr.i131, null
   br i1 %.not6.i132, label %avfilter_inout_free.exit136, label %.lr.ph.i133
 
-.lr.ph.i133:                                      ; preds = %231, %.lr.ph.i133
-  %232 = phi ptr [ %234, %.lr.ph.i133 ], [ %.pr.i131, %231 ]
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
-  %234 = load ptr, ptr %233, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %232) #7
+.lr.ph.i133:                                      ; preds = %229, %.lr.ph.i133
+  %230 = phi ptr [ %232, %.lr.ph.i133 ], [ %.pr.i131, %229 ]
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
+  %232 = load ptr, ptr %231, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %230) #7
   call void @av_freep(ptr noundef nonnull %6) #7
-  store ptr %234, ptr %6, align 8, !tbaa !4
-  %.not.i134 = icmp eq ptr %234, null
+  store ptr %232, ptr %6, align 8, !tbaa !4
+  %.not.i134 = icmp eq ptr %232, null
   br i1 %.not.i134, label %avfilter_inout_free.exit136, label %.lr.ph.i133, !llvm.loop !14
 
-avfilter_inout_free.exit136:                      ; preds = %.lr.ph.i133, %231, %230
+avfilter_inout_free.exit136:                      ; preds = %.lr.ph.i133, %229, %228
   %.pr.i137 = load ptr, ptr %7, align 8, !tbaa !4
-  br i1 %.not66, label %236, label %235
+  br i1 %.not66, label %234, label %233
 
-235:                                              ; preds = %avfilter_inout_free.exit136
+233:                                              ; preds = %avfilter_inout_free.exit136
   store ptr %.pr.i137, ptr %3, align 8, !tbaa !4
   br label %avfilter_inout_free.exit142
 
-236:                                              ; preds = %avfilter_inout_free.exit136
+234:                                              ; preds = %avfilter_inout_free.exit136
   %.not6.i138 = icmp eq ptr %.pr.i137, null
   br i1 %.not6.i138, label %avfilter_inout_free.exit142, label %.lr.ph.i139
 
-.lr.ph.i139:                                      ; preds = %236, %.lr.ph.i139
-  %237 = phi ptr [ %239, %.lr.ph.i139 ], [ %.pr.i137, %236 ]
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  %239 = load ptr, ptr %238, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %237) #7
+.lr.ph.i139:                                      ; preds = %234, %.lr.ph.i139
+  %235 = phi ptr [ %237, %.lr.ph.i139 ], [ %.pr.i137, %234 ]
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
+  %237 = load ptr, ptr %236, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %235) #7
   call void @av_freep(ptr noundef nonnull %7) #7
-  store ptr %239, ptr %7, align 8, !tbaa !4
-  %.not.i140 = icmp eq ptr %239, null
+  store ptr %237, ptr %7, align 8, !tbaa !4
+  %.not.i140 = icmp eq ptr %237, null
   br i1 %.not.i140, label %avfilter_inout_free.exit142, label %.lr.ph.i139, !llvm.loop !14
 
-avfilter_inout_free.exit142:                      ; preds = %.lr.ph.i139, %236, %235
+avfilter_inout_free.exit142:                      ; preds = %.lr.ph.i139, %234, %233
   %.pr.i143 = load ptr, ptr %8, align 8, !tbaa !4
   %.not6.i144 = icmp eq ptr %.pr.i143, null
   br i1 %.not6.i144, label %avfilter_inout_free.exit148, label %.lr.ph.i145
 
 .lr.ph.i145:                                      ; preds = %avfilter_inout_free.exit142, %.lr.ph.i145
-  %240 = phi ptr [ %242, %.lr.ph.i145 ], [ %.pr.i143, %avfilter_inout_free.exit142 ]
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
-  %242 = load ptr, ptr %241, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %240) #7
+  %238 = phi ptr [ %240, %.lr.ph.i145 ], [ %.pr.i143, %avfilter_inout_free.exit142 ]
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  %240 = load ptr, ptr %239, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %238) #7
   call void @av_freep(ptr noundef nonnull %8) #7
-  store ptr %242, ptr %8, align 8, !tbaa !4
-  %.not.i146 = icmp eq ptr %242, null
+  store ptr %240, ptr %8, align 8, !tbaa !4
+  %.not.i146 = icmp eq ptr %240, null
   br i1 %.not.i146, label %avfilter_inout_free.exit148, label %.lr.ph.i145, !llvm.loop !14
 
 avfilter_inout_free.exit148:                      ; preds = %.lr.ph.i145, %avfilter_inout_free.exit142
@@ -2797,13 +2792,13 @@ avfilter_inout_free.exit148:                      ; preds = %.lr.ph.i145, %avfil
   br i1 %.not6.i150, label %avfilter_inout_free.exit154, label %.lr.ph.i151
 
 .lr.ph.i151:                                      ; preds = %avfilter_inout_free.exit148, %.lr.ph.i151
-  %243 = phi ptr [ %245, %.lr.ph.i151 ], [ %.pr.i149, %avfilter_inout_free.exit148 ]
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
-  %245 = load ptr, ptr %244, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %243) #7
+  %241 = phi ptr [ %243, %.lr.ph.i151 ], [ %.pr.i149, %avfilter_inout_free.exit148 ]
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %243 = load ptr, ptr %242, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %241) #7
   call void @av_freep(ptr noundef nonnull %9) #7
-  store ptr %245, ptr %9, align 8, !tbaa !4
-  %.not.i152 = icmp eq ptr %245, null
+  store ptr %243, ptr %9, align 8, !tbaa !4
+  %.not.i152 = icmp eq ptr %243, null
   br i1 %.not.i152, label %avfilter_inout_free.exit154, label %.lr.ph.i151, !llvm.loop !14
 
 avfilter_inout_free.exit154:                      ; preds = %.lr.ph.i151, %avfilter_inout_free.exit148
@@ -2816,7 +2811,7 @@ avfilter_inout_free.exit154:                      ; preds = %.lr.ph.i151, %avfil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @linklabels_parse(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2829,9 +2824,9 @@ define internal fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef nonnull
   %.pre = load ptr, ptr %1, align 8, !tbaa !32
   %10 = load i8, ptr %.pre, align 1, !tbaa !33
   %11 = icmp eq i8 %10, 91
-  br i1 %11, label %.lr.ph48, label %._crit_edge49
+  br i1 %11, label %.lr.ph52, label %._crit_edge53
 
-.lr.ph48:                                         ; preds = %4, %.critedge
+.lr.ph52:                                         ; preds = %4, %.critedge
   %12 = phi ptr [ %31, %.critedge ], [ %.pre, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2843,7 +2838,7 @@ define internal fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef nonnull
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %parse_link_name.exit.thread, label %15
 
-15:                                               ; preds = %.lr.ph48
+15:                                               ; preds = %.lr.ph52
   %16 = load i8, ptr %14, align 1, !tbaa !33
   %.not11.i = icmp eq i8 %16, 0
   br i1 %.not11.i, label %20, label %17
@@ -2860,7 +2855,7 @@ define internal fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef nonnull
   call void @av_freep(ptr noundef nonnull %5) #7
   br label %parse_link_name.exit.thread
 
-parse_link_name.exit.thread:                      ; preds = %.lr.ph48, %20
+parse_link_name.exit.thread:                      ; preds = %.lr.ph52, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pad_params_free.exit
 
@@ -2898,7 +2893,7 @@ parse_link_name.exit.thread:                      ; preds = %.lr.ph48, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %32 = load i8, ptr %31, align 1, !tbaa !33
   %33 = icmp eq i8 %32, 91
-  br i1 %33, label %.lr.ph48, label %._crit_edge49
+  br i1 %33, label %.lr.ph52, label %._crit_edge53
 
 pad_params_free.exit:                             ; preds = %28, %parse_link_name.exit.thread, %24
   %.014 = phi i32 [ -12, %24 ], [ -22, %parse_link_name.exit.thread ], [ %26, %28 ]
@@ -2908,7 +2903,7 @@ pad_params_free.exit:                             ; preds = %28, %parse_link_nam
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge49:                                    ; preds = %.critedge, %4
+._crit_edge53:                                    ; preds = %.critedge, %4
   %35 = load ptr, ptr %6, align 8, !tbaa !102
   store ptr %35, ptr %2, align 8, !tbaa !102
   %36 = load i32, ptr %7, align 4, !tbaa !26
@@ -2941,8 +2936,8 @@ pad_params_free.exit22:                           ; preds = %.lr.ph, %41
   %44 = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 
-45:                                               ; preds = %._crit_edge, %._crit_edge49
-  %.015 = phi i32 [ %.014, %._crit_edge ], [ 0, %._crit_edge49 ]
+45:                                               ; preds = %._crit_edge, %._crit_edge53
+  %.015 = phi i32 [ %.014, %._crit_edge ], [ 0, %._crit_edge53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.015

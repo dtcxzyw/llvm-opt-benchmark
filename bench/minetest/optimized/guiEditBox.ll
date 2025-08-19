@@ -996,7 +996,7 @@ for.body.i.i30.preheader:                         ; preds = %if.then4
   %25 = and i64 %24, 4611686018427387903
   %26 = add nuw nsw i64 %25, 1
   %min.iters.check = icmp samesign ult i64 %25, 7
-  br i1 %min.iters.check, label %for.body.i.i30.preheader6, label %vector.ph
+  br i1 %min.iters.check, label %for.body.i.i30.preheader11, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i30.preheader
   %n.vec = and i64 %26, 9223372036854775800
@@ -1027,14 +1027,14 @@ middle.block:                                     ; preds = %vector.body
   %37 = shl i64 %n.vec, 2
   %ind.end = getelementptr i8, ptr %22, i64 %37
   %cmp.n = icmp eq i64 %26, %n.vec
-  br i1 %cmp.n, label %return, label %for.body.i.i30.preheader6
+  br i1 %cmp.n, label %return, label %for.body.i.i30.preheader11
 
-for.body.i.i30.preheader6:                        ; preds = %middle.block, %for.body.i.i30.preheader
+for.body.i.i30.preheader11:                       ; preds = %middle.block, %for.body.i.i30.preheader
   %__result.sroa.0.015.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %22, %for.body.i.i30.preheader ]
   br label %for.body.i.i30
 
-for.body.i.i30:                                   ; preds = %for.body.i.i30.preheader6, %for.body.i.i30
-  %__result.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i9.i.i, %for.body.i.i30 ], [ %__result.sroa.0.015.i.i.ph, %for.body.i.i30.preheader6 ]
+for.body.i.i30:                                   ; preds = %for.body.i.i30.preheader11, %for.body.i.i30
+  %__result.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i9.i.i, %for.body.i.i30 ], [ %__result.sroa.0.015.i.i.ph, %for.body.i.i30.preheader11 ]
   %38 = load i32, ptr %__result.sroa.0.015.i.i, align 4, !tbaa !69
   %39 = add i32 %38, -65
   %or.cond.i.i.i.i = icmp ult i32 %39, 26
@@ -1745,9 +1745,9 @@ if.then106:                                       ; preds = %if.then102
   br label %if.end110.sink.split
 
 if.end110.sink.split:                             ; preds = %if.end96, %if.then106
-  %.sink6 = phi i32 [ %40, %if.then106 ], [ 0, %if.end96 ]
+  %.sink10 = phi i32 [ %40, %if.then106 ], [ 0, %if.end96 ]
   %storemerge.ph = phi i32 [ %p84.0, %if.then106 ], [ 0, %if.end96 ]
-  store i32 %.sink6, ptr %new_mark_begin, align 4, !tbaa !59
+  store i32 %.sink10, ptr %new_mark_begin, align 4, !tbaa !59
   br label %if.end110
 
 if.end110:                                        ; preds = %if.end110.sink.split, %if.then102

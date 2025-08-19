@@ -254,8 +254,8 @@ define internal i32 @tcp_open(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
 103:                                              ; preds = %.lr.ph
   %104 = getelementptr inbounds nuw i8, ptr %.16493, i64 40
   %105 = load ptr, ptr %104, align 8, !tbaa !40
-  %.not114 = icmp eq ptr %105, null
-  br i1 %.not114, label %.thread.loopexit, label %.lr.ph, !llvm.loop !41
+  %.not121 = icmp eq ptr %105, null
+  br i1 %.not121, label %.thread.loopexit, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %106 = getelementptr inbounds nuw i8, ptr %.16493, i64 4

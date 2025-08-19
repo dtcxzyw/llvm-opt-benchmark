@@ -377,9 +377,9 @@ _ZNK15ClassLoaderData25is_boot_class_loader_dataEv.exit: ; preds = %5
   br i1 %15, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %14, %12, %_ZNK15ClassLoaderData25is_boot_class_loader_dataEv.exit, %2, %5
-  %.sink5 = phi i16 [ 128, %5 ], [ 128, %2 ], [ 128, %_ZNK15ClassLoaderData25is_boot_class_loader_dataEv.exit ], [ 256, %12 ], [ 512, %14 ]
+  %.sink6 = phi i16 [ 128, %5 ], [ 128, %2 ], [ 128, %_ZNK15ClassLoaderData25is_boot_class_loader_dataEv.exit ], [ 256, %12 ], [ 512, %14 ]
   %16 = load i16, ptr %0, align 2
-  %17 = or i16 %16, %.sink5
+  %17 = or i16 %16, %.sink6
   store i16 %17, ptr %0, align 2
   br label %18
 

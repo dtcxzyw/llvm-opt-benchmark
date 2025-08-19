@@ -803,9 +803,9 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   br label %212
 
 154:                                              ; preds = %145, %144, %.lr.ph605.i
-  %.sink627.i = phi i32 [ 20, %145 ], [ 8, %.lr.ph605.i ], [ 12, %144 ]
+  %.sink637.i = phi i32 [ 20, %145 ], [ 8, %.lr.ph605.i ], [ 12, %144 ]
   %155 = load i32, ptr @hf_hip_tlv_locator_address, align 4
-  %156 = add i32 %.sink627.i, %.0529603.i
+  %156 = add i32 %.sink637.i, %.0529603.i
   %157 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %155, ptr noundef %0, i32 noundef %156, i32 noundef 16, i32 noundef 0)
   %158 = load i32, ptr @ett_hip_locator_data, align 4
   %159 = call ptr @proto_item_add_subtree(ptr noundef %157, i32 noundef %158)
@@ -1233,17 +1233,17 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
 
 462:                                              ; preds = %461, %457, %.lr.ph
   %hf_hip_tlv_reg_failtype.sink.i = phi ptr [ @hf_hip_tlv_reg_lt, %461 ], [ @hf_hip_tlv_reg_ltmax, %457 ], [ @hf_hip_tlv_reg_failtype, %.lr.ph ]
-  %.sink630.i = phi i32 [ %117, %461 ], [ %460, %457 ], [ %117, %.lr.ph ]
-  %.sink628.i = phi i32 [ 5, %461 ], [ 6, %457 ], [ 5, %.lr.ph ]
+  %.sink640.i = phi i32 [ %117, %461 ], [ %460, %457 ], [ %117, %.lr.ph ]
+  %.sink638.i = phi i32 [ 5, %461 ], [ 6, %457 ], [ 5, %.lr.ph ]
   %.sink.i = phi i32 [ -1, %461 ], [ -2, %457 ], [ -1, %.lr.ph ]
   %463 = load i32, ptr %hf_hip_tlv_reg_failtype.sink.i, align 4
-  %464 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %463, ptr noundef %0, i32 noundef %.sink630.i, i32 noundef 1, i32 noundef 0)
+  %464 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %463, ptr noundef %0, i32 noundef %.sink640.i, i32 noundef 1, i32 noundef 0)
   %465 = add nsw i32 %.sink.i, %112
   %466 = icmp sgt i32 %465, 0
   br i1 %466, label %.lr.ph583.i.preheader, label %dissect_hip_tlv.exit
 
 .lr.ph583.i.preheader:                            ; preds = %462
-  %467 = add nuw nsw i32 %.sink628.i, %.0155171
+  %467 = add nuw nsw i32 %.sink638.i, %.0155171
   br label %.lr.ph583.i
 
 .lr.ph583.i:                                      ; preds = %.lr.ph583.i.preheader, %.lr.ph583.i
@@ -1336,9 +1336,9 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
 dissect_hip_tlv.exit:                             ; preds = %.lr.ph583.i, %.lr.ph.i, %.lr.ph587.i, %.lr.ph590.i, %.lr.ph593.i, %.lr.ph596.i, %.lr.ph599.i, %.lr.ph602.i, %212, %.lr.ph, %.preheader577.i, %.preheader574.i, %.preheader572.i, %.preheader569.i, %.preheader.i, %120, %132, %138, %215, %228, %245, %253, %269, %281, %301, %313, %316, %411, %413, %414, %421, %428, %444, %454, %462, %476, %479, %489, %497, %509, %521
   %533 = add nuw nsw i32 %112, 3
   %534 = and i32 %533, 7
-  %535 = add i32 %.0155171, 11
-  %536 = add i32 %535, %112
-  %537 = sub i32 %536, %534
+  %535 = add nuw nsw i32 %.0155171, 11
+  %536 = add nuw nsw i32 %535, %112
+  %537 = sub nuw nsw i32 %536, %534
   %538 = icmp samesign ult i32 %537, %104
   br i1 %538, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 

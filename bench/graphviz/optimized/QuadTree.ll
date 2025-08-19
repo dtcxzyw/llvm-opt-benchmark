@@ -265,15 +265,15 @@ define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readon
   %75 = mul nsw i32 %.pre, %.fr96
   %76 = sext i32 %75 to i64
   %wide.trip.count108 = zext nneg i32 %.fr96 to i64
-  %invariant.gep112 = getelementptr double, ptr %74, i64 %76
+  %invariant.gep113 = getelementptr double, ptr %74, i64 %76
   br label %77
 
 77:                                               ; preds = %.lr.ph95, %77
   %indvars.iv105 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next106, %77 ]
   %78 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv105
   %79 = load double, ptr %78, align 8, !tbaa !13
-  %gep113 = getelementptr double, ptr %invariant.gep112, i64 %indvars.iv105
-  store double %79, ptr %gep113, align 8, !tbaa !13
+  %gep114 = getelementptr double, ptr %invariant.gep113, i64 %indvars.iv105
+  store double %79, ptr %gep114, align 8, !tbaa !13
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
   br i1 %exitcond109.not, label %._crit_edge, label %77, !llvm.loop !30
@@ -722,8 +722,8 @@ get_or_assign_node_force.exit217:                 ; preds = %.lr.ph244.split, %1
   br i1 %exitcond278.not, label %.loopexit, label %189, !llvm.loop !48
 
 193:                                              ; preds = %186
-  %or.cond323 = or i1 %76, %.not255
-  br i1 %or.cond323, label %.loopexit, label %.lr.ph235
+  %or.cond334 = or i1 %76, %.not255
+  br i1 %or.cond334, label %.loopexit, label %.lr.ph235
 
 .lr.ph235:                                        ; preds = %193
   %194 = shl nuw nsw i32 1, %13
@@ -906,7 +906,7 @@ get_or_assign_node_force.exit:                    ; preds = %.preheader52.split,
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define noalias ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
   %.not.i = icmp eq i32 %0, 0
   br i1 %.not.i, label %gv_calloc.exit100.thread, label %6
@@ -963,10 +963,10 @@ gv_calloc.exit100.thread:                         ; preds = %4
   %31 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #15
   %32 = icmp ne ptr %29, null
   %33 = icmp ne ptr %30, null
-  %or.cond141 = and i1 %33, %32
+  %or.cond146 = and i1 %33, %32
   %34 = icmp ne ptr %31, null
-  %or.cond3142 = and i1 %or.cond141, %34
-  br i1 %or.cond3142, label %._crit_edge113.thread, label %._crit_edge120
+  %or.cond3147 = and i1 %or.cond146, %34
+  br i1 %or.cond3147, label %._crit_edge113.thread, label %._crit_edge118
 
 .lr.ph109.preheader:                              ; preds = %gv_calloc.exit95
   %35 = zext nneg i32 %0 to i64
@@ -980,12 +980,12 @@ gv_calloc.exit100.thread:                         ; preds = %4
 
 .preheader.us.preheader:                          ; preds = %.lr.ph109.preheader
   %40 = zext nneg i32 %0 to i64
-  %wide.trip.count129 = zext nneg i32 %1 to i64
+  %wide.trip.count126 = zext nneg i32 %1 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv126 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next127, %._crit_edge.us ]
-  %41 = mul nuw nsw i64 %indvars.iv126, %40
+  %indvars.iv123 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next124, %._crit_edge.us ]
+  %41 = mul nuw nsw i64 %indvars.iv123, %40
   %invariant.gep = getelementptr inbounds nuw double, ptr %3, i64 %41
   br label %42
 
@@ -1006,9 +1006,9 @@ gv_calloc.exit100.thread:                         ; preds = %4
   br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !54
 
 ._crit_edge.us:                                   ; preds = %42
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
-  br i1 %exitcond130.not, label %.lr.ph116.preheader, label %.preheader.us, !llvm.loop !55
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
+  br i1 %exitcond127.not, label %.lr.ph116.preheader, label %.preheader.us, !llvm.loop !55
 
 ._crit_edge113.thread:                            ; preds = %gv_calloc.exit100.thread
   %50 = load double, ptr %30, align 8, !tbaa !13
@@ -1020,25 +1020,25 @@ gv_calloc.exit100.thread:                         ; preds = %4
   %53 = load double, ptr %17, align 8, !tbaa !13
   %54 = load double, ptr %11, align 8, !tbaa !13
   %55 = fsub double %53, %54
-  %wide.trip.count134 = zext nneg i32 %0 to i64
+  %wide.trip.count131 = zext nneg i32 %0 to i64
   br label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next132, %.lr.ph116 ]
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph116.preheader ], [ %indvars.iv.next129, %.lr.ph116 ]
   %.084114 = phi double [ %55, %.lr.ph116.preheader ], [ %64, %.lr.ph116 ]
-  %56 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv131
+  %56 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv128
   %57 = load double, ptr %56, align 8, !tbaa !13
-  %58 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv131
+  %58 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv128
   %59 = load double, ptr %58, align 8, !tbaa !13
   %60 = fadd double %57, %59
   %61 = fmul double %60, 5.000000e-01
-  %62 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv131
+  %62 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv128
   store double %61, ptr %62, align 8, !tbaa !13
   %63 = fsub double %59, %57
   %64 = tail call double @llvm.maxnum.f64(double %.084114, double %63)
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph116, !llvm.loop !56
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
+  br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph116, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph116, %._crit_edge113.thread
   %65 = phi ptr [ %31, %._crit_edge113.thread ], [ %23, %.lr.ph116 ]
@@ -1048,32 +1048,30 @@ gv_calloc.exit100.thread:                         ; preds = %4
   %68 = tail call double @llvm.maxnum.f64(double %.084.lcssa, double 1.000000e-05)
   %69 = fmul double %68, 5.200000e-01
   %70 = tail call ptr @QuadTree_new(i32 noundef %0, ptr noundef nonnull %65, double noundef %69, i32 noundef %2)
-  %71 = icmp slt i32 %1, 1
-  %.not.i101 = icmp eq ptr %70, null
-  %or.cond = or i1 %71, %.not.i101
-  br i1 %or.cond, label %._crit_edge120, label %QuadTree_add.exit.preheader
+  %71 = icmp sgt i32 %1, 0
+  br i1 %71, label %QuadTree_add.exit.preheader, label %._crit_edge118
 
 QuadTree_add.exit.preheader:                      ; preds = %._crit_edge
-  %wide.trip.count139 = zext nneg i32 %1 to i64
+  %wide.trip.count136 = zext nneg i32 %1 to i64
   br label %QuadTree_add.exit
 
 QuadTree_add.exit:                                ; preds = %QuadTree_add.exit.preheader, %QuadTree_add.exit
-  %indvars.iv136 = phi i64 [ 0, %QuadTree_add.exit.preheader ], [ %indvars.iv.next137, %QuadTree_add.exit ]
-  %72 = mul nsw i64 %indvars.iv136, %5
+  %indvars.iv133 = phi i64 [ 0, %QuadTree_add.exit.preheader ], [ %indvars.iv.next134, %QuadTree_add.exit ]
+  %72 = mul nsw i64 %indvars.iv133, %5
   %73 = getelementptr inbounds double, ptr %3, i64 %72
-  %74 = trunc nuw nsw i64 %indvars.iv136 to i32
+  %74 = trunc nuw nsw i64 %indvars.iv133 to i32
   %75 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef nonnull %70, ptr noundef readonly %73, double noundef 1.000000e+00, i32 noundef %74, i32 noundef 0)
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge120, label %QuadTree_add.exit, !llvm.loop !57
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
+  br i1 %exitcond137.not, label %._crit_edge118, label %QuadTree_add.exit, !llvm.loop !57
 
-._crit_edge120:                                   ; preds = %QuadTree_add.exit, %._crit_edge, %gv_calloc.exit100.thread
-  %.sink148 = phi ptr [ %29, %gv_calloc.exit100.thread ], [ %66, %._crit_edge ], [ %66, %QuadTree_add.exit ]
-  %.sink147 = phi ptr [ %30, %gv_calloc.exit100.thread ], [ %67, %._crit_edge ], [ %67, %QuadTree_add.exit ]
+._crit_edge118:                                   ; preds = %QuadTree_add.exit, %._crit_edge, %gv_calloc.exit100.thread
+  %.sink153 = phi ptr [ %29, %gv_calloc.exit100.thread ], [ %66, %._crit_edge ], [ %66, %QuadTree_add.exit ]
+  %.sink152 = phi ptr [ %30, %gv_calloc.exit100.thread ], [ %67, %._crit_edge ], [ %67, %QuadTree_add.exit ]
   %.sink = phi ptr [ %31, %gv_calloc.exit100.thread ], [ %65, %._crit_edge ], [ %65, %QuadTree_add.exit ]
   %.085 = phi ptr [ null, %gv_calloc.exit100.thread ], [ %70, %._crit_edge ], [ %70, %QuadTree_add.exit ]
-  tail call void @free(ptr noundef %.sink148) #18
-  tail call void @free(ptr noundef %.sink147) #18
+  tail call void @free(ptr noundef %.sink153) #18
+  tail call void @free(ptr noundef %.sink152) #18
   tail call void @free(ptr noundef %.sink) #18
   ret ptr %.085
 }
@@ -1088,7 +1086,7 @@ declare double @llvm.minnum.f64(double, double) #3
 declare double @llvm.maxnum.f64(double, double) #3
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @QuadTree_new(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noalias nonnull ptr @QuadTree_new(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 80) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_alloc.exit
@@ -1240,7 +1238,7 @@ define void @QuadTree_delete(ptr noundef captures(address_is_null) %0) local_unn
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @QuadTree_new_in_quadrant(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noalias nonnull ptr @QuadTree_new_in_quadrant(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @QuadTree_new(i32 noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !27
@@ -2382,7 +2380,7 @@ declare double @distance_cropped(ptr noundef, i32 noundef, i32 noundef, i32 noun
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @node_data_new(i32 noundef %0, double noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @node_data_new(i32 noundef %0, double noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #1 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 40) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_alloc.exit

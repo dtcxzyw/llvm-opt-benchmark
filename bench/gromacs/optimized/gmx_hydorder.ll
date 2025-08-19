@@ -794,7 +794,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit220.i:     ; preds = %_ZNKSt7__cxx1112bas
   %wide.trip.count291.i.i = zext i32 %180 to i64
   %252 = sitofp i32 %175 to float
   %253 = sitofp i32 %180 to float
-  %or.cond356.i.i.reass = and i1 %251, %invariant.op
+  %or.cond365.i.i.reass = and i1 %251, %invariant.op
   %254 = and i1 %219, %251
   %or.cond = select i1 %254, i1 %249, i1 false
   br label %255
@@ -1297,7 +1297,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit220.i:     ; preds = %_ZNKSt7__cxx1112bas
   br i1 %exitcond334.not.i.i, label %._crit_edge271.i.i, label %.lr.ph260.i.i, !llvm.loop !76
 
 ._crit_edge271.i.i:                               ; preds = %435, %.noexc66
-  br i1 %or.cond356.i.i.reass, label %.preheader249.us.us.i.i, label %._crit_edge278.i.i
+  br i1 %or.cond365.i.i.reass, label %.preheader249.us.us.i.i, label %._crit_edge278.i.i
 
 .preheader249.us.us.i.i:                          ; preds = %._crit_edge271.i.i, %._crit_edge276.split.us.us.us.i.i
   %indvars.iv345.i.i = phi i64 [ %indvars.iv.next346.i.i, %._crit_edge276.split.us.us.us.i.i ], [ 0, %._crit_edge271.i.i ]

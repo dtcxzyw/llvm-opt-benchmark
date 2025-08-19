@@ -39,12 +39,12 @@ define dso_local range(i32 -1, 1) i32 @serialize_p_string_to_data(ptr noundef ca
 
 .lr.ph.preheader:                                 ; preds = %3
   %9 = load i8, ptr %1, align 1
-  %.not73 = icmp eq i8 %9, 0
-  br i1 %.not73, label %.critedge.thread, label %.lr.ph75
+  %.not77 = icmp eq i8 %9, 0
+  br i1 %.not77, label %.critedge.thread, label %.lr.ph79
 
-.lr.ph75:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph79:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %10 = phi i8 [ %75, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %.0385574 = phi ptr [ %74, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.0385578 = phi ptr [ %74, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %11 = add i8 %10, -48
   %or.cond.i = icmp ult i8 %11, 10
   %12 = and i8 %10, -33
@@ -53,7 +53,7 @@ define dso_local range(i32 -1, 1) i32 @serialize_p_string_to_data(ptr noundef ca
   %or.cond28.i = or i1 %or.cond.i, %14
   br i1 %or.cond28.i, label %15, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %.lr.ph75
+switch.early.test.i:                              ; preds = %.lr.ph79
   switch i8 %10, label %68 [
     i8 126, label %15
     i8 46, label %15
@@ -66,12 +66,12 @@ switch.early.test.i:                              ; preds = %.lr.ph75
     i8 61, label %49
   ]
 
-15:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph75
+15:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph79
   call void @slurm_xstrcatchar(ptr noundef nonnull %5, i8 noundef signext %10) #4
   br label %.lr.ph
 
 16:                                               ; preds = %switch.early.test.i
-  %17 = getelementptr inbounds nuw i8, ptr %.0385574, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0385578, i64 1
   %18 = load i8, ptr %17, align 1
   %.fr22.i = freeze i8 %18
   %19 = add i8 %.fr22.i, -48
@@ -95,7 +95,7 @@ switch.early.test.i49:                            ; preds = %16
   ]
 
 _is_char_hex.exit.thread.i:                       ; preds = %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %switch.early.test.i49, %16
-  %20 = getelementptr inbounds nuw i8, ptr %.0385574, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.0385578, i64 2
   %21 = load i8, ptr %20, align 1
   %.fr23.i = freeze i8 %21
   %22 = add i8 %.fr23.i, -48
@@ -155,7 +155,7 @@ _is_char_hex.exit17.thread.i:                     ; preds = %switch.early.test21
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %39
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._decode_seq, ptr noundef nonnull @__func__._decode_seq, ptr noundef nonnull %.0385574) #4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._decode_seq, ptr noundef nonnull @__func__._decode_seq, ptr noundef nonnull %.0385578) #4
   br label %43
 
 _decode_seq.exit:                                 ; preds = %38, %35
@@ -168,7 +168,7 @@ _decode_seq.exit:                                 ; preds = %38, %35
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %43
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.serialize_p_string_to_data, ptr noundef nonnull @__func__.serialize_p_string_to_data, ptr noundef nonnull %.0385574) #4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.serialize_p_string_to_data, ptr noundef nonnull @__func__.serialize_p_string_to_data, ptr noundef nonnull %.0385578) #4
   br label %.thread
 
 47:                                               ; preds = %switch.early.test.i
@@ -229,17 +229,17 @@ _decode_seq.exit:                                 ; preds = %38, %35
   br i1 %70, label %71, label %.thread
 
 71:                                               ; preds = %68
-  %72 = load i8, ptr %.0385574, align 1
+  %72 = load i8, ptr %.0385578, align 1
   %73 = sext i8 %72 to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.serialize_p_string_to_data, ptr noundef nonnull @__func__.serialize_p_string_to_data, i32 noundef %73) #4
   br label %.thread
 
 .lr.ph:                                           ; preds = %_decode_seq.exit, %47, %48, %58, %65, %61, %64, %15
-  %.139 = phi ptr [ %.0385574, %15 ], [ %.0385574, %47 ], [ %.0385574, %48 ], [ %.0385574, %58 ], [ %.0385574, %64 ], [ %.0385574, %61 ], [ %.0385574, %65 ], [ %20, %_decode_seq.exit ]
+  %.139 = phi ptr [ %.0385578, %15 ], [ %.0385578, %47 ], [ %.0385578, %48 ], [ %.0385578, %58 ], [ %.0385578, %64 ], [ %.0385578, %61 ], [ %.0385578, %65 ], [ %20, %_decode_seq.exit ]
   %74 = getelementptr inbounds nuw i8, ptr %.139, i64 1
   %75 = load i8, ptr %74, align 1
   %.not = icmp eq i8 %75, 0
-  br i1 %.not, label %.critedge.thread, label %.lr.ph75, !llvm.loop !8
+  br i1 %.not, label %.critedge.thread, label %.lr.ph79, !llvm.loop !8
 
 .critedge.thread:                                 ; preds = %.lr.ph, %.lr.ph.preheader, %3
   call fastcc void @_handle_new_key_char(ptr noundef %7, ptr noundef %4, ptr noundef %5)

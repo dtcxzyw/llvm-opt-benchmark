@@ -688,10 +688,10 @@ fsmonitor_hook_version.exit:                      ; preds = %44
   %107 = load ptr, ptr %0, align 8, !tbaa !37
   br label %.outer
 
-.outer:                                           ; preds = %.thread163, %.lr.ph
-  %.ph = phi i32 [ %.pre, %.thread163 ], [ %106, %.lr.ph ]
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next165, %.thread163 ], [ 0, %.lr.ph ]
-  %108 = phi i1 [ false, %.thread163 ], [ true, %.lr.ph ]
+.outer:                                           ; preds = %.thread174, %.lr.ph
+  %.ph = phi i32 [ %.pre, %.thread174 ], [ %106, %.lr.ph ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next176, %.thread174 ], [ 0, %.lr.ph ]
+  %108 = phi i1 [ false, %.thread174 ], [ true, %.lr.ph ]
   %109 = zext i32 %.ph to i64
   br label %150
 
@@ -794,34 +794,34 @@ fsmonitor_hook_version.exit:                      ; preds = %44
   %154 = load i32, ptr %153, align 8, !tbaa !40
   %155 = and i32 %154, 2097152
   %.not124 = icmp eq i32 %155, 0
-  br i1 %.not124, label %156, label %.thread163
+  br i1 %.not124, label %156, label %.thread174
 
 156:                                              ; preds = %150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %157 = icmp samesign ult i64 %indvars.iv.next, %109
   br i1 %157, label %150, label %._crit_edge, !llvm.loop !50
 
-.thread163:                                       ; preds = %150
+.thread174:                                       ; preds = %150
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 56
   %159 = and i32 %154, -2097153
   store i32 %159, ptr %158, align 8, !tbaa !40
   %.pre = load i32, ptr %105, align 4, !tbaa !34
-  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next176 = add nuw nsw i64 %indvars.iv, 1
   %160 = zext i32 %.pre to i64
-  %161 = icmp samesign ult i64 %indvars.iv.next165, %160
-  br i1 %161, label %.outer, label %._crit_edge.thread167, !llvm.loop !50
+  %161 = icmp samesign ult i64 %indvars.iv.next176, %160
+  br i1 %161, label %.outer, label %._crit_edge.thread178, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %156
-  br i1 %108, label %._crit_edge.thread, label %._crit_edge.thread167
+  br i1 %108, label %._crit_edge.thread, label %._crit_edge.thread178
 
-._crit_edge.thread167:                            ; preds = %.thread163, %._crit_edge
+._crit_edge.thread178:                            ; preds = %.thread174, %._crit_edge
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %163 = load i32, ptr %162, align 4, !tbaa !49
   %164 = or i32 %163, 256
   store i32 %164, ptr %162, align 4, !tbaa !49
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge.thread167, %._crit_edge
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge.thread178, %._crit_edge
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %166 = load ptr, ptr %165, align 8, !tbaa !48
   %.not123 = icmp eq ptr %166, null

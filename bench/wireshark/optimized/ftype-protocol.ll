@@ -762,8 +762,8 @@ define internal range(i32 0, 4) i32 @cmp_matches(ptr noundef readonly captures(n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %30, %24
-  %.sink33 = phi i1 [ %29, %24 ], [ %33, %30 ]
-  %34 = zext i1 %.sink33 to i8
+  %.sink35 = phi i1 [ %29, %24 ], [ %33, %30 ]
+  %34 = zext i1 %.sink35 to i8
   store volatile i8 %34, ptr %4, align 1
   br label %35
 
@@ -914,8 +914,8 @@ define internal i32 @len(ptr noundef readonly captures(none) %0) #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %25
-  %.sink22 = phi i32 [ %26, %25 ], [ %23, %21 ]
-  store volatile i32 %.sink22, ptr %2, align 4
+  %.sink23 = phi i32 [ %26, %25 ], [ %23, %21 ]
+  store volatile i32 %.sink23, ptr %2, align 4
   br label %27
 
 27:                                               ; preds = %.sink.split, %18, %16, %13

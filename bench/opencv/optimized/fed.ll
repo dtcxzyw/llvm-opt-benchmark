@@ -197,12 +197,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit60:                  ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %63, label %.lr.ph.split, label %.loopexit, !llvm.loop !19
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge
-  %.lcssa101119 = phi i32 [ %.pre, %._crit_edge ], [ %49, %.lr.ph.split.us ]
-  %64 = sdiv i32 %.lcssa101119, 2
+  %.lcssa101123 = phi i32 [ %.pre, %._crit_edge ], [ %49, %.lr.ph.split.us ]
+  %64 = sdiv i32 %.lcssa101123, 2
   br label %_Z21fed_is_prime_internalRKi.exit.thread
 
 _Z21fed_is_prime_internalRKi.exit.thread:         ; preds = %_Z21fed_is_prime_internalRKi.exit.thread.backedge, %._crit_edge.thread
-  %storemerge.in = phi i32 [ %.lcssa101119, %._crit_edge.thread ], [ %storemerge, %_Z21fed_is_prime_internalRKi.exit.thread.backedge ]
+  %storemerge.in = phi i32 [ %.lcssa101123, %._crit_edge.thread ], [ %storemerge, %_Z21fed_is_prime_internalRKi.exit.thread.backedge ]
   %storemerge = add nsw i32 %storemerge.in, 1
   %65 = icmp slt i32 %storemerge.in, 1
   br i1 %65, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge, label %66
@@ -254,12 +254,12 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %spec.select.i, label %.preheader97, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge
 
 .preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %66, %66, %66, %66, %76
-  %83 = icmp sgt i32 %.lcssa101119, 0
+  %83 = icmp sgt i32 %.lcssa101123, 0
   br i1 %83, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader97
   %84 = load ptr, ptr %4, align 8, !tbaa !9
-  %wide.trip.count = zext nneg i32 %.lcssa101119 to i64
+  %wide.trip.count = zext nneg i32 %.lcssa101123 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %89
@@ -272,7 +272,7 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   %86 = add nsw i32 %.1, 1
   %87 = mul nsw i32 %86, %64
   %88 = srem i32 %87, %storemerge
-  %.not.not = icmp sgt i32 %88, %.lcssa101119
+  %.not.not = icmp sgt i32 %88, %.lcssa101123
   br i1 %.not.not, label %85, label %89, !llvm.loop !23
 
 89:                                               ; preds = %85
@@ -287,17 +287,17 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.preheader97, %._crit_edge
-  %.lcssa101118 = phi i32 [ %.lcssa101119, %.preheader97 ], [ %.pre, %._crit_edge ], [ %61, %.lr.ph.split ]
+  %.lcssa101122 = phi i32 [ %.lcssa101123, %.preheader97 ], [ %.pre, %._crit_edge ], [ %61, %.lr.ph.split ]
   %.not.i.i.i61 = icmp eq ptr %.sroa.086.1, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorIfSaIfEED2Ev.exit62, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %89, %.loopexit
-  %.lcssa101118124 = phi i32 [ %.lcssa101118, %.loopexit ], [ %.lcssa101119, %89 ]
+  %.lcssa101122128 = phi i32 [ %.lcssa101122, %.loopexit ], [ %.lcssa101123, %89 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.086.1) #12
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit62
 
 _ZNSt6vectorIfSaIfEED2Ev.exit62:                  ; preds = %5, %.loopexit, %.loopexit.thread
-  %.04196 = phi i32 [ %.lcssa101118, %.loopexit ], [ %.lcssa101118124, %.loopexit.thread ], [ 0, %5 ]
+  %.04196 = phi i32 [ %.lcssa101122, %.loopexit ], [ %.lcssa101122128, %.loopexit.thread ], [ 0, %5 ]
   ret i32 %.04196
 }
 
@@ -321,8 +321,8 @@ define hidden noundef zeroext i1 @_Z21fed_is_prime_internalRKi(ptr noundef nonnu
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 43, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond28 = select i1 %5, i1 %switch.lobit, i1 false
-  br i1 %or.cond28, label %.loopexit, label %6
+  %or.cond29 = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond29, label %.loopexit, label %6
 
 6:                                                ; preds = %4
   %7 = and i32 %2, 1

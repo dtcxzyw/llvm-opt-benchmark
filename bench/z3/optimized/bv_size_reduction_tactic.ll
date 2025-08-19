@@ -1681,7 +1681,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i.i:        ; preds = %158
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i
 
-.loopexit.i.i:                                    ; preds = %_Z17is_uninterp_constPK4expr.exit44.thread76.i.i, %.invoke98.i.i, %.invoke.i.i, %_Z17is_uninterp_constPK4expr.exit.thread75.i.i, %192, %132
+.loopexit.i.i:                                    ; preds = %_Z17is_uninterp_constPK4expr.exit44.thread76.i.i, %.invoke102.i.i, %.invoke.i.i, %_Z17is_uninterp_constPK4expr.exit.thread75.i.i, %192, %132
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
           cleanup
   br label %445
@@ -1847,7 +1847,7 @@ _Z17is_uninterp_constPK4expr.exit.thread75.i.i:   ; preds = %_Z17is_uninterp_con
 
 _ZN8rationalD2Ev.exit35.i.i:                      ; preds = %.noexc.i34.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %173, label %258, label %.invoke98.i.i
+  br i1 %173, label %258, label %.invoke102.i.i
 
 258:                                              ; preds = %_ZN8rationalD2Ev.exit35.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -2014,7 +2014,7 @@ _ZN8rationalD2Ev.exit43.i.i:                      ; preds = %.noexc.i42.i.i
   invoke fastcc void @_ZN12_GLOBAL__N_124bv_size_reduction_tactic19update_signed_lowerEP3appRK8rational(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull %321, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZNK14bv_recognizers9is_bv_sleEPK4exprRPS0_S4_.exit.thread.i.i unwind label %.loopexit.i.i
 
-.invoke98.i.i:                                    ; preds = %_ZN8rationalD2Ev.exit59.i.i, %_ZN8rationalD2Ev.exit35.i.i
+.invoke102.i.i:                                   ; preds = %_ZN8rationalD2Ev.exit59.i.i, %_ZN8rationalD2Ev.exit35.i.i
   %322 = phi ptr [ %194, %_ZN8rationalD2Ev.exit35.i.i ], [ %196, %_ZN8rationalD2Ev.exit59.i.i ]
   invoke fastcc void @_ZN12_GLOBAL__N_124bv_size_reduction_tactic19update_signed_upperEP3appRK8rational(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr noundef nonnull %322, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZNK14bv_recognizers9is_bv_sleEPK4exprRPS0_S4_.exit.thread.i.i unwind label %.loopexit.i.i
@@ -2258,7 +2258,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i54.i.i: ; preds = %402, %397
 
 _ZN8rationalD2Ev.exit59.i.i:                      ; preds = %.noexc.i58.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %428, label %.invoke98.i.i, label %_ZNK14bv_recognizers9is_bv_sleEPK4exprRPS0_S4_.exit.thread.i.i
+  br i1 %428, label %.invoke102.i.i, label %_ZNK14bv_recognizers9is_bv_sleEPK4exprRPS0_S4_.exit.thread.i.i
 
 433:                                              ; preds = %341
   %434 = landingpad { ptr, i32 }
@@ -2298,7 +2298,7 @@ _ZN8rationalD2Ev.exit59.i.i:                      ; preds = %.noexc.i58.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %445
 
-_ZNK14bv_recognizers9is_bv_sleEPK4exprRPS0_S4_.exit.thread.i.i: ; preds = %_ZN8rationalD2Ev.exit59.i.i, %340, %_Z17is_uninterp_constPK4expr.exit44.i.i, %327, %_Z17is_uninterp_constPK4expr.exit.thread.i.i, %.invoke98.i.i, %.invoke.i.i, %_ZN8rationalD2Ev.exit43.i.i, %188, %_ZNK14bv_recognizers9is_bv_sleEPK4expr.exit.i.i.i, %177, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i
+_ZNK14bv_recognizers9is_bv_sleEPK4exprRPS0_S4_.exit.thread.i.i: ; preds = %_ZN8rationalD2Ev.exit59.i.i, %340, %_Z17is_uninterp_constPK4expr.exit44.i.i, %327, %_Z17is_uninterp_constPK4expr.exit.thread.i.i, %.invoke102.i.i, %.invoke.i.i, %_ZN8rationalD2Ev.exit43.i.i, %188, %_ZNK14bv_recognizers9is_bv_sleEPK4expr.exit.i.i.i, %177, %_ZNK11ast_manager6is_notEPK4expr.exit.thread.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %124, !llvm.loop !105
@@ -6759,7 +6759,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
 .preheader.i.unreachabledefault:                  ; preds = %.preheader.i
   unreachable
 
-default.unreachable82:                            ; preds = %65
+default.unreachable91:                            ; preds = %65
   unreachable
 
 _ZNK14parray_managerIN11ast_manager17expr_array_configEE4sizeERKNS2_3refE.exit: ; preds = %16, %20, %24
@@ -6854,7 +6854,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %73 = load ptr, ptr %72, align 8, !tbaa !37
   %74 = load i32, ptr %69, align 8
   %75 = lshr i32 %74, 30
-  switch i32 %75, label %default.unreachable82 [
+  switch i32 %75, label %default.unreachable91 [
     i32 0, label %76
     i32 1, label %90
     i32 2, label %124
@@ -7343,7 +7343,7 @@ _ZNK6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE4s
   %57 = load ptr, ptr %56, align 8, !tbaa !242
   %58 = load i32, ptr %57, align 8
   %59 = lshr i32 %58, 30
-  switch i32 %59, label %default.unreachable40 [
+  switch i32 %59, label %default.unreachable54 [
     i32 0, label %60
     i32 2, label %81
     i32 1, label %94
@@ -7498,7 +7498,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRK
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit
 
-default.unreachable40:                            ; preds = %.lr.ph36
+default.unreachable54:                            ; preds = %.lr.ph36
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE9rpop_backEPP4exprRj.exit: ; preds = %93, %88, %81, %135, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
@@ -7521,7 +7521,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
   %5 = phi i32 [ %.pre, %2 ], [ %46, %41 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %41 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable24 [
+  switch i32 %6, label %default.unreachable27 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit
@@ -7602,7 +7602,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef %37, ptr noundef nonnull %33)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread
 
-default.unreachable24:                            ; preds = %4
+default.unreachable27:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i
@@ -7680,8 +7680,8 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI3app8rationalE13o
   %22 = icmp ugt i32 %11, 16
   %23 = mul i32 %11, 3
   %24 = icmp ugt i32 %21, %23
-  %or.cond18 = select i1 %22, i1 %24, i1 false
-  br i1 %or.cond18, label %25, label %._crit_edge.thread
+  %or.cond21 = select i1 %22, i1 %24, i1 false
+  br i1 %or.cond21, label %25, label %._crit_edge.thread
 
 25:                                               ; preds = %._crit_edge
   %26 = icmp eq ptr %9, null

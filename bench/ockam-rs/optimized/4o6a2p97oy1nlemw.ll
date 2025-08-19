@@ -2495,7 +2495,7 @@ _ZN7tracing4span4Span7do_exit17h8c716bae65ec0446E.llvm.18098550234714842923.exit
 define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$17h2c6d1455edb9c650E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !541, !noundef !5
-  switch i64 %3, label %default.unreachable26 [
+  switch i64 %3, label %default.unreachable36 [
     i64 0, label %29
     i64 1, label %43
     i64 2, label %57
@@ -2514,7 +2514,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..E
     i64 15, label %4
   ]
 
-default.unreachable26:                            ; preds = %1
+default.unreachable36:                            ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -8671,13 +8671,13 @@ define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channe
   %7 = alloca { ptr, ptr }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i8, ptr %8, align 8, !range !71, !noundef !5
-  switch i8 %9, label %default.unreachable18 [
+  switch i8 %9, label %default.unreachable19 [
     i8 0, label %10
     i8 1, label %70
     i8 2, label %71
   ]
 
-default.unreachable18:                            ; preds = %2
+default.unreachable19:                            ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -8906,14 +8906,14 @@ define hidden { i64, ptr } @"_ZN198_$LT$ockam_vault..software..vault_for_secure_
   %6 = alloca { [32 x i8] }, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8, !range !72, !noundef !5
-  switch i8 %8, label %default.unreachable43 [
+  switch i8 %8, label %default.unreachable46 [
     i8 0, label %12
     i8 1, label %17
     i8 2, label %18
     i8 3, label %9
   ]
 
-default.unreachable43:                            ; preds = %2
+default.unreachable46:                            ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
@@ -9111,14 +9111,14 @@ define hidden void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels
   %9 = alloca { [32 x i8] }, align 1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load i8, ptr %10, align 8, !range !72, !noundef !5
-  switch i8 %11, label %default.unreachable44 [
+  switch i8 %11, label %default.unreachable47 [
     i8 0, label %15
     i8 1, label %20
     i8 2, label %21
     i8 3, label %12
   ]
 
-default.unreachable44:                            ; preds = %3
+default.unreachable47:                            ; preds = %3
   unreachable
 
 12:                                               ; preds = %3
@@ -9363,13 +9363,13 @@ define hidden void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channels
   %11 = alloca { { { { { ptr, i64 }, i64 } } } }, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i8, ptr %12, align 8, !range !71, !noundef !5
-  switch i8 %13, label %default.unreachable36 [
+  switch i8 %13, label %default.unreachable40 [
     i8 0, label %14
     i8 1, label %85
     i8 2, label %86
   ]
 
-default.unreachable36:                            ; preds = %3
+default.unreachable40:                            ; preds = %3
   unreachable
 
 14:                                               ; preds = %3

@@ -659,13 +659,13 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 74:                                               ; preds = %73, %73
   %75 = icmp eq i8 %68, 2
-  br i1 %75, label %.loopexit26.loopexit.split.loop.exit177, label %76
+  br i1 %75, label %.loopexit26.loopexit.split.loop.exit191, label %76
 
 76:                                               ; preds = %74
   %77 = getelementptr i8, ptr %43, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = icmp ult i8 %78, 4
-  br i1 %79, label %.loopexit26.loopexit.split.loop.exit165, label %80
+  br i1 %79, label %.loopexit26.loopexit.split.loop.exit179, label %80
 
 80:                                               ; preds = %76
   %81 = load i8, ptr %36, align 1
@@ -682,7 +682,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %87 = and i32 %69, 3
   %88 = icmp eq i32 %87, 3
   %or.cond = and i1 %88, %.not24
-  br i1 %or.cond, label %89, label %.loopexit26.loopexit.split.loop.exit179
+  br i1 %or.cond, label %89, label %.loopexit26.loopexit.split.loop.exit193
 
 89:                                               ; preds = %84
   %90 = getelementptr i8, ptr %43, i64 3
@@ -721,14 +721,14 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 111:                                              ; preds = %108
   %112 = icmp eq i8 %68, 2
-  br i1 %112, label %.loopexit26.loopexit.split.loop.exit167, label %113
+  br i1 %112, label %.loopexit26.loopexit.split.loop.exit181, label %113
 
 113:                                              ; preds = %111
   %114 = getelementptr i8, ptr %43, i64 2
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = icmp ult i8 %115, 4
-  br i1 %117, label %.loopexit26.loopexit.split.loop.exit169, label %118
+  br i1 %117, label %.loopexit26.loopexit.split.loop.exit183, label %118
 
 118:                                              ; preds = %113
   %119 = icmp ugt i8 %115, %68
@@ -737,7 +737,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 120:                                              ; preds = %118
   %121 = add nuw nsw i32 %116, 3
   %122 = icmp samesign ugt i32 %121, %69
-  br i1 %122, label %.loopexit26.loopexit.split.loop.exit171, label %123
+  br i1 %122, label %.loopexit26.loopexit.split.loop.exit185, label %123
 
 123:                                              ; preds = %120
   br i1 %22, label %137, label %124
@@ -798,7 +798,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 154:                                              ; preds = %151
   %155 = icmp ult i8 %68, 4
-  br i1 %155, label %.loopexit26.loopexit.split.loop.exit173, label %156
+  br i1 %155, label %.loopexit26.loopexit.split.loop.exit187, label %156
 
 156:                                              ; preds = %154
   %157 = getelementptr i8, ptr %43, i64 2
@@ -921,12 +921,12 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   br label %.thread19
 
 .sink.split:                                      ; preds = %.thread, %._crit_edge128, %179, %184
-  %.sink213 = phi i8 [ 48, %184 ], [ 48, %179 ], [ 16, %._crit_edge128 ], [ 16, %.thread ]
+  %.sink227 = phi i8 [ 48, %184 ], [ 48, %179 ], [ 16, %._crit_edge128 ], [ 16, %.thread ]
   %.sink = phi ptr [ %191, %184 ], [ %43, %179 ], [ %.pre129, %._crit_edge128 ], [ %208, %.thread ]
-  %.ph209 = phi i32 [ %187, %184 ], [ %40, %179 ], [ %40, %._crit_edge128 ], [ %40, %.thread ]
-  %.ph210 = phi ptr [ %196, %184 ], [ null, %179 ], [ null, %._crit_edge128 ], [ %213, %.thread ]
+  %.ph223 = phi i32 [ %187, %184 ], [ %40, %179 ], [ %40, %._crit_edge128 ], [ %40, %.thread ]
+  %.ph224 = phi ptr [ %196, %184 ], [ null, %179 ], [ null, %._crit_edge128 ], [ %213, %.thread ]
   %224 = load i8, ptr %34, align 4
-  %225 = or i8 %224, %.sink213
+  %225 = or i8 %224, %.sink227
   store i8 %225, ptr %34, align 4
   %226 = getelementptr i8, ptr %.sink, i64 2
   br label %227
@@ -934,8 +934,8 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 227:                                              ; preds = %.sink.split, %170
   %228 = phi ptr [ %157, %170 ], [ %226, %.sink.split ]
   %229 = phi i8 [ 4, %170 ], [ 8, %.sink.split ]
-  %230 = phi i32 [ %40, %170 ], [ %.ph209, %.sink.split ]
-  %231 = phi ptr [ %173, %170 ], [ %.ph210, %.sink.split ]
+  %230 = phi i32 [ %40, %170 ], [ %.ph223, %.sink.split ]
+  %231 = phi ptr [ %173, %170 ], [ %.ph224, %.sink.split ]
   %232 = load i8, ptr %228, align 1
   %233 = add i8 %232, %229
   store i8 %233, ptr %228, align 1
@@ -988,7 +988,7 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
 
 260:                                              ; preds = %73
   %261 = icmp ult i8 %68, 4
-  br i1 %261, label %.loopexit26.loopexit.split.loop.exit175, label %262
+  br i1 %261, label %.loopexit26.loopexit.split.loop.exit189, label %262
 
 262:                                              ; preds = %260
   %263 = getelementptr i8, ptr %43, i64 2
@@ -1053,40 +1053,40 @@ define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr
   %297 = icmp sgt i32 %294, 0
   br i1 %297, label %37, label %.thread21, !llvm.loop !11
 
-.loopexit26.loopexit.split.loop.exit165:          ; preds = %76
+.loopexit26.loopexit.split.loop.exit179:          ; preds = %76
   %298 = getelementptr i8, ptr %43, i64 2
   br label %.loopexit26
 
-.loopexit26.loopexit.split.loop.exit167:          ; preds = %111
+.loopexit26.loopexit.split.loop.exit181:          ; preds = %111
   %299 = getelementptr i8, ptr %43, i64 1
   br label %.loopexit26
 
-.loopexit26.loopexit.split.loop.exit169:          ; preds = %113
+.loopexit26.loopexit.split.loop.exit183:          ; preds = %113
   %300 = getelementptr i8, ptr %43, i64 2
   br label %.loopexit26
 
-.loopexit26.loopexit.split.loop.exit171:          ; preds = %120
+.loopexit26.loopexit.split.loop.exit185:          ; preds = %120
   %301 = getelementptr i8, ptr %43, i64 2
   br label %.loopexit26
 
-.loopexit26.loopexit.split.loop.exit173:          ; preds = %154
+.loopexit26.loopexit.split.loop.exit187:          ; preds = %154
   %302 = getelementptr i8, ptr %43, i64 1
   br label %.loopexit26
 
-.loopexit26.loopexit.split.loop.exit175:          ; preds = %260
+.loopexit26.loopexit.split.loop.exit189:          ; preds = %260
   %303 = getelementptr i8, ptr %43, i64 1
   br label %.loopexit26
 
-.loopexit26.loopexit.split.loop.exit177:          ; preds = %74
+.loopexit26.loopexit.split.loop.exit191:          ; preds = %74
   %304 = getelementptr i8, ptr %43, i64 1
   br label %.loopexit26
 
-.loopexit26.loopexit.split.loop.exit179:          ; preds = %84
+.loopexit26.loopexit.split.loop.exit193:          ; preds = %84
   %305 = getelementptr i8, ptr %43, i64 1
   br label %.loopexit26
 
-.loopexit26:                                      ; preds = %278, %275, %281, %288, %254, %163, %176, %197, %156, %151, %108, %80, %66, %64, %.loopexit26.loopexit.split.loop.exit165, %.loopexit26.loopexit.split.loop.exit167, %.loopexit26.loopexit.split.loop.exit169, %.loopexit26.loopexit.split.loop.exit171, %.loopexit26.loopexit.split.loop.exit173, %.loopexit26.loopexit.split.loop.exit175, %.loopexit26.loopexit.split.loop.exit177, %.loopexit26.loopexit.split.loop.exit179, %219
-  %306 = phi ptr [ %221, %219 ], [ %298, %.loopexit26.loopexit.split.loop.exit165 ], [ %299, %.loopexit26.loopexit.split.loop.exit167 ], [ %300, %.loopexit26.loopexit.split.loop.exit169 ], [ %301, %.loopexit26.loopexit.split.loop.exit171 ], [ %302, %.loopexit26.loopexit.split.loop.exit173 ], [ %303, %.loopexit26.loopexit.split.loop.exit175 ], [ %304, %.loopexit26.loopexit.split.loop.exit177 ], [ %305, %.loopexit26.loopexit.split.loop.exit179 ], [ %.pre127, %278 ], [ %.pre127.pre, %275 ], [ %.pre141, %281 ], [ %.pre140, %288 ], [ %240, %254 ], [ %157, %163 ], [ %157, %176 ], [ %157, %197 ], [ %157, %156 ], [ %43, %151 ], [ %43, %108 ], [ %43, %80 ], [ %43, %66 ], [ %43, %64 ]
+.loopexit26:                                      ; preds = %278, %275, %281, %288, %254, %163, %176, %197, %156, %151, %108, %80, %66, %64, %.loopexit26.loopexit.split.loop.exit179, %.loopexit26.loopexit.split.loop.exit181, %.loopexit26.loopexit.split.loop.exit183, %.loopexit26.loopexit.split.loop.exit185, %.loopexit26.loopexit.split.loop.exit187, %.loopexit26.loopexit.split.loop.exit189, %.loopexit26.loopexit.split.loop.exit191, %.loopexit26.loopexit.split.loop.exit193, %219
+  %306 = phi ptr [ %221, %219 ], [ %298, %.loopexit26.loopexit.split.loop.exit179 ], [ %299, %.loopexit26.loopexit.split.loop.exit181 ], [ %300, %.loopexit26.loopexit.split.loop.exit183 ], [ %301, %.loopexit26.loopexit.split.loop.exit185 ], [ %302, %.loopexit26.loopexit.split.loop.exit187 ], [ %303, %.loopexit26.loopexit.split.loop.exit189 ], [ %304, %.loopexit26.loopexit.split.loop.exit191 ], [ %305, %.loopexit26.loopexit.split.loop.exit193 ], [ %.pre127, %278 ], [ %.pre127.pre, %275 ], [ %.pre141, %281 ], [ %.pre140, %288 ], [ %240, %254 ], [ %157, %163 ], [ %157, %176 ], [ %157, %197 ], [ %157, %156 ], [ %43, %151 ], [ %43, %108 ], [ %43, %80 ], [ %43, %66 ], [ %43, %64 ]
   %307 = icmp eq ptr %3, null
   br i1 %307, label %.thread21, label %308
 
@@ -1428,16 +1428,16 @@ define dso_local void @ip_forward_options(ptr noundef %0) local_unnamed_addr #0 
   br i1 %64, label %.loopexit.loopexit, label %55, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %indvars.le17 = trunc i64 %60 to i32
+  %indvars.le19 = trunc nuw nsw i64 %60 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %32
-  %65 = phi i32 [ %39, %32 ], [ %indvars.le17, %.loopexit.loopexit ]
+  %65 = phi i32 [ %39, %32 ], [ %indvars.le19, %.loopexit.loopexit ]
   %66 = phi i1 [ %47, %32 ], [ %63, %.loopexit.loopexit ]
   br i1 %66, label %80, label %.thread
 
 .thread.loopexit:                                 ; preds = %55
-  %indvars.le = trunc i64 %60 to i32
+  %indvars.le = trunc nuw nsw i64 %60 to i32
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %49, %.loopexit

@@ -2197,8 +2197,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !361, !noalias !358
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !361, !noalias !358
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 15:                                               ; preds = %6
@@ -2210,13 +2210,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !361, !noalias !358
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !361, !noalias !358
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !361, !noalias !358
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !361, !noalias !358
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 26:                                               ; preds = %6
@@ -2892,7 +2892,7 @@ define void @"_ZN52_$LT$ignore..Error$u20$as$u20$core..clone..Clone$GT$5clone17h
   %14 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %15 = alloca { { i64, ptr, {} }, i64 }, align 8
   %16 = load i64, ptr %1, align 8, !range !164, !noundef !4
-  switch i64 %16, label %default.unreachable47 [
+  switch i64 %16, label %default.unreachable49 [
     i64 0, label %17
     i64 1, label %23
     i64 2, label %35
@@ -2904,7 +2904,7 @@ define void @"_ZN52_$LT$ignore..Error$u20$as$u20$core..clone..Clone$GT$5clone17h
     i64 8, label %89
   ]
 
-default.unreachable47:                            ; preds = %77, %2
+default.unreachable49:                            ; preds = %77, %2
   unreachable
 
 17:                                               ; preds = %2
@@ -3076,7 +3076,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   %80 = ptrtoint ptr %79 to i64
   %81 = and i64 %80, 3
-  switch i64 %81, label %default.unreachable47 [
+  switch i64 %81, label %default.unreachable49 [
     i64 2, label %129
     i64 3, label %switch.lookup
     i64 0, label %107
@@ -3239,9 +3239,9 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %switch.lookup, 
   br label %133
 
 133:                                              ; preds = %129, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h36234ed5cb1aab52E.exit"
-  %.sink48 = phi ptr [ %132, %129 ], [ %128, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h36234ed5cb1aab52E.exit" ]
+  %.sink50 = phi ptr [ %132, %129 ], [ %128, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h36234ed5cb1aab52E.exit" ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink48, ptr %134, align 8
+  store ptr %.sink50, ptr %134, align 8
   store i64 5, ptr %0, align 8
   br label %90
 
@@ -3407,7 +3407,7 @@ define noundef ptr @_ZN6ignore5Error13into_io_error17hacc4e067692eb24fE(ptr noal
   %6 = alloca { i64, [6 x i64] }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   %8 = load i64, ptr %0, align 8, !range !164, !noundef !4
-  switch i64 %8, label %default.unreachable9 [
+  switch i64 %8, label %default.unreachable11 [
     i64 0, label %9
     i64 1, label %14
     i64 2, label %18
@@ -3419,7 +3419,7 @@ define noundef ptr @_ZN6ignore5Error13into_io_error17hacc4e067692eb24fE(ptr noal
     i64 8, label %43
   ]
 
-default.unreachable9:                             ; preds = %1
+default.unreachable11:                            ; preds = %1
   unreachable
 
 9:                                                ; preds = %1
@@ -4348,7 +4348,7 @@ define noundef zeroext i1 @"_ZN52_$LT$ignore..Error$u20$as$u20$core..fmt..Displa
 tailrecurse:                                      ; preds = %70, %2
   %.tr = phi ptr [ %0, %2 ], [ %72, %70 ]
   %32 = load i64, ptr %.tr, align 8, !range !164, !noundef !4
-  switch i64 %32, label %default.unreachable64 [
+  switch i64 %32, label %default.unreachable65 [
     i64 0, label %33
     i64 1, label %43
     i64 2, label %55
@@ -4360,7 +4360,7 @@ tailrecurse:                                      ; preds = %70, %2
     i64 8, label %108
   ]
 
-default.unreachable64:                            ; preds = %tailrecurse
+default.unreachable65:                            ; preds = %tailrecurse
   unreachable
 
 33:                                               ; preds = %tailrecurse

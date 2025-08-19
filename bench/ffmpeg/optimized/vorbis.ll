@@ -105,7 +105,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
 ._crit_edge:                                      ; preds = %.lr.ph79, %.preheader72
   %20 = add i32 %.057.lcssa, 1
   %21 = icmp ult i32 %20, %2
-  br i1 %21, label %.lr.ph82.preheader, label %.critedge2.thread128
+  br i1 %21, label %.lr.ph82.preheader, label %.critedge2.thread136
 
 .lr.ph82.preheader:                               ; preds = %._crit_edge
   %22 = zext i32 %20 to i64
@@ -129,7 +129,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %28 = icmp eq i32 %2, %27
   br i1 %28, label %.loopexit, label %.lr.ph94
 
-.critedge2.thread128:                             ; preds = %._crit_edge
+.critedge2.thread136:                             ; preds = %._crit_edge
   %29 = icmp eq i32 %20, %2
   br i1 %29, label %.loopexit, label %.preheader.preheader
 
@@ -187,7 +187,7 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %exitcond121.not = icmp eq i32 %50, %2
   br i1 %exitcond121.not, label %.preheader.preheader, label %.lr.ph94, !llvm.loop !17
 
-.preheader.preheader:                             ; preds = %49, %.critedge2.thread128
+.preheader.preheader:                             ; preds = %49, %.critedge2.thread136
   br label %.preheader
 
 51:                                               ; preds = %.preheader
@@ -202,8 +202,8 @@ define range(i32 -1094995529, 1) i32 @ff_vorbis_len2vlc(ptr noundef readonly cap
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %51, label %.loopexit
 
-.loopexit:                                        ; preds = %8, %26, %.lr.ph94, %40, %51, %.preheader, %.critedge2.thread128, %.critedge2, %11, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ -1094995529, %11 ], [ 0, %.critedge2 ], [ 0, %.critedge2.thread128 ], [ 0, %51 ], [ -1094995529, %.preheader ], [ -1094995529, %40 ], [ -1094995529, %.lr.ph94 ], [ 0, %26 ], [ 0, %8 ]
+.loopexit:                                        ; preds = %8, %26, %.lr.ph94, %40, %51, %.preheader, %.critedge2.thread136, %.critedge2, %11, %.critedge
+  %.0 = phi i32 [ 0, %.critedge ], [ -1094995529, %11 ], [ 0, %.critedge2 ], [ 0, %.critedge2.thread136 ], [ 0, %51 ], [ -1094995529, %.preheader ], [ -1094995529, %40 ], [ -1094995529, %.lr.ph94 ], [ 0, %26 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

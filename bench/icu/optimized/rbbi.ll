@@ -201,13 +201,13 @@ _ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_R1
 37:                                               ; preds = %_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEEC2EPS2_R10UErrorCode.exit
   %38 = load i32, ptr %spec.store.select, align 4
   %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.thread32, label %40
+  br i1 %39, label %.thread36, label %40
 
 40:                                               ; preds = %37
   store i32 7, ptr %spec.store.select, align 4, !tbaa !28
-  br label %.thread32
+  br label %.thread36
 
-.thread32:                                        ; preds = %37, %40
+.thread36:                                        ; preds = %37, %40
   %.ph = phi i32 [ %38, %37 ], [ 7, %40 ]
   store i32 %.ph, ptr %11, align 8, !tbaa !57
   br label %_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev.exit
@@ -248,7 +248,7 @@ _ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev.exit.thre
   call void %51(ptr noundef nonnull align 8 dereferenceable(832) %34) #16
   br label %_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev.exit
 
-_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev.exit: ; preds = %.thread32, %48
+_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator10BreakCacheEED2Ev.exit: ; preds = %.thread36, %48
   %52 = icmp eq ptr %27, null
   br i1 %52, label %_ZN6icu_7712LocalPointerINS_22RuleBasedBreakIterator15DictionaryCacheEED2Ev.exit, label %53
 
@@ -1653,14 +1653,14 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextEv(ptr noundef
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %.outer134
+  br label %.outer174
 
-.outer134:                                        ; preds = %.outer134.backedge, %67
-  %.068.i.ph = phi i32 [ %24, %67 ], [ %.371.i, %.outer134.backedge ]
-  %.064.i.ph = phi i32 [ %68, %67 ], [ %.064.i.ph.be, %.outer134.backedge ]
-  %.ph135 = phi i64 [ %69, %67 ], [ %132, %.outer134.backedge ]
-  %.156.i.ph = phi i32 [ %spec.select.i, %67 ], [ 1, %.outer134.backedge ]
-  %.152.i.ph = phi i16 [ %spec.select89.i, %67 ], [ %.354.i, %.outer134.backedge ]
+.outer174:                                        ; preds = %.outer174.backedge, %67
+  %.068.i.ph = phi i32 [ %24, %67 ], [ %.371.i, %.outer174.backedge ]
+  %.064.i.ph = phi i32 [ %68, %67 ], [ %.064.i.ph.be, %.outer174.backedge ]
+  %.ph175 = phi i64 [ %69, %67 ], [ %132, %.outer174.backedge ]
+  %.156.i.ph = phi i32 [ %spec.select.i, %67 ], [ 1, %.outer174.backedge ]
+  %.152.i.ph = phi i16 [ %spec.select89.i, %67 ], [ %.354.i, %.outer174.backedge ]
   %76 = icmp eq i32 %.064.i.ph, -1
   %77 = icmp ult i32 %.064.i.ph, 65536
   %78 = icmp ult i32 %.064.i.ph, 1114112
@@ -1669,11 +1669,11 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator10handleNextEv(ptr noundef
   %81 = and i32 %.064.i.ph, 63
   br label %82
 
-82:                                               ; preds = %.outer134, %203
-  %.068.i = phi i32 [ %.371.i, %203 ], [ %.068.i.ph, %.outer134 ]
-  %83 = phi i64 [ %132, %203 ], [ %.ph135, %.outer134 ]
-  %.156.i = phi i32 [ %spec.store.select.i, %203 ], [ %.156.i.ph, %.outer134 ]
-  %.152.i = phi i16 [ %.354.i, %203 ], [ %.152.i.ph, %.outer134 ]
+82:                                               ; preds = %.outer174, %203
+  %.068.i = phi i32 [ %.371.i, %203 ], [ %.068.i.ph, %.outer174 ]
+  %83 = phi i64 [ %132, %203 ], [ %.ph175, %.outer174 ]
+  %.156.i = phi i32 [ %spec.store.select.i, %203 ], [ %.156.i.ph, %.outer174 ]
+  %.152.i = phi i16 [ %.354.i, %203 ], [ %.152.i.ph, %.outer174 ]
   br i1 %76, label %84, label %86
 
 84:                                               ; preds = %82
@@ -1870,15 +1870,15 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
   %199 = add nsw i32 %189, 1
   store i32 %199, ptr %49, align 8, !tbaa !94
   %200 = zext i16 %196 to i32
-  br label %.outer134.backedge
+  br label %.outer174.backedge
 
 201:                                              ; preds = %192, %188
   %202 = tail call i32 @utext_next32_77(ptr noundef nonnull %26)
-  br label %.outer134.backedge
+  br label %.outer174.backedge
 
-.outer134.backedge:                               ; preds = %201, %198
+.outer174.backedge:                               ; preds = %201, %198
   %.064.i.ph.be = phi i32 [ %200, %198 ], [ %202, %201 ]
-  br label %.outer134
+  br label %.outer174
 
 203:                                              ; preds = %187
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %.25793.i, i32 1)
@@ -1970,14 +1970,14 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %.outer142
+  br label %.outer182
 
-.outer142:                                        ; preds = %.outer142.backedge, %241
-  %.068.i10.ph = phi i32 [ %24, %241 ], [ %.371.i18, %.outer142.backedge ]
-  %.064.i11.ph = phi i32 [ %242, %241 ], [ %.064.i11.ph.be, %.outer142.backedge ]
-  %.ph143 = phi i64 [ %243, %241 ], [ %305, %.outer142.backedge ]
-  %.156.i12.ph = phi i32 [ %spec.select.i8, %241 ], [ 1, %.outer142.backedge ]
-  %.152.i13.ph = phi i16 [ %spec.select89.i9, %241 ], [ %.354.i16, %.outer142.backedge ]
+.outer182:                                        ; preds = %.outer182.backedge, %241
+  %.068.i10.ph = phi i32 [ %24, %241 ], [ %.371.i18, %.outer182.backedge ]
+  %.064.i11.ph = phi i32 [ %242, %241 ], [ %.064.i11.ph.be, %.outer182.backedge ]
+  %.ph183 = phi i64 [ %243, %241 ], [ %305, %.outer182.backedge ]
+  %.156.i12.ph = phi i32 [ %spec.select.i8, %241 ], [ 1, %.outer182.backedge ]
+  %.152.i13.ph = phi i16 [ %spec.select89.i9, %241 ], [ %.354.i16, %.outer182.backedge ]
   %250 = icmp eq i32 %.064.i11.ph, -1
   %251 = icmp ult i32 %.064.i11.ph, 65536
   %252 = icmp ult i32 %.064.i11.ph, 1114112
@@ -1986,11 +1986,11 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i:         ; preds = %110, %108, %104, %9
   %255 = and i32 %.064.i11.ph, 63
   br label %256
 
-256:                                              ; preds = %.outer142, %376
-  %.068.i10 = phi i32 [ %.371.i18, %376 ], [ %.068.i10.ph, %.outer142 ]
-  %257 = phi i64 [ %305, %376 ], [ %.ph143, %.outer142 ]
-  %.156.i12 = phi i32 [ %spec.store.select.i19, %376 ], [ %.156.i12.ph, %.outer142 ]
-  %.152.i13 = phi i16 [ %.354.i16, %376 ], [ %.152.i13.ph, %.outer142 ]
+256:                                              ; preds = %.outer182, %376
+  %.068.i10 = phi i32 [ %.371.i18, %376 ], [ %.068.i10.ph, %.outer182 ]
+  %257 = phi i64 [ %305, %376 ], [ %.ph183, %.outer182 ]
+  %.156.i12 = phi i32 [ %spec.store.select.i19, %376 ], [ %.156.i12.ph, %.outer182 ]
+  %.152.i13 = phi i16 [ %.354.i16, %376 ], [ %.152.i13.ph, %.outer182 ]
   br i1 %250, label %258, label %260
 
 258:                                              ; preds = %256
@@ -2186,15 +2186,15 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i:       ; preds = %284, %282, %278, %2
   %372 = add nsw i32 %362, 1
   store i32 %372, ptr %223, align 8, !tbaa !94
   %373 = zext i16 %369 to i32
-  br label %.outer142.backedge
+  br label %.outer182.backedge
 
 374:                                              ; preds = %365, %361
   %375 = tail call i32 @utext_next32_77(ptr noundef nonnull %26)
-  br label %.outer142.backedge
+  br label %.outer182.backedge
 
-.outer142.backedge:                               ; preds = %374, %371
+.outer182.backedge:                               ; preds = %374, %371
   %.064.i11.ph.be = phi i32 [ %373, %371 ], [ %375, %374 ]
-  br label %.outer142
+  br label %.outer182
 
 376:                                              ; preds = %360
   %spec.store.select.i19 = tail call i32 @llvm.umax.i32(i32 %.25793.i15, i32 1)
@@ -2606,14 +2606,14 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
   %595 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %596 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %.outer126
+  br label %.outer166
 
-.outer126:                                        ; preds = %.outer126.backedge, %589
-  %.068.i69.ph = phi i32 [ %24, %589 ], [ %.371.i77, %.outer126.backedge ]
-  %.064.i70.ph = phi i32 [ %590, %589 ], [ %.064.i70.ph.be, %.outer126.backedge ]
-  %.ph127 = phi i64 [ %591, %589 ], [ %653, %.outer126.backedge ]
-  %.156.i71.ph = phi i32 [ %spec.select.i67, %589 ], [ 1, %.outer126.backedge ]
-  %.152.i72.ph = phi i16 [ %spec.select89.i68, %589 ], [ %.354.i75, %.outer126.backedge ]
+.outer166:                                        ; preds = %.outer166.backedge, %589
+  %.068.i69.ph = phi i32 [ %24, %589 ], [ %.371.i77, %.outer166.backedge ]
+  %.064.i70.ph = phi i32 [ %590, %589 ], [ %.064.i70.ph.be, %.outer166.backedge ]
+  %.ph167 = phi i64 [ %591, %589 ], [ %653, %.outer166.backedge ]
+  %.156.i71.ph = phi i32 [ %spec.select.i67, %589 ], [ 1, %.outer166.backedge ]
+  %.152.i72.ph = phi i16 [ %spec.select89.i68, %589 ], [ %.354.i75, %.outer166.backedge ]
   %598 = icmp eq i32 %.064.i70.ph, -1
   %599 = icmp ult i32 %.064.i70.ph, 65536
   %600 = icmp ult i32 %.064.i70.ph, 1114112
@@ -2622,11 +2622,11 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit.i60:       ; preds = %458, %456, %452, %4
   %603 = and i32 %.064.i70.ph, 63
   br label %604
 
-604:                                              ; preds = %.outer126, %724
-  %.068.i69 = phi i32 [ %.371.i77, %724 ], [ %.068.i69.ph, %.outer126 ]
-  %605 = phi i64 [ %653, %724 ], [ %.ph127, %.outer126 ]
-  %.156.i71 = phi i32 [ %spec.store.select.i78, %724 ], [ %.156.i71.ph, %.outer126 ]
-  %.152.i72 = phi i16 [ %.354.i75, %724 ], [ %.152.i72.ph, %.outer126 ]
+604:                                              ; preds = %.outer166, %724
+  %.068.i69 = phi i32 [ %.371.i77, %724 ], [ %.068.i69.ph, %.outer166 ]
+  %605 = phi i64 [ %653, %724 ], [ %.ph167, %.outer166 ]
+  %.156.i71 = phi i32 [ %spec.store.select.i78, %724 ], [ %.156.i71.ph, %.outer166 ]
+  %.152.i72 = phi i16 [ %.354.i75, %724 ], [ %.152.i72.ph, %.outer166 ]
   br i1 %598, label %606, label %608
 
 606:                                              ; preds = %604
@@ -2822,15 +2822,15 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit.i90:     ; preds = %632, %630, %626, %6
   %720 = add nsw i32 %710, 1
   store i32 %720, ptr %571, align 8, !tbaa !94
   %721 = zext i16 %717 to i32
-  br label %.outer126.backedge
+  br label %.outer166.backedge
 
 722:                                              ; preds = %713, %709
   %723 = tail call i32 @utext_next32_77(ptr noundef nonnull %26)
-  br label %.outer126.backedge
+  br label %.outer166.backedge
 
-.outer126.backedge:                               ; preds = %722, %719
+.outer166.backedge:                               ; preds = %722, %719
   %.064.i70.ph.be = phi i32 [ %721, %719 ], [ %723, %722 ]
-  br label %.outer126
+  br label %.outer166
 
 724:                                              ; preds = %708
   %spec.store.select.i78 = tail call i32 @llvm.umax.i32(i32 %.25793.i74, i32 1)
@@ -2962,9 +2962,9 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousEi(ptr
   %64 = getelementptr i8, ptr %63, i64 -2
   %65 = load i16, ptr %64, align 2, !tbaa !92
   %66 = icmp ult i16 %65, -10240
-  br i1 %66, label %.thread34.i, label %72
+  br i1 %66, label %.thread41.i, label %72
 
-.thread34.i:                                      ; preds = %59
+.thread41.i:                                      ; preds = %59
   %67 = add nsw i32 %57, -1
   store i32 %67, ptr %42, align 8, !tbaa !94
   %68 = zext nneg i32 %67 to i64
@@ -2978,8 +2978,8 @@ define noundef i32 @_ZN6icu_7722RuleBasedBreakIterator18handleSafePreviousEi(ptr
   %.not2631.i = icmp eq i32 %73, -1
   br i1 %.not2631.i, label %_ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %72, %.thread34.i
-  %74 = phi i32 [ %71, %.thread34.i ], [ %73, %72 ]
+.lr.ph.i:                                         ; preds = %72, %.thread41.i
+  %74 = phi i32 [ %71, %.thread41.i ], [ %73, %72 ]
   %75 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %76 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !87
@@ -3176,9 +3176,9 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i: ; preds = %140, %_ZN6icu_77
   %193 = getelementptr i8, ptr %192, i64 -2
   %194 = load i16, ptr %193, align 2, !tbaa !92
   %195 = icmp ult i16 %194, -10240
-  br i1 %195, label %.thread34.i21, label %201
+  br i1 %195, label %.thread41.i21, label %201
 
-.thread34.i21:                                    ; preds = %188
+.thread41.i21:                                    ; preds = %188
   %196 = add nsw i32 %186, -1
   store i32 %196, ptr %171, align 8, !tbaa !94
   %197 = zext nneg i32 %196 to i64
@@ -3192,8 +3192,8 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i: ; preds = %140, %_ZN6icu_77
   %.not2631.i11 = icmp eq i32 %202, -1
   br i1 %.not2631.i11, label %_ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i, label %.lr.ph.i12
 
-.lr.ph.i12:                                       ; preds = %201, %.thread34.i21
-  %203 = phi i32 [ %200, %.thread34.i21 ], [ %202, %201 ]
+.lr.ph.i12:                                       ; preds = %201, %.thread41.i21
+  %203 = phi i32 [ %200, %.thread41.i21 ], [ %202, %201 ]
   %204 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %205 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %206 = load i32, ptr %205, align 4, !tbaa !87
@@ -3393,9 +3393,9 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i: ; preds = %269, %_ZN6icu_
   %323 = getelementptr i8, ptr %322, i64 -2
   %324 = load i16, ptr %323, align 2, !tbaa !92
   %325 = icmp ult i16 %324, -10240
-  br i1 %325, label %.thread34.i38, label %331
+  br i1 %325, label %.thread41.i38, label %331
 
-.thread34.i38:                                    ; preds = %318
+.thread41.i38:                                    ; preds = %318
   %326 = add nsw i32 %316, -1
   store i32 %326, ptr %301, align 8, !tbaa !94
   %327 = zext nneg i32 %326 to i64
@@ -3409,8 +3409,8 @@ _ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i: ; preds = %269, %_ZN6icu_
   %.not2631.i26 = icmp eq i32 %332, -1
   br i1 %.not2631.i26, label %_ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i34, label %.lr.ph.i27
 
-.lr.ph.i27:                                       ; preds = %331, %.thread34.i38
-  %333 = phi i32 [ %330, %.thread34.i38 ], [ %332, %331 ]
+.lr.ph.i27:                                       ; preds = %331, %.thread41.i38
+  %333 = phi i32 [ %330, %.thread41.i38 ], [ %332, %331 ]
   %334 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %335 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %336 = load i32, ptr %335, align 4, !tbaa !87
@@ -3607,9 +3607,9 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i34: ; preds = %399, %_ZN6icu_
   %452 = getelementptr i8, ptr %451, i64 -2
   %453 = load i16, ptr %452, align 2, !tbaa !92
   %454 = icmp ult i16 %453, -10240
-  br i1 %454, label %.thread34.i55, label %460
+  br i1 %454, label %.thread41.i55, label %460
 
-.thread34.i55:                                    ; preds = %447
+.thread41.i55:                                    ; preds = %447
   %455 = add nsw i32 %445, -1
   store i32 %455, ptr %430, align 8, !tbaa !94
   %456 = zext nneg i32 %455 to i64
@@ -3623,8 +3623,8 @@ _ZN6icu_77L9TrieFunc8EPK7UCPTriei.exit._crit_edge.i34: ; preds = %399, %_ZN6icu_
   %.not2631.i43 = icmp eq i32 %461, -1
   br i1 %.not2631.i43, label %_ZN6icu_77L10TrieFunc16EPK7UCPTriei.exit._crit_edge.i51, label %.lr.ph.i44
 
-.lr.ph.i44:                                       ; preds = %460, %.thread34.i55
-  %462 = phi i32 [ %459, %.thread34.i55 ], [ %461, %460 ]
+.lr.ph.i44:                                       ; preds = %460, %.thread41.i55
+  %462 = phi i32 [ %459, %.thread41.i55 ], [ %461, %460 ]
   %463 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %464 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %465 = load i32, ptr %464, align 4, !tbaa !87

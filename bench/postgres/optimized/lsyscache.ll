@@ -3370,25 +3370,25 @@ define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef writeonly
 
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr i8, ptr %4, i64 16
-  %.val31 = load ptr, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %.val31, i64 22
+  %.val32 = load ptr, ptr %5, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %.val32, i64 22
   %7 = load i8, ptr %6, align 2
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i8, ptr %.val31, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %.val32, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 79
   %11 = load i8, ptr %10, align 1
-  %.not1332 = icmp eq i8 %11, 100
-  br i1 %.not1332, label %.lr.ph33, label %.lr.ph._crit_edge
+  %.not1333 = icmp eq i8 %11, 100
+  br i1 %.not1333, label %.lr.ph34, label %.lr.ph._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph33, %2
-  %.011.lcssa = phi i32 [ %0, %2 ], [ %24, %.lr.ph33 ]
+._crit_edge:                                      ; preds = %.lr.ph34, %2
+  %.011.lcssa = phi i32 [ %0, %2 ], [ %24, %.lr.ph34 ]
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %.011.lcssa) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2577, ptr noundef nonnull @__func__.getBaseTypeAndTypmod) #8
   unreachable
 
-.lr.ph:                                           ; preds = %.lr.ph33
+.lr.ph:                                           ; preds = %.lr.ph34
   %14 = getelementptr i8, ptr %28, i64 16
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -3398,9 +3398,9 @@ define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef writeonly
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 79
   %20 = load i8, ptr %19, align 1
   %.not13 = icmp eq i8 %20, 100
-  br i1 %.not13, label %.lr.ph33, label %.lr.ph._crit_edge
+  br i1 %.not13, label %.lr.ph34, label %.lr.ph._crit_edge
 
-.lr.ph33:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph34:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %21 = phi ptr [ %18, %.lr.ph ], [ %9, %.lr.ph.preheader ]
   %22 = phi ptr [ %28, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 132

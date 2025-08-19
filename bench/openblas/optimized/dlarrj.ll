@@ -160,7 +160,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.lr.ph292
 
 .preheader270.split295.us:                        ; preds = %.lr.ph283, %.preheader271.split.us
-  %.us-phi369 = phi double [ %47, %.preheader271.split.us ], [ %67, %.lr.ph283 ]
+  %.us-phi377 = phi double [ %47, %.preheader271.split.us ], [ %67, %.lr.ph283 ]
   %99 = fcmp olt double %61, %48
   %.3.us298 = zext i1 %99 to i32
   %100 = zext i1 %99 to i64
@@ -224,7 +224,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge293, %.split.us.loopexit, %.preheader270.split295.us
-  %.us-phi368 = phi double [ %.us-phi369, %.preheader270.split295.us ], [ %.us-phi369, %.split.us.loopexit ], [ %.1255, %._crit_edge293 ]
+  %.us-phi376 = phi double [ %.us-phi377, %.preheader270.split295.us ], [ %.us-phi377, %.split.us.loopexit ], [ %.1255, %._crit_edge293 ]
   %.us-phi296 = phi double [ %48, %.preheader270.split295.us ], [ %102, %.split.us.loopexit ], [ %.1235, %._crit_edge293 ]
   %.us-phi297 = phi i32 [ %.3.us298, %.preheader270.split295.us ], [ %.3.us, %.split.us.loopexit ], [ %.5, %._crit_edge293 ]
   %128 = add nsw i32 %.0248305, 1
@@ -241,7 +241,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %lftr.wideiv.pre-phi = phi i32 [ %78, %71 ], [ %78, %79 ], [ %133, %.split.us ]
   %indvars.iv.next352.pre-phi = phi i64 [ %77, %71 ], [ %77, %79 ], [ %129, %.split.us ]
   %.pre-phi = phi i64 [ %72, %71 ], [ %72, %79 ], [ %130, %.split.us ]
-  %.0254 = phi double [ %47, %71 ], [ %47, %79 ], [ %.us-phi368, %.split.us ]
+  %.0254 = phi double [ %47, %71 ], [ %47, %79 ], [ %.us-phi376, %.split.us ]
   %.1249 = phi i32 [ %.0248305, %71 ], [ %.0248305, %79 ], [ %128, %.split.us ]
   %.1245 = phi i32 [ %.0244306, %71 ], [ %.0244306, %79 ], [ %38, %.split.us ]
   %.0234 = phi double [ %48, %71 ], [ %48, %79 ], [ %.us-phi296, %.split.us ]

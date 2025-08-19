@@ -187,7 +187,7 @@ define range(i32 -46, 1) i32 @pmix_ifaddrtoname(ptr noundef %0, ptr noundef writ
 .lr.ph61:                                         ; preds = %15
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 240), align 8, !tbaa !3
   %.not3955 = icmp eq ptr %17, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %.not3955, label %._crit_edge62.thread67, label %.lr.ph.preheader
+  br i1 %.not3955, label %._crit_edge62.thread73, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph61
   %.4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -340,14 +340,14 @@ pmix_strncpy.exit52:                              ; preds = %.lr.ph.i46, %74, %6
   %82 = getelementptr inbounds nuw i8, ptr %.03359, i64 40
   %.033 = load ptr, ptr %82, align 8, !tbaa !26
   %.not37 = icmp eq ptr %.033, null
-  br i1 %.not37, label %._crit_edge62.thread67, label %.lr.ph, !llvm.loop !44
+  br i1 %.not37, label %._crit_edge62.thread73, label %.lr.ph, !llvm.loop !44
 
-._crit_edge62.thread67:                           ; preds = %._crit_edge, %.lr.ph61
+._crit_edge62.thread73:                           ; preds = %._crit_edge, %.lr.ph61
   call void @freeaddrinfo(ptr noundef nonnull %.03357) #19
   br label %._crit_edge62.thread
 
-._crit_edge62.thread:                             ; preds = %15, %pmix_strncpy.exit, %._crit_edge62.thread67, %12, %14, %3, %pmix_strncpy.exit52
-  %.0 = phi i32 [ 0, %pmix_strncpy.exit ], [ 0, %pmix_strncpy.exit52 ], [ -46, %3 ], [ -46, %14 ], [ -46, %12 ], [ -46, %._crit_edge62.thread67 ], [ -46, %15 ]
+._crit_edge62.thread:                             ; preds = %15, %pmix_strncpy.exit, %._crit_edge62.thread73, %12, %14, %3, %pmix_strncpy.exit52
+  %.0 = phi i32 [ 0, %pmix_strncpy.exit ], [ 0, %pmix_strncpy.exit52 ], [ -46, %3 ], [ -46, %14 ], [ -46, %12 ], [ -46, %._crit_edge62.thread73 ], [ -46, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -390,7 +390,7 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
 .preheader.lr.ph:                                 ; preds = %.preheader47
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 240), align 8, !tbaa !20
   %11 = icmp eq ptr %10, getelementptr inbounds nuw (i8, ptr @pmix_if_list, i64 120)
-  br i1 %11, label %._crit_edge56.thread61, label %.preheader.preheader
+  br i1 %11, label %._crit_edge56.thread62, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -517,15 +517,15 @@ define signext i16 @pmix_ifaddrtokindex(ptr noundef %0) local_unnamed_addr #3 {
 ._crit_edge56:                                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %3, align 8, !tbaa !26
   %.not38 = icmp eq ptr %.pre, null
-  br i1 %.not38, label %._crit_edge56.thread, label %._crit_edge56.thread61
+  br i1 %.not38, label %._crit_edge56.thread, label %._crit_edge56.thread62
 
-._crit_edge56.thread61:                           ; preds = %.preheader.lr.ph, %._crit_edge56
+._crit_edge56.thread62:                           ; preds = %.preheader.lr.ph, %._crit_edge56
   %53 = phi ptr [ %.pre, %._crit_edge56 ], [ %.02953, %.preheader.lr.ph ]
   call void @freeaddrinfo(ptr noundef nonnull %53) #19
   br label %._crit_edge56.thread
 
-._crit_edge56.thread:                             ; preds = %.preheader47, %.thread44, %.thread, %._crit_edge56, %._crit_edge56.thread61, %14, %15
-  %.030 = phi i16 [ -46, %15 ], [ -46, %14 ], [ -46, %._crit_edge56.thread61 ], [ -46, %._crit_edge56 ], [ %33, %.thread ], [ %48, %.thread44 ], [ -46, %.preheader47 ]
+._crit_edge56.thread:                             ; preds = %.preheader47, %.thread44, %.thread, %._crit_edge56, %._crit_edge56.thread62, %14, %15
+  %.030 = phi i16 [ -46, %15 ], [ -46, %14 ], [ -46, %._crit_edge56.thread62 ], [ -46, %._crit_edge56 ], [ %33, %.thread ], [ %48, %.thread44 ], [ -46, %.preheader47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i16 %.030

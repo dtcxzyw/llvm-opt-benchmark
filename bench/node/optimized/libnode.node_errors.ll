@@ -1493,7 +1493,7 @@ for.body170:                                      ; preds = %for.body170.prehead
   %cmp174 = icmp eq i8 %54, 0
   %cmp176 = icmp samesign ugt i64 %indvars.iv96, 1019
   %or.cond4 = select i1 %cmp174, i1 true, i1 %cmp176
-  br i1 %or.cond4, label %do.body198.loopexit.split.loop.exit103, label %do.end191
+  br i1 %or.cond4, label %do.body198.loopexit.split.loop.exit106, label %do.end191
 
 do.end191:                                        ; preds = %for.body170
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -1504,12 +1504,12 @@ do.end191:                                        ; preds = %for.body170
   %cmp169 = icmp sgt i32 %end.0, %55
   br i1 %cmp169, label %for.body170, label %do.body198, !llvm.loop !20
 
-do.body198.loopexit.split.loop.exit103:           ; preds = %for.body170
+do.body198.loopexit.split.loop.exit106:           ; preds = %for.body170
   %56 = trunc nuw i64 %indvars.iv96 to i32
   br label %do.body198
 
-do.body198:                                       ; preds = %do.end191, %do.body198.loopexit.split.loop.exit103, %for.end
-  %off.1.lcssa = phi i32 [ %off.0.lcssa, %for.end ], [ %56, %do.body198.loopexit.split.loop.exit103 ], [ %53, %do.end191 ]
+do.body198:                                       ; preds = %do.end191, %do.body198.loopexit.split.loop.exit106, %for.end
+  %off.1.lcssa = phi i32 [ %off.0.lcssa, %for.end ], [ %56, %do.body198.loopexit.split.loop.exit106 ], [ %53, %do.end191 ]
   %cmp199 = icmp samesign ugt i32 %off.1.lcssa, 1020
   br i1 %cmp199, label %do.body205, label %do.end210
 
@@ -2525,10 +2525,10 @@ if.then236:                                       ; preds = %if.else153, %lor.lh
   %tobool245.not = icmp eq ptr %77, null
   %78 = load i64, ptr %message237, align 8
   %spec.select = select i1 %tobool245.not, i64 28, i64 %78
-  %spec.select330 = select i1 %tobool245.not, ptr @.str.179, ptr %77
+  %spec.select341 = select i1 %tobool245.not, ptr @.str.179, ptr %77
   store i64 %spec.select, ptr %ref.tmp243, align 8
   %79 = getelementptr inbounds nuw i8, ptr %ref.tmp243, i64 8
-  store ptr %spec.select330, ptr %79, align 8
+  store ptr %spec.select341, ptr %79, align 8
   call void @_ZN4node7FPrintFIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %76, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp243) #21
   %80 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i82 = icmp ne ptr %80, null

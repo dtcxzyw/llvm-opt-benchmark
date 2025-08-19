@@ -178,7 +178,7 @@ check_retval.exit:                                ; preds = %2
   %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef 6.000000e-01, double noundef 2.000000e+00, double noundef 1.000000e-02)
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, double noundef 1.000000e-02, double noundef 1.000000e-02, double noundef 1.000000e-02)
   %52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, double noundef -1.000000e-03, double noundef -1.000000e-03, double noundef -1.000000e-03)
-  switch i32 %32, label %default.unreachable [
+  switch i32 %32, label %default.unreachable1061 [
     i32 0, label %66
     i32 1, label %53
     i32 2, label %60
@@ -216,7 +216,7 @@ check_retval.exit:                                ; preds = %2
 65:                                               ; preds = %42
   br label %66
 
-default.unreachable:                              ; preds = %360, %127, %42
+default.unreachable1061:                          ; preds = %360, %127, %42
   unreachable
 
 66:                                               ; preds = %42, %65, %64, %63, %62, %61, %60, %53
@@ -361,7 +361,7 @@ check_retval.exit586:                             ; preds = %119, %check_retval.
   br i1 %exitcond963.not, label %127, label %check_retval.exit586
 
 127:                                              ; preds = %check_retval.exit586
-  switch i32 %32, label %default.unreachable [
+  switch i32 %32, label %default.unreachable1061 [
     i32 0, label %128
     i32 3, label %128
     i32 5, label %128
@@ -812,7 +812,7 @@ check_retval.exit652:                             ; preds = %355
   br label %736
 
 360:                                              ; preds = %355
-  switch i32 %32, label %default.unreachable [
+  switch i32 %32, label %default.unreachable1061 [
     i32 0, label %361
     i32 1, label %368
     i32 2, label %400

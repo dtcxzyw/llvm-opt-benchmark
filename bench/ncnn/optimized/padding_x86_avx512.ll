@@ -2671,8 +2671,8 @@ _ZN4ncnnL31padding_replicate_pack16_avx512ERKNS_3MatERS0_iiii.exit: ; preds = %.
 219:                                              ; preds = %.lr.ph20.us.i, %219
   %indvars.iv129.i = phi i64 [ 0, %.lr.ph20.us.i ], [ %indvars.iv.next130.i, %219 ]
   %.310019.us.i = phi ptr [ %.299.lcssa.us.i, %.lr.ph20.us.i ], [ %222, %219 ]
-  %.idx159.i = mul nsw i64 %indvars.iv129.i, -64
-  %220 = getelementptr inbounds i8, ptr %232, i64 %.idx159.i
+  %.idx177.i = mul nsw i64 %indvars.iv129.i, -64
+  %220 = getelementptr inbounds i8, ptr %232, i64 %.idx177.i
   %221 = load <16 x float>, ptr %220, align 64, !tbaa !65
   store <16 x float> %221, ptr %.310019.us.i, align 64, !tbaa !65
   %222 = getelementptr inbounds nuw i8, ptr %.310019.us.i, i64 64
@@ -2696,8 +2696,8 @@ _ZN4ncnnL31padding_replicate_pack16_avx512ERKNS_3MatERS0_iiii.exit: ; preds = %.
   %indvars.iv124.i = phi i64 [ 0, %.preheader9.us.i ], [ %indvars.iv.next125.i, %227 ]
   %.19811.us.i = phi ptr [ %.09723.us.i, %.preheader9.us.i ], [ %231, %227 ]
   %228 = sub nsw i64 %213, %indvars.iv124.i
-  %.idx158.i = shl nsw i64 %228, 6
-  %229 = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 %.idx158.i
+  %.idx176.i = shl nsw i64 %228, 6
+  %229 = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 %.idx176.i
   %230 = load <16 x float>, ptr %229, align 64, !tbaa !65
   store <16 x float> %230, ptr %.19811.us.i, align 64, !tbaa !65
   %231 = getelementptr inbounds nuw i8, ptr %.19811.us.i, i64 64
@@ -2862,8 +2862,8 @@ _ZN4ncnnL31padding_replicate_pack16_avx512ERKNS_3MatERS0_iiii.exit: ; preds = %.
   %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %.lr.ph.i56 ], [ 0, %.preheader5.i48 ]
   %.563.i = phi ptr [ %283, %.lr.ph.i56 ], [ %.475.i, %.preheader5.i48 ]
   %280 = sub nsw i64 %261, %indvars.iv135.i
-  %.idx160.i = shl nsw i64 %280, 6
-  %281 = getelementptr inbounds nuw i8, ptr %.176.i, i64 %.idx160.i
+  %.idx178.i = shl nsw i64 %280, 6
+  %281 = getelementptr inbounds nuw i8, ptr %.176.i, i64 %.idx178.i
   %282 = load <16 x float>, ptr %281, align 64, !tbaa !65
   store <16 x float> %282, ptr %.563.i, align 64, !tbaa !65
   %283 = getelementptr inbounds nuw i8, ptr %.563.i, i64 64
@@ -2901,8 +2901,8 @@ _ZN4ncnnL31padding_replicate_pack16_avx512ERKNS_3MatERS0_iiii.exit: ; preds = %.
 290:                                              ; preds = %290, %.lr.ph72.i
   %indvars.iv140.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next141.i, %290 ]
   %.771.i = phi ptr [ %.6.lcssa.i52, %.lr.ph72.i ], [ %293, %290 ]
-  %.idx161.i = mul nsw i64 %indvars.iv140.i, -64
-  %291 = getelementptr inbounds i8, ptr %284, i64 %.idx161.i
+  %.idx179.i = mul nsw i64 %indvars.iv140.i, -64
+  %291 = getelementptr inbounds i8, ptr %284, i64 %.idx179.i
   %292 = load <16 x float>, ptr %291, align 64, !tbaa !65
   store <16 x float> %292, ptr %.771.i, align 64, !tbaa !65
   %293 = getelementptr inbounds nuw i8, ptr %.771.i, i64 64
@@ -2924,8 +2924,8 @@ _ZN4ncnnL31padding_replicate_pack16_avx512ERKNS_3MatERS0_iiii.exit: ; preds = %.
   %indvars.iv145.i = phi i64 [ %indvars.iv.next146.i, %.lr.ph82.i ], [ 0, %.preheader2.i42 ]
   %.981.i = phi ptr [ %297, %.lr.ph82.i ], [ %.896.i, %.preheader2.i42 ]
   %294 = sub nsw i64 %276, %indvars.iv145.i
-  %.idx162.i = shl nsw i64 %294, 6
-  %295 = getelementptr inbounds nuw i8, ptr %.397.i, i64 %.idx162.i
+  %.idx180.i = shl nsw i64 %294, 6
+  %295 = getelementptr inbounds nuw i8, ptr %.397.i, i64 %.idx180.i
   %296 = load <16 x float>, ptr %295, align 64, !tbaa !65
   store <16 x float> %296, ptr %.981.i, align 64, !tbaa !65
   %297 = getelementptr inbounds nuw i8, ptr %.981.i, i64 64
@@ -2964,8 +2964,8 @@ _ZN4ncnnL31padding_replicate_pack16_avx512ERKNS_3MatERS0_iiii.exit: ; preds = %.
 305:                                              ; preds = %305, %.lr.ph92.i
   %indvars.iv150.i = phi i64 [ 0, %.lr.ph92.i ], [ %indvars.iv.next151.i, %305 ]
   %.1190.i = phi ptr [ %.10.lcssa.i46, %.lr.ph92.i ], [ %308, %305 ]
-  %.idx163.i = mul nsw i64 %indvars.iv150.i, -64
-  %306 = getelementptr inbounds i8, ptr %298, i64 %.idx163.i
+  %.idx181.i = mul nsw i64 %indvars.iv150.i, -64
+  %306 = getelementptr inbounds i8, ptr %298, i64 %.idx181.i
   %307 = load <16 x float>, ptr %306, align 64, !tbaa !65
   store <16 x float> %307, ptr %.1190.i, align 64, !tbaa !65
   %308 = getelementptr inbounds nuw i8, ptr %.1190.i, i64 64
@@ -4028,8 +4028,8 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 219:                                              ; preds = %.lr.ph20.us.i, %219
   %indvars.iv129.i = phi i64 [ 0, %.lr.ph20.us.i ], [ %indvars.iv.next130.i, %219 ]
   %.310019.us.i = phi ptr [ %.299.lcssa.us.i, %.lr.ph20.us.i ], [ %222, %219 ]
-  %.idx159.i = mul nsw i64 %indvars.iv129.i, -32
-  %220 = getelementptr inbounds i8, ptr %232, i64 %.idx159.i
+  %.idx177.i = mul nsw i64 %indvars.iv129.i, -32
+  %220 = getelementptr inbounds i8, ptr %232, i64 %.idx177.i
   %221 = load <8 x float>, ptr %220, align 32, !tbaa !65
   store <8 x float> %221, ptr %.310019.us.i, align 32, !tbaa !65
   %222 = getelementptr inbounds nuw i8, ptr %.310019.us.i, i64 32
@@ -4053,8 +4053,8 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %indvars.iv124.i = phi i64 [ 0, %.preheader9.us.i ], [ %indvars.iv.next125.i, %227 ]
   %.19811.us.i = phi ptr [ %.09723.us.i, %.preheader9.us.i ], [ %231, %227 ]
   %228 = sub nsw i64 %213, %indvars.iv124.i
-  %.idx158.i = shl nsw i64 %228, 5
-  %229 = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 %.idx158.i
+  %.idx176.i = shl nsw i64 %228, 5
+  %229 = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 %.idx176.i
   %230 = load <8 x float>, ptr %229, align 32, !tbaa !65
   store <8 x float> %230, ptr %.19811.us.i, align 32, !tbaa !65
   %231 = getelementptr inbounds nuw i8, ptr %.19811.us.i, i64 32
@@ -4219,8 +4219,8 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %.lr.ph.i56 ], [ 0, %.preheader5.i48 ]
   %.563.i = phi ptr [ %283, %.lr.ph.i56 ], [ %.475.i, %.preheader5.i48 ]
   %280 = sub nsw i64 %261, %indvars.iv135.i
-  %.idx160.i = shl nsw i64 %280, 5
-  %281 = getelementptr inbounds nuw i8, ptr %.176.i, i64 %.idx160.i
+  %.idx178.i = shl nsw i64 %280, 5
+  %281 = getelementptr inbounds nuw i8, ptr %.176.i, i64 %.idx178.i
   %282 = load <8 x float>, ptr %281, align 32, !tbaa !65
   store <8 x float> %282, ptr %.563.i, align 32, !tbaa !65
   %283 = getelementptr inbounds nuw i8, ptr %.563.i, i64 32
@@ -4258,8 +4258,8 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 290:                                              ; preds = %290, %.lr.ph72.i
   %indvars.iv140.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next141.i, %290 ]
   %.771.i = phi ptr [ %.6.lcssa.i52, %.lr.ph72.i ], [ %293, %290 ]
-  %.idx161.i = mul nsw i64 %indvars.iv140.i, -32
-  %291 = getelementptr inbounds i8, ptr %284, i64 %.idx161.i
+  %.idx179.i = mul nsw i64 %indvars.iv140.i, -32
+  %291 = getelementptr inbounds i8, ptr %284, i64 %.idx179.i
   %292 = load <8 x float>, ptr %291, align 32, !tbaa !65
   store <8 x float> %292, ptr %.771.i, align 32, !tbaa !65
   %293 = getelementptr inbounds nuw i8, ptr %.771.i, i64 32
@@ -4281,8 +4281,8 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %indvars.iv145.i = phi i64 [ %indvars.iv.next146.i, %.lr.ph82.i ], [ 0, %.preheader2.i42 ]
   %.981.i = phi ptr [ %297, %.lr.ph82.i ], [ %.896.i, %.preheader2.i42 ]
   %294 = sub nsw i64 %276, %indvars.iv145.i
-  %.idx162.i = shl nsw i64 %294, 5
-  %295 = getelementptr inbounds nuw i8, ptr %.397.i, i64 %.idx162.i
+  %.idx180.i = shl nsw i64 %294, 5
+  %295 = getelementptr inbounds nuw i8, ptr %.397.i, i64 %.idx180.i
   %296 = load <8 x float>, ptr %295, align 32, !tbaa !65
   store <8 x float> %296, ptr %.981.i, align 32, !tbaa !65
   %297 = getelementptr inbounds nuw i8, ptr %.981.i, i64 32
@@ -4321,8 +4321,8 @@ _ZN4ncnnL27padding_replicate_pack8_avxERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 305:                                              ; preds = %305, %.lr.ph92.i
   %indvars.iv150.i = phi i64 [ 0, %.lr.ph92.i ], [ %indvars.iv.next151.i, %305 ]
   %.1190.i = phi ptr [ %.10.lcssa.i46, %.lr.ph92.i ], [ %308, %305 ]
-  %.idx163.i = mul nsw i64 %indvars.iv150.i, -32
-  %306 = getelementptr inbounds i8, ptr %298, i64 %.idx163.i
+  %.idx181.i = mul nsw i64 %indvars.iv150.i, -32
+  %306 = getelementptr inbounds i8, ptr %298, i64 %.idx181.i
   %307 = load <8 x float>, ptr %306, align 32, !tbaa !65
   store <8 x float> %307, ptr %.1190.i, align 32, !tbaa !65
   %308 = getelementptr inbounds nuw i8, ptr %.1190.i, i64 32
@@ -5354,8 +5354,8 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 219:                                              ; preds = %.lr.ph20.us.i, %219
   %indvars.iv129.i = phi i64 [ 0, %.lr.ph20.us.i ], [ %indvars.iv.next130.i, %219 ]
   %.310019.us.i = phi ptr [ %.299.lcssa.us.i, %.lr.ph20.us.i ], [ %222, %219 ]
-  %.idx159.i = mul nsw i64 %indvars.iv129.i, -16
-  %220 = getelementptr inbounds i8, ptr %232, i64 %.idx159.i
+  %.idx177.i = mul nsw i64 %indvars.iv129.i, -16
+  %220 = getelementptr inbounds i8, ptr %232, i64 %.idx177.i
   %221 = load <4 x float>, ptr %220, align 16, !tbaa !65
   store <4 x float> %221, ptr %.310019.us.i, align 16, !tbaa !65
   %222 = getelementptr inbounds nuw i8, ptr %.310019.us.i, i64 16
@@ -5379,8 +5379,8 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %indvars.iv124.i = phi i64 [ 0, %.preheader9.us.i ], [ %indvars.iv.next125.i, %227 ]
   %.19811.us.i = phi ptr [ %.09723.us.i, %.preheader9.us.i ], [ %231, %227 ]
   %228 = sub nsw i64 %213, %indvars.iv124.i
-  %.idx158.i = shl nsw i64 %228, 4
-  %229 = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 %.idx158.i
+  %.idx176.i = shl nsw i64 %228, 4
+  %229 = getelementptr inbounds nuw i8, ptr %.024.us.i, i64 %.idx176.i
   %230 = load <4 x float>, ptr %229, align 16, !tbaa !65
   store <4 x float> %230, ptr %.19811.us.i, align 16, !tbaa !65
   %231 = getelementptr inbounds nuw i8, ptr %.19811.us.i, i64 16
@@ -5545,8 +5545,8 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %.lr.ph.i56 ], [ 0, %.preheader5.i48 ]
   %.563.i = phi ptr [ %283, %.lr.ph.i56 ], [ %.475.i, %.preheader5.i48 ]
   %280 = sub nsw i64 %261, %indvars.iv135.i
-  %.idx160.i = shl nsw i64 %280, 4
-  %281 = getelementptr inbounds nuw i8, ptr %.176.i, i64 %.idx160.i
+  %.idx178.i = shl nsw i64 %280, 4
+  %281 = getelementptr inbounds nuw i8, ptr %.176.i, i64 %.idx178.i
   %282 = load <4 x float>, ptr %281, align 16, !tbaa !65
   store <4 x float> %282, ptr %.563.i, align 16, !tbaa !65
   %283 = getelementptr inbounds nuw i8, ptr %.563.i, i64 16
@@ -5584,8 +5584,8 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 290:                                              ; preds = %290, %.lr.ph72.i
   %indvars.iv140.i = phi i64 [ 0, %.lr.ph72.i ], [ %indvars.iv.next141.i, %290 ]
   %.771.i = phi ptr [ %.6.lcssa.i52, %.lr.ph72.i ], [ %293, %290 ]
-  %.idx161.i = mul nsw i64 %indvars.iv140.i, -16
-  %291 = getelementptr inbounds i8, ptr %284, i64 %.idx161.i
+  %.idx179.i = mul nsw i64 %indvars.iv140.i, -16
+  %291 = getelementptr inbounds i8, ptr %284, i64 %.idx179.i
   %292 = load <4 x float>, ptr %291, align 16, !tbaa !65
   store <4 x float> %292, ptr %.771.i, align 16, !tbaa !65
   %293 = getelementptr inbounds nuw i8, ptr %.771.i, i64 16
@@ -5607,8 +5607,8 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
   %indvars.iv145.i = phi i64 [ %indvars.iv.next146.i, %.lr.ph82.i ], [ 0, %.preheader2.i42 ]
   %.981.i = phi ptr [ %297, %.lr.ph82.i ], [ %.896.i, %.preheader2.i42 ]
   %294 = sub nsw i64 %276, %indvars.iv145.i
-  %.idx162.i = shl nsw i64 %294, 4
-  %295 = getelementptr inbounds nuw i8, ptr %.397.i, i64 %.idx162.i
+  %.idx180.i = shl nsw i64 %294, 4
+  %295 = getelementptr inbounds nuw i8, ptr %.397.i, i64 %.idx180.i
   %296 = load <4 x float>, ptr %295, align 16, !tbaa !65
   store <4 x float> %296, ptr %.981.i, align 16, !tbaa !65
   %297 = getelementptr inbounds nuw i8, ptr %.981.i, i64 16
@@ -5647,8 +5647,8 @@ _ZN4ncnnL27padding_replicate_pack4_sseERKNS_3MatERS0_iiii.exit: ; preds = %._cri
 305:                                              ; preds = %305, %.lr.ph92.i
   %indvars.iv150.i = phi i64 [ 0, %.lr.ph92.i ], [ %indvars.iv.next151.i, %305 ]
   %.1190.i = phi ptr [ %.10.lcssa.i46, %.lr.ph92.i ], [ %308, %305 ]
-  %.idx163.i = mul nsw i64 %indvars.iv150.i, -16
-  %306 = getelementptr inbounds i8, ptr %298, i64 %.idx163.i
+  %.idx181.i = mul nsw i64 %indvars.iv150.i, -16
+  %306 = getelementptr inbounds i8, ptr %298, i64 %.idx181.i
   %307 = load <4 x float>, ptr %306, align 16, !tbaa !65
   store <4 x float> %307, ptr %.1190.i, align 16, !tbaa !65
   %308 = getelementptr inbounds nuw i8, ptr %.1190.i, i64 16
@@ -6174,8 +6174,8 @@ define internal fastcc void @_ZN4ncnnL31padding_constant_pack8_int8_sseERKNS_3Ma
   %.2.lcssa = phi ptr [ %.042.lcssa, %.preheader5 ], [ %.042.lcssa, %.preheader4.lr.ph.split.split ], [ %.5.lcssa.us, %._crit_edge.us29 ], [ %31, %._crit_edge.us45.us ], [ %38, %..preheader3_crit_edge.us42 ], [ %42, %._crit_edge.us56 ]
   %45 = icmp sgt i32 %2, 0
   %46 = icmp sgt i32 %.44.val, 0
-  %or.cond110 = select i1 %45, i1 %46, i1 false
-  br i1 %or.cond110, label %.preheader.us, label %._crit_edge65
+  %or.cond122 = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond122, label %.preheader.us, label %._crit_edge65
 
 .preheader.us:                                    ; preds = %.preheader1, %._crit_edge.us67
   %.03564.us = phi i32 [ %50, %._crit_edge.us67 ], [ 0, %.preheader1 ]
@@ -7345,8 +7345,8 @@ define internal void @_ZNK4ncnn18Padding_x86_avx51212forward_int8ERKNS_3MatERS1_
 .preheader1.i.us:                                 ; preds = %._crit_edge.us56.i.us, %..preheader3_crit_edge.us42.i.us, %._crit_edge.us45.us.i.us, %._crit_edge.us29.i.us, %.preheader4.lr.ph.split.split.i.us, %.preheader5.i.us
   %.2.lcssa.i.us = phi ptr [ %.042.lcssa.i.us, %.preheader5.i.us ], [ %.042.lcssa.i.us, %.preheader4.lr.ph.split.split.i.us ], [ %.5.lcssa.us.i.us, %._crit_edge.us29.i.us ], [ %116, %._crit_edge.us45.us.i.us ], [ %110, %..preheader3_crit_edge.us42.i.us ], [ %106, %._crit_edge.us56.i.us ]
   %128 = icmp sgt i32 %95, 0
-  %or.cond110.i.us = select i1 %128, i1 %60, i1 false
-  br i1 %or.cond110.i.us, label %.preheader.us.i.us, label %_ZN4ncnn3MatD2Ev.exit.us
+  %or.cond122.i.us = select i1 %128, i1 %60, i1 false
+  br i1 %or.cond122.i.us, label %.preheader.us.i.us, label %_ZN4ncnn3MatD2Ev.exit.us
 
 .preheader.us.i.us:                               ; preds = %.preheader1.i.us, %._crit_edge.us67.i.us
   %.03564.us.i.us = phi i32 [ %132, %._crit_edge.us67.i.us ], [ 0, %.preheader1.i.us ]

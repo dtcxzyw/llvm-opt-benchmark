@@ -88,12 +88,11 @@ define hidden range(i32 0, 2) i32 @_glfwInitOSMesa() local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %_glfwTerminateOSMesa.exit
 
 2:                                                ; preds = %.preheader
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not16 = icmp eq i64 %indvars.iv.next, 2
   br i1 %.not16, label %6, label %.preheader
 
 .preheader:                                       ; preds = %0, %2
-  %indvars.iv = phi i64 [ %indvars.iv.next, %2 ], [ 0, %0 ]
+  %.not16 = phi i1 [ true, %2 ], [ false, %0 ]
+  %indvars.iv = phi i64 [ 1, %2 ], [ 0, %0 ]
   %3 = getelementptr inbounds nuw [3 x ptr], ptr @__const._glfwInitOSMesa.sonames, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !93
   %5 = tail call ptr @_glfwPlatformLoadModule(ptr noundef %4) #4

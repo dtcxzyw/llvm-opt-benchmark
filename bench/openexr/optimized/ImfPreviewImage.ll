@@ -73,8 +73,8 @@ _ZN7Imf_3_46uiMultIjEET_S1_S1_.exit:              ; preds = %4, %6
 .loopexit19.thread:                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %26, align 8, !tbaa !16
-  %.not30 = icmp eq ptr %3, null
-  br i1 %.not30, label %.lr.ph22, label %.lr.ph
+  %.not31 = icmp eq ptr %3, null
+  br i1 %.not31, label %.lr.ph22, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit19.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit19.thread ]

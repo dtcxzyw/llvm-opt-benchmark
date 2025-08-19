@@ -217,8 +217,8 @@ switch.early.test65:                              ; preds = %switch.early.test65
 
 .critedge.i58:                                    ; preds = %55, %.split.i
   %.sink = phi i64 [ %61, %.split.i ], [ 0, %55 ]
-  %.sink80 = load ptr, ptr @ast_arena, align 8
-  %64 = ptrtoint ptr %.sink80 to i64
+  %.sink87 = load ptr, ptr @ast_arena, align 8
+  %64 = ptrtoint ptr %.sink87 to i64
   %65 = sub i64 %.sink, %64
   %phi.call.i.in = sdiv exact i64 %65, 48
   %phi.call.i = trunc i64 %phi.call.i.in to i32
@@ -237,14 +237,14 @@ parse_case_stmts.exit:                            ; preds = %.critedge.i58, %swi
   br i1 %70, label %parse_default_stmt.exit.thread, label %parse_case_stmts.exit.thread
 
 parse_case_stmts.exit.thread:                     ; preds = %47, %parse_case_stmts.exit
-  %.0.i5978 = phi ptr [ %.0.i59, %parse_case_stmts.exit ], [ %49, %47 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i5978, i64 12
+  %.0.i5985 = phi ptr [ %.0.i59, %parse_case_stmts.exit ], [ %49, %47 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i5985, i64 12
   %72 = load i8, ptr %71, align 4
   %.not.i = icmp eq i8 %72, 0
   br i1 %.not.i, label %parse_default_stmt.exit, label %parse_default_stmt.exit.thread
 
 parse_default_stmt.exit.thread:                   ; preds = %switch.early.test, %switch.early.test, %parse_case_stmts.exit, %parse_case_stmts.exit.thread, %extend_span_with_token.exit
-  %.0.i5962 = phi ptr [ %.0.i5978, %parse_case_stmts.exit.thread ], [ null, %parse_case_stmts.exit ], [ null, %switch.early.test ], [ null, %extend_span_with_token.exit ], [ null, %switch.early.test ]
+  %.0.i5962 = phi ptr [ %.0.i5985, %parse_case_stmts.exit.thread ], [ null, %parse_case_stmts.exit ], [ null, %switch.early.test ], [ null, %extend_span_with_token.exit ], [ null, %switch.early.test ]
   %73 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %.0.i5962, ptr %74, align 8
@@ -366,8 +366,8 @@ define internal fastcc ptr @parse_case_stmt(ptr noundef %0, i32 noundef %1, i32 
 
 .critedge:                                        ; preds = %3, %.split
   %.sink = phi i64 [ %14, %.split ], [ 0, %3 ]
-  %.sink51 = load ptr, ptr @expr_arena, align 8
-  %17 = ptrtoint ptr %.sink51 to i64
+  %.sink54 = load ptr, ptr @expr_arena, align 8
+  %17 = ptrtoint ptr %.sink54 to i64
   %18 = sub i64 %.sink, %17
   %phi.call.in = sdiv exact i64 %18, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -409,10 +409,10 @@ define internal fastcc ptr @parse_case_stmt(ptr noundef %0, i32 noundef %1, i32 
   br label %92
 
 .critedge2:                                       ; preds = %28, %.split42
-  %.sink52 = phi i64 [ %35, %.split42 ], [ 0, %28 ]
-  %.sink54 = load ptr, ptr @expr_arena, align 8
-  %38 = ptrtoint ptr %.sink54 to i64
-  %39 = sub i64 %.sink52, %38
+  %.sink55 = phi i64 [ %35, %.split42 ], [ 0, %28 ]
+  %.sink57 = load ptr, ptr @expr_arena, align 8
+  %38 = ptrtoint ptr %.sink57 to i64
+  %39 = sub i64 %.sink55, %38
   %phi.call44.in = sdiv exact i64 %39, 56
   %phi.call44 = trunc i64 %phi.call44.in to i32
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -506,8 +506,8 @@ switch.early.test29.i:                            ; preds = %.critedge.i, %switc
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %77 = load i8, ptr %76, align 4
-  %.not.i55 = icmp eq i8 %77, 0
-  br i1 %.not.i55, label %79, label %.split.i
+  %.not.i58 = icmp eq i8 %77, 0
+  br i1 %.not.i58, label %79, label %.split.i
 
 .split.i:                                         ; preds = %75
   %78 = ptrtoint ptr %73 to i64
@@ -519,8 +519,8 @@ switch.early.test29.i:                            ; preds = %.critedge.i, %switc
 
 .critedge.i:                                      ; preds = %72, %.split.i
   %.sink.i = phi i64 [ %78, %.split.i ], [ 0, %72 ]
-  %.sink38.i = load ptr, ptr @ast_arena, align 8
-  %81 = ptrtoint ptr %.sink38.i to i64
+  %.sink41.i = load ptr, ptr @ast_arena, align 8
+  %81 = ptrtoint ptr %.sink41.i to i64
   %82 = sub i64 %.sink.i, %81
   %phi.call.in.i = sdiv exact i64 %82, 48
   %phi.call.i = trunc i64 %phi.call.in.i to i32
@@ -536,22 +536,22 @@ switch.early.test29.i:                            ; preds = %.critedge.i, %switc
 parse_case_stmts.exit:                            ; preds = %switch.early.test29.i, %switch.early.test29.i, %.critedge.i, %79
   %.0.i = phi ptr [ %80, %79 ], [ %66, %.critedge.i ], [ %66, %switch.early.test29.i ], [ %66, %switch.early.test29.i ]
   %87 = icmp eq ptr %.0.i, null
-  br i1 %87, label %.critedge4, label %parse_case_stmts.exit.thread58
+  br i1 %87, label %.critedge4, label %parse_case_stmts.exit.thread61
 
-parse_case_stmts.exit.thread58:                   ; preds = %parse_case_stmts.exit
+parse_case_stmts.exit.thread61:                   ; preds = %parse_case_stmts.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %88 = icmp eq i8 %.pre, 0
   br i1 %88, label %89, label %.critedge4
 
-89:                                               ; preds = %parse_case_stmts.exit.thread58
+89:                                               ; preds = %parse_case_stmts.exit.thread61
   %90 = load ptr, ptr @poisoned_ast, align 8
   br label %92
 
-.critedge4:                                       ; preds = %64, %extend_span_with_token.exit, %switch.early.test.i, %switch.early.test.i, %parse_case_stmts.exit, %parse_case_stmts.exit.thread58
-  %.0.i57 = phi ptr [ null, %parse_case_stmts.exit ], [ %.0.i, %parse_case_stmts.exit.thread58 ], [ null, %switch.early.test.i ], [ null, %switch.early.test.i ], [ null, %extend_span_with_token.exit ], [ %66, %64 ]
+.critedge4:                                       ; preds = %64, %extend_span_with_token.exit, %switch.early.test.i, %switch.early.test.i, %parse_case_stmts.exit, %parse_case_stmts.exit.thread61
+  %.0.i60 = phi ptr [ null, %parse_case_stmts.exit ], [ %.0.i, %parse_case_stmts.exit.thread61 ], [ null, %switch.early.test.i ], [ null, %switch.early.test.i ], [ null, %extend_span_with_token.exit ], [ %66, %64 ]
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %.0.i57, ptr %91, align 8
+  store ptr %.0.i60, ptr %91, align 8
   br label %92
 
 92:                                               ; preds = %.critedge4, %89, %44, %36, %15
@@ -591,8 +591,8 @@ define dso_local ptr @parse_ct_assert_stmt(ptr noundef %0) local_unnamed_addr #0
 
 .critedge:                                        ; preds = %1, %.split
   %.sink = phi i64 [ %12, %.split ], [ 0, %1 ]
-  %.sink34 = load ptr, ptr @expr_arena, align 8
-  %15 = ptrtoint ptr %.sink34 to i64
+  %.sink36 = load ptr, ptr @expr_arena, align 8
+  %15 = ptrtoint ptr %.sink36 to i64
   %16 = sub i64 %.sink, %15
   %phi.call.in = sdiv exact i64 %16, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -622,10 +622,10 @@ define dso_local ptr @parse_ct_assert_stmt(ptr noundef %0) local_unnamed_addr #0
   br label %consume_eos.exit
 
 .critedge2:                                       ; preds = %19, %.split27
-  %.sink35 = phi i64 [ %26, %.split27 ], [ 0, %19 ]
-  %.sink37 = load ptr, ptr @expr_arena, align 8
-  %29 = ptrtoint ptr %.sink37 to i64
-  %30 = sub i64 %.sink35, %29
+  %.sink37 = phi i64 [ %26, %.split27 ], [ 0, %19 ]
+  %.sink39 = load ptr, ptr @expr_arena, align 8
+  %29 = ptrtoint ptr %.sink39 to i64
+  %30 = sub i64 %.sink37, %29
   %phi.call29.in = sdiv exact i64 %30, 56
   %phi.call29 = trunc i64 %phi.call29.in to i32
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -683,8 +683,8 @@ define dso_local ptr @parse_ct_error_stmt(ptr noundef %0) local_unnamed_addr #0 
 
 .critedge:                                        ; preds = %1, %.split
   %.sink = phi i64 [ %13, %.split ], [ 0, %1 ]
-  %.sink21 = load ptr, ptr @expr_arena, align 8
-  %16 = ptrtoint ptr %.sink21 to i64
+  %.sink22 = load ptr, ptr @expr_arena, align 8
+  %16 = ptrtoint ptr %.sink22 to i64
   %17 = sub i64 %.sink, %16
   %phi.call.in = sdiv exact i64 %17, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -1832,8 +1832,8 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 
 .critedge2:                                       ; preds = %.critedge105, %.split
   %.sink = phi i64 [ %51, %.split ], [ 0, %.critedge105 ]
-  %.sink115 = load ptr, ptr @expr_arena, align 8
-  %54 = ptrtoint ptr %.sink115 to i64
+  %.sink118 = load ptr, ptr @expr_arena, align 8
+  %54 = ptrtoint ptr %.sink118 to i64
   %55 = sub i64 %.sink, %54
   %phi.call.in = sdiv exact i64 %55, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -1915,10 +1915,10 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   br label %119
 
 .critedge4:                                       ; preds = %87, %.split86
-  %.sink116 = phi i64 [ %94, %.split86 ], [ 0, %87 ]
-  %.sink118 = load ptr, ptr @ast_arena, align 8
-  %97 = ptrtoint ptr %.sink118 to i64
-  %98 = sub i64 %.sink116, %97
+  %.sink119 = phi i64 [ %94, %.split86 ], [ 0, %87 ]
+  %.sink121 = load ptr, ptr @ast_arena, align 8
+  %97 = ptrtoint ptr %.sink121 to i64
+  %98 = sub i64 %.sink119, %97
   %phi.call88.in = sdiv exact i64 %98, 48
   %phi.call88 = trunc i64 %phi.call88.in to i32
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -1928,7 +1928,7 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
 
 100:                                              ; preds = %.critedge4
   %101 = and i64 %phi.call88.in, 4294967295
-  %102 = getelementptr inbounds nuw %struct.Ast_, ptr %.sink118, i64 %101, i32 2
+  %102 = getelementptr inbounds nuw %struct.Ast_, ptr %.sink121, i64 %101, i32 2
   %103 = load i8, ptr %102, align 4
   %.not101 = icmp eq i8 %103, 6
   br i1 %.not101, label %105, label %104
@@ -1961,10 +1961,10 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   br label %119
 
 .critedge6:                                       ; preds = %107, %.split89
-  %.sink119 = phi i64 [ %113, %.split89 ], [ 0, %107 ]
-  %.sink121 = load ptr, ptr @ast_arena, align 8
-  %116 = ptrtoint ptr %.sink121 to i64
-  %117 = sub i64 %.sink119, %116
+  %.sink122 = phi i64 [ %113, %.split89 ], [ 0, %107 ]
+  %.sink124 = load ptr, ptr @ast_arena, align 8
+  %116 = ptrtoint ptr %.sink124 to i64
+  %117 = sub i64 %.sink122, %116
   %phi.call91.in = sdiv exact i64 %117, 48
   %phi.call91 = trunc i64 %phi.call91.in to i32
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2074,8 +2074,8 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
 
 .critedge2:                                       ; preds = %.critedge69, %.split
   %.sink = phi i64 [ %50, %.split ], [ 0, %.critedge69 ]
-  %.sink79 = load ptr, ptr @expr_arena, align 8
-  %53 = ptrtoint ptr %.sink79 to i64
+  %.sink82 = load ptr, ptr @expr_arena, align 8
+  %53 = ptrtoint ptr %.sink82 to i64
   %54 = sub i64 %.sink, %53
   %phi.call.in = sdiv exact i64 %54, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -2277,8 +2277,8 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
 
 .critedge:                                        ; preds = %.critedge102, %.split
   %.sink = phi i64 [ %67, %.split ], [ 0, %.critedge102 ]
-  %.sink105 = load ptr, ptr @ast_arena, align 8
-  %70 = ptrtoint ptr %.sink105 to i64
+  %.sink106 = load ptr, ptr @ast_arena, align 8
+  %70 = ptrtoint ptr %.sink106 to i64
   %71 = sub i64 %.sink, %70
   %phi.call.in = sdiv exact i64 %71, 48
   %phi.call = trunc i64 %phi.call.in to i32
@@ -2299,10 +2299,10 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %98
 
 .sink.split:                                      ; preds = %7, %1
-  %.sink109 = phi i8 [ 1, %1 ], [ 2, %7 ]
+  %.sink110 = phi i8 [ 1, %1 ], [ 2, %7 ]
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %84 = load i8, ptr %83, align 8
-  %85 = or i8 %84, %.sink109
+  %85 = or i8 %84, %.sink110
   store i8 %85, ptr %83, align 8
   br label %86
 
@@ -2326,10 +2326,10 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %98
 
 .critedge2:                                       ; preds = %86, %.split93
-  %.sink111 = phi i64 [ %92, %.split93 ], [ 0, %86 ]
-  %.sink113 = load ptr, ptr @ast_arena, align 8
-  %95 = ptrtoint ptr %.sink113 to i64
-  %96 = sub i64 %.sink111, %95
+  %.sink112 = phi i64 [ %92, %.split93 ], [ 0, %86 ]
+  %.sink114 = load ptr, ptr @ast_arena, align 8
+  %95 = ptrtoint ptr %.sink114 to i64
+  %96 = sub i64 %.sink112, %95
   %phi.call95.in = sdiv exact i64 %96, 48
   %phi.call95 = trunc i64 %phi.call95.in to i32
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -2435,8 +2435,8 @@ parse_optional_label.exit.thread48:               ; preds = %9, %parse_optional_
 
 .critedge2:                                       ; preds = %41, %.split
   %.sink = phi i64 [ %48, %.split ], [ 0, %41 ]
-  %.sink53 = load ptr, ptr @expr_arena, align 8
-  %51 = ptrtoint ptr %.sink53 to i64
+  %.sink54 = load ptr, ptr @expr_arena, align 8
+  %51 = ptrtoint ptr %.sink54 to i64
   %52 = sub i64 %.sink, %51
   %phi.call.in = sdiv exact i64 %52, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -2557,8 +2557,8 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
 
 .critedge2:                                       ; preds = %.critedge81, %.split
   %.sink = phi i64 [ %46, %.split ], [ 0, %.critedge81 ]
-  %.sink95 = load ptr, ptr @ast_arena, align 8
-  %49 = ptrtoint ptr %.sink95 to i64
+  %.sink97 = load ptr, ptr @ast_arena, align 8
+  %49 = ptrtoint ptr %.sink97 to i64
   %50 = sub i64 %.sink, %49
   %phi.call.in = sdiv exact i64 %50, 48
   %phi.call = trunc i64 %phi.call.in to i32
@@ -2629,10 +2629,10 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
   br label %102
 
 .critedge4:                                       ; preds = %.critedge85, %.split72
-  %.sink96 = phi i64 [ %84, %.split72 ], [ 0, %.critedge85 ]
-  %.sink98 = load ptr, ptr @expr_arena, align 8
-  %87 = ptrtoint ptr %.sink98 to i64
-  %88 = sub i64 %.sink96, %87
+  %.sink98 = phi i64 [ %84, %.split72 ], [ 0, %.critedge85 ]
+  %.sink100 = load ptr, ptr @expr_arena, align 8
+  %87 = ptrtoint ptr %.sink100 to i64
+  %88 = sub i64 %.sink98, %87
   %phi.call74.in = sdiv exact i64 %88, 56
   %phi.call74 = trunc i64 %phi.call74.in to i32
   store i32 %phi.call74, ptr %51, align 8
@@ -2776,8 +2776,8 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
 
 .critedge2:                                       ; preds = %47, %.split
   %.sink = phi i64 [ %54, %.split ], [ 0, %47 ]
-  %.sink121 = load ptr, ptr @expr_arena, align 8
-  %57 = ptrtoint ptr %.sink121 to i64
+  %.sink125 = load ptr, ptr @expr_arena, align 8
+  %57 = ptrtoint ptr %.sink125 to i64
   %58 = sub i64 %.sink, %57
   %phi.call.in = sdiv exact i64 %58, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -2828,10 +2828,10 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
   br label %139
 
 .critedge4:                                       ; preds = %71, %.split90
-  %.sink122 = phi i64 [ %78, %.split90 ], [ 0, %71 ]
-  %.sink124 = load ptr, ptr @expr_arena, align 8
-  %81 = ptrtoint ptr %.sink124 to i64
-  %82 = sub i64 %.sink122, %81
+  %.sink126 = phi i64 [ %78, %.split90 ], [ 0, %71 ]
+  %.sink128 = load ptr, ptr @expr_arena, align 8
+  %81 = ptrtoint ptr %.sink128 to i64
+  %82 = sub i64 %.sink126, %81
   %phi.call92.in = sdiv exact i64 %82, 56
   %phi.call92 = trunc i64 %phi.call92.in to i32
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2881,10 +2881,10 @@ parse_optional_label.exit.thread116:              ; preds = %9, %parse_optional_
   br label %139
 
 .critedge6:                                       ; preds = %95, %.split93
-  %.sink125 = phi i64 [ %102, %.split93 ], [ 0, %95 ]
-  %.sink127 = load ptr, ptr @expr_arena, align 8
-  %105 = ptrtoint ptr %.sink127 to i64
-  %106 = sub i64 %.sink125, %105
+  %.sink129 = phi i64 [ %102, %.split93 ], [ 0, %95 ]
+  %.sink131 = load ptr, ptr @expr_arena, align 8
+  %105 = ptrtoint ptr %.sink131 to i64
+  %106 = sub i64 %.sink129, %105
   %phi.call95.in = sdiv exact i64 %106, 56
   %phi.call95 = trunc i64 %phi.call95.in to i32
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -2953,10 +2953,10 @@ extend_span_with_token.exit:                      ; preds = %118, %119
   br label %139
 
 .critedge8:                                       ; preds = %extend_span_with_token.exit, %.split96
-  %.sink128 = phi i64 [ %133, %.split96 ], [ 0, %extend_span_with_token.exit ]
-  %.sink130 = load ptr, ptr @ast_arena, align 8
-  %136 = ptrtoint ptr %.sink130 to i64
-  %137 = sub i64 %.sink128, %136
+  %.sink132 = phi i64 [ %133, %.split96 ], [ 0, %extend_span_with_token.exit ]
+  %.sink134 = load ptr, ptr @ast_arena, align 8
+  %136 = ptrtoint ptr %.sink134 to i64
+  %137 = sub i64 %.sink132, %136
   %phi.call98.in = sdiv exact i64 %137, 48
   %phi.call98 = trunc i64 %phi.call98.in to i32
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -3122,8 +3122,8 @@ parse_optional_label.exit.thread97:               ; preds = %18, %parse_optional
 
 .critedge2:                                       ; preds = %.critedge92, %.split
   %.sink = phi i64 [ %81, %.split ], [ 0, %.critedge92 ]
-  %.sink102 = load ptr, ptr @expr_arena, align 8
-  %84 = ptrtoint ptr %.sink102 to i64
+  %.sink104 = load ptr, ptr @expr_arena, align 8
+  %84 = ptrtoint ptr %.sink104 to i64
   %85 = sub i64 %.sink, %84
   %phi.call.in = sdiv exact i64 %85, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -3190,10 +3190,10 @@ extend_span_with_token.exit:                      ; preds = %96, %97
   br label %117
 
 .critedge4:                                       ; preds = %extend_span_with_token.exit, %.split79
-  %.sink103 = phi i64 [ %111, %.split79 ], [ 0, %extend_span_with_token.exit ]
-  %.sink105 = load ptr, ptr @ast_arena, align 8
-  %114 = ptrtoint ptr %.sink105 to i64
-  %115 = sub i64 %.sink103, %114
+  %.sink105 = phi i64 [ %111, %.split79 ], [ 0, %extend_span_with_token.exit ]
+  %.sink107 = load ptr, ptr @ast_arena, align 8
+  %114 = ptrtoint ptr %.sink107 to i64
+  %115 = sub i64 %.sink105, %114
   %phi.call81.in = sdiv exact i64 %115, 48
   %phi.call81 = trunc i64 %phi.call81.in to i32
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3444,8 +3444,8 @@ parse_optional_label_target.exit:                 ; preds = %11
 
 .critedge:                                        ; preds = %24, %.split
   %.sink = phi i64 [ %31, %.split ], [ 0, %24 ]
-  %.sink35 = load ptr, ptr @expr_arena, align 8
-  %34 = ptrtoint ptr %.sink35 to i64
+  %.sink36 = load ptr, ptr @expr_arena, align 8
+  %34 = ptrtoint ptr %.sink36 to i64
   %35 = sub i64 %.sink, %34
   %phi.call.in = sdiv exact i64 %35, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -3685,8 +3685,8 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
 .critedge:                                        ; preds = %parse_asm_stmt.exit, %.split
   %.sink = phi i64 [ %97, %.split ], [ 0, %parse_asm_stmt.exit ]
   %.056.i99 = phi ptr [ %.056.i100, %.split ], [ null, %parse_asm_stmt.exit ]
-  %.sink106 = load ptr, ptr @ast_arena, align 8
-  %100 = ptrtoint ptr %.sink106 to i64
+  %.sink109 = load ptr, ptr @ast_arena, align 8
+  %100 = ptrtoint ptr %.sink109 to i64
   %101 = sub i64 %.sink, %100
   %phi.call.in = sdiv exact i64 %101, 48
   %phi.call = trunc i64 %phi.call.in to i32
@@ -3743,10 +3743,10 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   br label %170
 
 .critedge2:                                       ; preds = %.critedge94, %.split87
-  %.sink107 = phi i64 [ %125, %.split87 ], [ 0, %.critedge94 ]
-  %.sink109 = load ptr, ptr @expr_arena, align 8
-  %128 = ptrtoint ptr %.sink109 to i64
-  %129 = sub i64 %.sink107, %128
+  %.sink110 = phi i64 [ %125, %.split87 ], [ 0, %.critedge94 ]
+  %.sink112 = load ptr, ptr @expr_arena, align 8
+  %128 = ptrtoint ptr %.sink112 to i64
+  %129 = sub i64 %.sink110, %128
   %phi.call89.in = sdiv exact i64 %129, 56
   %phi.call89 = trunc i64 %phi.call89.in to i32
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3906,8 +3906,8 @@ define internal fastcc ptr @parse_ct_if_stmt(ptr noundef %0) unnamed_addr #0 {
 
 .critedge.i:                                      ; preds = %.lr.ph, %.split.i
   %.sink = phi i64 [ %30, %.split.i ], [ 0, %.lr.ph ]
-  %.sink70 = load ptr, ptr @ast_arena, align 8
-  %31 = ptrtoint ptr %.sink70 to i64
+  %.sink72 = load ptr, ptr @ast_arena, align 8
+  %31 = ptrtoint ptr %.sink72 to i64
   %32 = sub i64 %.sink, %31
   %phi.call.i.in = sdiv exact i64 %32, 48
   %phi.call.i = trunc i64 %phi.call.i.in to i32
@@ -3964,10 +3964,10 @@ parse_ct_compound_stmt.exit:                      ; preds = %27
   br label %.critedge.i56
 
 .critedge.i56:                                    ; preds = %.lr.ph66, %.split.i55
-  %.sink71 = phi i64 [ %51, %.split.i55 ], [ 0, %.lr.ph66 ]
-  %.sink73 = load ptr, ptr @ast_arena, align 8
-  %52 = ptrtoint ptr %.sink73 to i64
-  %53 = sub i64 %.sink71, %52
+  %.sink73 = phi i64 [ %51, %.split.i55 ], [ 0, %.lr.ph66 ]
+  %.sink75 = load ptr, ptr @ast_arena, align 8
+  %52 = ptrtoint ptr %.sink75 to i64
+  %53 = sub i64 %.sink73, %52
   %phi.call.i57.in = sdiv exact i64 %53, 48
   %phi.call.i57 = trunc i64 %phi.call.i57.in to i32
   store i32 %phi.call.i57, ptr %.015.i5264, align 4
@@ -3982,7 +3982,7 @@ parse_ct_compound_stmt.exit59:                    ; preds = %48
   br label %79
 
 ._crit_edge67:                                    ; preds = %.critedge.i56, %.._crit_edge67_crit_edge
-  %58 = phi ptr [ %.pre, %.._crit_edge67_crit_edge ], [ %.sink73, %.critedge.i56 ]
+  %58 = phi ptr [ %.pre, %.._crit_edge67_crit_edge ], [ %.sink75, %.critedge.i56 ]
   %59 = ptrtoint ptr %41 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
@@ -4099,8 +4099,8 @@ parse_const_paren_expr.exit:                      ; preds = %15, %19, %.critedge
 
 .critedge:                                        ; preds = %parse_const_paren_expr.exit, %.split
   %.sink = phi i64 [ %28, %.split ], [ 0, %parse_const_paren_expr.exit ]
-  %.sink78 = load ptr, ptr @expr_arena, align 8
-  %31 = ptrtoint ptr %.sink78 to i64
+  %.sink82 = load ptr, ptr @expr_arena, align 8
+  %31 = ptrtoint ptr %.sink82 to i64
   %32 = sub i64 %.sink, %31
   %phi.call.in = sdiv exact i64 %32, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -4225,10 +4225,10 @@ extend_span_with_token.exit:                      ; preds = %55, %56
   br label %parse_case_stmts.exit
 
 .critedge.i66:                                    ; preds = %73, %.split.i
-  %.sink79 = phi i64 [ %79, %.split.i ], [ 0, %73 ]
-  %.sink81 = load ptr, ptr @ast_arena, align 8
-  %82 = ptrtoint ptr %.sink81 to i64
-  %83 = sub i64 %.sink79, %82
+  %.sink83 = phi i64 [ %79, %.split.i ], [ 0, %73 ]
+  %.sink85 = load ptr, ptr @ast_arena, align 8
+  %82 = ptrtoint ptr %.sink85 to i64
+  %83 = sub i64 %.sink83, %82
   %phi.call.i.in = sdiv exact i64 %83, 48
   %phi.call.i = trunc i64 %phi.call.i.in to i32
   store i32 %phi.call.i, ptr %.023.i, align 4
@@ -4445,8 +4445,8 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
 
 .critedge:                                        ; preds = %51, %.split
   %.sink = phi i64 [ %58, %.split ], [ 0, %51 ]
-  %.sink86 = load ptr, ptr @expr_arena, align 8
-  %61 = ptrtoint ptr %.sink86 to i64
+  %.sink87 = load ptr, ptr @expr_arena, align 8
+  %61 = ptrtoint ptr %.sink87 to i64
   %62 = sub i64 %.sink, %61
   %phi.call.in = sdiv exact i64 %62, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -4506,10 +4506,10 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   br label %.loopexit
 
 .critedge2:                                       ; preds = %.lr.ph, %.split74
-  %.sink87 = phi i64 [ %87, %.split74 ], [ 0, %.lr.ph ]
-  %.sink89 = load ptr, ptr @ast_arena, align 8
-  %90 = ptrtoint ptr %.sink89 to i64
-  %91 = sub i64 %.sink87, %90
+  %.sink88 = phi i64 [ %87, %.split74 ], [ 0, %.lr.ph ]
+  %.sink90 = load ptr, ptr @ast_arena, align 8
+  %90 = ptrtoint ptr %.sink90 to i64
+  %91 = sub i64 %.sink88, %90
   %phi.call76.in = sdiv exact i64 %91, 48
   %phi.call76 = trunc i64 %phi.call76.in to i32
   store i32 %phi.call76, ptr %.07184, align 4
@@ -4571,8 +4571,8 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
 
 .split89:                                         ; preds = %15, %.split
   %.sink = phi i64 [ %22, %.split ], [ 0, %15 ]
-  %.sink114 = load ptr, ptr @expr_arena, align 8
-  %25 = ptrtoint ptr %.sink114 to i64
+  %.sink117 = load ptr, ptr @expr_arena, align 8
+  %25 = ptrtoint ptr %.sink117 to i64
   %26 = sub i64 %.sink, %25
   %phi.call.in = sdiv exact i64 %26, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -4611,10 +4611,10 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %.loopexit
 
 .critedge2:                                       ; preds = %.thread, %.split90
-  %.sink115 = phi i64 [ %39, %.split90 ], [ 0, %.thread ]
-  %.sink117 = load ptr, ptr @expr_arena, align 8
-  %42 = ptrtoint ptr %.sink117 to i64
-  %43 = sub i64 %.sink115, %42
+  %.sink118 = phi i64 [ %39, %.split90 ], [ 0, %.thread ]
+  %.sink120 = load ptr, ptr @expr_arena, align 8
+  %42 = ptrtoint ptr %.sink120 to i64
+  %43 = sub i64 %.sink118, %42
   %phi.call92.in = sdiv exact i64 %43, 56
   %phi.call92 = trunc i64 %phi.call92.in to i32
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -4657,10 +4657,10 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %.loopexit
 
 .split94:                                         ; preds = %54, %.split93
-  %.sink118 = phi i64 [ %61, %.split93 ], [ 0, %54 ]
-  %.sink120 = load ptr, ptr @expr_arena, align 8
-  %64 = ptrtoint ptr %.sink120 to i64
-  %65 = sub i64 %.sink118, %64
+  %.sink121 = phi i64 [ %61, %.split93 ], [ 0, %54 ]
+  %.sink123 = load ptr, ptr @expr_arena, align 8
+  %64 = ptrtoint ptr %.sink123 to i64
+  %65 = sub i64 %.sink121, %64
   %phi.call95.in = sdiv exact i64 %65, 56
   %phi.call95 = trunc i64 %phi.call95.in to i32
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -4719,10 +4719,10 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %.loopexit
 
 .critedge6:                                       ; preds = %.lr.ph, %.split96
-  %.sink121 = phi i64 [ %89, %.split96 ], [ 0, %.lr.ph ]
-  %.sink123 = load ptr, ptr @ast_arena, align 8
-  %92 = ptrtoint ptr %.sink123 to i64
-  %93 = sub i64 %.sink121, %92
+  %.sink124 = phi i64 [ %89, %.split96 ], [ 0, %.lr.ph ]
+  %.sink126 = load ptr, ptr @ast_arena, align 8
+  %92 = ptrtoint ptr %.sink126 to i64
+  %93 = sub i64 %.sink124, %92
   %phi.call98.in = sdiv exact i64 %93, 48
   %phi.call98 = trunc i64 %phi.call98.in to i32
   store i32 %phi.call98, ptr %.087112, align 4
@@ -4773,8 +4773,8 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
 
 .critedge:                                        ; preds = %9, %.split
   %.sink = phi i64 [ %16, %.split ], [ 0, %9 ]
-  %.sink64 = load ptr, ptr @expr_arena, align 8
-  %19 = ptrtoint ptr %.sink64 to i64
+  %.sink68 = load ptr, ptr @expr_arena, align 8
+  %19 = ptrtoint ptr %.sink68 to i64
   %20 = sub i64 %.sink, %19
   %phi.call.in = sdiv exact i64 %20, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -4804,10 +4804,10 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %consume_eos.exit
 
 .critedge2:                                       ; preds = %23, %.split50
-  %.sink65 = phi i64 [ %30, %.split50 ], [ 0, %23 ]
-  %.sink67 = load ptr, ptr @expr_arena, align 8
-  %33 = ptrtoint ptr %.sink67 to i64
-  %34 = sub i64 %.sink65, %33
+  %.sink69 = phi i64 [ %30, %.split50 ], [ 0, %23 ]
+  %.sink71 = load ptr, ptr @expr_arena, align 8
+  %33 = ptrtoint ptr %.sink71 to i64
+  %34 = sub i64 %.sink69, %33
   %phi.call52.in = sdiv exact i64 %34, 56
   %phi.call52 = trunc i64 %phi.call52.in to i32
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -5363,8 +5363,8 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph169, !llvm.loop !19
 
 .loopexit:                                        ; preds = %145, %76, %137, %._crit_edge
-  %.0112.lcssa185 = phi ptr [ %133, %137 ], [ %133, %._crit_edge ], [ %79, %76 ], [ %133, %145 ]
-  store ptr %.0112.lcssa185, ptr %14, align 8
+  %.0112.lcssa195 = phi ptr [ %133, %137 ], [ %133, %._crit_edge ], [ %79, %76 ], [ %133, %145 ]
+  store ptr %.0112.lcssa195, ptr %14, align 8
   store i8 16, ptr %6, align 4
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %147 = load i64, ptr %3, align 8
@@ -5672,8 +5672,8 @@ define internal fastcc ptr @parse_asm_expr(ptr noundef %0) unnamed_addr #0 {
 
 .critedge2.i:                                     ; preds = %63, %.split.i
   %.sink = phi i64 [ %70, %.split.i ], [ 0, %63 ]
-  %.sink73 = load ptr, ptr @expr_arena, align 8
-  %71 = ptrtoint ptr %.sink73 to i64
+  %.sink77 = load ptr, ptr @expr_arena, align 8
+  %71 = ptrtoint ptr %.sink77 to i64
   %72 = sub i64 %.sink, %71
   %phi.call.i.in = sdiv exact i64 %72, 56
   %phi.call.i = trunc i64 %phi.call.i.in to i32
@@ -5908,10 +5908,10 @@ extend_span_with_token.exit:                      ; preds = %128, %129
   br label %223
 
 .critedge:                                        ; preds = %168, %.split
-  %.sink74 = phi i64 [ %179, %.split ], [ 0, %168 ]
-  %.sink76 = load ptr, ptr @expr_arena, align 8
-  %182 = ptrtoint ptr %.sink76 to i64
-  %183 = sub i64 %.sink74, %182
+  %.sink78 = phi i64 [ %179, %.split ], [ 0, %168 ]
+  %.sink80 = load ptr, ptr @expr_arena, align 8
+  %182 = ptrtoint ptr %.sink80 to i64
+  %183 = sub i64 %.sink78, %182
   %phi.call.in = sdiv exact i64 %183, 56
   %phi.call = trunc i64 %phi.call.in to i32
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -5945,10 +5945,10 @@ extend_span_with_token.exit:                      ; preds = %128, %129
   br label %223
 
 .critedge2:                                       ; preds = %185, %.split54
-  %.sink77 = phi i64 [ %196, %.split54 ], [ 0, %185 ]
-  %.sink79 = load ptr, ptr @expr_arena, align 8
-  %199 = ptrtoint ptr %.sink79 to i64
-  %200 = sub i64 %.sink77, %199
+  %.sink81 = phi i64 [ %196, %.split54 ], [ 0, %185 ]
+  %.sink83 = load ptr, ptr @expr_arena, align 8
+  %199 = ptrtoint ptr %.sink83 to i64
+  %200 = sub i64 %.sink81, %199
   %phi.call56.in = sdiv exact i64 %200, 56
   %phi.call56 = trunc i64 %phi.call56.in to i32
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 32

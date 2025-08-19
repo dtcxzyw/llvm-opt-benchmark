@@ -136,7 +136,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr nou
   br i1 %19, label %.thread.i, label %.preheader.i
 
 .thread.i:                                        ; preds = %18
-  store i32 %1, ptr %16, align 8
+  store i32 1, ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %20, align 4
   br label %30
@@ -208,8 +208,9 @@ jbd2_journal_init_revoke_table.exit.thread:       ; preds = %36, %14
   br i1 %52, label %.thread.i6, label %.preheader.i4, !llvm.loop !16
 
 .thread.i6:                                       ; preds = %.preheader.i4, %47
+  %.sink = phi i32 [ 1, %47 ], [ %1, %.preheader.i4 ]
   %.lcssa.sink = phi i32 [ 0, %47 ], [ %51, %.preheader.i4 ]
-  store i32 %1, ptr %45, align 8
+  store i32 %.sink, ptr %45, align 8
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %.lcssa.sink, ptr %53, align 4
   %54 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %32, i32 noundef 3264) #10
@@ -793,9 +794,9 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 50331648
-  br i1 %40, label %.thread20, label %45
+  br i1 %40, label %.thread29, label %45
 
-.thread20:                                        ; preds = %35
+.thread29:                                        ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
@@ -847,11 +848,11 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   %72 = select i1 %71, i32 4, i32 8
   br label %73
 
-73:                                               ; preds = %.thread20, %64, %58
-  %74 = phi i32 [ %62, %58 ], [ %65, %64 ], [ %44, %.thread20 ]
-  %75 = phi ptr [ %.pre, %58 ], [ %66, %64 ], [ %37, %.thread20 ]
-  %76 = phi i32 [ 50331648, %58 ], [ %67, %64 ], [ 50331648, %.thread20 ]
-  %77 = phi i32 [ 4, %58 ], [ %72, %64 ], [ 4, %.thread20 ]
+73:                                               ; preds = %.thread29, %64, %58
+  %74 = phi i32 [ %62, %58 ], [ %65, %64 ], [ %44, %.thread29 ]
+  %75 = phi ptr [ %.pre, %58 ], [ %66, %64 ], [ %37, %.thread29 ]
+  %76 = phi i32 [ 50331648, %58 ], [ %67, %64 ], [ 50331648, %.thread29 ]
+  %77 = phi i32 [ 4, %58 ], [ %72, %64 ], [ 4, %.thread29 ]
   %78 = icmp eq ptr %30, null
   br i1 %78, label %105, label %79
 

@@ -1889,8 +1889,8 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %369 = load i32, ptr @hf_dvb_s2_tbtp_btb_loop_count, align 4
   %370 = tail call ptr @proto_tree_add_item(ptr noundef %363, i32 noundef %369, ptr noundef %0, i32 noundef %366, i32 noundef 2, i32 noundef 0)
   %371 = add i32 %.096101.i, 3
-  %narrow104.i = add nuw nsw i16 %368, 1
-  %372 = zext nneg i16 %narrow104.i to i32
+  %narrow105.i = add nuw nsw i16 %368, 1
+  %372 = zext nneg i16 %narrow105.i to i32
   br label %373
 
 373:                                              ; preds = %397, %358
@@ -3657,8 +3657,8 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %493 = load i32, ptr @hf_dvb_s2_table_fipd_pid_loop_count, align 4
   %494 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %493, ptr noundef %0, i32 noundef %490, i32 noundef 1, i32 noundef 0)
   %495 = add i32 %.161132, 5
-  %narrow1190 = add nuw nsw i8 %492, 1
-  %496 = zext nneg i8 %narrow1190 to i32
+  %narrow1203 = add nuw nsw i8 %492, 1
+  %496 = zext nneg i8 %narrow1203 to i32
   br label %497
 
 497:                                              ; preds = %483, %497

@@ -714,13 +714,13 @@ define hidden noundef i32 @mbedtls_md5_update(ptr noundef captures(none) %0, ptr
   br i1 %.not45, label %35, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %18, %._crit_edge
-  %.1.lcssa60 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
-  %.137.lcssa59 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
-  %.05358 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
+  %.1.lcssa64 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
+  %.137.lcssa63 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
+  %.05762 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = zext nneg i32 %.05358 to i64
+  %33 = zext nneg i32 %.05762 to i64
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa59, i64 %.1.lcssa60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa63, i64 %.1.lcssa64, i1 false)
   br label %35
 
 35:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3

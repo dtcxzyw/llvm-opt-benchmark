@@ -120,7 +120,7 @@ IsQueryIdEnabled.exit.thread89:                   ; preds = %14, %IsQueryIdEnabl
   br i1 %42, label %44, label %120
 
 44:                                               ; preds = %.thread, %41
-  %.08195 = phi i1 [ %40, %.thread ], [ false, %41 ]
+  %.081101 = phi i1 [ %40, %.thread ], [ false, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -255,7 +255,7 @@ create_ctas_nodata.exit:                          ; preds = %.critedge.i
   %.fca.0.extract12 = extractvalue { i64, i32 } %115, 0
   %.fca.1.extract13 = extractvalue { i64, i32 } %115, 1
   %.sroa.018.sroa.7.0.extract.shift = lshr i64 %.fca.0.extract12, 32
-  br i1 %.08195, label %116, label %146
+  br i1 %.081101, label %116, label %146
 
 116:                                              ; preds = %create_ctas_nodata.exit
   %.sroa.018.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.018.sroa.7.0.extract.shift to i32

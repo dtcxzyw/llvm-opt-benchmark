@@ -2214,8 +2214,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %_ZN
 
 79:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %.4..4..4..4..sroa_idx100 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %.4..4..4..4..sroa.08.0.copyload = load i64, ptr %.4..4..4..4..sroa_idx100, align 4
+  %.4..4..4..4..sroa_idx126 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %.4..4..4..4..sroa.08.0.copyload = load i64, ptr %.4..4..4..4..sroa_idx126, align 4
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEiPvm(ptr noundef nonnull align 8 dereferenceable(96) %20, i64 %.4..4..4..4..sroa.08.0.copyload, i32 noundef 0, ptr noundef nonnull %.sroa.088.0.copyload, i64 noundef %.sroa.086.0.copyload)
           to label %80 unwind label %83
 

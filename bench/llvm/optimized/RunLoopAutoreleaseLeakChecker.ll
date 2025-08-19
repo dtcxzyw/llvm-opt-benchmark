@@ -4567,13 +4567,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit39:                ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit55
 
 _ZN4llvmplERKNS_5TwineES2_.exit55:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit39, %52, %53
-  %.sink135 = phi i8 [ 3, %52 ], [ %.014.i.i44, %53 ], [ %.pre, %_ZN4llvmplERKNS_5TwineES2_.exit39 ]
+  %.sink137 = phi i8 [ 3, %52 ], [ %.014.i.i44, %53 ], [ %.pre, %_ZN4llvmplERKNS_5TwineES2_.exit39 ]
   %.sink = phi i8 [ 1, %52 ], [ 3, %53 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit39 ]
   %.sroa.56.0.copyload.i.i61 = phi i64 [ undef, %52 ], [ %.sroa.56.0.i.i46, %53 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit39 ]
   %.sroa.05.0.copyload.i.i59 = phi ptr [ @.str.24, %52 ], [ %.sroa.05.0.i.i45, %53 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit39 ]
   %59 = phi i1 [ true, %52 ], [ false, %53 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit39 ]
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i8 %.sink135, ptr %60, align 8, !tbaa !505
+  store i8 %.sink137, ptr %60, align 8, !tbaa !505
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 %.sink, ptr %61, align 1, !tbaa !505
   %.not24 = icmp eq ptr %27, null
@@ -4581,7 +4581,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit55:                ; preds = %_ZN4llvmplERKNS_5Tw
   %63 = load i8, ptr %62, align 1, !tbaa !12
   %.not.i56 = icmp eq i8 %63, 0
   %storemerge.i57 = select i1 %.not.i56, i8 1, i8 3
-  switch i8 %.sink135, label %67 [
+  switch i8 %.sink137, label %67 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit73.thread
     i8 1, label %66
   ]
@@ -4611,7 +4611,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit73.thread:         ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit73
 
 69:                                               ; preds = %67
-  %.014.i.i62 = select i1 %59, i8 %.sink135, i8 2
+  %.014.i.i62 = select i1 %59, i8 %.sink137, i8 2
   %.sroa.05.0.i.i63 = select i1 %59, ptr %.sroa.05.0.copyload.i.i59, ptr %13
   %.sroa.56.0.i.i64 = select i1 %59, i64 %.sroa.56.0.copyload.i.i61, i64 undef
   store ptr %.sroa.05.0.i.i63, ptr %12, align 8, !alias.scope !513
@@ -4656,12 +4656,12 @@ _ZN4llvmplERKNS_5TwineES2_.exit73:                ; preds = %66, %68, %69
   br label %_ZN4llvmplERKNS_5TwineES2_.exit89
 
 _ZN4llvmplERKNS_5TwineES2_.exit89:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit73, %_ZN4llvmplERKNS_5TwineES2_.exit73.thread, %74, %75
-  %.sink139 = phi i8 [ 3, %74 ], [ %.014.i.i78, %75 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit73.thread ], [ %73, %_ZN4llvmplERKNS_5TwineES2_.exit73 ]
-  %.sink137 = phi i8 [ 1, %74 ], [ 3, %75 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit73.thread ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit73 ]
+  %.sink141 = phi i8 [ 3, %74 ], [ %.014.i.i78, %75 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit73.thread ], [ %73, %_ZN4llvmplERKNS_5TwineES2_.exit73 ]
+  %.sink139 = phi i8 [ 1, %74 ], [ 3, %75 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit73.thread ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit73 ]
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i8 %.sink139, ptr %80, align 8, !tbaa !505
+  store i8 %.sink141, ptr %80, align 8, !tbaa !505
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 %.sink137, ptr %81, align 1, !tbaa !505
+  store i8 %.sink139, ptr %81, align 1, !tbaa !505
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(34) %11) #18
   %82 = load ptr, ptr %10, align 8, !tbaa !27
   store ptr %82, ptr %9, align 8, !tbaa !487

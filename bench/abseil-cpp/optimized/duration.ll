@@ -115,8 +115,8 @@ define dso_local noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0
 
 49:                                               ; preds = %42
   %.not.i = icmp ne i32 %1, 0
-  %.neg180.i = sext i1 %.not.i to i64
-  %spec.select.neg.i = sub i64 %.neg180.i, %0
+  %.neg184.i = sext i1 %.not.i to i64
+  %spec.select.neg.i = sub i64 %.neg184.i, %0
   %50 = udiv i64 %spec.select.neg.i, %2
   %.neg.i = sub i64 0, %50
   %51 = urem i64 %spec.select.neg.i, %2
@@ -127,9 +127,9 @@ define dso_local noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %0
 
 53:                                               ; preds = %44, %49, %46, %33, %26, %19, %12
   %.0 = phi i64 [ %16, %12 ], [ %23, %19 ], [ %30, %26 ], [ %37, %33 ], [ %47, %46 ], [ %.neg.i, %49 ], [ %0, %44 ]
-  %.sink181.i = phi i64 [ 0, %12 ], [ 0, %19 ], [ 0, %26 ], [ 0, %33 ], [ %48, %46 ], [ %.neg177.pn.i, %49 ], [ 0, %44 ]
+  %.sink185.i = phi i64 [ 0, %12 ], [ 0, %19 ], [ 0, %26 ], [ 0, %33 ], [ %48, %46 ], [ %.neg177.pn.i, %49 ], [ 0, %44 ]
   %.sink.i = phi i32 [ %17, %12 ], [ %24, %19 ], [ %31, %26 ], [ %38, %33 ], [ %1, %46 ], [ %1, %49 ], [ %1, %44 ]
-  store i64 %.sink181.i, ptr %4, align 4
+  store i64 %.sink185.i, ptr %4, align 4
   %.sroa.451.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sink.i, ptr %.sroa.451.0..sroa_idx.i, align 4, !tbaa !4
   br label %_ZN4absl12_GLOBAL__N_116IDivDurationImplEbNS_8DurationES1_PS1_.exit
@@ -752,8 +752,8 @@ define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8Durat
 
 30:                                               ; preds = %24
   %.not.i = icmp ne i32 %.sroa.26.0.copyload, 0
-  %.neg180.i = sext i1 %.not.i to i64
-  %spec.select.neg.i = sub i64 %.neg180.i, %.sroa.05.0.copyload
+  %.neg184.i = sext i1 %.not.i to i64
+  %spec.select.neg.i = sub i64 %.neg184.i, %.sroa.05.0.copyload
   %31 = urem i64 %spec.select.neg.i, %1
   %.neg177.i = sub nsw i64 0, %31
   %32 = xor i64 %31, -1
@@ -761,9 +761,9 @@ define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8Durat
   br label %33
 
 33:                                               ; preds = %26, %30, %28, %19, %16, %13, %10
-  %.sink181.i = phi i64 [ 0, %10 ], [ 0, %13 ], [ 0, %16 ], [ 0, %19 ], [ %29, %28 ], [ %.neg177.pn.i, %30 ], [ 0, %26 ]
+  %.sink185.i = phi i64 [ 0, %10 ], [ 0, %13 ], [ 0, %16 ], [ 0, %19 ], [ %29, %28 ], [ %.neg177.pn.i, %30 ], [ 0, %26 ]
   %.sink.i = phi i32 [ %11, %10 ], [ %14, %13 ], [ %17, %16 ], [ %20, %19 ], [ %.sroa.26.0.copyload, %28 ], [ %.sroa.26.0.copyload, %30 ], [ %.sroa.26.0.copyload, %26 ]
-  store i64 %.sink181.i, ptr %0, align 4
+  store i64 %.sink185.i, ptr %0, align 4
   store i32 %.sink.i, ptr %.sroa.26.0..sroa_idx, align 4, !tbaa !4
   br label %_ZN4absl12_GLOBAL__N_116IDivDurationImplEbNS_8DurationES1_PS1_.exit
 
@@ -941,10 +941,10 @@ _ZN4absl5TruncENS_8DurationES0_.exit:             ; preds = %_ZN4abslngENS_8Dura
   br i1 %27, label %28, label %_ZN4abslleENS_8DurationES0_.exit.thread
 
 28:                                               ; preds = %.thread, %25
-  %.sroa.6.0.i.i6071 = phi i32 [ -1, %.thread ], [ %.sroa.6.0.i.i, %25 ]
-  %.fca.1.insert.i35.i6469 = phi { i64, i32 } [ %.fca.1.insert.i35.i57, %.thread ], [ %.fca.1.insert.i35.i, %25 ]
+  %.sroa.6.0.i.i6073 = phi i32 [ -1, %.thread ], [ %.sroa.6.0.i.i, %25 ]
+  %.fca.1.insert.i35.i6471 = phi { i64, i32 } [ %.fca.1.insert.i35.i57, %.thread ], [ %.fca.1.insert.i35.i, %25 ]
   %29 = add i32 %1, 1
-  %30 = add i32 %.sroa.6.0.i.i6071, 1
+  %30 = add i32 %.sroa.6.0.i.i6073, 1
   %31 = icmp ult i32 %29, %30
   br i1 %31, label %33, label %_ZN4abslleENS_8DurationES0_.exit.thread
 
@@ -953,8 +953,8 @@ _ZN4abslleENS_8DurationES0_.exit:                 ; preds = %25
   br i1 %32, label %33, label %_ZN4abslleENS_8DurationES0_.exit.thread
 
 33:                                               ; preds = %28, %23, %_ZN4abslleENS_8DurationES0_.exit
-  %.sroa.6.0.i.i5966 = phi i32 [ %.sroa.6.0.i.i, %23 ], [ %.sroa.6.0.i.i, %_ZN4abslleENS_8DurationES0_.exit ], [ %.sroa.6.0.i.i6071, %28 ]
-  %.sroa.0.1.i.i6165 = phi i64 [ %.sroa.0.1.i.i, %23 ], [ %0, %_ZN4abslleENS_8DurationES0_.exit ], [ -9223372036854775808, %28 ]
+  %.sroa.6.0.i.i5968 = phi i32 [ %.sroa.6.0.i.i, %23 ], [ %.sroa.6.0.i.i, %_ZN4abslleENS_8DurationES0_.exit ], [ %.sroa.6.0.i.i6073, %28 ]
+  %.sroa.0.1.i.i6167 = phi i64 [ %.sroa.0.1.i.i, %23 ], [ %0, %_ZN4abslleENS_8DurationES0_.exit ], [ -9223372036854775808, %28 ]
   %34 = icmp slt i64 %2, 0
   br i1 %34, label %35, label %_ZN4abslltENS_8DurationES0_.exit.thread.i
 
@@ -990,7 +990,7 @@ _ZN4absl11AbsDurationENS_8DurationE.exit:         ; preds = %35, %36, %38, %40, 
   %.fca.1.insert.merged.i = phi { i64, i32 } [ %44, %_ZN4abslltENS_8DurationES0_.exit.thread.i ], [ %.fca.1.insert.i.i.i, %38 ], [ %.fca.1.insert.i.i.i.i, %40 ], [ { i64 9223372036854775807, i32 -1 }, %36 ], [ { i64 9223372036854775807, i32 -1 }, %35 ]
   %.fca.0.extract7 = extractvalue { i64, i32 } %.fca.1.insert.merged.i, 0
   %.fca.1.extract8 = extractvalue { i64, i32 } %.fca.1.insert.merged.i, 1
-  %45 = icmp eq i32 %.sroa.6.0.i.i5966, -1
+  %45 = icmp eq i32 %.sroa.6.0.i.i5968, -1
   br i1 %45, label %_ZN4abslmiENS_8DurationES0_.exit, label %46
 
 46:                                               ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit
@@ -1003,22 +1003,22 @@ _ZN4abslngENS_8DurationE.exit.i.i:                ; preds = %46
   br label %_ZN4abslmiENS_8DurationES0_.exit
 
 49:                                               ; preds = %46
-  %50 = sub i64 %.sroa.0.1.i.i6165, %.fca.0.extract7
-  %51 = icmp ult i32 %.sroa.6.0.i.i5966, %.fca.1.extract8
-  %52 = add i32 %.sroa.6.0.i.i5966, -294967296
+  %50 = sub i64 %.sroa.0.1.i.i6167, %.fca.0.extract7
+  %51 = icmp ult i32 %.sroa.6.0.i.i5968, %.fca.1.extract8
+  %52 = add i32 %.sroa.6.0.i.i5968, -294967296
   %53 = sext i1 %51 to i64
   %.sroa.0.0.i = add i64 %50, %53
-  %54 = select i1 %51, i32 %52, i32 %.sroa.6.0.i.i5966
+  %54 = select i1 %51, i32 %52, i32 %.sroa.6.0.i.i5968
   %55 = sub i32 %54, %.fca.1.extract8
   %56 = icmp slt i64 %.fca.0.extract7, 0
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %49
-  %58 = icmp slt i64 %.sroa.0.0.i, %.sroa.0.1.i.i6165
+  %58 = icmp slt i64 %.sroa.0.0.i, %.sroa.0.1.i.i6167
   br i1 %58, label %_ZN4abslngENS_8DurationE.exit53.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
 
 59:                                               ; preds = %49
-  %60 = icmp sgt i64 %.sroa.0.0.i, %.sroa.0.1.i.i6165
+  %60 = icmp sgt i64 %.sroa.0.0.i, %.sroa.0.1.i.i6167
   br i1 %60, label %_ZN4abslngENS_8DurationE.exit53.i.i, label %_ZN4abslmiENS_8DurationES0_.exit
 
 _ZN4abslngENS_8DurationE.exit53.i.i:              ; preds = %59, %57
@@ -1029,13 +1029,13 @@ _ZN4abslngENS_8DurationE.exit53.i.i:              ; preds = %59, %57
 
 _ZN4abslmiENS_8DurationES0_.exit:                 ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit, %_ZN4abslngENS_8DurationE.exit.i.i, %57, %59, %_ZN4abslngENS_8DurationE.exit53.i.i
   %.sroa.6.0.i = phi i32 [ -1, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %55, %57 ], [ %55, %59 ], [ %.sroa.5.0.i.i, %_ZN4abslngENS_8DurationE.exit53.i.i ], [ -1, %_ZN4abslngENS_8DurationE.exit.i.i ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.1.i.i6165, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %.sroa.0.0.i, %57 ], [ %.sroa.0.0.i, %59 ], [ %.sroa.013.0.i.i, %_ZN4abslngENS_8DurationE.exit53.i.i ], [ %.sroa.031.0.i.i, %_ZN4abslngENS_8DurationE.exit.i.i ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.1.i.i6167, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %.sroa.0.0.i, %57 ], [ %.sroa.0.0.i, %59 ], [ %.sroa.013.0.i.i, %_ZN4abslngENS_8DurationE.exit53.i.i ], [ %.sroa.031.0.i.i, %_ZN4abslngENS_8DurationE.exit.i.i ]
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.1.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.6.0.i, 1
   br label %_ZN4abslleENS_8DurationES0_.exit.thread
 
 _ZN4abslleENS_8DurationES0_.exit.thread:          ; preds = %.thread, %28, %23, %_ZN4abslleENS_8DurationES0_.exit, %_ZN4abslmiENS_8DurationES0_.exit
-  %.fca.1.insert.merged = phi { i64, i32 } [ %.fca.1.insert.i, %_ZN4abslmiENS_8DurationES0_.exit ], [ %.fca.1.insert.i35.i, %_ZN4abslleENS_8DurationES0_.exit ], [ %.fca.1.insert.i35.i, %23 ], [ %.fca.1.insert.i35.i6469, %28 ], [ %.fca.1.insert.i35.i57, %.thread ]
+  %.fca.1.insert.merged = phi { i64, i32 } [ %.fca.1.insert.i, %_ZN4abslmiENS_8DurationES0_.exit ], [ %.fca.1.insert.i35.i, %_ZN4abslleENS_8DurationES0_.exit ], [ %.fca.1.insert.i35.i, %23 ], [ %.fca.1.insert.i35.i6471, %28 ], [ %.fca.1.insert.i35.i57, %.thread ]
   ret { i64, i32 } %.fca.1.insert.merged
 }
 
@@ -1110,9 +1110,9 @@ _ZN4absl5TruncENS_8DurationES0_.exit:             ; preds = %_ZN4abslngENS_8Dura
   br i1 %27, label %28, label %_ZN4abslgeENS_8DurationES0_.exit.thread
 
 28:                                               ; preds = %.thread, %25
-  %.sroa.6.0.i.i6172 = phi i32 [ -1, %.thread ], [ %.sroa.6.0.i.i, %25 ]
-  %.fca.1.insert.i35.i6570 = phi { i64, i32 } [ %.fca.1.insert.i35.i58, %.thread ], [ %.fca.1.insert.i35.i, %25 ]
-  %29 = add i32 %.sroa.6.0.i.i6172, 1
+  %.sroa.6.0.i.i6174 = phi i32 [ -1, %.thread ], [ %.sroa.6.0.i.i, %25 ]
+  %.fca.1.insert.i35.i6572 = phi { i64, i32 } [ %.fca.1.insert.i35.i58, %.thread ], [ %.fca.1.insert.i35.i, %25 ]
+  %29 = add i32 %.sroa.6.0.i.i6174, 1
   %30 = add i32 %1, 1
   %31 = icmp ult i32 %29, %30
   br i1 %31, label %33, label %_ZN4abslgeENS_8DurationES0_.exit.thread
@@ -1122,8 +1122,8 @@ _ZN4abslgeENS_8DurationES0_.exit:                 ; preds = %25
   br i1 %32, label %33, label %_ZN4abslgeENS_8DurationES0_.exit.thread
 
 33:                                               ; preds = %28, %23, %_ZN4abslgeENS_8DurationES0_.exit
-  %.sroa.6.0.i.i6067 = phi i32 [ %.sroa.6.0.i.i, %23 ], [ %.sroa.6.0.i.i, %_ZN4abslgeENS_8DurationES0_.exit ], [ %.sroa.6.0.i.i6172, %28 ]
-  %.sroa.0.1.i.i6266 = phi i64 [ %.sroa.0.1.i.i, %23 ], [ %0, %_ZN4abslgeENS_8DurationES0_.exit ], [ -9223372036854775808, %28 ]
+  %.sroa.6.0.i.i6069 = phi i32 [ %.sroa.6.0.i.i, %23 ], [ %.sroa.6.0.i.i, %_ZN4abslgeENS_8DurationES0_.exit ], [ %.sroa.6.0.i.i6174, %28 ]
+  %.sroa.0.1.i.i6268 = phi i64 [ %.sroa.0.1.i.i, %23 ], [ %0, %_ZN4abslgeENS_8DurationES0_.exit ], [ -9223372036854775808, %28 ]
   %34 = icmp slt i64 %2, 0
   br i1 %34, label %35, label %_ZN4abslltENS_8DurationES0_.exit.thread.i
 
@@ -1159,7 +1159,7 @@ _ZN4absl11AbsDurationENS_8DurationE.exit:         ; preds = %35, %36, %38, %40, 
   %.fca.1.insert.merged.i = phi { i64, i32 } [ %44, %_ZN4abslltENS_8DurationES0_.exit.thread.i ], [ %.fca.1.insert.i.i.i, %38 ], [ %.fca.1.insert.i.i.i.i, %40 ], [ { i64 9223372036854775807, i32 -1 }, %36 ], [ { i64 9223372036854775807, i32 -1 }, %35 ]
   %.fca.0.extract7 = extractvalue { i64, i32 } %.fca.1.insert.merged.i, 0
   %.fca.1.extract8 = extractvalue { i64, i32 } %.fca.1.insert.merged.i, 1
-  %45 = icmp eq i32 %.sroa.6.0.i.i6067, -1
+  %45 = icmp eq i32 %.sroa.6.0.i.i6069, -1
   br i1 %45, label %_ZN4abslplENS_8DurationES0_.exit, label %46
 
 46:                                               ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit
@@ -1167,25 +1167,25 @@ _ZN4absl11AbsDurationENS_8DurationE.exit:         ; preds = %35, %36, %38, %40, 
   br i1 %47, label %_ZN4abslplENS_8DurationES0_.exit, label %48
 
 48:                                               ; preds = %46
-  %49 = add i64 %.fca.0.extract7, %.sroa.0.1.i.i6266
-  %50 = zext i32 %.sroa.6.0.i.i6067 to i64
+  %49 = add i64 %.fca.0.extract7, %.sroa.0.1.i.i6268
+  %50 = zext i32 %.sroa.6.0.i.i6069 to i64
   %51 = zext i32 %.fca.1.extract8 to i64
   %52 = sub nsw i64 4000000000, %51
   %.not.i.i54 = icmp sle i64 %52, %50
-  %53 = add i32 %.sroa.6.0.i.i6067, 294967296
+  %53 = add i32 %.sroa.6.0.i.i6069, 294967296
   %54 = zext i1 %.not.i.i54 to i64
   %.sroa.0.0.i = add i64 %49, %54
-  %55 = select i1 %.not.i.i54, i32 %53, i32 %.sroa.6.0.i.i6067
+  %55 = select i1 %.not.i.i54, i32 %53, i32 %.sroa.6.0.i.i6069
   %56 = add i32 %55, %.fca.1.extract8
   %57 = icmp slt i64 %.fca.0.extract7, 0
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %48
-  %59 = icmp sgt i64 %.sroa.0.0.i, %.sroa.0.1.i.i6266
+  %59 = icmp sgt i64 %.sroa.0.0.i, %.sroa.0.1.i.i6268
   br i1 %59, label %_ZN4abslngENS_8DurationE.exit.i.i, label %_ZN4abslplENS_8DurationES0_.exit
 
 60:                                               ; preds = %48
-  %61 = icmp slt i64 %.sroa.0.0.i, %.sroa.0.1.i.i6266
+  %61 = icmp slt i64 %.sroa.0.0.i, %.sroa.0.1.i.i6268
   br i1 %61, label %_ZN4abslngENS_8DurationE.exit.i.i, label %_ZN4abslplENS_8DurationES0_.exit
 
 _ZN4abslngENS_8DurationE.exit.i.i:                ; preds = %60, %58
@@ -1196,13 +1196,13 @@ _ZN4abslngENS_8DurationE.exit.i.i:                ; preds = %60, %58
 
 _ZN4abslplENS_8DurationES0_.exit:                 ; preds = %_ZN4absl11AbsDurationENS_8DurationE.exit, %46, %58, %60, %_ZN4abslngENS_8DurationE.exit.i.i
   %.sroa.6.0.i = phi i32 [ -1, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %56, %58 ], [ %56, %60 ], [ %.sroa.5.0.i.i, %_ZN4abslngENS_8DurationE.exit.i.i ], [ -1, %46 ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.1.i.i6266, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %.sroa.0.0.i, %58 ], [ %.sroa.0.0.i, %60 ], [ %.sroa.013.0.i.i, %_ZN4abslngENS_8DurationE.exit.i.i ], [ %.fca.0.extract7, %46 ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.1.i.i6268, %_ZN4absl11AbsDurationENS_8DurationE.exit ], [ %.sroa.0.0.i, %58 ], [ %.sroa.0.0.i, %60 ], [ %.sroa.013.0.i.i, %_ZN4abslngENS_8DurationE.exit.i.i ], [ %.fca.0.extract7, %46 ]
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.1.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.6.0.i, 1
   br label %_ZN4abslgeENS_8DurationES0_.exit.thread
 
 _ZN4abslgeENS_8DurationES0_.exit.thread:          ; preds = %.thread, %28, %23, %_ZN4abslgeENS_8DurationES0_.exit, %_ZN4abslplENS_8DurationES0_.exit
-  %.fca.1.insert.merged = phi { i64, i32 } [ %.fca.1.insert.i, %_ZN4abslplENS_8DurationES0_.exit ], [ %.fca.1.insert.i35.i, %_ZN4abslgeENS_8DurationES0_.exit ], [ %.fca.1.insert.i35.i, %23 ], [ %.fca.1.insert.i35.i6570, %28 ], [ %.fca.1.insert.i35.i58, %.thread ]
+  %.fca.1.insert.merged = phi { i64, i32 } [ %.fca.1.insert.i, %_ZN4abslplENS_8DurationES0_.exit ], [ %.fca.1.insert.i35.i, %_ZN4abslgeENS_8DurationES0_.exit ], [ %.fca.1.insert.i35.i, %23 ], [ %.fca.1.insert.i35.i6572, %28 ], [ %.fca.1.insert.i35.i58, %.thread ]
   ret { i64, i32 } %.fca.1.insert.merged
 }
 
@@ -1501,7 +1501,7 @@ _ZN4absl10ToTimespecENS_8DurationE.exit.thread35: ; preds = %4
 10:                                               ; preds = %2
   %11 = icmp sgt i64 %0, -1
   %spec.select = select i1 %11, i64 9223372036854775807, i64 -9223372036854775808
-  %spec.select45 = select i1 %11, i32 999999999, i32 999
+  %spec.select47 = select i1 %11, i32 999999999, i32 999
   br label %_ZN4absl10ToTimespecENS_8DurationE.exit.thread25
 
 _ZN4absl10ToTimespecENS_8DurationE.exit:          ; preds = %7
@@ -1526,7 +1526,7 @@ _ZN4absl10ToTimespecENS_8DurationE.exit.thread:   ; preds = %7
 
 _ZN4absl10ToTimespecENS_8DurationE.exit.thread25: ; preds = %10, %_ZN4absl10ToTimespecENS_8DurationE.exit, %_ZN4absl10ToTimespecENS_8DurationE.exit.thread35, %_ZN4absl10ToTimespecENS_8DurationE.exit.thread, %19
   %.sroa.03.0 = phi i64 [ %20, %19 ], [ %0, %_ZN4absl10ToTimespecENS_8DurationE.exit.thread ], [ %0, %_ZN4absl10ToTimespecENS_8DurationE.exit.thread35 ], [ %12, %_ZN4absl10ToTimespecENS_8DurationE.exit ], [ %spec.select, %10 ]
-  %.sroa.9.0 = phi i32 [ %21, %19 ], [ %17, %_ZN4absl10ToTimespecENS_8DurationE.exit.thread ], [ %6, %_ZN4absl10ToTimespecENS_8DurationE.exit.thread35 ], [ %spec.select42, %_ZN4absl10ToTimespecENS_8DurationE.exit ], [ %spec.select45, %10 ]
+  %.sroa.9.0 = phi i32 [ %21, %19 ], [ %17, %_ZN4absl10ToTimespecENS_8DurationE.exit.thread ], [ %6, %_ZN4absl10ToTimespecENS_8DurationE.exit.thread35 ], [ %spec.select42, %_ZN4absl10ToTimespecENS_8DurationE.exit ], [ %spec.select47, %10 ]
   %22 = udiv i32 %.sroa.9.0, 1000
   %.zext = zext nneg i32 %22 to i64
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
@@ -2325,8 +2325,8 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.th
   ]
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread
-  %lhsc229 = load i8, ptr %.sroa.9.0156, align 1
-  %10 = icmp eq i8 %lhsc229, 48
+  %lhsc234 = load i8, ptr %.sroa.9.0156, align 1
+  %10 = icmp eq i8 %lhsc234, 48
   br i1 %10, label %.critedge.sink.split, label %.lr.ph.i.preheader.lr.ph
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i76: ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit75.thread

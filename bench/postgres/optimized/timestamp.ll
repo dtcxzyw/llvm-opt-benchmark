@@ -1425,7 +1425,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
 44:                                               ; preds = %37
   %45 = srem i32 %39, 100
   %.not41 = icmp eq i32 %45, 0
-  br i1 %.not41, label %46, label %.thread58
+  br i1 %.not41, label %46, label %.thread62
 
 46:                                               ; preds = %44
   %47 = srem i32 %39, 400
@@ -1439,7 +1439,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %55 = icmp sgt i32 %41, %54
   br i1 %55, label %66, label %75
 
-.thread58:                                        ; preds = %44
+.thread62:                                        ; preds = %44
   %56 = add nsw i32 %38, -1
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw [13 x i32], ptr getelementptr inbounds nuw (i8, ptr @day_tab, i64 52), i64 0, i64 %57
@@ -1461,17 +1461,17 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %69 = zext i1 %68 to i64
   br label %.thread45
 
-.thread45:                                        ; preds = %.thread58, %.thread, %66
-  %70 = phi i64 [ %52, %66 ], [ %62, %.thread ], [ %57, %.thread58 ]
-  %71 = phi i64 [ %69, %66 ], [ 0, %.thread ], [ 1, %.thread58 ]
+.thread45:                                        ; preds = %.thread62, %.thread, %66
+  %70 = phi i64 [ %52, %66 ], [ %62, %.thread ], [ %57, %.thread62 ]
+  %71 = phi i64 [ %69, %66 ], [ 0, %.thread ], [ 1, %.thread62 ]
   %72 = getelementptr inbounds nuw [2 x [13 x i32]], ptr @day_tab, i64 0, i64 %71
   %73 = getelementptr inbounds nuw [13 x i32], ptr %72, i64 0, i64 %70
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %40, align 4
   br label %75
 
-75:                                               ; preds = %.thread58, %.thread, %.thread45, %46
-  %76 = phi i32 [ %41, %.thread ], [ %74, %.thread45 ], [ %41, %46 ], [ %41, %.thread58 ]
+75:                                               ; preds = %.thread62, %.thread, %.thread45, %46
+  %76 = phi i32 [ %41, %.thread ], [ %74, %.thread45 ], [ %41, %46 ], [ %41, %.thread62 ]
   %77 = load i32, ptr %5, align 4
   %78 = icmp sgt i32 %39, -4713
   br i1 %78, label %82, label %79

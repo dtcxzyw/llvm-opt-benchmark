@@ -83,19 +83,19 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load float, ptr %21, align 4
   %23 = fcmp ugt float %1, %22
-  br i1 %23, label %24, label %.loopexit.split.loop.exit34
+  br i1 %23, label %24, label %.loopexit.split.loop.exit38
 
 24:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-.loopexit.split.loop.exit34:                      ; preds = %.lr.ph
+.loopexit.split.loop.exit38:                      ; preds = %.lr.ph
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %.loopexit.split.loop.exit34, %.preheader
-  %.021.lcssa = phi i32 [ 0, %.preheader ], [ %25, %.loopexit.split.loop.exit34 ], [ %5, %24 ]
+.loopexit:                                        ; preds = %24, %.loopexit.split.loop.exit38, %.preheader
+  %.021.lcssa = phi i32 [ 0, %.preheader ], [ %25, %.loopexit.split.loop.exit38 ], [ %5, %24 ]
   %26 = sub nsw i32 %5, %.021.lcssa
   %27 = sub nsw i32 7, %.021.lcssa
   %28 = tail call noundef i32 @llvm.smin.i32(i32 %26, i32 %27)
@@ -252,19 +252,19 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load float, ptr %58, align 4
   %60 = fcmp ugt float %40, %59
-  br i1 %60, label %61, label %.loopexit.split.loop.exit34.i
+  br i1 %60, label %61, label %.loopexit.split.loop.exit38.i
 
 61:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
-.loopexit.split.loop.exit34.i:                    ; preds = %.lr.ph.i
+.loopexit.split.loop.exit38.i:                    ; preds = %.lr.ph.i
   %62 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %61, %.loopexit.split.loop.exit34.i, %.preheader.i
-  %.021.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %62, %.loopexit.split.loop.exit34.i ], [ %43, %61 ]
+.loopexit.i:                                      ; preds = %61, %.loopexit.split.loop.exit38.i, %.preheader.i
+  %.021.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %62, %.loopexit.split.loop.exit38.i ], [ %43, %61 ]
   %63 = sub nsw i32 %43, %.021.lcssa.i
   %64 = sub nsw i32 7, %.021.lcssa.i
   %65 = call noundef i32 @llvm.smin.i32(i32 %63, i32 %64)

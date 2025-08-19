@@ -496,13 +496,13 @@ ocb_double.exit.i:                                ; preds = %40
   br label %ocb_lookup_l.exit
 
 ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, %._crit_edge.i
-  %.0.lcssa.i70 = phi i64 [ %23, %ocb_ntz.exit ], [ %23, %._crit_edge.i ], [ 0, %18 ]
+  %.0.lcssa.i77 = phi i64 [ %23, %ocb_ntz.exit ], [ %23, %._crit_edge.i ], [ 0, %18 ]
   %52 = load ptr, ptr %11, align 8, !tbaa !11
   %.not56 = icmp eq ptr %52, null
   br i1 %.not56, label %.critedge, label %53
 
 53:                                               ; preds = %ocb_lookup_l.exit
-  %54 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %52, i64 %.0.lcssa.i70
+  %54 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %52, i64 %.0.lcssa.i77
   %55 = load i64, ptr %12, align 8, !tbaa !17
   %56 = load i64, ptr %54, align 8, !tbaa !17
   %57 = xor i64 %56, %55
@@ -805,13 +805,13 @@ ocb_double.exit.i110:                             ; preds = %91
   br label %ocb_lookup_l.exit114
 
 ocb_lookup_l.exit114:                             ; preds = %69, %ocb_ntz.exit, %._crit_edge.i113
-  %.0.lcssa.i142 = phi i64 [ %74, %ocb_ntz.exit ], [ %74, %._crit_edge.i113 ], [ 0, %69 ]
+  %.0.lcssa.i155 = phi i64 [ %74, %ocb_ntz.exit ], [ %74, %._crit_edge.i113 ], [ 0, %69 ]
   %103 = load ptr, ptr %62, align 8, !tbaa !11
   %.not90 = icmp eq ptr %103, null
   br i1 %.not90, label %.critedge95, label %104
 
 104:                                              ; preds = %ocb_lookup_l.exit114
-  %105 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %103, i64 %.0.lcssa.i142
+  %105 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %103, i64 %.0.lcssa.i155
   %106 = load i64, ptr %63, align 8, !tbaa !17
   %107 = load i64, ptr %105, align 8, !tbaa !17
   %108 = xor i64 %107, %106
@@ -1151,7 +1151,7 @@ ocb_lookup_l.exit117:                             ; preds = %ocb_double.exit.i11
   br label %106
 
 ocb_lookup_l.exit117.thread129:                   ; preds = %70, %ocb_ntz.exit
-  %.0.lcssa.i157 = phi i64 [ %75, %ocb_ntz.exit ], [ 0, %70 ]
+  %.0.lcssa.i170 = phi i64 [ %75, %ocb_ntz.exit ], [ 0, %70 ]
   %105 = load ptr, ptr %61, align 8, !tbaa !11
   %.not95130 = icmp eq ptr %105, null
   br i1 %.not95130, label %.thread131, label %106
@@ -1161,9 +1161,9 @@ ocb_lookup_l.exit117.thread129:                   ; preds = %70, %ocb_ntz.exit
   br label %.critedge
 
 106:                                              ; preds = %ocb_lookup_l.exit117, %ocb_lookup_l.exit117.thread129
-  %.0.lcssa.i156 = phi i64 [ %.0.lcssa.i157, %ocb_lookup_l.exit117.thread129 ], [ %75, %ocb_lookup_l.exit117 ]
+  %.0.lcssa.i169 = phi i64 [ %.0.lcssa.i170, %ocb_lookup_l.exit117.thread129 ], [ %75, %ocb_lookup_l.exit117 ]
   %.pn = phi ptr [ %105, %ocb_lookup_l.exit117.thread129 ], [ %104, %ocb_lookup_l.exit117 ]
-  %107 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %.pn, i64 %.0.lcssa.i156
+  %107 = getelementptr inbounds nuw %union.OCB_BLOCK, ptr %.pn, i64 %.0.lcssa.i169
   %108 = load i64, ptr %63, align 8, !tbaa !17
   %109 = load i64, ptr %107, align 8, !tbaa !17
   %110 = xor i64 %109, %108

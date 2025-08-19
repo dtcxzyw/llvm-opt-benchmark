@@ -700,12 +700,12 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN74_$LT$crossterm..terminal..Clear$u20$as$u20$crossterm..command..Command$GT$10write_ansi17h4446f88f285a9645E", i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN74_$LT$crossterm..terminal..Clear$u20$as$u20$crossterm..command..Command$GT$10write_ansi17h4446f88f285a9645E.2", i64 0, i64 %5
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %switch.gep3 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN74_$LT$crossterm..terminal..Clear$u20$as$u20$crossterm..command..Command$GT$10write_ansi17h4446f88f285a9645E.2", i64 0, i64 %5
+  %switch.load4 = load ptr, ptr %switch.gep3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %6 = load ptr, ptr %1, align 8, !alias.scope !113, !noalias !114, !nonnull !16, !align !35, !noundef !16
-  %7 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load), !noalias !113
+  %7 = tail call noundef ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_all17h5e1a29f66be91e9cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 1 %switch.load4, i64 noundef %switch.load), !noalias !113
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %9 = icmp ne ptr %7, null

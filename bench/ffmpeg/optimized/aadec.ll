@@ -515,14 +515,14 @@ define internal range(i32 -541478725, 1) i32 @aa_read_packet(ptr noundef %0, ptr
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %55 = load i32, ptr %54, align 8, !tbaa !77
   %56 = icmp sgt i32 %55, %51
-  %spec.select47 = select i1 %56, i32 0, i32 %55
+  %spec.select50 = select i1 %56, i32 0, i32 %55
   %57 = load ptr, ptr %47, align 8, !tbaa !80
-  %58 = sext i32 %spec.select47 to i64
+  %58 = sext i32 %spec.select50 to i64
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
   store ptr %59, ptr %47, align 8, !tbaa !80
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load i32, ptr %60, align 8, !tbaa !81
-  %62 = sub nsw i32 %61, %spec.select47
+  %62 = sub nsw i32 %61, %spec.select50
   store i32 %62, ptr %60, align 8, !tbaa !81
   store i32 0, ptr %54, align 8, !tbaa !77
   br label %63
@@ -549,7 +549,7 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8, !tbaa !74
   %.not60 = icmp eq i32 %8, 0
-  br i1 %.not60, label %.critedge.thread68, label %.lr.ph
+  br i1 %.not60, label %.critedge.thread69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -574,7 +574,7 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
 .critedge:                                        ; preds = %16
   %17 = add i32 %8, -1
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %.critedge.thread68, label %19
+  br i1 %18, label %.critedge.thread69, label %19
 
 19:                                               ; preds = %.critedge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -670,9 +670,9 @@ define internal range(i32 -1, 2) i32 @aa_read_seek(ptr noundef %0, i32 %1, i64 n
   %79 = mul nsw i64 %78, 1000
   %80 = add nsw i64 %79, %76
   tail call void @avpriv_update_cur_dts(ptr noundef nonnull %0, ptr noundef nonnull %62, i64 noundef %80) #10
-  br label %.critedge.thread68
+  br label %.critedge.thread69
 
-.critedge.thread68:                               ; preds = %4, %.critedge, %74
+.critedge.thread69:                               ; preds = %4, %.critedge, %74
   %.047 = phi i32 [ 1, %74 ], [ -1, %.critedge ], [ -1, %4 ]
   ret i32 %.047
 }

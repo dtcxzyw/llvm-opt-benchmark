@@ -705,7 +705,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129identifyN
 .split.us:                                        ; preds = %14
   %45 = and i8 %44, %3
   %.not191.us230 = icmp eq i8 %45, 0
-  br i1 %.not191.us230, label %.lr.ph233, label %.loopexit264
+  br i1 %.not191.us230, label %.lr.ph233, label %.loopexit273
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit.us: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.us
   %.val.us = load ptr, ptr %38, align 8
@@ -714,7 +714,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5Lev
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, %3
   %.not191.us = icmp eq i8 %49, 0
-  br i1 %.not191.us, label %.lr.ph233, label %.loopexit264, !llvm.loop !9
+  br i1 %.not191.us, label %.lr.ph233, label %.loopexit273, !llvm.loop !9
 
 .lr.ph233:                                        ; preds = %.split.us, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit.us
   %50 = phi i16 [ %53, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit.us ], [ 0, %.split.us ]
@@ -792,7 +792,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.us: ; preds = %81, %
   %spec.select.i.i222 = select i1 %.not.i.i221, i8 %44, i8 %92
   %93 = and i8 %spec.select.i.i222, %3
   %.not191223 = icmp eq i8 %93, 0
-  br i1 %.not191223, label %.lr.ph, label %.loopexit264
+  br i1 %.not191223, label %.lr.ph, label %.loopexit273
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit
   %.val = load ptr, ptr %38, align 8
@@ -808,7 +808,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5Lev
   %spec.select.i.i = select i1 %.not.i.i, i8 %96, i8 %100
   %101 = and i8 %spec.select.i.i, %3
   %.not191 = icmp eq i8 %101, 0
-  br i1 %.not191, label %.lr.ph, label %.loopexit264, !llvm.loop !9
+  br i1 %.not191, label %.lr.ph, label %.loopexit273, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.split, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit
   %102 = phi i16 [ %105, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit ], [ 0, %.split ]
@@ -885,7 +885,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %133, %.l
   %143 = load i8, ptr %142, align 1
   br i1 %.not.i, label %.loopexit195.sink.split, label %.loopexit195.sink.split.sink.split
 
-.loopexit264:                                     ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit.us, %.split.us, %.split
+.loopexit273:                                     ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit.us, %.split.us, %.split
   %144 = phi i16 [ 1, %.split.us ], [ 1, %.split ], [ %52, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit.us ], [ %104, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit ]
   %.us-phi = phi i32 [ %30, %.split.us ], [ %30, %.split ], [ %87, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit.us ], [ %139, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit ]
   %.us-phi210 = phi i32 [ %2, %.split.us ], [ %2, %.split ], [ %84, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit.us ], [ %136, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit ]
@@ -893,10 +893,10 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %133, %.l
   %145 = icmp eq i32 %36, %.us-phi
   br i1 %145, label %.loopexit195, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit264, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153
-  %146 = phi i16 [ %157, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153 ], [ %144, %.loopexit264 ]
-  %.0115 = phi i32 [ %192, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153 ], [ %36, %.loopexit264 ]
-  %.0114 = phi i32 [ %169, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153 ], [ %1, %.loopexit264 ]
+.preheader:                                       ; preds = %.loopexit273, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153
+  %146 = phi i16 [ %157, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153 ], [ %144, %.loopexit273 ]
+  %.0115 = phi i32 [ %192, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153 ], [ %36, %.loopexit273 ]
+  %.0114 = phi i32 [ %169, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153 ], [ %1, %.loopexit273 ]
   %.val124 = load ptr, ptr %38, align 8
   %147 = sext i32 %.0115 to i64
   %148 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag", ptr %.val124, i64 %147
@@ -988,23 +988,23 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153: ; preds = %185, 
   br i1 %.not.i, label %.loopexit195.sink.split, label %.loopexit195.sink.split.sink.split
 
 .loopexit195.sink.split.sink.split:               ; preds = %194, %.split214.us
-  %.sink292 = phi i64 [ %141, %.split214.us ], [ %195, %194 ]
-  %.sink288 = phi i8 [ %143, %.split214.us ], [ %197, %194 ]
-  %.1263.ph.ph = phi i32 [ %.us-phi217, %.split214.us ], [ %.us-phi211, %194 ]
-  %.1110262.ph.ph = phi i32 [ %.us-phi215, %.split214.us ], [ %.us-phi210, %194 ]
+  %.sink301 = phi i64 [ %141, %.split214.us ], [ %195, %194 ]
+  %.sink297 = phi i8 [ %143, %.split214.us ], [ %197, %194 ]
+  %.1272.ph.ph = phi i32 [ %.us-phi217, %.split214.us ], [ %.us-phi211, %194 ]
+  %.1110271.ph.ph = phi i32 [ %.us-phi215, %.split214.us ], [ %.us-phi210, %194 ]
   %198 = load ptr, ptr %39, align 8
-  %199 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ETag", ptr %198, i64 %.sink292
+  %199 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ETag", ptr %198, i64 %.sink301
   %.sroa.0.0.copyload.i.i155 = load i8, ptr %199, align 1
   %200 = and i8 %.sroa.0.0.copyload.i.i155, 1
   %.not.i.i156 = icmp eq i8 %200, 0
-  %201 = or i8 %.sink288, 6
-  %spec.select.i.i157 = select i1 %.not.i.i156, i8 %.sink288, i8 %201
+  %201 = or i8 %.sink297, 6
+  %spec.select.i.i157 = select i1 %.not.i.i156, i8 %.sink297, i8 %201
   br label %.loopexit195.sink.split
 
 .loopexit195.sink.split:                          ; preds = %.loopexit195.sink.split.sink.split, %194, %.split214.us
   %.sroa.01.0.i134.sink = phi i8 [ %143, %.split214.us ], [ %197, %194 ], [ %spec.select.i.i157, %.loopexit195.sink.split.sink.split ]
-  %.1263.ph = phi i32 [ %.us-phi217, %.split214.us ], [ %.us-phi211, %194 ], [ %.1263.ph.ph, %.loopexit195.sink.split.sink.split ]
-  %.1110262.ph = phi i32 [ %.us-phi215, %.split214.us ], [ %.us-phi210, %194 ], [ %.1110262.ph.ph, %.loopexit195.sink.split.sink.split ]
+  %.1272.ph = phi i32 [ %.us-phi217, %.split214.us ], [ %.us-phi211, %194 ], [ %.1272.ph.ph, %.loopexit195.sink.split.sink.split ]
+  %.1110271.ph = phi i32 [ %.us-phi215, %.split214.us ], [ %.us-phi210, %194 ], [ %.1110271.ph.ph, %.loopexit195.sink.split.sink.split ]
   %202 = and i8 %.sroa.01.0.i134.sink, %3
   %.not192 = icmp eq i8 %202, 0
   %203 = getelementptr inbounds nuw i8, ptr %4, i64 6
@@ -1012,9 +1012,9 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153: ; preds = %185, 
   store i8 %204, ptr %203, align 2
   br label %.loopexit195
 
-.loopexit195:                                     ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit141, %.loopexit195.sink.split, %.loopexit264
-  %.1263 = phi i32 [ %.us-phi211, %.loopexit264 ], [ %.1263.ph, %.loopexit195.sink.split ], [ %.us-phi211, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit141 ]
-  %.1110262 = phi i32 [ %.us-phi210, %.loopexit264 ], [ %.1110262.ph, %.loopexit195.sink.split ], [ %.us-phi210, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit141 ]
+.loopexit195:                                     ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit141, %.loopexit195.sink.split, %.loopexit273
+  %.1272 = phi i32 [ %.us-phi211, %.loopexit273 ], [ %.1272.ph, %.loopexit195.sink.split ], [ %.us-phi211, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit141 ]
+  %.1110271 = phi i32 [ %.us-phi210, %.loopexit273 ], [ %.1110271.ph, %.loopexit195.sink.split ], [ %.us-phi210, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit141 ]
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %206 = load ptr, ptr %17, align 8
   %207 = getelementptr i32, ptr %206, i64 %20
@@ -1054,14 +1054,14 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit153: ; preds = %185, 
   %indvars.iv = phi i64 [ 0, %.lr.ph239.preheader ], [ %indvars.iv.next, %243 ]
   %233 = getelementptr inbounds nuw i32, ptr %225, i64 %indvars.iv
   %234 = load i32, ptr %233, align 4
-  %235 = icmp eq i32 %234, %.1263
+  %235 = icmp eq i32 %234, %.1272
   br i1 %235, label %236, label %243
 
 236:                                              ; preds = %.lr.ph239
   %237 = getelementptr inbounds nuw i16, ptr %229, i64 %indvars.iv
   %238 = load i16, ptr %237, align 2
   %239 = zext i16 %238 to i32
-  %240 = icmp eq i32 %.1110262, %239
+  %240 = icmp eq i32 %.1110271, %239
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %236
@@ -1287,8 +1287,8 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5Lev
   br i1 %132, label %.loopexit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit66, !llvm.loop !13
 
 .loopexit:                                        ; preds = %91, %71, %126, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit66, %107, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit66.us, %.split.us
-  %.us-phi7784 = phi i32 [ %.us-phi77, %.split.us ], [ %.us-phi77, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit66.us ], [ %.us-phi77, %107 ], [ %.us-phi77, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit66 ], [ %.us-phi77, %126 ], [ %57, %71 ], [ %57, %91 ]
-  %133 = trunc i32 %.us-phi7784 to i16
+  %.us-phi7791 = phi i32 [ %.us-phi77, %.split.us ], [ %.us-phi77, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit66.us ], [ %.us-phi77, %107 ], [ %.us-phi77, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_114isEdgeSingularERKNS0_3Vtr8internal5LevelEPKNS4_9FVarLevelEiNS5_4ETagE.exit66 ], [ %.us-phi77, %126 ], [ %57, %71 ], [ %57, %91 ]
+  %133 = trunc i32 %.us-phi7791 to i16
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %133, ptr %134, align 2
   ret void
@@ -3229,7 +3229,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far11SourcePatch8FinalizeEi(ptr noundef nonn
   %126 = zext nneg i8 %125 to i32
   %127 = add nuw nsw i32 %118, 1
   %128 = add nuw i32 %1, %123
-  %129 = add i32 %128, %126
+  %129 = add nuw i32 %128, %126
   %130 = sub i32 %127, %129
   %131 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
   store i32 %130, ptr %131, align 4
@@ -4251,7 +4251,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder17ComputePatchParamEiiRKNS1
   br label %61
 
 53:                                               ; preds = %.lr.ph147.split.us
-  switch i8 %43, label %.unreachabledefault201 [
+  switch i8 %43, label %.unreachabledefault204 [
     i8 3, label %58
     i8 1, label %56
     i8 2, label %54
@@ -4283,7 +4283,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder17ComputePatchParamEiiRKNS1
 .unreachabledefault:                              ; preds = %45
   unreachable
 
-.unreachabledefault201:                           ; preds = %53
+.unreachabledefault204:                           ; preds = %53
   unreachable
 
 default.unreachable:                              ; preds = %93

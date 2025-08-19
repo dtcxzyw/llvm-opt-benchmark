@@ -1573,14 +1573,14 @@ proto_item_set_generated.exit912:                 ; preds = %270, %273, %276
   br i1 %399, label %.thread, label %400
 
 400:                                              ; preds = %398, %396
-  %.sink980 = phi i32 [ 2, %396 ], [ 3, %398 ]
+  %.sink1019 = phi i32 [ 2, %396 ], [ 3, %398 ]
   %hf_stun_att_ipv6.sink = phi ptr [ @hf_stun_att_ipv4, %396 ], [ @hf_stun_att_ipv6, %398 ]
-  %.sink979 = phi i32 [ 4, %396 ], [ 16, %398 ]
+  %.sink1018 = phi i32 [ 4, %396 ], [ 16, %398 ]
   %401 = load ptr, ptr %300, align 8
   %402 = add nuw nsw i32 %.1949, 8
-  %403 = call ptr @tvb_address_to_str(ptr noundef %401, ptr noundef %0, i32 noundef %.sink980, i32 noundef %402)
+  %403 = call ptr @tvb_address_to_str(ptr noundef %401, ptr noundef %0, i32 noundef %.sink1019, i32 noundef %402)
   %404 = load i32, ptr %hf_stun_att_ipv6.sink, align 4
-  %405 = call ptr @proto_tree_add_item(ptr noundef %.0819, i32 noundef %404, ptr noundef %0, i32 noundef %402, i32 noundef %.sink979, i32 noundef 0)
+  %405 = call ptr @proto_tree_add_item(ptr noundef %.0819, i32 noundef %404, ptr noundef %0, i32 noundef %402, i32 noundef %.sink1018, i32 noundef 0)
   %.not887 = icmp eq ptr %403, null
   br i1 %.not887, label %.thread, label %406
 
@@ -1606,8 +1606,8 @@ proto_item_set_generated.exit912:                 ; preds = %270, %273, %276
   %417 = trunc nuw i8 %416 to i1
   %418 = load i8, ptr %14, align 1, !range !6
   %419 = trunc nuw i8 %418 to i1
-  %brmerge990 = select i1 %417, i1 true, i1 %419
-  br i1 %brmerge990, label %.sink.split, label %421
+  %brmerge1029 = select i1 %417, i1 true, i1 %419
+  br i1 %brmerge1029, label %.sink.split, label %421
 
 .sink.split:                                      ; preds = %411
   %or.cond12 = select i1 %417, i1 %419, i1 false
@@ -1885,13 +1885,13 @@ proto_item_set_generated.exit915:                 ; preds = %540, %549, %552
   %566 = load i32, ptr @hf_stun_att_ipv4, align 4
   %567 = call ptr @proto_tree_add_ipv4(ptr noundef %.0819, i32 noundef %566, ptr noundef %0, i32 noundef %561, i32 noundef 4, i32 noundef %565)
   %.not.i916 = icmp eq ptr %567, null
-  br i1 %.not.i916, label %.thread965.sink.split, label %568
+  br i1 %.not.i916, label %.thread1004.sink.split, label %568
 
 568:                                              ; preds = %559
   %569 = getelementptr inbounds nuw i8, ptr %567, i64 40
   %570 = load ptr, ptr %569, align 8
   %.not5.i917 = icmp eq ptr %570, null
-  br i1 %.not5.i917, label %.thread965.sink.split, label %.thread965.sink.split.sink.split
+  br i1 %.not5.i917, label %.thread1004.sink.split, label %.thread1004.sink.split.sink.split
 
 571:                                              ; preds = %557
   %572 = icmp ult i16 %304, 20
@@ -1924,13 +1924,13 @@ proto_item_set_generated.exit915:                 ; preds = %540, %549, %552
   %592 = load i32, ptr @hf_stun_att_ipv6, align 4
   %593 = call ptr @proto_tree_add_ipv6(ptr noundef %.0819, i32 noundef %592, ptr noundef %0, i32 noundef %575, i32 noundef 16, ptr noundef nonnull %7)
   %.not.i919 = icmp eq ptr %593, null
-  br i1 %.not.i919, label %.thread965.sink.split, label %594
+  br i1 %.not.i919, label %.thread1004.sink.split, label %594
 
 594:                                              ; preds = %573
   %595 = getelementptr inbounds nuw i8, ptr %593, i64 40
   %596 = load ptr, ptr %595, align 8
   %.not5.i920 = icmp eq ptr %596, null
-  br i1 %.not5.i920, label %.thread965.sink.split, label %.thread965.sink.split.sink.split
+  br i1 %.not5.i920, label %.thread1004.sink.split, label %.thread1004.sink.split.sink.split
 
 .thread929:                                       ; preds = %557
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -1939,28 +1939,28 @@ proto_item_set_generated.exit915:                 ; preds = %540, %549, %552
 597:                                              ; preds = %571
   %.pr.pre = load i32, ptr %8, align 8
   %598 = icmp eq i32 %.pr.pre, 0
-  br i1 %598, label %.thread, label %.thread965
+  br i1 %598, label %.thread, label %.thread1004
 
-.thread965.sink.split.sink.split:                 ; preds = %594, %568
-  %.sink989 = phi ptr [ %570, %568 ], [ %596, %594 ]
-  %.sink982.ph = phi i32 [ 2, %568 ], [ 3, %594 ]
+.thread1004.sink.split.sink.split:                ; preds = %594, %568
+  %.sink1028 = phi ptr [ %570, %568 ], [ %596, %594 ]
+  %.sink1021.ph = phi i32 [ 2, %568 ], [ 3, %594 ]
   %.sink.ph = phi i32 [ 4, %568 ], [ 16, %594 ]
-  %599 = getelementptr inbounds nuw i8, ptr %.sink989, i64 28
+  %599 = getelementptr inbounds nuw i8, ptr %.sink1028, i64 28
   %600 = load i32, ptr %599, align 4
   %601 = or i32 %600, 2
   store i32 %601, ptr %599, align 4
-  br label %.thread965.sink.split
+  br label %.thread1004.sink.split
 
-.thread965.sink.split:                            ; preds = %.thread965.sink.split.sink.split, %594, %573, %568, %559
-  %.sink982 = phi i32 [ 2, %559 ], [ 2, %568 ], [ 3, %573 ], [ 3, %594 ], [ %.sink982.ph, %.thread965.sink.split.sink.split ]
-  %.sink = phi i32 [ 4, %559 ], [ 4, %568 ], [ 16, %573 ], [ 16, %594 ], [ %.sink.ph, %.thread965.sink.split.sink.split ]
-  store i32 %.sink982, ptr %8, align 8
+.thread1004.sink.split:                           ; preds = %.thread1004.sink.split.sink.split, %594, %573, %568, %559
+  %.sink1021 = phi i32 [ 2, %559 ], [ 2, %568 ], [ 3, %573 ], [ 3, %594 ], [ %.sink1021.ph, %.thread1004.sink.split.sink.split ]
+  %.sink = phi i32 [ 4, %559 ], [ 4, %568 ], [ 16, %573 ], [ 16, %594 ], [ %.sink.ph, %.thread1004.sink.split.sink.split ]
+  store i32 %.sink1021, ptr %8, align 8
   store i32 %.sink, ptr %297, align 4
   store ptr %7, ptr %298, align 8
   store ptr null, ptr %299, align 8
-  br label %.thread965
+  br label %.thread1004
 
-.thread965:                                       ; preds = %.thread965.sink.split, %597
+.thread1004:                                      ; preds = %.thread1004.sink.split, %597
   %602 = load ptr, ptr %300, align 8
   %603 = call ptr @address_to_str(ptr noundef %602, ptr noundef nonnull %8)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0819, ptr noundef nonnull @.str.282, ptr noundef %603, i32 noundef %547)
@@ -2300,8 +2300,8 @@ proto_item_set_generated.exit915:                 ; preds = %540, %549, %552
   %822 = call ptr @proto_tree_add_item(ptr noundef %.0819, i32 noundef %821, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef %342, i32 noundef 0)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph947, %.preheader, %398, %396, %390, %.thread929, %666, %673, %667, %379, %381, %385, %406, %400, %819, %820, %714, %706, %701, %690, %678, %676, %661, %652, %647, %633, %625, %620, %615, %607, %605, %597, %.thread965, %proto_item_set_generated.exit915, %535, %531, %529, %448, %443, %439, %437, %432, %423, %355, %362, %372, %360, %370, %350, %346, %344, %813, %810, %807, %795, %792, %789, %778, %765, %753, %750, %744, %738, %732, %727, %722, %716, %708, %703, %692, %682, %663, %654, %649, %644, %641, %635, %630, %627, %622, %617, %611, %.thread925, %482, %475, %461, %434, %421, %376
-  %.3 = phi i1 [ %.1835948, %820 ], [ %.1835948, %819 ], [ %.1835948, %344 ], [ %.1835948, %346 ], [ %.1835948, %350 ], [ %.1835948, %355 ], [ %.1835948, %360 ], [ %.1835948, %362 ], [ %.1835948, %370 ], [ %.1835948, %372 ], [ %.1835948, %376 ], [ %.1835948, %421 ], [ %.1835948, %423 ], [ %.1835948, %432 ], [ %.1835948, %434 ], [ %.1835948, %437 ], [ %.1835948, %439 ], [ %.1835948, %443 ], [ %.1835948, %448 ], [ %.1835948, %461 ], [ %.1835948, %475 ], [ %.1835948, %482 ], [ %.1835948, %.thread925 ], [ %.2836, %529 ], [ %.2836, %531 ], [ %.2836, %535 ], [ %.2836, %proto_item_set_generated.exit915 ], [ %.2836, %.thread965 ], [ %.2836, %597 ], [ %.1835948, %605 ], [ %.1835948, %607 ], [ %.1835948, %611 ], [ %.1835948, %615 ], [ true, %617 ], [ %.1835948, %620 ], [ true, %622 ], [ %.1835948, %625 ], [ %.1835948, %627 ], [ %.1835948, %630 ], [ %.1835948, %633 ], [ %.1835948, %635 ], [ %.1835948, %641 ], [ %.1835948, %644 ], [ %.1835948, %647 ], [ %.1835948, %649 ], [ %.1835948, %652 ], [ %.1835948, %654 ], [ %.1835948, %661 ], [ %.1835948, %663 ], [ %.1835948, %676 ], [ %.1835948, %678 ], [ true, %682 ], [ %.1835948, %690 ], [ true, %692 ], [ %.1835948, %701 ], [ %.1835948, %703 ], [ %.1835948, %706 ], [ true, %708 ], [ %.1835948, %714 ], [ true, %716 ], [ %.1835948, %722 ], [ %.1835948, %727 ], [ %.1835948, %732 ], [ %.1835948, %738 ], [ %.1835948, %744 ], [ %.1835948, %750 ], [ %.1835948, %753 ], [ %.1835948, %765 ], [ %.1835948, %778 ], [ %.1835948, %789 ], [ %.1835948, %792 ], [ %.1835948, %795 ], [ %.1835948, %807 ], [ true, %810 ], [ %.1835948, %813 ], [ %.1835948, %400 ], [ %.1835948, %406 ], [ %.1835948, %385 ], [ %.1835948, %381 ], [ %.1835948, %379 ], [ true, %667 ], [ true, %673 ], [ true, %666 ], [ %.2836, %.thread929 ], [ %.1835948, %390 ], [ %.1835948, %396 ], [ %.1835948, %398 ], [ %.1835948, %.preheader ], [ %.1835948, %.lr.ph947 ]
+.thread:                                          ; preds = %.lr.ph947, %.preheader, %398, %396, %390, %.thread929, %666, %673, %667, %379, %381, %385, %406, %400, %819, %820, %714, %706, %701, %690, %678, %676, %661, %652, %647, %633, %625, %620, %615, %607, %605, %597, %.thread1004, %proto_item_set_generated.exit915, %535, %531, %529, %448, %443, %439, %437, %432, %423, %355, %362, %372, %360, %370, %350, %346, %344, %813, %810, %807, %795, %792, %789, %778, %765, %753, %750, %744, %738, %732, %727, %722, %716, %708, %703, %692, %682, %663, %654, %649, %644, %641, %635, %630, %627, %622, %617, %611, %.thread925, %482, %475, %461, %434, %421, %376
+  %.3 = phi i1 [ %.1835948, %820 ], [ %.1835948, %819 ], [ %.1835948, %344 ], [ %.1835948, %346 ], [ %.1835948, %350 ], [ %.1835948, %355 ], [ %.1835948, %360 ], [ %.1835948, %362 ], [ %.1835948, %370 ], [ %.1835948, %372 ], [ %.1835948, %376 ], [ %.1835948, %421 ], [ %.1835948, %423 ], [ %.1835948, %432 ], [ %.1835948, %434 ], [ %.1835948, %437 ], [ %.1835948, %439 ], [ %.1835948, %443 ], [ %.1835948, %448 ], [ %.1835948, %461 ], [ %.1835948, %475 ], [ %.1835948, %482 ], [ %.1835948, %.thread925 ], [ %.2836, %529 ], [ %.2836, %531 ], [ %.2836, %535 ], [ %.2836, %proto_item_set_generated.exit915 ], [ %.2836, %.thread1004 ], [ %.2836, %597 ], [ %.1835948, %605 ], [ %.1835948, %607 ], [ %.1835948, %611 ], [ %.1835948, %615 ], [ true, %617 ], [ %.1835948, %620 ], [ true, %622 ], [ %.1835948, %625 ], [ %.1835948, %627 ], [ %.1835948, %630 ], [ %.1835948, %633 ], [ %.1835948, %635 ], [ %.1835948, %641 ], [ %.1835948, %644 ], [ %.1835948, %647 ], [ %.1835948, %649 ], [ %.1835948, %652 ], [ %.1835948, %654 ], [ %.1835948, %661 ], [ %.1835948, %663 ], [ %.1835948, %676 ], [ %.1835948, %678 ], [ true, %682 ], [ %.1835948, %690 ], [ true, %692 ], [ %.1835948, %701 ], [ %.1835948, %703 ], [ %.1835948, %706 ], [ true, %708 ], [ %.1835948, %714 ], [ true, %716 ], [ %.1835948, %722 ], [ %.1835948, %727 ], [ %.1835948, %732 ], [ %.1835948, %738 ], [ %.1835948, %744 ], [ %.1835948, %750 ], [ %.1835948, %753 ], [ %.1835948, %765 ], [ %.1835948, %778 ], [ %.1835948, %789 ], [ %.1835948, %792 ], [ %.1835948, %795 ], [ %.1835948, %807 ], [ true, %810 ], [ %.1835948, %813 ], [ %.1835948, %400 ], [ %.1835948, %406 ], [ %.1835948, %385 ], [ %.1835948, %381 ], [ %.1835948, %379 ], [ true, %667 ], [ true, %673 ], [ true, %666 ], [ %.2836, %.thread929 ], [ %.1835948, %390 ], [ %.1835948, %396 ], [ %.1835948, %398 ], [ %.1835948, %.preheader ], [ %.1835948, %.lr.ph947 ]
   %823 = icmp ult i16 %304, %.0821
   %or.cond895 = select i1 %280, i1 %823, i1 false
   br i1 %or.cond895, label %824, label %829
@@ -2332,20 +2332,20 @@ proto_item_set_generated.exit915:                 ; preds = %540, %549, %552
   %835 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %836 = load i32, ptr %835, align 8
   switch i32 %836, label %839 [
-    i32 2, label %.sink.split983
+    i32 2, label %.sink.split1022
     i32 3, label %837
   ]
 
 837:                                              ; preds = %834
-  br label %.sink.split983
+  br label %.sink.split1022
 
-.sink.split983:                                   ; preds = %834, %837
+.sink.split1022:                                  ; preds = %834, %837
   %stun_tcp_handle.sink = phi ptr [ @stun_udp_handle, %837 ], [ @stun_tcp_handle, %834 ]
   %838 = load ptr, ptr %stun_tcp_handle.sink, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %115, ptr noundef %838)
   br label %839
 
-839:                                              ; preds = %.sink.split983, %834, %.loopexit
+839:                                              ; preds = %.sink.split1022, %834, %.loopexit
   %840 = load ptr, ptr %125, align 8
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 57
   %842 = load i16, ptr %841, align 1

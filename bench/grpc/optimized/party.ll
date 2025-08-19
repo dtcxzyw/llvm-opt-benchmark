@@ -414,12 +414,12 @@ define noundef zeroext i1 @_ZN9grpc_core5Party15SpawnSerializer22PollParticipant
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %9
-  %.pr20 = phi ptr [ %11, %9 ], [ %3, %1 ]
+  %.pr22 = phi ptr [ %11, %9 ], [ %3, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit8
-  %14 = phi ptr [ %.pr20, %.lr.ph ], [ %22, %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit8 ]
+  %14 = phi ptr [ %.pr22, %.lr.ph ], [ %22, %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit8 ]
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %14)
@@ -466,10 +466,10 @@ define void @_ZN9grpc_core5Party15SpawnSerializer7DestroyEv(ptr noundef nonnull 
 8:                                                ; preds = %4, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.0.i.i.i11 = inttoptr i64 %10 to ptr
-  %11 = load atomic i64, ptr %.0.i.i.i11 acquire, align 8
-  %.not812 = icmp eq i64 %11, 0
-  br i1 %.not812, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit.thread, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit
+  %.0.i.i.i14 = inttoptr i64 %10 to ptr
+  %11 = load atomic i64, ptr %.0.i.i.i14 acquire, align 8
+  %.not815 = icmp eq i64 %11, 0
+  br i1 %.not815, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit.thread, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit
 
 _ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit: ; preds = %8, %15
   %12 = phi i64 [ %20, %15 ], [ %11, %8 ]

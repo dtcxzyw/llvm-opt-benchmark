@@ -458,11 +458,11 @@ extradata2psets.exit.i:                           ; preds = %142, %._crit_edge.i
   br label %.thread5.sink.split.i
 
 .thread5.sink.split.i:                            ; preds = %154, %151
-  %.sink41.i = phi i32 [ 288, %154 ], [ 144, %151 ]
+  %.sink74.i = phi i32 [ 288, %154 ], [ 144, %151 ]
   %.str.26.sink.i = phi ptr [ @.str.27, %154 ], [ @.str.26, %151 ]
   %155 = getelementptr inbounds nuw i8, ptr %.val, i64 76
   %156 = load i32, ptr %155, align 4, !tbaa !53
-  %157 = icmp ne i32 %156, %.sink41.i
+  %157 = icmp ne i32 %156, %.sink74.i
   %spec.select18.i = select i1 %157, ptr null, ptr %.str.26.sink.i
   br label %.thread5.i
 
@@ -1264,14 +1264,14 @@ sdp_write_header.exit:                            ; preds = %18, %28
   br i1 %42, label %.lr.ph103.preheader, label %.loopexit
 
 .lr.ph103.preheader:                              ; preds = %sdp_write_header.exit.thread, %sdp_write_header.exit
-  %.05688115 = phi i32 [ %25, %sdp_write_header.exit.thread ], [ %.056.ph, %sdp_write_header.exit ]
+  %.05688120 = phi i32 [ %25, %sdp_write_header.exit.thread ], [ %.056.ph, %sdp_write_header.exit ]
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %._crit_edge
   %indvars.iv110 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next111, %._crit_edge ]
   %.054102 = phi i32 [ 0, %.lr.ph103.preheader ], [ %.155.lcssa, %._crit_edge ]
-  %.157101 = phi i32 [ %.05688115, %.lr.ph103.preheader ], [ %.258, %._crit_edge ]
+  %.157101 = phi i32 [ %.05688120, %.lr.ph103.preheader ], [ %.258, %._crit_edge ]
   br i1 %20, label %51, label %43
 
 43:                                               ; preds = %.lr.ph103

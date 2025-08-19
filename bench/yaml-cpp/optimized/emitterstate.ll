@@ -1997,12 +1997,12 @@ _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit: ;
   ret void
 
 75:                                               ; preds = %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit36, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit11
-  %.sink51 = phi ptr [ %42, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit36 ], [ %7, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit11 ]
+  %.sink58 = phi ptr [ %42, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit36 ], [ %7, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit11 ]
   %.pn = phi { ptr, i32 } [ %74, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit36 ], [ %40, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit11 ]
-  %76 = load ptr, ptr %.sink51, align 8, !tbaa !81
+  %76 = load ptr, ptr %.sink58, align 8, !tbaa !81
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef nonnull align 8 dereferenceable(8) %.sink51) #19
+  tail call void %78(ptr noundef nonnull align 8 dereferenceable(8) %.sink58) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -2219,12 +2219,12 @@ _ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit: ;
   ret void
 
 75:                                               ; preds = %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit36, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit11
-  %.sink51 = phi ptr [ %42, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit36 ], [ %7, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit11 ]
+  %.sink58 = phi ptr [ %42, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit36 ], [ %7, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit11 ]
   %.pn = phi { ptr, i32 } [ %74, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit36 ], [ %40, %_ZNSt10unique_ptrIN4YAML17SettingChangeBaseESt14default_deleteIS1_EED2Ev.exit11 ]
-  %76 = load ptr, ptr %.sink51, align 8, !tbaa !81
+  %76 = load ptr, ptr %.sink58, align 8, !tbaa !81
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef nonnull align 8 dereferenceable(8) %.sink51) #19
+  tail call void %78(ptr noundef nonnull align 8 dereferenceable(8) %.sink58) #19
   resume { ptr, i32 } %.pn
 }
 

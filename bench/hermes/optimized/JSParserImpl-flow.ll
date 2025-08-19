@@ -1438,20 +1438,20 @@ if.end.i.i.i.i.i.i67:                             ; preds = %_ZN6hermes6ESTree4N
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end.i.i.i.i.i.i67, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit56, %if.end.i.i.i.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit34
-  %retval.0.i.i.i53.sink94 = phi ptr [ %retval.0.i.i.i31, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit34 ], [ %retval.0.i.i.i31, %if.end.i.i.i.i.i.i ], [ %retval.0.i.i.i53, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit56 ], [ %retval.0.i.i.i53, %if.end.i.i.i.i.i.i67 ]
-  %retval.sroa.0.0.copyload.i.i.sink91 = phi ptr [ %21, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit34 ], [ %21, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit56 ], [ %retval.sroa.0.0.copyload.i.i, %if.end.i.i.i.i.i.i67 ]
-  %.sink93 = inttoptr i64 %19 to ptr
-  %_body.i71 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i53.sink94, i64 80
-  store ptr %.sink93, ptr %_body.i71, align 8
-  %sourceRange_.i.i72 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i53.sink94, i64 24
-  store ptr %retval.sroa.0.0.copyload.i.i.sink91, ptr %sourceRange_.i.i72, align 8
-  %End.i.i.i73 = getelementptr inbounds nuw i8, ptr %.sink93, i64 32
+  %retval.0.i.i.i53.sink95 = phi ptr [ %retval.0.i.i.i31, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit34 ], [ %retval.0.i.i.i31, %if.end.i.i.i.i.i.i ], [ %retval.0.i.i.i53, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit56 ], [ %retval.0.i.i.i53, %if.end.i.i.i.i.i.i67 ]
+  %retval.sroa.0.0.copyload.i.i.sink92 = phi ptr [ %21, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit34 ], [ %21, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit56 ], [ %retval.sroa.0.0.copyload.i.i, %if.end.i.i.i.i.i.i67 ]
+  %.sink94 = inttoptr i64 %19 to ptr
+  %_body.i71 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i53.sink95, i64 80
+  store ptr %.sink94, ptr %_body.i71, align 8
+  %sourceRange_.i.i72 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i53.sink95, i64 24
+  store ptr %retval.sroa.0.0.copyload.i.i.sink92, ptr %sourceRange_.i.i72, align 8
+  %End.i.i.i73 = getelementptr inbounds nuw i8, ptr %.sink94, i64 32
   %retval.sroa.0.0.copyload.i.i.i74 = load ptr, ptr %End.i.i.i73, align 8
-  %End.i.i75 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i53.sink94, i64 32
+  %End.i.i75 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i53.sink95, i64 32
   store ptr %retval.sroa.0.0.copyload.i.i.i74, ptr %End.i.i75, align 8
-  %debugLoc_.i.i76 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i53.sink94, i64 40
-  store ptr %retval.sroa.0.0.copyload.i.i.sink91, ptr %debugLoc_.i.i76, align 8
-  %52 = ptrtoint ptr %retval.0.i.i.i53.sink94 to i64
+  %debugLoc_.i.i76 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i53.sink95, i64 40
+  store ptr %retval.sroa.0.0.copyload.i.i.sink92, ptr %debugLoc_.i.i76, align 8
+  %52 = ptrtoint ptr %retval.0.i.i.i53.sink95 to i64
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end17, %if.then10, %entry
@@ -2666,18 +2666,18 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit66:  ; preds = %if.then.i.i.i64, %i
   br label %if.end53
 
 if.end53:                                         ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit66, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit44
-  %.sink286 = phi ptr [ %45, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit66 ], [ %30, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit44 ]
-  %retval.0.i.i.i63.sink284 = phi ptr [ %retval.0.i.i.i63, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit66 ], [ %retval.0.i.i.i41, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit44 ]
-  %range_.i.i.i70 = getelementptr inbounds nuw i8, ptr %.sink286, i64 8
+  %.sink288 = phi ptr [ %45, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit66 ], [ %30, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit44 ]
+  %retval.0.i.i.i63.sink286 = phi ptr [ %retval.0.i.i.i63, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit66 ], [ %retval.0.i.i.i41, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit44 ]
+  %range_.i.i.i70 = getelementptr inbounds nuw i8, ptr %.sink288, i64 8
   %retval.sroa.0.0.copyload.i.i.i71 = load ptr, ptr %range_.i.i.i70, align 8
-  %sourceRange_.i.i72 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i63.sink284, i64 24
+  %sourceRange_.i.i72 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i63.sink286, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i71, ptr %sourceRange_.i.i72, align 8
-  %End.i.i.i73 = getelementptr inbounds nuw i8, ptr %.sink286, i64 16
+  %End.i.i.i73 = getelementptr inbounds nuw i8, ptr %.sink288, i64 16
   %retval.sroa.0.0.copyload.i.i5.i74 = load ptr, ptr %End.i.i.i73, align 8
-  %End.i.i75 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i63.sink284, i64 32
+  %End.i.i75 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i63.sink286, i64 32
   store ptr %retval.sroa.0.0.copyload.i.i5.i74, ptr %End.i.i75, align 8
   %retval.sroa.0.0.copyload.i.i7.i76 = load ptr, ptr %range_.i.i.i70, align 8
-  %debugLoc_.i.i77 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i63.sink284, i64 40
+  %debugLoc_.i.i77 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i63.sink286, i64 40
   store ptr %retval.sroa.0.0.copyload.i.i7.i76, ptr %debugLoc_.i.i77, align 8
   %call2.i86 = tail call noundef ptr @_ZN6hermes6parser7JSLexer7advanceENS1_14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i, i32 noundef 3) #10
   store ptr %call2.i86, ptr %tok_.i, align 8
@@ -3012,7 +3012,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit214: ; preds = %if.then.i.i.i212, %
   %parens_.i.i.i216 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i211, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i216, i8 0, i64 28, i1 false)
   %_id.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i211, i64 48
-  store ptr %retval.0.i.i.i63.sink284, ptr %_id.i, align 8
+  store ptr %retval.0.i.i.i63.sink286, ptr %_id.i, align 8
   %_body.i217 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i211, i64 56
   store ptr %retval.0.i.i.i190, ptr %_body.i217, align 8
   %_kind.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i211, i64 64
@@ -3885,8 +3885,8 @@ if.end244:                                        ; preds = %if.end213
   %.pre498 = load ptr, ptr %tok_.i, align 8
   %.pre499 = load i32, ptr %.pre498, align 8
   %cmp.i367 = icmp eq i32 %.pre499, 1
-  %or.cond503 = select i1 %cmp, i1 %cmp.i367, i1 false
-  br i1 %or.cond503, label %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit371, label %if.end268
+  %or.cond504 = select i1 %cmp, i1 %cmp.i367, i1 false
+  br i1 %or.cond504, label %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit371, label %if.end268
 
 _ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit371: ; preds = %if.end244
   %typeIdent_246 = getelementptr inbounds nuw i8, ptr %this, i64 1424
@@ -5558,11 +5558,11 @@ _ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit: ; preds 
   br i1 %cmp4.i, label %if.then28, label %if.end35
 
 if.then28:                                        ; preds = %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit
-  %range_.i.i27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %retval.sroa.0.0.copyload.i.i28 = load ptr, ptr %range_.i.i27, align 8
-  %call2.i29 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl23parseRenderTypeOperatorEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %14 = extractvalue { i64, i8 } %call2.i29, 0
-  %15 = extractvalue { i64, i8 } %call2.i29, 1
+  %range_.i.i28 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %retval.sroa.0.0.copyload.i.i29 = load ptr, ptr %range_.i.i28, align 8
+  %call2.i30 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl23parseRenderTypeOperatorEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
+  %14 = extractvalue { i64, i8 } %call2.i30, 0
+  %15 = extractvalue { i64, i8 } %call2.i30, 1
   %call4.i = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl29parsePrefixTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %optBody.sroa.3.0.i = extractvalue { i64, i8 } %call4.i, 1
   %optBody.sroa.0.0.i = extractvalue { i64, i8 } %call4.i, 0
@@ -5621,11 +5621,11 @@ if.end33:                                         ; preds = %if.then.i.i.i.i, %i
   %_typeAnnotation.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 56
   store ptr %28, ptr %_typeAnnotation.i.i, align 8
   %sourceRange_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 24
-  store ptr %retval.sroa.0.0.copyload.i.i28, ptr %sourceRange_.i.i.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i.i29, ptr %sourceRange_.i.i.i, align 8
   %End.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i.i.i, ptr %End.i.i.i, align 8
   %debugLoc_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 40
-  store ptr %retval.sroa.0.0.copyload.i.i28, ptr %debugLoc_.i.i.i, align 8
+  store ptr %retval.sroa.0.0.copyload.i.i29, ptr %debugLoc_.i.i.i, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end25, %if.end33, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit
@@ -15289,9 +15289,9 @@ if.then29:                                        ; preds = %if.then24
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE, i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = zext nneg i32 %switch.tableidx. to i64
-  %switch.gep403 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.1, i64 0, i64 %11
-  %switch.load404 = load ptr, ptr %switch.gep403, align 8
-  store ptr %switch.load404, ptr %ref.tmp38, align 8
+  %switch.gep409 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.1, i64 0, i64 %11
+  %switch.load410 = load ptr, ptr %switch.gep409, align 8
+  store ptr %switch.load410, ptr %ref.tmp38, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
   store i64 %switch.load, ptr %12, align 8
   store ptr @.str.113, ptr %ref.tmp35, align 8, !alias.scope !25
@@ -15309,14 +15309,14 @@ if.then29:                                        ; preds = %if.then24
   %RHSKind6.i.i.i65 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 17
   store i8 3, ptr %RHSKind6.i.i.i65, align 1, !alias.scope !30
   %13 = zext nneg i32 %optKind.sroa.0.0 to i64
-  %switch.gep405 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.2, i64 0, i64 %13
-  %switch.load406 = load i64, ptr %switch.gep405, align 8
+  %switch.gep411 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.2, i64 0, i64 %13
+  %switch.load412 = load i64, ptr %switch.gep411, align 8
   %14 = zext nneg i32 %optKind.sroa.0.0 to i64
-  %switch.gep407 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.3, i64 0, i64 %14
-  %switch.load408 = load ptr, ptr %switch.gep407, align 8
-  store ptr %switch.load408, ptr %ref.tmp43, align 8
+  %switch.gep413 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.3, i64 0, i64 %14
+  %switch.load414 = load ptr, ptr %switch.gep413, align 8
+  store ptr %switch.load414, ptr %ref.tmp43, align 8
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 8
-  store i64 %switch.load406, ptr %15, align 8
+  store i64 %switch.load412, ptr %15, align 8
   store ptr %ref.tmp34, ptr %ref.tmp33, align 8, !alias.scope !35
   %RHS4.i.i.i103 = getelementptr inbounds nuw i8, ptr %ref.tmp33, i64 8
   store ptr %ref.tmp43, ptr %RHS4.i.i.i103, align 8, !alias.scope !35
@@ -16538,7 +16538,7 @@ if.end19.i.us61:                                  ; preds = %while.body.us50
   br i1 %cmp.i.i.us64, label %land.rhs.i.i.us65, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66
 
 land.rhs.i.i.us65:                                ; preds = %if.end19.i.us61
-  %bcmp.i.us = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.fr, ptr %agg.tmp6.sroa.0.0.copyload.us57, i64 %agg.tmp.sroa.2.0.copyload.fr)
+  %bcmp.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %agg.tmp6.sroa.0.0.copyload.us57, i64 %agg.tmp.sroa.2.0.copyload.fr)
   %2 = icmp eq i32 %bcmp.i.us, 0
   br i1 %2, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66
 
@@ -16579,7 +16579,7 @@ if.end19.i.us94:                                  ; preds = %while.body.us83
   br i1 %cmp.i.i.us97, label %land.rhs.i.i.us98, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100
 
 land.rhs.i.i.us98:                                ; preds = %if.end19.i.us94
-  %bcmp.i.us99 = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload.fr, ptr %agg.tmp6.sroa.0.0.copyload.us90, i64 %agg.tmp.sroa.2.0.copyload.fr)
+  %bcmp.i.us99 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %agg.tmp6.sroa.0.0.copyload.us90, i64 %agg.tmp.sroa.2.0.copyload.fr)
   %3 = icmp eq i32 %bcmp.i.us99, 0
   br i1 %3, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100
 

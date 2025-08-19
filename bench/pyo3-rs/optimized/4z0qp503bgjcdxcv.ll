@@ -2570,9 +2570,9 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
           to label %78 unwind label %60
 
 .sink.split:                                      ; preds = %187, %127, %120, %115, %103
-  %.sink61 = phi ptr [ %106, %103 ], [ %118, %115 ], [ %19, %120 ], [ %18, %127 ], [ %23, %187 ]
+  %.sink65 = phi ptr [ %106, %103 ], [ %118, %115 ], [ %19, %120 ], [ %18, %127 ], [ %23, %187 ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %.sink61, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %.sink65, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %78
 
@@ -2742,9 +2742,9 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
           to label %158 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 158:                                              ; preds = %157, %181
-  %.sink62 = phi ptr [ %12, %181 ], [ %15, %157 ]
+  %.sink66 = phi ptr [ %12, %181 ], [ %15, %157 ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %.sink62, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %.sink66, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$$GT$17h0f9c144e860dd2bbE"(ptr nonnull align 8 %22)
           to label %78 unwind label %60
@@ -4475,9 +4475,9 @@ define void @_ZN19pyo3_macros_backend7pyclass13build_py_enum17h60a3267f4a4b75f9E
           to label %.sink.split unwind label %162
 
 .sink.split:                                      ; preds = %166, %191, %176
-  %.sink116 = phi ptr [ %132, %176 ], [ %131, %191 ], [ %133, %166 ]
+  %.sink122 = phi ptr [ %132, %176 ], [ %131, %191 ], [ %133, %166 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %.sink116, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %.sink122, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %.invoke
 
@@ -4789,12 +4789,12 @@ _ZN19pyo3_macros_backend7pyclass18PyClassComplexEnum3new17hc45de032ef82f632E.exi
   unreachable
 
 _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit.thread.i: ; preds = %271, %250
-  %.sink20.i.i = phi ptr [ %274, %271 ], [ %252, %250 ]
-  %.sroa.337.8.copyload.i = load i64, ptr %.sink20.i.i, align 8, !noalias !18
-  %.sroa.6.8..sink20.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink20.i.i, i64 8
-  %.sroa.6.sroa.0.0.copyload.i = load i64, ptr %.sroa.6.8..sink20.i.sroa_idx.i, align 8, !noalias !18
-  %.sroa.6.sroa.4.0..sroa.6.8..sink20.i.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink20.i.i, i64 16
-  %.sroa.6.sroa.4.0.copyload.i = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.8..sink20.i.sroa_idx.sroa_idx.i, align 8, !noalias !18
+  %.sink21.i.i = phi ptr [ %274, %271 ], [ %252, %250 ]
+  %.sroa.337.8.copyload.i = load i64, ptr %.sink21.i.i, align 8, !noalias !18
+  %.sroa.6.8..sink21.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink21.i.i, i64 8
+  %.sroa.6.sroa.0.0.copyload.i = load i64, ptr %.sroa.6.8..sink21.i.sroa_idx.i, align 8, !noalias !18
+  %.sroa.6.sroa.4.0..sroa.6.8..sink21.i.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink21.i.i, i64 16
+  %.sroa.6.sroa.4.0.copyload.i = load i64, ptr %.sroa.6.sroa.4.0..sroa.6.8..sink21.i.sroa_idx.sroa_idx.i, align 8, !noalias !18
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %115)
           to label %.noexc27 unwind label %.body22.thread70
 
@@ -8222,10 +8222,10 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   %.sroa.385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 56
   %.sroa.2110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %.sink109.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %.sink109.i.sroa.gep17.i = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %.sink119.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.sink119.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %.sink111.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %.sink111.i.sroa.gep17.i = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %.sink121.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %.sink121.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %22, i64 32
   %420 = getelementptr inbounds nuw i8, ptr %92, i64 112
   %.sroa.267.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   %421 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -9308,11 +9308,11 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   br i1 %.not80.i.i, label %753, label %751
 
 751:                                              ; preds = %758, %749
-  %.sink109.i.sroa.phi.i = phi ptr [ %.sink109.i.sroa.gep.i, %758 ], [ %.sink109.i.sroa.gep17.i, %749 ]
+  %.sink111.i.sroa.phi.i = phi ptr [ %.sink111.i.sroa.gep.i, %758 ], [ %.sink111.i.sroa.gep17.i, %749 ]
   %.sroa.276.0..sroa_idx.sink.i.i = phi ptr [ %473, %758 ], [ %472, %749 ]
   %.sink.i.i = phi i64 [ %759, %758 ], [ %750, %749 ]
   %.sroa.052.9.i.i = phi i8 [ 1, %758 ], [ 0, %749 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.349.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sink109.i.sroa.phi.i, i64 160, i1 false), !noalias !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.349.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sink111.i.sroa.phi.i, i64 160, i1 false), !noalias !58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.248.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.276.0..sroa_idx.sink.i.i, i64 24, i1 false), !noalias !58
   store i64 %.sink.i.i, ptr %70, align 8, !noalias !58
   store ptr @anon.16a1457f15a8bdd65dd860daa07f2c8d.172, ptr %60, align 8, !noalias !58
@@ -9329,9 +9329,9 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   br label %.thread103.i.i
 
 753:                                              ; preds = %758, %749
-  %.sink111.i.i = phi ptr [ %473, %758 ], [ %472, %749 ]
+  %.sink113.i.i = phi ptr [ %473, %758 ], [ %472, %749 ]
   %.sroa.052.10.i.i = phi i8 [ 1, %758 ], [ 0, %749 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %461, ptr noundef nonnull align 8 dereferenceable(24) %.sink111.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %461, ptr noundef nonnull align 8 dereferenceable(24) %.sink113.i.i, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %121, align 8, !alias.scope !58
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hbdb9b0000e327673E"(ptr nonnull align 8 %77)
           to label %819 unwind label %711
@@ -9991,11 +9991,11 @@ _ZN19pyo3_macros_backend7pyclass31complex_enum_struct_variant_new17h9ee762c91a75
   br i1 %.not90.i.i, label %926, label %924
 
 924:                                              ; preds = %931, %922
-  %.sink119.i.sroa.phi.i = phi ptr [ %.sink119.i.sroa.gep.i, %931 ], [ %.sink119.i.sroa.gep18.i, %922 ]
+  %.sink121.i.sroa.phi.i = phi ptr [ %.sink121.i.sroa.gep.i, %931 ], [ %.sink121.i.sroa.gep18.i, %922 ]
   %.sroa.284.0..sroa_idx.sink.i.i = phi ptr [ %438, %931 ], [ %437, %922 ]
   %.sink.i8.i = phi i64 [ %932, %931 ], [ %923, %922 ]
   %.sroa.055.9.i.i = phi i8 [ 1, %931 ], [ 0, %922 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.352.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sink119.i.sroa.phi.i, i64 160, i1 false), !noalias !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.352.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sink121.i.sroa.phi.i, i64 160, i1 false), !noalias !62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.251.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.284.0..sroa_idx.sink.i.i, i64 24, i1 false), !noalias !62
   store i64 %.sink.i8.i, ptr %24, align 8, !noalias !62
   store ptr @anon.16a1457f15a8bdd65dd860daa07f2c8d.172, ptr %14, align 8, !noalias !62
@@ -10012,9 +10012,9 @@ _ZN19pyo3_macros_backend7pyclass31complex_enum_struct_variant_new17h9ee762c91a75
   br label %.thread113.i.i
 
 926:                                              ; preds = %931, %922
-  %.sink121.i.i = phi ptr [ %438, %931 ], [ %437, %922 ]
+  %.sink123.i.i = phi ptr [ %438, %931 ], [ %437, %922 ]
   %.sroa.055.10.i.i = phi i8 [ 1, %931 ], [ 0, %922 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %461, ptr noundef nonnull align 8 dereferenceable(24) %.sink121.i.i, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %461, ptr noundef nonnull align 8 dereferenceable(24) %.sink123.i.i, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %121, align 8, !alias.scope !62
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hbdb9b0000e327673E"(ptr nonnull align 8 %38)
           to label %992 unwind label %884
@@ -11512,7 +11512,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
 
 335:                                              ; preds = %334
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %167)
-          to label %.invoke109.i unwind label %337, !noalias !66
+          to label %.invoke113.i unwind label %337, !noalias !66
 
 336:                                              ; preds = %198
   br i1 %.sroa.026.1.i, label %454, label %450
@@ -11527,7 +11527,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17hb1abcaac77016fb1E"(ptr nonnull align 8 %170) #14
           to label %342 unwind label %345, !noalias !66
 
-340:                                              ; preds = %.invoke109.i
+340:                                              ; preds = %.invoke113.i
   %341 = landingpad { ptr, i32 }
           cleanup
   br label %339
@@ -11537,7 +11537,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hbdb9b0000e327673E"(ptr nonnull align 8 %173) #14
           to label %181 unwind label %345, !noalias !66
 
-343:                                              ; preds = %.invoke108.i
+343:                                              ; preds = %.invoke112.i
   %344 = landingpad { ptr, i32 }
           cleanup
   br label %342
@@ -11961,7 +11961,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
 
 449:                                              ; preds = %447
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$GT$$GT$17h92afdbd25b5b4462E"(ptr nonnull align 8 %168)
-          to label %.invoke109.i unwind label %451, !noalias !66
+          to label %.invoke113.i unwind label %451, !noalias !66
 
 450:                                              ; preds = %454, %451, %337, %336
   %.pn61.pn.i = phi { ptr, i32 } [ %.pn6170.i, %454 ], [ %.pn59.i, %336 ], [ %452, %451 ], [ %338, %337 ]
@@ -11973,15 +11973,15 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass29impl_complex_enum
           cleanup
   br label %450
 
-.invoke109.i:                                     ; preds = %449, %335
+.invoke113.i:                                     ; preds = %449, %335
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %169)
-          to label %.invoke108.i unwind label %340, !noalias !66
+          to label %.invoke112.i unwind label %340, !noalias !66
 
-.invoke108.i:                                     ; preds = %.invoke109.i
+.invoke112.i:                                     ; preds = %.invoke113.i
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17hb1abcaac77016fb1E"(ptr nonnull align 8 %170)
           to label %.invoke.i unwind label %343, !noalias !66
 
-.invoke.i:                                        ; preds = %.invoke108.i
+.invoke.i:                                        ; preds = %.invoke112.i
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hbdb9b0000e327673E"(ptr nonnull align 8 %173)
           to label %_ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09ed0c4a159dE.exit unwind label %182, !noalias !66
 
@@ -12783,7 +12783,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
 
 .body.i:                                          ; preds = %958, %938, %937, %624, %619
   %.sroa.020.0.i = phi i1 [ true, %958 ], [ false, %937 ], [ true, %619 ], [ true, %624 ], [ false, %938 ]
-  %.pn65.pn.i = phi { ptr, i32 } [ %.pn65146.i, %958 ], [ %.pn63.i, %937 ], [ %.pn46.pn.pn.pn.i.i, %619 ], [ %625, %624 ], [ %939, %938 ]
+  %.pn65.pn.i = phi { ptr, i32 } [ %.pn65155.i, %958 ], [ %.pn63.i, %937 ], [ %.pn46.pn.pn.pn.i.i, %619 ], [ %625, %624 ], [ %939, %938 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$alloc..vec..Vec$LT$syn..ty..Type$GT$$GT$17h27e10c2f9cf3a112E"(ptr nonnull align 8 %107) #14
           to label %941 unwind label %948, !noalias !69
 
@@ -14140,9 +14140,9 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
 
 954:                                              ; preds = %790, %679
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$syn..item..ImplItemFn$GT$$GT$17he892f10d1d96dbbeE"(ptr nonnull align 8 %105)
-          to label %956 unwind label %.thread147.i, !noalias !69
+          to label %956 unwind label %.thread156.i, !noalias !69
 
-.thread147.i:                                     ; preds = %954
+.thread156.i:                                     ; preds = %954
   %955 = landingpad { ptr, i32 }
           cleanup
   br label %958
@@ -14155,16 +14155,16 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   invoke void @"_ZN4core3ptr57drop_in_place$LT$alloc..vec..Vec$LT$syn..ty..Type$GT$$GT$17h27e10c2f9cf3a112E"(ptr nonnull align 8 %107)
           to label %959 unwind label %942, !noalias !69
 
-958:                                              ; preds = %.thread147.i, %937
-  %.pn65146.i = phi { ptr, i32 } [ %.pn63.i, %937 ], [ %955, %.thread147.i ]
+958:                                              ; preds = %.thread156.i, %937
+  %.pn65155.i = phi { ptr, i32 } [ %.pn63.i, %937 ], [ %955, %.thread156.i ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndMethodDef$GT$$GT$17h92afdbd25b5b4462E"(ptr nonnull align 8 %106) #14
           to label %.body.i unwind label %948, !noalias !69
 
 959:                                              ; preds = %957
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17hb1abcaac77016fb1E"(ptr nonnull align 8 %108)
-          to label %961 unwind label %.thread150.i, !noalias !69
+          to label %961 unwind label %.thread159.i, !noalias !69
 
-.thread150.i:                                     ; preds = %959
+.thread159.i:                                     ; preds = %959
   %960 = landingpad { ptr, i32 }
           cleanup
   br label %965
@@ -14174,7 +14174,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %.invoke.i3 unwind label %963, !noalias !69
 
 962:                                              ; preds = %965, %963, %946, %945
-  %.pn70.pn.i = phi { ptr, i32 } [ %.pn70149.i, %965 ], [ %.pn68.i1, %945 ], [ %964, %963 ], [ %947, %946 ]
+  %.pn70.pn.i = phi { ptr, i32 } [ %.pn70158.i, %965 ], [ %.pn68.i1, %945 ], [ %964, %963 ], [ %947, %946 ]
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hbdb9b0000e327673E"(ptr nonnull align 8 %112) #14
           to label %458 unwind label %948, !noalias !69
 
@@ -14187,8 +14187,8 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
   invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17hbdb9b0000e327673E"(ptr nonnull align 8 %112)
           to label %_ZN19pyo3_macros_backend7pyclass35impl_complex_enum_tuple_variant_cls17hf4091065a9cf710eE.exit unwind label %459, !noalias !69
 
-965:                                              ; preds = %.thread150.i, %945
-  %.pn70149.i = phi { ptr, i32 } [ %.pn68.i1, %945 ], [ %960, %.thread150.i ]
+965:                                              ; preds = %.thread159.i, %945
+  %.pn70158.i = phi { ptr, i32 } [ %.pn68.i1, %945 ], [ %960, %.thread159.i ]
   invoke void @"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$$GT$17hfb0c07d092f58d89E"(ptr nonnull align 8 %109) #14
           to label %962 unwind label %948, !noalias !69
 
@@ -21810,8 +21810,8 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %695 unwind label %185
 
 701:                                              ; preds = %698, %702
-  %.sink132 = phi ptr [ %94, %702 ], [ %95, %698 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %.sink132, i64 32, i1 false)
+  %.sink135 = phi ptr [ %94, %702 ], [ %95, %698 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %.sink135, i64 32, i1 false)
   br i1 %190, label %705, label %706
 
 702:                                              ; preds = %694
@@ -21877,8 +21877,8 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %719 unwind label %711
 
 719:                                              ; preds = %718, %728
-  %.sink133 = phi ptr [ %91, %728 ], [ %92, %718 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.sink133, i64 32, i1 false)
+  %.sink136 = phi ptr [ %91, %728 ], [ %92, %718 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %.sink136, i64 32, i1 false)
   br i1 %255, label %729, label %730
 
 720:                                              ; preds = %706
@@ -21968,8 +21968,8 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %743 unwind label %735
 
 743:                                              ; preds = %742, %752
-  %.sink134 = phi ptr [ %88, %752 ], [ %89, %742 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %.sink134, i64 32, i1 false)
+  %.sink137 = phi ptr [ %88, %752 ], [ %89, %742 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %.sink137, i64 32, i1 false)
   br i1 %.not, label %754, label %753
 
 744:                                              ; preds = %730
@@ -22091,8 +22091,8 @@ define internal fastcc void @_ZN19pyo3_macros_backend7pyclass19PyClassImplsBuild
           to label %775 unwind label %759
 
 775:                                              ; preds = %774, %780
-  %.sink135 = phi ptr [ %85, %780 ], [ %86, %774 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %.sink135, i64 32, i1 false)
+  %.sink138 = phi ptr [ %85, %780 ], [ %86, %774 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %.sink138, i64 32, i1 false)
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %84)
           to label %784 unwind label %782
 

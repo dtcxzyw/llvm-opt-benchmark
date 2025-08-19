@@ -80,14 +80,14 @@ define void @dlaswlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store double %46, ptr %8, align 8, !tbaa !7
   %47 = tail call i32 @llvm.umin.i32(i32 %23, i32 %26)
   %48 = icmp eq i32 %47, 0
-  %or.cond167 = or i1 %22, %48
-  br i1 %or.cond167, label %101, label %49
+  %or.cond170 = or i1 %22, %48
+  br i1 %or.cond170, label %101, label %49
 
 49:                                               ; preds = %45
   %.not148 = icmp samesign ult i32 %23, %26
   %.not150 = icmp samesign ult i32 %34, %26
-  %or.cond168 = select i1 %.not148, i1 %.not150, i1 false
-  br i1 %or.cond168, label %51, label %50
+  %or.cond171 = select i1 %.not148, i1 %.not150, i1 false
+  br i1 %or.cond171, label %51, label %50
 
 50:                                               ; preds = %49
   tail call void @dgelqt_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %10) #4

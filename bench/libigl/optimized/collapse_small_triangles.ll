@@ -211,8 +211,8 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IS1_EERKNS_9EigenBaseIT_EE.exit.pre
 
 71:                                               ; preds = %83
   %72 = icmp eq i32 %.1111, %.1106
-  %73 = add nsw i32 %.1111, 1
-  %74 = srem i32 %73, 3
+  %73 = add nuw nsw i32 %.1111, 1
+  %74 = urem i32 %73, 3
   br i1 %72, label %.thread, label %84
 
 .preheader155:                                    ; preds = %70, %83
@@ -248,24 +248,24 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IS1_EERKNS_9EigenBaseIT_EE.exit.pre
 
 .thread:                                          ; preds = %71, %84
   %86 = phi i32 [ %.1106, %84 ], [ %74, %71 ]
-  %87 = add nsw i32 %.1111, 2
-  %88 = srem i32 %87, 3
+  %87 = add nuw nsw i32 %.1111, 2
+  %88 = urem i32 %87, 3
   br label %89
 
 89:                                               ; preds = %84, %.thread
   %90 = phi i32 [ %86, %.thread ], [ %.1106, %84 ]
   %91 = phi i32 [ %88, %.thread ], [ %74, %84 ]
-  %92 = sext i32 %91 to i64
+  %92 = zext nneg i32 %91 to i64
   %93 = load ptr, ptr %1, align 8, !tbaa !27
-  %94 = mul nsw i64 %23, %92
+  %94 = mul nuw nsw i64 %23, %92
   %95 = getelementptr i32, ptr %93, i64 %indvars.iv208
   %96 = getelementptr i32, ptr %95, i64 %94
   %97 = load i32, ptr %96, align 4, !tbaa !18
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i32, ptr %27, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !18
-  %101 = sext i32 %90 to i64
-  %102 = mul nsw i64 %23, %101
+  %101 = zext nneg i32 %90 to i64
+  %102 = mul nuw nsw i64 %23, %101
   %103 = getelementptr i32, ptr %95, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !18
   %105 = sext i32 %104 to i64
@@ -386,13 +386,13 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exi
   br i1 %exitcond242.not, label %._crit_edge182.us, label %142, !llvm.loop !34
 
 ._crit_edge175.us.thread:                         ; preds = %145
-  %indvars.iv.next235261 = add nuw i64 %indvars.iv234, 1
-  %exitcond242.not262 = icmp eq i64 %indvars.iv.next241, %120
-  br i1 %exitcond242.not262, label %_ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exit.us, label %.outer, !llvm.loop !34
+  %indvars.iv.next235268 = add nuw i64 %indvars.iv234, 1
+  %exitcond242.not269 = icmp eq i64 %indvars.iv.next241, %120
+  br i1 %exitcond242.not269, label %_ZN5Eigen5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exit.us, label %.outer, !llvm.loop !34
 
 .outer:                                           ; preds = %._crit_edge175.us.thread, %.preheader.us
   %indvars.iv240.ph = phi i64 [ %indvars.iv.next241, %._crit_edge175.us.thread ], [ 0, %.preheader.us ]
-  %indvars.iv234.ph = phi i64 [ %indvars.iv.next235261, %._crit_edge175.us.thread ], [ 1, %.preheader.us ]
+  %indvars.iv234.ph = phi i64 [ %indvars.iv.next235268, %._crit_edge175.us.thread ], [ 1, %.preheader.us ]
   %.081179.us.ph = phi i1 [ true, %._crit_edge175.us.thread ], [ false, %.preheader.us ]
   br label %142
 

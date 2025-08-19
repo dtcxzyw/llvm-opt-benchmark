@@ -112,14 +112,14 @@ _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %.noexc
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load i8, ptr %39, align 8, !range !31
   %41 = trunc nuw i8 %40 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i, i1 %41, i1 false
-  br i1 %or.cond27.i, label %42, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i, i1 %41, i1 false
+  br i1 %or.cond29.i, label %42, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.thread.i.i: ; preds = %35
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !32, !range !31, !noundef !33
-  %.old26.i = trunc nuw i8 %.old25.i to i1
-  br i1 %.old26.i, label %42, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
+  %.old27.i = load i8, ptr %.old.i, align 8, !tbaa !32, !range !31, !noundef !33
+  %.old28.i = trunc nuw i8 %.old27.i to i1
+  br i1 %.old28.i, label %42, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
 
 42:                                               ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %34)
@@ -234,14 +234,14 @@ _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %.noexc
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load i8, ptr %39, align 8, !range !31
   %41 = trunc nuw i8 %40 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i, i1 %41, i1 false
-  br i1 %or.cond27.i, label %42, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i, i1 %41, i1 false
+  br i1 %or.cond29.i, label %42, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.thread.i.i: ; preds = %35
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !32, !range !31, !noundef !33
-  %.old26.i = trunc nuw i8 %.old25.i to i1
-  br i1 %.old26.i, label %42, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
+  %.old27.i = load i8, ptr %.old.i, align 8, !tbaa !32, !range !31, !noundef !33
+  %.old28.i = trunc nuw i8 %.old27.i to i1
+  br i1 %.old28.i, label %42, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
 
 42:                                               ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %34)
@@ -337,8 +337,8 @@ define dso_local noundef i32 @_ZNK26btMultiBodyFixedConstraint12getIslandIdAEv(p
   br i1 %.not10, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %14, %11, %1
-  %.sink14 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %19, %14 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink14, i64 228
+  %.sink18 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %19, %14 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
   %21 = load i32, ptr %20, align 4, !tbaa !58
   br label %.thread
 
@@ -382,8 +382,8 @@ define dso_local noundef i32 @_ZNK26btMultiBodyFixedConstraint12getIslandIdBEv(p
   br i1 %.not10, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %14, %11, %1
-  %.sink14 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %19, %14 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink14, i64 228
+  %.sink18 = phi ptr [ %3, %1 ], [ %13, %11 ], [ %19, %14 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sink18, i64 228
   %21 = load i32, ptr %20, align 4, !tbaa !58
   br label %.thread
 

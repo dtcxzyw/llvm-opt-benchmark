@@ -10544,7 +10544,7 @@ invoke.cont226:                                   ; preds = %invoke.cont218
   br label %cleanup232
 
 cleanup232:                                       ; preds = %invoke.cont226, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit765
-  %found.1 = phi i8 [ %frombool231, %invoke.cont226 ], [ %found.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit765 ]
+  %found.1 = phi i8 [ %frombool231, %invoke.cont226 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit765 ]
   %count_remaining.2 = phi i32 [ %spec.select, %invoke.cont226 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit765 ]
   %215 = load ptr, ptr %temp, align 8, !tbaa !178
   %216 = load ptr, ptr %_M_finish.i, align 8, !tbaa !177

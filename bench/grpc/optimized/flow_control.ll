@@ -662,7 +662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %197 = load i8, ptr %183, align 1, !tbaa !28
   %198 = icmp ult i8 %197, 3
-  br i1 %198, label %switch.lookup101, label %199
+  br i1 %198, label %switch.lookup150, label %199
 
 199:                                              ; preds = %191
   invoke void @gpr_unreachable_code(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 62) #27
@@ -671,18 +671,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 .noexc73:                                         ; preds = %199
   unreachable
 
-switch.lookup101:                                 ; preds = %191
+switch.lookup150:                                 ; preds = %191
   %200 = zext nneg i8 %197 to i64
-  %switch.gep102 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 0, i64 %200
-  %switch.load103 = load ptr, ptr %switch.gep102, align 8
-  %201 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load103) #28
+  %switch.gep151 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK9grpc_core6chttp217FlowControlAction11DebugStringB5cxx11Ev.4, i64 0, i64 %200
+  %switch.load152 = load ptr, ptr %switch.gep151, align 8
+  %201 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load152) #28
   store i64 %201, ptr %19, align 8
   %202 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %switch.load103, ptr %202, align 8
+  store ptr %switch.load152, ptr %202, align 8
   invoke void @_ZN4absl12lts_202407226StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %19)
           to label %203 unwind label %233
 
-203:                                              ; preds = %switch.lookup101
+203:                                              ; preds = %switch.lookup150
   %204 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %205 = load ptr, ptr %204, align 8, !tbaa !9
   %206 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -762,7 +762,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
           cleanup
   br label %245
 
-233:                                              ; preds = %199, %switch.lookup101
+233:                                              ; preds = %199, %switch.lookup150
   %234 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86
@@ -1123,13 +1123,13 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core6chttp220TransportFl
   %8 = and i64 %.sroa.speculated4.i, 4294967295
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !64
-  %.not8 = xor i1 %1, true
+  %.not11 = xor i1 %1, true
   %9 = lshr i64 %8, 1
   %.not = icmp sgt i64 %.pre, %9
-  %or.cond = select i1 %.not8, i1 %.not, i1 false
+  %or.cond = select i1 %.not11, i1 %.not, i1 false
   %.not7 = icmp eq i64 %.pre, %8
-  %or.cond9 = select i1 %or.cond, i1 true, i1 %.not7
-  br i1 %or.cond9, label %15, label %10
+  %or.cond12 = select i1 %or.cond, i1 true, i1 %.not7
+  br i1 %or.cond12, label %15, label %10
 
 10:                                               ; preds = %2
   %11 = sub nsw i64 %8, %.pre
@@ -1334,7 +1334,7 @@ define noundef double @_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitia
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread: ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %9 = fcmp ogt double %6, 0x4150000000000000
-  %.sroa.speculated12 = select i1 %9, double %6, double 0x4150000000000000
+  %.sroa.speculated14 = select i1 %9, double %6, double 0x4150000000000000
   br label %30
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %1
@@ -1374,7 +1374,7 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %1
   br label %30
 
 30:                                               ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread, %22, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit, %24, %16
-  %.0 = phi double [ %21, %16 ], [ %29, %24 ], [ %.sroa.speculated, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ 0.000000e+00, %22 ], [ %.sroa.speculated12, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread ]
+  %.0 = phi double [ %21, %16 ], [ %29, %24 ], [ %.sroa.speculated, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit ], [ 0.000000e+00, %22 ], [ %.sroa.speculated14, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread ]
   ret double %.0
 }
 
@@ -1557,7 +1557,7 @@ define void @_ZN9grpc_core6chttp220TransportFlowControl14PeriodicUpdateEv(ptr de
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i: ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = fcmp ogt double %18, 0x4150000000000000
-  %.sroa.speculated12.i = select i1 %21, double %18, double 0x4150000000000000
+  %.sroa.speculated14.i = select i1 %21, double %18, double 0x4150000000000000
   br label %_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv.exit
 
 _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %14
@@ -1597,7 +1597,7 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %14
   br label %_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv.exit
 
 _ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv.exit: ; preds = %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i, %28, %34, %36
-  %.0.i = phi double [ %33, %28 ], [ %41, %36 ], [ %.sroa.speculated.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i ], [ 0.000000e+00, %34 ], [ %.sroa.speculated12.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i ]
+  %.0.i = phi double [ %33, %28 ], [ %41, %36 ], [ %.sroa.speculated.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i ], [ 0.000000e+00, %34 ], [ %.sroa.speculated14.i, %_ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.thread.i ]
   %42 = fcmp olt double %.0.i, 0.000000e+00
   %43 = fcmp ogt double %.0.i, 0x41D0000000000000
   %..i = select i1 %43, double 0x41D0000000000000, double %.0.i

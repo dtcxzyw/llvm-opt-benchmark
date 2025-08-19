@@ -311,7 +311,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 89:                                               ; preds = %153, %.preheader144.i
   %.1131.i = phi i32 [ %164, %153 ], [ %.0130.lcssa.i, %.preheader144.i ]
-  %90 = add nsw i32 %.1131.i, 1
+  %90 = add nuw nsw i32 %.1131.i, 1
   %91 = icmp slt i32 %90, %64
   br i1 %91, label %92, label %.loopexit141.i
 
@@ -417,7 +417,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .loopexit141.i..loopexit.i_crit_edge:             ; preds = %.loopexit141.i
   %.1131.mux.i = select i1 %135, i32 %.1131.i, i32 0
-  %.pre66 = add nsw i32 %.1131.mux.i, 1
+  %.pre66 = add nuw nsw i32 %.1131.mux.i, 1
   br label %.loopexit.i
 
 .lr.ph162.i:                                      ; preds = %.loopexit141.i, %.lr.ph162.i
@@ -463,7 +463,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw [8 x [8 x i16]], ptr @dither, i64 0, i64 %162
   tail call void %154(ptr noundef %157, ptr noundef nonnull %160, ptr noundef nonnull %72, i32 noundef %.048, i32 noundef %57, ptr noundef nonnull %163) #7
-  %164 = add nsw i32 %.2132.i, 2
+  %164 = add nuw nsw i32 %.2132.i, 2
   %.not139.i = icmp slt i32 %164, %.047
   br i1 %.not139.i, label %89, label %filter.exit
 

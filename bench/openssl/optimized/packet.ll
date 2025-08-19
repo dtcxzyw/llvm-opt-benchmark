@@ -1011,8 +1011,8 @@ put_quic_value.exit:                              ; preds = %ossl_quic_vlint_enc
   br i1 %77, label %78, label %WPACKET_put_bytes__.exit.thread, !prof !36
 
 78:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa125 = phi i64 [ 1, %._crit_edge.thread ], [ %76, %._crit_edge ]
-  %79 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %0, i64 noundef %.0.lcssa125, ptr noundef nonnull %4)
+  %.0.lcssa136 = phi i64 [ 1, %._crit_edge.thread ], [ %76, %._crit_edge ]
+  %79 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %0, i64 noundef %.0.lcssa136, ptr noundef nonnull %4)
   %.not.i80 = icmp eq i32 %79, 0
   br i1 %.not.i80, label %WPACKET_put_bytes__.exit.thread, label %80
 
@@ -1026,11 +1026,11 @@ WPACKET_put_bytes__.exit.thread106:               ; preds = %80
   br label %87
 
 .lr.ph.preheader.i.i:                             ; preds = %80
-  %83 = getelementptr i8, ptr %81, i64 %.0.lcssa125
+  %83 = getelementptr i8, ptr %81, i64 %.0.lcssa136
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.018.i.i = phi i64 [ %86, %.lr.ph.i.i ], [ %.0.lcssa125, %.lr.ph.preheader.i.i ]
+  %.018.i.i = phi i64 [ %86, %.lr.ph.i.i ], [ %.0.lcssa136, %.lr.ph.preheader.i.i ]
   %.01017.i.i = phi i64 [ %85, %.lr.ph.i.i ], [ %9, %.lr.ph.preheader.i.i ]
   %.pn16.i.i = phi ptr [ %.011.i.i, %.lr.ph.i.i ], [ %83, %.lr.ph.preheader.i.i ]
   %.011.i.i = getelementptr i8, ptr %.pn16.i.i, i64 -1
@@ -1140,7 +1140,7 @@ WPACKET_get_curr.exit.i.i.thread:                 ; preds = %.thread17.i.i.i
   br i1 %134, label %.critedge76, label %.lr.ph.i.i83
 
 .lr.ph.i.i83:                                     ; preds = %128
-  %135 = trunc nuw nsw i64 %.0.lcssa125 to i8
+  %135 = trunc nuw nsw i64 %.0.lcssa136 to i8
   %136 = or disjoint i8 %135, -128
   store i8 %136, ptr %.098, align 1, !tbaa !33
   br label %.critedge76

@@ -574,13 +574,13 @@ VP8LoadNewBytes.exit.i105.i:                      ; preds = %288, %283, %278
   br label %VP8GetBit.exit104.i
 
 VP8GetBit.exit104.i:                              ; preds = %302, %296, %276, %270
-  %.0.i106.sink175.i = phi i32 [ %271, %270 ], [ %277, %276 ], [ %297, %296 ], [ %303, %302 ]
-  %.sink171.i = phi i32 [ %264, %270 ], [ %264, %276 ], [ %290, %296 ], [ %290, %302 ]
+  %.0.i106.sink237.i = phi i32 [ %271, %270 ], [ %277, %276 ], [ %297, %296 ], [ %303, %302 ]
+  %.sink233.i = phi i32 [ %264, %270 ], [ %264, %276 ], [ %290, %296 ], [ %290, %302 ]
   %304 = phi i8 [ 1, %270 ], [ 3, %276 ], [ 2, %296 ], [ 0, %302 ]
-  %305 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i106.sink175.i, i1 true)
+  %305 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.0.i106.sink237.i, i1 true)
   %306 = xor i32 %305, 24
-  %307 = shl i32 %.0.i106.sink175.i, %306
-  %308 = sub nsw i32 %.sink171.i, %306
+  %307 = shl i32 %.0.i106.sink237.i, %306
+  %308 = sub nsw i32 %.sink233.i, %306
   store i32 %308, ptr %12, align 4, !tbaa !31
   %storemerge.i = add i32 %307, -1
   store i32 %storemerge.i, ptr %11, align 8, !tbaa !30

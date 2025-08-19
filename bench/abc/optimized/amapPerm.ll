@@ -240,13 +240,13 @@ Vec_IntGrow.exit.i38:                             ; preds = %94, %92
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %106, %Vec_IntGrow.exit.i38, %.Vec_IntGrow.exit10_crit_edge.i33, %31, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink42 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %32, %31 ], [ %21, %Vec_IntGrow.exit.i ], [ %.pre.i35, %.Vec_IntGrow.exit10_crit_edge.i33 ], [ %107, %106 ], [ %96, %Vec_IntGrow.exit.i38 ]
+  %.sink50 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %32, %31 ], [ %21, %Vec_IntGrow.exit.i ], [ %.pre.i35, %.Vec_IntGrow.exit10_crit_edge.i33 ], [ %107, %106 ], [ %96, %Vec_IntGrow.exit.i38 ]
   %.lcssa.sink = phi i32 [ 0, %.Vec_IntGrow.exit10_crit_edge.i ], [ 0, %31 ], [ 0, %Vec_IntGrow.exit.i ], [ %76, %.Vec_IntGrow.exit10_crit_edge.i33 ], [ %76, %106 ], [ %76, %Vec_IntGrow.exit.i38 ]
   %108 = load i32, ptr %5, align 4, !tbaa !3
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %5, align 4, !tbaa !3
   %110 = sext i32 %108 to i64
-  %111 = getelementptr inbounds i32, ptr %.sink42, i64 %110
+  %111 = getelementptr inbounds i32, ptr %.sink50, i64 %110
   store i32 %.lcssa.sink, ptr %111, align 4, !tbaa !25
   ret void
 }
@@ -820,14 +820,14 @@ Kit_DsdNtkObj.exit202.thread:                     ; preds = %218, %Kit_DsdNtkObj
   br label %Vec_IntPush.exit209.sink.split
 
 Vec_IntPush.exit209.sink.split:                   ; preds = %249, %251, %241, %243
-  %.sink288 = phi ptr [ %242, %241 ], [ %244, %243 ], [ %250, %249 ], [ %252, %251 ]
+  %.sink330 = phi ptr [ %242, %241 ], [ %244, %243 ], [ %250, %249 ], [ %252, %251 ]
   %.sink = phi i32 [ 16, %241 ], [ 16, %243 ], [ %246, %249 ], [ %246, %251 ]
-  store ptr %.sink288, ptr %209, align 8, !tbaa !11
+  store ptr %.sink330, ptr %209, align 8, !tbaa !11
   store i32 %.sink, ptr %206, align 8, !tbaa !10
   br label %Vec_IntPush.exit209
 
 Vec_IntPush.exit209:                              ; preds = %Vec_IntPush.exit209.sink.split, %Kit_DsdNtkObj.exit202.thread
-  %.pre.i205283 = phi ptr [ %219, %Kit_DsdNtkObj.exit202.thread ], [ %.sink288, %Vec_IntPush.exit209.sink.split ]
+  %.pre.i205283 = phi ptr [ %219, %Kit_DsdNtkObj.exit202.thread ], [ %.sink330, %Vec_IntPush.exit209.sink.split ]
   %253 = add nsw i32 %235, 1
   store i32 %253, ptr %207, align 4, !tbaa !3
   %254 = sext i32 %235 to i64
@@ -1268,8 +1268,8 @@ Vec_IntFetch.exit:                                ; preds = %32, %38
 
 Vec_IntFetch.exit.thread:                         ; preds = %17
   %48 = load i32, ptr %1, align 8
-  %.mask125 = and i32 %48, -16777216
-  %49 = icmp eq i32 %.mask125, 83886080
+  %.mask126 = and i32 %48, -16777216
+  %49 = icmp eq i32 %.mask126, 83886080
   br i1 %49, label %.loopexit, label %57
 
 .preheader:                                       ; preds = %Vec_IntFetch.exit
@@ -1294,7 +1294,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
   br i1 %exitcond123.not, label %.loopexit, label %.lr.ph98, !llvm.loop !47
 
 57:                                               ; preds = %Vec_IntFetch.exit.thread, %Vec_IntFetch.exit
-  %.0.i127 = phi ptr [ null, %Vec_IntFetch.exit.thread ], [ %.0.i, %Vec_IntFetch.exit ]
+  %.0.i128 = phi ptr [ null, %Vec_IntFetch.exit.thread ], [ %.0.i, %Vec_IntFetch.exit ]
   %58 = load i16, ptr %18, align 4, !tbaa !12
   %59 = and i16 %58, 1
   %.not = icmp eq i16 %59, 0
@@ -1321,7 +1321,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
   %66 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv114
   %67 = load i32, ptr %66, align 4, !tbaa !25
   %68 = and i32 %67, %65
-  %69 = getelementptr inbounds nuw i32, ptr %.0.i127, i64 %indvars.iv114
+  %69 = getelementptr inbounds nuw i32, ptr %.0.i128, i64 %indvars.iv114
   store i32 %68, ptr %69, align 4, !tbaa !25
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -1342,7 +1342,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
   %73 = load i32, ptr %72, align 4, !tbaa !25
   %74 = xor i32 %73, -1
   %75 = and i32 %71, %74
-  %76 = getelementptr inbounds nuw i32, ptr %.0.i127, i64 %indvars.iv104
+  %76 = getelementptr inbounds nuw i32, ptr %.0.i128, i64 %indvars.iv104
   store i32 %75, ptr %76, align 4, !tbaa !25
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
@@ -1366,7 +1366,7 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
   %81 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !25
   %83 = and i32 %82, %80
-  %84 = getelementptr inbounds nuw i32, ptr %.0.i127, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw i32, ptr %.0.i128, i64 %indvars.iv
   store i32 %83, ptr %84, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1387,14 +1387,14 @@ Vec_IntFetch.exit.thread:                         ; preds = %17
   %88 = load i32, ptr %87, align 4, !tbaa !25
   %.demorgan = or i32 %88, %86
   %89 = xor i32 %.demorgan, -1
-  %90 = getelementptr inbounds nuw i32, ptr %.0.i127, i64 %indvars.iv109
+  %90 = getelementptr inbounds nuw i32, ptr %.0.i128, i64 %indvars.iv109
   store i32 %89, ptr %90, align 4, !tbaa !25
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
   br i1 %exitcond113.not, label %.loopexit, label %.lr.ph94, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph98, %.lr.ph94, %.lr.ph, %.lr.ph92, %.lr.ph96, %Vec_IntFetch.exit.thread, %.preheader88, %.preheader86, %.thread82, %.preheader83, %.preheader, %10
-  %.074 = phi ptr [ %16, %10 ], [ %.0.i, %.preheader ], [ %.0.i127, %.preheader83 ], [ %.0.i127, %.thread82 ], [ %.0.i127, %.preheader86 ], [ %.0.i127, %.preheader88 ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i127, %.lr.ph96 ], [ %.0.i127, %.lr.ph92 ], [ %.0.i127, %.lr.ph ], [ %.0.i127, %.lr.ph94 ], [ %.0.i, %.lr.ph98 ]
+  %.074 = phi ptr [ %16, %10 ], [ %.0.i, %.preheader ], [ %.0.i128, %.preheader83 ], [ %.0.i128, %.thread82 ], [ %.0.i128, %.preheader86 ], [ %.0.i128, %.preheader88 ], [ null, %Vec_IntFetch.exit.thread ], [ %.0.i128, %.lr.ph96 ], [ %.0.i128, %.lr.ph92 ], [ %.0.i128, %.lr.ph ], [ %.0.i128, %.lr.ph94 ], [ %.0.i, %.lr.ph98 ]
   ret ptr %.074
 }
 

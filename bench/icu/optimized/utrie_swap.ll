@@ -337,7 +337,7 @@ define range(i32 0, 4325387) i32 @ucptrie_swap_77(ptr noundef %0, ptr noundef %1
 56:                                               ; preds = %51
   %57 = shl nuw nsw i32 %52, 1
   %narrow = add nuw nsw i32 %57, 16
-  switch i32 %38, label %default.unreachable [
+  switch i32 %38, label %default.unreachable112 [
     i32 0, label %58
     i32 1, label %60
     i32 2, label %62
@@ -351,7 +351,7 @@ define range(i32 0, 4325387) i32 @ucptrie_swap_77(ptr noundef %0, ptr noundef %1
   %61 = shl nuw nsw i32 %42, 2
   br label %62
 
-default.unreachable:                              ; preds = %64, %56
+default.unreachable112:                           ; preds = %64, %56
   unreachable
 
 62:                                               ; preds = %56, %60, %58
@@ -378,7 +378,7 @@ default.unreachable:                              ; preds = %64, %56
   %76 = zext i16 %30 to i64
   %77 = getelementptr inbounds nuw i16, ptr %72, i64 %76
   %78 = getelementptr inbounds nuw i16, ptr %73, i64 %76
-  switch i32 %38, label %default.unreachable [
+  switch i32 %38, label %default.unreachable112 [
     i32 0, label %79
     i32 1, label %83
     i32 2, label %87

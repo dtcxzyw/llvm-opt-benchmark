@@ -201,9 +201,9 @@ define internal i32 @dissect_imap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 33:                                               ; preds = %25
   %34 = icmp slt i32 %32, 0
-  br i1 %34, label %.thread.thread482, label %.thread
+  br i1 %34, label %.thread.thread525, label %.thread
 
-.thread.thread482:                                ; preds = %33
+.thread.thread525:                                ; preds = %33
   store i32 2, ptr %31, align 4
   %35 = getelementptr inbounds nuw i8, ptr %.0323, i64 4
   br label %41
@@ -222,12 +222,12 @@ define internal i32 @dissect_imap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .thread:                                          ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %.0323, i64 4
-  %.not491 = icmp eq i32 %32, 0
-  br i1 %.not491, label %check_imap_heur.exit.thread, label %41
+  %.not534 = icmp eq i32 %32, 0
+  br i1 %.not534, label %check_imap_heur.exit.thread, label %41
 
-41:                                               ; preds = %.thread.thread482, %.thread
-  %42 = phi ptr [ %35, %.thread.thread482 ], [ %40, %.thread ]
-  %43 = phi i32 [ 2, %.thread.thread482 ], [ %32, %.thread ]
+41:                                               ; preds = %.thread.thread525, %.thread
+  %42 = phi ptr [ %35, %.thread.thread525 ], [ %40, %.thread ]
+  %43 = phi i32 [ 2, %.thread.thread525 ], [ %32, %.thread ]
   %44 = add nsw i32 %43, -1
   store i32 %44, ptr %42, align 4
   %45 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 5)
@@ -1039,12 +1039,12 @@ imap_match_request.exit:                          ; preds = %proto_item_set_gene
   br i1 %488, label %._crit_edge.thread, label %494
 
 ._crit_edge.thread:                               ; preds = %proto_item_set_hidden.exit, %._crit_edge
-  %.0309.lcssa485 = phi i32 [ %.1310, %._crit_edge ], [ %61, %proto_item_set_hidden.exit ]
+  %.0309.lcssa528 = phi i32 [ %.1310, %._crit_edge ], [ %61, %proto_item_set_hidden.exit ]
   %489 = load ptr, ptr %54, align 8
   %490 = select i1 %60, ptr @.str, ptr @.str.11
   %491 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %492 = load ptr, ptr %491, align 8
-  %493 = call ptr @tvb_format_text(ptr noundef %492, ptr noundef %0, i32 noundef 0, i32 noundef %.0309.lcssa485)
+  %493 = call ptr @tvb_format_text(ptr noundef %492, ptr noundef %0, i32 noundef 0, i32 noundef %.0309.lcssa528)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %489, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef nonnull %490, ptr noundef %493)
   br label %494
 

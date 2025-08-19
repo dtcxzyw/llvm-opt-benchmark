@@ -438,11 +438,11 @@ define range(i32 -1094995529, 1) i32 @ff_ivi_init_planes(ptr noundef %0, ptr nou
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 2
   %54 = load i16, ptr %53, align 2, !tbaa !59
   %55 = zext i16 %54 to i32
-  %.not8194 = icmp eq i64 %indvars.iv90, 0
-  %.neg95 = select i1 %.not8194, i32 -16, i32 -8
-  %56 = select i1 %.not8194, i32 15, i32 7
+  %.not8197 = icmp eq i64 %indvars.iv90, 0
+  %.neg98 = select i1 %.not8197, i32 -16, i32 -8
+  %56 = select i1 %.not8197, i32 15, i32 7
   %57 = add nuw nsw i32 %56, %55
-  %58 = and i32 %57, %.neg95
+  %58 = and i32 %57, %.neg98
   br label %.lr.ph
 
 59:                                               ; preds = %48
@@ -464,11 +464,11 @@ define range(i32 -1094995529, 1) i32 @ff_ivi_init_planes(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.thread, %59
   %70 = phi i32 [ %58, %.thread ], [ %69, %59 ]
   %71 = phi i32 [ %56, %.thread ], [ %67, %59 ]
-  %.neg97 = phi i32 [ %.neg95, %.thread ], [ %.neg, %59 ]
+  %.neg100 = phi i32 [ %.neg98, %.thread ], [ %.neg, %59 ]
   %72 = phi i32 [ %55, %.thread ], [ %66, %59 ]
   %73 = phi i32 [ %52, %.thread ], [ %61, %59 ]
   %74 = add nuw nsw i32 %71, %73
-  %75 = and i32 %74, %.neg97
+  %75 = and i32 %74, %.neg100
   %76 = mul i32 %70, %75
   %77 = zext nneg i32 %75 to i64
   %78 = and i32 %76, 2147483584

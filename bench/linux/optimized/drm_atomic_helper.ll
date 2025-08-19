@@ -8488,7 +8488,7 @@ define dso_local ptr @drm_atomic_helper_duplicate_state(ptr noundef %0, ptr noun
 31:                                               ; preds = %34, %30
   %32 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #9
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread17, label %34
+  br i1 %33, label %.thread25, label %34
 
 34:                                               ; preds = %31
   %35 = call ptr @drm_atomic_get_connector_state(ptr noundef nonnull %4, ptr noundef nonnull %32) #9
@@ -8499,7 +8499,7 @@ define dso_local ptr @drm_atomic_helper_duplicate_state(ptr noundef %0, ptr noun
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #9
   br label %.loopexit
 
-.thread17:                                        ; preds = %31
+.thread25:                                        ; preds = %31
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #9
   store ptr null, ptr %7, align 8
   br label %47
@@ -8535,8 +8535,8 @@ define dso_local ptr @drm_atomic_helper_duplicate_state(ptr noundef %0, ptr noun
   %46 = inttoptr i64 %45 to ptr
   br label %47
 
-47:                                               ; preds = %.thread17, %.thread7, %.loopexit, %2
-  %48 = phi ptr [ %46, %.thread7 ], [ %4, %.loopexit ], [ inttoptr (i64 -12 to ptr), %2 ], [ %4, %.thread17 ]
+47:                                               ; preds = %.thread25, %.thread7, %.loopexit, %2
+  %48 = phi ptr [ %46, %.thread7 ], [ %4, %.loopexit ], [ inttoptr (i64 -12 to ptr), %2 ], [ %4, %.thread25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %48
 }

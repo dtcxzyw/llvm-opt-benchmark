@@ -761,8 +761,8 @@ invoke.cont79:                                    ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.i141, %call5.i.i.i.i2.i.i.noexc147
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i142, %if.end.i.i.i.i.i.i.i141 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc147 ]
-  %_M_finish.i.i7.i143996 = getelementptr inbounds nuw i8, ptr %scalingFactors, i64 8
-  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i143996, align 8, !tbaa !25
+  %_M_finish.i.i7.i1431032 = getelementptr inbounds nuw i8, ptr %scalingFactors, i64 8
+  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i1431032, align 8, !tbaa !25
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %invoke.cont79
@@ -880,8 +880,8 @@ lpad104:                                          ; preds = %cond.false.i, %invo
   br label %if.then.i.i.i508
 
 invoke.cont119:                                   ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i150, %if.end.i.i.i.i.i.i.i180, %call5.i.i.i.i2.i.i.noexc188
-  %marketSwaptionVols.sroa.13.010011008 = phi ptr [ %add.ptr.i.i.i154, %call5.i.i.i.i2.i.i.noexc188 ], [ %add.ptr.i.i.i154, %if.end.i.i.i.i.i.i.i180 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i150 ]
-  %marketSwaptionVols.sroa.0.010041007 = phi ptr [ %call5.i.i.i.i2.i.i168, %call5.i.i.i.i2.i.i.noexc188 ], [ %call5.i.i.i.i2.i.i168, %if.end.i.i.i.i.i.i.i180 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i150 ]
+  %marketSwaptionVols.sroa.13.010371044 = phi ptr [ %add.ptr.i.i.i154, %call5.i.i.i.i2.i.i.noexc188 ], [ %add.ptr.i.i.i154, %if.end.i.i.i.i.i.i.i180 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i150 ]
+  %marketSwaptionVols.sroa.0.010401043 = phi ptr [ %call5.i.i.i.i2.i.i168, %call5.i.i.i.i2.i.i.noexc188 ], [ %call5.i.i.i.i2.i.i168, %if.end.i.i.i.i.i.i.i180 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i150 ]
   %modelSwaptionVols.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i189, %call5.i.i.i.i2.i.i.noexc188 ], [ %call5.i.i.i.i2.i.i189, %if.end.i.i.i.i.i.i.i180 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i150 ]
   %modelSwaptionVols.sroa.14.0 = phi ptr [ %add.ptr.i.i.i175, %call5.i.i.i.i2.i.i.noexc188 ], [ %add.ptr.i.i.i175, %if.end.i.i.i.i.i.i.i180 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i150 ]
   store i64 0, ptr %iterationsDone, align 8, !tbaa !8
@@ -943,7 +943,7 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %invoke.cont124, %_Z
   %add.ptr.i.i.i275571 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i267
   %pn.i288 = getelementptr inbounds nuw i8, ptr %periodflmm, i64 8
   %pn.i310 = getelementptr inbounds nuw i8, ptr %periodsmm, i64 8
-  %conv282 = uitofp i64 %div to double
+  %conv282 = uitofp nneg i64 %div to double
   %div301 = fdiv double %periodTolerance, 1.000000e+01
   br label %do.body127
 
@@ -1635,17 +1635,17 @@ lpad202.body:                                     ; preds = %invoke.cont201
 
 if.then.i.i.i371.thread:                          ; preds = %lpad202.body
   %147 = load ptr, ptr %_M_end_of_storage.i.i.i276, align 8, !tbaa !24
-  %sub.ptr.lhs.cast.i.i3731027 = ptrtoint ptr %147 to i64
-  %sub.ptr.rhs.cast.i.i3741028 = ptrtoint ptr %146 to i64
-  %sub.ptr.sub.i.i3751029 = sub i64 %sub.ptr.lhs.cast.i.i3731027, %sub.ptr.rhs.cast.i.i3741028
-  call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %sub.ptr.sub.i.i3751029) #23
+  %sub.ptr.lhs.cast.i.i3731063 = ptrtoint ptr %147 to i64
+  %sub.ptr.rhs.cast.i.i3741064 = ptrtoint ptr %146 to i64
+  %sub.ptr.sub.i.i3751065 = sub i64 %sub.ptr.lhs.cast.i.i3731063, %sub.ptr.rhs.cast.i.i3741064
+  call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %sub.ptr.sub.i.i3751065) #23
   br label %cleanup.action209
 
 lpad202.body.thread:                              ; preds = %lpad5.i.i.i293
   call void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pn.i288) #21
   %148 = load ptr, ptr %agg.tmp199, align 8, !tbaa !22
-  %tobool.not.i.i.i3701011 = icmp eq ptr %148, null
-  br i1 %tobool.not.i.i.i3701011, label %ehcleanup291, label %if.then.i.i.i371
+  %tobool.not.i.i.i3701047 = icmp eq ptr %148, null
+  br i1 %tobool.not.i.i.i3701047, label %ehcleanup291, label %if.then.i.i.i371
 
 if.then.i.i.i371:                                 ; preds = %lpad202.body.thread
   %149 = load ptr, ptr %_M_end_of_storage.i.i.i276, align 8, !tbaa !24
@@ -1714,7 +1714,7 @@ invoke.cont247:                                   ; preds = %invoke.cont245
   %call251 = call double @sqrt(double noundef %div250) #21, !tbaa !62
   %add.ptr.i387 = getelementptr inbounds nuw double, ptr %modelSwaptionVols.sroa.0.0, i64 %i233.0855
   store double %call251, ptr %add.ptr.i387, align 8, !tbaa !18
-  %add.ptr.i388 = getelementptr inbounds nuw double, ptr %marketSwaptionVols.sroa.0.010041007, i64 %i233.0855
+  %add.ptr.i388 = getelementptr inbounds nuw double, ptr %marketSwaptionVols.sroa.0.010401043, i64 %i233.0855
   %159 = load double, ptr %add.ptr.i388, align 8, !tbaa !18
   %div255 = fdiv double %159, %call251
   %160 = load ptr, ptr %scalingFactors, align 8, !tbaa !22
@@ -1961,14 +1961,14 @@ if.then.i.i.i462:                                 ; preds = %invoke.cont307
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit467
 
 _ZNSt6vectorIdSaIdEED2Ev.exit467:                 ; preds = %invoke.cont307, %if.then.i.i.i462
-  %tobool.not.i.i.i469 = icmp eq ptr %marketSwaptionVols.sroa.0.010041007, null
+  %tobool.not.i.i.i469 = icmp eq ptr %marketSwaptionVols.sroa.0.010401043, null
   br i1 %tobool.not.i.i.i469, label %_ZNSt6vectorIdSaIdEED2Ev.exit475, label %if.then.i.i.i470
 
 if.then.i.i.i470:                                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit467
-  %sub.ptr.lhs.cast.i.i472 = ptrtoint ptr %marketSwaptionVols.sroa.13.010011008 to i64
-  %sub.ptr.rhs.cast.i.i473 = ptrtoint ptr %marketSwaptionVols.sroa.0.010041007 to i64
+  %sub.ptr.lhs.cast.i.i472 = ptrtoint ptr %marketSwaptionVols.sroa.13.010371044 to i64
+  %sub.ptr.rhs.cast.i.i473 = ptrtoint ptr %marketSwaptionVols.sroa.0.010401043 to i64
   %sub.ptr.sub.i.i474 = sub i64 %sub.ptr.lhs.cast.i.i472, %sub.ptr.rhs.cast.i.i473
-  call void @_ZdlPvm(ptr noundef nonnull %marketSwaptionVols.sroa.0.010041007, i64 noundef %sub.ptr.sub.i.i474) #23
+  call void @_ZdlPvm(ptr noundef nonnull %marketSwaptionVols.sroa.0.010401043, i64 noundef %sub.ptr.sub.i.i474) #23
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit475
 
 _ZNSt6vectorIdSaIdEED2Ev.exit475:                 ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit467, %if.then.i.i.i470
@@ -2059,21 +2059,21 @@ if.then.i.i.i500:                                 ; preds = %ehcleanup309
   br label %ehcleanup313
 
 ehcleanup313:                                     ; preds = %ehcleanup309, %if.then.i.i.i500
-  %tobool.not.i.i.i507 = icmp eq ptr %marketSwaptionVols.sroa.0.010041007, null
+  %tobool.not.i.i.i507 = icmp eq ptr %marketSwaptionVols.sroa.0.010401043, null
   br i1 %tobool.not.i.i.i507, label %ehcleanup315, label %if.then.i.i.i508
 
 if.then.i.i.i508:                                 ; preds = %lpad118, %lpad104, %ehcleanup313
-  %.pn861024 = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup313 ], [ %130, %lpad118 ], [ %60, %lpad104 ]
-  %marketSwaptionVols.sroa.13.09991023 = phi ptr [ %marketSwaptionVols.sroa.13.010011008, %ehcleanup313 ], [ %add.ptr.i.i.i154, %lpad118 ], [ %add.ptr.i.i.i154, %lpad104 ]
-  %marketSwaptionVols.sroa.0.010031022 = phi ptr [ %marketSwaptionVols.sroa.0.010041007, %ehcleanup313 ], [ %call5.i.i.i.i2.i.i168, %lpad118 ], [ %call5.i.i.i.i2.i.i168, %lpad104 ]
-  %sub.ptr.lhs.cast.i.i510 = ptrtoint ptr %marketSwaptionVols.sroa.13.09991023 to i64
-  %sub.ptr.rhs.cast.i.i511 = ptrtoint ptr %marketSwaptionVols.sroa.0.010031022 to i64
+  %.pn861060 = phi { ptr, i32 } [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup313 ], [ %130, %lpad118 ], [ %60, %lpad104 ]
+  %marketSwaptionVols.sroa.13.010351059 = phi ptr [ %marketSwaptionVols.sroa.13.010371044, %ehcleanup313 ], [ %add.ptr.i.i.i154, %lpad118 ], [ %add.ptr.i.i.i154, %lpad104 ]
+  %marketSwaptionVols.sroa.0.010391058 = phi ptr [ %marketSwaptionVols.sroa.0.010401043, %ehcleanup313 ], [ %call5.i.i.i.i2.i.i168, %lpad118 ], [ %call5.i.i.i.i2.i.i168, %lpad104 ]
+  %sub.ptr.lhs.cast.i.i510 = ptrtoint ptr %marketSwaptionVols.sroa.13.010351059 to i64
+  %sub.ptr.rhs.cast.i.i511 = ptrtoint ptr %marketSwaptionVols.sroa.0.010391058 to i64
   %sub.ptr.sub.i.i512 = sub i64 %sub.ptr.lhs.cast.i.i510, %sub.ptr.rhs.cast.i.i511
-  call void @_ZdlPvm(ptr noundef nonnull %marketSwaptionVols.sroa.0.010031022, i64 noundef %sub.ptr.sub.i.i512) #23
+  call void @_ZdlPvm(ptr noundef nonnull %marketSwaptionVols.sroa.0.010391058, i64 noundef %sub.ptr.sub.i.i512) #23
   br label %ehcleanup315
 
 ehcleanup315:                                     ; preds = %lpad93, %ehcleanup313, %if.then.i.i.i508, %lpad85
-  %.pn86.pn.pn = phi { ptr, i32 } [ %54, %lpad85 ], [ %55, %lpad93 ], [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup313 ], [ %.pn861024, %if.then.i.i.i508 ]
+  %.pn86.pn.pn = phi { ptr, i32 } [ %54, %lpad85 ], [ %55, %lpad93 ], [ %.pn74.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup313 ], [ %.pn861060, %if.then.i.i.i508 ]
   %201 = load ptr, ptr %scalingFactors, align 8, !tbaa !22
   %tobool.not.i.i.i515 = icmp eq ptr %201, null
   br i1 %tobool.not.i.i.i515, label %ehcleanup316, label %if.then.i.i.i516

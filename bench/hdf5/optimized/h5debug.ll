@@ -505,8 +505,8 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   %.pre503 = load i64, ptr %3, align 16, !tbaa !12
   %191 = icmp eq i64 %.pre503, 0
   %or.cond13 = select i1 %.0255, i1 true, i1 %191
-  %or.cond504 = select i1 %or.cond10, i1 %or.cond13, i1 false
-  br i1 %or.cond504, label %194, label %.thread412
+  %or.cond541 = select i1 %or.cond10, i1 %or.cond13, i1 false
+  br i1 %or.cond541, label %194, label %.thread412
 
 .thread412:                                       ; preds = %186
   %192 = load ptr, ptr @stdout, align 8, !tbaa !8

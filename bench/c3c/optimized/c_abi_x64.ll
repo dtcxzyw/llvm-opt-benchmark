@@ -882,8 +882,8 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
   store i32 1, ptr %3, align 4
   %53 = load i32, ptr %4, align 4
   %54 = icmp eq i32 %53, 4
-  %or.cond84 = and i1 %27, %54
-  br i1 %or.cond84, label %.thread.i54, label %x64_classify_post_merge.exit
+  %or.cond93 = and i1 %27, %54
+  br i1 %or.cond93, label %.thread.i54, label %x64_classify_post_merge.exit
 
 .thread.i54:                                      ; preds = %52
   store i32 3, ptr %4, align 4
@@ -1184,8 +1184,8 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
   %21 = load i32, ptr %4, align 4
   %22 = icmp ult i32 %9, 17
   %23 = icmp eq i32 %21, 4
-  %or.cond58 = select i1 %23, i1 %22, i1 false
-  br i1 %or.cond58, label %.thread.i, label %x64_classify_post_merge.exit
+  %or.cond66 = select i1 %23, i1 %22, i1 false
+  br i1 %or.cond66, label %.thread.i, label %x64_classify_post_merge.exit
 
 .thread.i:                                        ; preds = %20
   store i32 3, ptr %4, align 4
@@ -1496,25 +1496,25 @@ define dso_local noundef zeroext i1 @x64_contains_float_at_offset(ptr noundef re
   %3 = icmp eq i32 %1, 0
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 15
-  %or.cond25 = select i1 %3, i1 %5, i1 false
-  br i1 %or.cond25, label %tailrecurse._crit_edge, label %thread-pre-split
+  %or.cond26 = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond26, label %tailrecurse._crit_edge, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %2, %tailrecurse.backedge
   %6 = phi i32 [ %35, %tailrecurse.backedge ], [ %4, %2 ]
-  %.tr1927 = phi i32 [ %.tr19.be, %tailrecurse.backedge ], [ %1, %2 ]
-  %.tr26 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %2 ]
+  %.tr1928 = phi i32 [ %.tr19.be, %tailrecurse.backedge ], [ %1, %2 ]
+  %.tr27 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %2 ]
   switch i32 %6, label %tailrecurse._crit_edge [
     i32 26, label %.lr.ph.preheader.i
     i32 33, label %37
   ]
 
 .lr.ph.preheader.i:                               ; preds = %thread-pre-split
-  %7 = getelementptr inbounds nuw i8, ptr %.tr26, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %.tr27, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @type_size(ptr noundef %10) #7
-  %.not.i = icmp ugt i32 %11, %.tr1927
+  %.not.i = icmp ugt i32 %11, %.tr1928
   tail call void @llvm.assume(i1 %.not.i)
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %13 = load ptr, ptr %12, align 8, !nonnull !13, !noundef !13
@@ -1527,7 +1527,7 @@ thread-pre-split:                                 ; preds = %2, %tailrecurse.bac
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
-  %20 = icmp uge i32 %.tr1927, %19
+  %20 = icmp uge i32 %.tr1928, %19
   tail call void @llvm.assume(i1 %20)
   br label %.lr.ph
 
@@ -1544,7 +1544,7 @@ thread-pre-split:                                 ; preds = %2, %tailrecurse.bac
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
-  %27 = icmp ult i32 %.tr1927, %26
+  %27 = icmp ult i32 %.tr1928, %26
   br i1 %27, label %x64_get_member_at_offset.exit, label %.lr.ph, !llvm.loop !14
 
 .x64_get_member_at_offset.exit_crit_edge:         ; preds = %.lr.ph
@@ -1554,7 +1554,7 @@ x64_get_member_at_offset.exit:                    ; preds = %.lr.ph.i, %.x64_get
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
-  %31 = sub i32 %.tr1927, %30
+  %31 = sub i32 %.tr1928, %30
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %33 = load ptr, ptr %32, align 8
   br label %tailrecurse.backedge
@@ -1569,10 +1569,10 @@ tailrecurse.backedge:                             ; preds = %x64_get_member_at_o
   br i1 %or.cond, label %tailrecurse._crit_edge, label %thread-pre-split
 
 37:                                               ; preds = %thread-pre-split
-  %38 = getelementptr inbounds nuw i8, ptr %.tr26, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.tr27, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @type_size(ptr noundef %39) #7
-  %41 = urem i32 %.tr1927, %40
+  %41 = urem i32 %.tr1928, %40
   br label %tailrecurse.backedge
 
 tailrecurse._crit_edge:                           ; preds = %thread-pre-split, %tailrecurse.backedge, %2
@@ -1677,21 +1677,21 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %31, label %x64_get_member_at_offset.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.i
-  %exitcond.not.i107 = icmp eq i32 %26, 1
-  br i1 %exitcond.not.i107, label %x64_get_member_at_offset.exit.thread42, label %.lr.ph.i.lr.ph, !llvm.loop !14
+  %exitcond.not.i109 = icmp eq i32 %26, 1
+  br i1 %exitcond.not.i109, label %x64_get_member_at_offset.exit.thread42, label %.lr.ph.i.lr.ph, !llvm.loop !14
 
 .lr.ph.i.lr.ph:                                   ; preds = %.lr.ph.preheader
   br label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.next.i108, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.next.i110, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph.x64_get_member_at_offset.exit.thread42_crit_edge, label %.lr.ph.i, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %.lr.ph
-  %indvars.iv.next.i108 = phi i64 [ 1, %.lr.ph.i.lr.ph ], [ %indvars.iv.next.i, %.lr.ph ]
+  %indvars.iv.next.i110 = phi i64 [ 1, %.lr.ph.i.lr.ph ], [ %indvars.iv.next.i, %.lr.ph ]
   %32 = phi ptr [ %27, %.lr.ph.i.lr.ph ], [ %34, %.lr.ph ]
-  %33 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next.i108
+  %33 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next.i110
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load i64, ptr %35, align 8
@@ -2661,7 +2661,7 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
   br i1 %55, label %58, label %try_use_registers.exit.i51
 
 try_use_registers.exit.i51:                       ; preds = %53
-  %56 = sub nuw i32 %.sroa.7.368, %54
+  %56 = sub nuw nsw i32 %.sroa.7.368, %54
   %57 = sub i32 %.sroa.0.269, %51
   br label %x64_classify_parameter.exit53
 
@@ -2726,7 +2726,7 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   br i1 %83, label %86, label %try_use_registers.exit.i55
 
 try_use_registers.exit.i55:                       ; preds = %81
-  %84 = sub nuw i32 %.sroa.7.471, %82
+  %84 = sub nuw nsw i32 %.sroa.7.471, %82
   %85 = sub i32 %.sroa.0.372, %79
   br label %x64_classify_parameter.exit57
 

@@ -250,9 +250,9 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   %27 = icmp ne i64 %2, 0
   %28 = icmp ne ptr %26, null
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %.thread59, label %31
+  br i1 %29, label %.thread81, label %31
 
-.thread59:                                        ; preds = %24
+.thread81:                                        ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 28
   store i32 0, ptr %30, align 4
   br label %.lr.ph.preheader
@@ -261,7 +261,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr noundef rea
   %32 = icmp eq i64 %2, 0
   br i1 %32, label %.thread32.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread59, %31
+.lr.ph.preheader:                                 ; preds = %.thread81, %31
   %33 = lshr exact i32 %14, 5
   %34 = getelementptr i8, ptr %8, i64 1
   %35 = getelementptr i8, ptr %8, i64 2

@@ -258,7 +258,7 @@ define void @_Z17CrossIntersectionRKSt6vectorI8HalfEdgeSaIS0_EES4_(ptr dead_on_u
   %24 = lshr exact i64 %23, 4
   %25 = add nuw nsw i64 %24, %17
   %.not17.i = icmp eq ptr %13, %12
-  %indvars.iv480.sroa.gep610 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %indvars.iv480.sroa.gep668 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not17.i, label %_ZL10ComputeBoxRKSt6vectorI8HalfEdgeSaIS0_EE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %_ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i
@@ -558,7 +558,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %116, %111, %_ZL10Co
 
 .preheader399:                                    ; preds = %150, %._crit_edge427
   %158 = phi i1 [ true, %150 ], [ false, %._crit_edge427 ]
-  %indvars.iv480.sroa.phi = phi ptr [ %5, %150 ], [ %indvars.iv480.sroa.gep610, %._crit_edge427 ]
+  %indvars.iv480.sroa.phi = phi ptr [ %5, %150 ], [ %indvars.iv480.sroa.gep668, %._crit_edge427 ]
   %indvars.iv480 = phi i64 [ 0, %150 ], [ 1, %._crit_edge427 ]
   %159 = load ptr, ptr %indvars.iv480.sroa.phi, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8

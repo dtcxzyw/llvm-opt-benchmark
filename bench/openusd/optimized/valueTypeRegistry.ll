@@ -3720,11 +3720,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_17Sdf_ValueTypeIm
   %213 = atomicrmw add ptr %212, i32 2 monotonic, align 4
   %214 = and i32 %213, 1
   %.not1.i.i105 = icmp eq i32 %214, 0
-  %spec.select156 = select i1 %.not1.i.i105, i64 %211, i64 %208
+  %spec.select177 = select i1 %.not1.i.i105, i64 %211, i64 %208
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit106
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit106: ; preds = %210, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_17Sdf_ValueTypeImplENS_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEixERS7_.exit103
-  %.sroa.0.0 = phi i64 [ %208, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_17Sdf_ValueTypeImplENS_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEixERS7_.exit103 ], [ %spec.select156, %210 ]
+  %.sroa.0.0 = phi i64 [ %208, %_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7TfTokenENS_17Sdf_ValueTypeImplENS_6TfHashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEixERS7_.exit103 ], [ %spec.select177, %210 ]
   %215 = load ptr, ptr %2, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8

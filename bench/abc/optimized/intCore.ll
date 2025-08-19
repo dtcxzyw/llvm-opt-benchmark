@@ -469,8 +469,8 @@ Abc_Clock.exit323:                                ; preds = %Abc_Clock.exit321, 
   br label %246
 
 246:                                              ; preds = %244, %241
-  %storemerge498 = phi ptr [ %243, %241 ], [ %245, %244 ]
-  store ptr %storemerge498, ptr %148, align 8, !tbaa !52
+  %storemerge511 = phi ptr [ %243, %241 ], [ %245, %244 ]
+  store ptr %storemerge511, ptr %148, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %247 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %33) #15
   %248 = icmp slt i32 %247, 0

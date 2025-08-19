@@ -190,8 +190,8 @@ define internal fastcc noundef i32 @_ZL15read_frame_sizePK17grpc_slice_buffer(pt
   ret i32 %34
 
 ._crit_edge.thread:                               ; preds = %.critedge56, %._crit_edge
-  %.045.lcssa105 = phi i64 [ %30, %._crit_edge ], [ 4, %.critedge56 ]
-  %35 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %.045.lcssa105, i64 noundef 0, ptr noundef nonnull @.str.3)
+  %.045.lcssa109 = phi i64 [ %30, %._crit_edge ], [ 4, %.critedge56 ]
+  %35 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringImlEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %.045.lcssa109, i64 noundef 0, ptr noundef nonnull @.str.3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -851,7 +851,7 @@ _ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i: ; preds = %156, %153, %
   %165 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core9tsi_traceE, i64 16) monotonic, align 8
   %166 = trunc i8 %165 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br i1 %166, label %167, label %.thread61.i, !prof !3
+  br i1 %166, label %167, label %.thread68.i, !prof !3
 
 167:                                              ; preds = %_ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -876,7 +876,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit.i71: 
   %172 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPKcTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %178 unwind label %175
 
-.thread61.i:                                      ; preds = %_ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i
+.thread68.i:                                      ; preds = %_ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i32 %spec.store.select.i, ptr %123, align 4, !tbaa !39
   br label %.sink.split.i
@@ -920,8 +920,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi11EEERS2_RAT__Kc.exit.i71: 
   %187 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, i64 noundef %186, ptr noundef nonnull @.str.23, i64 noundef 25)
   br label %_ZL39fake_handshaker_process_bytes_from_peerP14tsi_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-.sink.split.i:                                    ; preds = %..sink.split.i_crit_edge, %.thread61.i
-  %188 = phi i64 [ %.pre, %..sink.split.i_crit_edge ], [ 0, %.thread61.i ]
+.sink.split.i:                                    ; preds = %..sink.split.i_crit_edge, %.thread68.i
+  %188 = phi i64 [ %.pre, %..sink.split.i_crit_edge ], [ 0, %.thread68.i ]
   %189 = load i64, ptr %125, align 8, !tbaa !60
   %190 = sub i64 %189, %188
   br label %191

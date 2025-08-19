@@ -979,7 +979,7 @@ define hidden void @_ZN12PatchingStub9emit_codeEP13LIR_Assembler(ptr noundef non
   br i1 %22, label %.lr.ph, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader
-  %.pre89 = load ptr, ptr %1, align 8
+  %.pre90 = load ptr, ptr %1, align 8
   br label %.loopexit._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1025,8 +1025,8 @@ define hidden void @_ZN12PatchingStub9emit_codeEP13LIR_Assembler(ptr noundef non
   br i1 %41, label %42, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit.thread, %.loopexit
-  %.pre90 = phi ptr [ %.pre89, %.loopexit.thread ], [ %.pre, %.loopexit ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre90, i64 8
+  %.pre91 = phi ptr [ %.pre90, %.loopexit.thread ], [ %.pre, %.loopexit ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre91, i64 8
   %.pre85 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %.pre85, i64 16
   %.pre87 = load ptr, ptr %.phi.trans.insert86, align 8
@@ -2134,10 +2134,10 @@ define linkonce_odr hidden void @_ZN15MonitorExitStub5visitEP16LIR_OpVisitState(
   br i1 %.not17.i.i7, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit, label %_ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split
 
 _ZN16LIR_OpVisitState7do_tempER7LIR_Opr.exit.sink.split: ; preds = %34, %34, %55, %9, %9, %30
-  %.sink14 = phi i64 [ 192, %30 ], [ 192, %9 ], [ 192, %9 ], [ 24, %55 ], [ 24, %34 ], [ 24, %34 ]
+  %.sink15 = phi i64 [ 192, %30 ], [ 192, %9 ], [ 192, %9 ], [ 24, %55 ], [ 24, %34 ], [ 24, %34 ]
   %.sink = phi i64 [ 12, %30 ], [ 12, %9 ], [ 12, %9 ], [ 8, %55 ], [ 8, %34 ], [ 8, %34 ]
   %.sink.i.i4.sink = phi ptr [ %31, %30 ], [ %6, %9 ], [ %6, %9 ], [ %56, %55 ], [ %6, %34 ], [ %6, %34 ]
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink14
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink15
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %61 = load i32, ptr %60, align 4
   %62 = add nsw i32 %61, 1

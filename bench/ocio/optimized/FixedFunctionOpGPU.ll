@@ -79811,11 +79811,11 @@ define hidden void @_ZN19OpenColorIO_v2_5dev32GetFixedFunctionGPUShaderProgramER
     i32 1, label %65
     i32 2, label %66
     i32 3, label %67
-    i32 4, label %.invoke97
-    i32 5, label %.invoke96
+    i32 4, label %.invoke104
+    i32 5, label %.invoke103
     i32 6, label %68
     i32 7, label %71
-    i32 8, label %.invoke95
+    i32 8, label %.invoke102
     i32 9, label %74
     i32 10, label %.invoke
     i32 11, label %76
@@ -79827,7 +79827,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev32GetFixedFunctionGPUShaderProgramER
     i32 33, label %188
     i32 34, label %190
     i32 35, label %192
-    i32 12, label %.invoke94
+    i32 12, label %.invoke101
     i32 13, label %194
     i32 14, label %200
     i32 15, label %201
@@ -79845,7 +79845,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev32GetFixedFunctionGPUShaderProgramER
     i32 27, label %216
   ]
 
-42:                                               ; preds = %.invoke97, %.invoke96, %.invoke95, %.invoke94, %.invoke, %.noexc89, %145, %.noexc, %104, %221, %_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit, %216, %214, %212, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %192, %190, %188, %186, %102, %100, %67, %66, %65, %64, %37, %2
+42:                                               ; preds = %.invoke104, %.invoke103, %.invoke102, %.invoke101, %.invoke, %.noexc89, %145, %.noexc, %104, %221, %_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit, %216, %214, %212, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %192, %190, %188, %186, %102, %100, %67, %66, %65, %64, %37, %2
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %288
@@ -79931,27 +79931,27 @@ define hidden void @_ZN19OpenColorIO_v2_5dev32GetFixedFunctionGPUShaderProgramER
           to label %_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit unwind label %42
 
 68:                                               ; preds = %38
-  br label %.invoke97
+  br label %.invoke104
 
-.invoke97:                                        ; preds = %38, %68
+.invoke104:                                       ; preds = %38, %68
   %69 = phi float [ 0x3FA99999A0000000, %68 ], [ 0x3FB3333340000000, %38 ]
   %70 = phi float [ 0x3FB47AE140000000, %68 ], [ 0x3FB99999A0000000, %38 ]
   invoke void @_ZN19OpenColorIO_v2_5dev22Add_Glow_03_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEff(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(764) %7, float noundef %69, float noundef %70)
           to label %_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit unwind label %42
 
 71:                                               ; preds = %38
-  br label %.invoke96
+  br label %.invoke103
 
-.invoke96:                                        ; preds = %38, %71
+.invoke103:                                       ; preds = %38, %71
   %72 = phi float [ 0x3FA99999A0000000, %71 ], [ 0x3FB3333340000000, %38 ]
   %73 = phi float [ 0x3FB47AE140000000, %71 ], [ 0x3FB99999A0000000, %38 ]
   invoke void @_ZN19OpenColorIO_v2_5dev22Add_Glow_03_Inv_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEff(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(764) %7, float noundef %72, float noundef %73)
           to label %_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit unwind label %42
 
 74:                                               ; preds = %38
-  br label %.invoke95
+  br label %.invoke102
 
-.invoke95:                                        ; preds = %38, %74
+.invoke102:                                       ; preds = %38, %74
   %75 = phi float [ 0x3FF04EE7E0000000, %74 ], [ 0x3FEF652BE0000000, %38 ]
   invoke void @_ZN19OpenColorIO_v2_5dev26Add_Surround_10_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(764) %7, float noundef %75)
           to label %_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit unwind label %42
@@ -80143,9 +80143,9 @@ _ZN19OpenColorIO_v2_5dev21Add_JMh_to_RGB_ShaderERSt10shared_ptrINS_16GpuShaderCr
           to label %_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit unwind label %42
 
 194:                                              ; preds = %38
-  br label %.invoke94
+  br label %.invoke101
 
-.invoke94:                                        ; preds = %38, %194
+.invoke101:                                       ; preds = %38, %194
   %195 = phi i1 [ false, %194 ], [ true, %38 ]
   %196 = getelementptr inbounds nuw i8, ptr %39, i64 176
   %197 = load ptr, ptr %196, align 8, !tbaa !216
@@ -80214,7 +80214,7 @@ _ZN19OpenColorIO_v2_5dev21Add_JMh_to_RGB_ShaderERSt10shared_ptrINS_16GpuShaderCr
   invoke void @_ZN19OpenColorIO_v2_5dev21Add_DOUBLE_LOG_TO_LINERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(764) %7, ptr noundef nonnull align 8 dereferenceable(24) %217)
           to label %_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit unwind label %42
 
-_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit: ; preds = %.invoke97, %.invoke96, %.invoke95, %.invoke94, %.invoke, %_ZN19OpenColorIO_v2_5dev21Add_JMh_to_RGB_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKSt6vectorIdSaIdEE.exit, %_ZN19OpenColorIO_v2_5dev21Add_RGB_to_JMh_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKSt6vectorIdSaIdEE.exit, %216, %214, %212, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %192, %190, %188, %186, %102, %100, %67, %66, %65, %64, %38
+_ZN19OpenColorIO_v2_5dev27Add_GamutComp_13_Fwd_ShaderERNS_13GpuShaderTextERSt10shared_ptrINS_16GpuShaderCreatorEEfffffff.exit: ; preds = %.invoke104, %.invoke103, %.invoke102, %.invoke101, %.invoke, %_ZN19OpenColorIO_v2_5dev21Add_JMh_to_RGB_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKSt6vectorIdSaIdEE.exit, %_ZN19OpenColorIO_v2_5dev21Add_RGB_to_JMh_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKSt6vectorIdSaIdEE.exit, %216, %214, %212, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %192, %190, %188, %186, %102, %100, %67, %66, %65, %64, %38
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %7)
           to label %218 unwind label %42
 

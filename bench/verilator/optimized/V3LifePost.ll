@@ -6056,32 +6056,32 @@ _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28.us: ; preds = %_ZNKSt4lessI
   %21 = getelementptr inbounds nuw i8, ptr %.02436, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !181
   %.not12.i.i = icmp eq ptr %22, null
-  br i1 %.not12.i.i, label %.thread42, label %23
+  br i1 %.not12.i.i, label %.thread50, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 88
   %25 = load i32, ptr %24, align 8, !tbaa !200
   %26 = icmp ult i32 %19, %25
-  br i1 %26, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, label %.thread42
+  br i1 %26, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, label %.thread50
 
-.thread42:                                        ; preds = %20, %23
+.thread50:                                        ; preds = %20, %23
   %27 = phi i32 [ %25, %23 ], [ 0, %20 ]
   %28 = icmp ult i32 %27, %19
   br i1 %28, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit
 
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit:      ; preds = %.thread42
+_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit:      ; preds = %.thread50
   %29 = getelementptr inbounds nuw i8, ptr %.02436, i64 40
   %30 = load i32, ptr %29, align 8, !tbaa !182
   %31 = icmp ult i32 %7, %30
   br i1 %31, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28
 
-_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28: ; preds = %.thread42, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit
+_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28: ; preds = %.thread50, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit
   br label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread
 
 _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit, %23, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28
-  %.sink48 = phi i64 [ 24, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28 ], [ 16, %23 ], [ 16, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit ]
+  %.sink56 = phi i64 [ 24, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28 ], [ 16, %23 ], [ 16, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit ]
   %.0.i.i26 = phi i1 [ false, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread28 ], [ true, %23 ], [ true, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit ]
-  %32 = getelementptr inbounds nuw i8, ptr %.02436, i64 %.sink48
+  %32 = getelementptr inbounds nuw i8, ptr %.02436, i64 %.sink56
   %.024 = load ptr, ptr %32, align 8, !tbaa !248
   %.not = icmp eq ptr %.024, null
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !249
@@ -6092,18 +6092,18 @@ _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit.thread: ; preds = %_ZNKSt4lessI12Lif
   br i1 %.0.lcssa, label %._crit_edge.thread, label %38
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.023.lcssa46 = phi ptr [ %.023.lcssa, %._crit_edge ], [ %4, %2 ]
+  %.023.lcssa54 = phi ptr [ %.023.lcssa, %._crit_edge ], [ %4, %2 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !196
-  %35 = icmp eq ptr %.023.lcssa46, %34
+  %35 = icmp eq ptr %.023.lcssa54, %34
   br i1 %35, label %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread, label %36
 
 36:                                               ; preds = %._crit_edge.thread
-  %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa46) #25
+  %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.023.lcssa54) #25
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  %.023.lcssa45 = phi ptr [ %.023.lcssa46, %36 ], [ %.023.lcssa, %._crit_edge ]
+  %.023.lcssa53 = phi ptr [ %.023.lcssa54, %36 ], [ %.023.lcssa, %._crit_edge ]
   %.sroa.09.0 = phi ptr [ %37, %36 ], [ %.023.lcssa, %._crit_edge ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.09.0, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !181
@@ -6148,7 +6148,7 @@ _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32: ; preds = %53, %_ZNKSt4le
 
 _ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread: ; preds = %50, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8, %._crit_edge.thread, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32
   %.sroa.022.0 = phi ptr [ %.sroa.09.0, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32 ], [ null, %._crit_edge.thread ], [ null, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8 ], [ null, %50 ]
-  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32 ], [ %.023.lcssa46, %._crit_edge.thread ], [ %.023.lcssa45, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8 ], [ %.023.lcssa45, %50 ]
+  %.sroa.4.0 = phi ptr [ null, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8.thread32 ], [ %.023.lcssa54, %._crit_edge.thread ], [ %.023.lcssa53, %_ZNKSt4lessI12LifeLocationEclERKS0_S3_.exit8 ], [ %.023.lcssa53, %50 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.022.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

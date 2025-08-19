@@ -1384,7 +1384,7 @@ if.end48:                                         ; preds = %if.end39
           to label %yynewstate.backedge unwind label %lpad.loopexit.loopexit
 
 yynewstate.backedge:                              ; preds = %if.end48, %cleanup
-  %yyerrstatus_.0.be = phi i32 [ %yyerrstatus_.2779, %cleanup ], [ %spec.select, %if.end48 ]
+  %yyerrstatus_.0.be = phi i32 [ %yyerrstatus_.2800, %cleanup ], [ %spec.select, %if.end48 ]
   %22 = load ptr, ptr %_M_finish.i.i.i, align 8
   %23 = load ptr, ptr %yystack_, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %22 to i64
@@ -2160,7 +2160,7 @@ invoke.cont546:                                   ; preds = %invoke.cont544
   br label %invoke.cont546.invoke
 
 invoke.cont546.invoke:                            ; preds = %sw.bb471, %sw.epilog, %invoke.cont546
-  %.sink833 = phi i64 [ -48, %invoke.cont546 ], [ -48, %sw.epilog ], [ -16, %sw.bb471 ]
+  %.sink854 = phi i64 [ -48, %invoke.cont546 ], [ -48, %sw.epilog ], [ -16, %sw.bb471 ]
   %177 = phi ptr [ %types551, %invoke.cont546 ], [ %value106, %sw.epilog ], [ %types551, %sw.bb471 ]
   %178 = load ptr, ptr %_M_finish.i.i.i, align 8
   %179 = load ptr, ptr %yystack_, align 8
@@ -2168,7 +2168,7 @@ invoke.cont546.invoke:                            ; preds = %sw.bb471, %sw.epilo
   %sub.ptr.rhs.cast.i.i.i249 = ptrtoint ptr %179 to i64
   %sub.ptr.sub.i.i.i250 = sub i64 %sub.ptr.lhs.cast.i.i.i248, %sub.ptr.rhs.cast.i.i.i249
   %180 = getelementptr i8, ptr %179, i64 %sub.ptr.sub.i.i.i250
-  %value404 = getelementptr i8, ptr %180, i64 %.sink833
+  %value404 = getelementptr i8, ptr %180, i64 %.sink854
   invoke void @_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %177, ptr noundef nonnull align 8 dereferenceable(16) %value404)
           to label %for.body.lr.ph.i.i unwind label %lpad112
 
@@ -2713,7 +2713,7 @@ try.cont752:                                      ; preds = %sw.epilog
   br i1 %cmp2.i.i.not, label %_ZN8facebook5velox4type6Parser6yypop_Ei.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %invoke.cont546.invoke, %sw.epilog, %invoke.cont349, %invoke.cont733, %invoke.cont704, %invoke.cont675, %invoke.cont649, %invoke.cont624, %invoke.cont602, %invoke.cont585, %invoke.cont572, %invoke.cont516, %invoke.cont450, %invoke.cont418, %invoke.cont394, %invoke.cont376, %invoke.cont365, %invoke.cont332, %sw.bb312, %sw.bb303, %sw.bb294, %invoke.cont290, %sw.bb274, %sw.bb265, %sw.bb256, %sw.bb247, %invoke.cont243, %invoke.cont232, %invoke.cont216, %invoke.cont200, %invoke.cont184, %invoke.cont153, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit86, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit, %try.cont752
-  %yyerrstatus_.2778 = phi i32 [ %yyerrstatus_.0688, %try.cont752 ], [ %yyerrstatus_.0688, %invoke.cont733 ], [ %yyerrstatus_.0688, %invoke.cont704 ], [ %yyerrstatus_.0688, %invoke.cont675 ], [ %yyerrstatus_.0688, %invoke.cont649 ], [ %yyerrstatus_.0688, %invoke.cont624 ], [ %yyerrstatus_.0688, %invoke.cont602 ], [ %yyerrstatus_.0688, %invoke.cont585 ], [ %yyerrstatus_.0688, %invoke.cont572 ], [ %yyerrstatus_.0688, %invoke.cont516 ], [ %yyerrstatus_.0688, %invoke.cont450 ], [ %yyerrstatus_.0688, %invoke.cont418 ], [ %yyerrstatus_.0688, %invoke.cont394 ], [ %yyerrstatus_.0688, %invoke.cont376 ], [ %yyerrstatus_.0688, %invoke.cont365 ], [ %yyerrstatus_.0688, %invoke.cont349 ], [ %yyerrstatus_.0688, %invoke.cont332 ], [ %yyerrstatus_.0688, %sw.bb312 ], [ %yyerrstatus_.0688, %sw.bb303 ], [ %yyerrstatus_.0688, %sw.bb294 ], [ %yyerrstatus_.0688, %invoke.cont290 ], [ %yyerrstatus_.0688, %sw.bb274 ], [ %yyerrstatus_.0688, %sw.bb265 ], [ %yyerrstatus_.0688, %sw.bb256 ], [ %yyerrstatus_.0688, %sw.bb247 ], [ %yyerrstatus_.0688, %invoke.cont243 ], [ %yyerrstatus_.0688, %invoke.cont232 ], [ %yyerrstatus_.0688, %invoke.cont216 ], [ %yyerrstatus_.0688, %invoke.cont200 ], [ %yyerrstatus_.0688, %invoke.cont184 ], [ %yyerrstatus_.0688, %invoke.cont153 ], [ %yyerrstatus_.0688, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit86 ], [ %yyerrstatus_.0688, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit ], [ 0, %sw.epilog ], [ %yyerrstatus_.0688, %invoke.cont546.invoke ]
+  %yyerrstatus_.2799 = phi i32 [ %yyerrstatus_.0688, %try.cont752 ], [ %yyerrstatus_.0688, %invoke.cont733 ], [ %yyerrstatus_.0688, %invoke.cont704 ], [ %yyerrstatus_.0688, %invoke.cont675 ], [ %yyerrstatus_.0688, %invoke.cont649 ], [ %yyerrstatus_.0688, %invoke.cont624 ], [ %yyerrstatus_.0688, %invoke.cont602 ], [ %yyerrstatus_.0688, %invoke.cont585 ], [ %yyerrstatus_.0688, %invoke.cont572 ], [ %yyerrstatus_.0688, %invoke.cont516 ], [ %yyerrstatus_.0688, %invoke.cont450 ], [ %yyerrstatus_.0688, %invoke.cont418 ], [ %yyerrstatus_.0688, %invoke.cont394 ], [ %yyerrstatus_.0688, %invoke.cont376 ], [ %yyerrstatus_.0688, %invoke.cont365 ], [ %yyerrstatus_.0688, %invoke.cont349 ], [ %yyerrstatus_.0688, %invoke.cont332 ], [ %yyerrstatus_.0688, %sw.bb312 ], [ %yyerrstatus_.0688, %sw.bb303 ], [ %yyerrstatus_.0688, %sw.bb294 ], [ %yyerrstatus_.0688, %invoke.cont290 ], [ %yyerrstatus_.0688, %sw.bb274 ], [ %yyerrstatus_.0688, %sw.bb265 ], [ %yyerrstatus_.0688, %sw.bb256 ], [ %yyerrstatus_.0688, %sw.bb247 ], [ %yyerrstatus_.0688, %invoke.cont243 ], [ %yyerrstatus_.0688, %invoke.cont232 ], [ %yyerrstatus_.0688, %invoke.cont216 ], [ %yyerrstatus_.0688, %invoke.cont200 ], [ %yyerrstatus_.0688, %invoke.cont184 ], [ %yyerrstatus_.0688, %invoke.cont153 ], [ %yyerrstatus_.0688, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit86 ], [ %yyerrstatus_.0688, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit ], [ 0, %sw.epilog ], [ %yyerrstatus_.0688, %invoke.cont546.invoke ]
   %conv.i492 = zext nneg i32 %conv66 to i64
   br label %for.body.i.i
 
@@ -2728,7 +2728,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN8facebook5velox4type6Parser6yypop_Ei.exit, !llvm.loop !6
 
 _ZN8facebook5velox4type6Parser6yypop_Ei.exit:     ; preds = %for.body.i.i, %try.cont752
-  %yyerrstatus_.2779 = phi i32 [ %yyerrstatus_.0688, %try.cont752 ], [ %yyerrstatus_.2778, %for.body.i.i ]
+  %yyerrstatus_.2800 = phi i32 [ %yyerrstatus_.0688, %try.cont752 ], [ %yyerrstatus_.2799, %for.body.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1Ev(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp.i.i)
           to label %.noexc unwind label %lpad70.loopexit
@@ -2845,24 +2845,24 @@ for.body.i.i500:                                  ; preds = %for.body.i.i500, %f
 yyerrlab1:                                        ; preds = %for.body.i.i500, %if.then766, %yyerrlab, %if.end764.thread, %invoke.cont20, %if.then771, %if.then26
   %298 = load ptr, ptr %_M_finish.i.i.i, align 8
   %299 = load ptr, ptr %yystack_, align 8
-  %sub.ptr.lhs.cast.i.i.i507886 = ptrtoint ptr %298 to i64
-  %sub.ptr.rhs.cast.i.i.i508887 = ptrtoint ptr %299 to i64
-  %sub.ptr.sub.i.i.i509888 = sub i64 %sub.ptr.lhs.cast.i.i.i507886, %sub.ptr.rhs.cast.i.i.i508887
-  %300 = getelementptr i8, ptr %299, i64 %sub.ptr.sub.i.i.i509888
-  %add.ptr.i.i510889 = getelementptr i8, ptr %300, i64 -64
-  %301 = load i8, ptr %add.ptr.i.i510889, align 16
-  %idxprom782890 = sext i8 %301 to i64
-  %arrayidx783891 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 0, i64 %idxprom782890
-  %302 = load i8, ptr %arrayidx783891, align 1
-  %cmp788892 = icmp sgt i8 %302, -2
-  %cmp794893 = icmp eq i8 %301, 0
-  %or.cond836894 = and i1 %cmp788892, %cmp794893
-  br i1 %or.cond836894, label %for.end, label %if.end803
+  %sub.ptr.lhs.cast.i.i.i507907 = ptrtoint ptr %298 to i64
+  %sub.ptr.rhs.cast.i.i.i508908 = ptrtoint ptr %299 to i64
+  %sub.ptr.sub.i.i.i509909 = sub i64 %sub.ptr.lhs.cast.i.i.i507907, %sub.ptr.rhs.cast.i.i.i508908
+  %300 = getelementptr i8, ptr %299, i64 %sub.ptr.sub.i.i.i509909
+  %add.ptr.i.i510910 = getelementptr i8, ptr %300, i64 -64
+  %301 = load i8, ptr %add.ptr.i.i510910, align 16
+  %idxprom782911 = sext i8 %301 to i64
+  %arrayidx783912 = getelementptr inbounds [0 x i8], ptr @_ZN8facebook5velox4type6Parser7yypact_E, i64 0, i64 %idxprom782911
+  %302 = load i8, ptr %arrayidx783912, align 1
+  %cmp788913 = icmp sgt i8 %302, -2
+  %cmp794914 = icmp eq i8 %301, 0
+  %or.cond857915 = and i1 %cmp788913, %cmp794914
+  br i1 %or.cond857915, label %for.end, label %if.end803
 
 if.end803:                                        ; preds = %yyerrlab1, %for.body.i.i520.preheader
-  %sub.ptr.sub.i.i.i509895 = phi i64 [ %sub.ptr.sub.i.i.i509, %for.body.i.i520.preheader ], [ %sub.ptr.sub.i.i.i509888, %yyerrlab1 ]
+  %sub.ptr.sub.i.i.i509916 = phi i64 [ %sub.ptr.sub.i.i.i509, %for.body.i.i520.preheader ], [ %sub.ptr.sub.i.i.i509909, %yyerrlab1 ]
   %303 = phi ptr [ %304, %for.body.i.i520.preheader ], [ %298, %yyerrlab1 ]
-  %cmp806 = icmp eq i64 %sub.ptr.sub.i.i.i509895, 64
+  %cmp806 = icmp eq i64 %sub.ptr.sub.i.i.i509916, 64
   br i1 %cmp806, label %cleanup850, label %for.body.i.i520.preheader
 
 for.body.i.i520.preheader:                        ; preds = %if.end803
@@ -2882,8 +2882,8 @@ for.body.i.i520.preheader:                        ; preds = %if.end803
   %308 = load i8, ptr %arrayidx783, align 1
   %cmp788 = icmp sgt i8 %308, -2
   %cmp794 = icmp eq i8 %307, 0
-  %or.cond836 = and i1 %cmp788, %cmp794
-  br i1 %or.cond836, label %for.end, label %if.end803, !llvm.loop !7
+  %or.cond857 = and i1 %cmp788, %cmp794
+  br i1 %or.cond857, label %for.end, label %if.end803, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body.i.i520.preheader, %yyerrlab1
   invoke void @_ZN8facebook5velox4type6Parser17stack_symbol_typeC1Ev(ptr noundef nonnull align 16 dereferenceable(64) %error_token)
@@ -3017,9 +3017,9 @@ invoke.cont848:                                   ; preds = %lpad834
   resume { ptr, i32 } %329
 
 cleanup850:                                       ; preds = %if.end803, %while.body, %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556
-  %yyresult.0605783 = phi i32 [ %yyresult.0605, %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556 ], [ %yyresult.0605, %while.body ], [ 1, %if.end803 ]
+  %yyresult.0605804 = phi i32 [ %yyresult.0605, %_ZN8facebook5velox4type6Parser6yypop_Ei.exit556 ], [ %yyresult.0605, %while.body ], [ 1, %if.end803 ]
   call void @_ZN8facebook5velox4type6Parser12basic_symbolINS2_7by_kindEE5clearEv(ptr noundef nonnull align 16 dereferenceable(64) %yyla) #26
-  ret i32 %yyresult.0605783
+  ret i32 %yyresult.0605804
 
 terminate.lpad:                                   ; preds = %lpad834, %lpad747, %lpad19
   %333 = landingpad { ptr, i32 }
@@ -5746,7 +5746,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %dec.i.i.i.i = add i64 %__n.addr.08.i.i.i.i, -1
+  %dec.i.i.i.i = add nsw i64 %__n.addr.08.i.i.i.i, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !29

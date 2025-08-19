@@ -579,7 +579,7 @@ define dso_local void @prte_info_do_path(i1 noundef zeroext %0) local_unnamed_ad
 
 pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   %.not = icmp eq ptr %.03.i, null
-  br i1 %.not, label %.loopexit.thread61, label %.preheader48
+  br i1 %.not, label %.loopexit.thread64, label %.preheader48
 
 .preheader48:                                     ; preds = %pmix_cmd_line_get_param.exit
   %37 = getelementptr inbounds nuw i8, ptr %.03.i, i64 152
@@ -605,7 +605,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
 .loopexit:                                        ; preds = %40
   br i1 %0, label %.critedge, label %.preheader
 
-.loopexit.thread61:                               ; preds = %pmix_cmd_line_get_param.exit
+.loopexit.thread64:                               ; preds = %pmix_cmd_line_get_param.exit
   br i1 %0, label %.critedge, label %.thread45
 
 .loopexit.thread:                                 ; preds = %.preheader48
@@ -614,7 +614,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
 .thread:                                          ; preds = %35, %1
   br i1 %0, label %.critedge, label %.thread45
 
-.critedge:                                        ; preds = %.lr.ph, %.loopexit.thread61, %.loopexit.thread, %.thread, %.loopexit
+.critedge:                                        ; preds = %.lr.ph, %.loopexit.thread64, %.loopexit.thread, %.thread, %.loopexit
   %46 = load ptr, ptr @prte_info_path_prefix, align 8, !tbaa !21
   %47 = load ptr, ptr @prte_install_dirs, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -1327,7 +1327,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   %.not36 = icmp eq ptr %494, null
   br i1 %.not36, label %.thread45, label %.lr.ph54, !llvm.loop !70
 
-.thread45:                                        ; preds = %491, %.loopexit.thread61, %.preheader, %.thread, %.critedge
+.thread45:                                        ; preds = %491, %.loopexit.thread64, %.preheader, %.thread, %.critedge
   ret void
 }
 

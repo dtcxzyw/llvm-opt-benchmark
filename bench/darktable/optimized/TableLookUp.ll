@@ -169,8 +169,8 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %30 = shl i64 %9, 31
   %sext = add i64 %30, -4294967296
   %31 = ashr i64 %sext, 32
-  %sext110 = shl i64 %9, 31
-  %32 = ashr i64 %sext110, 32
+  %sext112 = shl i64 %9, 31
+  %32 = ashr i64 %sext112, 32
   br label %36
 
 .preheader92:                                     ; preds = %18
@@ -178,9 +178,8 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   br i1 %33, label %.lr.ph, label %.lr.ph98
 
 .lr.ph:                                           ; preds = %.preheader92
-  %34 = shl i64 %9, 31
-  %sext111 = add i64 %34, -4294967296
-  %35 = ashr i64 %sext111, 32
+  %34 = add nuw i64 %10, 4294967295
+  %35 = and i64 %34, 4294967295
   %wide.trip.count = and i64 %10, 2147483647
   br label %46
 
@@ -229,7 +228,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
 
 55:                                               ; preds = %46, %50
   %.sroa.speculated45 = phi i32 [ %54, %50 ], [ %49, %46 ]
-  %56 = icmp slt i64 %indvars.iv102, %35
+  %56 = icmp samesign ult i64 %indvars.iv102, %35
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
@@ -264,8 +263,8 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
 73:                                               ; preds = %.lr.ph98, %73
   %indvars.iv106 = phi i64 [ %43, %.lr.ph98 ], [ %indvars.iv.next107, %73 ]
   %74 = load i16, ptr %42, align 2, !tbaa !19
-  %.idx112 = shl nuw nsw i64 %indvars.iv106, 2
-  %75 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx112
+  %.idx113 = shl nuw nsw i64 %indvars.iv106, 2
+  %75 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx113
   store i16 %74, ptr %75, align 2, !tbaa !19
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
   store i16 0, ptr %76, align 2, !tbaa !19

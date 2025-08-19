@@ -2001,8 +2001,8 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr noundef reado
   %58 = add i32 %.297, 2
   %.not86 = icmp eq i32 %.08298, 0
   %59 = load i32, ptr %6, align 4
-  %.str.583..str.573118 = select i1 %.not86, ptr @.str.583, ptr @.str.573
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %25, ptr noundef nonnull %.str.583..str.573118, i32 noundef %59)
+  %.str.583..str.573120 = select i1 %.not86, ptr @.str.583, ptr @.str.573
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %25, ptr noundef nonnull %.str.583..str.573120, i32 noundef %59)
   %60 = add nuw i32 %.08298, 1
   %61 = load i32, ptr %5, align 4
   %62 = icmp ult i32 %60, %61
@@ -2034,8 +2034,8 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr noundef reado
   %80 = add i32 %.395, 2
   %.not = icmp eq i32 %.096, 0
   %81 = load i32, ptr %6, align 4
-  %.str.583..str.573119 = select i1 %.not, ptr @.str.583, ptr @.str.573
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %25, ptr noundef nonnull %.str.583..str.573119, i32 noundef %81)
+  %.str.583..str.573121 = select i1 %.not, ptr @.str.583, ptr @.str.573
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %25, ptr noundef nonnull %.str.583..str.573121, i32 noundef %81)
   %82 = add nuw i32 %.096, 1
   %83 = load i32, ptr %5, align 4
   %84 = icmp ult i32 %82, %83

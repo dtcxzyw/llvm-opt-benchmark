@@ -7472,7 +7472,7 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_Sorry_collect___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_Sorry_collect___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %.not81 = icmp eq i64 %1, %2
   br i1 %.not81, label %._crit_edge, label %.lr.ph
 
@@ -8763,7 +8763,7 @@ lean_dec.exit234.backedge:                        ; preds = %lean_inc.exit, %379
 declare void @lean_free_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_Sorry_collect___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_Sorry_collect___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %1, i64 8
   %.val22 = load i64, ptr %8, align 8, !tbaa !12
   %9 = ptrtoint ptr %1 to i64
@@ -10260,18 +10260,18 @@ _init_l_Lean_IR_updateSorryDep___closed__1.exit:  ; preds = %_init_l_Lean_IR_Sor
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_IR_updateSorryDep___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %32, %_init_l_Lean_IR_updateSorryDep___closed__1.exit ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink14 = phi ptr [ %4, %3 ], [ %32, %_init_l_Lean_IR_updateSorryDep___closed__1.exit ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
+  store i32 1, ptr %.sink14, align 4, !tbaa !8
   store i32 131096, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %36, align 8, !tbaa !4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %37, align 8, !tbaa !4
   br label %38
 
 38:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink14, %.sink.split ]
   ret ptr %.0
 }
 

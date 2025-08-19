@@ -2352,7 +2352,7 @@ select.unfold.thread:                             ; preds = %110, %select.unfold
 184:                                              ; preds = %181
   %185 = load i8, ptr %182, align 1, !noalias !177, !noundef !6
   %186 = icmp sgt i8 %185, -1
-  br i1 %186, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95.thread, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i"
+  br i1 %186, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118.thread, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i": ; preds = %184
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 1
@@ -2367,9 +2367,9 @@ select.unfold.thread:                             ; preds = %110, %select.unfold
   %195 = zext nneg i8 %194 to i32
   %196 = or disjoint i32 %193, %195
   %197 = icmp samesign ugt i8 %185, -33
-  br i1 %197, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i", label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95
+  br i1 %197, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i", label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118
 
-_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95.thread: ; preds = %184
+_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118.thread: ; preds = %184
   %198 = zext nneg i8 %185 to i32
   br label %_ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit
 
@@ -2386,7 +2386,7 @@ _ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95.thr
   %207 = shl nuw nsw i32 %189, 12
   %208 = or disjoint i32 %206, %207
   %209 = icmp samesign ugt i8 %185, -17
-  br i1 %209, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95
+  br i1 %209, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118
 
 _ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i"
   %210 = getelementptr inbounds nuw i8, ptr %182, i64 3
@@ -2402,27 +2402,27 @@ _ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit: ; preds = %
   %219 = or disjoint i32 %216, %218
   %220 = or disjoint i32 %219, %215
   %.not36 = icmp eq i32 %220, 1114112
-  br i1 %.not36, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95
+  br i1 %.not36, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118
 
 221:                                              ; preds = %177, %170, %156, %168, %175
   call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %158, i64 noundef %160, i64 noundef %161, i64 noundef %162, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.97) #13
   unreachable
 
-_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i", %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit
-  %.sroa.4.0.i98 = phi i32 [ %220, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit ], [ %196, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i" ], [ %208, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i" ]
-  %222 = icmp samesign ult i32 %.sroa.4.0.i98, 128
+_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i", %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit
+  %.sroa.4.0.i121 = phi i32 [ %220, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit ], [ %196, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i" ], [ %208, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit14.i" ]
+  %222 = icmp samesign ult i32 %.sroa.4.0.i121, 128
   br i1 %222, label %_ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit, label %223
 
-223:                                              ; preds = %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95
-  %224 = call noundef zeroext i1 @_ZN13unicode_ident12is_xid_start17h24b2d0b06842d41dE(i32 noundef range(i32 0, 1114112) %.sroa.4.0.i98)
+223:                                              ; preds = %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118
+  %224 = call noundef zeroext i1 @_ZN13unicode_ident12is_xid_start17h24b2d0b06842d41dE(i32 noundef range(i32 0, 1114112) %.sroa.4.0.i121)
   br i1 %224, label %229, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread
 
-_ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit: ; preds = %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95.thread, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95
-  %.sroa.4.0.i98100 = phi i32 [ %198, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95.thread ], [ %.sroa.4.0.i98, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95 ]
-  %225 = and i32 %.sroa.4.0.i98100, 95
+_ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit: ; preds = %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118.thread, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118
+  %.sroa.4.0.i121123 = phi i32 [ %198, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118.thread ], [ %.sroa.4.0.i121, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread118 ]
+  %225 = and i32 %.sroa.4.0.i121123, 95
   %226 = add nsw i32 %225, -65
   %or.cond2.i = icmp ult i32 %226, 26
-  %227 = icmp eq i32 %.sroa.4.0.i98100, 95
+  %227 = icmp eq i32 %.sroa.4.0.i121123, 95
   %spec.select.i49 = or i1 %227, %or.cond2.i
   br i1 %spec.select.i49, label %229, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread
 

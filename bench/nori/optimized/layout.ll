@@ -1085,7 +1085,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7nanogui10GridLayout14perform_layoutEP10NVGcontextPNS_6WidgetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0233 = alloca i32, align 4
+  %.sroa.0245 = alloca i32, align 4
   %.sroa.2 = alloca i32, align 4
   %4 = alloca [2 x %"class.std::vector.5"], align 16
   %5 = alloca [2 x i32], align 4
@@ -1100,9 +1100,9 @@ define hidden void @_ZNK7nanogui10GridLayout14perform_layoutEP10NVGcontextPNS_6W
   %.sroa.3.0.extract.shift = lshr i64 %12, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
   %.not = icmp eq i32 %.sroa.0135.0.extract.trunc, 0
-  %indvars.iv182.sroa.gep223 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %indvars.iv182.sroa.gep226 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %indvars.iv182.sroa.gep229 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %indvars.iv182.sroa.gep235 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %indvars.iv182.sroa.gep238 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %indvars.iv182.sroa.gep241 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not, label %13, label %16
 
 13:                                               ; preds = %3
@@ -1122,7 +1122,7 @@ define hidden void @_ZNK7nanogui10GridLayout14perform_layoutEP10NVGcontextPNS_6W
 
 21:                                               ; preds = %16, %18
   %22 = phi i32 [ %20, %18 ], [ %.sroa.3.0.extract.trunc, %16 ]
-  store i32 %17, ptr %.sroa.0233, align 4
+  store i32 %17, ptr %.sroa.0245, align 4
   store i32 %22, ptr %.sroa.2, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1193,16 +1193,16 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
 58:                                               ; preds = %55, %.critedge
   %59 = phi i1 [ true, %55 ], [ false, %.critedge ]
   %indvars.iv182.sroa.phi.sroa.speculated = phi i32 [ 0, %55 ], [ %.sroa.3.0, %.critedge ]
-  %indvars.iv182.sroa.phi = phi ptr [ %5, %55 ], [ %indvars.iv182.sroa.gep223, %.critedge ]
-  %indvars.iv182.sroa.phi224 = phi ptr [ %5, %55 ], [ %indvars.iv182.sroa.gep226, %.critedge ]
-  %indvars.iv182.sroa.phi227 = phi ptr [ %4, %55 ], [ %indvars.iv182.sroa.gep229, %.critedge ]
-  %indvars.iv182.sroa.phi230 = phi ptr [ %.sroa.0233, %55 ], [ %.sroa.2, %.critedge ]
+  %indvars.iv182.sroa.phi = phi ptr [ %5, %55 ], [ %indvars.iv182.sroa.gep235, %.critedge ]
+  %indvars.iv182.sroa.phi236 = phi ptr [ %5, %55 ], [ %indvars.iv182.sroa.gep238, %.critedge ]
+  %indvars.iv182.sroa.phi239 = phi ptr [ %4, %55 ], [ %indvars.iv182.sroa.gep241, %.critedge ]
+  %indvars.iv182.sroa.phi242 = phi ptr [ %.sroa.0245, %55 ], [ %.sroa.2, %.critedge ]
   %indvars.iv182 = phi i64 [ 0, %55 ], [ 1, %.critedge ]
   %60 = load i32, ptr %56, align 4
   %61 = shl nsw i32 %60, 1
   %62 = add nsw i32 %61, %indvars.iv182.sroa.phi.sroa.speculated
-  %63 = load ptr, ptr %indvars.iv182.sroa.phi227, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %indvars.iv182.sroa.phi227, i64 8
+  %63 = load ptr, ptr %indvars.iv182.sroa.phi239, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %indvars.iv182.sroa.phi239, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not144152 = icmp eq ptr %63, %65
   br i1 %.not144152, label %._crit_edge, label %.lr.ph
@@ -1240,13 +1240,13 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %72, %58
   %.098.lcssa = phi i32 [ %62, %58 ], [ %75, %72 ], [ %78, %.lr.ph.split ]
-  %80 = load i32, ptr %indvars.iv182.sroa.phi230, align 4
+  %80 = load i32, ptr %indvars.iv182.sroa.phi242, align 4
   %81 = icmp slt i32 %.098.lcssa, %80
   br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %._crit_edge
   %83 = sub nsw i32 %80, %.098.lcssa
-  %84 = load i32, ptr %indvars.iv182.sroa.phi224, align 4
+  %84 = load i32, ptr %indvars.iv182.sroa.phi236, align 4
   %85 = sdiv i32 %83, %84
   %86 = mul nsw i32 %85, %84
   %.recomposed = srem i32 %83, %84
@@ -1267,7 +1267,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
   %indvars.iv = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next, %.lr.ph157 ]
-  %90 = load ptr, ptr %indvars.iv182.sroa.phi227, align 8
+  %90 = load ptr, ptr %indvars.iv182.sroa.phi239, align 8
   %91 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4
   %93 = add nsw i32 %92, %85
@@ -1279,7 +1279,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
 .lr.ph161:                                        ; preds = %.lr.ph161.preheader, %.lr.ph161
   %indvars.iv179 = phi i64 [ 0, %.lr.ph161.preheader ], [ %indvars.iv.next180, %.lr.ph161 ]
   %.099160 = phi i32 [ %.recomposed, %.lr.ph161.preheader ], [ %98, %.lr.ph161 ]
-  %94 = load ptr, ptr %indvars.iv182.sroa.phi227, align 8
+  %94 = load ptr, ptr %indvars.iv182.sroa.phi239, align 8
   %95 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv179
   %96 = load i32, ptr %95, align 4
   %97 = add nsw i32 %96, 1
@@ -1943,11 +1943,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit23:                  ; preds = %48, %52
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7nanogui18AdvancedGridLayout14compute_layoutEP10NVGcontextPKNS_6WidgetEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0252 = alloca i32, align 4
+  %.sroa.0261 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
   %5 = alloca %"struct.std::pair", align 8
   %.sroa.0 = alloca i32, align 8
-  %.sroa.2248 = alloca i32, align 4
+  %.sroa.2257 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1977,7 +1977,7 @@ define hidden void @_ZNK7nanogui18AdvancedGridLayout14compute_layoutEP10NVGconte
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %15, %17
   %20 = phi i32 [ %19, %17 ], [ %.sroa.3.0.extract.trunc, %15 ]
-  store i32 %16, ptr %.sroa.0252, align 4
+  store i32 %16, ptr %.sroa.0261, align 4
   store i32 %20, ptr %.sroa.4, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %22 = load i32, ptr %21, align 8
@@ -2004,9 +2004,9 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %15, %17
 
 _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %25, %28
   %.sroa.2.0 = phi i32 [ %23, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ], [ %23, %25 ], [ %35, %28 ]
-  %.sroa.0252.0..sroa.0252.0. = load i32, ptr %.sroa.0252, align 4
-  %36 = sub nsw i32 %.sroa.0252.0..sroa.0252.0., %23
-  store i32 %36, ptr %.sroa.0252, align 4
+  %.sroa.0261.0..sroa.0261.0. = load i32, ptr %.sroa.0261, align 4
+  %36 = sub nsw i32 %.sroa.0261.0..sroa.0261.0., %23
+  store i32 %36, ptr %.sroa.0261, align 4
   %.sroa.4.0..sroa.4.4. = load i32, ptr %.sroa.4, align 4
   %37 = sub nsw i32 %.sroa.4.0..sroa.4.4., %.sroa.2.0
   store i32 %37, ptr %.sroa.4, align 4
@@ -2017,8 +2017,8 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
 
 41:                                               ; preds = %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread
   %42 = phi i1 [ true, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ false, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
-  %indvars.iv212.sroa.phi = phi ptr [ %.sroa.0, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ %.sroa.2248, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
-  %indvars.iv212.sroa.phi250 = phi ptr [ %.sroa.0252, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ %.sroa.4, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
+  %indvars.iv212.sroa.phi = phi ptr [ %.sroa.0, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ %.sroa.2257, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
+  %indvars.iv212.sroa.phi259 = phi ptr [ %.sroa.0261, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ %.sroa.4, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
   %indvars.iv212 = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge ], [ 1, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit.thread ]
   %43 = getelementptr inbounds nuw %"class.std::vector.5", ptr %3, i64 %indvars.iv212
   %.v = select i1 %42, i64 16, i64 40
@@ -2073,9 +2073,9 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
   %68 = tail call i64 %67(ptr noundef nonnull align 8 dereferenceable(140) %54, ptr noundef %1)
   %.sroa.0.0.extract.trunc = trunc i64 %68 to i32
   store i32 %.sroa.0.0.extract.trunc, ptr %.sroa.0, align 8
-  %.sroa.2248.0.extract.shift = lshr i64 %68, 32
-  %.sroa.2248.0.extract.trunc = trunc nuw i64 %.sroa.2248.0.extract.shift to i32
-  store i32 %.sroa.2248.0.extract.trunc, ptr %.sroa.2248, align 4
+  %.sroa.2257.0.extract.shift = lshr i64 %68, 32
+  %.sroa.2257.0.extract.trunc = trunc nuw i64 %.sroa.2257.0.extract.shift to i32
+  store i32 %.sroa.2257.0.extract.trunc, ptr %.sroa.2257, align 4
   %69 = load i32, ptr %indvars.iv212.sroa.phi, align 4
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %71 = getelementptr inbounds nuw [2 x i32], ptr %70, i64 0, i64 %indvars.iv212
@@ -2097,8 +2097,8 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
   br i1 %85, label %87, label %.preheader
 
 .preheader:                                       ; preds = %64
-  %.not217 = icmp eq i8 %61, 0
-  br i1 %.not217, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not226 = icmp eq i8 %61, 0
+  br i1 %.not226, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %86 = zext i8 %74 to i64
@@ -2190,19 +2190,19 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
   br i1 %.not132, label %124, label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  %.not132221 = icmp sgt i32 %73, 0
-  br i1 %.not132221, label %.thread225, label %.loopexit
+  %.not132230 = icmp sgt i32 %73, 0
+  br i1 %.not132230, label %.thread234, label %.loopexit
 
 124:                                              ; preds = %._crit_edge
   %125 = fcmp oeq float %118, 0.000000e+00
-  br i1 %125, label %.thread225, label %135
+  br i1 %125, label %.thread234, label %135
 
-.thread225:                                       ; preds = %._crit_edge.thread, %124
+.thread234:                                       ; preds = %._crit_edge.thread, %124
   %126 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZNK7nanogui18AdvancedGridLayout6AnchorcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 1 dereferenceable(6) %39)
           to label %127 unwind label %.thread166
 
-127:                                              ; preds = %.thread225
+127:                                              ; preds = %.thread234
   %128 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.1)
           to label %129 unwind label %.thread170
 
@@ -2215,7 +2215,7 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.preheader.critedge: ; preds = %_ZN7nanogui
   invoke void @__cxa_throw(ptr nonnull %126, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #21
           to label %198 unwind label %133
 
-.thread166:                                       ; preds = %.thread225
+.thread166:                                       ; preds = %.thread234
   %131 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
@@ -2311,7 +2311,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S
   br i1 %.not.i144, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit, label %.lr.ph.i141, !llvm.loop !22
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_S8_.exit: ; preds = %.lr.ph.i141
-  %171 = load i32, ptr %indvars.iv212.sroa.phi250, align 4
+  %171 = load i32, ptr %indvars.iv212.sroa.phi259, align 4
   %172 = icmp sge i32 %.0.lcssa.i, %171
   %173 = fcmp oeq float %169, 0.000000e+00
   %or.cond = or i1 %173, %172
@@ -2370,16 +2370,16 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEfET0_T_S9_
 define hidden void @_ZNK7nanogui18AdvancedGridLayout14perform_layoutEP10NVGcontextPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"class.std::vector.5"], align 16
   %5 = alloca %"struct.nanogui::AdvancedGridLayout::Anchor", align 8
-  %.sroa.0144 = alloca i32, align 8
+  %.sroa.0161 = alloca i32, align 8
   %.sroa.2 = alloca i32, align 4
-  %.sroa.0140 = alloca i32, align 8
-  %.sroa.3141 = alloca i32, align 4
+  %.sroa.0157 = alloca i32, align 8
+  %.sroa.3158 = alloca i32, align 4
   %.sroa.0 = alloca i32, align 8
   %.sroa.3 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %indvars.iv.sroa.gep146 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %indvars.iv.sroa.gep149 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %indvars.iv.sroa.gep163 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %indvars.iv.sroa.gep166 = getelementptr inbounds nuw i8, ptr %4, i64 24
   invoke void @_ZNK7nanogui18AdvancedGridLayout14compute_layoutEP10NVGcontextPKNS_6WidgetEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
           to label %7 unwind label %.loopexit.split-lp
 
@@ -2542,14 +2542,14 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
 .preheader91:                                     ; preds = %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit, %._crit_edge103
   %79 = phi i1 [ true, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ false, %._crit_edge103 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %.sroa.3, %._crit_edge103 ]
-  %indvars.iv.sroa.phi135 = phi ptr [ %.sroa.0140, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %.sroa.3141, %._crit_edge103 ]
-  %indvars.iv.sroa.phi142 = phi ptr [ %.sroa.0144, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %.sroa.2, %._crit_edge103 ]
-  %indvars.iv.sroa.phi145 = phi ptr [ %5, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %indvars.iv.sroa.gep146, %._crit_edge103 ]
-  %indvars.iv.sroa.phi147 = phi ptr [ %4, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %indvars.iv.sroa.gep149, %._crit_edge103 ]
+  %indvars.iv.sroa.phi152 = phi ptr [ %.sroa.0157, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %.sroa.3158, %._crit_edge103 ]
+  %indvars.iv.sroa.phi159 = phi ptr [ %.sroa.0161, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %.sroa.2, %._crit_edge103 ]
+  %indvars.iv.sroa.phi162 = phi ptr [ %5, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %indvars.iv.sroa.gep163, %._crit_edge103 ]
+  %indvars.iv.sroa.phi164 = phi ptr [ %4, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ %indvars.iv.sroa.gep166, %._crit_edge103 ]
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit ], [ 1, %._crit_edge103 ]
-  %80 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi147, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi164, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %indvars.iv.sroa.phi147, align 8
+  %82 = load ptr, ptr %indvars.iv.sroa.phi164, align 8
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
@@ -2567,7 +2567,7 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   store i32 %92, ptr %88, align 4
   %93 = add nuw i64 %.06097, 1
   %94 = load ptr, ptr %80, align 8
-  %95 = load ptr, ptr %indvars.iv.sroa.phi147, align 8
+  %95 = load ptr, ptr %indvars.iv.sroa.phi164, align 8
   %96 = ptrtoint ptr %94 to i64
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
@@ -2677,9 +2677,9 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %.sroa.0.0.copyload.i = load i48, ptr %142, align 8
   store i48 %.sroa.0.0.copyload.i, ptr %5, align 8
-  %143 = load i8, ptr %indvars.iv.sroa.phi145, align 1
+  %143 = load i8, ptr %indvars.iv.sroa.phi162, align 1
   %144 = zext i8 %143 to i64
-  %145 = load ptr, ptr %indvars.iv.sroa.phi147, align 8
+  %145 = load ptr, ptr %indvars.iv.sroa.phi164, align 8
   %146 = getelementptr inbounds nuw i32, ptr %145, i64 %144
   %147 = load i32, ptr %146, align 4
   %148 = load i8, ptr %103, align 1
@@ -2694,12 +2694,12 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
           to label %157 unwind label %.loopexit90
 
 157:                                              ; preds = %.loopexit
-  %.sroa.0144.0.extract.trunc = trunc i64 %156 to i32
-  store i32 %.sroa.0144.0.extract.trunc, ptr %.sroa.0144, align 8
+  %.sroa.0161.0.extract.trunc = trunc i64 %156 to i32
+  store i32 %.sroa.0161.0.extract.trunc, ptr %.sroa.0161, align 8
   %.sroa.2.0.extract.shift = lshr i64 %156, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   store i32 %.sroa.2.0.extract.trunc, ptr %.sroa.2, align 4
-  %158 = load i32, ptr %indvars.iv.sroa.phi142, align 4
+  %158 = load i32, ptr %indvars.iv.sroa.phi159, align 4
   %159 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %160 = getelementptr inbounds nuw [2 x i32], ptr %159, i64 0, i64 %indvars.iv
   %161 = load i32, ptr %160, align 4
@@ -2731,28 +2731,28 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   %.0 = phi i32 [ %162, %157 ], [ %171, %170 ], [ %162, %164 ], [ %162, %168 ]
   %173 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %174 = load i32, ptr %173, align 4
-  %.sroa_idx138 = getelementptr inbounds nuw i8, ptr %106, i64 44
-  %175 = load i32, ptr %.sroa_idx138, align 4
-  store i32 %174, ptr %.sroa.0140, align 8
-  store i32 %175, ptr %.sroa.3141, align 4
+  %.sroa_idx155 = getelementptr inbounds nuw i8, ptr %106, i64 44
+  %175 = load i32, ptr %.sroa_idx155, align 4
+  store i32 %174, ptr %.sroa.0157, align 8
+  store i32 %175, ptr %.sroa.3158, align 4
   %176 = getelementptr inbounds nuw i8, ptr %106, i64 48
   %177 = load i32, ptr %176, align 4
-  %.sroa_idx133 = getelementptr inbounds nuw i8, ptr %106, i64 52
-  %178 = load i32, ptr %.sroa_idx133, align 4
+  %.sroa_idx150 = getelementptr inbounds nuw i8, ptr %106, i64 52
+  %178 = load i32, ptr %.sroa_idx150, align 4
   store i32 %177, ptr %.sroa.0, align 8
   store i32 %178, ptr %.sroa.3, align 4
-  store i32 %.061, ptr %indvars.iv.sroa.phi135, align 4
+  store i32 %.061, ptr %indvars.iv.sroa.phi152, align 4
   store i32 %.0, ptr %indvars.iv.sroa.phi, align 4
-  %.sroa.0140.0..sroa.0140.0. = load i32, ptr %.sroa.0140, align 8
-  %.sroa.3141.0..sroa.3141.4. = load i32, ptr %.sroa.3141, align 4
-  store i32 %.sroa.0140.0..sroa.0140.0., ptr %173, align 8
-  %.sroa_idx137 = getelementptr inbounds nuw i8, ptr %106, i64 44
-  store i32 %.sroa.3141.0..sroa.3141.4., ptr %.sroa_idx137, align 4
+  %.sroa.0157.0..sroa.0157.0. = load i32, ptr %.sroa.0157, align 8
+  %.sroa.3158.0..sroa.3158.4. = load i32, ptr %.sroa.3158, align 4
+  store i32 %.sroa.0157.0..sroa.0157.0., ptr %173, align 8
+  %.sroa_idx154 = getelementptr inbounds nuw i8, ptr %106, i64 44
+  store i32 %.sroa.3158.0..sroa.3158.4., ptr %.sroa_idx154, align 4
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 8
   %.sroa.3.0..sroa.3.4. = load i32, ptr %.sroa.3, align 4
   store i32 %.sroa.0.0..sroa.0.0., ptr %176, align 8
-  %.sroa_idx132 = getelementptr inbounds nuw i8, ptr %106, i64 52
-  store i32 %.sroa.3.0..sroa.3.4., ptr %.sroa_idx132, align 4
+  %.sroa_idx149 = getelementptr inbounds nuw i8, ptr %106, i64 52
+  store i32 %.sroa.3.0..sroa.3.4., ptr %.sroa_idx149, align 4
   %179 = load ptr, ptr %106, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 104
   %181 = load ptr, ptr %180, align 8
@@ -3556,7 +3556,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -3757,7 +3757,7 @@ _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds float, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw float, ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70

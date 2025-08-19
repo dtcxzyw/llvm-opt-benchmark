@@ -239,10 +239,10 @@ define internal fastcc range(i32 0, 2) i32 @asn1_item_embed_new(ptr noundef %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %85, %35, %52, %84, %18, %23, %28, %30, %32, %68, %.thread
-  %.sink120 = phi i32 [ 163, %.thread ], [ 163, %68 ], [ 163, %32 ], [ 163, %30 ], [ 163, %28 ], [ 163, %23 ], [ 163, %18 ], [ 163, %84 ], [ 169, %52 ], [ 169, %35 ], [ 169, %85 ]
+  %.sink124 = phi i32 [ 163, %.thread ], [ 163, %68 ], [ 163, %32 ], [ 163, %30 ], [ 163, %28 ], [ 163, %23 ], [ 163, %18 ], [ 163, %84 ], [ 169, %52 ], [ 169, %35 ], [ 169, %85 ]
   %.sink = phi i32 [ 524301, %.thread ], [ 524301, %68 ], [ 524301, %32 ], [ 524301, %30 ], [ 524301, %28 ], [ 524301, %23 ], [ 524301, %18 ], [ 524301, %84 ], [ 100, %52 ], [ 100, %35 ], [ 100, %85 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink120, ptr noundef nonnull @__func__.asn1_item_embed_new) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink124, ptr noundef nonnull @__func__.asn1_item_embed_new) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #4
   br label %86
 

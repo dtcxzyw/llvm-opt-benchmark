@@ -747,9 +747,9 @@ get_item_len.exit:                                ; preds = %67, %70
   br label %.split
 
 .split:                                           ; preds = %get_item_len.exit, %.split131
-  %.sink156 = phi ptr [ %3, %.split131 ], [ null, %get_item_len.exit ]
+  %.sink161 = phi ptr [ %3, %.split131 ], [ null, %get_item_len.exit ]
   %75 = add i32 %storemerge.i, %64
-  %76 = call fastcc zeroext i1 @dissect_parameters(ptr noundef %0, i32 noundef %75, i16 noundef zeroext %.0.i, ptr noundef %.sink156, ptr noundef %.1125, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %76 = call fastcc zeroext i1 @dissect_parameters(ptr noundef %0, i32 noundef %75, i16 noundef zeroext %.0.i, ptr noundef %.sink161, ptr noundef %.1125, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %77 = add i32 %75, %72
   call void @proto_item_set_end(ptr noundef %.1128, ptr noundef %0, i32 noundef %77)
   %78 = load i8, ptr @ses_desegment, align 1, !range !8, !noundef !9

@@ -1268,7 +1268,7 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   %.not207.us = icmp ugt i32 %.0152.us, %.1273
   br i1 %.not207.us, label %.thread280, label %.preheader.us
 
-.preheaderthread-pre-split:                       ; preds = %downloadPatch.exit._crit_edge.thread422
+.preheaderthread-pre-split:                       ; preds = %downloadPatch.exit._crit_edge.thread451
   %.pr = load i32, ptr @g_maxAttempts, align 4, !tbaa !3
   br label %.preheader
 
@@ -1277,7 +1277,7 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   %.0152408 = phi i32 [ %.0152, %.preheaderthread-pre-split ], [ %.0152405, %.preheader.lr.ph ]
   %.0150407 = phi i32 [ %320, %.preheaderthread-pre-split ], [ 0, %.preheader.lr.ph ]
   %.not208401 = icmp eq i32 %213, 0
-  br i1 %.not208401, label %downloadPatch.exit._crit_edge.thread422, label %.lr.ph
+  br i1 %.not208401, label %downloadPatch.exit._crit_edge.thread451, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %214 = icmp eq i32 %.0152408, 0
@@ -1311,8 +1311,8 @@ check_for_new_database_version.exit:              ; preds = %172, %173
   %223 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.195) #24
   br label %.thread
 
-.thread280:                                       ; preds = %downloadPatch.exit._crit_edge.thread422, %.preheader.us
-  %.0150.lcssa = phi i32 [ %212, %.preheader.us ], [ %320, %downloadPatch.exit._crit_edge.thread422 ]
+.thread280:                                       ; preds = %downloadPatch.exit._crit_edge.thread451, %.preheader.us
+  %.0150.lcssa = phi i32 [ %212, %.preheader.us ], [ %320, %downloadPatch.exit._crit_edge.thread451 ]
   %224 = icmp eq i32 %.0150.lcssa, 0
   br i1 %224, label %.thread293, label %343
 
@@ -1519,7 +1519,7 @@ downloadPatch.exit:                               ; preds = %312, %313
   switch i32 %.037606976.ph.i, label %.split [
     i32 11, label %317
     i32 5, label %317
-    i32 0, label %downloadPatch.exit._crit_edge.thread422
+    i32 0, label %downloadPatch.exit._crit_edge.thread451
   ]
 
 317:                                              ; preds = %downloadPatch.exit, %downloadPatch.exit
@@ -1528,7 +1528,7 @@ downloadPatch.exit:                               ; preds = %312, %313
   %.not208 = icmp ugt i32 %318, %319
   br i1 %.not208, label %.split, label %.lr.ph.split
 
-downloadPatch.exit._crit_edge.thread422:          ; preds = %downloadPatch.exit, %.preheader
+downloadPatch.exit._crit_edge.thread451:          ; preds = %downloadPatch.exit, %.preheader
   %320 = add i32 %.0150407, 1
   %.0152 = add i32 %.0152408, 1
   %.not207 = icmp ugt i32 %.0152, %.1273
@@ -1538,7 +1538,7 @@ downloadPatch.exit._crit_edge.thread422:          ; preds = %downloadPatch.exit,
   %321 = icmp eq i32 %.037606976.ph.i, 6
   switch i32 %.037606976.ph.i, label %322 [
     i32 6, label %330
-    i32 14, label %.thread426
+    i32 14, label %.thread455
   ]
 
 322:                                              ; preds = %.split
@@ -1554,21 +1554,21 @@ downloadPatch.exit._crit_edge.thread422:          ; preds = %downloadPatch.exit,
   %326 = icmp eq i32 %.0150407, 0
   %327 = add i32 %.1273, -1
   %328 = icmp ult i32 %.1276, %327
-  %or.cond398425 = select i1 %326, i1 %328, i1 false
-  br i1 %or.cond398425, label %.thread426, label %339
+  %or.cond398454 = select i1 %326, i1 %328, i1 false
+  br i1 %or.cond398454, label %.thread455, label %339
 
 329:                                              ; preds = %322
-  br i1 %321, label %330, label %.thread426
+  br i1 %321, label %330, label %.thread455
 
 330:                                              ; preds = %.split, %329
   %331 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.38, ptr noundef %.3268) #24
   br label %333
 
-.thread426:                                       ; preds = %.thread, %.split, %329
+.thread455:                                       ; preds = %.thread, %.split, %329
   %332 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.39, ptr noundef %.3268) #24
   br label %333
 
-333:                                              ; preds = %.thread426, %330
+333:                                              ; preds = %.thread455, %330
   %334 = call fastcc i32 @getcvd(ptr noundef %.3268, ptr noundef %181, ptr noundef %2, i32 noundef %.0277, i32 noundef %.1273, i32 noundef %6)
   switch i32 %334, label %.thread317 [
     i32 0, label %337
@@ -2583,8 +2583,8 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   %15 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.234, ptr noundef nonnull %0) #24
   %16 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.110, i64 noundef 4) #28
   %.not74 = icmp eq i32 %16, 0
-  %.108 = zext i1 %.not74 to i32
-  %17 = call fastcc i32 @create_curl_handle(i32 noundef %.108, ptr noundef %5)
+  %.116 = zext i1 %.not74 to i32
+  %17 = call fastcc i32 @create_curl_handle(i32 noundef %.116, ptr noundef %5)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %20, label %18
 
@@ -2687,21 +2687,21 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 59:                                               ; preds = %57, %55
   %60 = call ptr @curl_slist_append(ptr noundef null, ptr noundef nonnull @.str.119) #24
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.sink.split104, label %62
+  br i1 %61, label %.sink.split112, label %62
 
 62:                                               ; preds = %59
   %63 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %44, i32 noundef 10023, ptr noundef nonnull %60) #24
   %.not77 = icmp eq i32 %63, 0
-  br i1 %.not77, label %65, label %.sink.split104
+  br i1 %.not77, label %65, label %.sink.split112
 
-.sink.split104:                                   ; preds = %62, %59
+.sink.split112:                                   ; preds = %62, %59
   %.str.243.sink = phi ptr [ @.str.243, %59 ], [ @.str.244, %62 ]
   %.1.ph = phi ptr [ null, %59 ], [ %60, %62 ]
   %64 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull %.str.243.sink) #24
   br label %65
 
-65:                                               ; preds = %.sink.split104, %62, %54
-  %.1 = phi ptr [ null, %54 ], [ %60, %62 ], [ %.1.ph, %.sink.split104 ]
+65:                                               ; preds = %.sink.split112, %62, %54
+  %.1 = phi ptr [ null, %54 ], [ %60, %62 ], [ %.1.ph, %.sink.split112 ]
   %66 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 193, i32 noundef 420) #24
   store i32 %66, ptr %9, align 8, !tbaa !42
   %67 = icmp eq i32 %66, -1
@@ -2832,11 +2832,11 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   %127 = icmp sgt i64 %126, 0
   %128 = call i64 @time(ptr noundef null) #24
   %129 = load i64, ptr %11, align 8
-  %.sink105.v = select i1 %127, i64 %129, i64 14400
-  %.sink105 = add nsw i64 %.sink105.v, %128
+  %.sink113.v = select i1 %127, i64 %129, i64 14400
+  %.sink113 = add nsw i64 %.sink113.v, %128
   %130 = load ptr, ptr @g_freshclamDat, align 8, !tbaa !10
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  store i64 %.sink105, ptr %131, align 8, !tbaa !15
+  store i64 %.sink113, ptr %131, align 8, !tbaa !15
   %132 = call i32 @save_freshclam_dat()
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %152
@@ -2897,7 +2897,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br label %156
 
 156:                                              ; preds = %.thread96.thread, %155, %.thread96
-  %.049100103 = phi i32 [ 16, %.thread96.thread ], [ %.049100, %155 ], [ %.049100, %.thread96 ]
+  %.049100111 = phi i32 [ 16, %.thread96.thread ], [ %.049100, %155 ], [ %.049100, %.thread96 ]
   %157 = load i32, ptr %9, align 8, !tbaa !42
   %.not93 = icmp eq i32 %157, -1
   br i1 %.not93, label %160, label %158
@@ -2907,7 +2907,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br label %160
 
 160:                                              ; preds = %158, %156
-  %161 = icmp samesign ugt i32 %.049100103, 1
+  %161 = icmp samesign ugt i32 %.049100111, 1
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %160
@@ -2920,7 +2920,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.049100103
+  ret i32 %.049100111
 }
 
 declare i32 @cli_strbcasestr(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -3070,19 +3070,19 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
 64:                                               ; preds = %63
   %65 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %48, i32 noundef 34, i32 noundef %1) #24
   %.not84 = icmp eq i32 %65, 0
-  br i1 %.not84, label %66, label %.sink.split114
+  br i1 %.not84, label %66, label %.sink.split125
 
 66:                                               ; preds = %64
   %67 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %48, i32 noundef 33, i32 noundef 1) #24
   %.not85 = icmp eq i32 %67, 0
-  br i1 %.not85, label %69, label %.sink.split114
+  br i1 %.not85, label %69, label %.sink.split125
 
-.sink.split114:                                   ; preds = %66, %64
+.sink.split125:                                   ; preds = %66, %64
   %.str.122.sink = phi ptr [ @.str.122, %64 ], [ @.str.123, %66 ]
   %68 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull %.str.122.sink) #24
   br label %69
 
-69:                                               ; preds = %.sink.split114, %66, %63
+69:                                               ; preds = %.sink.split125, %66, %63
   %70 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %48, i32 noundef 10007, ptr noundef nonnull @.str.124) #24
   %.not86 = icmp eq i32 %70, 0
   br i1 %.not86, label %73, label %71
@@ -3771,16 +3771,16 @@ printTime.exit40:                                 ; preds = %89, %100, %106
   %fputc30 = call i32 @fputc(i32 91, ptr %110)
   switch i32 %19, label %.lr.ph.preheader [
     i32 0, label %.lr.ph44.preheader
-    i32 1, label %.thread49
+    i32 1, label %.thread58
   ]
 
 .lr.ph.preheader:                                 ; preds = %109
   %111 = add i32 %19, -2
   br label %.lr.ph
 
-.thread49:                                        ; preds = %109
+.thread58:                                        ; preds = %109
   %112 = load ptr, ptr @stdout, align 8, !tbaa !28
-  %fputc3351 = call i32 @fputc(i32 62, ptr %112)
+  %fputc3360 = call i32 @fputc(i32 62, ptr %112)
   br label %.lr.ph44.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3797,7 +3797,7 @@ printTime.exit40:                                 ; preds = %89, %100, %106
   %117 = icmp ult i32 %19, 25
   br i1 %117, label %.lr.ph44.preheader, label %._crit_edge
 
-.lr.ph44.preheader:                               ; preds = %109, %.thread49, %115
+.lr.ph44.preheader:                               ; preds = %109, %.thread58, %115
   br label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44

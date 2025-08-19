@@ -2025,8 +2025,8 @@ fill_in_buffer.exit.thread139.i:                  ; preds = %fill_in_buffer.exit
 247:                                              ; preds = %242, %._crit_edge.i
   %248 = getelementptr inbounds nuw i8, ptr %217, i64 32772
   store i32 32768, ptr %248, align 4
-  %.not171.i = icmp eq i32 %201, 1
-  br i1 %.not171.i, label %fill_in_buffer.exit.thread.i.thread, label %253
+  %.not183.i = icmp eq i32 %201, 1
+  br i1 %.not183.i, label %fill_in_buffer.exit.thread.i.thread, label %253
 
 fill_in_buffer.exit.thread.i.thread:              ; preds = %247
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2125,9 +2125,9 @@ zlib_fast_seek_add.exit.i:                        ; preds = %298, %256, %253, %.
   br i1 %314, label %166, label %fill_in_buffer.exit.thread.i, !llvm.loop !29
 
 .thread.i:                                        ; preds = %209, %208, %207, %204
-  %.sink166.i = phi ptr [ %206, %204 ], [ @.str.17, %207 ], [ null, %208 ], [ %211, %209 ]
+  %.sink178.i = phi ptr [ %206, %204 ], [ @.str.17, %207 ], [ null, %208 ], [ %211, %209 ]
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %.sink166.i, ptr %315, align 8
+  store ptr %.sink178.i, ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %147, ptr %316, align 8
   %317 = load i32, ptr %151, align 8
@@ -2137,8 +2137,8 @@ zlib_fast_seek_add.exit.i:                        ; preds = %298, %256, %253, %.
   br label %zlib_fill_out_buffer.exit
 
 fill_in_buffer.exit.thread.sink.split.i:          ; preds = %fill_in_buffer.exit.i15, %171, %buf_read.exit.thread.i.i16
-  %.sink169.i = phi i32 [ %189, %buf_read.exit.thread.i.i16 ], [ -12, %171 ], [ -12, %fill_in_buffer.exit.i15 ]
-  store i32 %.sink169.i, ptr %154, align 4
+  %.sink181.i = phi i32 [ %189, %buf_read.exit.thread.i.i16 ], [ -12, %171 ], [ -12, %fill_in_buffer.exit.i15 ]
+  store i32 %.sink181.i, ptr %154, align 4
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr null, ptr %320, align 8
   %.pre = load i32, ptr %151, align 8
@@ -4556,7 +4556,7 @@ define internal range(i32 -1, 2) i32 @check_for_lz4_compression(ptr noundef %0) 
 36:                                               ; preds = %34
   %37 = load i8, ptr %27, align 8, !range !9, !noundef !10
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %fill_in_buffer.exit.thread83, label %39
+  br i1 %38, label %fill_in_buffer.exit.thread91, label %39
 
 39:                                               ; preds = %36
   %40 = load i32, ptr %29, align 8
@@ -4596,11 +4596,11 @@ buf_read.exit.thread.i:                           ; preds = %50
 
 58:                                               ; preds = %50
   %59 = icmp eq i64 %53, 0
-  br i1 %59, label %fill_in_buffer.exit.thread84, label %fill_in_buffer.exit
+  br i1 %59, label %fill_in_buffer.exit.thread92, label %fill_in_buffer.exit
 
-fill_in_buffer.exit.thread84:                     ; preds = %58
+fill_in_buffer.exit.thread92:                     ; preds = %58
   store i8 1, ptr %27, align 8
-  br label %fill_in_buffer.exit.thread83
+  br label %fill_in_buffer.exit.thread91
 
 fill_in_buffer.exit:                              ; preds = %58
   %.pre80.pre = load i8, ptr %27, align 8, !range !9
@@ -4612,9 +4612,9 @@ fill_in_buffer.exit:                              ; preds = %58
   %64 = load i32, ptr %3, align 8
   %65 = add i32 %64, %63
   store i32 %65, ptr %3, align 8
-  br i1 %60, label %fill_in_buffer.exit.thread83, label %31, !llvm.loop !43
+  br i1 %60, label %fill_in_buffer.exit.thread91, label %31, !llvm.loop !43
 
-fill_in_buffer.exit.thread83:                     ; preds = %36, %fill_in_buffer.exit, %fill_in_buffer.exit.thread84
+fill_in_buffer.exit.thread91:                     ; preds = %36, %fill_in_buffer.exit, %fill_in_buffer.exit.thread92
   store i32 -12, ptr %26, align 4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr null, ptr %66, align 8
@@ -4692,9 +4692,9 @@ buf_read.exit.thread.i52:                         ; preds = %94
 
 102:                                              ; preds = %94
   %103 = icmp eq i64 %97, 0
-  br i1 %103, label %fill_in_buffer.exit53.thread86, label %fill_in_buffer.exit53
+  br i1 %103, label %fill_in_buffer.exit53.thread94, label %fill_in_buffer.exit53
 
-fill_in_buffer.exit53.thread86:                   ; preds = %102
+fill_in_buffer.exit53.thread94:                   ; preds = %102
   store i8 1, ptr %27, align 8
   br label %fill_in_buffer.exit53.thread
 
@@ -4710,7 +4710,7 @@ fill_in_buffer.exit53:                            ; preds = %102
   store i32 %109, ptr %3, align 8
   br i1 %104, label %fill_in_buffer.exit53.thread, label %75, !llvm.loop !44
 
-fill_in_buffer.exit53.thread:                     ; preds = %81, %fill_in_buffer.exit53, %fill_in_buffer.exit53.thread86
+fill_in_buffer.exit53.thread:                     ; preds = %81, %fill_in_buffer.exit53, %fill_in_buffer.exit53.thread94
   store i32 -12, ptr %26, align 4
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr null, ptr %110, align 8
@@ -4763,8 +4763,8 @@ fill_in_buffer.exit53.thread:                     ; preds = %81, %fill_in_buffer
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %fill_in_buffer.exit.thread
 
-fill_in_buffer.exit.thread:                       ; preds = %34, %79, %buf_read.exit.thread.i52, %buf_read.exit.thread.i, %1, %6, %11, %15, %19, %fill_in_buffer.exit.thread83, %72, %fill_in_buffer.exit53.thread, %136
-  %.2 = phi i32 [ 0, %fill_in_buffer.exit.thread83 ], [ -1, %72 ], [ 0, %fill_in_buffer.exit53.thread ], [ %.1, %136 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %6 ], [ 0, %1 ], [ -1, %buf_read.exit.thread.i ], [ -1, %buf_read.exit.thread.i52 ], [ -1, %79 ], [ -1, %34 ]
+fill_in_buffer.exit.thread:                       ; preds = %34, %79, %buf_read.exit.thread.i52, %buf_read.exit.thread.i, %1, %6, %11, %15, %19, %fill_in_buffer.exit.thread91, %72, %fill_in_buffer.exit53.thread, %136
+  %.2 = phi i32 [ 0, %fill_in_buffer.exit.thread91 ], [ -1, %72 ], [ 0, %fill_in_buffer.exit53.thread ], [ %.1, %136 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ], [ 0, %6 ], [ 0, %1 ], [ -1, %buf_read.exit.thread.i ], [ -1, %buf_read.exit.thread.i52 ], [ -1, %79 ], [ -1, %34 ]
   ret i32 %.2
 }
 

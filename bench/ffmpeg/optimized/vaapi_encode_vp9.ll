@@ -175,9 +175,9 @@ define internal noundef i32 @vaapi_encode_vp9_configure(ptr noundef readonly cap
   br label %45
 
 45:                                               ; preds = %27, %32, %42
-  %.sink28 = phi i64 [ 1992, %32 ], [ 1984, %42 ], [ 1992, %27 ]
+  %.sink29 = phi i64 [ 1992, %32 ], [ 1984, %42 ], [ 1992, %27 ]
   %.sink = phi i32 [ %41, %32 ], [ 100, %42 ], [ %12, %27 ]
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink28
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink29
   store i32 %.sink, ptr %46, align 8, !tbaa !64
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 1956
   store i32 255, ptr %47, align 4, !tbaa !65
@@ -526,12 +526,12 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
   %173 = load i32, ptr %33, align 8, !tbaa !96
   %switch.selectcmp = icmp eq i32 %173, 2
   %switch.select = select i1 %switch.selectcmp, i64 1988, i64 1992
-  %switch.selectcmp129 = icmp eq i32 %173, 0
-  %switch.select130 = select i1 %switch.selectcmp129, i64 1984, i64 %switch.select
-  %174 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.select130
-  %.sink127 = load i32, ptr %174, align 4, !tbaa !64
+  %switch.selectcmp131 = icmp eq i32 %173, 0
+  %switch.select132 = select i1 %switch.selectcmp131, i64 1984, i64 %switch.select
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.select132
+  %.sink129 = load i32, ptr %174, align 4, !tbaa !64
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 65
-  %176 = trunc i32 %.sink127 to i8
+  %176 = trunc i32 %.sink129 to i8
   store i8 %176, ptr %175, align 1, !tbaa !108
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 66
   store i8 0, ptr %177, align 2, !tbaa !109

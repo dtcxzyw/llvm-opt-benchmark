@@ -151,9 +151,9 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread:        ; preds = %.noexc26, %_ZNSt6ve
 
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i: ; preds = %23
   %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #18
-          to label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread181
+          to label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187
 
-_ZNSt6vectorIhSaIhEED2Ev.exit45.thread181:        ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i
+_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187:        ; preds = %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread
@@ -362,13 +362,13 @@ _ZNSt16reverse_iteratorISt13_Bit_iteratorEppEv.exit: ; preds = %80, %.lr.ph158
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %._crit_edge159.thread, %._crit_edge159
-  %.sroa.9.0.lcssa172 = phi i32 [ 0, %._crit_edge159.thread ], [ %.sroa.9.1, %._crit_edge159 ]
-  %.sroa.19.0.lcssa171 = phi i32 [ 4096, %._crit_edge159.thread ], [ %102, %._crit_edge159 ]
-  %108 = trunc i32 %.sroa.19.0.lcssa171 to i8
-  %109 = sext i32 %.sroa.9.0.lcssa172 to i64
+  %.sroa.9.0.lcssa178 = phi i32 [ 0, %._crit_edge159.thread ], [ %.sroa.9.1, %._crit_edge159 ]
+  %.sroa.19.0.lcssa177 = phi i32 [ 4096, %._crit_edge159.thread ], [ %102, %._crit_edge159 ]
+  %108 = trunc i32 %.sroa.19.0.lcssa177 to i8
+  %109 = sext i32 %.sroa.9.0.lcssa178 to i64
   %110 = getelementptr inbounds i8, ptr %17, i64 %109
   store i8 %108, ptr %110, align 1, !tbaa !14
-  %111 = add nsw i32 %.sroa.9.0.lcssa172, 1
+  %111 = add nsw i32 %.sroa.9.0.lcssa178, 1
   br label %_ZN5dracoL13ans_write_endEPNS_8AnsCoderE.exit
 
 112:                                              ; preds = %._crit_edge159
@@ -484,19 +484,19 @@ _ZNSt6vectorIhSaIhEED2Ev.exit45:                  ; preds = %_ZNSt6vectorIhSaIhE
   %.not.i.i.i46 = icmp eq ptr %.sroa.098.0118, null
   br i1 %.not.i.i.i46, label %_ZNSt6vectorIhSaIhEED2Ev.exit47, label %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread
 
-_ZNSt6vectorIhSaIhEED2Ev.exit45.thread:           ; preds = %162, %161, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread181, %_ZNSt6vectorIhSaIhEED2Ev.exit45
-  %.sroa.098.0114125180 = phi ptr [ %.sroa.098.0118, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %17, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread181 ], [ %17, %161 ], [ %17, %162 ]
-  %.sroa.11.0109126179 = phi ptr [ %.sroa.11.0113, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %18, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread181 ], [ %18, %161 ], [ %18, %162 ]
-  %.pn22.pn127177 = phi { ptr, i32 } [ %166, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %25, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread181 ], [ %.pn22.pn, %161 ], [ %.pn22.pn, %162 ]
-  %167 = ptrtoint ptr %.sroa.11.0109126179 to i64
-  %168 = ptrtoint ptr %.sroa.098.0114125180 to i64
+_ZNSt6vectorIhSaIhEED2Ev.exit45.thread:           ; preds = %162, %161, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187, %_ZNSt6vectorIhSaIhEED2Ev.exit45
+  %.sroa.098.0114125186 = phi ptr [ %.sroa.098.0118, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %17, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %17, %161 ], [ %17, %162 ]
+  %.sroa.11.0109126185 = phi ptr [ %.sroa.11.0113, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %18, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %18, %161 ], [ %18, %162 ]
+  %.pn22.pn127183 = phi { ptr, i32 } [ %166, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ], [ %25, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread187 ], [ %.pn22.pn, %161 ], [ %.pn22.pn, %162 ]
+  %167 = ptrtoint ptr %.sroa.11.0109126185 to i64
+  %168 = ptrtoint ptr %.sroa.098.0114125186 to i64
   %169 = sub i64 %167, %168
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.098.0114125180, i64 noundef %169) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.098.0114125186, i64 noundef %169) #16
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit47
 
 _ZNSt6vectorIhSaIhEED2Ev.exit47:                  ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread, %_ZNSt6vectorIhSaIhEED2Ev.exit45
-  %.pn22.pn127178 = phi { ptr, i32 } [ %.pn22.pn127177, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread ], [ %166, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ]
-  resume { ptr, i32 } %.pn22.pn127178
+  %.pn22.pn127184 = phi { ptr, i32 } [ %.pn22.pn127183, %_ZNSt6vectorIhSaIhEED2Ev.exit45.thread ], [ %166, %_ZNSt6vectorIhSaIhEED2Ev.exit45 ]
+  resume { ptr, i32 } %.pn22.pn127184
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

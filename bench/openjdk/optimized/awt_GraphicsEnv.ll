@@ -3511,13 +3511,13 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
 50:                                               ; preds = %45
   %51 = load i32, ptr @usingXinerama, align 4
   %.not44.i = icmp eq i32 %51, 0
-  br i1 %.not44.i, label %.thread3.i, label %52
+  br i1 %.not44.i, label %.thread6.i, label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %3, align 4
   %54 = icmp sgt i32 %53, 1
   %.pre.i = load i32, ptr %4, align 4
-  br i1 %54, label %.thread3.i, label %55
+  br i1 %54, label %.thread6.i, label %55
 
 55:                                               ; preds = %52
   %56 = icmp eq i32 %53, 1
@@ -3535,25 +3535,25 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsDevice_initXrandrExten
   %62 = load i32, ptr @awt_numScreens, align 4
   %63 = icmp sgt i32 %62, 1
   %or.cond5.i = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond5.i, label %64, label %.thread3.i
+  br i1 %or.cond5.i, label %64, label %.thread6.i
 
 64:                                               ; preds = %60
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 3, i8 noundef zeroext 1, ptr noundef nonnull @.str.59) #17
   %65 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
   br label %X11GD_InitXrandrFuncs.exit
 
-.thread3.i:                                       ; preds = %60, %52, %50
+.thread6.i:                                       ; preds = %60, %52, %50
   %66 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.60) #17
   store ptr %66, ptr @awt_XRRGetScreenInfo, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %70
 
-68:                                               ; preds = %.thread3.i
+68:                                               ; preds = %.thread6.i
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.60) #17
   %69 = call i32 @dlclose(ptr noundef nonnull %.02.i) #17
   br label %X11GD_InitXrandrFuncs.exit
 
-70:                                               ; preds = %.thread3.i
+70:                                               ; preds = %.thread6.i
   %71 = call ptr @dlsym(ptr noundef nonnull %.02.i, ptr noundef nonnull @.str.61) #17
   store ptr %71, ptr @awt_XRRFreeScreenConfigInfo, align 8
   %72 = icmp eq ptr %71, null

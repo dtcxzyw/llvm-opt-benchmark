@@ -1470,18 +1470,18 @@ define internal fastcc i32 @e1000_oem_bits_config_ich8lan(ptr noundef %0, i1 nou
 
 .threadcondstore.split:                           ; preds = %37
   %40 = and i32 %32, 66
-  %.not4 = icmp eq i32 %40, 0
-  br i1 %.not4, label %.thread, label %53
+  %.not5 = icmp eq i32 %40, 0
+  br i1 %.not5, label %.thread, label %53
 
 41:                                               ; preds = %37
   %42 = or disjoint i16 %39, 64
   %43 = and i32 %32, 72
-  %.not2 = icmp eq i32 %43, 0
-  %44 = select i1 %.not2, i16 %39, i16 %42
+  %.not3 = icmp eq i32 %43, 0
+  %44 = select i1 %.not3, i16 %39, i16 %42
   %45 = and i32 %32, 6
-  %.not3 = icmp eq i32 %45, 0
+  %.not4 = icmp eq i32 %45, 0
   %46 = or disjoint i16 %44, 4
-  %47 = select i1 %.not3, i16 %44, i16 %46
+  %47 = select i1 %.not4, i16 %44, i16 %46
   %48 = and i32 %32, 78
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %50, label %49
@@ -5179,7 +5179,7 @@ thread-pre-split:                                 ; preds = %26
 
 33:                                               ; preds = %thread-pre-split, %17
   %34 = phi i32 [ %.pr, %thread-pre-split ], [ %19, %17 ]
-  switch i32 %34, label %.thread58 [
+  switch i32 %34, label %.thread92 [
     i32 10, label %35
     i32 9, label %40
   ]
@@ -5189,13 +5189,13 @@ thread-pre-split:                                 ; preds = %26
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, -1
   %39 = icmp ult i32 %38, 2
-  br i1 %39, label %44, label %.thread58
+  br i1 %39, label %44, label %.thread92
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 1
-  br i1 %43, label %44, label %.thread59
+  br i1 %43, label %44, label %.thread93
 
 44:                                               ; preds = %40, %35
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 952
@@ -5213,29 +5213,29 @@ thread-pre-split:                                 ; preds = %26
 53:                                               ; preds = %49
   %.pre = load i32, ptr %18, align 8
   %54 = icmp eq i32 %.pre, 9
-  br i1 %54, label %.thread59, label %.thread58
+  br i1 %54, label %.thread93, label %.thread92
 
-.thread59:                                        ; preds = %40, %53
+.thread93:                                        ; preds = %40, %53
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %56 = load i32, ptr %55, align 8
   %57 = icmp ult i32 %56, 2
-  br i1 %57, label %58, label %.thread58
+  br i1 %57, label %58, label %.thread92
 
-58:                                               ; preds = %.thread59
+58:                                               ; preds = %.thread93
   %59 = call i32 @e1000e_phy_sw_reset(ptr noundef %0) #9
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 %61(ptr noundef %0, i32 noundef 0, i16 noundef zeroext 12608) #9
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.thread58, label %.thread35
+  br i1 %63, label %.thread92, label %.thread35
 
-.thread58:                                        ; preds = %33, %35, %58, %.thread59, %53
+.thread92:                                        ; preds = %33, %35, %58, %.thread93, %53
   %64 = load ptr, ptr %9, align 8
   %65 = call i32 %64(ptr noundef %0) #9
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %.thread35
 
-67:                                               ; preds = %.thread58
+67:                                               ; preds = %.thread92
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1020
   store i32 1, ptr %68, align 4
   %69 = call i32 @e1000e_write_phy_reg_mdic(ptr noundef %0, i32 noundef 31, i16 noundef zeroext 0) #9
@@ -5278,8 +5278,8 @@ thread-pre-split:                                 ; preds = %26
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %97, label %.thread38
 
-.thread35:                                        ; preds = %26, %44, %49, %58, %.thread58, %67, %73, %76, %.thread
-  %.ph = phi i32 [ %24, %.thread ], [ %78, %76 ], [ %74, %73 ], [ %69, %67 ], [ %65, %.thread58 ], [ %62, %58 ], [ %51, %49 ], [ %47, %44 ], [ %31, %26 ]
+.thread35:                                        ; preds = %26, %44, %49, %58, %.thread92, %67, %73, %76, %.thread
+  %.ph = phi i32 [ %24, %.thread ], [ %78, %76 ], [ %74, %73 ], [ %69, %67 ], [ %65, %.thread92 ], [ %62, %58 ], [ %51, %49 ], [ %47, %44 ], [ %31, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread43
 
@@ -7053,7 +7053,7 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr 
   %9 = tail call i16 asm sideeffect "movw $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %8) #9, !srcloc !15
   %10 = lshr i16 %9, 3
   %11 = and i16 %10, 3
-  switch i16 %11, label %default.unreachable12 [
+  switch i16 %11, label %default.unreachable15 [
     i16 0, label %14
     i16 1, label %.thread
     i16 2, label %12
@@ -7066,7 +7066,7 @@ define internal fastcc range(i32 -1, 1) i32 @e1000_erase_flash_bank_ich8lan(ptr 
 13:                                               ; preds = %2
   br label %.thread
 
-default.unreachable12:                            ; preds = %2
+default.unreachable15:                            ; preds = %2
   unreachable
 
 14:                                               ; preds = %2
@@ -7513,7 +7513,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   %69 = getelementptr i8, ptr %68, i64 6
   %70 = load i8, ptr %69, align 2, !range !6, !noundef !7
   %71 = icmp eq i8 %70, 0
-  br i1 %71, label %72, label %.thread7
+  br i1 %71, label %72, label %.thread10
 
 72:                                               ; preds = %65, %57
   %73 = zext i16 %58 to i32
@@ -7524,9 +7524,9 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
 76:                                               ; preds = %72
   %.pre = load i8, ptr %62, align 2, !range !6
   %77 = icmp eq i8 %.pre, 0
-  br i1 %77, label %79, label %.thread7
+  br i1 %77, label %79, label %.thread10
 
-.thread7:                                         ; preds = %65, %76
+.thread10:                                        ; preds = %65, %76
   %78 = load i16, ptr %61, align 2
   br label %82
 
@@ -7535,8 +7535,8 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   %81 = trunc i32 %80 to i16
   br label %82
 
-82:                                               ; preds = %79, %.thread7
-  %83 = phi i16 [ %81, %79 ], [ %78, %.thread7 ]
+82:                                               ; preds = %79, %.thread10
+  %83 = phi i16 [ %81, %79 ], [ %78, %.thread10 ]
   %84 = zext i16 %33 to i64
   %85 = getelementptr i16, ptr %3, i64 %84
   store i16 %83, ptr %85, align 2

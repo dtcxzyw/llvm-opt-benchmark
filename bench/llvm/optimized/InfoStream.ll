@@ -318,10 +318,10 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %79
   br label %91
 
 91:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit38, %88, %90, %89
-  %.sink59 = phi i32 [ 2, %90 ], [ 4, %89 ], [ 1, %88 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit38 ]
+  %.sink67 = phi i32 [ 2, %90 ], [ 4, %89 ], [ 1, %88 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit38 ]
   %.3 = phi i1 [ false, %90 ], [ false, %89 ], [ true, %88 ], [ false, %_ZN4llvm5ErrorD2Ev.exit38 ]
   %92 = load i32, ptr %60, align 8, !tbaa !102
-  %93 = or i32 %92, %.sink59
+  %93 = or i32 %92, %.sink67
   store i32 %93, ptr %60, align 8, !tbaa !102
   %94 = load ptr, ptr %62, align 8, !tbaa !103
   %95 = load ptr, ptr %63, align 8, !tbaa !104

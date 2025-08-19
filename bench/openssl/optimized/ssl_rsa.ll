@@ -1150,7 +1150,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
 
 61:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %29, label %62, label %.thread93
+  br i1 %29, label %62, label %.thread99
 
 62:                                               ; preds = %61
   %63 = call i64 @SSL_ctrl(ptr noundef %1, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
@@ -1158,7 +1158,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %94, label %.preheader.split.us
 
-.thread93:                                        ; preds = %61
+.thread99:                                        ; preds = %61
   %66 = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %0, i32 noundef 88, i64 noundef 0, ptr noundef null) #6
   %67 = and i64 %66, 4294967295
   %68 = icmp eq i64 %67, 0
@@ -1184,7 +1184,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   %.not75.us = icmp eq i64 %78, 0
   br i1 %.not75.us, label %.split89.us, label %.preheader.split.us
 
-.preheader.split:                                 ; preds = %.thread93, %85
+.preheader.split:                                 ; preds = %.thread99, %85
   %79 = load ptr, ptr %28, align 8, !tbaa !82
   %80 = load ptr, ptr %44, align 8, !tbaa !96
   %81 = call ptr @X509_new_ex(ptr noundef %79, ptr noundef %80) #6
@@ -1227,8 +1227,8 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   call void @ERR_clear_error() #6
   br label %94
 
-94:                                               ; preds = %.thread93, %93, %.split87.us, %62, %.split89.us, %.split.us
-  %.3 = phi i32 [ %.155, %.split.us ], [ 0, %.split89.us ], [ 0, %62 ], [ %.155, %93 ], [ 0, %.split87.us ], [ 0, %.thread93 ]
+94:                                               ; preds = %.thread99, %93, %.split87.us, %62, %.split89.us, %.split.us
+  %.3 = phi i32 [ 1, %.split.us ], [ 0, %.split89.us ], [ 0, %62 ], [ 1, %93 ], [ 0, %.split87.us ], [ 0, %.thread99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %95
 
@@ -1265,7 +1265,7 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 nounde
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 797, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786690, ptr noundef null) #6
-  br label %common.ret59
+  br label %common.ret73
 
 9:                                                ; preds = %4
   %10 = icmp eq i32 %1, 1
@@ -1275,11 +1275,11 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 nounde
   %12 = add i64 %3, 4
   %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 810) #6
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %common.ret59, label %15
+  br i1 %14, label %common.ret73, label %15
 
-common.ret59:                                     ; preds = %42, %11, %106, %41, %.loopexit, %8, %PACKET_buf_init.exit.i, %15
-  %common.ret59.op = phi i32 [ %20, %15 ], [ 0, %8 ], [ 0, %41 ], [ 0, %106 ], [ 0, %.loopexit ], [ 0, %11 ], [ 0, %42 ], [ 1, %PACKET_buf_init.exit.i ]
-  ret i32 %common.ret59.op
+common.ret73:                                     ; preds = %42, %11, %106, %41, %.loopexit, %8, %PACKET_buf_init.exit.i, %15
+  %common.ret73.op = phi i32 [ %20, %15 ], [ 0, %8 ], [ 0, %41 ], [ 0, %106 ], [ 0, %.loopexit ], [ 0, %11 ], [ 0, %42 ], [ 1, %PACKET_buf_init.exit.i ]
+  ret i32 %common.ret73.op
 
 15:                                               ; preds = %11
   store i8 0, ptr %13, align 1, !tbaa !104
@@ -1293,7 +1293,7 @@ common.ret59:                                     ; preds = %42, %11, %106, %41,
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %2, i64 %3, i1 false)
   %20 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %13, i64 noundef %12)
   tail call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 819) #6
-  br label %common.ret59
+  br label %common.ret73
 
 21:                                               ; preds = %9
   %.not.i = icmp ne i32 %1, 2
@@ -1316,14 +1316,14 @@ PACKET_buf_init.exit.preheader.split.us.i:        ; preds = %21, %PACKET_buf_ini
   %29 = load i8, ptr %28, align 1, !tbaa !104
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
-  %32 = add i64 %.sroa.9.063.us.i, -8
+  %32 = add nsw i64 %.sroa.9.063.us.i, -8
   %33 = icmp ult i64 %32, %31
   br i1 %33, label %.loopexit, label %PACKET_buf_init.exit.us.i
 
 PACKET_buf_init.exit.us.i:                        ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.035.062.us.i, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %31
-  %36 = sub nuw i64 %32, %31
+  %36 = sub nuw nsw i64 %32, %31
   %.not23.us.i = icmp eq i64 %36, 0
   br i1 %.not23.us.i, label %serverinfo_process_buffer.exit, label %PACKET_buf_init.exit.preheader.split.us.i
 
@@ -1331,7 +1331,7 @@ PACKET_buf_init.exit.us.i:                        ; preds = %23
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 824, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 388, ptr noundef null) #6
-  br label %common.ret59
+  br label %common.ret73
 
 serverinfo_process_buffer.exit:                   ; preds = %PACKET_buf_init.exit.us.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -1344,14 +1344,14 @@ serverinfo_process_buffer.exit:                   ; preds = %PACKET_buf_init.exi
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 828, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #6
-  br label %common.ret59
+  br label %common.ret73
 
 42:                                               ; preds = %serverinfo_process_buffer.exit
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !105
   %45 = tail call ptr @CRYPTO_realloc(ptr noundef %44, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 832) #6
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %common.ret59, label %47
+  br i1 %46, label %common.ret73, label %47
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr %37, align 8, !tbaa !100
@@ -1438,13 +1438,13 @@ PACKET_buf_init.exit.preheader.split.i:           ; preds = %47, %PACKET_buf_ini
 
 PACKET_buf_init.exit.i:                           ; preds = %103, %101
   %.not23.i = icmp eq i64 %99, 0
-  br i1 %.not23.i, label %common.ret59, label %PACKET_buf_init.exit.preheader.split.i
+  br i1 %.not23.i, label %common.ret73, label %PACKET_buf_init.exit.preheader.split.i
 
 106:                                              ; preds = %85, %75, %55, %PACKET_buf_init.exit.preheader.split.i, %103, %101
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 845, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 388, ptr noundef null) #6
-  br label %common.ret59
+  br label %common.ret73
 }
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1521,7 +1521,7 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_file(ptr noundef %0, ptr noun
   br i1 %22, label %._crit_edge.thread, label %89
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.1.lcssa97 = phi ptr [ %70, %._crit_edge ], [ null, %.preheader ]
+  %.1.lcssa103 = phi ptr [ %70, %._crit_edge ], [ null, %.preheader ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 897, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_file) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 389, ptr noundef null) #6
@@ -1669,7 +1669,7 @@ define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_file(ptr noundef %0, ptr noun
   br label %.thread51
 
 .thread51:                                        ; preds = %.split38, %37, %33, %68, %53, %27, %._crit_edge.thread, %9, %14, %21, %89
-  %.035 = phi ptr [ null, %9 ], [ null, %14 ], [ null, %21 ], [ %70, %89 ], [ %.1.lcssa97, %._crit_edge.thread ], [ %.180, %27 ], [ %.180, %53 ], [ %.180, %68 ], [ %.180, %33 ], [ %.180, %37 ], [ %.180, %.split38 ]
+  %.035 = phi ptr [ null, %9 ], [ null, %14 ], [ null, %21 ], [ %70, %89 ], [ %.1.lcssa103, %._crit_edge.thread ], [ %.180, %27 ], [ %.180, %53 ], [ %.180, %68 ], [ %.180, %33 ], [ %.180, %37 ], [ %.180, %.split38 ]
   %.034 = phi i32 [ 0, %9 ], [ 0, %14 ], [ 0, %21 ], [ %90, %89 ], [ 0, %._crit_edge.thread ], [ 0, %27 ], [ 0, %53 ], [ 0, %68 ], [ 0, %33 ], [ 0, %37 ], [ 0, %.split38 ]
   %.033 = phi ptr [ null, %9 ], [ null, %14 ], [ %12, %21 ], [ %12, %89 ], [ %12, %._crit_edge.thread ], [ %12, %27 ], [ %12, %53 ], [ %12, %68 ], [ %12, %33 ], [ %12, %37 ], [ %12, %.split38 ]
   %91 = load ptr, ptr %5, align 8, !tbaa !99

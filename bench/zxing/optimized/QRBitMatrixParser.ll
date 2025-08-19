@@ -417,8 +417,8 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
   %80 = load i8, ptr %41, align 1, !tbaa !51, !range !52, !noalias !37, !noundef !53
   %81 = trunc nuw i8 %80 to i1
   %..i = select i1 %81, i32 %57, i32 %62
-  %.106.i = select i1 %81, i32 %62, i32 %57
-  %82 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %..i, i32 noundef %.106.i) #13
+  %.114.i = select i1 %81, i32 %62, i32 %57
+  %82 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %..i, i32 noundef %.114.i) #13
           to label %_ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit.i unwind label %.loopexit.i, !noalias !37
 
 _ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit.i: ; preds = %.invoke.i
@@ -746,8 +746,8 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i:     ; preds = %214, %210, %206, %2
   %226 = load i8, ptr %151, align 1, !tbaa !51, !range !52, !noalias !56, !noundef !53
   %227 = trunc nuw i8 %226 to i1
   %..i29 = select i1 %227, i32 %166, i32 %174
-  %.111.i = select i1 %227, i32 %174, i32 %166
-  %228 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %..i29, i32 noundef %.111.i) #13
+  %.119.i = select i1 %227, i32 %174, i32 %166
+  %228 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %..i29, i32 noundef %.119.i) #13
           to label %_ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit.i32 unwind label %.loopexit.i30, !noalias !56
 
 _ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit.i32: ; preds = %_ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i
@@ -987,7 +987,7 @@ _ZN5ZXing6QRCodeL17ReadRMQRCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS0_17Form
   %335 = load i8, ptr %289, align 4, !tbaa !47, !noalias !62
   %336 = and i32 %.0102182.i, 1
   %337 = or disjoint i32 %318, %336
-  %338 = sub i32 %300, %337
+  %338 = sub nsw i32 %300, %337
   %339 = lshr i32 %.0102182.i, 1
   %340 = add i32 %326, %339
   %341 = sub i32 %300, %340
@@ -1076,8 +1076,8 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i41:   ; preds = %370, %366, %362, %3
   %382 = load i8, ptr %290, align 1, !tbaa !51, !range !52, !noalias !62, !noundef !53
   %383 = trunc nuw i8 %382 to i1
   %..i43 = select i1 %383, i32 %341, i32 %338
-  %.209.i = select i1 %383, i32 %338, i32 %341
-  %384 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %..i43, i32 noundef %.209.i) #13
+  %.224.i = select i1 %383, i32 %338, i32 %341
+  %384 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %..i43, i32 noundef %.224.i) #13
           to label %_ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit.i47 unwind label %.loopexit.i44, !noalias !62
 
 _ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit.i47: ; preds = %_ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i41
@@ -1252,9 +1252,9 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit133.i:  ; preds = %448, %444, %440, %4
   %.025.i129.i = phi i1 [ %423, %420 ], [ %426, %424 ], [ %429, %427 ], [ %433, %430 ], [ %439, %434 ], [ %443, %440 ], [ %447, %444 ], [ %454, %448 ]
   %460 = load i8, ptr %290, align 1, !tbaa !51, !range !52, !noalias !62, !noundef !53
   %461 = trunc nuw i8 %460 to i1
-  %.210.i = select i1 %461, i32 %419, i32 %416
-  %.211.i = select i1 %461, i32 %416, i32 %419
-  %462 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.210.i, i32 noundef %.211.i) #13
+  %.225.i = select i1 %461, i32 %419, i32 %416
+  %.226.i = select i1 %461, i32 %416, i32 %419
+  %462 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.225.i, i32 noundef %.226.i) #13
           to label %_ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit136.i unwind label %.loopexit164.i, !noalias !62
 
 _ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit136.i: ; preds = %_ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit133.i
@@ -1323,7 +1323,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit128.i:     ; preds = %412, %409
   %482 = add nsw i32 %280, %481
   %.not110.i = icmp sge i32 %.097178.i, %288
   %.neg.i = sext i1 %.not110.i to i32
-  %483 = add i32 %482, %.neg.i
+  %483 = add nsw i32 %482, %.neg.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !62
   store i8 0, ptr %11, align 1, !tbaa !46, !noalias !62
   br label %491
@@ -1437,9 +1437,9 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit144.i:  ; preds = %526, %522, %518, %5
   %.025.i140.i = phi i1 [ %501, %498 ], [ %504, %502 ], [ %507, %505 ], [ %511, %508 ], [ %517, %512 ], [ %521, %518 ], [ %525, %522 ], [ %532, %526 ]
   %538 = load i8, ptr %290, align 1, !tbaa !51, !range !52, !noalias !62, !noundef !53
   %539 = trunc nuw i8 %538 to i1
-  %.212.i = select i1 %539, i32 %497, i32 %495
-  %.213.i = select i1 %539, i32 %495, i32 %497
-  %540 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.212.i, i32 noundef %.213.i) #13
+  %.227.i = select i1 %539, i32 %497, i32 %495
+  %.228.i = select i1 %539, i32 %495, i32 %497
+  %540 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.227.i, i32 noundef %.228.i) #13
           to label %_ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit147.i unwind label %.loopexit169.i, !noalias !62
 
 _ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit147.i: ; preds = %_ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit144.i
@@ -1719,8 +1719,8 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i67:   ; preds = %646, %642, %638, %6
   %658 = load i8, ptr %582, align 1, !tbaa !51, !range !52, !noalias !72, !noundef !53
   %659 = trunc nuw i8 %658 to i1
   %..i69 = select i1 %659, i32 %598, i32 %606
-  %.113.i = select i1 %659, i32 %606, i32 %598
-  %660 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %..i69, i32 noundef %.113.i) #13
+  %.120.i = select i1 %659, i32 %606, i32 %598
+  %660 = invoke noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %..i69, i32 noundef %.120.i) #13
           to label %_ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit.i72 unwind label %.loopexit.i70, !noalias !72
 
 _ZN5ZXing6QRCodeL6getBitERKNS_9BitMatrixEiib.exit.i72: ; preds = %_ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i67

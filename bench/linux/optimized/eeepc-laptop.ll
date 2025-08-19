@@ -344,9 +344,9 @@ define internal i32 @eeepc_acpi_add(ptr noundef %0) #2 align 16 {
   %80 = icmp eq i32 %79, 0
   %81 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %80, label %83, label %.thread30
+  br i1 %80, label %83, label %.thread47
 
-.thread30:                                        ; preds = %77
+.thread47:                                        ; preds = %77
   %82 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.26) #14
   br label %.thread21
 
@@ -371,7 +371,7 @@ define internal i32 @eeepc_acpi_add(ptr noundef %0) #2 align 16 {
   %95 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.42) #14
   br label %.thread21
 
-.thread21:                                        ; preds = %.thread30, %71, %94, %90, %86, %83
+.thread21:                                        ; preds = %.thread47, %71, %94, %90, %86, %83
   %96 = call ptr @platform_device_alloc(ptr noundef nonnull @.str.53, i32 noundef -1) #13
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 272
   store ptr %96, ptr %97, align 8

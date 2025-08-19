@@ -1439,7 +1439,7 @@ _ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit: ; preds = %_ZNK6Handl
   br i1 %.not, label %53, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit
-  %.0.i143 = phi ptr [ %38, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit ], [ %33, %._crit_edge ]
+  %.0.i156 = phi ptr [ %38, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit ], [ %33, %._crit_edge ]
   %40 = load i32, ptr %6, align 8
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph133, label %._crit_edge134
@@ -1449,13 +1449,13 @@ _ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit: ; preds = %_ZNK6Handl
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i8, ptr @_ZN15ClassFileStream6verifyE, align 1
   %45 = trunc i8 %44 to i1
-  %46 = getelementptr inbounds nuw i8, ptr %.0.i143, i64 48
-  %47 = getelementptr inbounds nuw i8, ptr %.0.i143, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i156, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i156, i64 56
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 808
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i143, i64 136
-  %52 = getelementptr inbounds nuw i8, ptr %.0.i143, i64 144
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i156, i64 136
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i156, i64 144
   br label %59
 
 53:                                               ; preds = %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit
@@ -3368,17 +3368,17 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit.i288.thread: ; preds = %415, %420
   unreachable
 
 _ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit.sink.split: ; preds = %60, %92, %124, %186, %258, %309, %364, %437
-  %.sink345 = phi i8 [ %443, %437 ], [ %370, %364 ], [ %315, %309 ], [ %264, %258 ], [ %192, %186 ], [ %130, %124 ], [ %98, %92 ], [ %66, %60 ]
-  %.sink344 = phi i32 [ %414, %437 ], [ %341, %364 ], [ %286, %309 ], [ %235, %258 ], [ %163, %186 ], [ %101, %124 ], [ %69, %92 ], [ %37, %60 ]
-  %.sink342.ph = phi i32 [ 1, %437 ], [ 1, %364 ], [ 1, %309 ], [ 1, %258 ], [ 1, %186 ], [ 1, %124 ], [ 2, %92 ], [ 1, %60 ]
-  %452 = sext i8 %.sink345 to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.59, i32 noundef %452, i32 noundef %2, i32 noundef %.sink344)
+  %.sink362 = phi i8 [ %443, %437 ], [ %370, %364 ], [ %315, %309 ], [ %264, %258 ], [ %192, %186 ], [ %130, %124 ], [ %98, %92 ], [ %66, %60 ]
+  %.sink361 = phi i32 [ %414, %437 ], [ %341, %364 ], [ %286, %309 ], [ %235, %258 ], [ %163, %186 ], [ %101, %124 ], [ %69, %92 ], [ %37, %60 ]
+  %.sink359.ph = phi i32 [ 1, %437 ], [ 1, %364 ], [ 1, %309 ], [ 1, %258 ], [ 1, %186 ], [ 1, %124 ], [ 2, %92 ], [ 1, %60 ]
+  %452 = sext i8 %.sink362 to i32
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.59, i32 noundef %452, i32 noundef %2, i32 noundef %.sink361)
   br label %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit
 
 _ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit: ; preds = %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit.sink.split, %395, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i288, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i288.thread, %329, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i281, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i281.thread, %276, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i274, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i274.thread, %234, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i267, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i267.thread, %151, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i260, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i260.thread, %99, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i253, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i253.thread, %67, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i246, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i246.thread, %25, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread
-  %.sink342 = phi i32 [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i ], [ 1, %25 ], [ 2, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i246.thread ], [ 2, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i246 ], [ 2, %67 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i253.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i253 ], [ 1, %99 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i260.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i260 ], [ 1, %151 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i267.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i267 ], [ 1, %234 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i274.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i274 ], [ 1, %276 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i281.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i281 ], [ 1, %329 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i288.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i288 ], [ 1, %395 ], [ %.sink342.ph, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit.sink.split ]
+  %.sink359 = phi i32 [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i ], [ 1, %25 ], [ 2, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i246.thread ], [ 2, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i246 ], [ 2, %67 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i253.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i253 ], [ 1, %99 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i260.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i260 ], [ 1, %151 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i267.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i267 ], [ 1, %234 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i274.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i274 ], [ 1, %276 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i281.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i281 ], [ 1, %329 ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i288.thread ], [ 1, %_ZN18VM_RedefineClasses14find_new_indexEi.exit.i288 ], [ 1, %395 ], [ %.sink359.ph, %_ZN18VM_RedefineClasses9map_indexERK18constantPoolHandleii.exit.sink.split ]
   %453 = load i32, ptr %4, align 4
-  %454 = add nsw i32 %453, %.sink342
+  %454 = add nsw i32 %453, %.sink359
   store i32 %454, ptr %4, align 4
   ret void
 }
@@ -6402,16 +6402,16 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread: ; preds = %160, %157, 
   br i1 %174, label %.backedge.backedge, label %._crit_edge
 
 .backedge.backedge:                               ; preds = %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread, %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread ], [ %indvars.iv.next434, %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread ], [ %indvars.iv.next510, %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread.thread ]
   %.0158376.be = phi i1 [ %.3, %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread ], [ true, %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread.thread ]
   br label %.backedge, !llvm.loop !39
 
 _ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread.thread: ; preds = %171, %169
   store i16 %167, ptr %152, align 2
-  %indvars.iv.next434 = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next510 = add nuw nsw i64 %indvars.iv, 1
   %175 = load i32, ptr %9, align 4
   %176 = sext i32 %175 to i64
-  %177 = icmp slt i64 %indvars.iv.next434, %176
+  %177 = icmp slt i64 %indvars.iv.next510, %176
   br i1 %177, label %.backedge.backedge, label %._crit_edge.thread
 
 ._crit_edge:                                      ; preds = %_ZN18VM_RedefineClasses14find_new_indexEi.exit214.thread
@@ -11221,26 +11221,26 @@ define hidden void @_ZN18VM_RedefineClasses38compute_added_deleted_matching_meth
 
 .outer:                                           ; preds = %86, %1
   %.ph = phi i32 [ %91, %86 ], [ 0, %1 ]
-  %.ph31 = phi i32 [ %.ph34, %86 ], [ 0, %1 ]
-  %.ph32 = phi i32 [ %24, %86 ], [ 0, %1 ]
+  %.ph33 = phi i32 [ %.ph36, %86 ], [ 0, %1 ]
+  %.ph34 = phi i32 [ %24, %86 ], [ 0, %1 ]
   %.026.ph = phi i32 [ %93, %86 ], [ 0, %1 ]
   %.0.ph = phi i32 [ %94, %86 ], [ 0, %1 ]
-  br label %.outer33
+  br label %.outer35
 
-.outer33:                                         ; preds = %.outer33.backedge, %.outer
-  %.ph34 = phi i32 [ %.ph31, %.outer ], [ %.ph34.be, %.outer33.backedge ]
-  %.ph35 = phi i32 [ %.ph32, %.outer ], [ %24, %.outer33.backedge ]
-  %.026.ph36 = phi i32 [ %.026.ph, %.outer ], [ %.026, %.outer33.backedge ]
-  %.0.ph37 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph37.be, %.outer33.backedge ]
-  %22 = sext i32 %.0.ph37 to i64
+.outer35:                                         ; preds = %.outer35.backedge, %.outer
+  %.ph36 = phi i32 [ %.ph33, %.outer ], [ %.ph36.be, %.outer35.backedge ]
+  %.ph37 = phi i32 [ %.ph34, %.outer ], [ %24, %.outer35.backedge ]
+  %.026.ph38 = phi i32 [ %.026.ph, %.outer ], [ %.026, %.outer35.backedge ]
+  %.0.ph39 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph39.be, %.outer35.backedge ]
+  %22 = sext i32 %.0.ph39 to i64
   br label %23
 
-23:                                               ; preds = %.backedge, %.outer33
-  %24 = phi i32 [ %.ph35, %.outer33 ], [ %.be, %.backedge ]
-  %.026 = phi i32 [ %.026.ph36, %.outer33 ], [ %.026.be, %.backedge ]
+23:                                               ; preds = %.backedge, %.outer35
+  %24 = phi i32 [ %.ph37, %.outer35 ], [ %.be, %.backedge ]
+  %.026 = phi i32 [ %.026.ph38, %.outer35 ], [ %.026.be, %.backedge ]
   %25 = load ptr, ptr @_ZN18VM_RedefineClasses12_old_methodsE, align 8
   %26 = load i32, ptr %25, align 8
-  %.not = icmp slt i32 %.0.ph37, %26
+  %.not = icmp slt i32 %.0.ph39, %26
   %27 = load ptr, ptr @_ZN18VM_RedefineClasses12_new_methodsE, align 8
   %28 = load i32, ptr %27, align 8
   %.not28 = icmp slt i32 %.026, %28
@@ -11270,17 +11270,17 @@ define hidden void @_ZN18VM_RedefineClasses38compute_added_deleted_matching_meth
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr @_ZN18VM_RedefineClasses16_deleted_methodsE, align 8
-  %45 = add nsw i32 %.ph34, 1
+  %45 = add nsw i32 %.ph36, 1
   store i32 %45, ptr @_ZN18VM_RedefineClasses23_deleted_methods_lengthE, align 4
-  %46 = sext i32 %.ph34 to i64
+  %46 = sext i32 %.ph36 to i64
   %47 = getelementptr inbounds ptr, ptr %44, i64 %46
   store ptr %42, ptr %47, align 8
-  br label %.outer33.backedge
+  br label %.outer35.backedge
 
-.outer33.backedge:                                ; preds = %43, %95, %106
-  %.ph34.be = phi i32 [ %108, %106 ], [ %97, %95 ], [ %45, %43 ]
-  %.0.ph37.be = add nsw i32 %.0.ph37, 1
-  br label %.outer33, !llvm.loop !75
+.outer35.backedge:                                ; preds = %43, %95, %106
+  %.ph36.be = phi i32 [ %108, %106 ], [ %97, %95 ], [ %45, %43 ]
+  %.0.ph39.be = add nsw i32 %.0.ph39, 1
+  br label %.outer35, !llvm.loop !75
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -11335,17 +11335,17 @@ define hidden void @_ZN18VM_RedefineClasses38compute_added_deleted_matching_meth
   %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %88
   store ptr %52, ptr %92, align 8
   %93 = add nsw i32 %.026, 1
-  %94 = add nsw i32 %.0.ph37, 1
+  %94 = add nsw i32 %.0.ph39, 1
   br label %.outer, !llvm.loop !75
 
 95:                                               ; preds = %74
   %96 = load ptr, ptr @_ZN18VM_RedefineClasses16_deleted_methodsE, align 8
-  %97 = add nsw i32 %.ph34, 1
+  %97 = add nsw i32 %.ph36, 1
   store i32 %97, ptr @_ZN18VM_RedefineClasses23_deleted_methods_lengthE, align 4
-  %98 = sext i32 %.ph34 to i64
+  %98 = sext i32 %.ph36 to i64
   %99 = getelementptr inbounds ptr, ptr %96, i64 %98
   store ptr %42, ptr %99, align 8
-  br label %.outer33.backedge
+  br label %.outer35.backedge
 
 100:                                              ; preds = %48
   %.not30 = icmp ult ptr %62, %72
@@ -11367,12 +11367,12 @@ define hidden void @_ZN18VM_RedefineClasses38compute_added_deleted_matching_meth
 
 106:                                              ; preds = %100
   %107 = load ptr, ptr @_ZN18VM_RedefineClasses16_deleted_methodsE, align 8
-  %108 = add nsw i32 %.ph34, 1
+  %108 = add nsw i32 %.ph36, 1
   store i32 %108, ptr @_ZN18VM_RedefineClasses23_deleted_methods_lengthE, align 4
-  %109 = sext i32 %.ph34 to i64
+  %109 = sext i32 %.ph36 to i64
   %110 = getelementptr inbounds ptr, ptr %107, i64 %109
   store ptr %42, ptr %110, align 8
-  br label %.outer33.backedge
+  br label %.outer35.backedge
 
 111:                                              ; preds = %29
   ret void
@@ -13287,14 +13287,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !6
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #19, !srcloc !6
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -13428,14 +13428,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #19, !srcloc !6
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #19, !srcloc !6
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 

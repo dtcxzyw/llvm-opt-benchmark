@@ -90,24 +90,24 @@ define range(i32 0, 2) i32 @Sbc_ManAddInternalToPath_rec(ptr noundef readonly ca
   br i1 %52, label %.lr.ph, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %.lr.ph
-  %.not29 = icmp eq i32 %44, 0
-  br i1 %.not29, label %.critedge.thread, label %53
+  %53 = icmp eq i32 %44, 0
+  br i1 %53, label %.critedge.thread, label %54
 
-53:                                               ; preds = %.critedge
-  %54 = getelementptr i8, ptr %2, i64 8
-  %.val39 = load ptr, ptr %54, align 8, !tbaa !30
-  %55 = and i32 %1, 31
-  %56 = shl nuw i32 1, %55
-  %57 = ashr i32 %1, 5
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %.val39, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !29
-  %61 = or i32 %60, %56
-  store i32 %61, ptr %59, align 4, !tbaa !29
+54:                                               ; preds = %.critedge
+  %55 = getelementptr i8, ptr %2, i64 8
+  %.val39 = load ptr, ptr %55, align 8, !tbaa !30
+  %56 = and i32 %1, 31
+  %57 = shl nuw i32 1, %56
+  %58 = ashr i32 %1, 5
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i32, ptr %.val39, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !29
+  %62 = or i32 %61, %57
+  store i32 %62, ptr %60, align 4, !tbaa !29
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.preheader, %.critedge, %53, %30, %9
-  %.026 = phi i32 [ %17, %9 ], [ %38, %30 ], [ %44, %53 ], [ 0, %.critedge ], [ 0, %.preheader ]
+.critedge.thread:                                 ; preds = %.preheader, %.critedge, %54, %30, %9
+  %.026 = phi i32 [ %17, %9 ], [ %38, %30 ], [ 1, %54 ], [ 0, %.critedge ], [ 0, %.preheader ]
   ret i32 %.026
 }
 
@@ -811,9 +811,9 @@ Vec_BitStart.exit:                                ; preds = %1, %9
   br i1 %exitcond142.not, label %._crit_edge, label %92, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.critedge4, %.critedge
-  %.061.lcssa148 = phi i32 [ 0, %.critedge ], [ %.162, %.critedge4 ]
-  %.064.lcssa147 = phi i32 [ 0, %.critedge ], [ %.165, %.critedge4 ]
-  %.066.lcssa146 = phi i32 [ 0, %.critedge ], [ %.167, %.critedge4 ]
+  %.061.lcssa154 = phi i32 [ 0, %.critedge ], [ %.162, %.critedge4 ]
+  %.064.lcssa153 = phi i32 [ 0, %.critedge ], [ %.165, %.critedge4 ]
+  %.066.lcssa152 = phi i32 [ 0, %.critedge ], [ %.167, %.critedge4 ]
   %.0.lcssa = phi i32 [ 0, %.critedge ], [ %.2, %.critedge4 ]
   %118 = load ptr, ptr %2, align 8, !tbaa !44
   %.not74 = icmp eq ptr %118, null
@@ -844,7 +844,7 @@ Vec_BitFree.exit:                                 ; preds = %120, %121
   %128 = add i32 %.val.i, %.val3.i97
   %129 = xor i32 %128, -1
   %130 = add i32 %122, %129
-  %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %130, i32 noundef %.066.lcssa146, i32 noundef %17, i32 noundef %.064.lcssa147, i32 noundef %.061.lcssa148, i32 noundef %.0.lcssa)
+  %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %130, i32 noundef %.066.lcssa152, i32 noundef %17, i32 noundef %.064.lcssa153, i32 noundef %.061.lcssa154, i32 noundef %.0.lcssa)
   br label %132
 
 132:                                              ; preds = %Vec_BitFree.exit, %15

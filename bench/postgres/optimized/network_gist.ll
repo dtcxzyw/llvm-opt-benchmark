@@ -823,9 +823,9 @@ calc_inet_union_params.exit:                      ; preds = %42
 
 56:                                               ; preds = %50, %53
   %.sink = phi i32 [ %51, %50 ], [ %54, %53 ]
-  %.sink210 = phi ptr [ %13, %50 ], [ %14, %53 ]
+  %.sink216 = phi ptr [ %13, %50 ], [ %14, %53 ]
   %57 = sext i32 %.sink to i64
-  %58 = getelementptr inbounds i16, ptr %.sink210, i64 %57
+  %58 = getelementptr inbounds i16, ptr %.sink216, i64 %57
   store i16 %.081188, ptr %58, align 2
   %59 = add i16 %.081188, 1
   %60 = zext i16 %59 to i32
@@ -884,10 +884,10 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   br label %86
 
 86:                                               ; preds = %80, %83
-  %.sink215 = phi i32 [ %81, %80 ], [ %84, %83 ]
-  %.sink213 = phi ptr [ %13, %80 ], [ %14, %83 ]
-  %87 = sext i32 %.sink215 to i64
-  %88 = getelementptr inbounds i16, ptr %.sink213, i64 %87
+  %.sink221 = phi i32 [ %81, %80 ], [ %84, %83 ]
+  %.sink219 = phi ptr [ %13, %80 ], [ %14, %83 ]
+  %87 = sext i32 %.sink221 to i64
+  %88 = getelementptr inbounds i16, ptr %.sink219, i64 %87
   store i16 %.1190, ptr %88, align 2
   %89 = add i16 %.1190, 1
   %90 = zext i16 %89 to i32

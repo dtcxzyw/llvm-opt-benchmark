@@ -606,7 +606,7 @@ compute_function_hashkey.exit45:                  ; preds = %compute_function_ha
   br label %.thread.i
 
 .thread.i:                                        ; preds = %126, %compute_function_hashkey.exit45
-  %.sink378.i = phi i32 [ %131, %126 ], [ 2, %compute_function_hashkey.exit45 ]
+  %.sink407.i = phi i32 [ %131, %126 ], [ 2, %compute_function_hashkey.exit45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -690,7 +690,7 @@ compute_function_hashkey.exit45:                  ; preds = %compute_function_ha
   %176 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 496
   store i32 %175, ptr %176, align 8
   %177 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 24
-  store i32 %.sink378.i, ptr %177, align 8
+  store i32 %.sink407.i, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %124, i64 96
   %179 = load i8, ptr %178, align 4
   %180 = getelementptr inbounds nuw i8, ptr %.0.i47, i64 61
@@ -1002,13 +1002,13 @@ plpgsql_adddatum.exit.i:                          ; preds = %317, %build_row_fro
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %329, %plpgsql_adddatum.exit.i
-  %.sink377.in.i = phi ptr [ %331, %329 ], [ %324, %plpgsql_adddatum.exit.i ]
-  %.sink377.i = load i32, ptr %.sink377.in.i, align 4
-  store i32 %.sink377.i, ptr %166, align 4
+  %.sink406.in.i = phi ptr [ %331, %329 ], [ %324, %plpgsql_adddatum.exit.i ]
+  %.sink406.i = load i32, ptr %.sink406.in.i, align 4
+  store i32 %.sink406.i, ptr %166, align 4
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.sink.split.i, %265, %187
-  %.0284.lcssa370.i = phi i32 [ %.1285.i, %265 ], [ 0, %187 ], [ %.1285.i, %.critedge.sink.split.i ]
+  %.0284.lcssa399.i = phi i32 [ %.1285.i, %265 ], [ 0, %187 ], [ %.1285.i, %.critedge.sink.split.i ]
   %332 = getelementptr inbounds nuw i8, ptr %124, i64 108
   %333 = load i32, ptr %332, align 4
   switch i32 %333, label %346 [
@@ -1153,12 +1153,12 @@ plpgsql_adddatum.exit.i:                          ; preds = %317, %build_row_fro
 
 391:                                              ; preds = %375
   %392 = icmp eq i32 %390, 4538
-  %393 = icmp eq i32 %.0284.lcssa370.i, 0
+  %393 = icmp eq i32 %.0284.lcssa399.i, 0
   %or.cond41.i = and i1 %393, %392
   br i1 %or.cond41.i, label %395, label %399
 
 394:                                              ; preds = %375, %375, %375, %375, %375, %375, %375, %375, %375, %375
-  %.old40.i = icmp eq i32 %.0284.lcssa370.i, 0
+  %.old40.i = icmp eq i32 %.0284.lcssa399.i, 0
   br i1 %.old40.i, label %395, label %399
 
 395:                                              ; preds = %394, %391
@@ -1170,7 +1170,7 @@ plpgsql_adddatum.exit.i:                          ; preds = %317, %build_row_fro
 
 399:                                              ; preds = %395, %394, %391
   call void @ReleaseSysCache(ptr noundef nonnull %352) #9
-  %400 = icmp sgt i32 %.0284.lcssa370.i, 0
+  %400 = icmp sgt i32 %.0284.lcssa399.i, 0
   br label %592
 
 401:                                              ; preds = %148
@@ -3591,8 +3591,8 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
   br i1 %.not, label %.loopexit, label %14
 
 ._crit_edge.thread:                               ; preds = %1
-  %.not32 = icmp eq ptr %0, null
-  br i1 %.not32, label %.loopexit, label %.thread
+  %.not37 = icmp eq ptr %0, null
+  br i1 %.not37, label %.loopexit, label %.thread
 
 14:                                               ; preds = %._crit_edge
   %15 = icmp sgt i32 %.1, 0
@@ -3648,13 +3648,13 @@ define hidden i32 @plpgsql_add_initdatums(ptr noundef captures(address_is_null) 
   br i1 %40, label %.lr.ph23, label %.loopexit, !llvm.loop !14
 
 .thread:                                          ; preds = %._crit_edge.thread, %14
-  %.0.lcssa3335 = phi i32 [ %.1, %14 ], [ 0, %._crit_edge.thread ]
+  %.0.lcssa3840 = phi i32 [ %.1, %14 ], [ 0, %._crit_edge.thread ]
   store ptr null, ptr %0, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %._crit_edge.thread, %16, %.thread, %._crit_edge
   %41 = phi i32 [ %3, %.thread ], [ %3, %._crit_edge ], [ %21, %16 ], [ %3, %._crit_edge.thread ], [ %37, %36 ]
-  %.2 = phi i32 [ %.0.lcssa3335, %.thread ], [ %.1, %._crit_edge ], [ 0, %16 ], [ 0, %._crit_edge.thread ], [ %.4, %36 ]
+  %.2 = phi i32 [ %.0.lcssa3840, %.thread ], [ %.1, %._crit_edge ], [ 0, %16 ], [ 0, %._crit_edge.thread ], [ %.4, %36 ]
   store i32 %41, ptr @datums_last, align 4
   ret i32 %.2
 }
@@ -4140,14 +4140,14 @@ list_length.exit:                                 ; preds = %4
   unreachable
 
 list_length.exit.thread.sink.split:               ; preds = %58, %87, %141
-  %.sink94 = phi ptr [ %157, %141 ], [ %106, %87 ], [ %77, %58 ]
+  %.sink97 = phi ptr [ %157, %141 ], [ %106, %87 ], [ %77, %58 ]
   %.sink = phi i32 [ %143, %141 ], [ %91, %87 ], [ %62, %58 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.sink94, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %.sink97, i64 24
   store i32 %.sink, ptr %168, align 4
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %list_length.exit.thread.sink.split, %._crit_edge, %4, %55, %113, %47, %list_length.exit
-  %.0 = phi ptr [ null, %list_length.exit ], [ null, %47 ], [ null, %113 ], [ null, %55 ], [ null, %4 ], [ null, %._crit_edge ], [ %.sink94, %list_length.exit.thread.sink.split ]
+  %.0 = phi ptr [ null, %list_length.exit ], [ null, %47 ], [ null, %113 ], [ null, %55 ], [ null, %4 ], [ null, %._crit_edge ], [ %.sink97, %list_length.exit.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

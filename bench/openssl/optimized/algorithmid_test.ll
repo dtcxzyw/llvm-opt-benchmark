@@ -150,9 +150,9 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %21
-  %.sink36 = phi i64 [ 1, %21 ], [ 0, %13 ]
+  %.sink37 = phi i64 [ 1, %21 ], [ 0, %13 ]
   %cacert_filename.sink = phi ptr [ @cacert_filename, %21 ], [ @pubkey_filename, %13 ]
-  %23 = tail call ptr @test_get_argument(i64 noundef %.sink36) #6
+  %23 = tail call ptr @test_get_argument(i64 noundef %.sink37) #6
   store ptr %23, ptr %cacert_filename.sink, align 8, !tbaa !11
   br label %24
 

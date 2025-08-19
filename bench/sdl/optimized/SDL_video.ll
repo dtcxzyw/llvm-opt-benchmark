@@ -487,8 +487,8 @@ define hidden zeroext i1 @SDL_VideoInit(ptr noundef %0) local_unnamed_addr #0 {
 
 select.unfold.preheader.preheader:                ; preds = %.thread
   %18 = load i8, ptr %.03873, align 1
-  %.not65153.not = icmp eq i8 %18, 0
-  br i1 %.not65153.not, label %.critedge, label %.lr.ph
+  %.not65159.not = icmp eq i8 %18, 0
+  br i1 %.not65159.not, label %.critedge, label %.lr.ph
 
 select.unfold.preheader:                          ; preds = %select.unfold
   %19 = getelementptr inbounds nuw i8, ptr %21, i64 1
@@ -499,19 +499,19 @@ select.unfold.preheader:                          ; preds = %select.unfold
   br i1 %or.cond, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %select.unfold.preheader.preheader, %select.unfold.preheader
-  %.039136154 = phi ptr [ %19, %select.unfold.preheader ], [ %.03873, %select.unfold.preheader.preheader ]
-  %21 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %.039136154, i32 noundef 44) #19
+  %.039136160 = phi ptr [ %19, %select.unfold.preheader ], [ %.03873, %select.unfold.preheader.preheader ]
+  %21 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %.039136160, i32 noundef 44) #19
   %.not68 = icmp eq ptr %21, null
   br i1 %.not68, label %26, label %22
 
 22:                                               ; preds = %.lr.ph
   %23 = ptrtoint ptr %21 to i64
-  %24 = ptrtoint ptr %.039136154 to i64
+  %24 = ptrtoint ptr %.039136160 to i64
   %25 = sub i64 %23, %24
   br label %28
 
 26:                                               ; preds = %.lr.ph
-  %27 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %.039136154) #19
+  %27 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %.039136160) #19
   br label %28
 
 28:                                               ; preds = %26, %22
@@ -534,7 +534,7 @@ select.unfold.preheader:                          ; preds = %select.unfold
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %31, align 8
-  %41 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef %40, ptr noundef nonnull %.039136154, i64 noundef %29) #19
+  %41 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef %40, ptr noundef nonnull %.039136160, i64 noundef %29) #19
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %47
 
@@ -3740,8 +3740,8 @@ SDL_FinalizeDisplayMode.exit:                     ; preds = %24, %31
 53:                                               ; preds = %50, %48
   %54 = fcmp une float %.sroa.8.0.copyload, 0.000000e+00
   %55 = fcmp une float %.sroa.8.0.copyload, %storemerge
-  %or.cond19 = select i1 %54, i1 %55, i1 false
-  br i1 %or.cond19, label %DisplayModeChanged.exit.thread, label %DisplayModeChanged.exit.thread18
+  %or.cond21 = select i1 %54, i1 %55, i1 false
+  br i1 %or.cond21, label %DisplayModeChanged.exit.thread, label %DisplayModeChanged.exit.thread18
 
 DisplayModeChanged.exit.thread:                   ; preds = %53, %38, %41, %44, %46, %50
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5028,8 +5028,8 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %22 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   %.not136 = icmp eq i32 %.tr242291, 0
-  %or.cond377 = or i1 %.not136, %23
-  br i1 %or.cond377, label %.preheader, label %30
+  %or.cond384 = or i1 %.not136, %23
+  br i1 %or.cond384, label %.preheader, label %30
 
 .preheader:                                       ; preds = %21, %18
   %24 = load ptr, ptr @_this, align 8
@@ -5105,8 +5105,8 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br label %.thread206.preheader
 
 .thread206.preheader:                             ; preds = %SDL_GetWindowFullscreenMode_REAL.exit.thread, %49, %.thread
-  %.not136343 = phi i1 [ true, %.thread ], [ false, %49 ], [ false, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
-  %.0117341 = phi i32 [ 0, %.thread ], [ %.tr242291, %49 ], [ %.tr242291, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
+  %.not136350 = phi i1 [ true, %.thread ], [ false, %49 ], [ false, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
+  %.0117348 = phi i32 [ 0, %.thread ], [ %.tr242291, %49 ], [ %.tr242291, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
   %.0123218.ph = phi ptr [ null, %.thread ], [ %48, %49 ], [ null, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
   %.1125165211.ph = phi ptr [ %34, %.thread ], [ %31, %49 ], [ %31, %SDL_GetWindowFullscreenMode_REAL.exit.thread ]
   %51 = load ptr, ptr @_this, align 8
@@ -5147,7 +5147,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br i1 %70, label %.lr.ph287, label %.thread206._crit_edge, !llvm.loop !29
 
 .thread206._crit_edge:                            ; preds = %.thread206, %.thread206.preheader
-  br i1 %.not136343, label %127, label %71
+  br i1 %.not136350, label %127, label %71
 
 71:                                               ; preds = %.thread206._crit_edge
   %72 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 104
@@ -5179,7 +5179,7 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   br i1 %.not147, label %.thread170, label %85
 
 85:                                               ; preds = %81
-  %86 = tail call i32 %84(ptr noundef nonnull %82, ptr noundef nonnull %0, ptr noundef nonnull %.1125165211.ph, i32 noundef %.0117341) #19
+  %86 = tail call i32 %84(ptr noundef nonnull %82, ptr noundef nonnull %0, ptr noundef nonnull %.1125165211.ph, i32 noundef %.0117348) #19
   switch i32 %86, label %.thread172 [
     i32 1, label %.thread170
     i32 0, label %91
@@ -5223,12 +5223,12 @@ SDL_GetWindowFullscreenMode_REAL.exit.thread:     ; preds = %SDL_GetWindowFullsc
   %101 = getelementptr inbounds nuw i8, ptr %.1125165211.ph, i64 44
   %102 = getelementptr inbounds nuw i8, ptr %.0123218.ph, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %.0123218.ph, i64 12
-  %.1125165211.ph367.sink = select i1 %.not150, ptr %.1125165211.ph, ptr %.0123218.ph
+  %.1125165211.ph374.sink = select i1 %.not150, ptr %.1125165211.ph, ptr %.0123218.ph
   %.0116.in = select i1 %.not150, ptr %100, ptr %102
   %.0115.in = select i1 %.not150, ptr %101, ptr %103
   %.0115 = load i32, ptr %.0115.in, align 4
   %.0116 = load i32, ptr %.0116.in, align 8
-  %104 = load i32, ptr %.1125165211.ph367.sink, align 8
+  %104 = load i32, ptr %.1125165211.ph374.sink, align 8
   %105 = call zeroext i1 @SDL_GetDisplayBounds_REAL(i32 noundef %104, ptr noundef nonnull %4)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load i32, ptr %106, align 8
@@ -6261,7 +6261,7 @@ define hidden noalias ptr @SDL_GetWindows_REAL(ptr noundef writeonly captures(ad
   %20 = getelementptr inbounds nuw i8, ptr %.12442, i64 416
   %.124 = load ptr, ptr %20, align 8
   %.not34 = icmp eq ptr %.124, null
-  br i1 %.not34, label %._crit_edge45.loopexit.split.loop.exit51, label %.lr.ph44, !llvm.loop !34
+  br i1 %.not34, label %._crit_edge45.loopexit.split.loop.exit54, label %.lr.ph44, !llvm.loop !34
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next, %19 ]
@@ -6272,12 +6272,12 @@ define hidden noalias ptr @SDL_GetWindows_REAL(ptr noundef writeonly captures(ad
   %22 = icmp eq i64 %indvars.iv.next, %18
   br i1 %22, label %._crit_edge45, label %19
 
-._crit_edge45.loopexit.split.loop.exit51:         ; preds = %19
+._crit_edge45.loopexit.split.loop.exit54:         ; preds = %19
   %23 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge45
 
-._crit_edge45:                                    ; preds = %.lr.ph44, %._crit_edge45.loopexit.split.loop.exit51, %15
-  %.122 = phi i32 [ 0, %15 ], [ %23, %._crit_edge45.loopexit.split.loop.exit51 ], [ %.020.lcssa, %.lr.ph44 ]
+._crit_edge45:                                    ; preds = %.lr.ph44, %._crit_edge45.loopexit.split.loop.exit54, %15
+  %.122 = phi i32 [ 0, %15 ], [ %23, %._crit_edge45.loopexit.split.loop.exit54 ], [ %.020.lcssa, %.lr.ph44 ]
   %24 = sext i32 %.122 to i64
   %25 = getelementptr inbounds ptr, ptr %14, i64 %24
   store ptr null, ptr %25, align 8
@@ -16021,12 +16021,12 @@ select.unfold243:                                 ; preds = %63, %61, %.lr.ph277
 95:                                               ; preds = %94
   %.off219 = add nsw i32 %92, -7
   %switch220 = icmp ult i32 %.off219, 5
-  br i1 %switch220, label %96, label %switch.edge.thr_comm286
+  br i1 %switch220, label %96, label %switch.edge.thr_comm304
 
 96:                                               ; preds = %95
   %97 = lshr i32 %88, 20
   %98 = and i32 %97, 15
-  switch i32 %98, label %switch.edge.thr_comm286 [
+  switch i32 %98, label %switch.edge.thr_comm304 [
     i32 3, label %switch.edge.thr_comm
     i32 2, label %switch.edge.thr_comm
     i32 6, label %switch.edge.thr_comm
@@ -16036,7 +16036,7 @@ select.unfold243:                                 ; preds = %63, %61, %.lr.ph277
 switch.edge.thr_comm:                             ; preds = %96, %96, %96, %96
   br i1 %86, label %104, label %103
 
-switch.edge.thr_comm286:                          ; preds = %96, %95
+switch.edge.thr_comm304:                          ; preds = %96, %95
   br i1 %86, label %103, label %104
 
 switch.edge:                                      ; preds = %94
@@ -16048,11 +16048,11 @@ switch.edge:                                      ; preds = %94
   %102 = xor i1 %86, %switch.selectcmp
   br i1 %102, label %103, label %104
 
-103:                                              ; preds = %switch.edge.thr_comm286, %switch.edge.thr_comm, %switch.edge
+103:                                              ; preds = %switch.edge.thr_comm304, %switch.edge.thr_comm, %switch.edge
   store i32 %88, ptr %2, align 4
   br label %.loopexit
 
-104:                                              ; preds = %switch.edge.thr_comm286, %switch.edge.thr_comm, %90, %switch.edge, %87
+104:                                              ; preds = %switch.edge.thr_comm304, %switch.edge.thr_comm, %90, %switch.edge, %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.next
   %106 = load i32, ptr %105, align 4

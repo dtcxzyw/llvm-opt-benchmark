@@ -897,7 +897,7 @@ define dso_local void @drm_plane_cleanup(ptr noundef %0) #0 align 16 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %.thread5, !prof !6
+  br i1 %32, label %33, label %.thread8, !prof !6
 
 33:                                               ; preds = %27
   tail call void asm sideeffect "402: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 402b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 402) #13, !srcloc !67
@@ -905,21 +905,21 @@ define dso_local void @drm_plane_cleanup(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "403: nop\0A\09.pushsection .discard.instr_end\0A\09.long 403b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 403) #13, !srcloc !69
   %.pr.pre = load ptr, ptr %24, align 8
   %34 = icmp eq ptr %.pr.pre, null
-  br i1 %34, label %.thread, label %.thread5
+  br i1 %34, label %.thread, label %.thread8
 
-.thread5:                                         ; preds = %27, %33
-  %.pr7 = phi ptr [ %.pr.pre, %33 ], [ %25, %27 ]
+.thread8:                                         ; preds = %27, %33
+  %.pr10 = phi ptr [ %.pr.pre, %33 ], [ %25, %27 ]
   %35 = load ptr, ptr %28, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %39
 
-39:                                               ; preds = %.thread5
-  tail call void %37(ptr noundef %0, ptr noundef nonnull %.pr7) #13
+39:                                               ; preds = %.thread8
+  tail call void %37(ptr noundef %0, ptr noundef nonnull %.pr10) #13
   br label %.thread
 
-.thread:                                          ; preds = %17, %39, %.thread5, %33
+.thread:                                          ; preds = %17, %39, %.thread8, %33
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   tail call void @kfree(ptr noundef %41) #13
@@ -1208,7 +1208,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getplane(ptr noundef %0
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread9, label %30
+  br i1 %29, label %.thread16, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 96
@@ -1223,28 +1223,28 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getplane(ptr noundef %0
 
 36:                                               ; preds = %30
   %37 = icmp eq ptr %.pr.pre, null
-  br i1 %37, label %.thread, label %.thread9
+  br i1 %37, label %.thread, label %.thread16
 
 .thread:                                          ; preds = %20, %36
   %38 = getelementptr i8, ptr %15, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread9, label %41
+  br i1 %40, label %.thread16, label %41
 
 41:                                               ; preds = %.thread
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = tail call zeroext i1 @drm_lease_held(ptr noundef %2, i32 noundef %43) #13
-  br i1 %44, label %45, label %.thread9
+  br i1 %44, label %45, label %.thread16
 
 45:                                               ; preds = %41, %34
   %46 = phi ptr [ %35, %34 ], [ %38, %41 ]
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
-  br label %.thread9
+  br label %.thread16
 
-.thread9:                                         ; preds = %26, %45, %41, %.thread, %36
+.thread16:                                        ; preds = %26, %45, %41, %.thread, %36
   %50 = phi i32 [ 0, %41 ], [ 0, %.thread ], [ 0, %36 ], [ %49, %45 ], [ 0, %26 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %50, ptr %51, align 4
@@ -1252,13 +1252,13 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_getplane(ptr noundef %0
   %53 = icmp eq ptr %52, null
   br i1 %53, label %58, label %54
 
-54:                                               ; preds = %.thread9
+54:                                               ; preds = %.thread16
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %66, label %62
 
-58:                                               ; preds = %.thread9
+58:                                               ; preds = %.thread16
   %59 = getelementptr i8, ptr %15, i64 80
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
@@ -2109,12 +2109,12 @@ __setplane_atomic.exit.thread:                    ; preds = %190, %193, %__setpl
   br i1 %221, label %225, label %226
 
 225:                                              ; preds = %217
-  br i1 %224, label %.thread, label %.thread21
+  br i1 %224, label %.thread, label %.thread41
 
 226:                                              ; preds = %217
-  br i1 %224, label %233, label %.thread21
+  br i1 %224, label %233, label %.thread41
 
-.thread21:                                        ; preds = %225, %226
+.thread41:                                        ; preds = %225, %226
   %227 = load i32, ptr %38, align 4
   %228 = load i32, ptr %33, align 4
   %229 = load i32, ptr %35, align 4
@@ -2130,8 +2130,8 @@ __setplane_atomic.exit.thread:                    ; preds = %190, %193, %__setpl
   %237 = call i32 %220(ptr noundef nonnull %24, ptr noundef %2, i32 noundef %234, i32 noundef %235, i32 noundef %236) #13
   br label %238
 
-238:                                              ; preds = %233, %.thread21, %213
-  %239 = phi i32 [ %232, %.thread21 ], [ %237, %233 ], [ 0, %213 ]
+238:                                              ; preds = %233, %.thread41, %213
+  %239 = phi i32 [ %232, %.thread41 ], [ %237, %233 ], [ 0, %213 ]
   %240 = load i32, ptr %1, align 4
   %241 = and i32 %240, 2
   %242 = icmp eq i32 %241, 0

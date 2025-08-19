@@ -901,7 +901,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117X86InsertPrefetch20runOnM
   br label %_ZN4llvm11SmallVectorIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoELj4EED2Ev.exit: ; preds = %29, %._crit_edge122, %57
-  %.047.lcssa129 = phi i1 [ %.148.lcssa, %._crit_edge122 ], [ %.148.lcssa, %57 ], [ false, %29 ]
+  %.047.lcssa156 = phi i1 [ %.148.lcssa, %._crit_edge122 ], [ %.148.lcssa, %57 ], [ false, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %353
 
@@ -1375,11 +1375,11 @@ _ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15Fu
   %271 = zext i32 %270 to i64
   %.idx = shl nuw nsw i64 %271, 4
   %272 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
-  %273 = add nsw i32 %119, 1
+  %273 = add nuw nsw i32 %119, 1
   %274 = zext i32 %273 to i64
-  %275 = add nsw i32 %119, 3
+  %275 = add nuw nsw i32 %119, 3
   %276 = zext i32 %275 to i64
-  %277 = add nsw i32 %119, 4
+  %277 = add nuw nsw i32 %119, 4
   %278 = zext i32 %277 to i64
   %279 = getelementptr inbounds nuw i8, ptr %.sroa.085.0112, i64 48
   br label %280
@@ -1562,7 +1562,7 @@ _ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.t
   br i1 %.not102, label %._crit_edge, label %.lr.ph115
 
 353:                                              ; preds = %_ZN4llvm11SmallVectorIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoELj4EED2Ev.exit, %16, %2
-  %.0 = phi i1 [ false, %2 ], [ %.047.lcssa129, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoELj4EED2Ev.exit ], [ false, %16 ]
+  %.0 = phi i1 [ false, %2 ], [ %.047.lcssa156, %_ZN4llvm11SmallVectorIN12_GLOBAL__N_117X86InsertPrefetch12PrefetchInfoELj4EED2Ev.exit ], [ false, %16 ]
   ret i1 %.0
 }
 

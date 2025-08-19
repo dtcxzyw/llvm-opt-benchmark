@@ -163,7 +163,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %wide.trip.count209 = zext nneg i32 %2 to i64
   %29 = add nuw nsw i32 %9, 280
-  %spec.select149229 = select i1 %8, i32 %29, i32 280
+  %spec.select149235 = select i1 %8, i32 %29, i32 280
   br label %33
 
 30:                                               ; preds = %24, %16
@@ -227,31 +227,31 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %51 = load ptr, ptr %6, align 8, !tbaa !10
   %52 = sext i32 %50 to i64
   %53 = getelementptr inbounds %struct.HTreeGroup, ptr %51, i64 %52
-  %54 = tail call fastcc i32 @ReadHuffmanCode(i32 noundef %spec.select149229, ptr noundef %4, ptr noundef %20, ptr noundef %5)
+  %54 = tail call fastcc i32 @ReadHuffmanCode(i32 noundef %spec.select149235, ptr noundef %4, ptr noundef %20, ptr noundef %5)
   %55 = load ptr, ptr %28, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !30
   store ptr %57, ptr %53, align 8, !tbaa !31
-  %.not143230 = icmp eq i32 %54, 0
-  br i1 %.not143230, label %.loopexit, label %.lr.ph236
+  %.not143236 = icmp eq i32 %54, 0
+  br i1 %.not143236, label %.loopexit, label %.lr.ph242
 
-.lr.ph236:                                        ; preds = %.thread, %.thread156
+.lr.ph242:                                        ; preds = %.thread, %.thread156
   %58 = phi ptr [ %86, %.thread156 ], [ %57, %.thread ]
   %59 = phi i32 [ %83, %.thread156 ], [ %54, %.thread ]
-  %spec.select149235 = phi i32 [ %82, %.thread156 ], [ %spec.select149229, %.thread ]
-  %.0121181234 = phi i32 [ %68, %.thread156 ], [ 0, %.thread ]
-  %.0118182233 = phi i32 [ %.2120, %.thread156 ], [ 1, %.thread ]
-  %.0116183232 = phi i32 [ %79, %.thread156 ], [ 0, %.thread ]
-  %indvars.iv202231 = phi i64 [ %indvars.iv.next203, %.thread156 ], [ 0, %.thread ]
-  %.not140 = icmp eq i32 %.0118182233, 0
+  %spec.select149241 = phi i32 [ %82, %.thread156 ], [ %spec.select149235, %.thread ]
+  %.0121181240 = phi i32 [ %68, %.thread156 ], [ 0, %.thread ]
+  %.0118182239 = phi i32 [ %.2120, %.thread156 ], [ 1, %.thread ]
+  %.0116183238 = phi i32 [ %79, %.thread156 ], [ 0, %.thread ]
+  %indvars.iv202237 = phi i64 [ %indvars.iv.next203, %.thread156 ], [ 0, %.thread ]
+  %.not140 = icmp eq i32 %.0118182239, 0
   br i1 %.not140, label %._crit_edge211, label %60
 
-._crit_edge211:                                   ; preds = %.lr.ph236
+._crit_edge211:                                   ; preds = %.lr.ph242
   %.pre = load i8, ptr %58, align 2, !tbaa !32
   br label %65
 
-60:                                               ; preds = %.lr.ph236
-  %61 = and i64 %indvars.iv202231, 3
+60:                                               ; preds = %.lr.ph242
+  %61 = and i64 %indvars.iv202237, 3
   %.not141 = icmp eq i64 %61, 0
   %.pre212 = load i8, ptr %58, align 2, !tbaa !32
   br i1 %.not141, label %65, label %62
@@ -265,23 +265,23 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %66 = phi i8 [ %.pre212, %62 ], [ %.pre212, %60 ], [ %.pre, %._crit_edge211 ]
   %.2120 = phi i32 [ %64, %62 ], [ 1, %60 ], [ 0, %._crit_edge211 ]
   %67 = zext i8 %66 to i32
-  %68 = add nuw nsw i32 %.0121181234, %67
+  %68 = add nuw nsw i32 %.0121181240, %67
   %69 = load ptr, ptr %28, align 8, !tbaa !29
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !30
   %72 = sext i32 %59 to i64
   %73 = getelementptr inbounds %struct.HuffmanCode, ptr %71, i64 %72
   store ptr %73, ptr %70, align 8, !tbaa !30
-  %.not142 = icmp eq i64 %indvars.iv202231, 4
+  %.not142 = icmp eq i64 %indvars.iv202237, 4
   br i1 %.not142, label %88, label %74
 
 74:                                               ; preds = %65
   %75 = load i32, ptr %20, align 4, !tbaa !6
-  %76 = icmp sgt i32 %spec.select149235, 1
+  %76 = icmp sgt i32 %spec.select149241, 1
   br i1 %76, label %.lr.ph.preheader, label %.thread156
 
 .lr.ph.preheader:                                 ; preds = %74
-  %wide.trip.count = zext nneg i32 %spec.select149235 to i64
+  %wide.trip.count = zext nneg i32 %spec.select149241 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -296,8 +296,8 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
 
 .thread156:                                       ; preds = %.lr.ph, %74
   %.0113.lcssa = phi i32 [ %75, %74 ], [ %spec.select150, %.lr.ph ]
-  %79 = add nsw i32 %.0113.lcssa, %.0116183232
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202231, 1
+  %79 = add nsw i32 %.0113.lcssa, %.0116183238
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202237, 1
   %80 = getelementptr inbounds nuw [5 x i16], ptr @kAlphabetSize, i64 0, i64 %indvars.iv.next203
   %81 = load i16, ptr %80, align 2, !tbaa !8
   %82 = zext i16 %81 to i32
@@ -308,7 +308,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %87 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.next203
   store ptr %86, ptr %87, align 8, !tbaa !31
   %.not143 = icmp eq i32 %83, 0
-  br i1 %.not143, label %.loopexit, label %.lr.ph236
+  br i1 %.not143, label %.loopexit, label %.lr.ph242
 
 88:                                               ; preds = %65
   %89 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -348,9 +348,9 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %116 = load i16, ptr %115, align 2, !tbaa !38
   %117 = icmp ult i16 %116, 256
-  br i1 %117, label %.thread217, label %122
+  br i1 %117, label %.thread223, label %122
 
-.thread217:                                       ; preds = %113
+.thread223:                                       ; preds = %113
   store i32 1, ptr %90, align 8, !tbaa !37
   %118 = shl nuw i16 %116, 8
   %119 = zext i16 %118 to i32
@@ -361,7 +361,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   br label %BuildPackedTable.exit.thread
 
 122:                                              ; preds = %91, %113, %88
-  %123 = icmp slt i32 %.0116183232, 6
+  %123 = icmp slt i32 %.0116183238, 6
   %124 = zext i1 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %53, i64 52
   store i32 %124, ptr %125, align 4, !tbaa !40
@@ -442,7 +442,7 @@ define hidden range(i32 0, 2) i32 @ReadHuffmanCodesHelper(i32 noundef %0, i32 no
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
   br i1 %exitcond.not.i, label %BuildPackedTable.exit.thread, label %132, !llvm.loop !44
 
-BuildPackedTable.exit.thread:                     ; preds = %43, %44, %171, %.thread217, %122
+BuildPackedTable.exit.thread:                     ; preds = %43, %44, %171, %.thread223, %122
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
   br i1 %exitcond210.not, label %VP8LSetError.exit, label %33, !llvm.loop !45
@@ -1418,10 +1418,10 @@ VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.t
   br label %.sink.split
 
 .sink.split:                                      ; preds = %195, %VP8LSetError.exit.thread
-  %.sink160.in = phi ptr [ %190, %VP8LSetError.exit.thread ], [ %153, %195 ]
+  %.sink168.in = phi ptr [ %190, %VP8LSetError.exit.thread ], [ %153, %195 ]
   %.3122.ph = phi i32 [ 0, %VP8LSetError.exit.thread ], [ 1, %195 ]
-  %.sink160 = load ptr, ptr %.sink160.in, align 8, !tbaa !54
-  call void @VP8LHtreeGroupsFree(ptr noundef %.sink160) #8
+  %.sink168 = load ptr, ptr %.sink168.in, align 8, !tbaa !54
+  call void @VP8LHtreeGroupsFree(ptr noundef %.sink168) #8
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 160
   call void @VP8LColorCacheClear(ptr noundef nonnull %197) #8
   %198 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -1472,9 +1472,9 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaImageStream(ptr noundef readon
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %25 = load i32, ptr %24, align 8, !tbaa !90
   %26 = icmp slt i32 %18, %23
-  br i1 %26, label %28, label %.thread250.i
+  br i1 %26, label %28, label %.thread270.i
 
-.thread250.i:                                     ; preds = %.thread
+.thread270.i:                                     ; preds = %.thread
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 76
   br label %._crit_edge234.i
 
@@ -2051,9 +2051,9 @@ GetHtreeGroupForPos.exit179.i:                    ; preds = %310, %307
   %.1107.i = phi i32 [ %121, %ExtractPalettedAlphaRows.exit.i ], [ %121, %120 ], [ %.0106231.i, %114 ], [ %.3109.lcssa.i, %._crit_edge.i ], [ %.3109.lcssa.i, %GetHtreeGroupForPos.exit179.i ]
   %323 = load i32, ptr %46, align 4, !tbaa !51
   %.not.i180.i = icmp eq i32 %323, 0
-  br i1 %.not.i180.i, label %324, label %.thread252.i
+  br i1 %.not.i180.i, label %324, label %.thread272.i
 
-.thread252.i:                                     ; preds = %.thread.i
+.thread272.i:                                     ; preds = %.thread.i
   store i32 1, ptr %46, align 4, !tbaa !51
   br label %._crit_edge234.i
 
@@ -2077,10 +2077,10 @@ GetHtreeGroupForPos.exit179.i:                    ; preds = %310, %307
   %335 = select i1 %.not.i, i1 %334, i1 false
   br i1 %335, label %59, label %._crit_edge234.i
 
-._crit_edge234.i:                                 ; preds = %332, %.thread252.i, %45, %.thread250.i
-  %336 = phi ptr [ %46, %45 ], [ %27, %.thread250.i ], [ %46, %.thread252.i ], [ %46, %332 ]
-  %.0116.lcssa.i = phi i32 [ %18, %45 ], [ %18, %.thread250.i ], [ %.1117.i, %.thread252.i ], [ %.1117.i, %332 ]
-  %.0106.lcssa.i = phi i32 [ %19, %45 ], [ %19, %.thread250.i ], [ %.1107.i, %.thread252.i ], [ %.1107.i, %332 ]
+._crit_edge234.i:                                 ; preds = %332, %.thread272.i, %45, %.thread270.i
+  %336 = phi ptr [ %46, %45 ], [ %27, %.thread270.i ], [ %46, %.thread272.i ], [ %46, %332 ]
+  %.0116.lcssa.i = phi i32 [ %18, %45 ], [ %18, %.thread270.i ], [ %.1117.i, %.thread272.i ], [ %.1117.i, %332 ]
+  %.0106.lcssa.i = phi i32 [ %19, %45 ], [ %19, %.thread270.i ], [ %.1107.i, %.thread272.i ], [ %.1107.i, %332 ]
   %337 = tail call i32 @llvm.smin.i32(i32 %.0106.lcssa.i, i32 %1)
   %338 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %339 = load ptr, ptr %338, align 8, !tbaa !70
@@ -2417,7 +2417,7 @@ VP8LIsEndOfStream.exit:                           ; preds = %119
 
 VP8LIsEndOfStream.exit.thread:                    ; preds = %119, %VP8LIsEndOfStream.exit
   %125 = icmp eq i32 %.0.i, 0
-  br i1 %125, label %285, label %.thread415
+  br i1 %125, label %285, label %.thread444
 
 126:                                              ; preds = %VP8LFillBitWindow.exit
   %127 = load ptr, ptr %.1191, align 8, !tbaa !31
@@ -2464,23 +2464,23 @@ VP8LIsEndOfStream.exit.thread:                    ; preds = %119, %VP8LIsEndOfSt
   %158 = zext i16 %157 to i32
   %.pre = load i32, ptr %60, align 4, !tbaa !51
   %159 = icmp eq i32 %.pre, 0
-  br i1 %159, label %.thread415, label %.thread318
+  br i1 %159, label %.thread444, label %.thread318
 
-.thread415:                                       ; preds = %VP8LIsEndOfStream.exit.thread, %151
-  %.0196420 = phi i32 [ %158, %151 ], [ %.0.i, %VP8LIsEndOfStream.exit.thread ]
-  %.val18.i250419 = phi i64 [ %.val18.i, %151 ], [ %.val.i, %VP8LIsEndOfStream.exit.thread ]
+.thread444:                                       ; preds = %VP8LIsEndOfStream.exit.thread, %151
+  %.0196449 = phi i32 [ %158, %151 ], [ %.0.i, %VP8LIsEndOfStream.exit.thread ]
+  %.val18.i250448 = phi i64 [ %.val18.i, %151 ], [ %.val.i, %VP8LIsEndOfStream.exit.thread ]
   %160 = load i64, ptr %61, align 8, !tbaa !103
   %161 = load i64, ptr %62, align 8, !tbaa !104
   %162 = icmp eq i64 %160, %161
   br i1 %162, label %VP8LIsEndOfStream.exit249, label %VP8LIsEndOfStream.exit249.thread
 
-VP8LIsEndOfStream.exit249:                        ; preds = %.thread415
+VP8LIsEndOfStream.exit249:                        ; preds = %.thread444
   %163 = load i32, ptr %59, align 8, !tbaa !47
   %164 = icmp slt i32 %163, 65
   br i1 %164, label %VP8LIsEndOfStream.exit249.thread, label %.thread318
 
-VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread415, %VP8LIsEndOfStream.exit249
-  %165 = icmp slt i32 %.0196420, 256
+VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread444, %VP8LIsEndOfStream.exit249
+  %165 = icmp slt i32 %.0196449, 256
   br i1 %165, label %166, label %303
 
 166:                                              ; preds = %VP8LIsEndOfStream.exit249.thread
@@ -2492,7 +2492,7 @@ VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread415, %VP8LIs
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %.1191, i64 44
   %171 = load i32, ptr %170, align 4, !tbaa !39
-  %172 = shl i32 %.0196420, 8
+  %172 = shl i32 %.0196449, 8
   %173 = or i32 %171, %172
   br label %.sink.split
 
@@ -2502,7 +2502,7 @@ VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread415, %VP8LIs
   %.val19.i251 = load i32, ptr %59, align 8, !tbaa !47
   %177 = and i32 %.val19.i251, 63
   %178 = zext nneg i32 %177 to i64
-  %179 = lshr i64 %.val18.i250419, %178
+  %179 = lshr i64 %.val18.i250448, %178
   %180 = and i64 %179, 255
   %181 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %176, i64 %180
   %182 = load i8, ptr %181, align 2, !tbaa !32
@@ -2515,7 +2515,7 @@ VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread415, %VP8LIs
   %187 = add nsw i32 %.val19.i251, 8
   %188 = and i32 %187, 63
   %189 = zext nneg i32 %188 to i64
-  %190 = lshr i64 %.val18.i250419, %189
+  %190 = lshr i64 %.val18.i250448, %189
   %191 = trunc i64 %190 to i32
   %192 = getelementptr inbounds nuw i8, ptr %181, i64 2
   %193 = load i16, ptr %192, align 2, !tbaa !38
@@ -2550,7 +2550,7 @@ ReadSymbol.exit255:                               ; preds = %174, %184
 
 VP8LFillBitWindow.exit256:                        ; preds = %ReadSymbol.exit255, %208
   %.val19.i258 = phi i32 [ %203, %ReadSymbol.exit255 ], [ %.val19.i258.pre, %208 ]
-  %.val18.i257 = phi i64 [ %.val18.i250419, %ReadSymbol.exit255 ], [ %.val18.i257.pre, %208 ]
+  %.val18.i257 = phi i64 [ %.val18.i250448, %ReadSymbol.exit255 ], [ %.val18.i257.pre, %208 ]
   %209 = getelementptr inbounds nuw i8, ptr %.1191, i64 16
   %210 = load ptr, ptr %209, align 8, !tbaa !31
   %211 = and i32 %.val19.i258, 63
@@ -2647,7 +2647,7 @@ ReadSymbol.exit268:                               ; preds = %ReadSymbol.exit262,
 VP8LIsEndOfStream.exit270.thread:                 ; preds = %274
   %279 = shl i32 %272, 24
   %280 = shl nuw i32 %206, 16
-  %281 = shl i32 %.0196420, 8
+  %281 = shl i32 %.0196449, 8
   %282 = or i32 %280, %281
   %283 = or i32 %282, %240
   %284 = or i32 %283, %279
@@ -2702,18 +2702,18 @@ VP8LIsEndOfStream.exit270.thread:                 ; preds = %274
   br i1 %302, label %295, label %.thread304, !llvm.loop !114
 
 303:                                              ; preds = %VP8LIsEndOfStream.exit249.thread
-  %304 = icmp samesign ult i32 %.0196420, 280
+  %304 = icmp samesign ult i32 %.0196449, 280
   br i1 %304, label %305, label %427
 
 305:                                              ; preds = %303
-  %306 = add nsw i32 %.0196420, -256
+  %306 = add nsw i32 %.0196449, -256
   %307 = icmp samesign ult i32 %306, 4
   br i1 %307, label %GetCopyLength.exit, label %308
 
 308:                                              ; preds = %305
-  %309 = add nsw i32 %.0196420, -258
+  %309 = add nsw i32 %.0196449, -258
   %310 = lshr i32 %309, 1
-  %311 = and i32 %.0196420, 1
+  %311 = and i32 %.0196449, 1
   %312 = or disjoint i32 %311, 2
   %313 = shl nuw nsw i32 %312, %310
   %314 = tail call i32 @VP8LReadBits(ptr noundef nonnull %11, i32 noundef %310) #8
@@ -2722,7 +2722,7 @@ VP8LIsEndOfStream.exit270.thread:                 ; preds = %274
   br label %GetCopyLength.exit
 
 GetCopyLength.exit:                               ; preds = %305, %308
-  %.val18.i272 = phi i64 [ %.val18.i272.pre, %308 ], [ %.val18.i250419, %305 ]
+  %.val18.i272 = phi i64 [ %.val18.i272.pre, %308 ], [ %.val18.i250448, %305 ]
   %.0.in.i.i = phi i32 [ %315, %308 ], [ %306, %305 ]
   %.0.i.i271 = add i32 %.0.in.i.i, 1
   %316 = getelementptr inbounds nuw i8, ptr %.1191, i64 32
@@ -2935,7 +2935,7 @@ GetHtreeGroupForPos.exit284:                      ; preds = %401, %404
   br i1 %426, label %419, label %.thread304, !llvm.loop !116
 
 427:                                              ; preds = %303
-  %428 = icmp slt i32 %.0196420, %22
+  %428 = icmp slt i32 %.0196449, %22
   br i1 %428, label %.preheader349, label %.thread325
 
 .preheader349:                                    ; preds = %427
@@ -2958,7 +2958,7 @@ GetHtreeGroupForPos.exit284:                      ; preds = %401, %404
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader349
   %.8.lcssa = phi ptr [ %.0182370, %.preheader349 ], [ %430, %.lr.ph ]
-  %437 = zext nneg i32 %.0196420 to i64
+  %437 = zext nneg i32 %.0196449 to i64
   %438 = getelementptr i32, ptr %.val244.pre, i64 %437
   %439 = getelementptr i8, ptr %438, i64 -1120
   %440 = load i32, ptr %439, align 4, !tbaa !6

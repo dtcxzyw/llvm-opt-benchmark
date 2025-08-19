@@ -2044,14 +2044,14 @@ Vec_IntAlloc.exit:                                ; preds = %7, %12
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %50, %52, %42, %44
-  %.sink53 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
+  %.sink60 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
   %.sink = phi i32 [ 16, %42 ], [ 16, %44 ], [ %47, %50 ], [ %47, %52 ]
-  store ptr %.sink53, ptr %17, align 8, !tbaa !45
+  store ptr %.sink60, ptr %17, align 8, !tbaa !45
   store i32 %.sink, ptr %9, align 8, !tbaa !51
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %23
-  %.pre.i49 = phi ptr [ %24, %23 ], [ %.sink53, %Vec_IntPush.exit.sink.split ]
+  %.pre.i49 = phi ptr [ %24, %23 ], [ %.sink60, %Vec_IntPush.exit.sink.split ]
   %54 = add nsw i32 %36, 1
   store i32 %54, ptr %11, align 4, !tbaa !42
   %55 = sext i32 %36 to i64
@@ -2115,14 +2115,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit39.sink.split
 
 Vec_IntPush.exit39.sink.split:                    ; preds = %86, %88, %78, %80
-  %.sink55 = phi ptr [ %79, %78 ], [ %81, %80 ], [ %87, %86 ], [ %89, %88 ]
-  %.sink54 = phi i32 [ 16, %78 ], [ 16, %80 ], [ %83, %86 ], [ %83, %88 ]
-  store ptr %.sink55, ptr %17, align 8, !tbaa !45
-  store i32 %.sink54, ptr %9, align 8, !tbaa !51
+  %.sink62 = phi ptr [ %79, %78 ], [ %81, %80 ], [ %87, %86 ], [ %89, %88 ]
+  %.sink61 = phi i32 [ 16, %78 ], [ 16, %80 ], [ %83, %86 ], [ %83, %88 ]
+  store ptr %.sink62, ptr %17, align 8, !tbaa !45
+  store i32 %.sink61, ptr %9, align 8, !tbaa !51
   br label %Vec_IntPush.exit39
 
 Vec_IntPush.exit39:                               ; preds = %Vec_IntPush.exit39.sink.split, %59
-  %.pre.i3551 = phi ptr [ %60, %59 ], [ %.sink55, %Vec_IntPush.exit39.sink.split ]
+  %.pre.i3551 = phi ptr [ %60, %59 ], [ %.sink62, %Vec_IntPush.exit39.sink.split ]
   %90 = add nsw i32 %72, 1
   store i32 %90, ptr %11, align 4, !tbaa !42
   %91 = sext i32 %72 to i64

@@ -1653,12 +1653,12 @@ _ZN10serde_json3ser9Formatter9end_array17h6479628426cf33bdE.exit.i28: ; preds = 
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit.preheader"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit.preheader": ; preds = %_ZN10serde_json3ser9Formatter9end_array17h6479628426cf33bdE.exit.i28, %_ZN10serde_json3ser9Formatter11begin_array17h48ce63f2f760e5b1E.exit.i
-  %.ph101 = xor i1 %224, true
+  %.ph120 = xor i1 %224, true
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit.preheader", %_ZN10serde_json3ser9Formatter17begin_array_value17heb26e8dbd202a82bE.exit.i.i
   %234 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17heb26e8dbd202a82bE.exit.i.i ], [ %224, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit.preheader" ]
-  %235 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17heb26e8dbd202a82bE.exit.i.i ], [ %.ph101, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit.preheader" ]
+  %235 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17heb26e8dbd202a82bE.exit.i.i ], [ %.ph120, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit.preheader" ]
   %.sroa.042.0 = phi ptr [ %238, %_ZN10serde_json3ser9Formatter17begin_array_value17heb26e8dbd202a82bE.exit.i.i ], [ %209, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h613e2acba90e5a02E.exit.preheader" ]
   %236 = icmp eq ptr %.sroa.042.0, %212
   br i1 %236, label %254, label %237
@@ -4786,9 +4786,9 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h6a781666046cee20E.exit28.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17hfb33f00a8cdb28f0E.exit.i.i
 
 _ZN10serde_json3ser9Formatter17write_char_escape17hfb33f00a8cdb28f0E.exit.i.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6be6a462b8f7514dE.exit5.i.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6be6a462b8f7514dE.exit.i.i.i"
-  %.sink43.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6be6a462b8f7514dE.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6be6a462b8f7514dE.exit5.i.i.i" ]
+  %.sink46.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6be6a462b8f7514dE.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6be6a462b8f7514dE.exit5.i.i.i" ]
   %116 = load i64, ptr %4, align 8, !noalias !1144, !noundef !4
-  %117 = add i64 %116, %.sink43.i.i
+  %117 = add i64 %116, %.sink46.i.i
   store i64 %117, ptr %4, align 8, !noalias !1144
   br label %.outer.i.i
 

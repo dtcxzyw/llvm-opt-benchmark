@@ -802,8 +802,8 @@ define dso_local noundef ptr @get_or_compute_bloom_filter(ptr noundef %0, ptr no
   br label %12
 
 12:                                               ; preds = %11, %5
-  %.b161 = load i1, ptr @bloom_filters.0, align 8
-  br i1 %.b161, label %13, label %.thread128
+  %.b176 = load i1, ptr @bloom_filters.0, align 8
+  br i1 %.b176, label %13, label %.thread128
 
 13:                                               ; preds = %12
   %14 = getelementptr i8, ptr %1, i64 64
@@ -849,8 +849,8 @@ define dso_local noundef ptr @get_or_compute_bloom_filter(ptr noundef %0, ptr no
 32:                                               ; preds = %27
   %.b = load i1, ptr @bloom_filters.0, align 8
   %33 = select i1 %.b, i64 16383, i64 0
-  %.b162 = load i1, ptr @bloom_filters.1, align 4
-  %34 = select i1 %.b162, i64 32, i64 0
+  %.b177 = load i1, ptr @bloom_filters.1, align 4
+  %34 = select i1 %.b177, i64 32, i64 0
   %35 = tail call ptr @xcalloc(i64 noundef %33, i64 noundef %34) #14
   %36 = load ptr, ptr @bloom_filters.3, align 8, !tbaa !45
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %29
@@ -859,9 +859,9 @@ define dso_local noundef ptr @get_or_compute_bloom_filter(ptr noundef %0, ptr no
 
 bloom_filter_slab_at.exit:                        ; preds = %27, %32
   %38 = phi ptr [ %31, %27 ], [ %35, %32 ]
-  %.b163 = load i1, ptr @bloom_filters.1, align 4
+  %.b178 = load i1, ptr @bloom_filters.1, align 4
   %39 = zext nneg i32 %16 to i64
-  %40 = select i1 %.b163, i64 %39, i64 0
+  %40 = select i1 %.b178, i64 %39, i64 0
   %41 = getelementptr inbounds nuw %struct.bloom_filter, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !28
   %.not93 = icmp eq ptr %42, null
@@ -1117,10 +1117,10 @@ hashmap_get_size.exit:                            ; preds = %._crit_edge
   br label %190
 
 hashmap_get_size.exit118:                         ; preds = %97, %hashmap_get_size.exit
-  %.val110155157 = phi i32 [ %.val110.pre, %hashmap_get_size.exit ], [ 0, %97 ]
+  %.val110170172 = phi i32 [ %.val110.pre, %hashmap_get_size.exit ], [ 0, %97 ]
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %141 = load i32, ptr %140, align 4, !tbaa !126
-  %142 = mul i32 %141, %.val110155157
+  %142 = mul i32 %141, %.val110170172
   %143 = add i32 %142, 7
   %144 = lshr i32 %143, 3
   %145 = zext nneg i32 %144 to i64

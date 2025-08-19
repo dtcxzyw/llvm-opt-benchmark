@@ -205,19 +205,19 @@ Vec_WecGrow.exit.i:                               ; preds = %62, %60
   br label %Vec_WecPushLevel.exitthread-pre-split
 
 Vec_WecPushLevel.exitthread-pre-split:            ; preds = %79, %Vec_WecGrow.exit.i
-  %.sink88 = phi i32 [ %84, %79 ], [ %68, %Vec_WecGrow.exit.i ]
-  %.sink85 = phi ptr [ %83, %79 ], [ %67, %Vec_WecGrow.exit.i ]
-  %.sink84 = phi i32 [ %70, %79 ], [ 16, %Vec_WecGrow.exit.i ]
-  %85 = sext i32 %.sink88 to i64
+  %.sink106 = phi i32 [ %84, %79 ], [ %68, %Vec_WecGrow.exit.i ]
+  %.sink103 = phi ptr [ %83, %79 ], [ %67, %Vec_WecGrow.exit.i ]
+  %.sink102 = phi i32 [ %70, %79 ], [ 16, %Vec_WecGrow.exit.i ]
+  %85 = sext i32 %.sink106 to i64
   %86 = shl nsw i64 %85, 4
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink85, i8 0, i64 %86, i1 false)
-  store i32 %.sink84, ptr %50, align 8, !tbaa !39
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink103, i8 0, i64 %86, i1 false)
+  store i32 %.sink102, ptr %50, align 8, !tbaa !39
   %.pr = load i32, ptr %51, align 4, !tbaa !38
   br label %Vec_WecPushLevel.exit
 
 Vec_WecPushLevel.exit:                            ; preds = %Vec_WecPushLevel.exitthread-pre-split, %Vec_IntPush.exit41
   %87 = phi i32 [ %.pr, %Vec_WecPushLevel.exitthread-pre-split ], [ %52, %Vec_IntPush.exit41 ]
-  %88 = phi i32 [ %.sink84, %Vec_WecPushLevel.exitthread-pre-split ], [ %53, %Vec_IntPush.exit41 ]
+  %88 = phi i32 [ %.sink102, %Vec_WecPushLevel.exitthread-pre-split ], [ %53, %Vec_IntPush.exit41 ]
   %89 = add nsw i32 %87, 1
   store i32 %89, ptr %51, align 4, !tbaa !38
   %90 = icmp eq i32 %89, %88
@@ -279,13 +279,13 @@ Vec_WecGrow.exit.i51:                             ; preds = %98, %96
   br label %Vec_WecPushLevel.exit52.sink.split
 
 Vec_WecPushLevel.exit52.sink.split:               ; preds = %115, %Vec_WecGrow.exit.i51
-  %.sink93 = phi i32 [ %104, %Vec_WecGrow.exit.i51 ], [ %120, %115 ]
-  %.sink90 = phi ptr [ %103, %Vec_WecGrow.exit.i51 ], [ %119, %115 ]
-  %.sink89 = phi i32 [ 16, %Vec_WecGrow.exit.i51 ], [ %106, %115 ]
-  %121 = sext i32 %.sink93 to i64
+  %.sink111 = phi i32 [ %104, %Vec_WecGrow.exit.i51 ], [ %120, %115 ]
+  %.sink108 = phi ptr [ %103, %Vec_WecGrow.exit.i51 ], [ %119, %115 ]
+  %.sink107 = phi i32 [ 16, %Vec_WecGrow.exit.i51 ], [ %106, %115 ]
+  %121 = sext i32 %.sink111 to i64
   %122 = shl nsw i64 %121, 4
-  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink90, i8 0, i64 %122, i1 false)
-  store i32 %.sink89, ptr %50, align 8, !tbaa !39
+  tail call void @llvm.memset.p0.i64(ptr align 8 %.sink108, i8 0, i64 %122, i1 false)
+  store i32 %.sink107, ptr %50, align 8, !tbaa !39
   br label %Vec_WecPushLevel.exit52
 
 Vec_WecPushLevel.exit52:                          ; preds = %Vec_WecPushLevel.exit52.sink.split, %Vec_WecPushLevel.exit
@@ -2946,7 +2946,7 @@ Cbs3_ManSaveModel.exit.i:                         ; preds = %120, %74, %56, %Cbs
   br i1 %140, label %.lr.ph.i23.i, label %Cbs3_ManSolveInt.exit, !llvm.loop !72
 
 Cbs3_ManSolveInt.exit:                            ; preds = %.lr.ph.i23.i, %129, %70, %Cbs3_ManSaveModel.exit.i
-  %.032.i = phi i32 [ %.0.i, %Cbs3_ManSaveModel.exit.i ], [ 0, %70 ], [ %.0.i, %129 ], [ %.0.i, %.lr.ph.i23.i ]
+  %.039.i = phi i32 [ %.0.i, %Cbs3_ManSaveModel.exit.i ], [ 0, %70 ], [ %.0.i, %129 ], [ %.0.i, %.lr.ph.i23.i ]
   store i32 0, ptr %13, align 4, !tbaa !59
   store i32 0, ptr %26, align 4, !tbaa !51
   store i32 0, ptr %25, align 8, !tbaa !56
@@ -2974,7 +2974,7 @@ Cbs3_ManSolveInt.exit:                            ; preds = %.lr.ph.i23.i, %129,
   br i1 %157, label %29, label %Cbs3_ManSolveInt.exit._crit_edge
 
 Cbs3_ManSolveInt.exit._crit_edge:                 ; preds = %29, %Cbs3_ManSolveInt.exit, %3
-  %.1 = phi i32 [ -1, %3 ], [ %.032.i, %Cbs3_ManSolveInt.exit ], [ -1, %29 ]
+  %.1 = phi i32 [ -1, %3 ], [ %.039.i, %Cbs3_ManSolveInt.exit ], [ -1, %29 ]
   %158 = getelementptr i8, ptr %0, i64 292
   %.val89.i = load i32, ptr %158, align 4, !tbaa !31
   %159 = icmp sgt i32 %.val89.i, 0
@@ -4745,7 +4745,7 @@ Cbs3_QuePush.exit89:                              ; preds = %._crit_edge.i83, %1
 
 186:                                              ; preds = %Cbs3_QuePush.exit.i, %.lr.ph.i
   %187 = phi i32 [ %180, %.lr.ph.i ], [ %231, %Cbs3_QuePush.exit.i ]
-  %188 = phi ptr [ %.val46.i, %.lr.ph.i ], [ %.sink92.i, %Cbs3_QuePush.exit.i ]
+  %188 = phi ptr [ %.val46.i, %.lr.ph.i ], [ %.sink111.i, %Cbs3_QuePush.exit.i ]
   %indvars.iv.i = phi i64 [ %178, %.lr.ph.i ], [ %indvars.iv.next.i, %Cbs3_QuePush.exit.i ]
   %189 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv.i
   %190 = load i32, ptr %189, align 4, !tbaa !37
@@ -4832,13 +4832,13 @@ Cbs3_QuePush.exit89:                              ; preds = %._crit_edge.i83, %1
   br label %Cbs3_QuePush.exit.i
 
 Cbs3_QuePush.exit.i:                              ; preds = %226, %._crit_edge.i47.i, %206, %._crit_edge.i.i
-  %.sink96.i = phi i32 [ %187, %._crit_edge.i.i ], [ %.pre11.i.i, %206 ], [ %187, %._crit_edge.i47.i ], [ %.pre11.i52.i, %226 ]
-  %.sink92.i = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %207, %206 ], [ %.pre.i49.i, %._crit_edge.i47.i ], [ %227, %226 ]
+  %.sink115.i = phi i32 [ %187, %._crit_edge.i.i ], [ %.pre11.i.i, %206 ], [ %187, %._crit_edge.i47.i ], [ %.pre11.i52.i, %226 ]
+  %.sink111.i = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %207, %206 ], [ %.pre.i49.i, %._crit_edge.i47.i ], [ %227, %226 ]
   %.sink.i = phi i32 [ %190, %._crit_edge.i.i ], [ %190, %206 ], [ %214, %._crit_edge.i47.i ], [ %214, %226 ]
-  %228 = add nsw i32 %.sink96.i, 1
+  %228 = add nsw i32 %.sink115.i, 1
   store i32 %228, ptr %9, align 4, !tbaa !53
-  %229 = sext i32 %.sink96.i to i64
-  %230 = getelementptr inbounds i32, ptr %.sink92.i, i64 %229
+  %229 = sext i32 %.sink115.i to i64
+  %230 = getelementptr inbounds i32, ptr %.sink111.i, i64 %229
   store i32 %.sink.i, ptr %230, align 4, !tbaa !37
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %231 = load i32, ptr %9, align 4, !tbaa !29
@@ -4847,7 +4847,7 @@ Cbs3_QuePush.exit.i:                              ; preds = %226, %._crit_edge.i
   br i1 %233, label %186, label %.critedge.i, !llvm.loop !129
 
 .critedge.i:                                      ; preds = %Cbs3_QuePush.exit.i, %186, %182
-  %234 = phi ptr [ %.val46.i, %182 ], [ %.sink92.i, %Cbs3_QuePush.exit.i ], [ %188, %186 ]
+  %234 = phi ptr [ %.val46.i, %182 ], [ %.sink111.i, %Cbs3_QuePush.exit.i ], [ %188, %186 ]
   %235 = phi i32 [ %180, %182 ], [ %231, %Cbs3_QuePush.exit.i ], [ %187, %186 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %237 = load i32, ptr %236, align 8, !tbaa !54

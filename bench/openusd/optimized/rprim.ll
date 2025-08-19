@@ -841,7 +841,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__6HdReprEEC2ERKS2_.exit: ; p
   br i1 %.not8, label %50, label %70
 
 16:                                               ; preds = %11, %14
-  %.not89 = icmp eq ptr %5, null
+  %.not812 = icmp eq ptr %5, null
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load atomic i64, ptr %17 acquire, align 8
   %19 = icmp eq i64 %18, 4294967297
@@ -907,10 +907,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
-  br i1 %.not89, label %50, label %70
+  br i1 %.not812, label %50, label %70
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__6HdReprEED2Ev.exit: ; preds = %32, %45
-  br i1 %.not89, label %50, label %70
+  br i1 %.not812, label %50, label %70
 
 50:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__6HdReprEEC2ERKS2_.exit, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__6HdReprEED2Ev.exit
   %51 = load atomic i8, ptr @_ZGVZNK32pxrInternal_v0_24__pxrReserved__7HdRprim12GetDrawItemsERKNS_7TfTokenEE5empty acquire, align 8
@@ -998,8 +998,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.
   br label %22
 
 22:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread, %17, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit
-  %.sroa.09.017 = phi i64 [ %11, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit ], [ %11, %17 ], [ %9, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread ]
-  %.pre-phi16 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit ], [ false, %17 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread ]
+  %.sroa.09.020 = phi i64 [ %11, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit ], [ %11, %17 ], [ %9, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread ]
+  %.pre-phi19 = phi i1 [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit ], [ false, %17 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread ]
   %.sroa.0.0.i = phi i64 [ %15, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit ], [ %21, %17 ], [ %9, %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.exit.thread ]
   store i64 %.sroa.0.0.i, ptr %3, align 8, !alias.scope !10
   %23 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS3_6HdReprEEESt6vectorIS8_SaIS8_EEEENS0_5__ops10_Iter_predINS3_7HdRprim15_ReprComparatorEEEET_SK_SK_T0_(ptr %6, ptr %8, ptr noundef nonnull %3)
@@ -1035,10 +1035,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorC2ERKNS_7TfTokenE.
 
 41:                                               ; preds = %28, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.pre-phi16, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorD2Ev.exit, label %42
+  br i1 %.pre-phi19, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorD2Ev.exit, label %42
 
 42:                                               ; preds = %41
-  %43 = inttoptr i64 %.sroa.09.017 to ptr
+  %43 = inttoptr i64 %.sroa.09.020 to ptr
   %44 = atomicrmw sub ptr %43, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorD2Ev.exit
 
@@ -1089,10 +1089,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %47, %5
   br label %73
 
 .body:                                            ; preds = %32, %37
-  br i1 %.pre-phi16, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorD2Ev.exit8, label %68
+  br i1 %.pre-phi19, label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorD2Ev.exit8, label %68
 
 68:                                               ; preds = %.body
-  %69 = inttoptr i64 %.sroa.09.017 to ptr
+  %69 = inttoptr i64 %.sroa.09.020 to ptr
   %70 = atomicrmw sub ptr %69, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7HdRprim15_ReprComparatorD2Ev.exit8
 

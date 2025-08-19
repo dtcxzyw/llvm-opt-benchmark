@@ -11981,8 +11981,8 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..oneshot..Sender
   br i1 %23, label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb72bacf415d4616bE.llvm.16543861533300112609.exit3", label %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h03bb05bcd57c34b3E.llvm.16543861533300112609.exit.thread"
 
 "_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h03bb05bcd57c34b3E.llvm.16543861533300112609.exit.thread": ; preds = %.noexc, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h03bb05bcd57c34b3E.llvm.16543861533300112609.exit"
-  %.pr6 = phi ptr [ %.pr.pre, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h03bb05bcd57c34b3E.llvm.16543861533300112609.exit" ], [ %2, %.noexc ]
-  %24 = atomicrmw sub ptr %.pr6, i64 1 release, align 8, !noalias !4600
+  %.pr7 = phi ptr [ %.pr.pre, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h03bb05bcd57c34b3E.llvm.16543861533300112609.exit" ], [ %2, %.noexc ]
+  %24 = atomicrmw sub ptr %.pr7, i64 1 release, align 8, !noalias !4600
   %25 = icmp eq i64 %24, 1
   br i1 %25, label %26, label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb72bacf415d4616bE.llvm.16543861533300112609.exit3"
 

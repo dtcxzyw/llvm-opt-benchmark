@@ -1303,10 +1303,10 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   br i1 %188, label %.thread164.i, label %.thread.i20
 
 .thread.i20:                                      ; preds = %187, %180
-  %.pre205223.i = phi i64 [ %.pre205.pre.i, %187 ], [ %.pre204.i, %180 ]
-  %189 = and i64 %.pre205223.i, 512
+  %.pre205224.i = phi i64 [ %.pre205.pre.i, %187 ], [ %.pre204.i, %180 ]
+  %189 = and i64 %.pre205224.i, 512
   %.not81.i = icmp eq i64 %189, 0
-  br i1 %.not81.i, label %.thread224.i, label %190
+  br i1 %.not81.i, label %.thread225.i, label %190
 
 190:                                              ; preds = %.thread.i20
   %191 = load ptr, ptr %27, align 8
@@ -1320,15 +1320,15 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   %.pr141.pre.i = load ptr, ptr %178, align 8
   %.pre202.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
   %196 = icmp eq ptr %.pr141.pre.i, null
-  br i1 %196, label %.thread164.i, label %.thread224.i
+  br i1 %196, label %.thread164.i, label %.thread225.i
 
-.thread224.i:                                     ; preds = %195, %.thread.i20
-  %.pre202227.i = phi i64 [ %.pre202.pre.i, %195 ], [ %.pre205223.i, %.thread.i20 ]
-  %197 = and i64 %.pre202227.i, 1024
+.thread225.i:                                     ; preds = %195, %.thread.i20
+  %.pre202228.i = phi i64 [ %.pre202.pre.i, %195 ], [ %.pre205224.i, %.thread.i20 ]
+  %197 = and i64 %.pre202228.i, 1024
   %.not84.i = icmp eq i64 %197, 0
   br i1 %.not84.i, label %.thread142.thread.i, label %198
 
-198:                                              ; preds = %.thread224.i
+198:                                              ; preds = %.thread225.i
   %199 = load ptr, ptr %28, align 8
   %200 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %201 = load ptr, ptr %200, align 8
@@ -1342,11 +1342,11 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   %203 = icmp eq ptr %.pr145.pr.pre.i, null
   br i1 %203, label %.thread164.i, label %.thread142.thread.i
 
-.thread142.thread.i:                              ; preds = %.thread142.i, %.thread224.i
-  %.pre203230.i = phi i64 [ %.pre203.pre.i, %.thread142.i ], [ %.pre202227.i, %.thread224.i ]
-  %204 = and i64 %.pre203230.i, 8192
+.thread142.thread.i:                              ; preds = %.thread142.i, %.thread225.i
+  %.pre203231.i = phi i64 [ %.pre203.pre.i, %.thread142.i ], [ %.pre202228.i, %.thread225.i ]
+  %204 = and i64 %.pre203231.i, 8192
   %.not87.i = icmp eq i64 %204, 0
-  br i1 %.not87.i, label %.thread231.i, label %205
+  br i1 %.not87.i, label %.thread232.i, label %205
 
 205:                                              ; preds = %.thread142.thread.i
   %206 = load ptr, ptr %29, align 8
@@ -1360,15 +1360,15 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   %.pr149.pre.i = load ptr, ptr %178, align 8
   %.pre207.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
   %211 = icmp eq ptr %.pr149.pre.i, null
-  br i1 %211, label %.thread164.i, label %.thread231.i
+  br i1 %211, label %.thread164.i, label %.thread232.i
 
-.thread231.i:                                     ; preds = %210, %.thread142.thread.i
-  %.pre207234.i = phi i64 [ %.pre207.pre.i, %210 ], [ %.pre203230.i, %.thread142.thread.i ]
-  %212 = and i64 %.pre207234.i, 16384
+.thread232.i:                                     ; preds = %210, %.thread142.thread.i
+  %.pre207235.i = phi i64 [ %.pre207.pre.i, %210 ], [ %.pre203231.i, %.thread142.thread.i ]
+  %212 = and i64 %.pre207235.i, 16384
   %.not90.i = icmp eq i64 %212, 0
   br i1 %.not90.i, label %.thread151.thread.i, label %213
 
-213:                                              ; preds = %.thread231.i
+213:                                              ; preds = %.thread232.i
   %214 = load ptr, ptr %30, align 8
   %215 = getelementptr inbounds nuw i8, ptr %50, i64 168
   %216 = load ptr, ptr %215, align 8
@@ -1382,11 +1382,11 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   %218 = icmp eq ptr %.pr154.pr.pr.pre.i, null
   br i1 %218, label %.thread164.i, label %.thread151.thread.i
 
-.thread151.thread.i:                              ; preds = %.thread151.i, %.thread231.i
-  %.pre206237.i = phi i64 [ %.pre206.pre.i, %.thread151.i ], [ %.pre207234.i, %.thread231.i ]
-  %219 = and i64 %.pre206237.i, 4
+.thread151.thread.i:                              ; preds = %.thread151.i, %.thread232.i
+  %.pre206238.i = phi i64 [ %.pre206.pre.i, %.thread151.i ], [ %.pre207235.i, %.thread232.i ]
+  %219 = and i64 %.pre206238.i, 4
   %.not93.i = icmp eq i64 %219, 0
-  br i1 %.not93.i, label %.thread238.i, label %220
+  br i1 %.not93.i, label %.thread239.i, label %220
 
 220:                                              ; preds = %.thread151.thread.i
   %221 = load ptr, ptr %31, align 8
@@ -1400,15 +1400,15 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   %.pr158.pre.i = load ptr, ptr %178, align 8
   %.pre208.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
   %226 = icmp eq ptr %.pr158.pre.i, null
-  br i1 %226, label %.thread164.i, label %.thread238.i
+  br i1 %226, label %.thread164.i, label %.thread239.i
 
-.thread238.i:                                     ; preds = %225, %.thread151.thread.i
-  %.pre208241.i = phi i64 [ %.pre208.pre.i, %225 ], [ %.pre206237.i, %.thread151.thread.i ]
-  %227 = and i64 %.pre208241.i, 268435456
+.thread239.i:                                     ; preds = %225, %.thread151.thread.i
+  %.pre208242.i = phi i64 [ %.pre208.pre.i, %225 ], [ %.pre206238.i, %.thread151.thread.i ]
+  %227 = and i64 %.pre208242.i, 268435456
   %.not96.i = icmp eq i64 %227, 0
   br i1 %.not96.i, label %.thread160.thread.i, label %228
 
-228:                                              ; preds = %.thread238.i
+228:                                              ; preds = %.thread239.i
   %229 = load ptr, ptr %32, align 8
   %230 = getelementptr inbounds nuw i8, ptr %50, i64 200
   %231 = load ptr, ptr %230, align 8
@@ -1422,9 +1422,9 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   %233 = icmp eq ptr %.pr163.pr.pr.pre.i, null
   br i1 %233, label %.thread164.i, label %.thread160.thread.i
 
-.thread160.thread.i:                              ; preds = %.thread160.i, %.thread238.i
-  %.pre209244.i = phi i64 [ %.pre209.pre.i, %.thread160.i ], [ %.pre208241.i, %.thread238.i ]
-  %234 = and i64 %.pre209244.i, 536870912
+.thread160.thread.i:                              ; preds = %.thread160.i, %.thread239.i
+  %.pre209245.i = phi i64 [ %.pre209.pre.i, %.thread160.i ], [ %.pre208242.i, %.thread239.i ]
+  %234 = and i64 %.pre209245.i, 536870912
   %.not99.i = icmp eq i64 %234, 0
   br i1 %.not99.i, label %239, label %235
 
@@ -1436,7 +1436,7 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   br i1 %.not100.i, label %239, label %_match_node_data.exit
 
 239:                                              ; preds = %235, %.thread160.thread.i
-  %240 = and i64 %.pre209244.i, 1073741824
+  %240 = and i64 %.pre209245.i, 1073741824
   %.not102.i = icmp eq i64 %240, 0
   br i1 %.not102.i, label %245, label %241
 
@@ -1448,7 +1448,7 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   br i1 %.not103.i, label %245, label %_match_node_data.exit
 
 245:                                              ; preds = %241, %239
-  %246 = and i64 %.pre209244.i, 4294967296
+  %246 = and i64 %.pre209245.i, 4294967296
   %.not105.i = icmp eq i64 %246, 0
   br i1 %.not105.i, label %.thread164.i, label %247
 
@@ -1465,7 +1465,7 @@ define internal fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroex
   br label %.thread164.i
 
 .thread164.i:                                     ; preds = %..thread164_crit_edge.i, %245, %.thread160.i, %225, %.thread151.i, %210, %.thread142.i, %195, %187, %177
-  %252 = phi i64 [ %.pre201.i, %..thread164_crit_edge.i ], [ %.pre202.pre.i, %195 ], [ %.pre203.pre.i, %.thread142.i ], [ %.pre204.i, %177 ], [ %.pre205.pre.i, %187 ], [ %.pre206.pre.i, %.thread151.i ], [ %.pre207.pre.i, %210 ], [ %.pre208.pre.i, %225 ], [ %.pre209.pre.i, %.thread160.i ], [ %.pre209244.i, %245 ]
+  %252 = phi i64 [ %.pre201.i, %..thread164_crit_edge.i ], [ %.pre202.pre.i, %195 ], [ %.pre203.pre.i, %.thread142.i ], [ %.pre204.i, %177 ], [ %.pre205.pre.i, %187 ], [ %.pre206.pre.i, %.thread151.i ], [ %.pre207.pre.i, %210 ], [ %.pre208.pre.i, %225 ], [ %.pre209.pre.i, %.thread160.i ], [ %.pre209245.i, %245 ]
   %253 = and i64 %252, 34359738368
   %.not107.i = icmp eq i64 %253, 0
   br i1 %.not107.i, label %261, label %254

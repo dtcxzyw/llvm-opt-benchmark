@@ -420,7 +420,7 @@ malloc_mutex_lock.exit:                           ; preds = %104, %110
 
 base_get_num_blocks.exit.i:                       ; preds = %.preheader64
   %122 = icmp eq i64 %.0.i.i, 2
-  br i1 %122, label %128, label %base_auto_thp_switch.exit.thread66
+  br i1 %122, label %128, label %base_auto_thp_switch.exit.thread72
 
 .preheader:                                       ; preds = %117, %.preheader
   %.05.i20.i = phi ptr [ %124, %.preheader ], [ %.val18.i, %117 ]
@@ -433,7 +433,7 @@ base_get_num_blocks.exit.i:                       ; preds = %.preheader64
 
 126:                                              ; preds = %.preheader
   %127 = icmp eq i64 %.0.i21.i, 5
-  br i1 %127, label %128, label %base_auto_thp_switch.exit.thread66
+  br i1 %127, label %128, label %base_auto_thp_switch.exit.thread72
 
 128:                                              ; preds = %126, %base_get_num_blocks.exit.i
   store i8 1, ptr %114, align 8, !tbaa !31
@@ -465,19 +465,19 @@ base_get_num_blocks.exit.i:                       ; preds = %.preheader64
 base_auto_thp_switch.exit:                        ; preds = %130
   %.pre = load i8, ptr %114, align 8, !tbaa !31, !range !51
   %141 = trunc nuw i8 %.pre to i1
-  br i1 %141, label %base_auto_thp_switch.exit.thread, label %base_auto_thp_switch.exit.thread66
+  br i1 %141, label %base_auto_thp_switch.exit.thread, label %base_auto_thp_switch.exit.thread72
 
 base_auto_thp_switch.exit.thread:                 ; preds = %128, %malloc_mutex_lock.exit, %base_auto_thp_switch.exit
   %142 = call zeroext i1 @je_pages_huge(ptr noundef nonnull %.0.i5563, i64 noundef %43) #10
-  br label %base_auto_thp_switch.exit.thread66
+  br label %base_auto_thp_switch.exit.thread72
 
-base_auto_thp_switch.exit.thread66:               ; preds = %126, %base_get_num_blocks.exit.i, %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
+base_auto_thp_switch.exit.thread72:               ; preds = %126, %base_get_num_blocks.exit.i, %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store atomic i8 0, ptr %143 monotonic, align 1
   %144 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #10
   br label %145
 
-145:                                              ; preds = %93, %base_auto_thp_switch.exit.thread66, %95, %85
+145:                                              ; preds = %93, %base_auto_thp_switch.exit.thread72, %95, %85
   %146 = icmp ugt i64 %43, 8070450532247928832
   br i1 %146, label %sz_psz2ind.exit, label %147, !prof !45
 

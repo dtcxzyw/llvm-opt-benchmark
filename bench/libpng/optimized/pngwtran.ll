@@ -130,18 +130,18 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   store i8 %61, ptr %.069115.ph.i, align 1, !tbaa !30
   %62 = getelementptr inbounds nuw i8, ptr %.069115.ph.i, i64 1
   %63 = add i32 %.090112.ph.i, 8
-  %exitcond127.not134.i = icmp eq i32 %63, %53
-  br i1 %exitcond127.not134.i, label %._crit_edge119.thread.i, label %.lr.ph118.outer.i, !llvm.loop !31
+  %exitcond127.not141.i = icmp eq i32 %63, %53
+  br i1 %exitcond127.not141.i, label %._crit_edge119.thread.i, label %.lr.ph118.outer.i, !llvm.loop !31
 
 64:                                               ; preds = %51
   %65 = load i32, ptr %1, align 8, !tbaa !29
   %.not124.i = icmp eq i32 %65, 0
   br i1 %.not124.i, label %._crit_edge119.thread.i, label %.lr.ph107.outer.i
 
-.lr.ph107.outer.i:                                ; preds = %64, %.thread145.i
-  %.082105.ph.i = phi i32 [ %79, %.thread145.i ], [ 0, %64 ]
-  %.087102.ph.i = phi ptr [ %77, %.thread145.i ], [ %41, %64 ]
-  %.089101.ph.i = phi ptr [ %78, %.thread145.i ], [ %41, %64 ]
+.lr.ph107.outer.i:                                ; preds = %64, %.thread152.i
+  %.082105.ph.i = phi i32 [ %79, %.thread152.i ], [ 0, %64 ]
+  %.087102.ph.i = phi ptr [ %77, %.thread152.i ], [ %41, %64 ]
+  %.089101.ph.i = phi ptr [ %78, %.thread152.i ], [ %41, %64 ]
   br label %.lr.ph107.i
 
 .lr.ph107.i:                                      ; preds = %72, %.lr.ph107.outer.i
@@ -155,7 +155,7 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   %69 = shl i32 %68, %.085103.i
   %70 = or i32 %69, %.083104.i
   %71 = icmp eq i32 %.085103.i, 0
-  br i1 %71, label %.thread145.i, label %72
+  br i1 %71, label %.thread152.i, label %72
 
 72:                                               ; preds = %.lr.ph107.i
   %73 = add nsw i32 %.085103.i, -2
@@ -164,14 +164,14 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   %exitcond126.not.i = icmp eq i32 %75, %65
   br i1 %exitcond126.not.i, label %._crit_edge108.i, label %.lr.ph107.i, !llvm.loop !33
 
-.thread145.i:                                     ; preds = %.lr.ph107.i
+.thread152.i:                                     ; preds = %.lr.ph107.i
   %76 = trunc i32 %70 to i8
   store i8 %76, ptr %.087102.ph.i, align 1, !tbaa !30
   %77 = getelementptr inbounds nuw i8, ptr %.087102.ph.i, i64 1
   %78 = getelementptr inbounds nuw i8, ptr %.089101.i, i64 1
   %79 = add nuw i32 %.082105.i, 1
-  %exitcond126.not149.i = icmp eq i32 %79, %65
-  br i1 %exitcond126.not149.i, label %._crit_edge119.thread.i, label %.lr.ph107.outer.i, !llvm.loop !33
+  %exitcond126.not156.i = icmp eq i32 %79, %65
+  br i1 %exitcond126.not156.i, label %._crit_edge119.thread.i, label %.lr.ph107.outer.i, !llvm.loop !33
 
 ._crit_edge108.i:                                 ; preds = %72
   %80 = icmp eq i32 %73, 6
@@ -182,10 +182,10 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   %.not123.i = icmp eq i32 %82, 0
   br i1 %.not123.i, label %._crit_edge119.thread.i, label %.lr.ph.outer.i
 
-.lr.ph.outer.i:                                   ; preds = %81, %.thread160.i
-  %.07098.ph.i = phi i32 [ %96, %.thread160.i ], [ 0, %81 ]
-  %.07595.ph.i = phi ptr [ %94, %.thread160.i ], [ %41, %81 ]
-  %.07794.ph.i = phi ptr [ %95, %.thread160.i ], [ %41, %81 ]
+.lr.ph.outer.i:                                   ; preds = %81, %.thread167.i
+  %.07098.ph.i = phi i32 [ %96, %.thread167.i ], [ 0, %81 ]
+  %.07595.ph.i = phi ptr [ %94, %.thread167.i ], [ %41, %81 ]
+  %.07794.ph.i = phi ptr [ %95, %.thread167.i ], [ %41, %81 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %89, %.lr.ph.outer.i
@@ -199,7 +199,7 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   %86 = shl i32 %85, %.07396.i
   %87 = or i32 %86, %.07197.i
   %88 = icmp eq i32 %.07396.i, 0
-  br i1 %88, label %.thread160.i, label %89
+  br i1 %88, label %.thread167.i, label %89
 
 89:                                               ; preds = %.lr.ph.i
   %90 = add nsw i32 %.07396.i, -4
@@ -208,27 +208,27 @@ define void @png_do_write_transformations(ptr noalias noundef %0, ptr noundef %1
   %exitcond.not.i = icmp eq i32 %92, %82
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 
-.thread160.i:                                     ; preds = %.lr.ph.i
+.thread167.i:                                     ; preds = %.lr.ph.i
   %93 = trunc i32 %87 to i8
   store i8 %93, ptr %.07595.ph.i, align 1, !tbaa !30
   %94 = getelementptr inbounds nuw i8, ptr %.07595.ph.i, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.07794.i, i64 1
   %96 = add nuw i32 %.07098.i, 1
-  %exitcond.not164.i = icmp eq i32 %96, %82
-  br i1 %exitcond.not164.i, label %._crit_edge119.thread.i, label %.lr.ph.outer.i, !llvm.loop !34
+  %exitcond.not171.i = icmp eq i32 %96, %82
+  br i1 %exitcond.not171.i, label %._crit_edge119.thread.i, label %.lr.ph.outer.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %89
   %97 = icmp eq i32 %90, 4
   br i1 %97, label %._crit_edge119.thread.i, label %._crit_edge119.thread.i.sink.split
 
 ._crit_edge119.thread.i.sink.split:               ; preds = %58, %._crit_edge.i, %._crit_edge108.i
-  %.lcssa140.sink = phi i32 [ %70, %._crit_edge108.i ], [ %87, %._crit_edge.i ], [ %spec.select.i, %58 ]
+  %.lcssa171.sink = phi i32 [ %70, %._crit_edge108.i ], [ %87, %._crit_edge.i ], [ %spec.select.i, %58 ]
   %.07595.ph.i.lcssa.sink = phi ptr [ %.087102.ph.i, %._crit_edge108.i ], [ %.07595.ph.i, %._crit_edge.i ], [ %.069115.ph.i, %58 ]
-  %98 = trunc i32 %.lcssa140.sink to i8
+  %98 = trunc i32 %.lcssa171.sink to i8
   store i8 %98, ptr %.07595.ph.i.lcssa.sink, align 1, !tbaa !30
   br label %._crit_edge119.thread.i
 
-._crit_edge119.thread.i:                          ; preds = %.thread160.i, %.thread145.i, %.thread.i, %._crit_edge119.thread.i.sink.split, %._crit_edge.i, %81, %._crit_edge108.i, %64, %52, %51
+._crit_edge119.thread.i:                          ; preds = %.thread167.i, %.thread152.i, %.thread.i, %._crit_edge119.thread.i.sink.split, %._crit_edge.i, %81, %._crit_edge108.i, %64, %52, %51
   store i8 %43, ptr %44, align 1, !tbaa !26
   %99 = load i8, ptr %48, align 2, !tbaa !28
   %100 = mul i8 %99, %43
@@ -370,8 +370,8 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   br i1 %.not160.i, label %.loopexit.i, label %.lr.ph157.i
 
 .lr.ph157.i:                                      ; preds = %170
-  %.not170.i = icmp eq i8 %136, 0
-  br i1 %.not170.i, label %.lr.ph157.split.preheader.i, label %.lr.ph151.us.i
+  %.not182.i = icmp eq i8 %136, 0
+  br i1 %.not182.i, label %.lr.ph157.split.preheader.i, label %.lr.ph151.us.i
 
 .lr.ph157.split.preheader.i:                      ; preds = %.lr.ph157.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %129, i8 0, i64 %172, i1 false), !tbaa !30

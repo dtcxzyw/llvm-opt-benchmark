@@ -1361,11 +1361,11 @@ pmix_iof_fd_always_ready.exit89.i:                ; preds = %583, %581
   br label %635
 
 601:                                              ; preds = %430, %426, %.critedge.i
-  %.sink529 = phi i32 [ 476, %.critedge.i ], [ 482, %426 ], [ 487, %430 ]
+  %.sink590 = phi i32 [ 476, %.critedge.i ], [ 482, %426 ], [ 487, %430 ]
   %602 = getelementptr inbounds nuw i8, ptr %390, i64 128
   %603 = getelementptr inbounds nuw i8, ptr %390, i64 120
   %604 = call ptr @PMIx_Error_string(i32 noundef -330) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %604, ptr noundef nonnull @.str.12, i32 noundef %.sink529) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %604, ptr noundef nonnull @.str.12, i32 noundef %.sink590) #12
   %605 = call ptr @PMIx_Error_string(i32 noundef -330) #12
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %605, ptr noundef nonnull @.str.12, i32 noundef 264) #12
   %606 = load ptr, ptr %603, align 8, !tbaa !43
@@ -2225,15 +2225,15 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %82
   br label %100
 
 100:                                              ; preds = %96, %.thread
-  %.sink52.in = phi ptr [ %54, %96 ], [ %13, %.thread ]
-  %.sink55 = load ptr, ptr %.sink52.in, align 8, !tbaa !165
-  %101 = getelementptr inbounds nuw i8, ptr %.sink55, i64 216
+  %.sink56.in = phi ptr [ %54, %96 ], [ %13, %.thread ]
+  %.sink59 = load ptr, ptr %.sink56.in, align 8, !tbaa !165
+  %101 = getelementptr inbounds nuw i8, ptr %.sink59, i64 216
   store volatile i8 0, ptr %101, align 8, !tbaa !172
   fence release
-  %102 = getelementptr inbounds nuw i8, ptr %.sink55, i64 168
+  %102 = getelementptr inbounds nuw i8, ptr %.sink59, i64 168
   %103 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %102) #12
-  %.sink52 = load ptr, ptr %.sink52.in, align 8, !tbaa !165
-  %104 = getelementptr inbounds nuw i8, ptr %.sink52, i64 128
+  %.sink56 = load ptr, ptr %.sink56.in, align 8, !tbaa !165
+  %104 = getelementptr inbounds nuw i8, ptr %.sink56, i64 128
   %105 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %104) #12
   ret void
 }
@@ -2302,10 +2302,10 @@ define void @pmix_pfexec_base_signal_proc(i32 noundef %0, i16 noundef signext %1
   br label %.thread
 
 .thread:                                          ; preds = %9, %11, %3, %24
-  %.sink39 = phi i32 [ %31, %24 ], [ 0, %3 ], [ 0, %11 ], [ 0, %9 ]
+  %.sink40 = phi i32 [ %31, %24 ], [ 0, %3 ], [ 0, %11 ], [ 0, %9 ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %33 = load ptr, ptr %32, align 8, !tbaa !165
-  store i32 %.sink39, ptr %33, align 8, !tbaa !166
+  store i32 %.sink40, ptr %33, align 8, !tbaa !166
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
   %35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %34) #12
   %36 = load ptr, ptr %32, align 8, !tbaa !165

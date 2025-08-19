@@ -1447,11 +1447,11 @@ define hidden noundef ptr @_ZN15PhaseStringOpts15build_candidateEP18CallStaticJa
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %9, %2
-  %.sink178 = phi i32 [ 942, %2 ], [ 945, %9 ]
-  %.sink177 = phi i32 [ 943, %2 ], [ 946, %9 ]
+  %.sink210 = phi i32 [ 942, %2 ], [ 945, %9 ]
+  %.sink209 = phi i32 [ 943, %2 ], [ 946, %9 ]
   %.sink = phi i32 [ 944, %2 ], [ 947, %9 ]
-  %13 = tail call noundef ptr @_ZN15ciObjectFactory12vm_symbol_atE10vmSymbolID(i32 noundef %.sink178) #11
-  %14 = tail call noundef ptr @_ZN15ciObjectFactory12vm_symbol_atE10vmSymbolID(i32 noundef %.sink177) #11
+  %13 = tail call noundef ptr @_ZN15ciObjectFactory12vm_symbol_atE10vmSymbolID(i32 noundef %.sink210) #11
+  %14 = tail call noundef ptr @_ZN15ciObjectFactory12vm_symbol_atE10vmSymbolID(i32 noundef %.sink209) #11
   %15 = tail call noundef ptr @_ZN15ciObjectFactory12vm_symbol_atE10vmSymbolID(i32 noundef %.sink) #11
   %16 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i32 noundef 0) #11
   tail call void @_ZN12StringConcatC2EP15PhaseStringOptsP18CallStaticJavaNode(ptr noundef nonnull align 8 dereferenceable(160) %16, ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -1490,13 +1490,13 @@ define hidden noundef ptr @_ZN15PhaseStringOpts15build_candidateEP18CallStaticJa
   %40 = phi i32 [ %.pre, %35 ], [ %32, %25 ]
   %.097 = phi ptr [ %38, %35 ], [ %30, %25 ]
   %41 = and i32 %40, 31
-  %.not183 = icmp eq i32 %41, 31
-  br i1 %.not183, label %191, label %42
+  %.not215 = icmp eq i32 %41, 31
+  br i1 %.not215, label %191, label %42
 
 42:                                               ; preds = %39
   %43 = and i32 %40, 63
-  %.not184 = icmp eq i32 %43, 39
-  br i1 %.not184, label %44, label %.loopexit
+  %.not216 = icmp eq i32 %43, 39
+  br i1 %.not216, label %44, label %.loopexit
 
 44:                                               ; preds = %42
   %45 = tail call noundef ptr @_ZN8CallNode11result_castEv(ptr noundef nonnull align 8 dereferenceable(128) %.097) #11
@@ -2002,17 +2002,17 @@ _ZN12StringConcat11add_controlEP4Node.exit128:    ; preds = %307, %311
   br i1 %.not.not.i.not.i.i133, label %.backedge.sink.split, label %334, !llvm.loop !21
 
 .backedge.sink.split:                             ; preds = %334, %357, %278, %255
-  %.sink179.ph = phi i32 [ 1, %255 ], [ 2, %278 ], [ 0, %357 ], [ 1, %334 ]
+  %.sink211.ph = phi i32 [ 1, %255 ], [ 2, %278 ], [ 0, %357 ], [ 1, %334 ]
   %.pre12.i.i.i135 = load i32, ptr %22, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %331, %275, %252, %354
-  %.sink182 = phi i32 [ %355, %354 ], [ %253, %252 ], [ %276, %275 ], [ %332, %331 ], [ %.pre12.i.i.i135, %.backedge.sink.split ]
-  %.sink179 = phi i32 [ 0, %354 ], [ 1, %252 ], [ 2, %275 ], [ 1, %331 ], [ %.sink179.ph, %.backedge.sink.split ]
-  %339 = add nsw i32 %.sink182, 1
+  %.sink214 = phi i32 [ %355, %354 ], [ %253, %252 ], [ %276, %275 ], [ %332, %331 ], [ %.pre12.i.i.i135, %.backedge.sink.split ]
+  %.sink211 = phi i32 [ 0, %354 ], [ 1, %252 ], [ 2, %275 ], [ 1, %331 ], [ %.sink211.ph, %.backedge.sink.split ]
+  %339 = add nsw i32 %.sink214, 1
   store i32 %339, ptr %22, align 8
   %340 = load ptr, ptr %24, align 8
-  store i32 %.sink179, ptr %340, align 4
+  store i32 %.sink211, ptr %340, align 4
   br label %25, !llvm.loop !22
 
 341:                                              ; preds = %296, %299, %303, %288, %283
@@ -2888,9 +2888,9 @@ _ZN9Node_List4pushEP4Node.exit.i186:              ; preds = %393, %389
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %_ZN9Node_List4pushEP4Node.exit.i186, %_ZN9VectorSet8test_setEj.exit.i183, %_ZN9Node_List4pushEP4Node.exit191
-  %.sink379.in = phi ptr [ %522, %_ZN9Node_List4pushEP4Node.exit191 ], [ %260, %_ZN9VectorSet8test_setEj.exit.i183 ], [ %260, %_ZN9Node_List4pushEP4Node.exit.i186 ]
-  %.sink379 = load ptr, ptr %.sink379.in, align 8
-  %397 = load ptr, ptr %.sink379, align 8
+  %.sink433.in = phi ptr [ %522, %_ZN9Node_List4pushEP4Node.exit191 ], [ %260, %_ZN9VectorSet8test_setEj.exit.i183 ], [ %260, %_ZN9Node_List4pushEP4Node.exit.i186 ]
+  %.sink433 = load ptr, ptr %.sink433.in, align 8
+  %397 = load ptr, ptr %.sink433, align 8
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = load ptr, ptr %398, align 8
   %400 = load ptr, ptr %399, align 8
@@ -3453,14 +3453,14 @@ _ZN9VectorSet8test_setEj.exit.i213:               ; preds = %683, %_ZN9Node_List
   br i1 %.not.i.i.i215, label %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split, label %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split
 
 _ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split: ; preds = %692, %648
-  %.sink384 = phi i32 [ %649, %648 ], [ %693, %692 ]
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(68) %2, i32 noundef %.sink384) #11
+  %.sink438 = phi i32 [ %649, %648 ], [ %693, %692 ]
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(68) %2, i32 noundef %.sink438) #11
   br label %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split
 
 _ZN16Unique_Node_List4pushEP4Node.exit207.sink.split: ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split, %692, %648
-  %.sink383 = phi i32 [ %649, %648 ], [ %693, %692 ], [ %.sink384, %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split ]
+  %.sink437 = phi i32 [ %649, %648 ], [ %693, %692 ], [ %.sink438, %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split ]
   %696 = load ptr, ptr %42, align 8
-  %697 = zext i32 %.sink383 to i64
+  %697 = zext i32 %.sink437 to i64
   %698 = getelementptr inbounds nuw ptr, ptr %696, i64 %697
   store ptr %620, ptr %698, align 8
   br label %_ZN16Unique_Node_List4pushEP4Node.exit207
@@ -14289,9 +14289,9 @@ _ZN4Node8init_reqEjPS_.exit404:                   ; preds = %_ZN8GraphKit4SubIEP
 
 _ZN4Node8init_reqEjPS_.exit396.sink.split:        ; preds = %1664, %1741
   %.sink = phi i32 [ %1742, %1741 ], [ %1665, %1664 ]
-  %.sink418 = phi ptr [ %1743, %1741 ], [ %1666, %1664 ]
+  %.sink552 = phi ptr [ %1743, %1741 ], [ %1666, %1664 ]
   %1745 = zext i32 %.sink to i64
-  %1746 = getelementptr inbounds nuw ptr, ptr %.sink418, i64 %1745
+  %1746 = getelementptr inbounds nuw ptr, ptr %.sink552, i64 %1745
   store ptr %7, ptr %1746, align 8
   br label %_ZN4Node8init_reqEjPS_.exit396
 
@@ -14905,11 +14905,11 @@ _ZN4Node8init_reqEjPS_.exit111:                   ; preds = %300, %320, %331
   br label %_ZN4Node8init_reqEjPS_.exit.sink.split
 
 _ZN4Node8init_reqEjPS_.exit.sink.split:           ; preds = %296, %353
-  %.sink221 = phi i32 [ %354, %353 ], [ %297, %296 ]
-  %.sink219 = phi ptr [ %355, %353 ], [ %298, %296 ]
+  %.sink270 = phi i32 [ %354, %353 ], [ %297, %296 ]
+  %.sink268 = phi ptr [ %355, %353 ], [ %298, %296 ]
   %.sink = phi ptr [ %133, %353 ], [ %.0.i.i.i, %296 ]
-  %357 = zext i32 %.sink221 to i64
-  %358 = getelementptr inbounds nuw ptr, ptr %.sink219, i64 %357
+  %357 = zext i32 %.sink270 to i64
+  %358 = getelementptr inbounds nuw ptr, ptr %.sink268, i64 %357
   store ptr %.sink, ptr %358, align 8
   br label %_ZN4Node8init_reqEjPS_.exit
 
@@ -16282,7 +16282,7 @@ define hidden void @_ZN15PhaseStringOpts20copy_constant_stringER8GraphKitR8Ideal
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 16
   %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %.thread78
+  br i1 %13, label %14, label %.thread89
 
 14:                                               ; preds = %9
   %15 = tail call noundef ptr @_ZNK4Node13find_int_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %7) #11
@@ -16295,7 +16295,7 @@ define hidden void @_ZN15PhaseStringOpts20copy_constant_stringER8GraphKitR8Ideal
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.6, i32 noundef 1206, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #12
   unreachable
 
-.thread78:                                        ; preds = %9
+.thread89:                                        ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16312,8 +16312,8 @@ define hidden void @_ZN15PhaseStringOpts20copy_constant_stringER8GraphKitR8Ideal
   %28 = load i32, ptr %27, align 8
   br i1 %26, label %.preheader71, label %.thread70
 
-.preheader71:                                     ; preds = %.thread78, %23
-  %29 = phi i32 [ %19, %.thread78 ], [ %28, %23 ]
+.preheader71:                                     ; preds = %.thread89, %23
+  %29 = phi i32 [ %19, %.thread89 ], [ %28, %23 ]
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
 

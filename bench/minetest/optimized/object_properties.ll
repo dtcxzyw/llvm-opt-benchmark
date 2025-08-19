@@ -3658,9 +3658,9 @@ for.body.i.i.i.i.i.i.preheader:                   ; preds = %_ZNKSt6vectorIN3irr
   %157 = sub i64 %cond.i31.i.i.i569, %151
   %diff.check = icmp ult i64 %157, 32
   %or.cond = or i1 %min.iters.check, %diff.check
-  br i1 %or.cond, label %for.body.i.i.i.i.i.i.preheader78, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.i.i.i.preheader149, label %vector.ph
 
-for.body.i.i.i.i.i.i.preheader78:                 ; preds = %middle.block, %for.body.i.i.i.i.i.i.preheader
+for.body.i.i.i.i.i.i.preheader149:                ; preds = %middle.block, %for.body.i.i.i.i.i.i.preheader
   %__cur.08.i.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.preheader ]
   %__first.addr.07.i.i.i.i.i.i.ph = phi ptr [ %ind.end570, %middle.block ], [ %150, %for.body.i.i.i.i.i.i.preheader ]
   br label %for.body.i.i.i.i.i.i
@@ -3691,15 +3691,15 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 %161
   %ind.end570 = getelementptr i8, ptr %150, i64 %161
   %cmp.n = icmp eq i64 %156, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.thread, label %for.body.i.i.i.i.i.i.preheader78
+  br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.thread, label %for.body.i.i.i.i.i.i.preheader149
 
 _ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.thread: ; preds = %middle.block
   %incdec.ptr.i.i.i73 = getelementptr i8, ptr %ind.end, i64 4
   br label %if.then.i41.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.preheader78, %for.body.i.i.i.i.i.i
-  %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__cur.08.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader78 ]
-  %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader78 ]
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.preheader149, %for.body.i.i.i.i.i.i
+  %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__cur.08.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader149 ]
+  %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %__first.addr.07.i.i.i.i.i.i.ph, %for.body.i.i.i.i.i.i.preheader149 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %162 = load i32, ptr %__first.addr.07.i.i.i.i.i.i, align 4, !tbaa !48, !alias.scope !118, !noalias !115
@@ -4663,7 +4663,7 @@ for.body.i.i.i.preheader:                         ; preds = %_ZNKSt6vectorIN3irr
   %13 = sub i64 %cond.i5369, %3
   %diff.check = icmp ult i64 %13, 32
   %or.cond = or i1 %min.iters.check, %diff.check
-  br i1 %or.cond, label %for.body.i.i.i.preheader4, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.preheader
   %n.vec = and i64 %12, 9223372036854775800
@@ -4691,16 +4691,16 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i, i64 %17
   %ind.end71 = getelementptr i8, ptr %2, i64 %17
   %cmp.n = icmp eq i64 %12, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i.preheader4
+  br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i.preheader5
 
-for.body.i.i.i.preheader4:                        ; preds = %middle.block, %for.body.i.i.i.preheader
+for.body.i.i.i.preheader5:                        ; preds = %middle.block, %for.body.i.i.i.preheader
   %__cur.08.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i, %for.body.i.i.i.preheader ]
   %__first.addr.07.i.i.i.ph = phi ptr [ %ind.end71, %middle.block ], [ %2, %for.body.i.i.i.preheader ]
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader4, %for.body.i.i.i
-  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %__cur.08.i.i.i.ph, %for.body.i.i.i.preheader4 ]
-  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %__first.addr.07.i.i.i.ph, %for.body.i.i.i.preheader4 ]
+for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader5, %for.body.i.i.i
+  %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %__cur.08.i.i.i.ph, %for.body.i.i.i.preheader5 ]
+  %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %__first.addr.07.i.i.i.ph, %for.body.i.i.i.preheader5 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %18 = load i32, ptr %__first.addr.07.i.i.i, align 4, !tbaa !48, !alias.scope !142, !noalias !139
@@ -4723,13 +4723,13 @@ for.body.i.i.i55.preheader:                       ; preds = %_ZNSt6vectorIN3irr5
   %20 = lshr i64 %19, 2
   %21 = add nuw nsw i64 %20, 1
   %min.iters.check83 = icmp ult i64 %19, 44
-  br i1 %min.iters.check83, label %for.body.i.i.i55.preheader3, label %vector.memcheck78
+  br i1 %min.iters.check83, label %for.body.i.i.i55.preheader4, label %vector.memcheck78
 
 vector.memcheck78:                                ; preds = %for.body.i.i.i55.preheader
   %reass.sub2 = sub i64 %__cur.0.lcssa.i.i.i79, %__position.coerce70
   %22 = add i64 %reass.sub2, 4
   %diff.check80 = icmp ult i64 %22, 32
-  br i1 %diff.check80, label %for.body.i.i.i55.preheader3, label %vector.ph84
+  br i1 %diff.check80, label %for.body.i.i.i55.preheader4, label %vector.ph84
 
 vector.ph84:                                      ; preds = %vector.memcheck78
   %n.vec86 = and i64 %21, 9223372036854775800
@@ -4757,16 +4757,16 @@ middle.block81:                                   ; preds = %vector.body92
   %ind.end87 = getelementptr i8, ptr %incdec.ptr, i64 %26
   %ind.end89 = getelementptr i8, ptr %__position.coerce, i64 %26
   %cmp.n91 = icmp eq i64 %21, %n.vec86
-  br i1 %cmp.n91, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit62, label %for.body.i.i.i55.preheader3
+  br i1 %cmp.n91, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit62, label %for.body.i.i.i55.preheader4
 
-for.body.i.i.i55.preheader3:                      ; preds = %middle.block81, %vector.memcheck78, %for.body.i.i.i55.preheader
+for.body.i.i.i55.preheader4:                      ; preds = %middle.block81, %vector.memcheck78, %for.body.i.i.i55.preheader
   %__cur.08.i.i.i56.ph = phi ptr [ %ind.end87, %middle.block81 ], [ %incdec.ptr, %for.body.i.i.i55.preheader ], [ %incdec.ptr, %vector.memcheck78 ]
   %__first.addr.07.i.i.i57.ph = phi ptr [ %ind.end89, %middle.block81 ], [ %__position.coerce, %for.body.i.i.i55.preheader ], [ %__position.coerce, %vector.memcheck78 ]
   br label %for.body.i.i.i55
 
-for.body.i.i.i55:                                 ; preds = %for.body.i.i.i55.preheader3, %for.body.i.i.i55
-  %__cur.08.i.i.i56 = phi ptr [ %incdec.ptr1.i.i.i59, %for.body.i.i.i55 ], [ %__cur.08.i.i.i56.ph, %for.body.i.i.i55.preheader3 ]
-  %__first.addr.07.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i58, %for.body.i.i.i55 ], [ %__first.addr.07.i.i.i57.ph, %for.body.i.i.i55.preheader3 ]
+for.body.i.i.i55:                                 ; preds = %for.body.i.i.i55.preheader4, %for.body.i.i.i55
+  %__cur.08.i.i.i56 = phi ptr [ %incdec.ptr1.i.i.i59, %for.body.i.i.i55 ], [ %__cur.08.i.i.i56.ph, %for.body.i.i.i55.preheader4 ]
+  %__first.addr.07.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i58, %for.body.i.i.i55 ], [ %__first.addr.07.i.i.i57.ph, %for.body.i.i.i55.preheader4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %27 = load i32, ptr %__first.addr.07.i.i.i57, align 4, !tbaa !48, !alias.scope !149, !noalias !146

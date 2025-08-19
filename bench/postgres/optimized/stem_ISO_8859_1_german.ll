@@ -570,7 +570,7 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
 244:                                              ; preds = %241
   %245 = load i32, ptr %5, align 4
   %246 = load i32, ptr %2, align 8
-  %.neg440.i = sub i32 %246, %245
+  %.neg462.i = sub i32 %246, %245
   store i32 %246, ptr %6, align 8
   %247 = add i32 %246, -1
   %248 = load i32, ptr %97, align 8
@@ -602,7 +602,7 @@ r_mark_regions.exit:                              ; preds = %54, %64, %68, %84, 
 
 259:                                              ; preds = %256
   %260 = load i32, ptr %5, align 4
-  %261 = add i32 %.neg440.i, %260
+  %261 = add i32 %.neg462.i, %260
   store i32 %261, ptr %2, align 8
   br label %265
 

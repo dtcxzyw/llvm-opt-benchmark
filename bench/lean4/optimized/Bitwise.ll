@@ -6660,17 +6660,17 @@ lean_alloc_ctor.exit1990:                         ; preds = %lean_alloc_ctor.exi
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_alloc_ctor.exit1990, %lean_dec.exit
-  %.sink2024 = phi ptr [ %24, %lean_dec.exit ], [ %2207, %lean_alloc_ctor.exit1990 ]
-  %.sink2021 = phi i32 [ 16908312, %lean_dec.exit ], [ 131096, %lean_alloc_ctor.exit1990 ]
+  %.sink2080 = phi ptr [ %24, %lean_dec.exit ], [ %2207, %lean_alloc_ctor.exit1990 ]
+  %.sink2077 = phi i32 [ 16908312, %lean_dec.exit ], [ 131096, %lean_alloc_ctor.exit1990 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit ], [ %2200, %lean_alloc_ctor.exit1990 ]
-  %2210 = getelementptr inbounds nuw i8, ptr %.sink2024, i64 4
-  store i32 1, ptr %.sink2024, align 4, !tbaa !8
-  store i32 %.sink2021, ptr %2210, align 4
-  %2211 = getelementptr inbounds nuw i8, ptr %.sink2024, i64 8
+  %2210 = getelementptr inbounds nuw i8, ptr %.sink2080, i64 4
+  store i32 1, ptr %.sink2080, align 4, !tbaa !8
+  store i32 %.sink2077, ptr %2210, align 4
+  %2211 = getelementptr inbounds nuw i8, ptr %.sink2080, i64 8
   store ptr %.sink, ptr %2211, align 8, !tbaa !4
-  %2212 = getelementptr inbounds nuw i8, ptr %.sink2024, i64 16
+  %2212 = getelementptr inbounds nuw i8, ptr %.sink2080, i64 16
   store ptr %2, ptr %2212, align 8, !tbaa !4
-  ret ptr %.sink2024
+  ret ptr %.sink2080
 }
 
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #1

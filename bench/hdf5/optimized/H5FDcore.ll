@@ -1180,11 +1180,11 @@ H5FD__core_get_default_config.exit:               ; preds = %45, %43, %41, %36
   br i1 %217, label %.thread232, label %221
 
 .thread232:                                       ; preds = %208, %205
-  %H5E_CANTSET_g.sink282 = phi ptr [ @H5E_CANTSET_g, %205 ], [ @H5E_CANTRESTORE_g, %208 ]
-  %.sink279 = phi i32 [ 851, %205 ], [ 857, %208 ]
+  %H5E_CANTSET_g.sink299 = phi ptr [ @H5E_CANTSET_g, %205 ], [ @H5E_CANTRESTORE_g, %208 ]
+  %.sink296 = phi i32 [ 851, %205 ], [ 857, %208 ]
   %218 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %219 = load i64, ptr %H5E_CANTSET_g.sink282, align 8, !tbaa !10
-  %220 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__core_open, i32 noundef %.sink279, i64 noundef %218, i64 noundef %219, ptr noundef nonnull @.str.28) #18
+  %219 = load i64, ptr %H5E_CANTSET_g.sink299, align 8, !tbaa !10
+  %220 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FD__core_open, i32 noundef %.sink296, i64 noundef %218, i64 noundef %219, ptr noundef nonnull @.str.28) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread249
 

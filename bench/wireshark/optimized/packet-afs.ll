@@ -1856,8 +1856,8 @@ proto_item_set_hidden.exit:                       ; preds = %224, %221, %219, %2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %169, %proto_item_set_hidden.exit, %232, %228, %.thread297, %.thread293
-  %.sink300 = phi ptr [ %0, %.thread293 ], [ %.0220, %.thread297 ], [ %.0220, %228 ], [ %.0220, %232 ], [ %.0220, %proto_item_set_hidden.exit ], [ %.0220, %169 ]
-  %236 = call i32 @tvb_captured_length(ptr noundef %.sink300)
+  %.sink306 = phi ptr [ %0, %.thread293 ], [ %.0220, %.thread297 ], [ %.0220, %228 ], [ %.0220, %232 ], [ %.0220, %proto_item_set_hidden.exit ], [ %.0220, %169 ]
+  %236 = call i32 @tvb_captured_length(ptr noundef %.sink306)
   br label %237
 
 237:                                              ; preds = %.sink.split, %4

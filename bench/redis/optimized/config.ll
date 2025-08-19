@@ -515,14 +515,14 @@ define dso_local i32 @configEnumGetValue(ptr noundef readonly captures(none) %0,
   br label %.preheader
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
-  %.35257 = phi i32 [ %.237.ph, %._crit_edge ], [ %20, %.thread ]
+  %.35459 = phi i32 [ %.237.ph, %._crit_edge ], [ %20, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge.thread
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge.thread ]
-  %.02442 = phi i32 [ 0, %.preheader.preheader ], [ %.35257, %._crit_edge.thread ]
+  %.02442 = phi i32 [ 0, %.preheader.preheader ], [ %.35459, %._crit_edge.thread ]
   %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   br label %.outer
@@ -556,11 +556,11 @@ define dso_local i32 @configEnumGetValue(ptr noundef readonly captures(none) %0,
   %20 = or i32 %19, %.237.ph
   %21 = getelementptr inbounds nuw i8, ptr %.039, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !5
-  %.not51 = icmp eq ptr %22, null
-  br i1 %.not51, label %._crit_edge.thread, label %.outer, !llvm.loop !15
+  %.not53 = icmp eq ptr %22, null
+  br i1 %.not53, label %._crit_edge.thread, label %.outer, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge.thread, %._crit_edge, %.preheader.lr.ph, %.preheader35, %4, %6
-  %.026 = phi i32 [ -2147483648, %6 ], [ -2147483648, %4 ], [ 0, %.preheader35 ], [ -2147483648, %.preheader.lr.ph ], [ %.35257, %._crit_edge.thread ], [ -2147483648, %._crit_edge ]
+  %.026 = phi i32 [ -2147483648, %6 ], [ -2147483648, %4 ], [ 0, %.preheader35 ], [ -2147483648, %.preheader.lr.ph ], [ %.35459, %._crit_edge.thread ], [ -2147483648, %._crit_edge ]
   ret i32 %.026
 }
 
@@ -568,7 +568,7 @@ define dso_local i32 @configEnumGetValue(ptr noundef readonly captures(none) %0,
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @evictPolicyToString() local_unnamed_addr #2 {
+define dso_local nonnull ptr @evictPolicyToString() local_unnamed_addr #2 {
   %1 = load ptr, ptr @maxmemory_policy_enum, align 16, !tbaa !5
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -577,27 +577,27 @@ define dso_local ptr @evictPolicyToString() local_unnamed_addr #2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7536), align 8, !tbaa !17
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @maxmemory_policy_enum, i64 8), align 8, !tbaa !16
   %4 = icmp eq i32 %2, %3
-  br i1 %4, label %._crit_edge18, label %.lr.ph17
+  br i1 %4, label %._crit_edge19, label %.lr.ph18
 
-.lr.ph17:                                         ; preds = %.lr.ph, %7
-  %.051216 = phi ptr [ %5, %7 ], [ @maxmemory_policy_enum, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i8, ptr %.051216, i64 16
+.lr.ph18:                                         ; preds = %.lr.ph, %7
+  %.051217 = phi ptr [ %5, %7 ], [ @maxmemory_policy_enum, %.lr.ph ]
+  %5 = getelementptr inbounds nuw i8, ptr %.051217, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !5
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !45
 
-7:                                                ; preds = %.lr.ph17
-  %8 = getelementptr inbounds nuw i8, ptr %.051216, i64 24
+7:                                                ; preds = %.lr.ph18
+  %8 = getelementptr inbounds nuw i8, ptr %.051217, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !16
   %10 = icmp eq i32 %2, %9
-  br i1 %10, label %._crit_edge18, label %.lr.ph17, !llvm.loop !45
+  br i1 %10, label %._crit_edge19, label %.lr.ph18, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %.lr.ph17, %0
+._crit_edge:                                      ; preds = %.lr.ph18, %0
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.50, i32 noundef 330, ptr noundef nonnull @.str.51) #26
   tail call void @abort() #27
   unreachable
 
-._crit_edge18:                                    ; preds = %7, %.lr.ph
+._crit_edge19:                                    ; preds = %7, %.lr.ph
   %.lcssa = phi ptr [ %1, %.lr.ph ], [ %6, %7 ]
   ret ptr %.lcssa
 }
@@ -1240,11 +1240,11 @@ sdslen.exit157:                                   ; preds = %127, %130, %134, %1
 232:                                              ; preds = %231, %224
   %233 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 44), align 4, !tbaa !85
   %234 = icmp slt i32 %233, 1
-  br i1 %234, label %.sink.split307, label %235
+  br i1 %234, label %.sink.split316, label %235
 
 235:                                              ; preds = %232
   %236 = icmp samesign ugt i32 %233, 500
-  br i1 %236, label %.sink.split307, label %257
+  br i1 %236, label %.sink.split316, label %257
 
 237:                                              ; preds = %219, %213
   %storemerge = phi ptr [ %218, %213 ], [ @.str.73, %219 ]
@@ -1284,12 +1284,12 @@ sdslen.exit157:                                   ; preds = %127, %130, %134, %1
   call void @exit(i32 noundef 1) #32
   unreachable
 
-.sink.split307:                                   ; preds = %235, %232
-  %.sink308 = phi i32 [ 1, %232 ], [ 500, %235 ]
-  store i32 %.sink308, ptr getelementptr inbounds nuw (i8, ptr @server, i64 44), align 4, !tbaa !85
+.sink.split316:                                   ; preds = %235, %232
+  %.sink317 = phi i32 [ 1, %232 ], [ 500, %235 ]
+  store i32 %.sink317, ptr getelementptr inbounds nuw (i8, ptr @server, i64 44), align 4, !tbaa !85
   br label %257
 
-257:                                              ; preds = %.sink.split307, %235
+257:                                              ; preds = %.sink.split316, %235
   %258 = load i32, ptr %4, align 4, !tbaa !59
   call void @sdsfreesplitres(ptr noundef %9, i32 noundef %258) #26
   store i1 false, ptr @reading_config_file, align 4
@@ -2189,8 +2189,8 @@ performInterfaceSet.exit:                         ; preds = %142, %149
   br i1 %103, label %208, label %206
 
 .critedge:                                        ; preds = %.lr.ph223, %176, %12
-  %.0145.lcssa266272275280 = phi i1 [ true, %12 ], [ %103, %176 ], [ %103, %.lr.ph223 ]
-  %.0140.lcssa268271276279 = phi ptr [ null, %12 ], [ %.2, %176 ], [ %.2, %.lr.ph223 ]
+  %.0145.lcssa276282285290 = phi i1 [ true, %12 ], [ %103, %176 ], [ %103, %.lr.ph223 ]
+  %.0140.lcssa278281286289 = phi ptr [ null, %12 ], [ %.2, %176 ], [ %.2, %.lr.ph223 ]
   %198 = call i32 @moduleConfigApplyConfig(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #26
   %.not161 = icmp eq i32 %198, 0
   br i1 %.not161, label %199, label %200
@@ -2198,7 +2198,7 @@ performInterfaceSet.exit:                         ; preds = %142, %149
 199:                                              ; preds = %.critedge
   call void @serverLogRaw(i32 noundef 3, ptr noundef nonnull @.str.90) #26
   call fastcc void @restoreBackupConfig(ptr noundef %18, ptr noundef %21, i32 noundef %14, ptr noundef %22, ptr noundef %15)
-  br i1 %.0145.lcssa266272275280, label %208, label %206
+  br i1 %.0145.lcssa276282285290, label %208, label %206
 
 200:                                              ; preds = %.critedge
   store i64 0, ptr %6, align 8, !tbaa !131
@@ -2222,12 +2222,12 @@ performInterfaceSet.exit:                         ; preds = %142, %149
   br label %215
 
 208:                                              ; preds = %191, %199, %172, %205
-  %.0140.lcssa267281 = phi ptr [ %.2, %172 ], [ %.2, %205 ], [ %.0140.lcssa268271276279, %199 ], [ %.2, %191 ]
-  %.not171 = icmp eq ptr %.0140.lcssa267281, null
+  %.0140.lcssa277291 = phi ptr [ %.2, %172 ], [ %.2, %205 ], [ %.0140.lcssa278281286289, %199 ], [ %.2, %191 ]
+  %.not171 = icmp eq ptr %.0140.lcssa277291, null
   br i1 %.not171, label %210, label %209
 
 209:                                              ; preds = %208
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %.0140.lcssa267281) #26
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef nonnull %.0140.lcssa277291) #26
   br label %215
 
 210:                                              ; preds = %208
@@ -2919,7 +2919,7 @@ sdslen.exit:                                      ; preds = %38, %43, %46, %50, 
   br label %75
 
 75:                                               ; preds = %74, %72, %71
-  %76 = phi i32 [ 0, %74 ], [ %66, %72 ], [ 0, %71 ]
+  %76 = phi i32 [ 0, %74 ], [ 1, %72 ], [ 0, %71 ]
   %77 = add nsw i32 %64, 1
   %78 = sext i32 %77 to i64
   %79 = shl nsw i64 %78, 3
@@ -3637,8 +3637,8 @@ define internal fastcc ptr @configEnumGetName(ptr noundef readonly captures(none
   br i1 %or.cond, label %._crit_edge.thread, label %35
 
 ._crit_edge.thread:                               ; preds = %8, %3, %._crit_edge
-  %.023.lcssa55 = phi ptr [ %.124, %._crit_edge ], [ null, %3 ], [ null, %8 ]
-  tail call void @sdsfree(ptr noundef %.023.lcssa55) #26
+  %.023.lcssa58 = phi ptr [ %.124, %._crit_edge ], [ null, %3 ], [ null, %8 ]
+  tail call void @sdsfree(ptr noundef %.023.lcssa58) #26
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.split.us, %._crit_edge.thread
@@ -5994,14 +5994,14 @@ define internal i32 @enumConfigSet(ptr noundef readonly captures(none) %0, ptr n
   br label %.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %.thread.i, %._crit_edge.i
-  %.35257.i = phi i32 [ %.237.ph.i, %._crit_edge.i ], [ %26, %.thread.i ]
+  %.35459.i = phi i32 [ %.237.ph.i, %._crit_edge.i ], [ %26, %.thread.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %configEnumGetValue.exit, label %.preheader.i, !llvm.loop !12
 
 .preheader.i:                                     ; preds = %._crit_edge.thread.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.thread.i ]
-  %.02442.i = phi i32 [ 0, %.preheader.preheader.i ], [ %.35257.i, %._crit_edge.thread.i ]
+  %.02442.i = phi i32 [ 0, %.preheader.preheader.i ], [ %.35459.i, %._crit_edge.thread.i ]
   %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   br label %.outer.i
@@ -6035,11 +6035,11 @@ define internal i32 @enumConfigSet(ptr noundef readonly captures(none) %0, ptr n
   %26 = or i32 %25, %.237.ph.i
   %27 = getelementptr inbounds nuw i8, ptr %.039.i, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !5
-  %.not51.i = icmp eq ptr %28, null
-  br i1 %.not51.i, label %._crit_edge.thread.i, label %.outer.i, !llvm.loop !15
+  %.not53.i = icmp eq ptr %28, null
+  br i1 %.not53.i, label %._crit_edge.thread.i, label %.outer.i, !llvm.loop !15
 
 configEnumGetValue.exit:                          ; preds = %._crit_edge.thread.i
-  %29 = icmp eq i32 %.35257.i, -2147483648
+  %29 = icmp eq i32 %.35459.i, -2147483648
   br i1 %29, label %configEnumGetValue.exit.thread, label %configEnumGetValue.exit.thread45
 
 configEnumGetValue.exit.thread:                   ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %4, %10, %configEnumGetValue.exit
@@ -6070,7 +6070,7 @@ configEnumGetValue.exit.thread:                   ; preds = %._crit_edge.i, %.pr
   br label %68
 
 configEnumGetValue.exit.thread45:                 ; preds = %.preheader35.i, %configEnumGetValue.exit
-  %.026.i47 = phi i32 [ %.35257.i, %configEnumGetValue.exit ], [ 0, %.preheader35.i ]
+  %.026.i47 = phi i32 [ %.35459.i, %configEnumGetValue.exit ], [ 0, %.preheader35.i ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8, !tbaa !56
   %.not = icmp eq ptr %41, null
@@ -6685,8 +6685,8 @@ numericParseString.exit:                          ; preds = %sdslen.exit49.i.num
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre.i46 = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !56
   %170 = icmp slt i64 %140, %.pre.i46
-  %or.cond39.i = select i1 %169, i1 true, i1 %170
-  br i1 %or.cond39.i, label %._crit_edge.i47, label %172
+  %or.cond42.i = select i1 %169, i1 true, i1 %170
+  br i1 %or.cond42.i, label %._crit_edge.i47, label %172
 
 ._crit_edge.i47:                                  ; preds = %166
   %171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @loadbuf, i64 noundef 256, ptr noundef nonnull @.str.393, i64 noundef %.pre.i46, i64 noundef %168) #26
@@ -7594,7 +7594,7 @@ define internal range(i32 0, 2) i32 @setConfigSaveOption(ptr readnone captures(n
 
 ._crit_edge:                                      ; preds = %27, %.preheader.thread, %.preheader
   %28 = phi i1 [ false, %.preheader.thread ], [ false, %.preheader ], [ true, %27 ]
-  %.0274951 = phi i32 [ 0, %.preheader.thread ], [ %2, %.preheader ], [ %2, %27 ]
+  %.0275052 = phi i32 [ 0, %.preheader.thread ], [ %2, %.preheader ], [ %2, %27 ]
   %.b = load i1, ptr @reading_config_file, align 4
   br i1 %.b, label %29, label %.sink.split
 
@@ -7642,7 +7642,7 @@ define internal range(i32 0, 2) i32 @setConfigSaveOption(ptr readnone captures(n
   store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 2
   %51 = trunc nuw i64 %indvars.iv.next44 to i32
-  %52 = icmp sgt i32 %.0274951, %51
+  %52 = icmp sgt i32 %.0275052, %51
   br i1 %52, label %.lr.ph41, label %.loopexit, !llvm.loop !225
 
 .loopexit:                                        ; preds = %.lr.ph41, %32, %.critedge, %.thread
@@ -7903,23 +7903,23 @@ define internal range(i32 0, 3) i32 @setConfigOOMScoreAdjValuesOption(ptr readno
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
   %31 = icmp sgt i32 %30, 3
   %or.cond5 = select i1 %29, i1 true, i1 %31
-  br i1 %or.cond5, label %.preheader47, label %33
+  br i1 %or.cond5, label %.preheader50, label %33
 
 32:                                               ; preds = %21
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !83
   %.old4 = icmp sgt i32 %.old, 3
-  br i1 %.old4, label %.preheader47, label %33
+  br i1 %.old4, label %.preheader50, label %33
 
 33:                                               ; preds = %26, %32
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.410) #26
-  br label %.preheader47
+  br label %.preheader50
 
-.preheader47:                                     ; preds = %33, %32, %26
+.preheader50:                                     ; preds = %33, %32, %26
   br label %34
 
-34:                                               ; preds = %.preheader47, %40
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %40 ], [ 0, %.preheader47 ]
-  %.02641 = phi i32 [ %.127, %40 ], [ 0, %.preheader47 ]
+34:                                               ; preds = %.preheader50, %40
+  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %40 ], [ 0, %.preheader50 ]
+  %.02641 = phi i32 [ %.127, %40 ], [ 0, %.preheader50 ]
   %35 = getelementptr inbounds nuw [3 x i32], ptr getelementptr inbounds nuw (i8, ptr @server, i64 7568), i64 0, i64 %indvars.iv43
   %36 = load i32, ptr %35, align 4, !tbaa !59
   %37 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv43

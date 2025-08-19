@@ -280,11 +280,11 @@ figColorResolve.exit.thread:                      ; preds = %44, %._crit_edge.i
   br label %.loopexit.sink.split
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.i
-  %.031.lcssa48.i = phi i32 [ %20, %._crit_edge.i ], [ 0, %14 ]
+  %.031.lcssa50.i = phi i32 [ %20, %._crit_edge.i ], [ 0, %14 ]
   %50 = add nsw i32 %20, 1
   store i32 %50, ptr @figColorResolve.top, align 4, !tbaa !38
   %51 = zext i8 %15 to i16
-  %52 = zext nneg i32 %.031.lcssa48.i to i64
+  %52 = zext nneg i32 %.031.lcssa50.i to i64
   %53 = getelementptr inbounds nuw [512 x i16], ptr @figColorResolve.red, i64 0, i64 %52
   store i16 %51, ptr %53, align 2, !tbaa !55
   %54 = zext i8 %17 to i16
@@ -293,7 +293,7 @@ figColorResolve.exit.thread:                      ; preds = %44, %._crit_edge.i
   %56 = zext i8 %19 to i16
   %57 = getelementptr inbounds nuw [512 x i16], ptr @figColorResolve.blue, i64 0, i64 %52
   store i16 %56, ptr %57, align 2, !tbaa !55
-  %58 = add nuw nsw i32 %.031.lcssa48.i, 32
+  %58 = add nuw nsw i32 %.031.lcssa50.i, 32
   %59 = zext i8 %15 to i32
   %60 = zext i8 %17 to i32
   %61 = zext i8 %19 to i32

@@ -1029,7 +1029,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp8.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen10EdgeHolderEmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN7msdfgen10EdgeHolderEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 3
+  %3 = shl nuw nsw i64 %__n, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %3, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i.i.i, ptr %_M_finish.i, align 8
@@ -1143,7 +1143,7 @@ if.then.i40:                                      ; preds = %_ZSt8_DestroyIPN7ms
 
 _ZNSt12_Vector_baseIN7msdfgen10EdgeHolderESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZSt8_DestroyIPN7msdfgen10EdgeHolderES1_EvT_S3_RSaIT0_E.exit38, %if.then.i40
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr45 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %add.ptr, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %add.ptr, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8
   %add.ptr48 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8

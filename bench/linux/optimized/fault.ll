@@ -2081,12 +2081,12 @@ define internal fastcc range(i32 0, 2) i32 @is_prefetch(ptr noundef %0, i64 noun
   br label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %31, %40, %.thread3
-  %.ph25 = phi i32 [ %.ph, %.thread3 ], [ 0, %40 ], [ 0, %31 ]
+  %.ph26 = phi i32 [ %.ph, %.thread3 ], [ 0, %40 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %58, %55, %49, %.loopexit.sink.split, %16
-  %77 = phi i32 [ 0, %16 ], [ %.ph25, %.loopexit.sink.split ], [ 0, %49 ], [ 0, %55 ], [ 0, %58 ], [ 0, %73 ]
+  %77 = phi i32 [ 0, %16 ], [ %.ph26, %.loopexit.sink.split ], [ 0, %49 ], [ 0, %55 ], [ 0, %58 ], [ 0, %73 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !65
   %78 = load i32, ptr %22, align 4
   %79 = add i32 %78, -1

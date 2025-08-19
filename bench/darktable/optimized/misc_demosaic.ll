@@ -447,7 +447,7 @@ define void @_ZN6LibRaw18border_interpolateEi(ptr noundef nonnull align 8 derefe
   %.1 = phi i32 [ %.04257, %14 ], [ %spec.select, %18 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %25 = add nsw i32 %.1, -1
-  %26 = add i32 %.1, 1
+  %26 = add nsw i32 %.1, 1
   br label %27
 
 27:                                               ; preds = %24, %60
@@ -823,8 +823,8 @@ define void @_ZN6LibRaw15lin_interpolateEv(ptr noundef nonnull align 8 dereferen
 
 .preheader86:                                     ; preds = %.preheader90, %89
   %indvars.iv107 = phi i64 [ 0, %.preheader90 ], [ %indvars.iv.next108, %89 ]
-  %.idx112 = shl i64 %indvars.iv107, 11
-  %invariant.gep = getelementptr i8, ptr %3, i64 %.idx112
+  %.idx119 = shl i64 %indvars.iv107, 11
+  %invariant.gep = getelementptr i8, ptr %3, i64 %.idx119
   %21 = trunc nuw nsw i64 %indvars.iv107 to i32
   %22 = trunc i64 %indvars.iv107 to i32
   %23 = add i32 %22, 48
@@ -1701,7 +1701,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferenceable(767680) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [5 x i32], align 16
-  %.sroa.0422 = alloca i32, align 4
+  %.sroa.0435 = alloca i32, align 4
   %.sroa.6 = alloca i32, align 4
   %.sroa.0 = alloca i32, align 4
   %.sroa.7 = alloca i32, align 4
@@ -1715,7 +1715,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   store i32 %7, ptr %3, align 4, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %8, align 8, !tbaa !96
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0422)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0435)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
@@ -1723,8 +1723,8 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 767448
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %.not = icmp eq ptr %10, null
-  %indvars.iv.sroa.gep426 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %indvars.iv363.sroa.gep427 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %indvars.iv.sroa.gep439 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %indvars.iv363.sroa.gep440 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %1
@@ -1796,9 +1796,9 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
 54:                                               ; preds = %45, %54
   %55 = phi i1 [ true, %45 ], [ false, %54 ]
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %45 ], [ %.sroa.7, %54 ]
-  %indvars.iv.sroa.phi418 = phi ptr [ %.sroa.0422, %45 ], [ %.sroa.6, %54 ]
-  %indvars.iv.sroa.phi425 = phi ptr [ %2, %45 ], [ %indvars.iv.sroa.gep426, %54 ]
-  %56 = load i32, ptr %indvars.iv.sroa.phi425, align 4, !tbaa !96
+  %indvars.iv.sroa.phi431 = phi ptr [ %.sroa.0435, %45 ], [ %.sroa.6, %54 ]
+  %indvars.iv.sroa.phi438 = phi ptr [ %2, %45 ], [ %indvars.iv.sroa.gep439, %54 ]
+  %56 = load i32, ptr %indvars.iv.sroa.phi438, align 4, !tbaa !96
   %57 = sub nsw i32 0, %56
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds [4 x i16], ptr %50, i64 %58, i64 1
@@ -1850,13 +1850,13 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %102 = add nuw nsw i32 %101, %94
   %103 = shl nuw nsw i32 %102, 1
   %104 = add nuw nsw i32 %103, %87
-  store i32 %104, ptr %indvars.iv.sroa.phi418, align 4, !tbaa !96
+  store i32 %104, ptr %indvars.iv.sroa.phi431, align 4, !tbaa !96
   br i1 %55, label %54, label %105, !llvm.loop !132
 
 105:                                              ; preds = %54
-  %.sroa.0422.0..sroa.0422.0. = load i32, ptr %.sroa.0422, align 4, !tbaa !96
-  %.sroa.6.0..sroa.6.4.424 = load i32, ptr %.sroa.6, align 4, !tbaa !96
-  %106 = icmp sgt i32 %.sroa.0422.0..sroa.0422.0., %.sroa.6.0..sroa.6.4.424
+  %.sroa.0435.0..sroa.0435.0. = load i32, ptr %.sroa.0435, align 4, !tbaa !96
+  %.sroa.6.0..sroa.6.4.437 = load i32, ptr %.sroa.6, align 4, !tbaa !96
+  %106 = icmp sgt i32 %.sroa.0435.0..sroa.0435.0., %.sroa.6.0..sroa.6.4.437
   %107 = select i1 %106, i32 %7, i32 1
   %108 = zext nneg i32 %107 to i64
   %109 = getelementptr inbounds nuw [4 x i16], ptr %50, i64 %108, i64 1
@@ -1869,12 +1869,12 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %.sroa.0.val = load i32, ptr %.sroa.0, align 4
   %115 = select i1 %106, i32 %.sroa.7.val, i32 %.sroa.0.val
   %116 = ashr i32 %115, 2
-  %.403 = tail call i16 @llvm.umax.i16(i16 %110, i16 %114)
-  %. = zext i16 %.403 to i32
-  %.402.v = tail call i16 @llvm.umin.i16(i16 %110, i16 %114)
-  %.402 = zext i16 %.402.v to i32
+  %.416 = tail call i16 @llvm.umax.i16(i16 %110, i16 %114)
+  %. = zext i16 %.416 to i32
+  %.415.v = tail call i16 @llvm.umin.i16(i16 %110, i16 %114)
+  %.415 = zext i16 %.415.v to i32
   %.304 = tail call i32 @llvm.smin.i32(i32 %116, i32 %.)
-  %spec.select318 = tail call i32 @llvm.smax.i32(i32 %.304, i32 %.402)
+  %spec.select318 = tail call i32 @llvm.smax.i32(i32 %.304, i32 %.415)
   %117 = trunc nuw i32 %spec.select318 to i16
   %118 = getelementptr inbounds nuw i8, ptr %50, i64 2
   store i16 %117, ptr %118, align 2, !tbaa !82
@@ -1955,8 +1955,8 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %158 = lshr i32 %142, %157
   %159 = and i32 %158, 3
   %160 = and i32 %150, 1
-  %narrow389 = add nuw nsw i32 %160, 1
-  %161 = zext nneg i32 %narrow389 to i64
+  %narrow402 = add nuw nsw i32 %160, 1
+  %161 = zext nneg i32 %narrow402 to i64
   br label %.lr.ph344
 
 .lr.ph344:                                        ; preds = %.lr.ph344.preheader, %201
@@ -1972,7 +1972,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
 
 168:                                              ; preds = %.lr.ph344, %168
   %169 = phi i1 [ true, %.lr.ph344 ], [ false, %168 ]
-  %indvars.iv363.sroa.phi = phi ptr [ %2, %.lr.ph344 ], [ %indvars.iv363.sroa.gep427, %168 ]
+  %indvars.iv363.sroa.phi = phi ptr [ %2, %.lr.ph344 ], [ %indvars.iv363.sroa.gep440, %168 ]
   %.1271340 = phi i32 [ %.0270341, %.lr.ph344 ], [ %200, %168 ]
   %170 = load i32, ptr %indvars.iv363.sroa.phi, align 4, !tbaa !96
   %171 = sub nsw i32 0, %170
@@ -2092,8 +2092,8 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %245 = sub nsw i32 2, %244
   %246 = sext i32 %245 to i64
   %247 = and i32 %234, 1
-  %narrow390 = add nuw nsw i32 %247, 1
-  %248 = zext nneg i32 %narrow390 to i64
+  %narrow403 = add nuw nsw i32 %247, 1
+  %248 = zext nneg i32 %narrow403 to i64
   br label %249
 
 249:                                              ; preds = %.lr.ph353, %301
@@ -2113,7 +2113,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %260 = phi i32 [ %.pre387.pre, %249 ], [ %263, %259 ]
   %261 = phi i1 [ true, %249 ], [ false, %259 ]
   %indvars.iv369.sroa.phi = phi ptr [ %.sroa.0, %249 ], [ %.sroa.7, %259 ]
-  %indvars.iv369.sroa.phi420 = phi ptr [ %.sroa.0422, %249 ], [ %.sroa.6, %259 ]
+  %indvars.iv369.sroa.phi433 = phi ptr [ %.sroa.0435, %249 ], [ %.sroa.6, %259 ]
   %indvars.iv369 = phi i64 [ 1, %249 ], [ 2, %259 ]
   %262 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv369
   %263 = load i32, ptr %262, align 4, !tbaa !96
@@ -2143,7 +2143,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   %287 = sub nsw i32 %286, %257
   %288 = tail call i32 @llvm.abs.i32(i32 %287, i1 true)
   %289 = add nuw nsw i32 %283, %288
-  store i32 %289, ptr %indvars.iv369.sroa.phi420, align 4, !tbaa !96
+  store i32 %289, ptr %indvars.iv369.sroa.phi433, align 4, !tbaa !96
   %.neg324 = add nuw nsw i32 %275, %270
   %290 = add nuw nsw i32 %.neg324, %258
   %291 = add nuw nsw i32 %280, %286
@@ -2152,14 +2152,14 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   br i1 %261, label %259, label %293, !llvm.loop !138
 
 293:                                              ; preds = %259
-  %.sroa.0422.0..sroa.0422.0.423 = load i32, ptr %.sroa.0422, align 4, !tbaa !96
+  %.sroa.0435.0..sroa.0435.0.436 = load i32, ptr %.sroa.0435, align 4, !tbaa !96
   %.sroa.6.0..sroa.6.4. = load i32, ptr %.sroa.6, align 4, !tbaa !96
-  %.not300 = icmp eq i32 %.sroa.0422.0..sroa.0422.0.423, %.sroa.6.0..sroa.6.4.
+  %.not300 = icmp eq i32 %.sroa.0435.0..sroa.0435.0.436, %.sroa.6.0..sroa.6.4.
   %.sroa.7.0..sroa.7.4. = load i32, ptr %.sroa.7, align 4
   br i1 %.not300, label %298, label %294
 
 294:                                              ; preds = %293
-  %295 = icmp sgt i32 %.sroa.0422.0..sroa.0422.0.423, %.sroa.6.0..sroa.6.4.
+  %295 = icmp sgt i32 %.sroa.0435.0..sroa.0435.0.436, %.sroa.6.0..sroa.6.4.
   %.sroa.0.0..sroa.0.0..val = load i32, ptr %.sroa.0, align 4
   %296 = select i1 %295, i32 %.sroa.7.0..sroa.7.4., i32 %.sroa.0.0..sroa.0.0..val
   %297 = ashr i32 %296, 1
@@ -2172,8 +2172,8 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
   br label %301
 
 301:                                              ; preds = %294, %298
-  %.sink401 = phi i32 [ %297, %294 ], [ %300, %298 ]
-  %302 = tail call i32 @llvm.smax.i32(i32 %.sink401, i32 0)
+  %.sink414 = phi i32 [ %297, %294 ], [ %300, %298 ]
+  %302 = tail call i32 @llvm.smax.i32(i32 %.sink414, i32 0)
   %303 = tail call i32 @llvm.umin.i32(i32 %302, i32 65535)
   %304 = trunc nuw i32 %303 to i16
   %305 = getelementptr inbounds [4 x i16], ptr %254, i64 0, i64 %246
@@ -2202,7 +2202,7 @@ define void @_ZN6LibRaw15ppg_interpolateEv(ptr noundef nonnull align 8 dereferen
 ._crit_edge358:                                   ; preds = %._crit_edge354, %221
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0422)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0435)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

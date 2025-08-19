@@ -2455,7 +2455,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %348, %.loope
   br i1 %349, label %.lr.ph318, label %_ZNSt6vectorItSaItEED2Ev.exit
 
 .lr.ph318:                                        ; preds = %.lr.ph278, %.lr.ph297, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit
-  %.015.lcssa.i357 = phi i16 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit ], [ 1, %.lr.ph297 ], [ 1, %.lr.ph278 ]
+  %.015.lcssa.i372 = phi i16 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit ], [ 1, %.lr.ph297 ], [ 1, %.lr.ph278 ]
   %350 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %351 = load ptr, ptr %350, align 8, !tbaa !52
   %352 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -2467,9 +2467,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %348, %.loope
   br label %355
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %._crit_edge, %.preheader, %.preheader266, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit
-  %.015.lcssa.i356 = phi i16 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit ], [ 1, %.preheader266 ], [ 1, %.preheader ], [ %.015.lcssa.i357, %._crit_edge ]
+  %.015.lcssa.i371 = phi i16 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit ], [ 1, %.preheader266 ], [ 1, %.preheader ], [ %.015.lcssa.i372, %._crit_edge ]
   tail call void @_ZdlPv(ptr noundef nonnull %72) #16
-  ret i16 %.015.lcssa.i356
+  ret i16 %.015.lcssa.i371
 
 355:                                              ; preds = %.lr.ph318, %._crit_edge
   %indvars.iv349 = phi i64 [ 0, %.lr.ph318 ], [ %indvars.iv.next350, %._crit_edge ]
@@ -3301,7 +3301,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %349, %.loope
   br i1 %350, label %.lr.ph318, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .lr.ph318:                                        ; preds = %.lr.ph278, %.lr.ph297, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit
-  %.015.lcssa.i363 = phi i32 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit ], [ 1, %.lr.ph297 ], [ 1, %.lr.ph278 ]
+  %.015.lcssa.i378 = phi i32 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit ], [ 1, %.lr.ph297 ], [ 1, %.lr.ph278 ]
   %351 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %352 = load ptr, ptr %351, align 8, !tbaa !52
   %353 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -3313,9 +3313,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %349, %.loope
   br label %356
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %.preheader, %.preheader266, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit
-  %.015.lcssa.i362 = phi i32 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit ], [ 1, %.preheader266 ], [ 1, %.preheader ], [ %.015.lcssa.i363, %._crit_edge ]
+  %.015.lcssa.i377 = phi i32 [ %.015.lcssa.i, %_ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit ], [ 1, %.preheader266 ], [ 1, %.preheader ], [ %.015.lcssa.i378, %._crit_edge ]
   tail call void @_ZdlPv(ptr noundef nonnull %73) #16
-  ret i32 %.015.lcssa.i362
+  ret i32 %.015.lcssa.i377
 
 356:                                              ; preds = %.lr.ph318, %._crit_edge
   %indvars.iv355 = phi i64 [ 0, %.lr.ph318 ], [ %indvars.iv.next356, %._crit_edge ]
@@ -11206,9 +11206,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3518 = getelementptr inbounds nuw i8, ptr %3489, i64 %indvars.iv3509
   %3519 = load i8, ptr %3518, align 1, !tbaa !55
   %.not1870.us = icmp eq i8 %3519, 0
-  %spec.select3691 = select i1 %.not1870.us, i16 0, i16 %3501
+  %spec.select3946 = select i1 %.not1870.us, i16 0, i16 %3501
   %3520 = getelementptr inbounds nuw i16, ptr %3492, i64 %indvars.iv3509
-  store i16 %spec.select3691, ptr %3520, align 2, !tbaa !50
+  store i16 %spec.select3946, ptr %3520, align 2, !tbaa !50
   %3521 = getelementptr inbounds nuw i8, ptr %3489, i64 %3504
   %3522 = load i8, ptr %3521, align 1, !tbaa !55
   %.not1871.us = icmp eq i8 %3522, 0
@@ -11360,9 +11360,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3590 = getelementptr inbounds nuw i8, ptr %3554, i64 %3589
   %3591 = load i8, ptr %3590, align 1, !tbaa !55
   %.not1863.us.us = icmp eq i8 %3591, 0
-  %spec.select3692 = select i1 %.not1863.us.us, i16 0, i16 %3586
+  %spec.select3947 = select i1 %.not1863.us.us, i16 0, i16 %3586
   %3592 = getelementptr inbounds nuw i16, ptr %3557, i64 %3589
-  store i16 %spec.select3692, ptr %3592, align 2, !tbaa !50
+  store i16 %spec.select3947, ptr %3592, align 2, !tbaa !50
   %3593 = getelementptr inbounds nuw i8, ptr %3555, i64 %indvars.iv3518
   %3594 = load i8, ptr %3593, align 1, !tbaa !55
   %.not1864.us.us = icmp eq i8 %3594, 0
@@ -11372,7 +11372,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3596 = getelementptr inbounds nuw i8, ptr %3555, i64 %3589
   %3597 = load i8, ptr %3596, align 1, !tbaa !55
   %.not1865.us.us = icmp eq i8 %3597, 0
-  %spec.select3704 = select i1 %.not1865.us.us, i16 0, i16 %3586
+  %spec.select3959 = select i1 %.not1865.us.us, i16 0, i16 %3586
   br label %3602
 
 3598:                                             ; preds = %.lr.ph.split.us.us
@@ -11384,9 +11384,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   br label %3602
 
 3602:                                             ; preds = %3583, %3598
-  %.sink3694 = phi i64 [ %3599, %3598 ], [ %3589, %3583 ]
-  %.sink = phi i16 [ 0, %3598 ], [ %spec.select3704, %3583 ]
-  %3603 = getelementptr inbounds nuw i16, ptr %3558, i64 %.sink3694
+  %.sink3949 = phi i64 [ %3599, %3598 ], [ %3589, %3583 ]
+  %.sink = phi i16 [ 0, %3598 ], [ %spec.select3959, %3583 ]
+  %3603 = getelementptr inbounds nuw i16, ptr %3558, i64 %.sink3949
   store i16 %.sink, ptr %3603, align 2, !tbaa !50
   %indvars.iv.next3519 = add nuw nsw i64 %indvars.iv3518, 2
   %3604 = icmp samesign ult i64 %indvars.iv.next3519, %3551
@@ -11446,9 +11446,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3634 = getelementptr inbounds nuw i8, ptr %3621, i64 %indvars.iv3524
   %3635 = load i8, ptr %3634, align 1, !tbaa !55
   %.not1857.us = icmp eq i8 %3635, 0
-  %spec.select3695 = select i1 %.not1857.us, i16 0, i16 %3631
+  %spec.select3950 = select i1 %.not1857.us, i16 0, i16 %3631
   %3636 = getelementptr inbounds nuw i16, ptr %3624, i64 %indvars.iv3524
-  store i16 %spec.select3695, ptr %3636, align 2, !tbaa !50
+  store i16 %spec.select3950, ptr %3636, align 2, !tbaa !50
   %3637 = or disjoint i64 %indvars.iv3524, 1
   %3638 = icmp samesign ult i64 %3637, %3617
   br i1 %3638, label %3639, label %3652
@@ -11457,9 +11457,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3640 = getelementptr inbounds nuw i8, ptr %3620, i64 %3637
   %3641 = load i8, ptr %3640, align 1, !tbaa !55
   %.not1858.us = icmp eq i8 %3641, 0
-  %spec.select3696 = select i1 %.not1858.us, i16 0, i16 %3631
+  %spec.select3951 = select i1 %.not1858.us, i16 0, i16 %3631
   %3642 = getelementptr inbounds nuw i16, ptr %3623, i64 %3637
-  store i16 %spec.select3696, ptr %3642, align 2, !tbaa !50
+  store i16 %spec.select3951, ptr %3642, align 2, !tbaa !50
   %3643 = getelementptr inbounds nuw i8, ptr %3621, i64 %3637
   %3644 = load i8, ptr %3643, align 1, !tbaa !55
   %.not1859.us = icmp eq i8 %3644, 0
@@ -11479,10 +11479,10 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3639, %3649
-  %.sink3699 = phi i64 [ %3647, %3649 ], [ %3637, %3639 ]
-  %.sink3697 = phi i16 [ 0, %3649 ], [ %., %3639 ]
-  %3651 = getelementptr inbounds nuw i16, ptr %3624, i64 %.sink3699
-  store i16 %.sink3697, ptr %3651, align 2, !tbaa !50
+  %.sink3954 = phi i64 [ %3647, %3649 ], [ %3637, %3639 ]
+  %.sink3952 = phi i16 [ 0, %3649 ], [ %., %3639 ]
+  %3651 = getelementptr inbounds nuw i16, ptr %3624, i64 %.sink3954
+  store i16 %.sink3952, ptr %3651, align 2, !tbaa !50
   br label %3652
 
 3652:                                             ; preds = %.sink.split, %3645, %3628
@@ -11547,9 +11547,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3684 = getelementptr inbounds nuw i8, ptr %3669, i64 %3683
   %3685 = load i8, ptr %3684, align 1, !tbaa !55
   %.not1852.us = icmp eq i8 %3685, 0
-  %spec.select3700 = select i1 %.not1852.us, i16 0, i16 %3680
+  %spec.select3955 = select i1 %.not1852.us, i16 0, i16 %3680
   %3686 = getelementptr inbounds nuw i16, ptr %3672, i64 %3683
-  store i16 %spec.select3700, ptr %3686, align 2, !tbaa !50
+  store i16 %spec.select3955, ptr %3686, align 2, !tbaa !50
   %3687 = getelementptr inbounds nuw i8, ptr %3670, i64 %indvars.iv3530
   %3688 = load i8, ptr %3687, align 1, !tbaa !55
   %.not1853.us = icmp eq i8 %3688, 0
@@ -11559,7 +11559,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3690 = getelementptr inbounds nuw i8, ptr %3670, i64 %3683
   %3691 = load i8, ptr %3690, align 1, !tbaa !55
   %.not1854.us = icmp eq i8 %3691, 0
-  %spec.select3705 = select i1 %.not1854.us, i16 0, i16 %3680
+  %spec.select3960 = select i1 %.not1854.us, i16 0, i16 %3680
   br label %3696
 
 3692:                                             ; preds = %3674
@@ -11571,10 +11571,10 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   br label %3696
 
 3696:                                             ; preds = %3677, %3692
-  %.sink3703 = phi i64 [ %3693, %3692 ], [ %3683, %3677 ]
-  %.sink3701 = phi i16 [ 0, %3692 ], [ %spec.select3705, %3677 ]
-  %3697 = getelementptr inbounds nuw i16, ptr %3673, i64 %.sink3703
-  store i16 %.sink3701, ptr %3697, align 2, !tbaa !50
+  %.sink3958 = phi i64 [ %3693, %3692 ], [ %3683, %3677 ]
+  %.sink3956 = phi i16 [ 0, %3692 ], [ %spec.select3960, %3677 ]
+  %3697 = getelementptr inbounds nuw i16, ptr %3673, i64 %.sink3958
+  store i16 %.sink3956, ptr %3697, align 2, !tbaa !50
   %indvars.iv.next3531 = add nuw nsw i64 %indvars.iv3530, 2
   %3698 = icmp samesign ult i64 %indvars.iv.next3531, %3666
   br i1 %3698, label %3674, label %._crit_edge.us3354, !llvm.loop !108
@@ -18842,9 +18842,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3532 = getelementptr inbounds nuw i8, ptr %3500, i64 %indvars.iv3502
   %3533 = load i8, ptr %3532, align 1, !tbaa !55
   %.not1870 = icmp eq i8 %3533, 0
-  %spec.select3687 = select i1 %.not1870, i32 0, i32 %3517
+  %spec.select3943 = select i1 %.not1870, i32 0, i32 %3517
   %3534 = getelementptr inbounds nuw i32, ptr %3503, i64 %indvars.iv3502
-  store i32 %spec.select3687, ptr %3534, align 4, !tbaa !16
+  store i32 %spec.select3943, ptr %3534, align 4, !tbaa !16
   %3535 = getelementptr inbounds nuw i8, ptr %3500, i64 %3520
   %3536 = load i8, ptr %3535, align 1, !tbaa !55
   %.not1871 = icmp eq i8 %3536, 0
@@ -18970,9 +18970,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3598 = getelementptr inbounds nuw i8, ptr %3576, i64 %3597
   %3599 = load i8, ptr %3598, align 1, !tbaa !55
   %.not1864 = icmp eq i8 %3599, 0
-  %spec.select3688 = select i1 %.not1864, i32 0, i32 %3594
+  %spec.select3944 = select i1 %.not1864, i32 0, i32 %3594
   %3600 = getelementptr inbounds nuw i32, ptr %3579, i64 %3597
-  store i32 %spec.select3688, ptr %3600, align 4, !tbaa !16
+  store i32 %spec.select3944, ptr %3600, align 4, !tbaa !16
   %3601 = load i32, ptr %14, align 8, !tbaa !32
   %3602 = sext i32 %3601 to i64
   %3603 = icmp slt i64 %3582, %3602
@@ -18982,13 +18982,13 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3605 = getelementptr inbounds nuw i8, ptr %3577, i64 %indvars.iv3508
   %3606 = load i8, ptr %3605, align 1, !tbaa !55
   %.not1865 = icmp eq i8 %3606, 0
-  %spec.select3689 = select i1 %.not1865, i32 0, i32 %3594
+  %spec.select3945 = select i1 %.not1865, i32 0, i32 %3594
   %3607 = getelementptr inbounds nuw i32, ptr %3580, i64 %indvars.iv3508
-  store i32 %spec.select3689, ptr %3607, align 4, !tbaa !16
+  store i32 %spec.select3945, ptr %3607, align 4, !tbaa !16
   %3608 = getelementptr inbounds nuw i8, ptr %3577, i64 %3597
   %3609 = load i8, ptr %3608, align 1, !tbaa !55
   %.not1866 = icmp eq i8 %3609, 0
-  %.3702 = select i1 %.not1866, i32 0, i32 %3594
+  %.3958 = select i1 %.not1866, i32 0, i32 %3594
   br label %.sink.split
 
 3610:                                             ; preds = %3587
@@ -19007,9 +19007,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3604, %3616
-  %.sink3691 = phi i64 [ %3611, %3616 ], [ %3597, %3604 ]
-  %.sink = phi i32 [ 0, %3616 ], [ %.3702, %3604 ]
-  %3618 = getelementptr inbounds nuw i32, ptr %3580, i64 %.sink3691
+  %.sink3947 = phi i64 [ %3611, %3616 ], [ %3597, %3604 ]
+  %.sink = phi i32 [ 0, %3616 ], [ %.3958, %3604 ]
+  %3618 = getelementptr inbounds nuw i32, ptr %3580, i64 %.sink3947
   store i32 %.sink, ptr %3618, align 4, !tbaa !16
   br label %3619
 
@@ -19099,9 +19099,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3667 = getelementptr inbounds nuw i8, ptr %3649, i64 %indvars.iv3514
   %3668 = load i8, ptr %3667, align 1, !tbaa !55
   %.not1859 = icmp eq i8 %3668, 0
-  %spec.select3692 = select i1 %.not1859, i32 0, i32 %3664
+  %spec.select3948 = select i1 %.not1859, i32 0, i32 %3664
   %3669 = getelementptr inbounds nuw i32, ptr %3652, i64 %indvars.iv3514
-  store i32 %spec.select3692, ptr %3669, align 4, !tbaa !16
+  store i32 %spec.select3948, ptr %3669, align 4, !tbaa !16
   %3670 = or disjoint i64 %indvars.iv3514, 1
   %3671 = load i32, ptr %33, align 4, !tbaa !49
   %3672 = sext i32 %3671 to i64
@@ -19112,14 +19112,14 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3675 = getelementptr inbounds nuw i8, ptr %3648, i64 %3670
   %3676 = load i8, ptr %3675, align 1, !tbaa !55
   %.not1860 = icmp eq i8 %3676, 0
-  %spec.select3693 = select i1 %.not1860, i32 0, i32 %3664
+  %spec.select3949 = select i1 %.not1860, i32 0, i32 %3664
   %3677 = getelementptr inbounds nuw i32, ptr %3651, i64 %3670
-  store i32 %spec.select3693, ptr %3677, align 4, !tbaa !16
+  store i32 %spec.select3949, ptr %3677, align 4, !tbaa !16
   %3678 = getelementptr inbounds nuw i8, ptr %3649, i64 %3670
   %3679 = load i8, ptr %3678, align 1, !tbaa !55
   %.not1861 = icmp eq i8 %3679, 0
-  %.3703 = select i1 %.not1861, i32 0, i32 %3664
-  br label %.sink.split3694
+  %.3959 = select i1 %.not1861, i32 0, i32 %3664
+  br label %.sink.split3950
 
 3680:                                             ; preds = %.lr.ph3339
   store i32 0, ptr %3658, align 4, !tbaa !16
@@ -19134,16 +19134,16 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
 3686:                                             ; preds = %3680
   %3687 = getelementptr inbounds nuw i32, ptr %3651, i64 %3682
   store i32 0, ptr %3687, align 4, !tbaa !16
-  br label %.sink.split3694
+  br label %.sink.split3950
 
-.sink.split3694:                                  ; preds = %3674, %3686
-  %.sink3697 = phi i64 [ %3682, %3686 ], [ %3670, %3674 ]
-  %.sink3695 = phi i32 [ 0, %3686 ], [ %.3703, %3674 ]
-  %3688 = getelementptr inbounds nuw i32, ptr %3652, i64 %.sink3697
-  store i32 %.sink3695, ptr %3688, align 4, !tbaa !16
+.sink.split3950:                                  ; preds = %3674, %3686
+  %.sink3953 = phi i64 [ %3682, %3686 ], [ %3670, %3674 ]
+  %.sink3951 = phi i32 [ 0, %3686 ], [ %.3959, %3674 ]
+  %3688 = getelementptr inbounds nuw i32, ptr %3652, i64 %.sink3953
+  store i32 %.sink3951, ptr %3688, align 4, !tbaa !16
   br label %3689
 
-3689:                                             ; preds = %.sink.split3694, %3680, %3661
+3689:                                             ; preds = %.sink.split3950, %3680, %3661
   %indvars.iv.next3515 = add nuw nsw i64 %indvars.iv3514, 2
   %3690 = load i32, ptr %33, align 4, !tbaa !49
   %3691 = sext i32 %3690 to i64
@@ -19195,9 +19195,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3717 = getelementptr inbounds nuw i8, ptr %3697, i64 %3716
   %3718 = load i8, ptr %3717, align 1, !tbaa !55
   %.not1855 = icmp eq i8 %3718, 0
-  %spec.select3698 = select i1 %.not1855, i32 0, i32 %3713
+  %spec.select3954 = select i1 %.not1855, i32 0, i32 %3713
   %3719 = getelementptr inbounds nuw i32, ptr %3700, i64 %3716
-  store i32 %spec.select3698, ptr %3719, align 4, !tbaa !16
+  store i32 %spec.select3954, ptr %3719, align 4, !tbaa !16
   %3720 = getelementptr inbounds nuw i8, ptr %3698, i64 %indvars.iv3520
   %3721 = load i8, ptr %3720, align 1, !tbaa !55
   %.not1856 = icmp eq i8 %3721, 0
@@ -19207,7 +19207,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   %3723 = getelementptr inbounds nuw i8, ptr %3698, i64 %3716
   %3724 = load i8, ptr %3723, align 1, !tbaa !55
   %.not1857 = icmp eq i8 %3724, 0
-  %spec.select3704 = select i1 %.not1857, i32 0, i32 %3713
+  %spec.select3960 = select i1 %.not1857, i32 0, i32 %3713
   br label %3729
 
 3725:                                             ; preds = %.lr.ph3345
@@ -19220,10 +19220,10 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %3467, %.lr.p
   br label %3729
 
 3729:                                             ; preds = %3710, %3725
-  %.sink3701 = phi i64 [ %3726, %3725 ], [ %3716, %3710 ]
-  %.sink3699 = phi i32 [ 0, %3725 ], [ %spec.select3704, %3710 ]
-  %3730 = getelementptr inbounds nuw i32, ptr %3701, i64 %.sink3701
-  store i32 %.sink3699, ptr %3730, align 4, !tbaa !16
+  %.sink3957 = phi i64 [ %3726, %3725 ], [ %3716, %3710 ]
+  %.sink3955 = phi i32 [ 0, %3725 ], [ %spec.select3960, %3710 ]
+  %3730 = getelementptr inbounds nuw i32, ptr %3701, i64 %.sink3957
+  store i32 %.sink3955, ptr %3730, align 4, !tbaa !16
   %indvars.iv.next3521 = add nuw nsw i64 %indvars.iv3520, 2
   %3731 = load i32, ptr %33, align 4, !tbaa !49
   %3732 = sext i32 %3731 to i64
@@ -20924,8 +20924,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i: ; preds = %.lr.ph.i.i
 
 .loopexit4826.loopexit:                           ; preds = %3070
   %594 = trunc nsw i64 %indvars.iv5661 to i32
-  %sext5817 = shl i64 %indvars.iv5661, 32
-  %.pre = ashr exact i64 %sext5817, 32
+  %sext6094 = shl i64 %indvars.iv5661, 32
+  %.pre = ashr exact i64 %sext6094, 32
   br label %.loopexit4826
 
 .loopexit4826:                                    ; preds = %.loopexit4826.loopexit, %591
@@ -23903,9 +23903,9 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4211: ; preds = %.lr.ph
   br i1 %.not3718, label %2066, label %.backedge4849
 
 .backedge4849:                                    ; preds = %2059, %.loopexit4809
-  %.sink6130 = phi i16 [ %.0.i4227, %.loopexit4809 ], [ %2064, %2059 ]
+  %.sink6407 = phi i16 [ %.0.i4227, %.loopexit4809 ], [ %2064, %2059 ]
   %2065 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5647
-  store i16 %.sink6130, ptr %2065, align 2, !tbaa !50
+  store i16 %.sink6407, ptr %2065, align 2, !tbaa !50
   %indvars.iv.next5648 = add nsw i64 %indvars.iv5647, 2
   %.not3490 = icmp slt i64 %indvars.iv.next5648, %412
   %indvars.iv.next5650 = add nsw i64 %indvars.iv5649, 2
@@ -23984,8 +23984,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
 
 2099:                                             ; preds = %2055
   %2100 = trunc nsw i64 %indvars.iv5647 to i32
-  %sext5806 = shl i64 %indvars.iv5649, 32
-  %2101 = ashr exact i64 %sext5806, 31
+  %sext6083 = shl i64 %indvars.iv5649, 32
+  %2101 = ashr exact i64 %sext6083, 31
   %2102 = getelementptr inbounds i8, ptr %428, i64 %2101
   %2103 = load i16, ptr %2102, align 2, !tbaa !50
   %2104 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5647
@@ -23994,8 +23994,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
 
 2105:                                             ; preds = %2052
   %2106 = trunc nsw i64 %indvars.iv5647 to i32
-  %sext5805 = shl i64 %indvars.iv5649, 32
-  %2107 = ashr exact i64 %sext5805, 31
+  %sext6082 = shl i64 %indvars.iv5649, 32
+  %2107 = ashr exact i64 %sext6082, 31
   %2108 = getelementptr inbounds i8, ptr %428, i64 %2107
   %2109 = load i16, ptr %2108, align 2, !tbaa !50
   %2110 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5647
@@ -24031,8 +24031,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
 
 2126:                                             ; preds = %2114
   %2127 = trunc nsw i64 %indvars.iv5647 to i32
-  %sext5807 = shl i64 %indvars.iv5649, 32
-  %2128 = ashr exact i64 %sext5807, 31
+  %sext6084 = shl i64 %indvars.iv5649, 32
+  %2128 = ashr exact i64 %sext6084, 31
   %2129 = getelementptr inbounds i8, ptr %428, i64 %2128
   %2130 = load i16, ptr %2129, align 2, !tbaa !50
   %2131 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5647
@@ -24042,8 +24042,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
 2132:                                             ; preds = %2111
   %2133 = trunc nsw i64 %indvars.iv5647 to i32
   %2134 = shl i64 %indvars.iv5649, 32
-  %sext5808 = add i64 %2134, 12884901888
-  %2135 = ashr exact i64 %sext5808, 32
+  %sext6085 = add i64 %2134, 12884901888
+  %2135 = ashr exact i64 %sext6085, 32
   %2136 = getelementptr inbounds i8, ptr %419, i64 %2135
   %2137 = load i8, ptr %2136, align 1, !tbaa !55
   %.not3493 = icmp eq i8 %2137, 0
@@ -24063,8 +24063,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
   br label %2154
 
 2145:                                             ; preds = %2138
-  %sext5809 = shl i64 %indvars.iv5649, 32
-  %2146 = ashr exact i64 %sext5809, 32
+  %sext6086 = shl i64 %indvars.iv5649, 32
+  %2146 = ashr exact i64 %sext6086, 32
   %2147 = getelementptr i8, ptr %421, i64 %2146
   %2148 = getelementptr i8, ptr %2147, i64 4
   %2149 = load i8, ptr %2148, align 1, !tbaa !55
@@ -24686,16 +24686,16 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4281: ; preds = %.lr.ph
   br i1 %.not3706, label %2479, label %2439
 
 2439:                                             ; preds = %2435
-  %sext5810 = shl i64 %indvars.iv5656, 32
-  %2440 = ashr exact i64 %sext5810, 32
+  %sext6087 = shl i64 %indvars.iv5656, 32
+  %2440 = ashr exact i64 %sext6087, 32
   %2441 = getelementptr inbounds i8, ptr %421, i64 %2440
   %2442 = load i8, ptr %2441, align 1, !tbaa !55
   %.not3707 = icmp eq i8 %2442, 0
   br i1 %.not3707, label %2443, label %._crit_edge5744
 
 ._crit_edge5744:                                  ; preds = %2439
-  %sext5811 = shl i64 %indvars.iv5654, 32
-  %.pre5785 = ashr exact i64 %sext5811, 32
+  %sext6088 = shl i64 %indvars.iv5654, 32
+  %.pre5785 = ashr exact i64 %sext6088, 32
   br label %1724
 
 2443:                                             ; preds = %2439
@@ -24776,8 +24776,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4295: ; preds = %.lr.ph
 2479:                                             ; preds = %2435
   %2480 = getelementptr inbounds i16, ptr %431, i64 %indvars.iv5654
   %2481 = load i16, ptr %2480, align 2, !tbaa !50
-  %sext5812 = shl i64 %indvars.iv5656, 32
-  %2482 = ashr exact i64 %sext5812, 31
+  %sext6089 = shl i64 %indvars.iv5656, 32
+  %2482 = ashr exact i64 %sext6089, 31
   %2483 = getelementptr inbounds i8, ptr %428, i64 %2482
   %2484 = load i16, ptr %2483, align 2, !tbaa !50
   br label %2485
@@ -24865,8 +24865,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4309: ; preds = %.lr.ph
 
 2523:                                             ; preds = %2519
   %2524 = trunc nsw i64 %indvars.iv5654 to i32
-  %sext5829 = shl i64 %indvars.iv5656, 32
-  %2525 = ashr exact i64 %sext5829, 32
+  %sext6106 = shl i64 %indvars.iv5656, 32
+  %2525 = ashr exact i64 %sext6106, 32
   %2526 = getelementptr i8, ptr %422, i64 %2525
   %2527 = getelementptr i8, ptr %2526, i64 3
   %2528 = load i8, ptr %2527, align 1, !tbaa !55
@@ -24886,8 +24886,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4309: ; preds = %.lr.ph
   br i1 %.not3704, label %2535, label %._crit_edge5752
 
 ._crit_edge5752:                                  ; preds = %2532
-  %sext5830 = shl i64 %indvars.iv5654, 32
-  %.pre5769 = ashr exact i64 %sext5830, 32
+  %sext6107 = shl i64 %indvars.iv5654, 32
+  %.pre5769 = ashr exact i64 %sext6107, 32
   br label %1818
 
 2535:                                             ; preds = %2532
@@ -25127,8 +25127,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4351: ; preds = %.lr.ph
 
 2647:                                             ; preds = %2516
   %2648 = trunc nsw i64 %indvars.iv5654 to i32
-  %sext5813 = shl i64 %indvars.iv5656, 32
-  %2649 = ashr exact i64 %sext5813, 31
+  %sext6090 = shl i64 %indvars.iv5656, 32
+  %2649 = ashr exact i64 %sext6090, 31
   %2650 = getelementptr inbounds i8, ptr %428, i64 %2649
   %2651 = load i16, ptr %2650, align 2, !tbaa !50
   %2652 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5654
@@ -25162,16 +25162,16 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4351: ; preds = %.lr.ph
   br i1 %.not3506, label %2707, label %2667
 
 2667:                                             ; preds = %2663
-  %sext5814 = shl i64 %indvars.iv5656, 32
-  %2668 = ashr exact i64 %sext5814, 32
+  %sext6091 = shl i64 %indvars.iv5656, 32
+  %2668 = ashr exact i64 %sext6091, 32
   %2669 = getelementptr inbounds i8, ptr %421, i64 %2668
   %2670 = load i8, ptr %2669, align 1, !tbaa !55
   %.not3507 = icmp eq i8 %2670, 0
   br i1 %.not3507, label %2671, label %._crit_edge5745
 
 ._crit_edge5745:                                  ; preds = %2667
-  %sext5815 = shl i64 %indvars.iv5654, 32
-  %.pre5783 = ashr exact i64 %sext5815, 32
+  %sext6092 = shl i64 %indvars.iv5654, 32
+  %.pre5783 = ashr exact i64 %sext6092, 32
   br label %1955
 
 2671:                                             ; preds = %2667
@@ -25252,8 +25252,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4365: ; preds = %.lr.ph
 2707:                                             ; preds = %2663
   %2708 = getelementptr inbounds i16, ptr %431, i64 %indvars.iv5654
   %2709 = load i16, ptr %2708, align 2, !tbaa !50
-  %sext5816 = shl i64 %indvars.iv5656, 32
-  %2710 = ashr exact i64 %sext5816, 31
+  %sext6093 = shl i64 %indvars.iv5656, 32
+  %2710 = ashr exact i64 %sext6093, 31
   %2711 = getelementptr inbounds i8, ptr %428, i64 %2710
   %2712 = load i16, ptr %2711, align 2, !tbaa !50
   br label %2713
@@ -25328,8 +25328,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4379: ; preds = %.lr.ph
 
 2744:                                             ; preds = %2656
   %2745 = trunc nsw i64 %indvars.iv5654 to i32
-  %sext5831 = shl i64 %indvars.iv5656, 32
-  %2746 = ashr exact i64 %sext5831, 31
+  %sext6108 = shl i64 %indvars.iv5656, 32
+  %2746 = ashr exact i64 %sext6108, 31
   %2747 = getelementptr inbounds i8, ptr %428, i64 %2746
   %2748 = load i16, ptr %2747, align 2, !tbaa !50
   %2749 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5654
@@ -25990,8 +25990,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3478, label %3097, label %3081
 
 3081:                                             ; preds = %3077
-  %sext5818 = shl i64 %indvars.iv5663, 32
-  %3082 = ashr exact i64 %sext5818, 32
+  %sext6095 = shl i64 %indvars.iv5663, 32
+  %3082 = ashr exact i64 %sext6095, 32
   %3083 = getelementptr i8, ptr %421, i64 %3082
   %3084 = getelementptr i8, ptr %3083, i64 4
   %3085 = load i8, ptr %3084, align 1, !tbaa !55
@@ -26005,8 +26005,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3481, label %._crit_edge5748, label %457
 
 ._crit_edge5748:                                  ; preds = %3088
-  %sext5819 = shl i64 %indvars.iv5661, 32
-  %.pre5777 = ashr exact i64 %sext5819, 32
+  %sext6096 = shl i64 %indvars.iv5661, 32
+  %.pre5777 = ashr exact i64 %sext6096, 32
   br label %655
 
 3089:                                             ; preds = %3081
@@ -26039,8 +26039,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br label %2810
 
 3104:                                             ; preds = %3097
-  %sext5820 = shl i64 %indvars.iv5663, 32
-  %3105 = ashr exact i64 %sext5820, 31
+  %sext6097 = shl i64 %indvars.iv5663, 32
+  %3105 = ashr exact i64 %sext6097, 31
   %3106 = getelementptr inbounds i8, ptr %431, i64 %3105
   %3107 = load i16, ptr %3106, align 2, !tbaa !50
   %3108 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5661
@@ -26056,14 +26056,14 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
 
 3113:                                             ; preds = %3109
   %3114 = shl i64 %indvars.iv5663, 32
-  %sext5821 = add i64 %3114, 12884901888
-  %3115 = ashr exact i64 %sext5821, 32
+  %sext6098 = add i64 %3114, 12884901888
+  %3115 = ashr exact i64 %sext6098, 32
   %3116 = getelementptr inbounds i8, ptr %419, i64 %3115
   %3117 = load i8, ptr %3116, align 1, !tbaa !55
   %.not3467 = icmp eq i8 %3117, 0
   %3118 = shl i64 %indvars.iv5663, 32
-  %sext5826 = add i64 %3118, 4294967296
-  %3119 = ashr exact i64 %sext5826, 32
+  %sext6103 = add i64 %3118, 4294967296
+  %3119 = ashr exact i64 %sext6103, 32
   br i1 %.not3467, label %3144, label %3120
 
 3120:                                             ; preds = %3113
@@ -26073,8 +26073,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3470, label %3123, label %._crit_edge5751
 
 ._crit_edge5751:                                  ; preds = %3120
-  %sext5823 = shl i64 %indvars.iv5661, 32
-  %.pre5771 = ashr exact i64 %sext5823, 32
+  %sext6100 = shl i64 %indvars.iv5661, 32
+  %.pre5771 = ashr exact i64 %sext6100, 32
   br label %2331
 
 3123:                                             ; preds = %3120
@@ -26090,8 +26090,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3472, label %3129, label %._crit_edge5759
 
 3129:                                             ; preds = %3126
-  %sext5824 = shl i64 %indvars.iv5663, 32
-  %3130 = ashr exact i64 %sext5824, 32
+  %sext6101 = shl i64 %indvars.iv5663, 32
+  %3130 = ashr exact i64 %sext6101, 32
   %3131 = getelementptr i8, ptr %421, i64 %3130
   %3132 = getelementptr i8, ptr %3131, i64 4
   %3133 = load i8, ptr %3132, align 1, !tbaa !55
@@ -26099,8 +26099,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3473, label %3134, label %._crit_edge5749
 
 ._crit_edge5749:                                  ; preds = %3129
-  %sext5825 = shl i64 %indvars.iv5661, 32
-  %.pre5775 = ashr exact i64 %sext5825, 32
+  %sext6102 = shl i64 %indvars.iv5661, 32
+  %.pre5775 = ashr exact i64 %sext6102, 32
   br label %2222
 
 3134:                                             ; preds = %3129
@@ -26129,8 +26129,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3468, label %3152, label %3147
 
 3147:                                             ; preds = %3144
-  %sext5827 = shl i64 %indvars.iv5663, 32
-  %3148 = ashr exact i64 %sext5827, 31
+  %sext6104 = shl i64 %indvars.iv5663, 32
+  %3148 = ashr exact i64 %sext6104, 31
   %3149 = getelementptr inbounds i8, ptr %428, i64 %3148
   %3150 = load i16, ptr %3149, align 2, !tbaa !50
   %3151 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5661
@@ -26144,8 +26144,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3469, label %3160, label %3155
 
 3155:                                             ; preds = %3152
-  %sext5828 = shl i64 %indvars.iv5663, 32
-  %3156 = ashr exact i64 %sext5828, 31
+  %sext6105 = shl i64 %indvars.iv5663, 32
+  %3156 = ashr exact i64 %sext6105, 31
   %3157 = getelementptr inbounds i8, ptr %428, i64 %3156
   %3158 = load i16, ptr %3157, align 2, !tbaa !50
   %3159 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5661
@@ -29035,8 +29035,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4659: ; preds = %.lr.ph
 
 .loopexit4798.loopexit:                           ; preds = %5218
   %4617 = trunc nsw i64 %indvars.iv5684 to i32
-  %sext5839 = shl i64 %indvars.iv5684, 32
-  %.pre5726 = ashr exact i64 %sext5839, 32
+  %sext6116 = shl i64 %indvars.iv5684, 32
+  %.pre5726 = ashr exact i64 %sext6116, 32
   br label %.loopexit4798
 
 .loopexit4798:                                    ; preds = %.loopexit4798.loopexit, %4612
@@ -29542,12 +29542,12 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4701: ; preds = %.lr.ph
   br label %4588
 
 4878:                                             ; preds = %4709, %4557, %5236, %5111
-  %indvars.iv5684.lcssa5897.sink6136 = phi i64 [ %indvars.iv5670, %5111 ], [ %indvars.iv5684, %5236 ], [ %4504, %4557 ], [ %4597, %4709 ]
+  %indvars.iv5684.lcssa6174.sink6413 = phi i64 [ %indvars.iv5670, %5111 ], [ %indvars.iv5684, %5236 ], [ %4504, %4557 ], [ %4597, %4709 ]
   %.53147 = phi i32 [ %5103, %5111 ], [ %5226, %5236 ], [ %.23144, %4557 ], [ %4590, %4709 ]
   %.104 = phi i16 [ %.103.ph, %5111 ], [ %.100.ph, %5236 ], [ %.101, %4557 ], [ %.108, %4709 ]
-  %4879 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5684.lcssa5897.sink6136
+  %4879 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5684.lcssa6174.sink6413
   %4880 = load i16, ptr %4879, align 2, !tbaa !50
-  %4881 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5684.lcssa5897.sink6136
+  %4881 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5684.lcssa6174.sink6413
   store i16 %4880, ptr %4881, align 2, !tbaa !50
   %4882 = add nsw i32 %.53147, 2
   %.not3406 = icmp slt i32 %4882, %190
@@ -29890,9 +29890,9 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4729: ; preds = %.lr.ph
   br i1 %.not3437, label %5057, label %.backedge4805
 
 .backedge4805:                                    ; preds = %5051, %.loopexit4791
-  %.sink6137 = phi i16 [ %.0.i4745, %.loopexit4791 ], [ %5055, %5051 ]
+  %.sink6414 = phi i16 [ %.0.i4745, %.loopexit4791 ], [ %5055, %5051 ]
   %5056 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5670
-  store i16 %.sink6137, ptr %5056, align 2, !tbaa !50
+  store i16 %.sink6414, ptr %5056, align 2, !tbaa !50
   %indvars.iv.next5671 = add nsw i64 %indvars.iv5670, 2
   %.not3357 = icmp slt i64 %indvars.iv.next5671, %4478
   %indvars.iv.next5673 = add nsw i64 %indvars.iv5672, 2
@@ -29971,8 +29971,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
 
 5090:                                             ; preds = %5047
   %5091 = trunc nsw i64 %indvars.iv5670 to i32
-  %sext5832 = shl i64 %indvars.iv5672, 32
-  %5092 = ashr exact i64 %sext5832, 31
+  %sext6109 = shl i64 %indvars.iv5672, 32
+  %5092 = ashr exact i64 %sext6109, 31
   %5093 = getelementptr inbounds i8, ptr %4474, i64 %5092
   %5094 = load i16, ptr %5093, align 2, !tbaa !50
   %5095 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5670
@@ -29981,8 +29981,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
 
 5096:                                             ; preds = %5044
   %5097 = trunc nsw i64 %indvars.iv5670 to i32
-  %sext5833 = shl i64 %indvars.iv5672, 32
-  %5098 = ashr exact i64 %sext5833, 31
+  %sext6110 = shl i64 %indvars.iv5672, 32
+  %5098 = ashr exact i64 %sext6110, 31
   %5099 = getelementptr inbounds i8, ptr %4474, i64 %5098
   %5100 = load i16, ptr %5099, align 2, !tbaa !50
   %5101 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5670
@@ -29992,8 +29992,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
 5102:                                             ; preds = %.lr.ph5239
   %5103 = trunc nsw i64 %indvars.iv5670 to i32
   %5104 = shl i64 %indvars.iv5672, 32
-  %sext5834 = add i64 %5104, 12884901888
-  %5105 = ashr exact i64 %sext5834, 32
+  %sext6111 = add i64 %5104, 12884901888
+  %5105 = ashr exact i64 %sext6111, 32
   %5106 = getelementptr inbounds i8, ptr %4466, i64 %5105
   %5107 = load i8, ptr %5106, align 1, !tbaa !55
   %.not3359 = icmp eq i8 %5107, 0
@@ -30006,8 +30006,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
   br i1 %.not3360, label %5111, label %5116
 
 5111:                                             ; preds = %5108
-  %sext5835 = shl i64 %indvars.iv5672, 32
-  %5112 = ashr exact i64 %sext5835, 32
+  %sext6112 = shl i64 %indvars.iv5672, 32
+  %5112 = ashr exact i64 %sext6112, 32
   %5113 = getelementptr i8, ptr %4468, i64 %5112
   %5114 = getelementptr i8, ptr %5113, i64 4
   %5115 = load i8, ptr %5114, align 1, !tbaa !55
@@ -30015,12 +30015,12 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
   br i1 %.not3361, label %4878, label %4508
 
 5116:                                             ; preds = %5108, %4858, %4584
-  %indvars.iv5670.lcssa.sink6143 = phi i64 [ %4859, %4858 ], [ %4585, %4584 ], [ %indvars.iv5670, %5108 ]
+  %indvars.iv5670.lcssa.sink6420 = phi i64 [ %4859, %4858 ], [ %4585, %4584 ], [ %indvars.iv5670, %5108 ]
   %.83150 = phi i32 [ %.143156, %4858 ], [ %.73149, %4584 ], [ %5103, %5108 ]
   %.107 = phi i16 [ %.113, %4858 ], [ %.106, %4584 ], [ %.103.ph, %5108 ]
-  %5117 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5670.lcssa.sink6143
+  %5117 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5670.lcssa.sink6420
   %5118 = load i16, ptr %5117, align 2, !tbaa !50
-  %5119 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5670.lcssa.sink6143
+  %5119 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5670.lcssa.sink6420
   store i16 %5118, ptr %5119, align 2, !tbaa !50
   %5120 = add nsw i32 %.83150, 2
   %.not3370 = icmp slt i32 %5120, %190
@@ -30252,8 +30252,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
   br i1 %.not3348, label %._crit_edge5756, label %4508
 
 ._crit_edge5756:                                  ; preds = %5235
-  %sext5840 = shl i64 %indvars.iv5684, 32
-  %.pre5763 = ashr exact i64 %sext5840, 32
+  %sext6117 = shl i64 %indvars.iv5684, 32
+  %.pre5763 = ashr exact i64 %sext6117, 32
   br label %4679
 
 5236:                                             ; preds = %5229
@@ -30319,16 +30319,16 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
   br i1 %.not3427, label %5275, label %5264
 
 5264:                                             ; preds = %5260
-  %sext5836 = shl i64 %indvars.iv5679, 32
-  %5265 = ashr exact i64 %sext5836, 32
+  %sext6113 = shl i64 %indvars.iv5679, 32
+  %5265 = ashr exact i64 %sext6113, 32
   %5266 = getelementptr inbounds i8, ptr %4468, i64 %5265
   %5267 = load i8, ptr %5266, align 1, !tbaa !55
   %.not3428 = icmp eq i8 %5267, 0
   br i1 %.not3428, label %5268, label %._crit_edge5755
 
 ._crit_edge5755:                                  ; preds = %5264
-  %sext5837 = shl i64 %indvars.iv5677, 32
-  %.pre5765 = ashr exact i64 %sext5837, 32
+  %sext6114 = shl i64 %indvars.iv5677, 32
+  %.pre5765 = ashr exact i64 %sext6114, 32
   br label %4897
 
 5268:                                             ; preds = %5264
@@ -30344,8 +30344,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
 5275:                                             ; preds = %5260
   %5276 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5677
   %5277 = load i16, ptr %5276, align 2, !tbaa !50
-  %sext5838 = shl i64 %indvars.iv5679, 32
-  %5278 = ashr exact i64 %sext5838, 31
+  %sext6115 = shl i64 %indvars.iv5679, 32
+  %5278 = ashr exact i64 %sext6115, 31
   %5279 = getelementptr inbounds i8, ptr %4474, i64 %5278
   %5280 = load i16, ptr %5279, align 2, !tbaa !50
   br label %5281
@@ -30457,16 +30457,16 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4757: ; preds = %.lr.ph
   br i1 %.not3424, label %5340, label %5329
 
 5329:                                             ; preds = %5326
-  %sext5841 = shl i64 %indvars.iv5679, 32
-  %5330 = ashr exact i64 %sext5841, 32
+  %sext6118 = shl i64 %indvars.iv5679, 32
+  %5330 = ashr exact i64 %sext6118, 32
   %5331 = getelementptr inbounds i8, ptr %4468, i64 %5330
   %5332 = load i8, ptr %5331, align 1, !tbaa !55
   %.not3425 = icmp eq i8 %5332, 0
   br i1 %.not3425, label %5333, label %._crit_edge5757
 
 ._crit_edge5757:                                  ; preds = %5329
-  %sext5842 = shl i64 %indvars.iv5677, 32
-  %.pre5761 = ashr exact i64 %sext5842, 32
+  %sext6119 = shl i64 %indvars.iv5677, 32
+  %.pre5761 = ashr exact i64 %sext6119, 32
   br label %4991
 
 5333:                                             ; preds = %5329
@@ -30482,8 +30482,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4757: ; preds = %.lr.ph
 5340:                                             ; preds = %5326
   %5341 = getelementptr inbounds i16, ptr %4477, i64 %5319
   %5342 = load i16, ptr %5341, align 2, !tbaa !50
-  %sext5843 = shl i64 %indvars.iv5679, 32
-  %5343 = ashr exact i64 %sext5843, 31
+  %sext6120 = shl i64 %indvars.iv5679, 32
+  %5343 = ashr exact i64 %sext6120, 31
   %5344 = getelementptr inbounds i8, ptr %4474, i64 %5343
   %5345 = load i16, ptr %5344, align 2, !tbaa !50
   %5346 = tail call fastcc noundef zeroext i16 @_ZN2cv19connectedcomponentsL9set_unionItEET_PS2_S2_S2_(ptr noundef %.sroa.04780.0, i16 noundef zeroext %5342, i16 noundef zeroext %5345)
@@ -30494,8 +30494,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4757: ; preds = %.lr.ph
 5348:                                             ; preds = %5322
   %5349 = getelementptr inbounds i16, ptr %4477, i64 %5319
   %5350 = load i16, ptr %5349, align 2, !tbaa !50
-  %sext5844 = shl i64 %indvars.iv5679, 32
-  %5351 = ashr exact i64 %sext5844, 31
+  %sext6121 = shl i64 %indvars.iv5679, 32
+  %5351 = ashr exact i64 %sext6121, 31
   %5352 = getelementptr inbounds i8, ptr %4474, i64 %5351
   %5353 = load i16, ptr %5352, align 2, !tbaa !50
   br label %5354
@@ -30592,8 +30592,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4771: ; preds = %.lr.ph
 
 5392:                                             ; preds = %5315
   %5393 = trunc nsw i64 %indvars.iv5677 to i32
-  %sext5845 = shl i64 %indvars.iv5679, 32
-  %5394 = ashr exact i64 %sext5845, 31
+  %sext6122 = shl i64 %indvars.iv5679, 32
+  %5394 = ashr exact i64 %sext6122, 31
   %5395 = getelementptr inbounds i8, ptr %4474, i64 %5394
   %5396 = load i16, ptr %5395, align 2, !tbaa !50
   %5397 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5677
@@ -31253,7 +31253,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   %5748 = getelementptr inbounds nuw i8, ptr %5729, i64 %5741
   %5749 = load i8, ptr %5748, align 1, !tbaa !55
   %.not3790 = icmp eq i8 %5749, 0
-  %spec.select6146 = select i1 %.not3790, i16 0, i16 %5738
+  %spec.select6423 = select i1 %.not3790, i16 0, i16 %5738
   br label %5754
 
 5750:                                             ; preds = %.lr.ph5299
@@ -31265,9 +31265,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   br label %5754
 
 5754:                                             ; preds = %5735, %5750
-  %.sink6145 = phi i64 [ %5751, %5750 ], [ %5741, %5735 ]
-  %.sink = phi i16 [ 0, %5750 ], [ %spec.select6146, %5735 ]
-  %5755 = getelementptr inbounds nuw i16, ptr %5732, i64 %.sink6145
+  %.sink6422 = phi i64 [ %5751, %5750 ], [ %5741, %5735 ]
+  %.sink = phi i16 [ 0, %5750 ], [ %spec.select6423, %5735 ]
+  %5755 = getelementptr inbounds nuw i16, ptr %5732, i64 %.sink6422
   store i16 %.sink, ptr %5755, align 2, !tbaa !50
   %indvars.iv.next5699 = add nuw nsw i64 %indvars.iv5698, 2
   %5756 = icmp slt i64 %indvars.iv.next5699, %5724
@@ -32087,8 +32087,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc3797, %_ZNSt6
 293:                                              ; preds = %283
   %294 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv
   store i32 %284, ptr %294, align 4, !tbaa !16
-  %sext5809 = shl i64 %indvars.iv5647, 32
-  %295 = ashr exact i64 %sext5809, 30
+  %sext6086 = shl i64 %indvars.iv5647, 32
+  %295 = ashr exact i64 %sext6086, 30
   %296 = getelementptr inbounds i8, ptr %.sroa.04780.0, i64 %295
   store i32 %284, ptr %296, align 4, !tbaa !16
   %297 = add nsw i32 %284, 1
@@ -32680,8 +32680,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i: ; preds = %.lr.ph.i.i
 
 .loopexit4826.loopexit:                           ; preds = %3075
   %599 = trunc nsw i64 %indvars.iv5664 to i32
-  %sext5822 = shl i64 %indvars.iv5664, 32
-  %.pre = ashr exact i64 %sext5822, 32
+  %sext6099 = shl i64 %indvars.iv5664, 32
+  %.pre = ashr exact i64 %sext6099, 32
   br label %.loopexit4826
 
 .loopexit4826:                                    ; preds = %.loopexit4826.loopexit, %596
@@ -35659,9 +35659,9 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4211: ; preds = %.lr.ph
   br i1 %.not3722, label %2071, label %.backedge4849
 
 .backedge4849:                                    ; preds = %2064, %.loopexit4809
-  %.sink6133 = phi i32 [ %.0.i4227, %.loopexit4809 ], [ %2069, %2064 ]
+  %.sink6410 = phi i32 [ %.0.i4227, %.loopexit4809 ], [ %2069, %2064 ]
   %2070 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5650
-  store i32 %.sink6133, ptr %2070, align 4, !tbaa !16
+  store i32 %.sink6410, ptr %2070, align 4, !tbaa !16
   %indvars.iv.next5651 = add nsw i64 %indvars.iv5650, 2
   %.not3494 = icmp slt i64 %indvars.iv.next5651, %417
   %indvars.iv.next5653 = add nsw i64 %indvars.iv5652, 2
@@ -35740,8 +35740,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
 
 2104:                                             ; preds = %2060
   %2105 = trunc nsw i64 %indvars.iv5650 to i32
-  %sext5811 = shl i64 %indvars.iv5652, 32
-  %2106 = ashr exact i64 %sext5811, 30
+  %sext6088 = shl i64 %indvars.iv5652, 32
+  %2106 = ashr exact i64 %sext6088, 30
   %2107 = getelementptr inbounds i8, ptr %433, i64 %2106
   %2108 = load i32, ptr %2107, align 4, !tbaa !16
   %2109 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5650
@@ -35750,8 +35750,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
 
 2110:                                             ; preds = %2057
   %2111 = trunc nsw i64 %indvars.iv5650 to i32
-  %sext5810 = shl i64 %indvars.iv5652, 32
-  %2112 = ashr exact i64 %sext5810, 30
+  %sext6087 = shl i64 %indvars.iv5652, 32
+  %2112 = ashr exact i64 %sext6087, 30
   %2113 = getelementptr inbounds i8, ptr %433, i64 %2112
   %2114 = load i32, ptr %2113, align 4, !tbaa !16
   %2115 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5650
@@ -35787,8 +35787,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
 
 2131:                                             ; preds = %2119
   %2132 = trunc nsw i64 %indvars.iv5650 to i32
-  %sext5812 = shl i64 %indvars.iv5652, 32
-  %2133 = ashr exact i64 %sext5812, 30
+  %sext6089 = shl i64 %indvars.iv5652, 32
+  %2133 = ashr exact i64 %sext6089, 30
   %2134 = getelementptr inbounds i8, ptr %433, i64 %2133
   %2135 = load i32, ptr %2134, align 4, !tbaa !16
   %2136 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5650
@@ -35798,8 +35798,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
 2137:                                             ; preds = %2116
   %2138 = trunc nsw i64 %indvars.iv5650 to i32
   %2139 = shl i64 %indvars.iv5652, 32
-  %sext5813 = add i64 %2139, 12884901888
-  %2140 = ashr exact i64 %sext5813, 32
+  %sext6090 = add i64 %2139, 12884901888
+  %2140 = ashr exact i64 %sext6090, 32
   %2141 = getelementptr inbounds i8, ptr %424, i64 %2140
   %2142 = load i8, ptr %2141, align 1, !tbaa !55
   %.not3497 = icmp eq i8 %2142, 0
@@ -35819,8 +35819,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4225: ; preds = %.lr.ph
   br label %2159
 
 2150:                                             ; preds = %2143
-  %sext5814 = shl i64 %indvars.iv5652, 32
-  %2151 = ashr exact i64 %sext5814, 32
+  %sext6091 = shl i64 %indvars.iv5652, 32
+  %2151 = ashr exact i64 %sext6091, 32
   %2152 = getelementptr i8, ptr %426, i64 %2151
   %2153 = getelementptr i8, ptr %2152, i64 4
   %2154 = load i8, ptr %2153, align 1, !tbaa !55
@@ -36442,16 +36442,16 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4281: ; preds = %.lr.ph
   br i1 %.not3710, label %2484, label %2444
 
 2444:                                             ; preds = %2440
-  %sext5815 = shl i64 %indvars.iv5659, 32
-  %2445 = ashr exact i64 %sext5815, 32
+  %sext6092 = shl i64 %indvars.iv5659, 32
+  %2445 = ashr exact i64 %sext6092, 32
   %2446 = getelementptr inbounds i8, ptr %426, i64 %2445
   %2447 = load i8, ptr %2446, align 1, !tbaa !55
   %.not3711 = icmp eq i8 %2447, 0
   br i1 %.not3711, label %2448, label %._crit_edge5748
 
 ._crit_edge5748:                                  ; preds = %2444
-  %sext5816 = shl i64 %indvars.iv5657, 32
-  %.pre5789 = ashr exact i64 %sext5816, 32
+  %sext6093 = shl i64 %indvars.iv5657, 32
+  %.pre5789 = ashr exact i64 %sext6093, 32
   br label %1729
 
 2448:                                             ; preds = %2444
@@ -36532,8 +36532,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4295: ; preds = %.lr.ph
 2484:                                             ; preds = %2440
   %2485 = getelementptr inbounds i32, ptr %436, i64 %indvars.iv5657
   %2486 = load i32, ptr %2485, align 4, !tbaa !16
-  %sext5817 = shl i64 %indvars.iv5659, 32
-  %2487 = ashr exact i64 %sext5817, 30
+  %sext6094 = shl i64 %indvars.iv5659, 32
+  %2487 = ashr exact i64 %sext6094, 30
   %2488 = getelementptr inbounds i8, ptr %433, i64 %2487
   %2489 = load i32, ptr %2488, align 4, !tbaa !16
   br label %2490
@@ -36621,8 +36621,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4309: ; preds = %.lr.ph
 
 2528:                                             ; preds = %2524
   %2529 = trunc nsw i64 %indvars.iv5657 to i32
-  %sext5834 = shl i64 %indvars.iv5659, 32
-  %2530 = ashr exact i64 %sext5834, 32
+  %sext6111 = shl i64 %indvars.iv5659, 32
+  %2530 = ashr exact i64 %sext6111, 32
   %2531 = getelementptr i8, ptr %427, i64 %2530
   %2532 = getelementptr i8, ptr %2531, i64 3
   %2533 = load i8, ptr %2532, align 1, !tbaa !55
@@ -36642,8 +36642,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4309: ; preds = %.lr.ph
   br i1 %.not3708, label %2540, label %._crit_edge5756
 
 ._crit_edge5756:                                  ; preds = %2537
-  %sext5835 = shl i64 %indvars.iv5657, 32
-  %.pre5773 = ashr exact i64 %sext5835, 32
+  %sext6112 = shl i64 %indvars.iv5657, 32
+  %.pre5773 = ashr exact i64 %sext6112, 32
   br label %1823
 
 2540:                                             ; preds = %2537
@@ -36883,8 +36883,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4351: ; preds = %.lr.ph
 
 2652:                                             ; preds = %2521
   %2653 = trunc nsw i64 %indvars.iv5657 to i32
-  %sext5818 = shl i64 %indvars.iv5659, 32
-  %2654 = ashr exact i64 %sext5818, 30
+  %sext6095 = shl i64 %indvars.iv5659, 32
+  %2654 = ashr exact i64 %sext6095, 30
   %2655 = getelementptr inbounds i8, ptr %433, i64 %2654
   %2656 = load i32, ptr %2655, align 4, !tbaa !16
   %2657 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5657
@@ -36918,16 +36918,16 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4351: ; preds = %.lr.ph
   br i1 %.not3510, label %2712, label %2672
 
 2672:                                             ; preds = %2668
-  %sext5819 = shl i64 %indvars.iv5659, 32
-  %2673 = ashr exact i64 %sext5819, 32
+  %sext6096 = shl i64 %indvars.iv5659, 32
+  %2673 = ashr exact i64 %sext6096, 32
   %2674 = getelementptr inbounds i8, ptr %426, i64 %2673
   %2675 = load i8, ptr %2674, align 1, !tbaa !55
   %.not3511 = icmp eq i8 %2675, 0
   br i1 %.not3511, label %2676, label %._crit_edge5749
 
 ._crit_edge5749:                                  ; preds = %2672
-  %sext5820 = shl i64 %indvars.iv5657, 32
-  %.pre5787 = ashr exact i64 %sext5820, 32
+  %sext6097 = shl i64 %indvars.iv5657, 32
+  %.pre5787 = ashr exact i64 %sext6097, 32
   br label %1960
 
 2676:                                             ; preds = %2672
@@ -37008,8 +37008,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4365: ; preds = %.lr.ph
 2712:                                             ; preds = %2668
   %2713 = getelementptr inbounds i32, ptr %436, i64 %indvars.iv5657
   %2714 = load i32, ptr %2713, align 4, !tbaa !16
-  %sext5821 = shl i64 %indvars.iv5659, 32
-  %2715 = ashr exact i64 %sext5821, 30
+  %sext6098 = shl i64 %indvars.iv5659, 32
+  %2715 = ashr exact i64 %sext6098, 30
   %2716 = getelementptr inbounds i8, ptr %433, i64 %2715
   %2717 = load i32, ptr %2716, align 4, !tbaa !16
   br label %2718
@@ -37084,8 +37084,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4379: ; preds = %.lr.ph
 
 2749:                                             ; preds = %2661
   %2750 = trunc nsw i64 %indvars.iv5657 to i32
-  %sext5836 = shl i64 %indvars.iv5659, 32
-  %2751 = ashr exact i64 %sext5836, 30
+  %sext6113 = shl i64 %indvars.iv5659, 32
+  %2751 = ashr exact i64 %sext6113, 30
   %2752 = getelementptr inbounds i8, ptr %433, i64 %2751
   %2753 = load i32, ptr %2752, align 4, !tbaa !16
   %2754 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5657
@@ -37746,8 +37746,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3482, label %3102, label %3086
 
 3086:                                             ; preds = %3082
-  %sext5823 = shl i64 %indvars.iv5666, 32
-  %3087 = ashr exact i64 %sext5823, 32
+  %sext6100 = shl i64 %indvars.iv5666, 32
+  %3087 = ashr exact i64 %sext6100, 32
   %3088 = getelementptr i8, ptr %426, i64 %3087
   %3089 = getelementptr i8, ptr %3088, i64 4
   %3090 = load i8, ptr %3089, align 1, !tbaa !55
@@ -37761,8 +37761,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3485, label %._crit_edge5752, label %462
 
 ._crit_edge5752:                                  ; preds = %3093
-  %sext5824 = shl i64 %indvars.iv5664, 32
-  %.pre5781 = ashr exact i64 %sext5824, 32
+  %sext6101 = shl i64 %indvars.iv5664, 32
+  %.pre5781 = ashr exact i64 %sext6101, 32
   br label %660
 
 3094:                                             ; preds = %3086
@@ -37795,8 +37795,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br label %2815
 
 3109:                                             ; preds = %3102
-  %sext5825 = shl i64 %indvars.iv5666, 32
-  %3110 = ashr exact i64 %sext5825, 30
+  %sext6102 = shl i64 %indvars.iv5666, 32
+  %3110 = ashr exact i64 %sext6102, 30
   %3111 = getelementptr inbounds i8, ptr %436, i64 %3110
   %3112 = load i32, ptr %3111, align 4, !tbaa !16
   %3113 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5664
@@ -37812,14 +37812,14 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
 
 3118:                                             ; preds = %3114
   %3119 = shl i64 %indvars.iv5666, 32
-  %sext5826 = add i64 %3119, 12884901888
-  %3120 = ashr exact i64 %sext5826, 32
+  %sext6103 = add i64 %3119, 12884901888
+  %3120 = ashr exact i64 %sext6103, 32
   %3121 = getelementptr inbounds i8, ptr %424, i64 %3120
   %3122 = load i8, ptr %3121, align 1, !tbaa !55
   %.not3471 = icmp eq i8 %3122, 0
   %3123 = shl i64 %indvars.iv5666, 32
-  %sext5831 = add i64 %3123, 4294967296
-  %3124 = ashr exact i64 %sext5831, 32
+  %sext6108 = add i64 %3123, 4294967296
+  %3124 = ashr exact i64 %sext6108, 32
   br i1 %.not3471, label %3149, label %3125
 
 3125:                                             ; preds = %3118
@@ -37829,8 +37829,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3474, label %3128, label %._crit_edge5755
 
 ._crit_edge5755:                                  ; preds = %3125
-  %sext5828 = shl i64 %indvars.iv5664, 32
-  %.pre5775 = ashr exact i64 %sext5828, 32
+  %sext6105 = shl i64 %indvars.iv5664, 32
+  %.pre5775 = ashr exact i64 %sext6105, 32
   br label %2336
 
 3128:                                             ; preds = %3125
@@ -37846,8 +37846,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3476, label %3134, label %._crit_edge5763
 
 3134:                                             ; preds = %3131
-  %sext5829 = shl i64 %indvars.iv5666, 32
-  %3135 = ashr exact i64 %sext5829, 32
+  %sext6106 = shl i64 %indvars.iv5666, 32
+  %3135 = ashr exact i64 %sext6106, 32
   %3136 = getelementptr i8, ptr %426, i64 %3135
   %3137 = getelementptr i8, ptr %3136, i64 4
   %3138 = load i8, ptr %3137, align 1, !tbaa !55
@@ -37855,8 +37855,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3477, label %3139, label %._crit_edge5753
 
 ._crit_edge5753:                                  ; preds = %3134
-  %sext5830 = shl i64 %indvars.iv5664, 32
-  %.pre5779 = ashr exact i64 %sext5830, 32
+  %sext6107 = shl i64 %indvars.iv5664, 32
+  %.pre5779 = ashr exact i64 %sext6107, 32
   br label %2227
 
 3139:                                             ; preds = %3134
@@ -37885,8 +37885,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3472, label %3157, label %3152
 
 3152:                                             ; preds = %3149
-  %sext5832 = shl i64 %indvars.iv5666, 32
-  %3153 = ashr exact i64 %sext5832, 30
+  %sext6109 = shl i64 %indvars.iv5666, 32
+  %3153 = ashr exact i64 %sext6109, 30
   %3154 = getelementptr inbounds i8, ptr %433, i64 %3153
   %3155 = load i32, ptr %3154, align 4, !tbaa !16
   %3156 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5664
@@ -37900,8 +37900,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4435: ; preds = %.lr.ph
   br i1 %.not3473, label %3165, label %3160
 
 3160:                                             ; preds = %3157
-  %sext5833 = shl i64 %indvars.iv5666, 32
-  %3161 = ashr exact i64 %sext5833, 30
+  %sext6110 = shl i64 %indvars.iv5666, 32
+  %3161 = ashr exact i64 %sext6110, 30
   %3162 = getelementptr inbounds i8, ptr %433, i64 %3161
   %3163 = load i32, ptr %3162, align 4, !tbaa !16
   %3164 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5664
@@ -40791,8 +40791,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4659: ; preds = %.lr.ph
 
 .loopexit4798.loopexit:                           ; preds = %5223
   %4622 = trunc nsw i64 %indvars.iv5688 to i32
-  %sext5844 = shl i64 %indvars.iv5688, 32
-  %.pre5730 = ashr exact i64 %sext5844, 32
+  %sext6121 = shl i64 %indvars.iv5688, 32
+  %.pre5730 = ashr exact i64 %sext6121, 32
   br label %.loopexit4798
 
 .loopexit4798:                                    ; preds = %.loopexit4798.loopexit, %4617
@@ -41298,12 +41298,12 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4701: ; preds = %.lr.ph
   br label %4593
 
 4883:                                             ; preds = %4714, %4562, %5241, %5116
-  %indvars.iv5688.lcssa5901.sink6139 = phi i64 [ %indvars.iv5674, %5116 ], [ %indvars.iv5688, %5241 ], [ %4509, %4562 ], [ %4602, %4714 ]
+  %indvars.iv5688.lcssa6178.sink6416 = phi i64 [ %indvars.iv5674, %5116 ], [ %indvars.iv5688, %5241 ], [ %4509, %4562 ], [ %4602, %4714 ]
   %.53147 = phi i32 [ %5108, %5116 ], [ %5231, %5241 ], [ %.23144, %4562 ], [ %4595, %4714 ]
   %.104 = phi i32 [ %.103.ph, %5116 ], [ %.100.ph, %5241 ], [ %.101, %4562 ], [ %.108, %4714 ]
-  %4884 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5688.lcssa5901.sink6139
+  %4884 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5688.lcssa6178.sink6416
   %4885 = load i32, ptr %4884, align 4, !tbaa !16
-  %4886 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5688.lcssa5901.sink6139
+  %4886 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5688.lcssa6178.sink6416
   store i32 %4885, ptr %4886, align 4, !tbaa !16
   %4887 = add nsw i32 %.53147, 2
   %.not3410 = icmp slt i32 %4887, %190
@@ -41646,9 +41646,9 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4729: ; preds = %.lr.ph
   br i1 %.not3441, label %5062, label %.backedge4805
 
 .backedge4805:                                    ; preds = %5056, %.loopexit4791
-  %.sink6140 = phi i32 [ %.0.i4745, %.loopexit4791 ], [ %5060, %5056 ]
+  %.sink6417 = phi i32 [ %.0.i4745, %.loopexit4791 ], [ %5060, %5056 ]
   %5061 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5674
-  store i32 %.sink6140, ptr %5061, align 4, !tbaa !16
+  store i32 %.sink6417, ptr %5061, align 4, !tbaa !16
   %indvars.iv.next5675 = add nsw i64 %indvars.iv5674, 2
   %.not3361 = icmp slt i64 %indvars.iv.next5675, %4483
   %indvars.iv.next5677 = add nsw i64 %indvars.iv5676, 2
@@ -41727,8 +41727,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
 
 5095:                                             ; preds = %5052
   %5096 = trunc nsw i64 %indvars.iv5674 to i32
-  %sext5837 = shl i64 %indvars.iv5676, 32
-  %5097 = ashr exact i64 %sext5837, 30
+  %sext6114 = shl i64 %indvars.iv5676, 32
+  %5097 = ashr exact i64 %sext6114, 30
   %5098 = getelementptr inbounds i8, ptr %4479, i64 %5097
   %5099 = load i32, ptr %5098, align 4, !tbaa !16
   %5100 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5674
@@ -41737,8 +41737,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
 
 5101:                                             ; preds = %5049
   %5102 = trunc nsw i64 %indvars.iv5674 to i32
-  %sext5838 = shl i64 %indvars.iv5676, 32
-  %5103 = ashr exact i64 %sext5838, 30
+  %sext6115 = shl i64 %indvars.iv5676, 32
+  %5103 = ashr exact i64 %sext6115, 30
   %5104 = getelementptr inbounds i8, ptr %4479, i64 %5103
   %5105 = load i32, ptr %5104, align 4, !tbaa !16
   %5106 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5674
@@ -41748,8 +41748,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
 5107:                                             ; preds = %.lr.ph5239
   %5108 = trunc nsw i64 %indvars.iv5674 to i32
   %5109 = shl i64 %indvars.iv5676, 32
-  %sext5839 = add i64 %5109, 12884901888
-  %5110 = ashr exact i64 %sext5839, 32
+  %sext6116 = add i64 %5109, 12884901888
+  %5110 = ashr exact i64 %sext6116, 32
   %5111 = getelementptr inbounds i8, ptr %4471, i64 %5110
   %5112 = load i8, ptr %5111, align 1, !tbaa !55
   %.not3363 = icmp eq i8 %5112, 0
@@ -41762,8 +41762,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
   br i1 %.not3364, label %5116, label %5121
 
 5116:                                             ; preds = %5113
-  %sext5840 = shl i64 %indvars.iv5676, 32
-  %5117 = ashr exact i64 %sext5840, 32
+  %sext6117 = shl i64 %indvars.iv5676, 32
+  %5117 = ashr exact i64 %sext6117, 32
   %5118 = getelementptr i8, ptr %4473, i64 %5117
   %5119 = getelementptr i8, ptr %5118, i64 4
   %5120 = load i8, ptr %5119, align 1, !tbaa !55
@@ -41771,12 +41771,12 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
   br i1 %.not3365, label %4883, label %4513
 
 5121:                                             ; preds = %5113, %4863, %4589
-  %indvars.iv5674.lcssa.sink6146 = phi i64 [ %4864, %4863 ], [ %4590, %4589 ], [ %indvars.iv5674, %5113 ]
+  %indvars.iv5674.lcssa.sink6423 = phi i64 [ %4864, %4863 ], [ %4590, %4589 ], [ %indvars.iv5674, %5113 ]
   %.83150 = phi i32 [ %.143156, %4863 ], [ %.73149, %4589 ], [ %5108, %5113 ]
   %.107 = phi i32 [ %.113, %4863 ], [ %.106, %4589 ], [ %.103.ph, %5113 ]
-  %5122 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5674.lcssa.sink6146
+  %5122 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5674.lcssa.sink6423
   %5123 = load i32, ptr %5122, align 4, !tbaa !16
-  %5124 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5674.lcssa.sink6146
+  %5124 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5674.lcssa.sink6423
   store i32 %5123, ptr %5124, align 4, !tbaa !16
   %5125 = add nsw i32 %.83150, 2
   %.not3374 = icmp slt i32 %5125, %190
@@ -42008,8 +42008,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
   br i1 %.not3352, label %._crit_edge5760, label %4513
 
 ._crit_edge5760:                                  ; preds = %5240
-  %sext5845 = shl i64 %indvars.iv5688, 32
-  %.pre5767 = ashr exact i64 %sext5845, 32
+  %sext6122 = shl i64 %indvars.iv5688, 32
+  %.pre5767 = ashr exact i64 %sext6122, 32
   br label %4684
 
 5241:                                             ; preds = %5234
@@ -42075,16 +42075,16 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
   br i1 %.not3431, label %5280, label %5269
 
 5269:                                             ; preds = %5265
-  %sext5841 = shl i64 %indvars.iv5683, 32
-  %5270 = ashr exact i64 %sext5841, 32
+  %sext6118 = shl i64 %indvars.iv5683, 32
+  %5270 = ashr exact i64 %sext6118, 32
   %5271 = getelementptr inbounds i8, ptr %4473, i64 %5270
   %5272 = load i8, ptr %5271, align 1, !tbaa !55
   %.not3432 = icmp eq i8 %5272, 0
   br i1 %.not3432, label %5273, label %._crit_edge5759
 
 ._crit_edge5759:                                  ; preds = %5269
-  %sext5842 = shl i64 %indvars.iv5681, 32
-  %.pre5769 = ashr exact i64 %sext5842, 32
+  %sext6119 = shl i64 %indvars.iv5681, 32
+  %.pre5769 = ashr exact i64 %sext6119, 32
   br label %4902
 
 5273:                                             ; preds = %5269
@@ -42100,8 +42100,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4743: ; preds = %.lr.ph
 5280:                                             ; preds = %5265
   %5281 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5681
   %5282 = load i32, ptr %5281, align 4, !tbaa !16
-  %sext5843 = shl i64 %indvars.iv5683, 32
-  %5283 = ashr exact i64 %sext5843, 30
+  %sext6120 = shl i64 %indvars.iv5683, 32
+  %5283 = ashr exact i64 %sext6120, 30
   %5284 = getelementptr inbounds i8, ptr %4479, i64 %5283
   %5285 = load i32, ptr %5284, align 4, !tbaa !16
   br label %5286
@@ -42213,16 +42213,16 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4757: ; preds = %.lr.ph
   br i1 %.not3428, label %5345, label %5334
 
 5334:                                             ; preds = %5331
-  %sext5846 = shl i64 %indvars.iv5683, 32
-  %5335 = ashr exact i64 %sext5846, 32
+  %sext6123 = shl i64 %indvars.iv5683, 32
+  %5335 = ashr exact i64 %sext6123, 32
   %5336 = getelementptr inbounds i8, ptr %4473, i64 %5335
   %5337 = load i8, ptr %5336, align 1, !tbaa !55
   %.not3429 = icmp eq i8 %5337, 0
   br i1 %.not3429, label %5338, label %._crit_edge5761
 
 ._crit_edge5761:                                  ; preds = %5334
-  %sext5847 = shl i64 %indvars.iv5681, 32
-  %.pre5765 = ashr exact i64 %sext5847, 32
+  %sext6124 = shl i64 %indvars.iv5681, 32
+  %.pre5765 = ashr exact i64 %sext6124, 32
   br label %4996
 
 5338:                                             ; preds = %5334
@@ -42238,8 +42238,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4757: ; preds = %.lr.ph
 5345:                                             ; preds = %5331
   %5346 = getelementptr inbounds i32, ptr %4482, i64 %5324
   %5347 = load i32, ptr %5346, align 4, !tbaa !16
-  %sext5848 = shl i64 %indvars.iv5683, 32
-  %5348 = ashr exact i64 %sext5848, 30
+  %sext6125 = shl i64 %indvars.iv5683, 32
+  %5348 = ashr exact i64 %sext6125, 30
   %5349 = getelementptr inbounds i8, ptr %4479, i64 %5348
   %5350 = load i32, ptr %5349, align 4, !tbaa !16
   %5351 = tail call fastcc noundef i32 @_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_(ptr noundef %.sroa.04780.0, i32 noundef %5347, i32 noundef %5350)
@@ -42250,8 +42250,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4757: ; preds = %.lr.ph
 5353:                                             ; preds = %5327
   %5354 = getelementptr inbounds i32, ptr %4482, i64 %5324
   %5355 = load i32, ptr %5354, align 4, !tbaa !16
-  %sext5849 = shl i64 %indvars.iv5683, 32
-  %5356 = ashr exact i64 %sext5849, 30
+  %sext6126 = shl i64 %indvars.iv5683, 32
+  %5356 = ashr exact i64 %sext6126, 30
   %5357 = getelementptr inbounds i8, ptr %4479, i64 %5356
   %5358 = load i32, ptr %5357, align 4, !tbaa !16
   br label %5359
@@ -42348,8 +42348,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4771: ; preds = %.lr.ph
 
 5397:                                             ; preds = %5320
   %5398 = trunc nsw i64 %indvars.iv5681 to i32
-  %sext5850 = shl i64 %indvars.iv5683, 32
-  %5399 = ashr exact i64 %sext5850, 30
+  %sext6127 = shl i64 %indvars.iv5683, 32
+  %5399 = ashr exact i64 %sext6127, 30
   %5400 = getelementptr inbounds i8, ptr %4479, i64 %5399
   %5401 = load i32, ptr %5400, align 4, !tbaa !16
   %5402 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5681
@@ -43009,7 +43009,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   %5754 = getelementptr inbounds nuw i8, ptr %5734, i64 %5747
   %5755 = load i8, ptr %5754, align 1, !tbaa !55
   %.not3790 = icmp eq i8 %5755, 0
-  %spec.select6149 = select i1 %.not3790, i32 0, i32 %5744
+  %spec.select6426 = select i1 %.not3790, i32 0, i32 %5744
   br label %5760
 
 5756:                                             ; preds = %.lr.ph5299
@@ -43022,9 +43022,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   br label %5760
 
 5760:                                             ; preds = %5741, %5756
-  %.sink6148 = phi i64 [ %5757, %5756 ], [ %5747, %5741 ]
-  %.sink = phi i32 [ 0, %5756 ], [ %spec.select6149, %5741 ]
-  %5761 = getelementptr inbounds nuw i32, ptr %5737, i64 %.sink6148
+  %.sink6425 = phi i64 [ %5757, %5756 ], [ %5747, %5741 ]
+  %.sink = phi i32 [ 0, %5756 ], [ %spec.select6426, %5741 ]
+  %5761 = getelementptr inbounds nuw i32, ptr %5737, i64 %.sink6425
   store i32 %.sink, ptr %5761, align 4, !tbaa !16
   %indvars.iv.next5703 = add nuw nsw i64 %indvars.iv5702, 2
   %5762 = icmp slt i64 %indvars.iv.next5703, %5729
@@ -44420,8 +44420,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %64
   br i1 %.not184, label %.lr.ph, label %.loopexit166
 
 .loopexit166:                                     ; preds = %.outer168, %89, %95, %99
-  %indvars.iv.next255.lcssa299.sink = phi i64 [ %indvars.iv.next255, %99 ], [ %indvars.iv254, %95 ], [ %indvars.iv.next255, %89 ], [ %indvars.iv.next255, %.outer168 ]
-  %107 = trunc nuw i64 %indvars.iv.next255.lcssa299.sink to i32
+  %indvars.iv.next255.lcssa310.sink = phi i64 [ %indvars.iv.next255, %99 ], [ %indvars.iv254, %95 ], [ %indvars.iv.next255, %89 ], [ %indvars.iv.next255, %.outer168 ]
+  %107 = trunc nuw i64 %indvars.iv.next255.lcssa310.sink to i32
   %108 = icmp sgt i32 %13, 1
   br i1 %108, label %.lr.ph209, label %._crit_edge
 
@@ -45502,17 +45502,17 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !16
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.preheader102, label %98
+  br i1 %68, label %.preheader115, label %98
 
-.preheader102:                                    ; preds = %64, %.preheader102
-  %.0.i.i51.us = phi i32 [ %71, %.preheader102 ], [ %67, %64 ]
+.preheader115:                                    ; preds = %64, %.preheader115
+  %.0.i.i51.us = phi i32 [ %71, %.preheader115 ], [ %67, %64 ]
   %69 = sext i32 %.0.i.i51.us to i64
   %70 = getelementptr inbounds i32, ptr %1, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !16
   %72 = icmp slt i32 %71, %.0.i.i51.us
-  br i1 %72, label %.preheader102, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i52.us, !llvm.loop !66
+  br i1 %72, label %.preheader115, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i52.us, !llvm.loop !66
 
-_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i52.us: ; preds = %.preheader102
+_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i52.us: ; preds = %.preheader115
   %.not.i53.us = icmp eq i32 %67, %62
   br i1 %.not.i53.us, label %87, label %.preheader.i54.us
 
@@ -46608,17 +46608,17 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   %93 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %94 = load i8, ptr %93, align 1, !tbaa !55
   %.not96.us = icmp eq i8 %94, 0
-  br i1 %.not96.us, label %173, label %.preheader180
+  br i1 %.not96.us, label %173, label %.preheader195
 
-.preheader180:                                    ; preds = %92, %.preheader180
-  %.0.i.i121.us = phi i32 [ %97, %.preheader180 ], [ %85, %92 ]
+.preheader195:                                    ; preds = %92, %.preheader195
+  %.0.i.i121.us = phi i32 [ %97, %.preheader195 ], [ %85, %92 ]
   %95 = sext i32 %.0.i.i121.us to i64
   %96 = getelementptr inbounds i32, ptr %2, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !16
   %98 = icmp slt i32 %97, %.0.i.i121.us
-  br i1 %98, label %.preheader180, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us, !llvm.loop !66
+  br i1 %98, label %.preheader195, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us, !llvm.loop !66
 
-_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us: ; preds = %.preheader180
+_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us: ; preds = %.preheader195
   %.not.i123.us = icmp eq i32 %85, %83
   br i1 %.not.i123.us, label %113, label %.preheader.i124.us
 
@@ -46683,7 +46683,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %126 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %127 = load i8, ptr %126, align 1, !tbaa !55
   %.not98.us = icmp eq i8 %127, 0
-  br i1 %.not98.us, label %128, label %.preheader188
+  br i1 %.not98.us, label %128, label %.preheader203
 
 128:                                              ; preds = %125, %124
   %129 = or disjoint i64 %indvars.iv, 1
@@ -46696,7 +46696,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %133 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %134 = load i8, ptr %133, align 1, !tbaa !55
   %.not100.us = icmp eq i8 %134, 0
-  br i1 %.not100.us, label %135, label %.preheader188
+  br i1 %.not100.us, label %135, label %.preheader203
 
 135:                                              ; preds = %132, %128
   br i1 %.not97.us, label %139, label %136
@@ -46705,7 +46705,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %137 = getelementptr inbounds nuw i8, ptr %35, i64 %129
   %138 = load i8, ptr %137, align 1, !tbaa !55
   %.not102.us = icmp eq i8 %138, 0
-  br i1 %.not102.us, label %139, label %.preheader188
+  br i1 %.not102.us, label %139, label %.preheader203
 
 139:                                              ; preds = %136, %135
   br i1 %.not99.us, label %173, label %140
@@ -46714,13 +46714,13 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %141 = getelementptr inbounds nuw i8, ptr %35, i64 %129
   %142 = load i8, ptr %141, align 1, !tbaa !55
   %.not104.us = icmp eq i8 %142, 0
-  br i1 %.not104.us, label %173, label %.preheader188
+  br i1 %.not104.us, label %173, label %.preheader203
 
-.preheader188:                                    ; preds = %140, %136, %132, %125
+.preheader203:                                    ; preds = %140, %136, %132, %125
   br label %143
 
-143:                                              ; preds = %.preheader188, %143
-  %.0.i.i107.us = phi i32 [ %146, %143 ], [ %85, %.preheader188 ]
+143:                                              ; preds = %.preheader203, %143
+  %.0.i.i107.us = phi i32 [ %146, %143 ], [ %85, %.preheader203 ]
   %144 = sext i32 %.0.i.i107.us to i64
   %145 = getelementptr inbounds i32, ptr %2, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !16
@@ -54080,9 +54080,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %87 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv909
   %88 = load i8, ptr %87, align 1, !tbaa !55
   %.not802 = icmp eq i8 %88, 0
-  %spec.select962 = select i1 %.not802, i32 0, i32 %73
+  %spec.select988 = select i1 %.not802, i32 0, i32 %73
   %89 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv909
-  store i32 %spec.select962, ptr %89, align 4, !tbaa !16
+  store i32 %spec.select988, ptr %89, align 4, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %52, i64 %76
   %91 = load i8, ptr %90, align 1, !tbaa !55
   %.not803 = icmp eq i8 %91, 0
@@ -54202,9 +54202,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %152 = getelementptr inbounds nuw i8, ptr %128, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !55
   %.not796 = icmp eq i8 %153, 0
-  %spec.select963 = select i1 %.not796, i32 0, i32 %148
+  %spec.select989 = select i1 %.not796, i32 0, i32 %148
   %154 = getelementptr inbounds nuw i32, ptr %131, i64 %151
-  store i32 %spec.select963, ptr %154, align 4, !tbaa !16
+  store i32 %spec.select989, ptr %154, align 4, !tbaa !16
   %155 = load i32, ptr %15, align 8, !tbaa !32
   %156 = icmp sgt i32 %155, %137
   br i1 %156, label %157, label %171
@@ -54213,13 +54213,13 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %158 = getelementptr inbounds nuw i8, ptr %129, i64 %indvars.iv915
   %159 = load i8, ptr %158, align 1, !tbaa !55
   %.not797 = icmp eq i8 %159, 0
-  %spec.select964 = select i1 %.not797, i32 0, i32 %148
+  %spec.select990 = select i1 %.not797, i32 0, i32 %148
   %160 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv915
-  store i32 %spec.select964, ptr %160, align 4, !tbaa !16
+  store i32 %spec.select990, ptr %160, align 4, !tbaa !16
   %161 = getelementptr inbounds nuw i8, ptr %129, i64 %151
   %162 = load i8, ptr %161, align 1, !tbaa !55
   %.not798 = icmp eq i8 %162, 0
-  %.995 = select i1 %.not798, i32 0, i32 %148
+  %.1021 = select i1 %.not798, i32 0, i32 %148
   br label %.sink.split
 
 163:                                              ; preds = %141
@@ -54237,9 +54237,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %.sink.split
 
 .sink.split:                                      ; preds = %157, %168
-  %.sink966 = phi i64 [ %164, %168 ], [ %151, %157 ]
-  %.sink = phi i32 [ 0, %168 ], [ %.995, %157 ]
-  %170 = getelementptr inbounds nuw i32, ptr %132, i64 %.sink966
+  %.sink992 = phi i64 [ %164, %168 ], [ %151, %157 ]
+  %.sink = phi i32 [ 0, %168 ], [ %.1021, %157 ]
+  %170 = getelementptr inbounds nuw i32, ptr %132, i64 %.sink992
   store i32 %.sink, ptr %170, align 4, !tbaa !16
   br label %171
 
@@ -54331,9 +54331,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %223 = getelementptr inbounds nuw i8, ptr %204, i64 %indvars.iv921
   %224 = load i8, ptr %223, align 1, !tbaa !55
   %.not791 = icmp eq i8 %224, 0
-  %spec.select967 = select i1 %.not791, i32 0, i32 %220
+  %spec.select993 = select i1 %.not791, i32 0, i32 %220
   %225 = getelementptr inbounds nuw i32, ptr %207, i64 %indvars.iv921
-  store i32 %spec.select967, ptr %225, align 4, !tbaa !16
+  store i32 %spec.select993, ptr %225, align 4, !tbaa !16
   %226 = or disjoint i64 %indvars.iv921, 1
   %227 = load i32, ptr %18, align 4, !tbaa !49
   %228 = sext i32 %227 to i64
@@ -54344,14 +54344,14 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %231 = getelementptr inbounds nuw i8, ptr %203, i64 %226
   %232 = load i8, ptr %231, align 1, !tbaa !55
   %.not792 = icmp eq i8 %232, 0
-  %spec.select968 = select i1 %.not792, i32 0, i32 %220
+  %spec.select994 = select i1 %.not792, i32 0, i32 %220
   %233 = getelementptr inbounds nuw i32, ptr %206, i64 %226
-  store i32 %spec.select968, ptr %233, align 4, !tbaa !16
+  store i32 %spec.select994, ptr %233, align 4, !tbaa !16
   %234 = getelementptr inbounds nuw i8, ptr %204, i64 %226
   %235 = load i8, ptr %234, align 1, !tbaa !55
   %.not793 = icmp eq i8 %235, 0
-  %.996 = select i1 %.not793, i32 0, i32 %220
-  br label %.sink.split969
+  %.1022 = select i1 %.not793, i32 0, i32 %220
+  br label %.sink.split995
 
 236:                                              ; preds = %213
   store i32 0, ptr %214, align 4, !tbaa !16
@@ -54366,16 +54366,16 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
 242:                                              ; preds = %236
   %243 = getelementptr inbounds nuw i32, ptr %206, i64 %238
   store i32 0, ptr %243, align 4, !tbaa !16
-  br label %.sink.split969
+  br label %.sink.split995
 
-.sink.split969:                                   ; preds = %230, %242
-  %.sink972 = phi i64 [ %238, %242 ], [ %226, %230 ]
-  %.sink970 = phi i32 [ 0, %242 ], [ %.996, %230 ]
-  %244 = getelementptr inbounds nuw i32, ptr %207, i64 %.sink972
-  store i32 %.sink970, ptr %244, align 4, !tbaa !16
+.sink.split995:                                   ; preds = %230, %242
+  %.sink998 = phi i64 [ %238, %242 ], [ %226, %230 ]
+  %.sink996 = phi i32 [ 0, %242 ], [ %.1022, %230 ]
+  %244 = getelementptr inbounds nuw i32, ptr %207, i64 %.sink998
+  store i32 %.sink996, ptr %244, align 4, !tbaa !16
   br label %245
 
-245:                                              ; preds = %.sink.split969, %236, %217
+245:                                              ; preds = %.sink.split995, %236, %217
   %indvars.iv.next922 = add nuw nsw i64 %indvars.iv921, 2
   %246 = load i32, ptr %18, align 4, !tbaa !49
   %247 = sext i32 %246 to i64
@@ -54425,9 +54425,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %273 = getelementptr inbounds nuw i8, ptr %252, i64 %272
   %274 = load i8, ptr %273, align 1, !tbaa !55
   %.not787 = icmp eq i8 %274, 0
-  %spec.select973 = select i1 %.not787, i32 0, i32 %269
+  %spec.select999 = select i1 %.not787, i32 0, i32 %269
   %275 = getelementptr inbounds nuw i32, ptr %255, i64 %272
-  store i32 %spec.select973, ptr %275, align 4, !tbaa !16
+  store i32 %spec.select999, ptr %275, align 4, !tbaa !16
   %276 = getelementptr inbounds nuw i8, ptr %253, i64 %indvars.iv927
   %277 = load i8, ptr %276, align 1, !tbaa !55
   %.not788 = icmp eq i8 %277, 0
@@ -54437,7 +54437,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %279 = getelementptr inbounds nuw i8, ptr %253, i64 %272
   %280 = load i8, ptr %279, align 1, !tbaa !55
   %.not789 = icmp eq i8 %280, 0
-  %spec.select999 = select i1 %.not789, i32 0, i32 %269
+  %spec.select1025 = select i1 %.not789, i32 0, i32 %269
   br label %285
 
 281:                                              ; preds = %262
@@ -54450,10 +54450,10 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %285
 
 285:                                              ; preds = %266, %281
-  %.sink976 = phi i64 [ %282, %281 ], [ %272, %266 ]
-  %.sink974 = phi i32 [ 0, %281 ], [ %spec.select999, %266 ]
-  %286 = getelementptr inbounds nuw i32, ptr %256, i64 %.sink976
-  store i32 %.sink974, ptr %286, align 4, !tbaa !16
+  %.sink1002 = phi i64 [ %282, %281 ], [ %272, %266 ]
+  %.sink1000 = phi i32 [ 0, %281 ], [ %spec.select1025, %266 ]
+  %286 = getelementptr inbounds nuw i32, ptr %256, i64 %.sink1002
+  store i32 %.sink1000, ptr %286, align 4, !tbaa !16
   %indvars.iv.next928 = add nuw nsw i64 %indvars.iv927, 2
   %287 = load i32, ptr %18, align 4, !tbaa !49
   %288 = sext i32 %287 to i64
@@ -54561,9 +54561,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %347 = getelementptr inbounds nuw i8, ptr %322, i64 %342
   %348 = load i8, ptr %347, align 1, !tbaa !55
   %.not781 = icmp eq i8 %348, 0
-  %spec.select977 = select i1 %.not781, i32 0, i32 %339
+  %spec.select1003 = select i1 %.not781, i32 0, i32 %339
   %349 = getelementptr inbounds nuw i32, ptr %325, i64 %342
-  store i32 %spec.select977, ptr %349, align 4, !tbaa !16
+  store i32 %spec.select1003, ptr %349, align 4, !tbaa !16
   %350 = load i32, ptr %15, align 8, !tbaa !32
   %351 = sext i32 %350 to i64
   %352 = icmp slt i64 %328, %351
@@ -54573,9 +54573,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %354 = getelementptr inbounds nuw i8, ptr %323, i64 %indvars.iv
   %355 = load i8, ptr %354, align 1, !tbaa !55
   %.not782 = icmp eq i8 %355, 0
-  %spec.select978 = select i1 %.not782, i32 0, i32 %339
+  %spec.select1004 = select i1 %.not782, i32 0, i32 %339
   %356 = getelementptr inbounds nuw i32, ptr %326, i64 %indvars.iv
-  store i32 %spec.select978, ptr %356, align 4, !tbaa !16
+  store i32 %spec.select1004, ptr %356, align 4, !tbaa !16
   %357 = getelementptr inbounds nuw i8, ptr %323, i64 %342
   %358 = load i8, ptr %357, align 1, !tbaa !55
   %.not783 = icmp eq i8 %358, 0
@@ -54695,9 +54695,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %418 = getelementptr inbounds nuw i8, ptr %397, i64 %417
   %419 = load i8, ptr %418, align 1, !tbaa !55
   %.not776 = icmp eq i8 %419, 0
-  %spec.select979 = select i1 %.not776, i32 0, i32 %414
+  %spec.select1005 = select i1 %.not776, i32 0, i32 %414
   %420 = getelementptr inbounds nuw i32, ptr %400, i64 %417
-  store i32 %spec.select979, ptr %420, align 4, !tbaa !16
+  store i32 %spec.select1005, ptr %420, align 4, !tbaa !16
   %421 = load i32, ptr %15, align 8, !tbaa !32
   %422 = sext i32 %421 to i64
   %423 = icmp slt i64 %403, %422
@@ -54707,14 +54707,14 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %425 = getelementptr inbounds nuw i8, ptr %398, i64 %indvars.iv891
   %426 = load i8, ptr %425, align 1, !tbaa !55
   %.not777 = icmp eq i8 %426, 0
-  %spec.select980 = select i1 %.not777, i32 0, i32 %414
+  %spec.select1006 = select i1 %.not777, i32 0, i32 %414
   %427 = getelementptr inbounds nuw i32, ptr %401, i64 %indvars.iv891
-  store i32 %spec.select980, ptr %427, align 4, !tbaa !16
+  store i32 %spec.select1006, ptr %427, align 4, !tbaa !16
   %428 = getelementptr inbounds nuw i8, ptr %398, i64 %417
   %429 = load i8, ptr %428, align 1, !tbaa !55
   %.not778 = icmp eq i8 %429, 0
-  %.997 = select i1 %.not778, i32 0, i32 %414
-  br label %.sink.split981
+  %.1023 = select i1 %.not778, i32 0, i32 %414
+  br label %.sink.split1007
 
 430:                                              ; preds = %407
   store i32 0, ptr %408, align 4, !tbaa !16
@@ -54729,16 +54729,16 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
 436:                                              ; preds = %430
   %437 = getelementptr inbounds nuw i32, ptr %401, i64 %indvars.iv891
   store i32 0, ptr %437, align 4, !tbaa !16
-  br label %.sink.split981
+  br label %.sink.split1007
 
-.sink.split981:                                   ; preds = %424, %436
-  %.sink984 = phi i64 [ %431, %436 ], [ %417, %424 ]
-  %.sink982 = phi i32 [ 0, %436 ], [ %.997, %424 ]
-  %438 = getelementptr inbounds nuw i32, ptr %401, i64 %.sink984
-  store i32 %.sink982, ptr %438, align 4, !tbaa !16
+.sink.split1007:                                  ; preds = %424, %436
+  %.sink1010 = phi i64 [ %431, %436 ], [ %417, %424 ]
+  %.sink1008 = phi i32 [ 0, %436 ], [ %.1023, %424 ]
+  %438 = getelementptr inbounds nuw i32, ptr %401, i64 %.sink1010
+  store i32 %.sink1008, ptr %438, align 4, !tbaa !16
   br label %439
 
-439:                                              ; preds = %.sink.split981, %430, %411
+439:                                              ; preds = %.sink.split1007, %430, %411
   %indvars.iv.next892 = add nuw nsw i64 %indvars.iv891, 2
   %440 = load i32, ptr %18, align 4, !tbaa !49
   %441 = sext i32 %440 to i64
@@ -54827,9 +54827,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %492 = getelementptr inbounds nuw i8, ptr %474, i64 %indvars.iv897
   %493 = load i8, ptr %492, align 1, !tbaa !55
   %.not771 = icmp eq i8 %493, 0
-  %spec.select985 = select i1 %.not771, i32 0, i32 %489
+  %spec.select1011 = select i1 %.not771, i32 0, i32 %489
   %494 = getelementptr inbounds nuw i32, ptr %477, i64 %indvars.iv897
-  store i32 %spec.select985, ptr %494, align 4, !tbaa !16
+  store i32 %spec.select1011, ptr %494, align 4, !tbaa !16
   %495 = or disjoint i64 %indvars.iv897, 1
   %496 = load i32, ptr %18, align 4, !tbaa !49
   %497 = sext i32 %496 to i64
@@ -54840,14 +54840,14 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %500 = getelementptr inbounds nuw i8, ptr %473, i64 %495
   %501 = load i8, ptr %500, align 1, !tbaa !55
   %.not772 = icmp eq i8 %501, 0
-  %spec.select986 = select i1 %.not772, i32 0, i32 %489
+  %spec.select1012 = select i1 %.not772, i32 0, i32 %489
   %502 = getelementptr inbounds nuw i32, ptr %476, i64 %495
-  store i32 %spec.select986, ptr %502, align 4, !tbaa !16
+  store i32 %spec.select1012, ptr %502, align 4, !tbaa !16
   %503 = getelementptr inbounds nuw i8, ptr %474, i64 %495
   %504 = load i8, ptr %503, align 1, !tbaa !55
   %.not773 = icmp eq i8 %504, 0
-  %.998 = select i1 %.not773, i32 0, i32 %489
-  br label %.sink.split987
+  %.1024 = select i1 %.not773, i32 0, i32 %489
+  br label %.sink.split1013
 
 505:                                              ; preds = %482
   store i32 0, ptr %483, align 4, !tbaa !16
@@ -54862,16 +54862,16 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
 511:                                              ; preds = %505
   %512 = getelementptr inbounds nuw i32, ptr %476, i64 %507
   store i32 0, ptr %512, align 4, !tbaa !16
-  br label %.sink.split987
+  br label %.sink.split1013
 
-.sink.split987:                                   ; preds = %499, %511
-  %.sink990 = phi i64 [ %507, %511 ], [ %495, %499 ]
-  %.sink988 = phi i32 [ 0, %511 ], [ %.998, %499 ]
-  %513 = getelementptr inbounds nuw i32, ptr %477, i64 %.sink990
-  store i32 %.sink988, ptr %513, align 4, !tbaa !16
+.sink.split1013:                                  ; preds = %499, %511
+  %.sink1016 = phi i64 [ %507, %511 ], [ %495, %499 ]
+  %.sink1014 = phi i32 [ 0, %511 ], [ %.1024, %499 ]
+  %513 = getelementptr inbounds nuw i32, ptr %477, i64 %.sink1016
+  store i32 %.sink1014, ptr %513, align 4, !tbaa !16
   br label %514
 
-514:                                              ; preds = %.sink.split987, %505, %486
+514:                                              ; preds = %.sink.split1013, %505, %486
   %indvars.iv.next898 = add nuw nsw i64 %indvars.iv897, 2
   %515 = load i32, ptr %18, align 4, !tbaa !49
   %516 = sext i32 %515 to i64
@@ -54920,9 +54920,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %541 = getelementptr inbounds nuw i8, ptr %521, i64 %540
   %542 = load i8, ptr %541, align 1, !tbaa !55
   %.not767 = icmp eq i8 %542, 0
-  %spec.select991 = select i1 %.not767, i32 0, i32 %537
+  %spec.select1017 = select i1 %.not767, i32 0, i32 %537
   %543 = getelementptr inbounds nuw i32, ptr %524, i64 %540
-  store i32 %spec.select991, ptr %543, align 4, !tbaa !16
+  store i32 %spec.select1017, ptr %543, align 4, !tbaa !16
   %544 = getelementptr inbounds nuw i8, ptr %522, i64 %indvars.iv903
   %545 = load i8, ptr %544, align 1, !tbaa !55
   %.not768 = icmp eq i8 %545, 0
@@ -54932,7 +54932,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %547 = getelementptr inbounds nuw i8, ptr %522, i64 %540
   %548 = load i8, ptr %547, align 1, !tbaa !55
   %.not769 = icmp eq i8 %548, 0
-  %spec.select1000 = select i1 %.not769, i32 0, i32 %537
+  %spec.select1026 = select i1 %.not769, i32 0, i32 %537
   br label %553
 
 549:                                              ; preds = %530
@@ -54945,10 +54945,10 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %553
 
 553:                                              ; preds = %534, %549
-  %.sink994 = phi i64 [ %550, %549 ], [ %540, %534 ]
-  %.sink992 = phi i32 [ 0, %549 ], [ %spec.select1000, %534 ]
-  %554 = getelementptr inbounds nuw i32, ptr %525, i64 %.sink994
-  store i32 %.sink992, ptr %554, align 4, !tbaa !16
+  %.sink1020 = phi i64 [ %550, %549 ], [ %540, %534 ]
+  %.sink1018 = phi i32 [ 0, %549 ], [ %spec.select1026, %534 ]
+  %554 = getelementptr inbounds nuw i32, ptr %525, i64 %.sink1020
+  store i32 %.sink1018, ptr %554, align 4, !tbaa !16
   %indvars.iv.next904 = add nuw nsw i64 %indvars.iv903, 2
   %555 = load i32, ptr %18, align 4, !tbaa !49
   %556 = sext i32 %555 to i64
@@ -55124,17 +55124,17 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   %93 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %94 = load i8, ptr %93, align 1, !tbaa !55
   %.not96.us = icmp eq i8 %94, 0
-  br i1 %.not96.us, label %173, label %.preheader180
+  br i1 %.not96.us, label %173, label %.preheader195
 
-.preheader180:                                    ; preds = %92, %.preheader180
-  %.0.i.i121.us = phi i32 [ %97, %.preheader180 ], [ %85, %92 ]
+.preheader195:                                    ; preds = %92, %.preheader195
+  %.0.i.i121.us = phi i32 [ %97, %.preheader195 ], [ %85, %92 ]
   %95 = sext i32 %.0.i.i121.us to i64
   %96 = getelementptr inbounds i32, ptr %2, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !16
   %98 = icmp slt i32 %97, %.0.i.i121.us
-  br i1 %98, label %.preheader180, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us, !llvm.loop !66
+  br i1 %98, label %.preheader195, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us, !llvm.loop !66
 
-_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us: ; preds = %.preheader180
+_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us: ; preds = %.preheader195
   %.not.i123.us = icmp eq i32 %85, %83
   br i1 %.not.i123.us, label %113, label %.preheader.i124.us
 
@@ -55199,7 +55199,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %126 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %127 = load i8, ptr %126, align 1, !tbaa !55
   %.not98.us = icmp eq i8 %127, 0
-  br i1 %.not98.us, label %128, label %.preheader188
+  br i1 %.not98.us, label %128, label %.preheader203
 
 128:                                              ; preds = %125, %124
   %129 = or disjoint i64 %indvars.iv, 1
@@ -55212,7 +55212,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %133 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %134 = load i8, ptr %133, align 1, !tbaa !55
   %.not100.us = icmp eq i8 %134, 0
-  br i1 %.not100.us, label %135, label %.preheader188
+  br i1 %.not100.us, label %135, label %.preheader203
 
 135:                                              ; preds = %132, %128
   br i1 %.not97.us, label %139, label %136
@@ -55221,7 +55221,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %137 = getelementptr inbounds nuw i8, ptr %35, i64 %129
   %138 = load i8, ptr %137, align 1, !tbaa !55
   %.not102.us = icmp eq i8 %138, 0
-  br i1 %.not102.us, label %139, label %.preheader188
+  br i1 %.not102.us, label %139, label %.preheader203
 
 139:                                              ; preds = %136, %135
   br i1 %.not99.us, label %173, label %140
@@ -55230,13 +55230,13 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %141 = getelementptr inbounds nuw i8, ptr %35, i64 %129
   %142 = load i8, ptr %141, align 1, !tbaa !55
   %.not104.us = icmp eq i8 %142, 0
-  br i1 %.not104.us, label %173, label %.preheader188
+  br i1 %.not104.us, label %173, label %.preheader203
 
-.preheader188:                                    ; preds = %140, %136, %132, %125
+.preheader203:                                    ; preds = %140, %136, %132, %125
   br label %143
 
-143:                                              ; preds = %.preheader188, %143
-  %.0.i.i107.us = phi i32 [ %146, %143 ], [ %85, %.preheader188 ]
+143:                                              ; preds = %.preheader203, %143
+  %.0.i.i107.us = phi i32 [ %146, %143 ], [ %85, %.preheader203 ]
   %144 = sext i32 %.0.i.i107.us to i64
   %145 = getelementptr inbounds i32, ptr %2, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !16
@@ -55937,8 +55937,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
 270:                                              ; preds = %260
   %271 = getelementptr inbounds i32, ptr %155, i64 %indvars.iv
   store i32 %261, ptr %271, align 4, !tbaa !16
-  %sext5262 = shl i64 %indvars.iv5110, 32
-  %272 = ashr exact i64 %sext5262, 30
+  %sext5531 = shl i64 %indvars.iv5110, 32
+  %272 = ashr exact i64 %sext5531, 30
   %273 = getelementptr inbounds i8, ptr %158, i64 %272
   store i32 %261, ptr %273, align 4, !tbaa !16
   %274 = add nsw i32 %261, 1
@@ -56556,8 +56556,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit: ; preds = %.lr.ph.i
 
 .loopexit4352.loopexit:                           ; preds = %3156
   %601 = trunc nsw i64 %indvars.iv5127 to i32
-  %sext5275 = shl i64 %indvars.iv5127, 32
-  %.pre = ashr exact i64 %sext5275, 32
+  %sext5544 = shl i64 %indvars.iv5127, 32
+  %.pre = ashr exact i64 %sext5544, 32
   br label %.loopexit4352
 
 .loopexit4352:                                    ; preds = %.loopexit4352.loopexit, %598
@@ -59658,8 +59658,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
 
 2149:                                             ; preds = %2105
   %2150 = trunc nsw i64 %indvars.iv5113 to i32
-  %sext5264 = shl i64 %indvars.iv5115, 32
-  %2151 = ashr exact i64 %sext5264, 30
+  %sext5533 = shl i64 %indvars.iv5115, 32
+  %2151 = ashr exact i64 %sext5533, 30
   %2152 = getelementptr inbounds i8, ptr %429, i64 %2151
   %2153 = load i32, ptr %2152, align 4, !tbaa !16
   %2154 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5113
@@ -59668,8 +59668,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
 
 2155:                                             ; preds = %2102
   %2156 = trunc nsw i64 %indvars.iv5113 to i32
-  %sext5263 = shl i64 %indvars.iv5115, 32
-  %2157 = ashr exact i64 %sext5263, 30
+  %sext5532 = shl i64 %indvars.iv5115, 32
+  %2157 = ashr exact i64 %sext5532, 30
   %2158 = getelementptr inbounds i8, ptr %429, i64 %2157
   %2159 = load i32, ptr %2158, align 4, !tbaa !16
   %2160 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5113
@@ -59705,8 +59705,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
 
 2176:                                             ; preds = %2164
   %2177 = trunc nsw i64 %indvars.iv5113 to i32
-  %sext5265 = shl i64 %indvars.iv5115, 32
-  %2178 = ashr exact i64 %sext5265, 30
+  %sext5534 = shl i64 %indvars.iv5115, 32
+  %2178 = ashr exact i64 %sext5534, 30
   %2179 = getelementptr inbounds i8, ptr %429, i64 %2178
   %2180 = load i32, ptr %2179, align 4, !tbaa !16
   %2181 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5113
@@ -59716,8 +59716,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
 2182:                                             ; preds = %2161
   %2183 = trunc nsw i64 %indvars.iv5113 to i32
   %2184 = shl i64 %indvars.iv5115, 32
-  %sext5266 = add i64 %2184, 12884901888
-  %2185 = ashr exact i64 %sext5266, 32
+  %sext5535 = add i64 %2184, 12884901888
+  %2185 = ashr exact i64 %sext5535, 32
   %2186 = getelementptr inbounds i8, ptr %417, i64 %2185
   %2187 = load i8, ptr %2186, align 1, !tbaa !55
   %.not3077 = icmp eq i8 %2187, 0
@@ -59737,8 +59737,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
   br label %2204
 
 2195:                                             ; preds = %2188
-  %sext5267 = shl i64 %indvars.iv5115, 32
-  %2196 = ashr exact i64 %sext5267, 32
+  %sext5536 = shl i64 %indvars.iv5115, 32
+  %2196 = ashr exact i64 %sext5536, 32
   %2197 = getelementptr i8, ptr %419, i64 %2196
   %2198 = getelementptr i8, ptr %2197, i64 4
   %2199 = load i8, ptr %2198, align 1, !tbaa !55
@@ -60375,16 +60375,16 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3847: ; preds = %.lr.
   br i1 %.not3290, label %2545, label %2504
 
 2504:                                             ; preds = %2500
-  %sext5268 = shl i64 %indvars.iv5122, 32
-  %2505 = ashr exact i64 %sext5268, 32
+  %sext5537 = shl i64 %indvars.iv5122, 32
+  %2505 = ashr exact i64 %sext5537, 32
   %2506 = getelementptr inbounds i8, ptr %419, i64 %2505
   %2507 = load i8, ptr %2506, align 1, !tbaa !55
   %.not3291 = icmp eq i8 %2507, 0
   br i1 %.not3291, label %2508, label %._crit_edge5201
 
 ._crit_edge5201:                                  ; preds = %2504
-  %sext5269 = shl i64 %indvars.iv5120, 32
-  %.pre5242 = ashr exact i64 %sext5269, 32
+  %sext5538 = shl i64 %indvars.iv5120, 32
+  %.pre5242 = ashr exact i64 %sext5538, 32
   br label %1756
 
 2508:                                             ; preds = %2504
@@ -60467,8 +60467,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3861: ; preds = %.lr.
   %2546 = load ptr, ptr %405, align 8, !tbaa !136
   %2547 = getelementptr inbounds i32, ptr %432, i64 %indvars.iv5120
   %2548 = load i32, ptr %2547, align 4, !tbaa !16
-  %sext5270 = shl i64 %indvars.iv5122, 32
-  %2549 = ashr exact i64 %sext5270, 30
+  %sext5539 = shl i64 %indvars.iv5122, 32
+  %2549 = ashr exact i64 %sext5539, 30
   %2550 = getelementptr inbounds i8, ptr %429, i64 %2549
   %2551 = load i32, ptr %2550, align 4, !tbaa !16
   br label %2552
@@ -60556,8 +60556,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3875: ; preds = %.lr.
 
 2590:                                             ; preds = %2586
   %2591 = trunc nsw i64 %indvars.iv5120 to i32
-  %sext5287 = shl i64 %indvars.iv5122, 32
-  %2592 = ashr exact i64 %sext5287, 32
+  %sext5556 = shl i64 %indvars.iv5122, 32
+  %2592 = ashr exact i64 %sext5556, 32
   %2593 = getelementptr i8, ptr %420, i64 %2592
   %2594 = getelementptr i8, ptr %2593, i64 3
   %2595 = load i8, ptr %2594, align 1, !tbaa !55
@@ -60577,8 +60577,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3875: ; preds = %.lr.
   br i1 %.not3288, label %2602, label %._crit_edge5209
 
 ._crit_edge5209:                                  ; preds = %2599
-  %sext5288 = shl i64 %indvars.iv5120, 32
-  %.pre5226 = ashr exact i64 %sext5288, 32
+  %sext5557 = shl i64 %indvars.iv5120, 32
+  %.pre5226 = ashr exact i64 %sext5557, 32
   br label %1855
 
 2602:                                             ; preds = %2599
@@ -60821,8 +60821,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3917: ; preds = %.lr.
 
 2717:                                             ; preds = %2583
   %2718 = trunc nsw i64 %indvars.iv5120 to i32
-  %sext5271 = shl i64 %indvars.iv5122, 32
-  %2719 = ashr exact i64 %sext5271, 30
+  %sext5540 = shl i64 %indvars.iv5122, 32
+  %2719 = ashr exact i64 %sext5540, 30
   %2720 = getelementptr inbounds i8, ptr %429, i64 %2719
   %2721 = load i32, ptr %2720, align 4, !tbaa !16
   %2722 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5120
@@ -60856,16 +60856,16 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3917: ; preds = %.lr.
   br i1 %.not3090, label %2778, label %2737
 
 2737:                                             ; preds = %2733
-  %sext5272 = shl i64 %indvars.iv5122, 32
-  %2738 = ashr exact i64 %sext5272, 32
+  %sext5541 = shl i64 %indvars.iv5122, 32
+  %2738 = ashr exact i64 %sext5541, 32
   %2739 = getelementptr inbounds i8, ptr %419, i64 %2738
   %2740 = load i8, ptr %2739, align 1, !tbaa !55
   %.not3091 = icmp eq i8 %2740, 0
   br i1 %.not3091, label %2741, label %._crit_edge5202
 
 ._crit_edge5202:                                  ; preds = %2737
-  %sext5273 = shl i64 %indvars.iv5120, 32
-  %.pre5240 = ashr exact i64 %sext5273, 32
+  %sext5542 = shl i64 %indvars.iv5120, 32
+  %.pre5240 = ashr exact i64 %sext5542, 32
   br label %1999
 
 2741:                                             ; preds = %2737
@@ -60948,8 +60948,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3931: ; preds = %.lr.
   %2779 = load ptr, ptr %405, align 8, !tbaa !136
   %2780 = getelementptr inbounds i32, ptr %432, i64 %indvars.iv5120
   %2781 = load i32, ptr %2780, align 4, !tbaa !16
-  %sext5274 = shl i64 %indvars.iv5122, 32
-  %2782 = ashr exact i64 %sext5274, 30
+  %sext5543 = shl i64 %indvars.iv5122, 32
+  %2782 = ashr exact i64 %sext5543, 30
   %2783 = getelementptr inbounds i8, ptr %429, i64 %2782
   %2784 = load i32, ptr %2783, align 4, !tbaa !16
   br label %2785
@@ -61024,8 +61024,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3945: ; preds = %.lr.
 
 2816:                                             ; preds = %2726
   %2817 = trunc nsw i64 %indvars.iv5120 to i32
-  %sext5289 = shl i64 %indvars.iv5122, 32
-  %2818 = ashr exact i64 %sext5289, 30
+  %sext5558 = shl i64 %indvars.iv5122, 32
+  %2818 = ashr exact i64 %sext5558, 30
   %2819 = getelementptr inbounds i8, ptr %429, i64 %2818
   %2820 = load i32, ptr %2819, align 4, !tbaa !16
   %2821 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5120
@@ -61700,8 +61700,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3062, label %3183, label %3167
 
 3167:                                             ; preds = %3163
-  %sext5276 = shl i64 %indvars.iv5129, 32
-  %3168 = ashr exact i64 %sext5276, 32
+  %sext5545 = shl i64 %indvars.iv5129, 32
+  %3168 = ashr exact i64 %sext5545, 32
   %3169 = getelementptr i8, ptr %419, i64 %3168
   %3170 = getelementptr i8, ptr %3169, i64 4
   %3171 = load i8, ptr %3170, align 1, !tbaa !55
@@ -61715,8 +61715,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3065, label %._crit_edge5205, label %458
 
 ._crit_edge5205:                                  ; preds = %3174
-  %sext5277 = shl i64 %indvars.iv5127, 32
-  %.pre5234 = ashr exact i64 %sext5277, 32
+  %sext5546 = shl i64 %indvars.iv5127, 32
+  %.pre5234 = ashr exact i64 %sext5546, 32
   br label %664
 
 3175:                                             ; preds = %3167
@@ -61749,8 +61749,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br label %2883
 
 3190:                                             ; preds = %3183
-  %sext5278 = shl i64 %indvars.iv5129, 32
-  %3191 = ashr exact i64 %sext5278, 30
+  %sext5547 = shl i64 %indvars.iv5129, 32
+  %3191 = ashr exact i64 %sext5547, 30
   %3192 = getelementptr inbounds i8, ptr %432, i64 %3191
   %3193 = load i32, ptr %3192, align 4, !tbaa !16
   %3194 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5127
@@ -61766,14 +61766,14 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
 
 3199:                                             ; preds = %3195
   %3200 = shl i64 %indvars.iv5129, 32
-  %sext5279 = add i64 %3200, 12884901888
-  %3201 = ashr exact i64 %sext5279, 32
+  %sext5548 = add i64 %3200, 12884901888
+  %3201 = ashr exact i64 %sext5548, 32
   %3202 = getelementptr inbounds i8, ptr %417, i64 %3201
   %3203 = load i8, ptr %3202, align 1, !tbaa !55
   %.not3051 = icmp eq i8 %3203, 0
   %3204 = shl i64 %indvars.iv5129, 32
-  %sext5284 = add i64 %3204, 4294967296
-  %3205 = ashr exact i64 %sext5284, 32
+  %sext5553 = add i64 %3204, 4294967296
+  %3205 = ashr exact i64 %sext5553, 32
   br i1 %.not3051, label %3230, label %3206
 
 3206:                                             ; preds = %3199
@@ -61783,8 +61783,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3054, label %3209, label %._crit_edge5208
 
 ._crit_edge5208:                                  ; preds = %3206
-  %sext5281 = shl i64 %indvars.iv5127, 32
-  %.pre5228 = ashr exact i64 %sext5281, 32
+  %sext5550 = shl i64 %indvars.iv5127, 32
+  %.pre5228 = ashr exact i64 %sext5550, 32
   br label %2391
 
 3209:                                             ; preds = %3206
@@ -61800,8 +61800,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3056, label %3215, label %._crit_edge5216
 
 3215:                                             ; preds = %3212
-  %sext5282 = shl i64 %indvars.iv5129, 32
-  %3216 = ashr exact i64 %sext5282, 32
+  %sext5551 = shl i64 %indvars.iv5129, 32
+  %3216 = ashr exact i64 %sext5551, 32
   %3217 = getelementptr i8, ptr %419, i64 %3216
   %3218 = getelementptr i8, ptr %3217, i64 4
   %3219 = load i8, ptr %3218, align 1, !tbaa !55
@@ -61809,8 +61809,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3057, label %3220, label %._crit_edge5206
 
 ._crit_edge5206:                                  ; preds = %3215
-  %sext5283 = shl i64 %indvars.iv5127, 32
-  %.pre5232 = ashr exact i64 %sext5283, 32
+  %sext5552 = shl i64 %indvars.iv5127, 32
+  %.pre5232 = ashr exact i64 %sext5552, 32
   br label %2276
 
 3220:                                             ; preds = %3215
@@ -61839,8 +61839,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3052, label %3238, label %3233
 
 3233:                                             ; preds = %3230
-  %sext5285 = shl i64 %indvars.iv5129, 32
-  %3234 = ashr exact i64 %sext5285, 30
+  %sext5554 = shl i64 %indvars.iv5129, 32
+  %3234 = ashr exact i64 %sext5554, 30
   %3235 = getelementptr inbounds i8, ptr %429, i64 %3234
   %3236 = load i32, ptr %3235, align 4, !tbaa !16
   %3237 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5127
@@ -61854,8 +61854,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3053, label %3246, label %3241
 
 3241:                                             ; preds = %3238
-  %sext5286 = shl i64 %indvars.iv5129, 32
-  %3242 = ashr exact i64 %sext5286, 30
+  %sext5555 = shl i64 %indvars.iv5129, 32
+  %3242 = ashr exact i64 %sext5555, 30
   %3243 = getelementptr inbounds i8, ptr %429, i64 %3242
   %3244 = load i32, ptr %3243, align 4, !tbaa !16
   %3245 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5127
@@ -64794,8 +64794,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4225: ; preds = %.lr.
 
 .loopexit4344.loopexit:                           ; preds = %5384
   %4753 = trunc nsw i64 %indvars.iv5151 to i32
-  %sext5297 = shl i64 %indvars.iv5151, 32
-  %.pre5183 = ashr exact i64 %sext5297, 32
+  %sext5566 = shl i64 %indvars.iv5151, 32
+  %.pre5183 = ashr exact i64 %sext5566, 32
   br label %.loopexit4344
 
 .loopexit4344:                                    ; preds = %.loopexit4344.loopexit, %4748
@@ -65311,12 +65311,12 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4267: ; preds = %.lr.
   br label %4724
 
 5024:                                             ; preds = %4850, %4691, %5402, %5268
-  %indvars.iv5151.lcssa5354.sink5596 = phi i64 [ %indvars.iv5137, %5268 ], [ %indvars.iv5151, %5402 ], [ %4636, %4691 ], [ %4733, %4850 ]
+  %indvars.iv5151.lcssa5623.sink5865 = phi i64 [ %indvars.iv5137, %5268 ], [ %indvars.iv5151, %5402 ], [ %4636, %4691 ], [ %4733, %4850 ]
   %.104 = phi i32 [ %.103.ph, %5268 ], [ %.100.ph, %5402 ], [ %.101, %4691 ], [ %.108, %4850 ]
   %.5 = phi i32 [ %5260, %5268 ], [ %5392, %5402 ], [ %.2, %4691 ], [ %4726, %4850 ]
-  %5025 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5151.lcssa5354.sink5596
+  %5025 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5151.lcssa5623.sink5865
   %5026 = load i32, ptr %5025, align 4, !tbaa !16
-  %5027 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5151.lcssa5354.sink5596
+  %5027 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5151.lcssa5623.sink5865
   store i32 %5026, ptr %5027, align 4, !tbaa !16
   %5028 = add nsw i32 %.5, 2
   %.not2990 = icmp slt i32 %5028, %156
@@ -65669,9 +65669,9 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4295: ; preds = %.lr.
   br i1 %.not3021, label %5214, label %.backedge4348
 
 .backedge4348:                                    ; preds = %5208, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309
-  %.sink5597 = phi i32 [ %.0.i4305, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309 ], [ %5212, %5208 ]
+  %.sink5866 = phi i32 [ %.0.i4305, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309 ], [ %5212, %5208 ]
   %5213 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137
-  store i32 %.sink5597, ptr %5213, align 4, !tbaa !16
+  store i32 %.sink5866, ptr %5213, align 4, !tbaa !16
   %indvars.iv.next5138 = add nsw i64 %indvars.iv5137, 2
   %.not2941 = icmp slt i64 %indvars.iv.next5138, %4609
   %indvars.iv.next5140 = add nsw i64 %indvars.iv5139, 2
@@ -65750,8 +65750,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
 
 5247:                                             ; preds = %5204
   %5248 = trunc nsw i64 %indvars.iv5137 to i32
-  %sext5290 = shl i64 %indvars.iv5139, 32
-  %5249 = ashr exact i64 %sext5290, 30
+  %sext5559 = shl i64 %indvars.iv5139, 32
+  %5249 = ashr exact i64 %sext5559, 30
   %5250 = getelementptr inbounds i8, ptr %4604, i64 %5249
   %5251 = load i32, ptr %5250, align 4, !tbaa !16
   %5252 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137
@@ -65760,8 +65760,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
 
 5253:                                             ; preds = %5201
   %5254 = trunc nsw i64 %indvars.iv5137 to i32
-  %sext5291 = shl i64 %indvars.iv5139, 32
-  %5255 = ashr exact i64 %sext5291, 30
+  %sext5560 = shl i64 %indvars.iv5139, 32
+  %5255 = ashr exact i64 %sext5560, 30
   %5256 = getelementptr inbounds i8, ptr %4604, i64 %5255
   %5257 = load i32, ptr %5256, align 4, !tbaa !16
   %5258 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137
@@ -65771,8 +65771,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
 5259:                                             ; preds = %5189
   %5260 = trunc nsw i64 %indvars.iv5137 to i32
   %5261 = shl i64 %indvars.iv5139, 32
-  %sext5292 = add i64 %5261, 12884901888
-  %5262 = ashr exact i64 %sext5292, 32
+  %sext5561 = add i64 %5261, 12884901888
+  %5262 = ashr exact i64 %sext5561, 32
   %5263 = getelementptr inbounds i8, ptr %4593, i64 %5262
   %5264 = load i8, ptr %5263, align 1, !tbaa !55
   %.not2943 = icmp eq i8 %5264, 0
@@ -65785,8 +65785,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   br i1 %.not2944, label %5268, label %5273
 
 5268:                                             ; preds = %5265
-  %sext5293 = shl i64 %indvars.iv5139, 32
-  %5269 = ashr exact i64 %sext5293, 32
+  %sext5562 = shl i64 %indvars.iv5139, 32
+  %5269 = ashr exact i64 %sext5562, 32
   %5270 = getelementptr i8, ptr %4595, i64 %5269
   %5271 = getelementptr i8, ptr %5270, i64 4
   %5272 = load i8, ptr %5271, align 1, !tbaa !55
@@ -65794,12 +65794,12 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   br i1 %.not2945, label %5024, label %4640
 
 5273:                                             ; preds = %5265, %5003, %4720
-  %indvars.iv5137.lcssa.sink5603 = phi i64 [ %5004, %5003 ], [ %4721, %4720 ], [ %indvars.iv5137, %5265 ]
+  %indvars.iv5137.lcssa.sink5872 = phi i64 [ %5004, %5003 ], [ %4721, %4720 ], [ %indvars.iv5137, %5265 ]
   %.107 = phi i32 [ %.113, %5003 ], [ %.106, %4720 ], [ %.103.ph, %5265 ]
   %.8 = phi i32 [ %.14, %5003 ], [ %.7, %4720 ], [ %5260, %5265 ]
-  %5274 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5137.lcssa.sink5603
+  %5274 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5137.lcssa.sink5872
   %5275 = load i32, ptr %5274, align 4, !tbaa !16
-  %5276 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137.lcssa.sink5603
+  %5276 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137.lcssa.sink5872
   store i32 %5275, ptr %5276, align 4, !tbaa !16
   %5277 = add nsw i32 %.8, 2
   %.not2954 = icmp slt i32 %5277, %156
@@ -66040,8 +66040,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   br i1 %.not2932, label %._crit_edge5213, label %4640
 
 ._crit_edge5213:                                  ; preds = %5401
-  %sext5298 = shl i64 %indvars.iv5151, 32
-  %.pre5220 = ashr exact i64 %sext5298, 32
+  %sext5567 = shl i64 %indvars.iv5151, 32
+  %.pre5220 = ashr exact i64 %sext5567, 32
   br label %4817
 
 5402:                                             ; preds = %5395
@@ -66107,16 +66107,16 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   br i1 %.not3011, label %5442, label %5430
 
 5430:                                             ; preds = %5426
-  %sext5294 = shl i64 %indvars.iv5146, 32
-  %5431 = ashr exact i64 %sext5294, 32
+  %sext5563 = shl i64 %indvars.iv5146, 32
+  %5431 = ashr exact i64 %sext5563, 32
   %5432 = getelementptr inbounds i8, ptr %4595, i64 %5431
   %5433 = load i8, ptr %5432, align 1, !tbaa !55
   %.not3012 = icmp eq i8 %5433, 0
   br i1 %.not3012, label %5434, label %._crit_edge5212
 
 ._crit_edge5212:                                  ; preds = %5430
-  %sext5295 = shl i64 %indvars.iv5144, 32
-  %.pre5222 = ashr exact i64 %sext5295, 32
+  %sext5564 = shl i64 %indvars.iv5144, 32
+  %.pre5222 = ashr exact i64 %sext5564, 32
   br label %5043
 
 5434:                                             ; preds = %5430
@@ -66134,8 +66134,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   %5443 = load ptr, ptr %4608, align 8, !tbaa !136
   %5444 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5144
   %5445 = load i32, ptr %5444, align 4, !tbaa !16
-  %sext5296 = shl i64 %indvars.iv5146, 32
-  %5446 = ashr exact i64 %sext5296, 30
+  %sext5565 = shl i64 %indvars.iv5146, 32
+  %5446 = ashr exact i64 %sext5565, 30
   %5447 = getelementptr inbounds i8, ptr %4604, i64 %5446
   %5448 = load i32, ptr %5447, align 4, !tbaa !16
   br label %5449
@@ -66247,16 +66247,16 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4323: ; preds = %.lr.
   br i1 %.not3008, label %5509, label %5497
 
 5497:                                             ; preds = %5494
-  %sext5299 = shl i64 %indvars.iv5146, 32
-  %5498 = ashr exact i64 %sext5299, 32
+  %sext5568 = shl i64 %indvars.iv5146, 32
+  %5498 = ashr exact i64 %sext5568, 32
   %5499 = getelementptr inbounds i8, ptr %4595, i64 %5498
   %5500 = load i8, ptr %5499, align 1, !tbaa !55
   %.not3009 = icmp eq i8 %5500, 0
   br i1 %.not3009, label %5501, label %._crit_edge5214
 
 ._crit_edge5214:                                  ; preds = %5497
-  %sext5300 = shl i64 %indvars.iv5144, 32
-  %.pre5218 = ashr exact i64 %sext5300, 32
+  %sext5569 = shl i64 %indvars.iv5144, 32
+  %.pre5218 = ashr exact i64 %sext5569, 32
   br label %5140
 
 5501:                                             ; preds = %5497
@@ -66274,8 +66274,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4323: ; preds = %.lr.
   %5510 = load ptr, ptr %4608, align 8, !tbaa !136
   %5511 = getelementptr inbounds i32, ptr %4607, i64 %5487
   %5512 = load i32, ptr %5511, align 4, !tbaa !16
-  %sext5301 = shl i64 %indvars.iv5146, 32
-  %5513 = ashr exact i64 %sext5301, 30
+  %sext5570 = shl i64 %indvars.iv5146, 32
+  %5513 = ashr exact i64 %sext5570, 30
   %5514 = getelementptr inbounds i8, ptr %4604, i64 %5513
   %5515 = load i32, ptr %5514, align 4, !tbaa !16
   %5516 = tail call fastcc noundef i32 @_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_(ptr noundef %5510, i32 noundef %5512, i32 noundef %5515)
@@ -66287,8 +66287,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4323: ; preds = %.lr.
   %5519 = load ptr, ptr %4608, align 8, !tbaa !136
   %5520 = getelementptr inbounds i32, ptr %4607, i64 %5487
   %5521 = load i32, ptr %5520, align 4, !tbaa !16
-  %sext5302 = shl i64 %indvars.iv5146, 32
-  %5522 = ashr exact i64 %sext5302, 30
+  %sext5571 = shl i64 %indvars.iv5146, 32
+  %5522 = ashr exact i64 %sext5571, 30
   %5523 = getelementptr inbounds i8, ptr %4604, i64 %5522
   %5524 = load i32, ptr %5523, align 4, !tbaa !16
   br label %5525
@@ -66386,8 +66386,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4337: ; preds = %.lr.
 
 5564:                                             ; preds = %5483
   %5565 = trunc nsw i64 %indvars.iv5144 to i32
-  %sext5303 = shl i64 %indvars.iv5146, 32
-  %5566 = ashr exact i64 %sext5303, 30
+  %sext5572 = shl i64 %indvars.iv5146, 32
+  %5566 = ashr exact i64 %sext5572, 30
   %5567 = getelementptr inbounds i8, ptr %4604, i64 %5566
   %5568 = load i32, ptr %5567, align 4, !tbaa !16
   %5569 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5144
@@ -67115,9 +67115,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %87 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv909
   %88 = load i8, ptr %87, align 1, !tbaa !55
   %.not802 = icmp eq i8 %88, 0
-  %spec.select962 = select i1 %.not802, i32 0, i32 %73
+  %spec.select988 = select i1 %.not802, i32 0, i32 %73
   %89 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv909
-  store i32 %spec.select962, ptr %89, align 4, !tbaa !16
+  store i32 %spec.select988, ptr %89, align 4, !tbaa !16
   %90 = getelementptr inbounds nuw i8, ptr %52, i64 %76
   %91 = load i8, ptr %90, align 1, !tbaa !55
   %.not803 = icmp eq i8 %91, 0
@@ -67237,9 +67237,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %152 = getelementptr inbounds nuw i8, ptr %128, i64 %151
   %153 = load i8, ptr %152, align 1, !tbaa !55
   %.not796 = icmp eq i8 %153, 0
-  %spec.select963 = select i1 %.not796, i32 0, i32 %148
+  %spec.select989 = select i1 %.not796, i32 0, i32 %148
   %154 = getelementptr inbounds nuw i32, ptr %131, i64 %151
-  store i32 %spec.select963, ptr %154, align 4, !tbaa !16
+  store i32 %spec.select989, ptr %154, align 4, !tbaa !16
   %155 = load i32, ptr %15, align 8, !tbaa !32
   %156 = icmp sgt i32 %155, %137
   br i1 %156, label %157, label %171
@@ -67248,13 +67248,13 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %158 = getelementptr inbounds nuw i8, ptr %129, i64 %indvars.iv915
   %159 = load i8, ptr %158, align 1, !tbaa !55
   %.not797 = icmp eq i8 %159, 0
-  %spec.select964 = select i1 %.not797, i32 0, i32 %148
+  %spec.select990 = select i1 %.not797, i32 0, i32 %148
   %160 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv915
-  store i32 %spec.select964, ptr %160, align 4, !tbaa !16
+  store i32 %spec.select990, ptr %160, align 4, !tbaa !16
   %161 = getelementptr inbounds nuw i8, ptr %129, i64 %151
   %162 = load i8, ptr %161, align 1, !tbaa !55
   %.not798 = icmp eq i8 %162, 0
-  %.995 = select i1 %.not798, i32 0, i32 %148
+  %.1021 = select i1 %.not798, i32 0, i32 %148
   br label %.sink.split
 
 163:                                              ; preds = %141
@@ -67272,9 +67272,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %.sink.split
 
 .sink.split:                                      ; preds = %157, %168
-  %.sink966 = phi i64 [ %164, %168 ], [ %151, %157 ]
-  %.sink = phi i32 [ 0, %168 ], [ %.995, %157 ]
-  %170 = getelementptr inbounds nuw i32, ptr %132, i64 %.sink966
+  %.sink992 = phi i64 [ %164, %168 ], [ %151, %157 ]
+  %.sink = phi i32 [ 0, %168 ], [ %.1021, %157 ]
+  %170 = getelementptr inbounds nuw i32, ptr %132, i64 %.sink992
   store i32 %.sink, ptr %170, align 4, !tbaa !16
   br label %171
 
@@ -67366,9 +67366,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %223 = getelementptr inbounds nuw i8, ptr %204, i64 %indvars.iv921
   %224 = load i8, ptr %223, align 1, !tbaa !55
   %.not791 = icmp eq i8 %224, 0
-  %spec.select967 = select i1 %.not791, i32 0, i32 %220
+  %spec.select993 = select i1 %.not791, i32 0, i32 %220
   %225 = getelementptr inbounds nuw i32, ptr %207, i64 %indvars.iv921
-  store i32 %spec.select967, ptr %225, align 4, !tbaa !16
+  store i32 %spec.select993, ptr %225, align 4, !tbaa !16
   %226 = or disjoint i64 %indvars.iv921, 1
   %227 = load i32, ptr %18, align 4, !tbaa !49
   %228 = sext i32 %227 to i64
@@ -67379,14 +67379,14 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %231 = getelementptr inbounds nuw i8, ptr %203, i64 %226
   %232 = load i8, ptr %231, align 1, !tbaa !55
   %.not792 = icmp eq i8 %232, 0
-  %spec.select968 = select i1 %.not792, i32 0, i32 %220
+  %spec.select994 = select i1 %.not792, i32 0, i32 %220
   %233 = getelementptr inbounds nuw i32, ptr %206, i64 %226
-  store i32 %spec.select968, ptr %233, align 4, !tbaa !16
+  store i32 %spec.select994, ptr %233, align 4, !tbaa !16
   %234 = getelementptr inbounds nuw i8, ptr %204, i64 %226
   %235 = load i8, ptr %234, align 1, !tbaa !55
   %.not793 = icmp eq i8 %235, 0
-  %.996 = select i1 %.not793, i32 0, i32 %220
-  br label %.sink.split969
+  %.1022 = select i1 %.not793, i32 0, i32 %220
+  br label %.sink.split995
 
 236:                                              ; preds = %213
   store i32 0, ptr %214, align 4, !tbaa !16
@@ -67401,16 +67401,16 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
 242:                                              ; preds = %236
   %243 = getelementptr inbounds nuw i32, ptr %206, i64 %238
   store i32 0, ptr %243, align 4, !tbaa !16
-  br label %.sink.split969
+  br label %.sink.split995
 
-.sink.split969:                                   ; preds = %230, %242
-  %.sink972 = phi i64 [ %238, %242 ], [ %226, %230 ]
-  %.sink970 = phi i32 [ 0, %242 ], [ %.996, %230 ]
-  %244 = getelementptr inbounds nuw i32, ptr %207, i64 %.sink972
-  store i32 %.sink970, ptr %244, align 4, !tbaa !16
+.sink.split995:                                   ; preds = %230, %242
+  %.sink998 = phi i64 [ %238, %242 ], [ %226, %230 ]
+  %.sink996 = phi i32 [ 0, %242 ], [ %.1022, %230 ]
+  %244 = getelementptr inbounds nuw i32, ptr %207, i64 %.sink998
+  store i32 %.sink996, ptr %244, align 4, !tbaa !16
   br label %245
 
-245:                                              ; preds = %.sink.split969, %236, %217
+245:                                              ; preds = %.sink.split995, %236, %217
   %indvars.iv.next922 = add nuw nsw i64 %indvars.iv921, 2
   %246 = load i32, ptr %18, align 4, !tbaa !49
   %247 = sext i32 %246 to i64
@@ -67460,9 +67460,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %273 = getelementptr inbounds nuw i8, ptr %252, i64 %272
   %274 = load i8, ptr %273, align 1, !tbaa !55
   %.not787 = icmp eq i8 %274, 0
-  %spec.select973 = select i1 %.not787, i32 0, i32 %269
+  %spec.select999 = select i1 %.not787, i32 0, i32 %269
   %275 = getelementptr inbounds nuw i32, ptr %255, i64 %272
-  store i32 %spec.select973, ptr %275, align 4, !tbaa !16
+  store i32 %spec.select999, ptr %275, align 4, !tbaa !16
   %276 = getelementptr inbounds nuw i8, ptr %253, i64 %indvars.iv927
   %277 = load i8, ptr %276, align 1, !tbaa !55
   %.not788 = icmp eq i8 %277, 0
@@ -67472,7 +67472,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %279 = getelementptr inbounds nuw i8, ptr %253, i64 %272
   %280 = load i8, ptr %279, align 1, !tbaa !55
   %.not789 = icmp eq i8 %280, 0
-  %spec.select999 = select i1 %.not789, i32 0, i32 %269
+  %spec.select1025 = select i1 %.not789, i32 0, i32 %269
   br label %285
 
 281:                                              ; preds = %262
@@ -67485,10 +67485,10 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %285
 
 285:                                              ; preds = %266, %281
-  %.sink976 = phi i64 [ %282, %281 ], [ %272, %266 ]
-  %.sink974 = phi i32 [ 0, %281 ], [ %spec.select999, %266 ]
-  %286 = getelementptr inbounds nuw i32, ptr %256, i64 %.sink976
-  store i32 %.sink974, ptr %286, align 4, !tbaa !16
+  %.sink1002 = phi i64 [ %282, %281 ], [ %272, %266 ]
+  %.sink1000 = phi i32 [ 0, %281 ], [ %spec.select1025, %266 ]
+  %286 = getelementptr inbounds nuw i32, ptr %256, i64 %.sink1002
+  store i32 %.sink1000, ptr %286, align 4, !tbaa !16
   %indvars.iv.next928 = add nuw nsw i64 %indvars.iv927, 2
   %287 = load i32, ptr %18, align 4, !tbaa !49
   %288 = sext i32 %287 to i64
@@ -67596,9 +67596,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %347 = getelementptr inbounds nuw i8, ptr %322, i64 %342
   %348 = load i8, ptr %347, align 1, !tbaa !55
   %.not781 = icmp eq i8 %348, 0
-  %spec.select977 = select i1 %.not781, i32 0, i32 %339
+  %spec.select1003 = select i1 %.not781, i32 0, i32 %339
   %349 = getelementptr inbounds nuw i32, ptr %325, i64 %342
-  store i32 %spec.select977, ptr %349, align 4, !tbaa !16
+  store i32 %spec.select1003, ptr %349, align 4, !tbaa !16
   %350 = load i32, ptr %15, align 8, !tbaa !32
   %351 = sext i32 %350 to i64
   %352 = icmp slt i64 %328, %351
@@ -67608,9 +67608,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %354 = getelementptr inbounds nuw i8, ptr %323, i64 %indvars.iv
   %355 = load i8, ptr %354, align 1, !tbaa !55
   %.not782 = icmp eq i8 %355, 0
-  %spec.select978 = select i1 %.not782, i32 0, i32 %339
+  %spec.select1004 = select i1 %.not782, i32 0, i32 %339
   %356 = getelementptr inbounds nuw i32, ptr %326, i64 %indvars.iv
-  store i32 %spec.select978, ptr %356, align 4, !tbaa !16
+  store i32 %spec.select1004, ptr %356, align 4, !tbaa !16
   %357 = getelementptr inbounds nuw i8, ptr %323, i64 %342
   %358 = load i8, ptr %357, align 1, !tbaa !55
   %.not783 = icmp eq i8 %358, 0
@@ -67730,9 +67730,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %418 = getelementptr inbounds nuw i8, ptr %397, i64 %417
   %419 = load i8, ptr %418, align 1, !tbaa !55
   %.not776 = icmp eq i8 %419, 0
-  %spec.select979 = select i1 %.not776, i32 0, i32 %414
+  %spec.select1005 = select i1 %.not776, i32 0, i32 %414
   %420 = getelementptr inbounds nuw i32, ptr %400, i64 %417
-  store i32 %spec.select979, ptr %420, align 4, !tbaa !16
+  store i32 %spec.select1005, ptr %420, align 4, !tbaa !16
   %421 = load i32, ptr %15, align 8, !tbaa !32
   %422 = sext i32 %421 to i64
   %423 = icmp slt i64 %403, %422
@@ -67742,14 +67742,14 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %425 = getelementptr inbounds nuw i8, ptr %398, i64 %indvars.iv891
   %426 = load i8, ptr %425, align 1, !tbaa !55
   %.not777 = icmp eq i8 %426, 0
-  %spec.select980 = select i1 %.not777, i32 0, i32 %414
+  %spec.select1006 = select i1 %.not777, i32 0, i32 %414
   %427 = getelementptr inbounds nuw i32, ptr %401, i64 %indvars.iv891
-  store i32 %spec.select980, ptr %427, align 4, !tbaa !16
+  store i32 %spec.select1006, ptr %427, align 4, !tbaa !16
   %428 = getelementptr inbounds nuw i8, ptr %398, i64 %417
   %429 = load i8, ptr %428, align 1, !tbaa !55
   %.not778 = icmp eq i8 %429, 0
-  %.997 = select i1 %.not778, i32 0, i32 %414
-  br label %.sink.split981
+  %.1023 = select i1 %.not778, i32 0, i32 %414
+  br label %.sink.split1007
 
 430:                                              ; preds = %407
   store i32 0, ptr %408, align 4, !tbaa !16
@@ -67764,16 +67764,16 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
 436:                                              ; preds = %430
   %437 = getelementptr inbounds nuw i32, ptr %401, i64 %indvars.iv891
   store i32 0, ptr %437, align 4, !tbaa !16
-  br label %.sink.split981
+  br label %.sink.split1007
 
-.sink.split981:                                   ; preds = %424, %436
-  %.sink984 = phi i64 [ %431, %436 ], [ %417, %424 ]
-  %.sink982 = phi i32 [ 0, %436 ], [ %.997, %424 ]
-  %438 = getelementptr inbounds nuw i32, ptr %401, i64 %.sink984
-  store i32 %.sink982, ptr %438, align 4, !tbaa !16
+.sink.split1007:                                  ; preds = %424, %436
+  %.sink1010 = phi i64 [ %431, %436 ], [ %417, %424 ]
+  %.sink1008 = phi i32 [ 0, %436 ], [ %.1023, %424 ]
+  %438 = getelementptr inbounds nuw i32, ptr %401, i64 %.sink1010
+  store i32 %.sink1008, ptr %438, align 4, !tbaa !16
   br label %439
 
-439:                                              ; preds = %.sink.split981, %430, %411
+439:                                              ; preds = %.sink.split1007, %430, %411
   %indvars.iv.next892 = add nuw nsw i64 %indvars.iv891, 2
   %440 = load i32, ptr %18, align 4, !tbaa !49
   %441 = sext i32 %440 to i64
@@ -67862,9 +67862,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %492 = getelementptr inbounds nuw i8, ptr %474, i64 %indvars.iv897
   %493 = load i8, ptr %492, align 1, !tbaa !55
   %.not771 = icmp eq i8 %493, 0
-  %spec.select985 = select i1 %.not771, i32 0, i32 %489
+  %spec.select1011 = select i1 %.not771, i32 0, i32 %489
   %494 = getelementptr inbounds nuw i32, ptr %477, i64 %indvars.iv897
-  store i32 %spec.select985, ptr %494, align 4, !tbaa !16
+  store i32 %spec.select1011, ptr %494, align 4, !tbaa !16
   %495 = or disjoint i64 %indvars.iv897, 1
   %496 = load i32, ptr %18, align 4, !tbaa !49
   %497 = sext i32 %496 to i64
@@ -67875,14 +67875,14 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %500 = getelementptr inbounds nuw i8, ptr %473, i64 %495
   %501 = load i8, ptr %500, align 1, !tbaa !55
   %.not772 = icmp eq i8 %501, 0
-  %spec.select986 = select i1 %.not772, i32 0, i32 %489
+  %spec.select1012 = select i1 %.not772, i32 0, i32 %489
   %502 = getelementptr inbounds nuw i32, ptr %476, i64 %495
-  store i32 %spec.select986, ptr %502, align 4, !tbaa !16
+  store i32 %spec.select1012, ptr %502, align 4, !tbaa !16
   %503 = getelementptr inbounds nuw i8, ptr %474, i64 %495
   %504 = load i8, ptr %503, align 1, !tbaa !55
   %.not773 = icmp eq i8 %504, 0
-  %.998 = select i1 %.not773, i32 0, i32 %489
-  br label %.sink.split987
+  %.1024 = select i1 %.not773, i32 0, i32 %489
+  br label %.sink.split1013
 
 505:                                              ; preds = %482
   store i32 0, ptr %483, align 4, !tbaa !16
@@ -67897,16 +67897,16 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
 511:                                              ; preds = %505
   %512 = getelementptr inbounds nuw i32, ptr %476, i64 %507
   store i32 0, ptr %512, align 4, !tbaa !16
-  br label %.sink.split987
+  br label %.sink.split1013
 
-.sink.split987:                                   ; preds = %499, %511
-  %.sink990 = phi i64 [ %507, %511 ], [ %495, %499 ]
-  %.sink988 = phi i32 [ 0, %511 ], [ %.998, %499 ]
-  %513 = getelementptr inbounds nuw i32, ptr %477, i64 %.sink990
-  store i32 %.sink988, ptr %513, align 4, !tbaa !16
+.sink.split1013:                                  ; preds = %499, %511
+  %.sink1016 = phi i64 [ %507, %511 ], [ %495, %499 ]
+  %.sink1014 = phi i32 [ 0, %511 ], [ %.1024, %499 ]
+  %513 = getelementptr inbounds nuw i32, ptr %477, i64 %.sink1016
+  store i32 %.sink1014, ptr %513, align 4, !tbaa !16
   br label %514
 
-514:                                              ; preds = %.sink.split987, %505, %486
+514:                                              ; preds = %.sink.split1013, %505, %486
   %indvars.iv.next898 = add nuw nsw i64 %indvars.iv897, 2
   %515 = load i32, ptr %18, align 4, !tbaa !49
   %516 = sext i32 %515 to i64
@@ -67955,9 +67955,9 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %541 = getelementptr inbounds nuw i8, ptr %521, i64 %540
   %542 = load i8, ptr %541, align 1, !tbaa !55
   %.not767 = icmp eq i8 %542, 0
-  %spec.select991 = select i1 %.not767, i32 0, i32 %537
+  %spec.select1017 = select i1 %.not767, i32 0, i32 %537
   %543 = getelementptr inbounds nuw i32, ptr %524, i64 %540
-  store i32 %spec.select991, ptr %543, align 4, !tbaa !16
+  store i32 %spec.select1017, ptr %543, align 4, !tbaa !16
   %544 = getelementptr inbounds nuw i8, ptr %522, i64 %indvars.iv903
   %545 = load i8, ptr %544, align 1, !tbaa !55
   %.not768 = icmp eq i8 %545, 0
@@ -67967,7 +67967,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %547 = getelementptr inbounds nuw i8, ptr %522, i64 %540
   %548 = load i8, ptr %547, align 1, !tbaa !55
   %.not769 = icmp eq i8 %548, 0
-  %spec.select1000 = select i1 %.not769, i32 0, i32 %537
+  %spec.select1026 = select i1 %.not769, i32 0, i32 %537
   br label %553
 
 549:                                              ; preds = %530
@@ -67980,10 +67980,10 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %553
 
 553:                                              ; preds = %534, %549
-  %.sink994 = phi i64 [ %550, %549 ], [ %540, %534 ]
-  %.sink992 = phi i32 [ 0, %549 ], [ %spec.select1000, %534 ]
-  %554 = getelementptr inbounds nuw i32, ptr %525, i64 %.sink994
-  store i32 %.sink992, ptr %554, align 4, !tbaa !16
+  %.sink1020 = phi i64 [ %550, %549 ], [ %540, %534 ]
+  %.sink1018 = phi i32 [ 0, %549 ], [ %spec.select1026, %534 ]
+  %554 = getelementptr inbounds nuw i32, ptr %525, i64 %.sink1020
+  store i32 %.sink1018, ptr %554, align 4, !tbaa !16
   %indvars.iv.next904 = add nuw nsw i64 %indvars.iv903, 2
   %555 = load i32, ptr %18, align 4, !tbaa !49
   %556 = sext i32 %555 to i64
@@ -68119,8 +68119,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents25LabelingBolelli4C
   br i1 %.not117, label %.lr.ph, label %.loopexit99
 
 .loopexit99:                                      ; preds = %.outer101, %48, %55, %59
-  %indvars.iv.next181.lcssa220.sink = phi i64 [ %indvars.iv.next181, %59 ], [ %indvars.iv180, %55 ], [ %indvars.iv.next181, %48 ], [ %indvars.iv.next181, %.outer101 ]
-  %67 = trunc nsw i64 %indvars.iv.next181.lcssa220.sink to i32
+  %indvars.iv.next181.lcssa225.sink = phi i64 [ %indvars.iv.next181, %59 ], [ %indvars.iv180, %55 ], [ %indvars.iv.next181, %48 ], [ %indvars.iv.next181, %.outer101 ]
+  %67 = trunc nsw i64 %indvars.iv.next181.lcssa225.sink to i32
   %68 = or disjoint i32 %4, 1
   %69 = icmp slt i32 %68, %.sroa.speculated
   br i1 %69, label %.lr.ph142, label %._crit_edge
@@ -78622,10 +78622,10 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %3576
 
 3576:                                             ; preds = %3557, %3532
-  %.sink3761 = phi ptr [ %3573, %3557 ], [ %3554, %3532 ]
+  %.sink4022 = phi ptr [ %3573, %3557 ], [ %3554, %3532 ]
   %3577 = phi ptr [ %3573, %3557 ], [ %3553, %3532 ]
   %3578 = phi ptr [ %3558, %3557 ], [ %3533, %3532 ]
-  %3579 = getelementptr inbounds nuw i8, ptr %.sink3761, i64 8
+  %3579 = getelementptr inbounds nuw i8, ptr %.sink4022, i64 8
   %3580 = load i64, ptr %3579, align 8, !tbaa !235
   %3581 = add i64 %3580, %indvars.iv3558
   store i64 %3581, ptr %3579, align 8, !tbaa !235
@@ -78703,8 +78703,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %3630
 
 3630:                                             ; preds = %3613, %3590
-  %.sink3764 = phi ptr [ %3577, %3613 ], [ %3610, %3590 ]
-  %3631 = getelementptr inbounds nuw i8, ptr %.sink3764, i64 8
+  %.sink4025 = phi ptr [ %3577, %3613 ], [ %3610, %3590 ]
+  %3631 = getelementptr inbounds nuw i8, ptr %.sink4025, i64 8
   %3632 = load i64, ptr %3631, align 8, !tbaa !235
   %3633 = add i64 %3632, %indvars.iv3558
   store i64 %3633, ptr %3631, align 8, !tbaa !235
@@ -78781,8 +78781,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %3681
 
 3681:                                             ; preds = %3664, %3641
-  %.sink3767 = phi ptr [ %3577, %3664 ], [ %3661, %3641 ]
-  %3682 = getelementptr inbounds nuw i8, ptr %.sink3767, i64 8
+  %.sink4028 = phi ptr [ %3577, %3664 ], [ %3661, %3641 ]
+  %3682 = getelementptr inbounds nuw i8, ptr %.sink4028, i64 8
   %3683 = load i64, ptr %3682, align 8, !tbaa !235
   %3684 = add i64 %3683, %3505
   store i64 %3684, ptr %3682, align 8, !tbaa !235
@@ -79094,7 +79094,7 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %3884 = getelementptr inbounds nuw i8, ptr %3879, i64 16
   %3885 = load ptr, ptr %3490, align 8
   %3886 = getelementptr inbounds nuw i8, ptr %3885, i64 8
-  %invariant.op3745 = shl nuw i64 %indvars.iv3564, 1
+  %invariant.op4006 = shl nuw i64 %indvars.iv3564, 1
   %3887 = trunc nuw nsw i64 %3861 to i32
   %3888 = getelementptr inbounds nuw i8, ptr %3862, i64 8
   %3889 = getelementptr inbounds nuw i8, ptr %3862, i64 4
@@ -79267,8 +79267,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %3996
 
 3996:                                             ; preds = %3983, %3961
-  %.sink3770 = phi ptr [ %3865, %3983 ], [ %3980, %3961 ]
-  %3997 = getelementptr inbounds nuw i8, ptr %.sink3770, i64 8
+  %.sink4031 = phi ptr [ %3865, %3983 ], [ %3980, %3961 ]
+  %3997 = getelementptr inbounds nuw i8, ptr %.sink4031, i64 8
   %3998 = load i64, ptr %3997, align 8, !tbaa !235
   %3999 = add i64 %3998, %indvars.iv3564
   store i64 %3999, ptr %3997, align 8, !tbaa !235
@@ -79340,8 +79340,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4042
 
 4042:                                             ; preds = %4029, %4007
-  %.sink3773 = phi ptr [ %3865, %4029 ], [ %4026, %4007 ]
-  %4043 = getelementptr inbounds nuw i8, ptr %.sink3773, i64 8
+  %.sink4034 = phi ptr [ %3865, %4029 ], [ %4026, %4007 ]
+  %4043 = getelementptr inbounds nuw i8, ptr %.sink4034, i64 8
   %4044 = load i64, ptr %4043, align 8, !tbaa !235
   %4045 = add i64 %4044, %3861
   store i64 %4045, ptr %4043, align 8, !tbaa !235
@@ -79441,8 +79441,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   store i32 %4106, ptr %3884, align 4, !tbaa !16
   %4107 = add i64 %4102, %4090
   store i64 %4107, ptr %3885, align 8, !tbaa !233
-  %.reass3746 = add i64 %4103, %invariant.op3745
-  store i64 %.reass3746, ptr %3886, align 8, !tbaa !235
+  %.reass4007 = add i64 %4103, %invariant.op4006
+  store i64 %.reass4007, ptr %3886, align 8, !tbaa !235
   %4108 = load i32, ptr %14, align 8, !tbaa !32
   %4109 = sext i32 %4108 to i64
   %4110 = icmp slt i64 %3861, %4109
@@ -79468,8 +79468,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   store i32 %4119, ptr %3884, align 4, !tbaa !16
   %4120 = add i64 %4117, %4090
   store i64 %4120, ptr %3885, align 8, !tbaa !233
-  %.reass3748 = add i64 %3902, %4103
-  store i64 %.reass3748, ptr %3886, align 8, !tbaa !235
+  %.reass4009 = add i64 %3902, %4103
+  store i64 %.reass4009, ptr %3886, align 8, !tbaa !235
   br label %4121
 
 4121:                                             ; preds = %4089, %4111, %3996, %4074, %4049
@@ -79559,8 +79559,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4180 = load ptr, ptr %4132, align 8
   %4181 = getelementptr inbounds nuw i8, ptr %4180, i64 8
   %4182 = trunc nuw nsw i64 %4156 to i32
-  %invariant.op3749 = add nuw i64 %indvars.iv3570, %4156
-  %invariant.op3751 = add nuw i64 %indvars.iv3570, %4156
+  %invariant.op4010 = add nuw i64 %indvars.iv3570, %4156
+  %invariant.op4012 = add nuw i64 %indvars.iv3570, %4156
   %4183 = getelementptr inbounds nuw i8, ptr %4157, i64 8
   %4184 = getelementptr inbounds nuw i8, ptr %4157, i64 4
   %4185 = getelementptr inbounds nuw i8, ptr %4157, i64 12
@@ -79729,8 +79729,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4288
 
 4288:                                             ; preds = %4275, %4253
-  %.sink3776 = phi ptr [ %4160, %4275 ], [ %4272, %4253 ]
-  %4289 = getelementptr inbounds nuw i8, ptr %.sink3776, i64 8
+  %.sink4037 = phi ptr [ %4160, %4275 ], [ %4272, %4253 ]
+  %4289 = getelementptr inbounds nuw i8, ptr %.sink4037, i64 8
   %4290 = load i64, ptr %4289, align 8, !tbaa !235
   %4291 = add i64 %4290, %4156
   store i64 %4291, ptr %4289, align 8, !tbaa !235
@@ -79803,8 +79803,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4335
 
 4335:                                             ; preds = %4322, %4300
-  %.sink3779 = phi ptr [ %4160, %4322 ], [ %4319, %4300 ]
-  %4336 = getelementptr inbounds nuw i8, ptr %.sink3779, i64 8
+  %.sink4040 = phi ptr [ %4160, %4322 ], [ %4319, %4300 ]
+  %4336 = getelementptr inbounds nuw i8, ptr %.sink4040, i64 8
   %4337 = load i64, ptr %4336, align 8, !tbaa !235
   %4338 = add i64 %4337, %indvars.iv3570
   store i64 %4338, ptr %4336, align 8, !tbaa !235
@@ -79902,8 +79902,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %reass.add = shl nuw i64 %indvars.iv3567, 1
   %4398 = add i64 %4393, %reass.add
   store i64 %4398, ptr %4180, align 8, !tbaa !233
-  %.reass3750 = add i64 %4394, %invariant.op3749
-  store i64 %.reass3750, ptr %4181, align 8, !tbaa !235
+  %.reass4011 = add i64 %4394, %invariant.op4010
+  store i64 %.reass4011, ptr %4181, align 8, !tbaa !235
   %4399 = or disjoint i64 %indvars.iv3567, 1
   %4400 = load i32, ptr %33, align 4, !tbaa !49
   %4401 = sext i32 %4400 to i64
@@ -79932,8 +79932,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4414 = shl i64 %4413, 1
   %4415 = add i64 %4414, %4393
   store i64 %4415, ptr %4180, align 8, !tbaa !233
-  %.reass3752 = add i64 %.reass3750, %invariant.op3751
-  store i64 %.reass3752, ptr %4181, align 8, !tbaa !235
+  %.reass4013 = add i64 %.reass4011, %invariant.op4012
+  store i64 %.reass4013, ptr %4181, align 8, !tbaa !235
   br label %4416
 
 4416:                                             ; preds = %4382, %4403, %4288, %4367, %4342
@@ -79985,8 +79985,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4455 = load ptr, ptr %4143, align 8
   %4456 = getelementptr inbounds nuw i8, ptr %4455, i64 8
   %4457 = trunc nuw nsw i64 %4438 to i32
-  %invariant.op37533788 = add nuw i64 %indvars.iv3576, %4438
-  %invariant.op3757 = shl i64 %invariant.op37533788, 1
+  %invariant.op40144049 = add nuw i64 %indvars.iv3576, %4438
+  %invariant.op4018 = shl i64 %invariant.op40144049, 1
   %4458 = getelementptr inbounds nuw i8, ptr %4440, i64 8
   br label %4463
 
@@ -80144,8 +80144,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4552
 
 4552:                                             ; preds = %4539, %4517
-  %.sink3782 = phi ptr [ %4440, %4539 ], [ %4536, %4517 ]
-  %4553 = getelementptr inbounds nuw i8, ptr %.sink3782, i64 8
+  %.sink4043 = phi ptr [ %4440, %4539 ], [ %4536, %4517 ]
+  %4553 = getelementptr inbounds nuw i8, ptr %.sink4043, i64 8
   %4554 = load i64, ptr %4553, align 8, !tbaa !235
   %4555 = add i64 %4554, %indvars.iv3576
   store i64 %4555, ptr %4553, align 8, !tbaa !235
@@ -80211,8 +80211,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4594
 
 4594:                                             ; preds = %4581, %4559
-  %.sink3785 = phi ptr [ %4440, %4581 ], [ %4578, %4559 ]
-  %4595 = getelementptr inbounds nuw i8, ptr %.sink3785, i64 8
+  %.sink4046 = phi ptr [ %4440, %4581 ], [ %4578, %4559 ]
+  %4595 = getelementptr inbounds nuw i8, ptr %.sink4046, i64 8
   %4596 = load i64, ptr %4595, align 8, !tbaa !235
   %4597 = add i64 %4596, %4438
   store i64 %4597, ptr %4595, align 8, !tbaa !235
@@ -80324,8 +80324,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   store i32 %4666, ptr %4454, align 4, !tbaa !16
   %4667 = add i64 %4664, %4642
   store i64 %4667, ptr %4455, align 8, !tbaa !233
-  %.reass3758 = add i64 %4657, %invariant.op3757
-  store i64 %.reass3758, ptr %4456, align 8, !tbaa !235
+  %.reass4019 = add i64 %4657, %invariant.op4018
+  store i64 %.reass4019, ptr %4456, align 8, !tbaa !235
   br label %4668
 
 4668:                                             ; preds = %4601, %4626, %4641
@@ -87744,10 +87744,10 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %3576
 
 3576:                                             ; preds = %3557, %3532
-  %.sink3763 = phi ptr [ %3573, %3557 ], [ %3554, %3532 ]
+  %.sink4024 = phi ptr [ %3573, %3557 ], [ %3554, %3532 ]
   %3577 = phi ptr [ %3573, %3557 ], [ %3553, %3532 ]
   %3578 = phi ptr [ %3558, %3557 ], [ %3533, %3532 ]
-  %3579 = getelementptr inbounds nuw i8, ptr %.sink3763, i64 8
+  %3579 = getelementptr inbounds nuw i8, ptr %.sink4024, i64 8
   %3580 = load i64, ptr %3579, align 8, !tbaa !235
   %3581 = add i64 %3580, %indvars.iv3560
   store i64 %3581, ptr %3579, align 8, !tbaa !235
@@ -87825,8 +87825,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %3630
 
 3630:                                             ; preds = %3613, %3590
-  %.sink3766 = phi ptr [ %3577, %3613 ], [ %3610, %3590 ]
-  %3631 = getelementptr inbounds nuw i8, ptr %.sink3766, i64 8
+  %.sink4027 = phi ptr [ %3577, %3613 ], [ %3610, %3590 ]
+  %3631 = getelementptr inbounds nuw i8, ptr %.sink4027, i64 8
   %3632 = load i64, ptr %3631, align 8, !tbaa !235
   %3633 = add i64 %3632, %indvars.iv3560
   store i64 %3633, ptr %3631, align 8, !tbaa !235
@@ -87903,8 +87903,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %3681
 
 3681:                                             ; preds = %3664, %3641
-  %.sink3769 = phi ptr [ %3577, %3664 ], [ %3661, %3641 ]
-  %3682 = getelementptr inbounds nuw i8, ptr %.sink3769, i64 8
+  %.sink4030 = phi ptr [ %3577, %3664 ], [ %3661, %3641 ]
+  %3682 = getelementptr inbounds nuw i8, ptr %.sink4030, i64 8
   %3683 = load i64, ptr %3682, align 8, !tbaa !235
   %3684 = add i64 %3683, %3504
   store i64 %3684, ptr %3682, align 8, !tbaa !235
@@ -88219,7 +88219,7 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %3885 = getelementptr inbounds nuw i8, ptr %3880, i64 16
   %3886 = load ptr, ptr %3488, align 8
   %3887 = getelementptr inbounds nuw i8, ptr %3886, i64 8
-  %invariant.op3747 = shl nuw i64 %indvars.iv3566, 1
+  %invariant.op4008 = shl nuw i64 %indvars.iv3566, 1
   %3888 = trunc nuw nsw i64 %3879 to i32
   %3889 = load ptr, ptr %3487, align 8
   %3890 = load ptr, ptr %3489, align 8
@@ -88409,8 +88409,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4015
 
 4015:                                             ; preds = %4002, %3980
-  %.sink3772 = phi ptr [ %3892, %4002 ], [ %3999, %3980 ]
-  %4016 = getelementptr inbounds nuw i8, ptr %.sink3772, i64 8
+  %.sink4033 = phi ptr [ %3892, %4002 ], [ %3999, %3980 ]
+  %4016 = getelementptr inbounds nuw i8, ptr %.sink4033, i64 8
   %4017 = load i64, ptr %4016, align 8, !tbaa !235
   %4018 = add i64 %4017, %indvars.iv3566
   store i64 %4018, ptr %4016, align 8, !tbaa !235
@@ -88482,8 +88482,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4061
 
 4061:                                             ; preds = %4048, %4026
-  %.sink3775 = phi ptr [ %3892, %4048 ], [ %4045, %4026 ]
-  %4062 = getelementptr inbounds nuw i8, ptr %.sink3775, i64 8
+  %.sink4036 = phi ptr [ %3892, %4048 ], [ %4045, %4026 ]
+  %4062 = getelementptr inbounds nuw i8, ptr %.sink4036, i64 8
   %4063 = load i64, ptr %4062, align 8, !tbaa !235
   %4064 = add i64 %4063, %3879
   store i64 %4064, ptr %4062, align 8, !tbaa !235
@@ -88584,8 +88584,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   store i32 %4125, ptr %3885, align 4, !tbaa !16
   %4126 = add i64 %4121, %4109
   store i64 %4126, ptr %3886, align 8, !tbaa !233
-  %.reass3748 = add i64 %4122, %invariant.op3747
-  store i64 %.reass3748, ptr %3887, align 8, !tbaa !235
+  %.reass4009 = add i64 %4122, %invariant.op4008
+  store i64 %.reass4009, ptr %3887, align 8, !tbaa !235
   %4127 = load i32, ptr %14, align 8, !tbaa !32
   %4128 = sext i32 %4127 to i64
   %4129 = icmp slt i64 %3879, %4128
@@ -88616,8 +88616,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   store i32 %4143, ptr %3885, align 4, !tbaa !16
   %4144 = add i64 %4141, %4109
   store i64 %4144, ptr %3886, align 8, !tbaa !233
-  %.reass3750 = add i64 %3907, %4122
-  store i64 %.reass3750, ptr %3887, align 8, !tbaa !235
+  %.reass4011 = add i64 %3907, %4122
+  store i64 %.reass4011, ptr %3887, align 8, !tbaa !235
   br label %4145
 
 4145:                                             ; preds = %4108, %4130, %4015, %4093, %4068
@@ -88690,8 +88690,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4187 = load ptr, ptr %4155, align 8
   %4188 = getelementptr inbounds nuw i8, ptr %4187, i64 8
   %4189 = trunc nuw nsw i64 %4180 to i32
-  %invariant.op3751 = add nuw i64 %indvars.iv3572, %4180
-  %invariant.op3753 = add nuw i64 %indvars.iv3572, %4180
+  %invariant.op4012 = add nuw i64 %indvars.iv3572, %4180
+  %invariant.op4014 = add nuw i64 %indvars.iv3572, %4180
   %4190 = load ptr, ptr %4154, align 8
   %4191 = load ptr, ptr %4156, align 8
   %4192 = trunc nuw nsw i64 %indvars.iv3572 to i32
@@ -88877,8 +88877,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4313
 
 4313:                                             ; preds = %4300, %4278
-  %.sink3778 = phi ptr [ %4193, %4300 ], [ %4297, %4278 ]
-  %4314 = getelementptr inbounds nuw i8, ptr %.sink3778, i64 8
+  %.sink4039 = phi ptr [ %4193, %4300 ], [ %4297, %4278 ]
+  %4314 = getelementptr inbounds nuw i8, ptr %.sink4039, i64 8
   %4315 = load i64, ptr %4314, align 8, !tbaa !235
   %4316 = add i64 %4315, %4180
   store i64 %4316, ptr %4314, align 8, !tbaa !235
@@ -88951,8 +88951,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4360
 
 4360:                                             ; preds = %4347, %4325
-  %.sink3781 = phi ptr [ %4193, %4347 ], [ %4344, %4325 ]
-  %4361 = getelementptr inbounds nuw i8, ptr %.sink3781, i64 8
+  %.sink4042 = phi ptr [ %4193, %4347 ], [ %4344, %4325 ]
+  %4361 = getelementptr inbounds nuw i8, ptr %.sink4042, i64 8
   %4362 = load i64, ptr %4361, align 8, !tbaa !235
   %4363 = add i64 %4362, %indvars.iv3572
   store i64 %4363, ptr %4361, align 8, !tbaa !235
@@ -89051,8 +89051,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %reass.add = shl nuw i64 %indvars.iv3569, 1
   %4423 = add i64 %4418, %reass.add
   store i64 %4423, ptr %4187, align 8, !tbaa !233
-  %.reass3752 = add i64 %4419, %invariant.op3751
-  store i64 %.reass3752, ptr %4188, align 8, !tbaa !235
+  %.reass4013 = add i64 %4419, %invariant.op4012
+  store i64 %.reass4013, ptr %4188, align 8, !tbaa !235
   %4424 = or disjoint i64 %indvars.iv3569, 1
   %4425 = load i32, ptr %33, align 4, !tbaa !49
   %4426 = sext i32 %4425 to i64
@@ -89086,8 +89086,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4444 = shl i64 %4443, 1
   %4445 = add i64 %4444, %4418
   store i64 %4445, ptr %4187, align 8, !tbaa !233
-  %.reass3754 = add i64 %.reass3752, %invariant.op3753
-  store i64 %.reass3754, ptr %4188, align 8, !tbaa !235
+  %.reass4015 = add i64 %.reass4013, %invariant.op4014
+  store i64 %.reass4015, ptr %4188, align 8, !tbaa !235
   br label %4446
 
 4446:                                             ; preds = %4407, %4428, %4313, %4392, %4367
@@ -89128,8 +89128,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   %4474 = load ptr, ptr %4166, align 8
   %4475 = getelementptr inbounds nuw i8, ptr %4474, i64 8
   %4476 = trunc nuw nsw i64 %4462 to i32
-  %invariant.op37553790 = add nuw i64 %indvars.iv3578, %4462
-  %invariant.op3759 = shl i64 %invariant.op37553790, 1
+  %invariant.op40164051 = add nuw i64 %indvars.iv3578, %4462
+  %invariant.op4020 = shl i64 %invariant.op40164051, 1
   %4477 = trunc nuw nsw i64 %indvars.iv3578 to i32
   %4478 = trunc nuw nsw i64 %indvars.iv3578 to i32
   %4479 = load ptr, ptr %4166, align 8
@@ -89297,8 +89297,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4582
 
 4582:                                             ; preds = %4569, %4547
-  %.sink3784 = phi ptr [ %4542, %4569 ], [ %4566, %4547 ]
-  %4583 = getelementptr inbounds nuw i8, ptr %.sink3784, i64 8
+  %.sink4045 = phi ptr [ %4542, %4569 ], [ %4566, %4547 ]
+  %4583 = getelementptr inbounds nuw i8, ptr %.sink4045, i64 8
   %4584 = load i64, ptr %4583, align 8, !tbaa !235
   %4585 = add i64 %4584, %indvars.iv3578
   store i64 %4585, ptr %4583, align 8, !tbaa !235
@@ -89364,8 +89364,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   br label %4624
 
 4624:                                             ; preds = %4611, %4589
-  %.sink3787 = phi ptr [ %4542, %4611 ], [ %4608, %4589 ]
-  %4625 = getelementptr inbounds nuw i8, ptr %.sink3787, i64 8
+  %.sink4048 = phi ptr [ %4542, %4611 ], [ %4608, %4589 ]
+  %4625 = getelementptr inbounds nuw i8, ptr %.sink4048, i64 8
   %4626 = load i64, ptr %4625, align 8, !tbaa !235
   %4627 = add i64 %4626, %4462
   store i64 %4627, ptr %4625, align 8, !tbaa !235
@@ -89479,8 +89479,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i3059: ; preds = %.lr.ph
   store i32 %4697, ptr %4473, align 4, !tbaa !16
   %4698 = add i64 %4695, %4673
   store i64 %4698, ptr %4474, align 8, !tbaa !233
-  %.reass3760 = add i64 %4688, %invariant.op3759
-  store i64 %.reass3760, ptr %4475, align 8, !tbaa !235
+  %.reass4021 = add i64 %4688, %invariant.op4020
+  store i64 %.reass4021, ptr %4475, align 8, !tbaa !235
   br label %4699
 
 4699:                                             ; preds = %4631, %4656, %4672
@@ -91535,8 +91535,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i: ; preds = %.lr.ph.i.i
 
 .loopexit4856.loopexit:                           ; preds = %3070
   %594 = trunc nsw i64 %indvars.iv5692 to i32
-  %sext5851 = shl i64 %indvars.iv5692, 32
-  %.pre = ashr exact i64 %sext5851, 32
+  %sext6129 = shl i64 %indvars.iv5692, 32
+  %.pre = ashr exact i64 %sext6129, 32
   br label %.loopexit4856
 
 .loopexit4856:                                    ; preds = %.loopexit4856.loopexit, %591
@@ -94595,8 +94595,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
 
 2099:                                             ; preds = %2055
   %2100 = trunc nsw i64 %indvars.iv5678 to i32
-  %sext5840 = shl i64 %indvars.iv5680, 32
-  %2101 = ashr exact i64 %sext5840, 31
+  %sext6118 = shl i64 %indvars.iv5680, 32
+  %2101 = ashr exact i64 %sext6118, 31
   %2102 = getelementptr inbounds i8, ptr %428, i64 %2101
   %2103 = load i16, ptr %2102, align 2, !tbaa !50
   %2104 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5678
@@ -94605,8 +94605,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
 
 2105:                                             ; preds = %2052
   %2106 = trunc nsw i64 %indvars.iv5678 to i32
-  %sext5839 = shl i64 %indvars.iv5680, 32
-  %2107 = ashr exact i64 %sext5839, 31
+  %sext6117 = shl i64 %indvars.iv5680, 32
+  %2107 = ashr exact i64 %sext6117, 31
   %2108 = getelementptr inbounds i8, ptr %428, i64 %2107
   %2109 = load i16, ptr %2108, align 2, !tbaa !50
   %2110 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5678
@@ -94642,8 +94642,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
 
 2126:                                             ; preds = %2114
   %2127 = trunc nsw i64 %indvars.iv5678 to i32
-  %sext5841 = shl i64 %indvars.iv5680, 32
-  %2128 = ashr exact i64 %sext5841, 31
+  %sext6119 = shl i64 %indvars.iv5680, 32
+  %2128 = ashr exact i64 %sext6119, 31
   %2129 = getelementptr inbounds i8, ptr %428, i64 %2128
   %2130 = load i16, ptr %2129, align 2, !tbaa !50
   %2131 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5678
@@ -94653,8 +94653,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
 2132:                                             ; preds = %2111
   %2133 = trunc nsw i64 %indvars.iv5678 to i32
   %2134 = shl i64 %indvars.iv5680, 32
-  %sext5842 = add i64 %2134, 12884901888
-  %2135 = ashr exact i64 %sext5842, 32
+  %sext6120 = add i64 %2134, 12884901888
+  %2135 = ashr exact i64 %sext6120, 32
   %2136 = getelementptr inbounds i8, ptr %419, i64 %2135
   %2137 = load i8, ptr %2136, align 1, !tbaa !55
   %.not3495 = icmp eq i8 %2137, 0
@@ -94674,8 +94674,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
   br label %2154
 
 2145:                                             ; preds = %2138
-  %sext5843 = shl i64 %indvars.iv5680, 32
-  %2146 = ashr exact i64 %sext5843, 32
+  %sext6121 = shl i64 %indvars.iv5680, 32
+  %2146 = ashr exact i64 %sext6121, 32
   %2147 = getelementptr i8, ptr %421, i64 %2146
   %2148 = getelementptr i8, ptr %2147, i64 4
   %2149 = load i8, ptr %2148, align 1, !tbaa !55
@@ -95297,16 +95297,16 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4284: ; preds = %.lr.ph
   br i1 %.not3708, label %2479, label %2439
 
 2439:                                             ; preds = %2435
-  %sext5844 = shl i64 %indvars.iv5687, 32
-  %2440 = ashr exact i64 %sext5844, 32
+  %sext6122 = shl i64 %indvars.iv5687, 32
+  %2440 = ashr exact i64 %sext6122, 32
   %2441 = getelementptr inbounds i8, ptr %421, i64 %2440
   %2442 = load i8, ptr %2441, align 1, !tbaa !55
   %.not3709 = icmp eq i8 %2442, 0
   br i1 %.not3709, label %2443, label %._crit_edge5778
 
 ._crit_edge5778:                                  ; preds = %2439
-  %sext5845 = shl i64 %indvars.iv5685, 32
-  %.pre5819 = ashr exact i64 %sext5845, 32
+  %sext6123 = shl i64 %indvars.iv5685, 32
+  %.pre5819 = ashr exact i64 %sext6123, 32
   br label %1724
 
 2443:                                             ; preds = %2439
@@ -95387,8 +95387,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4298: ; preds = %.lr.ph
 2479:                                             ; preds = %2435
   %2480 = getelementptr inbounds i16, ptr %431, i64 %indvars.iv5685
   %2481 = load i16, ptr %2480, align 2, !tbaa !50
-  %sext5846 = shl i64 %indvars.iv5687, 32
-  %2482 = ashr exact i64 %sext5846, 31
+  %sext6124 = shl i64 %indvars.iv5687, 32
+  %2482 = ashr exact i64 %sext6124, 31
   %2483 = getelementptr inbounds i8, ptr %428, i64 %2482
   %2484 = load i16, ptr %2483, align 2, !tbaa !50
   br label %2485
@@ -95476,8 +95476,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4312: ; preds = %.lr.ph
 
 2523:                                             ; preds = %2519
   %2524 = trunc nsw i64 %indvars.iv5685 to i32
-  %sext5863 = shl i64 %indvars.iv5687, 32
-  %2525 = ashr exact i64 %sext5863, 32
+  %sext6141 = shl i64 %indvars.iv5687, 32
+  %2525 = ashr exact i64 %sext6141, 32
   %2526 = getelementptr i8, ptr %422, i64 %2525
   %2527 = getelementptr i8, ptr %2526, i64 3
   %2528 = load i8, ptr %2527, align 1, !tbaa !55
@@ -95497,8 +95497,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4312: ; preds = %.lr.ph
   br i1 %.not3706, label %2535, label %._crit_edge5786
 
 ._crit_edge5786:                                  ; preds = %2532
-  %sext5864 = shl i64 %indvars.iv5685, 32
-  %.pre5803 = ashr exact i64 %sext5864, 32
+  %sext6142 = shl i64 %indvars.iv5685, 32
+  %.pre5803 = ashr exact i64 %sext6142, 32
   br label %1818
 
 2535:                                             ; preds = %2532
@@ -95738,8 +95738,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4354: ; preds = %.lr.ph
 
 2647:                                             ; preds = %2516
   %2648 = trunc nsw i64 %indvars.iv5685 to i32
-  %sext5847 = shl i64 %indvars.iv5687, 32
-  %2649 = ashr exact i64 %sext5847, 31
+  %sext6125 = shl i64 %indvars.iv5687, 32
+  %2649 = ashr exact i64 %sext6125, 31
   %2650 = getelementptr inbounds i8, ptr %428, i64 %2649
   %2651 = load i16, ptr %2650, align 2, !tbaa !50
   %2652 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5685
@@ -95773,16 +95773,16 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4354: ; preds = %.lr.ph
   br i1 %.not3508, label %2707, label %2667
 
 2667:                                             ; preds = %2663
-  %sext5848 = shl i64 %indvars.iv5687, 32
-  %2668 = ashr exact i64 %sext5848, 32
+  %sext6126 = shl i64 %indvars.iv5687, 32
+  %2668 = ashr exact i64 %sext6126, 32
   %2669 = getelementptr inbounds i8, ptr %421, i64 %2668
   %2670 = load i8, ptr %2669, align 1, !tbaa !55
   %.not3509 = icmp eq i8 %2670, 0
   br i1 %.not3509, label %2671, label %._crit_edge5779
 
 ._crit_edge5779:                                  ; preds = %2667
-  %sext5849 = shl i64 %indvars.iv5685, 32
-  %.pre5817 = ashr exact i64 %sext5849, 32
+  %sext6127 = shl i64 %indvars.iv5685, 32
+  %.pre5817 = ashr exact i64 %sext6127, 32
   br label %1955
 
 2671:                                             ; preds = %2667
@@ -95863,8 +95863,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4368: ; preds = %.lr.ph
 2707:                                             ; preds = %2663
   %2708 = getelementptr inbounds i16, ptr %431, i64 %indvars.iv5685
   %2709 = load i16, ptr %2708, align 2, !tbaa !50
-  %sext5850 = shl i64 %indvars.iv5687, 32
-  %2710 = ashr exact i64 %sext5850, 31
+  %sext6128 = shl i64 %indvars.iv5687, 32
+  %2710 = ashr exact i64 %sext6128, 31
   %2711 = getelementptr inbounds i8, ptr %428, i64 %2710
   %2712 = load i16, ptr %2711, align 2, !tbaa !50
   br label %2713
@@ -95939,8 +95939,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4382: ; preds = %.lr.ph
 
 2744:                                             ; preds = %2656
   %2745 = trunc nsw i64 %indvars.iv5685 to i32
-  %sext5865 = shl i64 %indvars.iv5687, 32
-  %2746 = ashr exact i64 %sext5865, 31
+  %sext6143 = shl i64 %indvars.iv5687, 32
+  %2746 = ashr exact i64 %sext6143, 31
   %2747 = getelementptr inbounds i8, ptr %428, i64 %2746
   %2748 = load i16, ptr %2747, align 2, !tbaa !50
   %2749 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5685
@@ -96601,8 +96601,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3480, label %3097, label %3081
 
 3081:                                             ; preds = %3077
-  %sext5852 = shl i64 %indvars.iv5694, 32
-  %3082 = ashr exact i64 %sext5852, 32
+  %sext6130 = shl i64 %indvars.iv5694, 32
+  %3082 = ashr exact i64 %sext6130, 32
   %3083 = getelementptr i8, ptr %421, i64 %3082
   %3084 = getelementptr i8, ptr %3083, i64 4
   %3085 = load i8, ptr %3084, align 1, !tbaa !55
@@ -96616,8 +96616,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3483, label %._crit_edge5782, label %457
 
 ._crit_edge5782:                                  ; preds = %3088
-  %sext5853 = shl i64 %indvars.iv5692, 32
-  %.pre5811 = ashr exact i64 %sext5853, 32
+  %sext6131 = shl i64 %indvars.iv5692, 32
+  %.pre5811 = ashr exact i64 %sext6131, 32
   br label %655
 
 3089:                                             ; preds = %3081
@@ -96650,8 +96650,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br label %2810
 
 3104:                                             ; preds = %3097
-  %sext5854 = shl i64 %indvars.iv5694, 32
-  %3105 = ashr exact i64 %sext5854, 31
+  %sext6132 = shl i64 %indvars.iv5694, 32
+  %3105 = ashr exact i64 %sext6132, 31
   %3106 = getelementptr inbounds i8, ptr %431, i64 %3105
   %3107 = load i16, ptr %3106, align 2, !tbaa !50
   %3108 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5692
@@ -96667,14 +96667,14 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
 
 3113:                                             ; preds = %3109
   %3114 = shl i64 %indvars.iv5694, 32
-  %sext5855 = add i64 %3114, 12884901888
-  %3115 = ashr exact i64 %sext5855, 32
+  %sext6133 = add i64 %3114, 12884901888
+  %3115 = ashr exact i64 %sext6133, 32
   %3116 = getelementptr inbounds i8, ptr %419, i64 %3115
   %3117 = load i8, ptr %3116, align 1, !tbaa !55
   %.not3469 = icmp eq i8 %3117, 0
   %3118 = shl i64 %indvars.iv5694, 32
-  %sext5860 = add i64 %3118, 4294967296
-  %3119 = ashr exact i64 %sext5860, 32
+  %sext6138 = add i64 %3118, 4294967296
+  %3119 = ashr exact i64 %sext6138, 32
   br i1 %.not3469, label %3144, label %3120
 
 3120:                                             ; preds = %3113
@@ -96684,8 +96684,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3472, label %3123, label %._crit_edge5785
 
 ._crit_edge5785:                                  ; preds = %3120
-  %sext5857 = shl i64 %indvars.iv5692, 32
-  %.pre5805 = ashr exact i64 %sext5857, 32
+  %sext6135 = shl i64 %indvars.iv5692, 32
+  %.pre5805 = ashr exact i64 %sext6135, 32
   br label %2331
 
 3123:                                             ; preds = %3120
@@ -96701,8 +96701,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3474, label %3129, label %._crit_edge5793
 
 3129:                                             ; preds = %3126
-  %sext5858 = shl i64 %indvars.iv5694, 32
-  %3130 = ashr exact i64 %sext5858, 32
+  %sext6136 = shl i64 %indvars.iv5694, 32
+  %3130 = ashr exact i64 %sext6136, 32
   %3131 = getelementptr i8, ptr %421, i64 %3130
   %3132 = getelementptr i8, ptr %3131, i64 4
   %3133 = load i8, ptr %3132, align 1, !tbaa !55
@@ -96710,8 +96710,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3475, label %3134, label %._crit_edge5783
 
 ._crit_edge5783:                                  ; preds = %3129
-  %sext5859 = shl i64 %indvars.iv5692, 32
-  %.pre5809 = ashr exact i64 %sext5859, 32
+  %sext6137 = shl i64 %indvars.iv5692, 32
+  %.pre5809 = ashr exact i64 %sext6137, 32
   br label %2222
 
 3134:                                             ; preds = %3129
@@ -96740,8 +96740,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3470, label %3152, label %3147
 
 3147:                                             ; preds = %3144
-  %sext5861 = shl i64 %indvars.iv5694, 32
-  %3148 = ashr exact i64 %sext5861, 31
+  %sext6139 = shl i64 %indvars.iv5694, 32
+  %3148 = ashr exact i64 %sext6139, 31
   %3149 = getelementptr inbounds i8, ptr %428, i64 %3148
   %3150 = load i16, ptr %3149, align 2, !tbaa !50
   %3151 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5692
@@ -96755,8 +96755,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3471, label %3160, label %3155
 
 3155:                                             ; preds = %3152
-  %sext5862 = shl i64 %indvars.iv5694, 32
-  %3156 = ashr exact i64 %sext5862, 31
+  %sext6140 = shl i64 %indvars.iv5694, 32
+  %3156 = ashr exact i64 %sext6140, 31
   %3157 = getelementptr inbounds i8, ptr %428, i64 %3156
   %3158 = load i16, ptr %3157, align 2, !tbaa !50
   %3159 = getelementptr inbounds i16, ptr %428, i64 %indvars.iv5692
@@ -99646,8 +99646,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4662: ; preds = %.lr.ph
 
 .loopexit4828.loopexit:                           ; preds = %5218
   %4617 = trunc nsw i64 %indvars.iv5715 to i32
-  %sext5873 = shl i64 %indvars.iv5715, 32
-  %.pre5756 = ashr exact i64 %sext5873, 32
+  %sext6151 = shl i64 %indvars.iv5715, 32
+  %.pre5756 = ashr exact i64 %sext6151, 32
   br label %.loopexit4828
 
 .loopexit4828:                                    ; preds = %.loopexit4828.loopexit, %4612
@@ -100153,12 +100153,12 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4704: ; preds = %.lr.ph
   br label %4588
 
 4878:                                             ; preds = %4709, %4557, %5236, %5111
-  %indvars.iv5715.lcssa5931.sink6174 = phi i64 [ %indvars.iv5701, %5111 ], [ %indvars.iv5715, %5236 ], [ %4504, %4557 ], [ %4597, %4709 ]
+  %indvars.iv5715.lcssa6209.sink6452 = phi i64 [ %indvars.iv5701, %5111 ], [ %indvars.iv5715, %5236 ], [ %4504, %4557 ], [ %4597, %4709 ]
   %.53149 = phi i32 [ %5103, %5111 ], [ %5226, %5236 ], [ %.23146, %4557 ], [ %4590, %4709 ]
   %.104 = phi i16 [ %.103.ph, %5111 ], [ %.100.ph, %5236 ], [ %.101, %4557 ], [ %.108, %4709 ]
-  %4879 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5715.lcssa5931.sink6174
+  %4879 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5715.lcssa6209.sink6452
   %4880 = load i16, ptr %4879, align 2, !tbaa !50
-  %4881 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5715.lcssa5931.sink6174
+  %4881 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5715.lcssa6209.sink6452
   store i16 %4880, ptr %4881, align 2, !tbaa !50
   %4882 = add nsw i32 %.53149, 2
   %.not3408 = icmp slt i32 %4882, %190
@@ -100501,9 +100501,9 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4732: ; preds = %.lr.ph
   br i1 %.not3439, label %5057, label %.backedge4835
 
 .backedge4835:                                    ; preds = %5051, %.loopexit4821
-  %.sink6175 = phi i16 [ %.0.i4748, %.loopexit4821 ], [ %5055, %5051 ]
+  %.sink6453 = phi i16 [ %.0.i4748, %.loopexit4821 ], [ %5055, %5051 ]
   %5056 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5701
-  store i16 %.sink6175, ptr %5056, align 2, !tbaa !50
+  store i16 %.sink6453, ptr %5056, align 2, !tbaa !50
   %indvars.iv.next5702 = add nsw i64 %indvars.iv5701, 2
   %.not3359 = icmp slt i64 %indvars.iv.next5702, %4478
   %indvars.iv.next5704 = add nsw i64 %indvars.iv5703, 2
@@ -100582,8 +100582,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
 
 5090:                                             ; preds = %5047
   %5091 = trunc nsw i64 %indvars.iv5701 to i32
-  %sext5866 = shl i64 %indvars.iv5703, 32
-  %5092 = ashr exact i64 %sext5866, 31
+  %sext6144 = shl i64 %indvars.iv5703, 32
+  %5092 = ashr exact i64 %sext6144, 31
   %5093 = getelementptr inbounds i8, ptr %4474, i64 %5092
   %5094 = load i16, ptr %5093, align 2, !tbaa !50
   %5095 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5701
@@ -100592,8 +100592,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
 
 5096:                                             ; preds = %5044
   %5097 = trunc nsw i64 %indvars.iv5701 to i32
-  %sext5867 = shl i64 %indvars.iv5703, 32
-  %5098 = ashr exact i64 %sext5867, 31
+  %sext6145 = shl i64 %indvars.iv5703, 32
+  %5098 = ashr exact i64 %sext6145, 31
   %5099 = getelementptr inbounds i8, ptr %4474, i64 %5098
   %5100 = load i16, ptr %5099, align 2, !tbaa !50
   %5101 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5701
@@ -100603,8 +100603,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
 5102:                                             ; preds = %.lr.ph5269
   %5103 = trunc nsw i64 %indvars.iv5701 to i32
   %5104 = shl i64 %indvars.iv5703, 32
-  %sext5868 = add i64 %5104, 12884901888
-  %5105 = ashr exact i64 %sext5868, 32
+  %sext6146 = add i64 %5104, 12884901888
+  %5105 = ashr exact i64 %sext6146, 32
   %5106 = getelementptr inbounds i8, ptr %4466, i64 %5105
   %5107 = load i8, ptr %5106, align 1, !tbaa !55
   %.not3361 = icmp eq i8 %5107, 0
@@ -100617,8 +100617,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
   br i1 %.not3362, label %5111, label %5116
 
 5111:                                             ; preds = %5108
-  %sext5869 = shl i64 %indvars.iv5703, 32
-  %5112 = ashr exact i64 %sext5869, 32
+  %sext6147 = shl i64 %indvars.iv5703, 32
+  %5112 = ashr exact i64 %sext6147, 32
   %5113 = getelementptr i8, ptr %4468, i64 %5112
   %5114 = getelementptr i8, ptr %5113, i64 4
   %5115 = load i8, ptr %5114, align 1, !tbaa !55
@@ -100626,12 +100626,12 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
   br i1 %.not3363, label %4878, label %4508
 
 5116:                                             ; preds = %5108, %4858, %4584
-  %indvars.iv5701.lcssa.sink6181 = phi i64 [ %4859, %4858 ], [ %4585, %4584 ], [ %indvars.iv5701, %5108 ]
+  %indvars.iv5701.lcssa.sink6459 = phi i64 [ %4859, %4858 ], [ %4585, %4584 ], [ %indvars.iv5701, %5108 ]
   %.83152 = phi i32 [ %.143158, %4858 ], [ %.73151, %4584 ], [ %5103, %5108 ]
   %.107 = phi i16 [ %.113, %4858 ], [ %.106, %4584 ], [ %.103.ph, %5108 ]
-  %5117 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5701.lcssa.sink6181
+  %5117 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5701.lcssa.sink6459
   %5118 = load i16, ptr %5117, align 2, !tbaa !50
-  %5119 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5701.lcssa.sink6181
+  %5119 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5701.lcssa.sink6459
   store i16 %5118, ptr %5119, align 2, !tbaa !50
   %5120 = add nsw i32 %.83152, 2
   %.not3372 = icmp slt i32 %5120, %190
@@ -100863,8 +100863,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
   br i1 %.not3350, label %._crit_edge5790, label %4508
 
 ._crit_edge5790:                                  ; preds = %5235
-  %sext5874 = shl i64 %indvars.iv5715, 32
-  %.pre5797 = ashr exact i64 %sext5874, 32
+  %sext6152 = shl i64 %indvars.iv5715, 32
+  %.pre5797 = ashr exact i64 %sext6152, 32
   br label %4679
 
 5236:                                             ; preds = %5229
@@ -100930,16 +100930,16 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
   br i1 %.not3429, label %5275, label %5264
 
 5264:                                             ; preds = %5260
-  %sext5870 = shl i64 %indvars.iv5710, 32
-  %5265 = ashr exact i64 %sext5870, 32
+  %sext6148 = shl i64 %indvars.iv5710, 32
+  %5265 = ashr exact i64 %sext6148, 32
   %5266 = getelementptr inbounds i8, ptr %4468, i64 %5265
   %5267 = load i8, ptr %5266, align 1, !tbaa !55
   %.not3430 = icmp eq i8 %5267, 0
   br i1 %.not3430, label %5268, label %._crit_edge5789
 
 ._crit_edge5789:                                  ; preds = %5264
-  %sext5871 = shl i64 %indvars.iv5708, 32
-  %.pre5799 = ashr exact i64 %sext5871, 32
+  %sext6149 = shl i64 %indvars.iv5708, 32
+  %.pre5799 = ashr exact i64 %sext6149, 32
   br label %4897
 
 5268:                                             ; preds = %5264
@@ -100955,8 +100955,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
 5275:                                             ; preds = %5260
   %5276 = getelementptr inbounds i16, ptr %4477, i64 %indvars.iv5708
   %5277 = load i16, ptr %5276, align 2, !tbaa !50
-  %sext5872 = shl i64 %indvars.iv5710, 32
-  %5278 = ashr exact i64 %sext5872, 31
+  %sext6150 = shl i64 %indvars.iv5710, 32
+  %5278 = ashr exact i64 %sext6150, 31
   %5279 = getelementptr inbounds i8, ptr %4474, i64 %5278
   %5280 = load i16, ptr %5279, align 2, !tbaa !50
   br label %5281
@@ -101068,16 +101068,16 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4760: ; preds = %.lr.ph
   br i1 %.not3426, label %5340, label %5329
 
 5329:                                             ; preds = %5326
-  %sext5875 = shl i64 %indvars.iv5710, 32
-  %5330 = ashr exact i64 %sext5875, 32
+  %sext6153 = shl i64 %indvars.iv5710, 32
+  %5330 = ashr exact i64 %sext6153, 32
   %5331 = getelementptr inbounds i8, ptr %4468, i64 %5330
   %5332 = load i8, ptr %5331, align 1, !tbaa !55
   %.not3427 = icmp eq i8 %5332, 0
   br i1 %.not3427, label %5333, label %._crit_edge5791
 
 ._crit_edge5791:                                  ; preds = %5329
-  %sext5876 = shl i64 %indvars.iv5708, 32
-  %.pre5795 = ashr exact i64 %sext5876, 32
+  %sext6154 = shl i64 %indvars.iv5708, 32
+  %.pre5795 = ashr exact i64 %sext6154, 32
   br label %4991
 
 5333:                                             ; preds = %5329
@@ -101093,8 +101093,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4760: ; preds = %.lr.ph
 5340:                                             ; preds = %5326
   %5341 = getelementptr inbounds i16, ptr %4477, i64 %5319
   %5342 = load i16, ptr %5341, align 2, !tbaa !50
-  %sext5877 = shl i64 %indvars.iv5710, 32
-  %5343 = ashr exact i64 %sext5877, 31
+  %sext6155 = shl i64 %indvars.iv5710, 32
+  %5343 = ashr exact i64 %sext6155, 31
   %5344 = getelementptr inbounds i8, ptr %4474, i64 %5343
   %5345 = load i16, ptr %5344, align 2, !tbaa !50
   %5346 = tail call fastcc noundef zeroext i16 @_ZN2cv19connectedcomponentsL9set_unionItEET_PS2_S2_S2_(ptr noundef %.sroa.04813.0, i16 noundef zeroext %5342, i16 noundef zeroext %5345)
@@ -101105,8 +101105,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4760: ; preds = %.lr.ph
 5348:                                             ; preds = %5322
   %5349 = getelementptr inbounds i16, ptr %4477, i64 %5319
   %5350 = load i16, ptr %5349, align 2, !tbaa !50
-  %sext5878 = shl i64 %indvars.iv5710, 32
-  %5351 = ashr exact i64 %sext5878, 31
+  %sext6156 = shl i64 %indvars.iv5710, 32
+  %5351 = ashr exact i64 %sext6156, 31
   %5352 = getelementptr inbounds i8, ptr %4474, i64 %5351
   %5353 = load i16, ptr %5352, align 2, !tbaa !50
   br label %5354
@@ -101203,8 +101203,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4774: ; preds = %.lr.ph
 
 5392:                                             ; preds = %5315
   %5393 = trunc nsw i64 %indvars.iv5708 to i32
-  %sext5879 = shl i64 %indvars.iv5710, 32
-  %5394 = ashr exact i64 %sext5879, 31
+  %sext6157 = shl i64 %indvars.iv5710, 32
+  %5394 = ashr exact i64 %sext6157, 31
   %5395 = getelementptr inbounds i8, ptr %4474, i64 %5394
   %5396 = load i16, ptr %5395, align 2, !tbaa !50
   %5397 = getelementptr inbounds i16, ptr %4474, i64 %indvars.iv5708
@@ -101862,8 +101862,8 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   %5751 = load ptr, ptr %5721, align 8
   %5752 = getelementptr inbounds nuw i8, ptr %5751, i64 8
   %5753 = trunc nuw nsw i64 %5739 to i32
-  %invariant.op6202 = add nuw i64 %indvars.iv5732, %5739
-  %invariant.op6166 = shl i64 %invariant.op6202, 1
+  %invariant.op6480 = add nuw i64 %indvars.iv5732, %5739
+  %invariant.op6444 = shl i64 %invariant.op6480, 1
   %5754 = getelementptr inbounds nuw i8, ptr %5741, i64 8
   br label %5755
 
@@ -102015,8 +102015,8 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   br label %5846
 
 5846:                                             ; preds = %5833, %5811
-  %.sink6186 = phi ptr [ %5741, %5833 ], [ %5830, %5811 ]
-  %5847 = getelementptr inbounds nuw i8, ptr %.sink6186, i64 8
+  %.sink6464 = phi ptr [ %5741, %5833 ], [ %5830, %5811 ]
+  %5847 = getelementptr inbounds nuw i8, ptr %.sink6464, i64 8
   %5848 = load i64, ptr %5847, align 8, !tbaa !235
   %5849 = add i64 %5848, %indvars.iv5732
   store i64 %5849, ptr %5847, align 8, !tbaa !235
@@ -102082,8 +102082,8 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   br label %5888
 
 5888:                                             ; preds = %5875, %5853
-  %.sink6191 = phi ptr [ %5741, %5875 ], [ %5872, %5853 ]
-  %5889 = getelementptr inbounds nuw i8, ptr %.sink6191, i64 8
+  %.sink6469 = phi ptr [ %5741, %5875 ], [ %5872, %5853 ]
+  %5889 = getelementptr inbounds nuw i8, ptr %.sink6469, i64 8
   %5890 = load i64, ptr %5889, align 8, !tbaa !235
   %5891 = add i64 %5890, %5739
   store i64 %5891, ptr %5889, align 8, !tbaa !235
@@ -102195,7 +102195,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   store i32 %5960, ptr %5738, align 4, !tbaa !16
   %5961 = add i64 %5957, %5948
   store i64 %5961, ptr %5751, align 8, !tbaa !233
-  %.reass = add i64 %5947, %invariant.op6166
+  %.reass = add i64 %5947, %invariant.op6444
   store i64 %.reass, ptr %5752, align 8, !tbaa !235
   br label %5962
 
@@ -102293,9 +102293,9 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   br label %6019
 
 6019:                                             ; preds = %6000, %5975
-  %.sink6196 = phi ptr [ %6016, %6000 ], [ %5997, %5975 ]
+  %.sink6474 = phi ptr [ %6016, %6000 ], [ %5997, %5975 ]
   %6020 = phi ptr [ %6016, %6000 ], [ %5996, %5975 ]
-  %6021 = getelementptr inbounds nuw i8, ptr %.sink6196, i64 8
+  %6021 = getelementptr inbounds nuw i8, ptr %.sink6474, i64 8
   %6022 = load i64, ptr %6021, align 8, !tbaa !235
   %6023 = add i64 %6022, %indvars.iv5732
   store i64 %6023, ptr %6021, align 8, !tbaa !235
@@ -102461,7 +102461,7 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   %6133 = getelementptr inbounds nuw i8, ptr %6125, i64 16
   %6134 = getelementptr inbounds nuw i8, ptr %6129, i64 8
   %6135 = zext nneg i32 %68 to i64
-  %invariant.op6167 = shl nuw nsw i64 %6113, 1
+  %invariant.op6445 = shl nuw nsw i64 %6113, 1
   br label %6136
 
 6136:                                             ; preds = %.lr.ph5339, %6249
@@ -102640,8 +102640,8 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   store i32 %6247, ptr %6133, align 4, !tbaa !16
   %6248 = add i64 %6241, %6243
   store i64 %6248, ptr %6129, align 8, !tbaa !233
-  %.reass6168 = add i64 %6242, %invariant.op6167
-  store i64 %.reass6168, ptr %6134, align 8, !tbaa !235
+  %.reass6446 = add i64 %6242, %invariant.op6445
+  store i64 %.reass6446, ptr %6134, align 8, !tbaa !235
   br label %6249
 
 6249:                                             ; preds = %6190, %6215, %6230
@@ -102770,8 +102770,8 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5711, %5700
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6309, %6289, %6259
-  %.sink6201 = phi ptr [ %6286, %6259 ], [ %6306, %6289 ], [ %6326, %6309 ]
-  %6329 = getelementptr inbounds nuw i8, ptr %.sink6201, i64 8
+  %.sink6479 = phi ptr [ %6286, %6259 ], [ %6306, %6289 ], [ %6326, %6309 ]
+  %6329 = getelementptr inbounds nuw i8, ptr %.sink6479, i64 8
   %6330 = load i64, ptr %6329, align 8, !tbaa !235
   %6331 = add i64 %6330, %6113
   store i64 %6331, ptr %6329, align 8, !tbaa !235
@@ -103523,8 +103523,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc3800, %_ZNSt6
 293:                                              ; preds = %283
   %294 = getelementptr inbounds i32, ptr %188, i64 %indvars.iv
   store i32 %284, ptr %294, align 4, !tbaa !16
-  %sext5839 = shl i64 %indvars.iv5678, 32
-  %295 = ashr exact i64 %sext5839, 30
+  %sext6118 = shl i64 %indvars.iv5678, 32
+  %295 = ashr exact i64 %sext6118, 30
   %296 = getelementptr inbounds i8, ptr %.sroa.04813.0, i64 %295
   store i32 %284, ptr %296, align 4, !tbaa !16
   %297 = add nsw i32 %284, 1
@@ -104116,8 +104116,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i: ; preds = %.lr.ph.i.i
 
 .loopexit4856.loopexit:                           ; preds = %3075
   %599 = trunc nsw i64 %indvars.iv5695 to i32
-  %sext5852 = shl i64 %indvars.iv5695, 32
-  %.pre = ashr exact i64 %sext5852, 32
+  %sext6131 = shl i64 %indvars.iv5695, 32
+  %.pre = ashr exact i64 %sext6131, 32
   br label %.loopexit4856
 
 .loopexit4856:                                    ; preds = %.loopexit4856.loopexit, %596
@@ -107176,8 +107176,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
 
 2104:                                             ; preds = %2060
   %2105 = trunc nsw i64 %indvars.iv5681 to i32
-  %sext5841 = shl i64 %indvars.iv5683, 32
-  %2106 = ashr exact i64 %sext5841, 30
+  %sext6120 = shl i64 %indvars.iv5683, 32
+  %2106 = ashr exact i64 %sext6120, 30
   %2107 = getelementptr inbounds i8, ptr %433, i64 %2106
   %2108 = load i32, ptr %2107, align 4, !tbaa !16
   %2109 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5681
@@ -107186,8 +107186,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
 
 2110:                                             ; preds = %2057
   %2111 = trunc nsw i64 %indvars.iv5681 to i32
-  %sext5840 = shl i64 %indvars.iv5683, 32
-  %2112 = ashr exact i64 %sext5840, 30
+  %sext6119 = shl i64 %indvars.iv5683, 32
+  %2112 = ashr exact i64 %sext6119, 30
   %2113 = getelementptr inbounds i8, ptr %433, i64 %2112
   %2114 = load i32, ptr %2113, align 4, !tbaa !16
   %2115 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5681
@@ -107223,8 +107223,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
 
 2131:                                             ; preds = %2119
   %2132 = trunc nsw i64 %indvars.iv5681 to i32
-  %sext5842 = shl i64 %indvars.iv5683, 32
-  %2133 = ashr exact i64 %sext5842, 30
+  %sext6121 = shl i64 %indvars.iv5683, 32
+  %2133 = ashr exact i64 %sext6121, 30
   %2134 = getelementptr inbounds i8, ptr %433, i64 %2133
   %2135 = load i32, ptr %2134, align 4, !tbaa !16
   %2136 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5681
@@ -107234,8 +107234,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
 2137:                                             ; preds = %2116
   %2138 = trunc nsw i64 %indvars.iv5681 to i32
   %2139 = shl i64 %indvars.iv5683, 32
-  %sext5843 = add i64 %2139, 12884901888
-  %2140 = ashr exact i64 %sext5843, 32
+  %sext6122 = add i64 %2139, 12884901888
+  %2140 = ashr exact i64 %sext6122, 32
   %2141 = getelementptr inbounds i8, ptr %424, i64 %2140
   %2142 = load i8, ptr %2141, align 1, !tbaa !55
   %.not3499 = icmp eq i8 %2142, 0
@@ -107255,8 +107255,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4228: ; preds = %.lr.ph
   br label %2159
 
 2150:                                             ; preds = %2143
-  %sext5844 = shl i64 %indvars.iv5683, 32
-  %2151 = ashr exact i64 %sext5844, 32
+  %sext6123 = shl i64 %indvars.iv5683, 32
+  %2151 = ashr exact i64 %sext6123, 32
   %2152 = getelementptr i8, ptr %426, i64 %2151
   %2153 = getelementptr i8, ptr %2152, i64 4
   %2154 = load i8, ptr %2153, align 1, !tbaa !55
@@ -107878,16 +107878,16 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4284: ; preds = %.lr.ph
   br i1 %.not3712, label %2484, label %2444
 
 2444:                                             ; preds = %2440
-  %sext5845 = shl i64 %indvars.iv5690, 32
-  %2445 = ashr exact i64 %sext5845, 32
+  %sext6124 = shl i64 %indvars.iv5690, 32
+  %2445 = ashr exact i64 %sext6124, 32
   %2446 = getelementptr inbounds i8, ptr %426, i64 %2445
   %2447 = load i8, ptr %2446, align 1, !tbaa !55
   %.not3713 = icmp eq i8 %2447, 0
   br i1 %.not3713, label %2448, label %._crit_edge5778
 
 ._crit_edge5778:                                  ; preds = %2444
-  %sext5846 = shl i64 %indvars.iv5688, 32
-  %.pre5819 = ashr exact i64 %sext5846, 32
+  %sext6125 = shl i64 %indvars.iv5688, 32
+  %.pre5819 = ashr exact i64 %sext6125, 32
   br label %1729
 
 2448:                                             ; preds = %2444
@@ -107968,8 +107968,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4298: ; preds = %.lr.ph
 2484:                                             ; preds = %2440
   %2485 = getelementptr inbounds i32, ptr %436, i64 %indvars.iv5688
   %2486 = load i32, ptr %2485, align 4, !tbaa !16
-  %sext5847 = shl i64 %indvars.iv5690, 32
-  %2487 = ashr exact i64 %sext5847, 30
+  %sext6126 = shl i64 %indvars.iv5690, 32
+  %2487 = ashr exact i64 %sext6126, 30
   %2488 = getelementptr inbounds i8, ptr %433, i64 %2487
   %2489 = load i32, ptr %2488, align 4, !tbaa !16
   br label %2490
@@ -108057,8 +108057,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4312: ; preds = %.lr.ph
 
 2528:                                             ; preds = %2524
   %2529 = trunc nsw i64 %indvars.iv5688 to i32
-  %sext5864 = shl i64 %indvars.iv5690, 32
-  %2530 = ashr exact i64 %sext5864, 32
+  %sext6143 = shl i64 %indvars.iv5690, 32
+  %2530 = ashr exact i64 %sext6143, 32
   %2531 = getelementptr i8, ptr %427, i64 %2530
   %2532 = getelementptr i8, ptr %2531, i64 3
   %2533 = load i8, ptr %2532, align 1, !tbaa !55
@@ -108078,8 +108078,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4312: ; preds = %.lr.ph
   br i1 %.not3710, label %2540, label %._crit_edge5786
 
 ._crit_edge5786:                                  ; preds = %2537
-  %sext5865 = shl i64 %indvars.iv5688, 32
-  %.pre5803 = ashr exact i64 %sext5865, 32
+  %sext6144 = shl i64 %indvars.iv5688, 32
+  %.pre5803 = ashr exact i64 %sext6144, 32
   br label %1823
 
 2540:                                             ; preds = %2537
@@ -108319,8 +108319,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4354: ; preds = %.lr.ph
 
 2652:                                             ; preds = %2521
   %2653 = trunc nsw i64 %indvars.iv5688 to i32
-  %sext5848 = shl i64 %indvars.iv5690, 32
-  %2654 = ashr exact i64 %sext5848, 30
+  %sext6127 = shl i64 %indvars.iv5690, 32
+  %2654 = ashr exact i64 %sext6127, 30
   %2655 = getelementptr inbounds i8, ptr %433, i64 %2654
   %2656 = load i32, ptr %2655, align 4, !tbaa !16
   %2657 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5688
@@ -108354,16 +108354,16 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4354: ; preds = %.lr.ph
   br i1 %.not3512, label %2712, label %2672
 
 2672:                                             ; preds = %2668
-  %sext5849 = shl i64 %indvars.iv5690, 32
-  %2673 = ashr exact i64 %sext5849, 32
+  %sext6128 = shl i64 %indvars.iv5690, 32
+  %2673 = ashr exact i64 %sext6128, 32
   %2674 = getelementptr inbounds i8, ptr %426, i64 %2673
   %2675 = load i8, ptr %2674, align 1, !tbaa !55
   %.not3513 = icmp eq i8 %2675, 0
   br i1 %.not3513, label %2676, label %._crit_edge5779
 
 ._crit_edge5779:                                  ; preds = %2672
-  %sext5850 = shl i64 %indvars.iv5688, 32
-  %.pre5817 = ashr exact i64 %sext5850, 32
+  %sext6129 = shl i64 %indvars.iv5688, 32
+  %.pre5817 = ashr exact i64 %sext6129, 32
   br label %1960
 
 2676:                                             ; preds = %2672
@@ -108444,8 +108444,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4368: ; preds = %.lr.ph
 2712:                                             ; preds = %2668
   %2713 = getelementptr inbounds i32, ptr %436, i64 %indvars.iv5688
   %2714 = load i32, ptr %2713, align 4, !tbaa !16
-  %sext5851 = shl i64 %indvars.iv5690, 32
-  %2715 = ashr exact i64 %sext5851, 30
+  %sext6130 = shl i64 %indvars.iv5690, 32
+  %2715 = ashr exact i64 %sext6130, 30
   %2716 = getelementptr inbounds i8, ptr %433, i64 %2715
   %2717 = load i32, ptr %2716, align 4, !tbaa !16
   br label %2718
@@ -108520,8 +108520,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4382: ; preds = %.lr.ph
 
 2749:                                             ; preds = %2661
   %2750 = trunc nsw i64 %indvars.iv5688 to i32
-  %sext5866 = shl i64 %indvars.iv5690, 32
-  %2751 = ashr exact i64 %sext5866, 30
+  %sext6145 = shl i64 %indvars.iv5690, 32
+  %2751 = ashr exact i64 %sext6145, 30
   %2752 = getelementptr inbounds i8, ptr %433, i64 %2751
   %2753 = load i32, ptr %2752, align 4, !tbaa !16
   %2754 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5688
@@ -109182,8 +109182,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3484, label %3102, label %3086
 
 3086:                                             ; preds = %3082
-  %sext5853 = shl i64 %indvars.iv5697, 32
-  %3087 = ashr exact i64 %sext5853, 32
+  %sext6132 = shl i64 %indvars.iv5697, 32
+  %3087 = ashr exact i64 %sext6132, 32
   %3088 = getelementptr i8, ptr %426, i64 %3087
   %3089 = getelementptr i8, ptr %3088, i64 4
   %3090 = load i8, ptr %3089, align 1, !tbaa !55
@@ -109197,8 +109197,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3487, label %._crit_edge5782, label %462
 
 ._crit_edge5782:                                  ; preds = %3093
-  %sext5854 = shl i64 %indvars.iv5695, 32
-  %.pre5811 = ashr exact i64 %sext5854, 32
+  %sext6133 = shl i64 %indvars.iv5695, 32
+  %.pre5811 = ashr exact i64 %sext6133, 32
   br label %660
 
 3094:                                             ; preds = %3086
@@ -109231,8 +109231,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br label %2815
 
 3109:                                             ; preds = %3102
-  %sext5855 = shl i64 %indvars.iv5697, 32
-  %3110 = ashr exact i64 %sext5855, 30
+  %sext6134 = shl i64 %indvars.iv5697, 32
+  %3110 = ashr exact i64 %sext6134, 30
   %3111 = getelementptr inbounds i8, ptr %436, i64 %3110
   %3112 = load i32, ptr %3111, align 4, !tbaa !16
   %3113 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5695
@@ -109248,14 +109248,14 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
 
 3118:                                             ; preds = %3114
   %3119 = shl i64 %indvars.iv5697, 32
-  %sext5856 = add i64 %3119, 12884901888
-  %3120 = ashr exact i64 %sext5856, 32
+  %sext6135 = add i64 %3119, 12884901888
+  %3120 = ashr exact i64 %sext6135, 32
   %3121 = getelementptr inbounds i8, ptr %424, i64 %3120
   %3122 = load i8, ptr %3121, align 1, !tbaa !55
   %.not3473 = icmp eq i8 %3122, 0
   %3123 = shl i64 %indvars.iv5697, 32
-  %sext5861 = add i64 %3123, 4294967296
-  %3124 = ashr exact i64 %sext5861, 32
+  %sext6140 = add i64 %3123, 4294967296
+  %3124 = ashr exact i64 %sext6140, 32
   br i1 %.not3473, label %3149, label %3125
 
 3125:                                             ; preds = %3118
@@ -109265,8 +109265,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3476, label %3128, label %._crit_edge5785
 
 ._crit_edge5785:                                  ; preds = %3125
-  %sext5858 = shl i64 %indvars.iv5695, 32
-  %.pre5805 = ashr exact i64 %sext5858, 32
+  %sext6137 = shl i64 %indvars.iv5695, 32
+  %.pre5805 = ashr exact i64 %sext6137, 32
   br label %2336
 
 3128:                                             ; preds = %3125
@@ -109282,8 +109282,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3478, label %3134, label %._crit_edge5793
 
 3134:                                             ; preds = %3131
-  %sext5859 = shl i64 %indvars.iv5697, 32
-  %3135 = ashr exact i64 %sext5859, 32
+  %sext6138 = shl i64 %indvars.iv5697, 32
+  %3135 = ashr exact i64 %sext6138, 32
   %3136 = getelementptr i8, ptr %426, i64 %3135
   %3137 = getelementptr i8, ptr %3136, i64 4
   %3138 = load i8, ptr %3137, align 1, !tbaa !55
@@ -109291,8 +109291,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3479, label %3139, label %._crit_edge5783
 
 ._crit_edge5783:                                  ; preds = %3134
-  %sext5860 = shl i64 %indvars.iv5695, 32
-  %.pre5809 = ashr exact i64 %sext5860, 32
+  %sext6139 = shl i64 %indvars.iv5695, 32
+  %.pre5809 = ashr exact i64 %sext6139, 32
   br label %2227
 
 3139:                                             ; preds = %3134
@@ -109321,8 +109321,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3474, label %3157, label %3152
 
 3152:                                             ; preds = %3149
-  %sext5862 = shl i64 %indvars.iv5697, 32
-  %3153 = ashr exact i64 %sext5862, 30
+  %sext6141 = shl i64 %indvars.iv5697, 32
+  %3153 = ashr exact i64 %sext6141, 30
   %3154 = getelementptr inbounds i8, ptr %433, i64 %3153
   %3155 = load i32, ptr %3154, align 4, !tbaa !16
   %3156 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5695
@@ -109336,8 +109336,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4438: ; preds = %.lr.ph
   br i1 %.not3475, label %3165, label %3160
 
 3160:                                             ; preds = %3157
-  %sext5863 = shl i64 %indvars.iv5697, 32
-  %3161 = ashr exact i64 %sext5863, 30
+  %sext6142 = shl i64 %indvars.iv5697, 32
+  %3161 = ashr exact i64 %sext6142, 30
   %3162 = getelementptr inbounds i8, ptr %433, i64 %3161
   %3163 = load i32, ptr %3162, align 4, !tbaa !16
   %3164 = getelementptr inbounds i32, ptr %433, i64 %indvars.iv5695
@@ -112227,8 +112227,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4662: ; preds = %.lr.ph
 
 .loopexit4828.loopexit:                           ; preds = %5223
   %4622 = trunc nsw i64 %indvars.iv5719 to i32
-  %sext5874 = shl i64 %indvars.iv5719, 32
-  %.pre5760 = ashr exact i64 %sext5874, 32
+  %sext6153 = shl i64 %indvars.iv5719, 32
+  %.pre5760 = ashr exact i64 %sext6153, 32
   br label %.loopexit4828
 
 .loopexit4828:                                    ; preds = %.loopexit4828.loopexit, %4617
@@ -112734,12 +112734,12 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4704: ; preds = %.lr.ph
   br label %4593
 
 4883:                                             ; preds = %4714, %4562, %5241, %5116
-  %indvars.iv5719.lcssa5931.sink6173 = phi i64 [ %indvars.iv5705, %5116 ], [ %indvars.iv5719, %5241 ], [ %4509, %4562 ], [ %4602, %4714 ]
+  %indvars.iv5719.lcssa6210.sink6452 = phi i64 [ %indvars.iv5705, %5116 ], [ %indvars.iv5719, %5241 ], [ %4509, %4562 ], [ %4602, %4714 ]
   %.53149 = phi i32 [ %5108, %5116 ], [ %5231, %5241 ], [ %.23146, %4562 ], [ %4595, %4714 ]
   %.104 = phi i32 [ %.103.ph, %5116 ], [ %.100.ph, %5241 ], [ %.101, %4562 ], [ %.108, %4714 ]
-  %4884 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5719.lcssa5931.sink6173
+  %4884 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5719.lcssa6210.sink6452
   %4885 = load i32, ptr %4884, align 4, !tbaa !16
-  %4886 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5719.lcssa5931.sink6173
+  %4886 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5719.lcssa6210.sink6452
   store i32 %4885, ptr %4886, align 4, !tbaa !16
   %4887 = add nsw i32 %.53149, 2
   %.not3412 = icmp slt i32 %4887, %190
@@ -113082,9 +113082,9 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4732: ; preds = %.lr.ph
   br i1 %.not3443, label %5062, label %.backedge4835
 
 .backedge4835:                                    ; preds = %5056, %.loopexit4821
-  %.sink6174 = phi i32 [ %.0.i4748, %.loopexit4821 ], [ %5060, %5056 ]
+  %.sink6453 = phi i32 [ %.0.i4748, %.loopexit4821 ], [ %5060, %5056 ]
   %5061 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5705
-  store i32 %.sink6174, ptr %5061, align 4, !tbaa !16
+  store i32 %.sink6453, ptr %5061, align 4, !tbaa !16
   %indvars.iv.next5706 = add nsw i64 %indvars.iv5705, 2
   %.not3363 = icmp slt i64 %indvars.iv.next5706, %4483
   %indvars.iv.next5708 = add nsw i64 %indvars.iv5707, 2
@@ -113163,8 +113163,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
 
 5095:                                             ; preds = %5052
   %5096 = trunc nsw i64 %indvars.iv5705 to i32
-  %sext5867 = shl i64 %indvars.iv5707, 32
-  %5097 = ashr exact i64 %sext5867, 30
+  %sext6146 = shl i64 %indvars.iv5707, 32
+  %5097 = ashr exact i64 %sext6146, 30
   %5098 = getelementptr inbounds i8, ptr %4479, i64 %5097
   %5099 = load i32, ptr %5098, align 4, !tbaa !16
   %5100 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5705
@@ -113173,8 +113173,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
 
 5101:                                             ; preds = %5049
   %5102 = trunc nsw i64 %indvars.iv5705 to i32
-  %sext5868 = shl i64 %indvars.iv5707, 32
-  %5103 = ashr exact i64 %sext5868, 30
+  %sext6147 = shl i64 %indvars.iv5707, 32
+  %5103 = ashr exact i64 %sext6147, 30
   %5104 = getelementptr inbounds i8, ptr %4479, i64 %5103
   %5105 = load i32, ptr %5104, align 4, !tbaa !16
   %5106 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5705
@@ -113184,8 +113184,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
 5107:                                             ; preds = %.lr.ph5269
   %5108 = trunc nsw i64 %indvars.iv5705 to i32
   %5109 = shl i64 %indvars.iv5707, 32
-  %sext5869 = add i64 %5109, 12884901888
-  %5110 = ashr exact i64 %sext5869, 32
+  %sext6148 = add i64 %5109, 12884901888
+  %5110 = ashr exact i64 %sext6148, 32
   %5111 = getelementptr inbounds i8, ptr %4471, i64 %5110
   %5112 = load i8, ptr %5111, align 1, !tbaa !55
   %.not3365 = icmp eq i8 %5112, 0
@@ -113198,8 +113198,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
   br i1 %.not3366, label %5116, label %5121
 
 5116:                                             ; preds = %5113
-  %sext5870 = shl i64 %indvars.iv5707, 32
-  %5117 = ashr exact i64 %sext5870, 32
+  %sext6149 = shl i64 %indvars.iv5707, 32
+  %5117 = ashr exact i64 %sext6149, 32
   %5118 = getelementptr i8, ptr %4473, i64 %5117
   %5119 = getelementptr i8, ptr %5118, i64 4
   %5120 = load i8, ptr %5119, align 1, !tbaa !55
@@ -113207,12 +113207,12 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
   br i1 %.not3367, label %4883, label %4513
 
 5121:                                             ; preds = %5113, %4863, %4589
-  %indvars.iv5705.lcssa.sink6180 = phi i64 [ %4864, %4863 ], [ %4590, %4589 ], [ %indvars.iv5705, %5113 ]
+  %indvars.iv5705.lcssa.sink6459 = phi i64 [ %4864, %4863 ], [ %4590, %4589 ], [ %indvars.iv5705, %5113 ]
   %.83152 = phi i32 [ %.143158, %4863 ], [ %.73151, %4589 ], [ %5108, %5113 ]
   %.107 = phi i32 [ %.113, %4863 ], [ %.106, %4589 ], [ %.103.ph, %5113 ]
-  %5122 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5705.lcssa.sink6180
+  %5122 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5705.lcssa.sink6459
   %5123 = load i32, ptr %5122, align 4, !tbaa !16
-  %5124 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5705.lcssa.sink6180
+  %5124 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5705.lcssa.sink6459
   store i32 %5123, ptr %5124, align 4, !tbaa !16
   %5125 = add nsw i32 %.83152, 2
   %.not3376 = icmp slt i32 %5125, %190
@@ -113444,8 +113444,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
   br i1 %.not3354, label %._crit_edge5790, label %4513
 
 ._crit_edge5790:                                  ; preds = %5240
-  %sext5875 = shl i64 %indvars.iv5719, 32
-  %.pre5797 = ashr exact i64 %sext5875, 32
+  %sext6154 = shl i64 %indvars.iv5719, 32
+  %.pre5797 = ashr exact i64 %sext6154, 32
   br label %4684
 
 5241:                                             ; preds = %5234
@@ -113511,16 +113511,16 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
   br i1 %.not3433, label %5280, label %5269
 
 5269:                                             ; preds = %5265
-  %sext5871 = shl i64 %indvars.iv5714, 32
-  %5270 = ashr exact i64 %sext5871, 32
+  %sext6150 = shl i64 %indvars.iv5714, 32
+  %5270 = ashr exact i64 %sext6150, 32
   %5271 = getelementptr inbounds i8, ptr %4473, i64 %5270
   %5272 = load i8, ptr %5271, align 1, !tbaa !55
   %.not3434 = icmp eq i8 %5272, 0
   br i1 %.not3434, label %5273, label %._crit_edge5789
 
 ._crit_edge5789:                                  ; preds = %5269
-  %sext5872 = shl i64 %indvars.iv5712, 32
-  %.pre5799 = ashr exact i64 %sext5872, 32
+  %sext6151 = shl i64 %indvars.iv5712, 32
+  %.pre5799 = ashr exact i64 %sext6151, 32
   br label %4902
 
 5273:                                             ; preds = %5269
@@ -113536,8 +113536,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4746: ; preds = %.lr.ph
 5280:                                             ; preds = %5265
   %5281 = getelementptr inbounds i32, ptr %4482, i64 %indvars.iv5712
   %5282 = load i32, ptr %5281, align 4, !tbaa !16
-  %sext5873 = shl i64 %indvars.iv5714, 32
-  %5283 = ashr exact i64 %sext5873, 30
+  %sext6152 = shl i64 %indvars.iv5714, 32
+  %5283 = ashr exact i64 %sext6152, 30
   %5284 = getelementptr inbounds i8, ptr %4479, i64 %5283
   %5285 = load i32, ptr %5284, align 4, !tbaa !16
   br label %5286
@@ -113649,16 +113649,16 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4760: ; preds = %.lr.ph
   br i1 %.not3430, label %5345, label %5334
 
 5334:                                             ; preds = %5331
-  %sext5876 = shl i64 %indvars.iv5714, 32
-  %5335 = ashr exact i64 %sext5876, 32
+  %sext6155 = shl i64 %indvars.iv5714, 32
+  %5335 = ashr exact i64 %sext6155, 32
   %5336 = getelementptr inbounds i8, ptr %4473, i64 %5335
   %5337 = load i8, ptr %5336, align 1, !tbaa !55
   %.not3431 = icmp eq i8 %5337, 0
   br i1 %.not3431, label %5338, label %._crit_edge5791
 
 ._crit_edge5791:                                  ; preds = %5334
-  %sext5877 = shl i64 %indvars.iv5712, 32
-  %.pre5795 = ashr exact i64 %sext5877, 32
+  %sext6156 = shl i64 %indvars.iv5712, 32
+  %.pre5795 = ashr exact i64 %sext6156, 32
   br label %4996
 
 5338:                                             ; preds = %5334
@@ -113674,8 +113674,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4760: ; preds = %.lr.ph
 5345:                                             ; preds = %5331
   %5346 = getelementptr inbounds i32, ptr %4482, i64 %5324
   %5347 = load i32, ptr %5346, align 4, !tbaa !16
-  %sext5878 = shl i64 %indvars.iv5714, 32
-  %5348 = ashr exact i64 %sext5878, 30
+  %sext6157 = shl i64 %indvars.iv5714, 32
+  %5348 = ashr exact i64 %sext6157, 30
   %5349 = getelementptr inbounds i8, ptr %4479, i64 %5348
   %5350 = load i32, ptr %5349, align 4, !tbaa !16
   %5351 = tail call fastcc noundef i32 @_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_(ptr noundef %.sroa.04813.0, i32 noundef %5347, i32 noundef %5350)
@@ -113686,8 +113686,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4760: ; preds = %.lr.ph
 5353:                                             ; preds = %5327
   %5354 = getelementptr inbounds i32, ptr %4482, i64 %5324
   %5355 = load i32, ptr %5354, align 4, !tbaa !16
-  %sext5879 = shl i64 %indvars.iv5714, 32
-  %5356 = ashr exact i64 %sext5879, 30
+  %sext6158 = shl i64 %indvars.iv5714, 32
+  %5356 = ashr exact i64 %sext6158, 30
   %5357 = getelementptr inbounds i8, ptr %4479, i64 %5356
   %5358 = load i32, ptr %5357, align 4, !tbaa !16
   br label %5359
@@ -113784,8 +113784,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4774: ; preds = %.lr.ph
 
 5397:                                             ; preds = %5320
   %5398 = trunc nsw i64 %indvars.iv5712 to i32
-  %sext5880 = shl i64 %indvars.iv5714, 32
-  %5399 = ashr exact i64 %sext5880, 30
+  %sext6159 = shl i64 %indvars.iv5714, 32
+  %5399 = ashr exact i64 %sext6159, 30
   %5400 = getelementptr inbounds i8, ptr %4479, i64 %5399
   %5401 = load i32, ptr %5400, align 4, !tbaa !16
   %5402 = getelementptr inbounds i32, ptr %4479, i64 %indvars.iv5712
@@ -114432,8 +114432,8 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   %5749 = load ptr, ptr %5724, align 8
   %5750 = getelementptr inbounds nuw i8, ptr %5749, i64 8
   %5751 = trunc nuw nsw i64 %5746 to i32
-  %invariant.op6201 = add nuw i64 %indvars.iv5736, %5746
-  %invariant.op6165 = shl i64 %invariant.op6201, 1
+  %invariant.op6480 = add nuw i64 %indvars.iv5736, %5746
+  %invariant.op6444 = shl i64 %invariant.op6480, 1
   %5752 = trunc nuw nsw i64 %indvars.iv5736 to i32
   %5753 = trunc nuw nsw i64 %indvars.iv5736 to i32
   %5754 = load ptr, ptr %5724, align 8
@@ -114595,8 +114595,8 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   br label %5855
 
 5855:                                             ; preds = %5842, %5820
-  %.sink6185 = phi ptr [ %5815, %5842 ], [ %5839, %5820 ]
-  %5856 = getelementptr inbounds nuw i8, ptr %.sink6185, i64 8
+  %.sink6464 = phi ptr [ %5815, %5842 ], [ %5839, %5820 ]
+  %5856 = getelementptr inbounds nuw i8, ptr %.sink6464, i64 8
   %5857 = load i64, ptr %5856, align 8, !tbaa !235
   %5858 = add i64 %5857, %indvars.iv5736
   store i64 %5858, ptr %5856, align 8, !tbaa !235
@@ -114662,8 +114662,8 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   br label %5897
 
 5897:                                             ; preds = %5884, %5862
-  %.sink6190 = phi ptr [ %5815, %5884 ], [ %5881, %5862 ]
-  %5898 = getelementptr inbounds nuw i8, ptr %.sink6190, i64 8
+  %.sink6469 = phi ptr [ %5815, %5884 ], [ %5881, %5862 ]
+  %5898 = getelementptr inbounds nuw i8, ptr %.sink6469, i64 8
   %5899 = load i64, ptr %5898, align 8, !tbaa !235
   %5900 = add i64 %5899, %5746
   store i64 %5900, ptr %5898, align 8, !tbaa !235
@@ -114814,7 +114814,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   store i32 %5992, ptr %5745, align 4, !tbaa !16
   %5993 = add i64 %5982, %5959
   store i64 %5993, ptr %5749, align 8, !tbaa !233
-  %.reass = add i64 %5958, %invariant.op6165
+  %.reass = add i64 %5958, %invariant.op6444
   store i64 %.reass, ptr %5750, align 8, !tbaa !235
   br label %5994
 
@@ -114912,9 +114912,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   br label %6052
 
 6052:                                             ; preds = %6033, %6008
-  %.sink6195 = phi ptr [ %6049, %6033 ], [ %6030, %6008 ]
+  %.sink6474 = phi ptr [ %6049, %6033 ], [ %6030, %6008 ]
   %6053 = phi ptr [ %6049, %6033 ], [ %6029, %6008 ]
-  %6054 = getelementptr inbounds nuw i8, ptr %.sink6195, i64 8
+  %6054 = getelementptr inbounds nuw i8, ptr %.sink6474, i64 8
   %6055 = load i64, ptr %6054, align 8, !tbaa !235
   %6056 = add i64 %6055, %indvars.iv5736
   store i64 %6056, ptr %6054, align 8, !tbaa !235
@@ -115094,7 +115094,7 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   %6173 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6174 = load ptr, ptr %6173, align 8
   %6175 = zext nneg i32 %68 to i64
-  %invariant.op6166 = shl nuw nsw i64 %6153, 1
+  %invariant.op6445 = shl nuw nsw i64 %6153, 1
   br label %6176
 
 6176:                                             ; preds = %.lr.ph5339, %6298
@@ -115287,8 +115287,8 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   store i32 %6296, ptr %6169, align 4, !tbaa !16
   %6297 = add i64 %6283, %6285
   store i64 %6297, ptr %6171, align 8, !tbaa !233
-  %.reass6167 = add i64 %6284, %invariant.op6166
-  store i64 %.reass6167, ptr %6172, align 8, !tbaa !235
+  %.reass6446 = add i64 %6284, %invariant.op6445
+  store i64 %.reass6446, ptr %6172, align 8, !tbaa !235
   br label %6298
 
 6298:                                             ; preds = %6231, %6256, %6271
@@ -115425,8 +115425,8 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5716, %5705
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6359, %6339, %6309
-  %.sink6200 = phi ptr [ %6336, %6309 ], [ %6356, %6339 ], [ %6383, %6359 ]
-  %6386 = getelementptr inbounds nuw i8, ptr %.sink6200, i64 8
+  %.sink6479 = phi ptr [ %6336, %6309 ], [ %6356, %6339 ], [ %6383, %6359 ]
+  %6386 = getelementptr inbounds nuw i8, ptr %.sink6479, i64 8
   %6387 = load i64, ptr %6386, align 8, !tbaa !235
   %6388 = add i64 %6387, %6153
   store i64 %6388, ptr %6386, align 8, !tbaa !235
@@ -117156,8 +117156,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %64
   br i1 %.not193, label %.lr.ph, label %.loopexit175
 
 .loopexit175:                                     ; preds = %.outer177, %89, %95, %99
-  %indvars.iv.next266.lcssa313.sink = phi i64 [ %indvars.iv.next266, %99 ], [ %indvars.iv265, %95 ], [ %indvars.iv.next266, %89 ], [ %indvars.iv.next266, %.outer177 ]
-  %107 = trunc nuw i64 %indvars.iv.next266.lcssa313.sink to i32
+  %indvars.iv.next266.lcssa325.sink = phi i64 [ %indvars.iv.next266, %99 ], [ %indvars.iv265, %95 ], [ %indvars.iv.next266, %89 ], [ %indvars.iv.next266, %.outer177 ]
+  %107 = trunc nuw i64 %indvars.iv.next266.lcssa325.sink to i32
   %108 = icmp sgt i32 %13, 1
   br i1 %108, label %.lr.ph218, label %._crit_edge
 
@@ -118871,17 +118871,17 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !16
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.preheader102, label %98
+  br i1 %68, label %.preheader115, label %98
 
-.preheader102:                                    ; preds = %64, %.preheader102
-  %.0.i.i51.us = phi i32 [ %71, %.preheader102 ], [ %67, %64 ]
+.preheader115:                                    ; preds = %64, %.preheader115
+  %.0.i.i51.us = phi i32 [ %71, %.preheader115 ], [ %67, %64 ]
   %69 = sext i32 %.0.i.i51.us to i64
   %70 = getelementptr inbounds i32, ptr %1, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !16
   %72 = icmp slt i32 %71, %.0.i.i51.us
-  br i1 %72, label %.preheader102, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i52.us, !llvm.loop !66
+  br i1 %72, label %.preheader115, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i52.us, !llvm.loop !66
 
-_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i52.us: ; preds = %.preheader102
+_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i52.us: ; preds = %.preheader115
   %.not.i53.us = icmp eq i32 %67, %62
   br i1 %.not.i53.us, label %87, label %.preheader.i54.us
 
@@ -120216,17 +120216,17 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   %93 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %94 = load i8, ptr %93, align 1, !tbaa !55
   %.not96.us = icmp eq i8 %94, 0
-  br i1 %.not96.us, label %173, label %.preheader180
+  br i1 %.not96.us, label %173, label %.preheader195
 
-.preheader180:                                    ; preds = %92, %.preheader180
-  %.0.i.i121.us = phi i32 [ %97, %.preheader180 ], [ %85, %92 ]
+.preheader195:                                    ; preds = %92, %.preheader195
+  %.0.i.i121.us = phi i32 [ %97, %.preheader195 ], [ %85, %92 ]
   %95 = sext i32 %.0.i.i121.us to i64
   %96 = getelementptr inbounds i32, ptr %2, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !16
   %98 = icmp slt i32 %97, %.0.i.i121.us
-  br i1 %98, label %.preheader180, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us, !llvm.loop !66
+  br i1 %98, label %.preheader195, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us, !llvm.loop !66
 
-_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us: ; preds = %.preheader180
+_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us: ; preds = %.preheader195
   %.not.i123.us = icmp eq i32 %85, %83
   br i1 %.not.i123.us, label %113, label %.preheader.i124.us
 
@@ -120291,7 +120291,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %126 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %127 = load i8, ptr %126, align 1, !tbaa !55
   %.not98.us = icmp eq i8 %127, 0
-  br i1 %.not98.us, label %128, label %.preheader188
+  br i1 %.not98.us, label %128, label %.preheader203
 
 128:                                              ; preds = %125, %124
   %129 = or disjoint i64 %indvars.iv, 1
@@ -120304,7 +120304,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %133 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %134 = load i8, ptr %133, align 1, !tbaa !55
   %.not100.us = icmp eq i8 %134, 0
-  br i1 %.not100.us, label %135, label %.preheader188
+  br i1 %.not100.us, label %135, label %.preheader203
 
 135:                                              ; preds = %132, %128
   br i1 %.not97.us, label %139, label %136
@@ -120313,7 +120313,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %137 = getelementptr inbounds nuw i8, ptr %35, i64 %129
   %138 = load i8, ptr %137, align 1, !tbaa !55
   %.not102.us = icmp eq i8 %138, 0
-  br i1 %.not102.us, label %139, label %.preheader188
+  br i1 %.not102.us, label %139, label %.preheader203
 
 139:                                              ; preds = %136, %135
   br i1 %.not99.us, label %173, label %140
@@ -120322,13 +120322,13 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %141 = getelementptr inbounds nuw i8, ptr %35, i64 %129
   %142 = load i8, ptr %141, align 1, !tbaa !55
   %.not104.us = icmp eq i8 %142, 0
-  br i1 %.not104.us, label %173, label %.preheader188
+  br i1 %.not104.us, label %173, label %.preheader203
 
-.preheader188:                                    ; preds = %140, %136, %132, %125
+.preheader203:                                    ; preds = %140, %136, %132, %125
   br label %143
 
-143:                                              ; preds = %.preheader188, %143
-  %.0.i.i107.us = phi i32 [ %146, %143 ], [ %85, %.preheader188 ]
+143:                                              ; preds = %.preheader203, %143
+  %.0.i.i107.us = phi i32 [ %146, %143 ], [ %85, %.preheader203 ]
   %144 = sext i32 %.0.i.i107.us to i64
   %145 = getelementptr inbounds i32, ptr %2, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !16
@@ -127725,7 +127725,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %131 = trunc nuw i64 %indvars.iv1005 to i32
   %132 = trunc nuw i64 %130 to i32
   %133 = trunc nuw i64 %130 to i32
-  %invariant.op1073 = shl nuw i64 %130, 1
+  %invariant.op1104 = shl nuw i64 %130, 1
   %134 = trunc nuw i64 %indvars.iv1005 to i32
   %135 = trunc nuw i64 %indvars.iv1005 to i32
   %136 = trunc nuw i64 %130 to i32
@@ -127823,8 +127823,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %198
 
 198:                                              ; preds = %179, %154
-  %.sink1091 = phi ptr [ %195, %179 ], [ %176, %154 ]
-  %199 = getelementptr inbounds nuw i8, ptr %.sink1091, i64 8
+  %.sink1122 = phi ptr [ %195, %179 ], [ %176, %154 ]
+  %199 = getelementptr inbounds nuw i8, ptr %.sink1122, i64 8
   %200 = load i64, ptr %199, align 8, !tbaa !235
   %201 = add i64 %200, %indvars.iv1005
   store i64 %201, ptr %199, align 8, !tbaa !235
@@ -127906,8 +127906,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %254
 
 254:                                              ; preds = %235, %210
-  %.sink1094 = phi ptr [ %251, %235 ], [ %232, %210 ]
-  %255 = getelementptr inbounds nuw i8, ptr %.sink1094, i64 8
+  %.sink1125 = phi ptr [ %251, %235 ], [ %232, %210 ]
+  %255 = getelementptr inbounds nuw i8, ptr %.sink1125, i64 8
   %256 = load i64, ptr %255, align 8, !tbaa !235
   %257 = add i64 %256, %indvars.iv1005
   store i64 %257, ptr %255, align 8, !tbaa !235
@@ -127987,8 +127987,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %308
 
 308:                                              ; preds = %289, %264
-  %.sink1097 = phi ptr [ %305, %289 ], [ %286, %264 ]
-  %309 = getelementptr inbounds nuw i8, ptr %.sink1097, i64 8
+  %.sink1128 = phi ptr [ %305, %289 ], [ %286, %264 ]
+  %309 = getelementptr inbounds nuw i8, ptr %.sink1128, i64 8
   %310 = load i64, ptr %309, align 8, !tbaa !235
   %311 = add i64 %310, %130
   store i64 %311, ptr %309, align 8, !tbaa !235
@@ -128243,8 +128243,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   store i32 %477, ptr %435, align 4, !tbaa !16
   %478 = add i64 %475, %444
   store i64 %478, ptr %438, align 8, !tbaa !233
-  %.reass1074 = add i64 %461, %invariant.op1073
-  store i64 %.reass1074, ptr %441, align 8, !tbaa !235
+  %.reass1105 = add i64 %461, %invariant.op1104
+  store i64 %.reass1105, ptr %441, align 8, !tbaa !235
   br label %495
 
 479:                                              ; preds = %422
@@ -128300,7 +128300,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
 .lr.ph955:                                        ; preds = %499
   %510 = or disjoint i64 %indvars.iv1011, 1
   %511 = trunc nuw i64 %indvars.iv1011 to i32
-  %invariant.op1075 = shl nuw i64 %indvars.iv1011, 1
+  %invariant.op1106 = shl nuw i64 %indvars.iv1011, 1
   %512 = trunc nuw i64 %510 to i32
   %513 = load ptr, ptr %79, align 8
   %514 = trunc nuw i64 %indvars.iv1011 to i32
@@ -128399,8 +128399,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %577
 
 577:                                              ; preds = %558, %533
-  %.sink1100 = phi ptr [ %574, %558 ], [ %555, %533 ]
-  %578 = getelementptr inbounds nuw i8, ptr %.sink1100, i64 8
+  %.sink1131 = phi ptr [ %574, %558 ], [ %555, %533 ]
+  %578 = getelementptr inbounds nuw i8, ptr %.sink1131, i64 8
   %579 = load i64, ptr %578, align 8, !tbaa !235
   %580 = add i64 %579, %indvars.iv1011
   store i64 %580, ptr %578, align 8, !tbaa !235
@@ -128476,8 +128476,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %629
 
 629:                                              ; preds = %610, %585
-  %.sink1103 = phi ptr [ %626, %610 ], [ %607, %585 ]
-  %630 = getelementptr inbounds nuw i8, ptr %.sink1103, i64 8
+  %.sink1134 = phi ptr [ %626, %610 ], [ %607, %585 ]
+  %630 = getelementptr inbounds nuw i8, ptr %.sink1134, i64 8
   %631 = load i64, ptr %630, align 8, !tbaa !235
   %632 = add i64 %631, %indvars.iv1011
   store i64 %632, ptr %630, align 8, !tbaa !235
@@ -128557,8 +128557,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %683
 
 683:                                              ; preds = %664, %639
-  %.sink1106 = phi ptr [ %680, %664 ], [ %661, %639 ]
-  %684 = getelementptr inbounds nuw i8, ptr %.sink1106, i64 8
+  %.sink1137 = phi ptr [ %680, %664 ], [ %661, %639 ]
+  %684 = getelementptr inbounds nuw i8, ptr %.sink1137, i64 8
   %685 = load i64, ptr %684, align 8, !tbaa !235
   %686 = add i64 %685, %510
   store i64 %686, ptr %684, align 8, !tbaa !235
@@ -128676,8 +128676,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   store i32 %764, ptr %755, align 4, !tbaa !16
   %765 = add i64 %759, %741
   store i64 %765, ptr %757, align 8, !tbaa !233
-  %.reass1076 = add i64 %761, %invariant.op1075
-  store i64 %.reass1076, ptr %760, align 8, !tbaa !235
+  %.reass1107 = add i64 %761, %invariant.op1106
+  store i64 %.reass1107, ptr %760, align 8, !tbaa !235
   %766 = load i32, ptr %88, align 8, !tbaa !32
   %767 = icmp sgt i32 %766, %512
   br i1 %767, label %768, label %783
@@ -128707,8 +128707,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   store i32 %781, ptr %755, align 4, !tbaa !16
   %782 = add i64 %779, %741
   store i64 %782, ptr %757, align 8, !tbaa !233
-  %.reass1078 = add i64 %520, %761
-  store i64 %.reass1078, ptr %760, align 8, !tbaa !235
+  %.reass1109 = add i64 %520, %761
+  store i64 %.reass1109, ptr %760, align 8, !tbaa !235
   br label %783
 
 783:                                              ; preds = %740, %768, %629, %718, %690
@@ -128806,8 +128806,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %849 = or disjoint i64 %indvars.iv1017, 1
   %850 = trunc nuw i64 %indvars.iv1017 to i32
   %851 = trunc nuw i64 %849 to i32
-  %invariant.op1079 = add nuw i64 %indvars.iv1017, %849
-  %invariant.op1081 = add nuw i64 %indvars.iv1017, %849
+  %invariant.op1110 = add nuw i64 %indvars.iv1017, %849
+  %invariant.op1112 = add nuw i64 %indvars.iv1017, %849
   %852 = load ptr, ptr %788, align 8
   %853 = trunc nuw i64 %indvars.iv1017 to i32
   %854 = trunc nuw i64 %indvars.iv1017 to i32
@@ -128907,8 +128907,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %918
 
 918:                                              ; preds = %899, %874
-  %.sink1109 = phi ptr [ %915, %899 ], [ %896, %874 ]
-  %919 = getelementptr inbounds nuw i8, ptr %.sink1109, i64 8
+  %.sink1140 = phi ptr [ %915, %899 ], [ %896, %874 ]
+  %919 = getelementptr inbounds nuw i8, ptr %.sink1140, i64 8
   %920 = load i64, ptr %919, align 8, !tbaa !235
   %921 = add i64 %920, %indvars.iv1017
   store i64 %921, ptr %919, align 8, !tbaa !235
@@ -128983,8 +128983,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %969
 
 969:                                              ; preds = %950, %925
-  %.sink1112 = phi ptr [ %966, %950 ], [ %947, %925 ]
-  %970 = getelementptr inbounds nuw i8, ptr %.sink1112, i64 8
+  %.sink1143 = phi ptr [ %966, %950 ], [ %947, %925 ]
+  %970 = getelementptr inbounds nuw i8, ptr %.sink1143, i64 8
   %971 = load i64, ptr %970, align 8, !tbaa !235
   %972 = add i64 %971, %849
   store i64 %972, ptr %970, align 8, !tbaa !235
@@ -129066,8 +129066,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %1025
 
 1025:                                             ; preds = %1006, %981
-  %.sink1115 = phi ptr [ %1022, %1006 ], [ %1003, %981 ]
-  %1026 = getelementptr inbounds nuw i8, ptr %.sink1115, i64 8
+  %.sink1146 = phi ptr [ %1022, %1006 ], [ %1003, %981 ]
+  %1026 = getelementptr inbounds nuw i8, ptr %.sink1146, i64 8
   %1027 = load i64, ptr %1026, align 8, !tbaa !235
   %1028 = add i64 %1027, %indvars.iv1017
   store i64 %1028, ptr %1026, align 8, !tbaa !235
@@ -129180,11 +129180,11 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   store i32 %1103, ptr %1093, align 4, !tbaa !16
   %1104 = add nsw i32 %1097, 2
   store i32 %1104, ptr %1096, align 4, !tbaa !16
-  %reass.add1164 = shl nuw i64 %indvars.iv1014, 1
-  %1105 = add i64 %1099, %reass.add1164
+  %reass.add1195 = shl nuw i64 %indvars.iv1014, 1
+  %1105 = add i64 %1099, %reass.add1195
   store i64 %1105, ptr %1098, align 8, !tbaa !233
-  %.reass1080 = add i64 %1101, %invariant.op1079
-  store i64 %.reass1080, ptr %1100, align 8, !tbaa !235
+  %.reass1111 = add i64 %1101, %invariant.op1110
+  store i64 %.reass1111, ptr %1100, align 8, !tbaa !235
   %1106 = or disjoint i64 %indvars.iv1014, 1
   %1107 = load i32, ptr %864, align 4, !tbaa !49
   %1108 = sext i32 %1107 to i64
@@ -129218,8 +129218,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %1126 = shl i64 %1125, 1
   %1127 = add i64 %1126, %1099
   store i64 %1127, ptr %1098, align 8, !tbaa !233
-  %.reass1082 = add i64 %.reass1080, %invariant.op1081
-  store i64 %.reass1082, ptr %1100, align 8, !tbaa !235
+  %.reass1113 = add i64 %.reass1111, %invariant.op1112
+  store i64 %.reass1113, ptr %1100, align 8, !tbaa !235
   br label %1128
 
 1128:                                             ; preds = %1082, %1110, %969, %1060, %1032
@@ -129252,8 +129252,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %1147 = load ptr, ptr %833, align 8
   %1148 = trunc nuw i64 %indvars.iv1023 to i32
   %1149 = trunc nuw i64 %1146 to i32
-  %invariant.op10831167 = add nuw i64 %indvars.iv1023, %1146
-  %invariant.op1087 = shl i64 %invariant.op10831167, 1
+  %invariant.op11141198 = add nuw i64 %indvars.iv1023, %1146
+  %invariant.op1118 = shl i64 %invariant.op11141198, 1
   %1150 = trunc nuw i64 %indvars.iv1023 to i32
   %1151 = trunc nuw i64 %indvars.iv1023 to i32
   %1152 = trunc nuw i64 %indvars.iv1023 to i32
@@ -129352,10 +129352,10 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %1215
 
 1215:                                             ; preds = %1196, %1171
-  %.sink1118 = phi ptr [ %1212, %1196 ], [ %1193, %1171 ]
+  %.sink1149 = phi ptr [ %1212, %1196 ], [ %1193, %1171 ]
   %1216 = phi ptr [ %1212, %1196 ], [ %1192, %1171 ]
   %1217 = phi ptr [ %1197, %1196 ], [ %1172, %1171 ]
-  %1218 = getelementptr inbounds nuw i8, ptr %.sink1118, i64 8
+  %1218 = getelementptr inbounds nuw i8, ptr %.sink1149, i64 8
   %1219 = load i64, ptr %1218, align 8, !tbaa !235
   %1220 = add i64 %1219, %indvars.iv1023
   store i64 %1220, ptr %1218, align 8, !tbaa !235
@@ -129427,8 +129427,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %1265
 
 1265:                                             ; preds = %1248, %1225
-  %.sink1121 = phi ptr [ %1216, %1248 ], [ %1245, %1225 ]
-  %1266 = getelementptr inbounds nuw i8, ptr %.sink1121, i64 8
+  %.sink1152 = phi ptr [ %1216, %1248 ], [ %1245, %1225 ]
+  %1266 = getelementptr inbounds nuw i8, ptr %.sink1152, i64 8
   %1267 = load i64, ptr %1266, align 8, !tbaa !235
   %1268 = add i64 %1267, %indvars.iv1023
   store i64 %1268, ptr %1266, align 8, !tbaa !235
@@ -129499,8 +129499,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %1312
 
 1312:                                             ; preds = %1295, %1272
-  %.sink1124 = phi ptr [ %1216, %1295 ], [ %1292, %1272 ]
-  %1313 = getelementptr inbounds nuw i8, ptr %.sink1124, i64 8
+  %.sink1155 = phi ptr [ %1216, %1295 ], [ %1292, %1272 ]
+  %1313 = getelementptr inbounds nuw i8, ptr %.sink1155, i64 8
   %1314 = load i64, ptr %1313, align 8, !tbaa !235
   %1315 = add i64 %1314, %1146
   store i64 %1315, ptr %1313, align 8, !tbaa !235
@@ -129626,8 +129626,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   store i32 %1397, ptr %1382, align 4, !tbaa !16
   %1398 = add i64 %1395, %1366
   store i64 %1398, ptr %1384, align 8, !tbaa !233
-  %.reass1088 = add i64 %1388, %invariant.op1087
-  store i64 %.reass1088, ptr %1387, align 8, !tbaa !235
+  %.reass1119 = add i64 %1388, %invariant.op1118
+  store i64 %.reass1119, ptr %1387, align 8, !tbaa !235
   br label %1399
 
 1399:                                             ; preds = %1319, %1345, %1365
@@ -129869,8 +129869,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %1570
 
 1570:                                             ; preds = %1551, %1526
-  %.sink1127 = phi ptr [ %1567, %1551 ], [ %1548, %1526 ]
-  %1571 = getelementptr inbounds nuw i8, ptr %.sink1127, i64 8
+  %.sink1158 = phi ptr [ %1567, %1551 ], [ %1548, %1526 ]
+  %1571 = getelementptr inbounds nuw i8, ptr %.sink1158, i64 8
   %1572 = load i64, ptr %1571, align 8, !tbaa !235
   %1573 = add i64 %1572, %indvars.iv981
   store i64 %1573, ptr %1571, align 8, !tbaa !235
@@ -129952,8 +129952,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %1626
 
 1626:                                             ; preds = %1607, %1582
-  %.sink1130 = phi ptr [ %1623, %1607 ], [ %1604, %1582 ]
-  %1627 = getelementptr inbounds nuw i8, ptr %.sink1130, i64 8
+  %.sink1161 = phi ptr [ %1623, %1607 ], [ %1604, %1582 ]
+  %1627 = getelementptr inbounds nuw i8, ptr %.sink1161, i64 8
   %1628 = load i64, ptr %1627, align 8, !tbaa !235
   %1629 = add i64 %1628, %indvars.iv981
   store i64 %1629, ptr %1627, align 8, !tbaa !235
@@ -130034,8 +130034,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %1681
 
 1681:                                             ; preds = %1662, %1637
-  %.sink1133 = phi ptr [ %1678, %1662 ], [ %1659, %1637 ]
-  %1682 = getelementptr inbounds nuw i8, ptr %.sink1133, i64 8
+  %.sink1164 = phi ptr [ %1678, %1662 ], [ %1659, %1637 ]
+  %1682 = getelementptr inbounds nuw i8, ptr %.sink1164, i64 8
   %1683 = load i64, ptr %1682, align 8, !tbaa !235
   %1684 = add i64 %1683, %1499
   store i64 %1684, ptr %1682, align 8, !tbaa !235
@@ -130350,7 +130350,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
 .lr.ph928:                                        ; preds = %1875
   %1886 = or disjoint i64 %indvars.iv987, 1
   %1887 = trunc nsw i64 %indvars.iv987 to i32
-  %invariant.op1059 = shl i64 %indvars.iv987, 1
+  %invariant.op1090 = shl i64 %indvars.iv987, 1
   %1888 = trunc nsw i64 %1886 to i32
   %1889 = load ptr, ptr %1454, align 8
   %1890 = trunc nsw i64 %indvars.iv987 to i32
@@ -130451,8 +130451,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %1955
 
 1955:                                             ; preds = %1936, %1911
-  %.sink1136 = phi ptr [ %1952, %1936 ], [ %1933, %1911 ]
-  %1956 = getelementptr inbounds nuw i8, ptr %.sink1136, i64 8
+  %.sink1167 = phi ptr [ %1952, %1936 ], [ %1933, %1911 ]
+  %1956 = getelementptr inbounds nuw i8, ptr %.sink1167, i64 8
   %1957 = load i64, ptr %1956, align 8, !tbaa !235
   %1958 = add i64 %1957, %indvars.iv987
   store i64 %1958, ptr %1956, align 8, !tbaa !235
@@ -130528,8 +130528,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %2007
 
 2007:                                             ; preds = %1988, %1963
-  %.sink1139 = phi ptr [ %2004, %1988 ], [ %1985, %1963 ]
-  %2008 = getelementptr inbounds nuw i8, ptr %.sink1139, i64 8
+  %.sink1170 = phi ptr [ %2004, %1988 ], [ %1985, %1963 ]
+  %2008 = getelementptr inbounds nuw i8, ptr %.sink1170, i64 8
   %2009 = load i64, ptr %2008, align 8, !tbaa !235
   %2010 = add i64 %2009, %indvars.iv987
   store i64 %2010, ptr %2008, align 8, !tbaa !235
@@ -130610,8 +130610,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %2062
 
 2062:                                             ; preds = %2043, %2018
-  %.sink1142 = phi ptr [ %2059, %2043 ], [ %2040, %2018 ]
-  %2063 = getelementptr inbounds nuw i8, ptr %.sink1142, i64 8
+  %.sink1173 = phi ptr [ %2059, %2043 ], [ %2040, %2018 ]
+  %2063 = getelementptr inbounds nuw i8, ptr %.sink1173, i64 8
   %2064 = load i64, ptr %2063, align 8, !tbaa !235
   %2065 = add i64 %2064, %1886
   store i64 %2065, ptr %2063, align 8, !tbaa !235
@@ -130729,8 +130729,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   store i32 %2143, ptr %2134, align 4, !tbaa !16
   %2144 = add i64 %2138, %2120
   store i64 %2144, ptr %2136, align 8, !tbaa !233
-  %.reass1060 = add i64 %2140, %invariant.op1059
-  store i64 %.reass1060, ptr %2139, align 8, !tbaa !235
+  %.reass1091 = add i64 %2140, %invariant.op1090
+  store i64 %.reass1091, ptr %2139, align 8, !tbaa !235
   %2145 = load i32, ptr %1464, align 8, !tbaa !32
   %2146 = sext i32 %2145 to i64
   %2147 = icmp slt i64 %1886, %2146
@@ -130761,8 +130761,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   store i32 %2161, ptr %2134, align 4, !tbaa !16
   %2162 = add i64 %2159, %2120
   store i64 %2162, ptr %2136, align 8, !tbaa !233
-  %.reass1062 = add i64 %1899, %2140
-  store i64 %.reass1062, ptr %2139, align 8, !tbaa !235
+  %.reass1093 = add i64 %1899, %2140
+  store i64 %.reass1093, ptr %2139, align 8, !tbaa !235
   br label %2163
 
 2163:                                             ; preds = %2119, %2148, %2007, %2097, %2069
@@ -130853,8 +130853,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %2223 = or disjoint i64 %indvars.iv993, 1
   %2224 = trunc nsw i64 %indvars.iv993 to i32
   %2225 = trunc nsw i64 %2223 to i32
-  %invariant.op1063 = add i64 %indvars.iv993, %2223
-  %invariant.op1065 = add i64 %indvars.iv993, %2223
+  %invariant.op1094 = add i64 %indvars.iv993, %2223
+  %invariant.op1096 = add i64 %indvars.iv993, %2223
   %2226 = load ptr, ptr %2168, align 8
   %2227 = trunc nsw i64 %indvars.iv993 to i32
   %2228 = trunc nsw i64 %indvars.iv993 to i32
@@ -130953,8 +130953,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %2291
 
 2291:                                             ; preds = %2272, %2247
-  %.sink1145 = phi ptr [ %2288, %2272 ], [ %2269, %2247 ]
-  %2292 = getelementptr inbounds nuw i8, ptr %.sink1145, i64 8
+  %.sink1176 = phi ptr [ %2288, %2272 ], [ %2269, %2247 ]
+  %2292 = getelementptr inbounds nuw i8, ptr %.sink1176, i64 8
   %2293 = load i64, ptr %2292, align 8, !tbaa !235
   %2294 = add i64 %2293, %indvars.iv993
   store i64 %2294, ptr %2292, align 8, !tbaa !235
@@ -131029,8 +131029,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %2342
 
 2342:                                             ; preds = %2323, %2298
-  %.sink1148 = phi ptr [ %2339, %2323 ], [ %2320, %2298 ]
-  %2343 = getelementptr inbounds nuw i8, ptr %.sink1148, i64 8
+  %.sink1179 = phi ptr [ %2339, %2323 ], [ %2320, %2298 ]
+  %2343 = getelementptr inbounds nuw i8, ptr %.sink1179, i64 8
   %2344 = load i64, ptr %2343, align 8, !tbaa !235
   %2345 = add i64 %2344, %2223
   store i64 %2345, ptr %2343, align 8, !tbaa !235
@@ -131112,8 +131112,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %2398
 
 2398:                                             ; preds = %2379, %2354
-  %.sink1151 = phi ptr [ %2395, %2379 ], [ %2376, %2354 ]
-  %2399 = getelementptr inbounds nuw i8, ptr %.sink1151, i64 8
+  %.sink1182 = phi ptr [ %2395, %2379 ], [ %2376, %2354 ]
+  %2399 = getelementptr inbounds nuw i8, ptr %.sink1182, i64 8
   %2400 = load i64, ptr %2399, align 8, !tbaa !235
   %2401 = add i64 %2400, %indvars.iv993
   store i64 %2401, ptr %2399, align 8, !tbaa !235
@@ -131229,8 +131229,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %reass.add = shl nuw i64 %indvars.iv990, 1
   %2478 = add i64 %2472, %reass.add
   store i64 %2478, ptr %2471, align 8, !tbaa !233
-  %.reass1064 = add i64 %2474, %invariant.op1063
-  store i64 %.reass1064, ptr %2473, align 8, !tbaa !235
+  %.reass1095 = add i64 %2474, %invariant.op1094
+  store i64 %.reass1095, ptr %2473, align 8, !tbaa !235
   %2479 = or disjoint i64 %indvars.iv990, 1
   %2480 = load i32, ptr %2237, align 4, !tbaa !49
   %2481 = sext i32 %2480 to i64
@@ -131264,8 +131264,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %2499 = shl i64 %2498, 1
   %2500 = add i64 %2499, %2472
   store i64 %2500, ptr %2471, align 8, !tbaa !233
-  %.reass1066 = add i64 %.reass1064, %invariant.op1065
-  store i64 %.reass1066, ptr %2473, align 8, !tbaa !235
+  %.reass1097 = add i64 %.reass1095, %invariant.op1096
+  store i64 %.reass1097, ptr %2473, align 8, !tbaa !235
   br label %2501
 
 2501:                                             ; preds = %2455, %2483, %2342, %2433, %2405
@@ -131297,8 +131297,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   %2520 = load ptr, ptr %2206, align 8
   %2521 = trunc nsw i64 %indvars.iv999 to i32
   %2522 = trunc nsw i64 %2519 to i32
-  %invariant.op10671163 = add i64 %indvars.iv999, %2519
-  %invariant.op1071 = shl i64 %invariant.op10671163, 1
+  %invariant.op10981194 = add i64 %indvars.iv999, %2519
+  %invariant.op1102 = shl i64 %invariant.op10981194, 1
   %2523 = trunc nsw i64 %indvars.iv999 to i32
   %2524 = trunc nsw i64 %indvars.iv999 to i32
   %2525 = trunc nsw i64 %indvars.iv999 to i32
@@ -131396,10 +131396,10 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %2587
 
 2587:                                             ; preds = %2568, %2543
-  %.sink1154 = phi ptr [ %2584, %2568 ], [ %2565, %2543 ]
+  %.sink1185 = phi ptr [ %2584, %2568 ], [ %2565, %2543 ]
   %2588 = phi ptr [ %2584, %2568 ], [ %2564, %2543 ]
   %2589 = phi ptr [ %2569, %2568 ], [ %2544, %2543 ]
-  %2590 = getelementptr inbounds nuw i8, ptr %.sink1154, i64 8
+  %2590 = getelementptr inbounds nuw i8, ptr %.sink1185, i64 8
   %2591 = load i64, ptr %2590, align 8, !tbaa !235
   %2592 = add i64 %2591, %indvars.iv999
   store i64 %2592, ptr %2590, align 8, !tbaa !235
@@ -131471,8 +131471,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %2637
 
 2637:                                             ; preds = %2620, %2597
-  %.sink1157 = phi ptr [ %2588, %2620 ], [ %2617, %2597 ]
-  %2638 = getelementptr inbounds nuw i8, ptr %.sink1157, i64 8
+  %.sink1188 = phi ptr [ %2588, %2620 ], [ %2617, %2597 ]
+  %2638 = getelementptr inbounds nuw i8, ptr %.sink1188, i64 8
   %2639 = load i64, ptr %2638, align 8, !tbaa !235
   %2640 = add i64 %2639, %indvars.iv999
   store i64 %2640, ptr %2638, align 8, !tbaa !235
@@ -131543,8 +131543,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   br label %2684
 
 2684:                                             ; preds = %2667, %2644
-  %.sink1160 = phi ptr [ %2588, %2667 ], [ %2664, %2644 ]
-  %2685 = getelementptr inbounds nuw i8, ptr %.sink1160, i64 8
+  %.sink1191 = phi ptr [ %2588, %2667 ], [ %2664, %2644 ]
+  %2685 = getelementptr inbounds nuw i8, ptr %.sink1191, i64 8
   %2686 = load i64, ptr %2685, align 8, !tbaa !235
   %2687 = add i64 %2686, %2519
   store i64 %2687, ptr %2685, align 8, !tbaa !235
@@ -131670,8 +131670,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents21LabelingGranaPara
   store i32 %2769, ptr %2754, align 4, !tbaa !16
   %2770 = add i64 %2767, %2738
   store i64 %2770, ptr %2756, align 8, !tbaa !233
-  %.reass1072 = add i64 %2760, %invariant.op1071
-  store i64 %.reass1072, ptr %2759, align 8, !tbaa !235
+  %.reass1103 = add i64 %2760, %invariant.op1102
+  store i64 %.reass1103, ptr %2759, align 8, !tbaa !235
   br label %2771
 
 2771:                                             ; preds = %2691, %2717, %2737
@@ -131850,17 +131850,17 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit.us: ; preds = %.lr.p
   %93 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %94 = load i8, ptr %93, align 1, !tbaa !55
   %.not96.us = icmp eq i8 %94, 0
-  br i1 %.not96.us, label %173, label %.preheader180
+  br i1 %.not96.us, label %173, label %.preheader195
 
-.preheader180:                                    ; preds = %92, %.preheader180
-  %.0.i.i121.us = phi i32 [ %97, %.preheader180 ], [ %85, %92 ]
+.preheader195:                                    ; preds = %92, %.preheader195
+  %.0.i.i121.us = phi i32 [ %97, %.preheader195 ], [ %85, %92 ]
   %95 = sext i32 %.0.i.i121.us to i64
   %96 = getelementptr inbounds i32, ptr %2, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !16
   %98 = icmp slt i32 %97, %.0.i.i121.us
-  br i1 %98, label %.preheader180, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us, !llvm.loop !66
+  br i1 %98, label %.preheader195, label %_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us, !llvm.loop !66
 
-_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us: ; preds = %.preheader180
+_ZN2cv19connectedcomponentsL8findRootIiEET_PKS2_S2_.exit.i122.us: ; preds = %.preheader195
   %.not.i123.us = icmp eq i32 %85, %83
   br i1 %.not.i123.us, label %113, label %.preheader.i124.us
 
@@ -131925,7 +131925,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %126 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %127 = load i8, ptr %126, align 1, !tbaa !55
   %.not98.us = icmp eq i8 %127, 0
-  br i1 %.not98.us, label %128, label %.preheader188
+  br i1 %.not98.us, label %128, label %.preheader203
 
 128:                                              ; preds = %125, %124
   %129 = or disjoint i64 %indvars.iv, 1
@@ -131938,7 +131938,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %133 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %134 = load i8, ptr %133, align 1, !tbaa !55
   %.not100.us = icmp eq i8 %134, 0
-  br i1 %.not100.us, label %135, label %.preheader188
+  br i1 %.not100.us, label %135, label %.preheader203
 
 135:                                              ; preds = %132, %128
   br i1 %.not97.us, label %139, label %136
@@ -131947,7 +131947,7 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %137 = getelementptr inbounds nuw i8, ptr %35, i64 %129
   %138 = load i8, ptr %137, align 1, !tbaa !55
   %.not102.us = icmp eq i8 %138, 0
-  br i1 %.not102.us, label %139, label %.preheader188
+  br i1 %.not102.us, label %139, label %.preheader203
 
 139:                                              ; preds = %136, %135
   br i1 %.not99.us, label %173, label %140
@@ -131956,13 +131956,13 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit134.us: ; preds = %.l
   %141 = getelementptr inbounds nuw i8, ptr %35, i64 %129
   %142 = load i8, ptr %141, align 1, !tbaa !55
   %.not104.us = icmp eq i8 %142, 0
-  br i1 %.not104.us, label %173, label %.preheader188
+  br i1 %.not104.us, label %173, label %.preheader203
 
-.preheader188:                                    ; preds = %140, %136, %132, %125
+.preheader203:                                    ; preds = %140, %136, %132, %125
   br label %143
 
-143:                                              ; preds = %.preheader188, %143
-  %.0.i.i107.us = phi i32 [ %146, %143 ], [ %85, %.preheader188 ]
+143:                                              ; preds = %.preheader203, %143
+  %.0.i.i107.us = phi i32 [ %146, %143 ], [ %85, %.preheader203 ]
   %144 = sext i32 %.0.i.i107.us to i64
   %145 = getelementptr inbounds i32, ptr %2, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !16
@@ -132663,8 +132663,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
 270:                                              ; preds = %260
   %271 = getelementptr inbounds i32, ptr %155, i64 %indvars.iv
   store i32 %261, ptr %271, align 4, !tbaa !16
-  %sext5262 = shl i64 %indvars.iv5110, 32
-  %272 = ashr exact i64 %sext5262, 30
+  %sext5531 = shl i64 %indvars.iv5110, 32
+  %272 = ashr exact i64 %sext5531, 30
   %273 = getelementptr inbounds i8, ptr %158, i64 %272
   store i32 %261, ptr %273, align 4, !tbaa !16
   %274 = add nsw i32 %261, 1
@@ -133282,8 +133282,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit: ; preds = %.lr.ph.i
 
 .loopexit4352.loopexit:                           ; preds = %3156
   %601 = trunc nsw i64 %indvars.iv5127 to i32
-  %sext5275 = shl i64 %indvars.iv5127, 32
-  %.pre = ashr exact i64 %sext5275, 32
+  %sext5544 = shl i64 %indvars.iv5127, 32
+  %.pre = ashr exact i64 %sext5544, 32
   br label %.loopexit4352
 
 .loopexit4352:                                    ; preds = %.loopexit4352.loopexit, %598
@@ -136384,8 +136384,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
 
 2149:                                             ; preds = %2105
   %2150 = trunc nsw i64 %indvars.iv5113 to i32
-  %sext5264 = shl i64 %indvars.iv5115, 32
-  %2151 = ashr exact i64 %sext5264, 30
+  %sext5533 = shl i64 %indvars.iv5115, 32
+  %2151 = ashr exact i64 %sext5533, 30
   %2152 = getelementptr inbounds i8, ptr %429, i64 %2151
   %2153 = load i32, ptr %2152, align 4, !tbaa !16
   %2154 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5113
@@ -136394,8 +136394,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
 
 2155:                                             ; preds = %2102
   %2156 = trunc nsw i64 %indvars.iv5113 to i32
-  %sext5263 = shl i64 %indvars.iv5115, 32
-  %2157 = ashr exact i64 %sext5263, 30
+  %sext5532 = shl i64 %indvars.iv5115, 32
+  %2157 = ashr exact i64 %sext5532, 30
   %2158 = getelementptr inbounds i8, ptr %429, i64 %2157
   %2159 = load i32, ptr %2158, align 4, !tbaa !16
   %2160 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5113
@@ -136431,8 +136431,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
 
 2176:                                             ; preds = %2164
   %2177 = trunc nsw i64 %indvars.iv5113 to i32
-  %sext5265 = shl i64 %indvars.iv5115, 32
-  %2178 = ashr exact i64 %sext5265, 30
+  %sext5534 = shl i64 %indvars.iv5115, 32
+  %2178 = ashr exact i64 %sext5534, 30
   %2179 = getelementptr inbounds i8, ptr %429, i64 %2178
   %2180 = load i32, ptr %2179, align 4, !tbaa !16
   %2181 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5113
@@ -136442,8 +136442,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
 2182:                                             ; preds = %2161
   %2183 = trunc nsw i64 %indvars.iv5113 to i32
   %2184 = shl i64 %indvars.iv5115, 32
-  %sext5266 = add i64 %2184, 12884901888
-  %2185 = ashr exact i64 %sext5266, 32
+  %sext5535 = add i64 %2184, 12884901888
+  %2185 = ashr exact i64 %sext5535, 32
   %2186 = getelementptr inbounds i8, ptr %417, i64 %2185
   %2187 = load i8, ptr %2186, align 1, !tbaa !55
   %.not3077 = icmp eq i8 %2187, 0
@@ -136463,8 +136463,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3791: ; preds = %.lr.
   br label %2204
 
 2195:                                             ; preds = %2188
-  %sext5267 = shl i64 %indvars.iv5115, 32
-  %2196 = ashr exact i64 %sext5267, 32
+  %sext5536 = shl i64 %indvars.iv5115, 32
+  %2196 = ashr exact i64 %sext5536, 32
   %2197 = getelementptr i8, ptr %419, i64 %2196
   %2198 = getelementptr i8, ptr %2197, i64 4
   %2199 = load i8, ptr %2198, align 1, !tbaa !55
@@ -137101,16 +137101,16 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3847: ; preds = %.lr.
   br i1 %.not3290, label %2545, label %2504
 
 2504:                                             ; preds = %2500
-  %sext5268 = shl i64 %indvars.iv5122, 32
-  %2505 = ashr exact i64 %sext5268, 32
+  %sext5537 = shl i64 %indvars.iv5122, 32
+  %2505 = ashr exact i64 %sext5537, 32
   %2506 = getelementptr inbounds i8, ptr %419, i64 %2505
   %2507 = load i8, ptr %2506, align 1, !tbaa !55
   %.not3291 = icmp eq i8 %2507, 0
   br i1 %.not3291, label %2508, label %._crit_edge5201
 
 ._crit_edge5201:                                  ; preds = %2504
-  %sext5269 = shl i64 %indvars.iv5120, 32
-  %.pre5242 = ashr exact i64 %sext5269, 32
+  %sext5538 = shl i64 %indvars.iv5120, 32
+  %.pre5242 = ashr exact i64 %sext5538, 32
   br label %1756
 
 2508:                                             ; preds = %2504
@@ -137193,8 +137193,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3861: ; preds = %.lr.
   %2546 = load ptr, ptr %405, align 8, !tbaa !306
   %2547 = getelementptr inbounds i32, ptr %432, i64 %indvars.iv5120
   %2548 = load i32, ptr %2547, align 4, !tbaa !16
-  %sext5270 = shl i64 %indvars.iv5122, 32
-  %2549 = ashr exact i64 %sext5270, 30
+  %sext5539 = shl i64 %indvars.iv5122, 32
+  %2549 = ashr exact i64 %sext5539, 30
   %2550 = getelementptr inbounds i8, ptr %429, i64 %2549
   %2551 = load i32, ptr %2550, align 4, !tbaa !16
   br label %2552
@@ -137282,8 +137282,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3875: ; preds = %.lr.
 
 2590:                                             ; preds = %2586
   %2591 = trunc nsw i64 %indvars.iv5120 to i32
-  %sext5287 = shl i64 %indvars.iv5122, 32
-  %2592 = ashr exact i64 %sext5287, 32
+  %sext5556 = shl i64 %indvars.iv5122, 32
+  %2592 = ashr exact i64 %sext5556, 32
   %2593 = getelementptr i8, ptr %420, i64 %2592
   %2594 = getelementptr i8, ptr %2593, i64 3
   %2595 = load i8, ptr %2594, align 1, !tbaa !55
@@ -137303,8 +137303,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3875: ; preds = %.lr.
   br i1 %.not3288, label %2602, label %._crit_edge5209
 
 ._crit_edge5209:                                  ; preds = %2599
-  %sext5288 = shl i64 %indvars.iv5120, 32
-  %.pre5226 = ashr exact i64 %sext5288, 32
+  %sext5557 = shl i64 %indvars.iv5120, 32
+  %.pre5226 = ashr exact i64 %sext5557, 32
   br label %1855
 
 2602:                                             ; preds = %2599
@@ -137547,8 +137547,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3917: ; preds = %.lr.
 
 2717:                                             ; preds = %2583
   %2718 = trunc nsw i64 %indvars.iv5120 to i32
-  %sext5271 = shl i64 %indvars.iv5122, 32
-  %2719 = ashr exact i64 %sext5271, 30
+  %sext5540 = shl i64 %indvars.iv5122, 32
+  %2719 = ashr exact i64 %sext5540, 30
   %2720 = getelementptr inbounds i8, ptr %429, i64 %2719
   %2721 = load i32, ptr %2720, align 4, !tbaa !16
   %2722 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5120
@@ -137582,16 +137582,16 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3917: ; preds = %.lr.
   br i1 %.not3090, label %2778, label %2737
 
 2737:                                             ; preds = %2733
-  %sext5272 = shl i64 %indvars.iv5122, 32
-  %2738 = ashr exact i64 %sext5272, 32
+  %sext5541 = shl i64 %indvars.iv5122, 32
+  %2738 = ashr exact i64 %sext5541, 32
   %2739 = getelementptr inbounds i8, ptr %419, i64 %2738
   %2740 = load i8, ptr %2739, align 1, !tbaa !55
   %.not3091 = icmp eq i8 %2740, 0
   br i1 %.not3091, label %2741, label %._crit_edge5202
 
 ._crit_edge5202:                                  ; preds = %2737
-  %sext5273 = shl i64 %indvars.iv5120, 32
-  %.pre5240 = ashr exact i64 %sext5273, 32
+  %sext5542 = shl i64 %indvars.iv5120, 32
+  %.pre5240 = ashr exact i64 %sext5542, 32
   br label %1999
 
 2741:                                             ; preds = %2737
@@ -137674,8 +137674,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3931: ; preds = %.lr.
   %2779 = load ptr, ptr %405, align 8, !tbaa !306
   %2780 = getelementptr inbounds i32, ptr %432, i64 %indvars.iv5120
   %2781 = load i32, ptr %2780, align 4, !tbaa !16
-  %sext5274 = shl i64 %indvars.iv5122, 32
-  %2782 = ashr exact i64 %sext5274, 30
+  %sext5543 = shl i64 %indvars.iv5122, 32
+  %2782 = ashr exact i64 %sext5543, 30
   %2783 = getelementptr inbounds i8, ptr %429, i64 %2782
   %2784 = load i32, ptr %2783, align 4, !tbaa !16
   br label %2785
@@ -137750,8 +137750,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit3945: ; preds = %.lr.
 
 2816:                                             ; preds = %2726
   %2817 = trunc nsw i64 %indvars.iv5120 to i32
-  %sext5289 = shl i64 %indvars.iv5122, 32
-  %2818 = ashr exact i64 %sext5289, 30
+  %sext5558 = shl i64 %indvars.iv5122, 32
+  %2818 = ashr exact i64 %sext5558, 30
   %2819 = getelementptr inbounds i8, ptr %429, i64 %2818
   %2820 = load i32, ptr %2819, align 4, !tbaa !16
   %2821 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5120
@@ -138426,8 +138426,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3062, label %3183, label %3167
 
 3167:                                             ; preds = %3163
-  %sext5276 = shl i64 %indvars.iv5129, 32
-  %3168 = ashr exact i64 %sext5276, 32
+  %sext5545 = shl i64 %indvars.iv5129, 32
+  %3168 = ashr exact i64 %sext5545, 32
   %3169 = getelementptr i8, ptr %419, i64 %3168
   %3170 = getelementptr i8, ptr %3169, i64 4
   %3171 = load i8, ptr %3170, align 1, !tbaa !55
@@ -138441,8 +138441,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3065, label %._crit_edge5205, label %458
 
 ._crit_edge5205:                                  ; preds = %3174
-  %sext5277 = shl i64 %indvars.iv5127, 32
-  %.pre5234 = ashr exact i64 %sext5277, 32
+  %sext5546 = shl i64 %indvars.iv5127, 32
+  %.pre5234 = ashr exact i64 %sext5546, 32
   br label %664
 
 3175:                                             ; preds = %3167
@@ -138475,8 +138475,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br label %2883
 
 3190:                                             ; preds = %3183
-  %sext5278 = shl i64 %indvars.iv5129, 32
-  %3191 = ashr exact i64 %sext5278, 30
+  %sext5547 = shl i64 %indvars.iv5129, 32
+  %3191 = ashr exact i64 %sext5547, 30
   %3192 = getelementptr inbounds i8, ptr %432, i64 %3191
   %3193 = load i32, ptr %3192, align 4, !tbaa !16
   %3194 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5127
@@ -138492,14 +138492,14 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
 
 3199:                                             ; preds = %3195
   %3200 = shl i64 %indvars.iv5129, 32
-  %sext5279 = add i64 %3200, 12884901888
-  %3201 = ashr exact i64 %sext5279, 32
+  %sext5548 = add i64 %3200, 12884901888
+  %3201 = ashr exact i64 %sext5548, 32
   %3202 = getelementptr inbounds i8, ptr %417, i64 %3201
   %3203 = load i8, ptr %3202, align 1, !tbaa !55
   %.not3051 = icmp eq i8 %3203, 0
   %3204 = shl i64 %indvars.iv5129, 32
-  %sext5284 = add i64 %3204, 4294967296
-  %3205 = ashr exact i64 %sext5284, 32
+  %sext5553 = add i64 %3204, 4294967296
+  %3205 = ashr exact i64 %sext5553, 32
   br i1 %.not3051, label %3230, label %3206
 
 3206:                                             ; preds = %3199
@@ -138509,8 +138509,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3054, label %3209, label %._crit_edge5208
 
 ._crit_edge5208:                                  ; preds = %3206
-  %sext5281 = shl i64 %indvars.iv5127, 32
-  %.pre5228 = ashr exact i64 %sext5281, 32
+  %sext5550 = shl i64 %indvars.iv5127, 32
+  %.pre5228 = ashr exact i64 %sext5550, 32
   br label %2391
 
 3209:                                             ; preds = %3206
@@ -138526,8 +138526,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3056, label %3215, label %._crit_edge5216
 
 3215:                                             ; preds = %3212
-  %sext5282 = shl i64 %indvars.iv5129, 32
-  %3216 = ashr exact i64 %sext5282, 32
+  %sext5551 = shl i64 %indvars.iv5129, 32
+  %3216 = ashr exact i64 %sext5551, 32
   %3217 = getelementptr i8, ptr %419, i64 %3216
   %3218 = getelementptr i8, ptr %3217, i64 4
   %3219 = load i8, ptr %3218, align 1, !tbaa !55
@@ -138535,8 +138535,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3057, label %3220, label %._crit_edge5206
 
 ._crit_edge5206:                                  ; preds = %3215
-  %sext5283 = shl i64 %indvars.iv5127, 32
-  %.pre5232 = ashr exact i64 %sext5283, 32
+  %sext5552 = shl i64 %indvars.iv5127, 32
+  %.pre5232 = ashr exact i64 %sext5552, 32
   br label %2276
 
 3220:                                             ; preds = %3215
@@ -138565,8 +138565,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3052, label %3238, label %3233
 
 3233:                                             ; preds = %3230
-  %sext5285 = shl i64 %indvars.iv5129, 32
-  %3234 = ashr exact i64 %sext5285, 30
+  %sext5554 = shl i64 %indvars.iv5129, 32
+  %3234 = ashr exact i64 %sext5554, 30
   %3235 = getelementptr inbounds i8, ptr %429, i64 %3234
   %3236 = load i32, ptr %3235, align 4, !tbaa !16
   %3237 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5127
@@ -138580,8 +138580,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4001: ; preds = %.lr.
   br i1 %.not3053, label %3246, label %3241
 
 3241:                                             ; preds = %3238
-  %sext5286 = shl i64 %indvars.iv5129, 32
-  %3242 = ashr exact i64 %sext5286, 30
+  %sext5555 = shl i64 %indvars.iv5129, 32
+  %3242 = ashr exact i64 %sext5555, 30
   %3243 = getelementptr inbounds i8, ptr %429, i64 %3242
   %3244 = load i32, ptr %3243, align 4, !tbaa !16
   %3245 = getelementptr inbounds i32, ptr %429, i64 %indvars.iv5127
@@ -141520,8 +141520,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4225: ; preds = %.lr.
 
 .loopexit4344.loopexit:                           ; preds = %5384
   %4753 = trunc nsw i64 %indvars.iv5151 to i32
-  %sext5297 = shl i64 %indvars.iv5151, 32
-  %.pre5183 = ashr exact i64 %sext5297, 32
+  %sext5566 = shl i64 %indvars.iv5151, 32
+  %.pre5183 = ashr exact i64 %sext5566, 32
   br label %.loopexit4344
 
 .loopexit4344:                                    ; preds = %.loopexit4344.loopexit, %4748
@@ -142037,12 +142037,12 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4267: ; preds = %.lr.
   br label %4724
 
 5024:                                             ; preds = %4850, %4691, %5402, %5268
-  %indvars.iv5151.lcssa5354.sink5596 = phi i64 [ %indvars.iv5137, %5268 ], [ %indvars.iv5151, %5402 ], [ %4636, %4691 ], [ %4733, %4850 ]
+  %indvars.iv5151.lcssa5623.sink5865 = phi i64 [ %indvars.iv5137, %5268 ], [ %indvars.iv5151, %5402 ], [ %4636, %4691 ], [ %4733, %4850 ]
   %.104 = phi i32 [ %.103.ph, %5268 ], [ %.100.ph, %5402 ], [ %.101, %4691 ], [ %.108, %4850 ]
   %.5 = phi i32 [ %5260, %5268 ], [ %5392, %5402 ], [ %.2, %4691 ], [ %4726, %4850 ]
-  %5025 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5151.lcssa5354.sink5596
+  %5025 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5151.lcssa5623.sink5865
   %5026 = load i32, ptr %5025, align 4, !tbaa !16
-  %5027 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5151.lcssa5354.sink5596
+  %5027 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5151.lcssa5623.sink5865
   store i32 %5026, ptr %5027, align 4, !tbaa !16
   %5028 = add nsw i32 %.5, 2
   %.not2990 = icmp slt i32 %5028, %156
@@ -142395,9 +142395,9 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4295: ; preds = %.lr.
   br i1 %.not3021, label %5214, label %.backedge4348
 
 .backedge4348:                                    ; preds = %5208, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309
-  %.sink5597 = phi i32 [ %.0.i4305, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309 ], [ %5212, %5208 ]
+  %.sink5866 = phi i32 [ %.0.i4305, %_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309 ], [ %5212, %5208 ]
   %5213 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137
-  store i32 %.sink5597, ptr %5213, align 4, !tbaa !16
+  store i32 %.sink5866, ptr %5213, align 4, !tbaa !16
   %indvars.iv.next5138 = add nsw i64 %indvars.iv5137, 2
   %.not2941 = icmp slt i64 %indvars.iv.next5138, %4609
   %indvars.iv.next5140 = add nsw i64 %indvars.iv5139, 2
@@ -142476,8 +142476,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
 
 5247:                                             ; preds = %5204
   %5248 = trunc nsw i64 %indvars.iv5137 to i32
-  %sext5290 = shl i64 %indvars.iv5139, 32
-  %5249 = ashr exact i64 %sext5290, 30
+  %sext5559 = shl i64 %indvars.iv5139, 32
+  %5249 = ashr exact i64 %sext5559, 30
   %5250 = getelementptr inbounds i8, ptr %4604, i64 %5249
   %5251 = load i32, ptr %5250, align 4, !tbaa !16
   %5252 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137
@@ -142486,8 +142486,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
 
 5253:                                             ; preds = %5201
   %5254 = trunc nsw i64 %indvars.iv5137 to i32
-  %sext5291 = shl i64 %indvars.iv5139, 32
-  %5255 = ashr exact i64 %sext5291, 30
+  %sext5560 = shl i64 %indvars.iv5139, 32
+  %5255 = ashr exact i64 %sext5560, 30
   %5256 = getelementptr inbounds i8, ptr %4604, i64 %5255
   %5257 = load i32, ptr %5256, align 4, !tbaa !16
   %5258 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137
@@ -142497,8 +142497,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
 5259:                                             ; preds = %5189
   %5260 = trunc nsw i64 %indvars.iv5137 to i32
   %5261 = shl i64 %indvars.iv5139, 32
-  %sext5292 = add i64 %5261, 12884901888
-  %5262 = ashr exact i64 %sext5292, 32
+  %sext5561 = add i64 %5261, 12884901888
+  %5262 = ashr exact i64 %sext5561, 32
   %5263 = getelementptr inbounds i8, ptr %4593, i64 %5262
   %5264 = load i8, ptr %5263, align 1, !tbaa !55
   %.not2943 = icmp eq i8 %5264, 0
@@ -142511,8 +142511,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   br i1 %.not2944, label %5268, label %5273
 
 5268:                                             ; preds = %5265
-  %sext5293 = shl i64 %indvars.iv5139, 32
-  %5269 = ashr exact i64 %sext5293, 32
+  %sext5562 = shl i64 %indvars.iv5139, 32
+  %5269 = ashr exact i64 %sext5562, 32
   %5270 = getelementptr i8, ptr %4595, i64 %5269
   %5271 = getelementptr i8, ptr %5270, i64 4
   %5272 = load i8, ptr %5271, align 1, !tbaa !55
@@ -142520,12 +142520,12 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   br i1 %.not2945, label %5024, label %4640
 
 5273:                                             ; preds = %5265, %5003, %4720
-  %indvars.iv5137.lcssa.sink5603 = phi i64 [ %5004, %5003 ], [ %4721, %4720 ], [ %indvars.iv5137, %5265 ]
+  %indvars.iv5137.lcssa.sink5872 = phi i64 [ %5004, %5003 ], [ %4721, %4720 ], [ %indvars.iv5137, %5265 ]
   %.107 = phi i32 [ %.113, %5003 ], [ %.106, %4720 ], [ %.103.ph, %5265 ]
   %.8 = phi i32 [ %.14, %5003 ], [ %.7, %4720 ], [ %5260, %5265 ]
-  %5274 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5137.lcssa.sink5603
+  %5274 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5137.lcssa.sink5872
   %5275 = load i32, ptr %5274, align 4, !tbaa !16
-  %5276 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137.lcssa.sink5603
+  %5276 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5137.lcssa.sink5872
   store i32 %5275, ptr %5276, align 4, !tbaa !16
   %5277 = add nsw i32 %.8, 2
   %.not2954 = icmp slt i32 %5277, %156
@@ -142766,8 +142766,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   br i1 %.not2932, label %._crit_edge5213, label %4640
 
 ._crit_edge5213:                                  ; preds = %5401
-  %sext5298 = shl i64 %indvars.iv5151, 32
-  %.pre5220 = ashr exact i64 %sext5298, 32
+  %sext5567 = shl i64 %indvars.iv5151, 32
+  %.pre5220 = ashr exact i64 %sext5567, 32
   br label %4817
 
 5402:                                             ; preds = %5395
@@ -142833,16 +142833,16 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   br i1 %.not3011, label %5442, label %5430
 
 5430:                                             ; preds = %5426
-  %sext5294 = shl i64 %indvars.iv5146, 32
-  %5431 = ashr exact i64 %sext5294, 32
+  %sext5563 = shl i64 %indvars.iv5146, 32
+  %5431 = ashr exact i64 %sext5563, 32
   %5432 = getelementptr inbounds i8, ptr %4595, i64 %5431
   %5433 = load i8, ptr %5432, align 1, !tbaa !55
   %.not3012 = icmp eq i8 %5433, 0
   br i1 %.not3012, label %5434, label %._crit_edge5212
 
 ._crit_edge5212:                                  ; preds = %5430
-  %sext5295 = shl i64 %indvars.iv5144, 32
-  %.pre5222 = ashr exact i64 %sext5295, 32
+  %sext5564 = shl i64 %indvars.iv5144, 32
+  %.pre5222 = ashr exact i64 %sext5564, 32
   br label %5043
 
 5434:                                             ; preds = %5430
@@ -142860,8 +142860,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4309: ; preds = %.lr.
   %5443 = load ptr, ptr %4608, align 8, !tbaa !306
   %5444 = getelementptr inbounds i32, ptr %4607, i64 %indvars.iv5144
   %5445 = load i32, ptr %5444, align 4, !tbaa !16
-  %sext5296 = shl i64 %indvars.iv5146, 32
-  %5446 = ashr exact i64 %sext5296, 30
+  %sext5565 = shl i64 %indvars.iv5146, 32
+  %5446 = ashr exact i64 %sext5565, 30
   %5447 = getelementptr inbounds i8, ptr %4604, i64 %5446
   %5448 = load i32, ptr %5447, align 4, !tbaa !16
   br label %5449
@@ -142973,16 +142973,16 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4323: ; preds = %.lr.
   br i1 %.not3008, label %5509, label %5497
 
 5497:                                             ; preds = %5494
-  %sext5299 = shl i64 %indvars.iv5146, 32
-  %5498 = ashr exact i64 %sext5299, 32
+  %sext5568 = shl i64 %indvars.iv5146, 32
+  %5498 = ashr exact i64 %sext5568, 32
   %5499 = getelementptr inbounds i8, ptr %4595, i64 %5498
   %5500 = load i8, ptr %5499, align 1, !tbaa !55
   %.not3009 = icmp eq i8 %5500, 0
   br i1 %.not3009, label %5501, label %._crit_edge5214
 
 ._crit_edge5214:                                  ; preds = %5497
-  %sext5300 = shl i64 %indvars.iv5144, 32
-  %.pre5218 = ashr exact i64 %sext5300, 32
+  %sext5569 = shl i64 %indvars.iv5144, 32
+  %.pre5218 = ashr exact i64 %sext5569, 32
   br label %5140
 
 5501:                                             ; preds = %5497
@@ -143000,8 +143000,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4323: ; preds = %.lr.
   %5510 = load ptr, ptr %4608, align 8, !tbaa !306
   %5511 = getelementptr inbounds i32, ptr %4607, i64 %5487
   %5512 = load i32, ptr %5511, align 4, !tbaa !16
-  %sext5301 = shl i64 %indvars.iv5146, 32
-  %5513 = ashr exact i64 %sext5301, 30
+  %sext5570 = shl i64 %indvars.iv5146, 32
+  %5513 = ashr exact i64 %sext5570, 30
   %5514 = getelementptr inbounds i8, ptr %4604, i64 %5513
   %5515 = load i32, ptr %5514, align 4, !tbaa !16
   %5516 = tail call fastcc noundef i32 @_ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_(ptr noundef %5510, i32 noundef %5512, i32 noundef %5515)
@@ -143013,8 +143013,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4323: ; preds = %.lr.
   %5519 = load ptr, ptr %4608, align 8, !tbaa !306
   %5520 = getelementptr inbounds i32, ptr %4607, i64 %5487
   %5521 = load i32, ptr %5520, align 4, !tbaa !16
-  %sext5302 = shl i64 %indvars.iv5146, 32
-  %5522 = ashr exact i64 %sext5302, 30
+  %sext5571 = shl i64 %indvars.iv5146, 32
+  %5522 = ashr exact i64 %sext5571, 30
   %5523 = getelementptr inbounds i8, ptr %4604, i64 %5522
   %5524 = load i32, ptr %5523, align 4, !tbaa !16
   br label %5525
@@ -143112,8 +143112,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4337: ; preds = %.lr.
 
 5564:                                             ; preds = %5483
   %5565 = trunc nsw i64 %indvars.iv5144 to i32
-  %sext5303 = shl i64 %indvars.iv5146, 32
-  %5566 = ashr exact i64 %sext5303, 30
+  %sext5572 = shl i64 %indvars.iv5146, 32
+  %5566 = ashr exact i64 %sext5572, 30
   %5567 = getelementptr inbounds i8, ptr %4604, i64 %5566
   %5568 = load i32, ptr %5567, align 4, !tbaa !16
   %5569 = getelementptr inbounds i32, ptr %4604, i64 %indvars.iv5144
@@ -143878,7 +143878,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %131 = trunc nuw i64 %indvars.iv1005 to i32
   %132 = trunc nuw i64 %130 to i32
   %133 = trunc nuw i64 %130 to i32
-  %invariant.op1073 = shl nuw i64 %130, 1
+  %invariant.op1104 = shl nuw i64 %130, 1
   %134 = trunc nuw i64 %indvars.iv1005 to i32
   %135 = trunc nuw i64 %indvars.iv1005 to i32
   %136 = trunc nuw i64 %130 to i32
@@ -143976,8 +143976,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %198
 
 198:                                              ; preds = %179, %154
-  %.sink1091 = phi ptr [ %195, %179 ], [ %176, %154 ]
-  %199 = getelementptr inbounds nuw i8, ptr %.sink1091, i64 8
+  %.sink1122 = phi ptr [ %195, %179 ], [ %176, %154 ]
+  %199 = getelementptr inbounds nuw i8, ptr %.sink1122, i64 8
   %200 = load i64, ptr %199, align 8, !tbaa !235
   %201 = add i64 %200, %indvars.iv1005
   store i64 %201, ptr %199, align 8, !tbaa !235
@@ -144059,8 +144059,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %254
 
 254:                                              ; preds = %235, %210
-  %.sink1094 = phi ptr [ %251, %235 ], [ %232, %210 ]
-  %255 = getelementptr inbounds nuw i8, ptr %.sink1094, i64 8
+  %.sink1125 = phi ptr [ %251, %235 ], [ %232, %210 ]
+  %255 = getelementptr inbounds nuw i8, ptr %.sink1125, i64 8
   %256 = load i64, ptr %255, align 8, !tbaa !235
   %257 = add i64 %256, %indvars.iv1005
   store i64 %257, ptr %255, align 8, !tbaa !235
@@ -144140,8 +144140,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %308
 
 308:                                              ; preds = %289, %264
-  %.sink1097 = phi ptr [ %305, %289 ], [ %286, %264 ]
-  %309 = getelementptr inbounds nuw i8, ptr %.sink1097, i64 8
+  %.sink1128 = phi ptr [ %305, %289 ], [ %286, %264 ]
+  %309 = getelementptr inbounds nuw i8, ptr %.sink1128, i64 8
   %310 = load i64, ptr %309, align 8, !tbaa !235
   %311 = add i64 %310, %130
   store i64 %311, ptr %309, align 8, !tbaa !235
@@ -144396,8 +144396,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   store i32 %477, ptr %435, align 4, !tbaa !16
   %478 = add i64 %475, %444
   store i64 %478, ptr %438, align 8, !tbaa !233
-  %.reass1074 = add i64 %461, %invariant.op1073
-  store i64 %.reass1074, ptr %441, align 8, !tbaa !235
+  %.reass1105 = add i64 %461, %invariant.op1104
+  store i64 %.reass1105, ptr %441, align 8, !tbaa !235
   br label %495
 
 479:                                              ; preds = %422
@@ -144453,7 +144453,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
 .lr.ph955:                                        ; preds = %499
   %510 = or disjoint i64 %indvars.iv1011, 1
   %511 = trunc nuw i64 %indvars.iv1011 to i32
-  %invariant.op1075 = shl nuw i64 %indvars.iv1011, 1
+  %invariant.op1106 = shl nuw i64 %indvars.iv1011, 1
   %512 = trunc nuw i64 %510 to i32
   %513 = load ptr, ptr %79, align 8
   %514 = trunc nuw i64 %indvars.iv1011 to i32
@@ -144552,8 +144552,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %577
 
 577:                                              ; preds = %558, %533
-  %.sink1100 = phi ptr [ %574, %558 ], [ %555, %533 ]
-  %578 = getelementptr inbounds nuw i8, ptr %.sink1100, i64 8
+  %.sink1131 = phi ptr [ %574, %558 ], [ %555, %533 ]
+  %578 = getelementptr inbounds nuw i8, ptr %.sink1131, i64 8
   %579 = load i64, ptr %578, align 8, !tbaa !235
   %580 = add i64 %579, %indvars.iv1011
   store i64 %580, ptr %578, align 8, !tbaa !235
@@ -144629,8 +144629,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %629
 
 629:                                              ; preds = %610, %585
-  %.sink1103 = phi ptr [ %626, %610 ], [ %607, %585 ]
-  %630 = getelementptr inbounds nuw i8, ptr %.sink1103, i64 8
+  %.sink1134 = phi ptr [ %626, %610 ], [ %607, %585 ]
+  %630 = getelementptr inbounds nuw i8, ptr %.sink1134, i64 8
   %631 = load i64, ptr %630, align 8, !tbaa !235
   %632 = add i64 %631, %indvars.iv1011
   store i64 %632, ptr %630, align 8, !tbaa !235
@@ -144710,8 +144710,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %683
 
 683:                                              ; preds = %664, %639
-  %.sink1106 = phi ptr [ %680, %664 ], [ %661, %639 ]
-  %684 = getelementptr inbounds nuw i8, ptr %.sink1106, i64 8
+  %.sink1137 = phi ptr [ %680, %664 ], [ %661, %639 ]
+  %684 = getelementptr inbounds nuw i8, ptr %.sink1137, i64 8
   %685 = load i64, ptr %684, align 8, !tbaa !235
   %686 = add i64 %685, %510
   store i64 %686, ptr %684, align 8, !tbaa !235
@@ -144829,8 +144829,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   store i32 %764, ptr %755, align 4, !tbaa !16
   %765 = add i64 %759, %741
   store i64 %765, ptr %757, align 8, !tbaa !233
-  %.reass1076 = add i64 %761, %invariant.op1075
-  store i64 %.reass1076, ptr %760, align 8, !tbaa !235
+  %.reass1107 = add i64 %761, %invariant.op1106
+  store i64 %.reass1107, ptr %760, align 8, !tbaa !235
   %766 = load i32, ptr %88, align 8, !tbaa !32
   %767 = icmp sgt i32 %766, %512
   br i1 %767, label %768, label %783
@@ -144860,8 +144860,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   store i32 %781, ptr %755, align 4, !tbaa !16
   %782 = add i64 %779, %741
   store i64 %782, ptr %757, align 8, !tbaa !233
-  %.reass1078 = add i64 %520, %761
-  store i64 %.reass1078, ptr %760, align 8, !tbaa !235
+  %.reass1109 = add i64 %520, %761
+  store i64 %.reass1109, ptr %760, align 8, !tbaa !235
   br label %783
 
 783:                                              ; preds = %740, %768, %629, %718, %690
@@ -144959,8 +144959,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %849 = or disjoint i64 %indvars.iv1017, 1
   %850 = trunc nuw i64 %indvars.iv1017 to i32
   %851 = trunc nuw i64 %849 to i32
-  %invariant.op1079 = add nuw i64 %indvars.iv1017, %849
-  %invariant.op1081 = add nuw i64 %indvars.iv1017, %849
+  %invariant.op1110 = add nuw i64 %indvars.iv1017, %849
+  %invariant.op1112 = add nuw i64 %indvars.iv1017, %849
   %852 = load ptr, ptr %788, align 8
   %853 = trunc nuw i64 %indvars.iv1017 to i32
   %854 = trunc nuw i64 %indvars.iv1017 to i32
@@ -145060,8 +145060,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %918
 
 918:                                              ; preds = %899, %874
-  %.sink1109 = phi ptr [ %915, %899 ], [ %896, %874 ]
-  %919 = getelementptr inbounds nuw i8, ptr %.sink1109, i64 8
+  %.sink1140 = phi ptr [ %915, %899 ], [ %896, %874 ]
+  %919 = getelementptr inbounds nuw i8, ptr %.sink1140, i64 8
   %920 = load i64, ptr %919, align 8, !tbaa !235
   %921 = add i64 %920, %indvars.iv1017
   store i64 %921, ptr %919, align 8, !tbaa !235
@@ -145136,8 +145136,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %969
 
 969:                                              ; preds = %950, %925
-  %.sink1112 = phi ptr [ %966, %950 ], [ %947, %925 ]
-  %970 = getelementptr inbounds nuw i8, ptr %.sink1112, i64 8
+  %.sink1143 = phi ptr [ %966, %950 ], [ %947, %925 ]
+  %970 = getelementptr inbounds nuw i8, ptr %.sink1143, i64 8
   %971 = load i64, ptr %970, align 8, !tbaa !235
   %972 = add i64 %971, %849
   store i64 %972, ptr %970, align 8, !tbaa !235
@@ -145219,8 +145219,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %1025
 
 1025:                                             ; preds = %1006, %981
-  %.sink1115 = phi ptr [ %1022, %1006 ], [ %1003, %981 ]
-  %1026 = getelementptr inbounds nuw i8, ptr %.sink1115, i64 8
+  %.sink1146 = phi ptr [ %1022, %1006 ], [ %1003, %981 ]
+  %1026 = getelementptr inbounds nuw i8, ptr %.sink1146, i64 8
   %1027 = load i64, ptr %1026, align 8, !tbaa !235
   %1028 = add i64 %1027, %indvars.iv1017
   store i64 %1028, ptr %1026, align 8, !tbaa !235
@@ -145333,11 +145333,11 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   store i32 %1103, ptr %1093, align 4, !tbaa !16
   %1104 = add nsw i32 %1097, 2
   store i32 %1104, ptr %1096, align 4, !tbaa !16
-  %reass.add1164 = shl nuw i64 %indvars.iv1014, 1
-  %1105 = add i64 %1099, %reass.add1164
+  %reass.add1195 = shl nuw i64 %indvars.iv1014, 1
+  %1105 = add i64 %1099, %reass.add1195
   store i64 %1105, ptr %1098, align 8, !tbaa !233
-  %.reass1080 = add i64 %1101, %invariant.op1079
-  store i64 %.reass1080, ptr %1100, align 8, !tbaa !235
+  %.reass1111 = add i64 %1101, %invariant.op1110
+  store i64 %.reass1111, ptr %1100, align 8, !tbaa !235
   %1106 = or disjoint i64 %indvars.iv1014, 1
   %1107 = load i32, ptr %864, align 4, !tbaa !49
   %1108 = sext i32 %1107 to i64
@@ -145371,8 +145371,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %1126 = shl i64 %1125, 1
   %1127 = add i64 %1126, %1099
   store i64 %1127, ptr %1098, align 8, !tbaa !233
-  %.reass1082 = add i64 %.reass1080, %invariant.op1081
-  store i64 %.reass1082, ptr %1100, align 8, !tbaa !235
+  %.reass1113 = add i64 %.reass1111, %invariant.op1112
+  store i64 %.reass1113, ptr %1100, align 8, !tbaa !235
   br label %1128
 
 1128:                                             ; preds = %1082, %1110, %969, %1060, %1032
@@ -145405,8 +145405,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %1147 = load ptr, ptr %833, align 8
   %1148 = trunc nuw i64 %indvars.iv1023 to i32
   %1149 = trunc nuw i64 %1146 to i32
-  %invariant.op10831167 = add nuw i64 %indvars.iv1023, %1146
-  %invariant.op1087 = shl i64 %invariant.op10831167, 1
+  %invariant.op11141198 = add nuw i64 %indvars.iv1023, %1146
+  %invariant.op1118 = shl i64 %invariant.op11141198, 1
   %1150 = trunc nuw i64 %indvars.iv1023 to i32
   %1151 = trunc nuw i64 %indvars.iv1023 to i32
   %1152 = trunc nuw i64 %indvars.iv1023 to i32
@@ -145505,10 +145505,10 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %1215
 
 1215:                                             ; preds = %1196, %1171
-  %.sink1118 = phi ptr [ %1212, %1196 ], [ %1193, %1171 ]
+  %.sink1149 = phi ptr [ %1212, %1196 ], [ %1193, %1171 ]
   %1216 = phi ptr [ %1212, %1196 ], [ %1192, %1171 ]
   %1217 = phi ptr [ %1197, %1196 ], [ %1172, %1171 ]
-  %1218 = getelementptr inbounds nuw i8, ptr %.sink1118, i64 8
+  %1218 = getelementptr inbounds nuw i8, ptr %.sink1149, i64 8
   %1219 = load i64, ptr %1218, align 8, !tbaa !235
   %1220 = add i64 %1219, %indvars.iv1023
   store i64 %1220, ptr %1218, align 8, !tbaa !235
@@ -145580,8 +145580,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %1265
 
 1265:                                             ; preds = %1248, %1225
-  %.sink1121 = phi ptr [ %1216, %1248 ], [ %1245, %1225 ]
-  %1266 = getelementptr inbounds nuw i8, ptr %.sink1121, i64 8
+  %.sink1152 = phi ptr [ %1216, %1248 ], [ %1245, %1225 ]
+  %1266 = getelementptr inbounds nuw i8, ptr %.sink1152, i64 8
   %1267 = load i64, ptr %1266, align 8, !tbaa !235
   %1268 = add i64 %1267, %indvars.iv1023
   store i64 %1268, ptr %1266, align 8, !tbaa !235
@@ -145652,8 +145652,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %1312
 
 1312:                                             ; preds = %1295, %1272
-  %.sink1124 = phi ptr [ %1216, %1295 ], [ %1292, %1272 ]
-  %1313 = getelementptr inbounds nuw i8, ptr %.sink1124, i64 8
+  %.sink1155 = phi ptr [ %1216, %1295 ], [ %1292, %1272 ]
+  %1313 = getelementptr inbounds nuw i8, ptr %.sink1155, i64 8
   %1314 = load i64, ptr %1313, align 8, !tbaa !235
   %1315 = add i64 %1314, %1146
   store i64 %1315, ptr %1313, align 8, !tbaa !235
@@ -145779,8 +145779,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   store i32 %1397, ptr %1382, align 4, !tbaa !16
   %1398 = add i64 %1395, %1366
   store i64 %1398, ptr %1384, align 8, !tbaa !233
-  %.reass1088 = add i64 %1388, %invariant.op1087
-  store i64 %.reass1088, ptr %1387, align 8, !tbaa !235
+  %.reass1119 = add i64 %1388, %invariant.op1118
+  store i64 %.reass1119, ptr %1387, align 8, !tbaa !235
   br label %1399
 
 1399:                                             ; preds = %1319, %1345, %1365
@@ -146022,8 +146022,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %1570
 
 1570:                                             ; preds = %1551, %1526
-  %.sink1127 = phi ptr [ %1567, %1551 ], [ %1548, %1526 ]
-  %1571 = getelementptr inbounds nuw i8, ptr %.sink1127, i64 8
+  %.sink1158 = phi ptr [ %1567, %1551 ], [ %1548, %1526 ]
+  %1571 = getelementptr inbounds nuw i8, ptr %.sink1158, i64 8
   %1572 = load i64, ptr %1571, align 8, !tbaa !235
   %1573 = add i64 %1572, %indvars.iv981
   store i64 %1573, ptr %1571, align 8, !tbaa !235
@@ -146105,8 +146105,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %1626
 
 1626:                                             ; preds = %1607, %1582
-  %.sink1130 = phi ptr [ %1623, %1607 ], [ %1604, %1582 ]
-  %1627 = getelementptr inbounds nuw i8, ptr %.sink1130, i64 8
+  %.sink1161 = phi ptr [ %1623, %1607 ], [ %1604, %1582 ]
+  %1627 = getelementptr inbounds nuw i8, ptr %.sink1161, i64 8
   %1628 = load i64, ptr %1627, align 8, !tbaa !235
   %1629 = add i64 %1628, %indvars.iv981
   store i64 %1629, ptr %1627, align 8, !tbaa !235
@@ -146187,8 +146187,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %1681
 
 1681:                                             ; preds = %1662, %1637
-  %.sink1133 = phi ptr [ %1678, %1662 ], [ %1659, %1637 ]
-  %1682 = getelementptr inbounds nuw i8, ptr %.sink1133, i64 8
+  %.sink1164 = phi ptr [ %1678, %1662 ], [ %1659, %1637 ]
+  %1682 = getelementptr inbounds nuw i8, ptr %.sink1164, i64 8
   %1683 = load i64, ptr %1682, align 8, !tbaa !235
   %1684 = add i64 %1683, %1499
   store i64 %1684, ptr %1682, align 8, !tbaa !235
@@ -146503,7 +146503,7 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
 .lr.ph928:                                        ; preds = %1875
   %1886 = or disjoint i64 %indvars.iv987, 1
   %1887 = trunc nsw i64 %indvars.iv987 to i32
-  %invariant.op1059 = shl i64 %indvars.iv987, 1
+  %invariant.op1090 = shl i64 %indvars.iv987, 1
   %1888 = trunc nsw i64 %1886 to i32
   %1889 = load ptr, ptr %1454, align 8
   %1890 = trunc nsw i64 %indvars.iv987 to i32
@@ -146604,8 +146604,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %1955
 
 1955:                                             ; preds = %1936, %1911
-  %.sink1136 = phi ptr [ %1952, %1936 ], [ %1933, %1911 ]
-  %1956 = getelementptr inbounds nuw i8, ptr %.sink1136, i64 8
+  %.sink1167 = phi ptr [ %1952, %1936 ], [ %1933, %1911 ]
+  %1956 = getelementptr inbounds nuw i8, ptr %.sink1167, i64 8
   %1957 = load i64, ptr %1956, align 8, !tbaa !235
   %1958 = add i64 %1957, %indvars.iv987
   store i64 %1958, ptr %1956, align 8, !tbaa !235
@@ -146681,8 +146681,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %2007
 
 2007:                                             ; preds = %1988, %1963
-  %.sink1139 = phi ptr [ %2004, %1988 ], [ %1985, %1963 ]
-  %2008 = getelementptr inbounds nuw i8, ptr %.sink1139, i64 8
+  %.sink1170 = phi ptr [ %2004, %1988 ], [ %1985, %1963 ]
+  %2008 = getelementptr inbounds nuw i8, ptr %.sink1170, i64 8
   %2009 = load i64, ptr %2008, align 8, !tbaa !235
   %2010 = add i64 %2009, %indvars.iv987
   store i64 %2010, ptr %2008, align 8, !tbaa !235
@@ -146763,8 +146763,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %2062
 
 2062:                                             ; preds = %2043, %2018
-  %.sink1142 = phi ptr [ %2059, %2043 ], [ %2040, %2018 ]
-  %2063 = getelementptr inbounds nuw i8, ptr %.sink1142, i64 8
+  %.sink1173 = phi ptr [ %2059, %2043 ], [ %2040, %2018 ]
+  %2063 = getelementptr inbounds nuw i8, ptr %.sink1173, i64 8
   %2064 = load i64, ptr %2063, align 8, !tbaa !235
   %2065 = add i64 %2064, %1886
   store i64 %2065, ptr %2063, align 8, !tbaa !235
@@ -146882,8 +146882,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   store i32 %2143, ptr %2134, align 4, !tbaa !16
   %2144 = add i64 %2138, %2120
   store i64 %2144, ptr %2136, align 8, !tbaa !233
-  %.reass1060 = add i64 %2140, %invariant.op1059
-  store i64 %.reass1060, ptr %2139, align 8, !tbaa !235
+  %.reass1091 = add i64 %2140, %invariant.op1090
+  store i64 %.reass1091, ptr %2139, align 8, !tbaa !235
   %2145 = load i32, ptr %1464, align 8, !tbaa !32
   %2146 = sext i32 %2145 to i64
   %2147 = icmp slt i64 %1886, %2146
@@ -146914,8 +146914,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   store i32 %2161, ptr %2134, align 4, !tbaa !16
   %2162 = add i64 %2159, %2120
   store i64 %2162, ptr %2136, align 8, !tbaa !233
-  %.reass1062 = add i64 %1899, %2140
-  store i64 %.reass1062, ptr %2139, align 8, !tbaa !235
+  %.reass1093 = add i64 %1899, %2140
+  store i64 %.reass1093, ptr %2139, align 8, !tbaa !235
   br label %2163
 
 2163:                                             ; preds = %2119, %2148, %2007, %2097, %2069
@@ -147006,8 +147006,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %2223 = or disjoint i64 %indvars.iv993, 1
   %2224 = trunc nsw i64 %indvars.iv993 to i32
   %2225 = trunc nsw i64 %2223 to i32
-  %invariant.op1063 = add i64 %indvars.iv993, %2223
-  %invariant.op1065 = add i64 %indvars.iv993, %2223
+  %invariant.op1094 = add i64 %indvars.iv993, %2223
+  %invariant.op1096 = add i64 %indvars.iv993, %2223
   %2226 = load ptr, ptr %2168, align 8
   %2227 = trunc nsw i64 %indvars.iv993 to i32
   %2228 = trunc nsw i64 %indvars.iv993 to i32
@@ -147106,8 +147106,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %2291
 
 2291:                                             ; preds = %2272, %2247
-  %.sink1145 = phi ptr [ %2288, %2272 ], [ %2269, %2247 ]
-  %2292 = getelementptr inbounds nuw i8, ptr %.sink1145, i64 8
+  %.sink1176 = phi ptr [ %2288, %2272 ], [ %2269, %2247 ]
+  %2292 = getelementptr inbounds nuw i8, ptr %.sink1176, i64 8
   %2293 = load i64, ptr %2292, align 8, !tbaa !235
   %2294 = add i64 %2293, %indvars.iv993
   store i64 %2294, ptr %2292, align 8, !tbaa !235
@@ -147182,8 +147182,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %2342
 
 2342:                                             ; preds = %2323, %2298
-  %.sink1148 = phi ptr [ %2339, %2323 ], [ %2320, %2298 ]
-  %2343 = getelementptr inbounds nuw i8, ptr %.sink1148, i64 8
+  %.sink1179 = phi ptr [ %2339, %2323 ], [ %2320, %2298 ]
+  %2343 = getelementptr inbounds nuw i8, ptr %.sink1179, i64 8
   %2344 = load i64, ptr %2343, align 8, !tbaa !235
   %2345 = add i64 %2344, %2223
   store i64 %2345, ptr %2343, align 8, !tbaa !235
@@ -147265,8 +147265,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %2398
 
 2398:                                             ; preds = %2379, %2354
-  %.sink1151 = phi ptr [ %2395, %2379 ], [ %2376, %2354 ]
-  %2399 = getelementptr inbounds nuw i8, ptr %.sink1151, i64 8
+  %.sink1182 = phi ptr [ %2395, %2379 ], [ %2376, %2354 ]
+  %2399 = getelementptr inbounds nuw i8, ptr %.sink1182, i64 8
   %2400 = load i64, ptr %2399, align 8, !tbaa !235
   %2401 = add i64 %2400, %indvars.iv993
   store i64 %2401, ptr %2399, align 8, !tbaa !235
@@ -147382,8 +147382,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %reass.add = shl nuw i64 %indvars.iv990, 1
   %2478 = add i64 %2472, %reass.add
   store i64 %2478, ptr %2471, align 8, !tbaa !233
-  %.reass1064 = add i64 %2474, %invariant.op1063
-  store i64 %.reass1064, ptr %2473, align 8, !tbaa !235
+  %.reass1095 = add i64 %2474, %invariant.op1094
+  store i64 %.reass1095, ptr %2473, align 8, !tbaa !235
   %2479 = or disjoint i64 %indvars.iv990, 1
   %2480 = load i32, ptr %2237, align 4, !tbaa !49
   %2481 = sext i32 %2480 to i64
@@ -147417,8 +147417,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %2499 = shl i64 %2498, 1
   %2500 = add i64 %2499, %2472
   store i64 %2500, ptr %2471, align 8, !tbaa !233
-  %.reass1066 = add i64 %.reass1064, %invariant.op1065
-  store i64 %.reass1066, ptr %2473, align 8, !tbaa !235
+  %.reass1097 = add i64 %.reass1095, %invariant.op1096
+  store i64 %.reass1097, ptr %2473, align 8, !tbaa !235
   br label %2501
 
 2501:                                             ; preds = %2455, %2483, %2342, %2433, %2405
@@ -147450,8 +147450,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   %2520 = load ptr, ptr %2206, align 8
   %2521 = trunc nsw i64 %indvars.iv999 to i32
   %2522 = trunc nsw i64 %2519 to i32
-  %invariant.op10671163 = add i64 %indvars.iv999, %2519
-  %invariant.op1071 = shl i64 %invariant.op10671163, 1
+  %invariant.op10981194 = add i64 %indvars.iv999, %2519
+  %invariant.op1102 = shl i64 %invariant.op10981194, 1
   %2523 = trunc nsw i64 %indvars.iv999 to i32
   %2524 = trunc nsw i64 %indvars.iv999 to i32
   %2525 = trunc nsw i64 %indvars.iv999 to i32
@@ -147549,10 +147549,10 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %2587
 
 2587:                                             ; preds = %2568, %2543
-  %.sink1154 = phi ptr [ %2584, %2568 ], [ %2565, %2543 ]
+  %.sink1185 = phi ptr [ %2584, %2568 ], [ %2565, %2543 ]
   %2588 = phi ptr [ %2584, %2568 ], [ %2564, %2543 ]
   %2589 = phi ptr [ %2569, %2568 ], [ %2544, %2543 ]
-  %2590 = getelementptr inbounds nuw i8, ptr %.sink1154, i64 8
+  %2590 = getelementptr inbounds nuw i8, ptr %.sink1185, i64 8
   %2591 = load i64, ptr %2590, align 8, !tbaa !235
   %2592 = add i64 %2591, %indvars.iv999
   store i64 %2592, ptr %2590, align 8, !tbaa !235
@@ -147624,8 +147624,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %2637
 
 2637:                                             ; preds = %2620, %2597
-  %.sink1157 = phi ptr [ %2588, %2620 ], [ %2617, %2597 ]
-  %2638 = getelementptr inbounds nuw i8, ptr %.sink1157, i64 8
+  %.sink1188 = phi ptr [ %2588, %2620 ], [ %2617, %2597 ]
+  %2638 = getelementptr inbounds nuw i8, ptr %.sink1188, i64 8
   %2639 = load i64, ptr %2638, align 8, !tbaa !235
   %2640 = add i64 %2639, %indvars.iv999
   store i64 %2640, ptr %2638, align 8, !tbaa !235
@@ -147696,8 +147696,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   br label %2684
 
 2684:                                             ; preds = %2667, %2644
-  %.sink1160 = phi ptr [ %2588, %2667 ], [ %2664, %2644 ]
-  %2685 = getelementptr inbounds nuw i8, ptr %.sink1160, i64 8
+  %.sink1191 = phi ptr [ %2588, %2667 ], [ %2664, %2644 ]
+  %2685 = getelementptr inbounds nuw i8, ptr %.sink1191, i64 8
   %2686 = load i64, ptr %2685, align 8, !tbaa !235
   %2687 = add i64 %2686, %2519
   store i64 %2687, ptr %2685, align 8, !tbaa !235
@@ -147823,8 +147823,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents23LabelingBolelliPa
   store i32 %2769, ptr %2754, align 4, !tbaa !16
   %2770 = add i64 %2767, %2738
   store i64 %2770, ptr %2756, align 8, !tbaa !233
-  %.reass1072 = add i64 %2760, %invariant.op1071
-  store i64 %.reass1072, ptr %2759, align 8, !tbaa !235
+  %.reass1103 = add i64 %2760, %invariant.op1102
+  store i64 %.reass1103, ptr %2759, align 8, !tbaa !235
   br label %2771
 
 2771:                                             ; preds = %2691, %2717, %2737
@@ -147966,8 +147966,8 @@ define linkonce_odr hidden void @_ZNK2cv19connectedcomponents25LabelingBolelli4C
   br i1 %.not117, label %.lr.ph, label %.loopexit99
 
 .loopexit99:                                      ; preds = %.outer101, %48, %55, %59
-  %indvars.iv.next181.lcssa220.sink = phi i64 [ %indvars.iv.next181, %59 ], [ %indvars.iv180, %55 ], [ %indvars.iv.next181, %48 ], [ %indvars.iv.next181, %.outer101 ]
-  %67 = trunc nsw i64 %indvars.iv.next181.lcssa220.sink to i32
+  %indvars.iv.next181.lcssa225.sink = phi i64 [ %indvars.iv.next181, %59 ], [ %indvars.iv180, %55 ], [ %indvars.iv.next181, %48 ], [ %indvars.iv.next181, %.outer101 ]
+  %67 = trunc nsw i64 %indvars.iv.next181.lcssa225.sink to i32
   %68 = or disjoint i32 %4, 1
   %69 = icmp slt i32 %68, %.sroa.speculated
   br i1 %69, label %.lr.ph142, label %._crit_edge

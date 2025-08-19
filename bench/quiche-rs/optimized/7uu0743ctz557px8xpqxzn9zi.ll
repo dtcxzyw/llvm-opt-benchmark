@@ -2545,9 +2545,9 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !noundef !4
   %22 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i64 %21
-  %.sink61.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink61.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink61.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink62.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink62.i.sroa.gep61 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink62.i.sroa.gep62 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load i64, ptr %1, align 8, !range !3
   %24 = trunc nuw i64 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2707,11 +2707,11 @@ default.unreachable:                              ; preds = %63
   br i1 %74, label %91, label %89, !prof !21
 
 75:                                               ; preds = %89, %82, %68
-  %.sink61.i.sroa.phi = phi ptr [ %.sink61.i.sroa.gep, %89 ], [ %.sink61.i.sroa.gep61, %82 ], [ %.sink61.i.sroa.gep62, %68 ]
-  %.sink61.i = phi ptr [ %11, %89 ], [ %13, %82 ], [ %15, %68 ]
-  %.sroa.01.0.copyload4.i = load i64, ptr %.sink61.i, align 8, !noalias !82
+  %.sink62.i.sroa.phi = phi ptr [ %.sink62.i.sroa.gep, %89 ], [ %.sink62.i.sroa.gep61, %82 ], [ %.sink62.i.sroa.gep62, %68 ]
+  %.sink62.i = phi ptr [ %11, %89 ], [ %13, %82 ], [ %15, %68 ]
+  %.sroa.01.0.copyload4.i = load i64, ptr %.sink62.i, align 8, !noalias !82
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !95
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.459.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sink61.i.sroa.phi, i64 16, i1 false), !noalias !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.459.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sink62.i.sroa.phi, i64 16, i1 false), !noalias !82
   %.sroa.03.0.copyload.i.i = load i64, ptr %43, align 1, !alias.scope !82, !noalias !98
   %.sroa.44.0.copyload.i.i = load i8, ptr %.sroa.44.0..sroa_idx.i.i, align 1, !alias.scope !82, !noalias !98
   store i64 %.sroa.01.0.copyload4.i, ptr %6, align 8, !noalias !82

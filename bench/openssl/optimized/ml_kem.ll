@@ -113,8 +113,8 @@ switch.lookup:                                    ; preds = %3
   %.not = icmp eq ptr %12, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   %.not36 = icmp eq ptr %14, null
-  %or.cond41 = select i1 %.not, i1 true, i1 %.not36
-  br i1 %or.cond41, label %23, label %22
+  %or.cond42 = select i1 %.not, i1 true, i1 %.not36
+  br i1 %or.cond42, label %23, label %22
 
 22:                                               ; preds = %8
   %.not37 = icmp eq ptr %16, null
@@ -264,7 +264,7 @@ define ptr @ossl_ml_kem_key_dup(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %.not42 = icmp eq ptr %26, null
   %.v = select i1 %.not42, i32 2, i32 3
   %27 = and i32 %.v, %1
-  switch i32 %27, label %default.unreachable54 [
+  switch i32 %27, label %default.unreachable58 [
     i32 0, label %.thread51
     i32 2, label %28
     i32 1, label %43
@@ -344,7 +344,7 @@ add_storage.exit46:                               ; preds = %43, %49
   store ptr %66, ptr %19, align 8, !tbaa !26
   br label %67
 
-default.unreachable54:                            ; preds = %25
+default.unreachable58:                            ; preds = %25
   unreachable
 
 67:                                               ; preds = %add_storage.exit46, %64, %add_storage.exit

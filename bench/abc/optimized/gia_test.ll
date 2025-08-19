@@ -1275,9 +1275,9 @@ _ZN7testing15AssertionResultD2Ev.exit34:          ; preds = %198, %_ZNKSt14defau
 
 218:                                              ; preds = %213
   %.not9.i.i.i = icmp eq ptr %217, null
-  br i1 %.not9.i.i.i, label %.thread23.i.i, label %220
+  br i1 %.not9.i.i.i, label %.thread25.i.i, label %220
 
-.thread23.i.i:                                    ; preds = %218
+.thread25.i.i:                                    ; preds = %218
   %219 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   store ptr %219, ptr %216, align 8, !tbaa !74
   store i32 1, ptr %157, align 8, !tbaa !71
@@ -1291,9 +1291,9 @@ _ZN7testing15AssertionResultD2Ev.exit34:          ; preds = %198, %_ZNKSt14defau
   %222 = icmp slt i32 %.pre.pre.i.i, 1
   br i1 %222, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %220, %.thread23.i.i, %213
-  %223 = phi ptr [ %221, %220 ], [ %219, %.thread23.i.i ], [ %217, %213 ]
-  %224 = phi i32 [ %.pre.pre.i.i, %220 ], [ %211, %.thread23.i.i ], [ %211, %213 ]
+.lr.ph.i.i:                                       ; preds = %220, %.thread25.i.i, %213
+  %223 = phi ptr [ %221, %220 ], [ %219, %.thread25.i.i ], [ %217, %213 ]
+  %224 = phi i32 [ %.pre.pre.i.i, %220 ], [ %211, %.thread25.i.i ], [ %211, %213 ]
   %225 = sext i32 %224 to i64
   %226 = shl nsw i64 %225, 3
   %scevgep.i.i = getelementptr i8, ptr %223, i64 %226

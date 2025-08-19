@@ -102,7 +102,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull @.str)
           to label %.invoke unwind label %37
 
-35:                                               ; preds = %.invoke, %81, %73, %.thread49, %24
+35:                                               ; preds = %.invoke, %81, %73, %.thread53, %24
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %106
@@ -115,7 +115,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
 
 39:                                               ; preds = %31
   %.not31 = icmp eq i8 %2, 1
-  br i1 %.not31, label %40, label %.thread46
+  br i1 %.not31, label %40, label %.thread50
 
 40:                                               ; preds = %39
   br i1 %3, label %41, label %51
@@ -125,9 +125,9 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   %43 = load i8, ptr %42, align 2
   %44 = trunc i8 %43 to i1
   %brmerge.not = and i1 %4, %44
-  br i1 %brmerge.not, label %.thread50, label %.thread
+  br i1 %brmerge.not, label %.thread54, label %.thread
 
-.thread50:                                        ; preds = %41
+.thread54:                                        ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 347
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
@@ -135,7 +135,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   %49 = and i8 %46, 1
   %50 = xor i8 %49, 1
   store i8 %50, ptr %48, align 4
-  br i1 %47, label %81, label %.thread49
+  br i1 %47, label %81, label %.thread53
 
 51:                                               ; preds = %40
   br i1 %4, label %55, label %.thread.thread
@@ -150,7 +150,7 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   %.not35 = and i8 %43, 1
   %54 = xor i8 %.not35, 1
   store i8 %54, ptr %53, align 4
-  br i1 %44, label %81, label %.thread49
+  br i1 %44, label %81, label %.thread53
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 347
@@ -161,14 +161,14 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   store i8 %60, ptr %58, align 4
   br label %62
 
-.thread46:                                        ; preds = %39
+.thread50:                                        ; preds = %39
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 1, ptr %61, align 4
-  %.not47 = xor i1 %4, true
-  %or.cond48 = or i1 %3, %.not47
-  br i1 %or.cond48, label %.thread49, label %62
+  %.not51 = xor i1 %4, true
+  %or.cond52 = or i1 %3, %.not51
+  br i1 %or.cond52, label %.thread53, label %62
 
-62:                                               ; preds = %55, %.thread46
+62:                                               ; preds = %55, %.thread50
   %63 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull @.str.1)
           to label %.invoke unwind label %65
@@ -187,11 +187,11 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   tail call void @__cxa_free_exception(ptr nonnull %63) #15
   br label %106
 
-.thread49:                                        ; preds = %.thread50, %.thread46, %.thread
+.thread53:                                        ; preds = %.thread54, %.thread50, %.thread
   %67 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
           to label %68 unwind label %35
 
-68:                                               ; preds = %.thread49
+68:                                               ; preds = %.thread53
   %69 = invoke noundef zeroext i8 @_ZNK7nanogui6Screen12pixel_formatEv(ptr noundef nonnull align 8 dereferenceable(384) %30)
           to label %70 unwind label %77
 
@@ -224,9 +224,9 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i:            ; preds = %13
   tail call void @_ZdlPv(ptr noundef nonnull %74) #18
   br label %106
 
-81:                                               ; preds = %.thread, %.thread.thread, %.thread50, %75
-  %.029 = phi ptr [ %67, %75 ], [ %30, %.thread50 ], [ %30, %.thread.thread ], [ %30, %.thread ]
-  %.028 = phi ptr [ %74, %75 ], [ %30, %.thread50 ], [ null, %.thread.thread ], [ %30, %.thread ]
+81:                                               ; preds = %.thread, %.thread.thread, %.thread54, %75
+  %.029 = phi ptr [ %67, %75 ], [ %30, %.thread54 ], [ %30, %.thread.thread ], [ %30, %.thread ]
+  %.028 = phi ptr [ %74, %75 ], [ %30, %.thread54 ], [ null, %.thread.thread ], [ %30, %.thread ]
   %82 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #17
           to label %83 unwind label %35
 

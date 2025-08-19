@@ -2371,7 +2371,7 @@ define dso_local range(i32 -22, 2) i32 @pm_runtime_get_if_active(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = and i32 %1, -3

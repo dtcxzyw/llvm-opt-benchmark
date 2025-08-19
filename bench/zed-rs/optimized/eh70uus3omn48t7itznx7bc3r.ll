@@ -473,7 +473,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %17, ptr %10 monotonic, align 8, !noalias !7
   store ptr null, ptr %12, align 8, !noalias !7
   %18 = icmp eq ptr %11, null
-  br i1 %18, label %.thread2.i, label %19
+  br i1 %18, label %.thread4.i, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 104
@@ -481,15 +481,15 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   %21 = icmp eq ptr %13, null
   br i1 %21, label %24, label %.thread.i
 
-.thread2.i:                                       ; preds = %.lr.ph
+.thread4.i:                                       ; preds = %.lr.ph
   %22 = icmp eq ptr %13, null
-  br i1 %22, label %.thread3.i, label %.thread.i
+  br i1 %22, label %.thread5.i, label %.thread.i
 
-.thread3.i:                                       ; preds = %.thread2.i
+.thread5.i:                                       ; preds = %.thread4.i
   store ptr null, ptr %3, align 8, !alias.scope !7
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h80b60df8d4fd868cE.exit"
 
-.thread.i:                                        ; preds = %.thread2.i, %19
+.thread.i:                                        ; preds = %.thread4.i, %19
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store atomic ptr %11, ptr %23 monotonic, align 8, !noalias !7
   br label %25
@@ -504,7 +504,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %9, ptr %27, align 8, !noalias !7
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h80b60df8d4fd868cE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h80b60df8d4fd868cE.exit": ; preds = %.thread3.i, %25
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h80b60df8d4fd868cE.exit": ; preds = %.thread5.i, %25
   %28 = getelementptr inbounds i8, ptr %6, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %28, ptr %2, align 8
@@ -67360,7 +67360,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$concurrent_queue..bounded..B
   br i1 %35, label %"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..ScanJob$GT$$u5d$$GT$$GT$17he0513d85d0212e5eE.llvm.14582701375544310392.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i": ; preds = %.thread, %34
-  %lpad.phi9 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %34 ]
+  %lpad.phi14 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %34 ]
   %36 = mul nsw i64 %8, 104
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %36, i64 noundef 8) #34, !noalias !23734
   br label %"_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..ScanJob$GT$$u5d$$GT$$GT$17he0513d85d0212e5eE.llvm.14582701375544310392.exit"
@@ -67378,8 +67378,8 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$concurrent_queue..bounded..B
   ret void
 
 "_ZN4core3ptr112drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..ScanJob$GT$$u5d$$GT$$GT$17he0513d85d0212e5eE.llvm.14582701375544310392.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i", %34
-  %lpad.phi10 = phi { ptr, i32 } [ %lpad.phi9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i" ], [ %lpad.loopexit.split-lp, %34 ]
-  resume { ptr, i32 } %lpad.phi10
+  %lpad.phi15 = phi { ptr, i32 } [ %lpad.phi14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i" ], [ %lpad.loopexit.split-lp, %34 ]
+  resume { ptr, i32 } %lpad.phi15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -69219,7 +69219,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$concurrent_queue..bounded..B
   br i1 %35, label %"_ZN4core3ptr116drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..ScanRequest$GT$$u5d$$GT$$GT$17h973fb66fc17a560bE.llvm.14582701375544310392.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i": ; preds = %.thread, %34
-  %lpad.phi9 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %34 ]
+  %lpad.phi14 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %34 ]
   %36 = mul nsw i64 %8, 56
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %36, i64 noundef 8) #34, !noalias !24401
   br label %"_ZN4core3ptr116drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..ScanRequest$GT$$u5d$$GT$$GT$17h973fb66fc17a560bE.llvm.14582701375544310392.exit"
@@ -69237,8 +69237,8 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$concurrent_queue..bounded..B
   ret void
 
 "_ZN4core3ptr116drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..ScanRequest$GT$$u5d$$GT$$GT$17h973fb66fc17a560bE.llvm.14582701375544310392.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i", %34
-  %lpad.phi10 = phi { ptr, i32 } [ %lpad.phi9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i" ], [ %lpad.loopexit.split-lp, %34 ]
-  resume { ptr, i32 } %lpad.phi10
+  %lpad.phi15 = phi { ptr, i32 } [ %lpad.phi14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i" ], [ %lpad.loopexit.split-lp, %34 ]
+  resume { ptr, i32 } %lpad.phi15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -74741,7 +74741,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$concurrent_queue..bounded..B
   br i1 %35, label %"_ZN4core3ptr126drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..UpdateIgnoreStatusJob$GT$$u5d$$GT$$GT$17h1aef918b159884e3E.llvm.14582701375544310392.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i": ; preds = %.thread, %34
-  %lpad.phi9 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %34 ]
+  %lpad.phi14 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %34 ]
   %36 = mul nsw i64 %8, 48
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef %36, i64 noundef 8) #34, !noalias !26475
   br label %"_ZN4core3ptr126drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..UpdateIgnoreStatusJob$GT$$u5d$$GT$$GT$17h1aef918b159884e3E.llvm.14582701375544310392.exit"
@@ -74759,8 +74759,8 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$concurrent_queue..bounded..B
   ret void
 
 "_ZN4core3ptr126drop_in_place$LT$alloc..boxed..Box$LT$$u5b$concurrent_queue..bounded..Slot$LT$worktree..UpdateIgnoreStatusJob$GT$$u5d$$GT$$GT$17h1aef918b159884e3E.llvm.14582701375544310392.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i", %34
-  %lpad.phi10 = phi { ptr, i32 } [ %lpad.phi9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i" ], [ %lpad.loopexit.split-lp, %34 ]
-  resume { ptr, i32 } %lpad.phi10
+  %lpad.phi15 = phi { ptr, i32 } [ %lpad.phi14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i" ], [ %lpad.loopexit.split-lp, %34 ]
+  resume { ptr, i32 } %lpad.phi15
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -2442,8 +2442,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %40, %44
 
 63:                                               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.not14.i = icmp eq ptr %55, %56
-  br i1 %.not14.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS9_NS_10TextRowColEESt4lessIvESaISA_IKS9_SC_EEESaISI_EEZL19C_A_T_C_H_T_E_S_T_2vE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISO_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISO_EE5beginEEEE4typeESaISW_EEOSO_OSS_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
+  %.not21.i = icmp eq ptr %55, %56
+  br i1 %.not21.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS9_NS_10TextRowColEESt4lessIvESaISA_IKS9_SC_EEESaISI_EEZL19C_A_T_C_H_T_E_S_T_2vE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISO_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISO_EE5beginEEEE4typeESaISW_EEOSO_OSS_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %63
   %65 = shl nuw nsw i64 %60, 3
@@ -3175,8 +3175,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %40, %44
 
 63:                                               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.not14.i = icmp eq ptr %55, %56
-  br i1 %.not14.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS9_NS_10TextRowColEESt4lessIvESaISA_IKS9_SC_EEESaISI_EEZL19C_A_T_C_H_T_E_S_T_4vE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISO_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISO_EE5beginEEEE4typeESaISW_EEOSO_OSS_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
+  %.not21.i = icmp eq ptr %55, %56
+  br i1 %.not21.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS9_NS_10TextRowColEESt4lessIvESaISA_IKS9_SC_EEESaISI_EEZL19C_A_T_C_H_T_E_S_T_4vE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISO_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISO_EE5beginEEEE4typeESaISW_EEOSO_OSS_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %63
   %65 = shl nuw nsw i64 %60, 3
@@ -3919,8 +3919,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %51, %55
 
 74:                                               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.not14.i = icmp eq ptr %66, %67
-  br i1 %.not14.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS9_NS_10TextRowColEESt4lessIvESaISA_IKS9_SC_EEESaISI_EEZL19C_A_T_C_H_T_E_S_T_6vE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISO_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISO_EE5beginEEEE4typeESaISW_EEOSO_OSS_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
+  %.not21.i = icmp eq ptr %66, %67
+  br i1 %.not21.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS9_NS_10TextRowColEESt4lessIvESaISA_IKS9_SC_EEESaISI_EEZL19C_A_T_C_H_T_E_S_T_6vE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISO_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISO_EE5beginEEEE4typeESaISW_EEOSO_OSS_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %74
   %76 = shl nuw nsw i64 %71, 3
@@ -4943,8 +4943,8 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %41, %45
 
 64:                                               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.not14.i = icmp eq ptr %56, %57
-  br i1 %.not14.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS9_NS_10TextRowColEESt4lessIvESaISA_IKS9_SC_EEESaISI_EEZL19C_A_T_C_H_T_E_S_T_8vE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISO_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISO_EE5beginEEEE4typeESaISW_EEOSO_OSS_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
+  %.not21.i = icmp eq ptr %56, %57
+  br i1 %.not21.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS9_NS_10TextRowColEESt4lessIvESaISA_IKS9_SC_EEESaISI_EEZL19C_A_T_C_H_T_E_S_T_8vE3$_0TnNSt9enable_ifIXoosr3stdE21is_lvalue_reference_vIT_Esr3stdE10is_const_vISO_EEiE4typeELi0EEES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalISO_EE5beginEEEE4typeESaISW_EEOSO_OSS_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %64
   %66 = shl nuw nsw i64 %61, 3

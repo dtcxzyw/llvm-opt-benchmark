@@ -27,7 +27,7 @@ define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___lambda__1(ptr noundef
   br label %lean_nat_add.exit
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %6) #3
+  %13 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_nat_add.exit
 
 .critedge.i:                                      ; preds = %1
@@ -71,7 +71,7 @@ define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___lambda__1___boxed(ptr
   br label %lean_dec.exit
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %6) #3
+  %13 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit
 
 14:                                               ; preds = %1
@@ -772,7 +772,7 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
   br label %lean_dec.exit
 
 24:                                               ; preds = %16
-  %25 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %18) #3
+  %25 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit
 
 26:                                               ; preds = %lean_inc.exit
@@ -1156,18 +1156,18 @@ _init_l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___closed__1.exit: ; preds = %
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___closed__1.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %36, %_init_l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___closed__1.exit ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !10
+  %.sink23 = phi ptr [ %4, %3 ], [ %36, %_init_l_Std_Tactic_BVDecide_LRAT_Internal_CNF_lift___closed__1.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !10
   store i32 131096, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %40, align 8, !tbaa !6
-  %41 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %41, align 8, !tbaa !6
   br label %42
 
 42:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 

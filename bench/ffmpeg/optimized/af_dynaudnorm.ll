@@ -1089,9 +1089,9 @@ cqueue_create.exit:                               ; preds = %1, %55, %57, %62
   store double 1.000000e+00, ptr %85, align 8, !tbaa !49
   %86 = load i32, ptr %52, align 8, !tbaa !20
   %87 = icmp sgt i32 %86, 301
-  br i1 %87, label %cqueue_create.exit108.thread127, label %91
+  br i1 %87, label %cqueue_create.exit108.thread135, label %91
 
-cqueue_create.exit108.thread127:                  ; preds = %.lr.ph
+cqueue_create.exit108.thread135:                  ; preds = %.lr.ph
   %88 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
   store ptr null, ptr %88, align 8, !tbaa !40
   %89 = load ptr, ptr %41, align 8, !tbaa !41
@@ -1165,7 +1165,7 @@ cqueue_create.exit108:                            ; preds = %104, %106, %111
   %114 = icmp sgt i32 %.pr118.pr, 301
   br i1 %114, label %cqueue_create.exit112.thread, label %117
 
-cqueue_create.exit112.thread:                     ; preds = %cqueue_create.exit108.thread127, %cqueue_create.exit108
+cqueue_create.exit112.thread:                     ; preds = %cqueue_create.exit108.thread135, %cqueue_create.exit108
   %115 = load ptr, ptr %45, align 8, !tbaa !42
   %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv
   store ptr null, ptr %116, align 8, !tbaa !40
@@ -2697,9 +2697,9 @@ find_peak_magnitude.exit:                         ; preds = %.lr.ph.i, %._crit_e
   br i1 %exitcond.not.i26, label %compute_frame_rms.exit, label %.lr.ph.i23, !llvm.loop !135
 
 compute_frame_rms.exit:                           ; preds = %.lr.ph.i23, %._crit_edge44.i, %57
-  %.sink62.i = phi i32 [ %56, %._crit_edge44.i ], [ %64, %57 ], [ %64, %.lr.ph.i23 ]
+  %.sink65.i = phi i32 [ %56, %._crit_edge44.i ], [ %64, %57 ], [ %64, %.lr.ph.i23 ]
   %.3.lcssa.sink.i = phi double [ %.025.lcssa.i, %._crit_edge44.i ], [ 0.000000e+00, %57 ], [ %69, %.lr.ph.i23 ]
-  %70 = sitofp i32 %.sink62.i to double
+  %70 = sitofp i32 %.sink65.i to double
   %71 = fdiv nsz double %.3.lcssa.sink.i, %70
   %72 = tail call nsz double @llvm.sqrt.f64(double %71)
   %73 = tail call nsz double @llvm.maxnum.f64(double %72, double 0x3CB0000000000000)

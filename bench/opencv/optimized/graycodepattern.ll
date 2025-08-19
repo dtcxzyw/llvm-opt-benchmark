@@ -650,8 +650,8 @@ define noundef zeroext i1 @_ZNK2cv16structured_light20GrayCodePattern_Impl6decod
   %29 = ptrtoint ptr %19 to i64
   %30 = sub i64 %28, %29
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.not236 = icmp eq ptr %27, %19
-  br i1 %.not236, label %_ZNSt6vectorIS_IS_IN2cv6Point_IiEESaIS2_EESaIS4_EESaIS6_EE6resizeEm.exit, label %32
+  %.not304 = icmp eq ptr %27, %19
+  br i1 %.not304, label %_ZNSt6vectorIS_IS_IN2cv6Point_IiEESaIS2_EESaIS4_EESaIS6_EE6resizeEm.exit, label %32
 
 32:                                               ; preds = %18
   %33 = sdiv exact i64 %30, 24
@@ -1631,8 +1631,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %27, %29, %31, %_ZSt
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
   %98 = sdiv exact i64 %97, 96
-  %sext80 = shl i64 %98, 32
-  %99 = ashr exact i64 %sext80, 32
+  %sext85 = shl i64 %98, 32
+  %99 = ashr exact i64 %sext85, 32
   %100 = icmp slt i64 %indvars.iv.next77, %99
   br i1 %100, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !101
 
@@ -1660,8 +1660,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %27, %29, %31, %_ZSt
   %108 = ptrtoint ptr %106 to i64
   %109 = sub i64 %107, %108
   %110 = sdiv exact i64 %109, 96
-  %sext79 = shl i64 %110, 32
-  %111 = ashr exact i64 %sext79, 32
+  %sext84 = shl i64 %110, 32
+  %111 = ashr exact i64 %sext84, 32
   %112 = icmp slt i64 %indvars.iv.next66, %111
   br i1 %112, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !101
 
@@ -2042,8 +2042,8 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit:           ; preds = %86, %_ZNSt6vectorIh
   %127 = load i64, ptr %8, align 8, !tbaa !12
   %128 = add i64 %127, %.039221
   %129 = load ptr, ptr %7, align 8, !tbaa !30
-  %.idx258 = mul i64 %128, 192
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx258
+  %.idx267 = mul i64 %128, 192
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx267
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !37
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 72
@@ -2854,7 +2854,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIN2cv6Point_IiEESaIS3_EEmS5_ET_S7_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIN2cv6Point_IiEESaIS3_EEmS5_ET_S7_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !68

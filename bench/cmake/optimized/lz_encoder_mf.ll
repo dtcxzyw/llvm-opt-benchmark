@@ -1169,7 +1169,7 @@ define dso_local void @lzma_mf_bt2_skip(ptr noundef captures(none) %0, i32 nound
   br i1 %63, label %64, label %81
 
 64:                                               ; preds = %.lr.ph103.i
-  %65 = add i32 %57, 1
+  %65 = add nuw i32 %57, 1
   %66 = icmp ult i32 %65, %.025
   br i1 %66, label %.lr.ph.i, label %lzma_memcmplen.exit.thread.i
 
@@ -1445,7 +1445,7 @@ lzma_memcmplen.exit:                              ; preds = %.lr.ph
   br i1 %110, label %111, label %128
 
 111:                                              ; preds = %.lr.ph103.i
-  %112 = add i32 %104, 1
+  %112 = add nuw i32 %104, 1
   %113 = icmp ult i32 %112, %.067
   br i1 %113, label %.lr.ph.i, label %lzma_memcmplen.exit.thread.i
 
@@ -1834,7 +1834,7 @@ define dso_local void @lzma_mf_bt3_skip(ptr noundef captures(none) %0, i32 nound
   br i1 %83, label %84, label %101
 
 84:                                               ; preds = %.lr.ph103.i
-  %85 = add i32 %77, 1
+  %85 = add nuw i32 %77, 1
   %86 = icmp ult i32 %85, %.033
   br i1 %86, label %.lr.ph.i, label %lzma_memcmplen.exit.thread.i
 
@@ -2169,7 +2169,7 @@ lzma_memcmplen.exit:                              ; preds = %.lr.ph
   br i1 %144, label %145, label %162
 
 145:                                              ; preds = %.lr.ph103.i
-  %146 = add i32 %138, 1
+  %146 = add nuw i32 %138, 1
   %147 = icmp ult i32 %146, %.093
   br i1 %147, label %.lr.ph.i, label %lzma_memcmplen.exit.thread.i
 
@@ -2575,7 +2575,7 @@ define dso_local void @lzma_mf_bt4_skip(ptr noundef captures(none) %0, i32 nound
   br i1 %94, label %95, label %112
 
 95:                                               ; preds = %.lr.ph103.i
-  %96 = add i32 %88, 1
+  %96 = add nuw i32 %88, 1
   %97 = icmp ult i32 %96, %.039
   br i1 %97, label %.lr.ph.i, label %lzma_memcmplen.exit.thread.i
 

@@ -355,8 +355,8 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr noundef readonly captures(
   %179 = ptrtoint ptr %177 to i64
   %180 = sub i64 %44, %179
   %181 = icmp ult i64 %180, 4
-  %or.cond298 = or i1 %178, %181
-  br i1 %or.cond298, label %182, label %186
+  %or.cond311 = or i1 %178, %181
+  br i1 %or.cond311, label %182, label %186
 
 182:                                              ; preds = %167
   %183 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10

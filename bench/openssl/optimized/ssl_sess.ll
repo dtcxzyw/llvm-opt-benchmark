@@ -381,10 +381,10 @@ define internal fastcc ptr @ssl_session_dup_intern(ptr noundef %0, i32 noundef %
   br i1 %93, label %94, label %95
 
 .sink.split:                                      ; preds = %52, %30, %23, %5
-  %.sink96 = phi i32 [ 181, %5 ], [ 187, %23 ], [ 196, %30 ], [ 222, %52 ]
+  %.sink107 = phi i32 [ 181, %5 ], [ 187, %23 ], [ 196, %30 ], [ 222, %52 ]
   %.sink = phi i32 [ 524303, %5 ], [ 524299, %23 ], [ 524299, %30 ], [ 524303, %52 ]
   tail call void @ERR_new() #11
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink96, ptr noundef nonnull @__func__.ssl_session_dup_intern) #11
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink107, ptr noundef nonnull @__func__.ssl_session_dup_intern) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #11
   br label %94
 

@@ -154,10 +154,10 @@ define internal fastcc void @_ZN4absl12_GLOBAL__N_124Uint128ToFormattedStringB5c
 _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i: ; preds = %20
   %.not.i.not.i = icmp eq i64 %2, 0
   %spec.select.i = select i1 %.not.i.not.i, i64 %1, i64 %2
-  %spec.select115.i = select i1 %.not.i.not.i, i32 63, i32 127
+  %spec.select116.i = select i1 %.not.i.not.i, i32 63, i32 127
   %22 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i, i1 true)
   %23 = trunc nuw nsw i64 %22 to i32
-  %24 = xor i32 %spec.select115.i, %23
+  %24 = xor i32 %spec.select116.i, %23
   %25 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0134.0, i1 true)
   %26 = trunc nuw nsw i64 %25 to i32
   %27 = xor i32 %26, 63
@@ -234,10 +234,10 @@ _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit: ; preds = %.lr.p
 _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49: ; preds = %40
   %.not.i.not.i50 = icmp eq i64 %.sroa.13.0, 0
   %spec.select.i51 = select i1 %.not.i.not.i50, i64 %.sroa.0127.0, i64 %.sroa.13.0
-  %spec.select115.i52 = select i1 %.not.i.not.i50, i32 63, i32 127
+  %spec.select116.i52 = select i1 %.not.i.not.i50, i32 63, i32 127
   %42 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i51, i1 true)
   %43 = trunc nuw nsw i64 %42 to i32
-  %44 = xor i32 %spec.select115.i52, %43
+  %44 = xor i32 %spec.select116.i52, %43
   %45 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0134.0, i1 true)
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = xor i32 %46, 63
@@ -645,8 +645,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc27._ZNKSt
   %or.cond = icmp ne i32 %48, 520
   %49 = or i64 %2, %1
   %50 = icmp eq i64 %49, 0
-  %or.cond68 = select i1 %or.cond, i1 true, i1 %50
-  br i1 %or.cond68, label %75, label %51
+  %or.cond77 = select i1 %or.cond, i1 true, i1 %50
+  br i1 %or.cond77, label %75, label %51
 
 51:                                               ; preds = %47
   %52 = load i64, ptr %12, align 8

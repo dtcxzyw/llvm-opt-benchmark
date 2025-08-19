@@ -3253,8 +3253,8 @@ data_get_string.exit:                             ; preds = %7, %9
 
 47:                                               ; preds = %data_get_string.exit
   %.not4861 = icmp eq i8 %11, 0
-  %or.cond64 = or i1 %1, %.not4861
-  br i1 %or.cond64, label %.critedge, label %.lr.ph.preheader
+  %or.cond65 = or i1 %1, %.not4861
+  br i1 %or.cond65, label %.critedge, label %.lr.ph.preheader
 
 .thread:                                          ; preds = %17
   br i1 %1, label %.critedge, label %.lr.ph.preheader

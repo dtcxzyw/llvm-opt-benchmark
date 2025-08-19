@@ -187,7 +187,7 @@ atomic_store_p.exit:                              ; preds = %65
 75:                                               ; preds = %74, %72
   %76 = load i8, ptr %6, align 1, !tbaa !8, !range !10, !noundef !11
   %77 = trunc nuw i8 %76 to i1
-  br i1 %77, label %.thread106, label %78
+  br i1 %77, label %.thread112, label %78
 
 78:                                               ; preds = %75
   %79 = tail call zeroext i1 @duckdb_je_pages_decommit(ptr noundef nonnull %51, i64 noundef %3) #6
@@ -196,14 +196,14 @@ atomic_store_p.exit:                              ; preds = %65
   %81 = load i8, ptr %5, align 1, !tbaa !8, !range !10, !noundef !11
   %82 = trunc nuw i8 %81 to i1
   %83 = select i1 %82, i1 %79, i1 false
-  br i1 %83, label %.thread107, label %.thread
+  br i1 %83, label %.thread113, label %.thread
 
-.thread106:                                       ; preds = %75
+.thread112:                                       ; preds = %75
   %84 = load i8, ptr %5, align 1, !tbaa !8, !range !10, !noundef !11
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %.thread107, label %.thread
+  br i1 %85, label %.thread113, label %.thread
 
-.thread107:                                       ; preds = %78, %.thread106
+.thread113:                                       ; preds = %78, %.thread112
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %86, i8 0, i64 104, i1 false)
@@ -227,11 +227,11 @@ atomic_store_p.exit:                              ; preds = %65
   %96 = call zeroext i1 @duckdb_je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %87, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
   br i1 %96, label %97, label %98
 
-97:                                               ; preds = %.thread107
+97:                                               ; preds = %.thread113
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %51, i8 0, i64 %3, i1 false)
   br label %98
 
-98:                                               ; preds = %97, %.thread107
+98:                                               ; preds = %97, %.thread113
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
@@ -248,8 +248,8 @@ atomic_store_b.exit:                              ; preds = %99
   tail call void @duckdb_je_edata_cache_put(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %.thread
 
-.thread:                                          ; preds = %78, %.thread106, %98, %11, %7, %.thread93
-  %.0 = phi ptr [ null, %.thread93 ], [ null, %7 ], [ null, %11 ], [ %51, %98 ], [ %51, %78 ], [ %51, %.thread106 ]
+.thread:                                          ; preds = %78, %.thread112, %98, %11, %7, %.thread93
+  %.0 = phi ptr [ null, %.thread93 ], [ null, %7 ], [ null, %11 ], [ %51, %98 ], [ %51, %78 ], [ %51, %.thread112 ]
   ret ptr %.0
 }
 

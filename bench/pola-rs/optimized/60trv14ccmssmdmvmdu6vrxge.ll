@@ -30824,9 +30824,9 @@ define void @_ZN12polars_arrow5array7struct_11StructArray7try_new17hdb4f43edba40
   br label %69
 
 69:                                               ; preds = %124, %112, %93, %68, %41
-  %.sink130 = phi i64 [ 8, %124 ], [ 8, %112 ], [ 8, %93 ], [ 8, %68 ], [ 24, %41 ]
+  %.sink132 = phi i64 [ 8, %124 ], [ 8, %112 ], [ 8, %93 ], [ 8, %68 ], [ 24, %41 ]
   %.sink = phi i64 [ 2, %124 ], [ 2, %112 ], [ 2, %93 ], [ 2, %68 ], [ %.sroa.618.0.copyload, %41 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink130
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink132
   store i64 %.sink, ptr %70, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   %71 = load ptr, ptr %4, align 8, !alias.scope !3076, !noundef !6
@@ -32703,8 +32703,8 @@ define hidden void @_ZN12polars_arrow5array7binview4view24validate_views_utf8_on
   br i1 %.not.i, label %.preheader.i, label %.preheader14.i
 
 .preheader14.i:                                   ; preds = %15
-  %.not37.i = icmp eq i64 %.sroa.01.0.i, -32
-  br i1 %.not37.i, label %_ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread, label %.lr.ph.i
+  %.not38.i = icmp eq i64 %.sroa.01.0.i, -32
+  br i1 %.not38.i, label %_ZN4core5slice5ascii8is_ascii17hea282b4795ae863cE.exit.thread, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %15
   %17 = icmp ult i64 %.sroa.01.0.i, %14
@@ -33098,7 +33098,7 @@ define { ptr, i64 } @_ZN12polars_arrow7compute7decimal16DecimalFmtBuffer6format1
   store i64 1, ptr %13, align 8
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h31e7c24e79507217E.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h31e7c24e79507217E.exit": ; preds = %16, %20
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h31e7c24e79507217E.exit": ; preds = %20, %16
   %25 = phi i64 [ 1, %20 ], [ 0, %16 ]
   %.sroa.02.0 = phi i128 [ %24, %20 ], [ %19, %16 ]
   %.sroa.01.0 = phi i128 [ %22, %20 ], [ %17, %16 ]
@@ -33128,7 +33128,7 @@ define { ptr, i64 } @_ZN12polars_arrow7compute7decimal16DecimalFmtBuffer6format1
   br i1 %38, label %39, label %55
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he55d9a39c9b64149E.exit": ; preds = %34, %thread-pre-split, %78, %.lr.ph._crit_edge
-  %.pn27 = phi i64 [ %68, %thread-pre-split ], [ %.pr35.lcssa, %.lr.ph._crit_edge ], [ %.lcssa43, %78 ], [ %32, %34 ]
+  %.pn27 = phi i64 [ %68, %thread-pre-split ], [ %.pr35.lcssa, %.lr.ph._crit_edge ], [ %.lcssa61, %78 ], [ %32, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pn26 = insertvalue { ptr, i64 } poison, ptr %0, 0
   %.pn = insertvalue { ptr, i64 } %.pn26, i64 %.pn27, 1
@@ -33188,14 +33188,14 @@ define { ptr, i64 } @_ZN12polars_arrow7compute7decimal16DecimalFmtBuffer6format1
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %62
   %65 = load i8, ptr %64, align 1, !noundef !6
   %66 = icmp eq i8 %65, 48
-  br i1 %66, label %.lr.ph46, label %.lr.ph._crit_edge
+  br i1 %66, label %.lr.ph64, label %.lr.ph._crit_edge
 
 67:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he1e37172449879e2E.exit23"
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef 1, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d8cd6bf0d26bfc73aadc79cbce0536e7.235) #33
   unreachable
 
-thread-pre-split:                                 ; preds = %.lr.ph46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h31e7c24e79507217E.exit25"
-  %68 = phi i64 [ %61, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h31e7c24e79507217E.exit25" ], [ %74, %.lr.ph46 ]
+thread-pre-split:                                 ; preds = %.lr.ph64, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h31e7c24e79507217E.exit25"
+  %68 = phi i64 [ %61, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h31e7c24e79507217E.exit25" ], [ %74, %.lr.ph64 ]
   %69 = icmp ugt i64 %68, 48
   br i1 %69, label %70, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he55d9a39c9b64149E.exit", !prof !3428
 
@@ -33203,13 +33203,13 @@ thread-pre-split:                                 ; preds = %.lr.ph46, %"_ZN4cor
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h3977c10d2b967b2dE(i64 noundef %68, i64 noundef 48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d8cd6bf0d26bfc73aadc79cbce0536e7.234) #33, !noalias !3429
   unreachable
 
-.lr.ph:                                           ; preds = %.lr.ph46
+.lr.ph:                                           ; preds = %.lr.ph64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 %75
   %72 = load i8, ptr %71, align 1, !noundef !6
   %73 = icmp eq i8 %72, 48
-  br i1 %73, label %.lr.ph46, label %.lr.ph._crit_edge
+  br i1 %73, label %.lr.ph64, label %.lr.ph._crit_edge
 
-.lr.ph46:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph64:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %74 = phi i64 [ %75, %.lr.ph ], [ %62, %.lr.ph.preheader ]
   store i64 %74, ptr %13, align 8
   %75 = add nsw i64 %74, -1
@@ -33218,13 +33218,13 @@ thread-pre-split:                                 ; preds = %.lr.ph46, %"_ZN4cor
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.pr35.lcssa = phi i64 [ %61, %.lr.ph.preheader ], [ %74, %.lr.ph ]
-  %.lcssa43 = phi i64 [ %62, %.lr.ph.preheader ], [ %75, %.lr.ph ]
+  %.lcssa61 = phi i64 [ %62, %.lr.ph.preheader ], [ %75, %.lr.ph ]
   %.lcssa = phi i8 [ %65, %.lr.ph.preheader ], [ %72, %.lr.ph ]
   %77 = icmp eq i8 %.lcssa, 46
   br i1 %77, label %78, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he55d9a39c9b64149E.exit"
 
 78:                                               ; preds = %.lr.ph._crit_edge
-  store i64 %.lcssa43, ptr %13, align 8
+  store i64 %.lcssa61, ptr %13, align 8
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he55d9a39c9b64149E.exit"
 }
 
@@ -34727,7 +34727,7 @@ define internal fastcc void @_ZN12polars_arrow2io4avro4read11deserialize16deseri
   br i1 %116, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %109, %114
-  %.sroa.0404.0.i57207 = phi i64 [ %115, %114 ], [ %105, %109 ]
+  %.sroa.0404.0.i57248 = phi i64 [ %115, %114 ], [ %105, %109 ]
   %117 = load ptr, ptr %84, align 8, !noalias !3510, !nonnull !6, !noundef !6
   %118 = load ptr, ptr %85, align 8, !noalias !3510, !nonnull !6, !align !7, !noundef !6
   %.pre = load ptr, ptr %33, align 8, !noalias !3507
@@ -34785,7 +34785,7 @@ _ZN12polars_arrow5array7boolean7mutable19MutableBooleanArray4push17ha5d7f0c3f1fd
   store ptr %129, ptr %33, align 8, !noalias !3507
   store i64 %130, ptr %40, align 8, !noalias !3507
   %133 = add nuw i64 %127, 1
-  %exitcond204.not = icmp eq i64 %127, %.sroa.0404.0.i57207
+  %exitcond204.not = icmp eq i64 %127, %.sroa.0404.0.i57248
   br i1 %exitcond204.not, label %.loopexit, label %.lr.ph
 
 134:                                              ; preds = %57
@@ -44840,7 +44840,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !167, !noundef !6
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -44882,7 +44882,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2

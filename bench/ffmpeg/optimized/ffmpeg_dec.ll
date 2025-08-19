@@ -182,8 +182,8 @@ define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr nound
 
 18:                                               ; preds = %16, %15
   store i32 1, ptr %4, align 4, !tbaa !24
-  %.4..4..4.gep.sroa_idx105 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %.4..4..4.gep.sroa_idx105, align 4, !tbaa !28
+  %.4..4..4.gep.sroa_idx113 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %.4..4..4.gep.sroa_idx113, align 4, !tbaa !28
   br label %19
 
 19:                                               ; preds = %16, %18
@@ -1362,10 +1362,10 @@ dec_thread_set_name.exit:                         ; preds = %40, %43
 
 .thread:                                          ; preds = %94
   %102 = load ptr, ptr %41, align 8, !tbaa !73
-  %.not79203 = icmp eq ptr %102, null
-  br i1 %.not79203, label %..thread110_crit_edge, label %.thread208
+  %.not79263 = icmp eq ptr %102, null
+  br i1 %.not79263, label %..thread110_crit_edge, label %.thread268
 
-.thread208:                                       ; preds = %.thread
+.thread268:                                       ; preds = %.thread
   %103 = load ptr, ptr %28, align 8
   br label %.thread114
 
@@ -1462,13 +1462,13 @@ dec_standalone_open.exit:                         ; preds = %118, %122
 139:                                              ; preds = %dec_standalone_open.exit
   %.pre198.pre = load ptr, ptr %41, align 8, !tbaa !73
   %140 = load ptr, ptr %28, align 8
-  %spec.select244 = select i1 %110, ptr %140, ptr null
+  %spec.select304 = select i1 %110, ptr %140, ptr null
   br label %.thread114
 
-.thread114:                                       ; preds = %139, %99, %.thread208, %.thread102
-  %141 = phi ptr [ %104, %.thread102 ], [ %102, %.thread208 ], [ %101, %99 ], [ %.pre198.pre, %139 ]
-  %.not8298106117 = phi i1 [ true, %.thread102 ], [ true, %.thread208 ], [ %.not82101, %99 ], [ true, %139 ]
-  %142 = phi ptr [ %89, %.thread102 ], [ %103, %.thread208 ], [ null, %99 ], [ %spec.select244, %139 ]
+.thread114:                                       ; preds = %139, %99, %.thread268, %.thread102
+  %141 = phi ptr [ %104, %.thread102 ], [ %102, %.thread268 ], [ %101, %99 ], [ %.pre198.pre, %139 ]
+  %.not8298106117 = phi i1 [ true, %.thread102 ], [ true, %.thread268 ], [ %.not82101, %99 ], [ true, %139 ]
+  %142 = phi ptr [ %89, %.thread102 ], [ %103, %.thread268 ], [ null, %99 ], [ %spec.select304, %139 ]
   %143 = load ptr, ptr %21, align 8, !tbaa !179
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -2122,10 +2122,10 @@ audio_samplerate_update.exit.i.i:                 ; preds = %._crit_edge.i.i.i, 
   br i1 %454, label %.sink.split.i.i, label %audio_ts_process.exit.i
 
 .sink.split.i.i:                                  ; preds = %451, %449
-  %.sink47.i.i = phi ptr [ %143, %449 ], [ %0, %451 ]
+  %.sink53.i.i = phi ptr [ %143, %449 ], [ %0, %451 ]
   %.sink.i.i = phi i64 [ %.sroa.045.0.copyload.i.i.i, %449 ], [ -9223372036854775808, %451 ]
   %.ph.i.i = phi i64 [ %450, %449 ], [ %447, %451 ]
-  %455 = getelementptr inbounds nuw i8, ptr %.sink47.i.i, i64 152
+  %455 = getelementptr inbounds nuw i8, ptr %.sink53.i.i, i64 152
   store i64 %.sink.i.i, ptr %455, align 8
   br label %audio_ts_process.exit.i
 
@@ -2236,9 +2236,9 @@ hwaccel_retrieve_data.exit.i.i:                   ; preds = %488
   %494 = load i32, ptr %57, align 8, !tbaa !50
   %495 = and i32 %494, 4
   %.not60.i.i = icmp eq i32 %495, 0
-  br i1 %.not60.i.i, label %497, label %.thread84.i.i
+  br i1 %.not60.i.i, label %497, label %.thread99.i.i
 
-.thread84.i.i:                                    ; preds = %492
+.thread99.i.i:                                    ; preds = %492
   store i64 -9223372036854775808, ptr %350, align 8, !tbaa !201
   store i64 1, ptr %357, align 8, !tbaa !251
   %496 = load i64, ptr %61, align 8
@@ -2248,22 +2248,22 @@ hwaccel_retrieve_data.exit.i.i:                   ; preds = %488
 
 497:                                              ; preds = %492
   %498 = icmp eq i64 %493, -9223372036854775808
-  br i1 %498, label %499, label %..sink.split89.i_crit_edge.i
+  br i1 %498, label %499, label %..sink.split104.i_crit_edge.i
 
-..sink.split89.i_crit_edge.i:                     ; preds = %497
+..sink.split104.i_crit_edge.i:                    ; preds = %497
   %.pre170.pre.i = load i64, ptr %62, align 8, !tbaa !47
-  br label %.sink.split89.i.i
+  br label %.sink.split104.i.i
 
-499:                                              ; preds = %497, %.thread84.i.i
+499:                                              ; preds = %497, %.thread99.i.i
   %500 = load i64, ptr %62, align 8, !tbaa !47
   %501 = icmp eq i64 %500, -9223372036854775808
-  br i1 %501, label %thread-pre-split.thread87.i.i, label %thread-pre-split.i.i
+  br i1 %501, label %thread-pre-split.thread102.i.i, label %thread-pre-split.i.i
 
-thread-pre-split.thread87.i.i:                    ; preds = %499
+thread-pre-split.thread102.i.i:                   ; preds = %499
   store i64 0, ptr %350, align 8, !tbaa !201
   %.pre.i = load i32, ptr %57, align 8, !tbaa !50
   %.pre172.i = and i32 %.pre.i, 4
-  br label %.sink.split89.i.i
+  br label %.sink.split104.i.i
 
 thread-pre-split.i.i:                             ; preds = %499
   %502 = load i64, ptr %63, align 8, !tbaa !250
@@ -2275,19 +2275,19 @@ thread-pre-split.i.i:                             ; preds = %499
   %.not.i68.i.i = icmp eq i64 %503, -9223372036854775808
   br i1 %.not.i68.i.i, label %515, label %509
 
-.sink.split89.i.i:                                ; preds = %thread-pre-split.thread87.i.i, %..sink.split89.i_crit_edge.i
-  %.pre-phi.i = phi i32 [ 0, %..sink.split89.i_crit_edge.i ], [ %.pre172.i, %thread-pre-split.thread87.i.i ]
-  %.pre170.i = phi i64 [ %.pre170.pre.i, %..sink.split89.i_crit_edge.i ], [ -9223372036854775808, %thread-pre-split.thread87.i.i ]
-  %507 = phi i32 [ %494, %..sink.split89.i_crit_edge.i ], [ %.pre.i, %thread-pre-split.thread87.i.i ]
-  %.ph91.i.i = phi i64 [ %493, %..sink.split89.i_crit_edge.i ], [ 0, %thread-pre-split.thread87.i.i ]
+.sink.split104.i.i:                               ; preds = %thread-pre-split.thread102.i.i, %..sink.split104.i_crit_edge.i
+  %.pre-phi.i = phi i32 [ 0, %..sink.split104.i_crit_edge.i ], [ %.pre172.i, %thread-pre-split.thread102.i.i ]
+  %.pre170.i = phi i64 [ %.pre170.pre.i, %..sink.split104.i_crit_edge.i ], [ -9223372036854775808, %thread-pre-split.thread102.i.i ]
+  %507 = phi i32 [ %494, %..sink.split104.i_crit_edge.i ], [ %.pre.i, %thread-pre-split.thread102.i.i ]
+  %.ph106.i.i = phi i64 [ %493, %..sink.split104.i_crit_edge.i ], [ 0, %thread-pre-split.thread102.i.i ]
   %508 = and i32 %507, 2
   br label %509
 
-509:                                              ; preds = %.sink.split89.i.i, %thread-pre-split.i.i
-  %510 = phi i64 [ %500, %thread-pre-split.i.i ], [ %.pre170.i, %.sink.split89.i.i ]
-  %511 = phi i32 [ %506, %thread-pre-split.i.i ], [ %.pre-phi.i, %.sink.split89.i.i ]
-  %512 = phi i32 [ %505, %thread-pre-split.i.i ], [ %508, %.sink.split89.i.i ]
-  %513 = phi i64 [ %503, %thread-pre-split.i.i ], [ %.ph91.i.i, %.sink.split89.i.i ]
+509:                                              ; preds = %.sink.split104.i.i, %thread-pre-split.i.i
+  %510 = phi i64 [ %500, %thread-pre-split.i.i ], [ %.pre170.i, %.sink.split104.i.i ]
+  %511 = phi i32 [ %506, %thread-pre-split.i.i ], [ %.pre-phi.i, %.sink.split104.i.i ]
+  %512 = phi i32 [ %505, %thread-pre-split.i.i ], [ %508, %.sink.split104.i.i ]
+  %513 = phi i64 [ %503, %thread-pre-split.i.i ], [ %.ph106.i.i, %.sink.split104.i.i ]
   %.not54.i.i.i = icmp eq i64 %510, -9223372036854775808
   %514 = sub nsw i64 %513, %510
   %spec.select.i.i128.i = select i1 %.not54.i.i.i, i64 -1, i64 %514
@@ -2659,8 +2659,8 @@ packet_decode.exit:                               ; preds = %select.unfold.i, %3
   %.not83 = icmp eq i64 %673, 0
   %.pre200 = load i64, ptr %58, align 8, !tbaa !233
   %.not84 = icmp eq i64 %.pre200, 0
-  %or.cond245 = select i1 %.not83, i1 %.not84, i1 false
-  br i1 %or.cond245, label %.thread129, label %674
+  %or.cond305 = select i1 %.not83, i1 %.not84, i1 false
+  br i1 %or.cond305, label %.thread129, label %674
 
 674:                                              ; preds = %672
   %675 = add i64 %.pre200, %673
@@ -2928,7 +2928,7 @@ define internal i32 @get_format(ptr noundef %0, ptr noundef readonly captures(no
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %12 = load i32, ptr %11, align 8, !tbaa !29
   switch i32 %12, label %22 [
-    i32 0, label %multiview_setup.exit.thread77
+    i32 0, label %multiview_setup.exit.thread101
     i32 1, label %13
   ]
 
@@ -2943,7 +2943,7 @@ define internal i32 @get_format(ptr noundef %0, ptr noundef readonly captures(no
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !266
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %multiview_setup.exit.thread77, label %22
+  br i1 %21, label %multiview_setup.exit.thread101, label %22
 
 22:                                               ; preds = %18, %13, %2
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 280
@@ -3316,7 +3316,7 @@ select.unfold178.i:                               ; preds = %154, %146, %.thread
   %spec.select = select i1 %.not155.i, i32 -12, i32 %167
   br label %multiview_setup.exit
 
-multiview_setup.exit.thread77:                    ; preds = %2, %18
+multiview_setup.exit.thread101:                   ; preds = %2, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3335,7 +3335,7 @@ multiview_setup.exit:                             ; preds = %99, %.thread166.i, 
   %184 = icmp slt i32 %.2117.i, 0
   br i1 %184, label %189, label %.preheader48
 
-.preheader48:                                     ; preds = %multiview_setup.exit.thread77, %multiview_setup.exit
+.preheader48:                                     ; preds = %multiview_setup.exit.thread101, %multiview_setup.exit
   %185 = load i32, ptr %1, align 4, !tbaa !27
   %.not59 = icmp eq i32 %185, -1
   br i1 %.not59, label %.loopexit, label %.lr.ph62

@@ -1298,12 +1298,12 @@ define hidden i32 @lj_ir_tonum(ptr noundef %0, i32 noundef %1) local_unnamed_add
   unreachable
 
 .sink.split:                                      ; preds = %10, %5
-  %.sink14 = phi i16 [ 23310, %5 ], [ 24206, %10 ]
+  %.sink15 = phi i16 [ 23310, %5 ], [ 24206, %10 ]
   %.sink = phi i16 [ 467, %5 ], [ 0, %10 ]
   %13 = trunc i32 %1 to i16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i16 %.sink14, ptr %15, align 4, !tbaa !33
+  store i16 %.sink15, ptr %15, align 4, !tbaa !33
   store i16 %13, ptr %14, align 8, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %.sink, ptr %16, align 2, !tbaa !33

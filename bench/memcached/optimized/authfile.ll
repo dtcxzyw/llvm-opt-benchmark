@@ -107,14 +107,14 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
   br i1 %exitcond.not, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %42, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %42 ], [ %indvars.iv.next105, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %42 ], [ %indvars.iv.next107, %.thread ]
   %.not66.be = phi i1 [ false, %42 ], [ true, %.thread ]
   br label %.backedge, !llvm.loop !19
 
 .thread:                                          ; preds = %34
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not106 = icmp eq i64 %indvars.iv.next105, 256
-  br i1 %exitcond.not106, label %.thread77, label %.backedge.backedge
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not108 = icmp eq i64 %indvars.iv.next107, 256
+  br i1 %exitcond.not108, label %.thread77, label %.backedge.backedge
 
 .thread77:                                        ; preds = %.thread, %34
   %43 = tail call i32 @fclose(ptr noundef nonnull %4)

@@ -554,7 +554,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   call void @cuddLevelQueueDequeue(ptr noundef nonnull %35, i32 noundef %89) #10
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %343, %336, %360, %353, %.thread310.i, %.thread310.thread.i.thread, %389, %385, %369, %.thread310.thread334.i, %.thread317.i, %.thread333.i, %88
+.backedge.i:                                      ; preds = %343, %336, %360, %353, %.thread310.i, %.thread310.thread.i.thread, %389, %385, %369, %.thread310.thread347.i, %.thread317.i, %.thread346.i, %88
   %90 = load ptr, ptr %35, align 8, !tbaa !41
   %.not294.i = icmp eq ptr %90, null
   br i1 %.not294.i, label %.loopexit, label %66, !llvm.loop !60
@@ -810,10 +810,10 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %. = select i1 %.not300.i, ptr %258, ptr %257
   %.54 = select i1 %.not300.i, ptr %257, ptr %258
-  %.sink340.i = load double, ptr %.54, align 8, !tbaa !62
-  %.sink342.i = load double, ptr %., align 8, !tbaa !62
-  %259 = fmul double %99, %.sink342.i
-  %260 = call double @llvm.fmuladd.f64(double %.sink340.i, double %97, double %259)
+  %.sink353.i = load double, ptr %.54, align 8, !tbaa !62
+  %.sink355.i = load double, ptr %., align 8, !tbaa !62
+  %259 = fmul double %99, %.sink355.i
+  %260 = call double @llvm.fmuladd.f64(double %.sink353.i, double %97, double %259)
   %.pn.i = fmul double %260, 5.000000e-01
   %.4.i = fsub double %248, %.pn.i
   %261 = add nsw i32 %249, -1
@@ -860,13 +860,13 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   store i32 %286, ptr %33, align 8, !tbaa !30
   %287 = fsub double %272, %.1252.i
   store double %287, ptr %65, align 8, !tbaa !54
-  switch i32 %.2260.i, label %.thread310.thread334.i [
-    i32 3, label %.thread333.i
+  switch i32 %.2260.i, label %.thread310.thread347.i [
+    i32 3, label %.thread346.i
     i32 1, label %.thread327.i
     i32 2, label %.thread310.thread.i.thread
   ]
 
-.thread333.i:                                     ; preds = %282
+.thread346.i:                                     ; preds = %282
   call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef nonnull %23, ptr noundef %41)
   br label %.backedge.i
 
@@ -874,7 +874,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %95, ptr noundef nonnull %23, ptr noundef %41)
   br label %.thread310.i
 
-.thread310.thread334.i:                           ; preds = %282
+.thread310.thread347.i:                           ; preds = %282
   call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %.0248.i, ptr noundef nonnull %23, ptr noundef %41)
   %288 = and i32 %.2260.i, -2
   %289 = icmp eq i32 %288, 4
@@ -1002,7 +1002,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   store double %368, ptr %366, align 8, !tbaa !40
   br label %.backedge.i
 
-369:                                              ; preds = %.thread310.thread334.i
+369:                                              ; preds = %.thread310.thread347.i
   %370 = ptrtoint ptr %.0248.i to i64
   %371 = and i64 %370, -2
   %372 = inttoptr i64 %371 to ptr
@@ -1335,7 +1335,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @cuddLevelQueueDequeue(ptr noundef nonnull %52, i32 noundef %109) #10
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %363, %356, %380, %373, %.thread323.i, %.thread323.thread.i.thread, %411, %405, %389, %.thread323.thread347.i, %.thread330.i, %.thread346.i, %108
+.backedge.i:                                      ; preds = %363, %356, %380, %373, %.thread323.i, %.thread323.thread.i.thread, %411, %405, %389, %.thread323.thread360.i, %.thread330.i, %.thread359.i, %108
   %110 = load ptr, ptr %52, align 8, !tbaa !41
   %.not306.i = icmp eq ptr %110, null
   br i1 %.not306.i, label %.loopexit, label %83, !llvm.loop !66
@@ -1591,10 +1591,10 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %. = select i1 %.not313.i, ptr %278, ptr %277
   %.74 = select i1 %.not313.i, ptr %277, ptr %278
-  %.sink353.i = load double, ptr %.74, align 8, !tbaa !62
-  %.sink355.i = load double, ptr %., align 8, !tbaa !62
-  %279 = fmul double %119, %.sink355.i
-  %280 = call double @llvm.fmuladd.f64(double %.sink353.i, double %117, double %279)
+  %.sink366.i = load double, ptr %.74, align 8, !tbaa !62
+  %.sink368.i = load double, ptr %., align 8, !tbaa !62
+  %279 = fmul double %119, %.sink368.i
+  %280 = call double @llvm.fmuladd.f64(double %.sink366.i, double %117, double %279)
   %.pn.i = fmul double %280, 5.000000e-01
   %.4.i = fsub double %268, %.pn.i
   %281 = add nsw i32 %269, -1
@@ -1641,13 +1641,13 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %306, ptr %50, align 8, !tbaa !30
   %307 = fsub double %292, %.1264.i
   store double %307, ptr %82, align 8, !tbaa !54
-  switch i32 %.2272.i, label %.thread323.thread347.i [
-    i32 3, label %.thread346.i
+  switch i32 %.2272.i, label %.thread323.thread360.i [
+    i32 3, label %.thread359.i
     i32 1, label %.thread340.i
     i32 2, label %.thread323.thread.i.thread
   ]
 
-.thread346.i:                                     ; preds = %302
+.thread359.i:                                     ; preds = %302
   call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef null, ptr noundef nonnull %25, ptr noundef %58)
   br label %.backedge.i
 
@@ -1655,7 +1655,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %115, ptr noundef nonnull %25, ptr noundef %58)
   br label %.thread323.i
 
-.thread323.thread347.i:                           ; preds = %302
+.thread323.thread360.i:                           ; preds = %302
   call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.0260.i, ptr noundef nonnull %25, ptr noundef %58)
   %308 = and i32 %.2272.i, -2
   %309 = icmp eq i32 %308, 4
@@ -1783,7 +1783,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store double %388, ptr %386, align 8, !tbaa !40
   br label %.backedge.i
 
-389:                                              ; preds = %.thread323.thread347.i
+389:                                              ; preds = %.thread323.thread360.i
   %390 = ptrtoint ptr %.0260.i to i64
   %391 = and i64 %390, -2
   %392 = inttoptr i64 %391 to ptr
@@ -2686,8 +2686,8 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   %104 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 4
   %105 = load i32, ptr %104, align 4, !tbaa !75
   %.not81 = icmp eq i32 %105, 1
-  %or.cond91 = select i1 %.not80, i1 %.not81, i1 false
-  br i1 %or.cond91, label %111, label %._crit_edge
+  %or.cond99 = select i1 %.not80, i1 %.not81, i1 false
+  br i1 %or.cond99, label %111, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %98
   %106 = zext i32 %103 to i64
@@ -2816,12 +2816,12 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   %.not38 = icmp eq i64 %63, 0
   %64 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %. = select i1 %.not38, ptr %34, ptr %64
-  %.41 = select i1 %.not38, ptr %64, ptr %34
-  %.pn40.in = load double, ptr %., align 8, !tbaa !62
-  %.pn40 = fmul double %.pn40.in, 5.000000e-01
-  %.sink = fadd double %57, %.pn40
+  %.43 = select i1 %.not38, ptr %64, ptr %34
+  %.pn42.in = load double, ptr %., align 8, !tbaa !62
+  %.pn42 = fmul double %.pn42.in, 5.000000e-01
+  %.sink = fadd double %57, %.pn42
   store double %.sink, ptr %49, align 8, !tbaa !52
-  %.pn.in = load double, ptr %.41, align 8, !tbaa !62
+  %.pn.in = load double, ptr %.43, align 8, !tbaa !62
   %.pn = fmul double %.pn.in, 5.000000e-01
   %storemerge = fadd double %60, %.pn
   store double %storemerge, ptr %61, align 8, !tbaa !53

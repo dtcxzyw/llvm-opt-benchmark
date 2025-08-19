@@ -992,7 +992,7 @@ define internal fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %1, i
 
 32:                                               ; preds = %21
   %.not = icmp eq i16 %12, 24
-  br i1 %.not, label %.thread95, label %33
+  br i1 %.not, label %.thread96, label %33
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr %4, align 8
@@ -1006,14 +1006,14 @@ define internal fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %1, i
 36:                                               ; preds = %29
   br i1 %.not94, label %.thread, label %37
 
-.thread95:                                        ; preds = %32
-  br i1 %.not94, label %.thread, label %.thread96
+.thread96:                                        ; preds = %32
+  br i1 %.not94, label %.thread, label %.thread97
 
 37:                                               ; preds = %36
   %switch = icmp eq i8 %16, 0
-  br i1 %switch, label %54, label %.thread96
+  br i1 %switch, label %54, label %.thread97
 
-.thread96:                                        ; preds = %.thread95, %37
+.thread97:                                        ; preds = %.thread96, %37
   %38 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %28)
   %39 = load i32, ptr @hf_xtp_tspec_maxdata, align 4
   %40 = call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %39, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef %38)
@@ -1032,15 +1032,15 @@ define internal fastcc void @dissect_xtp_tspec(ptr noundef %0, ptr noundef %1, i
   %53 = add nuw nsw i32 %2, 20
   br label %54
 
-54:                                               ; preds = %37, %.thread96
-  %.sink101 = phi i32 [ %53, %.thread96 ], [ %28, %37 ]
-  %hf_xtp_tspec_outburst.sink = phi ptr [ @hf_xtp_tspec_outburst, %.thread96 ], [ @hf_xtp_tspec_traffic, %37 ]
-  %55 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.sink101)
+54:                                               ; preds = %37, %.thread97
+  %.sink102 = phi i32 [ %53, %.thread97 ], [ %28, %37 ]
+  %hf_xtp_tspec_outburst.sink = phi ptr [ @hf_xtp_tspec_outburst, %.thread97 ], [ @hf_xtp_tspec_traffic, %37 ]
+  %55 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.sink102)
   %56 = load i32, ptr %hf_xtp_tspec_outburst.sink, align 4
-  %57 = call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %56, ptr noundef %0, i32 noundef %.sink101, i32 noundef 4, i32 noundef %55)
+  %57 = call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %56, ptr noundef %0, i32 noundef %.sink102, i32 noundef 4, i32 noundef %55)
   br label %.thread
 
-.thread:                                          ; preds = %.thread95, %33, %30, %35, %36, %54, %9
+.thread:                                          ; preds = %.thread96, %33, %30, %35, %36, %54, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

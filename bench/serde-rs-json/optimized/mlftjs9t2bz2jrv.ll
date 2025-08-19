@@ -1855,12 +1855,12 @@ _ZN5serde2de9MapAccess10next_value17h3490345a979ef047E.exit._crit_edge: ; preds 
   %97 = load i64, ptr %16, align 8, !range !196, !noalias !247, !noundef !4
   switch i64 %97, label %100 [
     i64 -9223372036854775807, label %98
-    i64 -9223372036854775808, label %.thread97
+    i64 -9223372036854775808, label %.thread99
   ]
 
-.thread97:                                        ; preds = %.noexc30
+.thread99:                                        ; preds = %.noexc30
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !247
-  br label %.loopexit102
+  br label %.loopexit104
 
 98:                                               ; preds = %.noexc30
   %99 = load ptr, ptr %92, align 8, !noalias !247, !nonnull !4, !align !197, !noundef !4
@@ -2003,7 +2003,7 @@ _ZN5serde2de9MapAccess10next_value17h3490345a979ef047E.exit._crit_edge: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !247
   switch i64 %.sroa.057.0.copyload, label %135 [
     i64 -9223372036854775807, label %.loopexit77
-    i64 -9223372036854775808, label %.loopexit102
+    i64 -9223372036854775808, label %.loopexit104
   ]
 
 .loopexit77:                                      ; preds = %131, %.thread61
@@ -2079,7 +2079,7 @@ _ZN5serde2de9MapAccess10next_value17h3490345a979ef047E.exit._crit_edge: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %96
 
-.loopexit102:                                     ; preds = %131, %.thread97
+.loopexit104:                                     ; preds = %131, %.thread99
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
@@ -2090,7 +2090,7 @@ _ZN5serde2de9MapAccess10next_value17h3490345a979ef047E.exit._crit_edge: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %149
 
-149:                                              ; preds = %43, %.loopexit102, %40, %150
+149:                                              ; preds = %43, %.loopexit104, %40, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   ret void
 

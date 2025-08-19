@@ -784,7 +784,7 @@ define noundef zeroext i1 @_ZNK7rocksdb24StringAppendTESTOperator11FullMergeV2ER
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = icmp eq i64 %18, 16
-  br i1 %19, label %20, label %.thread61
+  br i1 %19, label %20, label %.thread68
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds i8, ptr %14, i64 -16
@@ -801,15 +801,15 @@ define noundef zeroext i1 @_ZNK7rocksdb24StringAppendTESTOperator11FullMergeV2ER
   %.not3739 = icmp eq ptr %.pre48, %.pre50
   br i1 %.not3739, label %._crit_edge.thread, label %.lr.ph
 
-.thread61:                                        ; preds = %12
+.thread68:                                        ; preds = %12
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.not373962 = icmp eq ptr %15, %14
-  br i1 %.not373962, label %.thread, label %.lr.ph
+  %.not373969 = icmp eq ptr %15, %14
+  br i1 %.not373969, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread61, %24
-  %27 = phi ptr [ %26, %.thread61 ], [ %25, %24 ]
-  %28 = phi ptr [ %15, %.thread61 ], [ %.pre48, %24 ]
-  %29 = phi ptr [ %14, %.thread61 ], [ %.pre50, %24 ]
+.lr.ph:                                           ; preds = %.thread68, %24
+  %27 = phi ptr [ %26, %.thread68 ], [ %25, %24 ]
+  %28 = phi ptr [ %15, %.thread68 ], [ %.pre48, %24 ]
+  %29 = phi ptr [ %14, %.thread68 ], [ %.pre50, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !31
   br label %32
@@ -831,11 +831,11 @@ define noundef zeroext i1 @_ZNK7rocksdb24StringAppendTESTOperator11FullMergeV2ER
 
 ._crit_edge.thread:                               ; preds = %24, %._crit_edge
   %38 = phi ptr [ %27, %._crit_edge ], [ %25, %24 ]
-  %.024.lcssa54 = phi i64 [ %36, %._crit_edge ], [ 0, %24 ]
+  %.024.lcssa61 = phi i64 [ %36, %._crit_edge ], [ 0, %24 ]
   %39 = load ptr, ptr %2, align 8, !tbaa !56
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !73
-  %42 = add i64 %41, %.024.lcssa54
+  %42 = add i64 %41, %.024.lcssa61
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef %42)
   %43 = load ptr, ptr %2, align 8, !tbaa !56
   %44 = load ptr, ptr %7, align 8, !tbaa !61
@@ -868,9 +868,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %56, i64 noundef %59)
   br label %.thread
 
-.thread:                                          ; preds = %.thread61, %54, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  %60 = phi ptr [ %27, %54 ], [ %27, %55 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ %26, %.thread61 ]
-  %.not55 = phi i1 [ false, %54 ], [ false, %55 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ false, %.thread61 ]
+.thread:                                          ; preds = %.thread68, %54, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
+  %60 = phi ptr [ %27, %54 ], [ %27, %55 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ %26, %.thread68 ]
+  %.not62 = phi i1 [ false, %54 ], [ false, %55 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ], [ false, %.thread68 ]
   %61 = load ptr, ptr %60, align 8, !tbaa !65
   %62 = load ptr, ptr %61, align 8, !tbaa !72
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -884,7 +884,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br label %67
 
 67:                                               ; preds = %.lr.ph46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit28
-  %.144 = phi i1 [ %.not55, %.lr.ph46 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit28 ]
+  %.144 = phi i1 [ %.not62, %.lr.ph46 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit28 ]
   %.sroa.029.043 = phi ptr [ %62, %.lr.ph46 ], [ %89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit28 ]
   br i1 %.144, label %68, label %78
 

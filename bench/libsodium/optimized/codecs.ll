@@ -143,7 +143,7 @@ define dso_local range(i32 -1, 1) i32 @sodium_hex2bin(ptr noundef nonnull writeo
 44:                                               ; preds = %42
   %45 = add nuw i64 %.04592.us, 1
   %46 = icmp ult i64 %45, %3
-  br i1 %46, label %8, label %.thread63.loopexit.split.loop.exit240, !llvm.loop !6
+  br i1 %46, label %8, label %.thread63.loopexit.split.loop.exit247, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.0.ph120 = phi i8 [ %75, %.outer ], [ 0, %.lr.ph.lr.ph ]
@@ -216,8 +216,8 @@ define dso_local range(i32 -1, 1) i32 @sodium_hex2bin(ptr noundef nonnull writeo
   br i1 %.not56, label %79, label %.thread71
 
 .thread71:                                        ; preds = %40, %.loopexit
-  %.04581191 = phi i64 [ %.04581, %.loopexit ], [ %.04592.us, %40 ]
-  %77 = add i64 %.04581191, -1
+  %.04581198 = phi i64 [ %.04581, %.loopexit ], [ %.04592.us, %40 ]
+  %77 = add i64 %.04581198, -1
   %78 = tail call ptr @__errno_location() #9
   store i32 22, ptr %78, align 4
   br label %.thread63
@@ -225,53 +225,53 @@ define dso_local range(i32 -1, 1) i32 @sodium_hex2bin(ptr noundef nonnull writeo
 79:                                               ; preds = %.loopexit
   %not..not57 = xor i1 %.not57, true
   %spec.select = sext i1 %not..not57 to i32
-  %spec.select245 = select i1 %.not57, i64 %.044.ph91, i64 0
+  %spec.select252 = select i1 %.not57, i64 %.044.ph91, i64 0
   br label %.thread63
 
-.thread63.loopexit.split.loop.exit240:            ; preds = %44
+.thread63.loopexit.split.loop.exit247:            ; preds = %44
   %80 = add nuw i64 %.045.ph118.us, 1
   %umax.le = tail call i64 @llvm.umax.i64(i64 %3, i64 %80)
   br label %.thread63
 
-.thread63:                                        ; preds = %42, %79, %.thread63.loopexit.split.loop.exit240, %.thread71
-  %.14669 = phi i64 [ %77, %.thread71 ], [ %.04581, %79 ], [ %umax.le, %.thread63.loopexit.split.loop.exit240 ], [ %.04592.us, %42 ]
-  %.14867 = phi i32 [ -1, %.thread71 ], [ %spec.select, %79 ], [ 0, %.thread63.loopexit.split.loop.exit240 ], [ 0, %42 ]
-  %81 = phi i64 [ 0, %.thread71 ], [ %spec.select245, %79 ], [ %.044.ph119.us, %.thread63.loopexit.split.loop.exit240 ], [ %.044.ph119.us, %42 ]
+.thread63:                                        ; preds = %42, %79, %.thread63.loopexit.split.loop.exit247, %.thread71
+  %.14669 = phi i64 [ %77, %.thread71 ], [ %.04581, %79 ], [ %umax.le, %.thread63.loopexit.split.loop.exit247 ], [ %.04592.us, %42 ]
+  %.14867 = phi i32 [ -1, %.thread71 ], [ %spec.select, %79 ], [ 0, %.thread63.loopexit.split.loop.exit247 ], [ 0, %42 ]
+  %81 = phi i64 [ 0, %.thread71 ], [ %spec.select252, %79 ], [ %.044.ph119.us, %.thread63.loopexit.split.loop.exit247 ], [ %.044.ph119.us, %42 ]
   %.not58 = icmp eq ptr %6, null
   br i1 %.not58, label %85, label %82
 
 .thread63.thread:                                 ; preds = %7
-  %.not58204 = icmp eq ptr %6, null
-  br i1 %.not58204, label %.thread209, label %82
+  %.not58211 = icmp eq ptr %6, null
+  br i1 %.not58211, label %.thread216, label %82
 
 82:                                               ; preds = %.thread63.thread, %.thread63
   %83 = phi i64 [ 0, %.thread63.thread ], [ %81, %.thread63 ]
-  %.14867207 = phi i32 [ 0, %.thread63.thread ], [ %.14867, %.thread63 ]
-  %.14669205 = phi i64 [ 0, %.thread63.thread ], [ %.14669, %.thread63 ]
-  %84 = getelementptr i8, ptr %2, i64 %.14669205
+  %.14867214 = phi i32 [ 0, %.thread63.thread ], [ %.14867, %.thread63 ]
+  %.14669212 = phi i64 [ 0, %.thread63.thread ], [ %.14669, %.thread63 ]
+  %84 = getelementptr i8, ptr %2, i64 %.14669212
   store ptr %84, ptr %6, align 8
-  br label %.thread209
+  br label %.thread216
 
 85:                                               ; preds = %.thread63
   %.not59 = icmp eq i64 %.14669, %3
-  br i1 %.not59, label %.thread209, label %86
+  br i1 %.not59, label %.thread216, label %86
 
 86:                                               ; preds = %85
   %87 = tail call ptr @__errno_location() #9
   store i32 22, ptr %87, align 4
-  br label %.thread209
+  br label %.thread216
 
-.thread209:                                       ; preds = %.thread63.thread, %85, %86, %82
+.thread216:                                       ; preds = %.thread63.thread, %85, %86, %82
   %88 = phi i64 [ %83, %82 ], [ %81, %86 ], [ %81, %85 ], [ 0, %.thread63.thread ]
-  %.249 = phi i32 [ %.14867207, %82 ], [ -1, %86 ], [ %.14867, %85 ], [ 0, %.thread63.thread ]
+  %.249 = phi i32 [ %.14867214, %82 ], [ -1, %86 ], [ %.14867, %85 ], [ 0, %.thread63.thread ]
   %.not60 = icmp eq ptr %5, null
   br i1 %.not60, label %90, label %89
 
-89:                                               ; preds = %.thread209
+89:                                               ; preds = %.thread216
   store i64 %88, ptr %5, align 8
   br label %90
 
-90:                                               ; preds = %89, %.thread209
+90:                                               ; preds = %89, %.thread216
   ret i32 %.249
 }
 
@@ -494,15 +494,15 @@ sodium_base64_check_variant.exit:                 ; preds = %5
   br i1 %.not68, label %._crit_edge.thread, label %._crit_edge.thread.sink.split
 
 ._crit_edge.thread.sink.split:                    ; preds = %._crit_edge94, %._crit_edge
-  %.lcssa120.lcssa.sink = phi i64 [ %31, %._crit_edge ], [ %74, %._crit_edge94 ]
-  %.lcssa121.sink = phi i32 [ %28, %._crit_edge ], [ %71, %._crit_edge94 ]
-  %.sink141 = phi i32 [ 45, %._crit_edge ], [ 43, %._crit_edge94 ]
-  %.sink137 = phi i32 [ 32705, %._crit_edge ], [ 16321, %._crit_edge94 ]
-  %.sink135 = phi i32 [ 95, %._crit_edge ], [ 47, %._crit_edge94 ]
-  %.lcssa.lcssa.sink126 = phi i64 [ %63, %._crit_edge ], [ %106, %._crit_edge94 ]
-  %109 = trunc nuw nsw i64 %.lcssa120.lcssa.sink to i32
+  %.lcssa126.lcssa.sink = phi i64 [ %31, %._crit_edge ], [ %74, %._crit_edge94 ]
+  %.lcssa127.sink = phi i32 [ %28, %._crit_edge ], [ %71, %._crit_edge94 ]
+  %.sink147 = phi i32 [ 45, %._crit_edge ], [ 43, %._crit_edge94 ]
+  %.sink143 = phi i32 [ 32705, %._crit_edge ], [ 16321, %._crit_edge94 ]
+  %.sink141 = phi i32 [ 95, %._crit_edge ], [ 47, %._crit_edge94 ]
+  %.lcssa.lcssa.sink132 = phi i64 [ %63, %._crit_edge ], [ %106, %._crit_edge94 ]
+  %109 = trunc nuw nsw i64 %.lcssa126.lcssa.sink to i32
   %110 = sub nuw nsw i32 6, %109
-  %111 = shl i32 %.lcssa121.sink, %110
+  %111 = shl i32 %.lcssa127.sink, %110
   %112 = and i32 %111, 63
   %113 = add nuw nsw i32 %112, 65510
   %114 = lshr i32 %113, 8
@@ -525,17 +525,17 @@ sodium_base64_check_variant.exit:                 ; preds = %5
   %.neg.i74 = add nuw nsw i32 %130, 1
   %131 = lshr i32 %.neg.i74, 8
   %132 = xor i32 %131, -1
-  %133 = and i32 %.sink141, %132
-  %.neg10.i75 = add nuw nsw i32 %112, %.sink137
+  %133 = and i32 %.sink147, %132
+  %.neg10.i75 = add nuw nsw i32 %112, %.sink143
   %134 = lshr i32 %.neg10.i75, 8
   %135 = xor i32 %134, -1
-  %136 = and i32 %.sink135, %135
+  %136 = and i32 %.sink141, %135
   %137 = or i32 %123, %136
   %138 = or i32 %137, %129
   %139 = or i32 %138, %133
   %140 = trunc i32 %139 to i8
-  %141 = add i64 %.lcssa.lcssa.sink126, 1
-  %142 = getelementptr i8, ptr %0, i64 %.lcssa.lcssa.sink126
+  %141 = add i64 %.lcssa.lcssa.sink132, 1
+  %142 = getelementptr i8, ptr %0, i64 %.lcssa.lcssa.sink132
   store i8 %140, ptr %142, align 1
   br label %._crit_edge.thread
 
@@ -567,8 +567,8 @@ define dso_local range(i32 -1, 1) i32 @sodium_base642bin(ptr noundef nonnull wri
   br i1 %.not.i, label %sodium_base64_check_variant.exit.preheader, label %83
 
 sodium_base64_check_variant.exit.preheader:       ; preds = %8
-  %.not172 = icmp eq i64 %3, 0
-  br i1 %.not172, label %.loopexit94.thread, label %.lr.ph.lr.ph
+  %.not171 = icmp eq i64 %3, 0
+  br i1 %.not171, label %.loopexit94.thread, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %sodium_base64_check_variant.exit.preheader
   %.not = icmp samesign ult i32 %7, 4
@@ -674,7 +674,7 @@ sodium_base64_check_variant.exit.outer.us:        ; preds = %.split.us.us, %12
 sodium_base64_check_variant.exit.us.us:           ; preds = %75
   %77 = add nuw i64 %.082106.us.us, 1
   %78 = icmp ult i64 %77, %3
-  br i1 %78, label %20, label %.loopexit94.loopexit.split.loop.exit279, !llvm.loop !11
+  br i1 %78, label %20, label %.loopexit94.loopexit.split.loop.exit295, !llvm.loop !11
 
 .split.us.us:                                     ; preds = %20
   %79 = shl i32 %.044.ph138.us, 6
@@ -758,7 +758,7 @@ sodium_base64_check_variant.exit.us.us:           ; preds = %75
 sodium_base64_check_variant.exit:                 ; preds = %139
   %141 = add nuw i64 %.082106, 1
   %142 = icmp ult i64 %141, %3
-  br i1 %142, label %84, label %.loopexit94.loopexit230.split.loop.exit267, !llvm.loop !11
+  br i1 %142, label %84, label %.loopexit94.loopexit245.split.loop.exit283, !llvm.loop !11
 
 .split:                                           ; preds = %84
   %143 = shl i32 %.044.ph138, 6
@@ -804,78 +804,82 @@ sodium_base64_check_variant.exit.outer:           ; preds = %150, %.split
   %.082.ph136 = phi i64 [ %156, %sodium_base64_check_variant.exit.outer ], [ 0, %.lr.ph.lr.ph ]
   br label %84
 
-.loopexit94.loopexit.split.loop.exit279:          ; preds = %sodium_base64_check_variant.exit.us.us
+.loopexit94.loopexit.split.loop.exit295:          ; preds = %sodium_base64_check_variant.exit.us.us
   %158 = add nuw i64 %.082.ph136.us, 1
-  %umax212.le = tail call i64 @llvm.umax.i64(i64 %3, i64 %158)
+  %umax211.le = tail call i64 @llvm.umax.i64(i64 %3, i64 %158)
   br label %.loopexit94
 
-.loopexit94.loopexit230.split.loop.exit267:       ; preds = %sodium_base64_check_variant.exit
+.loopexit94.loopexit245.split.loop.exit283:       ; preds = %sodium_base64_check_variant.exit
   %159 = add nuw i64 %.082.ph136, 1
   %umax.le = tail call i64 @llvm.umax.i64(i64 %3, i64 %159)
   br label %.loopexit94
 
-.loopexit94:                                      ; preds = %sodium_base64_check_variant.exit.outer, %138, %139, %sodium_base64_check_variant.exit.outer.us, %74, %75, %.loopexit94.loopexit230.split.loop.exit267, %.loopexit94.loopexit.split.loop.exit279, %.split145.us
-  %.049.ph105 = phi i64 [ %.us-phi146, %.split145.us ], [ %.049.ph137.us, %.loopexit94.loopexit.split.loop.exit279 ], [ %.049.ph137, %.loopexit94.loopexit230.split.loop.exit267 ], [ %.049.ph137.us, %75 ], [ %.049.ph137.us, %74 ], [ %.150.us, %sodium_base64_check_variant.exit.outer.us ], [ %.049.ph137, %139 ], [ %.049.ph137, %138 ], [ %.150, %sodium_base64_check_variant.exit.outer ]
-  %.08299 = phi i64 [ %.us-phi149, %.split145.us ], [ %umax212.le, %.loopexit94.loopexit.split.loop.exit279 ], [ %umax.le, %.loopexit94.loopexit230.split.loop.exit267 ], [ %.082.ph136.us, %74 ], [ %.082106.us.us, %75 ], [ %18, %sodium_base64_check_variant.exit.outer.us ], [ %.082.ph136, %138 ], [ %.082106, %139 ], [ %156, %sodium_base64_check_variant.exit.outer ]
-  %.not69 = phi i1 [ true, %.split145.us ], [ false, %.loopexit94.loopexit.split.loop.exit279 ], [ false, %.loopexit94.loopexit230.split.loop.exit267 ], [ false, %75 ], [ false, %74 ], [ false, %sodium_base64_check_variant.exit.outer.us ], [ false, %139 ], [ false, %138 ], [ false, %sodium_base64_check_variant.exit.outer ]
-  %.145 = phi i32 [ %.us-phi148, %.split145.us ], [ %.044.ph138.us, %.loopexit94.loopexit.split.loop.exit279 ], [ %.044.ph138, %.loopexit94.loopexit230.split.loop.exit267 ], [ %.044.ph138.us, %75 ], [ %.044.ph138.us, %74 ], [ %80, %sodium_base64_check_variant.exit.outer.us ], [ %.044.ph138, %139 ], [ %.044.ph138, %138 ], [ %144, %sodium_base64_check_variant.exit.outer ]
-  %.1 = phi i64 [ %.us-phi147, %.split145.us ], [ %.0.ph139.us, %.loopexit94.loopexit.split.loop.exit279 ], [ %.0.ph139, %.loopexit94.loopexit230.split.loop.exit267 ], [ %.0.ph139.us, %75 ], [ %.0.ph139.us, %74 ], [ %.2.us, %sodium_base64_check_variant.exit.outer.us ], [ %.0.ph139, %139 ], [ %.0.ph139, %138 ], [ %.2, %sodium_base64_check_variant.exit.outer ]
+.loopexit94:                                      ; preds = %sodium_base64_check_variant.exit.outer, %138, %139, %sodium_base64_check_variant.exit.outer.us, %74, %75, %.loopexit94.loopexit245.split.loop.exit283, %.loopexit94.loopexit.split.loop.exit295, %.split145.us
+  %.049.ph105 = phi i64 [ %.us-phi146, %.split145.us ], [ %.049.ph137.us, %.loopexit94.loopexit.split.loop.exit295 ], [ %.049.ph137, %.loopexit94.loopexit245.split.loop.exit283 ], [ %.049.ph137.us, %75 ], [ %.049.ph137.us, %74 ], [ %.150.us, %sodium_base64_check_variant.exit.outer.us ], [ %.049.ph137, %139 ], [ %.049.ph137, %138 ], [ %.150, %sodium_base64_check_variant.exit.outer ]
+  %.08299 = phi i64 [ %.us-phi149, %.split145.us ], [ %umax211.le, %.loopexit94.loopexit.split.loop.exit295 ], [ %umax.le, %.loopexit94.loopexit245.split.loop.exit283 ], [ %.082.ph136.us, %74 ], [ %.082106.us.us, %75 ], [ %18, %sodium_base64_check_variant.exit.outer.us ], [ %.082.ph136, %138 ], [ %.082106, %139 ], [ %156, %sodium_base64_check_variant.exit.outer ]
+  %.not69 = phi i1 [ true, %.split145.us ], [ false, %.loopexit94.loopexit.split.loop.exit295 ], [ false, %.loopexit94.loopexit245.split.loop.exit283 ], [ false, %75 ], [ false, %74 ], [ false, %sodium_base64_check_variant.exit.outer.us ], [ false, %139 ], [ false, %138 ], [ false, %sodium_base64_check_variant.exit.outer ]
+  %.145 = phi i32 [ %.us-phi148, %.split145.us ], [ %.044.ph138.us, %.loopexit94.loopexit.split.loop.exit295 ], [ %.044.ph138, %.loopexit94.loopexit245.split.loop.exit283 ], [ %.044.ph138.us, %75 ], [ %.044.ph138.us, %74 ], [ %80, %sodium_base64_check_variant.exit.outer.us ], [ %.044.ph138, %139 ], [ %.044.ph138, %138 ], [ %144, %sodium_base64_check_variant.exit.outer ]
+  %.1 = phi i64 [ %.us-phi147, %.split145.us ], [ %.0.ph139.us, %.loopexit94.loopexit.split.loop.exit295 ], [ %.0.ph139, %.loopexit94.loopexit245.split.loop.exit283 ], [ %.0.ph139.us, %75 ], [ %.0.ph139.us, %74 ], [ %.2.us, %sodium_base64_check_variant.exit.outer.us ], [ %.0.ph139, %139 ], [ %.0.ph139, %138 ], [ %.2, %sodium_base64_check_variant.exit.outer ]
   %160 = icmp ugt i64 %.1, 4
   br i1 %160, label %.critedge, label %.loopexit94.thread
 
 .loopexit94.thread:                               ; preds = %sodium_base64_check_variant.exit.preheader, %.loopexit94
-  %.1224 = phi i64 [ %.1, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
-  %.145223 = phi i32 [ %.145, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
-  %.not69222 = phi i1 [ %.not69, %.loopexit94 ], [ false, %sodium_base64_check_variant.exit.preheader ]
-  %.08299221 = phi i64 [ %.08299, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
-  %.049.ph105220 = phi i64 [ %.049.ph105, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
-  %161 = trunc nuw nsw i64 %.1224 to i32
+  %.1239 = phi i64 [ %.1, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
+  %.145238 = phi i32 [ %.145, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
+  %.not69237 = phi i1 [ %.not69, %.loopexit94 ], [ false, %sodium_base64_check_variant.exit.preheader ]
+  %.08299236 = phi i64 [ %.08299, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
+  %.049.ph105235 = phi i64 [ %.049.ph105, %.loopexit94 ], [ 0, %sodium_base64_check_variant.exit.preheader ]
+  %161 = trunc nuw nsw i64 %.1239 to i32
   %notmask = shl nsw i32 -1, %161
   %162 = xor i32 %notmask, -1
-  %163 = and i32 %.145223, %162
+  %163 = and i32 %.145238, %162
   %.not62 = icmp ne i32 %163, 0
-  %brmerge = or i1 %.not69222, %.not62
+  %brmerge = or i1 %.not69237, %.not62
   br i1 %brmerge, label %.critedge, label %164
 
 164:                                              ; preds = %.loopexit94.thread
   %165 = and i32 %7, 2
-  %166 = icmp ne i32 %165, 0
-  %.not15.i = icmp samesign ult i64 %.1224, 2
-  %or.cond = or i1 %166, %.not15.i
-  br i1 %or.cond, label %.loopexit, label %.lr.ph.i
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %167, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %164
-  %167 = lshr i64 %.1224, 1
-  %168 = icmp eq ptr %4, null
-  %umax214 = tail call i64 @llvm.umax.i64(i64 %.08299221, i64 %3)
-  br i1 %168, label %.lr.ph.split.us.i.preheader, label %.lr.ph.split.i
+167:                                              ; preds = %164
+  %168 = lshr i64 %.1239, 1
+  %.not15.i = icmp samesign ult i64 %.1239, 2
+  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph.i
-  %169 = add i64 %.08299221, %167
+.lr.ph.i:                                         ; preds = %167
+  %169 = icmp eq ptr %4, null
+  br i1 %169, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i.preheader
+
+.lr.ph.split.i.preheader:                         ; preds = %.lr.ph.i
+  %umax212 = tail call i64 @llvm.umax.i64(i64 %.08299236, i64 %3)
+  br label %.lr.ph.split.i
+
+.lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i
+  %170 = icmp eq i64 %168, 1
+  %umax213 = tail call i64 @llvm.umax.i64(i64 %.08299236, i64 %3)
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %174
-  %.6 = phi i64 [ %176, %174 ], [ %.08299221, %.lr.ph.split.us.i.preheader ]
-  %.01116.us.i = phi i64 [ %175, %174 ], [ %167, %.lr.ph.split.us.i.preheader ]
+.lr.ph.split.us.i:                                ; preds = %175, %.lr.ph.split.us.preheader.i
+  %.6 = phi i64 [ %.08299236, %.lr.ph.split.us.preheader.i ], [ %176, %175 ]
+  %.01116.us.i = phi i1 [ %170, %.lr.ph.split.us.preheader.i ], [ true, %175 ]
   %.not14.us.i = icmp ult i64 %.6, %3
-  br i1 %.not14.us.i, label %170, label %.loopexit.sink.split.i
+  br i1 %.not14.us.i, label %171, label %.loopexit.sink.split.i
 
-170:                                              ; preds = %.lr.ph.split.us.i
+171:                                              ; preds = %.lr.ph.split.us.i
   fence acquire
-  %171 = getelementptr i8, ptr %2, i64 %.6
-  %172 = load i8, ptr %171, align 1
-  %173 = icmp eq i8 %172, 61
-  br i1 %173, label %174, label %.loopexit.sink.split.i
+  %172 = getelementptr i8, ptr %2, i64 %.6
+  %173 = load i8, ptr %172, align 1
+  %174 = icmp eq i8 %173, 61
+  br i1 %174, label %175, label %.loopexit.sink.split.i
 
-174:                                              ; preds = %170
-  %175 = add nsw i64 %.01116.us.i, -1
+175:                                              ; preds = %171
   %176 = add nuw i64 %.6, 1
-  %.not.us.i = icmp eq i64 %175, 0
-  br i1 %.not.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %.01116.us.i, label %.loopexit, label %.lr.ph.split.us.i, !llvm.loop !12
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %187
-  %.4 = phi i64 [ %188, %187 ], [ %.08299221, %.lr.ph.i ]
-  %.01116.i = phi i64 [ %.1.i, %187 ], [ %167, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %187
+  %.4 = phi i64 [ %188, %187 ], [ %.08299236, %.lr.ph.split.i.preheader ]
+  %.01116.i = phi i64 [ %.1.i, %187 ], [ %168, %.lr.ph.split.i.preheader ]
   %.not14.i = icmp ult i64 %.4, %3
   br i1 %.not14.i, label %177, label %.loopexit.sink.split.i
 
@@ -902,19 +906,19 @@ sodium_base64_check_variant.exit.outer:           ; preds = %150, %.split
   %.not.i73 = icmp eq i64 %.1.i, 0
   br i1 %.not.i73, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !12
 
-.loopexit.sink.split.i:                           ; preds = %183, %.lr.ph.split.i, %170, %.lr.ph.split.us.i
-  %.5 = phi i64 [ %.6, %170 ], [ %umax214, %.lr.ph.split.us.i ], [ %.4, %183 ], [ %umax214, %.lr.ph.split.i ]
-  %.sink.i = phi i32 [ 22, %170 ], [ 34, %.lr.ph.split.us.i ], [ 22, %183 ], [ 34, %.lr.ph.split.i ]
+.loopexit.sink.split.i:                           ; preds = %183, %.lr.ph.split.i, %171, %.lr.ph.split.us.i
+  %.5 = phi i64 [ %.6, %171 ], [ %umax213, %.lr.ph.split.us.i ], [ %.4, %183 ], [ %umax212, %.lr.ph.split.i ]
+  %.sink.i = phi i32 [ 22, %171 ], [ 34, %.lr.ph.split.us.i ], [ 22, %183 ], [ 34, %.lr.ph.split.i ]
   %189 = tail call ptr @__errno_location() #9
   store i32 %.sink.i, ptr %189, align 4
   br label %.critedge
 
-.loopexit:                                        ; preds = %187, %174, %164
-  %.183.ph = phi i64 [ %.08299221, %164 ], [ %169, %174 ], [ %188, %187 ]
+.loopexit:                                        ; preds = %187, %175, %164, %167
+  %.183.ph = phi i64 [ %.08299236, %167 ], [ %.08299236, %164 ], [ %176, %175 ], [ %188, %187 ]
   %.not64 = icmp ne ptr %4, null
   %190 = icmp ult i64 %.183.ph, %3
-  %or.cond171 = and i1 %.not64, %190
-  br i1 %or.cond171, label %.lr.ph167, label %.critedge
+  %or.cond = and i1 %.not64, %190
+  br i1 %or.cond, label %.lr.ph167, label %.critedge
 
 .lr.ph167:                                        ; preds = %.loopexit, %195
   %.3166 = phi i64 [ %196, %195 ], [ %.183.ph, %.loopexit ]
@@ -932,8 +936,8 @@ sodium_base64_check_variant.exit.outer:           ; preds = %150, %.split
 
 .critedge:                                        ; preds = %.lr.ph167, %195, %.loopexit94, %.loopexit94.thread, %.loopexit.sink.split.i, %.loopexit
   %.14789 = phi i32 [ 0, %.loopexit ], [ -1, %.loopexit94.thread ], [ -1, %.loopexit94 ], [ -1, %.loopexit.sink.split.i ], [ 0, %195 ], [ 0, %.lr.ph167 ]
-  %.284 = phi i64 [ %.183.ph, %.loopexit ], [ %.08299221, %.loopexit94.thread ], [ %.08299, %.loopexit94 ], [ %.5, %.loopexit.sink.split.i ], [ %.3166, %.lr.ph167 ], [ %3, %195 ]
-  %.251 = phi i64 [ %.049.ph105220, %.loopexit ], [ 0, %.loopexit94.thread ], [ 0, %.loopexit94 ], [ 0, %.loopexit.sink.split.i ], [ %.049.ph105220, %195 ], [ %.049.ph105220, %.lr.ph167 ]
+  %.284 = phi i64 [ %.183.ph, %.loopexit ], [ %.08299236, %.loopexit94.thread ], [ %.08299, %.loopexit94 ], [ %.5, %.loopexit.sink.split.i ], [ %.3166, %.lr.ph167 ], [ %3, %195 ]
+  %.251 = phi i64 [ %.049.ph105235, %.loopexit ], [ 0, %.loopexit94.thread ], [ 0, %.loopexit94 ], [ 0, %.loopexit.sink.split.i ], [ %.049.ph105235, %195 ], [ %.049.ph105235, %.lr.ph167 ]
   %.not66 = icmp eq ptr %6, null
   br i1 %.not66, label %199, label %197
 

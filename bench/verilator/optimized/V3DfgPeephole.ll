@@ -4248,14 +4248,14 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit94:        ; preds = %_ZNK9DfgVertex16has
 _ZNK9DfgVertex16hasMultipleSinksEv.exit94.thread: ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit92.thread, %_ZNK9DfgVertex16hasMultipleSinksEv.exit94
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %40, align 8, !tbaa !209
-  %.not121 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 130
-  br i1 %.not121, label %41, label %75
+  %.not128 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 130
+  br i1 %.not128, label %41, label %75
 
 41:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit94.thread
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %.sroa.0.0.copyload.i.i.i.i95 = load i16, ptr %42, align 8, !tbaa !209
-  %.not122 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i95, 130
-  br i1 %.not122, label %43, label %55
+  %.not129 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i95, 130
+  br i1 %.not129, label %43, label %55
 
 43:                                               ; preds = %41
   %44 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 35)
@@ -4280,8 +4280,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit94.thread: ; preds = %_ZNK9DfgVertex16has
 
 55:                                               ; preds = %._crit_edge, %41
   %.sroa.0.0.copyload.i.i.i.i97 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i97.pre, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i.i95, %41 ]
-  %.not123 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i97, 56
-  br i1 %.not123, label %56, label %75
+  %.not130 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i97, 56
+  br i1 %.not130, label %56, label %75
 
 56:                                               ; preds = %55
   %57 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 34)
@@ -4594,8 +4594,8 @@ _ZNK9DfgVertex6isZeroEv.exit166:                  ; preds = %_ZNK9DfgVertex6isZe
 67:                                               ; preds = %_ZNK9DfgVertex6isZeroEv.exit166
   %68 = tail call noundef ptr @_ZN9DfgVertex2asI8DfgConstEEPT_v(ptr noundef nonnull align 8 dereferenceable(72) %29)
   %.sroa.0.0.copyload.i.i.i.i167 = load i16, ptr %32, align 8, !tbaa !209
-  %.not211 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i167, 141
-  br i1 %.not211, label %69, label %_ZNK9DfgVertex6isZeroEv.exit166.thread
+  %.not222 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i167, 141
+  br i1 %.not222, label %69, label %_ZNK9DfgVertex6isZeroEv.exit166.thread
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr %4, align 8, !tbaa !204
@@ -4631,13 +4631,13 @@ _ZNK9DfgVertex6isZeroEv.exit166:                  ; preds = %_ZNK9DfgVertex6isZe
 
 _ZNK9DfgVertex6isZeroEv.exit166.thread:           ; preds = %_ZNK9DfgVertex6isZeroEv.exit.thread, %69, %76, %80, %67, %_ZNK9DfgVertex6isZeroEv.exit166
   %.sroa.0.0.copyload.i.i.i.i169 = load i16, ptr %32, align 8, !tbaa !209
-  %.not212 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i169, 130
+  %.not223 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i169, 130
   %.sroa.0.0.copyload.i.i.i.i178.pre209 = load i16, ptr %64, align 8, !tbaa !209
-  br i1 %.not212, label %91, label %110
+  br i1 %.not223, label %91, label %110
 
 91:                                               ; preds = %_ZNK9DfgVertex6isZeroEv.exit166.thread
-  %.not213 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i178.pre209, 130
-  br i1 %.not213, label %92, label %110
+  %.not224 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i178.pre209, 130
+  br i1 %.not224, label %92, label %110
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -4708,8 +4708,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread._crit_edge: ; preds = %_ZNK9Df
 
 .thread:                                          ; preds = %113, %115, %117
   %.sroa.0.0.copyload.i.i.i.i180 = load i16, ptr %64, align 8, !tbaa !209
-  %.not214 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i180, 10
-  br i1 %.not214, label %118, label %132
+  %.not225 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i180, 10
+  br i1 %.not225, label %118, label %132
 
 118:                                              ; preds = %.thread
   %119 = getelementptr inbounds nuw i8, ptr %29, i64 88
@@ -4743,8 +4743,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread._crit_edge: ; preds = %_ZNK9Df
 
 133:                                              ; preds = %132
   %.sroa.0.0.copyload.i.i.i.i184 = load i16, ptr %32, align 8, !tbaa !209
-  %.not215 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i184, 10
-  br i1 %.not215, label %134, label %148
+  %.not226 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i184, 10
+  br i1 %.not226, label %134, label %148
 
 134:                                              ; preds = %133
   %135 = getelementptr inbounds nuw i8, ptr %28, i64 120
@@ -4865,8 +4865,8 @@ _ZNK9DfgVertex6isZeroEv.exit:                     ; preds = %39
 
 _ZNK9DfgVertex6isZeroEv.exit.thread:              ; preds = %31, %39, %41, %_ZNK9DfgVertex6isZeroEv.exit
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %32, align 8, !tbaa !209
-  %.not272 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 130
-  br i1 %.not272, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread
+  %.not283 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 130
+  br i1 %.not283, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread, label %_ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %_ZNK9DfgVertex6isZeroEv.exit.thread
   %43 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 62)
@@ -4886,8 +4886,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread._ZNK9DfgVertex16hasMultipleSinksE
 
 _ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread: ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread._ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread_crit_edge, %_ZNK9DfgVertex6isZeroEv.exit.thread
   %.sroa.0.0.copyload.i.i.i.i176 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i176.pre, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread._ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread_crit_edge ], [ %.sroa.0.0.copyload.i.i.i.i, %_ZNK9DfgVertex6isZeroEv.exit.thread ]
-  %.not273 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i176, 56
-  br i1 %.not273, label %49, label %65
+  %.not284 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i176, 56
+  br i1 %.not284, label %49, label %65
 
 49:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -4921,14 +4921,14 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit179.thread: ; preds = %49, %_ZNK9DfgVerte
 65:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit179, %_ZNK9DfgVertex16hasMultipleSinksEv.exit179.thread, %_ZNK9DfgVertex16hasMultipleSinksEv.exit175.thread
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %.sroa.0.0.copyload.i.i.i.i180 = load i16, ptr %66, align 8, !tbaa !209
-  %.not274 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i180, 130
-  br i1 %.not274, label %67, label %97
+  %.not285 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i180, 130
+  br i1 %.not285, label %67, label %97
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %.sroa.0.0.copyload.i.i.i.i182 = load i16, ptr %68, align 8, !tbaa !209
-  %.not275 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i182, 130
-  br i1 %.not275, label %69, label %97
+  %.not286 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i182, 130
+  br i1 %.not286, label %69, label %97
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -4994,8 +4994,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit188.thread: ; preds = %_ZNK9DfgVertex16ha
 
 102:                                              ; preds = %97
   %.sroa.0.0.copyload.i.i.i.i189 = load i16, ptr %66, align 8, !tbaa !209
-  %.not276 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i189, 1
-  br i1 %.not276, label %103, label %_ZNK8DfgConst8hasValueEj.exit.thread
+  %.not287 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i189, 1
+  br i1 %.not287, label %103, label %_ZNK8DfgConst8hasValueEj.exit.thread
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -5050,8 +5050,8 @@ _ZNK8DfgConst8hasValueEj.exit:                    ; preds = %111
 
 _ZNK8DfgConst8hasValueEj.exit.thread:             ; preds = %108, %111, %_ZNK8DfgConst8hasValueEj.exit, %120, %116, %103, %102
   %.sroa.0.0.copyload.i.i.i.i193 = load i16, ptr %66, align 8, !tbaa !209
-  %.not277 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i193, 78
-  br i1 %.not277, label %135, label %_ZNK8DfgConst8hasValueEj.exit197.thread
+  %.not288 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i193, 78
+  br i1 %.not288, label %135, label %_ZNK8DfgConst8hasValueEj.exit197.thread
 
 135:                                              ; preds = %_ZNK8DfgConst8hasValueEj.exit.thread
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 120
@@ -6522,8 +6522,8 @@ _ZN13V3DfgPeephole9foldUnaryI6DfgNotEEbPT_.exit:  ; preds = %15
 26:                                               ; preds = %._crit_edge, %13
   %.sroa.0.0.copyload.i.i.i.i = phi i16 [ %.sroa.0.0.copyload.i.i.i.i.pre, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i.i.i, %13 ]
   %27 = phi ptr [ %.pre, %._crit_edge ], [ %6, %13 ]
-  %.not103 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 84
-  br i1 %.not103, label %28, label %57
+  %.not107 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 84
+  br i1 %.not107, label %28, label %57
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 120
@@ -6573,8 +6573,8 @@ _ZN13V3DfgPeephole9foldUnaryI6DfgNotEEbPT_.exit:  ; preds = %15
 57:                                               ; preds = %._crit_edge90, %26
   %.sroa.0.0.copyload.i.i.i.i60 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i60.pre, %._crit_edge90 ], [ %.sroa.0.0.copyload.i.i.i.i, %26 ]
   %58 = phi ptr [ %.pre91, %._crit_edge90 ], [ %27, %26 ]
-  %.not104 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i60, 130
-  br i1 %.not104, label %59, label %.thread
+  %.not108 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i60, 130
+  br i1 %.not108, label %59, label %.thread
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %3, align 8, !tbaa !204
@@ -6619,8 +6619,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit:          ; preds = %.thread
 _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.thread, %_ZNK9DfgVertex16hasMultipleSinksEv.exit
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %.sroa.0.0.copyload.i.i.i.i63 = load i16, ptr %77, align 8, !tbaa !209
-  %.not105 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i63, 19
-  br i1 %.not105, label %78, label %89
+  %.not109 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i63, 19
+  br i1 %.not109, label %78, label %89
 
 78:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
   %79 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 49)
@@ -6646,8 +6646,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit.thread:   ; preds = %.thread, %_ZNK9DfgV
 89:                                               ; preds = %._crit_edge96, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread
   %.sroa.0.0.copyload.i.i.i.i65 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i65.pre, %._crit_edge96 ], [ %.sroa.0.0.copyload.i.i.i.i63, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
   %90 = phi ptr [ %.pre97, %._crit_edge96 ], [ %73, %_ZNK9DfgVertex16hasMultipleSinksEv.exit.thread ]
-  %.not106 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i65, 56
-  br i1 %.not106, label %91, label %102
+  %.not110 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i65, 56
+  br i1 %.not110, label %91, label %102
 
 91:                                               ; preds = %89
   %92 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 50)
@@ -6822,14 +6822,14 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit125:       ; preds = %_ZNK9DfgVertex16has
 _ZNK9DfgVertex16hasMultipleSinksEv.exit125.thread: ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit123.thread, %_ZNK9DfgVertex16hasMultipleSinksEv.exit125
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %40, align 8, !tbaa !209
-  %.not184 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 130
-  br i1 %.not184, label %41, label %75
+  %.not192 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 130
+  br i1 %.not192, label %41, label %75
 
 41:                                               ; preds = %_ZNK9DfgVertex16hasMultipleSinksEv.exit125.thread
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %.sroa.0.0.copyload.i.i.i.i126 = load i16, ptr %42, align 8, !tbaa !209
-  %.not185 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i126, 130
-  br i1 %.not185, label %43, label %55
+  %.not193 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i126, 130
+  br i1 %.not193, label %43, label %55
 
 43:                                               ; preds = %41
   %44 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 54)
@@ -6854,8 +6854,8 @@ _ZNK9DfgVertex16hasMultipleSinksEv.exit125.thread: ; preds = %_ZNK9DfgVertex16ha
 
 55:                                               ; preds = %._crit_edge, %41
   %.sroa.0.0.copyload.i.i.i.i128 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i128.pre, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i.i126, %41 ]
-  %.not186 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i128, 56
-  br i1 %.not186, label %56, label %75
+  %.not194 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i128, 56
+  br i1 %.not194, label %56, label %75
 
 56:                                               ; preds = %55
   %57 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 53)
@@ -7368,7 +7368,7 @@ define linkonce_odr dso_local void @_ZN13V3DfgPeephole5visitEP6DfgSel(ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %22 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5opSelERKS_jj(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %21, i32 noundef %14, i32 noundef %8)
-  br label %.thread260.sink.split
+  br label %.thread277.sink.split
 
 23:                                               ; preds = %17, %2
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -7391,7 +7391,7 @@ define linkonce_odr dso_local void @_ZN13V3DfgPeephole5visitEP6DfgSel(ptr nounde
 
 34:                                               ; preds = %29
   %35 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 24)
-  br i1 %35, label %.thread260.sink.split, label %36
+  br i1 %35, label %.thread277.sink.split, label %36
 
 36:                                               ; preds = %34, %23
   %.sroa.0.0.copyload.i.i.i.i170 = load i16, ptr %15, align 8, !tbaa !209
@@ -7614,7 +7614,7 @@ _ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_P8FileLineP12AstNodeDTypeDpT0_
   %150 = load ptr, ptr %149, align 8, !tbaa !207
   %151 = load ptr, ptr %9, align 8, !tbaa !204
   %152 = tail call noundef ptr @_ZN13V3DfgPeephole4makeI9DfgConcatJP6DfgSelS3_EEEPT_P8FileLineP12AstNodeDTypeDpT0_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef %150, ptr noundef %151, ptr noundef nonnull %122, ptr noundef nonnull %138)
-  br label %.thread260.sink.split
+  br label %.thread277.sink.split
 
 .sink.split:                                      ; preds = %89, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i174, %65, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i
   %.sink = phi ptr [ %57, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i ], [ %57, %65 ], [ %81, %_ZN9DfgVertex4userIPS_EERT_v.exit.i.i174 ], [ %81, %89 ]
@@ -7840,7 +7840,7 @@ _ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit212: ; preds = %_
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 56
   %.sroa.0.0.copyload.i.i.i216 = load i16, ptr %261, align 8, !tbaa !209
   %262 = icmp eq i16 %.sroa.0.0.copyload.i.i.i216, 0
-  br i1 %262, label %263, label %.thread260
+  br i1 %262, label %263, label %.thread277
 
 263:                                              ; preds = %258, %253
   %264 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 16)
@@ -7926,7 +7926,7 @@ _ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit228: ; preds = %_
   %301 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %302 = load ptr, ptr %301, align 8, !tbaa !205
   %303 = tail call noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9DfgVertexP6DfgSelS5_EEEPT_P8FileLineP12AstNodeDTypeDpT0_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef %299, ptr noundef %300, ptr noundef %302, ptr noundef nonnull %271, ptr noundef nonnull %287)
-  br label %.thread260.sink.split
+  br label %.thread277.sink.split
 
 304:                                              ; preds = %._crit_edge, %251
   %.sroa.0.0.copyload.i.i.i.i229 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i229.pre, %._crit_edge ], [ %.sroa.0.0.copyload.i.i.i.i213, %251 ]
@@ -7934,7 +7934,7 @@ _ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit228: ; preds = %_
   %305 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i229.fr, 70
   %306 = icmp eq i32 %8, 0
   %or.cond = select i1 %305, i1 %306, i1 false
-  br i1 %or.cond, label %307, label %.thread260
+  br i1 %or.cond, label %307, label %.thread277
 
 307:                                              ; preds = %304
   %308 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -7955,7 +7955,7 @@ _ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit228: ; preds = %_
 
 318:                                              ; preds = %307
   %319 = tail call noundef zeroext i1 @_ZN13V3DfgPeephole13checkApplyingE19VDfgPeepholePattern(ptr noundef nonnull align 8 dereferenceable(1328) %0, i32 19)
-  br i1 %319, label %320, label %.thread260
+  br i1 %319, label %320, label %.thread277
 
 320:                                              ; preds = %318
   %321 = load ptr, ptr %308, align 8, !tbaa !205
@@ -8000,14 +8000,14 @@ _ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit236: ; preds = %_
   %342 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %343 = load ptr, ptr %342, align 8, !tbaa !205
   %344 = tail call noundef ptr @_ZN13V3DfgPeephole4makeI9DfgShiftLJP6DfgSelP9DfgVertexEEEPT_P8FileLineP12AstNodeDTypeDpT0_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef %340, ptr noundef %341, ptr noundef nonnull %328, ptr noundef %343)
-  br label %.thread260.sink.split
+  br label %.thread277.sink.split
 
-.thread260.sink.split:                            ; preds = %34, %.critedge, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit186, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit228, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit236
-  %.sink262 = phi ptr [ %344, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit236 ], [ %303, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit228 ], [ %152, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit186 ], [ %19, %.critedge ], [ %4, %34 ]
-  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef %.sink262)
-  br label %.thread260
+.thread277.sink.split:                            ; preds = %34, %.critedge, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit186, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit228, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit236
+  %.sink279 = phi ptr [ %344, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit236 ], [ %303, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_S3_DpT0_.exit228 ], [ %152, %_ZN13V3DfgPeephole4makeI6DfgSelJP9DfgVertexjEEEPT_P8FileLineP12AstNodeDTypeDpT0_.exit186 ], [ %19, %.critedge ], [ %4, %34 ]
+  tail call void @_ZN13V3DfgPeephole7replaceEP9DfgVertexS1_(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull %1, ptr noundef %.sink279)
+  br label %.thread277
 
-.thread260:                                       ; preds = %.thread260.sink.split, %258, %304, %318
+.thread277:                                       ; preds = %.thread277.sink.split, %258, %304, %318
   ret void
 }
 
@@ -9001,8 +9001,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
 
 52:                                               ; preds = %51
   %.sroa.0.0.copyload.i.i.i.i111 = load i16, ptr %9, align 8, !tbaa !209
-  %.not139 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 1
-  br i1 %.not139, label %53, label %74
+  %.not147 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 1
+  br i1 %.not147, label %53, label %74
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -10709,7 +10709,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -11164,8 +11164,8 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheIntern
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.043.071 = load ptr, ptr %18, align 8
   %.not72 = icmp eq ptr %.sroa.043.071, null
-  %or.cond78 = select i1 %.not.not, i1 true, i1 %.not72
-  br i1 %or.cond78, label %.critedge, label %.lr.ph
+  %or.cond85 = select i1 %.not.not, i1 true, i1 %.not72
+  br i1 %or.cond85, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15DfgVertexBinaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread54
   %.sroa.043.073 = phi ptr [ %.sroa.043.0, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15DfgVertexBinaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread54 ], [ %.sroa.043.071, %4 ]
@@ -12153,8 +12153,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
 
 52:                                               ; preds = %51
   %.sroa.0.0.copyload.i.i.i.i111 = load i16, ptr %9, align 8, !tbaa !209
-  %.not139 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 3
-  br i1 %.not139, label %53, label %74
+  %.not147 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 3
+  br i1 %.not147, label %53, label %74
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -14504,7 +14504,7 @@ _ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit: ; preds = %.noe
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread
 
 _ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread: ; preds = %.noexc, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit
-  %spec.select.i11 = phi ptr [ %spec.select.i.ph, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ null, %.noexc ]
+  %spec.select.i14 = phi ptr [ %spec.select.i.ph, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ null, %.noexc ]
   %20 = phi ptr [ %.pre, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ @_ZNSt17_Function_handlerIFbRK7DfgEdgemEZNK11DfgVarArray8driverAtEmEUlS2_mE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, %.noexc ]
   %21 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %22
@@ -14517,12 +14517,12 @@ _ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread: ; preds 
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread
-  %spec.select.i12 = phi ptr [ %spec.select.i.ph, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ %spec.select.i11, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread ]
-  %.not = icmp eq ptr %spec.select.i12, null
+  %spec.select.i15 = phi ptr [ %spec.select.i.ph, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ %spec.select.i14, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread ]
+  %.not = icmp eq ptr %spec.select.i15, null
   br i1 %.not, label %28, label %25
 
 25:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %26 = getelementptr inbounds nuw i8, ptr %spec.select.i12, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %spec.select.i15, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !205
   br label %28
 
@@ -14741,8 +14741,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
 
 58:                                               ; preds = %57
   %.sroa.0.0.copyload.i.i.i.i115 = load i16, ptr %9, align 8, !tbaa !209
-  %.not143 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i115, 10
-  br i1 %.not143, label %59, label %86
+  %.not151 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i115, 10
+  br i1 %.not151, label %59, label %86
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -16054,8 +16054,8 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN18V3DfgCacheIntern
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.041.080 = load ptr, ptr %23, align 8
   %.not81 = icmp eq ptr %.sroa.041.080, null
-  %or.cond101 = select i1 %.not.not, i1 true, i1 %.not81
-  br i1 %or.cond101, label %.critedge, label %.lr.ph
+  %or.cond107 = select i1 %.not.not, i1 true, i1 %.not81
+  br i1 %or.cond107, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgSelENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread52
   %.sroa.041.082 = phi ptr [ %.sroa.041.0, %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgSelENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS4_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread52 ], [ %.sroa.041.080, %4 ]
@@ -18881,8 +18881,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
 
 52:                                               ; preds = %51
   %.sroa.0.0.copyload.i.i.i.i111 = load i16, ptr %9, align 8, !tbaa !209
-  %.not139 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 52
-  br i1 %.not139, label %53, label %74
+  %.not147 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 52
+  br i1 %.not147, label %53, label %74
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -19776,8 +19776,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
 
 52:                                               ; preds = %51
   %.sroa.0.0.copyload.i.i.i.i111 = load i16, ptr %9, align 8, !tbaa !209
-  %.not139 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 54
-  br i1 %.not139, label %53, label %74
+  %.not147 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 54
+  br i1 %.not147, label %53, label %74
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -20947,8 +20947,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
 
 52:                                               ; preds = %51
   %.sroa.0.0.copyload.i.i.i.i111 = load i16, ptr %9, align 8, !tbaa !209
-  %.not139 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 62
-  br i1 %.not139, label %53, label %74
+  %.not147 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 62
+  br i1 %.not147, label %53, label %74
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -22292,8 +22292,8 @@ _ZN13V3DfgPeephole9foldUnaryI9DfgRedAndEEbPT_.exit: ; preds = %7
 
 57:                                               ; preds = %._crit_edge53, %30
   %.sroa.0.0.copyload.i.i.i.i43 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i43.pre, %._crit_edge53 ], [ %.sroa.0.0.copyload.i.i.i.i, %30 ]
-  %.not57 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i43, 10
-  br i1 %.not57, label %58, label %.thread
+  %.not59 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i43, 10
+  br i1 %.not59, label %58, label %.thread
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %20, i64 88
@@ -22714,8 +22714,8 @@ _ZN13V3DfgPeephole9foldUnaryI8DfgRedOrEEbPT_.exit: ; preds = %7
 
 57:                                               ; preds = %._crit_edge53, %30
   %.sroa.0.0.copyload.i.i.i.i43 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i43.pre, %._crit_edge53 ], [ %.sroa.0.0.copyload.i.i.i.i, %30 ]
-  %.not57 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i43, 10
-  br i1 %.not57, label %58, label %.thread
+  %.not59 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i43, 10
+  br i1 %.not59, label %58, label %.thread
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %20, i64 88
@@ -23136,8 +23136,8 @@ _ZN13V3DfgPeephole9foldUnaryI9DfgRedXorEEbPT_.exit: ; preds = %7
 
 57:                                               ; preds = %._crit_edge53, %30
   %.sroa.0.0.copyload.i.i.i.i43 = phi i16 [ %.sroa.0.0.copyload.i.i.i.i43.pre, %._crit_edge53 ], [ %.sroa.0.0.copyload.i.i.i.i, %30 ]
-  %.not57 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i43, 10
-  br i1 %.not57, label %58, label %.thread
+  %.not59 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i43, 10
+  br i1 %.not59, label %58, label %.thread
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %20, i64 88
@@ -24411,8 +24411,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN13V3DfgPeephole17associativ
 
 52:                                               ; preds = %51
   %.sroa.0.0.copyload.i.i.i.i111 = load i16, ptr %9, align 8, !tbaa !209
-  %.not139 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 83
-  br i1 %.not139, label %53, label %74
+  %.not147 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i111, 83
+  br i1 %.not147, label %53, label %74
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 120

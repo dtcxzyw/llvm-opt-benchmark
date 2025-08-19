@@ -972,8 +972,8 @@ extcap_parse_arg_sentence.exit.thread:            ; preds = %165, %174, %184, %9
   br label %extcap_free_tokenized_sentences.exit
 
 extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge
-  %.0.lcssa32 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
-  ret ptr %.0.lcssa32
+  %.0.lcssa54 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
+  ret ptr %.0.lcssa54
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1257,8 +1257,8 @@ define hidden ptr @extcap_parse_values(ptr noundef %0) local_unnamed_addr #0 {
   br label %extcap_free_tokenized_sentences.exit
 
 extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge
-  %.0.lcssa18 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
-  ret ptr %.0.lcssa18
+  %.0.lcssa21 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
+  ret ptr %.0.lcssa21
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1674,9 +1674,9 @@ matches_regex.exit.i:                             ; preds = %101, %99
   br label %151
 
 151:                                              ; preds = %149, %146, %143, %140, %137, %132
-  %.sink151.i = phi i32 [ 0, %149 ], [ 1, %137 ], [ 2, %140 ], [ 3, %143 ], [ 4, %146 ], [ 1, %132 ]
+  %.sink164.i = phi i32 [ 0, %149 ], [ 1, %137 ], [ 2, %140 ], [ 3, %143 ], [ 4, %146 ], [ 1, %132 ]
   %152 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 %.sink151.i, ptr %152, align 8
+  store i32 %.sink164.i, ptr %152, align 8
   %153 = load ptr, ptr %74, align 8
   %154 = call ptr @g_hash_table_lookup(ptr noundef %153, ptr noundef nonnull inttoptr (i64 6 to ptr))
   %155 = icmp ne ptr %154, null
@@ -1852,8 +1852,8 @@ extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %35, %28, %extc
   br label %extcap_free_tokenized_sentences.exit
 
 extcap_free_tokenized_sentences.exit:             ; preds = %2, %._crit_edge
-  %.0.lcssa45 = phi ptr [ %.1, %._crit_edge ], [ null, %2 ]
-  ret ptr %.0.lcssa45
+  %.0.lcssa68 = phi ptr [ %.1, %._crit_edge ], [ null, %2 ]
+  ret ptr %.0.lcssa68
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1954,8 +1954,8 @@ extcap_parse_dlt_sentence.exit.thread:            ; preds = %5, %.lr.ph, %33, %2
   br label %extcap_free_tokenized_sentences.exit
 
 extcap_free_tokenized_sentences.exit:             ; preds = %1, %._crit_edge
-  %.0.lcssa19 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
-  ret ptr %.0.lcssa19
+  %.0.lcssa26 = phi ptr [ %.1, %._crit_edge ], [ null, %1 ]
+  ret ptr %.0.lcssa26
 }
 
 ; Function Attrs: null_pointer_is_valid

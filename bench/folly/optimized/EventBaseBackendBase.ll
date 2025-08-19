@@ -224,10 +224,10 @@ define noundef zeroext i1 @_ZN5folly29EventRecvmsgMultishotCallback21parseRecvms
   unreachable
 
 _ZNK5folly5RangeIPKhE8subpieceEmm.exit:           ; preds = %24, %22
-  %.sink61 = phi i64 [ %19, %22 ], [ %8, %24 ]
+  %.sink64 = phi i64 [ %19, %22 ], [ %8, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = add i64 %15, -16
-  %.sroa.speculated.i36 = tail call i64 @llvm.umin.i64(i64 %27, i64 %.sink61)
+  %.sroa.speculated.i36 = tail call i64 @llvm.umin.i64(i64 %27, i64 %.sink64)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.sroa.speculated.i36
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %26, ptr %29, align 8, !tbaa !41

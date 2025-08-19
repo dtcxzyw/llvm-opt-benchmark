@@ -393,8 +393,8 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit: ; preds = %3
   %61 = zext i1 %.not.i46.us to i32
   %62 = or disjoint i32 %60, %61
   %indvars.iv.next104 = add nsw i64 %indvars.iv103, -1
-  %.not123 = icmp eq i64 %indvars.iv103, 0
-  br i1 %.not123, label %.split67.us, label %57, !llvm.loop !55
+  %.not129 = icmp eq i64 %indvars.iv103, 0
+  br i1 %.not129, label %.split67.us, label %57, !llvm.loop !55
 
 63:                                               ; preds = %.preheader.split, %63
   %indvars.iv = phi i64 [ 0, %.preheader.split ], [ %indvars.iv.next, %63 ]
@@ -435,15 +435,15 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit: ; preds = %3
   %83 = sext i32 %68 to i64
   %84 = sext i32 %69 to i64
   %85 = sext i32 %82 to i64
-  %invariant.gep138 = getelementptr i8, ptr %78, i64 %85
+  %invariant.gep144 = getelementptr i8, ptr %78, i64 %85
   br label %86
 
 86:                                               ; preds = %86, %.split72.us
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %86 ], [ %83, %.split72.us ]
   %.03370.us = phi i32 [ %90, %86 ], [ 0, %.split72.us ]
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
-  %gep139 = getelementptr i8, ptr %invariant.gep138, i64 %indvars.iv.next110
-  %87 = load i8, ptr %gep139, align 1, !tbaa !41
+  %gep145 = getelementptr i8, ptr %invariant.gep144, i64 %indvars.iv.next110
+  %87 = load i8, ptr %gep145, align 1, !tbaa !41
   %.not.i49.us = icmp ne i8 %87, 0
   %88 = shl i32 %.03370.us, 1
   %89 = zext i1 %.not.i49.us to i32
@@ -463,8 +463,8 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit: ; preds = %3
   %96 = zext i1 %.not.i46 to i32
   %97 = or disjoint i32 %95, %96
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
-  %.not122 = icmp eq i64 %indvars.iv100, 0
-  br i1 %.not122, label %.split67.us, label %.split65, !llvm.loop !55
+  %.not128 = icmp eq i64 %indvars.iv100, 0
+  br i1 %.not128, label %.split67.us, label %.split65, !llvm.loop !55
 
 .split79.us.preheader:                            ; preds = %86
   %98 = add i32 %68, -8
@@ -494,7 +494,7 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit: ; preds = %3
   %112 = sext i32 %110 to i64
   %113 = sext i32 %68 to i64
   %114 = sext i32 %111 to i64
-  %invariant.gep136 = getelementptr i8, ptr %78, i64 %114
+  %invariant.gep142 = getelementptr i8, ptr %78, i64 %114
   br label %149
 
 .split72:                                         ; preds = %.split72.preheader, %.split72
@@ -581,8 +581,8 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEED2Ev.exit: ; preds = %139, %144, %_
 149:                                              ; preds = %.split79, %149
   %indvars.iv112 = phi i64 [ %112, %.split79 ], [ %indvars.iv.next113, %149 ]
   %.13477 = phi i32 [ %121, %.split79 ], [ %153, %149 ]
-  %gep137 = getelementptr i8, ptr %invariant.gep136, i64 %indvars.iv112
-  %150 = load i8, ptr %gep137, align 1, !tbaa !41
+  %gep143 = getelementptr i8, ptr %invariant.gep142, i64 %indvars.iv112
+  %150 = load i8, ptr %gep143, align 1, !tbaa !41
   %.not.i54 = icmp ne i8 %150, 0
   %151 = shl i32 %.13477, 1
   %152 = zext i1 %.not.i54 to i32
@@ -729,8 +729,8 @@ define hidden noundef ptr @_ZN5zxing6qrcode15BitMatrixParser11readVersionERNS_12
 
 .split71.us.us:                                   ; preds = %31
   %indvars.iv.next102 = add nsw i64 %indvars.iv101, -1
-  %.not117 = icmp eq i64 %indvars.iv101, 0
-  br i1 %.not117, label %.split75.us, label %.split.us.us, !llvm.loop !60
+  %.not124 = icmp eq i64 %indvars.iv101, 0
+  br i1 %.not124, label %.split75.us, label %.split.us.us, !llvm.loop !60
 
 37:                                               ; preds = %7
   %38 = tail call noundef ptr @_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12ErrorHandlerE(i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(48) %1)
@@ -758,8 +758,8 @@ define hidden noundef ptr @_ZN5zxing6qrcode15BitMatrixParser11readVersionERNS_12
 
 .split71:                                         ; preds = %46
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, -1
-  %.not116 = icmp eq i64 %indvars.iv95, 0
-  br i1 %.not116, label %.split75.us, label %.split, !llvm.loop !60
+  %.not123 = icmp eq i64 %indvars.iv95, 0
+  br i1 %.not123, label %.split75.us, label %.split, !llvm.loop !60
 
 46:                                               ; preds = %.split, %46
   %indvars.iv = phi i64 [ %26, %.split ], [ %indvars.iv.next, %46 ]
@@ -828,8 +828,8 @@ define hidden noundef ptr @_ZN5zxing6qrcode15BitMatrixParser11readVersionERNS_12
 
 .split81.us.us:                                   ; preds = %74
   %indvars.iv.next114 = add nsw i64 %indvars.iv113, -1
-  %.not119 = icmp eq i64 %indvars.iv113, 0
-  br i1 %.not119, label %.split87.us, label %.split79.us.us, !llvm.loop !62
+  %.not126 = icmp eq i64 %indvars.iv113, 0
+  br i1 %.not126, label %.split87.us, label %.split79.us.us, !llvm.loop !62
 
 .split87.us:                                      ; preds = %.split81, %.split81.us.us
   %.us-phi88 = phi i32 [ %79, %.split81.us.us ], [ %87, %.split81 ]
@@ -841,20 +841,20 @@ define hidden noundef ptr @_ZN5zxing6qrcode15BitMatrixParser11readVersionERNS_12
 .split79:                                         ; preds = %.split79.preheader, %.split81
   %indvars.iv107 = phi i64 [ 5, %.split79.preheader ], [ %indvars.iv.next108, %.split81 ]
   %.24583 = phi i32 [ 0, %.split79.preheader ], [ %87, %.split81 ]
-  %invariant.gep125 = getelementptr i8, ptr %66, i64 %indvars.iv107
+  %invariant.gep132 = getelementptr i8, ptr %66, i64 %indvars.iv107
   br label %82
 
 .split81:                                         ; preds = %82
   %indvars.iv.next108 = add nsw i64 %indvars.iv107, -1
-  %.not118 = icmp eq i64 %indvars.iv107, 0
-  br i1 %.not118, label %.split87.us, label %.split79, !llvm.loop !62
+  %.not125 = icmp eq i64 %indvars.iv107, 0
+  br i1 %.not125, label %.split87.us, label %.split79, !llvm.loop !62
 
 82:                                               ; preds = %.split79, %82
   %indvars.iv104 = phi i64 [ %67, %.split79 ], [ %indvars.iv.next105, %82 ]
   %.34677 = phi i32 [ %.24583, %.split79 ], [ %87, %82 ]
   %83 = mul nsw i64 %indvars.iv104, %68
-  %gep126 = getelementptr i8, ptr %invariant.gep125, i64 %83
-  %84 = load i8, ptr %gep126, align 1, !tbaa !41
+  %gep133 = getelementptr i8, ptr %invariant.gep132, i64 %83
+  %84 = load i8, ptr %gep133, align 1, !tbaa !41
   %.not.i58 = icmp ne i8 %84, 0
   %85 = shl i32 %.34677, 1
   %86 = zext i1 %.not.i58 to i32

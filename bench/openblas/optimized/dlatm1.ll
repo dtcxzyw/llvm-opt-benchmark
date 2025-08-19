@@ -125,8 +125,8 @@ define void @dlatm1_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 43:                                               ; preds = %31
   store double 1.000000e+00, ptr %5, align 8, !tbaa !7
-  %.not206 = icmp eq i32 %11, 1
-  br i1 %.not206, label %.loopexit145, label %44
+  %.not212 = icmp eq i32 %11, 1
+  br i1 %.not212, label %.loopexit145, label %44
 
 44:                                               ; preds = %43
   %45 = add nsw i32 %11, -1

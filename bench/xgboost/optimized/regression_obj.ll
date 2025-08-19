@@ -4073,7 +4073,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %71, %56
   %73 = load ptr, ptr %11, align 8, !tbaa !4
   %74 = icmp eq ptr %73, %12
-  br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %75 = load i64, ptr %13, align 8, !tbaa !12
@@ -4083,13 +4083,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %78 = icmp eq ptr %77, %49
   br i1 %78, label %81, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %79 = load ptr, ptr %5, align 8, !tbaa !4
   %80 = icmp eq ptr %79, %49
   br i1 %80, label %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-81:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %82 = phi ptr [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %77, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+81:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %82 = phi ptr [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %77, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %83 = load i64, ptr %50, align 8, !tbaa !12
   %84 = icmp ult i64 %83, 16
   call void @llvm.assume(i1 %84)
@@ -4128,7 +4128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %93, ptr %12, align 8, !tbaa !13
   br label %98
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %94 = load i64, ptr %12, align 8, !tbaa !13
   store ptr %79, ptr %11, align 8, !tbaa !4
   %95 = load i64, ptr %50, align 8, !tbaa !12
@@ -4636,12 +4636,12 @@ _ZN4dmlc7isspaceEc.exit:                          ; preds = %6
   ]
 
 .critedge.thread:                                 ; preds = %18, %.critedge, %.critedge
-  %.2134.lcssa252 = phi ptr [ %.2134189, %.critedge ], [ %.2134189, %.critedge ], [ %scevgep242, %18 ]
+  %.2134.lcssa256 = phi ptr [ %.2134189, %.critedge ], [ %.2134189, %.critedge ], [ %scevgep242, %18 ]
   %.not150 = icmp eq ptr %1, null
   br i1 %.not150, label %22, label %21
 
 21:                                               ; preds = %.critedge.thread
-  store ptr %.2134.lcssa252, ptr %1, align 8, !tbaa !116
+  store ptr %.2134.lcssa256, ptr %1, align 8, !tbaa !116
   br label %22
 
 22:                                               ; preds = %21, %.critedge.thread
@@ -4999,8 +4999,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !125
 
 ._crit_edge224:                                   ; preds = %.lr.ph223, %121, %.preheader
-  %.pr179256264269284 = phi i8 [ %137, %.preheader ], [ %128, %121 ], [ %137, %.lr.ph223 ]
-  %.12.lcssa257263271283 = phi ptr [ %136, %.preheader ], [ %.11, %121 ], [ %136, %.lr.ph223 ]
+  %.pr179260268273288 = phi i8 [ %137, %.preheader ], [ %128, %121 ], [ %137, %.lr.ph223 ]
+  %.12.lcssa261267275287 = phi ptr [ %136, %.preheader ], [ %.11, %121 ], [ %136, %.lr.ph223 ]
   %.1114.lcssa = phi float [ %.0113.lcssa, %.preheader ], [ 1.000000e+00, %121 ], [ %157, %.lr.ph223 ]
   %159 = fdiv float %.0121, %.1114.lcssa
   %160 = fmul float %.0121, %.1114.lcssa
@@ -5008,8 +5008,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %162
 
 162:                                              ; preds = %._crit_edge224, %119
-  %163 = phi i8 [ %.pr179256264269284, %._crit_edge224 ], [ %120, %119 ]
-  %.10 = phi ptr [ %.12.lcssa257263271283, %._crit_edge224 ], [ %.8, %119 ]
+  %163 = phi i8 [ %.pr179260268273288, %._crit_edge224 ], [ %120, %119 ]
+  %.10 = phi ptr [ %.12.lcssa261267275287, %._crit_edge224 ], [ %.8, %119 ]
   %.1122 = phi float [ %161, %._crit_edge224 ], [ %.0121, %119 ]
   switch i8 %163, label %166 [
     i8 102, label %164
@@ -7408,18 +7408,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !22
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #42
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #42
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -7453,7 +7453,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -8037,18 +8037,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !22
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #42
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #42
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -8082,7 +8082,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -10959,25 +10959,25 @@ _ZNK4dmlc9parameter12ParamManager4FindERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %55, label %._crit_edge.thread.i.i.i, label %60
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %52
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %13, %52 ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %13, %52 ]
   %56 = load ptr, ptr %14, align 8, !tbaa !22
-  %57 = icmp eq ptr %.019.lcssa28.i.i.i, %56
+  %57 = icmp eq ptr %.019.lcssa29.i.i.i, %56
   br i1 %57, label %select.unfold.i.i, label %58
 
 58:                                               ; preds = %._crit_edge.thread.i.i.i
-  %59 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #42
+  %59 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #42
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %59, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !52
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge.i.i.i
   %61 = phi ptr [ %.pre.i.i, %58 ], [ %54, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %58 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %58 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %62 = icmp ult ptr %61, %43
   br i1 %62, label %select.unfold.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE9push_backERKS7_.exit
 
 select.unfold.i.i:                                ; preds = %60, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %60 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %60 ]
   %63 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %13
   br i1 %63, label %_ZNSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %64
 
@@ -13032,18 +13032,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !22
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #42
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #42
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -13077,7 +13077,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -13951,18 +13951,18 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !22
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #42
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #42
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8, !tbaa !12
@@ -13996,7 +13996,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 
 34:                                               ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -15214,7 +15214,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 41:                                               ; preds = %.lr.ph93
   %42 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %42, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !376
+  br i1 %exitcond112.not, label %thread-pre-split125, label %.lr.ph93, !llvm.loop !376
 
 43:                                               ; preds = %.lr.ph93
   %44 = landingpad { ptr, i32 }
@@ -15240,7 +15240,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 47:                                               ; preds = %.lr.ph91
   %48 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %48, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !377
+  br i1 %exitcond111.not, label %thread-pre-split125, label %.lr.ph91, !llvm.loop !377
 
 49:                                               ; preds = %.lr.ph91
   %50 = landingpad { ptr, i32 }
@@ -15255,7 +15255,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 51:                                               ; preds = %.lr.ph89
   %52 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %52, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !378
+  br i1 %exitcond110.not, label %thread-pre-split125, label %.lr.ph89, !llvm.loop !378
 
 53:                                               ; preds = %.lr.ph89
   %54 = landingpad { ptr, i32 }
@@ -15281,7 +15281,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph87
   %58 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %58, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !379
+  br i1 %exitcond109.not, label %thread-pre-split125, label %.lr.ph87, !llvm.loop !379
 
 59:                                               ; preds = %.lr.ph87
   %60 = landingpad { ptr, i32 }
@@ -15296,7 +15296,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph85
   %62 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %62, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !380
+  br i1 %exitcond108.not, label %thread-pre-split125, label %.lr.ph85, !llvm.loop !380
 
 63:                                               ; preds = %.lr.ph85
   %64 = landingpad { ptr, i32 }
@@ -15311,19 +15311,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %66, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !381
+  br i1 %exitcond.not, label %thread-pre-split125, label %.lr.ph, !llvm.loop !381
 
 67:                                               ; preds = %.lr.ph
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %65, %61, %57, %51, %47, %41
+thread-pre-split125:                              ; preds = %65, %61, %57, %51, %47, %41
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %69
 
-69:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+69:                                               ; preds = %thread-pre-split125, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split125 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -16146,7 +16146,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 55:                                               ; preds = %.lr.ph93
   %56 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %56, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !412
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !412
 
 57:                                               ; preds = %.lr.ph93
   %58 = landingpad { ptr, i32 }
@@ -16172,7 +16172,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph91
   %62 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %62, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !413
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !413
 
 63:                                               ; preds = %.lr.ph91
   %64 = landingpad { ptr, i32 }
@@ -16187,7 +16187,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph89
   %66 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %66, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !414
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !414
 
 67:                                               ; preds = %.lr.ph89
   %68 = landingpad { ptr, i32 }
@@ -16213,7 +16213,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 71:                                               ; preds = %.lr.ph87
   %72 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %72, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !415
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !415
 
 73:                                               ; preds = %.lr.ph87
   %74 = landingpad { ptr, i32 }
@@ -16228,7 +16228,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 75:                                               ; preds = %.lr.ph85
   %76 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %76, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !416
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !416
 
 77:                                               ; preds = %.lr.ph85
   %78 = landingpad { ptr, i32 }
@@ -16243,19 +16243,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 79:                                               ; preds = %.lr.ph
   %80 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %80, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !417
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !417
 
 81:                                               ; preds = %.lr.ph
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %79, %75, %71, %65, %61, %55
+thread-pre-split126:                              ; preds = %79, %75, %71, %65, %61, %55
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %83
 
-83:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+83:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -17904,11 +17904,11 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 .split.i8.i.i.i.i:                                ; preds = %24
   %33 = udiv i32 %25, %27
   %34 = mul i32 %33, %27
-  %.recomposed150 = urem i32 %25, %27
+  %.recomposed155 = urem i32 %25, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed150, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
   %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
@@ -17946,7 +17946,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i.i.i.i.i46:                               ; preds = %46
   %52 = udiv i64 %44, %36
   %53 = mul i64 %52, %36
-  %.recomposed151 = urem i64 %44, %36
+  %.recomposed156 = urem i64 %44, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
 54:                                               ; preds = %43
@@ -17966,18 +17966,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i8.i.i.i.i37:                              ; preds = %54
   %62 = udiv i32 %55, %56
   %63 = mul i32 %62, %56
-  %.recomposed152 = urem i32 %55, %56
+  %.recomposed157 = urem i32 %55, %56
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i44
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed152, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i44 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed157, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i44 ]
   %.us-phi23.i10.i.i.i.i40 = phi i32 [ %62, %.split.i8.i.i.i.i37 ], [ %60, %.split.us.i11.i.i.i.i44 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
   %64 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48: ; preds = %.split.us.i.i.i.i.i47, %.split.i.i.i.i.i46, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed151, %.split.i.i.i.i.i46 ], [ %51, %.split.us.i.i.i.i.i47 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed156, %.split.i.i.i.i.i46 ], [ %51, %.split.us.i.i.i.i.i47 ]
   %.sink.i.i.i.i43 = phi i64 [ %64, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %52, %.split.i.i.i.i.i46 ], [ %50, %.split.us.i.i.i.i.i47 ]
   %65 = mul i64 %.sink.i.i.i.i43, %8
   %66 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
@@ -18007,7 +18007,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i.i.i.i.i59:                               ; preds = %74
   %80 = udiv i64 %72, %36
   %81 = mul i64 %80, %36
-  %.recomposed153 = urem i64 %72, %36
+  %.recomposed158 = urem i64 %72, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
 82:                                               ; preds = %71
@@ -18027,18 +18027,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i8.i.i.i.i50:                              ; preds = %82
   %90 = udiv i32 %83, %84
   %91 = mul i32 %90, %84
-  %.recomposed154 = urem i32 %83, %84
+  %.recomposed159 = urem i32 %83, %84
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51: ; preds = %.split.i8.i.i.i.i50, %.split.us.i11.i.i.i.i57
-  %.us-phi.i9.i.i.i.i52 = phi i32 [ %.recomposed154, %.split.i8.i.i.i.i50 ], [ %89, %.split.us.i11.i.i.i.i57 ]
+  %.us-phi.i9.i.i.i.i52 = phi i32 [ %.recomposed159, %.split.i8.i.i.i.i50 ], [ %89, %.split.us.i11.i.i.i.i57 ]
   %.us-phi23.i10.i.i.i.i53 = phi i32 [ %90, %.split.i8.i.i.i.i50 ], [ %88, %.split.us.i11.i.i.i.i57 ]
   %.sroa.5.1.le.i.i.i.i.i54 = zext i32 %.us-phi.i9.i.i.i.i52 to i64
   %92 = zext i32 %.us-phi23.i10.i.i.i.i53 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61: ; preds = %.split.us.i.i.i.i.i60, %.split.i.i.i.i.i59, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
-  %.sroa.5.1.le.i.sink.i.i.i.i55 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i54, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %.recomposed153, %.split.i.i.i.i.i59 ], [ %79, %.split.us.i.i.i.i.i60 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i55 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i54, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %.recomposed158, %.split.i.i.i.i.i59 ], [ %79, %.split.us.i.i.i.i.i60 ]
   %.sink.i.i.i.i56 = phi i64 [ %92, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %80, %.split.i.i.i.i.i59 ], [ %78, %.split.us.i.i.i.i.i60 ]
   %93 = mul i64 %.sink.i.i.i.i56, %8
   %94 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i55, %10
@@ -18068,7 +18068,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i.i.i.i.i72:                               ; preds = %102
   %108 = udiv i64 %100, %36
   %109 = mul i64 %108, %36
-  %.recomposed155 = urem i64 %100, %36
+  %.recomposed160 = urem i64 %100, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
 110:                                              ; preds = %99
@@ -18088,18 +18088,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i8.i.i.i.i63:                              ; preds = %110
   %118 = udiv i32 %111, %112
   %119 = mul i32 %118, %112
-  %.recomposed156 = urem i32 %111, %112
+  %.recomposed161 = urem i32 %111, %112
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64: ; preds = %.split.i8.i.i.i.i63, %.split.us.i11.i.i.i.i70
-  %.us-phi.i9.i.i.i.i65 = phi i32 [ %.recomposed156, %.split.i8.i.i.i.i63 ], [ %117, %.split.us.i11.i.i.i.i70 ]
+  %.us-phi.i9.i.i.i.i65 = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i63 ], [ %117, %.split.us.i11.i.i.i.i70 ]
   %.us-phi23.i10.i.i.i.i66 = phi i32 [ %118, %.split.i8.i.i.i.i63 ], [ %116, %.split.us.i11.i.i.i.i70 ]
   %.sroa.5.1.le.i.i.i.i.i67 = zext i32 %.us-phi.i9.i.i.i.i65 to i64
   %120 = zext i32 %.us-phi23.i10.i.i.i.i66 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74: ; preds = %.split.us.i.i.i.i.i73, %.split.i.i.i.i.i72, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
-  %.sroa.5.1.le.i.sink.i.i.i.i68 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %.recomposed155, %.split.i.i.i.i.i72 ], [ %107, %.split.us.i.i.i.i.i73 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i68 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %.recomposed160, %.split.i.i.i.i.i72 ], [ %107, %.split.us.i.i.i.i.i73 ]
   %.sink.i.i.i.i69 = phi i64 [ %120, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %108, %.split.i.i.i.i.i72 ], [ %106, %.split.us.i.i.i.i.i73 ]
   %121 = mul i64 %.sink.i.i.i.i69, %8
   %122 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i68, %10
@@ -18145,7 +18145,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i.i.i.i.i85:                               ; preds = %134
   %142 = udiv i64 %.sroa.0124.0.lcssa, %136
   %143 = mul i64 %142, %136
-  %.recomposed157 = urem i64 %.sroa.0124.0.lcssa, %136
+  %.recomposed162 = urem i64 %.sroa.0124.0.lcssa, %136
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
 144:                                              ; preds = %132
@@ -18167,18 +18167,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i8.i.i.i.i76:                              ; preds = %144
   %154 = udiv i32 %145, %148
   %155 = mul i32 %154, %148
-  %.recomposed158 = urem i32 %145, %148
+  %.recomposed163 = urem i32 %145, %148
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77: ; preds = %.split.i8.i.i.i.i76, %.split.us.i11.i.i.i.i83
-  %.us-phi.i9.i.i.i.i78 = phi i32 [ %.recomposed158, %.split.i8.i.i.i.i76 ], [ %153, %.split.us.i11.i.i.i.i83 ]
+  %.us-phi.i9.i.i.i.i78 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i76 ], [ %153, %.split.us.i11.i.i.i.i83 ]
   %.us-phi23.i10.i.i.i.i79 = phi i32 [ %154, %.split.i8.i.i.i.i76 ], [ %152, %.split.us.i11.i.i.i.i83 ]
   %.sroa.5.1.le.i.i.i.i.i80 = zext i32 %.us-phi.i9.i.i.i.i78 to i64
   %156 = zext i32 %.us-phi23.i10.i.i.i.i79 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87: ; preds = %.split.us.i.i.i.i.i86, %.split.i.i.i.i.i85, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
-  %.sroa.5.1.le.i.sink.i.i.i.i81 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i80, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %.recomposed157, %.split.i.i.i.i.i85 ], [ %141, %.split.us.i.i.i.i.i86 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i81 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i80, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %.recomposed162, %.split.i.i.i.i.i85 ], [ %141, %.split.us.i.i.i.i.i86 ]
   %.sink.i.i.i.i82 = phi i64 [ %156, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %142, %.split.i.i.i.i.i85 ], [ %140, %.split.us.i.i.i.i.i86 ]
   %157 = load i64, ptr %1, align 8, !tbaa !15
   %158 = mul i64 %157, %.sink.i.i.i.i82
@@ -18219,7 +18219,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i.i.i.i.i98:                               ; preds = %172
   %180 = udiv i64 %.sroa.0124.1, %174
   %181 = mul i64 %180, %174
-  %.recomposed159 = urem i64 %.sroa.0124.1, %174
+  %.recomposed164 = urem i64 %.sroa.0124.1, %174
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
 182:                                              ; preds = %170
@@ -18241,18 +18241,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i8.i.i.i.i89:                              ; preds = %182
   %192 = udiv i32 %183, %186
   %193 = mul i32 %192, %186
-  %.recomposed160 = urem i32 %183, %186
+  %.recomposed165 = urem i32 %183, %186
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90: ; preds = %.split.i8.i.i.i.i89, %.split.us.i11.i.i.i.i96
-  %.us-phi.i9.i.i.i.i91 = phi i32 [ %.recomposed160, %.split.i8.i.i.i.i89 ], [ %191, %.split.us.i11.i.i.i.i96 ]
+  %.us-phi.i9.i.i.i.i91 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i89 ], [ %191, %.split.us.i11.i.i.i.i96 ]
   %.us-phi23.i10.i.i.i.i92 = phi i32 [ %192, %.split.i8.i.i.i.i89 ], [ %190, %.split.us.i11.i.i.i.i96 ]
   %.sroa.5.1.le.i.i.i.i.i93 = zext i32 %.us-phi.i9.i.i.i.i91 to i64
   %194 = zext i32 %.us-phi23.i10.i.i.i.i92 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100: ; preds = %.split.us.i.i.i.i.i99, %.split.i.i.i.i.i98, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
-  %.sroa.5.1.le.i.sink.i.i.i.i94 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i93, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %.recomposed159, %.split.i.i.i.i.i98 ], [ %179, %.split.us.i.i.i.i.i99 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i94 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i93, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %.recomposed164, %.split.i.i.i.i.i98 ], [ %179, %.split.us.i.i.i.i.i99 ]
   %.sink.i.i.i.i95 = phi i64 [ %194, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %180, %.split.i.i.i.i.i98 ], [ %178, %.split.us.i.i.i.i.i99 ]
   %195 = load i64, ptr %1, align 8, !tbaa !15
   %196 = mul i64 %195, %.sink.i.i.i.i95
@@ -18293,7 +18293,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i.i.i.i.i111:                              ; preds = %210
   %218 = udiv i64 %.sroa.0124.2, %212
   %219 = mul i64 %218, %212
-  %.recomposed161 = urem i64 %.sroa.0124.2, %212
+  %.recomposed166 = urem i64 %.sroa.0124.2, %212
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
 220:                                              ; preds = %208
@@ -18315,18 +18315,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogEr
 .split.i8.i.i.i.i102:                             ; preds = %220
   %230 = udiv i32 %221, %224
   %231 = mul i32 %230, %224
-  %.recomposed162 = urem i32 %221, %224
+  %.recomposed167 = urem i32 %221, %224
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103: ; preds = %.split.i8.i.i.i.i102, %.split.us.i11.i.i.i.i109
-  %.us-phi.i9.i.i.i.i104 = phi i32 [ %.recomposed162, %.split.i8.i.i.i.i102 ], [ %229, %.split.us.i11.i.i.i.i109 ]
+  %.us-phi.i9.i.i.i.i104 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i102 ], [ %229, %.split.us.i11.i.i.i.i109 ]
   %.us-phi23.i10.i.i.i.i105 = phi i32 [ %230, %.split.i8.i.i.i.i102 ], [ %228, %.split.us.i11.i.i.i.i109 ]
   %.sroa.5.1.le.i.i.i.i.i106 = zext i32 %.us-phi.i9.i.i.i.i104 to i64
   %232 = zext i32 %.us-phi23.i10.i.i.i.i105 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_15SquaredLogErrorEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113: ; preds = %.split.us.i.i.i.i.i112, %.split.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
-  %.sroa.5.1.le.i.sink.i.i.i.i107 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i106, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %.recomposed161, %.split.i.i.i.i.i111 ], [ %217, %.split.us.i.i.i.i.i112 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i107 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i106, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %.recomposed166, %.split.i.i.i.i.i111 ], [ %217, %.split.us.i.i.i.i.i112 ]
   %.sink.i.i.i.i108 = phi i64 [ %232, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %218, %.split.i.i.i.i.i111 ], [ %216, %.split.us.i.i.i.i.i112 ]
   %233 = load i64, ptr %1, align 8, !tbaa !15
   %234 = mul i64 %233, %.sink.i.i.i.i108
@@ -18511,7 +18511,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 41:                                               ; preds = %.lr.ph93
   %42 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %42, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !485
+  br i1 %exitcond112.not, label %thread-pre-split125, label %.lr.ph93, !llvm.loop !485
 
 43:                                               ; preds = %.lr.ph93
   %44 = landingpad { ptr, i32 }
@@ -18537,7 +18537,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 47:                                               ; preds = %.lr.ph91
   %48 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %48, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !486
+  br i1 %exitcond111.not, label %thread-pre-split125, label %.lr.ph91, !llvm.loop !486
 
 49:                                               ; preds = %.lr.ph91
   %50 = landingpad { ptr, i32 }
@@ -18552,7 +18552,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 51:                                               ; preds = %.lr.ph89
   %52 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %52, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !487
+  br i1 %exitcond110.not, label %thread-pre-split125, label %.lr.ph89, !llvm.loop !487
 
 53:                                               ; preds = %.lr.ph89
   %54 = landingpad { ptr, i32 }
@@ -18578,7 +18578,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph87
   %58 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %58, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !488
+  br i1 %exitcond109.not, label %thread-pre-split125, label %.lr.ph87, !llvm.loop !488
 
 59:                                               ; preds = %.lr.ph87
   %60 = landingpad { ptr, i32 }
@@ -18593,7 +18593,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph85
   %62 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %62, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !489
+  br i1 %exitcond108.not, label %thread-pre-split125, label %.lr.ph85, !llvm.loop !489
 
 63:                                               ; preds = %.lr.ph85
   %64 = landingpad { ptr, i32 }
@@ -18608,19 +18608,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %66, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !490
+  br i1 %exitcond.not, label %thread-pre-split125, label %.lr.ph, !llvm.loop !490
 
 67:                                               ; preds = %.lr.ph
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %65, %61, %57, %51, %47, %41
+thread-pre-split125:                              ; preds = %65, %61, %57, %51, %47, %41
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %69
 
-69:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+69:                                               ; preds = %thread-pre-split125, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split125 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -19351,7 +19351,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 55:                                               ; preds = %.lr.ph93
   %56 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %56, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !509
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !509
 
 57:                                               ; preds = %.lr.ph93
   %58 = landingpad { ptr, i32 }
@@ -19377,7 +19377,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph91
   %62 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %62, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !510
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !510
 
 63:                                               ; preds = %.lr.ph91
   %64 = landingpad { ptr, i32 }
@@ -19392,7 +19392,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph89
   %66 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %66, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !511
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !511
 
 67:                                               ; preds = %.lr.ph89
   %68 = landingpad { ptr, i32 }
@@ -19418,7 +19418,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 71:                                               ; preds = %.lr.ph87
   %72 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %72, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !512
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !512
 
 73:                                               ; preds = %.lr.ph87
   %74 = landingpad { ptr, i32 }
@@ -19433,7 +19433,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 75:                                               ; preds = %.lr.ph85
   %76 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %76, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !513
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !513
 
 77:                                               ; preds = %.lr.ph85
   %78 = landingpad { ptr, i32 }
@@ -19448,19 +19448,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 79:                                               ; preds = %.lr.ph
   %80 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %80, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !514
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !514
 
 81:                                               ; preds = %.lr.ph
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %79, %75, %71, %65, %61, %55
+thread-pre-split126:                              ; preds = %79, %75, %71, %65, %61, %55
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %83
 
-83:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+83:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -21063,11 +21063,11 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 .split.i8.i.i.i.i:                                ; preds = %24
   %33 = udiv i32 %25, %27
   %34 = mul i32 %33, %27
-  %.recomposed156 = urem i32 %25, %27
+  %.recomposed161 = urem i32 %25, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed156, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
   %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
@@ -21107,7 +21107,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i.i.i.i.i47:                               ; preds = %47
   %53 = udiv i64 %45, %36
   %54 = mul i64 %53, %36
-  %.recomposed157 = urem i64 %45, %36
+  %.recomposed162 = urem i64 %45, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 55:                                               ; preds = %44
@@ -21127,18 +21127,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i8.i.i.i.i37:                              ; preds = %55
   %63 = udiv i32 %56, %57
   %64 = mul i32 %63, %57
-  %.recomposed158 = urem i32 %56, %57
+  %.recomposed163 = urem i32 %56, %57
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i45
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed158, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
   %.us-phi23.i10.i.i.i.i40 = phi i32 [ %63, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i45 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
   %65 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49: ; preds = %.split.us.i.i.i.i.i48, %.split.i.i.i.i.i47, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed157, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
   %.sink.i.i.i.i43 = phi i64 [ %65, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %53, %.split.i.i.i.i.i47 ], [ %51, %.split.us.i.i.i.i.i48 ]
   %66 = mul i64 %.sink.i.i.i.i43, %8
   %67 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
@@ -21170,7 +21170,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i.i.i.i.i61:                               ; preds = %76
   %82 = udiv i64 %74, %36
   %83 = mul i64 %82, %36
-  %.recomposed159 = urem i64 %74, %36
+  %.recomposed164 = urem i64 %74, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 84:                                               ; preds = %73
@@ -21190,18 +21190,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i8.i.i.i.i51:                              ; preds = %84
   %92 = udiv i32 %85, %86
   %93 = mul i32 %92, %86
-  %.recomposed160 = urem i32 %85, %86
+  %.recomposed165 = urem i32 %85, %86
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52: ; preds = %.split.i8.i.i.i.i51, %.split.us.i11.i.i.i.i59
-  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed160, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
   %.us-phi23.i10.i.i.i.i54 = phi i32 [ %92, %.split.i8.i.i.i.i51 ], [ %90, %.split.us.i11.i.i.i.i59 ]
   %.sroa.5.1.le.i.i.i.i.i55 = zext i32 %.us-phi.i9.i.i.i.i53 to i64
   %94 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63: ; preds = %.split.us.i.i.i.i.i62, %.split.i.i.i.i.i61, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
-  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed159, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
   %.sink.i.i.i.i57 = phi i64 [ %94, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %82, %.split.i.i.i.i.i61 ], [ %80, %.split.us.i.i.i.i.i62 ]
   %95 = mul i64 %.sink.i.i.i.i57, %8
   %96 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
@@ -21233,7 +21233,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i.i.i.i.i75:                               ; preds = %105
   %111 = udiv i64 %103, %36
   %112 = mul i64 %111, %36
-  %.recomposed161 = urem i64 %103, %36
+  %.recomposed166 = urem i64 %103, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 113:                                              ; preds = %102
@@ -21253,18 +21253,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i8.i.i.i.i65:                              ; preds = %113
   %121 = udiv i32 %114, %115
   %122 = mul i32 %121, %115
-  %.recomposed162 = urem i32 %114, %115
+  %.recomposed167 = urem i32 %114, %115
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66: ; preds = %.split.i8.i.i.i.i65, %.split.us.i11.i.i.i.i73
-  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed162, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
   %.us-phi23.i10.i.i.i.i68 = phi i32 [ %121, %.split.i8.i.i.i.i65 ], [ %119, %.split.us.i11.i.i.i.i73 ]
   %.sroa.5.1.le.i.i.i.i.i69 = zext i32 %.us-phi.i9.i.i.i.i67 to i64
   %123 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77: ; preds = %.split.us.i.i.i.i.i76, %.split.i.i.i.i.i75, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
-  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed161, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
   %.sink.i.i.i.i71 = phi i64 [ %123, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %111, %.split.i.i.i.i.i75 ], [ %109, %.split.us.i.i.i.i.i76 ]
   %124 = mul i64 %.sink.i.i.i.i71, %8
   %125 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
@@ -21312,7 +21312,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i.i.i.i.i89:                               ; preds = %138
   %146 = udiv i64 %.sroa.0130.0.lcssa, %140
   %147 = mul i64 %146, %140
-  %.recomposed163 = urem i64 %.sroa.0130.0.lcssa, %140
+  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %140
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 148:                                              ; preds = %136
@@ -21334,18 +21334,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i8.i.i.i.i79:                              ; preds = %148
   %158 = udiv i32 %149, %152
   %159 = mul i32 %158, %152
-  %.recomposed164 = urem i32 %149, %152
+  %.recomposed169 = urem i32 %149, %152
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80: ; preds = %.split.i8.i.i.i.i79, %.split.us.i11.i.i.i.i87
-  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed164, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
   %.us-phi23.i10.i.i.i.i82 = phi i32 [ %158, %.split.i8.i.i.i.i79 ], [ %156, %.split.us.i11.i.i.i.i87 ]
   %.sroa.5.1.le.i.i.i.i.i83 = zext i32 %.us-phi.i9.i.i.i.i81 to i64
   %160 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91: ; preds = %.split.us.i.i.i.i.i90, %.split.i.i.i.i.i89, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
-  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed163, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
   %.sink.i.i.i.i85 = phi i64 [ %160, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %146, %.split.i.i.i.i.i89 ], [ %144, %.split.us.i.i.i.i.i90 ]
   %161 = load i64, ptr %1, align 8, !tbaa !15
   %162 = mul i64 %161, %.sink.i.i.i.i85
@@ -21388,7 +21388,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i.i.i.i.i103:                              ; preds = %177
   %185 = udiv i64 %.sroa.0130.1, %179
   %186 = mul i64 %185, %179
-  %.recomposed165 = urem i64 %.sroa.0130.1, %179
+  %.recomposed170 = urem i64 %.sroa.0130.1, %179
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 187:                                              ; preds = %175
@@ -21410,18 +21410,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i8.i.i.i.i93:                              ; preds = %187
   %197 = udiv i32 %188, %191
   %198 = mul i32 %197, %191
-  %.recomposed166 = urem i32 %188, %191
+  %.recomposed171 = urem i32 %188, %191
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94: ; preds = %.split.i8.i.i.i.i93, %.split.us.i11.i.i.i.i101
-  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed166, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
   %.us-phi23.i10.i.i.i.i96 = phi i32 [ %197, %.split.i8.i.i.i.i93 ], [ %195, %.split.us.i11.i.i.i.i101 ]
   %.sroa.5.1.le.i.i.i.i.i97 = zext i32 %.us-phi.i9.i.i.i.i95 to i64
   %199 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105: ; preds = %.split.us.i.i.i.i.i104, %.split.i.i.i.i.i103, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
-  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed165, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
   %.sink.i.i.i.i99 = phi i64 [ %199, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %185, %.split.i.i.i.i.i103 ], [ %183, %.split.us.i.i.i.i.i104 ]
   %200 = load i64, ptr %1, align 8, !tbaa !15
   %201 = mul i64 %200, %.sink.i.i.i.i99
@@ -21464,7 +21464,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i.i.i.i.i117:                              ; preds = %216
   %224 = udiv i64 %.sroa.0130.2, %218
   %225 = mul i64 %224, %218
-  %.recomposed167 = urem i64 %.sroa.0130.2, %218
+  %.recomposed172 = urem i64 %.sroa.0130.2, %218
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 226:                                              ; preds = %214
@@ -21486,18 +21486,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegr
 .split.i8.i.i.i.i107:                             ; preds = %226
   %236 = udiv i32 %227, %230
   %237 = mul i32 %236, %230
-  %.recomposed168 = urem i32 %227, %230
+  %.recomposed173 = urem i32 %227, %230
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108: ; preds = %.split.i8.i.i.i.i107, %.split.us.i11.i.i.i.i115
-  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed168, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
   %.us-phi23.i10.i.i.i.i110 = phi i32 [ %236, %.split.i8.i.i.i.i107 ], [ %234, %.split.us.i11.i.i.i.i115 ]
   %.sroa.5.1.le.i.i.i.i.i111 = zext i32 %.us-phi.i9.i.i.i.i109 to i64
   %238 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_18LogisticRegressionEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119: ; preds = %.split.us.i.i.i.i.i118, %.split.i.i.i.i.i117, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
-  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed167, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
   %.sink.i.i.i.i113 = phi i64 [ %238, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %224, %.split.i.i.i.i.i117 ], [ %222, %.split.us.i.i.i.i.i118 ]
   %239 = load i64, ptr %1, align 8, !tbaa !15
   %240 = mul i64 %239, %.sink.i.i.i.i113
@@ -21684,7 +21684,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 41:                                               ; preds = %.lr.ph93
   %42 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %42, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !582
+  br i1 %exitcond112.not, label %thread-pre-split125, label %.lr.ph93, !llvm.loop !582
 
 43:                                               ; preds = %.lr.ph93
   %44 = landingpad { ptr, i32 }
@@ -21710,7 +21710,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 47:                                               ; preds = %.lr.ph91
   %48 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %48, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !583
+  br i1 %exitcond111.not, label %thread-pre-split125, label %.lr.ph91, !llvm.loop !583
 
 49:                                               ; preds = %.lr.ph91
   %50 = landingpad { ptr, i32 }
@@ -21725,7 +21725,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 51:                                               ; preds = %.lr.ph89
   %52 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %52, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !584
+  br i1 %exitcond110.not, label %thread-pre-split125, label %.lr.ph89, !llvm.loop !584
 
 53:                                               ; preds = %.lr.ph89
   %54 = landingpad { ptr, i32 }
@@ -21751,7 +21751,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph87
   %58 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %58, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !585
+  br i1 %exitcond109.not, label %thread-pre-split125, label %.lr.ph87, !llvm.loop !585
 
 59:                                               ; preds = %.lr.ph87
   %60 = landingpad { ptr, i32 }
@@ -21766,7 +21766,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph85
   %62 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %62, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !586
+  br i1 %exitcond108.not, label %thread-pre-split125, label %.lr.ph85, !llvm.loop !586
 
 63:                                               ; preds = %.lr.ph85
   %64 = landingpad { ptr, i32 }
@@ -21781,19 +21781,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %66, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !587
+  br i1 %exitcond.not, label %thread-pre-split125, label %.lr.ph, !llvm.loop !587
 
 67:                                               ; preds = %.lr.ph
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %65, %61, %57, %51, %47, %41
+thread-pre-split125:                              ; preds = %65, %61, %57, %51, %47, %41
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %69
 
-69:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+69:                                               ; preds = %thread-pre-split125, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split125 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -22496,7 +22496,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 62:                                               ; preds = %.lr.ph93
   %63 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %63, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !605
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !605
 
 64:                                               ; preds = %.lr.ph93
   %65 = landingpad { ptr, i32 }
@@ -22522,7 +22522,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 68:                                               ; preds = %.lr.ph91
   %69 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %69, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !606
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !606
 
 70:                                               ; preds = %.lr.ph91
   %71 = landingpad { ptr, i32 }
@@ -22537,7 +22537,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 72:                                               ; preds = %.lr.ph89
   %73 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %73, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !607
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !607
 
 74:                                               ; preds = %.lr.ph89
   %75 = landingpad { ptr, i32 }
@@ -22563,7 +22563,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 78:                                               ; preds = %.lr.ph87
   %79 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %79, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !608
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !608
 
 80:                                               ; preds = %.lr.ph87
   %81 = landingpad { ptr, i32 }
@@ -22578,7 +22578,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 82:                                               ; preds = %.lr.ph85
   %83 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %83, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !609
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !609
 
 84:                                               ; preds = %.lr.ph85
   %85 = landingpad { ptr, i32 }
@@ -22593,19 +22593,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 86:                                               ; preds = %.lr.ph
   %87 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %87, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !610
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !610
 
 88:                                               ; preds = %.lr.ph
   %89 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %86, %82, %78, %72, %68, %62
+thread-pre-split126:                              ; preds = %86, %82, %78, %72, %68, %62
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %90
 
-90:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+90:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -24290,11 +24290,11 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 .split.i8.i.i.i.i:                                ; preds = %24
   %33 = udiv i32 %25, %27
   %34 = mul i32 %33, %27
-  %.recomposed156 = urem i32 %25, %27
+  %.recomposed161 = urem i32 %25, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed156, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
   %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
@@ -24334,7 +24334,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i.i.i.i.i47:                               ; preds = %47
   %53 = udiv i64 %45, %36
   %54 = mul i64 %53, %36
-  %.recomposed157 = urem i64 %45, %36
+  %.recomposed162 = urem i64 %45, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 55:                                               ; preds = %44
@@ -24354,18 +24354,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i8.i.i.i.i37:                              ; preds = %55
   %63 = udiv i32 %56, %57
   %64 = mul i32 %63, %57
-  %.recomposed158 = urem i32 %56, %57
+  %.recomposed163 = urem i32 %56, %57
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i45
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed158, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
   %.us-phi23.i10.i.i.i.i40 = phi i32 [ %63, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i45 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
   %65 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49: ; preds = %.split.us.i.i.i.i.i48, %.split.i.i.i.i.i47, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed157, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
   %.sink.i.i.i.i43 = phi i64 [ %65, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %53, %.split.i.i.i.i.i47 ], [ %51, %.split.us.i.i.i.i.i48 ]
   %66 = mul i64 %.sink.i.i.i.i43, %8
   %67 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
@@ -24397,7 +24397,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i.i.i.i.i61:                               ; preds = %76
   %82 = udiv i64 %74, %36
   %83 = mul i64 %82, %36
-  %.recomposed159 = urem i64 %74, %36
+  %.recomposed164 = urem i64 %74, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 84:                                               ; preds = %73
@@ -24417,18 +24417,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i8.i.i.i.i51:                              ; preds = %84
   %92 = udiv i32 %85, %86
   %93 = mul i32 %92, %86
-  %.recomposed160 = urem i32 %85, %86
+  %.recomposed165 = urem i32 %85, %86
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52: ; preds = %.split.i8.i.i.i.i51, %.split.us.i11.i.i.i.i59
-  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed160, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
   %.us-phi23.i10.i.i.i.i54 = phi i32 [ %92, %.split.i8.i.i.i.i51 ], [ %90, %.split.us.i11.i.i.i.i59 ]
   %.sroa.5.1.le.i.i.i.i.i55 = zext i32 %.us-phi.i9.i.i.i.i53 to i64
   %94 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63: ; preds = %.split.us.i.i.i.i.i62, %.split.i.i.i.i.i61, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
-  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed159, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
   %.sink.i.i.i.i57 = phi i64 [ %94, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %82, %.split.i.i.i.i.i61 ], [ %80, %.split.us.i.i.i.i.i62 ]
   %95 = mul i64 %.sink.i.i.i.i57, %8
   %96 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
@@ -24460,7 +24460,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i.i.i.i.i75:                               ; preds = %105
   %111 = udiv i64 %103, %36
   %112 = mul i64 %111, %36
-  %.recomposed161 = urem i64 %103, %36
+  %.recomposed166 = urem i64 %103, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 113:                                              ; preds = %102
@@ -24480,18 +24480,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i8.i.i.i.i65:                              ; preds = %113
   %121 = udiv i32 %114, %115
   %122 = mul i32 %121, %115
-  %.recomposed162 = urem i32 %114, %115
+  %.recomposed167 = urem i32 %114, %115
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66: ; preds = %.split.i8.i.i.i.i65, %.split.us.i11.i.i.i.i73
-  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed162, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
   %.us-phi23.i10.i.i.i.i68 = phi i32 [ %121, %.split.i8.i.i.i.i65 ], [ %119, %.split.us.i11.i.i.i.i73 ]
   %.sroa.5.1.le.i.i.i.i.i69 = zext i32 %.us-phi.i9.i.i.i.i67 to i64
   %123 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77: ; preds = %.split.us.i.i.i.i.i76, %.split.i.i.i.i.i75, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
-  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed161, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
   %.sink.i.i.i.i71 = phi i64 [ %123, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %111, %.split.i.i.i.i.i75 ], [ %109, %.split.us.i.i.i.i.i76 ]
   %124 = mul i64 %.sink.i.i.i.i71, %8
   %125 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
@@ -24539,7 +24539,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i.i.i.i.i89:                               ; preds = %138
   %146 = udiv i64 %.sroa.0130.0.lcssa, %140
   %147 = mul i64 %146, %140
-  %.recomposed163 = urem i64 %.sroa.0130.0.lcssa, %140
+  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %140
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 148:                                              ; preds = %136
@@ -24561,18 +24561,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i8.i.i.i.i79:                              ; preds = %148
   %158 = udiv i32 %149, %152
   %159 = mul i32 %158, %152
-  %.recomposed164 = urem i32 %149, %152
+  %.recomposed169 = urem i32 %149, %152
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80: ; preds = %.split.i8.i.i.i.i79, %.split.us.i11.i.i.i.i87
-  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed164, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
   %.us-phi23.i10.i.i.i.i82 = phi i32 [ %158, %.split.i8.i.i.i.i79 ], [ %156, %.split.us.i11.i.i.i.i87 ]
   %.sroa.5.1.le.i.i.i.i.i83 = zext i32 %.us-phi.i9.i.i.i.i81 to i64
   %160 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91: ; preds = %.split.us.i.i.i.i.i90, %.split.i.i.i.i.i89, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
-  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed163, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
   %.sink.i.i.i.i85 = phi i64 [ %160, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %146, %.split.i.i.i.i.i89 ], [ %144, %.split.us.i.i.i.i.i90 ]
   %161 = load i64, ptr %1, align 8, !tbaa !15
   %162 = mul i64 %161, %.sink.i.i.i.i85
@@ -24615,7 +24615,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i.i.i.i.i103:                              ; preds = %177
   %185 = udiv i64 %.sroa.0130.1, %179
   %186 = mul i64 %185, %179
-  %.recomposed165 = urem i64 %.sroa.0130.1, %179
+  %.recomposed170 = urem i64 %.sroa.0130.1, %179
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 187:                                              ; preds = %175
@@ -24637,18 +24637,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i8.i.i.i.i93:                              ; preds = %187
   %197 = udiv i32 %188, %191
   %198 = mul i32 %197, %191
-  %.recomposed166 = urem i32 %188, %191
+  %.recomposed171 = urem i32 %188, %191
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94: ; preds = %.split.i8.i.i.i.i93, %.split.us.i11.i.i.i.i101
-  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed166, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
   %.us-phi23.i10.i.i.i.i96 = phi i32 [ %197, %.split.i8.i.i.i.i93 ], [ %195, %.split.us.i11.i.i.i.i101 ]
   %.sroa.5.1.le.i.i.i.i.i97 = zext i32 %.us-phi.i9.i.i.i.i95 to i64
   %199 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105: ; preds = %.split.us.i.i.i.i.i104, %.split.i.i.i.i.i103, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
-  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed165, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
   %.sink.i.i.i.i99 = phi i64 [ %199, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %185, %.split.i.i.i.i.i103 ], [ %183, %.split.us.i.i.i.i.i104 ]
   %200 = load i64, ptr %1, align 8, !tbaa !15
   %201 = mul i64 %200, %.sink.i.i.i.i99
@@ -24691,7 +24691,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i.i.i.i.i117:                              ; preds = %216
   %224 = udiv i64 %.sroa.0130.2, %218
   %225 = mul i64 %224, %218
-  %.recomposed167 = urem i64 %.sroa.0130.2, %218
+  %.recomposed172 = urem i64 %.sroa.0130.2, %218
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 226:                                              ; preds = %214
@@ -24713,18 +24713,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClas
 .split.i8.i.i.i.i107:                             ; preds = %226
   %236 = udiv i32 %227, %230
   %237 = mul i32 %236, %230
-  %.recomposed168 = urem i32 %227, %230
+  %.recomposed173 = urem i32 %227, %230
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108: ; preds = %.split.i8.i.i.i.i107, %.split.us.i11.i.i.i.i115
-  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed168, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
   %.us-phi23.i10.i.i.i.i110 = phi i32 [ %236, %.split.i8.i.i.i.i107 ], [ %234, %.split.us.i11.i.i.i.i115 ]
   %.sroa.5.1.le.i.i.i.i.i111 = zext i32 %.us-phi.i9.i.i.i.i109 to i64
   %238 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_22LogisticClassificationEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119: ; preds = %.split.us.i.i.i.i.i118, %.split.i.i.i.i.i117, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
-  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed167, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
   %.sink.i.i.i.i113 = phi i64 [ %238, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %224, %.split.i.i.i.i.i117 ], [ %222, %.split.us.i.i.i.i.i118 ]
   %239 = load i64, ptr %1, align 8, !tbaa !15
   %240 = mul i64 %239, %.sink.i.i.i.i113
@@ -24911,7 +24911,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 41:                                               ; preds = %.lr.ph93
   %42 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %42, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !678
+  br i1 %exitcond112.not, label %thread-pre-split125, label %.lr.ph93, !llvm.loop !678
 
 43:                                               ; preds = %.lr.ph93
   %44 = landingpad { ptr, i32 }
@@ -24937,7 +24937,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 47:                                               ; preds = %.lr.ph91
   %48 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %48, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !679
+  br i1 %exitcond111.not, label %thread-pre-split125, label %.lr.ph91, !llvm.loop !679
 
 49:                                               ; preds = %.lr.ph91
   %50 = landingpad { ptr, i32 }
@@ -24952,7 +24952,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 51:                                               ; preds = %.lr.ph89
   %52 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %52, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !680
+  br i1 %exitcond110.not, label %thread-pre-split125, label %.lr.ph89, !llvm.loop !680
 
 53:                                               ; preds = %.lr.ph89
   %54 = landingpad { ptr, i32 }
@@ -24978,7 +24978,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph87
   %58 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %58, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !681
+  br i1 %exitcond109.not, label %thread-pre-split125, label %.lr.ph87, !llvm.loop !681
 
 59:                                               ; preds = %.lr.ph87
   %60 = landingpad { ptr, i32 }
@@ -24993,7 +24993,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph85
   %62 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %62, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !682
+  br i1 %exitcond108.not, label %thread-pre-split125, label %.lr.ph85, !llvm.loop !682
 
 63:                                               ; preds = %.lr.ph85
   %64 = landingpad { ptr, i32 }
@@ -25008,19 +25008,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %66, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !683
+  br i1 %exitcond.not, label %thread-pre-split125, label %.lr.ph, !llvm.loop !683
 
 67:                                               ; preds = %.lr.ph
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %65, %61, %57, %51, %47, %41
+thread-pre-split125:                              ; preds = %65, %61, %57, %51, %47, %41
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %69
 
-69:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+69:                                               ; preds = %thread-pre-split125, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split125 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -25720,7 +25720,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 62:                                               ; preds = %.lr.ph93
   %63 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %63, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !701
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !701
 
 64:                                               ; preds = %.lr.ph93
   %65 = landingpad { ptr, i32 }
@@ -25746,7 +25746,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 68:                                               ; preds = %.lr.ph91
   %69 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %69, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !702
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !702
 
 70:                                               ; preds = %.lr.ph91
   %71 = landingpad { ptr, i32 }
@@ -25761,7 +25761,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 72:                                               ; preds = %.lr.ph89
   %73 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %73, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !703
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !703
 
 74:                                               ; preds = %.lr.ph89
   %75 = landingpad { ptr, i32 }
@@ -25787,7 +25787,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 78:                                               ; preds = %.lr.ph87
   %79 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %79, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !704
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !704
 
 80:                                               ; preds = %.lr.ph87
   %81 = landingpad { ptr, i32 }
@@ -25802,7 +25802,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 82:                                               ; preds = %.lr.ph85
   %83 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %83, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !705
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !705
 
 84:                                               ; preds = %.lr.ph85
   %85 = landingpad { ptr, i32 }
@@ -25817,19 +25817,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 86:                                               ; preds = %.lr.ph
   %87 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %87, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !706
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !706
 
 88:                                               ; preds = %.lr.ph
   %89 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %86, %82, %78, %72, %68, %62
+thread-pre-split126:                              ; preds = %86, %82, %78, %72, %68, %62
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %90
 
-90:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+90:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -27448,11 +27448,11 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 .split.i8.i.i.i.i:                                ; preds = %24
   %33 = udiv i32 %25, %27
   %34 = mul i32 %33, %27
-  %.recomposed156 = urem i32 %25, %27
+  %.recomposed161 = urem i32 %25, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed156, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
   %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
@@ -27492,7 +27492,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i.i.i.i.i47:                               ; preds = %47
   %53 = udiv i64 %45, %36
   %54 = mul i64 %53, %36
-  %.recomposed157 = urem i64 %45, %36
+  %.recomposed162 = urem i64 %45, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 55:                                               ; preds = %44
@@ -27512,18 +27512,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i8.i.i.i.i37:                              ; preds = %55
   %63 = udiv i32 %56, %57
   %64 = mul i32 %63, %57
-  %.recomposed158 = urem i32 %56, %57
+  %.recomposed163 = urem i32 %56, %57
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i45
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed158, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i37 ], [ %62, %.split.us.i11.i.i.i.i45 ]
   %.us-phi23.i10.i.i.i.i40 = phi i32 [ %63, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i45 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
   %65 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit49: ; preds = %.split.us.i.i.i.i.i48, %.split.i.i.i.i.i47, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed157, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed162, %.split.i.i.i.i.i47 ], [ %52, %.split.us.i.i.i.i.i48 ]
   %.sink.i.i.i.i43 = phi i64 [ %65, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %53, %.split.i.i.i.i.i47 ], [ %51, %.split.us.i.i.i.i.i48 ]
   %66 = mul i64 %.sink.i.i.i.i43, %8
   %67 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
@@ -27555,7 +27555,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i.i.i.i.i61:                               ; preds = %76
   %82 = udiv i64 %74, %36
   %83 = mul i64 %82, %36
-  %.recomposed159 = urem i64 %74, %36
+  %.recomposed164 = urem i64 %74, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 84:                                               ; preds = %73
@@ -27575,18 +27575,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i8.i.i.i.i51:                              ; preds = %84
   %92 = udiv i32 %85, %86
   %93 = mul i32 %92, %86
-  %.recomposed160 = urem i32 %85, %86
+  %.recomposed165 = urem i32 %85, %86
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52: ; preds = %.split.i8.i.i.i.i51, %.split.us.i11.i.i.i.i59
-  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed160, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
+  %.us-phi.i9.i.i.i.i53 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i51 ], [ %91, %.split.us.i11.i.i.i.i59 ]
   %.us-phi23.i10.i.i.i.i54 = phi i32 [ %92, %.split.i8.i.i.i.i51 ], [ %90, %.split.us.i11.i.i.i.i59 ]
   %.sroa.5.1.le.i.i.i.i.i55 = zext i32 %.us-phi.i9.i.i.i.i53 to i64
   %94 = zext i32 %.us-phi23.i10.i.i.i.i54 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit63: ; preds = %.split.us.i.i.i.i.i62, %.split.i.i.i.i.i61, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52
-  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed159, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i56 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i55, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %.recomposed164, %.split.i.i.i.i.i61 ], [ %81, %.split.us.i.i.i.i.i62 ]
   %.sink.i.i.i.i57 = phi i64 [ %94, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i52 ], [ %82, %.split.i.i.i.i.i61 ], [ %80, %.split.us.i.i.i.i.i62 ]
   %95 = mul i64 %.sink.i.i.i.i57, %8
   %96 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i56, %10
@@ -27618,7 +27618,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i.i.i.i.i75:                               ; preds = %105
   %111 = udiv i64 %103, %36
   %112 = mul i64 %111, %36
-  %.recomposed161 = urem i64 %103, %36
+  %.recomposed166 = urem i64 %103, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 113:                                              ; preds = %102
@@ -27638,18 +27638,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i8.i.i.i.i65:                              ; preds = %113
   %121 = udiv i32 %114, %115
   %122 = mul i32 %121, %115
-  %.recomposed162 = urem i32 %114, %115
+  %.recomposed167 = urem i32 %114, %115
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66: ; preds = %.split.i8.i.i.i.i65, %.split.us.i11.i.i.i.i73
-  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed162, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
+  %.us-phi.i9.i.i.i.i67 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i65 ], [ %120, %.split.us.i11.i.i.i.i73 ]
   %.us-phi23.i10.i.i.i.i68 = phi i32 [ %121, %.split.i8.i.i.i.i65 ], [ %119, %.split.us.i11.i.i.i.i73 ]
   %.sroa.5.1.le.i.i.i.i.i69 = zext i32 %.us-phi.i9.i.i.i.i67 to i64
   %123 = zext i32 %.us-phi23.i10.i.i.i.i68 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit77: ; preds = %.split.us.i.i.i.i.i76, %.split.i.i.i.i.i75, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66
-  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed161, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i70 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i69, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %.recomposed166, %.split.i.i.i.i.i75 ], [ %110, %.split.us.i.i.i.i.i76 ]
   %.sink.i.i.i.i71 = phi i64 [ %123, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i66 ], [ %111, %.split.i.i.i.i.i75 ], [ %109, %.split.us.i.i.i.i.i76 ]
   %124 = mul i64 %.sink.i.i.i.i71, %8
   %125 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i70, %10
@@ -27697,7 +27697,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i.i.i.i.i89:                               ; preds = %138
   %146 = udiv i64 %.sroa.0130.0.lcssa, %140
   %147 = mul i64 %146, %140
-  %.recomposed163 = urem i64 %.sroa.0130.0.lcssa, %140
+  %.recomposed168 = urem i64 %.sroa.0130.0.lcssa, %140
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 148:                                              ; preds = %136
@@ -27719,18 +27719,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i8.i.i.i.i79:                              ; preds = %148
   %158 = udiv i32 %149, %152
   %159 = mul i32 %158, %152
-  %.recomposed164 = urem i32 %149, %152
+  %.recomposed169 = urem i32 %149, %152
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80: ; preds = %.split.i8.i.i.i.i79, %.split.us.i11.i.i.i.i87
-  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed164, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
+  %.us-phi.i9.i.i.i.i81 = phi i32 [ %.recomposed169, %.split.i8.i.i.i.i79 ], [ %157, %.split.us.i11.i.i.i.i87 ]
   %.us-phi23.i10.i.i.i.i82 = phi i32 [ %158, %.split.i8.i.i.i.i79 ], [ %156, %.split.us.i11.i.i.i.i87 ]
   %.sroa.5.1.le.i.i.i.i.i83 = zext i32 %.us-phi.i9.i.i.i.i81 to i64
   %160 = zext i32 %.us-phi23.i10.i.i.i.i82 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit91: ; preds = %.split.us.i.i.i.i.i90, %.split.i.i.i.i.i89, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80
-  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed163, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i84 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i83, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %.recomposed168, %.split.i.i.i.i.i89 ], [ %145, %.split.us.i.i.i.i.i90 ]
   %.sink.i.i.i.i85 = phi i64 [ %160, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i80 ], [ %146, %.split.i.i.i.i.i89 ], [ %144, %.split.us.i.i.i.i.i90 ]
   %161 = load i64, ptr %1, align 8, !tbaa !15
   %162 = mul i64 %161, %.sink.i.i.i.i85
@@ -27773,7 +27773,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i.i.i.i.i103:                              ; preds = %177
   %185 = udiv i64 %.sroa.0130.1, %179
   %186 = mul i64 %185, %179
-  %.recomposed165 = urem i64 %.sroa.0130.1, %179
+  %.recomposed170 = urem i64 %.sroa.0130.1, %179
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 187:                                              ; preds = %175
@@ -27795,18 +27795,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i8.i.i.i.i93:                              ; preds = %187
   %197 = udiv i32 %188, %191
   %198 = mul i32 %197, %191
-  %.recomposed166 = urem i32 %188, %191
+  %.recomposed171 = urem i32 %188, %191
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94: ; preds = %.split.i8.i.i.i.i93, %.split.us.i11.i.i.i.i101
-  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed166, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
+  %.us-phi.i9.i.i.i.i95 = phi i32 [ %.recomposed171, %.split.i8.i.i.i.i93 ], [ %196, %.split.us.i11.i.i.i.i101 ]
   %.us-phi23.i10.i.i.i.i96 = phi i32 [ %197, %.split.i8.i.i.i.i93 ], [ %195, %.split.us.i11.i.i.i.i101 ]
   %.sroa.5.1.le.i.i.i.i.i97 = zext i32 %.us-phi.i9.i.i.i.i95 to i64
   %199 = zext i32 %.us-phi23.i10.i.i.i.i96 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit105: ; preds = %.split.us.i.i.i.i.i104, %.split.i.i.i.i.i103, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94
-  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed165, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i98 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i97, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %.recomposed170, %.split.i.i.i.i.i103 ], [ %184, %.split.us.i.i.i.i.i104 ]
   %.sink.i.i.i.i99 = phi i64 [ %199, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i94 ], [ %185, %.split.i.i.i.i.i103 ], [ %183, %.split.us.i.i.i.i.i104 ]
   %200 = load i64, ptr %1, align 8, !tbaa !15
   %201 = mul i64 %200, %.sink.i.i.i.i99
@@ -27849,7 +27849,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i.i.i.i.i117:                              ; preds = %216
   %224 = udiv i64 %.sroa.0130.2, %218
   %225 = mul i64 %224, %218
-  %.recomposed167 = urem i64 %.sroa.0130.2, %218
+  %.recomposed172 = urem i64 %.sroa.0130.2, %218
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 226:                                              ; preds = %214
@@ -27871,18 +27871,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawE
 .split.i8.i.i.i.i107:                             ; preds = %226
   %236 = udiv i32 %227, %230
   %237 = mul i32 %236, %230
-  %.recomposed168 = urem i32 %227, %230
+  %.recomposed173 = urem i32 %227, %230
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108: ; preds = %.split.i8.i.i.i.i107, %.split.us.i11.i.i.i.i115
-  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed168, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
+  %.us-phi.i9.i.i.i.i109 = phi i32 [ %.recomposed173, %.split.i8.i.i.i.i107 ], [ %235, %.split.us.i11.i.i.i.i115 ]
   %.us-phi23.i10.i.i.i.i110 = phi i32 [ %236, %.split.i8.i.i.i.i107 ], [ %234, %.split.us.i11.i.i.i.i115 ]
   %.sroa.5.1.le.i.i.i.i.i111 = zext i32 %.us-phi.i9.i.i.i.i109 to i64
   %238 = zext i32 %.us-phi23.i10.i.i.i.i110 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_11LogisticRawEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit119: ; preds = %.split.us.i.i.i.i.i118, %.split.i.i.i.i.i117, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108
-  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed167, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i112 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %.recomposed172, %.split.i.i.i.i.i117 ], [ %223, %.split.us.i.i.i.i.i118 ]
   %.sink.i.i.i.i113 = phi i64 [ %238, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i108 ], [ %224, %.split.i.i.i.i.i117 ], [ %222, %.split.us.i.i.i.i.i118 ]
   %239 = load i64, ptr %1, align 8, !tbaa !15
   %240 = mul i64 %239, %.sink.i.i.i.i113
@@ -28069,7 +28069,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 41:                                               ; preds = %.lr.ph93
   %42 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %42, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !774
+  br i1 %exitcond112.not, label %thread-pre-split125, label %.lr.ph93, !llvm.loop !774
 
 43:                                               ; preds = %.lr.ph93
   %44 = landingpad { ptr, i32 }
@@ -28095,7 +28095,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 47:                                               ; preds = %.lr.ph91
   %48 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %48, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !775
+  br i1 %exitcond111.not, label %thread-pre-split125, label %.lr.ph91, !llvm.loop !775
 
 49:                                               ; preds = %.lr.ph91
   %50 = landingpad { ptr, i32 }
@@ -28110,7 +28110,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 51:                                               ; preds = %.lr.ph89
   %52 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %52, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !776
+  br i1 %exitcond110.not, label %thread-pre-split125, label %.lr.ph89, !llvm.loop !776
 
 53:                                               ; preds = %.lr.ph89
   %54 = landingpad { ptr, i32 }
@@ -28136,7 +28136,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph87
   %58 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %58, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !777
+  br i1 %exitcond109.not, label %thread-pre-split125, label %.lr.ph87, !llvm.loop !777
 
 59:                                               ; preds = %.lr.ph87
   %60 = landingpad { ptr, i32 }
@@ -28151,7 +28151,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph85
   %62 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %62, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !778
+  br i1 %exitcond108.not, label %thread-pre-split125, label %.lr.ph85, !llvm.loop !778
 
 63:                                               ; preds = %.lr.ph85
   %64 = landingpad { ptr, i32 }
@@ -28166,19 +28166,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %66, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !779
+  br i1 %exitcond.not, label %thread-pre-split125, label %.lr.ph, !llvm.loop !779
 
 67:                                               ; preds = %.lr.ph
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %65, %61, %57, %51, %47, %41
+thread-pre-split125:                              ; preds = %65, %61, %57, %51, %47, %41
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %69
 
-69:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+69:                                               ; preds = %thread-pre-split125, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split125 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -28868,7 +28868,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 55:                                               ; preds = %.lr.ph93
   %56 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %56, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !797
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !797
 
 57:                                               ; preds = %.lr.ph93
   %58 = landingpad { ptr, i32 }
@@ -28894,7 +28894,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph91
   %62 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %62, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !798
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !798
 
 63:                                               ; preds = %.lr.ph91
   %64 = landingpad { ptr, i32 }
@@ -28909,7 +28909,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph89
   %66 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %66, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !799
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !799
 
 67:                                               ; preds = %.lr.ph89
   %68 = landingpad { ptr, i32 }
@@ -28935,7 +28935,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 71:                                               ; preds = %.lr.ph87
   %72 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %72, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !800
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !800
 
 73:                                               ; preds = %.lr.ph87
   %74 = landingpad { ptr, i32 }
@@ -28950,7 +28950,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 75:                                               ; preds = %.lr.ph85
   %76 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %76, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !801
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !801
 
 77:                                               ; preds = %.lr.ph85
   %78 = landingpad { ptr, i32 }
@@ -28965,19 +28965,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 79:                                               ; preds = %.lr.ph
   %80 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %80, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !802
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !802
 
 81:                                               ; preds = %.lr.ph
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %79, %75, %71, %65, %61, %55
+thread-pre-split126:                              ; preds = %79, %75, %71, %65, %61, %55
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %83
 
-83:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+83:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -30580,11 +30580,11 @@ define linkonce_odr { i64, ptr } @_ZSt9__find_ifIN7xgboost6common18IndexTransfor
 .split.i8.i.i.i.i:                                ; preds = %24
   %33 = udiv i32 %25, %27
   %34 = mul i32 %33, %27
-  %.recomposed150 = urem i32 %25, %27
+  %.recomposed155 = urem i32 %25, %27
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i: ; preds = %.split.i8.i.i.i.i, %.split.us.i11.i.i.i.i
-  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed150, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
+  %.us-phi.i9.i.i.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i.i.i ], [ %32, %.split.us.i11.i.i.i.i ]
   %.us-phi23.i10.i.i.i.i = phi i32 [ %33, %.split.i8.i.i.i.i ], [ %31, %.split.us.i11.i.i.i.i ]
   %.sroa.5.1.le.i.i.i.i.i = zext i32 %.us-phi.i9.i.i.i.i to i64
   %35 = zext i32 %.us-phi23.i10.i.i.i.i to i64
@@ -30622,7 +30622,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i.i.i.i.i46:                               ; preds = %46
   %52 = udiv i64 %44, %36
   %53 = mul i64 %52, %36
-  %.recomposed151 = urem i64 %44, %36
+  %.recomposed156 = urem i64 %44, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
 54:                                               ; preds = %43
@@ -30642,18 +30642,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i8.i.i.i.i37:                              ; preds = %54
   %62 = udiv i32 %55, %56
   %63 = mul i32 %62, %56
-  %.recomposed152 = urem i32 %55, %56
+  %.recomposed157 = urem i32 %55, %56
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38: ; preds = %.split.i8.i.i.i.i37, %.split.us.i11.i.i.i.i44
-  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed152, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i44 ]
+  %.us-phi.i9.i.i.i.i39 = phi i32 [ %.recomposed157, %.split.i8.i.i.i.i37 ], [ %61, %.split.us.i11.i.i.i.i44 ]
   %.us-phi23.i10.i.i.i.i40 = phi i32 [ %62, %.split.i8.i.i.i.i37 ], [ %60, %.split.us.i11.i.i.i.i44 ]
   %.sroa.5.1.le.i.i.i.i.i41 = zext i32 %.us-phi.i9.i.i.i.i39 to i64
   %64 = zext i32 %.us-phi23.i10.i.i.i.i40 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit48: ; preds = %.split.us.i.i.i.i.i47, %.split.i.i.i.i.i46, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38
-  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed151, %.split.i.i.i.i.i46 ], [ %51, %.split.us.i.i.i.i.i47 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i42 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i41, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %.recomposed156, %.split.i.i.i.i.i46 ], [ %51, %.split.us.i.i.i.i.i47 ]
   %.sink.i.i.i.i43 = phi i64 [ %64, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i38 ], [ %52, %.split.i.i.i.i.i46 ], [ %50, %.split.us.i.i.i.i.i47 ]
   %65 = mul i64 %.sink.i.i.i.i43, %8
   %66 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i42, %10
@@ -30683,7 +30683,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i.i.i.i.i59:                               ; preds = %74
   %80 = udiv i64 %72, %36
   %81 = mul i64 %80, %36
-  %.recomposed153 = urem i64 %72, %36
+  %.recomposed158 = urem i64 %72, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
 82:                                               ; preds = %71
@@ -30703,18 +30703,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i8.i.i.i.i50:                              ; preds = %82
   %90 = udiv i32 %83, %84
   %91 = mul i32 %90, %84
-  %.recomposed154 = urem i32 %83, %84
+  %.recomposed159 = urem i32 %83, %84
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51: ; preds = %.split.i8.i.i.i.i50, %.split.us.i11.i.i.i.i57
-  %.us-phi.i9.i.i.i.i52 = phi i32 [ %.recomposed154, %.split.i8.i.i.i.i50 ], [ %89, %.split.us.i11.i.i.i.i57 ]
+  %.us-phi.i9.i.i.i.i52 = phi i32 [ %.recomposed159, %.split.i8.i.i.i.i50 ], [ %89, %.split.us.i11.i.i.i.i57 ]
   %.us-phi23.i10.i.i.i.i53 = phi i32 [ %90, %.split.i8.i.i.i.i50 ], [ %88, %.split.us.i11.i.i.i.i57 ]
   %.sroa.5.1.le.i.i.i.i.i54 = zext i32 %.us-phi.i9.i.i.i.i52 to i64
   %92 = zext i32 %.us-phi23.i10.i.i.i.i53 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit61: ; preds = %.split.us.i.i.i.i.i60, %.split.i.i.i.i.i59, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51
-  %.sroa.5.1.le.i.sink.i.i.i.i55 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i54, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %.recomposed153, %.split.i.i.i.i.i59 ], [ %79, %.split.us.i.i.i.i.i60 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i55 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i54, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %.recomposed158, %.split.i.i.i.i.i59 ], [ %79, %.split.us.i.i.i.i.i60 ]
   %.sink.i.i.i.i56 = phi i64 [ %92, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i51 ], [ %80, %.split.i.i.i.i.i59 ], [ %78, %.split.us.i.i.i.i.i60 ]
   %93 = mul i64 %.sink.i.i.i.i56, %8
   %94 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i55, %10
@@ -30744,7 +30744,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i.i.i.i.i72:                               ; preds = %102
   %108 = udiv i64 %100, %36
   %109 = mul i64 %108, %36
-  %.recomposed155 = urem i64 %100, %36
+  %.recomposed160 = urem i64 %100, %36
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
 110:                                              ; preds = %99
@@ -30764,18 +30764,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i8.i.i.i.i63:                              ; preds = %110
   %118 = udiv i32 %111, %112
   %119 = mul i32 %118, %112
-  %.recomposed156 = urem i32 %111, %112
+  %.recomposed161 = urem i32 %111, %112
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64: ; preds = %.split.i8.i.i.i.i63, %.split.us.i11.i.i.i.i70
-  %.us-phi.i9.i.i.i.i65 = phi i32 [ %.recomposed156, %.split.i8.i.i.i.i63 ], [ %117, %.split.us.i11.i.i.i.i70 ]
+  %.us-phi.i9.i.i.i.i65 = phi i32 [ %.recomposed161, %.split.i8.i.i.i.i63 ], [ %117, %.split.us.i11.i.i.i.i70 ]
   %.us-phi23.i10.i.i.i.i66 = phi i32 [ %118, %.split.i8.i.i.i.i63 ], [ %116, %.split.us.i11.i.i.i.i70 ]
   %.sroa.5.1.le.i.i.i.i.i67 = zext i32 %.us-phi.i9.i.i.i.i65 to i64
   %120 = zext i32 %.us-phi23.i10.i.i.i.i66 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit74: ; preds = %.split.us.i.i.i.i.i73, %.split.i.i.i.i.i72, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64
-  %.sroa.5.1.le.i.sink.i.i.i.i68 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %.recomposed155, %.split.i.i.i.i.i72 ], [ %107, %.split.us.i.i.i.i.i73 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i68 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i67, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %.recomposed160, %.split.i.i.i.i.i72 ], [ %107, %.split.us.i.i.i.i.i73 ]
   %.sink.i.i.i.i69 = phi i64 [ %120, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i64 ], [ %108, %.split.i.i.i.i.i72 ], [ %106, %.split.us.i.i.i.i.i73 ]
   %121 = mul i64 %.sink.i.i.i.i69, %8
   %122 = mul i64 %.sroa.5.1.le.i.sink.i.i.i.i68, %10
@@ -30821,7 +30821,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i.i.i.i.i85:                               ; preds = %134
   %142 = udiv i64 %.sroa.0124.0.lcssa, %136
   %143 = mul i64 %142, %136
-  %.recomposed157 = urem i64 %.sroa.0124.0.lcssa, %136
+  %.recomposed162 = urem i64 %.sroa.0124.0.lcssa, %136
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
 144:                                              ; preds = %132
@@ -30843,18 +30843,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i8.i.i.i.i76:                              ; preds = %144
   %154 = udiv i32 %145, %148
   %155 = mul i32 %154, %148
-  %.recomposed158 = urem i32 %145, %148
+  %.recomposed163 = urem i32 %145, %148
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77: ; preds = %.split.i8.i.i.i.i76, %.split.us.i11.i.i.i.i83
-  %.us-phi.i9.i.i.i.i78 = phi i32 [ %.recomposed158, %.split.i8.i.i.i.i76 ], [ %153, %.split.us.i11.i.i.i.i83 ]
+  %.us-phi.i9.i.i.i.i78 = phi i32 [ %.recomposed163, %.split.i8.i.i.i.i76 ], [ %153, %.split.us.i11.i.i.i.i83 ]
   %.us-phi23.i10.i.i.i.i79 = phi i32 [ %154, %.split.i8.i.i.i.i76 ], [ %152, %.split.us.i11.i.i.i.i83 ]
   %.sroa.5.1.le.i.i.i.i.i80 = zext i32 %.us-phi.i9.i.i.i.i78 to i64
   %156 = zext i32 %.us-phi23.i10.i.i.i.i79 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit87: ; preds = %.split.us.i.i.i.i.i86, %.split.i.i.i.i.i85, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77
-  %.sroa.5.1.le.i.sink.i.i.i.i81 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i80, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %.recomposed157, %.split.i.i.i.i.i85 ], [ %141, %.split.us.i.i.i.i.i86 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i81 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i80, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %.recomposed162, %.split.i.i.i.i.i85 ], [ %141, %.split.us.i.i.i.i.i86 ]
   %.sink.i.i.i.i82 = phi i64 [ %156, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i77 ], [ %142, %.split.i.i.i.i.i85 ], [ %140, %.split.us.i.i.i.i.i86 ]
   %157 = load i64, ptr %1, align 8, !tbaa !15
   %158 = mul i64 %157, %.sink.i.i.i.i82
@@ -30895,7 +30895,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i.i.i.i.i98:                               ; preds = %172
   %180 = udiv i64 %.sroa.0124.1, %174
   %181 = mul i64 %180, %174
-  %.recomposed159 = urem i64 %.sroa.0124.1, %174
+  %.recomposed164 = urem i64 %.sroa.0124.1, %174
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
 182:                                              ; preds = %170
@@ -30917,18 +30917,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i8.i.i.i.i89:                              ; preds = %182
   %192 = udiv i32 %183, %186
   %193 = mul i32 %192, %186
-  %.recomposed160 = urem i32 %183, %186
+  %.recomposed165 = urem i32 %183, %186
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90: ; preds = %.split.i8.i.i.i.i89, %.split.us.i11.i.i.i.i96
-  %.us-phi.i9.i.i.i.i91 = phi i32 [ %.recomposed160, %.split.i8.i.i.i.i89 ], [ %191, %.split.us.i11.i.i.i.i96 ]
+  %.us-phi.i9.i.i.i.i91 = phi i32 [ %.recomposed165, %.split.i8.i.i.i.i89 ], [ %191, %.split.us.i11.i.i.i.i96 ]
   %.us-phi23.i10.i.i.i.i92 = phi i32 [ %192, %.split.i8.i.i.i.i89 ], [ %190, %.split.us.i11.i.i.i.i96 ]
   %.sroa.5.1.le.i.i.i.i.i93 = zext i32 %.us-phi.i9.i.i.i.i91 to i64
   %194 = zext i32 %.us-phi23.i10.i.i.i.i92 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit100: ; preds = %.split.us.i.i.i.i.i99, %.split.i.i.i.i.i98, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90
-  %.sroa.5.1.le.i.sink.i.i.i.i94 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i93, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %.recomposed159, %.split.i.i.i.i.i98 ], [ %179, %.split.us.i.i.i.i.i99 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i94 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i93, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %.recomposed164, %.split.i.i.i.i.i98 ], [ %179, %.split.us.i.i.i.i.i99 ]
   %.sink.i.i.i.i95 = phi i64 [ %194, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i90 ], [ %180, %.split.i.i.i.i.i98 ], [ %178, %.split.us.i.i.i.i.i99 ]
   %195 = load i64, ptr %1, align 8, !tbaa !15
   %196 = mul i64 %195, %.sink.i.i.i.i95
@@ -30969,7 +30969,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i.i.i.i.i111:                              ; preds = %210
   %218 = udiv i64 %.sroa.0124.2, %212
   %219 = mul i64 %218, %212
-  %.recomposed161 = urem i64 %.sroa.0124.2, %212
+  %.recomposed166 = urem i64 %.sroa.0124.2, %212
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
 220:                                              ; preds = %208
@@ -30991,18 +30991,18 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianc
 .split.i8.i.i.i.i102:                             ; preds = %220
   %230 = udiv i32 %221, %224
   %231 = mul i32 %230, %224
-  %.recomposed162 = urem i32 %221, %224
+  %.recomposed167 = urem i32 %221, %224
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103: ; preds = %.split.i8.i.i.i.i102, %.split.us.i11.i.i.i.i109
-  %.us-phi.i9.i.i.i.i104 = phi i32 [ %.recomposed162, %.split.i8.i.i.i.i102 ], [ %229, %.split.us.i11.i.i.i.i109 ]
+  %.us-phi.i9.i.i.i.i104 = phi i32 [ %.recomposed167, %.split.i8.i.i.i.i102 ], [ %229, %.split.us.i11.i.i.i.i109 ]
   %.us-phi23.i10.i.i.i.i105 = phi i32 [ %230, %.split.i8.i.i.i.i102 ], [ %228, %.split.us.i11.i.i.i.i109 ]
   %.sroa.5.1.le.i.i.i.i.i106 = zext i32 %.us-phi.i9.i.i.i.i104 to i64
   %232 = zext i32 %.us-phi23.i10.i.i.i.i105 to i64
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZZN7xgboost3obj10RegLossObjINS3_13GammaDevianceEE13ValidateLabelERKNS2_8MetaInfoEENKUlvE_clEvEUlfE_EclINS2_6common18IndexTransformIterIZNS2_6linalg6cbeginIKfLi2EEEDaRKNSG_10TensorViewIT_XT0_EEEEUlmE_EEEEbSK_.exit113: ; preds = %.split.us.i.i.i.i.i112, %.split.i.i.i.i.i111, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103
-  %.sroa.5.1.le.i.sink.i.i.i.i107 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i106, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %.recomposed161, %.split.i.i.i.i.i111 ], [ %217, %.split.us.i.i.i.i.i112 ]
+  %.sroa.5.1.le.i.sink.i.i.i.i107 = phi i64 [ %.sroa.5.1.le.i.i.i.i.i106, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %.recomposed166, %.split.i.i.i.i.i111 ], [ %217, %.split.us.i.i.i.i.i112 ]
   %.sink.i.i.i.i108 = phi i64 [ %232, %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i.i.i103 ], [ %218, %.split.i.i.i.i.i111 ], [ %216, %.split.us.i.i.i.i.i112 ]
   %233 = load i64, ptr %1, align 8, !tbaa !15
   %234 = mul i64 %233, %.sink.i.i.i.i108
@@ -31187,7 +31187,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 41:                                               ; preds = %.lr.ph93
   %42 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %42, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !870
+  br i1 %exitcond112.not, label %thread-pre-split125, label %.lr.ph93, !llvm.loop !870
 
 43:                                               ; preds = %.lr.ph93
   %44 = landingpad { ptr, i32 }
@@ -31213,7 +31213,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 47:                                               ; preds = %.lr.ph91
   %48 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %48, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !871
+  br i1 %exitcond111.not, label %thread-pre-split125, label %.lr.ph91, !llvm.loop !871
 
 49:                                               ; preds = %.lr.ph91
   %50 = landingpad { ptr, i32 }
@@ -31228,7 +31228,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 51:                                               ; preds = %.lr.ph89
   %52 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %52, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !872
+  br i1 %exitcond110.not, label %thread-pre-split125, label %.lr.ph89, !llvm.loop !872
 
 53:                                               ; preds = %.lr.ph89
   %54 = landingpad { ptr, i32 }
@@ -31254,7 +31254,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph87
   %58 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %58, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !873
+  br i1 %exitcond109.not, label %thread-pre-split125, label %.lr.ph87, !llvm.loop !873
 
 59:                                               ; preds = %.lr.ph87
   %60 = landingpad { ptr, i32 }
@@ -31269,7 +31269,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph85
   %62 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %62, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !874
+  br i1 %exitcond108.not, label %thread-pre-split125, label %.lr.ph85, !llvm.loop !874
 
 63:                                               ; preds = %.lr.ph85
   %64 = landingpad { ptr, i32 }
@@ -31284,19 +31284,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %66, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !875
+  br i1 %exitcond.not, label %thread-pre-split125, label %.lr.ph, !llvm.loop !875
 
 67:                                               ; preds = %.lr.ph
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %65, %61, %57, %51, %47, %41
+thread-pre-split125:                              ; preds = %65, %61, %57, %51, %47, %41
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %69
 
-69:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+69:                                               ; preds = %thread-pre-split125, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split125 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -31974,7 +31974,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph93
   %58 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %58, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !893
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !893
 
 59:                                               ; preds = %.lr.ph93
   %60 = landingpad { ptr, i32 }
@@ -32000,7 +32000,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 63:                                               ; preds = %.lr.ph91
   %64 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %64, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !894
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !894
 
 65:                                               ; preds = %.lr.ph91
   %66 = landingpad { ptr, i32 }
@@ -32015,7 +32015,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 67:                                               ; preds = %.lr.ph89
   %68 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %68, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !895
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !895
 
 69:                                               ; preds = %.lr.ph89
   %70 = landingpad { ptr, i32 }
@@ -32041,7 +32041,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 73:                                               ; preds = %.lr.ph87
   %74 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %74, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !896
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !896
 
 75:                                               ; preds = %.lr.ph87
   %76 = landingpad { ptr, i32 }
@@ -32056,7 +32056,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %.lr.ph85
   %78 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %78, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !897
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !897
 
 79:                                               ; preds = %.lr.ph85
   %80 = landingpad { ptr, i32 }
@@ -32071,19 +32071,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 81:                                               ; preds = %.lr.ph
   %82 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %82, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !898
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !898
 
 83:                                               ; preds = %.lr.ph
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %81, %77, %73, %67, %63, %57
+thread-pre-split126:                              ; preds = %81, %77, %73, %67, %63, %57
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %85
 
-85:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+85:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -34003,7 +34003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
   br i1 %.not.i.i.i, label %_ZN7xgboost4JsonD2Ev.exit, label %190
 
 190:                                              ; preds = %.thread, %189
-  %.pn13.pn.pn59 = phi { ptr, i32 } [ %.pn.pn.pn, %.thread ], [ %.pn13.pn, %189 ]
+  %.pn13.pn.pn78 = phi { ptr, i32 } [ %.pn.pn.pn, %.thread ], [ %.pn13.pn, %189 ]
   %191 = phi ptr [ %31, %.thread ], [ %.pre56, %189 ]
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = atomicrmw sub ptr %192, i32 1 release, align 4
@@ -34019,7 +34019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
   br label %_ZN7xgboost4JsonD2Ev.exit
 
 _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %195, %190, %189, %151, %22
-  %.pn13.pn.pn.pn = phi { ptr, i32 } [ %152, %151 ], [ %21, %22 ], [ %.pn13.pn, %189 ], [ %.pn13.pn.pn59, %190 ], [ %.pn13.pn.pn59, %195 ]
+  %.pn13.pn.pn.pn = phi { ptr, i32 } [ %152, %151 ], [ %21, %22 ], [ %.pn13.pn, %189 ], [ %.pn13.pn.pn78, %190 ], [ %.pn13.pn.pn78, %195 ]
   resume { ptr, i32 } %.pn13.pn.pn.pn
 
 199:                                              ; preds = %20
@@ -35887,11 +35887,11 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNS_6linalg21ElementW
 .split.i8.i.i:                                    ; preds = %27
   %37 = udiv i32 %28, %31
   %38 = mul i32 %37, %31
-  %.recomposed143 = urem i32 %28, %31
+  %.recomposed155 = urem i32 %28, %31
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i: ; preds = %.split.i8.i.i, %.split.us.i11.i.i
-  %.us-phi.i9.i.i = phi i32 [ %.recomposed143, %.split.i8.i.i ], [ %36, %.split.us.i11.i.i ]
+  %.us-phi.i9.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i ], [ %36, %.split.us.i11.i.i ]
   %.us-phi23.i10.i.i = phi i32 [ %37, %.split.i8.i.i ], [ %35, %.split.us.i11.i.i ]
   %.sroa.5.1.le.i.i.i = zext i32 %.us-phi.i9.i.i to i64
   %39 = zext i32 %.us-phi23.i10.i.i to i64
@@ -36122,7 +36122,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 122:                                              ; preds = %121
   %123 = add nuw i64 %.057104, 1
   %exitcond124.not = icmp eq i64 %123, %0
-  br i1 %exitcond124.not, label %thread-pre-split127, label %121, !llvm.loop !995
+  br i1 %exitcond124.not, label %thread-pre-split139, label %121, !llvm.loop !995
 
 124:                                              ; preds = %121
   %125 = landingpad { ptr, i32 }
@@ -36158,7 +36158,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 129:                                              ; preds = %128
   %130 = add nuw i64 %.059102, 1
   %exitcond123.not = icmp eq i64 %130, %0
-  br i1 %exitcond123.not, label %thread-pre-split127, label %128, !llvm.loop !996
+  br i1 %exitcond123.not, label %thread-pre-split139, label %128, !llvm.loop !996
 
 131:                                              ; preds = %128
   %132 = landingpad { ptr, i32 }
@@ -36175,7 +36175,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 134:                                              ; preds = %133
   %135 = add nuw i64 %.060100, 1
   %exitcond122.not = icmp eq i64 %135, %0
-  br i1 %exitcond122.not, label %thread-pre-split127, label %133, !llvm.loop !997
+  br i1 %exitcond122.not, label %thread-pre-split139, label %133, !llvm.loop !997
 
 136:                                              ; preds = %133
   %137 = landingpad { ptr, i32 }
@@ -36211,7 +36211,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 141:                                              ; preds = %140
   %142 = add nuw i64 %.06198, 1
   %exitcond121.not = icmp eq i64 %142, %0
-  br i1 %exitcond121.not, label %thread-pre-split127, label %140, !llvm.loop !998
+  br i1 %exitcond121.not, label %thread-pre-split139, label %140, !llvm.loop !998
 
 143:                                              ; preds = %140
   %144 = landingpad { ptr, i32 }
@@ -36228,7 +36228,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 146:                                              ; preds = %145
   %147 = add nuw i64 %.05896, 1
   %exitcond120.not = icmp eq i64 %147, %0
-  br i1 %exitcond120.not, label %thread-pre-split127, label %145, !llvm.loop !999
+  br i1 %exitcond120.not, label %thread-pre-split139, label %145, !llvm.loop !999
 
 148:                                              ; preds = %145
   %149 = landingpad { ptr, i32 }
@@ -36245,19 +36245,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 151:                                              ; preds = %150
   %152 = add nuw i64 %.05395, 1
   %exitcond.not = icmp eq i64 %152, %0
-  br i1 %exitcond.not, label %thread-pre-split127, label %150, !llvm.loop !1000
+  br i1 %exitcond.not, label %thread-pre-split139, label %150, !llvm.loop !1000
 
 153:                                              ; preds = %150
   %154 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split127:                              ; preds = %151, %146, %141, %134, %129, %122
+thread-pre-split139:                              ; preds = %151, %146, %141, %134, %129, %122
   %.pr83.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %155
 
-155:                                              ; preds = %thread-pre-split127, %.preheader84, %.preheader85, %.preheader87, %.preheader89, %.preheader91, %.preheader93
-  %.pr83 = phi ptr [ %.pr83.pr, %thread-pre-split127 ], [ null, %.preheader84 ], [ null, %.preheader85 ], [ null, %.preheader87 ], [ null, %.preheader89 ], [ null, %.preheader91 ], [ null, %.preheader93 ]
+155:                                              ; preds = %thread-pre-split139, %.preheader84, %.preheader85, %.preheader87, %.preheader89, %.preheader91, %.preheader93
+  %.pr83 = phi ptr [ %.pr83.pr, %thread-pre-split139 ], [ null, %.preheader84 ], [ null, %.preheader85 ], [ null, %.preheader87 ], [ null, %.preheader89 ], [ null, %.preheader91 ], [ null, %.preheader93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i76 = icmp eq ptr %.pr83, null
   br i1 %.not.i76, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -36360,11 +36360,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementW
 .split.i8.i.i:                                    ; preds = %16
   %26 = udiv i32 %17, %20
   %27 = mul i32 %26, %20
-  %.recomposed18 = urem i32 %17, %20
+  %.recomposed19 = urem i32 %17, %20
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i: ; preds = %.split.i8.i.i, %.split.us.i11.i.i
-  %.us-phi.i9.i.i = phi i32 [ %.recomposed18, %.split.i8.i.i ], [ %25, %.split.us.i11.i.i ]
+  %.us-phi.i9.i.i = phi i32 [ %.recomposed19, %.split.i8.i.i ], [ %25, %.split.us.i11.i.i ]
   %.us-phi23.i10.i.i = phi i32 [ %26, %.split.i8.i.i ], [ %24, %.split.us.i11.i.i ]
   %.sroa.5.1.le.i.i.i = zext i32 %.us-phi.i9.i.i to i64
   %28 = zext i32 %.us-phi23.i10.i.i to i64
@@ -38897,7 +38897,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 41:                                               ; preds = %.lr.ph93
   %42 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %42, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !1079
+  br i1 %exitcond112.not, label %thread-pre-split125, label %.lr.ph93, !llvm.loop !1079
 
 43:                                               ; preds = %.lr.ph93
   %44 = landingpad { ptr, i32 }
@@ -38923,7 +38923,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 47:                                               ; preds = %.lr.ph91
   %48 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %48, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !1080
+  br i1 %exitcond111.not, label %thread-pre-split125, label %.lr.ph91, !llvm.loop !1080
 
 49:                                               ; preds = %.lr.ph91
   %50 = landingpad { ptr, i32 }
@@ -38938,7 +38938,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 51:                                               ; preds = %.lr.ph89
   %52 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %52, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !1081
+  br i1 %exitcond110.not, label %thread-pre-split125, label %.lr.ph89, !llvm.loop !1081
 
 53:                                               ; preds = %.lr.ph89
   %54 = landingpad { ptr, i32 }
@@ -38964,7 +38964,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph87
   %58 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %58, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !1082
+  br i1 %exitcond109.not, label %thread-pre-split125, label %.lr.ph87, !llvm.loop !1082
 
 59:                                               ; preds = %.lr.ph87
   %60 = landingpad { ptr, i32 }
@@ -38979,7 +38979,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph85
   %62 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %62, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !1083
+  br i1 %exitcond108.not, label %thread-pre-split125, label %.lr.ph85, !llvm.loop !1083
 
 63:                                               ; preds = %.lr.ph85
   %64 = landingpad { ptr, i32 }
@@ -38994,19 +38994,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %66, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !1084
+  br i1 %exitcond.not, label %thread-pre-split125, label %.lr.ph, !llvm.loop !1084
 
 67:                                               ; preds = %.lr.ph
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %65, %61, %57, %51, %47, %41
+thread-pre-split125:                              ; preds = %65, %61, %57, %51, %47, %41
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %69
 
-69:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+69:                                               ; preds = %thread-pre-split125, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split125 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -39679,7 +39679,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph93
   %58 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %58, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !1103
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !1103
 
 59:                                               ; preds = %.lr.ph93
   %60 = landingpad { ptr, i32 }
@@ -39705,7 +39705,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 63:                                               ; preds = %.lr.ph91
   %64 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %64, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !1104
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !1104
 
 65:                                               ; preds = %.lr.ph91
   %66 = landingpad { ptr, i32 }
@@ -39720,7 +39720,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 67:                                               ; preds = %.lr.ph89
   %68 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %68, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !1105
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !1105
 
 69:                                               ; preds = %.lr.ph89
   %70 = landingpad { ptr, i32 }
@@ -39746,7 +39746,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 73:                                               ; preds = %.lr.ph87
   %74 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %74, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !1106
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !1106
 
 75:                                               ; preds = %.lr.ph87
   %76 = landingpad { ptr, i32 }
@@ -39761,7 +39761,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %.lr.ph85
   %78 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %78, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !1107
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !1107
 
 79:                                               ; preds = %.lr.ph85
   %80 = landingpad { ptr, i32 }
@@ -39776,19 +39776,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 81:                                               ; preds = %.lr.ph
   %82 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %82, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !1108
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !1108
 
 83:                                               ; preds = %.lr.ph
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %81, %77, %73, %67, %63, %57
+thread-pre-split126:                              ; preds = %81, %77, %73, %67, %63, %57
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %85
 
-85:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+85:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -42245,7 +42245,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
   %83 = load ptr, ptr %82, align 8, !tbaa !4
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %85 = icmp eq ptr %83, %84
-  br i1 %85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42256,13 +42256,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %90 = icmp eq ptr %89, %58
   br i1 %90, label %93, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %91 = load ptr, ptr %5, align 8, !tbaa !4
   %92 = icmp eq ptr %91, %58
   br i1 %92, label %93, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-93:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %94 = phi ptr [ %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+93:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %94 = phi ptr [ %91, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %95 = load i64, ptr %59, align 8, !tbaa !12
   %96 = icmp ult i64 %95, 16
   call void @llvm.assume(i1 %96)
@@ -42302,7 +42302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %106, ptr %84, align 8, !tbaa !13
   br label %112
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %107 = load i64, ptr %84, align 8, !tbaa !13
   store ptr %91, ptr %82, align 8, !tbaa !4
   %108 = load i64, ptr %59, align 8, !tbaa !12
@@ -43770,7 +43770,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 41:                                               ; preds = %.lr.ph93
   %42 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %42, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !1209
+  br i1 %exitcond112.not, label %thread-pre-split125, label %.lr.ph93, !llvm.loop !1209
 
 43:                                               ; preds = %.lr.ph93
   %44 = landingpad { ptr, i32 }
@@ -43796,7 +43796,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 47:                                               ; preds = %.lr.ph91
   %48 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %48, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !1210
+  br i1 %exitcond111.not, label %thread-pre-split125, label %.lr.ph91, !llvm.loop !1210
 
 49:                                               ; preds = %.lr.ph91
   %50 = landingpad { ptr, i32 }
@@ -43811,7 +43811,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 51:                                               ; preds = %.lr.ph89
   %52 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %52, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !1211
+  br i1 %exitcond110.not, label %thread-pre-split125, label %.lr.ph89, !llvm.loop !1211
 
 53:                                               ; preds = %.lr.ph89
   %54 = landingpad { ptr, i32 }
@@ -43837,7 +43837,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph87
   %58 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %58, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !1212
+  br i1 %exitcond109.not, label %thread-pre-split125, label %.lr.ph87, !llvm.loop !1212
 
 59:                                               ; preds = %.lr.ph87
   %60 = landingpad { ptr, i32 }
@@ -43852,7 +43852,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 61:                                               ; preds = %.lr.ph85
   %62 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %62, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !1213
+  br i1 %exitcond108.not, label %thread-pre-split125, label %.lr.ph85, !llvm.loop !1213
 
 63:                                               ; preds = %.lr.ph85
   %64 = landingpad { ptr, i32 }
@@ -43867,19 +43867,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 65:                                               ; preds = %.lr.ph
   %66 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %66, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !1214
+  br i1 %exitcond.not, label %thread-pre-split125, label %.lr.ph, !llvm.loop !1214
 
 67:                                               ; preds = %.lr.ph
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %65, %61, %57, %51, %47, %41
+thread-pre-split125:                              ; preds = %65, %61, %57, %51, %47, %41
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %69
 
-69:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+69:                                               ; preds = %thread-pre-split125, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split125 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -44590,7 +44590,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 57:                                               ; preds = %.lr.ph93
   %58 = add nuw i64 %.04492, 1
   %exitcond112.not = icmp eq i64 %58, %0
-  br i1 %exitcond112.not, label %thread-pre-split115, label %.lr.ph93, !llvm.loop !1231
+  br i1 %exitcond112.not, label %thread-pre-split126, label %.lr.ph93, !llvm.loop !1231
 
 59:                                               ; preds = %.lr.ph93
   %60 = landingpad { ptr, i32 }
@@ -44616,7 +44616,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 63:                                               ; preds = %.lr.ph91
   %64 = add nuw i64 %.04390, 1
   %exitcond111.not = icmp eq i64 %64, %0
-  br i1 %exitcond111.not, label %thread-pre-split115, label %.lr.ph91, !llvm.loop !1232
+  br i1 %exitcond111.not, label %thread-pre-split126, label %.lr.ph91, !llvm.loop !1232
 
 65:                                               ; preds = %.lr.ph91
   %66 = landingpad { ptr, i32 }
@@ -44631,7 +44631,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 67:                                               ; preds = %.lr.ph89
   %68 = add nuw i64 %.04288, 1
   %exitcond110.not = icmp eq i64 %68, %0
-  br i1 %exitcond110.not, label %thread-pre-split115, label %.lr.ph89, !llvm.loop !1233
+  br i1 %exitcond110.not, label %thread-pre-split126, label %.lr.ph89, !llvm.loop !1233
 
 69:                                               ; preds = %.lr.ph89
   %70 = landingpad { ptr, i32 }
@@ -44657,7 +44657,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 73:                                               ; preds = %.lr.ph87
   %74 = add nuw i64 %.04186, 1
   %exitcond109.not = icmp eq i64 %74, %0
-  br i1 %exitcond109.not, label %thread-pre-split115, label %.lr.ph87, !llvm.loop !1234
+  br i1 %exitcond109.not, label %thread-pre-split126, label %.lr.ph87, !llvm.loop !1234
 
 75:                                               ; preds = %.lr.ph87
   %76 = landingpad { ptr, i32 }
@@ -44672,7 +44672,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 77:                                               ; preds = %.lr.ph85
   %78 = add nuw i64 %.04084, 1
   %exitcond108.not = icmp eq i64 %78, %0
-  br i1 %exitcond108.not, label %thread-pre-split115, label %.lr.ph85, !llvm.loop !1235
+  br i1 %exitcond108.not, label %thread-pre-split126, label %.lr.ph85, !llvm.loop !1235
 
 79:                                               ; preds = %.lr.ph85
   %80 = landingpad { ptr, i32 }
@@ -44687,19 +44687,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 81:                                               ; preds = %.lr.ph
   %82 = add nuw i64 %.083, 1
   %exitcond.not = icmp eq i64 %82, %0
-  br i1 %exitcond.not, label %thread-pre-split115, label %.lr.ph, !llvm.loop !1236
+  br i1 %exitcond.not, label %thread-pre-split126, label %.lr.ph, !llvm.loop !1236
 
 83:                                               ; preds = %.lr.ph
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split115:                              ; preds = %81, %77, %73, %67, %63, %57
+thread-pre-split126:                              ; preds = %81, %77, %73, %67, %63, %57
   %.pr71.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %85
 
-85:                                               ; preds = %thread-pre-split115, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
-  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split115 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
+85:                                               ; preds = %thread-pre-split126, %.preheader72, %.preheader73, %.preheader75, %.preheader77, %.preheader79, %.preheader81
+  %.pr71 = phi ptr [ %.pr71.pr, %thread-pre-split126 ], [ null, %.preheader72 ], [ null, %.preheader73 ], [ null, %.preheader75 ], [ null, %.preheader77 ], [ null, %.preheader79 ], [ null, %.preheader81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i64 = icmp eq ptr %.pr71, null
   br i1 %.not.i64, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -45947,7 +45947,7 @@ _ZN7xgboost6linalg7MakeVecIdEEDaPT_mNS_9DeviceOrdE.exit.i.i: ; preds = %._ZN7xgb
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 -65536, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !1310
   call void @llvm.experimental.noalias.scope.decl(metadata !1319)
-  br i1 %114, label %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread116, label %116
+  br i1 %114, label %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread121, label %116
 
 116:                                              ; preds = %_ZN7xgboost6linalg7MakeVecIdEEDaPT_mNS_9DeviceOrdE.exit.i.i
   %117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
@@ -45958,7 +45958,7 @@ _ZN7xgboost6linalg7MakeVecIdEEDaPT_mNS_9DeviceOrdE.exit.i.i: ; preds = %._ZN7xgb
   invoke void @_ZN7xgboost10collective9AllreduceIdLi1EEENS0_6ResultEPKNS_7ContextERKNS0_9CommGroupENS_6linalg10TensorViewIT_XT0_EEENS0_2OpE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %13, ptr noundef %115, ptr noundef nonnull align 8 dereferenceable(64) %118, ptr noundef nonnull byval(%"class.xgboost::linalg::TensorView.358") align 8 %5, i32 noundef 2)
           to label %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit unwind label %141
 
-_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread116: ; preds = %_ZN7xgboost6linalg7MakeVecIdEEDaPT_mNS_9DeviceOrdE.exit.i.i
+_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread121: ; preds = %_ZN7xgboost6linalg7MakeVecIdEEDaPT_mNS_9DeviceOrdE.exit.i.i
   store ptr null, ptr %13, align 8, !tbaa !1278, !alias.scope !1325
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1310
   br label %_ZN7xgboost10collective6ResultD2Ev.exit72
@@ -45974,7 +45974,7 @@ _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.
   call void @_ZdlPvm(ptr noundef nonnull %.pr109.pre, i64 noundef 56) #37
   br label %_ZN7xgboost10collective6ResultD2Ev.exit72
 
-_ZN7xgboost10collective6ResultD2Ev.exit72:        ; preds = %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i, %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit, %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread, %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread116
+_ZN7xgboost10collective6ResultD2Ev.exit72:        ; preds = %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i, %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit, %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread, %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread121
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @_ZN7xgboost10collective8SafeCollERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -47949,11 +47949,11 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNS_6linalg21ElementW
 .split.i8.i.i:                                    ; preds = %27
   %37 = udiv i32 %28, %31
   %38 = mul i32 %37, %31
-  %.recomposed143 = urem i32 %28, %31
+  %.recomposed155 = urem i32 %28, %31
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i: ; preds = %.split.i8.i.i, %.split.us.i11.i.i
-  %.us-phi.i9.i.i = phi i32 [ %.recomposed143, %.split.i8.i.i ], [ %36, %.split.us.i11.i.i ]
+  %.us-phi.i9.i.i = phi i32 [ %.recomposed155, %.split.i8.i.i ], [ %36, %.split.us.i11.i.i ]
   %.us-phi23.i10.i.i = phi i32 [ %37, %.split.i8.i.i ], [ %35, %.split.us.i11.i.i ]
   %.sroa.5.1.le.i.i.i = zext i32 %.us-phi.i9.i.i to i64
   %39 = zext i32 %.us-phi23.i10.i.i to i64
@@ -48182,7 +48182,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 120:                                              ; preds = %119
   %121 = add nuw i64 %.057104, 1
   %exitcond124.not = icmp eq i64 %121, %0
-  br i1 %exitcond124.not, label %thread-pre-split127, label %119, !llvm.loop !1374
+  br i1 %exitcond124.not, label %thread-pre-split139, label %119, !llvm.loop !1374
 
 122:                                              ; preds = %119
   %123 = landingpad { ptr, i32 }
@@ -48218,7 +48218,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 127:                                              ; preds = %126
   %128 = add nuw i64 %.059102, 1
   %exitcond123.not = icmp eq i64 %128, %0
-  br i1 %exitcond123.not, label %thread-pre-split127, label %126, !llvm.loop !1375
+  br i1 %exitcond123.not, label %thread-pre-split139, label %126, !llvm.loop !1375
 
 129:                                              ; preds = %126
   %130 = landingpad { ptr, i32 }
@@ -48235,7 +48235,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 132:                                              ; preds = %131
   %133 = add nuw i64 %.060100, 1
   %exitcond122.not = icmp eq i64 %133, %0
-  br i1 %exitcond122.not, label %thread-pre-split127, label %131, !llvm.loop !1376
+  br i1 %exitcond122.not, label %thread-pre-split139, label %131, !llvm.loop !1376
 
 134:                                              ; preds = %131
   %135 = landingpad { ptr, i32 }
@@ -48271,7 +48271,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 139:                                              ; preds = %138
   %140 = add nuw i64 %.06198, 1
   %exitcond121.not = icmp eq i64 %140, %0
-  br i1 %exitcond121.not, label %thread-pre-split127, label %138, !llvm.loop !1377
+  br i1 %exitcond121.not, label %thread-pre-split139, label %138, !llvm.loop !1377
 
 141:                                              ; preds = %138
   %142 = landingpad { ptr, i32 }
@@ -48288,7 +48288,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 144:                                              ; preds = %143
   %145 = add nuw i64 %.05896, 1
   %exitcond120.not = icmp eq i64 %145, %0
-  br i1 %exitcond120.not, label %thread-pre-split127, label %143, !llvm.loop !1378
+  br i1 %exitcond120.not, label %thread-pre-split139, label %143, !llvm.loop !1378
 
 146:                                              ; preds = %143
   %147 = landingpad { ptr, i32 }
@@ -48305,19 +48305,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 149:                                              ; preds = %148
   %150 = add nuw i64 %.05395, 1
   %exitcond.not = icmp eq i64 %150, %0
-  br i1 %exitcond.not, label %thread-pre-split127, label %148, !llvm.loop !1379
+  br i1 %exitcond.not, label %thread-pre-split139, label %148, !llvm.loop !1379
 
 151:                                              ; preds = %148
   %152 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-thread-pre-split127:                              ; preds = %149, %144, %139, %132, %127, %120
+thread-pre-split139:                              ; preds = %149, %144, %139, %132, %127, %120
   %.pr83.pr = load ptr, ptr %11, align 8, !tbaa !382
   br label %153
 
-153:                                              ; preds = %thread-pre-split127, %.preheader84, %.preheader85, %.preheader87, %.preheader89, %.preheader91, %.preheader93
-  %.pr83 = phi ptr [ %.pr83.pr, %thread-pre-split127 ], [ null, %.preheader84 ], [ null, %.preheader85 ], [ null, %.preheader87 ], [ null, %.preheader89 ], [ null, %.preheader91 ], [ null, %.preheader93 ]
+153:                                              ; preds = %thread-pre-split139, %.preheader84, %.preheader85, %.preheader87, %.preheader89, %.preheader91, %.preheader93
+  %.pr83 = phi ptr [ %.pr83.pr, %thread-pre-split139 ], [ null, %.preheader84 ], [ null, %.preheader85 ], [ null, %.preheader87 ], [ null, %.preheader89 ], [ null, %.preheader91 ], [ null, %.preheader93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i76 = icmp eq ptr %.pr83, null
   br i1 %.not.i76, label %_ZN4dmlc12OMPExceptionD2Ev.exit, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i
@@ -48420,11 +48420,11 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementW
 .split.i8.i.i:                                    ; preds = %16
   %26 = udiv i32 %17, %20
   %27 = mul i32 %26, %20
-  %.recomposed18 = urem i32 %17, %20
+  %.recomposed19 = urem i32 %17, %20
   br label %_ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i
 
 _ZN7xgboost6linalg6detail11UnravelImplIjLi2EEEDaT_NS_6common4SpanIKmXT0_EEE.exit.i.i: ; preds = %.split.i8.i.i, %.split.us.i11.i.i
-  %.us-phi.i9.i.i = phi i32 [ %.recomposed18, %.split.i8.i.i ], [ %25, %.split.us.i11.i.i ]
+  %.us-phi.i9.i.i = phi i32 [ %.recomposed19, %.split.i8.i.i ], [ %25, %.split.us.i11.i.i ]
   %.us-phi23.i10.i.i = phi i32 [ %26, %.split.i8.i.i ], [ %24, %.split.us.i11.i.i ]
   %.sroa.5.1.le.i.i.i = zext i32 %.us-phi.i9.i.i to i64
   %28 = zext i32 %.us-phi23.i10.i.i to i64

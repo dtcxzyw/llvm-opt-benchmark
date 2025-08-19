@@ -292,8 +292,8 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
 .critedge.thread.i:                               ; preds = %124, %122, %.critedge.i, %110
   %.174.i = phi i32 [ %123, %124 ], [ 0, %122 ], [ %.073.i, %.critedge.i ], [ 0, %110 ]
   %.0.i = phi i32 [ %.1.i, %124 ], [ %.1.i, %122 ], [ 0, %.critedge.i ], [ 0, %110 ]
-  %125 = trunc i32 %.0.i to i8
-  %126 = sub i8 0, %125
+  %125 = trunc nsw i32 %.0.i to i8
+  %126 = sub nsw i8 0, %125
   %127 = add i64 %.069.i, 1
   %128 = getelementptr inbounds nuw i8, ptr %75, i64 %.069.i
   store i8 %126, ptr %128, align 1, !tbaa !13

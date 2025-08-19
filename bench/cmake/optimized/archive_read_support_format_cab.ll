@@ -3214,7 +3214,7 @@ thread-pre-split.i:                               ; preds = %124, %120
 295:                                              ; preds = %._crit_edge.i.i, %.lr.ph95.i.i
   %indvars.iv98.i.i = phi i64 [ 0, %.lr.ph95.i.i ], [ %indvars.iv.next99.i.i, %._crit_edge.i.i ]
   %.194.i.i = phi i32 [ 0, %.lr.ph95.i.i ], [ %.2.i.i, %._crit_edge.i.i ]
-  %.06393.i.i = phi i32 [ 0, %.lr.ph95.i.i ], [ %.164103.i.i, %._crit_edge.i.i ]
+  %.06393.i.i = phi i32 [ 0, %.lr.ph95.i.i ], [ %.164107.i.i, %._crit_edge.i.i ]
   %296 = icmp eq i32 %.194.i.i, 0
   %297 = trunc nuw nsw i64 %indvars.iv98.i.i to i32
   br i1 %296, label %.preheader.i.i, label %298
@@ -3228,12 +3228,12 @@ thread-pre-split.i:                               ; preds = %124, %120
   br i1 %303, label %.preheader.i.i, label %._crit_edge.i.i
 
 .preheader.i.i:                                   ; preds = %298, %295
-  %.164104.i.i = phi i32 [ %302, %298 ], [ %297, %295 ]
-  %.not7389.i.i = icmp eq i32 %.164104.i.i, 0
+  %.164108.i.i = phi i32 [ %302, %298 ], [ %297, %295 ]
+  %.not7389.i.i = icmp eq i32 %.164108.i.i, 0
   br i1 %.not7389.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.091.i.i = phi i32 [ %305, %.lr.ph.i.i ], [ %.164104.i.i, %.preheader.i.i ]
+  %.091.i.i = phi i32 [ %305, %.lr.ph.i.i ], [ %.164108.i.i, %.preheader.i.i ]
   %.390.i.i = phi i32 [ %304, %.lr.ph.i.i ], [ -2, %.preheader.i.i ]
   %304 = add nsw i32 %.390.i.i, 1
   %305 = ashr i32 %.091.i.i, 1
@@ -3245,10 +3245,10 @@ thread-pre-split.i:                               ; preds = %124, %120
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i, %298
-  %.164103.i.i = phi i32 [ %302, %298 ], [ %.164104.i.i, %._crit_edge.loopexit.i.i ], [ 0, %.preheader.i.i ]
+  %.164107.i.i = phi i32 [ %302, %298 ], [ %.164108.i.i, %._crit_edge.loopexit.i.i ], [ 0, %.preheader.i.i ]
   %.2.i.i = phi i32 [ %.194.i.i, %298 ], [ %306, %._crit_edge.loopexit.i.i ], [ 0, %.preheader.i.i ]
   %307 = getelementptr inbounds nuw %struct.lzx_pos_tbl, ptr %290, i64 %indvars.iv98.i.i
-  store i32 %.164103.i.i, ptr %307, align 4, !tbaa !163
+  store i32 %.164107.i.i, ptr %307, align 4, !tbaa !163
   %308 = getelementptr inbounds nuw %struct.lzx_pos_tbl, ptr %290, i64 %indvars.iv98.i.i, i32 1
   store i32 %.2.i.i, ptr %308, align 4, !tbaa !165
   %indvars.iv.next99.i.i = add nuw nsw i64 %indvars.iv98.i.i, 1
@@ -3543,8 +3543,8 @@ lzx_br_fixup.exit.i.i:                            ; preds = %433, %425
   %.pre.i.i.i = load i32, ptr %450, align 8, !tbaa !168
   br label %.outer
 
-.outer:                                           ; preds = %.sink.split427.i.i.i, %.lr.ph.i101.i
-  %.ph = phi i32 [ %.sink429.i.i.i, %.sink.split427.i.i.i ], [ %.pre.i.i.i, %.lr.ph.i101.i ]
+.outer:                                           ; preds = %.sink.split453.i.i.i, %.lr.ph.i101.i
+  %.ph = phi i32 [ %.sink455.i.i.i, %.sink.split453.i.i.i ], [ %.pre.i.i.i, %.lr.ph.i101.i ]
   br label %458
 
 458:                                              ; preds = %.outer, %458
@@ -3630,8 +3630,8 @@ lzx_br_fixup.exit.i.i:                            ; preds = %433, %425
   %.not275.i.i.i = icmp ne i32 %479, 0
   %.pre397.i.i.i = load i32, ptr %452, align 8, !tbaa !183
   %480 = icmp sgt i32 %.pre397.i.i.i, 31
-  %or.cond423.i.i.i = select i1 %.not275.i.i.i, i1 true, i1 %480
-  br i1 %or.cond423.i.i.i, label %482, label %481
+  %or.cond449.i.i.i = select i1 %.not275.i.i.i, i1 true, i1 %480
+  br i1 %or.cond449.i.i.i, label %482, label %481
 
 481:                                              ; preds = %478
   store i32 1, ptr %450, align 8, !tbaa !168
@@ -3665,8 +3665,8 @@ lzx_br_fixup.exit.i.i:                            ; preds = %433, %425
   %.not277.i.i.i = icmp ne i32 %500, 0
   %.pre401.i.i.i = load i32, ptr %452, align 8, !tbaa !183
   %501 = icmp sgt i32 %.pre401.i.i.i, 2
-  %or.cond424.i.i.i = select i1 %.not277.i.i.i, i1 true, i1 %501
-  br i1 %or.cond424.i.i.i, label %503, label %502
+  %or.cond450.i.i.i = select i1 %.not277.i.i.i, i1 true, i1 %501
+  br i1 %or.cond450.i.i.i, label %503, label %502
 
 502:                                              ; preds = %499
   store i32 2, ptr %450, align 8, !tbaa !168
@@ -3696,8 +3696,8 @@ lzx_br_fixup.exit.i.i:                            ; preds = %433, %425
   %.not279.i.i.i = icmp ne i32 %515, 0
   %.pre404.i.i.i = load i32, ptr %452, align 8, !tbaa !183
   %516 = icmp sgt i32 %.pre404.i.i.i, 23
-  %or.cond425.i.i.i = select i1 %.not279.i.i.i, i1 true, i1 %516
-  br i1 %or.cond425.i.i.i, label %518, label %517
+  %or.cond451.i.i.i = select i1 %.not279.i.i.i, i1 true, i1 %516
+  br i1 %or.cond451.i.i.i, label %518, label %517
 
 517:                                              ; preds = %514
   store i32 3, ptr %450, align 8, !tbaa !168
@@ -3726,11 +3726,11 @@ lzx_br_fixup.exit.i.i:                            ; preds = %433, %425
   %533 = load i8, ptr %455, align 1, !tbaa !191
   switch i8 %533, label %534 [
     i8 3, label %split.i.i.i
-    i8 1, label %.sink.split427.i.i.i
+    i8 1, label %.sink.split453.i.i.i
   ]
 
 534:                                              ; preds = %532
-  br label %.sink.split427.i.i.i
+  br label %.sink.split453.i.i.i
 
 split.i.i.i:                                      ; preds = %532, %._crit_edge405.i.i.i
   %535 = phi i32 [ %.pre406.i.i.i, %._crit_edge405.i.i.i ], [ %526, %532 ]
@@ -3751,8 +3751,8 @@ split.i.i.i:                                      ; preds = %532, %._crit_edge40
   %.not283.i.i.i = icmp ne i32 %542, 0
   %.pre407.i.i.i = load i32, ptr %452, align 8, !tbaa !183
   %543 = icmp sgt i32 %.pre407.i.i.i, 15
-  %or.cond426.i.i.i = select i1 %.not283.i.i.i, i1 true, i1 %543
-  br i1 %or.cond426.i.i.i, label %544, label %547
+  %or.cond452.i.i.i = select i1 %.not283.i.i.i, i1 true, i1 %543
+  br i1 %or.cond452.i.i.i, label %544, label %547
 
 544:                                              ; preds = %541, %539
   %545 = phi i32 [ %.pre407.i.i.i, %541 ], [ %535, %539 ]
@@ -3784,9 +3784,9 @@ split.i.i.i:                                      ; preds = %532, %._crit_edge40
 557:                                              ; preds = %614, %.loopexit363.i.i.i
   %558 = load i32, ptr %452, align 8, !tbaa !183
   %559 = icmp sgt i32 %558, 31
-  br i1 %559, label %.thread414.i.i.i, label %569
+  br i1 %559, label %.thread440.i.i.i, label %569
 
-.thread414.i.i.i:                                 ; preds = %557
+.thread440.i.i.i:                                 ; preds = %557
   %560 = load i64, ptr %451, align 8, !tbaa !185
   %561 = add nsw i32 %558, -16
   %562 = zext nneg i32 %561 to i64
@@ -3870,7 +3870,7 @@ split.i.i.i:                                      ; preds = %532, %._crit_edge40
   %602 = icmp slt i32 %601, 4
   br i1 %602, label %.lr.ph379.i.i.i, label %._crit_edge380.i.i.i, !llvm.loop !196
 
-._crit_edge380.i.i.i:                             ; preds = %592, %581, %576, %.thread414.i.i.i
+._crit_edge380.i.i.i:                             ; preds = %592, %581, %576, %.thread440.i.i.i
   store i32 0, ptr %550, align 8, !tbaa !194
   %603 = load i32, ptr %450, align 8, !tbaa !168
   switch i32 %603, label %614 [
@@ -4161,7 +4161,7 @@ lzx_read_pre_tree.exit.i.i.i:                     ; preds = %730
   br label %lzx_read_pre_tree.exit.thread.i.i.i
 
 752:                                              ; preds = %727
-  %.0.lcssa.ph.i339.i.i.i = trunc i64 %indvars.iv.i.i.i.i to i32
+  %.0.lcssa.ph.i339.i.i.i = trunc nsw i64 %indvars.iv.i.i.i.i to i32
   store i32 %.0.lcssa.ph.i339.i.i.i, ptr %711, align 8, !tbaa !204
   store i32 12, ptr %450, align 8, !tbaa !168
   br i1 %.not109.i, label %.thread323.i.i.i, label %.loopexit.i.i
@@ -4272,7 +4272,7 @@ lzx_read_pre_tree.exit306.i.i.i:                  ; preds = %785
   br label %lzx_read_pre_tree.exit306.thread.i.i.i
 
 807:                                              ; preds = %782
-  %.0.lcssa.ph.i304347.i.i.i = trunc i64 %indvars.iv.i297.i.i.i to i32
+  %.0.lcssa.ph.i304347.i.i.i = trunc nsw i64 %indvars.iv.i297.i.i.i to i32
   store i32 %.0.lcssa.ph.i304347.i.i.i, ptr %766, align 8, !tbaa !204
   store i32 14, ptr %450, align 8, !tbaa !168
   br i1 %.not109.i, label %.thread323.i.i.i, label %.loopexit.i.i
@@ -4388,7 +4388,7 @@ lzx_read_pre_tree.exit320.i.i.i:                  ; preds = %842
   br label %lzx_read_pre_tree.exit320.thread.i.i.i
 
 864:                                              ; preds = %839
-  %.0.lcssa.ph.i318355.i.i.i = trunc i64 %indvars.iv.i311.i.i.i to i32
+  %.0.lcssa.ph.i318355.i.i.i = trunc nsw i64 %indvars.iv.i311.i.i.i to i32
   store i32 %.0.lcssa.ph.i318355.i.i.i, ptr %823, align 8, !tbaa !204
   store i32 16, ptr %450, align 8, !tbaa !168
   br i1 %.not109.i, label %.thread323.i.i.i, label %.loopexit.i.i
@@ -4425,9 +4425,9 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %.not271.i.i.i = icmp eq i32 %875, 0
   br i1 %.not271.i.i.i, label %.thread323.i.i.i, label %lzx_read_blocks.exit.i.i
 
-.sink.split427.i.i.i:                             ; preds = %534, %532
-  %.sink429.i.i.i = phi i32 [ 10, %534 ], [ 11, %532 ]
-  store i32 %.sink429.i.i.i, ptr %450, align 8, !tbaa !168
+.sink.split453.i.i.i:                             ; preds = %534, %532
+  %.sink455.i.i.i = phi i32 [ 10, %534 ], [ 11, %532 ]
+  store i32 %.sink455.i.i.i, ptr %450, align 8, !tbaa !168
   br label %.outer
 
 .thread323.i.i.i:                                 ; preds = %874, %.loopexit372.i.i.i, %lzx_read_pre_tree.exit320.thread.i.i.i, %817, %.loopexit370.i.i.i, %lzx_read_pre_tree.exit306.thread.i.i.i, %.loopexit368.i.i.i, %lzx_read_pre_tree.exit.thread.i.i.i, %._crit_edge.i.i.i, %607, %604, %518, %503, %873, %864, %816, %807, %761, %752, %679, %663, %628, %610, %591, %547, %517, %502, %481, %465
@@ -4689,12 +4689,12 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %.not347.i.i.i = icmp eq i32 %980, 0
   %.pre.i34.i.i = load i32, ptr %402, align 8, !tbaa !183
   %.not348.i.i.i = icmp slt i32 %.pre.i34.i.i, %903
-  %or.cond1427.i.i.i = select i1 %.not347.i.i.i, i1 %.not348.i.i.i, i1 false
+  %or.cond1439.i.i.i = select i1 %.not347.i.i.i, i1 %.not348.i.i.i, i1 false
   %.pre829.i.i = load i64, ptr %3, align 8, !tbaa !185
   %.pre831.i.i = load i32, ptr %929, align 4, !tbaa !95
   %.val376.i.pre832.i.i = load i32, ptr %883, align 8, !tbaa !174
   %.val377.i.pre834.i.i = load ptr, ptr %930, align 8, !tbaa !121
-  br i1 %or.cond1427.i.i.i, label %981, label %998
+  br i1 %or.cond1439.i.i.i, label %981, label %998
 
 981:                                              ; preds = %979
   %982 = sub nsw i32 %903, %.pre.i34.i.i
@@ -4789,8 +4789,8 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %.not351.i.i.i = icmp eq i32 %1036, 0
   %.pre1133.i.i.i = load i32, ptr %402, align 8, !tbaa !183
   %.not352.i.i.i = icmp slt i32 %.pre1133.i.i.i, %901
-  %or.cond1428.i.i.i = select i1 %.not351.i.i.i, i1 %.not352.i.i.i, i1 false
-  br i1 %or.cond1428.i.i.i, label %1037, label %1057
+  %or.cond1440.i.i.i = select i1 %.not351.i.i.i, i1 %.not352.i.i.i, i1 false
+  br i1 %or.cond1440.i.i.i, label %1037, label %1057
 
 1037:                                             ; preds = %1035
   br i1 %.not109.i, label %1038, label %.thread395.i.i.i
@@ -4923,8 +4923,8 @@ lzx_read_pre_tree.exit320.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   %.not363.i.i.i = icmp eq i32 %1110, 0
   %.pre1134.i.i.i = load i32, ptr %402, align 8, !tbaa !183
   %.not364.i.i.i = icmp slt i32 %.pre1134.i.i.i, %1108
-  %or.cond1429.i.i.i = select i1 %.not363.i.i.i, i1 %.not364.i.i.i, i1 false
-  br i1 %or.cond1429.i.i.i, label %1111, label %._crit_edge836.i.i
+  %or.cond1441.i.i.i = select i1 %.not363.i.i.i, i1 %.not364.i.i.i, i1 false
+  br i1 %or.cond1441.i.i.i, label %1111, label %._crit_edge836.i.i
 
 ._crit_edge836.i.i:                               ; preds = %1109
   %.pre837.i.i = load i64, ptr %3, align 8, !tbaa !185
@@ -5302,12 +5302,12 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %420
 1276:                                             ; preds = %1272
   %1277 = ptrtoint ptr %1275 to i64
   %.neg.i.i = sub i64 %1269, %1277
-  %.neg3.i.i = trunc i64 %.neg.i.i to i32
-  %reass.sub.i = sub i32 %.neg3.i.i, %1271
-  %.neg4.i.i = add i32 %reass.sub.i, 32768
+  %.neg8.i.i = trunc i64 %.neg.i.i to i32
+  %reass.sub.i = sub i32 %.neg8.i.i, %1271
+  %.neg9.i.i = add i32 %reass.sub.i, 32768
   %1278 = getelementptr inbounds nuw i8, ptr %1275, i64 1
   %1279 = load i32, ptr %1278, align 1
-  %.not34.i.i = icmp slt i32 %1279, %.neg4.i.i
+  %.not34.i.i = icmp slt i32 %1279, %.neg9.i.i
   br i1 %.not34.i.i, label %1285, label %1280
 
 1280:                                             ; preds = %1276
@@ -5317,7 +5317,7 @@ lzx_decode.exit.i:                                ; preds = %.loopexit.i.i, %420
 
 1283:                                             ; preds = %1280
   %1284 = icmp slt i32 %1279, 0
-  %.028.p.i.i = select i1 %1284, i32 %1281, i32 %.neg4.i.i
+  %.028.p.i.i = select i1 %1284, i32 %1281, i32 %.neg9.i.i
   %.028.i.i = add i32 %.028.p.i.i, %1279
   store i32 %.028.i.i, ptr %1278, align 1
   br label %1285

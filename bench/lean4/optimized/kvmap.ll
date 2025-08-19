@@ -481,9 +481,9 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
   %34 = getelementptr i8, ptr %33, i64 4
   %.val.i.i = load i32, ptr %34, align 4
   %35 = icmp ult i32 %.val.i.i, 16777216
-  br i1 %35, label %36, label %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread9
+  br i1 %35, label %36, label %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread11
 
-_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread9: ; preds = %31
+_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread11: ; preds = %31
   store i8 0, ptr %0, align 8, !tbaa !20
   br label %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread
 
@@ -532,7 +532,7 @@ _ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit: ; preds = %_ZN4lean10object_re
   store i8 0, ptr %0, align 8, !tbaa !20
   br label %_ZN4lean8optionalINS_10data_valueEED2Ev.exit
 
-_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread: ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread9
+_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread: ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_10string_refEEC2ERKS1_.exit.thread11
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !3
   %54 = ptrtoint ptr %53 to i64
@@ -698,9 +698,9 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
   %.val.i.i = load i32, ptr %34, align 4
   %.mask = and i32 %.val.i.i, -16777216
   %35 = icmp eq i32 %.mask, 50331648
-  br i1 %35, label %36, label %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread9
+  br i1 %35, label %36, label %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread11
 
-_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread9: ; preds = %31
+_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread11: ; preds = %31
   store i8 0, ptr %0, align 8, !tbaa !22
   br label %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread
 
@@ -749,7 +749,7 @@ _ZN4lean8optionalINS_3natEEC2ERKS1_.exit:         ; preds = %_ZN4lean10object_re
   store i8 0, ptr %0, align 8, !tbaa !22
   br label %_ZN4lean8optionalINS_10data_valueEED2Ev.exit
 
-_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread:  ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread9
+_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread:  ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_3natEEC2ERKS1_.exit.thread11
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !3
   %54 = ptrtoint ptr %53 to i64
@@ -870,9 +870,9 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
   %.val.i.i = load i32, ptr %34, align 4
   %.mask = and i32 %.val.i.i, -16777216
   %35 = icmp eq i32 %.mask, 16777216
-  br i1 %35, label %36, label %.thread14
+  br i1 %35, label %36, label %.thread16
 
-.thread14:                                        ; preds = %31
+.thread16:                                        ; preds = %31
   store i8 0, ptr %0, align 1, !tbaa !24
   br label %54
 
@@ -928,7 +928,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit.i:       ; preds = %44, %43, %41, %36
   store i8 0, ptr %0, align 1, !tbaa !24
   br label %_ZN4lean8optionalINS_10data_valueEED2Ev.exit
 
-54:                                               ; preds = %.thread14, %.thread
+54:                                               ; preds = %.thread16, %.thread
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !3
   %57 = ptrtoint ptr %56 to i64
@@ -1049,9 +1049,9 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %15, %22, %24, %25
   %.val.i.i = load i32, ptr %34, align 4
   %.mask = and i32 %.val.i.i, -16777216
   %35 = icmp eq i32 %.mask, 33554432
-  br i1 %35, label %36, label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread9
+  br i1 %35, label %36, label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread11
 
-_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread9: ; preds = %31
+_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread11: ; preds = %31
   store i8 0, ptr %0, align 8, !tbaa !27
   br label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread
 
@@ -1100,7 +1100,7 @@ _ZN4lean8optionalINS_4nameEEC2ERKS1_.exit:        ; preds = %_ZN4lean10object_re
   store i8 0, ptr %0, align 8, !tbaa !27
   br label %_ZN4lean8optionalINS_10data_valueEED2Ev.exit
 
-_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread: ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread9
+_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread: ; preds = %47, %36, %44, %46, %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit.thread11
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !3
   %54 = ptrtoint ptr %53 to i64

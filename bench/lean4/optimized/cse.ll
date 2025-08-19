@@ -6357,7 +6357,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4lean4exprESaIS1_EE17_M_default_a
           to label %_ZSt10_ConstructIN4lean4exprEJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructIN4lean4exprEJEEvPT_DpOT0_.exit.i.i.i: ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 8
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN4lean4exprEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !136
@@ -6422,7 +6422,7 @@ _ZNKSt6vectorIN4lean4exprESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %32
           to label %_ZSt10_ConstructIN4lean4exprEJEEvPT_DpOT0_.exit.i.i.i43 unwind label %42
 
 _ZSt10_ConstructIN4lean4exprEJEEvPT_DpOT0_.exit.i.i.i43: ; preds = %.lr.ph.i.i.i40
-  %40 = add i64 %.01013.i.i.i42, -1
+  %40 = add nsw i64 %.01013.i.i.i42, -1
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 8
   %.not.i.i.i44 = icmp eq i64 %40, 0
   br i1 %.not.i.i.i44, label %_ZSt27__uninitialized_default_n_aIPN4lean4exprEmS1_ET_S3_T0_RSaIT1_E.exit46, label %.lr.ph.i.i.i40, !llvm.loop !136
@@ -12412,8 +12412,8 @@ _ZN4lean6bufferINS_4exprELm16EE6insertEmRKS1_.exit..loopexit354_crit_edge: ; pre
   br label %607
 
 .sink.split:                                      ; preds = %.noexc214, %468, %466, %457, %.noexc206, %448, %446, %437
-  %.sink618 = phi i64 [ %438, %437 ], [ %438, %446 ], [ %438, %448 ], [ %.pre2.i, %.noexc206 ], [ %458, %457 ], [ %458, %466 ], [ %458, %468 ], [ %.pre2.i212, %.noexc214 ]
-  %472 = add i64 %.sink618, 1
+  %.sink720 = phi i64 [ %438, %437 ], [ %438, %446 ], [ %438, %448 ], [ %.pre2.i, %.noexc206 ], [ %458, %457 ], [ %458, %466 ], [ %458, %468 ], [ %.pre2.i212, %.noexc214 ]
+  %472 = add i64 %.sink720, 1
   store i64 %472, ptr %44, align 8, !tbaa !50
   br label %473
 
@@ -13076,8 +13076,8 @@ _ZNK4lean10local_decl9get_valueEv.exit.thread:    ; preds = %700
   %.pre604 = ptrtoint ptr %.pre602 to i64
   store ptr %.pre602, ptr %38, align 8, !tbaa !3
   %716 = and i64 %.pre604, 1
-  %.not.i.i.i269608 = icmp eq i64 %716, 0
-  br i1 %.not.i.i.i269608, label %717, label %.thread
+  %.not.i.i.i269710 = icmp eq i64 %716, 0
+  br i1 %.not.i.i.i269710, label %717, label %.thread
 
 717:                                              ; preds = %_ZNK4lean10local_decl9get_valueEv.exit.thread, %_ZNK4lean10local_decl9get_valueEv.exit
   %718 = phi ptr [ %.pre602, %_ZNK4lean10local_decl9get_valueEv.exit.thread ], [ %706, %_ZNK4lean10local_decl9get_valueEv.exit ]
@@ -14768,13 +14768,13 @@ _ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE9node_cell7deallocEv.exit.i.i39: 
 define linkonce_odr hidden void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !203
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %common.ret1, label %3
+  br i1 %.not, label %common.ret2, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = atomicrmw sub ptr %4, i32 1 acq_rel, align 4
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %common.ret1
+  br i1 %6, label %7, label %common.ret2
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -14809,7 +14809,7 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE
   tail call void @__clang_call_terminate(ptr %21) #18
   unreachable
 
-common.ret1:                                      ; preds = %3, %1, %_ZN4lean10object_refD2Ev.exit
+common.ret2:                                      ; preds = %3, %1, %_ZN4lean10object_refD2Ev.exit
   ret void
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %7, %15, %17, %18
@@ -14817,7 +14817,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %7, %15, %17, %18
   tail call void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
   tail call void @_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 32) #19
-  br label %common.ret1
+  br label %common.ret2
 }
 
 ; Function Attrs: mustprogress uwtable

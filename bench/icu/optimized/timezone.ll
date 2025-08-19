@@ -2498,7 +2498,7 @@ define noundef ptr @_ZN6icu_778TimeZone6findIDERKNS_13UnicodeStringE(ptr noundef
 declare ptr @ures_openDirect_77(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_77L17findInStringArrayEP15UResourceBundleRKNS_13UnicodeStringER10UErrorCode(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1073741824) i32 @_ZN6icu_77L17findInStringArrayEP15UResourceBundleRKNS_13UnicodeStringER10UErrorCode(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
@@ -3203,11 +3203,11 @@ _ZN6icu_7712LocalPointerINS_13TimeZoneNamesEED2Ev.exit: ; preds = %189
   br i1 %198, label %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit102, label %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit102.sink.split
 
 _ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit99.thread129: ; preds = %98, %100, %29, %53, %51, %_ZN6icu_7712LocalPointerINS_13TimeZoneNamesEED2Ev.exit.thread147
-  %.sink154 = phi ptr [ %118, %_ZN6icu_7712LocalPointerINS_13TimeZoneNamesEED2Ev.exit.thread147 ], [ %12, %51 ], [ %12, %53 ], [ %12, %29 ], [ %67, %100 ], [ %67, %98 ]
-  %199 = load ptr, ptr %.sink154, align 8, !tbaa !19
+  %.sink158 = phi ptr [ %118, %_ZN6icu_7712LocalPointerINS_13TimeZoneNamesEED2Ev.exit.thread147 ], [ %12, %51 ], [ %12, %53 ], [ %12, %29 ], [ %67, %100 ], [ %67, %98 ]
+  %199 = load ptr, ptr %.sink158, align 8, !tbaa !19
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load ptr, ptr %200, align 8
-  call void %201(ptr noundef nonnull align 8 dereferenceable(8) %.sink154) #21
+  call void %201(ptr noundef nonnull align 8 dereferenceable(8) %.sink158) #21
   %202 = load i32, ptr %6, align 4, !tbaa !13
   %203 = icmp slt i32 %202, 1
   br i1 %203, label %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit99.thread, label %204
@@ -3228,12 +3228,12 @@ _ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit99.thread: ; preds = %189
   ret ptr %4
 
 _ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit102.sink.split: ; preds = %.body, %.body.thread, %70, %.thread131, %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit
-  %.sink159 = phi ptr [ %12, %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit ], [ %67, %.thread131 ], [ %67, %70 ], [ %118, %.body.thread ], [ %118, %.body ]
+  %.sink163 = phi ptr [ %12, %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit ], [ %67, %.thread131 ], [ %67, %70 ], [ %118, %.body.thread ], [ %118, %.body ]
   %.pn96.ph = phi { ptr, i32 } [ %15, %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit ], [ %lpad.thr_comm, %.thread131 ], [ %lpad.thr_comm.split-lp, %70 ], [ %.pn.pn, %.body.thread ], [ %.pn.pn.pn, %.body ]
-  %209 = load ptr, ptr %.sink159, align 8, !tbaa !19
+  %209 = load ptr, ptr %.sink163, align 8, !tbaa !19
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8
-  call void %211(ptr noundef nonnull align 8 dereferenceable(8) %.sink159) #21
+  call void %211(ptr noundef nonnull align 8 dereferenceable(8) %.sink163) #21
   br label %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit102
 
 _ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit102: ; preds = %_ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit102.sink.split, %.body, %70
@@ -5030,10 +5030,10 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit: ; preds = %48
 70:                                               ; preds = %67
   %71 = load i16, ptr %18, align 8, !tbaa !21
   %72 = and i16 %71, 1
-  %.not114 = icmp eq i16 %72, 0
+  %.not117 = icmp eq i16 %72, 0
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not114, label %.thread80, label %93
+  br i1 %.not117, label %.thread80, label %93
 
 73:                                               ; preds = %67
   %74 = icmp slt i16 %68, 0
@@ -5062,10 +5062,10 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit: ; preds = %48
           to label %92 unwind label %65
 
 92:                                               ; preds = %87
-  %.not115 = icmp eq i8 %91, 0
+  %.not118 = icmp eq i8 %91, 0
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not115, label %.thread80, label %93
+  br i1 %.not118, label %.thread80, label %93
 
 93:                                               ; preds = %70, %92
   br i1 %20, label %94, label %.thread72

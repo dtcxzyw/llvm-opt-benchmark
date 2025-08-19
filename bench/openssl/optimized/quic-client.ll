@@ -400,8 +400,8 @@ ossl_time_from_timeval.exit:                      ; preds = %122, %125
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.sink.split, %16, %21, %41, %39, %37, %23, %18, %13, %9, %.loopexit
-  %.0124214 = phi ptr [ %19, %.loopexit ], [ null, %16 ], [ %19, %21 ], [ %19, %41 ], [ %19, %39 ], [ %19, %37 ], [ %19, %23 ], [ null, %18 ], [ null, %13 ], [ null, %9 ], [ %19, %.lr.ph.preheader.sink.split ]
-  %.0125213 = phi i64 [ %.4129.ph, %.loopexit ], [ 1, %16 ], [ 1, %21 ], [ 1, %41 ], [ 1, %39 ], [ 1, %37 ], [ 1, %23 ], [ 1, %18 ], [ 1, %13 ], [ 1, %9 ], [ 1, %.lr.ph.preheader.sink.split ]
+  %.0124224 = phi ptr [ %19, %.loopexit ], [ null, %16 ], [ %19, %21 ], [ %19, %41 ], [ %19, %39 ], [ %19, %37 ], [ %19, %23 ], [ null, %18 ], [ null, %13 ], [ null, %9 ], [ %19, %.lr.ph.preheader.sink.split ]
+  %.0125223 = phi i64 [ %.4129.ph, %.loopexit ], [ 1, %16 ], [ 1, %21 ], [ 1, %41 ], [ 1, %39 ], [ 1, %37 ], [ 1, %23 ], [ 1, %18 ], [ 1, %13 ], [ 1, %9 ], [ 1, %.lr.ph.preheader.sink.split ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -410,14 +410,14 @@ ossl_time_from_timeval.exit:                      ; preds = %122, %125
   %156 = load ptr, ptr %155, align 8, !tbaa !11
   call void @SSL_free(ptr noundef %156) #6
   %157 = add nuw i64 %.0110195, 1
-  %exitcond.not = icmp eq i64 %157, %.0125213
+  %exitcond.not = icmp eq i64 %157, %.0125223
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
-  %.0124215 = phi ptr [ %19, %.loopexit ], [ %.0124214, %.lr.ph ]
+  %.0124225 = phi ptr [ %19, %.loopexit ], [ %.0124224, %.lr.ph ]
   call void @ERR_clear_error() #6
   call void @SSL_CTX_free(ptr noundef %11) #6
-  call void @BIO_ADDR_free(ptr noundef %.0124215) #6
+  call void @BIO_ADDR_free(ptr noundef %.0124225) #6
   br label %158
 
 158:                                              ; preds = %2, %._crit_edge

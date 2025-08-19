@@ -117,13 +117,13 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %35, %53
-  %.sink122 = phi i64 [ 1, %53 ], [ 2, %35 ], [ 2, %1 ]
+  %.sink126 = phi i64 [ 1, %53 ], [ 2, %35 ], [ 2, %1 ]
   %54 = load ptr, ptr @type_uint, align 8
   %55 = load ptr, ptr %19, align 8
   %56 = tail call i32 @type_size(ptr noundef %54) #6
   %57 = shl i32 %56, 3
   %58 = tail call ptr @LLVMIntTypeInContext(ptr noundef %55, i32 noundef %57) #6
-  %59 = tail call ptr @LLVMConstInt(ptr noundef %58, i64 noundef %.sink122, i32 noundef 0) #6
+  %59 = tail call ptr @LLVMConstInt(ptr noundef %58, i64 noundef %.sink126, i32 noundef 0) #6
   %60 = tail call ptr @LLVMValueAsMetadata(ptr noundef %59) #6
   %61 = load ptr, ptr %22, align 8
   tail call void @LLVMAddModuleFlag(ptr noundef %61, i32 noundef 3, ptr noundef nonnull @.str, i64 noundef 9, ptr noundef %60) #6

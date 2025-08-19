@@ -1516,7 +1516,7 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uu_ls..LsError$GT$1
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = load i8, ptr %0, align 8, !range !202, !noundef !9
-  switch i8 %9, label %default.unreachable12 [
+  switch i8 %9, label %default.unreachable21 [
     i8 0, label %20
     i8 1, label %30
     i8 2, label %36
@@ -1527,7 +1527,7 @@ define internal fastcc void @"_ZN4core3ptr35drop_in_place$LT$uu_ls..LsError$GT$1
     i8 7, label %10
   ]
 
-default.unreachable12:                            ; preds = %1
+default.unreachable21:                            ; preds = %1
   unreachable
 
 10:                                               ; preds = %1

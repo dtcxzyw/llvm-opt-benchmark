@@ -1015,8 +1015,8 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   %.0125 = phi ptr [ %.1, %107 ], [ %.0125.ph, %.outer ]
   %75 = icmp ne i32 %.2131, 0
   %or.cond3 = select i1 %75, i1 true, i1 %133
-  %.phi.trans.insert = sext i32 %.1139 to i64
-  %.phi.trans.insert173 = getelementptr inbounds [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert = zext nneg i32 %.1139 to i64
+  %.phi.trans.insert173 = getelementptr inbounds nuw [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert173, align 16, !tbaa !65
   %76 = icmp eq i32 %.pre, %74
   br i1 %or.cond3, label %.critedge, label %77
@@ -1028,7 +1028,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   br i1 %76, label %.critedge.thread, label %105
 
 .critedge.thread:                                 ; preds = %77, %.critedge
-  %78 = getelementptr inbounds [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %.phi.trans.insert
+  %78 = getelementptr inbounds nuw [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %.phi.trans.insert
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !69
   %81 = zext i32 %74 to i64
@@ -1040,7 +1040,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   %86 = load i32, ptr %65, align 8, !tbaa !54
   %87 = add nsw i32 %86, %80
   store i32 %87, ptr %65, align 8, !tbaa !54
-  %88 = add nsw i32 %.1139, 1
+  %88 = add nuw nsw i32 %.1139, 1
   %89 = icmp eq i32 %88, 3
   br i1 %89, label %90, label %97
 
@@ -1087,8 +1087,8 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   br i1 %.not160, label %118, label %107
 
 107:                                              ; preds = %105
-  %108 = sext i32 %.2140 to i64
-  %109 = getelementptr inbounds [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %108
+  %108 = zext nneg i32 %.2140 to i64
+  %109 = getelementptr inbounds nuw [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %108
   %110 = load i32, ptr %109, align 16, !tbaa !65
   %111 = sub i32 %110, %106
   %.3. = tail call i32 @llvm.umin.i32(i32 %111, i32 %.3)
@@ -1108,8 +1108,8 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_truehd(ptr noundef %
   br i1 %133, label %120, label %.outer, !llvm.loop !71
 
 120:                                              ; preds = %118
-  %121 = sext i32 %.2140 to i64
-  %122 = getelementptr inbounds [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %121
+  %121 = zext nneg i32 %.2140 to i64
+  %122 = getelementptr inbounds nuw [3 x %struct.anon], ptr @mat_codes, i64 0, i64 %121
   %123 = load i32, ptr %122, align 16, !tbaa !65
   %124 = sub i32 %123, %119
   %.0145. = tail call i32 @llvm.umin.i32(i32 %124, i32 %.0145.ph)

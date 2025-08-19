@@ -108,20 +108,20 @@ define hidden range(i32 0, 2) i32 @SSL_add_dir_cert_subjects_to_stack(ptr nounde
   br i1 %.not15, label %36, label %35
 
 35:                                               ; preds = %.loopexit.thread, %.loopexit
-  %.2.ph75 = phi ptr [ null, %.loopexit.thread ], [ %.2.ph, %.loopexit ]
+  %.2.ph76 = phi ptr [ null, %.loopexit.thread ], [ %.2.ph, %.loopexit ]
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 211) #9
   call void (i32, ...) @ERR_add_error_data(i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull @.str.3) #9
   br label %36
 
 36:                                               ; preds = %.loopexit, %35
-  %.2.ph76 = phi ptr [ %.2.ph75, %35 ], [ %.2.ph, %.loopexit ]
+  %.2.ph77 = phi ptr [ %.2.ph76, %35 ], [ %.2.ph, %.loopexit ]
   %.013 = phi i32 [ 0, %35 ], [ 1, %.loopexit ]
-  %.not17 = icmp eq ptr %.2.ph76, null
+  %.not17 = icmp eq ptr %.2.ph77, null
   br i1 %.not17, label %39, label %OPENSSL_DIR_end.exit
 
 OPENSSL_DIR_end.exit:                             ; preds = %.thread34, %36
   %.01339 = phi i32 [ 0, %.thread34 ], [ %.013, %36 ]
-  %.23038 = phi ptr [ %.1, %.thread34 ], [ %.2.ph76, %36 ]
+  %.23038 = phi ptr [ %.1, %.thread34 ], [ %.2.ph77, %36 ]
   %37 = load ptr, ptr %.23038, align 8, !tbaa !10
   %38 = call i32 @closedir(ptr noundef %37)
   call void @free(ptr noundef nonnull %.23038) #9

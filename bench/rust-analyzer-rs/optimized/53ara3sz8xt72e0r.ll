@@ -167,9 +167,9 @@ common.resume:                                    ; preds = %43, %20
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %28, i64 %33
-  %.sroa.0.0.copyload23 = load ptr, ptr %46, align 8, !noalias !14
-  %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx24, i64 16, i1 false), !noalias !14
+  %.sroa.0.0.copyload26 = load ptr, ptr %46, align 8, !noalias !14
+  %.sroa.6.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx27, i64 16, i1 false), !noalias !14
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = xor i64 %33, -1
   %49 = add i64 %30, %48
@@ -177,12 +177,12 @@ common.resume:                                    ; preds = %43, %20
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 8 %47, i64 %50, i1 false), !noalias !32
   %51 = add i64 %30, -1
   store i64 %51, ptr %29, align 8, !alias.scope !35, !noalias !36
-  %.not = icmp eq ptr %.sroa.0.0.copyload23, null
+  %.not = icmp eq ptr %.sroa.0.0.copyload26, null
   br i1 %.not, label %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17h884ca3b1da3d50f7E.exit8", label %52
 
 52:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %.sroa.0.0.copyload23, ptr %4, align 8
+  store ptr %.sroa.0.0.copyload26, ptr %4, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -361,9 +361,9 @@ common.resume:                                    ; preds = %43, %20
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %28, i64 %33
-  %.sroa.0.0.copyload23 = load ptr, ptr %47, align 8, !noalias !71
-  %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx24, i64 16, i1 false), !noalias !71
+  %.sroa.0.0.copyload26 = load ptr, ptr %47, align 8, !noalias !71
+  %.sroa.6.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx27, i64 16, i1 false), !noalias !71
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = xor i64 %33, -1
   %50 = add i64 %30, %49
@@ -371,12 +371,12 @@ common.resume:                                    ; preds = %43, %20
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 8 %48, i64 %51, i1 false), !noalias !89
   %52 = add i64 %30, -1
   store i64 %52, ptr %29, align 8, !alias.scope !92, !noalias !93
-  %.not = icmp eq ptr %.sroa.0.0.copyload23, null
+  %.not = icmp eq ptr %.sroa.0.0.copyload26, null
   br i1 %.not, label %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17h884ca3b1da3d50f7E.exit8", label %53
 
 53:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %.sroa.0.0.copyload23, ptr %4, align 8
+  store ptr %.sroa.0.0.copyload26, ptr %4, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -578,9 +578,9 @@ common.resume:                                    ; preds = %43, %20
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %28, i64 %33
-  %.sroa.0.0.copyload23 = load ptr, ptr %47, align 8, !noalias !140
-  %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx24, i64 16, i1 false), !noalias !140
+  %.sroa.0.0.copyload26 = load ptr, ptr %47, align 8, !noalias !140
+  %.sroa.6.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx27, i64 16, i1 false), !noalias !140
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = xor i64 %33, -1
   %50 = add i64 %30, %49
@@ -588,12 +588,12 @@ common.resume:                                    ; preds = %43, %20
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 8 %48, i64 %51, i1 false), !noalias !158
   %52 = add i64 %30, -1
   store i64 %52, ptr %29, align 8, !alias.scope !161, !noalias !162
-  %.not = icmp eq ptr %.sroa.0.0.copyload23, null
+  %.not = icmp eq ptr %.sroa.0.0.copyload26, null
   br i1 %.not, label %"_ZN4core3ptr52drop_in_place$LT$crossbeam_channel..waker..Entry$GT$17h884ca3b1da3d50f7E.exit8", label %53
 
 53:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %.sroa.0.0.copyload23, ptr %4, align 8
+  store ptr %.sroa.0.0.copyload26, ptr %4, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3559,8 +3559,8 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.1492887
   %.0.i.ph = phi i64 [ %10, %9 ], [ %.07.val.i.pre.i, %"_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17hf640953b2325be6bE.llvm.14928871716087722294.exit._ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1442f96af4f2b856E.llvm.14928871716087722294.exit_crit_edge.i" ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %.idx18 = mul nsw i64 %6, 24
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.idx18
+  %.idx26 = mul nsw i64 %6, 24
+  %23 = getelementptr inbounds i8, ptr %22, i64 %.idx26
   br label %.lr.ph.i.preheader
 
 _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit: ; preds = %14, %20
@@ -3577,7 +3577,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.1492887
   %28 = phi ptr [ %23, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit.thread ], [ %26, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit ]
   %29 = phi ptr [ %22, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit.thread ], [ %25, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit ]
   %30 = phi ptr [ %21, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit.thread ], [ %24, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit ]
-  %.0.i19 = phi i64 [ %.0.i.ph, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit.thread ], [ %17, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit ]
+  %.0.i27 = phi i64 [ %.0.i.ph, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit.thread ], [ %17, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit ]
   %31 = phi i64 [ %6, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit.thread ], [ %.pre, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.14928871716087722294.exit ]
   br label %.lr.ph.i
 
@@ -3589,7 +3589,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.llvm.1492887
   %34 = load ptr, ptr %32, align 8, !alias.scope !789, !noalias !792, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i64, ptr %35, align 8, !range !227, !noalias !796, !noundef !4
-  %.not.i.i = icmp eq i64 %36, %.0.i19
+  %.not.i.i = icmp eq i64 %36, %.0.i27
   br i1 %.not.i.i, label %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h47f59f4cb3d35efcE.exit.i", label %37
 
 37:                                               ; preds = %.lr.ph.i
@@ -6346,7 +6346,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send1
   br i1 %.4, label %.body.thread, label %.body.thread70
 
 .thread:                                          ; preds = %26, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.14928871716087722294.exit, %30, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.18411344804042122530.exit.i
-  %lpad.thr_comm74 = landingpad { ptr, i32 }
+  %lpad.thr_comm76 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
@@ -6778,7 +6778,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.14928871716087722294.exit
   resume { ptr, i32 } %.pn.pn66
 
 .body.thread:                                     ; preds = %.thread, %39, %137, %.body
-  %.pn.pn67 = phi { ptr, i32 } [ %63, %.body ], [ %40, %39 ], [ %lpad.thr_comm, %137 ], [ %lpad.thr_comm74, %.thread ]
+  %.pn.pn67 = phi { ptr, i32 } [ %63, %.body ], [ %40, %39 ], [ %lpad.thr_comm, %137 ], [ %lpad.thr_comm76, %.thread ]
   invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$core..result..Result$LT$notify..event..Event$C$notify..error..Error$GT$$GT$17h0602d348ba5f4834E"(ptr noalias noundef align 8 dereferenceable(56) %2) #23
           to label %.body.thread70 unwind label %76
 }
@@ -6825,7 +6825,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4send1
   br i1 %.4, label %.body.thread, label %.body.thread70
 
 .thread:                                          ; preds = %26, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.14928871716087722294.exit, %30, %_ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.18411344804042122530.exit.i
-  %lpad.thr_comm74 = landingpad { ptr, i32 }
+  %lpad.thr_comm76 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
@@ -7257,7 +7257,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.14928871716087722294.exit
   resume { ptr, i32 } %.pn.pn66
 
 .body.thread:                                     ; preds = %.thread, %39, %137, %.body
-  %.pn.pn67 = phi { ptr, i32 } [ %63, %.body ], [ %40, %39 ], [ %lpad.thr_comm, %137 ], [ %lpad.thr_comm74, %.thread ]
+  %.pn.pn67 = phi { ptr, i32 } [ %63, %.body ], [ %40, %39 ], [ %lpad.thr_comm, %137 ], [ %lpad.thr_comm76, %.thread ]
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$vfs_notify..Message$GT$17hb9826a7776fe52cbE"(ptr noalias noundef align 8 dereferenceable(56) %2) #23
           to label %.body.thread70 unwind label %76
 }

@@ -811,7 +811,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %325 = getelementptr inbounds nuw i8, ptr %226, i64 64
   %326 = load i64, ptr %325, align 8, !tbaa !98
   %.not65.i = icmp eq i64 %326, 0
-  br i1 %.not65.i, label %.thread5.i, label %327
+  br i1 %.not65.i, label %.thread7.i, label %327
 
 327:                                              ; preds = %324
   %328 = getelementptr inbounds nuw i8, ptr %224, i64 56
@@ -823,7 +823,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %spec.select.i = select i1 %.not66.i, i32 0, i32 %.0.i149
   %.pr.pre.i = load i64, ptr %322, align 8, !tbaa !98
   %333 = icmp eq i64 %.pr.pre.i, 0
-  br i1 %333, label %.thread.i, label %.thread5.i
+  br i1 %333, label %.thread.i, label %.thread7.i
 
 .thread.i:                                        ; preds = %327, %321
   %.13.i = phi i32 [ %spec.select.i, %327 ], [ %.0.i149, %321 ]
@@ -831,16 +831,16 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %335 = load ptr, ptr %334, align 8, !tbaa !97
   %336 = call i32 @test_ptr_null(ptr noundef nonnull @.str.70, i32 noundef 44, ptr noundef nonnull @.str.97, ptr noundef %335) #8
   %.not67.i = icmp eq i32 %336, 0
-  br i1 %.not67.i, label %344, label %.thread5.i
+  br i1 %.not67.i, label %344, label %.thread7.i
 
-.thread5.i:                                       ; preds = %.thread.i, %327, %324
+.thread7.i:                                       ; preds = %.thread.i, %327, %324
   %.12.i = phi i32 [ %.13.i, %.thread.i ], [ %spec.select.i, %327 ], [ %.0.i149, %324 ]
   %337 = getelementptr inbounds nuw i8, ptr %226, i64 64
   %338 = load i64, ptr %337, align 8, !tbaa !98
   %339 = icmp eq i64 %338, 0
   br i1 %339, label %340, label %cmp_pkt_hdr.exit
 
-340:                                              ; preds = %.thread5.i
+340:                                              ; preds = %.thread7.i
   %341 = getelementptr inbounds nuw i8, ptr %226, i64 56
   %342 = load ptr, ptr %341, align 8, !tbaa !97
   %343 = call i32 @test_ptr_null(ptr noundef nonnull @.str.70, i32 noundef 45, ptr noundef nonnull @.str.98, ptr noundef %342) #8
@@ -850,8 +850,8 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
 344:                                              ; preds = %340, %.thread.i
   br label %cmp_pkt_hdr.exit
 
-cmp_pkt_hdr.exit:                                 ; preds = %.thread5.i, %340, %344
-  %.2.i = phi i32 [ %.12.i, %340 ], [ 0, %344 ], [ %.12.i, %.thread5.i ]
+cmp_pkt_hdr.exit:                                 ; preds = %.thread7.i, %340, %344
+  %.2.i = phi i32 [ %.12.i, %340 ], [ 0, %344 ], [ %.12.i, %.thread7.i ]
   %345 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1360, ptr noundef nonnull @.str.15, i32 noundef %.2.i) #8
   %.not113 = icmp eq i32 %345, 0
   br i1 %.not113, label %.thread202, label %614

@@ -458,8 +458,8 @@ parse_rule.exit:                                  ; preds = %.loopexit.i, %39
   br i1 %198, label %._crit_edge96.i, label %.lr.ph95.i
 
 .critedge:                                        ; preds = %._crit_edge96.i, %117, %167, %81
-  %.sink80 = phi ptr [ %4, %81 ], [ %124, %167 ], [ %4, %117 ], [ %124, %._crit_edge96.i ]
-  %199 = getelementptr inbounds nuw i8, ptr %.sink80, i64 64
+  %.sink86 = phi ptr [ %4, %81 ], [ %124, %167 ], [ %4, %117 ], [ %124, %._crit_edge96.i ]
+  %199 = getelementptr inbounds nuw i8, ptr %.sink86, i64 64
   store i8 0, ptr %199, align 8, !tbaa !46
   %200 = load i32, ptr %49, align 4, !tbaa !35
   %.not63 = icmp eq i32 %200, 0
@@ -631,7 +631,7 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %48 = add nsw i32 %.pre.pre.i, -1
   %49 = select i1 %42, i32 %48, i32 %41
   %50 = icmp eq i32 %.01654.i, 0
-  %spec.select.v11.i = select i1 %50, i32 %45, i32 %.01654.i
+  %spec.select.v18.i = select i1 %50, i32 %45, i32 %.01654.i
   %51 = add nuw nsw i32 %.01654.i, 1
   %52 = icmp eq i32 %51, %45
   %53 = select i1 %52, i32 0, i32 %51
@@ -645,13 +645,13 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   br label %59
 
 59:                                               ; preds = %54, %47
-  %.sink19.i = phi i32 [ %58, %54 ], [ %.pre.pre.i, %47 ]
-  %.sink18.i = phi i32 [ -1, %54 ], [ 0, %47 ]
+  %.sink26.i = phi i32 [ %58, %54 ], [ %.pre.pre.i, %47 ]
+  %.sink25.i = phi i32 [ -1, %54 ], [ 0, %47 ]
   %.sroa.62.0.i = phi i32 [ %57, %54 ], [ %53, %47 ]
-  %.sroa.46.0.in.i = phi i32 [ %.01654.i, %54 ], [ %spec.select.v11.i, %47 ]
+  %.sroa.46.0.in.i = phi i32 [ %.01654.i, %54 ], [ %spec.select.v18.i, %47 ]
   %.sroa.18.0.i = phi i32 [ %41, %54 ], [ %49, %47 ]
-  %60 = icmp eq i32 %43, %.sink19.i
-  %61 = select i1 %60, i32 %.sink18.i, i32 %43
+  %60 = icmp eq i32 %43, %.sink26.i
+  %61 = select i1 %60, i32 %.sink25.i, i32 %43
   %.sroa.46.0.i = add nsw i32 %.sroa.46.0.in.i, -1
   %62 = icmp eq i32 %.sroa.18.0.i, -1
   %63 = icmp eq i32 %.sroa.46.0.in.i, 0
@@ -669,9 +669,9 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   br label %73
 
 71:                                               ; preds = %59
-  br i1 %62, label %.thread14.i, label %73
+  br i1 %62, label %.thread21.i, label %73
 
-.thread14.i:                                      ; preds = %71
+.thread21.i:                                      ; preds = %71
   %72 = icmp eq i32 %.sroa.62.0.i, -1
   br label %91
 
@@ -697,10 +697,10 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %90 = zext i1 %89 to i32
   br label %91
 
-91:                                               ; preds = %84, %73, %.thread14.i
-  %92 = phi i1 [ false, %84 ], [ true, %73 ], [ %72, %.thread14.i ]
-  %93 = phi i32 [ %82, %84 ], [ %82, %73 ], [ 0, %.thread14.i ]
-  %94 = phi i32 [ %90, %84 ], [ 0, %73 ], [ 0, %.thread14.i ]
+91:                                               ; preds = %84, %73, %.thread21.i
+  %92 = phi i1 [ false, %84 ], [ true, %73 ], [ %72, %.thread21.i ]
+  %93 = phi i32 [ %82, %84 ], [ %82, %73 ], [ 0, %.thread21.i ]
+  %94 = phi i32 [ %90, %84 ], [ 0, %73 ], [ 0, %.thread21.i ]
   %95 = add nuw nsw i32 %94, %93
   br i1 %63, label %104, label %96
 
@@ -734,9 +734,9 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %117 = add nuw nsw i32 %106, %116
   %118 = icmp eq i32 %61, -1
   %or.cond23.i = or i1 %118, %63
-  br i1 %or.cond23.i, label %127, label %.thread16.i
+  br i1 %or.cond23.i, label %127, label %.thread23.i
 
-.thread16.i:                                      ; preds = %115
+.thread23.i:                                      ; preds = %115
   %119 = mul nsw i32 %61, %45
   %120 = add nsw i32 %.sroa.46.0.i, %119
   %121 = sext i32 %120 to i64
@@ -754,9 +754,9 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
   %.pre = mul nsw i32 %61, %45
   br label %128
 
-128:                                              ; preds = %._crit_edge, %.thread16.i
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %119, %.thread16.i ]
-  %129 = phi i32 [ %117, %._crit_edge ], [ %126, %.thread16.i ]
+128:                                              ; preds = %._crit_edge, %.thread23.i
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %119, %.thread23.i ]
+  %129 = phi i32 [ %117, %._crit_edge ], [ %126, %.thread23.i ]
   %130 = add nsw i32 %.pre-phi, %.01654.i
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds i8, ptr %27, i64 %131

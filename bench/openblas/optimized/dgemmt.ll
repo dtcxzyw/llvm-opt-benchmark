@@ -115,8 +115,8 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %73 = sext i32 %25 to i64
   %wide.trip.count = zext nneg i32 %19 to i64
   %74 = select i1 %.not, i64 1, i64 %69
-  %narrow286 = select i1 %.not244, i32 %24, i32 1
-  %75 = sext i32 %narrow286 to i64
+  %narrow293 = select i1 %.not244, i32 %24, i32 1
+  %75 = sext i32 %narrow293 to i64
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -156,8 +156,8 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph262.split.preheader:                        ; preds = %.lr.ph262
   %91 = sext i32 %25 to i64
   %wide.trip.count279 = zext nneg i32 %19 to i64
-  %narrow287 = select i1 %.not244, i32 %24, i32 1
-  %92 = sext i32 %narrow287 to i64
+  %narrow294 = select i1 %.not244, i32 %24, i32 1
+  %92 = sext i32 %narrow294 to i64
   br label %.lr.ph262.split
 
 .lr.ph262.split.us:                               ; preds = %.lr.ph262
@@ -300,8 +300,8 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 144:                                              ; preds = %142, %.lr.ph262.split
   %145 = trunc i64 %indvars.iv.next277 to i32
-  %.tr288 = add i32 %20, %145
-  %146 = shl i32 %.tr288, 1
+  %.tr295 = add i32 %20, %145
+  %146 = shl i32 %.tr295, 1
   %147 = add i32 %146, 19
   %148 = and i32 %147, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)

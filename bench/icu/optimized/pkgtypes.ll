@@ -651,11 +651,11 @@ pkg_prependToList.exit24.else:                    ; preds = %pkg_prependToList.e
   br label %pkg_prependToList.exit.sink.split
 
 pkg_prependToList.exit.sink.split:                ; preds = %pkg_prependToList.exit24.else, %pkg_prependToList.exit24, %15
-  %.sink41 = phi ptr [ %13, %15 ], [ %.03639, %pkg_prependToList.exit24 ], [ %.else.val, %pkg_prependToList.exit24.else ]
+  %.sink46 = phi ptr [ %13, %15 ], [ %.03639, %pkg_prependToList.exit24 ], [ %.else.val, %pkg_prependToList.exit24.else ]
   %.sink = phi ptr [ null, %15 ], [ %16, %pkg_prependToList.exit24 ], [ %16, %pkg_prependToList.exit24.else ]
   %.03638.ph = phi ptr [ null, %15 ], [ %.03639, %pkg_prependToList.exit24 ], [ %.03639, %pkg_prependToList.exit24.else ]
   %.019.ph = phi ptr [ %13, %15 ], [ %0, %pkg_prependToList.exit24 ], [ %0, %pkg_prependToList.exit24.else ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink41, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sink46, i64 8
   store ptr %.sink, ptr %20, align 8, !tbaa !12
   br label %pkg_prependToList.exit
 
@@ -824,11 +824,11 @@ pkg_prependToList.exit24.else.i:                  ; preds = %pkg_prependToList.e
   br label %pkg_prependToList.exit.sink.split.i
 
 pkg_prependToList.exit.sink.split.i:              ; preds = %pkg_prependToList.exit24.else.i, %pkg_prependToList.exit24.i, %36
-  %.sink41.i = phi ptr [ %34, %36 ], [ %.03639.i, %pkg_prependToList.exit24.i ], [ %.else.val.i, %pkg_prependToList.exit24.else.i ]
+  %.sink46.i = phi ptr [ %34, %36 ], [ %.03639.i, %pkg_prependToList.exit24.i ], [ %.else.val.i, %pkg_prependToList.exit24.else.i ]
   %.sink.i = phi ptr [ null, %36 ], [ %37, %pkg_prependToList.exit24.i ], [ %37, %pkg_prependToList.exit24.else.i ]
   %.03638.ph.i = phi ptr [ null, %36 ], [ %.03639.i, %pkg_prependToList.exit24.i ], [ %.03639.i, %pkg_prependToList.exit24.else.i ]
   %.019.ph.i = phi ptr [ %34, %36 ], [ %0, %pkg_prependToList.exit24.i ], [ %0, %pkg_prependToList.exit24.else.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sink41.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 8
   store ptr %.sink.i, ptr %41, align 8, !tbaa !12
   br label %pkg_prependToList.exit.i
 

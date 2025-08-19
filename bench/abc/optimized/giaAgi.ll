@@ -300,14 +300,14 @@ Agi_ManAppendCo.exit:                             ; preds = %.Vec_IntGrow.exit10
   br label %Agi_ManAppendCi.exit.sink.split
 
 Agi_ManAppendCi.exit.sink.split:                  ; preds = %116, %118, %108, %110
-  %.sink40 = phi ptr [ %109, %108 ], [ %111, %110 ], [ %117, %116 ], [ %119, %118 ]
+  %.sink45 = phi ptr [ %109, %108 ], [ %111, %110 ], [ %117, %116 ], [ %119, %118 ]
   %.sink = phi i32 [ 16, %108 ], [ 16, %110 ], [ %113, %116 ], [ %113, %118 ]
-  store ptr %.sink40, ptr %.phi.trans.insert.i.i30, align 8, !tbaa !43
+  store ptr %.sink45, ptr %.phi.trans.insert.i.i30, align 8, !tbaa !43
   store i32 %.sink, ptr %14, align 8, !tbaa !42
   br label %Agi_ManAppendCi.exit
 
 Agi_ManAppendCi.exit:                             ; preds = %Agi_ManAppendCi.exit.sink.split, %96
-  %.pre.i.i3139 = phi ptr [ %20, %96 ], [ %.sink40, %Agi_ManAppendCi.exit.sink.split ]
+  %.pre.i.i3139 = phi ptr [ %20, %96 ], [ %.sink45, %Agi_ManAppendCi.exit.sink.split ]
   %120 = add nsw i32 %.val.i, 1
   store i32 %120, ptr %15, align 4, !tbaa !41
   %121 = sext i32 %.val.i to i64
@@ -316,9 +316,9 @@ Agi_ManAppendCi.exit:                             ; preds = %Agi_ManAppendCi.exi
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Agi_ManAppendCo.exit, %Agi_ManAppendCi.exit, %25
-  %.sink43 = phi i32 [ %42, %25 ], [ %97, %Agi_ManAppendCi.exit ], [ %61, %Agi_ManAppendCo.exit ]
+  %.sink48 = phi i32 [ %42, %25 ], [ %97, %Agi_ManAppendCi.exit ], [ %61, %Agi_ManAppendCo.exit ]
   %.pre.i.i3138.ph = phi ptr [ %20, %25 ], [ %.pre.i.i3139, %Agi_ManAppendCi.exit ], [ %20, %Agi_ManAppendCo.exit ]
-  %123 = shl nsw i32 %.sink43, 1
+  %123 = shl nsw i32 %.sink48, 1
   %124 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %123, ptr %124, align 4, !tbaa !38
   br label %125

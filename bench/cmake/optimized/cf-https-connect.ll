@@ -1137,11 +1137,11 @@ cf_hc_baller_data_pending.exit.thread:            ; preds = %29, %32, %cf_hc_bal
   br i1 %.not5.i25, label %cf_hc_baller_data_pending.exit26.sink.split, label %cf_hc_baller_data_pending.exit26
 
 cf_hc_baller_data_pending.exit26.sink.split:      ; preds = %41, %8
-  %.sink30 = phi ptr [ %10, %8 ], [ %40, %41 ]
-  %44 = load ptr, ptr %.sink30, align 8, !tbaa !83
+  %.sink34 = phi ptr [ %10, %8 ], [ %40, %41 ]
+  %44 = load ptr, ptr %.sink34, align 8, !tbaa !83
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = load ptr, ptr %45, align 8, !tbaa !127
-  %47 = tail call zeroext i1 %46(ptr noundef nonnull %.sink30, ptr noundef %1) #4
+  %47 = tail call zeroext i1 %46(ptr noundef nonnull %.sink34, ptr noundef %1) #4
   br label %cf_hc_baller_data_pending.exit26
 
 cf_hc_baller_data_pending.exit26:                 ; preds = %cf_hc_baller_data_pending.exit26.sink.split, %41, %cf_hc_baller_data_pending.exit.thread, %cf_hc_baller_data_pending.exit

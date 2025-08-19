@@ -597,8 +597,8 @@ bytestream2_put_byte.exit142:                     ; preds = %bytestream2_get_be3
   %292 = and i64 %289, 4294967295
   %293 = icmp sgt i64 %291, %292
   %294 = trunc i64 %291 to i32
-  %.not23.i524 = icmp eq i32 %294, %290
-  %.not23.i = or i1 %293, %.not23.i524
+  %.not23.i536 = icmp eq i32 %294, %290
+  %.not23.i = or i1 %293, %.not23.i536
   br i1 %.not23.i, label %298, label %bytestream2_copy_buffer.exit
 
 bytestream2_copy_buffer.exit:                     ; preds = %284

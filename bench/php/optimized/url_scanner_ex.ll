@@ -3694,7 +3694,7 @@ smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exi
 48:                                               ; preds = %._crit_edge.i._crit_edge, %._crit_edge.thread.i
   %49 = phi i64 [ %.1.i.i.i38.i, %._crit_edge.thread.i ], [ %.pre, %._crit_edge.i._crit_edge ]
   %50 = phi ptr [ %72, %._crit_edge.thread.i ], [ %47, %._crit_edge.i._crit_edge ]
-  %.0205401.i.lcssa123.i = phi ptr [ %33, %._crit_edge.thread.i ], [ %.0205.ph.i.i, %._crit_edge.i._crit_edge ]
+  %.0205401.i.lcssa190.i = phi ptr [ %33, %._crit_edge.thread.i ], [ %.0205.ph.i.i, %._crit_edge.i._crit_edge ]
   %51 = phi ptr [ %69, %._crit_edge.thread.i ], [ %.pre.i, %._crit_edge.i._crit_edge ]
   %52 = add i64 %49, 1
   %53 = load i64, ptr %31, align 8, !tbaa !16
@@ -3703,13 +3703,13 @@ smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exi
 
 54:                                               ; preds = %48, %._crit_edge.i
   %55 = phi ptr [ %47, %._crit_edge.i ], [ %50, %48 ]
-  %.0205401.i.lcssa124.i = phi ptr [ %.0205.ph.i.i, %._crit_edge.i ], [ %.0205401.i.lcssa123.i, %48 ]
+  %.0205401.i.lcssa191.i = phi ptr [ %.0205.ph.i.i, %._crit_edge.i ], [ %.0205401.i.lcssa190.i, %48 ]
   %.0.i.i270.i.i = phi i64 [ 1, %._crit_edge.i ], [ %52, %48 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %30, i64 noundef %.0.i.i270.i.i) #19
   %.pre.i271.i.i = load ptr, ptr %30, align 8, !tbaa !4
   %.phi.trans.insert.i272.i.i = getelementptr inbounds nuw i8, ptr %.pre.i271.i.i, i64 16
   %.pre4.i273.i.i = load i64, ptr %.phi.trans.insert.i272.i.i, align 8, !tbaa !11
-  %.pre430.i.i = load i8, ptr %.0205401.i.lcssa124.i, align 1
+  %.pre430.i.i = load i8, ptr %.0205401.i.lcssa191.i, align 1
   br label %.thread330.i.i
 
 .thread330.i.i:                                   ; preds = %54, %48

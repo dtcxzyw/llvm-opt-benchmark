@@ -608,7 +608,7 @@ define dso_local noundef ptr @ndisc_parse_options(ptr noundef %0, ptr noundef %1
   %15 = phi i32 [ %2, %10 ], [ %59, %.critedge12 ]
   %16 = phi ptr [ %1, %10 ], [ %61, %.critedge12 ]
   switch i32 %15, label %17 [
-    i32 0, label %.critedge.loopexit16
+    i32 0, label %.critedge.loopexit24
     i32 1, label %.critedge
   ]
 
@@ -701,11 +701,11 @@ define dso_local noundef ptr @ndisc_parse_options(ptr noundef %0, ptr noundef %1
   %61 = getelementptr i8, ptr %16, i64 %60
   br label %14, !llvm.loop !11
 
-.critedge.loopexit16:                             ; preds = %14
+.critedge.loopexit24:                             ; preds = %14
   br label %.critedge
 
-.critedge:                                        ; preds = %14, %17, %.critedge.loopexit16, %4
-  %62 = phi ptr [ null, %4 ], [ %3, %.critedge.loopexit16 ], [ null, %17 ], [ null, %14 ]
+.critedge:                                        ; preds = %14, %17, %.critedge.loopexit24, %4
+  %62 = phi ptr [ null, %4 ], [ %3, %.critedge.loopexit24 ], [ null, %17 ], [ null, %14 ]
   ret ptr %62
 }
 

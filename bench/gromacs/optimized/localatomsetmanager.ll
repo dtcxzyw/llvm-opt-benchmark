@@ -492,14 +492,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit30:                  ; preds = %.body23, %53
   br i1 %.not.i.i.i31, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit30, %10
-  %.sink43 = phi ptr [ %12, %10 ], [ %59, %_ZNSt6vectorIiSaIiEED2Ev.exit30 ]
+  %.sink52 = phi ptr [ %12, %10 ], [ %59, %_ZNSt6vectorIiSaIiEED2Ev.exit30 ]
   %.pn.pn.ph = phi { ptr, i32 } [ %11, %10 ], [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit30 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !18
   %62 = ptrtoint ptr %61 to i64
-  %63 = ptrtoint ptr %.sink43 to i64
+  %63 = ptrtoint ptr %.sink52 to i64
   %64 = sub i64 %62, %63
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink43, i64 noundef %64) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink52, i64 noundef %64) #14
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %_ZNSt6vectorIiSaIiEED2Ev.exit30, %10
@@ -536,13 +536,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !33
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !33
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

@@ -1345,7 +1345,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %80 = mul nsw i32 %77, 5
   %81 = sext i32 %77 to i64
   %82 = sext i32 %80 to i64
-  %invariant.gep271 = getelementptr i8, ptr %78, i64 %82
+  %invariant.gep312 = getelementptr i8, ptr %78, i64 %82
   br label %95
 
 .preheader164:                                    ; preds = %79, %86
@@ -1387,8 +1387,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 95:                                               ; preds = %.preheader166, %102
   %indvars.iv237 = phi i64 [ 0, %.preheader166 ], [ %indvars.iv.next238, %102 ]
   %96 = load ptr, ptr %24, align 8, !tbaa !87
-  %gep272 = getelementptr i8, ptr %invariant.gep271, i64 %indvars.iv237
-  %97 = load i8, ptr %gep272, align 1, !tbaa !40
+  %gep313 = getelementptr i8, ptr %invariant.gep312, i64 %indvars.iv237
+  %97 = load i8, ptr %gep313, align 1, !tbaa !40
   %98 = add i8 %97, 3
   %99 = and i8 %98, 15
   %100 = load i32, ptr %25, align 4, !tbaa !90
@@ -1415,7 +1415,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %106 = mul nuw nsw i64 %indvars.iv249, 5
   %107 = icmp eq i64 %indvars.iv249, %103
   %.fr = freeze i1 %107
-  %invariant.gep275 = getelementptr inbounds nuw i8, ptr %78, i64 %106
+  %invariant.gep316 = getelementptr inbounds nuw i8, ptr %78, i64 %106
   br i1 %.fr, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %_ZN7testing15AssertionResultD2Ev.exit97.us
@@ -1430,8 +1430,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 112:                                              ; preds = %.preheader.split.us
   store i8 %111, ptr %7, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %gep276 = getelementptr inbounds nuw i8, ptr %invariant.gep275, i64 %indvars.iv245
-  %113 = load i8, ptr %gep276, align 1, !tbaa !40
+  %gep317 = getelementptr inbounds nuw i8, ptr %invariant.gep316, i64 %indvars.iv245
+  %113 = load i8, ptr %gep317, align 1, !tbaa !40
   store i8 %113, ptr %8, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1644,8 +1644,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit86:                  ; preds = %.split212.us
 172:                                              ; preds = %.preheader.split
   store i8 %171, ptr %7, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %gep274 = getelementptr inbounds nuw i8, ptr %invariant.gep275, i64 %indvars.iv241
-  %173 = load i8, ptr %gep274, align 1, !tbaa !40
+  %gep315 = getelementptr inbounds nuw i8, ptr %invariant.gep316, i64 %indvars.iv241
+  %173 = load i8, ptr %gep315, align 1, !tbaa !40
   store i8 %173, ptr %8, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %174 = icmp eq i8 %171, %173

@@ -5285,10 +5285,10 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @__process_abnormal_io(
   br label %15
 
 15:                                               ; preds = %2, %13, %14
-  %.sink3 = phi i64 [ 44, %13 ], [ 48, %14 ], [ 40, %2 ]
+  %.sink5 = phi i64 [ 44, %13 ], [ 48, %14 ], [ 40, %2 ]
   %.sink = phi i64 [ 196, %13 ], [ 200, %14 ], [ 188, %2 ]
   %16 = phi i16 [ 8, %13 ], [ 16, %14 ], [ 4, %2 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink3
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink5
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink
   %19 = load i32, ptr %17, align 4
   %20 = load i32, ptr %18, align 4

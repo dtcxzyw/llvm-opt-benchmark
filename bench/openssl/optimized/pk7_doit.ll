@@ -1678,13 +1678,13 @@ PKCS7_get_octet_string.exit103:                   ; preds = %103, %106, %110, %1
   br label %.loopexit
 
 .sink.split:                                      ; preds = %38, %94
-  %.sink129 = phi i64 [ 32, %94 ], [ 16, %38 ]
+  %.sink142 = phi i64 [ 32, %94 ], [ 16, %38 ]
   %.sink = phi ptr [ null, %94 ], [ %39, %38 ]
   %.079.ph = phi ptr [ %61, %94 ], [ %32, %38 ]
   %135 = load ptr, ptr %14, align 8, !tbaa !14
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %137 = load ptr, ptr %136, align 8, !tbaa !82
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink129
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink142
   store ptr %.sink, ptr %138, align 8, !tbaa !14
   br label %139
 
@@ -1760,11 +1760,11 @@ PKCS7_get_signed_attribute.exit.thread.i:         ; preds = %PKCS7_get_signed_at
   br i1 %.not7.i, label %do_pkcs7_signed_attrib.exit.thread, label %do_pkcs7_signed_attrib.exit
 
 do_pkcs7_signed_attrib.exit.thread:               ; preds = %170, %168, %PKCS7_get_signed_attribute.exit.thread.i
-  %.sink133 = phi i32 [ 746, %PKCS7_get_signed_attribute.exit.thread.i ], [ 753, %168 ], [ 757, %170 ]
-  %.sink132 = phi i32 [ 524321, %PKCS7_get_signed_attribute.exit.thread.i ], [ 524294, %168 ], [ 524321, %170 ]
+  %.sink146 = phi i32 [ 746, %PKCS7_get_signed_attribute.exit.thread.i ], [ 753, %168 ], [ 757, %170 ]
+  %.sink145 = phi i32 [ 524321, %PKCS7_get_signed_attribute.exit.thread.i ], [ 524294, %168 ], [ 524321, %170 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink133, ptr noundef nonnull @__func__.do_pkcs7_signed_attrib) #4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink132, ptr noundef null) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink146, ptr noundef nonnull @__func__.do_pkcs7_signed_attrib) #4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink145, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
@@ -1948,10 +1948,10 @@ define internal fastcc noundef ptr @PKCS7_find_digest(ptr noundef nonnull %0, pt
   br i1 %17, label %.loopexit.sink.split, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %14, %3
-  %.sink18 = phi i32 [ 723, %3 ], [ 723, %14 ], [ 728, %.lr.ph ]
+  %.sink21 = phi i32 [ 723, %3 ], [ 723, %14 ], [ 728, %.lr.ph ]
   %.sink = phi i32 [ 108, %3 ], [ 108, %14 ], [ 786691, %.lr.ph ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.PKCS7_find_digest) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink21, ptr noundef nonnull @__func__.PKCS7_find_digest) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 33, i32 noundef %.sink, ptr noundef null) #4
   br label %.loopexit
 

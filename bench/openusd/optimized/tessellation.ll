@@ -4435,13 +4435,13 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri19GetNonUnifor
   br label %42
 
 42:                                               ; preds = %35, %28
-  %.sink84.i.i = phi ptr [ %39, %35 ], [ %.sroa.0.0.copyload, %28 ]
-  %.sink82.i.i = phi i32 [ %23, %35 ], [ 1, %28 ]
+  %.sink85.i.i = phi ptr [ %39, %35 ], [ %.sroa.0.0.copyload, %28 ]
+  %.sink83.i.i = phi i32 [ %23, %35 ], [ 1, %28 ]
   %.sink.i.i = phi i32 [ 1, %35 ], [ %2, %28 ]
   %.0.i.i = phi i32 [ 2, %35 ], [ 1, %28 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sink84.i.i, i64 4
-  store i32 %.sink82.i.i, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.sink84.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sink85.i.i, i64 4
+  store i32 %.sink83.i.i, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %.sink85.i.i, i64 8
   store i32 %.sink.i.i, ptr %44, align 4
   %45 = mul nsw i32 %.0.i.i, %.sroa.13.0.copyload
   %46 = sext i32 %45 to i64
@@ -4582,14 +4582,14 @@ _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10
   br label %112
 
 112:                                              ; preds = %104, %102
-  %.sink84.i52.i = phi ptr [ %109, %104 ], [ %98, %102 ]
-  %.sink82.i53.i = phi i32 [ %90, %104 ], [ %103, %102 ]
+  %.sink85.i52.i = phi ptr [ %109, %104 ], [ %98, %102 ]
+  %.sink83.i53.i = phi i32 [ %90, %104 ], [ %103, %102 ]
   %.sink.i54.i = phi i32 [ %105, %104 ], [ %26, %102 ]
   %.pre-phi.i55.i = phi i32 [ %105, %104 ], [ %103, %102 ]
   %.0.i56.i = phi i32 [ 2, %104 ], [ 1, %102 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.sink84.i52.i, i64 4
-  store i32 %.sink82.i53.i, ptr %113, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %.sink84.i52.i, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.sink85.i52.i, i64 4
+  store i32 %.sink83.i53.i, ptr %113, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %.sink85.i52.i, i64 8
   store i32 %.sink.i54.i, ptr %114, align 4
   %115 = mul nsw i32 %.0.i56.i, %.sroa.13.0.copyload
   %116 = sext i32 %115 to i64
@@ -4723,13 +4723,13 @@ _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10
   br label %178
 
 178:                                              ; preds = %171, %163
-  %.sink84.i71.i = phi ptr [ %175, %171 ], [ %166, %163 ]
-  %.sink82.i72.i = phi i32 [ %162, %171 ], [ %167, %163 ]
+  %.sink85.i71.i = phi ptr [ %175, %171 ], [ %166, %163 ]
+  %.sink83.i72.i = phi i32 [ %162, %171 ], [ %167, %163 ]
   %.sink.i73.i = phi i32 [ %167, %171 ], [ %91, %163 ]
   %.0.i75.i = phi i32 [ 2, %171 ], [ 1, %163 ]
-  %179 = getelementptr inbounds nuw i8, ptr %.sink84.i71.i, i64 4
-  store i32 %.sink82.i72.i, ptr %179, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %.sink84.i71.i, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.sink85.i71.i, i64 4
+  store i32 %.sink83.i72.i, ptr %179, align 4
+  %180 = getelementptr inbounds nuw i8, ptr %.sink85.i71.i, i64 8
   store i32 %.sink.i73.i, ptr %180, align 4
   %181 = mul nsw i32 %.0.i75.i, %.sroa.13.0.copyload
   %182 = sext i32 %181 to i64
@@ -5025,10 +5025,10 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   %.not.us.i = icmp eq i64 %indvars.iv.i, 0
   %35 = add nsw i32 %32, -1
   %.sink = select i1 %.not.us.i, i32 0, i32 %32
-  %storemerge61.i = select i1 %.not.us.i, i32 %21, i32 %35
+  %storemerge62.i = select i1 %.not.us.i, i32 %21, i32 %35
   %storemerge.i = select i1 %.not.us.i, i32 %3, i32 %31
   store i32 %.sink, ptr %17, align 4
-  store i32 %storemerge61.i, ptr %18, align 4
+  store i32 %storemerge62.i, ptr %18, align 4
   store i32 %storemerge.i, ptr %20, align 4
   %36 = icmp samesign ult i64 %indvars.iv.i, %28
   %37 = add nsw i32 %.sink, %34
@@ -5062,14 +5062,14 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   %.not.i = icmp eq i64 %indvars.iv57.i, 0
   %49 = add nsw i32 %45, -1
   %.sink44 = select i1 %.not.i, i32 0, i32 %45
-  %storemerge64.i = select i1 %.not.i, i32 %21, i32 %49
-  %storemerge63.i = select i1 %.not.i, i32 %3, i32 %44
+  %storemerge65.i = select i1 %.not.i, i32 %21, i32 %49
+  %storemerge64.i = select i1 %.not.i, i32 %3, i32 %44
   store i32 %.sink44, ptr %17, align 4
-  store i32 %storemerge64.i, ptr %18, align 4
-  store i32 %storemerge63.i, ptr %20, align 4
+  store i32 %storemerge65.i, ptr %18, align 4
+  store i32 %storemerge64.i, ptr %20, align 4
   %50 = icmp samesign ult i64 %indvars.iv57.i, %28
   %51 = add nsw i32 %.sink44, %48
-  %52 = add nsw i32 %storemerge63.i, %.sroa.speculated.i
+  %52 = add nsw i32 %storemerge64.i, %.sroa.speculated.i
   %.sink45 = select i1 %50, i32 %51, i32 0
   %53 = select i1 %50, i32 %52, i32 %3
   store i32 %.sink45, ptr %16, align 4
@@ -5815,10 +5815,10 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   br label %68
 
 68:                                               ; preds = %.lr.ph, %141
-  %.099238 = phi i32 [ 0, %.lr.ph ], [ %.1255, %141 ]
-  %.0100237 = phi i32 [ %27, %.lr.ph ], [ %.1101253, %141 ]
-  %.0102236 = phi i32 [ %8, %.lr.ph ], [ %.1103251, %141 ]
-  %.0104235 = phi i32 [ %32, %.lr.ph ], [ %.1105249, %141 ]
+  %.099238 = phi i32 [ 0, %.lr.ph ], [ %.1256, %141 ]
+  %.0100237 = phi i32 [ %27, %.lr.ph ], [ %.1101254, %141 ]
+  %.0102236 = phi i32 [ %8, %.lr.ph ], [ %.1103252, %141 ]
+  %.0104235 = phi i32 [ %32, %.lr.ph ], [ %.1105250, %141 ]
   %.0106234 = phi i32 [ %33, %.lr.ph ], [ %.1107, %141 ]
   %.0112229 = phi i32 [ 0, %.lr.ph ], [ %142, %141 ]
   %.0113228 = phi i32 [ %35, %.lr.ph ], [ %.1114, %141 ]
@@ -5835,7 +5835,7 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   %73 = load i32, ptr %9, align 4
   %74 = and i32 %73, 1
   %.not138 = icmp eq i32 %74, 0
-  br i1 %.not138, label %.thread242, label %.thread211
+  br i1 %.not138, label %.thread243, label %.thread211
 
 75:                                               ; preds = %68
   %76 = icmp eq i32 %.0115227, %.0106234
@@ -5843,7 +5843,7 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
 
 77:                                               ; preds = %75
   %78 = icmp eq i32 %.0102236, %.099238
-  br i1 %78, label %.thread242, label %79
+  br i1 %78, label %.thread243, label %79
 
 79:                                               ; preds = %77
   br i1 %44, label %80, label %.thread184
@@ -5883,7 +5883,7 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   %100 = icmp sgt i32 %.0102236, %16
   %101 = icmp slt i32 %97, %98
   %102 = select i1 %99, i1 %100, i1 %101
-  br i1 %102, label %.thread211, label %.thread242
+  br i1 %102, label %.thread211, label %.thread243
 
 .thread211:                                       ; preds = %.thread184, %72, %75
   %103 = load ptr, ptr %1, align 8, !noalias !127
@@ -5918,7 +5918,7 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   store i32 %.0113228, ptr %121, align 4
   br label %133
 
-.thread242:                                       ; preds = %72, %.thread184, %77
+.thread243:                                       ; preds = %72, %.thread184, %77
   %122 = load ptr, ptr %1, align 8, !noalias !133
   %123 = load i32, ptr %66, align 4, !noalias !133
   %124 = mul nsw i32 %123, %.0112229
@@ -5946,11 +5946,11 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   %spec.select221 = tail call i32 @llvm.smin.i32(i32 %134, i32 %15)
   br i1 %.0108.shrunk196216, label %137, label %141
 
-137:                                              ; preds = %.thread242, %133
-  %.1256 = phi i32 [ %.099238, %.thread242 ], [ %.0102236, %133 ]
-  %.1101254 = phi i32 [ %.0100237, %.thread242 ], [ %.0104235, %133 ]
-  %.1103252 = phi i32 [ %.0102236, %.thread242 ], [ %spec.select221, %133 ]
-  %.1105250 = phi i32 [ %.0104235, %.thread242 ], [ %spec.select, %133 ]
+137:                                              ; preds = %.thread243, %133
+  %.1257 = phi i32 [ %.099238, %.thread243 ], [ %.0102236, %133 ]
+  %.1101255 = phi i32 [ %.0100237, %.thread243 ], [ %.0104235, %133 ]
+  %.1103253 = phi i32 [ %.0102236, %.thread243 ], [ %spec.select221, %133 ]
+  %.1105251 = phi i32 [ %.0104235, %.thread243 ], [ %spec.select, %133 ]
   %138 = add nsw i32 %.0115227, %10
   %139 = add nsw i32 %.0117226, %25
   %.not140 = icmp slt i32 %138, %.098
@@ -5960,10 +5960,10 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   br label %141
 
 141:                                              ; preds = %137, %133
-  %.1255 = phi i32 [ %.0102236, %133 ], [ %.1256, %137 ]
-  %.1101253 = phi i32 [ %.0104235, %133 ], [ %.1101254, %137 ]
-  %.1103251 = phi i32 [ %spec.select221, %133 ], [ %.1103252, %137 ]
-  %.1105249 = phi i32 [ %spec.select, %133 ], [ %.1105250, %137 ]
+  %.1256 = phi i32 [ %.0102236, %133 ], [ %.1257, %137 ]
+  %.1101254 = phi i32 [ %.0104235, %133 ], [ %.1101255, %137 ]
+  %.1103252 = phi i32 [ %spec.select221, %133 ], [ %.1103253, %137 ]
+  %.1105250 = phi i32 [ %spec.select, %133 ], [ %.1105251, %137 ]
   %.1118 = phi i32 [ %.0117226, %133 ], [ %spec.select222, %137 ]
   %.1116 = phi i32 [ %.0115227, %133 ], [ %spec.select223, %137 ]
   %.1114 = phi i32 [ %.0113228, %133 ], [ %.0117226, %137 ]

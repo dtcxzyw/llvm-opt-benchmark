@@ -1050,8 +1050,8 @@ _ZL13center_coordsP7t_atomsPKiiPA3_fS4_.exit.i:   ; preds = %.lr.ph44.i.i, %.noe
   %389 = fptrunc double %388 to float
   store float %389, ptr %26, align 4, !tbaa !42
   %390 = icmp sgt i32 %386, 0
-  %or.cond112.i = select i1 %200, i1 %390, i1 false
-  br i1 %or.cond112.i, label %.preheader.lr.ph.split.us.i, label %._crit_edge40.i
+  %or.cond137.i = select i1 %200, i1 %390, i1 false
+  br i1 %or.cond137.i, label %.preheader.lr.ph.split.us.i, label %._crit_edge40.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.noexc39
   %wide.trip.count93.i = zext nneg i32 %386 to i64
@@ -1365,9 +1365,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i50:      ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %._crit_edge.split.us.us.us.i ], [ 0, %.lr.ph8.split.us.i ]
   %499 = trunc nuw nsw i64 %indvars.iv33.i to i32
   %500 = uitofp nneg i32 %499 to double
-  %.pn39.in.i = fsub double %500, %498
-  %.pn39.i = fadd double %.pn39.in.i, 5.000000e-01
-  %.044.in.us.us.i = fmul double %.pn39.i, %492
+  %.pn52.in.i = fsub double %500, %498
+  %.pn52.i = fadd double %.pn52.in.i, 5.000000e-01
+  %.044.in.us.us.i = fmul double %.pn52.i, %492
   %.044.us.us.i = fptrunc double %.044.in.us.us.i to float
   %501 = fpext float %.044.us.us.i to double
   %502 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %465, ptr noundef nonnull @.str.114, double noundef %501) #25
@@ -1408,9 +1408,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i50:      ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %._crit_edge.split.us12.i ], [ 0, %.lr.ph8.split.us.i ]
   %521 = trunc nuw nsw i64 %indvars.iv25.i to i32
   %522 = uitofp nneg i32 %521 to double
-  %.pn38.in.i = fsub double %522, %498
-  %.pn38.i = fadd double %.pn38.in.i, 5.000000e-01
-  %.044.in.us.i = fmul double %.pn38.i, %492
+  %.pn51.in.i = fsub double %522, %498
+  %.pn51.i = fadd double %.pn51.in.i, 5.000000e-01
+  %.044.in.us.i = fmul double %.pn51.i, %492
   %.044.us.i = fptrunc double %.044.in.us.i to float
   %523 = fpext float %.044.us.i to double
   %524 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %465, ptr noundef nonnull @.str.114, double noundef %523) #25
@@ -1429,8 +1429,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i50:      ; preds = %_ZNKSt7__cxx1112bas
   %533 = fpext float %.045.us11.i to double
   %534 = fmul double %533, 0x3A6071F778ED6AAF
   %535 = fdiv double %534, 0x3A53CE9A36F23C11
-  %.sink43.i = select i1 %532, double %535, double %533
-  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %465, ptr noundef nonnull @.str.115, double noundef %.sink43.i) #25
+  %.sink56.i = select i1 %532, double %535, double %533
+  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %465, ptr noundef nonnull @.str.115, double noundef %.sink56.i) #25
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next.i53, %495
   br i1 %exitcond24.not.i, label %._crit_edge.split.us12.i, label %525, !llvm.loop !98
@@ -2570,8 +2570,8 @@ bsearch.exit:                                     ; preds = %207
   %261 = fptrunc double %260 to float
   store float %261, ptr %8, align 4, !tbaa !42
   %262 = icmp sgt i32 %258, 0
-  %or.cond70 = select i1 %66, i1 %262, i1 false
-  br i1 %or.cond70, label %.preheader.lr.ph.split.us, label %._crit_edge30
+  %or.cond85 = select i1 %66, i1 %262, i1 false
+  br i1 %or.cond85, label %.preheader.lr.ph.split.us, label %._crit_edge30
 
 .preheader.lr.ph.split.us:                        ; preds = %252
   %263 = load ptr, ptr %3, align 8, !tbaa !44

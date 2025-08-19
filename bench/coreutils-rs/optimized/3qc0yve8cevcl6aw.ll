@@ -1333,7 +1333,7 @@ define hidden void @_ZN6uu_cat11write_lines17h5b9964ff17b3cf0dE.llvm.95369439758
 
 .preheader:                                       ; preds = %50, %.backedge
   %.061176 = phi i64 [ %.061.be, %.backedge ], [ 0, %50 ]
-  %54 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %.061176
+  %54 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %.061176
   %55 = load i8, ptr %54, align 1, !noundef !15
   %56 = icmp eq i8 %55, 10
   br i1 %56, label %58, label %61
@@ -1361,7 +1361,7 @@ define hidden void @_ZN6uu_cat11write_lines17h5b9964ff17b3cf0dE.llvm.95369439758
 67:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i8 1, ptr %20, align 8
-  %68 = add nuw i64 %.061176, 1
+  %68 = add nuw nsw i64 %.061176, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %67, %107
@@ -1400,7 +1400,7 @@ define hidden void @_ZN6uu_cat11write_lines17h5b9964ff17b3cf0dE.llvm.95369439758
   br label %78
 
 78:                                               ; preds = %.thread, %93, %71
-  %79 = sub nuw i64 %44, %.061176
+  %79 = sub nuw nsw i64 %44, %.061176
   %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
           to label %96 unwind label %.loopexit122
 
@@ -1502,7 +1502,7 @@ select.unfold:                                    ; preds = %85
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8f079e4e6c07e822E.exit88"
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %97
+  %103 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %97
   %104 = load i8, ptr %103, align 1, !noundef !15
   switch i8 %104, label %110 [
     i8 13, label %106
@@ -1518,12 +1518,12 @@ select.unfold:                                    ; preds = %85
   br label %107
 
 107:                                              ; preds = %_ZN6uu_cat17write_end_of_line17h32a269c48c4fd1ccE.exit, %106
-  %108 = add nuw i64 %.061176, 1
+  %108 = add nuw nsw i64 %.061176, 1
   %109 = add i64 %108, %80
   br label %.backedge
 
 110:                                              ; preds = %102
-  %111 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %97
+  %111 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %97
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   invoke void @_ZN4core9panicking13assert_failed17h00ad7a81df5e625aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %111, ptr noalias noundef readonly align 1 dereferenceable(1) @anon.a24bcc934780916e99c84aea51fb20bd.18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a24bcc934780916e99c84aea51fb20bd.19) #10
@@ -1770,7 +1770,7 @@ define hidden void @_ZN6uu_cat11write_lines17h705f6e52d79625b4E.llvm.95369439758
 
 .preheader:                                       ; preds = %50, %.backedge
   %.061176 = phi i64 [ %.061.be, %.backedge ], [ 0, %50 ]
-  %54 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %.061176
+  %54 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %.061176
   %55 = load i8, ptr %54, align 1, !noundef !15
   %56 = icmp eq i8 %55, 10
   br i1 %56, label %58, label %61
@@ -1798,7 +1798,7 @@ define hidden void @_ZN6uu_cat11write_lines17h705f6e52d79625b4E.llvm.95369439758
 67:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i8 1, ptr %20, align 8
-  %68 = add nuw i64 %.061176, 1
+  %68 = add nuw nsw i64 %.061176, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %67, %107
@@ -1837,7 +1837,7 @@ define hidden void @_ZN6uu_cat11write_lines17h705f6e52d79625b4E.llvm.95369439758
   br label %78
 
 78:                                               ; preds = %.thread, %93, %71
-  %79 = sub nuw i64 %44, %.061176
+  %79 = sub nuw nsw i64 %44, %.061176
   %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
           to label %96 unwind label %.loopexit122
 
@@ -1939,7 +1939,7 @@ select.unfold:                                    ; preds = %85
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8f079e4e6c07e822E.exit88"
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %97
+  %103 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %97
   %104 = load i8, ptr %103, align 1, !noundef !15
   switch i8 %104, label %110 [
     i8 13, label %106
@@ -1955,12 +1955,12 @@ select.unfold:                                    ; preds = %85
   br label %107
 
 107:                                              ; preds = %_ZN6uu_cat17write_end_of_line17h32a269c48c4fd1ccE.exit, %106
-  %108 = add nuw i64 %.061176, 1
+  %108 = add nuw nsw i64 %.061176, 1
   %109 = add i64 %108, %80
   br label %.backedge
 
 110:                                              ; preds = %102
-  %111 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %97
+  %111 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %97
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   invoke void @_ZN4core9panicking13assert_failed17h00ad7a81df5e625aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %111, ptr noalias noundef readonly align 1 dereferenceable(1) @anon.a24bcc934780916e99c84aea51fb20bd.18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a24bcc934780916e99c84aea51fb20bd.19) #10
@@ -2207,7 +2207,7 @@ define hidden void @_ZN6uu_cat11write_lines17hc03b489b4a652aedE.llvm.95369439758
 
 .preheader:                                       ; preds = %50, %.backedge
   %.061176 = phi i64 [ %.061.be, %.backedge ], [ 0, %50 ]
-  %54 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %.061176
+  %54 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %.061176
   %55 = load i8, ptr %54, align 1, !noundef !15
   %56 = icmp eq i8 %55, 10
   br i1 %56, label %58, label %61
@@ -2235,7 +2235,7 @@ define hidden void @_ZN6uu_cat11write_lines17hc03b489b4a652aedE.llvm.95369439758
 67:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i8 1, ptr %20, align 8
-  %68 = add nuw i64 %.061176, 1
+  %68 = add nuw nsw i64 %.061176, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %67, %107
@@ -2274,7 +2274,7 @@ define hidden void @_ZN6uu_cat11write_lines17hc03b489b4a652aedE.llvm.95369439758
   br label %78
 
 78:                                               ; preds = %.thread, %93, %71
-  %79 = sub nuw i64 %44, %.061176
+  %79 = sub nuw nsw i64 %44, %.061176
   %80 = invoke fastcc noundef i64 @_ZN6uu_cat9write_end17h7731cfc7ddfa53e8E(ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %79, i8 %.val80, i8 %.val81)
           to label %96 unwind label %.loopexit122
 
@@ -2376,7 +2376,7 @@ select.unfold:                                    ; preds = %85
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h8f079e4e6c07e822E.exit88"
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %97
+  %103 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %97
   %104 = load i8, ptr %103, align 1, !noundef !15
   switch i8 %104, label %110 [
     i8 13, label %106
@@ -2392,12 +2392,12 @@ select.unfold:                                    ; preds = %85
   br label %107
 
 107:                                              ; preds = %_ZN6uu_cat17write_end_of_line17h32a269c48c4fd1ccE.exit, %106
-  %108 = add nuw i64 %.061176, 1
+  %108 = add nuw nsw i64 %.061176, 1
   %109 = add i64 %108, %80
   br label %.backedge
 
 110:                                              ; preds = %102
-  %111 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %97
+  %111 = getelementptr inbounds nuw [0 x i8], ptr %15, i64 0, i64 %97
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   invoke void @_ZN4core9panicking13assert_failed17h00ad7a81df5e625aE(i8 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %111, ptr noalias noundef readonly align 1 dereferenceable(1) @anon.a24bcc934780916e99c84aea51fb20bd.18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a24bcc934780916e99c84aea51fb20bd.19) #10

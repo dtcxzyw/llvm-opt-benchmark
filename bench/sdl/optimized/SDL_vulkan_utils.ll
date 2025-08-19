@@ -642,19 +642,19 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %168 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv318
   %169 = load ptr, ptr %168, align 8
   %.not233 = icmp eq ptr %169, %76
-  br i1 %.not233, label %.critedge.split.loop.exit352, label %170
+  br i1 %.not233, label %.critedge.split.loop.exit373, label %170
 
 170:                                              ; preds = %.preheader
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321
   br i1 %exitcond322.not, label %.critedge, label %.preheader, !llvm.loop !5
 
-.critedge.split.loop.exit352:                     ; preds = %.preheader
+.critedge.split.loop.exit373:                     ; preds = %.preheader
   %171 = trunc nuw i64 %indvars.iv318 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %170, %.critedge.split.loop.exit352
-  %.0.lcssa = phi i32 [ %171, %.critedge.split.loop.exit352 ], [ %164, %170 ]
+.critedge:                                        ; preds = %170, %.critedge.split.loop.exit373
+  %.0.lcssa = phi i32 [ %171, %.critedge.split.loop.exit373 ], [ %164, %170 ]
   call void @SDL_free_REAL(ptr noundef nonnull %160) #7
   %172 = load i32, ptr %11, align 4
   %173 = icmp eq i32 %.0.lcssa, %172

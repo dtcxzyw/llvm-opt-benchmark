@@ -315,9 +315,9 @@ define internal zeroext i1 @capture_ax25_kiss(ptr noundef %0, i32 noundef %1, i3
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %12
-  %.sink24 = phi i32 [ %13, %12 ], [ %7, %6 ]
+  %.sink26 = phi i32 [ %13, %12 ], [ %7, %6 ]
   %14 = load ptr, ptr @ax25_cap_handle, align 8
-  %15 = tail call zeroext i1 @call_capture_dissector(ptr noundef %14, ptr noundef %0, i32 noundef %.sink24, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  %15 = tail call zeroext i1 @call_capture_dissector(ptr noundef %14, ptr noundef %0, i32 noundef %.sink26, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %16
 
 16:                                               ; preds = %.sink.split, %6, %5

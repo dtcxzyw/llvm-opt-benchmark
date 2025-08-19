@@ -445,8 +445,8 @@ buffer_skip_whitespace.exit:                      ; preds = %buffer_skip_whitesp
   %.pre = load i64, ptr %.0.i.sroa.gep, align 8, !tbaa !33
   %.pre74 = load i64, ptr %.0.i.sroa.gep48, align 8, !tbaa !30
   %35 = icmp ult i64 %.pre, %.pre74
-  %or.cond79 = select i1 %34, i1 %35, i1 false
-  br i1 %or.cond79, label %.lr.ph.i38.preheader, label %buffer_skip_whitespace.exit42
+  %or.cond87 = select i1 %34, i1 %35, i1 false
+  br i1 %or.cond87, label %.lr.ph.i38.preheader, label %buffer_skip_whitespace.exit42
 
 .lr.ph.i38.preheader:                             ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.pre
@@ -707,9 +707,9 @@ define internal fastcc i32 @parse_value(ptr noundef nonnull writeonly captures(n
   br label %78
 
 78:                                               ; preds = %76, %74, %71
-  %.sink35.i = phi i32 [ %77, %76 ], [ 2147483647, %71 ], [ -2147483648, %74 ]
+  %.sink39.i = phi i32 [ %77, %76 ], [ 2147483647, %71 ], [ -2147483648, %74 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sink35.i, ptr %79, align 8, !tbaa !27
+  store i32 %.sink39.i, ptr %79, align 8, !tbaa !27
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 8, ptr %80, align 8, !tbaa !11
   %81 = ptrtoint ptr %69 to i64
@@ -1212,8 +1212,8 @@ ensure.exit:                                      ; preds = %56, %20
   %.pre.i46 = load i64, ptr %.phi.trans.insert.i45, align 8, !tbaa !45
   %65 = freeze i64 %.pre.i46
   %66 = add i64 %64, -1
-  %or.cond111.not = icmp ult i64 %66, %65
-  br i1 %or.cond111.not, label %print_array.exit, label %67
+  %or.cond159.not = icmp ult i64 %66, %65
+  br i1 %or.cond159.not, label %print_array.exit, label %67
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1314,8 +1314,8 @@ ensure.exit47:                                    ; preds = %106, %70
   %.pre.i58 = load i64, ptr %.phi.trans.insert.i57, align 8, !tbaa !45
   %115 = freeze i64 %.pre.i58
   %116 = add i64 %114, -1
-  %or.cond112.not = icmp ult i64 %116, %115
-  br i1 %or.cond112.not, label %print_array.exit, label %117
+  %or.cond160.not = icmp ult i64 %116, %115
+  br i1 %or.cond160.not, label %print_array.exit, label %117
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1537,8 +1537,8 @@ print_number.exit:                                ; preds = %187, %188, %._crit_
   %.pre.i78 = load i64, ptr %.phi.trans.insert.i77, align 8, !tbaa !45
   %224 = freeze i64 %.pre.i78
   %225 = add i64 %223, -1
-  %or.cond113.not = icmp ult i64 %225, %224
-  br i1 %or.cond113.not, label %print_array.exit, label %226
+  %or.cond161.not = icmp ult i64 %225, %224
+  br i1 %or.cond161.not, label %print_array.exit, label %226
 
 226:                                              ; preds = %221
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2037,7 +2037,7 @@ define ptr @cJSON_GetObjectItem(ptr noundef readonly captures(address_is_null) %
 
 11:                                               ; preds = %.lr.ph51.i
   %12 = icmp eq ptr %1, %9
-  br i1 %12, label %.critedge.thread35.i.loopexit8, label %.preheader.i.i
+  br i1 %12, label %get_object_item.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11
   %13 = tail call ptr @__ctype_tolower_loc() #34
@@ -2079,13 +2079,8 @@ case_insensitive_strcmp.exit.thread30.i:          ; preds = %26, %.preheader.i.i
   %.not23.i = icmp eq ptr %38, null
   br i1 %.not23.i, label %get_object_item.exit, label %.lr.ph51.i
 
-.critedge.thread35.i.loopexit8:                   ; preds = %11
-  %39 = icmp eq ptr %1, null
-  %40 = select i1 %39, ptr null, ptr %.250.i
-  br label %get_object_item.exit
-
-get_object_item.exit:                             ; preds = %case_insensitive_strcmp.exit.thread30.i, %.lr.ph.i.i, %.critedge.thread35.i.loopexit8, %2, %5
-  %.019.i = phi ptr [ null, %2 ], [ null, %5 ], [ %40, %.critedge.thread35.i.loopexit8 ], [ %.250.i, %.lr.ph.i.i ], [ null, %case_insensitive_strcmp.exit.thread30.i ]
+get_object_item.exit:                             ; preds = %case_insensitive_strcmp.exit.thread30.i, %11, %.lr.ph.i.i, %2, %5
+  %.019.i = phi ptr [ null, %2 ], [ null, %5 ], [ %.250.i, %.lr.ph.i.i ], [ null, %case_insensitive_strcmp.exit.thread30.i ], [ %.250.i, %11 ]
   ret ptr %.019.i
 }
 
@@ -4719,8 +4714,8 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %.fr42, i64 24
   store i32 32, ptr %7, align 8, !tbaa !11
   %8 = zext nneg i32 %1 to i64
-  %.not52 = icmp eq i32 %1, 0
-  br i1 %.not52, label %._crit_edge.thread, label %.lr.ph.split.preheader
+  %.not57 = icmp eq i32 %1, 0
+  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %cJSON_CreateArray.exit
   %9 = getelementptr inbounds nuw i8, ptr %.fr42, i64 16
@@ -4768,7 +4763,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split
 
 ._crit_edge.thread:                               ; preds = %21, %cJSON_CreateArray.exit
-  %.0.lcssa47 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %21 ]
+  %.0.lcssa52 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %.fr42, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !25
   %.not = icmp eq ptr %24, null
@@ -4776,7 +4771,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 25:                                               ; preds = %._crit_edge.thread
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %.0.lcssa47, ptr %26, align 8, !tbaa !40
+  store ptr %.0.lcssa52, ptr %26, align 8, !tbaa !40
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %25, %2, %.split.us
@@ -4803,8 +4798,8 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %.fr40, i64 24
   store i32 32, ptr %7, align 8, !tbaa !11
   %8 = zext nneg i32 %1 to i64
-  %.not50 = icmp eq i32 %1, 0
-  br i1 %.not50, label %._crit_edge.thread, label %.lr.ph.split.preheader
+  %.not57 = icmp eq i32 %1, 0
+  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %cJSON_CreateArray.exit
   %9 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
@@ -4865,7 +4860,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split
 
 ._crit_edge.thread:                               ; preds = %27, %cJSON_CreateArray.exit
-  %.0.lcssa45 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %27 ]
+  %.0.lcssa52 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %27 ]
   %29 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %.not = icmp eq ptr %30, null
@@ -4873,7 +4868,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 31:                                               ; preds = %._crit_edge.thread
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %.0.lcssa45, ptr %32, align 8, !tbaa !40
+  store ptr %.0.lcssa52, ptr %32, align 8, !tbaa !40
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %31, %2, %.split.us
@@ -4900,8 +4895,8 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %.fr40, i64 24
   store i32 32, ptr %7, align 8, !tbaa !11
   %8 = zext nneg i32 %1 to i64
-  %.not50 = icmp eq i32 %1, 0
-  br i1 %.not50, label %._crit_edge.thread, label %.lr.ph.split.preheader
+  %.not57 = icmp eq i32 %1, 0
+  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %cJSON_CreateArray.exit
   %9 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
@@ -4961,7 +4956,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split
 
 ._crit_edge.thread:                               ; preds = %26, %cJSON_CreateArray.exit
-  %.0.lcssa45 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %26 ]
+  %.0.lcssa52 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %26 ]
   %28 = getelementptr inbounds nuw i8, ptr %.fr40, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !25
   %.not = icmp eq ptr %29, null
@@ -4969,7 +4964,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 30:                                               ; preds = %._crit_edge.thread
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %.0.lcssa45, ptr %31, align 8, !tbaa !40
+  store ptr %.0.lcssa52, ptr %31, align 8, !tbaa !40
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %30, %2, %.split.us
@@ -4996,8 +4991,8 @@ cJSON_CreateArray.exit:                           ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %.fr47, i64 24
   store i32 32, ptr %7, align 8, !tbaa !11
   %8 = zext nneg i32 %1 to i64
-  %.not60 = icmp eq i32 %1, 0
-  br i1 %.not60, label %._crit_edge.thread, label %.lr.ph.split.preheader
+  %.not69 = icmp eq i32 %1, 0
+  br i1 %.not69, label %._crit_edge.thread, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %cJSON_CreateArray.exit
   %9 = getelementptr inbounds nuw i8, ptr %.fr47, i64 16
@@ -5061,7 +5056,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split
 
 ._crit_edge.thread:                               ; preds = %28, %cJSON_CreateArray.exit
-  %.0.lcssa54 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %28 ]
+  %.0.lcssa63 = phi ptr [ null, %cJSON_CreateArray.exit ], [ %12, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %.fr47, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   %.not = icmp eq ptr %31, null
@@ -5069,7 +5064,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 
 32:                                               ; preds = %._crit_edge.thread
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %.0.lcssa54, ptr %33, align 8, !tbaa !40
+  store ptr %.0.lcssa63, ptr %33, align 8, !tbaa !40
   br label %._crit_edge.split.us
 
 ._crit_edge.split.us:                             ; preds = %5, %._crit_edge.thread, %32, %2, %.loopexit
@@ -5213,8 +5208,8 @@ cJSON_strdup.exit67.thread:                       ; preds = %29, %38
   br label %.thread
 
 .thread74.sink.split:                             ; preds = %32, %19
-  %.sink85 = phi i64 [ 32, %19 ], [ 56, %32 ]
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink85
+  %.sink92 = phi i64 [ 32, %19 ], [ 56, %32 ]
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink92
   store ptr null, ptr %56, align 8, !tbaa !35
   br label %.thread74
 
@@ -6098,7 +6093,7 @@ parse_hex4.exit.i:                                ; preds = %66
   %.169.shrunk.ph.i = phi i32 [ %89, %.thread85.i ], [ %spec.select.i.i, %96 ], [ %spec.select.i.i, %94 ], [ %spec.select.i.i, %92 ]
   %.049.ph.i = phi i32 [ 4, %.thread85.i ], [ 4, %96 ], [ 3, %94 ], [ 2, %92 ]
   %.046.ph.i = phi i64 [ 240, %.thread85.i ], [ 240, %96 ], [ 224, %94 ], [ 192, %92 ]
-  %.16997.i = zext i32 %.169.shrunk.ph.i to i64
+  %.16997.i = zext nneg i32 %.169.shrunk.ph.i to i64
   %narrow.i = add nuw nsw i32 %.049.ph.i, 255
   %98 = and i32 %narrow.i, 255
   %99 = zext nneg i32 %98 to i64
@@ -6405,40 +6400,40 @@ buffer_skip_whitespace.exit110:                   ; preds = %82, %.critedge.i107
 94:                                               ; preds = %buffer_skip_whitespace.exit110
   %95 = load ptr, ptr %1, align 8, !tbaa !28
   %96 = icmp ne ptr %95, null
-  %.pre214 = load i64, ptr %8, align 8, !tbaa !33
-  %.pre215 = load i64, ptr %10, align 8, !tbaa !30
-  %97 = icmp ult i64 %.pre214, %.pre215
-  %or.cond232 = select i1 %96, i1 %97, i1 false
-  br i1 %or.cond232, label %.lr.ph.i177, label %buffer_skip_whitespace.exit181
+  %.pre236 = load i64, ptr %8, align 8, !tbaa !33
+  %.pre237 = load i64, ptr %10, align 8, !tbaa !30
+  %97 = icmp ult i64 %.pre236, %.pre237
+  %or.cond278 = select i1 %96, i1 %97, i1 false
+  br i1 %or.cond278, label %.lr.ph.i199, label %buffer_skip_whitespace.exit203
 
-.lr.ph.i177:                                      ; preds = %94, %102
-  %98 = phi i64 [ %103, %102 ], [ %.pre214, %94 ]
+.lr.ph.i199:                                      ; preds = %94, %102
+  %98 = phi i64 [ %103, %102 ], [ %.pre236, %94 ]
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !34
   %101 = icmp ult i8 %100, 33
-  br i1 %101, label %102, label %.critedge.i178
+  br i1 %101, label %102, label %.critedge.i200
 
-102:                                              ; preds = %.lr.ph.i177
+102:                                              ; preds = %.lr.ph.i199
   %103 = add i64 %98, 1
   store i64 %103, ptr %8, align 8, !tbaa !33
-  %exitcond.not.i180 = icmp eq i64 %103, %.pre215
-  br i1 %exitcond.not.i180, label %.critedge.thread.i179, label %.lr.ph.i177
+  %exitcond.not.i202 = icmp eq i64 %103, %.pre237
+  br i1 %exitcond.not.i202, label %.critedge.thread.i201, label %.lr.ph.i199
 
-.critedge.i178:                                   ; preds = %.lr.ph.i177
-  %104 = icmp eq i64 %98, %.pre215
-  br i1 %104, label %.critedge.thread.i179, label %buffer_skip_whitespace.exit181
+.critedge.i200:                                   ; preds = %.lr.ph.i199
+  %104 = icmp eq i64 %98, %.pre237
+  br i1 %104, label %.critedge.thread.i201, label %buffer_skip_whitespace.exit203
 
-.critedge.thread.i179:                            ; preds = %102, %.critedge.i178
-  %105 = add i64 %.pre215, -1
+.critedge.thread.i201:                            ; preds = %102, %.critedge.i200
+  %105 = add i64 %.pre237, -1
   store i64 %105, ptr %8, align 8, !tbaa !33
-  br label %buffer_skip_whitespace.exit181
+  br label %buffer_skip_whitespace.exit203
 
-buffer_skip_whitespace.exit181:                   ; preds = %94, %.critedge.i178, %.critedge.thread.i179
-  %106 = phi i64 [ %.pre214, %94 ], [ %98, %.critedge.i178 ], [ %105, %.critedge.thread.i179 ]
-  %107 = icmp ult i64 %106, %.pre215
+buffer_skip_whitespace.exit203:                   ; preds = %94, %.critedge.i200, %.critedge.thread.i201
+  %106 = phi i64 [ %.pre236, %94 ], [ %98, %.critedge.i200 ], [ %105, %.critedge.thread.i201 ]
+  %107 = icmp ult i64 %106, %.pre237
   br i1 %107, label %108, label %.critedge.thread125
 
-108:                                              ; preds = %buffer_skip_whitespace.exit181
+108:                                              ; preds = %buffer_skip_whitespace.exit203
   %109 = getelementptr inbounds nuw i8, ptr %95, i64 %106
   %110 = load i8, ptr %109, align 1, !tbaa !34
   switch i8 %110, label %.critedge.thread125 [
@@ -6469,8 +6464,8 @@ buffer_skip_whitespace.exit181:                   ; preds = %94, %.critedge.i178
   %.not91 = icmp eq ptr %.274, null
   br i1 %.not91, label %.critedge.thread121, label %.critedge.thread125
 
-.critedge.thread125:                              ; preds = %108, %45, %buffer_skip_whitespace.exit98, %79, %buffer_skip_whitespace.exit104, %buffer_skip_whitespace.exit110, %buffer_skip_whitespace.exit181, %.critedge
-  %.072128 = phi ptr [ %.274, %.critedge ], [ %.4, %buffer_skip_whitespace.exit181 ], [ %.4, %buffer_skip_whitespace.exit110 ], [ %.4, %buffer_skip_whitespace.exit104 ], [ %.4, %79 ], [ %.4, %buffer_skip_whitespace.exit98 ], [ %.4, %45 ], [ %.4, %108 ]
+.critedge.thread125:                              ; preds = %108, %45, %buffer_skip_whitespace.exit98, %79, %buffer_skip_whitespace.exit104, %buffer_skip_whitespace.exit110, %buffer_skip_whitespace.exit203, %.critedge
+  %.072128 = phi ptr [ %.274, %.critedge ], [ %.4, %buffer_skip_whitespace.exit203 ], [ %.4, %buffer_skip_whitespace.exit110 ], [ %.4, %buffer_skip_whitespace.exit104 ], [ %.4, %79 ], [ %.4, %buffer_skip_whitespace.exit98 ], [ %.4, %45 ], [ %.4, %108 ]
   tail call void @cJSON_Delete(ptr noundef nonnull %.072128)
   br label %.critedge.thread121
 

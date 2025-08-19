@@ -957,7 +957,7 @@ thread-pre-split.i.i.i:                           ; preds = %83
   br i1 %125, label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.i.i.i, label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit19.i.i.i, !prof !162
 
 thread-pre-split.i.i.thread.i:                    ; preds = %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit.i.i.i.i
-  %.sroa.07.0.copyload50.i.i38.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4, !tbaa !78, !noalias !161
+  %.sroa.07.0.copyload50.i.i52.i = load i32, ptr @_ZN12_GLOBAL__N_116TypeStreamMerger12UntranslatedE, align 4, !tbaa !78, !noalias !161
   store ptr %1, ptr %14, align 8, !noalias !161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !noalias !161
   %126 = add nuw nsw i64 %76, 5
@@ -1131,7 +1131,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview18GloballyHashedTypeELb1EE9push_ba
   br label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit19.i.i.i
 
 _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit19.i.i.i: ; preds = %206, %thread-pre-split.i.i.i
-  %.sroa.07.0.copyload50.i.i3944.i = phi i32 [ %.sroa.07.0.copyload50.i.i38.i, %206 ], [ %.sroa.07.0.copyload50.i.i.i, %thread-pre-split.i.i.i ]
+  %.sroa.07.0.copyload50.i.i5358.i = phi i32 [ %.sroa.07.0.copyload50.i.i52.i, %206 ], [ %.sroa.07.0.copyload50.i.i.i, %thread-pre-split.i.i.i ]
   %208 = phi i64 [ %126, %206 ], [ %123, %thread-pre-split.i.i.i ]
   %.0.i18.i.i.i = phi i64 [ %207, %206 ], [ 40, %thread-pre-split.i.i.i ]
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i18.i.i.i
@@ -1154,7 +1154,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit19.i.i.i: ; preds = 
   br label %219
 
 219:                                              ; preds = %217, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit19.i.i.i
-  %.sroa.07.2.i.i.i = phi i32 [ %.sroa.07.0.copyload50.i.i3944.i, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit19.i.i.i ], [ %218, %217 ]
+  %.sroa.07.2.i.i.i = phi i32 [ %.sroa.07.0.copyload50.i.i5358.i, %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit19.i.i.i ], [ %218, %217 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !161
   br label %220
 
@@ -2503,8 +2503,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %11
   %.sroa.05.0.copyload54 = load i64, ptr %12, align 1, !tbaa !78
-  %.not72 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload54
-  br i1 %.not72, label %.thread, label %.lr.ph, !prof !315
+  %.not73 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload54
+  br i1 %.not73, label %.thread, label %.lr.ph, !prof !315
 
 .lr.ph:                                           ; preds = %8, %16
   %.sroa.05.0.copyload60 = phi i64 [ %.sroa.05.0.copyload, %16 ], [ %.sroa.05.0.copyload54, %8 ]
@@ -2512,8 +2512,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.03359 = phi ptr [ %spec.select, %16 ], [ null, %8 ]
   %.03658 = phi i32 [ %20, %16 ], [ %10, %8 ]
   %.03857 = phi i32 [ %18, %16 ], [ 1, %8 ]
-  %.not73 = icmp eq i64 %.sroa.05.0.copyload60, %.sroa.0.0.copyload.i.i
-  br i1 %.not73, label %14, label %16, !prof !162
+  %.not74 = icmp eq i64 %.sroa.05.0.copyload60, %.sroa.0.0.copyload.i.i
+  br i1 %.not74, label %14, label %16, !prof !162
 
 14:                                               ; preds = %.lr.ph
   %.not = icmp eq ptr %.03359, null
@@ -2521,9 +2521,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   br label %.thread
 
 16:                                               ; preds = %.lr.ph
-  %.not74 = icmp eq i64 %.sroa.05.0.copyload60, %.sroa.0.0.copyload.i.i42
+  %.not75 = icmp eq i64 %.sroa.05.0.copyload60, %.sroa.0.0.copyload.i.i42
   %17 = icmp eq ptr %.03359, null
-  %or.cond.not = select i1 %.not74, i1 %17, i1 false
+  %or.cond.not = select i1 %.not75, i1 %17, i1 false
   %spec.select = select i1 %or.cond.not, ptr %13, ptr %.03359
   %18 = add i32 %.03857, 1
   %19 = add i32 %.03658, %.03857
@@ -2531,8 +2531,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %21
   %.sroa.05.0.copyload = load i64, ptr %22, align 1, !tbaa !78
-  %.not75 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload
-  br i1 %.not75, label %.thread, label %.lr.ph, !prof !316, !llvm.loop !317
+  %.not76 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload
+  br i1 %.not76, label %.thread, label %.lr.ph, !prof !316, !llvm.loop !317
 
 .thread:                                          ; preds = %16, %8, %3, %14
   %.sink = phi ptr [ %15, %14 ], [ null, %3 ], [ %12, %8 ], [ %22, %16 ]
@@ -2706,9 +2706,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIn
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit, %23
   %.022 = phi ptr [ %24, %23 ], [ %1, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit ]
   %.sroa.03.0.copyload = load i64, ptr %.022, align 1, !tbaa !78
-  %.not24 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.0.0.copyload.i.i
-  %.not25 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.0.0.copyload.i.i18
-  %or.cond = select i1 %.not24, i1 true, i1 %.not25
+  %.not26 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.0.0.copyload.i.i
+  %.not27 = icmp eq i64 %.sroa.03.0.copyload, %.sroa.0.0.copyload.i.i18
+  %or.cond = select i1 %.not26, i1 true, i1 %.not27
   br i1 %or.cond, label %23, label %13
 
 13:                                               ; preds = %.lr.ph

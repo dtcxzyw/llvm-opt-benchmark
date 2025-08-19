@@ -1306,7 +1306,7 @@ define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr n
 232:                                              ; preds = %262, %.lr.ph.i.i.i.i
   %.064.i.i.i.i = phi i32 [ %230, %.lr.ph.i.i.i.i ], [ %263, %262 ]
   %.05663.i.i.i.i = phi i16 [ 0, %.lr.ph.i.i.i.i ], [ %264, %262 ]
-  %.05862.i.i.i.i = phi i8 [ 0, %.lr.ph.i.i.i.i ], [ %.15969.i.i.i.i, %262 ]
+  %.05862.i.i.i.i = phi i8 [ 0, %.lr.ph.i.i.i.i ], [ %.15971.i.i.i.i, %262 ]
   %233 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.064.i.i.i.i)
   %234 = icmp eq i8 %233, -1
   br i1 %234, label %235, label %241
@@ -1356,13 +1356,13 @@ define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr n
   br label %262
 
 259:                                              ; preds = %251, %.thread.i.i.i.i
-  %.15970.i.i.i.i = phi i8 [ %250, %.thread.i.i.i.i ], [ %.05862.i.i.i.i, %251 ]
+  %.15972.i.i.i.i = phi i8 [ %250, %.thread.i.i.i.i ], [ %.05862.i.i.i.i, %251 ]
   %260 = load i32, ptr @hf_saphdb_part_authentication_field_value, align 4
   %261 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %260, ptr noundef %0, i32 noundef %.1.i.i.i.i, i32 noundef %248, i32 noundef 0)
   br label %262
 
 262:                                              ; preds = %259, %255
-  %.15969.i.i.i.i = phi i8 [ %.15970.i.i.i.i, %259 ], [ %.05862.i.i.i.i, %255 ]
+  %.15971.i.i.i.i = phi i8 [ %.15972.i.i.i.i, %259 ], [ %.05862.i.i.i.i, %255 ]
   %263 = add i32 %.1.i.i.i.i, %248
   %264 = add nuw i16 %.05663.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i16 %264, %227

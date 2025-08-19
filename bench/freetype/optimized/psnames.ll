@@ -161,10 +161,10 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
 56:                                               ; preds = %54, %72
   %.055.i129 = phi i32 [ 52, %54 ], [ %.257.i, %72 ]
   %.058.i128 = phi i32 [ 0, %54 ], [ %.260.i, %72 ]
-  %57 = add nsw i32 %.055.i129, %.058.i128
+  %57 = add nuw nsw i32 %.055.i129, %.058.i128
   %58 = and i32 %57, -2
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %59
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %59
   %61 = load i8, ptr %60, align 2, !tbaa !3
   %62 = zext i8 %61 to i64
   %63 = shl nuw nsw i64 %62, 8
@@ -179,9 +179,9 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   br i1 %71, label %.preheader.i, label %72
 
 72:                                               ; preds = %56
-  %73 = ashr i32 %57, 1
+  %73 = lshr i32 %57, 1
   %74 = icmp slt i8 %70, %2
-  %75 = add nsw i32 %73, 1
+  %75 = add nuw nsw i32 %73, 1
   %.260.i = select i1 %74, i32 %75, i32 %.058.i128
   %.257.i = select i1 %74, i32 %.055.i129, i32 %73
   %76 = icmp slt i32 %.260.i, %.257.i
@@ -604,14 +604,14 @@ define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %
   br i1 %.not, label %._crit_edge.thread, label %44
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.045.lcssa68 = phi i32 [ %.146, %._crit_edge ], [ 0, %2 ]
-  %34 = icmp ult i32 %.045.lcssa68, %6
+  %.045.lcssa71 = phi i32 [ %.146, %._crit_edge ], [ 0, %2 ]
+  %34 = icmp ult i32 %.045.lcssa71, %6
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %._crit_edge.thread
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !21
-  %38 = zext i32 %.045.lcssa68 to i64
+  %38 = zext i32 %.045.lcssa71 to i64
   %39 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !27

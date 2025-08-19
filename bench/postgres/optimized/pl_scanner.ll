@@ -37,9 +37,9 @@ define hidden i32 @plpgsql_yylex(ptr noundef writeonly captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call fastcc i32 @internal_yylex(ptr noundef %4, ptr noundef %2)
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep72 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink.sroa.gep74 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %.sink.sroa.gep75 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %.sink.sroa.gep83 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink.sroa.gep85 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %.sink.sroa.gep86 = getelementptr inbounds nuw i8, ptr %8, i64 36
   switch i32 %9, label %232 [
     i32 267, label %10
     i32 258, label %10
@@ -143,15 +143,15 @@ push_back_token.exit57:                           ; preds = %push_back_token.exi
   br label %71
 
 71:                                               ; preds = %push_back_token.exit57, %22
-  %.sink71 = phi i1 [ %70, %push_back_token.exit57 ], [ %26, %22 ]
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %push_back_token.exit57 ], [ %.sink.sroa.gep72, %22 ]
-  %.sink.sroa.phi73 = phi ptr [ %.sink.sroa.gep74, %push_back_token.exit57 ], [ %.sink.sroa.gep75, %22 ]
-  %.55 = select i1 %.sink71, i32 277, i32 276
+  %.sink82 = phi i1 [ %70, %push_back_token.exit57 ], [ %26, %22 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %push_back_token.exit57 ], [ %.sink.sroa.gep83, %22 ]
+  %.sink.sroa.phi84 = phi ptr [ %.sink.sroa.gep85, %push_back_token.exit57 ], [ %.sink.sroa.gep86, %22 ]
+  %.55 = select i1 %.sink82, i32 277, i32 276
   %72 = load i32, ptr %.sink.sroa.phi, align 8
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %74 = load i32, ptr %73, align 8
   %75 = sub i32 %72, %74
-  %76 = load i32, ptr %.sink.sroa.phi73, align 4
+  %76 = load i32, ptr %.sink.sroa.phi84, align 4
   %77 = add i32 %75, %76
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %77, ptr %78, align 4
@@ -473,19 +473,19 @@ sub_1:                                            ; preds = %sub_0
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %32 = load i8, ptr %31, align 1
   %.not32 = icmp eq i8 %32, 60
-  br i1 %.not32, label %.tail, label %sub_029.thread40
+  br i1 %.not32, label %.tail, label %sub_029.thread41
 
 .tail:                                            ; preds = %sub_1
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %.tail28, label %sub_029.thread40
+  br i1 %35, label %.tail28, label %sub_029.thread41
 
 sub_125:                                          ; preds = %sub_0
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %37 = load i8, ptr %36, align 1
   %.not34 = icmp eq i8 %37, 62
-  br i1 %.not34, label %.tail23, label %sub_029.thread40
+  br i1 %.not34, label %.tail23, label %sub_029.thread41
 
 .tail23:                                          ; preds = %sub_125
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 2
@@ -494,7 +494,7 @@ sub_125:                                          ; preds = %sub_0
   %spec.select = select i1 %40, i32 279, i32 265
   br label %.tail28
 
-sub_029.thread40:                                 ; preds = %sub_125, %sub_1, %.tail
+sub_029.thread41:                                 ; preds = %sub_125, %sub_1, %.tail
   br label %.tail28
 
 sub_130:                                          ; preds = %sub_0
@@ -509,8 +509,8 @@ sub_130:                                          ; preds = %sub_0
   store ptr %46, ptr %0, align 8
   br label %.tail28
 
-.tail28:                                          ; preds = %.tail23, %sub_0, %sub_130, %sub_029.thread40, %18, %.tail, %45, %7
-  %.0 = phi i32 [ %15, %7 ], [ 267, %45 ], [ 278, %.tail ], [ %20, %18 ], [ %44, %sub_130 ], [ 265, %sub_029.thread40 ], [ %spec.select, %.tail23 ], [ 265, %sub_0 ]
+.tail28:                                          ; preds = %.tail23, %sub_0, %sub_130, %sub_029.thread41, %18, %.tail, %45, %7
+  %.0 = phi i32 [ %15, %7 ], [ 267, %45 ], [ 278, %.tail ], [ %20, %18 ], [ %44, %sub_130 ], [ 265, %sub_029.thread41 ], [ %spec.select, %.tail23 ], [ 265, %sub_0 ]
   ret i32 %.0
 }
 

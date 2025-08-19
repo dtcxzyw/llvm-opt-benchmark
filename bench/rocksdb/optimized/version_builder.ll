@@ -1832,9 +1832,9 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit21
 
 _ZN7rocksdb6StatusD2Ev.exit21:                    ; preds = %.thread, %66, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20
-  %.pn25 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn, %66 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20 ]
+  %.pn32 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn, %66 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20 ]
   store ptr null, ptr %6, align 8, !tbaa !225
-  resume { ptr, i32 } %.pn25
+  resume { ptr, i32 } %.pn32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4991,12 +4991,12 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit62
 
 _ZN7rocksdb6StatusD2Ev.exit62:                    ; preds = %.thread, %270, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i61
-  %.pn2273 = phi { ptr, i32 } [ %247, %.thread ], [ %271, %270 ], [ %271, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i61 ]
+  %.pn2295 = phi { ptr, i32 } [ %247, %.thread ], [ %271, %270 ], [ %271, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i61 ]
   store ptr null, ptr %188, align 8, !tbaa !225
   br label %272
 
 272:                                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit62, %245
-  %.pn22.pn = phi { ptr, i32 } [ %.pn2273, %_ZN7rocksdb6StatusD2Ev.exit62 ], [ %246, %245 ]
+  %.pn22.pn = phi { ptr, i32 } [ %.pn2295, %_ZN7rocksdb6StatusD2Ev.exit62 ], [ %246, %245 ]
   call void @_ZNSt12__shared_ptrIN7rocksdb22SharedBlobFileMetaDataELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58
 
@@ -12484,14 +12484,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBu
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !192
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #31
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #31
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !252
   %.pre82 = load i64, ptr %2, align 8, !tbaa !252
@@ -12500,11 +12500,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBu
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult i64 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -12556,23 +12556,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBu
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #31
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #31
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !252
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult i64 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -12621,30 +12621,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBu
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !192
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #31
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !252
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult i64 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKmN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -14683,8 +14683,8 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread: ; preds = %29
   %34 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
   %35 = load ptr, ptr %30, align 8, !tbaa !211
-  %.not18.i2745 = icmp eq ptr %35, null
-  br i1 %.not18.i2745, label %._crit_edge.i.i, label %50
+  %.not18.i2756 = icmp eq ptr %35, null
+  br i1 %.not18.i2756, label %._crit_edge.i.i, label %50
 
 36:                                               ; preds = %39
   %37 = icmp eq i64 %22, %41
@@ -14726,15 +14726,15 @@ _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_
   %51 = phi i64 [ %24, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %43, %48 ]
   %52 = phi ptr [ %28, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %44, %48 ]
   %53 = phi ptr [ %26, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %45, %48 ]
-  %.0194755 = phi ptr [ %30, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.019, %48 ]
-  %.0184854 = phi i64 [ %25, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.018, %48 ]
-  %.0165052 = phi ptr [ %28, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.016, %48 ]
+  %.0195866 = phi ptr [ %30, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.019, %48 ]
+  %.0185965 = phi i64 [ %25, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.018, %48 ]
+  %.0166163 = phi ptr [ %28, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.016, %48 ]
   %54 = phi ptr [ %34, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %49, %48 ]
   %55 = phi ptr [ %35, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %47, %48 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !252
   %58 = urem i64 %57, %51
-  %.not9.i.i = icmp eq i64 %58, %.0184854
+  %.not9.i.i = icmp eq i64 %58, %.0185965
   br i1 %.not9.i.i, label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeImLb0EEE.exit, label %59
 
 59:                                               ; preds = %50
@@ -14744,8 +14744,8 @@ _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_
 
 ._crit_edge.i.i:                                  ; preds = %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread, %59, %48
   %61 = phi ptr [ %28, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %52, %59 ], [ %44, %48 ]
-  %.0194756 = phi ptr [ %30, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.0194755, %59 ], [ %.019, %48 ]
-  %.0165053 = phi ptr [ %28, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.0165052, %59 ], [ %.016, %48 ]
+  %.0195867 = phi ptr [ %30, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.0195866, %59 ], [ %.019, %48 ]
+  %.0166164 = phi ptr [ %28, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %.0166163, %59 ], [ %.016, %48 ]
   %62 = phi ptr [ %34, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %54, %59 ], [ %49, %48 ]
   %63 = phi ptr [ null, %_ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_find_before_nodeEmRKmm.exit.thread ], [ %55, %59 ], [ null, %48 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14776,11 +14776,11 @@ _ZNKSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_
   br label %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeImLb0EEE.exit
 
 _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS1_15_Hash_node_baseEPNS1_10_Hash_nodeImLb0EEE.exit: ; preds = %50, %67, %68, %69, %73
-  %.01649 = phi ptr [ %.0165052, %50 ], [ %.0165053, %67 ], [ %.016, %68 ], [ %.016, %69 ], [ %.016, %73 ]
-  %.01946 = phi ptr [ %.0194755, %50 ], [ %.0194756, %67 ], [ %.019, %68 ], [ %.019, %69 ], [ %.019, %73 ]
-  %75 = load ptr, ptr %.01946, align 8, !tbaa !211
-  store ptr %75, ptr %.01649, align 8, !tbaa !211
-  tail call void @_ZdlPvm(ptr noundef nonnull %.01946, i64 noundef 16) #28
+  %.01660 = phi ptr [ %.0166163, %50 ], [ %.0166164, %67 ], [ %.016, %68 ], [ %.016, %69 ], [ %.016, %73 ]
+  %.01957 = phi ptr [ %.0195866, %50 ], [ %.0195867, %67 ], [ %.019, %68 ], [ %.019, %69 ], [ %.019, %73 ]
+  %75 = load ptr, ptr %.01957, align 8, !tbaa !211
+  store ptr %75, ptr %.01660, align 8, !tbaa !211
+  tail call void @_ZdlPvm(ptr noundef nonnull %.01957, i64 noundef 16) #28
   %76 = load i64, ptr %3, align 8, !tbaa !314
   %77 = add i64 %76, -1
   store i64 %77, ptr %3, align 8, !tbaa !314
@@ -16614,9 +16614,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br label %94
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit: ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit, %._crit_edge, %.noexc15
-  %.sroa.043.1.lcssa85 = phi ptr [ %.sroa.043.4, %._crit_edge ], [ %.sroa.043.4, %.noexc15 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
-  %.sroa.12.0.lcssa84 = phi ptr [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %.noexc15 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
-  %.sroa.19.1.lcssa83 = phi ptr [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %.noexc15 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
+  %.sroa.043.1.lcssa90 = phi ptr [ %.sroa.043.4, %._crit_edge ], [ %.sroa.043.4, %.noexc15 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
+  %.sroa.12.0.lcssa89 = phi ptr [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %.noexc15 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
+  %.sroa.19.1.lcssa88 = phi ptr [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %.noexc15 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
   %46 = load ptr, ptr %1, align 8, !tbaa !752
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !752
@@ -16629,13 +16629,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_
 
 _ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_18NewestFirstBySeqNoEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer: ; preds = %.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit
   %.sroa.035.0.ph = phi ptr [ %84, %.thread ], [ %46, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit ]
-  %.sroa.029.0.ph = phi ptr [ %.sroa.029.0, %.thread ], [ %.sroa.043.1.lcssa85, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit ]
+  %.sroa.029.0.ph = phi ptr [ %.sroa.029.0, %.thread ], [ %.sroa.043.1.lcssa90, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit ]
   %.not57 = icmp eq ptr %.sroa.035.0.ph, %48
   br label %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_18NewestFirstBySeqNoEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit
 
 _ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_18NewestFirstBySeqNoEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit: ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_18NewestFirstBySeqNoEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer, %77
   %.sroa.029.0 = phi ptr [ %78, %77 ], [ %.sroa.029.0.ph, %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_18NewestFirstBySeqNoEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer ]
-  %.not56 = icmp eq ptr %.sroa.029.0, %.sroa.12.0.lcssa84
+  %.not56 = icmp eq ptr %.sroa.029.0, %.sroa.12.0.lcssa89
   br i1 %.not56, label %54, label %.critedge
 
 54:                                               ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_18NewestFirstBySeqNoEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit
@@ -16710,22 +16710,22 @@ _ZNK7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoclEPKNS_12FileMetaDataES5_.e
   br label %94
 
 89:                                               ; preds = %54
-  %.not.i.i.i23 = icmp eq ptr %.sroa.043.1.lcssa85, null
+  %.not.i.i.i23 = icmp eq ptr %.sroa.043.1.lcssa90, null
   br i1 %.not.i.i.i23, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit, label %90
 
 90:                                               ; preds = %89
-  %91 = ptrtoint ptr %.sroa.19.1.lcssa83 to i64
-  %92 = ptrtoint ptr %.sroa.043.1.lcssa85 to i64
+  %91 = ptrtoint ptr %.sroa.19.1.lcssa88 to i64
+  %92 = ptrtoint ptr %.sroa.043.1.lcssa90 to i64
   %93 = sub i64 %91, %92
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.043.1.lcssa85, i64 noundef %93) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.043.1.lcssa90, i64 noundef %93) #28
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %89, %90
   ret void
 
 94:                                               ; preds = %.loopexit, %.loopexit.split-lp, %81, %87, %22
-  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %22 ], [ %.sroa.19.1.lcssa83, %87 ], [ %.sroa.19.1.lcssa83, %81 ], [ %.sroa.12.069, %.loopexit ], [ %.sroa.12.069, %.loopexit.split-lp ]
-  %.sroa.043.2 = phi ptr [ %.sroa.043.0, %22 ], [ %.sroa.043.1.lcssa85, %87 ], [ %.sroa.043.1.lcssa85, %81 ], [ %.sroa.043.170, %.loopexit ], [ %.sroa.043.170, %.loopexit.split-lp ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %22 ], [ %.sroa.19.1.lcssa88, %87 ], [ %.sroa.19.1.lcssa88, %81 ], [ %.sroa.12.069, %.loopexit ], [ %.sroa.12.069, %.loopexit.split-lp ]
+  %.sroa.043.2 = phi ptr [ %.sroa.043.0, %22 ], [ %.sroa.043.1.lcssa90, %87 ], [ %.sroa.043.1.lcssa90, %81 ], [ %.sroa.043.170, %.loopexit ], [ %.sroa.043.170, %.loopexit.split-lp ]
   %.pn12 = phi { ptr, i32 } [ %23, %22 ], [ %88, %87 ], [ %82, %81 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i24 = icmp eq ptr %.sroa.043.2, null
   br i1 %.not.i.i.i24, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit25, label %95
@@ -17484,11 +17484,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstB
   br label %103
 
 103:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit41, %86, %93, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit37, %69, %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit33, %48, %55, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit29, %31, %38, %102, %64
-  %.sink43 = phi ptr [ %6, %102 ], [ %5, %64 ], [ %6, %38 ], [ %6, %31 ], [ %6, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit29 ], [ %28, %55 ], [ %28, %48 ], [ %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit33 ], [ %5, %76 ], [ %5, %69 ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit37 ], [ %66, %93 ], [ %66, %86 ], [ %66, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit41 ]
-  %.sink42 = phi ptr [ %2, %102 ], [ %1, %64 ], [ %2, %38 ], [ %2, %31 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit29 ], [ %3, %55 ], [ %3, %48 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit33 ], [ %1, %76 ], [ %1, %69 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit37 ], [ %3, %93 ], [ %3, %86 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit41 ]
+  %.sink60 = phi ptr [ %6, %102 ], [ %5, %64 ], [ %6, %38 ], [ %6, %31 ], [ %6, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit29 ], [ %28, %55 ], [ %28, %48 ], [ %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit33 ], [ %5, %76 ], [ %5, %69 ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit37 ], [ %66, %93 ], [ %66, %86 ], [ %66, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit41 ]
+  %.sink59 = phi ptr [ %2, %102 ], [ %1, %64 ], [ %2, %38 ], [ %2, %31 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit29 ], [ %3, %55 ], [ %3, %48 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit33 ], [ %1, %76 ], [ %1, %69 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit37 ], [ %3, %93 ], [ %3, %86 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep18NewestFirstBySeqNoEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit41 ]
   %104 = load ptr, ptr %0, align 8, !tbaa !691
-  store ptr %.sink43, ptr %0, align 8, !tbaa !691
-  store ptr %104, ptr %.sink42, align 8, !tbaa !691
+  store ptr %.sink60, ptr %0, align 8, !tbaa !691
+  store ptr %104, ptr %.sink59, align 8, !tbaa !691
   ret void
 }
 
@@ -17939,9 +17939,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br label %137
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit, %.noexc16, %._crit_edge, %57
-  %.sroa.045.1.lcssa87 = phi ptr [ %.sroa.045.4, %.noexc16 ], [ %.sroa.045.4, %._crit_edge ], [ %.sroa.045.4, %57 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.045.4, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
-  %.sroa.12.0.lcssa86 = phi ptr [ %.sroa.12.2, %.noexc16 ], [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %57 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.12.2, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
-  %.sroa.19.1.lcssa85 = phi ptr [ %.sroa.19.4, %.noexc16 ], [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %57 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.19.4, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
+  %.sroa.045.1.lcssa102 = phi ptr [ %.sroa.045.4, %.noexc16 ], [ %.sroa.045.4, %._crit_edge ], [ %.sroa.045.4, %57 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.045.4, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
+  %.sroa.12.0.lcssa101 = phi ptr [ %.sroa.12.2, %.noexc16 ], [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %57 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.12.2, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
+  %.sroa.19.1.lcssa100 = phi ptr [ %.sroa.19.4, %.noexc16 ], [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %57 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.19.4, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
   %82 = load ptr, ptr %1, align 8, !tbaa !752
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !752
@@ -17954,13 +17954,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_
 
 _ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_24NewestFirstByEpochNumberEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer: ; preds = %.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit
   %.sroa.037.0.ph = phi ptr [ %127, %.thread ], [ %82, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit ]
-  %.sroa.031.0.ph = phi ptr [ %.sroa.031.0, %.thread ], [ %.sroa.045.1.lcssa87, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit ]
+  %.sroa.031.0.ph = phi ptr [ %.sroa.031.0, %.thread ], [ %.sroa.045.1.lcssa102, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit ]
   %.not59 = icmp eq ptr %.sroa.037.0.ph, %84
   br label %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_24NewestFirstByEpochNumberEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit
 
 _ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_24NewestFirstByEpochNumberEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit: ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_24NewestFirstByEpochNumberEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer, %120
   %.sroa.031.0 = phi ptr [ %121, %120 ], [ %.sroa.031.0.ph, %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_24NewestFirstByEpochNumberEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer ]
-  %.not58 = icmp eq ptr %.sroa.031.0, %.sroa.12.0.lcssa86
+  %.not58 = icmp eq ptr %.sroa.031.0, %.sroa.12.0.lcssa101
   br i1 %.not58, label %90, label %.critedge
 
 90:                                               ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_24NewestFirstByEpochNumberEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit
@@ -18047,22 +18047,22 @@ _ZNK7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberclEPKNS_12FileMetaData
   br label %137
 
 132:                                              ; preds = %90
-  %.not.i.i.i25 = icmp eq ptr %.sroa.045.1.lcssa87, null
+  %.not.i.i.i25 = icmp eq ptr %.sroa.045.1.lcssa102, null
   br i1 %.not.i.i.i25, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit, label %133
 
 133:                                              ; preds = %132
-  %134 = ptrtoint ptr %.sroa.19.1.lcssa85 to i64
-  %135 = ptrtoint ptr %.sroa.045.1.lcssa87 to i64
+  %134 = ptrtoint ptr %.sroa.19.1.lcssa100 to i64
+  %135 = ptrtoint ptr %.sroa.045.1.lcssa102 to i64
   %136 = sub i64 %134, %135
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.045.1.lcssa87, i64 noundef %136) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.045.1.lcssa102, i64 noundef %136) #28
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %132, %133
   ret void
 
 137:                                              ; preds = %.loopexit, %.loopexit.split-lp, %124, %130, %58
-  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %58 ], [ %.sroa.19.1.lcssa85, %130 ], [ %.sroa.19.1.lcssa85, %124 ], [ %.sroa.12.071, %.loopexit ], [ %.sroa.12.071, %.loopexit.split-lp ]
-  %.sroa.045.2 = phi ptr [ %.sroa.045.0, %58 ], [ %.sroa.045.1.lcssa87, %130 ], [ %.sroa.045.1.lcssa87, %124 ], [ %.sroa.045.172, %.loopexit ], [ %.sroa.045.172, %.loopexit.split-lp ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %58 ], [ %.sroa.19.1.lcssa100, %130 ], [ %.sroa.19.1.lcssa100, %124 ], [ %.sroa.12.071, %.loopexit ], [ %.sroa.12.071, %.loopexit.split-lp ]
+  %.sroa.045.2 = phi ptr [ %.sroa.045.0, %58 ], [ %.sroa.045.1.lcssa102, %130 ], [ %.sroa.045.1.lcssa102, %124 ], [ %.sroa.045.172, %.loopexit ], [ %.sroa.045.172, %.loopexit.split-lp ]
   %.pn12 = phi { ptr, i32 } [ %59, %58 ], [ %131, %130 ], [ %125, %124 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i26 = icmp eq ptr %.sroa.045.2, null
   br i1 %.not.i.i.i26, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit27, label %138
@@ -18657,11 +18657,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstB
   br label %138
 
 138:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit45, %114, %121, %128, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit40, %90, %97, %104, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit35, %62, %69, %76, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit30, %38, %45, %52, %137, %85
-  %.sink47 = phi ptr [ %6, %137 ], [ %5, %85 ], [ %6, %52 ], [ %6, %45 ], [ %6, %38 ], [ %6, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit30 ], [ %35, %76 ], [ %35, %69 ], [ %35, %62 ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit35 ], [ %5, %104 ], [ %5, %97 ], [ %5, %90 ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit40 ], [ %87, %128 ], [ %87, %121 ], [ %87, %114 ], [ %87, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit45 ]
-  %.sink46 = phi ptr [ %2, %137 ], [ %1, %85 ], [ %2, %52 ], [ %2, %45 ], [ %2, %38 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit30 ], [ %3, %76 ], [ %3, %69 ], [ %3, %62 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit35 ], [ %1, %104 ], [ %1, %97 ], [ %1, %90 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit40 ], [ %3, %128 ], [ %3, %121 ], [ %3, %114 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit45 ]
+  %.sink74 = phi ptr [ %6, %137 ], [ %5, %85 ], [ %6, %52 ], [ %6, %45 ], [ %6, %38 ], [ %6, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit30 ], [ %35, %76 ], [ %35, %69 ], [ %35, %62 ], [ %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit35 ], [ %5, %104 ], [ %5, %97 ], [ %5, %90 ], [ %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit40 ], [ %87, %128 ], [ %87, %121 ], [ %87, %114 ], [ %87, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit45 ]
+  %.sink73 = phi ptr [ %2, %137 ], [ %1, %85 ], [ %2, %52 ], [ %2, %45 ], [ %2, %38 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit30 ], [ %3, %76 ], [ %3, %69 ], [ %3, %62 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit35 ], [ %1, %104 ], [ %1, %97 ], [ %1, %90 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit40 ], [ %3, %128 ], [ %3, %121 ], [ %3, %114 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep24NewestFirstByEpochNumberEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit45 ]
   %139 = load ptr, ptr %0, align 8, !tbaa !691
-  store ptr %.sink47, ptr %0, align 8, !tbaa !691
-  store ptr %139, ptr %.sink46, align 8, !tbaa !691
+  store ptr %.sink74, ptr %0, align 8, !tbaa !691
+  store ptr %139, ptr %.sink73, align 8, !tbaa !691
   ret void
 }
 
@@ -18979,9 +18979,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br label %126
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep13BySmallestKeyEEvT_SD_T0_.exit: ; preds = %.noexc18, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit, %.noexc17, %._crit_edge, %29
-  %.sroa.049.1.lcssa99 = phi ptr [ %.sroa.049.4, %.noexc17 ], [ %.sroa.049.4, %._crit_edge ], [ %.sroa.049.4, %29 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.049.4, %.noexc18 ]
-  %.sroa.12.0.lcssa98 = phi ptr [ %.sroa.12.2, %.noexc17 ], [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %29 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.12.2, %.noexc18 ]
-  %.sroa.19.1.lcssa97 = phi ptr [ %.sroa.19.4, %.noexc17 ], [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %29 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.19.4, %.noexc18 ]
+  %.sroa.049.1.lcssa103 = phi ptr [ %.sroa.049.4, %.noexc17 ], [ %.sroa.049.4, %._crit_edge ], [ %.sroa.049.4, %29 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.049.4, %.noexc18 ]
+  %.sroa.12.0.lcssa102 = phi ptr [ %.sroa.12.2, %.noexc17 ], [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %29 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.12.2, %.noexc18 ]
+  %.sroa.19.1.lcssa101 = phi ptr [ %.sroa.19.4, %.noexc17 ], [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %29 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.19.4, %.noexc18 ]
   %52 = load ptr, ptr %1, align 8, !tbaa !752
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !752
@@ -19001,13 +19001,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_
 
 _ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_13BySmallestKeyEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer: ; preds = %.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep13BySmallestKeyEEvT_SD_T0_.exit
   %.sroa.041.0.ph = phi ptr [ %115, %.thread ], [ %52, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep13BySmallestKeyEEvT_SD_T0_.exit ]
-  %.sroa.035.0.ph = phi ptr [ %.sroa.035.0, %.thread ], [ %.sroa.049.1.lcssa99, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep13BySmallestKeyEEvT_SD_T0_.exit ]
+  %.sroa.035.0.ph = phi ptr [ %.sroa.035.0, %.thread ], [ %.sroa.049.1.lcssa103, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep13BySmallestKeyEEvT_SD_T0_.exit ]
   %.not67 = icmp eq ptr %.sroa.041.0.ph, %54
   br label %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_13BySmallestKeyEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit
 
 _ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_13BySmallestKeyEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit: ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_13BySmallestKeyEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.thread
   %.sroa.035.0 = phi ptr [ %107, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.thread ], [ %.sroa.035.0.ph, %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_13BySmallestKeyEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit.outer ]
-  %.not66 = icmp eq ptr %.sroa.035.0, %.sroa.12.0.lcssa98
+  %.not66 = icmp eq ptr %.sroa.035.0, %.sroa.12.0.lcssa102
   br i1 %.not66, label %65, label %.critedge
 
 65:                                               ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToINS1_13BySmallestKeyEEEvPNS_18VersionStorageInfoEiT_ENKUlPNS_12FileMetaDataEE_clES8_.exit
@@ -19134,22 +19134,22 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i
   br label %126
 
 121:                                              ; preds = %65
-  %.not.i.i.i29 = icmp eq ptr %.sroa.049.1.lcssa99, null
+  %.not.i.i.i29 = icmp eq ptr %.sroa.049.1.lcssa103, null
   br i1 %.not.i.i.i29, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit, label %122
 
 122:                                              ; preds = %121
-  %123 = ptrtoint ptr %.sroa.19.1.lcssa97 to i64
-  %124 = ptrtoint ptr %.sroa.049.1.lcssa99 to i64
+  %123 = ptrtoint ptr %.sroa.19.1.lcssa101 to i64
+  %124 = ptrtoint ptr %.sroa.049.1.lcssa103 to i64
   %125 = sub i64 %123, %124
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.049.1.lcssa99, i64 noundef %125) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.049.1.lcssa103, i64 noundef %125) #28
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %121, %122
   ret void
 
 126:                                              ; preds = %.loopexit68, %.loopexit.split-lp69, %.loopexit, %.loopexit.split-lp, %111, %113, %119
-  %.sroa.19.2 = phi ptr [ %.sroa.19.1.lcssa97, %119 ], [ %.sroa.19.1.lcssa97, %113 ], [ %.sroa.19.1.lcssa97, %111 ], [ %.sroa.19.4, %.loopexit ], [ %.sroa.19.0.ph, %.loopexit.split-lp ], [ %.sroa.12.084, %.loopexit68 ], [ %.sroa.12.084, %.loopexit.split-lp69 ]
-  %.sroa.049.2 = phi ptr [ %.sroa.049.1.lcssa99, %119 ], [ %.sroa.049.1.lcssa99, %113 ], [ %.sroa.049.1.lcssa99, %111 ], [ %.sroa.049.4, %.loopexit ], [ %.sroa.049.0.ph, %.loopexit.split-lp ], [ %.sroa.049.185, %.loopexit68 ], [ %.sroa.049.185, %.loopexit.split-lp69 ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.1.lcssa101, %119 ], [ %.sroa.19.1.lcssa101, %113 ], [ %.sroa.19.1.lcssa101, %111 ], [ %.sroa.19.4, %.loopexit ], [ %.sroa.19.0.ph, %.loopexit.split-lp ], [ %.sroa.12.084, %.loopexit68 ], [ %.sroa.12.084, %.loopexit.split-lp69 ]
+  %.sroa.049.2 = phi ptr [ %.sroa.049.1.lcssa103, %119 ], [ %.sroa.049.1.lcssa103, %113 ], [ %.sroa.049.1.lcssa103, %111 ], [ %.sroa.049.4, %.loopexit ], [ %.sroa.049.0.ph, %.loopexit.split-lp ], [ %.sroa.049.185, %.loopexit68 ], [ %.sroa.049.185, %.loopexit.split-lp69 ]
   %.pn13 = phi { ptr, i32 } [ %120, %119 ], [ %114, %113 ], [ %112, %111 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit.split-lp71, %.loopexit.split-lp69 ]
   %.not.i.i.i30 = icmp eq ptr %.sroa.049.2, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit31, label %127
@@ -19955,11 +19955,11 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i
   br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i29.thread
 
 _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i29.thread: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit77, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i68, %219, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit64, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i55, %176, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit51, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i42, %133, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit38, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i29, %90, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i68.thread95, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i42.thread89
-  %.sink99 = phi ptr [ %2, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i68.thread95 ], [ %1, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i42.thread89 ], [ %2, %90 ], [ %2, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i29 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit38 ], [ %3, %133 ], [ %3, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i42 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit51 ], [ %1, %176 ], [ %1, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i55 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit64 ], [ %3, %219 ], [ %3, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i68 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit77 ]
+  %.sink103 = phi ptr [ %2, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i68.thread95 ], [ %1, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i42.thread89 ], [ %2, %90 ], [ %2, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i29 ], [ %2, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit38 ], [ %3, %133 ], [ %3, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i42 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit51 ], [ %1, %176 ], [ %1, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i55 ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit64 ], [ %3, %219 ], [ %3, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i68 ], [ %3, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7rocksdb14VersionBuilder3Rep13BySmallestKeyEEclINS_17__normal_iteratorIPPNS2_12FileMetaDataESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit77 ]
   %233 = load ptr, ptr %0, align 8, !tbaa !691
-  %234 = load ptr, ptr %.sink99, align 8, !tbaa !691
+  %234 = load ptr, ptr %.sink103, align 8, !tbaa !691
   store ptr %234, ptr %0, align 8, !tbaa !691
-  store ptr %233, ptr %.sink99, align 8, !tbaa !691
+  store ptr %233, ptr %.sink103, align 8, !tbaa !691
   ret void
 }
 
@@ -21214,7 +21214,7 @@ define linkonce_odr void @_ZNK7rocksdb14VersionBuilder3Rep19AddBlobFileIfNeededI
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %41 = load i64, ptr %40, align 8, !tbaa !314
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread29, label %43
+  br i1 %42, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread40, label %43
 
 43:                                               ; preds = %.loopexit
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -21305,9 +21305,9 @@ _ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_set
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !314
   %80 = icmp eq i64 %.pre, 0
-  br i1 %80, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread29, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread
+  br i1 %80, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread40, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread
 
-_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread29: ; preds = %.loopexit, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread
+_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread40: ; preds = %.loopexit, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %82 = load i64, ptr %81, align 8, !tbaa !725
   %83 = load ptr, ptr %6, align 8, !tbaa !617
@@ -21316,7 +21316,7 @@ _ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_set
   %.not = icmp ult i64 %82, %85
   br i1 %.not, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread, label %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit
 
-_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread: ; preds = %61, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %51, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i.i, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread29, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread
+_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread: ; preds = %61, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %51, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i.i, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread40, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread
   store ptr %6, ptr %5, align 8, !tbaa !721
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -21394,7 +21394,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %116, %114
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %98) #30
   br label %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit
 
-_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %33, %16, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.i.i.i.i.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.loopexit.us.i.i.i.i.i, %119, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %104, %97, %43, %28, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread29
+_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %33, %16, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.i.i.i.i.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.loopexit.us.i.i.i.i.i, %119, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %104, %97, %43, %28, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread40
   ret void
 
 120:                                              ; preds = %_ZNSt10shared_ptrIN7rocksdb16BlobFileMetaDataEEC2ERKS2_.exit
@@ -21479,7 +21479,7 @@ define linkonce_odr void @_ZNK7rocksdb14VersionBuilder3Rep19AddBlobFileIfNeededI
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %41 = load i64, ptr %40, align 8, !tbaa !314
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread27, label %43
+  br i1 %42, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread37, label %43
 
 43:                                               ; preds = %.loopexit
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -21570,9 +21570,9 @@ _ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_set
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !314
   %80 = icmp eq i64 %.pre, 0
-  br i1 %80, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread27, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread
+  br i1 %80, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread37, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread
 
-_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread27: ; preds = %.loopexit, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread
+_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread37: ; preds = %.loopexit, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %82 = load i64, ptr %81, align 8, !tbaa !725
   %83 = load ptr, ptr %6, align 8, !tbaa !617
@@ -21581,7 +21581,7 @@ _ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_set
   %.not = icmp ult i64 %82, %85
   br i1 %.not, label %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread, label %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit
 
-_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread: ; preds = %61, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %51, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i.i, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread27, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread
+_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread: ; preds = %61, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %51, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i.i.i.i, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread37, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread
   store ptr %6, ptr %5, align 8, !tbaa !721
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -21641,7 +21641,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %108, %106
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %90) #30
   br label %_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit
 
-_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %33, %16, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.i.i.i.i.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.loopexit.us.i.i.i.i.i, %111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %96, %89, %43, %28, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread27
+_ZNKSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit: ; preds = %33, %16, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.i.i.i.i.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEEEUlRKmE_EclINSt8__detail20_Node_const_iteratorImLb1ELb0EEEEEbT_.exit.loopexit.us.i.i.i.i.i, %111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %96, %89, %43, %28, %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread37
   ret void
 
 112:                                              ; preds = %_ZNK7rocksdb14VersionBuilder3Rep26OnlyLinkedToMissingL0FilesERKSt13unordered_setImSt4hashImESt8equal_toImESaImEE.exit.thread.thread
@@ -23748,8 +23748,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb14VersionBuilder3Rep25Missin
 
 25:                                               ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.not51 = icmp eq i64 %22, 0
-  br i1 %.not51, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i
+  %.not60 = icmp eq i64 %22, 0
+  br i1 %.not60, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i: ; preds = %25
   %27 = shl nuw nsw i64 %22, 3
@@ -24422,9 +24422,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br label %131
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit: ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit, %._crit_edge, %.noexc15
-  %.sroa.053.1.lcssa107 = phi ptr [ %.sroa.053.4, %._crit_edge ], [ %.sroa.053.4, %.noexc15 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
-  %.sroa.12.0.lcssa106 = phi ptr [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %.noexc15 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
-  %.sroa.19.1.lcssa105 = phi ptr [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %.noexc15 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
+  %.sroa.053.1.lcssa119 = phi ptr [ %.sroa.053.4, %._crit_edge ], [ %.sroa.053.4, %.noexc15 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
+  %.sroa.12.0.lcssa118 = phi ptr [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %.noexc15 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
+  %.sroa.19.1.lcssa117 = phi ptr [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %.noexc15 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ]
   %46 = load ptr, ptr %1, align 8, !tbaa !752
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !752
@@ -24434,13 +24434,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_
 
 _ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.outer: ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.outer.backedge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit
   %.sroa.045.0.ph = phi ptr [ %46, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit ], [ %101, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.outer.backedge ]
-  %.sroa.039.0.ph = phi ptr [ %.sroa.053.1.lcssa107, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit ], [ %.sroa.039.0, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.outer.backedge ]
+  %.sroa.039.0.ph = phi ptr [ %.sroa.053.1.lcssa119, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep18NewestFirstBySeqNoEEvT_SD_T0_.exit ], [ %.sroa.039.0, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.outer.backedge ]
   %.not69 = icmp eq ptr %.sroa.045.0.ph, %48
   br label %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit
 
 _ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit: ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.backedge, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.outer
   %.sroa.039.0 = phi ptr [ %.sroa.039.0.ph, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.outer ], [ %75, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit.backedge ]
-  %.not68 = icmp eq ptr %.sroa.039.0, %.sroa.12.0.lcssa106
+  %.not68 = icmp eq ptr %.sroa.039.0, %.sroa.12.0.lcssa118
   br i1 %.not68, label %51, label %.critedge
 
 51:                                               ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE_clES3_.exit
@@ -24651,22 +24651,22 @@ _ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMet
   br label %131
 
 126:                                              ; preds = %51
-  %.not.i.i.i33 = icmp eq ptr %.sroa.053.1.lcssa107, null
+  %.not.i.i.i33 = icmp eq ptr %.sroa.053.1.lcssa119, null
   br i1 %.not.i.i.i33, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit, label %127
 
 127:                                              ; preds = %126
-  %128 = ptrtoint ptr %.sroa.19.1.lcssa105 to i64
-  %129 = ptrtoint ptr %.sroa.053.1.lcssa107 to i64
+  %128 = ptrtoint ptr %.sroa.19.1.lcssa117 to i64
+  %129 = ptrtoint ptr %.sroa.053.1.lcssa119 to i64
   %130 = sub i64 %128, %129
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.053.1.lcssa107, i64 noundef %130) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.053.1.lcssa119, i64 noundef %130) #28
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %126, %127
   ret void
 
 131:                                              ; preds = %.loopexit70, %.loopexit.split-lp71, %.loopexit, %.loopexit.split-lp, %.loopexit75, %.loopexit.split-lp76, %22
-  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %22 ], [ %.sroa.12.091, %.loopexit75 ], [ %.sroa.12.091, %.loopexit.split-lp76 ], [ %.sroa.19.1.lcssa105, %.loopexit.split-lp ], [ %.sroa.19.1.lcssa105, %.loopexit ], [ %.sroa.19.1.lcssa105, %.loopexit.split-lp71 ], [ %.sroa.19.1.lcssa105, %.loopexit70 ]
-  %.sroa.053.2 = phi ptr [ %.sroa.053.0, %22 ], [ %.sroa.053.192, %.loopexit75 ], [ %.sroa.053.192, %.loopexit.split-lp76 ], [ %.sroa.053.1.lcssa107, %.loopexit.split-lp ], [ %.sroa.053.1.lcssa107, %.loopexit ], [ %.sroa.053.1.lcssa107, %.loopexit.split-lp71 ], [ %.sroa.053.1.lcssa107, %.loopexit70 ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %22 ], [ %.sroa.12.091, %.loopexit75 ], [ %.sroa.12.091, %.loopexit.split-lp76 ], [ %.sroa.19.1.lcssa117, %.loopexit.split-lp ], [ %.sroa.19.1.lcssa117, %.loopexit ], [ %.sroa.19.1.lcssa117, %.loopexit.split-lp71 ], [ %.sroa.19.1.lcssa117, %.loopexit70 ]
+  %.sroa.053.2 = phi ptr [ %.sroa.053.0, %22 ], [ %.sroa.053.192, %.loopexit75 ], [ %.sroa.053.192, %.loopexit.split-lp76 ], [ %.sroa.053.1.lcssa119, %.loopexit.split-lp ], [ %.sroa.053.1.lcssa119, %.loopexit ], [ %.sroa.053.1.lcssa119, %.loopexit.split-lp71 ], [ %.sroa.053.1.lcssa119, %.loopexit70 ]
   %.pn12 = phi { ptr, i32 } [ %23, %22 ], [ %lpad.loopexit77, %.loopexit75 ], [ %lpad.loopexit.split-lp78, %.loopexit.split-lp76 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp73, %.loopexit.split-lp71 ], [ %lpad.loopexit72, %.loopexit70 ]
   %.not.i.i.i34 = icmp eq ptr %.sroa.053.2, null
   br i1 %.not.i.i.i34, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit35, label %132
@@ -24904,9 +24904,9 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit: ; preds = %
   br label %174
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit, %.noexc16, %._crit_edge, %57
-  %.sroa.056.1.lcssa110 = phi ptr [ %.sroa.056.4, %.noexc16 ], [ %.sroa.056.4, %._crit_edge ], [ %.sroa.056.4, %57 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.056.4, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
-  %.sroa.12.0.lcssa109 = phi ptr [ %.sroa.12.2, %.noexc16 ], [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %57 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.12.2, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
-  %.sroa.19.1.lcssa108 = phi ptr [ %.sroa.19.4, %.noexc16 ], [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %57 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.19.4, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
+  %.sroa.056.1.lcssa132 = phi ptr [ %.sroa.056.4, %.noexc16 ], [ %.sroa.056.4, %._crit_edge ], [ %.sroa.056.4, %57 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.056.4, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
+  %.sroa.12.0.lcssa131 = phi ptr [ %.sroa.12.2, %.noexc16 ], [ %.sroa.12.2, %._crit_edge ], [ %.sroa.12.2, %57 ], [ %.sroa.12.1, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.12.2, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
+  %.sroa.19.1.lcssa130 = phi ptr [ %.sroa.19.4, %.noexc16 ], [ %.sroa.19.4, %._crit_edge ], [ %.sroa.19.4, %57 ], [ %.sroa.19.3, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE7reserveEm.exit ], [ %.sroa.19.4, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterINS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEEEvT_T0_.exit.i.i.i.i ]
   %82 = load ptr, ptr %1, align 8, !tbaa !752
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !752
@@ -24916,13 +24916,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_
 
 _ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.outer: ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.outer.backedge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit
   %.sroa.048.0.ph = phi ptr [ %82, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit ], [ %144, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.outer.backedge ]
-  %.sroa.042.0.ph = phi ptr [ %.sroa.056.1.lcssa110, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit ], [ %.sroa.042.0, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.outer.backedge ]
+  %.sroa.042.0.ph = phi ptr [ %.sroa.056.1.lcssa132, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS2_14VersionBuilder3Rep24NewestFirstByEpochNumberEEvT_SD_T0_.exit ], [ %.sroa.042.0, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.outer.backedge ]
   %.not72 = icmp eq ptr %.sroa.048.0.ph, %84
   br label %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit
 
 _ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit: ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.backedge, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.outer
   %.sroa.042.0 = phi ptr [ %.sroa.042.0.ph, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.outer ], [ %118, %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit.backedge ]
-  %.not71 = icmp eq ptr %.sroa.042.0, %.sroa.12.0.lcssa109
+  %.not71 = icmp eq ptr %.sroa.042.0, %.sroa.12.0.lcssa131
   br i1 %.not71, label %87, label %.critedge
 
 87:                                               ; preds = %_ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMetaDataEE0_clES3_.exit
@@ -25145,22 +25145,22 @@ _ZZNK7rocksdb14VersionBuilder3Rep25MissingL0FilesAreL0SuffixEvENKUlPNS_12FileMet
   br label %174
 
 169:                                              ; preds = %87
-  %.not.i.i.i36 = icmp eq ptr %.sroa.056.1.lcssa110, null
+  %.not.i.i.i36 = icmp eq ptr %.sroa.056.1.lcssa132, null
   br i1 %.not.i.i.i36, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit, label %170
 
 170:                                              ; preds = %169
-  %171 = ptrtoint ptr %.sroa.19.1.lcssa108 to i64
-  %172 = ptrtoint ptr %.sroa.056.1.lcssa110 to i64
+  %171 = ptrtoint ptr %.sroa.19.1.lcssa130 to i64
+  %172 = ptrtoint ptr %.sroa.056.1.lcssa132 to i64
   %173 = sub i64 %171, %172
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.056.1.lcssa110, i64 noundef %173) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.056.1.lcssa132, i64 noundef %173) #28
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %169, %170
   ret void
 
 174:                                              ; preds = %.loopexit73, %.loopexit.split-lp74, %.loopexit, %.loopexit.split-lp, %.loopexit78, %.loopexit.split-lp79, %58
-  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %58 ], [ %.sroa.12.094, %.loopexit78 ], [ %.sroa.12.094, %.loopexit.split-lp79 ], [ %.sroa.19.1.lcssa108, %.loopexit.split-lp ], [ %.sroa.19.1.lcssa108, %.loopexit ], [ %.sroa.19.1.lcssa108, %.loopexit.split-lp74 ], [ %.sroa.19.1.lcssa108, %.loopexit73 ]
-  %.sroa.056.2 = phi ptr [ %.sroa.056.0, %58 ], [ %.sroa.056.195, %.loopexit78 ], [ %.sroa.056.195, %.loopexit.split-lp79 ], [ %.sroa.056.1.lcssa110, %.loopexit.split-lp ], [ %.sroa.056.1.lcssa110, %.loopexit ], [ %.sroa.056.1.lcssa110, %.loopexit.split-lp74 ], [ %.sroa.056.1.lcssa110, %.loopexit73 ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %58 ], [ %.sroa.12.094, %.loopexit78 ], [ %.sroa.12.094, %.loopexit.split-lp79 ], [ %.sroa.19.1.lcssa130, %.loopexit.split-lp ], [ %.sroa.19.1.lcssa130, %.loopexit ], [ %.sroa.19.1.lcssa130, %.loopexit.split-lp74 ], [ %.sroa.19.1.lcssa130, %.loopexit73 ]
+  %.sroa.056.2 = phi ptr [ %.sroa.056.0, %58 ], [ %.sroa.056.195, %.loopexit78 ], [ %.sroa.056.195, %.loopexit.split-lp79 ], [ %.sroa.056.1.lcssa132, %.loopexit.split-lp ], [ %.sroa.056.1.lcssa132, %.loopexit ], [ %.sroa.056.1.lcssa132, %.loopexit.split-lp74 ], [ %.sroa.056.1.lcssa132, %.loopexit73 ]
   %.pn12 = phi { ptr, i32 } [ %59, %58 ], [ %lpad.loopexit80, %.loopexit78 ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp79 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp76, %.loopexit.split-lp74 ], [ %lpad.loopexit75, %.loopexit73 ]
   %.not.i.i.i37 = icmp eq ptr %.sroa.056.2, null
   br i1 %.not.i.i.i37, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit38, label %175
@@ -27102,13 +27102,13 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
           to label %28 unwind label %51
 
 28:                                               ; preds = %24, %26
-  %.sink12.i = phi ptr [ %23, %24 ], [ %27, %26 ]
-  store ptr null, ptr %.sink12.i, align 8, !tbaa !211
-  %29 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
+  %.sink13.i = phi ptr [ %23, %24 ], [ %27, %26 ]
+  store ptr null, ptr %.sink13.i, align 8, !tbaa !211
+  %29 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 8
   %30 = load i64, ptr %22, align 8, !tbaa !252
   store i64 %30, ptr %29, align 8, !tbaa !252
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink12.i, ptr %31, align 8, !tbaa !374
+  store ptr %.sink13.i, ptr %31, align 8, !tbaa !374
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !200
   %34 = urem i64 %30, %33
@@ -27124,7 +27124,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %.02840 = phi ptr [ %.028, %55 ], [ %.02837, %.lr.ph.preheader ]
-  %.02639 = phi ptr [ %.sink12.i34, %55 ], [ %.sink12.i, %.lr.ph.preheader ]
+  %.02639 = phi ptr [ %.sink13.i34, %55 ], [ %.sink13.i, %.lr.ph.preheader ]
   %36 = phi ptr [ %43, %55 ], [ %.promoted, %.lr.ph.preheader ]
   %37 = getelementptr inbounds nuw i8, ptr %.02840, i64 8
   %.not.i33 = icmp eq ptr %36, null
@@ -27141,12 +27141,12 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 
 42:                                               ; preds = %38, %40
   %43 = phi ptr [ %39, %38 ], [ null, %40 ]
-  %.sink12.i34 = phi ptr [ %36, %38 ], [ %41, %40 ]
-  store ptr null, ptr %.sink12.i34, align 8, !tbaa !211
-  %44 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
+  %.sink13.i34 = phi ptr [ %36, %38 ], [ %41, %40 ]
+  store ptr null, ptr %.sink13.i34, align 8, !tbaa !211
+  %44 = getelementptr inbounds nuw i8, ptr %.sink13.i34, i64 8
   %45 = load i64, ptr %37, align 8, !tbaa !252
   store i64 %45, ptr %44, align 8, !tbaa !252
-  store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !211
+  store ptr %.sink13.i34, ptr %.02639, align 8, !tbaa !211
   %46 = load i64, ptr %32, align 8, !tbaa !200
   %47 = urem i64 %45, %46
   %48 = getelementptr inbounds nuw ptr, ptr %18, i64 %47

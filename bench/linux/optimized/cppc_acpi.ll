@@ -1768,8 +1768,8 @@ define dso_local noundef zeroext i1 @cppc_perf_ctrs_in_pcc() #0 align 16 {
   %1 = load i64, ptr @__cpu_present_mask, align 8
   br label %2
 
-2:                                                ; preds = %0, %.thread2
-  %3 = phi i64 [ 0, %0 ], [ %81, %.thread2 ]
+2:                                                ; preds = %0, %.thread4
+  %3 = phi i64 [ 0, %0 ], [ %81, %.thread4 ]
   %4 = shl nsw i64 -1, %3
   %5 = and i64 %4, %1
   %6 = icmp eq i64 %5, 0
@@ -1833,7 +1833,7 @@ define dso_local noundef zeroext i1 @cppc_perf_ctrs_in_pcc() #0 align 16 {
   %46 = getelementptr i8, ptr %17, i64 616
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %69, label %.thread2
+  br i1 %48, label %69, label %.thread4
 
 49:                                               ; preds = %41
   %50 = getelementptr i8, ptr %17, i64 619
@@ -1874,23 +1874,23 @@ define dso_local noundef zeroext i1 @cppc_perf_ctrs_in_pcc() #0 align 16 {
   %72 = phi i32 [ %.pre, %69 ], [ %43, %65 ], [ %43, %61 ], [ %43, %57 ], [ %43, %53 ], [ %43, %49 ]
   %73 = phi i64 [ 56, %69 ], [ 600, %65 ], [ 600, %61 ], [ 600, %57 ], [ 600, %53 ], [ 600, %49 ]
   %74 = icmp eq i32 %72, 3
-  br i1 %74, label %75, label %.thread2
+  br i1 %74, label %75, label %.thread4
 
 75:                                               ; preds = %71
   %76 = getelementptr i8, ptr %17, i64 %73
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 19
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 10
-  br i1 %79, label %.thread, label %.thread2
+  br i1 %79, label %.thread, label %.thread4
 
-.thread2:                                         ; preds = %45, %75, %71
+.thread4:                                         ; preds = %45, %75, %71
   %80 = add nuw nsw i64 %8, 1
   %81 = and i64 %80, 127
   %82 = icmp samesign ugt i64 %81, 63
   br i1 %82, label %.thread, label %2, !prof !10, !llvm.loop !31
 
-.thread:                                          ; preds = %2, %.thread2, %75, %37, %29, %21, %7
-  %83 = phi i1 [ true, %75 ], [ true, %37 ], [ true, %29 ], [ true, %21 ], [ false, %7 ], [ false, %.thread2 ], [ false, %2 ]
+.thread:                                          ; preds = %2, %.thread4, %75, %37, %29, %21, %7
+  %83 = phi i1 [ true, %75 ], [ true, %37 ], [ true, %29 ], [ true, %21 ], [ false, %7 ], [ false, %.thread4 ], [ false, %2 ]
   ret i1 %83
 }
 

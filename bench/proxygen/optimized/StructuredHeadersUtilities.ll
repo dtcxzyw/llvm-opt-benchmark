@@ -418,13 +418,13 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i6, label %if.end12.i.i
 
 if.then.i.i6:                                     ; preds = %while.end.i.i, %if.else.i
-  %__y.0.lcssa25.i.i = phi ptr [ %__x.021.i.i, %while.end.i.i ], [ %0, %if.else.i ]
+  %__y.0.lcssa26.i.i = phi ptr [ %__x.021.i.i, %while.end.i.i ], [ %0, %if.else.i ]
   %7 = load ptr, ptr %_M_left.i.i.i.i, align 8
-  %cmp.i4.i.i = icmp eq ptr %__y.0.lcssa25.i.i, %7
+  %cmp.i4.i.i = icmp eq ptr %__y.0.lcssa26.i.i, %7
   br i1 %cmp.i4.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i6
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i) #17
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i) #17
   %_M_storage.i.i.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   %.pre114.i = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert.i, align 1
   %.pre115.i = load i8, ptr %__first.addr.04.i, align 1
@@ -433,12 +433,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i6
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %8 = phi i8 [ %.pre115.i, %if.else.i.i ], [ %5, %while.end.i.i ]
   %9 = phi i8 [ %.pre114.i, %if.else.i.i ], [ %6, %while.end.i.i ]
-  %__y.0.lcssa26.i.i = phi ptr [ %__y.0.lcssa25.i.i, %if.else.i.i ], [ %__x.021.i.i, %while.end.i.i ]
+  %__y.0.lcssa25.i.i = phi ptr [ %__y.0.lcssa26.i.i, %if.else.i.i ], [ %__x.021.i.i, %while.end.i.i ]
   %cmp.i5.i.i = icmp ult i8 %9, %8
   br i1 %cmp.i5.i.i, label %if.then.i.i, label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i
 
 if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
-  %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa25.i.i, %if.then.i.i6 ], [ %2, %land.lhs.true.i ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
+  %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i6 ], [ %2, %land.lhs.true.i ], [ %__y.0.lcssa25.i.i, %if.end12.i.i ]
   %call5.i.i3 = invoke ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef null, ptr noundef nonnull %retval.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i)
           to label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11DecodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i unwind label %lpad4
 
@@ -791,13 +791,13 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i6, label %if.end12.i.i
 
 if.then.i.i6:                                     ; preds = %while.end.i.i, %if.else.i
-  %__y.0.lcssa25.i.i = phi ptr [ %__x.021.i.i, %while.end.i.i ], [ %0, %if.else.i ]
+  %__y.0.lcssa26.i.i = phi ptr [ %__x.021.i.i, %while.end.i.i ], [ %0, %if.else.i ]
   %7 = load ptr, ptr %_M_left.i.i.i.i, align 8
-  %cmp.i4.i.i = icmp eq ptr %__y.0.lcssa25.i.i, %7
+  %cmp.i4.i.i = icmp eq ptr %__y.0.lcssa26.i.i, %7
   br i1 %cmp.i4.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i6
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i) #17
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa26.i.i) #17
   %_M_storage.i.i.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   %.pre114.i = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert.i, align 1
   %.pre115.i = load i8, ptr %__first.addr.04.i, align 1
@@ -806,12 +806,12 @@ if.else.i.i:                                      ; preds = %if.then.i.i6
 if.end12.i.i:                                     ; preds = %if.else.i.i, %while.end.i.i
   %8 = phi i8 [ %.pre115.i, %if.else.i.i ], [ %5, %while.end.i.i ]
   %9 = phi i8 [ %.pre114.i, %if.else.i.i ], [ %6, %while.end.i.i ]
-  %__y.0.lcssa26.i.i = phi ptr [ %__y.0.lcssa25.i.i, %if.else.i.i ], [ %__x.021.i.i, %while.end.i.i ]
+  %__y.0.lcssa25.i.i = phi ptr [ %__y.0.lcssa26.i.i, %if.else.i.i ], [ %__x.021.i.i, %while.end.i.i ]
   %cmp.i5.i.i = icmp ult i8 %9, %8
   br i1 %cmp.i5.i.i, label %if.then.i.i, label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i
 
 if.then.i.i:                                      ; preds = %if.end12.i.i, %land.lhs.true.i, %if.then.i.i6
-  %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa25.i.i, %if.then.i.i6 ], [ %2, %land.lhs.true.i ], [ %__y.0.lcssa26.i.i, %if.end12.i.i ]
+  %retval.sroa.12.0.i.ph = phi ptr [ %__y.0.lcssa26.i.i, %if.then.i.i6 ], [ %2, %land.lhs.true.i ], [ %__y.0.lcssa25.i.i, %if.end12.i.i ]
   %call5.i.i3 = invoke ptr @_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef null, ptr noundef nonnull %retval.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(40) %__first.addr.04.i, ptr noundef nonnull align 8 dereferenceable(8) %__an.i)
           to label %_ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISB_ESt4lessIS2_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i unwind label %lpad4
 
@@ -1097,9 +1097,9 @@ sw.bb2:                                           ; preds = %entry
   %.lobit.i.i.i5 = ashr i32 %5, 31
   %retval.0.i.i.i6 = xor i32 %.lobit.i.i.i5, %5
   %6 = zext nneg i32 %retval.0.i.i.i6 to i64
-  %switch.gep62 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8proxygen17StructuredHeaders22itemTypeMatchesContentERKNS0_20StructuredHeaderItemE.3, i64 0, i64 %6
-  %switch.load63 = load ptr, ptr %switch.gep62, align 8
-  %__name.i13 = getelementptr inbounds nuw i8, ptr %switch.load63, i64 8
+  %switch.gep68 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8proxygen17StructuredHeaders22itemTypeMatchesContentERKNS0_20StructuredHeaderItemE.3, i64 0, i64 %6
+  %switch.load69 = load ptr, ptr %switch.gep68, align 8
+  %__name.i13 = getelementptr inbounds nuw i8, ptr %switch.load69, i64 8
   %7 = load ptr, ptr %__name.i13, align 8
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIl, i64 8), align 8
   %cmp.i14 = icmp eq ptr %7, %8
@@ -1125,9 +1125,9 @@ sw.bb6:                                           ; preds = %entry
   %.lobit.i.i.i22 = ashr i32 %11, 31
   %retval.0.i.i.i23 = xor i32 %.lobit.i.i.i22, %11
   %12 = zext nneg i32 %retval.0.i.i.i23 to i64
-  %switch.gep64 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8proxygen17StructuredHeaders22itemTypeMatchesContentERKNS0_20StructuredHeaderItemE.3, i64 0, i64 %12
-  %switch.load65 = load ptr, ptr %switch.gep64, align 8
-  %__name.i30 = getelementptr inbounds nuw i8, ptr %switch.load65, i64 8
+  %switch.gep70 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8proxygen17StructuredHeaders22itemTypeMatchesContentERKNS0_20StructuredHeaderItemE.3, i64 0, i64 %12
+  %switch.load71 = load ptr, ptr %switch.gep70, align 8
+  %__name.i30 = getelementptr inbounds nuw i8, ptr %switch.load71, i64 8
   %13 = load ptr, ptr %__name.i30, align 8
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIb, i64 8), align 8
   %cmp.i31 = icmp eq ptr %13, %14
@@ -1153,9 +1153,9 @@ sw.bb10:                                          ; preds = %entry
   %.lobit.i.i.i42 = ashr i32 %17, 31
   %retval.0.i.i.i43 = xor i32 %.lobit.i.i.i42, %17
   %18 = zext nneg i32 %retval.0.i.i.i43 to i64
-  %switch.gep66 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8proxygen17StructuredHeaders22itemTypeMatchesContentERKNS0_20StructuredHeaderItemE.3, i64 0, i64 %18
-  %switch.load67 = load ptr, ptr %switch.gep66, align 8
-  %__name.i50 = getelementptr inbounds nuw i8, ptr %switch.load67, i64 8
+  %switch.gep72 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8proxygen17StructuredHeaders22itemTypeMatchesContentERKNS0_20StructuredHeaderItemE.3, i64 0, i64 %18
+  %switch.load73 = load ptr, ptr %switch.gep72, align 8
+  %__name.i50 = getelementptr inbounds nuw i8, ptr %switch.load73, i64 8
   %19 = load ptr, ptr %__name.i50, align 8
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTId, i64 8), align 8
   %cmp.i51 = icmp eq ptr %19, %20

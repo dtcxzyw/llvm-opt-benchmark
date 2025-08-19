@@ -336,11 +336,11 @@ define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr noundef readonly 
   br i1 %118, label %PBMAC1_PBKDF2_HMAC.exit.sink.split, label %PBMAC1_PBKDF2_HMAC.exit
 
 PBMAC1_PBKDF2_HMAC.exit.sink.split:               ; preds = %109, %104, %81
-  %.sink146 = phi i32 [ 122, %81 ], [ 137, %104 ], [ 143, %109 ]
+  %.sink157 = phi i32 [ 122, %81 ], [ 137, %104 ], [ 143, %109 ]
   %.sink = phi i32 [ 524556, %81 ], [ 524557, %104 ], [ 786691, %109 ]
   %.0.i.ph = phi ptr [ null, %81 ], [ null, %104 ], [ %107, %109 ]
   call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink146, ptr noundef nonnull @__func__.PBMAC1_PBKDF2_HMAC) #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink157, ptr noundef nonnull @__func__.PBMAC1_PBKDF2_HMAC) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #5
   br label %PBMAC1_PBKDF2_HMAC.exit
 

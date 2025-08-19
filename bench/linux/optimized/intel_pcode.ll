@@ -403,8 +403,8 @@ define dso_local range(i32 -110, 1) i32 @skl_pcode_request(ptr noundef %0, i32 n
   br label %91
 
 .sink.split:                                      ; preds = %38, %.thread4
-  %.sink10 = phi ptr [ %19, %.thread4 ], [ %39, %38 ]
-  %90 = getelementptr inbounds nuw i8, ptr %.sink10, i64 7944
+  %.sink11 = phi ptr [ %19, %.thread4 ], [ %39, %38 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.sink11, i64 7944
   tail call void @mutex_unlock(ptr noundef nonnull %90) #8
   br label %91
 

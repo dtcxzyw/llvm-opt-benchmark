@@ -1397,8 +1397,8 @@ define noundef ptr @Z3_mk_store(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %30 = add nsw i32 %29, -3
   %31 = icmp ult i32 %30, 2
   %32 = icmp eq ptr %3, null
-  %or.cond89 = or i1 %31, %32
-  br i1 %or.cond89, label %.invoke, label %33
+  %or.cond94 = or i1 %31, %32
+  br i1 %or.cond94, label %.invoke, label %33
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1771,9 +1771,9 @@ _ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit:     ; preds = %45, %.noexc60
   %64 = getelementptr inbounds i8, ptr %59, i64 -8
   %65 = load i32, ptr %64, align 4, !tbaa !169
   %66 = icmp eq i32 %63, %65
-  br i1 %66, label %71, label %.thread112
+  br i1 %66, label %71, label %.thread127
 
-.thread112:                                       ; preds = %61
+.thread127:                                       ; preds = %61
   %67 = getelementptr inbounds i8, ptr %59, i64 -4
   %68 = zext i32 %63 to i64
   %69 = getelementptr inbounds nuw ptr, ptr %59, i64 %68
@@ -1894,8 +1894,8 @@ _ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit:     ; preds = %45, %.noexc60
   %120 = icmp eq ptr %.pre111, null
   br i1 %120, label %128, label %121
 
-121:                                              ; preds = %.thread112, %115
-  %122 = phi ptr [ %58, %.thread112 ], [ %.pre111, %115 ]
+121:                                              ; preds = %.thread127, %115
+  %122 = phi ptr [ %58, %.thread127 ], [ %.pre111, %115 ]
   %123 = getelementptr inbounds i8, ptr %122, i64 -4
   %124 = load i32, ptr %123, align 4, !tbaa !169
   %125 = getelementptr inbounds i8, ptr %122, i64 -8

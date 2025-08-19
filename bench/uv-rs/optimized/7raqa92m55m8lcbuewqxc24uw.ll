@@ -2202,7 +2202,7 @@ define hidden void @"_ZN7uv_auth7keyring15KeyringProvider5fetch28_$u7b$$u7b$clos
   %26 = alloca [24 x i8], align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %28 = load i8, ptr %27, align 1, !range !36, !noundef !4
-  switch i8 %28, label %default.unreachable205 [
+  switch i8 %28, label %default.unreachable211 [
     i8 0, label %29
     i8 1, label %79
     i8 2, label %80
@@ -2210,7 +2210,7 @@ define hidden void @"_ZN7uv_auth7keyring15KeyringProvider5fetch28_$u7b$$u7b$clos
     i8 4, label %206
   ]
 
-default.unreachable205:                           ; preds = %3
+default.unreachable211:                           ; preds = %3
   unreachable
 
 29:                                               ; preds = %3
@@ -2424,14 +2424,14 @@ common.ret:                                       ; preds = %212, %201, %91
 94:                                               ; preds = %88
   %.val65 = load i64, ptr %90, align 8, !range !13, !noundef !4
   %.not.i = icmp eq i64 %.val65, -9223372036854775808
-  br i1 %.not.i, label %107, label %.thread206
+  br i1 %.not.i, label %107, label %.thread212
 
-.thread206:                                       ; preds = %94
+.thread212:                                       ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6183)
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i8 0, ptr %95, align 8
-  %.sroa.6183.0..sroa_idx208 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6183, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6183.0..sroa_idx208, i64 40, i1 false)
+  %.sroa.6183.0..sroa_idx214 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6183, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6183.0..sroa_idx214, i64 40, i1 false)
   br label %99
 
 96:                                               ; preds = %.noexc100, %228
@@ -2445,14 +2445,14 @@ common.ret:                                       ; preds = %212, %201, %91
   %98 = icmp eq i64 %.sroa.0181.0.copyload.pre, -9223372036854775808
   br i1 %98, label %235, label %99
 
-99:                                               ; preds = %.thread206, %96
-  %100 = phi ptr [ %95, %.thread206 ], [ %97, %96 ]
-  %.sroa.0181.0.copyload209 = phi i64 [ %.val65, %.thread206 ], [ %.sroa.0181.0.copyload.pre, %96 ]
+99:                                               ; preds = %.thread212, %96
+  %100 = phi ptr [ %95, %.thread212 ], [ %97, %96 ]
+  %.sroa.0181.0.copyload215 = phi i64 [ %.val65, %.thread212 ], [ %.sroa.0181.0.copyload.pre, %96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !431
   %.sroa.6183.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6183, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6183.24..sroa_idx, i64 24, i1 false), !noalias !438
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !431
-  store i64 %.sroa.0181.0.copyload209, ptr %9, align 8, !noalias !438
+  store i64 %.sroa.0181.0.copyload215, ptr %9, align 8, !noalias !438
   %.sroa.6183.0..sroa_idx184 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6183.0..sroa_idx184, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6183, i64 16, i1 false), !noalias !438
   call void @llvm.experimental.noalias.scope.decl(metadata !439)
@@ -2951,7 +2951,7 @@ define internal fastcc void @"_ZN7uv_auth7keyring15KeyringProvider16fetch_subpro
   %14 = alloca [24 x i8], align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %16 = load i8, ptr %15, align 2, !range !36, !noundef !4
-  switch i8 %16, label %default.unreachable74 [
+  switch i8 %16, label %default.unreachable76 [
     i8 0, label %19
     i8 1, label %97
     i8 2, label %98
@@ -2959,7 +2959,7 @@ define internal fastcc void @"_ZN7uv_auth7keyring15KeyringProvider16fetch_subpro
     i8 4, label %18
   ]
 
-default.unreachable74:                            ; preds = %3
+default.unreachable76:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -3559,14 +3559,14 @@ define hidden void @"_ZN7uv_auth7keyring15KeyringProvider16fetch_subprocess28_$u
   %86 = alloca [144 x i8], align 8
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 809
   %88 = load i8, ptr %87, align 1, !range !37, !noundef !4
-  switch i8 %88, label %default.unreachable417 [
+  switch i8 %88, label %default.unreachable445 [
     i8 0, label %89
     i8 1, label %181
     i8 2, label %182
     i8 3, label %186
   ]
 
-default.unreachable417:                           ; preds = %.noexc203, %186, %3
+default.unreachable445:                           ; preds = %.noexc203, %186, %3
   unreachable
 
 89:                                               ; preds = %3
@@ -3935,7 +3935,7 @@ _ZN5tokio7process7Command6stderr17hb38184cd620d59eaE.exit: ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.sroa.2.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.754.i)
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  switch i8 %.pre, label %default.unreachable417 [
+  switch i8 %.pre, label %default.unreachable445 [
     i8 0, label %198
     i8 1, label %222
     i8 2, label %223
@@ -4719,7 +4719,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr44drop
   br i1 %.not24.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$8contains17hc02f7f79c5c8598fE.exit.thread", label %.critedge.backedge.us.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h110575a2d2a9e355E.exit.us.i.i.i.i": ; preds = %.critedge.backedge.us.i.i.i.i
-  %419 = add i64 %.in.i.i.i, -1
+  %419 = add nsw i64 %.in.i.i.i, -1
   %420 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 1
   %bcmp.i.i.i.us.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(30) %420, ptr noundef nonnull readonly align 1 dereferenceable(30) @anon.28d6fcace02c6b523b4fba6a2095cf1c.88, i64 30), !alias.scope !733, !noalias !737
   %.not26.i.i.i.i = icmp eq i32 %bcmp.i.i.i.us.i.i.i.i, 0
@@ -5490,7 +5490,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr44drop
 
 .noexc203:                                        ; preds = %648
   %649 = load i64, ptr %12, align 8, !range !39, !noalias !825, !noundef !4
-  switch i64 %649, label %default.unreachable417 [
+  switch i64 %649, label %default.unreachable445 [
     i64 1, label %650
     i64 2, label %.loopexit
     i64 0, label %653

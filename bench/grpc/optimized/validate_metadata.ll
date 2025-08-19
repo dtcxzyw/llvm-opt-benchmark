@@ -212,8 +212,8 @@ define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %.loopexit, %29
-  %.val5 = phi i64 [ %.val.pre, %.loopexit ], [ %.val.pre, %29 ], [ 1, %17 ]
-  %34 = icmp eq i64 %.val5, 1
+  %.val6 = phi i64 [ %.val.pre, %.loopexit ], [ %.val.pre, %29 ], [ 1, %17 ]
+  %34 = icmp eq i64 %.val6, 1
   %35 = zext i1 %34 to i32
   ret i32 %35
 }

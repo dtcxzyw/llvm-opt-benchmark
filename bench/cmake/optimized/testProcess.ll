@@ -334,10 +334,10 @@ define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i
   %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %108) #15
   %110 = icmp ne i32 %.0.i, 0
   %111 = icmp slt i32 %.0.i, 5
-  %or.cond5.i34 = and i1 %110, %111
-  br i1 %or.cond5.i34, label %runChild2.exit.thread, label %runChild2.exit.thread36
+  %or.cond5.i44 = and i1 %110, %111
+  br i1 %or.cond5.i44, label %runChild2.exit.thread, label %runChild2.exit.thread46
 
-runChild2.exit.thread36:                          ; preds = %.thread
+runChild2.exit.thread46:                          ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -357,7 +357,7 @@ runChild2.exit:                                   ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not22, label %24, label %runChild2.exit..loopexit_crit_edge, !llvm.loop !9
 
-runChild2.exit..loopexit_crit_edge:               ; preds = %runChild2.exit, %runChild2.exit.thread36
+runChild2.exit..loopexit_crit_edge:               ; preds = %runChild2.exit, %runChild2.exit.thread46
   br label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %24, %.preheader, %runChild2.exit..loopexit_crit_edge, %runChild2.exit.thread
@@ -402,8 +402,8 @@ define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) loc
   br i1 %17, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %13, %2
-  %.sink96 = phi i64 [ 8, %2 ], [ 16, %13 ]
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink96
+  %.sink98 = phi i64 [ 8, %2 ], [ 16, %13 ]
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink98
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = tail call i64 @strtol(ptr noundef nonnull captures(none) %19, ptr noundef null, i32 noundef 10) #13
   %21 = trunc i64 %20 to i32

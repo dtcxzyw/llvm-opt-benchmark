@@ -278,7 +278,7 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %135 = icmp eq i32 %50, 134217728
   %136 = icmp eq i32 %26, 134217728
   %or.cond19 = select i1 %135, i1 %136, i1 false
-  br i1 %or.cond19, label %137, label %.thread309
+  br i1 %or.cond19, label %137, label %.thread317
 
 137:                                              ; preds = %134
   store i32 8, ptr %128, align 8, !tbaa !32
@@ -286,7 +286,7 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 138:                                              ; preds = %127, %127
   %139 = icmp eq i32 %50, 134217728
-  br i1 %139, label %140, label %.thread309
+  br i1 %139, label %140, label %.thread317
 
 140:                                              ; preds = %138
   store i32 11, ptr %128, align 8, !tbaa !32
@@ -316,19 +316,19 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 151:                                              ; preds = %147
   %.not265 = icmp eq i32 %38, 0
   %152 = select i1 %.not265, i32 39, i32 38
-  br label %.thread313
+  br label %.thread321
 
 153:                                              ; preds = %147
   %154 = icmp eq i32 %59, 520093696
   %or.cond34 = select i1 %154, i1 %149, i1 false
   %155 = icmp eq i32 %62, 8126464
   %or.cond37 = select i1 %or.cond34, i1 %155, i1 false
-  br i1 %or.cond37, label %156, label %.thread309
+  br i1 %or.cond37, label %156, label %.thread317
 
 156:                                              ; preds = %153
   %.not264 = icmp eq i32 %38, 0
   %157 = select i1 %.not264, i32 43, i32 42
-  br label %.thread313
+  br label %.thread321
 
 158:                                              ; preds = %144
   %159 = icmp eq i32 %26, 268435456
@@ -346,22 +346,22 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 164:                                              ; preds = %160
   %.not263 = icmp eq i32 %38, 0
   %165 = select i1 %.not263, i32 37, i32 36
-  br label %.thread313
+  br label %.thread321
 
 166:                                              ; preds = %160
   %167 = icmp eq i32 %59, 520093696
   %or.cond48 = select i1 %167, i1 %162, i1 false
   %168 = icmp eq i32 %62, 16252928
   %or.cond51 = select i1 %or.cond48, i1 %168, i1 false
-  br i1 %or.cond51, label %169, label %.thread309
+  br i1 %or.cond51, label %169, label %.thread317
 
 169:                                              ; preds = %166
   %.not262 = icmp eq i32 %38, 0
   %170 = select i1 %.not262, i32 41, i32 40
-  br label %.thread313
+  br label %.thread321
 
 171:                                              ; preds = %158
-  switch i32 %51, label %.thread309 [
+  switch i32 %51, label %.thread317 [
     i32 24, label %172
     i32 32, label %183
   ]
@@ -377,19 +377,19 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 176:                                              ; preds = %172
   %.not261 = icmp eq i32 %38, 0
   %177 = select i1 %.not261, i32 3, i32 2
-  br label %.thread313
+  br label %.thread321
 
 178:                                              ; preds = %172
   %179 = icmp eq i32 %59, -16777216
   %or.cond60 = select i1 %179, i1 %174, i1 false
   %180 = icmp eq i32 %62, 65280
   %or.cond63 = select i1 %or.cond60, i1 %180, i1 false
-  br i1 %or.cond63, label %181, label %.thread309
+  br i1 %or.cond63, label %181, label %.thread317
 
 181:                                              ; preds = %178
   %.not260 = icmp eq i32 %38, 0
   %182 = select i1 %.not260, i32 2, i32 3
-  br label %.thread313
+  br label %.thread321
 
 183:                                              ; preds = %171
   %184 = icmp eq i32 %59, 65280
@@ -402,36 +402,36 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 187:                                              ; preds = %183
   %.not259 = icmp eq i32 %38, 0
   %188 = select i1 %.not259, i32 28, i32 25
-  br label %.thread313
+  br label %.thread321
 
 189:                                              ; preds = %183
   %190 = icmp eq i32 %59, -16777216
   %or.cond72 = select i1 %190, i1 %185, i1 false
   %191 = icmp eq i32 %62, 65280
   %or.cond75 = select i1 %or.cond72, i1 %191, i1 false
-  br i1 %or.cond75, label %192, label %.thread309
+  br i1 %or.cond75, label %192, label %.thread317
 
 192:                                              ; preds = %189
   %.not258 = icmp eq i32 %38, 0
   %193 = select i1 %.not258, i32 26, i32 27
-  br label %.thread313
+  br label %.thread321
 
 194:                                              ; preds = %127
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19) #4
   br label %243
 
-.thread313:                                       ; preds = %169, %164, %192, %187, %176, %181, %151, %156
+.thread321:                                       ; preds = %169, %164, %192, %187, %176, %181, %151, %156
   %.sink = phi i32 [ %170, %169 ], [ %165, %164 ], [ %193, %192 ], [ %188, %187 ], [ %177, %176 ], [ %182, %181 ], [ %152, %151 ], [ %157, %156 ]
   store i32 %.sink, ptr %128, align 8, !tbaa !32
   %195 = getelementptr inbounds nuw i8, ptr %67, i64 %117
   br label %.thread
 
-.thread309:                                       ; preds = %171, %166, %189, %178, %153, %134, %138
+.thread317:                                       ; preds = %171, %166, %189, %178, %153, %134, %138
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %51, i32 noundef %27, i32 noundef %57) #4
   br label %243
 
-.thread:                                          ; preds = %.thread313, %137, %133, %140
-  %.sroa.0.0298 = phi ptr [ %67, %140 ], [ %67, %133 ], [ %67, %137 ], [ %195, %.thread313 ]
+.thread:                                          ; preds = %.thread321, %137, %133, %140
+  %.sroa.0.0298 = phi ptr [ %67, %140 ], [ %67, %133 ], [ %67, %137 ], [ %195, %.thread321 ]
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 708
   %197 = load i32, ptr %196, align 4, !tbaa !33
   %198 = icmp sgt i32 %197, 47
@@ -519,8 +519,8 @@ define internal i32 @xwd_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %242 = icmp slt i32 %240, %241
   br i1 %242, label %234, label %._crit_edge, !llvm.loop !38
 
-243:                                              ; preds = %201, %141, %129, %97, %21, %4, %._crit_edge, %199, %.thread309, %194, %126, %124, %113, %96, %93, %90, %88, %86, %83, %80, %78, %75, %20, %16
-  %.0241 = phi i32 [ -1094995529, %16 ], [ -1094995529, %20 ], [ -1094995529, %75 ], [ -1094995529, %78 ], [ -1163346256, %80 ], [ -1094995529, %83 ], [ -1094995529, %86 ], [ -1094995529, %88 ], [ -1094995529, %90 ], [ -1094995529, %93 ], [ -1094995529, %96 ], [ -1094995529, %113 ], [ -1094995529, %124 ], [ -1163346256, %126 ], [ -1094995529, %194 ], [ -1163346256, %.thread309 ], [ %200, %199 ], [ %233, %._crit_edge ], [ -1094995529, %4 ], [ %68, %21 ], [ %102, %97 ], [ -1094995529, %129 ], [ -1094995529, %141 ], [ %202, %201 ]
+243:                                              ; preds = %201, %141, %129, %97, %21, %4, %._crit_edge, %199, %.thread317, %194, %126, %124, %113, %96, %93, %90, %88, %86, %83, %80, %78, %75, %20, %16
+  %.0241 = phi i32 [ -1094995529, %16 ], [ -1094995529, %20 ], [ -1094995529, %75 ], [ -1094995529, %78 ], [ -1163346256, %80 ], [ -1094995529, %83 ], [ -1094995529, %86 ], [ -1094995529, %88 ], [ -1094995529, %90 ], [ -1094995529, %93 ], [ -1094995529, %96 ], [ -1094995529, %113 ], [ -1094995529, %124 ], [ -1163346256, %126 ], [ -1094995529, %194 ], [ -1163346256, %.thread317 ], [ %200, %199 ], [ %233, %._crit_edge ], [ -1094995529, %4 ], [ %68, %21 ], [ %102, %97 ], [ -1094995529, %129 ], [ -1094995529, %141 ], [ %202, %201 ]
   ret i32 %.0241
 }
 

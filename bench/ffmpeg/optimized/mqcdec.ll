@@ -243,10 +243,10 @@ exchange.exit:                                    ; preds = %bytein.exit.i
   %.pre29.i = load i8, ptr %1, align 1, !tbaa !12
   %.pre30.i = zext i8 %.pre29.i to i64
   %99 = and i8 %.pre29.i, 1
-  %ff_mqc_nlps.sink38 = select i1 %98, ptr @ff_mqc_nlps, ptr @ff_mqc_nmps
+  %ff_mqc_nlps.sink41 = select i1 %98, ptr @ff_mqc_nlps, ptr @ff_mqc_nmps
   %100 = zext i1 %98 to i8
   %.0.in.i20 = xor i8 %99, %100
-  %101 = getelementptr inbounds nuw [94 x i8], ptr %ff_mqc_nlps.sink38, i64 0, i64 %.pre30.i
+  %101 = getelementptr inbounds nuw [94 x i8], ptr %ff_mqc_nlps.sink41, i64 0, i64 %.pre30.i
   %storemerge.i21 = load i8, ptr %101, align 1, !tbaa !12
   store i8 %storemerge.i21, ptr %1, align 1, !tbaa !12
   %.promoted.i22 = load i32, ptr %43, align 4, !tbaa !13

@@ -339,8 +339,8 @@ define internal fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr 
   br i1 %.not, label %.thread.thread, label %16
 
 .thread.thread:                                   ; preds = %3
-  %narrow85 = add nuw nsw i32 %1, 3
-  %15 = zext nneg i32 %narrow85 to i64
+  %narrow99 = add nuw nsw i32 %1, 3
+  %15 = zext nneg i32 %narrow99 to i64
   br label %._crit_edge
 
 16:                                               ; preds = %3
@@ -400,9 +400,9 @@ define internal fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 35:                                               ; preds = %._crit_edge
-  %.not62.not89 = icmp eq i32 %1, 0
+  %.not62.not103 = icmp eq i32 %1, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br i1 %.not62.not89, label %39, label %36
+  br i1 %.not62.not103, label %39, label %36
 
 36:                                               ; preds = %35
   %37 = load ptr, ptr %2, align 8, !tbaa !18
@@ -840,14 +840,14 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL21x509_store_load_certsP
   %21 = tail call ptr @OPENSSL_sk_new_null()
   store ptr %21, ptr %3, align 8, !tbaa !29
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %72, label %.thread113
+  br i1 %22, label %72, label %.thread124
 
 23:                                               ; preds = %19
   %24 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit.thread.thread, label %.lr.ph.split.us
 
-.thread113:                                       ; preds = %20
+.thread124:                                       ; preds = %20
   %26 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit.thread.thread, label %.lr.ph.split
@@ -873,9 +873,9 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL21x509_store_load_certsP
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit.thread, label %.lr.ph.split.us, !llvm.loop !31
 
-.lr.ph.split:                                     ; preds = %.thread113, %.thread
-  %36 = phi ptr [ %56, %.thread ], [ %26, %.thread113 ]
-  %.04390 = phi i64 [ %55, %.thread ], [ 0, %.thread113 ]
+.lr.ph.split:                                     ; preds = %.thread124, %.thread
+  %36 = phi ptr [ %56, %.thread ], [ %26, %.thread124 ]
+  %.04390 = phi i64 [ %55, %.thread ], [ 0, %.thread124 ]
   %37 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %36)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %42
@@ -949,9 +949,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
   %58 = phi ptr [ %36, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %.us-phi93, %54 ], [ %36, %42 ]
   %.1 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ 7, %54 ], [ 12, %42 ]
   %59 = icmp eq i64 %.04389, 0
-  br i1 %59, label %61, label %.thread119
+  br i1 %59, label %61, label %.thread130
 
-.loopexit.thread.thread:                          ; preds = %23, %.thread113
+.loopexit.thread.thread:                          ; preds = %23, %.thread124
   tail call void @ERR_clear_error()
   br label %61
 
@@ -959,7 +959,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
   %.043.lcssa = phi i64 [ %33, %.thread.us ], [ %55, %.thread ]
   tail call void @ERR_clear_error()
   %60 = icmp eq i64 %.043.lcssa, 0
-  br i1 %60, label %61, label %.thread117
+  br i1 %60, label %61, label %.thread128
 
 61:                                               ; preds = %.loopexit.thread.thread, %.loopexit.thread, %.loopexit
   %62 = phi i1 [ true, %.loopexit.thread ], [ false, %.loopexit ], [ true, %.loopexit.thread.thread ]
@@ -979,31 +979,31 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
 66:                                               ; preds = %61
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %62, label %68, label %.thread119
+  br i1 %62, label %68, label %.thread130
 
-.thread119:                                       ; preds = %.loopexit, %66
-  %.477121 = phi i32 [ 2, %66 ], [ %.1, %.loopexit ]
+.thread130:                                       ; preds = %.loopexit, %66
+  %.477132 = phi i32 [ 2, %66 ], [ %.1, %.loopexit ]
   %67 = phi ptr [ %63, %66 ], [ %58, %.loopexit ]
   call void @X509_free(ptr noundef nonnull %67)
   br label %68
 
-68:                                               ; preds = %.thread119, %66
-  %.477122 = phi i32 [ %.477121, %.thread119 ], [ 2, %66 ]
-  br i1 %.not59, label %.thread117, label %69
+68:                                               ; preds = %.thread130, %66
+  %.477133 = phi i32 [ %.477132, %.thread130 ], [ 2, %66 ]
+  br i1 %.not59, label %.thread128, label %69
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %3, align 8, !tbaa !29
   call void @OPENSSL_sk_pop_free_ex(ptr noundef %70, ptr noundef nonnull @sk_X509_NAME_call_free_func, ptr noundef nonnull @X509_NAME_free)
   store ptr null, ptr %3, align 8, !tbaa !29
-  br label %.thread117
+  br label %.thread128
 
-.thread117:                                       ; preds = %.loopexit.thread, %69, %68
-  %.478 = phi i32 [ %.477122, %69 ], [ %.477122, %68 ], [ 0, %.loopexit.thread ]
+.thread128:                                       ; preds = %.loopexit.thread, %69, %68
+  %.478 = phi i32 [ %.477133, %69 ], [ %.477133, %68 ], [ 0, %.loopexit.thread ]
   %71 = call i32 @BIO_free(ptr noundef nonnull %10)
   br label %72
 
-72:                                               ; preds = %20, %17, %9, %.thread117
-  %.0 = phi i32 [ %.478, %.thread117 ], [ 2, %9 ], [ 12, %17 ], [ 12, %20 ]
+72:                                               ; preds = %20, %17, %9, %.thread128
+  %.0 = phi i32 [ %.478, %.thread128 ], [ 2, %9 ], [ 12, %17 ], [ 12, %20 ]
   ret i32 %.0
 
 73:                                               ; preds = %64, %52, %40
@@ -5113,8 +5113,8 @@ _ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; pre
 _ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !24
-  %.not7985 = icmp eq i64 %30, 0
-  br i1 %.not7985, label %._crit_edge.thread, label %.lr.ph.split
+  %.not7995 = icmp eq i64 %30, 0
+  br i1 %.not7995, label %._crit_edge.thread, label %.lr.ph.split
 
 .lr.ph:                                           ; preds = %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit
   br i1 %.not.lcssa.i, label %.lr.ph.split.us, label %.lr.ph.split
@@ -5400,7 +5400,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z38tsi_ssl_handshaker_factory_swap_vtableP26tsi_ssl_handshaker_factoryP33tsi_ssl_handshaker_factory_vtable(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_Z38tsi_ssl_handshaker_factory_swap_vtableP26tsi_ssl_handshaker_factoryP33tsi_ssl_handshaker_factory_vtable(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %4 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not.i = icmp eq ptr %0, null
@@ -6302,10 +6302,10 @@ _ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1
   br i1 %.not125, label %.lr.ph, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %56, %52, %39, %38, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0202 = phi i64 [ %53, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0107194, %38 ], [ %.0107194, %39 ], [ %.0107194, %52 ], [ %53, %56 ]
+  %.0219 = phi i64 [ %53, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.0107194, %38 ], [ %.0107194, %39 ], [ %.0107194, %52 ], [ %53, %56 ]
   %.290.lcssa = phi i32 [ %54, %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 2, %38 ], [ 2, %39 ], [ 7, %52 ], [ %57, %56 ]
-  %58 = sub i64 %.0107194, %.0202
-  %59 = getelementptr inbounds nuw i8, ptr %.0109193, i64 %.0202
+  %58 = sub i64 %.0107194, %.0219
+  %59 = getelementptr inbounds nuw i8, ptr %.0109193, i64 %.0219
   %.not = icmp eq i64 %58, 0
   br i1 %.not, label %60, label %31, !llvm.loop !204
 

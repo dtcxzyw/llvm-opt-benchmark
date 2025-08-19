@@ -591,8 +591,8 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 .lr.ph352:                                        ; preds = %.lr.ph352.preheader, %.lr.ph352
   %indvars.iv402 = phi i64 [ %161, %.lr.ph352.preheader ], [ %indvars.iv.next403, %.lr.ph352 ]
   %.0275350 = phi double [ 1.000000e+00, %.lr.ph352.preheader ], [ %169, %.lr.ph352 ]
-  %.idx418 = shl i64 %indvars.iv402, 4
-  %162 = getelementptr i8, ptr %25, i64 %.idx418
+  %.idx432 = shl i64 %indvars.iv402, 4
+  %162 = getelementptr i8, ptr %25, i64 %.idx432
   %163 = getelementptr i8, ptr %162, i64 -16
   %164 = load double, ptr %163, align 8, !tbaa !30
   %165 = fmul double %.0275350, %164

@@ -193,9 +193,9 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
 
 .preheader:                                       ; preds = %63, %._crit_edge257, %65
   %68 = phi i1 [ %67, %65 ], [ false, %._crit_edge257 ], [ false, %63 ]
-  %.0178230307 = phi ptr [ @MOZ_Z_inflate_table.dbase, %65 ], [ %5, %._crit_edge257 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lbase, i64 -514), %63 ]
-  %.0177231306 = phi ptr [ @MOZ_Z_inflate_table.dext, %65 ], [ %5, %._crit_edge257 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lext, i64 -514), %63 ]
-  %.0232305 = phi i32 [ -1, %65 ], [ 19, %._crit_edge257 ], [ 256, %63 ]
+  %.0178230315 = phi ptr [ @MOZ_Z_inflate_table.dbase, %65 ], [ %5, %._crit_edge257 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lbase, i64 -514), %63 ]
+  %.0177231314 = phi ptr [ @MOZ_Z_inflate_table.dext, %65 ], [ %5, %._crit_edge257 ], [ getelementptr inbounds (i8, ptr @MOZ_Z_inflate_table.lext, i64 -514), %63 ]
+  %.0232313 = phi i32 [ -1, %65 ], [ 19, %._crit_edge257 ], [ 256, %63 ]
   %69 = phi i1 [ false, %65 ], [ false, %._crit_edge257 ], [ true, %63 ]
   %70 = shl nuw i32 1, %spec.select221
   %71 = add i32 %70, -1
@@ -225,19 +225,19 @@ define range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %0, ptr noundef rea
   %79 = getelementptr inbounds nuw i16, ptr %5, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !3
   %81 = zext i16 %80 to i32
-  %82 = icmp sgt i32 %.0232305, %81
+  %82 = icmp sgt i32 %.0232313, %81
   br i1 %82, label %92, label %83
 
 83:                                               ; preds = %75
-  %84 = icmp slt i32 %.0232305, %81
+  %84 = icmp slt i32 %.0232313, %81
   br i1 %84, label %85, label %92
 
 85:                                               ; preds = %83
   %86 = zext i16 %80 to i64
-  %87 = getelementptr inbounds nuw i16, ptr %.0177231306, i64 %86
+  %87 = getelementptr inbounds nuw i16, ptr %.0177231314, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !3
   %89 = trunc i16 %88 to i8
-  %90 = getelementptr inbounds nuw i16, ptr %.0178230307, i64 %86
+  %90 = getelementptr inbounds nuw i16, ptr %.0178230315, i64 %86
   %91 = load i16, ptr %90, align 2, !tbaa !3
   br label %92
 

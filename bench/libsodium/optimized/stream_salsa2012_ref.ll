@@ -54,8 +54,8 @@ define dso_local noundef i32 @crypto_stream_salsa2012(ptr noundef nonnull %0, i6
   br i1 %.not37, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader40.preheader, %._crit_edge
-  %.034.lcssa63 = phi ptr [ %20, %._crit_edge ], [ %0, %.preheader40.preheader ]
-  %.035.lcssa62 = phi i64 [ %19, %._crit_edge ], [ %1, %.preheader40.preheader ]
+  %.034.lcssa64 = phi ptr [ %20, %._crit_edge ], [ %0, %.preheader40.preheader ]
+  %.035.lcssa63 = phi i64 [ %19, %._crit_edge ], [ %1, %.preheader40.preheader ]
   %22 = call i32 @crypto_core_salsa2012(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef null) #4
   br label %23
 
@@ -63,10 +63,10 @@ define dso_local noundef i32 @crypto_stream_salsa2012(ptr noundef nonnull %0, i6
   %indvars.iv55 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next56, %23 ]
   %24 = getelementptr [64 x i8], ptr %6, i64 0, i64 %indvars.iv55
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr i8, ptr %.034.lcssa63, i64 %indvars.iv55
+  %26 = getelementptr i8, ptr %.034.lcssa64, i64 %indvars.iv55
   store i8 %25, ptr %26, align 1
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next56, %.035.lcssa62
+  %exitcond58.not = icmp eq i64 %indvars.iv.next56, %.035.lcssa63
   br i1 %exitcond58.not, label %.loopexit, label %23, !llvm.loop !7
 
 .loopexit:                                        ; preds = %23, %._crit_edge
@@ -151,23 +151,23 @@ define dso_local noundef i32 @crypto_stream_salsa2012_xor(ptr noundef nonnull wr
   br i1 %.not47, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader51.preheader, %._crit_edge
-  %.043.lcssa84 = phi ptr [ %27, %._crit_edge ], [ %0, %.preheader51.preheader ]
-  %.044.lcssa83 = phi i64 [ %26, %._crit_edge ], [ %2, %.preheader51.preheader ]
-  %.045.lcssa82 = phi ptr [ %28, %._crit_edge ], [ %1, %.preheader51.preheader ]
+  %.043.lcssa85 = phi ptr [ %27, %._crit_edge ], [ %0, %.preheader51.preheader ]
+  %.044.lcssa84 = phi i64 [ %26, %._crit_edge ], [ %2, %.preheader51.preheader ]
+  %.045.lcssa83 = phi ptr [ %28, %._crit_edge ], [ %1, %.preheader51.preheader ]
   %30 = call i32 @crypto_core_salsa2012(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null) #4
   br label %31
 
 31:                                               ; preds = %._crit_edge.thread, %31
   %indvars.iv74 = phi i64 [ 0, %._crit_edge.thread ], [ %indvars.iv.next75, %31 ]
-  %32 = getelementptr i8, ptr %.045.lcssa82, i64 %indvars.iv74
+  %32 = getelementptr i8, ptr %.045.lcssa83, i64 %indvars.iv74
   %33 = load i8, ptr %32, align 1
   %34 = getelementptr [64 x i8], ptr %7, i64 0, i64 %indvars.iv74
   %35 = load i8, ptr %34, align 1
   %36 = xor i8 %35, %33
-  %37 = getelementptr i8, ptr %.043.lcssa84, i64 %indvars.iv74
+  %37 = getelementptr i8, ptr %.043.lcssa85, i64 %indvars.iv74
   store i8 %36, ptr %37, align 1
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next75, %.044.lcssa83
+  %exitcond77.not = icmp eq i64 %indvars.iv.next75, %.044.lcssa84
   br i1 %exitcond77.not, label %.loopexit, label %31, !llvm.loop !11
 
 .loopexit:                                        ; preds = %31, %._crit_edge

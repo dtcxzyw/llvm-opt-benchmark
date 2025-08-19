@@ -395,9 +395,9 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %switch.i = icmp eq i64 %2, 0
-  %extract.t375 = trunc i128 %3 to i64
-  %extract377 = lshr i128 %3, 64
-  %extract.t378 = trunc nuw i128 %extract377 to i64
+  %extract.t382 = trunc i128 %3 to i64
+  %extract384 = lshr i128 %3, 64
+  %extract.t385 = trunc nuw i128 %extract384 to i64
   br i1 %switch.i, label %35, label %51
 
 35:                                               ; preds = %13
@@ -437,7 +437,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !92
   %extract.t = trunc i128 %.sroa.7.i.sroa.0.0.copyload226 to i64
   %extract = lshr i128 %.sroa.7.i.sroa.0.0.copyload226, 64
-  %extract.t376 = trunc nuw i128 %extract to i64
+  %extract.t383 = trunc nuw i128 %extract to i64
   br label %51
 
 49:                                               ; preds = %43
@@ -451,14 +451,14 @@ common.resume:                                    ; preds = %.thread275, %99, %.
   resume { ptr, i32 } %common.resume.op
 
 51:                                               ; preds = %13, %45
-  %.sink374.off0 = phi i64 [ %extract.t, %45 ], [ %extract.t375, %13 ]
-  %.sink374.off64 = phi i64 [ %extract.t376, %45 ], [ %extract.t378, %13 ]
+  %.sink381.off0 = phi i64 [ %extract.t, %45 ], [ %extract.t382, %13 ]
+  %.sink381.off64 = phi i64 [ %extract.t383, %45 ], [ %extract.t385, %13 ]
   %.sroa.14.0.ph = phi ptr [ %47, %45 ], [ undef, %13 ]
   %.sroa.12128.0.ph = phi i64 [ %46, %45 ], [ -9223372036854775808, %13 ]
   %.sroa.12.0.ph = phi i64 [ %.sroa.7.i.sroa.8.0.copyload229, %45 ], [ undef, %13 ]
-  %.sroa.6122.sroa.7.0.insert.ext = zext i64 %.sink374.off64 to i128
+  %.sroa.6122.sroa.7.0.insert.ext = zext i64 %.sink381.off64 to i128
   %.sroa.6122.sroa.7.0.insert.shift = shl nuw i128 %.sroa.6122.sroa.7.0.insert.ext, 64
-  %.sroa.6122.sroa.0.0.insert.ext = zext i64 %.sink374.off0 to i128
+  %.sroa.6122.sroa.0.0.insert.ext = zext i64 %.sink381.off0 to i128
   %.sroa.6122.sroa.0.0.insert.insert = or disjoint i128 %.sroa.6122.sroa.7.0.insert.shift, %.sroa.6122.sroa.0.0.insert.ext
   store i128 %.sroa.6122.sroa.0.0.insert.insert, ptr %34, align 16
   %.sroa.4174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16

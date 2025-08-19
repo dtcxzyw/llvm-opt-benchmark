@@ -175,14 +175,14 @@ define internal i32 @aasc_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %80
 
 .loopexit.sink.split:                             ; preds = %27, %18
-  %.sink74 = phi ptr [ %6, %18 ], [ %20, %27 ]
+  %.sink78 = phi ptr [ %6, %18 ], [ %20, %27 ]
   %.sink = phi i32 [ %8, %18 ], [ %21, %27 ]
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.sink74, ptr %56, align 8, !tbaa !50
+  store ptr %.sink78, ptr %56, align 8, !tbaa !50
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %.sink74, ptr %57, align 8, !tbaa !51
+  store ptr %.sink78, ptr %57, align 8, !tbaa !51
   %58 = zext nneg i32 %.sink to i64
-  %59 = getelementptr inbounds nuw i8, ptr %.sink74, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %.sink78, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %59, ptr %60, align 8, !tbaa !52
   %61 = load ptr, ptr %14, align 8, !tbaa !41

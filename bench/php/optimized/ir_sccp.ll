@@ -784,20 +784,20 @@ ir_sccp_add_identity.exit:                        ; preds = %.preheader.i420, %2
 .thread:                                          ; preds = %333
   %339 = and i32 %47, 3
   %340 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %.not545609 = icmp eq i32 %339, 0
-  br i1 %.not545609, label %._crit_edge.thread.thread, label %.lr.ph.preheader
+  %.not545672 = icmp eq i32 %339, 0
+  br i1 %.not545672, label %._crit_edge.thread.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %336
   %341 = phi ptr [ %340, %.thread ], [ %338, %336 ]
   %342 = phi i32 [ %339, %.thread ], [ %337, %336 ]
-  %.0308610 = phi i1 [ false, %.thread ], [ true, %336 ]
+  %.0308673 = phi i1 [ false, %.thread ], [ true, %336 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %ir_sccp_add_input.exit
   %.0293507 = phi i32 [ %367, %ir_sccp_add_input.exit ], [ %342, %.lr.ph.preheader ]
   %.0302506 = phi ptr [ %366, %ir_sccp_add_input.exit ], [ %341, %.lr.ph.preheader ]
   %.0306505 = phi i1 [ %.1307, %ir_sccp_add_input.exit ], [ false, %.lr.ph.preheader ]
-  %.1309504 = phi i1 [ %.2310, %ir_sccp_add_input.exit ], [ %.0308610, %.lr.ph.preheader ]
+  %.1309504 = phi i1 [ %.2310, %ir_sccp_add_input.exit ], [ %.0308673, %.lr.ph.preheader ]
   %343 = load i32, ptr %.0302506, align 4, !tbaa !40
   %344 = icmp sgt i32 %343, 0
   br i1 %344, label %345, label %ir_sccp_add_input.exit
@@ -2016,13 +2016,13 @@ ir_is_dead_load_ex.exit.thread:                   ; preds = %961, %ir_is_dead_lo
 .lr.ph526.preheader:                              ; preds = %984
   %989 = lshr i32 %987, 2
   %wide.trip.count593 = zext nneg i32 %989 to i64
-  %invariant.gep653 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
+  %invariant.gep716 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %42
   br label %.lr.ph526
 
 .lr.ph526:                                        ; preds = %.lr.ph526.preheader, %.lr.ph526
   %indvars.iv590 = phi i64 [ 0, %.lr.ph526.preheader ], [ %indvars.iv.next591, %.lr.ph526 ]
-  %gep654 = getelementptr inbounds nuw %struct._ir_insn, ptr %invariant.gep653, i64 %indvars.iv590
-  %990 = getelementptr inbounds nuw i8, ptr %gep654, i64 16
+  %gep717 = getelementptr inbounds nuw %struct._ir_insn, ptr %invariant.gep716, i64 %indvars.iv590
+  %990 = getelementptr inbounds nuw i8, ptr %gep717, i64 16
   store i32 108, ptr %990, align 8, !tbaa !39
   %indvars.iv.next591 = add nuw nsw i64 %indvars.iv590, 1
   %exitcond594.not = icmp eq i64 %indvars.iv.next591, %wide.trip.count593
@@ -3609,20 +3609,20 @@ ir_ext_const.exit121:                             ; preds = %200, %202, %207, %2
 ir_ext_const.exit:                                ; preds = %239, %241, %246, %248, %253, %255
   %.sroa.0.0.i = phi i64 [ %240, %239 ], [ %242, %241 ], [ %254, %253 ], [ %256, %255 ], [ %247, %246 ], [ %249, %248 ]
   %257 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %.sroa.0.0.i, i8 noundef zeroext %100) #14
-  br label %.sink.split178.i
+  br label %.sink.split186.i
 
 258:                                              ; preds = %228, %226
   %259 = tail call fastcc i32 @ir_ext_ref(ptr noundef nonnull %0, i32 noundef %177, i32 noundef %225, i32 noundef %102, i32 noundef %101, ptr noundef nonnull %1)
-  br label %.sink.split178.i
+  br label %.sink.split186.i
 
-.sink.split178.i:                                 ; preds = %258, %ir_ext_const.exit
-  %.sink179.i = phi i32 [ %257, %ir_ext_const.exit ], [ %259, %258 ]
+.sink.split186.i:                                 ; preds = %258, %ir_ext_const.exit
+  %.sink187.i = phi i32 [ %257, %ir_ext_const.exit ], [ %259, %258 ]
   %260 = load ptr, ptr %0, align 8, !tbaa !38
   %261 = getelementptr inbounds %struct._ir_insn, ptr %260, i64 %181, i32 1
-  store i32 %.sink179.i, ptr %261, align 8, !tbaa !39
+  store i32 %.sink187.i, ptr %261, align 8, !tbaa !39
   br label %262
 
-262:                                              ; preds = %.sink.split178.i, %223, %179, %.lr.ph174.i
+262:                                              ; preds = %.sink.split186.i, %223, %179, %.lr.ph174.i
   %263 = add nuw nsw i32 %.1139172.i, 1
   %264 = load ptr, ptr %6, align 8, !tbaa !41
   %265 = getelementptr inbounds %struct._ir_use_list, ptr %264, i64 %105
@@ -3656,10 +3656,10 @@ ir_ext_const.exit:                                ; preds = %239, %241, %246, %2
   br label %ir_try_promote_ext.exit
 
 ir_try_promote_ext.exit:                          ; preds = %277, %279
-  %.sink182.i = phi i32 [ %278, %277 ], [ %280, %279 ]
+  %.sink190.i = phi i32 [ %278, %277 ], [ %280, %279 ]
   %281 = load ptr, ptr %0, align 8, !tbaa !38
   %282 = getelementptr inbounds %struct._ir_insn, ptr %281, i64 %105, i32 1
-  store i32 %.sink182.i, ptr %282, align 8, !tbaa !39
+  store i32 %.sink190.i, ptr %282, align 8, !tbaa !39
   br label %ir_iter_fold.exit.backedge
 
 ir_try_promote_ext.exit.thread.sink.split:        ; preds = %87, %83
@@ -4085,8 +4085,8 @@ ir_remove_unused_vars.exit.i.i:                   ; preds = %ir_remove_unused_va
   %515 = phi ptr [ %.pre264.i.i, %ir_remove_unused_vars.exit.loopexit.i.i ], [ %452, %._crit_edge263.i.i ]
   %516 = getelementptr inbounds %struct._ir_use_list, ptr %515, i64 %480, i32 1
   %517 = load i32, ptr %516, align 4, !tbaa !42
-  %or.cond265.i.i = icmp sgt i32 %517, 1
-  br i1 %or.cond265.i.i, label %.lr.ph.preheader.i233.i.i, label %ir_remove_unused_vars.exit238.i.i
+  %or.cond278.i.i = icmp sgt i32 %517, 1
+  br i1 %or.cond278.i.i, label %.lr.ph.preheader.i233.i.i, label %ir_remove_unused_vars.exit238.i.i
 
 .lr.ph.preheader.i233.i.i:                        ; preds = %ir_remove_unused_vars.exit.i.i
   %518 = getelementptr inbounds %struct._ir_use_list, ptr %515, i64 %480
@@ -4240,8 +4240,8 @@ ir_bitqueue_add.exit232.i.i:                      ; preds = %553, %541, %538, %i
   %600 = load ptr, ptr %6, align 8, !tbaa !41
   %601 = getelementptr inbounds %struct._ir_use_list, ptr %600, i64 %595, i32 1
   %602 = load i32, ptr %601, align 4, !tbaa !42
-  %or.cond266.i.i = icmp sgt i32 %602, 1
-  br i1 %or.cond266.i.i, label %.lr.ph.preheader.i239.i.i, label %ir_remove_unused_vars.exit244.i.i
+  %or.cond279.i.i = icmp sgt i32 %602, 1
+  br i1 %or.cond279.i.i, label %.lr.ph.preheader.i239.i.i, label %ir_remove_unused_vars.exit244.i.i
 
 .lr.ph.preheader.i239.i.i:                        ; preds = %599
   %603 = getelementptr inbounds %struct._ir_use_list, ptr %600, i64 %595
@@ -4684,8 +4684,8 @@ ir_bitqueue_add.exit230.i.i:                      ; preds = %674, %ir_is_dead.ex
   %858 = sext i32 %.0338.i.i to i64
   %859 = getelementptr inbounds %struct._ir_use_list, ptr %803, i64 %788, i32 1
   %860 = load i32, ptr %859, align 4, !tbaa !42
-  %or.cond414.i.i = icmp sgt i32 %860, 1
-  br i1 %or.cond414.i.i, label %.lr.ph.preheader.i.i82.i, label %ir_remove_unused_vars.exit.i81.i
+  %or.cond438.i.i = icmp sgt i32 %860, 1
+  br i1 %or.cond438.i.i, label %.lr.ph.preheader.i.i82.i, label %ir_remove_unused_vars.exit.i81.i
 
 .lr.ph.preheader.i.i82.i:                         ; preds = %857
   %861 = getelementptr inbounds %struct._ir_use_list, ptr %803, i64 %788
@@ -4722,8 +4722,8 @@ ir_remove_unused_vars.exit.i81.i:                 ; preds = %ir_remove_unused_va
   %874 = phi ptr [ %.pre413.i.i, %ir_remove_unused_vars.exit.loopexit.i87.i ], [ %803, %857 ]
   %875 = getelementptr inbounds %struct._ir_use_list, ptr %874, i64 %790, i32 1
   %876 = load i32, ptr %875, align 4, !tbaa !42
-  %or.cond415.i.i = icmp sgt i32 %876, 1
-  br i1 %or.cond415.i.i, label %.lr.ph.preheader.i378.i.i, label %ir_remove_unused_vars.exit383.i.i
+  %or.cond439.i.i = icmp sgt i32 %876, 1
+  br i1 %or.cond439.i.i, label %.lr.ph.preheader.i378.i.i, label %ir_remove_unused_vars.exit383.i.i
 
 .lr.ph.preheader.i378.i.i:                        ; preds = %ir_remove_unused_vars.exit.i81.i
   %877 = getelementptr inbounds %struct._ir_use_list, ptr %874, i64 %790
@@ -5025,8 +5025,8 @@ ir_is_zero.exit392.i.i:                           ; preds = %1017
   %1040 = sext i32 %.0343.i.i to i64
   %1041 = getelementptr inbounds %struct._ir_use_list, ptr %803, i64 %788, i32 1
   %1042 = load i32, ptr %1041, align 4, !tbaa !42
-  %or.cond416.i.i = icmp sgt i32 %1042, 1
-  br i1 %or.cond416.i.i, label %.lr.ph.preheader.i393.i.i, label %ir_remove_unused_vars.exit398.i.i
+  %or.cond440.i.i = icmp sgt i32 %1042, 1
+  br i1 %or.cond440.i.i, label %.lr.ph.preheader.i393.i.i, label %ir_remove_unused_vars.exit398.i.i
 
 .lr.ph.preheader.i393.i.i:                        ; preds = %1039
   %1043 = getelementptr inbounds %struct._ir_use_list, ptr %803, i64 %788
@@ -5063,8 +5063,8 @@ ir_remove_unused_vars.exit398.i.i:                ; preds = %ir_remove_unused_va
   %1056 = phi ptr [ %.pre412.i.i, %ir_remove_unused_vars.exit398.loopexit.i.i ], [ %803, %1039 ]
   %1057 = getelementptr inbounds %struct._ir_use_list, ptr %1056, i64 %790, i32 1
   %1058 = load i32, ptr %1057, align 4, !tbaa !42
-  %or.cond417.i.i = icmp sgt i32 %1058, 1
-  br i1 %or.cond417.i.i, label %.lr.ph.preheader.i399.i.i, label %ir_remove_unused_vars.exit404.i.i
+  %or.cond441.i.i = icmp sgt i32 %1058, 1
+  br i1 %or.cond441.i.i, label %.lr.ph.preheader.i399.i.i, label %ir_remove_unused_vars.exit404.i.i
 
 .lr.ph.preheader.i399.i.i:                        ; preds = %ir_remove_unused_vars.exit398.i.i
   %1059 = getelementptr inbounds %struct._ir_use_list, ptr %1056, i64 %790
@@ -5107,7 +5107,7 @@ ir_remove_unused_vars.exit404.i.i:                ; preds = %1069, %ir_remove_un
   %1080 = getelementptr inbounds nuw i8, ptr %.06594.i, i64 12
   %1081 = load i32, ptr %1080, align 4, !tbaa !39
   %..i.i = select i1 %1079, i32 %1081, i32 %1075
-  %.418.i.i = select i1 %1079, i32 %1075, i32 %1081
+  %.442.i.i = select i1 %1079, i32 %1075, i32 %1081
   %1082 = getelementptr inbounds nuw i8, ptr %.06594.i, i64 4
   store i32 %..i.i, ptr %1082, align 4, !tbaa !39
   store i32 0, ptr %828, align 8, !tbaa !39
@@ -5118,7 +5118,7 @@ ir_remove_unused_vars.exit404.i.i:                ; preds = %1069, %ir_remove_un
   store i32 %1084, ptr %1085, align 4, !tbaa !39
   tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %1084, i32 noundef %793, i32 noundef %.0343.i.i) #14
   %1086 = load i32, ptr %1082, align 4, !tbaa !39
-  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %1086, i32 noundef %.418.i.i) #14
+  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %1086, i32 noundef %.442.i.i) #14
   %1087 = load i32, ptr %1082, align 4, !tbaa !39
   %1088 = icmp slt i32 %1087, 0
   br i1 %1088, label %1090, label %1089
@@ -5157,7 +5157,7 @@ ir_remove_unused_vars.exit404.i.i:                ; preds = %1069, %ir_remove_un
   %1104 = getelementptr inbounds nuw %struct._ir_use_list, ptr %1103, i64 %34, i32 1
   store i32 0, ptr %1104, align 4, !tbaa !42
   %1105 = load ptr, ptr %0, align 8, !tbaa !38
-  %1106 = sext i32 %.418.i.i to i64
+  %1106 = sext i32 %.442.i.i to i64
   %1107 = getelementptr inbounds %struct._ir_insn, ptr %1105, i64 %1106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1107, i8 0, i64 16, i1 false)
   %1108 = load ptr, ptr %6, align 8, !tbaa !41
@@ -5814,7 +5814,7 @@ define internal fastcc void @ir_iter_remove_insn(ptr noundef %0, i32 noundef ran
   %28 = icmp ne i32 %27, 1024
   %29 = icmp ne i8 %.pre39, 71
   %or.cond.i.i = and i1 %29, %28
-  br i1 %or.cond.i.i, label %ir_is_dead.exit.thread33.thread40, label %ir_is_dead.exit.thread
+  br i1 %or.cond.i.i, label %ir_is_dead.exit.thread33.thread45, label %ir_is_dead.exit.thread
 
 ir_is_dead.exit:                                  ; preds = %18
   %30 = icmp ult i8 %.pre39, 61
@@ -5841,11 +5841,11 @@ ir_is_dead.exit.thread33:                         ; preds = %18
   %or.cond = and i1 %42, %43
   br i1 %or.cond, label %.thread, label %ir_bitqueue_add.exit31
 
-ir_is_dead.exit.thread33.thread40:                ; preds = %23
+ir_is_dead.exit.thread33.thread45:                ; preds = %23
   %44 = icmp eq i8 %.pre39, 59
   br i1 %44, label %.thread, label %ir_bitqueue_add.exit31
 
-.thread:                                          ; preds = %ir_is_dead.exit.thread33, %ir_is_dead.exit.thread33.thread40
+.thread:                                          ; preds = %ir_is_dead.exit.thread33, %ir_is_dead.exit.thread33.thread45
   %45 = getelementptr inbounds nuw %struct._ir_insn, ptr %.pre, i64 %20, i32 0, i32 1
   %46 = load i32, ptr %45, align 4, !tbaa !39
   %47 = lshr i32 %46, 6
@@ -5867,7 +5867,7 @@ ir_bitqueue_add.exit31.sink.split:                ; preds = %.thread, %ir_is_dea
   store i32 %.sink, ptr %14, align 4, !tbaa !35
   br label %ir_bitqueue_add.exit31
 
-ir_bitqueue_add.exit31:                           ; preds = %ir_bitqueue_add.exit31.sink.split, %ir_is_dead.exit, %ir_is_dead.exit.thread33.thread40, %.thread, %ir_is_dead.exit.thread, %ir_is_dead.exit.thread33, %15
+ir_bitqueue_add.exit31:                           ; preds = %ir_bitqueue_add.exit31.sink.split, %ir_is_dead.exit, %ir_is_dead.exit.thread33.thread45, %.thread, %ir_is_dead.exit.thread, %ir_is_dead.exit.thread33, %15
   %58 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %.037, %12
   br i1 %exitcond.not, label %._crit_edge, label %15
@@ -5969,11 +5969,11 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
   %10 = load double, ptr %9, align 8, !tbaa !39
   %11 = fptrunc double %10 to float
   %12 = tail call i32 @ir_const_float(ptr noundef nonnull %0, float noundef %11) #14
-  br label %common.ret73
+  br label %common.ret77
 
 13:                                               ; preds = %3
   %14 = load i8, ptr %6, align 8, !tbaa !39
-  switch i8 %14, label %common.ret73 [
+  switch i8 %14, label %common.ret77 [
     i8 37, label %15
     i8 29, label %45
     i8 30, label %45
@@ -6015,7 +6015,7 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
 .loopexit:                                        ; preds = %.preheader, %26
   %32 = load i32, ptr %24, align 4, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %common.ret73
+  br label %common.ret77
 
 33:                                               ; preds = %15
   %34 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %2) #14
@@ -6036,11 +6036,11 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
 
 .loopexit72:                                      ; preds = %.preheader71, %33
   %44 = load i32, ptr %24, align 4, !tbaa !39
-  br label %common.ret73
+  br label %common.ret77
 
-common.ret73:                                     ; preds = %13, %60, %.loopexit72, %.loopexit, %8, %45
-  %common.ret73.op = phi i32 [ %1, %45 ], [ %12, %8 ], [ %32, %.loopexit ], [ %44, %.loopexit72 ], [ %1, %60 ], [ %1, %13 ]
-  ret i32 %common.ret73.op
+common.ret77:                                     ; preds = %13, %60, %.loopexit72, %.loopexit, %8, %45
+  %common.ret77.op = phi i32 [ %1, %45 ], [ %12, %8 ], [ %32, %.loopexit ], [ %44, %.loopexit72 ], [ %1, %60 ], [ %1, %13 ]
+  ret i32 %common.ret77.op
 
 45:                                               ; preds = %13, %13
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -6049,7 +6049,7 @@ common.ret73:                                     ; preds = %13, %60, %.loopexit
   store i32 %48, ptr %46, align 4, !tbaa !39
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 13, ptr %49, align 1, !tbaa !39
-  br label %common.ret73
+  br label %common.ret77
 
 50:                                               ; preds = %13, %13, %13, %13, %13, %13
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -6071,7 +6071,7 @@ common.ret73:                                     ; preds = %13, %60, %.loopexit
   store i32 %storemerge, ptr %53, align 8, !tbaa !39
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 13, ptr %61, align 1, !tbaa !39
-  br label %common.ret73
+  br label %common.ret77
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6123,7 +6123,7 @@ define internal fastcc void @ir_iter_replace_insn(ptr noundef %0, i32 noundef ra
   %27 = icmp ne i32 %26, 1024
   %28 = icmp ne i8 %.pre122, 71
   %or.cond.i.i = and i1 %28, %27
-  br i1 %or.cond.i.i, label %ir_is_dead.exit.thread86.thread124, label %ir_is_dead.exit.thread
+  br i1 %or.cond.i.i, label %ir_is_dead.exit.thread86.thread136, label %ir_is_dead.exit.thread
 
 ir_is_dead.exit:                                  ; preds = %17
   %29 = icmp ult i8 %.pre122, 61
@@ -6150,11 +6150,11 @@ ir_is_dead.exit.thread86:                         ; preds = %17
   %or.cond = and i1 %41, %42
   br i1 %or.cond, label %.thread, label %ir_bitqueue_add.exit79
 
-ir_is_dead.exit.thread86.thread124:               ; preds = %22
+ir_is_dead.exit.thread86.thread136:               ; preds = %22
   %43 = icmp eq i8 %.pre122, 59
   br i1 %43, label %.thread, label %ir_bitqueue_add.exit79
 
-.thread:                                          ; preds = %ir_is_dead.exit.thread86, %ir_is_dead.exit.thread86.thread124
+.thread:                                          ; preds = %ir_is_dead.exit.thread86, %ir_is_dead.exit.thread86.thread136
   %44 = lshr i32 %15, 6
   %45 = and i32 %15, 63
   %46 = zext nneg i32 %45 to i64
@@ -6174,7 +6174,7 @@ ir_bitqueue_add.exit79.sink.split:                ; preds = %.thread, %ir_is_dea
   store i32 %.sink, ptr %13, align 4, !tbaa !35
   br label %ir_bitqueue_add.exit79
 
-ir_bitqueue_add.exit79:                           ; preds = %ir_bitqueue_add.exit79.sink.split, %ir_is_dead.exit, %ir_is_dead.exit.thread86.thread124, %.thread, %ir_is_dead.exit.thread, %ir_is_dead.exit.thread86, %14
+ir_bitqueue_add.exit79:                           ; preds = %ir_bitqueue_add.exit79.sink.split, %ir_is_dead.exit, %ir_is_dead.exit.thread86.thread136, %.thread, %ir_is_dead.exit.thread, %ir_is_dead.exit.thread86, %14
   %55 = add nuw nsw i32 %.092, 1
   %exitcond.not = icmp eq i32 %.092, %10
   br i1 %exitcond.not, label %._crit_edge, label %14
@@ -6461,11 +6461,11 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
   %10 = load float, ptr %9, align 8, !tbaa !39
   %11 = fpext float %10 to double
   %12 = tail call i32 @ir_const_double(ptr noundef nonnull %0, double noundef %11) #14
-  br label %common.ret102
+  br label %common.ret108
 
 13:                                               ; preds = %3
   %14 = load i8, ptr %6, align 8, !tbaa !39
-  switch i8 %14, label %common.ret102 [
+  switch i8 %14, label %common.ret108 [
     i8 37, label %15
     i8 35, label %45
     i8 29, label %74
@@ -6507,7 +6507,7 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
 .loopexit:                                        ; preds = %.preheader, %26
   %32 = load i32, ptr %24, align 4, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %common.ret102
+  br label %common.ret108
 
 33:                                               ; preds = %15
   %34 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %2) #14
@@ -6528,7 +6528,7 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
 
 .loopexit95:                                      ; preds = %.preheader94, %33
   %44 = load i32, ptr %24, align 4, !tbaa !39
-  br label %common.ret102
+  br label %common.ret108
 
 45:                                               ; preds = %13
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -6577,16 +6577,16 @@ ir_find1.exit:                                    ; preds = %60
   store i32 0, ptr %71, align 4, !tbaa !42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %72 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %61, i32 noundef %2) #14
-  br label %common.ret102
+  br label %common.ret108
 
 ir_find1.exit.thread:                             ; preds = %65, %45, %ir_find1.exit
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 12, ptr %73, align 1, !tbaa !39
-  br label %common.ret102
+  br label %common.ret108
 
-common.ret102:                                    ; preds = %13, %89, %ir_find1.exit.thread, %69, %.loopexit95, %.loopexit, %8, %74
-  %common.ret102.op = phi i32 [ %1, %74 ], [ %12, %8 ], [ %32, %.loopexit ], [ %44, %.loopexit95 ], [ %61, %69 ], [ %1, %ir_find1.exit.thread ], [ %1, %89 ], [ %1, %13 ]
-  ret i32 %common.ret102.op
+common.ret108:                                    ; preds = %13, %89, %ir_find1.exit.thread, %69, %.loopexit95, %.loopexit, %8, %74
+  %common.ret108.op = phi i32 [ %1, %74 ], [ %12, %8 ], [ %32, %.loopexit ], [ %44, %.loopexit95 ], [ %61, %69 ], [ %1, %ir_find1.exit.thread ], [ %1, %89 ], [ %1, %13 ]
+  ret i32 %common.ret108.op
 
 74:                                               ; preds = %13, %13
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -6595,7 +6595,7 @@ common.ret102:                                    ; preds = %13, %89, %ir_find1.
   store i32 %77, ptr %75, align 4, !tbaa !39
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 12, ptr %78, align 1, !tbaa !39
-  br label %common.ret102
+  br label %common.ret108
 
 79:                                               ; preds = %13, %13, %13, %13, %13
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -6617,7 +6617,7 @@ common.ret102:                                    ; preds = %13, %89, %ir_find1.
   store i32 %storemerge, ptr %82, align 8, !tbaa !39
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 12, ptr %90, align 1, !tbaa !39
-  br label %common.ret102
+  br label %common.ret108
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -6717,11 +6717,11 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
   %11 = trunc nuw i32 %1 to i8
   %12 = load i64, ptr %10, align 8
   %13 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %12, i8 noundef zeroext %11) #14
-  br label %common.ret80
+  br label %common.ret84
 
 14:                                               ; preds = %4
   %15 = load i8, ptr %7, align 8, !tbaa !39
-  switch i8 %15, label %common.ret80 [
+  switch i8 %15, label %common.ret84 [
     i8 32, label %16
     i8 31, label %16
     i8 29, label %46
@@ -6767,7 +6767,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
 .loopexit:                                        ; preds = %.preheader, %27
   %33 = load i32, ptr %25, align 4, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  br label %common.ret80
+  br label %common.ret84
 
 34:                                               ; preds = %16
   %35 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %3) #14
@@ -6788,11 +6788,11 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
 
 .loopexit79:                                      ; preds = %.preheader78, %34
   %45 = load i32, ptr %25, align 4, !tbaa !39
-  br label %common.ret80
+  br label %common.ret84
 
-common.ret80:                                     ; preds = %14, %62, %.loopexit79, %.loopexit, %9, %46
-  %common.ret80.op = phi i32 [ %2, %46 ], [ %13, %9 ], [ %33, %.loopexit ], [ %45, %.loopexit79 ], [ %2, %62 ], [ %2, %14 ]
-  ret i32 %common.ret80.op
+common.ret84:                                     ; preds = %14, %62, %.loopexit79, %.loopexit, %9, %46
+  %common.ret84.op = phi i32 [ %2, %46 ], [ %13, %9 ], [ %33, %.loopexit ], [ %45, %.loopexit79 ], [ %2, %62 ], [ %2, %14 ]
+  ret i32 %common.ret84.op
 
 46:                                               ; preds = %14, %14, %14
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -6802,7 +6802,7 @@ common.ret80:                                     ; preds = %14, %62, %.loopexit
   %50 = trunc nuw i32 %1 to i8
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %50, ptr %51, align 1, !tbaa !39
-  br label %common.ret80
+  br label %common.ret84
 
 52:                                               ; preds = %14, %14, %14, %14, %14, %14, %14, %14
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -6825,7 +6825,7 @@ common.ret80:                                     ; preds = %14, %62, %.loopexit
   %63 = trunc nuw i32 %1 to i8
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %63, ptr %64, align 1, !tbaa !39
-  br label %common.ret80
+  br label %common.ret84
 }
 
 declare i32 @ir_const_float(ptr noundef, float noundef) local_unnamed_addr #3
@@ -7174,9 +7174,9 @@ define internal fastcc noundef zeroext i1 @ir_try_split_if(ptr noundef %0, i32 n
 
 85:                                               ; preds = %.thread, %79
   %86 = phi ptr [ %78, %.thread ], [ %84, %79 ]
-  %.0203283 = phi i32 [ %48, %.thread ], [ %50, %79 ]
-  %.0204280 = phi i32 [ %50, %.thread ], [ %48, %79 ]
-  %.0205277 = phi ptr [ %54, %.thread ], [ %52, %79 ]
+  %.0203298 = phi i32 [ %48, %.thread ], [ %50, %79 ]
+  %.0204295 = phi i32 [ %50, %.thread ], [ %48, %79 ]
+  %.0205292 = phi ptr [ %54, %.thread ], [ %52, %79 ]
   %87 = phi ptr [ %7, %.thread ], [ %.pre, %79 ]
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %89 = load i8, ptr %88, align 1, !tbaa !39
@@ -7215,16 +7215,16 @@ ir_const_is_true.exit234:                         ; preds = %100
   br i1 %107, label %ir_const_is_true.exit234.thread, label %109
 
 ir_const_is_true.exit234.thread:                  ; preds = %79, %103, %97, %91, %ir_const_is_true.exit234
-  %.0203282 = phi i32 [ %50, %79 ], [ %.0203283, %103 ], [ %.0203283, %97 ], [ %.0203283, %91 ], [ %.0203283, %ir_const_is_true.exit234 ]
-  %.0204279 = phi i32 [ %48, %79 ], [ %.0204280, %103 ], [ %.0204280, %97 ], [ %.0204280, %91 ], [ %.0204280, %ir_const_is_true.exit234 ]
-  %.0205276 = phi ptr [ %52, %79 ], [ %.0205277, %103 ], [ %.0205277, %97 ], [ %.0205277, %91 ], [ %.0205277, %ir_const_is_true.exit234 ]
+  %.0203297 = phi i32 [ %50, %79 ], [ %.0203298, %103 ], [ %.0203298, %97 ], [ %.0203298, %91 ], [ %.0203298, %ir_const_is_true.exit234 ]
+  %.0204294 = phi i32 [ %48, %79 ], [ %.0204295, %103 ], [ %.0204295, %97 ], [ %.0204295, %91 ], [ %.0204295, %ir_const_is_true.exit234 ]
+  %.0205291 = phi ptr [ %52, %79 ], [ %.0205292, %103 ], [ %.0205292, %97 ], [ %.0205292, %91 ], [ %.0205292, %ir_const_is_true.exit234 ]
   %108 = phi ptr [ %.pre, %79 ], [ %87, %103 ], [ %87, %97 ], [ %87, %91 ], [ %87, %ir_const_is_true.exit234 ]
   br label %109
 
 109:                                              ; preds = %103, %97, %91, %ir_const_is_true.exit234.thread, %ir_const_is_true.exit234
-  %.0203281 = phi i32 [ %.0203282, %ir_const_is_true.exit234.thread ], [ %.0203283, %ir_const_is_true.exit234 ], [ %.0203283, %91 ], [ %.0203283, %97 ], [ %.0203283, %103 ]
-  %.0204278 = phi i32 [ %.0204279, %ir_const_is_true.exit234.thread ], [ %.0204280, %ir_const_is_true.exit234 ], [ %.0204280, %91 ], [ %.0204280, %97 ], [ %.0204280, %103 ]
-  %.0205275 = phi ptr [ %.0205276, %ir_const_is_true.exit234.thread ], [ %.0205277, %ir_const_is_true.exit234 ], [ %.0205277, %91 ], [ %.0205277, %97 ], [ %.0205277, %103 ]
+  %.0203296 = phi i32 [ %.0203297, %ir_const_is_true.exit234.thread ], [ %.0203298, %ir_const_is_true.exit234 ], [ %.0203298, %91 ], [ %.0203298, %97 ], [ %.0203298, %103 ]
+  %.0204293 = phi i32 [ %.0204294, %ir_const_is_true.exit234.thread ], [ %.0204295, %ir_const_is_true.exit234 ], [ %.0204295, %91 ], [ %.0204295, %97 ], [ %.0204295, %103 ]
+  %.0205290 = phi ptr [ %.0205291, %ir_const_is_true.exit234.thread ], [ %.0205292, %ir_const_is_true.exit234 ], [ %.0205292, %91 ], [ %.0205292, %97 ], [ %.0205292, %103 ]
   %110 = phi ptr [ %108, %ir_const_is_true.exit234.thread ], [ %87, %ir_const_is_true.exit234 ], [ %87, %91 ], [ %87, %97 ], [ %87, %103 ]
   %.0.i233264 = phi i1 [ true, %ir_const_is_true.exit234.thread ], [ false, %ir_const_is_true.exit234 ], [ false, %91 ], [ false, %97 ], [ false, %103 ]
   %.0260 = phi i32 [ %.1, %ir_const_is_true.exit234.thread ], [ %.1261, %ir_const_is_true.exit234 ], [ %.1261, %91 ], [ %.1261, %97 ], [ %.1261, %103 ]
@@ -7287,12 +7287,12 @@ ir_const_is_true.exit234.thread:                  ; preds = %79, %103, %97, %91,
 ir_const_is_true.exit:                            ; preds = %126, %132, %139, %142
   %.0.i = phi i1 [ %129, %126 ], [ %135, %132 ], [ %141, %139 ], [ %144, %142 ]
   %145 = xor i1 %.0.i233264, %.0.i
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203281, i32 noundef %18, i32 noundef %.0) #14
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203296, i32 noundef %18, i32 noundef %.0) #14
   %146 = getelementptr inbounds nuw i8, ptr %114, i64 4
   br i1 %145, label %147, label %180
 
 147:                                              ; preds = %ir_const_is_true.exit
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %18, i32 noundef %.0260) #14
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0204293, i32 noundef %18, i32 noundef %.0260) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %148 = load ptr, ptr %41, align 8, !tbaa !41
   %149 = getelementptr inbounds %struct._ir_use_list, ptr %148, i64 %39, i32 1
@@ -7306,10 +7306,10 @@ ir_const_is_true.exit:                            ; preds = %126, %132, %139, %1
   %153 = getelementptr inbounds %struct._ir_use_list, ptr %152, i64 %60, i32 1
   store i32 0, ptr %153, align 4, !tbaa !42
   store i32 65629, ptr %114, align 8, !tbaa !39
-  store i32 %.0203281, ptr %146, align 4, !tbaa !39
+  store i32 %.0203296, ptr %146, align 4, !tbaa !39
   store i32 65629, ptr %112, align 8, !tbaa !39
   %154 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  store i32 %.0204278, ptr %154, align 4, !tbaa !39
+  store i32 %.0204293, ptr %154, align 4, !tbaa !39
   %155 = lshr i32 %.0, 6
   %156 = and i32 %.0, 63
   %157 = zext nneg i32 %156 to i64
@@ -7349,7 +7349,7 @@ ir_bitqueue_add.exit230:                          ; preds = %147, %168
   br label %.critedge
 
 180:                                              ; preds = %ir_const_is_true.exit
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %18, i32 noundef %.0) #14
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0204293, i32 noundef %18, i32 noundef %.0) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %181 = load ptr, ptr %41, align 8, !tbaa !41
   %182 = getelementptr inbounds %struct._ir_use_list, ptr %181, i64 %39, i32 1
@@ -7363,9 +7363,9 @@ ir_bitqueue_add.exit230:                          ; preds = %147, %168
   %186 = getelementptr inbounds %struct._ir_use_list, ptr %185, i64 %60, i32 1
   store i32 0, ptr %186, align 4, !tbaa !42
   store i32 131170, ptr %114, align 8, !tbaa !39
-  store i32 %.0203281, ptr %146, align 4, !tbaa !39
+  store i32 %.0203296, ptr %146, align 4, !tbaa !39
   %187 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store i32 %.0204278, ptr %187, align 8, !tbaa !39
+  store i32 %.0204293, ptr %187, align 8, !tbaa !39
   store i32 93, ptr %112, align 8, !tbaa !39
   %188 = getelementptr inbounds nuw i8, ptr %112, i64 4
   store i32 0, ptr %188, align 4, !tbaa !39
@@ -7401,18 +7401,18 @@ ir_bitqueue_add.exit230:                          ; preds = %147, %168
   br i1 %208, label %210, label %209
 
 209:                                              ; preds = %206
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %207, i32 noundef %6, i32 noundef %.0204278) #14
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %207, i32 noundef %6, i32 noundef %.0204293) #14
   br label %210
 
 210:                                              ; preds = %209, %206
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203281, i32 noundef %18, i32 noundef %.0) #14
-  %211 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %.0260) #14
-  store i32 131174, ptr %.0205275, align 8, !tbaa !39
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203296, i32 noundef %18, i32 noundef %.0) #14
+  %211 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0204293, i32 noundef %.0260) #14
+  store i32 131174, ptr %.0205290, align 8, !tbaa !39
   %212 = load i32, ptr %115, align 4, !tbaa !39
-  %213 = getelementptr inbounds nuw i8, ptr %.0205275, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %.0205290, i64 8
   store i32 %212, ptr %213, align 8, !tbaa !39
   store i32 %.0206, ptr %40, align 8, !tbaa !39
-  store i32 %.0204278, ptr %47, align 4, !tbaa !39
+  store i32 %.0204293, ptr %47, align 4, !tbaa !39
   store i32 0, ptr %49, align 8, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %214 = load ptr, ptr %41, align 8, !tbaa !41
@@ -7422,10 +7422,10 @@ ir_bitqueue_add.exit230:                          ; preds = %147, %168
   store i32 %18, ptr %19, align 4, !tbaa !39
   store i32 0, ptr %5, align 8, !tbaa !39
   %216 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  store i32 %.0204278, ptr %216, align 4, !tbaa !39
+  store i32 %.0204293, ptr %216, align 4, !tbaa !39
   store i32 131170, ptr %114, align 8, !tbaa !39
   %217 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  store i32 %.0203281, ptr %217, align 4, !tbaa !39
+  store i32 %.0203296, ptr %217, align 4, !tbaa !39
   %218 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i32 %1, ptr %218, align 8, !tbaa !39
   %219 = lshr i32 %.0, 6
@@ -7451,7 +7451,7 @@ ir_bitqueue_add.exit230:                          ; preds = %147, %168
 ir_bitqueue_add.exit227:                          ; preds = %210, %232
   %233 = phi i32 [ %230, %210 ], [ %219, %232 ]
   %234 = load ptr, ptr %0, align 8, !tbaa !38
-  %235 = getelementptr inbounds nuw i8, ptr %.0205275, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %.0205290, i64 4
   %236 = load i32, ptr %235, align 4, !tbaa !39
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds %struct._ir_insn, ptr %234, i64 %237

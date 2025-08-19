@@ -136,10 +136,10 @@ define internal range(i32 0, 2) i32 @ecx_pub_encode(ptr noundef %0, ptr noundef 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %30
-  %.sink18 = phi i32 [ 48, %30 ], [ 37, %2 ]
+  %.sink20 = phi i32 [ 48, %30 ], [ 37, %2 ]
   %.sink = phi i32 [ 524299, %30 ], [ 116, %2 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef %.sink18, ptr noundef nonnull @__func__.ecx_pub_encode) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef %.sink20, ptr noundef nonnull @__func__.ecx_pub_encode) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
   br label %31
 

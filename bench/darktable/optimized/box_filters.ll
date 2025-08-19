@@ -304,8 +304,8 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i34:         ; preds = %.lr.ph.i.i.i31, %91
   %.sroa.0.i.i.0 = phi nsz float [ 0.000000e+00, %.lr.ph.preheader.i.us.i42 ], [ %115, %.lr.ph.i.us.i43 ]
   %.sroa.12.i.i.0 = phi nsz float [ 0.000000e+00, %.lr.ph.preheader.i.us.i42 ], [ %118, %.lr.ph.i.us.i43 ]
   %.066107.i.us.i = phi i64 [ 0, %.lr.ph.preheader.i.us.i42 ], [ %119, %.lr.ph.i.us.i43 ]
-  %.idx124.i.us.i = shl i64 %.066107.i.us.i, 3
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx124.i.us.i
+  %.idx134.i.us.i = shl i64 %.066107.i.us.i, 3
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx134.i.us.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %114 = load float, ptr %113, align 4, !tbaa !13, !alias.scope !87, !noalias !88
   %115 = fadd reassoc nsz arcp contract afn float %.sroa.0.i.i.0, %114
@@ -558,8 +558,8 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i63:         ; preds = %.lr.ph.i.i.i60, %19
 
 .lr.ph.i.us.i75:                                  ; preds = %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i.us.i, %.lr.ph.preheader.i.us.i74
   %.066106.i.us.i = phi i64 [ %228, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i.us.i ], [ 0, %.lr.ph.preheader.i.us.i74 ]
-  %.idx123.i.us.i = shl i64 %.066106.i.us.i, 4
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 %.idx123.i.us.i
+  %.idx133.i.us.i = shl i64 %.066106.i.us.i, 4
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 %.idx133.i.us.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
@@ -903,8 +903,8 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i112:        ; preds = %.lr.ph.i.i.i109, %3
   %.sroa.0146.i.i.0 = phi nsz float [ 0.000000e+00, %.lr.ph.preheader.i.us.i119 ], [ %354, %.lr.ph.i.us.i120 ]
   %.sroa.12.i.i105.0 = phi nsz float [ 0.000000e+00, %.lr.ph.preheader.i.us.i119 ], [ %357, %.lr.ph.i.us.i120 ]
   %.066129.i.us.i = phi i64 [ 0, %.lr.ph.preheader.i.us.i119 ], [ %358, %.lr.ph.i.us.i120 ]
-  %.idx147.i.us.i = shl i64 %.066129.i.us.i, 3
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 %.idx147.i.us.i
+  %.idx157.i.us.i = shl i64 %.066129.i.us.i, 3
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 %.idx157.i.us.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %353 = load float, ptr %352, align 4, !tbaa !13, !alias.scope !253, !noalias !254
   %354 = fadd reassoc nsz arcp contract afn float %353, %.sroa.0146.i.i.0
@@ -1240,8 +1240,8 @@ define void @dt_box_mean_horizontal(ptr noalias noundef captures(none) %0, i64 n
 
 .lr.ph.i:                                         ; preds = %_ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit.i, %.lr.ph.preheader.i
   %.066115.i = phi i64 [ %36, %_ZL9_load_addILm9ELb1EEvPfS0_PKfS0_.exit.i ], [ 0, %.lr.ph.preheader.i ]
-  %.idx132.i = mul i64 %.066115.i, 36
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx132.i
+  %.idx142.i = mul i64 %.066115.i, 36
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx142.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
@@ -1575,8 +1575,8 @@ define internal fastcc void @_ZL16_blur_horizontalILm4ELb1EEvPfmmS0_(ptr noalias
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit
   %.066113 = phi i64 [ %20, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit ], [ 0, %.lr.ph.preheader ]
-  %.idx130 = shl i64 %.066113, 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx130
+  %.idx140 = shl i64 %.066113, 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx140
   tail call void @llvm.experimental.noalias.scope.decl(metadata !438)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)

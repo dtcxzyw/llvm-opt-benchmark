@@ -73,7 +73,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
   %41 = icmp ult i8 %.fr14, 9
   %.16 = select i1 %15, i32 12, i32 6
   %. = select i1 %15, i32 24, i32 18
-  %spec.select19 = select i1 %41, i32 %., i32 %.16
+  %spec.select23 = select i1 %41, i32 %., i32 %.16
   br label %.thread7
 
 42:                                               ; preds = %9
@@ -82,7 +82,7 @@ define dso_local i32 @gen8_emit_flush_rcs(ptr noundef %0, i32 noundef %1) local_
 
 .thread7:                                         ; preds = %39, %42
   %43 = phi i1 [ false, %42 ], [ %41, %39 ]
-  %44 = phi i32 [ %spec.select, %42 ], [ %spec.select19, %39 ]
+  %44 = phi i32 [ %spec.select, %42 ], [ %spec.select23, %39 ]
   %45 = tail call ptr @intel_ring_begin(ptr noundef %0, i32 noundef %44) #5
   %46 = icmp ugt ptr %45, inttoptr (i64 -4096 to ptr)
   br i1 %46, label %49, label %53

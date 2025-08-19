@@ -2058,7 +2058,7 @@ for.cond.cleanup92:                               ; preds = %if.then.epil, %for.
   br label %for.cond.cleanup92.thread
 
 for.cond.cleanup92.thread:                        ; preds = %if.end.i, %_ZNSt6vectorIsSaIsEE7reserveEm.exit, %for.cond.cleanup, %for.cond.cleanup92, %invoke.cont86
-  %temp_transition_heights.sroa.0.1.lcssa26522 = phi ptr [ %temp_transition_heights.sroa.0.4, %invoke.cont86 ], [ %temp_transition_heights.sroa.0.4, %for.cond.cleanup92 ], [ null, %if.end.i ], [ %call5.i.i.i.i141, %_ZNSt6vectorIsSaIsEE7reserveEm.exit ], [ %temp_transition_heights.sroa.0.4, %for.cond.cleanup ]
+  %temp_transition_heights.sroa.0.1.lcssa26524 = phi ptr [ %temp_transition_heights.sroa.0.4, %invoke.cont86 ], [ %temp_transition_heights.sroa.0.4, %for.cond.cleanup92 ], [ null, %if.end.i ], [ %call5.i.i.i.i141, %_ZNSt6vectorIsSaIsEE7reserveEm.exit ], [ %temp_transition_heights.sroa.0.4, %for.cond.cleanup ]
   %44 = phi i64 [ 2, %invoke.cont86 ], [ %43, %for.cond.cleanup92 ], [ 2, %if.end.i ], [ 2, %_ZNSt6vectorIsSaIsEE7reserveEm.exit ], [ 2, %for.cond.cleanup ]
   %45 = phi i64 [ 2, %invoke.cont86 ], [ %spec.select, %for.cond.cleanup92 ], [ 2, %if.end.i ], [ 2, %_ZNSt6vectorIsSaIsEE7reserveEm.exit ], [ 2, %for.cond.cleanup ]
   %call106 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %45) #25
@@ -2105,8 +2105,8 @@ for.inc101.1:                                     ; preds = %if.then.1, %for.inc
 _ZNSt6vectorIsSaIsEED2Ev.exit:                    ; preds = %for.cond.cleanup92.thread
   %biome_transitions = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call106, ptr %biome_transitions, align 8, !tbaa !92
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call106, ptr nonnull align 2 %temp_transition_heights.sroa.0.1.lcssa26522, i64 %44, i1 false)
-  tail call void @_ZdlPv(ptr noundef nonnull %temp_transition_heights.sroa.0.1.lcssa26522) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call106, ptr nonnull align 2 %temp_transition_heights.sroa.0.1.lcssa26524, i64 %44, i1 false)
+  tail call void @_ZdlPv(ptr noundef nonnull %temp_transition_heights.sroa.0.1.lcssa26524) #24
   ret void
 
 ehcleanup112.thread:                              ; preds = %for.cond.cleanup92.thread
@@ -2121,7 +2121,7 @@ ehcleanup112:                                     ; preds = %lpad73.loopexit.spl
   br i1 %tobool.not.i.i.i199, label %ehcleanup114, label %ehcleanup114.sink.split
 
 ehcleanup114.sink.split:                          ; preds = %ehcleanup112, %ehcleanup112.thread, %lpad38, %lpad27, %lpad16, %lpad5
-  %temp_transition_heights.sroa.0.6222.sink = phi ptr [ %call30, %lpad38 ], [ %call19, %lpad27 ], [ %call8, %lpad16 ], [ %call, %lpad5 ], [ %temp_transition_heights.sroa.0.1.lcssa26522, %ehcleanup112.thread ], [ %temp_transition_heights.sroa.0.6, %ehcleanup112 ]
+  %temp_transition_heights.sroa.0.6222.sink = phi ptr [ %call30, %lpad38 ], [ %call19, %lpad27 ], [ %call8, %lpad16 ], [ %call, %lpad5 ], [ %temp_transition_heights.sroa.0.1.lcssa26524, %ehcleanup112.thread ], [ %temp_transition_heights.sroa.0.6, %ehcleanup112 ]
   %.pn.pn.ph = phi { ptr, i32 } [ %26, %lpad38 ], [ %25, %lpad27 ], [ %24, %lpad16 ], [ %23, %lpad5 ], [ %48, %ehcleanup112.thread ], [ %.pn, %ehcleanup112 ]
   tail call void @_ZdlPv(ptr noundef nonnull %temp_transition_heights.sroa.0.6222.sink) #24
   br label %ehcleanup114

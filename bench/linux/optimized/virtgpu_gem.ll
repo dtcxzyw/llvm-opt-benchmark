@@ -382,7 +382,7 @@ define dso_local ptr @virtio_gpu_array_from_handles(ptr noundef %0, ptr noundef 
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %2, ptr %11, align 4
   %12 = icmp eq i32 %2, 0
-  br i1 %12, label %.loopexit11, label %13
+  br i1 %12, label %.loopexit17, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -445,14 +445,14 @@ define dso_local ptr @virtio_gpu_array_from_handles(ptr noundef %0, ptr noundef 
 39:                                               ; preds = %15
   %40 = add nuw nsw i64 %16, 1
   %41 = icmp eq i64 %40, %4
-  br i1 %41, label %.loopexit11, label %15, !llvm.loop !21
+  br i1 %41, label %.loopexit17, label %15, !llvm.loop !21
 
-.loopexit11:                                      ; preds = %39, %9
+.loopexit17:                                      ; preds = %39, %9
   store i32 %2, ptr %10, align 8
   br label %.thread
 
-.thread:                                          ; preds = %3, %.loopexit11, %.loopexit
-  %42 = phi ptr [ null, %.loopexit ], [ %7, %.loopexit11 ], [ null, %3 ]
+.thread:                                          ; preds = %3, %.loopexit17, %.loopexit
+  %42 = phi ptr [ null, %.loopexit ], [ %7, %.loopexit17 ], [ null, %3 ]
   ret ptr %42
 }
 

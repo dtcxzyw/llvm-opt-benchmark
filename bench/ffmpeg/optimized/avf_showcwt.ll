@@ -550,20 +550,20 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %30
-  %.sink435.in = phi ptr [ %29, %28 ], [ %31, %30 ]
-  %.sink424 = phi i64 [ 12, %28 ], [ 8, %30 ]
-  %.sink435 = load i32, ptr %.sink435.in, align 4, !tbaa !62
-  %32 = sitofp i32 %.sink435 to float
+  %.sink455.in = phi ptr [ %29, %28 ], [ %31, %30 ]
+  %.sink444 = phi i64 [ 12, %28 ], [ 8, %30 ]
+  %.sink455 = load i32, ptr %.sink455.in, align 4, !tbaa !62
+  %32 = sitofp i32 %.sink455 to float
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 348
   %34 = load float, ptr %33, align 4, !tbaa !79
   %35 = fmul nsz float %34, %32
   %36 = fptosi float %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 352
   store i32 %36, ptr %37, align 8, !tbaa !80
-  %38 = sub nsw i32 %.sink435, %36
+  %38 = sub nsw i32 %.sink455, %36
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 356
   store i32 %38, ptr %39, align 4, !tbaa !81
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink424
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink444
   %.sink = load i32, ptr %40, align 4, !tbaa !62
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 312
   store i32 %.sink, ptr %41, align 8, !tbaa !37
@@ -1310,9 +1310,9 @@ switch.lookup:                                    ; preds = %._crit_edge390
   %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.output_frame, i64 0, i64 %487
   %switch.load = load i64, ptr %switch.gep, align 8
   %488 = getelementptr inbounds nuw i8, ptr %8, i64 %switch.load
-  %.sink416 = load i32, ptr %488, align 4, !tbaa !62
+  %.sink436 = load i32, ptr %488, align 4, !tbaa !62
   %489 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store i32 %.sink416, ptr %489, align 8, !tbaa !123
+  store i32 %.sink436, ptr %489, align 8, !tbaa !123
   br label %490
 
 490:                                              ; preds = %._crit_edge390, %switch.lookup
@@ -2005,9 +2005,9 @@ define internal noundef i32 @run_channel_cwt(ptr noundef readonly captures(none)
   br label %117
 
 117:                                              ; preds = %108, %104
-  %.sink160 = phi i64 [ %110, %108 ], [ %107, %104 ]
+  %.sink163 = phi i64 [ %110, %108 ], [ %107, %104 ]
   %.sink = phi ptr [ %116, %108 ], [ %106, %104 ]
-  %118 = shl nsw i64 %.sink160, 3
+  %118 = shl nsw i64 %.sink163, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %90, ptr align 4 %.sink, i64 %118, i1 false)
   %119 = load ptr, ptr %56, align 8, !tbaa !77
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
@@ -2560,8 +2560,8 @@ define internal fastcc i32 @output_frame(ptr noundef %0) unnamed_addr #1 {
   %240 = sext i32 %239 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %238, i8 %231, i64 %240, i1 false)
   %indvars.iv.next281 = add nsw i64 %indvars.iv280, -1
-  %.not333 = icmp eq i64 %indvars.iv280, 0
-  br i1 %.not333, label %._crit_edge244, label %233, !llvm.loop !164
+  %.not347 = icmp eq i64 %indvars.iv280, 0
+  br i1 %.not347, label %._crit_edge244, label %233, !llvm.loop !164
 
 switch.lookup:                                    ; preds = %113
   %241 = zext nneg i32 %115 to i64

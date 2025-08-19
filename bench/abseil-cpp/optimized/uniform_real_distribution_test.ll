@@ -21893,9 +21893,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread: ; preds
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %81 = load ptr, ptr %4, align 8, !tbaa !11
   %82 = icmp eq ptr %81, %7
-  br i1 %82, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread26
+  br i1 %82, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread31
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread26: ; preds = %.body
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread31: ; preds = %.body
   %83 = load i64, ptr %7, align 8, !tbaa !17
   %84 = add i64 %83, 1
   call void @_ZdlPvm(ptr noundef %81, i64 noundef %84) #27
@@ -21926,8 +21926,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %.bo
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %94
 
-93:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread
-  %.pn17 = phi { ptr, i32 } [ %80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9 ], [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread26 ]
+93:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread
+  %.pn17 = phi { ptr, i32 } [ %80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread ], [ %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9 ], [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.thread31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 168) #27
   br label %94
@@ -24332,15 +24332,15 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
   %29 = add nsw i32 %reass.sub, 1056964608
   %30 = bitcast i32 %29 to float
   %31 = fcmp uge float %30, 1.000000e+00
-  br i1 %31, label %.split.i.i, label %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit103
+  br i1 %31, label %.split.i.i, label %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit126
 
-_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit103: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit126: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
   %32 = fadd float %30, 0.000000e+00
   br label %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit
 
-_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit: ; preds = %.split.i.i, %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit103
-  %.0.i.i.i102 = phi float [ %32, %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit103 ], [ 0.000000e+00, %.split.i.i ]
-  %33 = fpext float %.0.i.i.i102 to double
+_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit: ; preds = %.split.i.i, %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit126
+  %.0.i.i.i125 = phi float [ %32, %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit126 ], [ 0.000000e+00, %.split.i.i ]
+  %33 = fpext float %.0.i.i.i125 to double
   %34 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   store double %33, ptr %34, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -24981,16 +24981,16 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %27 = add nsw i64 %reass.sub, 4602678819172646912
   %28 = bitcast i64 %27 to double
   %29 = fcmp uge double %28, 1.000000e+00
-  br i1 %29, label %.split.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit103
+  br i1 %29, label %.split.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit126
 
-_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit103: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit126: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
   %30 = fadd double %28, 0.000000e+00
   br label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit
 
-_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit103
-  %.0.i.i.i102 = phi double [ %30, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit103 ], [ 0.000000e+00, %.split.i.i ]
+_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit126
+  %.0.i.i.i125 = phi double [ %30, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit126 ], [ 0.000000e+00, %.split.i.i ]
   %31 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
-  store double %.0.i.i.i102, ptr %31, align 8, !tbaa !60
+  store double %.0.i.i.i125, ptr %31, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000000
   br i1 %exitcond.not, label %16, label %.split.i.i.preheader, !llvm.loop !327
@@ -28145,16 +28145,16 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
   %26 = add nsw i32 %reass.sub, 1056964608
   %27 = bitcast i32 %26 to float
   %28 = fcmp uge float %27, 1.000000e+00
-  br i1 %28, label %.split.i.i.i.us.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit60
+  br i1 %28, label %.split.i.i.i.us.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit60: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i
   %29 = fadd float %27, 0.000000e+00
   br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i: ; preds = %.split.i.i.i.us.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit60
-  %.0.i.i.i.i.us.i59 = phi float [ %29, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit60 ], [ 0.000000e+00, %.split.i.i.i.us.i ]
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i: ; preds = %.split.i.i.i.us.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
+  %.0.i.i.i.i.us.i67 = phi float [ %29, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68 ], [ 0.000000e+00, %.split.i.i.i.us.i ]
   %.sroa.03.08.us.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.03.08.us.i.idx
-  %30 = fmul float %.0.i.i.i.i.us.i59, 1.000000e+06
+  %30 = fmul float %.0.i.i.i.i.us.i67, 1.000000e+06
   %31 = fptosi float %30 to i32
   store i32 %31, ptr %.sroa.03.08.us.i.ptr, align 4, !tbaa !66
   %.sroa.03.08.us.i.add = add nuw nsw i64 %.sroa.03.08.us.i.idx, 4
@@ -31969,14 +31969,14 @@ _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %88, %82
   %91 = load ptr, ptr %90, align 8, !tbaa !11
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %93 = icmp eq ptr %91, %92
-  br i1 %93, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.us
+  br i1 %93, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.us
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.us: ; preds = %_ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.us: ; preds = %_ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us
   %94 = load ptr, ptr %11, align 8, !tbaa !11
   %95 = icmp eq ptr %94, %41
   br i1 %95, label %109, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.us
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.us: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.us
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.us: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.us
   %96 = load i64, ptr %92, align 8, !tbaa !17
   store ptr %94, ptr %90, align 8, !tbaa !11
   %97 = load i64, ptr %42, align 8, !tbaa !16
@@ -32013,8 +32013,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us:
   store ptr %41, ptr %11, align 8, !tbaa !11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.us
 
-109:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.us
-  %110 = phi ptr [ %94, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.us ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us ]
+109:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.us
+  %110 = phi ptr [ %94, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.us ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.us ]
   %111 = load i64, ptr %42, align 8, !tbaa !16
   %112 = icmp ult i64 %111, 16
   call void @llvm.assume(i1 %112)
@@ -32506,8 +32506,8 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %264
 
 277:                                              ; preds = %256
   %.not49203 = icmp ne ptr %184, %185
-  %or.cond223.not = and i1 %.not49203, %15
-  br i1 %or.cond223.not, label %.lr.ph206.preheader, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit
+  %or.cond264.not = and i1 %.not49203, %15
+  br i1 %or.cond264.not, label %.lr.ph206.preheader, label %_ZN7testing8internal15PrintIfNotEmptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo.exit
 
 .lr.ph206.preheader:                              ; preds = %277
   %.pre = load ptr, ptr %9, align 8, !tbaa !4
@@ -33223,16 +33223,16 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %24 = add nsw i64 %reass.sub, 4602678819172646912
   %25 = bitcast i64 %24 to double
   %26 = fcmp uge double %25, 1.000000e+00
-  br i1 %26, label %.split.i.i.i.us.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit60
+  br i1 %26, label %.split.i.i.i.us.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit60: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i
   %27 = fadd double %25, 0.000000e+00
   br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i
 
-_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i: ; preds = %.split.i.i.i.us.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit60
-  %.0.i.i.i.i.us.i59 = phi double [ %27, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit60 ], [ 0.000000e+00, %.split.i.i.i.us.i ]
+_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i: ; preds = %.split.i.i.i.us.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
+  %.0.i.i.i.i.us.i67 = phi double [ %27, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68 ], [ 0.000000e+00, %.split.i.i.i.us.i ]
   %.sroa.03.08.us.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.03.08.us.i.idx
-  %28 = fmul double %.0.i.i.i.i.us.i59, 1.000000e+06
+  %28 = fmul double %.0.i.i.i.i.us.i67, 1.000000e+06
   %29 = fptosi double %28 to i32
   store i32 %29, ptr %.sroa.03.08.us.i.ptr, align 4, !tbaa !66
   %.sroa.03.08.us.i.add = add nuw nsw i64 %.sroa.03.08.us.i.idx, 4
@@ -33519,17 +33519,17 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %24 = add nsw i64 %reass.sub, 4602678819172646912
   %25 = bitcast i64 %24 to double
   %26 = fcmp olt double %25, 1.000000e+00
-  br i1 %26, label %.noexc.split.loop.exit62, label %.split.i.i
+  br i1 %26, label %.noexc.split.loop.exit70, label %.split.i.i
 
-.noexc.split.loop.exit62:                         ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+.noexc.split.loop.exit70:                         ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
   %27 = fpext double %25 to x86_fp80
   %28 = fadd x86_fp80 %27, 0xK00000000000000000000
   br label %.noexc
 
-.noexc:                                           ; preds = %.split.i.i, %.noexc.split.loop.exit62
-  %.0.i.i.i61 = phi x86_fp80 [ %28, %.noexc.split.loop.exit62 ], [ 0xK00000000000000000000, %.split.i.i ]
+.noexc:                                           ; preds = %.split.i.i, %.noexc.split.loop.exit70
+  %.0.i.i.i69 = phi x86_fp80 [ %28, %.noexc.split.loop.exit70 ], [ 0xK00000000000000000000, %.split.i.i ]
   %.sroa.03.07.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.03.07.i.idx
-  %29 = fmul x86_fp80 %.0.i.i.i61, 0xK4012F424000000000000
+  %29 = fmul x86_fp80 %.0.i.i.i69, 0xK4012F424000000000000
   %30 = fptosi x86_fp80 %29 to i32
   store i32 %30, ptr %.sroa.03.07.i.ptr, align 4, !tbaa !66
   %.sroa.03.07.i.add = add nuw nsw i64 %.sroa.03.07.i.idx, 4

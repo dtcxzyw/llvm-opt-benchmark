@@ -391,7 +391,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK7rocksdb15Block
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit71:                 ; preds = %.body.thread, %.body, %128
-  %eh.lpad-body135 = phi { ptr, i32 } [ %126, %.body.thread ], [ %127, %.body ], [ %127, %128 ]
+  %eh.lpad-body162 = phi { ptr, i32 } [ %126, %.body.thread ], [ %127, %.body ], [ %127, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %312
 
@@ -822,7 +822,7 @@ _ZN7rocksdb6StatusD2Ev.exit99:                    ; preds = %_ZNKSt14default_del
   br label %312
 
 312:                                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit99, %_ZNSt14_Function_baseD2Ev.exit71, %_ZN7rocksdb6StatusD2Ev.exit68
-  %.pn54 = phi { ptr, i32 } [ %eh.lpad-body135, %_ZNSt14_Function_baseD2Ev.exit71 ], [ %.pn51.pn, %_ZN7rocksdb6StatusD2Ev.exit68 ], [ %.pn.pn, %_ZN7rocksdb6StatusD2Ev.exit99 ]
+  %.pn54 = phi { ptr, i32 } [ %eh.lpad-body162, %_ZNSt14_Function_baseD2Ev.exit71 ], [ %.pn51.pn, %_ZN7rocksdb6StatusD2Ev.exit68 ], [ %.pn.pn, %_ZN7rocksdb6StatusD2Ev.exit99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 }

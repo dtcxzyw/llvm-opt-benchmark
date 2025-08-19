@@ -312,27 +312,27 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %50 = getelementptr i8, ptr %10, i64 3100
   br label %51
 
-51:                                               ; preds = %.thread45, %47
-  %52 = phi i64 [ 0, %47 ], [ %71, %.thread45 ]
+51:                                               ; preds = %.thread59, %47
+  %52 = phi i64 [ 0, %47 ], [ %71, %.thread59 ]
   %53 = getelementptr [11 x %struct.resource], ptr %49, i64 0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %55, 512
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.thread45, label %58
+  br i1 %57, label %.thread59, label %58
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
-  br i1 %61, label %.thread45, label %62
+  br i1 %61, label %.thread59, label %62
 
 62:                                               ; preds = %58
   %63 = load i64, ptr %53, align 8
   %64 = add i64 %60, 1
   %65 = sub i64 %64, %63
   %66 = icmp ult i64 %65, %48
-  br i1 %66, label %.thread45, label %67
+  br i1 %66, label %.thread59, label %67
 
 67:                                               ; preds = %62
   %68 = load i64, ptr %53, align 8
@@ -340,12 +340,12 @@ define internal i32 @nv_probe(ptr noundef %0, ptr noundef readonly captures(none
   %70 = icmp eq i64 %69, 11
   br i1 %70, label %.critedge, label %73
 
-.thread45:                                        ; preds = %58, %62, %51
+.thread59:                                        ; preds = %58, %62, %51
   %71 = add nuw nsw i64 %52, 1
   %72 = icmp eq i64 %71, 11
   br i1 %72, label %.critedge, label %51, !llvm.loop !6
 
-.critedge:                                        ; preds = %.thread45, %67
+.critedge:                                        ; preds = %.thread59, %67
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %17, ptr noundef nonnull @.str.4) #19
   br label %662
 
@@ -3146,11 +3146,11 @@ mii_rw.exit.thread:                               ; preds = %58, %1
   %73 = getelementptr i8, ptr %0, i64 3020
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 1842
-  br i1 %75, label %76, label %.thread180
+  br i1 %75, label %76, label %.thread254
 
 76:                                               ; preds = %mii_rw.exit.thread
   %77 = load i32, ptr %5, align 8
-  switch i32 %77, label %.thread180 [
+  switch i32 %77, label %.thread254 [
     i32 272, label %78
     i32 512, label %341
   ]
@@ -3158,7 +3158,7 @@ mii_rw.exit.thread:                               ; preds = %58, %1
 78:                                               ; preds = %76
   %79 = getelementptr i8, ptr %0, i64 3028
   %80 = load i32, ptr %79, align 4
-  switch i32 %80, label %.thread180 [
+  switch i32 %80, label %.thread254 [
     i32 0, label %81
     i32 1, label %139
   ]
@@ -3168,7 +3168,7 @@ mii_rw.exit.thread:                               ; preds = %58, %1
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %81
-  %83 = phi i64 [ 0, %81 ], [ %.be277, %.backedge.backedge ]
+  %83 = phi i64 [ 0, %81 ], [ %.be351, %.backedge.backedge ]
   %84 = load i32, ptr %82, align 4
   %85 = getelementptr [7 x %struct.anon.77], ptr @init_realtek_8211b.ri, i64 0, i64 %83
   %86 = load i32, ptr %85, align 8
@@ -3240,16 +3240,16 @@ mii_rw.exit34:                                    ; preds = %116
   br i1 %125, label %128, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %mii_rw.exit34, %mii_rw.exit34.thread
-  %.be277 = phi i64 [ %123, %mii_rw.exit34 ], [ %126, %mii_rw.exit34.thread ]
+  %.be351 = phi i64 [ %123, %mii_rw.exit34 ], [ %126, %mii_rw.exit34.thread ]
   br label %.backedge, !llvm.loop !27
 
 mii_rw.exit34.thread:                             ; preds = %115
   %126 = add nuw nsw i64 %83, 1
   %127 = icmp eq i64 %126, 7
-  br i1 %127, label %.thread180, label %.backedge.backedge
+  br i1 %127, label %.thread254, label %.backedge.backedge
 
 128:                                              ; preds = %mii_rw.exit34
-  br i1 %122, label %.thread81, label %.thread180
+  br i1 %122, label %.thread81, label %.thread254
 
 .thread81:                                        ; preds = %116, %107, %128
   %129 = getelementptr i8, ptr %0, i64 3056
@@ -3596,7 +3596,7 @@ mii_rw.exit38:                                    ; preds = %299
 
 329:                                              ; preds = %324
   %330 = icmp sgt i32 %322, 9
-  br i1 %330, label %.thread180, label %.critedge
+  br i1 %330, label %.thread254, label %.critedge
 
 .critedge:                                        ; preds = %196, %227, %290, %321, %299, %205, %mii_rw.exit36, %235, %mii_rw.exit38, %329
   %331 = getelementptr i8, ptr %0, i64 3056
@@ -3619,7 +3619,7 @@ mii_rw.exit38:                                    ; preds = %299
 341:                                              ; preds = %76
   %342 = tail call fastcc i32 @init_realtek_8201(ptr noundef %0, ptr noundef %2), !range !28
   %343 = icmp eq i32 %342, 0
-  br i1 %343, label %.thread180, label %344
+  br i1 %343, label %.thread254, label %344
 
 344:                                              ; preds = %341
   %345 = getelementptr i8, ptr %0, i64 3056
@@ -3639,7 +3639,7 @@ mii_rw.exit38:                                    ; preds = %299
   tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef %354) #19
   br label %mii_rw.exit80
 
-.thread180:                                       ; preds = %mii_rw.exit34.thread, %78, %76, %341, %329, %128, %mii_rw.exit.thread
+.thread254:                                       ; preds = %mii_rw.exit34.thread, %78, %76, %341, %329, %128, %mii_rw.exit.thread
   %355 = getelementptr i8, ptr %0, i64 3012
   %356 = load i32, ptr %355, align 4
   %357 = load ptr, ptr %3, align 8
@@ -3651,12 +3651,12 @@ mii_rw.exit38:                                    ; preds = %299
   %362 = icmp eq i32 %361, 0
   br i1 %362, label %364, label %363
 
-363:                                              ; preds = %.thread180
+363:                                              ; preds = %.thread254
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 32768, ptr elementtype(i32) %359) #18, !srcloc !11
   tail call void @__const_udelay(i64 noundef 214750) #18
   br label %364
 
-364:                                              ; preds = %363, %.thread180
+364:                                              ; preds = %363, %.thread254
   %365 = shl i32 %356, 5
   %366 = or disjoint i32 %365, 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %366, ptr elementtype(i32) %359) #18, !srcloc !11
@@ -11248,7 +11248,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
 168:                                              ; preds = %267, %165
   %169 = phi ptr [ %162, %165 ], [ %263, %267 ]
   %170 = phi i64 [ 0, %165 ], [ %268, %267 ]
-  %171 = phi ptr [ null, %165 ], [ %spec.select44, %267 ]
+  %171 = phi ptr [ null, %165 ], [ %spec.select56, %267 ]
   %172 = phi ptr [ null, %165 ], [ %spec.select, %267 ]
   %173 = phi ptr [ %154, %165 ], [ %255, %267 ]
   %174 = load ptr, ptr %8, align 8
@@ -11266,12 +11266,12 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %184 = phi ptr [ %169, %168 ], [ %263, %262 ]
   %185 = phi ptr [ %173, %168 ], [ %255, %262 ]
   %186 = phi ptr [ %172, %168 ], [ %spec.select, %262 ]
-  %187 = phi ptr [ %171, %168 ], [ %spec.select44, %262 ]
+  %187 = phi ptr [ %171, %168 ], [ %spec.select56, %262 ]
   %188 = phi i32 [ 0, %168 ], [ %247, %262 ]
   %189 = phi i32 [ %181, %168 ], [ %248, %262 ]
   %190 = icmp eq ptr %187, null
   %spec.select = select i1 %190, ptr %184, ptr %186
-  %spec.select44 = select i1 %190, ptr %184, ptr %187
+  %spec.select56 = select i1 %190, ptr %184, ptr %187
   %191 = tail call i32 @llvm.umin.i32(i32 %189, i32 16384)
   %192 = load ptr, ptr %69, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 184
@@ -11292,8 +11292,8 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   br i1 %206, label %207, label %231, !prof !9
 
 207:                                              ; preds = %183
-  %208 = getelementptr inbounds nuw i8, ptr %spec.select44, i64 8
-  %209 = getelementptr inbounds nuw i8, ptr %spec.select44, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %spec.select56, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %spec.select56, i64 16
   %210 = load i64, ptr %208, align 8
   %211 = icmp eq i64 %210, 0
   br i1 %211, label %.split22.us, label %.split
@@ -11382,7 +11382,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
 
 .split22.us:                                      ; preds = %227, %207
   tail call void @dev_kfree_skb_any_reason(ptr noundef %0, i32 noundef 2) #18
-  store ptr %spec.select44, ptr %48, align 8
+  store ptr %spec.select56, ptr %48, align 8
   %265 = load ptr, ptr %166, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 48
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %266, ptr nonnull elementtype(i64) %266) #18, !srcloc !70
@@ -11401,12 +11401,12 @@ define internal range(i32 0, 17) i32 @nv_start_xmit(ptr noundef %0, ptr noundef 
   %274 = load ptr, ptr %73, align 8
   %275 = icmp eq ptr %273, %274
   %276 = getelementptr i8, ptr %273, i64 -8
-  %spec.select45 = select i1 %275, ptr %272, ptr %276, !prof !9
+  %spec.select57 = select i1 %275, ptr %272, ptr %276, !prof !9
   %277 = load ptr, ptr %75, align 8
   %278 = icmp eq ptr %271, %277
   %279 = getelementptr i8, ptr %271, i64 -40
   %280 = select i1 %278, ptr %270, ptr %279, !prof !9
-  %281 = getelementptr inbounds nuw i8, ptr %spec.select45, i64 4
+  %281 = getelementptr inbounds nuw i8, ptr %spec.select57, i64 4
   %282 = load i32, ptr %281, align 4
   %283 = or i32 %282, %7
   store i32 %283, ptr %281, align 4
@@ -13864,7 +13864,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
 169:                                              ; preds = %274, %166
   %170 = phi ptr [ %163, %166 ], [ %270, %274 ]
   %171 = phi i64 [ 0, %166 ], [ %275, %274 ]
-  %172 = phi ptr [ null, %166 ], [ %spec.select42, %274 ]
+  %172 = phi ptr [ null, %166 ], [ %spec.select55, %274 ]
   %173 = phi ptr [ %65, %166 ], [ %spec.select, %274 ]
   %174 = phi ptr [ %155, %166 ], [ %262, %274 ]
   %175 = load ptr, ptr %4, align 8
@@ -13882,13 +13882,13 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %185 = phi ptr [ %170, %169 ], [ %270, %269 ]
   %186 = phi ptr [ %174, %169 ], [ %262, %269 ]
   %187 = phi ptr [ %173, %169 ], [ %spec.select, %269 ]
-  %188 = phi ptr [ %172, %169 ], [ %spec.select42, %269 ]
+  %188 = phi ptr [ %172, %169 ], [ %spec.select55, %269 ]
   %189 = phi i32 [ 0, %169 ], [ %254, %269 ]
   %190 = phi i32 [ %182, %169 ], [ %255, %269 ]
   %191 = tail call i32 @llvm.umin.i32(i32 %190, i32 16384)
   %192 = icmp eq ptr %187, null
   %spec.select = select i1 %192, ptr %185, ptr %187
-  %spec.select42 = select i1 %192, ptr %185, ptr %188
+  %spec.select55 = select i1 %192, ptr %185, ptr %188
   %193 = load ptr, ptr %66, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 184
   %195 = zext i32 %189 to i64
@@ -13916,7 +13916,7 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
 
 .split:                                           ; preds = %208, %228
   %213 = phi i64 [ 0, %228 ], [ %211, %208 ]
-  %214 = phi ptr [ %229, %228 ], [ %spec.select42, %208 ]
+  %214 = phi ptr [ %229, %228 ], [ %spec.select55, %208 ]
   %215 = icmp eq i64 %213, 0
   br i1 %215, label %222, label %216
 
@@ -14025,12 +14025,12 @@ define internal range(i32 0, 17) i32 @nv_start_xmit_optimized(ptr noundef %0, pt
   %282 = load ptr, ptr %69, align 8
   %283 = icmp eq ptr %280, %282
   %284 = getelementptr i8, ptr %280, i64 -16
-  %spec.select43 = select i1 %283, ptr %279, ptr %284, !prof !9
+  %spec.select56 = select i1 %283, ptr %279, ptr %284, !prof !9
   %285 = load ptr, ptr %71, align 8
   %286 = icmp eq ptr %278, %285
   %287 = getelementptr i8, ptr %278, i64 -40
   %288 = select i1 %286, ptr %277, ptr %287, !prof !9
-  %289 = getelementptr inbounds nuw i8, ptr %spec.select43, i64 12
+  %289 = getelementptr inbounds nuw i8, ptr %spec.select56, i64 12
   %290 = load i32, ptr %289, align 4
   %291 = or i32 %290, 536870912
   store i32 %291, ptr %289, align 4
@@ -17687,14 +17687,14 @@ mii_rw.exit:                                      ; preds = %186, %183
   br label %.thread11.sink.split
 
 .thread11.sink.split:                             ; preds = %.thread7, %283
-  %.sink19 = phi i32 [ 128, %283 ], [ 32, %.thread7 ]
-  %.sink16 = phi i32 [ 256, %283 ], [ 64, %.thread7 ]
+  %.sink27 = phi i32 [ 128, %283 ], [ 32, %.thread7 ]
+  %.sink24 = phi i32 [ 256, %283 ], [ 64, %.thread7 ]
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %285 = load i8, ptr %284, align 8
   %286 = icmp eq i8 %285, 0
-  %287 = select i1 %286, i32 %.sink19, i32 0
+  %287 = select i1 %286, i32 %.sink27, i32 0
   %288 = icmp eq i8 %285, 1
-  %289 = select i1 %288, i32 %.sink16, i32 0
+  %289 = select i1 %288, i32 %.sink24, i32 0
   %290 = or disjoint i32 %287, %289
   %291 = or disjoint i32 %290, %282
   br label %.thread11

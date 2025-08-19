@@ -3431,11 +3431,11 @@ find_iuup_circuit.exit.i.i46:                     ; preds = %212
 
 282:                                              ; preds = %275
   %283 = xor i32 %281, 1
-  %spec.select79.i.i = add i32 %spec.select.i108.i, %283
+  %spec.select80.i.i = add i32 %spec.select.i108.i, %283
   br label %284
 
 284:                                              ; preds = %282, %258
-  %285 = phi i32 [ %.pre.i.i, %258 ], [ %spec.select79.i.i, %282 ]
+  %285 = phi i32 [ %.pre.i.i, %258 ], [ %spec.select80.i.i, %282 ]
   %286 = load i32, ptr @hf_iuup_mode_versions, align 4
   %287 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.041, i32 noundef %286, ptr noundef %.039, i32 noundef %285, i32 noundef 2, i32 noundef 0)
   %288 = load i32, ptr @ett_support, align 4

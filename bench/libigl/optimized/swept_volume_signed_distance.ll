@@ -367,18 +367,18 @@ _ZNKSt8functionIFN5Eigen9TransformIdLi3ELi2ELi0EEEdEEclEd.exit: ; preds = %105
   store double %140, ptr %25, align 8, !tbaa !12
   %141 = load <2 x double>, ptr %82, align 16, !tbaa !16
   %142 = fmul <2 x double> %132, %141
-  %shift182 = shufflevector <2 x double> %142, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop183 = fadd <2 x double> %142, %shift182
-  %143 = extractelement <2 x double> %foldExtExtBinop183, i64 0
+  %shift191 = shufflevector <2 x double> %142, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop192 = fadd <2 x double> %142, %shift191
+  %143 = extractelement <2 x double> %foldExtExtBinop192, i64 0
   %144 = load double, ptr %83, align 16, !tbaa !12
   %145 = fmul double %137, %144
   %146 = fadd double %145, %143
   store double %146, ptr %81, align 8, !tbaa !12
   %147 = load <2 x double>, ptr %85, align 16, !tbaa !16
   %148 = fmul <2 x double> %132, %147
-  %shift185 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop186 = fadd <2 x double> %148, %shift185
-  %149 = extractelement <2 x double> %foldExtExtBinop186, i64 0
+  %shift194 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop195 = fadd <2 x double> %148, %shift194
+  %149 = extractelement <2 x double> %foldExtExtBinop195, i64 0
   %150 = load double, ptr %86, align 16, !tbaa !12
   %151 = fmul double %137, %150
   %152 = fadd double %151, %149
@@ -402,10 +402,10 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIddLNS2_14Com
   %or.cond.i.not167 = select i1 %159, i1 %161, i1 false
   %162 = load double, ptr %90, align 8
   %163 = fcmp ole double %146, %162
-  %or.cond15.i.not164 = select i1 %or.cond.i.not167, i1 %163, i1 false
+  %or.cond17.i.not164 = select i1 %or.cond.i.not167, i1 %163, i1 false
   %164 = load double, ptr %91, align 8
   %165 = fcmp ole double %152, %164
-  %or.cond163 = select i1 %or.cond15.i.not164, i1 %165, i1 false
+  %or.cond163 = select i1 %or.cond17.i.not164, i1 %165, i1 false
   br i1 %or.cond163, label %168, label %_ZNK5Eigen10AlignedBoxIdLi3EE8containsINS_9TransposeIKNS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEEEbRKNS_10MatrixBaseIT_EE.exit.thread
 
 166:                                              ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

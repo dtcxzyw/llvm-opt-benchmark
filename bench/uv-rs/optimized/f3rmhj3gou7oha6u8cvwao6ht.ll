@@ -654,7 +654,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
   %77 = add nuw nsw i64 %76, 1
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.6.0..sroa_idx, i64 %76
   %79 = load i8, ptr %78, align 1, !range !5, !alias.scope !6, !noundef !3
-  switch i8 %79, label %default.unreachable730 [
+  switch i8 %79, label %default.unreachable862 [
     i8 9, label %"_ZN59_$LT$T$u20$as$u20$serde_untagged..int..IntFrom$LT$I$GT$$GT$8int_from17h4662b5e95caf7f56E.exit337"
     i8 0, label %115
     i8 1, label %152
@@ -667,7 +667,7 @@ define hidden void @"_ZN14serde_untagged3int66_$LT$impl$u20$serde_untagged..Unta
     i8 8, label %403
   ]
 
-default.unreachable730:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3b87c5b13964a55E.exit"
+default.unreachable862:                           ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3b87c5b13964a55E.exit"
   unreachable
 
 .body338:                                         ; preds = %466, %443, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i584", %432, %409, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i555", %397, %374, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i526", %361, %338, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i497", %325, %302, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i468", %289, %266, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i439", %253, %230, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i410", %218, %195, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i381", %182, %159, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i352", %145, %122, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15464632682934285287.exit.i.i", %74, %81
@@ -21889,7 +21889,7 @@ define void @_ZN11uv_settings8settings20PythonInstallMirrors7resolve17hb78cf9fb8
 .thread:                                          ; preds = %23, %4
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread92.thread
+  br label %.thread94.thread
 
 _ZN3std3env3var17he80944141e0082f5E.exit:         ; preds = %4
   %20 = load i64, ptr %17, align 8, !range !671, !noundef !3
@@ -21914,7 +21914,7 @@ _ZN3std3env3var17he80944141e0082f5E.exit:         ; preds = %4
           to label %22 unwind label %.thread
 
 24:                                               ; preds = %88
-  br i1 %.sroa.02.182, label %89, label %.thread92.thread
+  br i1 %.sroa.02.182, label %89, label %.thread94.thread
 
 .thread65:                                        ; preds = %29, %22
   %25 = landingpad { ptr, i32 }
@@ -21944,7 +21944,7 @@ _ZN3std3env3var17he80944141e0082f5E.exit27:       ; preds = %22
           to label %28 unwind label %.thread65
 
 30:                                               ; preds = %87
-  br i1 %.sroa.01.190, label %88, label %.thread92.thread
+  br i1 %.sroa.01.190, label %88, label %.thread94.thread
 
 .thread75:                                        ; preds = %48, %28
   %31 = landingpad { ptr, i32 }
@@ -22016,7 +22016,7 @@ _ZN3std3env3var17he80944141e0082f5E.exit28:       ; preds = %28
           to label %34 unwind label %.thread75
 
 49:                                               ; preds = %64
-  br i1 %.sroa.0.1, label %87, label %.thread123
+  br i1 %.sroa.0.1, label %87, label %.thread125
 
 .thread85:                                        ; preds = %39, %43
   %50 = landingpad { ptr, i32 }
@@ -22155,7 +22155,7 @@ _ZN3std3env3var17he80944141e0082f5E.exit28:       ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
-85:                                               ; preds = %91, %.thread92.thread107.thread, %.thread92.thread, %89, %88, %87, %81, %64
+85:                                               ; preds = %91, %.thread94.thread109.thread, %.thread94.thread, %89, %88, %87, %81, %64
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #24
@@ -22176,32 +22176,32 @@ _ZN3std3env3var17he80944141e0082f5E.exit28:       ; preds = %28
 89:                                               ; preds = %.thread65, %24
   %.pn.pn.pn.pn70 = phi { ptr, i32 } [ %25, %.thread65 ], [ %.pn.pn.pn80, %24 ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E"(ptr noalias noundef align 8 dereferenceable(24) %18) #23
-          to label %.thread92.thread unwind label %85
+          to label %.thread94.thread unwind label %85
 
-.thread92.thread107:                              ; preds = %.thread92.thread
-  br i1 %.sroa.04.063, label %.thread92.thread107.thread, label %90
+.thread94.thread109:                              ; preds = %.thread94.thread
+  br i1 %.sroa.04.063, label %.thread94.thread109.thread, label %90
 
-.thread92.thread:                                 ; preds = %24, %89, %30, %.thread
+.thread94.thread:                                 ; preds = %24, %89, %30, %.thread
   %.sroa.04.063 = phi i1 [ true, %.thread ], [ false, %30 ], [ true, %89 ], [ true, %24 ]
   %.sroa.05.061 = phi i1 [ true, %.thread ], [ false, %30 ], [ true, %89 ], [ false, %24 ]
   %.pn.pn.pn.pn.pn59 = phi { ptr, i32 } [ %19, %.thread ], [ %.pn.pn89, %30 ], [ %.pn.pn.pn.pn70, %89 ], [ %.pn.pn.pn80, %24 ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E"(ptr noalias noundef align 8 dereferenceable(24) %3) #23
-          to label %.thread92.thread107 unwind label %85
+          to label %.thread94.thread109 unwind label %85
 
-90:                                               ; preds = %.thread92.thread107.thread, %.thread92.thread107
-  br i1 %.sroa.05.061, label %91, label %.thread123
+90:                                               ; preds = %.thread94.thread109.thread, %.thread94.thread109
+  br i1 %.sroa.05.061, label %91, label %.thread125
 
-.thread92.thread107.thread:                       ; preds = %.thread92.thread107
+.thread94.thread109.thread:                       ; preds = %.thread94.thread109
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E"(ptr noalias noundef align 8 dereferenceable(24) %2) #23
           to label %90 unwind label %85
 
-.thread123:                                       ; preds = %49, %91, %90
-  %.pn.pn.pn.pn.pn58117126 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn59, %91 ], [ %.pn.pn.pn.pn.pn59, %90 ], [ %.pn, %49 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn58117126
+.thread125:                                       ; preds = %49, %91, %90
+  %.pn.pn.pn.pn.pn58119128 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn59, %91 ], [ %.pn.pn.pn.pn.pn59, %90 ], [ %.pn, %49 ]
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn58119128
 
 91:                                               ; preds = %90
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d5e70a8f4a7ff08E"(ptr noalias noundef align 8 dereferenceable(24) %1) #23
-          to label %.thread123 unwind label %85
+          to label %.thread125 unwind label %85
 }
 
 ; Function Attrs: nonlazybind uwtable

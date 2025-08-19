@@ -56,19 +56,19 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.outer
 
 .outer:                                           ; preds = %91, %2
-  %.not307 = phi i1 [ false, %91 ], [ true, %2 ]
+  %.not308 = phi i1 [ false, %91 ], [ true, %2 ]
   %.sroa.027.0.ph = phi i64 [ 1, %91 ], [ 0, %2 ]
   %.sroa.4.0.ph = phi i64 [ %92, %91 ], [ undef, %2 ]
-  %.sroa.029.0.ph = phi i64 [ %.sroa.029.0.ph312, %91 ], [ 0, %2 ]
-  %.sroa.431.0.ph = phi i64 [ %.sroa.431.0.ph313, %91 ], [ undef, %2 ]
-  br label %.outer311
+  %.sroa.029.0.ph = phi i64 [ %.sroa.029.0.ph313, %91 ], [ 0, %2 ]
+  %.sroa.431.0.ph = phi i64 [ %.sroa.431.0.ph314, %91 ], [ undef, %2 ]
+  br label %.outer312
 
-.outer311:                                        ; preds = %.outer, %78
-  %.sroa.029.0.ph312 = phi i64 [ %.sroa.029.0.ph, %.outer ], [ 1, %78 ]
-  %.sroa.431.0.ph313 = phi i64 [ %.sroa.431.0.ph, %.outer ], [ %79, %78 ]
+.outer312:                                        ; preds = %.outer, %78
+  %.sroa.029.0.ph313 = phi i64 [ %.sroa.029.0.ph, %.outer ], [ 1, %78 ]
+  %.sroa.431.0.ph314 = phi i64 [ %.sroa.431.0.ph, %.outer ], [ %79, %78 ]
   br label %13
 
-13:                                               ; preds = %.outer311, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0d570ada6db82524E.exit59"
+13:                                               ; preds = %.outer312, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0d570ada6db82524E.exit59"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @"_ZN77_$LT$serde_wasm_bindgen..de..ObjectAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17ha342359d6ad8d21aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit unwind label %.loopexit.loopexit.loopexit
@@ -79,12 +79,12 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.loopexit
 
 .loopexit.loopexit.loopexit.split-lp:             ; preds = %69
-  %lpad.loopexit.split-lp314 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp315 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .loopexit.loopexit.split-lp:                      ; preds = %82
-  %lpad.loopexit.split-lp309 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp310 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
@@ -94,7 +94,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit, %.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp309, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp314, %.loopexit.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp310, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp315, %.loopexit.loopexit.loopexit.split-lp ]
   %.pr = load i64, ptr %8, align 8, !alias.scope !3
   %14 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %14, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0d570ada6db82524E.exit", label %15
@@ -137,9 +137,9 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.4.0.ph, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.029.0.ph312, ptr %30, align 8
+  store i64 %.sroa.029.0.ph313, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.431.0.ph313, ptr %31, align 8
+  store i64 %.sroa.431.0.ph314, ptr %31, align 8
   %32 = trunc nuw i64 %.sroa.027.0.ph to i1
   br i1 %32, label %93, label %96, !prof !9
 
@@ -151,7 +151,7 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
           to label %37 unwind label %.loopexit.loopexit.loopexit
 
 36:                                               ; preds = %33
-  br i1 %.not307, label %82, label %80, !prof !9
+  br i1 %.not308, label %82, label %80, !prof !9
 
 37:                                               ; preds = %34
   br i1 %35, label %40, label %38
@@ -161,8 +161,8 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
           to label %41 unwind label %.loopexit.loopexit.loopexit
 
 40:                                               ; preds = %37
-  %.not306 = icmp eq i64 %.sroa.029.0.ph312, 0
-  br i1 %.not306, label %69, label %67, !prof !9
+  %.not307 = icmp eq i64 %.sroa.029.0.ph313, 0
+  br i1 %.not307, label %69, label %67, !prof !9
 
 41:                                               ; preds = %38
   br i1 %39, label %44, label %42, !prof !9
@@ -279,7 +279,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit: ; preds = %69
 78:                                               ; preds = %_ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit
   %79 = load i64, ptr %11, align 8, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.outer311
+  br label %.outer312
 
 80:                                               ; preds = %36
   %81 = invoke noundef i32 @_ZN5serde2de5Error15duplicate_field17h8a17252e7e2d5477E(ptr noalias noundef nonnull readonly align 1 @anon.2002a62f4a399853a8e260ba150a1d59.2, i64 noundef 30)
@@ -316,7 +316,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %82
   br label %.outer
 
 93:                                               ; preds = %27
-  %94 = trunc nuw i64 %.sroa.029.0.ph312 to i1
+  %94 = trunc nuw i64 %.sroa.029.0.ph313 to i1
   %95 = load i64, ptr %28, align 8, !range !10
   %.not47 = icmp ne i64 %95, -9223372036854775808
   %or.cond.not = select i1 %94, i1 %.not47, i1 false
@@ -352,8 +352,8 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %82
 
 .invoke:                                          ; preds = %93
   %spec.select = select i1 %94, ptr @anon.2002a62f4a399853a8e260ba150a1d59.4, ptr @anon.2002a62f4a399853a8e260ba150a1d59.3
-  %spec.select244 = select i1 %94, i64 30, i64 28
-  %106 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select244)
+  %spec.select245 = select i1 %94, i64 30, i64 28
+  %106 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select245)
           to label %108 unwind label %98
 
 107:                                              ; preds = %93
@@ -361,7 +361,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %82
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.4.0.ph, ptr %.sroa.433.0..sroa_idx, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.431.0.ph313, ptr %.sroa.534.0..sroa_idx, align 8
+  store i64 %.sroa.431.0.ph314, ptr %.sroa.534.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %105
 
@@ -518,7 +518,7 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %10
 34:                                               ; preds = %31, %.invoke, %57, %49, %41, %13
   %.sink = phi i32 [ %59, %57 ], [ %51, %49 ], [ %.sroa.651.0.extract.trunc, %41 ], [ %15, %13 ], [ %37, %.invoke ], [ %32, %31 ]
   store i32 %.sink, ptr %0, align 8
-  br label %78
+  br label %77
 
 .invoke:                                          ; preds = %25, %33, %29
   %35 = phi ptr [ @anon.2002a62f4a399853a8e260ba150a1d59.4, %33 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.3, %29 ], [ @anon.2002a62f4a399853a8e260ba150a1d59.2, %25 ]
@@ -598,61 +598,60 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit56: ; preds = %54
   %65 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 @anon.2002a62f4a399853a8e260ba150a1d59.2, i64 noundef 30)
           to label %68 unwind label %66
 
-66:                                               ; preds = %74, %72, %64
+66:                                               ; preds = %73, %71, %64
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 68:                                               ; preds = %64
   store i32 %65, ptr %0, align 8
-  br label %78
+  br label %77
 
 69:                                               ; preds = %62
-  br i1 %63, label %72, label %74
+  br i1 %63, label %71, label %73
 
 70:                                               ; preds = %62
-  %71 = and i8 %.sroa.0.0, 1
   store i64 %.sroa.432.0.ph, ptr %0, align 8
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.435.0.ph298, ptr %.sroa.437.0..sroa_idx, align 8
-  br label %78
+  br label %77
 
-72:                                               ; preds = %69
+71:                                               ; preds = %69
   tail call void @llvm.assume(i1 %.not52)
-  %73 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 @anon.2002a62f4a399853a8e260ba150a1d59.4, i64 noundef 30)
-          to label %77 unwind label %66
-
-74:                                               ; preds = %69
-  %75 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 @anon.2002a62f4a399853a8e260ba150a1d59.3, i64 noundef 28)
+  %72 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 @anon.2002a62f4a399853a8e260ba150a1d59.4, i64 noundef 30)
           to label %76 unwind label %66
 
-76:                                               ; preds = %74
-  store i32 %75, ptr %0, align 8
-  br label %78
+73:                                               ; preds = %69
+  %74 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 @anon.2002a62f4a399853a8e260ba150a1d59.3, i64 noundef 28)
+          to label %75 unwind label %66
 
-77:                                               ; preds = %72
-  store i32 %73, ptr %0, align 8
-  br label %78
+75:                                               ; preds = %73
+  store i32 %74, ptr %0, align 8
+  br label %77
 
-78:                                               ; preds = %70, %68, %77, %76, %34
-  %.sink242 = phi i8 [ 2, %34 ], [ 2, %76 ], [ 2, %77 ], [ 2, %68 ], [ %71, %70 ]
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink242, ptr %79, align 8
+76:                                               ; preds = %71
+  store i32 %72, ptr %0, align 8
+  br label %77
+
+77:                                               ; preds = %70, %68, %76, %75, %34
+  %.sink242 = phi i8 [ 2, %34 ], [ 2, %75 ], [ 2, %76 ], [ 2, %68 ], [ %.sroa.0.0, %70 ]
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink242, ptr %78, align 8
   tail call void @"_ZN4core3ptr57drop_in_place$LT$serde_wasm_bindgen..de..ObjectAccess$GT$17h4842b4d2e97121f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit, %.loopexit.split-lp, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp294, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp300, %.loopexit.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$serde_wasm_bindgen..de..ObjectAccess$GT$17h4842b4d2e97121f0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #8
-          to label %82 unwind label %80
+          to label %81 unwind label %79
 
-80:                                               ; preds = %.loopexit
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %.loopexit
+  %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #9
   unreachable
 
-82:                                               ; preds = %.loopexit
+81:                                               ; preds = %.loopexit
   resume { ptr, i32 } %.pn
 }
 
@@ -678,19 +677,19 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.outer
 
 .outer:                                           ; preds = %91, %2
-  %.not309 = phi i1 [ false, %91 ], [ true, %2 ]
+  %.not312 = phi i1 [ false, %91 ], [ true, %2 ]
   %.sroa.027.0.ph = phi i64 [ 1, %91 ], [ 0, %2 ]
   %.sroa.4.0.ph = phi i64 [ %92, %91 ], [ undef, %2 ]
-  %.sroa.029.0.ph = phi i64 [ %.sroa.029.0.ph314, %91 ], [ 0, %2 ]
-  %.sroa.431.0.ph = phi i64 [ %.sroa.431.0.ph315, %91 ], [ undef, %2 ]
-  br label %.outer313
+  %.sroa.029.0.ph = phi i64 [ %.sroa.029.0.ph317, %91 ], [ 0, %2 ]
+  %.sroa.431.0.ph = phi i64 [ %.sroa.431.0.ph318, %91 ], [ undef, %2 ]
+  br label %.outer316
 
-.outer313:                                        ; preds = %.outer, %78
-  %.sroa.029.0.ph314 = phi i64 [ %.sroa.029.0.ph, %.outer ], [ 1, %78 ]
-  %.sroa.431.0.ph315 = phi i64 [ %.sroa.431.0.ph, %.outer ], [ %79, %78 ]
+.outer316:                                        ; preds = %.outer, %78
+  %.sroa.029.0.ph317 = phi i64 [ %.sroa.029.0.ph, %.outer ], [ 1, %78 ]
+  %.sroa.431.0.ph318 = phi i64 [ %.sroa.431.0.ph, %.outer ], [ %79, %78 ]
   br label %13
 
-13:                                               ; preds = %.outer313, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ty_python_semantic..python_platform..PythonPlatform$GT$$GT$17hd9b8c099b87e07f4E.exit61"
+13:                                               ; preds = %.outer316, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$ty_python_semantic..python_platform..PythonPlatform$GT$$GT$17hd9b8c099b87e07f4E.exit61"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @"_ZN77_$LT$serde_wasm_bindgen..de..ObjectAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17ha342359d6ad8d21aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit unwind label %.loopexit.loopexit.loopexit
@@ -711,12 +710,12 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.loopexit
 
 .loopexit.loopexit.loopexit.split-lp:             ; preds = %69
-  %lpad.loopexit.split-lp316 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp319 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .loopexit.loopexit.split-lp:                      ; preds = %82
-  %lpad.loopexit.split-lp311 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp314 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
@@ -726,7 +725,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit, %.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp311, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp316, %.loopexit.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp314, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp319, %.loopexit.loopexit.loopexit.split-lp ]
   %.pr = load i64, ptr %8, align 8, !alias.scope !19
   br label %14
 
@@ -763,9 +762,9 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.4.0.ph, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.029.0.ph314, ptr %31, align 8
+  store i64 %.sroa.029.0.ph317, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.431.0.ph315, ptr %32, align 8
+  store i64 %.sroa.431.0.ph318, ptr %32, align 8
   %33 = trunc nuw i64 %.sroa.027.0.ph to i1
   br i1 %33, label %93, label %96, !prof !9
 
@@ -777,7 +776,7 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
           to label %38 unwind label %.loopexit.loopexit.loopexit
 
 37:                                               ; preds = %34
-  br i1 %.not309, label %82, label %80, !prof !9
+  br i1 %.not312, label %82, label %80, !prof !9
 
 38:                                               ; preds = %35
   br i1 %36, label %41, label %39
@@ -787,8 +786,8 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
           to label %42 unwind label %.loopexit.loopexit.loopexit
 
 41:                                               ; preds = %38
-  %.not308 = icmp eq i64 %.sroa.029.0.ph314, 0
-  br i1 %.not308, label %69, label %67, !prof !9
+  %.not311 = icmp eq i64 %.sroa.029.0.ph317, 0
+  br i1 %.not311, label %69, label %67, !prof !9
 
 42:                                               ; preds = %39
   br i1 %40, label %45, label %43, !prof !9
@@ -905,7 +904,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit: ; preds = %69
 78:                                               ; preds = %_ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit
   %79 = load i64, ptr %11, align 8, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.outer313
+  br label %.outer316
 
 80:                                               ; preds = %37
   %81 = invoke noundef i32 @_ZN5serde2de5Error15duplicate_field17h8a17252e7e2d5477E(ptr noalias noundef nonnull readonly align 1 @anon.2002a62f4a399853a8e260ba150a1d59.2, i64 noundef 30)
@@ -942,7 +941,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit64: ; preds = %82
   br label %.outer
 
 93:                                               ; preds = %28
-  %94 = trunc nuw i64 %.sroa.029.0.ph314 to i1
+  %94 = trunc nuw i64 %.sroa.029.0.ph317 to i1
   %95 = load i64, ptr %29, align 8, !range !22
   %.not47 = icmp ne i64 %95, -9223372036854775807
   %or.cond.not = select i1 %94, i1 %.not47, i1 false
@@ -983,8 +982,8 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit64: ; preds = %82
 
 .invoke:                                          ; preds = %93
   %spec.select = select i1 %94, ptr @anon.2002a62f4a399853a8e260ba150a1d59.4, ptr @anon.2002a62f4a399853a8e260ba150a1d59.3
-  %spec.select246 = select i1 %94, i64 30, i64 28
-  %108 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select246)
+  %spec.select249 = select i1 %94, i64 30, i64 28
+  %108 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select249)
           to label %110 unwind label %98
 
 109:                                              ; preds = %93
@@ -992,7 +991,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit64: ; preds = %82
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.4.0.ph, ptr %.sroa.433.0..sroa_idx, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.431.0.ph315, ptr %.sroa.534.0..sroa_idx, align 8
+  store i64 %.sroa.431.0.ph318, ptr %.sroa.534.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN4core3ptr72drop_in_place$LT$ty_python_semantic..python_platform..PythonPlatform$GT$17ha3ef03efd05de02eE.exit"
 
@@ -1059,19 +1058,19 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.outer
 
 .outer:                                           ; preds = %91, %2
-  %.not307 = phi i1 [ false, %91 ], [ true, %2 ]
+  %.not308 = phi i1 [ false, %91 ], [ true, %2 ]
   %.sroa.027.0.ph = phi i64 [ 1, %91 ], [ 0, %2 ]
   %.sroa.4.0.ph = phi i64 [ %92, %91 ], [ undef, %2 ]
-  %.sroa.029.0.ph = phi i64 [ %.sroa.029.0.ph312, %91 ], [ 0, %2 ]
-  %.sroa.431.0.ph = phi i64 [ %.sroa.431.0.ph313, %91 ], [ undef, %2 ]
-  br label %.outer311
+  %.sroa.029.0.ph = phi i64 [ %.sroa.029.0.ph313, %91 ], [ 0, %2 ]
+  %.sroa.431.0.ph = phi i64 [ %.sroa.431.0.ph314, %91 ], [ undef, %2 ]
+  br label %.outer312
 
-.outer311:                                        ; preds = %.outer, %78
-  %.sroa.029.0.ph312 = phi i64 [ %.sroa.029.0.ph, %.outer ], [ 1, %78 ]
-  %.sroa.431.0.ph313 = phi i64 [ %.sroa.431.0.ph, %.outer ], [ %79, %78 ]
+.outer312:                                        ; preds = %.outer, %78
+  %.sroa.029.0.ph313 = phi i64 [ %.sroa.029.0.ph, %.outer ], [ 1, %78 ]
+  %.sroa.431.0.ph314 = phi i64 [ %.sroa.431.0.ph, %.outer ], [ %79, %78 ]
   br label %13
 
-13:                                               ; preds = %.outer311, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$17he90917f5247b98ecE.exit59"
+13:                                               ; preds = %.outer312, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$17he90917f5247b98ecE.exit59"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @"_ZN77_$LT$serde_wasm_bindgen..de..ObjectAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17ha342359d6ad8d21aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit unwind label %.loopexit.loopexit.loopexit
@@ -1082,12 +1081,12 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.loopexit
 
 .loopexit.loopexit.loopexit.split-lp:             ; preds = %69
-  %lpad.loopexit.split-lp314 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp315 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .loopexit.loopexit.split-lp:                      ; preds = %82
-  %lpad.loopexit.split-lp309 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp310 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
@@ -1097,7 +1096,7 @@ define hidden void @"_ZN159_$LT$$LT$serde_spanned..spanned..Spanned$LT$T$GT$$u20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit.split-lp, %.loopexit.loopexit.loopexit, %.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp309, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp314, %.loopexit.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp310, %.loopexit.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.loopexit.loopexit ], [ %lpad.loopexit.split-lp315, %.loopexit.loopexit.loopexit.split-lp ]
   %.pr = load i64, ptr %8, align 8, !alias.scope !29
   %14 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %14, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$ruff_db..system..path..SystemPathBuf$GT$$GT$17he90917f5247b98ecE.exit", label %15
@@ -1140,9 +1139,9 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.4.0.ph, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.029.0.ph312, ptr %30, align 8
+  store i64 %.sroa.029.0.ph313, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.431.0.ph313, ptr %31, align 8
+  store i64 %.sroa.431.0.ph314, ptr %31, align 8
   %32 = trunc nuw i64 %.sroa.027.0.ph to i1
   br i1 %32, label %93, label %96, !prof !9
 
@@ -1154,7 +1153,7 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
           to label %37 unwind label %.loopexit.loopexit.loopexit
 
 36:                                               ; preds = %33
-  br i1 %.not307, label %82, label %80, !prof !9
+  br i1 %.not308, label %82, label %80, !prof !9
 
 37:                                               ; preds = %34
   br i1 %35, label %40, label %38
@@ -1164,8 +1163,8 @@ _ZN5serde2de9MapAccess8next_key17h71b8384f71476520E.exit: ; preds = %13
           to label %41 unwind label %.loopexit.loopexit.loopexit
 
 40:                                               ; preds = %37
-  %.not306 = icmp eq i64 %.sroa.029.0.ph312, 0
-  br i1 %.not306, label %69, label %67, !prof !9
+  %.not307 = icmp eq i64 %.sroa.029.0.ph313, 0
+  br i1 %.not307, label %69, label %67, !prof !9
 
 41:                                               ; preds = %38
   br i1 %39, label %44, label %42, !prof !9
@@ -1282,7 +1281,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit: ; preds = %69
 78:                                               ; preds = %_ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit
   %79 = load i64, ptr %11, align 8, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.outer311
+  br label %.outer312
 
 80:                                               ; preds = %36
   %81 = invoke noundef i32 @_ZN5serde2de5Error15duplicate_field17h8a17252e7e2d5477E(ptr noalias noundef nonnull readonly align 1 @anon.2002a62f4a399853a8e260ba150a1d59.2, i64 noundef 30)
@@ -1319,7 +1318,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %82
   br label %.outer
 
 93:                                               ; preds = %27
-  %94 = trunc nuw i64 %.sroa.029.0.ph312 to i1
+  %94 = trunc nuw i64 %.sroa.029.0.ph313 to i1
   %95 = load i64, ptr %28, align 8, !range !10
   %.not47 = icmp ne i64 %95, -9223372036854775808
   %or.cond.not = select i1 %94, i1 %.not47, i1 false
@@ -1355,8 +1354,8 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %82
 
 .invoke:                                          ; preds = %93
   %spec.select = select i1 %94, ptr @anon.2002a62f4a399853a8e260ba150a1d59.4, ptr @anon.2002a62f4a399853a8e260ba150a1d59.3
-  %spec.select244 = select i1 %94, i64 30, i64 28
-  %106 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select244)
+  %spec.select245 = select i1 %94, i64 30, i64 28
+  %106 = invoke noundef i32 @_ZN5serde2de5Error13missing_field17hb4b3d2d80d3ef589E(ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef %spec.select245)
           to label %108 unwind label %98
 
 107:                                              ; preds = %93
@@ -1364,7 +1363,7 @@ _ZN5serde2de9MapAccess10next_value17h4cd110f3472546edE.exit62: ; preds = %82
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.4.0.ph, ptr %.sroa.433.0..sroa_idx, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.431.0.ph313, ptr %.sroa.534.0..sroa_idx, align 8
+  store i64 %.sroa.431.0.ph314, ptr %.sroa.534.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %105
 

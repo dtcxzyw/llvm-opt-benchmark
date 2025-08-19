@@ -291,14 +291,14 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br label %168
 
 .thread300.sink.split:                            ; preds = %146, %139
-  %.sink407 = phi i32 [ %140, %139 ], [ %147, %146 ]
+  %.sink421 = phi i32 [ %140, %139 ], [ %147, %146 ]
   %.sink = phi ptr [ %26, %139 ], [ %25, %146 ]
-  %149 = zext i32 %.sink407 to i64
+  %149 = zext i32 %.sink421 to i64
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %.sink, i64 %149, i1 false)
   br label %.thread300
 
 .thread300:                                       ; preds = %.thread300.sink.split, %141
-  %.7217 = phi i32 [ %.5215, %141 ], [ %.sink407, %.thread300.sink.split ]
+  %.7217 = phi i32 [ %.5215, %141 ], [ %.sink421, %.thread300.sink.split ]
   %.9 = phi i32 [ %.5, %141 ], [ 5, %.thread300.sink.split ]
   %150 = icmp ne i32 %.7217, 0
   %151 = icmp eq i32 %.9, 5
@@ -460,7 +460,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
 221:                                              ; preds = %214
   %222 = add i8 %.0224, 1
   %223 = and i8 %.0224, 3
-  switch i8 %223, label %default.unreachable393 [
+  switch i8 %223, label %default.unreachable407 [
     i8 0, label %224
     i8 1, label %226
     i8 2, label %229
@@ -481,7 +481,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   %231 = shl i8 %217, 6
   br label %232
 
-default.unreachable393:                           ; preds = %221
+default.unreachable407:                           ; preds = %221
   unreachable
 
 232:                                              ; preds = %221, %229, %226
@@ -568,9 +568,9 @@ default.unreachable393:                           ; preds = %221
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %263
-  %.sink409 = phi ptr [ %6, %263 ], [ %5, %19 ]
+  %.sink423 = phi ptr [ %6, %263 ], [ %5, %19 ]
   %.0.ph = phi i32 [ %.12, %263 ], [ %spec.select, %19 ]
-  %265 = load ptr, ptr %.sink409, align 8, !tbaa !27
+  %265 = load ptr, ptr %.sink423, align 8, !tbaa !27
   call void @free(ptr noundef %265) #8
   br label %266
 

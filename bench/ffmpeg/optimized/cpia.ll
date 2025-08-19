@@ -319,11 +319,11 @@ define internal i32 @cpia_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %162
 
 162:                                              ; preds = %152, %144
-  %.sink198 = phi i32 [ 4, %152 ], [ 1, %144 ]
+  %.sink209 = phi i32 [ 4, %152 ], [ 1, %144 ]
   %.3 = phi ptr [ %158, %152 ], [ %147, %144 ]
   %.1133 = phi ptr [ %155, %152 ], [ %150, %144 ]
   %.1131 = phi ptr [ %161, %152 ], [ %151, %144 ]
-  %163 = add nuw nsw i32 %.1175, %.sink198
+  %163 = add nuw nsw i32 %.1175, %.sink209
   %164 = icmp slt i32 %163, %130
   br i1 %164, label %.lr.ph176, label %.thread, !llvm.loop !48
 

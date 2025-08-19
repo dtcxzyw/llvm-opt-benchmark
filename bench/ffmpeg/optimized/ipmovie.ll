@@ -366,8 +366,8 @@ switch.lookup:                                    ; preds = %12
   %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.process_ipmovie_chunk, i64 0, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %19, i32 noundef 56, ptr noundef nonnull %switch.load) #6
-  %.not263 = icmp eq i16 %13, 0
-  br i1 %.not263, label %.loopexit, label %.lr.ph248
+  %.not272 = icmp eq i16 %13, 0
+  br i1 %.not272, label %.loopexit, label %.lr.ph248
 
 .lr.ph248:                                        ; preds = %switch.lookup
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -414,7 +414,7 @@ switch.lookup:                                    ; preds = %12
   %54 = zext i16 %53 to i32
   %55 = load i8, ptr %22, align 2, !tbaa !12
   %56 = add nsw i32 %.0209245, -4
-  %57 = sub i32 %56, %54
+  %57 = sub nsw i32 %56, %54
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %61
 
@@ -791,8 +791,8 @@ switch.lookup:                                    ; preds = %12
   br label %.loopexit
 
 245:                                              ; preds = %238, %233, %228, %224, %._crit_edge, %172, %168, %164, %159, %155, %151, %146, %114, %97, %82, %70, %66
-  %.not264 = icmp eq i32 %57, 0
-  br i1 %.not264, label %.loopexit, label %48, !llvm.loop !86
+  %.not273 = icmp eq i32 %57, 0
+  br i1 %.not273, label %.loopexit, label %48, !llvm.loop !86
 
 .loopexit:                                        ; preds = %181, %128, %95, %80, %245, %48, %50, %199, %179, %126, %93, %78, %243, %.thread, %switch.lookup, %59
   %.2.shrunk = phi i16 [ -1, %59 ], [ %16, %switch.lookup ], [ -1, %.thread ], [ -1, %243 ], [ -1, %78 ], [ -1, %93 ], [ -1, %126 ], [ -1, %179 ], [ -1, %199 ], [ -1, %181 ], [ -1, %128 ], [ -1, %95 ], [ -1, %80 ], [ %16, %245 ], [ -2, %48 ], [ -1, %50 ]

@@ -366,14 +366,14 @@ define internal fastcc i32 @_get_info(i1 noundef zeroext %0, i1 noundef zeroext 
 .thread.i:                                        ; preds = %70
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @params, i64 64), align 8
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 216), align 8
-  %.not3547.i = icmp eq ptr %77, null
-  br i1 %.not3547.i, label %.thread48.i, label %84
+  %.not3553.i = icmp eq ptr %77, null
+  br i1 %.not3553.i, label %.thread54.i, label %84
 
 78:                                               ; preds = %75
   %.not36.i = icmp eq ptr %71, null
-  br i1 %.not36.i, label %81, label %.thread48.i
+  br i1 %.not36.i, label %81, label %.thread54.i
 
-.thread48.i:                                      ; preds = %78, %.thread.i
+.thread54.i:                                      ; preds = %78, %.thread.i
   %79 = phi ptr [ %71, %78 ], [ @.str.4, %.thread.i ]
   %80 = tail call i32 @parse_format(ptr noundef nonnull %79) #14
   br label %84
@@ -386,7 +386,7 @@ define internal fastcc i32 @_get_info(i1 noundef zeroext %0, i1 noundef zeroext 
   %83 = tail call i32 @parse_long_format(ptr noundef nonnull %73) #14
   br label %84
 
-84:                                               ; preds = %82, %81, %.thread48.i, %.thread.i, %75
+84:                                               ; preds = %82, %81, %.thread54.i, %.thread.i, %75
   %85 = load ptr, ptr @_print_job_steps.new_step_ptr, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
@@ -622,25 +622,25 @@ define internal fastcc i32 @_get_info(i1 noundef zeroext %0, i1 noundef zeroext 
   %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8
   %194 = icmp ne ptr %193, null
   %or.cond.i.i = select i1 %192, i1 true, i1 %194
-  br i1 %or.cond.i.i, label %195, label %.thread77.i.i
+  br i1 %or.cond.i.i, label %195, label %.thread88.i.i
 
 195:                                              ; preds = %190
   %196 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 216), align 8
   %.not56.i.i = icmp eq ptr %196, null
   br i1 %.not56.i.i, label %198, label %.thread.i.i
 
-.thread77.i.i:                                    ; preds = %190
+.thread88.i.i:                                    ; preds = %190
   store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @params, i64 64), align 8
   %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 216), align 8
-  %.not5678.i.i = icmp eq ptr %197, null
-  br i1 %.not5678.i.i, label %.thread79.i.i, label %.thread.i.i
+  %.not5689.i.i = icmp eq ptr %197, null
+  br i1 %.not5689.i.i, label %.thread90.i.i, label %.thread.i.i
 
 198:                                              ; preds = %195
   %.not57.i.i = icmp eq ptr %191, null
-  br i1 %.not57.i.i, label %201, label %.thread79.i.i
+  br i1 %.not57.i.i, label %201, label %.thread90.i.i
 
-.thread79.i.i:                                    ; preds = %198, %.thread77.i.i
-  %199 = phi ptr [ %191, %198 ], [ @.str.12, %.thread77.i.i ]
+.thread90.i.i:                                    ; preds = %198, %.thread88.i.i
+  %199 = phi ptr [ %191, %198 ], [ @.str.12, %.thread88.i.i ]
   %200 = call i32 @parse_format(ptr noundef nonnull %199) #14
   br label %204
 
@@ -652,12 +652,12 @@ define internal fastcc i32 @_get_info(i1 noundef zeroext %0, i1 noundef zeroext 
   %203 = call i32 @parse_long_format(ptr noundef nonnull %193) #14
   br label %204
 
-204:                                              ; preds = %202, %.thread79.i.i
-  %.2.i.i = phi i32 [ %200, %.thread79.i.i ], [ %203, %202 ]
+204:                                              ; preds = %202, %.thread90.i.i
+  %.2.i.i = phi i32 [ %200, %.thread90.i.i ], [ %203, %202 ]
   %.not59.i.i = icmp eq i32 %.2.i.i, 0
   br i1 %.not59.i.i, label %.thread.i.i, label %_query_job_states.exit.i
 
-.thread.i.i:                                      ; preds = %204, %201, %.thread77.i.i, %195
+.thread.i.i:                                      ; preds = %204, %201, %.thread88.i.i, %195
   %205 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.10, i32 noundef 257, ptr noundef nonnull @__func__._query_job_states) #14
   %206 = load ptr, ptr %5, align 8
   %.not60.i.i = icmp eq ptr %206, null

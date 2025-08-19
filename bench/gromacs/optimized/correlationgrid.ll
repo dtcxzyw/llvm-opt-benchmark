@@ -794,7 +794,7 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE11_M_allocateEm.exit: ; pre
           to label %_ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86 unwind label %156
 
 _ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86: ; preds = %.lr.ph.i.i.i.i83
-  %154 = add i64 %.01114.i.i.i.i85, -1
+  %154 = add nsw i64 %.01114.i.i.i.i85, -1
   %155 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i84, i64 24
   %.not.i.i.i.i87 = icmp eq i64 %154, 0
   br i1 %.not.i.i.i.i87, label %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91, label %.lr.ph.i.i.i.i83, !llvm.loop !44

@@ -3400,9 +3400,9 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6Status10I
   %59 = and i32 %58, 7
   %60 = shl nuw nsw i32 1, %59
   %61 = and i32 %60, %57
-  %.not27 = icmp eq i32 %61, 0
-  %.pre23 = load ptr, ptr %1, align 8, !tbaa !54
-  br i1 %.not27, label %72, label %_ZN5arrow6StatusD2Ev.exit18
+  %.not40 = icmp eq i32 %61, 0
+  %.pre36 = load ptr, ptr %1, align 8, !tbaa !54
+  br i1 %.not40, label %72, label %_ZN5arrow6StatusD2Ev.exit18
 
 62:                                               ; preds = %47
   switch i32 %46, label %_ZNK5arrow5Array6IsNullEl.exit [
@@ -3412,12 +3412,12 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6Status10I
 
 63:                                               ; preds = %62
   %64 = tail call noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %14, i64 noundef %11)
-  %.pre25 = load ptr, ptr %1, align 8, !tbaa !54
+  %.pre38 = load ptr, ptr %1, align 8, !tbaa !54
   br i1 %64, label %72, label %_ZN5arrow6StatusD2Ev.exit18
 
 65:                                               ; preds = %62
   %66 = tail call noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %14, i64 noundef %11)
-  %.pre26 = load ptr, ptr %1, align 8, !tbaa !54
+  %.pre39 = load ptr, ptr %1, align 8, !tbaa !54
   br i1 %66, label %72, label %_ZN5arrow6StatusD2Ev.exit18
 
 _ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %62
@@ -3426,14 +3426,14 @@ _ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %62
   %69 = load ptr, ptr %13, align 8, !tbaa !32
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8, !tbaa !55
-  %.not28 = icmp eq i64 %68, %71
+  %.not41 = icmp eq i64 %68, %71
   %.pre = load ptr, ptr %1, align 8, !tbaa !54
-  br i1 %.not28, label %72, label %_ZN5arrow6StatusD2Ev.exit18
+  br i1 %.not41, label %72, label %_ZN5arrow6StatusD2Ev.exit18
 
 72:                                               ; preds = %65, %63, %50, %_ZNK5arrow5Array6IsNullEl.exit
-  %.pre24 = phi ptr [ %.pre23, %50 ], [ %.pre, %_ZNK5arrow5Array6IsNullEl.exit ], [ %.pre25, %63 ], [ %.pre26, %65 ]
+  %.pre37 = phi ptr [ %.pre36, %50 ], [ %.pre, %_ZNK5arrow5Array6IsNullEl.exit ], [ %.pre38, %63 ], [ %.pre39, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %73 = getelementptr inbounds nuw i8, ptr %.pre24, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.pre37, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !32
   %75 = load ptr, ptr %74, align 8, !tbaa !100
   store ptr %75, ptr %7, align 8, !tbaa !100
@@ -3643,7 +3643,7 @@ _ZNSt12__shared_ptrIN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   br label %common.resume
 
 _ZN5arrow6StatusD2Ev.exit18:                      ; preds = %65, %63, %50, %_ZNK5arrow5Array6IsNullEl.exit, %43
-  %168 = phi ptr [ %.pre, %_ZNK5arrow5Array6IsNullEl.exit ], [ %12, %43 ], [ %.pre23, %50 ], [ %.pre25, %63 ], [ %.pre26, %65 ]
+  %168 = phi ptr [ %.pre, %_ZNK5arrow5Array6IsNullEl.exit ], [ %12, %43 ], [ %.pre36, %50 ], [ %.pre38, %63 ], [ %.pre39, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromArraySlotImplEJEEENS_6StatusERKNS_5ArrayEPT_DpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %168, ptr noundef nonnull %1)

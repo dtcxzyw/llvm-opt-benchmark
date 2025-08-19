@@ -215,7 +215,7 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
 
 ._crit_edge166:                                   ; preds = %84, %72
   %.0116.lcssa = phi i32 [ 0, %72 ], [ %.1117, %84 ]
-  %85 = add i32 %.0119174, 2
+  %85 = add nsw i32 %.0119174, 2
   %86 = add i32 %85, %46
   %87 = add i32 %86, %.0116.lcssa
   %88 = icmp sgt i32 %87, 1048576
@@ -344,12 +344,12 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
   br label %141
 
 .loopexit:                                        ; preds = %90, %._crit_edge166, %44, %7, %10
-  %.sink203 = phi i32 [ 180, %10 ], [ 180, %7 ], [ 75, %44 ], [ 121, %._crit_edge166 ], [ 180, %90 ]
-  %.sink202 = phi i32 [ 524295, %10 ], [ 524295, %7 ], [ 134, %44 ], [ 134, %._crit_edge166 ], [ 524295, %90 ]
+  %.sink211 = phi i32 [ 180, %10 ], [ 180, %7 ], [ 75, %44 ], [ 121, %._crit_edge166 ], [ 180, %90 ]
+  %.sink210 = phi i32 [ 524295, %10 ], [ 524295, %7 ], [ 134, %44 ], [ 134, %._crit_edge166 ], [ 524295, %90 ]
   %.2 = phi ptr [ %8, %10 ], [ null, %7 ], [ %.1148.ph, %44 ], [ %.1148.ph, %._crit_edge166 ], [ %.1148.ph, %90 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink203, ptr noundef nonnull @__func__.X509_NAME_oneline) #7
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink202, ptr noundef null) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink211, ptr noundef nonnull @__func__.X509_NAME_oneline) #7
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink210, ptr noundef null) #7
   call void @BUF_MEM_free(ptr noundef %.2) #7
   br label %141
 

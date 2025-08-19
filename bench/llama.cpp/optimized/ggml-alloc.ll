@@ -983,7 +983,7 @@ ggml_gallocr_hash_get.exit.i196:                  ; preds = %288, %284
   br i1 %344, label %.lr.ph36.preheader.i.i, label %ggml_dyn_tallocr_free_tensor.exit.i
 
 .lr.ph36.preheader.i.i:                           ; preds = %340
-  %wide.trip.count78.i.i = zext i32 %331 to i64
+  %wide.trip.count78.i.i = zext nneg i32 %331 to i64
   br label %.lr.ph36.i.i
 
 .lr.ph36.i.i:                                     ; preds = %.lr.ph36.i.i, %.lr.ph36.preheader.i.i
@@ -1028,7 +1028,7 @@ ggml_gallocr_hash_get.exit.i196:                  ; preds = %288, %284
   br i1 %365, label %.lr.ph33.preheader.i.i, label %ggml_dyn_tallocr_free_tensor.exit.i
 
 .lr.ph33.preheader.i.i:                           ; preds = %362
-  %wide.trip.count66.i.i = zext i32 %364 to i64
+  %wide.trip.count66.i.i = zext nneg i32 %364 to i64
   br label %.lr.ph33.i.i
 
 .lr.ph33.i.i:                                     ; preds = %.lr.ph33.i.i, %.lr.ph33.preheader.i.i
@@ -1081,9 +1081,9 @@ ggml_gallocr_hash_get.exit.i196:                  ; preds = %288, %284
   br label %._crit_edge30.i.i
 
 ._crit_edge30.i.i:                                ; preds = %374, %._crit_edge30.loopexit.i.i, %.critedge.i.i, %ggml_gallocr_hash_get.exit.i196
-  %.078.lcssa81.i.i = phi i32 [ %375, %._crit_edge30.loopexit.i.i ], [ %375, %.critedge.i.i ], [ 0, %ggml_gallocr_hash_get.exit.i196 ], [ %316, %374 ]
+  %.078.lcssa86.i.i = phi i32 [ %375, %._crit_edge30.loopexit.i.i ], [ %375, %.critedge.i.i ], [ 0, %ggml_gallocr_hash_get.exit.i196 ], [ %316, %374 ]
   %378 = phi i32 [ %.pre.i.i, %._crit_edge30.loopexit.i.i ], [ %316, %.critedge.i.i ], [ %316, %ggml_gallocr_hash_get.exit.i196 ], [ %316, %374 ]
-  %379 = zext nneg i32 %.078.lcssa81.i.i to i64
+  %379 = zext nneg i32 %.078.lcssa86.i.i to i64
   %380 = getelementptr inbounds nuw [256 x %struct.free_block], ptr %318, i64 0, i64 %379
   store i64 %299, ptr %380, align 8, !tbaa !85
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
@@ -1366,11 +1366,11 @@ ggml_gallocr_hash_get.exit185:                    ; preds = %510, %505
   br label %533
 
 533:                                              ; preds = %ggml_gallocr_hash_get.exit185, %488
-  %.sink633 = phi i64 [ %532, %ggml_gallocr_hash_get.exit185 ], [ 0, %488 ]
+  %.sink662 = phi i64 [ %532, %ggml_gallocr_hash_get.exit185 ], [ 0, %488 ]
   %.idx = mul nuw nsw i64 %indvars.iv478, 24
   %534 = getelementptr inbounds nuw i8, ptr %474, i64 %.idx
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 16
-  store i64 %.sink633, ptr %535, align 8, !tbaa !105
+  store i64 %.sink662, ptr %535, align 8, !tbaa !105
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond481.not = icmp eq i64 %indvars.iv.next479, 10
   br i1 %exitcond481.not, label %475, label %479, !llvm.loop !106
@@ -1510,10 +1510,10 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
   br label %609
 
 609:                                              ; preds = %596, %592
-  %.sink638 = phi ptr [ %608, %596 ], [ %593, %592 ]
-  %.sink636 = phi i64 [ %607, %596 ], [ 0, %592 ]
-  %610 = getelementptr inbounds nuw %struct.leaf_alloc, ptr %.sink638, i64 %indvars.iv485, i32 0, i32 2
-  store i64 %.sink636, ptr %610, align 8, !tbaa !110
+  %.sink667 = phi ptr [ %608, %596 ], [ %593, %592 ]
+  %.sink665 = phi i64 [ %607, %596 ], [ 0, %592 ]
+  %610 = getelementptr inbounds nuw %struct.leaf_alloc, ptr %.sink667, i64 %indvars.iv485, i32 0, i32 2
+  store i64 %.sink665, ptr %610, align 8, !tbaa !110
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %611 = load i32, ptr %8, align 8, !tbaa !51
   %612 = sext i32 %611 to i64
@@ -2787,7 +2787,7 @@ ggml_are_same_layout.exit.thread:                 ; preds = %136, %131, %125, %7
   br i1 %exitcond.not.i, label %._crit_edge.i, label %220, !llvm.loop !132
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.critedge66
-  %.054.lcssa17.i = phi i64 [ %.054..i, %._crit_edge.i ], [ 0, %.critedge66 ]
+  %.054.lcssa18.i = phi i64 [ %.054..i, %._crit_edge.i ], [ 0, %.critedge66 ]
   %224 = sext i32 %215 to i64
   %.idx.i = shl nsw i64 %224, 4
   %225 = getelementptr i8, ptr %203, i64 24
@@ -2797,7 +2797,7 @@ ggml_are_same_layout.exit.thread:                 ; preds = %136, %131, %125, %7
   br i1 %.not.i79, label %228, label %229
 
 228:                                              ; preds = %._crit_edge.thread.i
-  %.054.69.i = tail call i64 @llvm.umax.i64(i64 %.054.lcssa17.i, i64 %227)
+  %.054.69.i = tail call i64 @llvm.umax.i64(i64 %.054.lcssa18.i, i64 %227)
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.ggml_dyn_tallocr_alloc, i64 noundef %212, i64 noundef %.054.69.i) #12
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.1, i32 noundef 182, ptr noundef nonnull @.str.2) #13
   unreachable

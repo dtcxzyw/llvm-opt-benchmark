@@ -274,8 +274,8 @@ BufferGetPage.exit:                               ; preds = %16, %22
   %87 = load i32, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %87, ptr %88, align 4
-  %.not188237 = icmp eq i16 %85, 0
-  %.not188 = select i1 %81, i1 true, i1 %.not188237
+  %.not188245 = icmp eq i16 %85, 0
+  %.not188 = select i1 %81, i1 true, i1 %.not188245
   br i1 %.not188, label %._crit_edge194, label %.lr.ph
 
 .lr.ph:                                           ; preds = %70
@@ -453,7 +453,7 @@ heap_prune_satisfies_vacuum.exit:                 ; preds = %133, %142, %147
   br label %185
 
 ._crit_edge194:                                   ; preds = %367, %70, %._crit_edge
-  %.not155222 = phi i1 [ %166, %._crit_edge ], [ false, %70 ], [ %166, %367 ]
+  %.not155230 = phi i1 [ %166, %._crit_edge ], [ false, %70 ], [ %166, %367 ]
   %177 = load i32, ptr %44, align 8
   %.0150195 = add i32 %177, -1
   %178 = icmp sgt i32 %.0150195, -1
@@ -996,11 +996,11 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %384, %393
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %455 = load i32, ptr %454, align 8
   %456 = icmp ne i32 %455, 0
-  %brmerge = select i1 %456, i1 true, i1 %.not155222
+  %brmerge = select i1 %456, i1 true, i1 %.not155230
   br i1 %brmerge, label %468, label %458
 
 457:                                              ; preds = %446
-  br i1 %.not155222, label %.thread178, label %458
+  br i1 %.not155230, label %.thread178, label %458
 
 458:                                              ; preds = %453, %457
   br i1 %418, label %459, label %461
@@ -1274,9 +1274,9 @@ heap_page_prune_execute.exit:                     ; preds = %529, %.preheader.i1
   %597 = load i32, ptr %72, align 8
   %598 = icmp eq i32 %597, 0
   %or.cond20 = select i1 %596, i1 %598, i1 false
-  br i1 %or.cond20, label %603, label %.thread223
+  br i1 %or.cond20, label %603, label %.thread231
 
-.thread223:                                       ; preds = %583
+.thread231:                                       ; preds = %583
   %599 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 0, ptr %599, align 4
   %600 = getelementptr inbounds nuw i8, ptr %5, i64 21
@@ -1298,7 +1298,7 @@ heap_page_prune_execute.exit:                     ; preds = %529, %.preheader.i1
   %609 = trunc nuw i8 %604 to i1
   br i1 %609, label %612, label %610
 
-610:                                              ; preds = %.thread223, %603
+610:                                              ; preds = %.thread231, %603
   %611 = load i32, ptr %79, align 4
   br label %612
 
@@ -1318,9 +1318,9 @@ heap_page_prune_execute.exit:                     ; preds = %529, %.preheader.i1
   %..sroa.sel = getelementptr inbounds nuw i8, ptr %13, i64 %..sroa.sel.v
   %618 = load i32, ptr %..sroa.sel, align 8
   store i32 %618, ptr %8, align 4
-  %.236.sroa.sel.v = select i1 %617, i64 7636, i64 7644
-  %.236.sroa.sel = getelementptr inbounds nuw i8, ptr %13, i64 %.236.sroa.sel.v
-  %619 = load i32, ptr %.236.sroa.sel, align 4
+  %.244.sroa.sel.v = select i1 %617, i64 7636, i64 7644
+  %.244.sroa.sel = getelementptr inbounds nuw i8, ptr %13, i64 %.244.sroa.sel.v
+  %619 = load i32, ptr %.244.sroa.sel, align 4
   store i32 %619, ptr %9, align 4
   br label %620
 

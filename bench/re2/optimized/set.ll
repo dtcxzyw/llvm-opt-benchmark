@@ -1287,7 +1287,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
   br i1 %cmp.not.i, label %return, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %cleanup.thread, %cleanup
-  %retval.150 = phi i1 [ false, %cleanup.thread ], [ %retval.1, %cleanup ]
+  %retval.155 = phi i1 [ false, %cleanup.thread ], [ %retval.1, %cleanup ]
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %29 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %29, null
@@ -1318,7 +1318,7 @@ ehcleanup:                                        ; preds = %lpad.i21, %lpad.i34
   br label %common.resume
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i, %cleanup, %invoke.cont3
-  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ %retval.1, %cleanup ], [ %retval.150, %_ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i ]
+  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ %retval.1, %cleanup ], [ %retval.155, %_ZNKSt14default_deleteIN3re210SparseSetTIvEEEclEPS2_.exit.i ]
   ret i1 %retval.0
 }
 
@@ -1417,9 +1417,9 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26
 
 invoke.cont21.thread:                             ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26RegexpEESaISA_EE17_S_check_init_lenEmRKSB_.exit.i.i
   %add.ptr3.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
-  %_M_end_of_storage.i4.i.i15 = getelementptr inbounds nuw i8, ptr %__c, i64 16
+  %_M_end_of_storage.i4.i.i19 = getelementptr inbounds nuw i8, ptr %__c, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__c, i8 0, i64 16, i1 false)
-  store ptr %add.ptr3.i.i, ptr %_M_end_of_storage.i4.i.i15, align 8
+  store ptr %add.ptr3.i.i, ptr %_M_end_of_storage.i4.i.i19, align 8
   br label %invoke.cont.i
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3re26RegexpEESaISA_EE17_S_check_init_lenEmRKSB_.exit.i.i

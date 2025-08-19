@@ -592,7 +592,7 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %2, %10
   %48 = or i32 %47, %31
   %49 = trunc i32 %48 to i16
   %50 = zext i1 %or.cond3.not.i to i16
-  %spec.select12.i = add i16 %49, %50
+  %spec.select13.i = add i16 %49, %50
   br label %_ZN4half8binary164arch19f64_to_f16_fallback17h3221fb29048be3b3E.exit
 
 51:                                               ; preds = %34
@@ -635,7 +635,7 @@ _ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit: ; preds = %2, %10
   br label %_ZN4half8binary164arch19f64_to_f16_fallback17h3221fb29048be3b3E.exit
 
 _ZN4half8binary164arch19f64_to_f16_fallback17h3221fb29048be3b3E.exit: ; preds = %70, %62, %39, %36, %20, %73
-  %.0 = phi i16 [ %75, %73 ], [ %29, %20 ], [ %38, %36 ], [ %63, %62 ], [ %72, %70 ], [ %spec.select12.i, %39 ]
+  %.0 = phi i16 [ %75, %73 ], [ %29, %20 ], [ %38, %36 ], [ %63, %62 ], [ %72, %70 ], [ %spec.select13.i, %39 ]
   %76 = load atomic i64, ptr @_ZN10std_detect6detect5cache5CACHE17hbcd237756618f0f4E monotonic, align 8, !noalias !92
   %77 = icmp eq i64 %76, 0
   br i1 %77, label %78, label %_ZN10std_detect6detect5cache4test17h65f65c65adfe0e14E.exit.i

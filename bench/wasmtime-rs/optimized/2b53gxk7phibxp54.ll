@@ -1177,8 +1177,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !182, !noalias !179
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !182, !noalias !179
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 15:                                               ; preds = %6
@@ -1190,13 +1190,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !182, !noalias !179
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !182, !noalias !179
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !182, !noalias !179
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !182, !noalias !179
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 26:                                               ; preds = %6
@@ -3704,9 +3704,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i74: ; preds = %325
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %334 = load i32, ptr %.sroa.5.sroa.13.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !range !698, !alias.scope !711, !noundef !5
   %.not.i83 = icmp eq i32 %334, 0
-  br i1 %.not.i83, label %.thread204, label %335
+  br i1 %.not.i83, label %.thread235, label %335
 
-.thread204:                                       ; preds = %332
+.thread235:                                       ; preds = %332
   store i32 1, ptr %.sroa.5.sroa.13.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !alias.scope !711
   store i32 20, ptr %.sroa.5.sroa.14.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !alias.scope !711
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !711
@@ -3778,8 +3778,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i84: ; preds = %335
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !711
   br label %344
 
-341:                                              ; preds = %.thread204, %335
-  %342 = phi i32 [ 20, %.thread204 ], [ %.pre202, %335 ]
+341:                                              ; preds = %.thread235, %335
+  %342 = phi i32 [ 20, %.thread235 ], [ %.pre202, %335 ]
   %343 = icmp samesign ult i32 %342, %333
   br i1 %343, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit31.i, label %350
 
@@ -3898,9 +3898,9 @@ _ZN14wasmtime_cache6config11CacheConfig47validate_files_total_size_soft_limit_or
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %367 = load i8, ptr %.sroa.5.sroa.22.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !range !391, !alias.scope !757, !noundef !5
   %368 = trunc nuw i8 %367 to i1
-  br i1 %368, label %369, label %.thread205
+  br i1 %368, label %369, label %.thread236
 
-.thread205:                                       ; preds = %_ZN14wasmtime_cache6config11CacheConfig47validate_files_total_size_soft_limit_or_default17hda597a149de62795E.exit
+.thread236:                                       ; preds = %_ZN14wasmtime_cache6config11CacheConfig47validate_files_total_size_soft_limit_or_default17hda597a149de62795E.exit
   store i8 1, ptr %.sroa.5.sroa.22.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !alias.scope !757
   store i8 70, ptr %.sroa.5.sroa.23.0..sroa.5.0..sroa_idx.sroa_idx, align 1, !alias.scope !757
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !757
@@ -3937,7 +3937,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i107: ; preds = %369
   %372 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h67f8f0764d99116cE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
           to label %375 unwind label %308
 
-373:                                              ; preds = %.thread205, %369
+373:                                              ; preds = %.thread236, %369
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !757
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %374 = invoke fastcc noundef ptr @_ZN14wasmtime_cache6config11CacheConfig62validate_files_total_size_limit_percent_if_deleting_or_default17ha68c1d95f80ea6b4E(ptr noalias noundef align 8 dereferenceable(184) %78)

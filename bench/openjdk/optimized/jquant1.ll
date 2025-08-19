@@ -271,7 +271,7 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us70.i.
 .preheader.lr.ph.us.i:                            ; preds = %.lr.ph.split.us.i
   %121 = mul nuw nsw i32 %.05867.us.i, 255
   %122 = add nuw nsw i32 %121, %113
-  %123 = sdiv i32 %122, %112
+  %123 = udiv i32 %122, %112
   %124 = trunc i32 %123 to i8
   br label %.preheader.us.us.i
 

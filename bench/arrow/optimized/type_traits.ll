@@ -44,8 +44,8 @@ define noundef range(i32 1, 9) i32 @_ZN5arrow31RequiredValueAlignmentForBufferEN
   %switch.maskindex = zext nneg i32 %0 to i64
   %switch.shifted = lshr i64 35181687734271, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  %or.cond7 = select i1 %9, i1 %switch.lobit, i1 false
-  br i1 %or.cond7, label %switch.lookup, label %10
+  %or.cond9 = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond9, label %switch.lookup, label %10
 
 10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

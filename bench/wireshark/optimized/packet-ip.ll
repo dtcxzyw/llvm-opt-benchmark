@@ -1588,12 +1588,12 @@ define internal i32 @dissect_ip_v4(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .sink.split:                                      ; preds = %73, %60
   %hf_ip_dsfield_dscp.sink = phi ptr [ @hf_ip_dsfield_dscp, %60 ], [ @hf_ip_tos_reliability, %73 ]
-  %.sink606 = phi ptr [ %72, %60 ], [ %81, %73 ]
+  %.sink658 = phi ptr [ %72, %60 ], [ %81, %73 ]
   %hf_ip_dsfield_ecn.sink = phi ptr [ @hf_ip_dsfield_ecn, %60 ], [ @hf_ip_tos_cost, %73 ]
   %88 = load i32, ptr %hf_ip_dsfield_dscp.sink, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %.sink606, i32 noundef %88, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %.sink658, i32 noundef %88, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %90 = load i32, ptr %hf_ip_dsfield_ecn.sink, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %.sink606, i32 noundef %90, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %.sink658, i32 noundef %90, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   br label %92
 
 92:                                               ; preds = %.sink.split, %56
@@ -1827,9 +1827,9 @@ export_pdu.exit:                                  ; preds = %proto_item_set_gene
   br i1 %.not5.i488, label %proto_item_set_generated.exit483, label %proto_item_set_generated.exit483.sink.split
 
 proto_item_set_generated.exit483.sink.split:      ; preds = %222, %211, %202
-  %.sink612 = phi ptr [ %204, %202 ], [ %213, %211 ], [ %224, %222 ]
+  %.sink664 = phi ptr [ %204, %202 ], [ %213, %211 ], [ %224, %222 ]
   %.0437.ph = phi i1 [ true, %202 ], [ false, %211 ], [ true, %222 ]
-  %225 = getelementptr inbounds nuw i8, ptr %.sink612, i64 28
+  %225 = getelementptr inbounds nuw i8, ptr %.sink664, i64 28
   %226 = load i32, ptr %225, align 4
   %227 = or i32 %226, 2
   store i32 %227, ptr %225, align 4
@@ -2087,8 +2087,8 @@ local_network_control_block_addr_valid_ttl.exit:  ; preds = %346, %345, %345, %3
   %.0434 = phi i32 [ 1, %342 ], [ 1, %346 ], [ 255, %345 ], [ 255, %345 ], [ 255, %345 ]
   %347 = load i8, ptr %173, align 4
   %348 = zext i8 %347 to i32
-  %.not619 = icmp eq i32 %.0434, %348
-  br i1 %.not619, label %local_network_control_block_addr_valid_ttl.exit.thread, label %349
+  %.not671 = icmp eq i32 %.0434, %348
+  br i1 %.not671, label %local_network_control_block_addr_valid_ttl.exit.thread, label %349
 
 349:                                              ; preds = %local_network_control_block_addr_valid_ttl.exit
   %350 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %175, ptr noundef nonnull @ei_ip_ttl_lncb, ptr noundef nonnull @.str.573, i32 noundef %.0434)
@@ -2441,8 +2441,8 @@ dissect_ip_options.exit:                          ; preds = %521, %508, %500, %4
   %.pre580 = load i16, ptr %153, align 2
   %537 = and i16 %.pre580, 16383
   %.not462 = icmp ne i16 %537, 0
-  %or.cond618.not = select i1 %536, i1 %.not462, i1 false
-  br i1 %or.cond618.not, label %538, label %587
+  %or.cond670.not = select i1 %536, i1 %.not462, i1 false
+  br i1 %or.cond670.not, label %538, label %587
 
 538:                                              ; preds = %dissect_ip_options.exit
   %539 = load i32, ptr %95, align 4
@@ -2942,8 +2942,8 @@ define internal i32 @dissect_ipopt_timestamp(ptr noundef %0, ptr noundef %1, ptr
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0)
   %49 = add nuw i32 %.08088.us, 8
   %50 = add nsw i32 %.089.us, -8
-  %.not102 = icmp eq i32 %.089.us, 8
-  br i1 %.not102, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !14
+  %.not104 = icmp eq i32 %.089.us, 8
+  br i1 %.not104, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %.089 = phi i32 [ %59, %55 ], [ %27, %.lr.ph ]
@@ -2964,8 +2964,8 @@ define internal i32 @dissect_ipopt_timestamp(ptr noundef %0, ptr noundef %1, ptr
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %56, ptr noundef %0, i32 noundef %.08088, i32 noundef 4, i32 noundef 0)
   %58 = add nuw i32 %.08088, 4
   %59 = add nsw i32 %.089, -4
-  %.not101 = icmp eq i32 %.089, 4
-  br i1 %.not101, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
+  %.not103 = icmp eq i32 %.089, 4
+  br i1 %.not103, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %55, %45, %19, %53, %.split.us
   %60 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -3415,8 +3415,8 @@ define internal i32 @dissect_ipopt_record_route(ptr noundef %0, ptr noundef %1, 
   tail call fastcc void @dissect_option_route(ptr noundef %9, ptr noundef %1, ptr noundef %0, i32 noundef %.05054.us, i32 noundef %28, i32 noundef %29, i1 noundef zeroext false)
   %30 = add nsw i32 %.055.us, -4
   %31 = add nuw i32 %.05054.us, 4
-  %.not62 = icmp eq i32 %.055.us, 4
-  br i1 %.not62, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
+  %.not64 = icmp eq i32 %.055.us, 4
+  br i1 %.not64, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %.055 = phi i32 [ %47, %46 ], [ %22, %.lr.ph ]
@@ -3456,8 +3456,8 @@ define internal i32 @dissect_ipopt_record_route(ptr noundef %0, ptr noundef %1, 
 46:                                               ; preds = %44, %45, %37
   %47 = add nsw i32 %.055, -4
   %48 = add nuw i32 %.05054, 4
-  %.not61 = icmp eq i32 %.055, 4
-  br i1 %.not61, label %.loopexit, label %.lr.ph.split, !llvm.loop !21
+  %.not63 = icmp eq i32 %.055, 4
+  br i1 %.not63, label %.loopexit, label %.lr.ph.split, !llvm.loop !21
 
 .loopexit:                                        ; preds = %46, %27, %21, %.split.us
   %49 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -4511,8 +4511,8 @@ proto_item_set_hidden.exit103.us:                 ; preds = %.lr.ph.split.us
   tail call fastcc void @dissect_option_route(ptr noundef %8, ptr noundef %1, ptr noundef %0, i32 noundef %.087105.us, i32 noundef %28, i32 noundef %29, i1 noundef zeroext false)
   %30 = add nsw i32 %.088104.us, -4
   %31 = add nuw i32 %.087105.us, 4
-  %.not116 = icmp eq i32 %.088104.us, 4
-  br i1 %.not116, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
+  %.not128 = icmp eq i32 %.088104.us, 4
+  br i1 %.not128, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %proto_item_set_hidden.exit103
   %.087105 = phi i32 [ %96, %proto_item_set_hidden.exit103 ], [ 3, %.lr.ph ]
@@ -4646,8 +4646,8 @@ proto_item_set_hidden.exit97:                     ; preds = %59, %54, %62, %66
 proto_item_set_hidden.exit103:                    ; preds = %72, %79, %75, %proto_item_set_hidden.exit97, %51, %86, %94, %93
   %95 = add nsw i32 %.088104, -4
   %96 = add nuw i32 %.087105, 4
-  %.not115 = icmp eq i32 %.088104, 4
-  br i1 %.not115, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
+  %.not127 = icmp eq i32 %.088104, 4
+  br i1 %.not127, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %proto_item_set_hidden.exit103, %proto_item_set_hidden.exit103.us, %20, %.split.us
   %97 = tail call i32 @tvb_captured_length(ptr noundef %0)

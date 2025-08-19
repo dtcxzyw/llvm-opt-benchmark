@@ -330,9 +330,9 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hc348bd28798c8dd8E.exit: ; preds = %18, %3, %17
   %.sroa.018.0 = phi i64 [ undef, %3 ], [ %.sroa.0.0.copyload5.i, %17 ], [ undef, %18 ]
-  %.sink22.i.sroa.phi = phi ptr [ %.sroa.4, %3 ], [ %.sroa.9, %17 ], [ %.sroa.4, %18 ]
+  %.sink24.i.sroa.phi = phi ptr [ %.sroa.4, %3 ], [ %.sroa.9, %17 ], [ %.sroa.4, %18 ]
   %.sink.i = phi i64 [ 2, %3 ], [ %.sroa.7.0.copyload9.i, %17 ], [ 2, %18 ]
-  store i64 %.sink.i, ptr %.sink22.i.sroa.phi, align 8, !alias.scope !25, !noalias !49
+  store i64 %.sink.i, ptr %.sink24.i.sroa.phi, align 8, !alias.scope !25, !noalias !49
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %.sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.8. = load i64, ptr %.sroa.4, align 8, !range !40, !alias.scope !53, !noalias !50, !noundef !3
@@ -395,9 +395,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hc348bd28798c8dd8E.exit: ; pred
   br i1 %33, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc348bd28798c8dd8E.exit10, label %27
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hc348bd28798c8dd8E.exit10: ; preds = %32, %21, %31
-  %.sink22.i8 = phi i64 [ 16, %31 ], [ 8, %21 ], [ 8, %32 ]
+  %.sink24.i8 = phi i64 [ 16, %31 ], [ 8, %21 ], [ 8, %32 ]
   %.sink.i9 = phi i64 [ %.sroa.7.0.copyload9.i6, %31 ], [ 2, %21 ], [ 2, %32 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink22.i8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink24.i8
   store i64 %.sink.i9, ptr %34, align 8, !alias.scope !60, !noalias !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
@@ -6136,9 +6136,9 @@ define internal void @_ZN6quiche8recovery10congestion4reno16on_packets_acked17hb
           to label %.noexc4 unwind label %55
 
 .noexc4:                                          ; preds = %48, %.noexc3
-  %.sink1.i = phi i64 [ %43, %.noexc3 ], [ %49, %48 ]
+  %.sink2.i = phi i64 [ %43, %.noexc3 ], [ %49, %48 ]
   %50 = load i64, ptr %17, align 8, !alias.scope !494, !noalias !497, !noundef !3
-  %51 = add i64 %50, %.sink1.i
+  %51 = add i64 %50, %.sink2.i
   store i64 %51, ptr %17, align 8, !alias.scope !494, !noalias !497
   %52 = invoke noundef zeroext i1 @_ZN6quiche8recovery10congestion7hystart7Hystart15on_packet_acked17h3f6e97f245d57de9E(ptr noalias noundef nonnull align 8 dereferenceable(1488) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %7, i64 noundef %.val, i32 noundef %.val2, i64 noundef %3, i32 noundef range(i32 0, 1000000000) %4)
           to label %.noexc5 unwind label %55

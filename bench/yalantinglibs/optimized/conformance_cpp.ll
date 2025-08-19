@@ -995,8 +995,8 @@ if.end.i.i:                                       ; preds = %invoke.cont16.i
 if.end.thread.i.i:                                ; preds = %invoke.cont16.i
   %13 = load ptr, ptr %ref.tmp11.i, align 8
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp11.i, i64 16
-  %cmp.i1739.i.i = icmp eq ptr %13, %14
-  br i1 %cmp.i1739.i.i, label %if.then15.i.i, label %if.end31.i.i
+  %cmp.i1744.i.i = icmp eq ptr %13, %14
+  br i1 %cmp.i1744.i.i, label %if.then15.i.i, label %if.end31.i.i
 
 if.then15.i.i:                                    ; preds = %if.end.thread.i.i, %if.end.i.i
   %15 = phi ptr [ %13, %if.end.thread.i.i ], [ %11, %if.end.i.i ]
@@ -1279,7 +1279,7 @@ if.then.i28.i.i:                                  ; preds = %if.end19.i.i
 
 if.then12.i.i.i.i.i:                              ; preds = %.noexc8.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i
   %58 = phi ptr [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i ], [ %call5.i.i.i.i67.i, %.noexc8.i ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread.i ]
-  %add.ptr14.i.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 %54
+  %add.ptr14.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 %54
   %cond.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 1
   br i1 %cond.i.i.i.i.i, label %if.then.i21.i.i.i.i.i, label %if.end.i.i22.i.i.i.i.i
 

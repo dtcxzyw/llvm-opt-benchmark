@@ -718,8 +718,8 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   unreachable
 
 .outer._crit_edge.thread:                         ; preds = %3, %.outer._crit_edge
-  %.059.ph.lcssa91121 = phi ptr [ %.059.ph.lcssa91, %.outer._crit_edge ], [ %2, %3 ]
-  %58 = ptrtoint ptr %.059.ph.lcssa91121 to i64
+  %.059.ph.lcssa91122 = phi ptr [ %.059.ph.lcssa91, %.outer._crit_edge ], [ %2, %3 ]
+  %58 = ptrtoint ptr %.059.ph.lcssa91122 to i64
   %59 = ptrtoint ptr %2 to i64
   %60 = sub i64 %58, %59
   ret i64 %60

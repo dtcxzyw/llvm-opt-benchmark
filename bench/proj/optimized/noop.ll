@@ -34,17 +34,17 @@ define hidden noundef ptr @pj_noop(ptr noundef writeonly captures(address_is_nul
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %8
-  %.sink16 = phi ptr [ %6, %8 ], [ %0, %2 ]
-  %.sink14 = phi i32 [ 4, %8 ], [ 0, %2 ]
+  %.sink18 = phi ptr [ %6, %8 ], [ %0, %2 ]
+  %.sink16 = phi i32 [ 4, %8 ], [ 0, %2 ]
   %.sink = phi i32 [ 1, %8 ], [ 0, %2 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sink16, i64 380
-  store i32 %.sink14, ptr %12, align 4, !tbaa !40
-  %13 = getelementptr inbounds nuw i8, ptr %.sink16, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %.sink18, i64 380
+  store i32 %.sink16, ptr %12, align 4, !tbaa !40
+  %13 = getelementptr inbounds nuw i8, ptr %.sink18, i64 384
   store i32 %.sink, ptr %13, align 8, !tbaa !41
   br label %14
 
 14:                                               ; preds = %.sink.split, %5
-  %.0 = phi ptr [ null, %5 ], [ %.sink16, %.sink.split ]
+  %.0 = phi ptr [ null, %5 ], [ %.sink18, %.sink.split ]
   ret ptr %.0
 }
 

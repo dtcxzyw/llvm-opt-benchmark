@@ -2154,7 +2154,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   br i1 %.not6882, label %.lr.ph84.preheader, label %.critedge
 
 .lr.ph84.preheader:                               ; preds = %50
-  %52 = zext i32 %51 to i64
+  %52 = zext nneg i32 %51 to i64
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %62
@@ -2764,7 +2764,7 @@ define i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef read
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i: ; preds = %13
   %25 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %2, ptr noundef %17, i64 noundef %6) #29
   %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.split.loop.exit14.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i
+  br i1 %.not.i, label %._crit_edge.loopexit.split.loop.exit15.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i: ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i, %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2772,12 +2772,12 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i: ; preds = %FLAC
   %exitcond.not.i = icmp eq i32 %8, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %vorbiscomment_find_entry_from_.exit, label %13, !llvm.loop !91
 
-._crit_edge.loopexit.split.loop.exit14.i:         ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i
+._crit_edge.loopexit.split.loop.exit15.i:         ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i
   %26 = trunc nuw i64 %indvars.iv.i to i32
   br label %vorbiscomment_find_entry_from_.exit
 
-vorbiscomment_find_entry_from_.exit:              ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i, %3, %._crit_edge.loopexit.split.loop.exit14.i
-  %.09.i = phi i32 [ -1, %3 ], [ %26, %._crit_edge.loopexit.split.loop.exit14.i ], [ -1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i ]
+vorbiscomment_find_entry_from_.exit:              ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i, %3, %._crit_edge.loopexit.split.loop.exit15.i
+  %.09.i = phi i32 [ -1, %3 ], [ %26, %._crit_edge.loopexit.split.loop.exit15.i ], [ -1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i ]
   ret i32 %.09.i
 }
 
@@ -3811,10 +3811,10 @@ define i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef readonl
   br label %get_index_01_offset_.exit
 
 get_index_01_offset_.exit:                        ; preds = %28, %16
-  %.sink25.in.i = phi ptr [ %29, %28 ], [ %18, %16 ]
-  %.sink25.i = load i64, ptr %.sink25.in.i, align 8, !tbaa !62
+  %.sink27.in.i = phi ptr [ %29, %28 ], [ %18, %16 ]
+  %.sink27.i = load i64, ptr %.sink27.in.i, align 8, !tbaa !62
   %30 = load i64, ptr %12, align 8, !tbaa !59
-  %31 = add i64 %30, %.sink25.i
+  %31 = add i64 %30, %.sink27.i
   %32 = load i64, ptr %7, align 8, !tbaa !54
   %33 = add i64 %31, %32
   %34 = udiv i64 %33, 44100
@@ -3839,59 +3839,59 @@ cddb_add_digits_.exit:                            ; preds = %.lr.ph.i, %24, %22,
   br i1 %exitcond.not, label %40, label %9, !llvm.loop !98
 
 40:                                               ; preds = %cddb_add_digits_.exit
-  %41 = urem i32 %39, 255
-  %42 = shl nuw i32 %41, 24
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %44 = load ptr, ptr %43, align 8, !tbaa !58
-  %45 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %44, i64 %8
-  %46 = load i64, ptr %45, align 8, !tbaa !59
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %48 = load i64, ptr %47, align 8, !tbaa !54
-  %49 = add i64 %48, %46
-  %50 = udiv i64 %49, 44100
-  %51 = trunc i64 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %44, i64 23
-  %53 = load i8, ptr %52, align 1, !tbaa !24
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %get_index_01_offset_.exit24, label %55
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %42 = load ptr, ptr %41, align 8, !tbaa !58
+  %43 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %42, i64 %8
+  %44 = load i64, ptr %43, align 8, !tbaa !59
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %46 = load i64, ptr %45, align 8, !tbaa !54
+  %47 = add i64 %46, %44
+  %48 = udiv i64 %47, 44100
+  %49 = trunc i64 %48 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 23
+  %51 = load i8, ptr %50, align 1, !tbaa !24
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %get_index_01_offset_.exit24, label %53
 
-55:                                               ; preds = %40
-  %56 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !21
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load i8, ptr %58, align 8, !tbaa !64
-  %60 = icmp eq i8 %59, 1
-  br i1 %60, label %.sink.split.i21, label %61
+53:                                               ; preds = %40
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %55 = load ptr, ptr %54, align 8, !tbaa !21
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %57 = load i8, ptr %56, align 8, !tbaa !64
+  %58 = icmp eq i8 %57, 1
+  br i1 %58, label %.sink.split.i21, label %59
 
-61:                                               ; preds = %55
-  %62 = icmp eq i8 %53, 1
-  br i1 %62, label %get_index_01_offset_.exit24, label %63
+59:                                               ; preds = %53
+  %60 = icmp eq i8 %51, 1
+  br i1 %60, label %get_index_01_offset_.exit24, label %61
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %65 = load i8, ptr %64, align 8, !tbaa !64
-  %66 = icmp eq i8 %65, 1
-  br i1 %66, label %67, label %get_index_01_offset_.exit24
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %63 = load i8, ptr %62, align 8, !tbaa !64
+  %64 = icmp eq i8 %63, 1
+  br i1 %64, label %65, label %get_index_01_offset_.exit24
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %57, i64 16
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 16
   br label %.sink.split.i21
 
-.sink.split.i21:                                  ; preds = %55, %67
-  %.sink25.in.i22 = phi ptr [ %68, %67 ], [ %57, %55 ]
-  %.sink25.i23 = load i64, ptr %.sink25.in.i22, align 8, !tbaa !62
-  %69 = load i64, ptr %44, align 8, !tbaa !59
-  %70 = add i64 %69, %.sink25.i23
-  %71 = add i64 %70, %48
-  %72 = udiv i64 %71, 44100
-  %73 = trunc i64 %72 to i32
+.sink.split.i21:                                  ; preds = %53, %65
+  %.sink27.in.i22 = phi ptr [ %66, %65 ], [ %55, %53 ]
+  %.sink27.i23 = load i64, ptr %.sink27.in.i22, align 8, !tbaa !62
+  %67 = load i64, ptr %42, align 8, !tbaa !59
+  %68 = add i64 %67, %.sink27.i23
+  %69 = add i64 %68, %46
+  %70 = udiv i64 %69, 44100
+  %71 = trunc i64 %70 to i32
   br label %get_index_01_offset_.exit24
 
-get_index_01_offset_.exit24:                      ; preds = %40, %61, %63, %.sink.split.i21
-  %.0.i20 = phi i32 [ 0, %40 ], [ 0, %61 ], [ 0, %63 ], [ %73, %.sink.split.i21 ]
-  %74 = sub i32 %51, %.0.i20
-  %75 = shl i32 %74, 8
-  %76 = or i32 %42, %75
+get_index_01_offset_.exit24:                      ; preds = %40, %59, %61, %.sink.split.i21
+  %.0.i20 = phi i32 [ 0, %40 ], [ 0, %59 ], [ 0, %61 ], [ %71, %.sink.split.i21 ]
+  %72 = sub i32 %49, %.0.i20
+  %73 = urem i32 %39, 255
+  %74 = shl nuw i32 %73, 24
+  %75 = shl i32 %72, 8
+  %76 = or i32 %74, %75
   %77 = or i32 %76, %5
   br label %78
 

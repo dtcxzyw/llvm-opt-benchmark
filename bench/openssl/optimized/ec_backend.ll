@@ -416,10 +416,10 @@ ec_param_encoding_id2name.exit.thread:            ; preds = %26, %35, %ec_param_
   br i1 %.not119.i, label %ec_group_explicit_todata.exit, label %111
 
 ec_group_explicit_todata.exit:                    ; preds = %45, %56, %61, %63, %65, %67, %72, %75, %80, %85, %89, %92, %100, %109
-  %.sink151.i = phi i32 [ 180, %45 ], [ 193, %56 ], [ 198, %61 ], [ 204, %67 ], [ 204, %65 ], [ 204, %63 ], [ 214, %72 ], [ 219, %75 ], [ 229, %80 ], [ 241, %85 ], [ 246, %89 ], [ 252, %92 ], [ 264, %100 ], [ 279, %109 ]
+  %.sink158.i = phi i32 [ 180, %45 ], [ 193, %56 ], [ 198, %61 ], [ 204, %67 ], [ 204, %65 ], [ 204, %63 ], [ 214, %72 ], [ 219, %75 ], [ 229, %80 ], [ 241, %85 ], [ 246, %89 ], [ 252, %92 ], [ 264, %100 ], [ 279, %109 ]
   %.sink.i = phi i32 [ 103, %45 ], [ 524291, %56 ], [ 141, %61 ], [ 524303, %67 ], [ 524303, %65 ], [ 524303, %63 ], [ 122, %72 ], [ 524303, %75 ], [ 524303, %80 ], [ 173, %85 ], [ 173, %89 ], [ 524303, %92 ], [ 524303, %100 ], [ 524303, %109 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink151.i, ptr noundef nonnull @__func__.ec_group_explicit_todata) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink158.i, ptr noundef nonnull @__func__.ec_group_explicit_todata) #4
   br label %.thread53.sink.split
 
 111:                                              ; preds = %.thread144.i, %109, %104
@@ -562,7 +562,7 @@ define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %0, ptr noundef %1,
   %.1 = phi ptr [ %22, %24 ], [ null, %18 ]
   %29 = icmp ne ptr %.030, null
   %or.cond = and i1 %11, %29
-  br i1 %or.cond, label %30, label %.thread53
+  br i1 %or.cond, label %30, label %.thread60
 
 30:                                               ; preds = %28
   %31 = call ptr @EC_GROUP_get0_order(ptr noundef nonnull %7) #4
@@ -596,23 +596,23 @@ define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %0, ptr noundef %1,
 45:                                               ; preds = %43
   %.pre = load ptr, ptr %4, align 8, !tbaa !27
   %.not46 = icmp eq ptr %.pre, null
-  br i1 %.not46, label %.thread53, label %46
+  br i1 %.not46, label %.thread60, label %46
 
 46:                                               ; preds = %45
   %47 = call i32 @EC_KEY_set_private_key(ptr noundef %0, ptr noundef nonnull %.pre) #4
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %.thread, label %.thread53
+  br i1 %.not47, label %.thread, label %.thread60
 
-.thread53:                                        ; preds = %28, %46, %45
+.thread60:                                        ; preds = %28, %46, %45
   %.not48 = icmp eq ptr %.1, null
   br i1 %.not48, label %50, label %48
 
-48:                                               ; preds = %.thread53
+48:                                               ; preds = %.thread60
   %49 = call i32 @EC_KEY_set_public_key(ptr noundef %0, ptr noundef nonnull %.1) #4
   %.not49 = icmp eq i32 %49, 0
   br i1 %.not49, label %.thread, label %50
 
-50:                                               ; preds = %48, %.thread53
+50:                                               ; preds = %48, %.thread60
   br label %.thread
 
 .thread:                                          ; preds = %43, %39, %35, %30, %33, %48, %46, %19, %21, %24, %14, %50

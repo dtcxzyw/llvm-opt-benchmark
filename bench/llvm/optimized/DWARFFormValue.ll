@@ -763,9 +763,9 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %6, %15
   store i16 %79, ptr %0, align 8, !tbaa !3
   %80 = load ptr, ptr %10, align 8, !tbaa !79
   %.not = icmp eq ptr %80, null
-  br i1 %.not, label %23, label %.critedge.thread107, !llvm.loop !82
+  br i1 %.not, label %23, label %.critedge.thread110, !llvm.loop !82
 
-.critedge.thread107:                              ; preds = %77
+.critedge.thread110:                              ; preds = %77
   store ptr null, ptr %10, align 8, !tbaa !79
   br label %83
 
@@ -778,13 +778,13 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %6, %15
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %25, %44, %47, %50, %53, %55, %57, %59, %61, %68, %71, %73, %74, %.critedge.thread
-  %.pr106 = load ptr, ptr %10, align 8, !tbaa !79
+  %.pr109 = load ptr, ptr %10, align 8, !tbaa !79
   store ptr null, ptr %10, align 8, !tbaa !79
-  %.not67 = icmp eq ptr %.pr106, null
+  %.not67 = icmp eq ptr %.pr109, null
   br i1 %.not67, label %_ZN4llvm5ErrorD2Ev.exit51, label %83
 
-83:                                               ; preds = %.critedge.thread107, %.critedge
-  %84 = phi ptr [ %80, %.critedge.thread107 ], [ %.pr106, %.critedge ]
+83:                                               ; preds = %.critedge.thread110, %.critedge
+  %84 = phi ptr [ %80, %.critedge.thread110 ], [ %.pr109, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -820,9 +820,9 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %83, %88
   br label %_ZN4llvm5ErrorD2Ev.exit51
 
 _ZN4llvm5ErrorD2Ev.exit51:                        ; preds = %.critedge, %_ZN4llvm5ErrorD2Ev.exit50, %93
-  %.not67110 = phi i1 [ true, %.critedge ], [ false, %_ZN4llvm5ErrorD2Ev.exit50 ], [ false, %93 ]
+  %.not67113 = phi i1 [ true, %.critedge ], [ false, %_ZN4llvm5ErrorD2Ev.exit50 ], [ false, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret i1 %.not67110
+  ret i1 %.not67113
 }
 
 declare noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

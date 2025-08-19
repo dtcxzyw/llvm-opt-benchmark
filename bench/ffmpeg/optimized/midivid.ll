@@ -416,7 +416,7 @@ bytestream2_get_le32.exit.i:                      ; preds = %148, %147
   %190 = or disjoint i64 %188, 1
   %191 = mul nsw i64 %190, %184
   %invariant.gep.i = getelementptr i8, ptr %182, i64 %189
-  %invariant.gep282.i = getelementptr i8, ptr %182, i64 %191
+  %invariant.gep292.i = getelementptr i8, ptr %182, i64 %191
   br label %201
 
 ._crit_edge.loopexit.i:                           ; preds = %201
@@ -460,9 +460,9 @@ bytestream2_get_le32.exit.i:                      ; preds = %148, %147
   store i8 %213, ptr %gep.i, align 1, !tbaa !41
   %215 = getelementptr i8, ptr %gep.i, i64 1
   store i8 %213, ptr %215, align 1, !tbaa !41
-  %gep283.i = getelementptr i8, ptr %invariant.gep282.i, i64 %214
-  store i8 %213, ptr %gep283.i, align 1, !tbaa !41
-  %216 = getelementptr i8, ptr %gep283.i, i64 1
+  %gep293.i = getelementptr i8, ptr %invariant.gep292.i, i64 %214
+  store i8 %213, ptr %gep293.i, align 1, !tbaa !41
+  %216 = getelementptr i8, ptr %gep293.i, i64 1
   store i8 %213, ptr %216, align 1, !tbaa !41
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %217 = load i32, ptr %152, align 8, !tbaa !27
@@ -668,7 +668,7 @@ bytestream2_get_byte.exit198.i:                   ; preds = %314, %310, %308
 
 bytestream2_get_byte.exit200.i:                   ; preds = %321, %320
   %.0.i199.i = phi i32 [ 0, %320 ], [ %324, %321 ]
-  %325 = sub nsw i32 8, %.5170.i
+  %325 = sub nuw nsw i32 8, %.5170.i
   %326 = lshr i32 %.5177.i, %325
   %327 = shl nuw nsw i32 %326, 8
   %328 = and i32 %327, 256

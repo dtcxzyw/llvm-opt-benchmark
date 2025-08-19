@@ -1040,7 +1040,7 @@ define dso_local void @io_wq_put_and_exit(ptr noundef %0) local_unnamed_addr #0 
 
 58:                                               ; preds = %.backedge, %50
   %59 = phi i1 [ true, %50 ], [ %.be, %.backedge ]
-  %60 = phi i64 [ 0, %50 ], [ %.be7, %.backedge ]
+  %60 = phi i64 [ 0, %50 ], [ %.be11, %.backedge ]
   %61 = getelementptr [2 x %struct.io_wq_acct], ptr %57, i64 0, i64 %60
   %62 = call fastcc zeroext i1 @io_acct_cancel_pending_work(ptr noundef %0, ptr noundef %61, ptr noundef nonnull %2)
   %63 = load i8, ptr %52, align 8, !range !26
@@ -1058,7 +1058,7 @@ define dso_local void @io_wq_put_and_exit(ptr noundef %0) local_unnamed_addr #0 
 
 .backedge:                                        ; preds = %67, %58
   %.be = phi i1 [ false, %67 ], [ true, %58 ]
-  %.be7 = phi i64 [ 1, %67 ], [ 0, %58 ]
+  %.be11 = phi i64 [ 1, %67 ], [ 0, %58 ]
   br label %58, !llvm.loop !27
 
 68:                                               ; preds = %58
@@ -2325,13 +2325,13 @@ define internal fastcc void @io_worker_handle_work(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 .sink.split:                                      ; preds = %60, %41
-  %.lcssa68.sink.ph = phi ptr [ %29, %41 ], [ %48, %60 ]
+  %.lcssa77.sink.ph = phi ptr [ %29, %41 ], [ %48, %60 ]
   store ptr %30, ptr %9, align 8
   br label %114
 
 114:                                              ; preds = %.sink.split, %60, %41
-  %.lcssa68.sink = phi ptr [ %29, %41 ], [ %48, %60 ], [ %.lcssa68.sink.ph, %.sink.split ]
-  store ptr null, ptr %.lcssa68.sink, align 8
+  %.lcssa77.sink = phi ptr [ %29, %41 ], [ %48, %60 ], [ %.lcssa77.sink.ph, %.sink.split ]
+  store ptr null, ptr %.lcssa77.sink, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull %11) #17
   %115 = load i32, ptr %12, align 4
   %116 = and i32 %115, 4

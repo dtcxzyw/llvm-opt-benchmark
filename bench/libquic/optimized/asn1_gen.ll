@@ -1053,20 +1053,20 @@ sub_1:                                            ; preds = %sub_0
   br label %137
 
 .sink.split.sink.split:                           ; preds = %append_exp.exit82, %append_exp.exit78, %append_exp.exit74, %append_exp.exit
-  %.sink109 = phi ptr [ %73, %append_exp.exit ], [ %87, %append_exp.exit74 ], [ %101, %append_exp.exit78 ], [ %115, %append_exp.exit82 ]
+  %.sink122 = phi ptr [ %73, %append_exp.exit ], [ %87, %append_exp.exit74 ], [ %101, %append_exp.exit78 ], [ %115, %append_exp.exit82 ]
   %.sink.i.sink = phi i32 [ %.sink.i, %append_exp.exit ], [ %.sink.i73, %append_exp.exit74 ], [ %.sink.i77, %append_exp.exit78 ], [ %.sink.i81, %append_exp.exit82 ]
-  %.sink105 = phi i32 [ 1, %append_exp.exit ], [ 1, %append_exp.exit74 ], [ 0, %append_exp.exit78 ], [ 0, %append_exp.exit82 ]
+  %.sink118 = phi i32 [ 1, %append_exp.exit ], [ 1, %append_exp.exit74 ], [ 0, %append_exp.exit78 ], [ 0, %append_exp.exit82 ]
   %.sink.ph = phi i32 [ 0, %append_exp.exit ], [ 0, %append_exp.exit74 ], [ 1, %append_exp.exit78 ], [ 0, %append_exp.exit82 ]
-  %133 = getelementptr inbounds nuw i8, ptr %.sink109, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %.sink122, i64 4
   store i32 %.sink.i.sink, ptr %133, align 4, !tbaa !39
-  %134 = getelementptr inbounds nuw i8, ptr %.sink109, i64 8
-  store i32 %.sink105, ptr %134, align 8, !tbaa !38
+  %134 = getelementptr inbounds nuw i8, ptr %.sink122, i64 8
+  store i32 %.sink118, ptr %134, align 8, !tbaa !38
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.tail.thread, %.tail, %123, %121
-  %.sink104 = phi ptr [ %2, %121 ], [ %2, %123 ], [ %2, %.tail ], [ %2, %.tail.thread ], [ %.sink109, %.sink.split.sink.split ]
+  %.sink117 = phi ptr [ %2, %121 ], [ %2, %123 ], [ %2, %.tail ], [ %2, %.tail.thread ], [ %.sink122, %.sink.split.sink.split ]
   %.sink = phi i32 [ 1, %121 ], [ 2, %123 ], [ 3, %.tail ], [ 4, %.tail.thread ], [ %.sink.ph, %.sink.split.sink.split ]
-  %135 = getelementptr inbounds nuw i8, ptr %.sink104, i64 12
+  %135 = getelementptr inbounds nuw i8, ptr %.sink117, i64 12
   store i32 %.sink, ptr %135, align 4, !tbaa !49
   br label %136
 

@@ -229,8 +229,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.57.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.57.0.copyload.pre = load i32, ptr %.sroa.57.0..sroa_idx.phi.trans.insert, align 4
   %.not.i.i = icmp sgt i32 %.sroa.05.0.copyload.pre, %.sroa.57.0.copyload.pre
-  %or.cond19 = select i1 %10, i1 true, i1 %.not.i.i
-  br i1 %or.cond19, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0a0d80870aef6dbdE.exit.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0a0d80870aef6dbdE.exit"
+  %or.cond20 = select i1 %10, i1 true, i1 %.not.i.i
+  br i1 %or.cond20, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0a0d80870aef6dbdE.exit.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0a0d80870aef6dbdE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0a0d80870aef6dbdE.exit": ; preds = %2
   %11 = sext i32 %.sroa.57.0.copyload.pre to i64
@@ -5486,8 +5486,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb053451e5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %.sroa.0.0.i.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 28
-  store i32 %.sroa.7.0.i.i, ptr %.sroa.658.0..sroa_idx, align 4
+  %.sroa.659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 28
+  store i32 %.sroa.7.0.i.i, ptr %.sroa.659.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1034
   %.sroa.6.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i14, i8 0, i64 16, i1 false), !noalias !1034
@@ -7905,10 +7905,10 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl
   %.fca.1.extract.i.sink = phi i64 [ %.fca.1.extract.i4, %37 ], [ %.fca.1.extract.i, %26 ]
   %30 = load ptr, ptr %2, align 8, !nonnull !55, !align !137, !noundef !55
   %31 = getelementptr inbounds [0 x { ptr, ptr }], ptr %30, i64 0, i64 %.fca.1.extract.i.sink, i32 1
-  %.sink8 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %.sink9 = load ptr, ptr %31, align 8, !nonnull !55, !noundef !55
-  %32 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
-  tail call void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner6unpark17h5ef358d1dec04b97E.llvm.4117860391599875382(ptr noundef nonnull align 8 %32, ptr noundef nonnull align 8 %.sink8), !noalias !55
+  %.sink9 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %.sink10 = load ptr, ptr %31, align 8, !nonnull !55, !noundef !55
+  %32 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
+  tail call void @_ZN5tokio7runtime9scheduler12multi_thread4park5Inner6unpark17h5ef358d1dec04b97E.llvm.4117860391599875382(ptr noundef nonnull align 8 %32, ptr noundef nonnull align 8 %.sink9), !noalias !55
   br label %"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$19notify_parked_local17hf8ecba4bb974b41cE.exit"
 
 "_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$19notify_parked_local17hf8ecba4bb974b41cE.exit": ; preds = %"_ZN5tokio7runtime9scheduler12multi_thread6worker73_$LT$impl$u20$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$19notify_parked_local17hf8ecba4bb974b41cE.exit.sink.split", %33, %22, %9
@@ -8778,12 +8778,12 @@ _ZN5tokio7runtime7process6Driver12park_timeout17hf2abc97e0e15aafcE.exit.i: ; pre
   br i1 %88, label %_ZN4core3ops8function6FnOnce9call_once17hb8071bbc9dd916eaE.exit.i, label %89
 
 _ZN4core3ops8function6FnOnce9call_once17hb8071bbc9dd916eaE.exit.i: ; preds = %87
-  %spec.select19.i = call i32 @llvm.umin.i32(i32 %3, i32 range(i32 0, 1000000000) %70)
+  %spec.select20.i = call i32 @llvm.umin.i32(i32 %3, i32 range(i32 0, 1000000000) %70)
   br label %89
 
 89:                                               ; preds = %85, %87, %_ZN4core3ops8function6FnOnce9call_once17hb8071bbc9dd916eaE.exit.i, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread"
   %.sroa.0.0 = phi i64 [ %67, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread" ], [ %2, %85 ], [ %67, %87 ], [ %2, %_ZN4core3ops8function6FnOnce9call_once17hb8071bbc9dd916eaE.exit.i ]
-  %.sroa.7.0 = phi i32 [ %70, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread" ], [ %3, %85 ], [ %70, %87 ], [ %spec.select19.i, %_ZN4core3ops8function6FnOnce9call_once17hb8071bbc9dd916eaE.exit.i ]
+  %.sroa.7.0 = phi i32 [ %70, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h0113a959e2ea9a8eE.exit.thread" ], [ %3, %85 ], [ %70, %87 ], [ %spec.select20.i, %_ZN4core3ops8function6FnOnce9call_once17hb8071bbc9dd916eaE.exit.i ]
   call fastcc void @_ZN5tokio7runtime4time6Driver19park_thread_timeout17h1d7a1e6d3da92694E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %1, i64 noundef %.sroa.0.0, i32 noundef %.sroa.7.0)
   br label %.noexc48
 

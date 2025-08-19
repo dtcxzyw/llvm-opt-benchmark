@@ -532,15 +532,15 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_snew_imp
 
 ._crit_edge:                                      ; preds = %.lr.ph672, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge
   %184 = phi i1 [ false, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ false, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ true, %.lr.ph672 ]
-  %.0295.lcssa887 = phi i32 [ %.1296, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ %.1296, %.lr.ph672 ]
+  %.0295.lcssa978 = phi i32 [ %.1296, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ %.1296, %.lr.ph672 ]
   %.0624.lcssa = phi i32 [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ %.sroa.speculated, %.lr.ph672 ]
   %.0.lcssa = phi i32 [ %178, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge ], [ %142, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge.thread ], [ %.sroa.speculated555, %.lr.ph672 ]
   %185 = load ptr, ptr @stderr, align 8, !tbaa !30
   %186 = load ptr, ptr %12, align 8, !tbaa !26
-  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.48, ptr noundef %186, i32 noundef %.0295.lcssa887) #21
+  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.48, ptr noundef %186, i32 noundef %.0295.lcssa978) #21
   %188 = load ptr, ptr @stderr, align 8, !tbaa !30
   %189 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %188, ptr noundef nonnull @.str.49, i32 noundef %.0.lcssa, i32 noundef %.0624.lcssa) #21
-  %190 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %.0295.lcssa887) #18
+  %190 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %.0295.lcssa978) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %191 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef nonnull @.str.28, i32 noundef 7, ptr noundef nonnull %8)
@@ -1515,12 +1515,12 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit498:      ; preds = %525
   %543 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %544 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %545 = icmp sgt i32 %.0.lcssa, 1
-  %546 = sitofp i32 %.0295.lcssa887 to double
+  %546 = sitofp i32 %.0295.lcssa978 to double
   %.not345 = icmp eq ptr %.0265, null
   %547 = sext i32 %538 to i64
   %brmerge = select i1 %.not, i1 true, i1 %539
   %wide.trip.count790 = zext nneg i32 %538 to i64
-  %wide.trip.count837 = zext nneg i32 %.0295.lcssa887 to i64
+  %wide.trip.count837 = zext nneg i32 %.0295.lcssa978 to i64
   br label %548
 
 548:                                              ; preds = %.preheader647, %915
@@ -2193,17 +2193,17 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %713
   br i1 %880, label %.lr.ph727.backedge, label %._crit_edge728
 
 .lr.ph727.backedge:                               ; preds = %879, %.thread
-  %indvars.iv859.be = phi i64 [ %indvars.iv.next860, %879 ], [ %indvars.iv.next860892, %.thread ]
+  %indvars.iv859.be = phi i64 [ %indvars.iv.next860, %879 ], [ %indvars.iv.next860983, %.thread ]
   %.5307726.be = phi i32 [ %.6308, %879 ], [ -1, %.thread ]
   br label %.lr.ph727, !llvm.loop !102
 
 .thread:                                          ; preds = %875
-  %indvars.iv.next860892 = add nuw nsw i64 %indvars.iv859, 2
-  %881 = icmp slt i64 %indvars.iv.next860892, %547
-  br i1 %881, label %.lr.ph727.backedge, label %._crit_edge728.thread895
+  %indvars.iv.next860983 = add nuw nsw i64 %indvars.iv859, 2
+  %881 = icmp slt i64 %indvars.iv.next860983, %547
+  br i1 %881, label %.lr.ph727.backedge, label %._crit_edge728.thread986
 
-._crit_edge728.thread895:                         ; preds = %.thread
-  %882 = trunc nuw nsw i64 %indvars.iv.next860892 to i32
+._crit_edge728.thread986:                         ; preds = %.thread
+  %882 = trunc nuw nsw i64 %indvars.iv.next860983 to i32
   %883 = uitofp nneg i32 %882 to double
   br label %._crit_edge728.thread
 
@@ -2230,8 +2230,8 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %713
   %901 = fadd double %889, %900
   br label %._crit_edge728.thread
 
-._crit_edge728.thread:                            ; preds = %.preheader640, %._crit_edge728, %._crit_edge728.thread895, %887
-  %.0273 = phi double [ %901, %887 ], [ %885, %._crit_edge728 ], [ %883, %._crit_edge728.thread895 ], [ 0.000000e+00, %.preheader640 ]
+._crit_edge728.thread:                            ; preds = %.preheader640, %._crit_edge728, %._crit_edge728.thread986, %887
+  %.0273 = phi double [ %901, %887 ], [ %885, %._crit_edge728 ], [ %883, %._crit_edge728.thread986 ], [ 0.000000e+00, %.preheader640 ]
   %902 = load float, ptr %14, align 4, !tbaa !77
   %903 = load ptr, ptr %9, align 8, !tbaa !56
   %904 = invoke noundef float @_Z26output_env_get_time_factorPK16gmx_output_env_t(ptr noundef %903)
@@ -2337,7 +2337,7 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %713
   br i1 %961, label %.lr.ph742, label %._crit_edge743
 
 .lr.ph742:                                        ; preds = %948
-  %962 = mul i32 %916, %.0295.lcssa887
+  %962 = mul i32 %916, %.0295.lcssa978
   %wide.trip.count865 = zext nneg i32 %960 to i64
   br label %963
 

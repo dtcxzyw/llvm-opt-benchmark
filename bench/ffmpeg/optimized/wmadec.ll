@@ -76,8 +76,8 @@ define internal range(i32 -2147483648, 1) i32 @wma_decode_init(ptr noundef %0) #
   br i1 %22, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %19, %15
-  %.sink76 = phi i64 [ 2, %15 ], [ 4, %19 ]
-  %23 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink76
+  %.sink79 = phi i64 [ 2, %15 ], [ 4, %19 ]
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink79
   %24 = load i16, ptr %23, align 1, !tbaa !44
   %25 = zext i16 %24 to i32
   br label %.thread
@@ -328,11 +328,11 @@ define internal i32 @wma_decode_superframe(ptr noundef %0, ptr noundef %1, ptr n
 73:                                               ; preds = %70
   %74 = icmp slt i32 %.018.i, 17
   %75 = select i1 %74, i32 16, i32 24
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef %75, ptr noundef nonnull @.str.8, i32 noundef %68, i32 noundef %72) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef %75, ptr noundef nonnull @.str.8, i32 noundef 0, i32 noundef %72) #10
   br i1 %74, label %.thread, label %76
 
 .critedge:                                        ; preds = %70
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %68, i32 noundef %72) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef -1, i32 noundef %72) #10
   br label %.thread
 
 76:                                               ; preds = %73
@@ -571,8 +571,8 @@ define internal i32 @wma_decode_superframe(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %221, ptr %59, align 8
   %222 = getelementptr inbounds nuw i8, ptr %10, i64 1180
   store i32 1, ptr %222, align 4, !tbaa !89
-  %.not242 = icmp eq i32 %.1168, 0
-  br i1 %.not242, label %._crit_edge226, label %.lr.ph225
+  %.not260 = icmp eq i32 %.1168, 0
+  br i1 %.not260, label %._crit_edge226, label %.lr.ph225
 
 .lr.ph225:                                        ; preds = %211, %225
   %.1157223 = phi i32 [ %227, %225 ], [ %.0156, %211 ]
@@ -2098,11 +2098,11 @@ align_get_bits.exit.i:                            ; preds = %586, %583, %580
   br i1 %exitcond705.not.i, label %.loopexit.sink.split.i, label %747, !llvm.loop !132
 
 .loopexit.sink.split.i:                           ; preds = %729, %747
-  %.lcssa745.sink.i = phi i32 [ %753, %747 ], [ %735, %729 ]
+  %.lcssa777.sink.i = phi i32 [ %753, %747 ], [ %735, %729 ]
   %.0416501.ph.i = phi i32 [ %.0416500.i, %747 ], [ %705, %729 ]
   %.2441.ph.i = phi ptr [ %754, %747 ], [ %.0439596.i, %729 ]
   %.4434.ph.i = phi ptr [ %764, %747 ], [ %743, %729 ]
-  store i32 %.lcssa745.sink.i, ptr %50, align 16, !tbaa !126
+  store i32 %.lcssa777.sink.i, ptr %50, align 16, !tbaa !126
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.sink.split.i, %745, %708
@@ -2237,10 +2237,10 @@ align_get_bits.exit.i:                            ; preds = %586, %583, %580
   br label %.lr.ph633.i
 
 .lr.ph633.i:                                      ; preds = %813, %806, %._crit_edge630.i, %._crit_edge._crit_edge.i
-  %.sink764.i = phi i64 [ %203, %813 ], [ %.pre734.i, %._crit_edge._crit_edge.i ], [ %203, %._crit_edge630.i ], [ %203, %806 ]
-  %817 = getelementptr inbounds [5 x ptr], ptr %56, i64 0, i64 %.sink764.i
+  %.sink796.i = phi i64 [ %203, %813 ], [ %.pre734.i, %._crit_edge._crit_edge.i ], [ %203, %._crit_edge630.i ], [ %203, %806 ]
+  %817 = getelementptr inbounds [5 x ptr], ptr %56, i64 0, i64 %.sink796.i
   %818 = load ptr, ptr %817, align 8, !tbaa !140
-  %819 = getelementptr inbounds [5 x ptr], ptr %57, i64 0, i64 %.sink764.i
+  %819 = getelementptr inbounds [5 x ptr], ptr %57, i64 0, i64 %.sink796.i
   %820 = load ptr, ptr %819, align 8, !tbaa !142
   br label %821
 

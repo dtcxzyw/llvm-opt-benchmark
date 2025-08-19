@@ -72,12 +72,12 @@ define void @ff_big_add(ptr noundef captures(none) %0, i8 noundef zeroext %1) lo
   unreachable
 
 .thread:                                          ; preds = %._crit_edge.thread, %23
-  %.022.lcssa4452 = phi i32 [ %15, %23 ], [ 0, %._crit_edge.thread ]
-  %.021.lcssa4551 = phi ptr [ %13, %23 ], [ %5, %._crit_edge.thread ]
-  %.0.lcssa4650 = phi i8 [ %24, %23 ], [ %1, %._crit_edge.thread ]
-  %27 = add nsw i32 %.022.lcssa4452, 1
+  %.022.lcssa4553 = phi i32 [ %15, %23 ], [ 0, %._crit_edge.thread ]
+  %.021.lcssa4652 = phi ptr [ %13, %23 ], [ %5, %._crit_edge.thread ]
+  %.0.lcssa4751 = phi i8 [ %24, %23 ], [ %1, %._crit_edge.thread ]
+  %27 = add nsw i32 %.022.lcssa4553, 1
   store i32 %27, ptr %0, align 4, !tbaa !4
-  store i8 %.0.lcssa4650, ptr %.021.lcssa4551, align 1, !tbaa !9
+  store i8 %.0.lcssa4751, ptr %.021.lcssa4652, align 1, !tbaa !9
   br label %28
 
 28:                                               ; preds = %._crit_edge.thread, %._crit_edge, %.thread, %2
@@ -292,8 +292,8 @@ define void @ff_xface_generate_face(ptr noundef captures(none) %0, ptr noundef r
   %.091118 = phi i32 [ %12, %10 ], [ %42, %.split101.us ]
   %.092117 = phi i32 [ 0, %10 ], [ %.us-phi, %.split101.us ]
   %14 = add i32 %.091118, -1
-  %or.cond140 = icmp ult i32 %14, 48
-  br i1 %or.cond140, label %.split.split, label %.split101.us
+  %or.cond142 = icmp ult i32 %14, 48
+  br i1 %or.cond142, label %.split.split, label %.split101.us
 
 .split.split:                                     ; preds = %13
   %15 = zext nneg i32 %.091118 to i64

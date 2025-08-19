@@ -358,10 +358,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_ec_pt_formats(ptr noundef %0, ptr
   br i1 %.not16, label %.sink.split, label %25
 
 .sink.split:                                      ; preds = %15, %17, %19, %23, %5
-  %.sink17 = phi i32 [ 194, %5 ], [ 208, %23 ], [ 208, %19 ], [ 208, %17 ], [ 208, %15 ]
+  %.sink18 = phi i32 [ 194, %5 ], [ 208, %23 ], [ 208, %19 ], [ 208, %17 ], [ 208, %15 ]
   %.sink = phi i32 [ %10, %5 ], [ 786691, %23 ], [ 786691, %19 ], [ 786691, %17 ], [ 786691, %15 ]
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink17, ptr noundef nonnull @__func__.tls_construct_ctos_ec_pt_formats) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink18, ptr noundef nonnull @__func__.tls_construct_ctos_ec_pt_formats) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #10
   br label %25
 
@@ -669,12 +669,12 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 808
   %15 = load ptr, ptr %14, align 8, !tbaa !96
   %.not34 = icmp eq ptr %15, null
-  br i1 %.not34, label %.thread45, label %16
+  br i1 %.not34, label %.thread49, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %11, align 8, !tbaa !99
   %.not35 = icmp eq i32 %17, 772
-  br i1 %.not35, label %.thread45, label %18
+  br i1 %.not35, label %.thread49, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 816
@@ -682,16 +682,16 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
   br label %40
 
 21:                                               ; preds = %7
-  br i1 %.not33, label %.thread, label %.thread45
+  br i1 %.not33, label %.thread, label %.thread49
 
-.thread45:                                        ; preds = %13, %16, %21
+.thread49:                                        ; preds = %13, %16, %21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2304
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2760
   %24 = load ptr, ptr %23, align 8, !tbaa !101
   %.not37 = icmp eq ptr %24, null
   br i1 %.not37, label %.thread, label %25
 
-25:                                               ; preds = %.thread45
+25:                                               ; preds = %.thread49
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !102
   %.not38 = icmp eq ptr %27, null
@@ -721,7 +721,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_session_ticket(ptr noundef %0, pt
   %41 = icmp eq i64 %.0, 0
   br i1 %41, label %.thread, label %48
 
-.thread:                                          ; preds = %12, %21, %.thread45, %25, %40
+.thread:                                          ; preds = %12, %21, %.thread49, %25, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 2760
   %43 = load ptr, ptr %42, align 8, !tbaa !101
   %.not39 = icmp eq ptr %43, null
@@ -1333,10 +1333,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_versions(ptr noundef %0
   br i1 %.not23, label %.sink.split, label %29
 
 .sink.split:                                      ; preds = %.lr.ph, %._crit_edge, %27, %12, %14, %16, %5
-  %.sink28 = phi i32 [ 568, %5 ], [ 582, %16 ], [ 582, %14 ], [ 582, %12 ], [ 593, %27 ], [ 593, %._crit_edge ], [ 588, %.lr.ph ]
+  %.sink30 = phi i32 [ 568, %5 ], [ 582, %16 ], [ 582, %14 ], [ 582, %12 ], [ 593, %27 ], [ 593, %._crit_edge ], [ 588, %.lr.ph ]
   %.sink = phi i32 [ %8, %5 ], [ 786691, %16 ], [ 786691, %14 ], [ 786691, %12 ], [ 786691, %27 ], [ 786691, %._crit_edge ], [ 786691, %.lr.ph ]
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink28, ptr noundef nonnull @__func__.tls_construct_ctos_supported_versions) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink30, ptr noundef nonnull @__func__.tls_construct_ctos_supported_versions) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #10
   br label %29
 
@@ -1444,8 +1444,8 @@ define range(i32 0, 2) i32 @tls_construct_ctos_key_share(ptr noundef %0, ptr nou
 17:                                               ; preds = %14
   %18 = load ptr, ptr %7, align 8, !tbaa !83
   %19 = load i16, ptr %18, align 2, !tbaa !91
-  %.not64 = icmp eq i16 %19, 0
-  br i1 %.not64, label %20, label %thread-pre-split.thread
+  %.not69 = icmp eq i16 %19, 0
+  br i1 %.not69, label %20, label %thread-pre-split.thread
 
 20:                                               ; preds = %17
   call void @tls1_get_supported_groups(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #10
@@ -1464,7 +1464,7 @@ thread-pre-split:                                 ; preds = %20, %14
   br label %.loopexit49
 
 thread-pre-split.thread:                          ; preds = %17, %thread-pre-split
-  %.03261 = phi i1 [ %16, %thread-pre-split ], [ true, %17 ]
+  %.03266 = phi i1 [ %16, %thread-pre-split ], [ true, %17 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i64 0, ptr %24, align 8, !tbaa !138
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1246
@@ -1483,7 +1483,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
   %31 = load ptr, ptr %30, align 8, !tbaa !140
   %.fr56 = freeze ptr %31
   %32 = icmp ne ptr %.fr56, null
-  %.not44 = and i1 %.03261, %32
+  %.not44 = and i1 %.03266, %32
   br i1 %.not44, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %52
@@ -1674,10 +1674,10 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
   br label %47
 
 41:                                               ; preds = %22, %25, %19
-  %.sink36 = phi i32 [ 657, %19 ], [ 664, %25 ], [ 664, %22 ]
+  %.sink39 = phi i32 [ 657, %19 ], [ 664, %25 ], [ 664, %22 ]
   %.sink = phi i32 [ 524304, %19 ], [ 786691, %25 ], [ 786691, %22 ]
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink36, ptr noundef nonnull @__func__.add_key_share) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink39, ptr noundef nonnull @__func__.add_key_share) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #10
   %42 = load ptr, ptr %6, align 8, !tbaa !142
   %43 = icmp eq ptr %42, null
@@ -2035,7 +2035,7 @@ PACKET_buf_init.exit.preheader:                   ; preds = %114
   %.sroa.0110.0122 = phi ptr [ %106, %.lr.ph ], [ %127, %PACKET_buf_init.exit.backedge ]
   %.sroa.6.0121 = phi i64 [ %116, %.lr.ph ], [ %128, %PACKET_buf_init.exit.backedge ]
   %121 = load i8, ptr %.sroa.0110.0122, align 1, !tbaa !160
-  %122 = add i64 %.sroa.6.0121, -1
+  %122 = add nsw i64 %.sroa.6.0121, -1
   %123 = zext i8 %121 to i64
   %124 = icmp ult i64 %122, %123
   br i1 %124, label %.critedge104, label %125
@@ -2043,7 +2043,7 @@ PACKET_buf_init.exit.preheader:                   ; preds = %114
 125:                                              ; preds = %120
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0122, i64 1
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 %123
-  %128 = sub nuw i64 %122, %123
+  %128 = sub nuw nsw i64 %122, %123
   %129 = load i64, ptr %118, align 8, !tbaa !161
   %.not.i = icmp eq i64 %129, %123
   br i1 %.not.i, label %PACKET_equal.exit, label %PACKET_buf_init.exit.backedge
@@ -2381,10 +2381,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
 
 74:                                               ; preds = %.thread, %70
   %75 = phi ptr [ %69, %.thread ], [ %73, %70 ]
-  %.094141163 = phi ptr [ %.094.ph, %.thread ], [ %41, %70 ]
-  %.not112143161 = phi i1 [ true, %.thread ], [ false, %70 ]
-  %.091145159 = phi i32 [ %.091.ph, %.thread ], [ %63, %70 ]
-  %.090147157 = phi i32 [ %.090.ph, %.thread ], [ %62, %70 ]
+  %.094141171 = phi ptr [ %.094.ph, %.thread ], [ %41, %70 ]
+  %.not112143169 = phi i1 [ true, %.thread ], [ false, %70 ]
+  %.091145167 = phi i32 [ %.091.ph, %.thread ], [ %63, %70 ]
+  %.090147165 = phi i32 [ %.090.ph, %.thread ], [ %62, %70 ]
   %76 = phi ptr [ %67, %.thread ], [ %.pre151, %70 ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 760
   %78 = load ptr, ptr %77, align 8, !tbaa !165
@@ -2426,10 +2426,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
 
 92:                                               ; preds = %88, %70
   %93 = phi ptr [ %75, %88 ], [ %73, %70 ]
-  %.094141164 = phi ptr [ %.094141163, %88 ], [ %41, %70 ]
-  %.not112143162 = phi i1 [ %.not112143161, %88 ], [ false, %70 ]
-  %.091145160 = phi i32 [ %.091145159, %88 ], [ %63, %70 ]
-  %.090147158 = phi i32 [ %.090147157, %88 ], [ %62, %70 ]
+  %.094141172 = phi ptr [ %.094141171, %88 ], [ %41, %70 ]
+  %.not112143170 = phi i1 [ %.not112143169, %88 ], [ false, %70 ]
+  %.091145168 = phi i32 [ %.091145167, %88 ], [ %63, %70 ]
+  %.090147166 = phi i32 [ %.090147165, %88 ], [ %62, %70 ]
   %.096 = phi i32 [ %89, %88 ], [ 0, %70 ]
   %.093 = phi ptr [ %81, %88 ], [ null, %70 ]
   %94 = tail call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef 41, i64 noundef 2) #10
@@ -2453,7 +2453,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br label %167
 
 100:                                              ; preds = %97
-  br i1 %.not112143162, label %112, label %101
+  br i1 %.not112143170, label %112, label %101
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr %13, align 8, !tbaa !95
@@ -2466,7 +2466,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br i1 %.not118, label %111, label %108
 
 108:                                              ; preds = %101
-  %109 = zext i32 %.090147158 to i64
+  %109 = zext i32 %.090147166 to i64
   %110 = tail call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef %109, i64 noundef 4) #10
   %.not119 = icmp eq i32 %110, 0
   br i1 %.not119, label %111, label %112
@@ -2524,10 +2524,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   br i1 %.not125, label %149, label %132
 
 132:                                              ; preds = %130
-  br i1 %.not112143162, label %136, label %133
+  br i1 %.not112143170, label %136, label %133
 
 133:                                              ; preds = %132
-  %134 = sext i32 %.091145160 to i64
+  %134 = sext i32 %.091145168 to i64
   %135 = call i32 @WPACKET_sub_allocate_bytes__(ptr noundef %1, i64 noundef %134, ptr noundef nonnull %8, i64 noundef 1) #10
   %.not126 = icmp eq i32 %135, 0
   br i1 %.not126, label %149, label %136
@@ -2574,13 +2574,13 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   %152 = load i64, ptr %7, align 8, !tbaa !82
   %153 = sub i64 0, %152
   %154 = getelementptr inbounds i8, ptr %151, i64 %153
-  br i1 %.not112143162, label %160, label %155
+  br i1 %.not112143170, label %160, label %155
 
 155:                                              ; preds = %150
   %156 = load i64, ptr %6, align 8, !tbaa !82
   %157 = load ptr, ptr %8, align 8, !tbaa !81
   %158 = load ptr, ptr %13, align 8, !tbaa !95
-  %159 = call i32 @tls_psk_do_binder(ptr noundef nonnull %0, ptr noundef %.094141164, ptr noundef %154, i64 noundef %156, ptr noundef null, ptr noundef %157, ptr noundef %158, i32 noundef 1, i32 noundef 0) #10
+  %159 = call i32 @tls_psk_do_binder(ptr noundef nonnull %0, ptr noundef %.094141172, ptr noundef %154, i64 noundef %156, ptr noundef null, ptr noundef %157, ptr noundef %158, i32 noundef 1, i32 noundef 0) #10
   %.not133 = icmp eq i32 %159, 1
   br i1 %.not133, label %160, label %167
 
@@ -3368,7 +3368,7 @@ PACKET_buf_init.exit.preheader:                   ; preds = %28
   %.sroa.064.096 = phi ptr [ %41, %PACKET_buf_init.exit.backedge ], [ %33, %.lr.ph.preheader ]
   %.sroa.5.095 = phi i64 [ %42, %PACKET_buf_init.exit.backedge ], [ %30, %.lr.ph.preheader ]
   %35 = load i8, ptr %.sroa.064.096, align 1, !tbaa !160
-  %36 = add i64 %.sroa.5.095, -1
+  %36 = add nsw i64 %.sroa.5.095, -1
   %37 = zext i8 %35 to i64
   %38 = icmp ult i64 %36, %37
   br i1 %38, label %.critedge, label %39
@@ -3376,7 +3376,7 @@ PACKET_buf_init.exit.preheader:                   ; preds = %28
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.064.096, i64 1
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %37
-  %42 = sub nuw i64 %36, %37
+  %42 = sub nuw nsw i64 %36, %37
   %.not48 = icmp eq i8 %35, %24
   br i1 %.not48, label %43, label %PACKET_buf_init.exit.backedge
 

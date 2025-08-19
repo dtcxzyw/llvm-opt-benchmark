@@ -153,7 +153,7 @@ check_retval.exit112:                             ; preds = %55
   br i1 %67, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %60, %72
-  %68 = call i32 @CVode(ptr noundef %19, double noundef 1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
+  %68 = call i32 @CVode(ptr noundef nonnull %19, double noundef 1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %check_retval.exit114, label %72
 
@@ -174,7 +174,7 @@ check_retval.exit114:                             ; preds = %.lr.ph
   br i1 %80, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %60
-  %81 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %5) #6
+  %81 = call i32 @CVodeGetNumSteps(ptr noundef nonnull %19, ptr noundef nonnull %5) #6
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %check_retval.exit116, label %85
 
@@ -188,7 +188,7 @@ check_retval.exit116:                             ; preds = %._crit_edge
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !14
   store double 1.000000e+00, ptr %88, align 8, !tbaa !19
-  %89 = call i32 @CVodeReInit(ptr noundef %19, double noundef 1.000000e+00, ptr noundef nonnull %14) #6
+  %89 = call i32 @CVodeReInit(ptr noundef nonnull %19, double noundef 1.000000e+00, ptr noundef nonnull %14) #6
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %check_retval.exit118, label %93
 
@@ -198,7 +198,7 @@ check_retval.exit118:                             ; preds = %85
   br label %275
 
 93:                                               ; preds = %85
-  %94 = call i32 @CVodeSetStopTime(ptr noundef %19, double noundef 2.000000e+00) #6
+  %94 = call i32 @CVodeSetStopTime(ptr noundef nonnull %19, double noundef 2.000000e+00) #6
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %check_retval.exit120, label %98
 
@@ -220,7 +220,7 @@ check_retval.exit120:                             ; preds = %93
   br i1 %105, label %.lr.ph242, label %._crit_edge243
 
 .lr.ph242:                                        ; preds = %98, %110
-  %106 = call i32 @CVode(ptr noundef %19, double noundef 2.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
+  %106 = call i32 @CVode(ptr noundef nonnull %19, double noundef 2.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %check_retval.exit122, label %110
 
@@ -241,7 +241,7 @@ check_retval.exit122:                             ; preds = %.lr.ph242
   br i1 %118, label %.lr.ph242, label %._crit_edge243
 
 ._crit_edge243:                                   ; preds = %110, %98
-  %119 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %6) #6
+  %119 = call i32 @CVodeGetNumSteps(ptr noundef nonnull %19, ptr noundef nonnull %6) #6
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %check_retval.exit124, label %123
 
@@ -261,7 +261,7 @@ check_retval.exit124:                             ; preds = %._crit_edge243
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !14
   store double 1.000000e+00, ptr %130, align 8, !tbaa !19
-  %131 = call i32 @CVodeReInit(ptr noundef %19, double noundef 0.000000e+00, ptr noundef nonnull %14) #6
+  %131 = call i32 @CVodeReInit(ptr noundef nonnull %19, double noundef 0.000000e+00, ptr noundef nonnull %14) #6
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %check_retval.exit126, label %135
 
@@ -271,7 +271,7 @@ check_retval.exit126:                             ; preds = %123
   br label %275
 
 135:                                              ; preds = %123
-  %136 = call i32 @CVodeSetStopTime(ptr noundef %19, double noundef 1.000000e+00) #6
+  %136 = call i32 @CVodeSetStopTime(ptr noundef nonnull %19, double noundef 1.000000e+00) #6
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %check_retval.exit128, label %140
 
@@ -293,7 +293,7 @@ check_retval.exit128:                             ; preds = %135
   br i1 %147, label %.lr.ph245, label %._crit_edge246
 
 .lr.ph245:                                        ; preds = %140, %152
-  %148 = call i32 @CVode(ptr noundef %19, double noundef 1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
+  %148 = call i32 @CVode(ptr noundef nonnull %19, double noundef 1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %check_retval.exit130, label %152
 
@@ -314,7 +314,7 @@ check_retval.exit130:                             ; preds = %.lr.ph245
   br i1 %160, label %.lr.ph245, label %._crit_edge246
 
 ._crit_edge246:                                   ; preds = %152, %140
-  %161 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %5) #6
+  %161 = call i32 @CVodeGetNumSteps(ptr noundef nonnull %19, ptr noundef nonnull %5) #6
   %162 = icmp slt i32 %161, 0
   br i1 %162, label %check_retval.exit132, label %165
 
@@ -324,8 +324,8 @@ check_retval.exit132:                             ; preds = %._crit_edge246
   br label %275
 
 165:                                              ; preds = %._crit_edge246
-  %166 = call i32 @CVodeReInit(ptr noundef %19, double noundef 1.000000e+00, ptr noundef nonnull %14) #6
-  %167 = call i32 @CVodeSetStopTime(ptr noundef %19, double noundef 2.000000e+00) #6
+  %166 = call i32 @CVodeReInit(ptr noundef nonnull %19, double noundef 1.000000e+00, ptr noundef nonnull %14) #6
+  %167 = call i32 @CVodeSetStopTime(ptr noundef nonnull %19, double noundef 2.000000e+00) #6
   %168 = icmp slt i32 %167, 0
   br i1 %168, label %check_retval.exit134, label %171
 
@@ -347,7 +347,7 @@ check_retval.exit134:                             ; preds = %165
   br i1 %178, label %.lr.ph248, label %._crit_edge249
 
 .lr.ph248:                                        ; preds = %171, %183
-  %179 = call i32 @CVode(ptr noundef %19, double noundef 2.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
+  %179 = call i32 @CVode(ptr noundef nonnull %19, double noundef 2.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
   %180 = icmp slt i32 %179, 0
   br i1 %180, label %check_retval.exit136, label %183
 
@@ -368,7 +368,7 @@ check_retval.exit136:                             ; preds = %.lr.ph248
   br i1 %191, label %.lr.ph248, label %._crit_edge249
 
 ._crit_edge249:                                   ; preds = %183, %171
-  %192 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %6) #6
+  %192 = call i32 @CVodeGetNumSteps(ptr noundef nonnull %19, ptr noundef nonnull %6) #6
   %193 = icmp slt i32 %192, 0
   br i1 %193, label %check_retval.exit138, label %196
 
@@ -388,7 +388,7 @@ check_retval.exit138:                             ; preds = %._crit_edge249
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load ptr, ptr %202, align 8, !tbaa !14
   store double 1.000000e+00, ptr %203, align 8, !tbaa !19
-  %204 = call i32 @CVodeReInit(ptr noundef %19, double noundef 0.000000e+00, ptr noundef nonnull %14) #6
+  %204 = call i32 @CVodeReInit(ptr noundef nonnull %19, double noundef 0.000000e+00, ptr noundef nonnull %14) #6
   %205 = icmp slt i32 %204, 0
   br i1 %205, label %check_retval.exit140, label %208
 
@@ -398,7 +398,7 @@ check_retval.exit140:                             ; preds = %196
   br label %275
 
 208:                                              ; preds = %196
-  %209 = call i32 @CVodeSetStopTime(ptr noundef %19, double noundef 1.000000e+00) #6
+  %209 = call i32 @CVodeSetStopTime(ptr noundef nonnull %19, double noundef 1.000000e+00) #6
   %210 = icmp slt i32 %209, 0
   br i1 %210, label %check_retval.exit142, label %213
 
@@ -420,7 +420,7 @@ check_retval.exit142:                             ; preds = %208
   br i1 %220, label %.lr.ph251, label %._crit_edge252
 
 .lr.ph251:                                        ; preds = %213, %225
-  %221 = call i32 @CVode(ptr noundef %19, double noundef 1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
+  %221 = call i32 @CVode(ptr noundef nonnull %19, double noundef 1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
   %222 = icmp slt i32 %221, 0
   br i1 %222, label %check_retval.exit144, label %225
 
@@ -441,7 +441,7 @@ check_retval.exit144:                             ; preds = %.lr.ph251
   br i1 %233, label %.lr.ph251, label %._crit_edge252
 
 ._crit_edge252:                                   ; preds = %225, %213
-  %234 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %5) #6
+  %234 = call i32 @CVodeGetNumSteps(ptr noundef nonnull %19, ptr noundef nonnull %5) #6
   %235 = icmp slt i32 %234, 0
   br i1 %235, label %check_retval.exit146, label %238
 
@@ -451,7 +451,7 @@ check_retval.exit146:                             ; preds = %._crit_edge252
   br label %275
 
 238:                                              ; preds = %._crit_edge252
-  %239 = call i32 @CVodeSetStopTime(ptr noundef %19, double noundef 2.000000e+00) #6
+  %239 = call i32 @CVodeSetStopTime(ptr noundef nonnull %19, double noundef 2.000000e+00) #6
   %240 = icmp slt i32 %239, 0
   br i1 %240, label %check_retval.exit148, label %243
 
@@ -473,7 +473,7 @@ check_retval.exit148:                             ; preds = %238
   br i1 %250, label %.lr.ph254, label %._crit_edge255
 
 .lr.ph254:                                        ; preds = %243, %255
-  %251 = call i32 @CVode(ptr noundef %19, double noundef 2.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
+  %251 = call i32 @CVode(ptr noundef nonnull %19, double noundef 2.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 2) #6
   %252 = icmp slt i32 %251, 0
   br i1 %252, label %check_retval.exit150, label %255
 
@@ -494,7 +494,7 @@ check_retval.exit150:                             ; preds = %.lr.ph254
   br i1 %263, label %.lr.ph254, label %._crit_edge255
 
 ._crit_edge255:                                   ; preds = %255, %243
-  %264 = call i32 @CVodeGetNumSteps(ptr noundef %19, ptr noundef nonnull %7) #6
+  %264 = call i32 @CVodeGetNumSteps(ptr noundef nonnull %19, ptr noundef nonnull %7) #6
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %check_retval.exit152, label %268
 

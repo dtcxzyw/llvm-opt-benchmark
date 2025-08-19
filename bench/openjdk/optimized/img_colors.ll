@@ -724,8 +724,8 @@ LUV_convert.exit.us.us.i:                         ; preds = %305, %304, %290
   %368 = getelementptr inbounds nuw [256 x i32], ptr @nexttest, i64 0, i64 %indvars.iv173.i
   store i32 %spec.select.i, ptr %368, align 4
   %indvars.iv.next174.i = add nsw i64 %indvars.iv173.i, -1
-  %.not204.i = icmp eq i64 %indvars.iv173.i, 0
-  br i1 %.not204.i, label %.lr.ph166.i, label %.lr.ph150.i, !llvm.loop !20
+  %.not210.i = icmp eq i64 %indvars.iv173.i, 0
+  br i1 %.not210.i, label %.lr.ph166.i, label %.lr.ph150.i, !llvm.loop !20
 
 init_virt_cmap.exit:                              ; preds = %._crit_edge162.split.us.us.i, %186, %._crit_edge144.i
   %.pre246 = phi i32 [ %.pre246.pre, %186 ], [ %179, %._crit_edge144.i ], [ %.pre193199.i, %._crit_edge162.split.us.us.i ]

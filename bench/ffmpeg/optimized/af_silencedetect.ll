@@ -1240,7 +1240,7 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %35 = mul i64 %indvars.iv51, %32
+  %35 = mul nuw nsw i64 %indvars.iv51, %32
   br label %37
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %5
@@ -1262,7 +1262,7 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   %43 = fcmp nsz uge double %42, %18
   %44 = fcmp nsz ule double %42, %22
   %narrow.not = or i1 %43, %44
-  %45 = add i64 %indvars.iv, %35
+  %45 = add nuw nsw i64 %indvars.iv, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1270,7 +1270,7 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %46 = load i32, ptr %23, align 8, !tbaa !20
-  %47 = trunc i64 %45 to i32
+  %47 = trunc nsw i64 %45 to i32
   %48 = srem i32 %47, %46
   %49 = load ptr, ptr %24, align 8, !tbaa !26
   %50 = sext i32 %48 to i64
@@ -1489,7 +1489,7 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %36 = mul i64 %indvars.iv51, %33
+  %36 = mul nuw nsw i64 %indvars.iv51, %33
   br label %38
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %5
@@ -1511,7 +1511,7 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   %44 = fcmp nsz uge float %43, %19
   %45 = fcmp nsz ule float %43, %23
   %narrow.not = or i1 %44, %45
-  %46 = add i64 %indvars.iv, %36
+  %46 = add nuw nsw i64 %indvars.iv, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1519,7 +1519,7 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %47 = load i32, ptr %24, align 8, !tbaa !20
-  %48 = trunc i64 %46 to i32
+  %48 = trunc nsw i64 %46 to i32
   %49 = srem i32 %48, %47
   %50 = load ptr, ptr %25, align 8, !tbaa !26
   %51 = sext i32 %49 to i64
@@ -1738,7 +1738,7 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %36 = mul i64 %indvars.iv51, %33
+  %36 = mul nuw nsw i64 %indvars.iv51, %33
   br label %38
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %5
@@ -1760,7 +1760,7 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   %44 = icmp sge i32 %43, %19
   %45 = icmp sle i32 %43, %23
   %narrow.not = select i1 %44, i1 true, i1 %45
-  %46 = add i64 %indvars.iv, %36
+  %46 = add nuw nsw i64 %indvars.iv, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1768,7 +1768,7 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %47 = load i32, ptr %24, align 8, !tbaa !20
-  %48 = trunc i64 %46 to i32
+  %48 = trunc nsw i64 %46 to i32
   %49 = srem i32 %48, %47
   %50 = load ptr, ptr %25, align 8, !tbaa !26
   %51 = sext i32 %49 to i64
@@ -1988,7 +1988,7 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %37 = mul i64 %indvars.iv51, %34
+  %37 = mul nuw nsw i64 %indvars.iv51, %34
   br label %39
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %5
@@ -2011,7 +2011,7 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   %46 = sext i16 %44 to i32
   %47 = icmp sle i32 %46, %24
   %narrow.not = select i1 %45, i1 true, i1 %47
-  %48 = add i64 %indvars.iv, %37
+  %48 = add nuw nsw i64 %indvars.iv, %37
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -2019,7 +2019,7 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %49 = load i32, ptr %25, align 8, !tbaa !20
-  %50 = trunc i64 %48 to i32
+  %50 = trunc nsw i64 %48 to i32
   %51 = srem i32 %50, %49
   %52 = load ptr, ptr %26, align 8, !tbaa !26
   %53 = sext i32 %51 to i64

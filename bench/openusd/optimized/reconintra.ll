@@ -263,13 +263,13 @@ define hidden void @av1_dr_prediction_z2_c(ptr noundef writeonly captures(none) 
 
 43:                                               ; preds = %31, %25
   %.sink = phi ptr [ %38, %31 ], [ %27, %25 ]
-  %.sink63 = phi i32 [ %36, %31 ], [ %17, %25 ]
-  %.sink62 = phi i32 [ %42, %31 ], [ %30, %25 ]
+  %.sink66 = phi i32 [ %36, %31 ], [ %17, %25 ]
+  %.sink65 = phi i32 [ %42, %31 ], [ %30, %25 ]
   %44 = getelementptr i8, ptr %.sink, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
-  %47 = mul nuw nsw i32 %.sink63, %46
-  %48 = add nuw nsw i32 %47, %.sink62
+  %47 = mul nuw nsw i32 %.sink66, %46
+  %48 = add nuw nsw i32 %47, %.sink65
   %.048.in.us = add nuw nsw i32 %48, 16
   %.048.us = lshr i32 %.048.in.us, 5
   %49 = trunc i32 %.048.us to i8
@@ -559,13 +559,13 @@ define hidden void @av1_highbd_dr_prediction_z2_c(ptr noundef writeonly captures
 
 44:                                               ; preds = %32, %26
   %.sink = phi ptr [ %39, %32 ], [ %28, %26 ]
-  %.sink63 = phi i32 [ %37, %32 ], [ %18, %26 ]
-  %.sink62 = phi i32 [ %43, %32 ], [ %31, %26 ]
+  %.sink66 = phi i32 [ %37, %32 ], [ %18, %26 ]
+  %.sink65 = phi i32 [ %43, %32 ], [ %31, %26 ]
   %45 = getelementptr i8, ptr %.sink, i64 2
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
-  %48 = mul nuw nsw i32 %.sink63, %47
-  %49 = add nuw nsw i32 %48, %.sink62
+  %48 = mul nuw nsw i32 %.sink66, %47
+  %49 = add nuw nsw i32 %48, %.sink65
   %.048.in.us = add nuw nsw i32 %49, 16
   %.048.us = lshr i32 %.048.in.us, 5
   %50 = trunc i32 %.048.us to i16
@@ -867,8 +867,8 @@ define hidden void @av1_filter_intra_edge_c(ptr noundef captures(none) %0, i32 n
   %15 = trunc i64 %14 to i32
   %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
   %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 %9)
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [129 x i8], ptr %4, i64 0, i64 %18
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds nuw [129 x i8], ptr %4, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds nuw [5 x i32], ptr %11, i64 0, i64 %indvars.iv
@@ -926,8 +926,8 @@ define hidden void @av1_filter_intra_edge_high_c(ptr noundef captures(none) %0, 
   %16 = trunc i64 %15 to i32
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
   %18 = tail call i32 @llvm.smin.i32(i32 %17, i32 %10)
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [129 x i16], ptr %4, i64 0, i64 %19
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds nuw [129 x i16], ptr %4, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   %23 = getelementptr inbounds nuw [5 x i32], ptr %12, i64 0, i64 %indvars.iv
@@ -1178,7 +1178,7 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %57 = mul i32 %56, %2
   %58 = add i32 %57, %34
   %59 = mul nsw i64 %indvars.iv403, %54
-  %invariant.gep426 = getelementptr i8, ptr %11, i64 %59
+  %invariant.gep480 = getelementptr i8, ptr %11, i64 %59
   br label %60
 
 60:                                               ; preds = %.preheader.us, %60
@@ -1192,8 +1192,8 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %67 = getelementptr inbounds nuw i16, ptr %50, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = trunc i16 %68 to i8
-  %gep427 = getelementptr i8, ptr %invariant.gep426, i64 %indvars.iv397
-  store i8 %69, ptr %gep427, align 1
+  %gep481 = getelementptr i8, ptr %invariant.gep480, i64 %indvars.iv397
+  store i8 %69, ptr %gep481, align 1
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next398, %wide.trip.count401
   br i1 %exitcond402.not, label %._crit_edge.us370, label %60, !llvm.loop !32
@@ -1396,8 +1396,8 @@ scale_chroma_bsize.exit:                          ; preds = %160, %158, %156, %1
   %175 = icmp eq i32 %14, %174
   %176 = lshr i32 16, %96
   %177 = icmp eq i32 %129, %176
-  %or.cond428 = select i1 %175, i1 %177, i1 false
-  br i1 %or.cond428, label %has_top_right.exit, label %._crit_edge.i
+  %or.cond482 = select i1 %175, i1 %177, i1 false
+  br i1 %or.cond482, label %has_top_right.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %173
   %178 = srem i32 %13, %176
@@ -2606,13 +2606,13 @@ av1_use_intra_edge_upsample.exit298.thread.i:     ; preds = %av1_upsample_intra_
 
 855:                                              ; preds = %843, %837
   %.sink.i68.i.i = phi ptr [ %850, %843 ], [ %839, %837 ]
-  %.sink63.i.i.i = phi i32 [ %848, %843 ], [ %829, %837 ]
-  %.sink62.i.i.i = phi i32 [ %854, %843 ], [ %842, %837 ]
+  %.sink66.i.i.i = phi i32 [ %848, %843 ], [ %829, %837 ]
+  %.sink65.i.i.i = phi i32 [ %854, %843 ], [ %842, %837 ]
   %856 = getelementptr i8, ptr %.sink.i68.i.i, i64 2
   %857 = load i16, ptr %856, align 2
   %858 = zext i16 %857 to i32
-  %859 = mul nuw nsw i32 %.sink63.i.i.i, %858
-  %860 = add nuw nsw i32 %.sink62.i.i.i, 16
+  %859 = mul nuw nsw i32 %.sink66.i.i.i, %858
+  %860 = add nuw nsw i32 %.sink65.i.i.i, 16
   %.048.in.us.i.i.i = add nuw nsw i32 %860, %859
   %.048.us.i.i.i = lshr i32 %.048.in.us.i.i.i, 5
   %861 = trunc i32 %.048.us.i.i.i to i16
@@ -3545,13 +3545,13 @@ av1_use_intra_edge_upsample.exit275.thread.i:     ; preds = %av1_upsample_intra_
 
 1331:                                             ; preds = %1319, %1313
   %.sink.i63.i.i = phi ptr [ %1326, %1319 ], [ %1315, %1313 ]
-  %.sink63.i.i.i252 = phi i32 [ %1324, %1319 ], [ %1305, %1313 ]
-  %.sink62.i.i.i253 = phi i32 [ %1330, %1319 ], [ %1318, %1313 ]
+  %.sink66.i.i.i252 = phi i32 [ %1324, %1319 ], [ %1305, %1313 ]
+  %.sink65.i.i.i253 = phi i32 [ %1330, %1319 ], [ %1318, %1313 ]
   %1332 = getelementptr i8, ptr %.sink.i63.i.i, i64 1
   %1333 = load i8, ptr %1332, align 1
   %1334 = zext i8 %1333 to i32
-  %1335 = mul nuw nsw i32 %.sink63.i.i.i252, %1334
-  %1336 = add nuw nsw i32 %.sink62.i.i.i253, 16
+  %1335 = mul nuw nsw i32 %.sink66.i.i.i252, %1334
+  %1336 = add nuw nsw i32 %.sink65.i.i.i253, 16
   %.048.in.us.i.i.i254 = add nuw nsw i32 %1336, %1335
   %.048.us.i.i.i255 = lshr i32 %.048.in.us.i.i.i254, 5
   %1337 = trunc i32 %.048.us.i.i.i255 to i8

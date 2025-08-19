@@ -625,8 +625,8 @@ if.then.i.i:                                      ; preds = %entry
 _ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit: ; preds = %entry, %if.then.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
-  %conv5306 = and i64 %sub.ptr.div.i, 65535
-  %cmp303.not = icmp eq i64 %conv5306, 0
+  %conv5309 = and i64 %sub.ptr.div.i, 65535
+  %cmp303.not = icmp eq i64 %conv5309, 0
   br i1 %cmp303.not, label %_ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit.for.end_crit_edge, label %for.body.preheader
 
 _ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit.for.end_crit_edge: ; preds = %_ZN6google8protobuf2io17CodedOutputStreamC2INS1_20ZeroCopyOutputStreamEvEEPT_.exit

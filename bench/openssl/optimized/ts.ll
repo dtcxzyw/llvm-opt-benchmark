@@ -477,8 +477,8 @@ define dso_local range(i32 0, 2) i32 @ts_main(i32 noundef %0, ptr noundef %1) lo
 
 ._crit_edge.thread:                               ; preds = %8
   %77 = tail call i32 @opt_check_rest_arg(ptr noundef null) #7
-  %.not159355 = icmp eq i32 %77, 0
-  br i1 %.not159355, label %.loopexit, label %.loopexit.sink.split
+  %.not159360 = icmp eq i32 %77, 0
+  br i1 %.not159360, label %.loopexit, label %.loopexit.sink.split
 
 78:                                               ; preds = %._crit_edge
   %79 = icmp eq i32 %.1113, -1

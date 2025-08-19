@@ -1129,9 +1129,9 @@ define internal void @frecv(ptr noundef readonly captures(none) %0, ptr readnone
 
 .sink.split:                                      ; preds = %114, %108, %76, %70, %48, %40
   %.386.sink = phi i32 [ %54, %48 ], [ -20, %40 ], [ %84, %76 ], [ -20, %70 ], [ %122, %114 ], [ -20, %108 ]
-  %.sink87 = phi i32 [ 105, %48 ], [ 105, %40 ], [ 116, %76 ], [ 116, %70 ], [ 124, %114 ], [ 124, %108 ]
+  %.sink96 = phi i32 [ 105, %48 ], [ 105, %40 ], [ 116, %76 ], [ 116, %70 ], [ 124, %114 ], [ 124, %108 ]
   %123 = call ptr @PMIx_Error_string(i32 noundef %.386.sink) #11
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %123, ptr noundef nonnull @.str.3, i32 noundef %.sink87) #11
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %123, ptr noundef nonnull @.str.3, i32 noundef %.sink96) #11
   br label %124
 
 124:                                              ; preds = %.sink.split, %114, %114, %76, %48, %16, %20, %85, %55

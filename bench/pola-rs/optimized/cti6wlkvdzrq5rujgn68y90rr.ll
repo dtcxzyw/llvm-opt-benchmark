@@ -341,7 +341,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h1ed583c35318bca
   %25 = phi ptr [ %52, %49 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %42, %49 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %43, %49 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i13.us.i.i = phi i64 [ %51, %49 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i12.us.i.i = phi i64 [ %51, %49 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %28 = phi i64 [ %50, %49 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %49 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %49 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
@@ -370,7 +370,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h1ed583c35318bca
   %42 = phi ptr [ %41, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %26, %.lr.ph.split.us.i.i ]
   %43 = phi i64 [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %44 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
-  %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i13.us.i.i, %.lr.ph.split.us.i.i ]
+  %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i12.us.i.i, %.lr.ph.split.us.i.i ]
   %..i.i.i.us.i.i = and i64 %45, 1
   %46 = load i8, ptr %.sroa.1221.0.copyload, align 1, !noalias !97, !noundef !20
   %47 = tail call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef %..i.i.i.us.i.i, i64 %36, i8 noundef %46), !noalias !97
@@ -390,7 +390,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h1ed583c35318bca
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !104
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !104
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17haba23939157fb2e4E.exit": ; preds = %38, %._crit_edge.i.i.i.i.i.us.i.i, %49, %19
@@ -424,7 +424,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h1ed583c35318bca
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %66
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !123
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !123
   unreachable
 
 72:                                               ; preds = %66
@@ -1869,7 +1869,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h578614c1cdf6988
   br i1 %67, label %69, label %68
 
 68:                                               ; preds = %63
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %59, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !400
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !400
   unreachable
 
 69:                                               ; preds = %63
@@ -2422,7 +2422,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h5fed8d3905fc38f
   %25 = phi ptr [ %51, %48 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %41, %48 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %42, %48 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i13.us.i.i = phi i64 [ %50, %48 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i12.us.i.i = phi i64 [ %50, %48 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %28 = phi i64 [ %49, %48 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %48 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %48 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
@@ -2450,7 +2450,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h5fed8d3905fc38f
   %41 = phi ptr [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %26, %.lr.ph.split.us.i.i ]
   %42 = phi i64 [ %39, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %43 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
-  %44 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i13.us.i.i, %.lr.ph.split.us.i.i ]
+  %44 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i12.us.i.i, %.lr.ph.split.us.i.i ]
   %..i.i.i.us.i.i = and i64 %44, 1
   %45 = load i8, ptr %.sroa.1221.0.copyload, align 1, !noalias !505, !noundef !20
   %46 = tail call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef %..i.i.i.us.i.i, i64 %35, i8 noundef %45), !noalias !505
@@ -2470,7 +2470,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h5fed8d3905fc38f
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !512
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !512
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hfaea41e05c4080deE.exit": ; preds = %37, %._crit_edge.i.i.i.i.i.us.i.i, %48, %19
@@ -2504,7 +2504,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h5fed8d3905fc38f
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %65
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %61, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !531
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !531
   unreachable
 
 71:                                               ; preds = %65
@@ -2819,7 +2819,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h632df17c0de6ccb
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %59
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !589
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !589
   unreachable
 
 65:                                               ; preds = %59
@@ -3094,7 +3094,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h6d967d5628d09a7
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %60
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !643
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !643
   unreachable
 
 66:                                               ; preds = %60
@@ -4273,7 +4273,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h8a11545aa81cd4f
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %57
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !859
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !859
   unreachable
 
 63:                                               ; preds = %57
@@ -4488,7 +4488,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
   %25 = phi ptr [ %59, %58 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %42, %58 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %43, %58 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i25.us.i.i = phi i64 [ %46, %58 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i24.us.i.i = phi i64 [ %46, %58 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %28 = phi i64 [ %47, %58 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %58 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %58 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
@@ -4517,7 +4517,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
   %42 = phi ptr [ %41, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %26, %.lr.ph.split.us.i.i ]
   %43 = phi i64 [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %44 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
-  %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i25.us.i.i, %.lr.ph.split.us.i.i ]
+  %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i24.us.i.i, %.lr.ph.split.us.i.i ]
   %46 = lshr i64 %45, 1
   %47 = add i64 %44, -1
   %48 = trunc i64 %45 to i1
@@ -4549,7 +4549,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !878)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !907
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !907
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h9a59f40fe2facbedE.exit": ; preds = %38, %56, %58, %19
@@ -4583,7 +4583,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
   br i1 %77, label %79, label %78
 
 78:                                               ; preds = %73
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %69, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !926
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !926
   unreachable
 
 79:                                               ; preds = %73
@@ -5580,7 +5580,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb4899c57f38bc04
   %25 = phi ptr [ %52, %47 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %42, %47 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %43, %47 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i25.us.i.i = phi i64 [ %49, %47 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i24.us.i.i = phi i64 [ %49, %47 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %28 = phi i64 [ %48, %47 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %47 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %47 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
@@ -5609,7 +5609,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb4899c57f38bc04
   %42 = phi ptr [ %41, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %26, %.lr.ph.split.us.i.i ]
   %43 = phi i64 [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %44 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
-  %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i25.us.i.i, %.lr.ph.split.us.i.i ]
+  %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i24.us.i.i, %.lr.ph.split.us.i.i ]
   %46 = icmp eq ptr %25, %21
   br i1 %46, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hbcaaf30ea8a289f1E.exit", label %47
 
@@ -5629,7 +5629,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb4899c57f38bc04
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1115
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1115
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hbcaaf30ea8a289f1E.exit": ; preds = %38, %._crit_edge.i.i.i.i.i.us.i.i, %47, %19
@@ -5663,7 +5663,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb4899c57f38bc04
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %66
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1134
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1134
   unreachable
 
 72:                                               ; preds = %66
@@ -5981,7 +5981,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hbbfd896bf803c60
   br i1 %68, label %70, label %69
 
 69:                                               ; preds = %64
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %60, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1189
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1189
   unreachable
 
 70:                                               ; preds = %64
@@ -6833,7 +6833,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hddd3dea0510ac3f
   %25 = phi ptr [ %51, %48 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %41, %48 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %42, %48 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i13.us.i.i = phi i64 [ %50, %48 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i12.us.i.i = phi i64 [ %50, %48 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %28 = phi i64 [ %49, %48 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %48 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %48 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
@@ -6861,7 +6861,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hddd3dea0510ac3f
   %41 = phi ptr [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %26, %.lr.ph.split.us.i.i ]
   %42 = phi i64 [ %39, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %43 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
-  %44 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i13.us.i.i, %.lr.ph.split.us.i.i ]
+  %44 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i12.us.i.i, %.lr.ph.split.us.i.i ]
   %..i.i.i.us.i.i = and i64 %44, 1
   %45 = load i8, ptr %.sroa.1221.0.copyload, align 1, !noalias !1343, !noundef !20
   %46 = tail call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef %..i.i.i.us.i.i, i64 %35, i8 noundef %45), !noalias !1343
@@ -6881,7 +6881,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hddd3dea0510ac3f
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1320)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1350
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1350
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17he311d8a88ab065adE.exit": ; preds = %37, %._crit_edge.i.i.i.i.i.us.i.i, %48, %19
@@ -6915,7 +6915,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hddd3dea0510ac3f
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %65
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %61, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1369
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1369
   unreachable
 
 71:                                               ; preds = %65
@@ -7231,7 +7231,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hdec5c2ce46d6532
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %60
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %56, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1427
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1427
   unreachable
 
 66:                                               ; preds = %60
@@ -7450,7 +7450,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
   %25 = phi ptr [ %58, %57 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %41, %57 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %42, %57 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i25.us.i.i = phi i64 [ %45, %57 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i24.us.i.i = phi i64 [ %45, %57 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %28 = phi i64 [ %46, %57 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %57 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %57 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
@@ -7478,7 +7478,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
   %41 = phi ptr [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %26, %.lr.ph.split.us.i.i ]
   %42 = phi i64 [ %39, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %43 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
-  %44 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i25.us.i.i, %.lr.ph.split.us.i.i ]
+  %44 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i24.us.i.i, %.lr.ph.split.us.i.i ]
   %45 = lshr i64 %44, 1
   %46 = add i64 %43, -1
   %47 = trunc i64 %44 to i1
@@ -7510,7 +7510,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1446)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1475
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1475
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h1c062784e46c74f0E.exit": ; preds = %37, %55, %57, %19
@@ -7544,7 +7544,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
   br i1 %76, label %78, label %77
 
 77:                                               ; preds = %72
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %68, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1494
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1494
   unreachable
 
 78:                                               ; preds = %72
@@ -7815,7 +7815,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he79b8a6fd7bb185
   %25 = phi ptr [ %52, %49 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %42, %49 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %43, %49 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i13.us.i.i = phi i64 [ %51, %49 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i12.us.i.i = phi i64 [ %51, %49 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %28 = phi i64 [ %50, %49 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %49 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %49 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
@@ -7844,7 +7844,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he79b8a6fd7bb185
   %42 = phi ptr [ %41, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %26, %.lr.ph.split.us.i.i ]
   %43 = phi i64 [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %44 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
-  %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i13.us.i.i, %.lr.ph.split.us.i.i ]
+  %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i12.us.i.i, %.lr.ph.split.us.i.i ]
   %..i.i.i.us.i.i = and i64 %45, 1
   %46 = load i8, ptr %.sroa.1221.0.copyload, align 1, !noalias !1540, !noundef !20
   %47 = tail call noundef i64 @_ZN10polars_row8variable8no_order13len_from_item17h5e416a8ae7f62e7bE(i64 noundef %..i.i.i.us.i.i, i64 %36, i8 noundef %46), !noalias !1540
@@ -7864,7 +7864,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he79b8a6fd7bb185
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1517)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1547
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1547
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17ha37204d90491c1f4E.exit": ; preds = %38, %._crit_edge.i.i.i.i.i.us.i.i, %49, %19
@@ -7898,7 +7898,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he79b8a6fd7bb185
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %66
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1566
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1566
   unreachable
 
 72:                                               ; preds = %66
@@ -8214,7 +8214,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he9cb1a0a3f2949a
   br i1 %63, label %65, label %64
 
 64:                                               ; preds = %59
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %55, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1624
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1624
   unreachable
 
 65:                                               ; preds = %59
@@ -8486,7 +8486,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hee807b23c46b12a
   br i1 %62, label %64, label %63
 
 63:                                               ; preds = %58
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1675
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1675
   unreachable
 
 64:                                               ; preds = %58
@@ -8702,7 +8702,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hf9e12a5f1112f41
   %25 = phi ptr [ %51, %45 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %40, %45 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %41, %45 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i25.us.i.i = phi i64 [ %47, %45 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i24.us.i.i = phi i64 [ %47, %45 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %28 = phi i64 [ %46, %45 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %45 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %45 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
@@ -8729,7 +8729,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hf9e12a5f1112f41
   %40 = phi ptr [ %39, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %26, %.lr.ph.split.us.i.i ]
   %41 = phi i64 [ %38, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %42 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
-  %43 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i25.us.i.i, %.lr.ph.split.us.i.i ]
+  %43 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i24.us.i.i, %.lr.ph.split.us.i.i ]
   %44 = icmp eq ptr %25, %21
   br i1 %44, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h5b4448f732e18ee3E.exit", label %45
 
@@ -8750,7 +8750,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hf9e12a5f1112f41
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1694)
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %.sroa.5.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1723
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1723
   unreachable
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h5b4448f732e18ee3E.exit": ; preds = %36, %._crit_edge.i.i.i.i.i.us.i.i, %45, %19
@@ -8784,7 +8784,7 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hf9e12a5f1112f41
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %65
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef %61, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1742
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9077d3ec7adcc39bb2e948a8a3ac4a42.5) #11, !noalias !1742
   unreachable
 
 71:                                               ; preds = %65

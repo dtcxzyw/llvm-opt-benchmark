@@ -173,12 +173,12 @@ define internal i32 @pnm_parse(ptr noundef readonly captures(none) %0, ptr nound
   br label %91
 
 select.unfold.thread:                             ; preds = %91, %select.unfold
-  %.399149 = phi ptr [ %97, %select.unfold ], [ %92, %91 ]
-  %90 = icmp ult ptr %.399149, %76
+  %.399155 = phi ptr [ %97, %select.unfold ], [ %92, %91 ]
+  %90 = icmp ult ptr %.399155, %76
   br i1 %90, label %91, label %.loopexit.thread
 
 91:                                               ; preds = %.lr.ph, %select.unfold.thread
-  %.197140 = phi ptr [ %.096, %.lr.ph ], [ %.399149, %select.unfold.thread ]
+  %.197140 = phi ptr [ %.096, %.lr.ph ], [ %.399155, %select.unfold.thread ]
   %92 = getelementptr inbounds nuw i8, ptr %.197140, i64 1
   %93 = load i8, ptr %.197140, align 1, !tbaa !30
   switch i8 %93, label %select.unfold.thread [
@@ -211,8 +211,8 @@ select.unfold:                                    ; preds = %91
   br label %.thread130
 
 .loopexit.thread:                                 ; preds = %select.unfold.thread, %select.unfold, %87, %.loopexit
-  %.193152 = phi ptr [ %.197140, %.loopexit ], [ %75, %87 ], [ %.197140, %select.unfold ], [ %.197140, %select.unfold.thread ]
-  %106 = ptrtoint ptr %.193152 to i64
+  %.193158 = phi ptr [ %.197140, %.loopexit ], [ %75, %87 ], [ %.197140, %select.unfold ], [ %.197140, %select.unfold.thread ]
+  %106 = ptrtoint ptr %.193158 to i64
   %107 = ptrtoint ptr %75 to i64
   %108 = sub i64 %106, %107
   %109 = trunc i64 %108 to i32

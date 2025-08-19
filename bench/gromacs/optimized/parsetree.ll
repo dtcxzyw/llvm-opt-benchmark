@@ -1036,8 +1036,8 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %41, %50
   %.pre64 = load i32, ptr %58, align 8, !tbaa !53
   %67 = and i32 %66, %.pre64
   %.not44 = icmp eq i32 %67, 0
-  %or.cond68 = select i1 %.not43, i1 %.not44, i1 false
-  br i1 %or.cond68, label %68, label %81
+  %or.cond76 = select i1 %.not43, i1 %.not44, i1 false
+  br i1 %or.cond76, label %68, label %81
 
 68:                                               ; preds = %65
   %69 = tail call ptr @__cxa_allocate_exception(i64 24) #24
@@ -3392,13 +3392,13 @@ _Z23_gmx_selelem_set_methodRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP19gmx_
 .thread105:                                       ; preds = %74
   %80 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split113
+  br label %.sink.split133
 
 .thread109:                                       ; preds = %76
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #24
-  br label %.sink.split113
+  br label %.sink.split133
 
 82:                                               ; preds = %77, %79
   %.0 = phi i1 [ false, %79 ], [ true, %77 ]
@@ -3411,13 +3411,13 @@ _Z23_gmx_selelem_set_methodRKSt10shared_ptrIN3gmx20SelectionTreeElementEEP19gmx_
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.0, label %84, label %.body
 
-.sink.split113:                                   ; preds = %.thread105, %.thread109
+.sink.split133:                                   ; preds = %.thread105, %.thread109
   %.pn43.pn108.ph = phi { ptr, i32 } [ %81, %.thread109 ], [ %80, %.thread105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %84
 
-84:                                               ; preds = %.sink.split113, %82
-  %.pn43.pn108 = phi { ptr, i32 } [ %83, %82 ], [ %.pn43.pn108.ph, %.sink.split113 ]
+84:                                               ; preds = %.sink.split133, %82
+  %.pn43.pn108 = phi { ptr, i32 } [ %83, %82 ], [ %.pn43.pn108.ph, %.sink.split133 ]
   call void @__cxa_free_exception(ptr %75) #24
   br label %.body
 

@@ -1113,7 +1113,7 @@ _ZN7Archive10GetCommentEP5ArrayIwE.exit:          ; preds = %.noexc9
   %28 = ashr exact i64 %27, 2
   %.05 = select i1 %.not, i64 %23, i64 %28
   invoke void @_Z10OutCommentPKwm(ptr noundef nonnull %.pr.pre, i64 noundef %.05)
-          to label %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread15 unwind label %.thread
+          to label %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread16 unwind label %.thread
 
 .thread:                                          ; preds = %21
   %29 = landingpad { ptr, i32 }
@@ -1122,13 +1122,13 @@ _ZN7Archive10GetCommentEP5ArrayIwE.exit:          ; preds = %.noexc9
 
 _ZN7Archive10GetCommentEP5ArrayIwE.exit.thread:   ; preds = %_ZN7Archive10GetCommentEP5ArrayIwE.exit
   %.not.i = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i, label %_ZN5ArrayIwED2Ev.exit, label %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread15
+  br i1 %.not.i, label %_ZN5ArrayIwED2Ev.exit, label %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread16
 
-_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread15: ; preds = %21, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread
+_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread16: ; preds = %21, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread
   tail call void @free(ptr noundef nonnull %.pr.pre) #21
   br label %_ZN5ArrayIwED2Ev.exit
 
-_ZN5ArrayIwED2Ev.exit:                            ; preds = %8, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread15
+_ZN5ArrayIwED2Ev.exit:                            ; preds = %8, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
@@ -1143,15 +1143,15 @@ _ZN5ArrayIwED2Ev.exit:                            ; preds = %8, %_ZN7Archive10Ge
   br i1 %.not.i11, label %_ZN5ArrayIwED2Ev.exit12, label %33
 
 33:                                               ; preds = %.thread, %31
-  %.pn19 = phi { ptr, i32 } [ %29, %.thread ], [ %32, %31 ]
+  %.pn20 = phi { ptr, i32 } [ %29, %.thread ], [ %32, %31 ]
   %34 = phi ptr [ %.pr.pre, %.thread ], [ %.pre, %31 ]
   tail call void @free(ptr noundef nonnull %34) #21
   br label %_ZN5ArrayIwED2Ev.exit12
 
 _ZN5ArrayIwED2Ev.exit12:                          ; preds = %31, %33
-  %.pn20 = phi { ptr, i32 } [ %32, %31 ], [ %.pn19, %33 ]
+  %.pn21 = phi { ptr, i32 } [ %32, %31 ], [ %.pn20, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn20
+  resume { ptr, i32 } %.pn21
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -1823,8 +1823,8 @@ _ZN5ArrayIcEC2Em.exit:                            ; preds = %.thread, %68
 108:                                              ; preds = %96
   %109 = icmp ugt i32 %95, 6
   %110 = icmp eq i8 %98, 97
-  %or.cond18.i = and i1 %109, %110
-  br i1 %or.cond18.i, label %111, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread
+  %or.cond19.i = and i1 %109, %110
+  br i1 %or.cond19.i, label %111, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %90, i64 2
@@ -1854,19 +1854,19 @@ _ZN5ArrayIcEC2Em.exit:                            ; preds = %.thread, %68
   %128 = getelementptr inbounds nuw i8, ptr %90, i64 6
   %129 = load i8, ptr %128, align 1, !tbaa !111
   switch i8 %129, label %130 [
-    i8 0, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread161.loopexit
-    i8 1, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread161
+    i8 0, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread165.loopexit
+    i8 1, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread165
   ]
 
 130:                                              ; preds = %127
   %131 = icmp ult i8 %129, 5
-  br i1 %131, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread161, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread
+  br i1 %131, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread165, label %_ZN7Archive11IsSignatureEPKhm.exit95.thread
 
-_ZN7Archive11IsSignatureEPKhm.exit95.thread161.loopexit: ; preds = %127
-  br label %_ZN7Archive11IsSignatureEPKhm.exit95.thread161
+_ZN7Archive11IsSignatureEPKhm.exit95.thread165.loopexit: ; preds = %127
+  br label %_ZN7Archive11IsSignatureEPKhm.exit95.thread165
 
-_ZN7Archive11IsSignatureEPKhm.exit95.thread161:   ; preds = %130, %127, %_ZN7Archive11IsSignatureEPKhm.exit95.thread161.loopexit
-  %.0.i93.ph = phi i32 [ 3, %127 ], [ 4, %130 ], [ 2, %_ZN7Archive11IsSignatureEPKhm.exit95.thread161.loopexit ]
+_ZN7Archive11IsSignatureEPKhm.exit95.thread165:   ; preds = %130, %127, %_ZN7Archive11IsSignatureEPKhm.exit95.thread165.loopexit
+  %.0.i93.ph = phi i32 [ 3, %127 ], [ 4, %130 ], [ 2, %_ZN7Archive11IsSignatureEPKhm.exit95.thread165.loopexit ]
   store i32 %.0.i93.ph, ptr %79, align 8, !tbaa !60
   br label %.loopexit
 
@@ -1901,7 +1901,7 @@ _ZN7Archive11IsSignatureEPKhm.exit95:             ; preds = %104
           cleanup
   br label %.thread128
 
-.loopexit:                                        ; preds = %139, %_ZN7Archive11IsSignatureEPKhm.exit95, %_ZN7Archive11IsSignatureEPKhm.exit95.thread161
+.loopexit:                                        ; preds = %139, %_ZN7Archive11IsSignatureEPKhm.exit95, %_ZN7Archive11IsSignatureEPKhm.exit95.thread165
   %143 = add nsw i64 %72, %indvars.iv
   store i64 %143, ptr %24, align 8, !tbaa !61
   %144 = load ptr, ptr %0, align 8, !tbaa !58
@@ -2049,9 +2049,9 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %162
   %206 = load i8, ptr %7, align 8, !tbaa !63, !range !56, !noundef !57
   %207 = trunc nuw i8 %206 to i1
   %or.cond10.not = or i1 %.not81, %207
-  br i1 %or.cond10.not, label %211, label %.thread165
+  br i1 %or.cond10.not, label %211, label %.thread169
 
-.thread165:                                       ; preds = %205
+.thread169:                                       ; preds = %205
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 13836
   %209 = load i8, ptr %208, align 4, !tbaa !62, !range !56, !noundef !57
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 48846
@@ -2096,7 +2096,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit105: ; preds = %213
   store i8 %222, ptr %223, align 2, !tbaa !3
   br i1 %.not81, label %269, label %224
 
-224:                                              ; preds = %.thread165, %220
+224:                                              ; preds = %.thread169, %220
   %225 = load i8, ptr %187, align 8, !tbaa !141, !range !56, !noundef !57
   %226 = trunc nuw i8 %225 to i1
   %227 = load i8, ptr %6, align 4, !range !56
@@ -2325,8 +2325,8 @@ define noundef range(i32 0, 5) i32 @_ZN7Archive11IsSignatureEPKhm(ptr noundef re
 19:                                               ; preds = %15, %11, %7
   %20 = icmp ugt i64 %1, 6
   %21 = icmp eq i8 %9, 97
-  %or.cond18 = and i1 %20, %21
-  br i1 %or.cond18, label %22, label %.thread
+  %or.cond19 = and i1 %20, %21
+  br i1 %or.cond19, label %22, label %.thread
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2

@@ -807,7 +807,7 @@ define dso_local noundef range(i32 -19, 1) i32 @trace_event_raw_init(ptr noundef
   %242 = phi i32 [ %18, %132 ], [ %137, %.loopexit21 ], [ %18, %107 ], [ %18, %131 ], [ %18, %.loopexit20 ], [ %18, %45 ], [ %18, %34 ], [ %18, %26 ], [ %18, %15 ], [ %18, %.thread16 ], [ %18, %49 ], [ %18, %103 ], [ %18, %40 ], [ %18, %36 ]
   %243 = phi i8 [ %19, %132 ], [ 0, %.loopexit21 ], [ %19, %107 ], [ 0, %131 ], [ %19, %.loopexit20 ], [ %19, %45 ], [ %19, %34 ], [ %19, %26 ], [ %19, %15 ], [ %44, %.thread16 ], [ %19, %49 ], [ %19, %103 ], [ %25, %40 ], [ %25, %36 ]
   %244 = phi i32 [ %20, %132 ], [ 0, %.loopexit21 ], [ %20, %107 ], [ %110, %131 ], [ %20, %.loopexit20 ], [ %20, %45 ], [ %20, %34 ], [ %20, %26 ], [ %20, %15 ], [ %20, %.thread16 ], [ %20, %49 ], [ %106, %103 ], [ %20, %40 ], [ %20, %36 ]
-  %245 = phi i8 [ %21, %132 ], [ %21, %.loopexit21 ], [ %21, %107 ], [ %21, %131 ], [ %21, %.loopexit20 ], [ %21, %45 ], [ %21, %34 ], [ %21, %26 ], [ %21, %15 ], [ 0, %.thread16 ], [ %21, %49 ], [ %21, %103 ], [ 0, %40 ], [ %21, %36 ]
+  %245 = phi i8 [ %21, %132 ], [ %21, %.loopexit21 ], [ %21, %107 ], [ %21, %131 ], [ 1, %.loopexit20 ], [ %21, %45 ], [ 1, %34 ], [ %21, %26 ], [ %21, %15 ], [ 0, %.thread16 ], [ 1, %49 ], [ %21, %103 ], [ 0, %40 ], [ 1, %36 ]
   %246 = phi i64 [ %22, %132 ], [ %238, %.loopexit21 ], [ %22, %107 ], [ %22, %131 ], [ %101, %.loopexit20 ], [ %22, %45 ], [ %22, %34 ], [ %22, %26 ], [ %22, %15 ], [ %22, %.thread16 ], [ %22, %49 ], [ %22, %103 ], [ %22, %40 ], [ %22, %36 ]
   %247 = add i32 %240, 1
   br label %15, !llvm.loop !28
@@ -1791,9 +1791,9 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   %87 = load ptr, ptr %41, align 8
   %88 = tail call i32 @strncmp(ptr noundef %87, ptr noundef %54, i64 noundef %50) #19
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %.preheader48
+  br i1 %89, label %90, label %.preheader67
 
-.preheader48:                                     ; preds = %90, %86
+.preheader67:                                     ; preds = %90, %86
   br label %119
 
 90:                                               ; preds = %86
@@ -1806,7 +1806,7 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   %97 = icmp ne i8 %96, 0
   %98 = icmp eq i8 %92, 95
   %99 = or i1 %98, %97
-  br i1 %99, label %.preheader48, label %100
+  br i1 %99, label %.preheader67, label %100
 
 100:                                              ; preds = %90
   %101 = load i64, ptr %51, align 8
@@ -1839,8 +1839,8 @@ define dso_local void @trace_event_eval_update(ptr noundef readonly captures(non
   tail call void asm sideeffect "1016: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1016b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1016) #19, !srcloc !63
   br label %.loopexit19
 
-119:                                              ; preds = %.backedge, %.preheader48
-  %120 = phi ptr [ %54, %.preheader48 ], [ %.be, %.backedge ]
+119:                                              ; preds = %.backedge, %.preheader67
+  %120 = phi ptr [ %54, %.preheader67 ], [ %.be, %.backedge ]
   %121 = getelementptr i8, ptr %120, i64 1
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
@@ -4194,9 +4194,9 @@ define internal fastcc void @remove_event_file_dir(ptr noundef %0) unnamed_addr 
 33:                                               ; preds = %27
   %34 = load i32, ptr %23, align 8
   %35 = icmp eq i32 %34, 1
-  br i1 %35, label %.thread2, label %39, !prof !13
+  br i1 %35, label %.thread5, label %39, !prof !13
 
-.thread2:                                         ; preds = %33
+.thread5:                                         ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -4235,9 +4235,9 @@ define internal fastcc void @remove_event_file_dir(ptr noundef %0) unnamed_addr 
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %__put_system.exit
 
-52:                                               ; preds = %.thread2, %48
-  %53 = phi ptr [ %29, %.thread2 ], [ %42, %48 ]
-  %54 = phi ptr [ %37, %.thread2 ], [ %44, %48 ]
+52:                                               ; preds = %.thread5, %48
+  %53 = phi ptr [ %29, %.thread5 ], [ %42, %48 ]
+  %54 = phi ptr [ %37, %.thread5 ], [ %44, %48 ]
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %53, align 8
@@ -5909,9 +5909,9 @@ define internal fastcc void @put_system(ptr noundef %0) unnamed_addr #0 align 16
 12:                                               ; preds = %6
   %13 = load i32, ptr %2, align 8
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %.thread2, label %18, !prof !13
+  br i1 %14, label %.thread4, label %18, !prof !13
 
-.thread2:                                         ; preds = %12
+.thread4:                                         ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -5950,9 +5950,9 @@ define internal fastcc void @put_system(ptr noundef %0) unnamed_addr #0 align 16
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %__put_system.exit
 
-31:                                               ; preds = %.thread2, %27
-  %32 = phi ptr [ %8, %.thread2 ], [ %21, %27 ]
-  %33 = phi ptr [ %16, %.thread2 ], [ %23, %27 ]
+31:                                               ; preds = %.thread4, %27
+  %32 = phi ptr [ %8, %.thread4 ], [ %21, %27 ]
+  %33 = phi ptr [ %16, %.thread4 ], [ %23, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %32, align 8

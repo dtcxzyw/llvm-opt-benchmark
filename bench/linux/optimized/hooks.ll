@@ -2194,7 +2194,7 @@ define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr
   store i32 %2, ptr %17, align 8
   %18 = ashr i32 %2, 5
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep5 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.sink.sroa.gep6 = getelementptr inbounds nuw i8, ptr %6, i64 4
   switch i32 %18, label %23 [
     i32 0, label %19
     i32 1, label %21
@@ -2237,11 +2237,11 @@ define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %37, %34
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %34 ], [ %.sink.sroa.gep5, %37 ]
-  %.sink3 = phi i32 [ %36, %34 ], [ %16, %37 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %34 ], [ %.sink.sroa.gep6, %37 ]
+  %.sink4 = phi i32 [ %36, %34 ], [ %16, %37 ]
   %40 = phi i32 [ %36, %34 ], [ 0, %37 ]
   %41 = load i32, ptr %.sink.sroa.phi, align 4
-  %42 = and i32 %41, %.sink3
+  %42 = and i32 %41, %.sink4
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.thread2, label %.thread, !prof !18
 
@@ -4005,7 +4005,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr noundef readonly captures(non
 173:                                              ; preds = %169
   %174 = tail call i32 @security_fs_use(ptr noundef %1) #24
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %.thread2, label %279
+  br i1 %175, label %.thread3, label %279
 
 ._crit_edge:                                      ; preds = %159, %169
   %176 = icmp eq i64 %168, 0
@@ -4018,10 +4018,10 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr noundef readonly captures(non
   %179 = load i64, ptr %3, align 8
   %180 = or i64 %179, 1
   store i64 %180, ptr %3, align 8
-  br label %.thread2
+  br label %.thread3
 
 181:                                              ; preds = %._crit_edge
-  br i1 %177, label %182, label %.thread2
+  br i1 %177, label %182, label %.thread3
 
 182:                                              ; preds = %181
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4079,13 +4079,13 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr noundef readonly captures(non
 218:                                              ; preds = %210, %187
   %219 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %184, ptr %219, align 8
-  br label %.thread2
+  br label %.thread3
 
-.thread2:                                         ; preds = %173, %.thread, %218, %181
+.thread3:                                         ; preds = %173, %.thread, %218, %181
   %220 = icmp eq i32 %18, 0
   br i1 %220, label %277, label %221
 
-221:                                              ; preds = %.thread2
+221:                                              ; preds = %.thread3
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 48
@@ -4158,7 +4158,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr noundef readonly captures(non
   store i32 %275, ptr %276, align 4
   br label %277
 
-277:                                              ; preds = %267, %.thread2
+277:                                              ; preds = %267, %.thread3
   %278 = tail call fastcc i32 @sb_finish_set_opts(ptr noundef %1)
   br label %279
 
@@ -5464,7 +5464,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   br label %.thread
 
 72:                                               ; preds = %65
-  br i1 %68, label %.thread, label %.thread8
+  br i1 %68, label %.thread, label %.thread11
 
 .thread:                                          ; preds = %62, %70, %72
   %73 = load ptr, ptr %53, align 8
@@ -5476,9 +5476,9 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   %77 = sext i32 %76 to i64
   %78 = getelementptr i8, ptr %73, i64 %77
   %79 = icmp ugt ptr %78, inttoptr (i64 -4096 to ptr)
-  br i1 %79, label %.thread8, label %.thread5
+  br i1 %79, label %.thread11, label %.thread5
 
-.thread8:                                         ; preds = %72, %75
+.thread11:                                        ; preds = %72, %75
   %80 = phi ptr [ %78, %75 ], [ inttoptr (i64 -10 to ptr), %72 ]
   %81 = ptrtoint ptr %80 to i64
   %82 = trunc i64 %81 to i32
@@ -5531,8 +5531,8 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   %116 = select i1 %115, i32 %88, i32 %114
   br label %.thread7
 
-.thread7:                                         ; preds = %93, %113, %109, %.thread8, %12, %2
-  %117 = phi i32 [ %82, %.thread8 ], [ 0, %2 ], [ 0, %12 ], [ %88, %109 ], [ %116, %113 ], [ %88, %93 ]
+.thread7:                                         ; preds = %93, %113, %109, %.thread11, %12, %2
+  %117 = phi i32 [ %82, %.thread11 ], [ 0, %2 ], [ 0, %12 ], [ %88, %109 ], [ %116, %113 ], [ %88, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %117
 }
@@ -7340,7 +7340,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1784
   %12 = load ptr, ptr %11, align 8
-  %.sink13.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sink22.sroa.gep23 = getelementptr inbounds nuw i8, ptr %5, i64 4
   switch i32 %1, label %162 [
     i32 21531, label %13
     i32 1, label %13
@@ -7517,7 +7517,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br label %166
 
 129:                                              ; preds = %3, %3
-  %.sink13.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink22.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7543,9 +7543,9 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br i1 %143, label %144, label %.thread
 
 144:                                              ; preds = %142, %129
-  %.sink13.sroa.phi = phi ptr [ %.sink13.sroa.gep, %129 ], [ %.sink13.sroa.gep14, %142 ]
+  %.sink22.sroa.phi = phi ptr [ %.sink22.sroa.gep, %129 ], [ %.sink22.sroa.gep23, %142 ]
   %145 = phi i32 [ 67108864, %129 ], [ 0, %142 ]
-  %146 = load i32, ptr %.sink13.sroa.phi, align 4
+  %146 = load i32, ptr %.sink22.sroa.phi, align 4
   %147 = and i32 %146, 67108864
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %.thread11, label %.thread, !prof !18
@@ -12473,11 +12473,11 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
   %53 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, -1
-  br i1 %55, label %.thread12, label %.thread36
+  br i1 %55, label %.thread12, label %.thread48
 
 56:                                               ; preds = %.loopexit16
   %57 = icmp eq ptr %49, null
-  br i1 %57, label %.thread36, label %58
+  br i1 %57, label %.thread48, label %58
 
 58:                                               ; preds = %56
   %59 = icmp ult ptr %49, %22
@@ -12508,9 +12508,9 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
   %73 = sub i64 %71, %72
   %74 = tail call ptr @kmemdup_nul(ptr noundef nonnull %49, i64 noundef %73, i32 noundef 3264) #24
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread15, label %.thread36
+  br i1 %75, label %.thread15, label %.thread48
 
-.thread36:                                        ; preds = %.loopexit16.thread, %56, %.loopexit
+.thread48:                                        ; preds = %.loopexit16.thread, %56, %.loopexit
   %76 = phi i32 [ %51, %56 ], [ %51, %.loopexit ], [ %54, %.loopexit16.thread ]
   %77 = phi ptr [ null, %56 ], [ %74, %.loopexit ], [ null, %.loopexit16.thread ]
   %78 = tail call fastcc i32 @selinux_add_opt(i32 noundef %76, ptr noundef %77, ptr noundef %1)
@@ -12537,12 +12537,12 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
   %88 = getelementptr i8, ptr %5, i64 %.pre
   br label %89
 
-89:                                               ; preds = %.thread12._crit_edge, %.thread36
-  %.pre-phi = phi i64 [ %.pre, %.thread12._crit_edge ], [ %10, %.thread36 ]
-  %90 = phi ptr [ %82, %.thread12._crit_edge ], [ %4, %.thread36 ]
-  %91 = phi ptr [ %88, %.thread12._crit_edge ], [ %5, %.thread36 ]
-  %92 = phi i8 [ 0, %.thread12._crit_edge ], [ %6, %.thread36 ]
-  %93 = phi i32 [ %85, %.thread12._crit_edge ], [ %9, %.thread36 ]
+89:                                               ; preds = %.thread12._crit_edge, %.thread48
+  %.pre-phi = phi i64 [ %.pre, %.thread12._crit_edge ], [ %10, %.thread48 ]
+  %90 = phi ptr [ %82, %.thread12._crit_edge ], [ %4, %.thread48 ]
+  %91 = phi ptr [ %88, %.thread12._crit_edge ], [ %5, %.thread48 ]
+  %92 = phi i8 [ 0, %.thread12._crit_edge ], [ %6, %.thread48 ]
+  %93 = phi i32 [ %85, %.thread12._crit_edge ], [ %9, %.thread48 ]
   %94 = getelementptr i8, ptr %90, i64 %.pre-phi
   %95 = load i8, ptr %94, align 1
   %96 = icmp eq i8 %95, 0
@@ -12558,8 +12558,8 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
   store i8 0, ptr %91, align 1
   br label %.loopexit17
 
-.thread15:                                        ; preds = %.thread36, %.loopexit
-  %101 = phi i32 [ -12, %.loopexit ], [ %78, %.thread36 ]
+.thread15:                                        ; preds = %.thread48, %.loopexit
+  %101 = phi i32 [ -12, %.loopexit ], [ %78, %.thread48 ]
   %102 = load ptr, ptr %1, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %.loopexit17, label %104

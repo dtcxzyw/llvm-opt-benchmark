@@ -852,9 +852,9 @@ define internal fastcc void @ondemand_readahead(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 129:                                              ; preds = %75, %77, %54, %56
-  %.sink24 = phi i64 [ %55, %54 ], [ %60, %56 ], [ %76, %75 ], [ %81, %77 ]
+  %.sink45 = phi i64 [ %55, %54 ], [ %60, %56 ], [ %76, %75 ], [ %81, %77 ]
   %130 = phi i64 [ %41, %54 ], [ %41, %56 ], [ %65, %75 ], [ %65, %77 ]
-  %131 = trunc i64 %.sink24 to i32
+  %131 = trunc i64 %.sink45 to i32
   store i32 %131, ptr %38, align 8
   store i32 %131, ptr %42, align 4
   %132 = icmp eq i64 %14, %130
@@ -1246,7 +1246,7 @@ define dso_local void @readahead_expand(ptr noundef captures(none) %0, i64 nound
   %54 = phi i64 [ %13, %..loopexit10_crit_edge ], [ %51, %47 ]
   %55 = add i64 %1, 4095
   %56 = add i64 %55, %2
-  %57 = shl i64 %54, 12
+  %57 = shl nuw i64 %54, 12
   %58 = sub i64 %56, %57
   %59 = lshr i64 %58, 12
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32

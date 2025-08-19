@@ -224,10 +224,10 @@ switch.early.test80.us.us.i.i:                    ; preds = %22
   br label %37
 
 37:                                               ; preds = %26, %switch.early.test80.us.us.i.i, %switch.early.test.us.us.i.i, %.lr.ph.split.us.split.us.i.i
-  %.sink103.i.i = phi i64 [ 3, %26 ], [ 1, %switch.early.test80.us.us.i.i ], [ 1, %switch.early.test.us.us.i.i ], [ 1, %.lr.ph.split.us.split.us.i.i ]
+  %.sink107.i.i = phi i64 [ 3, %26 ], [ 1, %switch.early.test80.us.us.i.i ], [ 1, %switch.early.test.us.us.i.i ], [ 1, %.lr.ph.split.us.split.us.i.i ]
   %.sink.i.i = phi i64 [ -3, %26 ], [ -1, %switch.early.test80.us.us.i.i ], [ -1, %switch.early.test.us.us.i.i ], [ -1, %.lr.ph.split.us.split.us.i.i ]
   %.0.us.us.i.i = phi i8 [ %36, %26 ], [ 37, %switch.early.test80.us.us.i.i ], [ 37, %switch.early.test.us.us.i.i ], [ %15, %.lr.ph.split.us.split.us.i.i ]
-  %38 = getelementptr inbounds nuw i8, ptr %.05683.us.us.i.i, i64 %.sink103.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %.05683.us.us.i.i, i64 %.sink107.i.i
   %39 = add i64 %.sink.i.i, %.05284.us.us.i.i
   %40 = getelementptr inbounds nuw i8, ptr %.05185.us.us.i.i, i64 1
   store i8 %.0.us.us.i.i, ptr %.05185.us.us.i.i, align 1, !tbaa !7
@@ -344,10 +344,10 @@ switch.early.test80.us.us.i:                      ; preds = %24
   br label %39
 
 39:                                               ; preds = %28, %switch.early.test80.us.us.i, %switch.early.test.us.us.i, %.lr.ph.split.us.split.us.i
-  %.sink103.i = phi i64 [ 3, %28 ], [ 1, %switch.early.test80.us.us.i ], [ 1, %switch.early.test.us.us.i ], [ 1, %.lr.ph.split.us.split.us.i ]
+  %.sink107.i = phi i64 [ 3, %28 ], [ 1, %switch.early.test80.us.us.i ], [ 1, %switch.early.test.us.us.i ], [ 1, %.lr.ph.split.us.split.us.i ]
   %.sink.i = phi i64 [ -3, %28 ], [ -1, %switch.early.test80.us.us.i ], [ -1, %switch.early.test.us.us.i ], [ -1, %.lr.ph.split.us.split.us.i ]
   %.0.us.us.i = phi i8 [ %38, %28 ], [ 37, %switch.early.test80.us.us.i ], [ 37, %switch.early.test.us.us.i ], [ %17, %.lr.ph.split.us.split.us.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %.05683.us.us.i, i64 %.sink103.i
+  %40 = getelementptr inbounds nuw i8, ptr %.05683.us.us.i, i64 %.sink107.i
   %41 = add i64 %.sink.i, %.05284.us.us.i
   %42 = getelementptr inbounds nuw i8, ptr %.05185.us.us.i, i64 1
   store i8 %.0.us.us.i, ptr %.05185.us.us.i, align 1, !tbaa !7
@@ -491,10 +491,10 @@ switch.early.test80.us.us:                        ; preds = %21
   br label %36
 
 36:                                               ; preds = %.lr.ph.split.us.split.us, %switch.early.test.us.us, %switch.early.test80.us.us, %25
-  %.sink103 = phi i64 [ 3, %25 ], [ 1, %switch.early.test80.us.us ], [ 1, %switch.early.test.us.us ], [ 1, %.lr.ph.split.us.split.us ]
+  %.sink107 = phi i64 [ 3, %25 ], [ 1, %switch.early.test80.us.us ], [ 1, %switch.early.test.us.us ], [ 1, %.lr.ph.split.us.split.us ]
   %.sink = phi i64 [ -3, %25 ], [ -1, %switch.early.test80.us.us ], [ -1, %switch.early.test.us.us ], [ -1, %.lr.ph.split.us.split.us ]
   %.0.us.us = phi i8 [ %35, %25 ], [ %14, %switch.early.test80.us.us ], [ %14, %switch.early.test.us.us ], [ %14, %.lr.ph.split.us.split.us ]
-  %37 = getelementptr inbounds nuw i8, ptr %.05683.us.us, i64 %.sink103
+  %37 = getelementptr inbounds nuw i8, ptr %.05683.us.us, i64 %.sink107
   %38 = add i64 %.05284.us.us, %.sink
   %39 = getelementptr inbounds nuw i8, ptr %.05185.us.us, i64 1
   store i8 %.0.us.us, ptr %.05185.us.us, align 1, !tbaa !7
@@ -573,15 +573,15 @@ switch.early.test80.us:                           ; preds = %47
   br label %62
 
 62:                                               ; preds = %.lr.ph.split.us.split, %switch.early.test.us, %switch.early.test80.us, %51
-  %.sink105 = phi i64 [ 3, %51 ], [ 1, %switch.early.test80.us ], [ 1, %switch.early.test.us ], [ 1, %.lr.ph.split.us.split ]
-  %.sink104 = phi i64 [ -3, %51 ], [ -1, %switch.early.test80.us ], [ -1, %switch.early.test.us ], [ -1, %.lr.ph.split.us.split ]
+  %.sink109 = phi i64 [ 3, %51 ], [ 1, %switch.early.test80.us ], [ 1, %switch.early.test.us ], [ 1, %.lr.ph.split.us.split ]
+  %.sink108 = phi i64 [ -3, %51 ], [ -1, %switch.early.test80.us ], [ -1, %switch.early.test.us ], [ -1, %.lr.ph.split.us.split ]
   %.0.us = phi i8 [ %61, %51 ], [ %40, %switch.early.test80.us ], [ %40, %switch.early.test.us ], [ %40, %.lr.ph.split.us.split ]
   %63 = icmp eq i8 %.0.us, 0
   br i1 %63, label %.critedge, label %64
 
 64:                                               ; preds = %62
-  %65 = add i64 %.05284.us, %.sink104
-  %66 = getelementptr inbounds nuw i8, ptr %.05683.us, i64 %.sink105
+  %65 = add i64 %.05284.us, %.sink108
+  %66 = getelementptr inbounds nuw i8, ptr %.05683.us, i64 %.sink109
   %67 = getelementptr inbounds nuw i8, ptr %.05185.us, i64 1
   store i8 %.0.us, ptr %.05185.us, align 1, !tbaa !7
   %.not68.us = icmp eq i64 %65, 0
@@ -659,15 +659,15 @@ switch.early.test80:                              ; preds = %75
   br label %90
 
 90:                                               ; preds = %.lr.ph.split, %switch.early.test, %switch.early.test80, %79
-  %.sink107 = phi i64 [ 3, %79 ], [ 1, %switch.early.test80 ], [ 1, %switch.early.test ], [ 1, %.lr.ph.split ]
-  %.sink106 = phi i64 [ -3, %79 ], [ -1, %switch.early.test80 ], [ -1, %switch.early.test ], [ -1, %.lr.ph.split ]
+  %.sink111 = phi i64 [ 3, %79 ], [ 1, %switch.early.test80 ], [ 1, %switch.early.test ], [ 1, %.lr.ph.split ]
+  %.sink110 = phi i64 [ -3, %79 ], [ -1, %switch.early.test80 ], [ -1, %switch.early.test ], [ -1, %.lr.ph.split ]
   %.0 = phi i8 [ %89, %79 ], [ %68, %switch.early.test80 ], [ %68, %switch.early.test ], [ %68, %.lr.ph.split ]
   %91 = icmp ult i8 %.0, 32
   br i1 %91, label %.critedge, label %92
 
 92:                                               ; preds = %90
-  %93 = add i64 %.05284, %.sink106
-  %94 = getelementptr inbounds nuw i8, ptr %.05683, i64 %.sink107
+  %93 = add i64 %.05284, %.sink110
+  %94 = getelementptr inbounds nuw i8, ptr %.05683, i64 %.sink111
   %95 = getelementptr inbounds nuw i8, ptr %.05185, i64 1
   store i8 %.0, ptr %.05185, align 1, !tbaa !7
   %.not68 = icmp eq i64 %93, 0

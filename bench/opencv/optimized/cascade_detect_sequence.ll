@@ -1612,7 +1612,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc248, %_ZNSt7_
 
 _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit204: ; preds = %_ZNSolsEPFRSoS_E.exit, %511
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  switch i32 %.1, label %.thread.loopexit387 [
+  switch i32 %.1, label %.thread.loopexit450 [
     i32 0, label %512
     i32 2, label %.thread
   ]
@@ -1675,11 +1675,11 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit209: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %554
 
-.thread.loopexit387:                              ; preds = %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit204
+.thread.loopexit450:                              ; preds = %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit204
   br label %.thread
 
-.thread:                                          ; preds = %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit204, %512, %.thread.loopexit387, %280
-  %530 = phi i32 [ 0, %280 ], [ %.445, %.thread.loopexit387 ], [ 0, %512 ], [ 0, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit204 ]
+.thread:                                          ; preds = %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit204, %512, %.thread.loopexit450, %280
+  %530 = phi i32 [ 0, %280 ], [ %.445, %.thread.loopexit450 ], [ 0, %512 ], [ 0, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EED2Ev.exit204 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %531 = getelementptr inbounds nuw i8, ptr %20, i64 8

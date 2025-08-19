@@ -241,7 +241,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %103 = and i64 %4, 9223372036854775804
   %104 = icmp eq i64 %103, 4
   %or.cond226.i = or i1 %104, %102
-  br i1 %or.cond226.i, label %105, label %.thread41.i
+  br i1 %or.cond226.i, label %105, label %.thread53.i
 
 105:                                              ; preds = %101
   %106 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -254,20 +254,20 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %110 = icmp eq i8 %88, 2
   br i1 %.not216.i, label %.loopexit.thread.i, label %112
 
-.thread41.i:                                      ; preds = %101
+.thread53.i:                                      ; preds = %101
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.not21743.i = icmp eq i8 %61, 0
-  br i1 %.not21743.i, label %.thread39.i, label %112
+  %.not21755.i = icmp eq i8 %61, 0
+  br i1 %.not21755.i, label %.thread51.i, label %112
 
-112:                                              ; preds = %.thread41.i, %109
-  %.120144.i = phi ptr [ %111, %.thread41.i ], [ %.02001.i, %109 ]
-  %113 = phi i1 [ false, %.thread41.i ], [ %110, %109 ]
+112:                                              ; preds = %.thread53.i, %109
+  %.120156.i = phi ptr [ %111, %.thread53.i ], [ %.02001.i, %109 ]
+  %113 = phi i1 [ false, %.thread53.i ], [ %110, %109 ]
   %114 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #7
   %.not218.i = icmp eq i8 %114, 0
   br i1 %.not218.i, label %132, label %115
 
 115:                                              ; preds = %112
-  %116 = icmp ugt ptr %.120144.i, %27
+  %116 = icmp ugt ptr %.120156.i, %27
   br i1 %116, label %128, label %117
 
 117:                                              ; preds = %115
@@ -277,7 +277,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   %121 = zext i8 %120 to i32
   %122 = mul nuw nsw i32 %121, %62
   %123 = zext nneg i32 %122 to i64
-  %124 = ptrtoint ptr %.120144.i to i64
+  %124 = ptrtoint ptr %.120156.i to i64
   %125 = add i64 %38, 1
   %126 = sub i64 %125, %124
   %127 = icmp ult i64 %126, %123
@@ -305,7 +305,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph.i:                                         ; preds = %132, %185
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %185 ], [ 0, %132 ]
-  %.220213.i = phi ptr [ %.4.i, %185 ], [ %.120144.i, %132 ]
+  %.220213.i = phi ptr [ %.4.i, %185 ], [ %.120156.i, %132 ]
   %141 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #7
   switch i8 %141, label %185 [
     i8 4, label %142
@@ -537,9 +537,9 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   br i1 %113, label %270, label %272
 
 .loopexit.thread.i:                               ; preds = %109
-  br i1 %110, label %270, label %.thread39.i
+  br i1 %110, label %270, label %.thread51.i
 
-.thread39.i:                                      ; preds = %.loopexit.thread.i, %.thread41.i
+.thread51.i:                                      ; preds = %.loopexit.thread.i, %.thread53.i
   %269 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i64 1, ptr %269, align 8, !tbaa !30
   br label %H5O__sdspace_decode.exit.thread
@@ -580,8 +580,8 @@ H5O__sdspace_decode.exit.thread.loopexit:         ; preds = %.lr.ph23.i
   store i64 %277, ptr %273, align 8, !tbaa !30
   br label %H5O__sdspace_decode.exit.thread
 
-H5O__sdspace_decode.exit.thread:                  ; preds = %H5O__sdspace_decode.exit.thread.loopexit, %.thread39.i, %272, %270, %18, %H5O__sdspace_decode.exit, %22, %6
-  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__sdspace_decode.exit ], [ null, %6 ], [ %28, %270 ], [ %28, %272 ], [ %28, %.thread39.i ], [ %28, %H5O__sdspace_decode.exit.thread.loopexit ]
+H5O__sdspace_decode.exit.thread:                  ; preds = %H5O__sdspace_decode.exit.thread.loopexit, %.thread51.i, %272, %270, %18, %H5O__sdspace_decode.exit, %22, %6
+  %.0 = phi ptr [ null, %18 ], [ %16, %22 ], [ null, %H5O__sdspace_decode.exit ], [ null, %6 ], [ %28, %270 ], [ %28, %272 ], [ %28, %.thread51.i ], [ %28, %H5O__sdspace_decode.exit.thread.loopexit ]
   ret ptr %.0
 }
 

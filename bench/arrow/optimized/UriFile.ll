@@ -185,8 +185,8 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
   br i1 %31, label %32, label %thread-pre-split.i
 
 32:                                               ; preds = %29
-  %.not156.i = icmp eq i32 %.061.us97.i, 0
-  br i1 %.not156.i, label %33, label %35
+  %.not165.i = icmp eq i32 %.061.us97.i, 0
+  br i1 %.not165.i, label %33, label %35
 
 33:                                               ; preds = %32
   %34 = tail call ptr @uriEscapeExA(ptr noundef nonnull %30, ptr noundef nonnull %.059.us99.i, ptr noundef %.164.us96.i, i32 noundef 0, i32 noundef 0) #5
@@ -326,8 +326,8 @@ define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameA(ptr noundef readonly 
 
 27:                                               ; preds = %18, %.thread
   %.ph = phi i64 [ %17, %.thread ], [ %24, %18 ]
-  %.ph2 = phi ptr [ %15, %.thread ], [ %22, %18 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %.ph2, i64 %.ph, i1 false)
+  %.ph3 = phi ptr [ %15, %.thread ], [ %22, %18 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %.ph3, i64 %.ph, i1 false)
   br label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %27, %.thread.i
@@ -529,8 +529,8 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   br i1 %32, label %33, label %thread-pre-split.i
 
 33:                                               ; preds = %30
-  %.not152.i = icmp eq i32 %.061.us97.i, 0
-  br i1 %.not152.i, label %34, label %36
+  %.not161.i = icmp eq i32 %.061.us97.i, 0
+  br i1 %.not161.i, label %34, label %36
 
 34:                                               ; preds = %33
   %35 = tail call ptr @uriEscapeExW(ptr noundef nonnull %31, ptr noundef nonnull %.059.us99.i, ptr noundef %.164.us96.i, i32 noundef 0, i32 noundef 0) #5

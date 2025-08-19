@@ -84,7 +84,7 @@ define hidden noundef double @_ZN13SharedRuntime4dsinEd(double noundef %0) local
   %31 = call fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0, ptr noundef %2)
   %32 = and i32 %31, 3
   %33 = load double, ptr %2, align 16
-  switch i32 %32, label %default.unreachable27 [
+  switch i32 %32, label %default.unreachable30 [
     i32 0, label %34
     i32 1, label %61
     i32 2, label %102
@@ -215,7 +215,7 @@ _ZL12__kernel_sinddi.exit18:                      ; preds = %102, %108
   %129 = fneg double %.0.i17
   br label %_ZL12__kernel_sinddi.exit
 
-default.unreachable27:                            ; preds = %30
+default.unreachable30:                            ; preds = %30
   unreachable
 
 130:                                              ; preds = %30
@@ -295,7 +295,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %.4.extract.trunc = trunc nuw i64 %.4.extract.shift to i32
   %9 = and i32 %.4.extract.trunc, 2147483647
   %10 = icmp samesign ult i32 %9, 1072243196
-  %indvars.iv.sroa.gep202 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %indvars.iv.sroa.gep208 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
@@ -409,8 +409,8 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %77 = fsub double %72, %76
   store double %77, ptr %1, align 8
   %78 = bitcast double %77 to i64
-  %sum.shift154 = lshr i64 %78, 52
-  %79 = trunc nuw nsw i64 %sum.shift154 to i32
+  %sum.shift160 = lshr i64 %78, 52
+  %79 = trunc nuw nsw i64 %sum.shift160 to i32
   %80 = and i32 %79, 2047
   %81 = sub nsw i32 %63, %80
   %82 = icmp sgt i32 %81, 49
@@ -477,7 +477,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 
 112:                                              ; preds = %106, %112
   %113 = phi i1 [ true, %106 ], [ false, %112 ]
-  %indvars.iv.sroa.phi = phi ptr [ %7, %106 ], [ %indvars.iv.sroa.gep202, %112 ]
+  %indvars.iv.sroa.phi = phi ptr [ %7, %106 ], [ %indvars.iv.sroa.gep208, %112 ]
   %.0114130 = phi double [ %111, %106 ], [ %117, %112 ]
   %114 = fptosi double %.0114130 to i32
   %115 = sitofp i32 %114 to double
@@ -589,17 +589,17 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 
 .preheader16.i:                                   ; preds = %._crit_edge.us.i, %.preheader17.preheader.i
   %wide.trip.count130.i.pre-phi = phi i64 [ %.pre152, %.preheader17.preheader.i ], [ %wide.trip.count101.i, %._crit_edge.us.i ]
-  %.not269.not31163.i = phi i1 [ false, %.preheader17.preheader.i ], [ true, %._crit_edge.us.i ]
+  %.not269.not31167.i = phi i1 [ false, %.preheader17.preheader.i ], [ true, %._crit_edge.us.i ]
   %154 = icmp sgt i32 %.neg262.i, 24
   %155 = icmp eq i32 %127, 0
   %156 = sub nsw i32 48, %.neg262.i
   %157 = sub nsw i32 47, %.neg262.i
-  %158 = shl i32 %.neg262.i, 20
+  %158 = shl nsw i32 %.neg262.i, 20
   %159 = add i32 %158, 1047527424
   %.sroa.0.4.insert.ext.i.i281.i = zext nneg i32 %159 to i64
   %.sroa.0.4.insert.shift.i.i282.i = shl nuw nsw i64 %.sroa.0.4.insert.ext.i.i281.i, 32
   %160 = bitcast i64 %.sroa.0.4.insert.shift.i.i282.i to double
-  %161 = zext i16 %126 to i64
+  %161 = zext nneg i16 %126 to i64
   %invariant.gep.i = getelementptr i32, ptr @_ZL11two_over_pi, i64 %161
   br label %.lr.ph39.preheader.i
 
@@ -782,8 +782,8 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
   br i1 %.not268.i, label %251, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %249, %245
-  %.sink180.i = phi i32 [ 16777216, %249 ], [ 16777215, %245 ]
-  %250 = sub nsw i32 %.sink180.i, %247
+  %.sink184.i = phi i32 [ 16777216, %249 ], [ 16777215, %245 ]
+  %250 = sub nsw i32 %.sink184.i, %247
   store i32 %250, ptr %246, align 4
   br label %251
 
@@ -800,24 +800,24 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
 
 254:                                              ; preds = %252
   switch i32 %.neg262.i, label %261 [
-    i32 25, label %.sink.split181.i
+    i32 25, label %.sink.split185.i
     i32 26, label %255
   ]
 
 255:                                              ; preds = %254
-  br label %.sink.split181.i
+  br label %.sink.split185.i
 
-.sink.split181.i:                                 ; preds = %255, %254
-  %.sink184.i = phi i32 [ 4194303, %255 ], [ 8388607, %254 ]
+.sink.split185.i:                                 ; preds = %255, %254
+  %.sink188.i = phi i32 [ 4194303, %255 ], [ 8388607, %254 ]
   %256 = add nsw i32 %.0231.i, -1
   %257 = sext i32 %256 to i64
   %258 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %257
   %259 = load i32, ptr %258, align 4
-  %260 = and i32 %259, %.sink184.i
+  %260 = and i32 %259, %.sink188.i
   store i32 %260, ptr %258, align 4
   br label %261
 
-261:                                              ; preds = %.sink.split181.i, %254, %252
+261:                                              ; preds = %.sink.split185.i, %254, %252
   %262 = icmp eq i32 %.02285.i, 2
   br i1 %262, label %263, label %.thread6.i
 
@@ -884,11 +884,11 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %283 = load i32, ptr %gep.i, align 4
   %284 = sitofp i32 %283 to double
   %285 = add i64 %indvars.iv149, %indvars.iv132.i
-  %sext153 = shl i64 %285, 32
-  %286 = ashr exact i64 %sext153, 32
+  %sext159 = shl i64 %285, 32
+  %286 = ashr exact i64 %sext159, 32
   %287 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %286
   store double %284, ptr %287, align 8
-  br i1 %.not269.not31163.i, label %.lr.ph51.i, label %._crit_edge52.i
+  br i1 %.not269.not31167.i, label %.lr.ph51.i, label %._crit_edge52.i
 
 .lr.ph51.i:                                       ; preds = %282, %.lr.ph51.i
   %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %.lr.ph51.i ], [ 0, %282 ]
@@ -1133,8 +1133,8 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %392 = load double, ptr %391, align 8
   %393 = fadd double %.568.i, %392
   %indvars.iv.next155.i = add nsw i64 %indvars.iv154.i, -1
-  %.not186.i = icmp eq i64 %indvars.iv154.i, 0
-  br i1 %.not186.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !22
+  %.not190.i = icmp eq i64 %indvars.iv154.i, 0
+  br i1 %.not190.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !22
 
 ._crit_edge70.i:                                  ; preds = %.lr.ph69.i
   %.pre = load double, ptr %5, align 16
@@ -1261,7 +1261,7 @@ define hidden noundef double @_ZN13SharedRuntime4dcosEd(double noundef %0) local
   %48 = call fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0, ptr noundef %2)
   %49 = and i32 %48, 3
   %50 = load double, ptr %2, align 16
-  switch i32 %49, label %default.unreachable32 [
+  switch i32 %49, label %default.unreachable35 [
     i32 0, label %51
     i32 1, label %92
     i32 2, label %120
@@ -1420,7 +1420,7 @@ _ZL12__kernel_cosdd.exit28:                       ; preds = %120, %142, %149
   %161 = fneg double %.0.i27
   br label %_ZL12__kernel_cosdd.exit
 
-default.unreachable32:                            ; preds = %47
+default.unreachable35:                            ; preds = %47
   unreachable
 
 162:                                              ; preds = %47

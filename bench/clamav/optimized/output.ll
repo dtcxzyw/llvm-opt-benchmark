@@ -943,8 +943,8 @@ thread-pre-split:                                 ; preds = %190, %182
   br label %.sink.split
 
 .sink.split:                                      ; preds = %243, %241, %239
-  %.sink131 = phi i32 [ 3, %239 ], [ 4, %241 ], [ %., %243 ]
-  call void (i32, ptr, ...) @syslog(i32 noundef %.sink131, ptr noundef nonnull @.str.8, ptr noundef nonnull %.090) #18
+  %.sink151 = phi i32 [ 3, %239 ], [ 4, %241 ], [ %., %243 ]
+  call void (i32, ptr, ...) @syslog(i32 noundef %.sink151, ptr noundef nonnull @.str.8, ptr noundef nonnull %.090) #18
   br label %245
 
 245:                                              ; preds = %.sink.split, %241, %237

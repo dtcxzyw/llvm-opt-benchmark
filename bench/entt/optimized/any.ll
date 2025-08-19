@@ -58558,8 +58558,8 @@ _ZN7testing7MessageD2Ev.exit90:                   ; preds = %_ZNKSt14default_del
   br label %455
 
 102:                                              ; preds = %_ZN4entt9basic_anyILm16ELm8EEaSERKS1_.exit
-  %.pre222 = load ptr, ptr %43, align 8, !tbaa !59
-  %103 = icmp eq ptr %.pre222, null
+  %.pre283 = load ptr, ptr %43, align 8, !tbaa !59
+  %103 = icmp eq ptr %.pre283, null
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %104 = zext i1 %103 to i8
@@ -150681,13 +150681,13 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
           to label %27 unwind label %53
 
 27:                                               ; preds = %23, %25
-  %.sink12.i = phi ptr [ %22, %23 ], [ %26, %25 ]
-  store ptr null, ptr %.sink12.i, align 8, !tbaa !987
-  %28 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
+  %.sink13.i = phi ptr [ %22, %23 ], [ %26, %25 ]
+  store ptr null, ptr %.sink13.i, align 8, !tbaa !987
+  %28 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 8
   %29 = load i64, ptr %21, align 4
   store i64 %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink12.i, ptr %30, align 8, !tbaa !986
+  store ptr %.sink13.i, ptr %30, align 8, !tbaa !986
   %31 = load ptr, ptr %0, align 8, !tbaa !963
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !970
@@ -150702,7 +150702,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
 
 .lr.ph:                                           ; preds = %27, %57
   %.02840 = phi ptr [ %.028, %57 ], [ %.02837, %27 ]
-  %.02639 = phi ptr [ %.sink12.i34, %57 ], [ %.sink12.i, %27 ]
+  %.02639 = phi ptr [ %.sink13.i34, %57 ], [ %.sink13.i, %27 ]
   %37 = getelementptr inbounds nuw i8, ptr %.02840, i64 8
   %38 = load ptr, ptr %2, align 8, !tbaa !1382
   %.not.i33 = icmp eq ptr %38, null
@@ -150718,15 +150718,15 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
           to label %43 unwind label %55
 
 43:                                               ; preds = %39, %41
-  %.sink12.i34 = phi ptr [ %38, %39 ], [ %42, %41 ]
-  store ptr null, ptr %.sink12.i34, align 8, !tbaa !987
-  %44 = getelementptr inbounds nuw i8, ptr %.sink12.i34, i64 8
+  %.sink13.i34 = phi ptr [ %38, %39 ], [ %42, %41 ]
+  store ptr null, ptr %.sink13.i34, align 8, !tbaa !987
+  %44 = getelementptr inbounds nuw i8, ptr %.sink13.i34, i64 8
   %45 = load i64, ptr %37, align 4
   store i64 %45, ptr %44, align 8
-  store ptr %.sink12.i34, ptr %.02639, align 8, !tbaa !987
+  store ptr %.sink13.i34, ptr %.02639, align 8, !tbaa !987
   %46 = load i64, ptr %32, align 8, !tbaa !970
-  %sext41 = shl i64 %45, 32
-  %47 = ashr exact i64 %sext41, 32
+  %sext45 = shl i64 %45, 32
+  %47 = ashr exact i64 %sext45, 32
   %48 = urem i64 %47, %46
   %49 = load ptr, ptr %0, align 8, !tbaa !963
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
@@ -150893,8 +150893,8 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   %37 = load i64, ptr %35, align 4
   store i64 %37, ptr %36, align 8
   store ptr %33, ptr %.02636, align 8, !tbaa !987
-  %sext38 = shl i64 %37, 32
-  %38 = ashr exact i64 %sext38, 32
+  %sext41 = shl i64 %37, 32
+  %38 = ashr exact i64 %sext41, 32
   %39 = urem i64 %38, %29
   %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !1378

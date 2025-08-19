@@ -1485,7 +1485,7 @@ while.body.lr.ph:                                 ; preds = %_ZN4llvh11raw_ostre
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end72
   %conv21462 = phi i64 [ 0, %while.body.lr.ph ], [ %conv21, %if.end72 ]
-  %offset.0461 = phi i32 [ 0, %while.body.lr.ph ], [ %add.i.i207.lcssa472, %if.end72 ]
+  %offset.0461 = phi i32 [ 0, %while.body.lr.ph ], [ %add.i.i207.lcssa481, %if.end72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i)
   %call.i.i115 = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %27, i64 %conv.i114, i32 noundef %offset.0461, ptr noundef nonnull %result.i.i) #16
   %add.i.i = add i32 %call.i.i115, %offset.0461
@@ -1878,7 +1878,7 @@ while.end:                                        ; preds = %_ZN4llvh11raw_ostre
   br i1 %79, label %if.then70, label %if.end72
 
 if.then70:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit204, %while.end
-  %add.i.i207.lcssa473 = phi i32 [ %add.i.i207, %while.end ], [ %add.i.i207452, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
+  %add.i.i207.lcssa482 = phi i32 [ %add.i.i207, %while.end ], [ %add.i.i207452, %_ZN4llvh11raw_ostreamlsEPKc.exit204 ]
   %80 = load ptr, ptr %OutBufEnd.i5.i, align 8
   %81 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i348 = ptrtoint ptr %80 to i64
@@ -1899,9 +1899,9 @@ if.then4.i.i354:                                  ; preds = %if.then70
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then4.i.i354, %if.then.i.i357, %while.end
-  %add.i.i207.lcssa472 = phi i32 [ %add.i.i207.lcssa473, %if.then4.i.i354 ], [ %add.i.i207.lcssa473, %if.then.i.i357 ], [ %add.i.i207, %while.end ]
-  %conv21 = zext i32 %add.i.i207.lcssa472 to i64
-  %cmp23 = icmp ugt i32 %26, %add.i.i207.lcssa472
+  %add.i.i207.lcssa481 = phi i32 [ %add.i.i207.lcssa482, %if.then4.i.i354 ], [ %add.i.i207.lcssa482, %if.then.i.i357 ], [ %add.i.i207, %while.end ]
+  %conv21 = zext i32 %add.i.i207.lcssa481 to i64
+  %cmp23 = icmp ugt i32 %26, %add.i.i207.lcssa481
   br i1 %cmp23, label %while.body, label %while.end74, !llvm.loop !37
 
 while.end74:                                      ; preds = %if.end72, %_ZN4llvh11raw_ostreamlsEPKc.exit113

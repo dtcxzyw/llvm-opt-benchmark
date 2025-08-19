@@ -357,11 +357,11 @@ edit_patch.exit:                                  ; preds = %67
 77:                                               ; preds = %73
   %78 = load i32, ptr @take_worktree_changes, align 4, !tbaa !4
   %.not105 = icmp eq i32 %78, 0
-  br i1 %.not105, label %.thread216, label %79
+  br i1 %.not105, label %.thread232, label %79
 
 79:                                               ; preds = %77
   store i32 0, ptr @addremove, align 4, !tbaa !4
-  br label %.thread216
+  br label %.thread232
 
 80:                                               ; preds = %73
   store i32 %75, ptr @addremove, align 4, !tbaa !4
@@ -369,14 +369,14 @@ edit_patch.exit:                                  ; preds = %67
   %81 = icmp ne i32 %75, 0
   %82 = icmp ne i32 %.pre209, 0
   %or.cond = select i1 %81, i1 %82, i1 false
-  br i1 %or.cond, label %83, label %.thread216
+  br i1 %or.cond, label %83, label %.thread232
 
 83:                                               ; preds = %80
   %84 = tail call fastcc ptr @_(ptr noundef nonnull @.str)
   tail call void (ptr, ...) @die(ptr noundef %84, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #14
   unreachable
 
-.thread216:                                       ; preds = %77, %79, %80
+.thread232:                                       ; preds = %77, %79, %80
   %85 = phi i32 [ %.pre209, %80 ], [ 1, %79 ], [ 0, %77 ]
   %86 = load i32, ptr @show_only, align 4, !tbaa !4
   %87 = icmp eq i32 %86, 0
@@ -385,12 +385,12 @@ edit_patch.exit:                                  ; preds = %67
   %or.cond3 = select i1 %87, i1 %89, i1 false
   br i1 %or.cond3, label %90, label %92
 
-90:                                               ; preds = %.thread216
+90:                                               ; preds = %.thread232
   %91 = tail call fastcc ptr @_(ptr noundef nonnull @.str.8)
   tail call void (ptr, ...) @die(ptr noundef %91, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1) #14
   unreachable
 
-92:                                               ; preds = %.thread216
+92:                                               ; preds = %.thread232
   %93 = load ptr, ptr @chmod_arg, align 8, !tbaa !8
   %.not106 = icmp eq ptr %93, null
   br i1 %.not106, label %105, label %94

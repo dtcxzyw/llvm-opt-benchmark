@@ -696,14 +696,14 @@ write_rte.exit:                                   ; preds = %25, %proto_item_set
   %203 = getelementptr inbounds nuw i8, ptr %196, i64 88
   switch i32 %202, label %204 [
     i32 2, label %.thread.i
-    i32 3, label %.thread120.i
+    i32 3, label %.thread121.i
   ]
 
 .thread.i:                                        ; preds = %193
   store i8 6, ptr %.phi.trans.insert.i, align 1
   br label %205
 
-.thread120.i:                                     ; preds = %193
+.thread121.i:                                     ; preds = %193
   store i8 17, ptr %.phi.trans.insert.i, align 1
   br label %323
 
@@ -799,9 +799,9 @@ write_rte.exit:                                   ; preds = %25, %proto_item_set
   %258 = load i8, ptr %203, align 8, !range !6, !noundef !7
   %259 = load i32, ptr @preferences, align 8
   %260 = shl nuw nsw i8 %258, 1
-  %or.cond127.v.i = zext nneg i8 %260 to i32
-  %or.cond127.not.i = icmp eq i32 %259, %or.cond127.v.i
-  br i1 %or.cond127.not.i, label %.loopexit.sink.split.i, label %261
+  %or.cond128.v.i = zext nneg i8 %260 to i32
+  %or.cond128.not.i = icmp eq i32 %259, %or.cond128.v.i
+  br i1 %or.cond128.not.i, label %.loopexit.sink.split.i, label %261
 
 261:                                              ; preds = %257, %253
   %262 = getelementptr inbounds nuw i8, ptr %196, i64 25
@@ -907,7 +907,7 @@ write_rte.exit:                                   ; preds = %25, %proto_item_set
   %322 = call i32 @decode_dcerpc(ptr noundef %1, ptr noundef %2, ptr noundef %196)
   br label %334
 
-323:                                              ; preds = %204, %.thread120.i
+323:                                              ; preds = %204, %.thread121.i
   %324 = tail call i32 @decode_gudp(ptr noundef %1, ptr noundef %2, ptr noundef %196)
   %325 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %326 = load i16, ptr %325, align 8
@@ -954,15 +954,15 @@ write_rte.exit:                                   ; preds = %25, %proto_item_set
   br label %345
 
 345:                                              ; preds = %343, %341
-  %.sink126.i = phi i64 [ 120, %341 ], [ 168, %343 ]
-  %.sink125.i = phi i64 [ 136, %341 ], [ 184, %343 ]
-  %.sink123.i = phi i64 [ 144, %341 ], [ 192, %343 ]
-  %346 = getelementptr inbounds nuw i8, ptr %340, i64 %.sink126.i
+  %.sink127.i = phi i64 [ 120, %341 ], [ 168, %343 ]
+  %.sink126.i = phi i64 [ 136, %341 ], [ 184, %343 ]
+  %.sink124.i = phi i64 [ 144, %341 ], [ 192, %343 ]
+  %346 = getelementptr inbounds nuw i8, ptr %340, i64 %.sink127.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %346, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false)
   %347 = load i32, ptr %196, align 8
-  %348 = getelementptr inbounds nuw i8, ptr %340, i64 %.sink125.i
+  %348 = getelementptr inbounds nuw i8, ptr %340, i64 %.sink126.i
   store i32 %347, ptr %348, align 8
-  %349 = getelementptr inbounds nuw i8, ptr %340, i64 %.sink123.i
+  %349 = getelementptr inbounds nuw i8, ptr %340, i64 %.sink124.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %349, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false)
   %350 = load i32, ptr %196, align 8
   store i32 %350, ptr %340, align 8

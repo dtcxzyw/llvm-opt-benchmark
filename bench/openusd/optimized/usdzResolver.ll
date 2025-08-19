@@ -3963,8 +3963,8 @@ define linkonce_odr void @_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11
 
 9:                                                ; preds = %1, %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache6_CacheEESaISB_EEEELm128EEENS1_23cache_aligned_allocatorISF_EENS1_17concurrent_vectorISF_SH_EELm3EE14delete_segmentEm.exit
   %.07 = phi i64 [ %6, %1 ], [ %10, %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache6_CacheEESaISB_EEEELm128EEENS1_23cache_aligned_allocatorISF_EENS1_17concurrent_vectorISF_SH_EELm3EE14delete_segmentEm.exit ]
-  %10 = add i64 %.07, -1
-  %11 = getelementptr inbounds %"struct.std::atomic.4", ptr %.0.i.i, i64 %10
+  %10 = add nsw i64 %.07, -1
+  %11 = getelementptr inbounds nuw %"struct.std::atomic.4", ptr %.0.i.i, i64 %10
   %12 = load atomic i64, ptr %11 monotonic, align 8
   %.not6 = icmp eq i64 %12, 0
   br i1 %.not6, label %_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11ets_elementISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21Usd_UsdzResolverCache6_CacheEESaISB_EEEELm128EEENS1_23cache_aligned_allocatorISF_EENS1_17concurrent_vectorISF_SH_EELm3EE14delete_segmentEm.exit, label %13
@@ -3972,7 +3972,7 @@ define linkonce_odr void @_ZN3tbb6detail2d113segment_tableINS0_2d06paddedINS1_11
 13:                                               ; preds = %9
   %14 = load atomic i64, ptr %2 acquire, align 8
   %.0.i.i.i = inttoptr i64 %14 to ptr
-  %15 = getelementptr inbounds %"struct.std::atomic.4", ptr %.0.i.i.i, i64 %10
+  %15 = getelementptr inbounds nuw %"struct.std::atomic.4", ptr %.0.i.i.i, i64 %10
   %16 = load atomic i64, ptr %15 monotonic, align 8
   %17 = load atomic i64, ptr %7 seq_cst, align 8
   %.not.i.i = icmp ult i64 %10, %17
@@ -5483,9 +5483,9 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_Dele
   %68 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %68, 0
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br i1 %.not.i.i.i.i.i.i, label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit, label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread13
+  br i1 %.not.i.i.i.i.i.i, label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit, label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread18
 
-_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread13: ; preds = %66
+_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread18: ; preds = %66
   %70 = load i32, ptr %67, align 4
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %67, align 4
@@ -5516,11 +5516,11 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_Dele
   store ptr null, ptr %75, align 8
   br label %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2EOS2_.exit.thread.i.i
 
-77:                                               ; preds = %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread13, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit
-  %78 = phi ptr [ %72, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread13 ], [ %74, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit ]
-  %.val2.pr18 = phi ptr [ %60, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread13 ], [ %.val2.pr.pre, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit ]
-  %.val17 = phi ptr [ %.val7, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread13 ], [ %.val.pre, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit ]
-  %79 = getelementptr inbounds nuw i8, ptr %.val2.pr18, i64 8
+77:                                               ; preds = %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread18, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit
+  %78 = phi ptr [ %72, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread18 ], [ %74, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit ]
+  %.val2.pr23 = phi ptr [ %60, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread18 ], [ %.val2.pr.pre, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit ]
+  %.val22 = phi ptr [ %.val7, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit.thread18 ], [ %.val.pre, %_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2ERKS2_.exit ]
+  %79 = getelementptr inbounds nuw i8, ptr %.val2.pr23, i64 8
   %80 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i5 = icmp eq i8 %80, 0
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5532,9 +5532,9 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_Dele
   store i32 %83, ptr %79, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %62, ptr %0, align 8
-  store ptr %.val17, ptr %6, align 8
-  store ptr %.val2.pr18, ptr %78, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %.val2.pr18, i64 8
+  store ptr %.val22, ptr %6, align 8
+  store ptr %.val2.pr23, ptr %78, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %.val2.pr23, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.thread.i
 
@@ -5568,14 +5568,14 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_Dele
 .thread.i:                                        ; preds = %.thread, %90
   %94 = phi ptr [ %85, %.thread ], [ %93, %90 ]
   %95 = phi ptr [ %84, %.thread ], [ %92, %90 ]
-  %96 = phi ptr [ %.val17, %.thread ], [ %.pre.i, %90 ]
-  %.pr7.i21 = phi ptr [ %.val2.pr18, %.thread ], [ %.pr.pre.i, %90 ]
+  %96 = phi ptr [ %.val22, %.thread ], [ %.pre.i, %90 ]
+  %.pr8.i26 = phi ptr [ %.val2.pr23, %.thread ], [ %.pr.pre.i, %90 ]
   %97 = load i32, ptr %95, align 4
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %95, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %96, ptr %5, align 8
-  store ptr %.pr7.i21, ptr %94, align 8
+  store ptr %.pr8.i26, ptr %94, align 8
   br label %103
 
 _ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16_Asset9GetBufferEvEN8_DeleterC2EOS2_.exit.i.i: ; preds = %90
@@ -6644,7 +6644,7 @@ define linkonce_odr void @_ZN3tbb6detail2d219concurrent_hash_mapINSt7__cxx1112ba
 
 9:                                                ; preds = %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEENSE_10UsdZipFileEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit, %1
   %.038 = phi i64 [ %7, %1 ], [ %67, %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__7ArAssetEENSE_10UsdZipFileEEEEENS3_13spin_rw_mutexEE14delete_segmentEm.exit ]
-  %10 = getelementptr inbounds [64 x %"struct.std::atomic.18"], ptr %8, i64 0, i64 %.038
+  %10 = getelementptr inbounds nuw [64 x %"struct.std::atomic.18"], ptr %8, i64 0, i64 %.038
   %11 = load atomic i64, ptr %10 monotonic, align 8
   %.0.i = inttoptr i64 %11 to ptr
   %12 = tail call i64 @llvm.umax.i64(i64 %.038, i64 1)

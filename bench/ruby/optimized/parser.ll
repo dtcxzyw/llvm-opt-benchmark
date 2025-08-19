@@ -1876,8 +1876,8 @@ rvalue_stack_push.exit350:                        ; preds = %json_decode_array.e
   %440 = load i8, ptr %365, align 1, !tbaa !33, !range !29, !noundef !30
   %441 = trunc nuw i8 %440 to i1
   %442 = icmp ult ptr %439, %384
-  %or.cond446 = select i1 %441, i1 %442, i1 false
-  br i1 %or.cond446, label %.lr.ph.i351, label %json_eat_whitespace.exit355.thread
+  %or.cond546 = select i1 %441, i1 %442, i1 false
+  br i1 %or.cond546, label %.lr.ph.i351, label %json_eat_whitespace.exit355.thread
 
 .lr.ph.i351:                                      ; preds = %438, %454
   %443 = phi ptr [ %455, %454 ], [ %384, %438 ]
@@ -2224,7 +2224,7 @@ json_eat_whitespace.exit380.thread:               ; preds = %591
   br i1 %614, label %.thread, label %json_eat_whitespace.exit380._crit_edge
 
 .thread:                                          ; preds = %json_eat_whitespace.exit380.thread
-  %.pre427429 = load i8, ptr %592, align 1, !tbaa !62
+  %.pre427529 = load i8, ptr %592, align 1, !tbaa !62
   br label %619
 
 json_eat_whitespace.exit380._crit_edge:           ; preds = %json_eat_whitespace.exit380.thread, %json_eat_whitespace.exit380
@@ -2236,15 +2236,15 @@ json_eat_whitespace.exit380._crit_edge:           ; preds = %json_eat_whitespace
   %617 = icmp ult ptr %610, %609
   %.pre427 = load i8, ptr %610, align 1, !tbaa !62
   %618 = icmp eq i8 %.pre427, 125
-  %or.cond447 = select i1 %617, i1 %618, i1 false
-  br i1 %or.cond447, label %.backedge391.backedge, label %619
+  %or.cond547 = select i1 %617, i1 %618, i1 false
+  br i1 %or.cond547, label %.backedge391.backedge, label %619
 
 .backedge391.backedge:                            ; preds = %616, %649
   br label %.backedge391
 
 619:                                              ; preds = %.thread, %json_eat_whitespace.exit380._crit_edge, %616
   %620 = phi ptr [ %615, %json_eat_whitespace.exit380._crit_edge ], [ %610, %616 ], [ %592, %.thread ]
-  %621 = phi i8 [ %.pre, %json_eat_whitespace.exit380._crit_edge ], [ %.pre427, %616 ], [ %.pre427429, %.thread ]
+  %621 = phi i8 [ %.pre, %json_eat_whitespace.exit380._crit_edge ], [ %.pre427, %616 ], [ %.pre427529, %.thread ]
   %.not272 = icmp eq i8 %621, 34
   br i1 %.not272, label %623, label %622
 

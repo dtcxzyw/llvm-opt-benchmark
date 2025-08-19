@@ -164,8 +164,8 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
 
 62:                                               ; preds = %58, %._crit_edge.i.i.i, %.backedge.i.i.i
   %.231.i.i.i = phi i64 [ %47, %._crit_edge.i.i.i ], [ %.019.i.i.i, %.backedge.i.i.i ], [ %47, %58 ]
-  %.0.lcssa29.i.i.i = phi i64 [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ 0, %.backedge.i.i.i ], [ %.0.lcssa.i.i.i, %58 ]
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.lcssa29.i.i.i
+  %.0.lcssa30.i.i.i = phi i64 [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ 0, %.backedge.i.i.i ], [ %.0.lcssa.i.i.i, %58 ]
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.lcssa30.i.i.i
   store i8 0, ptr %63, align 1, !tbaa !20
   %64 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #12
   %65 = icmp eq i32 %64, 1
@@ -312,7 +312,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not47.i.i, label %151, label %128
 
 128:                                              ; preds = %127
-  %129 = icmp ugt i64 %.0.lcssa29.i.i.i, 20
+  %129 = icmp ugt i64 %.0.lcssa30.i.i.i, 20
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
@@ -432,8 +432,8 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
 
 182:                                              ; preds = %178, %._crit_edge.i63.i, %.backedge.i65.i
   %.231.i58.i = phi i64 [ %167, %._crit_edge.i63.i ], [ %.019.i57.i, %.backedge.i65.i ], [ %167, %178 ]
-  %.0.lcssa29.i59.i = phi i64 [ %.0.lcssa.i64.i, %._crit_edge.i63.i ], [ 0, %.backedge.i65.i ], [ %.0.lcssa.i64.i, %178 ]
-  %183 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.lcssa29.i59.i
+  %.0.lcssa30.i59.i = phi i64 [ %.0.lcssa.i64.i, %._crit_edge.i63.i ], [ 0, %.backedge.i65.i ], [ %.0.lcssa.i64.i, %178 ]
+  %183 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.lcssa30.i59.i
   store i8 0, ptr %183, align 1, !tbaa !20
   %184 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, ptr noundef nonnull %14) #12
   %.not51.i = icmp eq i32 %184, 2
@@ -481,8 +481,8 @@ ReadPAMFields.exit.i:                             ; preds = %160, %158, %157, %1
 
 204:                                              ; preds = %200, %._crit_edge.i, %.backedge.i
   %.231.i = phi i64 [ %189, %._crit_edge.i ], [ %.019.i, %.backedge.i ], [ %189, %200 ]
-  %.0.lcssa29.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %.backedge.i ], [ %.0.lcssa.i, %200 ]
-  %205 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.lcssa29.i
+  %.0.lcssa30.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %.backedge.i ], [ %.0.lcssa.i, %200 ]
+  %205 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.lcssa30.i
   store i8 0, ptr %205, align 1, !tbaa !20
   %206 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.6, ptr noundef nonnull %20) #12
   %.not52.i = icmp eq i32 %206, 1
@@ -1015,7 +1015,7 @@ ReadHeader.exit:                                  ; preds = %222
   store i32 %.pre, ptr %448, align 8, !tbaa !34
   %449 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %264, ptr %449, align 4, !tbaa !38
-  %450 = trunc nuw i64 %261 to i32
+  %450 = trunc nuw nsw i64 %261 to i32
   br i1 %.not, label %451, label %453
 
 451:                                              ; preds = %._crit_edge

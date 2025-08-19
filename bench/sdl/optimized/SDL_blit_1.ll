@@ -146,7 +146,7 @@ define internal void @Blit1toNAlphaKey(ptr noundef readonly captures(none) %0) #
   %.0654687 = phi ptr [ %24, %.lr.ph ], [ %1430, %1429 ]
   %.0655686 = phi ptr [ %20, %.lr.ph ], [ %1431, %1429 ]
   %46 = add nsw i32 %.in, -1
-  switch i32 %29, label %default.unreachable688 [
+  switch i32 %29, label %default.unreachable689 [
     i32 0, label %47
     i32 3, label %392
     i32 2, label %737
@@ -1743,7 +1743,7 @@ define internal void @Blit1toNAlphaKey(ptr noundef readonly captures(none) %0) #
   %1428 = icmp sgt i32 %.2678, 1
   br i1 %1428, label %47, label %1429, !llvm.loop !3
 
-default.unreachable688:                           ; preds = %45
+default.unreachable689:                           ; preds = %45
   unreachable
 
 1429:                                             ; preds = %1424
@@ -1810,7 +1810,7 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   %.0645674 = phi ptr [ %22, %.lr.ph ], [ %1420, %1419 ]
   %.0646673 = phi ptr [ %18, %.lr.ph ], [ %1421, %1419 ]
   %44 = add nsw i32 %.in, -1
-  switch i32 %27, label %default.unreachable675 [
+  switch i32 %27, label %default.unreachable676 [
     i32 0, label %45
     i32 3, label %388
     i32 2, label %731
@@ -3387,7 +3387,7 @@ define internal void @Blit1toNAlpha(ptr noundef readonly captures(none) %0) #1 {
   %1418 = icmp sgt i32 %.2669, 1
   br i1 %1418, label %45, label %1419, !llvm.loop !6
 
-default.unreachable675:                           ; preds = %43
+default.unreachable676:                           ; preds = %43
   unreachable
 
 1419:                                             ; preds = %1414
@@ -3432,7 +3432,7 @@ define internal void @Blit1to1(ptr noundef readonly captures(none) %0) #1 {
   %.05575 = phi ptr [ %13, %.lr.ph ], [ %82, %81 ]
   %.06374 = phi ptr [ %9, %.lr.ph ], [ %83, %81 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable76 [
+  switch i32 %18, label %default.unreachable78 [
     i32 0, label %23
     i32 7, label %30
     i32 6, label %37
@@ -3549,7 +3549,7 @@ define internal void @Blit1to1(ptr noundef readonly captures(none) %0) #1 {
   %80 = icmp sgt i32 %.6, 1
   br i1 %80, label %23, label %81, !llvm.loop !8
 
-default.unreachable76:                            ; preds = %21
+default.unreachable78:                            ; preds = %21
   unreachable
 
 81:                                               ; preds = %72
@@ -3594,7 +3594,7 @@ define internal void @Blit1to2(ptr noundef readonly captures(none) %0) #1 {
   %.04767 = phi ptr [ %13, %.lr.ph ], [ %82, %81 ]
   %.05566 = phi ptr [ %9, %.lr.ph ], [ %83, %81 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable68 [
+  switch i32 %18, label %default.unreachable70 [
     i32 0, label %23
     i32 7, label %30
     i32 6, label %37
@@ -3711,7 +3711,7 @@ define internal void @Blit1to2(ptr noundef readonly captures(none) %0) #1 {
   %80 = icmp sgt i32 %.6, 1
   br i1 %80, label %23, label %81, !llvm.loop !10
 
-default.unreachable68:                            ; preds = %21
+default.unreachable70:                            ; preds = %21
   unreachable
 
 81:                                               ; preds = %72
@@ -3756,7 +3756,7 @@ define internal void @Blit1to3(ptr noundef readonly captures(none) %0) #1 {
   %.06375 = phi ptr [ %9, %.lr.ph ], [ %83, %81 ]
   %.06774 = phi ptr [ %13, %.lr.ph ], [ %82, %81 ]
   %22 = add nsw i32 %.in, -1
-  switch i32 %18, label %default.unreachable76 [
+  switch i32 %18, label %default.unreachable78 [
     i32 0, label %23
     i32 3, label %37
     i32 2, label %51
@@ -3853,7 +3853,7 @@ define internal void @Blit1to3(ptr noundef readonly captures(none) %0) #1 {
   %80 = icmp sgt i32 %.2, 1
   br i1 %80, label %23, label %81, !llvm.loop !12
 
-default.unreachable76:                            ; preds = %21
+default.unreachable78:                            ; preds = %21
   unreachable
 
 81:                                               ; preds = %65
@@ -3899,7 +3899,7 @@ define internal void @Blit1to4(ptr noundef readonly captures(none) %0) #1 {
   %.03959 = phi ptr [ %14, %.lr.ph ], [ %83, %82 ]
   %.04758 = phi ptr [ %10, %.lr.ph ], [ %84, %82 ]
   %23 = add nsw i32 %.in, -1
-  switch i32 %19, label %default.unreachable60 [
+  switch i32 %19, label %default.unreachable62 [
     i32 0, label %24
     i32 7, label %31
     i32 6, label %38
@@ -4016,7 +4016,7 @@ define internal void @Blit1to4(ptr noundef readonly captures(none) %0) #1 {
   %81 = icmp sgt i32 %.6, 1
   br i1 %81, label %24, label %82, !llvm.loop !14
 
-default.unreachable60:                            ; preds = %22
+default.unreachable62:                            ; preds = %22
   unreachable
 
 82:                                               ; preds = %73
@@ -4478,7 +4478,7 @@ define internal void @Blit1to2Key(ptr noundef readonly captures(none) %0) #1 {
   %.073101 = phi ptr [ %16, %.lr.ph ], [ %109, %108 ]
   %.081100 = phi ptr [ %12, %.lr.ph ], [ %110, %108 ]
   %25 = add nsw i32 %.in, -1
-  switch i32 %21, label %default.unreachable102 [
+  switch i32 %21, label %default.unreachable104 [
     i32 0, label %26
     i32 7, label %36
     i32 6, label %46
@@ -4659,7 +4659,7 @@ define internal void @Blit1to2Key(ptr noundef readonly captures(none) %0) #1 {
   %107 = icmp sgt i32 %.6, 1
   br i1 %107, label %26, label %108, !llvm.loop !20
 
-default.unreachable102:                           ; preds = %24
+default.unreachable104:                           ; preds = %24
   unreachable
 
 108:                                              ; preds = %103
@@ -4706,7 +4706,7 @@ define internal void @Blit1to3Key(ptr noundef readonly captures(none) %0) #1 {
   %.07292 = phi ptr [ %15, %.lr.ph ], [ %96, %95 ]
   %.07691 = phi ptr [ %11, %.lr.ph ], [ %97, %95 ]
   %24 = add nsw i32 %.in, -1
-  switch i32 %20, label %default.unreachable93 [
+  switch i32 %20, label %default.unreachable99 [
     i32 0, label %25
     i32 3, label %42
     i32 2, label %59
@@ -4835,7 +4835,7 @@ define internal void @Blit1to3Key(ptr noundef readonly captures(none) %0) #1 {
   %94 = icmp sgt i32 %.2, 1
   br i1 %94, label %25, label %95, !llvm.loop !22
 
-default.unreachable93:                            ; preds = %23
+default.unreachable99:                            ; preds = %23
   unreachable
 
 95:                                               ; preds = %90
@@ -4883,7 +4883,7 @@ define internal void @Blit1to4Key(ptr noundef readonly captures(none) %0) #1 {
   %.073101 = phi ptr [ %16, %.lr.ph ], [ %109, %108 ]
   %.081100 = phi ptr [ %12, %.lr.ph ], [ %110, %108 ]
   %25 = add nsw i32 %.in, -1
-  switch i32 %21, label %default.unreachable102 [
+  switch i32 %21, label %default.unreachable104 [
     i32 0, label %26
     i32 7, label %36
     i32 6, label %46
@@ -5064,7 +5064,7 @@ define internal void @Blit1to4Key(ptr noundef readonly captures(none) %0) #1 {
   %107 = icmp sgt i32 %.6, 1
   br i1 %107, label %26, label %108, !llvm.loop !24
 
-default.unreachable102:                           ; preds = %24
+default.unreachable104:                           ; preds = %24
   unreachable
 
 108:                                              ; preds = %103

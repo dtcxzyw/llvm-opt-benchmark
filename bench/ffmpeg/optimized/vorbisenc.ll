@@ -996,7 +996,7 @@ put_bits32.exit142.i:                             ; preds = %put_bits.exit141.i
   br i1 %442, label %put_bits32.exit143.i, label %put_bits32.exit143.thread.i
 
 put_bits32.exit143.thread.i:                      ; preds = %put_bits32.exit142.i, %put_bits32.exit142.thread.i
-  %.sroa.286.21.idx865.i = phi i64 [ %.sroa.286.20.add.i, %put_bits32.exit142.i ], [ %.sroa.286.20.idx.i, %put_bits32.exit142.thread.i ]
+  %.sroa.286.21.idx910.i = phi i64 [ %.sroa.286.20.add.i, %put_bits32.exit142.i ], [ %.sroa.286.20.idx.i, %put_bits32.exit142.thread.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.10) #12
   br label %put_bits32.exit144.thread.i
 
@@ -1013,7 +1013,7 @@ put_bits32.exit143.i:                             ; preds = %put_bits32.exit142.
   br i1 %447, label %put_bits32.exit144.i, label %put_bits32.exit144.thread.i
 
 put_bits32.exit144.thread.i:                      ; preds = %put_bits32.exit143.i, %put_bits32.exit143.thread.i
-  %.sroa.286.22.idx868.i = phi i64 [ %.sroa.286.21.add.i, %put_bits32.exit143.i ], [ %.sroa.286.21.idx865.i, %put_bits32.exit143.thread.i ]
+  %.sroa.286.22.idx913.i = phi i64 [ %.sroa.286.21.add.i, %put_bits32.exit143.i ], [ %.sroa.286.21.idx910.i, %put_bits32.exit143.thread.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.10) #12
   br label %450
 
@@ -1032,12 +1032,12 @@ put_bits32.exit144.i:                             ; preds = %put_bits32.exit143.
   br label %put_bits32.exit145.i
 
 450:                                              ; preds = %put_bits32.exit144.i, %put_bits32.exit144.thread.i
-  %.sroa.286.23.idx871.i = phi i64 [ %.sroa.286.22.add.i, %put_bits32.exit144.i ], [ %.sroa.286.22.idx868.i, %put_bits32.exit144.thread.i ]
+  %.sroa.286.23.idx916.i = phi i64 [ %.sroa.286.22.add.i, %put_bits32.exit144.i ], [ %.sroa.286.22.idx913.i, %put_bits32.exit144.thread.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.10) #12
   br label %put_bits32.exit145.i
 
 put_bits32.exit145.i:                             ; preds = %450, %449
-  %.sroa.286.24.idx.i = phi i64 [ %.sroa.286.23.idx871.i, %450 ], [ %.sroa.286.23.add.i, %449 ]
+  %.sroa.286.24.idx.i = phi i64 [ %.sroa.286.23.idx916.i, %450 ], [ %.sroa.286.23.add.i, %449 ]
   %.sroa.286.24.ptr.i = getelementptr inbounds nuw i8, ptr %402, i64 %.sroa.286.24.idx.i
   %451 = load i32, ptr %15, align 8, !tbaa !44
   %452 = shl i32 %451, %439
@@ -1246,12 +1246,12 @@ put_bits32.exit167.i:                             ; preds = %518
   br label %put_bits32.exit168.i
 
 526:                                              ; preds = %put_bits32.exit167.i, %put_bits32.exit167.thread.i
-  %.sroa.286.37874.i = phi ptr [ %.sroa.286.36.i, %put_bits32.exit167.thread.i ], [ %522, %put_bits32.exit167.i ]
+  %.sroa.286.37919.i = phi ptr [ %.sroa.286.36.i, %put_bits32.exit167.thread.i ], [ %522, %put_bits32.exit167.i ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.10) #12
   br label %put_bits32.exit168.i
 
 put_bits32.exit168.i:                             ; preds = %526, %524
-  %.sroa.286.38.i = phi ptr [ %525, %524 ], [ %.sroa.286.37874.i, %526 ]
+  %.sroa.286.38.i = phi ptr [ %525, %524 ], [ %.sroa.286.37919.i, %526 ]
   %527 = sub nsw i32 40, %.0.i.i165.i
   %528 = shl nuw i32 1, %527
   %.not.i.i169.i = icmp sgt i32 %.0.i.i165.i, 9
@@ -1695,14 +1695,14 @@ put_bits.exit139.i.i:                             ; preds = %703, %686
 719:                                              ; preds = %716
   %indvars.iv.next222.i.i = add nuw nsw i64 %indvars.iv221.i.i, 1
   %exitcond225.not.i.i = icmp eq i64 %indvars.iv.next222.i.i, %wide.trip.count224.i.i
-  br i1 %exitcond225.not.i.i, label %.split.loop.exit260.i.i, label %716, !llvm.loop !143
+  br i1 %exitcond225.not.i.i, label %.split.loop.exit283.i.i, label %716, !llvm.loop !143
 
 .split.loop.exit.i.i:                             ; preds = %716
   %indvars223.le.i.i = trunc i64 %indvars.iv221.i.i to i32
   %720 = add nuw nsw i32 %.1203.i.i, %indvars223.le.i.i
-  br label %.split.loop.exit260.i.i
+  br label %.split.loop.exit283.i.i
 
-.split.loop.exit260.i.i:                          ; preds = %719, %.split.loop.exit.i.i
+.split.loop.exit283.i.i:                          ; preds = %719, %.split.loop.exit.i.i
   %.090.lcssa.i.i = phi i32 [ %indvars223.le.i.i, %.split.loop.exit.i.i ], [ %715, %719 ]
   %.lcssa.i.i = phi i32 [ %720, %.split.loop.exit.i.i ], [ %smax.i.i, %719 ]
   %721 = sub nsw i32 %709, %.1203.i.i
@@ -1727,7 +1727,7 @@ put_bits.exit139.i.i:                             ; preds = %703, %686
   %.not.i.i140.i.i = icmp slt i32 %730, %710
   br i1 %.not.i.i140.i.i, label %put_bits.exit143.i.i, label %734
 
-734:                                              ; preds = %.split.loop.exit260.i.i
+734:                                              ; preds = %.split.loop.exit283.i.i
   %735 = ptrtoint ptr %.sroa.286.83.i to i64
   %736 = sub i64 %560, %735
   %737 = icmp ugt i64 %736, 3
@@ -1749,11 +1749,11 @@ put_bits.exit139.i.i:                             ; preds = %703, %686
   %.pre241.i.i = load i32, ptr %599, align 8, !tbaa !52
   br label %put_bits.exit143.i.i
 
-put_bits.exit143.i.i:                             ; preds = %741, %.split.loop.exit260.i.i
-  %.sroa.286.85.i = phi ptr [ %.sroa.286.83.i, %.split.loop.exit260.i.i ], [ %.sroa.286.84.i, %741 ]
-  %744 = phi i32 [ %709, %.split.loop.exit260.i.i ], [ %.pre241.i.i, %741 ]
-  %.020.i.i141.i.i = phi i32 [ %733, %.split.loop.exit260.i.i ], [ %742, %741 ]
-  %.0.i.i142.i.i = phi i32 [ %710, %.split.loop.exit260.i.i ], [ %743, %741 ]
+put_bits.exit143.i.i:                             ; preds = %741, %.split.loop.exit283.i.i
+  %.sroa.286.85.i = phi ptr [ %.sroa.286.83.i, %.split.loop.exit283.i.i ], [ %.sroa.286.84.i, %741 ]
+  %744 = phi i32 [ %709, %.split.loop.exit283.i.i ], [ %.pre241.i.i, %741 ]
+  %.020.i.i141.i.i = phi i32 [ %733, %.split.loop.exit283.i.i ], [ %742, %741 ]
+  %.0.i.i142.i.i = phi i32 [ %710, %.split.loop.exit283.i.i ], [ %743, %741 ]
   %745 = sub nsw i32 %.0.i.i142.i.i, %730
   %746 = add nuw nsw i32 %.091202.i.i, 1
   %747 = icmp slt i32 %.lcssa.i.i, %744
@@ -1834,7 +1834,7 @@ put_bits.exit143.i.i:                             ; preds = %741, %.split.loop.e
 
 put_bits.exit147.i.i:                             ; preds = %772, %.split95.i.i, %760, %.split96.i.i
   %.sroa.286.58.i = phi ptr [ %.sroa.286.56.i, %.split96.i.i ], [ %.sroa.286.78.i, %760 ], [ %.sroa.286.56.i, %.split95.i.i ], [ %.sroa.286.57.i, %772 ]
-  %.not103250.i.i = phi i1 [ true, %.split96.i.i ], [ true, %760 ], [ false, %.split95.i.i ], [ false, %772 ]
+  %.not103273.i.i = phi i1 [ true, %.split96.i.i ], [ true, %760 ], [ false, %.split95.i.i ], [ false, %772 ]
   %storemerge180.i.i = phi i32 [ %681, %.split96.i.i ], [ 0, %760 ], [ %764, %.split95.i.i ], [ %773, %772 ]
   %storemerge.in.i.i = phi i32 [ %682, %.split96.i.i ], [ %761, %760 ], [ %682, %.split95.i.i ], [ %774, %772 ]
   %storemerge.i.i = add nsw i32 %storemerge.in.i.i, -1
@@ -1852,7 +1852,7 @@ put_bits.exit147.i.i:                             ; preds = %772, %.split95.i.i,
   %780 = phi i32 [ %storemerge180.i.i, %.lr.ph200.i.i ], [ %825, %823 ]
   %indvars.iv218.i.i = phi i64 [ 0, %.lr.ph200.i.i ], [ %indvars.iv.next219.i.i, %823 ]
   %.pre240.i.i = load ptr, ptr %777, align 8, !tbaa !60
-  br i1 %.not103250.i.i, label %800, label %781
+  br i1 %.not103273.i.i, label %800, label %781
 
 781:                                              ; preds = %778
   %782 = getelementptr inbounds nuw i8, ptr %.pre240.i.i, i64 %indvars.iv218.i.i
@@ -3807,18 +3807,18 @@ put_bits.exit272.i:                               ; preds = %1651, %1636
   br i1 %1659, label %.lr.ph743.i, label %._crit_edge744.i
 
 .lr.ph743.i:                                      ; preds = %.loopexit.i31, %.preheader.i32
-  %.sroa.0.10880.i = phi i32 [ %.sroa.0.10.i, %.loopexit.i31 ], [ %.020.i.i266.i, %.preheader.i32 ]
-  %.sroa.141.10879.i = phi i32 [ %.sroa.141.10.i, %.loopexit.i31 ], [ %1630, %.preheader.i32 ]
-  %.sroa.286.10878.i = phi ptr [ %.sroa.286.10.i, %.loopexit.i31 ], [ %.sroa.286.167.i, %.preheader.i32 ]
+  %.sroa.0.10925.i = phi i32 [ %.sroa.0.10.i, %.loopexit.i31 ], [ %.020.i.i266.i, %.preheader.i32 ]
+  %.sroa.141.10924.i = phi i32 [ %.sroa.141.10.i, %.loopexit.i31 ], [ %1630, %.preheader.i32 ]
+  %.sroa.286.10923.i = phi ptr [ %.sroa.286.10.i, %.loopexit.i31 ], [ %.sroa.286.167.i, %.preheader.i32 ]
   %1660 = getelementptr inbounds nuw i8, ptr %1479, i64 16
   %1661 = getelementptr inbounds nuw i8, ptr %1479, i64 24
   br label %1662
 
 1662:                                             ; preds = %put_bits.exit284.i, %.lr.ph743.i
   %indvars.iv825.i = phi i64 [ 0, %.lr.ph743.i ], [ %indvars.iv.next826.i, %put_bits.exit284.i ]
-  %.sroa.0.12740.i = phi i32 [ %.sroa.0.10880.i, %.lr.ph743.i ], [ %.020.i.i282.i, %put_bits.exit284.i ]
-  %.sroa.141.12739.i = phi i32 [ %.sroa.141.10879.i, %.lr.ph743.i ], [ %1706, %put_bits.exit284.i ]
-  %.sroa.286.12738.i = phi ptr [ %.sroa.286.10878.i, %.lr.ph743.i ], [ %.sroa.286.175.i, %put_bits.exit284.i ]
+  %.sroa.0.12740.i = phi i32 [ %.sroa.0.10925.i, %.lr.ph743.i ], [ %.020.i.i282.i, %put_bits.exit284.i ]
+  %.sroa.141.12739.i = phi i32 [ %.sroa.141.10924.i, %.lr.ph743.i ], [ %1706, %put_bits.exit284.i ]
+  %.sroa.286.12738.i = phi ptr [ %.sroa.286.10923.i, %.lr.ph743.i ], [ %.sroa.286.175.i, %put_bits.exit284.i ]
   %.not.i.i273.i = icmp sgt i32 %.sroa.141.12739.i, 8
   br i1 %.not.i.i273.i, label %put_bits.exit276.i, label %1663
 
@@ -4940,7 +4940,7 @@ get_floor_average.exit.i:                         ; preds = %.lr.ph.i.i, %356
   br i1 %exitcond.not.i198, label %._crit_edge.i199, label %356, !llvm.loop !206
 
 ._crit_edge.i199:                                 ; preds = %get_floor_average.exit.i
-  %387 = sitofp i32 %351 to float
+  %387 = uitofp nneg i32 %351 to float
   %388 = fdiv nsz float %386, %387
   %389 = load float, ptr %319, align 8, !tbaa !136
   %390 = fdiv nsz float %388, %389
@@ -4978,19 +4978,19 @@ get_floor_average.exit.i:                         ; preds = %.lr.ph.i.i, %356
   %411 = getelementptr inbounds [256 x float], ptr @ff_vorbis_floor1_inverse_db_table, i64 0, i64 %410
   %412 = load float, ptr %411, align 4, !tbaa !69
   %413 = fcmp nsz ogt float %412, %408
-  br i1 %413, label %._crit_edge44.us.split.loop.exit73.i, label %414
+  br i1 %413, label %._crit_edge44.us.split.loop.exit76.i, label %414
 
 414:                                              ; preds = %409
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count63.i
   br i1 %exitcond64.not.i, label %._crit_edge44.us.i, label %409, !llvm.loop !207
 
-._crit_edge44.us.split.loop.exit73.i:             ; preds = %409
+._crit_edge44.us.split.loop.exit76.i:             ; preds = %409
   %415 = trunc nuw nsw i64 %indvars.iv60.i to i32
   br label %._crit_edge44.us.i
 
-._crit_edge44.us.i:                               ; preds = %414, %._crit_edge44.us.split.loop.exit73.i
-  %.0.lcssa.us.i = phi i32 [ %415, %._crit_edge44.us.split.loop.exit73.i ], [ %349, %414 ]
+._crit_edge44.us.i:                               ; preds = %414, %._crit_edge44.us.split.loop.exit76.i
+  %.0.lcssa.us.i = phi i32 [ %415, %._crit_edge44.us.split.loop.exit76.i ], [ %349, %414 ]
   %416 = trunc i32 %.0.lcssa.us.i to i16
   %417 = getelementptr inbounds nuw i16, ptr %11, i64 %395
   store i16 %416, ptr %417, align 2, !tbaa !208
@@ -5317,19 +5317,19 @@ put_bits.exit175.i:                               ; preds = %481, %put_bits.exit
 583:                                              ; preds = %579, %576
   %.0135.us.i = phi i32 [ %582, %579 ], [ 1, %576 ]
   %584 = icmp slt i32 %575, %.0135.us.i
-  br i1 %584, label %._crit_edge.us.split.loop.exit247.i, label %585
+  br i1 %584, label %._crit_edge.us.split.loop.exit269.i, label %585
 
 585:                                              ; preds = %583
   %indvars.iv.next221.i = add nuw nsw i64 %indvars.iv220.i, 1
   %exitcond224.not.i = icmp eq i64 %indvars.iv.next221.i, %wide.trip.count223.i
   br i1 %exitcond224.not.i, label %._crit_edge.us.i, label %576, !llvm.loop !213
 
-._crit_edge.us.split.loop.exit247.i:              ; preds = %583
+._crit_edge.us.split.loop.exit269.i:              ; preds = %583
   %586 = trunc nuw nsw i64 %indvars.iv220.i to i32
   br label %._crit_edge.us.i
 
-._crit_edge.us.i:                                 ; preds = %585, %._crit_edge.us.split.loop.exit247.i
-  %.0136.lcssa.us.i = phi i32 [ %586, %._crit_edge.us.split.loop.exit247.i ], [ %smax.i, %585 ]
+._crit_edge.us.i:                                 ; preds = %585, %._crit_edge.us.split.loop.exit269.i
+  %.0136.lcssa.us.i = phi i32 [ %586, %._crit_edge.us.split.loop.exit269.i ], [ %smax.i, %585 ]
   %.not164.us.i = icmp eq i32 %.0136.lcssa.us.i, %562
   br i1 %.not164.us.i, label %.split.us.i, label %587
 
@@ -5732,19 +5732,19 @@ put_codeword.exit.i:                              ; preds = %put_codeword.exit.l
   %789 = getelementptr inbounds nuw i8, ptr %785, i64 4
   %790 = load float, ptr %789, align 4, !tbaa !69
   %791 = fcmp nsz olt float %.0198.lcssa.us.i, %790
-  br i1 %791, label %._crit_edge.us.split.loop.exit432.i, label %792
+  br i1 %791, label %._crit_edge.us.split.loop.exit456.i, label %792
 
 792:                                              ; preds = %788, %784
   %indvars.iv.next.i217 = add nuw nsw i64 %indvars.iv.i216, 1
   %exitcond.not.i218 = icmp eq i64 %indvars.iv.next.i217, %wide.trip.count.i215
   br i1 %exitcond.not.i218, label %._crit_edge.us.i219, label %784, !llvm.loop !222
 
-._crit_edge.us.split.loop.exit432.i:              ; preds = %788
+._crit_edge.us.split.loop.exit456.i:              ; preds = %788
   %793 = trunc nuw nsw i64 %indvars.iv.i216 to i32
   br label %._crit_edge.us.i219
 
-._crit_edge.us.i219:                              ; preds = %792, %._crit_edge.us.split.loop.exit432.i
-  %.0181.lcssa.us.i = phi i32 [ %793, %._crit_edge.us.split.loop.exit432.i ], [ %772, %792 ]
+._crit_edge.us.i219:                              ; preds = %792, %._crit_edge.us.split.loop.exit456.i
+  %.0181.lcssa.us.i = phi i32 [ %793, %._crit_edge.us.split.loop.exit456.i ], [ %772, %792 ]
   %794 = getelementptr inbounds nuw [50 x i32], ptr %5, i64 0, i64 %indvars.iv387.i
   store i32 %.0181.lcssa.us.i, ptr %794, align 4, !tbaa !44
   %indvars.iv.next388.i = add nuw nsw i64 %indvars.iv387.i, 1
@@ -5791,7 +5791,7 @@ put_codeword.exit.i:                              ; preds = %put_codeword.exit.l
   %810 = icmp sgt i32 %765, 0
   %811 = getelementptr inbounds nuw i8, ptr %748, i64 24
   %812 = shl i32 2, %16
-  %.not214337422.i = icmp sgt i32 %750, 0
+  %.not214337446.i = icmp sgt i32 %750, 0
   %wide.trip.count395.i = zext nneg i32 %765 to i64
   %813 = ptrtoint ptr %252 to i64
   br label %.preheader290.us.i
@@ -5960,7 +5960,7 @@ put_codeword.exit.i:                              ; preds = %put_codeword.exit.l
   br i1 %884, label %.preheader284.us.us.i, label %885
 
 885:                                              ; preds = %883
-  br i1 %.not214337422.i, label %.lr.ph342.us.us.i, label %.critedge.us.us.i
+  br i1 %.not214337446.i, label %.lr.ph342.us.us.i, label %.critedge.us.us.i
 
 886:                                              ; preds = %.lr.ph342.us.us.i, %._crit_edge334.us.us.i
   %.sroa.54.34 = phi ptr [ %.sroa.54.31, %.lr.ph342.us.us.i ], [ %.sroa.54.36, %._crit_edge334.us.us.i ]
@@ -6382,7 +6382,7 @@ put_vector.exit.us.us.i:                          ; preds = %1031, %1019
   br label %.lr.ph344.us.us.i
 
 .preheader284.us.us.i:                            ; preds = %883
-  br i1 %.not214337422.i, label %.lr.ph348.us.us.i, label %.critedge.us.us.i
+  br i1 %.not214337446.i, label %.lr.ph348.us.us.i, label %.critedge.us.us.i
 
 .lr.ph342.us.us.i:                                ; preds = %885
   %1051 = add nsw i32 %872, %862

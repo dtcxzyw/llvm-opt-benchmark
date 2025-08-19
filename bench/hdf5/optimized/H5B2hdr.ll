@@ -253,8 +253,8 @@ define range(i32 -1, 1) i32 @H5B2__hdr_init(ptr noundef %0, ptr noundef readonly
   br label %H5VM_limit_enc_size.exit
 
 .thread:                                          ; preds = %.preheader132, %110
-  %.pre-phi145148 = phi i64 [ %wide.trip.count, %110 ], [ 0, %.preheader132 ]
-  %117 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %.pre-phi145148
+  %.pre-phi152155 = phi i64 [ %wide.trip.count, %110 ], [ 0, %.preheader132 ]
+  %117 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %.pre-phi152155
   %118 = load i8, ptr %117, align 1, !tbaa !56
   %119 = zext i8 %118 to i16
   br label %H5VM_limit_enc_size.exit
@@ -798,7 +798,7 @@ define i64 @H5B2__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
   %34 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
   %35 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !40
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_create, i32 noundef 285, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.9) #5
-  br label %.thread56
+  br label %.thread60
 
 37:                                               ; preds = %19
   %38 = load i64, ptr %29, align 8, !tbaa !72
@@ -812,7 +812,7 @@ define i64 @H5B2__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
   %43 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
   %44 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !40
   %45 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_create, i32 noundef 289, i64 noundef %43, i64 noundef %44, ptr noundef nonnull @.str.10) #5
-  br label %.thread56
+  br label %.thread60
 
 46:                                               ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 392
@@ -835,7 +835,7 @@ define i64 @H5B2__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
   %55 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
   %56 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !40
   %57 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_create, i32 noundef 294, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.11) #5
-  br label %.thread56
+  br label %.thread60
 
 58:                                               ; preds = %._crit_edge, %46
   %59 = phi i64 [ %.pre, %._crit_edge ], [ %39, %46 ]
@@ -847,7 +847,7 @@ define i64 @H5B2__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
   %63 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
   %64 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !40
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_create, i32 noundef 298, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.12) #5
-  br label %.thread56
+  br label %.thread60
 
 66:                                               ; preds = %58
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 400
@@ -863,32 +863,32 @@ define i64 @H5B2__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
 72:                                               ; preds = %66, %69
   %73 = load i64, ptr %40, align 8, !tbaa !74
   %74 = icmp eq i64 %73, -1
-  br i1 %74, label %.thread53, label %102
+  br i1 %74, label %.thread57, label %102
 
 75:                                               ; preds = %69
   %76 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
   %77 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !40
   %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_create, i32 noundef 305, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.13) #5
-  br label %.thread53
+  br label %.thread57
 
-.thread53:                                        ; preds = %72, %75
+.thread57:                                        ; preds = %72, %75
   %79 = tail call i32 @H5AC_remove_entry(ptr noundef nonnull %11) #5
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %81, label %.thread56
+  br i1 %80, label %81, label %.thread60
 
-81:                                               ; preds = %.thread53
+81:                                               ; preds = %.thread57
   %82 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
   %83 = load i64, ptr @H5E_CANTREMOVE_g, align 8, !tbaa !40
   %84 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_create, i32 noundef 317, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.14) #5
-  br label %.thread56
+  br label %.thread60
 
-.thread56:                                        ; preds = %33, %42, %54, %62, %.thread53, %81
+.thread60:                                        ; preds = %33, %42, %54, %62, %.thread57, %81
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 296
   %86 = load i64, ptr %85, align 8, !tbaa !74
   %.not41 = icmp eq i64 %86, -1
   br i1 %.not41, label %95, label %87
 
-87:                                               ; preds = %.thread56
+87:                                               ; preds = %.thread60
   %88 = load i64, ptr %29, align 8, !tbaa !72
   %89 = tail call i32 @H5MF_xfree(ptr noundef %0, i32 noundef 2, i64 noundef %86, i64 noundef %88) #5
   %90 = icmp slt i32 %89, 0
@@ -900,7 +900,7 @@ define i64 @H5B2__hdr_create(ptr noundef %0, ptr noundef readonly captures(none)
   %94 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_create, i32 noundef 322, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.15) #5
   br label %95
 
-95:                                               ; preds = %91, %87, %.thread56
+95:                                               ; preds = %91, %87, %.thread60
   %96 = tail call i32 @H5B2__hdr_free(ptr noundef nonnull %11)
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %98, label %102

@@ -961,7 +961,7 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
 .thread:                                          ; preds = %..thread_crit_edge, %30
   %39 = phi i8 [ %.pre, %..thread_crit_edge ], [ %32, %30 ]
   %40 = icmp eq i8 %39, 4
-  br i1 %40, label %41, label %.thread151
+  br i1 %40, label %41, label %.thread167
 
 41:                                               ; preds = %.thread
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -973,16 +973,16 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
   tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef %1, ptr noundef nonnull @trace_xhci_dbg_quirks, ptr noundef nonnull @.str.2, i32 noundef %46) #10
   %.pr3.pre = load i16, ptr %28, align 2
   %47 = icmp eq i16 %.pr3.pre, 4096
-  br i1 %47, label %.thread151, label %.thread4
+  br i1 %47, label %.thread167, label %.thread4
 
-.thread151:                                       ; preds = %.thread, %41
+.thread167:                                       ; preds = %.thread, %41
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %49 = load i64, ptr %48, align 8
   %50 = or i64 %49, 524288
   store i64 %50, ptr %48, align 8
   br label %.thread4
 
-.thread4:                                         ; preds = %27, %34, %41, %.thread151
+.thread4:                                         ; preds = %27, %34, %41, %.thread167
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %52, 64
@@ -1005,7 +1005,7 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
 .thread6:                                         ; preds = %.thread4..thread6_crit_edge, %27
   %60 = phi i16 [ %.pre112, %.thread4..thread6_crit_edge ], [ %29, %27 ]
   %61 = icmp eq i16 %60, 4105
-  br i1 %61, label %62, label %.thread153
+  br i1 %61, label %62, label %.thread169
 
 62:                                               ; preds = %.thread6
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1014,14 +1014,14 @@ define internal void @xhci_pci_quirks(ptr noundef %0, ptr noundef %1) #2 align 1
   store i64 %65, ptr %63, align 8
   %.pr9.pre = load i16, ptr %24, align 4
   %66 = icmp eq i16 %.pr9.pre, 7027
-  br i1 %66, label %.thread153, label %thread-pre-split12
+  br i1 %66, label %.thread169, label %thread-pre-split12
 
-.thread153:                                       ; preds = %.thread6, %62
+.thread169:                                       ; preds = %.thread6, %62
   %67 = load i16, ptr %28, align 2
   %68 = icmp eq i16 %67, 4352
-  br i1 %68, label %69, label %.thread205
+  br i1 %68, label %69, label %.thread221
 
-69:                                               ; preds = %.thread153
+69:                                               ; preds = %.thread169
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %71 = load i64, ptr %70, align 8
   %72 = or i64 %71, 1024
@@ -1051,7 +1051,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %84 = load i16, ptr %83, align 2
   %85 = icmp eq i16 %84, 150
-  br i1 %85, label %86, label %.thread156
+  br i1 %85, label %86, label %.thread172
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1060,20 +1060,20 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   store i64 %89, ptr %87, align 8
   %.pr15.pre = load i16, ptr %24, align 4
   %90 = icmp eq i16 %.pr15.pre, 4130
-  br i1 %90, label %.thread156, label %.thread37
+  br i1 %90, label %.thread172, label %.thread37
 
-.thread156:                                       ; preds = %82, %86
+.thread172:                                       ; preds = %82, %86
   %91 = tail call zeroext i1 @usb_amd_quirk_pll_check() #10
   br i1 %91, label %92, label %96
 
-92:                                               ; preds = %.thread156
+92:                                               ; preds = %.thread172
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %94 = load i64, ptr %93, align 8
   %95 = or i64 %94, 8
   store i64 %95, ptr %93, align 8
   br label %96
 
-96:                                               ; preds = %92, %.thread156
+96:                                               ; preds = %92, %.thread172
   %.pr18 = load i16, ptr %24, align 4
   %97 = icmp eq i16 %.pr18, 4130
   br i1 %97, label %98, label %.thread37
@@ -1105,7 +1105,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   %105 = phi i16 [ %.pre118, %.thread20..thread23_crit_edge ], [ %100, %98 ]
   %106 = and i16 %105, -2
   %107 = icmp eq i16 %106, 5600
-  br i1 %107, label %108, label %.thread158
+  br i1 %107, label %108, label %.thread174
 
 108:                                              ; preds = %.thread23
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1114,14 +1114,14 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   store i64 %111, ptr %109, align 8
   %.pr26.pre = load i16, ptr %24, align 4
   %112 = icmp eq i16 %.pr26.pre, 4130
-  br i1 %112, label %.thread158, label %.thread37
+  br i1 %112, label %.thread174, label %.thread37
 
-.thread158:                                       ; preds = %.thread23, %108
+.thread174:                                       ; preds = %.thread23, %108
   %113 = load i16, ptr %99, align 2
   %114 = icmp eq i16 %113, 5605
   br i1 %114, label %.thread28, label %.thread28.thread
 
-.thread28:                                        ; preds = %.thread158
+.thread28:                                        ; preds = %.thread174
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %116 = load i64, ptr %115, align 8
   %117 = or i64 %116, 274877907072
@@ -1130,7 +1130,7 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   %118 = icmp eq i16 %.pr30.pr.pr.pre, 4130
   br i1 %118, label %.thread28.thread, label %.thread37
 
-.thread28.thread:                                 ; preds = %.thread158, %.thread28
+.thread28.thread:                                 ; preds = %.thread174, %.thread28
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %120 = load i64, ptr %119, align 8
   %121 = or i64 %120, 1024
@@ -1153,14 +1153,14 @@ thread-pre-split12:                               ; preds = %69, %.thread4, %23,
   br i1 %128, label %thread-pre-split, label %.thread37
 
 thread-pre-split:                                 ; preds = %.thread34
-  %.pr162 = load i16, ptr %99, align 2
+  %.pr178 = load i16, ptr %99, align 2
   br label %.thread34.thread
 
 .thread34.thread:                                 ; preds = %123, %thread-pre-split
-  %129 = phi i16 [ %.pr162, %thread-pre-split ], [ %124, %123 ]
+  %129 = phi i16 [ %.pr178, %thread-pre-split ], [ %124, %123 ]
   %130 = phi i64 [ %127, %thread-pre-split ], [ %121, %123 ]
   %131 = icmp eq i16 %129, 5689
-  br i1 %131, label %132, label %thread-pre-split87.thread215
+  br i1 %131, label %132, label %thread-pre-split87.thread231
 
 132:                                              ; preds = %.thread34.thread
   %133 = or i64 %130, 2199023255552
@@ -1186,7 +1186,7 @@ thread-pre-split:                                 ; preds = %.thread34
   %142 = getelementptr i8, ptr %0, i64 -122
   %143 = load i16, ptr %142, align 2
   %144 = icmp eq i16 %143, 7729
-  br i1 %144, label %145, label %.thread165
+  br i1 %144, label %145, label %.thread181
 
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1197,20 +1197,20 @@ thread-pre-split:                                 ; preds = %.thread34
   store i64 %149, ptr %146, align 8
   %.pr41.pre = load i16, ptr %24, align 4
   %150 = icmp eq i16 %.pr41.pre, -32634
-  br i1 %150, label %thread-pre-split167, label %.thread65
+  br i1 %150, label %thread-pre-split183, label %.thread65
 
-thread-pre-split167:                              ; preds = %145
-  %.pr168 = load i16, ptr %142, align 2
-  br label %.thread165
+thread-pre-split183:                              ; preds = %145
+  %.pr184 = load i16, ptr %142, align 2
+  br label %.thread181
 
-.thread165:                                       ; preds = %141, %thread-pre-split167
-  %151 = phi i16 [ %.pr168, %thread-pre-split167 ], [ %143, %141 ]
+.thread181:                                       ; preds = %141, %thread-pre-split183
+  %151 = phi i16 [ %.pr184, %thread-pre-split183 ], [ %143, %141 ]
   switch i16 %151, label %.thread46 [
     i16 -25551, label %152
     i16 -25423, label %152
   ]
 
-152:                                              ; preds = %.thread165, %.thread165
+152:                                              ; preds = %.thread181, %.thread181
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %154 = load i64, ptr %153, align 8
   %155 = or i64 %154, 270336
@@ -1223,8 +1223,8 @@ thread-pre-split167:                              ; preds = %145
   %.pre126 = load i16, ptr %142, align 2
   br label %.thread46
 
-.thread46:                                        ; preds = %..thread46_crit_edge, %.thread165
-  %157 = phi i16 [ %.pre126, %..thread46_crit_edge ], [ %151, %.thread165 ]
+.thread46:                                        ; preds = %..thread46_crit_edge, %.thread181
+  %157 = phi i16 [ %.pre126, %..thread46_crit_edge ], [ %151, %.thread181 ]
   switch i16 %157, label %.thread45.thread [
     i16 -25297, label %.thread45
     i16 -24273, label %.thread45
@@ -1248,7 +1248,7 @@ thread-pre-split167:                              ; preds = %145
 .thread45.thread:                                 ; preds = %.thread46, %.thread45
   %162 = load i16, ptr %142, align 2
   %163 = icmp eq i16 %162, 8885
-  br i1 %163, label %164, label %.thread170
+  br i1 %163, label %164, label %.thread186
 
 164:                                              ; preds = %.thread45.thread
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1257,21 +1257,21 @@ thread-pre-split167:                              ; preds = %145
   store i64 %167, ptr %165, align 8
   %.pr51.pre = load i16, ptr %24, align 4
   %168 = icmp eq i16 %.pr51.pre, -32634
-  br i1 %168, label %thread-pre-split172, label %.thread65
+  br i1 %168, label %thread-pre-split188, label %.thread65
 
-thread-pre-split172:                              ; preds = %164
-  %.pr173 = load i16, ptr %142, align 2
-  br label %.thread170
+thread-pre-split188:                              ; preds = %164
+  %.pr189 = load i16, ptr %142, align 2
+  br label %.thread186
 
-.thread170:                                       ; preds = %.thread45.thread, %thread-pre-split172
-  %169 = phi i16 [ %.pr173, %thread-pre-split172 ], [ %162, %.thread45.thread ]
+.thread186:                                       ; preds = %.thread45.thread, %thread-pre-split188
+  %169 = phi i16 [ %.pr189, %thread-pre-split188 ], [ %162, %.thread45.thread ]
   switch i16 %169, label %.thread56 [
     i16 8885, label %.thread53
     i16 -25297, label %.thread53
     i16 23208, label %.thread53
   ]
 
-.thread53:                                        ; preds = %.thread170, %.thread170, %.thread170
+.thread53:                                        ; preds = %.thread186, %.thread186, %.thread186
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %171 = load i64, ptr %170, align 8
   %172 = or i64 %171, 2147483648
@@ -1284,9 +1284,9 @@ thread-pre-split172:                              ; preds = %164
   %.pre130 = load i16, ptr %142, align 2
   br label %.thread56
 
-.thread56:                                        ; preds = %.thread53..thread56_crit_edge, %.thread170
-  %174 = phi i16 [ %.pre130, %.thread53..thread56_crit_edge ], [ %169, %.thread170 ]
-  switch i16 %174, label %.thread174 [
+.thread56:                                        ; preds = %.thread53..thread56_crit_edge, %.thread186
+  %174 = phi i16 [ %.pre130, %.thread53..thread56_crit_edge ], [ %169, %.thread186 ]
+  switch i16 %174, label %.thread190 [
     i16 8885, label %175
     i16 -25297, label %175
     i16 -24273, label %175
@@ -1301,16 +1301,16 @@ thread-pre-split172:                              ; preds = %164
   store i64 %178, ptr %176, align 8
   %.pr59.pre = load i16, ptr %24, align 4
   %179 = icmp eq i16 %.pr59.pre, -32634
-  br i1 %179, label %.thread174, label %.thread65
+  br i1 %179, label %.thread190, label %.thread65
 
-.thread174:                                       ; preds = %.thread56, %175
+.thread190:                                       ; preds = %.thread56, %175
   %180 = load i16, ptr %142, align 2
   switch i16 %180, label %.thread64 [
     i16 20973, label %.thread61
     i16 21741, label %.thread61
   ]
 
-.thread61:                                        ; preds = %.thread174, %.thread174
+.thread61:                                        ; preds = %.thread190, %.thread190
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %182 = load i64, ptr %181, align 8
   %183 = or i64 %182, 17592186044416
@@ -1323,9 +1323,9 @@ thread-pre-split172:                              ; preds = %164
   %.pre133 = load i16, ptr %142, align 2
   br label %.thread64
 
-.thread64:                                        ; preds = %.thread61..thread64_crit_edge, %.thread174
-  %185 = phi i16 [ %.pre133, %.thread61..thread64_crit_edge ], [ %180, %.thread174 ]
-  switch i16 %185, label %.thread205 [
+.thread64:                                        ; preds = %.thread61..thread64_crit_edge, %.thread190
+  %185 = phi i16 [ %.pre133, %.thread61..thread64_crit_edge ], [ %180, %.thread190 ]
+  switch i16 %185, label %.thread221 [
     i16 5557, label %186
     i16 5558, label %186
     i16 5569, label %186
@@ -1356,7 +1356,7 @@ thread-pre-split172:                              ; preds = %164
   %193 = getelementptr i8, ptr %0, i64 -122
   %194 = load i16, ptr %193, align 2
   %195 = icmp eq i16 %194, 28707
-  br i1 %195, label %196, label %.thread205
+  br i1 %195, label %196, label %.thread221
 
 196:                                              ; preds = %192
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1375,7 +1375,7 @@ thread-pre-split172:                              ; preds = %164
   %204 = getelementptr i8, ptr %0, i64 -122
   %205 = load i16, ptr %204, align 2
   %206 = icmp eq i16 %205, 20
-  br i1 %206, label %207, label %.thread179
+  br i1 %206, label %207, label %.thread195
 
 207:                                              ; preds = %203
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1384,18 +1384,18 @@ thread-pre-split172:                              ; preds = %164
   store i64 %210, ptr %208, align 8
   %.pr69.pre = load i16, ptr %24, align 4
   %211 = icmp eq i16 %.pr69.pre, 6418
-  br i1 %211, label %thread-pre-split181, label %.thread70
+  br i1 %211, label %thread-pre-split197, label %.thread70
 
-thread-pre-split181:                              ; preds = %207
-  %.pr182 = load i16, ptr %204, align 2
-  br label %.thread179
+thread-pre-split197:                              ; preds = %207
+  %.pr198 = load i16, ptr %204, align 2
+  br label %.thread195
 
-.thread179:                                       ; preds = %203, %thread-pre-split181
-  %212 = phi i16 [ %.pr182, %thread-pre-split181 ], [ %205, %203 ]
+.thread195:                                       ; preds = %203, %thread-pre-split197
+  %212 = phi i16 [ %.pr198, %thread-pre-split197 ], [ %205, %203 ]
   %213 = icmp eq i16 %212, 21
-  br i1 %213, label %214, label %.thread205
+  br i1 %213, label %214, label %.thread221
 
-214:                                              ; preds = %.thread179
+214:                                              ; preds = %.thread195
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %216 = load i64, ptr %215, align 8
   %217 = or i64 %216, 4294967424
@@ -1421,7 +1421,7 @@ thread-pre-split181:                              ; preds = %207
   %226 = getelementptr i8, ptr %0, i64 -122
   %227 = load i16, ptr %226, align 2
   %228 = icmp eq i16 %227, 13362
-  br i1 %228, label %229, label %.thread187
+  br i1 %228, label %229, label %.thread203
 
 229:                                              ; preds = %225
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1430,18 +1430,18 @@ thread-pre-split181:                              ; preds = %207
   store i64 %232, ptr %230, align 8
   %.pr74.pre = load i16, ptr %24, align 4
   %233 = icmp eq i16 %.pr74.pre, 4358
-  br i1 %233, label %thread-pre-split189, label %.thread75
+  br i1 %233, label %thread-pre-split205, label %.thread75
 
-thread-pre-split189:                              ; preds = %229
-  %.pr190 = load i16, ptr %226, align 2
-  br label %.thread187
+thread-pre-split205:                              ; preds = %229
+  %.pr206 = load i16, ptr %226, align 2
+  br label %.thread203
 
-.thread187:                                       ; preds = %225, %thread-pre-split189
-  %234 = phi i16 [ %.pr190, %thread-pre-split189 ], [ %227, %225 ]
+.thread203:                                       ; preds = %225, %thread-pre-split205
+  %234 = phi i16 [ %.pr206, %thread-pre-split205 ], [ %227, %225 ]
   %235 = icmp eq i16 %234, 13443
-  br i1 %235, label %236, label %.thread205
+  br i1 %235, label %236, label %.thread221
 
-236:                                              ; preds = %.thread187
+236:                                              ; preds = %.thread203
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %238 = load i64, ptr %237, align 8
   %239 = or i64 %238, 2048
@@ -1458,7 +1458,7 @@ thread-pre-split189:                              ; preds = %229
   %243 = getelementptr i8, ptr %0, i64 -122
   %244 = load i16, ptr %243, align 2
   %245 = icmp eq i16 %244, 4162
-  br i1 %245, label %246, label %.thread194
+  br i1 %245, label %246, label %.thread210
 
 246:                                              ; preds = %242
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1467,36 +1467,36 @@ thread-pre-split189:                              ; preds = %229
   store i64 %249, ptr %247, align 8
   %.pre142 = load i16, ptr %24, align 4
   %250 = icmp eq i16 %.pre142, 6945
-  br i1 %250, label %.thread194, label %thread-pre-split85
+  br i1 %250, label %.thread210, label %thread-pre-split85
 
-.thread194:                                       ; preds = %242, %246
+.thread210:                                       ; preds = %242, %246
   %251 = getelementptr i8, ptr %0, i64 -122
   %252 = load i16, ptr %251, align 2
   %253 = icmp eq i16 %252, 4418
-  br i1 %253, label %254, label %.thread195
+  br i1 %253, label %254, label %.thread211
 
-254:                                              ; preds = %.thread194
+254:                                              ; preds = %.thread210
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %256 = load i64, ptr %255, align 8
   %257 = or i64 %256, 8389632
   store i64 %257, ptr %255, align 8
   %.pr79.pre = load i16, ptr %24, align 4
   %258 = icmp eq i16 %.pr79.pre, 6945
-  br i1 %258, label %thread-pre-split197, label %thread-pre-split85
+  br i1 %258, label %thread-pre-split213, label %thread-pre-split85
 
-thread-pre-split197:                              ; preds = %254
-  %.pr198 = load i16, ptr %251, align 2
-  br label %.thread195
+thread-pre-split213:                              ; preds = %254
+  %.pr214 = load i16, ptr %251, align 2
+  br label %.thread211
 
-.thread195:                                       ; preds = %.thread194, %thread-pre-split197
-  %259 = phi i16 [ %.pr198, %thread-pre-split197 ], [ %252, %.thread194 ]
+.thread211:                                       ; preds = %.thread210, %thread-pre-split213
+  %259 = phi i16 [ %.pr214, %thread-pre-split213 ], [ %252, %.thread210 ]
   switch i16 %259, label %.thread84 [
     i16 4674, label %260
     i16 8514, label %260
     i16 12866, label %260
   ]
 
-260:                                              ; preds = %.thread195, %.thread195, %.thread195
+260:                                              ; preds = %.thread211, %.thread211, %.thread211
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %262 = load i64, ptr %261, align 8
   %263 = or i64 %262, 8388608
@@ -1509,10 +1509,10 @@ thread-pre-split197:                              ; preds = %254
   %.pre144 = load i16, ptr %251, align 2
   br label %.thread84
 
-.thread84:                                        ; preds = %..thread84_crit_edge, %.thread195
-  %265 = phi i16 [ %.pre144, %..thread84_crit_edge ], [ %259, %.thread195 ]
+.thread84:                                        ; preds = %..thread84_crit_edge, %.thread211
+  %265 = phi i16 [ %.pre144, %..thread84_crit_edge ], [ %259, %.thread211 ]
   %266 = icmp eq i16 %265, 4418
-  br i1 %266, label %267, label %.thread205
+  br i1 %266, label %267, label %.thread221
 
 267:                                              ; preds = %.thread84
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1525,13 +1525,13 @@ thread-pre-split197:                              ; preds = %254
 thread-pre-split85:                               ; preds = %.thread75, %267, %254, %246, %260
   %271 = phi i16 [ %.pr81, %260 ], [ %.pre142, %246 ], [ %.pr79.pre, %254 ], [ %.pr86.pre, %267 ], [ %240, %.thread75 ]
   %272 = icmp eq i16 %271, 4172
-  br i1 %272, label %273, label %thread-pre-split85.thread212
+  br i1 %272, label %273, label %thread-pre-split85.thread228
 
 273:                                              ; preds = %thread-pre-split85
   %274 = getelementptr i8, ptr %0, i64 -122
   %275 = load i16, ptr %274, align 2
   %276 = icmp eq i16 %275, -32191
-  br i1 %276, label %277, label %.thread205
+  br i1 %276, label %277, label %.thread221
 
 277:                                              ; preds = %273
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1539,20 +1539,20 @@ thread-pre-split85:                               ; preds = %.thread75, %267, %2
   %280 = or i64 %279, 67108864
   store i64 %280, ptr %278, align 8
   %.pre147 = load i16, ptr %24, align 4
-  br label %thread-pre-split85.thread212
+  br label %thread-pre-split85.thread228
 
-thread-pre-split85.thread212:                     ; preds = %277, %thread-pre-split85
+thread-pre-split85.thread228:                     ; preds = %277, %thread-pre-split85
   %281 = phi i16 [ %.pre147, %277 ], [ %271, %thread-pre-split85 ]
   switch i16 %281, label %thread-pre-split87 [
     i16 5348, label %282
     i16 6013, label %282
   ]
 
-282:                                              ; preds = %thread-pre-split85.thread212, %thread-pre-split85.thread212
+282:                                              ; preds = %thread-pre-split85.thread228, %thread-pre-split85.thread228
   %283 = getelementptr i8, ptr %0, i64 -122
   %284 = load i16, ptr %283, align 2
   %285 = icmp eq i16 %284, -28634
-  br i1 %285, label %286, label %.thread205
+  br i1 %285, label %286, label %.thread221
 
 286:                                              ; preds = %282
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1562,20 +1562,20 @@ thread-pre-split85.thread212:                     ; preds = %277, %thread-pre-sp
   %.pr88.pre = load i16, ptr %24, align 4
   br label %thread-pre-split87
 
-thread-pre-split87:                               ; preds = %286, %thread-pre-split85.thread212
-  %290 = phi i16 [ %281, %thread-pre-split85.thread212 ], [ %.pr88.pre, %286 ]
+thread-pre-split87:                               ; preds = %286, %thread-pre-split85.thread228
+  %290 = phi i16 [ %281, %thread-pre-split85.thread228 ], [ %.pr88.pre, %286 ]
   %291 = icmp eq i16 %290, 4130
-  br i1 %291, label %thread-pre-split87.thread215, label %298
+  br i1 %291, label %thread-pre-split87.thread231, label %298
 
-thread-pre-split87.thread215:                     ; preds = %.thread34.thread, %thread-pre-split87
+thread-pre-split87.thread231:                     ; preds = %.thread34.thread, %thread-pre-split87
   %292 = getelementptr i8, ptr %0, i64 -122
   %293 = load i16, ptr %292, align 2
-  switch i16 %293, label %.thread205 [
+  switch i16 %293, label %.thread221 [
     i16 17339, label %294
     i16 17337, label %294
   ]
 
-294:                                              ; preds = %thread-pre-split87.thread215, %thread-pre-split87.thread215
+294:                                              ; preds = %thread-pre-split87.thread231, %thread-pre-split87.thread231
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 2488
   %296 = load i64, ptr %295, align 8
   %297 = or i64 %296, 1099511627776
@@ -1586,7 +1586,7 @@ thread-pre-split87.thread215:                     ; preds = %.thread34.thread, %
 298:                                              ; preds = %294, %thread-pre-split87
   %299 = phi i16 [ %.pre149, %294 ], [ %290, %thread-pre-split87 ]
   %300 = icmp eq i16 %299, 7447
-  br i1 %300, label %301, label %.thread205
+  br i1 %300, label %301, label %.thread221
 
 301:                                              ; preds = %298
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 2488
@@ -1608,14 +1608,14 @@ thread-pre-split87.thread215:                     ; preds = %.thread34.thread, %
   %311 = phi i64 [ %309, %308 ], [ %304, %301 ]
   %312 = phi i16 [ %.pr89, %308 ], [ %306, %301 ]
   %313 = icmp eq i16 %312, -28157
-  br i1 %313, label %314, label %.thread205
+  br i1 %313, label %314, label %.thread221
 
 314:                                              ; preds = %310
   %315 = or i64 %311, 35184372088832
   store i64 %315, ptr %302, align 8
-  br label %.thread205
+  br label %.thread221
 
-.thread205:                                       ; preds = %.thread153, %.thread179, %192, %.thread64, %.thread187, %.thread84, %273, %282, %thread-pre-split87.thread215, %314, %310, %298
+.thread221:                                       ; preds = %.thread169, %.thread195, %192, %.thread64, %.thread203, %.thread84, %273, %282, %thread-pre-split87.thread231, %314, %310, %298
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %317 = load i16, ptr %316, align 2
   %318 = icmp ugt i16 %317, 287
@@ -1623,13 +1623,13 @@ thread-pre-split87.thread215:                     ; preds = %.thread34.thread, %
   %320 = load i64, ptr %319, align 8
   br i1 %318, label %321, label %._crit_edge
 
-321:                                              ; preds = %.thread205
+321:                                              ; preds = %.thread221
   %322 = or i64 %320, 8589934592
   store i64 %322, ptr %319, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread205, %321
-  %323 = phi i64 [ %322, %321 ], [ %320, %.thread205 ]
+._crit_edge:                                      ; preds = %.thread221, %321
+  %323 = phi i64 [ %322, %321 ], [ %320, %.thread221 ]
   %324 = and i64 %323, 128
   %325 = icmp eq i64 %324, 0
   br i1 %325, label %327, label %326

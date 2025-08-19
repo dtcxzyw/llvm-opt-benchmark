@@ -1414,7 +1414,7 @@ declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 declare void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12DirectiveSet33compilecommand_compatibility_initERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12DirectiveSet33compilecommand_compatibility_initERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i64, align 8
@@ -3779,7 +3779,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN15DirectivesStac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15DirectivesStack20getMatchingDirectiveERK12methodHandleP16AbstractCompiler(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15DirectivesStack20getMatchingDirectiveERK12methodHandleP16AbstractCompiler(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @DirectivesStack_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %4

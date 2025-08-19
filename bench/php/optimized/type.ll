@@ -1623,8 +1623,8 @@ zend_parse_arg_bool_ex.exit._crit_edge:           ; preds = %zend_parse_arg_bool
   br label %38
 
 .critedge.thread:                                 ; preds = %9, %.critedge
-  %spec.select98 = phi i32 [ %18, %.critedge ], [ 0, %9 ]
-  %37 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef %spec.select98, ptr noundef null, ptr noundef null, ptr noundef null) #9
+  %spec.select99 = phi i32 [ %18, %.critedge ], [ 0, %9 ]
+  %37 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef %spec.select99, ptr noundef null, ptr noundef null, ptr noundef null) #9
   br label %38
 
 38:                                               ; preds = %26, %29, %.critedge.thread

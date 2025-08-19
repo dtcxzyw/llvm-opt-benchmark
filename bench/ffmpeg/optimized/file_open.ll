@@ -176,12 +176,12 @@ define noalias noundef ptr @avpriv_fopen_utf8(ptr noundef readonly captures(none
   ], !llvm.loop !17
 
 10:                                               ; preds = %8
-  %11 = and i32 %.1.ph23, -4
+  %11 = and i32 %.1.ph24, -4
   %12 = or disjoint i32 %11, 2
   br label %.outer, !llvm.loop !17
 
 .outer:                                           ; preds = %.preheader, %10
-  %.1.ph23 = phi i32 [ %.1.ph, %.preheader ], [ %12, %10 ]
+  %.1.ph24 = phi i32 [ %.1.ph, %.preheader ], [ %12, %10 ]
   %.pn.ph = phi ptr [ %1, %.preheader ], [ %.0, %10 ]
   br label %8
 
@@ -191,7 +191,7 @@ define noalias noundef ptr @avpriv_fopen_utf8(ptr noundef readonly captures(none
   br label %20
 
 15:                                               ; preds = %8
-  %16 = tail call i32 (ptr, i32, ...) @avpriv_open(ptr noundef %0, i32 noundef %.1.ph23, i32 noundef 438)
+  %16 = tail call i32 (ptr, i32, ...) @avpriv_open(ptr noundef %0, i32 noundef %.1.ph24, i32 noundef 438)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %20, label %18
 

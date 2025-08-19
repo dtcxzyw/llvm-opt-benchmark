@@ -653,16 +653,16 @@ define internal noundef i32 @aesni_gcm_init_key(ptr noundef readonly captures(no
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %30, %35, %.thread37
-  %.sink42.ph = phi i64 [ 248, %.thread37 ], [ 656, %35 ], [ 656, %30 ]
+  %.sink44.ph = phi i64 [ 248, %.thread37 ], [ 656, %35 ], [ 656, %30 ]
   %.sink.ph = phi i32 [ 1, %.thread37 ], [ 0, %35 ], [ 0, %30 ]
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 252
   store i32 1, ptr %41, align 4, !tbaa !29
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %21, %18
-  %.sink42 = phi i64 [ 248, %18 ], [ 248, %21 ], [ %.sink42.ph, %.sink.split.sink.split ]
+  %.sink44 = phi i64 [ 248, %18 ], [ 248, %21 ], [ %.sink44.ph, %.sink.split.sink.split ]
   %.sink = phi i32 [ 1, %18 ], [ 1, %21 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink42
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink44
   store i32 %.sink, ptr %42, align 8, !tbaa !6
   br label %43
 
@@ -1207,16 +1207,16 @@ aes_ctr_set_key.exit:                             ; preds = %19, %16
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %37, %42, %.thread36
-  %.sink41.ph = phi i64 [ 248, %.thread36 ], [ 656, %42 ], [ 656, %37 ]
+  %.sink43.ph = phi i64 [ 248, %.thread36 ], [ 656, %42 ], [ 656, %37 ]
   %.sink.ph = phi i32 [ 1, %.thread36 ], [ 0, %42 ], [ 0, %37 ]
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 252
   store i32 1, ptr %48, align 4, !tbaa !29
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %28, %25
-  %.sink41 = phi i64 [ 248, %25 ], [ 248, %28 ], [ %.sink41.ph, %.sink.split.sink.split ]
+  %.sink43 = phi i64 [ 248, %25 ], [ 248, %28 ], [ %.sink43.ph, %.sink.split.sink.split ]
   %.sink = phi i32 [ 1, %25 ], [ 1, %28 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink41
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink43
   store i32 %.sink, ptr %49, align 8, !tbaa !6
   br label %50
 
@@ -1735,12 +1735,12 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_open(ptr noundef readonly
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv55 = phi i64 [ 5, %.preheader.preheader ], [ %indvars.iv.next56, %._crit_edge ]
-  %48 = mul nuw i64 %indvars.iv55, %47
+  %48 = mul nuw i64 %indvars.iv55, %30
   br label %49
 
 49:                                               ; preds = %.preheader, %49
   %indvars.iv = phi i64 [ %47, %.preheader ], [ %indvars.iv.next, %49 ]
-  %50 = add nuw i64 %indvars.iv, %48
+  %50 = add i64 %indvars.iv, %48
   %51 = load i8, ptr %42, align 1, !tbaa !20
   %52 = trunc i64 %50 to i8
   %53 = xor i8 %51, %52

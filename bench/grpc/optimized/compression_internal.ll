@@ -183,11 +183,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %98
+  br label %96
 
 26:                                               ; preds = %2
   %27 = icmp eq i32 %1, 0
-  br i1 %27, label %97, label %28
+  br i1 %27, label %95, label %28
 
 28:                                               ; preds = %26
   %29 = icmp sgt i32 %1, 0
@@ -280,7 +280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit: ; preds = %62, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %98
+  br label %96
 
 _ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EE9push_backERKS2_.exit: ; preds = %56, %60, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -289,72 +289,66 @@ _ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EE9p
   br i1 %.not18, label %40, label %42
 
 70:                                               ; preds = %40
-  switch i32 %1, label %92 [
-    i32 0, label %71
-    i32 1, label %72
-    i32 2, label %77
-    i32 3, label %84
+  switch i32 %1, label %default.unreachable [
+    i32 3, label %83
+    i32 1, label %71
+    i32 2, label %76
   ]
 
 71:                                               ; preds = %70
-  call void @abort() #31
+  %72 = and i64 %41, 1
+  %.not.i.i = icmp eq i64 %72, 0
+  %73 = load ptr, ptr %33, align 8
+  %74 = select i1 %.not.i.i, ptr %33, ptr %73
+  %75 = load i32, ptr %74, align 4, !tbaa !21
+  br label %._crit_edge
+
+76:                                               ; preds = %70
+  %77 = lshr i64 %41, 2
+  %78 = and i64 %41, 1
+  %.not.i.i23 = icmp eq i64 %78, 0
+  %79 = load ptr, ptr %33, align 8
+  %80 = select i1 %.not.i.i23, ptr %33, ptr %79
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %77
+  %82 = load i32, ptr %81, align 4, !tbaa !21
+  br label %._crit_edge
+
+83:                                               ; preds = %70
+  %84 = and i64 %41, 1
+  %.not.i.i24 = icmp eq i64 %84, 0
+  %85 = load ptr, ptr %33, align 8
+  %86 = select i1 %.not.i.i24, ptr %33, ptr %85
+  %87 = lshr i64 %41, 1
+  %88 = getelementptr i32, ptr %86, i64 %87
+  %89 = getelementptr i8, ptr %88, i64 -4
+  %90 = load i32, ptr %89, align 4, !tbaa !21
+  br label %._crit_edge
+
+default.unreachable:                              ; preds = %70
   unreachable
 
-72:                                               ; preds = %70
-  %73 = and i64 %41, 1
-  %.not.i.i = icmp eq i64 %73, 0
-  %74 = load ptr, ptr %33, align 8
-  %75 = select i1 %.not.i.i, ptr %33, ptr %74
-  %76 = load i32, ptr %75, align 4, !tbaa !21
-  br label %._crit_edge
-
-77:                                               ; preds = %70
-  %78 = lshr i64 %41, 2
-  %79 = and i64 %41, 1
-  %.not.i.i23 = icmp eq i64 %79, 0
-  %80 = load ptr, ptr %33, align 8
-  %81 = select i1 %.not.i.i23, ptr %33, ptr %80
-  %82 = getelementptr inbounds nuw i32, ptr %81, i64 %78
-  %83 = load i32, ptr %82, align 4, !tbaa !21
-  br label %._crit_edge
-
-84:                                               ; preds = %70
-  %85 = and i64 %41, 1
-  %.not.i.i24 = icmp eq i64 %85, 0
-  %86 = load ptr, ptr %33, align 8
-  %87 = select i1 %.not.i.i24, ptr %33, ptr %86
-  %88 = lshr i64 %41, 1
-  %89 = getelementptr i32, ptr %87, i64 %88
-  %90 = getelementptr i8, ptr %89, i64 -4
-  %91 = load i32, ptr %90, align 4, !tbaa !21
-  br label %._crit_edge
-
-92:                                               ; preds = %70
-  call void @abort() #31
-  unreachable
-
-._crit_edge:                                      ; preds = %40, %84, %77, %72
-  %.pre-phi = phi i64 [ %85, %84 ], [ %79, %77 ], [ %73, %72 ], [ %41, %40 ]
-  %.1 = phi i32 [ %91, %84 ], [ %83, %77 ], [ %76, %72 ], [ 0, %40 ]
+._crit_edge:                                      ; preds = %40, %83, %76, %71
+  %.pre-phi = phi i64 [ %84, %83 ], [ %78, %76 ], [ %72, %71 ], [ %41, %40 ]
+  %.1 = phi i32 [ %90, %83 ], [ %82, %76 ], [ %75, %71 ], [ 0, %40 ]
   %.not.i.i.i25 = icmp eq i64 %.pre-phi, 0
-  br i1 %.not.i.i.i25, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26, label %93
+  br i1 %.not.i.i.i25, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26, label %91
 
-93:                                               ; preds = %._crit_edge
-  %94 = load ptr, ptr %33, align 8, !tbaa !6
-  %95 = load i64, ptr %32, align 8, !tbaa !6
-  %96 = shl i64 %95, 2
-  call void @_ZdlPvm(ptr noundef %94, i64 noundef %96) #29
+91:                                               ; preds = %._crit_edge
+  %92 = load ptr, ptr %33, align 8, !tbaa !6
+  %93 = load i64, ptr %32, align 8, !tbaa !6
+  %94 = shl i64 %93, 2
+  call void @_ZdlPvm(ptr noundef %92, i64 noundef %94) #29
   br label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26
 
-_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26: ; preds = %._crit_edge, %93
+_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26: ; preds = %._crit_edge, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %97
+  br label %95
 
-97:                                               ; preds = %26, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26
+95:                                               ; preds = %26, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26
   %.0 = phi i32 [ %.1, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26 ], [ 0, %26 ]
   ret i32 %.0
 
-98:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+96:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn = phi { ptr, i32 } [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %63, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit ]
   resume { ptr, i32 } %.pn
 }
@@ -721,7 +715,7 @@ _ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyE
   %56 = load i8, ptr %55, align 1, !tbaa !6, !noalias !58
   %57 = and i8 %56, 8
   %.not9.i.i = icmp eq i8 %57, 0
-  br i1 %.not9.i.i, label %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit33, label %58
+  br i1 %.not9.i.i, label %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit39, label %58
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
@@ -731,7 +725,7 @@ _ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyE
   %63 = load i8, ptr %62, align 1, !tbaa !6, !noalias !58
   %64 = and i8 %63, 8
   %.not10.i.i = icmp eq i8 %64, 0
-  br i1 %.not10.i.i, label %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit31, label %65
+  br i1 %.not10.i.i, label %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit37, label %65
 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
@@ -795,16 +789,16 @@ _ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_tra
   %97 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
   br label %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit31: ; preds = %58
+_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit37: ; preds = %58
   %98 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
   br label %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit33: ; preds = %51
+_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit39: ; preds = %51
   %99 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
   br label %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit31, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit33, %._crit_edge.i.i.i.i.i, %76, %83, %90
-  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %76 ], [ %.sroa.03.2.i.i.i.i, %83 ], [ %39, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %90 ], [ %97, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %98, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit31 ], [ %99, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit33 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit37, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit39, %._crit_edge.i.i.i.i.i, %76, %83, %90
+  %.sink.i.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %76 ], [ %.sroa.03.2.i.i.i.i, %83 ], [ %39, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i, %90 ], [ %97, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %98, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit37 ], [ %99, %_ZN4absl12lts_2024072220StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit39 ], [ %.sroa.03.3.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %100 = ptrtoint ptr %.sink.i.i.i.i.i to i64
   %101 = sub i64 %100, %41
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %38, i64 %101)
@@ -1091,7 +1085,7 @@ define linkonce_odr { i64, ptr } @_ZN4absl12lts_2024072227StripLeadingAsciiWhite
   %26 = load i8, ptr %25, align 1, !tbaa !6
   %27 = and i8 %26, 8
   %.not6 = icmp eq i8 %27, 0
-  br i1 %.not6, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit23, label %28
+  br i1 %.not6, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
@@ -1101,7 +1095,7 @@ define linkonce_odr { i64, ptr } @_ZN4absl12lts_2024072227StripLeadingAsciiWhite
   %33 = load i8, ptr %32, align 1, !tbaa !6
   %34 = and i8 %33, 8
   %.not7 = icmp eq i8 %34, 0
-  br i1 %.not7, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit25, label %35
+  br i1 %.not7, label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28, label %35
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
@@ -1167,16 +1161,16 @@ _ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit: ; preds = 
   %63 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit23: ; preds = %21
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26: ; preds = %21
   %64 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit25: ; preds = %28
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28: ; preds = %28
   %65 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit
 
-_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit:      ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit23, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit25, %40, %48, %56, %62
-  %.028.i.i.i = phi ptr [ %3, %62 ], [ %.029.lcssa.i.i.i, %40 ], [ %.1.i.i.i, %48 ], [ %.2.i.i.i, %56 ], [ %63, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %64, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit23 ], [ %65, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit25 ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
+_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit:      ; preds = %.lr.ph.i.i.i, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28, %40, %48, %56, %62
+  %.028.i.i.i = phi ptr [ %3, %62 ], [ %.029.lcssa.i.i.i, %40 ], [ %.1.i.i.i, %48 ], [ %.2.i.i.i, %56 ], [ %63, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %64, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit26 ], [ %65, %_ZSt11find_if_notIPKcPFbhEET_S4_S4_T0_.exit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
   %66 = ptrtoint ptr %.028.i.i.i to i64
   %67 = sub i64 %66, %5
   %68 = icmp ugt i64 %67, %0

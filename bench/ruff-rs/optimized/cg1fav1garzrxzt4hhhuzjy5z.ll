@@ -2020,12 +2020,12 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 121:                                              ; preds = %._crit_edge.i.i.i
-  %.not17.i = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %110
-  %.sroa.0.0..sroa.06.0.i.i.i = select i1 %.not17.i, ptr %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel
+  %.not18.i = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, %110
+  %.sroa.0.0..sroa.06.0.i.i.i = select i1 %.not18.i, ptr %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0..sroa.06.0.i.i.i, i64 16, i1 false), !alias.scope !389
-  %.sroa.sel16.idx.i.sroa.sel.idx.sroa.sel.idx = select i1 %.not17.i, i64 16, i64 0
+  %.sroa.sel16.idx.i.sroa.sel.idx.sroa.sel.idx = select i1 %.not18.i, i64 16, i64 0
   %.sroa.sel16.idx.i.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel16.idx.i.sroa.sel.idx.sroa.sel.idx
-  %.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx = select i1 %.not17.i, i64 0, i64 16
+  %.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx = select i1 %.not18.i, i64 0, i64 16
   %.sroa.sel.idx.i.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx
   br label %122
 

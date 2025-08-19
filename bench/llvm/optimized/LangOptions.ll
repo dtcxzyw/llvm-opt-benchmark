@@ -756,9 +756,9 @@ define dso_local void @_ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageE
   br i1 %or.cond, label %.sink.split, label %14
 
 .sink.split:                                      ; preds = %10, %5
-  %.sink181 = phi i64 [ 8589934592, %5 ], [ 262144, %10 ]
+  %.sink202 = phi i64 [ 8589934592, %5 ], [ 262144, %10 ]
   %12 = load i64, ptr %0, align 8
-  %13 = or i64 %12, %.sink181
+  %13 = or i64 %12, %.sink202
   store i64 %13, ptr %0, align 8
   br label %14
 
@@ -1020,23 +1020,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 32639, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond193 = select i1 %177, i1 %switch.lobit, i1 false
-  br i1 %or.cond193, label %switch.lookup, label %185
+  %or.cond214 = select i1 %177, i1 %switch.lobit, i1 false
+  br i1 %or.cond214, label %switch.lookup, label %185
 
 switch.lookup:                                    ; preds = %168
   %178 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE, i64 0, i64 %178
   %switch.load = load i64, ptr %switch.gep, align 8
   %179 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep189 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.1, i64 0, i64 %179
-  %switch.load190 = load i64, ptr %switch.gep189, align 8
+  %switch.gep210 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.1, i64 0, i64 %179
+  %switch.load211 = load i64, ptr %switch.gep210, align 8
   %180 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep191 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.2, i64 0, i64 %180
-  %switch.load192 = load i64, ptr %switch.gep191, align 8
+  %switch.gep212 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.2, i64 0, i64 %180
+  %switch.load213 = load i64, ptr %switch.gep212, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %182 = load i64, ptr %181, align 8
-  %183 = and i64 %182, %switch.load190
-  %184 = or disjoint i64 %183, %switch.load192
+  %183 = and i64 %182, %switch.load211
+  %184 = or disjoint i64 %183, %switch.load213
   store i64 %184, ptr %181, align 8
   br label %185
 
@@ -1266,10 +1266,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %.pre179 = load i64, ptr %0, align 8
   %286 = and i64 %.pre179, 2048
   %.not126 = icmp eq i64 %286, 0
-  %or.cond188 = select i1 %.not125, i1 %.not126, i1 false
+  %or.cond209 = select i1 %.not125, i1 %.not126, i1 false
   %287 = shl i64 %.pre179, 23
   %288 = and i64 %287, 67108864
-  %289 = select i1 %or.cond188, i64 %288, i64 67108864
+  %289 = select i1 %or.cond209, i64 %288, i64 67108864
   %290 = and i64 %.pre179, -201326593
   %291 = or disjoint i64 %290, %289
   %292 = load i64, ptr %138, align 8

@@ -138,8 +138,8 @@ bytestream2_get_be32.exit.i:                      ; preds = %32, %31
   %49 = add nsw i32 %48, 3
   %50 = sdiv i32 %49, 4
   %51 = mul nsw i32 %50, %46
-  %.fr398.i = freeze i32 %51
-  %52 = sdiv i32 %.fr398.i, 32
+  %.fr408.i = freeze i32 %51
+  %52 = sdiv i32 %.fr408.i, 32
   %53 = icmp sgt i32 %52, %.pre-phi349.i
   br i1 %53, label %rpza_decode_stream.exit.thread, label %54
 
@@ -176,7 +176,7 @@ bytestream2_get_be32.exit.i:                      ; preds = %32, %31
 75:                                               ; preds = %.loopexit.i, %.lr.ph299.i
   %76 = phi i64 [ %69, %.lr.ph299.i ], [ %271, %.loopexit.i ]
   %.0140298.i = phi i16 [ 0, %.lr.ph299.i ], [ %.3.i, %.loopexit.i ]
-  %.0149297.i = phi i32 [ %.fr398.i, %.lr.ph299.i ], [ %.2151.i, %.loopexit.i ]
+  %.0149297.i = phi i32 [ %.fr408.i, %.lr.ph299.i ], [ %.2151.i, %.loopexit.i ]
   %.0167296.i = phi i32 [ 0, %.lr.ph299.i ], [ %.2169.i, %.loopexit.i ]
   %.0175295.i = phi i32 [ 0, %.lr.ph299.i ], [ %.2177.i, %.loopexit.i ]
   %.promoted289294.i = phi ptr [ %.promoted279.i, %.lr.ph299.i ], [ %.promoted290.i, %.loopexit.i ]
@@ -228,8 +228,8 @@ bytestream2_get_byte.exit210.i:                   ; preds = %86, %85
 
 bytestream2_peek_byte.exit206.i:                  ; preds = %bytestream2_get_byte.exit210.i
   %94 = load i8, ptr %.promoted286.i, align 1, !tbaa !41
-  %.fr397.i = freeze i8 %94
-  %95 = icmp sgt i8 %.fr397.i, -1
+  %.fr407.i = freeze i8 %94
+  %95 = icmp sgt i8 %.fr407.i, -1
   br i1 %95, label %.thread.thread.i, label %96
 
 96:                                               ; preds = %bytestream2_peek_byte.exit206.i
@@ -258,8 +258,8 @@ bytestream2_peek_byte.exit206.i:                  ; preds = %bytestream2_get_byt
   %smin.i = tail call i32 @llvm.smin.i32(i32 %.0149297.i, i32 0)
   %102 = sub i32 %.0149297.i, %smin.i
   %103 = add i32 %.fr.i, -1
-  %.not356.i = icmp ugt i32 %102, %103
-  br i1 %.not356.i, label %.lr.ph275.i, label %107
+  %.not366.i = icmp ugt i32 %102, %103
+  br i1 %.not366.i, label %.lr.ph275.i, label %107
 
 .lr.ph275.i:                                      ; preds = %.lr.ph275.preheader.i, %.lr.ph275.i
   %.in305.i = phi i32 [ %104, %.lr.ph275.i ], [ %.fr.i, %.lr.ph275.preheader.i ]
@@ -367,7 +367,7 @@ bytestream2_get_be16.exit.i:                      ; preds = %114, %113
   br label %bytestream2_get_be16.exit213.i
 
 bytestream2_get_be16.exit213.i:                   ; preds = %140, %136, %.thread.i, %96
-  %.fr370.i = phi i32 [ %.fr.i, %.thread.i ], [ %.fr.i, %140 ], [ %97, %96 ], [ %.fr.i, %136 ]
+  %.fr380.i = phi i32 [ %.fr.i, %.thread.i ], [ %.fr.i, %140 ], [ %97, %96 ], [ %.fr.i, %136 ]
   %.promoted287.i = phi ptr [ %78, %.thread.i ], [ %141, %140 ], [ %.promoted286.i, %96 ], [ %66, %136 ]
   %.2142.i = phi i16 [ %.0140298.i, %.thread.i ], [ %143, %140 ], [ %91, %96 ], [ 0, %136 ]
   %144 = ptrtoint ptr %.promoted287.i to i64
@@ -448,7 +448,7 @@ bytestream2_get_be16.exit215.i:                   ; preds = %148, %147
   store i16 %200, ptr %73, align 2, !tbaa !47
   %201 = sub i64 %67, %.pre-phi353.i
   %202 = trunc i64 %201 to i32
-  %203 = shl nsw i32 %.fr370.i, 2
+  %203 = shl nsw i32 %.fr380.i, 2
   %204 = icmp sgt i32 %203, %202
   br i1 %204, label %rpza_decode_stream.exit.thread, label %.preheader223.i
 
@@ -458,7 +458,7 @@ bytestream2_get_be16.exit215.i:                   ; preds = %148, %147
 
 .lr.ph.i:                                         ; preds = %.preheader223.i, %231
   %.promoted280.i = phi ptr [ %213, %231 ], [ %.promoted281.i, %.preheader223.i ]
-  %.in.i = phi i32 [ %205, %231 ], [ %.fr370.i, %.preheader223.i ]
+  %.in.i = phi i32 [ %205, %231 ], [ %.fr380.i, %.preheader223.i ]
   %.5154256.i = phi i32 [ %234, %231 ], [ %.0149297.i, %.preheader223.i ]
   %.7174255.i = phi i32 [ %.8.i, %231 ], [ %.0167296.i, %.preheader223.i ]
   %.7182254.i = phi i32 [ %.8183.i, %231 ], [ %.0175295.i, %.preheader223.i ]
@@ -521,7 +521,7 @@ bytestream2_get_be16.exit215.i:                   ; preds = %148, %147
   br i1 %.not196.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !54
 
 .thread.thread.i:                                 ; preds = %.thread.i, %bytestream2_peek_byte.exit206.i, %bytestream2_get_byte.exit210.i
-  %.1141381.i = phi i16 [ %.0140298.i, %.thread.i ], [ %91, %bytestream2_get_byte.exit210.i ], [ %91, %bytestream2_peek_byte.exit206.i ]
+  %.1141391.i = phi i16 [ %.0140298.i, %.thread.i ], [ %91, %bytestream2_get_byte.exit210.i ], [ %91, %bytestream2_peek_byte.exit206.i ]
   %235 = phi ptr [ %78, %.thread.i ], [ %.promoted286.i, %bytestream2_get_byte.exit210.i ], [ %.promoted286.i, %bytestream2_peek_byte.exit206.i ]
   %236 = ptrtoint ptr %235 to i64
   %237 = sub i64 %67, %236
@@ -544,7 +544,7 @@ bytestream2_get_be16.exit215.i:                   ; preds = %148, %147
 
 .preheader220.i:                                  ; preds = %256, %244
   %.promoted282.i = phi ptr [ %235, %244 ], [ %.promoted284.i, %256 ]
-  %.5248.i = phi i16 [ %.1141381.i, %244 ], [ %.7.i, %256 ]
+  %.5248.i = phi i16 [ %.1141391.i, %244 ], [ %.7.i, %256 ]
   %.2157247.i = phi i32 [ 0, %244 ], [ %259, %256 ]
   %.4165246.i = phi i32 [ %245, %244 ], [ %258, %256 ]
   %246 = sext i32 %.4165246.i to i64

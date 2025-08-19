@@ -361,8 +361,8 @@ define range(i32 0, 2) i32 @ossl_rsa_multiprime_derive(ptr noundef readonly capt
   br i1 %.not161, label %.loopexit, label %133
 
 .loopexit.sink.split:                             ; preds = %115, %141
-  %.lcssa201.sink = phi ptr [ %139, %141 ], [ %113, %115 ]
-  tail call void @BN_free(ptr noundef nonnull %.lcssa201.sink) #4
+  %.lcssa217.sink = phi ptr [ %139, %141 ], [ %113, %115 ]
+  tail call void @BN_free(ptr noundef nonnull %.lcssa217.sink) #4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %53, %50, %47, %44, %42, %38, %35, %84, %82, %79, %.lr.ph181, %118, %.lr.ph184, %.lr.ph187, %145, %133, %.loopexit.sink.split, %.preheader, %128, %123, %._crit_edge185, %102, %99, %96, %92, %89, %._crit_edge182, %68, %65, %._crit_edge, %23, %18, %15, %12, %7

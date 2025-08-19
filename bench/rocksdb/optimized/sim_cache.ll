@@ -690,8 +690,8 @@ _ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit7.i.i.i.i.i.i.i: ; preds = %28
 37:                                               ; preds = %._crit_edge.i.i.i.i.i, %.thread.i.i.i.i.i.i
   %38 = phi i32 [ %32, %.thread.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %39 = phi ptr [ %29, %.thread.i.i.i.i.i.i ], [ %36, %._crit_edge.i.i.i.i.i ]
-  %.val12.i5.i.i.i.i.i.i = phi ptr [ %24, %.thread.i.i.i.i.i.i ], [ %.val.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %.val4.pr13.i4.i.i.i.i.i.i = phi ptr [ %27, %.thread.i.i.i.i.i.i ], [ %.val4.pr.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %.val15.i9.i.i.i.i.i.i = phi ptr [ %24, %.thread.i.i.i.i.i.i ], [ %.val.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %.val4.pr16.i8.i.i.i.i.i.i = phi ptr [ %27, %.thread.i.i.i.i.i.i ], [ %.val4.pr.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %40 = add nsw i32 %38, 1
   store i32 %40, ptr %39, align 4, !tbaa !49, !noalias !54
   br label %_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i.i.i
@@ -701,8 +701,8 @@ _ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit7.i.i.i.i.i.i.i: ; preds = %28
   br label %_ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNSt12__shared_ptrIN7rocksdb5CacheELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %41, %37, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit7.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit.i.i.i.i.i.i.i
-  %.val5.i.i.i.i.i.i.i = phi ptr [ %.val.pre.i.i.i.i.i.i.i, %41 ], [ %.val12.i5.i.i.i.i.i.i, %37 ], [ %.val.pre.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit7.i.i.i.i.i.i.i ], [ %24, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit.i.i.i.i.i.i.i ]
-  %.val44.i.i.i.i.i.i.i = phi ptr [ %.val4.pr.pre.i.i.i.i.i.i.i, %41 ], [ %.val4.pr13.i4.i.i.i.i.i.i, %37 ], [ null, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit7.i.i.i.i.i.i.i ], [ null, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit.i.i.i.i.i.i.i ]
+  %.val5.i.i.i.i.i.i.i = phi ptr [ %.val.pre.i.i.i.i.i.i.i, %41 ], [ %.val15.i9.i.i.i.i.i.i, %37 ], [ %.val.pre.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit7.i.i.i.i.i.i.i ], [ %24, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit.i.i.i.i.i.i.i ]
+  %.val44.i.i.i.i.i.i.i = phi ptr [ %.val4.pr.pre.i.i.i.i.i.i.i, %41 ], [ %.val4.pr16.i8.i.i.i.i.i.i, %37 ], [ null, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit7.i.i.i.i.i.i.i ], [ null, %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit.i.i.i.i.i.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %43, i8 0, i64 72, i1 false), !noalias !54
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 96

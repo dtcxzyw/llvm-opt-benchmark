@@ -211,9 +211,9 @@ define noundef i64 @_ZN7Archive12ReadHeader14Ev(ptr noundef nonnull align 8 dere
 
 25:                                               ; preds = %17
   %26 = invoke noundef zeroext i8 @_ZN7RawRead4Get1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
-          to label %.thread50 unwind label %42
+          to label %.thread53 unwind label %42
 
-.thread50:                                        ; preds = %25
+.thread53:                                        ; preds = %25
   %27 = load i64, ptr %5, align 8, !tbaa !60
   %28 = zext i16 %16 to i64
   %29 = add nsw i64 %27, %28
@@ -442,8 +442,8 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %131, %134
   store i32 %..i, ptr %74, align 4, !tbaa !82
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   %145 = load i32, ptr %144, align 8
-  %.fr27.i49 = freeze i32 %145
-  %146 = icmp eq i32 %.fr27.i49, 3
+  %.fr27.i52 = freeze i32 %145
+  %146 = icmp eq i32 %.fr27.i52, 3
   br i1 %146, label %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit, label %.split.split.i.preheader
 
 .split.us.i:                                      ; preds = %138
@@ -536,7 +536,7 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit._crit_edge: ; preds = %_ZN7Arc
   %173 = icmp sgt i64 %.pre, %.pre46
   br i1 %173, label %174, label %177
 
-174:                                              ; preds = %.thread50, %171
+174:                                              ; preds = %.thread53, %171
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %176 = load i64, ptr %175, align 8, !tbaa !114
   br label %177
@@ -835,10 +835,10 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i261: ; preds = %94
   br label %.thread
 
 .thread:                                          ; preds = %103, %106, %105
-  %.sink299 = phi i32 [ 5, %106 ], [ 3, %105 ], [ 2, %103 ]
-  store i32 %.sink299, ptr %91, align 8, !tbaa !124
+  %.sink307 = phi i32 [ 5, %106 ], [ 3, %105 ], [ 2, %103 ]
+  store i32 %.sink307, ptr %91, align 8, !tbaa !124
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 11076
-  store i32 %.sink299, ptr %107, align 4, !tbaa !71
+  store i32 %.sink307, ptr %107, align 4, !tbaa !71
   br label %113
 
 108:                                              ; preds = %103
@@ -982,11 +982,11 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i261: ; preds = %94
   %187 = lshr i8 %175, 4
   %188 = and i8 %187, 1
   %. = select i1 %169, i8 %188, i8 0
-  %.300 = select i1 %169, i8 0, i8 %188
+  %.308 = select i1 %169, i8 0, i8 %188
   %189 = getelementptr inbounds nuw i8, ptr %170, i64 8440
   store i8 %., ptr %189, align 8, !tbaa !139
   %190 = getelementptr inbounds nuw i8, ptr %170, i64 8458
-  store i8 %.300, ptr %190, align 2, !tbaa !140
+  store i8 %.308, ptr %190, align 2, !tbaa !140
   %191 = and i32 %173, 224
   %192 = icmp eq i32 %191, 224
   %193 = getelementptr inbounds nuw i8, ptr %170, i64 8441
@@ -1146,8 +1146,8 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i261: ; preds = %94
   %262 = icmp eq i8 %256, 3
   %263 = and i32 %231, 61440
   %264 = icmp eq i32 %263, 40960
-  %or.cond302 = and i1 %262, %264
-  br i1 %or.cond302, label %265, label %267
+  %or.cond310 = and i1 %262, %264
+  br i1 %or.cond310, label %265, label %267
 
 265:                                              ; preds = %260
   store i32 1, ptr %261, align 8, !tbaa !149
@@ -1313,7 +1313,7 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %337, %340
   %342 = load i32, ptr %255, align 4, !tbaa !110
   %.fr.i = freeze i32 %342
   %343 = icmp eq i32 %.fr.i, 2
-  br i1 %343, label %.thread296, label %344
+  br i1 %343, label %.thread304, label %344
 
 344:                                              ; preds = %_ZN7Archive15ConvertNameCaseEPw.exit
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 48840
@@ -1322,18 +1322,18 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %337, %340
   %347 = icmp eq i32 %.fr27.i, 3
   br i1 %347, label %.split.us.i, label %.split.split.i.preheader
 
-.split.split.i.preheader:                         ; preds = %.thread296, %344
+.split.split.i.preheader:                         ; preds = %.thread304, %344
   br label %.split.split.i
 
-.thread296:                                       ; preds = %_ZN7Archive15ConvertNameCaseEPw.exit
+.thread304:                                       ; preds = %_ZN7Archive15ConvertNameCaseEPw.exit
   %348 = load i8, ptr %193, align 1, !tbaa !111, !range !56, !noundef !57
   %349 = trunc nuw i8 %348 to i1
   %..i = select i1 %349, i32 16, i32 32
   store i32 %..i, ptr %233, align 4, !tbaa !82
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 48840
   %351 = load i32, ptr %350, align 8
-  %.fr27.i297 = freeze i32 %351
-  %352 = icmp eq i32 %.fr27.i297, 3
+  %.fr27.i305 = freeze i32 %351
+  %352 = icmp eq i32 %.fr27.i305, 3
   br i1 %352, label %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit, label %.split.split.i.preheader
 
 .split.us.i:                                      ; preds = %344
@@ -1421,7 +1421,7 @@ _ZN7Archive15ConvertNameCaseEPw.exit:             ; preds = %337, %340
   store i8 1, ptr %383, align 2, !tbaa !154
   br label %_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit
 
-_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %.split.us.split.us.split.us.i, %.split.split.i, %.thread296, %.split.us.i, %379, %382
+_ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %.split.us.split.us.split.us.i, %.split.split.i, %.thread304, %.split.us.i, %379, %382
   %384 = load i32, ptr %172, align 8, !tbaa !84
   %385 = and i32 %384, 1024
   %.not197 = icmp eq i32 %385, 0
@@ -3468,8 +3468,8 @@ define noundef i64 @_ZN7Archive11SearchBlockE11HEADER_TYPE(ptr noundef nonnull a
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %5 = load i32, ptr %4, align 4
-  %.not925 = icmp eq i32 %5, 5
-  br i1 %.not925, label %.critedge, label %.critedge2
+  %.not929 = icmp eq i32 %5, 5
+  br i1 %.not929, label %.critedge, label %.critedge2
 
 .critedge2.us:                                    ; preds = %.lr.ph, %14
   %6 = phi i64 [ %15, %14 ], [ %3, %.lr.ph ]
@@ -3501,9 +3501,9 @@ define noundef i64 @_ZN7Archive11SearchBlockE11HEADER_TYPE(ptr noundef nonnull a
 
 .critedge2:                                       ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %17 = phi i32 [ %16, %.lr.ph.split ], [ %5, %.lr.ph.split.preheader ]
-  %.01226 = phi i64 [ %19, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %.01230 = phi i64 [ %19, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
   %18 = phi i64 [ %27, %.lr.ph.split ], [ %3, %.lr.ph.split.preheader ]
-  %19 = add i64 %.01226, 1
+  %19 = add i64 %.01230, 1
   %20 = and i64 %19, 127
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %23
@@ -3522,13 +3522,13 @@ define noundef i64 @_ZN7Archive11SearchBlockE11HEADER_TYPE(ptr noundef nonnull a
   tail call void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
   %27 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
   %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %..critedge.loopexit23_crit_edge, label %.lr.ph.split, !llvm.loop !209
+  br i1 %.not, label %..critedge.loopexit27_crit_edge, label %.lr.ph.split, !llvm.loop !209
 
-..critedge.loopexit23_crit_edge:                  ; preds = %26
+..critedge.loopexit27_crit_edge:                  ; preds = %26
   br label %.critedge, !llvm.loop !209
 
-.critedge:                                        ; preds = %.lr.ph.split, %23, %11, %14, %.lr.ph.split.preheader, %..critedge.loopexit23_crit_edge, %2
-  %.07 = phi i64 [ 0, %2 ], [ 0, %..critedge.loopexit23_crit_edge ], [ 0, %.lr.ph.split.preheader ], [ 0, %14 ], [ %6, %11 ], [ %18, %23 ], [ 0, %.lr.ph.split ]
+.critedge:                                        ; preds = %.lr.ph.split, %23, %11, %14, %.lr.ph.split.preheader, %..critedge.loopexit27_crit_edge, %2
+  %.07 = phi i64 [ 0, %2 ], [ 0, %..critedge.loopexit27_crit_edge ], [ 0, %.lr.ph.split.preheader ], [ 0, %14 ], [ %6, %11 ], [ %18, %23 ], [ 0, %.lr.ph.split ]
   ret i64 %.07
 }
 
@@ -3543,31 +3543,31 @@ define noundef i64 @_ZN7Archive14SearchSubBlockEPKw(ptr noundef nonnull align 8 
   %5 = tail call noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %0)
   %.not7 = icmp eq i64 %5, 0
   %6 = load i32, ptr %3, align 4
-  %.not613 = icmp eq i32 %6, 5
-  %or.cond = select i1 %.not7, i1 true, i1 %.not613
-  br i1 %or.cond, label %.critedge, label %.lr.ph15
+  %.not615 = icmp eq i32 %6, 5
+  %or.cond = select i1 %.not7, i1 true, i1 %.not615
+  br i1 %or.cond, label %.critedge, label %.lr.ph17
 
 .lr.ph:                                           ; preds = %20
   %7 = load i32, ptr %3, align 4, !tbaa !71
   %.not6 = icmp eq i32 %7, 5
-  br i1 %.not6, label %.critedge, label %.lr.ph15, !llvm.loop !210
+  br i1 %.not6, label %.critedge, label %.lr.ph17, !llvm.loop !210
 
-.lr.ph15:                                         ; preds = %2, %.lr.ph
+.lr.ph17:                                         ; preds = %2, %.lr.ph
   %8 = phi i32 [ %7, %.lr.ph ], [ %6, %2 ]
-  %.0814 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
+  %.0816 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
   %9 = phi i64 [ %21, %.lr.ph ], [ %5, %2 ]
-  %10 = add i64 %.0814, 1
+  %10 = add i64 %.0816, 1
   %11 = and i64 %10, 127
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %14
 
-13:                                               ; preds = %.lr.ph15
+13:                                               ; preds = %.lr.ph17
   tail call void @_Z4Waitv()
   %.pre = load i32, ptr %3, align 4, !tbaa !71
   br label %14
 
-14:                                               ; preds = %13, %.lr.ph15
-  %15 = phi i32 [ %.pre, %13 ], [ %8, %.lr.ph15 ]
+14:                                               ; preds = %13, %.lr.ph17
+  %15 = phi i32 [ %.pre, %13 ], [ %8, %.lr.ph17 ]
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %20
 

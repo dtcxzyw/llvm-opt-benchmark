@@ -41,16 +41,16 @@ define hidden noundef ptr @pj_cart(ptr noundef writeonly captures(address_is_nul
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %10
-  %.sink15 = phi ptr [ %8, %10 ], [ %0, %2 ]
+  %.sink17 = phi ptr [ %8, %10 ], [ %0, %2 ]
   %.sink = phi i32 [ 1, %10 ], [ 3, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 380
+  %14 = getelementptr inbounds nuw i8, ptr %.sink17, i64 380
   store i32 4, ptr %14, align 4, !tbaa !42
-  %15 = getelementptr inbounds nuw i8, ptr %.sink15, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %.sink17, i64 384
   store i32 %.sink, ptr %15, align 8, !tbaa !43
   br label %16
 
 16:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ null, %7 ], [ %.sink15, %.sink.split ]
+  %.0 = phi ptr [ null, %7 ], [ %.sink17, %.sink.split ]
   ret ptr %.0
 }
 

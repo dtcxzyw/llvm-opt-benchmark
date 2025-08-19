@@ -293,8 +293,8 @@ pm_integer_parse_decimal.exit.i:                  ; preds = %96, %80
   %133 = getelementptr i32, ptr %108, i64 %.03338.i.i
   %134 = getelementptr i8, ptr %133, i64 -4
   %135 = load i32, ptr %134, align 4, !tbaa !13
-  %.not44.i.i = icmp eq i32 %135, 0
-  br i1 %.not44.i.i, label %136, label %thread-pre-split.i.i.i
+  %.not50.i.i = icmp eq i32 %135, 0
+  br i1 %.not50.i.i, label %136, label %thread-pre-split.i.i.i
 
 136:                                              ; preds = %.lr.ph39.i.i
   %137 = add nsw i64 %.03338.i.i, -1
@@ -1522,8 +1522,8 @@ big_add.exit208:                                  ; preds = %big_add.exit, %._cr
   br label %211
 
 .preheader.i213:                                  ; preds = %237
-  %.not66.i = icmp eq i64 %.0.i209, 1
-  br i1 %.not66.i, label %big_sub2.exit, label %.lr.ph63.i
+  %.not72.i = icmp eq i64 %.0.i209, 1
+  br i1 %.not72.i, label %big_sub2.exit, label %.lr.ph63.i
 
 211:                                              ; preds = %237, %.lr.ph.i211
   %.04861.i = phi i64 [ 0, %.lr.ph.i211 ], [ %239, %237 ]

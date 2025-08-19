@@ -1057,9 +1057,9 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %196 = icmp samesign ugt i32 %186, 8
-  br i1 %196, label %.thread16, label %199
+  br i1 %196, label %.thread29, label %199
 
-.thread16:                                        ; preds = %195
+.thread29:                                        ; preds = %195
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.2, ptr noundef %126, ptr noundef nonnull @.str.33, i32 noundef %186) #10
   %197 = call i32 @fwnode_property_read_u8_array(ptr noundef nonnull %121, ptr noundef nonnull @.str.31, ptr noundef nonnull %1, i64 noundef 8) #10
   %198 = load i64, ptr %2, align 8
@@ -1072,9 +1072,9 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %203 = icmp eq i32 %186, 0
   br i1 %203, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread16, %199
-  %204 = phi i64 [ %198, %.thread16 ], [ %202, %199 ]
-  %205 = phi i64 [ 8, %.thread16 ], [ %200, %199 ]
+.preheader.preheader:                             ; preds = %.thread29, %199
+  %204 = phi i64 [ %198, %.thread29 ], [ %202, %199 ]
+  %205 = phi i64 [ 8, %.thread29 ], [ %200, %199 ]
   br label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %199

@@ -11922,7 +11922,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %36, %41
 
 51:                                               ; preds = %.preheader, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit ]
-  switch i32 %.01013, label %default.unreachable.i [
+  switch i32 %.01013, label %default.unreachable5.i [
     i32 0, label %_ZNK12aiMatrix4x4tIfEixEj.exit
     i32 1, label %52
     i32 2, label %53
@@ -11938,7 +11938,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %36, %41
 54:                                               ; preds = %51
   br label %_ZNK12aiMatrix4x4tIfEixEj.exit
 
-default.unreachable.i:                            ; preds = %51
+default.unreachable5.i:                           ; preds = %51
   unreachable
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %51, %52, %53, %54

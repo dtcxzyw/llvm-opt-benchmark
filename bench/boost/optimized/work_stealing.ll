@@ -324,8 +324,8 @@ define void @_ZN5boost6fibers4numa4algo13work_stealing5init_ERKSt6vectorINS1_4no
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS6_RKS7_.exit, label %_ZNSt12_Vector_baseIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS7_.exit.i
 
 _ZNSt12_Vector_baseIN5boost13intrusive_ptrINS0_6fibers4numa4algo13work_stealingEEESaIS6_EEC2EmRKS7_.exit.i: ; preds = %2, %._crit_edge
-  %.0.lcssa34 = phi i32 [ %6, %._crit_edge ], [ 1, %2 ]
-  %7 = zext i32 %.0.lcssa34 to i64
+  %.0.lcssa40 = phi i32 [ %6, %._crit_edge ], [ 1, %2 ]
+  %7 = zext i32 %.0.lcssa40 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, i8 0, i64 %8, i1 false), !tbaa !9
@@ -1202,13 +1202,13 @@ _ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0
   br i1 %137, label %.lr.ph.i38, label %.sink.split, !llvm.loop !112
 
 .sink.split:                                      ; preds = %.lr.ph.i34, %.lr.ph.i38, %129, %92
-  %.sink71 = phi ptr [ %87, %92 ], [ %124, %129 ], [ %124, %.lr.ph.i38 ], [ %87, %.lr.ph.i34 ]
+  %.sink80 = phi ptr [ %87, %92 ], [ %124, %129 ], [ %124, %.lr.ph.i38 ], [ %87, %.lr.ph.i34 ]
   %138 = call noundef ptr @_ZN5boost6fibers7context6activeEv() #22
-  call void @_ZN5boost6fibers7context6attachEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %138, ptr noundef nonnull %.sink71) #22
+  call void @_ZN5boost6fibers7context6attachEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %138, ptr noundef nonnull %.sink80) #22
   br label %139
 
 139:                                              ; preds = %.sink.split, %101, %128
-  %.123 = phi ptr [ null, %101 ], [ null, %128 ], [ %.sink71, %.sink.split ]
+  %.123 = phi ptr [ null, %101 ], [ null, %128 ], [ %.sink80, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %140

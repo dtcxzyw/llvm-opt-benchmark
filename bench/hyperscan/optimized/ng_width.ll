@@ -2292,9 +2292,9 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %111 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i43 = icmp eq i8 %111, 0
   %112 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i.i.i.i.i.i43, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %.thread143
+  br i1 %.not.i.i.i.i.i.i43, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %.thread209
 
-.thread143:                                       ; preds = %109
+.thread209:                                       ; preds = %109
   %113 = load i32, ptr %110, align 4
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %110, align 4
@@ -2336,19 +2336,19 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br i1 %124, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i, label %.thread.i
 
-.thread.i:                                        ; preds = %.thread143, %123
-  %127 = phi ptr [ %117, %.thread143 ], [ %126, %123 ]
-  %128 = phi ptr [ %116, %.thread143 ], [ %125, %123 ]
-  %129 = phi ptr [ %103, %.thread143 ], [ %.pre.i, %123 ]
-  %.pr57.i146 = phi ptr [ %105, %.thread143 ], [ %.pr.pre.i, %123 ]
-  %130 = phi ptr [ %115, %.thread143 ], [ %119, %123 ]
+.thread.i:                                        ; preds = %.thread209, %123
+  %127 = phi ptr [ %117, %.thread209 ], [ %126, %123 ]
+  %128 = phi ptr [ %116, %.thread209 ], [ %125, %123 ]
+  %129 = phi ptr [ %103, %.thread209 ], [ %.pre.i, %123 ]
+  %.pr113.i212 = phi ptr [ %105, %.thread209 ], [ %.pr.pre.i, %123 ]
+  %130 = phi ptr [ %115, %.thread209 ], [ %119, %123 ]
   %131 = load i32, ptr %128, align 4
   %132 = add nsw i32 %131, 1
   store i32 %132, ptr %128, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 16, i1 false)
   store ptr %129, ptr %127, align 8
-  store ptr %.pr57.i146, ptr %130, align 8
+  store ptr %.pr113.i212, ptr %130, align 8
   br label %137
 
 _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i.i: ; preds = %123

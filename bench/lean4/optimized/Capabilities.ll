@@ -31345,18 +31345,18 @@ _init_l_Lean_Lsp_instFromJsonServerCapabilities___closed__1.exit: ; preds = %_in
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Lsp_instFromJsonServerCapabilities___closed__1.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %793, %_init_l_Lean_Lsp_instFromJsonServerCapabilities___closed__1.exit ]
-  %796 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !8
+  %.sink66 = phi ptr [ %4, %3 ], [ %793, %_init_l_Lean_Lsp_instFromJsonServerCapabilities___closed__1.exit ]
+  %796 = getelementptr inbounds nuw i8, ptr %.sink66, i64 4
+  store i32 1, ptr %.sink66, align 4, !tbaa !8
   store i32 131096, ptr %796, align 4
-  %797 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %797 = getelementptr inbounds nuw i8, ptr %.sink66, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %797, align 8, !tbaa !4
-  %798 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %798 = getelementptr inbounds nuw i8, ptr %.sink66, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %798, align 8, !tbaa !4
   br label %799
 
 799:                                              ; preds = %.sink.split, %lean_dec_ref.exit18, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink66, %.sink.split ]
   ret ptr %.0
 }
 

@@ -2510,13 +2510,13 @@ define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 0, ptr %40, align 8
   %spec.select58 = call i32 @llvm.smin.i32(i32 %29, i32 %.244)
-  %41 = sext i32 %spec.select58 to i64
+  %41 = zext nneg i32 %spec.select58 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.147, ptr align 1 %37, i64 %41, i1 false)
-  %42 = getelementptr inbounds i8, ptr %.147, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %.147, i64 %41
   %43 = load i32, ptr %40, align 8
   %44 = add i32 %43, %spec.select58
   store i32 %44, ptr %40, align 8
-  %45 = sub i32 %.244, %spec.select58
+  %45 = sub nsw i32 %.244, %spec.select58
   %46 = add i32 %spec.select58, %.241
   %47 = icmp sgt i32 %45, 0
   %.not57 = icmp slt i32 %46, %1

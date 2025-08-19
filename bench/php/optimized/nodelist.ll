@@ -85,7 +85,7 @@ php_dom_is_cache_tag_stale_from_node.exit:        ; preds = %29
   %33 = load i64, ptr %32, align 8, !tbaa !46
   %34 = load i64, ptr %24, align 8, !tbaa !46
   %.not46 = icmp eq i64 %33, %34
-  br i1 %.not46, label %35, label %.thread.thread50
+  br i1 %.not46, label %35, label %.thread.thread60
 
 35:                                               ; preds = %php_dom_is_cache_tag_stale_from_node.exit
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -100,16 +100,16 @@ php_dom_is_cache_tag_stale_from_node.exit:        ; preds = %29
 .thread:                                          ; preds = %26
   %.pre = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !43
   %.not8.i = icmp eq ptr %.pre, null
-  br i1 %.not8.i, label %php_dom_mark_cache_tag_up_to_date_from_node.exit, label %.thread.thread50
+  br i1 %.not8.i, label %php_dom_mark_cache_tag_up_to_date_from_node.exit, label %.thread.thread60
 
-.thread.thread50:                                 ; preds = %php_dom_is_cache_tag_stale_from_node.exit, %.thread
+.thread.thread60:                                 ; preds = %php_dom_is_cache_tag_stale_from_node.exit, %.thread
   %41 = phi ptr [ %.pre, %.thread ], [ %31, %php_dom_is_cache_tag_stale_from_node.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !48
   store i64 %43, ptr %24, align 8, !tbaa !46
   br label %php_dom_mark_cache_tag_up_to_date_from_node.exit
 
-php_dom_mark_cache_tag_up_to_date_from_node.exit: ; preds = %29, %23, %.thread, %.thread.thread50
+php_dom_mark_cache_tag_up_to_date_from_node.exit: ; preds = %29, %23, %.thread, %.thread.thread60
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %45 = load ptr, ptr %44, align 8, !tbaa !53
   %.not.i43 = icmp eq ptr %45, null
@@ -503,21 +503,21 @@ php_dom_is_cache_tag_stale_from_node.exit:        ; preds = %113
   %117 = load i64, ptr %116, align 8, !tbaa !46
   %118 = load i64, ptr %108, align 8, !tbaa !46
   %.not147 = icmp eq i64 %117, %118
-  br i1 %.not147, label %132, label %.thread144.thread153
+  br i1 %.not147, label %132, label %.thread144.thread170
 
 .thread144:                                       ; preds = %110
   %.pre = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !43
   %.not8.i = icmp eq ptr %.pre, null
-  br i1 %.not8.i, label %php_dom_mark_cache_tag_up_to_date_from_node.exit, label %.thread144.thread153
+  br i1 %.not8.i, label %php_dom_mark_cache_tag_up_to_date_from_node.exit, label %.thread144.thread170
 
-.thread144.thread153:                             ; preds = %php_dom_is_cache_tag_stale_from_node.exit, %.thread144
+.thread144.thread170:                             ; preds = %php_dom_is_cache_tag_stale_from_node.exit, %.thread144
   %119 = phi ptr [ %.pre, %.thread144 ], [ %115, %php_dom_is_cache_tag_stale_from_node.exit ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8, !tbaa !48
   store i64 %121, ptr %108, align 8, !tbaa !46
   br label %php_dom_mark_cache_tag_up_to_date_from_node.exit
 
-php_dom_mark_cache_tag_up_to_date_from_node.exit: ; preds = %113, %101, %.thread144, %.thread144.thread153
+php_dom_mark_cache_tag_up_to_date_from_node.exit: ; preds = %113, %101, %.thread144, %.thread144.thread170
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %123 = load ptr, ptr %122, align 8, !tbaa !53
   %.not.i104 = icmp eq ptr %123, null

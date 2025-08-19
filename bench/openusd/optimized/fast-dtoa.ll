@@ -144,11 +144,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20Normalized
   br label %74
 
 74:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i
-  %.sink152.i = phi i32 [ %73, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ], [ %45, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ]
+  %.sink174.i = phi i32 [ %73, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ], [ %45, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ]
   %.sroa.012.0.i50.sink.in.i = phi i64 [ %.sroa.012.0.v.i49.i, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ], [ %.sroa.012.0.v.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ]
   %.sroa.075.0.i = phi i64 [ %.1.lcssa.i.i.i48.i, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ], [ %.1.lcssa.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double20NormalizedBoundariesEPNS0_5DiyFpES3_.exit.i ]
   %.sroa.012.0.i50.sink.i = add nsw i64 %.sroa.012.0.i50.sink.in.i, -1
-  %75 = zext nneg i32 %.sink152.i to i64
+  %75 = zext nneg i32 %.sink174.i to i64
   %76 = shl i64 %.sroa.012.0.i50.sink.i, %75
   store i64 0, ptr %10, align 8
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -686,7 +686,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   br i1 %388, label %401, label %.thread
 
 401:                                              ; preds = %400, %396
-  %402 = sub nuw i64 %385, %376
+  %402 = sub nuw nsw i64 %385, %376
   %403 = sub i64 %305, %402
   %.not32.i50.i.i = icmp ugt i64 %403, %402
   br i1 %.not32.i50.i.i, label %.thread, label %404

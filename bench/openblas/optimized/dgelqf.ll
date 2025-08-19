@@ -146,15 +146,15 @@ define void @dgelqf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %70 = call i32 @llvm.smin.i32(i32 %69, i32 %62)
   store i32 %70, ptr %14, align 4, !tbaa !3
   %71 = load i32, ptr %1, align 4, !tbaa !3
-  %72 = add i32 %.0124.neg152, 1
+  %72 = add nsw i32 %.0124.neg152, 1
   %73 = add i32 %72, %71
   store i32 %73, ptr %11, align 4, !tbaa !3
   %74 = mul nsw i32 %.0124151, %16
   %75 = add nsw i32 %74, %.0124151
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds double, ptr %18, i64 %76
-  %78 = sext i32 %.0124151 to i64
-  %79 = getelementptr inbounds double, ptr %19, i64 %78
+  %78 = zext nneg i32 %.0124151 to i64
+  %79 = getelementptr inbounds nuw double, ptr %19, i64 %78
   call void @dgelq2_(ptr noundef nonnull %14, ptr noundef nonnull %11, ptr noundef %77, ptr noundef nonnull %3, ptr noundef nonnull %79, ptr noundef nonnull %5, ptr noundef nonnull %13) #4
   %80 = load i32, ptr %14, align 4, !tbaa !3
   %81 = add nsw i32 %80, %.0124151
@@ -186,11 +186,11 @@ define void @dgelqf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %99
 
 99:                                               ; preds = %.lr.ph, %83
-  %100 = add nsw i32 %62, %.0124151
-  %.0124.neg = sub i32 0, %100
+  %100 = add nuw nsw i32 %62, %.0124151
+  %.0124.neg = sub nsw i32 0, %100
   %101 = load i32, ptr %9, align 4
-  %.not154 = icmp sgt i32 %100, %101
-  br i1 %.not154, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  %.not163 = icmp sgt i32 %100, %101
+  br i1 %.not163, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %99, %65, %61
   %.1 = phi i32 [ 1, %61 ], [ 1, %65 ], [ %100, %99 ]
@@ -210,8 +210,8 @@ define void @dgelqf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %108 = mul i32 %.1, %107
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds double, ptr %18, i64 %109
-  %111 = sext i32 %.1 to i64
-  %112 = getelementptr inbounds double, ptr %19, i64 %111
+  %111 = zext nneg i32 %.1 to i64
+  %112 = getelementptr inbounds nuw double, ptr %19, i64 %111
   call void @dgelq2_(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %110, ptr noundef nonnull %3, ptr noundef nonnull %112, ptr noundef nonnull %5, ptr noundef nonnull %13) #4
   br label %113
 

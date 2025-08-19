@@ -2643,7 +2643,7 @@ H5FD__onion_archival_index_find.exit.us:          ; preds = %.lr.ph.i.us, %90, %
   br i1 %exitcond98.not, label %._crit_edge78, label %.lr.ph77.split.us.split.split, !llvm.loop !91
 
 ._crit_edge78:                                    ; preds = %H5FD__onion_archival_index_find.exit, %H5FD__onion_archival_index_find.exit.us, %.lr.ph77.split.us.split.split.us, %H5FD__onion_archival_index_find.exit.us.us, %.._crit_edge78_crit_edge
-  %.145102 = phi ptr [ null, %.._crit_edge78_crit_edge ], [ %36, %H5FD__onion_archival_index_find.exit.us.us ], [ %36, %.lr.ph77.split.us.split.split.us ], [ %36, %H5FD__onion_archival_index_find.exit.us ], [ %36, %H5FD__onion_archival_index_find.exit ]
+  %.145113 = phi ptr [ null, %.._crit_edge78_crit_edge ], [ %36, %H5FD__onion_archival_index_find.exit.us.us ], [ %36, %.lr.ph77.split.us.split.split.us ], [ %36, %H5FD__onion_archival_index_find.exit.us ], [ %36, %H5FD__onion_archival_index_find.exit ]
   %94 = phi ptr [ %.pre, %.._crit_edge78_crit_edge ], [ %43, %H5FD__onion_archival_index_find.exit.us.us ], [ %43, %.lr.ph77.split.us.split.split.us ], [ %43, %H5FD__onion_archival_index_find.exit.us ], [ %43, %H5FD__onion_archival_index_find.exit ]
   %.046.lcssa = phi i64 [ 0, %.._crit_edge78_crit_edge ], [ %26, %H5FD__onion_archival_index_find.exit.us.us ], [ %26, %.lr.ph77.split.us.split.split.us ], [ %.147.us, %H5FD__onion_archival_index_find.exit.us ], [ %26, %H5FD__onion_archival_index_find.exit ]
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2680,7 +2680,7 @@ H5FD__onion_archival_index_find.exit:             ; preds = %.lr.ph77, %H5FD__on
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw %struct.H5FD_onion_index_entry_t, ptr %99, i64 %.sroa.4.0.lcssa
   %112 = shl i64 %.046.lcssa, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %111, ptr align 8 %.145102, i64 %112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %111, ptr align 8 %.145113, i64 %112, i1 false)
   store i64 %97, ptr %25, align 8, !tbaa !55
   br label %113
 
@@ -2691,7 +2691,7 @@ H5FD__onion_archival_index_find.exit:             ; preds = %.lr.ph77, %H5FD__on
 
 115:                                              ; preds = %9, %113, %104, %38, %21
   %.sroa.11.0 = phi ptr [ null, %9 ], [ null, %21 ], [ %15, %104 ], [ %15, %113 ], [ %15, %38 ]
-  %.044 = phi ptr [ null, %9 ], [ null, %21 ], [ %.145102, %104 ], [ %.145102, %113 ], [ null, %38 ]
+  %.044 = phi ptr [ null, %9 ], [ null, %21 ], [ %.145113, %104 ], [ %.145113, %113 ], [ null, %38 ]
   %.1 = phi i32 [ 0, %9 ], [ -1, %21 ], [ -1, %104 ], [ 0, %113 ], [ -1, %38 ]
   %116 = tail call ptr @H5MM_xfree(ptr noundef %.044) #14
   %117 = tail call ptr @H5MM_xfree(ptr noundef %.sroa.11.0) #14

@@ -428,31 +428,31 @@ define void @Nwk_ManLevel_rec(ptr noundef captures(none) %0) local_unnamed_addr 
 .lr.ph.preheader:                                 ; preds = %28
   %33 = load ptr, ptr %29, align 8, !tbaa !25
   %34 = load ptr, ptr %33, align 8, !tbaa !28
-  %.not4681 = icmp eq ptr %34, null
-  br i1 %.not4681, label %.critedge.loopexit, label %.lr.ph84
+  %.not4685 = icmp eq ptr %34, null
+  br i1 %.not4685, label %.critedge.loopexit, label %.lr.ph88
 
-.lr.ph:                                           ; preds = %.lr.ph84
+.lr.ph:                                           ; preds = %.lr.ph88
   %35 = load ptr, ptr %29, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   %.not46 = icmp eq ptr %37, null
-  br i1 %.not46, label %.critedge.loopexit, label %.lr.ph84, !llvm.loop !43
+  br i1 %.not46, label %.critedge.loopexit, label %.lr.ph88, !llvm.loop !43
 
-.lr.ph84:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph88:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %38 = phi ptr [ %37, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %.36783 = phi i32 [ %spec.select61, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv82 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.36787 = phi i32 [ %spec.select61, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv86 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   tail call void @Nwk_ManLevel_rec(ptr noundef nonnull %38)
   %39 = getelementptr i8, ptr %38, i64 44
   %.val56 = load i32, ptr %39, align 4, !tbaa !38
-  %spec.select61 = tail call i32 @llvm.smax.i32(i32 %.36783, i32 %.val56)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv82, 1
+  %spec.select61 = tail call i32 @llvm.smax.i32(i32 %.36787, i32 %.val56)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv86, 1
   %40 = load i32, ptr %30, align 4, !tbaa !19
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %.lr.ph, label %..critedge.loopexit_crit_edge, !llvm.loop !43
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph84
+..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph88
   br label %.critedge.loopexit, !llvm.loop !43
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %..critedge.loopexit_crit_edge, %.lr.ph.preheader

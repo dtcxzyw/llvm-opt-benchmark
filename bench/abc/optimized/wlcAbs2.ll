@@ -325,8 +325,8 @@ Wlc_NtkAbsMarkOpers.exit.i:                       ; preds = %144, %.critedge.i.i
   br i1 %147, label %.critedge.i20.i, label %.critedge.preheader.i.Wlc_NtkAbsMarkNodes.exit_crit_edge.i
 
 .critedge.preheader.i.Wlc_NtkAbsMarkNodes.exit_crit_edge.i: ; preds = %.critedge.preheader.i.i, %Wlc_NtkAbsMarkOpers.exit.i
-  %.val4256.i31.i = phi i32 [ %.val4256.i.pre.i, %.critedge.preheader.i.i ], [ 0, %Wlc_NtkAbsMarkOpers.exit.i ]
-  %.pre.i = sext i32 %.val4256.i31.i to i64
+  %.val4256.i35.i = phi i32 [ %.val4256.i.pre.i, %.critedge.preheader.i.i ], [ 0, %Wlc_NtkAbsMarkOpers.exit.i ]
+  %.pre.i = sext i32 %.val4256.i35.i to i64
   br label %Wlc_NtkAbsMarkNodes.exit.i
 
 .lr.ph.i21.i:                                     ; preds = %Wlc_NtkAbsMarkOpers.exit.i, %.lr.ph.i21.i
@@ -930,9 +930,9 @@ Vec_BitFree.exit:                                 ; preds = %.thread, %380
   %385 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   %switch.selectcmp = icmp eq i32 %.163, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.6, ptr @.str.7
-  %switch.selectcmp174 = icmp eq i32 %.163, 0
-  %switch.select175 = select i1 %switch.selectcmp174, ptr @.str.5, ptr %switch.select
-  %386 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select175)
+  %switch.selectcmp201 = icmp eq i32 %.163, 0
+  %switch.select202 = select i1 %switch.selectcmp201, ptr @.str.5, ptr %switch.select
+  %386 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select202)
   %387 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.060115)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %388 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #17
@@ -1283,9 +1283,9 @@ Wlc_ObjFaninId.exit:                              ; preds = %124, %Wlc_ObjHasArr
 
 .critedge.sink.split:                             ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit51, %Vec_IntPush.exit44
   %.sink = phi i32 [ %90, %Vec_IntPush.exit44 ], [ %120, %Vec_IntPush.exit51 ], [ %53, %Vec_IntPush.exit ]
-  %.sink57 = phi ptr [ %89, %Vec_IntPush.exit44 ], [ %119, %Vec_IntPush.exit51 ], [ %52, %Vec_IntPush.exit ]
+  %.sink65 = phi ptr [ %89, %Vec_IntPush.exit44 ], [ %119, %Vec_IntPush.exit51 ], [ %52, %Vec_IntPush.exit ]
   %135 = sext i32 %.sink to i64
-  %136 = getelementptr inbounds i32, ptr %.sink57, i64 %135
+  %136 = getelementptr inbounds i32, ptr %.sink65, i64 %135
   store i32 %16, ptr %136, align 4, !tbaa !39
   br label %.critedge
 

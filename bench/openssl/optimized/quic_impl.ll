@@ -8092,10 +8092,10 @@ define i64 @ossl_quic_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .sink.split:                                      ; preds = %6, %9
   %.sink = phi ptr [ %12, %9 ], [ %8, %6 ]
-  %.sink8 = phi i32 [ 15, %9 ], [ %1, %6 ]
+  %.sink9 = phi i32 [ 15, %9 ], [ %1, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %.sink, i64 120
   %14 = load ptr, ptr %13, align 8, !tbaa !30
-  %15 = call i64 @ssl3_callback_ctrl(ptr noundef %14, i32 noundef %.sink8, ptr noundef %2) #12
+  %15 = call i64 @ssl3_callback_ctrl(ptr noundef %14, i32 noundef %.sink9, ptr noundef %2) #12
   br label %16
 
 16:                                               ; preds = %.sink.split, %3

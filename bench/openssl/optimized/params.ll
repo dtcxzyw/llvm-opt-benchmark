@@ -1654,10 +1654,10 @@ signed_from_signed.exit.thread25:                 ; preds = %signed_from_signed.
   br label %signed_from_signed.exit.thread
 
 signed_from_signed.exit.thread:                   ; preds = %signed_from_signed.exit.thread25, %signed_from_signed.exit, %30, %check_sign_bytes.exit.i.i, %3
-  %.sink29 = phi i64 [ %2, %3 ], [ %35, %signed_from_signed.exit.thread25 ], [ %2, %signed_from_signed.exit ], [ %2, %30 ], [ %2, %check_sign_bytes.exit.i.i ]
+  %.sink33 = phi i64 [ %2, %3 ], [ %35, %signed_from_signed.exit.thread25 ], [ %2, %signed_from_signed.exit ], [ %2, %30 ], [ %2, %check_sign_bytes.exit.i.i ]
   %.018 = phi i32 [ 1, %3 ], [ 1, %signed_from_signed.exit.thread25 ], [ 0, %signed_from_signed.exit ], [ 0, %30 ], [ 0, %check_sign_bytes.exit.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink29, ptr %36, align 8, !tbaa !13
+  store i64 %.sink33, ptr %36, align 8, !tbaa !13
   ret i32 %.018
 }
 
@@ -1842,8 +1842,8 @@ check_sign_bytes.exit.i.i25:                      ; preds = %.lr.ph.i.i.i22
   br label %signed_from_unsigned.exit
 
 .loopexit.i.i28.sink.split:                       ; preds = %23, %10
-  %.sink37 = phi i64 [ %12, %10 ], [ %25, %23 ]
-  %35 = sub nuw i64 %.sink37, %2
+  %.sink44 = phi i64 [ %12, %10 ], [ %25, %23 ]
+  %35 = sub nuw i64 %.sink44, %2
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %36, i8 0, i64 %35, i1 false)
   br label %.loopexit.i.i28
@@ -1856,10 +1856,10 @@ check_sign_bytes.exit.i.i25:                      ; preds = %.lr.ph.i.i.i22
   br label %signed_from_unsigned.exit
 
 signed_from_unsigned.exit:                        ; preds = %.loopexit.i.i28, %check_sign_bytes.exit.i.i25, %check_sign_bytes.exit.i.i, %34, %3
-  %.sink33 = phi i64 [ %2, %3 ], [ %38, %.loopexit.i.i28 ], [ %2, %34 ], [ %2, %check_sign_bytes.exit.i.i ], [ %2, %check_sign_bytes.exit.i.i25 ]
+  %.sink40 = phi i64 [ %2, %3 ], [ %38, %.loopexit.i.i28 ], [ %2, %34 ], [ %2, %check_sign_bytes.exit.i.i ], [ %2, %check_sign_bytes.exit.i.i25 ]
   %.018 = phi i32 [ 1, %3 ], [ 1, %.loopexit.i.i28 ], [ 0, %34 ], [ 0, %check_sign_bytes.exit.i.i ], [ 0, %check_sign_bytes.exit.i.i25 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink33, ptr %39, align 8, !tbaa !13
+  store i64 %.sink40, ptr %39, align 8, !tbaa !13
   ret i32 %.018
 }
 
@@ -3255,14 +3255,14 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
   br i1 %.not22, label %.lr.ph, label %.loopexit, !llvm.loop !76
 
 .lr.ph:                                           ; preds = %.split.preheader, %.split.loopexit
-  %.0142737 = phi ptr [ %.0913.i.i, %.split.loopexit ], [ %0, %.split.preheader ]
-  %25 = getelementptr inbounds nuw i8, ptr %.0142737, i64 16
+  %.0142745 = phi ptr [ %.0913.i.i, %.split.loopexit ], [ %0, %.split.preheader ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0142745, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !15
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %.preheader.i.i, label %27
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %.0142737, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.0142745, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !17
   %.not24 = icmp eq i64 %29, 0
   br i1 %.not24, label %.preheader.i.i, label %30
@@ -3273,7 +3273,7 @@ define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnul
   br i1 %.not25, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph, %27, %30
-  %32 = getelementptr inbounds nuw i8, ptr %.0142737, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0142745, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %.not12.i.i = icmp eq ptr %33, null
   br i1 %.not12.i.i, label %.split29.us, label %.lr.ph.i.i

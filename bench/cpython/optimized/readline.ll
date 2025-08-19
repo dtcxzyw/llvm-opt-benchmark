@@ -1632,12 +1632,12 @@ define internal noundef ptr @readline_replace_history_item(ptr readnone captures
   %18 = getelementptr i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = getelementptr i8, ptr %19, i64 8
-  %.val15 = load ptr, ptr %20, align 8, !tbaa !44
-  %21 = getelementptr i8, ptr %.val15, i64 168
-  %.val1416 = load i64, ptr %21, align 8, !tbaa !45
-  %22 = and i64 %.val1416, 268435456
-  %.not1317 = icmp eq i64 %22, 0
-  br i1 %.not1317, label %23, label %.thread18
+  %.val20 = load ptr, ptr %20, align 8, !tbaa !44
+  %21 = getelementptr i8, ptr %.val20, i64 168
+  %.val1421 = load i64, ptr %21, align 8, !tbaa !45
+  %22 = and i64 %.val1421, 268435456
+  %.not1322 = icmp eq i64 %22, 0
+  br i1 %.not1322, label %23, label %.thread23
 
 23:                                               ; preds = %.thread, %12
   %24 = phi ptr [ %19, %.thread ], [ %14, %12 ]
@@ -1646,9 +1646,9 @@ define internal noundef ptr @readline_replace_history_item(ptr readnone captures
 
 25:                                               ; preds = %12
   %26 = icmp slt i32 %8, 0
-  br i1 %26, label %.thread18, label %28
+  br i1 %26, label %.thread23, label %28
 
-.thread18:                                        ; preds = %.thread, %25
+.thread23:                                        ; preds = %.thread, %25
   %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !41
   tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.40) #14
   br label %readline_replace_history_item_impl.exit
@@ -1692,8 +1692,8 @@ Py_DECREF.exit.i:                                 ; preds = %40, %37, %31
   tail call void @free(ptr noundef %45) #14
   br label %readline_replace_history_item_impl.exit
 
-readline_replace_history_item_impl.exit:          ; preds = %44, %41, %28, %.thread18, %10, %4, %23
-  %.0 = phi ptr [ null, %10 ], [ null, %23 ], [ null, %4 ], [ null, %.thread18 ], [ @_Py_NoneStruct, %44 ], [ null, %41 ], [ null, %28 ]
+readline_replace_history_item_impl.exit:          ; preds = %44, %41, %28, %.thread23, %10, %4, %23
+  %.0 = phi ptr [ null, %10 ], [ null, %23 ], [ null, %4 ], [ null, %.thread23 ], [ @_Py_NoneStruct, %44 ], [ null, %41 ], [ null, %28 ]
   ret ptr %.0
 }
 

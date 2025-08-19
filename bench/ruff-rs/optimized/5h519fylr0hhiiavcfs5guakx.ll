@@ -397,7 +397,7 @@ default.unreachable:                              ; preds = %90, %67, %23
 40:                                               ; preds = %27
   %41 = load i64, ptr %13, align 8, !alias.scope !41, !noalias !45, !noundef !13
   %.not12.i = icmp eq i64 %41, 0
-  br i1 %.not12.i, label %81, label %.thread66, !prof !49
+  br i1 %.not12.i, label %81, label %.thread70, !prof !49
 
 42:                                               ; preds = %32
   %43 = icmp ult i64 %.sroa.4.046, %39
@@ -530,7 +530,7 @@ common.resume:                                    ; preds = %110, %119, %45, %48
   call void @_ZN4core6option13unwrap_failed17haa1cd4d2df4f1dcbE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c29e402852bcc95957d70e585b81f13e.32) #14, !noalias !47
   unreachable
 
-.thread66:                                        ; preds = %40
+.thread70:                                        ; preds = %40
   %82 = load ptr, ptr %14, align 8, !alias.scope !41, !noalias !45, !nonnull !13, !noundef !13
   %83 = getelementptr { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %82, i64 %41
   %84 = getelementptr i8, ptr %83, i64 -128
@@ -617,8 +617,8 @@ common.resume:                                    ; preds = %110, %119, %45, %48
   %.not = icmp eq i64 %112, 0
   br i1 %.not, label %common.resume, label %119
 
-113:                                              ; preds = %.thread66, %106
-  %114 = phi i64 [ %.sroa.4.046, %.thread66 ], [ %89, %106 ]
+113:                                              ; preds = %.thread70, %106
+  %114 = phi i64 [ %.sroa.4.046, %.thread70 ], [ %89, %106 ]
   %115 = sub nuw i64 %.sroa.4.046, %114
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 %114
   br label %117

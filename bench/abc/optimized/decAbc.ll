@@ -307,8 +307,8 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly captures(address) %0, p
   br i1 %.not90, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %.not111 = icmp eq i32 %.val75, 0
-  br i1 %.not111, label %.critedge.preheader, label %.lr.ph
+  %.not122 = icmp eq i32 %.val75, 0
+  br i1 %.not122, label %.critedge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr i8, ptr %1, i64 16
@@ -545,8 +545,8 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   %145 = ptrtoint ptr %.06488 to i64
   %146 = and i64 %145, -2
   %147 = icmp eq i64 %136, %146
-  %or.cond110 = select i1 %144, i1 true, i1 %147
-  br i1 %or.cond110, label %.sink.split, label %151
+  %or.cond121 = select i1 %144, i1 true, i1 %147
+  br i1 %or.cond121, label %.sink.split, label %151
 
 .sink.split:                                      ; preds = %141
   %148 = getelementptr inbounds nuw i8, ptr %137, i64 20

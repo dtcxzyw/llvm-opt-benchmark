@@ -407,7 +407,7 @@ define dso_local noundef range(i32 -12, 1) i32 @nfs_inode_set_delegation(ptr nou
   %84 = load volatile i64, ptr %83, align 8
   %85 = and i64 %84, 32
   %86 = icmp eq i64 %85, 0
-  br i1 %86, label %87, label %.thread18
+  br i1 %86, label %87, label %.thread26
 
 87:                                               ; preds = %82
   %88 = load i32, ptr %20, align 4
@@ -433,9 +433,9 @@ define dso_local noundef range(i32 -12, 1) i32 @nfs_inode_set_delegation(ptr nou
 99:                                               ; preds = %95
   %.pre = load ptr, ptr %35, align 8
   %100 = icmp eq ptr %.pre, %36
-  br i1 %100, label %.thread18, label %.thread
+  br i1 %100, label %.thread26, label %.thread
 
-.thread18:                                        ; preds = %82, %99
+.thread26:                                        ; preds = %82, %99
   %101 = getelementptr inbounds nuw i8, ptr %36, i64 92
   tail call void @_raw_spin_lock(ptr noundef nonnull %101) #12
   %102 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -443,7 +443,7 @@ define dso_local noundef range(i32 -12, 1) i32 @nfs_inode_set_delegation(ptr nou
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.thread.sink.split, label %105
 
-105:                                              ; preds = %.thread18
+105:                                              ; preds = %.thread26
   %106 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr %36, align 8
@@ -522,8 +522,8 @@ define dso_local noundef range(i32 -12, 1) i32 @nfs_inode_set_delegation(ptr nou
   tail call void @llvm.write_register.i64(metadata !0, i64 %141)
   br label %150
 
-.thread.sink.split:                               ; preds = %.thread18, %44, %52, %81
-  %.sink = phi ptr [ %45, %81 ], [ %45, %52 ], [ %45, %44 ], [ %101, %.thread18 ]
+.thread.sink.split:                               ; preds = %.thread26, %44, %52, %81
+  %.sink = phi ptr [ %45, %81 ], [ %45, %52 ], [ %45, %44 ], [ %101, %.thread26 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %.sink) #12
   br label %.thread
 

@@ -392,18 +392,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i11: ; preds = %77, %64
   br label %88
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split: ; preds = %83, %48
-  %.sink16 = phi ptr [ %47, %48 ], [ %82, %83 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink16) #20
-  call void @_ZdlPvm(ptr noundef nonnull %.sink16, i64 noundef 64) #21
+  %.sink21 = phi ptr [ %47, %48 ], [ %82, %83 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink21) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sink21, i64 noundef 64) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split, %83, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i11, %48, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
   ret void
 
 88:                                               ; preds = %86, %51
-  %.sink17 = phi ptr [ %6, %86 ], [ %5, %51 ]
+  %.sink22 = phi ptr [ %6, %86 ], [ %5, %51 ]
   %.pn = phi { ptr, i32 } [ %87, %86 ], [ %52, %51 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink17) #20
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink22) #20
   resume { ptr, i32 } %.pn
 }
 
@@ -677,9 +677,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i11: ; preds = %87, %74
   br label %98
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split: ; preds = %93, %56
-  %.sink17 = phi ptr [ %55, %56 ], [ %92, %93 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink17) #20
-  call void @_ZdlPvm(ptr noundef nonnull %.sink17, i64 noundef 64) #21
+  %.sink22 = phi ptr [ %55, %56 ], [ %92, %93 ]
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink22) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sink22, i64 noundef 64) #21
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit.sink.split, %93, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i11, %56, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
@@ -4468,8 +4468,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReser
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES8_EEbT_T0_.exit
   %.034 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES8_EEbT_T0_.exit ], [ %1, %5 ]
-  %9 = shl i64 %.034, 1
-  %10 = add i64 %9, 2
+  %9 = shl nuw nsw i64 %.034, 1
+  %10 = add nuw nsw i64 %9, 2
   %11 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %10
   %12 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -4525,7 +4525,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %39
-  %44 = shl nsw i64 %.0.lcssa, 1
+  %44 = shl nuw nsw i64 %.0.lcssa, 1
   %45 = or disjoint i64 %44, 1
   %46 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %45
   %47 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.0.lcssa
@@ -4541,10 +4541,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBA
   br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %48, %64
-  %.0133.i = phi i64 [ %.04.i, %64 ], [ %.1, %48 ]
+  %.0133.i = phi i64 [ %.0413.i, %64 ], [ %.1, %48 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
-  %.04.i = sdiv i64 %.04.in.i, 2
-  %50 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.04.i
+  %.0413.i = lshr i64 %.04.in.i, 1
+  %50 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.0413.i
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, %.sroa.0.sroa.0.0.extract.trunc.i
   br i1 %52, label %53, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i
@@ -4572,11 +4572,11 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
 64:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i, %61, %57
   %65 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.0133.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false)
-  %66 = icmp sgt i64 %.04.i, %1
+  %66 = icmp samesign ugt i64 %.0413.i, %1
   br i1 %66, label %.lr.ph.i, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !32
 
 _ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit: ; preds = %57, %61, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i, %64, %48
-  %.013.lcssa.i = phi i64 [ %.1, %48 ], [ %.0133.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i ], [ %.04.i, %64 ], [ %.0133.i, %57 ], [ %.0133.i, %61 ]
+  %.013.lcssa.i = phi i64 [ %.1, %48 ], [ %.0133.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i ], [ %.0413.i, %64 ], [ %.0133.i, %57 ], [ %.0133.i, %61 ]
   %67 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.013.lcssa.i
   store i64 %3, ptr %67, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8

@@ -223,14 +223,14 @@ inc.exit147.i:                                    ; preds = %25
   br label %inc.exit149.i
 
 inc.exit149.i:                                    ; preds = %61, %inc.exit147.i
-  %.sink223.in.i = phi ptr [ %60, %inc.exit147.i ], [ %74, %61 ]
-  %.sink221.i = phi i32 [ %52, %inc.exit147.i ], [ %62, %61 ]
+  %.sink225.in.i = phi ptr [ %60, %inc.exit147.i ], [ %74, %61 ]
+  %.sink223.i = phi i32 [ %52, %inc.exit147.i ], [ %62, %61 ]
   %.sink.i = phi i32 [ %53, %inc.exit147.i ], [ %64, %61 ]
   %.pn204.pre-phi.i = phi i32 [ %58, %inc.exit147.i ], [ %69, %61 ]
   %.pn211.in.i = phi i32 [ %59, %inc.exit147.i ], [ %70, %61 ]
-  %.sink223.i = load i8, ptr %.sink223.in.i, align 1, !tbaa !14
-  %75 = zext i8 %.sink223.i to i32
-  %76 = add nuw nsw i32 %.sink221.i, %75
+  %.sink225.i = load i8, ptr %.sink225.in.i, align 1, !tbaa !14
+  %75 = zext i8 %.sink225.i to i32
+  %76 = add nuw nsw i32 %.sink223.i, %75
   %77 = add nuw nsw i32 %29, %75
   %78 = zext nneg i32 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 %78

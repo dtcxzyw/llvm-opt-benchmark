@@ -3048,8 +3048,8 @@ _ZNSt12_Vector_baseIN6open3d2ml7contrib8PointXYZESaIS3_EE11_M_allocateEm.exit.i.
   store ptr %83, ptr %11, align 8, !tbaa !10
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx
   store ptr %84, ptr %51, align 8, !tbaa !19
-  %.not282 = icmp eq i32 %79, 1
-  br i1 %.not282, label %86, label %85, !prof !112
+  %.not304 = icmp eq i32 %79, 1
+  br i1 %.not304, label %86, label %85, !prof !112
 
 85:                                               ; preds = %_ZNSt12_Vector_baseIN6open3d2ml7contrib8PointXYZESaIS3_EE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr align 4 %77, i64 %.idx, i1 false)
@@ -3660,7 +3660,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit148:                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %.body102
 
 .body102:                                         ; preds = %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.loopexit.split-lp, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.loopexit, %323, %.body111
-  %.pn.pn244 = phi { ptr, i32 } [ %.pn, %.body111 ], [ %.pn, %323 ], [ %lpad.loopexit.split-lp225, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.loopexit.split-lp ], [ %lpad.loopexit224, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.loopexit ]
+  %.pn.pn266 = phi { ptr, i32 } [ %.pn, %.body111 ], [ %.pn, %323 ], [ %lpad.loopexit.split-lp225, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.loopexit.split-lp ], [ %lpad.loopexit224, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.loopexit ]
   %.pre240 = phi ptr [ %107, %.body111 ], [ %.pre240.pre, %323 ], [ %107, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.loopexit.split-lp ], [ %107, %_ZNSt12_Vector_baseIiSaIiEED2Ev.exit.i.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i.i.i155 = icmp eq ptr %.pre240, null
@@ -3675,7 +3675,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit148:                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit157
 
 _ZNSt6vectorIfSaIfEED2Ev.exit157:                 ; preds = %_ZNSt12_Vector_baseIfSaIfEED2Ev.exit.i.loopexit.split-lp, %_ZNSt12_Vector_baseIfSaIfEED2Ev.exit.i.loopexit, %.body102, %326
-  %.pn.pn.pn247 = phi { ptr, i32 } [ %.pn.pn244, %.body102 ], [ %.pn.pn244, %326 ], [ %lpad.loopexit.split-lp222, %_ZNSt12_Vector_baseIfSaIfEED2Ev.exit.i.loopexit.split-lp ], [ %lpad.loopexit221, %_ZNSt12_Vector_baseIfSaIfEED2Ev.exit.i.loopexit ]
+  %.pn.pn.pn269 = phi { ptr, i32 } [ %.pn.pn266, %.body102 ], [ %.pn.pn266, %326 ], [ %lpad.loopexit.split-lp222, %_ZNSt12_Vector_baseIfSaIfEED2Ev.exit.i.loopexit.split-lp ], [ %lpad.loopexit221, %_ZNSt12_Vector_baseIfSaIfEED2Ev.exit.i.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %331 = load ptr, ptr %11, align 8, !tbaa !10
   %.not.i.i.i158 = icmp eq ptr %331, null
@@ -3691,7 +3691,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit157:                 ; preds = %_ZNSt12_Vector_base
 
 .body:                                            ; preds = %332, %_ZNSt6vectorIfSaIfEED2Ev.exit157
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  resume { ptr, i32 } %.pn.pn.pn247
+  resume { ptr, i32 } %.pn.pn.pn269
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN6open3d2ml7contrib8PointXYZESaIS3_EED2Ev.exit142, %10
   ret void
@@ -3752,9 +3752,9 @@ _ZSt22__uninitialized_move_aIPN6open3d2ml7contrib8PointXYZES4_SaIS3_EET0_T_S7_S6
   br i1 %34, label %35, label %37, !prof !111
 
 35:                                               ; preds = %_ZSt22__uninitialized_move_aIPN6open3d2ml7contrib8PointXYZES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %.neg71 = udiv exact i64 %33, 12
-  %.neg71.neg = sub nsw i64 0, %.neg71
-  %36 = getelementptr inbounds %"class.open3d::ml::contrib::PointXYZ", ptr %13, i64 %.neg71.neg
+  %.neg88 = udiv exact i64 %33, 12
+  %.neg88.neg = sub nsw i64 0, %.neg88
+  %36 = getelementptr inbounds %"class.open3d::ml::contrib::PointXYZ", ptr %13, i64 %.neg88.neg
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %1, i64 %33, i1 false)
   br label %_ZSt13move_backwardIPN6open3d2ml7contrib8PointXYZES4_ET0_T_S6_S5_.exit
 

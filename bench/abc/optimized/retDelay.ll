@@ -76,10 +76,10 @@ define internal fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 nounde
   %23 = getelementptr i8, ptr %0, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %.not371.i = icmp eq i32 %2, 0
+  %.not410.i = icmp eq i32 %2, 0
   %26 = getelementptr i8, ptr %0, i64 40
   %27 = getelementptr i8, ptr %0, i64 48
-  %28 = select i1 %.not371.i, ptr @.str.3, ptr @.str.2
+  %28 = select i1 %.not410.i, ptr @.str.3, ptr @.str.2
   %29 = icmp slt i32 %1, 1
   br label %30
 
@@ -369,10 +369,10 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
 
 .critedge.i:                                      ; preds = %148
   %155 = icmp sgt i32 %150, 0
-  br i1 %.not371.i, label %.preheader280.i, label %.preheader282.i
+  br i1 %.not410.i, label %.preheader280.i, label %.preheader282.i
 
 .critedge.thread.i:                               ; preds = %Vec_PtrAlloc.exit.i
-  br i1 %.not371.i, label %.critedge10.preheader.i, label %.critedge2.preheader.i
+  br i1 %.not410.i, label %.critedge10.preheader.i, label %.critedge2.preheader.i
 
 .preheader282.i:                                  ; preds = %.critedge.i
   br i1 %155, label %.lr.ph291.i, label %.critedge2.preheader.i
@@ -391,7 +391,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   br label %197
 
 .critedge2.preheader.i:                           ; preds = %.critedge4.i, %.preheader282.i, %.critedge.thread.i
-  %.val152372381.i = phi i32 [ %150, %.preheader282.i ], [ 0, %.critedge.thread.i ], [ %150, %.critedge4.i ]
+  %.val152411420.i = phi i32 [ %150, %.preheader282.i ], [ 0, %.critedge.thread.i ], [ %150, %.critedge4.i ]
   %.0.lcssa.i = phi i32 [ 0, %.preheader282.i ], [ 0, %.critedge.thread.i ], [ %.1.lcssa.i, %.critedge4.i ]
   %.val178298.i = load ptr, ptr %26, align 8, !tbaa !41
   %156 = getelementptr i8, ptr %.val178298.i, i64 4
@@ -495,7 +495,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   br i1 %194, label %.lr.ph303.i, label %.critedge6.i, !llvm.loop !47
 
 .critedge10.preheader.i:                          ; preds = %197, %.preheader280.i, %.critedge.thread.i
-  %.val152373385.i = phi i32 [ %150, %.preheader280.i ], [ 0, %.critedge.thread.i ], [ %150, %197 ]
+  %.val152412424.i = phi i32 [ %150, %.preheader280.i ], [ 0, %.critedge.thread.i ], [ %150, %197 ]
   %.7.lcssa.i = phi i32 [ 0, %.preheader280.i ], [ 0, %.critedge.thread.i ], [ %spec.select146.i, %197 ]
   %.val184309.i = load ptr, ptr %27, align 8, !tbaa !48
   %195 = getelementptr i8, ptr %.val184309.i, i64 4
@@ -555,8 +555,8 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   br i1 %219, label %.critedge10.i, label %.critedge6.i, !llvm.loop !51
 
 .critedge6.i:                                     ; preds = %.critedge8.i, %.critedge10.i, %.critedge10.preheader.i, %.critedge2.preheader.i
-  %.not375.i = phi i1 [ true, %.critedge10.preheader.i ], [ false, %.critedge2.preheader.i ], [ true, %.critedge10.i ], [ false, %.critedge8.i ]
-  %.val152374.i = phi i32 [ %.val152373385.i, %.critedge10.preheader.i ], [ %.val152372381.i, %.critedge2.preheader.i ], [ %.val152373385.i, %.critedge10.i ], [ %.val152372381.i, %.critedge8.i ]
+  %.not414.i = phi i1 [ true, %.critedge10.preheader.i ], [ false, %.critedge2.preheader.i ], [ true, %.critedge10.i ], [ false, %.critedge8.i ]
+  %.val152413.i = phi i32 [ %.val152412424.i, %.critedge10.preheader.i ], [ %.val152411420.i, %.critedge2.preheader.i ], [ %.val152412424.i, %.critedge10.i ], [ %.val152411420.i, %.critedge8.i ]
   %.6.i = phi i32 [ %.7.lcssa.i, %.critedge10.preheader.i ], [ %.0.lcssa.i, %.critedge2.preheader.i ], [ %spec.select147.i, %.critedge10.i ], [ %.4.lcssa.i, %.critedge8.i ]
   store i32 0, ptr %18, align 4, !tbaa !7
   %220 = load ptr, ptr %21, align 8, !tbaa !12
@@ -599,21 +599,21 @@ Abc_NtkIncrementTravId.exit195.i:                 ; preds = %Vec_IntFill.exit.i1
   %233 = load i32, ptr %22, align 8, !tbaa !33
   %234 = add nsw i32 %233, 1
   store i32 %234, ptr %22, align 8, !tbaa !33
-  %235 = icmp sgt i32 %.val152374.i, 0
-  br i1 %.not375.i, label %.preheader.i, label %.preheader278.i
+  %235 = icmp sgt i32 %.val152413.i, 0
+  br i1 %.not414.i, label %.preheader.i, label %.preheader278.i
 
 .preheader278.i:                                  ; preds = %Abc_NtkIncrementTravId.exit195.i
   br i1 %235, label %.lr.ph320.i, label %.critedge14.i
 
 .lr.ph320.i:                                      ; preds = %.preheader278.i
-  %wide.trip.count356.i = zext nneg i32 %.val152374.i to i64
+  %wide.trip.count356.i = zext nneg i32 %.val152413.i to i64
   br label %236
 
 .preheader.i:                                     ; preds = %Abc_NtkIncrementTravId.exit195.i
   br i1 %235, label %.lr.ph325.i, label %.critedge14.i
 
 .lr.ph325.i:                                      ; preds = %.preheader.i
-  %wide.trip.count364.i = zext nneg i32 %.val152374.i to i64
+  %wide.trip.count364.i = zext nneg i32 %.val152413.i to i64
   br label %389
 
 236:                                              ; preds = %.critedge16.i, %.lr.ph320.i
@@ -1348,7 +1348,7 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %544
   br i1 %exitcond.not, label %.critedge, label %564, !llvm.loop !57
 
 .critedge:                                        ; preds = %569, %.preheader
-  br i1 %.not371.i, label %570, label %571
+  br i1 %.not410.i, label %570, label %571
 
 570:                                              ; preds = %.critedge
   tail call void @Abc_NtkRetimeShareLatches(ptr noundef %0, i32 noundef %3) #11
@@ -1372,7 +1372,7 @@ Vec_PtrFree.exit:                                 ; preds = %573, %575
   br i1 %.not115, label %582, label %576
 
 576:                                              ; preds = %Vec_PtrFree.exit
-  br i1 %.not371.i, label %578, label %577
+  br i1 %.not410.i, label %578, label %577
 
 577:                                              ; preds = %576
   tail call void @Abc_NtkRetimeTranferFromCopy(ptr noundef %0) #11
@@ -1398,7 +1398,7 @@ Vec_IntFree.exit:                                 ; preds = %578, %581
   br i1 %or.cond114, label %586, label %583
 
 583:                                              ; preds = %582
-  %584 = select i1 %.not371.i, ptr @.str.6, ptr @.str.5
+  %584 = select i1 %.not410.i, ptr @.str.6, ptr @.str.5
   %585 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %584, i32 noundef %spec.select, i32 noundef %.182, i32 noundef %.185, i32 noundef %4)
   br label %586
 

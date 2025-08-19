@@ -827,8 +827,8 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
 
 48:                                               ; preds = %31
   %49 = add nsw i32 %.090137, -1
-  %.not144 = icmp eq i32 %.090137, 0
-  br i1 %.not144, label %.thread, label %31, !llvm.loop !72
+  %.not145 = icmp eq i32 %.090137, 0
+  br i1 %.not145, label %.thread, label %31, !llvm.loop !72
 
 50:                                               ; preds = %31
   %.not = icmp eq i32 %.090137, 0

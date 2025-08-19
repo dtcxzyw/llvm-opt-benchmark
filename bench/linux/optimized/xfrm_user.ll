@@ -2453,9 +2453,9 @@ define internal fastcc i32 @copy_to_user_state_extra(ptr noundef %0, ptr noundef
   %113 = call ptr @strncpy(ptr noundef %112, ptr noundef nonnull dereferenceable(1) %99, i64 noundef 64) #16
   %.pre40 = load i32, ptr %104, align 4
   %114 = icmp eq i32 %.pre40, 0
-  %or.cond42 = select i1 %103, i1 true, i1 %114
+  %or.cond71 = select i1 %103, i1 true, i1 %114
   %115 = getelementptr i8, ptr %109, i64 72
-  br i1 %or.cond42, label %120, label %116
+  br i1 %or.cond71, label %120, label %116
 
 116:                                              ; preds = %111
   %117 = add i32 %.pre40, 7
@@ -2488,9 +2488,9 @@ define internal fastcc i32 @copy_to_user_state_extra(ptr noundef %0, ptr noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(72) %134, ptr noundef nonnull align 4 dereferenceable(72) %99, i64 72, i1 false)
   %.pre41 = load i32, ptr %104, align 4
   %135 = icmp eq i32 %.pre41, 0
-  %or.cond43 = select i1 %103, i1 true, i1 %135
+  %or.cond72 = select i1 %103, i1 true, i1 %135
   %136 = getelementptr i8, ptr %131, i64 76
-  br i1 %or.cond43, label %141, label %137
+  br i1 %or.cond72, label %141, label %137
 
 137:                                              ; preds = %133
   %138 = add i32 %.pre41, 7
@@ -2532,9 +2532,9 @@ define internal fastcc i32 @copy_to_user_state_extra(ptr noundef %0, ptr noundef
   %163 = getelementptr i8, ptr %156, i64 68
   store i32 %162, ptr %163, align 4
   %164 = icmp eq i32 %162, 0
-  %or.cond44 = select i1 %159, i1 true, i1 %164
+  %or.cond73 = select i1 %159, i1 true, i1 %164
   %165 = getelementptr i8, ptr %156, i64 72
-  br i1 %or.cond44, label %170, label %166
+  br i1 %or.cond73, label %170, label %166
 
 166:                                              ; preds = %158
   %167 = add i32 %162, 7

@@ -1012,8 +1012,8 @@ vduse_dev_start_dataplane.exit:                   ; preds = %161, %.lr.ph.i, %11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %168
-  %.sink43 = phi ptr [ %171, %168 ], [ %12, %9 ]
-  %175 = load i32, ptr %.sink43, align 4
+  %.sink49 = phi ptr [ %171, %168 ], [ %12, %9 ]
+  %175 = load i32, ptr %.sink49, align 4
   %176 = sub i32 0, %175
   br label %177
 

@@ -266,13 +266,13 @@ define weak_odr hidden void @_ZN2lp13static_matrixI8rationalS1_E10get_domainEv(p
   br i1 %.sroa.04.0.i.i.i.i, label %._crit_edge.thread.i.i, label %42
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %29
-  %.020.lcssa29.i.i = phi ptr [ %.02125.i.i, %._crit_edge.i.i ], [ %3, %29 ]
+  %.020.lcssa30.i.i = phi ptr [ %.02125.i.i, %._crit_edge.i.i ], [ %3, %29 ]
   %38 = load ptr, ptr %5, align 8, !tbaa !13
-  %39 = icmp eq ptr %.020.lcssa29.i.i, %38
+  %39 = icmp eq ptr %.020.lcssa30.i.i, %38
   br i1 %39, label %select.unfold.i, label %40
 
 40:                                               ; preds = %._crit_edge.thread.i.i
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i.i) #22
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i.i) #22
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !24
   %.phi.trans.insert20.i = getelementptr inbounds nuw i8, ptr %41, i64 36
@@ -282,7 +282,7 @@ define weak_odr hidden void @_ZN2lp13static_matrixI8rationalS1_E10get_domainEv(p
 42:                                               ; preds = %40, %._crit_edge.i.i
   %43 = phi i32 [ %.pre21.i, %40 ], [ %36, %._crit_edge.i.i ]
   %44 = phi i32 [ %.pre.i, %40 ], [ %32, %._crit_edge.i.i ]
-  %.020.lcssa30.i.i = phi ptr [ %.020.lcssa29.i.i, %40 ], [ %.02125.i.i, %._crit_edge.i.i ]
+  %.020.lcssa29.i.i = phi ptr [ %.020.lcssa30.i.i, %40 ], [ %.02125.i.i, %._crit_edge.i.i ]
   %45 = icmp eq i32 %44, %storemerge17
   %46 = icmp ult i32 %44, %storemerge17
   %47 = icmp ult i32 %43, %30
@@ -290,7 +290,7 @@ define weak_odr hidden void @_ZN2lp13static_matrixI8rationalS1_E10get_domainEv(p
   br i1 %.sroa.04.0.i.i5.i.i, label %select.unfold.i, label %62
 
 select.unfold.i:                                  ; preds = %42, %._crit_edge.thread.i.i
-  %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa30.i.i, %42 ]
+  %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa30.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa29.i.i, %42 ]
   %48 = icmp eq ptr %.sroa.4.0.i.ph.i, %3
   br i1 %48, label %_ZNSt8_Rb_treeISt4pairIjjES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i, label %49
 
@@ -436,13 +436,13 @@ define weak_odr hidden void @_ZN2lp13static_matrixI8rationalNS_12numeric_pairIS1
   br i1 %.sroa.04.0.i.i.i.i, label %._crit_edge.thread.i.i, label %42
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %29
-  %.020.lcssa29.i.i = phi ptr [ %.02125.i.i, %._crit_edge.i.i ], [ %3, %29 ]
+  %.020.lcssa30.i.i = phi ptr [ %.02125.i.i, %._crit_edge.i.i ], [ %3, %29 ]
   %38 = load ptr, ptr %5, align 8, !tbaa !13
-  %39 = icmp eq ptr %.020.lcssa29.i.i, %38
+  %39 = icmp eq ptr %.020.lcssa30.i.i, %38
   br i1 %39, label %select.unfold.i, label %40
 
 40:                                               ; preds = %._crit_edge.thread.i.i
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i.i) #22
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i.i) #22
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !24
   %.phi.trans.insert20.i = getelementptr inbounds nuw i8, ptr %41, i64 36
@@ -452,7 +452,7 @@ define weak_odr hidden void @_ZN2lp13static_matrixI8rationalNS_12numeric_pairIS1
 42:                                               ; preds = %40, %._crit_edge.i.i
   %43 = phi i32 [ %.pre21.i, %40 ], [ %36, %._crit_edge.i.i ]
   %44 = phi i32 [ %.pre.i, %40 ], [ %32, %._crit_edge.i.i ]
-  %.020.lcssa30.i.i = phi ptr [ %.020.lcssa29.i.i, %40 ], [ %.02125.i.i, %._crit_edge.i.i ]
+  %.020.lcssa29.i.i = phi ptr [ %.020.lcssa30.i.i, %40 ], [ %.02125.i.i, %._crit_edge.i.i ]
   %45 = icmp eq i32 %44, %storemerge17
   %46 = icmp ult i32 %44, %storemerge17
   %47 = icmp ult i32 %43, %30
@@ -460,7 +460,7 @@ define weak_odr hidden void @_ZN2lp13static_matrixI8rationalNS_12numeric_pairIS1
   br i1 %.sroa.04.0.i.i5.i.i, label %select.unfold.i, label %62
 
 select.unfold.i:                                  ; preds = %42, %._crit_edge.thread.i.i
-  %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa30.i.i, %42 ]
+  %.sroa.4.0.i.ph.i = phi ptr [ %.020.lcssa30.i.i, %._crit_edge.thread.i.i ], [ %.020.lcssa29.i.i, %42 ]
   %48 = icmp eq ptr %.sroa.4.0.i.ph.i, %3
   br i1 %48, label %_ZNSt8_Rb_treeISt4pairIjjES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i, label %49
 
@@ -4059,11 +4059,11 @@ _ZNK6vectorIiLb1EjE4sizeEv.exit.thread.i.i:       ; preds = %3
 
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIiLb1EjE4sizeEv.exit.i.i, %_ZNK6vectorIiLb1EjE4sizeEv.exit.thread.i.i
   %.ph = phi i32 [ %24, %_ZNK6vectorIiLb1EjE4sizeEv.exit.thread.i.i ], [ %14, %_ZNK6vectorIiLb1EjE4sizeEv.exit.i.i ]
-  %.ph2 = phi ptr [ %5, %_ZNK6vectorIiLb1EjE4sizeEv.exit.thread.i.i ], [ null, %_ZNK6vectorIiLb1EjE4sizeEv.exit.i.i ]
+  %.ph6 = phi ptr [ %5, %_ZNK6vectorIiLb1EjE4sizeEv.exit.thread.i.i ], [ null, %_ZNK6vectorIiLb1EjE4sizeEv.exit.i.i ]
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIiLb1EjE8capacityEv.exit.thread.i.i
-  %25 = phi ptr [ %.pr.pre.i.i, %_ZNK6vectorIiLb1EjE8capacityEv.exit.thread.i.i ], [ %.ph2, %thread-pre-split.i.i.preheader ]
+  %25 = phi ptr [ %.pr.pre.i.i, %_ZNK6vectorIiLb1EjE8capacityEv.exit.thread.i.i ], [ %.ph6, %thread-pre-split.i.i.preheader ]
   %26 = icmp eq ptr %25, null
   br i1 %26, label %_ZNK6vectorIiLb1EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIiLb1EjE8capacityEv.exit.i.i
 
@@ -4086,7 +4086,7 @@ _ZNK6vectorIiLb1EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIiLb1EjE
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %25, i8 -1, i64 %32, i1 false), !tbaa !24
   br label %_ZN2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE26init_vector_of_row_offsetsEv.exit
 
-_ZN2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE26init_vector_of_row_offsetsEv.exit: ; preds = %_ZNK6vectorIiLb1EjE4sizeEv.exit.thread.i.i, %_ZNK6vectorIiLb1EjE4sizeEv.exit.i.i, %.lr.ph.preheader.i.i
+_ZN2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE26init_vector_of_row_offsetsEv.exit: ; preds = %_ZNK6vectorIiLb1EjE4sizeEv.exit.i.i, %_ZNK6vectorIiLb1EjE4sizeEv.exit.thread.i.i, %.lr.ph.preheader.i.i
   ret void
 }
 

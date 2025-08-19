@@ -1524,11 +1524,11 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i: ; 
   br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_6object12OwningBinaryINS1_6BinaryEEEED2Ev.exit, label %_ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit.sink.split.i
 
 _ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit.sink.split.i: ; preds = %80, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i
-  %.sink4.i = phi ptr [ %79, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %81, %80 ]
-  %82 = load ptr, ptr %.sink4.i, align 8, !tbaa !3
+  %.sink6.i = phi ptr [ %79, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i ], [ %81, %80 ]
+  %82 = load ptr, ptr %.sink6.i, align 8, !tbaa !3
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %.sink4.i) #17
+  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %.sink6.i) #17
   br label %_ZN4llvm8ExpectedINS_6object12OwningBinaryINS1_6BinaryEEEED2Ev.exit
 
 _ZN4llvm8ExpectedINS_6object12OwningBinaryINS1_6BinaryEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i, %80, %_ZN4llvm6object12OwningBinaryINS0_6BinaryEED2Ev.exit.sink.split.i
@@ -1564,7 +1564,7 @@ define dso_local void @_ZN4llvm3pdb13NativeSession12searchForPdbB5cxx11ERKNS1_16
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %.thread57, label %22
+  br i1 %21, label %.thread68, label %22
 
 22:                                               ; preds = %2
   %23 = load ptr, ptr %8, align 8, !tbaa !214
@@ -1798,7 +1798,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_3pdb7PDBFileESt14default_deleteIS3_EEED2Ev.e
   %106 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %107 = load i8, ptr %106, align 8
   %108 = trunc i8 %107 to i1
-  br i1 %108, label %.thread55, label %109
+  br i1 %108, label %.thread66, label %109
 
 109:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -1875,7 +1875,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   %.pre50 = load i64, ptr %124, align 8, !tbaa !217
   br label %143
 
-.thread55:                                        ; preds = %105
+.thread66:                                        ; preds = %105
   %138 = load i64, ptr %17, align 8, !tbaa !15, !noalias !271
   %139 = inttoptr i64 %138 to ptr
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1901,7 +1901,7 @@ _ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.spli
   call void %148(ptr noundef nonnull align 8 dereferenceable(8) %.pre51) #17
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_3pdb7PDBFileESt14default_deleteIS3_EEED2Ev.exit29
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_3pdb7PDBFileESt14default_deleteIS3_EEED2Ev.exit29: ; preds = %.thread55, %143, %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i28
+_ZN4llvm8ExpectedISt10unique_ptrINS_3pdb7PDBFileESt14default_deleteIS3_EEED2Ev.exit29: ; preds = %.thread66, %143, %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i28
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit
 
@@ -1924,7 +1924,7 @@ _ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm40
   %153 = trunc i8 %.pre52 to i1
   br i1 %153, label %167, label %159
 
-.thread57:                                        ; preds = %2
+.thread68:                                        ; preds = %2
   %154 = load i64, ptr %8, align 8, !tbaa !15, !noalias !277
   %155 = inttoptr i64 %154 to ptr
   store ptr null, ptr %8, align 8, !tbaa !15, !noalias !277
@@ -1964,7 +1964,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %167
   call void %170(ptr noundef nonnull align 8 dereferenceable(8) %.pre53) #17
   br label %_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %.thread57, %167, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %.thread68, %167, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -2319,7 +2319,7 @@ _ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEED2Ev.exit23: ; preds = %_ZN
 
 111:                                              ; preds = %_ZN4llvm16FixedStreamArrayINS_6object12coff_sectionEED2Ev.exit23
   call void @llvm.assume(i1 true) [ "align"(ptr %110, i64 1) ]
-  %112 = sub nuw i32 %1, %.0.copyload.i.i.i
+  %112 = sub nuw nsw i32 %1, %.0.copyload.i.i.i
   store i32 %112, ptr %3, align 4, !tbaa !171
   %113 = load i32, ptr %2, align 4, !tbaa !171
   %114 = add i32 %113, 1
@@ -4884,11 +4884,11 @@ _ZN4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE14const_iterator7se
   br label %_ZN4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE14const_iterator7setRootEj.exit.i
 
 _ZN4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE14const_iterator7setRootEj.exit.i: ; preds = %_ZN4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE14const_iterator7setRootEj.exit.sink.split.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImtLj8ENS_23IntervalMapHalfOpenInfoImEEE8findFromEjjm.exit.i
-  %.sink7.i = phi i64 [ %20, %_ZN4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE14const_iterator7setRootEj.exit.sink.split.i ], [ 0, %_ZNK4llvm15IntervalMapImpl10BranchNodeImtLj8ENS_23IntervalMapHalfOpenInfoImEEE8findFromEjjm.exit.i ]
+  %.sink8.i = phi i64 [ %20, %_ZN4llvm11IntervalMapImtLj8ENS_23IntervalMapHalfOpenInfoImEEE14const_iterator7setRootEj.exit.sink.split.i ], [ 0, %_ZNK4llvm15IntervalMapImpl10BranchNodeImtLj8ENS_23IntervalMapHalfOpenInfoImEEE8findFromEjjm.exit.i ]
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %7 to i64
   %.sroa.2.8.insert.insert.i.i.i = or disjoint i64 %.0.lcssa.i.i, %.sroa.2.8.insert.ext.i.i.i
   %21 = load ptr, ptr %15, align 8, !tbaa !85
-  %22 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %21, i64 %.sink7.i
+  %22 = getelementptr inbounds nuw %"struct.llvm::IntervalMapImpl::Path::Entry", ptr %21, i64 %.sink8.i
   store ptr %..i, ptr %22, align 1
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %.sroa.2.8.insert.insert.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 1

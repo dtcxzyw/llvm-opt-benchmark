@@ -536,9 +536,9 @@ default.unreachable:                              ; preds = %9
   br i1 %.not76, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pn85.in = and i8 %5, 3
-  %.pn85 = zext nneg i8 %.pn85.in to i64
-  %.pn = getelementptr i8, ptr %0, i64 %.pn85
+  %.pn90.in = and i8 %5, 3
+  %.pn90 = zext nneg i8 %.pn90.in to i64
+  %.pn = getelementptr i8, ptr %0, i64 %.pn90
   %.us-phi = getelementptr i8, ptr %.pn, i64 2
   br label %.lr.ph
 

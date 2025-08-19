@@ -645,7 +645,7 @@ _ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i
   br label %101
 
 101:                                              ; preds = %.sink.split.i.i, %.lr.ph.i9.i
-  %102 = phi i64 [ %.promoted.i5.i, %.lr.ph.i9.i ], [ %.ph83.i.i, %.sink.split.i.i ]
+  %102 = phi i64 [ %.promoted.i5.i, %.lr.ph.i9.i ], [ %.ph90.i.i, %.sink.split.i.i ]
   %103 = phi i64 [ %81, %.lr.ph.i9.i ], [ %.sink.i.i, %.sink.split.i.i ]
   %104 = phi i64 [ %94, %.lr.ph.i9.i ], [ %115, %.sink.split.i.i ]
   %105 = getelementptr inbounds i8, ptr %84, i64 %104
@@ -667,8 +667,8 @@ _ZN4core3str11validations15next_code_point17h2946b9a279b50c17E.exit.thread.i.i.i
 
 .sink.split.i.i:                                  ; preds = %145, %132, %112
   %.sink.i.i = phi i64 [ %100, %132 ], [ 0, %145 ], [ 0, %112 ]
-  %.ph83.i.i = phi i64 [ %133, %132 ], [ %147, %145 ], [ %113, %112 ]
-  %115 = add i64 %.ph83.i.i, %92
+  %.ph90.i.i = phi i64 [ %133, %132 ], [ %147, %145 ], [ %113, %112 ]
+  %115 = add i64 %.ph90.i.i, %92
   %.not37.i15.i = icmp ult i64 %115, %86
   br i1 %.not37.i15.i, label %101, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17hc6926125bb80bb2aE.exit"
 
@@ -1345,10 +1345,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %38
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc22fe75cddb52669E.exit69"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc22fe75cddb52669E.exit69": ; preds = %.noexc71, %.critedge, %.noexc68, %137
-  %.sink139 = phi i64 [ %.pre.i67, %.noexc68 ], [ %114, %137 ], [ %.pre.i70, %.noexc71 ], [ %114, %.critedge ]
+  %.sink170 = phi i64 [ %.pre.i67, %.noexc68 ], [ %114, %137 ], [ %.pre.i70, %.noexc71 ], [ %114, %.critedge ]
   %.sink = phi i8 [ 46, %.noexc68 ], [ 46, %137 ], [ %116, %.noexc71 ], [ %116, %.critedge ]
   %140 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %141 = getelementptr inbounds i8, ptr %140, i64 %.sink139
+  %141 = getelementptr inbounds i8, ptr %140, i64 %.sink170
   store i8 %.sink, ptr %141, align 1
   %142 = load i64, ptr %22, align 8, !noundef !4
   %storemerge110 = add i64 %142, 1

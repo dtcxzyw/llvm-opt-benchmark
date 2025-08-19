@@ -824,13 +824,13 @@ lean_nat_lt.exit:                                 ; preds = %16, %15, %13
 
 lean_nat_lt.exit.thread:                          ; preds = %6
   %18 = getelementptr i8, ptr %8, i64 8
-  %.val72 = load i64, ptr %18, align 8, !tbaa !12
-  %.mask73 = and i64 %.val72, 9223372036854775807
-  %.not6674 = icmp eq i64 %.mask73, 0
-  br i1 %.not6674, label %lean_dec.exit43, label %lean_dec.exit40.thread
+  %.val77 = load i64, ptr %18, align 8, !tbaa !12
+  %.mask78 = and i64 %.val77, 9223372036854775807
+  %.not6679 = icmp eq i64 %.mask78, 0
+  br i1 %.not6679, label %lean_dec.exit43, label %lean_dec.exit40.thread
 
 lean_dec.exit40.thread:                           ; preds = %lean_nat_lt.exit.thread
-  %19 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinatorAttribute___spec__2(ptr noundef nonnull %8, i64 noundef 0, i64 noundef %.mask73, ptr noundef %.03370)
+  %19 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinatorAttribute___spec__2(ptr noundef nonnull %8, i64 noundef 0, i64 noundef %.mask78, ptr noundef %.03370)
   br label %lean_dec.exit43
 
 lean_dec.exit44:                                  ; preds = %lean_nat_lt.exit
@@ -6947,18 +6947,18 @@ _init_l_Lean_ParserCompiler_registerCombinatorAttribute___closed__3.exit: ; pred
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_ParserCompiler_registerCombinatorAttribute___closed__3.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %310, %_init_l_Lean_ParserCompiler_registerCombinatorAttribute___closed__3.exit ]
-  %313 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !8
+  %.sink57 = phi ptr [ %4, %3 ], [ %310, %_init_l_Lean_ParserCompiler_registerCombinatorAttribute___closed__3.exit ]
+  %313 = getelementptr inbounds nuw i8, ptr %.sink57, i64 4
+  store i32 1, ptr %.sink57, align 4, !tbaa !8
   store i32 131096, ptr %313, align 4
-  %314 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %.sink57, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %314, align 8, !tbaa !4
-  %315 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %.sink57, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %315, align 8, !tbaa !4
   br label %316
 
 316:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink57, %.sink.split ]
   ret ptr %.0
 }
 

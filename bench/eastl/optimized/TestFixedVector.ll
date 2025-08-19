@@ -8656,14 +8656,14 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN5eastl6vectorI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE6DoGrowEm.exit
 
 _ZN5eastl6vectorI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE6DoGrowEm.exit: ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE10DoAllocateEm.exit.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i, %for.cond.for.end_crit_edge.i.i.i
-  %retval.sroa.0.0.lcssa.i.i.i8.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i ], [ %incdec.ptr.i1.i.i.i.i, %for.cond.for.end_crit_edge.i.i.i ], [ null, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE10DoAllocateEm.exit.i ]
+  %retval.sroa.0.0.lcssa.i.i.i11.i = phi ptr [ %incdec.ptr.i1.i.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit.i ], [ %incdec.ptr.i1.i.i.i.i, %for.cond.for.end_crit_edge.i.i.i ], [ null, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE10DoAllocateEm.exit.i ]
   store ptr null, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr null, i64 %cond.i
   store ptr %add.ptr.i, ptr %mCapacityAllocator.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5eastl6vectorI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE6DoGrowEm.exit, %entry
-  %10 = phi ptr [ %retval.sroa.0.0.lcssa.i.i.i8.i, %_ZN5eastl6vectorI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE6DoGrowEm.exit ], [ %0, %entry ]
+  %10 = phi ptr [ %retval.sroa.0.0.lcssa.i.i.i11.i, %_ZN5eastl6vectorI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb0ENS_15dummy_allocatorEEEE6DoGrowEm.exit ], [ %0, %entry ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %incdec.ptr, ptr %mpEnd, align 8
   ret ptr %10
@@ -9873,8 +9873,8 @@ for.body.i.i453:                                  ; preds = %land.rhs.i, %for.bo
   %incdec.ptr.i.i457 = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i455, i64 4
   %incdec.ptr2.i.i458 = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i454, i64 4
   %cmp.not.i.i459 = icmp eq ptr %incdec.ptr.i.i457, %117
-  %or.cond2847 = select i1 %cmp1.i.i.not, i1 true, i1 %cmp.not.i.i459
-  br i1 %or.cond2847, label %_ZN5eastleqIiNS_22fixed_vector_allocatorILm4ELm8ELm4ELm0ELb0ENS_15dummy_allocatorEEEEEbRKNS_6vectorIT_T0_EES9_.exit, label %for.body.i.i453, !llvm.loop !15
+  %or.cond3031 = select i1 %cmp1.i.i.not, i1 true, i1 %cmp.not.i.i459
+  br i1 %or.cond3031, label %_ZN5eastleqIiNS_22fixed_vector_allocatorILm4ELm8ELm4ELm0ELb0ENS_15dummy_allocatorEEEEEbRKNS_6vectorIT_T0_EES9_.exit, label %for.body.i.i453, !llvm.loop !15
 
 _ZN5eastleqIiNS_22fixed_vector_allocatorILm4ELm8ELm4ELm0ELb0ENS_15dummy_allocatorEEEEEbRKNS_6vectorIT_T0_EES9_.exit: ; preds = %for.body.i.i453, %invoke.cont251, %land.rhs.i
   %lnot = phi i1 [ true, %invoke.cont251 ], [ false, %land.rhs.i ], [ %cmp1.i.i.not, %for.body.i.i453 ]
@@ -9947,8 +9947,8 @@ for.body.i.i485:                                  ; preds = %land.rhs.i483, %for
   %incdec.ptr.i.i490 = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i487, i64 4
   %incdec.ptr2.i.i491 = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i486, i64 4
   %cmp.not.i.i492 = icmp ne ptr %incdec.ptr.i.i490, %129
-  %or.cond2848.not = select i1 %cmp1.i.i488, i1 %cmp.not.i.i492, i1 false
-  br i1 %or.cond2848.not, label %for.body.i.i485, label %_ZN5eastleqIiNS_22fixed_vector_allocatorILm4ELm8ELm4ELm0ELb0ENS_15dummy_allocatorEEEEEbRKNS_6vectorIT_T0_EES9_.exit493, !llvm.loop !15
+  %or.cond3032.not = select i1 %cmp1.i.i488, i1 %cmp.not.i.i492, i1 false
+  br i1 %or.cond3032.not, label %for.body.i.i485, label %_ZN5eastleqIiNS_22fixed_vector_allocatorILm4ELm8ELm4ELm0ELb0ENS_15dummy_allocatorEEEEEbRKNS_6vectorIT_T0_EES9_.exit493, !llvm.loop !15
 
 _ZN5eastleqIiNS_22fixed_vector_allocatorILm4ELm8ELm4ELm0ELb0ENS_15dummy_allocatorEEEEEbRKNS_6vectorIT_T0_EES9_.exit493: ; preds = %for.body.i.i485, %invoke.cont257, %land.rhs.i483
   %132 = phi i1 [ false, %invoke.cont257 ], [ true, %land.rhs.i483 ], [ %cmp1.i.i488, %for.body.i.i485 ]
@@ -9982,8 +9982,8 @@ for.body.i.i505:                                  ; preds = %lor.rhs.i503, %for.
   %incdec.ptr.i.i510 = getelementptr inbounds nuw i8, ptr %first1.addr.05.i.i507, i64 4
   %incdec.ptr2.i.i511 = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i506, i64 4
   %cmp.not.i.i512 = icmp ne ptr %incdec.ptr.i.i510, %133
-  %or.cond2849.not = select i1 %cmp1.i.not.i508, i1 %cmp.not.i.i512, i1 false
-  br i1 %or.cond2849.not, label %for.body.i.i505, label %invoke.cont263, !llvm.loop !15
+  %or.cond3033.not = select i1 %cmp1.i.not.i508, i1 %cmp.not.i.i512, i1 false
+  br i1 %or.cond3033.not, label %for.body.i.i505, label %invoke.cont263, !llvm.loop !15
 
 invoke.cont263:                                   ; preds = %for.body.i.i505, %lor.rhs.i503, %invoke.cont261
   %lnot265 = phi i1 [ false, %invoke.cont261 ], [ true, %lor.rhs.i503 ], [ %cmp1.i.not.i508, %for.body.i.i505 ]
@@ -14159,7 +14159,7 @@ for.end13:                                        ; preds = %for.inc, %for.inc.u
   br i1 %bReturnValue.0.lcssa, label %if.then15, label %if.end49
 
 if.then15:                                        ; preds = %entry, %for.end13
-  %argIndex.0.lcssa46 = phi i32 [ %argIndex.0.lcssa, %for.end13 ], [ 0, %entry ]
+  %argIndex.0.lcssa47 = phi i32 [ %argIndex.0.lcssa, %for.end13 ], [ 0, %entry ]
   %gp_offset18 = load i32, ptr %args, align 16
   %fits_in_gp19 = icmp ult i32 %gp_offset18, 41
   br i1 %fits_in_gp19, label %vaarg.in_reg20, label %vaarg.in_mem22
@@ -14197,7 +14197,7 @@ do.body.preheader:                                ; preds = %vaarg.end26
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end41
   %overflow_arg_area3939 = phi ptr [ %overflow_arg_area3938, %vaarg.end41 ], [ %overflow_arg_area_p38.promoted, %do.body.preheader ]
   %gp_offset3337 = phi i32 [ %gp_offset3336, %vaarg.end41 ], [ %args.promoted, %do.body.preheader ]
-  %argIndex.1 = phi i32 [ %inc30, %vaarg.end41 ], [ %argIndex.0.lcssa46, %do.body.preheader ]
+  %argIndex.1 = phi i32 [ %inc30, %vaarg.end41 ], [ %argIndex.0.lcssa47, %do.body.preheader ]
   %inc30 = add nuw nsw i32 %argIndex.1, 1
   %fits_in_gp34 = icmp ult i32 %gp_offset3337, 41
   br i1 %fits_in_gp34, label %vaarg.in_reg35, label %vaarg.in_mem37
@@ -14227,11 +14227,11 @@ do.end:                                           ; preds = %vaarg.end41
   br i1 %tobool44.not, label %if.else46, label %if.then45
 
 if.then45:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.104, ptr noundef nonnull %pName, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa46)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.104, ptr noundef nonnull %pName, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa47)
   br label %if.end49
 
 if.else46:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.105, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa46)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.105, i32 noundef %inc30, i32 noundef %argIndex.0.lcssa47)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then45, %if.else46, %vaarg.end26, %for.end13
@@ -14376,7 +14376,7 @@ for.end15:                                        ; preds = %for.inc, %for.inc.u
   br i1 %bReturnValue.0.lcssa, label %if.then17, label %if.end52
 
 if.then17:                                        ; preds = %entry, %for.end15
-  %argIndex.0.lcssa53 = phi i32 [ %argIndex.0.lcssa, %for.end15 ], [ 0, %entry ]
+  %argIndex.0.lcssa54 = phi i32 [ %argIndex.0.lcssa, %for.end15 ], [ 0, %entry ]
   %gp_offset20 = load i32, ptr %args, align 16
   %fits_in_gp21 = icmp ult i32 %gp_offset20, 41
   br i1 %fits_in_gp21, label %vaarg.in_reg22, label %vaarg.in_mem24
@@ -14414,7 +14414,7 @@ do.body.preheader:                                ; preds = %vaarg.end28
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end43
   %overflow_arg_area4146 = phi ptr [ %overflow_arg_area4145, %vaarg.end43 ], [ %overflow_arg_area_p40.promoted, %do.body.preheader ]
   %gp_offset3544 = phi i32 [ %gp_offset3543, %vaarg.end43 ], [ %args.promoted, %do.body.preheader ]
-  %argIndex.1 = phi i32 [ %inc32, %vaarg.end43 ], [ %argIndex.0.lcssa53, %do.body.preheader ]
+  %argIndex.1 = phi i32 [ %inc32, %vaarg.end43 ], [ %argIndex.0.lcssa54, %do.body.preheader ]
   %inc32 = add nuw nsw i32 %argIndex.1, 1
   %fits_in_gp36 = icmp ult i32 %gp_offset3544, 41
   br i1 %fits_in_gp36, label %vaarg.in_reg37, label %vaarg.in_mem39
@@ -14444,11 +14444,11 @@ do.end:                                           ; preds = %vaarg.end43
   br i1 %tobool47.not, label %if.else49, label %if.then48
 
 if.then48:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.104, ptr noundef nonnull %pName, i32 noundef %inc32, i32 noundef %argIndex.0.lcssa53)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.104, ptr noundef nonnull %pName, i32 noundef %inc32, i32 noundef %argIndex.0.lcssa54)
   br label %if.end52
 
 if.else49:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.105, i32 noundef %inc32, i32 noundef %argIndex.0.lcssa53)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.105, i32 noundef %inc32, i32 noundef %argIndex.0.lcssa54)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then48, %if.else49, %vaarg.end28, %for.end15
@@ -14627,7 +14627,7 @@ for.end12:                                        ; preds = %for.inc, %for.inc.u
   br i1 %bReturnValue.0.lcssa, label %if.then14, label %if.end49
 
 if.then14:                                        ; preds = %entry, %for.end12
-  %argIndex.0.lcssa46 = phi i32 [ %argIndex.0.lcssa, %for.end12 ], [ 0, %entry ]
+  %argIndex.0.lcssa47 = phi i32 [ %argIndex.0.lcssa, %for.end12 ], [ 0, %entry ]
   %gp_offset17 = load i32, ptr %args, align 16
   %fits_in_gp18 = icmp ult i32 %gp_offset17, 41
   br i1 %fits_in_gp18, label %vaarg.in_reg19, label %vaarg.in_mem21
@@ -14665,7 +14665,7 @@ do.body.preheader:                                ; preds = %vaarg.end25
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end40
   %overflow_arg_area3839 = phi ptr [ %overflow_arg_area3838, %vaarg.end40 ], [ %overflow_arg_area_p37.promoted, %do.body.preheader ]
   %gp_offset3237 = phi i32 [ %gp_offset3236, %vaarg.end40 ], [ %args.promoted, %do.body.preheader ]
-  %argIndex.1 = phi i32 [ %inc29, %vaarg.end40 ], [ %argIndex.0.lcssa46, %do.body.preheader ]
+  %argIndex.1 = phi i32 [ %inc29, %vaarg.end40 ], [ %argIndex.0.lcssa47, %do.body.preheader ]
   %inc29 = add nuw nsw i32 %argIndex.1, 1
   %fits_in_gp33 = icmp ult i32 %gp_offset3237, 41
   br i1 %fits_in_gp33, label %vaarg.in_reg34, label %vaarg.in_mem36
@@ -14695,11 +14695,11 @@ do.end:                                           ; preds = %vaarg.end40
   br i1 %tobool44.not, label %if.else46, label %if.then45
 
 if.then45:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.104, ptr noundef nonnull %pName, i32 noundef %inc29, i32 noundef %argIndex.0.lcssa46)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.104, ptr noundef nonnull %pName, i32 noundef %inc29, i32 noundef %argIndex.0.lcssa47)
   br label %if.end49
 
 if.else46:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.105, i32 noundef %inc29, i32 noundef %argIndex.0.lcssa46)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.105, i32 noundef %inc29, i32 noundef %argIndex.0.lcssa47)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then45, %if.else46, %vaarg.end25, %for.end12
@@ -17460,7 +17460,7 @@ for.cond.for.end_crit_edge.i.i:                   ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit:    ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoAllocateEm.exit, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, %for.cond.for.end_crit_edge.i.i
-  %retval.sroa.0.0.lcssa.i.i.i11 = phi ptr [ %incdec.ptr.i1.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %incdec.ptr.i1.i.i.i, %for.cond.for.end_crit_edge.i.i ], [ %retval.0.i, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoAllocateEm.exit ]
+  %retval.sroa.0.0.lcssa.i.i.i16 = phi ptr [ %incdec.ptr.i1.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %incdec.ptr.i1.i.i.i, %for.cond.for.end_crit_edge.i.i ], [ %retval.0.i, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoAllocateEm.exit ]
   %9 = phi ptr [ %.pre, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %.pre8, %for.cond.for.end_crit_edge.i.i ], [ %0, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoAllocateEm.exit ]
   %tobool.not.i4 = icmp eq ptr %9, null
   %mpPoolBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -17476,7 +17476,7 @@ delete.notnull.i.i.i:                             ; preds = %_ZN5eastl8destructI
 _ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm1ELm8ELm0ELb1ENS_9allocatorEEEE6DoFreeEPS1_m.exit: ; preds = %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit, %delete.notnull.i.i.i
   %mCapacityAllocator.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %retval.0.i, ptr %this, align 8
-  store ptr %retval.sroa.0.0.lcssa.i.i.i11, ptr %mpEnd, align 8
+  store ptr %retval.sroa.0.0.lcssa.i.i.i16, ptr %mpEnd, align 8
   %add.ptr = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %n
   store ptr %add.ptr, ptr %mCapacityAllocator.i, align 8
   ret void
@@ -20062,7 +20062,7 @@ _ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit69: ; pre
   br i1 %cmp4.i.i.i.i73, label %for.body.preheader.i.i.i.i75, label %if.end
 
 for.body.preheader.i.i.i.i75:                     ; preds = %_ZN5eastl22uninitialized_move_ptrIP10TestObjectS2_S2_EET1_T_T0_S3_.exit69
-  %add.ptr30 = getelementptr inbounds i8, ptr %position, i64 %sub.ptr.sub8
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %position, i64 %sub.ptr.sub8
   %sub.ptr.div9.i.i.i.i76 = udiv exact i64 %sub.ptr.sub8, 24
   %.pre8.i.i.i.i77 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i78
@@ -20573,7 +20573,7 @@ for.cond.for.end_crit_edge.i.i:                   ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit
 
 _ZN5eastl8destructIP10TestObjectEEvT_S3_.exit:    ; preds = %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm15ELm8ELm0ELb1ENS_9allocatorEEEE10DoAllocateEm.exit, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit, %for.cond.for.end_crit_edge.i.i
-  %retval.sroa.0.0.lcssa.i.i.i11 = phi ptr [ %incdec.ptr.i1.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %incdec.ptr.i1.i.i.i, %for.cond.for.end_crit_edge.i.i ], [ %retval.0.i, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm15ELm8ELm0ELb1ENS_9allocatorEEEE10DoAllocateEm.exit ]
+  %retval.sroa.0.0.lcssa.i.i.i16 = phi ptr [ %incdec.ptr.i1.i.i.i, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %incdec.ptr.i1.i.i.i, %for.cond.for.end_crit_edge.i.i ], [ %retval.0.i, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm15ELm8ELm0ELb1ENS_9allocatorEEEE10DoAllocateEm.exit ]
   %9 = phi ptr [ %.pre, %_ZN5eastl34uninitialized_move_ptr_if_noexceptIP10TestObjectS2_S2_EET1_T_T0_S3_.exit ], [ %.pre8, %for.cond.for.end_crit_edge.i.i ], [ %0, %_ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm15ELm8ELm0ELb1ENS_9allocatorEEEE10DoAllocateEm.exit ]
   %tobool.not.i4 = icmp eq ptr %9, null
   %mpPoolBegin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -20589,7 +20589,7 @@ delete.notnull.i.i.i:                             ; preds = %_ZN5eastl8destructI
 _ZN5eastl10VectorBaseI10TestObjectNS_22fixed_vector_allocatorILm24ELm15ELm8ELm0ELb1ENS_9allocatorEEEE6DoFreeEPS1_m.exit: ; preds = %_ZN5eastl8destructIP10TestObjectEEvT_S3_.exit, %delete.notnull.i.i.i
   %mCapacityAllocator.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %retval.0.i, ptr %this, align 8
-  store ptr %retval.sroa.0.0.lcssa.i.i.i11, ptr %mpEnd, align 8
+  store ptr %retval.sroa.0.0.lcssa.i.i.i16, ptr %mpEnd, align 8
   %add.ptr = getelementptr inbounds %struct.TestObject, ptr %retval.0.i, i64 %n
   store ptr %add.ptr, ptr %mCapacityAllocator.i, align 8
   ret void

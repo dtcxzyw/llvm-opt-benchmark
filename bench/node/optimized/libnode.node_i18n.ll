@@ -2687,7 +2687,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 
 while.end.thread:                                 ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %50 = load ptr, ptr %args, align 8
-  %arrayidx.i126 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %arrayidx.i131 = getelementptr inbounds nuw i8, ptr %50, i64 24
   br label %if.then.i205
 
 while.body.lr.ph.lr.ph:                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
@@ -2951,11 +2951,11 @@ while.end:                                        ; preds = %_ZN4node4i18nL14Get
   br i1 %cmp.i192, label %if.then.i205, label %if.end.i193
 
 if.then.i205:                                     ; preds = %while.end.thread, %while.end
-  %arrayidx.i129 = phi ptr [ %arrayidx.i126, %while.end.thread ], [ %arrayidx.i, %while.end ]
-  %width.0.ph.lcssa128 = phi i32 [ 0, %while.end.thread ], [ %width.0.ph.lcssa, %while.end ]
-  %conv.i = zext nneg i32 %width.0.ph.lcssa128 to i64
+  %arrayidx.i134 = phi ptr [ %arrayidx.i131, %while.end.thread ], [ %arrayidx.i, %while.end ]
+  %width.0.ph.lcssa133 = phi i32 [ 0, %while.end.thread ], [ %width.0.ph.lcssa, %while.end ]
+  %conv.i = zext nneg i32 %width.0.ph.lcssa133 to i64
   %shl.i = shl nuw nsw i64 %conv.i, 32
-  store i64 %shl.i, ptr %arrayidx.i129, align 8
+  store i64 %shl.i, ptr %arrayidx.i134, align 8
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetEj.exit
 
 if.end.i193:                                      ; preds = %while.end

@@ -212,8 +212,8 @@ define hidden range(i32 -21, 1) i32 @mbedtls_lms_verify(ptr noundef %0, ptr noun
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 %43
   %45 = shl nuw nsw i64 %indvars.iv, 5
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
-  %.83 = select i1 %.not75, ptr %10, ptr %46
-  %.84 = select i1 %.not75, ptr %46, ptr %10
+  %.90 = select i1 %.not75, ptr %10, ptr %46
+  %.91 = select i1 %.not75, ptr %46, ptr %10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -243,7 +243,7 @@ define hidden range(i32 -21, 1) i32 @mbedtls_lms_verify(ptr noundef %0, ptr noun
   %56 = load i32, ptr %15, align 4, !tbaa !15
   %57 = icmp eq i32 %56, 6
   %58 = select i1 %57, i64 32, i64 0
-  %59 = call i32 @psa_hash_update(ptr noundef nonnull %6, ptr noundef nonnull %.83, i64 noundef %58) #9
+  %59 = call i32 @psa_hash_update(ptr noundef nonnull %6, ptr noundef nonnull %.90, i64 noundef %58) #9
   %.not23.i = icmp eq i32 %59, 0
   br i1 %.not23.i, label %60, label %create_merkle_internal_value.exit
 
@@ -251,7 +251,7 @@ define hidden range(i32 -21, 1) i32 @mbedtls_lms_verify(ptr noundef %0, ptr noun
   %61 = load i32, ptr %15, align 4, !tbaa !15
   %62 = icmp eq i32 %61, 6
   %63 = select i1 %62, i64 32, i64 0
-  %64 = call i32 @psa_hash_update(ptr noundef nonnull %6, ptr noundef nonnull %.84, i64 noundef %63) #9
+  %64 = call i32 @psa_hash_update(ptr noundef nonnull %6, ptr noundef nonnull %.91, i64 noundef %63) #9
   %.not24.i = icmp eq i32 %64, 0
   br i1 %.not24.i, label %65, label %create_merkle_internal_value.exit
 

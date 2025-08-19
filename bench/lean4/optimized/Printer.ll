@@ -507,8 +507,8 @@ lean_dec.exit30.thread:                           ; preds = %lean_dec.exit32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
   %36 = load i8, ptr %35, align 1, !tbaa !15
-  %.not5665 = icmp eq i8 %36, 0
-  br i1 %.not5665, label %.thread67, label %.loopexit
+  %.not5671 = icmp eq i8 %36, 0
+  br i1 %.not5671, label %.thread73, label %.loopexit
 
 37:                                               ; preds = %lean_dec.exit30
   %38 = load i32, ptr %.024, align 4, !tbaa !8
@@ -528,12 +528,12 @@ lean_dec.exit30.thread:                           ; preds = %lean_dec.exit32
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.024) #3
   br label %.loopexit
 
-.thread67:                                        ; preds = %lean_dec.exit30.thread
+.thread73:                                        ; preds = %lean_dec.exit30.thread
   %44 = add nuw i64 %29, 1
   %45 = icmp sgt i64 %44, -1
   br i1 %45, label %46, label %50, !prof !11
 
-46:                                               ; preds = %.thread67
+46:                                               ; preds = %.thread73
   %47 = shl nuw i64 %44, 1
   %48 = or disjoint i64 %47, 1
   %49 = inttoptr i64 %48 to ptr
@@ -543,8 +543,8 @@ lean_dec.exit31.backedge:                         ; preds = %46, %50, %56, %58, 
   %.024.be = phi ptr [ %53, %56 ], [ %53, %58 ], [ %53, %59 ], [ %51, %50 ], [ %49, %46 ]
   br label %lean_dec.exit31
 
-50:                                               ; preds = %.thread67
-  %51 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %44) #3
+50:                                               ; preds = %.thread73
+  %51 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit31.backedge
 
 52:                                               ; preds = %lean_dec.exit30
@@ -14212,18 +14212,18 @@ _init_l_Lean_Json_instToFormat___closed__1.exit:  ; preds = %_init_l_Lean_Json_c
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Json_instToFormat___closed__1.exit, %3
-  %.sink29 = phi ptr [ %4, %3 ], [ %1949, %_init_l_Lean_Json_instToFormat___closed__1.exit ]
-  %1952 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
-  store i32 1, ptr %.sink29, align 4, !tbaa !8
+  %.sink304 = phi ptr [ %4, %3 ], [ %1949, %_init_l_Lean_Json_instToFormat___closed__1.exit ]
+  %1952 = getelementptr inbounds nuw i8, ptr %.sink304, i64 4
+  store i32 1, ptr %.sink304, align 4, !tbaa !8
   store i32 131096, ptr %1952, align 4
-  %1953 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
+  %1953 = getelementptr inbounds nuw i8, ptr %.sink304, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1953, align 8, !tbaa !4
-  %1954 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
+  %1954 = getelementptr inbounds nuw i8, ptr %.sink304, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1954, align 8, !tbaa !4
   br label %1955
 
 1955:                                             ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink29, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink304, %.sink.split ]
   ret ptr %.0
 }
 

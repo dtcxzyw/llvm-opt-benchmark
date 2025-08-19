@@ -2542,13 +2542,13 @@ define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 
   br label %38
 
 38:                                               ; preds = %30, %34
-  %.sink47 = phi ptr [ %35, %34 ], [ %33, %30 ]
+  %.sink48 = phi ptr [ %35, %34 ], [ %33, %30 ]
   %.sink = phi ptr [ %37, %34 ], [ null, %30 ]
   %39 = phi ptr [ %36, %34 ], [ %32, %30 ]
   %40 = phi i32 [ 6, %34 ], [ 5, %30 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sink47, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.sink48, i64 40
   store ptr %.sink, ptr %41, align 8
-  %42 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %40, ptr noundef nonnull %.sink47) #12
+  %42 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %40, ptr noundef nonnull %.sink48) #12
   %43 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %39, ptr noundef %42) #12
   ret ptr %43
 }
@@ -3584,10 +3584,10 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7i
   br label %.thread61
 
 .thread61:                                        ; preds = %.thread.thread, %..thread61_crit_edge, %.thread
-  %.0445968 = phi ptr [ %28, %..thread61_crit_edge ], [ %28, %.thread ], [ %119, %.thread.thread ]
+  %.0445977 = phi ptr [ %28, %..thread61_crit_edge ], [ %28, %.thread ], [ %119, %.thread.thread ]
   %133 = phi ptr [ %.pre, %..thread61_crit_edge ], [ %86, %.thread ], [ %.pre64.pre, %.thread.thread ]
   store i8 0, ptr %9, align 1
-  %134 = call noundef ptr @_ZN13SharedRuntime28compute_compiled_exc_handlerEP7nmethodPhR6HandlebbRb(ptr noundef %133, ptr noundef %.0445968, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %85, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %9) #12
+  %134 = call noundef ptr @_ZN13SharedRuntime28compute_compiled_exc_handlerEP7nmethodPhR6HandlebbRb(ptr noundef %133, ptr noundef %.0445977, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %85, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %9) #12
   %135 = load i8, ptr %9, align 1
   %136 = trunc i8 %135 to i1
   %or.cond3 = select i1 %85, i1 true, i1 %136
@@ -3596,11 +3596,11 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7i
 137:                                              ; preds = %.thread61
   %138 = load ptr, ptr %1, align 8
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8
-  call void @_ZN7nmethod32add_handler_for_exception_and_pcE6HandlePhS1_(ptr noundef nonnull align 8 dereferenceable(214) %138, ptr %.sroa.0.0.copyload, ptr noundef %.0445968, ptr noundef %134) #12
+  call void @_ZN7nmethod32add_handler_for_exception_and_pcE6HandlePhS1_(ptr noundef nonnull align 8 dereferenceable(214) %138, ptr %.sroa.0.0.copyload, ptr noundef %.0445977, ptr noundef %134) #12
   br label %139
 
 139:                                              ; preds = %137, %.thread61, %130, %120
-  %.04460 = phi ptr [ %.0445968, %.thread61 ], [ %.0445968, %137 ], [ %28, %130 ], [ %119, %120 ]
+  %.04460 = phi ptr [ %.0445977, %.thread61 ], [ %.0445977, %137 ], [ %28, %130 ], [ %119, %120 ]
   %.0 = phi ptr [ %134, %.thread61 ], [ %134, %137 ], [ %131, %130 ], [ %129, %120 ]
   store volatile ptr %.04460, ptr %27, align 8
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 1296

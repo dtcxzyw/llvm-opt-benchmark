@@ -1931,8 +1931,8 @@ define internal fastcc noundef ptr @rawmode_opt(i32 %.0.val, ptr noundef readonl
   unreachable
 
 rb_check_arity.exit:                              ; preds = %13, %.thread13
-  %.087.i31122 = phi i64 [ %.087.i311, %.thread13 ], [ 4, %13 ]
-  %21 = call i32 @rb_get_kwargs(i64 noundef %.087.i31122, ptr noundef nonnull @rawmode_opt_ids, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #12
+  %.087.i31123 = phi i64 [ %.087.i311, %.thread13 ], [ 4, %13 ]
+  %21 = call i32 @rb_get_kwargs(i64 noundef %.087.i31123, ptr noundef nonnull @rawmode_opt_ids, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %51, label %22
 

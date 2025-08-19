@@ -145,9 +145,9 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %30, %23
-  %.sink4.i = phi ptr [ %27, %23 ], [ %34, %30 ], [ %41, %.sink.split.sink.split.i ]
+  %.sink6.i = phi ptr [ %27, %23 ], [ %34, %30 ], [ %41, %.sink.split.sink.split.i ]
   %.sink.i = phi i32 [ 2, %23 ], [ 1, %30 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
-  %42 = getelementptr inbounds i8, ptr %.sink4.i, i64 -4
+  %42 = getelementptr inbounds i8, ptr %.sink6.i, i64 -4
   store i32 %.sink.i, ptr %42, align 4, !tbaa !19
   br label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
 
@@ -265,9 +265,9 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit:
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %27, %20
-  %.sink4 = phi ptr [ %24, %20 ], [ %31, %27 ], [ %38, %.sink.split.sink.split ]
+  %.sink6 = phi ptr [ %24, %20 ], [ %31, %27 ], [ %38, %.sink.split.sink.split ]
   %.sink = phi i32 [ 2, %20 ], [ 1, %27 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %39 = getelementptr inbounds i8, ptr %.sink4, i64 -4
+  %39 = getelementptr inbounds i8, ptr %.sink6, i64 -4
   store i32 %.sink, ptr %39, align 4, !tbaa !19
   br label %40
 
@@ -802,9 +802,9 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %32, %25
-  %.sink4.i = phi ptr [ %29, %25 ], [ %36, %32 ], [ %43, %.sink.split.sink.split.i ]
+  %.sink6.i = phi ptr [ %29, %25 ], [ %36, %32 ], [ %43, %.sink.split.sink.split.i ]
   %.sink.i = phi i32 [ 2, %25 ], [ 1, %32 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
-  %44 = getelementptr inbounds i8, ptr %.sink4.i, i64 -4
+  %44 = getelementptr inbounds i8, ptr %.sink6.i, i64 -4
   store i32 %.sink.i, ptr %44, align 4, !tbaa !19
   br label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
 
@@ -1121,9 +1121,9 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %31, %24
-  %.sink4.i = phi ptr [ %28, %24 ], [ %35, %31 ], [ %42, %.sink.split.sink.split.i ]
+  %.sink6.i = phi ptr [ %28, %24 ], [ %35, %31 ], [ %42, %.sink.split.sink.split.i ]
   %.sink.i = phi i32 [ 2, %24 ], [ 1, %31 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
-  %43 = getelementptr inbounds i8, ptr %.sink4.i, i64 -4
+  %43 = getelementptr inbounds i8, ptr %.sink6.i, i64 -4
   store i32 %.sink.i, ptr %43, align 4, !tbaa !19
   br label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
 
@@ -1199,9 +1199,9 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %32, %25
-  %.sink4.i = phi ptr [ %29, %25 ], [ %36, %32 ], [ %43, %.sink.split.sink.split.i ]
+  %.sink6.i = phi ptr [ %29, %25 ], [ %36, %32 ], [ %43, %.sink.split.sink.split.i ]
   %.sink.i = phi i32 [ 2, %25 ], [ 1, %32 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
-  %44 = getelementptr inbounds i8, ptr %.sink4.i, i64 -4
+  %44 = getelementptr inbounds i8, ptr %.sink6.i, i64 -4
   store i32 %.sink.i, ptr %44, align 4, !tbaa !19
   br label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
 
@@ -1216,10 +1216,10 @@ _ZN4YAML14EmitFromEvents9BeginNodeEv.exit:        ; preds = %5, %_ZNSt5stackIN4Y
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, %45
-  %.sink3 = phi i32 [ 28, %45 ], [ 29, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit ]
+  %.sink6 = phi i32 [ 28, %45 ], [ 29, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !21
-  %48 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %47, i32 noundef %.sink3)
+  %48 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %47, i32 noundef %.sink6)
   br label %49
 
 49:                                               ; preds = %.sink.split, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
@@ -1352,9 +1352,9 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEE3topEv.exit.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %32, %25
-  %.sink4.i = phi ptr [ %29, %25 ], [ %36, %32 ], [ %43, %.sink.split.sink.split.i ]
+  %.sink6.i = phi ptr [ %29, %25 ], [ %36, %32 ], [ %43, %.sink.split.sink.split.i ]
   %.sink.i = phi i32 [ 2, %25 ], [ 1, %32 ], [ %.sink.ph.i, %.sink.split.sink.split.i ]
-  %44 = getelementptr inbounds i8, ptr %.sink4.i, i64 -4
+  %44 = getelementptr inbounds i8, ptr %.sink6.i, i64 -4
   store i32 %.sink.i, ptr %44, align 4, !tbaa !19
   br label %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit
 
@@ -1369,10 +1369,10 @@ _ZN4YAML14EmitFromEvents9BeginNodeEv.exit:        ; preds = %5, %_ZNSt5stackIN4Y
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit, %45
-  %.sink3 = phi i32 [ 28, %45 ], [ 29, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit ]
+  %.sink6 = phi i32 [ 28, %45 ], [ 29, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !21
-  %48 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %47, i32 noundef %.sink3)
+  %48 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter13SetLocalValueENS_13EMITTER_MANIPE(ptr noundef nonnull align 8 dereferenceable(72) %47, i32 noundef %.sink6)
   br label %49
 
 49:                                               ; preds = %.sink.split, %_ZN4YAML14EmitFromEvents9BeginNodeEv.exit

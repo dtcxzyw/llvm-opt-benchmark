@@ -221,7 +221,7 @@ if.then.i:                                        ; preds = %for.end75
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
   store i8 0, ptr %21, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %sub.i.i.i.i.i = add i64 %sub.i, -1
+  %sub.i.i.i.i.i = add nsw i64 %sub.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
@@ -278,7 +278,7 @@ if.then.i28.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i: ; preds = %if.then.i28.i.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i.i
   store ptr %call5.i.i.i.i.i, ptr %bytecode, align 8
-  %add.ptr33.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %add2.i50
+  %add.ptr33.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %add2.i50
   store ptr %add.ptr33.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr36.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %24
   store ptr %add.ptr36.i.i, ptr %_M_end_of_storage.i.i, align 8
@@ -399,8 +399,8 @@ if.then6:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %10 = shl nuw i32 %6, 25
-  %bf.set1394 = or disjoint i32 %1, %10
-  %bf.set13 = zext i32 %bf.set1394 to i120
+  %bf.set13100 = or disjoint i32 %1, %10
+  %bf.set13 = zext i32 %bf.set13100 to i120
   store i120 %bf.set13, ptr %this, align 1
   %bytecodeSizeInBytes = getelementptr inbounds nuw i8, ptr %large, i64 8
   %11 = load i32, ptr %bytecodeSizeInBytes, align 1

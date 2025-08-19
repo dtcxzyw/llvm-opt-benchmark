@@ -957,7 +957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
   %197 = icmp slt i32 %196, 1
   %.not69 = icmp eq i32 %196, %113
   %or.cond110 = or i1 %197, %.not69
-  br i1 %or.cond110, label %.thread330, label %.noexc.i141
+  br i1 %or.cond110, label %.thread403, label %.noexc.i141
 
 .noexc.i141:                                      ; preds = %194
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1072,7 +1072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %791
 
-.thread330:                                       ; preds = %194
+.thread403:                                       ; preds = %194
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store ptr null, ptr %235, align 8, !tbaa !42
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -1152,8 +1152,8 @@ _ZN5draco4Mesh11SetNumFacesEm.exit:               ; preds = %._ZN5draco4Mesh11Se
   %.pre321 = load i32, ptr %.phi.trans.insert320, align 8, !tbaa !62
   br label %272
 
-265:                                              ; preds = %.thread330, %257
-  %266 = phi ptr [ %236, %.thread330 ], [ %238, %257 ]
+265:                                              ; preds = %.thread403, %257
+  %266 = phi ptr [ %236, %.thread403 ], [ %238, %257 ]
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %268 = load ptr, ptr %267, align 8, !tbaa !53
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1557,9 +1557,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %_Z
   %432 = icmp slt i32 %431, 256
   %433 = icmp samesign ult i32 %431, 65536
   %. = select i1 %433, i32 4, i32 6
-  %.332 = select i1 %433, i64 2, i64 4
+  %.405 = select i1 %433, i64 2, i64 4
   %434 = select i1 %432, i32 2, i32 %.
-  %435 = select i1 %432, i64 1, i64 %.332
+  %435 = select i1 %432, i64 1, i64 %.405
   invoke void @_ZN5draco17GeometryAttribute4InitENS0_4TypeEPNS_10DataBufferEhNS_8DataTypeEbll(ptr noundef nonnull align 8 dereferenceable(64) %26, i32 noundef 4, ptr noundef null, i8 noundef zeroext 1, i32 noundef %434, i1 noundef zeroext false, i64 noundef %435, i64 noundef 0)
           to label %440 unwind label %438
 
@@ -1922,25 +1922,25 @@ _ZNSt10unique_ptrIN5draco17AttributeMetadataESt14default_deleteIS1_EED2Ev.exit21
 577:                                              ; preds = %571
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   invoke void @_ZN5draco17GeometryAttributeC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %33)
-          to label %.invoke333 unwind label %583
+          to label %.invoke406 unwind label %583
 
-.invoke333:                                       ; preds = %577
+.invoke406:                                       ; preds = %577
   %578 = load i64, ptr %573, align 8, !tbaa !131
   %579 = icmp ult i64 %578, 256
   %580 = icmp ult i64 %578, 65536
-  %.334 = select i1 %580, i32 4, i32 6
-  %.335 = select i1 %580, i64 2, i64 4
-  %581 = select i1 %579, i32 2, i32 %.334
-  %582 = select i1 %579, i64 1, i64 %.335
+  %.407 = select i1 %580, i32 4, i32 6
+  %.408 = select i1 %580, i64 2, i64 4
+  %581 = select i1 %579, i32 2, i32 %.407
+  %582 = select i1 %579, i64 1, i64 %.408
   invoke void @_ZN5draco17GeometryAttribute4InitENS0_4TypeEPNS_10DataBufferEhNS_8DataTypeEbll(ptr noundef nonnull align 8 dereferenceable(64) %33, i32 noundef 4, ptr noundef null, i8 noundef zeroext 1, i32 noundef %581, i1 noundef zeroext false, i64 noundef %582, i64 noundef 0)
           to label %585 unwind label %583
 
-583:                                              ; preds = %.invoke333, %585, %577
+583:                                              ; preds = %.invoke406, %585, %577
   %584 = landingpad { ptr, i32 }
           cleanup
   br label %691
 
-585:                                              ; preds = %.invoke333
+585:                                              ; preds = %.invoke406
   %586 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %587 = load ptr, ptr %586, align 8, !tbaa !53
   %588 = load i64, ptr %573, align 8, !tbaa !131
@@ -2316,9 +2316,9 @@ _ZN5draco6StatusC2EOS0_.exit247:                  ; preds = %704, %_ZNKSt7__cxx1
 730:                                              ; preds = %719
   %731 = add nuw nsw i64 %indvars.iv316, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.not327 = icmp ugt i64 %728, %indvars.iv316
+  %.not400 = icmp ugt i64 %728, %indvars.iv316
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  br i1 %.not327, label %734, label %732
+  br i1 %.not400, label %734, label %732
 
 732:                                              ; preds = %730
   %733 = sub nuw nsw i64 %731, %728
@@ -3300,7 +3300,7 @@ define dso_local noundef zeroext i1 @_ZN5draco10ObjDecoder13ParseTexCoordEPNS_6S
   %12 = load i64, ptr %11, align 8, !tbaa !135
   %13 = add i64 %12, 2
   %.not36 = icmp slt i64 %10, %13
-  %indvars.iv.sroa.gep39 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %indvars.iv.sroa.gep46 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %.not36, label %_ZN5draco13DecoderBuffer4PeekISt5arrayIcLm2EEEEbPT_.exit, label %14
 
 14:                                               ; preds = %2
@@ -3325,7 +3325,7 @@ define dso_local noundef zeroext i1 @_ZN5draco10ObjDecoder13ParseTexCoordEPNS_6S
 
 23:                                               ; preds = %21, %22
   %.not = phi i1 [ true, %21 ], [ false, %22 ]
-  %indvars.iv.sroa.phi = phi ptr [ %5, %21 ], [ %indvars.iv.sroa.gep39, %22 ]
+  %indvars.iv.sroa.phi = phi ptr [ %5, %21 ], [ %indvars.iv.sroa.gep46, %22 ]
   call void @_ZN5draco6parser14SkipWhitespaceEPNS_13DecoderBufferE(ptr noundef nonnull %8)
   %24 = call noundef zeroext i1 @_ZN5draco6parser10ParseFloatEPNS_13DecoderBufferEPf(ptr noundef nonnull %8, ptr noundef nonnull %indvars.iv.sroa.phi)
   br i1 %24, label %22, label %.noexc.i
@@ -3744,8 +3744,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   br i1 %exitcond.not, label %.preheader.lr.ph, label %26, !llvm.loop !154
 
 .preheader.lr.ph:                                 ; preds = %85, %29
-  %.041106141 = phi i32 [ %indvars122, %29 ], [ 8, %85 ]
-  %86 = add nsw i32 %.041106141, -2
+  %.041106163 = phi i32 [ %indvars122, %29 ], [ 8, %85 ]
+  %86 = add nsw i32 %.041106163, -2
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %89 = load i32, ptr %88, align 8, !tbaa !84
@@ -3773,7 +3773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %112 = zext nneg i32 %98 to i64
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %114 = add nsw i32 %.041106141, -3
+  %114 = add nsw i32 %.041106163, -3
   %115 = zext nneg i32 %101 to i64
   %.promoted = load i32, ptr %87, align 4, !tbaa !61
   %116 = zext i32 %.promoted to i64
@@ -3829,10 +3829,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 
 .sink.split.i:                                    ; preds = %143, %139
   %.sink.i = phi i32 [ %144, %143 ], [ %140, %139 ]
-  %.pn137 = load ptr, ptr %121, align 8, !tbaa !91
-  %.sink46.in.i = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %.pn137, i64 %122
-  %.sink46.i = load ptr, ptr %.sink46.in.i, align 8, !tbaa !92
-  %145 = getelementptr inbounds nuw i8, ptr %.sink46.i, i64 72
+  %.pn159 = load ptr, ptr %121, align 8, !tbaa !91
+  %.sink54.in.i = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %.pn159, i64 %122
+  %.sink54.i = load ptr, ptr %.sink54.in.i, align 8, !tbaa !92
+  %145 = getelementptr inbounds nuw i8, ptr %.sink54.i, i64 72
   %146 = and i64 %131, 4294967295
   %147 = load ptr, ptr %145, align 8, !tbaa !156
   %148 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %147, i64 %146
@@ -3840,9 +3840,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   br label %149
 
 149:                                              ; preds = %.sink.split.i, %141
-  br i1 %90, label %.sink.split47.i, label %159
+  br i1 %90, label %.sink.split55.i, label %159
 
-.sink.split47.i:                                  ; preds = %149
+.sink.split55.i:                                  ; preds = %149
   %150 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %151 = load i32, ptr %150, align 4, !tbaa !90
   %152 = icmp sgt i32 %151, 0
@@ -3850,21 +3850,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   %.not117 = icmp eq i32 %151, 0
   %154 = add nsw i32 %124, %151
   %spec.select = select i1 %.not117, i32 0, i32 %154
-  %.sink48.i = select i1 %152, i32 %153, i32 %spec.select
-  %.pn138 = load ptr, ptr %121, align 8, !tbaa !91
-  %.sink53.i.in = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %.pn138, i64 %106
-  %.sink53.i = load ptr, ptr %.sink53.i.in, align 8, !tbaa !92
-  %155 = getelementptr inbounds nuw i8, ptr %.sink53.i, i64 72
+  %.sink56.i = select i1 %152, i32 %153, i32 %spec.select
+  %.pn160 = load ptr, ptr %121, align 8, !tbaa !91
+  %.sink61.i.in = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %.pn160, i64 %106
+  %.sink61.i = load ptr, ptr %.sink61.i.in, align 8, !tbaa !92
+  %155 = getelementptr inbounds nuw i8, ptr %.sink61.i, i64 72
   %156 = and i64 %131, 4294967295
   %157 = load ptr, ptr %155, align 8, !tbaa !156
   %158 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %157, i64 %156
-  store i32 %.sink48.i, ptr %158, align 4, !tbaa !133
+  store i32 %.sink56.i, ptr %158, align 4, !tbaa !133
   br label %159
 
-159:                                              ; preds = %.sink.split47.i, %149
-  br i1 %93, label %.sink.split54.i, label %169
+159:                                              ; preds = %.sink.split55.i, %149
+  br i1 %93, label %.sink.split62.i, label %169
 
-.sink.split54.i:                                  ; preds = %159
+.sink.split62.i:                                  ; preds = %159
   %160 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %161 = load i32, ptr %160, align 4, !tbaa !90
   %162 = icmp sgt i32 %161, 0
@@ -3872,18 +3872,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
   %.not118 = icmp eq i32 %161, 0
   %164 = add nsw i32 %125, %161
   %spec.select116 = select i1 %.not118, i32 0, i32 %164
-  %.sink55.i = select i1 %162, i32 %163, i32 %spec.select116
-  %.pn139 = load ptr, ptr %121, align 8, !tbaa !91
-  %.sink60.i.in = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %.pn139, i64 %108
-  %.sink60.i = load ptr, ptr %.sink60.i.in, align 8, !tbaa !92
-  %165 = getelementptr inbounds nuw i8, ptr %.sink60.i, i64 72
+  %.sink63.i = select i1 %162, i32 %163, i32 %spec.select116
+  %.pn161 = load ptr, ptr %121, align 8, !tbaa !91
+  %.sink68.i.in = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %.pn161, i64 %108
+  %.sink68.i = load ptr, ptr %.sink68.i.in, align 8, !tbaa !92
+  %165 = getelementptr inbounds nuw i8, ptr %.sink68.i, i64 72
   %166 = and i64 %131, 4294967295
   %167 = load ptr, ptr %165, align 8, !tbaa !156
   %168 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %167, i64 %166
-  store i32 %.sink55.i, ptr %168, align 4, !tbaa !133
+  store i32 %.sink63.i, ptr %168, align 4, !tbaa !133
   br label %169
 
-169:                                              ; preds = %.sink.split54.i, %159
+169:                                              ; preds = %.sink.split62.i, %159
   br i1 %96, label %170, label %178
 
 170:                                              ; preds = %169
@@ -4642,8 +4642,8 @@ define dso_local noundef zeroext i1 @_ZN5draco10ObjDecoder11ParseObjectEPNS_6Sta
   %12 = load ptr, ptr %5, align 8, !tbaa !147
   %13 = getelementptr inbounds i8, ptr %12, i64 %9
   %14 = load i16, ptr %13, align 1
-  %.not23 = icmp eq i16 %14, 8303
-  br i1 %.not23, label %15, label %_ZN5draco13DecoderBuffer4PeekISt5arrayIcLm2EEEEbPT_.exit
+  %.not27 = icmp eq i16 %14, 8303
+  br i1 %.not27, label %15, label %_ZN5draco13DecoderBuffer4PeekISt5arrayIcLm2EEEEbPT_.exit
 
 15:                                               ; preds = %11
   %16 = add nsw i64 %9, 1
@@ -4907,10 +4907,10 @@ define dso_local void @_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexT
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %18
-  %.sink46.in = phi ptr [ %26, %18 ], [ %14, %6 ]
+  %.sink54.in = phi ptr [ %26, %18 ], [ %14, %6 ]
   %.sink = phi i32 [ %29, %18 ], [ %15, %6 ]
-  %.sink46 = load ptr, ptr %.sink46.in, align 8, !tbaa !92
-  %30 = getelementptr inbounds nuw i8, ptr %.sink46, i64 72
+  %.sink54 = load ptr, ptr %.sink54.in, align 8, !tbaa !92
+  %30 = getelementptr inbounds nuw i8, ptr %.sink54, i64 72
   %31 = zext i32 %1 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !156
   %33 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %32, i64 %31
@@ -4938,7 +4938,7 @@ define dso_local void @_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexT
   %48 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !92
   %50 = add nsw i32 %40, -1
-  br label %.sink.split47
+  br label %.sink.split55
 
 51:                                               ; preds = %38
   %52 = icmp slt i32 %40, 0
@@ -4949,25 +4949,25 @@ define dso_local void @_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexT
   %57 = load ptr, ptr %55, align 8, !tbaa !91
   %58 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8, !tbaa !92
-  br i1 %52, label %60, label %.sink.split47
+  br i1 %52, label %60, label %.sink.split55
 
 60:                                               ; preds = %51
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !63
   %63 = add nsw i32 %62, %40
-  br label %.sink.split47
+  br label %.sink.split55
 
-.sink.split47:                                    ; preds = %51, %60, %42
-  %.sink53 = phi ptr [ %49, %42 ], [ %59, %60 ], [ %59, %51 ]
-  %.sink48 = phi i32 [ %50, %42 ], [ %63, %60 ], [ 0, %51 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sink53, i64 72
+.sink.split55:                                    ; preds = %51, %60, %42
+  %.sink61 = phi ptr [ %49, %42 ], [ %59, %60 ], [ %59, %51 ]
+  %.sink56 = phi i32 [ %50, %42 ], [ %63, %60 ], [ 0, %51 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.sink61, i64 72
   %65 = zext i32 %1 to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !156
   %67 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %66, i64 %65
-  store i32 %.sink48, ptr %67, align 4, !tbaa !133
+  store i32 %.sink56, ptr %67, align 4, !tbaa !133
   br label %68
 
-68:                                               ; preds = %.sink.split47, %34
+68:                                               ; preds = %.sink.split55, %34
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %70 = load i32, ptr %69, align 4, !tbaa !85
   %71 = icmp sgt i32 %70, -1
@@ -4988,7 +4988,7 @@ define dso_local void @_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexT
   %82 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !92
   %84 = add nsw i32 %74, -1
-  br label %.sink.split54
+  br label %.sink.split62
 
 85:                                               ; preds = %72
   %86 = icmp slt i32 %74, 0
@@ -4999,25 +4999,25 @@ define dso_local void @_ZN5draco10ObjDecoder23MapPointToVertexIndicesENS_9IndexT
   %91 = load ptr, ptr %89, align 8, !tbaa !91
   %92 = getelementptr inbounds nuw %"class.std::unique_ptr.78", ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8, !tbaa !92
-  br i1 %86, label %94, label %.sink.split54
+  br i1 %86, label %94, label %.sink.split62
 
 94:                                               ; preds = %85
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = load i32, ptr %95, align 8, !tbaa !64
   %97 = add nsw i32 %96, %74
-  br label %.sink.split54
+  br label %.sink.split62
 
-.sink.split54:                                    ; preds = %85, %94, %76
-  %.sink60 = phi ptr [ %83, %76 ], [ %93, %94 ], [ %93, %85 ]
-  %.sink55 = phi i32 [ %84, %76 ], [ %97, %94 ], [ 0, %85 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.sink60, i64 72
+.sink.split62:                                    ; preds = %85, %94, %76
+  %.sink68 = phi ptr [ %83, %76 ], [ %93, %94 ], [ %93, %85 ]
+  %.sink63 = phi i32 [ %84, %76 ], [ %97, %94 ], [ 0, %85 ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sink68, i64 72
   %99 = zext i32 %1 to i64
   %100 = load ptr, ptr %98, align 8, !tbaa !156
   %101 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %100, i64 %99
-  store i32 %.sink55, ptr %101, align 4, !tbaa !133
+  store i32 %.sink63, ptr %101, align 4, !tbaa !133
   br label %102
 
-102:                                              ; preds = %.sink.split54, %68
+102:                                              ; preds = %.sink.split62, %68
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %104 = load i32, ptr %103, align 8, !tbaa !126
   %105 = icmp sgt i32 %104, -1

@@ -1554,8 +1554,8 @@ stbds_is_key_equal.exit189:                       ; preds = %199, %202
   %238 = shl i64 %236, 1
   %239 = icmp ult i64 %234, %238
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %234, i64 4)
-  %.1.i305.ph = select i1 %239, i64 %238, i64 %spec.store.select.i
-  %240 = mul i64 %.1.i305.ph, %1
+  %.1.i321.ph = select i1 %239, i64 %238, i64 %spec.store.select.i
+  %240 = mul i64 %.1.i321.ph, %1
   %241 = add i64 %240, 32
   %242 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %241) #20
   br label %247
@@ -1563,20 +1563,20 @@ stbds_is_key_equal.exit189:                       ; preds = %199, %202
 243:                                              ; preds = %228
   %244 = shl i64 %1, 2
   %245 = add i64 %244, 32
-  %malloc340 = tail call ptr @malloc(i64 %245)
-  store i64 0, ptr %malloc340, align 8, !tbaa !3
-  %246 = getelementptr inbounds nuw i8, ptr %malloc340, i64 16
+  %malloc356 = tail call ptr @malloc(i64 %245)
+  store i64 0, ptr %malloc356, align 8, !tbaa !3
+  %246 = getelementptr inbounds nuw i8, ptr %malloc356, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %246, i8 0, i64 16, i1 false)
   br label %247
 
 247:                                              ; preds = %.thread40.i, %243
-  %248 = phi ptr [ %242, %.thread40.i ], [ %malloc340, %243 ]
+  %248 = phi ptr [ %242, %.thread40.i ], [ %malloc356, %243 ]
   %249 = phi i64 [ %234, %.thread40.i ], [ 1, %243 ]
   %250 = phi i64 [ %233, %.thread40.i ], [ 0, %243 ]
-  %.1.i305313 = phi i64 [ %.1.i305.ph, %.thread40.i ], [ 4, %243 ]
+  %.1.i321329 = phi i64 [ %.1.i321.ph, %.thread40.i ], [ 4, %243 ]
   %251 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %252 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  store i64 %.1.i305313, ptr %252, align 8, !tbaa !9
+  store i64 %.1.i321329, ptr %252, align 8, !tbaa !9
   %.pre = load ptr, ptr %137, align 8, !tbaa !13
   br label %stbds_arrgrowf.exit
 
@@ -1998,8 +1998,8 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   br label %.sink.split
 
 .sink.split:                                      ; preds = %85, %78
-  %.sink93 = phi i64 [ %79, %78 ], [ %87, %85 ]
-  %88 = tail call ptr @stbds_make_hash_index(i64 noundef %.sink93, ptr noundef nonnull %13)
+  %.sink100 = phi i64 [ %79, %78 ], [ %87, %85 ]
+  %88 = tail call ptr @stbds_make_hash_index(i64 noundef %.sink100, ptr noundef nonnull %13)
   store ptr %88, ptr %12, align 8, !tbaa !37
   tail call void @free(ptr noundef nonnull %13) #21
   br label %89

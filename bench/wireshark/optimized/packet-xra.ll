@@ -680,18 +680,18 @@ dissect_xra_tlv_burst_info.exit.i:                ; preds = %131, %115
   %146 = call zeroext i8 @tvb_get_uint8(ptr noundef %139, i32 noundef %145)
   %147 = add nuw nsw i32 %.01.i138.i, 2
   %148 = zext i8 %146 to i32
-  %switch.tableidx81 = add i8 %144, -1
-  %149 = icmp ult i8 %switch.tableidx81, 3
-  br i1 %149, label %switch.lookup80, label %151
+  %switch.tableidx89 = add i8 %144, -1
+  %149 = icmp ult i8 %switch.tableidx89, 3
+  br i1 %149, label %switch.lookup88, label %151
 
-switch.lookup80:                                  ; preds = %.lr.ph.i137.i
-  %150 = zext nneg i8 %switch.tableidx81 to i64
-  %switch.gep82 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_xra.9, i64 0, i64 %150
-  %switch.load83 = load ptr, ptr %switch.gep82, align 8
+switch.lookup88:                                  ; preds = %.lr.ph.i137.i
+  %150 = zext nneg i8 %switch.tableidx89 to i64
+  %switch.gep90 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_xra.9, i64 0, i64 %150
+  %switch.load91 = load ptr, ptr %switch.gep90, align 8
   br label %151
 
-151:                                              ; preds = %.lr.ph.i137.i, %switch.lookup80
-  %hf_xra_unknown.sink.i139.i = phi ptr [ %switch.load83, %switch.lookup80 ], [ @hf_xra_unknown, %.lr.ph.i137.i ]
+151:                                              ; preds = %.lr.ph.i137.i, %switch.lookup88
+  %hf_xra_unknown.sink.i139.i = phi ptr [ %switch.load91, %switch.lookup88 ], [ @hf_xra_unknown, %.lr.ph.i137.i ]
   %152 = load i32, ptr %hf_xra_unknown.sink.i139.i, align 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %152, ptr noundef %139, i32 noundef %147, i32 noundef %148, i32 noundef 0)
   %154 = add nuw nsw i32 %147, %148

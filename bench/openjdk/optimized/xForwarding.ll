@@ -402,8 +402,8 @@ define hidden void @_ZNK11XForwarding6verifyEv(ptr noundef nonnull align 8 deref
   br label %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i
 
 _ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i: ; preds = %32, %26
-  %.sink1.i = phi ptr [ %14, %32 ], [ @XObjectAlignmentMediumShift, %26 ]
-  %33 = load i32, ptr %.sink1.i, align 4
+  %.sink2.i = phi ptr [ %14, %32 ], [ @XObjectAlignmentMediumShift, %26 ]
+  %33 = load i32, ptr %.sink2.i, align 4
   %34 = sext i32 %33 to i64
   br label %_ZNK5XPage22object_alignment_shiftEv.exit.i
 
@@ -568,8 +568,8 @@ _ZN6XUtils11object_sizeEm.exit:                   ; preds = %84, %87, %94, %114
   br label %_ZNK5XPage16object_alignmentEv.exit.sink.split
 
 _ZNK5XPage16object_alignmentEv.exit.sink.split:   ; preds = %_ZN6XUtils11object_sizeEm.exit, %122
-  %.sink45 = phi ptr [ @XObjectAlignmentMedium, %122 ], [ %15, %_ZN6XUtils11object_sizeEm.exit ]
-  %123 = load i32, ptr %.sink45, align 4
+  %.sink49 = phi ptr [ @XObjectAlignmentMedium, %122 ], [ %15, %_ZN6XUtils11object_sizeEm.exit ]
+  %123 = load i32, ptr %.sink49, align 4
   %124 = sext i32 %123 to i64
   br label %_ZNK5XPage16object_alignmentEv.exit
 

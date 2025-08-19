@@ -2119,8 +2119,8 @@ define internal ptr @interp_run_string(ptr readnone captures(none) %0, ptr nound
   br label %convert_script_arg.exit.thread
 
 _Py_NewRef.exit.sink.split.i:                     ; preds = %24, %18
-  %.sink2.i = phi i32 [ %19, %18 ], [ %25, %24 ]
-  %28 = add nuw i32 %.sink2.i, 1
+  %.sink6.i = phi i32 [ %19, %18 ], [ %25, %24 ]
+  %28 = add nuw i32 %.sink6.i, 1
   store i32 %28, ptr %16, align 8, !tbaa !11
   br label %_Py_NewRef.exit.i
 
@@ -2813,17 +2813,17 @@ define internal fastcc ptr @convert_code_arg(ptr noundef %0, ptr noundef %1, ptr
   br label %check_code_object.exit
 
 Py_INCREF.exit.sink.split:                        ; preds = %24, %20
-  %.sink6 = phi i32 [ %21, %20 ], [ %25, %24 ]
-  %.sink5 = phi ptr [ %11, %20 ], [ %0, %24 ]
+  %.sink11 = phi i32 [ %21, %20 ], [ %25, %24 ]
+  %.sink10 = phi ptr [ %11, %20 ], [ %0, %24 ]
   %.023.ph = phi ptr [ @.str.61, %20 ], [ @.str.62, %24 ]
-  %28 = add nuw i32 %.sink6, 1
-  store i32 %28, ptr %.sink5, align 8, !tbaa !11
+  %28 = add nuw i32 %.sink11, 1
+  store i32 %28, ptr %.sink10, align 8, !tbaa !11
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %24, %20
   %29 = phi i32 [ %21, %20 ], [ %25, %24 ], [ %28, %Py_INCREF.exit.sink.split ]
   %.023 = phi ptr [ @.str.61, %20 ], [ @.str.62, %24 ], [ %.023.ph, %Py_INCREF.exit.sink.split ]
-  %.022 = phi ptr [ %11, %20 ], [ %0, %24 ], [ %.sink5, %Py_INCREF.exit.sink.split ]
+  %.022 = phi ptr [ %11, %20 ], [ %0, %24 ], [ %.sink10, %Py_INCREF.exit.sink.split ]
   %30 = getelementptr inbounds nuw i8, ptr %.022, i64 52
   %31 = load i32, ptr %30, align 4, !tbaa !195
   %32 = icmp sgt i32 %31, 0

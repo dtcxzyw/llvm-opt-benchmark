@@ -1165,10 +1165,10 @@ define internal i32 @cond_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %75
 
 75:                                               ; preds = %49, %56
-  %.sink61 = phi ptr [ %55, %49 ], [ %73, %56 ]
+  %.sink67 = phi ptr [ %55, %49 ], [ %73, %56 ]
   %.sink = phi ptr [ %38, %49 ], [ %73, %56 ]
   %.242 = phi ptr [ %.04054, %49 ], [ %64, %56 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sink61, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %.sink67, i64 56
   store ptr %.sink, ptr %76, align 8
   %77 = add i32 %34, %.04353
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

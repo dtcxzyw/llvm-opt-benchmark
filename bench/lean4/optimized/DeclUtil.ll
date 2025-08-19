@@ -1027,16 +1027,16 @@ lean_inc.exit:                                    ; preds = %131, %130, %128, %l
   unreachable
 
 lean_alloc_ctor.exit95:                           ; preds = %lean_inc.exit, %lean_inc.exit65
-  %.sink111 = phi ptr [ %95, %lean_inc.exit65 ], [ %135, %lean_inc.exit ]
+  %.sink120 = phi ptr [ %95, %lean_inc.exit65 ], [ %135, %lean_inc.exit ]
   %.sink = phi ptr [ %94, %lean_inc.exit65 ], [ %134, %lean_inc.exit ]
-  %138 = getelementptr inbounds nuw i8, ptr %.sink111, i64 4
-  store i32 1, ptr %.sink111, align 4, !tbaa !8
+  %138 = getelementptr inbounds nuw i8, ptr %.sink120, i64 4
+  store i32 1, ptr %.sink120, align 4, !tbaa !8
   store i32 131096, ptr %138, align 4
-  %139 = getelementptr inbounds nuw i8, ptr %.sink111, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.sink120, i64 8
   store ptr %.sink, ptr %139, align 8, !tbaa !4
-  %140 = getelementptr inbounds nuw i8, ptr %.sink111, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.sink120, i64 16
   store ptr %4, ptr %140, align 8, !tbaa !4
-  ret ptr %.sink111
+  ret ptr %.sink120
 }
 
 declare ptr @l_Lean_SourceInfo_fromRef(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
@@ -5869,21 +5869,21 @@ lean_inc.exit:                                    ; preds = %910, %909, %907, %l
   br i1 %exitcond.not, label %._crit_edge, label %36
 
 .sink.split:                                      ; preds = %lean_dec.exit461, %lean_dec.exit465
-  %.sink1048 = phi ptr [ %33, %lean_dec.exit465 ], [ %116, %lean_dec.exit461 ]
+  %.sink1143 = phi ptr [ %33, %lean_dec.exit465 ], [ %116, %lean_dec.exit461 ]
   %.sink = phi i32 [ 131096, %lean_dec.exit465 ], [ 16908312, %lean_dec.exit461 ]
   %.0369.lcssa.sink = phi ptr [ %.0369.lcssa, %lean_dec.exit465 ], [ %88, %lean_dec.exit461 ]
   %.0372.lcssa.sink = phi ptr [ %.0372.lcssa, %lean_dec.exit465 ], [ %90, %lean_dec.exit461 ]
-  %922 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 4
-  store i32 1, ptr %.sink1048, align 4, !tbaa !8
+  %922 = getelementptr inbounds nuw i8, ptr %.sink1143, i64 4
+  store i32 1, ptr %.sink1143, align 4, !tbaa !8
   store i32 %.sink, ptr %922, align 4
-  %923 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 8
+  %923 = getelementptr inbounds nuw i8, ptr %.sink1143, i64 8
   store ptr %.0369.lcssa.sink, ptr %923, align 8, !tbaa !4
-  %924 = getelementptr inbounds nuw i8, ptr %.sink1048, i64 16
+  %924 = getelementptr inbounds nuw i8, ptr %.sink1143, i64 16
   store ptr %.0372.lcssa.sink, ptr %924, align 8, !tbaa !4
   br label %925
 
 925:                                              ; preds = %.sink.split, %lean_dec.exit462
-  %.1.ph = phi ptr [ %77, %lean_dec.exit462 ], [ %.sink1048, %.sink.split ]
+  %.1.ph = phi ptr [ %77, %lean_dec.exit462 ], [ %.sink1143, %.sink.split ]
   ret ptr %.1.ph
 }
 
@@ -11613,9 +11613,9 @@ lean_inc.exit780:                                 ; preds = %85, %84, %82
 lean_inc.exit780.thread:                          ; preds = %lean_inc.exit781.thread
   %88 = tail call zeroext i8 @l_Lean_Syntax_matchesNull(ptr noundef %67, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   %89 = icmp eq i8 %88, 0
-  br i1 %89, label %lean_dec.exit881, label %.thread1447
+  br i1 %89, label %lean_dec.exit881, label %.thread1678
 
-.thread1447:                                      ; preds = %lean_inc.exit780.thread
+.thread1678:                                      ; preds = %lean_inc.exit780.thread
   %90 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %67, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   br label %lean_dec.exit875
 
@@ -11775,8 +11775,8 @@ lean_dec.exit877:                                 ; preds = %135, %134, %132, %l
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %67) #5
   br label %lean_dec.exit875
 
-lean_dec.exit875:                                 ; preds = %.thread1447, %150, %149, %147
-  %151 = phi ptr [ %90, %.thread1447 ], [ %144, %150 ], [ %144, %149 ], [ %144, %147 ]
+lean_dec.exit875:                                 ; preds = %.thread1678, %150, %149, %147
+  %151 = phi ptr [ %90, %.thread1678 ], [ %144, %150 ], [ %144, %149 ], [ %144, %147 ]
   %152 = load ptr, ptr @l_Lake_DSL_declValWhere___closed__2, align 8, !tbaa !4
   %153 = ptrtoint ptr %151 to i64
   %154 = and i64 %153, 1

@@ -482,10 +482,10 @@ define hidden void @libdecorFrameHandleConfigure(ptr noundef %0, ptr noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %52, %48
-  %.sink71 = phi float [ %49, %48 ], [ %53, %52 ]
-  %.sink70 = phi ptr [ %5, %48 ], [ %4, %52 ]
-  %54 = fptosi float %.sink71 to i32
-  store i32 %54, ptr %.sink70, align 4, !tbaa !147
+  %.sink74 = phi float [ %49, %48 ], [ %53, %52 ]
+  %.sink73 = phi ptr [ %5, %48 ], [ %4, %52 ]
+  %54 = fptosi float %.sink74 to i32
+  store i32 %54, ptr %.sink73, align 4, !tbaa !147
   br label %55
 
 55:                                               ; preds = %.sink.split, %50, %32, %35, %29
@@ -4317,34 +4317,34 @@ switch.lookup:                                    ; preds = %2
   br i1 %.not17, label %17, label %33
 
 17:                                               ; preds = %15
-  %switch.tableidx22 = add i32 %1, -221185
-  %18 = icmp ult i32 %switch.tableidx22, 9
-  %switch.maskindex = trunc i32 %switch.tableidx22 to i16
+  %switch.tableidx24 = add i32 %1, -221185
+  %18 = icmp ult i32 %switch.tableidx24, 9
+  %switch.maskindex = trunc i32 %switch.tableidx24 to i16
   %switch.shifted = lshr i16 319, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %18, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup23, label %19
+  br i1 %or.cond, label %switch.lookup25, label %19
 
 19:                                               ; preds = %17
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65547, ptr noundef nonnull @.str.28) #20
   br label %33
 
-switch.lookup23:                                  ; preds = %17
-  %20 = zext nneg i32 %switch.tableidx22 to i64
-  %switch.gep24 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._glfwCreateStandardCursorWayland.19, i64 0, i64 %20
-  %switch.load25 = load ptr, ptr %switch.gep24, align 8
+switch.lookup25:                                  ; preds = %17
+  %20 = zext nneg i32 %switch.tableidx24 to i64
+  %switch.gep26 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._glfwCreateStandardCursorWayland.19, i64 0, i64 %20
+  %switch.load27 = load ptr, ptr %switch.gep26, align 8
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137560), align 8, !tbaa !302
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134096), align 8, !tbaa !303
-  %23 = tail call ptr %21(ptr noundef %22, ptr noundef nonnull %switch.load25) #20
+  %23 = tail call ptr %21(ptr noundef %22, ptr noundef nonnull %switch.load27) #20
   store ptr %23, ptr %9, align 8, !tbaa !285
   %.not18 = icmp eq ptr %23, null
   br i1 %.not18, label %24, label %25
 
-24:                                               ; preds = %switch.lookup23
-  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65547, ptr noundef nonnull @.str.29, ptr noundef nonnull %switch.load25) #20
+24:                                               ; preds = %switch.lookup25
+  tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65547, ptr noundef nonnull @.str.29, ptr noundef nonnull %switch.load27) #20
   br label %33
 
-25:                                               ; preds = %switch.lookup23
+25:                                               ; preds = %switch.lookup25
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134104), align 8, !tbaa !304
   %.not19 = icmp eq ptr %26, null
   br i1 %.not19, label %33, label %27
@@ -4357,7 +4357,7 @@ switch.lookup23:                                  ; preds = %17
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137560), align 8, !tbaa !302
-  %32 = tail call ptr %31(ptr noundef nonnull %26, ptr noundef nonnull %switch.load25) #20
+  %32 = tail call ptr %31(ptr noundef nonnull %26, ptr noundef nonnull %switch.load27) #20
   store ptr %32, ptr %28, align 8, !tbaa !321
   br label %33
 

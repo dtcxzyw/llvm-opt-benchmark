@@ -1333,14 +1333,14 @@ php_handle_psd.exit.i:                            ; preds = %255, %253, %251
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %329, %311
-  %.sink23.i.i = phi ptr [ %312, %311 ], [ %330, %329 ]
+  %.sink24.i.i = phi ptr [ %312, %311 ], [ %330, %329 ]
   %.sink.i.i = phi i32 [ %322, %311 ], [ %339, %329 ]
-  %340 = getelementptr inbounds nuw i8, ptr %.sink23.i.i, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %.sink24.i.i, i64 8
   store i32 %.sink.i.i, ptr %340, align 4, !tbaa !68
   br label %php_handle_bmp.exit.i
 
 php_handle_bmp.exit.i:                            ; preds = %.sink.split.i.i, %325, %323, %295, %293
-  %.0.i61.i = phi ptr [ null, %293 ], [ null, %295 ], [ null, %325 ], [ null, %323 ], [ %.sink23.i.i, %.sink.split.i.i ]
+  %.0.i61.i = phi ptr [ null, %293 ], [ null, %295 ], [ null, %325 ], [ null, %323 ], [ %.sink24.i.i, %.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %597
 

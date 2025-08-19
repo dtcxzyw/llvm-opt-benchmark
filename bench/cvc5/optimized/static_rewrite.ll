@@ -847,19 +847,19 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %98, %103
   %104 = phi ptr [ %101, %98 ], [ %102, %103 ]
   %105 = load i64, ptr %92, align 8, !tbaa !291
   %.not.not.i.i = icmp eq i64 %105, 0
-  br i1 %.not.not.i.i, label %.preheader414, label %110
+  br i1 %.not.not.i.i, label %.preheader496, label %110
 
-.preheader414:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit, %106
+.preheader496:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit, %106
   %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %106 ], [ %37, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !292
   %.not.i.i98 = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i98, label %.loopexit354, label %106
 
-106:                                              ; preds = %.preheader414
+106:                                              ; preds = %.preheader496
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !233
   %109 = icmp eq ptr %104, %108
-  br i1 %109, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit, label %.preheader414, !llvm.loop !293
+  br i1 %109, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit, label %.preheader496, !llvm.loop !293
 
 110:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit
   %111 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb0EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -910,8 +910,8 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %98, %103
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %133
   br label %.loopexit354, !llvm.loop !297
 
-.loopexit354:                                     ; preds = %.lr.ph.i.i.i.i, %.preheader414, %.noexc99, %..loopexit_crit_edge21.i.i.i.i
-  %137 = phi ptr [ %.pre394, %.noexc99 ], [ %.pre394, %..loopexit_crit_edge21.i.i.i.i ], [ %104, %.preheader414 ], [ %.pre394, %.lr.ph.i.i.i.i ]
+.loopexit354:                                     ; preds = %.lr.ph.i.i.i.i, %.preheader496, %.noexc99, %..loopexit_crit_edge21.i.i.i.i
+  %137 = phi ptr [ %.pre394, %.noexc99 ], [ %.pre394, %..loopexit_crit_edge21.i.i.i.i ], [ %104, %.preheader496 ], [ %.pre394, %.lr.ph.i.i.i.i ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i64, ptr %138, align 8
   %140 = trunc i64 %139 to i32

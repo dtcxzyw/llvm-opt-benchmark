@@ -44,8 +44,8 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   br label %58
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.0.lcssa109 = phi i64 [ %9, %._crit_edge ], [ 0, %.preheader ]
-  %12 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 16) #12
+  %.0.lcssa111 = phi i64 [ %9, %._crit_edge ], [ 0, %.preheader ]
+  %12 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa111, i64 noundef 16) #12
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !14
   %14 = sext i32 %1 to i64
@@ -53,13 +53,13 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 4) #12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %16, ptr %17, align 8, !tbaa !19
-  %18 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 4) #12
+  %18 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa111, i64 noundef 4) #12
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %18, ptr %19, align 8, !tbaa !20
-  %20 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 4) #12
+  %20 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa111, i64 noundef 4) #12
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %20, ptr %21, align 8, !tbaa !21
-  %22 = trunc nuw nsw i64 %.0.lcssa109 to i32
+  %22 = trunc nuw nsw i64 %.0.lcssa111 to i32
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %22, ptr %23, align 4, !tbaa !22
   store i32 %1, ptr %3, align 8, !tbaa !23
@@ -67,7 +67,7 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %._crit_edge.thread
-  %.not76 = icmp eq i64 %.0.lcssa109, 0
+  %.not76 = icmp eq i64 %.0.lcssa111, 0
   br i1 %.not76, label %31, label %26
 
 26:                                               ; preds = %25

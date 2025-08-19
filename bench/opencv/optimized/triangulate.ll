@@ -338,8 +338,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %71
   %.pre179 = load i32, ptr %24, align 8, !tbaa !31, !noalias !41
   %102 = and i32 %.pre179, 4088
   %103 = icmp eq i32 %102, 8
-  %or.cond183 = select i1 %or.cond5, i1 %103, i1 false
-  br i1 %or.cond183, label %104, label %125
+  %or.cond193 = select i1 %or.cond5, i1 %103, i1 false
+  br i1 %or.cond193, label %104, label %125
 
 104:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -539,10 +539,10 @@ _ZN2cv3MataSERKNS_7MatExprE.exit58:               ; preds = %109
 208:                                              ; preds = %192
   %209 = icmp sgt i32 %130, 0
   %.not.i = icmp ne ptr %139, null
-  %or.cond121.not185 = select i1 %209, i1 %.not.i, i1 false
+  %or.cond121.not195 = select i1 %209, i1 %.not.i, i1 false
   %210 = icmp sgt i32 %153, 0
-  %or.cond184 = select i1 %or.cond121.not185, i1 %210, i1 false
-  br i1 %or.cond184, label %211, label %219
+  %or.cond194 = select i1 %or.cond121.not195, i1 %210, i1 false
+  br i1 %or.cond194, label %211, label %219
 
 211:                                              ; preds = %208
   %212 = icmp slt i32 %147, 1

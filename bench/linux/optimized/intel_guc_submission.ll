@@ -4001,9 +4001,9 @@ define internal fastcc range(i32 -15, -16) i32 @guc_send_invalidate_tlb(ptr noun
 84:                                               ; preds = %78
   %85 = call i64 @schedule_timeout(i64 noundef %79) #21
   %86 = icmp eq i64 %85, 0
-  br i1 %86, label %.thread13, label %78, !llvm.loop !71
+  br i1 %86, label %.thread19, label %78, !llvm.loop !71
 
-.thread13:                                        ; preds = %84
+.thread19:                                        ; preds = %84
   %.pre12 = load i32, ptr %5, align 8
   store volatile i32 0, ptr %77, align 8
   %87 = and i32 %.pre12, -3
@@ -4017,7 +4017,7 @@ define internal fastcc range(i32 -15, -16) i32 @guc_send_invalidate_tlb(ptr noun
   %92 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, i32 %91, ptr nonnull elementtype(i32) %5) #21, !srcloc !72
   br i1 %90, label %93, label %.thread6
 
-93:                                               ; preds = %.thread13, %89
+93:                                               ; preds = %.thread19, %89
   %94 = load volatile i64, ptr %19, align 8
   %95 = icmp slt i64 %94, 0
   br i1 %95, label %.thread6, label %96
@@ -6374,7 +6374,7 @@ define internal fastcc void @guc_update_engine_gt_clks(ptr noundef %0) unnamed_a
   br label %.split.us, !llvm.loop !94
 
 .thread6:                                         ; preds = %1, %.thread6.backedge
-  %30 = phi i32 [ %.be35, %.thread6.backedge ], [ 0, %1 ]
+  %30 = phi i32 [ %.be39, %.thread6.backedge ], [ 0, %1 ]
   %31 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10) #21, !srcloc !13
   %32 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #21, !srcloc !13
   %33 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11) #21, !srcloc !13
@@ -6401,7 +6401,7 @@ define internal fastcc void @guc_update_engine_gt_clks(ptr noundef %0) unnamed_a
   br i1 %45, label %.thread6.backedge, label %.split11.us
 
 .thread6.backedge:                                ; preds = %43, %.thread9
-  %.be35 = phi i32 [ %44, %43 ], [ %40, %.thread9 ]
+  %.be39 = phi i32 [ %44, %43 ], [ %40, %.thread9 ]
   br label %.thread6, !llvm.loop !94
 
 .split11.us:                                      ; preds = %.thread9, %43, %21, %24

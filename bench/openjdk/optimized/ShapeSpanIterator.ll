@@ -876,8 +876,8 @@ subdivideLine.exit349.thread:                     ; preds = %128, %139, %144, %s
   %.phi.trans.insert372 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %.pre373 = load float, ptr %.phi.trans.insert372, align 8
   %386 = fcmp une float %.pre, %.pre373
-  %or.cond382 = select i1 %385, i1 true, i1 %386
-  br i1 %or.cond382, label %._crit_edge, label %.critedge
+  %or.cond399 = select i1 %385, i1 true, i1 %386
+  br i1 %or.cond399, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %380
   %387 = getelementptr inbounds nuw i8, ptr %14, i64 72
@@ -1683,19 +1683,19 @@ define internal zeroext range(i8 0, 2) i8 @ShapeSINextSpan(ptr noundef captures(
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
   %.not.i = icmp sgt i32 %27, %22
-  br i1 %.not.i, label %.critedge.loopexit.split.loop.exit43.i, label %28
+  br i1 %.not.i, label %.critedge.loopexit.split.loop.exit46.i, label %28
 
 28:                                               ; preds = %.lr.ph34.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
   br i1 %exitcond42.not.i, label %initSegmentTable.exit, label %.lr.ph34.i, !llvm.loop !8
 
-.critedge.loopexit.split.loop.exit43.i:           ; preds = %.lr.ph34.i
+.critedge.loopexit.split.loop.exit46.i:           ; preds = %.lr.ph34.i
   %29 = trunc nuw nsw i64 %indvars.iv38.i to i32
   br label %initSegmentTable.exit
 
-initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i, %.critedge.loopexit.split.loop.exit43.i
-  %.028.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %29, %.critedge.loopexit.split.loop.exit43.i ], [ %20, %28 ]
+initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i, %.critedge.loopexit.split.loop.exit46.i
+  %.028.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %29, %.critedge.loopexit.split.loop.exit46.i ], [ %20, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %.028.lcssa.i, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -1805,7 +1805,7 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   br i1 %83, label %.loopexit.us.loopexit.split.loop.exit, label %75
 
 .loopexit.us.loopexit.split.loop.exit:            ; preds = %76
-  %indvars.le = trunc i64 %indvars.iv.next to i32
+  %indvars.le = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %75, %.loopexit.us.loopexit.split.loop.exit, %66, %64
@@ -1901,19 +1901,19 @@ initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i,
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
   %.not181 = icmp sgt i32 %117, %.2153
-  br i1 %.not181, label %.critedge.loopexit.split.loop.exit312, label %118
+  br i1 %.not181, label %.critedge.loopexit.split.loop.exit326, label %118
 
 118:                                              ; preds = %.lr.ph245
   %indvars.iv.next283 = add nsw i64 %indvars.iv282, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next283, %52
   br i1 %exitcond.not, label %.critedge, label %.lr.ph245, !llvm.loop !11
 
-.critedge.loopexit.split.loop.exit312:            ; preds = %.lr.ph245
+.critedge.loopexit.split.loop.exit326:            ; preds = %.lr.ph245
   %119 = trunc nsw i64 %indvars.iv282 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %118, %.critedge.loopexit.split.loop.exit312, %111
-  %.2162.lcssa = phi i32 [ %.0160.ph258, %111 ], [ %119, %.critedge.loopexit.split.loop.exit312 ], [ %39, %118 ]
+.critedge:                                        ; preds = %118, %.critedge.loopexit.split.loop.exit326, %111
+  %.2162.lcssa = phi i32 [ %.0160.ph258, %111 ], [ %119, %.critedge.loopexit.split.loop.exit326 ], [ %39, %118 ]
   %120 = icmp slt i32 %.0163.lcssa, %.2162.lcssa
   br i1 %120, label %.lr.ph257, label %.loopexit192, !llvm.loop !9
 
@@ -2119,19 +2119,19 @@ define internal void @ShapeSISkipDownTo(ptr noundef captures(none) %0, i32 nound
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
   %.not.i = icmp sgt i32 %27, %22
-  br i1 %.not.i, label %.critedge.loopexit.split.loop.exit43.i, label %28
+  br i1 %.not.i, label %.critedge.loopexit.split.loop.exit46.i, label %28
 
 28:                                               ; preds = %.lr.ph34.i
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next39.i, %wide.trip.count41.i
   br i1 %exitcond42.not.i, label %initSegmentTable.exit, label %.lr.ph34.i, !llvm.loop !8
 
-.critedge.loopexit.split.loop.exit43.i:           ; preds = %.lr.ph34.i
+.critedge.loopexit.split.loop.exit46.i:           ; preds = %.lr.ph34.i
   %29 = trunc nuw nsw i64 %indvars.iv38.i to i32
   br label %initSegmentTable.exit
 
-initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i, %.critedge.loopexit.split.loop.exit43.i
-  %.028.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %29, %.critedge.loopexit.split.loop.exit43.i ], [ %20, %28 ]
+initSegmentTable.exit:                            ; preds = %28, %._crit_edge.i, %.critedge.loopexit.split.loop.exit46.i
+  %.028.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %29, %.critedge.loopexit.split.loop.exit46.i ], [ %20, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %.028.lcssa.i, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -2595,8 +2595,8 @@ GetSpanData.exit:                                 ; preds = %17
   %.phi.trans.insert222 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %.pre223 = load float, ptr %.phi.trans.insert222, align 8
   %213 = fcmp une float %.pre, %.pre223
-  %or.cond224 = select i1 %212, i1 true, i1 %213
-  br i1 %or.cond224, label %.thread212._crit_edge, label %.critedge204
+  %or.cond244 = select i1 %212, i1 true, i1 %213
+  br i1 %or.cond244, label %.thread212._crit_edge, label %.critedge204
 
 .thread212._crit_edge:                            ; preds = %.thread212
   %214 = tail call fastcc zeroext i8 @subdivideLine(ptr noundef nonnull %18, float noundef %209, float noundef %.pre, float noundef %211, float noundef %.pre223)

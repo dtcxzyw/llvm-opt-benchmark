@@ -932,7 +932,7 @@ php_info_print_table_start.exit129:               ; preds = %php_info_print_hr.e
 php_info_print_table_end.exit131:                 ; preds = %144, %php_info_print_table_start.exit129, %140
   %146 = and i32 %0, 8
   %.not88 = icmp eq i32 %146, 0
-  br i1 %.not88, label %147, label %.thread202
+  br i1 %.not88, label %147, label %.thread214
 
 147:                                              ; preds = %php_info_print_table_end.exit131
   %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8, !tbaa !17
@@ -941,29 +941,29 @@ php_info_print_table_end.exit131:                 ; preds = %144, %php_info_prin
 
 149:                                              ; preds = %147
   %150 = call i64 @php_output_write(ptr noundef nonnull @.str.68, i64 noundef 18) #14
-  br label %.thread200
+  br label %.thread212
 
 php_info_print_table_start.exit133:               ; preds = %147
   %151 = call i64 @php_output_write(ptr noundef nonnull @.str.64, i64 noundef 1) #14
   call void (i32, ...) @php_info_print_table_header(i32 noundef 1, ptr noundef nonnull @.str.69)
   %152 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8, !tbaa !17
   %.not.i134 = icmp eq i32 %152, 0
-  br i1 %.not.i134, label %153, label %.thread200
+  br i1 %.not.i134, label %153, label %.thread212
 
 153:                                              ; preds = %php_info_print_table_start.exit133
   %154 = call i64 @php_output_write(ptr noundef nonnull @.str.112, i64 noundef 9) #14
-  br label %.thread200
+  br label %.thread212
 
-.thread200:                                       ; preds = %149, %php_info_print_table_start.exit133, %153
+.thread212:                                       ; preds = %149, %php_info_print_table_start.exit133, %153
   call void @display_ini_entries(ptr noundef null) #14
   br label %212
 
 155:                                              ; preds = %131
   %.pre199 = and i32 %0, 8
   %156 = icmp eq i32 %.pre199, 0
-  br i1 %156, label %212, label %.thread202
+  br i1 %156, label %212, label %.thread214
 
-.thread202:                                       ; preds = %php_info_print_table_end.exit131, %155
+.thread214:                                       ; preds = %php_info_print_table_end.exit131, %155
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %157 = load i32, ptr getelementptr inbounds nuw (i8, ptr @module_registry, i64 28), align 4, !tbaa !34
   call void @_zend_hash_init(ptr noundef nonnull %7, i32 noundef %157, ptr noundef null, i1 noundef zeroext true) #14
@@ -984,8 +984,8 @@ php_info_print_table_start.exit133:               ; preds = %147
   %.not92187 = icmp eq i32 %161, 0
   br i1 %.not92187, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread202, %178
-  %.063188 = phi ptr [ %179, %178 ], [ %159, %.thread202 ]
+.lr.ph:                                           ; preds = %.thread214, %178
+  %.063188 = phi ptr [ %179, %178 ], [ %159, %.thread214 ]
   %167 = getelementptr inbounds nuw i8, ptr %.063188, i64 8
   %168 = load i8, ptr %167, align 8, !tbaa !24
   %169 = icmp eq i8 %168, 0
@@ -1013,7 +1013,7 @@ php_info_print_table_start.exit133:               ; preds = %147
   %.not92 = icmp eq ptr %179, %163
   br i1 %.not92, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %178, %.thread202
+._crit_edge:                                      ; preds = %178, %.thread214
   %180 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8, !tbaa !17
   %.not93 = icmp eq i32 %180, 0
   br i1 %.not93, label %181, label %php_info_print_table_start.exit137
@@ -1103,7 +1103,7 @@ php_info_print_table_end.exit143:                 ; preds = %._crit_edge192, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %212
 
-212:                                              ; preds = %.thread200, %php_info_print_table_end.exit143, %155
+212:                                              ; preds = %.thread212, %php_info_print_table_end.exit143, %155
   %213 = and i32 %0, 16
   %.not96 = icmp eq i32 %213, 0
   br i1 %.not96, label %php_info_print_table_end.exit151, label %214
@@ -1149,29 +1149,29 @@ php_info_print_table_start.exit149:               ; preds = %222, %php_info_prin
 
 .lr.ph195.preheader:                              ; preds = %php_info_print_table_start.exit149
   %226 = load ptr, ptr %225, align 8, !tbaa !23
-  %.not99204 = icmp eq ptr %226, null
-  br i1 %.not99204, label %.critedge, label %.lr.ph206
+  %.not99216 = icmp eq ptr %226, null
+  br i1 %.not99216, label %.critedge, label %.lr.ph218
 
-.lr.ph206:                                        ; preds = %.lr.ph195.preheader, %.lr.ph195
+.lr.ph218:                                        ; preds = %.lr.ph195.preheader, %.lr.ph195
   %227 = phi ptr [ %233, %.lr.ph195 ], [ %226, %.lr.ph195.preheader ]
-  %.0194205 = phi ptr [ %232, %.lr.ph195 ], [ %225, %.lr.ph195.preheader ]
+  %.0194217 = phi ptr [ %232, %.lr.ph195 ], [ %225, %.lr.ph195.preheader ]
   %228 = call noalias ptr @_estrdup(ptr noundef nonnull %227) #14
   %229 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %228, i32 noundef 61) #13
   %.not110 = icmp eq ptr %229, null
   br i1 %.not110, label %.lr.ph195, label %230
 
-230:                                              ; preds = %.lr.ph206
+230:                                              ; preds = %.lr.ph218
   store i8 0, ptr %229, align 1, !tbaa !24
   %231 = getelementptr inbounds nuw i8, ptr %229, i64 1
   call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull %228, ptr noundef nonnull %231)
   br label %.lr.ph195
 
-.lr.ph195:                                        ; preds = %.lr.ph206, %230
+.lr.ph195:                                        ; preds = %.lr.ph218, %230
   call void @_efree(ptr noundef nonnull %228) #14
-  %232 = getelementptr inbounds nuw i8, ptr %.0194205, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %.0194217, i64 8
   %233 = load ptr, ptr %232, align 8, !tbaa !23
   %.not99 = icmp eq ptr %233, null
-  br i1 %.not99, label %.critedge, label %.lr.ph206
+  br i1 %.not99, label %.critedge, label %.lr.ph218
 
 .critedge:                                        ; preds = %.lr.ph195, %.lr.ph195.preheader, %php_info_print_table_start.exit149
   %234 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8, !tbaa !17

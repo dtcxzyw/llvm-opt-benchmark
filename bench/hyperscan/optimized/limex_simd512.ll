@@ -850,9 +850,9 @@ moNfaReportCurrent512.exit:                       ; preds = %10, %25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %118, %125
-  %.sink198 = phi <4 x i64> [ %135, %125 ], [ %123, %118 ]
+  %.sink204 = phi <4 x i64> [ %135, %125 ], [ %123, %118 ]
   %.sink = phi <4 x i64> [ %136, %125 ], [ %124, %118 ]
-  store <4 x i64> %.sink198, ptr %6, align 64
+  store <4 x i64> %.sink204, ptr %6, align 64
   store <4 x i64> %.sink, ptr %.sroa.4158.0..sroa_idx, align 32
   br label %137
 
@@ -3538,9 +3538,9 @@ moNfaReportCurrent512.exit:                       ; preds = %12, %27
   br label %.sink.split
 
 .sink.split:                                      ; preds = %153, %160
-  %.sink252 = phi <4 x i64> [ %170, %160 ], [ %158, %153 ]
+  %.sink259 = phi <4 x i64> [ %170, %160 ], [ %158, %153 ]
   %.sink = phi <4 x i64> [ %171, %160 ], [ %159, %153 ]
-  store <4 x i64> %.sink252, ptr %6, align 64
+  store <4 x i64> %.sink259, ptr %6, align 64
   store <4 x i64> %.sink, ptr %.sroa.4195.0..sroa_idx, align 32
   br label %172
 
@@ -5715,9 +5715,9 @@ runException512.exit187:                          ; preds = %1066, %1020, %1016,
   br label %nfaExecLimEx512_Stream.exit
 
 nfaExecLimEx512_Stream.exit:                      ; preds = %1099, %nfaExecLimEx512_Loop_No_Accel.exit, %nfaExecLimEx512_Loop_No_Accel.exit12.thread, %1110, %.critedge.i
-  %.045.i1450.lcssa1506.sink = phi i64 [ %.045.i1450, %nfaExecLimEx512_Loop_No_Accel.exit ], [ %.045.i71443, %nfaExecLimEx512_Loop_No_Accel.exit12.thread ], [ %2, %1110 ], [ %.112851461, %.critedge.i ], [ %2, %1099 ]
+  %.045.i1450.lcssa1526.sink = phi i64 [ %.045.i1450, %nfaExecLimEx512_Loop_No_Accel.exit ], [ %.045.i71443, %nfaExecLimEx512_Loop_No_Accel.exit12.thread ], [ %2, %1110 ], [ %.112851461, %.critedge.i ], [ %2, %1099 ]
   %.3.i = phi i8 [ 0, %nfaExecLimEx512_Loop_No_Accel.exit ], [ 0, %nfaExecLimEx512_Loop_No_Accel.exit12.thread ], [ 1, %1110 ], [ 0, %.critedge.i ], [ 0, %1099 ]
-  store i64 %.045.i1450.lcssa1506.sink, ptr %5, align 8
+  store i64 %.045.i1450.lcssa1526.sink, ptr %5, align 8
   ret i8 %.3.i
 }
 
@@ -5881,9 +5881,9 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx512_QR(ptr noundef %0, ptr 
   br label %nfaExecLimEx512_HandleEvent.exit.sink.split
 
 nfaExecLimEx512_HandleEvent.exit.sink.split:      ; preds = %88, %81
-  %.sink245 = phi <4 x i64> [ %86, %81 ], [ %98, %88 ]
+  %.sink255 = phi <4 x i64> [ %86, %81 ], [ %98, %88 ]
   %.sink = phi <4 x i64> [ %87, %81 ], [ %99, %88 ]
-  store <4 x i64> %.sink245, ptr %6, align 64
+  store <4 x i64> %.sink255, ptr %6, align 64
   store <4 x i64> %.sink, ptr %.sroa.4.0..sroa_idx, align 32
   br label %nfaExecLimEx512_HandleEvent.exit
 
@@ -9053,7 +9053,7 @@ limexRunReports.exit.i98:                         ; preds = %245, %239
   br label %.thread
 
 .thread:                                          ; preds = %251, %limexRunReports.exit.i98, %223
-  %.3412 = phi i32 [ %.1411, %223 ], [ %.1411, %limexRunReports.exit.i98 ], [ %spec.select, %251 ]
+  %.3412 = phi i32 [ %.1411, %223 ], [ 0, %limexRunReports.exit.i98 ], [ %spec.select, %251 ]
   %.sroa.4370.6 = phi ptr [ %.sroa.4370.3, %223 ], [ %.sroa.4370.3, %limexRunReports.exit.i98 ], [ %spec.select469, %251 ]
   %253 = getelementptr inbounds nuw i8, ptr %236, i64 64
   %254 = load <4 x i64>, ptr %253, align 32, !noalias !590

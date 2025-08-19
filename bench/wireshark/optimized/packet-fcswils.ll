@@ -843,9 +843,9 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %78, label %.thread122, label %84
 
 .thread122:                                       ; preds = %66, %.thread
-  %.097.ph137 = phi i32 [ 0, %.thread ], [ %68, %66 ]
+  %.097.ph144 = phi i32 [ 0, %.thread ], [ %68, %66 ]
   %79 = load ptr, ptr %8, align 8
-  %80 = and i32 %.097.ph137, 255
+  %80 = and i32 %.097.ph144, 255
   %81 = call ptr @val_to_str(i32 noundef %80, ptr noundef nonnull @fc_swils_opcode_key_val, ptr noundef nonnull @.str.406)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.407, ptr noundef %81)
   %82 = load i32, ptr @hf_swils_opcode, align 4
@@ -1260,10 +1260,10 @@ define internal void @dissect_swils_efp(ptr noundef %0, ptr noundef %1, ptr noun
 
 .sink.split:                                      ; preds = %.lr.ph, %37
   %hf_swils_efp_mcast_grpno.sink = phi ptr [ @hf_swils_efp_switch_name, %37 ], [ @hf_swils_efp_mcast_grpno, %.lr.ph ]
-  %.sink62 = phi i32 [ 8, %37 ], [ 1, %.lr.ph ]
+  %.sink63 = phi i32 [ 8, %37 ], [ 1, %.lr.ph ]
   %41 = load i32, ptr %hf_swils_efp_mcast_grpno.sink, align 4
-  %42 = add i32 %.05559, %.sink62
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef %.sink62, i32 noundef 0)
+  %42 = add i32 %.05559, %.sink63
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef %.sink63, i32 noundef 0)
   br label %44
 
 44:                                               ; preds = %.sink.split, %.lr.ph

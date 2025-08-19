@@ -2128,11 +2128,11 @@ switch.lookup:                                    ; preds = %.preheader2.i
   %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie, i64 0, i64 %437
   %switch.load = load ptr, ptr %switch.gep, align 8
   %438 = zext nneg i32 %.2129.i to i64
-  %switch.gep21 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie.23, i64 0, i64 %438
-  %switch.load22 = load ptr, ptr %switch.gep21, align 8
+  %switch.gep27 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_dect_nwk_s_ie.23, i64 0, i64 %438
+  %switch.load28 = load ptr, ptr %switch.gep27, align 8
   %439 = load i32, ptr %switch.load, align 4
   %440 = load i32, ptr @ett_dect_nwk_s_ie_element, align 4
-  %441 = call ptr @proto_tree_add_bitmask(ptr noundef %82, ptr noundef %0, i32 noundef %.1126.i, i32 noundef %439, i32 noundef %440, ptr noundef nonnull %switch.load22, i32 noundef 0)
+  %441 = call ptr @proto_tree_add_bitmask(ptr noundef %82, ptr noundef %0, i32 noundef %.1126.i, i32 noundef %439, i32 noundef %440, ptr noundef nonnull %switch.load28, i32 noundef 0)
   br label %442
 
 442:                                              ; preds = %.preheader2.i, %switch.lookup
@@ -2185,14 +2185,14 @@ switch.lookup:                                    ; preds = %.preheader2.i
   %465 = load i32, ptr @hf_dect_nwk_s_ie_octet_group_extension, align 4
   %466 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %465, ptr noundef %0, i32 noundef %.4.i, i32 noundef 1, i32 noundef 0)
   switch i32 %.4131.i, label %471 [
-    i32 0, label %.sink.split13.i
+    i32 0, label %.sink.split15.i
     i32 1, label %467
   ]
 
 467:                                              ; preds = %.preheader.i
-  br label %.sink.split13.i
+  br label %.sink.split15.i
 
-.sink.split13.i:                                  ; preds = %467, %.preheader.i
+.sink.split15.i:                                  ; preds = %467, %.preheader.i
   %hf_dect_nwk_s_ie_terminal_capability_blind_slot_6a.sink.i = phi ptr [ @hf_dect_nwk_s_ie_terminal_capability_blind_slot_6a, %467 ], [ @hf_dect_nwk_s_ie_terminal_capability_blind_slot_6, %.preheader.i ]
   %dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6a_flags.sink.i = phi ptr [ @dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6a_flags, %467 ], [ @dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6_flags, %.preheader.i ]
   %468 = load i32, ptr %hf_dect_nwk_s_ie_terminal_capability_blind_slot_6a.sink.i, align 4
@@ -2200,7 +2200,7 @@ switch.lookup:                                    ; preds = %.preheader2.i
   %470 = call ptr @proto_tree_add_bitmask(ptr noundef %82, ptr noundef %0, i32 noundef %.4.i, i32 noundef %468, i32 noundef %469, ptr noundef nonnull %dissect_dect_nwk_s_ie_terminal_capability.blind_slot_6a_flags.sink.i, i32 noundef 0)
   br label %471
 
-471:                                              ; preds = %.sink.split13.i, %.preheader.i
+471:                                              ; preds = %.sink.split15.i, %.preheader.i
   %472 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4.i)
   %.not137.i = icmp sgt i8 %472, -1
   %473 = add i32 %.4131.i, 1

@@ -170,8 +170,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
 
 ._crit_edge.i.i42:                                ; preds = %.noexc.i43, %55
   %62 = phi ptr [ %60, %.noexc.i43 ], [ %57, %55 ]
-  %cond54 = icmp eq i64 %11, 1
-  br i1 %cond54, label %63, label %65
+  %cond58 = icmp eq i64 %11, 1
+  br i1 %cond58, label %63, label %65
 
 63:                                               ; preds = %._crit_edge.i.i42
   %64 = load i8, ptr %56, align 1, !tbaa !13

@@ -1303,21 +1303,21 @@ dgram_pair_read_inner.exit80:                     ; preds = %.lr.ph.i, %95
   br i1 %100, label %dgram_pair_read_inner.exit80.thread, label %.critedge, !prof !54
 
 dgram_pair_read_inner.exit80.thread:              ; preds = %71, %dgram_pair_read_inner.exit80
-  %.pre.i83115 = phi i64 [ %.pre.i83108, %dgram_pair_read_inner.exit80 ], [ %.pre.i63, %71 ]
-  %.pre41.i84114 = phi i64 [ %.pre41.i84110, %dgram_pair_read_inner.exit80 ], [ %.pre41.i64, %71 ]
+  %.pre.i83127 = phi i64 [ %.pre.i83108, %dgram_pair_read_inner.exit80 ], [ %.pre.i63, %71 ]
+  %.pre41.i84126 = phi i64 [ %.pre41.i84110, %dgram_pair_read_inner.exit80 ], [ %.pre41.i64, %71 ]
   %.not61 = icmp eq i64 %.046, 0
   br i1 %.not61, label %113, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %dgram_pair_read_inner.exit80.thread
-  %.promoted116 = load i64, ptr %34, align 8, !tbaa !51
+  %.promoted128 = load i64, ptr %34, align 8, !tbaa !51
   br label %101
 
 101:                                              ; preds = %106, %.lr.ph.i82
-  %102 = phi i64 [ %.promoted116, %.lr.ph.i82 ], [ %109, %106 ]
-  %103 = phi i64 [ %.pre41.i84114, %.lr.ph.i82 ], [ %spec.store.select.i22.i99, %106 ]
+  %102 = phi i64 [ %.promoted128, %.lr.ph.i82 ], [ %109, %106 ]
+  %103 = phi i64 [ %.pre41.i84126, %.lr.ph.i82 ], [ %spec.store.select.i22.i99, %106 ]
   %.01238.i85 = phi i64 [ 0, %.lr.ph.i82 ], [ %110, %106 ]
   %.01337.i86 = phi i64 [ %.046, %.lr.ph.i82 ], [ %111, %106 ]
-  %104 = sub i64 %.pre.i83115, %103
+  %104 = sub i64 %.pre.i83127, %103
   %spec.select.i.i88 = tail call i64 @llvm.umin.i64(i64 %104, i64 %102)
   %105 = icmp eq i64 %spec.select.i.i88, 0
   br i1 %105, label %dgram_pair_read_inner.exit100, label %106
@@ -1325,7 +1325,7 @@ dgram_pair_read_inner.exit80.thread:              ; preds = %71, %dgram_pair_rea
 106:                                              ; preds = %101
   %spec.select.i89 = tail call i64 @llvm.umin.i64(i64 %spec.select.i.i88, i64 %.01337.i86)
   %107 = add i64 %spec.select.i89, %103
-  %108 = icmp eq i64 %107, %.pre.i83115
+  %108 = icmp eq i64 %107, %.pre.i83127
   %spec.store.select.i22.i99 = select i1 %108, i64 0, i64 %107
   store i64 %spec.store.select.i22.i99, ptr %32, align 8, !tbaa !35
   %109 = sub nuw i64 %102, %spec.select.i89

@@ -46,25 +46,25 @@ define i32 @ff_codec_guid_get_id(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph.preheader:                                 ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %bcmp15 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %1, i64 16)
-  %.not916 = icmp eq i32 %bcmp15, 0
-  br i1 %.not916, label %._crit_edge, label %.lr.ph18
+  %bcmp16 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %1, i64 16)
+  %.not917 = icmp eq i32 %bcmp16, 0
+  br i1 %.not917, label %._crit_edge, label %.lr.ph19
 
-.lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv17 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv17, 1
+.lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv18 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
   %5 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %0, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !9
 
-.lr.ph:                                           ; preds = %.lr.ph18
+.lr.ph:                                           ; preds = %.lr.ph19
   %7 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %0, i64 %indvars.iv.next, i32 1
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %7, ptr noundef nonnull dereferenceable(16) %1, i64 16)
   %.not9 = icmp eq i32 %bcmp, 0
-  br i1 %.not9, label %._crit_edge, label %.lr.ph18, !llvm.loop !9
+  br i1 %.not9, label %._crit_edge, label %.lr.ph19, !llvm.loop !9
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph18
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph19
   br label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %2

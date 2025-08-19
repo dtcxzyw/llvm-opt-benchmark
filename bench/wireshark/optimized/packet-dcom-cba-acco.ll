@@ -5250,9 +5250,9 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
 
 cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, %75
   %85 = phi i1 [ %74, %.thread ], [ %78, %83 ], [ %78, %79 ], [ %78, %75 ]
-  %.0225 = phi i32 [ %66, %.thread ], [ %69, %83 ], [ %69, %79 ], [ %69, %75 ]
+  %.0235 = phi i32 [ %66, %.thread ], [ %69, %83 ], [ %69, %79 ], [ %69, %75 ]
   %86 = load i32, ptr @hf_cba_acco_count, align 4
-  %87 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0225, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %86, ptr noundef nonnull %10)
+  %87 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0235, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %86, ptr noundef nonnull %10)
   %88 = call i32 @dissect_dcom_dcerpc_array_size(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %11)
   %89 = icmp ne ptr %.1.i, null
   %or.cond3 = select i1 %89, i1 %85, i1 false
@@ -5352,7 +5352,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
   br i1 %.not200, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph.thread, %.lr.ph
-  %.2182230235 = phi i16 [ 0, %.lr.ph.thread ], [ %135, %.lr.ph ]
+  %.2182240245 = phi i16 [ 0, %.lr.ph.thread ], [ %135, %.lr.ph ]
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
@@ -5398,7 +5398,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
 
 .loopexit:                                        ; preds = %150, %.lr.ph.split.us, %128, %118
   %.1187 = phi i16 [ %.0186212, %118 ], [ %.0186212, %128 ], [ %spec.select.us, %.lr.ph.split.us ], [ %spec.select, %150 ]
-  %.1181 = phi i16 [ %.0180214, %118 ], [ 0, %128 ], [ %.2182230235, %.lr.ph.split.us ], [ %135, %150 ]
+  %.1181 = phi i16 [ %.0180214, %118 ], [ 0, %128 ], [ %.2182240245, %.lr.ph.split.us ], [ %135, %150 ]
   %.1178 = phi ptr [ %.0177215, %118 ], [ %136, %128 ], [ null, %.lr.ph.split.us ], [ %136, %150 ]
   %.2 = phi i32 [ %.1175, %118 ], [ %124, %128 ], [ %139, %.lr.ph.split.us ], [ %145, %150 ]
   %155 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %121, ptr noundef %2, ptr noundef %112, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %12)
@@ -5833,8 +5833,8 @@ cba_packet_in_range.exit.thread:                  ; preds = %40, %37, %.critedge
   br label %.loopexit73.sink.split
 
 .loopexit73.sink.split:                           ; preds = %68, %63
-  %.sink96 = phi ptr [ %3, %63 ], [ %2, %68 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sink96, i64 16
+  %.sink100 = phi ptr [ %3, %63 ], [ %2, %68 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.sink100, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr @g_list_append(ptr noundef %74, ptr noundef %45)
   store ptr %75, ptr %73, align 8
@@ -6501,8 +6501,8 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %63 = load i32, ptr %8, align 4
   %64 = add i32 %63, -1
   store i32 %64, ptr %8, align 4
-  %.not515671 = icmp eq i32 %63, 0
-  br i1 %.not515671, label %._crit_edge, label %.lr.ph.split.us.preheader
+  %.not515678 = icmp eq i32 %63, 0
+  br i1 %.not515678, label %._crit_edge, label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %50
   %.not52 = icmp eq ptr %56, null

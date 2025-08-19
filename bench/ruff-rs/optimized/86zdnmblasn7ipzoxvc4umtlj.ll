@@ -2923,7 +2923,7 @@ define void @_ZN7ty_wasm9Workspace20goto_type_definition17h01e8a7de824e85f0E(ptr
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h75df3c90841f8864E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14) #26
           to label %81 unwind label %78
 
-20:                                               ; preds = %.invoke38, %5
+20:                                               ; preds = %.invoke39, %5
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %19
@@ -2981,7 +2981,7 @@ define void @_ZN7ty_wasm9Workspace20goto_type_definition17h01e8a7de824e85f0E(ptr
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %40, ptr %42, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %.invoke38
+  br label %.invoke39
 
 43:                                               ; preds = %.noexc16
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -3079,9 +3079,9 @@ define void @_ZN7ty_wasm9Workspace20goto_type_definition17h01e8a7de824e85f0E(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.invoke38
+  br label %.invoke39
 
-76:                                               ; preds = %.invoke38
+76:                                               ; preds = %.invoke39
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h75df3c90841f8864E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -3107,9 +3107,9 @@ define void @_ZN7ty_wasm9Workspace20goto_type_definition17h01e8a7de824e85f0E(ptr
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.57.0..sroa_idx, align 8
-  br label %.invoke38
+  br label %.invoke39
 
-.invoke38:                                        ; preds = %41, %80, %75
+.invoke39:                                        ; preds = %41, %80, %75
   invoke void @"_ZN4core3ptr60drop_in_place$LT$ruff_source_file..line_index..LineIndex$GT$17ha9e6ed785633adeeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
           to label %76 unwind label %20
 
@@ -3141,7 +3141,7 @@ define void @_ZN7ty_wasm9Workspace5hover17h028aae79ec0dfc72E(ptr dead_on_unwind 
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h75df3c90841f8864E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #26
           to label %86 unwind label %82
 
-19:                                               ; preds = %.invoke36, %5
+19:                                               ; preds = %.invoke37, %5
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %18
@@ -3335,9 +3335,9 @@ _ZN7ty_wasm5Range15from_text_range17h5f77c0a5cb8841e2E.exit: ; preds = %.noexc24
 
 80:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.invoke36
+  br label %.invoke37
 
-81:                                               ; preds = %.invoke36
+81:                                               ; preds = %.invoke37
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h75df3c90841f8864E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -3357,9 +3357,9 @@ _ZN7ty_wasm5Range15from_text_range17h5f77c0a5cb8841e2E.exit: ; preds = %.noexc24
 85:                                               ; preds = %84, %40
   %storemerge = phi i64 [ -9223372036854775808, %84 ], [ -9223372036854775807, %40 ]
   store i64 %storemerge, ptr %0, align 8
-  br label %.invoke36
+  br label %.invoke37
 
-.invoke36:                                        ; preds = %80, %85
+.invoke37:                                        ; preds = %80, %85
   invoke void @"_ZN4core3ptr60drop_in_place$LT$ruff_source_file..line_index..LineIndex$GT$17ha9e6ed785633adeeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
           to label %81 unwind label %19
 
@@ -3388,7 +3388,7 @@ define void @_ZN7ty_wasm9Workspace11inlay_hints17hd3a3453e7b802344E(ptr dead_on_
   invoke void @"_ZN4core3ptr60drop_in_place$LT$ruff_source_file..line_index..LineIndex$GT$17ha9e6ed785633adeeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #26
           to label %60 unwind label %58
 
-15:                                               ; preds = %.invoke37, %4
+15:                                               ; preds = %.invoke42, %4
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %14
@@ -3484,7 +3484,7 @@ define void @_ZN7ty_wasm9Workspace11inlay_hints17hd3a3453e7b802344E(ptr dead_on_
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %44, ptr %50, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %.invoke37
+  br label %.invoke42
 
 51:                                               ; preds = %.noexc19
   invoke void @_ZN6ty_ide11inlay_hints11inlay_hints17h2ff3bf5bd4e9bb4eE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(232) @anon.2771f431ce980d04cdb4dacc2de721e2.53, i32 noundef %11, i32 noundef %34, i32 noundef %47)
@@ -3523,13 +3523,13 @@ define void @_ZN7ty_wasm9Workspace11inlay_hints17hd3a3453e7b802344E(ptr dead_on_
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.invoke37
+  br label %.invoke42
 
-.invoke37:                                        ; preds = %49, %56
+.invoke42:                                        ; preds = %49, %56
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h75df3c90841f8864E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
           to label %57 unwind label %15
 
-57:                                               ; preds = %.invoke37
+57:                                               ; preds = %.invoke42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @"_ZN4core3ptr60drop_in_place$LT$ruff_source_file..line_index..LineIndex$GT$17ha9e6ed785633adeeE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

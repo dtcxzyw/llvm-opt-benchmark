@@ -1472,8 +1472,8 @@ define void @ssl_set_master_secret(i32 noundef %0, ptr noundef %1, ptr noundef %
   %99 = getelementptr inbounds nuw i8, ptr %21, i64 552
   %100 = load i32, ptr %99, align 8
   %101 = icmp ugt i32 %100, %94
-  %or.cond123 = select i1 %.not117, i1 true, i1 %101
-  br i1 %or.cond123, label %._crit_edge, label %117
+  %or.cond137 = select i1 %.not117, i1 true, i1 %101
+  br i1 %or.cond137, label %._crit_edge, label %117
 
 ._crit_edge:                                      ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 104
@@ -1506,8 +1506,8 @@ define void @ssl_set_master_secret(i32 noundef %0, ptr noundef %1, ptr noundef %
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 512
   %123 = load i32, ptr %122, align 8
   %124 = icmp ugt i32 %123, %94
-  %or.cond124 = select i1 %.not119, i1 true, i1 %124
-  br i1 %or.cond124, label %._crit_edge120, label %140
+  %or.cond138 = select i1 %.not119, i1 true, i1 %124
+  br i1 %or.cond138, label %._crit_edge120, label %140
 
 ._crit_edge120:                                   ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 104
@@ -3840,16 +3840,16 @@ define internal fastcc i32 @dissect_ssl2_record(ptr noundef %0, ptr noundef %1, 
   %86 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %85)
   %87 = zext i16 %86 to i32
   %88 = tail call ptr @try_val_to_str(i32 noundef %87, ptr noundef nonnull @ssl_versions)
-  %.not185 = icmp eq ptr %88, null
-  br i1 %.not185, label %ssl_looks_like_valid_v2_handshake.exit.thread, label %117
+  %.not206 = icmp eq ptr %88, null
+  br i1 %.not206, label %ssl_looks_like_valid_v2_handshake.exit.thread, label %117
 
 89:                                               ; preds = %82
   %90 = add i32 %66, 3
   %91 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %90)
   %92 = zext i16 %91 to i32
   %93 = tail call ptr @try_val_to_str(i32 noundef %92, ptr noundef nonnull @ssl_versions)
-  %.not184 = icmp eq ptr %93, null
-  br i1 %.not184, label %ssl_looks_like_valid_v2_handshake.exit.thread, label %117
+  %.not205 = icmp eq ptr %93, null
+  br i1 %.not205, label %ssl_looks_like_valid_v2_handshake.exit.thread, label %117
 
 ssl_looks_like_valid_v2_handshake.exit:           ; preds = %82
   %94 = add i32 %66, 4
@@ -4001,7 +4001,7 @@ proto_item_set_generated.exit:                    ; preds = %111, %108, %105, %s
 172:                                              ; preds = %157
   %173 = add i32 %66, 7
   %174 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %173)
-  br i1 %.not178, label %.thread110.i, label %175
+  br i1 %.not178, label %.thread114.i, label %175
 
 175:                                              ; preds = %172
   %176 = load i32, ptr @hf_ssl2_handshake_challenge_len, align 4
@@ -4019,12 +4019,12 @@ proto_item_set_generated.exit:                    ; preds = %111, %108, %105, %s
   %.not100105.i = icmp eq i16 %161, 0
   br i1 %.not100105.i, label %._crit_edge.i, label %.lr.ph.split.i
 
-.thread110.i:                                     ; preds = %172
+.thread114.i:                                     ; preds = %172
   %185 = add i32 %66, 9
-  %.not100105112.i = icmp eq i16 %161, 0
-  br i1 %.not100105112.i, label %._crit_edge.i, label %.lr.ph.split.us.preheader.i
+  %.not100105116.i = icmp eq i16 %161, 0
+  br i1 %.not100105116.i, label %._crit_edge.i, label %.lr.ph.split.us.preheader.i
 
-.lr.ph.split.us.preheader.i:                      ; preds = %.thread110.i
+.lr.ph.split.us.preheader.i:                      ; preds = %.thread114.i
   %.neg.i = mul i16 %161, -21845
   %186 = add i16 %.neg.i, -1
   %187 = zext i16 %186 to i32
@@ -4043,8 +4043,8 @@ proto_item_set_generated.exit:                    ; preds = %111, %108, %105, %s
   %.not100.i = icmp eq i16 %194, 0
   br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !14
 
-._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.preheader.i, %.thread110.i, %175
-  %.0.lcssa.i = phi i32 [ %178, %175 ], [ %190, %.lr.ph.split.us.preheader.i ], [ %185, %.thread110.i ], [ %193, %.lr.ph.split.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.preheader.i, %.thread114.i, %175
+  %.0.lcssa.i = phi i32 [ %178, %175 ], [ %190, %.lr.ph.split.us.preheader.i ], [ %185, %.thread114.i ], [ %193, %.lr.ph.split.i ]
   %.not101.i = icmp eq i16 %165, 0
   br i1 %.not101.i, label %211, label %195
 
@@ -4468,11 +4468,11 @@ define internal fastcc i32 @dissect_ssl3_record(ptr noundef %0, ptr noundef %1, 
   %.not.i = icmp eq i32 %127, 0
   %.str.1020..str.1019.i = select i1 %.not.i, ptr @.str.1020, ptr @.str.1019
   %..i = select i1 %.not.i, i64 584, i64 576
-  %.60.i = select i1 %.not.i, i64 544, i64 504
+  %.62.i = select i1 %.not.i, i64 544, i64 504
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull %.str.1020..str.1019.i)
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 %..i
   %.0.i = load ptr, ptr %128, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %7, i64 %.60.i
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 %.62.i
   %130 = tail call i32 @llvm.umin.i32(i32 %48, i32 24)
   %131 = add i32 %88, %48
   %132 = sub i32 %131, %130
@@ -5415,13 +5415,13 @@ define internal fastcc void @dissect_tls_handshake(ptr noundef %0, ptr noundef %
   br i1 %.not198, label %._crit_edge, label %.lr.ph233, !llvm.loop !18
 
 ._crit_edge.thread:                               ; preds = %30, %._crit_edge
-  %.0184.lcssa244 = phi i32 [ %41, %._crit_edge ], [ 0, %30 ]
+  %.0184.lcssa256 = phi i32 [ %41, %._crit_edge ], [ 0, %30 ]
   %42 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %3)
   tail call void @tvb_composite_append(ptr noundef %31, ptr noundef %42)
   br label %43
 
 43:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0184.lcssa243 = phi i32 [ %.0184.lcssa244, %._crit_edge.thread ], [ %41, %._crit_edge ]
+  %.0184.lcssa255 = phi i32 [ %.0184.lcssa256, %._crit_edge.thread ], [ %41, %._crit_edge ]
   tail call void @tvb_composite_finalize(ptr noundef %31)
   %44 = sub i32 %4, %3
   %45 = tail call i32 @tvb_reported_length(ptr noundef %31)
@@ -5431,7 +5431,7 @@ define internal fastcc void @dissect_tls_handshake(ptr noundef %0, ptr noundef %
 47:                                               ; preds = %43
   %48 = tail call i32 @tvb_get_ntoh24(ptr noundef %31, i32 noundef 1)
   %49 = add i32 %48, 4
-  %50 = sub i32 %49, %.0184.lcssa243
+  %50 = sub i32 %49, %.0184.lcssa255
   %spec.select = tail call i32 @llvm.umin.i32(i32 %44, i32 %50)
   br label %51
 
@@ -5449,10 +5449,10 @@ define internal fastcc void @dissect_tls_handshake(ptr noundef %0, ptr noundef %
 
 56:                                               ; preds = %51
   %57 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef 0)
-  %58 = add i32 %.0176, %.0184.lcssa243
+  %58 = add i32 %.0176, %.0184.lcssa255
   %59 = icmp eq i32 %58, %.0178
   %60 = load i32, ptr %14, align 4
-  %61 = tail call fastcc ptr @save_tls_handshake_fragment(ptr noundef %1, i8 noundef zeroext %7, i32 noundef %6, i32 noundef %60, ptr noundef %0, i32 noundef %3, i32 noundef %.0176, i32 noundef %.0184.lcssa243, i8 noundef zeroext %57, i1 noundef zeroext %59, ptr noundef %8)
+  %61 = tail call fastcc ptr @save_tls_handshake_fragment(ptr noundef %1, i8 noundef zeroext %7, i32 noundef %6, i32 noundef %60, ptr noundef %0, i32 noundef %3, i32 noundef %.0176, i32 noundef %.0184.lcssa255, i8 noundef zeroext %57, i1 noundef zeroext %59, ptr noundef %8)
   br i1 %59, label %62, label %74
 
 62:                                               ; preds = %56
@@ -6232,8 +6232,8 @@ proto_item_set_generated.exit279.i:               ; preds = %258, %255, %251, %2
   br i1 %.1225307319345.i, label %274, label %265
 
 265:                                              ; preds = %proto_item_set_generated.exit279.i, %261
-  %.2228306322343411.i = phi i32 [ %.2228306322342.i, %261 ], [ %.2228306322343.i, %proto_item_set_generated.exit279.i ]
-  %.2308317347407.i = phi i32 [ %.2308317346.i, %261 ], [ %.2308317347.i, %proto_item_set_generated.exit279.i ]
+  %.2228306322343430.i = phi i32 [ %.2228306322342.i, %261 ], [ %.2228306322343.i, %proto_item_set_generated.exit279.i ]
+  %.2308317347426.i = phi i32 [ %.2308317346.i, %261 ], [ %.2308317347.i, %proto_item_set_generated.exit279.i ]
   %266 = load i32, ptr %27, align 4
   %267 = icmp eq i32 %266, 0
   br i1 %267, label %268, label %274
@@ -6249,28 +6249,28 @@ proto_item_set_generated.exit279.i:               ; preds = %258, %255, %251, %2
   br label %274
 
 274:                                              ; preds = %268, %265, %proto_item_set_generated.exit279.i, %261
-  %.2228306322343412.i = phi i32 [ %.2228306322342.i, %261 ], [ %.2228306322343411.i, %268 ], [ %.2228306322343411.i, %265 ], [ %.2228306322343.i, %proto_item_set_generated.exit279.i ]
-  %.1225307319345410.i = phi i1 [ true, %261 ], [ false, %268 ], [ false, %265 ], [ true, %proto_item_set_generated.exit279.i ]
-  %.2308317347408.i = phi i32 [ %.2308317346.i, %261 ], [ %.2308317347407.i, %268 ], [ %.2308317347407.i, %265 ], [ %.2308317347.i, %proto_item_set_generated.exit279.i ]
-  %275 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.2308317347408.i)
+  %.2228306322343431.i = phi i32 [ %.2228306322342.i, %261 ], [ %.2228306322343430.i, %268 ], [ %.2228306322343430.i, %265 ], [ %.2228306322343.i, %proto_item_set_generated.exit279.i ]
+  %.1225307319345429.i = phi i1 [ true, %261 ], [ false, %268 ], [ false, %265 ], [ true, %proto_item_set_generated.exit279.i ]
+  %.2308317347427.i = phi i32 [ %.2308317346.i, %261 ], [ %.2308317347426.i, %268 ], [ %.2308317347426.i, %265 ], [ %.2308317347.i, %proto_item_set_generated.exit279.i ]
+  %275 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.2308317347427.i)
   %276 = load i32, ptr @hf_tls_segment_data, align 4
   %277 = icmp eq i32 %275, -1
   br i1 %277, label %278, label %ssl_proto_tree_add_segment_data.exit280.i
 
 278:                                              ; preds = %274
-  %279 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.2308317347408.i)
+  %279 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.2308317347427.i)
   br label %ssl_proto_tree_add_segment_data.exit280.i
 
 ssl_proto_tree_add_segment_data.exit280.i:        ; preds = %278, %274
   %280 = phi i32 [ %279, %278 ], [ %275, %274 ]
   %281 = icmp eq i32 %275, 1
   %282 = select i1 %281, ptr @.str.992, ptr @.str.993
-  %283 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %276, ptr noundef nonnull %0, i32 noundef %.2308317347408.i, i32 noundef %275, ptr noundef null, ptr noundef nonnull @.str.991, ptr noundef nonnull @.str.26, i32 noundef %280, ptr noundef nonnull %282)
+  %283 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %276, ptr noundef nonnull %0, i32 noundef %.2308317347427.i, i32 noundef %275, ptr noundef null, ptr noundef nonnull @.str.991, ptr noundef nonnull @.str.26, i32 noundef %280, ptr noundef nonnull %282)
   br label %.thread310.thread.i
 
 .thread310.thread.i:                              ; preds = %ssl_proto_tree_add_segment_data.exit280.i, %.thread310.i, %print_tls_fragment_tree.exit.i
-  %.2228306323.i = phi i32 [ %.2228306322343412.i, %ssl_proto_tree_add_segment_data.exit280.i ], [ %.2228306324.ph.i, %.thread310.i ], [ %.1227.i, %print_tls_fragment_tree.exit.i ]
-  %.1225307321.i = phi i1 [ %.1225307319345410.i, %ssl_proto_tree_add_segment_data.exit280.i ], [ %.0224390.i, %.thread310.i ], [ %.0224390.i, %print_tls_fragment_tree.exit.i ]
+  %.2228306323.i = phi i32 [ %.2228306322343431.i, %ssl_proto_tree_add_segment_data.exit280.i ], [ %.2228306324.ph.i, %.thread310.i ], [ %.1227.i, %print_tls_fragment_tree.exit.i ]
+  %.1225307321.i = phi i1 [ %.1225307319345429.i, %ssl_proto_tree_add_segment_data.exit280.i ], [ %.0224390.i, %.thread310.i ], [ %.0224390.i, %print_tls_fragment_tree.exit.i ]
   store i32 0, ptr %27, align 4
   store i32 0, ptr %28, align 8
   %.not267.i = icmp eq i32 %.2228306323.i, 0
@@ -6555,12 +6555,12 @@ define internal fastcc void @dissect_tls_handshake_full(ptr noundef %0, ptr noun
   %32 = trunc nuw i8 %31 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %spec.select = select i1 %32, i8 6, i8 2
-  %spec.select247 = select i1 %32, ptr @.str.1040, ptr %21
+  %spec.select250 = select i1 %32, ptr @.str.1040, ptr %21
   br label %select.unfold
 
 select.unfold:                                    ; preds = %27, %24
   %33 = phi i8 [ %13, %24 ], [ %spec.select, %27 ]
-  %.0226 = phi ptr [ %21, %24 ], [ %spec.select247, %27 ]
+  %.0226 = phi ptr [ %21, %24 ], [ %spec.select250, %27 ]
   %34 = zext i16 %7 to i32
   %35 = add i32 %15, 4
   %36 = call fastcc ptr @tls_show_handshake_details(ptr noundef %1, ptr noundef %2, i32 noundef %34, i8 noundef zeroext %33, i1 noundef zeroext false, i1 noundef zeroext %8, i1 noundef zeroext true, ptr noundef %0, i32 noundef %3, i32 noundef %35)

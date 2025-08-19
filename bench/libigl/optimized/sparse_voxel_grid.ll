@@ -220,8 +220,8 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %_ZNSt12_Vector
 
 _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %19, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
   %32 = phi i64 [ %31, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ 0, %19 ]
-  %.sroa.15.31574 = phi ptr [ %21, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
-  %.sroa.24.81573 = phi ptr [ %22, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
+  %.sroa.15.31586 = phi ptr [ %21, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
+  %.sroa.24.81585 = phi ptr [ %22, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.0790.131082 = phi ptr [ %26, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.21.131078 = phi ptr [ %27, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.22.11 = phi ptr [ %30, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
@@ -386,9 +386,9 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit:
   br label %145
 
 145:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit, %.loopexit1157
-  %.sroa.0805.21393 = phi ptr [ %.sroa.15.31574, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0805.3, %.loopexit1157 ]
-  %.sroa.15.01391 = phi ptr [ %.sroa.15.31574, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.15.1, %.loopexit1157 ]
-  %.sroa.24.21390 = phi ptr [ %.sroa.24.81573, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.24.3, %.loopexit1157 ]
+  %.sroa.0805.21393 = phi ptr [ %.sroa.15.31586, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0805.3, %.loopexit1157 ]
+  %.sroa.15.01391 = phi ptr [ %.sroa.15.31586, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.15.1, %.loopexit1157 ]
+  %.sroa.24.21390 = phi ptr [ %.sroa.24.81585, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.24.3, %.loopexit1157 ]
   %.sroa.0790.21389 = phi ptr [ %.sroa.0790.131082, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0790.3, %.loopexit1157 ]
   %.sroa.13797.01388 = phi ptr [ %.sroa.0790.131082, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.13797.1, %.loopexit1157 ]
   %.sroa.21.21387 = phi ptr [ %.sroa.21.131078, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.21.3, %.loopexit1157 ]
@@ -528,8 +528,8 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESt4pairIK
   %.sroa.0775.0 = phi ptr [ %.sroa.0775.2, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0775.2, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0775.2, %425 ], [ %.sroa.14.5, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %.sroa.21.1 = phi ptr [ %.sroa.21.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.21.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.21.3, %425 ], [ %.sroa.21.131078, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %.sroa.0790.1 = phi ptr [ %.sroa.0790.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0790.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0790.3, %425 ], [ %.sroa.0790.131082, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.sroa.24.1 = phi ptr [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %425 ], [ %.sroa.24.81573, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.sroa.0805.1 = phi ptr [ %.sroa.0805.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0805.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0805.3, %425 ], [ %.sroa.15.31574, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.sroa.24.1 = phi ptr [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %425 ], [ %.sroa.24.81585, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.sroa.0805.1 = phi ptr [ %.sroa.0805.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0805.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0805.3, %425 ], [ %.sroa.15.31586, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %197 = landingpad { ptr, i32 }
           cleanup
   br label %506
@@ -1531,8 +1531,8 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi8ELi1ELi1ELi8EEESaIS2_EED2Ev.exit: ; preds = 
   %.sroa.0775.4 = phi ptr [ %.sroa.14.5, %194 ], [ %.sroa.0775.5, %506 ], [ %.sroa.0775.5, %.thread1097 ], [ %.sroa.14.5, %.thread ]
   %.sroa.21.5 = phi ptr [ %.sroa.21.131078, %194 ], [ %.sroa.21.6, %506 ], [ %.sroa.21.6, %.thread1097 ], [ %.sroa.21.131078, %.thread ]
   %.sroa.0790.5 = phi ptr [ %.sroa.0790.131082, %194 ], [ %.sroa.0790.6, %506 ], [ %.sroa.0790.6, %.thread1097 ], [ %.sroa.0790.131082, %.thread ]
-  %.sroa.24.5 = phi ptr [ %.sroa.24.81573, %194 ], [ %.sroa.24.6, %506 ], [ %.sroa.24.6, %.thread1097 ], [ %.sroa.24.81573, %.thread ]
-  %.sroa.0805.5 = phi ptr [ %.sroa.15.31574, %194 ], [ %.sroa.0805.6, %506 ], [ %.sroa.0805.6, %.thread1097 ], [ %.sroa.15.31574, %.thread ]
+  %.sroa.24.5 = phi ptr [ %.sroa.24.81585, %194 ], [ %.sroa.24.6, %506 ], [ %.sroa.24.6, %.thread1097 ], [ %.sroa.24.81585, %.thread ]
+  %.sroa.0805.5 = phi ptr [ %.sroa.15.31586, %194 ], [ %.sroa.0805.6, %506 ], [ %.sroa.0805.6, %.thread1097 ], [ %.sroa.15.31586, %.thread ]
   %.pn153.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %.pn153.pn.pn.pn.pn.pn.pn.pn.pn, %506 ], [ %.pn153.pn.pn.pn.pn.pn.pn.pn.pn, %.thread1097 ], [ %198, %.thread ]
   call void @_ZNSt13unordered_mapIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEiZN3igl17sparse_voxel_gridINS1_IdLi1ELi3ELi1ELi1ELi3EEESt8functionIFdRKS5_EENS1_IdLin1ELi1ELi0ELin1ELi1EEENS1_IdLin1ELin1ELi0ELin1ELin1EEENS1_IiLin1ELi8ELi0ELin1ELi8EEEEEvRKNS0_10MatrixBaseIT_EERKT0_diRNS0_15PlainObjectBaseIT1_EERNSM_IT2_EERNSM_IT3_EEE18IndexRowVectorHashSt8equal_toIS2_ESaISt4pairIKS2_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1670,8 +1670,8 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %_ZNSt12_Vector
 
 _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %20, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
   %33 = phi i64 [ %32, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ 0, %20 ]
-  %.sroa.15.31628 = phi ptr [ %22, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %20 ]
-  %.sroa.24.81627 = phi ptr [ %23, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %20 ]
+  %.sroa.15.31642 = phi ptr [ %22, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %20 ]
+  %.sroa.24.81641 = phi ptr [ %23, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %20 ]
   %.sroa.0796.131088 = phi ptr [ %27, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %20 ]
   %.sroa.21.131084 = phi ptr [ %28, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %20 ]
   %.sroa.22.11 = phi ptr [ %31, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %20 ]
@@ -1837,9 +1837,9 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit:
   br label %147
 
 147:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit, %.loopexit1163
-  %.sroa.0811.21419 = phi ptr [ %.sroa.15.31628, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0811.3, %.loopexit1163 ]
-  %.sroa.15.01417 = phi ptr [ %.sroa.15.31628, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.15.1, %.loopexit1163 ]
-  %.sroa.24.21416 = phi ptr [ %.sroa.24.81627, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.24.3, %.loopexit1163 ]
+  %.sroa.0811.21419 = phi ptr [ %.sroa.15.31642, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0811.3, %.loopexit1163 ]
+  %.sroa.15.01417 = phi ptr [ %.sroa.15.31642, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.15.1, %.loopexit1163 ]
+  %.sroa.24.21416 = phi ptr [ %.sroa.24.81641, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.24.3, %.loopexit1163 ]
   %.sroa.0796.21415 = phi ptr [ %.sroa.0796.131088, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0796.3, %.loopexit1163 ]
   %.sroa.13803.01414 = phi ptr [ %.sroa.0796.131088, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.13803.1, %.loopexit1163 ]
   %.sroa.21.21413 = phi ptr [ %.sroa.21.131084, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.21.3, %.loopexit1163 ]
@@ -1979,8 +1979,8 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESt4pairIK
   %.sroa.0781.0 = phi ptr [ %.sroa.0781.2, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0781.2, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0781.2, %440 ], [ %.sroa.14.5, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %.sroa.21.1 = phi ptr [ %.sroa.21.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.21.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.21.3, %440 ], [ %.sroa.21.131084, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %.sroa.0796.1 = phi ptr [ %.sroa.0796.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0796.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0796.3, %440 ], [ %.sroa.0796.131088, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.sroa.24.1 = phi ptr [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %440 ], [ %.sroa.24.81627, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.sroa.0811.1 = phi ptr [ %.sroa.0811.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0811.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0811.3, %440 ], [ %.sroa.15.31628, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.sroa.24.1 = phi ptr [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %440 ], [ %.sroa.24.81641, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.sroa.0811.1 = phi ptr [ %.sroa.0811.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0811.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0811.3, %440 ], [ %.sroa.15.31642, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %199 = landingpad { ptr, i32 }
           cleanup
   br label %506
@@ -3003,8 +3003,8 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi8ELi1ELi1ELi8EEESaIS2_EED2Ev.exit: ; preds = 
   %.sroa.0781.4 = phi ptr [ %.sroa.14.5, %196 ], [ %.sroa.0781.5, %506 ], [ %.sroa.0781.5, %.thread1103 ], [ %.sroa.14.5, %.thread ]
   %.sroa.21.5 = phi ptr [ %.sroa.21.131084, %196 ], [ %.sroa.21.6, %506 ], [ %.sroa.21.6, %.thread1103 ], [ %.sroa.21.131084, %.thread ]
   %.sroa.0796.5 = phi ptr [ %.sroa.0796.131088, %196 ], [ %.sroa.0796.6, %506 ], [ %.sroa.0796.6, %.thread1103 ], [ %.sroa.0796.131088, %.thread ]
-  %.sroa.24.5 = phi ptr [ %.sroa.24.81627, %196 ], [ %.sroa.24.6, %506 ], [ %.sroa.24.6, %.thread1103 ], [ %.sroa.24.81627, %.thread ]
-  %.sroa.0811.5 = phi ptr [ %.sroa.15.31628, %196 ], [ %.sroa.0811.6, %506 ], [ %.sroa.0811.6, %.thread1103 ], [ %.sroa.15.31628, %.thread ]
+  %.sroa.24.5 = phi ptr [ %.sroa.24.81641, %196 ], [ %.sroa.24.6, %506 ], [ %.sroa.24.6, %.thread1103 ], [ %.sroa.24.81641, %.thread ]
+  %.sroa.0811.5 = phi ptr [ %.sroa.15.31642, %196 ], [ %.sroa.0811.6, %506 ], [ %.sroa.0811.6, %.thread1103 ], [ %.sroa.15.31642, %.thread ]
   %.pn154.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %.pn154.pn.pn.pn.pn.pn.pn.pn.pn.pn, %506 ], [ %.pn154.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.thread1103 ], [ %200, %.thread ]
   call void @_ZNSt13unordered_mapIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEiZN3igl17sparse_voxel_gridINS1_IdLin1ELin1ELi0ELin1ELin1EEESt8functionIFdRKS5_EENS1_IdLin1ELi1ELi0ELin1ELi1EEES5_NS1_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS0_10MatrixBaseIT_EERKT0_diRNS0_15PlainObjectBaseIT1_EERNSL_IT2_EERNSL_IT3_EEE18IndexRowVectorHashSt8equal_toIS2_ESaISt4pairIKS2_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3136,8 +3136,8 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %_ZNSt12_Vector
 
 _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %19, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
   %32 = phi i64 [ %31, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ 0, %19 ]
-  %.sroa.15.31582 = phi ptr [ %21, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
-  %.sroa.24.81581 = phi ptr [ %22, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
+  %.sroa.15.31595 = phi ptr [ %21, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
+  %.sroa.24.81594 = phi ptr [ %22, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.0794.131086 = phi ptr [ %26, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.21.131082 = phi ptr [ %27, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.22.11 = phi ptr [ %30, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
@@ -3302,9 +3302,9 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit:
   br label %145
 
 145:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit, %.loopexit1161
-  %.sroa.0809.21397 = phi ptr [ %.sroa.15.31582, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0809.3, %.loopexit1161 ]
-  %.sroa.15.01395 = phi ptr [ %.sroa.15.31582, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.15.1, %.loopexit1161 ]
-  %.sroa.24.21394 = phi ptr [ %.sroa.24.81581, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.24.3, %.loopexit1161 ]
+  %.sroa.0809.21397 = phi ptr [ %.sroa.15.31595, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0809.3, %.loopexit1161 ]
+  %.sroa.15.01395 = phi ptr [ %.sroa.15.31595, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.15.1, %.loopexit1161 ]
+  %.sroa.24.21394 = phi ptr [ %.sroa.24.81594, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.24.3, %.loopexit1161 ]
   %.sroa.0794.21393 = phi ptr [ %.sroa.0794.131086, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0794.3, %.loopexit1161 ]
   %.sroa.13801.01392 = phi ptr [ %.sroa.0794.131086, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.13801.1, %.loopexit1161 ]
   %.sroa.21.21391 = phi ptr [ %.sroa.21.131082, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.21.3, %.loopexit1161 ]
@@ -3444,8 +3444,8 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESt4pairIK
   %.sroa.0779.0 = phi ptr [ %.sroa.0779.2, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0779.2, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0779.2, %425 ], [ %.sroa.14.5, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %.sroa.21.1 = phi ptr [ %.sroa.21.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.21.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.21.3, %425 ], [ %.sroa.21.131082, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %.sroa.0794.1 = phi ptr [ %.sroa.0794.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0794.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0794.3, %425 ], [ %.sroa.0794.131086, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.sroa.24.1 = phi ptr [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %425 ], [ %.sroa.24.81581, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.sroa.0809.1 = phi ptr [ %.sroa.0809.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0809.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0809.3, %425 ], [ %.sroa.15.31582, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.sroa.24.1 = phi ptr [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %425 ], [ %.sroa.24.81594, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.sroa.0809.1 = phi ptr [ %.sroa.0809.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEll.exit ], [ %.sroa.0809.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0809.3, %425 ], [ %.sroa.15.31595, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %197 = landingpad { ptr, i32 }
           cleanup
   br label %491
@@ -4428,8 +4428,8 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi8ELi1ELi1ELi8EEESaIS2_EED2Ev.exit: ; preds = 
   %.sroa.0779.4 = phi ptr [ %.sroa.14.5, %194 ], [ %.sroa.0779.5, %491 ], [ %.sroa.0779.5, %.thread1101 ], [ %.sroa.14.5, %.thread ]
   %.sroa.21.5 = phi ptr [ %.sroa.21.131082, %194 ], [ %.sroa.21.6, %491 ], [ %.sroa.21.6, %.thread1101 ], [ %.sroa.21.131082, %.thread ]
   %.sroa.0794.5 = phi ptr [ %.sroa.0794.131086, %194 ], [ %.sroa.0794.6, %491 ], [ %.sroa.0794.6, %.thread1101 ], [ %.sroa.0794.131086, %.thread ]
-  %.sroa.24.5 = phi ptr [ %.sroa.24.81581, %194 ], [ %.sroa.24.6, %491 ], [ %.sroa.24.6, %.thread1101 ], [ %.sroa.24.81581, %.thread ]
-  %.sroa.0809.5 = phi ptr [ %.sroa.15.31582, %194 ], [ %.sroa.0809.6, %491 ], [ %.sroa.0809.6, %.thread1101 ], [ %.sroa.15.31582, %.thread ]
+  %.sroa.24.5 = phi ptr [ %.sroa.24.81594, %194 ], [ %.sroa.24.6, %491 ], [ %.sroa.24.6, %.thread1101 ], [ %.sroa.24.81594, %.thread ]
+  %.sroa.0809.5 = phi ptr [ %.sroa.15.31595, %194 ], [ %.sroa.0809.6, %491 ], [ %.sroa.0809.6, %.thread1101 ], [ %.sroa.15.31595, %.thread ]
   %.pn153.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %.pn153.pn.pn.pn.pn.pn.pn.pn.pn, %491 ], [ %.pn153.pn.pn.pn.pn.pn.pn.pn.pn, %.thread1101 ], [ %198, %.thread ]
   call void @_ZNSt13unordered_mapIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEiZN3igl17sparse_voxel_gridINS1_IdLi1ELi3ELi1ELi1ELi3EEESt8functionIFdRKS5_EENS1_IdLin1ELi1ELi0ELin1ELi1EEENS1_IdLin1ELin1ELi0ELin1ELin1EEENS1_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS0_10MatrixBaseIT_EERKT0_diRNS0_15PlainObjectBaseIT1_EERNSM_IT2_EERNSM_IT3_EEE18IndexRowVectorHashSt8equal_toIS2_ESaISt4pairIKS2_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4561,8 +4561,8 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %_ZNSt12_Vector
 
 _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %19, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
   %32 = phi i64 [ %31, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ 0, %19 ]
-  %.sroa.15.31583 = phi ptr [ %21, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
-  %.sroa.24.81582 = phi ptr [ %22, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
+  %.sroa.15.31596 = phi ptr [ %21, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
+  %.sroa.24.81595 = phi ptr [ %22, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.0795.131087 = phi ptr [ %26, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.21.131083 = phi ptr [ %27, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
   %.sroa.22.11 = phi ptr [ %30, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ null, %19 ]
@@ -4727,9 +4727,9 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit:
   br label %145
 
 145:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit, %.loopexit1162
-  %.sroa.0810.21398 = phi ptr [ %.sroa.15.31583, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0810.3, %.loopexit1162 ]
-  %.sroa.15.01396 = phi ptr [ %.sroa.15.31583, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.15.1, %.loopexit1162 ]
-  %.sroa.24.21395 = phi ptr [ %.sroa.24.81582, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.24.3, %.loopexit1162 ]
+  %.sroa.0810.21398 = phi ptr [ %.sroa.15.31596, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0810.3, %.loopexit1162 ]
+  %.sroa.15.01396 = phi ptr [ %.sroa.15.31596, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.15.1, %.loopexit1162 ]
+  %.sroa.24.21395 = phi ptr [ %.sroa.24.81595, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.24.3, %.loopexit1162 ]
   %.sroa.0795.21394 = phi ptr [ %.sroa.0795.131087, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.0795.3, %.loopexit1162 ]
   %.sroa.13802.01393 = phi ptr [ %.sroa.0795.131087, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.13802.1, %.loopexit1162 ]
   %.sroa.21.21392 = phi ptr [ %.sroa.21.131083, %_ZNSt6vectorIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE9push_backEOS2_.exit ], [ %.sroa.21.3, %.loopexit1162 ]
@@ -4869,8 +4869,8 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESt4pairIK
   %.sroa.0780.0 = phi ptr [ %.sroa.0780.2, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit230 ], [ %.sroa.0780.2, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0780.2, %425 ], [ %.sroa.14.5, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %.sroa.21.1 = phi ptr [ %.sroa.21.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit230 ], [ %.sroa.21.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.21.3, %425 ], [ %.sroa.21.131083, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %.sroa.0795.1 = phi ptr [ %.sroa.0795.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit230 ], [ %.sroa.0795.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0795.3, %425 ], [ %.sroa.0795.131087, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.sroa.24.1 = phi ptr [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit230 ], [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %425 ], [ %.sroa.24.81582, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
-  %.sroa.0810.1 = phi ptr [ %.sroa.0810.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit230 ], [ %.sroa.0810.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0810.3, %425 ], [ %.sroa.15.31583, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.sroa.24.1 = phi ptr [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit230 ], [ %.sroa.24.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.24.3, %425 ], [ %.sroa.24.81595, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
+  %.sroa.0810.1 = phi ptr [ %.sroa.0810.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit230 ], [ %.sroa.0810.3, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE18conservativeResizeEll.exit ], [ %.sroa.0810.3, %425 ], [ %.sroa.15.31596, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEESaIS2_EE11_M_allocateEm.exit.i ]
   %197 = landingpad { ptr, i32 }
           cleanup
   br label %491
@@ -5853,8 +5853,8 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi1ELi8ELi1ELi1ELi8EEESaIS2_EED2Ev.exit: ; preds = 
   %.sroa.0780.4 = phi ptr [ %.sroa.14.5, %194 ], [ %.sroa.0780.5, %491 ], [ %.sroa.0780.5, %.thread1102 ], [ %.sroa.14.5, %.thread ]
   %.sroa.21.5 = phi ptr [ %.sroa.21.131083, %194 ], [ %.sroa.21.6, %491 ], [ %.sroa.21.6, %.thread1102 ], [ %.sroa.21.131083, %.thread ]
   %.sroa.0795.5 = phi ptr [ %.sroa.0795.131087, %194 ], [ %.sroa.0795.6, %491 ], [ %.sroa.0795.6, %.thread1102 ], [ %.sroa.0795.131087, %.thread ]
-  %.sroa.24.5 = phi ptr [ %.sroa.24.81582, %194 ], [ %.sroa.24.6, %491 ], [ %.sroa.24.6, %.thread1102 ], [ %.sroa.24.81582, %.thread ]
-  %.sroa.0810.5 = phi ptr [ %.sroa.15.31583, %194 ], [ %.sroa.0810.6, %491 ], [ %.sroa.0810.6, %.thread1102 ], [ %.sroa.15.31583, %.thread ]
+  %.sroa.24.5 = phi ptr [ %.sroa.24.81595, %194 ], [ %.sroa.24.6, %491 ], [ %.sroa.24.6, %.thread1102 ], [ %.sroa.24.81595, %.thread ]
+  %.sroa.0810.5 = phi ptr [ %.sroa.15.31596, %194 ], [ %.sroa.0810.6, %491 ], [ %.sroa.0810.6, %.thread1102 ], [ %.sroa.15.31596, %.thread ]
   %.pn153.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %195, %194 ], [ %.pn153.pn.pn.pn.pn.pn.pn.pn.pn, %491 ], [ %.pn153.pn.pn.pn.pn.pn.pn.pn.pn, %.thread1102 ], [ %198, %.thread ]
   call void @_ZNSt13unordered_mapIN5Eigen6MatrixIiLi1ELi3ELi1ELi1ELi3EEEiZN3igl17sparse_voxel_gridINS1_IdLi1ELi3ELi1ELi1ELi3EEESt8functionIFdRKS5_EENS1_IdLin1ELin1ELi0ELin1ELin1EEESB_NS1_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS0_10MatrixBaseIT_EERKT0_diRNS0_15PlainObjectBaseIT1_EERNSL_IT2_EERNSL_IT3_EEE18IndexRowVectorHashSt8equal_toIS2_ESaISt4pairIKS2_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

@@ -1203,27 +1203,27 @@ zend_string_release_ex.exit:                      ; preds = %253, %249, %247
   %270 = call noalias ptr @_estrdup(ptr noundef nonnull %269) #13
   %271 = getelementptr inbounds nuw i8, ptr %.1426434, i64 40
   store ptr %270, ptr %271, align 8, !tbaa !101
-  %.not244479 = icmp eq ptr %.1318, null
-  br i1 %.not244479, label %.thread495, label %.thread439
+  %.not244504 = icmp eq ptr %.1318, null
+  br i1 %.not244504, label %.thread520, label %.thread439
 
 272:                                              ; preds = %266
   %273 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   store ptr null, ptr %273, align 8, !tbaa !102
   %.not245 = icmp eq ptr %.1322, null
-  br i1 %.not245, label %.thread505, label %.thread444
+  br i1 %.not245, label %.thread530, label %.thread444
 
-.thread495:                                       ; preds = %.thread
+.thread520:                                       ; preds = %.thread
   %274 = getelementptr inbounds nuw i8, ptr %.1426434, i64 16
   store ptr null, ptr %274, align 8, !tbaa !102
-  %.not245498 = icmp eq ptr %.1322, null
-  br i1 %.not245498, label %283, label %.thread441
+  %.not245523 = icmp eq ptr %.1322, null
+  br i1 %.not245523, label %283, label %.thread441
 
 .thread442:                                       ; preds = %266
   %275 = call noalias ptr @__zend_strdup(ptr noundef nonnull %.1318) #13
   %276 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   store ptr %275, ptr %276, align 8, !tbaa !102
   %.not245443 = icmp eq ptr %.1322, null
-  br i1 %.not245443, label %.thread505, label %.thread444
+  br i1 %.not245443, label %.thread530, label %.thread444
 
 .thread439:                                       ; preds = %.thread
   %277 = call noalias ptr @_estrdup(ptr noundef nonnull %.1318) #13
@@ -1234,32 +1234,32 @@ zend_string_release_ex.exit:                      ; preds = %253, %249, %247
 
 .thread444:                                       ; preds = %272, %.thread442
   %279 = call noalias ptr @__zend_strdup(ptr noundef nonnull %.1322) #13
-  br label %.thread505
+  br label %.thread530
 
-.thread441:                                       ; preds = %.thread495, %.thread439
+.thread441:                                       ; preds = %.thread520, %.thread439
   %280 = call noalias ptr @_estrdup(ptr noundef nonnull %.1322) #13
   br label %283
 
-.thread505:                                       ; preds = %.thread444, %272, %.thread442
-  %.ph504 = phi ptr [ null, %.thread442 ], [ null, %272 ], [ %279, %.thread444 ]
+.thread530:                                       ; preds = %.thread444, %272, %.thread442
+  %.ph529 = phi ptr [ null, %.thread442 ], [ null, %272 ], [ %279, %.thread444 ]
   %281 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  store ptr %.ph504, ptr %281, align 8, !tbaa !103
+  store ptr %.ph529, ptr %281, align 8, !tbaa !103
   %282 = getelementptr inbounds nuw i8, ptr %.2, i64 168
   store i32 4, ptr %282, align 8, !tbaa !104
   br label %.thread446
 
-283:                                              ; preds = %.thread495, %.thread441, %.thread439
-  %284 = phi ptr [ %280, %.thread441 ], [ null, %.thread439 ], [ null, %.thread495 ]
+283:                                              ; preds = %.thread520, %.thread441, %.thread439
+  %284 = phi ptr [ %280, %.thread441 ], [ null, %.thread439 ], [ null, %.thread520 ]
   %285 = getelementptr inbounds nuw i8, ptr %.1426434, i64 24
   store ptr %284, ptr %285, align 8, !tbaa !103
   %286 = getelementptr inbounds nuw i8, ptr %.1426434, i64 168
   store i32 4, ptr %286, align 8, !tbaa !104
   br i1 %.not230, label %pdo_attr_lval.exit, label %.thread446
 
-.thread446:                                       ; preds = %.thread505, %zend_string_release_ex.exit, %258, %283
-  %.0192423454 = phi i1 [ false, %283 ], [ true, %258 ], [ true, %zend_string_release_ex.exit ], [ false, %.thread505 ]
-  %.0179425452 = phi i1 [ false, %283 ], [ %.1180392410, %258 ], [ %.1180392410, %zend_string_release_ex.exit ], [ true, %.thread505 ]
-  %.1427450 = phi ptr [ %.1426434, %283 ], [ %.2, %258 ], [ %.2, %zend_string_release_ex.exit ], [ %.2, %.thread505 ]
+.thread446:                                       ; preds = %.thread530, %zend_string_release_ex.exit, %258, %283
+  %.0192423454 = phi i1 [ false, %283 ], [ true, %258 ], [ true, %zend_string_release_ex.exit ], [ false, %.thread530 ]
+  %.0179425452 = phi i1 [ false, %283 ], [ %.1180392410, %258 ], [ %.1180392410, %zend_string_release_ex.exit ], [ true, %.thread530 ]
+  %.1427450 = phi ptr [ %.1426434, %283 ], [ %.2, %258 ], [ %.2, %zend_string_release_ex.exit ], [ %.2, %.thread530 ]
   %287 = load ptr, ptr %.1312, align 8, !tbaa !4
   %288 = call ptr @zend_hash_index_find(ptr noundef %287, i64 noundef 0) #13
   %.not7.i = icmp eq ptr %288, null
@@ -4559,8 +4559,8 @@ zend_string_alloc.exit:                           ; preds = %54, %56
   %87 = load i64, ptr %82, align 8, !tbaa !169
   %88 = icmp eq i64 %87, 4294967295
   %89 = trunc i64 %87 to i32
-  %spec.select107 = select i1 %88, i32 %86, i32 %89
-  store i32 %spec.select107, ptr %43, align 4, !tbaa !172
+  %spec.select120 = select i1 %88, i32 %86, i32 %89
+  store i32 %spec.select120, ptr %43, align 4, !tbaa !172
   %90 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %91 = load i32, ptr %90, align 8, !tbaa !173
   %92 = and i32 %91, 100663296

@@ -1407,11 +1407,11 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
 
 if.then.i.i.i.i.i125:                             ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
-  %_M_finish.i.i.i.i333 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %_M_end_of_storage.i.i.i.i334 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %_M_finish.i.i.i.i368 = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %_M_end_of_storage.i.i.i.i369 = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %call5.i.i.i.i2.i.i114, ptr %variances_, align 8, !tbaa !57
-  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i.i.i333, align 8, !tbaa !55
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i334, align 8, !tbaa !61
+  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i.i.i368, align 8, !tbaa !55
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i369, align 8, !tbaa !61
   %mul.i.i.i.i.i.i126 = shl nuw nsw i64 %add, 3
   %call5.i.i.i.i2.i.i139 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i126) #30
           to label %call5.i.i.i.i2.i.i.noexc138 unwind label %lpad99
@@ -2893,11 +2893,11 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
 
 if.then.i.i.i.i.i129:                             ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
   %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
-  %_M_finish.i.i.i.i337 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %_M_end_of_storage.i.i.i.i338 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %_M_finish.i.i.i.i372 = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %_M_end_of_storage.i.i.i.i373 = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %call5.i.i.i.i2.i.i118, ptr %variances_, align 8, !tbaa !57
-  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i.i.i337, align 8, !tbaa !55
-  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i338, align 8, !tbaa !61
+  store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i.i.i372, align 8, !tbaa !55
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i373, align 8, !tbaa !61
   %mul.i.i.i.i.i.i130 = shl nuw nsw i64 %add, 3
   %call5.i.i.i.i2.i.i143 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i130) #30
           to label %call5.i.i.i.i2.i.i.noexc142 unwind label %lpad95

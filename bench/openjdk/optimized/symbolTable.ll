@@ -1280,7 +1280,7 @@ define hidden noundef ptr @_ZN11SymbolTable13lookup_commonEPKcij(ptr noundef rea
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile i8, ptr @_ZL9_alt_hash, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %8
@@ -1725,7 +1725,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %179, %181
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable10new_symbolEPK6Symbolii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11SymbolTable10new_symbolEPK6Symbolii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
@@ -1868,7 +1868,7 @@ _ZN11SymbolTable13lookup_commonEPKcij.exit:       ; preds = %22, %25, %28, %32, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable10new_symbolEPKti(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11SymbolTable10new_symbolEPKti(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = tail call noundef i32 @_ZN7UNICODE11utf8_lengthItEEiPKT_i(ptr noundef %0, i32 noundef %1) #18
   %5 = icmp slt i32 %4, 128

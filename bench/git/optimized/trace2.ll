@@ -330,7 +330,7 @@ define internal fastcc ptr @redact_argv(ptr noundef readonly captures(ret: addre
   br i1 %.not90, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader84, %redact_arg.exit.thread
-  %.b.i = phi i1 [ %.b.i126135, %redact_arg.exit.thread ], [ false, %.preheader84 ]
+  %.b.i = phi i1 [ %.b.i126142, %redact_arg.exit.thread ], [ false, %.preheader84 ]
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %redact_arg.exit.thread ], [ 1, %.preheader84 ]
   %indvars.iv116 = phi i32 [ %indvars.iv.next117, %redact_arg.exit.thread ], [ 0, %.preheader84 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %redact_arg.exit.thread ], [ 0, %.preheader84 ]
@@ -401,7 +401,7 @@ redact_arg.exit:                                  ; preds = %18
   br i1 %.not50, label %redact_arg.exit.thread, label %27
 
 redact_arg.exit.thread:                           ; preds = %10, %18, %skip_prefix.exit.thread.i, %.lr.ph, %redact_arg.exit
-  %.b.i126135 = phi i1 [ %.b.i.pre, %redact_arg.exit ], [ false, %18 ], [ false, %skip_prefix.exit.thread.i ], [ true, %.lr.ph ], [ false, %10 ]
+  %.b.i126142 = phi i1 [ %.b.i.pre, %redact_arg.exit ], [ false, %18 ], [ false, %skip_prefix.exit.thread.i ], [ true, %.lr.ph ], [ false, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8, !tbaa !27

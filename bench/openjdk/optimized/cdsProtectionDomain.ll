@@ -495,9 +495,9 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZN10HandleArea15al
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread42, label %63
+  br i1 %62, label %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread45, label %63
 
-_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread42: ; preds = %59
+_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread45: ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
@@ -535,9 +535,9 @@ _ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10Ja
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %77, label %78, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit32
 
-78:                                               ; preds = %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread42, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
-  %.sroa.011.0.i.ph45 = phi ptr [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread42 ], [ %.0.i.i.i.i.i, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit ]
-  call void @_ZN11ModuleEntry28set_shared_protection_domainEP15ClassLoaderData6Handle(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %7, ptr %.sroa.011.0.i.ph45) #7
+78:                                               ; preds = %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread45, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit
+  %.sroa.011.0.i.ph48 = phi ptr [ null, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit.thread45 ], [ %.0.i.i.i.i.i, %_ZN19CDSProtectionDomain38get_protection_domain_from_classloaderE6HandleS0_P10JavaThread.exit ]
+  call void @_ZN11ModuleEntry28set_shared_protection_domainEP15ClassLoaderData6Handle(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %7, ptr %.sroa.011.0.i.ph48) #7
   br label %79
 
 79:                                               ; preds = %10, %78, %3

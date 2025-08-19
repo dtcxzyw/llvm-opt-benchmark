@@ -117,41 +117,41 @@ define internal i32 @imap_do(ptr noundef %0, ptr noundef captures(none) initiali
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   br label %11
 
-11:                                               ; preds = %imap_is_bchar.exit152.i, %2
-  %.058.idx.i = phi i64 [ 1, %2 ], [ %.058.add.i, %imap_is_bchar.exit152.i ]
+11:                                               ; preds = %imap_is_bchar.exit161.i, %2
+  %.058.idx.i = phi i64 [ 1, %2 ], [ %.058.add.i, %imap_is_bchar.exit161.i ]
   %.058.ptr.i = getelementptr inbounds nuw i8, ptr %10, i64 %.058.idx.i
   %12 = load i8, ptr %.058.ptr.i, align 1, !tbaa !7
   %13 = add i8 %12, -48
-  %or.cond.i150.i = icmp ult i8 %13, 10
+  %or.cond.i159.i = icmp ult i8 %13, 10
   %14 = and i8 %12, -33
   %15 = add i8 %14, -65
   %16 = icmp ult i8 %15, 26
-  %or.cond16.i151.i = or i1 %or.cond.i150.i, %16
-  br i1 %or.cond16.i151.i, label %imap_is_bchar.exit152.i, label %17
+  %or.cond16.i160.i = or i1 %or.cond.i159.i, %16
+  br i1 %or.cond16.i160.i, label %imap_is_bchar.exit161.i, label %17
 
 17:                                               ; preds = %11
   switch i8 %12, label %18 [
-    i8 58, label %imap_is_bchar.exit152.i
-    i8 64, label %imap_is_bchar.exit152.i
-    i8 47, label %imap_is_bchar.exit152.i
-    i8 38, label %imap_is_bchar.exit152.i
-    i8 61, label %imap_is_bchar.exit152.i
-    i8 45, label %imap_is_bchar.exit152.i
-    i8 46, label %imap_is_bchar.exit152.i
-    i8 95, label %imap_is_bchar.exit152.i
-    i8 126, label %imap_is_bchar.exit152.i
-    i8 33, label %imap_is_bchar.exit152.i
-    i8 36, label %imap_is_bchar.exit152.i
-    i8 39, label %imap_is_bchar.exit152.i
-    i8 40, label %imap_is_bchar.exit152.i
-    i8 41, label %imap_is_bchar.exit152.i
-    i8 42, label %imap_is_bchar.exit152.i
-    i8 43, label %imap_is_bchar.exit152.i
-    i8 44, label %imap_is_bchar.exit152.i
-    i8 37, label %imap_is_bchar.exit152.i
+    i8 58, label %imap_is_bchar.exit161.i
+    i8 64, label %imap_is_bchar.exit161.i
+    i8 47, label %imap_is_bchar.exit161.i
+    i8 38, label %imap_is_bchar.exit161.i
+    i8 61, label %imap_is_bchar.exit161.i
+    i8 45, label %imap_is_bchar.exit161.i
+    i8 46, label %imap_is_bchar.exit161.i
+    i8 95, label %imap_is_bchar.exit161.i
+    i8 126, label %imap_is_bchar.exit161.i
+    i8 33, label %imap_is_bchar.exit161.i
+    i8 36, label %imap_is_bchar.exit161.i
+    i8 39, label %imap_is_bchar.exit161.i
+    i8 40, label %imap_is_bchar.exit161.i
+    i8 41, label %imap_is_bchar.exit161.i
+    i8 42, label %imap_is_bchar.exit161.i
+    i8 43, label %imap_is_bchar.exit161.i
+    i8 44, label %imap_is_bchar.exit161.i
+    i8 37, label %imap_is_bchar.exit161.i
   ]
 
-imap_is_bchar.exit152.i:                          ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %11
+imap_is_bchar.exit161.i:                          ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %11
   %.058.add.i = add nuw nsw i64 %.058.idx.i, 1
   br label %11, !llvm.loop !79
 
@@ -446,10 +446,10 @@ imap_is_bchar.exit.i:                             ; preds = %57
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %imap_is_bchar.exit.i, %139
-  %.sink149.i = phi ptr [ %5, %139 ], [ %4, %imap_is_bchar.exit.i ]
+  %.sink158.i = phi ptr [ %5, %139 ], [ %4, %imap_is_bchar.exit.i ]
   %.464.ph.ph.i = phi i32 [ 3, %139 ], [ %63, %imap_is_bchar.exit.i ]
   %142 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %143 = load ptr, ptr %.sink149.i, align 8, !tbaa !85
+  %143 = load ptr, ptr %.sink158.i, align 8, !tbaa !85
   call void %142(ptr noundef %143) #7
   br label %.thread.i
 
@@ -1218,8 +1218,8 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
 
 .critedge5.i:                                     ; preds = %26, %26
   %30 = tail call i32 @curl_strnequal(ptr noundef nonnull %.03345.i25, ptr noundef nonnull @.str.57, i64 noundef 11) #7
-  %.not45 = icmp eq i32 %30, 0
-  br i1 %.not45, label %31, label %.thread
+  %.not48 = icmp eq i32 %30, 0
+  br i1 %.not48, label %31, label %.thread
 
 .thread:                                          ; preds = %.critedge5.i
   store i16 0, ptr %15, align 2, !tbaa !130
@@ -1242,22 +1242,22 @@ define internal i32 @imap_connect(ptr noundef %0, ptr noundef writeonly captures
   br label %.critedge.thread.i, !llvm.loop !127
 
 .critedge.i:                                      ; preds = %17
-  br i1 %.not45, label %.critedge.thread.i, label %imap_parse_url_options.exit.thread
+  br i1 %.not48, label %.critedge.thread.i, label %imap_parse_url_options.exit.thread
 
 imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   store i8 1, ptr %10, align 1, !tbaa !117
   br label %41
 
 .critedge.thread.i:                               ; preds = %31, %.lr.ph.i, %..critedge.i_crit_edge, %.critedge.i, %2
-  %.0.lcssa58.i = phi i32 [ 0, %.critedge.i ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ %37, %..critedge.i_crit_edge ], [ 3, %31 ]
+  %.0.lcssa59.i = phi i32 [ 0, %.critedge.i ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ %37, %..critedge.i_crit_edge ], [ 3, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1274
   %40 = load i16, ptr %39, align 2, !tbaa !130
   %switch.selectcmp = icmp eq i16 %40, -33
   %switch.select = select i1 %switch.selectcmp, i8 3, i8 2
-  %switch.selectcmp43 = icmp eq i16 %40, 0
-  %switch.select44 = select i1 %switch.selectcmp43, i8 0, i8 %switch.select
-  store i8 %switch.select44, ptr %10, align 1, !tbaa !117
-  %.not = icmp eq i32 %.0.lcssa58.i, 0
+  %switch.selectcmp46 = icmp eq i16 %40, 0
+  %switch.select47 = select i1 %switch.selectcmp46, i8 0, i8 %switch.select
+  store i8 %switch.select47, ptr %10, align 1, !tbaa !117
+  %.not = icmp eq i32 %.0.lcssa59.i, 0
   br i1 %.not, label %41, label %imap_multi_statemach.exit
 
 41:                                               ; preds = %imap_parse_url_options.exit.thread, %.critedge.thread.i
@@ -1303,7 +1303,7 @@ imap_parse_url_options.exit.thread:               ; preds = %.critedge.i
   br label %imap_multi_statemach.exit
 
 imap_multi_statemach.exit:                        ; preds = %59, %51, %.critedge.thread.i
-  %.0 = phi i32 [ %.0.lcssa58.i, %.critedge.thread.i ], [ %60, %59 ], [ %52, %51 ]
+  %.0 = phi i32 [ %.0.lcssa59.i, %.critedge.thread.i ], [ %60, %59 ], [ %52, %51 ]
   ret i32 %.0
 }
 

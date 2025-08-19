@@ -77,7 +77,7 @@ define internal range(i32 -12, 1) i32 @truemotion1_decode_init(ptr noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 1, 0) i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca [128 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !34
@@ -112,7 +112,7 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
 
 .preheader.i:                                     ; preds = %19
   %24 = icmp samesign ugt i8 %22, 1
-  br i1 %24, label %.lr.ph.preheader.i, label %.thread228.i
+  br i1 %24, label %.lr.ph.preheader.i, label %.thread236.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i8 %22 to i64
@@ -171,7 +171,7 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
 40:                                               ; preds = %35
   %or.cond.not.i = icmp samesign ult i8 %.pre189.i, 2
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 60
-  br i1 %or.cond.not.i, label %.thread205.i, label %42
+  br i1 %or.cond.not.i, label %.thread213.i, label %42
 
 42:                                               ; preds = %40
   %43 = shl nuw nsw i32 %34, 1
@@ -181,9 +181,9 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
   store i32 %spec.select, ptr %41, align 4, !tbaa !42
   %46 = and i32 %34, 32
   %.not156.i = icmp eq i32 %46, 0
-  br i1 %.not156.i, label %.thread204.i, label %55
+  br i1 %.not156.i, label %.thread212.i, label %55
 
-.thread205.i:                                     ; preds = %40
+.thread213.i:                                     ; preds = %40
   store i32 16, ptr %41, align 4, !tbaa !42
   %47 = zext i16 %.pre185.i to i32
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -193,7 +193,7 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
   store i32 %49, ptr %50, align 4, !tbaa !44
   br label %64
 
-.thread204.i:                                     ; preds = %42
+.thread212.i:                                     ; preds = %42
   %51 = zext i16 %.pre185.i to i32
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i32 %51, ptr %52, align 8, !tbaa !43
@@ -219,10 +219,10 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
   %63 = icmp ult i8 %.pre189.i, 2
   br i1 %63, label %64, label %72
 
-64:                                               ; preds = %57, %.thread205.i
-  %65 = phi ptr [ %50, %.thread205.i ], [ %62, %57 ]
-  %66 = phi ptr [ %48, %.thread205.i ], [ %60, %57 ]
-  %67 = phi ptr [ %41, %.thread205.i ], [ %58, %57 ]
+64:                                               ; preds = %57, %.thread213.i
+  %65 = phi ptr [ %50, %.thread213.i ], [ %62, %57 ]
+  %66 = phi ptr [ %48, %.thread213.i ], [ %60, %57 ]
+  %67 = phi ptr [ %41, %.thread213.i ], [ %58, %57 ]
   %68 = icmp ult i16 %.pre185.i, 213
   %69 = icmp ugt i16 %.pre183.i, 175
   %or.cond.i = select i1 %68, i1 %69, i1 false
@@ -234,10 +234,10 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %71, ptr noundef nonnull @.str.6) #7
   br label %72
 
-72:                                               ; preds = %70, %64, %57, %.thread204.i
-  %73 = phi ptr [ %54, %.thread204.i ], [ %62, %57 ], [ %65, %70 ], [ %65, %64 ]
-  %74 = phi ptr [ %52, %.thread204.i ], [ %60, %57 ], [ %66, %70 ], [ %66, %64 ]
-  %75 = phi ptr [ %41, %.thread204.i ], [ %58, %57 ], [ %67, %70 ], [ %67, %64 ]
+72:                                               ; preds = %70, %64, %57, %.thread212.i
+  %73 = phi ptr [ %54, %.thread212.i ], [ %62, %57 ], [ %65, %70 ], [ %65, %64 ]
+  %74 = phi ptr [ %52, %.thread212.i ], [ %60, %57 ], [ %66, %70 ], [ %66, %64 ]
+  %75 = phi ptr [ %41, %.thread212.i ], [ %58, %57 ], [ %67, %70 ], [ %67, %64 ]
   %76 = zext i8 %.pre177.i to i32
   %77 = icmp ugt i8 %.pre177.i, 16
   br i1 %77, label %78, label %80
@@ -254,7 +254,7 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
   %.not157.i = icmp eq i32 %83, %81
   br i1 %.not157.i, label %89, label %104
 
-.thread228.i:                                     ; preds = %.preheader.i
+.thread236.i:                                     ; preds = %.preheader.i
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 60
   store i32 16, ptr %84, align 4, !tbaa !42
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -263,44 +263,44 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
   store i32 0, ptr %86, align 4, !tbaa !44
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 16544
   %88 = load i32, ptr %87, align 8, !tbaa !45
-  %.not157229.i = icmp eq i32 %88, 0
-  br i1 %.not157229.i, label %89, label %.thread230.i
+  %.not157237.i = icmp eq i32 %88, 0
+  br i1 %.not157237.i, label %89, label %.thread238.i
 
-89:                                               ; preds = %.thread228.i, %80
-  %90 = phi i32 [ 0, %.thread228.i ], [ %81, %80 ]
-  %91 = phi ptr [ %87, %.thread228.i ], [ %82, %80 ]
-  %92 = phi ptr [ %86, %.thread228.i ], [ %73, %80 ]
-  %93 = phi ptr [ %85, %.thread228.i ], [ %74, %80 ]
-  %94 = phi i8 [ 0, %.thread228.i ], [ %.pre177.i, %80 ]
-  %95 = phi i8 [ 0, %.thread228.i ], [ %.pre179.i, %80 ]
-  %96 = phi i8 [ 0, %.thread228.i ], [ %.pre181.i, %80 ]
-  %97 = phi i8 [ 0, %.thread228.i ], [ %.pre189.i, %80 ]
-  %98 = phi ptr [ %84, %.thread228.i ], [ %75, %80 ]
-  %99 = phi i32 [ 0, %.thread228.i ], [ %76, %80 ]
+89:                                               ; preds = %.thread236.i, %80
+  %90 = phi i32 [ 0, %.thread236.i ], [ %81, %80 ]
+  %91 = phi ptr [ %87, %.thread236.i ], [ %82, %80 ]
+  %92 = phi ptr [ %86, %.thread236.i ], [ %73, %80 ]
+  %93 = phi ptr [ %85, %.thread236.i ], [ %74, %80 ]
+  %94 = phi i8 [ 0, %.thread236.i ], [ %.pre177.i, %80 ]
+  %95 = phi i8 [ 0, %.thread236.i ], [ %.pre179.i, %80 ]
+  %96 = phi i8 [ 0, %.thread236.i ], [ %.pre181.i, %80 ]
+  %97 = phi i8 [ 0, %.thread236.i ], [ %.pre189.i, %80 ]
+  %98 = phi ptr [ %84, %.thread236.i ], [ %75, %80 ]
+  %99 = phi i32 [ 0, %.thread236.i ], [ %76, %80 ]
   %100 = zext i8 %96 to i32
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 16548
   %102 = load i32, ptr %101, align 4, !tbaa !46
   %.not158.i = icmp eq i32 %102, %100
   %103 = icmp ugt i8 %95, 3
   %or.cond174.i = select i1 %.not158.i, i1 true, i1 %103
-  br i1 %or.cond174.i, label %select_delta_tables.exit.i, label %.thread230.i
+  br i1 %or.cond174.i, label %select_delta_tables.exit.i, label %.thread238.i
 
 104:                                              ; preds = %80
   %.old.i = icmp ugt i8 %.pre179.i, 3
-  br i1 %.old.i, label %select_delta_tables.exit.i, label %.thread230.i
+  br i1 %.old.i, label %select_delta_tables.exit.i, label %.thread238.i
 
-.thread230.i:                                     ; preds = %104, %89, %.thread228.i
-  %105 = phi i32 [ %90, %89 ], [ %83, %104 ], [ %88, %.thread228.i ]
-  %106 = phi ptr [ %91, %89 ], [ %82, %104 ], [ %87, %.thread228.i ]
-  %107 = phi i32 [ %90, %89 ], [ %81, %104 ], [ 0, %.thread228.i ]
-  %108 = phi ptr [ %92, %89 ], [ %73, %104 ], [ %86, %.thread228.i ]
-  %109 = phi ptr [ %93, %89 ], [ %74, %104 ], [ %85, %.thread228.i ]
-  %110 = phi i8 [ %94, %89 ], [ %.pre177.i, %104 ], [ 0, %.thread228.i ]
-  %111 = phi i8 [ %95, %89 ], [ %.pre179.i, %104 ], [ 0, %.thread228.i ]
-  %112 = phi i8 [ %96, %89 ], [ %.pre181.i, %104 ], [ 0, %.thread228.i ]
-  %113 = phi i8 [ %97, %89 ], [ %.pre189.i, %104 ], [ 0, %.thread228.i ]
-  %114 = phi ptr [ %98, %89 ], [ %75, %104 ], [ %84, %.thread228.i ]
-  %115 = phi i32 [ %99, %89 ], [ %76, %104 ], [ 0, %.thread228.i ]
+.thread238.i:                                     ; preds = %104, %89, %.thread236.i
+  %105 = phi i32 [ %90, %89 ], [ %83, %104 ], [ %88, %.thread236.i ]
+  %106 = phi ptr [ %91, %89 ], [ %82, %104 ], [ %87, %.thread236.i ]
+  %107 = phi i32 [ %90, %89 ], [ %81, %104 ], [ 0, %.thread236.i ]
+  %108 = phi ptr [ %92, %89 ], [ %73, %104 ], [ %86, %.thread236.i ]
+  %109 = phi ptr [ %93, %89 ], [ %74, %104 ], [ %85, %.thread236.i ]
+  %110 = phi i8 [ %94, %89 ], [ %.pre177.i, %104 ], [ 0, %.thread236.i ]
+  %111 = phi i8 [ %95, %89 ], [ %.pre179.i, %104 ], [ 0, %.thread236.i ]
+  %112 = phi i8 [ %96, %89 ], [ %.pre181.i, %104 ], [ 0, %.thread236.i ]
+  %113 = phi i8 [ %97, %89 ], [ %.pre189.i, %104 ], [ 0, %.thread236.i ]
+  %114 = phi ptr [ %98, %89 ], [ %75, %104 ], [ %84, %.thread236.i ]
+  %115 = phi i32 [ %99, %89 ], [ %76, %104 ], [ 0, %.thread236.i ]
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 16480
   %117 = zext nneg i8 %111 to i64
   %118 = getelementptr inbounds nuw [5 x ptr], ptr @ydts, i64 0, i64 %117
@@ -320,8 +320,8 @@ define internal i32 @truemotion1_decode_frame(ptr noundef %0, ptr noundef %1, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 2 dereferenceable(16) %128, i64 16, i1 false)
   br label %129
 
-129:                                              ; preds = %129, %.thread230.i
-  %indvars.iv.i.i = phi i64 [ 0, %.thread230.i ], [ %indvars.iv.next.i.i, %129 ]
+129:                                              ; preds = %129, %.thread238.i
+  %indvars.iv.i.i = phi i64 [ 0, %.thread238.i ], [ %indvars.iv.next.i.i, %129 ]
   %130 = getelementptr inbounds nuw [8 x i16], ptr %116, i64 0, i64 %indvars.iv.i.i
   %131 = load i16, ptr %130, align 2, !tbaa !48
   %132 = ashr i16 %131, 1

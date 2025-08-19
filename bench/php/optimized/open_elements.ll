@@ -289,8 +289,8 @@ define hidden noundef zeroext i1 @lxb_html_tree_open_elements_find_by_node_rever
   br label %17
 
 17:                                               ; preds = %.sink.split, %16, %15
-  %.not.not.not21 = phi i1 [ false, %16 ], [ true, %15 ], [ %.not.not.not.not.not.not, %.sink.split ]
-  ret i1 %.not.not.not21
+  %.not.not.not22 = phi i1 [ false, %16 ], [ true, %15 ], [ %.not.not.not.not.not.not, %.sink.split ]
+  ret i1 %.not.not.not22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

@@ -160,8 +160,8 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %73 = load i64, ptr %4, align 8, !tbaa !32
   %74 = add i64 %73, %spec.select.i
   %75 = icmp ult i64 %72, %74
-  %spec.select64.i = call i64 @llvm.usub.sat.i64(i64 %72, i64 %spec.select.i)
-  %76 = select i1 %75, i64 %spec.select64.i, i64 %73
+  %spec.select71.i = call i64 @llvm.usub.sat.i64(i64 %72, i64 %spec.select.i)
+  %76 = select i1 %75, i64 %spec.select71.i, i64 %73
   %77 = sub i64 %70, %spec.select.i
   %78 = uitofp i64 %77 to double
   %79 = fmul double %78, 6.000000e+04

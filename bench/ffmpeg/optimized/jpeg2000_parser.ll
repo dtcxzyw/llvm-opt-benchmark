@@ -273,7 +273,7 @@ info_marker.exit.i:                               ; preds = %107
   br i1 %119, label %120, label %info_marker.exit.thread.i
 
 120:                                              ; preds = %115
-  %121 = add i32 %117, %.097156.i
+  %121 = add nuw i32 %117, %.097156.i
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !21
@@ -281,7 +281,7 @@ info_marker.exit.i:                               ; preds = %107
   br i1 %.not134.i, label %info_marker.exit128.i, label %info_marker.exit.thread.i
 
 info_marker.exit128.i:                            ; preds = %120
-  %125 = zext i32 %118 to i64
+  %125 = zext nneg i32 %118 to i64
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !21
   %128 = zext i8 %127 to i64

@@ -184,7 +184,7 @@ define dso_local range(i64 0, 4294967312) i64 @_ZN4llvm9sandboxir16LegalityAnaly
   %22 = getelementptr i8, ptr %.val33.i.i.i.i.i.i, i64 32
   %.val33.val.i.i.i.i.i.i = load i32, ptr %22, align 8, !tbaa !8
   %.not50.i.i.i.i.i.i = icmp eq i32 %.val33.val.i.i.i.i.i.i, %10
-  br i1 %.not50.i.i.i.i.i.i, label %23, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit284"
+  br i1 %.not50.i.i.i.i.i.i, label %23, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit287"
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i, i64 24
@@ -192,7 +192,7 @@ define dso_local range(i64 0, 4294967312) i64 @_ZN4llvm9sandboxir16LegalityAnaly
   %25 = getelementptr i8, ptr %.val35.i.i.i.i.i.i, i64 32
   %.val35.val.i.i.i.i.i.i = load i32, ptr %25, align 8, !tbaa !8
   %.not51.i.i.i.i.i.i = icmp eq i32 %.val35.val.i.i.i.i.i.i, %10
-  br i1 %.not51.i.i.i.i.i.i, label %26, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit286"
+  br i1 %.not51.i.i.i.i.i.i, label %26, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit289"
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i, i64 32
@@ -249,16 +249,16 @@ define dso_local range(i64 0, 4294967312) i64 @_ZN4llvm9sandboxir16LegalityAnaly
   %41 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit284": ; preds = %20
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit287": ; preds = %20
   %42 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit286": ; preds = %23
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit289": ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit284", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit286", %31, %35, %39
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %31 ], [ %.1.i.i.i.i.i.i, %35 ], [ %.2.i.i.i.i.i.i, %39 ], [ %41, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %42, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit284" ], [ %43, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit286" ], [ %.02962.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit287", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit289", %31, %35, %39
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %31 ], [ %.1.i.i.i.i.i.i, %35 ], [ %.2.i.i.i.i.i.i, %39 ], [ %41, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %42, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit287" ], [ %43, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit289" ], [ %.02962.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not177 = icmp eq ptr %12, %.028.i.i.i.i.i.i
   br i1 %.not177, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit.thread", label %.thread
 
@@ -331,13 +331,13 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   %74 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 16
   %.val33.i.i.i.i.i.i49 = load ptr, ptr %74, align 8, !tbaa !3
   %75 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_1EclIPKS7_EEbT_"(ptr readnone %67, ptr %.val33.i.i.i.i.i.i49)
-  br i1 %75, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit292", label %76
+  br i1 %75, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit295", label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i.i50 = load ptr, ptr %77, align 8, !tbaa !3
   %78 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_1EclIPKS7_EEbT_"(ptr readnone %67, ptr %.val35.i.i.i.i.i.i50)
-  br i1 %78, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit294", label %79
+  br i1 %78, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit297", label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 32
@@ -389,16 +389,16 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   %94 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit292": ; preds = %73
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit295": ; preds = %73
   %95 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit294": ; preds = %76
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit297": ; preds = %76
   %96 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i46, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit292", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit294", %84, %88, %92
-  %.028.i.i.i.i.i.i42 = phi ptr [ %.029.lcssa.i.i.i.i.i.i39, %84 ], [ %.1.i.i.i.i.i.i43, %88 ], [ %.2.i.i.i.i.i.i40, %92 ], [ %94, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %95, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit292" ], [ %96, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit294" ], [ %.02950.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i46 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i46, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit295", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit297", %84, %88, %92
+  %.028.i.i.i.i.i.i42 = phi ptr [ %.029.lcssa.i.i.i.i.i.i39, %84 ], [ %.1.i.i.i.i.i.i43, %88 ], [ %.2.i.i.i.i.i.i40, %92 ], [ %94, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %95, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit295" ], [ %96, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit297" ], [ %.02950.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i46 ]
   %.not180 = icmp eq ptr %12, %.028.i.i.i.i.i.i42
   br i1 %.not180, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit.thread", label %.thread
 
@@ -446,7 +446,7 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   %.val33.val.i.i.i.i.i.i82 = load ptr, ptr %114, align 8, !tbaa !23
   %115 = tail call i32 @_ZNK4llvm11Instruction16getFastMathFlagsEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %.val33.val.i.i.i.i.i.i82) #14
   %.not50.i.i.i.i.i.i83 = icmp eq i32 %115, %104
-  br i1 %.not50.i.i.i.i.i.i83, label %116, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit300"
+  br i1 %.not50.i.i.i.i.i.i83, label %116, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit303"
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i74, i64 24
@@ -455,7 +455,7 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   %.val35.val.i.i.i.i.i.i85 = load ptr, ptr %118, align 8, !tbaa !23
   %119 = tail call i32 @_ZNK4llvm11Instruction16getFastMathFlagsEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %.val35.val.i.i.i.i.i.i85) #14
   %.not51.i.i.i.i.i.i86 = icmp eq i32 %119, %104
-  br i1 %.not51.i.i.i.i.i.i86, label %120, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit302"
+  br i1 %.not51.i.i.i.i.i.i86, label %120, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit305"
 
 120:                                              ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i74, i64 32
@@ -515,16 +515,16 @@ _ZN4llvm9sandboxir8VecUtils14getElementTypeEPNS0_4TypeE.exit: ; preds = %_ZN4llv
   %138 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i74, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit300": ; preds = %112
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit303": ; preds = %112
   %139 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i74, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit302": ; preds = %116
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit305": ; preds = %116
   %140 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i74, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i72, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit300", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit302", %125, %130, %135
-  %.028.i.i.i.i.i.i62 = phi ptr [ %.029.lcssa.i.i.i.i.i.i57, %125 ], [ %.1.i.i.i.i.i.i63, %130 ], [ %.2.i.i.i.i.i.i58, %135 ], [ %138, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %139, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit300" ], [ %140, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit302" ], [ %.02962.i.i.i.i.i.i74, %.lr.ph.i.i.i.i.i.i72 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i72, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit303", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit305", %125, %130, %135
+  %.028.i.i.i.i.i.i62 = phi ptr [ %.029.lcssa.i.i.i.i.i.i57, %125 ], [ %.1.i.i.i.i.i.i63, %130 ], [ %.2.i.i.i.i.i.i58, %135 ], [ %138, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %139, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit303" ], [ %140, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit.loopexit.split.loop.exit305" ], [ %.02962.i.i.i.i.i.i74, %.lr.ph.i.i.i.i.i.i72 ]
   %.not184 = icmp eq ptr %12, %.028.i.i.i.i.i.i62
   br i1 %.not184, label %.critedge, label %.thread
 
@@ -585,7 +585,7 @@ _ZN4llvm3isaINS_9sandboxir25OverflowingBinaryOperatorEPNS1_11InstructionEEEbRKT0
   %.val33.val.i.i.i.i.i.i108 = load ptr, ptr %160, align 8, !tbaa !23
   %161 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %.val33.val.i.i.i.i.i.i108) #14
   %162 = xor i1 %150, %161
-  br i1 %162, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit312", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit48.i.i.i.i.i.i"
+  br i1 %162, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit315", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit48.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit48.i.i.i.i.i.i": ; preds = %158
   %163 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction15hasNoSignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %.val33.val.i.i.i.i.i.i108) #14
@@ -599,12 +599,12 @@ _ZN4llvm3isaINS_9sandboxir25OverflowingBinaryOperatorEPNS1_11InstructionEEEbRKT0
   %.val36.val.i.i.i.i.i.i = load ptr, ptr %167, align 8, !tbaa !23
   %168 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %.val36.val.i.i.i.i.i.i) #14
   %169 = xor i1 %150, %168
-  br i1 %169, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit314", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit50.i.i.i.i.i.i"
+  br i1 %169, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit317", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit50.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit50.i.i.i.i.i.i": ; preds = %165
   %170 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction15hasNoSignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %.val36.val.i.i.i.i.i.i) #14
   %171 = xor i1 %151, %170
-  br i1 %171, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit308", label %172
+  br i1 %171, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit311", label %172
 
 172:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit50.i.i.i.i.i.i"
   %173 = getelementptr inbounds nuw i8, ptr %.02986.i.i.i.i.i.i, i64 24
@@ -613,12 +613,12 @@ _ZN4llvm3isaINS_9sandboxir25OverflowingBinaryOperatorEPNS1_11InstructionEEEbRKT0
   %.val39.val.i.i.i.i.i.i = load ptr, ptr %174, align 8, !tbaa !23
   %175 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %.val39.val.i.i.i.i.i.i) #14
   %176 = xor i1 %150, %175
-  br i1 %176, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit316", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit52.i.i.i.i.i.i"
+  br i1 %176, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit319", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit52.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit52.i.i.i.i.i.i": ; preds = %172
   %177 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction15hasNoSignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %.val39.val.i.i.i.i.i.i) #14
   %178 = xor i1 %151, %177
-  br i1 %178, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit310", label %179
+  br i1 %178, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit313", label %179
 
 179:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit52.i.i.i.i.i.i"
   %180 = getelementptr inbounds nuw i8, ptr %.02986.i.i.i.i.i.i, i64 32
@@ -693,33 +693,33 @@ _ZN4llvm3isaINS_9sandboxir25OverflowingBinaryOperatorEPNS1_11InstructionEEEbRKT0
   %206 = getelementptr inbounds nuw i8, ptr %.02986.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit308": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit50.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit311": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit50.i.i.i.i.i.i"
   %207 = getelementptr inbounds nuw i8, ptr %.02986.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit310": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit52.i.i.i.i.i.i"
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit313": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit52.i.i.i.i.i.i"
   %208 = getelementptr inbounds nuw i8, ptr %.02986.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit312": ; preds = %158
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit315": ; preds = %158
   %209 = getelementptr inbounds nuw i8, ptr %.02986.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit314": ; preds = %165
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit317": ; preds = %165
   %210 = getelementptr inbounds nuw i8, ptr %.02986.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit316": ; preds = %172
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit319": ; preds = %172
   %211 = getelementptr inbounds nuw i8, ptr %.02986.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i104, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit308", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit310", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit312", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit314", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit316", %184, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit54.i.i.i.i.i.i", %192, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit56.i.i.i.i.i.i", %200, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit58.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i97 = phi ptr [ %.029.lcssa.i.i.i.i.i.i93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit54.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit56.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i94, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit58.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i93, %184 ], [ %.1.i.i.i.i.i.i98, %192 ], [ %.2.i.i.i.i.i.i94, %200 ], [ %206, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %207, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit308" ], [ %208, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit310" ], [ %209, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit312" ], [ %210, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit314" ], [ %211, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit316" ], [ %.02986.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit.i.i.i.i.i.i" ], [ %.02986.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i104 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i104, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit.i.i.i.i.i.i", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit311", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit313", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit315", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit317", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit319", %184, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit54.i.i.i.i.i.i", %192, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit56.i.i.i.i.i.i", %200, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit58.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i97 = phi ptr [ %.029.lcssa.i.i.i.i.i.i93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit54.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit56.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i94, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit58.i.i.i.i.i.i" ], [ %.029.lcssa.i.i.i.i.i.i93, %184 ], [ %.1.i.i.i.i.i.i98, %192 ], [ %.2.i.i.i.i.i.i94, %200 ], [ %206, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %207, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit311" ], [ %208, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit313" ], [ %209, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit315" ], [ %210, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit317" ], [ %211, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit.loopexit.split.loop.exit319" ], [ %.02986.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit.i.i.i.i.i.i" ], [ %.02986.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i104 ]
   %.not188 = icmp eq ptr %12, %.028.i.i.i.i.i.i97
   br i1 %.not188, label %.critedge24, label %.thread
 
 .critedge24:                                      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_3EclIPKS7_EEbT_.exit58.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i92, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit", %_ZN4llvm3isaINS_9sandboxir25OverflowingBinaryOperatorEPNS1_11InstructionEEEbRKT0_.exit
-  switch i32 %10, label %.thread280 [
+  switch i32 %10, label %.thread283 [
     i32 48, label %212
     i32 49, label %212
     i32 50, label %212
@@ -838,13 +838,13 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %245 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i128, i64 16
   %.val33.i.i.i.i.i.i131 = load ptr, ptr %245, align 8, !tbaa !3
   %246 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_4EclIPKS7_EEbT_"(ptr readnone %232, ptr %.val33.i.i.i.i.i.i131)
-  br i1 %246, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit327", label %247
+  br i1 %246, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit330", label %247
 
 247:                                              ; preds = %244
   %248 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i128, i64 24
   %.val35.i.i.i.i.i.i132 = load ptr, ptr %248, align 8, !tbaa !3
   %249 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_4EclIPKS7_EEbT_"(ptr readnone %232, ptr %.val35.i.i.i.i.i.i132)
-  br i1 %249, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit329", label %250
+  br i1 %249, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit332", label %250
 
 250:                                              ; preds = %247
   %251 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i128, i64 32
@@ -861,7 +861,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %.pre-phi57.i.i.i.i.i.i118 = phi i64 [ %.pre56.i.i.i.i.i.i135, %._crit_edge.loopexit.i.i.i.i.i.i133 ], [ %gepdiff192, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114 ]
   %.029.lcssa.i.i.i.i.i.i119 = phi ptr [ %251, %._crit_edge.loopexit.i.i.i.i.i.i133 ], [ %234, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114 ]
   %254 = ashr exact i64 %.pre-phi57.i.i.i.i.i.i118, 3
-  switch i64 %254, label %.thread280 [
+  switch i64 %254, label %.thread283 [
     i64 3, label %255
     i64 2, label %259
     i64 1, label %263
@@ -890,24 +890,24 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %.2.i.i.i.i.i.i120 = phi ptr [ %262, %261 ], [ %.029.lcssa.i.i.i.i.i.i119, %._crit_edge.i.i.i.i.i.i117 ]
   %.2.val.i.i.i.i.i.i121 = load ptr, ptr %.2.i.i.i.i.i.i120, align 8, !tbaa !3
   %264 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm9sandboxir16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS2_8ArrayRefIPNS3_5ValueEEEE3$_4EclIPKS7_EEbT_"(ptr readnone %232, ptr %.2.val.i.i.i.i.i.i121)
-  br i1 %264, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", label %.thread280
+  br i1 %264, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", label %.thread283
 
 "_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %241
   %265 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i128, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit327": ; preds = %244
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit330": ; preds = %244
   %266 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i128, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit329": ; preds = %247
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit332": ; preds = %247
   %267 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i128, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i126, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit327", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit329", %255, %259, %263
-  %.028.i.i.i.i.i.i122 = phi ptr [ %.029.lcssa.i.i.i.i.i.i119, %255 ], [ %.1.i.i.i.i.i.i123, %259 ], [ %.2.i.i.i.i.i.i120, %263 ], [ %265, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %266, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit327" ], [ %267, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit329" ], [ %.02950.i.i.i.i.i.i128, %.lr.ph.i.i.i.i.i.i126 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i126, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit330", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit332", %255, %259, %263
+  %.028.i.i.i.i.i.i122 = phi ptr [ %.029.lcssa.i.i.i.i.i.i119, %255 ], [ %.1.i.i.i.i.i.i123, %259 ], [ %.2.i.i.i.i.i.i120, %263 ], [ %265, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %266, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit330" ], [ %267, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit.loopexit.split.loop.exit332" ], [ %.02950.i.i.i.i.i.i128, %.lr.ph.i.i.i.i.i.i126 ]
   %.not193 = icmp eq ptr %236, %.028.i.i.i.i.i.i122
-  br i1 %.not193, label %.thread280, label %.thread
+  br i1 %.not193, label %.thread283, label %.thread
 
 268:                                              ; preds = %.critedge24, %.critedge24
   %269 = load ptr, ptr %97, align 8, !tbaa !23
@@ -916,7 +916,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %272 = and i16 %271, 63
   %273 = zext nneg i16 %272 to i32
   %274 = tail call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesES5_E3$_5EEbOT_T0_"(ptr nonnull %1, i64 %2, i32 %273)
-  br i1 %274, label %.thread280, label %.thread
+  br i1 %274, label %.thread283, label %.thread
 
 275:                                              ; preds = %.critedge24
   %276 = load ptr, ptr %1, align 8, !tbaa !3
@@ -930,7 +930,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %281 = call noundef i32 @_ZN4llvm9sandboxir8VecUtils11getNumLanesEPNS0_5ValueE(ptr noundef %280)
   %282 = call noundef i32 @_ZN4llvm9sandboxir8VecUtils11getNumLanesEPNS0_5ValueE(ptr noundef nonnull %276)
   %.not.not = icmp eq i32 %281, %282
-  br i1 %.not.not, label %.thread280, label %.thread
+  br i1 %.not.not, label %.thread283, label %.thread
 
 283:                                              ; preds = %.critedge24
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -938,7 +938,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %287 = load ptr, ptr %286, align 8, !tbaa !90
   %288 = call noundef zeroext i1 @_ZN4llvm9sandboxir8VecUtils14areConsecutiveINS0_8LoadInstEEEbRNS_8ArrayRefIPNS0_5ValueEEERNS_15ScalarEvolutionERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(1344) %285, ptr noundef nonnull align 8 dereferenceable(496) %287)
-  br i1 %288, label %.thread280, label %.thread
+  br i1 %288, label %.thread283, label %.thread
 
 289:                                              ; preds = %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24
   br label %.thread
@@ -949,16 +949,16 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %294 = load ptr, ptr %293, align 8, !tbaa !90
   %295 = call noundef zeroext i1 @_ZN4llvm9sandboxir8VecUtils14areConsecutiveINS0_9StoreInstEEEbRNS_8ArrayRefIPNS0_5ValueEEERNS_15ScalarEvolutionERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(1344) %292, ptr noundef nonnull align 8 dereferenceable(496) %294)
-  br i1 %295, label %.thread280, label %.thread
+  br i1 %295, label %.thread283, label %.thread
 
 .thread:                                          ; preds = %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit", %289, %283, %275, %268, %290
-  %.sroa.0163.0278 = phi i64 [ 7, %290 ], [ 1, %268 ], [ 9, %275 ], [ 7, %283 ], [ 2, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit" ], [ 4, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit" ], [ 3, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit" ], [ 2, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit" ], [ 1, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit" ], [ 10, %289 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ]
-  br label %.thread280
+  %.sroa.0163.0281 = phi i64 [ 7, %290 ], [ 1, %268 ], [ 9, %275 ], [ 7, %283 ], [ 2, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit" ], [ 4, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit" ], [ 3, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit" ], [ 2, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit" ], [ 1, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit" ], [ 10, %289 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ], [ 9, %.critedge24 ]
+  br label %.thread283
 
-.thread280:                                       ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", %._crit_edge.i.i.i.i.i.i117, %263, %.critedge24, %283, %275, %268, %290, %.thread
-  %.sroa.0163.0277 = phi i64 [ %.sroa.0163.0278, %.thread ], [ 7, %290 ], [ 1, %268 ], [ 9, %275 ], [ 7, %283 ], [ 0, %.critedge24 ], [ 0, %263 ], [ 0, %._crit_edge.i.i.i.i.i.i117 ], [ 0, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit" ]
+.thread283:                                       ; preds = %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", %._crit_edge.i.i.i.i.i.i117, %263, %.critedge24, %283, %275, %268, %290, %.thread
+  %.sroa.0163.0280 = phi i64 [ %.sroa.0163.0281, %.thread ], [ 7, %290 ], [ 1, %268 ], [ 9, %275 ], [ 7, %283 ], [ 0, %.critedge24 ], [ 0, %263 ], [ 0, %._crit_edge.i.i.i.i.i.i117 ], [ 0, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit" ]
   %296 = phi i64 [ 4294967296, %.thread ], [ 0, %290 ], [ 0, %268 ], [ 0, %275 ], [ 0, %283 ], [ 0, %.critedge24 ], [ 0, %263 ], [ 0, %._crit_edge.i.i.i.i.i.i117 ], [ 0, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit" ]
-  %.sroa.0163.0.insert.insert = or disjoint i64 %296, %.sroa.0163.0277
+  %.sroa.0163.0.insert.insert = or disjoint i64 %296, %.sroa.0163.0280
   ret i64 %.sroa.0163.0.insert.insert
 }
 
@@ -1259,8 +1259,8 @@ _ZN4llvm15SmallVectorImplINS_9sandboxir12CollectDescr19ExtractElementDescrEE7res
   br i1 %.not3841, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplINS_9sandboxir12CollectDescr19ExtractElementDescrEE7reserveEm.exit.thread, %_ZN4llvm15SmallVectorImplINS_9sandboxir12CollectDescr19ExtractElementDescrEE7reserveEm.exit
-  %.idx51.pn = shl nuw nsw i64 %3, 3
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx51.pn
+  %.idx71.pn = shl nuw nsw i64 %3, 3
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx71.pn
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   br label %31
 
@@ -1303,11 +1303,11 @@ _ZSt4moveIPN4llvm9sandboxir12CollectDescr19ExtractElementDescrES4_ET0_T_S6_S5_.e
 
 _ZSt4moveIPN4llvm9sandboxir12CollectDescr19ExtractElementDescrES4_ET0_T_S6_S5_.exit35.i.thread: ; preds = %22, %_ZSt4moveIPN4llvm9sandboxir12CollectDescr19ExtractElementDescrES4_ET0_T_S6_S5_.exit35.i
   %25 = phi i32 [ %.pre, %_ZSt4moveIPN4llvm9sandboxir12CollectDescr19ExtractElementDescrES4_ET0_T_S6_S5_.exit35.i ], [ %17, %22 ]
-  %.pre46.pre4855 = phi ptr [ %.pre46.pre48.pre, %_ZSt4moveIPN4llvm9sandboxir12CollectDescr19ExtractElementDescrES4_ET0_T_S6_S5_.exit35.i ], [ %.pre47, %22 ]
+  %.pre46.pre4875 = phi ptr [ %.pre46.pre48.pre, %_ZSt4moveIPN4llvm9sandboxir12CollectDescr19ExtractElementDescrES4_ET0_T_S6_S5_.exit35.i ], [ %.pre47, %22 ]
   %26 = zext i32 %25 to i64
   %27 = load ptr, ptr %0, align 8, !tbaa !99
   %gepdiff.i = shl nuw nsw i64 %26, 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 8 %.pre46.pre4855, i64 %gepdiff.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 8 %.pre46.pre4875, i64 %gepdiff.i, i1 false)
   %.pre46.pre = load ptr, ptr %5, align 8, !tbaa !99
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir12CollectDescr19ExtractElementDescrELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
@@ -1601,13 +1601,13 @@ define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm9sandb
   %24 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load ptr, ptr %24, align 8, !tbaa !3
   %25 = tail call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %.val30.i.i.i.i.i.i) #13
-  br i1 %25, label %26, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit184"
+  br i1 %25, label %26, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit213"
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i.i = load ptr, ptr %27, align 8, !tbaa !3
   %28 = tail call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %.val31.i.i.i.i.i.i) #13
-  br i1 %28, label %29, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit186"
+  br i1 %28, label %29, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit215"
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 32
@@ -1659,16 +1659,16 @@ define dso_local noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm9sandb
   %44 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit184": ; preds = %23
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit213": ; preds = %23
   %45 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit186": ; preds = %26
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit215": ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit184", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit186", %34, %38, %42
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %34 ], [ %.1.i.i.i.i.i.i, %38 ], [ %.2.i.i.i.i.i.i, %42 ], [ %44, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit184" ], [ %46, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit186" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit213", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit215", %34, %38, %42
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %34 ], [ %.1.i.i.i.i.i.i, %38 ], [ %.2.i.i.i.i.i.i, %42 ], [ %44, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit213" ], [ %46, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit215" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not123 = icmp eq ptr %16, %.028.i.i.i.i.i.i
   br i1 %.not123, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeES5_bE3$_0EEbOT_T0_.exit.thread", label %47
 
@@ -1778,14 +1778,14 @@ _ZN4llvm9sandboxir16LegalityAnalysis20createLegalityResultINS0_4PackEJNS0_12Resu
   %.val33.i.i.i.i.i.i = load ptr, ptr %95, align 8, !tbaa !3
   %96 = tail call noundef ptr @_ZNK4llvm9sandboxir11Instruction9getParentEv(ptr noundef nonnull align 8 dereferenceable(36) %.val33.i.i.i.i.i.i) #13
   %.not44.i.i.i.i.i.i = icmp eq ptr %96, %86
-  br i1 %.not44.i.i.i.i.i.i, label %97, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit192"
+  br i1 %.not44.i.i.i.i.i.i, label %97, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit221"
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i.i = load ptr, ptr %98, align 8, !tbaa !3
   %99 = tail call noundef ptr @_ZNK4llvm9sandboxir11Instruction9getParentEv(ptr noundef nonnull align 8 dereferenceable(36) %.val35.i.i.i.i.i.i) #13
   %.not45.i.i.i.i.i.i = icmp eq ptr %99, %86
-  br i1 %.not45.i.i.i.i.i.i, label %100, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit194"
+  br i1 %.not45.i.i.i.i.i.i, label %100, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit223"
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 32
@@ -1840,16 +1840,16 @@ _ZN4llvm9sandboxir16LegalityAnalysis20createLegalityResultINS0_4PackEJNS0_12Resu
   %115 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit192": ; preds = %94
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit221": ; preds = %94
   %116 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit194": ; preds = %97
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit223": ; preds = %97
   %117 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i38, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit192", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit194", %105, %109, %113
-  %.028.i.i.i.i.i.i35 = phi ptr [ %.029.lcssa.i.i.i.i.i.i32, %105 ], [ %.1.i.i.i.i.i.i36, %109 ], [ %.2.i.i.i.i.i.i33, %113 ], [ %115, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %116, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit192" ], [ %117, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit194" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i38 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i38, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit221", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit223", %105, %109, %113
+  %.028.i.i.i.i.i.i35 = phi ptr [ %.029.lcssa.i.i.i.i.i.i32, %105 ], [ %.1.i.i.i.i.i.i36, %109 ], [ %.2.i.i.i.i.i.i33, %113 ], [ %115, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %116, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit221" ], [ %117, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.loopexit.split.loop.exit223" ], [ %.02956.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i38 ]
   %.not124 = icmp eq ptr %16, %.028.i.i.i.i.i.i35
   br i1 %.not124, label %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis12canVectorizeENS_8ArrayRefIS4_EEbE3$_1EEbOT_T0_.exit.thread", label %118
 
@@ -2137,7 +2137,7 @@ _ZN4llvm11SmallPtrSetIPNS_9sandboxir5ValueELj8EEC2IPKS3_EET_S8_.exit.thread: ; p
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %_ZN4llvm11SmallPtrSetIPNS_9sandboxir5ValueELj8EEC2IPKS3_EET_S8_.exit.thread
   %.pre-phi47.i.i.i.i.i.i.i = phi i32 [ %245, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %221, %_ZN4llvm11SmallPtrSetIPNS_9sandboxir5ValueELj8EEC2IPKS3_EET_S8_.exit.thread ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %219, %_ZN4llvm11SmallPtrSetIPNS_9sandboxir5ValueELj8EEC2IPKS3_EET_S8_.exit.thread ]
-  switch i32 %.pre-phi47.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault.i.i [
+  switch i32 %.pre-phi47.i.i.i.i.i.i.i, label %default.unreachable [
     i32 3, label %246
     i32 2, label %252
     i32 1, label %258
@@ -2172,7 +2172,7 @@ _ZN4llvm11SmallPtrSetIPNS_9sandboxir5ValueELj8EEC2IPKS3_EET_S8_.exit.thread: ; p
   %261 = trunc nuw i8 %260 to i1
   br i1 %261, label %_ZNK4llvm9sandboxir12CollectDescr15hasVectorInputsEv.exit, label %_ZNK4llvm9sandboxir12CollectDescr15hasVectorInputsEv.exit.thread
 
-._crit_edge.i.i.i.i.i.unreachabledefault.i.i:     ; preds = %._crit_edge.i.i.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i
   unreachable
 
 .loopexit.split.loop.exit31.i.i.i.i.i.i.i:        ; preds = %229
@@ -2848,10 +2848,10 @@ _ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit: ; preds = %.cr
   br label %_ZSt9make_pairIRPN4llvm9sandboxir5ValueENS1_11ShuffleMaskEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit
 
 81:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i
-  %.ph80 = phi ptr [ %60, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i ], [ %76, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i ]
-  %.ph81 = phi ptr [ %59, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i ], [ %75, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i ]
-  %.ph82 = phi ptr [ %58, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i ], [ %74, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i ]
-  %.ph83 = phi i32 [ %57, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i ], [ %73, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i ]
+  %.ph93 = phi ptr [ %60, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i ], [ %76, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i ]
+  %.ph94 = phi ptr [ %59, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i ], [ %75, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i ]
+  %.ph95 = phi ptr [ %58, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i ], [ %74, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i ]
+  %.ph96 = phi i32 [ %57, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i ], [ %73, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i ]
   store i32 0, ptr %14, align 8, !tbaa !100
   store ptr %7, ptr %4, align 8, !tbaa !162, !alias.scope !176
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2862,45 +2862,45 @@ _ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit: ; preds = %.cr
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 8, ptr %85, align 4, !tbaa !101, !alias.scope !176
   %86 = load ptr, ptr %5, align 8, !tbaa !99
-  %87 = icmp eq ptr %86, %.ph82
+  %87 = icmp eq ptr %86, %.ph95
   br i1 %87, label %89, label %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24
 
 _ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24: ; preds = %81
   store ptr %86, ptr %82, align 8, !tbaa !99
-  store i32 %.ph83, ptr %84, align 8, !tbaa !100
-  %88 = load i32, ptr %.ph80, align 4, !tbaa !101
+  store i32 %.ph96, ptr %84, align 8, !tbaa !100
+  %88 = load i32, ptr %.ph93, align 4, !tbaa !101
   store i32 %88, ptr %85, align 4, !tbaa !101
-  store ptr %.ph82, ptr %5, align 8, !tbaa !99
-  store i32 0, ptr %.ph80, align 4, !tbaa !101
-  store i32 0, ptr %.ph81, align 8, !tbaa !100
+  store ptr %.ph95, ptr %5, align 8, !tbaa !99
+  store i32 0, ptr %.ph93, align 4, !tbaa !101
+  store i32 0, ptr %.ph94, align 8, !tbaa !100
   br label %_ZSt9make_pairIRPN4llvm9sandboxir5ValueENS1_11ShuffleMaskEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit
 
 89:                                               ; preds = %81
-  %90 = zext i32 %.ph83 to i64
-  %91 = icmp ugt i32 %.ph83, 8
+  %90 = zext i32 %.ph96 to i64
+  %91 = icmp ugt i32 %.ph96, 8
   br i1 %91, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31.thread
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31:           ; preds = %89
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull %83, i64 noundef %90, i64 noundef 4) #13
-  %.pre58 = load i32, ptr %.ph81, align 8, !tbaa !100
+  %.pre58 = load i32, ptr %.ph94, align 8, !tbaa !100
   %.pre62.pre.pre66.pre = load ptr, ptr %82, align 8, !tbaa !99
   %.pre71 = zext i32 %.pre58 to i64
   %.not.i.i.i33 = icmp eq i32 %.pre58, 0
   br i1 %.not.i.i.i33, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31.thread
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31.thread:    ; preds = %89, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31
-  %.pre62.pre.pre6689 = phi ptr [ %.pre62.pre.pre66.pre, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31 ], [ %83, %89 ]
-  %.pre-phi7288 = phi i64 [ %.pre71, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31 ], [ %90, %89 ]
+  %.pre62.pre.pre66102 = phi ptr [ %.pre62.pre.pre66.pre, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31 ], [ %83, %89 ]
+  %.pre-phi72101 = phi i64 [ %.pre71, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31 ], [ %90, %89 ]
   %92 = load ptr, ptr %5, align 8, !tbaa !99
-  %gepdiff.i35 = shl nuw nsw i64 %.pre-phi7288, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre62.pre.pre6689, ptr align 4 %92, i64 %gepdiff.i35, i1 false)
+  %gepdiff.i35 = shl nuw nsw i64 %.pre-phi72101, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre62.pre.pre66102, ptr align 4 %92, i64 %gepdiff.i35, i1 false)
   %.pre62.pre.pre = load ptr, ptr %82, align 8, !tbaa !99
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36
 
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36: ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31.thread, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31
   %.pre62.pre = phi ptr [ %.pre62.pre.pre, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31.thread ], [ %.pre62.pre.pre66.pre, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i31 ]
-  store i32 %.ph83, ptr %84, align 8, !tbaa !100
-  store i32 0, ptr %.ph81, align 8, !tbaa !100
+  store i32 %.ph96, ptr %84, align 8, !tbaa !100
+  store i32 0, ptr %.ph94, align 8, !tbaa !100
   %.pre59 = load ptr, ptr %4, align 8, !tbaa !162
   br label %_ZSt9make_pairIRPN4llvm9sandboxir5ValueENS1_11ShuffleMaskEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit
 
@@ -2909,9 +2909,9 @@ _ZSt9make_pairIRPN4llvm9sandboxir5ValueENS1_11ShuffleMaskEESt4pairINSt25__strip_
   %94 = phi ptr [ %84, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %84, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ %79, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
   %95 = phi ptr [ %83, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %83, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ %78, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
   %96 = phi ptr [ %82, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %82, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ %77, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
-  %97 = phi ptr [ %.ph82, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %.ph82, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ %45, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
+  %97 = phi ptr [ %.ph95, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %.ph95, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ %45, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
   %.pre62 = phi ptr [ %.pre62.pre, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %86, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ %78, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
-  %98 = phi i32 [ %.ph83, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %.ph83, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ 0, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
+  %98 = phi i32 [ %.ph96, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %.ph96, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ 0, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
   %99 = phi ptr [ %.pre59, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i36 ], [ %7, %_ZN4llvm15SmallVectorImplIiE12assignRemoteEOS1_.exit.i24 ], [ %7, %_ZN4llvm9sandboxir11ShuffleMaskC2EONS_15SmallVectorImplIiEE.exit ]
   store ptr %99, ptr %0, align 8, !tbaa !162
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2956,11 +2956,11 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i46:           ; preds = %109
   br i1 %.not.i.i.i48, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i51, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i46.thread
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i46.thread:    ; preds = %109, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i46
-  %.pre61.pre6494 = phi ptr [ %.pre61.pre64.pre, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i46 ], [ %.pre62, %109 ]
-  %.pre-phi93 = phi i64 [ %.pre70, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i46 ], [ %110, %109 ]
+  %.pre61.pre64107 = phi ptr [ %.pre61.pre64.pre, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i46 ], [ %.pre62, %109 ]
+  %.pre-phi106 = phi i64 [ %.pre70, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit35.i46 ], [ %110, %109 ]
   %112 = load ptr, ptr %100, align 8, !tbaa !99
-  %gepdiff.i50 = shl nuw nsw i64 %.pre-phi93, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr align 4 %.pre61.pre6494, i64 %gepdiff.i50, i1 false)
+  %gepdiff.i50 = shl nuw nsw i64 %.pre-phi106, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr align 4 %.pre61.pre64107, i64 %gepdiff.i50, i1 false)
   %.pre61.pre = load ptr, ptr %96, align 8, !tbaa !99
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE18uninitialized_moveIPiS3_EEvT_S4_T0_.exit.i51
 

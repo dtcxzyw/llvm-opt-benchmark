@@ -54,7 +54,7 @@ define range(i32 0, 2) i32 @Fra_BmcNodesAreEqual(ptr noundef readonly captures(n
   %21 = sext i32 %19 to i64
   %22 = sext i32 %13 to i64
   %invariant.gep = getelementptr ptr, ptr %.val18.val.val21, i64 %22
-  %invariant.gep31 = getelementptr ptr, ptr %.val20.val.val22, i64 %21
+  %invariant.gep34 = getelementptr ptr, ptr %.val20.val.val22, i64 %21
   br label %23
 
 23:                                               ; preds = %.lr.ph, %51
@@ -63,8 +63,8 @@ define range(i32 0, 2) i32 @Fra_BmcNodesAreEqual(ptr noundef readonly captures(n
   %24 = load ptr, ptr %gep, align 8, !tbaa !29
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, -2
-  %gep32 = getelementptr ptr, ptr %invariant.gep31, i64 %indvars.iv
-  %27 = load ptr, ptr %gep32, align 8, !tbaa !29
+  %gep35 = getelementptr ptr, ptr %invariant.gep34, i64 %indvars.iv
+  %27 = load ptr, ptr %gep35, align 8, !tbaa !29
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, -2
   %30 = icmp eq i64 %26, %29
@@ -149,7 +149,7 @@ define range(i32 0, 2) i32 @Fra_BmcNodeIsConst(ptr noundef readonly captures(non
   %23 = sext i32 %21 to i64
   %24 = sext i32 %15 to i64
   %invariant.gep.i = getelementptr ptr, ptr %.val18.val.val21.i, i64 %24
-  %invariant.gep31.i = getelementptr ptr, ptr %.val20.val.val22.i, i64 %23
+  %invariant.gep34.i = getelementptr ptr, ptr %.val20.val.val22.i, i64 %23
   br label %25
 
 25:                                               ; preds = %53, %.lr.ph.i
@@ -158,8 +158,8 @@ define range(i32 0, 2) i32 @Fra_BmcNodeIsConst(ptr noundef readonly captures(non
   %26 = load ptr, ptr %gep.i, align 8, !tbaa !29
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, -2
-  %gep32.i = getelementptr ptr, ptr %invariant.gep31.i, i64 %indvars.iv.i
-  %29 = load ptr, ptr %gep32.i, align 8, !tbaa !29
+  %gep35.i = getelementptr ptr, ptr %invariant.gep34.i, i64 %indvars.iv.i
+  %29 = load ptr, ptr %gep35.i, align 8, !tbaa !29
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, -2
   %32 = icmp eq i64 %28, %31

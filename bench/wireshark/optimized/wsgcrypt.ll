@@ -509,9 +509,9 @@ switch.lookup:                                    ; preds = %8
   %16 = call i32 @gcry_md_setkey(ptr noundef %14, ptr noundef %1, i64 noundef %15)
   %.not18 = icmp eq i32 %16, 0
   %17 = load ptr, ptr %9, align 8
-  br i1 %.not18, label %switch.lookup19, label %.sink.split
+  br i1 %.not18, label %switch.lookup21, label %.sink.split
 
-switch.lookup19:                                  ; preds = %13
+switch.lookup21:                                  ; preds = %13
   call void @gcry_md_write(ptr noundef %17, ptr noundef nonnull @.str.8, i64 noundef 7)
   %18 = load ptr, ptr %9, align 8
   call void @gcry_md_write(ptr noundef %18, ptr noundef %3, i64 noundef 10)
@@ -523,17 +523,17 @@ switch.lookup19:                                  ; preds = %13
   call void @gcry_md_write(ptr noundef %21, ptr noundef %5, i64 noundef %22)
   %23 = load ptr, ptr %9, align 8
   %24 = call ptr @gcry_md_read(ptr noundef %23, i32 noundef 0)
-  %switch.tableidx20 = add nsw i16 %0, -1
-  %switch.idx.cast21 = zext i16 %switch.tableidx20 to i64
-  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast21, 4
-  %switch.offset22 = add nuw nsw i64 %switch.idx.mult, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %7, ptr noundef align 1 %24, i64 noundef range(i64 0, 4294967296) %switch.offset22, i1 noundef false) #10
+  %switch.tableidx22 = add nsw i16 %0, -1
+  %switch.idx.cast23 = zext i16 %switch.tableidx22 to i64
+  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast23, 4
+  %switch.offset24 = add nuw nsw i64 %switch.idx.mult, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %7, ptr noundef align 1 %24, i64 noundef range(i64 0, 4294967296) %switch.offset24, i1 noundef false) #10
   %25 = load ptr, ptr %9, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %13, %switch.lookup19
-  %.sink = phi ptr [ %25, %switch.lookup19 ], [ %17, %13 ]
-  %.015.ph = phi i32 [ 0, %switch.lookup19 ], [ %16, %13 ]
+.sink.split:                                      ; preds = %13, %switch.lookup21
+  %.sink = phi ptr [ %25, %switch.lookup21 ], [ %17, %13 ]
+  %.015.ph = phi i32 [ 0, %switch.lookup21 ], [ %16, %13 ]
   call void @gcry_md_close(ptr noundef %.sink)
   br label %26
 

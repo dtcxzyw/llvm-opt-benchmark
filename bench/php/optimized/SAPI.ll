@@ -429,7 +429,7 @@ thread-pre-split:                                 ; preds = %41
   %25 = phi ptr [ %.pr, %thread-pre-split ], [ %15, %.preheader ]
   %26 = call i64 %25(ptr noundef nonnull %1, i64 noundef 16384) #19
   %.not9.i = icmp eq i64 %26, 0
-  br i1 %.not9.i, label %sapi_read_post_block.exit.thread.thread38, label %27
+  br i1 %.not9.i, label %sapi_read_post_block.exit.thread.thread43, label %27
 
 27:                                               ; preds = %.preheader.split
   %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !86
@@ -459,7 +459,7 @@ sapi_read_post_block.exit.thread:                 ; preds = %sapi_read_post_bloc
   %36 = icmp sgt i64 %35, %6
   br i1 %36, label %.loopexit, label %41
 
-sapi_read_post_block.exit.thread.thread38:        ; preds = %.preheader.split
+sapi_read_post_block.exit.thread.thread43:        ; preds = %.preheader.split
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 248), align 8, !tbaa !87
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8
   %38 = icmp sgt i64 %37, %6
@@ -475,7 +475,7 @@ sapi_read_post_block.exit.thread.thread:          ; preds = %thread-pre-split, %
   %or.cond30 = select i1 %7, i1 %40, i1 false
   br i1 %or.cond30, label %.loopexit, label %select.unfold
 
-.loopexit:                                        ; preds = %sapi_read_post_block.exit.thread, %sapi_read_post_block.exit.thread.thread38, %sapi_read_post_block.exit.thread.thread
+.loopexit:                                        ; preds = %sapi_read_post_block.exit.thread, %sapi_read_post_block.exit.thread.thread43, %sapi_read_post_block.exit.thread.thread
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i64 noundef %6) #19
   br label %select.unfold
 
@@ -483,7 +483,7 @@ sapi_read_post_block.exit.thread.thread:          ; preds = %thread-pre-split, %
   %42 = icmp ult i64 %26, 16384
   br i1 %42, label %select.unfold, label %thread-pre-split
 
-select.unfold:                                    ; preds = %sapi_read_post_block.exit.thread.us, %41, %sapi_read_post_block.exit.thread.thread38, %sapi_read_post_block.exit.thread.us.thread, %sapi_read_post_block.exit.thread.thread, %.split.us, %.loopexit
+select.unfold:                                    ; preds = %sapi_read_post_block.exit.thread.us, %41, %sapi_read_post_block.exit.thread.thread43, %sapi_read_post_block.exit.thread.us.thread, %sapi_read_post_block.exit.thread.thread, %.split.us, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8, !tbaa !96
   %44 = call i32 @_php_stream_seek(ptr noundef %43, i64 noundef 0, i32 noundef 0) #19
@@ -1224,7 +1224,7 @@ define dso_local range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr nounde
   br i1 %.not162205.not, label %.critedge179.thread, label %.lr.ph
 
 64:                                               ; preds = %.thread, %61
-  %.1137216 = phi i64 [ 0, %.thread ], [ %.1137, %61 ]
+  %.1137243 = phi i64 [ 0, %.thread ], [ %.1137, %61 ]
   %65 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %36, i32 noundef 58) #20
   %.not176 = icmp eq ptr %65, null
   br i1 %.not176, label %68, label %66
@@ -1243,7 +1243,7 @@ define dso_local range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr nounde
 70:                                               ; preds = %68
   store ptr %36, ptr %3, align 8, !tbaa !17
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.1137216, ptr %71, align 8, !tbaa !99
+  store i64 %.1137243, ptr %71, align 8, !tbaa !99
   %72 = call i32 %69(ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 160)) #19
   br label %73
 
@@ -1257,19 +1257,19 @@ define dso_local range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr nounde
   %75 = load ptr, ptr %.02.i, align 8, !tbaa !134
   %76 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
   %77 = load i64, ptr %76, align 8, !tbaa !99
-  %78 = icmp ugt i64 %77, %.1137216
+  %78 = icmp ugt i64 %77, %.1137243
   br i1 %78, label %79, label %99
 
 79:                                               ; preds = %.lr.ph.i
   %80 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !17
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.1137216
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %.1137243
   %83 = load i8, ptr %82, align 1, !tbaa !20
   %84 = icmp eq i8 %83, 58
   br i1 %84, label %85, label %99
 
 85:                                               ; preds = %79
-  %86 = call i32 @strncasecmp(ptr noundef nonnull %81, ptr noundef nonnull readonly %36, i64 noundef %.1137216) #20
+  %86 = call i32 @strncasecmp(ptr noundef nonnull %81, ptr noundef nonnull readonly %36, i64 noundef %.1137243) #20
   %.not27.i = icmp eq i32 %86, 0
   br i1 %.not27.i, label %87, label %99
 
@@ -1395,7 +1395,7 @@ sapi_update_response_code.exit183:                ; preds = %115
 
 123:                                              ; preds = %.critedge179.thread, %113, %.critedge179
   %124 = phi ptr [ %110, %.critedge179.thread ], [ %111, %113 ], [ %111, %.critedge179 ]
-  %.1137217220222 = phi i64 [ 0, %.critedge179.thread ], [ %.1137, %113 ], [ %.1137, %.critedge179 ]
+  %.1137244247249 = phi i64 [ 0, %.critedge179.thread ], [ %.1137, %113 ], [ %.1137, %.critedge179 ]
   %125 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %36, i32 noundef 58) #20
   %.not165 = icmp eq ptr %125, null
   br i1 %.not165, label %214, label %126
@@ -1411,7 +1411,7 @@ sapi_update_response_code.exit183:                ; preds = %115
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %130 = ptrtoint ptr %129 to i64
   %131 = ptrtoint ptr %36 to i64
-  %.neg = add i64 %.1137217220222, %131
+  %.neg = add i64 %.1137244247249, %131
   %132 = sub i64 %.neg, %130
   %133 = load i8, ptr %129, align 1, !tbaa !20
   %134 = icmp eq i8 %133, 32

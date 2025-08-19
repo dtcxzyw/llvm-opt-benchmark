@@ -1655,8 +1655,8 @@ check_candidate_ref.exit.i:                       ; preds = %329
   %348 = zext i16 %347 to i32
   %349 = sub nsw i32 %348, %spec.select.i80.i
   %350 = mul nsw i32 %349, %326
-  %.not96.i = icmp slt i32 %345, %350
-  br i1 %.not96.i, label %init_slice_rpl.exit.thread, label %351
+  %.not103.i = icmp slt i32 %345, %350
+  br i1 %.not103.i, label %init_slice_rpl.exit.thread, label %351
 
 351:                                              ; preds = %check_candidate_ref.exit.i
   %352 = shl i32 %320, 14

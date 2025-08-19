@@ -163,7 +163,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay12worker_relay2
   %45 = alloca ptr, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i8, ptr %46, align 8, !range !4, !noundef !5
-  switch i8 %47, label %default.unreachable400 [
+  switch i8 %47, label %default.unreachable408 [
     i8 0, label %48
     i8 1, label %66
     i8 2, label %67
@@ -178,7 +178,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay12worker_relay2
   %.pre399 = load ptr, ptr %.phi.trans.insert398, align 8, !alias.scope !6, !noalias !11
   br label %68
 
-default.unreachable400:                           ; preds = %2
+default.unreachable408:                           ; preds = %2
   unreachable
 
 48:                                               ; preds = %2
@@ -1469,7 +1469,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay12worker_relay2
   %45 = alloca ptr, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i8, ptr %46, align 8, !range !4, !noundef !5
-  switch i8 %47, label %default.unreachable400 [
+  switch i8 %47, label %default.unreachable408 [
     i8 0, label %48
     i8 1, label %65
     i8 2, label %66
@@ -1484,7 +1484,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay12worker_relay2
   %.pre399 = load ptr, ptr %.phi.trans.insert398, align 8, !alias.scope !189, !noalias !194
   br label %67
 
-default.unreachable400:                           ; preds = %2
+default.unreachable408:                           ; preds = %2
   unreachable
 
 48:                                               ; preds = %2
@@ -3005,7 +3005,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay12worker_relay20WorkerRe
   %61 = alloca { { { ptr, i64 }, ptr } }, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %63 = load i8, ptr %62, align 8, !range !368, !noundef !5
-  switch i8 %63, label %default.unreachable691 [
+  switch i8 %63, label %default.unreachable705 [
     i8 0, label %65
     i8 1, label %86
     i8 2, label %87
@@ -3023,7 +3023,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay12worker_relay20WorkerRe
   %.pre690 = load ptr, ptr %.phi.trans.insert689, align 8, !alias.scope !369, !noalias !374
   br label %88
 
-default.unreachable691:                           ; preds = %2
+default.unreachable705:                           ; preds = %2
   unreachable
 
 64:                                               ; preds = %"_ZN4core3ptr286drop_in_place$LT$$LP$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..workers..sender..TcpSendWorker$GT$..recv_message..$u7b$$u7b$closure$u7d$$u7d$$C$tokio..sync..mpsc..bounded..Receiver$LT$ockam_node..relay..CtrlSignal$GT$..recv..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h79135f733c573ceeE.exit"
@@ -5166,7 +5166,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay12worker_relay20WorkerRe
   %61 = alloca { { { ptr, i64 }, ptr } }, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %63 = load i8, ptr %62, align 8, !range !368, !noundef !5
-  switch i8 %63, label %default.unreachable691 [
+  switch i8 %63, label %default.unreachable705 [
     i8 0, label %65
     i8 1, label %86
     i8 2, label %87
@@ -5184,7 +5184,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay12worker_relay20WorkerRe
   %.pre690 = load ptr, ptr %.phi.trans.insert689, align 8, !alias.scope !679, !noalias !684
   br label %88
 
-default.unreachable691:                           ; preds = %2
+default.unreachable705:                           ; preds = %2
   unreachable
 
 64:                                               ; preds = %"_ZN4core3ptr294drop_in_place$LT$$LP$ockam_node..relay..worker_relay..WorkerRelay$LT$ockam_transport_tcp..portal..portal_worker..TcpPortalWorker$GT$..recv_message..$u7b$$u7b$closure$u7d$$u7d$$C$tokio..sync..mpsc..bounded..Receiver$LT$ockam_node..relay..CtrlSignal$GT$..recv..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h21317823d32deec1E.exit"
@@ -7633,7 +7633,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay15processor_rel
   %43 = alloca ptr, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i8, ptr %44, align 8, !range !4, !noundef !5
-  switch i8 %45, label %default.unreachable398 [
+  switch i8 %45, label %default.unreachable406 [
     i8 0, label %46
     i8 1, label %68
     i8 2, label %69
@@ -7648,7 +7648,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay15processor_rel
   %.pre397 = load ptr, ptr %.phi.trans.insert396, align 8, !alias.scope !986, !noalias !991
   br label %70
 
-default.unreachable398:                           ; preds = %2
+default.unreachable406:                           ; preds = %2
   unreachable
 
 46:                                               ; preds = %2
@@ -8886,7 +8886,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay15processor_rel
   %43 = alloca ptr, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i8, ptr %44, align 8, !range !4, !noundef !5
-  switch i8 %45, label %default.unreachable398 [
+  switch i8 %45, label %default.unreachable406 [
     i8 0, label %46
     i8 1, label %68
     i8 2, label %69
@@ -8901,7 +8901,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay15processor_rel
   %.pre397 = load ptr, ptr %.phi.trans.insert396, align 8, !alias.scope !1166, !noalias !1171
   br label %70
 
-default.unreachable398:                           ; preds = %2
+default.unreachable406:                           ; preds = %2
   unreachable
 
 46:                                               ; preds = %2
@@ -10139,7 +10139,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay15processor_rel
   %43 = alloca ptr, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i8, ptr %44, align 8, !range !4, !noundef !5
-  switch i8 %45, label %default.unreachable398 [
+  switch i8 %45, label %default.unreachable406 [
     i8 0, label %46
     i8 1, label %68
     i8 2, label %69
@@ -10154,7 +10154,7 @@ define internal fastcc noundef zeroext i1 @"_ZN10ockam_node5relay15processor_rel
   %.pre397 = load ptr, ptr %.phi.trans.insert396, align 8, !alias.scope !1346, !noalias !1351
   br label %70
 
-default.unreachable398:                           ; preds = %2
+default.unreachable406:                           ; preds = %2
   unreachable
 
 46:                                               ; preds = %2
@@ -11723,7 +11723,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay15processor_relay23Proce
   %50 = alloca { { { ptr, i64 }, ptr } }, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %52 = load i8, ptr %51, align 8, !range !368, !noundef !5
-  switch i8 %52, label %default.unreachable573 [
+  switch i8 %52, label %default.unreachable587 [
     i8 0, label %53
     i8 1, label %85
     i8 2, label %86
@@ -11734,7 +11734,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay15processor_relay23Proce
     i8 7, label %66
   ]
 
-default.unreachable573:                           ; preds = %"_ZN4core3ptr632drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17hc95861cdf4b75134E.exit", %2
+default.unreachable587:                           ; preds = %"_ZN4core3ptr632drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17hc95861cdf4b75134E.exit", %2
   unreachable
 
 53:                                               ; preds = %2
@@ -12984,7 +12984,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
 
 "_ZN4core3ptr632drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..io..split..ReadHalf$LT$tokio_native_tls..TlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17hc95861cdf4b75134E.exit": ; preds = %451, %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h0eaef6cb2f5d570bE.exit.i.i"
   %467 = load i8, ptr %20, align 8, !range !591, !noundef !5
-  switch i8 %467, label %default.unreachable573 [
+  switch i8 %467, label %default.unreachable587 [
     i8 0, label %477
     i8 1, label %.thread551
     i8 2, label %580
@@ -13590,7 +13590,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay15processor_relay23Proce
   %50 = alloca { { { ptr, i64 }, ptr } }, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %52 = load i8, ptr %51, align 8, !range !368, !noundef !5
-  switch i8 %52, label %default.unreachable573 [
+  switch i8 %52, label %default.unreachable587 [
     i8 0, label %53
     i8 1, label %85
     i8 2, label %86
@@ -13601,7 +13601,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay15processor_relay23Proce
     i8 7, label %66
   ]
 
-default.unreachable573:                           ; preds = %"_ZN4core3ptr386drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h8608dec792d2e4ccE.exit", %2
+default.unreachable587:                           ; preds = %"_ZN4core3ptr386drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h8608dec792d2e4ccE.exit", %2
   unreachable
 
 53:                                               ; preds = %2
@@ -14851,7 +14851,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
 
 "_ZN4core3ptr386drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..workers..receiver..TcpRecvProcessor$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h8608dec792d2e4ccE.exit": ; preds = %451, %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h0eaef6cb2f5d570bE.exit.i.i"
   %467 = load i8, ptr %20, align 8, !range !591, !noundef !5
-  switch i8 %467, label %default.unreachable573 [
+  switch i8 %467, label %default.unreachable587 [
     i8 0, label %477
     i8 1, label %.thread551
     i8 2, label %580
@@ -15457,7 +15457,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay15processor_relay23Proce
   %50 = alloca { { { ptr, i64 }, ptr } }, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %52 = load i8, ptr %51, align 8, !range !368, !noundef !5
-  switch i8 %52, label %default.unreachable573 [
+  switch i8 %52, label %default.unreachable587 [
     i8 0, label %53
     i8 1, label %85
     i8 2, label %86
@@ -15468,7 +15468,7 @@ define hidden noundef zeroext i1 @"_ZN10ockam_node5relay15processor_relay23Proce
     i8 7, label %66
   ]
 
-default.unreachable573:                           ; preds = %"_ZN4core3ptr512drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h91ba0370229a054fE.exit", %2
+default.unreachable587:                           ; preds = %"_ZN4core3ptr512drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h91ba0370229a054fE.exit", %2
   unreachable
 
 53:                                               ; preds = %2
@@ -16718,7 +16718,7 @@ common.ret:                                       ; preds = %"_ZN82_$LT$tokio..s
 
 "_ZN4core3ptr512drop_in_place$LT$$LP$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$ockam_node..relay..processor_relay..ProcessorRelay$LT$ockam_transport_tcp..portal..portal_receiver..TcpPortalRecvProcessor$LT$tokio..net..tcp..split_owned..OwnedReadHalf$GT$$GT$..run..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h91ba0370229a054fE.exit": ; preds = %451, %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h0eaef6cb2f5d570bE.exit.i.i"
   %467 = load i8, ptr %20, align 8, !range !591, !noundef !5
-  switch i8 %467, label %default.unreachable573 [
+  switch i8 %467, label %default.unreachable587 [
     i8 0, label %477
     i8 1, label %.thread551
     i8 2, label %580
@@ -17767,14 +17767,14 @@ define internal fastcc { i64, ptr } @"_ZN10ockam_node7context7context7Context13s
   %.sroa.526 = alloca [39 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %7 = load i8, ptr %6, align 8, !range !133, !noundef !5
-  switch i8 %7, label %default.unreachable32 [
+  switch i8 %7, label %default.unreachable33 [
     i8 0, label %8
     i8 1, label %15
     i8 2, label %16
     i8 3, label %17
   ]
 
-default.unreachable32:                            ; preds = %2
+default.unreachable33:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -17895,14 +17895,14 @@ define internal fastcc { i64, ptr } @"_ZN10ockam_node7context7context7Context9se
   %.sroa.8 = alloca { i8, [87 x i8] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %8 = load i8, ptr %7, align 8, !range !133, !noundef !5
-  switch i8 %8, label %default.unreachable31 [
+  switch i8 %8, label %default.unreachable32 [
     i8 0, label %9
     i8 1, label %21
     i8 2, label %22
     i8 3, label %12
   ]
 
-default.unreachable31:                            ; preds = %2
+default.unreachable32:                            ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
@@ -22581,14 +22581,14 @@ define internal fastcc void @"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$4send2
   %6 = alloca { i8, [87 x i8] }, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 313
   %8 = load i8, ptr %7, align 1, !range !133, !noundef !5
-  switch i8 %8, label %default.unreachable42 [
+  switch i8 %8, label %default.unreachable45 [
     i8 0, label %.thread
     i8 1, label %18
     i8 2, label %19
     i8 3, label %20
   ]
 
-default.unreachable42:                            ; preds = %30, %20, %3
+default.unreachable45:                            ; preds = %30, %20, %3
   unreachable
 
 .thread:                                          ; preds = %3
@@ -22624,7 +22624,7 @@ default.unreachable42:                            ; preds = %30, %20, %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !133, !noalias !3245
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  switch i8 %.pre, label %default.unreachable42 [
+  switch i8 %.pre, label %default.unreachable45 [
     i8 0, label %.thread.i
     i8 1, label %.invoke
     i8 2, label %27
@@ -22664,7 +22664,7 @@ default.unreachable42:                            ; preds = %30, %20, %3
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !4, !noalias !3248
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  switch i8 %.pre.i, label %default.unreachable42 [
+  switch i8 %.pre.i, label %default.unreachable45 [
     i8 0, label %._crit_edge38
     i8 1, label %.invoke.i
     i8 2, label %43

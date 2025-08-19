@@ -441,7 +441,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   store ptr %59, ptr %42, align 8, !tbaa !38
   %43 = call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1024, ptr noundef nonnull %33)
   %.not3857.i = icmp eq ptr %43, null
-  br i1 %.not3857.i, label %.outer34._crit_edge.thread135.i, label %.lr.ph.lr.ph.i, !llvm.loop !37
+  br i1 %.not3857.i, label %.outer34._crit_edge.thread139.i, label %.lr.ph.lr.ph.i, !llvm.loop !37
 
 .lr.ph.lr.ph.i:                                   ; preds = %.outer.i, %.lr.ph.lr.ph.lr.ph.i
   %indvars.iv111.i = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %indvars.iv.next112.i, %.outer.i ]
@@ -541,7 +541,7 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   %70 = trunc nuw i64 %indvars.iv111.i to i32
   br label %.outer34._crit_edge.i
 
-.outer34._crit_edge.thread135.i:                  ; preds = %.outer.i
+.outer34._crit_edge.thread139.i:                  ; preds = %.outer.i
   %71 = trunc nuw i64 %indvars.iv.next112.i to i32
   %72 = call i32 @fclose(ptr noundef nonnull %33)
   br label %74
@@ -552,22 +552,22 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   %.not32.i = icmp eq i32 %.029.ph.lcssa37.i, 0
   br i1 %.not32.i, label %79, label %74
 
-74:                                               ; preds = %.outer34._crit_edge.i, %.outer34._crit_edge.thread135.i
-  %.029.ph.lcssa37138.i = phi i32 [ %71, %.outer34._crit_edge.thread135.i ], [ %.029.ph.lcssa37.i, %.outer34._crit_edge.i ]
-  %75 = add i32 %.029.ph.lcssa37138.i, -1
+74:                                               ; preds = %.outer34._crit_edge.i, %.outer34._crit_edge.thread139.i
+  %.029.ph.lcssa37142.i = phi i32 [ %71, %.outer34._crit_edge.thread139.i ], [ %.029.ph.lcssa37.i, %.outer34._crit_edge.i ]
+  %75 = add i32 %.029.ph.lcssa37142.i, -1
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %30, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !38
   br label %79
 
 79:                                               ; preds = %74, %.outer34._crit_edge.i, %.outer34._crit_edge.thread.i
-  %.029.ph.lcssa37134.i = phi i32 [ %.029.ph.lcssa37138.i, %74 ], [ 0, %.outer34._crit_edge.i ], [ 0, %.outer34._crit_edge.thread.i ]
+  %.029.ph.lcssa37138.i = phi i32 [ %.029.ph.lcssa37142.i, %74 ], [ 0, %.outer34._crit_edge.i ], [ 0, %.outer34._crit_edge.thread.i ]
   %.027.i = phi ptr [ %78, %74 ], [ @.str.14, %.outer34._crit_edge.i ], [ @.str.14, %.outer34._crit_edge.thread.i ]
-  %80 = icmp ult i32 %.029.ph.lcssa37134.i, %.0.lcssa.i
+  %80 = icmp ult i32 %.029.ph.lcssa37138.i, %.0.lcssa.i
   br i1 %80, label %.lr.ph85.preheader.i, label %read_models.exit.thread
 
 .lr.ph85.preheader.i:                             ; preds = %79
-  %81 = zext i32 %.029.ph.lcssa37134.i to i64
+  %81 = zext i32 %.029.ph.lcssa37138.i to i64
   br label %.lr.ph85.i
 
 .lr.ph85.i:                                       ; preds = %85, %.lr.ph85.preheader.i

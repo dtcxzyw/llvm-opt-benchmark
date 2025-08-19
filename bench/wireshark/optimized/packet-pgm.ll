@@ -1162,7 +1162,7 @@ paritystr.exit.i:                                 ; preds = %421, %420, %389
   br label %.lr.ph.i.outer
 
 .lr.ph.i.outer:                                   ; preds = %.thread.i, %.lr.ph.preheader.i
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next563.i, %.thread.i ], [ 0, %.lr.ph.preheader.i ]
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next589.i, %.thread.i ], [ 0, %.lr.ph.preheader.i ]
   %.0451527.i.ph = phi i1 [ false, %.thread.i ], [ true, %.lr.ph.preheader.i ]
   br label %.lr.ph.i
 
@@ -1223,9 +1223,9 @@ paritystr.exit.i:                                 ; preds = %421, %420, %389
 
 .thread.i:                                        ; preds = %519, %517
   call void @ptvcursor_advance(ptr noundef %26, i32 noundef %516)
-  %indvars.iv.next563.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not564.i = icmp eq i64 %indvars.iv.next563.i, %wide.trip.count.i
-  br i1 %exitcond.not564.i, label %._crit_edge.thread.i, label %.lr.ph.i.outer, !llvm.loop !10
+  %indvars.iv.next589.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not590.i = icmp eq i64 %indvars.iv.next589.i, %wide.trip.count.i
+  br i1 %exitcond.not590.i, label %._crit_edge.thread.i, label %.lr.ph.i.outer, !llvm.loop !10
 
 523:                                              ; preds = %521
   %524 = load i32, ptr @hf_pgm_opt_nak_list, align 4

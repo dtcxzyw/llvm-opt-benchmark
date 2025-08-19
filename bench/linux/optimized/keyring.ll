@@ -1120,7 +1120,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 .loopexit12.split:                                ; preds = %221, %.split43
   %225 = load volatile ptr, ptr %181, align 8
   %226 = icmp eq ptr %225, null
-  br i1 %226, label %.thread9.loopexit126, label %227
+  br i1 %226, label %.thread9.loopexit136, label %227
 
 227:                                              ; preds = %.loopexit12.split
   %228 = getelementptr inbounds nuw i8, ptr %181, i64 8
@@ -1136,7 +1136,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   %236 = inttoptr i64 %235 to ptr
   %237 = load volatile ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, null
-  br i1 %238, label %.thread9.loopexit126, label %..thread10_crit_edge
+  br i1 %238, label %.thread9.loopexit136, label %..thread10_crit_edge
 
 ..thread10_crit_edge:                             ; preds = %234
   %239 = getelementptr inbounds nuw i8, ptr %236, i64 8
@@ -1152,16 +1152,16 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   %244 = load ptr, ptr %243, align 8
   %245 = icmp eq ptr %244, null
   %246 = add i32 %241, 1
-  br i1 %245, label %.thread9.loopexit126, label %.split43
+  br i1 %245, label %.thread9.loopexit136, label %.split43
 
 .thread9.loopexit:                                ; preds = %.loopexit12.split.us.us, %147, %.thread10.us
   br label %.thread9
 
-.thread9.loopexit126:                             ; preds = %234, %.thread10, %.loopexit12.split
+.thread9.loopexit136:                             ; preds = %234, %.thread10, %.loopexit12.split
   br label %.thread9
 
-.thread9:                                         ; preds = %.thread9.loopexit126, %.thread9.loopexit, %.split46.us, %94, %85, %.thread, %59
-  %247 = phi i32 [ %60, %59 ], [ %.fr48, %.split46.us ], [ %60, %94 ], [ %60, %85 ], [ %60, %.thread ], [ %.fr48, %.thread9.loopexit ], [ %.fr48, %.thread9.loopexit126 ]
+.thread9:                                         ; preds = %.thread9.loopexit136, %.thread9.loopexit, %.split46.us, %94, %85, %.thread, %59
+  %247 = phi i32 [ %60, %59 ], [ %.fr48, %.split46.us ], [ %60, %94 ], [ %60, %85 ], [ %60, %.thread ], [ %.fr48, %.thread9.loopexit ], [ %.fr48, %.thread9.loopexit136 ]
   %248 = icmp slt i32 %247, 1
   br i1 %248, label %.loopexit, label %249
 

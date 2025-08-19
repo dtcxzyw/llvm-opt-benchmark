@@ -801,8 +801,8 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.thread: ; preds = %_ZNSt
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %._crit_edge.loopexit, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.thread
-  %.sroa.13.0.lcssa98 = phi ptr [ %.sroa.13.0.lcssa, %._crit_edge.loopexit ], [ %.sroa.13.0.lcssa, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.thread ], [ null, %1 ]
-  %.sroa.024.0.lcssa97 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge.loopexit ], [ %.sroa.024.0.lcssa, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.thread ], [ null, %1 ]
+  %.sroa.13.0.lcssa130 = phi ptr [ %.sroa.13.0.lcssa, %._crit_edge.loopexit ], [ %.sroa.13.0.lcssa, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.thread ], [ null, %1 ]
+  %.sroa.024.0.lcssa129 = phi ptr [ %.sroa.024.0.lcssa, %._crit_edge.loopexit ], [ %.sroa.024.0.lcssa, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.thread ], [ null, %1 ]
   %51 = phi ptr [ %.pre91, %._crit_edge.loopexit ], [ %49, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.thread ], [ %5, %1 ]
   %52 = phi ptr [ %.pre90, %._crit_edge.loopexit ], [ %.pre.i89, %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit.thread ], [ %4, %1 ]
   %53 = icmp eq ptr %52, %51
@@ -1004,7 +1004,7 @@ _ZL2gtPK10ConstraintS1_.exit.us.i:                ; preds = %.thread.i
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %164 = load i64, ptr %163, align 8, !tbaa !45
   %165 = icmp sgt i64 %162, %164
-  br i1 %165, label %.thread19.i, label %166
+  br i1 %165, label %.thread38.i, label %166
 
 166:                                              ; preds = %.lr.ph.i.i.us6.i
   %167 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -1012,7 +1012,7 @@ _ZL2gtPK10ConstraintS1_.exit.us.i:                ; preds = %.thread.i
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %170 = load ptr, ptr %169, align 8, !tbaa !3
   %171 = icmp eq ptr %160, %170
-  br i1 %171, label %.thread19.i, label %172
+  br i1 %171, label %.thread38.i, label %172
 
 172:                                              ; preds = %166
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 24
@@ -1030,23 +1030,23 @@ _ZL2gtPK10ConstraintS1_.exit.us.i:                ; preds = %.thread.i
   %185 = fadd double %182, %184
   %186 = fsub double %180, %185
   %187 = fcmp oeq double %186, 0xFFEFFFFFFFFFFFFF
-  br i1 %187, label %.thread19.i, label %188
+  br i1 %187, label %.thread38.i, label %188
 
 188:                                              ; preds = %172
   %189 = fcmp ogt double %186, 0xFFEFFFFFFFFFFFFF
   br i1 %189, label %200, label %.loopexit
 
-.thread19.i:                                      ; preds = %172, %166, %.lr.ph.i.i.us6.i
+.thread38.i:                                      ; preds = %172, %166, %.lr.ph.i.i.us6.i
   %190 = load i32, ptr %94, align 8, !tbaa !53
   %191 = load i32, ptr %158, align 8, !tbaa !53
   %192 = icmp eq i32 %190, %191
   br i1 %192, label %194, label %_ZL2gtPK10ConstraintS1_.exit.us10.i
 
-_ZL2gtPK10ConstraintS1_.exit.us10.i:              ; preds = %.thread19.i
+_ZL2gtPK10ConstraintS1_.exit.us10.i:              ; preds = %.thread38.i
   %193 = icmp slt i32 %190, %191
   br i1 %193, label %200, label %.loopexit
 
-194:                                              ; preds = %.thread19.i
+194:                                              ; preds = %.thread38.i
   %195 = load i32, ptr %152, align 8, !tbaa !53
   %196 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %197 = load ptr, ptr %196, align 8, !tbaa !48
@@ -1172,14 +1172,14 @@ _ZL2gtPK10ConstraintS1_.exit.i:                   ; preds = %247
 
 265:                                              ; preds = %._crit_edge, %264
   %storemerge = phi ptr [ %.val14.val, %264 ], [ null, %._crit_edge ]
-  %.not.i.i.i18 = icmp eq ptr %.sroa.024.0.lcssa97, null
+  %.not.i.i.i18 = icmp eq ptr %.sroa.024.0.lcssa129, null
   br i1 %.not.i.i.i18, label %_ZNSt6vectorIP10ConstraintSaIS1_EED2Ev.exit, label %266
 
 266:                                              ; preds = %265
-  %267 = ptrtoint ptr %.sroa.13.0.lcssa98 to i64
-  %268 = ptrtoint ptr %.sroa.024.0.lcssa97 to i64
+  %267 = ptrtoint ptr %.sroa.13.0.lcssa130 to i64
+  %268 = ptrtoint ptr %.sroa.024.0.lcssa129 to i64
   %269 = sub i64 %267, %268
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.024.0.lcssa97, i64 noundef %269) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.024.0.lcssa129, i64 noundef %269) #19
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP10ConstraintSaIS1_EED2Ev.exit:      ; preds = %265, %266
@@ -1214,11 +1214,11 @@ define void @_ZN5Block8mergeOutEPS_(ptr noundef nonnull align 8 dereferenceable(
   br i1 %8, label %_ZN5Block20findMinOutConstraintEv.exit, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %2
-  %.0.i17 = load ptr, ptr %5, align 8, !tbaa !43
-  %9 = load ptr, ptr %.0.i17, align 8, !tbaa !47
+  %.0.i29 = load ptr, ptr %5, align 8, !tbaa !43
+  %9 = load ptr, ptr %.0.i29, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -1258,18 +1258,18 @@ _ZN5Block20findMinOutConstraintEv.exit:           ; preds = %.preheader.i, %.pre
   br i1 %34, label %_ZN5Block20findMinOutConstraintEv.exit8, label %.preheader.i4.preheader
 
 .preheader.i4.preheader:                          ; preds = %_ZN5Block20findMinOutConstraintEv.exit
-  %.0.i621 = load ptr, ptr %31, align 8, !tbaa !43
-  %35 = load ptr, ptr %.0.i621, align 8, !tbaa !47
+  %.0.i633 = load ptr, ptr %31, align 8, !tbaa !43
+  %35 = load ptr, ptr %.0.i633, align 8, !tbaa !47
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i621, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i633, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !48
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8, !tbaa !3
   %42 = icmp eq ptr %37, %41
-  br i1 %42, label %.lr.ph22, label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit
+  br i1 %42, label %.lr.ph34, label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit
 
-.preheader.i4:                                    ; preds = %.lr.ph22
+.preheader.i4:                                    ; preds = %.lr.ph34
   %.0.i6 = load ptr, ptr %51, align 8, !tbaa !43
   %43 = load ptr, ptr %.0.i6, align 8, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -1279,16 +1279,16 @@ _ZN5Block20findMinOutConstraintEv.exit:           ; preds = %.preheader.i, %.pre
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !3
   %50 = icmp eq ptr %45, %49
-  br i1 %50, label %.lr.ph22, label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, !llvm.loop !56
+  br i1 %50, label %.lr.ph34, label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, !llvm.loop !56
 
-.lr.ph22:                                         ; preds = %.preheader.i4.preheader, %.preheader.i4
+.lr.ph34:                                         ; preds = %.preheader.i4.preheader, %.preheader.i4
   tail call fastcc void @_ZL9deleteMinRSt6vectorIP10ConstraintSaIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %30)
   %51 = load ptr, ptr %30, align 8, !tbaa !41
   %52 = load ptr, ptr %32, align 8, !tbaa !41
   %53 = icmp eq ptr %51, %52
   br i1 %53, label %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge, label %.preheader.i4, !llvm.loop !56
 
-._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge: ; preds = %.lr.ph22
+._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge: ; preds = %.lr.ph34
   br label %_ZN5Block20findMinOutConstraintEv.exit8.loopexit, !llvm.loop !56
 
 _ZN5Block20findMinOutConstraintEv.exit8.loopexit: ; preds = %.preheader.i4, %._ZN5Block20findMinOutConstraintEv.exit8.loopexit_crit_edge, %.preheader.i4.preheader
@@ -1628,7 +1628,7 @@ _ZL2gtPK10ConstraintS1_.exit.us:                  ; preds = %.thread
   %191 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %192 = load i64, ptr %191, align 8, !tbaa !45
   %193 = icmp sgt i64 %190, %192
-  br i1 %193, label %.thread19, label %194
+  br i1 %193, label %.thread43, label %194
 
 194:                                              ; preds = %.lr.ph.i.i.i.i.us6
   %195 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -1636,7 +1636,7 @@ _ZL2gtPK10ConstraintS1_.exit.us:                  ; preds = %.thread
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8, !tbaa !3
   %199 = icmp eq ptr %188, %198
-  br i1 %199, label %.thread19, label %200
+  br i1 %199, label %.thread43, label %200
 
 200:                                              ; preds = %194
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 24
@@ -1654,23 +1654,23 @@ _ZL2gtPK10ConstraintS1_.exit.us:                  ; preds = %.thread
   %213 = fadd double %210, %212
   %214 = fsub double %208, %213
   %215 = fcmp oeq double %214, 0xFFEFFFFFFFFFFFFF
-  br i1 %215, label %.thread19, label %216
+  br i1 %215, label %.thread43, label %216
 
 216:                                              ; preds = %200
   %217 = fcmp ogt double %214, 0xFFEFFFFFFFFFFFFF
   br i1 %217, label %228, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i
 
-.thread19:                                        ; preds = %.lr.ph.i.i.i.i.us6, %194, %200
+.thread43:                                        ; preds = %.lr.ph.i.i.i.i.us6, %194, %200
   %218 = load i32, ptr %122, align 8, !tbaa !53
   %219 = load i32, ptr %186, align 8, !tbaa !53
   %220 = icmp eq i32 %218, %219
   br i1 %220, label %222, label %_ZL2gtPK10ConstraintS1_.exit.us10
 
-_ZL2gtPK10ConstraintS1_.exit.us10:                ; preds = %.thread19
+_ZL2gtPK10ConstraintS1_.exit.us10:                ; preds = %.thread43
   %221 = icmp slt i32 %218, %219
   br i1 %221, label %228, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i
 
-222:                                              ; preds = %.thread19
+222:                                              ; preds = %.thread43
   %223 = load i32, ptr %180, align 8, !tbaa !53
   %224 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %225 = load ptr, ptr %224, align 8, !tbaa !48
@@ -2652,7 +2652,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP10C
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   br label %.split
 
@@ -2690,21 +2690,21 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP10C
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i.us
   %37 = load ptr, ptr %36, align 8, !tbaa !43
   %38 = tail call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef %37, ptr noundef %21)
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
   %40 = load ptr, ptr %36, align 8, !tbaa !43
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.us
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.019.i.i.us
   store ptr %40, ptr %41, align 8, !tbaa !43
   %42 = icmp sgt i64 %.0920.i.i.us, %.09.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us, !llvm.loop !54
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.09.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.us
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.us
   store ptr %21, ptr %43, align 8, !tbaa !43
   %.not.us = icmp eq i64 %.09.us, 0
   %44 = add nsw i64 %.09.us, -1
@@ -2755,21 +2755,21 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_Sa
   %.019.i.i = phi i64 [ %.0920.i.i, %68 ], [ %.1.i, %63 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %65 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i.i
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i
   %66 = load ptr, ptr %65, align 8, !tbaa !43
   %67 = tail call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef %66, ptr noundef %46)
   br i1 %67, label %68, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit
 
 68:                                               ; preds = %.lr.ph.i.i
   %69 = load ptr, ptr %65, align 8, !tbaa !43
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i
+  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %.019.i.i
   store ptr %69, ptr %70, align 8, !tbaa !43
   %71 = icmp sgt i64 %.0920.i.i, %.09
   br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit, !llvm.loop !54
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP10ConstraintSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %.lr.ph.i.i, %68, %63
   %.0.lcssa.i.i = phi i64 [ %.1.i, %63 ], [ %.0920.i.i, %68 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %72 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i
   store ptr %46, ptr %72, align 8, !tbaa !43
   %.not = icmp eq i64 %.09, 0
   %73 = add nsw i64 %.09, -1

@@ -1084,7 +1084,7 @@ define internal void @"_ZN11http_client10HttpClient3get28_$u7b$$u7b$closure$u7d$
   %5 = alloca [256 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i8, ptr %6, align 8, !range !180, !noundef !30
-  switch i8 %7, label %default.unreachable12 [
+  switch i8 %7, label %default.unreachable15 [
     i8 0, label %8
     i8 1, label %19
     i8 2, label %20
@@ -1098,7 +1098,7 @@ define internal void @"_ZN11http_client10HttpClient3get28_$u7b$$u7b$closure$u7d$
   %.pre11 = load ptr, ptr %.phi.trans.insert10, align 8, !alias.scope !181, !noalias !186
   br label %21
 
-default.unreachable12:                            ; preds = %3
+default.unreachable15:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -1327,7 +1327,7 @@ define hidden { ptr, ptr } @_ZN11http_client10HttpClient9post_json17hfa3f07bcaa2
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !213
   %17 = icmp eq i64 %.sroa.078.0.copyload, 3
-  br i1 %17, label %.thread107, label %18
+  br i1 %17, label %.thread108, label %18
 
 18:                                               ; preds = %16
   %.sroa.69.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 10
@@ -1341,7 +1341,7 @@ define hidden { ptr, ptr } @_ZN11http_client10HttpClient9post_json17hfa3f07bcaa2
   invoke void @"_ZN4http7request7Builder3uri28_$u7b$$u7b$closure$u7d$$u7d$17h58418a8c0978b433E.llvm.7295751119189476722"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %12, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %11)
           to label %19 unwind label %45
 
-.thread107:                                       ; preds = %16
+.thread108:                                       ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !213
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.677)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !219
@@ -1376,9 +1376,9 @@ define hidden { ptr, ptr } @_ZN11http_client10HttpClient9post_json17hfa3f07bcaa2
   invoke void @"_ZN4http7request7Builder6method28_$u7b$$u7b$closure$u7d$$u7d$17hb725f9a213b54f02E.llvm.7295751119189476722"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %8)
           to label %22 unwind label %45
 
-.thread:                                          ; preds = %19, %.thread107
-  %.sroa.4.0.copyload97113 = phi i8 [ %.sroa.479.0.copyload, %.thread107 ], [ %.sroa.471.0.copyload.pre, %19 ]
-  %.sroa.568.0.copyload99112 = phi i8 [ %.sroa.580.0.copyload, %.thread107 ], [ %.sroa.572.0.copyload.pre, %19 ]
+.thread:                                          ; preds = %19, %.thread108
+  %.sroa.4.0.copyload97114 = phi i8 [ %.sroa.479.0.copyload, %.thread108 ], [ %.sroa.471.0.copyload.pre, %19 ]
+  %.sroa.568.0.copyload99113 = phi i8 [ %.sroa.580.0.copyload, %.thread108 ], [ %.sroa.572.0.copyload.pre, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !219
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.673)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !226
@@ -1431,8 +1431,8 @@ define hidden { ptr, ptr } @_ZN11http_client10HttpClient9post_json17hfa3f07bcaa2
   br label %25
 
 25:                                               ; preds = %22, %.thread, %.noexc59
-  %.sroa.665.0.copyload = phi i8 [ %.sroa.665.0.copyload.pre, %.noexc59 ], [ %.sroa.568.0.copyload99112, %.thread ], [ %.sroa.568.0.copyload, %22 ]
-  %.sroa.5.0.copyload = phi i8 [ %.sroa.5.0.copyload.pre, %.noexc59 ], [ %.sroa.4.0.copyload97113, %.thread ], [ %.sroa.4.0.copyload, %22 ]
+  %.sroa.665.0.copyload = phi i8 [ %.sroa.665.0.copyload.pre, %.noexc59 ], [ %.sroa.568.0.copyload99113, %.thread ], [ %.sroa.568.0.copyload, %22 ]
+  %.sroa.5.0.copyload = phi i8 [ %.sroa.5.0.copyload.pre, %.noexc59 ], [ %.sroa.4.0.copyload97114, %.thread ], [ %.sroa.4.0.copyload, %22 ]
   %.sroa.0.0.copyload = phi i64 [ %.sroa.0.0.copyload.pr, %.noexc59 ], [ 3, %.thread ], [ 3, %22 ]
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 10
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
@@ -1545,7 +1545,7 @@ define internal void @"_ZN11http_client10HttpClient9post_json28_$u7b$$u7b$closur
   %5 = alloca [256 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i8, ptr %6, align 8, !range !180, !noundef !30
-  switch i8 %7, label %default.unreachable12 [
+  switch i8 %7, label %default.unreachable15 [
     i8 0, label %8
     i8 1, label %19
     i8 2, label %20
@@ -1559,7 +1559,7 @@ define internal void @"_ZN11http_client10HttpClient9post_json28_$u7b$$u7b$closur
   %.pre11 = load ptr, ptr %.phi.trans.insert10, align 8, !alias.scope !242, !noalias !247
   br label %21
 
-default.unreachable12:                            ; preds = %3
+default.unreachable15:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -5529,8 +5529,8 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !990, !noalias !987
+  %.sroa.0.i.1.i.1.i.1..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx9, align 1, !alias.scope !990, !noalias !987
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 15:                                               ; preds = %6
@@ -5542,13 +5542,13 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !990, !noalias !987
+  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !990, !noalias !987
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !990, !noalias !987
+  %.sroa.0.i.2.i.2.i.2..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx10, align 2, !alias.scope !990, !noalias !987
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 26:                                               ; preds = %6
@@ -8874,10 +8874,10 @@ define hidden { ptr, i64 } @_ZN10supermaven24find_relevant_completion17h3954cc91
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i60": ; preds = %65
   %bcmp.i.i.i61 = call i32 @bcmp(ptr nonnull readonly align 1 %62, ptr nonnull readonly align 1 %.sroa.011.0, i64 %66), !alias.scope !1509
   %bcmp.i.i.fr.i62 = freeze i32 %bcmp.i.i.i61
-  %.not96 = icmp eq i32 %bcmp.i.i.fr.i62, 0
+  %.not101 = icmp eq i32 %bcmp.i.i.fr.i62, 0
   %67 = getelementptr inbounds i8, ptr %.sroa.011.0, i64 %66
   %68 = sub nuw i64 %.pn69, %66
-  br i1 %.not96, label %60, label %.thread
+  br i1 %.not101, label %60, label %.thread
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17hd42ea99e868b573bE.exit.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hac00fc6772469fb2E.exit.i", %36, %"_ZN4core3ptr33drop_in_place$LT$rope..Chunks$GT$17h33a1c0d24eb15bf8E.exit57", %47, %33, %27, %.thread
   %69 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97be9bb2d01b1dc6E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)

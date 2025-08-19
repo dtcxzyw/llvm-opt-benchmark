@@ -117,10 +117,10 @@ define dso_local range(i32 -1, 1) i32 @convert_object_file(ptr noundef %0, ptr n
   unreachable
 
 18:                                               ; preds = %7
-  switch i32 %5, label %convert_tree_object.exit.thread44 [
+  switch i32 %5, label %convert_tree_object.exit.thread43 [
     i32 1, label %19
     i32 2, label %199
-    i32 4, label %279
+    i32 4, label %278
   ]
 
 19:                                               ; preds = %18
@@ -380,8 +380,8 @@ _.exit170.i:                                      ; preds = %116, %repo_oid_to_a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_tag_object.othersig, i64 24, i1 false)
   %127 = ptrtoint ptr %38 to i64
   %128 = ptrtoint ptr %123 to i64
-  %reass.sub65 = sub i64 %127, %128
-  %129 = add i64 %reass.sub65, 1
+  %reass.sub64 = sub i64 %127, %128
+  %129 = add i64 %reass.sub64, 1
   call void @strbuf_add(ptr noundef nonnull %13, ptr noundef nonnull %123, i64 noundef %129) #10
   %.1114197.i = getelementptr inbounds nuw i8, ptr %38, i64 1
   %130 = icmp ult ptr %.1114197.i, %22
@@ -420,8 +420,8 @@ _.exit173.i:                                      ; preds = %139, %137
   %143 = getelementptr inbounds nuw i8, ptr %.1198.i, i64 2
   %144 = ptrtoint ptr %136 to i64
   %145 = ptrtoint ptr %143 to i64
-  %reass.sub66 = sub i64 %144, %145
-  %146 = add i64 %reass.sub66, 1
+  %reass.sub65 = sub i64 %144, %145
+  %146 = add i64 %reass.sub65, 1
   call void @strbuf_add(ptr noundef nonnull %13, ptr noundef nonnull %143, i64 noundef %146) #10
   %.1114.i = getelementptr inbounds nuw i8, ptr %136, i64 1
   %147 = icmp ult ptr %.1114.i, %22
@@ -467,8 +467,8 @@ _.exit173.i:                                      ; preds = %139, %137
 
 158:                                              ; preds = %157
   %159 = ptrtoint ptr %38 to i64
-  %reass.sub64 = sub i64 %159, %35
-  %160 = add i64 %reass.sub64, 1
+  %reass.sub63 = sub i64 %159, %35
+  %160 = add i64 %reass.sub63, 1
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.0113208.i, i64 noundef %160) #10
   br label %181
 
@@ -484,8 +484,8 @@ _.exit173.i:                                      ; preds = %139, %137
 
 165:                                              ; preds = %164
   %166 = ptrtoint ptr %38 to i64
-  %reass.sub63 = sub i64 %166, %35
-  %167 = add i64 %reass.sub63, 1
+  %reass.sub62 = sub i64 %166, %35
+  %167 = add i64 %reass.sub62, 1
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.0113208.i, i64 noundef %167) #10
   br label %181
 
@@ -500,8 +500,8 @@ _.exit173.i:                                      ; preds = %139, %137
 
 171:                                              ; preds = %170
   %172 = ptrtoint ptr %38 to i64
-  %reass.sub62 = sub i64 %172, %35
-  %173 = add i64 %reass.sub62, 1
+  %reass.sub61 = sub i64 %172, %35
+  %173 = add i64 %reass.sub61, 1
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.0113208.i, i64 noundef %173) #10
   br label %181
 
@@ -557,8 +557,8 @@ _.exit176.i:                                      ; preds = %191, %189
 
 194:                                              ; preds = %185
   %195 = ptrtoint ptr %188 to i64
-  %reass.sub67 = sub i64 %195, %186
-  %196 = add i64 %reass.sub67, 1
+  %reass.sub66 = sub i64 %195, %186
+  %196 = add i64 %reass.sub66, 1
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.2115203.i, i64 noundef %196) #10
   %.2115.i = getelementptr inbounds nuw i8, ptr %188, i64 1
   %197 = icmp ult ptr %.2115.i, %22
@@ -594,9 +594,9 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
   %.pre.i = load i64, ptr %202, align 8, !tbaa !44
   br label %206
 
-206:                                              ; preds = %272, %.lr.ph.i32
-  %207 = phi i64 [ %.pre.i, %.lr.ph.i32 ], [ %276, %272 ]
-  %.01943.i = phi ptr [ %3, %.lr.ph.i32 ], [ %277, %272 ]
+206:                                              ; preds = %271, %.lr.ph.i32
+  %207 = phi i64 [ %.pre.i, %.lr.ph.i32 ], [ %275, %271 ]
+  %.01943.i = phi ptr [ %3, %.lr.ph.i32 ], [ %276, %271 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %208 = ptrtoint ptr %.01943.i to i64
@@ -673,7 +673,7 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
 .loopexit.thread.i:                               ; preds = %241
   store i32 0, ptr %203, align 4, !tbaa !4
   %243 = load ptr, ptr @the_repository, align 8, !tbaa !35
-  br label %253
+  br label %252
 
 .loopexit39.i:                                    ; preds = %229, %219, %213, %206, %223
   %244 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
@@ -694,103 +694,101 @@ _.exit.i35:                                       ; preds = %245, %.loopexit39.i
   store i32 %248, ptr %203, align 4, !tbaa !4
   %249 = load ptr, ptr @the_repository, align 8, !tbaa !35
   %.not.i24.i = icmp eq i64 %.0811.i.i.i.i, 0
-  br i1 %.not.i24.i, label %253, label %250
+  br i1 %.not.i24.i, label %252, label %250
 
 250:                                              ; preds = %.loopexit.i
-  %sext.i40 = shl i64 %.0811.i.i.i.i, 32
-  %251 = ashr exact i64 %sext.i40, 32
-  %252 = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %251
-  br label %257
+  %251 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %.0811.i.i.i.i
+  br label %256
 
-253:                                              ; preds = %.loopexit.i, %.loopexit.thread.i
-  %254 = phi ptr [ %243, %.loopexit.thread.i ], [ %249, %.loopexit.i ]
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 400
-  %256 = load ptr, ptr %255, align 8, !tbaa !9
-  br label %257
+252:                                              ; preds = %.loopexit.i, %.loopexit.thread.i
+  %253 = phi ptr [ %243, %.loopexit.thread.i ], [ %249, %.loopexit.i ]
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 400
+  %255 = load ptr, ptr %254, align 8, !tbaa !9
+  br label %256
 
-257:                                              ; preds = %253, %250
-  %258 = phi ptr [ %249, %250 ], [ %254, %253 ]
-  %.2.i.i.i48.i = phi i32 [ %248, %250 ], [ 0, %253 ]
-  %259 = phi ptr [ %252, %250 ], [ %256, %253 ]
-  %260 = icmp eq ptr %259, %2
-  br i1 %260, label %261, label %262
+256:                                              ; preds = %252, %250
+  %257 = phi ptr [ %249, %250 ], [ %253, %252 ]
+  %.2.i.i.i53.i = phi i32 [ %248, %250 ], [ 0, %252 ]
+  %258 = phi ptr [ %251, %250 ], [ %255, %252 ]
+  %259 = icmp eq ptr %258, %2
+  br i1 %259, label %260, label %261
 
-261:                                              ; preds = %257
+260:                                              ; preds = %256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull readonly align 4 dereferenceable(32) %8, i64 32, i1 false)
-  store i32 %.2.i.i.i48.i, ptr %204, align 4, !tbaa !4
-  br label %272
+  store i32 %.2.i.i.i53.i, ptr %204, align 4, !tbaa !4
+  br label %271
 
-262:                                              ; preds = %257
-  %263 = call i32 @repo_loose_object_map_oid(ptr noundef %258, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %9) #10
-  %.not22.i.i37 = icmp eq i32 %263, 0
-  br i1 %.not22.i.i37, label %272, label %264
+261:                                              ; preds = %256
+  %262 = call i32 @repo_loose_object_map_oid(ptr noundef %257, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %9) #10
+  %.not22.i.i37 = icmp eq i32 %262, 0
+  br i1 %.not22.i.i37, label %271, label %263
 
-264:                                              ; preds = %262
-  %265 = call i32 @repo_read_loose_object_map(ptr noundef %258) #10
-  %266 = call i32 @repo_loose_object_map_oid(ptr noundef %258, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %9) #10
-  %.not23.i.i38 = icmp eq i32 %266, 0
-  br i1 %.not23.i.i38, label %272, label %repo_oid_to_algop.exit.i39
+263:                                              ; preds = %261
+  %264 = call i32 @repo_read_loose_object_map(ptr noundef %257) #10
+  %265 = call i32 @repo_loose_object_map_oid(ptr noundef %257, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %9) #10
+  %.not23.i.i38 = icmp eq i32 %265, 0
+  br i1 %.not23.i.i38, label %271, label %repo_oid_to_algop.exit.i39
 
-repo_oid_to_algop.exit.i39:                       ; preds = %264
-  %267 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
-  %.not4.i26.i = icmp eq i32 %267, 0
-  br i1 %.not4.i26.i, label %_.exit28.i, label %268
+repo_oid_to_algop.exit.i39:                       ; preds = %263
+  %266 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !34
+  %.not4.i26.i = icmp eq i32 %266, 0
+  br i1 %.not4.i26.i, label %_.exit28.i, label %267
 
-268:                                              ; preds = %repo_oid_to_algop.exit.i39
-  %269 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #10
+267:                                              ; preds = %repo_oid_to_algop.exit.i39
+  %268 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #10
   br label %_.exit28.i
 
-_.exit28.i:                                       ; preds = %268, %repo_oid_to_algop.exit.i39
-  %.0.i27.i = phi ptr [ %269, %268 ], [ @.str.22, %repo_oid_to_algop.exit.i39 ]
-  %270 = call ptr @oid_to_hex(ptr noundef nonnull %8) #10
-  %271 = call i32 (ptr, ...) @error(ptr noundef %.0.i27.i, ptr noundef %270) #10
+_.exit28.i:                                       ; preds = %267, %repo_oid_to_algop.exit.i39
+  %.0.i27.i = phi ptr [ %268, %267 ], [ @.str.22, %repo_oid_to_algop.exit.i39 ]
+  %269 = call ptr @oid_to_hex(ptr noundef nonnull %8) #10
+  %270 = call i32 (ptr, ...) @error(ptr noundef %.0.i27.i, ptr noundef %269) #10
   br label %.critedge.i36
 
-272:                                              ; preds = %264, %262, %261
-  %273 = ptrtoint ptr %228 to i64
-  %274 = sub i64 %273, %208
-  call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.01943.i, i64 noundef %274) #10
+271:                                              ; preds = %263, %261, %260
+  %272 = ptrtoint ptr %228 to i64
+  %273 = sub i64 %272, %208
+  call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.01943.i, i64 noundef %273) #10
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %228, i64 noundef %233) #10
-  %275 = load i64, ptr %205, align 8, !tbaa !44
-  call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %275) #10
-  %276 = load i64, ptr %202, align 8, !tbaa !44
-  %277 = getelementptr inbounds nuw i8, ptr %234, i64 %276
+  %274 = load i64, ptr %205, align 8, !tbaa !44
+  call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %9, i64 noundef %274) #10
+  %275 = load i64, ptr %202, align 8, !tbaa !44
+  %276 = getelementptr inbounds nuw i8, ptr %234, i64 %275
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %278 = icmp ult ptr %277, %200
-  br i1 %278, label %206, label %convert_tree_object.exit.thread, !llvm.loop !47
+  %277 = icmp ult ptr %276, %200
+  br i1 %277, label %206, label %convert_tree_object.exit.thread, !llvm.loop !47
 
 .critedge.i36:                                    ; preds = %_.exit28.i, %_.exit.i35
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %convert_tree_object.exit.thread44
+  br label %convert_tree_object.exit.thread43
 
-279:                                              ; preds = %18
-  %280 = tail call fastcc i32 @convert_tag_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
+278:                                              ; preds = %18
+  %279 = tail call fastcc i32 @convert_tag_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4)
   br label %convert_tree_object.exit
 
-convert_tree_object.exit:                         ; preds = %279, %convert_commit_object.exit
-  %.0 = phi i32 [ %.1111.i, %convert_commit_object.exit ], [ %280, %279 ]
+convert_tree_object.exit:                         ; preds = %278, %convert_commit_object.exit
+  %.0 = phi i32 [ %.1111.i, %convert_commit_object.exit ], [ %279, %278 ]
   %.not = icmp eq i32 %.0, 0
-  br i1 %.not, label %convert_tree_object.exit.thread, label %convert_tree_object.exit.thread44
+  br i1 %.not, label %convert_tree_object.exit.thread, label %convert_tree_object.exit.thread43
 
-convert_tree_object.exit.thread44:                ; preds = %.critedge.i36, %18, %convert_tree_object.exit
+convert_tree_object.exit.thread43:                ; preds = %.critedge.i36, %18, %convert_tree_object.exit
   %.not30 = icmp eq i32 %6, 0
-  br i1 %.not30, label %282, label %281
+  br i1 %.not30, label %281, label %280
 
-281:                                              ; preds = %convert_tree_object.exit.thread44
+280:                                              ; preds = %convert_tree_object.exit.thread43
   call void @strbuf_release(ptr noundef %0) #10
   br label %convert_tree_object.exit.thread
 
-282:                                              ; preds = %convert_tree_object.exit.thread44
-  %283 = call fastcc ptr @_(ptr noundef nonnull @.str.2)
-  %284 = load ptr, ptr %1, align 8, !tbaa !48
-  %285 = load ptr, ptr %2, align 8, !tbaa !48
-  call void (ptr, ...) @die(ptr noundef %283, ptr noundef %284, ptr noundef %285) #11
+281:                                              ; preds = %convert_tree_object.exit.thread43
+  %282 = call fastcc ptr @_(ptr noundef nonnull @.str.2)
+  %283 = load ptr, ptr %1, align 8, !tbaa !48
+  %284 = load ptr, ptr %2, align 8, !tbaa !48
+  call void (ptr, ...) @die(ptr noundef %282, ptr noundef %283, ptr noundef %284) #11
   unreachable
 
-convert_tree_object.exit.thread:                  ; preds = %272, %199, %convert_tree_object.exit, %281
-  %.026 = phi i32 [ -1, %281 ], [ 0, %convert_tree_object.exit ], [ 0, %199 ], [ 0, %272 ]
+convert_tree_object.exit.thread:                  ; preds = %271, %199, %convert_tree_object.exit, %280
+  %.026 = phi i32 [ -1, %280 ], [ 0, %convert_tree_object.exit ], [ 0, %199 ], [ 0, %271 ]
   ret i32 %.026
 }
 

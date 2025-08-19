@@ -313,11 +313,11 @@ HIDAPI_DriverLuna_HandleUSBStatePacket.exit:      ; preds = %116, %120
   %151 = and i8 %149, 15
   %switch.tableidx = add nsw i8 %151, -1
   %152 = icmp ult i8 %switch.tableidx, 8
-  %switch.cast31 = zext i8 %switch.tableidx to i64
-  %switch.shiftamt32 = shl nuw nsw i64 %switch.cast31, 3
-  %switch.downshift33 = lshr i64 650783357575234305, %switch.shiftamt32
-  %switch.masked34 = trunc i64 %switch.downshift33 to i8
-  %.0.i19 = select i1 %152, i8 %switch.masked34, i8 0
+  %switch.cast52 = zext i8 %switch.tableidx to i64
+  %switch.shiftamt53 = shl nuw nsw i64 %switch.cast52, 3
+  %switch.downshift54 = lshr i64 650783357575234305, %switch.shiftamt53
+  %switch.masked55 = trunc i64 %switch.downshift54 to i8
+  %.0.i19 = select i1 %152, i8 %switch.masked55, i8 0
   call void @SDL_SendJoystickHat(i64 noundef %44, ptr noundef nonnull %12, i8 noundef zeroext 0, i8 noundef zeroext %.0.i19) #9
   br label %153
 

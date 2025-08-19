@@ -430,8 +430,8 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   br i1 %53, label %.sink.split, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader188, %._crit_edge
-  %.2161.lcssa245 = phi i32 [ %44, %._crit_edge ], [ %.0159, %.preheader188 ]
-  store i32 %.2161.lcssa245, ptr %15, align 8, !tbaa !19
+  %.2161.lcssa253 = phi i32 [ %44, %._crit_edge ], [ %.0159, %.preheader188 ]
+  store i32 %.2161.lcssa253, ptr %15, align 8, !tbaa !19
   br label %130
 
 54:                                               ; preds = %29
@@ -441,7 +441,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   br i1 %or.cond, label %.sink.split, label %63
 
 .sink.split:                                      ; preds = %54, %._crit_edge
-  %.lcssa255.sink = phi i32 [ %44, %._crit_edge ], [ %.0159, %54 ]
+  %.lcssa263.sink = phi i32 [ %44, %._crit_edge ], [ %.0159, %54 ]
   %.0139186.ph = phi ptr [ %37, %._crit_edge ], [ %1, %54 ]
   %.0140185.ph = phi ptr [ %43, %._crit_edge ], [ %2, %54 ]
   %.0146184.ph = phi i64 [ %47, %._crit_edge ], [ %3, %54 ]
@@ -450,7 +450,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %62 = zext i32 %.lcssa255.sink to i64
+  %62 = zext i32 %.lcssa263.sink to i64
   tail call void %58(ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61, i64 noundef %62) #6
   br label %63
 
@@ -522,13 +522,13 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
 .lr.ph217:                                        ; preds = %._crit_edge207
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.critedge275
+  br label %.critedge283
 
-.critedge275:                                     ; preds = %.lr.ph217, %.critedge275
-  %.5216 = phi ptr [ %.2.lcssa, %.lr.ph217 ], [ %102, %.critedge275 ]
-  %.5145215 = phi ptr [ %.2142.lcssa, %.lr.ph217 ], [ %101, %.critedge275 ]
-  %.4150214 = phi i64 [ %.2148.lcssa, %.lr.ph217 ], [ %103, %.critedge275 ]
-  %.3158213 = phi i32 [ %.0155.lcssa, %.lr.ph217 ], [ %91, %.critedge275 ]
+.critedge283:                                     ; preds = %.lr.ph217, %.critedge283
+  %.5216 = phi ptr [ %.2.lcssa, %.lr.ph217 ], [ %102, %.critedge283 ]
+  %.5145215 = phi ptr [ %.2142.lcssa, %.lr.ph217 ], [ %101, %.critedge283 ]
+  %.4150214 = phi i64 [ %.2148.lcssa, %.lr.ph217 ], [ %103, %.critedge283 ]
+  %.3158213 = phi i32 [ %.0155.lcssa, %.lr.ph217 ], [ %91, %.critedge283 ]
   tail call void %8(ptr noundef nonnull %0, ptr noundef nonnull %89, ptr noundef %10) #6
   %91 = add i32 %.3158213, 1
   %92 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91) #7, !srcloc !38
@@ -547,9 +547,9 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt(ptr noundef %0, ptr noundef r
   %102 = getelementptr inbounds nuw i8, ptr %.5216, i64 16
   %103 = add nsw i64 %.4150214, -16
   %104 = icmp ugt i64 %103, 15
-  br i1 %104, label %.critedge275, label %._crit_edge218, !llvm.loop !39
+  br i1 %104, label %.critedge283, label %._crit_edge218, !llvm.loop !39
 
-._crit_edge218:                                   ; preds = %.critedge275
+._crit_edge218:                                   ; preds = %.critedge283
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %106 = load ptr, ptr %105, align 8, !tbaa !29
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -700,8 +700,8 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   br i1 %53, label %.sink.split, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.2159.lcssa244 = phi i32 [ %39, %._crit_edge ], [ %.0157, %.preheader ]
-  store i32 %.2159.lcssa244, ptr %15, align 8, !tbaa !19
+  %.2159.lcssa252 = phi i32 [ %39, %._crit_edge ], [ %.0157, %.preheader ]
+  store i32 %.2159.lcssa252, ptr %15, align 8, !tbaa !19
   br label %127
 
 54:                                               ; preds = %29
@@ -711,7 +711,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   br i1 %or.cond, label %.sink.split, label %63
 
 .sink.split:                                      ; preds = %54, %._crit_edge
-  %.lcssa255.sink = phi i32 [ %39, %._crit_edge ], [ %.0157, %54 ]
+  %.lcssa263.sink = phi i32 [ %39, %._crit_edge ], [ %.0157, %54 ]
   %.0137184.ph = phi ptr [ %37, %._crit_edge ], [ %1, %54 ]
   %.0138183.ph = phi ptr [ %46, %._crit_edge ], [ %2, %54 ]
   %.0144182.ph = phi i64 [ %47, %._crit_edge ], [ %3, %54 ]
@@ -720,7 +720,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %62 = zext i32 %.lcssa255.sink to i64
+  %62 = zext i32 %.lcssa263.sink to i64
   tail call void %58(ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61, i64 noundef %62) #6
   br label %63
 
@@ -796,13 +796,13 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   tail call void %90(ptr noundef nonnull %91, ptr noundef nonnull %92, ptr noundef %.2.lcssa, i64 noundef %88) #6
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.critedge274
+  br label %.critedge282
 
-.critedge274:                                     ; preds = %.lr.ph217, %.critedge274
-  %.5215 = phi ptr [ %.2.lcssa, %.lr.ph217 ], [ %106, %.critedge274 ]
-  %.5143214 = phi ptr [ %.2140.lcssa, %.lr.ph217 ], [ %105, %.critedge274 ]
-  %.4148213 = phi i64 [ %.2146.lcssa, %.lr.ph217 ], [ %107, %.critedge274 ]
-  %.3156212 = phi i32 [ %.0153.lcssa, %.lr.ph217 ], [ %95, %.critedge274 ]
+.critedge282:                                     ; preds = %.lr.ph217, %.critedge282
+  %.5215 = phi ptr [ %.2.lcssa, %.lr.ph217 ], [ %106, %.critedge282 ]
+  %.5143214 = phi ptr [ %.2140.lcssa, %.lr.ph217 ], [ %105, %.critedge282 ]
+  %.4148213 = phi i64 [ %.2146.lcssa, %.lr.ph217 ], [ %107, %.critedge282 ]
+  %.3156212 = phi i32 [ %.0153.lcssa, %.lr.ph217 ], [ %95, %.critedge282 ]
   tail call void %8(ptr noundef nonnull %0, ptr noundef nonnull %93, ptr noundef %10) #6
   %95 = add i32 %.3156212, 1
   %96 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %95) #7, !srcloc !47
@@ -821,13 +821,13 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt(ptr noundef %0, ptr noundef %
   %106 = getelementptr inbounds nuw i8, ptr %.5215, i64 16
   %107 = add nsw i64 %.4148213, -16
   %108 = icmp ugt i64 %107, 15
-  br i1 %108, label %.critedge274, label %.loopexit185, !llvm.loop !48
+  br i1 %108, label %.critedge282, label %.loopexit185, !llvm.loop !48
 
-.loopexit185:                                     ; preds = %.critedge274, %._crit_edge206
-  %.2155 = phi i32 [ %.0153.lcssa, %._crit_edge206 ], [ %95, %.critedge274 ]
-  %.3147 = phi i64 [ %.2146.lcssa, %._crit_edge206 ], [ %107, %.critedge274 ]
-  %.4142 = phi ptr [ %.2140.lcssa, %._crit_edge206 ], [ %105, %.critedge274 ]
-  %.4 = phi ptr [ %.2.lcssa, %._crit_edge206 ], [ %106, %.critedge274 ]
+.loopexit185:                                     ; preds = %.critedge282, %._crit_edge206
+  %.2155 = phi i32 [ %.0153.lcssa, %._crit_edge206 ], [ %95, %.critedge282 ]
+  %.3147 = phi i64 [ %.2146.lcssa, %._crit_edge206 ], [ %107, %.critedge282 ]
+  %.4142 = phi ptr [ %.2140.lcssa, %._crit_edge206 ], [ %105, %.critedge282 ]
+  %.4 = phi ptr [ %.2.lcssa, %._crit_edge206 ], [ %106, %.critedge282 ]
   %.not173 = icmp eq i64 %.3147, 0
   br i1 %.not173, label %.loopexit, label %109
 
@@ -962,8 +962,8 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   br i1 %52, label %.sink.split, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.2137.lcssa196 = phi i32 [ %43, %._crit_edge ], [ %.0135, %.preheader ]
-  store i32 %.2137.lcssa196, ptr %14, align 8, !tbaa !19
+  %.2137.lcssa201 = phi i32 [ %43, %._crit_edge ], [ %.0135, %.preheader ]
+  store i32 %.2137.lcssa201, ptr %14, align 8, !tbaa !19
   br label %109
 
 53:                                               ; preds = %28
@@ -973,7 +973,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   br i1 %or.cond, label %.sink.split, label %62
 
 .sink.split:                                      ; preds = %53, %._crit_edge
-  %.lcssa202.sink = phi i32 [ %43, %._crit_edge ], [ %.0135, %53 ]
+  %.lcssa207.sink = phi i32 [ %43, %._crit_edge ], [ %.0135, %53 ]
   %.0121157.ph = phi ptr [ %36, %._crit_edge ], [ %1, %53 ]
   %.0122156.ph = phi ptr [ %42, %._crit_edge ], [ %2, %53 ]
   %.0126155.ph = phi i64 [ %46, %._crit_edge ], [ %3, %53 ]
@@ -982,7 +982,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_encrypt_ctr32(ptr noundef %0, ptr nou
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %61 = zext i32 %.lcssa202.sink to i64
+  %61 = zext i32 %.lcssa207.sink to i64
   tail call void %57(ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, i64 noundef %61) #6
   br label %62
 
@@ -1184,8 +1184,8 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   br i1 %52, label %.sink.split, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.2137.lcssa196 = phi i32 [ %38, %._crit_edge ], [ %.0135, %.preheader ]
-  store i32 %.2137.lcssa196, ptr %14, align 8, !tbaa !19
+  %.2137.lcssa201 = phi i32 [ %38, %._crit_edge ], [ %.0135, %.preheader ]
+  store i32 %.2137.lcssa201, ptr %14, align 8, !tbaa !19
   br label %109
 
 53:                                               ; preds = %28
@@ -1195,7 +1195,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   br i1 %or.cond, label %.sink.split, label %62
 
 .sink.split:                                      ; preds = %53, %._crit_edge
-  %.lcssa203.sink = phi i32 [ %38, %._crit_edge ], [ %.0135, %53 ]
+  %.lcssa208.sink = phi i32 [ %38, %._crit_edge ], [ %.0135, %53 ]
   %.0121157.ph = phi ptr [ %36, %._crit_edge ], [ %1, %53 ]
   %.0122156.ph = phi ptr [ %45, %._crit_edge ], [ %2, %53 ]
   %.0126155.ph = phi i64 [ %46, %._crit_edge ], [ %3, %53 ]
@@ -1204,7 +1204,7 @@ define range(i32 -1, 1) i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef %0, ptr nou
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %61 = zext i32 %.lcssa203.sink to i64
+  %61 = zext i32 %.lcssa208.sink to i64
   tail call void %57(ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60, i64 noundef %61) #6
   br label %62
 

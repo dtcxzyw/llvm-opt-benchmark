@@ -350,7 +350,7 @@ _ZN3url3Url5slice17hc5bd3fa2488dea74E.exit.i:     ; preds = %79, %77, %2
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hf52e66fc1a22c069E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %35) #13
           to label %371 unwind label %243
 
-83:                                               ; preds = %.invoke113, %.invoke, %343, %322, %317, %313, %280, %275, %253, %236, %232, %222, %210, %185, %180, %176, %160, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hce853bad3c405951E.exit", %116, %112, %104, %337, %261, %256, %245, %241, %205, %200, %166, %164, %146, %.critedge, %100, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hf07cc72363c1be82E.exit.thread", %90, %88, %86
+83:                                               ; preds = %.invoke131, %.invoke, %343, %322, %317, %313, %280, %275, %253, %236, %232, %222, %210, %185, %180, %176, %160, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hce853bad3c405951E.exit", %116, %112, %104, %337, %261, %256, %245, %241, %205, %200, %166, %164, %146, %.critedge, %100, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hf07cc72363c1be82E.exit.thread", %90, %88, %86
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -808,7 +808,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17h7b96513731c6b469E.exit66: ; pre
   %258 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %259 = load i32, ptr %258, align 4, !range !120, !noundef !4
   %260 = icmp eq i32 %259, 1114112
-  br i1 %260, label %.invoke113, label %261
+  br i1 %260, label %.invoke131, label %261
 
 261:                                              ; preds = %257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr noundef nonnull align 8 dereferenceable(72) %23, i64 72, i1 false)
@@ -820,7 +820,7 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17h7b96513731c6b469E.exit66: ; pre
   %264 = extractvalue { ptr, i64 } %262, 0
   %265 = extractvalue { ptr, i64 } %262, 1
   %266 = icmp eq ptr %264, null
-  br i1 %266, label %.invoke113, label %267
+  br i1 %266, label %.invoke131, label %267
 
 267:                                              ; preds = %263
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -1011,14 +1011,14 @@ _ZN3std3ffi6os_str5OsStr20eq_ignore_ascii_case17h7b96513731c6b469E.exit66: ; pre
   %339 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %340 = load i32, ptr %339, align 4, !range !120, !noundef !4
   %341 = icmp eq i32 %340, 1114112
-  br i1 %341, label %.invoke113, label %343
+  br i1 %341, label %.invoke131, label %343
 
-.invoke113:                                       ; preds = %338, %263, %257
+.invoke131:                                       ; preds = %338, %263, %257
   %342 = phi ptr [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.40, %257 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.41, %263 ], [ @anon.2356e71436c0a6944a0e3a1d5f3e637d.44, %338 ]
   invoke void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) %342) #12
-          to label %.cont114 unwind label %83
+          to label %.cont132 unwind label %83
 
-.cont114:                                         ; preds = %.invoke113
+.cont132:                                         ; preds = %.invoke131
   unreachable
 
 343:                                              ; preds = %338

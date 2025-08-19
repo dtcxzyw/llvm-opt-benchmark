@@ -1851,9 +1851,9 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %117, %114, 
   br label %173
 
 173:                                              ; preds = %169, %167
-  %.sink169.i = phi i32 [ %172, %169 ], [ %168, %167 ]
+  %.sink178.i = phi i32 [ %172, %169 ], [ %168, %167 ]
   %.0135.i = phi i32 [ %170, %169 ], [ %147, %167 ]
-  %174 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.sink169.i)
+  %174 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.sink178.i)
   br i1 %44, label %175, label %177
 
 175:                                              ; preds = %173
@@ -2484,7 +2484,7 @@ define internal noundef zeroext i1 @dissect_class_svalidator_heur(ptr noundef %0
 
 25:                                               ; preds = %21
   %26 = and i32 %23, 3
-  switch i32 %26, label %default.unreachable39 [
+  switch i32 %26, label %default.unreachable41 [
     i32 0, label %27
     i32 1, label %30
     i32 2, label %33
@@ -2509,7 +2509,7 @@ define internal noundef zeroext i1 @dissect_class_svalidator_heur(ptr noundef %0
   %35 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
   br label %36
 
-default.unreachable39:                            ; preds = %25
+default.unreachable41:                            ; preds = %25
   unreachable
 
 36:                                               ; preds = %34, %30, %27

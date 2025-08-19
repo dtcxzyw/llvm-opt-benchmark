@@ -48,12 +48,12 @@ define internal range(i32 0, 101) i32 @sup_probe(ptr noundef readonly captures(n
   br i1 %or.cond, label %.thread.loopexit, label %.lr.ph, !llvm.loop !13
 
 .thread.loopexit:                                 ; preds = %16
-  %spec.select54 = select i1 %20, i32 100, i32 50
+  %spec.select55 = select i1 %20, i32 100, i32 50
   br label %.thread
 
 .thread:                                          ; preds = %9, %.thread.loopexit
   %.019.lcssa = phi i32 [ %19, %.thread.loopexit ], [ %.01938, %9 ]
-  %.lcssa = phi i32 [ %spec.select54, %.thread.loopexit ], [ 50, %9 ]
+  %.lcssa = phi i32 [ %spec.select55, %.thread.loopexit ], [ 50, %9 ]
   switch i32 %.019.lcssa, label %23 [
     i32 0, label %.thread29
     i32 1, label %22

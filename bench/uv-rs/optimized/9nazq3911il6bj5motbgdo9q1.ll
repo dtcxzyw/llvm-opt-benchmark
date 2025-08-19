@@ -1165,7 +1165,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h460b31dfca81
 .critedge.backedge.us.i.i:                        ; preds = %.lr.ph.split.us.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h06bd593549ca273eE.exit.us.i.i"
   %.pn.i = phi ptr [ %31, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h06bd593549ca273eE.exit.us.i.i" ], [ %2, %.lr.ph.split.us.i.i ]
   %.in.i = phi i64 [ %32, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h06bd593549ca273eE.exit.us.i.i" ], [ %3, %.lr.ph.split.us.i.i ]
-  %32 = add i64 %.in.i, -1
+  %32 = add nsw i64 %.in.i, -1
   %.not25.i.i = icmp ugt i64 %1, %32
   br i1 %.not25.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1680d6da1a77c3e5E.exit", label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h06bd593549ca273eE.exit.us.i.i"
 
@@ -1210,7 +1210,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h460b31dfca81
   %46 = shl nuw nsw i64 %.sroa.023.0123.i, 4
   %47 = getelementptr i8, ptr %43, i64 %46
   %.val3.i.i = load <16 x i8>, ptr %47, align 1, !alias.scope !128, !noalias !147
-  %48 = getelementptr inbounds i8, ptr %47, i64 %21
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %21
   %.val.i.i = load <16 x i8>, ptr %48, align 1, !alias.scope !128, !noalias !147
   %49 = icmp eq <16 x i8> %.val3.i.i, %29
   %50 = icmp eq <16 x i8> %.val.i.i, %33
@@ -1259,7 +1259,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h460b31dfca81
   %70 = add i64 %69, -16
   %71 = getelementptr inbounds i8, ptr %2, i64 %70
   %.val3.i67.i = load <16 x i8>, ptr %71, align 1, !alias.scope !128, !noalias !150
-  %72 = getelementptr inbounds i8, ptr %71, i64 %21
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %21
   %.val.i68.i = load <16 x i8>, ptr %72, align 1, !alias.scope !128, !noalias !150
   %73 = icmp eq <16 x i8> %.val3.i67.i, %29
   %74 = icmp eq <16 x i8> %.val.i68.i, %33
@@ -1272,7 +1272,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h460b31dfca81
   %.sroa.06.1130.i = phi i64 [ %84, %83 ], [ %.sroa.06.0.lcssa.i, %.preheader.i ]
   %77 = getelementptr inbounds i8, ptr %2, i64 %.sroa.06.1130.i
   %.val3.i70.i = load <16 x i8>, ptr %77, align 1, !alias.scope !128, !noalias !153
-  %78 = getelementptr inbounds i8, ptr %77, i64 %21
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %21
   %.val.i71.i = load <16 x i8>, ptr %78, align 1, !alias.scope !128, !noalias !153
   %79 = icmp eq <16 x i8> %.val3.i70.i, %29
   %80 = icmp eq <16 x i8> %.val.i71.i, %33
@@ -1479,7 +1479,7 @@ _ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit: ; preds = %18
   br label %193
 
 193:                                              ; preds = %.sink.split.i, %.lr.ph.i35
-  %194 = phi i64 [ %.promoted.i32, %.lr.ph.i35 ], [ %.ph69.i, %.sink.split.i ]
+  %194 = phi i64 [ %.promoted.i32, %.lr.ph.i35 ], [ %.ph76.i, %.sink.split.i ]
   %195 = phi i64 [ %172, %.lr.ph.i35 ], [ %.sink.i, %.sink.split.i ]
   %196 = phi i64 [ %185, %.lr.ph.i35 ], [ %207, %.sink.split.i ]
   %197 = getelementptr inbounds i8, ptr %175, i64 %196
@@ -1501,8 +1501,8 @@ _ZN4core3str7pattern13simd_contains17h36562cb1b21e7ac6E.exit: ; preds = %18
 
 .sink.split.i:                                    ; preds = %238, %228, %204
   %.sink.i = phi i64 [ %192, %228 ], [ 0, %238 ], [ 0, %204 ]
-  %.ph69.i = phi i64 [ %229, %228 ], [ %240, %238 ], [ %205, %204 ]
-  %207 = add i64 %.ph69.i, %183
+  %.ph76.i = phi i64 [ %229, %228 ], [ %240, %238 ], [ %205, %204 ]
+  %207 = add i64 %.ph76.i, %183
   %208 = icmp ult i64 %207, %177
   br i1 %208, label %193, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hda97537133335f17E.exit"
 
@@ -2212,7 +2212,7 @@ define internal fastcc void @_ZN6uv_git3git14ReferenceOrOid7resolve17ha4af646bfd
   %trunc.i = trunc nuw i64 %62 to i1
   br i1 %trunc.i, label %74, label %63
 
-default.unreachable103:                           ; preds = %63
+default.unreachable111:                           ; preds = %63
   unreachable
 
 63:                                               ; preds = %3
@@ -2229,7 +2229,7 @@ default.unreachable103:                           ; preds = %63
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !nonnull !4, !align !5, !noundef !4
   %73 = load i64, ptr %72, align 8, !range !287, !noundef !4
-  switch i64 %73, label %default.unreachable103 [
+  switch i64 %73, label %default.unreachable111 [
     i64 0, label %81
     i64 1, label %87
     i64 2, label %93
@@ -4662,9 +4662,9 @@ _ZN6uv_git3git13GitRepository4init17ha239f89c6fa5d3f3E.exit: ; preds = %.noexc12
   br i1 %60, label %261, label %256
 
 254:                                              ; preds = %265, %252
-  %.sink166 = phi ptr [ %250, %252 ], [ %264, %265 ]
+  %.sink180 = phi ptr [ %250, %252 ], [ %264, %265 ]
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink166, ptr %255, align 8
+  store ptr %.sink180, ptr %255, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %269
@@ -7521,7 +7521,7 @@ define internal fastcc noundef ptr @_ZN6uv_git3git5fetch17h9443e1208591f18dE(ptr
   %92 = icmp eq ptr %91, null
   br i1 %92, label %_ZN6uv_git3git16github_fast_path17hf172d4c34366cde4E.exit.thread, label %93
 
-default.unreachable429:                           ; preds = %241, %106
+default.unreachable438:                           ; preds = %241, %106
   unreachable
 
 93:                                               ; preds = %6
@@ -7573,7 +7573,7 @@ _ZN6uv_git3git16github_fast_path17hf172d4c34366cde4E.exit.thread: ; preds = %6
   %107 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %108 = load ptr, ptr %107, align 8, !alias.scope !1457, !noalias !1465, !nonnull !4, !align !5, !noundef !4
   %109 = load i64, ptr %108, align 8, !range !287, !noalias !1466, !noundef !4
-  switch i64 %109, label %default.unreachable429 [
+  switch i64 %109, label %default.unreachable438 [
     i64 0, label %.sink.split.i
     i64 1, label %.sink.split.i
     i64 2, label %.sink.split.i
@@ -7602,9 +7602,9 @@ _ZN6uv_git3git16github_fast_path17hf172d4c34366cde4E.exit.thread: ; preds = %6
   br label %119
 
 119:                                              ; preds = %.sink.split.i, %106
-  %.sink111.i = phi ptr [ @anon.42d4d8525dd0aadbfcd3b2bbb699fb0f.96, %106 ], [ %116, %.sink.split.i ]
+  %.sink115.i = phi ptr [ @anon.42d4d8525dd0aadbfcd3b2bbb699fb0f.96, %106 ], [ %116, %.sink.split.i ]
   %.sink.i = phi i64 [ 4, %106 ], [ %118, %.sink.split.i ]
-  store ptr %.sink111.i, ptr %34, align 8, !noalias !1459
+  store ptr %.sink115.i, ptr %34, align 8, !noalias !1459
   %120 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %.sink.i, ptr %120, align 8, !noalias !1459
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !1459
@@ -8064,7 +8064,7 @@ default.unreachable:                              ; preds = %_ZN6uv_git3git16git
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %243 = load ptr, ptr %242, align 8, !nonnull !4, !align !5, !noundef !4
   %244 = load i64, ptr %243, align 8, !range !287, !noundef !4
-  switch i64 %244, label %default.unreachable429 [
+  switch i64 %244, label %default.unreachable438 [
     i64 0, label %248
     i64 1, label %251
     i64 2, label %254

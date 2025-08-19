@@ -1018,7 +1018,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !48
 
 .critedge.thread:                                 ; preds = %.preheader, %.critedge
-  %.088.lcssa149 = phi i32 [ %59, %.critedge ], [ 1, %.preheader ]
+  %.088.lcssa162 = phi i32 [ %59, %.critedge ], [ 1, %.preheader ]
   %76 = load i32, ptr %35, align 8, !tbaa !45
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %_ZNK6icu_779UVector3212lastElementiEv.exit
@@ -1050,11 +1050,11 @@ _ZNK6icu_779UVector3212lastElementiEv.exit:       ; preds = %78, %.critedge.thre
           to label %91 unwind label %53
 
 91:                                               ; preds = %90
-  %92 = add nsw i32 %.088.lcssa149, 1
+  %92 = add nsw i32 %.088.lcssa162, 1
   br label %93
 
 93:                                               ; preds = %91, %87
-  %.189 = phi i32 [ %92, %91 ], [ %.088.lcssa149, %87 ]
+  %.189 = phi i32 [ %92, %91 ], [ %.088.lcssa162, %87 ]
   %94 = icmp sgt i32 %.189, 0
   br i1 %94, label %.lr.ph138, label %._crit_edge
 
@@ -1404,7 +1404,7 @@ define noundef i32 @_ZNK6icu_7713MlBreakEngine18evaluateBreakpointERKNS_13Unicod
   br label %19
 
 .preheader98:                                     ; preds = %31
-  %invariant.gep117 = getelementptr i32, ptr %2, i64 %18
+  %invariant.gep120 = getelementptr i32, ptr %2, i64 %18
   br label %32
 
 19:                                               ; preds = %14, %31
@@ -1448,26 +1448,26 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit: ; preds = %21
   br i1 %exitcond.not, label %.preheader98, label %19, !llvm.loop !54
 
 .preheader:                                       ; preds = %49
-  %invariant.gep119 = getelementptr i32, ptr %2, i64 %18
+  %invariant.gep122 = getelementptr i32, ptr %2, i64 %18
   br label %52
 
 32:                                               ; preds = %.preheader98, %49
   %indvars.iv109 = phi i64 [ 0, %.preheader98 ], [ %indvars.iv.next110, %49 ]
   %.2104 = phi i32 [ %.1, %.preheader98 ], [ %.3, %49 ]
-  %gep118 = getelementptr i32, ptr %invariant.gep117, i64 %indvars.iv109
-  %33 = getelementptr i8, ptr %gep118, i64 4
+  %gep121 = getelementptr i32, ptr %invariant.gep120, i64 %indvars.iv109
+  %33 = getelementptr i8, ptr %gep121, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %.not88 = icmp eq i32 %34, -1
   br i1 %.not88, label %49, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr i8, ptr %gep118, i64 8
+  %36 = getelementptr i8, ptr %gep121, i64 8
   %37 = load i32, ptr %36, align 4, !tbaa !12
   %.not89 = icmp eq i32 %37, -1
   br i1 %.not89, label %49, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr i8, ptr %gep118, i64 12
+  %39 = getelementptr i8, ptr %gep121, i64 12
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %.not90 = icmp eq i32 %40, -1
   %.94 = select i1 %.not90, i32 %4, i32 %40
@@ -1506,25 +1506,25 @@ _ZNK6icu_779Hashtable4getiERKNS_13UnicodeStringE.exit96: ; preds = %38
 52:                                               ; preds = %.preheader, %71
   %indvars.iv113 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next114, %71 ]
   %.4106 = phi i32 [ %.3, %.preheader ], [ %.5, %71 ]
-  %gep120 = getelementptr i32, ptr %invariant.gep119, i64 %indvars.iv113
-  %53 = load i32, ptr %gep120, align 4, !tbaa !12
+  %gep123 = getelementptr i32, ptr %invariant.gep122, i64 %indvars.iv113
+  %53 = load i32, ptr %gep123, align 4, !tbaa !12
   %.not84 = icmp eq i32 %53, -1
   br i1 %.not84, label %71, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr i8, ptr %gep120, i64 4
+  %55 = getelementptr i8, ptr %gep123, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !12
   %.not85 = icmp eq i32 %56, -1
   br i1 %.not85, label %71, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr i8, ptr %gep120, i64 8
+  %58 = getelementptr i8, ptr %gep123, i64 8
   %59 = load i32, ptr %58, align 4, !tbaa !12
   %.not86 = icmp eq i32 %59, -1
   br i1 %.not86, label %71, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr i8, ptr %gep120, i64 12
+  %61 = getelementptr i8, ptr %gep123, i64 12
   %62 = load i32, ptr %61, align 4, !tbaa !12
   %.not87 = icmp eq i32 %62, -1
   %.95 = select i1 %.not87, i32 %4, i32 %62

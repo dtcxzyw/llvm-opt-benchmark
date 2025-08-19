@@ -456,7 +456,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   %.pre-phi = phi i64 [ %.pre38, %259 ], [ %205, %.thread ]
   %264 = phi i64 [ %.pre35, %259 ], [ %204, %.thread ]
   %265 = icmp ugt i64 %.pre-phi, 20
-  br i1 %265, label %266, label %.thread41
+  br i1 %265, label %266, label %.thread58
 
 266:                                              ; preds = %263
   %267 = load ptr, ptr %1, align 8
@@ -502,14 +502,14 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   %.pre36 = load i64, ptr %10, align 8
   %.pre39 = sub i64 %.pre36, %282
   %291 = icmp ult i64 %.pre39, 21
-  br i1 %291, label %.thread41, label %301
+  br i1 %291, label %.thread58, label %301
 
-.thread41:                                        ; preds = %263, %288
+.thread58:                                        ; preds = %263, %288
   %292 = phi i64 [ %282, %288 ], [ %264, %263 ]
-  %.pre-phi4043 = phi i64 [ %.pre39, %288 ], [ %.pre-phi, %263 ]
+  %.pre-phi4060 = phi i64 [ %.pre39, %288 ], [ %.pre-phi, %263 ]
   %293 = load i32, ptr %4, align 4
   %294 = zext i32 %293 to i64
-  %295 = tail call i64 @llvm.umin.i64(i64 %.pre-phi4043, i64 %294)
+  %295 = tail call i64 @llvm.umin.i64(i64 %.pre-phi4060, i64 %294)
   %296 = load ptr, ptr %1, align 8
   %297 = getelementptr i8, ptr %296, i64 %292
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr align 1 %297, i64 %295, i1 false)
@@ -520,7 +520,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
   store i64 %300, ptr %9, align 8
   br label %301
 
-301:                                              ; preds = %.thread41, %288, %255, %234
+301:                                              ; preds = %.thread58, %288, %255, %234
   %302 = load i64, ptr %15, align 8
   %303 = load i64, ptr %19, align 8
   %304 = sub i64 %302, %303
@@ -1126,26 +1126,26 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 
 210:                                              ; preds = %207, %201
   %211 = phi i64 [ %209, %207 ], [ %205, %201 ]
-  br i1 %138, label %.preheader129, label %212
+  br i1 %138, label %.preheader208, label %212
 
 212:                                              ; preds = %210
   %213 = load ptr, ptr %2, align 8
   %214 = getelementptr i8, ptr %213, i64 %211
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
-  br label %.preheader129
+  br label %.preheader208
 
-.preheader129:                                    ; preds = %212, %210
+.preheader208:                                    ; preds = %212, %210
   %.ph = phi i32 [ 0, %210 ], [ %216, %212 ]
   br label %217
 
-217:                                              ; preds = %.preheader129, %259
-  %218 = phi i64 [ %241, %259 ], [ %117, %.preheader129 ]
-  %219 = phi i32 [ %260, %259 ], [ %118, %.preheader129 ]
-  %220 = phi i32 [ %.sink102, %259 ], [ %123, %.preheader129 ]
-  %221 = phi i32 [ %265, %259 ], [ 1, %.preheader129 ]
-  %222 = phi i32 [ %224, %259 ], [ %.ph, %.preheader129 ]
-  %223 = phi i32 [ %266, %259 ], [ 256, %.preheader129 ]
+217:                                              ; preds = %.preheader208, %259
+  %218 = phi i64 [ %241, %259 ], [ %117, %.preheader208 ]
+  %219 = phi i32 [ %260, %259 ], [ %118, %.preheader208 ]
+  %220 = phi i32 [ %.sink102, %259 ], [ %123, %.preheader208 ]
+  %221 = phi i32 [ %265, %259 ], [ 1, %.preheader208 ]
+  %222 = phi i32 [ %224, %259 ], [ %.ph, %.preheader208 ]
+  %223 = phi i32 [ %266, %259 ], [ 256, %.preheader208 ]
   %224 = shl i32 %222, 1
   %225 = and i32 %224, %223
   %226 = add i32 %223, %221
@@ -1833,20 +1833,20 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %670 = xor i64 %655, -1
   %671 = add i64 %663, %670
   %672 = icmp ugt i64 %663, %655
-  br i1 %672, label %.preheader131, label %673
+  br i1 %672, label %.preheader210, label %673
 
 673:                                              ; preds = %661
   %674 = load i64, ptr %88, align 8
   %675 = add i64 %674, %671
-  br label %.preheader131
+  br label %.preheader210
 
-.preheader131:                                    ; preds = %673, %661
-  %.ph132 = phi i64 [ %671, %661 ], [ %675, %673 ]
+.preheader210:                                    ; preds = %673, %661
+  %.ph211 = phi i64 [ %671, %661 ], [ %675, %673 ]
   br label %676
 
-676:                                              ; preds = %.preheader131, %676
-  %677 = phi i32 [ %689, %676 ], [ %668, %.preheader131 ]
-  %678 = phi i64 [ %688, %676 ], [ %.ph132, %.preheader131 ]
+676:                                              ; preds = %.preheader210, %676
+  %677 = phi i32 [ %689, %676 ], [ %668, %.preheader210 ]
+  %678 = phi i64 [ %688, %676 ], [ %.ph211, %.preheader210 ]
   %679 = load ptr, ptr %2, align 8
   %680 = add i64 %678, 1
   %681 = getelementptr i8, ptr %679, i64 %678

@@ -2281,8 +2281,8 @@ define internal fastcc range(i32 -1, 1) i32 @_keyvalue_regex(ptr noundef %0, ptr
   %28 = icmp ult i8 %switch.tableidx, 6
   %switch.shifted = lshr i8 43, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond43 = select i1 %28, i1 %switch.lobit, i1 false
-  br i1 %or.cond43, label %switch.lookup, label %30
+  %or.cond46 = select i1 %28, i1 %switch.lobit, i1 false
+  br i1 %or.cond46, label %switch.lookup, label %30
 
 switch.lookup:                                    ; preds = %24
   %29 = zext nneg i8 %switch.tableidx to i64
@@ -2328,8 +2328,8 @@ switch.lookup:                                    ; preds = %24
   br label %54
 
 54:                                               ; preds = %44, %52, %33
-  %.sink42 = phi ptr [ %51, %44 ], [ %53, %52 ], [ %40, %33 ]
-  store ptr %.sink42, ptr %3, align 8
+  %.sink45 = phi ptr [ %51, %44 ], [ %53, %52 ], [ %40, %33 ]
+  store ptr %.sink45, ptr %3, align 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64

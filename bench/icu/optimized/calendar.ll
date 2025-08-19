@@ -1642,10 +1642,10 @@ define void @_ZN6icu_778Calendar11setWeekDataERKNS_6LocaleEPKcR10UErrorCode(ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %183, %186, %188, %190, %191, %189, %187
-  %.sink149 = phi i16 [ 24, %187 ], [ 40, %189 ], [ 56, %191 ], [ 48, %190 ], [ 32, %188 ], [ 16, %186 ], [ 8, %183 ]
+  %.sink154 = phi i16 [ 24, %187 ], [ 40, %189 ], [ 56, %191 ], [ 48, %190 ], [ 32, %188 ], [ 16, %186 ], [ 8, %183 ]
   %192 = load i16, ptr %20, align 1
   %193 = and i16 %192, -121
-  %194 = or disjoint i16 %193, %.sink149
+  %194 = or disjoint i16 %193, %.sink154
   store i16 %194, ptr %20, align 1
   br label %195
 
@@ -3365,7 +3365,7 @@ _ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit9.thread: ; preds = %12,
 define noundef double @_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !13
   %4 = icmp slt i32 %3, 1
-  br i1 %4, label %5, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread6
+  br i1 %4, label %5, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -3380,7 +3380,7 @@ define noundef double @_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode(ptr n
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %13 = load i32, ptr %1, align 4, !tbaa !13
   %14 = icmp slt i32 %13, 1
-  br i1 %14, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread6
+  br i1 %14, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread8
 
 _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit: ; preds = %9
   %15 = load i8, ptr %6, align 8
@@ -3392,14 +3392,14 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit: ; preds = %9
   store i8 %18, ptr %6, align 8
   %.pre = load i32, ptr %1, align 4, !tbaa !13
   %19 = icmp slt i32 %.pre, 1
-  br i1 %19, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread6
+  br i1 %19, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread8
 
 _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread: ; preds = %5, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %21 = load double, ptr %20, align 8, !tbaa !53
-  br label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread6
+  br label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread8
 
-_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread6: ; preds = %9, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit, %2, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread
+_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread8: ; preds = %9, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit, %2, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread
   %.0 = phi double [ %21, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.thread ], [ 0.000000e+00, %2 ], [ 0.000000e+00, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit ], [ 0.000000e+00, %9 ]
   ret double %.0
 }
@@ -3882,7 +3882,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i: ; preds = %_ZN6
   %23 = phi i8 [ %10, %8 ], [ %21, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ]
   %24 = and i8 %23, 2
   %.not7.i = icmp eq i8 %24, 0
-  br i1 %.not7.i, label %25, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14
+  br i1 %.not7.i, label %25, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18
 
 25:                                               ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i
   %26 = load ptr, ptr %0, align 8, !tbaa !15
@@ -3899,17 +3899,17 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit:  ; preds = %25
   store i8 %32, ptr %9, align 8
   %.pre = load i32, ptr %2, align 4, !tbaa !13
   %33 = icmp sgt i32 %.pre, 0
-  br i1 %33, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14
+  br i1 %33, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = zext nneg i32 %1 to i64
   %36 = getelementptr inbounds nuw [24 x i32], ptr %34, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !12
   br label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread: ; preds = %12, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %25, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14, %_ZN6icu_778Calendar8completeER10UErrorCode.exit, %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ %37, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14 ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit ], [ 0, %25 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ], [ 0, %12 ]
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread: ; preds = %12, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %25, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18, %_ZN6icu_778Calendar8completeER10UErrorCode.exit, %3, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ %37, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18 ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit ], [ 0, %25 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ], [ 0, %12 ]
   ret i32 %.0
 }
 
@@ -5128,7 +5128,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i: ; preds = %_Z
   %20 = phi i8 [ %7, %5 ], [ %18, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ]
   %21 = and i8 %20, 2
   %.not7.i.i = icmp eq i8 %21, 0
-  br i1 %.not7.i.i, label %22, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
+  br i1 %.not7.i.i, label %22, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
 
 22:                                               ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %23 = load ptr, ptr %0, align 8, !tbaa !15
@@ -5145,15 +5145,15 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.i: ; preds = %22
   store i8 %29, ptr %6, align 8
   %.pre.i = load i32, ptr %1, align 4, !tbaa !13
   %30 = icmp sgt i32 %.pre.i, 0
-  br i1 %30, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
+  br i1 %30, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %32 = load i32, ptr %31, align 4, !tbaa !12
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
-_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %2, %9, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i, %22, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
-  %.0.i = phi i32 [ 0, %2 ], [ %32, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ 0, %22 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ 0, %9 ]
+_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %2, %9, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i, %22, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
+  %.0.i = phi i32 [ 0, %2 ], [ %32, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ 0, %22 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ 0, %9 ]
   ret i32 %.0.i
 }
 
@@ -6062,8 +6062,8 @@ define void @_ZN6icu_778Calendar4rollE19UCalendarDateFieldsiR10UErrorCode(ptr no
   %7 = icmp ne i32 %2, 0
   %8 = load i32, ptr %3, align 4
   %9 = icmp slt i32 %8, 1
-  %or.cond248 = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond248, label %10, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread
+  %or.cond263 = select i1 %7, i1 %9, i1 false
+  br i1 %or.cond263, label %10, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -6096,7 +6096,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i: ; preds = %_ZN6
   %25 = phi i8 [ %12, %10 ], [ %23, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ]
   %26 = and i8 %25, 2
   %.not7.i = icmp eq i8 %26, 0
-  br i1 %.not7.i, label %27, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread246
+  br i1 %.not7.i, label %27, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261
 
 27:                                               ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i
   %28 = load ptr, ptr %0, align 8, !tbaa !15
@@ -6113,17 +6113,17 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit:  ; preds = %27
   store i8 %34, ptr %11, align 8
   %.pre = load i32, ptr %3, align 4, !tbaa !13
   %35 = icmp slt i32 %.pre, 1
-  br i1 %35, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread246, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread
+  br i1 %35, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread246: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit
   %or.cond = icmp ugt i32 %1, 23
   br i1 %or.cond, label %36, label %37
 
-36:                                               ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread246
+36:                                               ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261
   store i32 1, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread
 
-37:                                               ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread246
+37:                                               ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread261
   switch i32 %1, label %363 [
     i32 5, label %38
     i32 9, label %38
@@ -6963,339 +6963,339 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.i113: ; preds = %143
 
 _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit115.thread189: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i110, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i113
   %152 = phi i8 [ %150, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i113 ], [ %141, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i110 ]
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %154 = load i32, ptr %153, align 4, !tbaa !12
-  %155 = add nsw i32 %154, %128
-  %156 = trunc i8 %152 to i1
-  br i1 %156, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121, label %157
+  %.pn.in = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %.pn = load i32, ptr %.pn.in, align 4, !tbaa !12
+  %153 = add nsw i32 %.pn, %128
+  %154 = trunc i8 %152 to i1
+  br i1 %154, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121, label %155
 
-157:                                              ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit115.thread189
-  %158 = load ptr, ptr %0, align 8, !tbaa !15
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 248
-  %160 = load ptr, ptr %159, align 8
-  tail call void %160(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %161 = load i32, ptr %3, align 4, !tbaa !13
-  %162 = icmp slt i32 %161, 1
-  br i1 %162, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
+155:                                              ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit115.thread189
+  %156 = load ptr, ptr %0, align 8, !tbaa !15
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 248
+  %158 = load ptr, ptr %157, align 8
+  tail call void %158(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %159 = load i32, ptr %3, align 4, !tbaa !13
+  %160 = icmp slt i32 %159, 1
+  br i1 %160, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
-_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117: ; preds = %157
-  %163 = load i8, ptr %100, align 8
-  %164 = and i8 %163, 20
-  %or.cond.not.i.i.i118 = icmp eq i8 %164, 4
+_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117: ; preds = %155
+  %161 = load i8, ptr %100, align 8
+  %162 = and i8 %161, 20
+  %or.cond.not.i.i.i118 = icmp eq i8 %162, 4
   %.v.i.i.i119 = select i1 %or.cond.not.i.i.i118, i8 -10, i8 -12
-  %165 = and i8 %.v.i.i.i119, %163
-  %166 = or disjoint i8 %165, 1
-  store i8 %166, ptr %100, align 8
+  %163 = and i8 %.v.i.i.i119, %161
+  %164 = or disjoint i8 %163, 1
+  store i8 %164, ptr %100, align 8
   %.pre.i.i120 = load i32, ptr %3, align 4, !tbaa !13
-  %167 = icmp slt i32 %.pre.i.i120, 1
-  br i1 %167, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
+  %165 = icmp slt i32 %.pre.i.i120, 1
+  br i1 %165, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
 _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit115.thread189
-  %168 = phi i8 [ %152, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit115.thread189 ], [ %166, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117 ]
-  %169 = and i8 %168, 2
-  %.not7.i.i122 = icmp eq i8 %169, 0
-  br i1 %.not7.i.i122, label %170, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199
+  %166 = phi i8 [ %152, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit115.thread189 ], [ %164, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117 ]
+  %167 = and i8 %166, 2
+  %.not7.i.i122 = icmp eq i8 %167, 0
+  br i1 %.not7.i.i122, label %168, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199
 
-170:                                              ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121
-  %171 = load ptr, ptr %0, align 8, !tbaa !15
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 256
-  %173 = load ptr, ptr %172, align 8
-  tail call void %173(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %174 = load i32, ptr %3, align 4, !tbaa !13
-  %175 = icmp slt i32 %174, 1
-  br i1 %175, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
+168:                                              ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121
+  %169 = load ptr, ptr %0, align 8, !tbaa !15
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 256
+  %171 = load ptr, ptr %170, align 8
+  tail call void %171(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %172 = load i32, ptr %3, align 4, !tbaa !13
+  %173 = icmp slt i32 %172, 1
+  br i1 %173, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124: ; preds = %170
-  %176 = load i8, ptr %100, align 8
-  %177 = or i8 %176, 6
-  store i8 %177, ptr %100, align 8
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124: ; preds = %168
+  %174 = load i8, ptr %100, align 8
+  %175 = or i8 %174, 6
+  store i8 %175, ptr %100, align 8
   %.pre.i125 = load i32, ptr %3, align 4, !tbaa !13
-  %178 = icmp sgt i32 %.pre.i125, 0
-  br i1 %178, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199
+  %176 = icmp sgt i32 %.pre.i125, 0
+  br i1 %176, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199
 
 _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124
-  %179 = phi i8 [ %177, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124 ], [ %168, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121 ]
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %181 = load i32, ptr %180, align 4, !tbaa !12
-  %182 = trunc i8 %179 to i1
-  br i1 %182, label %194, label %183
+  %177 = phi i8 [ %175, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124 ], [ %166, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i121 ]
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %178 = load i32, ptr %.in, align 4, !tbaa !12
+  %179 = trunc i8 %177 to i1
+  br i1 %179, label %191, label %180
 
-183:                                              ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199
-  %184 = load ptr, ptr %0, align 8, !tbaa !15
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 248
-  %186 = load ptr, ptr %185, align 8
-  tail call void %186(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %187 = load i32, ptr %3, align 4, !tbaa !13
-  %188 = icmp slt i32 %187, 1
-  br i1 %188, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
+180:                                              ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199
+  %181 = load ptr, ptr %0, align 8, !tbaa !15
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 248
+  %183 = load ptr, ptr %182, align 8
+  tail call void %183(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %184 = load i32, ptr %3, align 4, !tbaa !13
+  %185 = icmp slt i32 %184, 1
+  br i1 %185, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
 
-_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i: ; preds = %183
-  %189 = load i8, ptr %100, align 8
-  %190 = and i8 %189, 20
-  %or.cond.not.i.i = icmp eq i8 %190, 4
+_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i: ; preds = %180
+  %186 = load i8, ptr %100, align 8
+  %187 = and i8 %186, 20
+  %or.cond.not.i.i = icmp eq i8 %187, 4
   %.v.i.i = select i1 %or.cond.not.i.i, i8 -10, i8 -12
-  %191 = and i8 %.v.i.i, %189
-  %192 = or disjoint i8 %191, 1
-  store i8 %192, ptr %100, align 8
+  %188 = and i8 %.v.i.i, %186
+  %189 = or disjoint i8 %188, 1
+  store i8 %189, ptr %100, align 8
   %.pre.i128 = load i32, ptr %3, align 4, !tbaa !13
-  %193 = icmp slt i32 %.pre.i128, 1
-  br i1 %193, label %194, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
+  %190 = icmp slt i32 %.pre.i128, 1
+  br i1 %190, label %191, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
 
-194:                                              ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199
-  %195 = phi i8 [ %192, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ], [ %179, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199 ]
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %197 = load double, ptr %196, align 8, !tbaa !53
-  %198 = fadd double %99, %197
-  %199 = fcmp ogt double %198, 0x43846A3EDDF8CD80
-  br i1 %199, label %200, label %203
+191:                                              ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199
+  %192 = phi i8 [ %189, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ], [ %177, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit126.thread199 ]
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %194 = load double, ptr %193, align 8, !tbaa !53
+  %195 = fadd double %99, %194
+  %196 = fcmp ogt double %195, 0x43846A3EDDF8CD80
+  br i1 %196, label %197, label %200
 
-200:                                              ; preds = %194
-  %201 = and i8 %195, 16
-  %.not12.i = icmp eq i8 %201, 0
-  br i1 %.not12.i, label %202, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit
+197:                                              ; preds = %191
+  %198 = and i8 %192, 16
+  %.not12.i = icmp eq i8 %198, 0
+  br i1 %.not12.i, label %199, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit
 
-202:                                              ; preds = %200
+199:                                              ; preds = %197
   store i32 1, ptr %3, align 4, !tbaa !13
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
 
-203:                                              ; preds = %194
-  %204 = fcmp olt double %198, 0xC384763B62073280
-  br i1 %204, label %205, label %208
+200:                                              ; preds = %191
+  %201 = fcmp olt double %195, 0xC384763B62073280
+  br i1 %201, label %202, label %205
 
-205:                                              ; preds = %203
-  %206 = and i8 %195, 16
-  %.not11.i = icmp eq i8 %206, 0
-  br i1 %.not11.i, label %207, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit
+202:                                              ; preds = %200
+  %203 = and i8 %192, 16
+  %.not11.i = icmp eq i8 %203, 0
+  br i1 %.not11.i, label %204, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit
+
+204:                                              ; preds = %202
+  store i32 1, ptr %3, align 4, !tbaa !13
+  br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
+
+205:                                              ; preds = %200
+  %206 = tail call signext i8 @uprv_isNaN_77(double noundef %195)
+  %.not10.i = icmp eq i8 %206, 0
+  br i1 %.not10.i, label %._crit_edge.i, label %207
+
+._crit_edge.i:                                    ; preds = %205
+  %.pre.i129 = load i8, ptr %100, align 8
+  br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit
 
 207:                                              ; preds = %205
   store i32 1, ptr %3, align 4, !tbaa !13
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
 
-208:                                              ; preds = %203
-  %209 = tail call signext i8 @uprv_isNaN_77(double noundef %198)
-  %.not10.i = icmp eq i8 %209, 0
-  br i1 %.not10.i, label %._crit_edge.i, label %210
-
-._crit_edge.i:                                    ; preds = %208
-  %.pre.i129 = load i8, ptr %100, align 8
-  br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit
-
-210:                                              ; preds = %208
-  store i32 1, ptr %3, align 4, !tbaa !13
-  br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
-
-_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit: ; preds = %200, %205, %._crit_edge.i
-  %211 = phi i8 [ %.pre.i129, %._crit_edge.i ], [ %195, %200 ], [ %195, %205 ]
-  %.0.i130 = phi double [ %198, %._crit_edge.i ], [ 0x43846A3EDDF8CD80, %200 ], [ 0xC384763B62073280, %205 ]
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double %.0.i130, ptr %212, align 8, !tbaa !53
-  %213 = and i8 %211, -16
-  %214 = or disjoint i8 %213, 9
-  store i8 %214, ptr %100, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %215, i8 0, i64 120, i1 false)
-  store i8 2, ptr %216, align 8, !tbaa !40
+_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit: ; preds = %197, %202, %._crit_edge.i
+  %208 = phi i8 [ %.pre.i129, %._crit_edge.i ], [ %192, %197 ], [ %192, %202 ]
+  %.0.i130 = phi double [ %195, %._crit_edge.i ], [ 0x43846A3EDDF8CD80, %197 ], [ 0xC384763B62073280, %202 ]
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store double %.0.i130, ptr %209, align 8, !tbaa !53
+  %210 = and i8 %208, -16
+  %211 = or disjoint i8 %210, 9
+  store i8 %211, ptr %100, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %212, i8 0, i64 120, i1 false)
+  store i8 2, ptr %213, align 8, !tbaa !40
   %.pr176.pr.pr = load i32, ptr %3, align 4, !tbaa !13
-  %217 = icmp slt i32 %.pr176.pr.pr, 1
-  br i1 %217, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
+  %214 = icmp slt i32 %.pr176.pr.pr, 1
+  br i1 %214, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
 
 _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136: ; preds = %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit
-  %218 = load ptr, ptr %0, align 8, !tbaa !15
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 256
-  %220 = load ptr, ptr %219, align 8
-  tail call void %220(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %221 = load i32, ptr %3, align 4, !tbaa !13
-  %222 = icmp slt i32 %221, 1
-  br i1 %222, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
+  %215 = load ptr, ptr %0, align 8, !tbaa !15
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 256
+  %217 = load ptr, ptr %216, align 8
+  tail call void %217(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %218 = load i32, ptr %3, align 4, !tbaa !13
+  %219 = icmp slt i32 %218, 1
+  br i1 %219, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
 
 _ZN6icu_778Calendar8completeER10UErrorCode.exit.i139: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136
-  %223 = load i8, ptr %100, align 8
-  %224 = or i8 %223, 6
-  store i8 %224, ptr %100, align 8
+  %220 = load i8, ptr %100, align 8
+  %221 = or i8 %220, 6
+  store i8 %221, ptr %100, align 8
   %.pre.i140 = load i32, ptr %3, align 4, !tbaa !13
-  %225 = icmp sgt i32 %.pre.i140, 0
-  br i1 %225, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i138
+  %222 = icmp sgt i32 %.pre.i140, 0
+  br i1 %222, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i138
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i138: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %227 = load i32, ptr %226, align 4, !tbaa !12
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i138: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %224 = load i32, ptr %223, align 4, !tbaa !12
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
 
-_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141: ; preds = %183, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %210, %207, %202, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i138
-  %.0.i131 = phi i32 [ 0, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit ], [ %227, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i138 ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136 ], [ 0, %210 ], [ 0, %207 ], [ 0, %202 ], [ 0, %183 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ]
-  %.not83 = icmp eq i32 %.0.i131, %181
-  br i1 %.not83, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %228
+_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141: ; preds = %180, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %207, %204, %199, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i138
+  %.0.i131 = phi i32 [ 0, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit ], [ %224, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i138 ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i139 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i136 ], [ 0, %207 ], [ 0, %204 ], [ 0, %199 ], [ 0, %180 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ]
+  %.not83 = icmp eq i32 %.0.i131, %178
+  br i1 %.not83, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %225
 
-228:                                              ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %230 = load double, ptr %229, align 8, !tbaa !53
-  %231 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 16, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %232 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 15, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %233 = add nsw i32 %232, %231
-  %.not84 = icmp eq i32 %233, %155
-  br i1 %.not84, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %234
+225:                                              ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %227 = load double, ptr %226, align 8, !tbaa !53
+  %228 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 16, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %229 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 15, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %230 = add nsw i32 %229, %228
+  %.not84 = icmp eq i32 %230, %153
+  br i1 %.not84, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %231
 
-234:                                              ; preds = %228
-  %235 = sub nsw i32 %155, %233
-  %236 = icmp sgt i32 %235, -1
-  br i1 %236, label %237, label %239
+231:                                              ; preds = %225
+  %232 = sub nsw i32 %153, %230
+  %233 = icmp sgt i32 %232, -1
+  br i1 %233, label %234, label %236
 
-237:                                              ; preds = %234
-  %238 = urem i32 %235, 86400000
-  br label %243
+234:                                              ; preds = %231
+  %235 = urem i32 %232, 86400000
+  br label %240
 
-239:                                              ; preds = %234
-  %240 = sub nsw i32 0, %235
-  %241 = urem i32 %240, 86400000
-  %242 = sub nsw i32 0, %241
-  br label %243
+236:                                              ; preds = %231
+  %237 = sub nsw i32 0, %232
+  %238 = urem i32 %237, 86400000
+  %239 = sub nsw i32 0, %238
+  br label %240
 
-243:                                              ; preds = %239, %237
-  %244 = phi i32 [ %238, %237 ], [ %242, %239 ]
-  %.not85 = icmp eq i32 %244, 0
-  br i1 %.not85, label %.critedge93, label %245
+240:                                              ; preds = %236, %234
+  %241 = phi i32 [ %235, %234 ], [ %239, %236 ]
+  %.not85 = icmp eq i32 %241, 0
+  br i1 %.not85, label %.critedge93, label %242
 
-245:                                              ; preds = %243
-  %246 = sitofp i32 %244 to double
-  %247 = fadd double %230, %246
-  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %247, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %248 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %249 = icmp eq i32 %248, %181
-  br i1 %249, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %.critedge93
+242:                                              ; preds = %240
+  %243 = sitofp i32 %241 to double
+  %244 = fadd double %227, %243
+  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %244, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %245 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 21, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %246 = icmp eq i32 %245, %178
+  br i1 %246, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156, label %.critedge93
 
-.critedge93:                                      ; preds = %243, %245
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  %251 = load i16, ptr %250, align 1
-  %252 = and i16 %251, 7
-  switch i16 %252, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156 [
-    i16 1, label %253
-    i16 0, label %256
-    i16 2, label %259
+.critedge93:                                      ; preds = %240, %242
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  %248 = load i16, ptr %247, align 1
+  %249 = and i16 %248, 7
+  switch i16 %249, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156 [
+    i16 1, label %250
+    i16 0, label %253
+    i16 2, label %256
   ]
 
+250:                                              ; preds = %.critedge93
+  %251 = icmp sgt i32 %241, 0
+  br i1 %251, label %252, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
+
+252:                                              ; preds = %250
+  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %227, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
+
 253:                                              ; preds = %.critedge93
-  %254 = icmp sgt i32 %244, 0
+  %254 = icmp slt i32 %241, 0
   br i1 %254, label %255, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
 255:                                              ; preds = %253
-  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %230, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %227, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
 256:                                              ; preds = %.critedge93
-  %257 = icmp slt i32 %244, 0
-  br i1 %257, label %258, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
-
-258:                                              ; preds = %256
-  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %230, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
-
-259:                                              ; preds = %.critedge93
-  %260 = icmp sgt i32 %244, 0
-  %261 = load double, ptr %229, align 8
-  %262 = select i1 %260, double %261, double %230
+  %257 = icmp sgt i32 %241, 0
+  %258 = load double, ptr %226, align 8
+  %259 = select i1 %257, double %258, double %227
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %263 = call noundef signext i8 @_ZNK6icu_778Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %262, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %264 = load i32, ptr %3, align 4, !tbaa !13
-  %265 = icmp slt i32 %264, 1
-  %266 = icmp ne i8 %263, 0
-  %or.cond3 = and i1 %266, %265
-  br i1 %or.cond3, label %267, label %269
+  %260 = call noundef signext i8 @_ZNK6icu_778Calendar34getImmediatePreviousZoneTransitionEdPdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %259, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %261 = load i32, ptr %3, align 4, !tbaa !13
+  %262 = icmp slt i32 %261, 1
+  %263 = icmp ne i8 %260, 0
+  %or.cond3 = and i1 %263, %262
+  br i1 %or.cond3, label %264, label %266
 
-267:                                              ; preds = %259
-  %268 = load double, ptr %8, align 8, !tbaa !76
-  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %268, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %269
+264:                                              ; preds = %256
+  %265 = load double, ptr %8, align 8, !tbaa !76
+  tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %265, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %266
 
-269:                                              ; preds = %267, %259
+266:                                              ; preds = %264, %256
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
 .critedge:                                        ; preds = %15, %15, %95, %93, %91
   %.0.ph = phi double [ %16, %15 ], [ %16, %15 ], [ %96, %95 ], [ %94, %93 ], [ %92, %91 ]
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %271 = load i8, ptr %270, align 8
-  %272 = trunc i8 %271 to i1
-  br i1 %272, label %284, label %273
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %268 = load i8, ptr %267, align 8
+  %269 = trunc i8 %268 to i1
+  br i1 %269, label %281, label %270
 
-273:                                              ; preds = %.critedge
-  %274 = load ptr, ptr %0, align 8, !tbaa !15
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 248
-  %276 = load ptr, ptr %275, align 8
-  tail call void %276(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %277 = load i32, ptr %3, align 4, !tbaa !13
-  %278 = icmp slt i32 %277, 1
-  br i1 %278, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
+270:                                              ; preds = %.critedge
+  %271 = load ptr, ptr %0, align 8, !tbaa !15
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 248
+  %273 = load ptr, ptr %272, align 8
+  tail call void %273(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %274 = load i32, ptr %3, align 4, !tbaa !13
+  %275 = icmp slt i32 %274, 1
+  br i1 %275, label %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
-_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143: ; preds = %273
-  %279 = load i8, ptr %270, align 8
-  %280 = and i8 %279, 20
-  %or.cond.not.i.i144 = icmp eq i8 %280, 4
+_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143: ; preds = %270
+  %276 = load i8, ptr %267, align 8
+  %277 = and i8 %276, 20
+  %or.cond.not.i.i144 = icmp eq i8 %277, 4
   %.v.i.i145 = select i1 %or.cond.not.i.i144, i8 -10, i8 -12
-  %281 = and i8 %.v.i.i145, %279
-  %282 = or disjoint i8 %281, 1
-  store i8 %282, ptr %270, align 8
+  %278 = and i8 %.v.i.i145, %276
+  %279 = or disjoint i8 %278, 1
+  store i8 %279, ptr %267, align 8
   %.pre.i146 = load i32, ptr %3, align 4, !tbaa !13
-  %283 = icmp slt i32 %.pre.i146, 1
-  br i1 %283, label %284, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
+  %280 = icmp slt i32 %.pre.i146, 1
+  br i1 %280, label %281, label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
-284:                                              ; preds = %.critedge, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143
-  %285 = phi i8 [ %282, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143 ], [ %271, %.critedge ]
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %287 = load double, ptr %286, align 8, !tbaa !53
-  %288 = fadd double %.0.ph, %287
-  %289 = fcmp ogt double %288, 0x43846A3EDDF8CD80
-  br i1 %289, label %290, label %293
+281:                                              ; preds = %.critedge, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143
+  %282 = phi i8 [ %279, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143 ], [ %268, %.critedge ]
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %284 = load double, ptr %283, align 8, !tbaa !53
+  %285 = fadd double %.0.ph, %284
+  %286 = fcmp ogt double %285, 0x43846A3EDDF8CD80
+  br i1 %286, label %287, label %290
 
-290:                                              ; preds = %284
-  %291 = and i8 %285, 16
-  %.not12.i155 = icmp eq i8 %291, 0
-  br i1 %.not12.i155, label %292, label %301
+287:                                              ; preds = %281
+  %288 = and i8 %282, 16
+  %.not12.i155 = icmp eq i8 %288, 0
+  br i1 %.not12.i155, label %289, label %298
 
-292:                                              ; preds = %290
+289:                                              ; preds = %287
   store i32 1, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
-293:                                              ; preds = %284
-  %294 = fcmp olt double %288, 0xC384763B62073280
-  br i1 %294, label %295, label %298
+290:                                              ; preds = %281
+  %291 = fcmp olt double %285, 0xC384763B62073280
+  br i1 %291, label %292, label %295
 
-295:                                              ; preds = %293
-  %296 = and i8 %285, 16
-  %.not11.i154 = icmp eq i8 %296, 0
-  br i1 %.not11.i154, label %297, label %301
+292:                                              ; preds = %290
+  %293 = and i8 %282, 16
+  %.not11.i154 = icmp eq i8 %293, 0
+  br i1 %.not11.i154, label %294, label %298
+
+294:                                              ; preds = %292
+  store i32 1, ptr %3, align 4, !tbaa !13
+  br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
+
+295:                                              ; preds = %290
+  %296 = tail call signext i8 @uprv_isNaN_77(double noundef %285)
+  %.not10.i149 = icmp eq i8 %296, 0
+  br i1 %.not10.i149, label %._crit_edge.i150, label %297
+
+._crit_edge.i150:                                 ; preds = %295
+  %.pre.i152 = load i8, ptr %267, align 8
+  br label %298
 
 297:                                              ; preds = %295
   store i32 1, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
-298:                                              ; preds = %293
-  %299 = tail call signext i8 @uprv_isNaN_77(double noundef %288)
-  %.not10.i149 = icmp eq i8 %299, 0
-  br i1 %.not10.i149, label %._crit_edge.i150, label %300
-
-._crit_edge.i150:                                 ; preds = %298
-  %.pre.i152 = load i8, ptr %270, align 8
-  br label %301
-
-300:                                              ; preds = %298
-  store i32 1, ptr %3, align 4, !tbaa !13
+298:                                              ; preds = %._crit_edge.i150, %292, %287
+  %299 = phi i8 [ %.pre.i152, %._crit_edge.i150 ], [ %282, %287 ], [ %282, %292 ]
+  %.0.i153 = phi double [ %285, %._crit_edge.i150 ], [ 0x43846A3EDDF8CD80, %287 ], [ 0xC384763B62073280, %292 ]
+  store double %.0.i153, ptr %283, align 8, !tbaa !53
+  %300 = and i8 %299, -16
+  %301 = or disjoint i8 %300, 9
+  store i8 %301, ptr %267, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %302, i8 0, i64 120, i1 false)
+  store i8 2, ptr %303, align 8, !tbaa !40
   br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
 
-301:                                              ; preds = %._crit_edge.i150, %295, %290
-  %302 = phi i8 [ %.pre.i152, %._crit_edge.i150 ], [ %285, %290 ], [ %285, %295 ]
-  %.0.i153 = phi double [ %288, %._crit_edge.i150 ], [ 0x43846A3EDDF8CD80, %290 ], [ 0xC384763B62073280, %295 ]
-  store double %.0.i153, ptr %286, align 8, !tbaa !53
-  %303 = and i8 %302, -16
-  %304 = or disjoint i8 %303, 9
-  store i8 %304, ptr %270, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %305, i8 0, i64 120, i1 false)
-  store i8 2, ptr %306, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156
-
-_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i113, %143, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i106, %130, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i102, %116, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i95, %103, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124, %170, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117, %157, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143, %273, %301, %300, %297, %292, %29, %40, %97, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141, %245, %256, %258, %253, %255, %269, %.critedge93, %228, %13, %4, %12
+_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit156: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i113, %143, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i106, %130, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i102, %116, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i95, %103, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i124, %168, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i117, %155, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i143, %270, %298, %297, %294, %289, %29, %40, %97, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit.thread, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141, %242, %253, %255, %250, %252, %266, %.critedge93, %225, %13, %4, %12
   ret void
 }
 
@@ -8021,14 +8021,14 @@ _ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit203: ; preds = %_ZN6icu_
   br label %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit211
 
 _ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit211: ; preds = %200, %91, %.critedge.thread, %252, %258, %261, %262
-  %.7107294 = phi i32 [ %.7107.ph, %.critedge.thread ], [ %.7107.ph, %252 ], [ %.7107.ph, %258 ], [ %.7107.ph, %261 ], [ %.7107.ph, %262 ], [ %.4104, %91 ], [ %.12112, %200 ]
+  %.7107313 = phi i32 [ %.7107.ph, %.critedge.thread ], [ %.7107.ph, %252 ], [ %.7107.ph, %258 ], [ %.7107.ph, %261 ], [ %.7107.ph, %262 ], [ %.4104, %91 ], [ %.12112, %200 ]
   %269 = load ptr, ptr %0, align 8, !tbaa !15
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 56
   %271 = load ptr, ptr %270, align 8
-  tail call void %271(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %2, i32 noundef %.7107294, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  tail call void %271(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %2, i32 noundef %.7107313, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %272 = load i32, ptr %3, align 4, !tbaa !13
   %.inv = icmp sgt i32 %272, 0
-  %.7107. = select i1 %.inv, i32 0, i32 %.7107294
+  %.7107. = select i1 %.inv, i32 0, i32 %.7107313
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit188, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit203, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit158, %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173, %189, %78, %_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode.exit211, %4, %8
@@ -8371,7 +8371,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i: ; preds = %_Z
   %16 = phi i8 [ %4, %1 ], [ %15, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ]
   %17 = and i8 %16, 2
   %.not7.i.i = icmp eq i8 %17, 0
-  br i1 %.not7.i.i, label %18, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
+  br i1 %.not7.i.i, label %18, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
 
 18:                                               ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %19 = load ptr, ptr %0, align 8, !tbaa !15
@@ -8386,15 +8386,15 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.i: ; preds = %18
   %24 = load i8, ptr %3, align 8
   %25 = or i8 %24, 6
   store i8 %25, ptr %3, align 8
-  br label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
+  br label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %27 = load i32, ptr %26, align 4, !tbaa !12
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
-_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %6, %18, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
-  %.0.i = phi i32 [ %27, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i ], [ 0, %18 ], [ 0, %6 ]
+_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %6, %18, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
+  %.0.i = phi i32 [ %27, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i ], [ 0, %18 ], [ 0, %6 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 192
   %30 = load ptr, ptr %29, align 8
@@ -8746,7 +8746,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %70
 _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i
   %81 = and i8 %78, 2
   %.not7.i.i = icmp eq i8 %81, 0
-  br i1 %.not7.i.i, label %82, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
+  br i1 %.not7.i.i, label %82, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
 
 82:                                               ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %83 = load ptr, ptr %23, align 8, !tbaa !15
@@ -8763,14 +8763,14 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.i: ; preds = %82
   store i8 %89, ptr %27, align 8
   %.pre.i = load i32, ptr %2, align 4, !tbaa !13
   %90 = icmp sgt i32 %.pre.i, 0
-  br i1 %90, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
+  br i1 %90, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %91 = load i32, ptr %32, align 4, !tbaa !12
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
-_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit, %70, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i, %82, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
-  %.0.i = phi i32 [ 0, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit ], [ %91, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ 0, %82 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ 0, %70 ]
+_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit, %70, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i, %82, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
+  %.0.i = phi i32 [ 0, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit ], [ %91, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ 0, %82 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ 0, %70 ]
   %.not38 = icmp eq i32 %.0.i, %.031
   br i1 %.not38, label %92, label %94
 
@@ -8845,7 +8845,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i: ; preds = %_ZN6
   %29 = phi i8 [ %16, %14 ], [ %27, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ]
   %30 = and i8 %29, 2
   %.not7.i = icmp eq i8 %30, 0
-  br i1 %.not7.i, label %31, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread6
+  br i1 %.not7.i, label %31, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread9
 
 31:                                               ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i
   %32 = load ptr, ptr %0, align 8, !tbaa !15
@@ -8862,17 +8862,17 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit:  ; preds = %31
   store i8 %38, ptr %15, align 8
   %.pre = load i32, ptr %1, align 4, !tbaa !13
   %39 = icmp sgt i32 %.pre, 0
-  br i1 %39, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread6
+  br i1 %39, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread9
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread6: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread9: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load i32, ptr %40, align 8, !tbaa !12
   %42 = icmp ne i32 %41, 0
   %43 = zext i1 %42 to i8
   br label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread: ; preds = %31, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %18, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread6, %_ZN6icu_778Calendar8completeER10UErrorCode.exit, %2, %5
-  %.0 = phi i8 [ 0, %5 ], [ 0, %2 ], [ %43, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread6 ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit ], [ 0, %18 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ], [ 0, %31 ]
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread: ; preds = %31, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i, %18, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread9, %_ZN6icu_778Calendar8completeER10UErrorCode.exit, %2, %5
+  %.0 = phi i8 [ 0, %5 ], [ 0, %2 ], [ %43, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread9 ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit ], [ 0, %18 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i ], [ 0, %31 ]
   ret i8 %.0
 }
 
@@ -9636,8 +9636,8 @@ _ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit: ; preds = %28, %_ZNK6i
   br i1 %57, label %58, label %177
 
 58:                                               ; preds = %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit.thread, %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit
-  %.1.i52 = phi i32 [ %46, %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit.thread ], [ %56, %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit ]
-  %59 = sitofp i32 %.1.i52 to double
+  %.1.i60 = phi i32 [ %46, %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit.thread ], [ %56, %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit ]
+  %59 = sitofp i32 %.1.i60 to double
   %60 = fadd double %59, 0xC1429EC600000000
   %61 = fmul double %60, 8.640000e+07
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 125
@@ -9829,9 +9829,9 @@ _ZN6icu_778Calendar18computeMillisInDayEv.exit:   ; preds = %76, %85, %89
   br i1 %174, label %177, label %175
 
 175:                                              ; preds = %.thread, %172
-  %.03254 = phi double [ %130, %.thread ], [ %.032, %172 ]
+  %.03262 = phi double [ %130, %.thread ], [ %.032, %172 ]
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double %.03254, ptr %176, align 8, !tbaa !53
+  store double %.03262, ptr %176, align 8, !tbaa !53
   br label %177
 
 177:                                              ; preds = %_ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit, %175, %172, %_ZN6icu_778Calendar14validateFieldsER10UErrorCode.exit, %2
@@ -11944,7 +11944,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i: ; preds = %196
 _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i: ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i
   %206 = and i8 %203, 2
   %.not7.i.i = icmp eq i8 %206, 0
-  br i1 %.not7.i.i, label %207, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
+  br i1 %.not7.i.i, label %207, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
 
 207:                                              ; preds = %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %208 = load ptr, ptr %0, align 8, !tbaa !15
@@ -11961,17 +11961,17 @@ _ZN6icu_778Calendar8completeER10UErrorCode.exit.i: ; preds = %207
   store i8 %213, ptr %16, align 8
   %.pre.i = load i32, ptr %3, align 4, !tbaa !13
   %214 = icmp sgt i32 %.pre.i, 0
-  br i1 %214, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
+  br i1 %214, label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit, label %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
 
-_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
+_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i: ; preds = %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i
   %215 = phi i8 [ %213, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ %204, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i.i ]
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %217 = load i32, ptr %216, align 4, !tbaa !12
   br label %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
 
-_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit80, %196, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i, %207, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i
-  %218 = phi i8 [ %190, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit80 ], [ %215, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i ], [ %213, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ %.pre162, %207 ], [ %204, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %.pre161, %196 ]
-  %.0.i = phi i32 [ 0, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit80 ], [ %217, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread14.i ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ 0, %207 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ 0, %196 ]
+_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit80, %196, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i, %207, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i
+  %218 = phi i8 [ %190, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit80 ], [ %215, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i ], [ %213, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ %.pre162, %207 ], [ %204, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %.pre161, %196 ]
+  %.0.i = phi i32 [ 0, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit80 ], [ %217, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.thread18.i ], [ 0, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ 0, %207 ], [ 0, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ 0, %196 ]
   %219 = and i8 %218, 8
   %.not.i82 = icmp eq i8 %219, 0
   br i1 %.not.i82, label %224, label %220
@@ -12879,12 +12879,12 @@ define linkonce_odr noundef ptr @_ZNK6icu_7715CalendarService13cloneInstanceEPNS
   br label %6
 
 6:                                                ; preds = %4, %.thread
-  %.sink12 = phi ptr [ %1, %.thread ], [ %5, %4 ]
-  %.sink11 = phi i64 [ 24, %.thread ], [ 56, %4 ]
-  %7 = load ptr, ptr %.sink12, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink11
+  %.sink14 = phi ptr [ %1, %.thread ], [ %5, %4 ]
+  %.sink13 = phi i64 [ 24, %.thread ], [ 56, %4 ]
+  %7 = load ptr, ptr %.sink14, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink13
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(64) %.sink12)
+  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(64) %.sink14)
   ret ptr %10
 }
 

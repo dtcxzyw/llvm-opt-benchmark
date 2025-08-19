@@ -31,14 +31,14 @@ define internal void @"_ZN10tokio_util4sync4mpsc19make_acquire_future28_$u7b$$u7
   %5 = alloca [48 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i8, ptr %6, align 8, !range !3, !noundef !4
-  switch i8 %7, label %default.unreachable16 [
+  switch i8 %7, label %default.unreachable19 [
     i8 0, label %8
     i8 1, label %23
     i8 2, label %24
     i8 3, label %25
   ]
 
-default.unreachable16:                            ; preds = %37, %25, %3
+default.unreachable19:                            ; preds = %37, %25, %3
   unreachable
 
 8:                                                ; preds = %3
@@ -98,7 +98,7 @@ default.unreachable16:                            ; preds = %37, %25, %3
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !3, !noalias !10
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  switch i8 %.pre, label %default.unreachable16 [
+  switch i8 %.pre, label %default.unreachable19 [
     i8 0, label %.thread.i
     i8 1, label %35
     i8 2, label %36
@@ -144,7 +144,7 @@ default.unreachable16:                            ; preds = %37, %25, %3
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !13, !noalias !14
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
-  switch i8 %.pre.i, label %default.unreachable16 [
+  switch i8 %.pre.i, label %default.unreachable19 [
     i8 0, label %._crit_edge12
     i8 1, label %48
     i8 2, label %49
@@ -9090,7 +9090,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$$u5b$quiche..recove
   %29 = load ptr, ptr %28, align 8, !alias.scope !1660, !nonnull !4, !noundef !4
   %30 = atomicrmw sub ptr %29, i64 1 release, align 8, !noalias !1660
   %31 = icmp eq i64 %30, 1
-  br i1 %31, label %.invoke35, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hd8582af20fe38ce1E.exit"
+  br i1 %31, label %.invoke39, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hd8582af20fe38ce1E.exit"
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -9101,9 +9101,9 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$$u5b$quiche..recove
   %34 = load ptr, ptr %33, align 8, !alias.scope !1673, !nonnull !4, !noundef !4
   %35 = atomicrmw sub ptr %34, i64 1 release, align 8, !noalias !1673
   %36 = icmp eq i64 %35, 1
-  br i1 %36, label %.invoke35, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hd8582af20fe38ce1E.exit"
+  br i1 %36, label %.invoke39, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hd8582af20fe38ce1E.exit"
 
-.invoke35:                                        ; preds = %32, %27
+.invoke39:                                        ; preds = %32, %27
   %37 = phi ptr [ %28, %27 ], [ %33, %32 ]
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha56f18d17fc6c778E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37)
@@ -9114,7 +9114,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$$u5b$quiche..recove
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h70c6bd340eadbabcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38, i64 noundef 1, i64 noundef 1)
           to label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hd8582af20fe38ce1E.exit" unwind label %42
 
-"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hd8582af20fe38ce1E.exit": ; preds = %.invoke35, %.invoke, %26, %.lr.ph, %27, %32
+"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17hd8582af20fe38ce1E.exit": ; preds = %.invoke39, %.invoke, %26, %.lr.ph, %27, %32
   %39 = icmp eq i64 %20, %17
   br i1 %39, label %"_ZN4core3ptr43drop_in_place$LT$quiche..recovery..Sent$GT$17h4ad3f602c34b8247E.exit", label %.lr.ph
 
@@ -9123,7 +9123,7 @@ define internal fastcc void @"_ZN4core3ptr53drop_in_place$LT$$u5b$quiche..recove
   %41 = icmp eq i64 %.sroa.0.1.i.i.i.i, %17
   br i1 %41, label %.body, label %44
 
-42:                                               ; preds = %.invoke35, %.invoke, %26
+42:                                               ; preds = %.invoke39, %.invoke, %26
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %40

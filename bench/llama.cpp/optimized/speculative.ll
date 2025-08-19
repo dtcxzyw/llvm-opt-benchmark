@@ -1022,7 +1022,7 @@ define void @_Z28common_speculative_gen_draftP18common_speculative25common_specu
   %.0317.us = phi i32 [ 0, %.preheader304.us.preheader ], [ %.1.us, %49 ]
   %.0136316.us = phi i32 [ 0, %.preheader304.us.preheader ], [ %.1137.us, %49 ]
   %wide.trip.count = zext i32 %indvars.iv411 to i64
-  %invariant.gep487 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv416
+  %invariant.gep534 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv416
   br label %38
 
 38:                                               ; preds = %.preheader304.us, %50
@@ -1033,8 +1033,8 @@ define void @_Z28common_speculative_gen_draftP18common_speculative25common_specu
 39:                                               ; preds = %38
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %40 = load i32, ptr %gep, align 4, !tbaa !111
-  %gep488 = getelementptr inbounds nuw i32, ptr %invariant.gep487, i64 %indvars.iv
-  %41 = load i32, ptr %gep488, align 4, !tbaa !111
+  %gep535 = getelementptr inbounds nuw i32, ptr %invariant.gep534, i64 %indvars.iv
+  %41 = load i32, ptr %gep535, align 4, !tbaa !111
   %42 = icmp eq i32 %40, %41
   br i1 %42, label %50, label %.critedge.us.split.loop.exit
 
@@ -1107,8 +1107,8 @@ define void @_Z28common_speculative_gen_draftP18common_speculative25common_specu
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not431 = icmp eq i64 %sext, 0
-  br i1 %.not431, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
+  %.not478 = icmp eq i64 %sext, 0
+  br i1 %.not478, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %66
   %68 = ashr exact i64 %sext, 30
@@ -1181,8 +1181,8 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %104 = ptrtoint ptr %102 to i64
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
-  %sext432 = shl i64 %106, 30
-  %107 = ashr i64 %sext432, 32
+  %sext479 = shl i64 %106, 30
+  %107 = ashr i64 %sext479, 32
   %108 = icmp slt i64 %indvars.iv.next422, %107
   br i1 %108, label %109, label %.critedge182
 

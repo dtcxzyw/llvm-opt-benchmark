@@ -1304,7 +1304,7 @@ _ZN6icu_779BytesTrie9readValueEPKhi.exit:         ; preds = %.preheader
   br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit
 
 _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %_ZN6icu_779BytesTrie9readValueEPKhi.exit, %121, %128, %140
-  %.0.i4281 = phi i32 [ %126, %121 ], [ %138, %128 ], [ %.0.i42.ph.ph.ph, %140 ], [ %120, %_ZN6icu_779BytesTrie9readValueEPKhi.exit ]
+  %.0.i4289 = phi i32 [ %126, %121 ], [ %138, %128 ], [ %.0.i42.ph.ph.ph, %140 ], [ %120, %_ZN6icu_779BytesTrie9readValueEPKhi.exit ]
   %.0.i43 = phi ptr [ %127, %121 ], [ %139, %128 ], [ %144, %140 ], [ %85, %_ZN6icu_779BytesTrie9readValueEPKhi.exit ]
   %.not = icmp eq i8 %87, 0
   br i1 %.not, label %149, label %145
@@ -1315,15 +1315,15 @@ _ZN6icu_779BytesTrie9skipValueEPKhi.exit:         ; preds = %_ZN6icu_779BytesTri
 
 146:                                              ; preds = %145
   %147 = load i32, ptr %3, align 4, !tbaa !20
-  %.not40 = icmp eq i32 %.0.i4281, %147
+  %.not40 = icmp eq i32 %.0.i4289, %147
   br i1 %.not40, label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit, label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit.thread
 
 148:                                              ; preds = %145
-  store i32 %.0.i4281, ptr %3, align 4, !tbaa !20
+  store i32 %.0.i4289, ptr %3, align 4, !tbaa !20
   br label %_ZN6icu_779BytesTrie15findUniqueValueEPKhaRi.exit
 
 149:                                              ; preds = %_ZN6icu_779BytesTrie9skipValueEPKhi.exit
-  %150 = sext i32 %.0.i4281 to i64
+  %150 = sext i32 %.0.i4289 to i64
   %151 = getelementptr inbounds i8, ptr %.0.i43, i64 %150
   br label %_ZN6icu_779BytesTrie9skipValueEPKhi.exit46.outer
 

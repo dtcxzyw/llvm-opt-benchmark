@@ -697,7 +697,7 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   br label %44
 
 44:                                               ; preds = %23, %.critedge4
-  %indvars.iv106 = phi i64 [ 0, %23 ], [ %indvars.iv.next107113, %.critedge4 ]
+  %indvars.iv106 = phi i64 [ 0, %23 ], [ %indvars.iv.next107119, %.critedge4 ]
   %.199 = phi i32 [ 1, %23 ], [ %.3.lcssa, %.critedge4 ]
   %45 = trunc nuw nsw i64 %indvars.iv106 to i32
   %46 = uitofp nneg i32 %45 to float
@@ -707,7 +707,7 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   br i1 %49, label %.lr.ph.preheader, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %44
-  %indvars.iv.next107112 = add nuw nsw i64 %indvars.iv106, 1
+  %indvars.iv.next107118 = add nuw nsw i64 %indvars.iv106, 1
   br label %.critedge4
 
 .lr.ph.preheader:                                 ; preds = %44
@@ -802,9 +802,9 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   br i1 %exitcond105.not, label %.critedge4, label %.lr.ph93, !llvm.loop !236
 
 .critedge4:                                       ; preds = %89, %.critedge6, %81, %.critedge.thread, %.critedge
-  %indvars.iv.next107113 = phi i64 [ %indvars.iv.next107, %.critedge ], [ %indvars.iv.next107112, %.critedge.thread ], [ %indvars.iv.next107, %81 ], [ %indvars.iv.next107, %.critedge6 ], [ %indvars.iv.next107, %89 ]
+  %indvars.iv.next107119 = phi i64 [ %indvars.iv.next107, %.critedge ], [ %indvars.iv.next107118, %.critedge.thread ], [ %indvars.iv.next107, %81 ], [ %indvars.iv.next107, %.critedge6 ], [ %indvars.iv.next107, %89 ]
   %.3.lcssa = phi i32 [ %.2.lcssa.ph, %.critedge ], [ %.199, %.critedge.thread ], [ %.392, %89 ], [ %43, %.critedge6 ], [ %.392, %81 ]
-  %exitcond109.not = icmp eq i64 %indvars.iv.next107113, %wide.trip.count
+  %exitcond109.not = icmp eq i64 %indvars.iv.next107119, %wide.trip.count
   br i1 %exitcond109.not, label %.loopexit, label %44, !llvm.loop !237
 
 .loopexit:                                        ; preds = %.critedge4, %17, %15
@@ -1181,7 +1181,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %111, %1
   %207 = fcmp ogt float %.sroa.speculated.i.i.i, %164
   %208 = fdiv float %164, %.sroa.speculated.i.i.i
   %209 = fmul float %208, 5.000000e-01
-  %.0211315.i.i.i = select i1 %207, float %209, float 5.000000e-01
+  %.0211324.i.i.i = select i1 %207, float %209, float 5.000000e-01
   %210 = getelementptr inbounds nuw i8, ptr %159, i64 40
   %211 = load ptr, ptr %210, align 8, !tbaa !122
   br label %224
@@ -1219,7 +1219,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %111, %1
   %233 = getelementptr inbounds nuw float, ptr %211, i64 %indvars.iv282.i.i.i
   %234 = load float, ptr %233, align 4, !tbaa !109
   %235 = fsub float %232, %234
-  %236 = fmul float %.0211315.i.i.i, %230
+  %236 = fmul float %.0211324.i.i.i, %230
   %237 = fsub float 1.000000e+00, %236
   %238 = fmul float %235, %237
   %239 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv282.i.i.i
@@ -2325,7 +2325,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %exitcond165.not, label %._crit_edge95, label %79, !llvm.loop !325
 
 ._crit_edge95.thread:                             ; preds = %.preheader56, %._crit_edge95
-  %.1257.lcssa207 = phi i32 [ %.2258, %._crit_edge95 ], [ %.0256, %.preheader56 ]
+  %.1257.lcssa223 = phi i32 [ %.2258, %._crit_edge95 ], [ %.0256, %.preheader56 ]
   %111 = load ptr, ptr %11, align 8, !tbaa !122
   %112 = getelementptr inbounds nuw float, ptr %111, i64 %24
   %113 = load float, ptr %112, align 4, !tbaa !109
@@ -2379,7 +2379,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   resume { ptr, i32 } %140
 
 141:                                              ; preds = %._crit_edge95.thread
-  %142 = icmp sgt i32 %.1257.lcssa207, 0
+  %142 = icmp sgt i32 %.1257.lcssa223, 0
   %143 = icmp sgt i32 %.0.val.tr, 0
   %or.cond = or i1 %143, %142
   %144 = icmp slt i32 %.4.val.tr.ph, %35
@@ -2658,7 +2658,7 @@ define linkonce_odr void @_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE17_M_default_ap
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIP16gmx_domdec_ind_tmS0_ET_S2_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIP16gmx_domdec_ind_tmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 104
+  %19 = mul nuw nsw i64 %1, 104
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !110

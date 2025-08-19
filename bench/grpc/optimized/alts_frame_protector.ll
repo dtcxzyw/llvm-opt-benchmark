@@ -185,12 +185,12 @@ _ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit49.i: ; p
   br i1 %.not30.i, label %_ZL20create_alts_cryptersPKhmbbP20alts_frame_protectorPPc.exit, label %_ZL20create_alts_cryptersPKhmbbP20alts_frame_protectorPPc.exit.thread
 
 _ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit37.sink.split.i: ; preds = %43, %30
-  %.sink69.i = phi ptr [ %32, %30 ], [ %45, %43 ]
+  %.sink76.i = phi ptr [ %32, %30 ], [ %45, %43 ]
   %.pn.ph.i = phi { ptr, i32 } [ %31, %30 ], [ %44, %43 ]
-  %51 = load ptr, ptr %.sink69.i, align 8, !tbaa !17
+  %51 = load ptr, ptr %.sink76.i, align 8, !tbaa !17
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(8) %.sink69.i) #19
+  call void %53(ptr noundef nonnull align 8 dereferenceable(8) %.sink76.i) #19
   br label %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit37.i
 
 _ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit37.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit37.sink.split.i, %43, %30

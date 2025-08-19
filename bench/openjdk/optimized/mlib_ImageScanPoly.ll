@@ -289,12 +289,12 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
   %178 = tail call double @llvm.fmuladd.f64(double %.0801, double %17, double %167)
   %179 = tail call double @llvm.fmuladd.f64(double %.0801, double %23, double %171)
   %. = select i1 %175, double %176, double %178
-  %.1195 = select i1 %175, double %177, double %179
-  %.1196 = select i1 %175, double %178, double %176
-  %.1197 = select i1 %175, double %179, double %177
-  %.sink = fadd double %159, %.1197
-  %.sink1185 = fadd double %158, %.1196
-  %.sink1186 = fadd double %159, %.1195
+  %.1214 = select i1 %175, double %177, double %179
+  %.1215 = select i1 %175, double %178, double %176
+  %.1216 = select i1 %175, double %179, double %177
+  %.sink = fadd double %159, %.1216
+  %.sink1185 = fadd double %158, %.1215
+  %.sink1186 = fadd double %159, %.1214
   %.sink1187 = fadd double %158, %.
   %180 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store double %.sink1187, ptr %180, align 16

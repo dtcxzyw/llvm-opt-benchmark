@@ -3127,8 +3127,8 @@ entry:
 
 while.body:                                       ; preds = %entry, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESE_EEbT_T0_.exit"
   %__secondChild.032 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESE_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__secondChild.032, 1
-  %mul = add i64 %add, 2
+  %add = shl nuw nsw i64 %__secondChild.032, 1
+  %mul = add nuw nsw i64 %add, 2
   %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %mul
   %0 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %add
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3181,7 +3181,7 @@ land.lhs.true:                                    ; preds = %while.end
   br i1 %cmp9, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
+  %add11 = shl nuw nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %sub13
   %add.ptr15 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__secondChild.0.lcssa
@@ -3200,10 +3200,10 @@ if.end18:                                         ; preds = %if.then10, %land.lh
   br i1 %cmp3.i, label %land.rhs.i, label %"_ZSt11__push_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 land.rhs.i:                                       ; preds = %if.end18, %while.body.i
-  %__holeIndex.addr.04.i = phi i64 [ %__parent.05.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end18 ]
+  %__holeIndex.addr.04.i = phi i64 [ %__parent.057.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end18 ]
   %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
-  %__parent.05.i = sdiv i64 %__parent.05.in.i, 2
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.05.i
+  %__parent.057.i = lshr i64 %__parent.05.in.i, 1
+  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.057.i
   %add.ptr.val.i = load i64, ptr %add.ptr.i, align 8
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload, i64 %add.ptr.val.i)
   %cmp.i2.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
@@ -3234,11 +3234,11 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %second3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i.i, i64 16, i1 false)
-  %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
+  %cmp.i = icmp samesign ugt i64 %__parent.057.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !27
 
 "_ZSt11__push_heapIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEES4_ElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNSA_5RealmEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESD_EEbT_RT0_.exit.i", %while.body.i, %if.end18
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESD_EEbT_RT0_.exit.i" ], [ %__parent.05.i, %while.body.i ]
+  %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4node19CreateProcessObjectEPNS2_5RealmEE3$_0EclIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESC_ESD_EEbT_RT0_.exit.i" ], [ %__parent.057.i, %while.body.i ]
   %agg.tmp.sroa.3.0.__value.sroa_idx = getelementptr inbounds nuw i8, ptr %__value, i64 16
   %add.ptr6.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %add.ptr6.i, align 8

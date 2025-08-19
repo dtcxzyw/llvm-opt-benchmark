@@ -2188,7 +2188,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %17 = getelementptr %struct.TxDesc, ptr %15, i64 %16
   %18 = load volatile i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %.lr.ph32, label %.thread
+  br i1 %19, label %.lr.ph41, label %.thread
 
 .lr.ph:                                           ; preds = %46
   %20 = and i32 %49, 255
@@ -2197,9 +2197,9 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %23 = getelementptr %struct.TxDesc, ptr %21, i64 %22
   %24 = load volatile i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %.lr.ph32, label %.thread.loopexit
+  br i1 %25, label %.lr.ph41, label %.thread.loopexit
 
-.lr.ph32:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph41:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %26 = phi ptr [ %23, %.lr.ph ], [ %17, %.lr.ph.preheader ]
   %27 = phi i64 [ %22, %.lr.ph ], [ %16, %.lr.ph.preheader ]
   %28 = phi i32 [ %47, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -2220,7 +2220,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %40 = icmp eq ptr %32, null
   br i1 %40, label %46, label %41
 
-41:                                               ; preds = %.lr.ph32
+41:                                               ; preds = %.lr.ph41
   %42 = add i32 %28, 1
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %44 = load i32, ptr %43, align 8
@@ -2228,9 +2228,9 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   tail call void @napi_consume_skb(ptr noundef nonnull %32, i32 noundef %1) #19
   br label %46
 
-46:                                               ; preds = %.lr.ph32, %41
-  %47 = phi i32 [ %42, %41 ], [ %28, %.lr.ph32 ]
-  %48 = phi i32 [ %45, %41 ], [ %29, %.lr.ph32 ]
+46:                                               ; preds = %.lr.ph41, %41
+  %47 = phi i32 [ %42, %41 ], [ %28, %.lr.ph41 ]
+  %48 = phi i32 [ %45, %41 ], [ %29, %.lr.ph41 ]
   %49 = add i32 %30, 1
   %50 = load volatile i32, ptr %8, align 4
   %51 = icmp eq i32 %50, %49
@@ -3766,14 +3766,14 @@ define internal noundef range(i32 0, 17) i32 @rtl8169_start_xmit(ptr noundef %0,
 
 196:                                              ; preds = %.loopexit32, %195
   %.sink = phi i32 [ 268435456, %195 ], [ 536870912, %.loopexit32 ]
-  %.sink51 = phi i64 [ 6, %195 ], [ 9, %.loopexit32 ]
+  %.sink62 = phi i64 [ 6, %195 ], [ 9, %.loopexit32 ]
   %197 = or i32 %37, %.sink
   %198 = load ptr, ptr %4, align 8
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %200 = load i16, ptr %199, align 4
   %201 = zext i16 %200 to i64
   %202 = getelementptr i8, ptr %198, i64 %201
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 %.sink51
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 %.sink62
   %204 = load i8, ptr %203, align 1
   switch i8 %204, label %.thread23 [
     i8 6, label %205
@@ -7300,24 +7300,24 @@ define internal fastcc void @rtl_enable_rxdvgate(ptr noundef readonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %.loopexit [
-    i32 33, label %.preheader15
-    i32 34, label %.preheader15
-    i32 35, label %.preheader15
-    i32 36, label %.preheader15
-    i32 37, label %.preheader15
-    i32 38, label %.preheader15
-    i32 39, label %.preheader15
-    i32 40, label %.preheader15
-    i32 41, label %.preheader15
+    i32 33, label %.preheader19
+    i32 34, label %.preheader19
+    i32 35, label %.preheader19
+    i32 36, label %.preheader19
+    i32 37, label %.preheader19
+    i32 38, label %.preheader19
+    i32 39, label %.preheader19
+    i32 40, label %.preheader19
+    i32 41, label %.preheader19
     i32 42, label %.preheader
     i32 43, label %50
   ]
 
-.preheader15:                                     ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1
+.preheader19:                                     ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1
   br label %10
 
-10:                                               ; preds = %.preheader15, %17
-  %11 = phi i32 [ %18, %17 ], [ 0, %.preheader15 ]
+10:                                               ; preds = %.preheader19, %17
+  %11 = phi i32 [ %18, %17 ], [ 0, %.preheader19 ]
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr i8, ptr %12, i64 64
   %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #19, !srcloc !16

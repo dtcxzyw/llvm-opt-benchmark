@@ -479,18 +479,18 @@ lex_match.exit:                                   ; preds = %is_name_char.exit.t
   %44 = and i64 %.sroa.0.0, -255
   %masksel.i = select i1 %.0.shrunk, i64 2, i64 0
   %storemerge.i.i = or disjoint i64 %masksel.i, %44
-  %masksel169.i = select i1 %.0.shrunk, i64 4, i64 0
-  %storemerge.i61.i = or disjoint i64 %storemerge.i.i, %masksel169.i
-  %masksel170.i = select i1 %.0.shrunk, i64 8, i64 0
-  %storemerge.i76.i = or disjoint i64 %storemerge.i61.i, %masksel170.i
-  %masksel171.i = select i1 %.0.shrunk, i64 16, i64 0
-  %storemerge.i91.i = or disjoint i64 %storemerge.i76.i, %masksel171.i
-  %masksel172.i = select i1 %.0.shrunk, i64 32, i64 0
-  %masksel173.i = select i1 %.0.shrunk, i64 64, i64 0
-  %.masked = or disjoint i64 %storemerge.i91.i, %masksel172.i
-  %45 = or i64 %.masked, %masksel173.i
-  %masksel174.i = select i1 %.0.shrunk, i64 128, i64 0
-  %storemerge.i136.i = or disjoint i64 %45, %masksel174.i
+  %masksel176.i = select i1 %.0.shrunk, i64 4, i64 0
+  %storemerge.i61.i = or disjoint i64 %storemerge.i.i, %masksel176.i
+  %masksel177.i = select i1 %.0.shrunk, i64 8, i64 0
+  %storemerge.i76.i = or disjoint i64 %storemerge.i61.i, %masksel177.i
+  %masksel178.i = select i1 %.0.shrunk, i64 16, i64 0
+  %storemerge.i91.i = or disjoint i64 %storemerge.i76.i, %masksel178.i
+  %masksel179.i = select i1 %.0.shrunk, i64 32, i64 0
+  %masksel180.i = select i1 %.0.shrunk, i64 64, i64 0
+  %.masked = or disjoint i64 %storemerge.i91.i, %masksel179.i
+  %45 = or i64 %.masked, %masksel180.i
+  %masksel181.i = select i1 %.0.shrunk, i64 128, i64 0
+  %storemerge.i136.i = or disjoint i64 %45, %masksel181.i
   br label %.backedge.backedge
 
 lex_match.exit.thread:                            ; preds = %is_name_char.exit.thread, %lex_match.exit
@@ -647,21 +647,21 @@ filter_match_event.exit.i:                        ; preds = %81, %80
   br i1 %or.cond24.i54.i, label %84, label %88
 
 .thread.i:                                        ; preds = %79
-  %.not20.i53153.i = icmp eq i64 %.0112, 24
-  %or.cond24.i54154.i = or i1 %.not19.i.i, %.not20.i53153.i
-  br i1 %or.cond24.i54154.i, label %.thread156.i, label %88
+  %.not20.i53160.i = icmp eq i64 %.0112, 24
+  %or.cond24.i54161.i = or i1 %.not19.i.i, %.not20.i53160.i
+  br i1 %or.cond24.i54161.i, label %.thread163.i, label %88
 
 84:                                               ; preds = %83
-  br i1 %.not.i.i63, label %85, label %.thread156.i
+  br i1 %.not.i.i63, label %85, label %.thread163.i
 
-.thread156.i:                                     ; preds = %84, %.thread.i
+.thread163.i:                                     ; preds = %84, %.thread.i
   %.sroa.0.9 = phi i64 [ %.sroa.0.7, %84 ], [ %.sroa.0.0, %.thread.i ]
   %bcmp.i55.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %.2117, ptr noundef nonnull dereferenceable(12) @.str.35, i64 12)
   %.not21.i56.i = icmp eq i32 %bcmp.i55.i, 0
   br i1 %.not21.i56.i, label %85, label %88
 
-85:                                               ; preds = %.thread156.i, %84
-  %.sroa.0.10 = phi i64 [ %.sroa.0.7, %84 ], [ %.sroa.0.9, %.thread156.i ]
+85:                                               ; preds = %.thread163.i, %84
+  %.sroa.0.10 = phi i64 [ %.sroa.0.7, %84 ], [ %.sroa.0.9, %.thread163.i ]
   br i1 %.not19.i.i, label %filter_match_event.exit59.i, label %86
 
 86:                                               ; preds = %85
@@ -671,12 +671,12 @@ filter_match_event.exit.i:                        ; preds = %81, %80
 
 filter_match_event.exit59.i:                      ; preds = %86, %85
   %87 = and i64 %.sroa.0.10, -5
-  %masksel169.i80 = select i1 %.0.shrunk, i64 4, i64 0
-  %storemerge.i61.i81 = or disjoint i64 %87, %masksel169.i80
+  %masksel176.i80 = select i1 %.0.shrunk, i64 4, i64 0
+  %storemerge.i61.i81 = or disjoint i64 %87, %masksel176.i80
   br label %88
 
-88:                                               ; preds = %filter_match_event.exit59.i, %86, %.thread156.i, %.thread.i, %83
-  %.sroa.0.8 = phi i64 [ %storemerge.i61.i81, %filter_match_event.exit59.i ], [ %.sroa.0.10, %86 ], [ %.sroa.0.9, %.thread156.i ], [ %.sroa.0.7, %83 ], [ %.sroa.0.0, %.thread.i ]
+88:                                               ; preds = %filter_match_event.exit59.i, %86, %.thread163.i, %.thread.i, %83
+  %.sroa.0.8 = phi i64 [ %storemerge.i61.i81, %filter_match_event.exit59.i ], [ %.sroa.0.10, %86 ], [ %.sroa.0.9, %.thread163.i ], [ %.sroa.0.7, %83 ], [ %.sroa.0.0, %.thread.i ]
   %.not20.i68.i = icmp eq i64 %.0112, 17
   %or.cond24.i69.i = or i1 %.not19.i.i, %.not20.i68.i
   br i1 %or.cond24.i69.i, label %89, label %filter_match_event.exit74.thread.i
@@ -699,8 +699,8 @@ filter_match_event.exit59.i:                      ; preds = %86, %85
 
 filter_match_event.exit74.i:                      ; preds = %92, %91
   %93 = and i64 %.sroa.0.8, -9
-  %masksel170.i77 = select i1 %.0.shrunk, i64 8, i64 0
-  %storemerge.i76.i78 = or disjoint i64 %93, %masksel170.i77
+  %masksel177.i77 = select i1 %.0.shrunk, i64 8, i64 0
+  %storemerge.i76.i78 = or disjoint i64 %93, %masksel177.i77
   br label %filter_match_event.exit74.thread.i
 
 filter_match_event.exit74.thread.i:               ; preds = %filter_match_event.exit74.i, %92, %90, %88, %validate_name.exit62
@@ -721,7 +721,7 @@ filter_match_event.exit74.thread.i:               ; preds = %filter_match_event.
 96:                                               ; preds = %95
   %bcmp.i85.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %.2117, ptr noundef nonnull dereferenceable(9) @.str.39, i64 9)
   %.not21.i86.i = icmp eq i32 %bcmp.i85.i, 0
-  br i1 %.not21.i86.i, label %97, label %.thread160.i
+  br i1 %.not21.i86.i, label %97, label %.thread167.i
 
 97:                                               ; preds = %96, %95
   br i1 %.not19.i82.i, label %filter_match_event.exit89.i, label %98
@@ -733,8 +733,8 @@ filter_match_event.exit74.thread.i:               ; preds = %filter_match_event.
 
 filter_match_event.exit89.i:                      ; preds = %98, %97
   %99 = and i64 %.sroa.0.1, -17
-  %masksel171.i74 = select i1 %.0.shrunk, i64 16, i64 0
-  %storemerge.i91.i75 = or disjoint i64 %99, %masksel171.i74
+  %masksel178.i74 = select i1 %.0.shrunk, i64 16, i64 0
+  %storemerge.i91.i75 = or disjoint i64 %99, %masksel178.i74
   br label %100
 
 100:                                              ; preds = %filter_match_event.exit89.i, %98, %94
@@ -743,22 +743,22 @@ filter_match_event.exit89.i:                      ; preds = %98, %97
   %or.cond24.i99.i = or i1 %.not19.i82.i, %.not20.i98.i
   br i1 %or.cond24.i99.i, label %101, label %105
 
-.thread160.i:                                     ; preds = %96
-  %.not20.i98162.i = icmp eq i64 %.0112, 11
-  %or.cond24.i99163.i = or i1 %.not19.i82.i, %.not20.i98162.i
-  br i1 %or.cond24.i99163.i, label %.thread165.i, label %105
+.thread167.i:                                     ; preds = %96
+  %.not20.i98169.i = icmp eq i64 %.0112, 11
+  %or.cond24.i99170.i = or i1 %.not19.i82.i, %.not20.i98169.i
+  br i1 %or.cond24.i99170.i, label %.thread172.i, label %105
 
 101:                                              ; preds = %100
-  br i1 %.not.i.i63, label %102, label %.thread165.i
+  br i1 %.not.i.i63, label %102, label %.thread172.i
 
-.thread165.i:                                     ; preds = %101, %.thread160.i
-  %.sroa.0.5 = phi i64 [ %.sroa.0.3, %101 ], [ %.sroa.0.1, %.thread160.i ]
+.thread172.i:                                     ; preds = %101, %.thread167.i
+  %.sroa.0.5 = phi i64 [ %.sroa.0.3, %101 ], [ %.sroa.0.1, %.thread167.i ]
   %bcmp.i100.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %.2117, ptr noundef nonnull dereferenceable(9) @.str.39, i64 9)
   %.not21.i101.i = icmp eq i32 %bcmp.i100.i, 0
   br i1 %.not21.i101.i, label %102, label %105
 
-102:                                              ; preds = %.thread165.i, %101
-  %.sroa.0.6 = phi i64 [ %.sroa.0.3, %101 ], [ %.sroa.0.5, %.thread165.i ]
+102:                                              ; preds = %.thread172.i, %101
+  %.sroa.0.6 = phi i64 [ %.sroa.0.3, %101 ], [ %.sroa.0.5, %.thread172.i ]
   br i1 %.not19.i82.i, label %filter_match_event.exit104.i, label %103
 
 103:                                              ; preds = %102
@@ -768,12 +768,12 @@ filter_match_event.exit89.i:                      ; preds = %98, %97
 
 filter_match_event.exit104.i:                     ; preds = %103, %102
   %104 = and i64 %.sroa.0.6, -33
-  %masksel172.i71 = select i1 %.0.shrunk, i64 32, i64 0
-  %storemerge.i106.i72 = or disjoint i64 %104, %masksel172.i71
+  %masksel179.i71 = select i1 %.0.shrunk, i64 32, i64 0
+  %storemerge.i106.i72 = or disjoint i64 %104, %masksel179.i71
   br label %105
 
-105:                                              ; preds = %filter_match_event.exit104.i, %103, %.thread165.i, %.thread160.i, %100
-  %.sroa.0.4 = phi i64 [ %storemerge.i106.i72, %filter_match_event.exit104.i ], [ %.sroa.0.6, %103 ], [ %.sroa.0.5, %.thread165.i ], [ %.sroa.0.3, %100 ], [ %.sroa.0.1, %.thread160.i ]
+105:                                              ; preds = %filter_match_event.exit104.i, %103, %.thread172.i, %.thread167.i, %100
+  %.sroa.0.4 = phi i64 [ %storemerge.i106.i72, %filter_match_event.exit104.i ], [ %.sroa.0.6, %103 ], [ %.sroa.0.5, %.thread172.i ], [ %.sroa.0.3, %100 ], [ %.sroa.0.1, %.thread167.i ]
   %.not20.i113.i = icmp eq i64 %.0112, 15
   %or.cond24.i114.i = or i1 %.not19.i82.i, %.not20.i113.i
   br i1 %or.cond24.i114.i, label %106, label %filter_match_event.exit119.thread.i
@@ -796,8 +796,8 @@ filter_match_event.exit104.i:                     ; preds = %103, %102
 
 filter_match_event.exit119.i:                     ; preds = %109, %108
   %110 = and i64 %.sroa.0.4, -65
-  %masksel173.i68 = select i1 %.0.shrunk, i64 64, i64 0
-  %storemerge.i121.i69 = or disjoint i64 %110, %masksel173.i68
+  %masksel180.i68 = select i1 %.0.shrunk, i64 64, i64 0
+  %storemerge.i121.i69 = or disjoint i64 %110, %masksel180.i68
   br label %filter_match_event.exit119.thread.i
 
 filter_match_event.exit119.thread.i:              ; preds = %filter_match_event.exit119.i, %109, %107, %105, %filter_match_event.exit74.thread.i
@@ -830,8 +830,8 @@ filter_match_event.exit119.thread.i:              ; preds = %filter_match_event.
 
 filter_match_event.exit134.i:                     ; preds = %115, %114
   %116 = and i64 %.sroa.0.2, -129
-  %masksel174.i65 = select i1 %.0.shrunk, i64 128, i64 0
-  %storemerge.i136.i66 = or disjoint i64 %116, %masksel174.i65
+  %masksel181.i65 = select i1 %.0.shrunk, i64 128, i64 0
+  %storemerge.i136.i66 = or disjoint i64 %116, %masksel181.i65
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %filter_match_event.exit134.i, %115, %113, %111, %filter_match_event.exit119.thread.i, %43

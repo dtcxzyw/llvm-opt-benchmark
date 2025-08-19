@@ -3090,12 +3090,12 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %137, label %231, label %228
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %.sroa.5126.0.lcssa604 = phi i32 [ %.sroa.5126.3, %._crit_edge ], [ undef, %3 ]
-  %.sroa.0124.0.lcssa602 = phi i32 [ %.sroa.0124.3, %._crit_edge ], [ 2, %3 ]
-  %.0.lcssa600 = phi i1 [ %133, %._crit_edge ], [ false, %3 ]
-  %.sroa.5119.0.lcssa598 = phi i32 [ %.sroa.5119.3, %._crit_edge ], [ undef, %3 ]
-  %.sroa.0117.0.lcssa596 = phi i32 [ %.sroa.0117.3, %._crit_edge ], [ 2, %3 ]
-  %.0129.lcssa594 = phi i1 [ %132, %._crit_edge ], [ false, %3 ]
+  %.sroa.5126.0.lcssa623 = phi i32 [ %.sroa.5126.3, %._crit_edge ], [ undef, %3 ]
+  %.sroa.0124.0.lcssa621 = phi i32 [ %.sroa.0124.3, %._crit_edge ], [ 2, %3 ]
+  %.0.lcssa619 = phi i1 [ %133, %._crit_edge ], [ false, %3 ]
+  %.sroa.5119.0.lcssa617 = phi i32 [ %.sroa.5119.3, %._crit_edge ], [ undef, %3 ]
+  %.sroa.0117.0.lcssa615 = phi i32 [ %.sroa.0117.3, %._crit_edge ], [ 2, %3 ]
+  %.0129.lcssa613 = phi i1 [ %132, %._crit_edge ], [ false, %3 ]
   %138 = load i64, ptr %87, align 8, !range !38, !alias.scope !434, !noundef !10
   %switch.i = icmp slt i64 %138, -9223372036854775806
   br i1 %switch.i, label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit", label %139
@@ -3105,16 +3105,16 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
           to label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" unwind label %143
 
 140:                                              ; preds = %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit", %._crit_edge
-  %.sroa.5126.0.lcssa605 = phi i32 [ %.sroa.5126.0.lcssa604, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5126.3, %._crit_edge ]
-  %.sroa.0124.0.lcssa603 = phi i32 [ %.sroa.0124.0.lcssa602, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0124.3, %._crit_edge ]
-  %.0.lcssa601 = phi i1 [ %.0.lcssa600, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %133, %._crit_edge ]
-  %.sroa.5119.0.lcssa599 = phi i32 [ %.sroa.5119.0.lcssa598, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5119.3, %._crit_edge ]
-  %.sroa.0117.0.lcssa597 = phi i32 [ %.sroa.0117.0.lcssa596, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0117.3, %._crit_edge ]
-  %.0129.lcssa595 = phi i1 [ %.0129.lcssa594, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %132, %._crit_edge ]
-  %spec.select = select i1 %.0129.lcssa595, i32 %.sroa.0117.0.lcssa597, i32 0
-  %spec.select162 = select i1 %.0129.lcssa595, i32 %.sroa.5119.0.lcssa599, i32 undef
-  %.sroa.0124.1 = select i1 %.0.lcssa601, i32 %.sroa.0124.0.lcssa603, i32 0
-  %.sroa.5126.1 = select i1 %.0.lcssa601, i32 %.sroa.5126.0.lcssa605, i32 undef
+  %.sroa.5126.0.lcssa624 = phi i32 [ %.sroa.5126.0.lcssa623, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5126.3, %._crit_edge ]
+  %.sroa.0124.0.lcssa622 = phi i32 [ %.sroa.0124.0.lcssa621, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0124.3, %._crit_edge ]
+  %.0.lcssa620 = phi i1 [ %.0.lcssa619, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %133, %._crit_edge ]
+  %.sroa.5119.0.lcssa618 = phi i32 [ %.sroa.5119.0.lcssa617, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.5119.3, %._crit_edge ]
+  %.sroa.0117.0.lcssa616 = phi i32 [ %.sroa.0117.0.lcssa615, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %.sroa.0117.3, %._crit_edge ]
+  %.0129.lcssa614 = phi i1 [ %.0129.lcssa613, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$syn..path..Path$GT$$GT$$GT$17hfa6d424697615508E.exit" ], [ %132, %._crit_edge ]
+  %spec.select = select i1 %.0129.lcssa614, i32 %.sroa.0117.0.lcssa616, i32 0
+  %spec.select162 = select i1 %.0129.lcssa614, i32 %.sroa.5119.0.lcssa618, i32 undef
+  %.sroa.0124.1 = select i1 %.0.lcssa620, i32 %.sroa.0124.0.lcssa622, i32 0
+  %.sroa.5126.1 = select i1 %.0.lcssa620, i32 %.sroa.5126.0.lcssa624, i32 undef
   %141 = load i8, ptr %85, align 8, !range !238, !noundef !10
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %156, label %145

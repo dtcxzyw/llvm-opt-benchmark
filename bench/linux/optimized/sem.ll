@@ -1751,9 +1751,9 @@ set_semotime.exit:                                ; preds = %220, %222
 267:                                              ; preds = %266, %262
   %268 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %. = select i1 %178, i64 152, i64 136
-  %.61 = select i1 %178, i64 160, i64 144
+  %.82 = select i1 %178, i64 160, i64 144
   %269 = getelementptr inbounds nuw i8, ptr %167, i64 %.
-  %270 = getelementptr inbounds nuw i8, ptr %167, i64 %.61
+  %270 = getelementptr inbounds nuw i8, ptr %167, i64 %.82
   %271 = load ptr, ptr %270, align 8
   store ptr %6, ptr %270, align 8
   store ptr %269, ptr %6, align 8
@@ -3202,42 +3202,42 @@ define dso_local void @exit_sem(ptr noundef captures(none) %0) local_unnamed_add
   %181 = icmp sgt i32 %176, 0
   br i1 %181, label %.outer, label %.thread33
 
-.outer:                                           ; preds = %180, %.thread51
-  %.ph = phi i32 [ %.pre50, %.thread51 ], [ %176, %180 ]
-  %.ph53 = phi i64 [ %194, %.thread51 ], [ 0, %180 ]
-  %182 = phi i1 [ false, %.thread51 ], [ true, %180 ]
+.outer:                                           ; preds = %180, %.thread75
+  %.ph = phi i32 [ %.pre50, %.thread75 ], [ %176, %180 ]
+  %.ph77 = phi i64 [ %194, %.thread75 ], [ 0, %180 ]
+  %182 = phi i1 [ false, %.thread75 ], [ true, %180 ]
   %183 = sext i32 %.ph to i64
   br label %184
 
 184:                                              ; preds = %.outer, %189
-  %185 = phi i64 [ %190, %189 ], [ %.ph53, %.outer ]
+  %185 = phi i64 [ %190, %189 ], [ %.ph77, %.outer ]
   %186 = getelementptr [0 x %struct.sem], ptr %140, i64 0, i64 %185
   %187 = load i32, ptr %186, align 64
   %188 = icmp eq i32 %187, 0
-  br i1 %188, label %.thread51, label %189
+  br i1 %188, label %.thread75, label %189
 
 189:                                              ; preds = %184
   %190 = add nuw nsw i64 %185, 1
   %191 = icmp slt i64 %190, %183
   br i1 %191, label %184, label %197, !llvm.loop !45
 
-.thread51:                                        ; preds = %184
+.thread75:                                        ; preds = %184
   %192 = trunc i64 %185 to i32
   %193 = call fastcc i32 @wake_const_ops(ptr noundef %29, i32 noundef %192, ptr noundef nonnull %2), !range !43
   %.pre50 = load i32, ptr %135, align 8
   %194 = add nuw nsw i64 %185, 1
   %195 = sext i32 %.pre50 to i64
   %196 = icmp slt i64 %194, %195
-  br i1 %196, label %.outer, label %.thread52, !llvm.loop !45
+  br i1 %196, label %.outer, label %.thread76, !llvm.loop !45
 
 197:                                              ; preds = %189
-  br i1 %182, label %.thread33, label %.thread52
+  br i1 %182, label %.thread33, label %.thread76
 
-.thread52:                                        ; preds = %.thread51, %197
+.thread76:                                        ; preds = %.thread75, %197
   %198 = call fastcc i32 @wake_const_ops(ptr noundef %29, i32 noundef -1, ptr noundef nonnull %2), !range !43
   br label %.thread33
 
-.thread33:                                        ; preds = %125, %180, %.thread52, %197
+.thread33:                                        ; preds = %125, %180, %.thread76, %197
   %199 = getelementptr inbounds nuw i8, ptr %29, i64 136
   %200 = load volatile ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, %199
@@ -4934,7 +4934,7 @@ define internal fastcc range(i32 0, 2) i32 @update_queue(ptr noundef %0, i32 nou
 
 20:                                               ; preds = %.backedge, %13
   %21 = phi ptr [ %11, %13 ], [ %.be, %.backedge ]
-  %22 = phi i32 [ 0, %13 ], [ %.be16, %.backedge ]
+  %22 = phi i32 [ 0, %13 ], [ %.be26, %.backedge ]
   %23 = load ptr, ptr %21, align 8
   br i1 %4, label %27, label %24
 
@@ -5091,7 +5091,7 @@ do_smart_wakeup_zero.exit:                        ; preds = %48, %52, %.loopexit
 
 .backedge:                                        ; preds = %.thread, %17
   %.be = phi ptr [ %23, %.thread ], [ %18, %17 ]
-  %.be16 = phi i32 [ %110, %.thread ], [ %96, %17 ]
+  %.be26 = phi i32 [ %110, %.thread ], [ %96, %17 ]
   br label %20, !llvm.loop !68
 
 .thread6:                                         ; preds = %24, %.thread, %17, %3

@@ -698,56 +698,56 @@ define dso_local noundef i32 @read_slurmdbd_conf() local_unnamed_addr #0 {
   %221 = load ptr, ptr %3, align 8
   %222 = call ptr @xstrcasestr(ptr noundef %221, ptr noundef nonnull @.str.87) #10
   %.not138 = icmp eq ptr %222, null
-  br i1 %.not138, label %223, label %.sink.split228
+  br i1 %.not138, label %223, label %.sink.split263
 
 223:                                              ; preds = %220
   %224 = load ptr, ptr %3, align 8
   %225 = call ptr @xstrcasestr(ptr noundef %224, ptr noundef nonnull @.str.88) #10
   %.not139 = icmp eq ptr %225, null
-  br i1 %.not139, label %226, label %.sink.split228
+  br i1 %.not139, label %226, label %.sink.split263
 
 226:                                              ; preds = %223
   %227 = load ptr, ptr %3, align 8
   %228 = call ptr @xstrcasestr(ptr noundef %227, ptr noundef nonnull @.str.89) #10
   %.not140 = icmp eq ptr %228, null
-  br i1 %.not140, label %229, label %.sink.split228
+  br i1 %.not140, label %229, label %.sink.split263
 
 229:                                              ; preds = %226
   %230 = load ptr, ptr %3, align 8
   %231 = call ptr @xstrcasestr(ptr noundef %230, ptr noundef nonnull @.str.90) #10
   %.not141 = icmp eq ptr %231, null
-  br i1 %.not141, label %232, label %.sink.split228
+  br i1 %.not141, label %232, label %.sink.split263
 
 232:                                              ; preds = %229
   %233 = load ptr, ptr %3, align 8
   %234 = call ptr @xstrcasestr(ptr noundef %233, ptr noundef nonnull @.str.91) #10
   %.not142 = icmp eq ptr %234, null
-  br i1 %.not142, label %235, label %.sink.split228
+  br i1 %.not142, label %235, label %.sink.split263
 
 235:                                              ; preds = %232
   %236 = load ptr, ptr %3, align 8
   %237 = call ptr @xstrcasestr(ptr noundef %236, ptr noundef nonnull @.str.92) #10
   %.not143 = icmp eq ptr %237, null
-  br i1 %.not143, label %238, label %.sink.split228
+  br i1 %.not143, label %238, label %.sink.split263
 
 238:                                              ; preds = %235
   %239 = load ptr, ptr %3, align 8
   %240 = call ptr @xstrcasestr(ptr noundef %239, ptr noundef nonnull @.str.93) #10
   %.not144 = icmp eq ptr %240, null
-  br i1 %.not144, label %241, label %.sink.split228
+  br i1 %.not144, label %241, label %.sink.split263
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr %3, align 8
   %243 = call ptr @xstrcasestr(ptr noundef %242, ptr noundef nonnull @.str.94) #10
   %.not145 = icmp eq ptr %243, null
-  br i1 %.not145, label %244, label %.sink.split228
+  br i1 %.not145, label %244, label %.sink.split263
 
-.sink.split228:                                   ; preds = %241, %238, %235, %232, %229, %226, %223, %220
-  %.sink229 = phi i16 [ 0, %220 ], [ 1, %223 ], [ 2, %226 ], [ 3, %229 ], [ 7, %232 ], [ 4, %235 ], [ 5, %238 ], [ 6, %241 ]
-  store i16 %.sink229, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 624), align 8
+.sink.split263:                                   ; preds = %241, %238, %235, %232, %229, %226, %223, %220
+  %.sink264 = phi i16 [ 0, %220 ], [ 1, %223 ], [ 2, %226 ], [ 3, %229 ], [ 7, %232 ], [ 4, %235 ], [ 5, %238 ], [ 6, %241 ]
+  store i16 %.sink264, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 624), align 8
   br label %244
 
-244:                                              ; preds = %.sink.split228, %241
+244:                                              ; preds = %.sink.split263, %241
   call void @slurm_xfree(ptr noundef nonnull %3) #10
   br label %245
 
@@ -1099,98 +1099,98 @@ define dso_local noundef i32 @read_slurmdbd_conf() local_unnamed_addr #0 {
   %414 = call i32 @s_p_get_uint32(ptr noundef nonnull %413, ptr noundef nonnull @.str.45, ptr noundef %51) #10
   %.not167 = icmp eq i32 %414, 0
   %.pre220 = load ptr, ptr @slurmdbd_conf, align 8
-  br i1 %.not167, label %418, label %.sink.split230
+  br i1 %.not167, label %418, label %.sink.split265
 
-.sink.split230:                                   ; preds = %411
+.sink.split265:                                   ; preds = %411
   %415 = getelementptr inbounds nuw i8, ptr %.pre220, i64 112
   %416 = load i32, ptr %415, align 8
   %.not168 = icmp eq i32 %416, 0
   %417 = or i32 %416, 262144
-  %.sink231 = select i1 %.not168, i32 -2, i32 %417
-  store i32 %.sink231, ptr %415, align 8
+  %.sink266 = select i1 %.not168, i32 -2, i32 %417
+  store i32 %.sink266, ptr %415, align 8
   br label %418
 
-418:                                              ; preds = %.sink.split230, %411
+418:                                              ; preds = %.sink.split265, %411
   %419 = getelementptr inbounds nuw i8, ptr %.pre220, i64 116
   %420 = call i32 @s_p_get_uint32(ptr noundef nonnull %419, ptr noundef nonnull @.str.46, ptr noundef %51) #10
   %.not169 = icmp eq i32 %420, 0
   %.pre221 = load ptr, ptr @slurmdbd_conf, align 8
-  br i1 %.not169, label %424, label %.sink.split232
+  br i1 %.not169, label %424, label %.sink.split267
 
-.sink.split232:                                   ; preds = %418
+.sink.split267:                                   ; preds = %418
   %421 = getelementptr inbounds nuw i8, ptr %.pre221, i64 116
   %422 = load i32, ptr %421, align 4
   %.not170 = icmp eq i32 %422, 0
   %423 = or i32 %422, 262144
-  %.sink233 = select i1 %.not170, i32 -2, i32 %423
-  store i32 %.sink233, ptr %421, align 4
+  %.sink268 = select i1 %.not170, i32 -2, i32 %423
+  store i32 %.sink268, ptr %421, align 4
   br label %424
 
-424:                                              ; preds = %.sink.split232, %418
+424:                                              ; preds = %.sink.split267, %418
   %425 = getelementptr inbounds nuw i8, ptr %.pre221, i64 124
   %426 = call i32 @s_p_get_uint32(ptr noundef nonnull %425, ptr noundef nonnull @.str.47, ptr noundef %51) #10
   %.not171 = icmp eq i32 %426, 0
   %.pre222 = load ptr, ptr @slurmdbd_conf, align 8
-  br i1 %.not171, label %430, label %.sink.split234
+  br i1 %.not171, label %430, label %.sink.split269
 
-.sink.split234:                                   ; preds = %424
+.sink.split269:                                   ; preds = %424
   %427 = getelementptr inbounds nuw i8, ptr %.pre222, i64 124
   %428 = load i32, ptr %427, align 4
   %.not172 = icmp eq i32 %428, 0
   %429 = or i32 %428, 262144
-  %.sink235 = select i1 %.not172, i32 -2, i32 %429
-  store i32 %.sink235, ptr %427, align 4
+  %.sink270 = select i1 %.not172, i32 -2, i32 %429
+  store i32 %.sink270, ptr %427, align 4
   br label %430
 
-430:                                              ; preds = %.sink.split234, %424
+430:                                              ; preds = %.sink.split269, %424
   %431 = getelementptr inbounds nuw i8, ptr %.pre222, i64 128
   %432 = call i32 @s_p_get_uint32(ptr noundef nonnull %431, ptr noundef nonnull @.str.48, ptr noundef %51) #10
   %.not173 = icmp eq i32 %432, 0
   %.pre223 = load ptr, ptr @slurmdbd_conf, align 8
-  br i1 %.not173, label %436, label %.sink.split236
+  br i1 %.not173, label %436, label %.sink.split271
 
-.sink.split236:                                   ; preds = %430
+.sink.split271:                                   ; preds = %430
   %433 = getelementptr inbounds nuw i8, ptr %.pre223, i64 128
   %434 = load i32, ptr %433, align 8
   %.not174 = icmp eq i32 %434, 0
   %435 = or i32 %434, 262144
-  %.sink237 = select i1 %.not174, i32 -2, i32 %435
-  store i32 %.sink237, ptr %433, align 8
+  %.sink272 = select i1 %.not174, i32 -2, i32 %435
+  store i32 %.sink272, ptr %433, align 8
   br label %436
 
-436:                                              ; preds = %.sink.split236, %430
+436:                                              ; preds = %.sink.split271, %430
   %437 = getelementptr inbounds nuw i8, ptr %.pre223, i64 132
   %438 = call i32 @s_p_get_uint32(ptr noundef nonnull %437, ptr noundef nonnull @.str.49, ptr noundef %51) #10
   %.not175 = icmp eq i32 %438, 0
   %.pre224 = load ptr, ptr @slurmdbd_conf, align 8
-  br i1 %.not175, label %442, label %.sink.split238
+  br i1 %.not175, label %442, label %.sink.split273
 
-.sink.split238:                                   ; preds = %436
+.sink.split273:                                   ; preds = %436
   %439 = getelementptr inbounds nuw i8, ptr %.pre224, i64 132
   %440 = load i32, ptr %439, align 4
   %.not176 = icmp eq i32 %440, 0
   %441 = or i32 %440, 262144
-  %.sink239 = select i1 %.not176, i32 -2, i32 %441
-  store i32 %.sink239, ptr %439, align 4
+  %.sink274 = select i1 %.not176, i32 -2, i32 %441
+  store i32 %.sink274, ptr %439, align 4
   br label %442
 
-442:                                              ; preds = %.sink.split238, %436
+442:                                              ; preds = %.sink.split273, %436
   %443 = getelementptr inbounds nuw i8, ptr %.pre224, i64 136
   %444 = call i32 @s_p_get_uint32(ptr noundef nonnull %443, ptr noundef nonnull @.str.50, ptr noundef %51) #10
   %.not177 = icmp eq i32 %444, 0
-  br i1 %.not177, label %449, label %.sink.split240
+  br i1 %.not177, label %449, label %.sink.split275
 
-.sink.split240:                                   ; preds = %442
+.sink.split275:                                   ; preds = %442
   %445 = load ptr, ptr @slurmdbd_conf, align 8
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 136
   %447 = load i32, ptr %446, align 8
   %.not178 = icmp eq i32 %447, 0
   %448 = or i32 %447, 262144
-  %.sink241 = select i1 %.not178, i32 -2, i32 %448
-  store i32 %.sink241, ptr %446, align 8
+  %.sink276 = select i1 %.not178, i32 -2, i32 %448
+  store i32 %.sink276, ptr %446, align 8
   br label %449
 
-449:                                              ; preds = %.sink.split240, %442
+449:                                              ; preds = %.sink.split275, %442
   %450 = call i32 @s_p_get_string(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1160), ptr noundef nonnull @.str.51, ptr noundef %51) #10
   %451 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1160), align 8
   %.not179 = icmp eq ptr %451, null
@@ -1224,19 +1224,19 @@ define dso_local noundef i32 @read_slurmdbd_conf() local_unnamed_addr #0 {
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 124
   %463 = call i32 @s_p_get_uint32(ptr noundef nonnull %462, ptr noundef nonnull @.str.52, ptr noundef %51) #10
   %.not181 = icmp eq i32 %463, 0
-  br i1 %.not181, label %468, label %.sink.split242
+  br i1 %.not181, label %468, label %.sink.split277
 
-.sink.split242:                                   ; preds = %460
+.sink.split277:                                   ; preds = %460
   %464 = load ptr, ptr @slurmdbd_conf, align 8
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 124
   %466 = load i32, ptr %465, align 4
   %.not182 = icmp eq i32 %466, 0
   %467 = or i32 %466, 262144
-  %.sink243 = select i1 %.not182, i32 -2, i32 %467
-  store i32 %.sink243, ptr %465, align 4
+  %.sink278 = select i1 %.not182, i32 -2, i32 %467
+  store i32 %.sink278, ptr %465, align 4
   br label %468
 
-468:                                              ; preds = %.sink.split242, %460
+468:                                              ; preds = %.sink.split277, %460
   %469 = call i32 @s_p_get_string(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 24), ptr noundef nonnull @.str.53, ptr noundef %51) #10
   %470 = call i32 @s_p_get_string(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 40), ptr noundef nonnull @.str.54, ptr noundef %51) #10
   %471 = load ptr, ptr @slurmdbd_conf, align 8
@@ -1580,16 +1580,16 @@ define dso_local noundef i32 @read_slurmdbd_conf() local_unnamed_addr #0 {
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 144
   %640 = load ptr, ptr %639, align 8
   %.not203 = icmp eq ptr %640, null
-  br i1 %.not203, label %.sink.split244, label %648
+  br i1 %.not203, label %.sink.split279, label %648
 
 641:                                              ; preds = %631
   %642 = load ptr, ptr @slurmdbd_conf, align 8
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 144
   %644 = load ptr, ptr %643, align 8
   %.not205 = icmp eq ptr %644, null
-  br i1 %.not205, label %.sink.split244, label %648
+  br i1 %.not205, label %.sink.split279, label %648
 
-.sink.split244:                                   ; preds = %641, %637
+.sink.split279:                                   ; preds = %641, %637
   %.str.127.sink = phi ptr [ @.str.126, %637 ], [ @.str.127, %641 ]
   %645 = call ptr @xstrdup(ptr noundef nonnull %.str.127.sink) #10
   %646 = load ptr, ptr @slurmdbd_conf, align 8
@@ -1597,8 +1597,8 @@ define dso_local noundef i32 @read_slurmdbd_conf() local_unnamed_addr #0 {
   store ptr %645, ptr %647, align 8
   br label %648
 
-648:                                              ; preds = %.sink.split244, %641, %637
-  %649 = phi ptr [ %642, %641 ], [ %638, %637 ], [ %646, %.sink.split244 ]
+648:                                              ; preds = %.sink.split279, %641, %637
+  %649 = phi ptr [ %642, %641 ], [ %638, %637 ], [ %646, %.sink.split279 ]
   %650 = load ptr, ptr %649, align 8
   %.not206 = icmp eq ptr %650, null
   br i1 %.not206, label %669, label %651

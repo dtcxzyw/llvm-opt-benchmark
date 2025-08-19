@@ -1163,8 +1163,8 @@ switch.early.test.i:                              ; preds = %150
   %switch.maskindex = trunc i32 %225 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond116 = select i1 %226, i1 %switch.lobit, i1 false
-  br i1 %or.cond116, label %switch.lookup, label %229
+  %or.cond120 = select i1 %226, i1 %switch.lobit, i1 false
+  br i1 %or.cond120, label %switch.lookup, label %229
 
 switch.lookup:                                    ; preds = %.split101.us.i
   %227 = zext nneg i32 %225 to i64
@@ -2154,18 +2154,18 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr noundef capt
   %10 = zext nneg i32 %.0117 to i64
   %11 = add nuw nsw i64 %10, 4294967294
   %12 = load i32, ptr %1, align 4, !tbaa !35
-  %.not135359 = icmp eq i32 %12, 0
-  br i1 %.not135359, label %.critedge, label %.preheader315.preheader
+  %.not135384 = icmp eq i32 %12, 0
+  br i1 %.not135384, label %.critedge, label %.preheader315.preheader
 
 .preheader315.preheader:                          ; preds = %.lr.ph331, %is_nfs4_perms_w.exit.backedge
-  %.0210323364 = phi ptr [ %.6, %is_nfs4_perms_w.exit.backedge ], [ %1, %.lr.ph331 ]
-  %.0109324363 = phi i32 [ %.0109.be, %is_nfs4_perms_w.exit.backedge ], [ 0, %.lr.ph331 ]
-  %.0105325360 = phi i32 [ %.0105.be, %is_nfs4_perms_w.exit.backedge ], [ 0, %.lr.ph331 ]
+  %.0210323389 = phi ptr [ %.6, %is_nfs4_perms_w.exit.backedge ], [ %1, %.lr.ph331 ]
+  %.0109324388 = phi i32 [ %.0109.be, %is_nfs4_perms_w.exit.backedge ], [ 0, %.lr.ph331 ]
+  %.0105325385 = phi i32 [ %.0105.be, %is_nfs4_perms_w.exit.backedge ], [ 0, %.lr.ph331 ]
   br label %.preheader315
 
 .preheader315:                                    ; preds = %.preheader315.preheader, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %.preheader315.preheader ]
-  %.1211 = phi ptr [ %.6, %29 ], [ %.0210323364, %.preheader315.preheader ]
+  %.1211 = phi ptr [ %.6, %29 ], [ %.0210323389, %.preheader315.preheader ]
   br label %13
 
 13:                                               ; preds = %.critedge.i, %.preheader315
@@ -2502,8 +2502,8 @@ isint_w.exit164:                                  ; preds = %.preheader.i158, %1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %140, %139, %.preheader313, %.preheader313
-  %.sink14.i = phi i32 [ 1, %140 ], [ 2, %139 ], [ 4, %.preheader313 ], [ 4, %.preheader313 ]
-  %141 = or i32 %.sink14.i, %136
+  %.sink16.i = phi i32 [ 1, %140 ], [ 2, %139 ], [ 4, %.preheader313 ], [ 4, %.preheader313 ]
+  %141 = or i32 %.sink16.i, %136
   br label %142
 
 142:                                              ; preds = %.sink.split.i, %.preheader313
@@ -2574,8 +2574,8 @@ ismode_w.exit.thread247:                          ; preds = %147, %135, %148, %i
   br label %.sink.split.i171
 
 .sink.split.i171:                                 ; preds = %162, %161, %.preheader312, %.preheader312
-  %.sink14.i172 = phi i32 [ 1, %162 ], [ 2, %161 ], [ 4, %.preheader312 ], [ 4, %.preheader312 ]
-  %163 = or i32 %.sink14.i172, %158
+  %.sink16.i172 = phi i32 [ 1, %162 ], [ 2, %161 ], [ 4, %.preheader312 ], [ 4, %.preheader312 ]
+  %163 = or i32 %.sink16.i172, %158
   br label %164
 
 164:                                              ; preds = %.sink.split.i171, %.preheader312
@@ -2733,8 +2733,8 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
   br label %.sink.split.i184
 
 .sink.split.i184:                                 ; preds = %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %.lr.ph.i
-  %.sink23.i = phi i32 [ 32768, %217 ], [ 16384, %216 ], [ 8192, %215 ], [ 4096, %214 ], [ 128, %213 ], [ 64, %212 ], [ 1024, %211 ], [ 512, %210 ], [ 2048, %209 ], [ 256, %208 ], [ 32, %207 ], [ 1, %206 ], [ 16, %205 ], [ 8, %.lr.ph.i ]
-  %218 = or i32 %.sink23.i, %.9
+  %.sink25.i = phi i32 [ 32768, %217 ], [ 16384, %216 ], [ 8192, %215 ], [ 4096, %214 ], [ 128, %213 ], [ 64, %212 ], [ 1024, %211 ], [ 512, %210 ], [ 2048, %209 ], [ 256, %208 ], [ 32, %207 ], [ 1, %206 ], [ 16, %205 ], [ 8, %.lr.ph.i ]
+  %218 = or i32 %.sink25.i, %.9
   br label %219
 
 219:                                              ; preds = %.sink.split.i184, %.lr.ph.i
@@ -2788,8 +2788,8 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
   br label %.sink.split.i186
 
 .sink.split.i186:                                 ; preds = %235, %234, %233, %232, %231, %230, %.lr.ph.i185
-  %.sink16.i = phi i32 [ 16777216, %235 ], [ 1073741824, %234 ], [ 536870912, %233 ], [ 134217728, %232 ], [ 268435456, %231 ], [ 67108864, %230 ], [ 33554432, %.lr.ph.i185 ]
-  %236 = or i32 %.sink16.i, %.12
+  %.sink18.i = phi i32 [ 16777216, %235 ], [ 1073741824, %234 ], [ 536870912, %233 ], [ 134217728, %232 ], [ 268435456, %231 ], [ 67108864, %230 ], [ 33554432, %.lr.ph.i185 ]
+  %236 = or i32 %.sink18.i, %.12
   br label %237
 
 237:                                              ; preds = %.sink.split.i186, %.lr.ph.i185
@@ -2960,12 +2960,12 @@ acl_special.exit.i:                               ; preds = %296, %291, %286
 
 314:                                              ; preds = %acl_special.exit.i, %312, %309
   %.1107289.ph = phi i32 [ %.1107290, %309 ], [ %.1107290, %312 ], [ 256, %acl_special.exit.i ]
-  %315 = or i32 %.1107289.ph, %.0105325360
+  %315 = or i32 %.1107289.ph, %.0105325385
   br label %is_nfs4_perms_w.exit.backedge
 
 is_nfs4_perms_w.exit.backedge:                    ; preds = %.preheader312, %.lr.ph.i, %.lr.ph.i185, %169, %172, %167, %ismode_w.exit.thread247, %118, %122, %126, %130, %isint_w.exit164, %117, %121, %125, %129, %314, %41, %178, %180, %248, %256, %ismode_w.exit.thread, %.loopexit
-  %.0109.be = phi i32 [ %.0109324363, %314 ], [ %.0109324363, %41 ], [ -20, %178 ], [ -20, %180 ], [ -20, %248 ], [ -20, %256 ], [ -20, %ismode_w.exit.thread ], [ -20, %.loopexit ], [ -20, %129 ], [ -20, %125 ], [ -20, %121 ], [ -20, %117 ], [ -20, %isint_w.exit164 ], [ -20, %130 ], [ -20, %126 ], [ -20, %122 ], [ -20, %118 ], [ -20, %ismode_w.exit.thread247 ], [ -20, %167 ], [ -20, %172 ], [ -20, %169 ], [ -20, %.lr.ph.i185 ], [ -20, %.lr.ph.i ], [ -20, %.preheader312 ]
-  %.0105.be = phi i32 [ %315, %314 ], [ %.0105325360, %41 ], [ %.0105325360, %178 ], [ %.0105325360, %180 ], [ %.0105325360, %248 ], [ %.0105325360, %256 ], [ %.0105325360, %ismode_w.exit.thread ], [ %.0105325360, %.loopexit ], [ %.0105325360, %129 ], [ %.0105325360, %125 ], [ %.0105325360, %121 ], [ %.0105325360, %117 ], [ %.0105325360, %isint_w.exit164 ], [ %.0105325360, %130 ], [ %.0105325360, %126 ], [ %.0105325360, %122 ], [ %.0105325360, %118 ], [ %.0105325360, %ismode_w.exit.thread247 ], [ %.0105325360, %167 ], [ %.0105325360, %172 ], [ %.0105325360, %169 ], [ %.0105325360, %.lr.ph.i185 ], [ %.0105325360, %.lr.ph.i ], [ %.0105325360, %.preheader312 ]
+  %.0109.be = phi i32 [ %.0109324388, %314 ], [ %.0109324388, %41 ], [ -20, %178 ], [ -20, %180 ], [ -20, %248 ], [ -20, %256 ], [ -20, %ismode_w.exit.thread ], [ -20, %.loopexit ], [ -20, %129 ], [ -20, %125 ], [ -20, %121 ], [ -20, %117 ], [ -20, %isint_w.exit164 ], [ -20, %130 ], [ -20, %126 ], [ -20, %122 ], [ -20, %118 ], [ -20, %ismode_w.exit.thread247 ], [ -20, %167 ], [ -20, %172 ], [ -20, %169 ], [ -20, %.lr.ph.i185 ], [ -20, %.lr.ph.i ], [ -20, %.preheader312 ]
+  %.0105.be = phi i32 [ %315, %314 ], [ %.0105325385, %41 ], [ %.0105325385, %178 ], [ %.0105325385, %180 ], [ %.0105325385, %248 ], [ %.0105325385, %256 ], [ %.0105325385, %ismode_w.exit.thread ], [ %.0105325385, %.loopexit ], [ %.0105325385, %129 ], [ %.0105325385, %125 ], [ %.0105325385, %121 ], [ %.0105325385, %117 ], [ %.0105325385, %isint_w.exit164 ], [ %.0105325385, %130 ], [ %.0105325385, %126 ], [ %.0105325385, %122 ], [ %.0105325385, %118 ], [ %.0105325385, %ismode_w.exit.thread247 ], [ %.0105325385, %167 ], [ %.0105325385, %172 ], [ %.0105325385, %169 ], [ %.0105325385, %.lr.ph.i185 ], [ %.0105325385, %.lr.ph.i ], [ %.0105325385, %.preheader312 ]
   %316 = load i32, ptr %.6, align 4, !tbaa !35
   %.not135 = icmp eq i32 %316, 0
   br i1 %.not135, label %.critedge, label %.preheader315.preheader
@@ -3141,7 +3141,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_nl(ptr noundef cap
   %.5263 = phi ptr [ %.1259, %.preheader366 ], [ %scevgep, %28 ], [ %scevgep, %24 ], [ %scevgep, %.critedge2.i ]
   %.1231 = phi ptr [ %.1259, %.preheader366 ], [ %.2260, %28 ], [ %.2260, %24 ], [ %scevgep, %.critedge2.i ]
   %.0228 = phi ptr [ %.1259, %.preheader366 ], [ %.10268, %28 ], [ %scevgep, %24 ], [ %scevgep, %.critedge2.i ]
-  %.pr107.i = load i8, ptr %.5263, align 1, !tbaa !34
+  %.pr111.i = load i8, ptr %.5263, align 1, !tbaa !34
   br label %next_field.exit
 
 .lr.ph88.i.preheader:                             ; preds = %.lr.ph81.i
@@ -3168,11 +3168,11 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_nl(ptr noundef cap
   br label %next_field.exit, !llvm.loop !69
 
 next_field.exit:                                  ; preds = %.lr.ph81.i, %.lr.ph81.i, %.lr.ph81.i, %.lr.ph88.i, %.lr.ph88.i, %.critedge6.i.thread, %..critedge8.i.loopexit_crit_edge
-  %.1229436 = phi ptr [ %.10268, %..critedge8.i.loopexit_crit_edge ], [ %.0228, %.critedge6.i.thread ], [ %.10268, %.lr.ph88.i ], [ %.10268, %.lr.ph88.i ], [ %.10268, %.lr.ph81.i ], [ %.10268, %.lr.ph81.i ], [ %.10268, %.lr.ph81.i ]
-  %.2232434 = phi ptr [ %.2260, %..critedge8.i.loopexit_crit_edge ], [ %.1231, %.critedge6.i.thread ], [ %.2260, %.lr.ph88.i ], [ %.2260, %.lr.ph88.i ], [ %.2260, %.lr.ph81.i ], [ %.2260, %.lr.ph81.i ], [ %.2260, %.lr.ph81.i ]
+  %.1229469 = phi ptr [ %.10268, %..critedge8.i.loopexit_crit_edge ], [ %.0228, %.critedge6.i.thread ], [ %.10268, %.lr.ph88.i ], [ %.10268, %.lr.ph88.i ], [ %.10268, %.lr.ph81.i ], [ %.10268, %.lr.ph81.i ], [ %.10268, %.lr.ph81.i ]
+  %.2232467 = phi ptr [ %.2260, %..critedge8.i.loopexit_crit_edge ], [ %.1231, %.critedge6.i.thread ], [ %.2260, %.lr.ph88.i ], [ %.2260, %.lr.ph88.i ], [ %.2260, %.lr.ph81.i ], [ %.2260, %.lr.ph81.i ], [ %.2260, %.lr.ph81.i ]
   %.7265 = phi ptr [ %scevgep419, %..critedge8.i.loopexit_crit_edge ], [ %.5263, %.critedge6.i.thread ], [ %.8266, %.lr.ph88.i ], [ %.8266, %.lr.ph88.i ], [ %.11269, %.lr.ph81.i ], [ %.11269, %.lr.ph81.i ], [ %.11269, %.lr.ph81.i ]
   %.7252 = phi i64 [ 0, %..critedge8.i.loopexit_crit_edge ], [ 0, %.critedge6.i.thread ], [ %.8253, %.lr.ph88.i ], [ %.8253, %.lr.ph88.i ], [ %26, %.lr.ph81.i ], [ %26, %.lr.ph81.i ], [ %26, %.lr.ph81.i ]
-  %.0233 = phi i8 [ %.pre.pre, %..critedge8.i.loopexit_crit_edge ], [ %.pr107.i, %.critedge6.i.thread ], [ %31, %.lr.ph88.i ], [ %31, %.lr.ph88.i ], [ %27, %.lr.ph81.i ], [ %27, %.lr.ph81.i ], [ %27, %.lr.ph81.i ]
+  %.0233 = phi i8 [ %.pre.pre, %..critedge8.i.loopexit_crit_edge ], [ %.pr111.i, %.critedge6.i.thread ], [ %31, %.lr.ph88.i ], [ %31, %.lr.ph88.i ], [ %27, %.lr.ph81.i ], [ %27, %.lr.ph81.i ], [ %27, %.lr.ph81.i ]
   %.not65.i = icmp ne i64 %.7252, 0
   %.12270.idx = zext i1 %.not65.i to i64
   %.12270 = getelementptr inbounds nuw i8, ptr %.7265, i64 %.12270.idx
@@ -3182,9 +3182,9 @@ next_field.exit:                                  ; preds = %.lr.ph81.i, %.lr.ph
 
 36:                                               ; preds = %next_field.exit
   %37 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr %6, i64 0, i64 %indvars.iv
-  store ptr %.2232434, ptr %37, align 16, !tbaa !70
+  store ptr %.2232467, ptr %37, align 16, !tbaa !70
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %.1229436, ptr %38, align 8, !tbaa !72
+  store ptr %.1229469, ptr %38, align 8, !tbaa !72
   br label %39
 
 39:                                               ; preds = %36, %next_field.exit
@@ -3447,8 +3447,8 @@ isint.exit174:                                    ; preds = %.preheader.i167, %1
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %148, %147, %.preheader364, %.preheader364
-  %.sink14.i = phi i32 [ 1, %148 ], [ 2, %147 ], [ 4, %.preheader364 ], [ 4, %.preheader364 ]
-  %149 = or i32 %.sink14.i, %144
+  %.sink15.i = phi i32 [ 1, %148 ], [ 2, %147 ], [ 4, %.preheader364 ], [ 4, %.preheader364 ]
+  %149 = or i32 %.sink15.i, %144
   br label %150
 
 150:                                              ; preds = %.sink.split.i, %.preheader364
@@ -3519,8 +3519,8 @@ ismode.exit.thread289:                            ; preds = %154, %143, %155, %i
   br label %.sink.split.i181
 
 .sink.split.i181:                                 ; preds = %169, %168, %.preheader, %.preheader
-  %.sink14.i182 = phi i32 [ 1, %169 ], [ 2, %168 ], [ 4, %.preheader ], [ 4, %.preheader ]
-  %170 = or i32 %.sink14.i182, %165
+  %.sink15.i182 = phi i32 [ 1, %169 ], [ 2, %168 ], [ 4, %.preheader ], [ 4, %.preheader ]
+  %170 = or i32 %.sink15.i182, %165
   br label %171
 
 171:                                              ; preds = %.sink.split.i181, %.preheader
@@ -3678,8 +3678,8 @@ isint.exit193:                                    ; preds = %.preheader.i186, %1
   br label %.sink.split.i196
 
 .sink.split.i196:                                 ; preds = %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %.lr.ph.i194
-  %.sink23.i = phi i32 [ 32768, %217 ], [ 16384, %216 ], [ 8192, %215 ], [ 4096, %214 ], [ 128, %213 ], [ 64, %212 ], [ 1024, %211 ], [ 512, %210 ], [ 2048, %209 ], [ 256, %208 ], [ 32, %207 ], [ 1, %206 ], [ 16, %205 ], [ 8, %.lr.ph.i194 ]
-  %218 = or i32 %.sink23.i, %.9
+  %.sink24.i = phi i32 [ 32768, %217 ], [ 16384, %216 ], [ 8192, %215 ], [ 4096, %214 ], [ 128, %213 ], [ 64, %212 ], [ 1024, %211 ], [ 512, %210 ], [ 2048, %209 ], [ 256, %208 ], [ 32, %207 ], [ 1, %206 ], [ 16, %205 ], [ 8, %.lr.ph.i194 ]
+  %218 = or i32 %.sink24.i, %.9
   br label %219
 
 219:                                              ; preds = %.sink.split.i196, %.lr.ph.i194
@@ -3733,8 +3733,8 @@ isint.exit193:                                    ; preds = %.preheader.i186, %1
   br label %.sink.split.i199
 
 .sink.split.i199:                                 ; preds = %234, %233, %232, %231, %230, %229, %.lr.ph.i197
-  %.sink16.i = phi i32 [ 16777216, %234 ], [ 1073741824, %233 ], [ 536870912, %232 ], [ 134217728, %231 ], [ 268435456, %230 ], [ 67108864, %229 ], [ 33554432, %.lr.ph.i197 ]
-  %235 = or i32 %.sink16.i, %.12
+  %.sink17.i = phi i32 [ 16777216, %234 ], [ 1073741824, %233 ], [ 536870912, %232 ], [ 134217728, %231 ], [ 268435456, %230 ], [ 67108864, %229 ], [ 33554432, %.lr.ph.i197 ]
+  %235 = or i32 %.sink17.i, %.12
   br label %236
 
 236:                                              ; preds = %.sink.split.i199, %.lr.ph.i197

@@ -1197,8 +1197,8 @@ bcwrite_ktabk_lt.exit:                            ; preds = %23, %27, %34
   br i1 %50, label %51, label %.thread
 
 bcwrite_ktabk_lt.exit34:                          ; preds = %42
-  %.not40 = icmp ult i64 %37, %39
-  br i1 %.not40, label %.thread, label %51
+  %.not48 = icmp ult i64 %37, %39
+  br i1 %.not48, label %.thread, label %51
 
 51:                                               ; preds = %44, %41, %bcwrite_ktabk_lt.exit34
   %52 = zext i32 %.02138 to i64

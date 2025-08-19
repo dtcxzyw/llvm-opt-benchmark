@@ -1123,8 +1123,8 @@ _ZNK8rawspeed10Array2DRefItEclEii.exit.i:         ; preds = %162, %161, %155
   %165 = icmp samesign ult i64 %indvars.iv78, %71
   tail call void @llvm.assume(i1 %165)
   %166 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv78
-  %.sink87 = tail call i32 @llvm.umin.i32(i32 %164, i32 65536)
-  %.sink = trunc i32 %.sink87 to i16
+  %.sink91 = tail call i32 @llvm.umin.i32(i32 %164, i32 65536)
+  %.sink = trunc i32 %.sink91 to i16
   store i16 %.sink, ptr %166, align 2, !tbaa !132
   %167 = add nuw nsw i32 %.037.i72, 1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1

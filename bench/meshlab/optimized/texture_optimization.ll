@@ -199,9 +199,9 @@ _ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread: ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %22, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit, label %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread33
+  br i1 %.not.i.i.i.i.i, label %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit, label %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread44
 
-_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread33: ; preds = %20
+_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread44: ; preds = %20
   %23 = load i32, ptr %21, align 4
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %21, align 4
@@ -218,9 +218,9 @@ _ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit: ; preds = %20
   %.not.i.i.i = icmp eq ptr %.pre29, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit, label %26
 
-26:                                               ; preds = %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread33, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit
-  %27 = phi ptr [ %17, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread33 ], [ %.pre, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit ]
-  %28 = phi ptr [ %19, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread33 ], [ %.pre29, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit ]
+26:                                               ; preds = %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread44, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit
+  %27 = phi ptr [ %17, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread44 ], [ %.pre, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit ]
+  %28 = phi ptr [ %19, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit.thread44 ], [ %.pre29, %_ZNSt4pairIKiSt10shared_ptrI9FaceGroupEEC2ERKS4_.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i5 = icmp eq i8 %30, 0
@@ -2169,7 +2169,7 @@ define linkonce_odr void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE6resizeEm(ptr no
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIP15TexCoordStoragemS0_ET_S2_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIP15TexCoordStoragemS0_ET_S2_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = mul nuw i64 %12, 72
+  %21 = mul nuw nsw i64 %12, 72
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
@@ -3297,7 +3297,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   %104 = fdiv double %70, %103
   %105 = fdiv double %77, %67
   %106 = fdiv double %80, %70
-  br i1 %.not164, label %.thread225, label %.lr.ph177
+  br i1 %.not164, label %.thread247, label %.lr.ph177
 
 .lr.ph177:                                        ; preds = %100, %.loopexit155
   %.sroa.096.0175 = phi ptr [ %144, %.loopexit155 ], [ %8, %100 ]
@@ -3367,7 +3367,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPS
   %.phi.trans.insert214 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre215 = load ptr, ptr %.phi.trans.insert214, align 8
   %.not153184 = icmp eq ptr %.pre213, %.pre215
-  br i1 %.not153184, label %.thread225, label %.lr.ph191
+  br i1 %.not153184, label %.thread247, label %.lr.ph191
 
 .lr.ph191:                                        ; preds = %._crit_edge178, %.loopexit
   %.sroa.087.0189 = phi ptr [ %182, %.loopexit ], [ %.pre213, %._crit_edge178 ]
@@ -3464,8 +3464,8 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75:      ; preds = %181, %174, %173
   %184 = fcmp ule double %.sroa.5.2, 0.000000e+00
   %185 = fcmp uge double %.sroa.9.2, 1.000000e+00
   %brmerge = select i1 %183, i1 true, i1 %184
-  %brmerge230 = select i1 %brmerge, i1 true, i1 %185
-  br i1 %brmerge230, label %.invoke, label %.thread225
+  %brmerge252 = select i1 %brmerge, i1 true, i1 %185
+  br i1 %brmerge252, label %.invoke, label %.thread247
 
 .invoke:                                          ; preds = %._crit_edge192
   %.mux = select i1 %184, i32 186, i32 187
@@ -3478,7 +3478,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75:      ; preds = %181, %174, %173
 .cont:                                            ; preds = %.invoke
   unreachable
 
-.thread225:                                       ; preds = %._crit_edge192, %100, %._crit_edge178
+.thread247:                                       ; preds = %._crit_edge192, %100, %._crit_edge178
   %186 = fptosi double %101 to i32
   %187 = load ptr, ptr %1, align 8
   %188 = getelementptr inbounds nuw %struct.TextureSize, ptr %187, i64 %indvars.iv209
@@ -3489,7 +3489,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit75:      ; preds = %181, %174, %173
   store i32 %189, ptr %191, align 4
   br label %192
 
-192:                                              ; preds = %._crit_edge, %.thread225
+192:                                              ; preds = %._crit_edge, %.thread247
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count
   br i1 %exitcond212.not, label %._crit_edge198, label %.lr.ph197, !llvm.loop !38

@@ -973,9 +973,9 @@ define hidden i32 @SDL_GetKeyFromName_REAL(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not55, label %select.unfold, label %.preheader.preheader
 
 select.unfold.sink.split:                         ; preds = %10, %48, %32
-  %.sink95 = phi i64 [ 2, %32 ], [ 1, %48 ], [ 3, %10 ]
+  %.sink99 = phi i64 [ 2, %32 ], [ 1, %48 ], [ 3, %10 ]
   %.sink = phi i32 [ %42, %32 ], [ %52, %48 ], [ %26, %10 ]
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink95
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink99
   %55 = load i8, ptr %54, align 1
   %56 = and i8 %55, 63
   %57 = zext nneg i8 %56 to i32

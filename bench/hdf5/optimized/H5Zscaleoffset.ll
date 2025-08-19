@@ -417,10 +417,10 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
   br label %H5Z__scaleoffset_convert.exit249.thread278
 
 27:                                               ; preds = %20, %22
-  %.sink317 = phi i32 [ 0, %22 ], [ 1, %20 ]
+  %.sink329 = phi i32 [ 0, %22 ], [ 1, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load i32, ptr %28, align 4, !tbaa !12
-  %30 = icmp ne i32 %29, %.sink317
+  %30 = icmp ne i32 %29, %.sink329
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1792,7 +1792,7 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr noundef nonnull wri
   %30 = shl nsw i32 -1, %.4.us.us
   %31 = xor i32 %30, -1
   %32 = and i32 %27, %31
-  %33 = sub nuw i32 %.0.i.i.us.us, %.4.us.us
+  %33 = sub nuw nsw i32 %.0.i.i.us.us, %.4.us.us
   %34 = shl nuw nsw i32 %32, %33
   %35 = trunc i32 %34 to i8
   store i8 %35, ptr %28, align 1, !tbaa !18
@@ -1878,7 +1878,7 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
   %74 = shl nsw i32 -1, %.121
   %75 = xor i32 %74, -1
   %76 = and i32 %65, %75
-  %77 = sub nuw i32 %.0.i24.i, %.121
+  %77 = sub nuw nsw i32 %.0.i24.i, %.121
   %78 = shl nuw nsw i32 %76, %77
   %79 = trunc i32 %78 to i8
   store i8 %79, ptr %66, align 1, !tbaa !18
@@ -6500,7 +6500,7 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr noundef readonly capt
   br i1 %26, label %45, label %30
 
 30:                                               ; preds = %22
-  %31 = sub nuw i32 %.0.i.i.us.us, %.4.us.us
+  %31 = sub nuw nsw i32 %.0.i.i.us.us, %.4.us.us
   %32 = lshr i32 %27, %31
   %33 = shl nsw i32 -1, %.4.us.us
   %34 = xor i32 %33, -1
@@ -6514,7 +6514,7 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr noundef readonly capt
 
 40:                                               ; preds = %30
   %41 = sub nsw i32 8, %31
-  %42 = shl i32 %27, %41
+  %42 = shl nuw nsw i32 %27, %41
   %43 = trunc i32 %42 to i8
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 %38
   store i8 %43, ptr %44, align 1, !tbaa !18
@@ -6582,7 +6582,7 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   br label %H5Z__scaleoffset_compress_one_byte.exit26.i
 
 74:                                               ; preds = %58
-  %75 = sub nuw i32 %.0.i24.i, %.1
+  %75 = sub nuw nsw i32 %.0.i24.i, %.1
   %76 = lshr i32 %63, %75
   %77 = shl nsw i32 -1, %.1
   %78 = xor i32 %77, -1
@@ -6596,7 +6596,7 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
 
 84:                                               ; preds = %74
   %85 = sub nsw i32 8, %75
-  %86 = shl i32 %63, %85
+  %86 = shl nuw nsw i32 %63, %85
   %87 = trunc i32 %86 to i8
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 %82
   store i8 %87, ptr %88, align 1, !tbaa !18

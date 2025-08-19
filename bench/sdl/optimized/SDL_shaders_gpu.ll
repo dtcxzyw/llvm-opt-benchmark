@@ -122,8 +122,8 @@ CompileShader.exit:                               ; preds = %23
   br i1 %41, label %GPU_ReleaseShaders.exit.thread, label %38
 
 42:                                               ; preds = %GPU_ReleaseShaders.exit.preheader, %GPU_ReleaseShaders.exit
-  %indvars.iv73100 = phi i64 [ 0, %GPU_ReleaseShaders.exit.preheader ], [ %indvars.iv.next74, %GPU_ReleaseShaders.exit ]
-  %43 = getelementptr inbounds nuw [6 x %struct.GPU_ShaderSources], ptr @frag_shader_sources, i64 0, i64 %indvars.iv73100
+  %indvars.iv73101 = phi i64 [ 0, %GPU_ReleaseShaders.exit.preheader ], [ %indvars.iv.next74, %GPU_ReleaseShaders.exit ]
+  %43 = getelementptr inbounds nuw [6 x %struct.GPU_ShaderSources], ptr @frag_shader_sources, i64 0, i64 %indvars.iv73101
   %44 = call i32 @SDL_GetGPUShaderFormats_REAL(ptr noundef %1) #5
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %CompileShader.exit33.thread, label %46
@@ -138,7 +138,7 @@ CompileShader.exit:                               ; preds = %23
   br label %CompileShader.exit33.thread
 
 CompileShader.exit33.thread:                      ; preds = %42, %48
-  %50 = getelementptr inbounds nuw [6 x ptr], ptr %18, i64 0, i64 %indvars.iv73100
+  %50 = getelementptr inbounds nuw [6 x ptr], ptr %18, i64 0, i64 %indvars.iv73101
   store ptr null, ptr %50, align 8
   br label %.loopexit.preheader
 
@@ -164,7 +164,7 @@ CompileShader.exit33:                             ; preds = %46
   store i32 1, ptr %17, align 4
   %61 = call ptr @SDL_CreateGPUShader_REAL(ptr noundef %1, ptr noundef nonnull %3) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %62 = getelementptr inbounds nuw [6 x ptr], ptr %18, i64 0, i64 %indvars.iv73100
+  %62 = getelementptr inbounds nuw [6 x ptr], ptr %18, i64 0, i64 %indvars.iv73101
   store ptr %61, ptr %62, align 8
   %63 = icmp eq ptr %61, null
   br i1 %63, label %.loopexit.preheader, label %GPU_ReleaseShaders.exit
@@ -193,7 +193,7 @@ CompileShader.exit33:                             ; preds = %46
   br i1 %68, label %GPU_ReleaseShaders.exit.thread, label %.preheader.i37
 
 GPU_ReleaseShaders.exit:                          ; preds = %CompileShader.exit33
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73100, 1
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73101, 1
   %69 = icmp eq i64 %indvars.iv.next74, 5
   br i1 %69, label %GPU_ReleaseShaders.exit.thread, label %42
 

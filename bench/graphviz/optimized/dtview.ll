@@ -116,8 +116,8 @@ define internal ptr @dtvsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %.pre192 = load i32, ptr %.phi.trans.insert191, align 8, !tbaa !21
   %14 = and i32 %.pre192, 12
   %.not130 = icmp eq i32 %14, 0
-  %or.cond199 = select i1 %.not129, i1 %.not130, i1 false
-  br i1 %or.cond199, label %.lr.ph.preheader, label %._crit_edge190
+  %or.cond216 = select i1 %.not129, i1 %.not130, i1 false
+  br i1 %or.cond216, label %.lr.ph.preheader, label %._crit_edge190
 
 15:                                               ; preds = %10
   %.not147155 = icmp eq ptr %0, null

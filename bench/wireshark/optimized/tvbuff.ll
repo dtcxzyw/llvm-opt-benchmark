@@ -183,7 +183,7 @@ tvb_free_internal.exit:                           ; preds = %.preheader, %8
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @tvb_new_chain(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @tvb_new_chain(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @tvb_new_proxy(ptr noundef %1)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %5
@@ -4306,8 +4306,8 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   %indvars.iv.i = phi i64 [ 0, %127 ], [ %indvars.iv.next.i, %131 ]
   %130 = getelementptr [12 x [4 x i8]], ptr @parse_month_name.months, i64 0, i64 %indvars.iv.i
   %lhsv = load i32, ptr %130, align 4
-  %.not178 = icmp eq i32 %lhsv, %rhsv
-  br i1 %.not178, label %132, label %131
+  %.not187 = icmp eq i32 %lhsv, %rhsv
+  br i1 %.not187, label %132, label %131
 
 131:                                              ; preds = %129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4368,8 +4368,8 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %150, %151
-  %.sink168 = phi i32 [ %., %151 ], [ 1900, %150 ]
-  %153 = add i32 %.pre, %.sink168
+  %.sink177 = phi i32 [ %., %151 ], [ 1900, %150 ]
+  %153 = add i32 %.pre, %.sink177
   store i32 %153, ptr %11, align 4
   br label %._crit_edge
 
@@ -4460,12 +4460,12 @@ tvb_get_raw_string.exit:                          ; preds = %26, %28
   br label %parse_month_name.exit.thread149
 
 189:                                              ; preds = %185, %187
-  %.sink174 = phi i32 [ -3600, %187 ], [ 3600, %185 ]
-  %.sink172 = phi i32 [ -60, %187 ], [ 60, %185 ]
+  %.sink183 = phi i32 [ -3600, %187 ], [ 3600, %185 ]
+  %.sink181 = phi i32 [ -60, %187 ], [ 60, %185 ]
   %190 = load i32, ptr %14, align 4
-  %191 = mul i32 %190, %.sink174
+  %191 = mul i32 %190, %.sink183
   %192 = load i32, ptr %15, align 4
-  %193 = mul i32 %192, %.sink172
+  %193 = mul i32 %192, %.sink181
   %194 = add i32 %193, %191
   %195 = load i32, ptr %7, align 4
   %196 = sext i32 %195 to i64
@@ -4969,10 +4969,10 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
   br label %114
 
 114:                                              ; preds = %75, %54, %45, %39
-  %.sink72 = phi i8 [ -64, %75 ], [ -32, %54 ], [ -16, %45 ], [ -8, %39 ]
+  %.sink76 = phi i8 [ -64, %75 ], [ -32, %54 ], [ -16, %45 ], [ -8, %39 ]
   %.sink = phi i32 [ 8, %75 ], [ 4, %54 ], [ 2, %45 ], [ 1, %39 ]
   %.3 = phi i64 [ %113, %75 ], [ %74, %54 ], [ %53, %45 ], [ %44, %39 ]
-  %115 = add i8 %.166, %.sink72
+  %115 = add i8 %.166, %.sink76
   %116 = add i32 %.15464, %.sink
   %117 = zext i8 %115 to i32
   %118 = icmp ugt i8 %115, 7
@@ -5073,7 +5073,7 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 33:                                               ; preds = %28
   %34 = icmp samesign ugt i32 %.25463.i, 7
-  br i1 %34, label %35, label %.thread70.i
+  br i1 %34, label %35, label %.thread71.i
 
 35:                                               ; preds = %33
   %36 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.15762.i, i32 noundef 1)
@@ -5081,7 +5081,7 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %38 = zext i8 %37 to i64
   br label %47
 
-.thread70.i:                                      ; preds = %33
+.thread71.i:                                      ; preds = %33
   %notmask61.i = shl nsw i32 -1, %.25463.i
   %39 = xor i32 %notmask61.i, -1
   %40 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.15762.i, i32 noundef 1)
@@ -5091,29 +5091,29 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %44 = zext nneg i32 %43 to i64
   %45 = zext nneg i32 %.15064.i to i64
   %46 = shl i64 %44, %45
-  %.375.i = or i64 %46, %.265.i
+  %.376.i = or i64 %46, %.265.i
   br label %_tvb_get_bits64_le.exit
 
 47:                                               ; preds = %35, %30, %24
-  %.sink83.i = phi i64 [ %32, %30 ], [ %38, %35 ], [ %27, %24 ]
-  %.sink82.i = phi i32 [ 16, %30 ], [ 8, %35 ], [ 32, %24 ]
-  %.sink81.i = phi i32 [ -16, %30 ], [ -8, %35 ], [ -32, %24 ]
+  %.sink84.i = phi i64 [ %32, %30 ], [ %38, %35 ], [ %27, %24 ]
+  %.sink83.i = phi i32 [ 16, %30 ], [ 8, %35 ], [ 32, %24 ]
+  %.sink82.i = phi i32 [ -16, %30 ], [ -8, %35 ], [ -32, %24 ]
   %.sink.i = phi i32 [ 2, %30 ], [ 1, %35 ], [ 4, %24 ]
   %48 = zext nneg i32 %.15064.i to i64
-  %49 = shl i64 %.sink83.i, %48
-  %50 = add i32 %.sink82.i, %.15064.i
-  %51 = add nsw i32 %.sink81.i, %.25463.i
+  %49 = shl i64 %.sink84.i, %48
+  %50 = add i32 %.sink83.i, %.15064.i
+  %51 = add nsw i32 %.sink82.i, %.25463.i
   %52 = add i32 %.sink.i, %.15762.i
   %.3.i = or i64 %49, %.265.i
-  %.not85.i = icmp eq i32 %51, 0
-  br i1 %.not85.i, label %_tvb_get_bits64_le.exit, label %.lr.ph.i, !llvm.loop !23
+  %.not86.i = icmp eq i32 %51, 0
+  br i1 %.not86.i, label %_tvb_get_bits64_le.exit, label %.lr.ph.i, !llvm.loop !23
 
 53:                                               ; preds = %4
   %54 = tail call fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %_tvb_get_bits64_le.exit
 
-_tvb_get_bits64_le.exit:                          ; preds = %47, %.thread70.i, %21, %8, %53
-  %.0 = phi i64 [ %54, %53 ], [ %.0.i, %21 ], [ %.375.i, %.thread70.i ], [ %.1.i, %8 ], [ %.3.i, %47 ]
+_tvb_get_bits64_le.exit:                          ; preds = %47, %.thread71.i, %21, %8, %53
+  %.0 = phi i64 [ %54, %53 ], [ %.0.i, %21 ], [ %.376.i, %.thread71.i ], [ %.1.i, %8 ], [ %.3.i, %47 ]
   ret i64 %.0
 }
 
@@ -6621,7 +6621,7 @@ tvb_get_etsi_ts_102_221_annex_a_string.exit:      ; preds = %14
   %.030.i = phi ptr [ %166, %165 ], [ %.131.lcssa.i, %178 ]
   %168 = load i8, ptr %.030.i, align 1
   %.13149.i = getelementptr i8, ptr %.030.i, i64 1
-  %.13350.i = add i32 %.032.i, -1
+  %.13350.i = add nsw i32 %.032.i, -1
   %.not3751.i = icmp eq i8 %168, 0
   br i1 %.not3751.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -6652,7 +6652,7 @@ tvb_get_etsi_ts_102_221_annex_a_string.exit:      ; preds = %14
 175:                                              ; preds = %174, %173
   %176 = add nsw i32 %.02852.i, -1
   %.131.i = getelementptr i8, ptr %.13153.i, i64 1
-  %.133.i = add i32 %.13354.i, -1
+  %.133.i = add nsw i32 %.13354.i, -1
   %.not37.i = icmp eq i32 %176, 0
   br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
 
@@ -7741,7 +7741,7 @@ compute_offset_and_remaining.exit:                ; preds = %17, %3
   br i1 %.not1516, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %8, %compute_offset_and_remaining.exit
-  %.024 = phi i32 [ %.0, %compute_offset_and_remaining.exit ], [ -1, %8 ], [ -1, %11 ]
+  %.029 = phi i32 [ %.0, %compute_offset_and_remaining.exit ], [ -1, %8 ], [ -1, %11 ]
   %20 = load ptr, ptr @g_ascii_table, align 8
   br label %21
 
@@ -7756,7 +7756,7 @@ compute_offset_and_remaining.exit:                ; preds = %17, %3
   %.not.not = icmp ne i16 %26, 0
   %27 = add nuw i32 %.01218, 1
   %28 = getelementptr i8, ptr %.01317, i64 1
-  %exitcond.not = icmp ne i32 %27, %.024
+  %exitcond.not = icmp ne i32 %27, %.029
   %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %21, label %.critedge, !llvm.loop !32
 
@@ -7846,7 +7846,7 @@ compute_offset_and_remaining.exit:                ; preds = %17, %3
   br i1 %.not1516, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %8, %compute_offset_and_remaining.exit
-  %.024 = phi i32 [ %.0, %compute_offset_and_remaining.exit ], [ -1, %8 ], [ -1, %11 ]
+  %.029 = phi i32 [ %.0, %compute_offset_and_remaining.exit ], [ -1, %8 ], [ -1, %11 ]
   %20 = load ptr, ptr @g_ascii_table, align 8
   br label %21
 
@@ -7861,7 +7861,7 @@ compute_offset_and_remaining.exit:                ; preds = %17, %3
   %.not.not = icmp ne i16 %26, 0
   %27 = add nuw i32 %.01218, 1
   %28 = getelementptr i8, ptr %.01317, i64 1
-  %exitcond.not = icmp ne i32 %27, %.024
+  %exitcond.not = icmp ne i32 %27, %.029
   %or.cond.not = select i1 %.not.not, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %21, label %.critedge, !llvm.loop !33
 

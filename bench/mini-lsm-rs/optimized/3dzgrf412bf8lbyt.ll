@@ -3046,8 +3046,8 @@ define internal fastcc void @"_ZN4core3ptr148drop_in_place$LT$core..option..Opti
   unreachable
 
 36:                                               ; preds = %._crit_edge.i.i.i, %._crit_edge.thread.i.i.i
-  %.in12.i.i.i = load ptr, ptr %9, align 8, !nonnull !4, !align !78, !noundef !4
-  %37 = load ptr, ptr %.in12.i.i.i, align 8, !nonnull !4, !align !78, !noundef !4
+  %.in18.i.i.i = load ptr, ptr %9, align 8, !nonnull !4, !align !78, !noundef !4
+  %37 = load ptr, ptr %.in18.i.i.i, align 8, !nonnull !4, !align !78, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !719)
   %38 = load ptr, ptr %37, align 8, !alias.scope !722, !noundef !4
   %39 = icmp eq ptr %38, null
@@ -8540,8 +8540,8 @@ define internal fastcc void @"_ZN4core3ptr252drop_in_place$LT$moka..cht..segment
   unreachable
 
 36:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.in12.i = load ptr, ptr %10, align 8, !nonnull !4, !align !78, !noundef !4
-  %37 = load ptr, ptr %.in12.i, align 8, !nonnull !4, !align !78, !noundef !4
+  %.in18.i = load ptr, ptr %10, align 8, !nonnull !4, !align !78, !noundef !4
+  %37 = load ptr, ptr %.in18.i, align 8, !nonnull !4, !align !78, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2079)
   %38 = load ptr, ptr %37, align 8, !alias.scope !2082, !noundef !4
   %39 = icmp eq ptr %38, null
@@ -18908,8 +18908,8 @@ define hidden void @"_ZN86_$LT$moka..cht..segment..HashMap$LT$K$C$V$C$S$GT$$u20$
   unreachable
 
 39:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.in36 = load ptr, ptr %10, align 8, !nonnull !4, !align !78, !noundef !4
-  %40 = load ptr, ptr %.in36, align 8, !nonnull !4, !align !78, !noundef !4
+  %.in42 = load ptr, ptr %10, align 8, !nonnull !4, !align !78, !noundef !4
+  %40 = load ptr, ptr %.in42, align 8, !nonnull !4, !align !78, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !4840)
   %41 = load ptr, ptr %40, align 8, !alias.scope !4843, !noundef !4
   %42 = icmp eq ptr %41, null

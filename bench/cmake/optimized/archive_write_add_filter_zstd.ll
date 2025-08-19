@@ -959,7 +959,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
 
 21:                                               ; preds = %.backedge, %5
   %22 = phi i64 [ %.pre50, %5 ], [ %.be, %.backedge ]
-  %23 = phi i64 [ 0, %5 ], [ %.be52, %.backedge ]
+  %23 = phi i64 [ 0, %5 ], [ %.be53, %.backedge ]
   %24 = load i32, ptr %11, align 4, !tbaa !45
   switch i32 %24, label %44 [
     i32 0, label %25
@@ -1046,7 +1046,7 @@ define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr noundef reado
 
 .backedge:                                        ; preds = %62, %69
   %.be = phi i64 [ %51, %62 ], [ 0, %69 ]
-  %.be52 = phi i64 [ %45, %62 ], [ %.pre.pre, %69 ]
+  %.be53 = phi i64 [ %45, %62 ], [ %.pre.pre, %69 ]
   br label %21
 
 65:                                               ; preds = %62

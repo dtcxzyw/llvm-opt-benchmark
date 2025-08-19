@@ -5130,14 +5130,14 @@ define internal i32 @dissect_gsm_rlcmac_uplink(ptr noundef %0, ptr noundef %1, p
   %24 = icmp ult i32 %23, 3
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 1172
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 1176
-  br i1 %24, label %.thread, label %.thread59
+  br i1 %24, label %.thread, label %.thread61
 
 .thread:                                          ; preds = %22
   store i32 32, ptr %25, align 4
   store i32 0, ptr %26, align 4
   br label %36
 
-.thread59:                                        ; preds = %22
+.thread61:                                        ; preds = %22
   store i32 33, ptr %25, align 4
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 1172
@@ -5235,8 +5235,8 @@ dissect_ul_pacch_access_burst.exit:               ; preds = %49, %55, %60, %66, 
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %dissect_egprs_ul_header_block.exit
 
-72:                                               ; preds = %.thread59, %28, %28, %28, %28
-  %73 = phi ptr [ %27, %.thread59 ], [ %35, %28 ], [ %35, %28 ], [ %35, %28 ], [ %35, %28 ]
+72:                                               ; preds = %.thread61, %28, %28, %28, %28
+  %73 = phi ptr [ %27, %.thread61 ], [ %35, %28 ], [ %35, %28 ], [ %35, %28 ], [ %35, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %74 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 0, i32 noundef 2)
   %75 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -6184,25 +6184,25 @@ dissect_dl_gprs_block.exit:                       ; preds = %99, %100, %dissect_
 
 330:                                              ; preds = %.critedge.i, %302
   %331 = load i8, ptr %18, align 4
-  %switch.tableidx53 = add i8 %331, -1
-  %332 = icmp ult i8 %switch.tableidx53, 18
-  br i1 %332, label %switch.hole_check54, label %dissect_dl_rlc_ec_control_message.exit
+  %switch.tableidx54 = add i8 %331, -1
+  %332 = icmp ult i8 %switch.tableidx54, 18
+  br i1 %332, label %switch.hole_check55, label %dissect_dl_rlc_ec_control_message.exit
 
-switch.hole_check54:                              ; preds = %330
-  %switch.maskindex56 = zext nneg i8 %switch.tableidx53 to i32
-  %switch.shifted57 = lshr i32 196735, %switch.maskindex56
-  %switch.lobit58 = trunc i32 %switch.shifted57 to i1
-  br i1 %switch.lobit58, label %switch.lookup55, label %dissect_dl_rlc_ec_control_message.exit
+switch.hole_check55:                              ; preds = %330
+  %switch.maskindex57 = zext nneg i8 %switch.tableidx54 to i32
+  %switch.shifted58 = lshr i32 196735, %switch.maskindex57
+  %switch.lobit59 = trunc i32 %switch.shifted58 to i1
+  br i1 %switch.lobit59, label %switch.lookup56, label %dissect_dl_rlc_ec_control_message.exit
 
-switch.lookup55:                                  ; preds = %switch.hole_check54
-  %333 = zext nneg i8 %switch.tableidx53 to i64
-  %switch.gep59 = getelementptr inbounds nuw [18 x ptr], ptr @switch.table.dissect_gsm_rlcmac_downlink.3, i64 0, i64 %333
-  %switch.load60 = load ptr, ptr %switch.gep59, align 8
+switch.lookup56:                                  ; preds = %switch.hole_check55
+  %333 = zext nneg i8 %switch.tableidx54 to i64
+  %switch.gep60 = getelementptr inbounds nuw [18 x ptr], ptr @switch.table.dissect_gsm_rlcmac_downlink.3, i64 0, i64 %333
+  %switch.load61 = load ptr, ptr %switch.gep60, align 8
   %334 = load i32, ptr @ett_gsm_rlcmac, align 4
-  %335 = call signext i16 @csnStreamDissector(ptr noundef %301, ptr noundef nonnull %6, ptr noundef nonnull %switch.load60, ptr noundef %0, ptr noundef %18, i32 noundef %334)
+  %335 = call signext i16 @csnStreamDissector(ptr noundef %301, ptr noundef nonnull %6, ptr noundef nonnull %switch.load61, ptr noundef %0, ptr noundef %18, i32 noundef %334)
   br label %dissect_dl_rlc_ec_control_message.exit
 
-dissect_dl_rlc_ec_control_message.exit:           ; preds = %switch.hole_check54, %330, %switch.lookup55
+dissect_dl_rlc_ec_control_message.exit:           ; preds = %switch.hole_check55, %330, %switch.lookup56
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_egprs_dl_header_block.exit

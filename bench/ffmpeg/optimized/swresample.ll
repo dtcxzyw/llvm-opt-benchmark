@@ -2071,8 +2071,8 @@ define internal fastcc i32 @swr_convert_internal(ptr noundef %0, ptr noundef %1,
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 11120
   %.pre324 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !109
   %139 = icmp sgt i32 %.pre324, 0
-  %or.cond329 = select i1 %.not276, i1 %139, i1 false
-  br i1 %or.cond329, label %.lr.ph, label %.loopexit303
+  %or.cond348 = select i1 %.not276, i1 %139, i1 false
+  br i1 %or.cond348, label %.lr.ph, label %.loopexit303
 
 .lr.ph:                                           ; preds = %138
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 11128
@@ -2153,8 +2153,8 @@ define internal fastcc i32 @swr_convert_internal(ptr noundef %0, ptr noundef %1,
   %184 = mul nsw i32 %183, %181
   %.not278 = icmp ne i32 %181, 0
   %185 = icmp sgt i32 %157, 0
-  %or.cond330 = and i1 %.not278, %185
-  br i1 %or.cond330, label %.lr.ph307, label %.loopexit301
+  %or.cond349 = and i1 %.not278, %185
+  br i1 %or.cond349, label %.lr.ph307, label %.loopexit301
 
 .lr.ph307:                                        ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 11124
@@ -2187,8 +2187,8 @@ define internal fastcc i32 @swr_convert_internal(ptr noundef %0, ptr noundef %1,
   %205 = phi i32 [ %157, %180 ], [ %202, %188 ]
   %.not279 = icmp ne i32 %.1222, %181
   %206 = icmp sgt i32 %205, 0
-  %or.cond331 = and i1 %.not279, %206
-  br i1 %or.cond331, label %.lr.ph309, label %.loopexit
+  %or.cond350 = and i1 %.not279, %206
+  br i1 %or.cond350, label %.lr.ph309, label %.loopexit
 
 .lr.ph309:                                        ; preds = %.loopexit301
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 85976

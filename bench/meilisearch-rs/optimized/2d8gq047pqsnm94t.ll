@@ -3941,9 +3941,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h0e70bf5357d61956E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h225d3bd14b8f4e62E.exit.i.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit5.i.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit.i.i.i"
-  %.sink43.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit5.i.i.i" ]
+  %.sink46.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hccffdc768c14d963E.exit5.i.i.i" ]
   %96 = load i64, ptr %4, align 8, !noalias !1390, !noundef !40
-  %97 = add i64 %96, %.sink43.i.i
+  %97 = add i64 %96, %.sink46.i.i
   store i64 %97, ptr %4, align 8, !noalias !1390
   br label %.outer.i.i
 
@@ -4607,9 +4607,9 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @"switch.table._ZN83_$LT$meilisearch_types..tasks..ParseTaskKindError$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h19bd27bf021fdec2E.llvm.9153134991762065841", i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = zext nneg i8 %2 to i64
-  %switch.gep31 = getelementptr inbounds nuw [11 x i64], ptr @"switch.table._ZN83_$LT$meilisearch_types..tasks..ParseTaskKindError$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h19bd27bf021fdec2E.llvm.9153134991762065841.65", i64 0, i64 %21
-  %switch.load32 = load i64, ptr %switch.gep31, align 8
-  invoke fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load32)
+  %switch.gep32 = getelementptr inbounds nuw [11 x i64], ptr @"switch.table._ZN83_$LT$meilisearch_types..tasks..ParseTaskKindError$u20$as$u20$core..fmt..Display$GT$3fmt28_$u7b$$u7b$closure$u7d$$u7d$17h19bd27bf021fdec2E.llvm.9153134991762065841.65", i64 0, i64 %21
+  %switch.load33 = load i64, ptr %switch.gep32, align 8
+  invoke fastcc void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17hf44c7a4a16256920E"(ptr nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.load33)
           to label %_ZN10serde_json3ser6to_vec17hebe6fbf770c3e9b8E.exit unwind label %24
 
 22:                                               ; preds = %3

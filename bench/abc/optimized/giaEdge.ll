@@ -528,7 +528,7 @@ Vec_IntStart.exit70:                              ; preds = %Vec_IntAlloc.exit.t
 .lr.ph92:                                         ; preds = %Vec_IntStart.exit70
   %.8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.4..4..sroa_idx134 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.4..4..sroa_idx140 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %54
 
 54:                                               ; preds = %.lr.ph92, %131
@@ -561,7 +561,7 @@ Vec_IntStart.exit70:                              ; preds = %Vec_IntAlloc.exit.t
 
 65:                                               ; preds = %._crit_edge
   %.0..0. = load i32, ptr %2, align 16, !tbaa !34
-  %.4..4.102 = load i32, ptr %.4..4..sroa_idx134, align 4, !tbaa !34
+  %.4..4.102 = load i32, ptr %.4..4..sroa_idx140, align 4, !tbaa !34
   %66 = sext i32 %.0..0. to i64
   %67 = getelementptr inbounds i32, ptr %.val59, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !34
@@ -1475,9 +1475,9 @@ Gia_ObjEvalEdgeDelay.exit312:                     ; preds = %Gia_ObjHaveEdge.exi
   br i1 %328, label %269, label %.loopexit, !llvm.loop !52
 
 .loopexit.sink.split.sink.split:                  ; preds = %.critedge2, %.critedge
-  %.sink383 = phi ptr [ %110, %.critedge ], [ %263, %.critedge2 ]
+  %.sink403 = phi ptr [ %110, %.critedge ], [ %263, %.critedge2 ]
   %.sink.ph = phi ptr [ %31, %.critedge ], [ %157, %.critedge2 ]
-  tail call void @free(ptr noundef nonnull %.sink383) #19
+  tail call void @free(ptr noundef nonnull %.sink403) #19
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %.critedge2, %.critedge
@@ -1600,7 +1600,7 @@ Vec_IntCountPositive.exit9:                       ; preds = %22, %Vec_IntCountPo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483638, -2147483648) i32 @Gia_ObjComputeEdgeDelay(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #6 {
+define range(i32 0, -2147483648) i32 @Gia_ObjComputeEdgeDelay(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #6 {
   %7 = getelementptr i8, ptr %3, i64 8
   %.val151 = load ptr, ptr %7, align 8, !tbaa !8
   %8 = sext i32 %1 to i64
@@ -2461,9 +2461,9 @@ Vec_IntStart.exit203:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %218, label %.lr.ph237, label %.loopexit, !llvm.loop !61
 
 .loopexit.sink.split.sink.split:                  ; preds = %.critedge2, %.critedge
-  %.sink263 = phi ptr [ %128, %.critedge ], [ %205, %.critedge2 ]
+  %.sink275 = phi ptr [ %128, %.critedge ], [ %205, %.critedge2 ]
   %.sink.ph = phi ptr [ %73, %.critedge ], [ %151, %.critedge2 ]
-  tail call void @free(ptr noundef nonnull %.sink263) #19
+  tail call void @free(ptr noundef nonnull %.sink275) #19
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %.critedge2, %.critedge
@@ -4819,11 +4819,11 @@ Gia_ObjHaveEdge.exit194.thread:                   ; preds = %78, %Gia_ObjHaveEdg
   %120 = sub nsw i32 %2, %.2141.lcssa
   %121 = icmp eq i32 %.0150.lcssa, 0
   %122 = icmp ne i32 %.0154.lcssa, 0
-  %or.cond.not212.not309 = select i1 %121, i1 %122, i1 false
+  %or.cond.not212.not310 = select i1 %121, i1 %122, i1 false
   %.not157 = icmp sle i32 %.0154.lcssa, %120
   %123 = icmp sgt i32 %.0154.lcssa, 0
   %124 = and i1 %.not157, %123
-  %or.cond = select i1 %or.cond.not212.not309, i1 %124, i1 false
+  %or.cond = select i1 %or.cond.not212.not310, i1 %124, i1 false
   br i1 %or.cond, label %.lr.ph242, label %._crit_edge.thread
 
 .lr.ph242:                                        ; preds = %119
@@ -4950,12 +4950,12 @@ Gia_ObjEdgeAdd.exit200:                           ; preds = %171, %172, %176
 ._crit_edge.thread:                               ; preds = %._crit_edge, %119
   %182 = icmp eq i32 %.0148.lcssa, 0
   %183 = icmp ne i32 %.0152.lcssa, 0
-  %or.cond5.not215.not313 = select i1 %182, i1 %183, i1 false
+  %or.cond5.not215.not314 = select i1 %182, i1 %183, i1 false
   %.not158 = icmp sle i32 %.0152.lcssa, %120
   %184 = icmp sgt i32 %.0152.lcssa, 0
   %185 = and i1 %.not158, %184
-  %or.cond305 = select i1 %or.cond5.not215.not313, i1 %185, i1 false
-  br i1 %or.cond305, label %.lr.ph252, label %._crit_edge253.thread
+  %or.cond306 = select i1 %or.cond5.not215.not314, i1 %185, i1 false
+  br i1 %or.cond306, label %.lr.ph252, label %._crit_edge253.thread
 
 .lr.ph252:                                        ; preds = %._crit_edge.thread
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 352

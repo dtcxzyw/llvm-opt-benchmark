@@ -1466,7 +1466,7 @@ define linkonce_odr void @_ZNSt6vectorI5TimerSaIS0_EE17_M_default_appendEm(ptr n
           to label %_ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i unwind label %21
 
 _ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i:  ; preds = %.lr.ph.i.i.i
-  %19 = add i64 %.01013.i.i.i, -1
+  %19 = add nsw i64 %.01013.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i, i64 72
   %.not.i.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !20
@@ -1538,7 +1538,7 @@ _ZNKSt6vectorI5TimerSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %32
           to label %_ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i48 unwind label %42
 
 _ZSt10_ConstructI5TimerJEEvPT_DpOT0_.exit.i.i.i48: ; preds = %.lr.ph.i.i.i40
-  %40 = add i64 %.01013.i.i.i42, -1
+  %40 = add nsw i64 %.01013.i.i.i42, -1
   %41 = getelementptr inbounds nuw i8, ptr %.014.i.i.i41, i64 72
   %.not.i.i.i49 = icmp eq i64 %40, 0
   br i1 %.not.i.i.i49, label %_ZSt27__uninitialized_default_n_aIP5TimermS0_ET_S2_T0_RSaIT1_E.exit51, label %.lr.ph.i.i.i40, !llvm.loop !20
@@ -1640,8 +1640,8 @@ _ZSt8_DestroyIP5TimerEvT_S2_.exit.i.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 .body:                                            ; preds = %65
   %71 = extractvalue { ptr, i32 } %66, 0
   %72 = tail call ptr @__cxa_begin_catch(ptr %71) #15
-  %.idx = mul nsw i64 %1, 72
-  %73 = getelementptr inbounds i8, ptr %39, i64 %.idx
+  %.idx = mul nuw nsw i64 %1, 72
+  %73 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   br label %.lr.ph.i.i.i56
 
 .lr.ph.i.i.i56:                                   ; preds = %.body, %.lr.ph.i.i.i56
@@ -1682,7 +1682,7 @@ _ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit63:   ; preds = %.lr.ph.i.i.i60, %_Z
 
 _ZNSt12_Vector_baseI5TimerSaIS0_EE13_M_deallocateEPS0_m.exit65: ; preds = %_ZSt8_DestroyIP5TimerS0_EvT_S2_RSaIT0_E.exit63, %78
   store ptr %38, ptr %0, align 8
-  %82 = getelementptr inbounds %class.Timer, ptr %39, i64 %1
+  %82 = getelementptr inbounds nuw %class.Timer, ptr %39, i64 %1
   store ptr %82, ptr %4, align 8
   %83 = getelementptr inbounds nuw %class.Timer, ptr %38, i64 %36
   store ptr %83, ptr %11, align 8

@@ -1170,8 +1170,8 @@ define dso_local void @intel_pps_vdd_off_unlocked(ptr noundef %0, i1 noundef zer
 .split:                                           ; preds = %33, %.split2
   %.val4.sink.in = phi ptr [ %37, %.split2 ], [ inttoptr (i64 7184 to ptr), %33 ]
   %38 = phi ptr [ %36, %.split2 ], [ null, %33 ]
-  %.in6 = getelementptr i8, ptr %0, i64 -336
-  %39 = load ptr, ptr %.in6, align 8
+  %.in7 = getelementptr i8, ptr %0, i64 -336
+  %39 = load ptr, ptr %.in7, align 8
   %.in = getelementptr i8, ptr %0, i64 -368
   %40 = load i32, ptr %.in, align 8
   %.val4.sink = load i32, ptr %.val4.sink.in, align 4
@@ -3208,8 +3208,8 @@ define dso_local zeroext i1 @intel_pps_init(ptr noundef initializes((1552, 1560)
   br label %138
 
 .thread18.sink.split:                             ; preds = %86, %110
-  %.lcssa27.sink = phi i32 [ %111, %110 ], [ %87, %86 ]
-  store i32 %.lcssa27.sink, ptr %20, align 8
+  %.lcssa33.sink = phi i32 [ %111, %110 ], [ %87, %86 ]
+  store i32 %.lcssa33.sink, ptr %20, align 8
   br label %.thread18
 
 .thread18:                                        ; preds = %.thread18.sink.split, %68
@@ -3351,7 +3351,7 @@ define dso_local void @intel_pps_init_late(ptr noundef %0) local_unnamed_addr #0
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %29
-  br i1 %32, label %.thread4, label %33, !prof !11
+  br i1 %32, label %.thread5, label %33, !prof !11
 
 33:                                               ; preds = %28
   tail call void asm sideeffect "1057: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1057b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1057) #7, !srcloc !116
@@ -3384,15 +3384,15 @@ define dso_local void @intel_pps_init_late(ptr noundef %0) local_unnamed_addr #0
   tail call void asm sideeffect "1060: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1060b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1060) #7, !srcloc !120
   %.pr.pre = load i8, ptr %25, align 1
   %52 = icmp sgt i8 %.pr.pre, -1
-  br i1 %52, label %.thread4, label %.thread
+  br i1 %52, label %.thread5, label %.thread
 
-.thread4:                                         ; preds = %28, %43
-  %.pr6 = phi i8 [ %.pr.pre, %43 ], [ %26, %28 ]
-  %53 = zext nneg i8 %.pr6 to i32
+.thread5:                                         ; preds = %28, %43
+  %.pr7 = phi i8 [ %.pr.pre, %43 ], [ %26, %28 ]
+  %53 = zext nneg i8 %.pr7 to i32
   store i32 %53, ptr %30, align 8
   br label %.thread
 
-.thread:                                          ; preds = %24, %.thread4, %43, %19, %8
+.thread:                                          ; preds = %24, %.thread5, %43, %19, %8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %54, i8 0, i64 10, i1 false)
   tail call fastcc void @pps_init_delays(ptr noundef %0)
@@ -3607,7 +3607,7 @@ define dso_local void @assert_pps_unlocked(ptr noundef %0, i32 noundef %1) local
   %34 = tail call i32 %33(ptr noundef nonnull %31, i32 %30, i1 noundef zeroext true) #7
   %35 = lshr i32 %34, 30
   %36 = xor i32 %35, 2
-  switch i32 %36, label %default.unreachable5 [
+  switch i32 %36, label %default.unreachable9 [
     i32 2, label %37
     i32 3, label %39
     i32 0, label %41
@@ -3630,7 +3630,7 @@ define dso_local void @assert_pps_unlocked(ptr noundef %0, i32 noundef %1) local
   %44 = call zeroext i1 @g4x_dp_port_enabled(ptr noundef %0, i32 934656, i32 noundef 3, ptr noundef nonnull %3) #7
   br label %78
 
-default.unreachable5:                             ; preds = %26
+default.unreachable9:                             ; preds = %26
   unreachable
 
 45:                                               ; preds = %22

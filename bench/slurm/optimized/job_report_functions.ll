@@ -323,7 +323,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   call void @list_iterator_reset(ptr noundef nonnull %.0247) #11
   %114 = call ptr @list_next(ptr noundef %102) #11
   %.not308.us400 = icmp eq ptr %114, null
-  br i1 %.not308.us400, label %._crit_edge399.thread439, label %.preheader.us
+  br i1 %.not308.us400, label %._crit_edge399.thread475, label %.preheader.us
 
 .lr.ph394.us:                                     ; preds = %.preheader.us
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -393,13 +393,13 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   call void @list_iterator_reset(ptr noundef nonnull %.0247) #11
   %147 = call ptr @list_next(ptr noundef %102) #11
   %.not308 = icmp eq ptr %147, null
-  br i1 %.not308, label %._crit_edge399.thread439, label %.preheader
+  br i1 %.not308, label %._crit_edge399.thread475, label %.preheader
 
 ._crit_edge399.thread:                            ; preds = %.lr.ph398.split.us.split, %.lr.ph398.split.us.split.us
   call void @list_iterator_destroy(ptr noundef %102) #11
   br label %149
 
-._crit_edge399.thread439:                         ; preds = %._crit_edge395.split, %._crit_edge395.split.us.us
+._crit_edge399.thread475:                         ; preds = %._crit_edge395.split, %._crit_edge395.split.us.us
   call void @list_iterator_destroy(ptr noundef %102) #11
   br label %148
 
@@ -408,7 +408,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %.not309 = icmp eq ptr %.0247, null
   br i1 %.not309, label %149, label %148
 
-148:                                              ; preds = %._crit_edge399.thread439, %._crit_edge399
+148:                                              ; preds = %._crit_edge399.thread475, %._crit_edge399
   call void @list_iterator_destroy(ptr noundef nonnull %.0247) #11
   br label %149
 

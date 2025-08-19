@@ -361,7 +361,7 @@ _ZN5RarVM21FilterItanium_SetBitsEPhjjj.exit:      ; preds = %86, %62, %.preheade
 .preheader319:                                    ; preds = %134, %._crit_edge342
   %indvars.iv387 = phi i64 [ 0, %134 ], [ %indvars.iv.next388, %._crit_edge342 ]
   %.0257345 = phi ptr [ %135, %134 ], [ %.1258.lcssa, %._crit_edge342 ]
-  %indvars392 = trunc i64 %indvars.iv387 to i32
+  %indvars392 = trunc nuw nsw i64 %indvars.iv387 to i32
   %141 = icmp ugt i32 %125, %indvars392
   br i1 %141, label %.lr.ph341, label %._crit_edge342
 

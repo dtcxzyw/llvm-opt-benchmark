@@ -1558,7 +1558,7 @@ rnglists_header_init.exit.i:                      ; preds = %479, %469
 
 489:                                              ; preds = %487
   %490 = load i32, ptr %219, align 8, !tbaa !104
-  switch i32 %490, label %.preheader757 [
+  switch i32 %490, label %.preheader821 [
     i32 46, label %.preheader159.i.preheader
     i32 29, label %.preheader159.i.preheader
   ]
@@ -1566,10 +1566,10 @@ rnglists_header_init.exit.i:                      ; preds = %479, %469
 .preheader159.i.preheader:                        ; preds = %489, %489
   br label %.preheader159.i
 
-.preheader757:                                    ; preds = %.thread.i, %489
+.preheader821:                                    ; preds = %.thread.i, %489
   br label %491
 
-491:                                              ; preds = %.preheader757, %526
+491:                                              ; preds = %.preheader821, %526
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   %.promoted.i.i.i302 = load ptr, ptr %211, align 8, !tbaa !62
@@ -1757,7 +1757,7 @@ di_read_record.exit.i288:                         ; preds = %562
 
 .thread.i:                                        ; preds = %di_read_record.exit.i288
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.preheader757
+  br label %.preheader821
 
 565:                                              ; preds = %di_read_record.exit.i288
   %.val78.i = load ptr, ptr %13, align 8, !tbaa !12
@@ -3274,7 +3274,7 @@ uleb128.exit.i:                                   ; preds = %.lr.ph.i.i, %33
   br label %sleb128.exit.i.i
 
 sleb128.exit.i.i:                                 ; preds = %sleb128.exit.i.i.backedge, %uleb128.exit.i
-  %43 = phi ptr [ %42, %uleb128.exit.i ], [ %.be153, %sleb128.exit.i.i.backedge ]
+  %43 = phi ptr [ %42, %uleb128.exit.i ], [ %.be176, %sleb128.exit.i.i.backedge ]
   %44 = getelementptr i8, ptr %43, i64 1
   %45 = load i8, ptr %43, align 1, !tbaa !12
   %46 = icmp sgt i8 %45, -1
@@ -3357,7 +3357,7 @@ uleb128.exit17.i.i:                               ; preds = %._crit_edge.loopexi
   br i1 %83, label %sleb128.exit.i.i.backedge, label %.lr.ph.i19.i.i
 
 sleb128.exit.i.i.backedge:                        ; preds = %.lr.ph.i19.i.i, %80, %79
-  %.be153 = phi ptr [ %81, %80 ], [ %.2.i, %79 ], [ %85, %.lr.ph.i19.i.i ]
+  %.be176 = phi ptr [ %81, %80 ], [ %.2.i, %79 ], [ %85, %.lr.ph.i19.i.i ]
   br label %sleb128.exit.i.i
 
 .lr.ph.i19.i.i:                                   ; preds = %80, %.lr.ph.i19.i.i
@@ -3696,8 +3696,8 @@ define internal fastcc range(i32 -1, 1) i32 @parse_debug_line_header(ptr noundef
   %8 = getelementptr i8, ptr %5, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 4, ptr %9, align 2, !tbaa !96
-  %.not77 = icmp eq i32 %6, -1
-  br i1 %.not77, label %10, label %.thread
+  %.not81 = icmp eq i32 %6, -1
+  br i1 %.not81, label %10, label %.thread
 
 10:                                               ; preds = %4
   %11 = load i64, ptr %8, align 8, !tbaa !68
@@ -3725,9 +3725,9 @@ define internal fastcc range(i32 -1, 1) i32 @parse_debug_line_header(ptr noundef
 
 23:                                               ; preds = %.thread
   %24 = icmp eq i16 %20, 5
-  %spec.select.v82 = select i1 %24, i64 4, i64 2
-  %spec.select83 = getelementptr i8, ptr %8, i64 %spec.select.v82
-  %25 = load i32, ptr %spec.select83, align 4, !tbaa !51
+  %spec.select.v86 = select i1 %24, i64 4, i64 2
+  %spec.select87 = getelementptr i8, ptr %8, i64 %spec.select.v86
+  %25 = load i32, ptr %spec.select87, align 4, !tbaa !51
   %26 = zext i32 %25 to i64
   br label %30
 
@@ -3739,7 +3739,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_debug_line_header(ptr noundef
   br label %30
 
 30:                                               ; preds = %27, %23
-  %spec.select85 = phi ptr [ %spec.select83, %23 ], [ %spec.select, %27 ]
+  %spec.select89 = phi ptr [ %spec.select87, %23 ], [ %spec.select, %27 ]
   %31 = phi i1 [ %24, %23 ], [ %28, %27 ]
   %32 = phi i8 [ 4, %23 ], [ 8, %27 ]
   %33 = phi ptr [ %18, %23 ], [ %13, %27 ]
@@ -3748,7 +3748,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_debug_line_header(ptr noundef
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %35, ptr %36, align 8, !tbaa !143
   %37 = zext nneg i8 %32 to i64
-  %38 = getelementptr i8, ptr %spec.select85, i64 %37
+  %38 = getelementptr i8, ptr %spec.select89, i64 %37
   %39 = getelementptr i8, ptr %38, i64 %35
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %39, ptr %40, align 8, !tbaa !144

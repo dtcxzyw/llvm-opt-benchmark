@@ -317,8 +317,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(pt
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !52
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !52
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 15:                                               ; preds = %6
@@ -330,13 +330,13 @@ define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(pt
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !52
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !52
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !52
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !52
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 26:                                               ; preds = %6
@@ -4040,8 +4040,8 @@ define void @_ZN12clap_builder7builder7command7Command11_build_self17he7a2082492
   %spec.select = select i1 %.0.i.not, i32 %72, i32 %74
   %75 = lshr i32 %spec.select, 1
   %76 = and i32 %75, 4096
-  %spec.select195 = or i32 %spec.select, %76
-  store i32 %spec.select195, ptr %62, align 4
+  %spec.select230 = or i32 %spec.select, %76
+  store i32 %spec.select230, ptr %62, align 4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %78 = load i64, ptr %77, align 8, !range !26, !noundef !5
   %.not48 = icmp eq i64 %78, 5
@@ -4064,12 +4064,12 @@ common.resume:                                    ; preds = %887, %552, %716, %2
   resume { ptr, i32 } %common.resume.op
 
 82:                                               ; preds = %.critedge
-  %83 = or i32 %spec.select195, 1024
+  %83 = or i32 %spec.select230, 1024
   store i32 %83, ptr %62, align 4, !alias.scope !870
   br label %84
 
 84:                                               ; preds = %.critedge, %82
-  %85 = phi i32 [ %spec.select195, %.critedge ], [ %83, %82 ]
+  %85 = phi i32 [ %spec.select230, %.critedge ], [ %83, %82 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %87 = load i64, ptr %86, align 8, !noundef !5
   %.not49 = icmp eq i64 %87, 0
@@ -4489,8 +4489,8 @@ _ZN12clap_builder7mkeymap7MKeyMap4push17h3cce4239bd0a533eE.exit.i: ; preds = %._
   %.not4.i.i = icmp eq i32 %233, 0
   %234 = and i32 %.pre180.pre185, 2097152
   %.not5.i.i = icmp eq i32 %234, 0
-  %or.cond196 = select i1 %.not4.i.i, i1 %.not5.i.i, i1 false
-  br i1 %or.cond196, label %235, label %_ZN12clap_builder7builder7command7Command27is_disable_version_flag_set17h7472dd13ef729dd8E.exit.thread.i
+  %or.cond231 = select i1 %.not4.i.i, i1 %.not5.i.i, i1 false
+  br i1 %or.cond231, label %235, label %_ZN12clap_builder7builder7command7Command27is_disable_version_flag_set17h7472dd13ef729dd8E.exit.thread.i
 
 235:                                              ; preds = %231
   %236 = load ptr, ptr %95, align 8, !alias.scope !989, !noundef !5
@@ -7223,14 +7223,14 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit139: ; preds = %261
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %301 = icmp ne i64 %..val2.i150.sink, 0
-  %spec.select230 = select i1 %301, ptr @anon.6c3c729a659441fa64683ea6a30cab01.37, ptr @anon.6c3c729a659441fa64683ea6a30cab01.6
-  %spec.select231 = zext i1 %301 to i64
+  %spec.select247 = select i1 %301, ptr @anon.6c3c729a659441fa64683ea6a30cab01.37, ptr @anon.6c3c729a659441fa64683ea6a30cab01.6
+  %spec.select248 = zext i1 %301 to i64
   br label %307
 
 302:                                              ; preds = %287
-  br i1 %290, label %.thread221, label %304
+  br i1 %290, label %.thread238, label %304
 
-.thread221:                                       ; preds = %302
+.thread238:                                       ; preds = %302
   store ptr @anon.6c3c729a659441fa64683ea6a30cab01.6, ptr %28, align 8
   %303 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %303, align 8
@@ -7245,9 +7245,9 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit139: ; preds = %261
   %..val.i149 = load ptr, ptr %306, align 8, !alias.scope !1636, !nonnull !5
   br label %299
 
-307:                                              ; preds = %299, %.thread221
-  %anon.6c3c729a659441fa64683ea6a30cab01.37.sink = phi ptr [ @anon.6c3c729a659441fa64683ea6a30cab01.6, %.thread221 ], [ %spec.select230, %299 ]
-  %.sink218 = phi i64 [ 0, %.thread221 ], [ %spec.select231, %299 ]
+307:                                              ; preds = %299, %.thread238
+  %anon.6c3c729a659441fa64683ea6a30cab01.37.sink = phi ptr [ @anon.6c3c729a659441fa64683ea6a30cab01.6, %.thread238 ], [ %spec.select247, %299 ]
+  %.sink218 = phi i64 [ 0, %.thread238 ], [ %spec.select248, %299 ]
   store ptr %anon.6c3c729a659441fa64683ea6a30cab01.37.sink, ptr %25, align 8
   %308 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %.sink218, ptr %308, align 8
@@ -8130,9 +8130,9 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit141: ; preds = %284
   %301 = load i64, ptr %.sroa.5206.0..sroa_idx, align 8, !noundef !5
   %302 = icmp ne i64 %301, 0
   %spec.select = select i1 %302, ptr @anon.6c3c729a659441fa64683ea6a30cab01.26, ptr @anon.6c3c729a659441fa64683ea6a30cab01.6
-  %spec.select253 = zext i1 %302 to i64
+  %spec.select268 = zext i1 %302 to i64
   store ptr %spec.select, ptr %25, align 8
-  store i64 %spec.select253, ptr %198, align 8
+  store i64 %spec.select268, ptr %198, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %303 = getelementptr inbounds nuw i8, ptr %.sroa.0180.0, i64 560
   %304 = load ptr, ptr %303, align 8, !alias.scope !1851, !nonnull !5, !align !79, !noundef !5
@@ -8229,14 +8229,14 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit154: ; preds = %300
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %328 = icmp ne i64 %..val2.i165.sink, 0
-  %spec.select254 = select i1 %328, ptr @anon.6c3c729a659441fa64683ea6a30cab01.37, ptr @anon.6c3c729a659441fa64683ea6a30cab01.6
-  %spec.select255 = zext i1 %328 to i64
+  %spec.select269 = select i1 %328, ptr @anon.6c3c729a659441fa64683ea6a30cab01.37, ptr @anon.6c3c729a659441fa64683ea6a30cab01.6
+  %spec.select270 = zext i1 %328 to i64
   br label %331
 
 329:                                              ; preds = %320
-  br i1 %322, label %.thread242, label %330
+  br i1 %322, label %.thread257, label %330
 
-.thread242:                                       ; preds = %329
+.thread257:                                       ; preds = %329
   store ptr @anon.6c3c729a659441fa64683ea6a30cab01.6, ptr %23, align 8
   store i64 0, ptr %212, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -8248,11 +8248,11 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit154: ; preds = %300
   %..val.i164 = load ptr, ptr %208, align 8, !alias.scope !1888, !nonnull !5
   br label %327
 
-331:                                              ; preds = %327, %.thread242
-  %storemerge241 = phi ptr [ @anon.6c3c729a659441fa64683ea6a30cab01.6, %.thread242 ], [ %spec.select254, %327 ]
-  %storemerge240 = phi i64 [ 0, %.thread242 ], [ %spec.select255, %327 ]
-  store ptr %storemerge241, ptr %20, align 8
-  store i64 %storemerge240, ptr %213, align 8
+331:                                              ; preds = %327, %.thread257
+  %storemerge256 = phi ptr [ @anon.6c3c729a659441fa64683ea6a30cab01.6, %.thread257 ], [ %spec.select269, %327 ]
+  %storemerge255 = phi i64 [ 0, %.thread257 ], [ %spec.select270, %327 ]
+  store ptr %storemerge256, ptr %20, align 8
+  store i64 %storemerge255, ptr %213, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %332 = getelementptr inbounds nuw i8, ptr %.sroa.0180.0, i64 560
   %333 = load ptr, ptr %332, align 8, !alias.scope !1891, !nonnull !5, !align !79, !noundef !5

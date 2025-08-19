@@ -1862,16 +1862,16 @@ setDir.exit.thread:                               ; preds = %256, %.preheader.i,
   br i1 %.not230, label %797, label %.loopexit334.thread
 
 .loopexit334.thread:                              ; preds = %26, %.loopexit334
-  %.5564 = phi ptr [ %.5, %.loopexit334 ], [ %19, %26 ]
-  %.0190562 = phi i32 [ %.0190, %.loopexit334 ], [ 1, %26 ]
-  call void @free(ptr noundef %.5564) #20
+  %.5633 = phi ptr [ %.5, %.loopexit334 ], [ %19, %26 ]
+  %.0190631 = phi i32 [ %.0190, %.loopexit334 ], [ 1, %26 ]
+  call void @free(ptr noundef %.5633) #20
   br label %797
 
 797:                                              ; preds = %.loopexit334, %.loopexit334.thread
-  %.0190563 = phi i32 [ %.0190, %.loopexit334 ], [ %.0190562, %.loopexit334.thread ]
+  %.0190632 = phi i32 [ %.0190, %.loopexit334 ], [ %.0190631, %.loopexit334.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.0190563
+  ret i32 %.0190632
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -1962,7 +1962,7 @@ free_edge.exit:                                   ; preds = %18
 declare void @gmlerror(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @mkAttr(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext range(i16 284, 290) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @mkAttr(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext range(i16 284, 290) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 121) 24) #22
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %gv_alloc.exit
@@ -3551,11 +3551,11 @@ agxbuse.exit.i42:                                 ; preds = %387, %agxbclear.exi
   br label %addEdgeGraphics.exit
 
 .critedge.thread.i.sink.split:                    ; preds = %.lr.ph.i38, %192
-  %.val.i53.i.pre165168 = load i8, ptr %9, align 1, !tbaa !18
+  %.val.i53.i.pre165181 = load i8, ptr %9, align 1, !tbaa !18
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.i.sink.split, %.critedge.i40
-  %.val.i53.i = phi i8 [ %.val.i53.i.pre165, %.critedge.i40 ], [ %.val.i53.i.pre165168, %.critedge.thread.i.sink.split ]
+  %.val.i53.i = phi i8 [ %.val.i53.i.pre165, %.critedge.i40 ], [ %.val.i53.i.pre165181, %.critedge.thread.i.sink.split ]
   %.not.i54.i = icmp eq i8 %.val.i53.i, -1
   br i1 %.not.i54.i, label %392, label %391
 

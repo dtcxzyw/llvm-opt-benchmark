@@ -570,25 +570,25 @@ define dso_local noalias noundef ptr @parse_cht(ptr noundef %0) local_unnamed_ad
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %26 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
-  %.not42979511451148 = icmp eq ptr %26, null
-  br i1 %.not42979511451148, label %free_chart.exit.thread, label %.lr.ph.preheader.lr.ph
+  %.not42979511681171 = icmp eq ptr %26, null
+  br i1 %.not42979511681171, label %free_chart.exit.thread, label %.lr.ph.preheader.lr.ph
 
 .lr.ph.preheader.lr.ph:                           ; preds = %14, %._crit_edge848
-  %.0345.ph.ph1154 = phi i32 [ 1, %._crit_edge848 ], [ 0, %14 ]
-  %.0351.ph.ph1153 = phi float [ %.2353.lcssa, %._crit_edge848 ], [ 0x47EFFFFFE0000000, %14 ]
-  %.0360.ph.ph1152 = phi float [ %.2362.lcssa, %._crit_edge848 ], [ 0x3810000000000000, %14 ]
-  %.0372.ph.ph1151 = phi float [ %.2374.lcssa, %._crit_edge848 ], [ 0x47EFFFFFE0000000, %14 ]
-  %.0380.ph.ph1150 = phi float [ %.2382.lcssa, %._crit_edge848 ], [ 0x3810000000000000, %14 ]
-  %.ph1149 = phi ptr [ %397, %._crit_edge848 ], [ %17, %14 ]
+  %.0345.ph.ph1177 = phi i32 [ 1, %._crit_edge848 ], [ 0, %14 ]
+  %.0351.ph.ph1176 = phi float [ %.2353.lcssa, %._crit_edge848 ], [ 0x47EFFFFFE0000000, %14 ]
+  %.0360.ph.ph1175 = phi float [ %.2362.lcssa, %._crit_edge848 ], [ 0x3810000000000000, %14 ]
+  %.0372.ph.ph1174 = phi float [ %.2374.lcssa, %._crit_edge848 ], [ 0x47EFFFFFE0000000, %14 ]
+  %.0380.ph.ph1173 = phi float [ %.2382.lcssa, %._crit_edge848 ], [ 0x3810000000000000, %14 ]
+  %.ph1172 = phi ptr [ %397, %._crit_edge848 ], [ %17, %14 ]
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.lr.ph, %.outer.backedge
-  %.0345.ph1147 = phi i32 [ %.0345.ph.ph1154, %.lr.ph.preheader.lr.ph ], [ %.0345.ph.be, %.outer.backedge ]
-  %.0348.ph1146 = phi i32 [ 0, %.lr.ph.preheader.lr.ph ], [ %.0348.ph.be, %.outer.backedge ]
+  %.0345.ph1170 = phi i32 [ %.0345.ph.ph1177, %.lr.ph.preheader.lr.ph ], [ %.0345.ph.be, %.outer.backedge ]
+  %.0348.ph1169 = phi i32 [ 0, %.lr.ph.preheader.lr.ph ], [ %.0348.ph.be, %.outer.backedge ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge
-  %.0348796 = phi i32 [ %.0348.be, %.backedge ], [ %.0348.ph1146, %.lr.ph.preheader ]
+  %.0348796 = phi i32 [ %.0348.be, %.backedge ], [ %.0348.ph1169, %.lr.ph.preheader ]
   %27 = load i8, ptr %2, align 16, !tbaa !23
   switch i8 %27, label %29 [
     i8 10, label %.backedge
@@ -645,7 +645,7 @@ parse_string.exit:                                ; preds = %.preheader.i, %.pre
   store ptr %39, ptr %3, align 8, !tbaa !26
   store i8 0, ptr %36, align 1, !tbaa !23
   %40 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.2) #13
-  %41 = or i32 %40, %.0345.ph1147
+  %41 = or i32 %40, %.0345.ph1170
   %or.cond9 = icmp eq i32 %41, 0
   br i1 %or.cond9, label %42, label %458
 
@@ -680,10 +680,10 @@ parse_double.exit:                                ; preds = %.preheader693
   br i1 %.not444813, label %._crit_edge819, label %.lr.ph818
 
 .lr.ph818:                                        ; preds = %parse_double.exit, %393
-  %.2353817 = phi float [ %.4355, %393 ], [ %.0351.ph.ph1153, %parse_double.exit ]
-  %.2362816 = phi float [ %.4364, %393 ], [ %.0360.ph.ph1152, %parse_double.exit ]
-  %.2374815 = phi float [ %.4376, %393 ], [ %.0372.ph.ph1151, %parse_double.exit ]
-  %.2382814 = phi float [ %.4384, %393 ], [ %.0380.ph.ph1150, %parse_double.exit ]
+  %.2353817 = phi float [ %.4355, %393 ], [ %.0351.ph.ph1176, %parse_double.exit ]
+  %.2362816 = phi float [ %.4364, %393 ], [ %.0360.ph.ph1175, %parse_double.exit ]
+  %.2374815 = phi float [ %.4376, %393 ], [ %.0372.ph.ph1174, %parse_double.exit ]
+  %.2382814 = phi float [ %.4384, %393 ], [ %.0380.ph.ph1173, %parse_double.exit ]
   %54 = load i8, ptr %2, align 16, !tbaa !23
   switch i8 %54, label %55 [
     i8 10, label %._crit_edge819
@@ -1599,10 +1599,10 @@ parse_double.exit538:                             ; preds = %.preheader680
   br i1 %.not444, label %._crit_edge819, label %.lr.ph818
 
 ._crit_edge819:                                   ; preds = %393, %.lr.ph818, %.lr.ph818, %parse_double.exit
-  %.2382.lcssa = phi float [ %.0380.ph.ph1150, %parse_double.exit ], [ %.2382814, %.lr.ph818 ], [ %.2382814, %.lr.ph818 ], [ %.4384, %393 ]
-  %.2374.lcssa = phi float [ %.0372.ph.ph1151, %parse_double.exit ], [ %.2374815, %.lr.ph818 ], [ %.2374815, %.lr.ph818 ], [ %.4376, %393 ]
-  %.2362.lcssa = phi float [ %.0360.ph.ph1152, %parse_double.exit ], [ %.2362816, %.lr.ph818 ], [ %.2362816, %.lr.ph818 ], [ %.4364, %393 ]
-  %.2353.lcssa = phi float [ %.0351.ph.ph1153, %parse_double.exit ], [ %.2353817, %.lr.ph818 ], [ %.2353817, %.lr.ph818 ], [ %.4355, %393 ]
+  %.2382.lcssa = phi float [ %.0380.ph.ph1173, %parse_double.exit ], [ %.2382814, %.lr.ph818 ], [ %.2382814, %.lr.ph818 ], [ %.4384, %393 ]
+  %.2374.lcssa = phi float [ %.0372.ph.ph1174, %parse_double.exit ], [ %.2374815, %.lr.ph818 ], [ %.2374815, %.lr.ph818 ], [ %.4376, %393 ]
+  %.2362.lcssa = phi float [ %.0360.ph.ph1175, %parse_double.exit ], [ %.2362816, %.lr.ph818 ], [ %.2362816, %.lr.ph818 ], [ %.4364, %393 ]
+  %.2353.lcssa = phi float [ %.0351.ph.ph1176, %parse_double.exit ], [ %.2353817, %.lr.ph818 ], [ %.2353817, %.lr.ph818 ], [ %.4355, %393 ]
   %395 = load ptr, ptr %16, align 8, !tbaa !15
   %396 = call i32 @g_hash_table_size(ptr noundef %395) #13
   %397 = load ptr, ptr %18, align 8, !tbaa !16
@@ -1733,13 +1733,13 @@ parse_double.exit538:                             ; preds = %.preheader680
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %457 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
-  %.not4297951145 = icmp eq ptr %457, null
-  br i1 %.not4297951145, label %free_chart.exit.thread, label %.lr.ph.preheader.lr.ph
+  %.not4297951168 = icmp eq ptr %457, null
+  br i1 %.not4297951168, label %free_chart.exit.thread, label %.lr.ph.preheader.lr.ph
 
 458:                                              ; preds = %parse_string.exit
   %459 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.5) #13
   %460 = icmp eq i32 %459, 0
-  %461 = icmp ult i32 %.0345.ph1147, 2
+  %461 = icmp ult i32 %.0345.ph1170, 2
   %or.cond21 = and i1 %461, %460
   br i1 %or.cond21, label %462, label %473
 
@@ -1775,7 +1775,7 @@ parse_double.exit563:                             ; preds = %.preheader694
 473:                                              ; preds = %458
   %474 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.6) #13
   %475 = icmp eq i32 %474, 0
-  %476 = icmp ult i32 %.0345.ph1147, 3
+  %476 = icmp ult i32 %.0345.ph1170, 3
   %or.cond23 = and i1 %476, %475
   br i1 %or.cond23, label %477, label %488
 
@@ -1811,21 +1811,21 @@ parse_double.exit566:                             ; preds = %.preheader695
 488:                                              ; preds = %473
   %489 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.7) #13
   %490 = icmp eq i32 %489, 0
-  %491 = icmp ult i32 %.0345.ph1147, 4
+  %491 = icmp ult i32 %.0345.ph1170, 4
   %or.cond25 = and i1 %491, %490
   br i1 %or.cond25, label %.outer.backedge.sink.split, label %492
 
 492:                                              ; preds = %488
   %493 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.8) #13
   %494 = icmp eq i32 %493, 0
-  %495 = icmp ult i32 %.0345.ph1147, 5
+  %495 = icmp ult i32 %.0345.ph1170, 5
   %or.cond27 = and i1 %495, %494
   br i1 %or.cond27, label %.outer.backedge.sink.split, label %496
 
 496:                                              ; preds = %492
   %497 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.9) #13
   %498 = icmp eq i32 %497, 0
-  %499 = icmp ult i32 %.0345.ph1147, 6
+  %499 = icmp ult i32 %.0345.ph1170, 6
   %or.cond29 = and i1 %499, %498
   br i1 %or.cond29, label %500, label %573
 
@@ -1959,7 +1959,7 @@ parse_string.exit581:                             ; preds = %.preheader.i579, %.
   %537 = getelementptr inbounds nuw i8, ptr %534, i64 1
   store ptr %537, ptr %8, align 8, !tbaa !26
   store i8 0, ptr %534, align 1, !tbaa !23
-  %538 = call ptr @g_hash_table_lookup(ptr noundef %.ph1149, ptr noundef nonnull %storemerge665) #13
+  %538 = call ptr @g_hash_table_lookup(ptr noundef %.ph1172, ptr noundef nonnull %storemerge665) #13
   %.not436 = icmp eq ptr %538, null
   br i1 %.not436, label %.thread649, label %539
 
@@ -2017,9 +2017,9 @@ parse_double.exit587:                             ; preds = %.preheader690
   %560 = ptrtoint ptr %559 to i64
   %561 = sub i64 %560, %21
   %.not439 = icmp slt i64 %561, %528
-  br i1 %.not439, label %.preheader1051, label %.thread649
+  br i1 %.not439, label %.preheader1074, label %.thread649
 
-.preheader1051:                                   ; preds = %parse_double.exit587, %.critedge.i589
+.preheader1074:                                   ; preds = %parse_double.exit587, %.critedge.i589
   %562 = phi ptr [ %564, %.critedge.i589 ], [ %559, %parse_double.exit587 ]
   %563 = load i8, ptr %562, align 1, !tbaa !23
   switch i8 %563, label %565 [
@@ -2027,17 +2027,17 @@ parse_double.exit587:                             ; preds = %.preheader690
     i8 9, label %.critedge.i589
   ]
 
-.critedge.i589:                                   ; preds = %.preheader1051, %.preheader1051
+.critedge.i589:                                   ; preds = %.preheader1074, %.preheader1074
   %564 = getelementptr inbounds nuw i8, ptr %562, i64 1
   store ptr %564, ptr %8, align 8, !tbaa !26
-  br label %.preheader1051
+  br label %.preheader1074
 
 .thread649:                                       ; preds = %parse_string.exit581, %539, %parse_double.exit584, %parse_double.exit587
   %.18.ph = phi i32 [ 483, %parse_double.exit587 ], [ 481, %parse_double.exit584 ], [ 479, %539 ], [ 477, %parse_string.exit581 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-565:                                              ; preds = %.preheader1051
+565:                                              ; preds = %.preheader1074
   %566 = fptrunc reassoc nsz arcp contract afn double %556 to float
   %567 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %562, ptr noundef nonnull %8) #13
   %568 = load ptr, ptr %8, align 8, !tbaa !26
@@ -2080,7 +2080,7 @@ parse_double.exit587:                             ; preds = %.preheader690
   br label %.loopexit698
 
 .thread:                                          ; preds = %500, %parse_string.exit572, %522, %.thread649
-  %.2.ph938 = phi i32 [ %.18.ph, %.thread649 ], [ 452, %500 ], [ 454, %parse_string.exit572 ], [ 462, %522 ]
+  %.2.ph961 = phi i32 [ %.18.ph, %.thread649 ], [ 452, %500 ], [ 454, %parse_string.exit572 ], [ 462, %522 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit698
 
@@ -2090,7 +2090,7 @@ free_chart.exit.thread:                           ; preds = %._crit_edge848, %.o
   br label %594
 
 .loopexit698:                                     ; preds = %._crit_edge, %.thread, %.thread654, %11
-  %.0344 = phi i32 [ 153, %11 ], [ %.2.ph, %.thread654 ], [ %.2.ph938, %.thread ], [ 487, %._crit_edge ]
+  %.0344 = phi i32 [ 153, %11 ], [ %.2.ph, %.thread654 ], [ %.2.ph961, %.thread ], [ 487, %._crit_edge ]
   %578 = load ptr, ptr @stderr, align 8, !tbaa !24
   %579 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %578, ptr noundef nonnull @.str.14, ptr noundef nonnull @__FUNCTION__.parse_cht, i32 noundef %.0344) #15
   %.not.i591 = icmp eq ptr %9, null

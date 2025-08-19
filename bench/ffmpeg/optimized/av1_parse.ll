@@ -253,9 +253,9 @@ bytestream2_init.exit:                            ; preds = %4
 
 56:                                               ; preds = %.lr.ph.i
   %57 = icmp samesign ugt i32 %.02129.i, 268435455
-  br i1 %57, label %get_obu_bit_length.exit.thread, label %.thread33.i
+  br i1 %57, label %get_obu_bit_length.exit.thread, label %.thread36.i
 
-.thread33.i:                                      ; preds = %56
+.thread36.i:                                      ; preds = %56
   %58 = shl nuw nsw i32 %.02129.i, 3
   br label %62
 
@@ -268,9 +268,9 @@ bytestream2_init.exit:                            ; preds = %4
   %.not24.i = icmp eq i8 %.pre.i, 0
   br i1 %.not24.i, label %get_obu_bit_length.exit.thread, label %62
 
-62:                                               ; preds = %59, %.thread33.i
-  %63 = phi i32 [ %58, %.thread33.i ], [ %61, %59 ]
-  %64 = phi i8 [ %51, %.thread33.i ], [ %.pre.i, %59 ]
+62:                                               ; preds = %59, %.thread36.i
+  %63 = phi i32 [ %58, %.thread36.i ], [ %61, %59 ]
+  %64 = phi i8 [ %51, %.thread36.i ], [ %.pre.i, %59 ]
   %65 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %64, i1 true)
   %66 = xor i8 %65, -1
   %.neg.i = sext i8 %66 to i32

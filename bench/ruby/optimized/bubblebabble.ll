@@ -110,8 +110,8 @@ RSTRING_PTR.exit60.i:                             ; preds = %25, %16
   %31 = getelementptr i8, ptr %30, i64 1
   store i8 120, ptr %31, align 1, !tbaa !21
   %32 = udiv i8 %.050.lcssa.i, 6
-  %.zext78.i = zext nneg i8 %32 to i64
-  %33 = getelementptr inbounds nuw [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext78.i
+  %.zext80.i = zext nneg i8 %32 to i64
+  %33 = getelementptr inbounds nuw [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext80.i
   %34 = load i8, ptr %33, align 1, !tbaa !21
   %35 = add i64 %.048.lcssa.i, 3
   %36 = getelementptr i8, ptr %30, i64 2
@@ -264,8 +264,8 @@ RSTRING_PTR.exit60.i:                             ; preds = %28, %19
   %34 = getelementptr i8, ptr %33, i64 1
   store i8 120, ptr %34, align 1, !tbaa !21
   %35 = udiv i8 %.050.lcssa.i, 6
-  %.zext78.i = zext nneg i8 %35 to i64
-  %36 = getelementptr inbounds nuw [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext78.i
+  %.zext80.i = zext nneg i8 %35 to i64
+  %36 = getelementptr inbounds nuw [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext80.i
   %37 = load i8, ptr %36, align 1, !tbaa !21
   %38 = add i64 %.048.lcssa.i, 3
   %39 = getelementptr i8, ptr %33, i64 2
@@ -418,8 +418,8 @@ RSTRING_PTR.exit60.i:                             ; preds = %26, %17
   %32 = getelementptr i8, ptr %31, i64 1
   store i8 120, ptr %32, align 1, !tbaa !21
   %33 = udiv i8 %.050.lcssa.i, 6
-  %.zext78.i = zext nneg i8 %33 to i64
-  %34 = getelementptr inbounds nuw [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext78.i
+  %.zext80.i = zext nneg i8 %33 to i64
+  %34 = getelementptr inbounds nuw [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext80.i
   %35 = load i8, ptr %34, align 1, !tbaa !21
   %36 = add i64 %.048.lcssa.i, 3
   %37 = getelementptr i8, ptr %31, i64 2

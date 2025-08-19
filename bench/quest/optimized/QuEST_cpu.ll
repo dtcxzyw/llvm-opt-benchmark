@@ -9479,9 +9479,9 @@ getBitMaskParity.exit:                            ; preds = %.lr.ph.i
 
 .sink.split:                                      ; preds = %getBitMaskParity.exit, %.thread
   %.sink = phi double [ %36, %.thread ], [ %42, %getBitMaskParity.exit ]
-  %.sink40 = phi double [ %35, %.thread ], [ %41, %getBitMaskParity.exit ]
+  %.sink44 = phi double [ %35, %.thread ], [ %41, %getBitMaskParity.exit ]
   %48 = fmul double %32, %.sink
-  %49 = call double @llvm.fmuladd.f64(double %.sink40, double %30, double %48)
+  %49 = call double @llvm.fmuladd.f64(double %.sink44, double %30, double %48)
   store double %49, ptr %29, align 8, !tbaa !4
   %50 = load double, ptr %9, align 8, !tbaa !4
   %51 = fneg double %50
@@ -12720,7 +12720,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %43 = load ptr, ptr %6, align 8
   %44 = load ptr, ptr %7, align 8
   %45 = zext nneg i32 %40 to i64
-  switch i32 %42, label %.preheader106.thread202 [
+  switch i32 %42, label %.preheader106.thread209 [
     i32 0, label %.preheader103.us
     i32 1, label %.preheader104.us
   ]
@@ -12843,7 +12843,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.preheader102.us.preheader, label %.preheader.lr.ph
 
-.preheader106.thread202:                          ; preds = %.lr.ph122
+.preheader106.thread209:                          ; preds = %.lr.ph122
   %100 = shl nuw nsw i64 %45, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %18, i8 0, i64 %100, i1 false), !tbaa !16
   %101 = load i32, ptr %8, align 4, !tbaa !18
@@ -12855,8 +12855,8 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.critedge, label %.loopexit105
 
-.preheader102.us.preheader:                       ; preds = %.preheader106, %.preheader106.thread202
-  %105 = phi i32 [ %101, %.preheader106.thread202 ], [ %98, %.preheader106 ]
+.preheader102.us.preheader:                       ; preds = %.preheader106, %.preheader106.thread209
+  %105 = phi i32 [ %101, %.preheader106.thread209 ], [ %98, %.preheader106 ]
   %106 = load ptr, ptr %9, align 8
   %107 = zext nneg i32 %40 to i64
   %wide.trip.count192 = zext nneg i32 %105 to i64
@@ -12887,7 +12887,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
   br i1 %exitcond193.not, label %.preheader.lr.ph, label %.preheader102.us
 
-.preheader.lr.ph:                                 ; preds = %114, %.preheader106, %.preheader106.thread202
+.preheader.lr.ph:                                 ; preds = %114, %.preheader106, %.preheader106.thread209
   %115 = load ptr, ptr %12, align 8
   %116 = load ptr, ptr %13, align 8
   br label %.preheader
@@ -13237,9 +13237,9 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %105, %..loopexit_crit_edge
-  %.lcssa312.sink = phi i64 [ %79, %..loopexit_crit_edge ], [ %107, %105 ]
+  %.lcssa320.sink = phi i64 [ %79, %..loopexit_crit_edge ], [ %107, %105 ]
   %.3140.ph = phi i32 [ %108, %..loopexit_crit_edge ], [ %95, %105 ]
-  store i64 %.lcssa312.sink, ptr %59, align 8, !tbaa !16
+  store i64 %.lcssa320.sink, ptr %59, align 8, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %.preheader171, %58, %93
@@ -13500,8 +13500,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .loopexit178.thread:                              ; preds = %.lr.ph212, %.lr.ph216, %.preheader179, %.preheader177
   %.1150.ph = phi double [ 0.000000e+00, %.preheader179 ], [ 0.000000e+00, %.preheader177 ], [ %180, %.lr.ph216 ], [ %196, %.lr.ph212 ]
   %208 = fcmp olt double %.1150.ph, 0.000000e+00
-  %.4153305 = select i1 %208, double 0.000000e+00, double %.1150.ph
-  %sqrt306 = call double @llvm.sqrt.f64(double %.4153305)
+  %.4153314 = select i1 %208, double 0.000000e+00, double %.1150.ph
+  %sqrt315 = call double @llvm.sqrt.f64(double %.4153314)
   br label %219
 
 .loopexit178:                                     ; preds = %.lr.ph208, %.preheader181
@@ -13509,7 +13509,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %209 = fcmp olt double %.1150, 0.000000e+00
   %.4153 = select i1 %209, double 0.000000e+00, double %.1150
   %sqrt = call double @llvm.sqrt.f64(double %.4153)
-  switch i32 %112, label %default.unreachable309 [
+  switch i32 %112, label %default.unreachable317 [
     i32 9, label %226
     i32 11, label %210
     i32 10, label %216
@@ -13534,8 +13534,8 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %226
 
 219:                                              ; preds = %.loopexit178.thread, %.loopexit178
-  %sqrt308 = phi double [ %sqrt306, %.loopexit178.thread ], [ %sqrt, %.loopexit178 ]
-  %220 = fcmp ugt double %sqrt308, 1.000000e-13
+  %sqrt316 = phi double [ %sqrt315, %.loopexit178.thread ], [ %sqrt, %.loopexit178 ]
+  %220 = fcmp ugt double %sqrt316, 1.000000e-13
   br i1 %220, label %223, label %221
 
 221:                                              ; preds = %219
@@ -13544,7 +13544,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 223:                                              ; preds = %219
   %224 = load double, ptr %30, align 8, !tbaa !4
-  %225 = fdiv double %224, %sqrt308
+  %225 = fdiv double %224, %sqrt316
   br label %226
 
 .fold.split:                                      ; preds = %.loopexit174
@@ -13553,7 +13553,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 default.unreachable:                              ; preds = %._crit_edge222
   unreachable
 
-default.unreachable309:                           ; preds = %.loopexit178
+default.unreachable317:                           ; preds = %.loopexit178
   unreachable
 
 226:                                              ; preds = %.critedge.thread, %221, %223, %.loopexit178, %212, %214, %163, %165, %._crit_edge222, %154, %156, %142, %144, %.loopexit174, %.fold.split, %133, %135, %137, %216, %158, %.critedge

@@ -188,7 +188,7 @@ _ZN4lean7dec_refEP11lean_object.exit:             ; preds = %34, %36, %37
 declare ptr @lean_io_error_to_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZN4lean18io_result_mk_errorEPKc(ptr noundef %0) local_unnamed_addr #0 {
+define noalias noundef nonnull ptr @_ZN4lean18io_result_mk_errorEPKc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @lean_mk_string(ptr noundef %0)
   %3 = tail call ptr @lean_mk_io_user_error(ptr noundef %2)
   tail call void @lean_inc_heartbeat()
@@ -214,7 +214,7 @@ _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %1
 declare ptr @lean_mk_io_user_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZN4lean18io_result_mk_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 {
+define noalias noundef nonnull ptr @_ZN4lean18io_result_mk_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_ZN4lean9mk_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %3 = tail call ptr @lean_mk_io_user_error(ptr noundef %2)
   tail call void @lean_inc_heartbeat()
@@ -246,7 +246,7 @@ define void @lean_io_mark_end_initialization() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_initializing(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_initializing(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %.b = load i1, ptr @_ZN4leanL14g_initializingE, align 1
   tail call void @lean_inc_heartbeat()
   %2 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
@@ -293,7 +293,7 @@ _ZL19lean_alloc_externalP19lean_external_classPv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_get_stdin(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_get_stdin(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4leanL31get_stream_current_stdin_tlocalE)
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i = icmp eq ptr %3, null
@@ -358,7 +358,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZNK4lean10object_r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_get_stdout(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_get_stdout(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4leanL32get_stream_current_stdout_tlocalE)
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i = icmp eq ptr %3, null
@@ -423,7 +423,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZNK4lean10object_r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_get_stderr(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_get_stderr(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4leanL32get_stream_current_stderr_tlocalE)
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.not.i = icmp eq ptr %3, null
@@ -488,7 +488,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZNK4lean10object_r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_get_set_stdin(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_get_set_stdin(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4leanL31get_stream_current_stdin_tlocalE)
   %4 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i = icmp eq ptr %4, null
@@ -530,7 +530,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZN4lean10object_re
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_get_set_stdout(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_get_set_stdout(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4leanL32get_stream_current_stdout_tlocalE)
   %4 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i = icmp eq ptr %4, null
@@ -570,7 +570,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZN4lean10object_re
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_get_set_stderr(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_get_set_stderr(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4leanL32get_stream_current_stderr_tlocalE)
   %4 = load ptr, ptr %3, align 8, !tbaa !40
   %.not.i = icmp eq ptr %4, null
@@ -1360,17 +1360,17 @@ define noalias noundef nonnull ptr @lean_chmod(ptr noundef %0, i32 noundef %1, p
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %10, %6
-  %.sink9 = phi ptr [ %7, %6 ], [ %14, %10 ]
-  %.sink6 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
+  %.sink11 = phi ptr [ %7, %6 ], [ %14, %10 ]
+  %.sink8 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %6 ], [ %13, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
-  store i32 %.sink6, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  store i32 %.sink8, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %18, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !tbaa !3
-  ret ptr %.sink9
+  ret ptr %.sink11
 }
 
 ; Function Attrs: nofree nounwind
@@ -1412,18 +1412,18 @@ switch.lookup:                                    ; preds = %3
   unreachable
 
 17:                                               ; preds = %6
-  %switch.tableidx30 = add i8 %1, -1
-  %18 = icmp ult i8 %switch.tableidx30, 4
-  br i1 %18, label %switch.lookup29, label %20
+  %switch.tableidx36 = add i8 %1, -1
+  %18 = icmp ult i8 %switch.tableidx36, 4
+  br i1 %18, label %switch.lookup35, label %20
 
-switch.lookup29:                                  ; preds = %17
-  %19 = zext nneg i8 %switch.tableidx30 to i64
-  %switch.gep31 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.lean_io_prim_handle_mk.13, i64 0, i64 %19
-  %switch.load32 = load ptr, ptr %switch.gep31, align 8
+switch.lookup35:                                  ; preds = %17
+  %19 = zext nneg i8 %switch.tableidx36 to i64
+  %switch.gep37 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.lean_io_prim_handle_mk.13, i64 0, i64 %19
+  %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %20
 
-20:                                               ; preds = %switch.lookup29, %17
-  %.017 = phi ptr [ @.str.1, %17 ], [ %switch.load32, %switch.lookup29 ]
+20:                                               ; preds = %switch.lookup35, %17
+  %.017 = phi ptr [ @.str.1, %17 ], [ %switch.load38, %switch.lookup35 ]
   %21 = tail call noalias ptr @fdopen(i32 noundef %8, ptr noundef nonnull %.017) #27
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %29
@@ -1470,17 +1470,17 @@ _ZN4lean14io_wrap_handleEP8_IO_FILE.exit:         ; preds = %29
   unreachable
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %_ZN4lean14io_wrap_handleEP8_IO_FILE.exit, %22, %10
-  %.sink28 = phi ptr [ %14, %10 ], [ %26, %22 ], [ %37, %_ZN4lean14io_wrap_handleEP8_IO_FILE.exit ]
-  %.sink25 = phi i32 [ 16908312, %10 ], [ 16908312, %22 ], [ 131096, %_ZN4lean14io_wrap_handleEP8_IO_FILE.exit ]
+  %.sink34 = phi ptr [ %14, %10 ], [ %26, %22 ], [ %37, %_ZN4lean14io_wrap_handleEP8_IO_FILE.exit ]
+  %.sink31 = phi i32 [ 16908312, %10 ], [ 16908312, %22 ], [ 131096, %_ZN4lean14io_wrap_handleEP8_IO_FILE.exit ]
   %.sink = phi ptr [ %13, %10 ], [ %25, %22 ], [ %31, %_ZN4lean14io_wrap_handleEP8_IO_FILE.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %.sink28, i64 4
-  store i32 1, ptr %.sink28, align 4, !tbaa !7
-  store i32 %.sink25, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %.sink28, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
+  store i32 1, ptr %.sink34, align 4, !tbaa !7
+  store i32 %.sink31, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
   store ptr %.sink, ptr %41, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %.sink28, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %42, align 8, !tbaa !3
-  ret ptr %.sink28
+  ret ptr %.sink34
 }
 
 ; Function Attrs: nofree
@@ -1524,17 +1524,17 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_lock(ptr noundef readonl
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %12, %8
-  %.sink10 = phi ptr [ %9, %8 ], [ %16, %12 ]
-  %.sink7 = phi i32 [ 131096, %8 ], [ 16908312, %12 ]
+  %.sink12 = phi ptr [ %9, %8 ], [ %16, %12 ]
+  %.sink9 = phi i32 [ 131096, %8 ], [ 16908312, %12 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %8 ], [ %15, %12 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink10, i64 4
-  store i32 1, ptr %.sink10, align 4, !tbaa !7
-  store i32 %.sink7, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !7
+  store i32 %.sink9, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr %.sink, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !3
-  ret ptr %.sink10
+  ret ptr %.sink12
 }
 
 ; Function Attrs: nounwind
@@ -1592,17 +1592,17 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_try_lock(ptr noundef rea
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %20, %16, %8
-  %.sink12 = phi ptr [ %9, %8 ], [ %17, %16 ], [ %22, %20 ]
-  %.sink9 = phi i32 [ 131096, %8 ], [ 131096, %16 ], [ 16908312, %20 ]
+  %.sink16 = phi ptr [ %9, %8 ], [ %17, %16 ], [ %22, %20 ]
+  %.sink13 = phi i32 [ 131096, %8 ], [ 131096, %16 ], [ 16908312, %20 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %8 ], [ inttoptr (i64 1 to ptr), %16 ], [ %21, %20 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
-  store i32 1, ptr %.sink12, align 4, !tbaa !7
-  store i32 %.sink9, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !7
+  store i32 %.sink13, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr %.sink, ptr %26, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %27, align 8, !tbaa !3
-  ret ptr %.sink12
+  ret ptr %.sink16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1638,21 +1638,21 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_unlock(ptr noundef reado
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %10, %6
-  %.sink9 = phi ptr [ %7, %6 ], [ %14, %10 ]
-  %.sink6 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
+  %.sink11 = phi ptr [ %7, %6 ], [ %14, %10 ]
+  %.sink8 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %6 ], [ %13, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
-  store i32 %.sink6, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  store i32 %.sink8, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %18, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !tbaa !3
-  ret ptr %.sink9
+  ret ptr %.sink11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_prim_handle_is_tty(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_prim_handle_is_tty(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !39
   %4 = tail call i32 @fileno(ptr noundef %.val) #27
@@ -1685,7 +1685,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 declare i32 @isatty(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_prim_handle_is_eof(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_prim_handle_is_eof(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8, !tbaa !39
   %4 = tail call i32 @feof(ptr noundef %.val) #27
@@ -1746,17 +1746,17 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_flush(ptr noundef readon
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %9, %5
-  %.sink9 = phi ptr [ %6, %5 ], [ %13, %9 ]
-  %.sink6 = phi i32 [ 131096, %5 ], [ 16908312, %9 ]
+  %.sink11 = phi ptr [ %6, %5 ], [ %13, %9 ]
+  %.sink8 = phi i32 [ 131096, %5 ], [ 16908312, %9 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %12, %9 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
-  store i32 %.sink6, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  store i32 %.sink8, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %17, align 8, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %18, align 8, !tbaa !3
-  ret ptr %.sink9
+  ret ptr %.sink11
 }
 
 ; Function Attrs: nofree nounwind
@@ -1794,17 +1794,17 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_rewind(ptr noundef reado
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %9, %5
-  %.sink9 = phi ptr [ %6, %5 ], [ %13, %9 ]
-  %.sink6 = phi i32 [ 131096, %5 ], [ 16908312, %9 ]
+  %.sink11 = phi ptr [ %6, %5 ], [ %13, %9 ]
+  %.sink8 = phi i32 [ 131096, %5 ], [ 16908312, %9 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %5 ], [ %12, %9 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
-  store i32 %.sink6, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  store i32 %.sink8, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %17, align 8, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %18, align 8, !tbaa !3
-  ret ptr %.sink9
+  ret ptr %.sink11
 }
 
 ; Function Attrs: nofree nounwind
@@ -1844,17 +1844,17 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_truncate(ptr noundef rea
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %11, %7
-  %.sink10 = phi ptr [ %8, %7 ], [ %15, %11 ]
-  %.sink7 = phi i32 [ 131096, %7 ], [ 16908312, %11 ]
+  %.sink12 = phi ptr [ %8, %7 ], [ %15, %11 ]
+  %.sink9 = phi i32 [ 131096, %7 ], [ 16908312, %11 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %7 ], [ %14, %11 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink10, i64 4
-  store i32 1, ptr %.sink10, align 4, !tbaa !7
-  store i32 %.sink7, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !7
+  store i32 %.sink9, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr %.sink, ptr %19, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !3
-  ret ptr %.sink10
+  ret ptr %.sink12
 }
 
 ; Function Attrs: nounwind
@@ -1944,17 +1944,17 @@ _ZN4lean7dec_refEP11lean_object.exit:             ; preds = %28, %30, %31
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZN4lean7dec_refEP11lean_object.exit, %21, %15
-  %.sink24 = phi ptr [ %16, %15 ], [ %22, %21 ], [ %35, %_ZN4lean7dec_refEP11lean_object.exit ]
-  %.sink21 = phi i32 [ 131096, %15 ], [ 131096, %21 ], [ 16908312, %_ZN4lean7dec_refEP11lean_object.exit ]
+  %.sink29 = phi ptr [ %16, %15 ], [ %22, %21 ], [ %35, %_ZN4lean7dec_refEP11lean_object.exit ]
+  %.sink26 = phi i32 [ 131096, %15 ], [ 131096, %21 ], [ 16908312, %_ZN4lean7dec_refEP11lean_object.exit ]
   %.sink = phi ptr [ %6, %15 ], [ %6, %21 ], [ %34, %_ZN4lean7dec_refEP11lean_object.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
-  store i32 1, ptr %.sink24, align 4, !tbaa !7
-  store i32 %.sink21, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
+  store i32 1, ptr %.sink29, align 4, !tbaa !7
+  store i32 %.sink26, ptr %38, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
   store ptr %.sink, ptr %39, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %40, align 8, !tbaa !3
-  ret ptr %.sink24
+  ret ptr %.sink29
 }
 
 ; Function Attrs: nofree nounwind
@@ -1998,17 +1998,17 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_write(ptr noundef readon
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %13, %9
-  %.sink14 = phi ptr [ %10, %9 ], [ %17, %13 ]
-  %.sink11 = phi i32 [ 131096, %9 ], [ 16908312, %13 ]
+  %.sink16 = phi ptr [ %10, %9 ], [ %17, %13 ]
+  %.sink13 = phi i32 [ 131096, %9 ], [ 16908312, %13 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %9 ], [ %16, %13 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
-  store i32 1, ptr %.sink14, align 4, !tbaa !7
-  store i32 %.sink11, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !7
+  store i32 %.sink13, ptr %20, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr %.sink, ptr %21, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %22, align 8, !tbaa !3
-  ret ptr %.sink14
+  ret ptr %.sink16
 }
 
 ; Function Attrs: nofree nounwind
@@ -2152,15 +2152,15 @@ _ZN4lean15decode_io_errorEiP11lean_object.exit:   ; preds = %29
   br label %59
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %.noexc21, %.noexc19, %.noexc17
-  %.sink33 = phi ptr [ %33, %.noexc17 ], [ %40, %.noexc19 ], [ %45, %.noexc21 ]
-  %.sink30 = phi i32 [ 16908312, %.noexc17 ], [ 131096, %.noexc19 ], [ 131096, %.noexc21 ]
+  %.sink40 = phi ptr [ %33, %.noexc17 ], [ %40, %.noexc19 ], [ %45, %.noexc21 ]
+  %.sink37 = phi i32 [ 16908312, %.noexc17 ], [ 131096, %.noexc19 ], [ 131096, %.noexc21 ]
   %.sink = phi ptr [ %32, %.noexc17 ], [ %38, %.noexc19 ], [ %43, %.noexc21 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !7
-  store i32 %.sink30, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
+  store i32 1, ptr %.sink40, align 4, !tbaa !7
+  store i32 %.sink37, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
   store ptr %.sink, ptr %51, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %52, align 8, !tbaa !3
   %53 = load ptr, ptr %3, align 8, !tbaa !51
   %54 = icmp eq ptr %53, %5
@@ -2180,7 +2180,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.sink33
+  ret ptr %.sink40
 
 59:                                               ; preds = %.loopexit, %.loopexit.split-lp, %48
   %.pn = phi { ptr, i32 } [ %49, %48 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -2247,17 +2247,17 @@ define noalias noundef nonnull ptr @lean_io_prim_handle_put_str(ptr noundef read
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %14, %10
-  %.sink14 = phi ptr [ %11, %10 ], [ %18, %14 ]
-  %.sink11 = phi i32 [ 131096, %10 ], [ 16908312, %14 ]
+  %.sink16 = phi ptr [ %11, %10 ], [ %18, %14 ]
+  %.sink13 = phi i32 [ 131096, %10 ], [ 16908312, %14 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %10 ], [ %17, %14 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink14, i64 4
-  store i32 1, ptr %.sink14, align 4, !tbaa !7
-  store i32 %.sink11, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %.sink14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
+  store i32 1, ptr %.sink16, align 4, !tbaa !7
+  store i32 %.sink13, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
   store ptr %.sink, ptr %22, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %.sink14, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !3
-  ret ptr %.sink14
+  ret ptr %.sink16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2439,7 +2439,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %lean_decode_io_erro
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_mono_ms_now(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_mono_ms_now(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #27
   %3 = sdiv i64 %2, 1000000
   %4 = icmp sgt i64 %2, -1000000
@@ -2481,7 +2481,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZN4lean13uint64_to
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_mono_nanos_now(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_mono_nanos_now(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #27
   %3 = icmp sgt i64 %2, -1
   br i1 %3, label %4, label %8, !prof !10
@@ -2645,17 +2645,17 @@ _ZN4lean7dec_refEP11lean_object.exit:             ; preds = %45, %47, %48
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %58, %_ZN4lean7dec_refEP11lean_object.exit, %17, %4
-  %.sink47 = phi ptr [ %11, %4 ], [ %22, %17 ], [ %51, %_ZN4lean7dec_refEP11lean_object.exit ], [ %60, %58 ]
-  %.sink44 = phi i32 [ 131096, %4 ], [ 16908312, %17 ], [ 16908312, %_ZN4lean7dec_refEP11lean_object.exit ], [ 131096, %58 ]
+  %.sink55 = phi ptr [ %11, %4 ], [ %22, %17 ], [ %51, %_ZN4lean7dec_refEP11lean_object.exit ], [ %60, %58 ]
+  %.sink52 = phi i32 [ 131096, %4 ], [ 16908312, %17 ], [ 16908312, %_ZN4lean7dec_refEP11lean_object.exit ], [ 131096, %58 ]
   %.sink = phi ptr [ %5, %4 ], [ %21, %17 ], [ %50, %_ZN4lean7dec_refEP11lean_object.exit ], [ %27, %58 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.sink47, i64 4
-  store i32 1, ptr %.sink47, align 4, !tbaa !7
-  store i32 %.sink44, ptr %63, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %.sink47, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sink55, i64 4
+  store i32 1, ptr %.sink55, align 4, !tbaa !7
+  store i32 %.sink52, ptr %63, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %.sink55, i64 8
   store ptr %.sink, ptr %64, align 8, !tbaa !3
-  %65 = getelementptr inbounds nuw i8, ptr %.sink47, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.sink55, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %65, align 8, !tbaa !3
-  ret ptr %.sink47
+  ret ptr %.sink55
 }
 
 declare ptr @lean_mk_ascii_string_unchecked(ptr noundef) local_unnamed_addr #1
@@ -3125,7 +3125,7 @@ declare void @_ZN4lean9allocprofD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_get_num_heartbeats(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_get_num_heartbeats(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noundef i64 @_ZN4lean18get_num_heartbeatsEv()
   %3 = icmp sgt i64 %2, -1
   br i1 %3, label %4, label %8, !prof !10
@@ -3165,7 +3165,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZL18lean_uint64_to
 declare noundef i64 @_ZN4lean18get_num_heartbeatsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_set_heartbeats(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_set_heartbeats(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
   %.not.i2 = icmp eq i64 %4, 0
@@ -3263,23 +3263,23 @@ _ZN4lean14mk_option_someEP11lean_object.exit:     ; preds = %5
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %15, %_ZN4lean14mk_option_someEP11lean_object.exit
-  %.sink11 = phi ptr [ %12, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ %16, %15 ]
+  %.sink15 = phi ptr [ %12, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ %16, %15 ]
   %.sink = phi ptr [ %7, %_ZN4lean14mk_option_someEP11lean_object.exit ], [ inttoptr (i64 1 to ptr), %15 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
-  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
+  store i32 1, ptr %.sink15, align 4, !tbaa !7
   store i32 131096, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   store ptr %.sink, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !3
-  ret ptr %.sink11
+  ret ptr %.sink15
 }
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_realpath(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_realpath(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3580,17 +3580,17 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %.tail30.thread
   unreachable
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %67, %34
-  %.sink51 = phi ptr [ %38, %34 ], [ %68, %67 ]
+  %.sink59 = phi ptr [ %38, %34 ], [ %68, %67 ]
   %.sink = phi i32 [ 16908312, %34 ], [ 131096, %67 ]
   %.019.lcssa.sink = phi ptr [ %37, %34 ], [ %.019.lcssa, %67 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sink51, i64 4
-  store i32 1, ptr %.sink51, align 4, !tbaa !7
+  %71 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
+  store i32 1, ptr %.sink59, align 4, !tbaa !7
   store i32 %.sink, ptr %71, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %.sink51, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
   store ptr %.019.lcssa.sink, ptr %72, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %.sink51, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %73, align 8, !tbaa !3
-  ret ptr %.sink51
+  ret ptr %.sink59
 }
 
 declare noundef ptr @_ZN4lean14array_mk_emptyEv() local_unnamed_addr #1
@@ -3763,18 +3763,18 @@ _ZN4leanL15timespec_to_objERK8timespec.exit14:    ; preds = %47, %52
   unreachable
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %_ZN4leanL15timespec_to_objERK8timespec.exit14, %6
-  %.sink21 = phi ptr [ %10, %6 ], [ %69, %_ZN4leanL15timespec_to_objERK8timespec.exit14 ]
-  %.sink18 = phi i32 [ 16908312, %6 ], [ 131096, %_ZN4leanL15timespec_to_objERK8timespec.exit14 ]
+  %.sink26 = phi ptr [ %10, %6 ], [ %69, %_ZN4leanL15timespec_to_objERK8timespec.exit14 ]
+  %.sink23 = phi i32 [ 16908312, %6 ], [ 131096, %_ZN4leanL15timespec_to_objERK8timespec.exit14 ]
   %.sink = phi ptr [ %9, %6 ], [ %14, %_ZN4leanL15timespec_to_objERK8timespec.exit14 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
-  store i32 1, ptr %.sink21, align 4, !tbaa !7
-  store i32 %.sink18, ptr %72, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !7
+  store i32 %.sink23, ptr %72, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr %.sink, ptr %73, align 8, !tbaa !3
-  %74 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %74, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %.sink21
+  ret ptr %.sink26
 }
 
 ; Function Attrs: nofree nounwind
@@ -3811,17 +3811,17 @@ define noalias noundef nonnull ptr @lean_io_create_dir(ptr noundef %0, ptr nound
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %10, %6
-  %.sink9 = phi ptr [ %7, %6 ], [ %14, %10 ]
-  %.sink6 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
+  %.sink11 = phi ptr [ %7, %6 ], [ %14, %10 ]
+  %.sink8 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %6 ], [ %13, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
-  store i32 %.sink6, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  store i32 %.sink8, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %18, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !tbaa !3
-  ret ptr %.sink9
+  ret ptr %.sink11
 }
 
 ; Function Attrs: nofree nounwind
@@ -3858,24 +3858,24 @@ define noalias noundef nonnull ptr @lean_io_remove_dir(ptr noundef %0, ptr nound
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %10, %6
-  %.sink9 = phi ptr [ %7, %6 ], [ %14, %10 ]
-  %.sink6 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
+  %.sink11 = phi ptr [ %7, %6 ], [ %14, %10 ]
+  %.sink8 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %6 ], [ %13, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
-  store i32 %.sink6, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  store i32 %.sink8, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %18, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !tbaa !3
-  ret ptr %.sink9
+  ret ptr %.sink11
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_rename(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_io_rename(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.lean::object_ref", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4152,7 +4152,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %102
 declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_create_tempfile(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_io_create_tempfile(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca [2 x ptr], align 16
   %3 = alloca [4096 x i8], align 16
   %4 = alloca i64, align 8
@@ -4441,7 +4441,7 @@ declare i32 @uv_fs_mkstemp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare void @uv_fs_req_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_create_tempdir(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias nonnull ptr @lean_io_create_tempdir(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca [4096 x i8], align 16
   %3 = alloca i64, align 8
   %4 = alloca %struct.uv_fs_s, align 8
@@ -4668,17 +4668,17 @@ define noalias noundef nonnull ptr @lean_io_remove_file(ptr noundef %0, ptr noun
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %10, %6
-  %.sink9 = phi ptr [ %7, %6 ], [ %14, %10 ]
-  %.sink6 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
+  %.sink11 = phi ptr [ %7, %6 ], [ %14, %10 ]
+  %.sink8 = phi i32 [ 131096, %6 ], [ 16908312, %10 ]
   %.sink = phi ptr [ inttoptr (i64 1 to ptr), %6 ], [ %13, %10 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
-  store i32 %.sink6, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sink11, i64 4
+  store i32 1, ptr %.sink11, align 4, !tbaa !7
+  store i32 %.sink8, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %18, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !tbaa !3
-  ret ptr %.sink9
+  ret ptr %.sink11
 }
 
 ; Function Attrs: nofree nounwind
@@ -4721,19 +4721,19 @@ define noalias noundef nonnull ptr @lean_io_app_path(ptr noundef readnone captur
   unreachable
 
 _ZN4lean18io_result_mk_errorEPKc.exit:            ; preds = %14, %8
-  %.sink7 = phi ptr [ %11, %8 ], [ %16, %14 ]
-  %.sink4 = phi i32 [ 16908312, %8 ], [ 131096, %14 ]
+  %.sink9 = phi ptr [ %11, %8 ], [ %16, %14 ]
+  %.sink6 = phi i32 [ 16908312, %8 ], [ 131096, %14 ]
   %.sink = phi ptr [ %10, %8 ], [ %15, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink7, i64 4
-  store i32 1, ptr %.sink7, align 4, !tbaa !7
-  store i32 %.sink4, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %.sink7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
+  store i32 1, ptr %.sink9, align 4, !tbaa !7
+  store i32 %.sink6, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
   store ptr %.sink, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %.sink7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %.sink7
+  ret ptr %.sink9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -4780,25 +4780,25 @@ define noalias noundef nonnull ptr @lean_io_current_dir(ptr noundef readnone cap
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %9, %4
-  %.sink10 = phi ptr [ %6, %4 ], [ %12, %9 ]
-  %.sink7 = phi i32 [ 131096, %4 ], [ 16908312, %9 ]
+  %.sink13 = phi ptr [ %6, %4 ], [ %12, %9 ]
+  %.sink10 = phi i32 [ 131096, %4 ], [ 16908312, %9 ]
   %.sink = phi ptr [ %5, %4 ], [ %11, %9 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sink10, i64 4
-  store i32 1, ptr %.sink10, align 4, !tbaa !7
-  store i32 %.sink7, ptr %15, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sink13, i64 4
+  store i32 1, ptr %.sink13, align 4, !tbaa !7
+  store i32 %.sink10, ptr %15, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
   store ptr %.sink, ptr %16, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.sink13, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %17, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %.sink10
+  ret ptr %.sink13
 }
 
 ; Function Attrs: nounwind
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_st_mk_ref(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_st_mk_ref(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @lean_inc_heartbeat()
   %3 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #27
   %4 = icmp eq ptr %3, null
@@ -4943,20 +4943,20 @@ _ZN4lean3incEP11lean_object.exit24:               ; preds = %25, %31, %33, %34
   unreachable
 
 .thread:                                          ; preds = %_ZN4lean3incEP11lean_object.exit24, %_ZN4lean3decEP11lean_object.exit
-  %.sink31 = phi ptr [ %22, %_ZN4lean3decEP11lean_object.exit ], [ %35, %_ZN4lean3incEP11lean_object.exit24 ]
+  %.sink34 = phi ptr [ %22, %_ZN4lean3decEP11lean_object.exit ], [ %35, %_ZN4lean3incEP11lean_object.exit24 ]
   %.0.i.i.le.sink = phi ptr [ %.0.i.i.le, %_ZN4lean3decEP11lean_object.exit ], [ %26, %_ZN4lean3incEP11lean_object.exit24 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink31, i64 4
-  store i32 1, ptr %.sink31, align 4, !tbaa !7
+  %38 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
+  store i32 1, ptr %.sink34, align 4, !tbaa !7
   store i32 131096, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.sink31, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
   store ptr %.0.i.i.le.sink, ptr %39, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %.sink31, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %40, align 8, !tbaa !3
-  ret ptr %.sink31
+  ret ptr %.sink34
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @lean_st_ref_take(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_st_ref_take(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %.val = load i32, ptr %0, align 4, !tbaa !7
   %spec.select.i = icmp slt i32 %.val, 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4994,16 +4994,16 @@ define noalias noundef ptr @lean_st_ref_take(ptr noundef captures(none) %0, ptr 
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit11:  ; preds = %9, %.thread
-  %.sink16 = phi ptr [ %6, %.thread ], [ %11, %9 ]
+  %.sink18 = phi ptr [ %6, %.thread ], [ %11, %9 ]
   %.0.i.i.le.sink = phi ptr [ %.0.i.i.le, %.thread ], [ %10, %9 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sink16, i64 4
-  store i32 1, ptr %.sink16, align 4, !tbaa !7
+  %14 = getelementptr inbounds nuw i8, ptr %.sink18, i64 4
+  store i32 1, ptr %.sink18, align 4, !tbaa !7
   store i32 131096, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store ptr %.0.i.i.le.sink, ptr %15, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %16, align 8, !tbaa !3
-  ret ptr %.sink16
+  ret ptr %.sink18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5092,19 +5092,19 @@ _ZN4lean3decEP11lean_object.exit16:               ; preds = %30, %29, %27, %19
   unreachable
 
 _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZN4lean3decEP11lean_object.exit16, %_ZN4lean3decEP11lean_object.exit
-  %.sink23 = phi ptr [ %16, %_ZN4lean3decEP11lean_object.exit ], [ %31, %_ZN4lean3decEP11lean_object.exit16 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
-  store i32 1, ptr %.sink23, align 4, !tbaa !7
+  %.sink29 = phi ptr [ %16, %_ZN4lean3decEP11lean_object.exit ], [ %31, %_ZN4lean3decEP11lean_object.exit16 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
+  store i32 1, ptr %.sink29, align 4, !tbaa !7
   store i32 131096, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %35, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %36, align 8, !tbaa !3
-  ret ptr %.sink23
+  ret ptr %.sink29
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @lean_st_ref_swap(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_st_ref_swap(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %.val = load i32, ptr %0, align 4, !tbaa !7
   %spec.select.i = icmp slt i32 %.val, 1
   br i1 %spec.select.i, label %4, label %13
@@ -5163,21 +5163,21 @@ define noalias noundef ptr @lean_st_ref_swap(ptr noundef captures(none) %0, ptr 
   unreachable
 
 _ZN4lean18io_result_mk_errorEP11lean_object.exit: ; preds = %22, %17, %.thread
-  %.sink22 = phi ptr [ %10, %.thread ], [ %19, %17 ], [ %23, %22 ]
+  %.sink26 = phi ptr [ %10, %.thread ], [ %19, %17 ], [ %23, %22 ]
   %.sink = phi i32 [ 131096, %.thread ], [ 16908312, %17 ], [ 131096, %22 ]
   %.0.i.i.le.sink = phi ptr [ %.0.i.i.le, %.thread ], [ %18, %17 ], [ %15, %22 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sink22, i64 4
-  store i32 1, ptr %.sink22, align 4, !tbaa !7
+  %26 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !7
   store i32 %.sink, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr %.0.i.i.le.sink, ptr %27, align 8, !tbaa !3
-  %28 = getelementptr inbounds nuw i8, ptr %.sink22, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %28, align 8, !tbaa !3
-  ret ptr %.sink22
+  ret ptr %.sink26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_st_ref_ptr_eq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_st_ref_ptr_eq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !105
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5205,7 +5205,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_as_task(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_as_task(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   tail call void @lean_inc_heartbeat()
   %4 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #27
   %5 = icmp eq ptr %4, null
@@ -5328,7 +5328,7 @@ _ZN4lean10object_refD2Ev.exit8:                   ; preds = %_ZN4lean10object_re
 declare ptr @lean_task_spawn_core(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_map_task(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_map_task(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   tail call void @lean_inc_heartbeat()
   %6 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #27
   %7 = icmp eq ptr %6, null
@@ -5452,7 +5452,7 @@ _ZN4lean10object_refD2Ev.exit9:                   ; preds = %_ZN4lean10object_re
 declare ptr @lean_task_map_core(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_bind_task(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_bind_task(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   tail call void @lean_inc_heartbeat()
   %6 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #27
   %7 = icmp eq ptr %6, null
@@ -5502,7 +5502,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZL18lean_alloc_clo
 declare ptr @lean_task_bind_core(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_check_canceled(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_check_canceled(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @lean_io_check_canceled_core()
   tail call void @lean_inc_heartbeat()
   %3 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
@@ -5528,7 +5528,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %1
 declare zeroext i1 @lean_io_check_canceled_core() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_cancel(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_cancel(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @lean_io_cancel_core(ptr noundef %0)
   tail call void @lean_inc_heartbeat()
   %3 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
@@ -5553,7 +5553,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 declare void @lean_io_cancel_core(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_get_task_state(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_get_task_state(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @lean_io_get_task_state_core(ptr noundef %0)
   tail call void @lean_inc_heartbeat()
   %4 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
@@ -5582,7 +5582,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 declare zeroext i8 @lean_io_get_task_state_core(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_wait(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_wait(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lean_task_get(ptr noundef %0)
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, 1
@@ -5653,7 +5653,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %_ZL17lean_task_get_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_io_wait_any(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_io_wait_any(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lean_io_wait_any_core(ptr noundef %0)
   %4 = tail call ptr @lean_task_get(ptr noundef %3)
   %5 = ptrtoint ptr %4 to i64
@@ -5715,7 +5715,7 @@ define noalias noundef nonnull ptr @lean_io_exit(i8 noundef zeroext %0, ptr noun
 declare void @exit(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_runtime_mark_multi_threaded(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_runtime_mark_multi_threaded(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @lean_mark_mt(ptr noundef %0)
   tail call void @lean_inc_heartbeat()
   %3 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
@@ -5740,7 +5740,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 declare void @lean_mark_mt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_runtime_mark_persistent(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_runtime_mark_persistent(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @lean_mark_persistent(ptr noundef %0)
   tail call void @lean_inc_heartbeat()
   %3 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
@@ -5765,7 +5765,7 @@ _ZN4lean15io_result_mk_okEP11lean_object.exit:    ; preds = %2
 declare void @lean_mark_persistent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @lean_runtime_forget(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define noalias nonnull ptr @lean_runtime_forget(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @lean_inc_heartbeat()
   %3 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #27
   %4 = icmp eq ptr %3, null

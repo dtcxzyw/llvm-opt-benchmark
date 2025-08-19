@@ -337,27 +337,27 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %192 = sext i32 %191 to i64
   %193 = getelementptr double, ptr %36, i64 %192
   %. = select i1 %190, i64 8, i64 16
-  %.947 = select i1 %190, i64 24, i64 32
-  %.948 = select i1 %190, i64 32, i64 24
-  %.950 = select i1 %190, ptr %23, ptr %168
+  %.977 = select i1 %190, i64 24, i64 32
+  %.978 = select i1 %190, i64 32, i64 24
+  %.980 = select i1 %190, ptr %23, ptr %168
   %194 = getelementptr i8, ptr %193, i64 %.
   %195 = load double, ptr %194, align 8, !tbaa !7
   store double %195, ptr %18, align 8, !tbaa !7
-  %196 = getelementptr i8, ptr %193, i64 %.947
-  %197 = getelementptr i8, ptr %193, i64 %.948
+  %196 = getelementptr i8, ptr %193, i64 %.977
+  %197 = getelementptr i8, ptr %193, i64 %.978
   %.0602 = load double, ptr %196, align 8, !tbaa !7
-  %.0604 = load i32, ptr %.950, align 4, !tbaa !3
+  %.0604 = load i32, ptr %.980, align 4, !tbaa !3
   %.sink = load double, ptr %197, align 8, !tbaa !7
   store double %.sink, ptr %19, align 8, !tbaa !7
   %198 = icmp slt i32 %.0604, 0
   br i1 %198, label %205, label %199
 
 199:                                              ; preds = %187
-  %.949 = select i1 %190, i64 16, i64 8
-  %200 = getelementptr i8, ptr %193, i64 %.949
-  %.951 = select i1 %190, ptr %174, ptr %171
+  %.979 = select i1 %190, i64 16, i64 8
+  %200 = getelementptr i8, ptr %193, i64 %.979
+  %.981 = select i1 %190, ptr %174, ptr %171
   %.0600 = load double, ptr %200, align 8, !tbaa !7
-  %.0598 = load i32, ptr %.951, align 4, !tbaa !3
+  %.0598 = load i32, ptr %.981, align 4, !tbaa !3
   %201 = icmp sge i32 %.0604, %191
   %202 = icmp slt i32 %.0598, 1
   %203 = icmp sgt i32 %.0598, %191
@@ -384,8 +384,8 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %210, %207
-  %.sink945 = phi double [ %209, %207 ], [ %146, %210 ]
-  store double %.sink945, ptr %19, align 8, !tbaa !7
+  %.sink975 = phi double [ %209, %207 ], [ %146, %210 ]
+  store double %.sink975, ptr %19, align 8, !tbaa !7
   br label %211
 
 211:                                              ; preds = %.sink.split, %199
@@ -860,7 +860,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %._crit_edge806
 
 ._crit_edge806:                                   ; preds = %421, %._crit_edge806.loopexit, %._crit_edge799
-  %.1616.lcssa925 = phi i32 [ %.2617, %._crit_edge806.loopexit ], [ %.2617, %._crit_edge799 ], [ %391, %421 ]
+  %.1616.lcssa956 = phi i32 [ %.2617, %._crit_edge806.loopexit ], [ %.2617, %._crit_edge799 ], [ %391, %421 ]
   %464 = phi i32 [ %447, %._crit_edge806.loopexit ], [ %447, %._crit_edge799 ], [ %423, %421 ]
   %465 = phi i32 [ %.pre920, %._crit_edge806.loopexit ], [ %.pre, %._crit_edge799 ], [ %422, %421 ]
   %reass.sub = sub i32 %465, %464
@@ -869,7 +869,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %467
 
 467:                                              ; preds = %._crit_edge806, %419
-  %.0615 = phi i32 [ %.1616.lcssa925, %._crit_edge806 ], [ %391, %419 ]
+  %.0615 = phi i32 [ %.1616.lcssa956, %._crit_edge806 ], [ %391, %419 ]
   %468 = icmp sgt i32 %.0618, 0
   %469 = icmp sgt i32 %.0615, 0
   %or.cond7 = select i1 %468, i1 true, i1 %469
@@ -1158,8 +1158,8 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond919.not, label %.loopexit, label %.lr.ph847, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge841.thread, %544, %541, %.thread732
-  %spec.store.select946 = select i1 %.1610, i32 0, i32 2
-  store i32 %spec.store.select946, ptr %24, align 4
+  %spec.store.select976 = select i1 %.1610, i32 0, i32 2
+  store i32 %spec.store.select976, ptr %24, align 4
   br label %.critedge.thread
 
 default.unreachable:                              ; preds = %97

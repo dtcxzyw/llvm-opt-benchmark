@@ -512,9 +512,9 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %109
   %.0411 = phi i32 [ %98, %._crit_edge620 ], [ %1, %92 ]
   %176 = sext i32 %.0411 to i64
   %.not.i493.not = icmp eq i32 %.0411, 0
-  br i1 %.not.i493.not, label %.preheader544.thread890, label %178
+  br i1 %.not.i493.not, label %.preheader544.thread917, label %178
 
-.preheader544.thread890:                          ; preds = %175
+.preheader544.thread917:                          ; preds = %175
   %177 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #13
   tail call void @set_vector_val(i32 noundef %.0411, double noundef 0.000000e+00, ptr noundef %177) #10
   br label %._crit_edge636
@@ -544,8 +544,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %109
 gv_calloc.exit497:                                ; preds = %182
   tail call void @set_vector_val(i32 noundef %.0411, double noundef 0.000000e+00, ptr noundef nonnull %183) #10
   %189 = add nsw i32 %.0411, -1
-  %.not911 = icmp ne i32 %.0411, 1
-  br i1 %.not911, label %.preheader545.preheader, label %.lr.ph635.preheader
+  %.not938 = icmp ne i32 %.0411, 1
+  br i1 %.not938, label %.preheader545.preheader, label %.lr.ph635.preheader
 
 .preheader545.preheader:                          ; preds = %gv_calloc.exit497
   %wide.trip.count796 = zext nneg i32 %189 to i64
@@ -621,10 +621,10 @@ gv_calloc.exit497:                                ; preds = %182
   %exitcond806.not = icmp eq i64 %indvars.iv.next799, %wide.trip.count805
   br i1 %exitcond806.not, label %._crit_edge636, label %.lr.ph635, !llvm.loop !41
 
-._crit_edge636:                                   ; preds = %.lr.ph635, %.preheader544.thread890
-  %210 = phi ptr [ %177, %.preheader544.thread890 ], [ %183, %.lr.ph635 ]
-  %211 = phi i32 [ -1, %.preheader544.thread890 ], [ %192, %.lr.ph635 ]
-  %212 = phi i1 [ false, %.preheader544.thread890 ], [ %.not911, %.lr.ph635 ]
+._crit_edge636:                                   ; preds = %.lr.ph635, %.preheader544.thread917
+  %210 = phi ptr [ %177, %.preheader544.thread917 ], [ %183, %.lr.ph635 ]
+  %211 = phi i32 [ -1, %.preheader544.thread917 ], [ %192, %.lr.ph635 ]
+  %212 = phi i1 [ false, %.preheader544.thread917 ], [ %.not938, %.lr.ph635 ]
   %213 = sext i32 %4 to i64
   %.not.i498 = icmp eq i32 %4, 0
   br i1 %.not.i498, label %.thread.i501, label %215
@@ -967,7 +967,7 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %326
   br i1 %354, label %.lr.ph653.preheader, label %.preheader540.thread
 
 .preheader540.thread:                             ; preds = %._crit_edge650
-  %.4441654891 = add i32 %.3440662, 1
+  %.4441654918 = add i32 %.3440662, 1
   br label %._crit_edge659
 
 .lr.ph653.preheader:                              ; preds = %._crit_edge650
@@ -978,7 +978,7 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %326
   %.4441654 = add i32 %.3440662, 1
   %355 = sext i32 %.4441654 to i64
   %wide.trip.count841 = zext i32 %indvars.iv830 to i64
-  %invariant.gep907 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv843
+  %invariant.gep934 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv843
   br label %.lr.ph658
 
 .lr.ph653:                                        ; preds = %.lr.ph653.preheader, %361
@@ -1005,7 +1005,7 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %326
 
 ._crit_edge659:                                   ; preds = %.preheader540.thread, %._crit_edge659.loopexit
   %.1436.lcssa = phi double [ %372, %._crit_edge659.loopexit ], [ 0.000000e+00, %.preheader540.thread ]
-  %.4441.lcssa = phi i32 [ %362, %._crit_edge659.loopexit ], [ %.4441654891, %.preheader540.thread ]
+  %.4441.lcssa = phi i32 [ %362, %._crit_edge659.loopexit ], [ %.4441654918, %.preheader540.thread ]
   %363 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv843
   %364 = load double, ptr %363, align 8, !tbaa !22
   %365 = fsub double %364, %.1436.lcssa
@@ -1027,8 +1027,8 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %326
   store float %370, ptr %368, align 4, !tbaa !14
   %371 = fpext float %370 to double
   %372 = fadd double %.1436655, %371
-  %gep908 = getelementptr inbounds nuw double, ptr %invariant.gep907, i64 %indvars.iv836
-  %373 = getelementptr inbounds nuw i8, ptr %gep908, i64 8
+  %gep935 = getelementptr inbounds nuw double, ptr %invariant.gep934, i64 %indvars.iv836
+  %373 = getelementptr inbounds nuw i8, ptr %gep935, i64 8
   %374 = load double, ptr %373, align 8, !tbaa !22
   %375 = fsub double %374, %371
   store double %375, ptr %373, align 8, !tbaa !22
@@ -1256,8 +1256,8 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %326
   br i1 %.not487, label %488, label %.preheader539
 
 .preheader539:                                    ; preds = %443, %456, %.loopexit
-  %.0412898 = phi i32 [ %.0412, %.loopexit ], [ -1, %456 ], [ -1, %443 ]
-  %.0452896 = phi ptr [ %.0452, %.loopexit ], [ %333, %456 ], [ %333, %443 ]
+  %.0412925 = phi i32 [ %.0412, %.loopexit ], [ -1, %456 ], [ -1, %443 ]
+  %.0452923 = phi ptr [ %.0452, %.loopexit ], [ %333, %456 ], [ %333, %443 ]
   %brmerge = or i1 %64, %11
   br i1 %brmerge, label %._crit_edge694, label %.preheader.us.preheader
 
@@ -1297,8 +1297,8 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %326
   br label %488
 
 488:                                              ; preds = %.loopexit, %._crit_edge694
-  %.0412899 = phi i32 [ %.0412, %.loopexit ], [ %.0412898, %._crit_edge694 ]
-  %.0452897 = phi ptr [ %.0452, %.loopexit ], [ %.0452896, %._crit_edge694 ]
+  %.0412926 = phi i32 [ %.0412, %.loopexit ], [ %.0412925, %._crit_edge694 ]
+  %.0452924 = phi ptr [ %.0452, %.loopexit ], [ %.0452923, %._crit_edge694 ]
   %489 = load ptr, ptr %274, align 8, !tbaa !42
   tail call void @free(ptr noundef %489) #10
   tail call void @free(ptr noundef %274) #10
@@ -1306,11 +1306,11 @@ gv_calloc.exit532:                                ; preds = %.thread.i531, %326
   tail call void @free(ptr noundef %312) #10
   tail call void @free(ptr noundef %210) #10
   tail call void @free(ptr noundef %.0454) #10
-  tail call void @free(ptr noundef %.0452897) #10
+  tail call void @free(ptr noundef %.0452924) #10
   br label %490
 
 490:                                              ; preds = %._crit_edge560, %8, %488
-  %.0410 = phi i32 [ %.0412899, %488 ], [ 0, %8 ], [ 0, %._crit_edge560 ]
+  %.0410 = phi i32 [ %.0412926, %488 ], [ 0, %8 ], [ 0, %._crit_edge560 ]
   ret i32 %.0410
 }
 

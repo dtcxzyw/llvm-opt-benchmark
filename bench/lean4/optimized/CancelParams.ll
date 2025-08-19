@@ -613,9 +613,9 @@ lean_alloc_ctor.exit108:                          ; preds = %lean_alloc_ctor.exi
   br label %148
 
 148:                                              ; preds = %lean_alloc_ctor.exit101, %lean_alloc_ctor.exit108, %lean_alloc_ctor.exit92, %lean_alloc_ctor.exit98, %146
-  %.sink112 = phi ptr [ %98, %lean_alloc_ctor.exit101 ], [ %140, %lean_alloc_ctor.exit108 ], [ %30, %lean_alloc_ctor.exit92 ], [ %72, %lean_alloc_ctor.exit98 ], [ %147, %146 ]
+  %.sink129 = phi ptr [ %98, %lean_alloc_ctor.exit101 ], [ %140, %lean_alloc_ctor.exit108 ], [ %30, %lean_alloc_ctor.exit92 ], [ %72, %lean_alloc_ctor.exit98 ], [ %147, %146 ]
   %149 = load ptr, ptr @l___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_toJsonCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_86____closed__1, align 8, !tbaa !10
-  %150 = tail call ptr @l_List_flatMapTR_go___at___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_toJsonCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_86____spec__1(ptr noundef %.sink112, ptr noundef %149)
+  %150 = tail call ptr @l_List_flatMapTR_go___at___private_Lean_Data_Lsp_CancelParams_0__Lean_Lsp_toJsonCancelParams____x40_Lean_Data_Lsp_CancelParams___hyg_86____spec__1(ptr noundef %.sink129, ptr noundef %149)
   %151 = tail call ptr @l_Lean_Json_mkObj(ptr noundef %150) #4
   ret ptr %151
 }
@@ -1167,18 +1167,18 @@ _init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit: ; preds = %_init_l__
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %106, %_init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit ]
-  %109 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !4
+  %.sink20 = phi ptr [ %4, %3 ], [ %106, %_init_l_Lean_Lsp_instFromJsonCancelParams___closed__1.exit ]
+  %109 = getelementptr inbounds nuw i8, ptr %.sink20, i64 4
+  store i32 1, ptr %.sink20, align 4, !tbaa !4
   store i32 131096, ptr %109, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %110, align 8, !tbaa !10
-  %111 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.sink20, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %111, align 8, !tbaa !10
   br label %112
 
 112:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink20, %.sink.split ]
   ret ptr %.0
 }
 

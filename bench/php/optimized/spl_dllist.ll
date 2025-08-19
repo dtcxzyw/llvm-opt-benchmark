@@ -1024,9 +1024,9 @@ spl_ptr_llist_offset.exit:                        ; preds = %33, %26
   br i1 %.not23, label %60, label %.sink.split
 
 .sink.split:                                      ; preds = %47, %50
-  %.sink28 = phi i32 [ %54, %50 ], [ %45, %47 ]
+  %.sink29 = phi i32 [ %54, %50 ], [ %45, %47 ]
   %.sink.in = phi ptr [ %52, %50 ], [ %43, %47 ]
-  %56 = and i32 %.sink28, 65280
+  %56 = and i32 %.sink29, 65280
   %57 = icmp ne i32 %56, 0
   call void @llvm.assume(i1 %57)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
@@ -1827,9 +1827,9 @@ define hidden void @zim_SplDoublyLinkedList_current(ptr noundef readonly capture
   br i1 %.not22, label %36, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %26
-  %.sink27 = phi i32 [ %30, %26 ], [ %21, %23 ]
+  %.sink28 = phi i32 [ %30, %26 ], [ %21, %23 ]
   %.sink.in = phi ptr [ %28, %26 ], [ %14, %23 ]
-  %32 = and i32 %.sink27, 65280
+  %32 = and i32 %.sink28, 65280
   %33 = icmp ne i32 %32, 0
   tail call void @llvm.assume(i1 %33)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
@@ -3451,7 +3451,7 @@ define internal fastcc noundef nonnull ptr @spl_dllist_object_new_ex(ptr noundef
 spl_ptr_llist_copy.exit.thread:                   ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %26, align 8, !tbaa !71
-  br label %.thread106
+  br label %.thread118
 
 .lr.ph.i:                                         ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3530,14 +3530,14 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %59, ptr %60, align 8, !tbaa !71
   %.not74 = icmp eq ptr %59, null
-  br i1 %.not74, label %.thread106, label %61
+  br i1 %.not74, label %.thread118, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %63 = load i32, ptr %62, align 4, !tbaa !4
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !4
-  br label %.thread106
+  br label %.thread118
 
 .thread:                                          ; preds = %3
   %65 = tail call noalias noundef ptr @_emalloc_24() #13
@@ -3547,7 +3547,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr null, ptr %66, align 8, !tbaa !71
   br label %.lr.ph
 
-.thread106:                                       ; preds = %61, %57, %spl_ptr_llist_copy.exit.thread
+.thread118:                                       ; preds = %61, %57, %spl_ptr_llist_copy.exit.thread
   %67 = getelementptr inbounds i8, ptr %1, i64 -52
   %68 = load i32, ptr %67, align 4, !tbaa !66
   store i32 %68, ptr %16, align 4, !tbaa !66
@@ -3561,7 +3561,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   tail call void @llvm.assume(i1 %.not101)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %69, %.thread106, %.thread
+.lr.ph:                                           ; preds = %69, %.thread118, %.thread
   %72 = load ptr, ptr @spl_ce_SplStack, align 8, !tbaa !60
   %73 = load ptr, ptr @spl_ce_SplQueue, align 8
   %74 = load ptr, ptr @spl_ce_SplDoublyLinkedList, align 8, !tbaa !60
@@ -3578,9 +3578,9 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   br i1 %78, label %.sink.split, label %81
 
 .sink.split:                                      ; preds = %77, %75
-  %.sink114 = phi i32 [ 6, %75 ], [ 4, %77 ]
+  %.sink126 = phi i32 [ 6, %75 ], [ 4, %77 ]
   %79 = load i32, ptr %16, align 4, !tbaa !66
-  %80 = or i32 %79, %.sink114
+  %80 = or i32 %79, %.sink126
   store i32 %80, ptr %16, align 4, !tbaa !66
   br label %81
 

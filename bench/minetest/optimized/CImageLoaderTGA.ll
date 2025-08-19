@@ -517,7 +517,7 @@ if.then15:                                        ; preds = %if.end13
 for.body.preheader:                               ; preds = %if.then15
   %11 = sub nuw nsw i64 %conv18, %10
   %min.iters.check = icmp samesign ult i64 %11, 8
-  br i1 %min.iters.check, label %for.body.preheader2, label %vector.ph
+  br i1 %min.iters.check, label %for.body.preheader3, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %11, 504
@@ -537,14 +537,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
 middle.block:                                     ; preds = %vector.body
   %ind.end = add nuw nsw i64 %n.vec, %10
   %cmp.n = icmp eq i64 %11, %n.vec
-  br i1 %cmp.n, label %if.end29, label %for.body.preheader2
+  br i1 %cmp.n, label %if.end29, label %for.body.preheader3
 
-for.body.preheader2:                              ; preds = %middle.block, %for.body.preheader
+for.body.preheader3:                              ; preds = %middle.block, %for.body.preheader
   %indvars.iv.ph = phi i64 [ %ind.end, %middle.block ], [ %10, %for.body.preheader ]
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader2, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %indvars.iv.ph, %for.body.preheader2 ]
+for.body:                                         ; preds = %for.body.preheader3, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %indvars.iv.ph, %for.body.preheader3 ]
   %arrayidx = getelementptr inbounds i32, ptr %call19, i64 %indvars.iv
   store i32 -65331, ptr %arrayidx, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

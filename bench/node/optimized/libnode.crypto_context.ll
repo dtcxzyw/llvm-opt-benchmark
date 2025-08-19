@@ -3807,7 +3807,7 @@ if.then.i51:                                      ; preds = %_ZNK2v820FunctionCa
 if.then.i.i.i.i.i:                                ; preds = %if.then.i51
   store i8 0, ptr %37, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %sub.i.i.i.i.i52 = add i64 %sub.i, -1
+  %sub.i.i.i.i.i52 = add nsw i64 %sub.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i52, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
@@ -3864,7 +3864,7 @@ if.then.i28.i.i:                                  ; preds = %_ZNSt6vectorIcSaIcE
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit.i.i: ; preds = %if.then.i28.i.i, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit.i.i
   store ptr %call5.i.i.i.i.i, ptr %pass, align 8
-  %add.ptr33.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %add
+  %add.ptr33.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %add
   store ptr %add.ptr33.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr36.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %40
   store ptr %add.ptr36.i.i, ptr %_M_end_of_storage.i.i, align 8

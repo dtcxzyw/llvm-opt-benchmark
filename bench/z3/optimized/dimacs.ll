@@ -93,13 +93,13 @@ _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.outer: ; preds = %._ZL9skip_l
   %.promoted27.ph = phi i32 [ %.promoted27.pre.pre, %._ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i_crit_edge ], [ 0, %3 ]
   %.val.pre.i.i.ph = phi i32 [ %.val.pre.i.i.pre.pre, %._ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i_crit_edge ], [ %9, %3 ]
   %.sroa.0.0.ph = phi ptr [ %.sroa.0.7, %._ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i_crit_edge ], [ null, %3 ]
-  %.ph138 = phi ptr [ %115, %._ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i_crit_edge ], [ null, %3 ]
+  %.ph153 = phi ptr [ %115, %._ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i_crit_edge ], [ null, %3 ]
   %.promoted = load i32, ptr %10, align 1
-  %.promoted204 = load i32, ptr %8, align 1
+  %.promoted219 = load i32, ptr %8, align 1
   br label %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i
 
 _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i: ; preds = %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.outer
-  %.lcssa181205 = phi i32 [ %.promoted204, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.outer ], [ %.promoted27.be, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge ]
+  %.lcssa196220 = phi i32 [ %.promoted219, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.outer ], [ %.promoted27.be, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge ]
   %14 = phi i32 [ %.promoted, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.outer ], [ %122, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge ]
   %.promoted27 = phi i32 [ %.promoted27.ph, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.outer ], [ %.promoted27.be, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge ]
   %.val.pre.i.i = phi i32 [ %.val.pre.i.i.ph, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.outer ], [ %.val.pre.i.i.be, %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge ]
@@ -158,7 +158,7 @@ _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i: ; preds = %_ZL9skip_lineIN6d
           cleanup
           catch ptr @_ZTIN6dimacs9lex_errorE
   store i32 %14, ptr %10, align 1
-  store i32 %.lcssa181205, ptr %8, align 1
+  store i32 %.lcssa196220, ptr %8, align 1
   store i32 %17, ptr %10, align 8
   store i32 %16, ptr %8, align 4
   br label %.body.i
@@ -210,8 +210,8 @@ _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i: ; preds = %_ZL9skip_lineIN6d
 .noexc17.i:                                       ; preds = %32
   %34 = icmp eq i32 %33, 10
   %35 = add i32 %30, 1
-  %spec.select208 = select i1 %34, i32 %35, i32 %30
-  %spec.select209 = select i1 %34, i32 10, i32 %33
+  %spec.select223 = select i1 %34, i32 %35, i32 %30
+  %spec.select224 = select i1 %34, i32 10, i32 %33
   br label %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge
 
 36:                                               ; preds = %29
@@ -226,14 +226,14 @@ _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i: ; preds = %_ZL9skip_lineIN6d
 
 40:                                               ; preds = %15
   store i32 %14, ptr %10, align 1
-  store i32 %.lcssa181205, ptr %8, align 1
+  store i32 %.lcssa196220, ptr %8, align 1
   store i32 %17, ptr %10, align 8
   store i32 %16, ptr %8, align 4
-  %.not.i.i.i = icmp eq ptr %.ph138, null
+  %.not.i.i.i = icmp eq ptr %.ph153, null
   br i1 %.not.i.i.i, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i.i, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %.ph138, i64 -4
+  %42 = getelementptr inbounds i8, ptr %.ph153, i64 -4
   store i32 0, ptr %42, align 4, !tbaa !15
   br label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i.i
 
@@ -247,8 +247,8 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit.i.i: ; preds = %41, %40
 
 .lr.ph.i.i:                                       ; preds = %.noexc19.i, %.noexc22.i
   %.sroa.0.4 = phi ptr [ %.sroa.0.5, %.noexc22.i ], [ %.sroa.0.0.ph, %.noexc19.i ]
-  %45 = phi ptr [ %106, %.noexc22.i ], [ %.ph138, %.noexc19.i ]
-  %46 = phi ptr [ %107, %.noexc22.i ], [ %.ph138, %.noexc19.i ]
+  %45 = phi ptr [ %106, %.noexc22.i ], [ %.ph153, %.noexc19.i ]
+  %46 = phi ptr [ %107, %.noexc22.i ], [ %.ph153, %.noexc19.i ]
   %47 = phi i32 [ %113, %.noexc22.i ], [ %43, %.noexc19.i ]
   %48 = call i32 @llvm.abs.i32(i32 %47, i1 true)
   br label %.noexc20.i
@@ -425,7 +425,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i.i: ; preds = %.noexc21.i, 
 
 _ZL11read_clauseIN6dimacs13stream_bufferEEvRT_RSoRN3sat6solverER7svectorINS5_7literalEjE.exit.i: ; preds = %.noexc22.i, %.noexc19.i
   %.sroa.0.7 = phi ptr [ %.sroa.0.0.ph, %.noexc19.i ], [ %.sroa.0.5, %.noexc22.i ]
-  %115 = phi ptr [ %.ph138, %.noexc19.i ], [ %106, %.noexc22.i ]
+  %115 = phi ptr [ %.ph153, %.noexc19.i ], [ %106, %.noexc22.i ]
   %116 = icmp eq ptr %115, null
   br i1 %116, label %120, label %117
 
@@ -450,8 +450,8 @@ _ZL11read_clauseIN6dimacs13stream_bufferEEvRT_RSoRN3sat6solverER7svectorINS5_7li
 
 _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge: ; preds = %.noexc17.i, %29
   %122 = phi i32 [ %33, %.noexc17.i ], [ -1, %29 ]
-  %.promoted27.be = phi i32 [ %spec.select208, %.noexc17.i ], [ %30, %29 ]
-  %.val.pre.i.i.be = phi i32 [ %spec.select209, %.noexc17.i ], [ -1, %29 ]
+  %.promoted27.be = phi i32 [ %spec.select223, %.noexc17.i ], [ %30, %29 ]
+  %.val.pre.i.i.be = phi i32 [ %spec.select224, %.noexc17.i ], [ -1, %29 ]
   br label %_ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i, !llvm.loop !40
 
 123:                                              ; preds = %25
@@ -461,13 +461,13 @@ _ZL9skip_lineIN6dimacs13stream_bufferEEvRT_.exit.i.backedge: ; preds = %.noexc17
 
 .loopexit36.i.loopexit:                           ; preds = %15
   store i32 %14, ptr %10, align 1
-  store i32 %.lcssa181205, ptr %8, align 1
+  store i32 %.lcssa196220, ptr %8, align 1
   store i32 -1, ptr %10, align 8
   store i32 %16, ptr %8, align 4
   br label %.loopexit36.i
 
 .loopexit36.i:                                    ; preds = %.loopexit36.i.loopexit, %25
-  %125 = phi ptr [ %.sroa.0.1, %25 ], [ %.ph138, %.loopexit36.i.loopexit ]
+  %125 = phi ptr [ %.sroa.0.1, %25 ], [ %.ph153, %.loopexit36.i.loopexit ]
   %.0.i = phi i1 [ false, %25 ], [ true, %.loopexit36.i.loopexit ]
   %.not.i.i23.i = icmp eq ptr %125, null
   br i1 %.not.i.i23.i, label %_ZL17parse_dimacs_coreIN6dimacs13stream_bufferEEbRT_RSoRN3sat6solverE.exit, label %126
@@ -1399,11 +1399,11 @@ _ZN6dimacs13stream_bufferppEv.exit.sink.split:    ; preds = %.noexc13, %39
   br label %_ZN6dimacs13stream_bufferppEv.exit.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit.preheader:     ; preds = %.noexc13, %_ZN6dimacs13stream_bufferppEv.exit.sink.split
-  %.val.i15.ph165 = phi i32 [ %.val.i15.ph, %_ZN6dimacs13stream_bufferppEv.exit.sink.split ], [ %31, %.noexc13 ]
+  %.val.i15.ph191 = phi i32 [ %.val.i15.ph, %_ZN6dimacs13stream_bufferppEv.exit.sink.split ], [ %31, %.noexc13 ]
   br label %_ZN6dimacs13stream_bufferppEv.exit
 
 _ZN6dimacs13stream_bufferppEv.exit:               ; preds = %_ZN6dimacs13stream_bufferppEv.exit.preheader, %.noexc17
-  %.val.i15 = phi i32 [ %37, %.noexc17 ], [ %.val.i15.ph165, %_ZN6dimacs13stream_bufferppEv.exit.preheader ]
+  %.val.i15 = phi i32 [ %37, %.noexc17 ], [ %.val.i15.ph191, %_ZN6dimacs13stream_bufferppEv.exit.preheader ]
   switch i32 %.val.i15, label %_ZL15skip_whitespaceIN6dimacs13stream_bufferEEvRT_.exit18 [
     i32 32, label %35
     i32 13, label %35
@@ -1514,11 +1514,11 @@ _ZN6dimacs13stream_bufferppEv.exit23.sink.split:  ; preds = %.noexc22, %80
   br label %_ZN6dimacs13stream_bufferppEv.exit23.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit23.preheader:   ; preds = %.noexc22, %_ZN6dimacs13stream_bufferppEv.exit23.sink.split
-  %.val.i25.ph166 = phi i32 [ %.val.i25.ph, %_ZN6dimacs13stream_bufferppEv.exit23.sink.split ], [ %72, %.noexc22 ]
+  %.val.i25.ph192 = phi i32 [ %.val.i25.ph, %_ZN6dimacs13stream_bufferppEv.exit23.sink.split ], [ %72, %.noexc22 ]
   br label %_ZN6dimacs13stream_bufferppEv.exit23
 
 _ZN6dimacs13stream_bufferppEv.exit23:             ; preds = %_ZN6dimacs13stream_bufferppEv.exit23.preheader, %.noexc27
-  %.val.i25 = phi i32 [ %78, %.noexc27 ], [ %.val.i25.ph166, %_ZN6dimacs13stream_bufferppEv.exit23.preheader ]
+  %.val.i25 = phi i32 [ %78, %.noexc27 ], [ %.val.i25.ph192, %_ZN6dimacs13stream_bufferppEv.exit23.preheader ]
   switch i32 %.val.i25, label %_ZL15skip_whitespaceIN6dimacs13stream_bufferEEvRT_.exit28 [
     i32 32, label %76
     i32 13, label %76
@@ -1667,11 +1667,11 @@ _ZN6dimacs13stream_bufferppEv.exit46.sink.split:  ; preds = %.noexc45, %130
   br label %_ZN6dimacs13stream_bufferppEv.exit46.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit46.preheader:   ; preds = %.noexc45, %_ZN6dimacs13stream_bufferppEv.exit46.sink.split
-  %.val.i48.ph168 = phi i32 [ %.val.i48.ph, %_ZN6dimacs13stream_bufferppEv.exit46.sink.split ], [ %122, %.noexc45 ]
+  %.val.i48.ph194 = phi i32 [ %.val.i48.ph, %_ZN6dimacs13stream_bufferppEv.exit46.sink.split ], [ %122, %.noexc45 ]
   br label %_ZN6dimacs13stream_bufferppEv.exit46
 
 _ZN6dimacs13stream_bufferppEv.exit46:             ; preds = %_ZN6dimacs13stream_bufferppEv.exit46.preheader, %.noexc50
-  %.val.i48 = phi i32 [ %128, %.noexc50 ], [ %.val.i48.ph168, %_ZN6dimacs13stream_bufferppEv.exit46.preheader ]
+  %.val.i48 = phi i32 [ %128, %.noexc50 ], [ %.val.i48.ph194, %_ZN6dimacs13stream_bufferppEv.exit46.preheader ]
   switch i32 %.val.i48, label %_ZL15skip_whitespaceIN6dimacs13stream_bufferEEvRT_.exit51 [
     i32 32, label %126
     i32 13, label %126
@@ -1782,11 +1782,11 @@ _ZN6dimacs13stream_bufferppEv.exit64.sink.split:  ; preds = %.noexc63, %171
   br label %_ZN6dimacs13stream_bufferppEv.exit64.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit64.preheader:   ; preds = %.noexc63, %_ZN6dimacs13stream_bufferppEv.exit64.sink.split
-  %.val.i66.ph170 = phi i32 [ %.val.i66.ph, %_ZN6dimacs13stream_bufferppEv.exit64.sink.split ], [ %163, %.noexc63 ]
+  %.val.i66.ph196 = phi i32 [ %.val.i66.ph, %_ZN6dimacs13stream_bufferppEv.exit64.sink.split ], [ %163, %.noexc63 ]
   br label %_ZN6dimacs13stream_bufferppEv.exit64
 
 _ZN6dimacs13stream_bufferppEv.exit64:             ; preds = %_ZN6dimacs13stream_bufferppEv.exit64.preheader, %.noexc68
-  %.val.i66 = phi i32 [ %169, %.noexc68 ], [ %.val.i66.ph170, %_ZN6dimacs13stream_bufferppEv.exit64.preheader ]
+  %.val.i66 = phi i32 [ %169, %.noexc68 ], [ %.val.i66.ph196, %_ZN6dimacs13stream_bufferppEv.exit64.preheader ]
   switch i32 %.val.i66, label %_ZL15skip_whitespaceIN6dimacs13stream_bufferEEvRT_.exit69 [
     i32 32, label %167
     i32 13, label %167

@@ -323,9 +323,9 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br label %153
 
 153:                                              ; preds = %141, %148, %121
-  %.sink181 = phi ptr [ %125, %121 ], [ %147, %141 ], [ %152, %148 ]
+  %.sink188 = phi ptr [ %125, %121 ], [ %147, %141 ], [ %152, %148 ]
   %.sink = phi ptr [ %122, %121 ], [ %139, %141 ], [ %139, %148 ]
-  %154 = tail call ptr @Aig_Or(ptr noundef nonnull %7, ptr noundef %.sink181, ptr noundef %60) #17
+  %154 = tail call ptr @Aig_Or(ptr noundef nonnull %7, ptr noundef %.sink188, ptr noundef %60) #17
   %155 = ptrtoint ptr %60 to i64
   %156 = xor i64 %155, 1
   %157 = inttoptr i64 %156 to ptr
@@ -1284,11 +1284,11 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   br label %135
 
 135:                                              ; preds = %.thread124, %132
-  %.sink162 = phi ptr [ %134, %.thread124 ], [ %133, %132 ]
+  %.sink166 = phi ptr [ %134, %.thread124 ], [ %133, %132 ]
   %.1130 = phi ptr [ %.1131, %.thread124 ], [ %.1, %132 ]
   %.2128 = phi i32 [ %.2129, %.thread124 ], [ %.2, %132 ]
-  %136 = call ptr @introduceAbsorberLogic(ptr noundef %.sink162, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0)
-  call void @Aig_ManStop(ptr noundef %.sink162) #17
+  %136 = call ptr @introduceAbsorberLogic(ptr noundef %.sink166, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0)
+  call void @Aig_ManStop(ptr noundef %.sink166) #17
   br label %137
 
 137:                                              ; preds = %135, %141

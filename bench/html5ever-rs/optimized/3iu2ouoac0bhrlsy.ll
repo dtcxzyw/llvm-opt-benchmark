@@ -340,14 +340,14 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice
 
 _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17hb5abb48d52e7a130E.exit: ; preds = %89, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i"
   %104 = phi ptr [ undef, %89 ], [ %92, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i" ]
-  %.not294314 = phi i1 [ true, %89 ], [ %103, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i" ]
+  %.not294320 = phi i1 [ true, %89 ], [ %103, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i" ]
   %.0118.shrunk251 = phi i1 [ %.0118.shrunk257, %89 ], [ %.0118.shrunk252, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %105 = icmp eq ptr %.sroa.0.0.i133, null
-  br i1 %105, label %.thread313, label %107
+  br i1 %105, label %.thread319, label %107
 
-.thread313:                                       ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17hb5abb48d52e7a130E.exit
+.thread319:                                       ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17hb5abb48d52e7a130E.exit
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !51, !noalias !54
   %.phi.trans.insert300 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.pre301 = load ptr, ptr %.phi.trans.insert300, align 8, !alias.scope !56
@@ -365,7 +365,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull readonly align 1 %.sroa.0.0.i133, i64 %.sroa.3.0.i132, i1 false), !noalias !59
   %111 = getelementptr inbounds i8, ptr %109, i64 %.sroa.3.0.i132
   %112 = icmp eq i64 %.sroa.3.0.i132, 0
-  br i1 %112, label %.loopexit321, label %.lr.ph.i.i.i142
+  br i1 %112, label %.loopexit327, label %.lr.ph.i.i.i142
 
 .lr.ph.i.i.i142:                                  ; preds = %.noexc, %.lr.ph.i.i.i142
   %.sroa.0.06.i.i.i143 = phi ptr [ %113, %.lr.ph.i.i.i142 ], [ %109, %.noexc ]
@@ -377,7 +377,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %117 = or i8 %.0.i.i.i144, %114
   store i8 %117, ptr %.sroa.0.06.i.i.i143, align 1, !alias.scope !64, !noalias !67
   %118 = icmp eq ptr %113, %111
-  br i1 %118, label %.loopexit321, label %.lr.ph.i.i.i142
+  br i1 %118, label %.loopexit327, label %.lr.ph.i.i.i142
 
 119:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit141"
   %bcmp.i151 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(19) %.sroa.0.0.i133, ptr noundef nonnull dereferenceable(19) @anon.dcf0590ddea9489929259de672f22440.68, i64 19), !alias.scope !69
@@ -499,7 +499,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E"(ptr noalias noundef align 8 dereferenceable(24) %7) #8
           to label %139 unwind label %209
 
-.loopexit321:                                     ; preds = %.lr.ph.i.i.i142, %.noexc
+.loopexit327:                                     ; preds = %.lr.ph.i.i.i142, %.noexc
   %143 = extractvalue { i64, ptr } %108, 0
   store i64 %143, ptr %7, align 8, !alias.scope !51, !noalias !54
   %.sroa.4.0..sroa_idx.i146 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -517,13 +517,13 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %.sroa.3.0.i201 = select i1 %.not294, i64 undef, i64 %.pre299
   br label %146
 
-146:                                              ; preds = %.loopexit321, %.thread313
-  %.sroa.3.0.i201318 = phi i64 [ %.sroa.3.0.i125, %.thread313 ], [ %.sroa.3.0.i201, %.loopexit321 ]
-  %147 = phi ptr [ %106, %.thread313 ], [ %145, %.loopexit321 ]
-  %.not294317 = phi i1 [ %.not294314, %.thread313 ], [ %.not294, %.loopexit321 ]
-  %148 = phi ptr [ %104, %.thread313 ], [ %.pre297, %.loopexit321 ]
-  %149 = phi i1 [ false, %.thread313 ], [ %144, %.loopexit321 ]
-  %150 = phi ptr [ %.pre301, %.thread313 ], [ %109, %.loopexit321 ]
+146:                                              ; preds = %.loopexit327, %.thread319
+  %.sroa.3.0.i201324 = phi i64 [ %.sroa.3.0.i125, %.thread319 ], [ %.sroa.3.0.i201, %.loopexit327 ]
+  %147 = phi ptr [ %106, %.thread319 ], [ %145, %.loopexit327 ]
+  %.not294323 = phi i1 [ %.not294320, %.thread319 ], [ %.not294, %.loopexit327 ]
+  %148 = phi ptr [ %104, %.thread319 ], [ %.pre297, %.loopexit327 ]
+  %149 = phi i1 [ false, %.thread319 ], [ %144, %.loopexit327 ]
+  %150 = phi ptr [ %.pre301, %.thread319 ], [ %109, %.loopexit327 ]
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %153 = load i8, ptr %152, align 8, !range !124, !noundef !5
@@ -541,7 +541,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br i1 %brmerge123, label %.critedge, label %157
 
 157:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit208"
-  br i1 %.not294317, label %167, label %158
+  br i1 %.not294323, label %167, label %158
 
 158:                                              ; preds = %157
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !129
@@ -562,7 +562,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %163 = load ptr, ptr %161, align 8, !alias.scope !133, !noalias !138, !nonnull !5, !align !143, !noundef !5
   %164 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %165 = load i64, ptr %164, align 8, !alias.scope !133, !noalias !138, !noundef !5
-  %166 = invoke noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.llvm.957808626109915165"(ptr noalias noundef nonnull readonly align 1 %163, i64 noundef %165, ptr noalias noundef nonnull readonly align 1 %148, i64 noundef %.sroa.3.0.i201318)
+  %166 = invoke noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.llvm.957808626109915165"(ptr noalias noundef nonnull readonly align 1 %163, i64 noundef %165, ptr noalias noundef nonnull readonly align 1 %148, i64 noundef %.sroa.3.0.i201324)
           to label %.noexc210 unwind label %.loopexit.split-lp
 
 .noexc210:                                        ; preds = %162
@@ -638,7 +638,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   br label %.critedge
 
 187:                                              ; preds = %188, %167
-  br i1 %.not294317, label %.critedge, label %189
+  br i1 %.not294323, label %.critedge, label %189
 
 188:                                              ; preds = %.noexc214
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !156
@@ -654,7 +654,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %.add = add nuw nsw i64 %.idx, 16
   %190 = getelementptr i8, ptr %.ptr, i64 8
   %.val5.i.i = load i64, ptr %190, align 8, !alias.scope !170, !noalias !173, !noundef !5
-  %.not.i.i.i.i = icmp ult i64 %.sroa.3.0.i201318, %.val5.i.i
+  %.not.i.i.i.i = icmp ult i64 %.sroa.3.0.i201324, %.val5.i.i
   br i1 %.not.i.i.i.i, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i": ; preds = %.lr.ph.i.i
@@ -677,7 +677,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx17h215ad
   %.add278 = add nuw nsw i64 %.idx277, 16
   %192 = getelementptr i8, ptr %.ptr279, i64 8
   %.val5.i.i218 = load i64, ptr %192, align 8, !alias.scope !186, !noalias !189, !noundef !5
-  %.not.i.i.i.i219 = icmp ult i64 %.sroa.3.0.i201318, %.val5.i.i218
+  %.not.i.i.i.i219 = icmp ult i64 %.sroa.3.0.i201324, %.val5.i.i218
   br i1 %.not.i.i.i.i219, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i220": ; preds = %.lr.ph.i.i217
@@ -700,7 +700,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx17h215ad
   %.add282 = add nuw nsw i64 %.idx281, 16
   %194 = getelementptr i8, ptr %.ptr283, i64 8
   %.val5.i.i228 = load i64, ptr %194, align 8, !alias.scope !202, !noalias !205, !noundef !5
-  %.not.i.i.i.i229 = icmp ult i64 %.sroa.3.0.i201318, %.val5.i.i228
+  %.not.i.i.i.i229 = icmp ult i64 %.sroa.3.0.i201324, %.val5.i.i228
   br i1 %.not.i.i.i.i229, label %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i230"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h701abcd40c77adf0E.exit.i.i.i.i230": ; preds = %.lr.ph.i.i227

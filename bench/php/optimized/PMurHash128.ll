@@ -326,7 +326,7 @@ define hidden void @PMurHash128x86_Process(ptr noundef captures(none) %0, ptr no
   br i1 %.not271, label %.loopexit.loopexit, label %.preheader
 
 .loopexit.loopexit:                               ; preds = %92
-  %93 = sub i32 %3, %21
+  %93 = sub nsw i32 %3, %21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
@@ -768,7 +768,7 @@ define hidden void @PMurHash128x64_Process(ptr noundef captures(none) %0, ptr no
   br i1 %.not155, label %.loopexit.loopexit, label %.preheader
 
 .loopexit.loopexit:                               ; preds = %53
-  %54 = sub i32 %3, %14
+  %54 = sub nsw i32 %3, %14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4

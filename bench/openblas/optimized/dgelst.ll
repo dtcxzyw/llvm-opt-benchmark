@@ -127,7 +127,7 @@ define void @dgelst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %thread-pre-split362
 
 thread-pre-split362:                              ; preds = %53, %52
-  %spec.select400 = phi i32 [ -2147483648, %52 ], [ %62, %53 ]
+  %spec.select412 = phi i32 [ -2147483648, %52 ], [ %62, %53 ]
   %63 = phi i32 [ %.pr, %52 ], [ %.pr363.pre, %53 ]
   %.0308 = phi i1 [ undef, %52 ], [ %.not338, %53 ]
   %.0302 = phi double [ 0.000000e+00, %52 ], [ %61, %53 ]
@@ -170,7 +170,7 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   %76 = load i32, ptr %9, align 4, !tbaa !3
   %77 = add nsw i32 %.0, %.
   %78 = sdiv i32 %76, %77
-  %79 = tail call i32 @llvm.smin.i32(i32 %spec.select400, i32 %78)
+  %79 = tail call i32 @llvm.smin.i32(i32 %spec.select412, i32 %78)
   store i32 %79, ptr %17, align 4, !tbaa !3
   store i32 2, ptr %12, align 4, !tbaa !3
   %80 = tail call i32 @ilaenv_(ptr noundef nonnull @c__2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull @c_n1, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #5
@@ -217,13 +217,13 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   br label %195
 
 .sink.split:                                      ; preds = %93, %84
-  %.sink402 = phi ptr [ %20, %84 ], [ %19, %93 ]
-  %.ph401 = xor i1 %or.cond357, true
-  call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %13, ptr noundef nonnull %.sink402, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %10) #5
+  %.sink414 = phi ptr [ %20, %84 ], [ %19, %93 ]
+  %.ph413 = xor i1 %or.cond357, true
+  call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %13, ptr noundef nonnull %.sink414, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %10) #5
   br label %101
 
 101:                                              ; preds = %.sink.split, %96
-  %102 = phi i1 [ false, %96 ], [ %.ph401, %.sink.split ]
+  %102 = phi i1 [ false, %96 ], [ %.ph413, %.sink.split ]
   %103 = load i32, ptr %1, align 4, !tbaa !3
   store i32 %103, ptr %15, align 4, !tbaa !3
   br i1 %.0308, label %106, label %104
@@ -240,21 +240,21 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   %109 = load double, ptr %20, align 8
   %110 = fcmp olt double %107, %109
   %or.cond360 = select i1 %108, i1 %110, i1 false
-  br i1 %or.cond360, label %.sink.split403, label %111
+  br i1 %or.cond360, label %.sink.split415, label %111
 
 111:                                              ; preds = %106
   %112 = load double, ptr %19, align 8, !tbaa !7
   %113 = fcmp ogt double %107, %112
-  br i1 %113, label %.sink.split403, label %114
+  br i1 %113, label %.sink.split415, label %114
 
-.sink.split403:                                   ; preds = %111, %106
-  %.sink405 = phi ptr [ %20, %106 ], [ %19, %111 ]
-  %.ph404 = xor i1 %or.cond360, true
-  call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %14, ptr noundef nonnull %.sink405, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10) #5
+.sink.split415:                                   ; preds = %111, %106
+  %.sink417 = phi ptr [ %20, %106 ], [ %19, %111 ]
+  %.ph416 = xor i1 %or.cond360, true
+  call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %14, ptr noundef nonnull %.sink417, ptr noundef nonnull %15, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10) #5
   br label %114
 
-114:                                              ; preds = %.sink.split403, %111
-  %115 = phi i1 [ false, %111 ], [ %.ph404, %.sink.split403 ]
+114:                                              ; preds = %.sink.split415, %111
+  %115 = phi i1 [ false, %111 ], [ %.ph416, %.sink.split415 ]
   %116 = load i32, ptr %1, align 4, !tbaa !3
   %117 = load i32, ptr %2, align 4, !tbaa !3
   %.not347 = icmp slt i32 %116, %117
@@ -404,27 +404,27 @@ thread-pre-split362.thread:                       ; preds = %thread-pre-split362
   br i1 %190, label %195, label %191
 
 191:                                              ; preds = %183, %124, %._crit_edge377, %._crit_edge370
-  %.sink407 = phi ptr [ %2, %._crit_edge377 ], [ %1, %._crit_edge370 ], [ %2, %124 ], [ %1, %183 ]
-  %192 = load i32, ptr %.sink407, align 4, !tbaa !3
+  %.sink419 = phi ptr [ %2, %._crit_edge377 ], [ %1, %._crit_edge370 ], [ %2, %124 ], [ %1, %183 ]
+  %192 = load i32, ptr %.sink419, align 4, !tbaa !3
   store i32 %192, ptr %18, align 4, !tbaa !3
   %brmerge = or i1 %or.cond357, %102
-  br i1 %brmerge, label %.sink.split408, label %193
+  br i1 %brmerge, label %.sink.split420, label %193
 
-.sink.split408:                                   ; preds = %191
+.sink.split420:                                   ; preds = %191
   %.mux = select i1 %or.cond357, ptr %20, ptr %19
   call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %13, ptr noundef nonnull %.mux, ptr noundef nonnull %18, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10) #5
   br label %193
 
-193:                                              ; preds = %191, %.sink.split408
-  %brmerge412 = or i1 %or.cond360, %115
-  br i1 %brmerge412, label %.sink.split410, label %194
+193:                                              ; preds = %191, %.sink.split420
+  %brmerge424 = or i1 %or.cond360, %115
+  br i1 %brmerge424, label %.sink.split422, label %194
 
-.sink.split410:                                   ; preds = %193
-  %.mux413 = select i1 %or.cond360, ptr %20, ptr %19
-  call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %.mux413, ptr noundef nonnull %14, ptr noundef nonnull %18, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10) #5
+.sink.split422:                                   ; preds = %193
+  %.mux425 = select i1 %or.cond360, ptr %20, ptr %19
+  call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %.mux425, ptr noundef nonnull %14, ptr noundef nonnull %18, ptr noundef nonnull %3, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %10) #5
   br label %194
 
-194:                                              ; preds = %193, %.sink.split410
+194:                                              ; preds = %193, %.sink.split422
   store double %.0302, ptr %8, align 8, !tbaa !7
   br label %195
 

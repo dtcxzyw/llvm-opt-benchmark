@@ -914,8 +914,8 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h0e9d66a423f18
   %14 = trunc i32 %1 to i8
   %15 = and i8 %14, 63
   %16 = or disjoint i8 %15, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %16, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !178
+  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %16, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !178
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 17:                                               ; preds = %6
@@ -927,13 +927,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h0e9d66a423f18
   %22 = trunc i32 %21 to i8
   %23 = and i8 %22, 63
   %24 = or disjoint i8 %23, -128
-  %.sroa.0.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %24, ptr %.sroa.0.1..sroa_idx10, align 1, !alias.scope !178
+  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %24, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !178
   %25 = trunc i32 %1 to i8
   %26 = and i8 %25, 63
   %27 = or disjoint i8 %26, -128
-  %.sroa.0.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %27, ptr %.sroa.0.2..sroa_idx12, align 2, !alias.scope !178
+  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %27, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !178
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 28:                                               ; preds = %6
@@ -8086,7 +8086,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h779609e5489ccb89E.exit.thread.i.i
   br label %707
 
 "_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h28ad01044abd162bE.exit.i": ; preds = %679, %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h8ea4371800429873E.exit.i.i", %693, %690, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0b47b2cff2d96150E.llvm.15942697686886759531.exit.i.i"
-  %.sroa.3.0.i.pn.i202.i = phi ptr [ %689, %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h8ea4371800429873E.exit.i.i" ], [ %689, %690 ], [ %689, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0b47b2cff2d96150E.llvm.15942697686886759531.exit.i.i" ], [ %689, %693 ], [ %680, %679 ]
+  %.sroa.3.0.i.pn.i239.i = phi ptr [ %689, %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h8ea4371800429873E.exit.i.i" ], [ %689, %690 ], [ %689, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h0b47b2cff2d96150E.llvm.15942697686886759531.exit.i.i" ], [ %689, %693 ], [ %680, %679 ]
   %711 = getelementptr inbounds nuw i8, ptr %0, i64 120
   invoke void @"_ZN91_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9b0b102bd531184aE.llvm.8206341635091092976"(ptr noalias noundef nonnull align 8 dereferenceable(8) %711)
           to label %720 unwind label %712
@@ -8210,7 +8210,7 @@ _ZN5serde3ser12SerializeMap15serialize_entry17h779609e5489ccb89E.exit.thread.i.i
 
 "_ZN4core3ptr470drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$core..option..Option$LT$lsp..RequestId$GT$$C$serde_json..value..Value$C$gpui..app..async_context..AsyncAppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17hb6d5b0aa7cfb027bE.llvm.5739698848042040512.exit.i": ; preds = %756, %749
   store i8 1, ptr %29, align 2, !noalias !1333
-  %759 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.3.0.i.pn.i202.i, 1
+  %759 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.3.0.i.pn.i239.i, 1
   br label %"_ZN3lsp14LanguageServer12handle_input28_$u7b$$u7b$closure$u7d$$u7d$17h079cd129b6e79ca8E.exit"
 
 "_ZN4core3ptr374drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$i32$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$lsp..IoKind$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17hb607298580f71447E.llvm.5739698848042040512.exit122.i": ; preds = %767, %763, %743
@@ -10113,11 +10113,11 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 .body133.sink.split.i:                            ; preds = %392, %341
-  %.sink240.i = phi i64 [ %343, %341 ], [ %394, %392 ]
+  %.sink260.i = phi i64 [ %343, %341 ], [ %394, %392 ]
   %.pn99.ph.i = phi { ptr, i32 } [ %342, %341 ], [ %393, %392 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !noalias !2404, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %52, i64 noundef %.sink240.i, i64 noundef 1) #41, !noalias !5
+  call void @__rust_dealloc(ptr noundef nonnull %52, i64 noundef %.sink260.i, i64 noundef 1) #41, !noalias !5
   br label %.body133.i
 
 .body133.i:                                       ; preds = %392, %341, %"_ZN4core3ptr168drop_in_place$LT$util..Deferred$LT$lsp..LanguageServer..handle_output$LT$async_process..ChildStdin$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h35b932bdcde3e679E.exit.i", %.body133.sink.split.i, %39

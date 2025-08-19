@@ -539,7 +539,7 @@ sub_1:                                            ; preds = %sub_0
 
 26:                                               ; preds = %.tail, %.tail.thread
   %spec.select.idx.sink = phi i64 [ %spec.select.idx, %.tail.thread ], [ 3, %.tail ]
-  %.not8181019 = phi i1 [ false, %.tail.thread ], [ true, %.tail ]
+  %.not8181052 = phi i1 [ false, %.tail.thread ], [ true, %.tail ]
   %.0745 = phi i8 [ 1, %.tail.thread ], [ 0, %.tail ]
   %.0731 = phi i1 [ %.not819, %.tail.thread ], [ false, %.tail ]
   %spec.select = getelementptr inbounds nuw i8, ptr %19, i64 %spec.select.idx.sink
@@ -573,7 +573,7 @@ sub_1:                                            ; preds = %sub_0
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr @aliases, i64 %29
-  br i1 %.not8181019, label %41, label %45
+  br i1 %.not8181052, label %41, label %45
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -954,8 +954,8 @@ findshortopt.exit:                                ; preds = %292, %301
   %.2736 = phi ptr [ %2, %319 ], [ %.0734, %315 ]
   %321 = icmp eq i8 %312, 3
   %322 = icmp eq i8 %.pre1016, 45
-  %or.cond1029 = select i1 %321, i1 %322, i1 false
-  br i1 %or.cond1029, label %323, label %sub_0998
+  %or.cond1062 = select i1 %321, i1 %322, i1 false
+  br i1 %or.cond1062, label %323, label %sub_0998
 
 323:                                              ; preds = %320
   %324 = getelementptr inbounds nuw i8, ptr %.8771, i64 1
@@ -3223,8 +3223,8 @@ parse_quote.exit:                                 ; preds = %1039, %1041, %1043
   %1092 = icmp sgt i64 %1091, 300
   %1093 = icmp slt i64 %1091, 1
   %1094 = trunc nuw nsw i64 %1091 to i16
-  %spec.select1030 = select i1 %1093, i16 50, i16 %1094
-  %.sink = select i1 %1092, i16 300, i16 %spec.select1030
+  %spec.select1063 = select i1 %1093, i16 50, i16 %1094
+  %.sink = select i1 %1092, i16 300, i16 %spec.select1063
   store i16 %.sink, ptr %64, align 2, !tbaa !174
   br label %1095
 
@@ -3493,7 +3493,7 @@ define internal fastcc i32 @set_rate(ptr noundef %0, ptr noundef %1) unnamed_add
 
 34:                                               ; preds = %32, %31
   %.0 = phi i8 [ %26, %31 ], [ %33, %32 ]
-  switch i8 %.0, label %.thread48 [
+  switch i8 %.0, label %.thread54 [
     i8 115, label %35
     i8 109, label %36
     i8 104, label %38
@@ -3516,18 +3516,18 @@ define internal fastcc i32 @set_rate(ptr noundef %0, ptr noundef %1) unnamed_add
   %41 = icmp slt i64 %39, %40
   br i1 %41, label %.thread45, label %..thread_crit_edge
 
-.thread48:                                        ; preds = %34
+.thread54:                                        ; preds = %34
   call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.310) #15
   %42 = load i64, ptr %5, align 8, !tbaa !50
   %43 = icmp sgt i64 %42, 2562047788015
-  br i1 %43, label %.thread45, label %.thread55
+  br i1 %43, label %.thread45, label %.thread61
 
-.thread55:                                        ; preds = %.thread48
+.thread61:                                        ; preds = %.thread54
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
-.thread45:                                        ; preds = %.thread48, %38
+.thread45:                                        ; preds = %.thread54, %38
   call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.311) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3557,8 +3557,8 @@ define internal fastcc i32 @set_rate(ptr noundef %0, ptr noundef %1) unnamed_add
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
-50:                                               ; preds = %.thread55, %.thread45, %47, %.thread, %.critedge, %20, %17, %14
-  %.027 = phi i32 [ 18, %14 ], [ %19, %17 ], [ 4, %20 ], [ 4, %.critedge ], [ 0, %47 ], [ 18, %.thread ], [ 18, %.thread45 ], [ 4, %.thread55 ]
+50:                                               ; preds = %.thread61, %.thread45, %47, %.thread, %.critedge, %20, %17, %14
+  %.027 = phi i32 [ 18, %14 ], [ %19, %17 ], [ 4, %20 ], [ 4, %.critedge ], [ 0, %47 ], [ 18, %.thread ], [ 18, %.thread45 ], [ 4, %.thread61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.027
@@ -4356,7 +4356,7 @@ sub_0:                                            ; preds = %4
   br label %17
 
 17:                                               ; preds = %.tail.thread, %14
-  %.not40 = phi i1 [ true, %14 ], [ false, %.tail.thread ]
+  %.not46 = phi i1 [ true, %14 ], [ false, %.tail.thread ]
   %18 = phi ptr [ %15, %14 ], [ %16, %.tail.thread ]
   %.not28 = icmp eq ptr %18, null
   br i1 %.not28, label %19, label %20
@@ -4414,7 +4414,7 @@ sub_0:                                            ; preds = %4
 
 37:                                               ; preds = %._crit_edge, %20
   %.1 = phi i32 [ %.3, %._crit_edge ], [ %21, %20 ]
-  br i1 %.not40, label %40, label %38
+  br i1 %.not46, label %40, label %38
 
 38:                                               ; preds = %37
   %39 = call i32 @fclose(ptr noundef nonnull %18)
@@ -4761,24 +4761,24 @@ define internal fastcc range(i32 0, 24) i32 @parse_upload_file(ptr noundef %0, p
   %22 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !116
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %.thread44, label %24
+  br i1 %.not.i, label %.thread49, label %24
 
 24:                                               ; preds = %21
   tail call void @free(ptr noundef nonnull %23) #15
   store ptr null, ptr %22, align 8, !tbaa !116
   %.pre = load i8, ptr %1, align 1, !tbaa !19
   %25 = icmp eq i8 %.pre, 0
-  br i1 %25, label %getstr.exit, label %.thread44
+  br i1 %25, label %getstr.exit, label %.thread49
 
-.thread44:                                        ; preds = %21, %24
+.thread49:                                        ; preds = %21, %24
   %26 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %1) #15
   store ptr %26, ptr %22, align 8, !tbaa !116
   %.not13.i = icmp eq ptr %26, null
   %spec.select = select i1 %.not13.i, i32 15, i32 0
   br label %getstr.exit
 
-getstr.exit:                                      ; preds = %.thread44, %24, %19, %.critedge.thread
-  %.020 = phi i32 [ 15, %.critedge.thread ], [ 0, %19 ], [ 23, %24 ], [ %spec.select, %.thread44 ]
+getstr.exit:                                      ; preds = %.thread49, %24, %19, %.critedge.thread
+  %.020 = phi i32 [ 15, %.critedge.thread ], [ 0, %19 ], [ 23, %24 ], [ %spec.select, %.thread49 ]
   ret i32 %.020
 }
 
@@ -5036,7 +5036,7 @@ define dso_local i32 @parse_args(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !210
   %8 = icmp sgt i32 %1, 1
-  br i1 %8, label %.lr.ph, label %.loopexit202
+  br i1 %8, label %.lr.ph, label %.loopexit208
 
 .lr.ph:                                           ; preds = %3
   %9 = add nsw i32 %1, -1
@@ -5185,22 +5185,22 @@ sub_2:                                            ; preds = %sub_1
   tail call void @free(ptr noundef nonnull %15) #15
   %68 = add nsw i32 %.5116, 1
   %69 = icmp slt i32 %68, %1
-  br i1 %69, label %11, label %.loopexit202, !llvm.loop !215
+  br i1 %69, label %11, label %.loopexit208, !llvm.loop !215
 
-.loopexit202:                                     ; preds = %67, %3
+.loopexit208:                                     ; preds = %67, %3
   %.088.lcssa.ph = phi ptr [ %7, %3 ], [ %.593, %67 ]
   %70 = getelementptr inbounds nuw i8, ptr %.088.lcssa.ph, i64 1192
   %71 = load i8, ptr %70, align 8, !tbaa !155, !range !21, !noundef !22
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %.loopexit
 
-73:                                               ; preds = %.loopexit202
+73:                                               ; preds = %.loopexit208
   %74 = getelementptr inbounds nuw i8, ptr %.088.lcssa.ph, i64 73
   %75 = load i8, ptr %74, align 1, !tbaa !193, !range !21, !noundef !22
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %.thread.thread198, label %.loopexit
+  br i1 %76, label %.thread.thread204, label %.loopexit
 
-.thread.thread198:                                ; preds = %73
+.thread.thread204:                                ; preds = %73
   %77 = tail call ptr @param2text(i32 noundef 20) #15
   %78 = load ptr, ptr @tool_stderr, align 8, !tbaa !117
   tail call void (ptr, ptr, ...) @helpf(ptr noundef %78, ptr noundef nonnull @.str.33, ptr noundef %77) #15
@@ -5209,7 +5209,7 @@ sub_2:                                            ; preds = %sub_1
 ._crit_edge:                                      ; preds = %65
   %.094.off = add i32 %.599, -5
   %switch = icmp ult i32 %.094.off, 5
-  br i1 %switch, label %.thread.thread194, label %sub_0146
+  br i1 %switch, label %.thread.thread200, label %sub_0146
 
 sub_0146:                                         ; preds = %._crit_edge
   %79 = tail call ptr @param2text(i32 noundef %.599) #15
@@ -5234,18 +5234,18 @@ sub_1147:                                         ; preds = %sub_0146
 
 .thread141:                                       ; preds = %.tail145
   tail call void (ptr, ptr, ...) @helpf(ptr noundef %88, ptr noundef nonnull @.str.32, ptr noundef nonnull %15, ptr noundef %79) #15
-  br label %.thread.thread194
+  br label %.thread.thread200
 
 .thread:                                          ; preds = %.tail145
   tail call void (ptr, ptr, ...) @helpf(ptr noundef %88, ptr noundef nonnull @.str.33, ptr noundef %79) #15
-  br label %.thread.thread194
+  br label %.thread.thread200
 
-.thread.thread194:                                ; preds = %._crit_edge, %.thread, %.thread141
+.thread.thread200:                                ; preds = %._crit_edge, %.thread, %.thread141
   tail call void @free(ptr noundef nonnull %15) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %73, %.loopexit202, %.thread.thread198, %.thread.thread194, %.critedge.critedge
-  %.1 = phi i32 [ 15, %.critedge.critedge ], [ %.599, %.thread.thread194 ], [ 20, %.thread.thread198 ], [ 0, %.loopexit202 ], [ 0, %73 ], [ 15, %11 ]
+.loopexit:                                        ; preds = %11, %73, %.loopexit208, %.thread.thread204, %.thread.thread200, %.critedge.critedge
+  %.1 = phi i32 [ 15, %.critedge.critedge ], [ %.599, %.thread.thread200 ], [ 20, %.thread.thread204 ], [ 0, %.loopexit208 ], [ 0, %73 ], [ 15, %11 ]
   ret i32 %.1
 }
 

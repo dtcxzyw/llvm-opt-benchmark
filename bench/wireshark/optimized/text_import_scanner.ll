@@ -137,7 +137,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %64
 
-64:                                               ; preds = %.backedge721, %50
+64:                                               ; preds = %.backedge760, %50
   %65 = load ptr, ptr %51, align 8
   %66 = load i8, ptr %52, align 8
   store i8 %66, ptr %65, align 1
@@ -221,18 +221,18 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %112 = sext i16 %111 to i32
   %113 = getelementptr i8, ptr %.1181, i64 1
   %.not213 = icmp eq i16 %111, 67
-  br i1 %.not213, label %.backedge.sink.split720, label %75, !llvm.loop !8
+  br i1 %.not213, label %.backedge.sink.split759, label %75, !llvm.loop !8
 
-.backedge.sink.split720:                          ; preds = %._crit_edge, %.backedge.sink.split720.backedge
-  %.1189.ph = phi ptr [ %.1189.ph.be, %.backedge.sink.split720.backedge ], [ %.0188, %._crit_edge ]
+.backedge.sink.split759:                          ; preds = %._crit_edge, %.backedge.sink.split759.backedge
+  %.1189.ph = phi ptr [ %.1189.ph.be, %.backedge.sink.split759.backedge ], [ %.0188, %._crit_edge ]
   %114 = load ptr, ptr %57, align 8
   %115 = load i32, ptr %56, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split720
-  %.1189 = phi ptr [ %.1189.ph, %.backedge.sink.split720 ], [ %698, %.backedge.backedge ]
-  %.2182 = phi ptr [ %114, %.backedge.sink.split720 ], [ %703, %.backedge.backedge ]
-  %.3 = phi i32 [ %115, %.backedge.sink.split720 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split759
+  %.1189 = phi ptr [ %.1189.ph, %.backedge.sink.split759 ], [ %698, %.backedge.backedge ]
+  %.2182 = phi ptr [ %114, %.backedge.sink.split759 ], [ %703, %.backedge.backedge ]
+  %.3 = phi i32 [ %115, %.backedge.sink.split759 ], [ %.3.be, %.backedge.backedge ]
   %116 = sext i32 %.3 to i64
   %117 = getelementptr [68 x i16], ptr @yy_accept, i64 0, i64 %116
   %118 = load i16, ptr %117, align 2
@@ -271,7 +271,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
 126:                                              ; preds = %125
   %127 = load i8, ptr %52, align 8
   store i8 %127, ptr %.2182, align 1
-  br label %.backedge.sink.split720.backedge
+  br label %.backedge.sink.split759.backedge
 
 128:                                              ; preds = %125
   %129 = load i32, ptr %59, align 8
@@ -299,7 +299,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %144 = phi ptr [ %.pre475, %131 ], [ %.pre476, %128 ]
   %145 = tail call i32 @parse_token(i32 noundef 1, ptr noundef %144)
   %.not225 = icmp eq i32 %145, 0
-  br i1 %.not225, label %.backedge721, label %.loopexit270
+  br i1 %.not225, label %.backedge760, label %.loopexit270
 
 146:                                              ; preds = %125
   %147 = load i32, ptr %59, align 8
@@ -327,7 +327,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %162 = phi ptr [ %.pre473, %149 ], [ %.pre474, %146 ]
   %163 = tail call i32 @parse_token(i32 noundef 2, ptr noundef %162)
   %.not224 = icmp eq i32 %163, 0
-  br i1 %.not224, label %.backedge721, label %.loopexit270
+  br i1 %.not224, label %.backedge760, label %.loopexit270
 
 164:                                              ; preds = %125
   %165 = load i32, ptr %59, align 8
@@ -355,7 +355,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %180 = phi ptr [ %.pre471, %167 ], [ %.pre472, %164 ]
   %181 = tail call i32 @parse_token(i32 noundef 3, ptr noundef %180)
   %.not223 = icmp eq i32 %181, 0
-  br i1 %.not223, label %.backedge721, label %.loopexit270
+  br i1 %.not223, label %.backedge760, label %.loopexit270
 
 182:                                              ; preds = %125
   %183 = load i32, ptr %59, align 8
@@ -385,7 +385,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %200 = getelementptr i8, ptr %198, i64 %199
   %201 = tail call i32 @parse_token(i32 noundef 3, ptr noundef %200)
   %.not222 = icmp eq i32 %201, 0
-  br i1 %.not222, label %.backedge721, label %.loopexit270
+  br i1 %.not222, label %.backedge760, label %.loopexit270
 
 202:                                              ; preds = %125
   %203 = load i32, ptr %59, align 8
@@ -411,12 +411,12 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
 218:                                              ; preds = %205, %202
   %219 = tail call i32 @parse_token(i32 noundef 6, ptr noundef null)
   %.not221 = icmp eq i32 %219, 0
-  br i1 %.not221, label %.backedge721, label %.loopexit270
+  br i1 %.not221, label %.backedge760, label %.loopexit270
 
 220:                                              ; preds = %125
   %221 = load i32, ptr %59, align 8
   %222 = icmp sgt i32 %221, 0
-  br i1 %222, label %223, label %.backedge721
+  br i1 %222, label %223, label %.backedge760
 
 223:                                              ; preds = %220
   %224 = load ptr, ptr %58, align 8
@@ -432,12 +432,12 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 40
   store i32 %230, ptr %235, align 8
-  br label %.backedge721
+  br label %.backedge760
 
 236:                                              ; preds = %125
   %237 = load i32, ptr %59, align 8
   %238 = icmp sgt i32 %237, 0
-  br i1 %238, label %239, label %.backedge721
+  br i1 %238, label %239, label %.backedge760
 
 239:                                              ; preds = %236
   %240 = load ptr, ptr %58, align 8
@@ -453,7 +453,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 40
   store i32 %246, ptr %251, align 8
-  br label %.backedge721
+  br label %.backedge760
 
 252:                                              ; preds = %125
   %253 = load i32, ptr %59, align 8
@@ -486,7 +486,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
 270:                                              ; preds = %267
   %271 = tail call i32 @parse_token(i32 noundef 6, ptr noundef null)
   %.not220 = icmp eq i32 %271, 0
-  br i1 %.not220, label %.backedge721, label %.loopexit270
+  br i1 %.not220, label %.backedge760, label %.loopexit270
 
 272:                                              ; preds = %125
   %273 = load i32, ptr %59, align 8
@@ -512,7 +512,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
 288:                                              ; preds = %275, %272
   %289 = tail call i32 @parse_token(i32 noundef 6, ptr noundef null)
   %.not218 = icmp eq i32 %289, 0
-  br i1 %.not218, label %.backedge721, label %.loopexit270
+  br i1 %.not218, label %.backedge760, label %.loopexit270
 
 290:                                              ; preds = %125
   %291 = load i32, ptr %59, align 8
@@ -540,9 +540,9 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %306 = phi ptr [ %.pre465, %293 ], [ %.pre466, %290 ]
   %307 = tail call i32 @parse_token(i32 noundef 5, ptr noundef %306)
   %.not217 = icmp eq i32 %307, 0
-  br i1 %.not217, label %.backedge721, label %.loopexit270
+  br i1 %.not217, label %.backedge760, label %.loopexit270
 
-.backedge721:                                     ; preds = %305, %288, %270, %236, %239, %220, %223, %218, %197, %179, %161, %143, %325
+.backedge760:                                     ; preds = %305, %288, %270, %236, %239, %220, %223, %218, %197, %179, %161, %143, %325
   br label %64
 
 308:                                              ; preds = %125
@@ -580,7 +580,7 @@ define hidden range(i32 0, 2) i32 @text_import_lex(ptr noundef %0) local_unnamed
   %328 = sext i32 %326 to i64
   %329 = load ptr, ptr %63, align 8
   %330 = tail call i64 @fwrite(ptr noundef %327, i64 noundef %328, i64 noundef 1, ptr noundef %329)
-  br label %.backedge721
+  br label %.backedge760
 
 331:                                              ; preds = %125
   %332 = load ptr, ptr %58, align 8
@@ -766,11 +766,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i227, %421
   %442 = and i64 %.lcssa.i229, 9223372036854775807
   %.not215267 = icmp eq i64 %442, 0
   %.not215 = or i1 %441, %.not215267
-  br i1 %.not215, label %.backedge.sink.split720.backedge, label %443
+  br i1 %.not215, label %.backedge.sink.split759.backedge, label %443
 
-.backedge.sink.split720.backedge:                 ; preds = %yy_try_NUL_trans.exit, %126
+.backedge.sink.split759.backedge:                 ; preds = %yy_try_NUL_trans.exit, %126
   %.1189.ph.be = phi ptr [ %.1189, %126 ], [ %367, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split720
+  br label %.backedge.sink.split759
 
 443:                                              ; preds = %yy_try_NUL_trans.exit
   %444 = sext i16 %440 to i32
@@ -1050,10 +1050,10 @@ fread.inline.exit.i:                              ; preds = %545, %566
   br label %572
 
 572:                                              ; preds = %.critedge2.i, %477
-  %.sink191.in.i = phi ptr [ %571, %.critedge2.i ], [ %478, %477 ]
+  %.sink197.in.i = phi ptr [ %571, %.critedge2.i ], [ %478, %477 ]
   %.sink.i = phi i32 [ %568, %.critedge2.i ], [ 0, %477 ]
-  %.sink191.i = load ptr, ptr %.sink191.in.i, align 8
-  %573 = getelementptr inbounds nuw i8, ptr %.sink191.i, i64 28
+  %.sink197.i = load ptr, ptr %.sink197.in.i, align 8
+  %573 = getelementptr inbounds nuw i8, ptr %.sink197.i, i64 28
   store i32 %.sink.i, ptr %573, align 4
   %574 = load i32, ptr %60, align 4
   %575 = icmp eq i32 %574, 0
@@ -1156,7 +1156,7 @@ yy_get_next_buffer.exit:                          ; preds = %586, %615
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 8
   %641 = load ptr, ptr %640, align 8
   store ptr %641, ptr %58, align 8
-  switch i32 %.0133.i, label %default.unreachable478 [
+  switch i32 %.0133.i, label %default.unreachable517 [
     i32 1, label %yy_get_previous_state.exit248
     i32 0, label %643
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread265_crit_edge
@@ -1177,8 +1177,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread265_crit_edge: ; preds = %
   %646 = xor i64 %645, -1
   %647 = add i64 %646, %644
   %648 = getelementptr ptr, ptr %636, i64 %637
-  %sext606 = shl i64 %647, 32
-  %649 = ashr exact i64 %sext606, 32
+  %sext645 = shl i64 %647, 32
+  %649 = ashr exact i64 %sext645, 32
   %650 = getelementptr i8, ptr %641, i64 %649
   store ptr %650, ptr %51, align 8
   %651 = load i32, ptr %53, align 4
@@ -1358,7 +1358,7 @@ yy_get_next_buffer.exit.thread265:                ; preds = %459, %yy_get_next_b
   %exitcond.not.i262 = icmp eq ptr %750, %703
   br i1 %exitcond.not.i262, label %.backedge.backedge, label %.lr.ph34.i250, !llvm.loop !10
 
-default.unreachable478:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable517:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit248:                    ; preds = %yy_get_next_buffer.exit, %459
@@ -1575,7 +1575,7 @@ define hidden void @text_import_restart(ptr noundef %0, ptr noundef captures(non
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @text_import_ensure_buffer_stack(ptr noundef %1)
@@ -1589,14 +1589,14 @@ define hidden void @text_import_restart(ptr noundef %0, ptr noundef captures(non
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #27
   %19 = load i32, ptr %18, align 4
   br label %text_import__flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -1607,7 +1607,7 @@ define hidden void @text_import_restart(ptr noundef %0, ptr noundef captures(non
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %text_import__flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -1655,10 +1655,10 @@ define hidden void @text_import_restart(ptr noundef %0, ptr noundef captures(non
   store i8 %55, ptr %56, align 8
   br label %text_import__flush_buffer.exit.i
 
-text_import__flush_buffer.exit.i:                 ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+text_import__flush_buffer.exit.i:                 ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -1925,7 +1925,7 @@ define hidden void @text_import_push_buffer_state(ptr noundef %0, ptr noundef ca
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1950,23 +1950,23 @@ define hidden void @text_import_push_buffer_state(ptr noundef %0, ptr noundef ca
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

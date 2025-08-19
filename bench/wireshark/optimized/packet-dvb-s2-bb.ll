@@ -1941,11 +1941,11 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %502, %501, %303
   %509 = add i32 %.019.i, %508
   %510 = icmp ugt i16 %.0204.i.i, %.137318.i
   %511 = icmp ult i16 %.0204.i.i, 2
-  %or.cond4.not47.i = or i1 %510, %511
+  %or.cond4.not71.i = or i1 %510, %511
   %512 = sub nuw i16 %.137318.i, %.0204.i.i
   %513 = icmp ult i16 %512, 2
-  %or.cond44.i = select i1 %or.cond4.not47.i, i1 true, i1 %513
-  br i1 %or.cond44.i, label %dissect_dvb_s2_bb.exit, label %282, !llvm.loop !10
+  %or.cond68.i = select i1 %or.cond4.not71.i, i1 true, i1 %513
+  br i1 %or.cond68.i, label %dissect_dvb_s2_bb.exit, label %282, !llvm.loop !10
 
 514:                                              ; preds = %260
   %515 = load i32, ptr @hf_dvb_s2_bb_df, align 4
@@ -2188,9 +2188,9 @@ dissect_dvb_s2_gse.exit.i:                        ; preds = %502, %501, %303
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %628, %618
-  %.sink39.i = phi i32 [ 3, %628 ], [ 2, %618 ]
+  %.sink63.i = phi i32 [ 3, %628 ], [ 2, %618 ]
   %629 = load i32, ptr @hf_dvb_s2_bb_issy_short, align 4
-  %630 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %629, ptr noundef nonnull %614, i32 noundef 188, i32 noundef %.sink39.i, i32 noundef 0)
+  %630 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %629, ptr noundef nonnull %614, i32 noundef 188, i32 noundef %.sink63.i, i32 noundef 0)
   br label %631
 
 631:                                              ; preds = %.sink.split.i, %618
@@ -2284,21 +2284,21 @@ compute_crc8.exit462.i:                           ; preds = %.lr.ph.i457.i, %660
   call void @tvb_composite_append(ptr noundef %.3387.i, ptr noundef %669)
   %670 = add i32 %.412.i, 188
   switch i8 %.1376.i, label %674 [
-    i8 2, label %.sink.split40.i
+    i8 2, label %.sink.split64.i
     i8 3, label %671
   ]
 
 671:                                              ; preds = %compute_crc8.exit462.i
-  br label %.sink.split40.i
+  br label %.sink.split64.i
 
-.sink.split40.i:                                  ; preds = %671, %compute_crc8.exit462.i
+.sink.split64.i:                                  ; preds = %671, %compute_crc8.exit462.i
   %hf_dvb_s2_bb_issy_long.sink.i = phi ptr [ @hf_dvb_s2_bb_issy_long, %671 ], [ @hf_dvb_s2_bb_issy_short, %compute_crc8.exit462.i ]
-  %.sink42.i = phi i32 [ 3, %671 ], [ 2, %compute_crc8.exit462.i ]
+  %.sink66.i = phi i32 [ 3, %671 ], [ 2, %compute_crc8.exit462.i ]
   %672 = load i32, ptr %hf_dvb_s2_bb_issy_long.sink.i, align 4
-  %673 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %672, ptr noundef %89, i32 noundef %670, i32 noundef %.sink42.i, i32 noundef 0)
+  %673 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %672, ptr noundef %89, i32 noundef %670, i32 noundef %.sink66.i, i32 noundef 0)
   br label %674
 
-674:                                              ; preds = %.sink.split40.i, %compute_crc8.exit462.i
+674:                                              ; preds = %.sink.split64.i, %compute_crc8.exit462.i
   br i1 %652, label %675, label %679
 
 675:                                              ; preds = %674

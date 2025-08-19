@@ -783,13 +783,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__24
   %17 = inttoptr i64 %16 to ptr
   %.not.i.i = icmp eq i64 %16, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep54 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink.sroa.gep57 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink.sroa.gep59 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink.sroa.gep60 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.sink.sroa.gep62 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink.sroa.gep63 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink.sroa.gep64 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink.sroa.gep66 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink.sroa.gep67 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink.sroa.gep69 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink.sroa.gep70 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink.sroa.gep72 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink.sroa.gep73 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br i1 %.not.i.i, label %18, label %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_47TestSdfNoAssetFileFormat_Tokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
 
 18:                                               ; preds = %4
@@ -922,16 +922,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfMapLookupPtrISt3mapINSt7__cxx1112basic_
   br i1 %.not.i22, label %.invoke, label %68
 
 .invoke:                                          ; preds = %66, %60
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %60 ], [ %.sink.sroa.gep54, %66 ]
-  %.sink.sroa.phi55 = phi ptr [ %.sink.sroa.gep56, %60 ], [ %.sink.sroa.gep57, %66 ]
-  %.sink.sroa.phi58 = phi ptr [ %.sink.sroa.gep59, %60 ], [ %.sink.sroa.gep60, %66 ]
-  %.sink.sroa.phi61 = phi ptr [ %.sink.sroa.gep62, %60 ], [ %.sink.sroa.gep63, %66 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %60 ], [ %.sink.sroa.gep64, %66 ]
+  %.sink.sroa.phi65 = phi ptr [ %.sink.sroa.gep66, %60 ], [ %.sink.sroa.gep67, %66 ]
+  %.sink.sroa.phi68 = phi ptr [ %.sink.sroa.gep69, %60 ], [ %.sink.sroa.gep70, %66 ]
+  %.sink.sroa.phi71 = phi ptr [ %.sink.sroa.gep72, %60 ], [ %.sink.sroa.gep73, %66 ]
   %.sink = phi ptr [ %6, %60 ], [ %5, %66 ]
   store ptr @.str.5, ptr %.sink, align 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEptEv, ptr %.sink.sroa.phi, align 8
-  store i64 936, ptr %.sink.sroa.phi55, align 8
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEptEv, ptr %.sink.sroa.phi58, align 8
-  store i8 0, ptr %.sink.sroa.phi61, align 8
+  store i64 936, ptr %.sink.sroa.phi65, align 8
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEptEv, ptr %.sink.sroa.phi68, align 8
+  store i8 0, ptr %.sink.sroa.phi71, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__40Tf_PostNullSmartPtrDereferenceFatalErrorERKNS_13TfCallContextEPKc(ptr noundef nonnull align 8 dereferenceable(33) %.sink, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEE) #20
           to label %.cont unwind label %175
 

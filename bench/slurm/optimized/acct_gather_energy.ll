@@ -1102,16 +1102,16 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
   store i32 %4, ptr %2, align 4
   %5 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %.preheader65
+  br i1 %6, label %7, label %.preheader70
 
 7:                                                ; preds = %1
   %8 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__._watch_node, ptr noundef nonnull @.str.26) #8
-  br label %.preheader65
+  br label %.preheader70
 
-.preheader65:                                     ; preds = %7, %1
+.preheader70:                                     ; preds = %7, %1
   br label %9
 
-9:                                                ; preds = %.preheader65, %44
+9:                                                ; preds = %.preheader70, %44
   %.b19 = load i1, ptr @init_run, align 1
   br i1 %.b19, label %10, label %.critedge
 

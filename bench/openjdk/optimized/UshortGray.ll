@@ -2210,7 +2210,7 @@ define hidden void @IntArgbPreToUshortGraySrcOverMaskBlit(ptr noundef %0, ptr no
   %51 = load i16, ptr %.3108.us.us, align 2
   %52 = zext i16 %51 to i32
   %53 = mul nuw i32 %50, %52
-  %54 = mul i32 %45, %.fr134
+  %54 = mul nuw i32 %45, %.fr134
   %55 = add i32 %53, %54
   br label %56
 

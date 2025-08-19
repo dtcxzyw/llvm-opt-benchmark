@@ -1630,9 +1630,9 @@ proto_item_set_generated.exit341:                 ; preds = %155, %152, %149, %p
   %239 = load ptr, ptr %53, align 8
   %switch.selectcmp = icmp eq i32 %238, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.735, ptr @.str.736
-  %switch.selectcmp374 = icmp eq i32 %238, 0
-  %switch.select375 = select i1 %switch.selectcmp374, ptr @.str.734, ptr %switch.select
-  call void @col_set_str(ptr noundef %239, i32 noundef 25, ptr noundef nonnull %switch.select375)
+  %switch.selectcmp403 = icmp eq i32 %238, 0
+  %switch.select404 = select i1 %switch.selectcmp403, ptr @.str.734, ptr %switch.select
+  call void @col_set_str(ptr noundef %239, i32 noundef 25, ptr noundef nonnull %switch.select404)
   %240 = load ptr, ptr %53, align 8
   %241 = zext nneg i8 %235 to i32
   %242 = call ptr @val_to_str_ext_const(i32 noundef %241, ptr noundef nonnull @code_vals_ext, ptr noundef nonnull @.str.702)

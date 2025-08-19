@@ -396,7 +396,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %185 = getelementptr i8, ptr %183, i64 24
   %.val130.i.i = load i64, ptr %185, align 8, !tbaa !44
   %.not135.i.i = icmp eq i64 %.val129.i.i, %.val130.i.i
-  br i1 %.not135.i.i, label %186, label %.critedge.loopexit.split.loop.exit196.i.i
+  br i1 %.not135.i.i, label %186, label %.critedge.loopexit.split.loop.exit203.i.i
 
 186:                                              ; preds = %.lr.ph.i27.i
   %indvars.iv.next180.i.i = add nsw i64 %indvars.iv179.i.i, -1
@@ -423,15 +423,15 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %or.cond.i.i = and i1 %196, %197
   br i1 %or.cond.i.i, label %.lr.ph.i27.i, label %.critedge.i.i, !llvm.loop !58
 
-.critedge.loopexit.split.loop.exit196.i.i:        ; preds = %.lr.ph.i27.i
+.critedge.loopexit.split.loop.exit203.i.i:        ; preds = %.lr.ph.i27.i
   %198 = trunc nuw i64 %indvars.iv179.i.i to i32
   %199 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %195, %.critedge.loopexit.split.loop.exit196.i.i, %.loopexit.i.i
-  %.1108.lcssa.i.i = phi i32 [ %.0107.i.i, %.loopexit.i.i ], [ %198, %.critedge.loopexit.split.loop.exit196.i.i ], [ %indvars182.i.i, %195 ]
-  %.0105.lcssa.i.i = phi i32 [ %.01858.i, %.loopexit.i.i ], [ %199, %.critedge.loopexit.split.loop.exit196.i.i ], [ %indvars.i.i, %195 ]
-  %.0101.lcssa.i.i = phi i32 [ %146, %.loopexit.i.i ], [ %.0101144.i.i, %.critedge.loopexit.split.loop.exit196.i.i ], [ %.1.i.i, %195 ]
+.critedge.i.i:                                    ; preds = %195, %.critedge.loopexit.split.loop.exit203.i.i, %.loopexit.i.i
+  %.1108.lcssa.i.i = phi i32 [ %.0107.i.i, %.loopexit.i.i ], [ %198, %.critedge.loopexit.split.loop.exit203.i.i ], [ %indvars182.i.i, %195 ]
+  %.0105.lcssa.i.i = phi i32 [ %.01858.i, %.loopexit.i.i ], [ %199, %.critedge.loopexit.split.loop.exit203.i.i ], [ %indvars.i.i, %195 ]
+  %.0101.lcssa.i.i = phi i32 [ %146, %.loopexit.i.i ], [ %.0101144.i.i, %.critedge.loopexit.split.loop.exit203.i.i ], [ %.1.i.i, %195 ]
   %200 = icmp ult i32 %.0107.i.i, %.05063.i.i
   %or.cond137151.i.i = and i1 %140, %200
   br i1 %or.cond137151.i.i, label %.lr.ph155.preheader.i.i, label %.critedge2.i.i
@@ -445,7 +445,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %indvars.iv184.i.i = phi i64 [ %141, %.lr.ph155.preheader.i.i ], [ %indvars.iv.next185.i.i, %217 ]
   %.2154.i.i = phi i32 [ %.0101.lcssa.i.i, %.lr.ph155.preheader.i.i ], [ %.3.i.i, %217 ]
   %indvars.iv.next187.i.i = add nuw nsw i64 %indvars.iv186.i.i, 1
-  %indvars190.i.i = trunc i64 %indvars.iv.next187.i.i to i32
+  %indvars190.i.i = trunc nuw i64 %indvars.iv.next187.i.i to i32
   %202 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv186.i.i
   %203 = load ptr, ptr %202, align 8, !tbaa !42
   %indvars.iv.next185.i.i = add nuw nsw i64 %indvars.iv184.i.i, 1
@@ -456,7 +456,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %207 = getelementptr i8, ptr %205, i64 24
   %.val132.i.i = load i64, ptr %207, align 8, !tbaa !44
   %.not136.i.i = icmp eq i64 %.val131.i.i, %.val132.i.i
-  br i1 %.not136.i.i, label %208, label %.critedge2.loopexit.split.loop.exit200.i.i
+  br i1 %.not136.i.i, label %208, label %.critedge2.loopexit.split.loop.exit207.i.i
 
 208:                                              ; preds = %.lr.ph155.i.i
   %209 = icmp ugt i32 %.2154.i.i, 1
@@ -479,14 +479,14 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %or.cond137.i.i = select i1 %218, i1 %219, i1 false
   br i1 %or.cond137.i.i, label %.lr.ph155.i.i, label %.critedge2.loopexit.i.i, !llvm.loop !59
 
-.critedge2.loopexit.split.loop.exit200.i.i:       ; preds = %.lr.ph155.i.i
+.critedge2.loopexit.split.loop.exit207.i.i:       ; preds = %.lr.ph155.i.i
   %220 = trunc nuw i64 %indvars.iv186.i.i to i32
   br label %.critedge2.loopexit.i.i
 
-.critedge2.loopexit.i.i:                          ; preds = %217, %.critedge2.loopexit.split.loop.exit200.i.i
-  %.0106.lcssa.ph.i.i = phi i32 [ %220, %.critedge2.loopexit.split.loop.exit200.i.i ], [ %indvars190.i.i, %217 ]
-  %.0104.lcssa.ph.in.i.i = phi i64 [ %indvars.iv184.i.i, %.critedge2.loopexit.split.loop.exit200.i.i ], [ %indvars.iv.next185.i.i, %217 ]
-  %.2.lcssa.ph.i.i = phi i32 [ %.2154.i.i, %.critedge2.loopexit.split.loop.exit200.i.i ], [ %.3.i.i, %217 ]
+.critedge2.loopexit.i.i:                          ; preds = %217, %.critedge2.loopexit.split.loop.exit207.i.i
+  %.0106.lcssa.ph.i.i = phi i32 [ %220, %.critedge2.loopexit.split.loop.exit207.i.i ], [ %indvars190.i.i, %217 ]
+  %.0104.lcssa.ph.in.i.i = phi i64 [ %indvars.iv184.i.i, %.critedge2.loopexit.split.loop.exit207.i.i ], [ %indvars.iv.next185.i.i, %217 ]
+  %.2.lcssa.ph.i.i = phi i32 [ %.2154.i.i, %.critedge2.loopexit.split.loop.exit207.i.i ], [ %.3.i.i, %217 ]
   %.0104.lcssa.ph.i.i = trunc i64 %.0104.lcssa.ph.in.i.i to i32
   %.pre.i.i = add i32 %.0104.lcssa.ph.i.i, 1
   br label %.critedge2.i.i

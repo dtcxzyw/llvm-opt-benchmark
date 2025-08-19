@@ -409,8 +409,8 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br i1 %174, label %.thread.us.sink.split.i, label %.thread.us.i
 
 .thread.us.sink.split.i:                          ; preds = %173, %166, %156, %150, %138, %121, %109
-  %.sink148.i = phi i64 [ -8, %109 ], [ -12, %121 ], [ -12, %138 ], [ -8, %150 ], [ -4, %156 ], [ -12, %166 ], [ -12, %173 ]
-  %175 = getelementptr i8, ptr %99, i64 %.sink148.i
+  %.sink149.i = phi i64 [ -8, %109 ], [ -12, %121 ], [ -12, %138 ], [ -8, %150 ], [ -4, %156 ], [ -12, %166 ], [ -12, %173 ]
+  %175 = getelementptr i8, ptr %99, i64 %.sink149.i
   store i32 1, ptr %175, align 4, !tbaa !30
   br label %.thread.us.i
 
@@ -690,8 +690,8 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   br i1 %47, label %.thread.us.sink.split, label %.thread.us
 
 .thread.us.sink.split:                            ; preds = %46, %40, %30
-  %.sink84 = phi i64 [ -4, %30 ], [ -8, %40 ], [ -8, %46 ]
-  %48 = getelementptr i8, ptr %20, i64 %.sink84
+  %.sink85 = phi i64 [ -4, %30 ], [ -8, %40 ], [ -8, %46 ]
+  %48 = getelementptr i8, ptr %20, i64 %.sink85
   store i32 1, ptr %48, align 4, !tbaa !30
   br label %.thread.us
 
@@ -806,7 +806,7 @@ define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32
   br i1 %33, label %45, label %.thread
 
 34:                                               ; preds = %29
-  switch i32 %.3, label %default.unreachable73 [
+  switch i32 %.3, label %default.unreachable79 [
     i32 3, label %35
     i32 4, label %37
     i32 1, label %39
@@ -839,7 +839,7 @@ define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32
   %.not67 = icmp eq i32 %44, 0
   br i1 %.not67, label %45, label %.thread
 
-default.unreachable73:                            ; preds = %34
+default.unreachable79:                            ; preds = %34
   unreachable
 
 .thread:                                          ; preds = %32, %43, %39
@@ -1208,7 +1208,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
   br i1 %172, label %228, label %.thread
 
 173:                                              ; preds = %168
-  switch i32 %.21, label %default.unreachable418 [
+  switch i32 %.21, label %default.unreachable457 [
     i32 24, label %174
     i32 21, label %176
     i32 17, label %178
@@ -1370,7 +1370,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
   %.not391 = icmp eq i32 %227, 0
   br i1 %.not391, label %228, label %.thread
 
-default.unreachable418:                           ; preds = %173
+default.unreachable457:                           ; preds = %173
   unreachable
 
 .thread:                                          ; preds = %171, %226, %220, %212, %204, %194, %184, %173

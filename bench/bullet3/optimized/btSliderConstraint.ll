@@ -917,8 +917,8 @@ define dso_local void @_ZN18btSliderConstraint8getInfo1EPN17btTypedConstraint17b
   br i1 %54, label %.sink.split.i, label %_ZN18btSliderConstraint13testAngLimitsEv.exit
 
 .sink.split.i:                                    ; preds = %52, %22
-  %.sink28.i = phi float [ %50, %22 ], [ %53, %52 ]
-  %55 = fsub float %48, %.sink28.i
+  %.sink32.i = phi float [ %50, %22 ], [ %53, %52 ]
+  %55 = fsub float %48, %.sink32.i
   store float %55, ptr %15, align 8, !tbaa !74
   store i8 1, ptr %16, align 1, !tbaa !75
   br label %_ZN18btSliderConstraint13testAngLimitsEv.exit
@@ -953,8 +953,8 @@ _ZN18btSliderConstraint13testLinLimitsEv.exit:    ; preds = %_ZN18btSliderConstr
   br i1 %71, label %_ZN18btSliderConstraint13testLinLimitsEv.exit.thread, label %77
 
 _ZN18btSliderConstraint13testLinLimitsEv.exit.thread.sink.split: ; preds = %67, %65
-  %.sink15 = phi float [ %63, %65 ], [ %61, %67 ]
-  %72 = fsub float %58, %.sink15
+  %.sink22 = phi float [ %63, %65 ], [ %61, %67 ]
+  %72 = fsub float %58, %.sink22
   store float %72, ptr %57, align 8, !tbaa !57
   store i8 1, ptr %56, align 8, !tbaa !78
   br label %_ZN18btSliderConstraint13testLinLimitsEv.exit.thread
@@ -1046,8 +1046,8 @@ define dso_local void @_ZN18btSliderConstraint13testAngLimitsEv(ptr noundef nonn
   br i1 %41, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %39, %9
-  %.sink28 = phi float [ %37, %9 ], [ %40, %39 ]
-  %42 = fsub float %35, %.sink28
+  %.sink32 = phi float [ %37, %9 ], [ %40, %39 ]
+  %42 = fsub float %35, %.sink32
   store float %42, ptr %2, align 8, !tbaa !74
   store i8 1, ptr %3, align 1, !tbaa !75
   br label %43
@@ -1563,7 +1563,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store <2 x float> %.sroa.0.4.vec.insert.i584, ptr %scevgep1049, align 4, !tbaa !57
   %.sroa.15.0.scevgep1049.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep1049, i64 8
   store float %299, ptr %.sroa.15.0.scevgep1049.sroa_idx, align 4, !tbaa !57
-  %invariant.gep1129 = getelementptr float, ptr %141, i64 %306
+  %invariant.gep1136 = getelementptr float, ptr %141, i64 %306
   br label %.preheader998
 
 .preheader998:                                    ; preds = %.preheader998.preheader, %.preheader998
@@ -1571,8 +1571,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %308 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv1053
   %309 = load float, ptr %308, align 4, !tbaa !57
   %310 = fneg float %309
-  %gep1130 = getelementptr float, ptr %invariant.gep1129, i64 %indvars.iv1053
-  store float %310, ptr %gep1130, align 4, !tbaa !57
+  %gep1137 = getelementptr float, ptr %invariant.gep1136, i64 %indvars.iv1053
+  store float %310, ptr %gep1137, align 4, !tbaa !57
   %indvars.iv.next1054 = add nuw nsw i64 %indvars.iv1053, 1
   %exitcond1056.not = icmp eq i64 %indvars.iv.next1054, 3
   br i1 %exitcond1056.not, label %311, label %.preheader998, !llvm.loop !101
@@ -1632,7 +1632,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %.sroa.15.0.scevgep1057.sroa_idx = getelementptr inbounds nuw i8, ptr %scevgep1057, i64 8
   %.sroa.15.0.vec.extract1093 = extractelement <2 x float> %.sroa.15.0, i64 0
   store float %.sroa.15.0.vec.extract1093, ptr %.sroa.15.0.scevgep1057.sroa_idx, align 4, !tbaa !57
-  %invariant.gep1131 = getelementptr float, ptr %141, i64 %337
+  %invariant.gep1138 = getelementptr float, ptr %141, i64 %337
   br label %.preheader997
 
 .preheader996:                                    ; preds = %.preheader997
@@ -1644,7 +1644,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep1069, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa !57
   %341 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %342 = load ptr, ptr %341, align 8, !tbaa !103
-  %invariant.gep1133 = getelementptr float, ptr %342, i64 %306
+  %invariant.gep1140 = getelementptr float, ptr %342, i64 %306
   br label %346
 
 .preheader997:                                    ; preds = %.preheader997.preheader, %.preheader997
@@ -1652,14 +1652,14 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %343 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv1061
   %344 = load float, ptr %343, align 4, !tbaa !57
   %345 = fneg float %344
-  %gep1132 = getelementptr float, ptr %invariant.gep1131, i64 %indvars.iv1061
-  store float %345, ptr %gep1132, align 4, !tbaa !57
+  %gep1139 = getelementptr float, ptr %invariant.gep1138, i64 %indvars.iv1061
+  store float %345, ptr %gep1139, align 4, !tbaa !57
   %indvars.iv.next1062 = add nuw nsw i64 %indvars.iv1061, 1
   %exitcond1064.not = icmp eq i64 %indvars.iv.next1062, 3
   br i1 %exitcond1064.not, label %.preheader996, label %.preheader997, !llvm.loop !104
 
 .preheader:                                       ; preds = %346
-  %invariant.gep1135 = getelementptr float, ptr %342, i64 %337
+  %invariant.gep1142 = getelementptr float, ptr %342, i64 %337
   br label %350
 
 346:                                              ; preds = %.preheader996, %346
@@ -1667,8 +1667,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %347 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv1073
   %348 = load float, ptr %347, align 4, !tbaa !57
   %349 = fneg float %348
-  %gep1134 = getelementptr float, ptr %invariant.gep1133, i64 %indvars.iv1073
-  store float %349, ptr %gep1134, align 4, !tbaa !57
+  %gep1141 = getelementptr float, ptr %invariant.gep1140, i64 %indvars.iv1073
+  store float %349, ptr %gep1141, align 4, !tbaa !57
   %indvars.iv.next1074 = add nuw nsw i64 %indvars.iv1073, 1
   %exitcond1076.not = icmp eq i64 %indvars.iv.next1074, 3
   br i1 %exitcond1076.not, label %.preheader, label %346, !llvm.loop !105
@@ -1678,8 +1678,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %351 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv1077
   %352 = load float, ptr %351, align 4, !tbaa !57
   %353 = fneg float %352
-  %gep1136 = getelementptr float, ptr %invariant.gep1135, i64 %indvars.iv1077
-  store float %353, ptr %gep1136, align 4, !tbaa !57
+  %gep1143 = getelementptr float, ptr %invariant.gep1142, i64 %indvars.iv1077
+  store float %353, ptr %gep1143, align 4, !tbaa !57
   %indvars.iv.next1078 = add nuw nsw i64 %indvars.iv1077, 1
   %exitcond1080.not = icmp eq i64 %indvars.iv.next1078, 3
   br i1 %exitcond1080.not, label %.loopexit, label %350, !llvm.loop !106
@@ -1717,7 +1717,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   br i1 %exitcond.not, label %.preheader1004.preheader, label %366, !llvm.loop !107
 
 .preheader1004.preheader:                         ; preds = %366
-  %invariant.gep1119 = getelementptr float, ptr %141, i64 %365
+  %invariant.gep1126 = getelementptr float, ptr %141, i64 %365
   br label %.preheader1004
 
 .preheader1004:                                   ; preds = %.preheader1004.preheader, %.preheader1004
@@ -1725,8 +1725,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %370 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv1022
   %371 = load float, ptr %370, align 4, !tbaa !57
   %372 = fmul float %42, %371
-  %gep1120 = getelementptr float, ptr %invariant.gep1119, i64 %indvars.iv1022
-  store float %372, ptr %gep1120, align 4, !tbaa !57
+  %gep1127 = getelementptr float, ptr %invariant.gep1126, i64 %indvars.iv1022
+  store float %372, ptr %gep1127, align 4, !tbaa !57
   %indvars.iv.next1023 = add nuw nsw i64 %indvars.iv1022, 1
   %exitcond1025.not = icmp eq i64 %indvars.iv.next1023, 3
   br i1 %exitcond1025.not, label %373, label %.preheader1004, !llvm.loop !108
@@ -1744,7 +1744,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   store <2 x float> %.sroa.0.4.vec.insert.i614, ptr %12, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i615, ptr %364, align 8, !tbaa !58
   %380 = sext i32 %196 to i64
-  %invariant.gep1121 = getelementptr float, ptr %125, i64 %380
+  %invariant.gep1128 = getelementptr float, ptr %125, i64 %380
   br label %381
 
 381:                                              ; preds = %373, %381
@@ -1752,14 +1752,14 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %382 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv1026
   %383 = load float, ptr %382, align 4, !tbaa !57
   %384 = fmul float %storemerge, %383
-  %gep1122 = getelementptr float, ptr %invariant.gep1121, i64 %indvars.iv1026
-  store float %384, ptr %gep1122, align 4, !tbaa !57
+  %gep1129 = getelementptr float, ptr %invariant.gep1128, i64 %indvars.iv1026
+  store float %384, ptr %gep1129, align 4, !tbaa !57
   %indvars.iv.next1027 = add nuw nsw i64 %indvars.iv1026, 1
   %exitcond1029.not = icmp eq i64 %indvars.iv.next1027, 3
   br i1 %exitcond1029.not, label %.preheader1003.preheader, label %381, !llvm.loop !109
 
 .preheader1003.preheader:                         ; preds = %381
-  %invariant.gep1123 = getelementptr float, ptr %141, i64 %380
+  %invariant.gep1130 = getelementptr float, ptr %141, i64 %380
   br label %.preheader1003
 
 .preheader1002:                                   ; preds = %.preheader1003
@@ -1773,7 +1773,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep1037, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa !57
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %390 = load ptr, ptr %389, align 8, !tbaa !103
-  %invariant.gep1125 = getelementptr float, ptr %390, i64 %365
+  %invariant.gep1132 = getelementptr float, ptr %390, i64 %365
   br label %394
 
 .preheader1003:                                   ; preds = %.preheader1003.preheader, %.preheader1003
@@ -1781,14 +1781,14 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %391 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv1030
   %392 = load float, ptr %391, align 4, !tbaa !57
   %393 = fmul float %42, %392
-  %gep1124 = getelementptr float, ptr %invariant.gep1123, i64 %indvars.iv1030
-  store float %393, ptr %gep1124, align 4, !tbaa !57
+  %gep1131 = getelementptr float, ptr %invariant.gep1130, i64 %indvars.iv1030
+  store float %393, ptr %gep1131, align 4, !tbaa !57
   %indvars.iv.next1031 = add nuw nsw i64 %indvars.iv1030, 1
   %exitcond1033.not = icmp eq i64 %indvars.iv.next1031, 3
   br i1 %exitcond1033.not, label %.preheader1002, label %.preheader1003, !llvm.loop !110
 
 .preheader999:                                    ; preds = %394
-  %invariant.gep1127 = getelementptr float, ptr %390, i64 %380
+  %invariant.gep1134 = getelementptr float, ptr %390, i64 %380
   br label %398
 
 394:                                              ; preds = %.preheader1002, %394
@@ -1796,8 +1796,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %395 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv1041
   %396 = load float, ptr %395, align 4, !tbaa !57
   %397 = fneg float %396
-  %gep1126 = getelementptr float, ptr %invariant.gep1125, i64 %indvars.iv1041
-  store float %397, ptr %gep1126, align 4, !tbaa !57
+  %gep1133 = getelementptr float, ptr %invariant.gep1132, i64 %indvars.iv1041
+  store float %397, ptr %gep1133, align 4, !tbaa !57
   %indvars.iv.next1042 = add nuw nsw i64 %indvars.iv1041, 1
   %exitcond1044.not = icmp eq i64 %indvars.iv.next1042, 3
   br i1 %exitcond1044.not, label %.preheader999, label %394, !llvm.loop !111
@@ -1807,8 +1807,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %399 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv1045
   %400 = load float, ptr %399, align 4, !tbaa !57
   %401 = fneg float %400
-  %gep1128 = getelementptr float, ptr %invariant.gep1127, i64 %indvars.iv1045
-  store float %401, ptr %gep1128, align 4, !tbaa !57
+  %gep1135 = getelementptr float, ptr %invariant.gep1134, i64 %indvars.iv1045
+  store float %401, ptr %gep1135, align 4, !tbaa !57
   %indvars.iv.next1046 = add nuw nsw i64 %indvars.iv1045, 1
   %exitcond1048.not = icmp eq i64 %indvars.iv.next1046, 3
   br i1 %exitcond1048.not, label %402, label %398, !llvm.loop !112
@@ -2003,9 +2003,9 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   br label %.sink.split
 
 .sink.split:                                      ; preds = %496, %475
-  %.sink1137 = phi float [ %495, %475 ], [ %513, %496 ]
+  %.sink1144 = phi float [ %495, %475 ], [ %513, %496 ]
   %514 = getelementptr inbounds float, ptr %141, i64 %466
-  store float %.sink1137, ptr %514, align 4, !tbaa !57
+  store float %.sink1144, ptr %514, align 4, !tbaa !57
   br label %515
 
 515:                                              ; preds = %.sink.split, %474
@@ -2359,17 +2359,17 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 742:                                              ; preds = %738
   %. = select i1 %.1420989, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.1143 = select i1 %.1420989, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %.1150 = select i1 %.1420989, float 0x47EFFFFFE0000000, float 0.000000e+00
   br label %743
 
 743:                                              ; preds = %742, %738
-  %.sink1142 = phi float [ 0xC7EFFFFFE0000000, %738 ], [ %., %742 ]
-  %.sink1139 = phi float [ 0x47EFFFFFE0000000, %738 ], [ %.1143, %742 ]
-  store float %.sink1142, ptr %741, align 4, !tbaa !57
-  %.sink1141.in = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sink1141 = load ptr, ptr %.sink1141.in, align 8, !tbaa !114
-  %744 = getelementptr inbounds float, ptr %.sink1141, i64 %661
-  store float %.sink1139, ptr %744, align 4, !tbaa !57
+  %.sink1149 = phi float [ 0xC7EFFFFFE0000000, %738 ], [ %., %742 ]
+  %.sink1146 = phi float [ 0x47EFFFFFE0000000, %738 ], [ %.1150, %742 ]
+  store float %.sink1149, ptr %741, align 4, !tbaa !57
+  %.sink1148.in = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sink1148 = load ptr, ptr %.sink1148.in, align 8, !tbaa !114
+  %744 = getelementptr inbounds float, ptr %.sink1148, i64 %661
+  store float %.sink1146, ptr %744, align 4, !tbaa !57
   %745 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %746 = load float, ptr %745, align 8, !tbaa !44
   %747 = fsub float 1.000000e+00, %746

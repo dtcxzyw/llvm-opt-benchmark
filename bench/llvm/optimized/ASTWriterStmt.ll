@@ -4664,10 +4664,10 @@ _ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit39: ; preds = %87, %91
   br label %110
 
 110:                                              ; preds = %.lr.ph49, %105, %108
-  %.sink53 = phi ptr [ %109, %108 ], [ null, %105 ], [ null, %.lr.ph49 ]
+  %.sink65 = phi ptr [ %109, %108 ], [ null, %105 ], [ null, %.lr.ph49 ]
   %111 = load ptr, ptr %30, align 8, !tbaa !7
   %112 = load ptr, ptr %13, align 8, !tbaa !26
-  tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3532) %111, ptr noundef %.sink53, ptr noundef nonnull align 8 dereferenceable(16) %112) #18
+  tail call void @_ZN5clang9ASTWriter10AddDeclRefEPKNS_4DeclERN4llvm15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(3532) %111, ptr noundef %.sink65, ptr noundef nonnull align 8 dereferenceable(16) %112) #18
   %113 = tail call noundef i32 @_ZNK5clang12CapturedStmt7Capture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(12) %.02848) #18
   %114 = zext i32 %113 to i64
   %115 = load ptr, ptr %13, align 8, !tbaa !26
@@ -5394,8 +5394,8 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %_ZN5clang15ASTRecor
   %or.cond = and i1 %121, %119
   %122 = and i32 %112, 14336
   %123 = icmp eq i32 %122, 0
-  %or.cond68 = and i1 %or.cond, %123
-  br i1 %or.cond68, label %124, label %129
+  %or.cond71 = and i1 %or.cond, %123
+  br i1 %or.cond71, label %124, label %129
 
 124:                                              ; preds = %114
   %125 = load ptr, ptr %0, align 8, !tbaa !50
@@ -6722,7 +6722,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit37:    ; preds = %60, %70
   %84 = load i64, ptr %62, align 8, !tbaa !424
   %85 = trunc i64 %84 to i32
   %86 = and i32 %85, 3
-  switch i32 %86, label %default.unreachable59 [
+  switch i32 %86, label %default.unreachable69 [
     i32 0, label %87
     i32 1, label %105
     i32 2, label %110
@@ -6780,7 +6780,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit44:    ; preds = %87, %95
   tail call void @_ZN5clang15ASTRecordWriter19AddCXXBaseSpecifierERKNS_16CXXBaseSpecifierE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(24) %116) #18
   br label %117
 
-default.unreachable59:                            ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit37
+default.unreachable69:                            ; preds = %_ZN5clang15ASTRecordWriter9push_backEm.exit37
   unreachable
 
 117:                                              ; preds = %114, %110, %105, %_ZN5clang15ASTRecordWriter9push_backEm.exit44
@@ -12693,9 +12693,9 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit61:    ; preds = %200, %201
   store i64 %237, ptr %3, align 8
   %238 = and i64 %237, 3
   %239 = icmp eq i64 %238, 1
-  br i1 %239, label %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66.thread85, label %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66
+  br i1 %239, label %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66.thread104, label %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66
 
-_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66.thread85: ; preds = %236
+_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66.thread104: ; preds = %236
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.lr.ph79.preheader
 
@@ -12705,9 +12705,9 @@ _ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66: ; preds = %236
   %.not3177 = icmp eq i32 %240, 0
   br i1 %.not3177, label %._crit_edge80, label %.lr.ph79.preheader
 
-.lr.ph79.preheader:                               ; preds = %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66.thread85, %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66
-  %.1.i.i6588 = phi i32 [ 1, %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66.thread85 ], [ %240, %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66 ]
-  %241 = zext i32 %.1.i.i6588 to i64
+.lr.ph79.preheader:                               ; preds = %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66.thread104, %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66
+  %.1.i.i65107 = phi i32 [ 1, %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66.thread104 ], [ %240, %_ZNK5clang15ObjCMessageExpr19getNumStoredSelLocsEv.exit66 ]
+  %241 = zext i32 %.1.i.i65107 to i64
   br label %.lr.ph79
 
 242:                                              ; preds = %.lr.ph, %_ZN5clang15ASTRecordWriter7AddStmtEPNS_4StmtE.exit69
@@ -29495,7 +29495,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %15, %_ZN4llvm15Bits
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !1440
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit
-  %45 = trunc nuw i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = shl i32 %45, %storemerge6.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 52

@@ -6449,7 +6449,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h70fe802e98
   br i1 %.sroa.044.387.i.i.i.i, label %194, label %.body.i.i
 
 .thread.i.i.i.i:                                  ; preds = %88, %79, %53
-  %lpad.thr_comm118.i.i.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm121.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %194
 
@@ -6804,7 +6804,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h70fe802e98
           to label %"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT$13update_window28_$u7b$$u7b$closure$u7d$$u7d$17h44631579ee8d04b4E.exit.i.i.i" unwind label %209, !noalias !1584
 
 194:                                              ; preds = %.thread.i.i.i.i, %78
-  %.pn60117.i.i.i.i = phi { ptr, i32 } [ %.pn88.i.i.i.i, %78 ], [ %lpad.thr_comm118.i.i.i.i, %.thread.i.i.i.i ]
+  %.pn60120.i.i.i.i = phi { ptr, i32 } [ %.pn88.i.i.i.i, %78 ], [ %lpad.thr_comm121.i.i.i.i, %.thread.i.i.i.i ]
   invoke fastcc void @"_ZN4core3ptr215drop_in_place$LT$feedback..feedback_modal..FeedbackModal..register..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2ae2b4a0b062590eE"(ptr noalias noundef nonnull align 8 dereferenceable(240) %23)
           to label %.body.i.i unwind label %190, !noalias !1584
 
@@ -6856,7 +6856,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h70fe802e98
   br label %.body.i.i
 
 .body.i.i:                                        ; preds = %209, %205, %202, %194, %78
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %210, %209 ], [ %.pn60117.i.i.i.i, %194 ], [ %.pn88.i.i.i.i, %78 ], [ %203, %202 ], [ %203, %205 ]
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %210, %209 ], [ %.pn60120.i.i.i.i, %194 ], [ %.pn88.i.i.i.i, %78 ], [ %203, %202 ], [ %203, %205 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..app..AppRefMut$GT$17h631b890fcd987ddaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25) #29
           to label %.body18.i.i unwind label %232, !noalias !1584
 
@@ -11407,7 +11407,7 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br i1 %.sroa.044.384, label %242, label %241
 
 .thread:                                          ; preds = %45, %54, %2
-  %lpad.thr_comm115 = landingpad { ptr, i32 }
+  %lpad.thr_comm125 = landingpad { ptr, i32 }
           cleanup
   br label %242
 
@@ -11992,11 +11992,11 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   br label %233
 
 241:                                              ; preds = %242, %44
-  %.pn60113 = phi { ptr, i32 } [ %.pn60114, %242 ], [ %.pn85, %44 ]
-  resume { ptr, i32 } %.pn60113
+  %.pn60123 = phi { ptr, i32 } [ %.pn60124, %242 ], [ %.pn85, %44 ]
+  resume { ptr, i32 } %.pn60123
 
 242:                                              ; preds = %.thread, %44
-  %.pn60114 = phi { ptr, i32 } [ %.pn85, %44 ], [ %lpad.thr_comm115, %.thread ]
+  %.pn60124 = phi { ptr, i32 } [ %.pn85, %44 ], [ %lpad.thr_comm125, %.thread ]
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke fastcc void @"_ZN4core3ptr354drop_in_place$LT$gpui..window..WindowContext..defer$LT$gpui..window..ViewContext$LT$workspace..modal_layer..ModalLayer$GT$..defer$LT$workspace..modal_layer..ModalLayer..show_modal$LT$feedback..feedback_modal..FeedbackModal$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3f6137f23a9d8fa7E"(ptr noalias noundef align 8 dereferenceable(64) %243) #29
           to label %241 unwind label %236
@@ -14199,7 +14199,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %69, ptr %70, align 4, !noalias !3532
   %71 = invoke { i32, i32 } @"_ZN55_$LT$gpui..window..WindowId$u20$as$u20$slotmap..Key$GT$4data17hf40da87cab223b19E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10)
-          to label %.noexc.i.i unwind label %.thread112.i.i, !noalias !3528
+          to label %.noexc.i.i unwind label %.thread120.i.i, !noalias !3528
 
 .noexc.i.i:                                       ; preds = %56
   %72 = extractvalue { i32, i32 } %71, 1
@@ -14226,7 +14226,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   %.pre = load ptr, ptr %63, align 8, !alias.scope !3543, !noalias !3550
   br label %233
 
-.thread112.i.i:                                   ; preds = %100, %85, %56
+.thread120.i.i:                                   ; preds = %100, %85, %56
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   br label %233
@@ -14244,7 +14244,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %89, align 8, !noalias !3528
   %90 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %14)
-          to label %93 unwind label %.thread112.i.i, !noalias !3534
+          to label %93 unwind label %.thread120.i.i, !noalias !3534
 
 91:                                               ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3528
@@ -14290,7 +14290,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   %104 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %104, align 8, !noalias !3528
   %105 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %13)
-          to label %110 unwind label %.thread112.i.i, !noalias !3534
+          to label %110 unwind label %.thread120.i.i, !noalias !3534
 
 106:                                              ; preds = %91
   %.sroa.613.sroa.5.0..sroa.613.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %79, i64 16
@@ -14658,9 +14658,9 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..window..Window$GT$17he32075ef4d6bfb33E"(ptr noalias noundef nonnull align 8 dereferenceable(3920) %22) #29
           to label %84 unwind label %223, !noalias !3534
 
-233:                                              ; preds = %._crit_edge, %.thread112.i.i
-  %234 = phi ptr [ %.pre, %._crit_edge ], [ %61, %.thread112.i.i ]
-  %.pn59111.i.i = phi { ptr, i32 } [ %.pn92.i.i, %._crit_edge ], [ %lpad.thr_comm.i.i, %.thread112.i.i ]
+233:                                              ; preds = %._crit_edge, %.thread120.i.i
+  %234 = phi ptr [ %.pre, %._crit_edge ], [ %61, %.thread120.i.i ]
+  %.pn59119.i.i = phi { ptr, i32 } [ %.pn92.i.i, %._crit_edge ], [ %lpad.thr_comm.i.i, %.thread120.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3666)
   call void @llvm.experimental.noalias.scope.decl(metadata !3667)
   call void @llvm.experimental.noalias.scope.decl(metadata !3668)
@@ -14718,7 +14718,7 @@ define hidden void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$
   br label %.body
 
 .body:                                            ; preds = %84, %.critedge62.i.i, %233, %236, %239, %246, %251
-  %eh.lpad-body = phi { ptr, i32 } [ %252, %251 ], [ %.pn59111.i.i, %236 ], [ %.pn59111.i.i, %233 ], [ %.pn59111.i.i, %239 ], [ %.pn92.i.i, %84 ], [ %161, %.critedge62.i.i ], [ %247, %246 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %252, %251 ], [ %.pn59119.i.i, %236 ], [ %.pn59119.i.i, %233 ], [ %.pn59119.i.i, %239 ], [ %.pn92.i.i, %84 ], [ %161, %.critedge62.i.i ], [ %247, %246 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..app..AppRefMut$GT$17h631b890fcd987ddaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #29
           to label %.body16 unwind label %275
 

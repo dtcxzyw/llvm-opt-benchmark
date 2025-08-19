@@ -265,9 +265,9 @@ syscall_random.exit:                              ; preds = %14, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.b30.i = load i1, ptr @wait_random_seeded.seeded, align 4
-  br i1 %.b30.i, label %wait_random_seeded.exit.thread110, label %33
+  br i1 %.b30.i, label %wait_random_seeded.exit.thread124, label %33
 
-wait_random_seeded.exit.thread110:                ; preds = %32
+wait_random_seeded.exit.thread124:                ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -393,7 +393,7 @@ wait_random_seeded.exit:                          ; preds = %53, %.critedge.thre
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.b.i.pr, label %88, label %195
 
-88:                                               ; preds = %wait_random_seeded.exit.thread110, %wait_random_seeded.exit
+88:                                               ; preds = %wait_random_seeded.exit.thread124, %wait_random_seeded.exit
   %89 = call i64 @ossl_rand_pool_bytes_needed(ptr noundef %0, i32 noundef 1) #11
   %.not104 = icmp eq i64 %89, 0
   br i1 %.not104, label %._crit_edge, label %.lr.ph103
@@ -505,16 +505,16 @@ get_random_device.exit:                           ; preds = %check_random_device
 
 .preheader.preheader:                             ; preds = %get_random_device.exit, %156
   %143 = phi i32 [ %157, %156 ], [ 2, %get_random_device.exit ]
-  %.297122 = phi i64 [ %.3, %156 ], [ %.053100, %get_random_device.exit ]
-  %144 = call ptr @ossl_rand_pool_add_begin(ptr noundef %0, i64 noundef %.297122) #11
-  %145 = call i64 @read(i32 noundef %.0.i72, ptr noundef %144, i64 noundef %.297122) #11
+  %.297136 = phi i64 [ %.3, %156 ], [ %.053100, %get_random_device.exit ]
+  %144 = call ptr @ossl_rand_pool_add_begin(ptr noundef %0, i64 noundef %.297136) #11
+  %145 = call i64 @read(i32 noundef %.0.i72, ptr noundef %144, i64 noundef %.297136) #11
   %146 = icmp sgt i64 %145, 0
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %.preheader.preheader
   %148 = shl nsw i64 %145, 3
   %149 = call i32 @ossl_rand_pool_add_end(ptr noundef %0, i64 noundef %145, i64 noundef %148) #11
-  %150 = sub i64 %.297122, %145
+  %150 = sub i64 %.297136, %145
   br label %156
 
 151:                                              ; preds = %.preheader.preheader
@@ -528,13 +528,13 @@ get_random_device.exit:                           ; preds = %check_random_device
   br i1 %.not69, label %156, label %.critedge2.thread
 
 156:                                              ; preds = %151, %153, %147
-  %.3 = phi i64 [ %150, %147 ], [ %.297122, %153 ], [ %.297122, %151 ]
+  %.3 = phi i64 [ %150, %147 ], [ %.297136, %153 ], [ %.297136, %151 ]
   %.149 = phi i32 [ 3, %147 ], [ %143, %153 ], [ %143, %151 ]
   %.not68 = icmp ne i64 %.3, 0
   %157 = add nsw i32 %.149, -1
   %158 = icmp sgt i32 %.149, 0
-  %or.cond124 = select i1 %.not68, i1 %158, i1 false
-  br i1 %or.cond124, label %.preheader.preheader, label %.critedge2, !llvm.loop !31
+  %or.cond138 = select i1 %.not68, i1 %158, i1 false
+  br i1 %or.cond138, label %.preheader.preheader, label %.critedge2, !llvm.loop !31
 
 .critedge2:                                       ; preds = %156
   %159 = icmp sgt i64 %145, -1

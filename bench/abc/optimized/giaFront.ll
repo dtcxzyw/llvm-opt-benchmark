@@ -658,8 +658,8 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %235 = and i64 %.val132, 536870911
   %236 = sub nsw i64 %indvars.iv, %235
   %.val116 = load ptr, ptr %54, align 8, !tbaa !29
-  %sext184 = shl i64 %236, 32
-  %237 = ashr exact i64 %sext184, 32
+  %sext194 = shl i64 %236, 32
+  %237 = ashr exact i64 %sext194, 32
   %238 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val116, i64 %237, i32 1
   %239 = load i32, ptr %238, align 4, !tbaa !31
   %240 = load i64, ptr %234, align 4
@@ -678,8 +678,8 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %249 = and i64 %248, 536870911
   %250 = sub nsw i64 %indvars.iv, %249
   %.val = load ptr, ptr %54, align 8, !tbaa !29
-  %sext185 = shl i64 %250, 32
-  %251 = ashr exact i64 %sext185, 32
+  %sext195 = shl i64 %250, 32
+  %251 = ashr exact i64 %sext195, 32
   %252 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %251, i32 1
   %253 = load i32, ptr %252, align 4, !tbaa !31
   %254 = and i32 %253, 536870911
@@ -762,9 +762,9 @@ Gia_ManFrontFindNext.exit168:                     ; preds = %.lr.ph.i163, %232
   br label %.sink.split
 
 .sink.split:                                      ; preds = %136, %229, %298
-  %.sink189 = phi i64 [ %299, %298 ], [ %231, %229 ], [ %137, %136 ]
+  %.sink199 = phi i64 [ %299, %298 ], [ %231, %229 ], [ %137, %136 ]
   %.1.ph = phi i32 [ %.0.lcssa.i167, %298 ], [ %.0177, %229 ], [ %.0.lcssa.i150, %136 ]
-  %300 = getelementptr inbounds i8, ptr %53, i64 %.sink189
+  %300 = getelementptr inbounds i8, ptr %53, i64 %.sink199
   store i8 0, ptr %300, align 1, !tbaa !38
   br label %301
 

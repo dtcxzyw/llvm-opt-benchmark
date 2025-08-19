@@ -1320,7 +1320,7 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
   %89 = getelementptr inbounds nuw i8, ptr %79, i64 1280
   %90 = load ptr, ptr %89, align 64
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %.thread52, !prof !5
+  br i1 %91, label %92, label %.thread59, !prof !5
 
 92:                                               ; preds = %88
   call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #9, !srcloc !46
@@ -1333,16 +1333,16 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
   %.pre49 = load i32, ptr %.phi.trans.insert48, align 4
   %.pre50 = and i32 %.pre49, 1024
   %93 = icmp eq i32 %.pre50, 0
-  br i1 %93, label %.critedge, label %.thread52
+  br i1 %93, label %.critedge, label %.thread59
 
-.thread52:                                        ; preds = %88, %92
+.thread59:                                        ; preds = %88, %92
   %94 = phi ptr [ %.pre, %92 ], [ %79, %88 ]
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1280
   %96 = load ptr, ptr %95, align 64
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.critedge, label %98
 
-98:                                               ; preds = %.thread52
+98:                                               ; preds = %.thread59
   %99 = load ptr, ptr %67, align 8
   %100 = load i64, ptr %8, align 8
   %101 = getelementptr i8, ptr %99, i64 %100
@@ -1414,7 +1414,7 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
   call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_init_orphan_info, i32 noundef 617, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.17, i32 noundef %53) #9
   br label %.loopexit8
 
-.critedge:                                        ; preds = %75, %92, %.thread52
+.critedge:                                        ; preds = %75, %92, %.thread59
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %129
 

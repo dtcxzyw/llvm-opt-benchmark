@@ -900,7 +900,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang9ParentMap14isConsumedExprEPNS_4E
   %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !8
   %18 = icmp eq ptr %1, %17
-  br i1 %18, label %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72, label %.lr.ph.i.i.i.i, !prof !24
+  br i1 %18, label %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80, label %.lr.ph.i.i.i.i, !prof !24
 
 .lr.ph.i.i.i.i:                                   ; preds = %8, %21
   %19 = phi ptr [ %26, %21 ], [ %17, %8 ]
@@ -925,14 +925,14 @@ _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit:   ; preds = %21
   %.not50 = icmp eq ptr %29, null
   br i1 %.not50, label %.critedge.thread, label %.lr.ph.split
 
-_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72: ; preds = %8
+_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80: ; preds = %8
   %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %15, i32 0, i32 1
   %31 = load ptr, ptr %30, align 8, !tbaa !8
-  %.not5073 = icmp eq ptr %31, null
-  br i1 %.not5073, label %.critedge.thread, label %.lr.ph.split
+  %.not5081 = icmp eq ptr %31, null
+  br i1 %.not5081, label %.critedge.thread, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72
-  %32 = phi ptr [ %31, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72 ], [ %29, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
+.lr.ph.split:                                     ; preds = %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80
+  %32 = phi ptr [ %31, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80 ], [ %29, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ]
   %33 = add i32 %6, -1
   %34 = load i16, ptr %32, align 8
   %35 = and i16 %34, 511
@@ -1090,8 +1090,8 @@ _ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27: ; preds = %56, %.critedge2
   %115 = icmp eq ptr %.us-phi53, %114
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph.i.i.i.i, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, %.lr.ph.i.i.i.i22, %2, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %70, %73, %.critedge, %.critedge, %112, %104, %100, %92, %88, %81, %77, %68
-  %.0 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i28, %68 ], [ %80, %77 ], [ %87, %81 ], [ %91, %88 ], [ %99, %92 ], [ %103, %100 ], [ %111, %104 ], [ %115, %112 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %70 ], [ %76, %73 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread72 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i22 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27 ], [ false, %.lr.ph.i.i.i.i ]
+.critedge.thread:                                 ; preds = %.lr.ph.i.i.i.i, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27, %.lr.ph.i.i.i.i22, %2, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit, %70, %73, %.critedge, %.critedge, %112, %104, %100, %92, %88, %81, %77, %68
+  %.0 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i28, %68 ], [ %80, %77 ], [ %87, %81 ], [ %91, %88 ], [ %99, %92 ], [ %103, %100 ], [ %111, %104 ], [ %115, %112 ], [ true, %.critedge ], [ true, %.critedge ], [ true, %70 ], [ %76, %73 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit.thread80 ], [ false, %2 ], [ false, %.lr.ph.i.i.i.i22 ], [ false, %_ZNK5clang9ParentMap9getParentEPNS_4StmtE.exit27 ], [ false, %.lr.ph.i.i.i.i ]
   ret i1 %.0
 }
 
@@ -1209,13 +1209,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1796,13 +1796,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %64, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %63, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %65 = zext i32 %.sink28 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %65
-  store ptr %.sink25, ptr %0, align 8
+  %65 = zext i32 %.sink32 to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %65
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16

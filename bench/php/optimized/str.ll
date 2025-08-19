@@ -793,11 +793,11 @@ define hidden i64 @lexbor_str_crop_whitespace_from_begin(ptr noundef captures(no
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %7, %1, %9, %._crit_edge
-  %.0.lcssa42 = phi i64 [ %.033, %9 ], [ %.033, %._crit_edge ], [ 0, %1 ], [ %4, %7 ]
+  %.0.lcssa43 = phi i64 [ %.033, %9 ], [ %.033, %._crit_edge ], [ 0, %1 ], [ %4, %7 ]
   %12 = phi i64 [ %.pre, %9 ], [ %4, %._crit_edge ], [ 0, %1 ], [ %4, %7 ]
-  %13 = sub i64 %12, %.0.lcssa42
+  %13 = sub i64 %12, %.0.lcssa43
   store i64 %13, ptr %3, align 8, !tbaa !11
-  ret i64 %.0.lcssa42
+  ret i64 %.0.lcssa43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

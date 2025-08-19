@@ -456,8 +456,8 @@ entry:
   %ref.tmp87 = alloca %"class.llvh::StringRef", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !15
   %tobool.not.i.i = icmp eq ptr %FilenameRef.coerce0, null
-  %ref.tmp87.sink928.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp87, i64 8
-  %ref.tmp87.sink928.sroa.gep932 = getelementptr inbounds nuw i8, ptr %ref.tmp84, i64 8
+  %ref.tmp87.sink958.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp87, i64 8
+  %ref.tmp87.sink958.sroa.gep962 = getelementptr inbounds nuw i8, ptr %ref.tmp84, i64 8
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -660,10 +660,10 @@ if.end50:                                         ; preds = %_ZN4llvh9StringRefC
 
 switch.lookup:                                    ; preds = %if.end50, %_ZN4llvh9StringRefC2EPKc.exit192
   %10 = zext nneg i32 %program to i64
-  %switch.gep929 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvh12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %10
-  %switch.load930 = load ptr, ptr %switch.gep929, align 8
-  %call.i201 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load930) #17
-  %call5581 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvh9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %S, ptr nonnull %switch.load930, i64 %call.i201, ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath)
+  %switch.gep959 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvh12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %10
+  %switch.load960 = load ptr, ptr %switch.gep959, align 8
+  %call.i201 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load960) #17
+  %call5581 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvh9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %S, ptr nonnull %switch.load960, i64 %call.i201, ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath)
   br i1 %call5581, label %for.body.i.i.i.i.i.i447.preheader, label %_ZN4llvh9StringRefC2EPKc.exit212
 
 _ZN4llvh9StringRefC2EPKc.exit212:                 ; preds = %switch.lookup
@@ -701,13 +701,13 @@ for.body.i.i.i.i.i.i447.preheader:                ; preds = %_ZN4llvh9StringRefC
   br label %for.body.i.i.i.i.i.i483
 
 for.body.i.i.i.i.i.i483:                          ; preds = %for.body.i.i.i.i.i.i447.preheader, %for.body.i.i.i.i.i.i483
-  %__cur.07.i.i.i.i.i.i484.idx = phi i64 [ %__cur.07.i.i.i.i.i.i484.add931, %for.body.i.i.i.i.i.i483 ], [ 0, %for.body.i.i.i.i.i.i447.preheader ]
+  %__cur.07.i.i.i.i.i.i484.idx = phi i64 [ %__cur.07.i.i.i.i.i.i484.add961, %for.body.i.i.i.i.i.i483 ], [ 0, %for.body.i.i.i.i.i.i447.preheader ]
   %__first.addr.06.i.i.i.i.i.i485.idx = phi i64 [ %__first.addr.06.i.i.i.i.i.i485.add, %for.body.i.i.i.i.i.i483 ], [ 0, %for.body.i.i.i.i.i.i447.preheader ]
   %__cur.07.i.i.i.i.i.i484.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i480, i64 %__cur.07.i.i.i.i.i.i484.idx
   %__first.addr.06.i.i.i.i.i.i485.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i444, i64 %__first.addr.06.i.i.i.i.i.i485.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i484.ptr, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i485.ptr, i64 16, i1 false), !alias.scope !41
   %__first.addr.06.i.i.i.i.i.i485.add = add nuw nsw i64 %__first.addr.06.i.i.i.i.i.i485.idx, 16
-  %__cur.07.i.i.i.i.i.i484.add931 = add nuw nsw i64 %__cur.07.i.i.i.i.i.i484.idx, 16
+  %__cur.07.i.i.i.i.i.i484.add961 = add nuw nsw i64 %__cur.07.i.i.i.i.i.i484.idx, 16
   %cmp.not.i.i.i.i.i.i488 = icmp eq i64 %__first.addr.06.i.i.i.i.i.i485.add, 32
   br i1 %cmp.not.i.i.i.i.i.i488, label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i494, label %for.body.i.i.i.i.i.i483, !llvm.loop !45
 
@@ -1059,14 +1059,14 @@ sw.bb85:                                          ; preds = %_ZNSt6vectorIN4llvh
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712, %sw.bb85
-  %ref.tmp87.sink928.sroa.phi = phi ptr [ %ref.tmp87.sink928.sroa.gep, %sw.bb85 ], [ %ref.tmp87.sink928.sroa.gep932, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712 ]
-  %ref.tmp87.sink928 = phi ptr [ %ref.tmp87, %sw.bb85 ], [ %ref.tmp84, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712 ]
+  %ref.tmp87.sink958.sroa.phi = phi ptr [ %ref.tmp87.sink958.sroa.gep, %sw.bb85 ], [ %ref.tmp87.sink958.sroa.gep962, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712 ]
+  %ref.tmp87.sink958 = phi ptr [ %ref.tmp87, %sw.bb85 ], [ %ref.tmp84, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712 ]
   %wait.addr.0.shrunk = phi i1 [ %wait, %sw.bb85 ], [ false, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712 ]
   %call.i445 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %OutputFilename) #16
-  store ptr %call.i445, ptr %ref.tmp87.sink928, align 8
+  store ptr %call.i445, ptr %ref.tmp87.sink958, align 8
   %call2.i447 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %OutputFilename) #16
-  store i64 %call2.i447, ptr %ref.tmp87.sink928.sroa.phi, align 8
-  call void @_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %args59, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp87.sink928)
+  store i64 %call2.i447, ptr %ref.tmp87.sink958.sroa.phi, align 8
+  call void @_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %args59, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp87.sink958)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %ErrMsg) #16
   %call.i457 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ViewerPath) #16
   %call2.i459 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ViewerPath) #16

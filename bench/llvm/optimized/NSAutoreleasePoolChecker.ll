@@ -767,8 +767,8 @@ _ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit.i: ; preds = %21
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %57, align 8
-  %58 = and i64 %.0.copyload.i.i.i.i6.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %57, align 8
+  %58 = and i64 %.0.copyload.i.i.i.i7.i.i, -8
   %59 = inttoptr i64 %58 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 8

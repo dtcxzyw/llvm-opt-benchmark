@@ -259,7 +259,7 @@ define internal fastcc i32 @do_dir(ptr noundef %0, i32 noundef range(i32 0, 3) %
   br i1 %.not.i, label %ends_with_dirsep.exit.thread, label %ends_with_dirsep.exit
 
 ends_with_dirsep.exit.thread:                     ; preds = %18
-  %spec.select204 = add i64 %16, 1
+  %spec.select222 = add i64 %16, 1
   br label %24
 
 ends_with_dirsep.exit:                            ; preds = %18
@@ -270,12 +270,12 @@ ends_with_dirsep.exit:                            ; preds = %18
   %22 = icmp ne i8 %.pre.i.fr, 47
   %23 = zext i1 %22 to i64
   %spec.select = add i64 %16, %23
-  %spec.select214 = select i1 %22, ptr @.str.31, ptr @.str.29
+  %spec.select232 = select i1 %22, ptr @.str.31, ptr @.str.29
   br label %24
 
 24:                                               ; preds = %ends_with_dirsep.exit, %ends_with_dirsep.exit.thread, %15
-  %.0116 = phi i64 [ 0, %15 ], [ %spec.select204, %ends_with_dirsep.exit.thread ], [ %spec.select, %ends_with_dirsep.exit ]
-  %.0109 = phi ptr [ @.str.29, %15 ], [ @.str.31, %ends_with_dirsep.exit.thread ], [ %spec.select214, %ends_with_dirsep.exit ]
+  %.0116 = phi i64 [ 0, %15 ], [ %spec.select222, %ends_with_dirsep.exit.thread ], [ %spec.select, %ends_with_dirsep.exit ]
+  %.0109 = phi ptr [ @.str.29, %15 ], [ @.str.31, %ends_with_dirsep.exit.thread ], [ %spec.select232, %ends_with_dirsep.exit ]
   %.b134 = load i1, ptr @verbose, align 4
   br i1 %.b134, label %25, label %28
 

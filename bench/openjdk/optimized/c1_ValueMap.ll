@@ -2416,8 +2416,8 @@ _ZN8ValueMapC2EPS_.exit:                          ; preds = %211, %_ZN13Growable
 
 .thread:                                          ; preds = %223
   %227 = and i32 %222, 512
-  %.not166200 = icmp eq i32 %227, 0
-  br i1 %.not166200, label %.lr.ph177, label %230
+  %.not166226 = icmp eq i32 %227, 0
+  br i1 %.not166226, label %.lr.ph177, label %230
 
 .preheader:                                       ; preds = %225
   %228 = icmp sgt i32 %156, 0

@@ -263,9 +263,9 @@ bytestream2_peek_byte.exit.thread:                ; preds = %bytestream2_get_byt
   %79 = load i32, ptr %78, align 4, !tbaa !53
   %80 = and i32 %79, -3
   %masksel = select i1 %.not, i32 0, i32 2
-  %.sink179 = or disjoint i32 %80, %masksel
+  %.sink197 = or disjoint i32 %80, %masksel
   %.sink = select i1 %.not, i32 2, i32 1
-  store i32 %.sink179, ptr %78, align 4, !tbaa !53
+  store i32 %.sink197, ptr %78, align 4, !tbaa !53
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %.sink, ptr %81, align 8, !tbaa !58
   %82 = and i32 %.0.i, 64
@@ -812,14 +812,14 @@ bytestream2_get_byte.exit201.us.i:                ; preds = %353, %350
   br label %374
 
 374:                                              ; preds = %bytestream2_get_byte.exit201.us.i, %306, %bytestream2_get_byte.exit.us.i
-  %.sink180 = phi i32 [ %373, %bytestream2_get_byte.exit201.us.i ], [ %348, %306 ], [ %274, %bytestream2_get_byte.exit.us.i ]
-  %.sink310.i = phi ptr [ %371, %bytestream2_get_byte.exit201.us.i ], [ %341, %306 ], [ %272, %bytestream2_get_byte.exit.us.i ]
+  %.sink198 = phi i32 [ %373, %bytestream2_get_byte.exit201.us.i ], [ %348, %306 ], [ %274, %bytestream2_get_byte.exit.us.i ]
+  %.sink317.i = phi ptr [ %371, %bytestream2_get_byte.exit201.us.i ], [ %341, %306 ], [ %272, %bytestream2_get_byte.exit.us.i ]
   %.0.i200.us.sink.i = phi i8 [ %.0.i200.us.i, %bytestream2_get_byte.exit201.us.i ], [ %347, %306 ], [ %.0.i.us.i, %bytestream2_get_byte.exit.us.i ]
   %.sroa.0.9.us.i = phi i32 [ %.sroa.0.8.us.i, %bytestream2_get_byte.exit201.us.i ], [ %.sroa.0.8.us.i, %306 ], [ %.sroa.0.7.us.i, %bytestream2_get_byte.exit.us.i ]
   %.sroa.28.9.us.i = phi i32 [ %.sroa.28.8.us.i, %bytestream2_get_byte.exit201.us.i ], [ %.sroa.28.8.us.i, %306 ], [ %.sroa.28.7.us.i, %bytestream2_get_byte.exit.us.i ]
-  %375 = tail call i32 @llvm.umin.i32(i32 %.sink180, i32 63999)
+  %375 = tail call i32 @llvm.umin.i32(i32 %.sink198, i32 63999)
   %376 = zext nneg i32 %375 to i64
-  %377 = getelementptr inbounds nuw i8, ptr %.sink310.i, i64 %376
+  %377 = getelementptr inbounds nuw i8, ptr %.sink317.i, i64 %376
   store i8 %.0.i200.us.sink.i, ptr %377, align 1, !tbaa !41
   %378 = add nuw nsw i32 %.2279.us.i, 1
   %exitcond.not.i = icmp eq i32 %378, 4
@@ -1455,14 +1455,14 @@ bytestream2_get_byte.exit226.us.i:                ; preds = %699, %696
   br label %719
 
 719:                                              ; preds = %bytestream2_get_byte.exit226.us.i, %649, %bytestream2_get_byte.exit.us.i96
-  %.sink181 = phi i32 [ %718, %bytestream2_get_byte.exit226.us.i ], [ %694, %649 ], [ %615, %bytestream2_get_byte.exit.us.i96 ]
+  %.sink199 = phi i32 [ %718, %bytestream2_get_byte.exit226.us.i ], [ %694, %649 ], [ %615, %bytestream2_get_byte.exit.us.i96 ]
   %.0.i225.us.sink.i = phi i8 [ %.0.i225.us.i, %bytestream2_get_byte.exit226.us.i ], [ %693, %649 ], [ %.0.i.us.i97, %bytestream2_get_byte.exit.us.i96 ]
   %.sroa.0.10.us.i99 = phi i32 [ %.sroa.0.9.us.i104, %bytestream2_get_byte.exit226.us.i ], [ %.sroa.0.9.us.i104, %649 ], [ %.sroa.0.8.us.i95, %bytestream2_get_byte.exit.us.i96 ]
   %.sroa.33.10.us.i = phi i32 [ %.sroa.33.9.us.i, %bytestream2_get_byte.exit226.us.i ], [ %.sroa.33.9.us.i, %649 ], [ %.sroa.33.8.us.i, %bytestream2_get_byte.exit.us.i96 ]
-  %720 = tail call i32 @llvm.umin.i32(i32 %.sink181, i32 63999)
-  %.sink349.i = load ptr, ptr %126, align 8, !tbaa !33
+  %720 = tail call i32 @llvm.umin.i32(i32 %.sink199, i32 63999)
+  %.sink356.i = load ptr, ptr %126, align 8, !tbaa !33
   %721 = zext nneg i32 %720 to i64
-  %722 = getelementptr inbounds nuw i8, ptr %.sink349.i, i64 %721
+  %722 = getelementptr inbounds nuw i8, ptr %.sink356.i, i64 %721
   store i8 %.0.i225.us.sink.i, ptr %722, align 1, !tbaa !41
   %723 = add nuw nsw i32 %.2312.us.i, 1
   %exitcond.not.i100 = icmp eq i32 %723, 4

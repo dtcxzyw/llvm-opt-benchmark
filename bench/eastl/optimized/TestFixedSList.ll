@@ -6444,7 +6444,7 @@ for.end14:                                        ; preds = %for.inc, %for.inc.u
   br i1 %bReturnValue.0.lcssa, label %if.then16, label %if.end50
 
 if.then16:                                        ; preds = %entry, %for.end14
-  %argIndex.0.lcssa37 = phi i32 [ %argIndex.0.lcssa, %for.end14 ], [ 0, %entry ]
+  %argIndex.0.lcssa43 = phi i32 [ %argIndex.0.lcssa, %for.end14 ], [ 0, %entry ]
   %gp_offset19 = load i32, ptr %args, align 16
   %fits_in_gp20 = icmp ult i32 %gp_offset19, 41
   br i1 %fits_in_gp20, label %vaarg.in_reg21, label %vaarg.in_mem23
@@ -6482,7 +6482,7 @@ do.body.preheader:                                ; preds = %vaarg.end27
 do.body:                                          ; preds = %do.body.preheader, %vaarg.end42
   %overflow_arg_area4031 = phi ptr [ %overflow_arg_area4030, %vaarg.end42 ], [ %overflow_arg_area_p39.promoted, %do.body.preheader ]
   %gp_offset3429 = phi i32 [ %gp_offset3428, %vaarg.end42 ], [ %args.promoted, %do.body.preheader ]
-  %argIndex.1 = phi i32 [ %inc31, %vaarg.end42 ], [ %argIndex.0.lcssa37, %do.body.preheader ]
+  %argIndex.1 = phi i32 [ %inc31, %vaarg.end42 ], [ %argIndex.0.lcssa43, %do.body.preheader ]
   %inc31 = add nuw nsw i32 %argIndex.1, 1
   %fits_in_gp35 = icmp ult i32 %gp_offset3429, 41
   br i1 %fits_in_gp35, label %vaarg.in_reg36, label %vaarg.in_mem38
@@ -6512,11 +6512,11 @@ do.end:                                           ; preds = %vaarg.end42
   br i1 %tobool45.not, label %if.else47, label %if.then46
 
 if.then46:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.40, ptr noundef nonnull %pName, i32 noundef %inc31, i32 noundef %argIndex.0.lcssa37)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.40, ptr noundef nonnull %pName, i32 noundef %inc31, i32 noundef %argIndex.0.lcssa43)
   br label %if.end50
 
 if.else47:                                        ; preds = %do.end
-  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.41, i32 noundef %inc31, i32 noundef %argIndex.0.lcssa37)
+  call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.41, i32 noundef %inc31, i32 noundef %argIndex.0.lcssa43)
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then46, %if.else47, %vaarg.end27, %for.end14
@@ -6923,8 +6923,8 @@ entry:
 
 land.rhs.preheader:                               ; preds = %entry
   %1 = load ptr, ptr %last, align 8
-  %cmp.i.not11 = icmp eq ptr %.pre10, %1
-  br i1 %cmp.i.not11, label %for.end, label %for.body
+  %cmp.i.not20 = icmp eq ptr %.pre10, %1
+  br i1 %cmp.i.not20, label %for.end, label %for.body
 
 land.rhs:                                         ; preds = %for.body
   %2 = load ptr, ptr %last, align 8
@@ -6932,13 +6932,13 @@ land.rhs:                                         ; preds = %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !138
 
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
-  %pNode.0812 = phi ptr [ %5, %land.rhs ], [ %0, %land.rhs.preheader ]
+  %pNode.0821 = phi ptr [ %5, %land.rhs ], [ %0, %land.rhs.preheader ]
   %3 = phi ptr [ %7, %land.rhs ], [ %.pre10, %land.rhs.preheader ]
   %mValue.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i32, ptr %mValue.i, align 4
-  %mValue = getelementptr inbounds nuw i8, ptr %pNode.0812, i64 8
+  %mValue = getelementptr inbounds nuw i8, ptr %pNode.0821, i64 8
   store i32 %4, ptr %mValue, align 8
-  %5 = load ptr, ptr %pNode.0812, align 8
+  %5 = load ptr, ptr %pNode.0821, align 8
   %6 = load ptr, ptr %first, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %first, align 8
@@ -6950,7 +6950,7 @@ for.body.for.end.loopexit_crit_edge:              ; preds = %for.body
 
 for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %for.body.for.end.loopexit_crit_edge, %entry
   %8 = phi ptr [ %.pre10, %entry ], [ %7, %for.body.for.end.loopexit_crit_edge ], [ %.pre10, %land.rhs.preheader ], [ %7, %land.rhs ]
-  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0812, %for.body.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0812, %land.rhs ]
+  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0821, %for.body.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0821, %land.rhs ]
   %9 = load ptr, ptr %last, align 8
   %cmp.i5 = icmp eq ptr %8, %9
   br i1 %cmp.i5, label %if.then, label %for.body.lr.ph.i.i
@@ -7736,8 +7736,8 @@ entry:
 
 land.rhs.preheader:                               ; preds = %entry
   %1 = load ptr, ptr %last, align 8
-  %cmp.i.not12 = icmp eq ptr %.pre11, %1
-  br i1 %cmp.i.not12, label %for.end, label %for.body
+  %cmp.i.not21 = icmp eq ptr %.pre11, %1
+  br i1 %cmp.i.not21, label %for.end, label %for.body
 
 land.rhs:                                         ; preds = %_ZN10TestObjectaSERKS_.exit
   %2 = load ptr, ptr %last, align 8
@@ -7745,32 +7745,32 @@ land.rhs:                                         ; preds = %_ZN10TestObjectaSER
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !144
 
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
-  %pNode.0913 = phi ptr [ %8, %land.rhs ], [ %0, %land.rhs.preheader ]
+  %pNode.0922 = phi ptr [ %8, %land.rhs ], [ %0, %land.rhs.preheader ]
   %3 = phi ptr [ %10, %land.rhs ], [ %.pre11, %land.rhs.preheader ]
   %4 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %4, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %3, %pNode.0913
+  %cmp.not.i = icmp eq ptr %3, %pNode.0922
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %mValue = getelementptr inbounds nuw i8, ptr %pNode.0913, i64 8
+  %mValue = getelementptr inbounds nuw i8, ptr %pNode.0922, i64 8
   %mValue.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %mValue.i, align 8
   store i32 %5, ptr %mValue, align 8
   %mMagicValue.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds nuw i8, ptr %pNode.0913, i64 24
+  %mMagicValue3.i = getelementptr inbounds nuw i8, ptr %pNode.0922, i64 24
   store i32 %6, ptr %mMagicValue3.i, align 8
   %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i8, ptr %mbThrowOnCopy.i, align 4
-  %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %pNode.0913, i64 12
+  %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %pNode.0922, i64 12
   %frombool.i = and i8 %7, 1
   store i8 %frombool.i, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
 _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.i
-  %8 = load ptr, ptr %pNode.0913, align 8
+  %8 = load ptr, ptr %pNode.0922, align 8
   %9 = load ptr, ptr %first, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %first, align 8
@@ -7782,7 +7782,7 @@ _ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge: ; preds = %_ZN10TestObje
 
 for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, %entry
   %11 = phi ptr [ %.pre11, %entry ], [ %10, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %.pre11, %land.rhs.preheader ], [ %10, %land.rhs ]
-  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0913, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0913, %land.rhs ]
+  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0922, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0922, %land.rhs ]
   %12 = load ptr, ptr %last, align 8
   %cmp.i5 = icmp eq ptr %11, %12
   br i1 %cmp.i5, label %if.then, label %for.body.lr.ph.i.i
@@ -8093,8 +8093,8 @@ entry:
 
 land.rhs.preheader:                               ; preds = %entry
   %1 = load ptr, ptr %last, align 8
-  %cmp.i.not12 = icmp eq ptr %.pre11, %1
-  br i1 %cmp.i.not12, label %for.end, label %for.body
+  %cmp.i.not21 = icmp eq ptr %.pre11, %1
+  br i1 %cmp.i.not21, label %for.end, label %for.body
 
 land.rhs:                                         ; preds = %_ZN10TestObjectaSERKS_.exit
   %2 = load ptr, ptr %last, align 8
@@ -8102,32 +8102,32 @@ land.rhs:                                         ; preds = %_ZN10TestObjectaSER
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !148
 
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
-  %pNode.0913 = phi ptr [ %8, %land.rhs ], [ %0, %land.rhs.preheader ]
+  %pNode.0922 = phi ptr [ %8, %land.rhs ], [ %0, %land.rhs.preheader ]
   %3 = phi ptr [ %10, %land.rhs ], [ %.pre11, %land.rhs.preheader ]
   %4 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %4, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
-  %cmp.not.i = icmp eq ptr %3, %pNode.0913
+  %cmp.not.i = icmp eq ptr %3, %pNode.0922
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %mValue = getelementptr inbounds nuw i8, ptr %pNode.0913, i64 8
+  %mValue = getelementptr inbounds nuw i8, ptr %pNode.0922, i64 8
   %mValue.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %mValue.i, align 8
   store i32 %5, ptr %mValue, align 8
   %mMagicValue.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds nuw i8, ptr %pNode.0913, i64 24
+  %mMagicValue3.i = getelementptr inbounds nuw i8, ptr %pNode.0922, i64 24
   store i32 %6, ptr %mMagicValue3.i, align 8
   %mbThrowOnCopy.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i8, ptr %mbThrowOnCopy.i, align 4
-  %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %pNode.0913, i64 12
+  %mbThrowOnCopy4.i = getelementptr inbounds nuw i8, ptr %pNode.0922, i64 12
   %frombool.i = and i8 %7, 1
   store i8 %frombool.i, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
 _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.i
-  %8 = load ptr, ptr %pNode.0913, align 8
+  %8 = load ptr, ptr %pNode.0922, align 8
   %9 = load ptr, ptr %first, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %first, align 8
@@ -8139,7 +8139,7 @@ _ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge: ; preds = %_ZN10TestObje
 
 for.end:                                          ; preds = %land.rhs, %land.rhs.preheader, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge, %entry
   %11 = phi ptr [ %.pre11, %entry ], [ %10, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %.pre11, %land.rhs.preheader ], [ %10, %land.rhs ]
-  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0913, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0913, %land.rhs ]
+  %pNodePrev.0.lcssa = phi ptr [ %this, %entry ], [ %pNode.0922, %_ZN10TestObjectaSERKS_.exit.for.end.loopexit_crit_edge ], [ %this, %land.rhs.preheader ], [ %pNode.0922, %land.rhs ]
   %12 = load ptr, ptr %last, align 8
   %cmp.i5 = icmp eq ptr %11, %12
   br i1 %cmp.i5, label %if.then, label %for.body.lr.ph.i.i

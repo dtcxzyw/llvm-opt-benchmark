@@ -2989,9 +2989,9 @@ _ZNKSt8functionIFN3nix3refINS0_12TestResourceEEEvEEclEv.exit: ; preds = %240
   %.not.i.i.i.i.i39 = icmp eq i8 %248, 0
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not.i.i.i.i.i39, label %253, label %.thread85
+  br i1 %.not.i.i.i.i.i39, label %253, label %.thread99
 
-.thread85:                                        ; preds = %246
+.thread99:                                        ; preds = %246
   %251 = load i32, ptr %247, align 4, !noalias !47
   %252 = add nsw i32 %251, 1
   store i32 %252, ptr %247, align 4, !noalias !47
@@ -3009,7 +3009,7 @@ _ZNKSt8functionIFN3nix3refINS0_12TestResourceEEEvEEclEv.exit: ; preds = %240
   store ptr %245, ptr %250, align 8
   br i1 %255, label %259, label %256
 
-256:                                              ; preds = %.thread85, %253
+256:                                              ; preds = %.thread99, %253
   %257 = load i32, ptr %247, align 4
   %258 = add nsw i32 %257, 1
   store i32 %258, ptr %247, align 4

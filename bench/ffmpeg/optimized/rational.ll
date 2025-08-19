@@ -30,8 +30,8 @@ define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, p
   %13 = trunc i64 %.079 to i32
   %.sroa.022.1.ph = select i1 %or.cond.not, i32 %12, i32 1
   %.sroa.13.1.ph = select i1 %or.cond.not, i32 %13, i32 0
-  %.not95120146 = icmp eq i64 %.079, 0
-  %.not95120 = or i1 %or.cond.not, %.not95120146
+  %.not95120150 = icmp eq i64 %.079, 0
+  %.not95120 = or i1 %or.cond.not, %.not95120150
   br i1 %.not95120, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %44

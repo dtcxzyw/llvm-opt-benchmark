@@ -1566,12 +1566,12 @@ _ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit: ; preds = %28
   br label %_ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit.thread
 
 _ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit.thread: ; preds = %19, %56, %53, %_ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit
-  %.024.lcssa37 = phi i64 [ %45, %56 ], [ %45, %53 ], [ 0, %_ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit ], [ 0, %19 ]
-  %58 = icmp ult i64 %.024.lcssa37, %6
+  %.024.lcssa40 = phi i64 [ %45, %56 ], [ %45, %53 ], [ 0, %_ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit ], [ 0, %19 ]
+  %58 = icmp ult i64 %.024.lcssa40, %6
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %_ZN23XListRemoveIteratorImplI5XPageLb1EE4nextEPPS0_.exit.thread
-  %60 = sub nuw i64 %6, %.024.lcssa37
+  %60 = sub nuw i64 %6, %.024.lcssa40
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %60, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 232

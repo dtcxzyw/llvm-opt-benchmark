@@ -862,8 +862,8 @@ nfs_page_group_destroy.exit:                      ; preds = %.loopexit.i, %nfs_p
   br label %185
 
 nfs_page_group_destroy.exit17.sink.split:         ; preds = %201, %182
-  %.sink48 = phi ptr [ %14, %182 ], [ %198, %201 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %.sink48, i32 noundef 3) #11
+  %.sink70 = phi ptr [ %14, %182 ], [ %198, %201 ]
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %.sink70, i32 noundef 3) #11
   br label %nfs_page_group_destroy.exit17
 
 nfs_page_group_destroy.exit17:                    ; preds = %35, %.loopexit.i15, %nfs_page_group_destroy.exit17.sink.split, %182, %201, %30
@@ -1652,7 +1652,7 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %35, label %49, label %41
 
 41:                                               ; preds = %32
-  br i1 %40, label %.thread3, label %42
+  br i1 %40, label %.thread5, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 52
@@ -1669,10 +1669,10 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
 48:                                               ; preds = %47, %42
   store ptr null, ptr %36, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i32 -5, ptr nonnull elementtype(i8) %7) #11, !srcloc !15
-  br label %.thread3
+  br label %.thread5
 
 49:                                               ; preds = %32
-  br i1 %40, label %.thread3, label %50
+  br i1 %40, label %.thread5, label %50
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -1729,13 +1729,13 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
 
 82:                                               ; preds = %81, %75
   store ptr null, ptr %36, align 8
-  br label %.thread3
+  br label %.thread5
 
-.thread3:                                         ; preds = %41, %82, %49, %48
+.thread5:                                         ; preds = %41, %82, %49, %48
   %83 = icmp eq ptr %39, null
   br i1 %83, label %107, label %84
 
-84:                                               ; preds = %.thread3
+84:                                               ; preds = %.thread5
   %85 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %86 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %85, ptr nonnull elementtype(i32) %85) #11, !srcloc !63
   %87 = icmp ult i8 %86, 2
@@ -1771,7 +1771,7 @@ define dso_local void @nfs_free_request(ptr noundef %0) local_unnamed_addr #0 al
   store ptr null, ptr %38, align 8
   br label %107
 
-107:                                              ; preds = %106, %.thread3
+107:                                              ; preds = %106, %.thread5
   %108 = load ptr, ptr @nfs_page_cachep, align 8
   tail call void @kmem_cache_free(ptr noundef %108, ptr noundef %0) #11
   ret void
@@ -2494,16 +2494,16 @@ define dso_local noundef range(i32 0, 2) i32 @nfs_pageio_add_request(ptr noundef
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %.preheader28, label %108
+  br i1 %107, label %.preheader39, label %108
 
 108:                                              ; preds = %103
   %109 = tail call i32 %106(ptr noundef %0, i32 noundef %82) #11
-  br label %.preheader28
+  br label %.preheader39
 
-.preheader28:                                     ; preds = %108, %103
+.preheader39:                                     ; preds = %108, %103
   br label %110
 
-110:                                              ; preds = %.preheader28, %116
+110:                                              ; preds = %.preheader39, %116
   %111 = tail call fastcc i32 @__nfs_pageio_add_request(ptr noundef %0, ptr noundef %84), !range !72
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %119
@@ -3938,7 +3938,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
 
 30:                                               ; preds = %.backedge, %15
   %31 = phi ptr [ %1, %15 ], [ %.be, %.backedge ]
-  %32 = phi i32 [ %19, %15 ], [ %.be31, %.backedge ]
+  %32 = phi i32 [ %19, %15 ], [ %.be58, %.backedge ]
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8
@@ -4390,7 +4390,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
 
 .backedge:                                        ; preds = %311, %309, %241
   %.be = phi ptr [ %1, %241 ], [ %253, %309 ], [ %314, %311 ]
-  %.be31 = phi i32 [ %245, %241 ], [ %254, %309 ], [ %237, %311 ]
+  %.be58 = phi i32 [ %245, %241 ], [ %254, %309 ], [ %237, %311 ]
   br label %30, !llvm.loop !99
 
 316:                                              ; preds = %240

@@ -121,8 +121,8 @@ parse_oid.exit:                                   ; preds = %19
 .thread.i:                                        ; preds = %36
   call void (ptr, ptr, ...) @packet_writer_write(ptr noundef nonnull %6, ptr noundef nonnull @.str) #9
   %39 = load ptr, ptr %7, align 8, !tbaa !22
-  %.not19111.i = icmp eq ptr %39, null
-  br i1 %.not19111.i, label %.critedge.i, label %.lr.ph.split.split.i
+  %.not19115.i = icmp eq ptr %39, null
+  br i1 %.not19115.i, label %.critedge.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.us.split.i:                          ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -173,8 +173,8 @@ strbuf_setlen.exit.us.i:                          ; preds = %52, %51, %47
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = load i64, ptr %34, align 8, !tbaa !19
-  %.not9.i = icmp eq i64 %61, 0
-  br i1 %.not9.i, label %.critedge.i, label %.lr.ph5.i
+  %.not13.i = icmp eq i64 %61, 0
+  br i1 %.not13.i, label %.critedge.i, label %.lr.ph5.i
 
 .lr.ph5.i:                                        ; preds = %.lr.ph.split.split.i, %strbuf_setlen.exit.i
   %.024.i = phi ptr [ %78, %strbuf_setlen.exit.i ], [ %39, %.lr.ph.split.split.i ]

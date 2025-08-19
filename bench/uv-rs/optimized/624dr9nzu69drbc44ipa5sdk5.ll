@@ -427,13 +427,13 @@ define hidden void @_ZN12uv_normalize9normalize17hb512fd164ceeadfaE(ptr dead_on_
   br label %38
 
 38:                                               ; preds = %77, %89, %35
-  %.sink90 = phi ptr [ %78, %77 ], [ %90, %89 ], [ %36, %35 ]
-  %.sink88 = phi i64 [ %72, %77 ], [ %64, %89 ], [ %29, %35 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sink90, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !8
+  %.sink92 = phi ptr [ %78, %77 ], [ %90, %89 ], [ %36, %35 ]
+  %.sink90 = phi i64 [ %72, %77 ], [ %64, %89 ], [ %29, %35 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sink92, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink88, ptr %39, align 8
+  store i64 %.sink90, ptr %39, align 8
   %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink90, ptr %.sroa.459.0..sroa_idx, align 8
+  store ptr %.sink92, ptr %.sroa.459.0..sroa_idx, align 8
   %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %.sroa.560.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
@@ -554,10 +554,10 @@ define hidden void @_ZN12uv_normalize9normalize17hb512fd164ceeadfaE(ptr dead_on_
           to label %_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.sink.split unwind label %.loopexit
 
 _ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit.sink.split: ; preds = %80, %83, %56, %59, %51, %55
-  %.sink92 = phi i8 [ %52, %55 ], [ %52, %51 ], [ %23, %59 ], [ %23, %56 ], [ 45, %83 ], [ 45, %80 ]
+  %.sink94 = phi i8 [ %52, %55 ], [ %52, %51 ], [ %23, %59 ], [ %23, %56 ], [ 45, %83 ], [ 45, %80 ]
   %84 = load ptr, ptr %.sroa.46.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %85 = getelementptr inbounds i8, ptr %84, i64 %21
-  store i8 %.sink92, ptr %85, align 1
+  store i8 %.sink94, ptr %85, align 1
   %86 = add i64 %21, 1
   store i64 %86, ptr %.sroa.57.0..sroa_idx, align 8
   br label %_ZN5alloc6string6String4push17h65f6c624e4e39ab4E.exit

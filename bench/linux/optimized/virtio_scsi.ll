@@ -477,18 +477,18 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef captures(n
   store ptr @.str.11, ptr %29, align 8
   %30 = sub i32 %8, %22
   %31 = icmp ugt i32 %30, 2
-  br i1 %31, label %32, label %.loopexit8
+  br i1 %31, label %32, label %.loopexit13
 
 32:                                               ; preds = %19
   %33 = zext i32 %30 to i64
   br label %45
 
-.loopexit8:                                       ; preds = %45, %19
+.loopexit13:                                      ; preds = %45, %19
   %34 = phi i32 [ 2, %19 ], [ %30, %45 ]
   %35 = icmp ult i32 %34, %8
   br i1 %35, label %36, label %.loopexit7
 
-36:                                               ; preds = %.loopexit8
+36:                                               ; preds = %.loopexit13
   %37 = zext i32 %34 to i64
   %38 = shl nuw nsw i64 %37, 3
   %39 = getelementptr i8, ptr %12, i64 %38
@@ -508,7 +508,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef captures(n
   store ptr @.str.12, ptr %48, align 8
   %49 = add nuw nsw i64 %46, 1
   %50 = icmp eq i64 %49, %33
-  br i1 %50, label %.loopexit8, label %45, !llvm.loop !13
+  br i1 %50, label %.loopexit13, label %45, !llvm.loop !13
 
 51:                                               ; preds = %51, %36
   %52 = phi i64 [ %37, %36 ], [ %54, %51 ]
@@ -518,7 +518,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef captures(n
   %55 = icmp eq i64 %54, %9
   br i1 %55, label %.loopexit7, label %51, !llvm.loop !14
 
-.loopexit7:                                       ; preds = %51, %.loopexit8
+.loopexit7:                                       ; preds = %51, %.loopexit13
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48

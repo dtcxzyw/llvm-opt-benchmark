@@ -890,8 +890,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us: ; pr
   br i1 %.not.i, label %49, label %45
 
 45:                                               ; preds = %44
-  %.idx96 = shl i64 %indvars.iv91, 2
-  %46 = getelementptr i8, ptr %32, i64 %.idx96
+  %.idx105 = shl i64 %indvars.iv91, 2
+  %46 = getelementptr i8, ptr %32, i64 %.idx105
   %47 = getelementptr i8, ptr %46, i64 2
   %48 = load i16, ptr %47, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
@@ -1220,9 +1220,9 @@ define noundef float @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21getDependentSharpnes
   br i1 %33, label %28, label %.loopexit61, !llvm.loop !34
 
 .loopexit61.sink.split:                           ; preds = %16, %13
-  %.sink80 = phi i32 [ %11, %13 ], [ %23, %16 ]
+  %.sink81 = phi i32 [ %11, %13 ], [ %23, %16 ]
   %.sink = phi ptr [ %15, %13 ], [ %18, %16 ]
-  %34 = shl nsw i32 %.sink80, 1
+  %34 = shl nsw i32 %.sink81, 1
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i16, ptr %.sink, i64 %35
   %37 = load i16, ptr %36, align 2
@@ -1305,18 +1305,18 @@ define noundef float @_ZN10OpenSubdiv6v3_6_03Bfr9fvar_plus21getDependentSharpnes
   br label %100
 
 .loopexit.sink.split:                             ; preds = %44, %41
-  %.sink87 = phi i32 [ %11, %41 ], [ %52, %44 ]
-  %.sink84 = phi ptr [ %43, %41 ], [ %46, %44 ]
-  %82 = shl nsw i32 %.sink87, 1
+  %.sink88 = phi i32 [ %11, %41 ], [ %52, %44 ]
+  %.sink85 = phi ptr [ %43, %41 ], [ %46, %44 ]
+  %82 = shl nsw i32 %.sink88, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr i16, ptr %.sink84, i64 %83
+  %84 = getelementptr i16, ptr %.sink85, i64 %83
   %85 = getelementptr i8, ptr %84, i64 2
   %86 = load i16, ptr %85, align 2
   %87 = sext i16 %86 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i29, %.loopexit.sink.split, %53
-  %88 = phi ptr [ %56, %53 ], [ %.sink84, %.loopexit.sink.split ], [ %56, %.lr.ph.i.i29 ]
+  %88 = phi ptr [ %56, %53 ], [ %.sink85, %.loopexit.sink.split ], [ %56, %.lr.ph.i.i29 ]
   %.09.i.i28.ph = phi i32 [ %11, %53 ], [ %87, %.loopexit.sink.split ], [ %.0.i.i33, %.lr.ph.i.i29 ]
   %89 = shl nsw i32 %.09.i.i.ph, 1
   %90 = sext i32 %89 to i64

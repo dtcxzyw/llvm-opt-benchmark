@@ -73,7 +73,7 @@ define i32 @agrename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 3
-  switch i32 %5, label %default.unreachable23 [
+  switch i32 %5, label %default.unreachable24 [
     i32 0, label %agroot.exit
     i32 1, label %35
     i32 3, label %37
@@ -97,7 +97,7 @@ agroot.exit:                                      ; preds = %2
 14:                                               ; preds = %11
   %15 = load i32, ptr %0, align 8
   %16 = and i32 %15, 3
-  switch i32 %16, label %default.unreachable23 [
+  switch i32 %16, label %default.unreachable24 [
     i32 3, label %17
     i32 2, label %17
     i32 1, label %21
@@ -147,7 +147,7 @@ agroot.exit22:                                    ; preds = %17, %21, %23
   %36 = tail call i32 @agrelabel_node(ptr noundef nonnull %0, ptr noundef %1) #11
   br label %37
 
-default.unreachable23:                            ; preds = %14, %2
+default.unreachable24:                            ; preds = %14, %2
   unreachable
 
 37:                                               ; preds = %2, %2, %29, %agroot.exit22, %11, %agroot.exit, %33, %35
@@ -196,7 +196,7 @@ define ptr @agroot(ptr noundef readonly captures(address_is_null) %0) local_unna
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 3
-  switch i32 %5, label %default.unreachable7 [
+  switch i32 %5, label %default.unreachable8 [
     i32 3, label %6
     i32 2, label %6
     i32 1, label %11
@@ -220,7 +220,7 @@ define ptr @agroot(ptr noundef readonly captures(address_is_null) %0) local_unna
   %16 = load ptr, ptr %15, align 8, !tbaa !23
   br label %17
 
-default.unreachable7:                             ; preds = %3
+default.unreachable8:                             ; preds = %3
   unreachable
 
 17:                                               ; preds = %1, %14, %11, %6
@@ -258,7 +258,7 @@ define void @aginitcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   tail call void @aginitcb(ptr noundef %0, ptr noundef %1, ptr noundef %7)
   %8 = load i32, ptr %1, align 8
   %9 = and i32 %8, 3
-  switch i32 %9, label %default.unreachable16 [
+  switch i32 %9, label %default.unreachable17 [
     i32 0, label %10
     i32 1, label %12
     i32 2, label %15
@@ -279,7 +279,7 @@ define void @aginitcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   br label %18
 
-default.unreachable16:                            ; preds = %5
+default.unreachable17:                            ; preds = %5
   unreachable
 
 18:                                               ; preds = %15, %12, %10
@@ -319,7 +319,7 @@ define void @agupdcb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   tail call void @agupdcb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8)
   %9 = load i32, ptr %1, align 8
   %10 = and i32 %9, 3
-  switch i32 %10, label %default.unreachable18 [
+  switch i32 %10, label %default.unreachable19 [
     i32 0, label %13
     i32 1, label %11
     i32 2, label %12
@@ -332,13 +332,13 @@ define void @agupdcb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 12:                                               ; preds = %6
   br label %13
 
-default.unreachable18:                            ; preds = %6
+default.unreachable19:                            ; preds = %6
   unreachable
 
 13:                                               ; preds = %6, %12, %11
-  %.sink19 = phi i64 [ 56, %12 ], [ 32, %11 ], [ 8, %6 ]
+  %.sink20 = phi i64 [ 56, %12 ], [ 32, %11 ], [ 8, %6 ]
   %14 = load ptr, ptr %3, align 8, !tbaa !40
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink19
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink20
   %.0 = load ptr, ptr %15, align 8, !tbaa !41
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %16
@@ -374,7 +374,7 @@ define void @agdelcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   tail call void @agdelcb(ptr noundef %0, ptr noundef %1, ptr noundef %7)
   %8 = load i32, ptr %1, align 8
   %9 = and i32 %8, 3
-  switch i32 %9, label %default.unreachable16 [
+  switch i32 %9, label %default.unreachable17 [
     i32 0, label %12
     i32 1, label %10
     i32 2, label %11
@@ -387,13 +387,13 @@ define void @agdelcb(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 11:                                               ; preds = %5
   br label %12
 
-default.unreachable16:                            ; preds = %5
+default.unreachable17:                            ; preds = %5
   unreachable
 
 12:                                               ; preds = %5, %11, %10
-  %.sink17 = phi i64 [ 64, %11 ], [ 40, %10 ], [ 16, %5 ]
+  %.sink18 = phi i64 [ 64, %11 ], [ 40, %10 ], [ 16, %5 ]
   %13 = load ptr, ptr %2, align 8, !tbaa !40
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink17
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink18
   %.0 = load ptr, ptr %14, align 8, !tbaa !41
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %15

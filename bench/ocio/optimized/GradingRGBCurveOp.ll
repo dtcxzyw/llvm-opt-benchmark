@@ -3107,7 +3107,7 @@ _ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurv
   br label %132
 
 _ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread: ; preds = %23, %30, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split
-  %.pr24 = phi ptr [ %.pr.pre, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split ], [ %22, %30 ], [ %22, %23 ]
+  %.pr29 = phi ptr [ %.pr.pre, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split ], [ %22, %30 ], [ %22, %23 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %42, align 8, !tbaa !25, !noalias !132
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3142,7 +3142,7 @@ _ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurv
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117GradingRGBCurveOp12rgbCurveDataEv.exit
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117GradingRGBCurveOp12rgbCurveDataEv.exit: ; preds = %54, %51, %47, %45, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread
-  %56 = phi ptr [ %.pr24, %47 ], [ %.pre, %54 ], [ %.pr24, %51 ], [ %.pr24, %45 ], [ %.pr24, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
+  %56 = phi ptr [ %.pr29, %47 ], [ %.pre, %54 ], [ %.pr29, %51 ], [ %.pr29, %45 ], [ %.pr29, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
   %.sroa.0.0 = phi ptr [ %46, %47 ], [ %46, %54 ], [ %46, %51 ], [ null, %45 ], [ null, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
   %.sroa.6.0 = phi ptr [ null, %47 ], [ %.val9, %54 ], [ %.val9, %51 ], [ null, %45 ], [ null, %_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplES1_ESt10shared_ptrIT_ERKS2_IT0_E.exitthread-pre-split.thread ]
   store ptr %56, ptr %5, align 8, !tbaa !131

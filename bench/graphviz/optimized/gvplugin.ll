@@ -311,8 +311,8 @@ agxblen.exit.i.i:                                 ; preds = %10
   br i1 %.not.i26.i.i, label %22, label %.thread
 
 .thread:                                          ; preds = %agxblen.exit.i.i, %16
-  %.val.i25.i.i55 = phi i8 [ %.val.i25.pre.i.i, %16 ], [ 0, %agxblen.exit.i.i ]
-  %17 = zext i8 %.val.i25.i.i55 to i64
+  %.val.i25.i.i60 = phi i8 [ %.val.i25.pre.i.i, %16 ], [ 0, %agxblen.exit.i.i ]
+  %17 = zext i8 %.val.i25.i.i60 to i64
   %18 = getelementptr inbounds nuw [31 x i8], ptr %3, i64 0, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %1, i64 %11, i1 false)
   %19 = trunc i64 %11 to i8
@@ -1354,8 +1354,8 @@ strview_case_eq.exit62:                           ; preds = %strview.exit59
   %102 = trunc i64 %.sroa.3.0.i56 to i32
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.17, i32 noundef %102, ptr noundef nonnull %91)
   %103 = load ptr, ptr %.179, align 8, !tbaa !19
-  %.not4690 = icmp eq ptr %103, null
-  br i1 %.not4690, label %.thread, label %.lr.ph80.outer, !llvm.loop !60
+  %.not46100 = icmp eq ptr %103, null
+  br i1 %.not46100, label %.thread, label %.lr.ph80.outer, !llvm.loop !60
 
 .critedge._crit_edge:                             ; preds = %.critedge
   br i1 %.576.ph, label %agxbuse.exit, label %.thread
@@ -3135,25 +3135,25 @@ agxbuse.exit515:                                  ; preds = %agxbclear.exit.thre
   br i1 %exitcond.not, label %52, label %53, !llvm.loop !73
 
 530:                                              ; preds = %.thread, %52
-  %.434083012691287 = phi ptr [ %.1337.lcssa, %.thread ], [ %.4340830, %52 ]
-  %.581282912701285 = phi ptr [ %374, %.thread ], [ %.1300.lcssa, %52 ]
-  %.533512711283 = phi ptr [ %.1331.lcssa, %.thread ], [ %.5335, %52 ]
-  %.230812721281 = phi i32 [ %.03061147, %.thread ], [ %.2308, %52 ]
-  %531 = call ptr @agedge(ptr noundef %48, ptr noundef %.581282912701285, ptr noundef %.434083012691287, ptr noundef null, i32 noundef 1) #25
+  %.434083013401358 = phi ptr [ %.1337.lcssa, %.thread ], [ %.4340830, %52 ]
+  %.581282913411356 = phi ptr [ %374, %.thread ], [ %.1300.lcssa, %52 ]
+  %.533513421354 = phi ptr [ %.1331.lcssa, %.thread ], [ %.5335, %52 ]
+  %.230813431352 = phi i32 [ %.03061147, %.thread ], [ %.2308, %52 ]
+  %531 = call ptr @agedge(ptr noundef %48, ptr noundef %.581282913411356, ptr noundef %.434083013401358, ptr noundef null, i32 noundef 1) #25
   %532 = call ptr @agattr(ptr noundef %4, i32 noundef 2, ptr noundef nonnull @.str.34, ptr noundef null) #25
   %533 = call i32 @agxset(ptr noundef %531, ptr noundef %532, ptr noundef nonnull @.str.62) #25
   br label %534
 
 534:                                              ; preds = %530, %52
-  %.434083012691288 = phi ptr [ %.434083012691287, %530 ], [ %.4340830, %52 ]
-  %.581282912701286 = phi ptr [ %.581282912701285, %530 ], [ %.1300.lcssa, %52 ]
-  %.533512711284 = phi ptr [ %.533512711283, %530 ], [ %.5335, %52 ]
-  %.230812721282 = phi i32 [ %.230812721281, %530 ], [ %.2308, %52 ]
-  %.not368 = icmp eq i32 %.230812721282, 0
+  %.434083013401359 = phi ptr [ %.434083013401358, %530 ], [ %.4340830, %52 ]
+  %.581282913411357 = phi ptr [ %.581282913411356, %530 ], [ %.1300.lcssa, %52 ]
+  %.533513421355 = phi ptr [ %.533513421354, %530 ], [ %.5335, %52 ]
+  %.230813431353 = phi i32 [ %.230813431352, %530 ], [ %.2308, %52 ]
+  %.not368 = icmp eq i32 %.230813431353, 0
   br i1 %.not368, label %539, label %535
 
 535:                                              ; preds = %534
-  %536 = call ptr @agedge(ptr noundef %48, ptr noundef %.434083012691288, ptr noundef %.533512711284, ptr noundef null, i32 noundef 1) #25
+  %536 = call ptr @agedge(ptr noundef %48, ptr noundef %.434083013401359, ptr noundef %.533513421355, ptr noundef null, i32 noundef 1) #25
   %537 = call ptr @agattr(ptr noundef %4, i32 noundef 2, ptr noundef nonnull @.str.34, ptr noundef null) #25
   %538 = call i32 @agxset(ptr noundef %536, ptr noundef %537, ptr noundef nonnull @.str.62) #25
   br label %539
@@ -3163,7 +3163,7 @@ agxbuse.exit515:                                  ; preds = %agxbclear.exit.thre
   br i1 %.not369, label %544, label %540
 
 540:                                              ; preds = %539
-  %541 = call ptr @agedge(ptr noundef %48, ptr noundef %.581282912701286, ptr noundef nonnull %.1327.lcssa, ptr noundef null, i32 noundef 1) #25
+  %541 = call ptr @agedge(ptr noundef %48, ptr noundef %.581282913411357, ptr noundef nonnull %.1327.lcssa, ptr noundef null, i32 noundef 1) #25
   %542 = call ptr @agattr(ptr noundef %4, i32 noundef 2, ptr noundef nonnull @.str.34, ptr noundef null) #25
   %543 = call i32 @agxset(ptr noundef %541, ptr noundef %542, ptr noundef nonnull @.str.62) #25
   br label %544
@@ -3173,7 +3173,7 @@ agxbuse.exit515:                                  ; preds = %agxbclear.exit.thre
   br i1 %.not370, label %549, label %545
 
 545:                                              ; preds = %544
-  %546 = call ptr @agedge(ptr noundef %48, ptr noundef %.581282912701286, ptr noundef nonnull %.1323.lcssa, ptr noundef null, i32 noundef 1) #25
+  %546 = call ptr @agedge(ptr noundef %48, ptr noundef %.581282913411357, ptr noundef nonnull %.1323.lcssa, ptr noundef null, i32 noundef 1) #25
   %547 = call ptr @agattr(ptr noundef %4, i32 noundef 2, ptr noundef nonnull @.str.34, ptr noundef null) #25
   %548 = call i32 @agxset(ptr noundef %546, ptr noundef %547, ptr noundef nonnull @.str.62) #25
   br label %549

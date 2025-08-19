@@ -3119,9 +3119,9 @@ define internal fastcc range(i32 -22, 1) i32 @_check_luts(ptr noundef readonly c
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 34359738360
   %19 = icmp eq i64 %18, 2048
-  br i1 %19, label %.thread8, label %24
+  br i1 %19, label %.thread14, label %24
 
-.thread8:                                         ; preds = %15
+.thread14:                                        ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 2624
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 108
@@ -3162,10 +3162,10 @@ define internal fastcc range(i32 -22, 1) i32 @_check_luts(ptr noundef readonly c
   %41 = load i32, ptr %40, align 4
   br label %42
 
-42:                                               ; preds = %.thread8, %39, %37
-  %43 = phi i1 [ %36, %39 ], [ false, %37 ], [ false, %.thread8 ]
-  %44 = phi i32 [ %35, %39 ], [ %35, %37 ], [ %23, %.thread8 ]
-  %45 = phi i32 [ %41, %39 ], [ 256, %37 ], [ 256, %.thread8 ]
+42:                                               ; preds = %.thread14, %39, %37
+  %43 = phi i1 [ %36, %39 ], [ false, %37 ], [ false, %.thread14 ]
+  %44 = phi i32 [ %35, %39 ], [ %35, %37 ], [ %23, %.thread14 ]
+  %45 = phi i32 [ %41, %39 ], [ 256, %37 ], [ 256, %.thread14 ]
   %46 = icmp eq ptr %9, null
   br i1 %46, label %54, label %47
 
@@ -7874,7 +7874,7 @@ define internal void @icl_load_luts(ptr noundef readonly captures(none) %0) #0 a
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 3
-  switch i32 %13, label %default.unreachable85 [
+  switch i32 %13, label %default.unreachable162 [
     i32 0, label %14
     i32 3, label %15
     i32 1, label %908
@@ -9958,7 +9958,7 @@ ilk_lut_write.exit83:                             ; preds = %1066, %1094
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 65536, ptr elementtype(i32) %1135) #12, !srcloc !68
   br label %ilk_lut_write.exit78
 
-default.unreachable85:                            ; preds = %10
+default.unreachable162:                           ; preds = %10
   unreachable
 
 1136:                                             ; preds = %10
@@ -10006,7 +10006,7 @@ define internal void @icl_read_luts(ptr noundef captures(none) %0) #0 align 16 {
 
 16:                                               ; preds = %10
   %17 = and i32 %.pre, 3
-  switch i32 %17, label %default.unreachable18 [
+  switch i32 %17, label %default.unreachable30 [
     i32 0, label %18
     i32 1, label %22
     i32 3, label %26
@@ -10364,7 +10364,7 @@ define internal void @icl_read_luts(ptr noundef captures(none) %0) #0 align 16 {
   store ptr %225, ptr %226, align 8
   br label %230
 
-default.unreachable18:                            ; preds = %16
+default.unreachable30:                            ; preds = %16
   unreachable
 
 227:                                              ; preds = %16
@@ -10515,7 +10515,7 @@ define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0
   br i1 %109, label %116, label %110
 
 110:                                              ; preds = %100
-  switch i32 %101, label %default.unreachable13 [
+  switch i32 %101, label %default.unreachable22 [
     i32 0, label %116
     i32 1, label %111
     i32 3, label %112
@@ -10528,7 +10528,7 @@ define internal zeroext i1 @icl_lut_equal(ptr noundef readonly captures(none) %0
 112:                                              ; preds = %110
   br label %116
 
-default.unreachable13:                            ; preds = %110
+default.unreachable22:                            ; preds = %110
   unreachable
 
 113:                                              ; preds = %110
@@ -11504,14 +11504,14 @@ define internal fastcc void @ilk_csc_convert_ctm(ptr readonly captures(none) %.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(30) %0, ptr noundef nonnull align 2 dereferenceable(30) @ilk_csc_matrix_limited_range, i64 30, i1 false)
   %6 = load i16, ptr %4, align 8
   %7 = icmp ult i16 %6, 7
-  br i1 %7, label %.thread2, label %.preheader.preheader
+  br i1 %7, label %.thread3, label %.preheader.preheader
 
-.thread2:                                         ; preds = %5
+.thread3:                                         ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %8, i8 0, i64 6, i1 false)
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %5, %.thread2
+.preheader.preheader:                             ; preds = %5, %.thread3
   br label %.preheader
 
 9:                                                ; preds = %2
@@ -12687,7 +12687,7 @@ ilk_lut_write.exit12:                             ; preds = %117, %145
 153:                                              ; preds = %ilk_lut_write.exit13, %95
   %154 = phi i16 [ %96, %95 ], [ %194, %ilk_lut_write.exit13 ]
   %155 = phi i32 [ %98, %95 ], [ %156, %ilk_lut_write.exit13 ]
-  %156 = add nuw nsw i32 %155, 1
+  %156 = add nsw i32 %155, 1
   %157 = icmp ugt i16 %154, 13
   %158 = select i1 %157, i32 16777216, i32 65536
   %.val7 = load ptr, ptr %0, align 8

@@ -101,8 +101,8 @@ define void @_ZN5Ipopt11TNLPReducerC2ERNS_4TNLPEiPKiiS4_iS4_iS4_(ptr noundef non
 
 39:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %40 = phi i64 [ %37, %._crit_edge.thread ], [ %38, %._crit_edge ]
-  %.idx192.pn = shl nsw i64 %40, 2
-  %41 = getelementptr inbounds i8, ptr %32, i64 %.idx192.pn
+  %.idx227.pn = shl nsw i64 %40, 2
+  %41 = getelementptr inbounds i8, ptr %32, i64 %.idx227.pn
   %42 = ptrtoint ptr %32 to i64
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %40, i1 true)
   %44 = shl nuw nsw i64 %43, 1
@@ -280,8 +280,8 @@ _ZSt4sortIPiEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_l
 
 111:                                              ; preds = %._crit_edge172.thread, %._crit_edge172
   %112 = phi i64 [ %109, %._crit_edge172.thread ], [ %110, %._crit_edge172 ]
-  %.idx158194.pn = shl nsw i64 %112, 2
-  %113 = getelementptr inbounds i8, ptr %104, i64 %.idx158194.pn
+  %.idx158229.pn = shl nsw i64 %112, 2
+  %113 = getelementptr inbounds i8, ptr %104, i64 %.idx158229.pn
   %114 = ptrtoint ptr %104 to i64
   %115 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %112, i1 true)
   %116 = shl nuw nsw i64 %115, 1
@@ -436,8 +436,8 @@ _ZSt4sortIPiEvT_S1_.exit77:                       ; preds = %_ZSt25__unguarded_l
 
 171:                                              ; preds = %._crit_edge177.thread, %._crit_edge177
   %172 = phi i64 [ %169, %._crit_edge177.thread ], [ %170, %._crit_edge177 ]
-  %.idx159196.pn = shl nsw i64 %172, 2
-  %173 = getelementptr inbounds i8, ptr %164, i64 %.idx159196.pn
+  %.idx159231.pn = shl nsw i64 %172, 2
+  %173 = getelementptr inbounds i8, ptr %164, i64 %.idx159231.pn
   %174 = ptrtoint ptr %164 to i64
   %175 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %172, i1 true)
   %176 = shl nuw nsw i64 %175, 1
@@ -592,8 +592,8 @@ _ZSt4sortIPiEvT_S1_.exit117:                      ; preds = %_ZSt25__unguarded_l
 
 231:                                              ; preds = %._crit_edge182.thread, %._crit_edge182
   %232 = phi i64 [ %229, %._crit_edge182.thread ], [ %230, %._crit_edge182 ]
-  %.idx160198.pn = shl nsw i64 %232, 2
-  %233 = getelementptr inbounds i8, ptr %224, i64 %.idx160198.pn
+  %.idx160233.pn = shl nsw i64 %232, 2
+  %233 = getelementptr inbounds i8, ptr %224, i64 %.idx160233.pn
   %234 = ptrtoint ptr %224 to i64
   %235 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %232, i1 true)
   %236 = shl nuw nsw i64 %235, 1
@@ -2135,7 +2135,7 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   br label %.split
 
@@ -2173,20 +2173,20 @@ define linkonce_odr void @_ZSt11__make_heapIPiN9__gnu_cxx5__ops15_Iter_less_iter
   %.01317.i.i.us = phi i64 [ %.018.i.i.us, %40 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %37 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i.us
   %38 = load i32, ptr %37, align 4, !tbaa !29
   %39 = icmp slt i32 %38, %21
   br i1 %39, label %40, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
 
 40:                                               ; preds = %.lr.ph.i.i.us
-  %41 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.us
+  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i.us
   store i32 %38, ptr %41, align 4, !tbaa !29
   %42 = icmp sgt i64 %.018.i.i.us, %.013.us
   br i1 %42, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us, !llvm.loop !62
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %40, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.us, %.split.us ], [ %.018.i.i.us, %40 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
-  %43 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.us
+  %43 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us
   store i32 %21, ptr %43, align 4, !tbaa !29
   %.not.us = icmp eq i64 %.013.us, 0
   %44 = add nsw i64 %.013.us, -1
@@ -2237,20 +2237,20 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %.01317.i.i = phi i64 [ %.018.i.i, %69 ], [ %.128.i, %64 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %66 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i
+  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i
   %67 = load i32, ptr %66, align 4, !tbaa !29
   %68 = icmp slt i32 %67, %46
   br i1 %68, label %69, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 69:                                               ; preds = %.lr.ph.i.i
-  %70 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i
   store i32 %67, ptr %70, align 4, !tbaa !29
   %71 = icmp sgt i64 %.018.i.i, %.013
   br i1 %71, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit, !llvm.loop !62
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit: ; preds = %.lr.ph.i.i, %69, %64
   %.013.lcssa.i.i = phi i64 [ %.128.i, %64 ], [ %.018.i.i, %69 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %72 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i
+  %72 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i
   store i32 %46, ptr %72, align 4, !tbaa !29
   %.not = icmp eq i64 %.013, 0
   %73 = add nsw i64 %.013, -1

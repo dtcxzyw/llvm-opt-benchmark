@@ -2307,7 +2307,7 @@ define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %
 
 16:                                               ; preds = %15
   store ptr %9, ptr %2, align 8
-  br i1 %13, label %.thread60, label %.thread53
+  br i1 %13, label %.thread63, label %.thread53
 
 17:                                               ; preds = %15
   br i1 %13, label %18, label %.thread53
@@ -2315,16 +2315,16 @@ define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %
 18:                                               ; preds = %17
   %.pr = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %.thread53.sink.split, label %.thread60
+  br i1 %.not, label %.thread53.sink.split, label %.thread63
 
-.thread60:                                        ; preds = %16, %18
+.thread63:                                        ; preds = %16, %18
   %19 = phi ptr [ %.pr, %18 ], [ %9, %16 ]
   %20 = getelementptr inbounds i8, ptr %19, i64 -8
   %21 = load i32, ptr %20, align 4
   %.not58 = icmp eq i32 %21, 0
   br i1 %.not58, label %.thread53.sink.split, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread60
+.lr.ph.preheader:                                 ; preds = %.thread63
   %wide.trip.count = zext i32 %21 to i64
   br label %.lr.ph
 
@@ -2372,8 +2372,8 @@ define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread53.sink.split, label %.lr.ph, !llvm.loop !18
 
-.thread53.sink.split:                             ; preds = %40, %.thread60, %18, %.thread
-  %.sink = phi ptr [ %9, %.thread ], [ %11, %.thread60 ], [ %11, %18 ], [ %43, %40 ]
+.thread53.sink.split:                             ; preds = %40, %.thread63, %18, %.thread
+  %.sink = phi ptr [ %9, %.thread ], [ %11, %.thread63 ], [ %11, %18 ], [ %43, %40 ]
   store ptr %.sink, ptr %2, align 8
   br label %.thread53
 

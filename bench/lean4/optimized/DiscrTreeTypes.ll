@@ -1466,8 +1466,8 @@ lean_alloc_ctor.exit409:                          ; preds = %lean_alloc_ctor.exi
   br i1 %.not433, label %lean_nat_le.exit340, label %367, !prof !13
 
 367:                                              ; preds = %364
-  %.not454 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
-  br i1 %.not454, label %369, label %371
+  %.not506 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
+  br i1 %.not506, label %369, label %371
 
 lean_nat_le.exit340:                              ; preds = %364
   %368 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 2049 to ptr), ptr noundef %1) #3
@@ -1488,8 +1488,8 @@ lean_nat_le.exit340:                              ; preds = %364
   br i1 %.not432, label %lean_nat_le.exit343, label %376, !prof !13
 
 376:                                              ; preds = %373
-  %.not453 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
-  br i1 %.not453, label %378, label %380
+  %.not505 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
+  br i1 %.not505, label %378, label %380
 
 lean_nat_le.exit343:                              ; preds = %373
   %377 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 2049 to ptr), ptr noundef %1) #3
@@ -1510,8 +1510,8 @@ lean_nat_le.exit343:                              ; preds = %373
   br i1 %.not, label %lean_nat_le.exit346, label %385, !prof !13
 
 385:                                              ; preds = %382
-  %.not452 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
-  br i1 %.not452, label %387, label %389
+  %.not504 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
+  br i1 %.not504, label %387, label %389
 
 lean_nat_le.exit346:                              ; preds = %382
   %386 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 2049 to ptr), ptr noundef %1) #3
@@ -3343,18 +3343,18 @@ _init_l_Lean_Meta_DiscrTree_instToExprKey___closed__4.exit: ; preds = %_init_l_L
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_DiscrTree_instToExprKey___closed__4.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %333, %_init_l_Lean_Meta_DiscrTree_instToExprKey___closed__4.exit ]
-  %336 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !9
+  %.sink51 = phi ptr [ %4, %3 ], [ %333, %_init_l_Lean_Meta_DiscrTree_instToExprKey___closed__4.exit ]
+  %336 = getelementptr inbounds nuw i8, ptr %.sink51, i64 4
+  store i32 1, ptr %.sink51, align 4, !tbaa !9
   store i32 131096, ptr %336, align 4
-  %337 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %.sink51, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %337, align 8, !tbaa !4
-  %338 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %.sink51, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %338, align 8, !tbaa !4
   br label %339
 
 339:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink51, %.sink.split ]
   ret ptr %.0
 }
 

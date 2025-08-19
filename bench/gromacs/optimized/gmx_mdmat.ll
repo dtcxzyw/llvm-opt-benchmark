@@ -443,7 +443,7 @@ _ZL13gmx_snew_implI9t_resinfoEvPKcS2_iRPT_m.exit: ; preds = %_ZL13gmx_snew_implI
 
 ._crit_edge._ZL8res_natmP7t_atoms.exit_crit_edge: ; preds = %_ZL13gmx_snew_implI9t_resinfoEvPKcS2_iRPT_m.exit, %._crit_edge
   %173 = phi i32 [ %171, %._crit_edge ], [ 1, %_ZL13gmx_snew_implI9t_resinfoEvPKcS2_iRPT_m.exit ]
-  %.0155.lcssa584 = phi i32 [ %.1156, %._crit_edge ], [ 0, %_ZL13gmx_snew_implI9t_resinfoEvPKcS2_iRPT_m.exit ]
+  %.0155.lcssa656 = phi i32 [ %.1156, %._crit_edge ], [ 0, %_ZL13gmx_snew_implI9t_resinfoEvPKcS2_iRPT_m.exit ]
   %.pre580 = sext i32 %173 to i64
   br label %_ZL8res_natmP7t_atoms.exit
 
@@ -523,7 +523,7 @@ _ZL7res_ndxP7t_atoms.exit:                        ; preds = %.lr.ph.i
 
 _ZL8res_natmP7t_atoms.exit:                       ; preds = %._crit_edge.i, %._crit_edge._ZL8res_natmP7t_atoms.exit_crit_edge, %.noexc209
   %204 = phi i32 [ %173, %._crit_edge._ZL8res_natmP7t_atoms.exit_crit_edge ], [ %171, %.noexc209 ], [ %171, %._crit_edge.i ]
-  %.0155.lcssa583 = phi i32 [ %.0155.lcssa584, %._crit_edge._ZL8res_natmP7t_atoms.exit_crit_edge ], [ %.1156, %.noexc209 ], [ %.1156, %._crit_edge.i ]
+  %.0155.lcssa655 = phi i32 [ %.0155.lcssa656, %._crit_edge._ZL8res_natmP7t_atoms.exit_crit_edge ], [ %.1156, %.noexc209 ], [ %.1156, %._crit_edge.i ]
   %.pre-phi = phi i64 [ %.pre580, %._crit_edge._ZL8res_natmP7t_atoms.exit_crit_edge ], [ %183, %.noexc209 ], [ %183, %._crit_edge.i ]
   %.0.i449 = phi ptr [ null, %._crit_edge._ZL8res_natmP7t_atoms.exit_crit_edge ], [ %176, %.noexc209 ], [ %176, %._crit_edge.i ]
   %.0.i205 = phi ptr [ null, %._crit_edge._ZL8res_natmP7t_atoms.exit_crit_edge ], [ %184, %.noexc209 ], [ %184, %._crit_edge.i ]
@@ -553,7 +553,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit216:       ; preds = %_ZL13gmx_snew_implI
           to label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit216
-  %.not452498 = icmp slt i32 %.0155.lcssa583, 0
+  %.not452498 = icmp slt i32 %.0155.lcssa655, 0
   br i1 %.not452498, label %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit._crit_edge, label %.lr.ph500.preheader
 
 .lr.ph500.preheader:                              ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit.preheader
@@ -754,7 +754,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit237:       ; preds = %_ZNKSt7__cxx1112bas
 
 275:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit237, %247
   %.0152 = phi ptr [ %252, %_ZNSt10filesystem7__cxx114pathD2Ev.exit237 ], [ null, %247 ]
-  %276 = icmp sgt i32 %.0155.lcssa583, -1
+  %276 = icmp sgt i32 %.0155.lcssa655, -1
   %wide.trip.count85.i = zext i32 %204 to i64
   %277 = icmp sgt i32 %111, 0
   %278 = getelementptr inbounds nuw i8, ptr %6, i64 4

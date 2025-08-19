@@ -363,7 +363,7 @@ builtin_expected_args.exit.thread:                ; preds = %56, %56, %56, %56, 
   br label %sema_expr_analyse_swizzle.exit
 
 93:                                               ; preds = %builtin_expected_args.exit.thread
-  switch i32 %52, label %.preheader495 [
+  switch i32 %52, label %.preheader494 [
     i32 82, label %94
     i32 81, label %94
     i32 85, label %219
@@ -374,11 +374,11 @@ builtin_expected_args.exit.thread:                ; preds = %56, %56, %56, %56, 
     i32 18, label %267
   ]
 
-.preheader495:                                    ; preds = %93
-  %.not537 = icmp eq i32 %.0420, 0
-  br i1 %.not537, label %._crit_edge, label %.lr.ph.preheader
+.preheader494:                                    ; preds = %93
+  %.not536 = icmp eq i32 %.0420, 0
+  br i1 %.not536, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader495
+.lr.ph.preheader:                                 ; preds = %.preheader494
   %wide.trip.count = zext i32 %.0420 to i64
   br label %.lr.ph
 
@@ -832,8 +832,8 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   unreachable
 
 295:                                              ; preds = %292, %286
-  %.1.in.i.i493 = phi ptr [ %291, %286 ], [ %293, %292 ]
-  %.1.i.i = load ptr, ptr %.1.in.i.i493, align 8
+  %.1.in.i.i492 = phi ptr [ %291, %286 ], [ %293, %292 ]
+  %.1.i.i = load ptr, ptr %.1.in.i.i492, align 8
   br label %282
 
 296:                                              ; preds = %282
@@ -848,10 +848,11 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   br label %302
 
 302:                                              ; preds = %354, %299
-  %indvars.iv.i487 = phi i64 [ 1, %299 ], [ %indvars.iv.next.i488, %354 ]
+  %exitcond.not.i487 = phi i1 [ false, %299 ], [ true, %354 ]
+  %indvars.iv.i488 = phi i64 [ 1, %299 ], [ 2, %354 ]
   %.090130.i = phi ptr [ %301, %299 ], [ %.1.i, %354 ]
   %.092129.i = phi i1 [ %.088.i, %299 ], [ %355, %354 ]
-  %303 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i487
+  %303 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i488
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr inbounds nuw i8, ptr %.090130.i, i64 8
   %306 = load ptr, ptr %305, align 8
@@ -883,7 +884,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   %321 = getelementptr inbounds nuw i8, ptr %.0.i103.i, i64 8
   %322 = load ptr, ptr %321, align 8
   %323 = load i32, ptr %322, align 8
-  switch i32 %323, label %.critedge.i492 [
+  switch i32 %323, label %.critedge.i491 [
     i32 32, label %324
     i32 40, label %330
     i32 31, label %332
@@ -933,9 +934,9 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   %335 = load ptr, ptr @type_iptr, align 8
   %336 = tail call i32 @type_size(ptr noundef %335) #4
   %.not109.i = icmp ugt i32 %334, %336
-  br i1 %.not109.i, label %.critedge.i492, label %341
+  br i1 %.not109.i, label %.critedge.i491, label %341
 
-.critedge.i492:                                   ; preds = %333, %320
+.critedge.i491:                                   ; preds = %333, %320
   %337 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %338 = load ptr, ptr %304, align 8
   %339 = tail call ptr @type_quoted_error_string(ptr noundef %338) #4
@@ -970,17 +971,14 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
 
 354:                                              ; preds = %352, %342, %341
   %355 = phi i1 [ true, %341 ], [ %353, %352 ], [ false, %342 ]
-  %indvars.iv.next.i488 = add nuw nsw i64 %indvars.iv.i487, 1
-  %exitcond.not.i489 = icmp eq i64 %indvars.iv.next.i488, 3
-  br i1 %exitcond.not.i489, label %.preheader110.i, label %302, !llvm.loop !11
+  br i1 %exitcond.not.i487, label %.preheader110.i, label %302, !llvm.loop !11
 
 356:                                              ; preds = %361
-  %indvars.iv.next153.i = add nuw nsw i64 %indvars.iv152.i, 1
-  %exitcond155.not.i = icmp eq i64 %indvars.iv.next153.i, 5
-  br i1 %exitcond155.not.i, label %.preheader.i490, label %.preheader110.i, !llvm.loop !12
+  br i1 %exitcond155.not.i, label %.preheader.i489, label %.preheader110.i, !llvm.loop !12
 
 .preheader110.i:                                  ; preds = %354, %356
-  %indvars.iv152.i = phi i64 [ %indvars.iv.next153.i, %356 ], [ 3, %354 ]
+  %exitcond155.not.i = phi i1 [ true, %356 ], [ false, %354 ]
+  %indvars.iv152.i = phi i64 [ 4, %356 ], [ 3, %354 ]
   %357 = load ptr, ptr @type_bool, align 8
   %358 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv152.i
   %359 = load ptr, ptr %358, align 8
@@ -1002,19 +1000,18 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   br label %sema_expr_analyse_swizzle.exit
 
 370:                                              ; preds = %389
-  %indvars.iv.next157.i = add nuw nsw i64 %indvars.iv156.i, 1
-  %exitcond159.not.i = icmp eq i64 %indvars.iv.next157.i, 7
-  br i1 %exitcond159.not.i, label %395, label %.preheader.i490, !llvm.loop !13
+  br i1 %exitcond159.not.i, label %395, label %.preheader.i489, !llvm.loop !13
 
-.preheader.i490:                                  ; preds = %356, %370
-  %indvars.iv156.i = phi i64 [ %indvars.iv.next157.i, %370 ], [ 5, %356 ]
+.preheader.i489:                                  ; preds = %356, %370
+  %exitcond159.not.i = phi i1 [ true, %370 ], [ false, %356 ]
+  %indvars.iv156.i = phi i64 [ 6, %370 ], [ 5, %356 ]
   %371 = load ptr, ptr @type_char, align 8
   %372 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv156.i
   %373 = load ptr, ptr %372, align 8
   %374 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %371, ptr noundef %373, i1 noundef zeroext false, ptr noundef null) #4
   br i1 %374, label %375, label %sema_expr_analyse_swizzle.exit
 
-375:                                              ; preds = %.preheader.i490
+375:                                              ; preds = %.preheader.i489
   %376 = load ptr, ptr %372, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
   %378 = load i16, ptr %377, align 8
@@ -1109,20 +1106,20 @@ is_valid_atomicity.exit.i:                        ; preds = %389, %386, %381, %3
   br label %433
 
 433:                                              ; preds = %431, %428, %424
-  %.0.i491 = phi ptr [ %432, %431 ], [ %427, %428 ], [ %427, %424 ]
-  store ptr %.0.i491, ptr %1, align 8
+  %.0.i490 = phi ptr [ %432, %431 ], [ %427, %428 ], [ %427, %424 ]
+  store ptr %.0.i490, ptr %1, align 8
   br label %sema_expr_analyse_swizzle.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %450
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %450 ]
-  %.0424535 = phi i1 [ false, %.lr.ph.preheader ], [ %451, %450 ]
+  %.0424534 = phi i1 [ false, %.lr.ph.preheader ], [ %451, %450 ]
   %434 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %435 = load ptr, ptr %434, align 8
   %436 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %435) #4
   br i1 %436, label %437, label %sema_expr_analyse_swizzle.exit
 
 437:                                              ; preds = %.lr.ph
-  br i1 %.0424535, label %450, label %438
+  br i1 %.0424534, label %450, label %438
 
 438:                                              ; preds = %437
   %439 = load ptr, ptr %434, align 8
@@ -1152,8 +1149,8 @@ is_valid_atomicity.exit.i:                        ; preds = %389, %386, %381, %3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %450, %.preheader495
-  %.0424.lcssa = phi i1 [ false, %.preheader495 ], [ %451, %450 ]
+._crit_edge:                                      ; preds = %450, %.preheader494
+  %.0424.lcssa = phi i1 [ false, %.preheader494 ], [ %451, %450 ]
   switch i32 %52, label %1367 [
     i32 80, label %452
     i32 85, label %456
@@ -1683,13 +1680,12 @@ is_valid_atomicity.exit.i:                        ; preds = %389, %386, %381, %3
   br i1 %685, label %.preheader, label %sema_expr_analyse_swizzle.exit
 
 686:                                              ; preds = %696
-  %indvars.iv.next578 = add nuw nsw i64 %indvars.iv577, 1
-  %exitcond580.not = icmp eq i64 %indvars.iv.next578, 3
-  br i1 %exitcond580.not, label %699, label %.preheader, !llvm.loop !15
+  br i1 %exitcond579.not, label %699, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %682, %686
-  %indvars.iv577 = phi i64 [ %indvars.iv.next578, %686 ], [ 1, %682 ]
-  %687 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv577
+  %exitcond579.not = phi i1 [ true, %686 ], [ false, %682 ]
+  %indvars.iv576 = phi i64 [ 2, %686 ], [ 1, %682 ]
+  %687 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv576
   %688 = load ptr, ptr %687, align 8
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 16
   %690 = load i16, ptr %689, align 8
@@ -2590,8 +2586,8 @@ is_valid_atomicity.exit.i:                        ; preds = %389, %386, %381, %3
   %1224 = tail call i32 @type_size(ptr noundef nonnull %1221) #4
   %1225 = load ptr, ptr @type_iptr, align 8
   %1226 = tail call i32 @type_size(ptr noundef %1225) #4
-  %.not494 = icmp ugt i32 %1224, %1226
-  br i1 %.not494, label %.critedge470, label %1230
+  %.not493 = icmp ugt i32 %1224, %1226
+  br i1 %.not493, label %.critedge470, label %1230
 
 .critedge470:                                     ; preds = %1217, %1223
   %1227 = load ptr, ptr %1218, align 8
@@ -2845,8 +2841,8 @@ is_valid_atomicity.exit.i:                        ; preds = %389, %386, %381, %3
   store ptr %.0, ptr %1, align 8
   br label %sema_expr_analyse_swizzle.exit
 
-sema_expr_analyse_swizzle.exit:                   ; preds = %302, %.preheader110.i, %.preheader.i490, %.lr.ph.i479, %101, %180, %.lr.ph, %696, %433, %420, %417, %412, %407, %is_valid_atomicity.exit.i, %367, %.critedge.i492, %296, %267, %258, %248, %224, %218, %205, %203, %.critedge.i, %sema_check_builtin_args_match.exit.i, %117, %1353, %1328, %1319, %1317, %1309, %1300, %1274, %1266, %1259, %1250, %1211, %1204, %1196, %1187, %1161, %1153, %1146, %1137, %1113, %1086, %1076, %1069, %1054, %1041, %1007, %1002, %998, %993, %989, %984, %980, %975, %972, %965, %961, %926, %919, %915, %882, %875, %871, %828, %820, %816, %774, %769, %763, %757, %743, %740, %732, %729, %724, %721, %715, %682, %675, %671, %665, %646, %643, %635, %630, %600, %595, %592, %587, %582, %579, %574, %569, %567, %562, %560, %555, %553, %548, %546, %539, %534, %527, %524, %486, %482, %477, %474, %470, %460, %457, %452, %1373, %1359, %1350, %1340, %1306, %1297, %1287, %1256, %1247, %1237, %.critedge470, %1193, %1184, %1174, %1143, %1134, %1124, %.critedge10, %.critedge8, %1062, %1048, %1038, %1028, %1017, %955, %942, %911, %898, %861, %851, %807, %799, %711, %703, %693, %.critedge, %627, %619, %609, %514, %265, %263, %259, %87, %80, %75
-  %.0421 = phi i1 [ false, %75 ], [ false, %80 ], [ false, %87 ], [ true, %1373 ], [ false, %514 ], [ false, %627 ], [ false, %619 ], [ false, %609 ], [ false, %.critedge ], [ false, %693 ], [ false, %711 ], [ false, %703 ], [ false, %799 ], [ false, %807 ], [ false, %851 ], [ false, %861 ], [ false, %911 ], [ false, %898 ], [ false, %955 ], [ false, %942 ], [ false, %1017 ], [ false, %1048 ], [ false, %1038 ], [ false, %1028 ], [ false, %1062 ], [ false, %1143 ], [ false, %1134 ], [ false, %1124 ], [ false, %.critedge10 ], [ false, %.critedge8 ], [ false, %1193 ], [ false, %1184 ], [ false, %1174 ], [ false, %1256 ], [ false, %1247 ], [ false, %1237 ], [ false, %.critedge470 ], [ false, %1306 ], [ false, %1297 ], [ false, %1287 ], [ false, %1359 ], [ false, %1350 ], [ false, %1340 ], [ true, %259 ], [ true, %263 ], [ true, %265 ], [ false, %452 ], [ false, %457 ], [ false, %460 ], [ false, %470 ], [ false, %474 ], [ false, %477 ], [ false, %482 ], [ false, %486 ], [ false, %524 ], [ false, %527 ], [ false, %534 ], [ false, %539 ], [ false, %546 ], [ false, %548 ], [ false, %553 ], [ false, %555 ], [ false, %560 ], [ false, %562 ], [ false, %567 ], [ false, %569 ], [ false, %574 ], [ false, %579 ], [ false, %582 ], [ false, %587 ], [ false, %592 ], [ false, %595 ], [ false, %600 ], [ false, %630 ], [ false, %635 ], [ false, %643 ], [ false, %646 ], [ false, %665 ], [ false, %671 ], [ false, %675 ], [ false, %682 ], [ false, %715 ], [ false, %721 ], [ false, %724 ], [ false, %729 ], [ false, %732 ], [ false, %740 ], [ false, %743 ], [ false, %757 ], [ false, %763 ], [ false, %769 ], [ false, %774 ], [ false, %816 ], [ false, %820 ], [ false, %828 ], [ false, %871 ], [ false, %875 ], [ false, %882 ], [ false, %915 ], [ false, %919 ], [ false, %926 ], [ false, %961 ], [ false, %965 ], [ false, %972 ], [ false, %975 ], [ false, %980 ], [ false, %984 ], [ false, %989 ], [ false, %993 ], [ false, %998 ], [ false, %1002 ], [ false, %1007 ], [ false, %1041 ], [ false, %1054 ], [ false, %1069 ], [ false, %1076 ], [ false, %1086 ], [ false, %1113 ], [ false, %1137 ], [ false, %1146 ], [ false, %1153 ], [ false, %1161 ], [ false, %1187 ], [ false, %1196 ], [ false, %1204 ], [ false, %1211 ], [ false, %1250 ], [ false, %1259 ], [ false, %1266 ], [ false, %1274 ], [ false, %1300 ], [ false, %1309 ], [ false, %1317 ], [ false, %1319 ], [ false, %1328 ], [ false, %1353 ], [ false, %117 ], [ false, %203 ], [ false, %205 ], [ false, %.critedge.i ], [ true, %218 ], [ false, %sema_check_builtin_args_match.exit.i ], [ false, %224 ], [ false, %248 ], [ true, %258 ], [ false, %.critedge.i492 ], [ false, %367 ], [ false, %407 ], [ false, %412 ], [ false, %417 ], [ true, %433 ], [ false, %296 ], [ false, %267 ], [ false, %is_valid_atomicity.exit.i ], [ false, %420 ], [ false, %696 ], [ false, %.lr.ph ], [ false, %180 ], [ false, %101 ], [ false, %.lr.ph.i479 ], [ false, %.preheader.i490 ], [ false, %.preheader110.i ], [ false, %302 ]
+sema_expr_analyse_swizzle.exit:                   ; preds = %302, %.preheader110.i, %.preheader.i489, %.lr.ph.i479, %101, %180, %.lr.ph, %696, %433, %420, %417, %412, %407, %is_valid_atomicity.exit.i, %367, %.critedge.i491, %296, %267, %258, %248, %224, %218, %205, %203, %.critedge.i, %sema_check_builtin_args_match.exit.i, %117, %1353, %1328, %1319, %1317, %1309, %1300, %1274, %1266, %1259, %1250, %1211, %1204, %1196, %1187, %1161, %1153, %1146, %1137, %1113, %1086, %1076, %1069, %1054, %1041, %1007, %1002, %998, %993, %989, %984, %980, %975, %972, %965, %961, %926, %919, %915, %882, %875, %871, %828, %820, %816, %774, %769, %763, %757, %743, %740, %732, %729, %724, %721, %715, %682, %675, %671, %665, %646, %643, %635, %630, %600, %595, %592, %587, %582, %579, %574, %569, %567, %562, %560, %555, %553, %548, %546, %539, %534, %527, %524, %486, %482, %477, %474, %470, %460, %457, %452, %1373, %1359, %1350, %1340, %1306, %1297, %1287, %1256, %1247, %1237, %.critedge470, %1193, %1184, %1174, %1143, %1134, %1124, %.critedge10, %.critedge8, %1062, %1048, %1038, %1028, %1017, %955, %942, %911, %898, %861, %851, %807, %799, %711, %703, %693, %.critedge, %627, %619, %609, %514, %265, %263, %259, %87, %80, %75
+  %.0421 = phi i1 [ false, %75 ], [ false, %80 ], [ false, %87 ], [ true, %1373 ], [ false, %514 ], [ false, %627 ], [ false, %619 ], [ false, %609 ], [ false, %.critedge ], [ false, %693 ], [ false, %711 ], [ false, %703 ], [ false, %799 ], [ false, %807 ], [ false, %851 ], [ false, %861 ], [ false, %911 ], [ false, %898 ], [ false, %955 ], [ false, %942 ], [ false, %1017 ], [ false, %1048 ], [ false, %1038 ], [ false, %1028 ], [ false, %1062 ], [ false, %1143 ], [ false, %1134 ], [ false, %1124 ], [ false, %.critedge10 ], [ false, %.critedge8 ], [ false, %1193 ], [ false, %1184 ], [ false, %1174 ], [ false, %1256 ], [ false, %1247 ], [ false, %1237 ], [ false, %.critedge470 ], [ false, %1306 ], [ false, %1297 ], [ false, %1287 ], [ false, %1359 ], [ false, %1350 ], [ false, %1340 ], [ true, %259 ], [ true, %263 ], [ true, %265 ], [ false, %452 ], [ false, %457 ], [ false, %460 ], [ false, %470 ], [ false, %474 ], [ false, %477 ], [ false, %482 ], [ false, %486 ], [ false, %524 ], [ false, %527 ], [ false, %534 ], [ false, %539 ], [ false, %546 ], [ false, %548 ], [ false, %553 ], [ false, %555 ], [ false, %560 ], [ false, %562 ], [ false, %567 ], [ false, %569 ], [ false, %574 ], [ false, %579 ], [ false, %582 ], [ false, %587 ], [ false, %592 ], [ false, %595 ], [ false, %600 ], [ false, %630 ], [ false, %635 ], [ false, %643 ], [ false, %646 ], [ false, %665 ], [ false, %671 ], [ false, %675 ], [ false, %682 ], [ false, %715 ], [ false, %721 ], [ false, %724 ], [ false, %729 ], [ false, %732 ], [ false, %740 ], [ false, %743 ], [ false, %757 ], [ false, %763 ], [ false, %769 ], [ false, %774 ], [ false, %816 ], [ false, %820 ], [ false, %828 ], [ false, %871 ], [ false, %875 ], [ false, %882 ], [ false, %915 ], [ false, %919 ], [ false, %926 ], [ false, %961 ], [ false, %965 ], [ false, %972 ], [ false, %975 ], [ false, %980 ], [ false, %984 ], [ false, %989 ], [ false, %993 ], [ false, %998 ], [ false, %1002 ], [ false, %1007 ], [ false, %1041 ], [ false, %1054 ], [ false, %1069 ], [ false, %1076 ], [ false, %1086 ], [ false, %1113 ], [ false, %1137 ], [ false, %1146 ], [ false, %1153 ], [ false, %1161 ], [ false, %1187 ], [ false, %1196 ], [ false, %1204 ], [ false, %1211 ], [ false, %1250 ], [ false, %1259 ], [ false, %1266 ], [ false, %1274 ], [ false, %1300 ], [ false, %1309 ], [ false, %1317 ], [ false, %1319 ], [ false, %1328 ], [ false, %1353 ], [ false, %117 ], [ false, %203 ], [ false, %205 ], [ false, %.critedge.i ], [ true, %218 ], [ false, %sema_check_builtin_args_match.exit.i ], [ false, %224 ], [ false, %248 ], [ true, %258 ], [ false, %.critedge.i491 ], [ false, %367 ], [ false, %407 ], [ false, %412 ], [ false, %417 ], [ true, %433 ], [ false, %296 ], [ false, %267 ], [ false, %is_valid_atomicity.exit.i ], [ false, %420 ], [ false, %696 ], [ false, %.lr.ph ], [ false, %180 ], [ false, %101 ], [ false, %.lr.ph.i479 ], [ false, %.preheader.i489 ], [ false, %.preheader110.i ], [ false, %302 ]
   ret i1 %.0421
 }
 
@@ -2869,8 +2865,8 @@ define internal fastcc noundef zeroext i1 @sema_check_builtin_args(ptr noundef r
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %9
 
-9:                                                ; preds = %.backedge371, %.lr.ph
-  %.0.i.in = phi ptr [ %8, %.lr.ph ], [ %.0.i.in.be, %.backedge371 ]
+9:                                                ; preds = %.backedge373, %.lr.ph
+  %.0.i.in = phi ptr [ %8, %.lr.ph ], [ %.0.i.in.be, %.backedge373 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -2887,13 +2883,13 @@ define internal fastcc noundef zeroext i1 @sema_check_builtin_args(ptr noundef r
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  br label %.backedge371
+  br label %.backedge373
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  br label %.backedge371
+  br label %.backedge373
 
-.backedge371:                                     ; preds = %19, %13
+.backedge373:                                     ; preds = %19, %13
   %.0.i.in.be = phi ptr [ %18, %13 ], [ %20, %19 ]
   br label %9
 

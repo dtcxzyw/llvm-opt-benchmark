@@ -133,14 +133,14 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph82, %13, %.preheader
-  %.059.lcssa99 = phi i32 [ %.1, %.preheader ], [ %15, %13 ], [ %.1, %.lr.ph82 ]
+  %.059.lcssa106 = phi i32 [ %.1, %.preheader ], [ %15, %13 ], [ %.1, %.lr.ph82 ]
   %67 = load i32, ptr %21, align 4, !tbaa !14
   %68 = sub i32 -2, %67
   store i32 %68, ptr %21, align 4, !tbaa !14
   br label %69
 
 69:                                               ; preds = %5, %6, %._crit_edge
-  %.0 = phi i32 [ %.059.lcssa99, %._crit_edge ], [ -1, %6 ], [ -1, %5 ]
+  %.0 = phi i32 [ %.059.lcssa106, %._crit_edge ], [ -1, %6 ], [ -1, %5 ]
   ret i32 %.0
 }
 

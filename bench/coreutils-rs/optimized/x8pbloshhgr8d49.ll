@@ -231,15 +231,15 @@ _ZN3std4sync4mpmc7counter3new17hbcf322435018e92fE.exit: ; preds = %.noexc.i47
   br label %40
 
 40:                                               ; preds = %_ZN3std4sync4mpmc7counter3new17hbcf322435018e92fE.exit, %_ZN3std4sync4mpmc7counter3new17h36aca7bdbae411d2E.exit
-  %.sink77 = phi i64 [ 0, %_ZN3std4sync4mpmc7counter3new17hbcf322435018e92fE.exit ], [ 2, %_ZN3std4sync4mpmc7counter3new17h36aca7bdbae411d2E.exit ]
-  %.sink75 = phi ptr [ %33, %_ZN3std4sync4mpmc7counter3new17hbcf322435018e92fE.exit ], [ %12, %_ZN3std4sync4mpmc7counter3new17h36aca7bdbae411d2E.exit ]
-  store i64 %.sink77, ptr %0, align 8
+  %.sink79 = phi i64 [ 0, %_ZN3std4sync4mpmc7counter3new17hbcf322435018e92fE.exit ], [ 2, %_ZN3std4sync4mpmc7counter3new17h36aca7bdbae411d2E.exit ]
+  %.sink77 = phi ptr [ %33, %_ZN3std4sync4mpmc7counter3new17hbcf322435018e92fE.exit ], [ %12, %_ZN3std4sync4mpmc7counter3new17h36aca7bdbae411d2E.exit ]
+  store i64 %.sink79, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink75, ptr %41, align 8
+  store ptr %.sink77, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink77, ptr %42, align 8
+  store i64 %.sink79, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink75, ptr %43, align 8
+  store ptr %.sink77, ptr %43, align 8
   ret void
 }
 
@@ -417,15 +417,15 @@ _ZN3std4sync4mpmc7counter3new17h0eda4fb7ad482a6cE.exit: ; preds = %.noexc.i47
   br label %40
 
 40:                                               ; preds = %_ZN3std4sync4mpmc7counter3new17h0eda4fb7ad482a6cE.exit, %_ZN3std4sync4mpmc7counter3new17h30c4a84e40abb03dE.exit
-  %.sink77 = phi i64 [ 0, %_ZN3std4sync4mpmc7counter3new17h0eda4fb7ad482a6cE.exit ], [ 2, %_ZN3std4sync4mpmc7counter3new17h30c4a84e40abb03dE.exit ]
-  %.sink75 = phi ptr [ %33, %_ZN3std4sync4mpmc7counter3new17h0eda4fb7ad482a6cE.exit ], [ %12, %_ZN3std4sync4mpmc7counter3new17h30c4a84e40abb03dE.exit ]
-  store i64 %.sink77, ptr %0, align 8
+  %.sink79 = phi i64 [ 0, %_ZN3std4sync4mpmc7counter3new17h0eda4fb7ad482a6cE.exit ], [ 2, %_ZN3std4sync4mpmc7counter3new17h30c4a84e40abb03dE.exit ]
+  %.sink77 = phi ptr [ %33, %_ZN3std4sync4mpmc7counter3new17h0eda4fb7ad482a6cE.exit ], [ %12, %_ZN3std4sync4mpmc7counter3new17h30c4a84e40abb03dE.exit ]
+  store i64 %.sink79, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink75, ptr %41, align 8
+  store ptr %.sink77, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink77, ptr %42, align 8
+  store i64 %.sink79, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink75, ptr %43, align 8
+  store ptr %.sink77, ptr %43, align 8
   ret void
 }
 

@@ -884,10 +884,10 @@ if.then7.i.i:                                     ; preds = %lor.lhs.false.i.i
   store ptr @.str.1, ptr %ref.tmp, align 8
   %ref.tmp60.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %ref.tmp60.sroa.2.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp60.sroa.381.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store i32 1, ptr %ref.tmp60.sroa.381.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp60.sroa.482.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
-  store i64 23, ptr %ref.tmp60.sroa.482.0.ref.tmp.sroa_idx, align 8
+  %ref.tmp60.sroa.385.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  store i32 1, ptr %ref.tmp60.sroa.385.0.ref.tmp.sroa_idx, align 8
+  %ref.tmp60.sroa.486.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
+  store i64 23, ptr %ref.tmp60.sroa.486.0.ref.tmp.sroa_idx, align 8
   %ref.tmp60.sroa.5.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store i64 0, ptr %ref.tmp60.sroa.5.0.ref.tmp.sroa_idx, align 8
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit

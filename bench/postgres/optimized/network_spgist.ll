@@ -219,10 +219,10 @@ inet_spg_node_number.exit89:                      ; preds = %102, %110
   br label %126
 
 126:                                              ; preds = %inet_spg_node_number.exit89, %inet_spg_node_number.exit, %42, %14
-  %.sink98 = phi ptr [ %10, %inet_spg_node_number.exit89 ], [ %26, %inet_spg_node_number.exit ], [ %26, %42 ], [ %10, %14 ]
-  %.sink97 = phi i64 [ 16, %inet_spg_node_number.exit89 ], [ 48, %inet_spg_node_number.exit ], [ 48, %42 ], [ 16, %14 ]
-  %127 = ptrtoint ptr %.sink98 to i64
-  %128 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink97
+  %.sink99 = phi ptr [ %10, %inet_spg_node_number.exit89 ], [ %26, %inet_spg_node_number.exit ], [ %26, %42 ], [ %10, %14 ]
+  %.sink98 = phi i64 [ 16, %inet_spg_node_number.exit89 ], [ 48, %inet_spg_node_number.exit ], [ 48, %42 ], [ 16, %14 ]
+  %127 = ptrtoint ptr %.sink99 to i64
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink98
   store i64 %127, ptr %128, align 8
   ret i64 0
 }
@@ -647,14 +647,14 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
 38:                                               ; preds = %37, %37
   %39 = icmp ult i8 %32, %36
   %.not226.old = icmp eq i32 %.1.fr323, 0
-  %or.cond363 = or i1 %39, %.not226.old
-  br i1 %or.cond363, label %.thread306, label %.thread313
+  %or.cond371 = or i1 %39, %.not226.old
+  br i1 %or.cond371, label %.thread306, label %.thread313
 
 40:                                               ; preds = %37, %37
   %41 = icmp ugt i8 %32, %36
   %.not226 = icmp eq i32 %.1.fr323, 0
-  %or.cond362 = or i1 %41, %.not226
-  br i1 %or.cond362, label %.thread306, label %.thread313
+  %or.cond370 = or i1 %41, %.not226
+  br i1 %or.cond370, label %.thread306, label %.thread313
 
 42:                                               ; preds = %37
   %.not226.old.old = icmp eq i32 %.1.fr323, 0

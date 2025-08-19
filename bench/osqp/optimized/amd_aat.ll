@@ -170,13 +170,13 @@ define i64 @amd_l_aat(i64 noundef %0, ptr noundef readonly captures(none) %1, pt
   br i1 %81, label %71, label %.loopexit, !llvm.loop !15
 
 ._crit_edge155:                                   ; preds = %.loopexit, %.preheader.thread
-  %.0101.lcssa179 = phi double [ 0.000000e+00, %.preheader.thread ], [ %18, %.loopexit ]
-  %.0103.lcssa178 = phi i64 [ 0, %.preheader.thread ], [ %.1104, %.loopexit ]
+  %.0101.lcssa199 = phi double [ 0.000000e+00, %.preheader.thread ], [ %18, %.loopexit ]
+  %.0103.lcssa198 = phi i64 [ 0, %.preheader.thread ], [ %.1104, %.loopexit ]
   %82 = phi i64 [ %13, %.preheader.thread ], [ %16, %.loopexit ]
-  %83 = icmp eq i64 %82, %.0103.lcssa178
-  %84 = sub nsw i64 %82, %.0103.lcssa178
+  %83 = icmp eq i64 %82, %.0103.lcssa198
+  %84 = sub nsw i64 %82, %.0103.lcssa198
   %85 = sitofp i64 %84 to double
-  %86 = fdiv double %.0101.lcssa179, %85
+  %86 = fdiv double %.0101.lcssa199, %85
   %.099 = select i1 %83, double 1.000000e+00, double %86
   br i1 %11, label %.lr.ph159, label %._crit_edge160
 
@@ -204,7 +204,7 @@ define i64 @amd_l_aat(i64 noundef %0, ptr noundef readonly captures(none) %1, pt
   store double %94, ptr %95, align 8, !tbaa !3
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %.099, ptr %96, align 8, !tbaa !3
-  %97 = sitofp i64 %.0103.lcssa178 to double
+  %97 = sitofp i64 %.0103.lcssa198 to double
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double %97, ptr %98, align 8, !tbaa !3
   %99 = uitofp i64 %.0.lcssa to double

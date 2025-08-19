@@ -1984,15 +1984,15 @@ _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i:  ; preds = %9
   br i1 %.not.i2.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i
 
 _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i: ; preds = %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i, %9
-  %.pr7.i.i = phi ptr [ %.pr.pre.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %8, %9 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.pr7.i.i, i64 32
+  %.pr8.i.i = phi ptr [ %.pr.pre.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %8, %9 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.pr8.i.i, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !8
   %14 = load i8, ptr %13, align 1, !noalias !8
   %.not.i.i.i.i.i = icmp eq i8 %14, -1
   br i1 %.not.i.i.i.i.i, label %15, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit
 
 15:                                               ; preds = %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.pr7.i.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.pr8.i.i, i64 16
   %17 = load i64, ptr %16, align 8, !noalias !8
   br label %18
 
@@ -2012,8 +2012,8 @@ _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i: ; preds = %_ZN5QHashIi16
   br i1 %.not.i.i.i.i.i.i, label %18, label %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, !llvm.loop !11
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit: ; preds = %18, %22, %2, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i
-  %28 = phi ptr [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %.pr7.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i ], [ null, %2 ], [ %.pr7.i.i, %22 ], [ %.pr7.i.i, %18 ]
-  %.sroa.0.0.i.i.i = phi ptr [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %.pr7.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i ], [ null, %2 ], [ null, %18 ], [ %.pr7.i.i, %22 ]
+  %28 = phi ptr [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %.pr8.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i ], [ null, %2 ], [ %.pr8.i.i, %22 ], [ %.pr8.i.i, %18 ]
+  %.sroa.0.0.i.i.i = phi ptr [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ %.pr8.i.i, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i ], [ null, %2 ], [ null, %18 ], [ %.pr8.i.i, %22 ]
   %.sroa.4.0.i.i.i = phi i64 [ 0, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.i.i ], [ 0, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread.i.i ], [ 0, %2 ], [ 0, %18 ], [ %20, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.0.0.i.i.i, ptr %29, align 8, !alias.scope !8
@@ -2024,9 +2024,9 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeach
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !alias.scope !8
   store i32 1, ptr %32, align 8, !alias.scope !8
   %33 = icmp eq ptr %.sroa.0.0.i.i.i, null
-  %.not9 = icmp eq i64 %.sroa.4.0.i.i.i, 0
-  %or.cond10 = and i1 %33, %.not9
-  br i1 %or.cond10, label %._crit_edge, label %_ZNK5QHashIi16ft_framenum_typeE14const_iteratorneERKS2_.exit.thread
+  %.not17 = icmp eq i64 %.sroa.4.0.i.i.i, 0
+  %or.cond18 = and i1 %33, %.not17
+  br i1 %or.cond18, label %._crit_edge, label %_ZNK5QHashIi16ft_framenum_typeE14const_iteratorneERKS2_.exit.thread
 
 ._crit_edge:                                      ; preds = %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit, %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit
   %.not.i.i = icmp eq ptr %28, null
@@ -2095,7 +2095,7 @@ _ZN9QtPrivate17QForeachContainerI5QHashIi16ft_framenum_typeEED2Ev.exit: ; preds 
   ret void
 
 _ZNK5QHashIi16ft_framenum_typeE14const_iteratorneERKS2_.exit.thread: ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit
-  %.pre.i.i11 = phi i64 [ %92, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit ], [ %.sroa.4.0.i.i.i, %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit ]
+  %.pre.i.i19 = phi i64 [ %92, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit ], [ %.sroa.4.0.i.i.i, %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit ]
   %57 = phi ptr [ %91, %_ZN5QHashIi16ft_framenum_typeE14const_iteratorppEv.exit ], [ %.sroa.0.0.i.i.i, %_ZN9QtPrivate21qMakeForeachContainerIR5QHashIi16ft_framenum_typeEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_.exit ]
   %58 = load i32, ptr %6, align 8
   %.not2.i = icmp eq i32 %58, 0
@@ -2104,11 +2104,11 @@ _ZNK5QHashIi16ft_framenum_typeE14const_iteratorneERKS2_.exit.thread: ; preds = %
 59:                                               ; preds = %_ZNK5QHashIi16ft_framenum_typeE14const_iteratorneERKS2_.exit.thread
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %61 = load ptr, ptr %60, align 8
-  %62 = lshr i64 %.pre.i.i11, 7
+  %62 = lshr i64 %.pre.i.i19, 7
   %63 = getelementptr %"struct.QHashPrivate::Span", ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 128
   %65 = load ptr, ptr %64, align 8
-  %66 = and i64 %.pre.i.i11, 127
+  %66 = and i64 %.pre.i.i19, 127
   %67 = getelementptr [128 x i8], ptr %63, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
@@ -2147,7 +2147,7 @@ _ZN21RelatedPacketDelegate15addRelatedFrameEi16ft_framenum_type.exit: ; preds = 
   br label %78
 
 78:                                               ; preds = %84, %_ZN21RelatedPacketDelegate15addRelatedFrameEi16ft_framenum_type.exit
-  %79 = phi i64 [ %80, %84 ], [ %.pre.i.i11, %_ZN21RelatedPacketDelegate15addRelatedFrameEi16ft_framenum_type.exit ]
+  %79 = phi i64 [ %80, %84 ], [ %.pre.i.i19, %_ZN21RelatedPacketDelegate15addRelatedFrameEi16ft_framenum_type.exit ]
   %80 = add i64 %79, 1
   store i64 %80, ptr %30, align 8
   %81 = load i64, ptr %76, align 8
@@ -2400,28 +2400,28 @@ _ZNK5QHashIi16ft_framenum_typeE10isDetachedEv.exit: ; preds = %2
 
 8:                                                ; preds = %_ZNK5QHashIi16ft_framenum_typeE10isDetachedEv.exit
   store ptr null, ptr %3, align 8
-  br label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9
+  br label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread14
 
 9:                                                ; preds = %_ZNK5QHashIi16ft_framenum_typeE10isDetachedEv.exit
   store ptr %5, ptr %3, align 8
   %10 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i = icmp eq i32 %10, -1
-  br i1 %.not.i.i, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit
+  br i1 %.not.i.i, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread14, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit
 
 _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit:      ; preds = %9
   %11 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   %.pr.pre = load ptr, ptr %0, align 8
   %.not.i5 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i5, label %14, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9
+  br i1 %.not.i5, label %14, label %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread14
 
-_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9: ; preds = %8, %9, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit
-  %.pr12 = phi ptr [ %.pr.pre, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit ], [ %5, %9 ], [ %5, %8 ]
-  %12 = load atomic i32, ptr %.pr12 monotonic, align 4
+_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread14: ; preds = %8, %9, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit
+  %.pr17 = phi ptr [ %.pr.pre, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit ], [ %5, %9 ], [ %5, %8 ]
+  %12 = load atomic i32, ptr %.pr17 monotonic, align 4
   %13 = icmp ugt i32 %12, 1
   br i1 %13, label %14, label %_ZN5QHashIi16ft_framenum_typeE6detachEv.exit
 
-14:                                               ; preds = %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit
-  %15 = phi ptr [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread ], [ %.pr12, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9 ], [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit ]
+14:                                               ; preds = %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread14, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit
+  %15 = phi ptr [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread ], [ %.pr17, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread14 ], [ null, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit ]
   %16 = invoke noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8detachedEPS4_m(ptr noundef %15, i64 noundef 0)
           to label %.noexc unwind label %38
 
@@ -2429,8 +2429,8 @@ _ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9: ; preds = %8, %9, %_ZN5QHas
   store ptr %16, ptr %0, align 8
   br label %_ZN5QHashIi16ft_framenum_typeE6detachEv.exit
 
-_ZN5QHashIi16ft_framenum_typeE6detachEv.exit:     ; preds = %.noexc, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9
-  %17 = phi ptr [ %16, %.noexc ], [ %.pr12, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread9 ]
+_ZN5QHashIi16ft_framenum_typeE6detachEv.exit:     ; preds = %.noexc, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread14
+  %17 = phi ptr [ %16, %.noexc ], [ %.pr17, %_ZN5QHashIi16ft_framenum_typeEC2ERKS1_.exit.thread14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE12findOrInsertERKi(ptr dead_on_unwind nonnull writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<int, ft_framenum_type>>::InsertionResult") align 8 %4, ptr noundef align 8 dereferenceable_or_null(40) %17, ptr noundef align 4 dereferenceable(4) %1) #19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3512,9 +3512,9 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds =
   %110 = shl nuw nsw i64 %109, 3
   %111 = tail call noalias noundef ptr @_Znam(i64 noundef %110) #21
   %.not.i.i = icmp eq i8 %103, 0
-  br i1 %.not.i.i, label %.preheader43, label %112
+  br i1 %.not.i.i, label %.preheader56, label %112
 
-.preheader43:                                     ; preds = %112, %107
+.preheader56:                                     ; preds = %112, %107
   br label %121
 
 112:                                              ; preds = %107
@@ -3522,7 +3522,7 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds =
   %114 = load ptr, ptr %113, align 8
   %115 = shl nuw nsw i64 %108, 3
   %116 = tail call ptr @__memcpy_chk(ptr noundef %111, ptr noundef %114, i64 noundef range(i64 8, 2041) %115, i64 noundef %110) #19, !alias.scope !27
-  br label %.preheader43
+  br label %.preheader56
 
 117:                                              ; preds = %121
   %118 = getelementptr inbounds nuw i8, ptr %101, i64 128
@@ -3530,8 +3530,8 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit: ; preds =
   %120 = icmp eq ptr %119, null
   br i1 %120, label %_ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEE10addStorageEv.exit.i, label %125
 
-121:                                              ; preds = %.preheader43, %121
-  %.011.i.i = phi i64 [ %122, %121 ], [ %108, %.preheader43 ]
+121:                                              ; preds = %.preheader56, %121
+  %.011.i.i = phi i64 [ %122, %121 ], [ %108, %.preheader56 ]
   %122 = add nuw nsw i64 %.011.i.i, 1
   %123 = trunc i64 %122 to i8
   %124 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, ft_framenum_type>>::Entry", ptr %111, i64 %.011.i.i

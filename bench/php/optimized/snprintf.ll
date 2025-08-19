@@ -136,8 +136,8 @@ define dso_local noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef 
 .preheader:                                       ; preds = %.lr.ph, %47
   %.167.lcssa = phi ptr [ %6, %47 ], [ %60, %.lr.ph ]
   %.1.lcssa = phi ptr [ %.064, %47 ], [ %58, %.lr.ph ]
-  %.not122 = icmp ult i32 %30, 320
-  br i1 %.not122, label %._crit_edge, label %.lr.ph88.preheader
+  %.not127 = icmp ult i32 %30, 320
+  br i1 %.not127, label %._crit_edge, label %.lr.ph88.preheader
 
 .lr.ph88.preheader:                               ; preds = %.preheader
   %52 = zext nneg i32 %48 to i64
@@ -159,8 +159,8 @@ define dso_local noundef ptr @php_conv_fp(i8 noundef signext %0, double noundef 
   store i8 %59, ptr %.16783, align 1, !tbaa !8
   %61 = add nsw i32 %57, -1
   store i32 %61, ptr %9, align 4, !tbaa !16
-  %.not121 = icmp eq i32 %57, 0
-  br i1 %.not121, label %.preheader, label %.lr.ph
+  %.not126 = icmp eq i32 %57, 0
+  br i1 %.not126, label %.preheader, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph88.preheader, %.preheader
   %.268.lcssa = phi ptr [ %.167.lcssa, %.preheader ], [ %scevgep, %.lr.ph88.preheader ]

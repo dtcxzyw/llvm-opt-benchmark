@@ -2812,8 +2812,8 @@ Py_DECREF.exit292:                                ; preds = %237, %239, %242
   %256 = getelementptr [1 x ptr], ptr %255, i64 0, i64 %indvars.iv
   store ptr %249, ptr %256, align 8, !tbaa !39
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not440 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not440, label %257, label %199, !llvm.loop !95
+  %.not477 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not477, label %257, label %199, !llvm.loop !95
 
 257:                                              ; preds = %254
   %258 = tail call ptr @PyMem_Malloc(i64 noundef 192) #14
@@ -3482,10 +3482,10 @@ define internal i64 @dec_hash(ptr noundef %0) #0 {
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load i64, ptr %50, align 8, !tbaa !114
-  %.sink73.i = call i64 @llvm.abs.i64(i64 %51, i1 false)
+  %.sink77.i = call i64 @llvm.abs.i64(i64 %51, i1 false)
   %52 = icmp slt i64 %51, 0
   %.sink.i = select i1 %52, ptr %5, ptr %7
-  call void @mpd_qsset_ssize(ptr noundef nonnull %47, i64 noundef %.sink73.i, ptr noundef nonnull %9, ptr noundef nonnull %8) #14
+  call void @mpd_qsset_ssize(ptr noundef nonnull %47, i64 noundef %.sink77.i, ptr noundef nonnull %9, ptr noundef nonnull %8) #14
   call void @mpd_qpowmod(ptr noundef nonnull %44, ptr noundef nonnull %.sink.i, ptr noundef nonnull %47, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef nonnull %8) #14
   %53 = call i32 @mpd_qcopy(ptr noundef nonnull %47, ptr noundef nonnull %29, ptr noundef nonnull %8) #14
   %.not46.i = icmp eq i32 %53, 0
@@ -15151,9 +15151,9 @@ define internal noundef nonnull ptr @dec_mpd_iscanonical(ptr noundef %0, ptr rea
   br i1 %10, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %8, %5
-  %.sink1 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %.sink2 = phi i32 [ %6, %5 ], [ %9, %8 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %5 ], [ @_Py_FalseStruct, %8 ]
-  %11 = add nuw i32 %.sink1, 1
+  %11 = add nuw i32 %.sink2, 1
   store i32 %11, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -15180,9 +15180,9 @@ define internal noundef nonnull ptr @dec_mpd_isfinite(ptr noundef %0, ptr readno
   br i1 %10, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %8, %5
-  %.sink1 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %.sink2 = phi i32 [ %6, %5 ], [ %9, %8 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %5 ], [ @_Py_FalseStruct, %8 ]
-  %11 = add nuw i32 %.sink1, 1
+  %11 = add nuw i32 %.sink2, 1
   store i32 %11, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -15209,9 +15209,9 @@ define internal noundef nonnull ptr @dec_mpd_isinfinite(ptr noundef %0, ptr read
   br i1 %10, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %8, %5
-  %.sink1 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %.sink2 = phi i32 [ %6, %5 ], [ %9, %8 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %5 ], [ @_Py_FalseStruct, %8 ]
-  %11 = add nuw i32 %.sink1, 1
+  %11 = add nuw i32 %.sink2, 1
   store i32 %11, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -15238,9 +15238,9 @@ define internal noundef nonnull ptr @dec_mpd_isnan(ptr noundef %0, ptr readnone 
   br i1 %10, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %8, %5
-  %.sink1 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %.sink2 = phi i32 [ %6, %5 ], [ %9, %8 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %5 ], [ @_Py_FalseStruct, %8 ]
-  %11 = add nuw i32 %.sink1, 1
+  %11 = add nuw i32 %.sink2, 1
   store i32 %11, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -15267,9 +15267,9 @@ define internal noundef nonnull ptr @dec_mpd_isqnan(ptr noundef %0, ptr readnone
   br i1 %10, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %8, %5
-  %.sink1 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %.sink2 = phi i32 [ %6, %5 ], [ %9, %8 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %5 ], [ @_Py_FalseStruct, %8 ]
-  %11 = add nuw i32 %.sink1, 1
+  %11 = add nuw i32 %.sink2, 1
   store i32 %11, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -15296,9 +15296,9 @@ define internal noundef nonnull ptr @dec_mpd_issnan(ptr noundef %0, ptr readnone
   br i1 %10, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %8, %5
-  %.sink1 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %.sink2 = phi i32 [ %6, %5 ], [ %9, %8 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %5 ], [ @_Py_FalseStruct, %8 ]
-  %11 = add nuw i32 %.sink1, 1
+  %11 = add nuw i32 %.sink2, 1
   store i32 %11, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -15325,9 +15325,9 @@ define internal noundef nonnull ptr @dec_mpd_issigned(ptr noundef %0, ptr readno
   br i1 %10, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %8, %5
-  %.sink1 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %.sink2 = phi i32 [ %6, %5 ], [ %9, %8 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %5 ], [ @_Py_FalseStruct, %8 ]
-  %11 = add nuw i32 %.sink1, 1
+  %11 = add nuw i32 %.sink2, 1
   store i32 %11, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -15354,9 +15354,9 @@ define internal noundef nonnull ptr @dec_mpd_iszero(ptr noundef %0, ptr readnone
   br i1 %10, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %8, %5
-  %.sink1 = phi i32 [ %6, %5 ], [ %9, %8 ]
+  %.sink2 = phi i32 [ %6, %5 ], [ %9, %8 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %5 ], [ @_Py_FalseStruct, %8 ]
-  %11 = add nuw i32 %.sink1, 1
+  %11 = add nuw i32 %.sink2, 1
   store i32 %11, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -17971,9 +17971,9 @@ convert_op.exit39.thread:                         ; preds = %PyObject_TypeCheck.
   br i1 %114, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %112, %109
-  %.sink76 = phi i32 [ %110, %109 ], [ %113, %112 ]
+  %.sink95 = phi i32 [ %110, %109 ], [ %113, %112 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %109 ], [ @_Py_FalseStruct, %112 ]
-  %115 = add nuw i32 %.sink76, 1
+  %115 = add nuw i32 %.sink95, 1
   store i32 %115, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -20629,7 +20629,7 @@ Py_XDECREF.exit69.thread:                         ; preds = %2
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #15
   %44 = tail call ptr @PyTuple_New(i64 noundef %43) #14
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread.thread136, label %.preheader
+  br i1 %45, label %.thread.thread148, label %.preheader
 
 .preheader:                                       ; preds = %42
   %46 = icmp sgt i64 %43, 0
@@ -20647,7 +20647,7 @@ Py_XDECREF.exit69.thread:                         ; preds = %2
   %52 = add nsw i64 %51, -48
   %53 = tail call ptr @PyLong_FromLong(i64 noundef %52) #14
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread.thread136, label %55
+  br i1 %54, label %.thread.thread148, label %55
 
 55:                                               ; preds = %48
   %56 = getelementptr [1 x ptr], ptr %47, i64 0, i64 %.041124
@@ -20666,7 +20666,7 @@ Py_XDECREF.exit69.thread:                         ; preds = %2
   tail call void @mpd_del(ptr noundef nonnull %4) #14
   br label %69
 
-.thread.thread136:                                ; preds = %48, %42
+.thread.thread148:                                ; preds = %48, %42
   tail call void @mpd_del(ptr noundef nonnull %4) #14
   br label %67
 
@@ -20684,33 +20684,33 @@ Py_XDECREF.exit69.thread:                         ; preds = %2
   %66 = tail call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef %65, ptr noundef nonnull %10, ptr noundef nonnull %.147, ptr noundef nonnull %.145, ptr noundef null) #14
   tail call void @mpd_del(ptr noundef nonnull %4) #14
   %.not66 = icmp eq ptr %.1, null
-  br i1 %.not66, label %.thread148, label %67
+  br i1 %.not66, label %.thread160, label %67
 
-67:                                               ; preds = %.thread.thread136, %.thread
-  %.04678147 = phi ptr [ %44, %.thread.thread136 ], [ %.147, %.thread ]
-  %.04480146 = phi ptr [ %.2, %.thread.thread136 ], [ %.145, %.thread ]
-  %.04382145 = phi ptr [ %38, %.thread.thread136 ], [ %.1, %.thread ]
-  %.086143 = phi ptr [ null, %.thread.thread136 ], [ %66, %.thread ]
+67:                                               ; preds = %.thread.thread148, %.thread
+  %.04678159 = phi ptr [ %44, %.thread.thread148 ], [ %.147, %.thread ]
+  %.04480158 = phi ptr [ %.2, %.thread.thread148 ], [ %.145, %.thread ]
+  %.04382157 = phi ptr [ %38, %.thread.thread148 ], [ %.1, %.thread ]
+  %.086155 = phi ptr [ null, %.thread.thread148 ], [ %66, %.thread ]
   %68 = load ptr, ptr @mpd_free, align 8, !tbaa !73
-  tail call void %68(ptr noundef nonnull %.04382145) #14
+  tail call void %68(ptr noundef nonnull %.04382157) #14
   br label %69
 
 69:                                               ; preds = %.thread.thread, %67
-  %.04678134 = phi ptr [ null, %.thread.thread ], [ %.04678147, %67 ]
-  %.04480133 = phi ptr [ %.04480.ph, %.thread.thread ], [ %.04480146, %67 ]
-  %.086131 = phi ptr [ null, %.thread.thread ], [ %.086143, %67 ]
+  %.04678146 = phi ptr [ null, %.thread.thread ], [ %.04678159, %67 ]
+  %.04480145 = phi ptr [ %.04480.ph, %.thread.thread ], [ %.04480158, %67 ]
+  %.086143 = phi ptr [ null, %.thread.thread ], [ %.086155, %67 ]
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %Py_XDECREF.exit, label %.thread148
+  br i1 %.not.i, label %Py_XDECREF.exit, label %.thread160
 
-.thread148:                                       ; preds = %.thread, %69
-  %.086131159 = phi ptr [ %.086131, %69 ], [ %66, %.thread ]
-  %.04480133156 = phi ptr [ %.04480133, %69 ], [ %.145, %.thread ]
-  %.04678134154 = phi ptr [ %.04678134, %69 ], [ %.147, %.thread ]
+.thread160:                                       ; preds = %.thread, %69
+  %.086143171 = phi ptr [ %.086143, %69 ], [ %66, %.thread ]
+  %.04480145168 = phi ptr [ %.04480145, %69 ], [ %.145, %.thread ]
+  %.04678146166 = phi ptr [ %.04678146, %69 ], [ %.147, %.thread ]
   %70 = load i32, ptr %10, align 8, !tbaa !38
   %.not.i.i = icmp sgt i32 %70, -1
   br i1 %.not.i.i, label %71, label %Py_XDECREF.exit
 
-71:                                               ; preds = %.thread148
+71:                                               ; preds = %.thread160
   %72 = add nsw i32 %70, -1
   store i32 %72, ptr %10, align 8, !tbaa !38
   %73 = icmp eq i32 %72, 0
@@ -20720,49 +20720,49 @@ Py_XDECREF.exit69.thread:                         ; preds = %2
   tail call void @_Py_Dealloc(ptr noundef nonnull %10) #14
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %69, %.thread148, %71, %74
-  %.086131160 = phi ptr [ %.086131, %69 ], [ %.086131159, %.thread148 ], [ %.086131159, %71 ], [ %.086131159, %74 ]
-  %.04480133157 = phi ptr [ %.04480133, %69 ], [ %.04480133156, %.thread148 ], [ %.04480133156, %71 ], [ %.04480133156, %74 ]
-  %.04678134155 = phi ptr [ %.04678134, %69 ], [ %.04678134154, %.thread148 ], [ %.04678134154, %71 ], [ %.04678134154, %74 ]
-  %.not.i67 = icmp eq ptr %.04678134155, null
+Py_XDECREF.exit:                                  ; preds = %69, %.thread160, %71, %74
+  %.086143172 = phi ptr [ %.086143, %69 ], [ %.086143171, %.thread160 ], [ %.086143171, %71 ], [ %.086143171, %74 ]
+  %.04480145169 = phi ptr [ %.04480145, %69 ], [ %.04480145168, %.thread160 ], [ %.04480145168, %71 ], [ %.04480145168, %74 ]
+  %.04678146167 = phi ptr [ %.04678146, %69 ], [ %.04678146166, %.thread160 ], [ %.04678146166, %71 ], [ %.04678146166, %74 ]
+  %.not.i67 = icmp eq ptr %.04678146167, null
   br i1 %.not.i67, label %Py_XDECREF.exit69, label %75
 
 75:                                               ; preds = %Py_XDECREF.exit
-  %76 = load i32, ptr %.04678134155, align 8, !tbaa !38
+  %76 = load i32, ptr %.04678146167, align 8, !tbaa !38
   %.not.i.i68 = icmp sgt i32 %76, -1
   br i1 %.not.i.i68, label %77, label %Py_XDECREF.exit69
 
 77:                                               ; preds = %75
   %78 = add nsw i32 %76, -1
-  store i32 %78, ptr %.04678134155, align 8, !tbaa !38
+  store i32 %78, ptr %.04678146167, align 8, !tbaa !38
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %Py_XDECREF.exit69
 
 80:                                               ; preds = %77
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.04678134155) #14
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.04678146167) #14
   br label %Py_XDECREF.exit69
 
 Py_XDECREF.exit69:                                ; preds = %Py_XDECREF.exit, %75, %77, %80
-  %.not.i70 = icmp eq ptr %.04480133157, null
+  %.not.i70 = icmp eq ptr %.04480145169, null
   br i1 %.not.i70, label %Py_XDECREF.exit72, label %81
 
 81:                                               ; preds = %Py_XDECREF.exit69
-  %82 = load i32, ptr %.04480133157, align 8, !tbaa !38
+  %82 = load i32, ptr %.04480145169, align 8, !tbaa !38
   %.not.i.i71 = icmp sgt i32 %82, -1
   br i1 %.not.i.i71, label %83, label %Py_XDECREF.exit72
 
 83:                                               ; preds = %81
   %84 = add nsw i32 %82, -1
-  store i32 %84, ptr %.04480133157, align 8, !tbaa !38
+  store i32 %84, ptr %.04480145169, align 8, !tbaa !38
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %Py_XDECREF.exit72
 
 86:                                               ; preds = %83
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.04480133157) #14
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.04480145169) #14
   br label %Py_XDECREF.exit72
 
 Py_XDECREF.exit72:                                ; preds = %Py_XDECREF.exit69.thread, %Py_XDECREF.exit69, %81, %83, %86
-  %.087101113118123 = phi ptr [ null, %Py_XDECREF.exit69.thread ], [ %.086131160, %Py_XDECREF.exit69 ], [ %.086131160, %81 ], [ %.086131160, %83 ], [ %.086131160, %86 ]
+  %.087101113118123 = phi ptr [ null, %Py_XDECREF.exit69.thread ], [ %.086143172, %Py_XDECREF.exit69 ], [ %.086143172, %81 ], [ %.086143172, %83 ], [ %.086143172, %86 ]
   ret ptr %.087101113118123
 }
 
@@ -21370,7 +21370,7 @@ Py_DECREF.exit:                                   ; preds = %current_context.exi
   %68 = getelementptr i8, ptr %67, i64 -1
   %69 = load i8, ptr %68, align 1, !tbaa !38
   %70 = icmp eq i8 %69, 78
-  br i1 %70, label %71, label %.thread126
+  br i1 %70, label %71, label %.thread154
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr @PyExc_DeprecationWarning, align 8, !tbaa !39
@@ -21381,16 +21381,16 @@ Py_DECREF.exit:                                   ; preds = %current_context.exi
 75:                                               ; preds = %71
   %.pr.pre = load i64, ptr %10, align 8, !tbaa !48
   %76 = icmp sgt i64 %.pr.pre, 0
-  br i1 %76, label %.thread126, label %.thread
+  br i1 %76, label %.thread154, label %.thread
 
-.thread126:                                       ; preds = %66, %75
-  %.pr128 = phi i64 [ %.pr.pre, %75 ], [ %64, %66 ]
+.thread154:                                       ; preds = %66, %75
+  %.pr156 = phi i64 [ %.pr.pre, %75 ], [ %64, %66 ]
   %77 = load i8, ptr %61, align 1, !tbaa !38
   %78 = icmp eq i8 %77, 0
   br i1 %78, label %79, label %.thread
 
-79:                                               ; preds = %.thread126
-  %80 = add nuw i64 %.pr128, 1
+79:                                               ; preds = %.thread154
+  %80 = add nuw i64 %.pr156, 1
   %81 = call ptr @PyMem_Malloc(i64 noundef %80) #14
   %82 = icmp eq ptr %81, null
   br i1 %82, label %dec_strdup.exit.thread, label %.thread96
@@ -21404,7 +21404,7 @@ dec_strdup.exit.thread:                           ; preds = %79
   call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str.157) #14
   br label %pydec_format.exit
 
-.thread:                                          ; preds = %63, %75, %.thread126
+.thread:                                          ; preds = %63, %75, %.thread154
   %86 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 80
   %87 = load i32, ptr %86, align 8, !tbaa !51
   %88 = call i32 @mpd_parse_fmt_str(ptr noundef nonnull %8, ptr noundef nonnull %61, i32 noundef %87) #14
@@ -21412,8 +21412,8 @@ dec_strdup.exit.thread:                           ; preds = %79
   br i1 %.not53, label %94, label %.thread108
 
 .thread96:                                        ; preds = %79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull readonly align 1 dereferenceable(1) %61, i64 range(i64 1, -9223372036854775808) %.pr128, i1 false)
-  %89 = getelementptr i8, ptr %81, i64 %.pr128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull readonly align 1 dereferenceable(1) %61, i64 range(i64 1, -9223372036854775808) %.pr156, i1 false)
+  %89 = getelementptr i8, ptr %81, i64 %.pr156
   store i8 0, ptr %89, align 1, !tbaa !38
   store i8 95, ptr %81, align 1, !tbaa !38
   %90 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 80
@@ -23566,9 +23566,9 @@ sequence_as_tuple.exit.thread:                    ; preds = %62, %59, %sequence_
   %84 = load i8, ptr %23, align 1
   %85 = icmp eq i8 %84, 0
   %or.cond5 = select i1 %83, i1 %85, i1 false
-  br i1 %or.cond5, label %.thread138, label %87
+  br i1 %or.cond5, label %.thread151, label %87
 
-.thread138:                                       ; preds = %81
+.thread151:                                       ; preds = %81
   %86 = getelementptr i8, ptr %82, i64 1
   store i8 48, ptr %82, align 1, !tbaa !38
   br label %._crit_edge
@@ -23653,8 +23653,8 @@ sequence_as_tuple.exit.thread:                    ; preds = %62, %59, %sequence_
   %exitcond.not = icmp eq i64 %117, %68
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !160
 
-._crit_edge:                                      ; preds = %116, %99, %.thread138, %87
-  %.1.lcssa = phi ptr [ %82, %87 ], [ %86, %.thread138 ], [ %102, %99 ], [ %82, %116 ]
+._crit_edge:                                      ; preds = %116, %99, %.thread151, %87
+  %.1.lcssa = phi ptr [ %82, %87 ], [ %86, %.thread151 ], [ %102, %99 ], [ %82, %116 ]
   store i8 0, ptr %.1.lcssa, align 1, !tbaa !38
   %118 = load i8, ptr %23, align 1, !tbaa !38
   %119 = icmp eq i8 %118, 0
@@ -30892,9 +30892,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %28, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %26, %23
-  %.sink18 = phi i32 [ %24, %23 ], [ %27, %26 ]
+  %.sink24 = phi i32 [ %24, %23 ], [ %27, %26 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %26 ]
-  %29 = add nuw i32 %.sink18, 1
+  %29 = add nuw i32 %.sink24, 1
   store i32 %29, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -30984,9 +30984,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %28, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %26, %23
-  %.sink18 = phi i32 [ %24, %23 ], [ %27, %26 ]
+  %.sink24 = phi i32 [ %24, %23 ], [ %27, %26 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %26 ]
-  %29 = add nuw i32 %.sink18, 1
+  %29 = add nuw i32 %.sink24, 1
   store i32 %29, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -31076,9 +31076,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %28, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %26, %23
-  %.sink18 = phi i32 [ %24, %23 ], [ %27, %26 ]
+  %.sink24 = phi i32 [ %24, %23 ], [ %27, %26 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %26 ]
-  %29 = add nuw i32 %.sink18, 1
+  %29 = add nuw i32 %.sink24, 1
   store i32 %29, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -31169,9 +31169,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %29, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %27, %24
-  %.sink19 = phi i32 [ %25, %24 ], [ %28, %27 ]
+  %.sink25 = phi i32 [ %25, %24 ], [ %28, %27 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %24 ], [ @_Py_FalseStruct, %27 ]
-  %30 = add nuw i32 %.sink19, 1
+  %30 = add nuw i32 %.sink25, 1
   store i32 %30, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -31261,9 +31261,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %28, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %26, %23
-  %.sink18 = phi i32 [ %24, %23 ], [ %27, %26 ]
+  %.sink24 = phi i32 [ %24, %23 ], [ %27, %26 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %26 ]
-  %29 = add nuw i32 %.sink18, 1
+  %29 = add nuw i32 %.sink24, 1
   store i32 %29, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -31353,9 +31353,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %28, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %26, %23
-  %.sink18 = phi i32 [ %24, %23 ], [ %27, %26 ]
+  %.sink24 = phi i32 [ %24, %23 ], [ %27, %26 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %26 ]
-  %29 = add nuw i32 %.sink18, 1
+  %29 = add nuw i32 %.sink24, 1
   store i32 %29, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -31445,9 +31445,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %28, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %26, %23
-  %.sink18 = phi i32 [ %24, %23 ], [ %27, %26 ]
+  %.sink24 = phi i32 [ %24, %23 ], [ %27, %26 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %26 ]
-  %29 = add nuw i32 %.sink18, 1
+  %29 = add nuw i32 %.sink24, 1
   store i32 %29, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -31538,9 +31538,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %29, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %27, %24
-  %.sink19 = phi i32 [ %25, %24 ], [ %28, %27 ]
+  %.sink25 = phi i32 [ %25, %24 ], [ %28, %27 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %24 ], [ @_Py_FalseStruct, %27 ]
-  %30 = add nuw i32 %.sink19, 1
+  %30 = add nuw i32 %.sink25, 1
   store i32 %30, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -31630,9 +31630,9 @@ convert_op.exit.thread:                           ; preds = %PyObject_TypeCheck.
   br i1 %28, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %26, %23
-  %.sink18 = phi i32 [ %24, %23 ], [ %27, %26 ]
+  %.sink24 = phi i32 [ %24, %23 ], [ %27, %26 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %23 ], [ @_Py_FalseStruct, %26 ]
-  %29 = add nuw i32 %.sink18, 1
+  %29 = add nuw i32 %.sink24, 1
   store i32 %29, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 
@@ -34478,9 +34478,9 @@ convert_op.exit26.thread:                         ; preds = %PyObject_TypeCheck.
   br i1 %58, label %incr_true.exit, label %incr_true.exit.sink.split
 
 incr_true.exit.sink.split:                        ; preds = %56, %53
-  %.sink53 = phi i32 [ %54, %53 ], [ %57, %56 ]
+  %.sink64 = phi i32 [ %54, %53 ], [ %57, %56 ]
   %_Py_FalseStruct.sink = phi ptr [ @_Py_TrueStruct, %53 ], [ @_Py_FalseStruct, %56 ]
-  %59 = add nuw i32 %.sink53, 1
+  %59 = add nuw i32 %.sink64, 1
   store i32 %59, ptr %_Py_FalseStruct.sink, align 8, !tbaa !38
   br label %incr_true.exit
 

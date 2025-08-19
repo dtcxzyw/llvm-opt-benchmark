@@ -1345,16 +1345,16 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %.outer161
+  br label %.outer170
 
-.outer161:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %18
+.outer170:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %18
   %.sroa.010.0.ph = phi i64 [ %84, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ 0, %18 ]
   %.sroa.020.0.ph = phi i64 [ %85, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ %22, %18 ]
   %28 = load i64, ptr %24, align 8, !noundef !4
   br label %29
 
-29:                                               ; preds = %.outer161, %29
-  %.sroa.020.0 = phi i64 [ 0, %29 ], [ %.sroa.020.0.ph, %.outer161 ]
+29:                                               ; preds = %.outer170, %29
+  %.sroa.020.0 = phi i64 [ 0, %29 ], [ %.sroa.020.0.ph, %.outer170 ]
   %30 = icmp ult i64 %.sroa.020.0, %28
   br i1 %30, label %31, label %29
 
@@ -1480,7 +1480,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread": ; preds = %89, %100, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit", %82
   %84 = add nuw nsw i64 %.sroa.010.0.ph, 1
   %85 = add i64 %.sroa.020.0, 1
-  br label %.outer161
+  br label %.outer170
 
 86:                                               ; preds = %82
   %87 = load i64, ptr %25, align 8, !noundef !4
@@ -1803,16 +1803,16 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %.outer160
+  br label %.outer169
 
-.outer160:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
+.outer169:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
   %.sroa.010.0.ph = phi i64 [ %81, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ 0, %17 ]
   %.sroa.019.0.ph = phi i64 [ %82, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ %21, %17 ]
   %27 = load i64, ptr %23, align 8, !noundef !4
   br label %28
 
-28:                                               ; preds = %.outer160, %28
-  %.sroa.019.0 = phi i64 [ 0, %28 ], [ %.sroa.019.0.ph, %.outer160 ]
+28:                                               ; preds = %.outer169, %28
+  %.sroa.019.0 = phi i64 [ 0, %28 ], [ %.sroa.019.0.ph, %.outer169 ]
   %29 = icmp ult i64 %.sroa.019.0, %27
   br i1 %29, label %30, label %28
 
@@ -1936,7 +1936,7 @@ define internal fastcc void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_inser
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread": ; preds = %86, %97, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit", %79
   %81 = add nuw nsw i64 %.sroa.010.0.ph, 1
   %82 = add i64 %.sroa.019.0, 1
-  br label %.outer160
+  br label %.outer169
 
 83:                                               ; preds = %79
   %84 = load i64, ptr %24, align 8, !noundef !4

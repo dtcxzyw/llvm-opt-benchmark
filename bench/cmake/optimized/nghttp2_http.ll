@@ -1152,9 +1152,9 @@ define dso_local void @nghttp2_http_record_request_method(ptr noundef captures(n
   br label %6
 
 6:                                                ; preds = %2, %5
-  %.sink33 = phi i64 [ 24, %5 ], [ 40, %2 ]
+  %.sink34 = phi i64 [ 24, %5 ], [ 40, %2 ]
   %.sink = phi i64 [ 32, %5 ], [ 48, %2 ]
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink33
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink34
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.0 = load ptr, ptr %7, align 8, !tbaa !16
   %.024 = load i64, ptr %8, align 8, !tbaa !16
@@ -1209,10 +1209,10 @@ define dso_local void @nghttp2_http_record_request_method(ptr noundef captures(n
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !65
 
 .critedge.sink.split:                             ; preds = %27, %23
-  %.sink37 = phi i32 [ 128, %23 ], [ 256, %27 ]
+  %.sink38 = phi i32 [ 128, %23 ], [ 256, %27 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %34 = load i32, ptr %33, align 4, !tbaa !19
-  %35 = or i32 %34, %.sink37
+  %35 = or i32 %34, %.sink38
   store i32 %35, ptr %33, align 4, !tbaa !19
   br label %.critedge
 
@@ -1229,12 +1229,12 @@ define dso_local i64 @nghttp2_sf_parse_item(ptr noundef writeonly captures(addre
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @sf_parse_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
   %4 = tail call fastcc i64 @sf_parse_bare_item(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %.fr23 = freeze i64 %4
-  %5 = icmp slt i64 %.fr23, 0
+  %.fr31 = freeze i64 %4
+  %5 = icmp slt i64 %.fr31, 0
   br i1 %5, label %46, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr i8, ptr %1, i64 %.fr23
+  %7 = getelementptr i8, ptr %1, i64 %.fr31
   %.not40.i = icmp eq ptr %7, %2
   br i1 %.not40.i, label %sf_parse_params.exit, label %.lr.ph.i
 
@@ -1328,7 +1328,7 @@ sf_parse_params.exit:                             ; preds = %9, %40, %6
   %42 = ptrtoint ptr %7 to i64
   %43 = sub i64 %41, %42
   %44 = icmp slt i64 %43, 0
-  %45 = add nuw nsw i64 %43, %.fr23
+  %45 = add nuw nsw i64 %43, %.fr31
   br i1 %44, label %sf_parse_params.exit.thread, label %46
 
 sf_parse_params.exit.thread:                      ; preds = %15, %35, %32, %sf_parse_key.exit.i, %.preheader.i, %sf_parse_params.exit
@@ -1947,21 +1947,21 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
   br i1 %28, label %._crit_edge.thread.i, label %.loopexit.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %.049.lcssa120.i = phi i64 [ %.049.lcssa.ph.i, %._crit_edge.i ], [ 0, %.preheader.i ]
-  %.153.lcssa119.i = phi ptr [ %.153.lcssa.ph.i, %._crit_edge.i ], [ %2, %.preheader.i ]
+  %.049.lcssa127.i = phi i64 [ %.049.lcssa.ph.i, %._crit_edge.i ], [ 0, %.preheader.i ]
+  %.153.lcssa126.i = phi ptr [ %.153.lcssa.ph.i, %._crit_edge.i ], [ %2, %.preheader.i ]
   %.not64.i = icmp eq ptr %0, null
   br i1 %.not64.i, label %33, label %29
 
 29:                                               ; preds = %._crit_edge.thread.i
   store i8 1, ptr %0, align 8, !tbaa !69
   %30 = sext i32 %.051.i to i64
-  %31 = mul nsw i64 %.049.lcssa120.i, %30
+  %31 = mul nsw i64 %.049.lcssa127.i, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %31, ptr %32, align 8, !tbaa !16
   br label %33
 
 33:                                               ; preds = %29, %._crit_edge.thread.i
-  %34 = ptrtoint ptr %.153.lcssa119.i to i64
+  %34 = ptrtoint ptr %.153.lcssa126.i to i64
   %35 = ptrtoint ptr %1 to i64
   %36 = sub i64 %34, %35
   br label %sf_parse_integer_or_decimal.exit

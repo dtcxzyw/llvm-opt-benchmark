@@ -415,9 +415,9 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   %31 = icmp eq i32 %30, 1
   %.pre.i.i = load ptr, ptr @arch_files, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
-  br i1 %31, label %.thread67.i.i, label %33
+  br i1 %31, label %.thread74.i.i, label %33
 
-.thread67.i.i:                                    ; preds = %27
+.thread74.i.i:                                    ; preds = %27
   store i32 0, ptr %32, align 8
   br label %._crit_edge.i.i
 
@@ -472,8 +472,8 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
-._crit_edge.i.i:                                  ; preds = %53, %33, %.thread67.i.i
-  %.lcssa38.i.i = phi ptr [ %.pre.i.i, %33 ], [ %.pre.i.i, %.thread67.i.i ], [ %54, %53 ]
+._crit_edge.i.i:                                  ; preds = %53, %33, %.thread74.i.i
+  %.lcssa38.i.i = phi ptr [ %.pre.i.i, %33 ], [ %.pre.i.i, %.thread74.i.i ], [ %54, %53 ]
   %58 = load ptr, ptr %.lcssa38.i.i, align 8
   call void @binaryheap_reset(ptr noundef %58) #19
   %59 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.15) #19
@@ -570,15 +570,15 @@ pgarch_readyXlog.exit.thread.i:                   ; preds = %._crit_edge46.i.i
 
 112:                                              ; preds = %._crit_edge46.i.i
   %113 = icmp slt i32 %110, 64
-  br i1 %113, label %115, label %.thread68.i.i
+  br i1 %113, label %115, label %.thread75.i.i
 
-.thread68.i.i:                                    ; preds = %112
+.thread75.i.i:                                    ; preds = %112
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i32 %110, ptr %114, align 8
   br label %.lr.ph50.i.i.preheader
 
-.lr.ph50.i.i.preheader:                           ; preds = %115, %.thread68.i.i
-  %.ph = phi ptr [ %108, %.thread68.i.i ], [ %.pre64.i.i, %115 ]
+.lr.ph50.i.i.preheader:                           ; preds = %115, %.thread75.i.i
+  %.ph = phi ptr [ %108, %.thread75.i.i ], [ %.pre64.i.i, %115 ]
   br label %.lr.ph50.i.i
 
 115:                                              ; preds = %112
@@ -630,8 +630,8 @@ pgarch_readyXlog.exit.i:                          ; preds = %._crit_edge51.i.i, 
   br i1 %.not39.i, label %.lr.ph.i, label %.thread28.i
 
 .lr.ph.i:                                         ; preds = %pgarch_readyXlog.exit.i, %.backedge.i
-  %.0441.i = phi i32 [ %.1553.i, %.backedge.i ], [ 0, %pgarch_readyXlog.exit.i ]
-  %.0740.i = phi i32 [ %.1852.i, %.backedge.i ], [ 0, %pgarch_readyXlog.exit.i ]
+  %.0441.i = phi i32 [ %.1564.i, %.backedge.i ], [ 0, %pgarch_readyXlog.exit.i ]
+  %.0740.i = phi i32 [ %.1863.i, %.backedge.i ], [ 0, %pgarch_readyXlog.exit.i ]
   %137 = load volatile i32, ptr @postmaster_possibly_dead, align 4
   %.not.i18.i = icmp eq i32 %137, 0
   br i1 %.not.i18.i, label %PostmasterIsAlive.exit.thread.i, label %PostmasterIsAlive.exit.i, !prof !10
@@ -672,13 +672,13 @@ PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.e
   %153 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef nonnull %7) #19
   %154 = call i32 @stat(ptr noundef nonnull %9, ptr noundef nonnull %8) #19
   %.not17.i = icmp eq i32 %154, 0
-  br i1 %.not17.i, label %174, label %155
+  br i1 %.not17.i, label %173, label %155
 
 155:                                              ; preds = %152
   %156 = tail call ptr @__errno_location() #23
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, 2
-  br i1 %158, label %159, label %174
+  br i1 %158, label %159, label %173
 
 159:                                              ; preds = %155
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -697,84 +697,84 @@ PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.e
   br label %.loopexit31.loopexit.i
 
 167:                                              ; preds = %159
-  %168 = add i32 %.0441.i, 1
-  %169 = icmp sgt i32 %168, 2
-  br i1 %169, label %170, label %193
+  %168 = icmp sgt i32 %.0441.i, 1
+  br i1 %168, label %169, label %192
 
-170:                                              ; preds = %167
-  %171 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
-  br i1 %171, label %172, label %.loopexit.i
+169:                                              ; preds = %167
+  %170 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %170, label %171, label %.loopexit.i
 
-172:                                              ; preds = %170
-  %173 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #19
+171:                                              ; preds = %169
+  %172 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #19
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 463, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #19
   br label %.loopexit.i
 
-174:                                              ; preds = %155, %152
-  %175 = call fastcc zeroext i1 @pgarch_archiveXlog(ptr noundef %7)
-  br i1 %175, label %176, label %186
+173:                                              ; preds = %155, %152
+  %174 = call fastcc zeroext i1 @pgarch_archiveXlog(ptr noundef %7)
+  br i1 %174, label %175, label %185
 
-176:                                              ; preds = %174
+175:                                              ; preds = %173
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %177 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #19
-  %178 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef nonnull @.str.21) #19
-  %179 = call i32 @rename(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
-  %180 = icmp slt i32 %179, 0
-  br i1 %180, label %181, label %.thread24.i
+  %176 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef nonnull @.str.10) #19
+  %177 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef nonnull @.str.21) #19
+  %178 = call i32 @rename(ptr noundef nonnull %1, ptr noundef nonnull %2) #19
+  %179 = icmp slt i32 %178, 0
+  br i1 %179, label %180, label %.thread24.i
 
-181:                                              ; preds = %176
-  %182 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
-  br i1 %182, label %183, label %.thread24.i
+180:                                              ; preds = %175
+  %181 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %181, label %182, label %.thread24.i
 
-183:                                              ; preds = %181
-  %184 = call i32 @errcode_for_file_access() #19
-  %185 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %1, ptr noundef nonnull %2) #19
+182:                                              ; preds = %180
+  %183 = call i32 @errcode_for_file_access() #19
+  %184 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %1, ptr noundef nonnull %2) #19
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 835, ptr noundef nonnull @__func__.pgarch_archiveDone) #19
   br label %.thread24.i
 
-.thread24.i:                                      ; preds = %183, %181, %176
+.thread24.i:                                      ; preds = %182, %180, %175
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @pgstat_report_archiver(ptr noundef nonnull %7, i1 noundef zeroext false) #19
   br label %.loopexit31.i
 
-186:                                              ; preds = %174
+185:                                              ; preds = %173
   call void @pgstat_report_archiver(ptr noundef nonnull %7, i1 noundef zeroext true) #19
-  %187 = add i32 %.0740.i, 1
-  %188 = icmp sgt i32 %187, 2
-  br i1 %188, label %189, label %.thread.i
+  %186 = icmp sgt i32 %.0740.i, 1
+  br i1 %186, label %187, label %.thread.i
 
-189:                                              ; preds = %186
-  %190 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
-  br i1 %190, label %191, label %.thread28.i
+187:                                              ; preds = %185
+  %188 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #19
+  br i1 %188, label %189, label %.thread28.i
 
-191:                                              ; preds = %189
-  %192 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %7) #19
+189:                                              ; preds = %187
+  %190 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %7) #19
   br label %.thread28.sink.split.i
 
-.thread.i:                                        ; preds = %186
+.thread.i:                                        ; preds = %185
+  %191 = add nuw nsw i32 %.0740.i, 1
   call void @pg_usleep(i64 noundef 1000000) #19
   br label %.backedge.i
 
-.thread28.sink.split.i:                           ; preds = %191, %150, %147
-  %.sink.i = phi i32 [ 499, %191 ], [ 430, %147 ], [ 430, %150 ]
+.thread28.sink.split.i:                           ; preds = %189, %150, %147
+  %.sink.i = phi i32 [ 499, %189 ], [ 430, %147 ], [ 430, %150 ]
   call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef %.sink.i, ptr noundef nonnull @__func__.pgarch_ArchiverCopyLoop) #19
   br label %.thread28.i
 
-.thread28.i:                                      ; preds = %pgarch_readyXlog.exit.i, %.backedge.i, %PostmasterIsAlive.exit.i, %.thread28.sink.split.i, %189, %145
+.thread28.i:                                      ; preds = %pgarch_readyXlog.exit.i, %.backedge.i, %PostmasterIsAlive.exit.i, %.thread28.sink.split.i, %187, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %pgarch_ArchiverCopyLoop.exit
 
-193:                                              ; preds = %167
+192:                                              ; preds = %167
+  %193 = add nuw nsw i32 %.0441.i, 1
   call void @pg_usleep(i64 noundef 1000000) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %193, %.thread.i
-  %.1553.i = phi i32 [ %.0441.i, %.thread.i ], [ %168, %193 ]
-  %.1852.i = phi i32 [ %187, %.thread.i ], [ %.0740.i, %193 ]
+.backedge.i:                                      ; preds = %192, %.thread.i
+  %.1564.i = phi i32 [ %.0441.i, %.thread.i ], [ %193, %192 ]
+  %.1863.i = phi i32 [ %191, %.thread.i ], [ %.0740.i, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -783,7 +783,7 @@ PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.e
   %.not.i = icmp eq i32 %194, 0
   br i1 %.not.i, label %.lr.ph.i, label %.thread28.i
 
-.loopexit.i:                                      ; preds = %172, %170
+.loopexit.i:                                      ; preds = %171, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

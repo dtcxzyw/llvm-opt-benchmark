@@ -849,12 +849,12 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   br label %113
 
 113:                                              ; preds = %110, %105, %.critedge.us
-  %.sink125 = phi float [ %112, %.critedge.us ], [ %103, %105 ], [ %108, %110 ]
+  %.sink133 = phi float [ %112, %.critedge.us ], [ %103, %105 ], [ %108, %110 ]
   %114 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store float %.sink125, ptr %114, align 4, !tbaa !24
+  store float %.sink133, ptr %114, align 4, !tbaa !24
   %115 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  store float %.sink125, ptr %115, align 4, !tbaa !39
-  store float %.sink125, ptr %97, align 4, !tbaa !40
+  store float %.sink133, ptr %115, align 4, !tbaa !39
+  store float %.sink133, ptr %97, align 4, !tbaa !40
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %116 = load i32, ptr %19, align 8, !tbaa !3
   %117 = sext i32 %116 to i64
@@ -952,12 +952,12 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   br label %171
 
 171:                                              ; preds = %165, %161, %169
-  %.sink130 = phi float [ %170, %169 ], [ %159, %161 ], [ %167, %165 ]
+  %.sink138 = phi float [ %170, %169 ], [ %159, %161 ], [ %167, %165 ]
   %172 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store float %.sink130, ptr %172, align 4, !tbaa !24
+  store float %.sink138, ptr %172, align 4, !tbaa !24
   %173 = getelementptr inbounds nuw i8, ptr %155, i64 4
-  store float %.sink130, ptr %173, align 4, !tbaa !39
-  store float %.sink130, ptr %155, align 4, !tbaa !40
+  store float %.sink138, ptr %173, align 4, !tbaa !39
+  store float %.sink138, ptr %155, align 4, !tbaa !40
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %174 = icmp samesign ult i64 %indvars.iv.next110, %123
   br i1 %174, label %146, label %._crit_edge, !llvm.loop !76

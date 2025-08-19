@@ -1230,8 +1230,8 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %118 = fsub float %117, %109
   %119 = fsub float %109, %117
   %120 = fcmp ogt float %118, 0.000000e+00
-  %.sink56 = select i1 %120, float %118, float 0.000000e+00
-  %.sink = fptoui float %.sink56 to i8
+  %.sink61 = select i1 %120, float %118, float 0.000000e+00
+  %.sink = fptoui float %.sink61 to i8
   %121 = load ptr, ptr %30, align 8, !tbaa !55
   %122 = load ptr, ptr %31, align 8, !tbaa !56
   %123 = load i64, ptr %122, align 8, !tbaa !57
@@ -1240,15 +1240,15 @@ define void @_ZN2cv8saliency25StaticSaliencyFineGrained18getIntensityScaledENS_3
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 %indvars.iv
   store i8 %.sink, ptr %126, align 1, !tbaa !14
   %127 = fcmp ogt float %119, 0.000000e+00
-  %.sink4957 = select i1 %127, float %119, float 0.000000e+00
-  %.sink49 = fptoui float %.sink4957 to i8
+  %.sink5462 = select i1 %127, float %119, float 0.000000e+00
+  %.sink54 = fptoui float %.sink5462 to i8
   %128 = load ptr, ptr %32, align 8, !tbaa !55
   %129 = load ptr, ptr %33, align 8, !tbaa !56
   %130 = load i64, ptr %129, align 8, !tbaa !57
   %131 = mul i64 %130, %indvars.iv40
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 %indvars.iv
-  store i8 %.sink49, ptr %133, align 1, !tbaa !14
+  store i8 %.sink54, ptr %133, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = load i32, ptr %23, align 4, !tbaa !22
   %135 = sext i32 %134 to i64

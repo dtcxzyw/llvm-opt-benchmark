@@ -159,7 +159,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i115: ; preds = %_ZN5Ei
 .sink.split.i113:                                 ; preds = %47, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i115
   %56 = phi ptr [ %51, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i115 ], [ %49, %47 ]
   %57 = phi ptr [ %50, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i115 ], [ %48, %47 ]
-  %.sink.i270 = phi ptr [ %45, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i115 ], [ null, %47 ]
+  %.sink.i275 = phi ptr [ %45, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i115 ], [ null, %47 ]
   %.sink.i114 = phi ptr [ %53, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i115 ], [ null, %47 ]
   store ptr %.sink.i114, ptr %30, align 8, !tbaa !15
   br label %58
@@ -167,7 +167,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i115: ; preds = %_ZN5Ei
 58:                                               ; preds = %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i75.thread, %.sink.split.i113
   %59 = phi ptr [ %56, %.sink.split.i113 ], [ %40, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i75.thread ]
   %60 = phi ptr [ %57, %.sink.split.i113 ], [ %39, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i75.thread ]
-  %61 = phi ptr [ %.sink.i270, %.sink.split.i113 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i75.thread ]
+  %61 = phi ptr [ %.sink.i275, %.sink.split.i113 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i75.thread ]
   %62 = phi ptr [ %.sink.i114, %.sink.split.i113 ], [ null, %_ZN5Eigen8internal28check_rows_cols_for_overflowILin1EE3runIlEEvT_S4_.exit.i75.thread ]
   store i64 %35, ptr %60, align 8, !tbaa !11
   store i64 2, ptr %59, align 8, !tbaa !14

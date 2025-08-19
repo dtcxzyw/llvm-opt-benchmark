@@ -202,12 +202,12 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %90 = add nuw nsw i32 %84, 1
   %91 = getelementptr i8, ptr %85, i64 4
   %92 = icmp eq i32 %90, %74
-  br i1 %92, label %.loopexit15.thread28, label %.preheader14.split, !llvm.loop !9
+  br i1 %92, label %.loopexit15.thread39, label %.preheader14.split, !llvm.loop !9
 
 .loopexit15:                                      ; preds = %72
-  br i1 %3, label %.loopexit15.thread, label %.loopexit15.thread28
+  br i1 %3, label %.loopexit15.thread, label %.loopexit15.thread39
 
-.loopexit15.thread28:                             ; preds = %.preheader14.split, %.loopexit15
+.loopexit15.thread39:                             ; preds = %.preheader14.split, %.loopexit15
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2, !annotation !8
   %93 = add nuw nsw i32 %1, 12
@@ -220,12 +220,12 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %103
 
-101:                                              ; preds = %.loopexit15.thread28
+101:                                              ; preds = %.loopexit15.thread39
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %102, ptr noundef nonnull @.str.7) #5
   br label %103
 
-103:                                              ; preds = %101, %.loopexit15.thread28
+103:                                              ; preds = %101, %.loopexit15.thread39
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit15.thread
 

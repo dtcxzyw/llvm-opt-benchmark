@@ -461,13 +461,13 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Optio
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %2, label %default.unreachable.i [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %6
     i64 1, label %7
     i64 2, label %8
   ]
 
-default.unreachable.i:                            ; preds = %4
+default.unreachable:                              ; preds = %4
   unreachable
 
 6:                                                ; preds = %4
@@ -12785,28 +12785,28 @@ _ZN5serde2de9MapAccess10next_value17h3b8c11c8736ad814E.exit: ; preds = %228
   br label %246
 
 .thread352.thread:                                ; preds = %2, %.thread352
-  %.sroa.0.0.lcssa1244 = phi i64 [ %.sroa.0.1, %.thread352 ], [ 2, %2 ]
-  %.sroa.8.0.lcssa1242 = phi i64 [ %.sroa.8.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.08.0.lcssa1240 = phi i32 [ %.sroa.08.1, %.thread352 ], [ 2, %2 ]
-  %.sroa.811.0.lcssa1238 = phi i32 [ %.sroa.811.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.012.0.lcssa1236 = phi i32 [ %.sroa.012.1, %.thread352 ], [ 2, %2 ]
-  %.sroa.815.0.lcssa1234 = phi i32 [ %.sroa.815.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.016.0.lcssa1232 = phi i64 [ %.sroa.016.1, %.thread352 ], [ 2, %2 ]
-  %.sroa.819.0.lcssa1230 = phi i64 [ %.sroa.819.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.020.0.lcssa1228 = phi i64 [ %.sroa.020.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.6.0.lcssa1226 = phi i32 [ %.sroa.6.1, %.thread352 ], [ 1000000001, %2 ]
-  %.sroa.023.0.lcssa1224 = phi i64 [ %.sroa.023.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.624.0.lcssa1222 = phi i32 [ %.sroa.624.1, %.thread352 ], [ 1000000001, %2 ]
-  %.sroa.028.0.lcssa1220 = phi i64 [ %.sroa.028.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.629.0.lcssa1218 = phi i32 [ %.sroa.629.1, %.thread352 ], [ 1000000001, %2 ]
-  %.sroa.033.0.lcssa1216 = phi i64 [ %.sroa.033.1, %.thread352 ], [ 2, %2 ]
-  %.sroa.836.0.lcssa1214 = phi i64 [ %.sroa.836.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.037.0.lcssa1212 = phi i64 [ %.sroa.037.1, %.thread352 ], [ 2, %2 ]
-  %.sroa.840.0.lcssa1210 = phi i64 [ %.sroa.840.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.041.0.lcssa1208 = phi i8 [ %.sroa.041.1, %.thread352 ], [ 2, %2 ]
-  %.sroa.844.0.lcssa1206 = phi i8 [ %.sroa.844.1, %.thread352 ], [ undef, %2 ]
-  %.sroa.045.0.lcssa1204 = phi i8 [ %.sroa.045.1, %.thread352 ], [ 2, %2 ]
-  %.sroa.848.0.lcssa1202 = phi i8 [ %.sroa.848.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.0.0.lcssa1251 = phi i64 [ %.sroa.0.1, %.thread352 ], [ 2, %2 ]
+  %.sroa.8.0.lcssa1249 = phi i64 [ %.sroa.8.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.08.0.lcssa1247 = phi i32 [ %.sroa.08.1, %.thread352 ], [ 2, %2 ]
+  %.sroa.811.0.lcssa1245 = phi i32 [ %.sroa.811.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.012.0.lcssa1243 = phi i32 [ %.sroa.012.1, %.thread352 ], [ 2, %2 ]
+  %.sroa.815.0.lcssa1241 = phi i32 [ %.sroa.815.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.016.0.lcssa1239 = phi i64 [ %.sroa.016.1, %.thread352 ], [ 2, %2 ]
+  %.sroa.819.0.lcssa1237 = phi i64 [ %.sroa.819.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.020.0.lcssa1235 = phi i64 [ %.sroa.020.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.6.0.lcssa1233 = phi i32 [ %.sroa.6.1, %.thread352 ], [ 1000000001, %2 ]
+  %.sroa.023.0.lcssa1231 = phi i64 [ %.sroa.023.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.624.0.lcssa1229 = phi i32 [ %.sroa.624.1, %.thread352 ], [ 1000000001, %2 ]
+  %.sroa.028.0.lcssa1227 = phi i64 [ %.sroa.028.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.629.0.lcssa1225 = phi i32 [ %.sroa.629.1, %.thread352 ], [ 1000000001, %2 ]
+  %.sroa.033.0.lcssa1223 = phi i64 [ %.sroa.033.1, %.thread352 ], [ 2, %2 ]
+  %.sroa.836.0.lcssa1221 = phi i64 [ %.sroa.836.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.037.0.lcssa1219 = phi i64 [ %.sroa.037.1, %.thread352 ], [ 2, %2 ]
+  %.sroa.840.0.lcssa1217 = phi i64 [ %.sroa.840.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.041.0.lcssa1215 = phi i8 [ %.sroa.041.1, %.thread352 ], [ 2, %2 ]
+  %.sroa.844.0.lcssa1213 = phi i8 [ %.sroa.844.1, %.thread352 ], [ undef, %2 ]
+  %.sroa.045.0.lcssa1211 = phi i8 [ %.sroa.045.1, %.thread352 ], [ 2, %2 ]
+  %.sroa.848.0.lcssa1209 = phi i8 [ %.sroa.848.1, %.thread352 ], [ undef, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6332)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2675
   invoke void @_ZN5serde2de5Error13missing_field17h0ad02c9579fa3d70E(ptr noalias noundef nonnull sret({ { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }) align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull readonly align 1 @anon.bdf30126dc4fe595fb4e784ec6341e98.11, i64 noundef 7)
@@ -12839,28 +12839,28 @@ _ZN5serde2de9MapAccess10next_value17h3b8c11c8736ad814E.exit: ; preds = %228
   br label %246
 
 243:                                              ; preds = %.thread352, %240
-  %.sroa.0.0.lcssa1243 = phi i64 [ %.sroa.0.0.lcssa1244, %240 ], [ %.sroa.0.1, %.thread352 ]
-  %.sroa.8.0.lcssa1241 = phi i64 [ %.sroa.8.0.lcssa1242, %240 ], [ %.sroa.8.1, %.thread352 ]
-  %.sroa.08.0.lcssa1239 = phi i32 [ %.sroa.08.0.lcssa1240, %240 ], [ %.sroa.08.1, %.thread352 ]
-  %.sroa.811.0.lcssa1237 = phi i32 [ %.sroa.811.0.lcssa1238, %240 ], [ %.sroa.811.1, %.thread352 ]
-  %.sroa.012.0.lcssa1235 = phi i32 [ %.sroa.012.0.lcssa1236, %240 ], [ %.sroa.012.1, %.thread352 ]
-  %.sroa.815.0.lcssa1233 = phi i32 [ %.sroa.815.0.lcssa1234, %240 ], [ %.sroa.815.1, %.thread352 ]
-  %.sroa.016.0.lcssa1231 = phi i64 [ %.sroa.016.0.lcssa1232, %240 ], [ %.sroa.016.1, %.thread352 ]
-  %.sroa.819.0.lcssa1229 = phi i64 [ %.sroa.819.0.lcssa1230, %240 ], [ %.sroa.819.1, %.thread352 ]
-  %.sroa.020.0.lcssa1227 = phi i64 [ %.sroa.020.0.lcssa1228, %240 ], [ %.sroa.020.1, %.thread352 ]
-  %.sroa.6.0.lcssa1225 = phi i32 [ %.sroa.6.0.lcssa1226, %240 ], [ %.sroa.6.1, %.thread352 ]
-  %.sroa.023.0.lcssa1223 = phi i64 [ %.sroa.023.0.lcssa1224, %240 ], [ %.sroa.023.1, %.thread352 ]
-  %.sroa.624.0.lcssa1221 = phi i32 [ %.sroa.624.0.lcssa1222, %240 ], [ %.sroa.624.1, %.thread352 ]
-  %.sroa.028.0.lcssa1219 = phi i64 [ %.sroa.028.0.lcssa1220, %240 ], [ %.sroa.028.1, %.thread352 ]
-  %.sroa.629.0.lcssa1217 = phi i32 [ %.sroa.629.0.lcssa1218, %240 ], [ %.sroa.629.1, %.thread352 ]
-  %.sroa.033.0.lcssa1215 = phi i64 [ %.sroa.033.0.lcssa1216, %240 ], [ %.sroa.033.1, %.thread352 ]
-  %.sroa.836.0.lcssa1213 = phi i64 [ %.sroa.836.0.lcssa1214, %240 ], [ %.sroa.836.1, %.thread352 ]
-  %.sroa.037.0.lcssa1211 = phi i64 [ %.sroa.037.0.lcssa1212, %240 ], [ %.sroa.037.1, %.thread352 ]
-  %.sroa.840.0.lcssa1209 = phi i64 [ %.sroa.840.0.lcssa1210, %240 ], [ %.sroa.840.1, %.thread352 ]
-  %.sroa.041.0.lcssa1207 = phi i8 [ %.sroa.041.0.lcssa1208, %240 ], [ %.sroa.041.1, %.thread352 ]
-  %.sroa.844.0.lcssa1205 = phi i8 [ %.sroa.844.0.lcssa1206, %240 ], [ %.sroa.844.1, %.thread352 ]
-  %.sroa.045.0.lcssa1203 = phi i8 [ %.sroa.045.0.lcssa1204, %240 ], [ %.sroa.045.1, %.thread352 ]
-  %.sroa.848.0.lcssa1201 = phi i8 [ %.sroa.848.0.lcssa1202, %240 ], [ %.sroa.848.1, %.thread352 ]
+  %.sroa.0.0.lcssa1250 = phi i64 [ %.sroa.0.0.lcssa1251, %240 ], [ %.sroa.0.1, %.thread352 ]
+  %.sroa.8.0.lcssa1248 = phi i64 [ %.sroa.8.0.lcssa1249, %240 ], [ %.sroa.8.1, %.thread352 ]
+  %.sroa.08.0.lcssa1246 = phi i32 [ %.sroa.08.0.lcssa1247, %240 ], [ %.sroa.08.1, %.thread352 ]
+  %.sroa.811.0.lcssa1244 = phi i32 [ %.sroa.811.0.lcssa1245, %240 ], [ %.sroa.811.1, %.thread352 ]
+  %.sroa.012.0.lcssa1242 = phi i32 [ %.sroa.012.0.lcssa1243, %240 ], [ %.sroa.012.1, %.thread352 ]
+  %.sroa.815.0.lcssa1240 = phi i32 [ %.sroa.815.0.lcssa1241, %240 ], [ %.sroa.815.1, %.thread352 ]
+  %.sroa.016.0.lcssa1238 = phi i64 [ %.sroa.016.0.lcssa1239, %240 ], [ %.sroa.016.1, %.thread352 ]
+  %.sroa.819.0.lcssa1236 = phi i64 [ %.sroa.819.0.lcssa1237, %240 ], [ %.sroa.819.1, %.thread352 ]
+  %.sroa.020.0.lcssa1234 = phi i64 [ %.sroa.020.0.lcssa1235, %240 ], [ %.sroa.020.1, %.thread352 ]
+  %.sroa.6.0.lcssa1232 = phi i32 [ %.sroa.6.0.lcssa1233, %240 ], [ %.sroa.6.1, %.thread352 ]
+  %.sroa.023.0.lcssa1230 = phi i64 [ %.sroa.023.0.lcssa1231, %240 ], [ %.sroa.023.1, %.thread352 ]
+  %.sroa.624.0.lcssa1228 = phi i32 [ %.sroa.624.0.lcssa1229, %240 ], [ %.sroa.624.1, %.thread352 ]
+  %.sroa.028.0.lcssa1226 = phi i64 [ %.sroa.028.0.lcssa1227, %240 ], [ %.sroa.028.1, %.thread352 ]
+  %.sroa.629.0.lcssa1224 = phi i32 [ %.sroa.629.0.lcssa1225, %240 ], [ %.sroa.629.1, %.thread352 ]
+  %.sroa.033.0.lcssa1222 = phi i64 [ %.sroa.033.0.lcssa1223, %240 ], [ %.sroa.033.1, %.thread352 ]
+  %.sroa.836.0.lcssa1220 = phi i64 [ %.sroa.836.0.lcssa1221, %240 ], [ %.sroa.836.1, %.thread352 ]
+  %.sroa.037.0.lcssa1218 = phi i64 [ %.sroa.037.0.lcssa1219, %240 ], [ %.sroa.037.1, %.thread352 ]
+  %.sroa.840.0.lcssa1216 = phi i64 [ %.sroa.840.0.lcssa1217, %240 ], [ %.sroa.840.1, %.thread352 ]
+  %.sroa.041.0.lcssa1214 = phi i8 [ %.sroa.041.0.lcssa1215, %240 ], [ %.sroa.041.1, %.thread352 ]
+  %.sroa.844.0.lcssa1212 = phi i8 [ %.sroa.844.0.lcssa1213, %240 ], [ %.sroa.844.1, %.thread352 ]
+  %.sroa.045.0.lcssa1210 = phi i8 [ %.sroa.045.0.lcssa1211, %240 ], [ %.sroa.045.1, %.thread352 ]
+  %.sroa.848.0.lcssa1208 = phi i8 [ %.sroa.848.0.lcssa1209, %240 ], [ %.sroa.848.1, %.thread352 ]
   %.0288.in = phi i8 [ %.sroa.4331.0.copyload, %240 ], [ %.1, %.thread352 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %244 = load i64, ptr %35, align 8, !range !1942, !noundef !13
@@ -12896,39 +12896,39 @@ _ZN5serde2de9MapAccess10next_value17h3b8c11c8736ad814E.exit: ; preds = %228
           to label %270 unwind label %268
 
 253:                                              ; preds = %249
-  %254 = icmp eq i8 %.sroa.045.0.lcssa1203, 2
-  %.sroa.3214.0 = select i1 %254, i8 undef, i8 %.sroa.848.0.lcssa1201
-  %255 = and i8 %.sroa.045.0.lcssa1203, 1
-  %256 = icmp eq i8 %.sroa.041.0.lcssa1207, 2
-  %.sroa.3212.0 = select i1 %256, i8 undef, i8 %.sroa.844.0.lcssa1205
-  %257 = and i8 %.sroa.041.0.lcssa1207, 1
-  %258 = icmp eq i64 %.sroa.037.0.lcssa1211, 2
-  %.sroa.3210.0 = select i1 %258, i64 undef, i64 %.sroa.840.0.lcssa1209
-  %.sroa.0209.0 = select i1 %258, i64 0, i64 %.sroa.037.0.lcssa1211
-  %259 = icmp eq i64 %.sroa.033.0.lcssa1215, 2
-  %.sroa.3208.0 = select i1 %259, i64 undef, i64 %.sroa.836.0.lcssa1213
-  %.sroa.0207.0 = select i1 %259, i64 0, i64 %.sroa.033.0.lcssa1215
-  %260 = icmp eq i32 %.sroa.629.0.lcssa1217, 1000000001
-  %.sroa.3206.0 = select i1 %260, i32 1000000000, i32 %.sroa.629.0.lcssa1217
-  %.sroa.0205.0 = select i1 %260, i64 undef, i64 %.sroa.028.0.lcssa1219
-  %261 = icmp eq i32 %.sroa.624.0.lcssa1221, 1000000001
-  %.sroa.3204.0 = select i1 %261, i32 1000000000, i32 %.sroa.624.0.lcssa1221
-  %.sroa.0203.0 = select i1 %261, i64 undef, i64 %.sroa.023.0.lcssa1223
-  %262 = icmp eq i32 %.sroa.6.0.lcssa1225, 1000000001
-  %.sroa.3202.0 = select i1 %262, i32 1000000000, i32 %.sroa.6.0.lcssa1225
-  %.sroa.0201.0 = select i1 %262, i64 undef, i64 %.sroa.020.0.lcssa1227
-  %263 = icmp eq i64 %.sroa.016.0.lcssa1231, 2
-  %.sroa.3200.0 = select i1 %263, i64 undef, i64 %.sroa.819.0.lcssa1229
-  %.sroa.0199.0 = select i1 %263, i64 0, i64 %.sroa.016.0.lcssa1231
-  %264 = icmp eq i32 %.sroa.012.0.lcssa1235, 2
-  %.sroa.3198.0 = select i1 %264, i32 undef, i32 %.sroa.815.0.lcssa1233
-  %.sroa.0197.0 = select i1 %264, i32 0, i32 %.sroa.012.0.lcssa1235
-  %265 = icmp eq i32 %.sroa.08.0.lcssa1239, 2
-  %.sroa.3196.0 = select i1 %265, i32 undef, i32 %.sroa.811.0.lcssa1237
-  %.sroa.0195.0 = select i1 %265, i32 0, i32 %.sroa.08.0.lcssa1239
-  %266 = icmp eq i64 %.sroa.0.0.lcssa1243, 2
-  %..sroa.8.0 = select i1 %266, i64 undef, i64 %.sroa.8.0.lcssa1241
-  %..sroa.0.0 = select i1 %266, i64 0, i64 %.sroa.0.0.lcssa1243
+  %254 = icmp eq i8 %.sroa.045.0.lcssa1210, 2
+  %.sroa.3214.0 = select i1 %254, i8 undef, i8 %.sroa.848.0.lcssa1208
+  %255 = and i8 %.sroa.045.0.lcssa1210, 1
+  %256 = icmp eq i8 %.sroa.041.0.lcssa1214, 2
+  %.sroa.3212.0 = select i1 %256, i8 undef, i8 %.sroa.844.0.lcssa1212
+  %257 = and i8 %.sroa.041.0.lcssa1214, 1
+  %258 = icmp eq i64 %.sroa.037.0.lcssa1218, 2
+  %.sroa.3210.0 = select i1 %258, i64 undef, i64 %.sroa.840.0.lcssa1216
+  %.sroa.0209.0 = select i1 %258, i64 0, i64 %.sroa.037.0.lcssa1218
+  %259 = icmp eq i64 %.sroa.033.0.lcssa1222, 2
+  %.sroa.3208.0 = select i1 %259, i64 undef, i64 %.sroa.836.0.lcssa1220
+  %.sroa.0207.0 = select i1 %259, i64 0, i64 %.sroa.033.0.lcssa1222
+  %260 = icmp eq i32 %.sroa.629.0.lcssa1224, 1000000001
+  %.sroa.3206.0 = select i1 %260, i32 1000000000, i32 %.sroa.629.0.lcssa1224
+  %.sroa.0205.0 = select i1 %260, i64 undef, i64 %.sroa.028.0.lcssa1226
+  %261 = icmp eq i32 %.sroa.624.0.lcssa1228, 1000000001
+  %.sroa.3204.0 = select i1 %261, i32 1000000000, i32 %.sroa.624.0.lcssa1228
+  %.sroa.0203.0 = select i1 %261, i64 undef, i64 %.sroa.023.0.lcssa1230
+  %262 = icmp eq i32 %.sroa.6.0.lcssa1232, 1000000001
+  %.sroa.3202.0 = select i1 %262, i32 1000000000, i32 %.sroa.6.0.lcssa1232
+  %.sroa.0201.0 = select i1 %262, i64 undef, i64 %.sroa.020.0.lcssa1234
+  %263 = icmp eq i64 %.sroa.016.0.lcssa1238, 2
+  %.sroa.3200.0 = select i1 %263, i64 undef, i64 %.sroa.819.0.lcssa1236
+  %.sroa.0199.0 = select i1 %263, i64 0, i64 %.sroa.016.0.lcssa1238
+  %264 = icmp eq i32 %.sroa.012.0.lcssa1242, 2
+  %.sroa.3198.0 = select i1 %264, i32 undef, i32 %.sroa.815.0.lcssa1240
+  %.sroa.0197.0 = select i1 %264, i32 0, i32 %.sroa.012.0.lcssa1242
+  %265 = icmp eq i32 %.sroa.08.0.lcssa1246, 2
+  %.sroa.3196.0 = select i1 %265, i32 undef, i32 %.sroa.811.0.lcssa1244
+  %.sroa.0195.0 = select i1 %265, i32 0, i32 %.sroa.08.0.lcssa1246
+  %266 = icmp eq i64 %.sroa.0.0.lcssa1250, 2
+  %..sroa.8.0 = select i1 %266, i64 undef, i64 %.sroa.8.0.lcssa1248
+  %..sroa.0.0 = select i1 %266, i64 0, i64 %.sroa.0.0.lcssa1250
   %267 = and i8 %.0288.in, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -13148,11 +13148,11 @@ define internal fastcc void @"_ZN187_$LT$wasmtime_cache..worker.._..$LT$impl$u20
 
 .thread:                                          ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.val216 = load i32, ptr %1, align 4, !range !478, !alias.scope !2695, !noalias !2698, !noundef !13
-  %.not.i.i217 = icmp eq i32 %.val216, 2
-  br i1 %.not.i.i217, label %.thread138.thread222, label %.outer
+  %.val220 = load i32, ptr %1, align 4, !range !478, !alias.scope !2695, !noalias !2698, !noundef !13
+  %.not.i.i221 = icmp eq i32 %.val220, 2
+  br i1 %.not.i.i221, label %.thread138.thread226, label %.outer
 
-.thread138.thread222:                             ; preds = %.thread
+.thread138.thread226:                             ; preds = %.thread
   %35 = icmp eq i32 %.sroa.02.0189, 0
   br i1 %35, label %49, label %53
 
@@ -13200,8 +13200,8 @@ define internal fastcc void @"_ZN187_$LT$wasmtime_cache..worker.._..$LT$impl$u20
   br label %56
 
 .thread138.thread:                                ; preds = %2, %.thread138
-  %.sroa.02.0.lcssa211 = phi i1 [ %16, %.thread138 ], [ true, %2 ]
-  %.sroa.74.0.lcssa209 = phi i32 [ %.sroa.74.1, %.thread138 ], [ undef, %2 ]
+  %.sroa.02.0.lcssa215 = phi i1 [ %16, %.thread138 ], [ true, %2 ]
+  %.sroa.74.0.lcssa213 = phi i32 [ %.sroa.74.1, %.thread138 ], [ undef, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6122)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2714
   call void @_ZN5serde2de5Error13missing_field17h0ad02c9579fa3d70E(ptr noalias noundef nonnull sret({ { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }) align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull readonly align 1 @anon.bdf30126dc4fe595fb4e784ec6341e98.29, i64 noundef 6), !noalias !2718
@@ -13216,7 +13216,7 @@ define internal fastcc void @"_ZN187_$LT$wasmtime_cache..worker.._..$LT$impl$u20
 
 46:                                               ; preds = %.thread138.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6122)
-  br i1 %.sroa.02.0.lcssa211, label %49, label %53
+  br i1 %.sroa.02.0.lcssa215, label %49, label %53
 
 47:                                               ; preds = %.thread138.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.398, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6122, i64 80, i1 false)
@@ -13231,8 +13231,8 @@ define internal fastcc void @"_ZN187_$LT$wasmtime_cache..worker.._..$LT$impl$u20
 48:                                               ; preds = %.thread138
   br i1 %16, label %49, label %53
 
-49:                                               ; preds = %.thread138.thread222, %46, %48
-  %.0111228 = phi i64 [ %.sroa.4.0.copyload, %46 ], [ %.sroa.7.0190.ph, %48 ], [ %32, %.thread138.thread222 ]
+49:                                               ; preds = %.thread138.thread226, %46, %48
+  %.0111232 = phi i64 [ %.sroa.4.0.copyload, %46 ], [ %.sroa.7.0190.ph, %48 ], [ %32, %.thread138.thread226 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6125)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2720
   call void @_ZN5serde2de5Error13missing_field17h0ad02c9579fa3d70E(ptr noalias noundef nonnull sret({ { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }) align 8 captures(none) dereferenceable(96) %3, ptr noalias noundef nonnull readonly align 1 @anon.bdf30126dc4fe595fb4e784ec6341e98.30, i64 noundef 21), !noalias !2724
@@ -13259,11 +13259,11 @@ define internal fastcc void @"_ZN187_$LT$wasmtime_cache..worker.._..$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %.sroa.3107.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(84) %.sroa.3107, i64 84, i1 false)
   br label %56
 
-53:                                               ; preds = %.thread138.thread222, %46, %48, %51
-  %.0111227 = phi i64 [ %.0111228, %51 ], [ %.sroa.7.0190.ph, %48 ], [ %.sroa.4.0.copyload, %46 ], [ %32, %.thread138.thread222 ]
-  %.0 = phi i32 [ %.sroa.4124.0.copyload, %51 ], [ %.sroa.74.1, %48 ], [ %.sroa.74.0.lcssa209, %46 ], [ %.sroa.74.0188, %.thread138.thread222 ]
+53:                                               ; preds = %.thread138.thread226, %46, %48, %51
+  %.0111231 = phi i64 [ %.0111232, %51 ], [ %.sroa.7.0190.ph, %48 ], [ %.sroa.4.0.copyload, %46 ], [ %32, %.thread138.thread226 ]
+  %.0 = phi i32 [ %.sroa.4124.0.copyload, %51 ], [ %.sroa.74.1, %48 ], [ %.sroa.74.0.lcssa213, %46 ], [ %.sroa.74.0188, %.thread138.thread226 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.0111227, ptr %54, align 8
+  store i64 %.0111231, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.0, ptr %55, align 8
   store i64 2, ptr %0, align 8

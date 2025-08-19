@@ -571,18 +571,18 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   br i1 %54, label %55, label %.thread9
 
 55:                                               ; preds = %.thread, %53
-  %.pr15 = phi i32 [ %29, %.thread ], [ %.pr, %53 ]
+  %.pr20 = phi i32 [ %29, %.thread ], [ %.pr, %53 ]
   %56 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
   %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %56, ptr %2, align 8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %57, ptr %58, align 8
-  %59 = and i32 %.pr15, 256
+  %59 = and i32 %.pr20, 256
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.thread16, label %61
+  br i1 %60, label %.thread21, label %61
 
-.thread16:                                        ; preds = %55
+.thread21:                                        ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %79
 
@@ -616,15 +616,15 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %78 = icmp sgt i32 %.pr8, 0
   br i1 %78, label %79, label %.thread9
 
-79:                                               ; preds = %.thread16, %77
-  %.pr818 = phi i32 [ %.pr15, %.thread16 ], [ %.pr8, %77 ]
+79:                                               ; preds = %.thread21, %77
+  %.pr823 = phi i32 [ %.pr20, %.thread21 ], [ %.pr8, %77 ]
   %80 = load i64, ptr @lps0_dsm_guid_microsoft, align 8
   %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lps0_dsm_guid_microsoft, i64 8), align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %80, ptr %1, align 8
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %81, ptr %82, align 8
-  %83 = and i32 %.pr818, 16
+  %83 = and i32 %.pr823, 16
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %102, label %85
 

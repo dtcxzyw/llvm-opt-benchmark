@@ -227,10 +227,10 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i32 %110, ptr %108, align 4, !tbaa !50
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 1, ptr %111, align 8, !tbaa !55
-  %.not8595 = icmp eq i32 %44, %.074
-  %.not8696 = icmp eq i32 %46, %.075
-  %or.cond97 = select i1 %.not8595, i1 %.not8696, i1 false
-  br i1 %or.cond97, label %116, label %113
+  %.not85103 = icmp eq i32 %44, %.074
+  %.not86104 = icmp eq i32 %46, %.075
+  %or.cond105 = select i1 %.not85103, i1 %.not86104, i1 false
+  br i1 %or.cond105, label %116, label %113
 
 112:                                              ; preds = %103
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3) #6
@@ -1081,17 +1081,17 @@ copy_block8.exit230:                              ; preds = %314
   br label %copy_block8.exit213.sink.split
 
 copy_block8.exit213.sink.split:                   ; preds = %195, %copy_block8.exit230
-  %.sink244 = phi i64 [ %285, %copy_block8.exit230 ], [ %236, %195 ]
-  %.sink241.in = phi ptr [ %48, %copy_block8.exit230 ], [ %41, %195 ]
-  %.sink241 = load ptr, ptr %.sink241.in, align 8, !tbaa !68
+  %.sink254 = phi i64 [ %285, %copy_block8.exit230 ], [ %236, %195 ]
+  %.sink251.in = phi ptr [ %48, %copy_block8.exit230 ], [ %41, %195 ]
+  %.sink251 = load ptr, ptr %.sink251.in, align 8, !tbaa !68
   %361 = load ptr, ptr %37, align 8, !tbaa !56
   %362 = load i32, ptr %38, align 8, !tbaa !57
   %363 = mul nsw i32 %362, %54
   %364 = sext i32 %363 to i64
   %365 = getelementptr inbounds i8, ptr %361, i64 %364
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 %.sink244
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 %.sink254
   %367 = sext i32 %362 to i64
-  tail call void %.sink241(ptr noundef %366, i64 noundef %367, ptr noundef nonnull %47) #6
+  tail call void %.sink251(ptr noundef %366, i64 noundef %367, ptr noundef nonnull %47) #6
   br label %copy_block8.exit213
 
 copy_block8.exit213:                              ; preds = %127, %copy_block8.exit213.sink.split
@@ -1274,7 +1274,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %.050.i = phi i32 [ %91, %72 ], [ %108, %104 ]
   %.049.i = phi i32 [ %101, %72 ], [ %spec.select.i, %104 ]
   store i32 %spec.select.i61.sink.i, ptr %11, align 8, !tbaa !42
-  %121 = add nsw i32 %.050.i, %.0526.i
+  %121 = add nuw nsw i32 %.050.i, %.0526.i
   %122 = icmp sgt i32 %121, 63
   br i1 %122, label %.thread.i, label %123
 
@@ -1284,17 +1284,17 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %125 = mul nsw i32 %.049.i, %45
   %126 = add nsw i32 %124, %125
   %127 = trunc i32 %126 to i16
-  %128 = sext i32 %121 to i64
-  %129 = getelementptr inbounds i8, ptr %46, i64 %128
+  %128 = zext nneg i32 %121 to i64
+  %129 = getelementptr inbounds nuw i8, ptr %46, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !47
   %131 = zext i8 %130 to i64
   %132 = getelementptr inbounds nuw [64 x i16], ptr %50, i64 0, i64 %131
   store i16 %127, ptr %132, align 2, !tbaa !71
   %.not60.i = icmp ne i32 %.051.i, 0
-  %133 = add nsw i32 %121, 1
+  %133 = add nuw nsw i32 %121, 1
   %.not11.i = icmp eq i32 %121, 63
-  %or.cond12.i = or i1 %.not60.i, %.not11.i
-  br i1 %or.cond12.i, label %.thread.i, label %51, !llvm.loop !73
+  %or.cond14.i = or i1 %.not60.i, %.not11.i
+  br i1 %or.cond14.i, label %.thread.i, label %51, !llvm.loop !73
 
 .thread.i:                                        ; preds = %123, %120
   %134 = getelementptr inbounds nuw i8, ptr %.val, i64 76

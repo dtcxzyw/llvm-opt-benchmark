@@ -261,8 +261,8 @@ define internal i32 @flic_read_packet(ptr noundef readonly captures(none) %0, pt
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = tail call i32 @avio_feof(ptr noundef %7) #5
-  %.not6373 = icmp eq i32 %19, 0
-  br i1 %.not6373, label %.lr.ph, label %.critedge
+  %.not6378 = icmp eq i32 %19, 0
+  br i1 %.not6378, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2, %62
   %20 = call i32 @avio_read(ptr noundef %7, ptr noundef nonnull %3, i32 noundef 6) #5

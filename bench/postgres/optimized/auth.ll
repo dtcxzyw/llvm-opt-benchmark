@@ -1975,13 +1975,13 @@ switch.lookup:                                    ; preds = %892
   %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.ClientAuthentication, i64 0, i64 %897
   %switch.load = load ptr, ptr %switch.gep, align 8
   %898 = zext nneg i32 %895 to i64
-  %switch.gep113 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.ClientAuthentication.3, i64 0, i64 %898
-  %switch.load114 = load i32, ptr %switch.gep113, align 4
+  %switch.gep145 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.ClientAuthentication.3, i64 0, i64 %898
+  %switch.load146 = load i32, ptr %switch.gep145, align 4
   br label %899
 
 899:                                              ; preds = %892, %switch.lookup
   %.014.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.26, %892 ]
-  %.0.i91 = phi i32 [ %switch.load114, %switch.lookup ], [ 514, %892 ]
+  %.0.i91 = phi i32 [ %switch.load146, %switch.lookup ], [ 514, %892 ]
   %900 = load ptr, ptr %893, align 8
   %901 = getelementptr inbounds nuw i8, ptr %893, i64 8
   %902 = load i32, ptr %901, align 8

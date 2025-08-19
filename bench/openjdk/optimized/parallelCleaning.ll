@@ -149,17 +149,17 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   br i1 %.not, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.preheader33
 
 .preheader33:                                     ; preds = %.preheader.i, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11
-  %.sroa.0.066 = phi ptr [ null, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %5, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ %5, %.preheader.i ]
-  %.sroa.5.065 = phi i32 [ 0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %27, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ 0, %.preheader.i ]
-  %.sroa.9.064 = phi i32 [ 0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %9, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ %9, %.preheader.i ]
+  %.sroa.0.070 = phi ptr [ null, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %5, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ %5, %.preheader.i ]
+  %.sroa.5.069 = phi i32 [ 0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %27, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ 0, %.preheader.i ]
+  %.sroa.9.068 = phi i32 [ 0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %9, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ %9, %.preheader.i ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader33, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit
   %indvars.iv56 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next57, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
-  %.sroa.015.047 = phi ptr [ %.sroa.0.066, %.preheader33 ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
-  %.sroa.13.046 = phi i32 [ %.sroa.5.065, %.preheader33 ], [ %.sroa.13.14354, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
-  %29 = icmp eq i32 %.sroa.13.046, %.sroa.9.064
+  %.sroa.015.047 = phi ptr [ %.sroa.0.070, %.preheader33 ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
+  %.sroa.13.046 = phi i32 [ %.sroa.5.069, %.preheader33 ], [ %.sroa.13.14354, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
+  %29 = icmp eq i32 %.sroa.13.046, %.sroa.9.068
   br i1 %29, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -207,7 +207,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .backedge.i:                                      ; preds = %48, %42, %35
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %50 = trunc nsw i64 %indvars.iv.next to i32
-  %51 = icmp eq i32 %.sroa.9.064, %50
+  %51 = icmp eq i32 %.sroa.9.068, %50
   br i1 %51, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.lr.ph, !llvm.loop !8
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %38, %.lr.ph.i.i

@@ -556,9 +556,9 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   br label %364
 
 .thread.sink.split:                               ; preds = %28, %171
-  %.sink233 = phi i32 [ 71, %171 ], [ 70, %28 ]
+  %.sink236 = phi i32 [ 71, %171 ], [ 70, %28 ]
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i32 %.sink233, ptr %177, align 8
+  store i32 %.sink236, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %179 = load i8, ptr %178, align 4
   %180 = zext i8 %179 to i32

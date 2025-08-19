@@ -101,13 +101,13 @@ define noundef ptr @_ZN13wasmtime_wast4core9match_f3217hf15d33e2091ff4deE(i32 no
   %20 = alloca i32, align 4
   store i32 %0, ptr %20, align 4
   %21 = load i32, ptr %1, align 4, !range !30, !noundef !4
-  switch i32 %21, label %default.unreachable133 [
+  switch i32 %21, label %default.unreachable134 [
     i32 0, label %22
     i32 1, label %25
     i32 2, label %27
   ]
 
-default.unreachable133:                           ; preds = %2
+default.unreachable134:                           ; preds = %2
   unreachable
 
 22:                                               ; preds = %2
@@ -448,13 +448,13 @@ define noundef ptr @_ZN13wasmtime_wast4core9match_f6417h9f6303aaff02374dE(i64 no
   %20 = alloca i64, align 8
   store i64 %0, ptr %20, align 8
   %21 = load i64, ptr %1, align 8, !range !31, !noundef !4
-  switch i64 %21, label %default.unreachable133 [
+  switch i64 %21, label %default.unreachable134 [
     i64 0, label %22
     i64 1, label %25
     i64 2, label %27
   ]
 
-default.unreachable133:                           ; preds = %2
+default.unreachable134:                           ; preds = %2
   unreachable
 
 22:                                               ; preds = %2
@@ -814,7 +814,7 @@ define noundef ptr @_ZN13wasmtime_wast4core10match_v12817h48755488c322c4b2E(i128
   %39 = alloca [16 x i8], align 16
   %40 = alloca ptr, align 8
   %41 = load i8, ptr %1, align 8, !range !32, !noundef !4
-  switch i8 %41, label %default.unreachable226 [
+  switch i8 %41, label %default.unreachable228 [
     i8 0, label %42
     i8 1, label %93
     i8 2, label %120
@@ -823,7 +823,7 @@ define noundef ptr @_ZN13wasmtime_wast4core10match_v12817h48755488c322c4b2E(i128
     i8 5, label %.preheader215
   ]
 
-default.unreachable226:                           ; preds = %2
+default.unreachable228:                           ; preds = %2
   unreachable
 
 42:                                               ; preds = %2

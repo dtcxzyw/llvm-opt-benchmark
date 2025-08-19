@@ -531,10 +531,10 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   br label %224
 
 224:                                              ; preds = %212, %209, %199, %195
-  %.sink238.i = phi i64 [ 3, %199 ], [ 3, %195 ], [ 2, %212 ], [ 2, %209 ]
+  %.sink254.i = phi i64 [ 3, %199 ], [ 3, %195 ], [ 2, %212 ], [ 2, %209 ]
   %.sink.i = phi i32 [ 3, %199 ], [ 3, %195 ], [ 2, %212 ], [ 2, %209 ]
   %.0126.in.i = phi i16 [ %198, %199 ], [ %198, %195 ], [ %211, %212 ], [ %211, %209 ]
-  %225 = getelementptr i8, ptr %.0130206.i, i64 %.sink238.i
+  %225 = getelementptr i8, ptr %.0130206.i, i64 %.sink254.i
   %226 = add nsw i32 %.sink.i, %.0127208.i
   %.0126.i = add nuw nsw i16 %.0126.in.i, 1
   %227 = load i16, ptr %174, align 8
@@ -618,12 +618,12 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
   br label %wcp_uncompress.exit.thread
 
 266:                                              ; preds = %179
-  %267 = add i32 %.0168203.i, 1
-  %268 = icmp sgt i32 %267, 2048
+  %267 = add nsw i32 %.0168203.i, 1
+  %268 = icmp sgt i32 %.0168203.i, 2047
   br i1 %268, label %269, label %271
 
 269:                                              ; preds = %266
-  %270 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_uncompressed_data_exceeds, ptr noundef nonnull @.str.93, i32 noundef %267, i32 noundef 2048)
+  %270 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_uncompressed_data_exceeds, ptr noundef nonnull @.str.93, i32 noundef 2049, i32 noundef 2048)
   br label %wcp_uncompress.exit.thread
 
 271:                                              ; preds = %266

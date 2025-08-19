@@ -3409,9 +3409,9 @@ switch.lookup:                                    ; preds = %1211
 
 .sink.split:                                      ; preds = %1217, %1227, %1228, %1229, %1230, %1231, %1232, %1233, %1234, %1235, %1236, %1237, %1238, %1239, %1242, %1243
   %hf_llrp_xpc_w2.sink = phi ptr [ @hf_llrp_xpc_w2, %1243 ], [ @hf_llrp_xpc_w1, %1242 ], [ @hf_llrp_num_empty, %1239 ], [ @hf_llrp_accessspec_id, %1238 ], [ @hf_llrp_opspec_id, %1237 ], [ @hf_llrp_spec_idx, %1236 ], [ @hf_llrp_epc, %1235 ], [ @hf_llrp_pc_bits, %1234 ], [ @hf_llrp_crc, %1233 ], [ @hf_llrp_inventory_spec_id, %1232 ], [ @hf_llrp_rospec_id, %1231 ], [ @hf_llrp_tag_count, %1230 ], [ @hf_llrp_channel_idx, %1229 ], [ @hf_llrp_peak_rssi, %1228 ], [ @hf_llrp_microseconds, %1227 ], [ @hf_llrp_antenna_id, %1217 ]
-  %.sink1190 = phi i32 [ 2, %1243 ], [ 2, %1242 ], [ 2, %1239 ], [ 4, %1238 ], [ 2, %1237 ], [ 2, %1236 ], [ 12, %1235 ], [ 2, %1234 ], [ 2, %1233 ], [ 2, %1232 ], [ 4, %1231 ], [ 2, %1230 ], [ 2, %1229 ], [ 1, %1228 ], [ 8, %1227 ], [ 2, %1217 ]
+  %.sink1200 = phi i32 [ 2, %1243 ], [ 2, %1242 ], [ 2, %1239 ], [ 4, %1238 ], [ 2, %1237 ], [ 2, %1236 ], [ 12, %1235 ], [ 2, %1234 ], [ 2, %1233 ], [ 2, %1232 ], [ 4, %1231 ], [ 2, %1230 ], [ 2, %1229 ], [ 1, %1228 ], [ 8, %1227 ], [ 2, %1217 ]
   %1244 = load i32, ptr %hf_llrp_xpc_w2.sink, align 4
-  %1245 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1244, ptr noundef %0, i32 noundef %1226, i32 noundef %.sink1190, i32 noundef 0)
+  %1245 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1244, ptr noundef %0, i32 noundef %1226, i32 noundef %.sink1200, i32 noundef 0)
   br label %1246
 
 1246:                                             ; preds = %.sink.split, %1217

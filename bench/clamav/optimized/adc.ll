@@ -382,8 +382,8 @@ define range(i32 -3, 2) i32 @adc_decompress(ptr noundef captures(address_is_null
   br label %.thread
 
 157:                                              ; preds = %54, %62, %72, %45, %48, %41, %.critedge.thread, %.critedge, %.critedge2.thread
-  %.pr182 = load i64, ptr %18, align 8, !tbaa !20
-  %.not = icmp eq i64 %.pr182, 0
+  %.pr194 = load i64, ptr %18, align 8, !tbaa !20
+  %.not = icmp eq i64 %.pr194, 0
   br i1 %.not, label %.thread, label %26
 
 .thread143:                                       ; preds = %29

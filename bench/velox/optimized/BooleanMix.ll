@@ -1452,12 +1452,12 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
   br i1 %cmp25.not.i.i, label %return, label %_ZN8facebook5velox4bits8isAllSetEPKmiib.exit
 
 _ZN8facebook5velox4bits8isAllSetEPKmiib.exit:     ; preds = %for.end.i.i
-  %div27.i.i = ashr i32 %3, 6
+  %div27.i.i = lshr i32 %3, 6
   %sub28.i.i = and i32 %3, 63
   %sh_prom.i37.i.i = zext nneg i32 %sub28.i.i to i64
   %notmask.i38.i.i = shl nsw i64 -1, %sh_prom.i37.i.i
-  %idxprom.i40.i.i = sext i32 %div27.i.i to i64
-  %arrayidx.i41.i.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i40.i.i
+  %idxprom.i40.i.i = zext nneg i32 %div27.i.i to i64
+  %arrayidx.i41.i.i = getelementptr inbounds nuw i64, ptr %bits, i64 %idxprom.i40.i.i
   %14 = load i64, ptr %arrayidx.i41.i.i, align 8
   %.demorgan = or i64 %14, %notmask.i38.i.i
   %cmp.i42.i.i = icmp eq i64 %.demorgan, -1
@@ -2129,7 +2129,7 @@ _ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit89: ; preds = %_ZN8facebook
 
 invoke.cont48:                                    ; preds = %_ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit89
   %cmp54 = icmp eq ptr %call49, %0
-  br i1 %cmp54, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i92, label %if.end.i180
+  br i1 %cmp54, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i92, label %if.end.i185
 
 lpad47:                                           ; preds = %_ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit89
   %52 = landingpad { ptr, i32 }
@@ -2240,7 +2240,7 @@ if.then.i.i.i.i117:                               ; preds = %if.then6.i113
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i119, i8 %74, i64 %gepdiff.i120, i1 false)
   br label %return
 
-if.end.i180:                                      ; preds = %invoke.cont48
+if.end.i185:                                      ; preds = %invoke.cont48
   %sub64 = add i64 %call42, -96
   %add.ptr.i124 = getelementptr inbounds nuw i8, ptr %call49, i64 64
   %pool_.i.i = getelementptr inbounds nuw i8, ptr %call49, i64 8
@@ -2258,14 +2258,14 @@ if.end.i180:                                      ; preds = %invoke.cont48
   %padding_.i.i = getelementptr inbounds nuw i8, ptr %call49, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i, i8 -1, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 16), ptr %call49, align 8
-  %cmp.not.i182 = icmp ugt i64 %numElements, %sub64
-  br i1 %cmp.not.i182, label %if.then4.i, label %if.end.i129
+  %cmp.not.i187 = icmp ugt i64 %numElements, %sub64
+  br i1 %cmp.not.i187, label %if.then4.i, label %if.end.i129
 
-if.then4.i:                                       ; preds = %if.end.i180
+if.then4.i:                                       ; preds = %if.end.i185
   tail call void @llvm.trap()
   unreachable
 
-if.end.i129:                                      ; preds = %if.end.i180
+if.end.i129:                                      ; preds = %if.end.i185
   store i64 %numElements, ptr %size_.i.i, align 8
   %_M_engaged.i.i.i131 = getelementptr inbounds nuw i8, ptr %initValue, i64 1
   %75 = load i8, ptr %_M_engaged.i.i.i131, align 1

@@ -201,7 +201,7 @@ _ZN6vectorIP10tactic_cmdLb0EjE3endEv.exit:        ; preds = %1
   %8 = shl nuw nsw i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %.not4.i = icmp eq i32 %6, 0
-  br i1 %.not4.i, label %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread56, label %.lr.ph.i
+  br i1 %.not4.i, label %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread78, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIP10tactic_cmdLb0EjE3endEv.exit, %_ZN11delete_procI10tactic_cmdEclEPS0_.exit.i
   %.05.i = phi ptr [ %11, %_ZN11delete_procI10tactic_cmdEclEPS0_.exit.i ], [ %3, %_ZN6vectorIP10tactic_cmdLb0EjE3endEv.exit ]
@@ -221,15 +221,15 @@ _ZN11delete_procI10tactic_cmdEclEPS0_.exit.i:     ; preds = %_Z7deallocI10tactic
 _ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit: ; preds = %_ZN11delete_procI10tactic_cmdEclEPS0_.exit.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !13
   %.not.i1 = icmp eq ptr %.pre, null
-  br i1 %.not.i1, label %_ZN6vectorIP10tactic_cmdLb0EjE5resetEv.exit, label %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread56
+  br i1 %.not.i1, label %_ZN6vectorIP10tactic_cmdLb0EjE5resetEv.exit, label %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread78
 
-_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread56: ; preds = %_ZN6vectorIP10tactic_cmdLb0EjE3endEv.exit, %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit
+_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread78: ; preds = %_ZN6vectorIP10tactic_cmdLb0EjE3endEv.exit, %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit
   %12 = phi ptr [ %.pre, %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit ], [ %3, %_ZN6vectorIP10tactic_cmdLb0EjE3endEv.exit ]
   %13 = getelementptr inbounds i8, ptr %12, i64 -4
   store i32 0, ptr %13, align 4, !tbaa !26
   br label %_ZN6vectorIP10tactic_cmdLb0EjE5resetEv.exit
 
-_ZN6vectorIP10tactic_cmdLb0EjE5resetEv.exit:      ; preds = %1, %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit, %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread56
+_ZN6vectorIP10tactic_cmdLb0EjE5resetEv.exit:      ; preds = %1, %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit, %_ZSt8for_eachIPP10tactic_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread78
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !31
   %16 = icmp eq i32 %15, 0
@@ -276,8 +276,8 @@ _ZN6vectorIP10tactic_cmdLb0EjE5resetEv.exit:      ; preds = %1, %_ZSt8for_eachIP
   %35 = icmp ugt i32 %23, 16
   %36 = mul i32 %23, 3
   %37 = icmp ugt i32 %34, %36
-  %or.cond16.i.i = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond16.i.i, label %38, label %._crit_edge.thread.i.i
+  %or.cond18.i.i = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond18.i.i, label %38, label %._crit_edge.thread.i.i
 
 38:                                               ; preds = %._crit_edge.i.i
   %39 = icmp eq ptr %21, null
@@ -330,7 +330,7 @@ _ZN6vectorIP14simplifier_cmdLb0EjE3endEv.exit:    ; preds = %_ZN9table2mapI17def
   %54 = shl nuw nsw i64 %53, 3
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 %54
   %.not4.i4 = icmp eq i32 %52, 0
-  br i1 %.not4.i4, label %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread61, label %.lr.ph.i5
+  br i1 %.not4.i4, label %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread83, label %.lr.ph.i5
 
 .lr.ph.i5:                                        ; preds = %_ZN6vectorIP14simplifier_cmdLb0EjE3endEv.exit, %_ZN11delete_procI14simplifier_cmdEclEPS0_.exit.i
   %.05.i6 = phi ptr [ %66, %_ZN11delete_procI14simplifier_cmdEclEPS0_.exit.i ], [ %49, %_ZN6vectorIP14simplifier_cmdLb0EjE3endEv.exit ]
@@ -368,15 +368,15 @@ _ZN11delete_procI14simplifier_cmdEclEPS0_.exit.i: ; preds = %_Z7deallocI14simpli
 _ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit: ; preds = %_ZN11delete_procI14simplifier_cmdEclEPS0_.exit.i
   %.pre51 = load ptr, ptr %48, align 8, !tbaa !10
   %.not.i9 = icmp eq ptr %.pre51, null
-  br i1 %.not.i9, label %_ZN6vectorIP14simplifier_cmdLb0EjE5resetEv.exit, label %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread61
+  br i1 %.not.i9, label %_ZN6vectorIP14simplifier_cmdLb0EjE5resetEv.exit, label %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread83
 
-_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread61: ; preds = %_ZN6vectorIP14simplifier_cmdLb0EjE3endEv.exit, %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit
+_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread83: ; preds = %_ZN6vectorIP14simplifier_cmdLb0EjE3endEv.exit, %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit
   %67 = phi ptr [ %.pre51, %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit ], [ %49, %_ZN6vectorIP14simplifier_cmdLb0EjE3endEv.exit ]
   %68 = getelementptr inbounds i8, ptr %67, i64 -4
   store i32 0, ptr %68, align 4, !tbaa !26
   br label %_ZN6vectorIP14simplifier_cmdLb0EjE5resetEv.exit
 
-_ZN6vectorIP14simplifier_cmdLb0EjE5resetEv.exit:  ; preds = %_ZN9table2mapI17default_map_entryI6symbolP10tactic_cmdE16symbol_hash_proc14symbol_eq_procE5resetEv.exit, %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit, %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread61
+_ZN6vectorIP14simplifier_cmdLb0EjE5resetEv.exit:  ; preds = %_ZN9table2mapI17default_map_entryI6symbolP10tactic_cmdE16symbol_hash_proc14symbol_eq_procE5resetEv.exit, %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit, %_ZSt8for_eachIPP14simplifier_cmd11delete_procIS0_EET0_T_S6_S5_.exit.thread83
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %71 = load i32, ptr %70, align 4, !tbaa !47
@@ -424,8 +424,8 @@ _ZN6vectorIP14simplifier_cmdLb0EjE5resetEv.exit:  ; preds = %_ZN9table2mapI17def
   %91 = icmp ugt i32 %79, 16
   %92 = mul i32 %79, 3
   %93 = icmp ugt i32 %90, %92
-  %or.cond16.i.i19 = select i1 %91, i1 %93, i1 false
-  br i1 %or.cond16.i.i19, label %94, label %._crit_edge.thread.i.i20
+  %or.cond18.i.i19 = select i1 %91, i1 %93, i1 false
+  br i1 %or.cond18.i.i19, label %94, label %._crit_edge.thread.i.i20
 
 94:                                               ; preds = %._crit_edge.i.i18
   %95 = icmp eq ptr %77, null
@@ -478,7 +478,7 @@ _ZN6vectorIP10probe_infoLb0EjE3endEv.exit:        ; preds = %_ZN9table2mapI17def
   %110 = shl nuw nsw i64 %109, 3
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 %110
   %.not4.i28 = icmp eq i32 %108, 0
-  br i1 %.not4.i28, label %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit.thread66, label %.lr.ph.i29
+  br i1 %.not4.i28, label %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit.thread88, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %_ZN6vectorIP10probe_infoLb0EjE3endEv.exit, %_ZN11delete_procI10probe_infoEclEPS0_.exit.i
   %.05.i30 = phi ptr [ %127, %_ZN11delete_procI10probe_infoEclEPS0_.exit.i ], [ %105, %_ZN6vectorIP10probe_infoLb0EjE3endEv.exit ]
@@ -526,15 +526,15 @@ _ZN11delete_procI10probe_infoEclEPS0_.exit.i:     ; preds = %_Z7deallocI10probe_
 _ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit: ; preds = %_ZN11delete_procI10probe_infoEclEPS0_.exit.i
   %.pre52 = load ptr, ptr %104, align 8, !tbaa !3
   %.not.i33 = icmp eq ptr %.pre52, null
-  br i1 %.not.i33, label %_ZN6vectorIP10probe_infoLb0EjE5resetEv.exit, label %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit.thread66
+  br i1 %.not.i33, label %_ZN6vectorIP10probe_infoLb0EjE5resetEv.exit, label %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit.thread88
 
-_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit.thread66: ; preds = %_ZN6vectorIP10probe_infoLb0EjE3endEv.exit, %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit
+_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit.thread88: ; preds = %_ZN6vectorIP10probe_infoLb0EjE3endEv.exit, %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit
   %128 = phi ptr [ %.pre52, %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit ], [ %105, %_ZN6vectorIP10probe_infoLb0EjE3endEv.exit ]
   %129 = getelementptr inbounds i8, ptr %128, i64 -4
   store i32 0, ptr %129, align 4, !tbaa !26
   br label %_ZN6vectorIP10probe_infoLb0EjE5resetEv.exit
 
-_ZN6vectorIP10probe_infoLb0EjE5resetEv.exit:      ; preds = %_ZN9table2mapI17default_map_entryI6symbolP14simplifier_cmdE16symbol_hash_proc14symbol_eq_procE5resetEv.exit, %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit, %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit.thread66
+_ZN6vectorIP10probe_infoLb0EjE5resetEv.exit:      ; preds = %_ZN9table2mapI17default_map_entryI6symbolP14simplifier_cmdE16symbol_hash_proc14symbol_eq_procE5resetEv.exit, %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit, %_ZSt8for_eachIPP10probe_info11delete_procIS0_EET0_T_S6_S5_.exit.thread88
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %132 = load i32, ptr %131, align 4, !tbaa !65
@@ -582,8 +582,8 @@ _ZN6vectorIP10probe_infoLb0EjE5resetEv.exit:      ; preds = %_ZN9table2mapI17def
   %152 = icmp ugt i32 %140, 16
   %153 = mul i32 %140, 3
   %154 = icmp ugt i32 %151, %153
-  %or.cond16.i.i43 = select i1 %152, i1 %154, i1 false
-  br i1 %or.cond16.i.i43, label %155, label %._crit_edge.thread.i.i44
+  %or.cond18.i.i43 = select i1 %152, i1 %154, i1 false
+  br i1 %or.cond18.i.i43, label %155, label %._crit_edge.thread.i.i44
 
 155:                                              ; preds = %._crit_edge.i.i42
   %156 = icmp eq ptr %138, null

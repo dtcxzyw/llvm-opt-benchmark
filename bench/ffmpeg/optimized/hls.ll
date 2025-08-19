@@ -188,7 +188,7 @@ define internal range(i32 0, 101) i32 @hls_probe(ptr noundef readonly captures(n
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.30, i64 noundef 7) #15
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %.thread31
+  br i1 %.not, label %5, label %.thread32
 
 5:                                                ; preds = %1
   %6 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.31) #15
@@ -203,7 +203,7 @@ define internal range(i32 0, 101) i32 @hls_probe(ptr noundef readonly captures(n
 9:                                                ; preds = %7
   %10 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.33) #15
   %.not20 = icmp eq ptr %10, null
-  br i1 %.not20, label %.thread31, label %11
+  br i1 %.not20, label %.thread32, label %11
 
 11:                                               ; preds = %9, %7, %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -241,7 +241,7 @@ define internal range(i32 0, 101) i32 @hls_probe(ptr noundef readonly captures(n
   br i1 %27, label %36, label %.thread.thread
 
 .thread:                                          ; preds = %20
-  br i1 %.ph, label %.thread31, label %.thread.thread
+  br i1 %.ph, label %.thread32, label %.thread.thread
 
 .thread.thread:                                   ; preds = %11, %23, %.thread
   %28 = phi i1 [ false, %.thread ], [ %26, %23 ], [ false, %11 ]
@@ -258,17 +258,17 @@ define internal range(i32 0, 101) i32 @hls_probe(ptr noundef readonly captures(n
 
 35:                                               ; preds = %31
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.39) #16
-  br label %.thread31
+  br label %.thread32
 
 36:                                               ; preds = %23, %31, %.thread.thread
   %37 = phi i1 [ %28, %31 ], [ %28, %.thread.thread ], [ %26, %23 ]
-  br i1 %37, label %.thread29, label %.thread31
+  br i1 %37, label %.thread29, label %.thread32
 
 .thread29:                                        ; preds = %21, %36
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.40) #16
-  br label %.thread31
+  br label %.thread32
 
-.thread31:                                        ; preds = %.thread, %9, %35, %.thread29, %36, %1
+.thread32:                                        ; preds = %.thread, %9, %35, %.thread29, %36, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %35 ], [ 100, %.thread29 ], [ 100, %36 ], [ 0, %9 ], [ 100, %.thread ]
   ret i32 %.0
 }
@@ -1861,7 +1861,7 @@ recheck_discard_flags.exit:                       ; preds = %.thread.i
 
 146:                                              ; preds = %144
   %.not27.i = icmp eq ptr %.pre8.i, null
-  br i1 %.not27.i, label %147, label %.thread12.i
+  br i1 %.not27.i, label %147, label %.thread19.i
 
 147:                                              ; preds = %146
   %148 = load ptr, ptr %118, align 8, !tbaa !95
@@ -1869,12 +1869,12 @@ recheck_discard_flags.exit:                       ; preds = %.thread.i
   %.pr.pre.i = load ptr, ptr %119, align 8, !tbaa !102
   %.pre10.pre.i = load ptr, ptr %120, align 8, !tbaa !92
   %150 = icmp eq ptr %.pr.pre.i, null
-  br i1 %150, label %.thread.i163, label %.thread12.i
+  br i1 %150, label %.thread.i163, label %.thread19.i
 
 .thread.i163:                                     ; preds = %147, %144
   %151 = phi ptr [ %.pre8.i, %144 ], [ %.pre10.pre.i, %147 ]
   %.not29.i = icmp eq ptr %151, null
-  br i1 %.not29.i, label %152, label %.thread12.i
+  br i1 %.not29.i, label %152, label %.thread19.i
 
 152:                                              ; preds = %.thread.i163
   %153 = load ptr, ptr %118, align 8, !tbaa !95
@@ -1942,16 +1942,16 @@ init_subtitle_context.exit.i:                     ; preds = %161
 
 init_subtitle_context.exit._crit_edge.i:          ; preds = %init_subtitle_context.exit.i
   %.pre9.i = load ptr, ptr %120, align 8, !tbaa !92
-  br label %.thread12.i
+  br label %.thread19.i
 
-.thread12.i:                                      ; preds = %init_subtitle_context.exit._crit_edge.i, %.thread.i163, %147, %146
+.thread19.i:                                      ; preds = %init_subtitle_context.exit._crit_edge.i, %.thread.i163, %147, %146
   %184 = phi ptr [ %.pre9.i, %init_subtitle_context.exit._crit_edge.i ], [ %151, %.thread.i163 ], [ %.pre10.pre.i, %147 ], [ %.pre8.i, %146 ]
   %185 = load ptr, ptr %113, align 8, !tbaa !174
   %186 = call i32 @av_read_frame(ptr noundef %184, ptr noundef %185) #16
   %.not30.i = icmp eq i32 %186, 0
   br i1 %.not30.i, label %read_subtitle_packet.exit.thread183, label %187
 
-187:                                              ; preds = %.thread12.i
+187:                                              ; preds = %.thread19.i
   %188 = load ptr, ptr %118, align 8, !tbaa !95
   %189 = call i32 @ff_format_io_close(ptr noundef %188, ptr noundef nonnull %119) #16
   %190 = load i64, ptr %124, align 8, !tbaa !88
@@ -1978,7 +1978,7 @@ read_subtitle_packet.exit.thread:                 ; preds = %137, %read_subtitle
   %or.cond = and i1 %200, %199
   br i1 %or.cond, label %.critedge, label %.thread
 
-read_subtitle_packet.exit.thread183:              ; preds = %.thread12.i, %read_subtitle_packet.exit
+read_subtitle_packet.exit.thread183:              ; preds = %.thread19.i, %read_subtitle_packet.exit
   %201 = load i32, ptr %128, align 4, !tbaa !113
   %.not152 = icmp eq i32 %201, 0
   br i1 %.not152, label %234, label %202
@@ -2010,9 +2010,9 @@ read_subtitle_packet.exit.thread183:              ; preds = %.thread12.i, %read_
   %221 = getelementptr inbounds nuw i8, ptr %203, i64 64
   %222 = load i64, ptr %221, align 8, !tbaa !182
   %.not.i165 = icmp eq i64 %222, 0
-  br i1 %.not.i165, label %.thread.i166, label %.thread23.i
+  br i1 %.not.i165, label %.thread.i166, label %.thread25.i
 
-.thread23.i:                                      ; preds = %210
+.thread25.i:                                      ; preds = %210
   %223 = add nsw i64 %222, %208
   store i64 %223, ptr %129, align 8, !tbaa !179
   br label %226
@@ -2036,9 +2036,9 @@ read_subtitle_packet.exit.thread183:              ; preds = %.thread12.i, %read_
   %.pre223 = load ptr, ptr %.pre218, align 8, !tbaa !132
   br label %226
 
-226:                                              ; preds = %._crit_edge217, %.thread23.i
-  %227 = phi ptr [ %215, %.thread23.i ], [ %.pre223, %._crit_edge217 ]
-  %228 = phi i64 [ %222, %.thread23.i ], [ %.pre.i, %._crit_edge217 ]
+226:                                              ; preds = %._crit_edge217, %.thread25.i
+  %227 = phi ptr [ %215, %.thread25.i ], [ %.pre223, %._crit_edge217 ]
+  %228 = phi i64 [ %222, %.thread25.i ], [ %.pre.i, %._crit_edge217 ]
   %229 = getelementptr inbounds nuw i8, ptr %203, i64 64
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %231 = load i64, ptr %230, align 8
@@ -3089,7 +3089,7 @@ define internal fastcc i32 @parse_playlist(ptr noundef %0, ptr noundef %1, ptr n
   store i32 0, ptr %38, align 8, !tbaa !215
   %39 = tail call i32 @ff_http_do_new_request2(ptr noundef nonnull %34, ptr noundef %1, ptr noundef null) #16
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %open_url_keepalive.exit, label %thread-pre-split.thread438
+  br i1 %40, label %open_url_keepalive.exit, label %thread-pre-split.thread477
 
 open_url_keepalive.exit:                          ; preds = %36
   %41 = tail call i32 @ff_format_io_close(ptr noundef %33, ptr noundef nonnull %29) #16
@@ -3111,7 +3111,7 @@ open_url_keepalive.exit:                          ; preds = %36
 
 thread-pre-split:                                 ; preds = %4
   %.not234 = icmp eq ptr %3, null
-  br i1 %.not234, label %thread-pre-split.thread, label %thread-pre-split.thread438
+  br i1 %.not234, label %thread-pre-split.thread, label %thread-pre-split.thread477
 
 thread-pre-split.thread:                          ; preds = %28, %25, %.thread314, %thread-pre-split
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -3160,9 +3160,9 @@ thread-pre-split.thread:                          ; preds = %28, %25, %.thread31
   %.pre = phi ptr [ %.pre.pre434, %62 ], [ %.pre.pre434, %60 ], [ %.pre.pre, %._crit_edge ]
   %65 = phi i1 [ true, %62 ], [ false, %60 ], [ false, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %thread-pre-split.thread438
+  br label %thread-pre-split.thread477
 
-thread-pre-split.thread438:                       ; preds = %36, %64, %thread-pre-split
+thread-pre-split.thread477:                       ; preds = %36, %64, %thread-pre-split
   %66 = phi ptr [ %3, %thread-pre-split ], [ %.pre, %64 ], [ %30, %36 ]
   %.0183 = phi i1 [ true, %thread-pre-split ], [ %65, %64 ], [ true, %36 ]
   %.1163 = phi i32 [ 0, %thread-pre-split ], [ %57, %64 ], [ %39, %36 ]
@@ -3176,7 +3176,7 @@ thread-pre-split.thread438:                       ; preds = %36, %64, %thread-pr
   %.not239 = icmp eq i64 %lhsv, 23981780240975139
   br i1 %.not239, label %72, label %.thread318
 
-72:                                               ; preds = %thread-pre-split.thread438
+72:                                               ; preds = %thread-pre-split.thread477
   %.not240 = icmp eq ptr %2, null
   br i1 %.not240, label %82, label %73
 
@@ -3443,9 +3443,9 @@ thread-pre-split.thread438:                       ; preds = %36, %64, %thread-pr
   br i1 %.not80.i, label %.sink.split.i, label %185
 
 .sink.split.i:                                    ; preds = %181, %178
-  %.sink85.i = phi i32 [ 128, %178 ], [ 256, %181 ]
+  %.sink90.i = phi i32 [ 128, %178 ], [ 256, %181 ]
   %183 = load i32, ptr %177, align 8, !tbaa !151
-  %184 = or i32 %183, %.sink85.i
+  %184 = or i32 %183, %.sink90.i
   store i32 %184, ptr %177, align 8, !tbaa !151
   br label %185
 
@@ -4089,8 +4089,8 @@ ensure_playlist.exit312:                          ; preds = %243, %237
   store i64 %462, ptr %463, align 8, !tbaa !239
   br label %.thread318
 
-.thread318:                                       ; preds = %350, %347, %241, %239, %193, %191, %ensure_playlist.exit, %216, %214, %344, %370, %374, %384, %388, %403, %.thread337, %.thread330, %thread-pre-split.thread438, %460, %461
-  %.2164 = phi i32 [ %.3.ph355.lcssa369, %461 ], [ %.3.ph355.lcssa369, %460 ], [ -1094995529, %thread-pre-split.thread438 ], [ %.6.ph, %.thread330 ], [ %297, %.thread337 ], [ -1094995529, %370 ], [ -12, %374 ], [ -1094995529, %384 ], [ -12, %388 ], [ %401, %403 ], [ %348, %347 ], [ -12, %350 ], [ -12, %241 ], [ -12, %239 ], [ -12, %193 ], [ -12, %191 ], [ -1094995529, %ensure_playlist.exit ], [ -12, %216 ], [ -12, %214 ], [ -12, %344 ]
+.thread318:                                       ; preds = %350, %347, %241, %239, %193, %191, %ensure_playlist.exit, %216, %214, %344, %370, %374, %384, %388, %403, %.thread337, %.thread330, %thread-pre-split.thread477, %460, %461
+  %.2164 = phi i32 [ %.3.ph355.lcssa369, %461 ], [ %.3.ph355.lcssa369, %460 ], [ -1094995529, %thread-pre-split.thread477 ], [ %.6.ph, %.thread330 ], [ %297, %.thread337 ], [ -1094995529, %370 ], [ -12, %374 ], [ -1094995529, %384 ], [ -12, %388 ], [ %401, %403 ], [ %348, %347 ], [ -12, %350 ], [ -12, %241 ], [ -12, %239 ], [ -12, %193 ], [ -12, %191 ], [ -1094995529, %ensure_playlist.exit ], [ -12, %216 ], [ -12, %214 ], [ -12, %344 ]
   %464 = load ptr, ptr %12, align 8, !tbaa !223
   call void @av_free(ptr noundef %464) #16
   br i1 %.0183, label %469, label %465
@@ -4512,8 +4512,8 @@ define internal i32 @read_data_continuous(ptr noundef %0, ptr noundef %1, i32 no
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.092.ph198 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1229, %.outer ]
-  %.093.ph197 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.194228, %.outer ]
+  %.092.ph198 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1260, %.outer ]
+  %.093.ph197 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.194259, %.outer ]
   br label %44
 
 44:                                               ; preds = %.lr.ph, %137
@@ -4735,10 +4735,10 @@ sub_1147:                                         ; preds = %sub_0
   br i1 %.not203, label %.tail145.sink.split, label %.tail145
 
 .tail145.sink.split:                              ; preds = %sub_1147, %sub_1
-  %.sink267 = phi i8 [ 49, %sub_1 ], [ 48, %sub_1147 ]
+  %.sink298 = phi i8 [ 49, %sub_1 ], [ 48, %sub_1147 ]
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 2
   %152 = load i8, ptr %151, align 1
-  %153 = icmp eq i8 %152, %.sink267
+  %153 = icmp eq i8 %152, %.sink298
   %154 = zext i1 %153 to i32
   br label %.tail145
 
@@ -4753,8 +4753,8 @@ sub_1147:                                         ; preds = %sub_0
   br label %156
 
 156:                                              ; preds = %.loopexit.thread, %155, %.loopexit
-  %.1229 = phi i32 [ 1, %.loopexit.thread ], [ %.1.ph, %155 ], [ %.1.ph, %.loopexit ]
-  %.194228 = phi i32 [ 0, %.loopexit.thread ], [ %.194.ph, %155 ], [ %.194.ph, %.loopexit ]
+  %.1260 = phi i32 [ 1, %.loopexit.thread ], [ %.1.ph, %155 ], [ %.1.ph, %.loopexit ]
+  %.194259 = phi i32 [ 0, %.loopexit.thread ], [ %.194.ph, %155 ], [ %.194.ph, %.loopexit ]
   %157 = load i64, ptr %24, align 8, !tbaa !88
   %158 = load i64, ptr %25, align 8, !tbaa !96
   %159 = sub nsw i64 %157, %158
@@ -4877,7 +4877,7 @@ current_segment.exit125:                          ; preds = %203, %209
   %226 = load i64, ptr %32, align 8, !tbaa !106
   %227 = add nsw i64 %226, %225
   store i64 %227, ptr %32, align 8, !tbaa !106
-  %.not115 = icmp eq i32 %.1229, 0
+  %.not115 = icmp eq i32 %.1260, 0
   br i1 %.not115, label %update_init_section.exit, label %228
 
 228:                                              ; preds = %224
@@ -6073,9 +6073,9 @@ define internal fastcc ptr @new_init_section(ptr noundef %0, ptr noundef nonnull
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %25
-  %.sink36 = phi i64 [ 8, %25 ], [ 16, %18 ]
+  %.sink38 = phi i64 [ 8, %25 ], [ 16, %18 ]
   %.sink = phi i64 [ %27, %25 ], [ -1, %18 ]
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink36
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink38
   store i64 %.sink, ptr %28, align 8, !tbaa !220
   br label %29
 
@@ -6877,8 +6877,8 @@ define internal fastcc i32 @open_url(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 21:                                               ; preds = %18, %18, %13, %13
-  %.sink116 = phi i64 [ 7, %13 ], [ 7, %13 ], [ 5, %18 ], [ 5, %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink116
+  %.sink121 = phi i64 [ 7, %13 ], [ 7, %13 ], [ 5, %18 ], [ 5, %18 ]
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink121
   %23 = tail call ptr @avio_find_protocol_name(ptr noundef nonnull %22) #16
   %.not82 = icmp eq ptr %23, null
   br i1 %.not82, label %.thread, label %.thread105

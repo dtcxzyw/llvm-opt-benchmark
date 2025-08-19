@@ -367,12 +367,12 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %104, %102, %70
-  %.sink161 = phi ptr [ %89, %70 ], [ %103, %102 ], [ %113, %104 ]
-  store ptr %.sink161, ptr %5, align 8, !tbaa !18
+  %.sink163 = phi ptr [ %89, %70 ], [ %103, %102 ], [ %113, %104 ]
+  store ptr %.sink163, ptr %5, align 8, !tbaa !18
   br label %114
 
 114:                                              ; preds = %.sink.split, %44
-  %115 = phi ptr [ %64, %44 ], [ %.sink161, %.sink.split ]
+  %115 = phi ptr [ %64, %44 ], [ %.sink163, %.sink.split ]
   %116 = load ptr, ptr %2, align 8, !tbaa !10
   %117 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %116) #6
   switch i8 %117, label %162 [
@@ -408,7 +408,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %136 = or disjoint i64 %135, %131
   store i64 %136, ptr %121, align 8, !tbaa !52
   %137 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  br label %.sink.split162
+  br label %.sink.split164
 
 138:                                              ; preds = %114
   %139 = getelementptr inbounds nuw i8, ptr %14, i64 304
@@ -433,7 +433,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 150:                                              ; preds = %141
   %151 = getelementptr inbounds nuw i8, ptr %143, i64 7
-  br label %.sink.split162
+  br label %.sink.split164
 
 152:                                              ; preds = %114
   %153 = load i8, ptr %115, align 1, !tbaa !39
@@ -448,15 +448,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %160 = or disjoint i64 %159, %154
   store i64 %160, ptr %155, align 8, !tbaa !52
   %161 = getelementptr inbounds nuw i8, ptr %115, i64 2
-  br label %.sink.split162
+  br label %.sink.split164
 
-.sink.split162:                                   ; preds = %152, %150, %118
-  %.sink164 = phi ptr [ %137, %118 ], [ %151, %150 ], [ %161, %152 ]
-  store ptr %.sink164, ptr %5, align 8, !tbaa !18
+.sink.split164:                                   ; preds = %152, %150, %118
+  %.sink166 = phi ptr [ %137, %118 ], [ %151, %150 ], [ %161, %152 ]
+  store ptr %.sink166, ptr %5, align 8, !tbaa !18
   br label %162
 
-162:                                              ; preds = %.sink.split162, %114
-  %163 = phi ptr [ %115, %114 ], [ %.sink164, %.sink.split162 ]
+162:                                              ; preds = %.sink.split164, %114
+  %163 = phi ptr [ %115, %114 ], [ %.sink166, %.sink.split164 ]
   %164 = load ptr, ptr %2, align 8, !tbaa !10
   %165 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %164) #6
   switch i8 %165, label %210 [
@@ -492,7 +492,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %184 = or disjoint i64 %183, %179
   store i64 %184, ptr %169, align 8, !tbaa !54
   %185 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  br label %.sink.split165
+  br label %.sink.split167
 
 186:                                              ; preds = %162
   %187 = getelementptr inbounds nuw i8, ptr %14, i64 312
@@ -517,7 +517,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 198:                                              ; preds = %189
   %199 = getelementptr inbounds nuw i8, ptr %191, i64 7
-  br label %.sink.split165
+  br label %.sink.split167
 
 200:                                              ; preds = %162
   %201 = load i8, ptr %163, align 1, !tbaa !39
@@ -532,15 +532,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %208 = or disjoint i64 %207, %202
   store i64 %208, ptr %203, align 8, !tbaa !54
   %209 = getelementptr inbounds nuw i8, ptr %163, i64 2
-  br label %.sink.split165
+  br label %.sink.split167
 
-.sink.split165:                                   ; preds = %200, %198, %166
-  %.sink167 = phi ptr [ %185, %166 ], [ %199, %198 ], [ %209, %200 ]
-  store ptr %.sink167, ptr %5, align 8, !tbaa !18
+.sink.split167:                                   ; preds = %200, %198, %166
+  %.sink169 = phi ptr [ %185, %166 ], [ %199, %198 ], [ %209, %200 ]
+  store ptr %.sink169, ptr %5, align 8, !tbaa !18
   br label %210
 
-210:                                              ; preds = %.sink.split165, %162
-  %211 = phi ptr [ %163, %162 ], [ %.sink167, %.sink.split165 ]
+210:                                              ; preds = %.sink.split167, %162
+  %211 = phi ptr [ %163, %162 ], [ %.sink169, %.sink.split167 ]
   %212 = load ptr, ptr %2, align 8, !tbaa !10
   %213 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %212) #6
   switch i8 %213, label %258 [
@@ -576,7 +576,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %232 = or disjoint i64 %231, %227
   store i64 %232, ptr %217, align 8, !tbaa !56
   %233 = getelementptr inbounds nuw i8, ptr %211, i64 4
-  br label %.sink.split168
+  br label %.sink.split170
 
 234:                                              ; preds = %210
   %235 = getelementptr inbounds nuw i8, ptr %14, i64 320
@@ -601,7 +601,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 246:                                              ; preds = %237
   %247 = getelementptr inbounds nuw i8, ptr %239, i64 7
-  br label %.sink.split168
+  br label %.sink.split170
 
 248:                                              ; preds = %210
   %249 = load i8, ptr %211, align 1, !tbaa !39
@@ -616,15 +616,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %256 = or disjoint i64 %255, %250
   store i64 %256, ptr %251, align 8, !tbaa !56
   %257 = getelementptr inbounds nuw i8, ptr %211, i64 2
-  br label %.sink.split168
+  br label %.sink.split170
 
-.sink.split168:                                   ; preds = %248, %246, %214
-  %.sink170 = phi ptr [ %233, %214 ], [ %247, %246 ], [ %257, %248 ]
-  store ptr %.sink170, ptr %5, align 8, !tbaa !18
+.sink.split170:                                   ; preds = %248, %246, %214
+  %.sink172 = phi ptr [ %233, %214 ], [ %247, %246 ], [ %257, %248 ]
+  store ptr %.sink172, ptr %5, align 8, !tbaa !18
   br label %258
 
-258:                                              ; preds = %.sink.split168, %210
-  %259 = phi ptr [ %211, %210 ], [ %.sink170, %.sink.split168 ]
+258:                                              ; preds = %.sink.split170, %210
+  %259 = phi ptr [ %211, %210 ], [ %.sink172, %.sink.split170 ]
   %260 = load ptr, ptr %2, align 8, !tbaa !10
   %261 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %260) #6
   switch i8 %261, label %306 [
@@ -660,7 +660,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %280 = or disjoint i64 %279, %275
   store i64 %280, ptr %265, align 8, !tbaa !58
   %281 = getelementptr inbounds nuw i8, ptr %259, i64 4
-  br label %.sink.split171
+  br label %.sink.split173
 
 282:                                              ; preds = %258
   %283 = getelementptr inbounds nuw i8, ptr %14, i64 328
@@ -685,7 +685,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 294:                                              ; preds = %285
   %295 = getelementptr inbounds nuw i8, ptr %287, i64 7
-  br label %.sink.split171
+  br label %.sink.split173
 
 296:                                              ; preds = %258
   %297 = load i8, ptr %259, align 1, !tbaa !39
@@ -700,15 +700,15 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %304 = or disjoint i64 %303, %298
   store i64 %304, ptr %299, align 8, !tbaa !58
   %305 = getelementptr inbounds nuw i8, ptr %259, i64 2
-  br label %.sink.split171
+  br label %.sink.split173
 
-.sink.split171:                                   ; preds = %296, %294, %262
-  %.sink173 = phi ptr [ %281, %262 ], [ %295, %294 ], [ %305, %296 ]
-  store ptr %.sink173, ptr %5, align 8, !tbaa !18
+.sink.split173:                                   ; preds = %296, %294, %262
+  %.sink175 = phi ptr [ %281, %262 ], [ %295, %294 ], [ %305, %296 ]
+  store ptr %.sink175, ptr %5, align 8, !tbaa !18
   br label %306
 
-306:                                              ; preds = %.sink.split171, %258
-  %307 = phi ptr [ %259, %258 ], [ %.sink173, %.sink.split171 ]
+306:                                              ; preds = %.sink.split173, %258
+  %307 = phi ptr [ %259, %258 ], [ %.sink175, %.sink.split173 ]
   %308 = load ptr, ptr %2, align 8, !tbaa !10
   %309 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %308) #6
   switch i8 %309, label %354 [
@@ -744,7 +744,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %328 = or disjoint i64 %327, %323
   store i64 %328, ptr %313, align 8, !tbaa !60
   %329 = getelementptr inbounds nuw i8, ptr %307, i64 4
-  br label %.sink.split174
+  br label %.sink.split176
 
 330:                                              ; preds = %306
   %331 = getelementptr inbounds nuw i8, ptr %14, i64 336
@@ -769,7 +769,7 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
 
 342:                                              ; preds = %333
   %343 = getelementptr inbounds nuw i8, ptr %335, i64 7
-  br label %.sink.split174
+  br label %.sink.split176
 
 344:                                              ; preds = %306
   %345 = load i8, ptr %307, align 1, !tbaa !39
@@ -784,14 +784,14 @@ define internal ptr @H5EA__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %352 = or disjoint i64 %351, %346
   store i64 %352, ptr %347, align 8, !tbaa !60
   %353 = getelementptr inbounds nuw i8, ptr %307, i64 2
-  br label %.sink.split174
+  br label %.sink.split176
 
-.sink.split174:                                   ; preds = %310, %342, %344
-  %.sink175 = phi ptr [ %353, %344 ], [ %343, %342 ], [ %329, %310 ]
-  store ptr %.sink175, ptr %5, align 8, !tbaa !18
+.sink.split176:                                   ; preds = %310, %342, %344
+  %.sink177 = phi ptr [ %353, %344 ], [ %343, %342 ], [ %329, %310 ]
+  store ptr %.sink177, ptr %5, align 8, !tbaa !18
   br label %354
 
-354:                                              ; preds = %.sink.split174, %306
+354:                                              ; preds = %.sink.split176, %306
   %355 = load ptr, ptr %2, align 8, !tbaa !10
   %356 = getelementptr inbounds nuw i8, ptr %14, i64 264
   call void @H5F_addr_decode(ptr noundef %355, ptr noundef nonnull %5, ptr noundef nonnull %356) #6

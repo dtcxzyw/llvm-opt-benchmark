@@ -547,13 +547,13 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   br i1 %.not125.i, label %._crit_edge.thread.i, label %.lr.ph118.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i
-  %fputc155.i = call i32 @fputc(i32 10, ptr %9)
+  %fputc159.i = call i32 @fputc(i32 10, ptr %9)
   %.pre81 = sub nsw i64 0, %spec.select103.i
   br label %.lr.ph122.i
 
 .lr.ph118.i:                                      ; preds = %.preheader.i, %75
-  %.288.lcssa152.i = phi i64 [ %spec.select103.i, %.preheader.i ], [ 5, %75 ]
-  %111 = sub nsw i64 0, %.288.lcssa152.i
+  %.288.lcssa156.i = phi i64 [ %spec.select103.i, %.preheader.i ], [ 5, %75 ]
+  %111 = sub nsw i64 0, %.288.lcssa156.i
   %wide.trip.count137.i = zext i32 %65 to i64
   br label %126
 

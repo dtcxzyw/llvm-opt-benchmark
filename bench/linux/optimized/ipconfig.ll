@@ -436,18 +436,18 @@ define internal noundef range(i32 -19, 1) i32 @ip_auto_config() #0 section ".ini
   %94 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull @ic_servaddr, ptr noundef nonnull @root_server_addr, ptr noundef nonnull @root_server_path) #19
   %95 = load i32, ptr @ic_dev_mtu, align 4
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %.preheader22, label %97
+  br i1 %96, label %.preheader31, label %97
 
 97:                                               ; preds = %69
   %98 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, i32 noundef %95) #19
-  br label %.preheader22
+  br label %.preheader31
 
-.preheader22:                                     ; preds = %97, %69
+.preheader31:                                     ; preds = %97, %69
   br label %99
 
-99:                                               ; preds = %.preheader22, %121
-  %100 = phi i64 [ %116, %121 ], [ 0, %.preheader22 ]
-  %101 = phi i32 [ %115, %121 ], [ 0, %.preheader22 ]
+99:                                               ; preds = %.preheader31, %121
+  %100 = phi i64 [ %116, %121 ], [ 0, %.preheader31 ]
+  %101 = phi i32 [ %115, %121 ], [ 0, %.preheader31 ]
   %102 = getelementptr [3 x i32], ptr @ic_nameservers, i64 0, i64 %100
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, -1
@@ -476,16 +476,16 @@ define internal noundef range(i32 -19, 1) i32 @ip_auto_config() #0 section ".ini
   %117 = icmp eq i64 %116, 3
   %118 = icmp ne i32 %115, 0
   %119 = select i1 %117, i1 %118, i1 false
-  br i1 %119, label %.thread17, label %121
+  br i1 %119, label %.thread26, label %121
 
-.thread17:                                        ; preds = %114
+.thread26:                                        ; preds = %114
   %120 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #19
   br label %.preheader.preheader
 
 121:                                              ; preds = %114
   br i1 %117, label %.preheader.preheader, label %99, !llvm.loop !12
 
-.preheader.preheader:                             ; preds = %121, %.thread17
+.preheader.preheader:                             ; preds = %121, %.thread26
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %143
@@ -835,7 +835,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @wait_for_devices() unnamed
   br label %5
 
 1:                                                ; preds = %15, %17, %21
-  %2 = phi i8 [ 0, %21 ], [ %7, %17 ], [ 0, %15 ]
+  %2 = phi i8 [ 0, %21 ], [ 1, %17 ], [ 0, %15 ]
   tail call void @msleep(i32 noundef 1000) #17
   %3 = add nuw nsw i32 %6, 1
   %4 = icmp eq i32 %3, 12

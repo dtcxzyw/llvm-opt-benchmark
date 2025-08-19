@@ -294,8 +294,8 @@ define internal fastcc noundef zeroext i1 @_ZL15stream_list_popP21grpc_chttp2_tr
   %.idx = shl nuw nsw i64 %10, 4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %.sink36 = select i1 %.not, ptr %25, ptr %24
-  %26 = getelementptr inbounds nuw i8, ptr %.sink36, i64 %.idx
+  %.sink37 = select i1 %.not, ptr %25, ptr %24
+  %26 = getelementptr inbounds nuw i8, ptr %.sink37, i64 %.idx
   store ptr null, ptr %26, align 8, !tbaa !345
   store ptr %23, ptr %11, align 8, !tbaa !143
   %27 = xor i8 %18, -1
@@ -449,8 +449,8 @@ define internal fastcc noundef zeroext i1 @_ZL24stream_list_maybe_removeP21grpc_
   %.idx.i = shl nuw nsw i64 %18, 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 72
-  %.sink62.i = select i1 %.not47.i, ptr %34, ptr %35
-  %36 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 %.idx.i
+  %.sink63.i = select i1 %.not47.i, ptr %34, ptr %35
+  %36 = getelementptr inbounds nuw i8, ptr %.sink63.i, i64 %.idx.i
   store ptr %21, ptr %36, align 8, !tbaa !345
   %37 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core24http2_stream_state_traceE, i64 16) monotonic, align 8
   %38 = trunc i8 %37 to i1

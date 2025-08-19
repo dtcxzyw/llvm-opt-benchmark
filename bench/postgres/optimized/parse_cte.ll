@@ -1313,13 +1313,13 @@ list_length.exit:                                 ; preds = %3, %12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %19 = load i32, ptr %16, align 4
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph57, label %.critedge
+  br i1 %20, label %.lr.ph59, label %.critedge
 
-.lr.ph57:                                         ; preds = %.lr.ph, %56
-  %.05156 = phi i32 [ %.1, %56 ], [ 0, %.lr.ph ]
-  %indvars.iv55 = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
+.lr.ph59:                                         ; preds = %.lr.ph, %56
+  %.05158 = phi i32 [ %.1, %56 ], [ 0, %.lr.ph ]
+  %indvars.iv57 = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv55
+  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv57
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 42
   %25 = load i8, ptr %24, align 2, !range !4, !noundef !5
@@ -1331,8 +1331,8 @@ list_length.exit:                                 ; preds = %3, %12
   %27 = icmp slt i32 %.0.lcssa, %15
   br i1 %27, label %60, label %69
 
-28:                                               ; preds = %.lr.ph57
-  %29 = add i32 %.05156, 1
+28:                                               ; preds = %.lr.ph59
+  %29 = add i32 %.05158, 1
   %30 = icmp sgt i32 %29, %15
   br i1 %30, label %31, label %38
 
@@ -1374,13 +1374,13 @@ list_length.exit:                                 ; preds = %3, %12
   store ptr %55, ptr %8, align 8
   br label %56
 
-56:                                               ; preds = %.lr.ph57, %38
-  %.1 = phi i32 [ %29, %38 ], [ %.05156, %.lr.ph57 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv55, 1
+56:                                               ; preds = %.lr.ph59, %38
+  %.1 = phi i32 [ %29, %38 ], [ %.05158, %.lr.ph59 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv57, 1
   %57 = load i32, ptr %16, align 4
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph57, label %.critedge
+  br i1 %59, label %.lr.ph59, label %.critedge
 
 60:                                               ; preds = %.critedge
   %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9

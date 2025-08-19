@@ -112,8 +112,8 @@ define hidden zeroext i1 @SDL_CalculateBlit(ptr noundef %0, ptr noundef %1) loca
   %or.cond = icmp eq i32 %53, 369557504
   %54 = and i32 %44, -15794176
   %or.cond229 = icmp eq i32 %54, 369557504
-  %or.cond233 = or i1 %or.cond, %or.cond229
-  br i1 %or.cond233, label %.critedge182.thread205, label %55
+  %or.cond235 = or i1 %or.cond, %or.cond229
+  br i1 %or.cond235, label %.critedge182.thread205, label %55
 
 55:                                               ; preds = %52
   %.not143 = icmp eq i32 %41, 0

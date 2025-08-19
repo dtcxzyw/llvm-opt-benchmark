@@ -2155,7 +2155,7 @@ _ZN7rocksdb20PlainTableFileReader12ReadVarint32EjPjS1_.exit.thread61: ; preds = 
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %80 = load ptr, ptr %79, align 8, !tbaa !37, !noalias !155
   %.not.i.i.i = icmp eq ptr %80, null
-  br i1 %.not.i.i.i, label %.thread67, label %81
+  br i1 %.not.i.i.i, label %.thread75, label %81
 
 81:                                               ; preds = %60
   invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %8, ptr noundef nonnull %80)
@@ -2163,21 +2163,21 @@ _ZN7rocksdb20PlainTableFileReader12ReadVarint32EjPjS1_.exit.thread61: ; preds = 
 
 82:                                               ; preds = %81
   %.pre.i.i36 = load ptr, ptr %8, align 8, !tbaa !37, !noalias !155
-  br label %.thread67
+  br label %.thread75
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i: ; preds = %81
   %83 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !155
   store ptr null, ptr %78, align 8, !tbaa !37, !alias.scope !155
-  br label %.thread73
+  br label %.thread81
 
 84:                                               ; preds = %.thread.i.i.i, %_ZN7rocksdb20PlainTableFileReader4ReadEjjPNS_5SliceE.exit.i.i, %.thread.i.i
   %85 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread73
+  br label %.thread81
 
-.thread73:                                        ; preds = %84, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i
+.thread81:                                        ; preds = %84, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i
   %eh.lpad-body = phi { ptr, i32 } [ %85, %84 ], [ %83, %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN7rocksdb6StatusD2Ev.exit51
@@ -2189,7 +2189,7 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i: ; preds = %81
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN7rocksdb6StatusaSEOS0_.exit
 
-.thread67:                                        ; preds = %60, %82
+.thread75:                                        ; preds = %60, %82
   %storemerge.i = phi ptr [ %.pre.i.i36, %82 ], [ null, %60 ]
   store ptr %storemerge.i, ptr %78, align 8, !tbaa !37, !alias.scope !155
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !155
@@ -2223,9 +2223,9 @@ _ZN7rocksdb6StatusaSEOS0_.exit:                   ; preds = %._crit_edge, %.thre
   %102 = load ptr, ptr %101, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %103 = icmp eq i8 %90, 0
-  br i1 %103, label %110, label %.thread70
+  br i1 %103, label %110, label %.thread78
 
-.thread70:                                        ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
+.thread78:                                        ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %90, ptr %0, align 8, !tbaa !25
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2364,7 +2364,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @_ZdaPv(ptr noundef nonnull %102) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit48
 
-_ZN7rocksdb6StatusD2Ev.exit48:                    ; preds = %.thread70, %.thread67, %173, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i47
+_ZN7rocksdb6StatusD2Ev.exit48:                    ; preds = %.thread78, %.thread75, %173, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i47
   ret void
 
 175:                                              ; preds = %126, %160
@@ -2379,9 +2379,9 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @_ZdaPv(ptr noundef nonnull %102) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit51
 
-_ZN7rocksdb6StatusD2Ev.exit51:                    ; preds = %.thread73, %175, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50
-  %.pn.pn77 = phi { ptr, i32 } [ %eh.lpad-body, %.thread73 ], [ %176, %175 ], [ %176, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50 ]
-  resume { ptr, i32 } %.pn.pn77
+_ZN7rocksdb6StatusD2Ev.exit51:                    ; preds = %.thread81, %175, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50
+  %.pn.pn85 = phi { ptr, i32 } [ %eh.lpad-body, %.thread81 ], [ %176, %175 ], [ %176, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i50 ]
+  resume { ptr, i32 } %.pn.pn85
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2892,9 +2892,9 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i: ; preds = %210, %195
   %232 = load ptr, ptr %19, align 8, !tbaa !11
   %233 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %234 = icmp eq ptr %232, %233
-  br i1 %234, label %.thread321, label %297
+  br i1 %234, label %.thread342, label %297
 
-.thread321:                                       ; preds = %213
+.thread342:                                       ; preds = %213
   %235 = load i64, ptr %199, align 8, !tbaa !16
   %236 = icmp ult i64 %235, 16
   call void @llvm.assume(i1 %236)
@@ -3035,10 +3035,10 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i117: ; preds = %279, %263
   %spec.select = select i1 %300, i64 %.pre313.pre, i64 %301
   br label %302
 
-302:                                              ; preds = %297, %.thread321, %.thread
-  %.sroa.0.0.i123320 = phi ptr [ %291, %.thread ], [ %.sroa.0.0.i109, %.thread321 ], [ %.sroa.0.0.i123.pre.pre, %297 ]
-  %303 = phi i64 [ %294, %.thread ], [ %237, %.thread321 ], [ %spec.select, %297 ]
-  store ptr %.sroa.0.0.i123320, ptr %3, align 8, !tbaa !37
+302:                                              ; preds = %297, %.thread342, %.thread
+  %.sroa.0.0.i123341 = phi ptr [ %291, %.thread ], [ %.sroa.0.0.i109, %.thread342 ], [ %.sroa.0.0.i123.pre.pre, %297 ]
+  %303 = phi i64 [ %294, %.thread ], [ %237, %.thread342 ], [ %spec.select, %297 ]
+  store ptr %.sroa.0.0.i123341, ptr %3, align 8, !tbaa !37
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %303, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !43
   %.not66 = icmp eq ptr %4, null

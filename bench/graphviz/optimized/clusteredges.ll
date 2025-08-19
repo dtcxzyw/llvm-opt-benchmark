@@ -288,8 +288,8 @@ objlist_sync.exit:                                ; preds = %objectList.exit, %.
   %132 = fcmp ult double %131, %130
   %.pre112 = load double, ptr %13, align 8, !tbaa !76
   %133 = fcmp ult double %.pre112, %130
-  %or.cond122 = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond122, label %136, label %134
+  %or.cond135 = select i1 %132, i1 %133, i1 false
+  br i1 %or.cond135, label %136, label %134
 
 134:                                              ; preds = %128
   %135 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %129, double noundef %131, double noundef %.pre112) #14
@@ -402,8 +402,8 @@ objlist_sync.exit81:                              ; preds = %.preheader, %._crit
   br label %._crit_edge99.thread
 
 ._crit_edge99.thread:                             ; preds = %3, %165, %._crit_edge99
-  %.046.lcssa117 = phi i32 [ %.1.lcssa, %165 ], [ %.1.lcssa, %._crit_edge99 ], [ 0, %3 ]
-  ret i32 %.046.lcssa117
+  %.046.lcssa130 = phi i32 [ %.1.lcssa, %165 ], [ %.1.lcssa, %._crit_edge99 ], [ 0, %3 ]
+  ret i32 %.046.lcssa130
 }
 
 declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1

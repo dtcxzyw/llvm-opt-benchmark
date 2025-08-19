@@ -509,9 +509,9 @@ thread-pre-split:                                 ; preds = %39, %34
 
 .thread136:                                       ; preds = %64, %58, %62, %56, %56, %56
   %hf_pref_cw_rsv.sink = phi ptr [ @hf_generic_cw_rsv, %56 ], [ @hf_generic_cw_rsv, %56 ], [ @hf_generic_cw_rsv, %56 ], [ @hf_pref_cw_rsv, %62 ], [ @hf_pref_cw_rsv, %58 ], [ @hf_pref_cw_rsv, %64 ]
-  %.sink147 = phi i32 [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ 1, %62 ], [ 1, %58 ], [ 1, %64 ]
+  %.sink153 = phi i32 [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ 1, %62 ], [ 1, %58 ], [ 1, %64 ]
   %68 = load i32, ptr %hf_pref_cw_rsv.sink, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %68, ptr noundef %0, i32 noundef %.sink147, i32 noundef 1, i32 noundef 0)
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %68, ptr noundef %0, i32 noundef %.sink153, i32 noundef 1, i32 noundef 0)
   %70 = load i32, ptr %19, align 4
   %71 = and i32 %70, 32
   %.not118 = icmp eq i32 %71, 0
@@ -772,8 +772,8 @@ pw_cell_header_size.exit:                         ; preds = %20, %20, %24, %25, 
   switch i32 %21, label %default.unreachable [
     i32 1, label %pw_cell_header_size.exit268.thread
     i32 2, label %pw_cell_header_size.exit268.thread
-    i32 3, label %pw_cell_header_size.exit268.thread.thread297
-    i32 4, label %pw_cell_header_size.exit268.thread.thread293
+    i32 3, label %pw_cell_header_size.exit268.thread.thread313
+    i32 4, label %pw_cell_header_size.exit268.thread.thread309
     i32 5, label %31
   ]
 
@@ -803,13 +803,13 @@ pw_cell_header_size.exit268.thread:               ; preds = %pw_cell_header_size
     i32 5, label %pw_cell_header_size.exit268.thread.thread
     i32 2, label %40
     i32 1, label %40
-    i32 4, label %pw_cell_header_size.exit268.thread.thread293
-    i32 3, label %pw_cell_header_size.exit268.thread.thread297
+    i32 4, label %pw_cell_header_size.exit268.thread.thread309
+    i32 3, label %pw_cell_header_size.exit268.thread.thread313
     i32 6, label %132
   ]
 
 pw_cell_header_size.exit268.thread.thread:        ; preds = %31, %pw_cell_header_size.exit268.thread
-  %.0225272292 = phi i32 [ %.0225272, %pw_cell_header_size.exit268.thread ], [ 4, %31 ]
+  %.0225272308 = phi i32 [ %.0225272, %pw_cell_header_size.exit268.thread ], [ 4, %31 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 1
@@ -820,7 +820,7 @@ pw_cell_header_size.exit268.thread.thread:        ; preds = %31, %pw_cell_header
   unreachable
 
 40:                                               ; preds = %pw_cell_header_size.exit268.thread.thread, %pw_cell_header_size.exit268.thread, %pw_cell_header_size.exit268.thread
-  %.0225272291 = phi i32 [ %.0225272292, %pw_cell_header_size.exit268.thread.thread ], [ %.0225272, %pw_cell_header_size.exit268.thread ], [ %.0225272, %pw_cell_header_size.exit268.thread ]
+  %.0225272307 = phi i32 [ %.0225272308, %pw_cell_header_size.exit268.thread.thread ], [ %.0225272, %pw_cell_header_size.exit268.thread ], [ %.0225272, %pw_cell_header_size.exit268.thread ]
   %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
   %42 = lshr i16 %41, 4
   %43 = zext nneg i16 %42 to i32
@@ -864,18 +864,18 @@ pw_cell_header_size.exit268.thread.thread:        ; preds = %31, %pw_cell_header
 63:                                               ; preds = %59
   %64 = icmp eq i32 %61, -1
   %65 = load i32, ptr %8, align 4
-  br i1 %64, label %.sink.split301, label %66
+  br i1 %64, label %.sink.split317, label %66
 
 66:                                               ; preds = %63
   %.not251 = icmp eq i32 %65, %61
-  br i1 %.not251, label %67, label %.sink.split301
+  br i1 %.not251, label %67, label %.sink.split317
 
-.sink.split301:                                   ; preds = %66, %63
-  %.sink302 = phi i32 [ %65, %63 ], [ -2, %66 ]
-  store i32 %.sink302, ptr %60, align 4
+.sink.split317:                                   ; preds = %66, %63
+  %.sink318 = phi i32 [ %65, %63 ], [ -2, %66 ]
+  store i32 %.sink318, ptr %60, align 4
   br label %67
 
-67:                                               ; preds = %.sink.split301, %59, %66
+67:                                               ; preds = %.sink.split317, %59, %66
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %69 = load i32, ptr %68, align 4
   %70 = icmp slt i32 %69, -1
@@ -883,18 +883,18 @@ pw_cell_header_size.exit268.thread.thread:        ; preds = %31, %pw_cell_header
 
 71:                                               ; preds = %67
   %72 = icmp eq i32 %69, -1
-  br i1 %72, label %.sink.split303, label %73
+  br i1 %72, label %.sink.split319, label %73
 
 73:                                               ; preds = %71
   %.not252 = icmp eq i32 %50, %69
-  br i1 %.not252, label %74, label %.sink.split303
+  br i1 %.not252, label %74, label %.sink.split319
 
-.sink.split303:                                   ; preds = %73, %71
-  %.sink304 = phi i32 [ %50, %71 ], [ -2, %73 ]
-  store i32 %.sink304, ptr %68, align 4
+.sink.split319:                                   ; preds = %73, %71
+  %.sink320 = phi i32 [ %50, %71 ], [ -2, %73 ]
+  store i32 %.sink320, ptr %68, align 4
   br label %74
 
-74:                                               ; preds = %.sink.split303, %67, %73
+74:                                               ; preds = %.sink.split319, %67, %73
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %76 = load i32, ptr %75, align 4
   %77 = icmp slt i32 %76, -1
@@ -902,18 +902,18 @@ pw_cell_header_size.exit268.thread.thread:        ; preds = %31, %pw_cell_header
 
 78:                                               ; preds = %74
   %79 = icmp eq i32 %76, -1
-  br i1 %79, label %.sink.split305, label %80
+  br i1 %79, label %.sink.split321, label %80
 
 80:                                               ; preds = %78
   %.not253 = icmp eq i32 %51, %76
-  br i1 %.not253, label %81, label %.sink.split305
+  br i1 %.not253, label %81, label %.sink.split321
 
-.sink.split305:                                   ; preds = %80, %78
-  %.sink306 = phi i32 [ %51, %78 ], [ -2, %80 ]
-  store i32 %.sink306, ptr %75, align 4
+.sink.split321:                                   ; preds = %80, %78
+  %.sink322 = phi i32 [ %51, %78 ], [ -2, %80 ]
+  store i32 %.sink322, ptr %75, align 4
   br label %81
 
-81:                                               ; preds = %.sink.split305, %80, %74
+81:                                               ; preds = %.sink.split321, %80, %74
   %82 = load i32, ptr %16, align 4
   %83 = icmp eq i32 %82, 5
   br i1 %83, label %84, label %89
@@ -943,31 +943,31 @@ pw_cell_header_size.exit268.thread.thread:        ; preds = %31, %pw_cell_header
   store i8 %95, ptr %96, align 1
   br label %pw_cell_header_size.exit268.thread275
 
-pw_cell_header_size.exit268.thread.thread293:     ; preds = %30, %pw_cell_header_size.exit268.thread
-  %.0225272296 = phi i32 [ %.0225272, %pw_cell_header_size.exit268.thread ], [ 3, %30 ]
+pw_cell_header_size.exit268.thread.thread309:     ; preds = %30, %pw_cell_header_size.exit268.thread
+  %.0225272312 = phi i32 [ %.0225272, %pw_cell_header_size.exit268.thread ], [ 3, %30 ]
   %97 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1)
   %98 = zext i16 %97 to i32
   store i32 %98, ptr %8, align 4
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %100 = load i32, ptr %99, align 4
   %101 = icmp slt i32 %100, -1
-  br i1 %101, label %pw_cell_header_size.exit268.thread.thread297, label %102
+  br i1 %101, label %pw_cell_header_size.exit268.thread.thread313, label %102
 
-102:                                              ; preds = %pw_cell_header_size.exit268.thread.thread293
+102:                                              ; preds = %pw_cell_header_size.exit268.thread.thread309
   %103 = icmp eq i32 %100, -1
-  br i1 %103, label %pw_cell_header_size.exit268.thread.thread297.sink.split, label %104
+  br i1 %103, label %pw_cell_header_size.exit268.thread.thread313.sink.split, label %104
 
 104:                                              ; preds = %102
   %.not247 = icmp eq i32 %100, %98
-  br i1 %.not247, label %pw_cell_header_size.exit268.thread.thread297, label %pw_cell_header_size.exit268.thread.thread297.sink.split
+  br i1 %.not247, label %pw_cell_header_size.exit268.thread.thread313, label %pw_cell_header_size.exit268.thread.thread313.sink.split
 
-pw_cell_header_size.exit268.thread.thread297.sink.split: ; preds = %104, %102
-  %.sink307 = phi i32 [ %98, %102 ], [ -2, %104 ]
-  store i32 %.sink307, ptr %99, align 4
-  br label %pw_cell_header_size.exit268.thread.thread297
+pw_cell_header_size.exit268.thread.thread313.sink.split: ; preds = %104, %102
+  %.sink323 = phi i32 [ %98, %102 ], [ -2, %104 ]
+  store i32 %.sink323, ptr %99, align 4
+  br label %pw_cell_header_size.exit268.thread.thread313
 
-pw_cell_header_size.exit268.thread.thread297:     ; preds = %pw_cell_header_size.exit268.thread.thread297.sink.split, %30, %pw_cell_header_size.exit268.thread.thread293, %104, %pw_cell_header_size.exit268.thread
-  %.0225272295 = phi i32 [ %.0225272296, %pw_cell_header_size.exit268.thread.thread293 ], [ %.0225272296, %104 ], [ %.0225272, %pw_cell_header_size.exit268.thread ], [ 1, %30 ], [ %.0225272296, %pw_cell_header_size.exit268.thread.thread297.sink.split ]
+pw_cell_header_size.exit268.thread.thread313:     ; preds = %pw_cell_header_size.exit268.thread.thread313.sink.split, %30, %pw_cell_header_size.exit268.thread.thread309, %104, %pw_cell_header_size.exit268.thread
+  %.0225272311 = phi i32 [ %.0225272312, %pw_cell_header_size.exit268.thread.thread309 ], [ %.0225272312, %104 ], [ %.0225272, %pw_cell_header_size.exit268.thread ], [ 1, %30 ], [ %.0225272312, %pw_cell_header_size.exit268.thread.thread313.sink.split ]
   %105 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %106 = zext i8 %105 to i32
   %107 = lshr i32 %106, 7
@@ -988,20 +988,20 @@ pw_cell_header_size.exit268.thread.thread297:     ; preds = %pw_cell_header_size
   %117 = icmp slt i32 %116, -1
   br i1 %117, label %121, label %118
 
-118:                                              ; preds = %pw_cell_header_size.exit268.thread.thread297
+118:                                              ; preds = %pw_cell_header_size.exit268.thread.thread313
   %119 = icmp eq i32 %116, -1
-  br i1 %119, label %.sink.split308, label %120
+  br i1 %119, label %.sink.split324, label %120
 
 120:                                              ; preds = %118
   %.not248 = icmp eq i32 %113, %116
-  br i1 %.not248, label %121, label %.sink.split308
+  br i1 %.not248, label %121, label %.sink.split324
 
-.sink.split308:                                   ; preds = %120, %118
-  %.sink309 = phi i32 [ %113, %118 ], [ -2, %120 ]
-  store i32 %.sink309, ptr %115, align 4
+.sink.split324:                                   ; preds = %120, %118
+  %.sink325 = phi i32 [ %113, %118 ], [ -2, %120 ]
+  store i32 %.sink325, ptr %115, align 4
   br label %121
 
-121:                                              ; preds = %.sink.split308, %pw_cell_header_size.exit268.thread.thread297, %120
+121:                                              ; preds = %.sink.split324, %pw_cell_header_size.exit268.thread.thread313, %120
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %123 = load i32, ptr %122, align 4
   %124 = icmp slt i32 %123, -1
@@ -1009,18 +1009,18 @@ pw_cell_header_size.exit268.thread.thread297:     ; preds = %pw_cell_header_size
 
 125:                                              ; preds = %121
   %126 = icmp eq i32 %123, -1
-  br i1 %126, label %.sink.split310, label %127
+  br i1 %126, label %.sink.split326, label %127
 
 127:                                              ; preds = %125
   %.not249 = icmp eq i32 %114, %123
-  br i1 %.not249, label %128, label %.sink.split310
+  br i1 %.not249, label %128, label %.sink.split326
 
-.sink.split310:                                   ; preds = %127, %125
-  %.sink311 = phi i32 [ %114, %125 ], [ -2, %127 ]
-  store i32 %.sink311, ptr %122, align 4
+.sink.split326:                                   ; preds = %127, %125
+  %.sink327 = phi i32 [ %114, %125 ], [ -2, %127 ]
+  store i32 %.sink327, ptr %122, align 4
   br label %128
 
-128:                                              ; preds = %.sink.split310, %127, %121
+128:                                              ; preds = %.sink.split326, %127, %121
   %.off259 = add nsw i32 %113, -4
   %switch260 = icmp ult i32 %.off259, 3
   %129 = icmp sgt i8 %105, -1
@@ -1076,7 +1076,7 @@ pw_cell_header_size.exit268.thread.thread297:     ; preds = %pw_cell_header_size
 
 pw_cell_header_size.exit268.thread275:            ; preds = %pw_cell_header_size.exit, %94, %128, %150, %152, %151, %132, %pw_cell_header_size.exit268
   %.0224273 = phi i1 [ true, %94 ], [ true, %128 ], [ true, %150 ], [ true, %152 ], [ true, %151 ], [ true, %132 ], [ false, %pw_cell_header_size.exit268 ], [ false, %pw_cell_header_size.exit ]
-  %.0225271 = phi i32 [ %.0225272291, %94 ], [ %.0225272295, %128 ], [ %.0225272, %150 ], [ %.0225272, %152 ], [ %.0225272, %151 ], [ %.0225272, %132 ], [ 0, %pw_cell_header_size.exit268 ], [ %19, %pw_cell_header_size.exit ]
+  %.0225271 = phi i32 [ %.0225272307, %94 ], [ %.0225272311, %128 ], [ %.0225272, %150 ], [ %.0225272, %152 ], [ %.0225272, %151 ], [ %.0225272, %132 ], [ 0, %pw_cell_header_size.exit268 ], [ %19, %pw_cell_header_size.exit ]
   %154 = load i32, ptr @proto_cell_header, align 4
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %154, ptr noundef %0, i32 noundef 0, i32 noundef %.0225271, i32 noundef 0)
   %156 = load i32, ptr %16, align 4
@@ -1229,11 +1229,11 @@ pw_cell_header_size.exit268.thread275:            ; preds = %pw_cell_header_size
   br i1 %228, label %.thread283, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.thread278
-  %.pr300 = load i32, ptr %16, align 4
+  %.pr316 = load i32, ptr %16, align 4
   br label %.thread278.thread
 
 .thread278.thread:                                ; preds = %.thread280, %thread-pre-split
-  %229 = phi i32 [ %.pr300, %thread-pre-split ], [ %225, %.thread280 ]
+  %229 = phi i32 [ %.pr316, %thread-pre-split ], [ %225, %.thread280 ]
   %230 = icmp eq i32 %229, 6
   br i1 %230, label %231, label %.thread283
 
@@ -1414,9 +1414,9 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %or.cond7, label %.thread.sink.split, label %51
 
 .sink.split:                                      ; preds = %44, %41
-  %.sink107 = phi i32 [ 512, %41 ], [ 4, %44 ]
+  %.sink111 = phi i32 [ 512, %41 ], [ 4, %44 ]
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %50 = or i32 %31, %.sink107
+  %50 = or i32 %31, %.sink111
   store i32 %50, ptr %49, align 4
   br label %51
 
@@ -1427,17 +1427,17 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not80, label %.thread, label %63
 
 .thread.sink.split:                               ; preds = %46, %38
-  %.sink109 = phi i32 [ 8, %38 ], [ 1024, %46 ]
+  %.sink113 = phi i32 [ 8, %38 ], [ 1024, %46 ]
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %54 = or i32 %31, %.sink109
+  %54 = or i32 %31, %.sink113
   store i32 %54, ptr %53, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %51
-  %.07193 = phi i32 [ %.071, %51 ], [ %32, %.thread.sink.split ]
-  %.07291 = phi i32 [ %.072, %51 ], [ 0, %.thread.sink.split ]
+  %.07197 = phi i32 [ %.071, %51 ], [ %32, %.thread.sink.split ]
+  %.07295 = phi i32 [ %.072, %51 ], [ 0, %.thread.sink.split ]
   %55 = phi i32 [ %52, %51 ], [ %54, %.thread.sink.split ]
-  %56 = icmp sgt i32 %.07193, -1
+  %56 = icmp sgt i32 %.07197, -1
   br i1 %56, label %number_of_cells.exit, label %57
 
 57:                                               ; preds = %.thread
@@ -1445,11 +1445,11 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 number_of_cells.exit:                             ; preds = %.thread
-  %58 = icmp eq i32 %.07193, 52
+  %58 = icmp eq i32 %.07197, 52
   br i1 %58, label %66, label %59
 
 59:                                               ; preds = %number_of_cells.exit
-  %60 = icmp samesign ugt i32 %.07193, 51
+  %60 = icmp samesign ugt i32 %.07197, 51
   %spec.store.select.i = zext i1 %60 to i32
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %62 = or i32 %55, 128
@@ -1463,7 +1463,7 @@ number_of_cells.exit:                             ; preds = %.thread
   br label %70
 
 66:                                               ; preds = %59, %number_of_cells.exit
-  %.ph95 = phi i32 [ %62, %59 ], [ %55, %number_of_cells.exit ]
+  %.ph99 = phi i32 [ %62, %59 ], [ %55, %number_of_cells.exit ]
   %.074.ph = phi i32 [ %spec.store.select.i, %59 ], [ 1, %number_of_cells.exit ]
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
@@ -1474,13 +1474,13 @@ number_of_cells.exit:                             ; preds = %.thread
 
 70:                                               ; preds = %63, %66
   %71 = phi ptr [ %67, %66 ], [ %64, %63 ]
-  %.074104 = phi i32 [ %.074.ph, %66 ], [ -1, %63 ]
-  %72 = phi i32 [ %.ph95, %66 ], [ %52, %63 ]
-  %.07290102 = phi i32 [ %.07291, %66 ], [ %.072, %63 ]
-  %.07192100 = phi i32 [ %.07193, %66 ], [ %.071, %63 ]
+  %.074108 = phi i32 [ %.074.ph, %66 ], [ -1, %63 ]
+  %72 = phi i32 [ %.ph99, %66 ], [ %52, %63 ]
+  %.07294106 = phi i32 [ %.07295, %66 ], [ %.072, %63 ]
+  %.07196104 = phi i32 [ %.07197, %66 ], [ %.071, %63 ]
   %73 = load ptr, ptr %71, align 8
   tail call void @col_clear(ptr noundef %73, i32 noundef 25)
-  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.07192100, i32 noundef %.074104, i32 noundef %.07290102, ptr noundef nonnull %5)
+  call fastcc void @col_append_pw_info(ptr noundef %1, i32 noundef %.07196104, i32 noundef %.074108, i32 noundef %.07294106, ptr noundef nonnull %5)
   %74 = load i32, ptr @proto_aal5_sdu, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %76 = load i32, ptr @ett_encaps, align 4
@@ -1516,7 +1516,7 @@ proto_item_set_generated.exit:                    ; preds = %70, %80, %83
   unreachable
 
 90:                                               ; preds = %88
-  %91 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %79, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.166, i32 noundef %.07192100, i32 noundef 52)
+  %91 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %79, ptr noundef nonnull @ei_pw_payload_size_invalid_error, ptr noundef nonnull @.str.166, i32 noundef %.07196104, i32 noundef 52)
   br label %92
 
 92:                                               ; preds = %90, %proto_item_set_generated.exit
@@ -1529,16 +1529,16 @@ proto_item_set_generated.exit:                    ; preds = %70, %80, %83
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %92
-  call fastcc void @dissect_payload_and_padding(ptr noundef %96, ptr noundef %1, ptr noundef %2, i32 noundef %.07192100, i32 noundef %.07290102, ptr noundef nonnull %5)
+  call fastcc void @dissect_payload_and_padding(ptr noundef %96, ptr noundef %1, ptr noundef %2, i32 noundef %.07196104, i32 noundef %.07294106, ptr noundef nonnull %5)
   br label %129
 
 100:                                              ; preds = %92
-  %.not83 = icmp eq i32 %.07192100, 0
+  %.not83 = icmp eq i32 %.07196104, 0
   br i1 %.not83, label %124, label %101
 
 101:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %102 = call ptr @tvb_new_subset_length(ptr noundef %96, i32 noundef 0, i32 noundef %.07192100)
+  %102 = call ptr @tvb_new_subset_length(ptr noundef %96, i32 noundef 0, i32 noundef %.07196104)
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i8 4, ptr %103, align 4
@@ -1574,11 +1574,11 @@ proto_item_set_generated.exit:                    ; preds = %70, %80, %83
   br label %124
 
 124:                                              ; preds = %101, %100
-  %.not84 = icmp eq i32 %.07290102, 0
+  %.not84 = icmp eq i32 %.07294106, 0
   br i1 %.not84, label %129, label %125
 
 125:                                              ; preds = %124
-  %126 = call ptr @tvb_new_subset_length_caplen(ptr noundef %96, i32 noundef %.07192100, i32 noundef %.07290102, i32 noundef -1)
+  %126 = call ptr @tvb_new_subset_length_caplen(ptr noundef %96, i32 noundef %.07196104, i32 noundef %.07294106, i32 noundef -1)
   %127 = load ptr, ptr @dh_padding, align 8
   %128 = call i32 @call_dissector(ptr noundef %127, ptr noundef %126, ptr noundef %1, ptr noundef %2)
   br label %129
@@ -1605,9 +1605,9 @@ define internal i32 @dissect_11_or_aal5_pdu(ptr noundef %0, ptr noundef %1, ptr 
 
 9:                                                ; preds = %4
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %.fr110 = freeze i32 %10
+  %.fr118 = freeze i32 %10
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.fr110, ptr %11, align 4
+  store i32 %.fr118, ptr %11, align 4
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %13 = icmp slt i8 %12, 0
   br i1 %13, label %18, label %14
@@ -1665,7 +1665,7 @@ define internal i32 @dissect_11_or_aal5_pdu(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond, label %45, label %35
 
 35:                                               ; preds = %31
-  %36 = add i32 %.fr110, -3
+  %36 = add i32 %.fr118, -3
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %39, label %38
 
@@ -1689,13 +1689,13 @@ pw_cell_size.exit28.i:                            ; preds = %pw_cell_size.exit.t
   %.0.i27.neg.i = phi i32 [ -49, %pw_cell_size.exit.thread.i ], [ -51, %pw_cell_size.exit.thread32.i ]
   %.neg39.i = mul i32 %.0.i27.neg.i, %42
   %43 = icmp eq i32 %42, 0
-  %storemerge.i = sub i32 3, %.fr110
+  %storemerge.i = sub i32 3, %.fr118
   %44 = icmp ne i32 %.neg39.i, %storemerge.i
   %or.cond4 = or i1 %43, %44
   br i1 %or.cond4, label %.sink.split, label %53
 
 45:                                               ; preds = %31
-  %46 = add i32 %.fr110, -4
+  %46 = add i32 %.fr118, -4
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %number_of_cells.exit102, label %48
 
@@ -1997,8 +1997,8 @@ define internal i32 @dissect_n1_cw(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not74, label %47, label %.sink.split
 
 .sink.split:                                      ; preds = %45, %43, %40, %37
-  %.sink80 = phi i32 [ 8, %37 ], [ 512, %40 ], [ 4, %43 ], [ 1024, %45 ]
-  %46 = or i32 %30, %.sink80
+  %.sink86 = phi i32 [ 8, %37 ], [ 512, %40 ], [ 4, %43 ], [ 1024, %45 ]
+  %46 = or i32 %30, %.sink86
   store i32 %46, ptr %12, align 4
   br label %47
 

@@ -341,11 +341,11 @@ RemoveOpenStream.exit.i.thread.i:                 ; preds = %6, %.lr.ph.split.i
   br label %Pa_CloseStream.exitthread-pre-split.i
 
 Pa_CloseStream.exitthread-pre-split.i:            ; preds = %.thread.i.i, %18, %10
-  %.pr3.i = load ptr, ptr @firstOpenStream_, align 8, !tbaa !31
+  %.pr4.i = load ptr, ptr @firstOpenStream_, align 8, !tbaa !31
   br label %Pa_CloseStream.exit.i
 
 Pa_CloseStream.exit.i:                            ; preds = %Pa_CloseStream.exitthread-pre-split.i, %RemoveOpenStream.exit.i.thread.i
-  %25 = phi ptr [ %.pr3.i, %Pa_CloseStream.exitthread-pre-split.i ], [ %9, %RemoveOpenStream.exit.i.thread.i ]
+  %25 = phi ptr [ %.pr4.i, %Pa_CloseStream.exitthread-pre-split.i ], [ %9, %RemoveOpenStream.exit.i.thread.i ]
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %CloseOpenStreams.exit, label %.lr.ph.splitthread-pre-split.i, !llvm.loop !43
 

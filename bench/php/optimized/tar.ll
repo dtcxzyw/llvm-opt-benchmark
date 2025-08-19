@@ -894,13 +894,13 @@ zend_string_free.exit507:                         ; preds = %273, %279, %280
 294:                                              ; preds = %289
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 155
-  br i1 %exitcond.not, label %.split.loop.exit889, label %289
+  br i1 %exitcond.not, label %.split.loop.exit921, label %289
 
 .split.loop.exit:                                 ; preds = %289
   %295 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit889
+  br label %.split.loop.exit921
 
-.split.loop.exit889:                              ; preds = %294, %.split.loop.exit
+.split.loop.exit921:                              ; preds = %294, %.split.loop.exit
   %.0411.lcssa = phi i32 [ %295, %.split.loop.exit ], [ 155, %294 ]
   %296 = add nuw nsw i32 %.0411.lcssa, 1
   %297 = zext nneg i32 %.0411.lcssa to i64
@@ -909,27 +909,27 @@ zend_string_free.exit507:                         ; preds = %273, %279, %280
   %299 = zext i32 %296 to i64
   br label %300
 
-300:                                              ; preds = %.split.loop.exit889, %306
-  %indvars.iv797 = phi i64 [ 0, %.split.loop.exit889 ], [ %indvars.iv.next798, %306 ]
+300:                                              ; preds = %.split.loop.exit921, %306
+  %indvars.iv797 = phi i64 [ 0, %.split.loop.exit921 ], [ %indvars.iv.next798, %306 ]
   %301 = getelementptr inbounds nuw [100 x i8], ptr %14, i64 0, i64 %indvars.iv797
   %302 = load i8, ptr %301, align 1, !tbaa !4
   %303 = add nuw nsw i64 %indvars.iv797, %299
   %304 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 0, i64 %303
   store i8 %302, ptr %304, align 1, !tbaa !4
   %305 = icmp eq i8 %302, 0
-  br i1 %305, label %.split.loop.exit891, label %306
+  br i1 %305, label %.split.loop.exit923, label %306
 
 306:                                              ; preds = %300
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
   %exitcond800.not = icmp eq i64 %indvars.iv.next798, 100
-  br i1 %exitcond800.not, label %.split.loop.exit892, label %300
+  br i1 %exitcond800.not, label %.split.loop.exit924, label %300
 
-.split.loop.exit891:                              ; preds = %300
+.split.loop.exit923:                              ; preds = %300
   %307 = trunc nuw nsw i64 %indvars.iv797 to i32
-  br label %.split.loop.exit892
+  br label %.split.loop.exit924
 
-.split.loop.exit892:                              ; preds = %306, %.split.loop.exit891
-  %.0410.lcssa = phi i32 [ %307, %.split.loop.exit891 ], [ 100, %306 ]
+.split.loop.exit924:                              ; preds = %306, %.split.loop.exit923
+  %.0410.lcssa = phi i32 [ %307, %.split.loop.exit923 ], [ 100, %306 ]
   %308 = add nuw nsw i32 %.0410.lcssa, %.0411.lcssa
   %309 = zext nneg i32 %308 to i64
   %310 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 0, i64 %309
@@ -945,11 +945,11 @@ zend_string_free.exit507:                         ; preds = %273, %279, %280
   %317 = and i64 %316, 4294967288
   br i1 %.not672, label %320, label %318
 
-318:                                              ; preds = %.split.loop.exit892
+318:                                              ; preds = %.split.loop.exit924
   %319 = call noalias ptr @__zend_malloc(i64 noundef %317) #17
   br label %zend_string_init.exit
 
-320:                                              ; preds = %.split.loop.exit892
+320:                                              ; preds = %.split.loop.exit924
   %321 = call noalias ptr @_emalloc(i64 noundef %317) #17
   br label %zend_string_init.exit
 

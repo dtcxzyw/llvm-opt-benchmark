@@ -618,9 +618,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br label %1057
 
 154:                                              ; preds = %121, %114, %107, %94
-  %.sink368 = phi i32 [ 1, %94 ], [ 0, %107 ], [ 2, %114 ], [ 3, %121 ]
+  %.sink417 = phi i32 [ 1, %94 ], [ 0, %107 ], [ 2, %114 ], [ 3, %121 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.sink368, ptr %155, align 8, !tbaa !40
+  store i32 %.sink417, ptr %155, align 8, !tbaa !40
   %156 = load ptr, ptr %25, align 8, !tbaa !26
   %157 = invoke noundef double @_ZNK10params_ref10get_doubleEPKcRKS_d(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull @.str.57, ptr noundef nonnull align 8 dereferenceable(8) %84, double noundef 3.000000e-02)
           to label %_ZNK10sat_params19restart_emafastglueEv.exit unwind label %102
@@ -870,9 +870,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140.thread: ; pred
   br label %1057
 
 249:                                              ; preds = %216, %209, %202, %195, %188, %181, %172
-  %.sink370 = phi i32 [ 1, %172 ], [ 0, %181 ], [ 2, %188 ], [ 3, %195 ], [ 6, %202 ], [ 5, %209 ], [ 4, %216 ]
+  %.sink419 = phi i32 [ 1, %172 ], [ 0, %181 ], [ 2, %188 ], [ 3, %195 ], [ 6, %202 ], [ 5, %209 ], [ 4, %216 ]
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink370, ptr %250, align 8, !tbaa !46
+  store i32 %.sink419, ptr %250, align 8, !tbaa !46
   %251 = load ptr, ptr %25, align 8, !tbaa !26
   %252 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %251, ptr noundef nonnull @.str.62, ptr noundef nonnull align 8 dereferenceable(8) %84, i32 noundef 1000)
           to label %_ZNK10sat_params12rephase_baseEv.exit unwind label %102
@@ -1089,9 +1089,9 @@ _ZNK10sat_params20local_search_threadsEv.exit:    ; preds = %_ZNK10sat_params12l
   %341 = load ptr, ptr %43, align 8, !tbaa !3
   %342 = icmp ne ptr %338, %341
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  %spec.select372 = zext i1 %342 to i32
+  %spec.select421 = zext i1 %342 to i32
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 %spec.select372, ptr %343, align 8, !tbaa !70
+  store i32 %spec.select421, ptr %343, align 8, !tbaa !70
   %344 = load ptr, ptr %25, align 8, !tbaa !26
   %345 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %344, ptr noundef nonnull @.str.87, ptr noundef nonnull align 8 dereferenceable(8) %84, i1 noundef zeroext false)
           to label %_ZNK10sat_params22local_search_dbg_flipsEv.exit unwind label %102
@@ -1716,9 +1716,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221.thread: ; pred
   br label %1057
 
 574:                                              ; preds = %540, %529, %518, %507, %496
-  %.sink374 = phi i32 [ 0, %496 ], [ 1, %507 ], [ 2, %518 ], [ 3, %529 ], [ 4, %540 ]
+  %.sink423 = phi i32 [ 0, %496 ], [ 1, %507 ], [ 2, %518 ], [ 3, %529 ], [ 4, %540 ]
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store i32 %.sink374, ptr %575, align 4, !tbaa !88
+  store i32 %.sink423, ptr %575, align 4, !tbaa !88
   %576 = load ptr, ptr %25, align 8, !tbaa !26
   %577 = invoke noundef double @_ZNK10params_ref10get_doubleEPKcRKS_d(ptr noundef nonnull align 8 dereferenceable(8) %576, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(8) %84, double noundef 4.000000e-01)
           to label %_ZNK10sat_params23lookahead_cube_fractionEv.exit unwind label %102
@@ -2077,9 +2077,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243.thread: ; pred
   br label %1057
 
 714:                                              ; preds = %681, %674, %667, %660, %651
-  %.sink376 = phi i32 [ 0, %651 ], [ 3, %660 ], [ 2, %667 ], [ 1, %674 ], [ 4, %681 ]
+  %.sink425 = phi i32 [ 0, %651 ], [ 3, %660 ], [ 2, %667 ], [ 1, %674 ], [ 4, %681 ]
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  store i32 %.sink376, ptr %715, align 4, !tbaa !102
+  store i32 %.sink425, ptr %715, align 4, !tbaa !102
   %716 = load ptr, ptr %25, align 8, !tbaa !26
   %717 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %716, ptr noundef nonnull @.str.116, ptr noundef nonnull align 8 dereferenceable(8) %84, i32 noundef 20000)
           to label %_ZNK10sat_params10gc_initialEv.exit unwind label %102
@@ -2839,9 +2839,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297.thread: ; pred
   br label %1057
 
 1001:                                             ; preds = %973, %968
-  %.sink378 = phi i32 [ 0, %968 ], [ 1, %973 ]
+  %.sink427 = phi i32 [ 0, %968 ], [ 1, %973 ]
   %1002 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i32 %.sink378, ptr %1002, align 8, !tbaa !134
+  store i32 %.sink427, ptr %1002, align 8, !tbaa !134
   %1003 = load ptr, ptr %25, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.47)
@@ -2950,9 +2950,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit304.thread: ; pred
   br label %1057
 
 1040:                                             ; preds = %1012, %1007
-  %.sink380 = phi i32 [ 0, %1007 ], [ 1, %1012 ]
+  %.sink429 = phi i32 [ 0, %1007 ], [ 1, %1012 ]
   %1041 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  store i32 %.sink380, ptr %1041, align 4, !tbaa !135
+  store i32 %.sink429, ptr %1041, align 4, !tbaa !135
   %1042 = load ptr, ptr %25, align 8, !tbaa !26
   %1043 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %1042, ptr noundef nonnull @.str.144, ptr noundef nonnull align 8 dereferenceable(8) %84, i1 noundef zeroext true)
           to label %_ZNK10sat_params18cardinality_solverEv.exit unwind label %102

@@ -872,7 +872,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %36, %_ZN8GCLocker
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread, %53
-  switch i32 %.037, label %default.unreachable97 [
+  switch i32 %.037, label %default.unreachable103 [
     i32 0, label %55
     i32 1, label %.loopexit
     i32 2, label %.backedge
@@ -984,7 +984,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN8GCLocker22is_ac
   %.2 = phi ptr [ %.4.ph, %.thread ], [ %12, %4 ], [ %.134, %55 ], [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %.134, %.backedge ]
   ret ptr %.2
 
-default.unreachable97:                            ; preds = %_ZN11MutexLockerD2Ev.exit
+default.unreachable103:                           ; preds = %_ZN11MutexLockerD2Ev.exit
   unreachable
 }
 
